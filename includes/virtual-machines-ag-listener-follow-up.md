@@ -1,0 +1,2 @@
+Kullanılabilirlik grubu dinleyicisi oluşturduktan sonra dinleyicisi kaynak RegisterAllProvidersIP ve HostRecordTTL küme parametrelerini ayarlamak gerekli olabilir. Bu parametreler, yeniden bağlanmayı zaman aşımları engelleyebilecek bir yük devretme sonrasında azaltabilir. Bu parametre, aynı zamanda örnek kodu hakkında daha fazla bilgi için bkz: [oluşturun veya bir kullanılabilirlik grubu dinleyicisini yapılandırmak](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover).
+
