@@ -1,0 +1,3 @@
+
+* [Uygulamanız için bir uygulama kimliği'ni kaydetmeniz](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991). Bir açık uygulama kimliği (joker uygulama kimliği değil) oluşturun ve için **paket kimliği**, Xcode hızlı başlangıç projenizde tam paket Kimliğini kullanın. Ayrıca, seçtiğiniz önemlidir **anında iletme bildirimleri** seçeneği. 
+* Ardından, [anında iletme bildirimleri yapılandırmak için hazırlamak üzere](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6), "Geliştirme" veya "Dağıtım" SSL sertifikası oluşturun.
