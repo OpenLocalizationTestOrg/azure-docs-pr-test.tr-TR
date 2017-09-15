@@ -1,18 +1,18 @@
-Bu örnekte, ı size nasıl kullanılacağını gösterir **SharePoint yeni bir öğe oluşturulduğunda çevrimiçi -** yeni bir öğe, bir SharePoint Online listesinde oluşturulduğunda bir mantıksal uygulama iş akışını başlatmak için tetikleyici.
+<span data-ttu-id="c29f5-101">Bu örnekte, ı size nasıl kullanılacağını gösterir **SharePoint yeni bir öğe oluşturulduğunda çevrimiçi -** yeni bir öğe, bir SharePoint Online listesinde oluşturulduğunda bir mantıksal uygulama iş akışını başlatmak için tetikleyici.</span><span class="sxs-lookup"><span data-stu-id="c29f5-101">In this example, I will show you how to use the **SharePoint Online - When a new item is created** trigger to initiate a logic app workflow when a new item is created in a SharePoint Online list.</span></span>
 
 > [!NOTE]
-> Değil zaten oluşturduysanız SharePoint hesabınızda oturum açın istenir bir *bağlantı* SharePoint Online.  
+> <span data-ttu-id="c29f5-102">Değil zaten oluşturduysanız SharePoint hesabınızda oturum açın istenir bir *bağlantı* SharePoint Online.</span><span class="sxs-lookup"><span data-stu-id="c29f5-102">You will get prompted to sign into your SharePoint account if you have not already created a *connection* to SharePoint Online.</span></span>  
 > 
 > 
 
-1. Girin *sharepoint* arama kutusuna logic apps tasarımcısında seçip **SharePoint yeni bir öğe oluşturulduğunda çevrimiçi -** tetikleyici.  
-   ![SharePoint online tetikleyici görüntüsü](./media/connectors-create-api-sharepointonline/trigger-1.png)  
-2. **Yeni bir öğe oluşturulduğunda** denetim görüntülenir.  
-   ![SharePoint online tetikleyici görüntü 2](./media/connectors-create-api-sharepointonline/trigger-2.png)   
-3. Seçin bir **Site URL'si**. Yeni öğeler, iş akışını tetikleyen izlemek istediğiniz SharePoint online sitesi budur.  
-   ![SharePoint online tetikleyici görüntü 3](./media/connectors-create-api-sharepointonline/trigger-3.png)   
-4. Seçin bir **listesi adı**. Bu iş akışını tetikleyecek yeni öğeler için izlemek istediğiniz SharePoint Online sitesindeki listesidir.  
-   ![SharePoint online tetikleyici görüntü 4](./media/connectors-create-api-sharepointonline/trigger-4.png)   
+1. <span data-ttu-id="c29f5-103">Girin *sharepoint* arama kutusuna logic apps tasarımcısında seçip **SharePoint yeni bir öğe oluşturulduğunda çevrimiçi -** tetikleyici.</span><span class="sxs-lookup"><span data-stu-id="c29f5-103">Enter *sharepoint* in the search box on the logic apps designer then select the **SharePoint Online - When a new item is created**  trigger.</span></span>  
+   <span data-ttu-id="c29f5-104">![SharePoint online tetikleyici görüntüsü](./media/connectors-create-api-sharepointonline/trigger-1.png)</span><span class="sxs-lookup"><span data-stu-id="c29f5-104">![SharePoint online trigger image ](./media/connectors-create-api-sharepointonline/trigger-1.png)</span></span>  
+2. <span data-ttu-id="c29f5-105">**Yeni bir öğe oluşturulduğunda** denetim görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="c29f5-105">The **When a new item is created** control is displayed.</span></span>  
+   <span data-ttu-id="c29f5-106">![SharePoint online tetikleyici görüntü 2](./media/connectors-create-api-sharepointonline/trigger-2.png)</span><span class="sxs-lookup"><span data-stu-id="c29f5-106">![SharePoint online trigger image 2](./media/connectors-create-api-sharepointonline/trigger-2.png)</span></span>   
+3. <span data-ttu-id="c29f5-107">Seçin bir **Site URL'si**.</span><span class="sxs-lookup"><span data-stu-id="c29f5-107">Select a **Site URL**.</span></span> <span data-ttu-id="c29f5-108">Yeni öğeler, iş akışını tetikleyen izlemek istediğiniz SharePoint online sitesi budur.</span><span class="sxs-lookup"><span data-stu-id="c29f5-108">This is the SharePoint online site you want to monitor for new items to trigger your workflow.</span></span>  
+   <span data-ttu-id="c29f5-109">![SharePoint online tetikleyici görüntü 3](./media/connectors-create-api-sharepointonline/trigger-3.png)</span><span class="sxs-lookup"><span data-stu-id="c29f5-109">![SharePoint online trigger image 3](./media/connectors-create-api-sharepointonline/trigger-3.png)</span></span>   
+4. <span data-ttu-id="c29f5-110">Seçin bir **listesi adı**.</span><span class="sxs-lookup"><span data-stu-id="c29f5-110">Select a **List name**.</span></span> <span data-ttu-id="c29f5-111">Bu iş akışını tetikleyecek yeni öğeler için izlemek istediğiniz SharePoint Online sitesindeki listesidir.</span><span class="sxs-lookup"><span data-stu-id="c29f5-111">This is the list on the SharePoint Online site you want to monitor for new items that will trigger your workflow.</span></span>  
+   <span data-ttu-id="c29f5-112">![SharePoint online tetikleyici görüntü 4](./media/connectors-create-api-sharepointonline/trigger-4.png)</span><span class="sxs-lookup"><span data-stu-id="c29f5-112">![SharePoint online trigger image 4](./media/connectors-create-api-sharepointonline/trigger-4.png)</span></span>   
 
-Bu noktada, mantıksal uygulamanızı diğer tetikleyiciler ve Eylemler iş akışı bir farklı çalıştır başlayacak bir tetikleyici ile yapılandırıldı. Bu yeni bir öğe seçtiğiniz SharePoint Online listesinde her oluşturulduğunda gerçekleşir.  
+<span data-ttu-id="c29f5-113">Bu noktada, mantıksal uygulamanızı diğer tetikleyiciler ve Eylemler iş akışı bir farklı çalıştır başlayacak bir tetikleyici ile yapılandırıldı.</span><span class="sxs-lookup"><span data-stu-id="c29f5-113">At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow.</span></span> <span data-ttu-id="c29f5-114">Bu yeni bir öğe seçtiğiniz SharePoint Online listesinde her oluşturulduğunda gerçekleşir.</span><span class="sxs-lookup"><span data-stu-id="c29f5-114">This will take place each time a new item is created in SharePoint Online list you selected.</span></span>  
 

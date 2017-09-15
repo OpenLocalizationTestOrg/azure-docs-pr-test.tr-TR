@@ -1,28 +1,28 @@
-## <a name="defining-a-backup-policy"></a>Yedekleme ilkesi tanımlama
-Yedekleme ilkesi veri anlık görüntülerinin ne zaman alınacağının ve bu anlık görüntülerin ne kadar süreyle saklanacağının bir matrisini tanımlar. VM yedeklemesi için bir ilke tanımlandığında, yedekleme işini *günde bir kez* tetikleyebilirsiniz. Yeni bir ilke oluşturduğunuzda bu ilke kasaya uygulanır. Yedekleme İlkesi arabirimi şöyle görünür:
+## <a name="defining-a-backup-policy"></a><span data-ttu-id="9bd34-101">Yedekleme ilkesi tanımlama</span><span class="sxs-lookup"><span data-stu-id="9bd34-101">Defining a backup policy</span></span>
+<span data-ttu-id="9bd34-102">Yedekleme ilkesi veri anlık görüntülerinin ne zaman alınacağının ve bu anlık görüntülerin ne kadar süreyle saklanacağının bir matrisini tanımlar.</span><span class="sxs-lookup"><span data-stu-id="9bd34-102">A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained.</span></span> <span data-ttu-id="9bd34-103">VM yedeklemesi için bir ilke tanımlandığında, yedekleme işini *günde bir kez* tetikleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="9bd34-103">When defining a policy for backing up a VM, you can trigger a backup job *once a day*.</span></span> <span data-ttu-id="9bd34-104">Yeni bir ilke oluşturduğunuzda bu ilke kasaya uygulanır.</span><span class="sxs-lookup"><span data-stu-id="9bd34-104">When you create a new policy, it is applied to the vault.</span></span> <span data-ttu-id="9bd34-105">Yedekleme İlkesi arabirimi şöyle görünür:</span><span class="sxs-lookup"><span data-stu-id="9bd34-105">The backup policy interface looks like this:</span></span>
 
 ![Yedekleme ilkesi](./media/backup-create-policy-for-vms/backup-policy.png)
 
-İlke oluşturmak için:
+<span data-ttu-id="9bd34-107">İlke oluşturmak için:</span><span class="sxs-lookup"><span data-stu-id="9bd34-107">To create a policy:</span></span>
 
-1. **İlke adı** için bir ad girin.
-2. Verilerinizin anlık görüntüleri Günlük veya Haftalık aralıklarla alınabilir. Veri anlık görüntülerinin günlük mü, yoksa haftalık mı olacağını seçmek için **Yedekleme Sıklığı** açılan menüsünü kullanın.
+1. <span data-ttu-id="9bd34-108">**İlke adı** için bir ad girin.</span><span class="sxs-lookup"><span data-stu-id="9bd34-108">Enter a name for the **Policy name**.</span></span>
+2. <span data-ttu-id="9bd34-109">Verilerinizin anlık görüntüleri Günlük veya Haftalık aralıklarla alınabilir.</span><span class="sxs-lookup"><span data-stu-id="9bd34-109">Snapshots of your data can be taken at Daily or Weekly intervals.</span></span> <span data-ttu-id="9bd34-110">Veri anlık görüntülerinin günlük mü, yoksa haftalık mı olacağını seçmek için **Yedekleme Sıklığı** açılan menüsünü kullanın.</span><span class="sxs-lookup"><span data-stu-id="9bd34-110">Use the **Backup Frequency** drop-down menu to choose whether data snapshots are taken Daily or Weekly.</span></span>
    
-   * Günlük aralığını seçerseniz, anlık görüntünün alınacağı günün saatini seçmek için vurgulanan denetimi kullanın. Saati değiştirmek için saat seçimini kaldırıp yeni saati seçin.
+   * <span data-ttu-id="9bd34-111">Günlük aralığını seçerseniz, anlık görüntünün alınacağı günün saatini seçmek için vurgulanan denetimi kullanın.</span><span class="sxs-lookup"><span data-stu-id="9bd34-111">If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot.</span></span> <span data-ttu-id="9bd34-112">Saati değiştirmek için saat seçimini kaldırıp yeni saati seçin.</span><span class="sxs-lookup"><span data-stu-id="9bd34-112">To change the hour, de-select the hour, and select the new hour.</span></span>
      
      ![Günlük yedekleme ilkesi](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
-   * Haftalık aralığını seçerseniz, anlık görüntü alınacak haftanın günlerini ve günün saatini seçmek için vurgulanan denetimleri kullanın. Gün menüsünde, bir veya birden çok gün seçin. Saat menüsünde bir saat seçin. Saati değiştirmek için seçili saatin seçimini kaldırıp yeni saati seçin.
+   * <span data-ttu-id="9bd34-114">Haftalık aralığını seçerseniz, anlık görüntü alınacak haftanın günlerini ve günün saatini seçmek için vurgulanan denetimleri kullanın.</span><span class="sxs-lookup"><span data-stu-id="9bd34-114">If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot.</span></span> <span data-ttu-id="9bd34-115">Gün menüsünde, bir veya birden çok gün seçin.</span><span class="sxs-lookup"><span data-stu-id="9bd34-115">In the day menu, select one or multiple days.</span></span> <span data-ttu-id="9bd34-116">Saat menüsünde bir saat seçin.</span><span class="sxs-lookup"><span data-stu-id="9bd34-116">In the hour menu, select one hour.</span></span> <span data-ttu-id="9bd34-117">Saati değiştirmek için seçili saatin seçimini kaldırıp yeni saati seçin.</span><span class="sxs-lookup"><span data-stu-id="9bd34-117">To change the hour, de-select the selected hour, and select the new hour.</span></span>
      
      ![Haftalık yedekleme ilkesi](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
-3. Varsayılan olarak, tüm **Elde Tutma Aralığı** seçenekleri seçilidir. Kullanmak istemediğiniz elde tutma aralığı sınırının seçimini kaldırın. Ardından, kullanılacak aralıkları belirtin.
+3. <span data-ttu-id="9bd34-119">Varsayılan olarak, tüm **Elde Tutma Aralığı** seçenekleri seçilidir.</span><span class="sxs-lookup"><span data-stu-id="9bd34-119">By default, all **Retention Range** options are selected.</span></span> <span data-ttu-id="9bd34-120">Kullanmak istemediğiniz elde tutma aralığı sınırının seçimini kaldırın.</span><span class="sxs-lookup"><span data-stu-id="9bd34-120">Uncheck any retention range limit you do not want to use.</span></span> <span data-ttu-id="9bd34-121">Ardından, kullanılacak aralıkları belirtin.</span><span class="sxs-lookup"><span data-stu-id="9bd34-121">Then, specify the interval(s) to use.</span></span>
    
-    Aylık ve Yıllık elde tutma aralıkları günlük veya haftalık artışı temel alan anlık görüntüleri belirtmenizi sağlar.
+    <span data-ttu-id="9bd34-122">Aylık ve Yıllık elde tutma aralıkları günlük veya haftalık artışı temel alan anlık görüntüleri belirtmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="9bd34-122">Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.</span></span>
    
    > [!NOTE]
-   > VM korurken yedekleme işi günde bir kez çalıştırılır. Yedeklemenin çalıştırıldığı saat her elde tutma aralığı için olanla aynıdır.
+   > <span data-ttu-id="9bd34-123">VM korurken yedekleme işi günde bir kez çalıştırılır.</span><span class="sxs-lookup"><span data-stu-id="9bd34-123">When protecting a VM, a backup job runs once a day.</span></span> <span data-ttu-id="9bd34-124">Yedeklemenin çalıştırıldığı saat her elde tutma aralığı için olanla aynıdır.</span><span class="sxs-lookup"><span data-stu-id="9bd34-124">The time when the backup runs is the same for each retention range.</span></span>
    > 
    > 
-4. İlkeyle ilgili tüm seçeneklerin ayarlanmasından sonra, dikey pencerenin en üstünde **Kaydet**’e tıklayın.
+4. <span data-ttu-id="9bd34-125">İlkeyle ilgili tüm seçeneklerin ayarlanmasından sonra, dikey pencerenin en üstünde **Kaydet**’e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="9bd34-125">After setting all options for the policy, at the top of the blade click **Save**.</span></span>
    
-    Yeni ilke hemen kasaya uygulanır.
+    <span data-ttu-id="9bd34-126">Yeni ilke hemen kasaya uygulanır.</span><span class="sxs-lookup"><span data-stu-id="9bd34-126">The new policy is immediately applied to the vault.</span></span>
 

@@ -1,16 +1,16 @@
 > [!NOTE]
-> * Eski bir SKU'dan yeni bir SKU'ya geçiş yapılırken VPN ağ geçidi Genel IP adresi değişir.
-> * Klasik VPN ağ geçitlerini yeni SKU’lara geçiremezsiniz. Klasik VPN ağ geçitleri yalnızca eski SKU'ları kullanabilir.
+> * <span data-ttu-id="98640-101">Eski bir SKU'dan yeni bir SKU'ya geçiş yapılırken VPN ağ geçidi Genel IP adresi değişir.</span><span class="sxs-lookup"><span data-stu-id="98640-101">The VPN gateway Public IP address will change when migrating from an old SKU to a new SKU.</span></span>
+> * <span data-ttu-id="98640-102">Klasik VPN ağ geçitlerini yeni SKU’lara geçiremezsiniz.</span><span class="sxs-lookup"><span data-stu-id="98640-102">You can't migrate classic VPN gateways to the new SKUs.</span></span> <span data-ttu-id="98640-103">Klasik VPN ağ geçitleri yalnızca eski SKU'ları kullanabilir.</span><span class="sxs-lookup"><span data-stu-id="98640-103">Classic VPN gateways can only use the legacy (old) SKUs.</span></span>
 > 
 
-Azure VPN ağ geçitlerinizi eski SKU'lar ve yeni SKU aileleri arasında yeniden boyutlandıramazsınız. Resource Manager dağıtım modelinde SKU'ların daha eski bir sürümünü kullanan VPN ağ geçitleriniz varsa yeni SKU'lara geçiş yapabilirsiniz. Geçiş yapmak için sanal ağınıza ilişkin mevcut VPN ağ geçidini silip yeni bir ağ geçidi oluşturursunuz.
+<span data-ttu-id="98640-104">Azure VPN ağ geçitlerinizi eski SKU'lar ve yeni SKU aileleri arasında yeniden boyutlandıramazsınız.</span><span class="sxs-lookup"><span data-stu-id="98640-104">You can't resize your Azure VPN gateways between the old SKUs and the new SKU families.</span></span> <span data-ttu-id="98640-105">Resource Manager dağıtım modelinde SKU'ların daha eski bir sürümünü kullanan VPN ağ geçitleriniz varsa yeni SKU'lara geçiş yapabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="98640-105">If you have VPN gateways in the Resource Manager deployment model that are using the older version of the SKUs, you can migrate to the new SKUs.</span></span> <span data-ttu-id="98640-106">Geçiş yapmak için sanal ağınıza ilişkin mevcut VPN ağ geçidini silip yeni bir ağ geçidi oluşturursunuz.</span><span class="sxs-lookup"><span data-stu-id="98640-106">To migrate, you delete the existing VPN gateway for your virtual network, then create a new one.</span></span>
 
-Geçiş iş akışı:
+<span data-ttu-id="98640-107">Geçiş iş akışı:</span><span class="sxs-lookup"><span data-stu-id="98640-107">Migration workflow:</span></span>
 
-1. Sanal ağ geçidine ilişkin tüm bağlantıları kesin.
-2. Eski VPN ağ geçidini silin.
-3. Yeni VPN ağ geçidini oluşturun.
-4. Şirket içi VPN cihazlarınızdaki VPN ağ geçidi IP adresini (Siteden Siteye bağlantılar için) yenisi ile güncelleştirin.
-5. Bu ağ geçidine bağlanacak tüm VNet-VNet yerel ağ geçitleri için ağ geçidi IP adresi değerini güncelleştirin.
-6. Bu VPN ağ geçidi yoluyla sanal ağa bağlanan P2S istemcileri için yeni istemci VPN yapılandırma paketlerini indirin.
-7. Sanal ağ geçidine ilişkin tüm bağlantıları yeniden oluşturun.
+1. <span data-ttu-id="98640-108">Sanal ağ geçidine ilişkin tüm bağlantıları kesin.</span><span class="sxs-lookup"><span data-stu-id="98640-108">Remove any connections to the virtual network gateway.</span></span>
+2. <span data-ttu-id="98640-109">Eski VPN ağ geçidini silin.</span><span class="sxs-lookup"><span data-stu-id="98640-109">Delete the old VPN gateway.</span></span>
+3. <span data-ttu-id="98640-110">Yeni VPN ağ geçidini oluşturun.</span><span class="sxs-lookup"><span data-stu-id="98640-110">Create the new VPN gateway.</span></span>
+4. <span data-ttu-id="98640-111">Şirket içi VPN cihazlarınızdaki VPN ağ geçidi IP adresini (Siteden Siteye bağlantılar için) yenisi ile güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="98640-111">Update your on-premises VPN devices with the new VPN gateway IP address (for Site-to-Site connections).</span></span>
+5. <span data-ttu-id="98640-112">Bu ağ geçidine bağlanacak tüm VNet-VNet yerel ağ geçitleri için ağ geçidi IP adresi değerini güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="98640-112">Update the gateway IP address value for any VNet-to-VNet local network gateways that will connect to this gateway.</span></span>
+6. <span data-ttu-id="98640-113">Bu VPN ağ geçidi yoluyla sanal ağa bağlanan P2S istemcileri için yeni istemci VPN yapılandırma paketlerini indirin.</span><span class="sxs-lookup"><span data-stu-id="98640-113">Download new client VPN configuration packages for P2S clients connecting to the virtual network through this VPN gateway.</span></span>
+7. <span data-ttu-id="98640-114">Sanal ağ geçidine ilişkin tüm bağlantıları yeniden oluşturun.</span><span class="sxs-lookup"><span data-stu-id="98640-114">Recreate the connections to the virtual network gateway.</span></span>

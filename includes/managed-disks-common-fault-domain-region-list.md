@@ -1,34 +1,34 @@
-### <a name="number-of-fault-domains-per-region"></a>Her bölge için Hata Etki Alanı sayısı
+### <a name="number-of-fault-domains-per-region"></a><span data-ttu-id="984d2-101">Her bölge için Hata Etki Alanı sayısı</span><span class="sxs-lookup"><span data-stu-id="984d2-101">Number of Fault Domains per region</span></span>
 
-| Bölge              | Maksimum Hata Etki Alanı sayısı  |
+| <span data-ttu-id="984d2-102">Bölge</span><span class="sxs-lookup"><span data-stu-id="984d2-102">Region</span></span>              | <span data-ttu-id="984d2-103">Maksimum Hata Etki Alanı sayısı</span><span class="sxs-lookup"><span data-stu-id="984d2-103">Max # of Fault Domains</span></span>  |
 |---------------------|-------------------------|
-| Doğu ABD             | 3                       |
-| Doğu ABD 2           | 3                       |
-| Batı ABD             | 3                       |
-| Batı ABD 2           | 2                       |
-| Orta ABD          | 3                       |
-| Orta Kuzey ABD    | 3                       |
-| Orta Güney ABD    | 3                       |
-| Batı Orta ABD     | 2                       |
-| Orta Kanada      | 2                       |
-| Doğu Kanada         | 2                       |
+| <span data-ttu-id="984d2-104">Doğu ABD</span><span class="sxs-lookup"><span data-stu-id="984d2-104">East US</span></span>             | <span data-ttu-id="984d2-105">3</span><span class="sxs-lookup"><span data-stu-id="984d2-105">3</span></span>                       |
+| <span data-ttu-id="984d2-106">Doğu ABD 2</span><span class="sxs-lookup"><span data-stu-id="984d2-106">East US 2</span></span>           | <span data-ttu-id="984d2-107">3</span><span class="sxs-lookup"><span data-stu-id="984d2-107">3</span></span>                       |
+| <span data-ttu-id="984d2-108">Batı ABD</span><span class="sxs-lookup"><span data-stu-id="984d2-108">West US</span></span>             | <span data-ttu-id="984d2-109">3</span><span class="sxs-lookup"><span data-stu-id="984d2-109">3</span></span>                       |
+| <span data-ttu-id="984d2-110">Batı ABD 2</span><span class="sxs-lookup"><span data-stu-id="984d2-110">West US 2</span></span>           | <span data-ttu-id="984d2-111">2</span><span class="sxs-lookup"><span data-stu-id="984d2-111">2</span></span>                       |
+| <span data-ttu-id="984d2-112">Orta ABD</span><span class="sxs-lookup"><span data-stu-id="984d2-112">Central US</span></span>          | <span data-ttu-id="984d2-113">3</span><span class="sxs-lookup"><span data-stu-id="984d2-113">3</span></span>                       |
+| <span data-ttu-id="984d2-114">Orta Kuzey ABD</span><span class="sxs-lookup"><span data-stu-id="984d2-114">North Central US</span></span>    | <span data-ttu-id="984d2-115">3</span><span class="sxs-lookup"><span data-stu-id="984d2-115">3</span></span>                       |
+| <span data-ttu-id="984d2-116">Orta Güney ABD</span><span class="sxs-lookup"><span data-stu-id="984d2-116">South Central US</span></span>    | <span data-ttu-id="984d2-117">3</span><span class="sxs-lookup"><span data-stu-id="984d2-117">3</span></span>                       |
+| <span data-ttu-id="984d2-118">Batı Orta ABD</span><span class="sxs-lookup"><span data-stu-id="984d2-118">West Central US</span></span>     | <span data-ttu-id="984d2-119">2</span><span class="sxs-lookup"><span data-stu-id="984d2-119">2</span></span>                       |
+| <span data-ttu-id="984d2-120">Orta Kanada</span><span class="sxs-lookup"><span data-stu-id="984d2-120">Canada Central</span></span>      | <span data-ttu-id="984d2-121">2</span><span class="sxs-lookup"><span data-stu-id="984d2-121">2</span></span>                       |
+| <span data-ttu-id="984d2-122">Doğu Kanada</span><span class="sxs-lookup"><span data-stu-id="984d2-122">Canada East</span></span>         | <span data-ttu-id="984d2-123">2</span><span class="sxs-lookup"><span data-stu-id="984d2-123">2</span></span>                       |
 |                     |                         |
-| Kuzey Avrupa        | 3                       |
-| Batı Avrupa         | 3                       |
-| Birleşik Krallık Güney            | 2                       |
-| Birleşik Krallık Batı             | 2                       |
+| <span data-ttu-id="984d2-124">Kuzey Avrupa</span><span class="sxs-lookup"><span data-stu-id="984d2-124">North Europe</span></span>        | <span data-ttu-id="984d2-125">3</span><span class="sxs-lookup"><span data-stu-id="984d2-125">3</span></span>                       |
+| <span data-ttu-id="984d2-126">Batı Avrupa</span><span class="sxs-lookup"><span data-stu-id="984d2-126">West Europe</span></span>         | <span data-ttu-id="984d2-127">3</span><span class="sxs-lookup"><span data-stu-id="984d2-127">3</span></span>                       |
+| <span data-ttu-id="984d2-128">Birleşik Krallık Güney</span><span class="sxs-lookup"><span data-stu-id="984d2-128">UK South</span></span>            | <span data-ttu-id="984d2-129">2</span><span class="sxs-lookup"><span data-stu-id="984d2-129">2</span></span>                       |
+| <span data-ttu-id="984d2-130">Birleşik Krallık Batı</span><span class="sxs-lookup"><span data-stu-id="984d2-130">UK West</span></span>             | <span data-ttu-id="984d2-131">2</span><span class="sxs-lookup"><span data-stu-id="984d2-131">2</span></span>                       |
 |                     |                         |
-| Doğu Asya           | 2                       |
-| Güneydoğu Asya     | 2                       |
-| Japonya Doğu          | 2                       |
-| Japonya Batı          | 2                       |
-| Güney Hindistan         | 2                       |
-| Orta Hindistan       | 2                       |
-| Batı Hindistan          | 2                       |
-| Kore Orta       | 2                       |
-| Kore Güney         | 2                       |
+| <span data-ttu-id="984d2-132">Doğu Asya</span><span class="sxs-lookup"><span data-stu-id="984d2-132">East Asia</span></span>           | <span data-ttu-id="984d2-133">2</span><span class="sxs-lookup"><span data-stu-id="984d2-133">2</span></span>                       |
+| <span data-ttu-id="984d2-134">Güneydoğu Asya</span><span class="sxs-lookup"><span data-stu-id="984d2-134">South East Asia</span></span>     | <span data-ttu-id="984d2-135">2</span><span class="sxs-lookup"><span data-stu-id="984d2-135">2</span></span>                       |
+| <span data-ttu-id="984d2-136">Japonya Doğu</span><span class="sxs-lookup"><span data-stu-id="984d2-136">Japan East</span></span>          | <span data-ttu-id="984d2-137">2</span><span class="sxs-lookup"><span data-stu-id="984d2-137">2</span></span>                       |
+| <span data-ttu-id="984d2-138">Japonya Batı</span><span class="sxs-lookup"><span data-stu-id="984d2-138">Japan West</span></span>          | <span data-ttu-id="984d2-139">2</span><span class="sxs-lookup"><span data-stu-id="984d2-139">2</span></span>                       |
+| <span data-ttu-id="984d2-140">Güney Hindistan</span><span class="sxs-lookup"><span data-stu-id="984d2-140">South India</span></span>         | <span data-ttu-id="984d2-141">2</span><span class="sxs-lookup"><span data-stu-id="984d2-141">2</span></span>                       |
+| <span data-ttu-id="984d2-142">Orta Hindistan</span><span class="sxs-lookup"><span data-stu-id="984d2-142">Central India</span></span>       | <span data-ttu-id="984d2-143">2</span><span class="sxs-lookup"><span data-stu-id="984d2-143">2</span></span>                       |
+| <span data-ttu-id="984d2-144">Batı Hindistan</span><span class="sxs-lookup"><span data-stu-id="984d2-144">West India</span></span>          | <span data-ttu-id="984d2-145">2</span><span class="sxs-lookup"><span data-stu-id="984d2-145">2</span></span>                       |
+| <span data-ttu-id="984d2-146">Kore Orta</span><span class="sxs-lookup"><span data-stu-id="984d2-146">Korea Central</span></span>       | <span data-ttu-id="984d2-147">2</span><span class="sxs-lookup"><span data-stu-id="984d2-147">2</span></span>                       |
+| <span data-ttu-id="984d2-148">Kore Güney</span><span class="sxs-lookup"><span data-stu-id="984d2-148">Korea South</span></span>         | <span data-ttu-id="984d2-149">2</span><span class="sxs-lookup"><span data-stu-id="984d2-149">2</span></span>                       |
 |                     |                         |
-| Avustralya Doğu      | 2                       |
-| Avustralya Güneydoğu | 2                       |
+| <span data-ttu-id="984d2-150">Avustralya Doğu</span><span class="sxs-lookup"><span data-stu-id="984d2-150">Australia East</span></span>      | <span data-ttu-id="984d2-151">2</span><span class="sxs-lookup"><span data-stu-id="984d2-151">2</span></span>                       |
+| <span data-ttu-id="984d2-152">Avustralya Güneydoğu</span><span class="sxs-lookup"><span data-stu-id="984d2-152">Australia Southeast</span></span> | <span data-ttu-id="984d2-153">2</span><span class="sxs-lookup"><span data-stu-id="984d2-153">2</span></span>                       |
 |                     |                         |
-| Güney Brezilya        | 2                       |
+| <span data-ttu-id="984d2-154">Güney Brezilya</span><span class="sxs-lookup"><span data-stu-id="984d2-154">Brazil South</span></span>        | <span data-ttu-id="984d2-155">2</span><span class="sxs-lookup"><span data-stu-id="984d2-155">2</span></span>                       |

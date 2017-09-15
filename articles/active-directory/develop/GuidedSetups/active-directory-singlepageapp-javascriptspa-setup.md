@@ -19,40 +19,40 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/29/2017
 ---
-## <a name="setting-up-your-web-server-or-project"></a>Web sunucusu veya projesi ayarlama
+## <a name="setting-up-your-web-server-or-project"></a><span data-ttu-id="2126f-103">Web sunucusu veya projesi ayarlama</span><span class="sxs-lookup"><span data-stu-id="2126f-103">Setting up your web server or project</span></span>
 
-> Bu örnek 's proje yerine indirmeyi tercih ediyorsunuz? 
-> - [Visual Studio projesi indirme](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
+> <span data-ttu-id="2126f-104">Bu örnek 's proje yerine indirmeyi tercih ediyorsunuz?</span><span class="sxs-lookup"><span data-stu-id="2126f-104">Prefer to download this sample's project instead?</span></span> 
+> - [<span data-ttu-id="2126f-105">Visual Studio projesi indirme</span><span class="sxs-lookup"><span data-stu-id="2126f-105">Download the Visual Studio project</span></span>](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
 >
-> or
-> - [Proje dosyalarını indirmek](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) Python gibi bir yerel web sunucusu için
+> <span data-ttu-id="2126f-106">or</span><span class="sxs-lookup"><span data-stu-id="2126f-106">or</span></span>
+> - <span data-ttu-id="2126f-107">[Proje dosyalarını indirmek](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) Python gibi bir yerel web sunucusu için</span><span class="sxs-lookup"><span data-stu-id="2126f-107">[Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) for a local web server, such as Python</span></span>
 >
-> Ve ardından geçin [yapılandırma adımı](#create-an-application-express) kod örneği çalıştırmadan önce yapılandırmak için.
+> <span data-ttu-id="2126f-108">Ve ardından geçin [yapılandırma adımı](#create-an-application-express) kod örneği çalıştırmadan önce yapılandırmak için.</span><span class="sxs-lookup"><span data-stu-id="2126f-108">And then  skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing it.</span></span>
 
-## <a name="prerequisites"></a>Ön koşullar
-Bir yerel web sunucusu gibi [Python http.server](https://www.python.org/downloads/), [http sunucu](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), ya da IIS Express ile tümleştirme [Visual Studio 2017](https://www.visualstudio.com/downloads/) Bu Destekli kurulumu çalıştırmak için gereklidir. 
+## <a name="prerequisites"></a><span data-ttu-id="2126f-109">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="2126f-109">Prerequisites</span></span>
+<span data-ttu-id="2126f-110">Bir yerel web sunucusu gibi [Python http.server](https://www.python.org/downloads/), [http sunucu](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), ya da IIS Express ile tümleştirme [Visual Studio 2017](https://www.visualstudio.com/downloads/) Bu Destekli kurulumu çalıştırmak için gereklidir.</span><span class="sxs-lookup"><span data-stu-id="2126f-110">A local web server such as [Python http.server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this guided setup.</span></span> 
 
-Bu kılavuzdaki yönergeleri Python ve Visual Studio 2017 bağlıdır, ancak herhangi bir geliştirme ortamı veya Web sunucusu kullanmak üzere çekinmeyin.
+<span data-ttu-id="2126f-111">Bu kılavuzdaki yönergeleri Python ve Visual Studio 2017 bağlıdır, ancak herhangi bir geliştirme ortamı veya Web sunucusu kullanmak üzere çekinmeyin.</span><span class="sxs-lookup"><span data-stu-id="2126f-111">Instructions in this guide are based on both Python and Visual Studio 2017, but feel free to use any other development environment or Web Server.</span></span>
 
-## <a name="create-your-project"></a>Projenizi oluşturma 
+## <a name="create-your-project"></a><span data-ttu-id="2126f-112">Projenizi oluşturma</span><span class="sxs-lookup"><span data-stu-id="2126f-112">Create your project</span></span> 
 
-> ### <a name="option-1-visual-studio"></a>Seçenek 1: Visual Studio 
-> Visual Studio kullanarak ve yeni proje oluşturma, yeni bir Visual Studio çözüm oluşturmak için aşağıdaki adımları izleyin:
-> 1.    Visual Studio'da:`File` > `New` > `Project`
-> 2.    Altında `Visual C#\Web`seçin`ASP.NET Web Application (.NET Framework)`
-> 3.    Uygulamanızı adlandırın ve tıklayın *Tamam*
-> 4.    Altında `New ASP.NET Web Application`seçin`Empty`
+> ### <a name="option-1-visual-studio"></a><span data-ttu-id="2126f-113">Seçenek 1: Visual Studio</span><span class="sxs-lookup"><span data-stu-id="2126f-113">Option 1: Visual Studio</span></span> 
+> <span data-ttu-id="2126f-114">Visual Studio kullanarak ve yeni proje oluşturma, yeni bir Visual Studio çözüm oluşturmak için aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="2126f-114">If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:</span></span>
+> 1.    <span data-ttu-id="2126f-115">Visual Studio'da:`File` > `New` > `Project`</span><span class="sxs-lookup"><span data-stu-id="2126f-115">In Visual Studio:  `File` > `New` > `Project`</span></span>
+> 2.    <span data-ttu-id="2126f-116">Altında `Visual C#\Web`seçin`ASP.NET Web Application (.NET Framework)`</span><span class="sxs-lookup"><span data-stu-id="2126f-116">Under `Visual C#\Web`, select `ASP.NET Web Application (.NET Framework)`</span></span>
+> 3.    <span data-ttu-id="2126f-117">Uygulamanızı adlandırın ve tıklayın *Tamam*</span><span class="sxs-lookup"><span data-stu-id="2126f-117">Name your application and click *OK*</span></span>
+> 4.    <span data-ttu-id="2126f-118">Altında `New ASP.NET Web Application`seçin`Empty`</span><span class="sxs-lookup"><span data-stu-id="2126f-118">Under `New ASP.NET Web Application`, select `Empty`</span></span>
 
 <p/><!-- -->
 
-> ### <a name="option-2-python-other-web-servers"></a>Seçenek 2: Python / diğer web sunucuları
-> Yüklediğinizden emin olun [Python](https://www.python.org/downloads/), aşağıdaki adımları izleyin:
-> - Uygulamanızı barındırmak için bir klasör oluşturun.
+> ### <a name="option-2-python-other-web-servers"></a><span data-ttu-id="2126f-119">Seçenek 2: Python / diğer web sunucuları</span><span class="sxs-lookup"><span data-stu-id="2126f-119">Option 2: Python/ other web servers</span></span>
+> <span data-ttu-id="2126f-120">Yüklediğinizden emin olun [Python](https://www.python.org/downloads/), aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="2126f-120">Make sure you have installed [Python](https://www.python.org/downloads/), then follow the step below:</span></span>
+> - <span data-ttu-id="2126f-121">Uygulamanızı barındırmak için bir klasör oluşturun.</span><span class="sxs-lookup"><span data-stu-id="2126f-121">Create a folder to host your application.</span></span>
 
 
-## <a name="create-your-single-page-applications-ui"></a>Tek sayfalı uygulama kullanıcı Arabirimi oluşturma
-1.  Oluşturma bir *index.html* JavaScript SPA dosyası. Visual Studio kullanıyorsanız, projeyi (Proje kök klasöründe) seçin, sağ tıklatın ve seçin: `Add`  >  `New Item`  >  `HTML page` ve index.html adlandırın
-2.  Sayfanıza aşağıdaki kodu ekleyin:
+## <a name="create-your-single-page-applications-ui"></a><span data-ttu-id="2126f-122">Tek sayfalı uygulama kullanıcı Arabirimi oluşturma</span><span class="sxs-lookup"><span data-stu-id="2126f-122">Create your single page application’s UI</span></span>
+1.  <span data-ttu-id="2126f-123">Oluşturma bir *index.html* JavaScript SPA dosyası.</span><span class="sxs-lookup"><span data-stu-id="2126f-123">Create an *index.html* file for your JavaScript SPA.</span></span> <span data-ttu-id="2126f-124">Visual Studio kullanıyorsanız, projeyi (Proje kök klasöründe) seçin, sağ tıklatın ve seçin: `Add`  >  `New Item`  >  `HTML page` ve index.html adlandırın</span><span class="sxs-lookup"><span data-stu-id="2126f-124">If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `HTML page` and name it index.html</span></span>
+2.  <span data-ttu-id="2126f-125">Sayfanıza aşağıdaki kodu ekleyin:</span><span class="sxs-lookup"><span data-stu-id="2126f-125">Add the following code to your page:</span></span>
 ```html
 <!DOCTYPE html>
 <html>

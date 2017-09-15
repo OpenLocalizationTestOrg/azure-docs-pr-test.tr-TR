@@ -1,32 +1,32 @@
-### <a name="gwipnoconnection"></a>Yerel ağ geçidi IP adresi - ağ geçidi bağlantı değiştirmek için
+### <span data-ttu-id="8f1f7-101"><a name="gwipnoconnection"></a>Yerel ağ geçidi IP adresi - ağ geçidi bağlantı değiştirmek için</span><span class="sxs-lookup"><span data-stu-id="8f1f7-101"><a name="gwipnoconnection"></a> To modify the local network gateway IP address - no gateway connection</span></span>
 
-Ağ geçidi bağlantısı olmayan bir yerel ağ geçidini değiştirmek için örneği kullanın. Bu değeri değiştirirken aynı zamanda adres ön eklerini de değiştirebilirsiniz.
+<span data-ttu-id="8f1f7-102">Ağ geçidi bağlantısı olmayan bir yerel ağ geçidini değiştirmek için örneği kullanın.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-102">Use the example to modify a local network gateway that does not have a gateway connection.</span></span> <span data-ttu-id="8f1f7-103">Bu değeri değiştirirken aynı zamanda adres ön eklerini de değiştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-103">When modifying this value, you can also modify the address prefixes at the same time.</span></span>
 
-1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
-2. İçinde **IP adresi** kutusunda, IP adresini değiştirin.
-3. Tıklatın **kaydetmek** ayarları kaydetmek için.
+1. <span data-ttu-id="8f1f7-104">Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-104">On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.</span></span>
+2. <span data-ttu-id="8f1f7-105">İçinde **IP adresi** kutusunda, IP adresini değiştirin.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-105">In the **IP address** box, modify the IP address.</span></span>
+3. <span data-ttu-id="8f1f7-106">Tıklatın **kaydetmek** ayarları kaydetmek için.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-106">Click **Save** to save the settings.</span></span>
 
-### <a name="gwipwithconnection"></a>Var olan ağ geçidi bağlantısı yerel ağ geçidi ağ geçidi IP adresi - değiştirmek için
+### <span data-ttu-id="8f1f7-107"><a name="gwipwithconnection"></a>Var olan ağ geçidi bağlantısı yerel ağ geçidi ağ geçidi IP adresi - değiştirmek için</span><span class="sxs-lookup"><span data-stu-id="8f1f7-107"><a name="gwipwithconnection"></a>To modify the local network gateway gateway IP address - existing gateway connection</span></span>
 
-Bir bağlantısı olan bir yerel ağ geçidi değiştirmek için önce bağlantıyı kaldırmanız gerekir. Bağlantı kaldırıldıktan sonra ağ geçidi IP adresini değiştirebilir ve yeni bir bağlantı oluşturabilirsiniz. Aynı zamanda adres ön eklerini de değiştirebilirsiniz. Bunun sonucunda, VPN bağlantınızda kesinti oluşur. Ağ geçidi IP adresini değiştirirken, VPN ağ geçidini silmeniz gerekmez. Yalnızca bağlantıyı kaldırmanız gerekir.
+<span data-ttu-id="8f1f7-108">Bir bağlantısı olan bir yerel ağ geçidi değiştirmek için önce bağlantıyı kaldırmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-108">To modify a local network gateway that has a connection, you need to first remove the connection.</span></span> <span data-ttu-id="8f1f7-109">Bağlantı kaldırıldıktan sonra ağ geçidi IP adresini değiştirebilir ve yeni bir bağlantı oluşturabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-109">After the connection is removed, you can modify the gateway IP address and recreate a new connection.</span></span> <span data-ttu-id="8f1f7-110">Aynı zamanda adres ön eklerini de değiştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-110">You can also modify the address prefixes at the same time.</span></span> <span data-ttu-id="8f1f7-111">Bunun sonucunda, VPN bağlantınızda kesinti oluşur.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-111">This results in some downtime for your VPN connection.</span></span> <span data-ttu-id="8f1f7-112">Ağ geçidi IP adresini değiştirirken, VPN ağ geçidini silmeniz gerekmez.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-112">When modifying the gateway IP address, you don't need to delete the VPN gateway.</span></span> <span data-ttu-id="8f1f7-113">Yalnızca bağlantıyı kaldırmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-113">You only need to remove the connection.</span></span>
  
-#### <a name="1-remove-the-connection"></a>1. Bağlantıyı kaldırın.
+#### <a name="1-remove-the-connection"></a><span data-ttu-id="8f1f7-114">1. Bağlantıyı kaldırın.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-114">1. Remove the connection.</span></span>
 
-1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **bağlantıları**.
-2. Tıklatın **...**  bağlantı için satırda ardından **silmek**.
-3. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
+1. <span data-ttu-id="8f1f7-115">Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **bağlantıları**.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-115">On the Local Network Gateway resource, in the **Settings** section, click **Connections**.</span></span>
+2. <span data-ttu-id="8f1f7-116">Tıklatın **...**  bağlantı için satırda ardından **silmek**.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-116">Click the **...** on the line for the connection, then click **Delete**.</span></span>
+3. <span data-ttu-id="8f1f7-117">Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-117">Click **Save** to save your settings.</span></span>
 
-#### <a name="2-modify-the-ip-address"></a>2. IP adresini değiştirin.
+#### <a name="2-modify-the-ip-address"></a><span data-ttu-id="8f1f7-118">2. IP adresini değiştirin.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-118">2. Modify the IP address.</span></span>
 
-Aynı zamanda adres ön eklerini de değiştirebilirsiniz.
+<span data-ttu-id="8f1f7-119">Aynı zamanda adres ön eklerini de değiştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-119">You can also modify the address prefixes at the same time.</span></span>
 
-1. İçinde **IP adresi** kutusunda, IP adresini değiştirin.
-2. Tıklatın **kaydetmek** ayarları kaydetmek için.
+1. <span data-ttu-id="8f1f7-120">İçinde **IP adresi** kutusunda, IP adresini değiştirin.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-120">In the **IP address** box, modify the IP address.</span></span>
+2. <span data-ttu-id="8f1f7-121">Tıklatın **kaydetmek** ayarları kaydetmek için.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-121">Click **Save** to save the settings.</span></span>
 
-#### <a name="3-recreate-the-connection"></a>3. Bağlantısını yeniden oluşturun.
+#### <a name="3-recreate-the-connection"></a><span data-ttu-id="8f1f7-122">3. Bağlantısını yeniden oluşturun.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-122">3. Recreate the connection.</span></span>
 
-1. Sanal ağ geçidi için sanal ağınızı gidin. (Olmayan yerel ağ geçidi.)
-2. Sanal ağ geçidi olarak **ayarları** 'yi tıklatın **bağlantıları**.
-3. Tıklatın **+ Ekle** açmak için **Bağlantı Ekle** dikey.
-4. Bağlantınızı yeniden oluşturun.
-5. Tıklatın **Tamam** bağlantı oluşturmak için.
+1. <span data-ttu-id="8f1f7-123">Sanal ağ geçidi için sanal ağınızı gidin.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-123">Navigate to the Virtual Network Gateway for your VNet.</span></span> <span data-ttu-id="8f1f7-124">(Olmayan yerel ağ geçidi.)</span><span class="sxs-lookup"><span data-stu-id="8f1f7-124">(Not the Local Network Gateway.)</span></span>
+2. <span data-ttu-id="8f1f7-125">Sanal ağ geçidi olarak **ayarları** 'yi tıklatın **bağlantıları**.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-125">On the Virtual Network Gateway, in the **Settings** section, click **Connections**.</span></span>
+3. <span data-ttu-id="8f1f7-126">Tıklatın **+ Ekle** açmak için **Bağlantı Ekle** dikey.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-126">Click the **+ Add** to open the **Add connection** blade.</span></span>
+4. <span data-ttu-id="8f1f7-127">Bağlantınızı yeniden oluşturun.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-127">Recreate your connection.</span></span>
+5. <span data-ttu-id="8f1f7-128">Tıklatın **Tamam** bağlantı oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="8f1f7-128">Click **OK** to create the connection.</span></span>

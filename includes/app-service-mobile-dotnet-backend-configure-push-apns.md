@@ -1,13 +1,13 @@
 
-* **.NET arka ucu (C#)**:      
+* <span data-ttu-id="b46df-101">**.NET arka ucu (C#)**:</span><span class="sxs-lookup"><span data-stu-id="b46df-101">**.NET backend (C#)**:</span></span>      
   
-  1. Visual Studio'da sunucu projesi sağ tıklatın ve **NuGet paketlerini Yönet**, arama `Microsoft.Azure.NotificationHubs`, ardından **yükleme**. Bu arka ucunuzdan bildirim göndermek için Notification Hubs kitaplığı yükler.
-  2. Arka ucun Visual Studio projeyi açın **denetleyicileri** > **TodoItemController.cs**. Dosyanın üst kısmında, aşağıdaki ekleyin `using` deyimi:
+  1. <span data-ttu-id="b46df-102">Visual Studio'da sunucu projesi sağ tıklatın ve **NuGet paketlerini Yönet**, arama `Microsoft.Azure.NotificationHubs`, ardından **yükleme**.</span><span class="sxs-lookup"><span data-stu-id="b46df-102">In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.NotificationHubs`, then click **Install**.</span></span> <span data-ttu-id="b46df-103">Bu arka ucunuzdan bildirim göndermek için Notification Hubs kitaplığı yükler.</span><span class="sxs-lookup"><span data-stu-id="b46df-103">This installs the Notification Hubs library for sending notifications from your backend.</span></span>
+  2. <span data-ttu-id="b46df-104">Arka ucun Visual Studio projeyi açın **denetleyicileri** > **TodoItemController.cs**.</span><span class="sxs-lookup"><span data-stu-id="b46df-104">In the backend's Visual Studio project, open **Controllers** > **TodoItemController.cs**.</span></span> <span data-ttu-id="b46df-105">Dosyanın üst kısmında, aşağıdaki ekleyin `using` deyimi:</span><span class="sxs-lookup"><span data-stu-id="b46df-105">At the top of the file, add the following `using` statement:</span></span>
      
           using Microsoft.Azure.Mobile.Server.Config;
           using Microsoft.Azure.NotificationHubs;
 
-    3. Değiştir `PostTodoItem` aşağıdaki kod ile yöntemi:  
+    3. <span data-ttu-id="b46df-106">Değiştir `PostTodoItem` aşağıdaki kod ile yöntemi:</span><span class="sxs-lookup"><span data-stu-id="b46df-106">Replace the `PostTodoItem` method with the following code:</span></span>  
 
             public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
             {
@@ -47,12 +47,12 @@
                 return CreatedAtRoute("Tables", new { id = current.Id }, current);
             }
 
-    4. Sunucu projesi yeniden yayımlayın.
+    4. <span data-ttu-id="b46df-107">Sunucu projesi yeniden yayımlayın.</span><span class="sxs-lookup"><span data-stu-id="b46df-107">Republish the server project.</span></span>
 
-* **Node.js arka ucu** : 
+* <span data-ttu-id="b46df-108">**Node.js arka ucu** :</span><span class="sxs-lookup"><span data-stu-id="b46df-108">**Node.js backend** :</span></span> 
   
-  1. Bunu zaten bunu yapmadıysanız [hızlı başlangıç projesi indirme](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) veya başka kullanım [Azure portalında çevrimiçi düzenleyicisini](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).    
-  2. Todoitem.js tablo betik aşağıdaki kodla değiştirin:
+  1. <span data-ttu-id="b46df-109">Bunu zaten bunu yapmadıysanız [hızlı başlangıç projesi indirme](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) veya başka kullanım [Azure portalında çevrimiçi düzenleyicisini](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).</span><span class="sxs-lookup"><span data-stu-id="b46df-109">If you haven't already done so, [download the quickstart project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).</span></span>    
+  2. <span data-ttu-id="b46df-110">Todoitem.js tablo betik aşağıdaki kodla değiştirin:</span><span class="sxs-lookup"><span data-stu-id="b46df-110">Replace the todoitem.js table script with the following code:</span></span>
 
             var azureMobileApps = require('azure-mobile-apps'),
                 promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -91,4 +91,4 @@
 
             module.exports = table;
 
-    2. Yerel bilgisayarınızda dosyayı düzenlerken, sunucu projesi yeniden yayımlayın.
+    2. <span data-ttu-id="b46df-111">Yerel bilgisayarınızda dosyayı düzenlerken, sunucu projesi yeniden yayımlayın.</span><span class="sxs-lookup"><span data-stu-id="b46df-111">When editing the file on your local computer, republish the server project.</span></span>

@@ -1,6 +1,6 @@
-## <a name="prerequisites"></a>Ön koşullar 
-Bu öğreticiyi tamamlamak için özel görüntü oluşturmakta olduğunuz Laboratuvar ile ilişkilendirilmiş depolama hesabına karşıya bir VHD dosyasının olması gerekir. Bir VHD dosyasını karşıya yüklemek için aşağıdaki bağlantılardan birini seçin:
+## <a name="prerequisites"></a><span data-ttu-id="82643-101">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="82643-101">Prerequisites</span></span> 
+<span data-ttu-id="82643-102">Bu öğreticiyi tamamlamak için özel görüntü oluşturmakta olduğunuz Laboratuvar ile ilişkilendirilmiş depolama hesabına karşıya bir VHD dosyasının olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="82643-102">To complete this tutorial, you must have a VHD file uploaded to the storage account associated with the lab in which you are creating the custom image.</span></span> <span data-ttu-id="82643-103">Bir VHD dosyasını karşıya yüklemek için aşağıdaki bağlantılardan birini seçin:</span><span class="sxs-lookup"><span data-stu-id="82643-103">Select any of the following links to upload a VHD file:</span></span>
 
-- [AzCopy komut satırı yardımcı programını kullanarak karşıya yükle](../articles/devtest-lab/devtest-lab-upload-vhd-using-azcopy.md)
-- [Microsoft Azure Storage Gezgini kullanarak karşıya yükle](../articles/devtest-lab/devtest-lab-upload-vhd-using-storage-explorer.md)
-- [PowerShell konsolunu kullanarak karşıya yükle](../articles/devtest-lab/devtest-lab-upload-vhd-using-powershell.md)
+- [<span data-ttu-id="82643-104">AzCopy komut satırı yardımcı programını kullanarak karşıya yükle</span><span class="sxs-lookup"><span data-stu-id="82643-104">Upload using the AzCopy command-line utility</span></span>](../articles/devtest-lab/devtest-lab-upload-vhd-using-azcopy.md)
+- [<span data-ttu-id="82643-105">Microsoft Azure Storage Gezgini kullanarak karşıya yükle</span><span class="sxs-lookup"><span data-stu-id="82643-105">Upload using the Microsoft Azure Storage Explorer</span></span>](../articles/devtest-lab/devtest-lab-upload-vhd-using-storage-explorer.md)
+- [<span data-ttu-id="82643-106">PowerShell konsolunu kullanarak karşıya yükle</span><span class="sxs-lookup"><span data-stu-id="82643-106">Upload using the PowerShell console</span></span>](../articles/devtest-lab/devtest-lab-upload-vhd-using-powershell.md)

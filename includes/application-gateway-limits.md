@@ -1,18 +1,18 @@
-| Kaynak | Varsayılan limit | Not |
+| <span data-ttu-id="44143-101">Kaynak</span><span class="sxs-lookup"><span data-stu-id="44143-101">Resource</span></span> | <span data-ttu-id="44143-102">Varsayılan limit</span><span class="sxs-lookup"><span data-stu-id="44143-102">Default limit</span></span> | <span data-ttu-id="44143-103">Not</span><span class="sxs-lookup"><span data-stu-id="44143-103">Note</span></span> |
 | --- | --- | --- |
-| Application Gateway |Abonelik başına 50 | |
-| Ön Uç IP Yapılandırmaları |2 |1 ortak ve 1 özel |
-| Ön Uç Bağlantı Noktaları |20 | |
-| Arka Uç Adres Havuzları |20 | |
-| Havuz Başına Arka Uç Sunucuları |100 | |
-| HTTP Dinleyicileri |20 | |
-| HTTP yük dengeleme kuralları |200 |HTTP dinleyicileri sayısı * n, n = 10 varsayılan |
-| Arka uç HTTP ayarları |20 |Arka Uç Adres Havuzu başına 1 |
-| Ağ geçidi başına örnek |10 | |
-| SSL sertifikaları |20 |HTTP Dinleyicileri başına 1 |
-| Kimlik doğrulama sertifikaları |5 | En fazla 10 |
-| İstek zaman aşımı en az |1 saniye | |
-| İstek zaman aşımı en fazla |24 sa | |
-| Site sayısı |20 |HTTP Dinleyicileri başına 1 |
-| Dinleyici başına URL Eşlemeleri |1 | |
+| <span data-ttu-id="44143-104">Application Gateway</span><span class="sxs-lookup"><span data-stu-id="44143-104">Application Gateway</span></span> |<span data-ttu-id="44143-105">Abonelik başına 50</span><span class="sxs-lookup"><span data-stu-id="44143-105">50 per subscription</span></span> | |
+| <span data-ttu-id="44143-106">Ön Uç IP Yapılandırmaları</span><span class="sxs-lookup"><span data-stu-id="44143-106">Frontend IP Configurations</span></span> |<span data-ttu-id="44143-107">2</span><span class="sxs-lookup"><span data-stu-id="44143-107">2</span></span> |<span data-ttu-id="44143-108">1 ortak ve 1 özel</span><span class="sxs-lookup"><span data-stu-id="44143-108">1 public and 1 private</span></span> |
+| <span data-ttu-id="44143-109">Ön Uç Bağlantı Noktaları</span><span class="sxs-lookup"><span data-stu-id="44143-109">Frontend Ports</span></span> |<span data-ttu-id="44143-110">20</span><span class="sxs-lookup"><span data-stu-id="44143-110">20</span></span> | |
+| <span data-ttu-id="44143-111">Arka Uç Adres Havuzları</span><span class="sxs-lookup"><span data-stu-id="44143-111">Backend Address Pools</span></span> |<span data-ttu-id="44143-112">20</span><span class="sxs-lookup"><span data-stu-id="44143-112">20</span></span> | |
+| <span data-ttu-id="44143-113">Havuz Başına Arka Uç Sunucuları</span><span class="sxs-lookup"><span data-stu-id="44143-113">Backend Servers per pool</span></span> |<span data-ttu-id="44143-114">100</span><span class="sxs-lookup"><span data-stu-id="44143-114">100</span></span> | |
+| <span data-ttu-id="44143-115">HTTP Dinleyicileri</span><span class="sxs-lookup"><span data-stu-id="44143-115">HTTP Listeners</span></span> |<span data-ttu-id="44143-116">20</span><span class="sxs-lookup"><span data-stu-id="44143-116">20</span></span> | |
+| <span data-ttu-id="44143-117">HTTP yük dengeleme kuralları</span><span class="sxs-lookup"><span data-stu-id="44143-117">HTTP load balancing rules</span></span> |<span data-ttu-id="44143-118">200</span><span class="sxs-lookup"><span data-stu-id="44143-118">200</span></span> |<span data-ttu-id="44143-119">HTTP dinleyicileri sayısı * n, n = 10 varsayılan</span><span class="sxs-lookup"><span data-stu-id="44143-119"># of HTTP Listeners * n, n=10 Default</span></span> |
+| <span data-ttu-id="44143-120">Arka uç HTTP ayarları</span><span class="sxs-lookup"><span data-stu-id="44143-120">Backend HTTP settings</span></span> |<span data-ttu-id="44143-121">20</span><span class="sxs-lookup"><span data-stu-id="44143-121">20</span></span> |<span data-ttu-id="44143-122">Arka Uç Adres Havuzu başına 1</span><span class="sxs-lookup"><span data-stu-id="44143-122">1 per Backend Address Pool</span></span> |
+| <span data-ttu-id="44143-123">Ağ geçidi başına örnek</span><span class="sxs-lookup"><span data-stu-id="44143-123">Instances per gateway</span></span> |<span data-ttu-id="44143-124">10</span><span class="sxs-lookup"><span data-stu-id="44143-124">10</span></span> | |
+| <span data-ttu-id="44143-125">SSL sertifikaları</span><span class="sxs-lookup"><span data-stu-id="44143-125">SSL certificates</span></span> |<span data-ttu-id="44143-126">20</span><span class="sxs-lookup"><span data-stu-id="44143-126">20</span></span> |<span data-ttu-id="44143-127">HTTP Dinleyicileri başına 1</span><span class="sxs-lookup"><span data-stu-id="44143-127">1 per HTTP Listeners</span></span> |
+| <span data-ttu-id="44143-128">Kimlik doğrulama sertifikaları</span><span class="sxs-lookup"><span data-stu-id="44143-128">Authentication certificates</span></span> |<span data-ttu-id="44143-129">5</span><span class="sxs-lookup"><span data-stu-id="44143-129">5</span></span> | <span data-ttu-id="44143-130">En fazla 10</span><span class="sxs-lookup"><span data-stu-id="44143-130">Maximum 10</span></span> |
+| <span data-ttu-id="44143-131">İstek zaman aşımı en az</span><span class="sxs-lookup"><span data-stu-id="44143-131">Request timeout min</span></span> |<span data-ttu-id="44143-132">1 saniye</span><span class="sxs-lookup"><span data-stu-id="44143-132">1 second</span></span> | |
+| <span data-ttu-id="44143-133">İstek zaman aşımı en fazla</span><span class="sxs-lookup"><span data-stu-id="44143-133">Request timeout max</span></span> |<span data-ttu-id="44143-134">24 sa</span><span class="sxs-lookup"><span data-stu-id="44143-134">24hrs</span></span> | |
+| <span data-ttu-id="44143-135">Site sayısı</span><span class="sxs-lookup"><span data-stu-id="44143-135">Number of sites</span></span> |<span data-ttu-id="44143-136">20</span><span class="sxs-lookup"><span data-stu-id="44143-136">20</span></span> |<span data-ttu-id="44143-137">HTTP Dinleyicileri başına 1</span><span class="sxs-lookup"><span data-stu-id="44143-137">1 per HTTP Listeners</span></span> |
+| <span data-ttu-id="44143-138">Dinleyici başına URL Eşlemeleri</span><span class="sxs-lookup"><span data-stu-id="44143-138">URL Maps per listener</span></span> |<span data-ttu-id="44143-139">1</span><span class="sxs-lookup"><span data-stu-id="44143-139">1</span></span> | |
 

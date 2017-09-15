@@ -1,30 +1,30 @@
 
 >[!NOTE]
->Log Analytics daha önce Operasyonel Öngörüler olarak biliniyordu.
+><span data-ttu-id="d72af-101">Log Analytics daha önce Operasyonel Öngörüler olarak biliniyordu.</span><span class="sxs-lookup"><span data-stu-id="d72af-101">Log Analytics was formerly known as Operational Insights.</span></span>
 >
 >
 
-Abonelik başına Log Analytics kaynakları için aşağıdaki sınırlar geçerlidir:
+<span data-ttu-id="d72af-102">Abonelik başına Log Analytics kaynakları için aşağıdaki sınırlar geçerlidir:</span><span class="sxs-lookup"><span data-stu-id="d72af-102">The following limits apply to Log Analytics resources per subscription:</span></span>
 
-| Kaynak | Varsayılan Sınır | Yorumlar
+| <span data-ttu-id="d72af-103">Kaynak</span><span class="sxs-lookup"><span data-stu-id="d72af-103">Resource</span></span> | <span data-ttu-id="d72af-104">Varsayılan Sınır</span><span class="sxs-lookup"><span data-stu-id="d72af-104">Default Limit</span></span> | <span data-ttu-id="d72af-105">Yorumlar</span><span class="sxs-lookup"><span data-stu-id="d72af-105">Comments</span></span>
 | --- | --- | --- |
-| Abonelik başına ücretsiz çalışma alanı sayısı | 10 | Bu sınır yükseltilemez. |
-| Abonelik başına ücretli çalışma alanı sayısı | Yok | Bir kaynak grubundaki kaynak sayısı ve abonelik başına kaynak grubu sayısı ile sınırlıdır | 
+| <span data-ttu-id="d72af-106">Abonelik başına ücretsiz çalışma alanı sayısı</span><span class="sxs-lookup"><span data-stu-id="d72af-106">Number of free workspaces per subscription</span></span> | <span data-ttu-id="d72af-107">10</span><span class="sxs-lookup"><span data-stu-id="d72af-107">10</span></span> | <span data-ttu-id="d72af-108">Bu sınır yükseltilemez.</span><span class="sxs-lookup"><span data-stu-id="d72af-108">This limit cannot be increased.</span></span> |
+| <span data-ttu-id="d72af-109">Abonelik başına ücretli çalışma alanı sayısı</span><span class="sxs-lookup"><span data-stu-id="d72af-109">Number of paid workspaces per subscription</span></span> | <span data-ttu-id="d72af-110">Yok</span><span class="sxs-lookup"><span data-stu-id="d72af-110">N/A</span></span> | <span data-ttu-id="d72af-111">Bir kaynak grubundaki kaynak sayısı ve abonelik başına kaynak grubu sayısı ile sınırlıdır</span><span class="sxs-lookup"><span data-stu-id="d72af-111">You are limited by the number of resources within a resource group and number of resource groups per subscription</span></span> | 
 
 
-Aşağıdaki sınırlamalar Log Analytics çalışma alanlarının her biri için geçerlidir:
+<span data-ttu-id="d72af-112">Aşağıdaki sınırlamalar Log Analytics çalışma alanlarının her biri için geçerlidir:</span><span class="sxs-lookup"><span data-stu-id="d72af-112">The following limits apply to each Log Analytics workspace:</span></span>
 
-|  | Ücretsiz | Standart | Premium | Tek Başına | OMS |
+|  | <span data-ttu-id="d72af-113">Ücretsiz</span><span class="sxs-lookup"><span data-stu-id="d72af-113">Free</span></span> | <span data-ttu-id="d72af-114">Standart</span><span class="sxs-lookup"><span data-stu-id="d72af-114">Standard</span></span> | <span data-ttu-id="d72af-115">Premium</span><span class="sxs-lookup"><span data-stu-id="d72af-115">Premium</span></span> | <span data-ttu-id="d72af-116">Tek Başına</span><span class="sxs-lookup"><span data-stu-id="d72af-116">Standalone</span></span> | <span data-ttu-id="d72af-117">OMS</span><span class="sxs-lookup"><span data-stu-id="d72af-117">OMS</span></span> |
 | --- | --- | --- | --- | --- | --- |
-| Gün başına toplanan veri birimi |500 MB<sup>1</sup> |None |None | None | None
-| Veri saklama süresi |7 gün |1 ay |12 ay | 1 ay<sup>2</sup> | 1 ay <sup>2</sup>|
+| <span data-ttu-id="d72af-118">Gün başına toplanan veri birimi</span><span class="sxs-lookup"><span data-stu-id="d72af-118">Data volume collected per day</span></span> |<span data-ttu-id="d72af-119">500 MB<sup>1</sup></span><span class="sxs-lookup"><span data-stu-id="d72af-119">500 MB<sup>1</sup></span></span> |<span data-ttu-id="d72af-120">None</span><span class="sxs-lookup"><span data-stu-id="d72af-120">None</span></span> |<span data-ttu-id="d72af-121">None</span><span class="sxs-lookup"><span data-stu-id="d72af-121">None</span></span> | <span data-ttu-id="d72af-122">None</span><span class="sxs-lookup"><span data-stu-id="d72af-122">None</span></span> | <span data-ttu-id="d72af-123">None</span><span class="sxs-lookup"><span data-stu-id="d72af-123">None</span></span>
+| <span data-ttu-id="d72af-124">Veri saklama süresi</span><span class="sxs-lookup"><span data-stu-id="d72af-124">Data retention period</span></span> |<span data-ttu-id="d72af-125">7 gün</span><span class="sxs-lookup"><span data-stu-id="d72af-125">7 days</span></span> |<span data-ttu-id="d72af-126">1 ay</span><span class="sxs-lookup"><span data-stu-id="d72af-126">1 month</span></span> |<span data-ttu-id="d72af-127">12 ay</span><span class="sxs-lookup"><span data-stu-id="d72af-127">12 months</span></span> | <span data-ttu-id="d72af-128">1 ay<sup>2</sup></span><span class="sxs-lookup"><span data-stu-id="d72af-128">1 month<sup>2</sup></span></span> | <span data-ttu-id="d72af-129">1 ay <sup>2</sup></span><span class="sxs-lookup"><span data-stu-id="d72af-129">1 month <sup>2</sup></span></span>|
 
-<sup>1</sup> Müşteriler 500 MB günlük veri aktarımı sınırına ulaştığında veri analizi durur ve sonraki günün başlangıcında devam eder. Bir gün için UTC temel alınır.
+<span data-ttu-id="d72af-130"><sup>1</sup> Müşteriler 500 MB günlük veri aktarımı sınırına ulaştığında veri analizi durur ve sonraki günün başlangıcında devam eder.</span><span class="sxs-lookup"><span data-stu-id="d72af-130"><sup>1</sup> When customers reach their 500 MB daily data transfer limit, data analysis stops and resumes at the start of the next day.</span></span> <span data-ttu-id="d72af-131">Bir gün için UTC temel alınır.</span><span class="sxs-lookup"><span data-stu-id="d72af-131">A day is based on UTC.</span></span>
 
-<sup>2</sup> Tek Başına ve OMS fiyatlandırma planları için veri saklama süresi 730 güne çıkarılabilir.
+<span data-ttu-id="d72af-132"><sup>2</sup> Tek Başına ve OMS fiyatlandırma planları için veri saklama süresi 730 güne çıkarılabilir.</span><span class="sxs-lookup"><span data-stu-id="d72af-132"><sup>2</sup> The data retention period for the Standalone and OMS pricing plans can be increased to 730 days.</span></span>
 
-| Kategori | Sınırlar | Yorumlar
+| <span data-ttu-id="d72af-133">Kategori</span><span class="sxs-lookup"><span data-stu-id="d72af-133">Category</span></span> | <span data-ttu-id="d72af-134">Sınırlar</span><span class="sxs-lookup"><span data-stu-id="d72af-134">Limits</span></span> | <span data-ttu-id="d72af-135">Yorumlar</span><span class="sxs-lookup"><span data-stu-id="d72af-135">Comments</span></span>
 | --- | --- | --- |
-| Veri Toplayıcı API’si | Tek bir gönderi için boyut üst sınırı 30 MB'tır<br>Alan değerleri için en büyük boyut 32 KB'dir | Büyük hacimleri birden fazla gönderiye bölme<br>32 KB'den daha uzun alanlar kesilir. |
-| Arama API’si | Toplu olmayan veriler için 5000 kayıt döndürülür<br>Toplu veriler için 500000 kayıt döndürülür | Toplu veriler `measure` komutunu içeren bir aramadır
+| <span data-ttu-id="d72af-136">Veri Toplayıcı API’si</span><span class="sxs-lookup"><span data-stu-id="d72af-136">Data Collector API</span></span> | <span data-ttu-id="d72af-137">Tek bir gönderi için boyut üst sınırı 30 MB'tır</span><span class="sxs-lookup"><span data-stu-id="d72af-137">Maximum size for a single post is 30 MB</span></span><br><span data-ttu-id="d72af-138">Alan değerleri için en büyük boyut 32 KB'dir</span><span class="sxs-lookup"><span data-stu-id="d72af-138">Maximum size for field values is 32 KB</span></span> | <span data-ttu-id="d72af-139">Büyük hacimleri birden fazla gönderiye bölme</span><span class="sxs-lookup"><span data-stu-id="d72af-139">Split larger volumes into multiple posts</span></span><br><span data-ttu-id="d72af-140">32 KB'den daha uzun alanlar kesilir.</span><span class="sxs-lookup"><span data-stu-id="d72af-140">Fields longer than 32 KB are truncated.</span></span> |
+| <span data-ttu-id="d72af-141">Arama API’si</span><span class="sxs-lookup"><span data-stu-id="d72af-141">Search API</span></span> | <span data-ttu-id="d72af-142">Toplu olmayan veriler için 5000 kayıt döndürülür</span><span class="sxs-lookup"><span data-stu-id="d72af-142">5000 records returned for non-aggregated data</span></span><br><span data-ttu-id="d72af-143">Toplu veriler için 500000 kayıt döndürülür</span><span class="sxs-lookup"><span data-stu-id="d72af-143">500000 records for aggregated data</span></span> | <span data-ttu-id="d72af-144">Toplu veriler `measure` komutunu içeren bir aramadır</span><span class="sxs-lookup"><span data-stu-id="d72af-144">Aggregated data is a search that includes the `measure` command</span></span>
  

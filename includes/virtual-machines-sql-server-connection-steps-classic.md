@@ -1,23 +1,23 @@
-### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Sanal makinenin DNS adını belirleme
-Başka bir bilgisayardan SQL Server Veritabanı Altyapısı’na bağlanmak için, sanal makinenin Etki Alanı Adı Sistemi (DNS) adını biliyor olmalısınız. (İnternet, sanal makineyi tanımlamak için bu adı kullanır. IP adresini kullanabilirsiniz, ancak Azure yedeklilik veya bakım nedeniyle kaynakları taşıdığında IP adresi değişebilir. DNS adı yeni IP adresine yeniden yönlendirilebileceği için değişmez.)  
+### <a name="determine-the-dns-name-of-the-virtual-machine"></a><span data-ttu-id="76014-101">Sanal makinenin DNS adını belirleme</span><span class="sxs-lookup"><span data-stu-id="76014-101">Determine the DNS name of the virtual machine</span></span>
+<span data-ttu-id="76014-102">Başka bir bilgisayardan SQL Server Veritabanı Altyapısı’na bağlanmak için, sanal makinenin Etki Alanı Adı Sistemi (DNS) adını biliyor olmalısınız.</span><span class="sxs-lookup"><span data-stu-id="76014-102">To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine.</span></span> <span data-ttu-id="76014-103">(İnternet, sanal makineyi tanımlamak için bu adı kullanır.</span><span class="sxs-lookup"><span data-stu-id="76014-103">(This is the name the internet uses to identify the virtual machine.</span></span> <span data-ttu-id="76014-104">IP adresini kullanabilirsiniz, ancak Azure yedeklilik veya bakım nedeniyle kaynakları taşıdığında IP adresi değişebilir.</span><span class="sxs-lookup"><span data-stu-id="76014-104">You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance.</span></span> <span data-ttu-id="76014-105">DNS adı yeni IP adresine yeniden yönlendirilebileceği için değişmez.)</span><span class="sxs-lookup"><span data-stu-id="76014-105">The DNS name will be stable because it can be redirected to a new IP address.)</span></span>  
 
-1. Azure Portal’da (veya önceki adımda), **Sanal makineler (klasik)** öğesini seçin.
-2. SQL VM’nizi seçin.
-3. **Sanal makine** dikey penceresinde, sanal makineye ilişkin **DNS adı** değerini kopyalayın.
+1. <span data-ttu-id="76014-106">Azure Portal’da (veya önceki adımda), **Sanal makineler (klasik)** öğesini seçin.</span><span class="sxs-lookup"><span data-stu-id="76014-106">In the Azure Portal (or from the previous step), select **Virtual machines (classic)**.</span></span>
+2. <span data-ttu-id="76014-107">SQL VM’nizi seçin.</span><span class="sxs-lookup"><span data-stu-id="76014-107">Select your SQL VM.</span></span>
+3. <span data-ttu-id="76014-108">**Sanal makine** dikey penceresinde, sanal makineye ilişkin **DNS adı** değerini kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="76014-108">On the **Virtual machine** blade, copy the **DNS name** for the virtual machine.</span></span>
    
     ![DNS adı](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-to-the-database-engine-from-another-computer"></a>Başka bir bilgisayardan Veritabanı Altyapısına bağlanma
-1. İnternet'e bağlı bir bilgisayarda SQL Server Management Studio’yu açın.
-2. **Sunucuya Bağlan** veya **Veritabanı Altyapısına Bağlan** iletişim kutusundaki **Sunucu adı** kutusuna, sanal makinenin DNS adını (önceki görevde belirlenen ad) ve *DNSAdı,bağlantınoktası* biçiminde bir genel uç nokta bağlantı noktası numarası (**mysqlvm.cloudapp.net,57500** gibi) girin.
+### <a name="connect-to-the-database-engine-from-another-computer"></a><span data-ttu-id="76014-110">Başka bir bilgisayardan Veritabanı Altyapısına bağlanma</span><span class="sxs-lookup"><span data-stu-id="76014-110">Connect to the Database Engine from another computer</span></span>
+1. <span data-ttu-id="76014-111">İnternet'e bağlı bir bilgisayarda SQL Server Management Studio’yu açın.</span><span class="sxs-lookup"><span data-stu-id="76014-111">On a computer connected to the internet, open SQL Server Management Studio.</span></span>
+2. <span data-ttu-id="76014-112">**Sunucuya Bağlan** veya **Veritabanı Altyapısına Bağlan** iletişim kutusundaki **Sunucu adı** kutusuna, sanal makinenin DNS adını (önceki görevde belirlenen ad) ve *DNSAdı,bağlantınoktası* biçiminde bir genel uç nokta bağlantı noktası numarası (**mysqlvm.cloudapp.net,57500** gibi) girin.</span><span class="sxs-lookup"><span data-stu-id="76014-112">In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **mysqlvm.cloudapp.net,57500**.</span></span>
    
     ![SSMS kullanarak bağlanma](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
    
-    Daha önce oluşturduğunuz genel uç nokta bağlantı noktası numarasını anımsamıyorsanız, bu numarayı **Sanal makine** dikey penceresinin **Uç noktalar** alanında bulabilirsiniz.
+    <span data-ttu-id="76014-114">Daha önce oluşturduğunuz genel uç nokta bağlantı noktası numarasını anımsamıyorsanız, bu numarayı **Sanal makine** dikey penceresinin **Uç noktalar** alanında bulabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="76014-114">If you don't remember the public endpoint port number you previously created, you can find it in the **Endpoints** area of the **Virtual machine** blade.</span></span>
    
     ![Genel Bağlantı Noktası](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. **Kimlik Doğrulaması** kutusunda **SQL Server Kimlik Doğrulaması**’nı seçin.
-4. **Oturum Açma** kutusuna, önceki görevlerden birinde oluşturduğunuz oturum açma kimliğinin adını yazın.
-5. **Parola** kutusuna, önceki görevlerden birinde oluşturduğunuz oturum açma kimliğinin parolasını yazın.
-6. **Bağlan**'a tıklayın.
+3. <span data-ttu-id="76014-116">**Kimlik Doğrulaması** kutusunda **SQL Server Kimlik Doğrulaması**’nı seçin.</span><span class="sxs-lookup"><span data-stu-id="76014-116">In the **Authentication** box, select **SQL Server Authentication**.</span></span>
+4. <span data-ttu-id="76014-117">**Oturum Açma** kutusuna, önceki görevlerden birinde oluşturduğunuz oturum açma kimliğinin adını yazın.</span><span class="sxs-lookup"><span data-stu-id="76014-117">In the **Login** box, type the name of a login that you created in an earlier task.</span></span>
+5. <span data-ttu-id="76014-118">**Parola** kutusuna, önceki görevlerden birinde oluşturduğunuz oturum açma kimliğinin parolasını yazın.</span><span class="sxs-lookup"><span data-stu-id="76014-118">In the **Password** box, type the password of the login that you create in an earlier task.</span></span>
+6. <span data-ttu-id="76014-119">**Bağlan**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="76014-119">Click **Connect**.</span></span>
 

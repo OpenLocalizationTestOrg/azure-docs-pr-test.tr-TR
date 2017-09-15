@@ -1,7 +1,7 @@
-#### <a name="to-get-the-storsimple-service-registration-key"></a>StorSimple hizmet kayıt anahtarını almak için
+#### <a name="to-get-the-storsimple-service-registration-key"></a><span data-ttu-id="cc9d1-101">StorSimple hizmet kayıt anahtarını almak için</span><span class="sxs-lookup"><span data-stu-id="cc9d1-101">To get the StorSimple service registration key</span></span>
 
-1.  **StorSimple Cihaz Yöneticisi** dikey penceresinde, oluşturduğunuz hizmete tıklayın. Sağ tarafta yeni bir dikey pencere açılır.
+1.  <span data-ttu-id="cc9d1-102">**StorSimple Cihaz Yöneticisi** dikey penceresinde, oluşturduğunuz hizmete tıklayın.</span><span class="sxs-lookup"><span data-stu-id="cc9d1-102">On the **StorSimple Device Manager** blade, click the service that you created.</span></span> <span data-ttu-id="cc9d1-103">Sağ tarafta yeni bir dikey pencere açılır.</span><span class="sxs-lookup"><span data-stu-id="cc9d1-103">This opens up a new blade to the right.</span></span>
 
-2.  Açılan dikey penceresinde, tıklayın **Yönet &gt;**  **anahtarları**.
+2.  <span data-ttu-id="cc9d1-104">Açılan dikey penceresinde, tıklayın **Yönet &gt;**  **anahtarları**.</span><span class="sxs-lookup"><span data-stu-id="cc9d1-104">In the blade that opens up, click **Manage &gt;** **Keys**.</span></span>
 
-3.  Hizmet kayıt anahtarını kopyalayın ve daha sonra kullanmak üzere kaydetmek için Kopyala simgesine tıklayın.
+3.  <span data-ttu-id="cc9d1-105">Hizmet kayıt anahtarını kopyalayın ve daha sonra kullanmak üzere kaydetmek için Kopyala simgesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="cc9d1-105">Click the copy icon to copy the service registration key and save it for later use.</span></span>

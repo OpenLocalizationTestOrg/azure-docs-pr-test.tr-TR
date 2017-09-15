@@ -1,9 +1,9 @@
-## <a name="scenario"></a>Senaryo
-Bu belge, bir sanal makine (VM) ayrılmış bir statik genel IP adresi kullanan bir dağıtımda size yol gösterecek. Bu senaryoda, kendi statik genel IP adresi ile tek bir VM'ye sahip. VM adlı bir alt ağın parçası olan **ön uç** ve ayrıca özel bir statik IP adresi vardır (**192.168.1.101**) bu alt ağdaki.
+## <a name="scenario"></a><span data-ttu-id="f6936-101">Senaryo</span><span class="sxs-lookup"><span data-stu-id="f6936-101">Scenario</span></span>
+<span data-ttu-id="f6936-102">Bu belge, bir sanal makine (VM) ayrılmış bir statik genel IP adresi kullanan bir dağıtımda size yol gösterecek.</span><span class="sxs-lookup"><span data-stu-id="f6936-102">This document will walk through a deployment that uses a static public IP address allocated to a virtual machine (VM).</span></span> <span data-ttu-id="f6936-103">Bu senaryoda, kendi statik genel IP adresi ile tek bir VM'ye sahip.</span><span class="sxs-lookup"><span data-stu-id="f6936-103">In this scenario, you have a single VM with its own static public IP address.</span></span> <span data-ttu-id="f6936-104">VM adlı bir alt ağın parçası olan **ön uç** ve ayrıca özel bir statik IP adresi vardır (**192.168.1.101**) bu alt ağdaki.</span><span class="sxs-lookup"><span data-stu-id="f6936-104">The VM is part of a subnet named **FrontEnd** and also has a static private IP address (**192.168.1.101**) in that subnet.</span></span>
 
-SSL sertifikası bir IP adresine bağlı SSL bağlantısı iste web sunucuları için statik bir IP adresi gerekebilir. 
+<span data-ttu-id="f6936-105">SSL sertifikası bir IP adresine bağlı SSL bağlantısı iste web sunucuları için statik bir IP adresi gerekebilir.</span><span class="sxs-lookup"><span data-stu-id="f6936-105">You may need a static IP address for web servers that require SSL connections in which the SSL certificate is linked to an IP address.</span></span> 
 
 ![GÖRÜNTÜ AÇIKLAMASI](./media/virtual-network-deploy-static-pip-scenario-include/figure1.png)
 
-Yukarıdaki şekilde gösterildiği ortamı dağıtmak için aşağıdaki adımları izleyebilirsiniz.
+<span data-ttu-id="f6936-107">Yukarıdaki şekilde gösterildiği ortamı dağıtmak için aşağıdaki adımları izleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f6936-107">You can follow the steps below to deploy the environment shown in the figure above.</span></span>
 

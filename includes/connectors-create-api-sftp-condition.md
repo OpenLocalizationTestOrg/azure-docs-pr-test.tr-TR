@@ -1,12 +1,12 @@
-1. Seçin **+ yeni adım** eylem eklemek için.  
-2. Seçin **Eylem Ekle** bağlantı. Bu açılır, herhangi bir işlem arayabileceğiniz arama kutusu yapmak istiyorsunuz. Bu örnekte, SharePoint ilgi eylemlerdir.    
-   ![SFTP koşul görüntü 1](./media/connectors-create-api-sftp/condition-1.png)    
-3. Seçin **bir değer seçin** soldaki. 
-   ![SFTP koşul görüntü 2](./media/connectors-create-api-sftp/condition-2.png)    
-4. Seçin **dosya içeriği** koşulundaki dosya içeriğini değerlendirmek istediğiniz belirtmek için.      
-   ![SFTP koşul görüntü 3](./media/connectors-create-api-sftp/condition-3.png)   
-5. Seçin *içeren* işleçleri listesinden.       
-   ![SFTP koşul görüntü 4](./media/connectors-create-api-sftp/condition-4.png)   
-6. Seçin **bir değer seçin** sağdaki ve girin *ExtractMeFirst*. Bu örnekte, ExtractMeFirst bir dosyada yer ayıklanması gereken bir arşiv dosyasına olduğunu belirtmek için SFTP klasörüne erişimi olan kişiler tarafından beklenen bir değerdir.  
-   ![SFTP koşul görüntü 5](./media/connectors-create-api-sftp/condition-5.png)   
+1. <span data-ttu-id="a28ef-101">Seçin **+ yeni adım** eylem eklemek için.</span><span class="sxs-lookup"><span data-stu-id="a28ef-101">Select **+ New step** to add the action.</span></span>  
+2. <span data-ttu-id="a28ef-102">Seçin **Eylem Ekle** bağlantı.</span><span class="sxs-lookup"><span data-stu-id="a28ef-102">Select the **Add an action** link.</span></span> <span data-ttu-id="a28ef-103">Bu açılır, herhangi bir işlem arayabileceğiniz arama kutusu yapmak istiyorsunuz.</span><span class="sxs-lookup"><span data-stu-id="a28ef-103">This opens the search box where you can search for any action you would like to take.</span></span> <span data-ttu-id="a28ef-104">Bu örnekte, SharePoint ilgi eylemlerdir.</span><span class="sxs-lookup"><span data-stu-id="a28ef-104">For this example, SharePoint actions are of interest.</span></span>    
+   <span data-ttu-id="a28ef-105">![SFTP koşul görüntü 1](./media/connectors-create-api-sftp/condition-1.png)</span><span class="sxs-lookup"><span data-stu-id="a28ef-105">![SFTP condition image 1](./media/connectors-create-api-sftp/condition-1.png)</span></span>    
+3. <span data-ttu-id="a28ef-106">Seçin **bir değer seçin** soldaki.</span><span class="sxs-lookup"><span data-stu-id="a28ef-106">Select **Choose a value** on the left.</span></span> 
+   <span data-ttu-id="a28ef-107">![SFTP koşul görüntü 2](./media/connectors-create-api-sftp/condition-2.png)</span><span class="sxs-lookup"><span data-stu-id="a28ef-107">![SFTP condition image 2](./media/connectors-create-api-sftp/condition-2.png)</span></span>    
+4. <span data-ttu-id="a28ef-108">Seçin **dosya içeriği** koşulundaki dosya içeriğini değerlendirmek istediğiniz belirtmek için.</span><span class="sxs-lookup"><span data-stu-id="a28ef-108">Select **File content** to indicate that you want to evaluate the file contents in the condition.</span></span>      
+   <span data-ttu-id="a28ef-109">![SFTP koşul görüntü 3](./media/connectors-create-api-sftp/condition-3.png)</span><span class="sxs-lookup"><span data-stu-id="a28ef-109">![SFTP condition image 3](./media/connectors-create-api-sftp/condition-3.png)</span></span>   
+5. <span data-ttu-id="a28ef-110">Seçin *içeren* işleçleri listesinden.</span><span class="sxs-lookup"><span data-stu-id="a28ef-110">Select *contains* from the list of operators.</span></span>       
+   <span data-ttu-id="a28ef-111">![SFTP koşul görüntü 4](./media/connectors-create-api-sftp/condition-4.png)</span><span class="sxs-lookup"><span data-stu-id="a28ef-111">![SFTP condition image 4](./media/connectors-create-api-sftp/condition-4.png)</span></span>   
+6. <span data-ttu-id="a28ef-112">Seçin **bir değer seçin** sağdaki ve girin *ExtractMeFirst*.</span><span class="sxs-lookup"><span data-stu-id="a28ef-112">Select **Choose a value** on the right and enter *ExtractMeFirst*.</span></span> <span data-ttu-id="a28ef-113">Bu örnekte, ExtractMeFirst bir dosyada yer ayıklanması gereken bir arşiv dosyasına olduğunu belirtmek için SFTP klasörüne erişimi olan kişiler tarafından beklenen bir değerdir.</span><span class="sxs-lookup"><span data-stu-id="a28ef-113">In this example, ExtractMeFirst is a value that is expected to be in a file by persons who have access to the SFTP folder to indicate that it is an archive file that should be extracted.</span></span>  
+   <span data-ttu-id="a28ef-114">![SFTP koşul görüntü 5](./media/connectors-create-api-sftp/condition-5.png)</span><span class="sxs-lookup"><span data-stu-id="a28ef-114">![SFTP condition image 5](./media/connectors-create-api-sftp/condition-5.png)</span></span>   
 

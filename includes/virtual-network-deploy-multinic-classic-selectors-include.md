@@ -1,6 +1,6 @@
 > [!div class="op_single_selector"]
-> * [PowerShell](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md)
-> * [Azure CLI](../articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md)
-> * [Şablon](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md)
-> * [PowerShell (Klasik)](../articles/virtual-network/virtual-network-deploy-multinic-classic-ps.md)
-> * [Azure CLI (Klasik)](../articles/virtual-network/virtual-network-deploy-multinic-classic-cli.md)
+> * [<span data-ttu-id="387bf-101">PowerShell</span><span class="sxs-lookup"><span data-stu-id="387bf-101">PowerShell</span></span>](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md)
+> * [<span data-ttu-id="387bf-102">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="387bf-102">Azure CLI</span></span>](../articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md)
+> * [<span data-ttu-id="387bf-103">Şablon</span><span class="sxs-lookup"><span data-stu-id="387bf-103">Template</span></span>](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md)
+> * [<span data-ttu-id="387bf-104">PowerShell (Klasik)</span><span class="sxs-lookup"><span data-stu-id="387bf-104">PowerShell (Classic)</span></span>](../articles/virtual-network/virtual-network-deploy-multinic-classic-ps.md)
+> * [<span data-ttu-id="387bf-105">Azure CLI (Klasik)</span><span class="sxs-lookup"><span data-stu-id="387bf-105">Azure CLI (Classic)</span></span>](../articles/virtual-network/virtual-network-deploy-multinic-classic-cli.md)

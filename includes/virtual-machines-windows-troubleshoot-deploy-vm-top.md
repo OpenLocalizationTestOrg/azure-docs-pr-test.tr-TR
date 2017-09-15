@@ -1,4 +1,4 @@
-Aşağıdaki üst sorunları, sorunu gidermenize yardımcı olabilir. Sorun giderme başlatmak için bu adımları gözden geçirin:
+<span data-ttu-id="44c19-101">Aşağıdaki üst sorunları, sorunu gidermenize yardımcı olabilir.</span><span class="sxs-lookup"><span data-stu-id="44c19-101">The following top issues may help resolve your issue.</span></span> <span data-ttu-id="44c19-102">Sorun giderme başlatmak için bu adımları gözden geçirin:</span><span class="sxs-lookup"><span data-stu-id="44c19-102">To start troubleshooting, review these steps:</span></span>
 
-- [Küme istenen VM boyutu desteklemiyor](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
-- [Küme kaynakları serbest bırakmak yok](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)
+- [<span data-ttu-id="44c19-103">Küme istenen VM boyutu desteklemiyor</span><span class="sxs-lookup"><span data-stu-id="44c19-103">The cluster cannot support the requested VM size</span></span>](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
+- [<span data-ttu-id="44c19-104">Küme kaynakları serbest bırakmak yok</span><span class="sxs-lookup"><span data-stu-id="44c19-104">The cluster does not have free resources</span></span>](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)

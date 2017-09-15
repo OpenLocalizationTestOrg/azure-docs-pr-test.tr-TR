@@ -1,15 +1,15 @@
-1. Yükleme sunucuya kopyalayın ve ardından yükleyici açın.
-2. Üzerinde **yükleme seçeneği** dikey penceresinde, select **Mobility hizmetini Yükle**.
+1. <span data-ttu-id="0ea51-101">Yükleme sunucuya kopyalayın ve ardından yükleyici açın.</span><span class="sxs-lookup"><span data-stu-id="0ea51-101">Copy the installation to the server, and then open the installer.</span></span>
+2. <span data-ttu-id="0ea51-102">Üzerinde **yükleme seçeneği** dikey penceresinde, select **Mobility hizmetini Yükle**.</span><span class="sxs-lookup"><span data-stu-id="0ea51-102">On the **Installation Option** blade, select **Install Mobility Service**.</span></span>
 
-    ![Mobility hizmeti yükleme seçeneği sayfası ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
-3. Yükleme konumu seçin ve tıklatın **yükleme** yükleme yordamı olmanın.
+    ![<span data-ttu-id="0ea51-103">Mobility hizmeti yükleme seçeneği sayfası</span><span class="sxs-lookup"><span data-stu-id="0ea51-103">Mobility Service Install Option Page</span></span> ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
+3. <span data-ttu-id="0ea51-104">Yükleme konumu seçin ve tıklatın **yükleme** yükleme yordamı olmanın.</span><span class="sxs-lookup"><span data-stu-id="0ea51-104">Select the install location  and click **Install** to being the installation procedure.</span></span>
 
-    ![Mobility hizmeti yükleme konumu sayfasında ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
-4. Kullanabileceğiniz **yükleme ilerleme durumu** Yükleyicisi'nin ilerleme durumunu izlemek için sayfa.
-    ![Mobility hizmeti yükleme ilerlemesi](./media/site-recovery-install-mob-svc-gui/mobility3.png)
+    ![<span data-ttu-id="0ea51-105">Mobility hizmeti yükleme konumu sayfasında</span><span class="sxs-lookup"><span data-stu-id="0ea51-105">Mobility Service Install Location Page</span></span> ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
+4. <span data-ttu-id="0ea51-106">Kullanabileceğiniz **yükleme ilerleme durumu** Yükleyicisi'nin ilerleme durumunu izlemek için sayfa.</span><span class="sxs-lookup"><span data-stu-id="0ea51-106">You can use **Installation Progress** page to monitor the installer's progress.</span></span>
+    <span data-ttu-id="0ea51-107">![Mobility hizmeti yükleme ilerlemesi](./media/site-recovery-install-mob-svc-gui/mobility3.png)</span><span class="sxs-lookup"><span data-stu-id="0ea51-107">![Mobility Service Install Progress ](./media/site-recovery-install-mob-svc-gui/mobility3.png)</span></span>
 
-5. Yükleme tamamlandıktan sonra tıklayın **yapılandırmaya devam** düğmesi Mobility hizmeti, yapılandırma sunucusuna kaydedin.
-    ![Mobility hizmeti kayıt sayfası](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+5. <span data-ttu-id="0ea51-108">Yükleme tamamlandıktan sonra tıklayın **yapılandırmaya devam** düğmesi Mobility hizmeti, yapılandırma sunucusuna kaydedin.</span><span class="sxs-lookup"><span data-stu-id="0ea51-108">Once installation is complete, click the **Proceed to Configuration** button to register the Mobility Service with your Configuration server.</span></span>
+    <span data-ttu-id="0ea51-109">![Mobility hizmeti kayıt sayfası](./media/site-recovery-install-mob-svc-gui/mobility4.png)</span><span class="sxs-lookup"><span data-stu-id="0ea51-109">![Mobility service Register Page ](./media/site-recovery-install-mob-svc-gui/mobility4.png)</span></span>
 
-6. Tıklayın **kaydetmek** kayıt işlemini tamamlamak için düğmesi.
-    ![Mobility hizmeti kayıt sayfası](./media/site-recovery-install-mob-svc-gui/mobility5.png)
+6. <span data-ttu-id="0ea51-110">Tıklayın **kaydetmek** kayıt işlemini tamamlamak için düğmesi.</span><span class="sxs-lookup"><span data-stu-id="0ea51-110">Click on the **Register** button to complete the registration.</span></span>
+    <span data-ttu-id="0ea51-111">![Mobility hizmeti kayıt sayfası](./media/site-recovery-install-mob-svc-gui/mobility5.png)</span><span class="sxs-lookup"><span data-stu-id="0ea51-111">![Mobility service Register Page ](./media/site-recovery-install-mob-svc-gui/mobility5.png)</span></span>

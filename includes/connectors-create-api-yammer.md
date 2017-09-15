@@ -1,16 +1,16 @@
-### <a name="prerequisites"></a>Ön koşullar
-* A [Yammer](https://www.yammer.com/) hesabı 
+### <a name="prerequisites"></a><span data-ttu-id="ea490-101">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="ea490-101">Prerequisites</span></span>
+* <span data-ttu-id="ea490-102">A [Yammer](https://www.yammer.com/) hesabı</span><span class="sxs-lookup"><span data-stu-id="ea490-102">A [Yammer](https://www.yammer.com/) account</span></span> 
 
-Bir mantıksal uygulama Yammer hesabınızda kullanmadan önce Yammer hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
+<span data-ttu-id="ea490-103">Bir mantıksal uygulama Yammer hesabınızda kullanmadan önce Yammer hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="ea490-103">Before you can use your Yammer account in a Logic app, you must authorize the Logic app to connect to your Yammer account.</span></span> <span data-ttu-id="ea490-104">Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="ea490-104">Fortunately, you can do this easily from within your Logic app on the Azure Portal.</span></span> 
 
-Mantıksal uygulamanızı Yammer hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
+<span data-ttu-id="ea490-105">Mantıksal uygulamanızı Yammer hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:</span><span class="sxs-lookup"><span data-stu-id="ea490-105">Here are the steps to authorize your Logic app to connect to your Yammer account:</span></span>
 
-1. Mantıksal Uygulama Tasarımcısı'nda Yammer, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Yammer* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+1. <span data-ttu-id="ea490-106">Mantıksal Uygulama Tasarımcısı'nda Yammer, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Yammer* arama kutusuna.</span><span class="sxs-lookup"><span data-stu-id="ea490-106">To create a connection to Yammer, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Yammer* in the search box.</span></span> <span data-ttu-id="ea490-107">Tetikleyici seçin veya eylem kullanmak ister:</span><span class="sxs-lookup"><span data-stu-id="ea490-107">Select the trigger or action you'll like to use:</span></span>  
    ![](./media/connectors-create-api-yammer/yammer-1.png)
-2. Önce Yammer bağlantılarına oluşturmadıysanız, Yammer kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Yammer hesabınızın veri erişim:  
+2. <span data-ttu-id="ea490-108">Önce Yammer bağlantılarına oluşturmadıysanız, Yammer kimlik bilgilerinizi girmeniz istendiğinde şunu.</span><span class="sxs-lookup"><span data-stu-id="ea490-108">If you haven't created any connections to Yammer before, you'll get prompted to provide your Yammer credentials.</span></span> <span data-ttu-id="ea490-109">Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Yammer hesabınızın veri erişim:</span><span class="sxs-lookup"><span data-stu-id="ea490-109">These credentials will be used to authorize your Logic app to connect to, and access your Yammer account's data:</span></span>  
    ![](./media/connectors-create-api-yammer/yammer-2.png)
-3. Yammer Kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
+3. <span data-ttu-id="ea490-110">Yammer Kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:</span><span class="sxs-lookup"><span data-stu-id="ea490-110">Provide your Yammer user name and password to authorize your Logic app:</span></span>  
    ![](./media/connectors-create-api-yammer/yammer-3.png)   
-4. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+4. <span data-ttu-id="ea490-111">Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:</span><span class="sxs-lookup"><span data-stu-id="ea490-111">Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:</span></span>  
    ![](./media/connectors-create-api-yammer/yammer-4.png)   
 

@@ -1,9 +1,9 @@
-Bu makalede aşağıdaki durumlar varsayılır
+<span data-ttu-id="1dd29-101">Bu makalede aşağıdaki durumlar varsayılır</span><span class="sxs-lookup"><span data-stu-id="1dd29-101">This article assumes that</span></span>
 
-1. Şirket içi ağınız ile Azure Sanal Ağ arasında **Siteden Siteye VPN** veya **Express Route** bağlantısı zaten oluşturulmuştur.
-2. Kullanıcı hesabınız sanal makinelerin yük devrettiği Azure Aboneliğinde yeni bir sanal makine oluşturma izinlerine sahiptir.
-3. Aboneliğinizde, yeni bir İşlem Sunucusu sanal makinesi çalıştırabilecek en az 4 Çekirdek vardır.
-4. **Configuration Server Parolanız** mevcuttur.
+1. <span data-ttu-id="1dd29-102">Şirket içi ağınız ile Azure Sanal Ağ arasında **Siteden Siteye VPN** veya **Express Route** bağlantısı zaten oluşturulmuştur.</span><span class="sxs-lookup"><span data-stu-id="1dd29-102">A **Site to Site VPN** or an **Express Route** connection between your on-premises network and the Azure Virtual Network has already been established.</span></span>
+2. <span data-ttu-id="1dd29-103">Kullanıcı hesabınız sanal makinelerin yük devrettiği Azure Aboneliğinde yeni bir sanal makine oluşturma izinlerine sahiptir.</span><span class="sxs-lookup"><span data-stu-id="1dd29-103">Your user account has permissions to create a new virtual machine in the Azure Subscription that the virtual machines have been failed over into.</span></span>
+3. <span data-ttu-id="1dd29-104">Aboneliğinizde, yeni bir İşlem Sunucusu sanal makinesi çalıştırabilecek en az 4 Çekirdek vardır.</span><span class="sxs-lookup"><span data-stu-id="1dd29-104">Your subscription has a minimum of 4 Cores available to spin up a new Process Server virtual machine.</span></span>
+4. <span data-ttu-id="1dd29-105">**Configuration Server Parolanız** mevcuttur.</span><span class="sxs-lookup"><span data-stu-id="1dd29-105">You have the **Configuration Server Passphrase** available.</span></span>
 
 > [!TIP]
-> Sanal makinelerin yük devrettiği Azure Sanal Ağından Configuration Server (şirket içinde çalışan) 443 bağlantı noktasını bağlayabildiğinizden emin olun.
+> <span data-ttu-id="1dd29-106">Sanal makinelerin yük devrettiği Azure Sanal Ağından Configuration Server (şirket içinde çalışan) 443 bağlantı noktasını bağlayabildiğinizden emin olun.</span><span class="sxs-lookup"><span data-stu-id="1dd29-106">Ensure that you are able to connect port 443 of the Configuration Server (running on-premises) from the Azure Virtual Network that the virtual machines have been failed over into.</span></span>

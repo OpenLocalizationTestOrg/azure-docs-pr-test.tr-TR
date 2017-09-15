@@ -1,12 +1,12 @@
-Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon tüm parametre değerleri içeren parametre adlı bir bölüm içerir.
-Dağıttığınız projesini temel alan veya dağıttığınız ortamı dayanarak değişir bu değerleri için bir parametre tanımlamanız gerekir. Her zaman aynı kalır değerleri parametrelerini tanımlamayın. Her parametre değeri şablonda dağıtmak olan kaynakları tanımlamak için kullanılır. 
+<span data-ttu-id="04133-101">Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız.</span><span class="sxs-lookup"><span data-stu-id="04133-101">With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed.</span></span> <span data-ttu-id="04133-102">Şablon tüm parametre değerleri içeren parametre adlı bir bölüm içerir.</span><span class="sxs-lookup"><span data-stu-id="04133-102">The template includes a section called Parameters that contains all of the parameter values.</span></span>
+<span data-ttu-id="04133-103">Dağıttığınız projesini temel alan veya dağıttığınız ortamı dayanarak değişir bu değerleri için bir parametre tanımlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="04133-103">You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to.</span></span> <span data-ttu-id="04133-104">Her zaman aynı kalır değerleri parametrelerini tanımlamayın.</span><span class="sxs-lookup"><span data-stu-id="04133-104">Do not define parameters for values that will always stay the same.</span></span> <span data-ttu-id="04133-105">Her parametre değeri şablonda dağıtmak olan kaynakları tanımlamak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="04133-105">Each parameter value is used in the template to define the resources that are deploy.</span></span> 
 
-Parametreleri tanımlarken kullanın **allowedValues** hangi kullanıcı değerleri belirtmek için alanını dağıtımı sırasında sağlayabilir. Kullanım **defaultValue** dağıtımı sırasında herhangi bir değer sağlanmazsa parametresi için bir değer atamaya alan.
+<span data-ttu-id="04133-106">Parametreleri tanımlarken kullanın **allowedValues** hangi kullanıcı değerleri belirtmek için alanını dağıtımı sırasında sağlayabilir.</span><span class="sxs-lookup"><span data-stu-id="04133-106">When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment.</span></span> <span data-ttu-id="04133-107">Kullanım **defaultValue** dağıtımı sırasında herhangi bir değer sağlanmazsa parametresi için bir değer atamaya alan.</span><span class="sxs-lookup"><span data-stu-id="04133-107">Use the **defaultValue** field to assign a value to the parameter, if no value is provided during deployment.</span></span>
 
-Biz şablondaki her bir parametreyi anlatmaktadır.
+<span data-ttu-id="04133-108">Biz şablondaki her bir parametreyi anlatmaktadır.</span><span class="sxs-lookup"><span data-stu-id="04133-108">We will describe each parameter in the template.</span></span>
 
-### <a name="logicappname"></a>logicAppName
-Oluşturmak için mantıksal uygulama adı.
+### <a name="logicappname"></a><span data-ttu-id="04133-109">logicAppName</span><span class="sxs-lookup"><span data-stu-id="04133-109">logicAppName</span></span>
+<span data-ttu-id="04133-110">Oluşturmak için mantıksal uygulama adı.</span><span class="sxs-lookup"><span data-stu-id="04133-110">The name of the logic app to create.</span></span>
 
     "logicAppName": {
         "type": "string"

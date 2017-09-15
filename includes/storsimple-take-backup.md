@@ -1,30 +1,30 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-### <a name="to-take-a-backup"></a>Yedek almak için
-1. Cihazın **Hızlı Başlangıç** sayfasında, **Yedekleme ilkesi ekle**’ye tıklayın. Bu, Yedekleme İlkesi Ekleme sihirbazını başlatır. 
-2. **Yedekleme ilkenizi tanımlayın** sayfasında:
+### <a name="to-take-a-backup"></a><span data-ttu-id="c44da-101">Yedek almak için</span><span class="sxs-lookup"><span data-stu-id="c44da-101">To take a backup</span></span>
+1. <span data-ttu-id="c44da-102">Cihazın **Hızlı Başlangıç** sayfasında, **Yedekleme ilkesi ekle**’ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="c44da-102">On the device **Quick Start** page, click **Add a backup policy**.</span></span> <span data-ttu-id="c44da-103">Bu, Yedekleme İlkesi Ekleme sihirbazını başlatır.</span><span class="sxs-lookup"><span data-stu-id="c44da-103">This will start the Add Backup Policy wizard.</span></span> 
+2. <span data-ttu-id="c44da-104">**Yedekleme ilkenizi tanımlayın** sayfasında:</span><span class="sxs-lookup"><span data-stu-id="c44da-104">On the **Define your backup policy** page:</span></span>
    
-   1. Yedekleme ilkenize 3 - 150 arası karakterden oluşan bir ad verin.
-   2. Yedeği alınacak birimleri seçin. Birden fazla birim seçerseniz, kilitlenmeyle tutarlı yedek oluşturmak için bu birimler birlikte gruplandırılır.
-   3. Ok simgesine tıklayın ![ok simgesi](./media/storsimple-take-backup/HCS_ArrowIcon-include.png). 
+   1. <span data-ttu-id="c44da-105">Yedekleme ilkenize 3 - 150 arası karakterden oluşan bir ad verin.</span><span class="sxs-lookup"><span data-stu-id="c44da-105">Supply a name that contains between 3 and 150 characters for your backup policy.</span></span>
+   2. <span data-ttu-id="c44da-106">Yedeği alınacak birimleri seçin.</span><span class="sxs-lookup"><span data-stu-id="c44da-106">Select the volumes to be backed up.</span></span> <span data-ttu-id="c44da-107">Birden fazla birim seçerseniz, kilitlenmeyle tutarlı yedek oluşturmak için bu birimler birlikte gruplandırılır.</span><span class="sxs-lookup"><span data-stu-id="c44da-107">If you select more than one volume, these volumes will be grouped together to create a crash-consistent backup.</span></span>
+   3. <span data-ttu-id="c44da-108">Ok simgesine tıklayın</span><span class="sxs-lookup"><span data-stu-id="c44da-108">Click the arrow icon</span></span> ![ok simgesi](./media/storsimple-take-backup/HCS_ArrowIcon-include.png)<span data-ttu-id="c44da-110">.</span><span class="sxs-lookup"><span data-stu-id="c44da-110">.</span></span> 
       
       ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard1M-include.png)
-3. **Zamanlama tanımlayın** sayfasında:
+3. <span data-ttu-id="c44da-112">**Zamanlama tanımlayın** sayfasında:</span><span class="sxs-lookup"><span data-stu-id="c44da-112">On the **Define a schedule** page:</span></span>
    
-   1. Açılan listeden yedekleme türünü seçin. Daha hızlı geri yüklemeler için **Yerel Anlık Görüntü**’yü seçin. Veri dayanıklılığı için **Bulut Anlık Görüntüsü**’nü seçin.
-   2. Yedekleme sıklığını dakika, saat, gün veya hafta cinsinden belirtin.
-   3. Elde tutma süresini seçin. Elde tutma seçimleri yedekleme sıklığına bağlıdır. Örneğin, günlük ilkesi için elde tutma İlkesi hafta cinsinden belirtilebilirken, aylık ilkesi için elde tutma ay cinsindendir.
-   4. Yedekleme ilkesinin başlangıç saatini ve tarihini seçin.
-   5. Yedekleme ilkesini etkinleştirmek için **Etkinleştir** onay kutusunu seçin. 
-   6. Onay simgesine ![onay simgesi](./media/storsimple-take-backup/HCS_CheckIcon-include.png) tıklayarak ilkeyi kaydedin.
+   1. <span data-ttu-id="c44da-113">Açılan listeden yedekleme türünü seçin.</span><span class="sxs-lookup"><span data-stu-id="c44da-113">Select the type of backup from the drop-down list.</span></span> <span data-ttu-id="c44da-114">Daha hızlı geri yüklemeler için **Yerel Anlık Görüntü**’yü seçin.</span><span class="sxs-lookup"><span data-stu-id="c44da-114">For faster restores, select **Local Snapshot**.</span></span> <span data-ttu-id="c44da-115">Veri dayanıklılığı için **Bulut Anlık Görüntüsü**’nü seçin.</span><span class="sxs-lookup"><span data-stu-id="c44da-115">For data resiliency, select **Cloud Snapshot**.</span></span>
+   2. <span data-ttu-id="c44da-116">Yedekleme sıklığını dakika, saat, gün veya hafta cinsinden belirtin.</span><span class="sxs-lookup"><span data-stu-id="c44da-116">Specify the backup frequency in minutes, hours, days, or weeks.</span></span>
+   3. <span data-ttu-id="c44da-117">Elde tutma süresini seçin.</span><span class="sxs-lookup"><span data-stu-id="c44da-117">Select a retention time.</span></span> <span data-ttu-id="c44da-118">Elde tutma seçimleri yedekleme sıklığına bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="c44da-118">The retention choices depend on the backup frequency.</span></span> <span data-ttu-id="c44da-119">Örneğin, günlük ilkesi için elde tutma İlkesi hafta cinsinden belirtilebilirken, aylık ilkesi için elde tutma ay cinsindendir.</span><span class="sxs-lookup"><span data-stu-id="c44da-119">For example, for a daily policy, the retention can be specified in weeks, whereas retention for a monthly policy is in months.</span></span>
+   4. <span data-ttu-id="c44da-120">Yedekleme ilkesinin başlangıç saatini ve tarihini seçin.</span><span class="sxs-lookup"><span data-stu-id="c44da-120">Select the starting time and date for the backup policy.</span></span>
+   5. <span data-ttu-id="c44da-121">Yedekleme ilkesini etkinleştirmek için **Etkinleştir** onay kutusunu seçin.</span><span class="sxs-lookup"><span data-stu-id="c44da-121">Select the **Enable** check box to enable the backup policy.</span></span> 
+   6. <span data-ttu-id="c44da-122">Onay simgesine</span><span class="sxs-lookup"><span data-stu-id="c44da-122">Click the check icon</span></span> ![onay simgesi](./media/storsimple-take-backup/HCS_CheckIcon-include.png) <span data-ttu-id="c44da-124">tıklayarak ilkeyi kaydedin.</span><span class="sxs-lookup"><span data-stu-id="c44da-124">to save the policy.</span></span>
       
       ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
       
-      Artık, birim verilerinizin zamanlanmış yedeklerini oluşturacak bir yedekleme ilkesine sahipsiniz.
+      <span data-ttu-id="c44da-126">Artık, birim verilerinizin zamanlanmış yedeklerini oluşturacak bir yedekleme ilkesine sahipsiniz.</span><span class="sxs-lookup"><span data-stu-id="c44da-126">You now have a backup policy that will create scheduled backups of your volume data.</span></span>
 
-Cihaz yapılandırmasını tamamladınız. 
+<span data-ttu-id="c44da-127">Cihaz yapılandırmasını tamamladınız.</span><span class="sxs-lookup"><span data-stu-id="c44da-127">You have completed the device configuration.</span></span> 
 
-![Video var](./media/storsimple-take-backup/Video_icon.png) **Video var**
+<span data-ttu-id="c44da-128">![Video var](./media/storsimple-take-backup/Video_icon.png) **Video var**</span><span class="sxs-lookup"><span data-stu-id="c44da-128">![Video available](./media/storsimple-take-backup/Video_icon.png) **Video available**</span></span>
 
-Bir StorSimple yedeğinin nasıl alınacağını gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/) tıklayın.
+<span data-ttu-id="c44da-129">Bir StorSimple yedeğinin nasıl alınacağını gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/) tıklayın.</span><span class="sxs-lookup"><span data-stu-id="c44da-129">To watch a video that demonstrates how to take a StorSimple backup, click [here](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).</span></span>
 

@@ -1,7 +1,7 @@
-## <a name="clean-up-resources"></a>Kaynakları temizleme
+## <a name="clean-up-resources"></a><span data-ttu-id="16a78-101">Kaynakları temizleme</span><span class="sxs-lookup"><span data-stu-id="16a78-101">Clean up resources</span></span>
 
-Önceki adımlarda, bir kaynak grubunda Azure kaynakları oluşturdunuz. İleride bu kaynaklara ihtiyaç duymayacağınızı düşünüyorsanız kaynakları silmek için kaynak grubunu silebilirsiniz.
+<span data-ttu-id="16a78-102">Önceki adımlarda, bir kaynak grubunda Azure kaynakları oluşturdunuz.</span><span class="sxs-lookup"><span data-stu-id="16a78-102">In the preceding steps, you created Azure resources in a resource group.</span></span> <span data-ttu-id="16a78-103">İleride bu kaynaklara ihtiyaç duymayacağınızı düşünüyorsanız kaynakları silmek için kaynak grubunu silebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="16a78-103">If you don't expect to need these resources in the future, you can delete them by deleting the resource group.</span></span>
  
-1. Web uygulamanızın Azure portalındaki **Genel Bakış** sayfasından **Kaynak grubu**'nun altındaki **myResourceGroup** bağlantısını seçin.
-2. Kaynak grubu sayfasındaki listede yer alan kaynakların silmek istediğiniz kaynaklar olduğundan emin olun.
-3. **Sil**'i seçin, metin kutusuna **myResourceGroup** yazın ve ardından **Sil**'e tıklayın.
+1. <span data-ttu-id="16a78-104">Web uygulamanızın Azure portalındaki **Genel Bakış** sayfasından **Kaynak grubu**'nun altındaki **myResourceGroup** bağlantısını seçin.</span><span class="sxs-lookup"><span data-stu-id="16a78-104">From your web app's **Overview** page in the Azure portal, select the **myResourceGroup** link under **Resource group**.</span></span>
+2. <span data-ttu-id="16a78-105">Kaynak grubu sayfasındaki listede yer alan kaynakların silmek istediğiniz kaynaklar olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="16a78-105">On the resource group page, make sure that the listed resources are the ones you want to delete.</span></span>
+3. <span data-ttu-id="16a78-106">**Sil**'i seçin, metin kutusuna **myResourceGroup** yazın ve ardından **Sil**'e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="16a78-106">Select **Delete**, type **myResourceGroup** in the text box, and then select **Delete**.</span></span>

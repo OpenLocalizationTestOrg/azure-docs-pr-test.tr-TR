@@ -1,14 +1,14 @@
-#### <a name="to-create-public-endpoints-on-the-virtual-device"></a>Sanal cihazda genel uç noktalar oluşturmak için
+#### <a name="to-create-public-endpoints-on-the-virtual-device"></a><span data-ttu-id="57cec-101">Sanal cihazda genel uç noktalar oluşturmak için</span><span class="sxs-lookup"><span data-stu-id="57cec-101">To create public endpoints on the virtual device</span></span>
 
-1. Klasik Azure portalında oturum açın.
-2. **Virtual Machines**’e tıklayın ve sanal cihazınız olarak kullanılacak sanal makineyi seçin.
-3. **Uç Noktalar**’a tıklayın. **Uç Noktalar** sayfası sanal makineyle ilgili tüm uç noktaları listeler.
-4. **Ekle**'ye tıklayın. **Uç Nokta Ekle** iletişim kutusu görünür. Devam etmek için oka tıklayın.
-5. **Ad** için şu uç nokta adını yazın: **WinRMHttps**.
-6. **Protokol** için **TCP**’yi belirtin.
-7. **Genel Bağlantı Noktası** için bağlantıda kullanmak istediğiniz bağlantı noktası numaralarını yazın.
-8. **Özel Bağlantı Noktası** için **5986** yazın.
-9. Uç noktası oluşturmak için onay işaretine tıklayın.
+1. <span data-ttu-id="57cec-102">Klasik Azure portalında oturum açın.</span><span class="sxs-lookup"><span data-stu-id="57cec-102">Sign in to the Azure classic portal.</span></span>
+2. <span data-ttu-id="57cec-103">**Virtual Machines**’e tıklayın ve sanal cihazınız olarak kullanılacak sanal makineyi seçin.</span><span class="sxs-lookup"><span data-stu-id="57cec-103">Click **Virtual Machines**, and then select the virtual machine that is being used as your virtual device.</span></span>
+3. <span data-ttu-id="57cec-104">**Uç Noktalar**’a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="57cec-104">Click **Endpoints**.</span></span> <span data-ttu-id="57cec-105">**Uç Noktalar** sayfası sanal makineyle ilgili tüm uç noktaları listeler.</span><span class="sxs-lookup"><span data-stu-id="57cec-105">The **Endpoints** page lists all endpoints for the virtual machine.</span></span>
+4. <span data-ttu-id="57cec-106">**Ekle**'ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="57cec-106">Click **Add**.</span></span> <span data-ttu-id="57cec-107">**Uç Nokta Ekle** iletişim kutusu görünür.</span><span class="sxs-lookup"><span data-stu-id="57cec-107">The **Add Endpoint** dialog box appears.</span></span> <span data-ttu-id="57cec-108">Devam etmek için oka tıklayın.</span><span class="sxs-lookup"><span data-stu-id="57cec-108">Click the arrow to continue.</span></span>
+5. <span data-ttu-id="57cec-109">**Ad** için şu uç nokta adını yazın: **WinRMHttps**.</span><span class="sxs-lookup"><span data-stu-id="57cec-109">For the **Name**, type the following name for the endpoint: **WinRMHttps**.</span></span>
+6. <span data-ttu-id="57cec-110">**Protokol** için **TCP**’yi belirtin.</span><span class="sxs-lookup"><span data-stu-id="57cec-110">For the **Protocol**, specify **TCP**.</span></span>
+7. <span data-ttu-id="57cec-111">**Genel Bağlantı Noktası** için bağlantıda kullanmak istediğiniz bağlantı noktası numaralarını yazın.</span><span class="sxs-lookup"><span data-stu-id="57cec-111">For the **Public Port**, type the port numbers that you want to use for the connection.</span></span>
+8. <span data-ttu-id="57cec-112">**Özel Bağlantı Noktası** için **5986** yazın.</span><span class="sxs-lookup"><span data-stu-id="57cec-112">For the **Private Port**, type **5986**.</span></span>
+9. <span data-ttu-id="57cec-113">Uç noktası oluşturmak için onay işaretine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="57cec-113">Click the check mark to create the endpoint.</span></span>
 
-Uç nokta oluşturulduktan sonra, Genel Sanal IP (VIP) adresini saptamak için ayrıntılarını görüntüleyebilirsiniz. Bu adresini kaydedin.
+<span data-ttu-id="57cec-114">Uç nokta oluşturulduktan sonra, Genel Sanal IP (VIP) adresini saptamak için ayrıntılarını görüntüleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="57cec-114">After the endpoint is created, you can view its details to determine the Public Virtual IP (VIP) address.</span></span> <span data-ttu-id="57cec-115">Bu adresini kaydedin.</span><span class="sxs-lookup"><span data-stu-id="57cec-115">Record this address.</span></span>
 

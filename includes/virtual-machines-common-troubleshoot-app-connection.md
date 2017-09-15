@@ -1,124 +1,124 @@
-Başlattığınızda veya bir Azure sanal makine (VM) üzerinde çalışan bir uygulamaya Bağlan çeşitli nedenleri vardır. Çalışmıyor uygulama nedenleri veya beklenen bağlantı noktalarında dinleme, engellenen dinleme bağlantı noktası veya ağ doğru uygulamaya geçirme trafiği kuralları. Bu makalede bulmak ve sorunu düzeltmek için sistemli bir yaklaşım açıklanmaktadır.
+<span data-ttu-id="de29a-101">Başlattığınızda veya bir Azure sanal makine (VM) üzerinde çalışan bir uygulamaya Bağlan çeşitli nedenleri vardır.</span><span class="sxs-lookup"><span data-stu-id="de29a-101">There are various reasons when you cannot start or connect to an application running on an Azure virtual machine (VM).</span></span> <span data-ttu-id="de29a-102">Çalışmıyor uygulama nedenleri veya beklenen bağlantı noktalarında dinleme, engellenen dinleme bağlantı noktası veya ağ doğru uygulamaya geçirme trafiği kuralları.</span><span class="sxs-lookup"><span data-stu-id="de29a-102">Reasons include the application not running or listening on the expected ports, the listening port blocked, or networking rules not correctly passing traffic to the application.</span></span> <span data-ttu-id="de29a-103">Bu makalede bulmak ve sorunu düzeltmek için sistemli bir yaklaşım açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="de29a-103">This article describes a methodical approach to find and correct the problem.</span></span>
 
-RDP veya SSH kullanarak, VM için bağlantı sorunları yaşıyorsanız, aşağıdaki makaleler birine ilk bakın:
+<span data-ttu-id="de29a-104">RDP veya SSH kullanarak, VM için bağlantı sorunları yaşıyorsanız, aşağıdaki makaleler birine ilk bakın:</span><span class="sxs-lookup"><span data-stu-id="de29a-104">If you are having issues connecting to your VM using RDP or SSH, see one of the following articles first:</span></span>
 
-* [Uzak Masaüstü bağlantıları için Windows tabanlı Azure sanal makine sorunlarını giderme](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
-* [Linux tabanlı bir Azure sanal makine için güvenli Kabuk (SSH) bağlantı sorunlarını giderme](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
+* [<span data-ttu-id="de29a-105">Uzak Masaüstü bağlantıları için Windows tabanlı Azure sanal makine sorunlarını giderme</span><span class="sxs-lookup"><span data-stu-id="de29a-105">Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine</span></span>](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
+* <span data-ttu-id="de29a-106">[Linux tabanlı bir Azure sanal makine için güvenli Kabuk (SSH) bağlantı sorunlarını giderme](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).</span><span class="sxs-lookup"><span data-stu-id="de29a-106">[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).</span></span>
 
 > [!NOTE]
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../articles/resource-manager-deployment-model.md). Bu makale her iki modelin de nasıl kullanıldığını kapsıyor olsa da, Microsoft en yeni dağıtımların Resource Manager modelini kullanmasını önermektedir.
+> <span data-ttu-id="de29a-107">Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../articles/resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="de29a-107">Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../articles/resource-manager-deployment-model.md).</span></span> <span data-ttu-id="de29a-108">Bu makale her iki modelin de nasıl kullanıldığını kapsıyor olsa da, Microsoft en yeni dağıtımların Resource Manager modelini kullanmasını önermektedir.</span><span class="sxs-lookup"><span data-stu-id="de29a-108">This article covers using both models, but Microsoft recommends that most new deployments use the Resource Manager model.</span></span>
 
-Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, üzerinde Azure uzmanlar başvurabilirsiniz [MSDN Azure ve yığın taşması forumlar](https://azure.microsoft.com/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) seçip **alma desteği**.
+<span data-ttu-id="de29a-109">Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, üzerinde Azure uzmanlar başvurabilirsiniz [MSDN Azure ve yığın taşması forumlar](https://azure.microsoft.com/support/forums/).</span><span class="sxs-lookup"><span data-stu-id="de29a-109">If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/).</span></span> <span data-ttu-id="de29a-110">Alternatif olarak, Azure destek olay dosya.</span><span class="sxs-lookup"><span data-stu-id="de29a-110">Alternatively, you can also file an Azure support incident.</span></span> <span data-ttu-id="de29a-111">Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) seçip **alma desteği**.</span><span class="sxs-lookup"><span data-stu-id="de29a-111">Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.</span></span>
 
-## <a name="quick-start-troubleshooting-steps"></a>Hızlı Başlangıç sorun giderme adımları
-Bir uygulamaya bağlantı sorunlarınız varsa, aşağıdaki genel sorun giderme adımlarını deneyin. Her adımdan sonra uygulamayı yeniden bağlanmayı deneyin:
+## <a name="quick-start-troubleshooting-steps"></a><span data-ttu-id="de29a-112">Hızlı Başlangıç sorun giderme adımları</span><span class="sxs-lookup"><span data-stu-id="de29a-112">Quick-start troubleshooting steps</span></span>
+<span data-ttu-id="de29a-113">Bir uygulamaya bağlantı sorunlarınız varsa, aşağıdaki genel sorun giderme adımlarını deneyin.</span><span class="sxs-lookup"><span data-stu-id="de29a-113">If you have problems connecting to an application, try the following general troubleshooting steps.</span></span> <span data-ttu-id="de29a-114">Her adımdan sonra uygulamayı yeniden bağlanmayı deneyin:</span><span class="sxs-lookup"><span data-stu-id="de29a-114">After each step, try connecting to your application again:</span></span>
 
-* Sanal makineyi yeniden başlatın
-* Uç nokta yeniden / kuralları güvenlik duvarı / ağ güvenlik grubu (NSG) kuralları
-  * [Resource Manager modeli - ağ güvenlik gruplarını yönetme](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-  * [Klasik model - Cloud Services'ı Yönet uç noktaları](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-* Farklı bir Azure sanal ağı gibi farklı bir konumdan bağlanma
-* Sanal makineyi yeniden dağıtın
-  * [Windows VM yeniden dağıtın](../articles/virtual-machines/windows/redeploy-to-new-node.md)
-  * [Linux VM yeniden dağıtın](../articles/virtual-machines/linux/redeploy-to-new-node.md)
-* Sanal makine oluşturun
+* <span data-ttu-id="de29a-115">Sanal makineyi yeniden başlatın</span><span class="sxs-lookup"><span data-stu-id="de29a-115">Restart the virtual machine</span></span>
+* <span data-ttu-id="de29a-116">Uç nokta yeniden / kuralları güvenlik duvarı / ağ güvenlik grubu (NSG) kuralları</span><span class="sxs-lookup"><span data-stu-id="de29a-116">Recreate the endpoint / firewall rules / network security group (NSG) rules</span></span>
+  * [<span data-ttu-id="de29a-117">Resource Manager modeli - ağ güvenlik gruplarını yönetme</span><span class="sxs-lookup"><span data-stu-id="de29a-117">Resource Manager model - Manage Network Security Groups</span></span>](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [<span data-ttu-id="de29a-118">Klasik model - Cloud Services'ı Yönet uç noktaları</span><span class="sxs-lookup"><span data-stu-id="de29a-118">Classic model - Manage Cloud Services endpoints</span></span>](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+* <span data-ttu-id="de29a-119">Farklı bir Azure sanal ağı gibi farklı bir konumdan bağlanma</span><span class="sxs-lookup"><span data-stu-id="de29a-119">Connect from different location, such as a different Azure virtual network</span></span>
+* <span data-ttu-id="de29a-120">Sanal makineyi yeniden dağıtın</span><span class="sxs-lookup"><span data-stu-id="de29a-120">Redeploy the virtual machine</span></span>
+  * [<span data-ttu-id="de29a-121">Windows VM yeniden dağıtın</span><span class="sxs-lookup"><span data-stu-id="de29a-121">Redeploy Windows VM</span></span>](../articles/virtual-machines/windows/redeploy-to-new-node.md)
+  * [<span data-ttu-id="de29a-122">Linux VM yeniden dağıtın</span><span class="sxs-lookup"><span data-stu-id="de29a-122">Redeploy Linux VM</span></span>](../articles/virtual-machines/linux/redeploy-to-new-node.md)
+* <span data-ttu-id="de29a-123">Sanal makine oluşturun</span><span class="sxs-lookup"><span data-stu-id="de29a-123">Recreate the virtual machine</span></span>
 
-Daha fazla bilgi için bkz: [sorun giderme uç noktası bağlantısı (RDP/SSH/HTTP, vb. hataları)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
+<span data-ttu-id="de29a-124">Daha fazla bilgi için bkz: [sorun giderme uç noktası bağlantısı (RDP/SSH/HTTP, vb. hataları)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).</span><span class="sxs-lookup"><span data-stu-id="de29a-124">For more information, see [Troubleshooting Endpoint Connectivity (RDP/SSH/HTTP, etc. failures)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).</span></span>
 
-## <a name="detailed-troubleshooting-overview"></a>Ayrıntılı sorun giderme genel bakış
-Bir Azure sanal makine üzerinde çalışan bir uygulama erişim sorunlarını giderme için dört temel konu vardır.
+## <a name="detailed-troubleshooting-overview"></a><span data-ttu-id="de29a-125">Ayrıntılı sorun giderme genel bakış</span><span class="sxs-lookup"><span data-stu-id="de29a-125">Detailed troubleshooting overview</span></span>
+<span data-ttu-id="de29a-126">Bir Azure sanal makine üzerinde çalışan bir uygulama erişim sorunlarını giderme için dört temel konu vardır.</span><span class="sxs-lookup"><span data-stu-id="de29a-126">There are four main areas to troubleshoot the access of an application that is running on an Azure virtual machine.</span></span>
 
 ![sorun giderme uygulaması başlatılamıyor](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
 
-1. Azure sanal makine üzerinde çalışan uygulama.
-   * Uygulamanın düzgün çalışıyor mu?
-2. Azure sanal makine.
-   * VM düzgün çalışmasını ve isteklere yanıt nedir?
-3. Azure ağı uç noktaları.
-   * Hizmet uç noktaları Klasik dağıtım modelinde sanal makineler için bulut.
-   * Ağ güvenlik grupları ve Resource Manager dağıtım modelinde sanal makineler için gelen NAT kuralları.
-   * Kullanıcılar bir akışından VM/uygulamanın beklenen bağlantı noktalarında trafiği?
-4. Internet sınır cihazı.
-   * Güvenlik duvarı kuralları yerinde doğru akan trafik engelliyor?
+1. <span data-ttu-id="de29a-128">Azure sanal makine üzerinde çalışan uygulama.</span><span class="sxs-lookup"><span data-stu-id="de29a-128">The application running on the Azure virtual machine.</span></span>
+   * <span data-ttu-id="de29a-129">Uygulamanın düzgün çalışıyor mu?</span><span class="sxs-lookup"><span data-stu-id="de29a-129">Is the application itself running correctly?</span></span>
+2. <span data-ttu-id="de29a-130">Azure sanal makine.</span><span class="sxs-lookup"><span data-stu-id="de29a-130">The Azure virtual machine.</span></span>
+   * <span data-ttu-id="de29a-131">VM düzgün çalışmasını ve isteklere yanıt nedir?</span><span class="sxs-lookup"><span data-stu-id="de29a-131">Is the VM itself running correctly and responding to requests?</span></span>
+3. <span data-ttu-id="de29a-132">Azure ağı uç noktaları.</span><span class="sxs-lookup"><span data-stu-id="de29a-132">Azure network endpoints.</span></span>
+   * <span data-ttu-id="de29a-133">Hizmet uç noktaları Klasik dağıtım modelinde sanal makineler için bulut.</span><span class="sxs-lookup"><span data-stu-id="de29a-133">Cloud service endpoints for virtual machines in the Classic deployment model.</span></span>
+   * <span data-ttu-id="de29a-134">Ağ güvenlik grupları ve Resource Manager dağıtım modelinde sanal makineler için gelen NAT kuralları.</span><span class="sxs-lookup"><span data-stu-id="de29a-134">Network Security Groups and inbound NAT rules for virtual machines in Resource Manager deployment model.</span></span>
+   * <span data-ttu-id="de29a-135">Kullanıcılar bir akışından VM/uygulamanın beklenen bağlantı noktalarında trafiği?</span><span class="sxs-lookup"><span data-stu-id="de29a-135">Can traffic flow from users to the VM/application on the expected ports?</span></span>
+4. <span data-ttu-id="de29a-136">Internet sınır cihazı.</span><span class="sxs-lookup"><span data-stu-id="de29a-136">Your Internet edge device.</span></span>
+   * <span data-ttu-id="de29a-137">Güvenlik duvarı kuralları yerinde doğru akan trafik engelliyor?</span><span class="sxs-lookup"><span data-stu-id="de29a-137">Are firewall rules in place preventing traffic from flowing correctly?</span></span>
 
-Uygulama siteden siteye VPN veya ExpressRoute bağlantısı üzerinden erişen istemci bilgisayarlar için sorunlara neden olabilecek ana uygulama ve Azure sanal makinesini alanlardır.
+<span data-ttu-id="de29a-138">Uygulama siteden siteye VPN veya ExpressRoute bağlantısı üzerinden erişen istemci bilgisayarlar için sorunlara neden olabilecek ana uygulama ve Azure sanal makinesini alanlardır.</span><span class="sxs-lookup"><span data-stu-id="de29a-138">For client computers that are accessing the application over a site-to-site VPN or ExpressRoute connection, the main areas that can cause problems are the application and the Azure virtual machine.</span></span>
 
-Sorun ve kendi düzeltme kaynağını belirlemek için aşağıdaki adımları izleyin.
+<span data-ttu-id="de29a-139">Sorun ve kendi düzeltme kaynağını belirlemek için aşağıdaki adımları izleyin.</span><span class="sxs-lookup"><span data-stu-id="de29a-139">To determine the source of the problem and its correction, follow these steps.</span></span>
 
-## <a name="step-1-access-application-from-target-vm"></a>Adım 1: hedef VM uygulamaya erişim
-Uygun istemci programını uygulamayla üzerinde çalıştığı sanal makineden erişmeyi deneyin. Yerel ana bilgisayar adı, yerel IP adresi ya da geri döngü adresine (127.0.0.1) kullanın.
+## <a name="step-1-access-application-from-target-vm"></a><span data-ttu-id="de29a-140">Adım 1: hedef VM uygulamaya erişim</span><span class="sxs-lookup"><span data-stu-id="de29a-140">Step 1: Access application from target VM</span></span>
+<span data-ttu-id="de29a-141">Uygun istemci programını uygulamayla üzerinde çalıştığı sanal makineden erişmeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="de29a-141">Try to access the application with the appropriate client program from the VM on which it is running.</span></span> <span data-ttu-id="de29a-142">Yerel ana bilgisayar adı, yerel IP adresi ya da geri döngü adresine (127.0.0.1) kullanın.</span><span class="sxs-lookup"><span data-stu-id="de29a-142">Use the local host name, the local IP address, or the loopback address (127.0.0.1).</span></span>
 
 ![doğrudan sanal makineden uygulama Başlat](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
-Örneğin, uygulama bir web sunucusu ise, VM'de bir tarayıcı açın ve VM üzerinde barındırılan bir web sayfasına erişmeyi deneyin.
+<span data-ttu-id="de29a-144">Örneğin, uygulama bir web sunucusu ise, VM'de bir tarayıcı açın ve VM üzerinde barındırılan bir web sayfasına erişmeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="de29a-144">For example, if the application is a web server, open a browser on the VM and try to access a web page hosted on the VM.</span></span>
 
-Uygulama erişebiliyorsanız Git [2. adım](#step2).
+<span data-ttu-id="de29a-145">Uygulama erişebiliyorsanız Git [2. adım](#step2).</span><span class="sxs-lookup"><span data-stu-id="de29a-145">If you can access the application, go to [Step 2](#step2).</span></span>
 
-Uygulama erişemiyorsanız, aşağıdaki ayarları doğrulayın:
+<span data-ttu-id="de29a-146">Uygulama erişemiyorsanız, aşağıdaki ayarları doğrulayın:</span><span class="sxs-lookup"><span data-stu-id="de29a-146">If you cannot access the application, verify the following settings:</span></span>
 
-* Uygulamanın hedef sanal makinede çalışıyor.
-* Uygulamanın, beklenen TCP ve UDP bağlantı noktaları dinliyor.
+* <span data-ttu-id="de29a-147">Uygulamanın hedef sanal makinede çalışıyor.</span><span class="sxs-lookup"><span data-stu-id="de29a-147">The application is running on the target virtual machine.</span></span>
+* <span data-ttu-id="de29a-148">Uygulamanın, beklenen TCP ve UDP bağlantı noktaları dinliyor.</span><span class="sxs-lookup"><span data-stu-id="de29a-148">The application is listening on the expected TCP and UDP ports.</span></span>
 
-Hem Windows hem de Linux tabanlı sanal makineleri kullanmak **netstat - a** etkin dinleme bağlantı noktalarını göstermek için komutu. Uygulamanızı dinleniyor olması beklenen bağlantı noktaları için çıktıyı inceleyin. Uygulamayı yeniden başlatın veya gerektiğinde beklenen bağlantı noktalarını kullanacak ve uygulama yerel olarak yeniden erişmeye şekilde yapılandırın.
+<span data-ttu-id="de29a-149">Hem Windows hem de Linux tabanlı sanal makineleri kullanmak **netstat - a** etkin dinleme bağlantı noktalarını göstermek için komutu.</span><span class="sxs-lookup"><span data-stu-id="de29a-149">On both Windows and Linux-based virtual machines, use the **netstat -a** command to show the active listening ports.</span></span> <span data-ttu-id="de29a-150">Uygulamanızı dinleniyor olması beklenen bağlantı noktaları için çıktıyı inceleyin.</span><span class="sxs-lookup"><span data-stu-id="de29a-150">Examine the output for the expected ports on which your application should be listening.</span></span> <span data-ttu-id="de29a-151">Uygulamayı yeniden başlatın veya gerektiğinde beklenen bağlantı noktalarını kullanacak ve uygulama yerel olarak yeniden erişmeye şekilde yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="de29a-151">Restart the application or configure it to use the expected ports as needed and try to access the application locally again.</span></span>
 
-## <a id="step2"></a>2. adım: aynı sanal ağdaki başka bir VM'den uygulamaya erişim
-Farklı bir VM ancak VM ana bilgisayar adı veya Azure tarafından atanan genel, özel veya sağlayıcı IP adresini kullanarak aynı sanal ağda uygulamaya erişmeyi deneyin. Klasik dağıtım modeli kullanılarak oluşturulan sanal makineler için bulut hizmetini genel IP adresi kullanmayın.
+## <span data-ttu-id="de29a-152"><a id="step2"></a>2. adım: aynı sanal ağdaki başka bir VM'den uygulamaya erişim</span><span class="sxs-lookup"><span data-stu-id="de29a-152"><a id="step2"></a>Step 2: Access application from another VM in the same virtual network</span></span>
+<span data-ttu-id="de29a-153">Farklı bir VM ancak VM ana bilgisayar adı veya Azure tarafından atanan genel, özel veya sağlayıcı IP adresini kullanarak aynı sanal ağda uygulamaya erişmeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="de29a-153">Try to access the application from a different VM but in the same virtual network, using the VM's host name or its Azure-assigned public, private, or provider IP address.</span></span> <span data-ttu-id="de29a-154">Klasik dağıtım modeli kullanılarak oluşturulan sanal makineler için bulut hizmetini genel IP adresi kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="de29a-154">For virtual machines created using the classic deployment model, do not use the public IP address of the cloud service.</span></span>
 
 ![farklı bir sanal makineden uygulama Başlat](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
 
-Uygulama bir web sunucusu ise, örneğin, aynı sanal ağda farklı bir VM üzerinde bir tarayıcıdan web sayfası erişmeyi deneyin.
+<span data-ttu-id="de29a-156">Uygulama bir web sunucusu ise, örneğin, aynı sanal ağda farklı bir VM üzerinde bir tarayıcıdan web sayfası erişmeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="de29a-156">For example, if the application is a web server, try to access a web page from a browser on a different VM in the same virtual network.</span></span>
 
-Uygulama erişebiliyorsanız Git [adım 3](#step3).
+<span data-ttu-id="de29a-157">Uygulama erişebiliyorsanız Git [adım 3](#step3).</span><span class="sxs-lookup"><span data-stu-id="de29a-157">If you can access the application, go to [Step 3](#step3).</span></span>
 
-Uygulama erişemiyorsanız, aşağıdaki ayarları doğrulayın:
+<span data-ttu-id="de29a-158">Uygulama erişemiyorsanız, aşağıdaki ayarları doğrulayın:</span><span class="sxs-lookup"><span data-stu-id="de29a-158">If you cannot access the application, verify the following settings:</span></span>
 
-* Gelen istek ve yanıt giden trafiği hedef VM konak güvenlik duvarını izin verir.
-* Yetkisiz erişim algılama ya da ağ izleme hedef VM çalıştıran yazılım trafiğe izin verdiğinden.
-* Bulut Hizmetleri uç noktaları veya ağ güvenlik grupları trafiğe izin:
-  * [Klasik model - Cloud Services'ı Yönet uç noktaları](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Resource Manager modeli - ağ güvenlik gruplarını yönetme](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-* VM'nizi yolundaki arasında test VM ve yük dengeleyici veya güvenlik duvarı gibi VM çalıştıran ayrı bir bileşen trafiğe izin verdiğinden.
+* <span data-ttu-id="de29a-159">Gelen istek ve yanıt giden trafiği hedef VM konak güvenlik duvarını izin verir.</span><span class="sxs-lookup"><span data-stu-id="de29a-159">The host firewall on the target VM is allowing the inbound request and outbound response traffic.</span></span>
+* <span data-ttu-id="de29a-160">Yetkisiz erişim algılama ya da ağ izleme hedef VM çalıştıran yazılım trafiğe izin verdiğinden.</span><span class="sxs-lookup"><span data-stu-id="de29a-160">Intrusion detection or network monitoring software running on the target VM is allowing the traffic.</span></span>
+* <span data-ttu-id="de29a-161">Bulut Hizmetleri uç noktaları veya ağ güvenlik grupları trafiğe izin:</span><span class="sxs-lookup"><span data-stu-id="de29a-161">Cloud Services endpoints or Network Security Groups are allowing the traffic:</span></span>
+  * [<span data-ttu-id="de29a-162">Klasik model - Cloud Services'ı Yönet uç noktaları</span><span class="sxs-lookup"><span data-stu-id="de29a-162">Classic model - Manage Cloud Services endpoints</span></span>](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+  * [<span data-ttu-id="de29a-163">Resource Manager modeli - ağ güvenlik gruplarını yönetme</span><span class="sxs-lookup"><span data-stu-id="de29a-163">Resource Manager model - Manage Network Security Groups</span></span>](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* <span data-ttu-id="de29a-164">VM'nizi yolundaki arasında test VM ve yük dengeleyici veya güvenlik duvarı gibi VM çalıştıran ayrı bir bileşen trafiğe izin verdiğinden.</span><span class="sxs-lookup"><span data-stu-id="de29a-164">A separate component running in your VM in the path between the test VM and your VM, such as a load balancer or firewall, is allowing the traffic.</span></span>
 
-Bir Windows tabanlı sanal makinede güvenlik duvarı kuralları, uygulamanızın gelen ve giden trafik hariç olup olmadığını belirlemek için Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı'nı kullanın.
+<span data-ttu-id="de29a-165">Bir Windows tabanlı sanal makinede güvenlik duvarı kuralları, uygulamanızın gelen ve giden trafik hariç olup olmadığını belirlemek için Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı'nı kullanın.</span><span class="sxs-lookup"><span data-stu-id="de29a-165">On a Windows-based virtual machine, use Windows Firewall with Advanced Security to determine whether the firewall rules exclude your application's inbound and outbound traffic.</span></span>
 
-## <a id="step3"></a>Adım 3: Sanal ağ dışındaki erişim uygulama
-Uygulamanın sanal ağ dışındaki bir bilgisayardan uygulamanın çalıştığı VM erişmeyi deneyin. Farklı bir ağ özgün istemci bilgisayarınız kullanın.
+## <span data-ttu-id="de29a-166"><a id="step3"></a>Adım 3: Sanal ağ dışındaki erişim uygulama</span><span class="sxs-lookup"><span data-stu-id="de29a-166"><a id="step3"></a>Step 3: Access application from outside the virtual network</span></span>
+<span data-ttu-id="de29a-167">Uygulamanın sanal ağ dışındaki bir bilgisayardan uygulamanın çalıştığı VM erişmeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="de29a-167">Try to access the application from a computer outside the virtual network as the VM on which the application is running.</span></span> <span data-ttu-id="de29a-168">Farklı bir ağ özgün istemci bilgisayarınız kullanın.</span><span class="sxs-lookup"><span data-stu-id="de29a-168">Use a different network as your original client computer.</span></span>
 
 ![sanal ağ dışındaki bir bilgisayardan uygulama Başlat](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
-Uygulama bir web sunucusu ise, örneğin, sanal ağında olmayan bir bilgisayarda çalışan bir tarayıcıdan web sayfası erişmeyi deneyin.
+<span data-ttu-id="de29a-170">Uygulama bir web sunucusu ise, örneğin, sanal ağında olmayan bir bilgisayarda çalışan bir tarayıcıdan web sayfası erişmeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="de29a-170">For example, if the application is a web server, try to access the web page from a browser running on a computer that is not in the virtual network.</span></span>
 
-Uygulama erişemiyorsanız, aşağıdaki ayarları doğrulayın:
+<span data-ttu-id="de29a-171">Uygulama erişemiyorsanız, aşağıdaki ayarları doğrulayın:</span><span class="sxs-lookup"><span data-stu-id="de29a-171">If you cannot access the application, verify the following settings:</span></span>
 
-* Klasik dağıtım modeli kullanılarak oluşturulan VM'ler için:
+* <span data-ttu-id="de29a-172">Klasik dağıtım modeli kullanılarak oluşturulan VM'ler için:</span><span class="sxs-lookup"><span data-stu-id="de29a-172">For VMs created using the classic deployment model:</span></span>
   
-  * VM için uç nokta yapılandırması gelen trafiği, özellikle Protokolü (TCP veya UDP) ve ortak ve özel bağlantı noktası numaralarını izin verdiğinden emin olun.
-  * Erişim denetim listelerini (ACL'ler) uç Internet'ten gelen trafiği engellemediğini doğrulayın.
-  * Daha fazla bilgi için bkz: [ayarlamak yukarı uç noktaları için bir sanal makine nasıl](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-* Resource Manager dağıtım modeli kullanılarak oluşturulan VM'ler için:
+  * <span data-ttu-id="de29a-173">VM için uç nokta yapılandırması gelen trafiği, özellikle Protokolü (TCP veya UDP) ve ortak ve özel bağlantı noktası numaralarını izin verdiğinden emin olun.</span><span class="sxs-lookup"><span data-stu-id="de29a-173">Verify that the endpoint configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.</span></span>
+  * <span data-ttu-id="de29a-174">Erişim denetim listelerini (ACL'ler) uç Internet'ten gelen trafiği engellemediğini doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="de29a-174">Verify that access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet.</span></span>
+  * <span data-ttu-id="de29a-175">Daha fazla bilgi için bkz: [ayarlamak yukarı uç noktaları için bir sanal makine nasıl](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="de29a-175">For more information, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).</span></span>
+* <span data-ttu-id="de29a-176">Resource Manager dağıtım modeli kullanılarak oluşturulan VM'ler için:</span><span class="sxs-lookup"><span data-stu-id="de29a-176">For VMs created using the Resource Manager deployment model:</span></span>
   
-  * VM için gelen NAT kuralı yapılandırmasını gelen trafiği, özellikle Protokolü (TCP veya UDP) ve ortak ve özel bağlantı noktası numaralarını izin verdiğinden emin olun.
-  * Ağ güvenlik grupları gelen talep ve giden yanıt trafiği izin emin olun.
-  * Daha fazla bilgi için bkz. [Ağ Güvenlik Grubu (NSG) nedir?](../articles/virtual-network/virtual-networks-nsg.md)
+  * <span data-ttu-id="de29a-177">VM için gelen NAT kuralı yapılandırmasını gelen trafiği, özellikle Protokolü (TCP veya UDP) ve ortak ve özel bağlantı noktası numaralarını izin verdiğinden emin olun.</span><span class="sxs-lookup"><span data-stu-id="de29a-177">Verify that the inbound NAT rule configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.</span></span>
+  * <span data-ttu-id="de29a-178">Ağ güvenlik grupları gelen talep ve giden yanıt trafiği izin emin olun.</span><span class="sxs-lookup"><span data-stu-id="de29a-178">Verify that Network Security Groups are allowing the inbound request and outbound response traffic.</span></span>
+  * <span data-ttu-id="de29a-179">Daha fazla bilgi için bkz. [Ağ Güvenlik Grubu (NSG) nedir?](../articles/virtual-network/virtual-networks-nsg.md)</span><span class="sxs-lookup"><span data-stu-id="de29a-179">For more information, see [What is a Network Security Group (NSG)?](../articles/virtual-network/virtual-networks-nsg.md)</span></span>
 
-Sanal makine ya da uç nokta yük dengelenmiş bir küme üyesi ise:
+<span data-ttu-id="de29a-180">Sanal makine ya da uç nokta yük dengelenmiş bir küme üyesi ise:</span><span class="sxs-lookup"><span data-stu-id="de29a-180">If the virtual machine or endpoint is a member of a load-balanced set:</span></span>
 
-* Araştırma Protokolü (TCP veya UDP) ve bağlantı noktası numarasının doğru olduğundan emin olun.
-* Araştırma protokolü ve bağlantı noktası olup olmadığını yük dengeli kümesi protokolü ve bağlantı noktası farklı:
-  * Uygulama araştırma Protokolü (TCP veya UDP) ve bağlantı noktası üzerinde dinleme yaptığını doğrulayın (kullanmak **netstat – a** VM hedefte).
-  * Hedef VM konak güvenlik duvarını gelen araştırma isteğinin ve giden araştırma yanıtı trafiğine izin verdiğinden emin olun.
+* <span data-ttu-id="de29a-181">Araştırma Protokolü (TCP veya UDP) ve bağlantı noktası numarasının doğru olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="de29a-181">Verify that the probe protocol (TCP or UDP) and port number are correct.</span></span>
+* <span data-ttu-id="de29a-182">Araştırma protokolü ve bağlantı noktası olup olmadığını yük dengeli kümesi protokolü ve bağlantı noktası farklı:</span><span class="sxs-lookup"><span data-stu-id="de29a-182">If the probe protocol and port is different than the load-balanced set protocol and port:</span></span>
+  * <span data-ttu-id="de29a-183">Uygulama araştırma Protokolü (TCP veya UDP) ve bağlantı noktası üzerinde dinleme yaptığını doğrulayın (kullanmak **netstat – a** VM hedefte).</span><span class="sxs-lookup"><span data-stu-id="de29a-183">Verify that the application is listening on the probe protocol (TCP or UDP) and port number (use **netstat –a** on the target VM).</span></span>
+  * <span data-ttu-id="de29a-184">Hedef VM konak güvenlik duvarını gelen araştırma isteğinin ve giden araştırma yanıtı trafiğine izin verdiğinden emin olun.</span><span class="sxs-lookup"><span data-stu-id="de29a-184">Verify that the host firewall on the target VM is allowing the inbound probe request and outbound probe response traffic.</span></span>
 
-Uygulama erişebiliyorsanız, Internet kenar Cihazınızı izin verdiğinden emin olmak:
+<span data-ttu-id="de29a-185">Uygulama erişebiliyorsanız, Internet kenar Cihazınızı izin verdiğinden emin olmak:</span><span class="sxs-lookup"><span data-stu-id="de29a-185">If you can access the application, ensure that your Internet edge device is allowing:</span></span>
 
-* Azure sanal makinesi, istemci bilgisayardan giden uygulama isteği akışına.
-* Azure sanal makineden gelen uygulama yanıt trafiği.
+* <span data-ttu-id="de29a-186">Azure sanal makinesi, istemci bilgisayardan giden uygulama isteği akışına.</span><span class="sxs-lookup"><span data-stu-id="de29a-186">The outbound application request traffic from your client computer to the Azure virtual machine.</span></span>
+* <span data-ttu-id="de29a-187">Azure sanal makineden gelen uygulama yanıt trafiği.</span><span class="sxs-lookup"><span data-stu-id="de29a-187">The inbound application response traffic from the Azure virtual machine.</span></span>
 
-## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Adım 4 uygulama erişemiyorsanız kullanan IP doğrulama ayarlarını denetlemek için. 
+## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a><span data-ttu-id="de29a-188">Adım 4 uygulama erişemiyorsanız kullanan IP doğrulama ayarlarını denetlemek için.</span><span class="sxs-lookup"><span data-stu-id="de29a-188">Step 4 If you cannot access the application, use IP Verify to check the settings.</span></span> 
 
-Daha fazla bilgi için bkz: [izlemeye genel bakış Azure ağ](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+<span data-ttu-id="de29a-189">Daha fazla bilgi için bkz: [izlemeye genel bakış Azure ağ](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview).</span><span class="sxs-lookup"><span data-stu-id="de29a-189">For more information, see [Azure network monitoring overview](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview).</span></span> 
 
-## <a name="additional-resources"></a>Ek kaynaklar
-[Uzak Masaüstü bağlantıları için Windows tabanlı Azure sanal makine sorunlarını giderme](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
+## <a name="additional-resources"></a><span data-ttu-id="de29a-190">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="de29a-190">Additional resources</span></span>
+[<span data-ttu-id="de29a-191">Uzak Masaüstü bağlantıları için Windows tabanlı Azure sanal makine sorunlarını giderme</span><span class="sxs-lookup"><span data-stu-id="de29a-191">Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine</span></span>](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 
-[Linux tabanlı bir Azure sanal makine için güvenli Kabuk (SSH) bağlantı sorunlarını giderme](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
+[<span data-ttu-id="de29a-192">Linux tabanlı bir Azure sanal makine için güvenli Kabuk (SSH) bağlantı sorunlarını giderme</span><span class="sxs-lookup"><span data-stu-id="de29a-192">Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine</span></span>](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
 

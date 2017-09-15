@@ -1,20 +1,20 @@
 
-1. [Azure portalını] ziyaret edin.
-2. **Uygulama Hizmetleri**'ne ve oluşturduğunuz arka uca tıklayın.
-3. Mobil uygulama ayarlarında, **Hızlı Başlangıç** > **Cordova** öğesine tıklayın.
-![Mobile Apps Hızlı Başlangıcı'nın vurgulandığı Azure Portal][quickstart]
-4. **İstemci uygulamanızı yapılandırın** altında **Yeni Uygulama Oluştur**’u seçin ve **İndir**’e tıklayın.
-2. İndirilen ZIP dosyasını sabit sürücünüzde bir dizine çıkarın, çözüm dosyasına (.sln) gidin ve Visual Studio'yu kullanarak dosyayı açın.
-3. Visual Studio'da başlatma okunun yanındaki açılır menüden çözüm platformunu (Android, iOS veya Windows) seçin. Yeşil ok üzerindeki açılır menüye tıklayarak belirli bir dağıtım cihazı veya öykünücüyü seçin. Varsayılan Android platformunu ve Ripple öykünücüsünü kullanabilirsiniz. Daha gelişmiş öğreticilerde (anında iletme bildirimleri gibi) desteklenen bir cihazı ve öykünücüyü seçmeniz istenecek.
-4. Cordova uygulamanızı derlemek ve çalıştırmak için F5'e basın veya yeşil oka tıklayın. Öykünücüde ağa erişim isteyen bir güvenlik iletişim kutusu görürseniz erişim isteğini kabul edin.
-5. Cihazda veya öykünücüde uygulama başlatıldıktan sonra, **Yeni metin gir** bölümüne *Öğreticiyi tamamla* gibi anlamlı bir metin girin ve **Ekle** düğmesine tıklayın.
+1. <span data-ttu-id="5ffa7-101">[Azure portalını] ziyaret edin.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-101">Visit the [Azure portal].</span></span>
+2. <span data-ttu-id="5ffa7-102">**Uygulama Hizmetleri**'ne ve oluşturduğunuz arka uca tıklayın.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-102">Click **App Services** > the backend that you created.</span></span>
+3. <span data-ttu-id="5ffa7-103">Mobil uygulama ayarlarında, **Hızlı Başlangıç** > **Cordova** öğesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-103">In the mobile app settings, click **Quickstart** > **Cordova**.</span></span>
+<span data-ttu-id="5ffa7-104">![Mobile Apps Hızlı Başlangıcı'nın vurgulandığı Azure Portal][quickstart]</span><span class="sxs-lookup"><span data-stu-id="5ffa7-104">![Azure Portal with Mobile Apps Quickstart highlighted][quickstart]</span></span>
+4. <span data-ttu-id="5ffa7-105">**İstemci uygulamanızı yapılandırın** altında **Yeni Uygulama Oluştur**’u seçin ve **İndir**’e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-105">Under **Configure your client application**, select **Create a New App**, then click **Download**.</span></span>
+2. <span data-ttu-id="5ffa7-106">İndirilen ZIP dosyasını sabit sürücünüzde bir dizine çıkarın, çözüm dosyasına (.sln) gidin ve Visual Studio'yu kullanarak dosyayı açın.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-106">Unpack the downloaded ZIP file to a directory on your hard drive, navigate to the solution file (.sln) and  open it using Visual Studio.</span></span>
+3. <span data-ttu-id="5ffa7-107">Visual Studio'da başlatma okunun yanındaki açılır menüden çözüm platformunu (Android, iOS veya Windows) seçin.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-107">In Visual Studio, choose the solution platform (Android, iOS, or Windows) from the drop-down next to the start arrow.</span></span> <span data-ttu-id="5ffa7-108">Yeşil ok üzerindeki açılır menüye tıklayarak belirli bir dağıtım cihazı veya öykünücüyü seçin.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-108">Select a specific deployment device or emulator by clicking the drop-down on the green arrow.</span></span> <span data-ttu-id="5ffa7-109">Varsayılan Android platformunu ve Ripple öykünücüsünü kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-109">You can use the default Android platform and Ripple emulator.</span></span> <span data-ttu-id="5ffa7-110">Daha gelişmiş öğreticilerde (anında iletme bildirimleri gibi) desteklenen bir cihazı ve öykünücüyü seçmeniz istenecek.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-110">More advanced tutorials (for example, push notifications) require you to select a supported device or emulator.</span></span>
+4. <span data-ttu-id="5ffa7-111">Cordova uygulamanızı derlemek ve çalıştırmak için F5'e basın veya yeşil oka tıklayın.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-111">To build and run your Cordova app, press F5 or click the green arrow.</span></span> <span data-ttu-id="5ffa7-112">Öykünücüde ağa erişim isteyen bir güvenlik iletişim kutusu görürseniz erişim isteğini kabul edin.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-112">If you see a security dialog in the emulator requesting access to the network, accept it.</span></span>
+5. <span data-ttu-id="5ffa7-113">Cihazda veya öykünücüde uygulama başlatıldıktan sonra, **Yeni metin gir** bölümüne *Öğreticiyi tamamla* gibi anlamlı bir metin girin ve **Ekle** düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-113">After the app is started on the device or emulator, type meaningful text in **Enter new text**, such  as *Complete the tutorial* and then click the **Add** button.</span></span>
 
-Arka uç, istekten alınan verileri SQL Veritabanı'ndaki TodoItem tablosuna ekler ve yeni depolanan öğeler hakkındaki bilgileri de mobil uygulamaya geri döndürür. Mobil uygulama bu verileri listede görüntüler.
+<span data-ttu-id="5ffa7-114">Arka uç, istekten alınan verileri SQL Veritabanı'ndaki TodoItem tablosuna ekler ve yeni depolanan öğeler hakkındaki bilgileri de mobil uygulamaya geri döndürür.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-114">The backend inserts data from the request into the TodoItem table in the SQL Database, and returns information about the newly stored items back to the mobile app.</span></span> <span data-ttu-id="5ffa7-115">Mobil uygulama bu verileri listede görüntüler.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-115">The mobile app displays this data in the list.</span></span>
 
-Diğer platformlar için 3 ile 5 arasındaki adımları tekrarlayabilirsiniz.
+<span data-ttu-id="5ffa7-116">Diğer platformlar için 3 ile 5 arasındaki adımları tekrarlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="5ffa7-116">You can repeat steps 3 through 5 for other platforms.</span></span>
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
 
 <!-- URLs -->
-[Azure portalını]: https://portal.azure.com/
+<span data-ttu-id="5ffa7-117">[Azure portalını]: https://portal.azure.com/</span><span class="sxs-lookup"><span data-stu-id="5ffa7-117">[Azure portal]: https://portal.azure.com/</span></span>

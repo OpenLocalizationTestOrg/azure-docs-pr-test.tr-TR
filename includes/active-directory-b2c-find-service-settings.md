@@ -2,6 +2,6 @@
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Azure AD B2C Hizmetler listesinde yoksa, portalın sol tarafındaki gezinti çubuğunun altında bulunan **Daha fazla hizmet** seçeneğini genişletin. **Azure AD B2C**’yi arayın ve sonuç listesinden **Azure AD B2C**’yi seçin. Azure AD B2C’yi sık kullanılan hizmetler listenize eklemek için yıldız simgesini de seçebilirsiniz.
+<span data-ttu-id="37829-101">Azure AD B2C Hizmetler listesinde yoksa, portalın sol tarafındaki gezinti çubuğunun altında bulunan **Daha fazla hizmet** seçeneğini genişletin.</span><span class="sxs-lookup"><span data-stu-id="37829-101">If Azure AD B2C isn't in the services list, expand **More services** below the navigation bar in the bottom-left side of the portal.</span></span> <span data-ttu-id="37829-102">**Azure AD B2C**’yi arayın ve sonuç listesinden **Azure AD B2C**’yi seçin.</span><span class="sxs-lookup"><span data-stu-id="37829-102">Search for **Azure AD B2C** and select **Azure AD B2C** in the result list.</span></span> <span data-ttu-id="37829-103">Azure AD B2C’yi sık kullanılan hizmetler listenize eklemek için yıldız simgesini de seçebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="37829-103">You can also select the star icon to add Azure AD B2C it your favorite services list.</span></span>
 
 ![Azure AD B2C hizmetini arama](media/active-directory-b2c-find-service-settings/navigate-to-azure-ad-b2c.png)

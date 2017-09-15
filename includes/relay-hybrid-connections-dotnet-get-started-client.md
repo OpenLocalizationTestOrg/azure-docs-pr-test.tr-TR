@@ -1,15 +1,15 @@
-### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
+### <a name="create-a-console-application"></a><span data-ttu-id="ca4c6-101">Konsol uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="ca4c6-101">Create a console application</span></span>
 
-İlk olarak Visual Studio'yu başlatın ve yeni bir **Konsol Uygulaması (.NET Framework)** projesi oluşturun.
+<span data-ttu-id="ca4c6-102">İlk olarak Visual Studio'yu başlatın ve yeni bir **Konsol Uygulaması (.NET Framework)** projesi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="ca4c6-102">First, launch Visual Studio and create a new **Console App (.NET Framework)** project.</span></span>
 
-### <a name="add-the-relay-nuget-package"></a>Geçiş NuGet paketini ekleme
+### <a name="add-the-relay-nuget-package"></a><span data-ttu-id="ca4c6-103">Geçiş NuGet paketini ekleme</span><span class="sxs-lookup"><span data-stu-id="ca4c6-103">Add the Relay NuGet package</span></span>
 
-1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’e tıklayın.
-2. **Gözat** sekmesine tıklayın, ardından "Microsoft.Azure.Relay" ifadesini aratın ve **Microsoft Azure Geçiş** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
+1. <span data-ttu-id="ca4c6-104">Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="ca4c6-104">Right-click the newly created project and then click **Manage NuGet Packages**.</span></span>
+2. <span data-ttu-id="ca4c6-105">**Gözat** sekmesine tıklayın, ardından "Microsoft.Azure.Relay" ifadesini aratın ve **Microsoft Azure Geçiş** öğesini seçin.</span><span class="sxs-lookup"><span data-stu-id="ca4c6-105">Click the **Browse** tab, then search for "Microsoft.Azure.Relay" and select the **Microsoft Azure Relay** item.</span></span> <span data-ttu-id="ca4c6-106">Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.</span><span class="sxs-lookup"><span data-stu-id="ca4c6-106">Click **Install** to complete the installation, then close this dialog box.</span></span>
 
-### <a name="write-some-code-to-send-messages"></a>İleti göndermek için bazı kodlar yazma
+### <a name="write-some-code-to-send-messages"></a><span data-ttu-id="ca4c6-107">İleti göndermek için bazı kodlar yazma</span><span class="sxs-lookup"><span data-stu-id="ca4c6-107">Write some code to send messages</span></span>
 
-1. Program.cs dosyasının üst tarafındaki `using` deyimlerini aşağıdaki `using` deyimleriyle değiştirin:
+1. <span data-ttu-id="ca4c6-108">Program.cs dosyasının üst tarafındaki `using` deyimlerini aşağıdaki `using` deyimleriyle değiştirin:</span><span class="sxs-lookup"><span data-stu-id="ca4c6-108">Replace the existing `using` statements at the top of the Program.cs file with the following `using` statements:</span></span>
    
     ```csharp
     using System;
@@ -18,7 +18,7 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Karma bağlantı ayrıntıları için sabitleri `Program` sınıfına ekleyin. Köşeli ayraçlar içindeki yer tutucuları karma bağlantı oluşturulurken aldığınız uygun değerlerle değiştirin. Tam ad alanı adını kullandığınızdan emin olun:
+2. <span data-ttu-id="ca4c6-109">Karma bağlantı ayrıntıları için sabitleri `Program` sınıfına ekleyin.</span><span class="sxs-lookup"><span data-stu-id="ca4c6-109">Add constants to the `Program` class for the hybrid connection details.</span></span> <span data-ttu-id="ca4c6-110">Köşeli ayraçlar içindeki yer tutucuları karma bağlantı oluşturulurken aldığınız uygun değerlerle değiştirin.</span><span class="sxs-lookup"><span data-stu-id="ca4c6-110">Replace the placeholders in brackets with the values you obtained when creating the hybrid connection.</span></span> <span data-ttu-id="ca4c6-111">Tam ad alanı adını kullandığınızdan emin olun:</span><span class="sxs-lookup"><span data-stu-id="ca4c6-111">Be sure to use the fully qualified namespace name:</span></span>
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -26,7 +26,7 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. `Program` sınıfına aşağıdaki yöntemi ekleyin:
+3. <span data-ttu-id="ca4c6-112">`Program` sınıfına aşağıdaki yöntemi ekleyin:</span><span class="sxs-lookup"><span data-stu-id="ca4c6-112">Add the following method to the `Program` class:</span></span>
    
     ```csharp
     private static async Task RunAsync()
@@ -87,13 +87,13 @@
         await relayConnection.CloseAsync(CancellationToken.None);
     }
     ```
-4. Aşağıdaki kod satırını `Program` sınıfındaki `Main` yöntemine ekleyin.
+4. <span data-ttu-id="ca4c6-113">Aşağıdaki kod satırını `Program` sınıfındaki `Main` yöntemine ekleyin.</span><span class="sxs-lookup"><span data-stu-id="ca4c6-113">Add the following line of code to the `Main` method in the `Program` class.</span></span>
    
     ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
-    Program.cs dosyanız aşağıdaki gibi görünmelidir.
+    <span data-ttu-id="ca4c6-114">Program.cs dosyanız aşağıdaki gibi görünmelidir.</span><span class="sxs-lookup"><span data-stu-id="ca4c6-114">Here is what your Program.cs should look like.</span></span>
    
     ```csharp
     using System;

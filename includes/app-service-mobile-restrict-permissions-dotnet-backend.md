@@ -1,20 +1,20 @@
 
-Varsayılan olarak, Mobile Apps arka uç API'leri anonim olarak çağrılabilir. Ardından, yalnızca kimliği doğrulanmış kullanıcıların erişimi kısıtlamak gerekir.  
+<span data-ttu-id="bc4e0-101">Varsayılan olarak, Mobile Apps arka uç API'leri anonim olarak çağrılabilir.</span><span class="sxs-lookup"><span data-stu-id="bc4e0-101">By default, APIs in a Mobile Apps back end can be invoked anonymously.</span></span> <span data-ttu-id="bc4e0-102">Ardından, yalnızca kimliği doğrulanmış kullanıcıların erişimi kısıtlamak gerekir.</span><span class="sxs-lookup"><span data-stu-id="bc4e0-102">Next, you need to restrict access to only authenticated clients.</span></span>  
 
-* **Node.js geri bitiş (Azure portalı üzerinden)** :  
+* <span data-ttu-id="bc4e0-103">**Node.js geri bitiş (Azure portalı üzerinden)** :</span><span class="sxs-lookup"><span data-stu-id="bc4e0-103">**Node.js back end (via the Azure portal)** :</span></span>  
 
-    Mobile Apps ayarlarınızı tıklatın **kolay tabloları** ve tablonuzu seçin. Tıklatın **izinleri değiştirme**seçin **kimlik doğrulamalı erişimi yalnızca** tüm izinleri ve ardından **kaydetmek**.
-* **.NET geri bitiş (C#)**:  
+    <span data-ttu-id="bc4e0-104">Mobile Apps ayarlarınızı tıklatın **kolay tabloları** ve tablonuzu seçin.</span><span class="sxs-lookup"><span data-stu-id="bc4e0-104">In your Mobile Apps settings, click **Easy Tables** and select your table.</span></span> <span data-ttu-id="bc4e0-105">Tıklatın **izinleri değiştirme**seçin **kimlik doğrulamalı erişimi yalnızca** tüm izinleri ve ardından **kaydetmek**.</span><span class="sxs-lookup"><span data-stu-id="bc4e0-105">Click **Change permissions**, select **Authenticated access only** for all permissions, and then click **Save**.</span></span>
+* <span data-ttu-id="bc4e0-106">**.NET geri bitiş (C#)**:</span><span class="sxs-lookup"><span data-stu-id="bc4e0-106">**.NET back end (C#)**:</span></span>  
 
-    Sunucu projesi gidin **denetleyicileri** > **TodoItemController.cs**. Ekleme `[Authorize]` özniteliğini **TodoItemController** sınıfı, şu şekilde. Yalnızca belirli yöntemler için erişimi kısıtlamak için bu yöntemlerden sınıfın yerine tam da bu öznitelik uygulayabilirsiniz. Sunucu projesi yeniden yayımlayın.
+    <span data-ttu-id="bc4e0-107">Sunucu projesi gidin **denetleyicileri** > **TodoItemController.cs**.</span><span class="sxs-lookup"><span data-stu-id="bc4e0-107">In the server project, navigate to **Controllers** > **TodoItemController.cs**.</span></span> <span data-ttu-id="bc4e0-108">Ekleme `[Authorize]` özniteliğini **TodoItemController** sınıfı, şu şekilde.</span><span class="sxs-lookup"><span data-stu-id="bc4e0-108">Add the `[Authorize]` attribute to the **TodoItemController** class, as follows.</span></span> <span data-ttu-id="bc4e0-109">Yalnızca belirli yöntemler için erişimi kısıtlamak için bu yöntemlerden sınıfın yerine tam da bu öznitelik uygulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="bc4e0-109">To restrict access only to specific methods, you can also apply this attribute just to those methods instead of the class.</span></span> <span data-ttu-id="bc4e0-110">Sunucu projesi yeniden yayımlayın.</span><span class="sxs-lookup"><span data-stu-id="bc4e0-110">Republish the server project.</span></span>
 
         [Authorize]
         public class TodoItemController : TableController<TodoItem>
 
-* **Node.js arka ucu (üzerinden Node.js kodu)** :  
+* <span data-ttu-id="bc4e0-111">**Node.js arka ucu (üzerinden Node.js kodu)** :</span><span class="sxs-lookup"><span data-stu-id="bc4e0-111">**Node.js backend (via Node.js code)** :</span></span>  
 
-    Tablo erişmesi için kimlik doğrulaması için Node.js sunucu komut dosyasına aşağıdaki satırı ekleyin:
+    <span data-ttu-id="bc4e0-112">Tablo erişmesi için kimlik doğrulaması için Node.js sunucu komut dosyasına aşağıdaki satırı ekleyin:</span><span class="sxs-lookup"><span data-stu-id="bc4e0-112">To require authentication for table access, add the following line to the Node.js server script:</span></span>
 
         table.access = 'authenticated';
 
-    Daha fazla ayrıntı için bkz: [nasıl yapılır: tablolara erişimi için kimlik doğrulaması gerektiren](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Hızlı Başlangıç kodunu projeyi sitenizden indirmek öğrenmek için bkz: [nasıl yapılır: Git kullanarak Node.js arka uç hızlı başlangıç kod projesi indirme](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
+    <span data-ttu-id="bc4e0-113">Daha fazla ayrıntı için bkz: [nasıl yapılır: tablolara erişimi için kimlik doğrulaması gerektiren](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth).</span><span class="sxs-lookup"><span data-stu-id="bc4e0-113">For more details, see [How to: Require authentication for access to tables](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth).</span></span> <span data-ttu-id="bc4e0-114">Hızlı Başlangıç kodunu projeyi sitenizden indirmek öğrenmek için bkz: [nasıl yapılır: Git kullanarak Node.js arka uç hızlı başlangıç kod projesi indirme](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).</span><span class="sxs-lookup"><span data-stu-id="bc4e0-114">To learn how to download the quickstart code project from your site, see [How to: Download the Node.js backend quickstart code project using Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).</span></span>

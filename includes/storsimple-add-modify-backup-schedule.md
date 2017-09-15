@@ -1,20 +1,20 @@
 
 <!--author=SharS last changed: 9/15/15-->
 
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Eklemek veya bir StorSimple yedekleme zamanlamasını değiştirmek için
-1. Cihazın **Hızlı Başlangıç** sayfasında **Yedekleme İlkeleri** sekmesine tıklayın. Bunun yapılması sizi **Yedekleme İlkeleri** sayfasına götürür.
-2. İlkeleri Tablo listesi, seçin ve düzenlemek istediğiniz ilkeye tıklayın.
-3. Altında **genel**, yedekleme ilkesi adının değiştirebilirsiniz.
-4. Altında **zamanlamaları**, tıklatın **zamanlamalarını yönetmek** eklemek veya zamanlamaları kaldırmak için. İçinde **yönetmek zamanlama** iletişim kutusunda, aşağıdakileri yapın:
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a><span data-ttu-id="43f35-101">Eklemek veya bir StorSimple yedekleme zamanlamasını değiştirmek için</span><span class="sxs-lookup"><span data-stu-id="43f35-101">To add or modify a StorSimple backup schedule</span></span>
+1. <span data-ttu-id="43f35-102">Cihazın **Hızlı Başlangıç** sayfasında **Yedekleme İlkeleri** sekmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="43f35-102">On the device **Quick Start** page, click the **Backup Policies** tab.</span></span> <span data-ttu-id="43f35-103">Bunun yapılması sizi **Yedekleme İlkeleri** sayfasına götürür.</span><span class="sxs-lookup"><span data-stu-id="43f35-103">This will take you to the **Backup Policies** page.</span></span>
+2. <span data-ttu-id="43f35-104">İlkeleri Tablo listesi, seçin ve düzenlemek istediğiniz ilkeye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="43f35-104">In the tabular listing of the policies, select and click the policy that you want to edit.</span></span>
+3. <span data-ttu-id="43f35-105">Altında **genel**, yedekleme ilkesi adının değiştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="43f35-105">Under **general**, you can modify the backup policy name.</span></span>
+4. <span data-ttu-id="43f35-106">Altında **zamanlamaları**, tıklatın **zamanlamalarını yönetmek** eklemek veya zamanlamaları kaldırmak için.</span><span class="sxs-lookup"><span data-stu-id="43f35-106">Under **schedules**, click **manage schedules** to add or remove schedules.</span></span> <span data-ttu-id="43f35-107">İçinde **yönetmek zamanlama** iletişim kutusunda, aşağıdakileri yapın:</span><span class="sxs-lookup"><span data-stu-id="43f35-107">In the **Manage Schedule** dialog box, do the following:</span></span>
    
-   1. Mevcut bir zamanlamayı seçin veya yeni bir zamanlama oluşturun.
-   2. Yerel olarak yedekleme veya Bulut anlık görüntüsü türünü seçin.
-   3. Yedekleme sıklığını, bekletme ve başlangıç zamanı zamanlama belirtin.
-   4. Etkinleştirmek veya zamanlama devre dışı.
-   5. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) zamanlaması için değişiklikleri kaydetmek için.
-5. İçinde **birimleri** bölümünde, eklemek veya bu ilkeye birimleri kaldırın.
-6. Bu ilke değişiklikleri kaydedin.
-7. Size onayınız istenir. Tıklatın **Tamam** ilkeyi kaydedin.
+   1. <span data-ttu-id="43f35-108">Mevcut bir zamanlamayı seçin veya yeni bir zamanlama oluşturun.</span><span class="sxs-lookup"><span data-stu-id="43f35-108">Choose an existing schedule or create a new schedule.</span></span>
+   2. <span data-ttu-id="43f35-109">Yerel olarak yedekleme veya Bulut anlık görüntüsü türünü seçin.</span><span class="sxs-lookup"><span data-stu-id="43f35-109">Select the type of backup as local or cloud snapshot.</span></span>
+   3. <span data-ttu-id="43f35-110">Yedekleme sıklığını, bekletme ve başlangıç zamanı zamanlama belirtin.</span><span class="sxs-lookup"><span data-stu-id="43f35-110">Specify the backup frequency, retention, and starting time of the schedule.</span></span>
+   4. <span data-ttu-id="43f35-111">Etkinleştirmek veya zamanlama devre dışı.</span><span class="sxs-lookup"><span data-stu-id="43f35-111">Enable or disable the schedule.</span></span>
+   5. <span data-ttu-id="43f35-112">Onay simgesine tıklayarak</span><span class="sxs-lookup"><span data-stu-id="43f35-112">Click the check icon</span></span> ![onay simgesi](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) <span data-ttu-id="43f35-114">zamanlaması için değişiklikleri kaydetmek için.</span><span class="sxs-lookup"><span data-stu-id="43f35-114">to save the changes to the schedule.</span></span>
+5. <span data-ttu-id="43f35-115">İçinde **birimleri** bölümünde, eklemek veya bu ilkeye birimleri kaldırın.</span><span class="sxs-lookup"><span data-stu-id="43f35-115">In the **Volumes** section, add or remove the volumes to this policy.</span></span>
+6. <span data-ttu-id="43f35-116">Bu ilke değişiklikleri kaydedin.</span><span class="sxs-lookup"><span data-stu-id="43f35-116">Save the changes to this policy.</span></span>
+7. <span data-ttu-id="43f35-117">Size onayınız istenir.</span><span class="sxs-lookup"><span data-stu-id="43f35-117">You will prompted for confirmation.</span></span> <span data-ttu-id="43f35-118">Tıklatın **Tamam** ilkeyi kaydedin.</span><span class="sxs-lookup"><span data-stu-id="43f35-118">Click **OK** to save the policy.</span></span>
 
-**Yedekleme ilkeleri** sayfası, ilkeyi değişiklikleri kaydetmek için güncelleştirilir.
+<span data-ttu-id="43f35-119">**Yedekleme ilkeleri** sayfası, ilkeyi değişiklikleri kaydetmek için güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="43f35-119">The **Backup Policies** page will be updated to save the changes to the policy.</span></span>
 

@@ -1,16 +1,16 @@
-### <a name="prerequisites"></a>Ön koşullar
-* A [OneDrive](http://OneDrive.com) hesabı 
+### <a name="prerequisites"></a><span data-ttu-id="5f8d0-101">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="5f8d0-101">Prerequisites</span></span>
+* <span data-ttu-id="5f8d0-102">A [OneDrive](http://OneDrive.com) hesabı</span><span class="sxs-lookup"><span data-stu-id="5f8d0-102">A [OneDrive](http://OneDrive.com) account</span></span> 
 
-Bir mantıksal uygulama iş hesabı için OneDrive'ınıza kullanabilmeniz için önce OneDrive iş hesabınıza bağlanmak için mantıksal uygulama yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
+<span data-ttu-id="5f8d0-103">Bir mantıksal uygulama iş hesabı için OneDrive'ınıza kullanabilmeniz için önce OneDrive iş hesabınıza bağlanmak için mantıksal uygulama yetkilendirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="5f8d0-103">Before you can use your OneDrive for Business account in a Logic app, you must authorize the Logic app to connect to your OneDrive for Business account.</span></span> <span data-ttu-id="5f8d0-104">Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="5f8d0-104">Fortunately, you can do this easily from within your Logic app on the Azure Portal.</span></span> 
 
-OneDrive iş hesabınıza bağlanmak için mantıksal uygulamanızı yetkilendirmek için adımlar şunlardır:
+<span data-ttu-id="5f8d0-105">OneDrive iş hesabınıza bağlanmak için mantıksal uygulamanızı yetkilendirmek için adımlar şunlardır:</span><span class="sxs-lookup"><span data-stu-id="5f8d0-105">Here are the steps to authorize your Logic app to connect to your OneDrive for Business account:</span></span>
 
-1. Mantıksal Uygulama Tasarımcısı'nda OneDrive iş, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *OneDrive iş* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+1. <span data-ttu-id="5f8d0-106">Mantıksal Uygulama Tasarımcısı'nda OneDrive iş, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *OneDrive iş* arama kutusuna.</span><span class="sxs-lookup"><span data-stu-id="5f8d0-106">To create a connection to OneDrive for Business, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *OneDrive for Business* in the search box.</span></span> <span data-ttu-id="5f8d0-107">Tetikleyici seçin veya eylem kullanmak ister:</span><span class="sxs-lookup"><span data-stu-id="5f8d0-107">Select the trigger or action you'll like to use:</span></span>  
    ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-1.png)
-2. Onedrive iş önce herhangi bir bağlantısı oluşturmadıysanız, OneDrive'ınıza iş kimlik bilgilerini sağlaması istenir. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılan ve iş hesabı'nın veri OneDrive erişebilirsiniz:  
+2. <span data-ttu-id="5f8d0-108">Onedrive iş önce herhangi bir bağlantısı oluşturmadıysanız, OneDrive'ınıza iş kimlik bilgilerini sağlaması istenir.</span><span class="sxs-lookup"><span data-stu-id="5f8d0-108">If you haven't created any connections to OneDrive for Business before, you'll get prompted to provide your OneDrive for Business credentials.</span></span> <span data-ttu-id="5f8d0-109">Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılan ve iş hesabı'nın veri OneDrive erişebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="5f8d0-109">These credentials will be used to authorize your Logic app to connect to, and access your OneDrive for Business account's data:</span></span>  
    ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-2.png)
-3. Mantıksal uygulamanızı yetkilendirmek için OneDrive iş kullanıcı adı ve parola girin:  
+3. <span data-ttu-id="5f8d0-110">Mantıksal uygulamanızı yetkilendirmek için OneDrive iş kullanıcı adı ve parola girin:</span><span class="sxs-lookup"><span data-stu-id="5f8d0-110">Provide your OneDrive for Business user name and password to authorize your Logic app:</span></span>  
    ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-3.png)   
-4. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+4. <span data-ttu-id="5f8d0-111">Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:</span><span class="sxs-lookup"><span data-stu-id="5f8d0-111">Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:</span></span>  
    ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-4.png)   
 

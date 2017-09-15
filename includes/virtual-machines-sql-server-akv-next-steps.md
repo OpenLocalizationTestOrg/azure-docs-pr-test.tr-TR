@@ -1,18 +1,18 @@
-## <a name="next-steps"></a>Sonraki adımlar
+## <a name="next-steps"></a><span data-ttu-id="d089f-101">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="d089f-101">Next steps</span></span>
 
-Azure anahtar kasası tümleştirmeyi etkinleştirdikten sonra SQL VM üzerinde SQL Server şifrelemeyi etkinleştirebilirsiniz. İlk olarak, anahtar kasanızı içinde bir asimetrik anahtar ve SQL Server içinde bir simetrik anahtar kendi VM'nizi oluşturmanız gerekir. Ardından, veritabanları ve yedeklemeleri şifrelemeyi etkinleştirmek için T-SQL deyimlerini yürütmek mümkün olacaktır.
+<span data-ttu-id="d089f-102">Azure anahtar kasası tümleştirmeyi etkinleştirdikten sonra SQL VM üzerinde SQL Server şifrelemeyi etkinleştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d089f-102">After enabling Azure Key Vault Integration, you can enable SQL Server encryption on your SQL VM.</span></span> <span data-ttu-id="d089f-103">İlk olarak, anahtar kasanızı içinde bir asimetrik anahtar ve SQL Server içinde bir simetrik anahtar kendi VM'nizi oluşturmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="d089f-103">First, you will need to create an asymmetric key inside your key vault and a symmetric key within SQL Server on your VM.</span></span> <span data-ttu-id="d089f-104">Ardından, veritabanları ve yedeklemeleri şifrelemeyi etkinleştirmek için T-SQL deyimlerini yürütmek mümkün olacaktır.</span><span class="sxs-lookup"><span data-stu-id="d089f-104">Then, you will be able to execute T-SQL statements to enable encryption for your databases and backups.</span></span>
 
-Birkaç forms özelliklerden yararlanabilirsiniz şifreleme vardır:
+<span data-ttu-id="d089f-105">Birkaç forms özelliklerden yararlanabilirsiniz şifreleme vardır:</span><span class="sxs-lookup"><span data-stu-id="d089f-105">There are several forms of encryption you can take advantage of:</span></span>
 
-* [Saydam veri şifreleme (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
-* [Şifreli yedekleme](https://msdn.microsoft.com/library/dn449489.aspx)
-* [Sütun düzeyinde şifreleme (Temizle)](https://msdn.microsoft.com/library/ms173744.aspx)
+* [<span data-ttu-id="d089f-106">Saydam veri şifreleme (TDE)</span><span class="sxs-lookup"><span data-stu-id="d089f-106">Transparent Data Encryption (TDE)</span></span>](https://msdn.microsoft.com/library/bb934049.aspx)
+* [<span data-ttu-id="d089f-107">Şifreli yedekleme</span><span class="sxs-lookup"><span data-stu-id="d089f-107">Encrypted backups</span></span>](https://msdn.microsoft.com/library/dn449489.aspx)
+* [<span data-ttu-id="d089f-108">Sütun düzeyinde şifreleme (Temizle)</span><span class="sxs-lookup"><span data-stu-id="d089f-108">Column Level Encryption (CLE)</span></span>](https://msdn.microsoft.com/library/ms173744.aspx)
 
-Bu alanların her biri için aşağıdaki Transact-SQL betikleri örnekler sağlar.
+<span data-ttu-id="d089f-109">Bu alanların her biri için aşağıdaki Transact-SQL betikleri örnekler sağlar.</span><span class="sxs-lookup"><span data-stu-id="d089f-109">The following Transact-SQL scripts provide examples for each of these areas.</span></span>
 
-### <a name="prerequisites-for-examples"></a>Örnekler için Önkoşullar
+### <a name="prerequisites-for-examples"></a><span data-ttu-id="d089f-110">Örnekler için Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="d089f-110">Prerequisites for examples</span></span>
 
-Bulunan iki önkoşul tabanlı her örnek: bir asimetrik anahtar, anahtar Kasası'ndan adlı **CONTOSO_KEY** AKV tümleştirme özelliği tarafından oluşturulan bir kimlik bilgisi adı verilen ve **Azure_EKM_TDE_cred**. Aşağıdaki Transact-SQL komutlarıyla örnekleri çalıştırmak için bu Önkoşullar ayarlayın.
+<span data-ttu-id="d089f-111">Bulunan iki önkoşul tabanlı her örnek: bir asimetrik anahtar, anahtar Kasası'ndan adlı **CONTOSO_KEY** AKV tümleştirme özelliği tarafından oluşturulan bir kimlik bilgisi adı verilen ve **Azure_EKM_TDE_cred**.</span><span class="sxs-lookup"><span data-stu-id="d089f-111">Each example is based on the two prerequisites: an asymmetric key from your key vault called **CONTOSO_KEY** and a credential created by the AKV Integration feature called **Azure_EKM_TDE_cred**.</span></span> <span data-ttu-id="d089f-112">Aşağıdaki Transact-SQL komutlarıyla örnekleri çalıştırmak için bu Önkoşullar ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="d089f-112">The following Transact-SQL commands setup these prerequisites for running the examples.</span></span>
 
 ``` sql
 USE master;
@@ -51,9 +51,9 @@ WITH PROVIDER_KEY_NAME = 'keytestvault',  --key name
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
-### <a name="transparent-data-encryption-tde"></a>Saydam veri şifreleme (TDE)
+### <a name="transparent-data-encryption-tde"></a><span data-ttu-id="d089f-113">Saydam veri şifreleme (TDE)</span><span class="sxs-lookup"><span data-stu-id="d089f-113">Transparent Data Encryption (TDE)</span></span>
 
-1. TDE için veritabanı altyapısı tarafından kullanılacak bir SQL Server oturumu oluşturun, sonra kimlik bilgisi ekleyin.
+1. <span data-ttu-id="d089f-114">TDE için veritabanı altyapısı tarafından kullanılacak bir SQL Server oturumu oluşturun, sonra kimlik bilgisi ekleyin.</span><span class="sxs-lookup"><span data-stu-id="d089f-114">Create a SQL Server login to be used by the Database Engine for TDE, then add the credential to it.</span></span>
 
    ``` sql
    USE master;
@@ -71,7 +71,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-1. TDE için kullanılacak veritabanı şifreleme anahtarı oluşturun.
+1. <span data-ttu-id="d089f-115">TDE için kullanılacak veritabanı şifreleme anahtarı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="d089f-115">Create the database encryption key that will be used for TDE.</span></span>
 
    ``` sql
    USE ContosoDatabase;
@@ -88,9 +88,9 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-### <a name="encrypted-backups"></a>Şifreli yedekleme
+### <a name="encrypted-backups"></a><span data-ttu-id="d089f-116">Şifreli yedekleme</span><span class="sxs-lookup"><span data-stu-id="d089f-116">Encrypted backups</span></span>
 
-1. Yedeklemeleri şifrelemek için veritabanı motoru tarafından kullanılmak üzere bir SQL Server oturumu oluşturun ve kimlik bilgisi ekleyin.
+1. <span data-ttu-id="d089f-117">Yedeklemeleri şifrelemek için veritabanı motoru tarafından kullanılmak üzere bir SQL Server oturumu oluşturun ve kimlik bilgisi ekleyin.</span><span class="sxs-lookup"><span data-stu-id="d089f-117">Create a SQL Server login to be used by the Database Engine for encrypting backups, and add the credential to it.</span></span>
 
    ``` sql
    USE master;
@@ -107,7 +107,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-1. Yedekleme veritabanı belirtme şifreleme anahtar kasasında depolanan asimetrik anahtarla.
+1. <span data-ttu-id="d089f-118">Yedekleme veritabanı belirtme şifreleme anahtar kasasında depolanan asimetrik anahtarla.</span><span class="sxs-lookup"><span data-stu-id="d089f-118">Backup the database specifying encryption with the asymmetric key stored in the key vault.</span></span>
 
    ``` sql
    USE master;
@@ -118,9 +118,9 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-### <a name="column-level-encryption-cle"></a>Sütun düzeyinde şifreleme (Temizle)
+### <a name="column-level-encryption-cle"></a><span data-ttu-id="d089f-119">Sütun düzeyinde şifreleme (Temizle)</span><span class="sxs-lookup"><span data-stu-id="d089f-119">Column Level Encryption (CLE)</span></span>
 
-Bu komut dosyası anahtar kasasında asimetrik anahtar tarafından korunan bir simetrik anahtar oluşturur ve veritabanındaki verileri şifrelemek için simetrik anahtar kullanır.
+<span data-ttu-id="d089f-120">Bu komut dosyası anahtar kasasında asimetrik anahtar tarafından korunan bir simetrik anahtar oluşturur ve veritabanındaki verileri şifrelemek için simetrik anahtar kullanır.</span><span class="sxs-lookup"><span data-stu-id="d089f-120">This script creates a symmetric key protected by the asymmetric key in the key vault, and then uses the symmetric key to encrypt data in the database.</span></span>
 
 ``` sql
 CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
@@ -143,8 +143,8 @@ SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
 CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 ```
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a><span data-ttu-id="d089f-121">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="d089f-121">Additional resources</span></span>
 
-Bu şifreleme özelliklerinin nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [kullanarak EKM SQL Server şifreleme özellikleriyle](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
+<span data-ttu-id="d089f-122">Bu şifreleme özelliklerinin nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [kullanarak EKM SQL Server şifreleme özellikleriyle](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).</span><span class="sxs-lookup"><span data-stu-id="d089f-122">For more information on how to use these encryption features, see [Using EKM with SQL Server Encryption Features](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).</span></span>
 
-Bu makaledeki adımları zaten bir Azure sanal makinede çalışan SQL Server olduğunu varsayalım unutmayın. Aksi takdirde bkz [bir SQL Server sanal makinesi sağlama](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Azure Vm'lerinde SQL Server çalıştıran diğer yönergeler için bkz: [Azure sanal makinelere genel bakış SQL Server'da](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+<span data-ttu-id="d089f-123">Bu makaledeki adımları zaten bir Azure sanal makinede çalışan SQL Server olduğunu varsayalım unutmayın.</span><span class="sxs-lookup"><span data-stu-id="d089f-123">Note that the steps in this article assume that you already have SQL Server running on an Azure virtual machine.</span></span> <span data-ttu-id="d089f-124">Aksi takdirde bkz [bir SQL Server sanal makinesi sağlama](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md).</span><span class="sxs-lookup"><span data-stu-id="d089f-124">If not, see [Provision a SQL Server virtual machine in Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md).</span></span> <span data-ttu-id="d089f-125">Azure Vm'lerinde SQL Server çalıştıran diğer yönergeler için bkz: [Azure sanal makinelere genel bakış SQL Server'da](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).</span><span class="sxs-lookup"><span data-stu-id="d089f-125">For other guidance on running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).</span></span>
