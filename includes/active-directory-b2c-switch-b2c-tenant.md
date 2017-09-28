@@ -1,0 +1,3 @@
+<span data-ttu-id="7cb74-101">Azure AD B2C kiracınıza geçiş yapmak için portalın sağ üst köşesinden B2C dizinini seçin.</span><span class="sxs-lookup"><span data-stu-id="7cb74-101">To switch to your Azure AD B2C tenant, select the B2C directory in the top-right corner of the portal.</span></span>
+
+![Azure AD B2C kiracınıza geçiş yapma](./media/active-directory-b2c-switch-b2c-tenant/switch-to-b2c-tenant.png)
