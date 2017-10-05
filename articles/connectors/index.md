@@ -1,6 +1,6 @@
 ---
-redirect_url: /azure/active-directory/connect/active-directory-aadconnect
-ms.openlocfilehash: 6b19c4edd034778abe1c65a79f4a0ce1cdf0fbc6
+redirect_url: /azure/connectors/apis-list
+ms.openlocfilehash: d27b2da81d11f570d197daf0d650d81838bf98f3
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
