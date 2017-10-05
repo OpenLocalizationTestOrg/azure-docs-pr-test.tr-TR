@@ -1,0 +1,88 @@
+---
+title: Azure HDInsight'ta HBase nedir? | Microsoft Docs
+description: "Hadoop’ta oluşturulan bir NoSQL veritabanı olan HDInsight’ta Apache HBase’e giriş. Kullanım örnekleri hakkında bilgi edinin ve HBase’i diğer Hadoop kümeleriyle karşılaştırın."
+keywords: "bigtable,nosql,hbase nedir,apache hbase,hbase,habase genel bakış,"
+services: hdinsight
+documentationcenter: 
+tags: azure-portal
+author: mumian
+manager: jhubbard
+editor: cgronlun
+ms.assetid: d2a76d53-133a-4849-a30c-88d9c794391c
+ms.service: hdinsight
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 07/17/2017
+ms.author: jgao
+ms.openlocfilehash: 6823633bfdb07ce649083804ba211709519cb6da
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/29/2017
+---
+# <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a><span data-ttu-id="8d5b1-106">HDInsight’ta HBase nedir: Hadoop için BigTable benzeri özellikler sağlayan bir NoSQL veritabanıdır.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-106">What is HBase in HDInsight: A NoSQL database that provides BigTable-like capabilities for Hadoop</span></span>
+<span data-ttu-id="8d5b1-107">Apache HBase, Hadoop’ta oluşturulan ve Google BigTable’a göre modellenen açık kaynaklı bir NoSQL veritabanıdır.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-107">Apache HBase is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable.</span></span> <span data-ttu-id="8d5b1-108">HBase, sütun aileleri tarafından veritabanında büyük miktarlardaki yapılandırılmamış ve yarı yapılandırılmış veriler için rasgele erişim ve güçlü tutarlılık sağlar.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-108">HBase provides random access and strong consistency for large amounts of unstructured and semistructured data in a schemaless database organized by column families.</span></span>
+
+<span data-ttu-id="8d5b1-109">Veriler bir tablonun satırlarında depolanır ve satır içindeki veriler sütun ailesi tarafından gruplandırılır.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-109">Data is stored in the rows of a table, and data within a row is grouped by column family.</span></span> <span data-ttu-id="8d5b1-110">HBase, kullanılmadan önce sütunların ya da bunlarda depolanan veri türünün tanımlanmasına gerek duyulmayan, şemasız bir veritabanıdır.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-110">HBase is a schemaless database in the sense that neither the columns nor the type of data stored in them need to be defined before using them.</span></span> <span data-ttu-id="8d5b1-111">Açık kaynak kodu, binlerce düğümdeki petabaytlarca verileri işlemek için doğrusal olarak ölçeklendirir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-111">The open-source code scales linearly to handle petabytes of data on thousands of nodes.</span></span> <span data-ttu-id="8d5b1-112">Veri yedekleme, toplu işleme ve Hadoop ekosistemindeki dağıtılmış uygulamalar tarafından sağlanan diğer özelliklere dayanabilir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-112">It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.</span></span>
+
+## <a name="how-is-hbase-implemented-in-azure-hdinsight"></a><span data-ttu-id="8d5b1-113">Azure HDInsight’ta HBase nasıl uygulanır?</span><span class="sxs-lookup"><span data-stu-id="8d5b1-113">How is HBase implemented in Azure HDInsight?</span></span>
+<span data-ttu-id="8d5b1-114">HDInsight HBase, Azure ortamına tümleştirilmiş yönetilen bir küme olarak sunulur.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-114">HDInsight HBase is offered as a managed cluster that is integrated into the Azure environment.</span></span> <span data-ttu-id="8d5b1-115">Kümeler verileri, düşük gecikme süresi ve performans ve maliyet seçeneklerinde artan esneklik sağlayan [Azure Depolama](./hdinsight-hadoop-use-blob-storage.md) veya [Azure Data Lake Store](./hdinsight-hadoop-use-data-lake-store.md)'da depolayacak şekilde yapılandırılmıştır.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-115">The clusters are configured to store data directly in [Azure Storage](./hdinsight-hadoop-use-blob-storage.md) or [Azure Data Lake Store](./hdinsight-hadoop-use-data-lake-store.md), which provides low latency and increased elasticity in performance and cost choices.</span></span> <span data-ttu-id="8d5b1-116">Bu, müşterilerin milyonlarca uç noktadan gelen algılayıcı ve telemetri verilerini depolayan hizmetleri oluşturmak ve bu verileri Hadoop işleriyle çözümlemek üzere etkileşimli web siteleri oluşturmalarını sağlar.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-116">This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs.</span></span> <span data-ttu-id="8d5b1-117">HBase ve Hadoop Azure’da büyük veri projeleri için yi başlangıç noktalarıdır; bunlar özellikle büyük veri kümeleriyle çalışmak üzere gerçek zamanlı uygulamaları etkinleştirebilir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-117">HBase and Hadoop are good starting points for big data project in Azure; in particular, they can enable real-time applications to work with large datasets.</span></span>
+
+<span data-ttu-id="8d5b1-118">HDInsight uygulaması, tabloların otomatik parçalanmasını, okumalar ve yazmalar için yüksek tutarlılık ve otomatik yük devretme sağlamak için HBase’in ölçek genişletmeli mimarisinden yararlanır.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-118">The HDInsight implementation leverages the scale-out architecture of HBase to provide automatic sharding of tables, strong consistency for reads and writes, and automatic failover.</span></span> <span data-ttu-id="8d5b1-119">Performans, okumalar için bellek içi önbelleğe alma ve yazmalar için yüksek verimlilikli akış tarafından geliştirilmiştir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-119">Performance is enhanced by in-memory caching for reads and high-throughput streaming for writes.</span></span> <span data-ttu-id="8d5b1-120">HBase kümesi sanal ağda oluşturulabilir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-120">HBase cluster can be created inside virtual network.</span></span> <span data-ttu-id="8d5b1-121">Ayrıntılar için bkz. [Azure Sanal Ağ'da HDInsight kümeleri oluşturma][hbase-provision-vnet].</span><span class="sxs-lookup"><span data-stu-id="8d5b1-121">For details, see  [Create HDInsight clusters on Azure Virtual Network][hbase-provision-vnet].</span></span>
+
+## <a name="how-is-data-managed-in-hdinsight-hbase"></a><span data-ttu-id="8d5b1-122">Veriler HDInsight HBase’de nasıl yönetilir?</span><span class="sxs-lookup"><span data-stu-id="8d5b1-122">How is data managed in HDInsight HBase?</span></span>
+<span data-ttu-id="8d5b1-123">Veriler HBase kabuğunda `create`, `get`, `put` ve `scan` komutları kullanılarak HBase tarafından yönetilebilir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-123">Data can be managed in HBase by using the `create`, `get`, `put`, and `scan` commands from the HBase shell.</span></span> <span data-ttu-id="8d5b1-124">Veriler `put` kullanılarak veritabanına yazılır ve `get` kullanarak okunur.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-124">Data is written to the database by using `put` and read by using `get`.</span></span> <span data-ttu-id="8d5b1-125">`scan` komutu, bir tablodaki birden çok satırdaki verileri almak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-125">The `scan` command is used to obtain data from multiple rows in a table.</span></span> <span data-ttu-id="8d5b1-126">Veriler, HBase REST API’sinin üstünde bir istemci kitaplığı sağlayan HBase C# API’si kullanılarak da yönetilebilir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-126">Data can also be managed using the HBase C# API, which provides a client library on top of the HBase REST API.</span></span> <span data-ttu-id="8d5b1-127">Bir HBase veritabanı, Hive kullanarak da sorgulanabilir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-127">An HBase database can also be queried by using Hive.</span></span> <span data-ttu-id="8d5b1-128">Bu programlama modellerine giriş için bkz. [HDInsight'ta Hadoop ile HBase kullanmaya başlama][hbase-get-started].</span><span class="sxs-lookup"><span data-stu-id="8d5b1-128">For an introduction to these programming models, see [Get started using HBase with Hadoop in HDInsight][hbase-get-started].</span></span> <span data-ttu-id="8d5b1-129">Veritabanı barındıran düğümlerde veri işlemeye olanak sağlayan ortak işlemciler de kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-129">Co-processors are also available, which allow data processing in the nodes that host the database.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="8d5b1-130">Thrift, HDInsight’ta HBase tarafından desteklenmez.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-130">Thrift is not supported by HBase in HDInsight.</span></span>
+>
+
+## <a name="scenarios-use-cases-for-hbase"></a><span data-ttu-id="8d5b1-131">Senaryolar: HBase kullanım örnekleri</span><span class="sxs-lookup"><span data-stu-id="8d5b1-131">Scenarios: Use cases for HBase</span></span>
+<span data-ttu-id="8d5b1-132">BigTable’ın (ve uzantılarının, HBase) oluşturulma nedeni olan kurallı kullanım örneği amacı web aramasıydı.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-132">The canonical use case for which BigTable (and by extension, HBase) was created was web search.</span></span> <span data-ttu-id="8d5b1-133">Arama motorları terimleri bunları içeren web siteleriyle eşleştiren dizinler oluşturur.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-133">Search engines build indexes that map terms to the web pages that contain them.</span></span> <span data-ttu-id="8d5b1-134">Ancak HBase için uygun olan diğer birçok kullanım örneği vardır; bunların birkaçı bu bölümde listelenmektedir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-134">But there are many other use cases that HBase is suitable for—several of which are itemized in this section.</span></span>
+
+* <span data-ttu-id="8d5b1-135">Anahtar değeri deposu</span><span class="sxs-lookup"><span data-stu-id="8d5b1-135">Key-value store</span></span>
+  
+    <span data-ttu-id="8d5b1-136">HBase bir anahtar değeri deposu olarak kullanılabilir ve ileti sistemlerini yönetmeye uygundur.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-136">HBase can be used as a key-value store, and it is suitable for managing message systems.</span></span> <span data-ttu-id="8d5b1-137">Facebook kendi ileti sistemi için HBase kullanır ve Internet iletişimlerini depolamak ve yönetmek için idealdir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-137">Facebook uses HBase for their messaging system, and it is ideal for storing and managing Internet communications.</span></span> <span data-ttu-id="8d5b1-138">WebTable web sayfalarından çıkarılan tabloları aramak ve yönetmek için HBase kullanır.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-138">WebTable uses HBase to search for and manage tables that are extracted from webpages.</span></span>
+* <span data-ttu-id="8d5b1-139">Algılayıcı verileri</span><span class="sxs-lookup"><span data-stu-id="8d5b1-139">Sensor data</span></span>
+  
+    <span data-ttu-id="8d5b1-140">HBase çeşitli kaynaklardan artımlı olarak toplanan verileri yakalamak için yararlıdır.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-140">HBase is useful for capturing data that is collected incrementally from various sources.</span></span> <span data-ttu-id="8d5b1-141">Bu, sosyal analizler, zaman serileri, etkileşimli panoları eğilimler ve sayaçlar ile güncel tutma ve denetim günlüğü sistemlerini yönetmeyi içerir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-141">This includes social analytics, time series, keeping interactive dashboards up-to-date with trends and counters, and managing audit log systems.</span></span> <span data-ttu-id="8d5b1-142">Örnek olarak, Bloomberg tüccar terminali ve sunucu sistemlerinin durumuna ilişkin toplanan ölçümleri toplayan ve bunlara erişim imkanı sağlayan Open Time Series Veritabanı (OpenTSDB) verilebilir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-142">Examples include Bloomberg trader terminal and the Open Time Series Database (OpenTSDB), which stores and provides access to metrics collected about the health of server systems.</span></span>
+* <span data-ttu-id="8d5b1-143">Gerçek zamanlı sorgu</span><span class="sxs-lookup"><span data-stu-id="8d5b1-143">Real-time query</span></span>
+  
+    <span data-ttu-id="8d5b1-144">[Phoenix](http://phoenix.apache.org/) Apache HBase için bir SQL sorgu alt yapısıdır.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-144">[Phoenix](http://phoenix.apache.org/) is a SQL query engine for Apache HBase.</span></span> <span data-ttu-id="8d5b1-145">Buna JDBC sürücüsü olarak erişilir ve bu SQL kullanarak HBase tablolarını sorgulamayı ve yönetmeyi sağlar.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-145">It is accessed as a JDBC driver, and it enables querying and managing HBase tables by using SQL.</span></span>
+* <span data-ttu-id="8d5b1-146">Bir platform olarak HBase</span><span class="sxs-lookup"><span data-stu-id="8d5b1-146">HBase as a platform</span></span>
+  
+    <span data-ttu-id="8d5b1-147">Uygulamalar, bir veri deposu olarak kullanarak HBase’in üstünde çalışabilir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-147">Applications can run on top of HBase by using it as a datastore.</span></span> <span data-ttu-id="8d5b1-148">Örnek olarak Phoenix, OpenTSDB, Kiji ve Titan verilebilir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-148">Examples include Phoenix, OpenTSDB, Kiji, and Titan.</span></span> <span data-ttu-id="8d5b1-149">Uygulamalar HBase ile de tümleştirebilir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-149">Applications can also integrate with HBase.</span></span> <span data-ttu-id="8d5b1-150">Örnek olarak, Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia ve Dril verilebilir.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-150">Examples include Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia, and Drill.</span></span>
+
+## <span data-ttu-id="8d5b1-151"><a name="next-steps"></a>Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="8d5b1-151"><a name="next-steps"></a>Next steps</span></span>
+* <span data-ttu-id="8d5b1-152">[HDInsight'ta Hadoop ile HBase kullanmaya başlama][hbase-get-started]</span><span class="sxs-lookup"><span data-stu-id="8d5b1-152">[Get started using HBase with Hadoop in HDInsight][hbase-get-started]</span></span>
+* <span data-ttu-id="8d5b1-153">[Azure Sanal Ağ'da HDInsight kümeleri oluşturma][hbase-provision-vnet]</span><span class="sxs-lookup"><span data-stu-id="8d5b1-153">[Create HDInsight clusters on Azure Virtual Network][hbase-provision-vnet]</span></span>
+* [<span data-ttu-id="8d5b1-154">HDInsight’ta HBase çoğaltmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="8d5b1-154">Configure HBase replication in HDInsight</span></span>](hdinsight-hbase-replication.md)
+* <span data-ttu-id="8d5b1-155">[HDInsight'ta HBase ile Twitter düşüncelerini çözümleme][hbase-twitter-sentiment]</span><span class="sxs-lookup"><span data-stu-id="8d5b1-155">[Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]</span></span>
+* <span data-ttu-id="8d5b1-156">[HDInsight ile HBase kullanan Java uygulamaları oluşturmak için Maven kullanma (Hadoop)][hbase-build-java-maven]</span><span class="sxs-lookup"><span data-stu-id="8d5b1-156">[Use Maven to build Java applications that use HBase with HDInsight (Hadoop)][hbase-build-java-maven]</span></span>
+
+## <span data-ttu-id="8d5b1-157"><a name="see-also"></a>Ayrıca bkz.</span><span class="sxs-lookup"><span data-stu-id="8d5b1-157"><a name="see-also"></a>See also</span></span>
+* [<span data-ttu-id="8d5b1-158">Apache HBase</span><span class="sxs-lookup"><span data-stu-id="8d5b1-158">Apache HBase</span></span>](https://hbase.apache.org/)
+* [<span data-ttu-id="8d5b1-159">Bigtable: Yapılandırılmış Veriler için Dağıtılmış Depolama Sistemi</span><span class="sxs-lookup"><span data-stu-id="8d5b1-159">Bigtable: A Distributed Storage System for Structured Data</span></span>](http://research.google.com/archive/bigtable.html)
+
+[hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
+
+[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
+
+[hbase-build-java-maven]: hdinsight-hbase-build-java-maven.md
+
+[hdinsight-use-hive]: hdinsight-use-hive.md
+
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+
+[hbase-get-started]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
+
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-management-portal]: https://portal.azure.com/
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
+
+[apache-hadoop]: http://hadoop.apache.org/

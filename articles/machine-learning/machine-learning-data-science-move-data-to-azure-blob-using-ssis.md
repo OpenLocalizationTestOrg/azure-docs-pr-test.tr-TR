@@ -1,0 +1,91 @@
+---
+title: "İçin veya SSIS bağlayıcıları kullanarak Azure Blob storage'da veri taşıma | Microsoft Docs"
+description: "Veri veya SSIS bağlayıcıları kullanarak Azure Blob depolama biriminden taşıyın."
+services: machine-learning,storage
+documentationcenter: 
+author: bradsev
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 96a1b5fb-34d1-4b9b-8d99-2bb8289e0398
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/24/2017
+ms.author: bradsev
+ms.openlocfilehash: 575beaea5443919bd9728016bf100b43de8e4aab
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/29/2017
+---
+# <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a><span data-ttu-id="46cc6-103">Veri veya SSIS bağlayıcıları kullanarak Azure Blob depolama biriminden taşıyın</span><span class="sxs-lookup"><span data-stu-id="46cc6-103">Move data to or from Azure Blob Storage using SSIS connectors</span></span>
+<span data-ttu-id="46cc6-104">[Azure için SQL Server Integration Services Feature Pack](https://msdn.microsoft.com/library/mt146770.aspx) , Azure'a bağlanmak için Azure ve şirket içi veri kaynakları ve Azure'da depolanan verileri işlemek arasında veri aktarımı bileşenleri sağlar.</span><span class="sxs-lookup"><span data-stu-id="46cc6-104">The [SQL Server Integration Services Feature Pack for Azure](https://msdn.microsoft.com/library/mt146770.aspx) provides components to connect to Azure, transfer data between Azure and on-premises data sources, and process data stored in Azure.</span></span>
+
+[!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
+
+<span data-ttu-id="46cc6-105">Müşterilerin şirket içi veri bulutunu taşırken, bunlar Azure teknolojiler paketimiz gücünü yararlanmak için tüm Azure hizmetinden erişebilir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-105">Once customers have moved on-premises data into the cloud, they can access it from any Azure service to leverage the full power of the suite of Azure technologies.</span></span> <span data-ttu-id="46cc6-106">Bu, örneğin, Azure Machine Learning veya Hdınsight kümesinde kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-106">It may be used, for example, in Azure Machine Learning or on an HDInsight cluster.</span></span>
+
+<span data-ttu-id="46cc6-107">Genellikle olması için ilk adım budur [SQL](machine-learning-data-science-process-sql-walkthrough.md) ve [Hdınsight](machine-learning-data-science-process-hive-walkthrough.md) izlenecek yollar.</span><span class="sxs-lookup"><span data-stu-id="46cc6-107">This is typically be the first step for the [SQL](machine-learning-data-science-process-sql-walkthrough.md) and [HDInsight](machine-learning-data-science-process-hive-walkthrough.md) walkthroughs.</span></span>
+
+<span data-ttu-id="46cc6-108">Bir iş gereksinimlerini karma veri tümleştirme senaryolarına genel gerçekleştirmek için SSIS kullanan kurallı senaryoları tartışma için bkz [Bunun SQL Server Integration Services Feature Pack Azure ile daha](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blogu.</span><span class="sxs-lookup"><span data-stu-id="46cc6-108">For a discussion of canonical scenarios that use SSIS to accomplish business needs common in hybrid data integration scenarios, see [Doing more with SQL Server Integration Services Feature Pack for Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blog.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="46cc6-109">Azure blob depolama tam bir giriş için bkz [Azure Blob Temelleri](../storage/blobs/storage-dotnet-how-to-use-blobs.md) ve [Azure Blob hizmeti](https://msdn.microsoft.com/library/azure/dd179376.aspx).</span><span class="sxs-lookup"><span data-stu-id="46cc6-109">For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](../storage/blobs/storage-dotnet-how-to-use-blobs.md) and to [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).</span></span>
+> 
+> 
+
+## <a name="prerequisites"></a><span data-ttu-id="46cc6-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="46cc6-110">Prerequisites</span></span>
+<span data-ttu-id="46cc6-111">Bu makalede açıklanan görevleri gerçekleştirmek için bir Azure aboneliği ve kurulu bir Azure depolama hesabınız olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-111">To perform the tasks described in this article, you must have an Azure subscription and an Azure storage account set up.</span></span> <span data-ttu-id="46cc6-112">Karşıya yükleme veya veri yüklemek için Azure depolama hesabı adını ve hesap anahtarını bilmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-112">You must know your Azure storage account name and account key to upload or download data.</span></span>
+
+* <span data-ttu-id="46cc6-113">Ayarlamak için bir **Azure aboneliği**, bkz: [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="46cc6-113">To set up an **Azure subscription**, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+* <span data-ttu-id="46cc6-114">Oluşturma yönergeleri için bir **depolama hesabı** ve hesabı ve anahtarı bilgilerini almak için bkz: [Azure storage hesapları hakkında](../storage/common/storage-create-storage-account.md).</span><span class="sxs-lookup"><span data-stu-id="46cc6-114">For instructions on creating a **storage account** and for getting account and key information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).</span></span>
+
+<span data-ttu-id="46cc6-115">Kullanılacak **SSIS Bağlayıcılar**, karşıdan yüklemeniz gerekir:</span><span class="sxs-lookup"><span data-stu-id="46cc6-115">To use the **SSIS connectors**, you must download:</span></span>
+
+* <span data-ttu-id="46cc6-116">**SQL Server 2014 veya 2016 standart (veya üstü)**: Install SQL Server Integration Services içerir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-116">**SQL Server 2014 or 2016 Standard (or above)**: Install includes SQL Server Integration Services.</span></span>
+* <span data-ttu-id="46cc6-117">**Microsoft SQL Server 2014 veya 2016 tümleştirme hizmetleri özellik paketi Azure**: Bunlar indirilebilir, sırasıyla gelen [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) ve [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) sayfaları.</span><span class="sxs-lookup"><span data-stu-id="46cc6-117">**Microsoft SQL Server 2014 or 2016 Integration Services Feature Pack for Azure**: These can be downloaded, respectively, from the [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) and [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) pages.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="46cc6-118">SSIS SQL Server ile birlikte yüklenir, ancak Express sürümünde bulunmaz.</span><span class="sxs-lookup"><span data-stu-id="46cc6-118">SSIS is installed with SQL Server, but is not included in the Express version.</span></span> <span data-ttu-id="46cc6-119">Hangi uygulamaların çeşitli SQL Server sürümlerinde bulunan hakkında daha fazla bilgi için bkz: [SQL Server sürümleri](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)</span><span class="sxs-lookup"><span data-stu-id="46cc6-119">For information on what applications are included in various editions of SQL Server, see [SQL Server Editions](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)</span></span>
+> 
+> 
+
+<span data-ttu-id="46cc6-120">SSIS üzerinde eğitim malzemelerini için bkz: [SSIS üzerinde ellerini eğitim](http://www.microsoft.com/download/details.aspx?id=20766)</span><span class="sxs-lookup"><span data-stu-id="46cc6-120">For training materials on SSIS, see [Hands On Training for SSIS](http://www.microsoft.com/download/details.aspx?id=20766)</span></span>
+
+<span data-ttu-id="46cc6-121">Yukarı ve çalışan alma hakkında bilgi için kullanmaya SISS basit ayıklama, dönüştürme ve yükleme (ETL) paketleri, bkz: derleme [SSIS Öğreticisi: basit bir ETL paket oluşturma](https://msdn.microsoft.com/library/ms169917.aspx).</span><span class="sxs-lookup"><span data-stu-id="46cc6-121">For information on how to get up-and-running using SISS to build simple extraction, transformation, and load (ETL) packages, see [SSIS Tutorial: Creating a Simple ETL Package](https://msdn.microsoft.com/library/ms169917.aspx).</span></span>
+
+## <a name="download-nyc-taxi-dataset"></a><span data-ttu-id="46cc6-122">NYC ücreti dataset indirin</span><span class="sxs-lookup"><span data-stu-id="46cc6-122">Download NYC Taxi dataset</span></span>
+<span data-ttu-id="46cc6-123">Açıklanan örneği burada genel kullanıma açık bir veri kümesi--kullanmak [NYC ücreti dönüşleri](http://www.andresmh.com/nyctaxitrips/) veri kümesi.</span><span class="sxs-lookup"><span data-stu-id="46cc6-123">The example described here use a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset.</span></span> <span data-ttu-id="46cc6-124">Veri kümesi hakkında 173 milyon ücreti üstündeçalýþan NYC içinde 2013 yıl oluşur.</span><span class="sxs-lookup"><span data-stu-id="46cc6-124">The dataset consists of about 173 million taxi rides in NYC in the year 2013.</span></span> <span data-ttu-id="46cc6-125">İki tür veri vardır: seyahat ayrıntıları veri ve ücreti verileri.</span><span class="sxs-lookup"><span data-stu-id="46cc6-125">There are two types of data: trip details data and fare data.</span></span> <span data-ttu-id="46cc6-126">Her ay için bir dosya gibi her biri sıkıştırılmamış yaklaşık 2 GB ise tüm 24 dosyalarında sahibiz.</span><span class="sxs-lookup"><span data-stu-id="46cc6-126">As there is a file for each month, we have 24 files in all, each of which is approximately 2GB uncompressed.</span></span>
+
+## <a name="upload-data-to-azure-blob-storage"></a><span data-ttu-id="46cc6-127">Azure blob depolama alanına veri yükleme</span><span class="sxs-lookup"><span data-stu-id="46cc6-127">Upload data to Azure blob storage</span></span>
+<span data-ttu-id="46cc6-128">Örneği kullanırız SSIS kullanarak verileri özellik paketi şirket içi Azure blob depolama birimine taşımak için [ **Azure Blob karşıya yükleme görev**](https://msdn.microsoft.com/library/mt146776.aspx), burada gösterilen:</span><span class="sxs-lookup"><span data-stu-id="46cc6-128">To move data using the SSIS feature pack from on-premises to Azure blob storage, we use an instance of the [**Azure Blob Upload Task**](https://msdn.microsoft.com/library/mt146776.aspx), shown here:</span></span>
+
+![yapılandırma verileri-Bilim-vm](./media/machine-learning-data-science-move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
+
+<span data-ttu-id="46cc6-130">Görev kullandığı Parametreler aşağıda açıklanmıştır:</span><span class="sxs-lookup"><span data-stu-id="46cc6-130">The parameters that the task uses are described here:</span></span>
+
+| <span data-ttu-id="46cc6-131">Alan</span><span class="sxs-lookup"><span data-stu-id="46cc6-131">Field</span></span> | <span data-ttu-id="46cc6-132">Açıklama</span><span class="sxs-lookup"><span data-stu-id="46cc6-132">Description</span></span> |
+| --- | --- |
+| <span data-ttu-id="46cc6-133">**AzureStorageConnection**</span><span class="sxs-lookup"><span data-stu-id="46cc6-133">**AzureStorageConnection**</span></span> |<span data-ttu-id="46cc6-134">Blob dosyaları barındırıldığı işaret eden bir Azure depolama hesabı başvurduğu yeni bir tane oluşturur veya mevcut bir Azure depolama Bağlantı Yöneticisi belirtir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-134">Specifies an existing Azure Storage Connection Manager or creates a new one that refers to an Azure storage account that points to where the blob files are hosted.</span></span> |
+| <span data-ttu-id="46cc6-135">**BlobContainer**</span><span class="sxs-lookup"><span data-stu-id="46cc6-135">**BlobContainer**</span></span> |<span data-ttu-id="46cc6-136">Karşıya yüklenen dosyaların bloblar tutun blob kapsayıcı adını belirtir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-136">Specifies the name of the blob container that hold the uploaded files as blobs.</span></span> |
+| <span data-ttu-id="46cc6-137">**BlobDirectory**</span><span class="sxs-lookup"><span data-stu-id="46cc6-137">**BlobDirectory**</span></span> |<span data-ttu-id="46cc6-138">Bir blok blobu olarak karşıya yüklenen dosyanın depolandığı blob dizini belirtir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-138">Specifies the blob directory where the uploaded file is stored as a block blob.</span></span> <span data-ttu-id="46cc6-139">Blob dizini sanal hiyerarşik bir yapıdır.</span><span class="sxs-lookup"><span data-stu-id="46cc6-139">The blob directory is a virtual hierarchical structure.</span></span> <span data-ttu-id="46cc6-140">Blob zaten varsa, BT IA değiştirildi.</span><span class="sxs-lookup"><span data-stu-id="46cc6-140">If the blob already exists, it ia replaced.</span></span> |
+| <span data-ttu-id="46cc6-141">**LocalDirectory**</span><span class="sxs-lookup"><span data-stu-id="46cc6-141">**LocalDirectory**</span></span> |<span data-ttu-id="46cc6-142">Karşıya yüklenecek dosyalarını içeren yerel dizini belirtir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-142">Specifies the local directory that contains the files to be uploaded.</span></span> |
+| <span data-ttu-id="46cc6-143">**Dosya adı**</span><span class="sxs-lookup"><span data-stu-id="46cc6-143">**FileName**</span></span> |<span data-ttu-id="46cc6-144">Belirtilen ad düzendeki dosyaları seçmek için bir ad filtre belirtir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-144">Specifies a name filter to select files with the specified name pattern.</span></span> <span data-ttu-id="46cc6-145">Örneğin, MySheet\*.xls\* MySheet001.xls ve MySheetABC.xlsx gibi dosyalarını içerir</span><span class="sxs-lookup"><span data-stu-id="46cc6-145">For example, MySheet\*.xls\* includes files such as MySheet001.xls and MySheetABC.xlsx</span></span> |
+| <span data-ttu-id="46cc6-146">**TimeRangeFrom/TimeRangeTo**</span><span class="sxs-lookup"><span data-stu-id="46cc6-146">**TimeRangeFrom/TimeRangeTo**</span></span> |<span data-ttu-id="46cc6-147">Bir zaman aralığı filtresini belirtir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-147">Specifies a time range filter.</span></span> <span data-ttu-id="46cc6-148">Değiştirilen dosyaları sonra *TimeRangeFrom* ve önce *TimeRangeTo* dahil edilir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-148">Files modified after *TimeRangeFrom* and before *TimeRangeTo* are included.</span></span> |
+
+> [!NOTE]
+> <span data-ttu-id="46cc6-149">**AzureStorageConnection** kimlik bilgilerinin doğru olması gerekir ve **BlobContainer** aktarımı denenmeden önce mevcut olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="46cc6-149">The **AzureStorageConnection** credentials need to be correct and the **BlobContainer** must exist before the transfer is attempted.</span></span>
+> 
+> 
+
+## <a name="download-data-from-azure-blob-storage"></a><span data-ttu-id="46cc6-150">Verileri Azure blob depolama alanından karşıdan yükleme</span><span class="sxs-lookup"><span data-stu-id="46cc6-150">Download data from Azure blob storage</span></span>
+<span data-ttu-id="46cc6-151">SSIS ile şirket içi depolama için Azure blob depolama alanından veri indirmek için bir örneğini kullanması [Azure Blob karşıya yükleme görev](https://msdn.microsoft.com/library/mt146779.aspx).</span><span class="sxs-lookup"><span data-stu-id="46cc6-151">To download data from Azure blob storage to on-premises storage with SSIS, use an instance of the [Azure Blob Upload Task](https://msdn.microsoft.com/library/mt146779.aspx).</span></span>
+
+## <a name="more-advanced-ssis-azure-scenarios"></a><span data-ttu-id="46cc6-152">Daha gelişmiş SSIS Azure senaryoları</span><span class="sxs-lookup"><span data-stu-id="46cc6-152">More advanced SSIS-Azure scenarios</span></span>
+<span data-ttu-id="46cc6-153">SSIS özellik paketi birlikte paketleme görevler tarafından işlenecek daha karmaşık akışlar için sağlar.</span><span class="sxs-lookup"><span data-stu-id="46cc6-153">The SSIS feature pack allows for more complex flows to be handled by packaging tasks together.</span></span> <span data-ttu-id="46cc6-154">Örneğin, blob verilerini doğrudan bir Hdınsight kümesinde, çıktısı geri blob ve şirket içi depolama karşıdan yüklenemedi akış.</span><span class="sxs-lookup"><span data-stu-id="46cc6-154">For example, the blob data could feed directly into an HDInsight cluster, whose output could be downloaded back to a blob and then to on-premises storage.</span></span> <span data-ttu-id="46cc6-155">SSIS Hive veya Pig işleri ek SSIS bağlayıcıları kullanarak bir Hdınsight kümesine çalıştırabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="46cc6-155">SSIS can run Hive and Pig jobs on an HDInsight cluster using additional SSIS connectors:</span></span>
+
+* <span data-ttu-id="46cc6-156">SSIS ile Azure Hdınsight kümesinde bir Hive betiği çalıştırmak için kullandığınız [Azure Hdınsight Hive görev](https://msdn.microsoft.com/library/mt146771.aspx).</span><span class="sxs-lookup"><span data-stu-id="46cc6-156">To run a Hive script on an Azure HDInsight cluster with SSIS, use [Azure HDInsight Hive Task](https://msdn.microsoft.com/library/mt146771.aspx).</span></span>
+* <span data-ttu-id="46cc6-157">Azure Hdınsight kümesinde SSIS ile Pig betiği çalıştırmak için kullandığınız [Azure Hdınsight Pig görev](https://msdn.microsoft.com/library/mt146781.aspx).</span><span class="sxs-lookup"><span data-stu-id="46cc6-157">To run a Pig script on an Azure HDInsight cluster with SSIS, use [Azure HDInsight Pig Task](https://msdn.microsoft.com/library/mt146781.aspx).</span></span>
+
