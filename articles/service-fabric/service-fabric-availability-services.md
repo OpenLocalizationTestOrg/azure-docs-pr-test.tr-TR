@@ -1,0 +1,55 @@
+---
+title: "Service Fabric hizmetlerin kullanılabilirliğini | Microsoft Docs"
+description: "Hata algılama, yük devretme ve kurtarma Hizmetleri için açıklar"
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: 
+ms.assetid: 279ba4a4-f2ef-4e4e-b164-daefd10582e4
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/18/2017
+ms.author: masnider
+ms.openlocfilehash: 41ff2c3129facb0eea9d896ce75d7343ae2a018e
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/18/2017
+---
+# <a name="availability-of-service-fabric-services"></a><span data-ttu-id="36301-103">Service Fabric hizmetlerin kullanılabilirliğini</span><span class="sxs-lookup"><span data-stu-id="36301-103">Availability of Service Fabric services</span></span>
+<span data-ttu-id="36301-104">Bu makale, Service Fabric bir hizmetin kullanılabilirliğini nasıl korur genel bir bakış sağlar.</span><span class="sxs-lookup"><span data-stu-id="36301-104">This article gives an overview of how Service Fabric maintains availability of a service.</span></span>
+
+## <a name="availability-of-service-fabric-stateless-services"></a><span data-ttu-id="36301-105">Service Fabric durum bilgisi olmayan hizmetler kullanılabilirliği</span><span class="sxs-lookup"><span data-stu-id="36301-105">Availability of Service Fabric stateless services</span></span>
+<span data-ttu-id="36301-106">Azure Service Fabric Hizmetleri durum bilgisi olan ya da durum bilgisiz olabilir.</span><span class="sxs-lookup"><span data-stu-id="36301-106">Azure Service Fabric services can be either stateful or stateless.</span></span> <span data-ttu-id="36301-107">Durum bilgisiz hizmet içermediği bir uygulama hizmetidir [yerel durumu](service-fabric-concepts-state.md) , yüksek oranda kullanılabilir veya güvenilir olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="36301-107">A stateless service is an application service that does not have any [local state](service-fabric-concepts-state.md) that needs to be highly available or reliable.</span></span>
+
+<span data-ttu-id="36301-108">Durum bilgisiz hizmet oluşturma gerektirir tanımlayan bir `InstanceCount`.</span><span class="sxs-lookup"><span data-stu-id="36301-108">Creating a stateless service requires defining an `InstanceCount`.</span></span> <span data-ttu-id="36301-109">Örnek sayısı, kümede çalışan bir durum bilgisi olmayan hizmetin uygulama mantığı örneklerinin sayısını tanımlar.</span><span class="sxs-lookup"><span data-stu-id="36301-109">The instance count defines the number of instances of the stateless service's application logic that should be running in the cluster.</span></span> <span data-ttu-id="36301-110">Örneklerinin sayısını artırarak bir durum bilgisi olmayan hizmetin ölçeklendirme önerilen yoludur.</span><span class="sxs-lookup"><span data-stu-id="36301-110">Increasing the number of instances is the recommended way of scaling out a stateless service.</span></span>
+
+<span data-ttu-id="36301-111">Bir durum bilgisiz adlı hizmetin örneği başarısız olduğunda, yeni bir örneğini uygun bazı küme düğümünde oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="36301-111">When an instance of a stateless named service fails, a new instance is created on some eligible node in the cluster.</span></span> <span data-ttu-id="36301-112">Örneğin, bir durum bilgisiz hizmet örneği üzerinde Düğüm1 başarısız olabilir ve Düğüm5'yeniden oluşturulması.</span><span class="sxs-lookup"><span data-stu-id="36301-112">For example, a stateless service instance might fail on Node1 and be recreated on Node5.</span></span>
+
+## <a name="availability-of-service-fabric-stateful-services"></a><span data-ttu-id="36301-113">Service Fabric durum bilgisi olan hizmetler kullanılabilirliği</span><span class="sxs-lookup"><span data-stu-id="36301-113">Availability of Service Fabric stateful services</span></span>
+<span data-ttu-id="36301-114">Durum bilgisi olan hizmet ilişkili bazı durumlar vardır.</span><span class="sxs-lookup"><span data-stu-id="36301-114">A stateful service has some state associated with it.</span></span> <span data-ttu-id="36301-115">Service Fabric durum bilgisi olan hizmet çoğaltmaları kümesi olarak modellenir.</span><span class="sxs-lookup"><span data-stu-id="36301-115">In Service Fabric, a stateful service is modeled as a set of replicas.</span></span> <span data-ttu-id="36301-116">Her çoğaltma Ayrıca hizmet durumu kopyasına sahip hizmet kod çalışan bir örneğidir.</span><span class="sxs-lookup"><span data-stu-id="36301-116">Each replica is a running instance of the code of the service that also has a copy of the state for that service.</span></span> <span data-ttu-id="36301-117">Okuma ve yazma işlemleri (birincil olarak adlandırılır) bir yinelemede gerçekleştirilir.</span><span class="sxs-lookup"><span data-stu-id="36301-117">Read and write operations are performed at one replica (called the Primary).</span></span> <span data-ttu-id="36301-118">Durumu değişiklikleri yazma işlemleri *çoğaltılan* (çağrılan etkin ikinciller) çoğaltma kümesindeki diğer yinelemelere ve uygulanır.</span><span class="sxs-lookup"><span data-stu-id="36301-118">Changes to state from write operations are *replicated* to the other replicas in the replica set (called Active Secondaries) and applied.</span></span> 
+
+<span data-ttu-id="36301-119">Yalnızca bir birincil çoğaltmaya olabilir, ancak birden fazla etkin ikincil çoğaltma olabilir.</span><span class="sxs-lookup"><span data-stu-id="36301-119">There can be only one Primary replica, but there can be multiple Active Secondary replicas.</span></span> <span data-ttu-id="36301-120">Etkin ikincil çoğaltmaların sayısı yapılandırılabilir bir değerdir ve daha yüksek bir sayı çoğaltmalarının daha fazla sayıda eşzamanlı yazılım ve donanım hatalarına dayanabilir.</span><span class="sxs-lookup"><span data-stu-id="36301-120">The number of Active Secondary replicas is configurable, and a higher number of replicas can tolerate a greater number of concurrent software and hardware failures.</span></span>
+
+<span data-ttu-id="36301-121">Birincil çoğaltma devre dışı kalırsa, Service Fabric etkin ikincil çoğaltmaları yeni birincil birini yapar çoğaltma.</span><span class="sxs-lookup"><span data-stu-id="36301-121">If the Primary replica goes down, Service Fabric makes one of the Active Secondary replicas the new Primary replica.</span></span> <span data-ttu-id="36301-122">Bu etkin ikincil çoğaltma durumu güncelleştirilmiş sürümünü zaten (aracılığıyla *çoğaltma*), ve daha fazla okuma işlemeye devam et ve yazma işlemleri.</span><span class="sxs-lookup"><span data-stu-id="36301-122">This Active Secondary replica already has the updated version of the state (via *replication*), and it can continue processing further read and write operations.</span></span>
+
+<span data-ttu-id="36301-123">Bu kavramı bir birincil veya etkin ikincil olan bir çoğaltma, çoğaltma rolü olarak bilinir.</span><span class="sxs-lookup"><span data-stu-id="36301-123">This concept, of a replica being either a Primary or Active Secondary, is known as the Replica Role.</span></span>
+
+### <a name="replica-roles"></a><span data-ttu-id="36301-124">Çoğaltma rolleri</span><span class="sxs-lookup"><span data-stu-id="36301-124">Replica roles</span></span>
+<span data-ttu-id="36301-125">Bir çoğaltma rolü Bu çoğaltma tarafından yönetilen durumu ömrünü yönetmek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="36301-125">The role of a replica is used to manage the life cycle of the state being managed by that replica.</span></span> <span data-ttu-id="36301-126">Birincil Hizmetleri rolünü olmayan bir çoğaltma istekleri okuyun.</span><span class="sxs-lookup"><span data-stu-id="36301-126">A replica whose role is Primary services read requests.</span></span> <span data-ttu-id="36301-127">Birincil durumunu güncelleştirme ve değişiklikleri çoğaltmaya ayrıca tüm yazma isteklerini işler.</span><span class="sxs-lookup"><span data-stu-id="36301-127">The Primary also handles all write requests by updating its state and replicating the changes.</span></span> <span data-ttu-id="36301-128">Bu değişiklikleri etkin ikincil Kopya kümesindeki uygulanır.</span><span class="sxs-lookup"><span data-stu-id="36301-128">These changes are applied to the Active Secondaries in the replica set.</span></span> <span data-ttu-id="36301-129">Birincil çoğaltma çoğaltıldığını durumu değişiklikleri alır ve kendi görünüm durumu güncelleştirmek için bir etkin İkincil iş ediyor.</span><span class="sxs-lookup"><span data-stu-id="36301-129">The job of an Active Secondary is to receive state changes that the Primary replica has replicated and update its view of the state.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="36301-130">Üst düzey programlama modelleri gibi [Reliable Actors](service-fabric-reliable-actors-introduction.md) ve [Reliable Services](service-fabric-reliable-services-introduction.md) çoğaltma rolü geliştiriciden kavramı gizle.</span><span class="sxs-lookup"><span data-stu-id="36301-130">Higher-level programming models such as [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) hide the concept of replica role from the developer.</span></span> <span data-ttu-id="36301-131">Aktör içinde rol kavramı sırasında büyük ölçüde çoğu senaryoları için Basitleştirilmiş Hizmetleri'ndeki gereksizdir.</span><span class="sxs-lookup"><span data-stu-id="36301-131">In Actors, the notion of role is unnecessary, while in Services it is largely simplified for most scenarios.</span></span>
+>
+
+## <a name="next-steps"></a><span data-ttu-id="36301-132">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="36301-132">Next steps</span></span>
+<span data-ttu-id="36301-133">Service Fabric kavramları hakkında daha fazla bilgi için aşağıdaki makalelere bakın:</span><span class="sxs-lookup"><span data-stu-id="36301-133">For more information on Service Fabric concepts, see the following articles:</span></span>
+
+- [<span data-ttu-id="36301-134">Service Fabric Hizmetleri ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="36301-134">Scaling Service Fabric services</span></span>](service-fabric-concepts-scalability.md)
+- [<span data-ttu-id="36301-135">Service Fabric Hizmetleri bölümlendirme</span><span class="sxs-lookup"><span data-stu-id="36301-135">Partitioning Service Fabric services</span></span>](service-fabric-concepts-partitioning.md)
+- [<span data-ttu-id="36301-136">Tanımlama ve durumunu yönetme</span><span class="sxs-lookup"><span data-stu-id="36301-136">Defining and managing state</span></span>](service-fabric-concepts-state.md)
+- [<span data-ttu-id="36301-137">Reliable Services</span><span class="sxs-lookup"><span data-stu-id="36301-137">Reliable Services</span></span>](service-fabric-reliable-services-introduction.md)
