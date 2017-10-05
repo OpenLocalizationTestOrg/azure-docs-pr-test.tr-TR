@@ -1,0 +1,2 @@
+>[!Note]
+> <span data-ttu-id="26222-101">Yerel olarak geliştirirken bir Azure depolama hesabı kullanmanızı öneririz.</span><span class="sxs-lookup"><span data-stu-id="26222-101">We recommend that you use an Azure Storage account when developing locally.</span></span> <span data-ttu-id="26222-102">Azure Storage öykünücüsü kullanımını Azure işlevleri araçları tarafından desteklenmiyor.</span><span class="sxs-lookup"><span data-stu-id="26222-102">Use of the Azure Storage Emulator is not supported by Azure Functions tools.</span></span>

@@ -1,0 +1,82 @@
+---
+title: "Anahtar kasası (Klasik) azure'da Windows VM üzerindeki SQL Server ile tümleştirme | Microsoft Docs"
+description: "Azure anahtar kasası ile kullanmak için SQL Server şifrelemesi yapılandırmasını öğrenin. Bu konu Klasik dağıtım modelinde sanal makineler oluşturma SQL Server ile Azure anahtar kasası tümleştirmeyi kullanmayı açıklar."
+services: virtual-machines-windows
+documentationcenter: 
+author: rothja
+manager: jhubbard
+editor: 
+tags: azure-service-management
+ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
+ms.service: virtual-machines-sql
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows-sql-server
+ms.workload: iaas-sql-server
+ms.date: 02/17/2017
+ms.author: jroth
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a><span data-ttu-id="d0dae-104">SQL Server için Azure anahtar kasası tümleştirme Azure sanal makinelerde (Klasik) yapılandırma</span><span class="sxs-lookup"><span data-stu-id="d0dae-104">Configure Azure Key Vault Integration for SQL Server on Azure Virtual Machines (Classic)</span></span>
+> [!div class="op_single_selector"]
+> * [<span data-ttu-id="d0dae-105">Resource Manager</span><span class="sxs-lookup"><span data-stu-id="d0dae-105">Resource Manager</span></span>](../sql/virtual-machines-windows-ps-sql-keyvault.md)
+> * [<span data-ttu-id="d0dae-106">Klasik</span><span class="sxs-lookup"><span data-stu-id="d0dae-106">Classic</span></span>](../classic/ps-sql-keyvault.md)
+> 
+> 
+
+## <a name="overview"></a><span data-ttu-id="d0dae-107">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="d0dae-107">Overview</span></span>
+<span data-ttu-id="d0dae-108">Birden çok SQL Server şifreleme özellikleri vardır, gibi [saydam veri şifreleme (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [sütun düzeyinde şifreleme (Temizle)](https://msdn.microsoft.com/library/ms173744.aspx), ve [yedek şifreleme](https://msdn.microsoft.com/library/dn449489.aspx).</span><span class="sxs-lookup"><span data-stu-id="d0dae-108">There are multiple SQL Server encryption features, such as [transparent data encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [column level encryption (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), and [backup encryption](https://msdn.microsoft.com/library/dn449489.aspx).</span></span> <span data-ttu-id="d0dae-109">Bu formlar şifreleme, şifreleme için kullandığınız şifreleme anahtarlarını depolamak ve yönetmek gerektirir.</span><span class="sxs-lookup"><span data-stu-id="d0dae-109">These forms of encryption require you to manage and store the cryptographic keys you use for encryption.</span></span> <span data-ttu-id="d0dae-110">Azure anahtar kasası (AKV) hizmeti bu anahtarların güvenli ve yüksek oranda kullanılabilir bir konumda yönetim ve güvenlik artırmak için tasarlanmıştır.</span><span class="sxs-lookup"><span data-stu-id="d0dae-110">The Azure Key Vault (AKV) service is designed to improve the security and management of these keys in a secure and highly available location.</span></span> <span data-ttu-id="d0dae-111">[SQL Server Connector](http://www.microsoft.com/download/details.aspx?id=45344) SQL Server'ın bu anahtarları Azure anahtar kasası kullanmaya sağlar.</span><span class="sxs-lookup"><span data-stu-id="d0dae-111">The [SQL Server Connector](http://www.microsoft.com/download/details.aspx?id=45344) enables SQL Server to use these keys from Azure Key Vault.</span></span>
+
+> [!IMPORTANT] 
+> <span data-ttu-id="d0dae-112">Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="d0dae-112">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md).</span></span> <span data-ttu-id="d0dae-113">Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır.</span><span class="sxs-lookup"><span data-stu-id="d0dae-113">This article covers using the Classic deployment model.</span></span> <span data-ttu-id="d0dae-114">Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.</span><span class="sxs-lookup"><span data-stu-id="d0dae-114">Microsoft recommends that most new deployments use the Resource Manager model.</span></span>
+
+<span data-ttu-id="d0dae-115">Şirket içi makineler ile SQL Server çalışıyorsa, vardır [Azure anahtar kasası, şirket içi SQL Server makineden erişmek için izlemeniz adımları](https://msdn.microsoft.com/library/dn198405.aspx).</span><span class="sxs-lookup"><span data-stu-id="d0dae-115">If you are running SQL Server with on-premises machines, there are [steps you can follow to access Azure Key Vault from your on-premises SQL Server machine](https://msdn.microsoft.com/library/dn198405.aspx).</span></span> <span data-ttu-id="d0dae-116">Ancak Azure vm'lerinde SQL Server için kullanarak zaman kazanabilirsiniz *Azure anahtar kasası tümleştirmeyi* özelliği.</span><span class="sxs-lookup"><span data-stu-id="d0dae-116">But for SQL Server in Azure VMs, you can save time by using the *Azure Key Vault Integration* feature.</span></span> <span data-ttu-id="d0dae-117">Bu özelliği etkinleştirmek için birkaç Azure PowerShell cmdlet'leri ile bir SQL VM anahtar kasanızı erişmek gerekli yapılandırmayı otomatik hale getirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d0dae-117">With a few Azure PowerShell cmdlets to enable this feature, you can automate the configuration necessary for a SQL VM to access your key vault.</span></span>
+
+<span data-ttu-id="d0dae-118">Bu özellik etkinleştirildiğinde, otomatik olarak SQL Server Bağlayıcısı'nı yükler, Azure anahtar kasası erişmek için EKM sağlayıcısına yapılandırır ve kasanızı erişmesine izin vermek için kimlik bilgisi oluşturur.</span><span class="sxs-lookup"><span data-stu-id="d0dae-118">When this feature is enabled, it automatically installs the SQL Server Connector, configures the EKM provider to access Azure Key Vault, and creates the credential to allow you to access your vault.</span></span> <span data-ttu-id="d0dae-119">Yukarıda açıklanan şirket içi belgelerindeki adımları sırasında görünüyorsa, bu özellik adım 2 ve 3 otomatikleştirir görebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d0dae-119">If you looked at the steps in the previously mentioned on-premises documentation, you can see that this feature automates steps 2 and 3.</span></span> <span data-ttu-id="d0dae-120">Anahtar kasasını ve anahtarları hala el ile yapmanız gerekir tek şey oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="d0dae-120">The only thing you would still need to do manually is to create the key vault and keys.</span></span> <span data-ttu-id="d0dae-121">Buradan, tüm Kurulum, SQL VM otomatik hale getirilmiştir.</span><span class="sxs-lookup"><span data-stu-id="d0dae-121">From there, the entire setup of your SQL VM is automated.</span></span> <span data-ttu-id="d0dae-122">Bu özellik, bu kurulum tamamlandıktan sonra veritabanları veya yedeklemeler normal olarak şifreleme başlamak için T-SQL deyimlerini yürütebilir.</span><span class="sxs-lookup"><span data-stu-id="d0dae-122">Once this feature has completed this setup, you can execute T-SQL statements to begin encrypting your databases or backups as you normally would.</span></span>
+
+[!INCLUDE [AKV Integration Prepare](../../../../includes/virtual-machines-sql-server-akv-prepare.md)]
+
+## <a name="configure-akv-integration"></a><span data-ttu-id="d0dae-123">AKV tümleştirme yapılandırın</span><span class="sxs-lookup"><span data-stu-id="d0dae-123">Configure AKV Integration</span></span>
+<span data-ttu-id="d0dae-124">Azure anahtar kasası tümleştirmeyi yapılandırmak için PowerShell kullanın.</span><span class="sxs-lookup"><span data-stu-id="d0dae-124">Use PowerShell to configure Azure Key Vault Integration.</span></span> <span data-ttu-id="d0dae-125">Aşağıdaki bölümlerde gerekli parametreleri ve örnek PowerShell komut dosyasını bir bakış sağlar.</span><span class="sxs-lookup"><span data-stu-id="d0dae-125">The following sections provide an overview of the required parameters and then a sample PowerShell script.</span></span>
+
+### <a name="install-the-sql-server-iaas-extension"></a><span data-ttu-id="d0dae-126">SQL Server Iaas uzantısını yükleyin</span><span class="sxs-lookup"><span data-stu-id="d0dae-126">Install the SQL Server IaaS Extension</span></span>
+<span data-ttu-id="d0dae-127">İlk olarak, [SQL Server Iaas uzantısını yüklemeniz](../classic/sql-server-agent-extension.md).</span><span class="sxs-lookup"><span data-stu-id="d0dae-127">First, [install the SQL Server IaaS Extension](../classic/sql-server-agent-extension.md).</span></span>
+
+### <a name="understand-the-input-parameters"></a><span data-ttu-id="d0dae-128">Giriş parametreleri anlama</span><span class="sxs-lookup"><span data-stu-id="d0dae-128">Understand the input parameters</span></span>
+<span data-ttu-id="d0dae-129">Aşağıdaki tabloda bir sonraki bölümde PowerShell betiğini çalıştırmak için gerekli olan parametreleri listeler.</span><span class="sxs-lookup"><span data-stu-id="d0dae-129">The following table lists the parameters required to run the PowerShell script in the next section.</span></span>
+
+| <span data-ttu-id="d0dae-130">Parametre</span><span class="sxs-lookup"><span data-stu-id="d0dae-130">Parameter</span></span> | <span data-ttu-id="d0dae-131">Açıklama</span><span class="sxs-lookup"><span data-stu-id="d0dae-131">Description</span></span> | <span data-ttu-id="d0dae-132">Örnek</span><span class="sxs-lookup"><span data-stu-id="d0dae-132">Example</span></span> |
+| --- | --- | --- |
+| <span data-ttu-id="d0dae-133">**$akvURL**</span><span class="sxs-lookup"><span data-stu-id="d0dae-133">**$akvURL**</span></span> |<span data-ttu-id="d0dae-134">**Anahtar kasası URL'si**</span><span class="sxs-lookup"><span data-stu-id="d0dae-134">**The key vault URL**</span></span> |<span data-ttu-id="d0dae-135">"https://contosokeyvault.vault.azure.net/"</span><span class="sxs-lookup"><span data-stu-id="d0dae-135">"https://contosokeyvault.vault.azure.net/"</span></span> |
+| <span data-ttu-id="d0dae-136">**$spName**</span><span class="sxs-lookup"><span data-stu-id="d0dae-136">**$spName**</span></span> |<span data-ttu-id="d0dae-137">**Hizmet asıl adı**</span><span class="sxs-lookup"><span data-stu-id="d0dae-137">**Service Principal name**</span></span> |<span data-ttu-id="d0dae-138">"fde2b411 - 33d 5-4e11-af04eb07b669ccf2"</span><span class="sxs-lookup"><span data-stu-id="d0dae-138">"fde2b411-33d5-4e11-af04eb07b669ccf2"</span></span> |
+| <span data-ttu-id="d0dae-139">**$spSecret**</span><span class="sxs-lookup"><span data-stu-id="d0dae-139">**$spSecret**</span></span> |<span data-ttu-id="d0dae-140">**Hizmet asıl gizli anahtarı**</span><span class="sxs-lookup"><span data-stu-id="d0dae-140">**Service Principal secret**</span></span> |<span data-ttu-id="d0dae-141">"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM ="</span><span class="sxs-lookup"><span data-stu-id="d0dae-141">"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="</span></span> |
+| <span data-ttu-id="d0dae-142">**$credName**</span><span class="sxs-lookup"><span data-stu-id="d0dae-142">**$credName**</span></span> |<span data-ttu-id="d0dae-143">**Kimlik bilgisi adı**: AKV Tümleştirme, VM’nin anahtar kasasına erişim sağlamasına izin vererek, SQL Server’da bir kimlik bilgisi oluşturur</span><span class="sxs-lookup"><span data-stu-id="d0dae-143">**Credential name**: AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault.</span></span> <span data-ttu-id="d0dae-144">Bu kimlik bilgisi için bir ad seçin.</span><span class="sxs-lookup"><span data-stu-id="d0dae-144">Choose a name for this credential.</span></span> |<span data-ttu-id="d0dae-145">"mycred1"</span><span class="sxs-lookup"><span data-stu-id="d0dae-145">"mycred1"</span></span> |
+| <span data-ttu-id="d0dae-146">**$vmName**</span><span class="sxs-lookup"><span data-stu-id="d0dae-146">**$vmName**</span></span> |<span data-ttu-id="d0dae-147">**Sanal makine adı**: önceden oluşturulmuş bir SQL VM adı.</span><span class="sxs-lookup"><span data-stu-id="d0dae-147">**Virtual machine name**: The name of a previously created SQL VM.</span></span> |<span data-ttu-id="d0dae-148">"myvmname"</span><span class="sxs-lookup"><span data-stu-id="d0dae-148">"myvmname"</span></span> |
+| <span data-ttu-id="d0dae-149">**$serviceName**</span><span class="sxs-lookup"><span data-stu-id="d0dae-149">**$serviceName**</span></span> |<span data-ttu-id="d0dae-150">**Hizmet adı**: SQL VM ile ilişkili bulut hizmeti adını.</span><span class="sxs-lookup"><span data-stu-id="d0dae-150">**Service name**: The Cloud Service name that is associated with the SQL VM.</span></span> |<span data-ttu-id="d0dae-151">"mycloudservicename"</span><span class="sxs-lookup"><span data-stu-id="d0dae-151">"mycloudservicename"</span></span> |
+
+### <a name="enable-akv-integration-with-powershell"></a><span data-ttu-id="d0dae-152">PowerShell ile AKV tümleştirmeyi etkinleştir</span><span class="sxs-lookup"><span data-stu-id="d0dae-152">Enable AKV Integration with PowerShell</span></span>
+<span data-ttu-id="d0dae-153">**Yeni AzureVMSqlServerKeyVaultCredentialConfig** cmdlet'i Azure anahtar kasası tümleştirme özelliği için bir yapılandırma nesnesi oluşturur.</span><span class="sxs-lookup"><span data-stu-id="d0dae-153">The **New-AzureVMSqlServerKeyVaultCredentialConfig** cmdlet creates a configuration object for the Azure Key Vault Integration feature.</span></span> <span data-ttu-id="d0dae-154">**Kümesi AzureVMSqlServerExtension** ile tümleştirme yapılandırır **KeyVaultCredentialSettings** parametresi.</span><span class="sxs-lookup"><span data-stu-id="d0dae-154">The **Set-AzureVMSqlServerExtension** configures this integration with the **KeyVaultCredentialSettings** parameter.</span></span> <span data-ttu-id="d0dae-155">Aşağıdaki adımlar bu komutlarının nasıl kullanılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="d0dae-155">The following steps show how to use these commands.</span></span>
+
+1. <span data-ttu-id="d0dae-156">Azure PowerShell'de önce giriş parametrelerini belirli değerlerinizle, bu konunun önceki bölümlerinde açıklandığı gibi yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="d0dae-156">In Azure PowerShell, first configure the input parameters with your specific values as described in the previous sections of this topic.</span></span> <span data-ttu-id="d0dae-157">Aşağıdaki komut dosyasını bir örnektir.</span><span class="sxs-lookup"><span data-stu-id="d0dae-157">The following script is an example.</span></span>
+   
+        $akvURL = "https://contosokeyvault.vault.azure.net/"
+        $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
+        $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
+        $credName = "mycred1"
+        $vmName = "myvmname"
+        $serviceName = "mycloudservicename"
+2. <span data-ttu-id="d0dae-158">Daha sonra yapılandırmak ve AKV tümleştirme etkinleştirmek için aşağıdaki komut dosyasını kullanın.</span><span class="sxs-lookup"><span data-stu-id="d0dae-158">Then use the following script to configure and enable AKV Integration.</span></span>
+   
+        $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
+        $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
+        Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
+
+<span data-ttu-id="d0dae-159">SQL Iaas Aracısı uzantısı SQL VM yeni bu yapılandırmasıyla güncelleştirir.</span><span class="sxs-lookup"><span data-stu-id="d0dae-159">The SQL IaaS Agent Extension will update the SQL VM with this new configuration.</span></span>
+
+[!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
+

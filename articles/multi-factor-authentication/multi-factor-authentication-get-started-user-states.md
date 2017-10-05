@@ -1,0 +1,127 @@
+---
+title: "Microsoft Azure çok faktörlü kimlik doğrulama kullanıcı durumları"
+description: "Azure MFA kullanıcı durumları hakkında bilgi edinin."
+services: multi-factor-authentication
+documentationcenter: 
+author: kgremban
+manager: femila
+ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/26/2017
+ms.author: kgremban
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.openlocfilehash: 1869b7a4ef42536a3cd909ba2983ae0fe97185a9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/18/2017
+---
+# <a name="how-to-require-two-step-verification-for-a-user-or-group"></a><span data-ttu-id="f258c-103">Bir kullanıcı veya grup için iki aşamalı doğrulama zorunlu kılma</span><span class="sxs-lookup"><span data-stu-id="f258c-103">How to require two-step verification for a user or group</span></span>
+
+<span data-ttu-id="f258c-104">İki aşamalı doğrulama gerektirme iki yaklaşım vardır.</span><span class="sxs-lookup"><span data-stu-id="f258c-104">There are two approaches for requiring two-step verification.</span></span> <span data-ttu-id="f258c-105">İlk seçenek, her bağımsız kullanıcı Azure çok faktörlü kimlik doğrulama (MFA) etkinleştirmektir.</span><span class="sxs-lookup"><span data-stu-id="f258c-105">The first option is to enable each individual user for Azure Multi-Factor Authentication (MFA).</span></span> <span data-ttu-id="f258c-106">Kullanıcılar tek tek etkinleştirildiğinde, bunlar her zaman iki aşamalı doğrulamayı (bazı özel durumlarla birlikte, güvenilen IP adreslerinden oturum zaman veya hatırlanan aygıt özelliği açık olup olmadığını gibi) gerçekleştirin.</span><span class="sxs-lookup"><span data-stu-id="f258c-106">When users are enabled individually, they always perform two-step verification (with some exceptions, like when they sign in from trusted IP addresses or if the remembered devices feature is turned on).</span></span> <span data-ttu-id="f258c-107">İkinci seçenek belirli koşullar altında iki aşamalı doğrulama gerektiren bir koşullu erişim ilkesi ayarlamaktır.</span><span class="sxs-lookup"><span data-stu-id="f258c-107">The second option is to set up a conditional access policy that requires two-step verification under certain conditions.</span></span>
+
+>[!TIP] 
+><span data-ttu-id="f258c-108">İki aşamalı doğrulama, ikisini istemek için aşağıdaki yöntemlerden birini seçin.</span><span class="sxs-lookup"><span data-stu-id="f258c-108">Choose one of these methods to require two-step verification, not both.</span></span> <span data-ttu-id="f258c-109">Bir kullanıcı Azure MFA için etkinleştirmeye herhangi koşullu erişim ilkeleri geçersiz kılar.</span><span class="sxs-lookup"><span data-stu-id="f258c-109">Enabling a user for Azure MFA overrides any conditional access policies.</span></span>
+
+## <a name="which-option-is-right-for-you"></a><span data-ttu-id="f258c-110">Hangi sizin için uygun bir seçenektir</span><span class="sxs-lookup"><span data-stu-id="f258c-110">Which option is right for you</span></span>
+
+<span data-ttu-id="f258c-111">**Azure MFA kullanıcı durumları değiştirerek etkinleştirme** iki aşamalı doğrulama gerektirme geleneksel bir yaklaşımdır.</span><span class="sxs-lookup"><span data-stu-id="f258c-111">**Enabling Azure MFA by changing user states** is the traditional approach for requiring two-step verification.</span></span> <span data-ttu-id="f258c-112">Hem bulutta Azure MFA ve Azure MFA sunucusu için çalışır.</span><span class="sxs-lookup"><span data-stu-id="f258c-112">It works for both Azure MFA in the cloud and Azure MFA Server.</span></span> <span data-ttu-id="f258c-113">Oturum her zaman iki aşamalı doğrulamayı gerçekleştirmek için aynı deneyimi sağlayan tüm kullanıcıların sahip.</span><span class="sxs-lookup"><span data-stu-id="f258c-113">All the users that you enable have the same experience, which is to perform two-step verification every time they sign in.</span></span> <span data-ttu-id="f258c-114">Bir kullanıcının kullanıcı etkileyebilecek herhangi bir koşullu erişim ilkeleri geçersiz kılar.</span><span class="sxs-lookup"><span data-stu-id="f258c-114">Enabling a user overrides any conditional access policies that may affect that user.</span></span> 
+
+<span data-ttu-id="f258c-115">**Koşullu erişim ilkesi ile Azure MFA'yı etkinleştirerek** iki aşamalı doğrulama gerektirme daha esnek bir yaklaşımdır.</span><span class="sxs-lookup"><span data-stu-id="f258c-115">**Enabling Azure MFA with a conditional access policy** is a more flexible approach for requiring two-step verification.</span></span> <span data-ttu-id="f258c-116">Yalnızca çalışır bulutta Azure MFA için yine de ve koşullu erişim bir [Özelliği Azure Active Directory Ücretli](https://www.microsoft.com/cloud-platform/azure-active-directory-features).</span><span class="sxs-lookup"><span data-stu-id="f258c-116">It only work for Azure MFA in the cloud, though, and conditional access is a [paid feature of Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).</span></span> <span data-ttu-id="f258c-117">Tek tek kullanıcılar yanı sıra grupları uygulamak koşullu erişim ilkeleri oluşturabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f258c-117">You can create conditional access policies that apply to groups as well as individual users.</span></span> <span data-ttu-id="f258c-118">Daha fazla kısıtlama düşük riskli grupları daha yüksek riskli grupları verilebilir veya iki aşamalı doğrulamayı yalnızca yüksek riskli bulut uygulamaları için gereklidir ve düşük riskli için olanları atlandı.</span><span class="sxs-lookup"><span data-stu-id="f258c-118">High-risk groups can be given more restrictions than low-risk groups, or two-step verification can be required only for high-risk cloud apps and skipped for low-risk ones.</span></span> 
+
+<span data-ttu-id="f258c-119">Bu seçeneklerin ikisi de Azure çok faktörlü kimlik doğrulaması için gereksinimleri açtıktan sonra oturum ilk kez kaydetmek için kullanıcılara sor.</span><span class="sxs-lookup"><span data-stu-id="f258c-119">Both of these options prompt users to register for Azure Multi-Factor Authentication the first time that they sign in after the requirements turn on.</span></span> <span data-ttu-id="f258c-120">Her iki seçenek de ile yapılandırılabilir çalışması [Azure çok faktörlü kimlik doğrulama ayarları](multi-factor-authentication-whats-next.md)</span><span class="sxs-lookup"><span data-stu-id="f258c-120">Both options also work with the configurable [Azure Multi-Factor Authentication settings](multi-factor-authentication-whats-next.md)</span></span>
+
+## <a name="enable-azure-mfa-by-changing-user-status"></a><span data-ttu-id="f258c-121">Kullanıcı durumu değiştirerek Azure MFA etkinleştir</span><span class="sxs-lookup"><span data-stu-id="f258c-121">Enable Azure MFA by changing user status</span></span>
+
+<span data-ttu-id="f258c-122">Azure multi-Factor Authentication kullanıcı hesapları şu üç ayrı duruma sahiptir:</span><span class="sxs-lookup"><span data-stu-id="f258c-122">User accounts in Azure Multi-Factor Authentication have the following three distinct states:</span></span>
+
+| <span data-ttu-id="f258c-123">Durum</span><span class="sxs-lookup"><span data-stu-id="f258c-123">Status</span></span> | <span data-ttu-id="f258c-124">Açıklama</span><span class="sxs-lookup"><span data-stu-id="f258c-124">Description</span></span> | <span data-ttu-id="f258c-125">Etkilenen tarayıcı olmayan uygulamalar</span><span class="sxs-lookup"><span data-stu-id="f258c-125">Non-browser apps affected</span></span> |
+|:---:|:---:|:---:|
+| <span data-ttu-id="f258c-126">Devre dışı</span><span class="sxs-lookup"><span data-stu-id="f258c-126">Disabled</span></span> |<span data-ttu-id="f258c-127">Yeni bir kullanıcı için varsayılan duruma Azure çok faktörlü kimlik doğrulama (MFA) kayıtlı değil.</span><span class="sxs-lookup"><span data-stu-id="f258c-127">The default state for a new user not enrolled Azure Multi-Factor Authentication (MFA).</span></span> |<span data-ttu-id="f258c-128">Hayır</span><span class="sxs-lookup"><span data-stu-id="f258c-128">No</span></span> |
+| <span data-ttu-id="f258c-129">Etkin</span><span class="sxs-lookup"><span data-stu-id="f258c-129">Enabled</span></span> |<span data-ttu-id="f258c-130">Kullanıcı Azure MFA kayıtlı ancak kayıtlı değil.</span><span class="sxs-lookup"><span data-stu-id="f258c-130">The user has been enrolled in Azure MFA, but has not registered.</span></span> <span data-ttu-id="f258c-131">Bunlar oturum açtığınızda kaydetmek için istenir.</span><span class="sxs-lookup"><span data-stu-id="f258c-131">They will be prompted to register the next time they sign in.</span></span> |<span data-ttu-id="f258c-132">Hayır.</span><span class="sxs-lookup"><span data-stu-id="f258c-132">No.</span></span>  <span data-ttu-id="f258c-133">Kayıt işlemi tamamlanana kadar çalışmaya devam eder.</span><span class="sxs-lookup"><span data-stu-id="f258c-133">They continue to work until the registration process is completed.</span></span> |
+| <span data-ttu-id="f258c-134">Uygulandı</span><span class="sxs-lookup"><span data-stu-id="f258c-134">Enforced</span></span> |<span data-ttu-id="f258c-135">Kullanıcı kaydolmuş ve kaydolma işlemini için Azure MFA tamamlandı.</span><span class="sxs-lookup"><span data-stu-id="f258c-135">The user has been enrolled and has completed the registration process for Azure MFA.</span></span> |<span data-ttu-id="f258c-136">Evet.</span><span class="sxs-lookup"><span data-stu-id="f258c-136">Yes.</span></span>  <span data-ttu-id="f258c-137">Uygulamaları, uygulama parolaları gerekir.</span><span class="sxs-lookup"><span data-stu-id="f258c-137">Apps require app passwords.</span></span> |
+
+<span data-ttu-id="f258c-138">Bir kullanıcının durumunu olup bir yönetim bunları Azure MFA kaydetmiştir ve kayıt işlemini tamamlanmadan yansıtır.</span><span class="sxs-lookup"><span data-stu-id="f258c-138">A user's state reflects whether an admin has enrolled them in Azure MFA, and whether they completed the registration process.</span></span>
+
+<span data-ttu-id="f258c-139">Tüm kullanıcılar Başlat *devre dışı*.</span><span class="sxs-lookup"><span data-stu-id="f258c-139">All users start out *disabled*.</span></span> <span data-ttu-id="f258c-140">Azure MFA, durum değişikliklerini kullanıcılar kaydettiğinizde *etkin*.</span><span class="sxs-lookup"><span data-stu-id="f258c-140">When you enroll users in Azure MFA, their state changes *enabled*.</span></span> <span data-ttu-id="f258c-141">Etkin kullanıcılar oturum açıp kayıt işlemini tamamlayın, durumlarına değişikliklerini *zorunlu*.</span><span class="sxs-lookup"><span data-stu-id="f258c-141">When enabled users sign in and complete the registration process, their state changes to *enforced*.</span></span>  
+
+### <a name="view-the-status-for-a-user"></a><span data-ttu-id="f258c-142">Kullanıcı durumunu görüntüleyin</span><span class="sxs-lookup"><span data-stu-id="f258c-142">View the status for a user</span></span>
+
+<span data-ttu-id="f258c-143">Burada görüntüleyebilir ve kullanıcı durumlarını Yönetme sayfasına erişmek için aşağıdaki adımları kullanın:</span><span class="sxs-lookup"><span data-stu-id="f258c-143">Use the following steps to access the page where you can view and manage user states:</span></span>
+
+1. <span data-ttu-id="f258c-144">[Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.</span><span class="sxs-lookup"><span data-stu-id="f258c-144">Sign in to the [Azure portal](https://portal.azure.com) as an administrator.</span></span>
+2. <span data-ttu-id="f258c-145">Git **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="f258c-145">Go to **Azure Active Directory** > **Users and groups** > **All users**.</span></span>
+3. <span data-ttu-id="f258c-146">Seçin **çok faktörlü kimlik doğrulaması**.</span><span class="sxs-lookup"><span data-stu-id="f258c-146">Select **Multi-Factor Authentication**.</span></span>
+   <span data-ttu-id="f258c-147">![Çok faktörlü kimlik doğrulama yöntemini seçin](./media/multi-factor-authentication-get-started-user-states/selectmfa.png)</span><span class="sxs-lookup"><span data-stu-id="f258c-147">![Select Multi-Factor Authentication](./media/multi-factor-authentication-get-started-user-states/selectmfa.png)</span></span>
+4. <span data-ttu-id="f258c-148">Kullanıcı durumları görüntüler, yeni bir sayfa açar.</span><span class="sxs-lookup"><span data-stu-id="f258c-148">A new page, which displays the user states, opens.</span></span>
+   <span data-ttu-id="f258c-149">![çok faktörlü kimlik doğrulaması kullanıcı durumu - ekran görüntüsü](./media/multi-factor-authentication-get-started-user-states/userstate1.png)</span><span class="sxs-lookup"><span data-stu-id="f258c-149">![multi-factor authentication user status - screenshot](./media/multi-factor-authentication-get-started-user-states/userstate1.png)</span></span>
+
+### <a name="change-the-status-for-a-user"></a><span data-ttu-id="f258c-150">Bir kullanıcının durumunu değiştirme</span><span class="sxs-lookup"><span data-stu-id="f258c-150">Change the status for a user</span></span>
+
+1. <span data-ttu-id="f258c-151">Çok faktörlü kimlik doğrulaması kullanıcılar sayfasına ulaşmak için yukarıdaki adımları kullanın.</span><span class="sxs-lookup"><span data-stu-id="f258c-151">Use the preceding steps to get to the multi-factor authentication users page.</span></span>
+2. <span data-ttu-id="f258c-152">Azure MFA için etkinleştirmek istediğiniz kullanıcıyı bulun.</span><span class="sxs-lookup"><span data-stu-id="f258c-152">Find the user that you want to enable for Azure MFA.</span></span> <span data-ttu-id="f258c-153">Üst kısımdaki görünümü değiştirmeniz gerekebilir.</span><span class="sxs-lookup"><span data-stu-id="f258c-153">You may need to change the view at the top.</span></span> 
+   <span data-ttu-id="f258c-154">![Kullanıcı - ekran görüntüsü Bul](./media/multi-factor-authentication-get-started-cloud/enable1.png)</span><span class="sxs-lookup"><span data-stu-id="f258c-154">![Find user - screenshot](./media/multi-factor-authentication-get-started-cloud/enable1.png)</span></span>
+3. <span data-ttu-id="f258c-155">Kendi adının yanındaki kutuyu işaretleyin.</span><span class="sxs-lookup"><span data-stu-id="f258c-155">Check the box next to their name.</span></span>
+4. <span data-ttu-id="f258c-156">Sağdaki hızlı adımlar altında seçin **etkinleştirmek** veya **devre dışı**.</span><span class="sxs-lookup"><span data-stu-id="f258c-156">On the right, under quick steps, choose **Enable** or **Disable**.</span></span>
+   <span data-ttu-id="f258c-157">![Seçilen kullanıcının - ekran görüntüsü](./media/multi-factor-authentication-get-started-cloud/user1.png)</span><span class="sxs-lookup"><span data-stu-id="f258c-157">![Enable selected user - screenshot](./media/multi-factor-authentication-get-started-cloud/user1.png)</span></span>
+
+   >[!TIP]
+   ><span data-ttu-id="f258c-158">*Etkin* kullanıcılar otomatik olarak geçiş için *zorlanan* Azure MFA için bunlar kaydetme zaman.</span><span class="sxs-lookup"><span data-stu-id="f258c-158">*Enabled* users automatically switch to *enforced* when they register for Azure MFA.</span></span> <span data-ttu-id="f258c-159">Kullanıcı durumu zorunlu şeklinde el ile değiştirmemeniz.</span><span class="sxs-lookup"><span data-stu-id="f258c-159">You shouldn't manually change the user state to enforced.</span></span> 
+
+5. <span data-ttu-id="f258c-160">Açılır pencere Seçiminizi onaylayın.</span><span class="sxs-lookup"><span data-stu-id="f258c-160">Confirm your selection in the pop-up window that opens.</span></span> 
+
+<span data-ttu-id="f258c-161">Kullanıcıların etkinleştirdikten sonra e-posta aracılığıyla haber vermelisiniz.</span><span class="sxs-lookup"><span data-stu-id="f258c-161">After you enable users, you should notify them via email.</span></span> <span data-ttu-id="f258c-162">Kullanıcılar oturum açtığında kaydetmek için istenir söyleyin.</span><span class="sxs-lookup"><span data-stu-id="f258c-162">Tell them that they'll be asked to register the next time they sign in.</span></span> <span data-ttu-id="f258c-163">Kuruluşunuz modern kimlik doğrulamayı desteklemeyen tarayıcı olmayan uygulamaları kullanıyorsa, ayrıca, kullanıcılar uygulama parolaları oluşturmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="f258c-163">Also, if your organization uses non-browser apps that don't support modern authentication, they'll need to create app passwords.</span></span> <span data-ttu-id="f258c-164">Bir bağlantı da içerebilir bizim [Azure MFA Son Kullanıcı Kılavuzu](./end-user/multi-factor-authentication-end-user.md) başlama yardımcı olmak için.</span><span class="sxs-lookup"><span data-stu-id="f258c-164">You can also include a link to our [Azure MFA end-user guide](./end-user/multi-factor-authentication-end-user.md) to help them get started.</span></span>
+
+### <a name="use-powershell"></a><span data-ttu-id="f258c-165">PowerShell kullanma</span><span class="sxs-lookup"><span data-stu-id="f258c-165">Use PowerShell</span></span>
+<span data-ttu-id="f258c-166">Kullanıcı durumunu durum kullanarak değiştirmek için [Azure AD PowerShell](/powershell/azure/overview), değiştirme `$st.State`.</span><span class="sxs-lookup"><span data-stu-id="f258c-166">To change the user status state using [Azure AD PowerShell](/powershell/azure/overview), change `$st.State`.</span></span> <span data-ttu-id="f258c-167">Üç olası durum şunlardır:</span><span class="sxs-lookup"><span data-stu-id="f258c-167">There are three possible states:</span></span>
+
+* <span data-ttu-id="f258c-168">Etkin</span><span class="sxs-lookup"><span data-stu-id="f258c-168">Enabled</span></span>
+* <span data-ttu-id="f258c-169">Uygulandı</span><span class="sxs-lookup"><span data-stu-id="f258c-169">Enforced</span></span>
+* <span data-ttu-id="f258c-170">Devre dışı</span><span class="sxs-lookup"><span data-stu-id="f258c-170">Disabled</span></span>  
+
+<span data-ttu-id="f258c-171">Kullanıcıların doğrudan taşıma *zorlanmış* durumu.</span><span class="sxs-lookup"><span data-stu-id="f258c-171">Don't move users directly to the *Enforced* state.</span></span> <span data-ttu-id="f258c-172">Kullanıcı MFA kaydı gerçekleştirmediğinden ve [uygulama parolası](multi-factor-authentication-whats-next.md#app-passwords) edinmediğinden, tarayıcı tabanlı olmayan uygulamalar devre dışı kalacaktır.</span><span class="sxs-lookup"><span data-stu-id="f258c-172">Non-browser-based apps will stop working because the user has not gone through MFA registration and obtained an [app password](multi-factor-authentication-whats-next.md#app-passwords).</span></span> 
+
+<span data-ttu-id="f258c-173">Toplu etkinleştirme kullanıcıları gerektiğinde PowerShell kullanarak iyi bir seçenektir.</span><span class="sxs-lookup"><span data-stu-id="f258c-173">Using PowerShell is a good option when you need to bulk enabling users.</span></span> <span data-ttu-id="f258c-174">Kullanıcıların bir listesini döngüler ve bunları sağlayan bir PowerShell Betiği oluşturun:</span><span class="sxs-lookup"><span data-stu-id="f258c-174">Create a PowerShell script that loops through a list of users and enables them:</span></span>
+
+        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+        $st.RelyingParty = "*"
+        $st.State = “Enabled”
+        $sta = @($st)
+        Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+
+<span data-ttu-id="f258c-175">Örnek aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="f258c-175">Here is an example:</span></span>
+
+    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
+    foreach ($user in $users)
+    {
+        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+        $st.RelyingParty = "*"
+        $st.State = “Enabled”
+        $sta = @($st)
+        Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+    }
+
+## <a name="enable-azure-mfa-with-a-conditional-access-policy"></a><span data-ttu-id="f258c-176">Azure MFA ile koşullu erişim ilkesini etkinleştir</span><span class="sxs-lookup"><span data-stu-id="f258c-176">Enable Azure MFA with a conditional access policy</span></span>
+
+<span data-ttu-id="f258c-177">Koşullu erişim Ücretli Azure Active Directory, birçok olası yapılandırma seçenekleriyle özelliğidir.</span><span class="sxs-lookup"><span data-stu-id="f258c-177">Conditional access is a paid feature of Azure Active Directory, with many possible configuration options.</span></span> <span data-ttu-id="f258c-178">Bu adımları bir ilke oluşturmak için bir yol yol.</span><span class="sxs-lookup"><span data-stu-id="f258c-178">These steps walk through one way to create a policy.</span></span> <span data-ttu-id="f258c-179">Hakkında daha fazla bilgi için okuma [Azure Active Directory'de koşullu erişim](../active-directory/active-directory-conditional-access-azure-portal.md).</span><span class="sxs-lookup"><span data-stu-id="f258c-179">For more information, read about [Conditional Access in Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).</span></span>
+
+1. <span data-ttu-id="f258c-180">[Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.</span><span class="sxs-lookup"><span data-stu-id="f258c-180">Sign in to the [Azure portal](https://portal.azure.com) as an administrator.</span></span>
+2. <span data-ttu-id="f258c-181">Git **Azure Active Directory** > **koşullu erişim**.</span><span class="sxs-lookup"><span data-stu-id="f258c-181">Go to **Azure Active Directory** > **Conditional access**.</span></span>
+3. <span data-ttu-id="f258c-182">Seçin **yeni ilke**.</span><span class="sxs-lookup"><span data-stu-id="f258c-182">Select **New policy**.</span></span>
+4. <span data-ttu-id="f258c-183">Altında **atamaları**seçin **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="f258c-183">Under **Assignments**, select **Users and groups**.</span></span> <span data-ttu-id="f258c-184">Kullanım **Ekle** ve **hariç** sekmeleri hangi kullanıcıların ve grupların ilke tarafından yönetilen belirtin.</span><span class="sxs-lookup"><span data-stu-id="f258c-184">Use the **Include** and **Exclude** tabs to specify which users and groups will be managed by the policy.</span></span>
+5. <span data-ttu-id="f258c-185">Altında **atamaları**seçin **bulut uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="f258c-185">Under **Assignments**, select **Cloud apps**.</span></span> <span data-ttu-id="f258c-186">Dahil etmeyi **tüm bulut uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="f258c-186">Choose to include **All cloud apps**.</span></span>
+6. <span data-ttu-id="f258c-187">Altında **erişim denetimleri**seçin **Grant**.</span><span class="sxs-lookup"><span data-stu-id="f258c-187">Under **Access controls**, select **Grant**.</span></span> <span data-ttu-id="f258c-188">Seçin **çok faktörlü kimlik doğrulaması gerektiren**.</span><span class="sxs-lookup"><span data-stu-id="f258c-188">Choose **Require multi-factor authentication**.</span></span>
+7. <span data-ttu-id="f258c-189">Kapatma **ilkesini etkinleştir** için **üzerinde** ve ardından **kaydetmek**.</span><span class="sxs-lookup"><span data-stu-id="f258c-189">Turn **Enable policy** to **On** and then select **Save**.</span></span>
+
+<span data-ttu-id="f258c-190">Koşullu Erişim İlkesi'nde diğer seçenekleri tam olarak iki aşamalı doğrulamayı gerekip gerekmeyeceğini zaman belirtmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="f258c-190">The other options in the conditional access policy allow you to specify exactly when two-step verification should be required.</span></span> <span data-ttu-id="f258c-191">Örneğin, bildiren bir ilke yapabilir: Yükleniciler etki alanına katılmamış cihazlarda güvenilmeyen ağlardan tedarik uygulamamıza erişmeyi denediğinde, iki aşamalı doğrulamayı gerektirir.</span><span class="sxs-lookup"><span data-stu-id="f258c-191">For example, you could make a policy that states: when contractors try to access our procurement app from untrusted networks on devices that are not domain-joined, require two-step verification.</span></span> 
+
+## <a name="next-steps"></a><span data-ttu-id="f258c-192">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="f258c-192">Next steps</span></span>
+
+- <span data-ttu-id="f258c-193">İpuçları almak [koşullu erişim için en iyi uygulamaları](../active-directory/active-directory-conditional-access-best-practices.md)</span><span class="sxs-lookup"><span data-stu-id="f258c-193">Get tips on the [Best practices for conditional access](../active-directory/active-directory-conditional-access-best-practices.md)</span></span>
+
+- <span data-ttu-id="f258c-194">Çok faktörlü kimlik doğrulaması ayarlarını yönetme [, kullanıcılar ve aygıtları](multi-factor-authentication-manage-users-and-devices.md)</span><span class="sxs-lookup"><span data-stu-id="f258c-194">Manage Multi-Factor Authentication settings for [your users and their devices](multi-factor-authentication-manage-users-and-devices.md)</span></span>

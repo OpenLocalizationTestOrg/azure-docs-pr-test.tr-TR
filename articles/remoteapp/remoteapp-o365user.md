@@ -1,0 +1,53 @@
+---
+title: "Azure RemoteApp ile Office 365 kullanıcı hesaplarını kullanma | Microsoft Docs"
+description: "Azure RemoteApp ile my Office 365 kullanıcı hesaplarını kullanmayı öğrenin"
+services: remoteapp
+documentationcenter: 
+author: piotrci
+manager: mbaldwin
+ms.assetid: aba70fd3-60b0-4b44-9321-1ab18760ccd5
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/26/2017
+ms.author: mbaldwin
+ms.openlocfilehash: 1bc8949c236afd03415f961cf7a657d4d3926b07
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="how-to-use-azure-remoteapp-with-office-365-user-accounts"></a><span data-ttu-id="efdd2-103">Azure RemoteApp ile Office 365 kullanıcı hesaplarını kullanma</span><span class="sxs-lookup"><span data-stu-id="efdd2-103">How to use Azure RemoteApp with Office 365 user accounts</span></span>
+> [!IMPORTANT]
+> <span data-ttu-id="efdd2-104">Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır.</span><span class="sxs-lookup"><span data-stu-id="efdd2-104">Azure RemoteApp is being discontinued on August 31, 2017.</span></span> <span data-ttu-id="efdd2-105">Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.</span><span class="sxs-lookup"><span data-stu-id="efdd2-105">Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.</span></span>
+> 
+> 
+
+<span data-ttu-id="efdd2-106">Bir Office 365 aboneliğiniz varsa Azure Active kullanıcı adları ve Office 365 hizmetlerine erişmek için kullanılan parolalar depolayan Directory gerekir.</span><span class="sxs-lookup"><span data-stu-id="efdd2-106">If you have an Office 365 subscription you have an Azure Active Directory that stores your user names and passwords used to access Office 365 services.</span></span> <span data-ttu-id="efdd2-107">Kullanıcılarınız Office 365 ProPlus etkinleştirdiğinizde Örneğin, bunlar için lisans denetlemek için Azure ad kimlik doğrulaması.</span><span class="sxs-lookup"><span data-stu-id="efdd2-107">For example, when your users activate Office 365 ProPlus they authenticate against Azure AD to check for licenses.</span></span> <span data-ttu-id="efdd2-108">Müşterilerin çoğu, Azure RemoteApp ile aynı dizinde kullanmak istersiniz.</span><span class="sxs-lookup"><span data-stu-id="efdd2-108">Most customers would like to use the same directory with Azure RemoteApp.</span></span>
+
+<span data-ttu-id="efdd2-109">Azure RemoteApp dağıtıyorsanız farklı bir Azure AD ile ilişkili bir Azure aboneliği büyük olasılıkla kullanıyor.</span><span class="sxs-lookup"><span data-stu-id="efdd2-109">If you are deploying Azure RemoteApp you are most likely using an Azure subscription that is associated with a different Azure AD.</span></span> <span data-ttu-id="efdd2-110">Office 365 dizininize kullanabilmeniz için bu dizine Azure aboneliği taşımanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="efdd2-110">In order to use your Office 365 directory, you will need to move the Azure subscription into that directory.</span></span>
+
+<span data-ttu-id="efdd2-111">Office 365 istemci uygulamaları dağıtma hakkında daha fazla bilgi için bkz: [Azure RemoteApp ile Office 365 aboneliğinizi kullanma](remoteapp-officesubscription.md).</span><span class="sxs-lookup"><span data-stu-id="efdd2-111">For info on how to deploy Office 365 client applications, see [How to use your Office 365 subscription with Azure RemoteApp](remoteapp-officesubscription.md).</span></span>
+
+## <a name="phase-1-register-your-free-office-365-azure-active-directory-subscription"></a><span data-ttu-id="efdd2-112">1. Aşama: ücretsiz, Office 365 Azure Active Directory abonelik kaydı</span><span class="sxs-lookup"><span data-stu-id="efdd2-112">Phase 1: Register your free Office 365 Azure Active Directory subscription</span></span>
+<span data-ttu-id="efdd2-113">Klasik Azure portalını kullanıyorsanız, içindeki adımları kullanın [ücretsiz Azure Active Directory aboneliğinizi kaydetmek](https://technet.microsoft.com/library/dn832618.aspx) Azure Yönetim Portalı aracılığıyla Azure AD yönetim erişmek için.</span><span class="sxs-lookup"><span data-stu-id="efdd2-113">If you are using the Azure classic portal, use the steps in [Register your free Azure Active Directory subscription](https://technet.microsoft.com/library/dn832618.aspx) to get administrative access to your Azure AD via the Azure Management Portal.</span></span> <span data-ttu-id="efdd2-114">Bu işlem sonucu olarak Azure portalında oturum açın ve Azure RemoteApp ile kullandığınız tam Azure aboneliği farklı bir dizinde olduğundan, çok daha bu noktada görmezsiniz dizininiz var. – bkz yapabiliyor olmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="efdd2-114">As the result of this process you should be able to log into the Azure portal and see your directory there – at this point you won’t see much more since the full Azure subscription you are using with Azure RemoteApp is in a different directory.</span></span>
+
+<span data-ttu-id="efdd2-115">Bu adımda oluşturduğunuz yönetici hesabının parolasını ve adını anımsamak – Aşama 2'de gerekecektir.</span><span class="sxs-lookup"><span data-stu-id="efdd2-115">Remember the name and password of the administrator account you created in this step – they will be needed in Phase 2.</span></span>
+
+<span data-ttu-id="efdd2-116">Azure portalını kullanıyorsanız, kullanıma [kaydetmek ve bir ücretsiz Azure Office 365 portalı kullanarak Active Directory etkinleştirmek nasıl](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/).</span><span class="sxs-lookup"><span data-stu-id="efdd2-116">If you are using the Azure portal, check out [How to register and activate a free Azure Active Directory using Office 365 portal](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/).</span></span>
+
+## <a name="phase-2-change-the-azure-ad-associated-with-your-azure-subscription"></a><span data-ttu-id="efdd2-117">2. Aşama: Azure aboneliğinizle ilişkili Azure AD değiştirin.</span><span class="sxs-lookup"><span data-stu-id="efdd2-117">Phase 2: Change the Azure AD associated with your Azure subscription.</span></span>
+<span data-ttu-id="efdd2-118">1. aşaması biz çalışılan ile Office 365 dizine geçerli dizinden Azure aboneliğinizi değiştirme olacak.</span><span class="sxs-lookup"><span data-stu-id="efdd2-118">We are going to change your Azure subscription from its current directory into the Office 365 directory we worked with in Phase 1.</span></span>
+
+<span data-ttu-id="efdd2-119">Bölümünde açıklanan yönergeleri izleyin [Azure remoteapp'te Azure Active Directory kiracısını değiştirme](remoteapp-changetenant.md).</span><span class="sxs-lookup"><span data-stu-id="efdd2-119">Follow the instructions described in [Change the Azure Active Directory tenant in Azure RemoteApp](remoteapp-changetenant.md).</span></span> <span data-ttu-id="efdd2-120">Belirli aşağıdaki adımları dikkat edin:</span><span class="sxs-lookup"><span data-stu-id="efdd2-120">Pay particular attention to the following steps:</span></span>
+
+* <span data-ttu-id="efdd2-121">#1. adım: Bu abonelikte Azure RemoteApp (ARA) dağıttıysanız, Azure AD kullanıcı hesaplarının tümünü tüm ARA koleksiyonlarından ilk olarak, başka bir şey denemeden önce kaldırdığınız emin olun.</span><span class="sxs-lookup"><span data-stu-id="efdd2-121">Step #1: If you have deployed Azure RemoteApp (ARA) in this subscription, make sure you remove all Azure AD user accounts from any ARA collections first, before trying anything else.</span></span> <span data-ttu-id="efdd2-122">Alternatif olarak, var olan tüm koleksiyonlar silme düşünebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="efdd2-122">Alternatively, you can consider deleting any existing collections.</span></span>
+* <span data-ttu-id="efdd2-123">#2. adım: Bu önemli bir adımdır.</span><span class="sxs-lookup"><span data-stu-id="efdd2-123">Step #2: This is a critical step.</span></span> <span data-ttu-id="efdd2-124">Bir Microsoft hesabı kullanmanız gerekir (örneğin @outlook.com) herhangi bir kullanıcı hesabı için abonelik – bağlı mevcut Azure AD'den sahip olamaz; abonelikte Hizmet Yöneticisi olarak bu çünkü bunu biz farklı bir Azure AD ile taşımak mümkün olmayacaktır.</span><span class="sxs-lookup"><span data-stu-id="efdd2-124">You need to use a Microsoft account (e.g. @outlook.com) as a Service Administrator on the subscription; this is because we cannot have any user accounts from the existing Azure AD attached to the subscription – if we do, we won’t be able to move it to a different Azure AD.</span></span>
+* <span data-ttu-id="efdd2-125">#4. adım: varolan bir dizin eklerken, sistem dizin için Yönetici hesabınızla oturum açmak için istenir.</span><span class="sxs-lookup"><span data-stu-id="efdd2-125">Step #4: When adding an existing directory, the system will ask you to sign in with the administrator account for that directory.</span></span> <span data-ttu-id="efdd2-126">1. aşaması yönetici hesabından kullandığınızdan emin olun.</span><span class="sxs-lookup"><span data-stu-id="efdd2-126">Make sure to use the administrator account from Phase 1.</span></span>
+* <span data-ttu-id="efdd2-127">#5. adım: Office 365 dizininize aboneliğin üst dizini değiştirin.</span><span class="sxs-lookup"><span data-stu-id="efdd2-127">Step #5: Change the parent directory of the subscription to your Office 365 directory.</span></span> <span data-ttu-id="efdd2-128">Sonuç olmalıdır ayarları altında Office 365 dizini aboneliğinizi listeler abonelikleri ->.</span><span class="sxs-lookup"><span data-stu-id="efdd2-128">The end result should be that under Settings -> Subscriptions your subscription lists the Office 365 directory.</span></span> 
+  <span data-ttu-id="efdd2-129">![Aboneliğin üst dizini değiştirin](./media/remoteapp-o365user/settings.png)</span><span class="sxs-lookup"><span data-stu-id="efdd2-129">![Change the parent directory of the subscription](./media/remoteapp-o365user/settings.png)</span></span>
+
+<span data-ttu-id="efdd2-130">Bu noktada Azure RemoteApp aboneliğiniz, Office 365 Azure AD ile ilişkili değil; Azure RemoteApp ile mevcut Office 365 kullanıcı hesaplarını kullanabilirsiniz!</span><span class="sxs-lookup"><span data-stu-id="efdd2-130">At this point your Azure RemoteApp subscription is associated with your Office 365 Azure AD; you can use the existing Office 365 user accounts with Azure RemoteApp!</span></span>
+

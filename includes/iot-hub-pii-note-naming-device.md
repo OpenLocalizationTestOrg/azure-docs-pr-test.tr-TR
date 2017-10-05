@@ -1,0 +1,3 @@
+> [!IMPORTANT]
+> <span data-ttu-id="4e08a-101">Cihaz kimliği; müşteri desteği ve sorun giderme için toplanan günlüklerde görünüyor olabilir, bu nedenle adlandırırken herhangi bir önemli bilgi vermekten kaçının.</span><span class="sxs-lookup"><span data-stu-id="4e08a-101">The device ID may be visible in the logs collected for customer support and troubleshooting, so make sure to avoid any sensitive information while naming it.</span></span>
+>

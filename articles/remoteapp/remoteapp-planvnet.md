@@ -1,0 +1,59 @@
+---
+title: "Sanal ağınız bir Azure RemoteApp koleksiyonu için plan yapma | Microsoft Docs"
+description: "Sanal ağınız için bir Azure RemoteApp koleksiyonu planlama hakkında bilgi edinin."
+services: remoteapp
+documentationcenter: 
+author: mghosh1616
+manager: mbaldwin
+ms.assetid: ad9aff0e-f374-49c0-951d-4a7be1c36de0
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/23/2016
+ms.author: mbaldwin
+ms.openlocfilehash: 1eb8115b13fb18074b4c4726b69e3d9faf387c32
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="how-to-plan-your-virtual-network-for-azure-remoteapp"></a><span data-ttu-id="bbdb8-103">Azure RemoteApp için sanal ağınızı planlama hakkında</span><span class="sxs-lookup"><span data-stu-id="bbdb8-103">How to plan your virtual network for Azure RemoteApp</span></span>
+> [!IMPORTANT]
+> <span data-ttu-id="bbdb8-104">Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-104">Azure RemoteApp is being discontinued on August 31, 2017.</span></span> <span data-ttu-id="bbdb8-105">Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-105">Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.</span></span>
+> 
+> 
+
+<span data-ttu-id="bbdb8-106">Bu belge, Azure sanal ağı (VNET) ve alt ağ için Azure RemoteApp ayarlama açıklar.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-106">This document describes how to set up your Azure virtual network (VNET) and the subnet for Azure RemoteApp.</span></span> <span data-ttu-id="bbdb8-107">Azure sanal ağlar ile bilginiz yoksa, bu, ağ altyapınızı buluta sanallaştırmanızı ve Azure ve şirket içi kaynaklarınıza karma çözümler oluşturmak için yardımcı olan bir yetenektir.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-107">If you are unfamiliar with Azure virtual networks, this is a capability that helps you to virtualize your network infrastructure to the cloud and to create hybrid solutions with Azure and your on-premises resources.</span></span> <span data-ttu-id="bbdb8-108">Bunun hakkında daha fazla bilgiyi [buradan](../virtual-network/virtual-networks-overview.md) edinebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-108">You can read more about it [here](../virtual-network/virtual-networks-overview.md).</span></span>
+
+<span data-ttu-id="bbdb8-109">Azure RemoteApp dağıttığınız sanal ağınızda trafiği (gelen ve giden) için güvenlik ilkelerini tanımlamak istiyorsanız, Azure sanal ağı dağıtımlarınızda geri kalanından Azure RemoteApp için ayrı bir alt ağ oluşturmak önerilir.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-109">If you want to define security policies for traffic (both incoming and outgoing) in your virtual network where you are deploying Azure RemoteApp, we strongly recommend creating a separate subnet for Azure RemoteApp from the rest of your deployments in the Azure virtual network.</span></span> <span data-ttu-id="bbdb8-110">Güvenlik ilkeleri, Azure sanal ağ alt ağı üzerinde tanımlama hakkında daha fazla bilgi için lütfen okuyun [bir ağ güvenlik grubu (NSG) nedir?](../virtual-network/virtual-networks-nsg.md).</span><span class="sxs-lookup"><span data-stu-id="bbdb8-110">For more information on how to define security policies on your Azure virtual network subnet, please read [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md).</span></span>
+
+## <a name="types-of-azure-remoteapp-collections-with-azure-virtual-networks"></a><span data-ttu-id="bbdb8-111">Azure sanal ağlar ile Azure RemoteApp koleksiyonları türleri</span><span class="sxs-lookup"><span data-stu-id="bbdb8-111">Types of Azure RemoteApp collections with Azure virtual networks</span></span>
+<span data-ttu-id="bbdb8-112">Bir sanal ağ kullanmak istediğinizde aşağıdaki grafik iki farklı koleksiyon seçeneklerini gösterin.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-112">The following graphics show the two different collection options when you want to use a virtual network.</span></span>
+
+### <a name="azure-remoteapp-cloud-collection-with-vnet"></a><span data-ttu-id="bbdb8-113">VNET ile Azure RemoteApp bulut koleksiyonu</span><span class="sxs-lookup"><span data-stu-id="bbdb8-113">Azure RemoteApp cloud collection with VNET</span></span>
+ ![Azure RemoteApp - VNET ile bulut koleksiyonu](./media/remoteapp-planvpn/ra-cloudvpn.png)
+
+<span data-ttu-id="bbdb8-115">Bu, Azure RemoteApp oturumu konakları erişmesi gereken tüm kaynakların dağıtıldığı bir Azure RemoteApp koleksiyonunu temsil eder.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-115">This represents an Azure RemoteApp collection where all the resources that the RemoteApp session hosts need to access are deployed in Azure.</span></span> <span data-ttu-id="bbdb8-116">Bunlar, aynı sanal ağ RemoteApp Koleksiyonunuzla olarak ya da farklı bir VNET Azure içinde olabilir.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-116">They can be in the same VNET as the RemoteApp VNET or a different VNET in Azure.</span></span>
+
+### <a name="azure-remoteapp-hybrid-collection-with-vnet"></a><span data-ttu-id="bbdb8-117">VNET ile Azure RemoteApp karma koleksiyonu</span><span class="sxs-lookup"><span data-stu-id="bbdb8-117">Azure RemoteApp hybrid collection with VNET</span></span>
+![Azure RemoteApp - karma koleksiyon bir VNET ile](./media/remoteapp-planvpn/ra-hybridvpn.png)
+
+<span data-ttu-id="bbdb8-119">Bu, bazı RemoteApp oturumu konakları erişmesi gereken kaynaklara içi dağıtılmış olduğu bir Azure RemoteApp koleksiyonunu temsil eder.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-119">This represents an Azure RemoteApp collection where some of the resources that the RemoteApp session hosts need to access are deployed on-premises.</span></span> <span data-ttu-id="bbdb8-120">RemoteApp Koleksiyonunuzla siteden siteye VPN veya hızlı rota gibi Azure karma teknolojilerini kullanarak şirket ağına bağlanır.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-120">The RemoteApp VNET is linked to the on-premises network using Azure hybrid technologies like site-to-site VPN or Express Route.</span></span>
+
+## <a name="how-the-system-works"></a><span data-ttu-id="bbdb8-121">Sistem nasıl çalışır?</span><span class="sxs-lookup"><span data-stu-id="bbdb8-121">How the system works</span></span>
+<span data-ttu-id="bbdb8-122">Perde arkasında Azure RemoteApp sağlama sırasında seçtiğiniz sanal ağ alt ağına Azure sanal makinelerle (karşıya yüklenen görüntünüzü) dağıtır.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-122">Under the covers Azure RemoteApp deploys Azure virtual machines (with your uploaded image) to the virtual network subnet that you chose during provisioning.</span></span> <span data-ttu-id="bbdb8-123">Karma koleksiyon için ettiyseniz, sanal ağ içinde sağlanan DNS sunucusuyla sağlama iş akışında girdiğiniz etki alanı denetleyicisinin FQDN'sini çözümleyebilmesi deneyin.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-123">If you opted for a hybrid collection, we try to resolve the FQDN of the domain controller you entered in the provisioning workflow with the DNS server provided in the virtual network.</span></span>  
+<span data-ttu-id="bbdb8-124">Mevcut bir sanal ağa bağlanıyorsanız, Azure RemoteApp alt ağındaki ağ güvenlik gruplarındaki gerekli bağlantı noktalarını kullanıma emin olun.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-124">If you are connecting to an existing virtual network, make sure to expose the necessary ports in your network security groups in your Azure RemoteApp subnet.</span></span> 
+
+<span data-ttu-id="bbdb8-125">Şunu kullanmanızı öneririz bir [Azure RemoteApp için yeterince büyük alt](remoteapp-vnetsizing.md).</span><span class="sxs-lookup"><span data-stu-id="bbdb8-125">We recommend you use a [large enough  subnet for Azure RemoteApp](remoteapp-vnetsizing.md).</span></span> <span data-ttu-id="bbdb8-126">Azure sanal ağ tarafından desteklenen en büyük 8 uzunluğudur (CIDR alt ağ tanımlarının kullanarak).</span><span class="sxs-lookup"><span data-stu-id="bbdb8-126">The largest supported by Azure Virtual network is /8 (using CIDR subnet definitions).</span></span> <span data-ttu-id="bbdb8-127">Alt ağınız daha fazla kullanıcı uygulamalara erişirken tüm Azure RemoteApp VM'ler büyütme sırasında uyabilecek kadar büyük olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-127">Your subnet should be large enough to accommodate all the Azure RemoteApp VMs during scale-up when more users are accessing the apps.</span></span> 
+
+<span data-ttu-id="bbdb8-128">Aşağıda, sanal ağ alt ağı üzerinde etkinleştirmek için gerekir gerekenler şunlardır:</span><span class="sxs-lookup"><span data-stu-id="bbdb8-128">Following are the things you will need to enable on your virtual network subnet:</span></span> 
+
+1. <span data-ttu-id="bbdb8-129">Giden trafik alt ağdan, iç Azure RemoteApp hizmetlerden biri ile iletişim kurmak için bağlantı noktası aralığı 10101 10175 izin verilmelidir.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-129">Outbound traffic from the subnet should be allowed on port range 10101-10175 to communicate with one of the internal Azure RemoteApp services.</span></span>
+2. <span data-ttu-id="bbdb8-130">Giden trafik alt ağdan Azure Storage bağlantı noktası 443 üzerinden bağlanmasına izin</span><span class="sxs-lookup"><span data-stu-id="bbdb8-130">Outbound traffic should be allowed from your subnet to connect to Azure Storage on port 443</span></span>
+3. <span data-ttu-id="bbdb8-131">Azure üzerinde barındırılan Active Directory varsa, Azure RemoteApp için sanal ağ alt ağ içindeki herhangi bir VM o etki alanı denetleyicisine bağlanmak mümkün olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-131">If you have Active Directory hosted in Azure, make sure any VM within the virtual network subnet for Azure RemoteApp is able to connect to that domain controller.</span></span> <span data-ttu-id="bbdb8-132">Sanal ağın DNS bu etki alanı denetleyicisinin FQDN'sini çözümleyebilmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-132">The DNS in the virtual network should be able to resolve the FQDN of this domain controller.</span></span>
+
+## <a name="virtual-network-with-forced-tunneling"></a><span data-ttu-id="bbdb8-133">Zorlamalı tünel ile sanal ağ</span><span class="sxs-lookup"><span data-stu-id="bbdb8-133">Virtual network with forced tunneling</span></span>
+<span data-ttu-id="bbdb8-134">[Zorlanan tünel](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) tüm yeni Azure RemoteApp koleksiyonları için artık desteklenmektedir.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-134">[Forced tunneling](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) is now supported for all new Azure RemoteApp collections.</span></span> <span data-ttu-id="bbdb8-135">Şu anda zorlamalı tünel desteklemek için var olan bir koleksiyon geçiş desteklemiyoruz.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-135">We currently do not support the migration of an existing collection to support forced tunneling.</span></span>  <span data-ttu-id="bbdb8-136">Azure RemoteApp bağlama VNET kullanarak, tüm mevcut koleksiyonları silmek ve zorunlu için yeni bir tane oluşturun gerekecek koleksiyonlarınızı üzerinde etkin tünel.</span><span class="sxs-lookup"><span data-stu-id="bbdb8-136">You will have to delete all your existing collections using the VNET that you are linking to Azure RemoteApp and create a new one to get forced tunneling enabled on your collections.</span></span> 
+

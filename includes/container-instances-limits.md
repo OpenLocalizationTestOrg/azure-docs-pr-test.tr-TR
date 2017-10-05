@@ -1,0 +1,3 @@
+| <span data-ttu-id="8c492-101">Kaynak</span><span class="sxs-lookup"><span data-stu-id="8c492-101">Resource</span></span> | <span data-ttu-id="8c492-102">Varsayılan Sınır</span><span class="sxs-lookup"><span data-stu-id="8c492-102">Default Limit</span></span> |
+| --- | --- |
+| <span data-ttu-id="8c492-103">[Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına kapsayıcı grubu</span><span class="sxs-lookup"><span data-stu-id="8c492-103">Container groups per [subscription](../articles/billing-buy-sign-up-azure-subscription.md)</span></span> | <span data-ttu-id="8c492-104">20</span><span class="sxs-lookup"><span data-stu-id="8c492-104">20</span></span> |
