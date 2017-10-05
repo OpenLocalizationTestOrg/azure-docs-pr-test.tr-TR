@@ -1,0 +1,54 @@
+---
+title: "Azure geçiş bağlantı noktası ayarları | Microsoft Docs"
+description: "Azure geçiş bağlantı noktası değerlerini hakkında ayrıntılar."
+services: service-bus-relay
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: 
+ms.assetid: 
+ms.service: service-bus-relay
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/03/2017
+ms.author: sethm
+ms.openlocfilehash: 5906495c565dad583e74a43b2e5eed57e0c68df1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="azure-relay-port-settings"></a><span data-ttu-id="5d683-103">Azure geçiş bağlantı noktası ayarları</span><span class="sxs-lookup"><span data-stu-id="5d683-103">Azure Relay port settings</span></span>
+
+<span data-ttu-id="5d683-104">Aşağıdaki tabloda Azure geçiş için bağlantı noktası değerleri için gerekli yapılandırma açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="5d683-104">The following table describes the required configuration for port values for Azure Relay.</span></span>
+
+## <a name="hybrid-connections"></a><span data-ttu-id="5d683-105">Karma Bağlantılar</span><span class="sxs-lookup"><span data-stu-id="5d683-105">Hybrid Connections</span></span>
+<span data-ttu-id="5d683-106">Karma bağlantılar kullanan WebSockets kullanan temelindeki iletim mekanizması, **HTTPS** yalnızca.</span><span class="sxs-lookup"><span data-stu-id="5d683-106">Hybrid Connections uses WebSockets as the underlying transport mechanism, which uses **HTTPS** only.</span></span> 
+
+## <a name="wcf-relays"></a><span data-ttu-id="5d683-107">WCF Geçişleri</span><span class="sxs-lookup"><span data-stu-id="5d683-107">WCF Relays</span></span>
+  
+|<span data-ttu-id="5d683-108">Bağlama</span><span class="sxs-lookup"><span data-stu-id="5d683-108">Binding</span></span>|<span data-ttu-id="5d683-109">Taşıma güvenliği</span><span class="sxs-lookup"><span data-stu-id="5d683-109">Transport Security</span></span>|<span data-ttu-id="5d683-110">Bağlantı noktası</span><span class="sxs-lookup"><span data-stu-id="5d683-110">Port</span></span>|  
+|-------------|------------------------|----------|  
+|<span data-ttu-id="5d683-111">[BasicHttpRelayBinding sınıfı](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (istemci)</span><span class="sxs-lookup"><span data-stu-id="5d683-111">[BasicHttpRelayBinding Class](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (client)</span></span>|<span data-ttu-id="5d683-112">Evet</span><span class="sxs-lookup"><span data-stu-id="5d683-112">Yes</span></span>|<span data-ttu-id="5d683-113">HTTPS</span><span class="sxs-lookup"><span data-stu-id="5d683-113">HTTPS</span></span>| 
+| |<span data-ttu-id="5d683-114">"</span><span class="sxs-lookup"><span data-stu-id="5d683-114">"</span></span> |<span data-ttu-id="5d683-115">Hayır</span><span class="sxs-lookup"><span data-stu-id="5d683-115">No</span></span>|<span data-ttu-id="5d683-116">HTTP</span><span class="sxs-lookup"><span data-stu-id="5d683-116">HTTP</span></span>|  
+|<span data-ttu-id="5d683-117">[BasicHttpRelayBinding sınıfı](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (hizmeti)</span><span class="sxs-lookup"><span data-stu-id="5d683-117">[BasicHttpRelayBinding Class](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (service)</span></span>|<span data-ttu-id="5d683-118">Her iki</span><span class="sxs-lookup"><span data-stu-id="5d683-118">Either</span></span>|<span data-ttu-id="5d683-119">9351/HTTP</span><span class="sxs-lookup"><span data-stu-id="5d683-119">9351/HTTP</span></span>|  
+|<span data-ttu-id="5d683-120">[NetEventRelayBinding sınıfı](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (istemci)</span><span class="sxs-lookup"><span data-stu-id="5d683-120">[NetEventRelayBinding Class](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (client)</span></span>|<span data-ttu-id="5d683-121">Evet</span><span class="sxs-lookup"><span data-stu-id="5d683-121">Yes</span></span>|<span data-ttu-id="5d683-122">9351/HTTPS</span><span class="sxs-lookup"><span data-stu-id="5d683-122">9351/HTTPS</span></span>|  
+||<span data-ttu-id="5d683-123">"</span><span class="sxs-lookup"><span data-stu-id="5d683-123">"</span></span> |<span data-ttu-id="5d683-124">Hayır</span><span class="sxs-lookup"><span data-stu-id="5d683-124">No</span></span>|<span data-ttu-id="5d683-125">9350/HTTP</span><span class="sxs-lookup"><span data-stu-id="5d683-125">9350/HTTP</span></span>|  
+|<span data-ttu-id="5d683-126">[NetEventRelayBinding sınıfı](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (hizmeti)</span><span class="sxs-lookup"><span data-stu-id="5d683-126">[NetEventRelayBinding Class](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (service)</span></span>|<span data-ttu-id="5d683-127">Her iki</span><span class="sxs-lookup"><span data-stu-id="5d683-127">Either</span></span>|<span data-ttu-id="5d683-128">9351/HTTP</span><span class="sxs-lookup"><span data-stu-id="5d683-128">9351/HTTP</span></span>|  
+|<span data-ttu-id="5d683-129">[NetTcpRelayBinding sınıfı](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (istemci/hizmeti)</span><span class="sxs-lookup"><span data-stu-id="5d683-129">[NetTcpRelayBinding Class](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (client/service)</span></span>|<span data-ttu-id="5d683-130">Her iki</span><span class="sxs-lookup"><span data-stu-id="5d683-130">Either</span></span>|<span data-ttu-id="5d683-131">9352/5671/HTTP (9352/karma kullanıyorsanız 9353)</span><span class="sxs-lookup"><span data-stu-id="5d683-131">5671/9352/HTTP (9352/9353 if using hybrid)</span></span>|  
+|<span data-ttu-id="5d683-132">[NetOnewayRelayBinding sınıfı](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (istemci)</span><span class="sxs-lookup"><span data-stu-id="5d683-132">[NetOnewayRelayBinding Class](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (client)</span></span>|<span data-ttu-id="5d683-133">Evet</span><span class="sxs-lookup"><span data-stu-id="5d683-133">Yes</span></span>|<span data-ttu-id="5d683-134">9351/HTTPS</span><span class="sxs-lookup"><span data-stu-id="5d683-134">9351/HTTPS</span></span>|  
+||<span data-ttu-id="5d683-135">"</span><span class="sxs-lookup"><span data-stu-id="5d683-135">"</span></span> |<span data-ttu-id="5d683-136">Hayır</span><span class="sxs-lookup"><span data-stu-id="5d683-136">No</span></span>|<span data-ttu-id="5d683-137">9350/HTTP</span><span class="sxs-lookup"><span data-stu-id="5d683-137">9350/HTTP</span></span>|  
+|<span data-ttu-id="5d683-138">[NetOnewayRelayBinding sınıfı](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (hizmeti)</span><span class="sxs-lookup"><span data-stu-id="5d683-138">[NetOnewayRelayBinding Class](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (service)</span></span>|<span data-ttu-id="5d683-139">Her iki</span><span class="sxs-lookup"><span data-stu-id="5d683-139">Either</span></span>|<span data-ttu-id="5d683-140">9351/HTTP</span><span class="sxs-lookup"><span data-stu-id="5d683-140">9351/HTTP</span></span>|  
+|<span data-ttu-id="5d683-141">[WebHttpRelayBinding sınıfı](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (istemci)</span><span class="sxs-lookup"><span data-stu-id="5d683-141">[WebHttpRelayBinding Class](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (client)</span></span>|<span data-ttu-id="5d683-142">Evet</span><span class="sxs-lookup"><span data-stu-id="5d683-142">Yes</span></span>|<span data-ttu-id="5d683-143">HTTPS</span><span class="sxs-lookup"><span data-stu-id="5d683-143">HTTPS</span></span>|  
+||<span data-ttu-id="5d683-144">"</span><span class="sxs-lookup"><span data-stu-id="5d683-144">"</span></span> |<span data-ttu-id="5d683-145">Hayır</span><span class="sxs-lookup"><span data-stu-id="5d683-145">No</span></span>|<span data-ttu-id="5d683-146">HTTP</span><span class="sxs-lookup"><span data-stu-id="5d683-146">HTTP</span></span>|  
+|<span data-ttu-id="5d683-147">[WebHttpRelayBinding sınıfı](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (hizmeti)</span><span class="sxs-lookup"><span data-stu-id="5d683-147">[WebHttpRelayBinding Class](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (service)</span></span>|<span data-ttu-id="5d683-148">Her iki</span><span class="sxs-lookup"><span data-stu-id="5d683-148">Either</span></span>|<span data-ttu-id="5d683-149">9351/HTTP</span><span class="sxs-lookup"><span data-stu-id="5d683-149">9351/HTTP</span></span>|  
+|<span data-ttu-id="5d683-150">[WS2007HttpRelayBinding sınıfı](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (istemci)</span><span class="sxs-lookup"><span data-stu-id="5d683-150">[WS2007HttpRelayBinding Class](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (client)</span></span>|<span data-ttu-id="5d683-151">Evet</span><span class="sxs-lookup"><span data-stu-id="5d683-151">Yes</span></span>|<span data-ttu-id="5d683-152">HTTPS</span><span class="sxs-lookup"><span data-stu-id="5d683-152">HTTPS</span></span>|  
+||<span data-ttu-id="5d683-153">"</span><span class="sxs-lookup"><span data-stu-id="5d683-153">"</span></span> |<span data-ttu-id="5d683-154">Hayır</span><span class="sxs-lookup"><span data-stu-id="5d683-154">No</span></span>|<span data-ttu-id="5d683-155">HTTP</span><span class="sxs-lookup"><span data-stu-id="5d683-155">HTTP</span></span>|  
+|<span data-ttu-id="5d683-156">[WS2007HttpRelayBinding sınıfı](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (hizmeti)</span><span class="sxs-lookup"><span data-stu-id="5d683-156">[WS2007HttpRelayBinding Class](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (service)</span></span>|<span data-ttu-id="5d683-157">Her iki</span><span class="sxs-lookup"><span data-stu-id="5d683-157">Either</span></span>|<span data-ttu-id="5d683-158">9351/HTTP</span><span class="sxs-lookup"><span data-stu-id="5d683-158">9351/HTTP</span></span>|
+
+## <a name="next-steps"></a><span data-ttu-id="5d683-159">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="5d683-159">Next steps</span></span>
+<span data-ttu-id="5d683-160">Azure geçişi hakkında daha fazla bilgi için bu bağlantıları ziyaret edin:</span><span class="sxs-lookup"><span data-stu-id="5d683-160">To learn more about Azure Relay, visit these links:</span></span>
+* [<span data-ttu-id="5d683-161">Azure Geçiş nedir?</span><span class="sxs-lookup"><span data-stu-id="5d683-161">What is Azure Relay?</span></span>](relay-what-is-it.md)
+* [<span data-ttu-id="5d683-162">Geçiş hakkında SSS</span><span class="sxs-lookup"><span data-stu-id="5d683-162">Relay FAQ</span></span>](relay-faq.md)
