@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 1977bfc0e516088310f45ecdd960287eeed2c2d8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti işlerinde numaralandırma
 Bir Abonelikteki tüm işleri Numaralandırılacak çağrısı [listesi işleri](/rest/api/storageimportexport/jobs#Jobs_List) işlemi. `List Jobs`işlerini ve bunun yanı sıra aşağıdaki öznitelikler listesi döndürür:
