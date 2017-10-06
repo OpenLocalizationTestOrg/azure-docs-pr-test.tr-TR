@@ -1,6 +1,6 @@
 ---
-title: "Web uygulama kaynakları başka bir kaynak grubuna taşıma"
-description: "Burada, Web uygulamaları ve uygulama hizmetleri bir kaynak grubundan diğerine taşıyabilirsiniz senaryoları açıklanmıştır."
+title: "aaaMove Web uygulama kaynakları tooanother kaynak grubu"
+description: "Burada, Web uygulamaları ve uygulama hizmetleri bir kaynak grubu tooanother taşıyabilirsiniz hello senaryoları açıklanmıştır."
 services: app-service
 documentationcenter: 
 author: ZainRizvi
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: zarizvi
-ms.openlocfilehash: 1b5059dc052005b6079f70ecf6771a3771df8d87
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 931012fee656b7f8a4b2c225c38739a9171d3b2e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-move-configurations"></a>Desteklenen taşıma yapılandırmaları
-Azure Web uygulaması kaynakları kullanarak taşıyabilirsiniz [Kaynak Yöneticisi taşıma kaynakları API](../azure-resource-manager/resource-group-move-resources.md).
+Hello kullanarak Azure Web uygulaması kaynaklarına taşıyabilirsiniz [Kaynak Yöneticisi taşıma kaynakları API](../azure-resource-manager/resource-group-move-resources.md).
 
-Azure Web uygulamaları, şu anda aşağıdaki taşıma senaryoları destekler:
+Azure Web uygulamaları, şu anda hello aşağıdaki taşıma senaryoları destekler:
 
-* Bir kaynak grubu (web uygulamaları, uygulama hizmeti planları ve sertifikaları) tüm içeriğini başka bir kaynak grubuna taşınır. 
+* Bir kaynak grubu (web uygulamaları, uygulama hizmeti planları ve sertifikaları) tüm içeriğini Hello taşıma tooanother kaynak grubu. 
    > [!Note]
-   > Hedef kaynak grubu, bu senaryoda tüm Microsoft.Web kaynakları içeremez.
+   > Merhaba hedef kaynak grubu, bu senaryoda tüm Microsoft.Web kaynakları içeremez.
 
-* Tek tek web uygulamaları, hala bunları (uygulama hizmeti planı eski kaynak grubunda kalır), geçerli uygulama hizmeti planında barındırma sırasında farklı bir kaynak grubuna taşıyın.
+* Tek tek web uygulamaları tooa farklı bir kaynak grubu, hala bunları kendi geçerli bir uygulama hizmeti planında (Merhaba app service planı kalır hello eski kaynak grubunda) barındırma sırasında taşıyın.
 
 

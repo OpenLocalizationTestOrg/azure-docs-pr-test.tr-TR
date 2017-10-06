@@ -1,6 +1,6 @@
 ---
-title: "Azure çoklu oturum açma SAML Protokolü | Microsoft Docs"
-description: "Bu makalede Azure Active Directory'de üzerinde tek oturum SAML Protokolü"
+title: "aaaAzure tek oturum üzerinde SAML Protokolü | Microsoft Docs"
+description: "Bu makalede Azure Active Directory'de hello üzerinde tek oturum SAML Protokolü"
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: f41402fc2cb282975b93071d998365fdb0a21941
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 435cfe0e7be3f2defd34e8b6f6b0f08596ee1f48
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # Çoklu oturum açma SAML Protokolü
-Bu makalede Azure Active Directory (Azure AD) için çoklu oturum açmayı destekleyen yanıtlar ve SAML 2.0 kimlik doğrulama isteklerini kapsar.
+Bu makalede hello SAML 2.0 kimlik doğrulama isteklerini ve Azure Active Directory (Azure AD) için çoklu oturum açmayı destekleyen yanıtları kapsar.
 
-Aşağıdaki Protokolü diyagram tek oturum açma sırası açıklar. Geçirmek için bir HTTP yeniden yönlendirme bağlama (hizmet sağlayıcısı) bulut hizmeti kullanan bir `AuthnRequest` Azure ad (kimlik doğrulama isteği) öğesi (Kimlik sağlayıcısı). Ardından Azure AD sonrası bağlama HTTP post kullanan bir `Response` bulut hizmetine öğesi.
+Aşağıdaki Hello Protokolü diyagram oturum açma hello tek sıralamasını açıklar. Merhaba bulut hizmeti (Merhaba hizmet sağlayıcısı) kullanan bir HTTP yeniden yönlendirme bağlama toopass bir `AuthnRequest` (kimlik doğrulama isteği) öğesi tooAzure AD (Merhaba kimlik sağlayıcısı). Ardından Azure AD kullanan bir HTTP post bağlama toopost bir `Response` öğesi toohello bulut hizmeti.
 
 ![Çoklu oturum açma iş akışı](media/active-directory-single-sign-on-protocol-reference/active-directory-saml-single-sign-on-workflow.png)
 
 ## AuthnRequest
-Bulut Hizmetleri gönderme kullanıcı kimlik doğrulaması istemek için bir `AuthnRequest` Azure ad öğesi. Örnek SAML 2.0 `AuthnRequest` şöyle:
+Bulut Hizmetleri toorequest kullanıcı kimlik doğrulaması, gönderme bir `AuthnRequest` öğesi tooAzure AD. Örnek SAML 2.0 `AuthnRequest` şöyle:
 
 ```
 <samlp:AuthnRequest
@@ -44,28 +44,28 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| Kimlik |Gerekli |Azure AD doldurmak için bu öznitelik kullanan `InResponseTo` döndürülen yanıtın özniteliği. Kimliği bir GUID dize gösterimini için "id" gibi bir dizeyi önüne eklediğinizden ortak bir strateji olacak şekilde bir rakamla başlayamaz. Örneğin, `id6c1c178c166d486687be4aaf5e482730` geçerli kimliğidir. |
+| Kimlik |Gerekli |Azure AD kullanır bu öznitelik toopopulate hello `InResponseTo` özniteliği hello yanıt döndürdü. Ortak bir strateji tooprepend toohello dize gösterimini bir GUID "id" gibi bir dize olacak şekilde kimliği bir rakamla başlayamaz. Örneğin, `id6c1c178c166d486687be4aaf5e482730` geçerli kimliğidir. |
 | Sürüm |Gerekli |Bu olmalıdır **2.0**. |
-| IssueInstant |Gerekli |Bu, UTC değerine sahip DateTime dizedir ve [gidiş dönüş biçimi ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD bu türde bir DateTime değer bekler ancak değerlendirmek veya değerini kullanın. |
-| AssertionConsumerServiceUrl |İsteğe bağlı |Sağlanırsa, bu eşleşmelidir `RedirectUri` Azure AD bulut hizmetinin. |
-| ForceAuthn |İsteğe bağlı | Bu mantıksal bir değerdir. TRUE ise, bu geçerli bir oturum Azure AD ile olsa bile yeniden kimlik doğrulaması için kullanıcı zorlanır anlamına gelir. |
-| IsPassive |İsteğe bağlı |Azure AD kullanıcı sessizce, kullanıcı etkileşimi olmadan oturum tanımlama bilgisi varsa kullanarak kimlik doğrulamalıdır olup olmadığını belirten bir Boole değeri budur. True ise, Azure AD oturum tanımlama bilgisi kullanarak kullanıcı kimlik doğrulamasını dener. |
+| IssueInstant |Gerekli |Bu, UTC değerine sahip DateTime dizedir ve [gidiş dönüş biçimi ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD bu türde bir DateTime değer bekler ancak değerlendirmek veya hello değerini kullanın. |
+| AssertionConsumerServiceUrl |İsteğe bağlı |Sağlanırsa, bu hello eşleşmelidir `RedirectUri` hello bulut hizmetinin Azure AD'de. |
+| ForceAuthn |İsteğe bağlı | Bu mantıksal bir değerdir. TRUE, bu hello kullanıcı olacağı zorlanmış toore anlamına gelir,-Azure AD ile geçerli bir oturum olsa bile, kimlik doğrulama. |
+| IsPassive |İsteğe bağlı |Azure AD hello kullanıcı sessizce, kullanıcı etkileşimi olmadan varsa hello oturum tanımlama bilgisi kullanarak kimlik doğrulamalıdır olup olmadığını belirten bir Boole değeri budur. True ise, Azure AD tooauthenticate hello kullanıcı hello oturum tanımlama bilgisi kullanarak çalışacaktır. |
 
 Diğer tüm `AuthnRequest` öznitelikleri gibi onay, hedef, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex ve ProviderName **göz ardı**.
 
-Azure AD de yoksayar `Conditions` öğesinde `AuthnRequest`.
+Azure AD de hello yoksayar `Conditions` öğesinde `AuthnRequest`.
 
 ### Veren
-`Issuer` Öğesinde bir `AuthnRequest` tam olarak eşleşmelidir **ServicePrincipalNames** Azure AD bulut hizmetinde. Genellikle, bu ayarlanır **uygulama kimliği URI'si** uygulama kaydı sırasında belirtilir.
+Merhaba `Issuer` öğesinde bir `AuthnRequest` hello biri tam olarak eşleşmelidir **ServicePrincipalNames** Azure AD'de hello bulut hizmetindeki. Genellikle, bu toohello ayarlanır **uygulama kimliği URI'si** uygulama kaydı sırasında belirtilir.
 
-Bir örnek SAML alıntı içeren `Issuer` öğesi şu şekilde görünür:
+Merhaba içeren bir örnek SAML alıntı `Issuer` öğesi şu şekilde görünür:
 
 ```
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
 ```
 
 ### NameIDPolicy
-Bu öğe bir belirli ad kimliği biçimi yanıt istediğinde ve isteğe bağlı olarak `AuthnRequest` Azure AD ile gönderilmiş öğeler.
+Bu öğe bir belirli ad kimliği biçimi hello yanıt istediğinde ve isteğe bağlı olarak `AuthnRequest` gönderilen öğeleri tooAzure AD.
 
 Bir örnek `NameIdPolicy` öğesi şu şekilde görünür:
 
@@ -73,31 +73,31 @@ Bir örnek `NameIdPolicy` öğesi şu şekilde görünür:
 <NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
 ```
 
-Varsa `NameIDPolicy` , isteğe bağlı içerebilir sağlanmış `Format` özniteliği. `Format` Özniteliği yalnızca aşağıdakilerden biri olabilir değerleri; herhangi bir değer sonuç hata.
+Varsa `NameIDPolicy` , isteğe bağlı içerebilir sağlanmış `Format` özniteliği. Merhaba `Format` öznitelik değerleri aşağıdaki hello yalnızca biri; diğer bir hataya değer olabilir.
 
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory ikili bir tanımlayıcı olarak NameID talebi verir.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory e-posta adresi biçiminde NameID talebi verir.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: Bu değer talep biçimini seçmek için Azure Active Directory izin verir. Azure Active Directory NameID ikili bir tanımlayıcı olarak verir.
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory geçerli SSO işlemi için benzersiz olan rastgele oluşturulan bir değer olarak NameID talebi verir. Bunun anlamı değeri geçicidir ve kimlik doğrulaması yapan kullanıcıyı tanımlamak için kullanılamaz.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory ikili bir tanımlayıcı olarak hello NameID talebi verir.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory e-posta adresi biçiminde hello NameID talebi verir.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: Azure Active Directory tooselect hello talep biçimi bu değer verir. Azure Active Directory hello NameID ikili bir tanımlayıcı olarak verir.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory benzersiz toohello geçerli SSO işlem rastgele oluşturulan bir değer hello NameID talebi verir. Bunun anlamı hello değeri geçicidir ve kullanılan tooidentify hello kullanıcı kimlik doğrulaması yapılamıyor.
 
-Azure AD yoksayar `AllowCreate` özniteliği.
+Azure AD yoksayar hello `AllowCreate` özniteliği.
 
 ### RequestAuthnContext
-`RequestedAuthnContext` Öğesi istenen kimlik doğrulama yöntemlerini belirtir. İsteğe bağlı olarak `AuthnRequest` Azure AD ile gönderilmiş öğeler. Azure AD destekleyen tek `AuthnContextClassRef` değeri: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+Merhaba `RequestedAuthnContext` öğesi hello istenen kimlik doğrulama yöntemlerini belirtir. İsteğe bağlı olarak `AuthnRequest` gönderilen öğeleri tooAzure AD. Azure AD destekleyen tek `AuthnContextClassRef` değeri: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### Kapsamı
-`Scoping` Kimlik sağlayıcıları listesini içeren öğesi, isteğe bağlı olarak `AuthnRequest` Azure AD ile gönderilmiş öğeler.
+Merhaba `Scoping` kimlik sağlayıcıları listesini içeren öğesi, isteğe bağlı olarak `AuthnRequest` gönderilen öğeleri tooAzure AD.
 
-Sağlanırsa, içermeyen `ProxyCount` özniteliği `IDPListOption` veya `RequesterID` öğesi, desteklenmediği gibi.
+Sağlanırsa, hello içermez `ProxyCount` özniteliği `IDPListOption` veya `RequesterID` öğesi, desteklenmediği gibi.
 
 ### İmza
 İçermeyen bir `Signature` öğesinde `AuthnRequest` öğeleri, Azure AD desteklemediği oturumu olarak kimlik doğrulama istekleri.
 
 ### Konu
-Azure AD yoksayar `Subject` öğesinin `AuthnRequest` öğeleri.
+Azure AD yoksayar hello `Subject` öğesinin `AuthnRequest` öğeleri.
 
 ## Yanıt
-Bir istenen oturum açma işlemi başarıyla tamamlandığında, Azure AD bulut hizmeti için bir yanıt gönderir. Başarılı bir oturum açma girişimi örnek yanıt şöyle görünür:
+Bir istenen oturum açma işlemi başarıyla tamamlandığında, Azure AD yanıt toohello bulut hizmetine gönderir. Örnek yanıt tooa başarılı bir oturum açma girişimi şu şekildedir:
 
 ```
 <samlp:Response ID="_a4958bfd-e107-4e67-b06d-0d85ade2e76a" Version="2.0" IssueInstant="2013-03-18T07:38:15.144Z" Destination="https://contoso.com/identity/inboundsso.aspx" InResponseTo="id758d0ef385634593a77bdf7e632984b6" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -143,13 +143,13 @@ Bir istenen oturum açma işlemi başarıyla tamamlandığında, Azure AD bulut 
 ```
 
 ### Yanıt
-`Response` Öğesi yetkilendirme isteğinin sonucunu içerir. Azure AD kümeleri `ID`, `Version` ve `IssueInstant` değerler `Response` öğesi. Ayrıca, aşağıdaki öznitelikler ayarlar:
+Merhaba `Response` öğesi hello yetkilendirme isteği hello sonucunu içerir. Azure AD ayarlar hello `ID`, `Version` ve `IssueInstant` hello değerleri `Response` öğesi. Ayrıca, öznitelikler aşağıdaki hello ayarlar:
 
-* `Destination`: Oturum açma başarıyla tamamlandığında, bu ayarlanır `RedirectUri` hizmet sağlayıcısının (bulut hizmeti).
-* `InResponseTo`: Bu ayar `ID` özniteliği `AuthnRequest` yanıt başlatılan öğesi.
+* `Destination`: Oturum açma başarıyla tamamlandığında, bu toohello ayarlanır `RedirectUri` hello hizmet sağlayıcısının (bulut hizmeti).
+* `InResponseTo`: Bu toohello ayarlanır `ID` hello özniteliği `AuthnRequest` hello yanıt başlatılan öğesi.
 
 ### Veren
-Azure AD kümeleri `Issuer` öğesine `https://login.microsoftonline.com/<TenantIDGUID>/` burada <TenantIDGUID> Azure AD kiracısı Kiracı kimliğidir.
+Azure AD ayarlar hello `Issuer` öğesi çok`https://login.microsoftonline.com/<TenantIDGUID>/` burada <TenantIDGUID> hello Kiracı hello Azure AD Kiracı kimliğidir.
 
 Örneğin, bir örnek yanıt veren öğesiyle şöyle:
 
@@ -158,11 +158,11 @@ Azure AD kümeleri `Issuer` öğesine `https://login.microsoftonline.com/<Tenant
 ```
 
 ### Durum
-`Status` Öğenin ilettiği başarılı veya başarısız oturum açma. İçerdiği `StatusCode` bir kod veya isteğin durumunu temsil eden iç içe geçmiş kodları kümesi içeren öğe. Ayrıca içerir `StatusMessage` oturum açma işlemi sırasında oluşturulan özel hata iletileri içeren öğe.
+Merhaba `Status` öğenin ilettiği hello başarılı veya başarısız oturum açma. Merhaba içeren `StatusCode` bir kod veya hello hello isteğinin durumunu temsil eden iç içe geçmiş kodları kümesi içeren öğe. Ayrıca hello içerir `StatusMessage` hello oturum açma işlemi sırasında oluşturulan özel hata iletileri içeren öğe.
 
 <!-- TODO: Add a authentication protocol error reference -->
 
-Başarısız oturum açma girişiminde SAML yanıt verilmiştir.
+Merhaba, bir SAML yanıt tooan başarısız oturum açma girişimi aşağıdadır.
 
 ```
 <samlp:Response ID="_f0961a83-d071-4be5-a18c-9ae7b22987a4" Version="2.0" IssueInstant="2013-03-18T08:49:24.405Z" InResponseTo="iddce91f96e56747b5ace6d2e2aa9d4f8c" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -171,26 +171,26 @@ Başarısız oturum açma girişiminde SAML yanıt verilmiştir.
     <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Requester">
       <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:RequestUnsupported" />
     </samlp:StatusCode>
-    <samlp:StatusMessage>AADSTS75006: An error occurred while processing a SAML2 Authentication request. AADSTS90011: The SAML authentication request property 'NameIdentifierPolicy/SPNameQualifier' is not supported.
+    <samlp:StatusMessage>AADSTS75006: An error occurred while processing a SAML2 Authentication request. AADSTS90011: hello SAML authentication request property 'NameIdentifierPolicy/SPNameQualifier' is not supported.
 Trace ID: 66febed4-e737-49ff-ac23-464ba090d57c
 Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
   </samlp:Status>
 ```
 
 ### onaylama işlemi
-Ek olarak `ID`, `IssueInstant` ve `Version`, Azure AD aşağıdaki öğeleri ayarlar `Assertion` yanıt öğesidir.
+Toplama toohello içinde `ID`, `IssueInstant` ve `Version`, Azure AD ayarlar hello öğelerinde aşağıdaki hello `Assertion` hello yanıt öğesidir.
 
 #### Veren
-Bu ayar `https://sts.windows.net/<TenantIDGUID>/`burada <TenantIDGUID> Azure AD kiracısı Kiracı kimliğidir.
+Bu çok ayarlanır`https://sts.windows.net/<TenantIDGUID>/`burada <TenantIDGUID> hello hello Azure AD Kiracı Kiracı kimliği değil.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 #### İmza
-Azure AD yanıt olarak bir başarılı oturum açma onaylama imzalar. `Signature` Öğe bulut hizmeti onaylama bütünlüğünü doğrulamak için kaynak kimliğini doğrulamak için kullanabileceğiniz dijital bir imza içeriyor.
+Azure AD içinde yanıt tooa başarılı oturum açma hello onaylama imzalar. Merhaba `Signature` öğe hello bulut hizmeti tooauthenticate hello kaynak tooverify hello bütünlüğünü hello onaylama kullanabilirsiniz dijital bir imza içeriyor.
 
-Bu dijital imzayı üretmek için imzalama anahtarı Azure AD kullanır `IDPSSODescriptor` meta veri belgesi öğesidir.
+Bu dijital imza, Azure AD kullanır toogenerate hello hello imzalama anahtarında `IDPSSODescriptor` meta veri belgesi öğesidir.
 
 ```
 <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
@@ -199,9 +199,9 @@ Bu dijital imzayı üretmek için imzalama anahtarı Azure AD kullanır `IDPSSOD
 ```
 
 #### Konu
-Onaylama işlemi deyimlerinde konu asıl belirtir. İçerdiği bir `NameID` kimliği doğrulanmış kullanıcının temsil eden öğe. `NameID` Yalnızca belirteç kitlesi hizmet sağlayıcısına yönelik hedeflenen bir tanımlayıcı bir değerdir. Kalıcı - iptal edilebilir, ancak hiçbir zaman atanır. Da opak, olması kullanıcı hakkında hiçbir şey açığa çıkarmadığınızdan ve öznitelik sorguları için tanımlayıcı olarak kullanılamaz.
+Merhaba konu hello onaylama hello deyimlerinin hello asıl belirtir. İçerdiği bir `NameID` hello kimliği doğrulanmış kullanıcıyı temsil eden öğe. Merhaba `NameID` hello belirteci hello kitlesi yönlendirilmiş yalnızca toohello hizmet sağlayıcısı hedeflenen bir tanımlayıcı bir değerdir. Kalıcı - iptal edilebilir, ancak hiçbir zaman atanır. Ayrıca opak, değildir hello kullanıcı hakkında hiçbir şey açığa çıkarmadığınızdan ve öznitelik sorguları için tanımlayıcı olarak kullanılamaz.
 
-`Method` Özniteliği `SubjectConfirmation` öğesi ayarlanmış her zaman `urn:oasis:names:tc:SAML:2.0:cm:bearer`.
+Merhaba `Method` hello özniteliği `SubjectConfirmation` öğe her zaman ayarlanmış çok`urn:oasis:names:tc:SAML:2.0:cm:bearer`.
 
 ```
 <Subject>
@@ -213,7 +213,7 @@ Onaylama işlemi deyimlerinde konu asıl belirtir. İçerdiği bir `NameID` kiml
 ```
 
 #### Koşullar
-Bu öğe SAML onayların kabul edilebilir kullanım tanımlayan koşulları belirtir.
+Bu öğe SAML onaylar hello kabul edilebilir tanımlayan koşulları kullanın belirtir.
 
 ```
 <Conditions NotBefore="2013-03-18T07:38:15.128Z" NotOnOrAfter="2013-03-18T08:48:15.128Z">
@@ -223,13 +223,13 @@ Bu öğe SAML onayların kabul edilebilir kullanım tanımlayan koşulları beli
 </Conditions>
 ```
 
-`NotBefore` Ve `NotOnOrAfter` öznitelikleri sırasında onaylama olduğu geçerli aralığı belirtin.
+Merhaba `NotBefore` ve `NotOnOrAfter` öznitelikleri sırasında hangi hello onaylama geçerli hello aralığı belirtin.
 
-* Değeri `NotBefore` özniteliği, çok veya biraz eşittir (saniyeden az) değerinden daha sonra `IssueInstant` özniteliği `Assertion` öğesi. Azure AD kendisi ve bulut hizmeti (hizmet sağlayıcısı) arasındaki zaman farklılığı hesaba katmaz ve tüm arabellek bu sefer eklemez.
-* Değeri `NotOnOrAfter` 70 dakika değerini daha sonra bir özniteliktir `NotBefore` özniteliği.
+* Merhaba hello değerini `NotBefore` özniteliktir eşit tooor biraz (saniyeden az) hello değerinden daha sonra `IssueInstant` hello özniteliği `Assertion` öğesi. Azure AD kendisi ve hello arasındaki zaman farklılığı hesabı olmayan bulut hizmeti (hizmet sağlayıcısı) ve tüm arabellek toothis süresini eklemez.
+* Merhaba hello değerini `NotOnOrAfter` hello hello değerinden daha sonra 70 dakikada bir özniteliktir `NotBefore` özniteliği.
 
 #### Hedef kitle
-Bu, bir hedef kitle tanımlayan bir URI içeriyor. Azure AD değerine bu öğenin değerini ayarlar `Issuer` öğesinin `AuthnRequest` , başlatılan oturum açma. Değerlendirilecek `Audience` değeri, değerini kullanmak `App ID URI` uygulama kaydı sırasında belirtildi.
+Bu, bir hedef kitle tanımlayan bir URI içeriyor. Azure AD ayarlar bu öğe toohello değerinin hello değerini `Issuer` hello öğesinin `AuthnRequest` , başlatılan hello oturum açma. tooevaluate hello `Audience` değeri, hello hello değerini kullanın `App ID URI` uygulama kaydı sırasında belirtildi.
 
 ```
 <AudienceRestriction>
@@ -237,10 +237,10 @@ Bu, bir hedef kitle tanımlayan bir URI içeriyor. Azure AD değerine bu öğeni
 </AudienceRestriction>
 ```
 
-Gibi `Issuer` değeri `Audience` değeri tam olarak eşleşmelidir Azure AD bulut hizmeti temsil eden hizmet asıl adlarından biri. Ancak, varsa değerini `Issuer` öğesi bir URI değeri değil `Audience` yanıt değeri `Issuer` değeri önekiyle `spn:`.
+Hello gibi `Issuer` hello değerini `Audience` değeri tam olarak eşleşmelidir Azure AD'de hello bulut hizmeti temsil eden hello hizmet asıl adlarından biri. Ancak, hello değeri Merhaba, `Issuer` öğesi değil bir URI değeri hello `Audience` değerdir hello yanıt hello `Issuer` değeri önekiyle `spn:`.
 
 #### AttributeStatement
-Bu konu veya kullanıcı hakkında talepleri içerir. Aşağıdaki alıntı bir örnek içeren `AttributeStatement` öğesi. Üç nokta öğesi birden çok öznitelikleri ve öznitelik değerleri dahil olduğunu gösterir.
+Merhaba konu veya kullanıcı hakkında talepleri içerir. Merhaba aşağıdaki alıntı içeren bir örnek `AttributeStatement` öğesi. Bu hello öğesi birden çok öznitelikleri ve öznitelik değerleri içerebilir Hello üç nokta gösterir.
 
 ```
 <AttributeStatement>
@@ -254,14 +254,14 @@ Bu konu veya kullanıcı hakkında talepleri içerir. Aşağıdaki alıntı bir 
 </AttributeStatement>
 ```        
 
-* **Ad talep** : değerini `Name` özniteliği (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) kimliği doğrulanmış kullanıcının kullanıcı asıl adı olduğu gibi `testuser@managedtenant.com`.
-* **Objectıdentifier talep** : değerini `ObjectIdentifier` özniteliği (`http://schemas.microsoft.com/identity/claims/objectidentifier`) olan `ObjectId` dizin nesnesinin kimliği doğrulanmış kullanıcının Azure AD'de temsil eder. `ObjectId`bir, genel benzersiz sabittir ve kimliği doğrulanmış kullanıcının güvenli tanımlayıcı yeniden kullanabilirsiniz.
+* **Ad talep** : Merhaba hello değerini `Name` özniteliği (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) hello kimliği doğrulanmış hello kullanıcının kullanıcı asıl adı olduğu gibi `testuser@managedtenant.com`.
+* **Objectıdentifier talep** : Merhaba hello değerini `ObjectIdentifier` özniteliği (`http://schemas.microsoft.com/identity/claims/objectidentifier`) hello olduğu `ObjectId` hello temsil eden hello dizin nesnesi Azure AD'de kullanıcı kimlik doğrulaması. `ObjectId`bir, genel benzersiz sabittir ve hello güvenli tanıtıcısı yeniden kullanım kullanıcı kimliği.
 
 #### AuthnStatement
-Bu öğe, onaylama işlemi konu belirli bir zamandaki belirli bir şekilde doğrulandı onaylar.
+Bu öğe, belirli bir yöntem belirli bir zamandaki o hello onaylama konu doğrulandı onaylar.
 
-* `AuthnInstant` Özniteliği, Azure AD ile hangi kullanıcı kimlik doğrulaması süreyi belirtir.
-* `AuthnContext` Öğesi, kullanıcının kimliğini doğrulamak için kullanılan kimlik doğrulaması bağlamı belirtir.
+* Merhaba `AuthnInstant` özniteliği, Azure AD ile kimlik doğrulaması hangi hello kullanıcının hello zaman belirtir.
+* Merhaba `AuthnContext` öğesi belirttiğinden hello kimlik doğrulaması bağlamı kullanılan tooauthenticate hello kullanıcı.
 
 ```
 <AuthnStatement AuthnInstant="2013-03-18T07:33:56.000Z" SessionIndex="_bf9c623d-cc20-407a-9a59-c2d0aee84d12">

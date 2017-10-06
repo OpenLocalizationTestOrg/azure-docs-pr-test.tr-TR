@@ -1,6 +1,6 @@
 ---
-title: "Web Apps ile üretim testine başlayın"
-description: "Azure App Service Web Apps üretim (TIP) özelliğinde testi hakkında bilgi edinin."
+title: "Web uygulamaları için üretim aşamasındaki bir test kullanmaya aaaGet"
+description: "Azure App Service Web Apps üretim (TIP) özelliğinde hello Test hakkında bilgi edinin."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: cephalin
-ms.openlocfilehash: 9f38b635140cacf0513c75385bce3c110a930969
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2ddbd532ffe2a4f3e07fd386d9741a3fde3639ca
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-test-in-production-for-web-apps"></a>Web Apps ile üretim testine başlayın
-Üretimde test ya da canlı web uygulamanızı gerçek müşteri trafiğinden kullanarak sınama olan uygulama geliştiriciler giderek kolay bir şekilde entegre bir test stratejisi kendi [Çevik Geliştirme](https://en.wikipedia.org/wiki/Agile_software_development) Metodoloji. Bir test ortamında birleştirilen verileri aksine, üretim ortamında test uygulamalarınızı dinamik kullanıcı trafiği ile kalitesi sağlar. Yeni uygulamanızı gerçek kullanıcılara göstererek dağıtıldıktan sonra uygulamanızı karşılaşabilecekleri gerçek sorunlar hakkında haberdar olmak. İşlevselliği, performans ve uygulama güncelleştirmelerinizi birim, hız ve hiçbir zaman bir sınama ortamında yaklaşık gerçek kullanıcı trafiği çeşitli karşı değerini doğrulayabilirsiniz.
+Üretimde test ya da canlı web uygulamanızı gerçek müşteri trafiğinden kullanarak sınama olan uygulama geliştiriciler giderek kolay bir şekilde entegre bir test stratejisi kendi [Çevik Geliştirme](https://en.wikipedia.org/wiki/Agile_software_development) Metodoloji. Tootest hello kalite uygulamalarınızın üretim ortamınızda dinamik kullanıcı trafiği ile bir sınama ortamında karşılıklı toosynthesized veri olarak sağlar. Yeni uygulama tooreal kullanıcılarınızın göstererek hello gerçek sorunlar Uygulamanız dağıtıldıktan sonra karşılaşabilecekleri üzerinde haberdar olmak. Merhaba işlevselliği, performans ve uygulama güncelleştirmelerinizi hello birim, hız ve hiçbir zaman bir sınama ortamında yaklaşık gerçek kullanıcı trafiği çeşitli karşı değerini doğrulayabilirsiniz.
 
 ## <a name="traffic-routing-in-app-service-web-apps"></a>App Service Web Apps yönlendirme trafiği
-Trafik yönlendirme özelliğindeki [Azure uygulama hizmeti](http://go.microsoft.com/fwlink/?LinkId=529714), bir veya daha fazla dinamik kullanıcı trafiğinin bir kısmı yönlendirebilirsiniz [dağıtım yuvaları](web-sites-staged-publishing.md)ve uygulamanızı ile analiz etmek [Azure Application Insights](/services/application-insights/) veya [Azure Hdınsight](/services/hdinsight/), veya bir üçüncü taraf aracı [New Relic](/marketplace/partners/newrelic/newrelic/) değişikliğinizin doğrulamak için. Örneğin, App Service ile aşağıdaki senaryolar uygulayabilirsiniz:
+Hello ile trafik yönlendirme özelliğini [Azure uygulama hizmeti](http://go.microsoft.com/fwlink/?LinkId=529714), dinamik kullanıcı trafiği tooone veya daha fazla bir bölümünü yönlendirebilirsiniz [dağıtım yuvası](web-sites-staged-publishing.md)ve ardından uygulamanızı analiz [Azure uygulama Öngörüler](/services/application-insights/) veya [Azure Hdınsight](/services/hdinsight/), veya bir üçüncü taraf aracı [New Relic](/marketplace/partners/newrelic/newrelic/) toovalidate değişikliğinizin. Örneğin, aşağıdaki senaryolarda uygulama hizmeti ile Merhaba uygulayabilirsiniz:
 
-* İşlev hataları bulmaya veya performans sorunları, güncelleştirmelerinin site genelinde dağıtımdan sabitleme
-* Değişikliklerinizi "denetimli test uçuşlar" beta uygulama kullanılabilirlik ölçümleri ölçerek gerçekleştirin
-* Aşamalı olarak yeni bir güncelleştirme kadar artırmalarını ve bir hata oluşursa düzgün biçimde geçerli sürüme geri 
+* İşlevsel hataları bulmaya veya performans sorunları güncelleştirmeleri önceki toosite genelinde dağıtımınızda sabitleme
+* Değişikliklerinizi "denetimli test uçuşlar" Merhaba beta uygulama kullanılabilirlik ölçümleri ölçerek gerçekleştirin
+* Aşamalı olarak yeni bir güncelleştirme tooa artırmalarını ve bir hata oluşursa toohello geçerli sürümü düzgün biçimde geri 
 * Çalıştırarak, uygulamanızın iş sonuçları en iyi duruma getirme [A / B testler](https://en.wikipedia.org/wiki/A/B_testing) veya [multivariate testleri](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) içinde birden çok dağıtım yuvası
 
 ### <a name="requirements-for-using-traffic-routing-in-web-apps"></a>Trafik yönlendirme Web uygulamalarında kullanma gereksinimleri
 * Web uygulamanızı çalıştırmak gerekir **standart** veya **Premium** birden çok dağıtım yuvası için gerekli olduğundan, katmanı.
-* Düzgün çalışması için kullanıcıların tarayıcıda etkinleştirilmesi için tanımlama bilgileri trafik yönlendirme gerektirir. Trafik yönlendirme, bir dağıtım yuvası ömrü istemci tarayıcısına istemci oturumu sabitlemek için tanımlama bilgilerini kullanır.
+* Sipariş toowork düzgün bir şekilde, trafik yönlendirme hello kullanıcıların tarayıcıda etkin tanımlama bilgilerini toobe gerektirir. Trafik yönlendirme tanımlama bilgilerini toopin bir istemci tarayıcısı tooa dağıtım yuvası hello yaşam hello istemci oturumu için kullanır.
 * Trafik yönlendirme Azure PowerShell cmdlet'leri aracılığıyla Gelişmiş ipucu senaryolarını destekler.
 
-## <a name="route-traffic-segment-to-a-deployment-slot"></a>Rota trafiği kesimine bir dağıtım yuvası
-Her ipucu senaryosu temel düzeyde, bir üretim dışı dağıtım yuvası Canlı trafiğinizi önceden tanımlanmış yüzdesi rota. Bunu yapmak için aşağıdaki adımları izleyin:
+## <a name="route-traffic-segment-tooa-deployment-slot"></a>Rota trafiği segment tooa dağıtım yuvası
+Merhaba temel düzeyde her ipucu senaryosunda, Canlı trafiği tooa üretim dışı dağıtım yuvası önceden tanımlanmış bir yüzdesini rota. toodo Bu, başlangıç adımları aşağıdaki:
 
 > [!NOTE]
-> Adımlar burada varsayar sahip olduğunuz bir [üretim dışı dağıtım yuvası](web-sites-staged-publishing.md) ve istenen web uygulama içeriğini zaten olan [dağıtılan](web-sites-deploy.md) ona.
+> Merhaba adımlar burada varsayar sahip olduğunuz bir [üretim dışı dağıtım yuvası](web-sites-staged-publishing.md) ve o hello istenen web uygulama içeriği, zaten [dağıtılan](web-sites-deploy.md) tooit.
 > 
 > 
 
-1. İçine oturum [Azure Portal](https://portal.azure.com/).
+1. Merhaba günlüğüne [Azure Portal](https://portal.azure.com/).
 2. Web uygulamanızın dikey penceresinde tıklayın **ayarları** > **trafik yönlendirme**.
    ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
-3. Trafiği için ve işlemleriniz ve'ı tıklatın toplam trafiğin yüzde yönlendirmek istediğiniz yuvası seçin **kaydetmek**.
+3. Tooroute trafiği tooand hello işlemleriniz, ardından tıklatın hello toplam trafik yüzdesi istediğiniz select hello yuvası **kaydetmek**.
    
     ![](./media/app-service-web-test-in-production/02-select-slot.png)
-4. Dağıtım yuvanın dikey penceresine gidin. Dinamik trafik için yönlendirilen görmelisiniz.
+4. Toohello dağıtım yuvanın dikey penceresine gidin. Yönlendirilmiş tooit olan dinamik trafik görmelisiniz.
    
     ![](./media/app-service-web-test-in-production/03-traffic-routed.png)
 
-Trafik yönlendirme yapılandırıldıktan sonra istemciler belirtilen yüzdesi, üretim dışı yuvasına rastgele yönlendirilir. Ancak, istemci otomatik olarak belirli bir yuva yönlendirilir sonra bunu "için bu istemci oturumu için o yuva sabitlenir olduğunu" dikkate almak önemlidir. Bu yapılan kullanıcı oturumunu sabitlemek için bir tanımlama bilgisi kullanarak. HTTP isteklerini inceleyin, bulacaksınız bir `TipMix` sonraki her istekte tanımlama bilgisi.
+Trafik yönlendirme yapılandırıldıktan sonra istemcilerin yüzdesi rastgele yönlendirilmiş tooyour üretim dışı yuvası olacaktır hello belirtildi. Ancak, istemci otomatik olarak yönlendirilmiş tooa belirli yuvası eklendiğinde, bu hello ömrünü bu istemci oturumu için "sabitlenmiş" toothat yuva olacaktır önemli toonote olur. Bu yapılan bir tanımlama bilgisi toopin hello kullanıcı oturumunu kullanarak. Merhaba HTTP isteklerini inceleyin, bulacaksınız bir `TipMix` sonraki her istekte tanımlama bilgisi.
 
 ![](./media/app-service-web-test-in-production/04-tip-cookie.png)
 
-## <a name="force-client-requests-to-a-specific-slot"></a>İstemci isteklerini belirli bir yuva zorla
-Otomatik trafik yönlendirme ek olarak, uygulama hizmeti rota isteklerini belirli bir yuva için kullanabilirsiniz. Kullanıcılarınızı opt içine yapılamıyor veya geri çevirin, beta uygulamanızın olarak istediğinizde kullanışlıdır. Bunu yapmak için kullandığınız `x-ms-routing-name` sorgu parametresi.
+## <a name="force-client-requests-tooa-specific-slot"></a>İstemci istekleri tooa belirli yuvası zorla
+Toplama tooautomatic trafik yönlendirme, uygulama mümkün tooroute istekleri tooa belirli yuvası hizmetidir. Kullanıcıların toobe mümkün tooopt istediğinizde bu kullanışlıdır-içine veya geri çevirin, beta uygulamanızın. toodo bunu hello kullandığınız `x-ms-routing-name` sorgu parametresi.
 
-Belirli yuvası kullanarak kullanıcıların bildirmeksizin `x-ms-routing-name`, yuva trafik yönlendirme listesine zaten eklenmiş olduğundan emin olmanız gerekir. Bir yuva açıkça yönlendirmek istediğiniz olduğundan, ayarladığınız gerçek yönlendirme yüzdesi önemli değildir. İsterseniz, "beta uygulamaya erişmek için tıklatabileceği bir beta bağlantı" hazırlayabilirsiniz.
+tooreroute kullanıcılar tooa belirli yuvası kullanarak `x-ms-routing-name`, o hello yuva toohello trafik yönlendirme listesine zaten eklenmiş olduğundan emin olmalısınız. Tooroute tooa yuvası açıkça istediğinden hello gerçek yönlendirme yüzdesi belirlediğiniz önemli değildir. İsterseniz, "tıklatabileceği bir beta bağlantı" oluşturabileceği tooaccess hello beta uygulama.
 
 ![](./media/app-service-web-test-in-production/06-enable-x-ms-routing-name.png)
 
 ### <a name="opt-users-out-of-beta-app"></a>Kullanıcılar beta uygulama dışında iptal et
-Beta uygulamanızı dışında opt kullanıcılar izin vermek için örneğin, bu bağlantıyı web sayfanıza koyabilirsiniz:
+beta uygulamanızı dışında toolet kullanıcılar opt, örneğin, bu bağlantıyı web sayfanıza koyabilirsiniz:
 
-    <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
+    <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back tooproduction app</a>
 
-Dize `x-ms-routing-name=self` üretim yuvasına belirtir. İstemci tarayıcısı erişim sonra bağlantı, yalnızca üretim yuvasına yönlendirilir, ancak sonraki her istek içerecek `x-ms-routing-name=self` üretim yuvasına oturumuna sabitler tanımlama bilgisi.
+Merhaba dize `x-ms-routing-name=self` hello üretim yuvasına belirtir. Merhaba istemci tarayıcı erişimi hello bağlantısı, yalnızca başladıktan sonra toohello üretim yuvasına yeniden yönlendirilen, ancak sonraki her istek hello içerecek `x-ms-routing-name=self` hello oturum toohello üretim yuvasına sabitler tanımlama bilgisi.
 
 ![](./media/app-service-web-test-in-production/05-access-production-slot.png)
 
-### <a name="opt-users-in-to-beta-app"></a>Kullanıcılar beta uygulamasına iptal et
-Beta uygulamanıza kabul kullanıcıların izin vermek için aynı sorgu parametresi örneğin üretim dışı yuva adını ayarlayın:
+### <a name="opt-users-in-toobeta-app"></a>Kullanıcıların toobeta uygulamasında iptal et
+toolet kullanıcıların kabul tooyour beta uygulamada, kümesi hello aynı sorgu parametresi toohello adı hello üretim dışı yuva, örneğin:
 
         <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 

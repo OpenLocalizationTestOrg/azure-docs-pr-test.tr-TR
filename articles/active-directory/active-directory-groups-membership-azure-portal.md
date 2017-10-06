@@ -1,6 +1,6 @@
 ---
-title: "Grubunuza ait Azure Active Directory içinde grupları yönetme | Microsoft Docs"
-description: "Gruplar, diğer grupları Azure Active Directory'de içerebilir. Aşağıda, bu üyeliklerin yönetme verilmiştir."
+title: "grubunuza ait tooin Azure Active Directory aaaManage hello gruplarını | Microsoft Docs"
+description: "Gruplar, diğer grupları Azure Active Directory'de içerebilir. İşte nasıl toomanage bu üyeliklerin."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,33 +15,33 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08e04a6590176c4084ca47b4bd6cbb22500eca2d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d0a0a1967084de0968e1e802559f9cdfd7ca6ae4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Yönetmek için hangi grupların Azure Active Directory kiracınızda bir grup ait
-Gruplar, diğer grupları Azure Active Directory'de içerebilir. Aşağıda, bu üyeliklerin yönetme verilmiştir.
+# <a name="manage-toowhich-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınızda bir gruba ait toowhich gruplarını yönetme
+Gruplar, diğer grupları Azure Active Directory'de içerebilir. İşte nasıl toomanage bu üyeliklerin.
 
-## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>Grubunuza üye olduğu grupları nasıl bulabilirim?
-1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2. Seçin **daha fazla hizmet**, girin **kullanıcılar ve gruplar** metin kutusuna ve ardından **Enter**.
+## <a name="how-do-i-find-hello-groups-my-group-is-a-member-of"></a>Merhaba grupları grubum üyesi nasıl bulabilirim?
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) hello dizin için genel yönetici olan bir hesapla.
+2. Seçin **daha fazla hizmet**, girin **kullanıcılar ve gruplar** hello metin kutusuna ve ardından **Enter**.
 
    ![Açılış kullanıcı yönetimi](./media/active-directory-groups-membership-azure-portal/search-user-management.png)
-3. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **tüm grupları**.
+3. Merhaba üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **tüm grupları**.
 
-   ![Grupları dikey penceresini açma](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
-4. Üzerinde **kullanıcılar ve gruplar - tüm grupları** dikey penceresinde, bir grup seçin.
-5. Üzerinde **grup - *groupname***  dikey penceresinde, select **grup üyeliklerini**.
+   ![Açılış hello grupları dikey penceresi](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
+4. Merhaba üzerinde **kullanıcılar ve gruplar - tüm grupları** dikey penceresinde, bir grup seçin.
+5. Merhaba üzerinde **grup - *groupname***  dikey penceresinde, select **grup üyeliklerini**.
 
-   ![Grup üyelikleri dikey penceresini açma](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
-6. Grubunuzun başka bir grubun üyesi olarak eklemek için **Grup - grup üyeliklerini** dikey penceresinde, select **Ekle** komutu.
-7. Bir grup seçin **Grup Seç** dikey ve ardından **seçin** dikey pencerenin altındaki düğmesini. Grubunuzun aynı anda yalnızca bir gruba ekleyebilirsiniz. **Kullanıcı** kutusu, bir kullanıcı veya aygıt adı herhangi bir kısmını girişe eşleşmesini temel alan görüntü filtreler. Joker karakterler bu kutuya kabul edilir.
+   ![Açılış hello grup üyeliklerini dikey penceresi](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
+6. tooadd grubunuzun hello üzerinde başka bir grubun üyesi olarak **Grup - grup üyeliklerini** dikey penceresinde, select hello **Ekle** komutu.
+7. Merhaba bir grubu seçin **Grup Seç** dikey penceresinde ve ardından hello **seçin** hello dikey penceresinde hello sonundaki düğmesi. Aynı anda Grup tooonly bir grup ekleyebilirsiniz. Merhaba **kullanıcı** kutusunu filtreleri Merhaba, bir kullanıcı veya aygıt adı girişi tooany parçası eşleşmesini temel alan görüntüleme. Joker karakterler bu kutuya kabul edilir.
 
    ![Bir grup üyeliği ekleme](./media/active-directory-groups-membership-azure-portal/add-group-membership.png)
-8. Başka bir grubun üyesi olarak grubunuzun kaldırmak için **Grup - grup üyeliklerini** dikey penceresinde, bir grup seçin.
-9. Üzerinde ***groupname*** dikey penceresinde, select **kaldırmak** komut ve komut isteminde Seçiminizi onaylayın.
+8. tooremove grubunuzun hello üzerinde başka bir grubun üyesi olarak **Grup - grup üyeliklerini** dikey penceresinde, bir grup seçin.
+9. Merhaba üzerinde ***groupname*** dikey penceresinde, select hello **kaldırmak** komut ve hello isteminde Seçiminizi onaylayın.
 
    ![Üyelik komutu kaldırın](./media/active-directory-groups-membership-azure-portal/remove-group-membership.png)
 10. Grubunuz için grup üyeliklerini değiştirme işiniz bittiğinde, seçin **kaydetmek**.

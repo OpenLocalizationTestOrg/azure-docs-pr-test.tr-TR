@@ -1,5 +1,5 @@
 ---
-title: "Bir uygulama hizmeti oluşturma ortamını v1"
+title: "aaaHow tooCreate bir uygulama hizmeti ortamı v1"
 description: "Bir uygulama hizmeti ortamı v1 oluşturma akış açıklaması"
 services: app-service
 documentationcenter: 
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 400bcc08650f8a13911c05c8d0d04ddc22327dfd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 95feb33854eee5bac02fa68b066e2fc10eb3fede
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-an-app-service-environment-v1"></a>Bir uygulama hizmeti oluşturma ortamını v1 
+# <a name="how-toocreate-an-app-service-environment-v1"></a>Nasıl tooCreate bir uygulama hizmeti ortamı v1 
 
 > [!NOTE]
-> Bu makale hakkında uygulama hizmeti ortamı v1 yazılmıştır. Uygulama hizmeti ortamı kullanmak daha kolay ve daha güçlü altyapısı üzerinde çalışan daha yeni bir sürümü var. Yeni sürüm Başlarken hakkında daha fazla bilgi edinmek için [uygulama hizmeti ortamı giriş](../app-service/app-service-environment/intro.md).
+> Uygulama hizmeti ortamı v1 hello hakkında makaledir. Merhaba, daha kolay toouse ve daha güçlü altyapısı üzerinde çalışan uygulama hizmeti ortamı'nın daha yeni bir sürümü var. Merhaba yeni sürümü hakkında daha fazla ile Merhaba Başlat toolearn [giriş toohello uygulama hizmeti ortamı](../app-service/app-service-environment/intro.md).
 > 
 
 ### <a name="overview"></a>Genel Bakış
-Uygulama hizmeti ortamı (ana) bir Premium hizmeti çok kiracılı Damgalar kullanılamaz bir Gelişmiş Yapılandırma özelliği sunan Azure App Service seçeneğidir. ANA özelliği, Azure uygulama hizmeti bir müşterinin sanal ağınıza temelde dağıtır. Okuma App Service ortamları tarafından sunulan yetenekleri büyük anlamak için [bir uygulama hizmeti ortamı nedir] [ WhatisASE] belgeleri.
+Merhaba uygulama hizmeti ortamı (ana) bir Premium hizmet hello çok Kiracı damga olarak kullanılabilir bir Gelişmiş Yapılandırma özelliği sunan Azure App Service seçeneğidir. Merhaba ana özellik temelde hello Azure uygulama hizmeti bir müşterinin sanal ağda dağıtır. App Service ortamları tarafından hello yeteneklerini daha iyi bir anlayışa sunulan toogain okuma hello [bir uygulama hizmeti ortamı nedir] [ WhatisASE] belgeleri.
 
 ### <a name="before-you-create-your-ase"></a>Ana oluşturmadan önce
-Değiştiremezsiniz şey haberdar olmanız önemlidir. Oluşturulduktan sonra ana hakkında değiştiremezsiniz bu yönleri şunlardır:
+Önemli toobe değiştiremezsiniz hello şey uyumlu değil. Oluşturulduktan sonra ana hakkında değiştiremezsiniz bu yönleri şunlardır:
 
 * Konum
 * Abonelik
@@ -39,24 +39,24 @@ Değiştiremezsiniz şey haberdar olmanız önemlidir. Oluşturulduktan sonra an
 * Kullanılan alt ağ 
 * Alt ağ boyutu
 
-Bir VNet çekme ve bir alt ağ belirterek yaptığınızda emin gelecekteki büyümesine uyum sağlayacak kadar büyük. 
+Ne zaman bir VNet çekme ve bir alt ağ belirterek emin olun, gelecekteki büyümesine büyüklükte tooaccomodate değil. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Hizmet ortamı v1 bir uygulama oluşturma
-Gereken Azure Market aramak için bir uygulama hizmeti ortamı v1 oluşturmak için ***uygulama hizmeti ortamı v1***, veya yeni giderek -> Web + mobil -> uygulama hizmeti ortamı. Bir ASEv1 oluşturmak için:
+toocreate toosearch gereken bir uygulama hizmeti ortamı v1 hello Azure Market ***uygulama hizmeti ortamı v1***, veya yeni giderek -> Web + mobil -> uygulama hizmeti ortamı. toocreate bir ASEv1:
 
-1. ANA adını sağlayın. Ana için belirtilen ad ana oluşturulan uygulamalar için kullanılır. ANA adını appsvcenvdemo ise alt etki alanı adı olması. *appsvcenvdemo.p.azurewebsites.net*. Bu nedenle adlı bir uygulama oluşturduysanız *mytestapp* adresindeki adreslenebilir sonra *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Beyaz alan adına, ana kullanamazsınız. Büyük harf karakterler adı kullanırsanız, etki alanı adı bu adı toplam küçük harfli sürümünü olacaktır. Bir ILB kullanırsanız, ardından ana adınızı alt etki alanı içinde kullanılmaz, ancak bunun yerine ana oluşturma sırasında açıkça belirtilmiştir
+1. Merhaba, ana adını sağlayın. Merhaba ana için belirtilen hello adı hello ana oluşturulan hello uygulamalar için kullanılır. Merhaba ana adı appsvcenvdemo ise hello alt etki alanı adı olacaktır. *appsvcenvdemo.p.azurewebsites.net*. Bu nedenle adlı bir uygulama oluşturduysanız *mytestapp* adresindeki adreslenebilir sonra *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Merhaba, ana adlarında boşluk kullanamazsınız. Büyük harf karakterler hello adı kullanırsanız, hello etki alanı adı hello toplam küçük harfli sürümünü bu adı olacaktır. Bir ILB kullanırsanız, ardından ana adınızı alt etki alanı içinde kullanılmaz, ancak bunun yerine ana oluşturma sırasında açıkça belirtilmiştir
    
     ![][1]
-2. Aboneliğinizi seçin. Ana için kullanılan abonelikle o ana tüm uygulamaları ile oluşturulan bir yetenektir. Başka bir abonelikte bir VNet içinde ana yerleştirilemiyor
-3. Seçin veya yeni bir kaynak grubu belirtin. Kaynak grubu için ana kullanılan ağınız için kullanılan aynı olması gerekir. Önceden var olan bir sanal ağ seçerseniz, ana için kaynak grubu seçimi, sanal ağınızı yansıtacak şekilde güncelleştirilir.
+2. Aboneliğinizi seçin. hello abonelik için ana kullanılan Ayrıca bu ana tüm uygulamaları ile oluşturulan hello bir yerdir. Başka bir abonelikte bir VNet içinde ana yerleştirilemiyor
+3. Seçin veya yeni bir kaynak grubu belirtin. Merhaba kaynak grubu için ana kullanılan gerekir olması hello ağınız için kullanılan aynı. Önceden var olan bir sanal ağ seçin sonra hello kaynak grubu seçimi, ana için güncelleştirilmiş tooreflect olacaktır, sanal ağınızı.
    
     ![][2]
-4. Sanal ağ ve konum seçimlerinizi yapın. Yeni bir VNet oluşturun veya varolan bir sanal ağ seçin seçebilirsiniz. Ardından, yeni bir sanal ağ seçerseniz bir ad ve konum belirtebilirsiniz. Yeni sanal ağ adres aralığı 192.168.250.0/23 adlı bir alt ağ olacaktır **varsayılan** 192.168.250.0/24 tanımlanır. Önceden varolan Klasik veya Resource Manager Vnet'i kısaca seçebilirsiniz. VIP türü seçimi, ana doğrudan (harici) Internet üzerinden erişilebiliyorsa veya bir iç yük dengeleyici (ILB) kullanıyorsa, belirler. Bunları okuyun hakkında daha fazla bilgi edinmek için [bir uygulama hizmeti ortamı ile bir iç yük dengeleyici kullanarak][ILBASE]. Dış VIP türü seçerseniz, sistem IPSSL amacıyla oluşturulur kaç dış IP adreslerini seçebilirsiniz. Dahili seçerseniz, ana kullanacağı alt etki alanı belirtmeniz gerekir. ASEs kullanan sanal ağları içinde dağıtılabilir *ya da* ortak adres aralıklarını *veya* RFC1918 adres alanları (örn.) özel adresler). Bir sanal ağ ortak adres aralığı ile kullanabilmeniz için önceden VNet oluşturmanız gerekir. Önceden var olan bir VNet seçtiğinizde ana oluşturma sırasında yeni bir alt ağı oluşturmanız gerekir. **Portalda önceden oluşturulmuş bir alt ağ kullanılamıyor. Resource manager şablonu kullanarak, ana oluşturursanız, önceden var olan bir alt ağ ile bir ana oluşturabilirsiniz.** Bir ana şablon kullanımdan bilgiyi burada oluşturmak için [şablonundan bir uygulama hizmeti ortamı oluşturma] [ ILBAseTemplate] ve burada [şablonundanbirILBuygulamahizmetiortamıoluşturma] [ASEfromTemplate].
+4. Sanal ağ ve konum seçimlerinizi yapın. Yeni bir VNet toocreate seçin veya önceden var olan bir sanal ağı seçin. Ardından, yeni bir sanal ağ seçerseniz bir ad ve konum belirtebilirsiniz. Merhaba yeni VNet hello adres aralığı 192.168.250.0/23 adlı bir alt ağ olacaktır **varsayılan** 192.168.250.0/24 tanımlanır. Önceden varolan Klasik veya Resource Manager Vnet'i kısaca seçebilirsiniz. Merhaba VIP türü seçimi belirler, ana hello doğrudan erişilebilir değilse Internet (harici) veya bir iç yük dengeleyici (ILB) kullanır. bunları okuyun hakkında daha fazla toolearn [bir uygulama hizmeti ortamı ile bir iç yük dengeleyici kullanarak][ILBASE]. Dış VIP türü seçerseniz kaç dış IP adresleri hello sistem IPSSL amacıyla oluşturulur seçebilirsiniz. Daha sonra iç seçerseniz, ana kullanacağı toospecify hello alt etki alanı gerekir. ASEs kullanan sanal ağları içinde dağıtılabilir *ya da* ortak adres aralıklarını *veya* RFC1918 adres alanları (özel adresleri). Sipariş toouse bir ortak adres aralığına sahip bir sanal ağ'da, önceden toocreate hello VNet gerekir. Önceden var olan bir VNet seçtiğinizde ana oluşturma sırasında toocreate yeni bir alt ağ gerekir. **Merhaba Portalı'nda önceden oluşturulmuş bir alt ağ kullanılamıyor. Resource manager şablonu kullanarak, ana oluşturursanız, önceden var olan bir alt ağ ile bir ana oluşturabilirsiniz.** bir şablondan bir ana toocreate hello bilgileri burada kullanır [şablonundan bir uygulama hizmeti ortamı oluşturma] [ ILBAseTemplate] ve burada [şablonundanbirILBuygulamahizmetiortamıoluşturma] [ASEfromTemplate].
 
 ### <a name="details"></a>Ayrıntılar
-Bir ana 2 ön uçlar ve 2 çalışan ile oluşturulur. Ön uçlar HTTP/HTTPS uç noktalar olarak davranmasına ve uygulamalarınızı barındırmak rolleri olan çalışanlar için trafiği gönderebilir. Ana oluşturulduktan sonra miktarı ayarlayabilir ve hatta ayarlama Bu kaynak havuzlarının otomatik ölçeklendirme kurallarını kullanabilirsiniz. Yönetim ve izleme bir uygulama hizmeti ortamı el ile ölçeklendirme geçici daha fazla ayrıntı için buraya gidin: [bir uygulama hizmeti ortamını yapılandırma][ASEConfig] 
+Bir ana 2 ön uçlar ve 2 çalışan ile oluşturulur. Merhaba ön uçlar hello HTTP/HTTPS uç noktalar olarak davranmasına ve uygulamalarınızı barındırmak hello rolleri olan toohello çalışanları trafiği göndermek. Ana oluşturulduktan sonra hello miktar ayarlayabilir ve hatta ayarlama Bu kaynak havuzlarının otomatik ölçeklendirme kurallarını kullanabilirsiniz. Yönetim ve izleme bir uygulama hizmeti ortamı el ile ölçeklendirme geçici daha fazla ayrıntı için buraya gidin: [nasıl tooconfigure bir uygulama hizmeti ortamı][ASEConfig] 
 
-Yalnızca bir ana ana tarafından kullanılan alt ağ içinde bulunabilir. Alt ağ ana dışında her şey için kullanılamaz
+Yalnızca hello bir ana hello alt ağdaki ana hello tarafından kullanılan bulunabilir. Merhaba alt hello ana dışında her şey için kullanılamaz
 
 ### <a name="after-app-service-environment-v1-creation"></a>Uygulama hizmeti ortamı v1 oluşturulduktan sonra
 Ana oluşturulduktan sonra ayarlayabilirsiniz:
@@ -64,20 +64,20 @@ Ana oluşturulduktan sonra ayarlayabilirsiniz:
 * Ön uçlar miktarını (en az: 2)
 * Çalışanlar miktarını (en az: 2)
 * IP SSL için kullanılabilir IP adresleri miktarı
-* Ön uçlar veya çalışanlar tarafından kullanılan kaynak boyutları işlem (ön uç minimum boyut olan P2)
+* Ön uçlar veya çalışanları Hello tarafından kullanılan kaynak boyutları işlem (ön uç minimum boyut olan P2)
 
-El ile ölçeklendirme, yönetim ve burada App Service ortamları izleme etrafında daha fazla ayrıntı: [bir uygulama hizmeti ortamını yapılandırma][ASEConfig] 
+El ile ölçeklendirme, yönetim ve burada App Service ortamları izleme etrafında daha fazla ayrıntı: [nasıl tooconfigure bir uygulama hizmeti ortamı][ASEConfig] 
 
-Otomatik ölçeklendirme hakkında bilgi için yoktur burada bir kılavuz: [otomatik ölçeklendirme bir uygulama hizmeti ortamı için yapılandırma][ASEAutoscale]
+Otomatik ölçeklendirme hakkında bilgi için yoktur burada bir kılavuz: [nasıl tooconfigure otomatik bir uygulama hizmeti ortamı için ölçeklendirme][ASEAutoscale]
 
-Depolama ve veritabanı gibi özelleştirme için kullanılabilir değil ek bağımlılıklar vardır. Bunlar Azure tarafından işlenen ve sistemi ile gelir. Tüm uygulama hizmeti ortamı için 500 GB'a kadar sistem depolama destekler ve veritabanı sistem ölçek tarafından gerektiği şekilde Azure tarafından ayarlanır.
+Özelleştirme gibi hello veritabanı ve depolama için kullanılabilir olmayan ek bağımlılıklar vardır. Bunlar Azure tarafından işlenen ve hello sistemi ile gelir. tüm uygulama hizmeti ortamı için too500 GB yukarı Hello sistem depolama destekler hello ve hello veritabanı hello sistem hello ölçek tarafından gerektiği şekilde Azure tarafından ayarlanır.
 
 ## <a name="getting-started"></a>Başlarken
-Tüm makaleler ve nasıl-için uygulama hizmeti ortamları kullanılabilir için kullanıcının [uygulama hizmeti ortamları için Benioku](../app-service/app-service-app-service-environments-readme.md).
+Tüm makaleler ve nasıl-için uygulama hizmeti ortamları hello kullanılabilir için kullanıcının [uygulama hizmeti ortamları için Benioku](../app-service/app-service-app-service-environments-readme.md).
 
-Uygulama hizmeti ortamı v1 ile çalışmaya başlamak için bkz: [uygulama hizmeti ortamı v1 giriş][WhatisASE]
+Uygulama hizmeti ortamı v1 ile başlatılan tooget bakın [giriş toohello uygulama hizmeti ortamı v1][WhatisASE]
 
-Azure App Service platformu hakkında daha fazla bilgi için bkz: [Azure App Service][AzureAppService].
+Hello Azure App Service platformu hakkında daha fazla bilgi için bkz: [Azure App Service][AzureAppService].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

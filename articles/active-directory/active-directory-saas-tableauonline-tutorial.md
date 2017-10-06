@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme Tableau Online ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve Tableau çevrimiçi arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ve Tableau çevrimiçi arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,108 +13,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 443fab1198a91a4d5749e6421f7b8603fc75a81e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 590b2674270c340b4750c7b6feeaf4f0df4bf853
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Öğretici: Azure Active Directory Tümleştirme Tableau Online ile
 
-Bu öğreticide, Tableau çevrimiçi Azure Active Directory (Azure AD) ile tümleştirme öğrenin.
+Bu öğreticide, bilgi nasıl toointegrate Tableau çevrimiçi Azure Active Directory'ye (Azure AD).
 
-Tableau çevrimiçi Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Tableau çevrimiçi Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
 
-- Tableau çevrimiçi erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak Tableau Online'a (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Erişim tooTableau çevrimiçi olan Azure AD'de kontrol edebilirsiniz
+- Kullanıcıların tooautomatically get açan tooTableau çevrimiçi (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure AD tümleştirme Tableau Online ile yapılandırmak için aşağıdaki öğeleri gerekir:
+tooconfigure Tableau Online ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Tableau çevrimiçi çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
 
-1. Tableau çevrimiçi galeriden ekleme
+1. Tableau çevrimiçi hello Galerisi'nden ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-tableau-online-from-the-gallery"></a>Tableau çevrimiçi galeriden ekleme
-Azure AD Tableau Online tümleştirilmesi yapılandırmak için Tableau çevrimiçi galeriden yönetilen SaaS uygulamaları listenize eklemeniz gerekir.
+## <a name="adding-tableau-online-from-hello-gallery"></a>Tableau çevrimiçi hello Galerisi'nden ekleme
+Azure AD'ye tooconfigure hello tümleştirme Tableau Online hello galeri tooyour yönetilen SaaS uygulamaları listesinden Tableau çevrimiçi tooadd gerekir.
 
-**Tableau çevrimiçi Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
+**tooadd Tableau çevrimiçi hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Tableau çevrimiçi**.
+4. Merhaba arama kutusuna yazın **Tableau çevrimiçi**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_search.png)
 
-5. Sonuçlar panelinde seçin **Tableau çevrimiçi**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Merhaba Sonuçlar panelinde seçin **Tableau çevrimiçi**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Tableau "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Online ile test etme
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen Tableau çevrimiçi bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı Tableau çevrimiçi arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek toowork'ın oturum açma hangi hello karşılık gelen Tableau çevrimiçi tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve Tableau çevrimiçi hello ilgili kullanıcı arasında bir bağlantı ilişkisi kurulan toobe gerekir.
 
-Çevrimiçi Tableau olarak değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Çevrimiçi Tableau'nde hello hello değerini atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
 
-Yapılandırma ve Azure AD çoklu oturum açma Tableau Online ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+tooconfigure ve Tableau Online ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Tableau çevrimiçi bir test kullanıcısı oluşturma](#creating-a-tableau-online-test-user)**  - Tableau kullanıcı Azure AD gösterimini bağlantılı çevrimiçi Britta Simon, karşılık gelen sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
+3. **[Tableau çevrimiçi bir test kullanıcısı oluşturma](#creating-a-tableau-online-test-user)**  -toohave Britta Simon Tableau, kullanıcı bağlantılı toohello Azure AD gösterimidir Online'da, karşılık gelen.
+4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Tableau çevrimiçi uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Tableau çevrimiçi uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma Tableau Online ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**tooconfigure Azure AD çoklu oturum açma Tableau Online ile Merhaba aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Tableau çevrimiçi** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Hello hello üzerinde Azure portal'ın **Tableau çevrimiçi** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_samlbase.png)
 
-3. Üzerinde **Tableau çevrimiçi etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **Tableau çevrimiçi etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_url.png)
     
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın:`https://sso.online.tableau.com`
+    a. Merhaba, **oturum açma URL'si** metin kutusuna, türü hello URL'si:`https://sso.online.tableau.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://sso.online.tableau.com/public/sp/<instancename>`
+    b. Merhaba, **tanımlayıcısı** metin kutusuna, türü hello URL'si:`https://sso.online.tableau.com/public/sp/<instancename>`
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_certificate.png) 
 
@@ -122,39 +122,39 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tableauonline-tutorial/tutorial_general_400.png)
 
-6. Farklı bir tarayıcı penceresinde Tableau çevrimiçi uygulamanıza oturum. Git **ayarları** ve ardından **kimlik doğrulama**.
+6. Farklı bir tarayıcı penceresinde oturum açma Tableau çevrimiçi uygulama tooyour. Çok Git**ayarları** ve ardından **kimlik doğrulama**.
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_09.png)
     
-7. SAML, altında etkinleştirmek için **kimlik doğrulama türleri** bölümü. Denetleme **çoklu oturum açma SAML ile** onay kutusu.
+7. tooenable SAML altında **kimlik doğrulama türleri** bölümü. Merhaba denetleyin **çoklu oturum açma SAML ile** onay kutusu.
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_12.png)
 
-8. Kadar aşağıya kaydırın **alma meta veri dosyasına Tableau çevrimiçi** bölümü.  Gözat'ı tıklatın ve Azure AD'den indirmiş meta veri dosyası içeri aktarın. Ardından **Uygula**.
+8. Kadar aşağıya kaydırın **alma meta veri dosyasına Tableau çevrimiçi** bölümü.  Gözat'ı tıklatın ve Azure AD'den indirmiş hello meta veri dosyası içeri aktarın. Ardından **Uygula**.
    
    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_13.png)
 
-9. İçinde **eşleşen onaylar** bölümünde, karşılık gelen kimlik sağlayıcısı onaylama adını eklemek **e-posta adresi**, **ad**, ve **Soyadı**. Bu bilgiler Azure AD'den almak için: 
+9. Merhaba, **eşleşen onaylar** bölümünde, hello karşılık gelen kimlik sağlayıcısı onaylama adı için INSERT **e-posta adresi**, **ad**, ve **Soyadı** . tooget Azure AD'den bu bilgileri: 
   
-    a. Azure portalında geçin **Tableau çevrimiçi** uygulama tümleştirme sayfası.
+    a. İçinde Azure portal Merhaba, üzerinde hello Git **Tableau çevrimiçi** uygulama tümleştirme sayfası.
     
-    b. Öznitelikleri bölümünde **"görüntülemek ve diğer tüm kullanıcı öznitelikleri Düzenle"** onay kutusu. 
+    b. Merhaba öznitelikleri hello bölümünde **"görüntülemek ve diğer tüm kullanıcı öznitelikleri Düzenle"** onay kutusu. 
     
    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tableauonline-tutorial/attributesection.png)
       
-    c. Bu öznitelikler için ad alanı değerini kopyalayın: givenname, e-posta ve aşağıdaki adımları kullanarak Soyadı:
+    c. Merhaba ad alanı değeri bu öznitelikler için kopyalayın: givenname, e-posta ve kullanarak Soyadı hello adımları izleyin:
 
    ![Azure AD çoklu oturum açma](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_10.png)
     
     d. Tıklatın **user.givenname** değeri 
     
-    e. Değerinden kopyalama **ad alanı** metin kutusu.
+    e. Hello Hello değerini kopyalayın **ad alanı** metin kutusu.
 
    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tableauonline-tutorial/attributesection2.png)
 
-    f. Namesapce kopyalamak için değerler soyadını ve e-posta için yukarıdaki adımları izleyin.
+    f. Merhaba e-posta ve Soyadı toocopy hello namesapce değerleri hello önceki adımları izleyin.
 
-    g. Tableau çevrimiçi uygulamaya geçiş yapın ve ardından ayarlamak **çevrimiçi öznitelikleri Tableau** gibi bölümünde:
+    g. Geçiş toohello Tableau çevrimiçi uygulama sonra ayarlamak hello **çevrimiçi öznitelikleri Tableau** gibi bölümünde:
      * E-posta: **posta** veya **userprincipalname**
      * Ad: **givenname**
      * Soyadı: **Soyadı**
@@ -162,37 +162,37 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_14.png)
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
@@ -200,31 +200,31 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
 Bu bölümde, Britta Simon Tableau çevrimiçi olarak adlandırılan bir kullanıcı oluşturun.
 
-1. Üzerinde **Tableau çevrimiçi**, tıklatın **ayarları** ve ardından **kimlik doğrulaması** bölümü. Ekranı aşağı kaydırarak **Kullanıcıları Seç** bölümü. Tıklatın **kullanıcıları eklemek** ve ardından **e-posta adreslerini girin**.
+1. Üzerinde **Tableau çevrimiçi**, tıklatın **ayarları** ve ardından **kimlik doğrulaması** bölümü. Çok ilerleyin**Kullanıcıları Seç** bölümü. Tıklatın **kullanıcıları eklemek** ve ardından **e-posta adreslerini girin**.
    
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_15.png)
-2. Seçin **çoklu oturum açma (SSO) kimlik doğrulaması için kullanıcı ekleme**. İçinde **e-posta adreslerini girin** textbox ekleyinbritta.simon@contoso.com
+2. Seçin **çoklu oturum açma (SSO) kimlik doğrulaması için kullanıcı ekleme**. Merhaba, **e-posta adreslerini girin** textbox ekleyinbritta.simon@contoso.com
    
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_11.png)
 3. **Oluştur**'a tıklayın.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
 
-Bu bölümde, Britta Tableau Online'a erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, çevrimiçi erişim tooTableau vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**Britta Simon Tableau Online'a atamak için aşağıdaki adımları gerçekleştirin:**
+**tooassign çevrimiçi Britta Simon tooTableau hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **Tableau çevrimiçi**.
+2. Merhaba uygulamalar listesinde **Tableau çevrimiçi**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -232,7 +232,7 @@ Bu bölümde, Britta Tableau Online'a erişim vererek, Azure çoklu oturum açma
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -240,13 +240,13 @@ Bu bölümde, Britta Tableau Online'a erişim vererek, Azure çoklu oturum açma
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümün amacı erişim paneli kullanılarak Azure AD SSO yapılandırmanızı test etmektir.
+Bu bölümde Hello amacı olan tootest hello erişim paneli, Azure AD SSO yapılandırmayı kullanarak.
 
-Erişim panelinde Tableau çevrimiçi kutucuğa tıkladığınızda, otomatik olarak Tableau çevrimiçi uygulamanıza açan.
+Merhaba Tableau çevrimiçi hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Tableau çevrimiçi uygulama almanız gerekir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

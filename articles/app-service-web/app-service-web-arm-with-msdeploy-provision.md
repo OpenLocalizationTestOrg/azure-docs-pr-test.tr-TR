@@ -1,6 +1,6 @@
 ---
-title: "Ana bilgisayar adı ve ssl sertifikasıyla MSDeploy kullanarak bir web uygulaması dağıtma"
-description: "Özel ana bilgisayar adı ve bir SSL sertifikası ayarlama ve MSDeploy kullanarak bir web uygulaması dağıtmak için bir Azure Resource Manager şablonu kullanın"
+title: "aaaDeploy MSDeploy ile ana bilgisayar adı ve ssl sertifikasını kullanarak bir web uygulaması"
+description: "Bir Azure Resource Manager şablonu toodeploy MSDeploy kullanarak ve özel ana bilgisayar adı ve bir SSL sertifikası ayarlama bir web uygulaması kullanın"
 services: app-service\web
 manager: erikre
 documentationcenter: 
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
-ms.openlocfilehash: a0e944d0d74ecb72a919538d54db330cbbdeef64
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ac13f4a7d14ae182e8e7ced5adff30491422d1e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>MSDeploy, özel ana bilgisayar adı ve SSL sertifikası ile bir web uygulaması dağıtma
-Bu kılavuzda bir uçtan uca dağıtımı için bir Azure Web uygulaması oluşturma, MSDeploy yararlanarak yanı sıra ARM şablonu için özel bir ana bilgisayar adı ve bir SSL sertifikası ekleme anlatılmaktadır.
+Bu kılavuzda, bir uçtan uca dağıtımı için bir Azure Web uygulaması oluşturma, MSDeploy yararlanarak yanı sıra aracılığıyla özel bir ana bilgisayar adı ve bir SSL sertifikası toohello ARM şablonu ekleme anlatılmaktadır.
 
 Şablonları oluşturma hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ### <a name="create-sample-application"></a>Örnek uygulaması oluşturma
-ASP.NET web uygulaması dağıtma. Basit bir web uygulaması oluşturmak için ilk adımdır (veya mevcut bir kullanmayı seçebilir - bu durumda, bu adımı atlayabilirsiniz).
+ASP.NET web uygulaması dağıtma. Merhaba ilk adımı toocreate basit bir web uygulaması (veya mevcut bir toouse seçebilir - bu durumda, bu adımı atlayabilirsiniz).
 
-Visual Studio 2015'ni açın ve Dosya > Yeni proje. Görüntülenen iletişim kutusunda Web seçin > ASP.NET Web uygulaması. Şablonlar altında Web seçin ve MVC şablonunu seçin. Seçin *kimlik doğrulama türünü değiştirin* için *doğrulaması yok*. Bu örnek uygulama yalnızca kadar basit hale getirmektir.
+Visual Studio 2015'ni açın ve Dosya > Yeni proje. Görüntülenen hello iletişim kutusunda Web seçin > ASP.NET Web uygulaması. Şablonlar altında Web seçin ve hello MVC şablonu seçin. Seçin *kimlik doğrulama türünü değiştirin* çok*doğrulaması yok*. Bu yalnızca toomake hello örnek olarak basit uygulamasıdır.
 
-Bu noktada, temel bir ASP.Net web uygulama dağıtım işleminin bir parçası kullanıma hazır olacaktır.
+Bu noktada, dağıtım işleminin bir parçası bir temel ASP.Net web uygulaması hazır toouse sahip olur.
 
 ### <a name="create-msdeploy-package"></a>MSDeploy paketi oluşturma
-Sonraki adım, Azure için web uygulaması dağıtmak için paketi oluşturmaktır. Bunu yapmak için projeyi kaydedin ve ardından aşağıdaki komut satırından çalıştırın:
+Toocreate hello paket toodeploy hello web uygulama tooAzure sonraki adımdır. toodo Bu, projeyi kaydedin ve ardından hello aşağıdaki hello komut satırından çalıştırın:
 
     msbuild yourwebapp.csproj /t:Package /p:PackageLocation="path\to\package.zip"
 
-Bu PackageLocation klasörü altında bir sıkıştırılmış paket oluşturur. Uygulama, bunu yapmak için bir Azure Resource Manager şablonunu şimdi oluşturabilirsiniz dağıtılması hazır.
+Bu hello PackageLocation klasörü altında bir sıkıştırılmış paket oluşturur. Merhaba uygulama şimdi bir Azure Resource Manager şablonu toodo şimdi oluşturabilirsiniz dağıtıldı, toobe hazır olmasını.
 
 ### <a name="create-arm-template"></a>ARM şablonu oluşturma
 İlk olarak, bir web uygulaması ve bir barındırma planı (parametreler ve değişkenler okumanızdır gösterilmez unutmayın) oluşturacak temel bir ARM şablonu ile başlayalım.
@@ -75,7 +75,7 @@ Bu PackageLocation klasörü altında bir sıkıştırılmış paket oluşturur.
         }
     }
 
-Ardından, bir iç içe geçmiş MSDeploy kaynağı olabilmesi için web uygulaması kaynak değiştirmeniz gerekir. Bu, paketi daha önce oluşturduğunuz ve Azure Resource Manager'ı Azure WebApp paketi dağıtmak için MSDeploy kullanılacak söyleyin başvurusuna izin verir. İç içe geçmiş MSDeploy kaynak Microsoft.Web/sites kaynakla gösterir:
+Ardından, toomodify hello web uygulaması kaynak tootake iç içe geçmiş MSDeploy kaynak gerekir. Bu, daha önce oluşturduğunuz, tooreference hello paketin izin ve Azure Resource Manager toouse MSDeploy toodeploy hello paket toohello Azure WebApp söyleyin. Merhaba aşağıdaki iç içe geçmiş hello MSDeploy kaynakla hello Microsoft.Web/sites kaynak gösterir:
 
     {
         "name": "[variables('webAppName')]",
@@ -117,13 +117,13 @@ Ardından, bir iç içe geçmiş MSDeploy kaynağı olabilmesi için web uygulam
         ]
     }
 
-MSDeploy kaynak sürdüğünü fark edeceksiniz artık bir **packageUri** şu şekilde tanımlanır özelliği:
+Bu hello MSDeploy kaynak alır fark edeceksiniz artık bir **packageUri** şu şekilde tanımlanır özelliği:
 
     "packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('webDeployPackageFolder'), '/', parameters('webDeployPackageFileName'), parameters('_artifactsLocationSasToken'))]"
 
-Bu **packageUri** için paketi zip burada yükler depolama hesabına işaret depolama hesabı URI alır. Azure Resource Manager özelliğinden yararlanır [paylaşılan erişim imzaları](../storage/common/storage-dotnet-shared-access-signature-part-1.md) şablonu dağıttığınız zaman paketi yerel olarak depolama hesabından çekmesini. Bu işlem paketini karşıya yükleyin ve gerekli anahtarlar oluşturmak için Azure yönetim API çağrısı ve bu şablonu içine parametreler olarak geçirin bir PowerShell komut dosyası aracılığıyla otomatik (*_artifactsLocation* ve *_ artifactsLocationSasToken*). Klasörü parametrelerini tanımlamanız gerekir ve filename paket depolama kapsayıcısı altında yüklenir.
+Bu **packageUri** hello noktaları toohello depolama hesabını burada karşıya yüklediğiniz paketi zip için depolama hesabı URI alır. Hello Azure Resource Manager özelliğinden yararlanır [paylaşılan erişim imzaları](../storage/common/storage-dotnet-shared-access-signature-part-1.md) toopull hello paketinden aşağı hello şablonu dağıttığınızda yerel olarak hello depolama hesabı. Bu işlem hello paketini karşıya yükleyin ve istenen hello Azure yönetim API'si toocreate hello anahtarları çağırın ve bu hello şablon içine parametreler olarak geçirin bir PowerShell komut dosyası aracılığıyla otomatik (*_artifactsLocation* ve *_artifactsLocationSasToken*). Filename hello paketidir karşıya yüklenen toounder hello depolama kapsayıcısı ve toodefine parametreleri için başlangıç klasörü gerekir.
 
-Sonraki özel bir etki alanı yararlanmak için konak adı bağlamaları kurulumu için başka bir iç içe kaynak eklemeniz gerekir. İlk ana bilgisayar adı ve bunun size - ait olduğu Azure tarafından doğrulanacak bkz kümesi sahip olmak gerekir [Azure App Service'te özel etki alanı adı yapılandırma](app-service-web-tutorial-custom-domain.md). Bu yapıldığında, şablonu Microsoft.Web/sites kaynak bölümü altında aşağıdaki ekleyebilirsiniz:
+Ardından başka bir iç içe kaynak toosetup hello konak adı bağlamaları tooleverage özel bir etki alanı içinde tooadd gerekir. Şunları yapacaksınız kendi hello ana bilgisayar adı ve toobe ayarlayın ilk gerek tooensure size ait olduğu Azure tarafından doğrulanan - bkz [Azure App Service'te özel etki alanı adı yapılandırma](app-service-web-tutorial-custom-domain.md). Bu yapıldığında tooyour şablonu hello Microsoft.Web/sites kaynak bölümü altında aşağıdaki hello ekleyebilirsiniz:
 
     {
         "apiVersion": "2015-08-01",
@@ -139,7 +139,7 @@ Sonraki özel bir etki alanı yararlanmak için konak adı bağlamaları kurulum
         }
     }
 
-Son olarak başka bir üst düzey kaynak Microsoft.Web/certificates eklemeniz gerekir. Bu kaynak SSL sertifikanızı içerir ve web uygulaması ve barındırma planı aynı düzeyde yer alır.
+Son olarak başka bir üst düzey kaynak, Microsoft.Web/certificates tooadd gerekir. Bu kaynak SSL sertifikanızı içerir ve aynı web uygulamanızı olarak düzeyi ve barındırma planı hello yer alır.
 
     {
         "name": "[parameters('certificateName')]",
@@ -152,25 +152,25 @@ Son olarak başka bir üst düzey kaynak Microsoft.Web/certificates eklemeniz ge
         }
     }
 
-Bu kaynağı ayarladıysanız için geçerli bir SSL sertifikası olması gerekir. Bu geçerli bir sertifikası edindikten sonra bir base64 dizesi olarak pfx bayt ayıklamak gerekir. Bu ayıklamak için bir seçenek aşağıdaki PowerShell komutunu kullanmaktır:
+Toohave sipariş tooset bu kaynağını içinde geçerli bir SSL sertifikası gerekir. Daha sonra bu geçerli bir sertifikası edindikten sonra bir base64 dizesi olarak tooextract hello pfx bayt gerekir. Bir seçenek tooextract bu PowerShell komutunu aşağıdaki toouse hello olur:
 
     $fileContentBytes = get-content 'C:\path\to\cert.pfx' -Encoding Byte
 
     [System.Convert]::ToBase64String($fileContentBytes) | Out-File 'pfx-bytes.txt'
 
-Ardından bu parametre olarak ARM dağıtım şablonu geçirebilirdiniz.
+Bu parametre tooyour ARM dağıtım şablonu olarak sonra geçirebilirdiniz.
 
-Bu noktada ARM şablonu hazırdır.
+Bu noktada hello ARM şablonu hazırdır.
 
 ### <a name="deploy-template"></a>Şablon dağıtma
-Bu tam uçtan uca dağıtımı ile birlikte tüm parçası için son adımlardır bakın. Yararlanabilirsiniz dağıtımı daha kolay yapmak için **dağıtma AzureResourceGroup.ps1** gerekli yapıların karşıya yükleme ile yardımcı olmak için Visual Studio'da bir Azure kaynak grubu projesi oluşturduğunuzda eklediğiniz PowerShell Betiği Şablon. Önceden kullanmak istediğiniz bir depolama hesabı oluşturmuş olmanız gerekir. Bu örnekte, yüklenecek package.zip için bir paylaşılan depolama hesabı oluşturdum. Komut dosyası depolama hesabına paketini karşıya yüklemek için AzCopy özelliğinden yararlanır. Yapı klasörü konumunuz geçirebilir ve komut dosyası adlı depolama kapsayıcısı için otomatik olarak bu dizindeki tüm dosyaları karşıya yükler. Dağıtma-AzureResourceGroup.ps1 çağrıldıktan sonra özel ana bilgisayar adı, SSL sertifikası ile eşlemek için SSL bağlamaları güncelleştirmeniz gerekir.
+Son adımlar hello toopiece bu tüm baştan sona tam dağıtım birbirine. toomake dağıtım hello yararlanabilirsiniz daha kolay **dağıtma AzureResourceGroup.ps1** Visual Studio toohelp gerekli yapıların karşıya yükleme ile bir Azure kaynak grubu projesi oluşturduğunuzda, eklediğiniz PowerShell Betiği Merhaba şablonu. Önceden toouse istediğiniz bir depolama hesabı oluşturuldu toohave gerektirir. Bu örnekte, karşıya hello package.zip toobe için bir paylaşılan depolama hesabı oluşturdum. Merhaba betik AzCopy tooupload hello paket toohello depolama hesabı özelliğinden yararlanır. Yapı klasörü konumunuz geçirebilir ve hello betik depolama kapsayıcısı adlı bu dizin toohello içindeki tüm dosyaları otomatik olarak yükler. Dağıtma-AzureResourceGroup.ps1 çağrıldıktan sonra toothen güncelleştirme hello SSL bağlamaları toomap hello özel ana bilgisayar adı, SSL sertifikası ile sahip.
 
-Aşağıdaki PowerShell dağıtma çağırma tam dağıtım gösterir-AzureResourceGroup.ps1:
+PowerShell gösterir aşağıdaki hello hello tam dağıtım arama hello dağıtma-AzureResourceGroup.ps1:
 
     #Set resource group name
     $rgName = "Name-of-resource-group"
 
-    #call deploy-azureresourcegroup script to deploy web app
+    #call deploy-azureresourcegroup script toodeploy web app
 
     .\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation "East US" `
                                     -ResourceGroupName $rgName `
@@ -181,7 +181,7 @@ Aşağıdaki PowerShell dağıtma çağırma tam dağıtım gösterir-AzureResou
                                     -TemplateParametersFile "web-app-deploy-parameters.json" `
                                     -ArtifactStagingDirectory "C:\path\to\packagefolder\"
 
-    #update web app to bind ssl certificate to hostname. This has to be done after creation above.
+    #update web app toobind ssl certificate toohostname. This has toobe done after creation above.
 
     $cert = Get-PfxCertificate -FilePath C:\path\to\certificate.pfx
 
@@ -195,5 +195,5 @@ Aşağıdaki PowerShell dağıtma çağırma tam dağıtım gösterir-AzureResou
 
     Set-AzureRmResource -ApiVersion 2014-11-01 -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -PropertyObject $props
 
-Bu noktada, uygulamanız dağıtıldıktan ve https://www.yourcustomdomain.com göz olmalıdır
+Bu noktada, uygulamanız dağıtıldıktan ve mümkün toobrowse tooit https://www.yourcustomdomain.com aracılığıyla olmalıdır
 

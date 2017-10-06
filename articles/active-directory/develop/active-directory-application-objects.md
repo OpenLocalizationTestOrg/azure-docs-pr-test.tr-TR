@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory uygulaması ve hizmet sorumlusu nesneleri | Microsoft Docs"
-description: "Tartışma için uygulama ve Azure Active Directory hizmet asıl nesneleri arasındaki ilişki"
+title: "aaaAzure Active Directory uygulaması ve hizmet sorumlusu nesneleri | Microsoft Docs"
+description: "Uygulama ve Azure Active Directory hizmet asıl nesneleri arasındaki ilişki hello tartışması"
 documentationcenter: dev-center-name
 author: dstrockis
 manager: mbaldwin
@@ -15,60 +15,60 @@ ms.workload: identity
 ms.date: 04/28/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4c75ade5f4e47ef64ccc0fe8af4b174c377dc7bc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ff7e308c0b326c3a32b101b7b323f2c0362763e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Uygulama ve hizmet asıl nesneler Azure Active Directory'de (Azure AD)
-Bazen "uygulama" terimi anlamı Azure AD bağlamında kullanıldığında yanlış. Bu makalede, NET, Azure AD uygulama tümleştirmesi, kavramsal ve somut yönlerini kayıt bir çizimi ile açıklığa kavuşturan yapıp için onay hedefidir bir [çok kiracılı uygulama](active-directory-dev-glossary.md#multi-tenant-application).
+Bazen "uygulama" hello Azure AD bağlamında kullanıldığında yanlış hello terim anlamını hello. Merhaba, bu makalenin hedeftir toomake bunu Azure AD uygulama tümleştirmesi, kavramsal ve somut yönlerini kaydı ve onay için bir çizimi ile açıklığa kavuşturan NET bir [çok kiracılı uygulama](active-directory-dev-glossary.md#multi-tenant-application).
 
 ## <a name="overview"></a>Genel Bakış
-Azure AD ile tümleşik bir uygulama, yazılım en boy gidin etkilere sahiptir. "Uygulama" Sık kullanılan kavramsal bir terim başvuran değil yalnızca uygulama yazılımı ancak aynı zamanda kendi Azure AD kaydını ve kimlik doğrulama/yetkilendirme çalışma zamanında "görüşmeleri" rolünde. Tanımı gereği, bir uygulama içinde çalışabilmesi için bir [istemci](active-directory-dev-glossary.md#client-application) (kaynak kullanma), rol bir [kaynak sunucusu](active-directory-dev-glossary.md#resource-server) rol (istemcilere sunan API) veya her ikisi de bile. Konuşma protokolü tarafından tanımlanan bir [OAuth 2.0 yetkilendirme verme akış](active-directory-dev-glossary.md#authorization-grant), erişim/kaynağın verileri sırasıyla korumak istemci/kaynak izin verme. Şimdi daha derin bir düzeye edelim ve nasıl tasarım zamanı ve çalışma zamanında uygulama Azure AD uygulama modelini gösteren bakın. 
+Azure AD ile tümleşik bir uygulama hello yazılım boy gidin etkilere sahiptir. "Uygulama" toonot yalnızca hello hello uygulama yazılımı, ancak aynı zamanda kendi Azure AD kaydını ve kimlik doğrulama/yetkilendirme çalışma zamanında "görüşmeleri" rolünde başvuran kavramsal bir terim sık kullanılır. Tanımı gereği, bir uygulama içinde çalışabilmesi için bir [istemci](active-directory-dev-glossary.md#client-application) (kaynak kullanma), rol bir [kaynak sunucusu](active-directory-dev-glossary.md#resource-server) rol (sunan API'leri tooclients) veya her ikisi de bile. Merhaba konuşma protokolü tarafından tanımlanan bir [OAuth 2.0 yetkilendirme verme akış](active-directory-dev-glossary.md#authorization-grant), hello istemci/kaynak tooaccess/korumak kaynağın veri sırasıyla izin verme. Şimdi edelim daha derin bir düzeyi ve nasıl hello Azure AD uygulama modeli bir uygulamayı tasarım zamanı ve çalışma zamanı temsil eden bakın. 
 
 ## <a name="application-registration"></a>Uygulama kaydı
-Bir Azure AD uygulaması kaydettiğinizde [Azure portal][AZURE-Portal], iki nesne, Azure AD kiracınız oluşturulur: uygulama nesnesi ve bir hizmet sorumlusu nesnesi.
+Azure AD uygulaması hello kaydettiğinizde [Azure portal][AZURE-Portal], iki nesne, Azure AD kiracınız oluşturulur: uygulama nesnesi ve bir hizmet sorumlusu nesnesi.
 
 #### <a name="application-object"></a>Uygulama nesnesi
-Azure AD uygulaması, bir ve Azure AD kiracısında uygulama kaydedildiği bulunduğu uygulama nesnesi tarafından uygulamanın "home" Kiracı olarak bilinen tanımlanır. Azure AD grafik [uygulama varlığı] [ AAD-Graph-App-Entity] uygulama nesnenin özellikleri için şema tanımlar. 
+Azure AD uygulaması, bir ve Merhaba uygulaması kaydedildiği hello Azure AD kiracısında bulunduğu uygulama nesnesi tarafından hello uygulamanın "home" Kiracı olarak bilinen tanımlanır. Hello Azure AD grafik [uygulama varlığı] [ AAD-Graph-App-Entity] hello şema uygulama nesnenin özellikler için tanımlar. 
 
 #### <a name="service-principal-object"></a>Hizmet sorumlusu nesnesi
-Hizmet sorumlusu nesnesi çalışma zamanında uygulama temsil etmek bir güvenlik sorumlusu için temel sağlayan belirli bir kiracı ilke ve uygulamanın kullanımı için izinleri tanımlar. Azure AD grafik [ServicePrincipal varlık] [ AAD-Graph-Sp-Entity] bir hizmet asıl nesnesinin özellikleri için şema tanımlar. 
+Merhaba hizmet sorumlusu nesnesi bir güvenlik sorumlusu toorepresent hello uygulama çalışma zamanında hello temel sağlayan belirli bir kiracı hello İlkesi ve bir uygulamanın kullanmak için izinler tanımlar. Hello Azure AD grafik [ServicePrincipal varlık] [ AAD-Graph-Sp-Entity] hello şema için bir hizmet asıl nesnenin özelliklerini tanımlar. 
 
 #### <a name="application-and-service-principal-relationship"></a>Uygulama ve hizmet asıl ilişkisi
-Uygulama nesnesi olarak göz önünde bulundurun *genel* tüm kiracılar ve hizmet sorumlusu olarak kullanmak için uygulama gösterimini *yerel* belirli bir kiracı kullanımda gösterimi. Uygulama nesnesi gören hangi ortak şablondan ve varsayılan özellikleri olan *türetilmiş* karşılık gelen hizmet asıl nesneleri oluşturulurken kullanılacak. Uygulama nesnesi bu nedenle yazılım uygulamayla 1:1 ilişki ve onun karşılık gelen hizmet asıl nesneleri ile 1:many ilişkisi vardır.
+Merhaba uygulama nesnesi hello olarak göz önünde bulundurun *genel* uygulamanızı hello olarak kullanmak üzere tüm kiracılar ve hello hizmet sorumlusu arasında gösterimini *yerel* kullanılmak üzere belirli bir gösterimi Kiracı. Merhaba hangi ortak şablondan ve varsayılan özellikleri gibi hello uygulama nesnesi hizmet *türetilmiş* karşılık gelen hizmet asıl nesneleri oluşturulurken kullanılacak. Uygulama nesnesi bu nedenle 1:1 ilişki hello yazılım uygulamayla ve onun karşılık gelen hizmet asıl nesneleri ile 1:many ilişkisi vardır.
 
-Bir hizmet sorumlusu burada uygulama kullanılacak, her bir kiracı içinde oluşturulmalıdır oturum açma ve/veya Kiracı tarafından güvenli hale getirilmiş kaynaklara erişim için bir kimlik oluşturmak üzere etkinleştirme. Tek kiracılı uygulama (kendi giriş kiracısı içinde), genellikle oluşturulur ve uygulama kaydı sırasında kullanılmak üzere rıza yalnızca bir hizmet sorumlusu sahip olur. Bu kiracısındaki bir kullanıcı kendi kullanımı için burada seçtiği bir çok kiracılı Web uygulaması/API ayrıca her bir kiracı oluşturulan bir hizmet sorumlusu vardır.  
+Bir hizmet sorumlusu her bir kiracı tooestablish oturum açma için bir kimlik etkinleştirme Merhaba uygulaması kullanılacak olduğunda ve/veya hello Kiracı tarafından güvenli hale getirilmiş erişim tooresources oluşturulmuş olması gerekir. Tek kiracılı uygulama (kendi giriş kiracısı içinde), genellikle oluşturulur ve uygulama kaydı sırasında kullanılmak üzere rıza yalnızca bir hizmet sorumlusu sahip olur. Kiracı kullanıcıdan tooits kullanım burada seçtiği bir çok kiracılı Web uygulaması/API ayrıca her bir kiracı oluşturulan bir hizmet sorumlusu vardır.  
 
 > [!NOTE]
-> Uygulama nesnesi yaptığınız tüm değişiklikler de yansıtılır uygulamanın giriş Kiracı yalnızca (burada kaydedildiği Kiracı) kendi hizmet sorumlusu nesnesi. Erişim aracılığıyla kaldırılana kadar çok kiracılı uygulamalar için uygulama nesnesi değişiklikleri hiçbir tüketici Kiracı hizmet asıl nesneleri, yansıtılmaz [uygulama erişim Paneli'ne](https://myapps.microsoft.com) ve yeniden verilir.
+> Tooyour uygulama nesnesi, yaptığınız tüm değişiklikler de yansıtılır hello uygulamanın giriş Kiracı yalnızca (burada kaydedildiği hello Kiracı) kendi hizmet sorumlusu nesnesi. Çok kiracılı uygulamalar için değişiklikleri toohello uygulama nesnesi değil yansıtılır hiçbir tüketici Kiracı hizmet asıl nesneleri, hello erişim hello kaldırılana kadar [uygulama erişim Paneli'ne](https://myapps.microsoft.com) ve yeniden verilir.
 ><br>  
 > Ayrıca, yerel uygulamalar varsayılan olarak çok Kiracı olarak kaydedilen unutmayın.
 > 
 > 
 
 ## <a name="example"></a>Örnek
-Aşağıdaki diyagramda bir uygulamanın uygulama nesnesi ve karşılık gelen hizmet asıl nesneleri, örnek bir çok kiracılı uygulama bağlamında adlı arasındaki ilişki gösterilmektedir **ik uygulama**. Bu senaryoda üç Azure AD kiracılarıyla vardır: 
+Merhaba Aşağıdaki diyagramda gösterilmektedir hello arasındaki ilişki bir uygulamanın uygulama nesnesi karşılık gelen hizmet asıl nesneleri hello örnek bir çok kiracılı uygulama bağlamında adlı **ik uygulama**. Bu senaryoda üç Azure AD kiracılarıyla vardır: 
 
-* **Adatum** -geliştirilen şirket tarafından kullanılan Kiracı **ik uygulama**
-* **Contoso** -Contoso kuruluş tarafından kullanılan Kiracı tüketicisi olduğu **ik uygulama**
-* **Fabrikam** -ayrıca tüketir Fabrikam kuruluş tarafından kullanılan Kiracı **ik uygulama**
+* **Adatum** - hello hello geliştirilen hello şirket tarafından kullanılan Kiracı **ik uygulama**
+* **Contoso** - hello hello tüketicisidir Contoso kuruluşundaki hello tarafından kullanılan Kiracı **ik uygulama**
+* **Fabrikam** - hello hello ayrıca hello tüketir Fabrikam kuruluş tarafından kullanılan Kiracı **ik uygulama**
 
 ![Uygulama nesnesi ve bir hizmet sorumlusu nesnesi arasındaki ilişki](./media/active-directory-application-objects/application-objects-relationship.png)
 
-Önceki diyagramda 1. adım uygulama ve hizmet asıl nesneleri uygulamanın ana Kiracı oluşturma işlemidir.
+Merhaba önceki diyagramda, adım 1 hello uygulama ve hizmet asıl nesneleri hello uygulamanın giriş Kiracı oluşturma hello işlemidir.
 
-2. adımda onay, Contoso ve Fabrikam Yöneticiler tamamladığınızda, bir hizmet sorumlusu nesnesi şirketlerinin Azure AD kiracınızda oluşturulur ve yönetici verilen izinler atanmış. Ayrıca, ik uygulama yapılandırılmış/onay izin vermek için tek başına kullanım için kullanıcılar tarafından tasarlanmalıdır emin unutmayın.
+Onay, contoso ve Fabrikam Yöneticiler tamamladığınızda, adım 2'de bir hizmet sorumlusu nesnesi şirketlerinin Azure AD kiracısı ve atanan hello izinleri verilen o hello yönetici oluşturulur. Ayrıca bu hello HR uygulama tek başına kullanım için kullanıcılar tarafından yapılandırılan ve tasarlanmış tooallow izin olabilir unutmayın.
 
-Adım 3'te uygulamasının HR (Contoso ve Fabrikam) her tüketici kiracılar kendi hizmet sorumlusu nesnesi sahip. İzinler tarafından yönetilen zamanında uygulama örneğini kullanımını rıza her temsil eder ilgili yönetici tarafından.
+Adım 3'te hello tüketici kiracılar hello HR uygulama (Contoso ve Fabrikam) her biri kendi hizmet sorumlusu nesnesi vardır. Her kullanımlarını izin verdiği hello hello ilgili yönetici tarafından yönetilen zamanında hello uygulama örneği temsil eder.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir uygulamanın uygulama nesnesi Azure AD Graph API üzerinden erişilebilir [Azure portal'ın] [ AZURE-Portal] uygulama bildirim Düzenleyicisi veya [Azure AD PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), olarak OData tarafından temsil edilen [uygulama varlığı][AAD-Graph-App-Entity].
+Bir uygulamanın uygulama nesnesi hello Azure AD grafik API'si hello erişilebilir [Azure portal'ın] [ AZURE-Portal] uygulama bildirim Düzenleyicisi veya [Azure AD PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), OData tarafından temsil edilen [uygulama varlığı][AAD-Graph-App-Entity].
 
-Bir uygulamanın hizmet sorumlusu nesnesi Azure AD Graph API üzerinden erişilebilir veya [Azure AD PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), OData tarafından temsil edilen [ServicePrincipal varlık] [ AAD-Graph-Sp-Entity].
+Bir uygulamanın hizmet sorumlusu nesnesi hello Azure AD grafik API'si erişilebilir veya [Azure AD PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), OData tarafından temsil edilen [ServicePrincipal varlık] [ AAD-Graph-Sp-Entity].
 
-[Azure AD Graph Explorer'a](https://graphexplorer.azurewebsites.net/) uygulama ve hizmet asıl nesneleri sorgulamak için yararlıdır.
+Merhaba [Azure AD Graph Explorer'a](https://graphexplorer.azurewebsites.net/) hello uygulama ve hizmet asıl nesneleri sorgulamak için yararlıdır.
 
 <!--Image references-->
 

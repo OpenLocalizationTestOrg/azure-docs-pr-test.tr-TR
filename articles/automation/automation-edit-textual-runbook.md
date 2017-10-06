@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu metinsel runbook'larda düzenleme"
-description: "Bu makalede farklı yordamlar PowerShell ve PowerShell iş akışı runbook'ları Azure Automation ile çalışmak için metin düzenleyicisini kullanarak sağlar."
+title: Azure Otomasyonu'nda aaaEditing metinsel runbook'lar
+description: "Bu makalede farklı yordamlar PowerShell ve PowerShell iş akışı runbook'ları Azure Automation ile çalışmak için hello metin düzenleyicisini kullanarak sağlar."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,94 +14,94 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 21f30e1266a444a2258973f8acad3692077f535b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3fd87d457838f300ca6c94bc345e82c679a0e011
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Azure Otomasyonu metinsel runbook'larda düzenleme
-Azure Otomasyonu metin düzenleyicide düzenlemek için kullanılan [PowerShell runbook'ları](automation-runbook-types.md#powershell-runbooks) ve [PowerShell iş akışı runbook'ları](automation-runbook-types.md#powershell-workflow-runbooks). Bu runbook'lar için ortak kaynaklarına erişim de yardımcı olmak için diğer kod düzenleyicileri IntelliSense ve ek özel özelliklerle renk kodlama gibi tipik özelliklerini sahiptir.  Bu makalede, bu düzenleyicisiyle farklı işlevleri gerçekleştirmek için ayrıntılı adımlar sağlanmaktadır.
+Hello Azure Otomasyonu metin düzenleyicide kullanılan tooedit olabilir [PowerShell runbook'ları](automation-runbook-types.md#powershell-runbooks) ve [PowerShell iş akışı runbook'ları](automation-runbook-types.md#powershell-workflow-runbooks). IntelliSense ve ek özel özellikler tooassist ile kaynakları ortak toorunbooks erişirken kodlama renk gibi diğer kod Düzenleyicileri'nin hello tipik özellikler vardır.  Bu makalede, bu düzenleyicisiyle farklı işlevleri gerçekleştirmek için ayrıntılı adımlar sağlanmaktadır.
 
-Metin Düzenleyicisi bir runbook'a etkinlikler, varlıklar ve alt runbook'lar için kod ekleme özelliğini içerir. Kodu kendiniz yazmak yerine, kullanılabilir kaynaklar listesinden seçin ve uygun kodu runbook'a.
+Merhaba metin düzenleyicisini runbook'a etkinlikler, varlıklar ve alt runbook'ları için bir özellik tooinsert kodu içerir. Merhaba kodu kendiniz yazmak yerine, kullanılabilir kaynaklar listesinden seçin ve hello runbook'a hello uygun kodu.
 
-Azure Otomasyonu içindeki her runbook'un taslak ve yayımlanan olmak üzere iki sürümü vardır. Runbook'un taslak sürümünü düzenler ve yürütülmek üzere yayımlarsınız. Yayımlanan sürüm düzenlenemez. Bkz: [runbook yayımlama](automation-creating-importing-runbook.md#publishing-a-runbook) daha fazla bilgi için.
+Azure Otomasyonu içindeki her runbook'un taslak ve yayımlanan olmak üzere iki sürümü vardır. Merhaba runbook'un taslak sürümünü hello düzenler ve yürütülmek üzere yayımlarsınız. Merhaba yayımlanan sürüm düzenlenemez. Bkz: [runbook yayımlama](automation-creating-importing-runbook.md#publishing-a-runbook) daha fazla bilgi için.
 
-Çalışmak için [grafik Runbook'lar](automation-runbook-types.md#graphical-runbooks), bkz: [Azure Automation'da grafik yazma](automation-graphical-authoring-intro.md).
+ile toowork [grafik Runbook'lar](automation-runbook-types.md#graphical-runbooks), bkz: [Azure Automation'da grafik yazma](automation-graphical-authoring-intro.md).
 
-## <a name="to-edit-a-runbook-with-the-azure-portal"></a>Azure portal ile bir runbook'u düzenlemek için
-Metin düzenleyicide düzenlemek için bir runbook açmak için aşağıdaki yordamı kullanın.
+## <a name="tooedit-a-runbook-with-hello-azure-portal"></a>tooedit hello Azure portalı ile runbook
+Aşağıdaki yordam tooopen hello metin düzenleyicide düzenlemek için bir runbook hello kullanın.
 
-1. Azure Portal'da, automation hesabınızı seçin.
-2. Runbook'ların listesini açmak için **Runbook'lar** kutucuğuna tıklayın.
-3. Düzenle ve ardından istediğiniz runbook'un adına tıklayın **Düzenle** düğmesi.
-4. Gerekli düzenlemeleri yapın.
+1. Hello Azure portal, Otomasyon hesabınızı seçin.
+2. Merhaba tıklatın **Runbook'lar** döşeme tooopen hello listesini.
+3. Merhaba adına tıklayın hello runbook'un tooedit istediğiniz ve hello ardından **Düzenle** düğmesi.
+4. Düzenleme gerekli hello gerçekleştirin.
 5. Tıklatın **kaydetmek** düzenlemeleriniz olduğunda tamamlandı.
-6. Tıklatın **Yayımla** yayımlanmasını runbook'un en son taslak sürümünü istiyorsanız.
+6. Tıklatın **Yayımla** hello en son taslak sürümünün yayımlanan hello runbook toobe istiyorsanız.
 
-### <a name="to-insert-a-cmdlet-into-a-runbook"></a>Bir cmdlet bir runbook'a ekleme
-1. Metin düzenleyicisini tuvalde cmdlet eklemek istediğiniz yeri imleç Konumlandır.
-2. Genişletme **cmdlet'leri** kitaplığı denetimi düğümünde.
-3. Kullanmak istediğiniz cmdlet içeren modülü genişletin.
-4. Ekle ve seçmek için cmdlet sağ tıklayın **tuvale Ekle**.  Cmdlet birden fazla parametre kümesi varsa, varsayılan kümesine eklenir.  Farklı parametre kümesi seçmek için cmdlet genişletebilirsiniz.
-5. Cmdlet'i için kodu, tüm parametrelerin listesi ile eklenir.
-6. Köşeli ayraçlar <> gerekli parametreleri için tarafından veri türü yerine uygun değeri girin.  Gerekli olmayan tüm parametreleri kaldırın.
+### <a name="tooinsert-a-cmdlet-into-a-runbook"></a>runbook'a bir cmdlet tooinsert
+1. Hello hello metin düzenleyicisini tuvale, hello imleci tooplace hello cmdlet istediğiniz yere getirin.
+2. Merhaba genişletin **cmdlet'leri** hello kitaplığı denetimi düğümünde.
+3. Merhaba modülü toouse hello cmdlet'in içeren genişletin.
+4. Merhaba cmdlet tooinsert sağ tıklatın ve seçin **toocanvas eklemek**.  Merhaba cmdlet'ini birden fazla parametre kümesi varsa, hello varsayılan kümesine eklenir.  Merhaba cmdlet tooselect farklı bir parametre genişletebilirsiniz ayarlayın.
+5. Merhaba kodu hello cmdlet'i için tüm parametrelerin listesi ile eklenir.
+6. Köşeli ayraçlar <> gerekli parametreleri için tarafından hello veri türü yerine uygun değeri girin.  Gerekli olmayan tüm parametreleri kaldırın.
 
-### <a name="to-insert-code-for-a-child-runbook-into-a-runbook"></a>Alt runbook için kodu runbook'a eklemek için
-1. Metin düzenleyicisini tuvalde imleci kodunu yerleştirmek istediğiniz yere getirin [alt runbook](automation-child-runbooks.md).
-2. Genişletme **Runbook'lar** kitaplığı denetimi düğümünde.
-3. Runbook Ekle ve seçmek için sağ tıklatın **tuvale Ekle**.
-4. Alt runbook için kodu ile runbook parametreleri için herhangi bir yer tutucu eklenir.
-5. Yer tutucuları her parametre için uygun değerlerle değiştirin.
+### <a name="tooinsert-code-for-a-child-runbook-into-a-runbook"></a>runbook'a bir alt runbook için tooinsert kodu
+1. Hello hello metin düzenleyicisini tuvale, hello imleci tooplace hello kod Merhaba istediğiniz yere [alt runbook](automation-child-runbooks.md).
+2. Merhaba genişletin **Runbook'lar** hello kitaplığı denetimi düğümünde.
+3. Merhaba runbook tooinsert sağ tıklatın ve seçin **toocanvas eklemek**.
+4. Merhaba kodu hello alt runbook için runbook parametreleri için herhangi bir yer tutucu ile eklenir.
+5. Merhaba yer tutucuları, her parametre için uygun değerlerle değiştirin.
 
-### <a name="to-insert-an-asset-into-a-runbook"></a>Bir runbook'a bir varlık eklemek için
-1. Metin düzenleyicisini tuvalde alt runbook için kod eklemek istediğiniz yeri imleç Konumlandır.
-2. Genişletme **varlıklar** kitaplığı denetimi düğümünde.
-3. İstediğiniz varlık türü için düğümü genişletin.
-4. Varlık Ekle ve seçmek için sağ tıklatın **tuvale Ekle**.  İçin [değişken varlıkları](automation-variables.md), şunlardan birini seçin **tuvale "değişken Al" Ekle** veya **tuvale "değişken Ayarla" Ekle** almak veya değişkeni ayarlamak istediğinize bağlı olarak.
-5. Varlık için kod runbook'a eklenir.
+### <a name="tooinsert-an-asset-into-a-runbook"></a>bir runbook bir varlığa tooinsert
+1. Hello hello metin düzenleyicisini tuvale, hello imleci hello alt runbook için tooplace hello kod istediğiniz yere getirin.
+2. Merhaba genişletin **varlıklar** hello kitaplığı denetimi düğümünde.
+3. Merhaba istediğiniz varlık türünü Hello düğümünü genişletin.
+4. Merhaba varlık tooinsert sağ tıklatın ve seçin **toocanvas eklemek**.  İçin [değişken varlıkları](automation-variables.md), şunlardan birini seçin **"Değişken Al" toocanvas ekleme** veya **"Değişkenini Ayarla" toocanvas ekleme** tooget istediğiniz mı hello değişkenini bağlı olarak.
+5. Merhaba kodu hello varlık için hello runbook'a eklenir.
 
-## <a name="to-edit-a-runbook-with-the-azure-portal"></a>Azure portal ile bir runbook'u düzenlemek için
-Metin düzenleyicide düzenlemek için bir runbook açmak için aşağıdaki yordamı kullanın.
+## <a name="tooedit-a-runbook-with-hello-azure-portal"></a>tooedit hello Azure portalı ile runbook
+Aşağıdaki yordam tooopen hello metin düzenleyicide düzenlemek için bir runbook hello kullanın.
 
-1. Azure portalında seçin **Otomasyon** ve ardından bir Otomasyon hesabı adına tıklayın.
-2. Seçin **Runbook'lar** sekmesi.
-3. Düzenle ve ardından istediğiniz runbook'un adına tıklayın **Yazar** sekmesi.
-4. Tıklatın **Düzenle** ekranın altındaki düğmesini.
-5. Gerekli düzenlemeleri yapın.
+1. Hello Azure portal, seçin **Otomasyon** ve ardından bir Otomasyon hesabı hello adını tıklatın.
+2. Select hello **Runbook'lar** sekmesi.
+3. Merhaba adına tıklayın hello runbook'un tooedit istediğiniz ve hello ardından **Yazar** sekmesi.
+4. Merhaba tıklatın **Düzenle** hello ekranın hello düğmesini.
+5. Düzenleme gerekli hello gerçekleştirin.
 6. Tıklatın **kaydetmek** düzenlemeleriniz olduğunda tamamlandı.
-7. Tıklatın **Yayımla** yayımlanmasını runbook'un en son taslak sürümünü istiyorsanız.
+7. Tıklatın **Yayımla** hello en son taslak sürümünün yayımlanan hello runbook toobe istiyorsanız.
 
-### <a name="to-insert-an-activity-into-a-runbook"></a>Bir Runbook'a etkinlik eklemek için
-1. Metin düzenleyicisini tuvalde etkinlik eklemek istediğiniz yeri imleç Konumlandır.
-2. Ekranın alt kısmındaki tıklatın **Ekle** ve ardından **etkinlik**.
-3. İçinde **tümleştirme Modülü** sütununda, etkinliği içeren modülü seçin.
-4. İçinde **etkinlik** bölmesinde, bir etkinlik seçin.
-5. İçinde **açıklama** sütununda, etkinliğin açıklamasına dikkat edin. İsteğe bağlı olarak, görünüm tıklayabilirsiniz ayrıntılı yardım için tarayıcıda etkinlik başlatmak için Yardım.
-6. Sağ oka tıklayın.  Etkinlik parametrelere sahipse, bunlar için bilgilerinizi listelenir.
-7. Onay düğmesine tıklayın.  Etkinliği çalıştırmak için kod runbook'a eklenir.
-8. Etkinlik parametre gerektiriyorsa, köşeli ayraç <> tarafından veri türü yerine uygun değeri belirtin.
+### <a name="tooinsert-an-activity-into-a-runbook"></a>tooinsert runbook'a bir etkinlik
+1. Hello hello metin düzenleyicisini tuvale, hello imleci tooplace hello etkinlik istediğiniz yere getirin.
+2. Merhaba ekranında Hello altındaki tıklatın **Ekle** ve ardından **etkinlik**.
+3. Merhaba, **tümleştirme Modülü** sütun, başlangıç etkinliği içeriyor select hello modülü.
+4. Merhaba, **etkinlik** bölmesinde, bir etkinlik seçin.
+5. Merhaba, **açıklama** sütun, Not hello hello etkinlik açıklaması. İsteğe bağlı olarak, ayrıntılı tıklayabilirsiniz toolaunch Yardım hello tarayıcıda hello etkinlik için Yardım.
+6. Merhaba sağ oka tıklayın.  Hello etkinlik parametrelere sahipse, bunlar için bilgilerinizi listelenir.
+7. Merhaba onay düğmesine tıklayın.  Kod toorun hello etkinlik hello runbook'a eklenir.
+8. Merhaba etkinlik parametre gerektiriyorsa, köşeli ayraç <> tarafından hello veri türü yerine uygun değeri belirtin.
 
-### <a name="to-insert-code-for-a-child-runbook-into-a-runbook"></a>Alt runbook için kodu runbook'a eklemek için
-1. Metin düzenleyicisini tuvalde imleci yerleştirmek istediğiniz yere getirin [alt runbook](automation-child-runbooks.md).
-2. Ekranın alt kısmındaki tıklatın **Ekle** ve ardından **Runbook**.
-3. Sağ okunu tıklatıp Orta sütundan eklenecek runbook'u seçin.
-4. Runbook parametrelere sahipse, bunlar için bilgilerinizi listelenir.
-5. Onay düğmesine tıklayın.  Seçili runbook'u çalıştırmak için kod geçerli runbook'a eklenir.
-6. Runbook parametre gerektiriyorsa, köşeli ayraç <> tarafından veri türü yerine uygun değeri belirtin.
+### <a name="tooinsert-code-for-a-child-runbook-into-a-runbook"></a>runbook'a bir alt runbook için tooinsert kodu
+1. Hello hello metin düzenleyicisini tuvale, hello imleci tooplace hello istediğiniz yere [alt runbook](automation-child-runbooks.md).
+2. Merhaba ekranında Hello altındaki tıklatın **Ekle** ve ardından **Runbook**.
+3. Merhaba runbook tooinsert hello Orta sütundan seçin ve hello sağ oka tıklayın.
+4. Merhaba runbook'un parametreleri varsa bilgilendirme olarak listelenir.
+5. Merhaba onay düğmesine tıklayın.  Kod toorun seçili hello runbook hello geçerli runbook'a eklenir.
+6. Merhaba runbook parametre gerektiriyorsa, köşeli ayraç <> tarafından hello veri türü yerine uygun değeri belirtin.
 
-### <a name="to-insert-an-asset-into-a-runbook"></a>Bir runbook'a bir varlık eklemek için
-1. Metin düzenleyicisini tuvalde varlık almak için etkinliği eklemek istediğiniz yeri imleç Konumlandır.
-2. Ekranın alt kısmındaki tıklatın **Ekle** ve ardından **ayarı**.
-3. İçinde **ayar eylemi** sütununda, istediğiniz eylemi seçin.
-4. Orta sütunda kullanılabilir varlıklar arasından seçim yapın.
-5. Onay düğmesine tıklayın.  Almak veya varlık ayarlamak için kod runbook'a eklenir.
+### <a name="tooinsert-an-asset-into-a-runbook"></a>bir runbook bir varlığa tooinsert
+1. Hello hello metin düzenleyicisini tuvale, hello imleci tooplace hello etkinlik tooretrieve hello varlık istediğiniz yere getirin.
+2. Merhaba ekranında Hello altındaki tıklatın **Ekle** ve ardından **ayarı**.
+3. Merhaba, **ayar eylemi** sütununda, istediğiniz select hello eylem.
+4. Merhaba merkezi sütununda hello kullanılabilir varlıklar arasından seçim yapın.
+5. Merhaba onay düğmesine tıklayın.  Tooget kod veya kümesi hello varlık hello runbook'a eklenmiş.
 
-## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>Windows PowerShell kullanarak bir Azure Otomasyonu runbook'u düzenlemek için
-Windows PowerShell ile bir runbook'u düzenlemek için tercih ettiğiniz Düzenleyicisi'ni kullanın ve bir .ps1 dosyasına kaydedin. Kullanabileceğiniz [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) runbook'un içeriğini almak üzere ve ardından [kümesi AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) varolan değiştirmek için cmdlet taslak runbook ile değiştirilmiş bir.
+## <a name="tooedit-an-azure-automation-runbook-using-windows-powershell"></a>Windows PowerShell kullanarak bir Azure Otomasyonu runbook'u tooedit
+tooedit bir runbook'u Windows PowerShell ile Merhaba düzenleyiciyi kullanın ve tooa .ps1 dosyasına kaydedin. Merhaba kullanabilirsiniz [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) cmdlet tooretrieve hello hello runbook'un içeriğini ve ardından [kümesi AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) cmdlet tooreplace hello var Taslak runbook hello ile bir değiştirdi.
 
-### <a name="to-retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Windows PowerShell kullanarak bir Runbook'un içeriğini almak için
-Aşağıdaki örnek komutlar bir runbook için komut almak ve bir komut dosyasına kaydetmek nasıl gösterir. Bu örnekte Taslak sürümü alınmaktadır. Bu sürüm değiştirilemez rağmen runbook'un yayımlanan sürümünü almak mümkündür.
+### <a name="tooretrieve-hello-contents-of-a-runbook-using-windows-powershell"></a>tooRetrieve hello bir Runbook'u Windows PowerShell kullanarak içeriği
+Aşağıdaki örnek komutlar hello nasıl tooretrieve bir runbook betiğinin hello ve tooa komut dosyasını kaydedin gösterir. Bu örnekte, hello Taslak sürümü alınmaktadır. Bu sürüm değiştirilemez rağmen bu da olası tooretrieve hello yayımlanan hello runbook sürümüdür.
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
@@ -112,8 +112,8 @@ Aşağıdaki örnek komutlar bir runbook için komut almak ve bir komut dosyası
 
     Out-File -InputObject $runbookContent -FilePath $scriptPath
 
-### <a name="to-change-the-contents-of-a-runbook-using-windows-powershell"></a>Windows PowerShell kullanarak bir Runbook'un içeriğini değiştirmek için
-Aşağıdaki örnek komutlar bir runbook'un mevcut içeriğinin bir betik dosyasının içeriğiyle değiştirme göstermektedir. Bu aynı örnek yordamda olarak olduğuna dikkat edin [Windows PowerShell ile bir betik dosyasından bir runbook'u içeri aktarma](automation-creating-importing-runbook.md).
+### <a name="toochange-hello-contents-of-a-runbook-using-windows-powershell"></a>tooChange hello bir Runbook'u Windows PowerShell kullanarak içeriği
+Merhaba aşağıdaki örnek komutlar tooreplace hello bir runbook'un mevcut içeriğinin hello bir betik dosyasının içeriğiyle nasıl göstermektedir. Bu olduğu Merhaba, aynı Not Örnek yordamda olarak [tooimport Windows PowerShell ile bir betik dosyasından bir runbook'u](automation-creating-importing-runbook.md).
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"

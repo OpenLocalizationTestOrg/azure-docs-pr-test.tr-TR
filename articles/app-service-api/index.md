@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service - API Apps Belgeleri - Öğreticileri | Microsoft Docs"
-description: "Bulutta ve şirket içinde API geliştirme, barındırma ve kullanma işlemleri için Azure App Service’te sunulan API Apps özelliğini nasıl kullanacağınızı öğrenin. Öğreticiler, videolar ve diğer belgeler."
+title: "Uygulama hizmeti - API Apps belgeleri - öğreticileri aaaAzure | Microsoft Docs"
+description: "Nasıl toouse API uygulamaları Azure App Service toodevelop barındırmak ve hello Bulut ve şirket içi API'leri kullanmasına öğrenin. Öğreticiler, videolar ve diğer belgeler."
 services: app-service\api
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: b1a568d7a8f856c7d17aa7ebd14148452c1d29db
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 67334a0e0eb79c34aab60b4222977bc3a27611a2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="app-service---api-apps-documentation"></a>App Service - API Apps Belgeleri
 
-Bulutta ve şirket içinde API geliştirme, barındırma ve kullanma işlemleri için Azure App Service’te sunulan API Apps özelliğini nasıl kullanacağınızı öğrenin. Öğreticiler, videolar ve diğer belgeler, API uygulamaları oluşturma ve dağıtma ile ilgili bilgiler içerir.
+Nasıl toouse API uygulamaları Azure App Service toodevelop barındırmak ve hello Bulut ve şirket içi API'leri kullanmasına öğrenin. Öğreticiler, videolar ve diğer belgeler, API uygulamaları oluşturma ve dağıtma ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>

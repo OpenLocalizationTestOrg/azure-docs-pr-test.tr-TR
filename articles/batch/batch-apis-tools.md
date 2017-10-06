@@ -1,6 +1,6 @@
 ---
-title: "Azure Batch API’leri kullanarak büyük ölçekli paralel işleme çözümleri geliştirme | Microsoft Docs"
-description: "Azure Batch hizmeti ile çözüm geliştirmek için kullanılabilen API’ler ve araçlar hakkında bilgi edinin."
+title: "aaaUse Azure Batch API'lerini ve araçları toodevelop büyük ölçekli paralel işlem çözümleri | Microsoft Docs"
+description: "Merhaba API'leri ve hello Azure Batch hizmetiyle çözümleri geliştirmek için kullanılabilen araçlar hakkında bilgi edinin."
 services: batch
 author: tamram
 manager: timlt
@@ -8,33 +8,33 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
-ms.openlocfilehash: c8c76944f4a95d3c8181454a7103ea0a3022189a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ca75a1a63b3e7e6b0805e79a63685bc49aaaca8f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API'lerine ve araçlarına genel bakış
 
-Azure Batch ile paralel iş yükleri genellikle [Batch API'lerinden](#batch-development-apis) biri kullanılarak programlı bir şekilde işlenir. İstemci uygulamanız veya hizmetiniz, Batch hizmetiyle iletişim kurmak için Batch API'lerini kullanabilir. Batch API'leriyle, işlem düğümü havuzları (sanal makineler veya bulut hizmetleri) oluşturabilir veya yönetebilirsiniz. Ardından bu düğümlerde çalıştırılacak işleri ve görevleri zamanlayabilirsiniz. 
+Azure Batch ile paralel iş yüklerini işlemek genellikle yapılır program aracılığıyla hello birini kullanarak [Batch API'lerini](#batch-development-apis). İstemci uygulamanız veya hizmetiniz hello Batch API'lerini toocommunicate hello Batch hizmeti ile kullanabilirsiniz. Merhaba Batch API'lerini oluşturabilir ve işlem düğümü havuzlarını Yönet sanal makineleri veya Bulut Hizmetleri. Ardından bu düğümlerde işler ve görevler toorun zamanlayabilirsiniz. 
 
-Kuruluşunuz için büyük ölçekli iş yüklerini verimli bir şekilde işleyebilir ya da müşterilerinizin tek, yüzlerce ve hatta binlerce düğümde istek üzerine veya planlı olarak işleri ve görevleri çalıştırabileceği şekilde onlara bir hizmet ön ucu sağlayabilirsiniz. [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json) gibi araçlarla yönetilen Azure Batch'i daha büyük bir iş akışının parçası olarak da kullanabilirsiniz.
+Verimli bir şekilde, kuruluşunuz için büyük ölçekli iş yüklerini işlemek veya bunlar işler ve görevler--istek üzerine veya planlı tek, yüzlerce veya hatta binlerce çalıştırabilmeniz için bir hizmet ön ucu tooyour müşteriler sağlayın. [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json) gibi araçlarla yönetilen Azure Batch'i daha büyük bir iş akışının parçası olarak da kullanabilirsiniz.
 
 > [!TIP]
-> Sağladığı özellikleri daha derinlemesine anlamak amacıyla Batch API'sinin ayrıntılarına gitmeye hazır olduğunuzda, [Geliştiriciler için Batch özelliklerine genel bakış](batch-api-basics.md) konusunu inceleyin.
+> Hazır olduğunuzda toohello toplu işlem API toodig hello daha kapsamlı bir anlayış özelliklerine sağlar, hello denetleyin [geliştiriciler için Batch özelliklerine genel bakış](batch-api-basics.md).
 > 
 > 
 
 ## <a name="azure-accounts-for-batch-development"></a>Batch geliştirme için Azure hesapları
-Batch çözümleri geliştirdiğinizde, Microsoft Azure'de aşağıdaki hesapları kullanacaksınız.
+Batch çözümleri geliştirdiğinizde, Microsoft Azure hesapları aşağıdaki hello kullanacaksınız.
 
 * **Azure hesabı ve aboneliği** -Henüz Azure aboneliğiniz yoksa [MSDN abone avantajlarınızı][msdn_benefits] etkinleştirebilir veya [ücretsiz Azure hesabı][free_account] için kaydolabilirsiniz. Hesap oluşturduğunuzda sizin için varsayılan bir abonelik oluşturulur.
-* **Batch hesabı** - Havuzlar, işlem düğümleri, işler ve görevler gibi bir Azure Batch hesabıyla ilişkilendirilmiş Azure Batch kaynakları. Uygulamanız, Batch hizmetinden bir istekte bulunduğunda istek Azure Batch hesabı adı, hesabın URL'si ve erişim anahtarı kullanılarak kimlik doğrulamasından geçirilir. Azure portalında [Batch hesabı oluşturabilirsiniz](batch-account-create-portal.md).
-* **Depolama hesabı** - Batch’te [Azure Depolama][azure_storage] dosyalarıyla çalışmak için yerleşik destek bulunur. Neredeyse tüm Batch senaryolarında, görevlerinizin çalıştırdığı programların ve işlediği verilerin hazırlanmasının yanı sıra oluşturduğu çıktı verilerinin depolanması için Azure Blob depolama kullanılır. Storage hesabı oluşturmak için bkz. [Azure depolama hesapları hakkında](../storage/common/storage-create-storage-account.md).
+* **Batch hesabı** - Havuzlar, işlem düğümleri, işler ve görevler gibi bir Azure Batch hesabıyla ilişkilendirilmiş Azure Batch kaynakları. Uygulamanızı hello Batch hizmeti karşı bir istekte bulunduğunda hello Azure toplu işlem hesabı adı, hello hesap hello URL'sini ve bir erişim anahtarı kullanarak hello isteğin kimliğini doğrular. Yapabilecekleriniz [Batch hesabı oluşturma](batch-account-create-portal.md) hello Azure Portalı'nda.
+* **Depolama hesabı** - Batch’te [Azure Depolama][azure_storage] dosyalarıyla çalışmak için yerleşik destek bulunur. Neredeyse her Batch senaryosu, görevlerinizin çalıştığı hello programları ve işledikleri hello verileri hazırlama ve oluşturdukları Çıktı verilerinin hello depolama için Azure Blob Depolama kullanır. toocreate bir depolama hesabı bkz [Azure storage hesapları hakkında](../storage/common/storage-create-storage-account.md).
 
 ## <a name="batch-service-apis"></a>Batch hizmeti API’leri
 
-Uygulamalarınız ve hizmetleriniz doğrudan REST API çağrıları kullanabilir veya Azure Batch iş yüklerinizi çalıştırmak ya da yönetmek için aşağıdaki istemci kitaplıklardan birini veya daha fazlasını kullanabilir.
+Uygulamaları ve Hizmetleri doğrudan REST API çağrıları yayımlayabilir veya bir veya daha fazla istemci kitaplıkları toorun aşağıdaki hello kullanın ve Azure Batch iş yükü yönetebilirsiniz.
 
 | API | API başvurusu | İndir | Öğretici | Kod örnekleri | Daha Fazla Bilgi |
 | --- | --- | --- | --- | --- | --- |
@@ -46,7 +46,7 @@ Uygulamalarınız ve hizmetleriniz doğrudan REST API çağrıları kullanabilir
 
 ## <a name="batch-management-apis"></a>Batch Yönetimi API’leri
 
-Batch için Azure Resource Manager API'leri, Batch hesaplarına programlı erişim sağlar. Bu API'leri kullanarak, Batch hesaplarını, kotalarını ve uygulama paketlerini programlı olarak yönetebilirsiniz.  
+Merhaba toplu işlemi için Azure Resource Manager API'leri tooBatch hesapları programlı erişim sağlar. Bu API'leri kullanarak, Batch hesaplarını, kotalarını ve uygulama paketlerini programlı olarak yönetebilirsiniz.  
 
 | API | API başvurusu | İndir | Öğretici | Kod örnekleri |
 | --- | --- | --- | --- | --- |
@@ -55,30 +55,30 @@ Batch için Azure Resource Manager API'leri, Batch hesaplarına programlı eriş
 
 ## <a name="batch-command-line-tools"></a>Batch komut satırı araçları
 
-Bu komut satırı araçları, Batch hizmeti ve Batch Yönetimi API'leri ile aynı işlevi sağlar: 
+Bu komut satırı araçları sağlayan Batch hizmeti ve toplu işlem yönetimi API'leri hello gibi aynı işlevselliği hello: 
 
-* [Batch PowerShell cmdlet'leri][batch_ps]: [Azure PowerShell](/powershell/azure/overview) modülündeki Azure Batch cmdlet'leri PowerShell ile Batch kaynaklarını yönetmenizi sağlar.
-* [Azure CLI](/cli/azure/overview): Azure Komut Satırı Arabirimi (Azure CLI), Batch hizmeti ve Batch Yönetimi hizmeti de dahil olmak üzere çok sayıda Azure hizmetiyle etkileşim için kabuk komutları sağlayan, platformlar arası bir araç takımıdır. Azure CLI’yı Batch ile birlikte kullanma hakkında daha fazla bilgi için bkz. [Azure CLI ile Batch kaynaklarını yönetme](batch-cli-get-started.md).
+* [Batch PowerShell cmdlet'leri][batch_ps]: hello Azure Batch cmdlet'leri hello [Azure PowerShell](/powershell/azure/overview) modülü PowerShell ile Batch kaynaklarını toomanage etkinleştirin.
+* [Azure CLI](/cli/azure/overview): hello Azure komut satırı arabirimi (Azure CLI) olan hello Batch hizmeti ve toplu yönetim hizmeti de dahil olmak üzere çok sayıda Azure hizmetiyle etkileşim için Kabuk komutları sağlayan platformlar arası bir araç takımı. Bkz: [Azure CLI ile yönetme Batch kaynaklarını](batch-cli-get-started.md) toplu işlemle hello Azure CLI kullanma hakkında daha fazla bilgi için.
 
 ## <a name="other-tools-for-application-development"></a>Uygulama geliştirme için diğer araçlar
 
 Batch uygulamalarınızı ve hizmetlerinizi oluşturmak ve bunlarda hata ayıklamak için yararlı olabilecek bazı ek araçlar şunlardır:
 
-* [Azure portalı][portal]: Azure portalının Batch dikey pencerelerinde, Batch havuzlarını, işlerini ve görevlerini oluşturabilir, izleyebilir ve silebilirsiniz. Bu ve diğer kaynakların durum bilgilerini, işlerinizi çalıştırırken görüntüleyebilir, hatta havuzlarınızdaki işlem düğümlerinden dosya indirebilirsiniz. Örneğin, sorun giderme sırasında başarısız bir görevin `stderr.txt` öğesini indirebilirsiniz. İşlem düğümlerinde oturum açmak için kullanabileceğiniz Uzak Masaüstü (RDP) dosyalarını da indirebilirsiniz.
-* [Azure Batch Gezgini][batch_explorer]: Batch Gezgini, Azure portalının sağladığına benzer bir Batch kaynak yönetimi işlevselliği sağlar, ancak bunu bağımsız bir Windows Presentation Foundation (WPF) istemci uygulamasında yapar. [GitHub][github_samples] üzerinde kullanılabilir Batch .NET örnek uygulamalarından biridir; Batch Gezgini'ni Visual Studio 2015 veya daha yeni sürümlerle derleyebilir, Batch çözümlerinizi geliştirdiğiniz ve bunların hatalarını ayıkladığınız sırada da Batch hesabınızdaki kaynaklara göz atıp yönetmek için kullanabilirsiniz. İşi, havuzu ve görev ayrıntılarını görüntüleyin, işlem düğümlerinden dosya indirin ve Batch Gezgini ile indirebileceğiniz Uzak Masaüstü (RDP) dosyalarını kullanarak düğümlere bağlanın.
-* [Microsoft Azure Depolama Gezgini][storage_explorer]: Azure Batch aracı kesinlikle olmadığında, Batch çözümlerinizi geliştirdiğiniz ve hatalarını ayıkladığınız sırada Depolama Gezgini sahip olunması gereken başka bir değerli araçtır.
+* [Azure portal][portal]: oluşturma, izlemek ve toplu havuzlar, işler ve görevler hello Azure'nın Sil portal'ın toplu Kanatlar. İşleriniz çalıştırın ve hatta dosyalarını hello işlem düğümleri, havuzlarınızı karşıdan yükleme sırasında bu ve diğer kaynakları hello durum bilgilerini görüntüleyebilirsiniz. Örneğin, sorun giderme sırasında başarısız bir görevin `stderr.txt` öğesini indirebilirsiniz. Ayrıca, Uzak Masaüstü (RDP) dosyalarını toocompute düğümler toolog kullanabileceğiniz indirebilirsiniz.
+* [Azure Batch Gezgini][batch_explorer]: Batch Gezgini Azure portal hello gibi ancak tek başına bir Windows Presentation Foundation (WPF) istemci uygulaması benzer Batch kaynak yönetimi işlevselliği sağlar. Merhaba Batch .NET örnek uygulamalarından birini [GitHub][github_samples], Visual Studio 2015 ile veya yapı ve toobrowse kullanın ve geliştirme sırasında hello kaynakları Batch hesabınızda yönetmek kullanabilirsiniz ve Batch çözümlerinizi hata ayıklama. Görünüm işi, havuzu ve görev ayrıntılarını işlem düğümleri dosyalarını indirmek ve toonodes Batch Gezgini ile indirebilirsiniz Uzak Masaüstü (RDP) dosyalarını kullanarak uzaktan bağlanma.
+* [Microsoft Azure Storage Gezgini][storage_explorer]: Batch çözümlerinizi geliştirdiğiniz ve kesinlikle olmadığında bir Azure Batch aracı hello Depolama Gezgini başka bir değerli bir araç toohave boştur.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-- Batch uygulamanızdaki olayları günlüğe kaydetme hakkında bilgi edinmek için bkz. [Batch çözümlerine tanılama değerlendirmesi yapmak ve Batch çözümlerini izlemek üzere olayları günlüğe kaydetme](batch-diagnostics.md). Batch hizmeti tarafından oluşturulan olaylarla ilgili bir başvuru için bkz. [Batch Analizi](batch-analytics.md).
+- toolearn toplu uygulamanızdan olayları günlüğe kaydetmeyi hakkında bkz [oturum tanılama değerlendirme ve toplu çözümlerini izleme olaylarını](batch-diagnostics.md). Merhaba Batch hizmeti tarafından başlatılan olayları üzerinde bir başvuru için bkz: [toplu analizi](batch-analytics.md).
 - İşlem düğümlerine yönelik ortam değişkenleri hakkında bilgi için bkz. [Azure Batch işlem düğümü ortam değişkenleri](batch-compute-node-environment-variables.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Batch kullanmaya hazırlanan herkes için gerekli bilgileri içeren [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md) konusunu okuyun. Bu makalede havuzlar, düğümler, işler ve görevler gibi Batch hizmet kaynakları ve Batch uygulamanızı oluştururken kullanabileceğiniz birçok API özelliği hakkında daha ayrıntılı bilgi verilmektedir.
-* Genel bir Batch iş akışını kullanarak basit bir iş yükü yürütmek üzere C# ve Batch .NET kitaplığını kullanma hakkında bilgi için bkz. [.NET için Azure Batch kitaplığını kullanmaya başlama](batch-dotnet-get-started.md). Bu makale, Batch hizmetini kullanmayı öğrenirken ilk başvuracağınız kaynaklardan biri olmalıdır. Öğreticinin bir [Python sürümü](batch-python-tutorial.md) de mevcuttur.
-* Hem C# hem de Python'un örnek iş yüklerini zamanlamak ve işlemek üzere Batch ile arabirim oluşturmasını görmek için [GitHub'daki kod örneklerini][github_samples] indirin.
-* Batch'le çalışmayı öğrenirken size uygun kaynaklar hakkında bir fikir edinmek için [Batch Öğrenme Yolu][learning_path] konusunu inceleyin.
+* Okuma hello [geliştiriciler için Batch özelliklerine genel bakış](batch-api-basics.md), önemli bilgiler herkesin toouse toplu hazırlanıyor. Merhaba makale Batch uygulamanızı oluştururken kullanabileceğiniz birçok API özellikleri Batch hizmeti kaynak havuzları, düğümleri, işler ve görevler ve hello gibi hakkında daha ayrıntılı bilgi içerir.
+* [.NET için Hello Azure Batch kitaplığını kullanmaya başlama](batch-dotnet-get-started.md) toolearn nasıl toouse C# ve Batch .NET kitaplığı tooexecute ortak bir toplu iş akışı kullanarak basit bir iş yükü hello. Bu makalede nasıl toouse hello Batch hizmeti öğrenme sırasında ilk duraklarınızdan biri olmalıdır. Ayrıca bir [Python sürümü](batch-python-tutorial.md) hello Öğreticisi.
+* Merhaba karşıdan [github'daki kod örnekleri] [ github_samples] nasıl hem C# ve Python arabirim toplu tooschedule ve işlem örnek iş yükleri ile toosee.
+* Merhaba denetleyin [Batch öğrenme yolu] [ learning_path] tooget hello kaynakları kullanılabilir tooyou yazarken hakkında bir fikir toowork toplu ile bilgi edinin.
 
 
 [azure_storage]: https://azure.microsoft.com/services/storage/

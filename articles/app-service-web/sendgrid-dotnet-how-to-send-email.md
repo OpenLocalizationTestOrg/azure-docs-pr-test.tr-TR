@@ -1,6 +1,6 @@
 ---
-title: SendGrid e-posta hizmetine (.NET) kullanma | Microsoft Docs
-description: "Bilgi nasıl Azure üzerinde SendGrid e-posta hizmeti ile e-posta gönderin. C# dilinde yazılan kod örnekleri ve .NET API kullanır."
+title: aaaHow toouse hello SendGrid e-posta hizmetine (.NET) | Microsoft Docs
+description: "Bilgi nasıl Azure'da hello SendGrid e-posta hizmeti ile e-posta gönderin. C# ve kullanım hello .NET API yazılan kod örnekleri."
 services: app-service-web
 documentationcenter: .net
 author: thinkingserious
@@ -14,20 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
-ms.openlocfilehash: b3a48b3c838763b022a18e55817ec7455fe94c85
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: b3d77bb67898b991c7293e6b9086b263f6bcb755
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-send-email-using-sendgrid-with-azure"></a>Azure ile SendGrid kullanarak e-posta gönderme
+# <a name="how-toosend-email-using-sendgrid-with-azure"></a>Nasıl tooSend e-posta kullanarak SendGrid Azure ile
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz, Azure üzerinde SendGrid e-posta hizmeti ile genel programlama görevleri gerçekleştirmek gösterilmiştir. Örnekler C yazılır\# ve .NET standart 1.3 destekler. Kapsamdaki senaryolar, e-posta oluşturma, e-posta gönderen, ekleri ekleme ve çeşitli posta etkinleştirme ve izleme ayarları içerir. SendGrid ve e-posta gönderme hakkında daha fazla bilgi için bkz: [sonraki adımlar] [ Next steps] bölümü.
+Bu kılavuz, nasıl Azure hizmetine genel programlama görevleri SendGrid tooperform e-posta gösterir. Merhaba örnekleri C'de yazılmış\# ve .NET standart 1.3 destekler. Kapsanan hello senaryolar, e-posta oluşturma, e-posta gönderen, ekleri ekleme ve çeşitli posta etkinleştirme ve izleme ayarları içerir. SendGrid ve e-posta gönderme hakkında daha fazla bilgi için bkz: Merhaba [sonraki adımlar] [ Next steps] bölümü.
 
-## <a name="what-is-the-sendgrid-email-service"></a>SendGrid e-posta hizmeti nedir?
+## <a name="what-is-hello-sendgrid-email-service"></a>Merhaba SendGrid e-posta hizmeti nedir?
 SendGrid olan bir [bulut tabanlı e-posta hizmeti] güvenilir sağlayan [işleme uygun e-posta teslimi], ölçeklenebilirlik ve gerçek zamanlı analiz özel tümleştirme kolaylaştırmak esnek API'leri yanı sıra. Ortak SendGrid kullanım örnekleri şunlardır:
 
-* Otomatik olarak giriş veya satın alma onayı müşterilere gönderme.
+* Otomatik olarak giriş veya satın alma onayı toocustomers gönderme.
 * Dağıtım yönetme aylık ilanları ve promosyonlar müşteriler göndermek için listeler.
 * Engellenen e-posta ve müşteri katılım gibi için gerçek zamanlı ölçümleri toplama.
 * İletme müşteri sorgular.
@@ -38,15 +38,15 @@ Daha fazla bilgi için ziyaret [https://sendgrid.com](https://sendgrid.com) veya
 ## <a name="create-a-sendgrid-account"></a>SendGrid hesabı oluşturma
 [!INCLUDE [sendgrid-sign-up](../../includes/sendgrid-sign-up.md)]
 
-## <a name="reference-the-sendgrid-net-class-library"></a>SendGrid .NET sınıf kitaplığı başvurusu
-[SendGrid NuGet paketi](https://www.nuget.org/packages/Sendgrid) SendGrid API'sini almanın ve uygulamanızı tüm bağımlılıkları ile yapılandırmak için çok kolay yoludur. NuGet Microsoft Visual Studio 2015 ile birlikte bulunan bir Visual Studio uzantısı gerekir ve bu düzeyin yüklemek ve kitaplıklar ve Araçlar güncelleştirmek kolaylaştırır.
+## <a name="reference-hello-sendgrid-net-class-library"></a>Merhaba SendGrid .NET sınıf kitaplığı başvurusu
+Merhaba [SendGrid NuGet paketi](https://www.nuget.org/packages/Sendgrid) hello en kolay yolu tooget hello SendGrid API tooconfigure tüm bağımlılıkları uygulamanızla ise. NuGet ve üstü, Microsoft Visual Studio 2015 ile dahil uzantısı kolay tooinstall ve güncelleştirme kitaplıklar ve Araçlar kolaylaştırır bir Visual Studio ' dir.
 
 > [!NOTE]
-> Visual Studio Visual Studio 2015'ten önceki bir sürümünü çalıştırıyorsanız, NuGet yüklemek için ziyaret edin [http://www.nuget.org](http://www.nuget.org), tıklatıp **Nuget'i Yükle** düğmesi.
+> tooinstall NuGet Visual Studio Visual Studio 2015'ten önceki bir sürümünü çalıştırıyorsanız, ziyaret [http://www.nuget.org](http://www.nuget.org), hello tıklatıp **Nuget'i Yükle** düğmesi.
 >
 >
 
-Uygulamanızda SendGrid NuGet paketini yüklemek için aşağıdakileri yapın:
+tooinstall hello SendGrid NuGet paketi, uygulamanızda hello aşağıdaki:
 
 1. Tıklayın **yeni proje** seçip bir **şablon**.
 
@@ -54,26 +54,26 @@ Uygulamanızda SendGrid NuGet paketini yüklemek için aşağıdakileri yapın:
 2. İçinde **Çözüm Gezgini**, sağ **başvuruları**, ardından **NuGet paketlerini Yönet**.
 
    ![SendGrid NuGet paketi][SendGrid-NuGet-package]
-3. Arama **SendGrid** seçip **SendGrid** sonuçlar listesinde öğesi.
-4. Nesne modeli ile çalışmak için sürüm açılır Nuget paketi en son kararlı sürümü seçin ve bu makalede API'leri gösterilmektedir.
+3. Arama **SendGrid** ve select hello **SendGrid** sonuçlar listesinde öğesi.
+4. Merhaba sürümü açılır toobe mümkün toowork hello nesne modeli ve bu makalede gösterilen API'leri ile Merhaba en son kararlı sürümü hello Nuget paketi seçin.
 
    ![SendGrid paketi][sendgrid-package]
-5. Tıklatın **yükleme** yüklemeyi tamamlamak ve sonra bu iletişim kutusunu kapatın.
+5. Tıklatın **yükleme** toocomplete hello yükleme ve bu iletişim kutusunu kapatın.
 
-SendGrid'ın .NET sınıf kitaplığı çağrılır **SendGrid**. Şu ad alanlarından içerir:
+SendGrid'ın .NET sınıf kitaplığı çağrılır **SendGrid**. Ad alanları aşağıdaki hello içerir:
 
 * **SendGrid** SendGrid'ın API'si ile iletişim kurmak için.
-* **SendGrid.Helpers.Mail** kolayca e-postalar gönderme belirtin SendGridMessage nesneleri oluşturmak yardımcı yöntemler için.
+* **SendGrid.Helpers.Mail** için yardımcı yöntemleri tooeasily nasıl toosend e-postalar belirtin SendGridMessage nesne oluşturun.
 
-Aşağıdaki kod ad alanı bildirimleri SendGrid e-posta hizmeti programlı olarak erişmek istediğiniz tüm C# dosyasının üstüne ekleyin.
+Aşağıdaki kodu ad alanı bildirimleri toohello üst tooprogrammatically erişim hello SendGrid e-posta hizmeti istediğiniz tüm C# dosyanın hello ekleyin.
 
     using SendGrid;
     using SendGrid.Helpers.Mail;
 
 ## <a name="how-to-create-an-email"></a>Nasıl yapılır: bir e-posta oluşturma
-Kullanım **SendGridMessage** bir e-posta iletisi oluşturmak için nesne. İleti nesnesi oluşturulduktan sonra özellikleri ve yöntemleri, e-posta gönderen, e-posta alıcısının ve konu ve gövde e-posta dahil olmak üzere ayarlayabilirsiniz.
+Kullanım hello **SendGridMessage** toocreate bir e-posta iletisi nesne. Merhaba ileti nesnesi oluşturulduktan sonra özellikleri ve yöntemleri hello e-posta gönderen, hello e-posta alıcısının ve hello konu ve hello e-posta gövdesi dahil olmak üzere, ayarlayabilirsiniz.
 
-Aşağıdaki örnek, bir tam olarak doldurulan bir e-posta nesnesinin nasıl oluşturulacağını gösterir:
+Merhaba aşağıdaki örnekte gösterilmiştir nasıl toocreate tam olarak doldurulan bir e-posta nesnesi:
 
     var msg = new SendGridMessage();
 
@@ -87,7 +87,7 @@ Aşağıdaki örnek, bir tam olarak doldurulan bir e-posta nesnesinin nasıl olu
     };
     msg.AddTos(recipients);
 
-    msg.SetSubject("Testing the SendGrid C# Library");
+    msg.SetSubject("Testing hello SendGrid C# Library");
 
     msg.AddContent(MimeType.Text, "Hello World plain text!");
     msg.AddContent(MimeType.Html, "<p>Hello World!</p>");
@@ -97,9 +97,9 @@ Tüm özellikleri ve yöntemleri tarafından desteklenen hakkında daha fazla bi
 ## <a name="how-to-send-an-email"></a>Nasıl yapılır: bir e-posta Gönder
 Bir e-posta iletisi oluşturduktan sonra SendGrid'ın API kullanarak gönderebilirsiniz. Alternatif olarak, kullanabilir [. NET'in yerleşik Kitaplığı'nda][NET-library].
 
-E-posta gönderilmesi SendGrid API anahtarınızı sağlamanız gerekir. API anahtarları yapılandırma hakkında ayrıntılar gerekiyorsa, lütfen SendGrid'ın API anahtarları adresini ziyaret edin [belgelerine][documentation].
+E-posta gönderilmesi SendGrid API anahtarınızı sağlamanız gerekir. Hakkında ayrıntılı bilgi gerekirse tooconfigure API anahtarları, lütfen şu adresi ziyaret SendGrid'ın API anahtarları [belgelerine][documentation].
 
-Uygulama Ayarları'nı ve uygulama ayarları altından anahtar/değer çiftleri ekleyerek, Azure Portal bu kimlik bilgileri depolayabilir.
+Bu kimlik bilgileri, Azure Portal tıklatarak uygulama ayarları ve uygulama ayarları altından ekleme hello anahtar/değer çiftleri tarafından aracılığıyla depolayabilir.
 
  ![Azure uygulama ayarları][azure_app_settings]
 
@@ -108,7 +108,7 @@ Uygulama Ayarları'nı ve uygulama ayarları altından anahtar/değer çiftleri 
     var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
     var client = new SendGridClient(apiKey);
 
-Aşağıdaki örnekler, Web API kullanarak ileti göndermek nasıl gösterir.
+Örnek hello nasıl bir iletiyi kullanarak toosend hello Web API gösterir.
 
     using System;
     using System.Threading.Tasks;
@@ -131,7 +131,7 @@ Aşağıdaki örnekler, Web API kullanarak ileti göndermek nasıl gösterir.
                 var msg = new SendGridMessage()
                 {
                     From = new EmailAddress("test@example.com", "DX Team"),
-                    Subject = "Hello World from the SendGrid CSharp SDK!",
+                    Subject = "Hello World from hello SendGrid CSharp SDK!",
                     PlainTextContent = "Hello, Email!",
                     HtmlContent = "<strong>Hello, Email!</strong>"
                 };
@@ -142,7 +142,7 @@ Aşağıdaki örnekler, Web API kullanarak ileti göndermek nasıl gösterir.
     }
 
 ## <a name="how-to-add-an-attachment"></a>Nasıl yapılır: bir eki ekleyin
-Ekleri eklenebilir bir iletiye çağırarak **AddAttachment** yöntemi ve dosya adını ve Base64 ile kodlanmış içeriği en düşük düzeyde belirten eklemek istediğiniz. Eklemek istediğiniz her dosya için bir kez bu yöntemi çağırmadan veya kullanarak birden çok eki içerebilir **AddAttachments** yöntemi. Aşağıdaki örnek, bir iletinin eki ekleme gösterir:
+Ekleri eklenebilir tooa ileti ile arama hello **AddAttachment** yöntemi ve en düşük düzeyde hello dosya adı ve Base64 ile kodlanmış içeriği belirten tooattach istiyor. Her dosya için istediğiniz tooattach sonra bu yöntemi çağırmadan veya hello kullanarak birden çok eki içerebilir **AddAttachments** yöntemi. Aşağıdaki örneğine hello ek tooa iletisine ekleme gösterir:
 
     var banner2 = new Attachment()
     {
@@ -154,12 +154,12 @@ Ekleri eklenebilir bir iletiye çağırarak **AddAttachment** yöntemi ve dosya 
     };
     msg.AddAttachment(banner2);
 
-## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Nasıl yapılır: altbilgi, izleme ve analiz etkinleştirmek için posta ayarları kullanın
-SendGrid posta ve izleme ayarlarını kullanarak ek e-posta işlevselliği sağlar. Bu ayarlar, izleme'ye tıklayın, Google analytics, izleme abonelik vb. gibi belirli işlevleri etkinleştirmek için bir e-posta iletisine eklenebilir. Uygulamaların tam listesi için bkz: [ayarları belgelerine][settings-documentation].
+## <a name="how-to-use-mail-settings-tooenable-footers-tracking-and-analytics"></a>Nasıl yapılır: posta ayarları tooenable altbilgiler, izleme ve analiz kullanma
+SendGrid posta ve izleme ayarlarını hello kullanımı aracılığıyla ek e-posta işlevselliği sağlar. Bu ayarları tooan e-posta iletisi tooenable belirli işlevleri İzleme'ye tıklayın, Google analytics, izleme abonelik vb. gibi eklenebilir. Merhaba uygulamaların tam listesi için bkz: [ayarları belgelerine][settings-documentation].
 
-Uygulamalar uygulanabilir **SendGrid** e-posta iletileri bir parçası olarak uygulanan yöntemleri kullanarak **SendGridMessage** sınıfı. Aşağıdaki örnekler altbilgi göstermek ve filtreleri İzleme'yi tıklatın:
+Uygulamalar çok uygulanabilir**SendGrid** e-posta iletileri hello bir parçası olarak uygulanan yöntemleri kullanarak **SendGridMessage** sınıfı. Merhaba aşağıdaki örneklerde hello altbilgi göstermek ve filtreleri İzleme'yi tıklatın:
 
-Aşağıdaki örnekler altbilgi göstermek ve filtreleri İzleme'yi tıklatın:
+Merhaba aşağıdaki örneklerde hello altbilgi göstermek ve filtreleri İzleme'yi tıklatın:
 
 ### <a name="footer-settings"></a>Altbilgi ayarları
     msg.SetFooterSetting(
@@ -171,22 +171,22 @@ Aşağıdaki örnekler altbilgi göstermek ve filtreleri İzleme'yi tıklatın:
     msg.SetClickTracking(true);
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>Nasıl yapılır: ek SendGrid Hizmetleri kullanın
-SendGrid çeşitli API'ler ve Azure uygulamanız içinde ek işlevsellik yararlanmak için kullanabileceğiniz Web kancalarını sunar. Daha fazla ayrıntı için bkz: [SendGrid API Başvurusu][SendGrid API documentation].
+SendGrid çeşitli API'ler ve Azure uygulamanızdaki tooleverage ek işlevsellik kullanabileceğiniz Web kancalarını sunar. Daha fazla ayrıntı için bkz: Merhaba [SendGrid API Başvurusu][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SendGrid e-posta hizmeti temel bilgileri öğrendiğinize göre daha fazla bilgi için aşağıdaki bağlantıları izleyin.
+Merhaba SendGrid e-posta hizmeti hello temellerini öğrendiğinize göre daha fazla bu bağlantılar toolearn izleyin.
 
 * SendGrid C\# kitaplığı deposu: [sendgrid csharp][sendgrid-csharp]
 * SendGrid API belgelerine: <https://sendgrid.com/docs>
 
 [Next steps]: #next-steps
-[What is the SendGrid Email Service?]: #whatis
+[What is hello SendGrid Email Service?]: #whatis
 [Create a SendGrid Account]: #createaccount
-[Reference the SendGrid .NET Class Library]: #reference
+[Reference hello SendGrid .NET Class Library]: #reference
 [How to: Create an Email]: #createemail
 [How to: Send an Email]: #sendemail
 [How to: Add an Attachment]: #addattachment
-[How to: Use Filters to Enable Footers, Tracking, and Analytics]: #usefilters
+[How to: Use Filters tooEnable Footers, Tracking, and Analytics]: #usefilters
 [How to: Use Additional SendGrid Services]: #useservices
 
 [create-new-project]: ./media/sendgrid-dotnet-how-to-send-email/new-project.png

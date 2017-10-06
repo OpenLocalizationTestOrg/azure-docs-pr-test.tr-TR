@@ -1,6 +1,6 @@
 ---
-title: "Etkinleştirmek veya bir rolü devre dışı bırakma | Microsoft Docs"
-description: "Azure Privileged Identity Management uygulaması ile ayrıcalıklı kimlikleri için rol etkinleştirme konusunda bilgi edinin."
+title: "aaaHow tooactivate veya bir rolü devre dışı bırakma | Microsoft Docs"
+description: "Nasıl tooactivate rolleri için kimlikleri Merhaba Azure Privileged Identity Management uygulaması ile ayrıcalıklı öğrenin."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,60 +15,60 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: a143fd78eae52fda0cbadb7e74fd8209f24629a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8c68ad69e4b006263bbb8a1cfc7ed3dba974e1db
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Etkinleştirmek veya Azure AD Privileged Identity Management rollerinde devre dışı bırakma
-Azure Active Directory (AD) Privileged Identity Management, kuruluşların kaynaklarına Azure AD'de ve Office 365 veya Microsoft Intune gibi diğer Microsoft online services ayrıcalıklı erişimi nasıl yönetmek basitleştirir.  
+# <a name="how-tooactivate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Nasıl tooactivate veya Azure AD Privileged Identity Management rollerinde devre dışı bırakma
+Azure Active Directory (AD) Privileged Identity Management, ayrıcalıklı erişim tooresources Azure AD'de ve Office 365 veya Microsoft Intune gibi diğer Microsoft online services kuruluşların nasıl yönettiğini basitleştirir.  
 
-Bir yönetici rolü için uygun yapılmışsa, ayrıcalıklı eylemler gerçekleştirmek gerektiğinde bu rol etkinleştirebilirsiniz anlamına gelir. Office 365 özellikleri bazen yönetiyorsanız, bu rolü diğer hizmetler çok etkiler Örneğin, kuruluşunuzun ayrıcalıklı rol Yöneticiler kalıcı genel yönetici kararı değil. Bunun yerine, bunlar, Exchange Online yönetici gibi Azure AD rolleri için uygun yapın. Bu rol, ayrıcalıklarına sahip olmanız gerekir ve ardından önceden belirlenmiş bir süre için yönetici denetim gerekir etkinleştirmek isteyebilirsiniz.
+Bir yönetici rolü için uygun yapılmışsa, ayrıcalıklı tooperform Eylemler gerektiğinde bu rol etkinleştirebilirsiniz anlamına gelir. Office 365 özellikleri bazen yönetiyorsanız, bu rolü diğer hizmetler çok etkiler Örneğin, kuruluşunuzun ayrıcalıklı rol Yöneticiler kalıcı genel yönetici kararı değil. Bunun yerine, bunlar, Exchange Online yönetici gibi Azure AD rolleri için uygun yapın. Bu rol, kendi ayrıcalıklarına sahip olmanız gerekir ve ardından önceden belirlenmiş bir süre için yönetici denetim gerekir tooactivate isteyebilir.
 
-Bu makalede, Azure AD Privileged Identity Management (PIM) içindeki rollerine etkinleştirmek için gereken yöneticileri içindir. Bu izinlere sahip olmanız gerekir ve tamamladığınızda rolünü devre dışı bir rolü etkinleştirmek için adımlarda size yol gösterir. Ayrıca, ayrıcalıklı rol yöneticileri rolü (Önizleme) etkinleştirmek için onay gerektirebilir. Daha fazla bilgi edinmek [PIM onay iş akışları](./privileged-identity-management/azure-ad-pim-approval-workflow.md) burada.
+Bu makalede tooactivate isteyen yöneticiler için Azure AD Privileged Identity Management (PIM) içinde kendi rolüdür. Merhaba izinlerinizin olması gerekir ve tamamladığınızda hello rolünü devre dışı olduğunda, hello adımları tooactivate bir rolü açıklanmaktadır. Ayrıca, ayrıcalıklı rol Yöneticiler onay tooactivate bir rol (Önizleme) gerektirebilir. Daha fazla bilgi edinmek [PIM onay iş akışları](./privileged-identity-management/azure-ad-pim-approval-workflow.md) burada.
 
-## <a name="add-the-privileged-identity-management-application"></a>Privileged Identity Management uygulamasını ekleme
-Azure AD Privileged Identity Management uygulamada kullanmak [Azure portal](https://portal.azure.com/) başka bir portal veya PowerShell çalışmasına olmaya olsa bile bir rol etkinleştirme istemek için. Azure Portal'da Azure AD Privileged Identity Management uygulaması yoksa, başlamak için aşağıdaki adımları izleyin.
+## <a name="add-hello-privileged-identity-management-application"></a>Merhaba Privileged Identity Management uygulaması ekleyin
+Merhaba Azure AD Privileged Identity Management uygulaması hello kullan [Azure portal](https://portal.azure.com/) toorequest toooperate başka bir portal veya PowerShell kullanacaksanız bile, rol etkinleştirme. Azure Portal'da hello Azure AD Privileged Identity Management uygulaması yoksa, bu adımları tooget başlatılan izleyin.
 
-1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Azure portalı ve burada şunları yapacaksınız, dizin seçin, sağ köşedeki kullanıcı adınıza işletim seçin.
-3. **Daha fazla hizmet** seçeneğini belirleyin ve **Azure AD Privileged Identity Management** araması yapmak için Filtre metin kutusunu kullanın.
-4. **Panoya sabitle**'yi işaretleyin ve ardından **Oluştur**’a tıklayın. Privileged Identity Management uygulaması açılır.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Kullanıcı adınıza hello sağ üst köşesinde hello Azure portal ve burada şunları yapacaksınız, select hello dizin işletim seçin.
+3. Seçin **daha fazla hizmet** ve hello filtre textbox toosearch **Azure AD Privileged Identity Management**.
+4. Denetleme **PIN toodashboard** ve ardından **oluşturma**. Merhaba Privileged Identity Management uygulaması açılır.
 
 ## <a name="activate-a-role"></a>Bir rolü etkinleştirmesi
-Bir rolü üstlenmesine gerektiğinde seçerek etkinleştirme isteyebilir **My rolleri** Azure AD Privileged Identity Management uygulaması Gezinti seçeneğinde sol gezinti sütun.
+Bir rol üzerinde tootake gerektiğinde Merhaba seçerek etkinleştirme isteyebilir **My rolleri** hello Azure AD Privileged Identity Management uygulaması Gezinti seçeneğinde sol gezinti sütun.
 
-1. Oturum [Azure portal](https://portal.azure.com/) ve Azure AD Privileged Identity Management kutucuk seçin.
-2. Seçin **My rolleri**. Sayfanın üst kısmındaki gruplandırmasında atanmış uygun rollerinizi listesi görüntülenir.
-3. Etkinleştirmek için bir rol seçin.
-4. Seçin **etkinleştirme**. **Rol etkinleştirme isteği** dikey penceresi görünür.
-5. Bazı roller, rol etkinleştirilebilmesi için çok faktörlü kimlik doğrulama (MFA) gerektirir. Yalnızca bir kez oturum başına kimlik doğrulaması gerekir.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/) ve select hello Azure AD Privileged Identity Management kutucuk.
+2. Seçin **My rolleri**. Merhaba hello sayfanın başında gruplandırma hello atanmış uygun rollerinizi listesi görüntülenir.
+3. Bir rol tooactivate seçin.
+4. Seçin **etkinleştirme**. Merhaba **rol etkinleştirme isteği** dikey penceresi görünür.
+5. Merhaba rolünü etkinleştirmeden önce bazı roller çok faktörlü kimlik doğrulama (MFA) gerektirir. Her oturum için bir kez tooauthenticate yeterlidir.
    
     ![MFA ile rol etkinleştirme - ekran görüntüsü önce doğrulayın][2]
-6. Etkinleştirme isteğinin nedenini metin alanına girin.  Bazı roller, sorun bileti numarası girmesini gerektirir.
-7. **Tamam**’ı seçin.  Rol onay gerektirmiyorsa, şimdi etkinleştirilir ve rol (doğrudan listesinin altındaki uygun rol atamalarını) etkin rollerinin listesi görüntülenir. Varsa [rolünü onay gerektiren](./privileged-identity-management/azure-ad-pim-approval-workflow.md) etkinleştirmek için bildirim kısaca isteğidir onay bekleyen bildiren tarayıcınızın sağ üst köşesinde görüntülenir.
+6. Merhaba etkinleştirme isteği Hello nedeni hello metin alanına girin.  Bazı roller toosupply sorun bileti numarası gerektirir.
+7. **Tamam**’ı seçin.  Merhaba rol onay gerektirmiyorsa, şimdi etkinleştirilir ve hello rol (doğrudan aşağıda uygun rol atamalarını listesi hello) etkin rollerin hello listesinde görünür. Merhaba, [rolünü onay gerektiren](./privileged-identity-management/azure-ad-pim-approval-workflow.md) tooactivate, bildirim kısaca görünür hello sağ üst köşesinde hello isteğidir onay bekleyen bildiren tarayıcınız.
 
     ![Bildirim - ekran görüntüsü istek][3]
 
 ## <a name="deactivate-a-role"></a>Bir rolü devre dışı bırakma
 Bir rolü etkinleştirildikten sonra süresi sınırına (uygun süresi) ulaşıldığında otomatik olarak devre dışı bırakır.
 
-Yönetim görevlerinizi erken tamamlarsanız, bir rolde el ile Azure AD Privileged Identity Management uygulaması devre dışı bırakabilirsiniz.  Seçin **My rolleri**, tamamladıktan rolünü seçin gelen kullanarak **etkin rol atamalarını** gruplandırma ve select **devre dışı bırak**.  
+Yönetim görevlerinizi erken tamamlarsanız, bir rolde el ile hello Azure AD Privileged Identity Management uygulaması devre dışı bırakabilirsiniz.  Seçin **My rolleri**, tamamladıktan hello rolünü seçin hello kullanarak **etkin rol atamalarını** gruplandırma ve select **devre dışı bırak**.  
 
 ## <a name="cancel-a-pending-request"></a>Bekleyen isteği iptal et
-Onay gerektiren bir rolü etkinleştirmesi gerektirmeyen durumunda herhangi bir zamanda bekleyen isteği iptal edebilirsiniz. Yalnızca select **My rolleri** Azure AD Privileged Identity Management uygulaması Gezinti seçeneğinde sol gezinti sütun.
+Merhaba olay onayı gerektiren bir rolü etkinleştirmesi gerektirmez, herhangi bir zamanda bekleyen isteği iptal edebilirsiniz. Yalnızca select hello **My rolleri** hello Azure AD Privileged Identity Management uygulaması Gezinti seçeneğinde sol gezinti sütun.
 
-1. Oturum [Azure portal](https://portal.azure.com/) ve Azure AD Privileged Identity Management kutucuk seçin.
-2. Seçin **My rolleri**. Sayfanın üst kısmındaki gruplandırmasında atanmış uygun rollerinizi listesi görüntülenir.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/) ve select hello Azure AD Privileged Identity Management kutucuk.
+2. Seçin **My rolleri**. Merhaba hello sayfanın başında gruplandırma hello atanmış uygun rollerinizi listesi görüntülenir.
 3. Bir rol seçin.
-4. Seçin **etkinleştirme durumda onay bekleyen** rol etkinleştirme ayrıntıları dikey penceresinde başlık.
-5. Seçin **iptal** en üstündeki **onay bekleyen** dikey.
+4. Select hello **etkinleştirme durumda onay bekleyen** hello rol etkinleştirme ayrıntıları dikey penceresinde başlık.
+5. Seçin **iptal** hello hello üstündeki **onay bekleyen** dikey.
 
    ![Bekleyen isteği ekran iptal et][4]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure AD Privileged Identity Management hakkında daha fazla bilgi edinmek isterseniz, aşağıdaki bağlantılardan daha fazla bilgi sahip.
+Azure AD Privileged Identity Management hakkında daha fazla bilgi edinmek isterseniz hello aşağıdaki bağlantılardan daha fazla bilgi sahip.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

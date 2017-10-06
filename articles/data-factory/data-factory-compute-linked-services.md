@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Factory ile desteklenen ortamlar işlem | Microsoft Docs"
-description: "Dönüştürme veya işlem verileri (örneğin, Azure Hdınsight) Azure Data Factory işlem hatlarını kullanabileceğiniz bilgi işlem ortamları hakkında bilgi edinin."
+title: "Azure Data Factory ile desteklenen aaaCompute ortamları | Microsoft Docs"
+description: "Azure Data Factory işlem hatlarını (örneğin, Azure Hdınsight) tootransform veya işlem verilerde kullanabilirsiniz bilgi işlem ortamları hakkında bilgi edinin."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: shlo
-ms.openlocfilehash: da7110614e684656da3ef9830780606e1576684d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: aba7d7de695bc1c7d475f1e741ee3b3e884151c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory ile desteklenen ortamlar işlem
-Bu makalede, işlem veya dönüştürme veri için kullanabileceğiniz farklı bilgi işlem ortamları açıklanmaktadır. (İsteğe bağlı karşılaştırması Getir kendi) farklı yapılandırmaları hakkındaki ayrıntıları bu bağlama bağlı hizmetler yapılandırırken Data Factory ile desteklenen ortamlar için bir Azure data factory işlem sağlar.
+Bu makalede tooprocess kullanın veya veri dönüştürme farklı işlem ortamları açıklanmaktadır. Ayrıca, farklı yapılandırmaları (isteğe bağlı karşılaştırması Getir kendi) Bu işlem ortamları tooan Azure veri fabrikası bağlama bağlı hizmetler yapılandırırken Data Factory ile desteklenen ayrıntılarını sağlar.
 
-Aşağıdaki tabloda, bilgi işlem ortamları Data Factory ve bunlar üzerinde çalışan etkinlikleri tarafından desteklenen bir listesini sağlar. 
+Merhaba aşağıdaki tabloda bilgi işlem ortamları üzerlerinde çalıştırabilirsiniz Data Factory ve hello etkinlikler tarafından desteklenen bir listesini sağlar. 
 
 | İşlem ortamı | Etkinlikler |
 | --- | --- |
@@ -33,56 +33,56 @@ Aşağıdaki tabloda, bilgi işlem ortamları Data Factory ve bunlar üzerinde �
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL veri ambarı](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[Saklı Yordam](data-factory-stored-proc-activity.md) |
 
 ## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>Azure veri fabrikası'nda desteklenen Hdınsight sürümleri
-Azure Hdınsight herhangi bir zamanda dağıtılabilir birden çok Hadoop küme sürümlerindeki destekler. Her sürüm seçimi Hortonworks veri Platformu (HDP) dağıtım belirli bir sürümü ve o dağıtım içinde bulunan bileşenleri kümesi oluşturur. Microsoft hdınsight son Hadoop ekosistemi bileşenlerini ve düzeltmeleri sağlamak için Desteklenen sürümlerin listesi için güncelleştirme tutar. Hdınsight 3.2 1 Nisan 2017 kullanım dışıdır. Ayrıntılı bilgi için bkz: [desteklenen Hdınsight sürümleri](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
+Azure Hdınsight herhangi bir zamanda dağıtılabilir birden çok Hadoop küme sürümlerindeki destekler. Her sürüm seçimi hello Hortonworks veri Platformu (HDP) dağıtım belirli bir sürümü ve o dağıtım içinde bulunan bileşenleri kümesi oluşturur. Microsoft Hdınsight tooprovide son Hadoop ekosistemi bileşenlerini ve düzeltmeleri Desteklenen sürümlerin listesi hello güncelleştiriliyor tutar. Merhaba Hdınsight 3.2 1 Nisan 2017 kullanım dışıdır. Ayrıntılı bilgi için bkz: [desteklenen Hdınsight sürümleri](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-Bu etkinlikler karşı Hdınsight 3.2 kümeleri çalıştıran var olan Azure Data Factory etkiler. Etkilenen veri fabrikaları güncelleştirmek için şu bölümdeki yönergeleri uygulayın kullanıcılara öneririz:
+Bu etkinlikler karşı Hdınsight 3.2 kümeleri çalıştıran var olan Azure Data Factory etkiler. Etkilenen veri fabrikaları bölüm tooupdate aşağıdaki hello kullanıcılar toofollow hello yönergeleri hello öneririz:
 
-### <a name="for-linked-services-pointing-to-your-own-hdinsight-clusters"></a>Bağlı kendi Hdınsight işaret eden hizmetler için kümeleri
-* **Hdınsight bağlı kendi Hdınsight 3.2 veya kümeleri altında işaret eden hizmetler:**
+### <a name="for-linked-services-pointing-tooyour-own-hdinsight-clusters"></a>Bağlı hizmetler için tooyour kendi Hdınsight kümeleri işaret eden
+* **Hdınsight bağlı tooyour işaret eden hizmetler Hdınsight 3.2 veya kümeleri aşağıda sahibi:**
 
-  Azure Data Factory destekler HDI 3.1 gelen kendi Hdınsight kümelerine işlerini göndermenin [Hdınsight sürüm en son desteklenen](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). Ancak, 1 Nisan 2017 kısmında belgelenen kullanımdan ilkesini temel alarak sonra Hdınsight 3.2 kümesi artık oluşturabilirsiniz [desteklenen Hdınsight sürümleri](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).  
+  Azure Data Factory destekleyen kendi Hdınsight kümeleri HDI 3.1 çok gönderiliyor işleri tooyour[en son desteklenen hello Hdınsight sürüm](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). Ancak, 1 Nisan 2017 kısmında belgelenen hello kullanımdan ilkesini temel alarak sonra Hdınsight 3.2 kümesi artık oluşturabilirsiniz [desteklenen Hdınsight sürümleri](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).  
 
   **Öneriler:** 
-  * Bu bağlı hizmetler başvuru etkinlikleri uyumluluğundan emin olmak için testleri gerçekleştirme [Hdınsight sürüm en son desteklenen](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) kısmında belgelenen bilgilerle [Hadoop bileşenleri ile farklı kullanılabilir Hdınsight sürümleri](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) ve [Hortonworks sürüm notları Hdınsight sürümleri ile ilişkili](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
-  * Hdınsight 3.2 kümenizi yükseltmek [Hdınsight sürüm en son desteklenen](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) en son düzeltmeler ve Hadoop ekosistemi bileşenlerini almak için. 
+  * Testleri tooensure hello uyumluluğunu hello bu bağlı hizmetler çok başvuru etkinlikleri gerçekleştirmek[en son desteklenen hello Hdınsight sürüm](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) kısmında belgelenen bilgilerle [Hadoop bileşenleri ile kullanılabilir farklı Hdınsight sürümleri](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) ve [Hortonworks sürüm notları Hdınsight sürümleri ile ilişkili](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
+  * Hdınsight 3.2 kümenizi çok yükseltme[en son desteklenen hello Hdınsight sürüm](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) tooget hello en son Hadoop ekosistemi bileşenlerini ve düzeltmeler. 
 
-* **Hdınsight bağlı kendi Hdınsight 3.3 veya kümeleri üstüne işaret eden hizmetler:**
+* **Hdınsight bağlı tooyour işaret eden hizmetler 3.3 veya kümeleri üzerinde Hdınsight sahibi:**
 
-  Azure Data Factory destekler HDI 3.1 gelen kendi Hdınsight kümelerine işlerini göndermenin [Hdınsight sürüm en son desteklenen](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). 
+  Azure Data Factory destekleyen kendi Hdınsight kümeleri HDI 3.1 çok gönderiliyor işleri tooyour[en son desteklenen hello Hdınsight sürüm](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). 
   
   **Öneriler:** 
-  * Herhangi bir işlem, veri fabrikası açısından gereklidir. Hdınsight daha düşük bir sürümü varsa, ancak hala yükseltme öneririz [Hdınsight sürüm en son desteklenen](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) en son düzeltmeler ve Hadoop ekosistemi bileşenlerini almak için.
+  * Herhangi bir işlem, veri fabrikası açısından gereklidir. Hdınsight daha düşük bir sürümü varsa, ancak hala çok yükseltme öneririz[en son desteklenen hello Hdınsight sürüm](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) tooget hello en son Hadoop ekosistemi bileşenlerini ve düzeltmeler.
 
 ### <a name="for-hdinsight-on-demand-linked-services"></a>Hizmetleri için isteğe bağlı Hdınsight bağlı
 * **Sürüm 3.2 veya Hdınsight isteğe bağlı Hizmetleri JSON tanımında aşağıda belirtilmiştir:**
   
-  Azure Data Factory sürüm 3.3 veya'dan daha fazla isteğe bağlı Hdınsight kümeleri oluşturulmasını destekler **15/05/2017** veya sonraki sürümleri. Ve, var olan isteğe bağlı Hdınsight bağlı hizmetler genişletilir 3.2 için destek sonuna **15/07/2017**.  
+  Azure Data Factory sürüm 3.3 veya'dan daha fazla isteğe bağlı Hdınsight kümeleri oluşturulmasını destekler **15/05/2017** veya sonraki sürümleri. Ve, var olan isteğe bağlı Hdınsight bağlı hizmetler çok genişletilmiş 3.2 için destek sonuna hello**15/07/2017**.  
 
   **Öneriler:** 
-  * Bu bağlı hizmetler başvuru etkinlikleri uyumluluğundan emin olmak için testleri gerçekleştirme [Hdınsight sürüm en son desteklenen](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) kısmında belgelenen bilgilerle [Hadoop bileşenleri ile farklı kullanılabilir Hdınsight sürümleri](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) ve [Hortonworks sürüm notları Hdınsight sürümleri ile ilişkili](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
-  * Önce **15/07/2017**, isteğe bağlı HDI bağlantılı hizmet JSON tanımına sürüm özelliğinde güncelleştirme [Hdınsight sürüm en son desteklenen](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) en son düzeltmeler ve Hadoop ekosistemi bileşenlerini almak için. Ayrıntılı JSON tanımını başvurmak [Azure Hdınsight isteğe bağlı hizmeti örnek](#azure-hdinsight-on-demand-linked-service). 
+  * Testleri tooensure hello uyumluluğunu hello bu bağlı hizmetler çok başvuru etkinlikleri gerçekleştirmek [en son desteklenen hello Hdınsight sürüm](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) kısmında belgelenen bilgilerle [Hadoop bileşenleri ile kullanılabilir farklı Hdınsight sürümleri](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) ve [Hortonworks sürüm notları Hdınsight sürümleri ile ilişkili](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
+  * Önce **15/07/2017**, isteğe bağlı HDI bağlantılı hizmet JSON tanımında hello Version özelliği çok güncelleştirme[en son desteklenen hello Hdınsight sürüm](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) tooget hello son Hadoop ekosistemi bileşenlerini ve giderir. Ayrıntılı JSON tanımını toohello başvuran [Azure Hdınsight isteğe bağlı hizmeti örnek](#azure-hdinsight-on-demand-linked-service). 
 
 * **İsteğe bağlı Hdınsight bağlı Hizmetleri belirtilmemiş sürümü:**
   
-  Azure Data Factory sürüm 3.3 veya'dan daha fazla isteğe bağlı Hdınsight kümeleri oluşturulmasını destekler **15/05/2017** veya sonraki sürümleri. Ve, var olan isteğe bağlı Hdınsight 3.2 bağlı hizmetler için genişletilmiş destek sona ermesi **15/07/2017**. 
+  Azure Data Factory sürüm 3.3 veya'dan daha fazla isteğe bağlı Hdınsight kümeleri oluşturulmasını destekler **15/05/2017** veya sonraki sürümleri. Ve Destek tooexisting isteğe bağlı Hdınsight bağlı 3.2 Hizmetleri hello sonuna çok Genişletilmiş**15/07/2017**. 
 
-  Önce **15/07/2017**, boş bırakılırsa, sürüm için varsayılan değerler ve osType özellikleri şunlardır: 
+  Önce **15/07/2017**, boş bırakılırsa, sürüm hello varsayılan değerler ve osType özellikleri şunlardır: 
 
   | Özellik | Varsayılan değer | Gerekli |
   | --- | --- | --- |
   Sürüm   | Windows kümesi ve HDI 3.2 Linux kümesi için HDI 3.1.| Hayır
-  osType | Varsayılan değer windows'dur | Hayır
+  osType | Windows Hello varsayılandır | Hayır
 
-  Sonra **15/07/2017**, boş bırakılırsa, sürüm için varsayılan değerler ve osType özellikleri şunlardır:
+  Sonra **15/07/2017**, boş bırakılırsa, sürüm hello varsayılan değerler ve osType özellikleri şunlardır:
 
   | Özellik | Varsayılan değer | Gerekli |
   | --- | --- | --- |
   Sürüm   | Windows kümesi ve Linux kümesi için 3.5 HDI 3.3.    | Hayır
-  osType | Linux varsayılandır | Hayır
+  osType | Linux Hello varsayılandır   | Hayır
 
   **Öneriler:** 
-  * Önce **15/07/2017**, bu bağlı hizmetler başvuru etkinlikleri uyumluluğundan emin olmak için testleri gerçekleştirme [Hdınsight sürüm en son desteklenen](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) içinde belgelenenbilgilerle[ Hadoop bileşenleri farklı Hdınsight sürümleriyle kullanılabilir](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) ve [Hortonworks sürüm notları Hdınsight sürümleri ile ilişkili](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
-  * Sonra **15/07/2017**, açıkça belirttiğiniz osType ve sürüm değerlerini varsayılan ayarları geçersiz kılmak isterseniz emin olun. 
+  * Önce **15/07/2017**, testleri tooensure hello uyumluluğunu hello bu bağlı hizmetler çok başvuru etkinlikleri gerçekleştirmek[en son desteklenen hello Hdınsight sürüm](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) belgelenmiş ile içinde [Hadoop bileşenleri farklı Hdınsight sürümleriyle kullanılabilir](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) ve [Hortonworks sürüm notları Hdınsight sürümleri ile ilişkili](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
+  * Sonra **15/07/2017**, açıkça belirttiğiniz osType ve sürüm değerlerini toooverride hello varsayılan ayarlar isterseniz emin olun. 
 
 >[!Note]
 >Şu anda Azure Data Factory birincil deposu olarak Azure Data Lake Store kullanarak Hdınsight kümelerini desteklemiyor. Azure Storage Hdınsight kümeleri için birincil depolama alanı olarak kullanın. 
@@ -90,29 +90,29 @@ Bu etkinlikler karşı Hdınsight 3.2 kümeleri çalıştıran var olan Azure Da
 >  
 
 ## <a name="on-demand-compute-environment"></a>İsteğe bağlı bilgi işlem ortamı
-Bu tür yapılandırmada bilgi işlem ortamı tam olarak Azure Data Factory hizmeti tarafından yönetilir. Bir işi veri işlemek için gönderildi ve iş tamamlandığında, kaldırılan önce Data Factory hizmeti tarafından otomatik olarak oluşturulur. İsteğe bağlı bilgi işlem ortamı için bağlı hizmet oluşturma yapılandırın ve iş yürütme, küme yönetimi ve eylemler önyükleme için ayrıntılı ayarları denetler.
+Bu tür yapılandırma hello bilgi işlem ortamı tam olarak hello Azure Data Factory hizmeti tarafından yönetilir. Bu otomatik olarak bir iş gönderilen tooprocess veri önce hello Data Factory hizmeti tarafından oluşturulan ve hello iş tamamlandığında kaldırıldı. Hello isteğe bağlı bilgi işlem ortamı için bağlı hizmet oluşturma yapılandırın ve iş yürütme, küme yönetimi ve eylemler önyükleme için ayrıntılı ayarları denetler.
 
 > [!NOTE]
-> İsteğe bağlı yapılandırma şu anda yalnızca Azure Hdınsight kümeleri için desteklenir.
+> Merhaba isteğe bağlı yapılandırma şu anda yalnızca Azure Hdınsight kümeleri için desteklenir.
 > 
 > 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure Hdınsight isteğe bağlı
-Azure Data Factory hizmetinin otomatik olarak bir Windows/Linux tabanlı isteğe bağlı Hdınsight kümesi verileri işlemek için oluşturabilirsiniz. Küme kümeyle ilişkili depolama hesabı (JSON özelliğinde linkedServiceName) ile aynı bölgede oluşturulur. Depolama hesabı, genel amaçlı standart Azure depolama hesabınızın olması gerekir. 
+Hello Azure Data Factory hizmetine otomatik olarak bir Windows/Linux tabanlı isteğe bağlı Hdınsight küme tooprocess veriler oluşturabilir. Merhaba küme hello depolama hesabı (Merhaba JSON özelliğinde linkedServiceName) ile aynı bölgeye hello kümesi ile ilişkili hello oluşturulur. Merhaba depolama hesabı, genel amaçlı standart Azure depolama hesabınızın olması gerekir. 
 
-Aşağıdakilere dikkat edin **önemli** noktaları hakkında isteğe bağlı Hdınsight bağlı hizmeti:
+Not hello aşağıdaki **önemli** noktaları hakkında isteğe bağlı Hdınsight bağlı hizmeti:
 
-* Azure aboneliğinizde oluşturduğunuz isteğe bağlı Hdınsight kümesi görmezsiniz. Azure Data Factory hizmeti sizin adınıza isteğe bağlı Hdınsight kümesi yönetir.
-* Bir isteğe bağlı Hdınsight kümesinde çalışan işleri için günlükleri Hdınsight kümesi ile ilişkilendirilmiş depolama hesabına kopyalanır. Bu günlükler Azure portalında erişebileceğiniz **etkinlik çalışma ayrıntıları** dikey. Bkz: [izleme ve yönetme ardışık düzen](data-factory-monitor-manage-pipelines.md) Ayrıntılar için makale.
-* Yalnızca Hdınsight kümesi yukarı olduğunda zaman ve çalışan işleri için sizden ücret kesilir.
+* Merhaba isteğe bağlı görüyor musunuz Azure aboneliğinizde oluşturduğunuz Hdınsight kümesi. Hello Azure Data Factory hizmetine hello isteğe bağlı Hdınsight kümesi sizin adınıza yönetir.
+* Hello günlükleri küme bir isteğe bağlı Hdınsight üzerinde çalıştırılan işler hello Hdınsight kümesi ile ilişkili toohello depolama hesabı kopyalanır. Bu günlükler hello hello Azure portalında erişebileceğiniz **etkinlik çalışma ayrıntıları** dikey. Bkz: [izleme ve yönetme ardışık düzen](data-factory-monitor-manage-pipelines.md) Ayrıntılar için makale.
+* Yalnızca hello zaman hello Hdınsight kümesi yukarı olduğunda ve çalışan işleri için sizden ücret kesilir.
 
 > [!IMPORTANT]
-> Genellikle sürer **20 dakika** veya isteğe bağlı Azure Hdınsight kümesi sağlamak için daha fazla bilgi.
+> Genellikle sürer **20 dakika** veya daha fazla tooprovision Azure Hdınsight küme isteğe bağlı.
 > 
 > 
 
 ### <a name="example"></a>Örnek
-Aşağıdaki JSON Linux tabanlı isteğe bağlı Hdınsight bağlı hizmeti tanımlar. Data Factory hizmetinin otomatik olarak oluşturur bir **Linux tabanlı** veri dilimi işlerken Hdınsight kümesi. 
+JSON aşağıdaki hello Linux tabanlı isteğe bağlı Hdınsight bağlı hizmeti tanımlar. Merhaba Data Factory hizmetinin otomatik olarak oluşturur bir **Linux tabanlı** veri dilimi işlerken Hdınsight kümesi. 
 
 ```json
 {
@@ -130,26 +130,26 @@ Aşağıdaki JSON Linux tabanlı isteğe bağlı Hdınsight bağlı hizmeti tan�
 }
 ```
 
-Bir Windows tabanlı Hdınsight kümesi kullanmak üzere ayarlanmış **osType** için **windows** veya varsayılan değer olarak özelliği kullanmayın: windows.  
+bir Windows tabanlı Hdınsight kümesi toouse ayarlamak **osType** çok**windows** veya hello varsayılan değer olarak hello özelliği kullanmayın: windows.  
 
 > [!IMPORTANT]
-> HDInsight kümesi JSON’da belirttiğiniz blob depolamada (**linkedServiceName**) bir **varsayılan kapsayıcı** oluşturur. HDInsight, küme silindiğinde bu kapsayıcıyı silmez. Bu davranış tasarım gereğidir. İsteğe bağlı HDInsight bağlı hizmetiyle, HDInsight kümesi her oluşturulduğunda, burada mevcut canlı bir küme (**timeToLive**) olmadıkça bir dilim gerekir ve işlem bittiğinde silinir. 
+> Merhaba Hdınsight kümesi oluşturur bir **varsayılan kapsayıcı** hello JSON belirtilen hello blob depolamada (**linkedServiceName**). Hdınsight Hello küme silindiğinde bu kapsayıcıyı silmez. Bu davranış tasarım gereğidir. Mevcut canlı bir küme olmadıkça işlenen toobe bir dilim gerekir her zaman isteğe bağlı Hdınsight bağlı hizmetiyle, Hdınsight kümesi oluşturulur (**timeToLive**) ve hello işlem bittiğinde silinir. 
 > 
-> Daha fazla dilim işlendikçe, Azure blob depolamanızda çok sayıda kapsayıcı görürsünüz. İşlerin sorunları giderilmesi için bunlara gerek yoksa, depolama maliyetini azaltmak için bunları silmek isteyebilirsiniz. Bu kapsayıcı adları bir düzene sahiptir: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Azure blob depolamada kapsayıcı silmek için [Microsoft Storage Gezgini](http://storageexplorer.com/) gibi araçları kullanın.
+> Daha fazla dilim işlendikçe, Azure blob depolamanızda çok sayıda kapsayıcı görürsünüz. Bunları hello işlerin sorunları giderilmesi için ihtiyacınız yoksa, toodelete isteyebilirsiniz bunları tooreduce hello depolama maliyeti. Bu kapsayıcıların Hello adları izleyen bir desen: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Gibi araçlar kullanın [Microsoft Storage Gezgini](http://storageexplorer.com/) toodelete kapsayıcılarında Azure blob depolama.
 > 
 > 
 
 ### <a name="properties"></a>Özellikler
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalı **HDInsightOnDemand**. |Evet |
-| ClusterSize |Kümedeki çalışan/veri düğüm sayısı. Hdınsight kümesi için bu özelliği belirtmeniz çalışan düğüm sayısı ile birlikte 2 baş düğümler ile oluşturulur. Düğüm boyutu 4 çalışan düğümlü bir küme 24 çekirdek alır, böylece 4 çekirdeğe sahip Standard_D3 olduğundan (4\*4 = 16 çekirdek çalışan düğümleri artı 2\*4 = 8 çekirdek baş düğümler için). Bkz: [Hdınsight oluşturma Linux tabanlı Hadoop kümeleri](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) Standard_D3 katmanı hakkında ayrıntılı bilgi için. |Evet |
-| TimeToLive |İsteğe bağlı Hdınsight kümesi için izin verilen boşta kalma süresi. Ne kadar süreyle isteğe bağlı Hdınsight kümesi kümedeki diğer etkin iş yok varsa bir etkinlik tamamlandıktan sonra canlı kalır belirtir.<br/><br/>Örneğin, bir etkinlik Çalıştır 6 dakika sürer ve timetolive 5 dakika olarak ayarlanmıştır, küme 6 etkinlik işleme dakika çalıştırdıktan sonra 5 dakika boyunca etkin kalır. Başka bir etkinlik 6 dakika penceresiyle yürütülürse, aynı küme tarafından işlenir.<br/><br/>İsteğe bağlı Hdınsight kümesi oluşturma bir pahalı işlemi (işlem zaman alabilir), bunu kullanımı isteğe bağlı Hdınsight kümesi yeniden kullanarak bir veri fabrikası performansını artırmak için bu ayarı olarak gerekli olur.<br/><br/>Timetolive değeri 0 olarak ayarlarsanız, küme etkinlik Çalıştır tamamlandıktan hemen sonra silindi. Yüksek bir değer ayarlarsanız, kümenin yüksek maliyetlerini gereksiz yere kaynaklanan boşta kalmasını ancak. Bu nedenle, gereksinimlerinize göre uygun değere ayarlamak önemlidir.<br/><br/>Timetolive özellik değerini uygun şekilde ayarlarsanız, birden çok ardışık düzen isteğe bağlı Hdınsight kümesi örneğini paylaşabilirsiniz.  |Evet |
-| Sürüm |Hdınsight küme sürümü. Varsayılan değer 3.1 Windows kümesi için ve 3.2 Linux kümesi için ' dir. |Hayır |
-| linkedServiceName | Depolamak ve veri işleme için isteğe bağlı küme tarafından kullanılacak azure depolama bağlı hizmeti. Hdınsight kümesi, bu Azure depolama hesabı ile aynı bölgede oluşturulur.<p>Şu anda bir Azure Data Lake Store depolama alanı olarak kullanan bir isteğe bağlı Hdınsight kümesi oluşturulamıyor. Bir Azure Data Lake Store'da işleme Hdınsight sonuç verileri depolamak istiyorsanız, Azure Blob depolama alanından Azure Data Lake Store'a veri kopyalamak için kopyalama etkinliği kullanın. </p>  | Evet |
-| additionalLinkedServiceNames |Data Factory hizmetinin bunları sizin adınıza kaydedebilirsiniz böylece Hdınsight için ek depolama hesapları hizmeti bağlı belirtir. Bu depolama hesaplarından linkedServiceName tarafından belirtilen depolama hesabı ile aynı bölgede oluşturulan Hdınsight kümesi ile aynı bölgede olması gerekir. |Hayır |
+| type |Merhaba type özelliği çok ayarlanmalıdır**HDInsightOnDemand**. |Evet |
+| ClusterSize |Merhaba kümede çalışan/veri düğüm sayısı. Merhaba Hdınsight kümesi hello için bu özelliği belirtmeniz çalışan düğüm sayısı ile birlikte 2 baş düğümler ile oluşturulur. Merhaba düğümleri olan 24 çekirdek 4 çalışan düğümlü bir küme alır, böylece 4 çekirdeğe sahip Standard_D3 boyutunu (4\*4 = 16 çekirdek çalışan düğümleri artı 2\*4 = 8 çekirdek baş düğümler için). Bkz: [Hdınsight oluşturma Linux tabanlı Hadoop kümeleri](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) hello Standard_D3 katmanı hakkında ayrıntılı bilgi için. |Evet |
+| TimeToLive |Merhaba boşta kalma süresi hello isteğe bağlı Hdınsight kümesi için izin verilen. Ne kadar süreyle hello isteğe bağlı Hdınsight kümesi hello kümedeki diğer etkin iş yok varsa bir etkinlik tamamlandıktan sonra canlı kalır belirtir.<br/><br/>Bir etkinlik 6 dakika ve timetolive sürerse Örneğin, too5 dakika, 5 dakika sonra hello için Canlı hello küme kalır hello etkinlik işleme 6 dakika ayarlandı. Başka bir etkinlik hello 6 dakika penceresiyle yürütülürse, hello tarafından işlenir aynı küme.<br/><br/>İsteğe bağlı Hdınsight kümesi oluşturma (biraz sürebilir), pahalı bir işlem olduğundan bu ayar isteğe bağlı Hdınsight kümesi yeniden kullanarak bir veri fabrikası gerekli tooimprove performansını kullanın.<br/><br/>Timetolive değeri too0 ayarlarsanız, hello küme hello etkinlik tamamlandıktan hemen sonra silindi. Yüksek bir değer ayarlarsanız, hello küme gereksiz yere yüksek maliyetlerini kaynaklanan boşta kalmasını ancak. Bu nedenle, gereksinimlerinize göre hello uygun değere ayarlamak önemlidir.<br/><br/>Merhaba timetolive özellik değerini uygun şekilde ayarlarsanız, birden çok ardışık düzen hello isteğe bağlı Hdınsight kümesi hello örneğini paylaşabilirsiniz.  |Evet |
+| Sürüm |Merhaba Hdınsight küme sürümü. Merhaba varsayılan 3.1 Windows kümesi için ve Linux kümesi için 3.2 değerdir. |Hayır |
+| linkedServiceName | Azure depolama bağlı hizmeti toobe depolamak ve veri işleme için Hello isteğe bağlı küme tarafından kullanılan. Merhaba Hdınsight kümesi hello aynı oluşturulan bu Azure depolama hesabı bölgeye.<p>Şu anda bir Azure Data Lake Store hello depolama alanı olarak kullanan bir isteğe bağlı Hdınsight kümesi oluşturulamıyor. Bir Azure Data Lake Store'da işleme Hdınsight toostore hello sonuç verileri istiyorsanız hello Azure Blob Storage toohello Azure Data Lake Store kopyalama etkinliği toocopy hello verilerden kullanın. </p>  | Evet |
+| additionalLinkedServiceNames |Böylece Hello Data Factory hizmetinin bunları sizin adınıza kaydedebilirsiniz hello Hdınsight için ek depolama hesapları hizmeti bağlı belirtir. Bu depolama hesaplarından hello olmalıdır hello aynı oluşturulur hello Hdınsight kümesi ile aynı bölgeye linkedServiceName tarafından belirtilen hello depolama hesabı bölgeye. |Hayır |
 | osType |İşletim sistemi türü. İzin verilen değerler: (varsayılan) Windows ve Linux |Hayır |
-| hcatalogLinkedServiceName |Azure SQL adını HCatalog veritabanına işaret hizmeti bağlı. İsteğe bağlı Hdınsight kümesi meta depo Azure SQL veritabanı kullanılarak oluşturulur. |Hayır |
+| hcatalogLinkedServiceName |Azure SQL bağlı Hello adını noktası toohello HCatalog veritabanı hizmeti. Merhaba isteğe bağlı Hdınsight kümesi hello meta depo hello Azure SQL veritabanı kullanılarak oluşturulur. |Hayır |
 
 #### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON örneği
 
@@ -161,18 +161,18 @@ Bir Windows tabanlı Hdınsight kümesi kullanmak üzere ayarlanmış **osType**
 ```
 
 ### <a name="advanced-properties"></a>Gelişmiş Özellikler
-Ayrıca, isteğe bağlı Hdınsight kümesinin ayrıntılı yapılandırma için aşağıdaki özellikleri belirtebilirsiniz.
+Merhaba ayrıntılı yapılandırma hello isteğe bağlı Hdınsight kümesinin özelliklerini aşağıdaki hello de belirtebilirsiniz.
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| coreConfiguration |Çekirdek yapılandırma parametreleri (olduğu gibi core-site.xml) oluşturulacak Hdınsight kümesi için belirtir. |Hayır |
-| hBaseConfiguration |Hdınsight kümesi için HBase yapılandırma parametreleri (hbase-site.xml) belirtir. |Hayır |
-| hdfsConfiguration |Hdınsight kümesi için HDFS yapılandırma parametreleri (hdfs-site.xml) belirtir. |Hayır |
-| hiveConfiguration |Hdınsight kümesi için hive yapılandırma parametreleri (hive-site.xml) belirtir. |Hayır |
-| mapReduceConfiguration |Hdınsight kümesi için MapReduce yapılandırma parametreleri (mapred-site.xml) belirtir. |Hayır |
-| oozieConfiguration |Hdınsight kümesi için Oozie yapılandırma parametreleri (oozie-site.xml) belirtir. |Hayır |
-| stormConfiguration |Hdınsight kümesi için Storm yapılandırma parametreleri (storm-site.xml) belirtir. |Hayır |
-| yarnConfiguration |Hdınsight kümesi için Yarn yapılandırma parametreleri (yarn-site.xml) belirtir. |Hayır |
+| coreConfiguration |Merhaba çekirdek yapılandırma parametreleri (olduğu gibi core-site.xml) için hello Hdınsight küme toobe oluşturulan belirtir. |Hayır |
+| hBaseConfiguration |Merhaba Hdınsight kümesi için Hello HBase yapılandırma parametreleri (hbase-site.xml) belirtir. |Hayır |
+| hdfsConfiguration |Merhaba Hdınsight kümesi için Hello HDFS yapılandırma parametreleri (hdfs-site.xml) belirtir. |Hayır |
+| hiveConfiguration |Merhaba Hdınsight kümesi için Hello hive yapılandırma parametreleri (hive-site.xml) belirtir. |Hayır |
+| mapReduceConfiguration |Merhaba Hdınsight kümesi için Hello MapReduce yapılandırma parametreleri (mapred-site.xml) belirtir. |Hayır |
+| oozieConfiguration |Merhaba Hdınsight kümesi için Hello Oozie yapılandırma parametreleri (oozie-site.xml) belirtir. |Hayır |
+| stormConfiguration |Merhaba Hdınsight kümesi için Hello Storm yapılandırma parametreleri (storm-site.xml) belirtir. |Hayır |
+| yarnConfiguration |Merhaba Hdınsight kümesi için Hello Yarn yapılandırma parametreleri (yarn-site.xml) belirtir. |Hayır |
 
 #### <a name="example--on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Örnek – Gelişmiş özellikleri ile isteğe bağlı Hdınsight küme yapılandırması
 
@@ -212,30 +212,30 @@ Ayrıca, isteğe bağlı Hdınsight kümesinin ayrıntılı yapılandırma için
 ```
 
 ### <a name="node-sizes"></a>Düğümü boyutları
-Head, veriler ve aşağıdaki özellikleri kullanarak zookeeper düğümleri boyutunu belirtebilirsiniz: 
+Aşağıdaki özelliklere hello kullanarak head, veri ve zookeeper düğümleri hello boyutlarını belirtebilirsiniz: 
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| headNodeSize |Baş düğüm boyutunu belirtir. Varsayılan değer: Standard_D3. Bkz: **düğümü boyutları belirtme** ayrıntıları bölümü. |Hayır |
-| dataNodeSize |Veri düğümü boyutunu belirtir. Varsayılan değer: Standard_D3. |Hayır |
-| zookeeperNodeSize |Zoo Keeper düğüm boyutunu belirtir. Varsayılan değer: Standard_D3. |Hayır |
+| headNodeSize |Merhaba baş düğüm Hello boyutunu belirtir. Merhaba varsayılan değer: Standard_D3. Merhaba bkz **düğümü boyutları belirtme** ayrıntıları bölümü. |Hayır |
+| dataNodeSize |Merhaba veri düğümü Hello boyutunu belirtir. Merhaba varsayılan değer: Standard_D3. |Hayır |
+| zookeeperNodeSize |Merhaba Zoo Keeper düğümü Hello boyutunu belirtir. Merhaba varsayılan değer: Standard_D3. |Hayır |
 
 #### <a name="specifying-node-sizes"></a>Düğümü boyutları belirtme
-Bkz: [sanal makine boyutları](../virtual-machines/linux/sizes.md) makale dize değerleri önceki bölümde belirtildiği özellikleri için belirtmeniz gerekir. Değerleri uygun gerek **cmdlet'leri & API'leri** makalesinde başvurulan. Makalede görebileceğiniz gibi büyük (varsayılan) boyutu veri düğümünün senaryonuz için yeterince iyi olmayabilir 7 GB bellek vardır. 
+Merhaba bkz [sanal makine boyutları](../virtual-machines/linux/sizes.md) makale için gereksinim duyduğunuz toospecify hello özellikleri hello önceki bölümünde belirtildiği için dize değeri. Merhaba değerlerine gereksinim tooconform toohello **cmdlet'leri & API'leri** hello makalesinde başvurulan. Merhaba makalesinde görebilirsiniz gibi hello veri düğümü (varsayılan) büyük boyutta senaryonuz için yeterince iyi olmayabilir 7 GB bellek vardır. 
 
-Boyutta D4 baş düğümler ve çalışan düğümleri oluşturmak istiyorsanız, belirtin **Standard_D4** headNodeSize ve dataNodeSize özellikleri için değer olarak. 
+Toocreate D4 boyutta baş düğümler ve çalışan düğümleri istiyorsanız belirtin **Standard_D4** headNodeSize ve dataNodeSize özellikleri hello değeri olarak. 
 
 ```json
 "headNodeSize": "Standard_D4",    
 "dataNodeSize": "Standard_D4",
 ```
 
-Bu özellikler için yanlış bir değer belirtirseniz, aşağıdaki alabilirsiniz **hata:** küme oluşturma başarısız oldu. Özel durum: Küme oluşturma işlemi tamamlanamadı. İşlem '400' koduyla başarısız oldu. Küme geride bırakma durumu: 'Hata'. İleti: 'PreClusterCreationValidationFailure'. Bu hata iletisini zaman kullandığınızdan emin olun **CMDLET & API'leri** tablosundan ad [sanal makine boyutları](../virtual-machines/linux/sizes.md) makalesi.  
+Bu özellikler için yanlış bir değer belirtirseniz, hello aşağıdaki alabilirsiniz **hata:** başarısız toocreate küme. Özel durum: Oluşturulamıyor toocomplete hello küme oluşturma işlemi. İşlem '400' koduyla başarısız oldu. Küme geride bırakma durumu: 'Hata'. İleti: 'PreClusterCreationValidationFailure'. Bu hatayı aldığınızda hello kullandığınızdan emin olun **CMDLET & API'leri** hello hello tablosundan ad [sanal makine boyutları](../virtual-machines/linux/sizes.md) makalesi.  
 
 ## <a name="bring-your-own-compute-environment"></a>Kendi işlem ortamınızda Getir
-Bu tür yapılandırma, kullanıcılar veri fabrikasında bağlı hizmet olarak zaten mevcut olan bir bilgi işlem ortamı kaydedin. Bilgi işlem ortamı kullanıcı tarafından yönetilir ve Data Factory hizmetinin etkinlikleri yürütmek için kullanır.
+Bu tür yapılandırma, kullanıcılar veri fabrikasında bağlı hizmet olarak zaten mevcut olan bir bilgi işlem ortamı kaydedin. Merhaba bilgi işlem ortamı hello kullanıcı tarafından yönetilir ve hello Data Factory hizmetinin tooexecute hello etkinliklerini kullanır.
 
-Bu tür bir yapılandırma için aşağıdaki bilgi işlem ortamları desteklenir:
+Bu yapılandırma türü ortamları Hello aşağıdaki işlem için desteklenir:
 
 * Azure Hdınsight
 * Azure Batch
@@ -244,7 +244,7 @@ Bu tür bir yapılandırma için aşağıdaki bilgi işlem ortamları destekleni
 * Azure SQL DB, Azure SQL DW, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Azure Hdınsight bağlı hizmeti
-Kendi Hdınsight kümenizi Data Factory ile kaydetmek için bir Azure Hdınsight bağlı hizmeti oluşturabilirsiniz.
+Data Factory ile kendi Hdınsight kümenizi Azure Hdınsight bağlı hizmeti tooregister oluşturabilirsiniz.
 
 ### <a name="example"></a>Örnek
 
@@ -266,20 +266,20 @@ Kendi Hdınsight kümenizi Data Factory ile kaydetmek için bir Azure Hdınsight
 ### <a name="properties"></a>Özellikler
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalı **Hdınsight**. |Evet |
-| clusterUri |Hdınsight küme URI'si. |Evet |
-| kullanıcı adı |Var olan bir Hdınsight kümesine bağlanmak için kullanılacak kullanıcı adını belirtin. |Evet |
-| password |Kullanıcı hesabı için parola belirtin. |Evet |
-| linkedServiceName | Hdınsight küme tarafından kullanılan Azure blob depolama başvurduğu Azure Storage bağlı hizmetin adı. <p>Şu anda bu özellik için bir Azure Data Lake Store bağlı belirtemezsiniz. Hdınsight kümesi için Data Lake Store erişimi varsa, Azure Data Lake Store'da verileri Hive/Pig komut dosyalarından erişebilir. </p>  |Evet |
+| type |Merhaba type özelliği çok ayarlanmalıdır**Hdınsight**. |Evet |
+| clusterUri |Merhaba hello Hdınsight kümesinin URI. |Evet |
+| kullanıcı adı |Tooconnect tooan olan bir Hdınsight kümesine kullanılan hello kullanıcı toobe Hello adı belirtin. |Evet |
+| password |Merhaba kullanıcı hesabı için parola belirtin. |Evet |
+| linkedServiceName | Hdınsight kümesi hello tarafından kullanılan hello toohello Azure blob depolama başvuruyor Azure Storage bağlı hizmeti adı. <p>Şu anda bu özellik için bir Azure Data Lake Store bağlı belirtemezsiniz. Merhaba Hdınsight kümesine erişim toohello Data Lake Store varsa, Hive/Pig komut dosyalarından hello Azure Data Lake Store verilerde erişebilir. </p>  |Evet |
 
 ## <a name="azure-batch-linked-service"></a>Azure toplu işlem hizmeti bağlı
-Batch havuzundaki sanal makineler (VM'ler) kaydetmek için bir Azure Batch bağlantılı hizmeti bir veri fabrikası oluşturabilirsiniz. .NET özel etkinlikler Azure Batch ya da Azure Hdınsight kullanarak çalıştırabilirsiniz.
+Batch havuzundaki sanal makineler (VM'ler) tooa data Factory bağlantılı Azure Batch hizmeti tooregister oluşturabilirsiniz. .NET özel etkinlikler Azure Batch ya da Azure Hdınsight kullanarak çalıştırabilirsiniz.
 
-Azure Batch hizmetine yeniyseniz, aşağıdaki konularda bakın:
+Yeni tooAzure Batch hizmeti kullanıyorsanız aşağıdaki konularda bakın:
 
-* [Azure Batch Temelleri](../batch/batch-technical-overview.md) Azure Batch hizmetinin genel bakış.
-* [AzureBatchAccount yeni](https://msdn.microsoft.com/library/mt125880.aspx) bir Azure Batch hesabı oluşturmak için cmdlet'i (veya) [Azure portal](../batch/batch-account-create-portal.md) Azure portalını kullanarak Azure Batch hesabı oluşturmak için. Bkz: [Azure Batch hesabını yönetmek için PowerShell kullanarak](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) konu cmdlet kullanma hakkında ayrıntılı yönergeler için.
-* [Yeni-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) bir Azure Batch havuzu oluşturmak için cmdlet'i.
+* [Azure Batch Temelleri](../batch/batch-technical-overview.md) hello Azure Batch hizmetinin genel bakış.
+* [AzureBatchAccount yeni](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet toocreate bir Azure Batch hesabı (veya) [Azure portal](../batch/batch-account-create-portal.md) toocreate hello Azure Batch hesabı Azure portal kullanarak. Bkz: [PowerShell kullanarak toomanage Azure toplu işlem hesabı](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) konu hello cmdlet'ini kullanarak hakkında ayrıntılı yönergeler için.
+* [Yeni-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet toocreate bir Azure Batch havuzu.
 
 ### <a name="example"></a>Örnek
 
@@ -298,13 +298,13 @@ Azure Batch hizmetine yeniyseniz, aşağıdaki konularda bakın:
 }
 ```
 
-Append "**.\< bölge adı\>**"batch hesabınızın adını **accountName** özelliği. Örnek:
+Append "**.\< bölge adı\>**"Merhaba için batch hesabınızın toohello ad **accountName** özelliği. Örnek:
 
 ```json
 "accountName": "mybatchaccount.eastus"
 ```
 
-Başka bir seçenek batchUri uç noktası aşağıdaki örnekte gösterildiği gibi sağlamaktır:
+Başka bir seçenek tooprovide hello batchUri endpoint hello örnek aşağıdaki gösterildiği gibi olur:
 
 ```json
 "accountName": "adfteam",
@@ -314,14 +314,14 @@ Başka bir seçenek batchUri uç noktası aşağıdaki örnekte gösterildiği g
 ### <a name="properties"></a>Özellikler
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalı **AzureBatch**. |Evet |
-| accountName |Azure toplu işlem hesabının adı. |Evet |
-| accessKey |Azure Batch hesabı için erişim anahtarı. |Evet |
-| poolName |Sanal makinelerin havuzunun adı. |Evet |
-| linkedServiceName |Azure depolama adı hizmeti bağlı Azure Batch hizmeti ile ilişkili bağlı. Bu bağlı hizmetin etkinlik ve Etkinlik yürütme günlüklerini depolamak çalıştırmak için gerekli hazırlama dosyaları için kullanılır. |Evet |
+| type |Merhaba type özelliği çok ayarlanmalıdır**AzureBatch**. |Evet |
+| accountName |Hello Azure Batch hesabı adı. |Evet |
+| accessKey |Hello Azure Batch hesabı için erişim anahtarı. |Evet |
+| poolName |Sanal makinelerin hello havuzunun adı. |Evet |
+| linkedServiceName |Hello Azure Storage bağlı hizmeti Azure bağlı Batch hizmeti ile ilişkili adı. Bu bağlı hizmetin dosyaları hazırlama için kullanılan toorun hello etkinliği ve hello Etkinlik yürütme günlüklerini depolamak gerekli. |Evet |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning hizmeti bağlı
-Bir veri fabrikası Puanlama uç noktası bir Machine Learning toplu kaydetmek için bir Azure Machine Learning bağlantılı hizmeti oluşturun.
+Bir Azure Machine Learning bağlantılı hizmet tooregister bir Machine Learning toplu Puanlama uç noktası tooa veri fabrikası oluşturun.
 
 ### <a name="example"></a>Örnek
 
@@ -341,36 +341,36 @@ Bir veri fabrikası Puanlama uç noktası bir Machine Learning toplu kaydetmek i
 ### <a name="properties"></a>Özellikler
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| Tür |Type özelliği ayarlanmalıdır: **AzureML**. |Evet |
-| mlEndpoint |Toplu Puanlama URL. |Evet |
-| apikey ile yapılan |Yayımlanan çalışma alanı modelinin API. |Evet |
+| Tür |Merhaba type özelliği ayarlanmalıdır: **AzureML**. |Evet |
+| mlEndpoint |Merhaba toplu işlem Puanlama URL'sini. |Evet |
+| apikey ile yapılan |Merhaba, çalışma alanı modelinin API yayımladı. |Evet |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics hizmeti bağlı
-Oluşturduğunuz bir **Azure Data Lake Analytics** bir Azure Data Lake Analytics bağlamak için bağlantılı hizmeti bir Azure data factory hizmetine işlem. Data Lake Analytics U-SQL etkinliği ardışık düzeninde bu bağlı hizmetin başvuruyor. 
+Oluşturduğunuz bir **Azure Data Lake Analytics** bağlantılı hizmet toolink bir Azure Data Lake Analytics işlem hizmeti tooan Azure data factory. Merhaba Data Lake Analytics U-SQL etkinliği hello ardışık düzende toothis bağlantılı hizmeti anlamına gelmektedir. 
 
-Aşağıdaki tabloda JSON tanımında kullanılan genel özellikleri için açıklamalar sağlanır. Daha fazla hizmet sorumlusu ve kullanıcı kimlik bilgileri doğrulaması arasında seçim yapabilirsiniz.
+Merhaba aşağıdaki tabloda Merhaba açıklamalarına hello JSON tanımını kullanılan genel özellikleri sağlar. Daha fazla hizmet sorumlusu ve kullanıcı kimlik bilgileri doğrulaması arasında seçim yapabilirsiniz.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| **türü** |Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. |Evet |
+| **türü** |Merhaba type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. |Evet |
 | **accountName** |Azure Data Lake Analytics hesap adı. |Evet |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI. |Hayır |
-| **Subscriptionıd** |Azure abonelik kimliği |Hayır (belirtilmezse, data Factory abonelik kullanılır). |
-| **resourceGroupName** |Azure kaynak grubu adı |Hayır (belirtilmezse, kaynak grubu data Factory kullanılır). |
+| **Subscriptionıd** |Azure abonelik kimliği |Hayır (belirtilmezse, veri fabrikası kullanılan hello abonelik). |
+| **resourceGroupName** |Azure kaynak grubu adı |Hayır (belirtilmezse, veri fabrikası kullanılan hello kaynak grubu). |
 
 ### <a name="service-principal-authentication-recommended"></a>(Önerilen) hizmet asıl kimlik doğrulaması
-Hizmet asıl kimlik doğrulaması kullanmak için Azure Active Directory (Azure AD) bir uygulama varlığı kaydetmek ve Data Lake Store'a erişim izni. Ayrıntılı adımlar için bkz: [hizmeti için kimlik doğrulama](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Bağlantılı hizmet tanımlamak için kullandığınız aşağıdaki değerleri not edin:
+Kayıt, hello Azure Active Directory (Azure AD) ve grant uygulama varlık toouse hizmet asıl kimlik doğrulaması, tooData Lake Store erişin. Ayrıntılı adımlar için bkz: [hizmeti için kimlik doğrulama](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Kullandığınız değerler aşağıdaki hello Not toodefine hello bağlantılı hizmeti:
 * Uygulama Kimliği
 * Uygulama anahtarı 
 * Kiracı Kimliği
 
-Hizmet asıl kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanın:
+Aşağıdaki özelliklere hello belirterek hizmet asıl kimlik doğrulamasını kullan:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Uygulamanın istemci kimliği belirtin. | Evet |
-| **servicePrincipalKey** | Uygulamanın anahtarını belirtin. | Evet |
-| **Kiracı** | Uygulamanızın bulunduğu altında Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Azure portalının sağ üst köşedeki fare gelerek alabilir. | Evet |
+| **servicePrincipalId** | Merhaba uygulamanın istemci kimliği belirtin. | Evet |
+| **servicePrincipalKey** | Merhaba uygulamanın anahtarını belirtin. | Evet |
+| **Kiracı** | Uygulamanızın bulunduğu altında Hello Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Vurgulama hello fare hello sağ üst köşesindeki hello Azure portal tarafından alabilir. | Evet |
 
 **Örnek: Hizmet asıl kimlik doğrulaması**
 ```json
@@ -392,12 +392,12 @@ Hizmet asıl kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanı
 ```
 
 ### <a name="user-credential-authentication"></a>Kullanıcı kimlik bilgileri doğrulaması
-Alternatif olarak, aşağıdaki özellikleri belirterek Data Lake Analytics için kullanıcı kimlik bilgilerinin kullanabilirsiniz:
+Alternatif olarak, aşağıdaki özelliklere hello belirterek Data Lake Analytics için kullanıcı kimlik bilgilerinin kullanabilirsiniz:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| **Yetkilendirme** | Tıklatın **Authorize** Data Factory Düzenleyici'düğmesine tıklayın ve bu özelliği otomatik olarak oluşturulur yetkilendirme URL'si atar kimlik bilgilerinizi girin. | Evet |
-| **SessionID** | OAuth yetkilendirme oturumundan OAuth oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Data Factory Düzenleyici kullandığınızda bu ayarı otomatik olarak oluşturulur. | Evet |
+| **Yetkilendirme** | Merhaba tıklatın **Authorize** hello Data Factory Düzenleyici'düğmesine tıklayın ve hello otomatik olarak oluşturulur yetkilendirme URL'si toothis özelliği atar kimlik bilgilerinizi girin. | Evet |
+| **SessionID** | Merhaba OAuth yetkilendirme oturumundan OAuth oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Merhaba Data Factory Düzenleyici kullandığınızda bu ayarı otomatik olarak oluşturulur. | Evet |
 
 **Örnek: Kullanıcı kimlik bilgileri doğrulaması**
 ```json
@@ -418,14 +418,14 @@ Alternatif olarak, aşağıdaki özellikleri belirterek Data Lake Analytics içi
 ```
 
 #### <a name="token-expiration"></a>Belirteç süre sonu
-Oluşturulan kullanarak Yetkilendirme kodu **Authorize** düğmesi süre sonra süresi dolar. Farklı türlerdeki kullanıcı hesapları için zaman aşımı süresinin için aşağıdaki tabloya bakın. Aşağıdaki hatayı görebilirsiniz ne zaman ileti kimlik doğrulama **belirtecinin süresi dolmadan**: kimlik bilgisi işlemi hatası: invalid_grant - AADSTS70002: Kimlik doğrulanırken hata oluştu. AADSTS70008: Sağlanan erişim izninin süresi doldu veya iptal edildi. İzleme kimliği: d18629e8-af88-43c5-88e3-d8419eb1fca1 bağıntı kimliği: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 zaman damgası: 2015-12-15 21:09:31Z
+Merhaba oluşturulan hello kullanarak Yetkilendirme kodu **Authorize** düğmesi süre sonra süresi dolar. Farklı türlerdeki kullanıcı hesapları için hello bitiş zamanları için aşağıdaki tablonun hello bakın. Aşağıdaki hata iletisini hello görebilirsiniz zaman kimlik doğrulaması'nı hello **belirtecinin süresi dolmadan**: kimlik bilgisi işlemi hatası: invalid_grant - AADSTS70002: Kimlik doğrulanırken hata oluştu. AADSTS70008: hello erişim izninin süresi doldu veya iptal sağlanan. İzleme kimliği: d18629e8-af88-43c5-88e3-d8419eb1fca1 bağıntı kimliği: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 zaman damgası: 2015-12-15 21:09:31Z
 
 | Kullanıcı türü | Kullanım süresi sonu |
 |:--- |:--- |
 | Azure Active Directory tarafından yönetilmeyen kullanıcı hesapları (@hotmail.com, @live.comvb..) |12 saat |
-| Azure Active Directory (AAD tarafından) yönetilen kullanıcı hesapları |14 gün sonra en son dilim çalıştırın. <br/><br/>90 OAuth tabanlı bağlantılı hizmette dayanan bir dilim 14 günde bir en az bir kez çalıştırılıyorsa, gün. |
+| Azure Active Directory (AAD tarafından) yönetilen kullanıcı hesapları |14 gün sonra hello son dilim çalıştırın. <br/><br/>90 OAuth tabanlı bağlantılı hizmette dayanan bir dilim 14 günde bir en az bir kez çalıştırılıyorsa, gün. |
 
-Bu hatayı önlemek/çözmek için kullanarak yeniden yetkilendirin **Authorize** ne zaman düğmesini **belirtecinin süresi dolmadan** ve bağlantılı hizmeti yeniden dağıtın. Değerleri de oluşturabilirsiniz **SessionID** ve **yetkilendirme** kullanılarak programlı olarak kod şu şekilde özellikleri:
+tooavoid/Çöz bu hata, hello kullanarak yeniden yetkilendirin **Authorize** düğmesini hello **belirtecinin süresi dolmadan** ve hello bağlantılı hizmeti yeniden dağıtın. Değerleri de oluşturabilirsiniz **SessionID** ve **yetkilendirme** kullanılarak programlı olarak kod şu şekilde özellikleri:
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -452,14 +452,14 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-Bkz: [AzureDataLakeStoreLinkedService sınıfı](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService sınıfı](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), ve [AuthorizationSessionGetResponse sınıfı](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) konuları kod içinde kullanılan veri fabrikası sınıfları hakkında ayrıntılı bilgi için. Bir başvuru ekleyin: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll WindowsFormsWebAuthenticationDialog sınıfı için. 
+Bkz: [AzureDataLakeStoreLinkedService sınıfı](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService sınıfı](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), ve [AuthorizationSessionGetResponse sınıfı](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) ayrıntıları konuları Merhaba kod içinde kullanılan hello Data Factory sınıfları hakkında. Bir başvuru ekleyin: Merhaba WindowsFormsWebAuthenticationDialog sınıfı için Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll. 
 
 ## <a name="azure-sql-linked-service"></a>Azure SQL bağlı hizmeti
-Azure SQL bağlı hizmeti oluşturma ve onunla kullanma [saklı yordam etkinliği](data-factory-stored-proc-activity.md) Data Factory işlem hattı bir saklı yordam çağırmak için. Bkz: [Azure SQL Bağlayıcısı](data-factory-azure-sql-connector.md#linked-service-properties) makale bu bağlı hizmetin hakkında ayrıntılı bilgi için.
+Azure SQL bağlı hizmeti oluşturma ve hello ile kullanma [saklı yordam etkinliği](data-factory-stored-proc-activity.md) tooinvoke Data Factory işlem hattı bir saklı yordam. Bkz: [Azure SQL Bağlayıcısı](data-factory-azure-sql-connector.md#linked-service-properties) makale bu bağlı hizmetin hakkında ayrıntılı bilgi için.
 
 ## <a name="azure-sql-data-warehouse-linked-service"></a>Bağlı hizmetin Azure SQL veri ambarı
-Bir Azure SQL Data Warehouse bağlı hizmet oluşturma ve onunla kullanma [saklı yordam etkinliği](data-factory-stored-proc-activity.md) Data Factory işlem hattı bir saklı yordam çağırmak için. Bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) makale bu bağlı hizmetin hakkında ayrıntılı bilgi için.
+Bir Azure SQL Data Warehouse bağlı hizmet oluşturma ve hello ile kullanma [saklı yordam etkinliği](data-factory-stored-proc-activity.md) tooinvoke Data Factory işlem hattı bir saklı yordam. Bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) makale bu bağlı hizmetin hakkında ayrıntılı bilgi için.
 
 ## <a name="sql-server-linked-service"></a>SQL Server hizmeti bağlı
-Bir SQL Server bağlantılı hizmet oluşturma ve onunla kullanma [saklı yordam etkinliği](data-factory-stored-proc-activity.md) Data Factory işlem hattı bir saklı yordam çağırmak için. Bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#linked-service-properties) makale bu bağlı hizmetin hakkında ayrıntılı bilgi için.
+Bir SQL Server bağlantılı hizmet oluşturma ve hello ile kullanma [saklı yordam etkinliği](data-factory-stored-proc-activity.md) tooinvoke Data Factory işlem hattı bir saklı yordam. Bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#linked-service-properties) makale bu bağlı hizmetin hakkında ayrıntılı bilgi için.
 

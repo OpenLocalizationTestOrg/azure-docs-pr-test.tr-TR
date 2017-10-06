@@ -1,6 +1,6 @@
 ---
-title: "Grupları kullanma erişim yönetimi için'sonraki adımlar | Microsoft Docs"
-description: "Nasıl Gelişmiş-için kullanıcının güvenlik grupları ve bu grupların bir kaynağa erişimi yönetmek için nasıl kullanılacağını yönetme."
+title: "aaaNext adımları erişim yönetimi için grupları kullanma | Microsoft Docs"
+description: "Nasıl Gelişmiş-için kullanıcının güvenlik gruplarını yönetme ve nasıl toouse bu grupları toomanage erişim tooa kaynak."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,37 +15,37 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 82fbeb379e90add09f7c569111053f6e9b1bc9c5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4fd55f893290fac3551a130f29bd12709cf551e6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="managing-owners-for-a-group"></a>Bir grubun sahiplerini yönetme
-Kaynak sahibi Azure AD grubundaki bir kaynağa erişim atandıktan sonra Grup üyeliğini Grup sahibi tarafından yönetilir. Kaynak sahibi etkili bir şekilde kaynak grubunun sahibi için kullanıcılar atama izni verilir.
+Kaynak sahibine erişim tooa kaynak tooan Azure AD grubu atandıktan sonra hello hello grup üyeliğini hello Grup sahibi tarafından yönetilir. Merhaba kaynak sahibi etkili bir şekilde hello izin tooassign kullanıcılar toohello kaynak toohello hello grubun sahibi atar.
 
 > [!IMPORTANT]
-> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor. 
+> Microsoft önerir hello kullanarak Azure AD'yi yönetme [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) hello yerine Azure portal hello bu makalede başvurulan Klasik Azure portalı. 
 
 ## <a name="assigning-group-ownership"></a>Grup sahipliğini atama
-**Bir sahip bir gruba eklemek için**
+**tooadd bir sahibi tooa grubu**
 
-1. İçinde [Klasik Azure portalı](https://manage.windowsazure.com)seçin **Active Directory**ve ardından, kuruluşunuzun dizininde açın.
-2. Seçin **grupları** sekmesini ve ardından sahiplerine eklemek istediğiniz grubu açın.
+1. Merhaba, [Klasik Azure portalı](https://manage.windowsazure.com)seçin **Active Directory**ve ardından, kuruluşunuzun dizininde açın.
+2. Select hello **grupları** sekme ve tooadd sahiplerine istediğiniz sonra açık hello grup.
 3. Seçin **sahipleri eklemek**.
-4. Üzerinde **sahipleri eklemek** sayfasında, bu grubun sahibi olarak ekleyin ve bu ad eklendiğinden emin olun istediğiniz kullanıcıyı seçin **seçili** bölmesi.
+4. Merhaba üzerinde **sahipleri eklemek** sayfası, bu grubun hello sahibi olarak tooadd istediğiniz ve bu ad, toohello eklendiğinden emin olun select hello kullanıcı **seçili** bölmesi.
 
-**Bir sahip bir gruptan kaldırmak için**
+**tooremove bir gruptan sahibi**
 
-1. İçinde [Klasik Azure portalı](https://manage.windowsazure.com)seçin **Active Directory**ve ardından, kuruluşunuzun dizininde açın.
-2. Seçin **grupları** sekmesini ve ardından bir sahibinden kaldırmak istediğiniz grubu açın.
-3. Seçin **sahipleri** sekmesi.
-4. Bu gruptan kaldırın ve ardından istediğiniz sahibi seçin **kaldırmak**.
+1. Merhaba, [Klasik Azure portalı](https://manage.windowsazure.com)seçin **Active Directory**ve ardından, kuruluşunuzun dizininde açın.
+2. Select hello **grupları** sekmesini ve ardından açık hello Grup bir sahibinden tooremove istiyor.
+3. Select hello **sahipleri** sekmesi.
+4. Bu gruptan tooremove istediğiniz ve ardından select hello sahibi **kaldırmak**.
 
 ## <a name="additional-information"></a>Ek bilgiler
 Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
-* [Azure Active Directory grupları ile kaynaklara erişimi yönetme](active-directory-manage-groups.md)
+* [Azure Active Directory grupları ile erişim tooresources yönetme](active-directory-manage-groups.md)
 * [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 * [Azure Active Directory nedir?](active-directory-whatis.md)

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory B2C: oturum özel ilkelerinde değiştirmek ve kendini sağlayıcısı uygulanan yapılandırın"
-description: "Kaydolun ve kullanıcı girişini yapılandırmak bir kılavuz ekleme talepleri"
+description: "Ekleme bir kılavuz yukarı toosign talepleri ve hello kullanıcı girişi yapılandırın"
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
@@ -14,30 +14,30 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
 ms.author: joroja
-ms.openlocfilehash: 64b9d904d7d070052e125b479f4719d208c9ff85
-ms.sourcegitcommit: b0af2a2cf44101a1b1ff41bd2ad795eaef29612a
+ms.openlocfilehash: c31d737263fef3e771bdf451b809b0ca522c8fe0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: yeni talep eklemek ve kullanıcı girişi yapılandırmak için yukarı oturum değiştirin.
+# <a name="azure-active-directory-b2c-modify-sign-up-tooadd-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: tooadd yeni talep kaydolma değiştirin ve kullanıcı girişi yapılandırın.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Bu makalede, yeni bir kullanıcı tarafından sağlanan giriş (talep) kaydolma kullanıcı Yolculuğunuzun ekleyeceksiniz.  Giriş bir açılır liste yapılandırma yapar ve gerekli olduğunda tanımlayın.
+Bu makalede, yeni bir kullanıcı tarafından sağlanan girdi (talep) tooyour kaydolma kullanıcı gezisine ekleyeceksiniz.  Merhaba girişi bir açılır liste yapılandırma yapar ve gerekli olduğunda tanımlayın.
 
-Test iletimi tetiklemek için Sipi tarafından düzenlenebilir.
+Sipi tootrigger test iletimi tarafından düzenlenebilir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Makalesindeki adımları [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md).  Kaydolma devam etmeden önce yeni bir yerel hesap için kaydolma/oturum açma kullanıcı gezisine test edin.
+* Tam hello hello makaledeki adımları [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md).  Merhaba kaydolma/oturum açma kullanıcı gezisine toosignup devam etmeden önce yeni bir yerel hesap sınayın.
 
 
-İlk veri toplama, kullanıcılardan kaydolma/signın elde edilir.  Ek talepleri daha sonra Profil düzenleme kullanıcı Yolculuklar toplanabilir. Azure AD B2C doğrudan kullanıcıdan etkileşimli olarak toplayacağını zaman kimlik deneyimi çerçevesi kullanır, `selfasserted provider`. Bu sağlayıcı kullanılan herhangi bir zamanda aşağıdaki adımları uygulayın.
+İlk veri toplama, kullanıcılardan kaydolma/signın elde edilir.  Ek talepleri daha sonra Profil düzenleme kullanıcı Yolculuklar toplanabilir. Azure AD B2C doğrudan hello kullanıcıdan etkileşimli olarak toplayacağını zaman hello kimlik deneyimi Framework kullanan, `selfasserted provider`. Bu sağlayıcı kullanılan herhangi bir zamanda hello adımları uygulayın.
 
 
-## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>Talep, görünen adını ve kullanıcı giriş türünü tanımlayın
-Kendi şehrini kaldırmasını sağlar.  Aşağıdaki öğeyi ekleyin `<ClaimsSchema>` TrustFrameWorkExtensions ilke dosyası öğesinde:
+## <a name="define-hello-claim-its-display-name-and-hello-user-input-type"></a>Merhaba talep, görünen ad ve hello kullanıcı girişi türünü tanımlayın
+Kendi şehrini Hello kullanıcıya sor olanak sağlar.  Öğe toohello aşağıdaki hello eklemek `<ClaimsSchema>` hello TrustFrameWorkExtensions ilke dosyası öğesinde:
 
 ```xml
 <ClaimType Id="city">
@@ -47,13 +47,13 @@ Kendi şehrini kaldırmasını sağlar.  Aşağıdaki öğeyi ekleyin `<ClaimsSc
   <UserInputType>TextBox</UserInputType>
 </ClaimType>
 ```
-Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İçin tam bir şema, başvurmak **kimlik deneyimi Framework Teknik Başvuru Kılavuzu**.  Bu kılavuz başvuru bölümünde yakında yayımlanacaktır.
+Talep toocustomize hello burada yapabileceğiniz ek seçenekler vardır.  İçin tam bir şema, toohello başvuran **kimlik deneyimi Framework Teknik Başvuru Kılavuzu**.  Bu kılavuz, hello başvuru bölümünde yakında yayımlanacaktır.
 
-* `<DisplayName>`Kullanıcı dönük tanımlayan bir dize *etiketi*
+* `<DisplayName>`Merhaba kullanıcı dönük tanımlayan bir dize *etiketi*
 
-* `<UserHelpText>`gerekenden anlamasına yardımcı olur
+* `<UserHelpText>`gerekenden hello anlamasına yardımcı olur
 
-* `<UserInputType>`Aşağıdaki dört seçenekten aşağıda vurgulanan:
+* `<UserInputType>`Merhaba aşağıdaki dört seçenekten aşağıda vurgulanan:
     * `TextBox`
 ```xml
 <ClaimType Id="city">
@@ -78,7 +78,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect`-Yalnızca geçerli değer seçimine izin verir.
+    * `DropdownSingleSelect`-Yalnızca geçerli değer hello seçilmesine izin verir.
 
 ![Aşağı açılan seçeneği ekran görüntüsü](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
@@ -97,7 +97,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
 ```
 
 
-* `CheckboxMultiSelect`İçin bir veya daha fazla değer seçimine izin verir.
+* `CheckboxMultiSelect`İçin bir veya daha fazla değer Hello seçilmesine izin verir.
 
 ![Çoklu seçeneğinin ekran görüntüsü](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
@@ -115,9 +115,9 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
 </ClaimType>
 ```
 
-## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a>Oturum açma için talep ekleme yukarı/kullanıcı gezisine oturum
+## <a name="add-hello-claim-toohello-sign-upsign-in-user-journey"></a>Merhaba talep toohello oturum yukarı/kullanıcı gezisine ekleme
 
-1. Talep olarak ekleme bir `<OutputClaim ClaimTypeReferenceId="city"/>` TechnicalProfile için `LocalAccountSignUpWithLogonEmail` (TrustFrameworkBase ilke dosyasında bulunur).  Bu TechnicalProfile SelfAssertedAttributeProvider kullandığına dikkat edin.
+1. Merhaba talep olarak ekleme bir `<OutputClaim ClaimTypeReferenceId="city"/>` toohello TechnicalProfile `LocalAccountSignUpWithLogonEmail` (Merhaba TrustFrameworkBase ilke dosyasında bulunur).  Bu TechnicalProfile hello SelfAssertedAttributeProvider kullandığına dikkat edin.
 
   ```xml
   <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -142,7 +142,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
       <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
       <OutputClaim ClaimTypeReferenceId="authenticationSource" />
       <OutputClaim ClaimTypeReferenceId="newUser" />
-      <!-- Optional claims, to be collected from the user -->
+      <!-- Optional claims, toobe collected from hello user -->
       <OutputClaim ClaimTypeReferenceId="givenName" />
       <OutputClaim ClaimTypeReferenceId="surName" />
       <OutputClaim ClaimTypeReferenceId="city"/>
@@ -154,7 +154,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
   </TechnicalProfile>
   ```
 
-2. Talep AAD UserWriteUsingLogonEmail için ekleme bir `<PersistedClaim ClaimTypeReferenceId="city" />` kullanıcıdan topladıktan sonra talep AAD dizinine yazılacak. Dizinde talep gelecekte kullanım için kalıcı olmayan tercih ediyorsanız bu adımı atlayabilirsiniz.
+2. Merhaba talep toohello AAD UserWriteUsingLogonEmail olarak ekleme bir `<PersistedClaim ClaimTypeReferenceId="city" />` hello kullanıcıdan topladıktan sonra toowrite hello talep toohello bir AAD dizini. Değil toopersist hello talep hello dizininde ileride kullanılmak üzere tercih ederseniz, bu adımı atlayabilirsiniz.
 
   ```xml
   <!-- Technical profiles for local accounts -->
@@ -190,14 +190,14 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
   </TechnicalProfile>
   ```
 
-3. Farklı bir kullanıcı oturum açtığında, dizinden okuma TechnicalProfile için talep ekleme bir`<OutputClaim ClaimTypeReferenceId="city" />`
+3. Merhaba talep toohello hello dizininden olarak bir kullanıcı oturum açtığında okuyan TechnicalProfile eklemek bir`<OutputClaim ClaimTypeReferenceId="city" />`
 
   ```xml
   <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
     <Metadata>
       <Item Key="Operation">Read</Item>
       <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
+      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for hello provided user ID.</Item>
     </Metadata>
     <IncludeInSso>false</IncludeInSso>
     <InputClaims>
@@ -218,7 +218,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
   </TechnicalProfile>
   ```
 
-4. Ekleme `<OutputClaim ClaimTypeReferenceId="city" />` bu talep belirteci başarılı kullanıcı gezisine sonra uygulama gönderilir şekilde RP ilkeyi SignUporSignIn.xml dosya.
+4. Merhaba eklemek `<OutputClaim ClaimTypeReferenceId="city" />` toohello RP ilke dosyası bu talep başarılı kullanıcı gezisine sonra hello belirteçte toohello uygulama gönderilen şekilde SignUporSignIn.xml.
 
   ```xml
   <RelyingParty>
@@ -240,17 +240,17 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
   </RelyingParty>
   ```
 
-## <a name="test-the-custom-policy-using-run-now"></a>"Şimdi Çalıştır" kullanarak özel ilkeyi test etme
+## <a name="test-hello-custom-policy-using-run-now"></a>"Şimdi Çalıştır" kullanarak test hello özel İlkesi
 
-1. Açık **Azure AD B2C dikey** gidin **kimlik deneyimi Framework > özel ilkeleri**.
-2. Karşıya yüklenen ve'ı tıklatın özel ilkeyi seçin **Şimdi Çalıştır** düğmesi.
-3. Bir e-posta adresi kullanarak kaydolabilirsiniz olması gerekir.
+1. Açık hello **Azure AD B2C dikey** ve çok gidin**kimlik deneyimi Framework > özel ilkeleri**.
+2. Karşıya yüklediğiniz hello özel ilkesini seçin ve hello tıklayın **Şimdi Çalıştır** düğmesi.
+3. Bir e-posta adresi kullanarak yukarı mümkün toosign olmalıdır.
 
-Test modunda kaydolma ekran şuna benzer görünmelidir:
+test modunda Hello kaydolma ekran benzer toothis görünmelidir:
 
 ![Değiştirilen kayıt seçeneğinin ekran görüntüsü](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  Belirtece uygulamanız şimdi içerecektir `city` aşağıda gösterildiği gibi talep
+  Merhaba belirteci geri tooyour uygulama artık hello içerecektir `city` aşağıda gösterildiği gibi talep
 ```json
 {
   "exp": 1493596822,
@@ -273,16 +273,16 @@ Test modunda kaydolma ekran şuna benzer görünmelidir:
 
 ## <a name="optional-remove-email-verification-from-signup-journey"></a>İsteğe bağlı: Kaydolma gezisine gelen Kaldır e-posta doğrulama
 
-E-posta doğrulama atlamak için ilke Yazar kaldırmayı seçebilirsiniz `PartnerClaimType="Verified.Email"`. E-posta adresi gerekli ancak, "Gerekli olmadıkça" doğrulanmadı = true kaldırılır.  Bu seçenek, kullanım durumları için uygun olup olmadığını dikkatlice!
+tooskip e-posta doğrulama hello İlkesi Yazar tooremove seçebilirsiniz `PartnerClaimType="Verified.Email"`. Merhaba e-posta adresi gerekli ancak, "Gerekli olmadıkça" doğrulanmadı = true kaldırılır.  Bu seçenek, kullanım durumları için uygun olup olmadığını dikkatlice!
 
-E-posta, varsayılan olarak etkindir doğrulandı `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` başlangıç paketi TrustFrameworkBase ilke dosyasında:
+E-posta hello varsayılan olarak etkindir doğrulandı `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` hello TrustFrameworkBase ilke dosyasında hello başlangıç paketi:
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Akışlar için yeni talep sosyal hesap oturum açma, aşağıda listelenen TechnicalProfiles değiştirerek ekleyin. Kullanıcı verileri Bulucu alternativeSecurityId kullanarak okuyup yazmak için bunlar sosyal ve Federasyon hesap oturumu açma tarafından kullanılır.
+Merhaba yeni talep toohello akışları sosyal hesap oturum açma TechnicalProfiles aşağıda listelenen hello değiştirerek ekleyin. Bunlar sosyal ve Federasyon hesap oturumu açma toowrite tarafından kullanılan ve Bulucu hello gibi hello alternativeSecurityId kullanılarak hello kullanıcı verilerini okuyun.
 ```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

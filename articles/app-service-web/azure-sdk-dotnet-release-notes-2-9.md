@@ -1,5 +1,5 @@
 ---
-title: ".NET 2.9 için Azure SDK sürüm notları"
+title: "aaaAzure SDK .NET 2.9 sürüm notları"
 description: ".NET 2.9 için Azure SDK sürüm notları"
 services: app-service\web
 documentationcenter: .net
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 199f0906f73d693d7cd4b73c928f23ae83b99596
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 96df2b80224190cc2093e6bf350eaec224ac2e98
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>.NET 2.9 için Azure SDK sürüm notları
 
@@ -27,25 +27,25 @@ Bu konu için .NET 2.9 ve Azure SDK'sının 2.9.6 sürümleri için sürüm notl
 
 Yayın Tarihi: 11/16/2016
  
-Bu sürümde hiçbir önemli değişiklikler için Azure SDK 2.9 tanıtılmıştır. Bu SDK mevcut bulut hizmeti projeleri ile yararlanmak için gereken yükseltme hiçbir işlem yok.
+Hiçbir en son değişiklikleri toohello Azure SDK 2.9 sunulan bu sürümde. Bu SDK mevcut bulut hizmeti projeleri ile de hiçbir gereken yükseltme işlemi tooleverage yoktur.
 
 ### <a name="visual-studio-2017-release-candidate"></a>Visual Studio 2017 Sürüm Adayı
 
-- Visual Studio 2017 RC'de bu Azure SDK'sı sürüm .NET için Azure yükündeki yerleşik olarak bulunur. Azure geliştirme yapmak için ihtiyacınız olan araçları, Visual Studio 2017 RC ileriye dönük bir parçası olur. Visual Studio 2015 ve Visual Studio 2013 için SDK Webpı kullanılabilir olmaya devam eder. Visual Studio 2017 son bir ürün olarak bıraktığında biz Azure SDK'sı .NET sürümleri için Visual Studio 2013 için sona erdirme. Visual Studio 2017 RC indirmek için bu bağlantıyı izleyin: https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- Visual Studio 2017 RC'de bu hello Azure SDK'sı sürüm .NET için Azure iş yükü hello yerleşik olarak bulunur. Toodo Azure geliştirme gereken tüm hello araçları Visual Studio 2017 RC ileriye dönük bir parçası olur. Visual Studio 2015 ve Visual Studio 2013 için hello SDK Webpı kullanılabilir olmaya devam eder. Visual Studio 2017 son bir ürün olarak bıraktığında biz Azure SDK'sı .NET sürümleri için Visual Studio 2013 için sona erdirme. Bu bağlantıyı toodownload Visual Studio 2017 RC izleyin: https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### <a name="azure-diagnostics"></a>Azure Tanılama
 
-- Yalnızca bulut Hizmetleri tanılama depolama bağlantı dizesi için bir belirteç değiştirilmiştir anahtarla bir kısmi bağlantı dizesi depolamak için kullanılacak davranışı değişti. Kendi erişim denetlenebilir için gerçek depolama anahtarı artık kullanıcı profili klasöründe depolanır. Visual Studio yerel hata ayıklama ve yayımlama işlemi için kullanıcı profili klasöründen depolama anahtarı okur. 
-- Kullanıcıların Azure'da sürekli tümleştirme ve dağıtım için yayımlarken tanılama uzantısını ayarlamak için depolama anahtarı belirtebilirsiniz şekilde yukarıda açıklanan değişikliğe yanıt olarak, Visual Studio Online ekibi Azure Cloud Services Dağıtımı görev şablonu geliştirilmiştir.
-- Bu güvenli bağlantı dizesini ve simgeleştirme için Azure tanılama (arasında environements yapılandırmasındaki sorunları gidermenize yardımcı olacak WAD), depolanmasını mümkün yaptık.
+- Değiştirilen hello davranışı tooonly bulut Hizmetleri tanılama depolama bağlantı dizesi için bir belirteç değiştirilmiştir hello anahtarla bir kısmi bağlantı dizesi depolar. kendi erişim denetlenebilir şekilde hello gerçek depolama anahtarı artık hello kullanıcı profili klasöründe depolanır. Visual Studio yerel hata ayıklama ve yayımlama işlemi için kullanıcı profili klasöründen hello depolama anahtarı okur. 
+- Yanıt toohello değişiklik yukarıda açıklanan Visual Studio Online ekip Gelişmiş hello Azure Cloud Services Dağıtımı görev şablonu kullanıcılar tooAzure içinde sürekli tümleştirme yayımlarken tanılama uzantısını ayarlamak için hello depolama anahtarı belirtebilirsiniz şekilde ve dağıtım.
+- Bu olası toostore güvenli bağlantı dizesi ve simgeleştirme için Azure tanılama (WAD), environements arasında yapılandırma sorunlarını çözmek toohelp yaptık.
  
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 sanal makineler
 
-- Visual Studio artık işletim sistemi ailesi 5 (Windows Server 2016) sanal makineler için bulut Hizmetleri dağıtma destekler. Mevcut bulut hizmetlerini yeni işletim sistemi ailesi hedeflemek için ayarlarınızı değiştirebilirsiniz. .Net 4.6 ya da daha yüksek kullanarak hizmet oluşturmayı seçerseniz yeni bulut Hizmetleri, oluştururken, varsayılan olarak işletim sistemi ailesi 5 kullanmak için hizmet alır.  Daha fazla bilgi için gözden geçirebilirsiniz [konuk işletim sistemi ailesi destek tablo](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+- Visual Studio şimdi dağıtma bulut Hizmetleri tooOS ailesi 5 (Windows Server 2016) sanal makineleri destekler. Mevcut bulut hizmetlerini ayarları tootarget değiştirebilirsiniz yeni işletim sistemi ailesi hello. .Net 4.6 ya da daha yüksek kullanarak toocreate hello hizmet seçerseniz yeni bulut Hizmetleri, oluştururken, varsayılan olarak hello hizmet toouse işletim sistemi ailesi 5 alır.  Daha fazla bilgi için hello gözden geçirebilirsiniz [konuk işletim sistemi ailesi destek tablo](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
 
 #### <a name="known-issues"></a>Bilinen sorunlar
 
-- Azure .NET SDK 2.9.6 sunulan tüm işletim sistemi ailesi desteklenmeyen .NET Framework (örneğin, .NET 4.6) kullanarak projeleri dağıtılmasını engelleyen bir kısıtlama < 5. Geçici bir çözüm sağlanmaktadır [burada](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
+- Azure .NET SDK 2.9.6 sunulan desteklenmeyen .NET çerçeveleri (örneğin, .NET 4.6) tooany işletim sistemi ailesi kullanarak projeleri dağıtılmasını engelleyen bir kısıtlama < 5. Geçici bir çözüm sağlanmaktadır [burada](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
  
 ### <a name="azure-in-role-cache"></a>Azure rol içi önbellek 
@@ -60,27 +60,27 @@ Bu sürümde hiçbir önemli değişiklikler için Azure SDK 2.9 tanıtılmışt
 ## <a name="azure-sdk-for-net-29-summary"></a>.NET 2.9 özeti için Azure SDK'sı
 
 ## <a name="overview"></a>Genel Bakış
-Bu belge, .NET 2.9 yayın için Azure SDK'sı için sürüm notlarını içermektedir. 
+Bu belge .NET 2.9 yayımı için Azure SDK'sı hello hello sürüm notları içeriyor. 
 
-Bu sürümde güncelleştirmeler hakkında ayrıntılı bilgi için bkz: [Azure SDK 2.9 duyuru post](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/).
+Merhaba bu sürümde güncelleştirmeler hakkında ayrıntılı bilgi için bkz [Azure SDK 2.9 duyuru post](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/).
 
 ## <a name="azure-sdk-29-for-visual-studio-2015-update-2-and-visual-studio-15-preview"></a>Visual Studio 2015 güncelleştirme 2 ve Visual Studio "15" için Azure SDK 2.9 Önizleme
-Bu güncelleştirme aşağıdaki hata düzeltmeleri içerir:
+Bu güncelleştirme, aşağıdaki hata düzeltmeleri hello içerir:
 
-* REST API İstemci oluşturma ile ilgili sorun "Bilinmeyen türü" dize kod gen klasörün adını ve/veya ad alanı görüneceği oluşturulan koda bırakıldı.
-* Hangi kimlik doğrulama bilgilerini sağlama işlemi Zamanlayıcı geçirilmesi başarısız Web işleri zamanlanmış ilgili bir sorun.
+* İlgili tooREST API İstemci oluşturma sorunu içinde hangi hello dizesinde "Bilinmeyen tür" Merhaba hello kod gen klasörün adını ve/veya oluşturulan hello koda bırakılan hello ad hello adı olarak görünür.
+* İlgili tooScheduled WebJobs hangi hello toohello Zamanlayıcı sağlama işlemini geçirilen toobe başarısız kimlik doğrulama bilgilerini verin.
 
-Bu güncelleştirme aşağıdaki yeni özellik içerir:
+Bu güncelleştirme, yeni bir özellik aşağıdaki hello içerir:
 
-* Uygulama hizmeti sağlama iletişim "Hizmetler" sekmesinde ikincil uygulama hizmetleri için destek. 
+* Uygulama hizmeti sağlama iletişim hello hello "Hizmetler" sekmesinde ikincil uygulama hizmetleri için destek. 
 
 ## <a name="azure-data-lake-tools-for-visual-studio-2015-update-2"></a>Visual Studio 2015 güncelleştirme 2 için Azure Data Lake araçları
-Bu güncelleştirmeler şunları içerir:
+Bu güncelleştirmeleri hello aşağıdakileri içerir:
 
-* **Azure Data Lake Araçları** için Visual Studio şimdi .NET sürüm için Azure SDK'sı içine birleştirilir. Azure SDK'yı yüklediğinizde aracı otomatik olarak yüklenir. 
+* **Azure Data Lake Araçları** için Visual Studio şimdi .NET sürüm için Azure SDK'sı hello içine birleştirilir. Azure SDK'yı yüklediğinizde hello aracı otomatik olarak yüklenir. 
   
-    Aracı sık sık güncelleştirilen, Git [burada](http://aka.ms/datalaketool) güncelleştirmeleri almak için.
-* **Sunucu Gezgini** şimdi tüm görüntülemek ve bazı U-SQL meta veri varlıklarını oluşturmanıza olanak sağlar. Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/documentation/services/data-lake-analytics/) blogu.
+    Merhaba aracı sık güncelleştirilen, Git [burada](http://aka.ms/datalaketool) tooget hello güncelleştirmeler.
+* **Sunucu Gezgini** şimdi tooview tüm sağlar ve bazı U-SQL meta verileri varlıklar oluşturun. Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/documentation/services/data-lake-analytics/) blogu.
 
 ## <a name="hdinsight-tools"></a>Hdınsight araçları
 **Hdınsight Araçları** destekler Hdınsight sürüm 3.3 Tez grafiklerinde ve başka bir dilde gösteren dahil olmak üzere, düzeltmeleri şimdi Visual Studio için.

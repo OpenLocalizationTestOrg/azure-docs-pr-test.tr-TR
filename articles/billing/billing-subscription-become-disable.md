@@ -1,6 +1,6 @@
 ---
-title: "Yeniden etkinleştirme Azure aboneliği devre dışı | Microsoft Docs"
-description: "Ne zaman devre dışı bir Azure aboneliğine sahip ve onu yeniden etkinleştirmeyi açıklar."
+title: "aaaReactivate Azure aboneliği devre dışı | Microsoft Docs"
+description: "Devre dışı bir Azure aboneliğine sahip ne zaman ve nasıl açıklar tooreactivate onu."
 keywords: "azure aboneliği devre dışı"
 services: 
 documentationcenter: 
@@ -16,51 +16,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
-ms.openlocfilehash: 0603786292cf29c2eff60bbc90a72c9cd1ea2860
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c9712304dd25431a7b66a33a2c5816f1547cfee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Neden Azure Aboneliğim devre dışı bırakıldı ve nasıl yeniden?
-Azure aboneliğiniz harcama limitinize ulaştığınız için devre dışı olması, süresi geçmiş bir fatura sahip, kredi kartı sınırına veya aboneliğin Hesap Yöneticisi tarafından iptal edildi. Bkz. hangi sorunu için geçerlidir ve aboneliğinizi yeniden almak için bu makaledeki adımları izleyin.
+Azure aboneliğiniz harcama limitinize ulaştığınız için devre dışı olması, süresi geçmiş bir fatura sahip, kredi kartı sınırına veya hello abonelik hello Hesap Yöneticisi tarafından iptal edildi. Hangi sorunu tooyou geçerli görmek ve aboneliğinizi yeniden Bu makale tooget hello adımları izleyin.
 
 ## <a name="you-reached-your-spending-limit"></a>Harcama limitine ulaşıldı
-Aboneliğinizle dahil edilen aylık tutarlarının kullanımınızı tükettiğinde olduğunda, o faturalama ayına kalanı için hizmet devre dışı bırakırız. Hizmet aboneliğinizde yer alan miktarını ötesinde kullanım ücretleri yanlışlıkla yansıtılmasını korumak için devre dışıdır. Harcama sınırını kaldırmak ve [uyarılar, Microsoft Azure abonelikleri için ödeme yukarı ayarlamak](billing-set-up-alerts.md) izlemek ve Azure hesaplarınız için fatura etkinlik yönetmenize yardımcı olacak.
+Aboneliğinizle dahil hello aylık tutarlarının kullanımınızı tükettiğinde, hizmetiniz o faturalama ayına hello kalanı için devre dışı bırakırız. Hizmetinizi yanlışlıkla kullanım için ücretlerinin yansıtılmasını sizden dahil tutarını aboneliğinizle hello devre dışı tooprotect ' dir. Harcama sınırı hello kaldırabilirsiniz ve [uyarılar, Microsoft Azure abonelikleri için ödeme yukarı ayarlamak](billing-set-up-alerts.md) izlemek ve fatura etkinlik, Azure hesaplarını yönetme toohelp.
 
-Harcama limitinizi kaldırmak için
+tooremove, harcama sınırını,
 
-1. Oturum [Azure hesap Merkezi](https://account.windowsazure.com/Home/Index).
+1. İçinde toohello oturum [Azure hesap Merkezi](https://account.windowsazure.com/Home/Index).
 2. Tıklatın **abonelikleri**.
 3. Bir abonelik seçin.
-4. Tıklatın **abonelik harcama sınırına ulaştı ve Ücret oluşmasını önlemek için devre dışı bırakılmış**.
+4. Tıklatın **ulaşıldı aboneliğiniz harcama sınırı hello ve devre dışı tooprevent ücretleri bırakıldı**.
 
-    Bu seçeneği görmüyorsanız, tıklatın **harcama sınırı Kaldır** Abonelikteki **durum** alanı.
-5. Aşağıdaki seçeneklerden birini seçin:
+    Bu seçeneği görmüyorsanız, tıklatın **harcama sınırı Kaldır** hello Abonelikteki **durum** alanı.
+5. Seçenekler aşağıdaki hello birini seçin:
 
 | Seçenek | Etki |
 | --- | --- |
-| Harcama limitini süresiz olarak kaldırma |Yeniden açmak kadar harcama sınırını kaldırır. |
-| Geçerli fatura dönemi için harcama limitini kaldırma |Harcama sınırını ancak harcama sınırını yeniden başlatıldıktan sonraki fatura döneminde kaldırır. |
+| Harcama limitini süresiz olarak kaldırma |Merhaba, yeniden açmak kadar harcama sınırı kaldırır. |
+| Merhaba geçerli fatura dönemi için harcama limitini kaldırın |Harcama sınırı hello ancak sınırı yeniden başlatmalar için hello sonraki fatura döneminde harcama hello kaldırır. |
 
-Ücretsiz deneme aboneliği varsa ve harcama sınırı kaldırmak, aboneliğinizi Kullandıkça Öde ücretsiz deneme sonunda dönüştürür.
+Ücretsiz deneme aboneliği varsa ve harcama limitlerini hello kaldırmak, aboneliğinizi tooPay olarak-size-Git hello ücretsiz deneme hello sonunda dönüştürür.
 
 ## <a name="your-bill-is-past-due"></a>Faturanızı geçmişe ait
-Bekleyen bakiyeniz tam olarak ücret ödersiniz. Makalesine bakın [neden aldığınız Azure aboneliğiniz geçmiş sahip bir bildirim son Bakiye?](billing-azure-subscription-past-due-balance.md#how-to-resolve-the-issue)
+Bekleyen bakiyeniz tam olarak ücret ödersiniz. Merhaba makalesine bakın [neden aldığınız Azure aboneliğiniz geçmiş sahip bir bildirim son Bakiye?](billing-azure-subscription-past-due-balance.md#how-to-resolve-the-issue)
 
-## <a name="the-bill-exceeds-your-credit-card-limit"></a>Fatura kredi kartı sınırınızı aşıyor
-Bu sorunu çözmek için [geçiş için farklı bir kredi kartı](billing-how-to-change-credit-card.md). Veya bir iş temsil eden, [fatura ile ödeme anahtar](https://azure.microsoft.com/pricing/invoicing/).
+## <a name="hello-bill-exceeds-your-credit-card-limit"></a>Merhaba fatura kredi kartı sınırınızı aşıyor
+tooresolve Bu sorun, [anahtar tooa farklı kredi kartı](billing-how-to-change-credit-card.md). Veya bir iş temsil eden, [toopay fatura ile geçiş](https://azure.microsoft.com/pricing/invoicing/).
 
-## <a name="the-subscription-was-canceled-by-the-account-administrator"></a>Aboneliğin Hesap Yöneticisi tarafından iptal edildi
-Hesap Yöneticisi değilseniz, Kullandıkça Öde aboneliğine aşağıdaki adımları kullanarak yeniden etkinleştirin:
+## <a name="hello-subscription-was-canceled-by-hello-account-administrator"></a>Merhaba abonelik hello Hesap Yöneticisi tarafından iptal edildi
+Merhaba hesabı yönetici değilseniz, Kullandıkça Öde aboneliğine hello aşağıdaki adımları kullanarak yeniden etkinleştirin:
 
-1. Oturum [Azure hesap Merkezi](https://account.windowsazure.com/Home/Index).
-2. İptal edilen aboneliği seçin.
+1. İçinde toohello oturum [Azure hesap Merkezi](https://account.windowsazure.com/Home/Index).
+2. Select hello aboneliği iptal edildi.
 3. Tıklatın **yeniden**.
 
-![Sağ bölmede bağlantıları gösteren ekran görüntüsü yeniden etkinleştirin.](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+![Gösteren ekran görüntüsü hello Sağdaki bölmede bağlantılar yeniden etkinleştirin.](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
-Diğer abonelik türleri [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) aboneliğinizi yeniden üzere.
+Diğer abonelik türleri [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) aboneliğinizi yeniden toohave.
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
-Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorunu Çözümlendi hızla tooget.

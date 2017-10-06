@@ -1,5 +1,5 @@
 ---
-title: "Otomatik ölçeklendirme ve uygulama hizmeti ortamı v1"
+title: "aaaAutoscaling ve uygulama hizmeti ortamı v1"
 description: "Otomatik ölçeklendirme ve uygulama hizmeti ortamı"
 services: app-service
 documentationcenter: 
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: f32affd285f3918feb0e893543f2a28f678b7b10
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1a03cf494309e80596b64471d1a067b2f64a9fee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Otomatik ölçeklendirme ve uygulama hizmeti ortamı v1
 
 > [!NOTE]
-> Bu makale hakkında uygulama hizmeti ortamı v1 yazılmıştır.  Uygulama hizmeti ortamı kullanmak daha kolay ve daha güçlü altyapısı üzerinde çalışan daha yeni bir sürümü var. Yeni sürüm Başlarken hakkında daha fazla bilgi edinmek için [uygulama hizmeti ortamı giriş](../app-service/app-service-environment/intro.md).
+> Uygulama hizmeti ortamı v1 hello hakkında makaledir.  Merhaba, daha kolay toouse ve daha güçlü altyapısı üzerinde çalışan uygulama hizmeti ortamı'nın daha yeni bir sürümü var. Merhaba yeni sürümü hakkında daha fazla ile Merhaba Başlat toolearn [giriş toohello uygulama hizmeti ortamı](../app-service/app-service-environment/intro.md).
 > 
 
 Azure uygulama hizmeti ortamları desteği *otomatik ölçeklendirmeyi*. Ölçümleri veya zamanlamaya göre otomatik ölçeklendirme ayrı ayrı çalışan havuzlarını kullanabilirsiniz.
 
 ![Bir çalışan havuzu için otomatik ölçeklendirme seçenekleri.][intro]
 
-Otomatik ölçeklendirmeyi kaynak kullanımını otomatik olarak büyüyen ve bütçenizi sığacak ve veya yük profili için bir uygulama hizmeti ortamı küçültme en iyi duruma getirir.
+Otomatik ölçeklendirmeyi kaynak kullanımını otomatik olarak büyüyen ve bir uygulama hizmeti ortamı toofit küçültme bütçe ve/veya yük profilinizi en iyi duruma getirir.
 
 ## <a name="configure-worker-pool-autoscale"></a>Çalışan havuzu otomatik ölçeklendirme yapılandırın
-Otomatik ölçeklendirme işlevinden erişebilirsiniz **ayarları** çalışan havuzunda sekmesinde.
+Merhaba otomatik ölçeklendirme işlevleri hello erişebilirsiniz **ayarları** hello çalışan havuzunda sekmesinde.
 
-![Çalışan havuzunda Ayarlar sekmesinde.][settings-scale]
+![Ayarlar sekmesinde hello çalışan havuzu.][settings-scale]
 
-Buradan, arabirim olmalıdır ne zaman bir uygulama hizmeti planı ölçeklendirmek gördüğünüz aynı bu yana oldukça tanıdık deneyimidir. 
+Buradan, hello arabirimi olmalıdır ne zaman bir uygulama hizmeti ölçeklendirmek gördüğünüz aynı deneyimi planlama hello bu yana oldukça alışkın olduğu. 
 
 ![El ile ölçek ayarları.][scale-manual]
 
@@ -45,25 +45,25 @@ Bir otomatik ölçeklendirme profili de yapılandırabilirsiniz.
 
 ![Otomatik ölçeklendirme ayarları.][scale-profile]
 
-Otomatik ölçeklendirme profilleri, Ölçek sınırlarını ayarlamak yararlıdır. Bu şekilde, bir alt sınır ölçek değeri (1) ve tahmin edilebilir harcama cap bir üst sınır (2) ayarlayarak ayarlayarak deneyimi tutarlı bir performans olabilir.
+Otomatik ölçeklendirme profili, ölçekte yararlı tooset kısıtlamalardır. Bu şekilde, bir alt sınır ölçek değeri (1) ve tahmin edilebilir harcama cap bir üst sınır (2) ayarlayarak ayarlayarak deneyimi tutarlı bir performans olabilir.
 
 ![Ölçek ayarları profilinde.][scale-profile2]
 
-Bir profili tanımladıktan sonra Yukarı veya aşağı profili tarafından tanımlanan sınırları içinde çalışan havuzunda örneklerinin sayısını ölçeklendirmek için otomatik ölçeklendirme kuralı ekleyebilirsiniz. Otomatik ölçeklendirme kurallarını ölçümleri temel alır.
+Bir profili tanımladıktan sonra otomatik ölçeklendirme kurallarını tooscale yukarı veya aşağı hello sayısının hello çalışan havuzunda hello profiliyle tanımlanan hello sınırları içinde ekleyebilirsiniz. Otomatik ölçeklendirme kurallarını ölçümleri temel alır.
 
 ![Ölçek kuralı.][scale-rule]
 
- Herhangi bir çalışan havuzu veya ön uç ölçümleri, otomatik ölçeklendirme kurallarını tanımlamak için kullanılabilir. Bu ölçümler kaynak dikey grafiklerde izlemek ya da uyarılar için aynı ölçümleridir.
+ Herhangi bir çalışan havuzu veya ön uç ölçümleri kullanılan toodefine otomatik ölçeklendirme kurallarını olabilir. Bu ölçümler aynı ölçümleri hello kaynak dikey grafiklerde izlemek veya ayarlamak için uyarıları hello ' dir.
 
 ## <a name="autoscale-example"></a>Otomatik ölçeklendirme örneği
 Otomatik ölçeklendirme bir uygulama hizmeti ortamında en iyi bir senaryo adım adım ilerlemenizi sağlayarak gösterilebilir.
 
-Otomatik ölçeklendirme ayarladığınızda, bu makalede gerekli tüm konuları açıklanmaktadır. Makale, uygulama hizmeti ortamı'nda barındırılan uygulama hizmeti ortamları otomatik ölçeklendirmeyi içinde faktörü yükleyen oyuna gelen etkileşimler açıklanmaktadır.
+Otomatik ölçeklendirme ayarladığınızda, bu makalede tüm hello gerekli konuları açıklanmaktadır. Merhaba makale, uygulama hizmeti ortamı'nda barındırılan uygulama hizmeti ortamları otomatik ölçeklendirmeyi içinde faktörü olduğunda içine gelen etkileşimleri yürütmek hello açıklanmaktadır.
 
 ### <a name="scenario-introduction"></a>Senaryo giriş
-Frank bir kısmı kendisi yönetir iş yükleri için uygulama hizmeti ortamı geçirildiğini bir kuruluş için bir sysadmin ' dir.
+Frank kendisinin tooan uygulama hizmeti ortamı yönetir hello iş yükleri bir kısmı geçirildiğini bir kuruluş için bir sysadmin ' dir.
 
-Uygulama hizmeti ortamı için el ile ölçek aşağıdaki gibi yapılandırılır:
+Merhaba uygulama hizmeti ortamı toomanual ölçek aşağıdaki gibi yapılandırılmış:
 
 * **Ön Uçları:** 3
 * **Çalışan havuzunda 1**: 10
@@ -72,9 +72,9 @@ Uygulama hizmeti ortamı için el ile ölçek aşağıdaki gibi yapılandırıl�
 
 Çalışan havuzunda 2 ve 3 çalışan havuzunda kalite güvence (QA) ve geliştirme iş yükleri için kullanılan sırasında çalışan havuzu 1 üretim iş yükleri için kullanılır.
 
-Uygulama hizmeti planları QA ve geliştirme için el ile ölçeklendirme için yapılandırılır. Uygulama hizmeti planı üretim için otomatik ölçeklendirme yükünü ve trafik Çeşitlemeler uğraşmanız ayarlanır.
+QA ve geliştirme için hello App Service planlarına toomanual ölçek yapılandırıldı. Merhaba üretim uygulama hizmeti planı yükünü ve trafik tooautoscale toodeal Çeşitlemeler ile ayarlanır.
 
-Frank uygulama ile bilgili ' dir. Ki, bu çalışanlar ofiste oldukları sırada kullanan bir satır iş kolu (LOB) uygulaması olduğundan yük için yoğun saatler 9: 00'da ve 6:00 arasında olduğunu bilir. Kullanıcılar o gün için bittiğinde kullanım bundan sonra bırakır. Yoğun saatler dışında yoktur hala bazı yük kullanıcıların uygulamayı uzaktan kendi mobil aygıtlar veya ev bilgisayarları kullanarak erişebildiğinden. Uygulama hizmeti planı üretim aşağıdaki kurallar ile CPU kullanımına bağlı olarak otomatik ölçeklendirme için zaten yapılandırıldı:
+Frank hello uygulamayla bilgili ' dir. Ki bu çalışanların hello ofiste oldukları sırada kullanan bir satır iş kolu (LOB) uygulaması olduğundan hello yoğun saatler yük 9: 00'da ve 6:00 arasında olduğunu bilir. Kullanıcılar o gün için bittiğinde kullanım bundan sonra bırakır. Yoğun saatler dışında yoktur hala bazı yük kullanıcılar hello uygulama uzaktan kendi mobil aygıtlar veya ev bilgisayarları kullanarak erişebildiğinden. Uygulama hizmeti planı zaten hello üretim kuralları aşağıdaki hello ile CPU kullanımı dikkate alarak tooautoscale yapılandırılmış:
 
 ![LOB uygulaması için özel ayarlar.][asp-scale]
 
@@ -84,7 +84,7 @@ Frank uygulama ile bilgili ' dir. Ki, bu çalışanlar ofiste oldukları sırada
 | **Ölçek tarafından:** zamanlama ve performans kuralları |**Ölçek tarafından:** zamanlama ve performans kuralları |
 | **Profil:** haftanın günü |**Profil:** hafta sonu |
 | **Tür:** yineleme |**Tür:** yineleme |
-| **Hedef aralık:** 5-20 örnekleri |**Hedef aralık:** 3-10 örnekleri |
+| **Hedef aralık:** 5 too20 örnekleri |**Hedef aralık:** 3 too10 örnekleri |
 | **Gün sayısı:** Pazartesi, Salı, Çarşamba, Perşembe, Cuma |**Gün sayısı:** Cumartesi, Pazar |
 | **Başlangıç zamanı:** 09:00:00 |**Başlangıç zamanı:** 09:00:00 |
 | **Saat dilimi:** UTC-08 |**Saat dilimi:** UTC-08 |
@@ -108,44 +108,44 @@ Frank uygulama ile bilgili ' dir. Ki, bu çalışanlar ofiste oldukları sırada
 | **(Dakika) basılı güzel:** 20 |**(Dakika) basılı güzel:** 10 |
 
 ### <a name="app-service-plan-inflation-rate"></a>Uygulama hizmeti plan Enflasyon oranı
-Saat başına en yüksek bir hızda yapılandırılmış olan uygulama hizmeti planları otomatik ölçeklendirme için bunu yapın. Bu oran tabanlı otomatik ölçeklendirme kuralı sağlanan değerlere hesaplanabilir.
+Saat başına en yüksek bir hızda yapılandırılmış tooautoscale olan uygulama hizmeti planları bunu yapar. Bu oran tabanlı hello otomatik ölçeklendirme kuralı sağlanan hello değerlere hesaplanabilir.
 
-Anlama ve hesaplama *uygulama hizmeti plan Enflasyon oranı* çalışan havuzunda ölçeği değişiklikler anlık olmadığından uygulama hizmeti ortamı ölçeklendirme için önemlidir.
+Anlama ve hesaplama hello *uygulama hizmeti plan Enflasyon oranı* ölçek değişiklikleri tooa çalışan havuzu olmadığından anlık uygulama hizmeti ortamı ölçeklendirme için önemlidir.
 
-Uygulama hizmeti plan Enflasyon oranı aşağıdaki gibi hesaplanır:
+Uygulama hizmeti plan Enflasyon oranı Hello aşağıdaki gibi hesaplanır:
 
 ![Uygulama hizmeti planı Enflasyon oranı hesaplama.][ASP-Inflation]
 
-Otomatik ölçeklendirme – ölçeği Artır kural uygulama hizmeti planı üretim haftanın günü profili için temel:
+Merhaba otomatik ölçeklendirme – ölçeği Artır kural hello haftanın günü profili hello üretim uygulama hizmeti planı için temel:
 
 ![Otomatik ölçeklendirme üzerinde – ölçeği Artır kural tabanlı haftanın günü için uygulama hizmeti planı Enflasyon oranı.][Equation1]
 
-Otomatik ölçeklendirme – ölçeği Artır kural uygulama hizmeti planı, üretim hafta sonu profili için söz konusu olduğunda formülü çözümlenmesi:
+Hello otomatik ölçeklendirme – ölçeği Artır hello hafta sonu profili hello üretim uygulama hizmeti planı için kuralı hello durumda hello formülü çözümlenmesi:
 
 ![Otomatik ölçeklendirme üzerinde – ölçeği Artır kural tabanlı hafta sonları için uygulama hizmeti planı Enflasyon oranı.][Equation2]
 
 Bu değer de ölçek azaltma işlemleri için hesaplanabilir.
 
-Otomatik ölçeklendirme – ölçek aşağı kural uygulama hizmeti planı, üretim haftanın günü profili için temel bunu şu şekilde görünür:
+Merhaba otomatik ölçeklendirme – ölçek aşağı hello haftanın günü profili hello üretim uygulama hizmeti planı için kuralı göre bunu şu şekilde görünür:
 
 ![Otomatik ölçeklendirme üzerinde – ölçek aşağı kural tabanlı haftanın günü için uygulama hizmeti planı Enflasyon oranı.][Equation3]
 
-Otomatik ölçeklendirme – ölçek aşağı kural uygulama hizmeti planı, üretim hafta sonu profili için söz konusu olduğunda formülü çözümlenmesi:  
+Hello otomatik ölçeklendirme – ölçek aşağı hello hafta sonu profili hello üretim uygulama hizmeti planı için kuralı hello durumda hello formülü çözümlenmesi:  
 
 ![Otomatik ölçeklendirme üzerinde – ölçek aşağı kural tabanlı hafta sonları için uygulama hizmeti planı Enflasyon oranı.][Equation4]
 
-Uygulama hizmeti planı üretim sekiz örnekleri/saat hafta sırasında en yüksek hızı ve hafta sonu sırasında dört örnekleri saate büyüyebilir. En fazla dört örnekleri/saat hafta sırasında örnekleri ve hafta sonları sırasında altı örnekleri saate serbest bırakabilirsiniz.
+Merhaba üretim uygulama hizmeti planı, maksimum oran hello hafta sırasında sekiz örnekleri/saat ve dört örnekleri/saat hello hafta boyunca büyüyebilir. En fazla dört örnekleri/saat hello hafta sırasında örnekleri ve hafta sonları sırasında altı örnekleri saate serbest bırakabilirsiniz.
 
-Çalışan havuzunda birden çok uygulama hizmeti planları barındırılan hesaplamak varsa *toplam Enflasyon oranı* yükleniyor tüm uygulama hizmeti planları Enflasyon oranındaki toplamı, bir çalışan havuzunda barındırma.
+Çalışan havuzunda birden çok uygulama hizmeti planları barındırılan toocalculate hello varsa *toplam Enflasyon oranı* hello toplam uygulama hizmeti planları yükleniyor tüm hello hello Enflasyon oranındaki olarak, bir çalışan havuzunda barındırma.
 
 ![Çalışan havuzunda barındırılan birden çok uygulama hizmeti planları için toplam Enflasyon oran hesaplaması.][ASP-Total-Inflation]
 
-### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Uygulama hizmeti plan Enflasyon oranı çalışan havuzu otomatik ölçeklendirme kurallarını tanımlamak için kullanın
-Çalışan barındıran yapılandırılmış olan uygulama hizmeti planları otomatik ölçeklendirme kapasitesinin bir arabellek ayrılması gereken havuza alır. Arabellek büyümesine ve gerektiği gibi uygulama hizmeti planı küçültmek için otomatik ölçeklendirme işlemlerine izin verir. En küçük arabellek hesaplanan toplam uygulama hizmeti planı Enflasyon oranı olacaktır.
+### <a name="use-hello-app-service-plan-inflation-rate-toodefine-worker-pool-autoscale-rules"></a>Kullanım hello uygulama hizmeti planı Enflasyon oranı toodefine çalışan havuzu otomatik ölçeklendirme kuralları
+Çalışan barındıran yapılandırılmış tooautoscale olan uygulama hizmeti planları kapasitesinin bir arabellek ayrılması gereken havuza alır. Merhaba arabellek gerektiği gibi uygulama hizmeti planı küçültmek ve hello otomatik ölçeklendirme işlemleri toogrow için izin verir. Merhaba en küçük arabellek hello toplam uygulama hizmeti planı Enflasyon oranı hesaplanan olacaktır.
 
-Uygulama hizmeti ortamı ölçeklendirme işlemleri uygulamak için biraz zaman ayırın ve nedeni herhangi bir değişiklik bir ölçeklendirme işlemi devam ederken ortaya çıkar daha fazla isteğe bağlı değişiklikler için hesap. Bu gecikme karşılamak için her otomatik ölçeklendirme işlemi için en az sayıda eklenen örnekleri hesaplanan toplam uygulama hizmeti planı Enflasyon oranı kullanmanızı öneririz.
+Uygulama hizmeti ortamı ölçeklendirme işlemleri bazı zaman tooapply tuttuğundan, herhangi bir değişiklik bir ölçeklendirme işlemi devam ederken ortaya çıkar daha fazla isteğe bağlı değişiklikler için hesap. tooaccommodate bu gecikme, kullanmanızı öneririz hello toplam uygulama hizmeti planı Enflasyon oranı hello en az her otomatik ölçeklendirme işlemi için eklenen örnek sayısı olarak hesaplanır.
 
-Bu bilgileri kullanarak, aşağıdaki otomatik ölçeklendirme profili ve kuralları Frank tanımlayabilirsiniz:
+Bu bilgiyle Frank hello tanımlayabilirsiniz otomatik ölçeklendirme profili ve kurallar aşağıdaki:
 
 ![LOB örnek için otomatik ölçeklendirme profili kuralları.][Worker-Pool-Scale]
 
@@ -155,7 +155,7 @@ Bu bilgileri kullanarak, aşağıdaki otomatik ölçeklendirme profili ve kurall
 | **Ölçek tarafından:** zamanlama ve performans kuralları |**Ölçek tarafından:** zamanlama ve performans kuralları |
 | **Profil:** haftanın günü |**Profil:** hafta sonu |
 | **Tür:** yineleme |**Tür:** yineleme |
-| **Hedef aralık:** 13-25 örnekleri |**Hedef aralık:** 6 ila 15 örnekleri |
+| **Hedef aralık:** 13 too25 örnekleri |**Hedef aralık:** 6 too15 örnekleri |
 | **Gün sayısı:** Pazartesi, Salı, Çarşamba, Perşembe, Cuma |**Gün sayısı:** Cumartesi, Pazar |
 | **Başlangıç zamanı:** 7: 00'da |**Başlangıç zamanı:** 09:00:00 |
 | **Saat dilimi:** UTC-08 |**Saat dilimi:** UTC-08 |
@@ -178,19 +178,19 @@ Bu bilgileri kullanarak, aşağıdaki otomatik ölçeklendirme profili ve kurall
 | **Eylem:** sayısı 2 ile azaltma |**Eylem:** sayısı 3 ile azaltma |
 | **(Dakika) basılı güzel:** 120 |**(Dakika) basılı güzel:** 120 |
 
-Profilinde tanımlanmış hedef aralığı uygulama hizmeti planı + arabellek profilinde tanımlanan en düşük örnekler tarafından hesaplanır.
+Merhaba hello profilinde tanımlanan hedef aralık hello uygulama hizmeti planı için profili + arabellek tanımlanan hello minimum örnekler tarafından hesaplanır.
 
-En fazla aralık çalışan havuzunda barındırılan tüm uygulama hizmeti planları için tüm maksimum aralıklarını toplamı olacaktır.
+Merhaba en fazla aralık hello çalışan havuzunda barındırılan tüm uygulama hizmeti planları için tüm hello maksimum aralıklarını hello toplamı olacaktır.
 
-En az 1 X ölçek için uygulama hizmeti planı Enflasyon oranı kuralları ölçek artırma sayısı ayarlanması.
+Merhaba kuralları hello ölçek artırma sayısı yukarı ölçek için uygulama hizmeti planı Enflasyon oranı X kümesi tooat en az 1 olmalıdır.
 
-Azaltma sayısı için bir şeyler 1/2 X veya 1'uygulama hizmeti planı Enflasyon oranı ölçek X arasında aşağı ayarlanabilir.
+1 X uygulama hizmeti planı Enflasyon oranı aşağı için ölçek hello veya azaltma sayısı 1/2 X arasında ayarlanmış toosomething olabilir.
 
 ### <a name="autoscale-for-front-end-pool"></a>Ön uç havuzu için otomatik ölçeklendirme
 Ön uç otomatik ölçeklendirme kurallarını çalışan havuzlarında daha basittir. Öncelikle yapmanız gerekenler  
-süresi ölçümü ve cooldown zamanlayıcılar bir uygulama hizmeti planı üzerinde ölçeklendirme işlemleri anlık olmayan dikkate aldığınızdan emin olun.
+süresi hello ölçüm ve hello cooldown zamanlayıcılar bir uygulama hizmeti planı üzerinde ölçeklendirme işlemleri anlık olmayan dikkate aldığınızdan emin olun.
 
-Bu senaryo için hata oranı % 80 CPU kullanımı ön uçlar eriştikten sonra artırır ve örnekler gibi artırmak için otomatik ölçeklendirme kural kümesi Frank bilir:
+Bu senaryo için o hello hata oranı % 80 CPU kullanımı ön uçlar eriştikten sonra artırır ve hello otomatik ölçeklendirme kural tooincrease örneklerinin gibi ayarlar Frank bilir:
 
 ![Ön uç havuzu için otomatik ölçeklendirme ayarları.][Front-End-Scale]
 
@@ -200,7 +200,7 @@ Bu senaryo için hata oranı % 80 CPU kullanımı ön uçlar eriştikten sonra a
 | **Ölçek tarafından:** zamanlama ve performans kuralları |
 | **Profil:** her gün |
 | **Tür:** yineleme |
-| **Hedef aralık:** 3-10 örnekleri |
+| **Hedef aralık:** 3 too10 örnekleri |
 | **Gün sayısı:** her gün |
 | **Başlangıç zamanı:** 09:00:00 |
 | **Saat dilimi:** UTC-08 |

@@ -1,6 +1,6 @@
 ---
-title: "Azure Danışmanı güvenlik önerileri | Microsoft Docs"
-description: "Azure dağıtımlarınızın güvenliğini artırmanıza yardımcı olmak için Azure Danışmanı'nı kullanın."
+title: "aaaAzure Danışmanı güvenlik önerileri | Microsoft Docs"
+description: "Kullanım Azure Danışmanı toohelp Azure dağıtımlarınızı hello güvenliğini artırır."
 services: advisor
 documentationcenter: NA
 author: kumudd
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 53be05593c3733ccb27979a3a026414013125779
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e01ac29eb6e02bff0b1e846e320e7c36f85c7343
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="advisor-security-recommendations"></a>Advisor güvenlik önerileri
 
-Azure Danışmanı önerileri için tüm Azure kaynaklarına tutarlı, birleştirilmiş bir görünümünü sağlar. Güvenlik önerileri getirmek için Azure Güvenlik Merkezi ile tümleşir. Güvenlik önerilerini alabilirsiniz **güvenlik** Danışmanı Pano sekmesinde.
+Azure Danışmanı önerileri için tüm Azure kaynaklarına tutarlı, birleştirilmiş bir görünümünü sağlar. Bunu Azure Güvenlik Merkezi toobring ile güvenlik önerileri tümleştirir. Merhaba güvenlik önerilerini alabilirsiniz **güvenlik** hello Danışmanı Pano sekmesinde.
 
-![Advisor güvenliği düğmesi](./media/advisor-security-recommendations/advisor-security-tab.png)
+![Merhaba Danışmanı güvenliği düğmesi](./media/advisor-security-recommendations/advisor-security-tab.png)
 
-Güvenlik Merkezi, artırılmış görünürlük aracılığıyla tehditleri engellemenize, algılamanıza ve yanıtlamanıza, ayrıca Azure kaynaklarınızın güvenliğini denetlemenize yardımcı olur. Düzenli aralıklarla Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde öneriler oluşturur. Öneriler gereksinim denetimlerini yapılandırma işleminde size kılavuzluk. 
+Güvenlik Merkezi engellemek, algılamanıza ve Artırılmış görünürlük aracılığıyla toothreats hello Azure kaynaklarınızın güvenliğini denetlemenize yanıtlamanıza yardımcı olur. Düzenli aralıklarla Azure kaynaklarınızın güvenlik durumunu hello analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde öneriler oluşturur. Merhaba önerileri ihtiyacınız hello denetimlerini yapılandırma hello işleminde size kılavuzluk. 
 
-![Advisor Güvenlik sekmesi](./media/advisor-security-recommendations/advisor-security-recommendations.png)
+![Merhaba Danışmanı Güvenlik sekmesi](./media/advisor-security-recommendations/advisor-security-recommendations.png)
 
 Güvenlik önerileri hakkında daha fazla bilgi için bkz: [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](https://azure.microsoft.com/en-us/documentation/articles/security-center-recommendations/).
 
-## <a name="how-to-access-security-recommendations-in-azure-advisor"></a>Güvenlik önerileri Azure Danışmanı erişme
+## <a name="how-tooaccess-security-recommendations-in-azure-advisor"></a>Nasıl tooaccess Azure Danışmanı güvenlik önerileri
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
 
-2. Sol bölmede **daha fazla hizmet**.
+2. Merhaba sol bölmede **daha fazla hizmet**.
 
-3. Hizmet menü bölmesinde altında **izleme ve Yönetim**, tıklatın **Azure Danışmanı**.  
- Advisor Panosu görüntülenir.
+3. Hello menü bölmesi altında hizmet **izleme ve Yönetim**, tıklatın **Azure Danışmanı**.  
+ Merhaba Danışmanı Panosu görüntülenir.
 
-4. Advisor Panoda tıklatın **güvenlik** sekmesi.
+4. Hello Danışmanı Panoda hello tıklatın **güvenlik** sekmesi.
 
-5. Önerileri almak ve ardından istediğiniz aboneliği seçin **alma önerileri**.
+5. Kendisi için tooreceive önerileri istediğiniz ve ardından hello aboneliği seçin **alma önerileri**.
 
 > [!NOTE]
-> Advisor önerileri erişmek için öncelikle *aboneliğinizi kaydetmek* Danışmanı ile. Bir abonelik kayıtlı olduğunda bir *abonelik sahibi* Danışmanı Pano başlatır ve tıkladığında **alma önerileri** düğmesi. Bu bir *tek seferlik işlem*. Abonelik kaydedildikten sonra Advisor önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *okuyucu* bir abonelik, bir kaynak grubu ya da belirli bir kaynak için.
+> tooaccess Advisor önerileri, şunları yapmalısınız ilk *aboneliğinizi kaydetmek* Danışmanı ile. Bir abonelik kayıtlı olduğunda bir *abonelik sahibi* başlatır hello Danışmanı Pano ve tıklama hello **alma önerileri** düğmesi. Bu bir *tek seferlik işlem*. Merhaba abonelik kaydedildikten sonra Advisor önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *okuyucu* abonelik, bir kaynak grubu için veya bir belirli kaynak.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Advisor önerileri hakkında daha fazla bilgi için bkz:
-* [Advisor giriş](advisor-overview.md)
+Advisor önerileri hakkında daha fazla toolearn bakın:
+* [Giriş tooAdvisor](advisor-overview.md)
 * [Danışman’ı kullanmaya başlama](advisor-get-started.md)
 * [Advisor maliyet önerileri](advisor-performance-recommendations.md)
 * [Advisor performans önerileri](advisor-performance-recommendations.md)

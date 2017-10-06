@@ -1,6 +1,6 @@
 ---
-title: "Dağıtma ve PowerShell kullanarak Resource Manager tarafından dağıtılan VM'ler için yedeklemeleri yönetme | Microsoft Docs"
-description: "Dağıtma yedeklemeler ve Azure Resource Manager tarafından dağıtılan VM'ler için yönetmek için PowerShell kullanma"
+title: "aaaDeploy ve PowerShell kullanarak Resource Manager tarafından dağıtılan VM'ler için yedeklemeleri yönetme | Microsoft Docs"
+description: "PowerShell toodeploy kullanma ve Resource Manager tarafından dağıtılan VM'ler için Azure yedeklemeleri yönetme"
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -15,42 +15,42 @@ ms.workload: storage-backup-recovery
 ms.date: 08/28/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 861346a50df6641abb9e454644228146e14b4078
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 486fb3ae1902403fe6bf303df57244b76677ab17
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Sanal makineleri yedeklemek için AzureRM.RecoveryServices.Backup cmdlet'leri kullanın
+# <a name="use-azurermrecoveryservicesbackup-cmdlets-tooback-up-virtual-machines"></a>Sanal makineler yukarı AzureRM.RecoveryServices.Backup cmdlet'leri tooback kullanın
 > [!div class="op_single_selector"]
 > * [Resource Manager](backup-azure-vms-automation.md)
 > * [Klasik](backup-azure-vms-classic-automation.md)
 >
 >
 
-Bu makalede Azure PowerShell cmdlet'leri yedekleme ve kurtarma Hizmetleri Kasası'nı bir Azure sanal makinesini (VM) kurtarmak için nasıl kullanılacağı gösterilmektedir. Kurtarma Hizmetleri kasası bir Azure Resource Manager kaynaktır ve veri ve varlıkların Azure Backup ve Azure Site Recovery Services korumak için kullanılır. Azure Service Manager tarafından dağıtılan VM'ler ve Azure Resource Manager tarafından dağıtılan Vm'leri korumak için bir kurtarma Hizmetleri kasası kullanabilirsiniz.
+Bu makalede nasıl toouse Azure PowerShell cmdlet'leri tooback yedeklemek ve kurtarmak bir Azure sanal makineden (VM) bir kurtarma Hizmetleri kasası gösterilmektedir. Kurtarma Hizmetleri kasası bir Azure Resource Manager kaynak ve kullanılan tooprotect veri ve varlıkların Azure Backup ve Azure Site Recovery Services. Kurtarma Hizmetleri kasası tooprotect Azure Service Manager tarafından dağıtılan VM'ler ve Azure Resource Manager tarafından dağıtılan VM'ler kullanabilirsiniz.
 
 > [!NOTE]
-> Azure'da kaynak oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli mevcuttur: [Resource Manager ve Klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede Resource Manager modeli kullanılarak oluşturulan VM ile birlikte kullanılır.
+> Azure'da kaynak oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli mevcuttur: [Resource Manager ve Klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede hello Resource Manager modeli kullanılarak oluşturulan VM ile birlikte kullanılır.
 >
 >
 
-Bu makalede bir VM korumak ve verileri bir kurtarma noktasından geri yüklemek için PowerShell kullanılarak üzerinden anlatılmaktadır.
+Bu makalede PowerShell tooprotect kullanarak bir VM ve verileri geri yüklemek bir kurtarma noktasından anlatılmaktadır.
 
 ## <a name="concepts"></a>Kavramlar
-Hizmeti genel bir bakış için Azure Backup hizmeti hakkında bilgi sahibi değilseniz kullanıma [Azure Backup nedir?](backup-introduction-to-azure-backup.md) Başlamadan önce Azure Backup ve geçerli VM yedekleme çözümü sınırlamaları ile çalışmak için gereken önkoşulları hakkında essentials kapak emin olun.
+Merhaba hello hizmeti, genel bir bakış için Azure Backup hizmeti hakkında bilgi sahibi değilseniz kullanıma [Azure Backup nedir?](backup-introduction-to-azure-backup.md) Başlamadan önce Azure yedekleme ile Merhaba gerekli Önkoşullar toowork hakkında hello essentials kapsar ve hello geçerli VM yedekleme çözümü sınırlamaları hello emin olun.
 
-PowerShell etkili bir şekilde kullanmak için nesnelerin ve başlangıç nereden hiyerarşisini anlamak gereklidir.
+toouse PowerShell etkili bir şekilde, gerekli toounderstand hello hiyerarşi nesnelerin ve nerede olduğunu toostart.
 
 ![Kurtarma Hizmetleri nesne hiyerarşisi](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-AzureRm.RecoveryServices.Backup PowerShell cmdlet başvurusunun görüntülemek için bkz: [Azure Backup - kurtarma Hizmetleri cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup) Azure Kitaplığı'nda.
+tooview hello AzureRm.RecoveryServices.Backup PowerShell cmdlet başvurusunun bkz hello [Azure Backup - kurtarma Hizmetleri cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup) hello Azure kitaplığı içinde.
 
 ## <a name="setup-and-registration"></a>Kurulumu'nu ve kaydı
-Başlamak için:
+toobegin:
 
-1. [PowerShell en son sürümünü indirme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (gerekli en düşük sürüm: 1.4.0)
-2. Azure yedekleme PowerShell cmdlet'leri kullanılabilir, aşağıdaki komutu yazarak bulabilirsiniz:
+1. [Merhaba PowerShell'in en son sürümünü indirme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (gerekli hello minimum sürüm: 1.4.0)
+2. Hello Azure yedekleme PowerShell cmdlet'leri kullanılabilir hello aşağıdaki komutu yazarak bulabilirsiniz:
 
 ```
 PS C:\> Get-Command *azurermrecoveryservices*
@@ -87,7 +87,7 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
 ```
 
 
-Aşağıdaki görevleri PowerShell ile otomatik olarak yapılabilir:
+Merhaba görevleri aşağıdaki PowerShell ile otomatik olarak yapılabilir:
 
 * Kurtarma Hizmetleri kasası oluşturma
 * Azure VM'lerini yedekleme
@@ -96,24 +96,24 @@ Aşağıdaki görevleri PowerShell ile otomatik olarak yapılabilir:
 * Bir Azure VM geri yükleme
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma hizmetleri kasası oluşturma
-Aşağıdaki adımlar bir kurtarma Hizmetleri kasası oluşturmada size yol açar. Kurtarma Hizmetleri kasasına yedekleme Kasası ' farklıdır.
+Aşağıdaki adımları hello kurtarma Hizmetleri kasası oluşturmada size yol açar. Kurtarma Hizmetleri kasasına yedekleme Kasası ' farklıdır.
 
-1. Azure Backup ilk kez kullanıyorsanız, kullanmalısınız  **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  aboneliğinizle Azure Recovery hizmeti sağlayıcısını kaydetmek için cmdlet.
+1. Azure Backup hello için ilk kez kullanıyorsanız hello kullanmalısınız  **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  cmdlet tooregister hello Azure Recovery hizmeti sağlayıcısı aboneliğinizle.
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-2. Kurtarma Hizmetleri kasası bir Resource Manager kaynak olduğundan, bir kaynak grubu içindeki yerleştirmeniz gerekir. Varolan bir kaynak grubunu kullanın veya bir kaynak grubu ile oluşturmak  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  cmdlet'i. Bir kaynak grubu oluştururken, ad ve kaynak grubu için konum belirtin.  
+2. tooplace ihtiyacınız hello kurtarma Hizmetleri kasası bir Resource Manager kaynak olduğundan, bir kaynak grubu içinde. Varolan bir kaynak grubunu kullanın veya bir kaynak grubu ile Merhaba oluşturmak  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  cmdlet'i. Bir kaynak grubu oluştururken hello kaynak grubu için hello ad ve konum belirtin.  
 
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
-3. Kullanım  **[yeni AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  kurtarma Hizmetleri kasası oluşturmak için cmdlet'i. Kaynak grubu için kullanılan kasa için aynı konumu belirttiğinizden emin olun.
+3. Kullanım hello  **[yeni AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  kurtarma Hizmetleri kasası cmdlet toocreate hello. Toospecify hello hello kasa için aynı konumu hello kaynak grubu için kullanıldığından emin olun.
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. Kullanılacak depolama artıklığı türünü belirtin; kullanabileceğiniz [yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) veya [coğrafi olarak yedekli depolama (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Aşağıdaki örnek, testvault - BackupStorageRedundancy seçeneği GeoRedundant için ayarlanmış gösterir.
+4. Depolama artıklık toouse Hello türünü belirtin; kullanabileceğiniz [yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) veya [coğrafi olarak yedekli depolama (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Merhaba aşağıdaki örnek tooGeoRedundant testvault için hello - BackupStorageRedundancy seçeneği ayarlanmış gösterir.
 
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testvault"
@@ -121,14 +121,14 @@ Aşağıdaki adımlar bir kurtarma Hizmetleri kasası oluşturmada size yol aça
     ```
 
    > [!TIP]
-   > Çok sayıda Azure yedekleme cmdlet'lerini girdi olarak kurtarma Hizmetleri kasası nesnesi gerektirir. Bu nedenle, bir değişkende yedekleme kurtarma Hizmetleri kasası nesne depolamak uygundur.
+   > Çok sayıda Azure yedekleme cmdlet'lerini girdi olarak hello kurtarma Hizmetleri kasası nesnesi gerektirir. Bu nedenle, bu kullanışlı toostore hello yedekleme kurtarma Hizmetleri kasası, bir değişkende nesnesidir.
    >
    >
 
-## <a name="view-the-vaults-in-a-subscription"></a>Bir abonelikte kasalarını görüntüleyin
-Kullanım  **[Get-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault)**  geçerli abonelikte tüm kasalarının listesini görüntülemek için. Bu komut, yeni bir kasa oluşturulduğunu denetleyin veya abonelik kullanılabilir kasalarında görmek için kullanabilirsiniz.
+## <a name="view-hello-vaults-in-a-subscription"></a>Bir abonelikte görünüm hello kasaları
+Kullanım  **[Get-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault)**  tooview hello hello geçerli Abonelikteki tüm kasalarının listesi. Bu komut toocheck yeni bir kasa oluşturulduğunu veya toosee hello hello Abonelikteki kullanılabilir kasalarını kullanabilirsiniz.
 
-Abonelikteki tüm kasalarını görüntülemek için Get-AzureRmRecoveryServicesVault komutunu çalıştırın. Aşağıdaki örnekte, her kasa için görüntülenen bilgileri gösterir.
+Merhaba komutu, Get-AzureRmRecoveryServicesVault tooview hello aboneliğindeki tüm kasalarını çalıştırın. Merhaba aşağıdaki örnekte her kasa için görüntülenen hello bilgiler gösterilmektedir.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault
@@ -143,19 +143,19 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 
 ## <a name="back-up-azure-vms"></a>Azure VM'lerini yedekleme
-Sanal makinelerinizi korumak için bir kurtarma Hizmetleri kasası kullanın. Koruma uygulamadan önce set kasası bağlam (kasaya korumalı veri türü) ve koruma ilkesini doğrulayın. Koruma İlkesi yedekleme işleri çalıştırdığınızda, zamanlama ve her yedekleme anlık görüntüsünü ne kadar süreyle tutulduğunu ' dir.
+Kurtarma Hizmetleri kasası tooprotect sanal makinelerinizi kullanın. Merhaba koruma uygulamadan önce set hello kasası bağlam (Merhaba kasasına korunan verileri hello türü) ve hello koruma ilkesini doğrulayın. Merhaba koruma hello yedekleme işleri çalıştırdığınızda hello zamanlama ve her yedekleme anlık görüntüsünü ne kadar süreyle tutulduğunu ilkesidir.
 
 ### <a name="set-vault-context"></a>Set kasası bağlamı
-Bir VM korumasını etkinleştirmeden önce kullanmak  **[kümesi AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)**  kasası bağlam ayarlamak için. Kasa bağlam ayarladıktan sonra sonraki tüm cmdlet'ler için geçerlidir. Aşağıdaki örnek, kasa için kasa bağlamı ayarlar *testvault*.
+Bir VM korumasını etkinleştirmeden önce kullanmak  **[kümesi AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)**  tooset hello kasası bağlamı. Merhaba kasası bağlam ayarladıktan sonra tooall sonraki cmdlet'leri geçerlidir. Merhaba aşağıdaki örnek hello kasası bağlamı hello kasası için ayarlar *testvault*.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault -Name "testvault" | Set-AzureRmRecoveryServicesVaultContext
 ```
 
 ### <a name="create-a-protection-policy"></a>Bir koruma ilkesi oluşturun
-Kurtarma Hizmetleri kasası oluşturduğunuzda, varsayılan koruma ve bekletme ilkeleri ile birlikte gelir. Varsayılan koruma İlkesi, bir yedekleme işi her gün belirtilen zamanda tetikler. Varsayılan saklama İlkesi 30 gün boyunca günlük kurtarma noktası korur. Varsayılan ilke, VM hızlı bir şekilde korumak ve daha sonra farklı ayrıntılarla ilkesini düzenlemek için kullanabilirsiniz.
+Kurtarma Hizmetleri kasası oluşturduğunuzda, varsayılan koruma ve bekletme ilkeleri ile birlikte gelir. Merhaba varsayılan koruma İlkesi, bir yedekleme işi her gün belirtilen zamanda tetikler. Merhaba varsayılan bekletme ilkesi hello günlük kurtarma noktası 30 gün boyunca korur. Merhaba varsayılan kullanabileceğiniz ilke tooquickly VM korumak ve daha sonra farklı ayrıntılarla hello İlkesi Düzenle.
 
-Kullanım  **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)**  koruma ilkeleri kasaya görüntülemek için. Belirli bir ilke alma veya bir iş yükü türü ile ilişkili ilkeler görüntülemek için bu cmdlet'i kullanabilirsiniz. Aşağıdaki örnek iş yükü türünün AzureVM ilkelerini alır.
+Kullanım  **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)**  tooview hello koruma ilkeleri hello kasasında. Bu cmdlet tooget belirli bir ilke veya bir iş yükü türüyle ilişkili tooview hello ilkelerini kullanabilirsiniz. Aşağıdaki örneğine hello iş yükü türünün AzureVM ilkelerini alır.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
@@ -165,11 +165,11 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 ```
 
 > [!NOTE]
-> PowerShell BackupTime alanın saat dilimi UTC değil. Ancak, Azure portalında yedekleme saati gösterildiğinde zaman, yerel saat dilimine ayarlanır.
+> PowerShell'de hello BackupTime alanının Hello saat dilimi UTC değil. Merhaba yedekleme saati hello Azure portal gösterildiğinde, ancak hello ayarlanmış tooyour yerel saat dilimi saattir.
 >
 >
 
-En az bir bekletme ilkesiyle ilişkili bir yedekleme koruma ilkesidir. Bekletme İlkesi silinmeden önce ne kadar bir kurtarma noktası tutulur tanımlar. Kullanım  **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)**  varsayılan bekletme ilkesini görüntülemek için.  Benzer şekilde kullanabilirsiniz  **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)**  varsayılan zamanlama ilkesi elde edilir.  **[Yeni AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  cmdlet'i, yedekleme ilkesi bilgilerini tutan bir PowerShell nesnesi oluşturur. Zamanlama ve Bekletme İlkesi nesneleri giriş olarak kullanılan  **[yeni AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  cmdlet'i. Aşağıdaki örnek zamanlama ilkesini ve bekletme ilkesini değişkenleri depolar. Örnek, bir koruma ilkesi oluşturulurken parametreleri tanımlamak için bu değişkenleri kullanır. *NewPolicy*.
+En az bir bekletme ilkesiyle ilişkili bir yedekleme koruma ilkesidir. Bekletme İlkesi silinmeden önce ne kadar bir kurtarma noktası tutulur tanımlar. Kullanım  **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)**  tooview hello varsayılan bekletme ilkesi.  Benzer şekilde kullanabilirsiniz  **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)**  tooobtain hello varsayılan zamanlama ilkesi. Merhaba  **[yeni AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  cmdlet'i, yedekleme ilkesi bilgilerini tutan bir PowerShell nesnesi oluşturur. Merhaba zamanlama ve Bekletme İlkesi nesneleri toohello girdi olarak kullanılan  **[yeni AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  cmdlet'i. Merhaba aşağıdaki örnek hello zamanlama ilkesi ve hello bekletme ilkesi değişkenleri depolar. Merhaba örnek, bir koruma ilkesi oluşturulurken bu değişkenleri toodefine hello parametreleri kullanır *NewPolicy*.
 
 ```
 PS C:\> $schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
@@ -182,16 +182,16 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 
 
 ### <a name="enable-protection"></a>Korumayı etkinleştir
-Yedekleme koruma İlkesi tanımladıktan sonra bir öğe için ilke hala etkinleştirmeniz gerekir. Kullanım  **[etkinleştir AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection)**  korumasını etkinleştirmek için. Koruma etkinleştirme iki nesne - öğesini ve ilke gerektirir. İlke kasayla ilişkili silindikten sonra yedekleme iş akışı ilke zamanlama içinde tanımlı zaman tetiklenir.
+Merhaba yedekleme koruma İlkesi tanımladıktan sonra bir öğe için hello İlkesi hala etkinleştirmeniz gerekir. Kullanım  **[etkinleştir AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection)**  tooenable koruma. Koruma etkinleştirme iki nesne - hello öğesi ve hello İlkesi gerektirir. Hello İlkesi hello kasası ile ilişkilendirildikten sonra hello yedekleme iş akışı hello İlkesi zamanlamasında tanımlanan hello zaman tetiklenir.
 
-Aşağıdaki örnek NewPolicy ilke kullanılarak koruma V2VM, öğe için etkinleştirir. Resource Manager vm'lerde şifrelenmemiş korumasını etkinleştirmek için
+Hello İlkesi, NewPolicy kullanarak örnek etkinleştirir korumayı hello öğesi, V2VM, için aşağıdaki hello. Resource Manager vm'lerde şifrelenmemiş tooenable hello koruma
 
 ```
 PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
-(BEK ve KEK kullanılarak şifrelenmiş) şifrelenmiş vm'lerinde korumayı etkinleştirmek için anahtarlar ve gizli anahtar Kasası'nı okuyun Azure Backup hizmeti izni vermeniz gerekir.
+(BEK ve KEK kullanılarak şifrelenmiş) VM'ler tooenable hello koruması şifreli, toogive hello Azure Backup hizmeti izni tooread anahtarları ve gizli anahtar Kasası'ndan gerekir.
 
 ```
 PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToKeys backup,get,list -PermissionsToSecrets get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
@@ -199,7 +199,7 @@ PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
-Şifrelenmiş (yalnızca BEK kullanılarak şifrelenmiş) VM'ler korumayı etkinleştirmek için gizli anahtar Kasası'nı okumak için Azure Backup hizmeti izni vermeniz gerekir.
+(yalnızca BEK kullanılarak şifrelenmiş) VM'ler tooenable hello koruması şifreli, toogive hello Azure Backup hizmeti izni tooread gizli anahtar Kasası'ndan gerekir.
 
 ```
 PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToSecrets backup,get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
@@ -208,7 +208,7 @@ PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM"
 ```
 
 > [!NOTE]
-> Azure Bulutu kullanıyorsanız, parametre için değer ff281ffe-705c-4f53-9f37-a40e6f2c68f3 kullanmak **- ServicePrincipalName** içinde [kümesi AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet'i.
+> Hello Azure Bulutu kullanıyorsanız, hello değeri ff281ffe-705c-4f53-9f37-a40e6f2c68f3 hello parametre için kullanmak **- ServicePrincipalName** içinde [kümesi AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet'i .
 >
 >
 
@@ -220,9 +220,9 @@ PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V1VM"
 ```
 
 ### <a name="modify-a-protection-policy"></a>Bir koruma ilkesini değiştirme
-Koruma ilkesini değiştirmek için kullanmak [kümesi AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/set-azurermrecoveryservicesbackupprotectionpolicy) SchedulePolicy veya RetentionPolicy nesneleri değiştirmek için.
+toomodify hello koruma İlkesi, kullanım [kümesi AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/set-azurermrecoveryservicesbackupprotectionpolicy) toomodify hello SchedulePolicy veya RetentionPolicy nesne.
 
-Aşağıdaki örnek, kurtarma noktası bekletme 365 gün olarak değiştirir.
+Merhaba aşağıdaki örnek hello kurtarma noktası bekletme too365 gün değiştirir.
 
 ```
 PS C:\> $retPol = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
@@ -232,7 +232,7 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -Policy $pol  -Retenti
 ```
 
 ## <a name="trigger-a-backup"></a>Bir yedeklemeyi tetikleyin
-Kullanabileceğiniz  **[yedekleme AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)**  yedekleme işini tetikleyecek. Bu ilk yedekleme ise, tam yedekleme olur. Sonraki yedek bir artımlı kopya alabilir. Kullandığınızdan emin olun  **[kümesi AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)**  yedekleme işini tetiklemeden önce kasası bağlam ayarlamak için. Aşağıdaki örnek, kasa bağlamını ayarlayın varsayar.
+Kullanabileceğiniz  **[yedekleme AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)**  tootrigger bir yedekleme işi. Bunu hello ilk yedekleme ise, tam yedekleme olur. Sonraki yedek bir artımlı kopya alabilir. Emin toouse olması  **[kümesi AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)**  hello yedekleme işini tetiklemeden önce tooset hello kasası bağlamı. Aşağıdaki örnek hello kasası bağlamını ayarlayın varsayar.
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
@@ -244,12 +244,12 @@ V2VM              Backup               InProgress            4/23/2016 5:00:30 P
 ```
 
 > [!NOTE]
-> PowerShell'de StartTime ve EndTime alanlarının saat dilimi UTC değil. Ancak, zaman zaman Azure portalında gösterildiğinde yerel saat dilimi olarak ayarlanır.
+> PowerShell hello StartTime ve EndTime alanların Hello saat dilimi UTC değil. Hello zaman hello Azure portal gösterilir, ancak hello zaman ayarlanmış tooyour yerel saat dilimi zamandır.
 >
 >
 
 ## <a name="monitoring-a-backup-job"></a>Bir yedekleme işi izleme
-Azure portalını kullanmadan yedekleme işleri gibi uzun süre çalışan işlemleri izleyebilirsiniz. Devam eden işin durumunu almak için  **[Get-AzureRmRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob)**  cmdlet'i. Belirli bir kasa yönelik yedekleme işleri Bu cmdlet'i alır ve bu kasası kasası bağlamda belirtilir. Aşağıdaki örnek, bir dizi olarak devam eden işin durumunu alır ve durum $joblist değişkeninde depolar.
+Hello Azure portalını kullanmadan yedekleme işleri gibi uzun süre çalışan işlemleri izleyebilirsiniz. tooget hello kullan hello bir devam eden işin durumunu  **[Get-AzureRmRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob)**  cmdlet'i. Merhaba yedekleme işleri belirli bir kasa için bu cmdlet'i alır ve bu kasası hello kasası bağlamda belirtilir. Hello aşağıdaki örnekte bir dizi olarak devam eden işi hello durumunu alır ve hello durum hello $joblist değişkeninde depolar.
 
 ```
 PS C:\> $joblist = Get-AzureRmRecoveryservicesBackupJob –Status "InProgress"
@@ -259,35 +259,35 @@ WorkloadName     Operation            Status               StartTime            
 V2VM             Backup               InProgress            4/23/2016 5:00:30 PM           cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-Bu işleri - gereksiz ek kod olan - tamamlanması için yoklama yerine kullanmak  **[bekleme AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)**  cmdlet'i. Bu cmdlet yürütme iş tamamlandığında veya belirtilen zaman aşımı değerine ulaşılana kadar duraklar.
+Bu işleri - gereksiz ek kod olan - tamamlanması için yoklama yerine hello kullan  **[bekleme AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)**  cmdlet'i. Bu cmdlet hello yürütme hello işi tamamlar veya hello belirtilen zaman aşımı değerine ulaşılana kadar duraklar.
 
 ```
 PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 ## <a name="restore-an-azure-vm"></a>Bir Azure VM geri yükleme
-Azure Portalı'nı kullanarak bir VM geri yükleme ve PowerShell kullanarak bir VM'i geri arasındaki en önemli fark yoktur. PowerShell ile diskleri ve yapılandırma bilgilerini kurtarma noktasından oluşturulduktan sonra geri yükleme işlemi tamamlanır.
+Hello Azure portal kullanarak ve PowerShell kullanarak bir VM'i geri VM geri hello arasındaki en önemli fark yoktur. PowerShell ile Merhaba diskleri ve yapılandırma bilgilerini hello kurtarma noktasından oluşturulduktan sonra hello geri yükleme işlemi tamamlanır.
 
 > [!NOTE]
-> Geri yükleme işlemi, bir sanal makine oluşturmaz.
+> Merhaba geri yükleme işlemi, bir sanal makine oluşturmaz.
 >
 >
 
-Diskten bir sanal makine oluşturmak için bölümüne bakın [saklı disklerden VM oluşturmak](backup-azure-vms-automation.md#create-a-vm-from-stored-disks). Bir Azure VM geri yüklemek için temel adımlar şunlardır:
+disk, sanal makineden toocreate hello bölümüne bakın [saklı disklerden oluşturma hello VM](backup-azure-vms-automation.md#create-a-vm-from-stored-disks). Merhaba temel adımlar toorestore bir Azure VM şunlardır:
 
-* VM seçin
+* Merhaba VM seçin
 * Bir kurtarma noktası seçin
-* Diskleri geri yükleme
-* Saklı disklerden VM oluşturma
+* Merhaba disklerini geri yükle
+* Saklı disklerden Hello VM oluşturma
 
-Aşağıdaki grafikte nesne hiyerarşisi BackupRecoveryPoint aşağıya doğru RecoveryServicesVault gelen gösterir.
+Merhaba aşağıdaki grafikte hello nesne hello RecoveryServicesVault toohello BackupRecoveryPoint aşağı hiyerarşiden gösterir.
 
 ![Kurtarma Hizmetleri nesne hiyerarşisi BackupContainer gösterme](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
-Yedekleme verilerini geri yüklemek için yedeklenen öğesi ve zaman içinde nokta verilerini tutan bir kurtarma noktası belirleyin. Kullanım  **[geri yükleme AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)**  verileri kasadan müşterinin hesabına geri yüklemek için cmdlet'i.
+toorestore yedekleme verilerini hello yedeklenen öğesi ve hello zaman içinde nokta verilerini tutan hello kurtarma noktası belirleyin. Kullanım hello  **[geri yükleme AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)**  hello cmdlet toorestore verileri kasa toohello müşterinin hesap.
 
-### <a name="select-the-vm"></a>VM seçin
-Doğru yedekleme öğesi tanımlayan PowerShell nesnesini almak için kasadaki kapsayıcısından başlatın ve nesne hiyerarşide aşağı, şekilde çalışır. VM'yi temsil kapsayıcı seçmek için kullanın  **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)**  cmdlet'i ve için kanal  **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**  cmdlet'i.
+### <a name="select-hello-vm"></a>Merhaba VM seçin
+sağ hello tanımlayan tooget hello PowerShell nesnesi öğesi yedekleme, hello kasasında hello kapsayıcısından Başlat ve yolunuzu hello nesne hiyerarşisi aşağı çalışma. Merhaba VM, kullanım hello temsil eden tooselect hello kapsayıcı  **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)**  cmdlet'i ve o toohello kanal  **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**  cmdlet'i.
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
@@ -295,9 +295,9 @@ PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedC
 ```
 
 ### <a name="choose-a-recovery-point"></a>Bir kurtarma noktası seçin
-Kullanım  **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)**  yedekleme öğesi için tüm kurtarma noktalarını listelemek için cmdlet. Daha sonra geri yüklemek için kurtarma noktası seçin. Kullanılacak olan kurtarma noktasını konusunda emin değilseniz, en son RecoveryPointType seçmek için iyi bir uygulamadır AppConsistent noktası listesinde =.
+Kullanım hello  **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)**  tüm kurtarma noktaları için yedekleme öğesi hello cmdlet toolist. Ardından hello kurtarma noktası toorestore seçin. Hangi kurtarma noktası toouse konusunda emin değilseniz, iyi bir uygulama toochoose hello en son RecoveryPointType olduğu AppConsistent noktası hello listesinde =.
 
-Aşağıdaki komut, değişken **$rp**, seçili yedek öğesini, son yedi gün için kurtarma noktalarını dizisidir. Dizi en son kurtarma noktası dizin 0 konumunda ile süreyi ters sırada sıralanır. Standart PowerShell dizi dizin kurtarma noktası seçmek için kullanın. Örnekte, $rp [0], en son kurtarma noktası seçer.
+Değişken, komut dosyası izleyen hello hello **$rp**, hello yedekleme öğesi hello son yedi gün seçilen için kurtarma noktaları dizisidir. Merhaba dizisi hello en son kurtarma noktası dizin 0 konumunda ile süreyi ters sırada sıralanır. Standart PowerShell dizi toopick hello kurtarma noktası dizin kullanın. Merhaba örnekte $rp [0] hello en son kurtarma noktası seçer.
 
 ```
 PS C:\> $startDate = (Get-Date).AddDays(-7)
@@ -319,10 +319,10 @@ BackupManagementType        : AzureVM
 
 
 
-### <a name="restore-the-disks"></a>Diskleri geri yükleme
-Kullanım  **[geri yükleme AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)**  bir yedekleme öğesi'nin veri ve yapılandırmaları bir kurtarma noktasına geri yüklemek için cmdlet'i. Bir kurtarma noktası belirledikten sonra değeri olarak kullanın **- RecoveryPoint** parametresi. Önceki örnek kodda **$rp [0]** kullanılacak olan kurtarma noktasını oluştu. Aşağıdaki örnek kodda **$rp [0]** disk geri yüklemek için kullanılacak bir kurtarma noktası.
+### <a name="restore-hello-disks"></a>Merhaba disklerini geri yükle
+Kullanım hello  **[geri yükleme AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)**  cmdlet toorestore bir yedekleme öğesi'nin veri ve yapılandırma tooa kurtarma noktası. Bir kurtarma noktası belirledikten sonra Merhaba hello değeri olarak kullanma **- RecoveryPoint** parametresi. Merhaba önceki örnek kodda **$rp [0]** hello kurtarma noktası toouse oluştu. Örnek kod, aşağıdaki hello içinde **$rp [0]** hello disk geri yüklemek için hello kurtarma noktası toouse değil.
 
-Diskleri ve yapılandırma bilgilerini geri yüklemek için:
+toorestore hello diskleri ve yapılandırma bilgileri:
 
 ```
 PS C:\> $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
@@ -332,30 +332,30 @@ WorkloadName     Operation          Status               StartTime              
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-Kullanım  **[bekleme AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)**  cmdlet'ini tamamlamak geri yükleme işi bekleyin.
+Kullanım hello  **[bekleme AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)**  hello geri yükleme işi toocomplete için cmdlet toowait.
 
 ```
 PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $restorejob -Timeout 43200
 ```
 
-Geri yükleme işi tamamlandıktan sonra kullanmak  **[Get-AzureRmRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjobdetails)**  geri yükleme işleminin ayrıntılarını almak için cmdlet. JobDetails özelliği VM yeniden oluşturmak için gereken bilgileri topladı.
+Merhaba geri yükleme işi tamamlandıktan sonra hello kullan  **[Get-AzureRmRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjobdetails)**  cmdlet tooget hello hello ayrıntılarını geri yükleme işlemi. Merhaba JobDetails özelliği hello bilgi gerekli toorebuild hello VM sahiptir.
 
 ```
 PS C:\> $restorejob = Get-AzureRmRecoveryServicesBackupJob -Job $restorejob
 PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 ```
 
-Diskleri geri sonra VM'yi oluşturmak için sonraki bölüme gidin.
+Merhaba diskleri geri sonra toohello sonraki bölümde toocreate hello VM gidin.
 
 ## <a name="create-a-vm-from-restored-disks"></a>Geri yüklenen disklerden bir VM oluşturma
-Diskleri geri yükledikten sonra oluşturup diskten sanal makine yapılandırmak için aşağıdaki adımları kullanın.
+Merhaba diskleri geri yükledikten sonra bu adımları toocreate kullanın ve diskten hello sanal makine yapılandırın.
 
 > [!NOTE]
-> Geri yüklenen disklerden şifrelenmiş VM'ler oluşturmak için Azure rolünüze eylemi gerçekleştirmek için izni olmalıdır **Microsoft.KeyVault/vaults/deploy/action**. Özel bir rol rolünüzün bu izne sahip değilse bu eylemle oluşturun. Daha fazla bilgi için bkz: [Azure rbac'de özel roller](../active-directory/role-based-access-control-custom-roles.md).
+> geri yüklenen disklerden toocreate şifreli VM'ler, Azure rolünüzün izin tooperform hello eylem olmalıdır **Microsoft.KeyVault/vaults/deploy/action**. Özel bir rol rolünüzün bu izne sahip değilse bu eylemle oluşturun. Daha fazla bilgi için bkz: [Azure rbac'de özel roller](../active-directory/role-based-access-control-custom-roles.md).
 >
 >
 
-1. İş ayrıntılarını geri yüklenen disk özelliklerini sorgu.
+1. Sorgu hello hello iş ayrıntılarını disk özelliklerini geri.
 
   ```
   PS C:\> $properties = $details.properties
@@ -364,7 +364,7 @@ Diskleri geri yükledikten sonra oluşturup diskten sanal makine yapılandırmak
   PS C:\> $blobName = $properties["Config Blob Name"]
   ```
 
-2. Azure depolama bağlamını ayarlayın ve JSON yapılandırma dosyasını geri yükleyin.
+2. Hello Azure depolama bağlamını ayarlayın ve hello JSON yapılandırma dosyasını geri yükleyin.
 
     ```
     PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName "testvault"
@@ -373,13 +373,13 @@ Diskleri geri yükledikten sonra oluşturup diskten sanal makine yapılandırmak
     PS C:\> $obj = ((Get-Content -Path $destination_path -Raw -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
 
-3. VM yapılandırması oluşturmak için JSON yapılandırma dosyası kullanın.
+3. Merhaba JSON yapılandırma dosyası toocreate hello VM yapılandırması kullanın.
 
     ```
    PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.'properties.hardwareProfile'.vmSize -VMName "testrestore"
     ```
 
-4. İşletim sistemi diski ve veri diskleri ekleyin. Vm'leriniz yapılandırmasına bağlı olarak, ilgili cmdlet'ler görüntülemek için ilgili bağlantıyı tıklatın: 
+4. Merhaba işletim sistemi diski ve veri diskleri ekleyin. Vm'leriniz Hello yapılandırmasına bağlı olarak hello ilgili bağlantı tooview ilgili cmdlet'leri tıklatın: 
     - [Yönetilmeyen, şifrelenmemiş VM'ler](#non-managed-non-encrypted-vms)
     - [Yönetilmeyen, şifrelenmiş VM'ler (yalnızca BEK)](#non-managed-encrypted-vms-bek-only)
     - [Yönetilmeyen, şifrelenmiş VM'ler (BEK ve KEK)](#non-managed-encrypted-vms-bek-and-kek)
@@ -388,7 +388,7 @@ Diskleri geri yükledikten sonra oluşturup diskten sanal makine yapılandırmak
     
     #### <a name="non-managed-non-encrypted-vms"></a>Yönetilmeyen, şifrelenmemiş VM'ler
 
-    Aşağıdaki örnek, yönetilmeyen, şifrelenmemiş VM'ler için kullanın.
+    Yönetilmeyen, şifrelenmemiş VM'ler için örnek aşağıdaki hello kullanın.
 
     ```
     PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
@@ -401,7 +401,7 @@ Diskleri geri yükledikten sonra oluşturup diskten sanal makine yapılandırmak
 
     #### <a name="non-managed-encrypted-vms-bek-only"></a>Yönetilmeyen, şifrelenmiş VM'ler (yalnızca BEK)
 
-    (Yalnızca BEK kullanılarak şifrelenmiş) yönetilmeyen, şifrelenmiş VM'ler için diskler ekleyebilmek için gizli anahtar Kasası'na geri yüklemeniz gerekir. Daha fazla bilgi için lütfen makalesine bakın [şifrelenmiş bir sanal makine bir Azure yedekleme kurtarma noktasından geri](backup-azure-restore-key-secret.md). Aşağıdaki örnek, şifrelenmiş VM'ler için işletim sistemi ve veri diskleri ekleme gösterilmektedir.
+    Diskleri ekleyebilirsiniz (BEK yalnızca kullanılarak şifrelenmiş) yönetilmeyen, şifrelenmiş VM'ler için toorestore hello gizli toohello anahtar kasası olması gerekir. Daha fazla bilgi için lütfen hello makalesine bakın [şifrelenmiş bir sanal makine bir Azure yedekleme kurtarma noktasından geri](backup-azure-restore-key-secret.md). Aşağıdaki örnek hello nasıl VM'ler tooattach işletim sistemi ve veri diskleri için şifrelenmiş gösterir.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -416,7 +416,7 @@ Diskleri geri yükledikten sonra oluşturup diskten sanal makine yapılandırmak
 
     #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>Yönetilmeyen, şifrelenmiş VM'ler (BEK ve KEK)
 
-    (BEK ve KEK kullanılarak şifrelenmiş) yönetilmeyen, şifrelenmiş VM'ler için diskleri eklemeden önce anahtarı ve gizli anahtar Kasası'na geri yüklemeniz gerekir. Daha fazla bilgi için lütfen makalesine bakın [şifrelenmiş bir sanal makine bir Azure yedekleme kurtarma noktasından geri](backup-azure-restore-key-secret.md). Aşağıdaki örnek, şifrelenmiş VM'ler için işletim sistemi ve veri diskleri ekleme gösterilmektedir.
+    Diskleri eklemeden önce (BEK ve KEK kullanılarak şifrelenmiş) yönetilmeyen, şifrelenmiş VM'ler için toorestore hello anahtarı ve gizli toohello anahtar kasası gerekir. Daha fazla bilgi için lütfen hello makalesine bakın [şifrelenmiş bir sanal makine bir Azure yedekleme kurtarma noktasından geri](backup-azure-restore-key-secret.md). Aşağıdaki örnek hello nasıl VM'ler tooattach işletim sistemi ve veri diskleri için şifrelenmiş gösterir.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -432,7 +432,7 @@ Diskleri geri yükledikten sonra oluşturup diskten sanal makine yapılandırmak
 
     #### <a name="managed-non-encrypted-vms"></a>Yönetilen, şifrelenmemiş VM'ler
 
-    Yönetilen şifrelenmemiş VM'ler için blob depolama alanından yönetilen diskleri oluşturma ve diskleri bağlamanız gerekir. Ayrıntılı bilgi için makalesine bakın [bir veri diski bir Windows PowerShell kullanarak VM'e](../virtual-machines/windows/attach-disk-ps.md). Aşağıdaki örnek kod, yönetilen şifrelenmemiş VM'ler için veri diski ekleme gösterilmektedir.
+    Yönetilen şifrelenmemiş VM'ler için blob depolama biriminden yönetilen toocreate diskiniz olması gerekir ve hello diskleri bağlamanız. Ayrıntılı bilgi için hello makalesine bakın [bir veri diski tooa Windows VM ekleme PowerShell kullanarak](../virtual-machines/windows/attach-disk-ps.md). Aşağıdaki örnek kod hello nasıl tooattach hello veri diskleri yönetilen şifrelenmemiş VM'ler için gösterir.
 
     ```
     PS C:\> $storageType = "StandardLRS"
@@ -453,7 +453,7 @@ Diskleri geri yükledikten sonra oluşturup diskten sanal makine yapılandırmak
 
     #### <a name="managed-encrypted-vms-bek-and-kek"></a>Yönetilen, şifrelenmiş VM'ler (BEK ve KEK)
 
-    (BEK ve KEK kullanılarak şifrelenmiş) yönetilen şifrelenmiş VM'ler için blob depolama alanından yönetilen diskleri oluşturma ve diskleri bağlamanız gerekir. Ayrıntılı bilgi için makalesine bakın [bir veri diski bir Windows PowerShell kullanarak VM'e](../virtual-machines/windows/attach-disk-ps.md). Aşağıdaki örnek kod, yönetilen şifrelenmiş VM'ler için veri diski ekleme gösterilmektedir.
+    (BEK ve KEK kullanılarak şifrelenmiş), şifrelenmiş yönetilen VM'ler blob depolama biriminden yönetilen toocreate diskiniz olması gerekir ve hello diskleri bağlamanız. Ayrıntılı bilgi için hello makalesine bakın [bir veri diski tooa Windows VM ekleme PowerShell kullanarak](../virtual-machines/windows/attach-disk-ps.md). Merhaba aşağıdaki örnek kod nasıl tooattach hello veri diskleri yönetilen şifrelenmiş VM'ler için gösterir.
 
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -475,7 +475,7 @@ Diskleri geri yükledikten sonra oluşturup diskten sanal makine yapılandırmak
      }
     ```
 
-5. Ağ ayarları ayarlayın.
+5. Merhaba ağ ayarlarını belirleyin.
 
     ```
     PS C:\> $nicName="p1234"
@@ -484,11 +484,11 @@ Diskleri geri yükledikten sonra oluşturup diskten sanal makine yapılandırmak
     PS C:\> $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName "test" -Location "WestUS" -SubnetId $vnet.Subnets[$subnetindex].Id -PublicIpAddressId $pip.Id
     PS C:\> $vm=Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
     ```
-6. Sanal makineyi oluşturun.
+6. Merhaba sanal makine oluşturun.
 
     ```    
     PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure kaynaklarınızı bulunmaya PowerShell kullanmayı tercih ederseniz, PowerShell makalesine bakın. [dağıtma ve yönetme yedekleme için Windows Server](backup-client-automation.md). DPM yedeklemelerini yönetiyorsanız makalesine bakın [dağıtma ve yönetme yedekleme DPM için](backup-dpm-automation.md). Bu makaleler her ikisi de Resource Manager dağıtımları ve klasik dağıtımları için bir sürümüne sahipsiniz.  
+Azure kaynaklarınızı toouse PowerShell tooengage tercih ederseniz, bkz: hello PowerShell makale [dağıtma ve yönetme yedekleme için Windows Server](backup-client-automation.md). DPM yedeklemelerini yönetme, hello makalesine bakın. [dağıtma ve yönetme yedekleme DPM için](backup-dpm-automation.md). Bu makaleler her ikisi de Resource Manager dağıtımları ve klasik dağıtımları için bir sürümüne sahipsiniz.  

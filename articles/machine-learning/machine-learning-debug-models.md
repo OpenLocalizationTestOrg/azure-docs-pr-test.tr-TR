@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning modelinizde hata ayıklama | Microsoft Docs"
-description: "Azure Machine Learning Train Model ve Score Model modülleri tarafından oluşturulan hataları ayıklamak üzere nasıl."
+title: aaaDebug modelinizi Azure Machine Learning | Microsoft Docs
+description: "Nasıl toodebug hataları Azure Machine Learning modüllerinin Train Model ve Score Model tarafından üretilen."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: d4cc94a6395ea45bccf65d9a9f3118ec98cb258d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ee38ca8ce38d4fc7add5ba70c80ab9bb2ceaf1d4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="debug-your-model-in-azure-machine-learning"></a>Azure Machine Learning’de Model Hatalarını Ayıklama
 
-Bu makalede neden aşağıdaki iki hataların ya da bir model çalıştırırken karşılaşılabilecek olası nedenleri açıklanmaktadır:
+Bu makalede neden iki hataları aşağıdaki hello birini bir model çalıştırırken karşılaşılabilecek hello olası nedenleri açıklanmaktadır:
 
-* [Train Model] [ train-model] modülünde bir hata oluşturur 
-* [Score Model] [ score-model] modülü hatalı sonuçlar üretir 
+* Merhaba [Train Model] [ train-model] modülünde bir hata oluşturur 
+* Merhaba [Score Model] [ score-model] modülü hatalı sonuçlar üretir 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -33,41 +33,41 @@ Bu makalede neden aşağıdaki iki hataların ya da bir model çalıştırırken
 
 ![image1](./media/machine-learning-debug-models/train_model-1.png)
 
-[Train Model] [ train-model] modülü iki girdi bekliyor:
+Merhaba [Train Model] [ train-model] modülü iki girdi bekliyor:
 
-1. Azure Machine Learning tarafından sağlanan modelleri koleksiyonundan makine öğrenimi modeline türü.
-2. Eğitim verileri tahmin etmek için değişken belirten belirtilen etiket sütunu (diğer sütunların özellikleri olduğu varsayılır).
+1. Azure Machine Learning tarafından sağlanan modellerin hello koleksiyonundan makine öğrenimi modeline Hello türü.
+2. Merhaba eğitim verilerini belirten belirtilen etiket sütunu hello değişken toopredict (Merhaba diğer sütunları toobe özellikleri varsayılır).
 
-Bu modül aşağıdaki durumlarda hataya neden:
+Bu modül durumları aşağıdaki hello hata oluşturabilir:
 
-1. Etiket sütununda hatalı şekilde belirtildi. Bu, birden fazla sütun etiketi olarak seçilir ya da yanlış sütun dizini seçili meydana gelebilir. Örneğin, bir sütun dizini 30 yalnızca 25 sütunları olan bir giriş veri kümesi ile kullanılırsa, ikinci durum geçerli olur.
+1. Merhaba etiket sütunu yanlış belirtilmiş. Bu etiket hello birden fazla sütun seçildi ya da yanlış sütun dizini seçili meydana gelebilir. Örneğin, bir sütun dizini 30 yalnızca 25 sütunları olan bir giriş veri kümesi ile kullandıysanız hello ikinci durum geçerli olur.
 
-2. Veri kümesi herhangi bir özellik sütunu içermiyor. Örneğin, girdi veri kümesi etiket sütun işaretlendiğinden, yalnızca bir sütun varsa olurdu hangi model oluşturmak hiçbir özellik. Bu durumda, [Train Model] [ train-model] modülünde bir hata oluşturur.
+2. Merhaba veri kümesi herhangi bir özellik sütunu içermiyor. Örneğin, hello girdi veri kümesi hello etiket sütun işaretlendiğinden, yalnızca bir sütun varsa olurdu hangi toobuild hello modeliyle hiçbir özellik. Bu durumda, hello [Train Model] [ train-model] modülünde bir hata oluşturur.
 
-3. Girdi veri kümesi (özellikleri veya etiketi) sonsuz bir değer içeriyor.
+3. Merhaba girdi veri kümesi (özellikleri veya etiketi) sonsuz bir değer içeriyor.
 
 ## <a name="score-model-module-produces-incorrect-results"></a>Score Model modülünün hatalı sonuçlar üretir
 
 ![image2](./media/machine-learning-debug-models/train_test-2.png)
 
-Tipik bir eğitim ve sınama deneme denetimli öğrenme için de [bölünmüş veri] [ split] modülü iki bölüme özgün dataset böler: bir bölümü modeli eğitmek için kullanılır ve bir bölümü ne kadar iyi eğitilen model gerçekleştirir Puanlama amacıyla kullanılır. Eğitim modeli sonra daha sonra sonuçları modelin doğruluğunu belirlemek için değerlendirilen test verileri Puanlama amacıyla kullanılır.
+Bir tipik eğitim ve sınama denemesinde denetimli öğrenme için hello [bölünmüş veri] [ split] modülü iki bölüme hello özgün dataset böler: bir parçasıdır kullanılan tootrain hello modeli ve bir bölümü kullanılır tooscore ne kadar iyi hello eğitilen model gerçekleştirir. kullanılan tooscore hello sonra test verileri, sonra hello sonuçları değerlendirilen toodetermine hello hello modeli doğruluğunu olduğu hello eğitilen modelidir.
 
-[Score Model] [ score-model] modülü iki giriş gerektirir:
+Merhaba [Score Model] [ score-model] modülü iki giriş gerektirir:
 
-1. Eğitilen model çıktısını [Train Model] [ train-model] modülü.
-2. Modeli eğitmek için kullanılan veri kümesinden farklı bir Puanlama veri kümesi.
+1. Merhaba eğitilen model çıktısını [Train Model] [ train-model] modülü.
+2. Merhaba kümesinden farklı bir Puanlama dataset tootrain hello modeli kullanılır.
 
-Rağmen deneme başarılı olduğunu, mümkünse [Score Model] [ score-model] modülü hatalı sonuçlar üretir. Bazı senaryolarda bu gerçekleşecek şekilde neden olabilir:
+Merhaba deneme başarılı olsa bile hello olası kullanıcının [Score Model] [ score-model] modülü hatalı sonuçlar üretir. Bazı senaryolarda bu toohappen neden olabilir:
 
-1. Belirtilen etiket kategorik ise ve bir regresyon modeli verileri eğitildi, hatalı bir çıktı tarafından üretilen [Score Model] [ score-model] modülü. Regresyon sürekli yanıt değişkeni gerektirdiğinden budur. Bu durumda, bir sınıflandırma modelini kullanmak daha uygun olacaktır. 
+1. Merhaba etiket kategorik ve bir regresyon modeli hello verileri eğitildi belirtilmişse, hatalı bir çıktı hello tarafından üretilen [Score Model] [ score-model] modülü. Regresyon sürekli yanıt değişkeni gerektirdiğinden budur. Bu durumda, daha uygun toouse bir sınıflandırma modeli olacaktır. 
 
-2. Benzer şekilde, bir sınıflandırma modeli Etiket sütununda kayan nokta numarası olan bir veri kümesi üzerinde eğitildi, istenmeyen sonuçlara neden olabilir. Yalnızca bu aralık değerleri sınıfların sonlu ve genellikle biraz küçük, küme üzerinde veren bir ayrık yanıt değişken Sınıflandırmayı gerektirmiyor olmasıdır.
+2. Benzer şekilde, bir sınıflandırma modeli kayan nokta numarası hello etiket sütuna sahip bir veri kümesi üzerinde eğitildi, istenmeyen sonuçlara neden olabilir. Yalnızca bu aralık değerleri sınıfların sonlu ve genellikle biraz küçük, küme üzerinde veren bir ayrık yanıt değişken Sınıflandırmayı gerektirmiyor olmasıdır.
 
-3. Puanlama veri kümesi modeli eğitmek için kullanılan tüm özellikleri içermiyorsa [Score Model] [ score-model] bir hata oluşturur.
+3. Veri kümesi Puanlama hello tüm hello kullanılan özellikler tootrain hello modeli içermiyorsa hello [Score Model] [ score-model] bir hata oluşturur.
 
-4. Puanlama kümesindeki bir satır eksik veya kendi özelliklerinden herhangi birini sonsuz bir değerini içeriyorsa [Score Model] [ score-model] ilgili satır için karşılık gelen herhangi bir çıktı oluşturmaz.
+4. Veri kümesi Puanlama hello satırda eksik bir değer veya özelliklerinden birini sonsuz bir değer içeriyorsa, hello [Score Model] [ score-model] hiçbir çıktı karşılık gelen toothat satır oluşturmaz.
 
-5. [Score Model] [ score-model] Puanlama kümesindeki tüm satırların aynı çıktıları üretebilir. Bu, örneğin, örnekleri yaprak düğümü başına en az sayıda eğitim örnekleri kullanılabilir sayısından daha fazla olacak şekilde seçilirse karar ormanları kullanarak sınıflandırma çalışılırken gerçekleşebilir.
+5. Merhaba [Score Model] [ score-model] dataset Puanlama hello içindeki tüm satırların aynı çıktıları üretebilir. Bu, örneğin, örnekleri yaprak düğümü başına en az sayıda hello eğitim örnekleri kullanılabilir hello birden çok toobe sayısı seçilirse karar ormanları kullanarak sınıflandırma çalışılırken gerçekleşebilir.
 
 <!-- Module References -->
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/

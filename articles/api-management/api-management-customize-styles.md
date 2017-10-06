@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management'ta geliştirici portalı stillerini özelleştirme | Microsoft Docs"
-description: "Azure API Management geliştirici portalı sayfalarında kullanılan stilleri nasıl değiştireceğinizi öğrenin."
+title: "Azure API Management'ta Geliştirici portalını hello aaaCustomize stillerde | Microsoft Docs"
+description: "Toomodify hello stilleri'hello Azure API Management'ta Geliştirici portalını herhangi bir sayfa için nasıl kullanılacağını öğrenin."
 services: api-management
 documentationcenter: 
 author: antonba
@@ -14,62 +14,62 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.openlocfilehash: bd08eb476a4bd7298c5650977b88ba0b24deddec
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aaaa86527992ba43e64eab5fd35c7f57b573c812
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>Azure API Management'ta geliştirici portalı stillerini özelleştirme
-Azure API Management'ta geliştirici portalını özelleştirmek için kullanılabilecek üç temel yöntem vardır:
+# <a name="customize-hello-styling-of-hello-developer-portal-in-azure-api-management"></a>Merhaba stilini hello Azure API Management'ta Geliştirici portalını özelleştirme
+Azure API Management'te üç temel şekilde toocustomize hello Geliştirici Portalı vardır:
 
-* [Statik sayfaların ve sayfa düzeni öğelerinin içeriğini düzenleme][modify-content-layout]
-* [Geliştirici portalının tamamında sayfa öğeleri için kullanılan stilleri güncelleştirme][customize-styles] (bu kılavuzda açıklanmıştır)
-* [Portal tarafından oluşturulan sayfalar için kullanılan şablonları değiştirme][portal-templates] (API belgeleri, ürünler, kullanıcı kimlik doğrulaması vs.)
+* [Statik sayfaları ve sayfa düzeni öğelerini Hello içeriğini düzenleme][modify-content-layout]
+* [Merhaba Geliştirici Portalı sayfası öğeleri için kullanılan hello stilleri güncelleştirme] [ customize-styles] (Bu kılavuzda açıklanan)
+* [Merhaba portal tarafından oluşturulan sayfalar için kullanılan hello şablonları değiştirmek] [ portal-templates] (örneğin API belgeleri, ürünler, kullanıcı kimlik doğrulaması, vb.)
 
-## <a name="change-headers-styling"> </a>Sayfa öğelerinin stilini değiştirme
+## <a name="change-headers-styling"></a>Sayfası öğeleri hello stilini değiştirme
 
-Bir sayfadaki renk, yazı tipi, boyut, boşluklar ve stille ilgili diğer öğeler stil kuralları tarafından tanımlanır. 
+Merhaba renkleri, yazı tipi, boyutları, boşluklar ve hello portalındaki herhangi bir sayfanın diğer stil ilgili öğeler stil kuralları tarafından tanımlanır. 
 
-Stil kurallarını düzenlemek için yönetici olarak oturum açtıktan sonra **Geliştirici portalına** gidin. Bu sayfaya ulaşmak için Azure Portal'ı açın ve API Management örneğinizin hizmet araç çubuğundan **Yayımcı portalı**'na tıklayın.
+Merhaba stil kurallarını düzenlemenin hello yapılır **Geliştirici Portalı** yönetici olarak oturum açmış oluştu. tooget var. önce hello Azure Portal açın ve tıklatın **yayımcı portalına** , API Management örneğinin hello hizmet araç çubuğundan.
 
 ![Yayımcı portalı][api-management-management-console]
 
-Ardından sağ üst köşedeki **Geliştirici portalı**'na tıklayın. 
+Tıklayın **Geliştirici Portalı** hello sağ üst üzerinde. 
 
-![Yayımcı portalındaki geliştirici portalı bağlantısı][api-management-pp-dp-link]
+![Geliştirici Portalı bağlantıyı hello yayımcı portalı][api-management-pp-dp-link]
 
-Özelleştirme araç çubuğunu açmak için farenizi özelleştirme simgesinin üzerine götürün (veya simgeyi seçin) ve araç çubuğundan "stiller"e tıklayın.
+tooopen hello özelleştirme araç farenizi hello özelleştirme simgenin üzerine getirin (veya seçin) ve ardından tıklatın "Merhaba araç çubuğundan stilleri".
 
 ![Özelleştirme araç çubuğu düğmesi][api-management-customization-toolbar-button]
 
-Stil kurallarını iki şekilde düzenleyebilirsiniz: varsayılan olarak gösterilen ve her yerde kullanılan tüm stil kurallarının listesine bakabilir veya **Sayfadaki bir öğeyi seçin** öğesini seçip sayfadaki herhangi bir yere tıklayarak yalnızca ilgili öğenin stillerini görebilirsiniz.
+Stil kurallarını düzenlemenin iki ana yol vardır - varsayılan olarak görüntülenen hello herhangi bir yerde kullanılan tüm hello Stil kurallarının listesini göz ve stil gerektiği şekilde değiştirin veya seçebilirsiniz **hello sayfada bir öğe seçin** ve ardından Merhaba sayfa toosee yalnızca hello stilleri o öğeye ilişkin üzerinde herhangi bir yere tıklayın.
 
 ![Özelleştirme araç çubuğu][api-management-customization-toolbar]
 
-Bu örnek için **Sayfadaki bir öğeyi seçin**'e tıklayın.  Fareyle üzerine geldiğiniz öğeler vurgulanır ve tıkladığınızda hangi öğe stillerini düzenlemeye başlayacağınızı gösterir. Fareyi üst bilgideki metnin üzerine götürün (genelde burada şirket adı yazar) ve tıklayın. Stil düzenleyicisinde, adlandırılmış ve kategorilere ayrılmış bir grup stil kuralı görüntülenir. Her kural seçilen öğenin bir stil özelliğini temsil eder. Örneğin, yukarıda seçilen üst bilgi metni için metin boyutu @font-size-h1 biçimindeyken, alternatiflerle birlikte yazı tipinin adı @headings-font-family biçimindedir.
+Merhaba tıklatın **hello sayfada bir öğe seçin** bu örneğin seçeneği.  Hangi öğe stillerini tıkladıysanız düzenlemeye başlamak üzerlerine hello fare toosignify ile gezinirken öğeler vurgulanır. Taşıma hello fare üzerinden hello metin hello üstbilgi (genellikle hello şirket adını buraya olması) ve ardından onu. Adlandırılmış ve kategorilere ayrılmış stil kuralları kümesi hello stil düzenleyicisinde görüntülenir. Her kural hello seçili öğenin bir stil özelliğini temsil eder. Örneğin, yukarıda seçilen hello üstbilgi metni için hello hello metin olarak boyutudur @font-size-h1 Alternatiflerle birlikte yazı tipi hello hello adı olarak kullanılırken @headings-font-family.
 
-> [Önyükleme][bootstrap] yapmayı biliyorsanız, bu kurallar aslında geliştirici portalı tarafından kullanılan önyükleme temasının [LESS değişkenleridir][LESS variables].
+> Hakkında bilginiz varsa [önyükleme][bootstrap], bu kurallar aslında olan [LESS değişkenleri] [ LESS variables] hello tarafından kullanılan önyükleme temasının hello içinde Geliştirici Portalı.
 > 
 > 
 
-Şimdi üst bilgi metninin rengini değiştirelim. **@headings-color** alanındaki girişi seçin ve **#000000** yazın. Bu, siyah renk için onaltılı koddur. Bunu yaparken, metin kutusunun sonunda kare şeklinde bir renk göstergesi görürsünüz. Bu göstergeye tıklarsanız, bir renk seçici renk seçmenizi sağlar.
+Merhaba hello başlık metninin rengini değiştirelim. Hello Hello girişi seçin  **@headings-color**  alanı ve türü **#000000**. Bu hello onaltılık hello rengi siyah kodudur. Bunu yaparken, bir kare renk göstergesi hello hello metin kutusunun sonunda görüntülenir. Bu göstergeye tıklarsanız, bir renk seçici renk toochoose olanak sağlar.
 
 ![Renk seçici][api-management-customization-toolbar-color-picker]
 
-Değişiklikler yapıldıkça gerçek zamanlı olarak önizlemesi gösterilir, ancak yalnızca yöneticilere görünür. Bu değişikliği herkese görünür yapmak için stil düzenleyicisinde **Yayımla** düğmesine tıklayın ve değişiklikleri onaylayın.
+Bunları hale getirir, ancak yalnızca tooadministrators görünür olan gibi değişiklikler gerçek zamanlı olarak önizlemesi. toomake görünür tooeveryone bu değişiklikler, hello tıklatın **Yayımla** düğmesini hello stil Düzenleyicisi'nde ve hello değişiklikleri onaylayın.
 
-![Yayımlama menüsü][api-management-customization-toolbar-publish-form]
+![Yayımla menüsü][api-management-customization-toolbar-publish-form]
 
-> Sayfadaki başka bir öğeye uygulanan stil kurallarını değiştirmek isterseniz üst bilgi için uyguladığınız aynı yordamı izleyin. Stil düzenleyicisinde **Sayfadaki bir öğeyi seçin**'e tıklayın, ilgilendiğiniz öğeyi seçin ve ekranda görünen stil kurallarının değerlerini değiştirmeye başlayın.
+> toochange hello stil tooany uygulamak kuralı başka bir öğenin başlangıç sayfasında, izleme hello aynı yordamı siz hello üstbilgisi vermedi. Tıklatın **hello sayfada bir öğe seçin** hello stil düzenleyicisini, ilgilendiğiniz select hello öğesi ve başlangıç Merhaba ekranında görüntülenen hello Stil kurallarının hello değerlerini değiştirme.
 > 
 > 
 
 
 ## <a name="next-steps"> </a>Sonraki adımlar
-* [Geliştirici portal şablonları](api-management-developer-portal-templates.md)’nı kullanarak geliştirici portal sayfalarının içeriğini özelleştirme hakkında bilgi edinin.
+* Geliştirici Portalı toocustomize Merhaba içeriğine kullanarak nasıl sayfaları öğrenin [Geliştirici Portalı şablonları](api-management-developer-portal-templates.md).
 
-[Change the styling of the headers]: #change-headers-styling
+[Change hello styling of hello headers]: #change-headers-styling
 [Next steps]: #next-steps
 
 [Azure Classic Portal]: https://manage.windowsazure.com/

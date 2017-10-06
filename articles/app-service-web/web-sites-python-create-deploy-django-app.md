@@ -1,6 +1,6 @@
 ---
-title: "Azure’da Django ile web uygulamaları oluşturma"
-description: "Azure App Service Web Apps’te bir Python web uygulaması çalıştırmayı gösteren bir öğretici."
+title: "azure'da Django ile aaaCreating web uygulamaları"
+description: "Toorunning bir Python web uygulamasını Azure App Service Web Apps tanıtır Öğreticisi."
 services: app-service\web
 documentationcenter: python
 tags: python
@@ -15,21 +15,21 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2016
 ms.author: huvalo
-ms.openlocfilehash: 388a2db21dd1669b48b3204aaa322d7915905506
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 26a131da358748bd6fe4ee5c114d0a8f91b83cfe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="creating-web-apps-with-django-in-azure"></a>Azure’da Django ile web uygulamaları oluşturma
-Bu öğretici, çalışan, [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)’te Python çalıştırmaya nasıl başlayacağınızı açıklar. Web Apps sınırlı ücretsiz barındırma ve hızlı dağıtım sağlar ve Python’u kullanmanıza olanak tanır! Uygulamanız büyüdükçe, ücretli barındırmaya geçebilir ve aynı zamanda tüm diğer Azure hizmetleriyle tümleştirebilirsiniz.
+Bu öğretici tooget te Python çalıştırmaya nasıl başlatılacağını açıklar [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Web Apps sınırlı ücretsiz barındırma ve hızlı dağıtım sağlar ve Python’u kullanmanıza olanak tanır! Uygulamanız büyüdükçe, toopaid barındırma geçiş yapabilirsiniz ve tüm ile de tümleştirebilir gibi diğer Azure hizmetleriyle hello.
 
-Django web altyapısını kullanarak bir uygulama oluşturacaksınız (bu öğreticinin diğer sürümleri için bkz. [Flask](web-sites-python-create-deploy-flask-app.md) ve [Bottle](web-sites-python-create-deploy-bottle-app.md)). Azure Marketi'nde bir web uygulaması oluşturacak, Git dağıtımı ayarlayacak ve depoyu yerel olarak kopyalayacaksınız. Sonra, uygulamayı yerel olarak çalıştıracak, değişiklikler yapacak, yürütecek ve bunları Azure'a ileteceksiniz. Öğretici, Windows veya Mac/Linux’ta bunun nasıl yapıldığını gösterir.
+Merhaba Django web altyapısını kullanarak bir uygulama oluşturacaksınız (Bu öğretici için alternatif sürümleri bkz [Flask](web-sites-python-create-deploy-flask-app.md) ve [Bottle](web-sites-python-create-deploy-bottle-app.md)). Azure Market hello hello web uygulaması oluşturma, Git dağıtımı ayarlayacak ve hello depoyu yerel olarak kopyalayacaksınız. Ardından, hello uygulamayı yerel olarak çalıştırmak, değişiklik, yürütme ve bunları tooAzure gönderme. Eğitmen gösterir nasıl hello toodo bu Windows veya Mac/Linux.
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+> Azure hesabı için kaydolmadan önce Azure App Service ile başlatılan tooget istiyorsanız, çok Git[App Service'i deneyin](https://azure.microsoft.com/try/app-service/), burada hemen bir kısa süreli başlangıç web uygulaması App Service'te oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
 
@@ -43,27 +43,27 @@ Django web altyapısını kullanarak bir uygulama oluşturacaksınız (bu öğre
 **Not**: TFS yayımlama şu anda Python projeleri için desteklenmiyor.
 
 ### <a name="windows"></a>Windows
-Python 2.7 ya da 3.4 yüklü (32 bit) değilse, Web Platformu Yükleyicisi'ni kullanarak [Python 2.7 için Azure SDK] veya [Python 3.4 için Azure SDK]’yı yüklemenizi öneririz. Bu, Python’un 32 bit sürümünü, setuptools, PIP, virtualenv vb.yükler (32 bit Python, Azure ana makinelerde yüklü olandır). Alternatif olarak, Python’u [python.org] adresinden edinebilirsiniz.
+Python 2.7 ya da 3.4 yüklü (32 bit) değilse, Web Platformu Yükleyicisi'ni kullanarak [Python 2.7 için Azure SDK] veya [Python 3.4 için Azure SDK]’yı yüklemenizi öneririz. Bu, Python, setuptools, PIP, virtualenv, (32 bit Python hello Azure ana makinelerde yüklü olandır) "Merhaba 32-bit sürümünü yükler. Alternatif olarak, Python’u [python.org] adresinden edinebilirsiniz.
 
-Git için, [Windows için Git] veya [Windows için GitHub]’ı öneririz. Visual Studio kullanıyorsanız, tümleşik Git desteğini kullanabilirsiniz.
+Git için, [Windows için Git] veya [Windows için GitHub]’ı öneririz. Visual Studio kullanıyorsanız hello tümleşik Git desteğini kullanabilirsiniz.
 
-Ayrıca [Visual Studio için Python Araçları 2.2]’yi yüklemenizi öneririz  Bu isteğe bağlıdır, ancak ücretsiz Visual Studio Community 2013 veya Web için Visual Studio Express 2013 içeren [Visual Studio] varsa, bu size mükemmel bir Python IDE verir.
+Ayrıca [Visual Studio için Python Araçları 2.2]’yi yüklemenizi öneririz  Bu isteğe bağlı, ancak varsa [Visual Studio]hello dahil olmak üzere ücretsiz Visual Studio Community 2013 veya Visual Studio Express 2013 Web sonra bu mükemmel bir Python IDE verir.
 
 ### <a name="maclinux"></a>Mac/Linux
 Python ve Git sizde zaten yüklü olmalıdır, ancak Python 2.7 veya 3.4 olduğundan emin olun.
 
 ## <a name="web-app-creation-on-portal"></a>Portalda Web Uygulaması Oluşturma
-Uygulamanızı oluşturmanın ilk adımı, [Azure Portal](https://portal.azure.com) aracılığıyla web uygulaması oluşturmaktır.
+Merhaba uygulamanızı oluşturmanın ilk adımı olan toocreate hello web uygulaması hello aracılığıyla [Azure Portal](https://portal.azure.com).
 
-1. Azure Portal’da oturum açın ve sol alt köşede **NEW** düğmesine tıklayın.
-2. Arama kutusuna, "python" yazın.
-3. Arama sonuçlarında **Django**’yu (PTVS tarafından yayımlanır) seçin ve ardından **Oluştur**’a tıklayın.
-4. Yeni bir App Service planı ve bunun için yeni bir kaynak grubu oluşturma şeklinde, yeni Django uygulamasını yapılandırın. Sonra, **Oluştur**’a tıklayın.
-5. Yeni oluşturulan web uygulamanız için, [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md) başlığındaki yönergeleri izleyerek Git yayımlamayı yapılandırın.
+1. Oturum hello Azure Portal ve hello tıklatın **yeni** hello sol alt köşedeki düğmesini.
+2. Merhaba arama kutusuna "python" yazın.
+3. Merhaba arama sonuçlarında seçin **Django** (PTVS tarafından yayımlanan), ardından **oluşturma**.
+4. Yeni bir uygulama hizmeti planı ve yeni bir kaynak grubu oluşturma gibi hello yeni Django uygulamasını yapılandırın. Sonra, **Oluştur**’a tıklayın.
+5. Merhaba yönergeleri izleyerek Git yayımlamayı yeni oluşturulan web uygulamanız için yapılandırma [yerel Git dağıtımı tooAzure uygulama hizmeti](app-service-deploy-local-git.md).
 
 ## <a name="application-overview"></a>Uygulamaya Genel Bakış
 ### <a name="git-repository-contents"></a>Git deposu içeriği
-Burada, sonraki bölümde kopyalayacağımız, ilk Git deposunda bulacağınız dosyalara bir genel bakış yer alır.
+Burada, hangi hello sonraki bölümde kopyalama hello ilk Git deposunda bulabilirsiniz hello dosyaları genel bir bakış verilmiştir.
 
     \app\__init__.py
     \app\forms.py
@@ -84,15 +84,15 @@ Burada, sonraki bölümde kopyalayacağımız, ilk Git deposunda bulacağınız 
     \DjangoWebProject\urls.py
     \DjangoWebProject\wsgi.py
 
-Uygulama için ana kaynaklar Ana düzenle birlikte 3 sayfadan (dizin, hakkında, iletişim) oluşur. Statik içerik ve betikler bootstrap, jquery, modernize ve yanıtı içerir.
+Merhaba uygulaması için ana kaynaklar. Ana düzenle birlikte 3 sayfadan (dizin, hakkında, iletişim) oluşur. Statik içerik ve betikler bootstrap, jquery, modernize ve yanıtı içerir.
 
     \manage.py
 
-Yerel yönetim ve geliştirme sunucusu desteği. Uygulamayı yerel olarak çalıştırmak, veritabanını eşitlemek vb. için bunu kullanın.
+Yerel yönetim ve geliştirme sunucusu desteği. Eşitleme hello veritabanı, vb., bu toorun hello uygulama yerel olarak kullanın.
 
     \db.sqlite3
 
-Varsayılan veritabanı. Uygulamanın çalıştırılması için gerekli tabloları içerir, ancak herhangi bir kullanıcı içermez (kullanıcı oluşturmak için veritabanını eşitleyin) içermiyor.
+Varsayılan veritabanı. Merhaba uygulama toorun Hello gerekli tabloları içerir, ancak (Merhaba veritabanı toocreate kullanıcı eşitleme) herhangi bir kullanıcı içermez.
 
     \DjangoWebProject.pyproj
     \DjangoWebProject.sln
@@ -105,12 +105,12 @@ Sanal ortamlar için IIS proxy ve PTVS uzaktan hata ayıklama desteği
 
     \requirements.txt
 
-Bu uygulamaya dış paketler gerekir. Dağıtım betiği pip bu dosyada listelenen paketleri pip yükler.
+Bu uygulamaya dış paketler gerekir. Bu dosyada listelenen yükleme hello paketleri Hello dağıtım betiği pip.
 
     \web.2.7.config
     \web.3.4.config
 
-IIS yapılandırma dosyaları. Dağıtım betiği, uygun web.x.y.config’i kullanır ve bunu web.config olarak kopyalar.
+IIS yapılandırma dosyaları. Merhaba dağıtım betiği hello uygun Web.x.y.config'i kullanır ve bunu web.config olarak kopyalar.
 
 ### <a name="optional-files---customizing-deployment"></a>İsteğe bağlı dosyalar - Dağıtımı özelleştirme
 [!INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
@@ -119,7 +119,7 @@ IIS yapılandırma dosyaları. Dağıtım betiği, uygun web.x.y.config’i kull
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 ### <a name="additional-files-on-server"></a>Sunucu üzerindeki ek dosyalar
-Bazı dosyalar sunucuda yer alır ancak git deposuna eklenmez. Bunlar dağıtım betiği tarafından oluşturulur.
+Bazı dosyalar hello sunucuda var, ancak toohello git deposuna eklenmez. Bunlar hello dağıtım betiği tarafından oluşturulur.
 
     \web.config
 
@@ -127,92 +127,92 @@ IIS yapılandırma dosyası. Her dağıtımda web.x.y.config tarafından oluştu
 
     \env\
 
-Python sanal ortamı. Web uygulamasında uyumlu sanal ortam zaten yoksa, dağıtım ırasında oluşturulur. Requirements.txt içinde listelenen paketler pip yüklüdür, ancak paketler zaten yüklü ise pip yüklemeyi atlar.
+Python sanal ortamı. Dağıtım sırasında hello web uygulamasında uyumlu sanal ortamın zaten mevcut değilse oluşturulur. Requirements.txt içinde listelenen paketler pip yüklüdür, ancak hello paketler zaten yüklü ise pip yüklemeyi atlar.
 
-Sonraki 3 bölümde farklı 3 ortamda web uygulaması geliştirmeye devam etme açıklanmaktadır:
+Merhaba sonraki 3 bölümde nasıl tooproceed hello ile web uygulaması geliştirme altında farklı 3 ortamda açıklanmaktadır:
 
 * Windows, Visual Studio için Python Araçları ile
 * Windows, komut satırı ile
 * Mac/Linux, komut satırı ile
 
 ## <a name="web-app-development---windows---python-tools-for-visual-studio"></a>Web uygulaması geliştirme - Windows - Visual Studio için Python Araçları
-### <a name="clone-the-repository"></a>Depoyu kopyalama
-İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
+### <a name="clone-hello-repository"></a>Kopya hello deposu
+İlk olarak, Azure Portal hello üzerinde sağlanan hello URL'yi kullanarak hello depoyu kopyalayın. Daha fazla bilgi için bkz: [yerel Git dağıtımı tooAzure uygulama hizmeti](app-service-deploy-local-git.md).
 
-Depo kök dizininde bulunan çözüm dosyasını (.sln) açın.
+Merhaba hello depo kök dizininde bulunan hello çözüm dosyasını (.sln) açın.
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-solution-django.png)
 
 ### <a name="create-virtual-environment"></a>Sanal ortamı oluşturun.
 Şimdi, yerel geliştirme için sanal bir ortam oluşturacağız. Sağ **Python Ortamları**’na sağ tıklayın **Sanal Ortam Ekle...** seçeneğini seçin.
 
-* Ortam adının `env` olduğundan emin olun.
-* Temel yorumlayıcıyı seçin. Web uygulamanız için seçilen Python ile aynı sürümü kullandığınızdan emin olun (runtime.txt içinde veya Azure Portal’da uygulamanızın **Uygulama Ayarları** dikey penceresinde).
-* Paketleri indirme ve yükleme seçeneğinin işaretli olduğundan emin olun.
+* Merhaba ortamı Hello adı olduğundan emin olun `env`.
+* Merhaba temel yorumlayıcıyı seçin. Toouse hello web uygulamanız için seçilen Python ile aynı sürümü olduğundan emin olun (runtime.txt veya hello **uygulama ayarları** hello Azure Portal, web uygulamanızın dikey penceresinde).
+* Merhaba seçeneği toodownload ve yükleme paketleri işaretli olduğundan emin olun.
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-add-virtual-env-27.png)
 
-**Oluştur**’a tıklayın. Bu, sanal ortamı oluşturur ve requirements.txt içinde listelenen bağımlılıkları yükler.
+**Oluştur**'a tıklayın. Bu işlem hello sanal ortam oluşturacak ve requirements.txt içinde listelenen bağımlılıkları yükler.
 
 ### <a name="create-a-superuser"></a>Süper kullanıcı oluşturma
-Uygulamayla birlikte gelen veritabanında tanımlı bir süper kullanıcı yoktur. Uygulamadaki oturum açma işlevini ya da Django yönetim arabirimini (etkinleştirmeye karar verirseniz) kullanmak için, bir süper kullanıcı oluşturmanız gerekir.
+Merhaba uygulamayla birlikte gelen hello veritabanında tanımlı bir süper kullanıcı yok. Oturum açma sırası toouse hello işlev hello uygulama ya da hello Django yönetim arabirimi (tooenable karar verirseniz,), bir süper kullanıcı toocreate gerekir.
 
-Proje klasörünüzdeki komut satırından bunu çalıştırın:
+Bu hello komut satırı, proje klasöründen çalıştırın:
 
     env\scripts\python manage.py createsuperuser
 
-Kullanıcı adı, parola vb. ayarlamak için yönergeleri izleyin.
+Merhaba istemleri tooset hello kullanıcı adı, parola vb. izleyin.
 
 ### <a name="run-using-development-server"></a>Geliştirme sunucusu kullanarak çalıştırma
-Hata ayıklamayı başlatmak için F5 tuşuna basın, böylece web tarayıcınız yerel olarak çalışan sayfaya otomatik olarak açılır.
+Otomatik olarak hata ayıklama tuşuna F5 toostart ve web tarayıcınız yerel olarak çalışan toohello sayfasını açar.
 
 ![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
 
-Kaynaklarda kesme noktalarını ayarlayabilir, gözcü pencerelerini kullanabilirsiniz vb. Çeşitli özellikler hakkında daha fazla bilgi için bkz. [Visual Studio Belgeleri için Python Araçları].
+Kesme noktaları hello kaynakları, kullanım hello Gözcü pencerelerini, vb. ayarlayabilirsiniz. Merhaba bkz [Visual Studio belgeleri için Python Araçları] hakkında daha fazla bilgi için çeşitli özellikler hello.
 
 ### <a name="make-changes"></a>Değişiklik yapma
-Şimdi uygulama kaynakları ve/veya şablonlarında değişiklikler yapmayı deneyebilirsiniz.
+Şimdi değişiklikleri toohello uygulama kaynakları ve/veya şablonlarında yapmayı deneyebilirsiniz.
 
-Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
+Değişikliklerinizi test ettikten sonra bunları toohello Git deposuna kaydedin:
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-commit-django.png)
 
 ### <a name="install-more-packages"></a>Daha fazla paket yükleme
 Uygulamanızın Python ve Django ötesinde bağımlılıkları olabilir.
 
-Pip kullanarak ek paketleri yükleyebilirsiniz. Bir paketi yüklemek için, sanal ortamda sağ tıklayıp **Python Paketini Yükle**’yi seçin.
+Pip kullanarak ek paketleri yükleyebilirsiniz. bir paket tooinstall sağ tıklayın hello sanal ortam ve select **Python paketini Yükle**.
 
-Örneğin, size Azure Storage, Service Bus ve diğer Azure hizmetleri için erişim imkanı sağlayan, Python için Azure SDK'yı yüklemek için şunu girin: `azure`
+Örneğin, tooinstall Merhaba, tooAzure depolama, service bus ve diğer Azure hizmetleriyle erişmenizi girin Python için Azure SDK `azure`:
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-install-package-dialog.png)
 
-Sanal ortamda sağ tıklayıp **requirements.txt oluştur**’u seçerek requirements.txt dosyasını güncelleştirin.
+Merhaba sanal ortamda sağ tıklayıp **requirements.txt Oluştur** tooupdate requirements.txt.
 
-Ardından, requirements.txt dosyasındaki değişiklikleri Git deposuna uygulayın.
+Ardından, hello değişiklikleri toorequirements.txt toohello Git deposuna uygulayın.
 
-### <a name="deploy-to-azure"></a>Azure’a dağıtma
-Bir dağıtımı tetiklemek için tıklatın **Eşitle** veya **İlet**’e tıklayın. Eşitleme, iletme ve çekme işlemini yapar.
+### <a name="deploy-tooazure"></a>TooAzure dağıtma
+bir dağıtım tootrigger tıklayın **eşitleme** veya **anında**. Eşitleme, iletme ve çekme işlemini yapar.
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-git-push.png)
 
-Sanal ortam, yükleme paketleri vb. oluşturacağında, ilk dağıtımın gerçekleşmesi biraz zaman alır.
+bir sanal ortam, yükleme paketleri vb. oluşturacağı gibi hello ilk dağıtım biraz zaman alabilir.
 
-Visual Studio dağıtımın ilerleme durumunu göstermez. Çıktıyı gözden geçirmek isterseniz, üzerinde bakın [Sorun Giderme - Dağıtım](#troubleshooting-deployment)’daki bölüme bakın.
+Visual Studio hello hello dağıtımının ilerlemesini göstermez. Tooreview hello çıkış isterseniz hello bölümüne bakarak [sorun giderme - dağıtım](#troubleshooting-deployment).
 
-Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
+Toohello Azure URL tooview değişikliklerinizi göz atın.
 
 ## <a name="web-app-development---windows---command-line"></a>Web uygulaması geliştirme - Windows - komut satırı
-### <a name="clone-the-repository"></a>Depoyu kopyalama
-İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın ve uzak olarak Azure deposunu ekleyin. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
+### <a name="clone-hello-repository"></a>Kopya hello deposu
+İlk olarak, Azure Portal hello üzerinde sağlanan hello URL'yi kullanarak hello depoyu kopyalayın ve uzak olarak hello Azure deposunu ekleyin. Daha fazla bilgi için bkz: [yerel Git dağıtımı tooAzure uygulama hizmeti](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
     git remote add azure <repo-url>
 
 ### <a name="create-virtual-environment"></a>Sanal ortamı oluşturun.
-Geliştirme amacına yönelik yeni bir sanal ortam oluşturacağız (bunu depoya eklemeyin). Uygulama üzerinde çalışan her geliştiricinin yerel olarak kendininkini oluşturacağı şekilde, Python’daki sanal ortamlar yeniden yerleştirilebilir değildir.
+(Bunu toohello depoya eklemeyin) geliştirme amacıyla yeni bir sanal ortam oluşturacağız. Sanal ortamlar Hello uygulama üzerinde çalışan her geliştiricinin yerel olarak Kendininkini oluşturacağı şekilde python'daki, değildir.
 
-Web uygulamanız için seçilen Python ile aynı sürümü kullandığınızdan emin olun (runtime.txt içinde veya Azure Portal’da uygulamanızın Uygulama Ayarları dikey penceresinde).
+Toouse hello web uygulamanızda (runtime.txt veya hello uygulama ayarları dikey penceresinde hello Azure Portal kullanarak web uygulamanızda) için seçilen Python ile aynı sürümü emin olun.
 
 Python 2.7:
 
@@ -222,36 +222,36 @@ Python 3.4:
 
     c:\python34\python.exe -m venv env
 
-Uygulamanız için gereken herhangi bir dış paketi yükleyin. Sanal ortamınıza paketleri yüklemek için depo kökündeki requirements.txt dosyasını kullanabilirsiniz:
+Uygulamanız için gereken herhangi bir dış paketi yükleyin. Sanal ortamınıza hello hello depo tooinstall hello paketleri kökünde hello requirements.txt dosyasını kullanabilirsiniz:
 
     env\scripts\pip install -r requirements.txt
 
 ### <a name="create-a-superuser"></a>Süper kullanıcı oluşturma
-Uygulamayla birlikte gelen veritabanında tanımlı bir süper kullanıcı yoktur. Uygulamadaki oturum açma işlevini ya da Django yönetim arabirimini (etkinleştirmeye karar verirseniz) kullanmak için, bir süper kullanıcı oluşturmanız gerekir.
+Merhaba uygulamayla birlikte gelen hello veritabanında tanımlı bir süper kullanıcı yok. Oturum açma sırası toouse hello işlev hello uygulama ya da hello Django yönetim arabirimi (tooenable karar verirseniz,), bir süper kullanıcı toocreate gerekir.
 
-Proje klasörünüzdeki komut satırından bunu çalıştırın:
+Bu hello komut satırı, proje klasöründen çalıştırın:
 
     env\scripts\python manage.py createsuperuser
 
-Kullanıcı adı, parola vb. ayarlamak için yönergeleri izleyin.
+Merhaba istemleri tooset hello kullanıcı adı, parola vb. izleyin.
 
 ### <a name="run-using-development-server"></a>Geliştirme sunucusu kullanarak çalıştırma
-Aşağıdaki komutla bir geliştirme sunucusu altında uygulamayı başlatabilirsiniz:
+Komutu aşağıdaki hello ile Merhaba uygulaması geliştirme sunucusu altında başlatabilirsiniz:
 
     env\scripts\python manage.py runserver
 
-Konsol URL’yi ve sunucunun dinlediği bağlantı noktasını görüntüler:
+Merhaba konsol hello URL'si gösterilir ve bağlantı noktası hello sunucu dinler:
 
 ![](./media/web-sites-python-create-deploy-django-app/windows-run-local-django.png)
 
-Sonra, bu URL için web tarayıcınızı açın.
+Sonra web tarayıcısı toothat URL'nizi açın.
 
 ![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
 
 ### <a name="make-changes"></a>Değişiklik yapma
-Şimdi uygulama kaynakları ve/veya şablonlarında değişiklikler yapmayı deneyebilirsiniz.
+Şimdi değişiklikleri toohello uygulama kaynakları ve/veya şablonlarında yapmayı deneyebilirsiniz.
 
-Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
+Değişikliklerinizi test ettikten sonra bunları toohello Git deposuna kaydedin:
 
     git add <modified-file>
     git commit -m "<commit-comment>"
@@ -259,40 +259,40 @@ Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
 ### <a name="install-more-packages"></a>Daha fazla paket yükleme
 Uygulamanızın Python ve Django ötesinde bağımlılıkları olabilir.
 
-Pip kullanarak ek paketleri yükleyebilirsiniz. Örneğin, size Azure Storage, Service Bus ve diğer Azure hizmetleri için erişim imkanı sağlayan, Python için Azure SDK'yı yüklemek için aşağıdakileri yazın:
+Pip kullanarak ek paketleri yükleyebilirsiniz. Örneğin, tooinstall Merhaba, imkanı sağlayan, Python için Azure SDK tooAzure depolama, service bus ve diğer Azure hizmetleriyle türü erişebilirsiniz:
 
     env\scripts\pip install azure
 
-Requirements.txt dosyasını güncelleştirdiğinizden emin olun:
+Tooupdate requirements.txt emin olun:
 
     env\scripts\pip freeze > requirements.txt
 
-Değişiklikleri uygulayın:
+Merhaba değişiklikleri uygulayın:
 
     git add requirements.txt
     git commit -m "Added azure package"
 
-### <a name="deploy-to-azure"></a>Azure’a dağıtma
-Bir dağıtımı tetiklemek için, değişiklikleri Azure’a gönderin:
+### <a name="deploy-tooazure"></a>TooAzure dağıtma
+bir dağıtım tootrigger, anında iletme hello tooAzure değiştirir:
 
     git push azure master
 
-Sanal ortam oluşturma, paketleri yükleme, web.config oluşturma dahil dağıtım betiği çıktısını görürsünüz.
+Merhaba Merhaba, sanal ortam oluşturma, paketleri yükleme, web.config oluşturma dahil dağıtım betiği çıktısını görürsünüz.
 
-Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
+Toohello Azure URL tooview değişikliklerinizi göz atın.
 
 ## <a name="web-app-development---maclinux---command-line"></a>Web uygulaması geliştirme - Mac/Linux - komut satırı
-### <a name="clone-the-repository"></a>Depoyu kopyalama
-İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın ve uzak olarak Azure deposunu ekleyin. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
+### <a name="clone-hello-repository"></a>Kopya hello deposu
+İlk olarak, Azure Portal hello üzerinde sağlanan hello URL'yi kullanarak hello depoyu kopyalayın ve uzak olarak hello Azure deposunu ekleyin. Daha fazla bilgi için bkz: [yerel Git dağıtımı tooAzure uygulama hizmeti](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
     git remote add azure <repo-url>
 
 ### <a name="create-virtual-environment"></a>Sanal ortamı oluşturun.
-Geliştirme amacına yönelik yeni bir sanal ortam oluşturacağız (bunu depoya eklemeyin). Uygulama üzerinde çalışan her geliştiricinin yerel olarak kendininkini oluşturacağı şekilde, Python’daki sanal ortamlar yeniden yerleştirilebilir değildir.
+(Bunu toohello depoya eklemeyin) geliştirme amacıyla yeni bir sanal ortam oluşturacağız. Sanal ortamlar Hello uygulama üzerinde çalışan her geliştiricinin yerel olarak Kendininkini oluşturacağı şekilde python'daki, değildir.
 
-Web uygulamanız için seçilen Python ile aynı sürümü kullandığınızdan emin olun (runtime.txt içinde veya Azure Portal’da uygulamanızın Uygulama Ayarları dikey penceresinde).
+Toouse hello web uygulamanızda (runtime.txt veya hello uygulama ayarları dikey penceresinde hello Azure Portal kullanarak web uygulamanızda) için seçilen Python ile aynı sürümü emin olun.
 
 Python 2.7:
 
@@ -306,36 +306,36 @@ or
 
     pyvenv env
 
-Uygulamanız için gereken herhangi bir dış paketi yükleyin. Sanal ortamınıza paketleri yüklemek için depo kökündeki requirements.txt dosyasını kullanabilirsiniz:
+Uygulamanız için gereken herhangi bir dış paketi yükleyin. Sanal ortamınıza hello hello depo tooinstall hello paketleri kökünde hello requirements.txt dosyasını kullanabilirsiniz:
 
     env/bin/pip install -r requirements.txt
 
 ### <a name="create-a-superuser"></a>Süper kullanıcı oluşturma
-Uygulamayla birlikte gelen veritabanında tanımlı bir süper kullanıcı yoktur. Uygulamadaki oturum açma işlevini ya da Django yönetim arabirimini (etkinleştirmeye karar verirseniz) kullanmak için, bir süper kullanıcı oluşturmanız gerekir.
+Merhaba uygulamayla birlikte gelen hello veritabanında tanımlı bir süper kullanıcı yok. Oturum açma sırası toouse hello işlev hello uygulama ya da hello Django yönetim arabirimi (tooenable karar verirseniz,), bir süper kullanıcı toocreate gerekir.
 
-Proje klasörünüzdeki komut satırından bunu çalıştırın:
+Bu hello komut satırı, proje klasöründen çalıştırın:
 
     env/bin/python manage.py createsuperuser
 
-Kullanıcı adı, parola vb. ayarlamak için yönergeleri izleyin.
+Merhaba istemleri tooset hello kullanıcı adı, parola vb. izleyin.
 
 ### <a name="run-using-development-server"></a>Geliştirme sunucusu kullanarak çalıştırma
-Aşağıdaki komutla bir geliştirme sunucusu altında uygulamayı başlatabilirsiniz:
+Komutu aşağıdaki hello ile Merhaba uygulaması geliştirme sunucusu altında başlatabilirsiniz:
 
     env/bin/python manage.py runserver
 
-Konsol URL’yi ve sunucunun dinlediği bağlantı noktasını görüntüler:
+Merhaba konsol hello URL'si gösterilir ve bağlantı noktası hello sunucu dinler:
 
 ![](./media/web-sites-python-create-deploy-django-app/mac-run-local-django.png)
 
-Sonra, bu URL için web tarayıcınızı açın.
+Sonra web tarayıcısı toothat URL'nizi açın.
 
 ![](./media/web-sites-python-create-deploy-django-app/mac-browser-django.png)
 
 ### <a name="make-changes"></a>Değişiklik yapma
-Şimdi uygulama kaynakları ve/veya şablonlarında değişiklikler yapmayı deneyebilirsiniz.
+Şimdi değişiklikleri toohello uygulama kaynakları ve/veya şablonlarında yapmayı deneyebilirsiniz.
 
-Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
+Değişikliklerinizi test ettikten sonra bunları toohello Git deposuna kaydedin:
 
     git add <modified-file>
     git commit -m "<commit-comment>"
@@ -343,27 +343,27 @@ Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
 ### <a name="install-more-packages"></a>Daha fazla paket yükleme
 Uygulamanızın Python ve Django ötesinde bağımlılıkları olabilir.
 
-Pip kullanarak ek paketleri yükleyebilirsiniz. Örneğin, size Azure Storage, Service Bus ve diğer Azure hizmetleri için erişim imkanı sağlayan, Python için Azure SDK'yı yüklemek için aşağıdakileri yazın:
+Pip kullanarak ek paketleri yükleyebilirsiniz. Örneğin, tooinstall Merhaba, imkanı sağlayan, Python için Azure SDK tooAzure depolama, service bus ve diğer Azure hizmetleriyle türü erişebilirsiniz:
 
     env/bin/pip install azure
 
-Requirements.txt dosyasını güncelleştirdiğinizden emin olun:
+Tooupdate requirements.txt emin olun:
 
     env/bin/pip freeze > requirements.txt
 
-Değişiklikleri uygulayın:
+Merhaba değişiklikleri uygulayın:
 
     git add requirements.txt
     git commit -m "Added azure package"
 
-### <a name="deploy-to-azure"></a>Azure’a dağıtma
-Bir dağıtımı tetiklemek için, değişiklikleri Azure’a gönderin:
+### <a name="deploy-tooazure"></a>TooAzure dağıtma
+bir dağıtım tootrigger, anında iletme hello tooAzure değiştirir:
 
     git push azure master
 
-Sanal ortam oluşturma, paketleri yükleme, web.config oluşturma dahil dağıtım betiği çıktısını görürsünüz.
+Merhaba Merhaba, sanal ortam oluşturma, paketleri yükleme, web.config oluşturma dahil dağıtım betiği çıktısını görürsünüz.
 
-Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
+Toohello Azure URL tooview değişikliklerinizi göz atın.
 
 ## <a name="troubleshooting---package-installation"></a>Sorun giderme - Paket Yükleme
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
@@ -372,85 +372,85 @@ Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 ## <a name="troubleshooting---static-files"></a>Sorun giderme - Statik Dosyalar
-Django statik dosyaları toplama kavramına sahiptir. Bu, tüm statik dosyaları özgün konumlarından alır ve tek bir klasöre kopyalar. Bu uygulama için, bunlar `/static` klasörüne kopyalanır.
+Django statik dosyaları toplama hello kavramına sahiptir. Bu tüm hello statik dosyaları özgün konumlarından alır ve bunları tooa tek klasörüne kopyalar. Bu uygulama için çok kopyalanırlar`/static`.
 
-Statik dosyalar farklı Django “uygulamalarından” gelebileceğinden bu yapılır. Örneğin, Django yönetim arabirimlerindeki statik dosyalar sanal ortamdaki bir Django kitaplığı alt klasöründe yer alır. Bu uygulama tarafından tanımlanan statik dosyalar `/app/static` içinde bulunur. Daha fazla Django “uygulamaları” kullandıkça, birden fazla yerde bulunan statik dosyalarınız olur.
+Statik dosyalar farklı Django “uygulamalarından” gelebileceğinden bu yapılır. Örneğin, hello Django yönetim arabirimlerindeki statik dosyalar hello hello sanal ortamdaki bir Django kitaplığı alt bulunur. Bu uygulama tarafından tanımlanan statik dosyalar `/app/static` içinde bulunur. Daha fazla Django “uygulamaları” kullandıkça, birden fazla yerde bulunan statik dosyalarınız olur.
 
-Uygulamayı hata ayıklama modunda çalıştırdığınızda, uygulama statik dosyaları özgün konumlarından işleme alır.
+Merhaba uygulama hata ayıklama modunda çalışırken Merhaba uygulaması hello statik dosyaları özgün konumlarından işlevi görür.
 
-Uygulama yayın modunda çalışırken, uygulama statik dosyaları işleme **almaz**. Dosyaları işleme almak web sunucusunun sorumluluğundadır. Bu uygulama için, IIS statik dosyaları `/static` konumundan işleme alır.
+Merhaba uygulama yayın modunda çalışırken Merhaba uygulaması mu **değil** hello statik dosyaları sunar. Bunu hello hello web sunucusu tooserve hello dosyaları sorumluluğundadır. Bu uygulama için IIS statik dosyaları hello hizmet `/static`.
 
-Statik dosyaların toplanması işlemi önceden toplanan dosyalar temizlenerek, dağıtım betiğinin bir parçası olarak otomatik yapılır Bu, her dağıtımda meydana gelen toplamanın dağıtımı yavaşlattığı anlamına gelir ancak, potansiyel bir güvenlik sorunu önlenerek eski dosyaların kullanılmamasını sağlar.
+statik dosya Hello koleksiyonunu temizlenmesi hello dağıtım komut dosyası, daha önce toplanan parçası dosyalar halinde otomatik olarak yapılır. Bu hello koleksiyonu dağıtımı yavaşlattığı her dağıtımda meydana gelen ancak eski dosyaların olası bir güvenlik sorunu önlenerek kullanılabilir durumda olmaz sağlar anlamına gelir.
 
-Django uygulamanız için statik dosya toplamayı atlamak istiyorsanız:
+Django uygulamanız için statik dosya tooskip koleksiyonunu istiyorsanız:
 
     \.skipDjango
 
-Toplamayı yerel makinenizde el ile yapmanız gerekir:
+Ardından toodo hello koleksiyonu yerel makinenizde el ile gerekir:
 
     env\scripts\python manage.py collectstatic
 
-Sonra, `.gitignore` içindeki `\static` klasörünü kaldırmanız ve Git deposuna eklemeniz gerekir.
+Merhaba kaldırmak `\static` klasöründen `.gitignore` ve toohello Git deposunu ekleyin.
 
 ## <a name="troubleshooting---settings"></a>Sorun giderme - Ayarlar
-Uygulama için çeşitli ayarlar`DjangoWebProject/settings.py` içinde değiştirilebilir.
+Merhaba uygulama için çeşitli ayarları değiştirilebilir `DjangoWebProject/settings.py`.
 
-Geliştiriciye kolaylık sağlamak için hata ayıklama modu etkindir. Bunun olumlu bir yan etkisi, yerle olarak çalıştırırken, statik dosyaları toplamak zorunda kalmadan, resimleri ve diğer statik içeriği görebilecek olmanızdır.
+Geliştiriciye kolaylık sağlamak için hata ayıklama modu etkindir. Olumlu bir yan etkisi, yerel olarak toocollect statik dosyaları gerek kalmadan çalıştırırken mümkün toosee resimleri ve diğer statik içeriği olacak ' dir.
 
-Hata ayıklama modunu devre dışı bırakmak için:
+toodisable hata ayıklama modu:
 
     DEBUG = False
 
-Hata ayıklama devre dışı bırakıldığında, `ALLOWED_HOSTS` değerinin Azure ana bilgisayar adını içerecek şekilde güncelleştirilmesi gerekir. Örneğin:
+Hata ayıklama devre dışı bırakıldığında, değeri hello `ALLOWED_HOSTS` gereksinimlerini toobe güncelleştirilmiş tooinclude hello Azure ana bilgisayar adı. Örneğin:
 
     ALLOWED_HOSTS = (
         'pythonapp.azurewebsites.net',
     )
 
-veya herhangi birini etkinleştirmek için:
+veya tooenable herhangi:
 
     ALLOWED_HOSTS = (
         '*',
     )
 
-Uygulamada, hata ayıklama ile yayımlama modu arasında geçiş yapma ve ana bilgisayar adını almakla uğraşmak için daha karmaşık bir şey yapmak isteyebilirsiniz.
+Uygulamada, toodo arasında geçiş yapma ile daha karmaşık toodeal hata ayıklama ve sürüm modu ve alma hello ana bilgisayar adı isteyebilirsiniz.
 
-Azure Portal aracılığıyla, **CONFIGURE** sayfasında, **uygulaması ayarları** bölümünde ortam değişkenlerini ayarlayabilirsiniz.  Bu, kaynaklarda (bağlantı dizeleri, parolalar vb.) görünmesini istemeyebileceğini ya da Azure ile yerel makineniz arasında farklı ayarlamak isteyeceğiniz değerler için faydalı olabilir. `settings.py` içinde, `os.getenv` kullanarak ortam değişkenlerini sorgulayabilirsiniz.
+Hello Azure portal aracılığıyla ortam değişkenlerini ayarlayabilirsiniz **yapılandırma** sayfasında hello **uygulama ayarları** bölümü.  Bu değerler hello kaynaklarında (bağlantı dizeleri, parolalar vb.) tooappear istemeyebilirsiniz ya da Azure ile yerel makineniz arasında farklı tooset istediğiniz için faydalı olabilir. İçinde `settings.py`, kullanarak hello ortam değişkenlerini sorgulayabilirsiniz `os.getenv`.
 
 ## <a name="using-a-database"></a>Bir Veritabanını Kullanma
-Uygulama ile birlikte gelen veritabanı bir sqlite veritabanıdır. Neredeyse hiçbir kurulum gerektirmediğinden, geliştirme için kullanmak üzere kullanışlı ve faydalıdır. Veritabanı proje klasöründeki db.sqlite3 dosyasında depolanır.
+Merhaba uygulama ile birlikte hello veritabanı bir sqlite veritabanıdır. Neredeyse hiçbir Kurulum gerektirmediğinden, geliştirme için kullanışlı ve faydalıdır veritabanı toouse budur. Merhaba veritabanı hello hello proje klasöründeki db.sqlite3 dosyasında depolanır.
 
-Azure Django uygulamasından kullanımı kolay olan veritabanı hizmetleri sağlar. Django uygulamasından [SQL Database] ve [MySQL] kullanma öğreticileri, veritabanı hizmeti oluşturmak, `DjangoWebProject/settings.py` içinde veritabanı ayarlarını değiştirmek için gerekli adımları ve yükleme için gerekli kitaplıkları gösterir.
+Azure Django uygulamasından kolay toouse olan veritabanı hizmetleri sağlar. Kullanma öğreticileri [SQL veritabanı] ve [MySQL] Django uygulamasından hello adımlar gerekli toocreate hello veritabanı hizmeti gösterir, hello veritabanı ayarlarını değiştirmek `DjangoWebProject/settings.py`ve hello kitaplıkları tooinstall gereklidir.
 
-Elbette, kendi veritabanı sunucularınızı yönetmek isterseniz, bunu Windows veya Linux Azure üzerinde çalışan sanal makineleri kullanarak yapabilirsiniz.
+Elbette, kendi veritabanı sunucularınızı toomanage tercih ederseniz, bunu Windows veya Linux Azure üzerinde çalışan sanal makineleri kullanarak yapabilirsiniz.
 
 ## <a name="django-admin-interface"></a>Django Yönetim Arabirimi
-Modellerinizi oluşturmaya başladıktan sonra, veritabanını bazı verilerle doldurmak istersiniz. Etkileşimli olarak içerik ekleme ve düzenleme işlemi yapmanın kolay bir yolu Django yönetim arabirimini kullanmaktır.
+Modellerinizi oluşturmaya başladıktan sonra toopopulate hello veritabanını bazı verilerle istersiniz. Toouse hello Django yönetim arabirimini toodo ekleme ve etkileşimli olarak içerik düzenleme kolay bir yoludur..
 
-Yönetim arabirimi kodu, uygulama kaynaklarında açıklanmıştır ve kolayca etkinleştirebileceğiniz şekilde açıkça işaretlenmiştir.
+hello yönetim arabirimi Hello kodunu hello uygulama kaynaklarında dışı bırakılmıştır, ancak bunu ('admin' arayın) kolayca etkinleştirebileceğiniz şekilde açıkça işaretlenmiştir.
 
-Etkinleştirildikten sonra, veritabanını eşitleyin, uygulamayı çalıştırın ve `/admin` konumuna gidin.
+Etkinleştirildikten sonra hello veritabanını eşitleyin, hello uygulamayı çalıştırın ve çok gidin`/admin`.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Visual Studio için Django ve Python Araçları hakkında daha fazla bilgi için bu bağlantıları izleyin.
+Bu bağlantılar toolearn Django ve Python araçları hakkında daha fazla bilgi için Visual Studio izleyin:
 
 * [Django Belgeleri]
-* [Visual Studio Belgeleri için Python Araçları]
+* [Visual Studio belgeleri için Python Araçları]
 
 SQL Database’i ve MySQL’i kullanma hakkında bilgi için:
 
 * [Visual Studio için Python Araçları ile Azure’da Django ve MySQL]
 * [Visual Studio için Python Araçları ile Azure’da Django ve SQL Veritabanı]
 
-Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
+Daha fazla bilgi için bkz: Merhaba [Python Geliştirici Merkezi](/develop/python/).
 
 ## <a name="whats-changed"></a>Yapılan değişiklikler
-* Web Sitelerinden App Service’e kadar değiştirme kılavuzu için bkz. [Azure App Service ve Mevcut Azure Hizmetlerine Etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Web siteleri tooApp hizmet değişikliği Kılavuzu toohello için bkz: [Azure App Service ve mevcut Azure hizmetlerine etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!--Link references-->
 [Visual Studio için Python Araçları ile Azure’da Django ve MySQL]: web-sites-python-ptvs-django-mysql.md
 [Visual Studio için Python Araçları ile Azure’da Django ve SQL Veritabanı]: web-sites-python-ptvs-django-sql.md
-[SQL Database]: web-sites-python-ptvs-django-sql.md
+[SQL veritabanı]: web-sites-python-ptvs-django-sql.md
 [MySQL]: web-sites-python-ptvs-django-mysql.md
 
 <!--External Link references-->
@@ -462,5 +462,5 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
 [Visual Studio için Python Araçları]: http://aka.ms/ptvs
 [Visual Studio için Python Araçları 2.2]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[Visual Studio Belgeleri için Python Araçları]: http://aka.ms/ptvsdocs
+[Visual Studio belgeleri için Python Araçları]: http://aka.ms/ptvsdocs
 [Django Belgeleri]: https://www.djangoproject.com/

@@ -1,6 +1,6 @@
 ---
-title: "Azure Cloud Services Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Öğreticiler, API başvuruları ve diğer belgeler, yüksek oranda kullanılabilir ve ölçeklenebilir bulut uygulamaları ve API'ler barındırmak ve çalıştırmak için Cloud Services’ı kullanmaya ilişkin bilgiler içerir."
+title: "aaaAzure bulut Hizmetleri belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Öğreticiler, API başvuru ve diğer belgeleri göster, nasıl toouse bulut Hizmetleri toohost ve yüksek oranda kullanılabilir ve ölçeklenebilir bulut uygulamalar ve API'ler çalıştırın."
 services: cloud-services
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 80793de5a66c9f125c23caf2664fbf08015298ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cloud-services-documentation"></a>Cloud Services Belgeleri
 
-Cloud Services’ı kullanarak yüksek oranda kullanılabilir ve ölçeklenebilir bulut uygulamaları ve API'ler barındırma ve çalıştırma hakkında bilgi edinin.  Öğreticiler, API başvuruları ve diğer belgeler, sanal makine konaklarını yönetme ve yazılımları yapılandırma, yükleme ve yazılımlara düzeltme eki uygulama ile ilgili bilgiler içerir.
+Bilgi nasıl toouse bulut Hizmetleri toohost ve çalışma yüksek oranda kullanılabilir, ölçeklenebilir bulut uygulamalar ve API'ler.  Öğreticiler, API başvuru ve diğer belgelerin nasıl toomanage sanal makine barındıran ve yapılandırma, düzeltme eki ve yazılım yükleme gösterir.
 
 <ul class="panelContent cardsFTitle">
     <li>

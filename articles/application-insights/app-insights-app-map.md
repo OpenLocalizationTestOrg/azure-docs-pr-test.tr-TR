@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights uygulama eşlemesinde | Microsoft Docs"
-description: "Uygulama bileşenleri arasındaki bağımlılıkları görsel sunumu KPI'ları ve uyarılarla etiketli."
+title: "Azure Application Insights eşlemesinde aaaApplication | Microsoft Docs"
+description: "Uygulama bileşenleri arasında hello bağımlılıkları görsel sunumu KPI'ları ve uyarılarla etiketli."
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: 207526b7a675f92134d045ebefb9a372749bce92
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 96ab753a100ea53ec7d367e3559b6622ab6fd182
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-map-in-application-insights"></a>Application ınsights'ta uygulama eşlemesi
-İçinde [Azure Application Insights](app-insights-overview.md), uygulama eşlemesi olan uygulama bileşenlerinizin bağımlılık ilişkilerini visual düzeni. Her bileşen yük, performans, hataları ve Uyarıları gibi bir performans sorunu veya hatası neden herhangi bir bileşeni keşfetmenize yardımcı olmak için KPI'ları gösterir. Aracılığıyla herhangi bir bileşeni Application Insights olaylarını gibi daha ayrıntılı tanılama tıklayabilirsiniz. Uygulamanızı Azure hizmetlerini kullanıyorsa, üzerinden SQL Database Advisor önerileri gibi Azure tanılama tıklatabilirsiniz.
+İçinde [Azure Application Insights](app-insights-overview.md), uygulama eşlemesi olan uygulama bileşenlerinizin hello bağımlılık ilişkilerini visual düzeni. Her bileşen KPI'ları bir performans sorunu veya hatası neden herhangi bir bileşeni Bul gibi yük, performans, hataları ve Uyarıları, toohelp gösterir. Hiçbir bileşen toomore aracılığıyla tıklatabilirsiniz ayrıntılı tanılama, Application Insights olaylarını gibi. Uygulamanızı Azure hizmetlerini kullanıyorsa, SQL veritabanı Danışmanı önerileri gibi tooAzure tanılama aracılığıyla tıklatabilirsiniz.
 
-Diğer grafikler gibi bir uygulama eşlemesi tam olarak işlevsel olduğu Azure panoya sabitleyebilirsiniz. 
+Diğer grafikler gibi bir uygulama eşlemesi toohello tam olarak işlevsel olduğu Azure Pano sabitleyebilirsiniz. 
 
-## <a name="open-the-application-map"></a>Uygulama eşlemesi açın
-Uygulamanız için genel bakış dikey penceresinden harita açın:
+## <a name="open-hello-application-map"></a>Açık hello uygulama eşlemesi
+Uygulamanız için hello genel bakış dikey penceresinden açık hello eşleyin:
 
 ![Uygulama Eşlem'i açın](./media/app-insights-app-map/01.png)
 
 ![Uygulama eşleme](./media/app-insights-app-map/02.png)
 
-Harita gösterir:
+Merhaba eşlemesini gösterir:
 
 * Kullanılabilirlik testleri
-* İstemci tarafı bileşen (JavaScript SDK'sı ile izlenen)
+* İstemci tarafı bileşen (Merhaba JavaScript SDK'sı ile izlenen)
 * Sunucu tarafı bileşeni
-* İstemci ve sunucu bileşenleri bağımlılıkları
+* Merhaba istemci ve sunucu bileşenleri bağımlılıkları
 
 Genişletme ve bağımlılık bağlantı gruplarına daraltma:
 
@@ -47,9 +47,9 @@ Bir tür (SQL, HTTP vb.) pek çok bağımlılık varsa, bunlar gruplandırılmı
 ![Gruplandırılmış bağımlılıkları](./media/app-insights-app-map/03-2.png)
 
 ## <a name="spot-problems"></a>Nokta sorunları
-Her düğüm bu bileşen için yükleme, performans ve hata hızlarını gibi ilgili performans göstergelerini içerir. 
+Her düğüm bu bileşen için hello yük, performans ve hata hızlarını gibi ilgili performans göstergelerini içerir. 
 
-Uyarı simgeleri olası sorunlar vurgulayın. Turuncu bir uyarı isteklerinde sayfa görünümleri veya bağımlılık çağrıları hataları olduğu anlamına gelir. Kırmızı bir hata oranı %5 yukarıda anlamına gelir. Bu eşikler ayarlamak istiyorsanız, Seçenekleri'ni açın.
+Uyarı simgeleri olası sorunlar vurgulayın. Turuncu bir uyarı isteklerinde sayfa görünümleri veya bağımlılık çağrıları hataları olduğu anlamına gelir. Kırmızı bir hata oranı %5 yukarıda anlamına gelir. Bu eşikler tooadjust istiyorsanız Seçenekleri'ni açın.
 
 ![hata simgeleri](./media/app-insights-app-map/04.png)
 
@@ -61,66 +61,66 @@ SQL Azure kullanırsanız, ne zaman gösteren bir simge yoktur nasıl performans
 
 ![Azure önerisi](./media/app-insights-app-map/06.png)
 
-Daha fazla bilgi almak için herhangi bir simgesini tıklatın:
+Tüm simge tooget daha fazla ayrıntı tıklatın:
 
 ![Azure önerisi](./media/app-insights-app-map/07.png)
 
 ## <a name="diagnostic-click-through"></a>Tanılama geçişli tıklatma
-Harita üzerinde düğümlerinin her biri için tanılama aracılığıyla hedeflenen tıklatın sunar. Seçenekler düğüm türüne bağlı olarak değişir.
+Merhaba haritaya hello düğümlerinin her biri için tanılama aracılığıyla hedeflenen tıklatın sunar. Merhaba seçenekler hello düğümü hello türüne bağlı olarak değişir.
 
 ![Sunucu seçenekleri](./media/app-insights-app-map/09.png)
 
-Azure üzerinde barındırılan bileşenler için bunları doğrudan bağlantıların seçenekleri içerir.
+Azure üzerinde barındırılan bileşenleri için doğrudan bağlantılar toothem hello seçenekleri içerir.
 
 ## <a name="filters-and-time-range"></a>Filtreler ve zaman aralığı
-Varsayılan olarak, seçilen zaman aralığı için kullanılabilir tüm verileri harita özetler. Ancak, yalnızca belirli işlem adları veya bağımlılıkları içerecek şekilde filtre uygulayabilirsiniz.
+Varsayılan olarak, zaman aralığı seçilen hello için kullanılabilir tüm hello veri hello harita özetler. Ancak tooinclude yalnızca belirli işlem adları veya bağımlılıkları filtreleyebilirsiniz.
 
-* İşlem adı: Bu sayfa görünümleri ve sunucu tarafı istek türleri içerir. Bu seçenek, yalnızca seçili işlemler için istemci/sunucu-tarafı düğümde KPI eşlemesini gösterir. Bu belirli işlemler bağlamında adlı bağımlılıkları gösterir.
-* Bağımlılık temel name: Bu, sunucu tarafı bağımlılıkları ve AJAX tarayıcı bağımlılıklar içerir. Özel bağımlılık telemetrisi TrackDependency API ile rapor ise, bunlar ayrıca burada görünür. Haritada göstermek için bağımlılıklar seçebilirsiniz. Şu anda bu seçimi sunucu tarafı istekleri ya da istemci-tarafı sayfa görünümleri filtre uygulamaz.
+* İşlem adı: Bu sayfa görünümleri ve sunucu tarafı istek türleri içerir. Bu seçenek ile yalnızca seçili hello işlemleri için hello istemci/sunucu-tarafı düğümde KPI hello harita gösterir hello. Bu belirli işlemler hello bağlamında adlı hello bağımlılıkları gösterir.
+* Bağımlılık temel name: Bu hello AJAX tarayıcı ve sunucu tarafı iç bağımlılıkları içerir. Özel bağımlılık telemetri hello TrackDependency API ile rapor ise, bunlar ayrıca burada görünür. Merhaba bağımlılıkları tooshow hello haritaya seçebilirsiniz. Şu anda bu seçimi hello sunucu tarafı istekleri ya da hello istemci-tarafı sayfa görünümleri filtre uygulamaz.
 
 ![Filtrelerini ayarlama](./media/app-insights-app-map/11.png)
 
 ## <a name="save-filters"></a>Filtreleri Kaydet
-Filtre uygulanmış bir görünüm üzerine uyguladığınız filtreleri Kaydet sabitlemek bir [Pano](app-insights-dashboards.md).
+uyguladığınız toosave hello filtreleri PIN hello filtrelenmiş görünüm üzerine bir [Pano](app-insights-dashboards.md).
 
-![Panoya sabitle](./media/app-insights-app-map/12.png)
+![PIN toodashboard](./media/app-insights-app-map/12.png)
 
 ## <a name="error-pane"></a>Hata bölmesi
-Harita düğümünde tıkladığınızda bir hata bölmesi sağ taraftaki hataları bu düğüm için özetleme görüntülenir. Hataları ilk işlem Kimliğine göre gruplandırılmış ve sorun kimliğine göre gruplandırılmış
+Merhaba eşlemesindeki bir düğümüne tıkladığınızda bir hata bölmesi hataları bu düğüm için özetleme hello sağ tarafında görüntülenir. Hataları ilk işlem Kimliğine göre gruplandırılmış ve sorun kimliğine göre gruplandırılmış
 
 ![Hata bölmesi](./media/app-insights-app-map/error-pane.png)
 
-Bir arıza tıklatarak bu hatanın en son örneğine alır.
+Bir arıza tıklamak bu hatanın en son örnek toohello götürür.
 
 ## <a name="resource-health"></a>Kaynak durumu
-Bazı kaynak türleri için kaynak durumu hata bölmesinin üst kısmında görüntülenir. Örneğin, bir SQL düğümü tıklatarak veritabanı sistem durumu ve puanlı herhangi bir uyarı gösterir.
+Bazı kaynak türleri için kaynak durumu hello hello hata bölmesinin üst kısmında görüntülenir. Örneğin, bir SQL düğümü tıklatarak hello veritabanı sistem durumu ve puanlı herhangi bir uyarı gösterir.
 
 ![Kaynak durumu](./media/app-insights-app-map/resource-health.png)
 
-Bu kaynak için standart genel bakış ölçümlerini görüntülemek için kaynak adı tıklatabilirsiniz.
+Bu kaynak için hello kaynak adı tooview standart genel bakış ölçümleri tıklatabilirsiniz.
 
 ## <a name="end-to-end-system-app-maps"></a>Uçtan uca sistem uygulama eşlemeleri
 
 *SDK'sı sürüm 2.3 veya üstü gerektirir*
 
-Uygulamanız çeşitli bileşenleri - Örneğin, bir arka uç hizmeti Ayrıca web uygulaması'na - sahip sonra bunları gösterebilir tüm bir tümleşik uygulama harita üzerinde.
+Çeşitli bileşenleri - uygulamanız varsa, örneğin, bir arka uç Hizmeti ayrıca toohello web uygulaması - sonra gösterebilir bir tümleşik uygulama harita üzerinde tüm bunları.
 
 ![Filtrelerini ayarlama](./media/app-insights-app-map/multi-component-app-map.png)
 
-Uygulama harita yüklü Application Insights SDK'sı ile sunucu arasında yapılan tüm HTTP bağımlılık çağrıları izleyerek sunucu düğümleri bulur. Her bir Application Insights kaynağı, bir sunucu içeren varsayılır.
+Merhaba uygulama harita hello Application Insights SDK'sı yüklü olan sunucuları arasında yapılan tüm HTTP bağımlılık çağrıları izleyerek sunucu düğümleri bulur. Her bir Application Insights kaynağı toocontain bir sunucu olduğu varsayılır.
 
 ### <a name="multi-role-app-map-preview"></a>Birden çok rol uygulama eşleme (Önizleme)
 
-Önizleme birden çok rol uygulama eşleme özelliğini uygulama eşlemesi aynı Application Insights kaynağına veri gönderilirken birden fazla sunucuyla sayesinde / izleme anahtarı. Harita sunucuları, telemetri öğeler üzerinde cloud_RoleName özelliği tarafından ayrılmış. Ayarlama *birden çok rol uygulama eşlemesi* için *üzerinde* bu yapılandırmayı etkinleştirmek için önizlemeleri dikey penceresinden.
+Merhaba Önizleme birden çok rol uygulama eşleme özelliğini sağlar toouse hello uygulama harita veri toohello gönderme birden çok sunucu ile aynı Application Insights kaynağı / izleme anahtarı. Hello eşlemesindeki sunucuları, telemetri öğeler üzerinde hello cloud_RoleName özelliği tarafından ayrılmış. Ayarlama *birden çok rol uygulama eşlemesi* çok*üzerinde* gelen önizlemeleri dikey tooenable bu yapılandırma hello.
 
-Bu yaklaşım, bir mikro hizmetler uygulamasındaki ya da tek bir Application Insights kaynağı içinde birden çok sunucudaki olayları ilişkilendirmek istediğiniz diğer senaryolarda istenebilir.
+Bu yaklaşım, bir mikro hizmetler uygulamasındaki ya da tek bir Application Insights kaynağı içinde birden çok sunucu boyunca toocorrelate olayları istediğiniz diğer senaryolarda istenebilir.
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## <a name="feedback"></a>Geri Bildirim
-Portal geri bildirimi seçeneği aracılığıyla geri bildirim sağlayın.
+Lütfen hello portal geri bildirimi seçeneği aracılığıyla geri bildirim sağlayın.
 
 ![MapLink-1 görüntüsü](./media/app-insights-app-map/13.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure uygulama ağ geçidi - Azure CLI 1.0 oluşturma | Microsoft Docs"
-description: "Resource Manager'da Azure CLI 1.0 kullanarak bir uygulama ağ geçidi oluşturmayı öğrenin"
+title: "aaaCreate Azure uygulama ağ geçidi - Azure CLI 1.0 | Microsoft Docs"
+description: "Nasıl toocreate kullanarak uygulama ağ geçidi hello Azure CLI 1.0 Kaynak Yöneticisi'nde öğrenin"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
-ms.openlocfilehash: e7b16e789e0f241aa8ca2292aacb2bccde8777ee
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3c0d2d96b6be404d0372d00f0deb2a32959ca419
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Azure CLI kullanarak bir uygulama ağ geçidi oluşturma
+# <a name="create-an-application-gateway-by-using-hello-azure-cli"></a>Hello Azure CLI kullanarak bir uygulama ağ geçidi oluşturma
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-create-gateway-portal.md)
@@ -33,18 +33,18 @@ ms.lasthandoff: 08/03/2017
 > 
 > 
 
-Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar. Uygulama ağ geçidi şu uygulama teslim özelliklerine sahiptir: HTTP Yük Dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi ve Güvenli Yuva Katmanı (SSL) yük boşaltma, özel sistem durumu araştırmalarının ve desteklemek için çok siteli.
+Azure Application Gateway, bir katman 7 yük dengeleyicidir. Merhaba Bulut veya şirket içinde olmalarından bağımsız yük devretme, HTTP isteklerini, farklı sunucular arasında performans amaçlı yönlendirme sağlar. Uygulama ağ geçidi hello şu uygulama teslim özelliklerine sahiptir: HTTP Yük Dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi ve Güvenli Yuva Katmanı (SSL) yük boşaltma, özel sistem durumu araştırmalarının ve desteklemek için çok siteli.
 
-## <a name="prerequisite-install-the-azure-cli"></a>Önkoşul: Azure CLI'yı yükleme
+## <a name="prerequisite-install-hello-azure-cli"></a>Önkoşul: hello Azure CLI yükleme
 
-Bu makaledeki adımları gerçekleştirmek için gerek [Mac, Linux ve Windows (Azure CLI) için Azure komut satırı arabirimini yükleyin](../xplat-cli-install.md) ve gerek [Azure oturumunu](../xplat-cli-connect.md). 
+tooperform hello bu makaledeki adımları, çok gerek[hello Azure komut satırı arabirimi Mac, Linux ve Windows (Azure CLI) için yükleme](../xplat-cli-install.md) ve çok ihtiyacınız[tooAzure üzerinde oturum](../xplat-cli-connect.md). 
 
 > [!NOTE]
 > Bir Azure hesabınız yoksa, biri gerekir. [Buradaki ücretsiz deneme sürümüyle](../active-directory/sign-up-organization.md) kaydolun.
 
 ## <a name="scenario"></a>Senaryo
 
-Bu senaryoda, Azure portalını kullanarak bir uygulama ağ geçidi oluşturmayı öğrenin.
+Bu senaryoda, nasıl Azure portal kullanarak bir uygulama ağ geçidi toocreate hello öğrenin.
 
 Bu senaryo aşağıdakileri yapar:
 
@@ -53,41 +53,41 @@ Bu senaryo aşağıdakileri yapar:
 * CIDR bloğu 10.0.0.0/28 kullanan subnet01 adlı bir alt ağ oluşturun.
 
 > [!NOTE]
-> Özel durumu da dahil olmak üzere uygulama ağ geçidinin ek yapılandırma araştırmaları, arka uç havuzu adresleri ve ek kurallar uygulama ağ geçidi yapılandırıldıktan sonra ve ilk dağıtım sırasında değil yapılandırılır.
+> Merhaba uygulama ağ geçidi, özel durumu da dahil olmak üzere ek yapılandırma araştırmaları, arka uç havuzu adresleri ve ek kurallar hello uygulama ağ geçidi yapılandırıldıktan sonra ve ilk dağıtım sırasında değil yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Azure uygulama ağ geçidi, kendi alt gerektirir. Bir sanal ağ oluştururken, birden çok alt ağa sahip için yeterli adres alanı bıraktığınızdan emin olun. Bir alt ağ için bir uygulama ağ geçidi dağıttığınızda, yalnızca ek uygulama ağ geçidi alt ağına eklemek kullanabilirsiniz.
+Azure uygulama ağ geçidi, kendi alt gerektirir. Bir sanal ağ oluştururken, birden çok alt ağı yeterli adres alanı toohave bıraktığınızdan emin olun. Bir uygulama ağ geçidi tooa alt dağıttığınızda, yalnızca ek uygulama ağ geçitleri eklenen mümkün toobe olan toohello alt ağ.
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="log-in-tooazure"></a>İçinde tooAzure oturum
 
-Açık **Microsoft Azure komut istemi**ve oturum açın. 
+Açık hello **Microsoft Azure komut istemi**ve oturum açın. 
 
 ```azurecli-interactive
 azure login
 ```
 
-Önceki örnekte yazın sonra bir kod sağlanır. Oturum açma işlemine devam etmek için bir tarayıcıda https://aka.ms/devicelogin gidin.
+Örnek önceki hello yazın sonra bir kod sağlanır. Bir tarayıcı toocontinue hello oturum açma işleminde toohttps://aka.MS/devicelogin gidin.
 
 ![cmd gösteren cihaz oturum açma][1]
 
-Tarayıcıda, aldığınız kodu girin. Bir oturum açma sayfasına yönlendirilir.
+Merhaba tarayıcıda aldığınız hello kodu girin. Yeniden yönlendirilen tooa oturum açma sayfası var.
 
-![Tarayıcı kodu girin][2]
+![Tarayıcı tooenter kodu][2]
 
-Kod girildikten sonra oturum açtığınızdan, üzerinde senaryoyla devam etmek için tarayıcıyı kapatın.
+Merhaba kod girildikten sonra Kapat hello tarayıcı toocontinue hello senaryoyla oturumunuz.
 
 ![başarıyla oturum açıldı][3]
 
-## <a name="switch-to-resource-manager-mode"></a>Resource Manager moduna geçin
+## <a name="switch-tooresource-manager-mode"></a>TooResource Manager moduna geçin
 
 ```azurecli-interactive
 azure config mode arm
 ```
 
-## <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
+## <a name="create-hello-resource-group"></a>Merhaba kaynak grubu oluştur
 
-Uygulama ağ geçidi oluşturmadan önce bir kaynak grubu, uygulama ağ geçidi içerecek şekilde oluşturulur. Aşağıda, komut gösterilmektedir.
+Merhaba uygulama ağ geçidi oluşturmadan önce bir kaynak grubu toocontain hello uygulama ağ geçidi oluşturulur. Merhaba aşağıdaki hello komut gösterir.
 
 ```azurecli-interactive
 azure group create \
@@ -97,7 +97,7 @@ azure group create \
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-Kaynak grubu oluşturulduktan sonra bir sanal ağ uygulama ağ geçidi için oluşturulur.  Aşağıdaki örnekte, önceki senaryo notları tanımlanan adres alanı 10.0.0.0/16 oluştu.
+Merhaba kaynak grubu oluşturulduktan sonra bir sanal ağ hello uygulama ağ geçidi için oluşturulur.  Aşağıdaki örneğine hello hello adres alanı senaryo notları önceki hello tanımlanan 10.0.0.0/16 olarak oluştu.
 
 ```azurecli-interactive
 azure network vnet create \
@@ -109,7 +109,7 @@ azure network vnet create \
 
 ## <a name="create-a-subnet"></a>Alt ağ oluşturma
 
-Sanal ağ oluşturulduktan sonra bir alt ağ için uygulama ağ geçidi eklenir.  Uygulama ağ geçidiyle aynı sanal ağ içinde barındırılan bir web uygulaması ile uygulama ağ geçidi kullanmayı planlıyorsanız, başka bir alt ağ için yeterli alan olduğundan emin olun.
+Merhaba sanal ağ oluşturulduktan sonra bir alt ağ için hello uygulama ağ geçidi eklenir.  Düşünüyorsanız toouse uygulama ağ geçidi ile bir web uygulaması hello aynı sanal barındırılan ağ hello uygulama ağ geçidi olarak, başka bir alt ağ için yeterli alan emin tooleave olabilir.
 
 ```azurecli-interactive
 azure network vnet subnet create \
@@ -119,9 +119,9 @@ azure network vnet subnet create \
 --address-prefix 10.0.0.0/28 
 ```
 
-## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
+## <a name="create-hello-application-gateway"></a>Merhaba uygulama ağ geçidi oluşturma
 
-Sanal ağ ve alt ağ oluşturulduktan sonra uygulama ağ geçidi için ön koşullar tamamlandı. Ayrıca daha önce dışarı aktarılan .pfx sertifika ve sertifika için parola için aşağıdaki adım gereklidir: arka uç için kullanılan IP adresleri arka uç sunucusu için IP adresleridir. Bu değerler, sanal ağ içinde kullanılabilecek özel IP, genel IP'ler veya arka uç sunucuları için tam etki alanı adları olabilir.
+Merhaba sanal ağ ve alt ağ oluşturulduktan sonra hello hello uygulama ağ geçidi için ön koşullar tamamlandı. Ayrıca bir daha önce dışarı aktarılan .pfx sertifika ve hello hello sertifikanın parolasını adım aşağıdaki hello için gerekli: hello arka için kullanılan hello IP adresleridir hello IP adresleri arka uç sunucunuz için. Bu değerleri ya da özel IP hello sanal ağ, genel IP'ler veya tam etki alanı adları, arka uç sunucuları için kullanılabilir.
 
 ```azurecli-interactive
 azure network application-gateway create \
@@ -143,16 +143,16 @@ azure network application-gateway create \
 ```
 
 > [!NOTE]
-> Aşağıdaki komutu çalıştırın oluşturma sırasında sağlanan parametrelerin listesi için: **azure ağ uygulama ağ geçidi oluşturma--Yardım**.
+> Komutu aşağıdaki hello çalıştırmak oluşturma sırasında sağlanan parametrelerin listesi için: **azure ağ uygulama ağ geçidi oluşturma--Yardım**.
 
-Bu örnek, dinleyicisi, arka uç havuzu, arka uç http ayarları ve kuralları için varsayılan ayarlarla temel uygulama ağ geçidi oluşturur. Bu ayarları sağlama başarılı olduktan sonra dağıtımınızı uyacak şekilde değiştirebilirsiniz.
-Web uygulamanızın arka uç havuzu oluşturulduktan sonra önceki adımlarda tanımlanan zaten varsa, Yük Dengeleme başlar.
+Bu örnek, hello dinleyicisi, arka uç havuzu, arka uç http ayarları ve kuralları için varsayılan ayarlarla temel uygulama ağ geçidi oluşturur. Merhaba sağlama başarılı olduktan sonra bu ayarları toosuit dağıtımınızı değiştirebilirsiniz.
+Adımlar bir kez oluşturulduktan sonra önceki hello hello arka uç havuzunun ile tanımlanan, web uygulamanızın zaten varsa, Yük Dengeleme başlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Özel sistem durumu araştırmalarının ziyaret ederek oluşturmayı öğrenin [bir özel durum araştırması oluştur](application-gateway-create-probe-portal.md)
+Nasıl toocreate özel durumu ziyaret ederek yoklamaları öğrenin [bir özel durum araştırması oluştur](application-gateway-create-probe-portal.md)
 
-SSL boşaltma yapılandırmak ve web sunucularınızın kapalı maliyetli SSL şifre çözme ziyaret ederek ele öğrenin [SSL boşaltma yapılandırın](application-gateway-ssl-arm.md)
+Nasıl tooconfigure SSL boşaltma ve Al hello maliyetli SSL şifre çözme ziyaret ederek, web sunucuları kapalı öğrenin [SSL boşaltma yapılandırın](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

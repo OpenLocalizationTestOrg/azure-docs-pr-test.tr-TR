@@ -1,6 +1,6 @@
 ---
-title: "Bir GitHub deposuna bağlı bir web uygulaması dağıtma | Microsoft Docs"
-description: "Github'da depodan bir proje içeren bir web uygulaması dağıtmak için bir Azure Resource Manager şablonunu kullanın."
+title: "aaaDeploy, bir web uygulamasını tooa GitHub deposunu bağlı | Microsoft Docs"
+description: "Azure Resource Manager şablonu toodeploy Github'da depodan bir proje içeren bir web uygulaması kullanın."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
-ms.openlocfilehash: 77064802814296d0c21f004534e4264d2f97252e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8b23416c4c06a60991517e6ee4cd82bebc5a9d73
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-a-web-app-linked-to-a-github-repository"></a>Bir GitHub deposuna bağlı bir web uygulaması dağıtma
-Bu konuda, GitHub deposunda bir projeye bağlı bir web uygulaması dağıtan bir Azure Resource Manager şablonunun nasıl oluşturulacağını öğreneceksiniz. Nasıl tanımlamak için hangi kaynağın dağıtılan ve ne zaman dağıtım yürütülen parametreler tanımlamak nasıl belirtilen öğreneceksiniz. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
+# <a name="deploy-a-web-app-linked-tooa-github-repository"></a>Bir web bağlantılı uygulama tooa GitHub deposunu dağıtma
+Bu konuda, nasıl toocreate, bir web uygulamasını dağıtan bir Azure Resource Manager şablonu GitHub deposunu tooa projesinde bağlı öğreneceksiniz. Şunları öğreneceksiniz nasıl toodefine hangi kaynağın dağıtılan ve nasıl toodefine parametreler hello dağıtım zaman yürütülür belirtilmiş. Kendi dağıtımlar için bu şablonu kullanabilir veya toomeet özelleştirebilirsiniz gereksinimlerinizi.
 
 Şablonları oluşturma hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Tam şablon için bkz: [Web uygulaması bağlantılı GitHub şablonuna](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
+Merhaba tam şablonu için bkz: [Web uygulaması bağlantılı tooGitHub şablon](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="what-you-will-deploy"></a>Dağıtmak
-Bu şablon kullanılarak GitHub projesinde kodu içeren bir web uygulamasına dağıtır.
+Bu şablon kullanılarak, github'da bir projeden hello kodu içeren bir web uygulaması dağıtır.
 
-Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıklayın:
+toorun dağıtım otomatik olarak Merhaba, düğme aşağıdaki hello tıklatın:
 
-[![Azure’a dağıtma](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+[![TooAzure dağıtma](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametreler
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 ### <a name="repourl"></a>repoURL
-Dağıtmak için projeyi içeren GitHub deposunu URL'si. Bu parametre bir varsayılan değer içeriyor, ancak bu değer yalnızca URL için depo sağlama göstermek için tasarlanmıştır. Bu değer şablon sınarken kullanabilirsiniz ancak şablonla çalışırken kendi deposu URL'sini sağlamanız isteyeceksiniz.
+Merhaba proje toodeploy içeren GitHub deposunu Hello URL'si. Bu parametre bir varsayılan değer içeriyor ancak bu değer yalnızca hedeflenen tooshow, nasıl tooprovide hello URL için depo. Merhaba şablon ancak test tooprovide hello URL kendi depo hello şablonla çalışırken istediğinizde, bu değeri kullanabilirsiniz.
 
     "repoURL": {
         "type": "string",
@@ -48,23 +48,23 @@ Dağıtmak için projeyi içeren GitHub deposunu URL'si. Bu parametre bir varsay
     }
 
 ### <a name="branch"></a>Dal
-Uygulama dağıtımı sırasında kullanılacak olan deponun dalı. Varsayılan değer ana, ancak herhangi bir dal dağıtım yapmak istediğiniz depo adını sağlayabilirsiniz.
+Merhaba Uygulama dağıtırken hello depo toouse dalı Hello. Merhaba varsayılan değer ana ancak toodeploy istediğiniz herhangi bir dal hello deposundaki hello adını sağlayabilirsiniz.
 
     "branch": {
         "type": "string",
         "defaultValue": "master"
     }
 
-## <a name="resources-to-deploy"></a>Dağıtılacak kaynaklar
+## <a name="resources-toodeploy"></a>Kaynakları toodeploy
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### <a name="web-app"></a>Web uygulaması
-GitHub'nde projeye bağlantılı web uygulamasını oluşturur. 
+Github'da bağlantılı toohello projedir hello web uygulamasını oluşturur. 
 
-Web uygulaması adı belirtin **siteName** parametre ve web uygulaması konumunu **siteLocation** parametresi. İçinde **dependsOn** öğe, şablonu tanımlar web uygulaması barındırma planı hizmet bağlı olarak. Barındırma planı üzerinde bağımlı olduğundan, barındırma planı oluşturuluyor tamamlanana kadar web uygulaması oluşturulamadı. **DependsOn** öğesi dağıtım sırası belirtmek için yalnızca kullanılır. Barındırma planı bağlı olarak web uygulaması işaretlemezseniz, Azure Kaynak Yöneticisi aynı anda hem kaynakları oluşturmayı dener ve barındırma planı önce web uygulaması oluşturduysanız, bir hata alabilirsiniz.
+Merhaba aracılığıyla hello web uygulamasının hello adı belirtin **siteName** parametre ve hello web uygulaması hello aracılığıyla hello konumunu **siteLocation** parametresi. Merhaba, **dependsOn** öğesi hello şablonu tanımlar hello web uygulaması hello service barındırma planı bağlı olarak. Barındırma planı hello üzerinde bağımlı olduğundan, oluşturulmakta hello barındırma planı tamamlanana kadar hello web uygulaması oluşturulamadı. Merhaba **dependsOn** yalnızca kullanılan toospecify dağıtım sırası bir öğedir. Merhaba web uygulaması hello barındırma planı bağlı olarak işaretlemezseniz, Azure kaynak yöneticisi her iki kaynağın toocreate deneyecek hello web uygulaması barındırma planı hello önce oluşturulduysa hello aynı saat ve bir hata iletisi alabilirsiniz.
 
-Web uygulaması da içinde tanımlanan bir alt kaynak sahip **kaynakları** bölümüne bakın. Bu alt kaynak web uygulaması ile dağıtılan projesi için kaynak denetimi tanımlar. Bu şablonda kaynak denetimi belirli bir GitHub deposuna bağlıdır. GitHub deposuna koduyla tanımlanan **"RepoUrl": "https://github.com/davidebbo-test/Mvc52Application.git"** sürekli olarak tek bir dağıtan bir şablon oluşturmak istediğinizde depo URL'si sabit kodlu olabilir minimum parametre sayısını gerektiren sırasında projesi.
-Depo URL'si kodlamak yerine, bir parametre depo URL'si ekleyin ve bu değeri kullanın **RepoUrl** özelliği.
+Hello web uygulaması da içinde tanımlanan bir alt kaynak sahip **kaynakları** bölümüne bakın. Bu alt kaynak hello web uygulaması ile dağıtılan hello projesi için kaynak denetimi tanımlar. Bu şablonda hello kaynak denetimi bağlantılı tooa belirli GitHub depodur. Merhaba GitHub deposunu hello koduyla tanımlanan **"RepoUrl": "https://github.com/davidebbo-test/Mvc52Application.git"** toocreate art arda dağıtan bir şablon istediğinizde sabit kodlu hello depo URL'si olabilir bir tek bir projede hello minimum parametre sayısını gerektiren oluştu.
+Depo URL'si hello yerine sabit kodlama, hello depo URL'si için bir parametre eklemek ve bu değer için hello kullanın **RepoUrl** özelliği.
 
     {
       "apiVersion": "2015-08-01",
@@ -94,7 +94,7 @@ Depo URL'si kodlamak yerine, bir parametre depo URL'si ekleyin ve bu değeri kul
       ]
     }
 
-## <a name="commands-to-run-deployment"></a>Dağıtımı çalıştırma komutları
+## <a name="commands-toorun-deployment"></a>Komutları toorun dağıtımı
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
@@ -109,7 +109,7 @@ Depo URL'si kodlamak yerine, bir parametre depo URL'si ekleyin ve bu değeri kul
     az group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 
 > [!NOTE] 
-> Parametreleri JSON dosyasının içeriğine bakın [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json).
+> Merhaba parametreleri JSON dosyasının içeriğine bakın [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json).
 >
 >
 

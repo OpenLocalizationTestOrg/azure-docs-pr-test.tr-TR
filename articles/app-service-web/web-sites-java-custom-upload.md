@@ -1,6 +1,6 @@
 ---
-title: "Azure’a özel bir Java web uygulaması yükleme"
-description: "Bu öğreticide Azure App Service Web Apps için özel bir Java web uygulaması karşıya nasıl yükleneceğini gösterir."
+title: "özel bir Java web uygulaması tooAzure aaaUpload"
+description: "Bu öğretici nasıl tooupload özel bir Java web uygulaması tooAzure App Service Web Apps gösterir."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -14,32 +14,32 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 9c8f9ee7780859f7640ac82d6ebce85082170ad7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0cb4a682bb25d86ff08bfd03628c89795c58451e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upload-a-custom-java-web-app-to-azure"></a>Azure’a özel bir Java web uygulaması yükleme
-Bu konuda bir özel Java web uygulaması karşıya nasıl yükleneceğini açıklar [Azure App Service] Web uygulamaları. Herhangi bir Java Web sitesi veya web uygulama ve ayrıca bazı örnekler belirli uygulamalar için geçerli olan bilgileri içerir.
+# <a name="upload-a-custom-java-web-app-tooazure"></a>Özel bir Java web uygulaması tooAzure karşıya yükle
+Bu konuda, nasıl tooupload özel bir Java web uygulaması çok açıklanmaktadır[Azure App Service] Web uygulamaları. Tooany Java Web sitesi veya web uygulaması ve ayrıca bazı örnekler belirli uygulamalar için geçerli olan bilgileri içerir.
 
-Azure konumundaki açıklandığı gibi Azure Portal'ın yapılandırma kullanıcı Arabirimi ve Azure Marketi kullanarak Java web uygulamaları oluşturmak için bir yol sağlar Not [Azure App Service'te bir Java web uygulaması oluşturma](web-sites-java-get-started.md). Bu öğreticide Azure Portal yapılandırmasını kullanmasını istediğiniz olmayan senaryolar için kullanıcı Arabirimi veya Azure Marketi değil.  
+Azure hello Azure Portal'ın yapılandırma kullanıcı Arabirimi kullanarak Java web uygulamaları oluşturmak için bir yol sağlar not edin ve Azure Marketi adresindeki açıklandığı gibi hello [Azure App Service'te bir Java web uygulaması oluşturma](web-sites-java-get-started.md). İçinde istememiş toouse hello Azure Portal yapılandırma kullanıcı Arabirimi veya Azure Marketi hello senaryoları için öğreticidir.  
 
 ## <a name="configuration-guidelines"></a>Yapılandırma yönergeleri
-Azure'daki özel Java web uygulamaları için beklenen ayarlarını açıklar.
+Hello azure'daki özel Java web uygulamaları için beklenen hello ayarları açıklanmıştır.
 
-* Java işlemi tarafından kullanılan HTTP bağlantı noktası dinamik olarak atanır.  İşlemi bağlantı noktasından ortam değişkeni kullanmalısınız `HTTP_PLATFORM_PORT`.
-* Tek HTTP dinleyicisi dışındaki tüm dinleme bağlantı noktaları devre dışı bırakılması gerekir.  Tomcat'te kapatma, HTTPS ve AJP içeren bağlantı noktaları.
-* Kapsayıcı yalnızca IPv4 trafiği için yapılandırılması gerekir.
-* **Başlangıç** uygulama yapılandırmasında ayarlanması gerekiyor için komutu.
-* Dizinleri yazma izni gerektiren uygulamalar olan Azure web uygulamanızın içerik, dizinde olması gereken **D:\home**.  Ortam değişkeni `HOME` için D:\home başvuruyor.  
+* Merhaba Java işlemi tarafından kullanılan hello HTTP bağlantı noktası dinamik olarak atanır.  Merhaba işlem, başlangıç bağlantı noktasından hello ortam değişkeni kullanmalıdır `HTTP_PLATFORM_PORT`.
+* Merhaba tek HTTP dinleyicisi devre dışı bırakılmalıdır dışındaki tüm bağlantı noktalarını dinler.  Tomcat'te hello kapatma, HTTPS ve AJP içeren bağlantı noktaları.
+* Merhaba kapsayıcı yalnızca IPv4 trafiği için yapılandırılmış toobe gerekir.
+* Merhaba **başlangıç** toobe Merhaba uygulaması gereken için komut hello yapılandırmasında ayarlayın.
+* Dizinleri yazma izni gerektiren uygulamalar ihtiyacınız olan hello Azure web uygulamanızın içerik, dizininde toobe **D:\home**.  Merhaba ortam değişkeni `HOME` tooD:\home başvuruyor.  
 
-Ortam değişkenleri gerektiği gibi web.config dosyasında ayarlayabilirsiniz.
+Ortam değişkenleri gerektiği gibi hello web.config dosyasında ayarlayabilirsiniz.
 
 ## <a name="webconfig-httpplatform-configuration"></a>Web.config httpPlatform yapılandırması
-Aşağıdaki bilgiler açıklanır **httpPlatform** web.config içinde biçimi.
+Merhaba aşağıdaki bilgileri açıklar hello **httpPlatform** web.config içinde biçimi.
 
-**bağımsız değişkenler** (varsayılan = ""). Yürütülebilir dosyayı veya belirtilen komut bağımsız değişkenleri **processPath** ayarı.
+**bağımsız değişkenler** (varsayılan = ""). Bağımsız değişkenler toohello çalıştırılabilir veya hello belirtilen komut dosyası **processPath** ayarı.
 
 Örnekler (ile gösterilen **processPath** dahil):
 
@@ -50,7 +50,7 @@ Aşağıdaki bilgiler açıklanır **httpPlatform** web.config içinde biçimi.
     arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 
 
-**processPath** -çalıştırılabilir veya HTTP isteklerini dinlemeye bir işlem başlatır komut dosyası yolu.
+**processPath** -yol toohello çalıştırılabilir veya HTTP isteklerini dinlemeye bir işlem başlatır komut dosyası.
 
 Örnekler:
 
@@ -60,31 +60,31 @@ Aşağıdaki bilgiler açıklanır **httpPlatform** web.config içinde biçimi.
 
     processPath="%HOME%\site\wwwroot\bin\tomcat\bin\catalina.bat"
 
-**rapidFailsPerMinute** (varsayılan = 10.) İşlem belirtilen sayıda **processPath** dakikada kilitlenmesine izin verilir. Bu sınır aşılırsa, **HttpPlatformHandler** dakikanın geri kalan işlemi başlatmayı durdurur.
+**rapidFailsPerMinute** (varsayılan = 10.) Sayısı hello işlemi belirtilen zaman **processPath** toocrash dakikada izin verilir. Bu sınır aşılırsa, **HttpPlatformHandler** hello dakika hello kalanı için hello işlemi başlatmayı durdurur.
 
-**requestTimeout** (varsayılan = "00: 02:00".) Hangi süresince **HttpPlatformHandler** üzerinde dinleme işleminden yanıt bekleyeceği `%HTTP_PLATFORM_PORT%`.
+**requestTimeout** (varsayılan = "00: 02:00".) Hangi süresince **HttpPlatformHandler** dinlemede hello işleminden yanıt bekleyeceği `%HTTP_PLATFORM_PORT%`.
 
-**startupRetryCount** (varsayılan = 10.) Kaç kez **HttpPlatformHandler** belirtilen işlemini başlatmayı deneme **processPath**. Bkz: **startupTimeLimit** daha fazla ayrıntı için.
+**startupRetryCount** (varsayılan = 10.) Kaç kez **HttpPlatformHandler** belirtilen toolaunch hello işlem deneyecek **processPath**. Bkz: **startupTimeLimit** daha fazla ayrıntı için.
 
-**startupTimeLimit** (varsayılan = 10 saniye.) Hangi süresince **HttpPlatformHandler** yürütülebilir/bağlantı noktasında dinleme işlemini başlatmak komut dosyası bekler.  Bu süre aşılırsa **HttpPlatformHandler** işlemi sonlandırır ve yeniden başlatmayı deneyin **startupRetryCount** kez.
+**startupTimeLimit** (varsayılan = 10 saniye.) Hangi süresince **HttpPlatformHandler** hello yürütülebilir/komut dosyası toostart için başlangıç bağlantı noktasını dinleyen bir işlem bekler.  Bu süre aşılırsa **HttpPlatformHandler** KILL hello işlemi ve toolaunch deneyin yeniden **startupRetryCount** kez.
 
-**stdoutLogEnabled** (varsayılan = "true".) TRUE ise, **stdout** ve **stderr** belirtilen işlem için **processPath** ayarı, belirtilen dosyaya yönlendirilirsiniz **stdoutLogFile** (bkz **stdoutLogFile** bölümü).
+**stdoutLogEnabled** (varsayılan = "true".) TRUE ise, **stdout** ve **stderr** hello belirtilen hello işlemi için **processPath** ayarı belirtilen yeniden yönlendirilen toohello dosya olacaktır  **stdoutLogFile** (bkz **stdoutLogFile** bölümü).
 
-**stdoutLogFile** (Default="d:\home\LogFiles\httpPlatformStdout.log".) Mutlak dosya yolunu **stdout** ve **stderr** belirtilen işleminden **processPath** günlüğe kaydedilir.
+**stdoutLogFile** (Default="d:\home\LogFiles\httpPlatformStdout.log".) Mutlak dosya yolunu **stdout** ve **stderr** belirtilen hello işleminden **processPath** günlüğe kaydedilir.
 
 > [!NOTE]
-> `%HTTP_PLATFORM_PORT%`Belirtilen bir parçası olarak ya da gereken özel bir yer tutucudur **bağımsız değişkenleri** veya parçası olarak **httpPlatform** **environmentVariables** listesi. Bu tarafından dahili olarak oluşturulan bir bağlantı noktası tarafından değiştirilecek **HttpPlatformHandler** böylece işlemi tarafından belirtilen **processPath** Bu bağlantı noktasında dinleme.
+> `%HTTP_PLATFORM_PORT%`toospecified parçası olarak ya da gereken özel bir yer tutucudur **bağımsız değişkenleri** veya hello parçası olarak **httpPlatform** **environmentVariables** listesi. Bu tarafından dahili olarak oluşturulan bir bağlantı noktası tarafından değiştirilecek **HttpPlatformHandler** böylece hello işlemi tarafından belirtilen **processPath** Bu bağlantı noktasında dinleme.
 > 
 > 
 
 ## <a name="deployment"></a>Dağıtım
-Java tabanlı web uygulamaları kolayca çoğu Internet Information Services (IIS) ile kullanılan aynı anlamına gelir üzerinden dağıtılabilir tabanlı web uygulamaları.  Web uygulamaları için tümleşik SCM yeteneğini olarak FTP, Git ve Kudu tüm dağıtım düzenekleri desteklenir. Java Visual Studio'da geliştirilen değil gibi bir protokol olarak WebDeploy çalışır ancak WebDeploy Java web uygulama dağıtım kullanım örnekleri ile uyuşmaz.
+Java tabanlı web uygulamalarını kolayca hello Internet Information Services (IIS) tabanlı web uygulamaları ile kullanılan aynı anlamına gelir hello çoğunu üzerinden dağıtılabilir.  FTP, Git ve Kudu tümü olduğu hello gibi web uygulamaları için tümleşik SCM yeteneğini dağıtım düzenekleri desteklenir. Java Visual Studio'da geliştirilen değil gibi bir protokol olarak WebDeploy çalışır ancak WebDeploy Java web uygulama dağıtım kullanım örnekleri ile uyuşmaz.
 
 ## <a name="application-configuration-examples"></a>Uygulama yapılandırması örnekleri
-Aşağıdaki uygulamalar, bir web.config dosyası ve uygulama için yapılandırma Java uygulamanızı App Service Web Apps etkinleştirme göstermek için örnek olarak sağlanır.
+Aşağıdaki uygulamalar, bir web.config dosyası ve hello hello için uygulama yapılandırma örnekleri tooshow nasıl sağlandığını tooenable Java uygulamanızı App Service Web Apps üzerinde.
 
 ### <a name="tomcat"></a>Tomcat
-App Service Web Apps ile sağlanan iki Tomcat çeşidi olsa da, hala müşteri belirli örnekleri karşıya yüklemek oldukça mümkündür. Aşağıda, Tomcat bir farklı Java sanal makine (JVM) ile yüklenmesini örneğidir.
+App Service Web Apps ile sağlanan iki Tomcat çeşidi olsa da, mümkün oldukça tooupload müşteri belirli örnekler hala geçerlidir. Aşağıda, Tomcat bir farklı Java sanal makine (JVM) ile yüklenmesini örneğidir.
 
     <?xml version="1.0" encoding="UTF-8"?>
     <configuration>
@@ -97,25 +97,25 @@ App Service Web Apps ile sağlanan iki Tomcat çeşidi olsa da, hala müşteri b
           <environmentVariables>
             <environmentVariable name="CATALINA_OPTS" value="-Dport.http=%HTTP_PLATFORM_PORT%" />
             <environmentVariable name="CATALINA_HOME" value="%HOME%\site\wwwroot\bin\tomcat" />
-            <environmentVariable name="JRE_HOME" value="%HOME%\site\wwwroot\bin\java" /> <!-- optional, if not specified, this will default to %programfiles%\Java -->
+            <environmentVariable name="JRE_HOME" value="%HOME%\site\wwwroot\bin\java" /> <!-- optional, if not specified, this will default too%programfiles%\Java -->
             <environmentVariable name="JAVA_OPTS" value="-Djava.net.preferIPv4Stack=true" />
           </environmentVariables>
         </httpPlatform>
       </system.webServer>
     </configuration>
 
-Tomcat tarafında yapılması gereken birkaç yapılandırma değişiklikleri vardır. Server.xml ayarlamak için düzenlenmesi gerekir:
+Merhaba Tomcat yan üzerinde yapılan toobe gereken birkaç yapılandırma değişikliği yok. Merhaba server.xml düzenlenen toobe tooset gerekir:
 
 * Kapatma bağlantı noktası = -1
 * HTTP Bağlayıcısı bağlantı noktası = ${port.http}
 * HTTP Bağlayıcısı adresi = "127.0.0.1"
 * HTTPS ve AJP Bağlayıcılarına açıklama
-* IPv4 ayarı, ekleyebileceğiniz catalina.properties dosyasında da ayarlanabilir.`java.net.preferIPv4Stack=true`
+* Merhaba IPv4 ayarı, ekleyebileceğiniz hello catalina.properties dosyasında da ayarlanabilir.`java.net.preferIPv4Stack=true`
 
-App Service Web Apps üzerinde Direct3D çağrıları desteklenmez. Bu devre dışı bırakmak için uygulamanızın tür çağrılar olmalısınız şu Java seçeneğini ekleyin:`-Dsun.java2d.d3d=false`
+App Service Web Apps üzerinde Direct3D çağrıları desteklenmez. toodisable olanlar, ekleyin uygulamanız bu tür çağrılar olmalısınız Java seçenekten hello:`-Dsun.java2d.d3d=false`
 
 ### <a name="jetty"></a>Jetty
-Tomcat için olduğu gibi müşterilerin kendi örnekleri için Jetty karşıya yükleyebilirsiniz. Jetty'nin tam yüklemesini çalıştıran söz konusu olduğunda, yapılandırma şöyle olabilir:
+Merhaba Tomcat için olduğu gibi müşteriler kendi örnekleri için Jetty karşıya yükleyebilirsiniz. Jetty çalışan hello tam yüklemesi Hello durumda hello yapılandırma şöyle olabilir:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <configuration>
@@ -132,10 +132,10 @@ Tomcat için olduğu gibi müşterilerin kendi örnekleri için Jetty karşıya 
       </system.webServer>
     </configuration>
 
-Jetty yapılandırması ayarlamak için start.ini değiştirilmesi gereken `java.net.preferIPv4Stack=true`.
+Merhaba Jetty yapılandırması gereken hello start.ini tooset değiştirilen toobe `java.net.preferIPv4Stack=true`.
 
 ### <a name="springboot"></a>Springboot
-Bir Springboot alabilmek için JAR veya WAR dosyasını karşıya yükleyin ve aşağıdaki web.config dosyası ekleyin, çalışan uygulama gerekir. Web.config dosyasına wwwroot klasörüne gider. Web.config dosyasında JAR dosyasını da wwwroot klasöründe bulunan aşağıdaki örnekte, JAR dosyasını işaret edecek şekilde bağımsız değişkenleri ayarlayın.  
+Sipariş tooget çalıştırdığınız Springboot uygulama JAR veya WAR dosyası tooupload gerekir ve hello aşağıdaki web.config dosyasına ekleyin. Merhaba web.config dosyasında hello wwwroot klasörüne gider. Merhaba web.config dosyasında hello bağımsız değişkenleri toopoint tooyour JAR dosyasını ayarlamak için hello aşağıdaki örnek hello JAR dosyasına da hello wwwroot klasöründe bulunur.  
 
     <?xml version="1.0" encoding="UTF-8"?>
     <configuration>
@@ -151,11 +151,11 @@ Bir Springboot alabilmek için JAR veya WAR dosyasını karşıya yükleyin ve a
 
 
 ### <a name="hudson"></a>Hudson
-Bizim test Hudson 3.1.2 war ve varsayılan Tomcat 7.0.50 örnek kullanılan şeyler ayarlamak için kullanıcı arabirimini kullanarak olmadan.  Bir yazılım derleme aracını Hudson olduğu için ayrılmış örneklerinde yüklemek için önerilir nerede **AlwaysOn** bayrak web uygulamasında ayarlanabilir.
+Kullanılan bizim test Hudson 3.1.2 war hello ve varsayılan Tomcat 7.0.50 örnek hello ancak hello UI tooset şeyler kullanmadan.  Hudson yazılımları yapı aracı, bunu tavsiye edilir tooinstall olduğundan üzerinde ayrılmış örnekleri hello burada **AlwaysOn** bayrak hello web uygulaması üzerinde ayarlanabilir.
 
 1. Yani, web uygulamanızın içinde dizin, kök **d:\home\site\wwwroot**, oluşturma bir **webapps** dizini (yoksa) ve Hudson.war içinde yerleştirin **d:\home\site\wwwroot\webapps**.
 2. Apache maven 3.0.5 (Hudson ile uyumlu) indirin ve yerleştirileceği **d:\home\site\wwwroot**.
-3. Web.config dosyasında oluşturma **d:\home\site\wwwroot** ve aşağıdaki içeriği yapıştırın:
+3. Web.config dosyasında oluşturma **d:\home\site\wwwroot** Yapıştır hello izleyerek, içeriği:
    
         <?xml version="1.0" encoding="UTF-8"?>
         <configuration>
@@ -177,37 +177,37 @@ Bizim test Hudson 3.1.2 war ve varsayılan Tomcat 7.0.50 örnek kullanılan şey
           </system.webServer>
         </configuration>
    
-    Bu noktada web uygulaması değişiklikleri almak için yeniden başlatılabilir.  Hudson başlatmak için http://yourwebapp/hudson için bağlayın.
-4. Hudson kendisini yapılandırdıktan sonra aşağıdaki ekran görmeniz gerekir:
+    Bu noktada hello web uygulaması yeniden tootake hello değişiklikler olabilir.  Toohttp://yourwebapp/hudson toostart Hudson bağlayın.
+4. Hudson kendisini yapılandırdıktan sonra aşağıdaki ekran hello görmeniz gerekir:
    
     ![Hudson](./media/web-sites-java-custom-upload/hudson1.png)
-5. Erişim Hudson yapılandırma sayfası: tıklatın **yönetmek Hudson**ve ardından **yapılandırma sistem**.
-6. JDK aşağıda gösterildiği gibi yapılandırın:
+5. Erişim hello Hudson yapılandırma sayfası: tıklatın **yönetmek Hudson**ve ardından **yapılandırma sistem**.
+6. Merhaba aşağıda gösterildiği gibi JDK yapılandırın:
    
     ![Hudson yapılandırma](./media/web-sites-java-custom-upload/hudson2.png)
 7. Maven aşağıda gösterildiği gibi yapılandırın:
    
     ![Maven yapılandırma](./media/web-sites-java-custom-upload/maven.png)
-8. Ayarları kaydedin. Hudson artık yapılandırıldı ve kullanım için hazır olması gerekir.
+8. Hello ayarları kaydedin. Hudson artık yapılandırıldı ve kullanım için hazır olması gerekir.
 
 Hudson hakkında ek bilgi için bkz: [http://hudson-ci.org](http://hudson-ci.org).
 
 ### <a name="liferay"></a>Liferay
-Liferay App Service Web Apps üzerinde desteklenir. Liferay önemli bellek gerektirebilir olduğundan, yeterli bellek sağlayabilen bir orta veya büyük adanmış çalışan üzerinde çalıştırmak için web uygulaması gerekir. Liferay de başlatılması birkaç dakika sürer. Bu nedenle, web uygulaması ayarlamak önerilir **her zaman açık**.  
+Liferay App Service Web Apps üzerinde desteklenir. Liferay önemli bellek gerektirebilir olduğundan, yeterli bellek sağlayabilen bir orta veya büyük adanmış çalışan üzerinde toorun hello web uygulaması gerekir. Liferay birkaç dakika toostart da alır. Bu nedenle, hello web uygulaması çok ayarlamanız önerilir**her zaman açık**.  
 
-Liferay Community Edition GA3 paketlenmiş 6.1.2 Tomcat kullanarak, aşağıdaki dosyaları Liferay indirdikten sonra düzenlendi:
+Tomcat ile Liferay Community Edition GA3 paketlenmiş 6.1.2 kullanarak hello aşağıdaki dosyaları Liferay indirdikten sonra düzenlendi:
 
 **Server.XML**
 
-* Kapatma bağlantı noktası -1 olarak değiştirin.
-* Değişiklik HTTP Bağlayıcısı`<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
-* Out AJP bağlayıcı açıklama.
+* Kapatma bağlantı noktası çok-1 olarak değiştirin.
+* HTTP Bağlayıcısı çok değiştirme`<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
+* Merhaba AJP bağlayıcı açıklama.
 
-İçinde **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes** klasör adında bir dosya oluşturun **portal ext.properties**. Bu dosya, aşağıda gösterildiği gibi tek bir çizgi içeren gerekir:
+Merhaba, **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes** klasör adında bir dosya oluşturun **portal ext.properties**. Bu dosya toocontain bir satır, aşağıda gösterildiği gibi gerekir:
 
     liferay.home=%HOME%/site/wwwroot/liferay
 
-Tomcat 7.0.40 klasörüyle aynı dizin düzeyinde adlı bir dosya oluşturun **web.config** aşağıdaki içeriğe sahip:
+Merhaba hello tomcat 7.0.40 klasörü, aynı dizin düzeyinde adlı bir dosya oluşturmak **web.config** içeriği aşağıdaki hello ile:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <configuration>
@@ -231,11 +231,11 @@ Tomcat 7.0.40 klasörüyle aynı dizin düzeyinde adlı bir dosya oluşturun **w
       </system.webServer>
     </configuration>
 
-Altında **httpPlatform** bloğu **requestTimeout** ayarlamak "00: 10:00".  Sınırlı, ancak ardından, Liferay önyükleme sırasında bazı zaman aşımı hatalar görmeniz olasıdır.  Bu değer değiştiyse, sonra **connectionTimeout** tomcat server.xml değiştirilmeleri.  
+Merhaba altında **httpPlatform** hello bloğunu **requestTimeout** çok Ayarla "00: 10:00".  Sınırlı ancak sonra büyük olasılıkla toosee sırasında bazı zaman aşımı hataları var Liferay önyükleme.  Bu değer değiştiyse, ardından hello **connectionTimeout** hello tomcat'te server.xml değiştirilmeleri.  
 
-Bu, 64-bit JDK işaret edecek şekilde yukarıdaki web.config JRE_HOME ortama varariable belirtilen dikkate değerdir. Varsayılan, 32-bit olmakla birlikte Liferay yüksek düzeyde bellek gerekebileceği için 64-bit JDK kullanmak için önerilir.
+Bu hello JRE_HOME ortama varariable hello web.config toopoint toohello yukarıda belirtilen dikkate değerdir 64-bit JDK. Merhaba varsayılandır 32-bit, ancak yüksek düzeyde bellek Liferay gerekebileceği toouse önerilir 64-bit JDK hello.
 
-Sonra web uygulamanızı Liferay yeniden, bu değişiklikleri yaptıktan sonra http://yourwebapp açın. Web uygulaması kökünden Liferay portal kullanılabilir. 
+Sonra web uygulamanızı Liferay yeniden, bu değişiklikleri yaptıktan sonra http://yourwebapp açın. Merhaba Liferay portal hello web uygulama kökünden kullanılabilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Liferay hakkında daha fazla bilgi için bkz: [http://www.liferay.com](http://www.liferay.com).

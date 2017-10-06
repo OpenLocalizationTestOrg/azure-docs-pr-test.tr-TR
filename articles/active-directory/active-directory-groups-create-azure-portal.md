@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory'de kullanıcılar için bir grubu oluşturma | Microsoft Docs"
-description: "Azure Active Directory'de bir grup oluşturma ve gruba üye ekleme"
+title: "Azure Active Directory'de kullanıcılar için bir grubu aaaCreate | Microsoft Docs"
+description: "Nasıl toocreate Azure Active Directory'deki bir grup ve üye toohello grubu Ekle"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d3d37761a9fdf9bd9801396d45f2fcd47efb0be
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: fc583a7f02ce50e7f3b2c8f97a9c032a3e2dc33a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Bir grup oluşturun ve Azure Active Directory'de üye ekleme
 > [!div class="op_single_selector"]
@@ -29,25 +29,25 @@ ms.lasthandoff: 08/18/2017
 >
 >
 
-Bu makalede, oluşturma ve Azure Active Directory'de yeni bir grubu doldurmak açıklanmaktadır. Lisans veya izinleri bir kullanıcı veya cihaz sayısı için aynı anda atama gibi yönetim görevleri gerçekleştirmek için bir grup kullanın.
+Bu makalede açıklanır nasıl toocreate ve Azure Active Directory'de yeni bir grubu doldurur. Lisans veya izinleri tooa sayısı kullanıcılardan veya aygıtlardan aynı anda atama gibi bir grup tooperform yönetim görevleri kullanın.
 
 ## <a name="how-do-i-create-a-group"></a>Nasıl grup oluşturulur?
-1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2. Seçin **daha fazla hizmet**, girin **kullanıcı ve grupları** metin kutusuna ve ardından **Enter**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) hello dizin için genel yönetici olan bir hesapla.
+2. Seçin **daha fazla hizmet**, girin **kullanıcı ve grupları** hello metin kutusuna ve ardından **Enter**.
 
    ![Açılış kullanıcı yönetimi](./media/active-directory-groups-create-azure-portal/search-user-management.png)
-3. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **tüm grupları**.
+3. Merhaba üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **tüm grupları**.
 
-   ![Grupları dikey penceresini açma](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
-4. Üzerinde **kullanıcılar ve gruplar - tüm grupları** dikey penceresinde, select **Ekle** komutu.
+   ![Açılış hello grupları dikey penceresi](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
+4. Merhaba üzerinde **kullanıcılar ve gruplar - tüm grupları** dikey penceresinde, select hello **Ekle** komutu.
 
-   ![Ekle komutu seçme](./media/active-directory-groups-create-azure-portal/add-group-command.png)
-5. Üzerinde **grup** dikey penceresinde, bir ad ve Grup açıklamasını ekleyin.
-6. Gruba eklenecek üyeleri seçmek için **atanan** içinde **üyelik türü** kutusuna ve ardından **üyeleri**. Bir grubun üyeliğini dinamik olarak yönetme hakkında daha fazla bilgi için bkz: [grup üyeliği için Gelişmiş kurallar oluşturmak için öznitelikleri kullanma](active-directory-groups-dynamic-membership-azure-portal.md).
+   ![Merhaba Ekle komutu seçme](./media/active-directory-groups-create-azure-portal/add-group-command.png)
+5. Merhaba üzerinde **grup** dikey penceresinde, bir ad ve açıklama hello grubu ekleyin.
+6. tooselect üyeleri tooadd toohello grubu, select **atanan** hello içinde **üyelik türü** kutusuna ve ardından **üyeleri**. Nasıl toomanage hello bir grubun üyeliğini dinamik olarak hakkında daha fazla bilgi için bkz: [öznitelikleri toocreate kullanarak Gelişmiş Grup üyeliği kuralları](active-directory-groups-dynamic-membership-azure-portal.md).
 
-   ![Eklenecek üyeleri seçme](./media/active-directory-groups-create-azure-portal/select-members.png)
-7. Üzerinde **üyeleri** dikey penceresinde, select bir veya daha fazla kullanıcılara veya cihazlara grubuna eklemeniz ve seçin **seçin** grubuna eklemek için dikey pencerenin altındaki düğmesini. **Kullanıcı** kutusu, bir kullanıcı veya aygıt adı herhangi bir kısmını girişe eşleşmesini temel alan görüntü filtreler. Joker karakterler bu kutuya kabul edilir.
-8. Üyeleri gruba eklemeyi bitirdiğinizde, seçin **oluşturma** üzerinde **grup** dikey.    
+   ![Üyeleri tooadd seçme](./media/active-directory-groups-create-azure-portal/select-members.png)
+7. Merhaba üzerinde **üyeleri** dikey penceresinde, seçin veya daha fazla kullanıcı veya cihazları tooadd toohello grubu ve select hello **seçin** hello hello dikey tooadd sonunda bunları toohello Grup düğme. Merhaba **kullanıcı** kutusunu filtreleri Merhaba, bir kullanıcı veya aygıt adı girişi tooany parçası eşleşmesini temel alan görüntüleme. Joker karakterler bu kutuya kabul edilir.
+8. Üyeler toohello grubu eklemeyi bitirdiğinizde, seçin **oluşturma** hello üzerinde **grup** dikey.    
 
    ![Grubu onayı oluşturma](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 

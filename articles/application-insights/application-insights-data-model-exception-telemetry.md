@@ -1,5 +1,5 @@
 ---
-title: "Azure uygulama Insights Telemetri veri modeli - özel durum Telemetrisi | Microsoft Docs"
+title: "aaaAzure uygulama Insights Telemetri veri modeli - özel durum Telemetrisi | Microsoft Docs"
 description: "Özel durum telemetrisi için uygulama Öngörüler veri modeli"
 services: application-insights
 documentationcenter: .net
@@ -12,19 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.openlocfilehash: 6b220b0cb6719bac606f599d657d08ab847c7590
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 4c2b7d1ac3816d5623db9a35819a48a68a13a9cd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Özel durum telemetrisi: Application Insights veri modeli
 
-İçinde [Application Insights](app-insights-overview.md), izlenen uygulama yürütülmesi sırasında oluşan bir işlenen veya işlenmeyen özel durum örneğini temsil eder.
+İçinde [Application Insights](app-insights-overview.md), izlenen Merhaba uygulaması yürütülmesi sırasında oluşan bir işlenen veya işlenmeyen özel durum örneğini temsil eder.
 
 ## <a name="problem-id"></a>Sorun kimliği
 
-Burada kodda özel durum oluştu tanımlayıcısı. Gruplandırma özel durumlar için kullanılır. Genellikle bir özel durum türü ve birleşimi bir işleve çağrı yığını.
+Burada hello kodda özel durum oluştu tanımlayıcısı. Gruplandırma özel durumlar için kullanılır. Genellikle bir özel durum türü ve birleşimi bir işleve hello çağrı yığını.
 
 En fazla uzunluk: 1024 karakter
 
@@ -34,7 +34,7 @@ En fazla uzunluk: 1024 karakter
 
 ## <a name="exception-details"></a>Özel durum ayrıntıları
 
-(Genişletilmesi için)
+(Genişletilmiş toobe)
 
 ## <a name="custom-properties"></a>Özel Özellikler
 
@@ -47,5 +47,5 @@ En fazla uzunluk: 1024 karakter
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bkz: [veri modeli](application-insights-data-model.md) Application Insights türleri ve veri modeli için.
-- Bilgi edinmek için nasıl [web uygulamalarınızı Application Insights ile özel durumları tanılamak](app-insights-asp-net-exceptions.md).
+- Nasıl çok öğrenin[web uygulamalarınızı Application Insights ile özel durumları tanılamak](app-insights-asp-net-exceptions.md).
 - Kullanıma [platformları](app-insights-platforms.md) Application Insights tarafından desteklenir.

@@ -1,6 +1,6 @@
 ---
-title: "App Service’de CORS desteği | Microsoft Belgeleri"
-description: "Azure App Service’de CORS desteğini kullanmayı öğrenin."
+title: "aaaCORS desteği App Service'te | Microsoft Docs"
+description: "Nasıl toouse CORS desteği Azure Azure App Service'te öğrenin."
 services: app-service\api
 documentationcenter: .net
 author: alexkarcher-msft
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: alkarche
-ms.openlocfilehash: f8373cf5b2e06e6c71bce51cd9e9d5123eea7cfd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c229378b75840bc0f7b2eefc3df3031233f9b494
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="consume-an-api-app-from-javascript-using-cors"></a>CORS kullanarak JavaScript’ten bir API uygulaması kullanma
-App Service, JavaScript istemcilerinin API uygulamalarında barındırılan API’lere etki alanları arası çağrılar yapmasını sağlayan [Çıkış Noktaları Arası Kaynak Paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) için yerleşik destek sunar. App Service, API’nizde herhangi bir kod yazmak zorunda kalmadan API’nize CORS erişimini yapılandırmanıza olanak sağlar.
+Uygulama hizmeti için yerleşik destek sunar [arası kaynak kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), JavaScript istemcilerinin toomake etki alanları arası sağlayan API uygulamalarında barındırılan tooAPIs çağırır. App Service CORS erişim tooyour API API'nizi hiçbir kod yazmadan yapılandırmanıza olanak sağlar.
 
 Bu makale iki bölüm içerir:
 
-* [CORS yapılandırma](#corsconfig) bölümünde herhangi bir API uygulaması, web uygulaması veya mobil uygulama için CORS’nin nasıl yapılandırılacağı genel olarak açıklanmaktadır. .NET, Node.js ve Java dahil App Service tarafından desteklenen tüm çerçeveler için eşit oranda geçerlidir. 
-* Makale, [.NET kullanmaya başlarken öğreticilerine devam etme](#tutorialstart) bölümünden başlayarak, [ilk API Apps kullanmaya başlarken öğreticisinde](app-service-api-dotnet-get-started.md) yaptıklarınızın üzerine ekleme yaparak CORS desteğini gösteren bir öğreticidir. 
+* Merhaba [nasıl tooconfigure CORS](#corsconfig) bölümde açıklanmıştır genel nasıl tooconfigure CORS herhangi bir API uygulaması, web uygulaması veya mobil uygulama. Ayrıca .NET, Node.js ve Java dahil App Service tarafından desteklenen tooall çerçeveleri eşit oranda geçerlidir. 
+* Merhaba ile başlayan [hello .NET kullanmaya Başlarken öğreticilerine devam etme](#tutorialstart) bölümünde hello makaledir CORS desteği yaptıklarınızın üzerine ekleme yaparak gösteren bir eğitim [hello ilk API Apps başlangıç öğreticisinde ](app-service-api-dotnet-get-started.md). 
 
-## <a id="corsconfig"></a> Azure Uygulama Hizmeti’nde CORS’yi yapılandırma
-CORS’yi Azure portalında veya [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) araçlarını kullanarak yapılandırabilirsiniz.
+## <a id="corsconfig"></a>Nasıl tooconfigure Azure App Service'de CORS
+Hello Azure portal veya kullanarak CORS'yi yapılandırın [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) araçları.
 
-#### <a name="configure-cors-in-the-azure-portal"></a>CORS’yi Azure portalında yapılandırın
-1. Bir tarayıcıda [Azure portalına](https://portal.azure.com/) gidin.
-2. **App Services**’e ve ardından API uygulamanızın adına tıklayın.
+#### <a name="configure-cors-in-hello-azure-portal"></a>Hello Azure portal CORS'yi yapılandırın
+1. Bir tarayıcıda toohello Git [Azure portal](https://portal.azure.com/).
+2. Tıklatın **uygulama hizmetleri**ve ardından API uygulamanızın hello adına tıklayın.
    
     ![Portalda API uygulamasını seçin](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
-3. **API uygulaması** dikey penceresinin sağ tarafında açılan **Ayarlar** dikey penceresinde, **API** bölümünü bulun ve ardından **CORS**’ye tıklayın.
+3. Merhaba, **ayarları** hello toohello sağındaki açılan dikey **API uygulaması** dikey penceresinde, Bul hello **API** bölümünde ve ardından **CORS**.
    
    ![Ayarlar dikey penceresinden CORS’yi seçin](./media/app-service-api-cors-consume-javascript/clicksettings.png)
-4. Metin kutusunda JavaScript çağrılarının alınmasına izin vermek istediğiniz URL’yi veya URL'leri girin.
+4. Merhaba metin kutusuna hello URL veya tooallow JavaScript çağrılarını toocome gelen istediğiniz URL'leri girin.
 
-    Örneğin, JavaScript uygulamanızı todolistangular adlı bir web uygulamasına dağıttıysanız, "https://todolistangular.azurewebsites.net" girin. Alternatif olarak, tüm kaynak etki alanlarının kabul edildiğini belirtmek için bir yıldız işareti (*) girebilirsiniz.
+    Örneğin, todolistangular adlı, JavaScript uygulama tooa web uygulamasına dağıttıysanız, "https://todolistangular.azurewebsites.net" girin. Alternatif olarak, tüm kaynak etki alanlarının kabul edildiğini bir yıldız işareti (*) toospecify girebilirsiniz.
 
 
-1. **Kaydet**’e tıklayın.
+1. **Kaydet** düğmesine tıklayın.
    
    ![Kaydet’e tıklayın.](./media/app-service-api-cors-consume-javascript/corsinportal.png)
    
-   **Kaydet**’e tıkladıktan sonra, API uygulaması belirtilen URL’lerden JavaScript çağrılarını kabul eder.
+   Tıklattıktan sonra **kaydetmek**, hello API uygulaması JavaScript kabul hello gelen çağrıları belirtilen URL.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Azure Resource Manager araçlarını kullanarak CORS’yi yapılandırın
-CORS’yi [Azure PowerShell](/powershell/azureps-cmdlets-docs) ve [Azure CLI](../cli-install-nodejs.md) gibi komut satırı araçlarında [Azure Resource Manager şablonlarını](../azure-resource-manager/resource-group-authoring-templates.md) kullanarak da yapılandırabilirsiniz. 
+Kullanarak bir API uygulaması için CORS yapılandırabilirsiniz [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md) gibi komut satırı araçlarında [Azure PowerShell](/powershell/azureps-cmdlets-docs) ve hello [Azure CLI](../cli-install-nodejs.md). 
 
-CORS özelliğini ayarlayan bir Azure Resource Manager şablonu örneği için, [bu öğreticinin örnek uygulamasının deposundaki azuredeploy.json dosyasını](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json) açın. Aşağıdaki gibi görünen şablon bölümünü bulun:
+Merhaba hello CORS özelliğini ayarlayan bir Azure Resource Manager şablonu örneği için açık [Bu öğreticinin örnek uygulamasının için hello deposundaki azuredeploy.json dosyasını](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Merhaba aşağıdaki örneğine hello gibi görünüyor hello şablon bölümünü bulun:
 
         "cors": {
             "allowedOrigins": [
@@ -61,15 +61,15 @@ CORS özelliğini ayarlayan bir Azure Resource Manager şablonu örneği için, 
             ]
         }
 
-## <a id="tutorialstart"></a> .NET’i kullanmaya başlama eğiticisinin devamı
-API uygulamaları için Node.js ve Java kullanmaya başlama serisini takip ediyorsanız, kullanmaya başlama serisini tamamladınız. API Apps hakkında daha fazla bilgi edinmenizi sağlayacak öneriler için [Sonraki adımlar](#next-steps) bölümüne geçin.
+## <a id="tutorialstart"></a>Merhaba .NET kullanmaya Başlarken Öğreticisine devam etme
+Merhaba Node.js ve Java kullanmaya başlama serisini API uygulamaları için takip ediyorsanız, kullanmaya başlama serisini alma tamamlanmış hello sahip. Toohello atla [sonraki adımlar](#next-steps) bölümünde API uygulamaları hakkında daha fazla öğrenme toofind yönelik öneriler.
 
-Bu makalenin sonraki bölümleri .NET kullanmaya başlarken serisinin devamıdır ve [ilk öğreticiyi](app-service-api-dotnet-get-started.md) tamamladığınız varsayılır.
+Merhaba bu makalenin sonraki bölümlerinde hello .NET kullanmaya Başlarken serisinin devamıdır ve başarıyla tamamlandığını varsayar [hello ilk öğreticide](app-service-api-dotnet-get-started.md).
 
-## <a name="deploy-the-todolistangular-project-to-a-new-web-app"></a>ToDoListAngular projesini yeni bir web uygulamasına dağıtma
-[İlk öğreticide](app-service-api-dotnet-get-started.md), bir orta katman API uygulaması ve bir veri katmanı API uygulaması oluşturdunuz. Bu öğreticide, orta katman API uygulamasını çağıran bir tek sayfalı uygulama (SPA) web uygulaması oluşturacaksınız. SPA’nın çalışması için, CORS orta katman API uygulaması üzerinde etkin hale getirilmelidir. 
+## <a name="deploy-hello-todolistangular-project-tooa-new-web-app"></a>Merhaba ToDoListAngular projesi tooa yeni web uygulaması dağıtma
+İçinde [hello ilk öğreticide](app-service-api-dotnet-get-started.md), orta katman API uygulamasını ve veri katmanı API uygulaması oluşturdunuz. Bu öğreticide, çağrıları hello orta katman API uygulamasını bir tek sayfalı uygulama (SPA) web uygulaması oluşturun. Merhaba SPA toowork tooenable CORS hello orta katman API uygulaması sahip. 
 
-[ToDoList örnek uygulamasında](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list), ToDoListAngular projesi orta katman ToDoListAPI Web API projesini çağıran basit bir AngularJS istemcisidir. *app/scripts/todoListSvc.js* dosyasındaki JavaScript kodu, AngularJS HTTP sağlayıcısını kullanarak API’yi çağırır. 
+Merhaba, [ToDoList örnek uygulamasında](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list), hello ToDoListAngular projedir hello orta katman Todolistapı Web API projesini çağıran basit bir AngularJS istemci. JavaScript kodu hello hello *app/scripts/todoListSvc.js* dosya hello AngularJS HTTP sağlayıcısını kullanarak hello API çağırır. 
 
         angular.module('todoApp')
         .factory('todoListSvc', ['$http', function ($http) {
@@ -90,42 +90,42 @@ Bu makalenin sonraki bölümleri .NET kullanmaya başlarken serisinin devamıdı
             };
         }]);
 
-### <a name="create-a-new-web-app-for-the-todolistangular-project"></a>ToDoListAngular projesi için yeni bir web uygulaması oluşturma
-Yeni bir App Service web uygulaması oluşturma ve buna bir proje dağıtma yordamı, [serideki ilk öğreticide bir API uygulaması oluşturma ve dağıtma için](app-service-api-dotnet-get-started.md#createapiapp) yer alan yordama benzer. Tek farkı uygulama türünün **API Uygulaması** yerine **Web Uygulaması** olmasıdır.  İletişim kutularının ekran görüntüleri için bkz. 
+### <a name="create-a-new-web-app-for-hello-todolistangular-project"></a>Merhaba ToDoListAngular projesi için yeni bir web uygulaması oluşturma
+Merhaba yordamı toocreate yeni bir App Service web uygulaması ve proje dağıtma tooit olduğu için gördüğünüz benzer toowhat [oluşturma ve hello bu serideki ilk öğreticide bir API uygulamasına dağıtma](app-service-api-dotnet-get-started.md#createapiapp). Bu hello uygulama türü farktır yalnızca Hello: **Web uygulaması** yerine **API uygulaması**.  Merhaba iletişim kutularının ekran görüntüleri için bkz: 
 
-1. **Çözüm Gezgini**’nde ToDoListAngular projesine sağ tıklayın ve ardından **Yayımla**’ya tıklayın.
-2. **Web’de Yayımla** sihirbazının **Profil** sekmesinde, **Microsoft Azure App Service**’ne tıklayın.
-3. **App Service** iletişim kutusunda **Yeni**’ye tıklayın.
-4. **App Service Oluştur** iletişim kutusunun **Barındırma** sekmesinde, *azurewebsites.net* etki alanında benzersiz bir **Web Uygulaması Adı** girin. 
-5. Çalışmak istediğiniz Azure **Aboneliğini** seçin.
-6. **Kaynak Grubu** açılan listesinde, önceden oluşturduğunuz kaynak grubunu seçin.
-7. **App Service Planı** açılır listesinde, önceden oluşturduğunuz planı seçin. 
-8. **Oluştur**’a tıklayın.
+1. İçinde **Çözüm Gezgini**hello ToDoListAngular projesine sağ tıklayın ve ardından **Yayımla**.
+2. Merhaba, **profil** hello sekmesinde **Web'i Yayımla** Sihirbazı'nı tıklatın **Microsoft Azure App Service**.
+3. Merhaba, **uygulama hizmeti** iletişim kutusu, tıklatın **yeni**.
+4. Merhaba, **barındırma** hello sekmesinde **App Service Oluştur** iletişim kutusuna bir **Web uygulaması adı** hello benzersiz *azurewebsites.net* etki alanı. 
+5. Hello Azure'ı seçin **abonelik** ile toowork istiyor.
+6. Merhaba, **kaynak grubu** aşağı açılan listesinde, hello seçin daha önce oluşturduğunuz aynı kaynak grubu.
+7. Merhaba, **uygulama hizmeti planı** aşağı açılan listesinde, hello seçin önceden oluşturduğunuz planı. 
+8. **Oluştur**'a tıklayın.
    
-    Visual Studio web uygulamasını oluşturur, bunun için bir yayımlama profili oluşturur ve **Web’i Yayımla** sihirbazının **Bağlantı** adımını görüntüler.
+    Visual Studio hello web uygulamasını oluşturur, bunun için bir yayımlama profili oluşturur ve görüntüler hello **bağlantı** hello adımında **Web'i Yayımla** Sihirbazı.
    
-    Henüz **Yayımla**’ya tıklamayın. Aşağıdaki bölümde, App Service’de çalışan orta katman API uygulamasını çağırmak için yeni web uygulamasını yapılandıracaksınız. 
+    Henüz **Yayımla**’ya tıklamayın. Bölümden hello, App Service'te çalışan hello yeni web uygulaması toocall hello orta katman API uygulamasını yapılandırın. 
 
-### <a name="set-the-middle-tier-url-in-web-app-settings"></a>Web uygulaması ayarları içinde orta katman URL'yi ayarlayın
-1. [Azure portalına](https://portal.azure.com/) gidin ve ardından TodoListAngular (ön uç) projesini barındırmak için oluşturduğunuz **Web Uygulaması** dikey penceresine gidin.
+### <a name="set-hello-middle-tier-url-in-web-app-settings"></a>Web uygulaması ayarları içinde Hello orta katman URL'yi ayarlayın
+1. Toohello Git [Azure portal](https://portal.azure.com/)ve ardından toohello gidin **Web uygulaması** toohost hello TodoListAngular (ön uç) projesini oluşturulan hello web uygulaması dikey penceresinde.
 2. **Ayarlar > Uygulama Ayarları**’na tıklayın.
-3. **Uygulama Ayarları** bölümünde, aşağıdaki anahtar ve değeri ekleyin:
+3. Merhaba, **uygulama ayarları** bölümünde, hello aşağıdakileri ekleyin anahtar ve değer:
    
    | Anahtar | Değer | Örnek |
    | --- | --- | --- |
    | toDoListAPIURL |https://{orta katman API uygulamanızın adı}.azurewebsites.net |https://todolistapi0121.azurewebsites.net |
 4. **Kaydet** düğmesine tıklayın.
    
-    Kod Azure içinde çalıştığında, bu değer *Web.config* dosyasındaki localhost URL’sini geçersiz kılar. 
+    Merhaba kod Azure içinde çalıştığında, bu değer hello olduğu hello localhost URL'sini geçersiz kılar *Web.config* dosya. 
    
-    Ayar değerini alan kod *index.cshtml* içindedir:
+    Merhaba ayar değerini hello kodu içinde *Index.cshtml*:
    
         <script type="text/javascript">
             var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
         </script>
         <script src="app/scripts/todoListSvc.js"></script>
    
-    *todoListSvc.js* içindeki kod şu ayarı kullanır:
+    Merhaba kodda *todoListSvc.js* hello ayarı kullanır:
    
         return {
             getItems : function(){
@@ -148,60 +148,60 @@ Yeni bir App Service web uygulaması oluşturma ve buna bir proje dağıtma yord
             }
         };
 
-### <a name="deploy-the-todolistangular-web-project-to-the-new-web-app"></a>ToDoListAngular web projesini yeni web uygulamasına dağıtma
-* Visual Studio’da, **Web’i Yayımla** sihirbazının **Bağlantı** adımında, **Yayımla**’ya tıklayın.
+### <a name="deploy-hello-todolistangular-web-project-toohello-new-web-app"></a>Merhaba ToDoListAngular web projesi toohello yeni web uygulaması dağıtma
+* Visual Studio'da, hello **bağlantı** hello adımında **Web'i Yayımla** Sihirbazı'nı tıklatın **Yayımla**.
   
-   Visual Studio, ToDoListAngular projesini yeni web uygulamasına dağıtır ve web uygulaması URL'sini bir tarayıcı penceresinde açar. 
+   Visual Studio hello ToDoListAngular projesi toohello yeni web uygulamasına dağıtır ve hello web uygulamasının bir tarayıcı toohello URL'sini açar. 
 
-### <a name="test-the-application-without-cors-enabled"></a>CORS’yi etkinleştirmeden uygulamayı test etme
-1. Tarayıcınızda Geliştirici Araçları’nda Konsol penceresini açın.
-2. AngularJS kullanıcı arabirimini gösteren tarayıcı penceresinde **Yapılacaklar Listesi** bağlantısına tıklayın.
+### <a name="test-hello-application-without-cors-enabled"></a>CORS'yi etkinleştirmeden Hello uygulamayı test etme
+1. Tarayıcınızda geliştirici araçları hello konsol penceresi açın.
+2. Merhaba AngularJS kullanıcı arabirimini görüntüleyen hello tarayıcı penceresinde hello tıklatın **tooDo listesi** bağlantı.
    
-    JavaScript kodu orta katman API uygulamasını çağırmayı dener ancak ön uç arka uçtan farklı bir etki alanında çalıştığından başarısız olur. Tarayıcının Geliştirici Araçları Konsol penceresi bir çıkış noktaları arası hata iletisi gösterir.
+    Merhaba JavaScript kodu toocall hello orta katman API uygulaması çalışır ancak hello ön uç geri hello farklı bir etki alanında son çalıştığından hello çağrı başarısız olur. Merhaba tarayıcının geliştirici araçları konsol penceresi bir çıkış noktaları arası hata iletisi gösterir.
    
     ![Çıkış noktaları arası hata iletisi](./media/app-service-api-cors-consume-javascript/consoleaccessdenied.png)
 
-## <a name="configure-cors-for-the-middle-tier-api-app"></a>CORS’yi orta katman API uygulaması için yapılandırma
-Bu bölümde, Azure’da orta katman ToDoListAPI API uygulaması için CORS ayarını yapılandıracaksınız. Bu ayar, orta katman API uygulamasının ToDoListAngular projesi için oluşturduğunuz web uygulamasından JavaScript çağrılarını almasına olanak sağlar.
+## <a name="configure-cors-for-hello-middle-tier-api-app"></a>Merhaba orta katman API uygulaması CORS'yi yapılandırın
+Bu bölümde, hello orta katman Todolistapı API uygulaması azure'da hello CORS ayarını yapılandırın. Bu ayar hello orta katman API uygulaması tooreceive JavaScript çağrılarını hello ToDoListAngular projesi için oluşturduğunuz web uygulamasından hello izin verir.
 
-1. Bir tarayıcıda [Azure portalına](https://portal.azure.com/) gidin.
-2. **App Services**’e ve ardından ToDoListAPI (orta katman) API uygulamasına tıklayın.
+1. Bir tarayıcıda toohello Git [Azure portal](https://portal.azure.com/).
+2. Tıklatın **uygulama hizmetleri**ve ardından Todolistapı (orta katman) API hello uygulama tıklayın.
    
     ![Portalda API uygulamasını seçin](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
-3. **API uygulaması** dikey penceresinin sağ tarafında açılan **Ayarlar** dikey penceresinde, **API** bölümünü bulun ve ardından **CORS**’ye tıklayın.
+3. Merhaba, **ayarları** hello toohello sağındaki açılan dikey **API uygulaması** dikey penceresinde, Bul hello **API** bölümünde ve ardından **CORS**.
    
    ![Portalda CORS’yi seçme](./media/app-service-api-cors-consume-javascript/clicksettings.png)
-4. Metin kutusunda, ToDoListAngular (ön uç) web uygulamasının URL'sini girin. Örneğin, ToDoListAngular projesini todolistangular0121 adlı bir web uygulamasına dağıttıysanız, `https://todolistangular0121.azurewebsites.net` URL’sinden gelen çağrılara izin verin.
+4. Merhaba metin kutusuna hello ToDoListAngular (ön uç) web uygulaması için hello URL'sini girin. Örneğin, todolistangular0121 adlı hello ToDoListAngular projesi tooa web uygulamasına dağıttıysanız, hello URL'den çağrılarına izin vermek `https://todolistangular0121.azurewebsites.net`.
    
-   Alternatif olarak, tüm kaynak etki alanlarının kabul edildiğini belirtmek için bir yıldız işareti (*) girebilirsiniz.
-5. **Kaydet**’e tıklayın.
+   Alternatif olarak, tüm kaynak etki alanlarının kabul edildiğini bir yıldız işareti (*) toospecify girebilirsiniz.
+5. **Kaydet** düğmesine tıklayın.
    
    ![Kaydet’e tıklayın.](./media/app-service-api-cors-consume-javascript/corsinportal.png)
    
-   **Kaydet**’e tıkladıktan sonra, API uygulaması belirtilen URL’den JavaScript çağrılarını kabul eder. Bu ekran görüntüsünde, ToDoListAPI0223 API uygulaması ToDoListAngular web uygulamasından gelen JavaScript istemci çağrılarını kabul eder.
+   Tıklattıktan sonra **kaydetmek**, hello API uygulaması JavaScript kabul hello gelen çağrıları belirtilen URL. Bu ekran görüntüsünde hello Todolistapı0223 API uygulaması hello ToDoListAngular web uygulamasından JavaScript istemci çağrılarını kabul eder.
 
-### <a name="test-the-application-with-cors-enabled"></a>CORS’yi etkinleştirerek uygulamayı test etme
-* Web uygulamasının HTTPS URL'sini bir tarayıcıda açın. 
+### <a name="test-hello-application-with-cors-enabled"></a>CORS'yi Hello uygulamayı test etme
+* Bir tarayıcı toohello hello web uygulamasının HTTPS URL'sini açın. 
   
-    Bu sefer uygulama yapılacaklar öğelerini görüntülemenize, eklemenize, düzenlemenize ve silmenize olanak sağlar. 
+    Bu zaman hello uygulaması, görüntülemek, ekleme, düzenleme ve yapılacaklar öğelerini silme sağlar. 
   
-    ![Örnek uygulamanın Yapılacaklar Listesi sayfası](./media/app-service-api-cors-consume-javascript/corssuccess.png)
+    ![örnek uygulaması tooDo liste sayfası](./media/app-service-api-cors-consume-javascript/corssuccess.png)
 
 ## <a name="app-service-cors-versus-web-api-cors"></a>App Service CORS ile Web API CORS karşılaştırması
-Bir Web API projesinde, API’nizin hangi etki alanlarından JavaScript çağrılarını kabul edeceğini kodla belirtmek için [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet paketini yükleyebilirsiniz.
+Bir Web API projesinde hello yükleyebilirsiniz [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet paketi toospecify kodu JavaScript API'nizi kabul edeceği hangi etki alanlarının çağırır.
 
 Web API CORS desteği App Service CORS desteğinden daha esnektir. Örneğin, kodda farklı eylem yöntemleri için farklı kabul edilen çıkış noktaları belirtebilirken, App Service CORS’de bir API uygulamasının tüm yöntemleri için bir kabul edilen çıkış noktası kümesi belirtirsiniz.
 
 > [!NOTE]
-> Web API CORS ve App Service CORS’yi aynı API uygulamasında kullanmayı denemeyin. App Service CORS öncelik kazanır ve Web API CORS’nin hiçbir etkisi olmaz. Örneğin, App Service içinde bir çıkış noktası etki alanını etkinleştirir ve Web API kodunuzdaki tüm çıkış noktası etki alanlarını etkinleştirirseniz, Azure API uygulamanız yalnızca Azure içinde belirtilen etki alanı çağrılarını kabul eder.
+> Toouse denemeyin Web API CORS ve App Service CORS bir API uygulamasında. App Service CORS öncelik kazanır ve Web API CORS’nin hiçbir etkisi olmaz. Örneğin, App Service'te bir kaynak etki alanı etkinleştirirseniz ve Web API kodunuzdaki tüm çıkış noktası etki alanlarını etkinleştirmek, Azure API uygulamanız yalnızca Azure içinde belirtilen hello etki alanından çağrılarını kabul eder.
 > 
 > 
 
-### <a name="how-to-enable-cors-in-web-api-code"></a>Web API kodunda CORS’yi etkinleştirme
-Aşağıdaki adımlarda Web API CORS desteğini etkinleştirme işlemi özetlenir. Daha fazla bilgi için bkz. [ASP.NET Web API 2’de Çıkış Noktaları Arası İstekleri Etkinleştirme](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
+### <a name="how-tooenable-cors-in-web-api-code"></a>Nasıl Web API kodunda CORS'yi tooenable
+Aşağıdaki adımları hello Web API CORS desteğini etkinleştirme hello işlemi özetlenir. Daha fazla bilgi için bkz. [ASP.NET Web API 2’de Çıkış Noktaları Arası İstekleri Etkinleştirme](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
-1. Bir Web API projesinde, [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet paketini yükleyin.
-2. **WebApiConfig** sınıfının **Register** yöntemine aşağıdaki örnekteki gibi bir `config.EnableCors()` kod satırı ekleyin. 
+1. Bir Web API projesinde hello yüklemek [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet paketi.
+2. Dahil bir `config.EnableCors()` hello kod satırı **kaydetmek** hello yöntemi **WebApiConfig** aşağıdaki örneğine hello olduğu gibi sınıfı. 
    
         public static class WebApiConfig
         {
@@ -209,7 +209,7 @@ Aşağıdaki adımlarda Web API CORS desteğini etkinleştirme işlemi özetleni
             {
                 // Web API configuration and services
    
-                // The following line enables you to control CORS by using Web API code
+                // hello following line enables you toocontrol CORS by using Web API code
                 config.EnableCors();
    
                 // Web API routes
@@ -222,7 +222,7 @@ Aşağıdaki adımlarda Web API CORS desteğini etkinleştirme işlemi özetleni
                 );
             }
         }
-3. Web API denetleyicinizde, `System.Web.Http.Cors` ad alanı için bir `using` bildirimi ekleyin ve denetleyici sınıfına veya tek tek eylem yöntemlerine `EnableCors` özniteliğini ekleyin. Aşağıdaki örnekte, CORS desteği tüm denetleyiciye uygulanır.
+3. Web API denetleyicinizde eklemek bir `using` hello bildirimi `System.Web.Http.Cors` ad alanı ve hello ekleyin `EnableCors` özniteliği toohello denetleyici sınıfı veya tooindividual eylem yöntemleri. Aşağıdaki örneğine hello CORS desteğini toohello tüm denetleyiciye uygulanır.
    
         namespace ToDoListAPI.Controllers 
         {
@@ -231,7 +231,7 @@ Aşağıdaki adımlarda Web API CORS desteğini etkinleştirme işlemi özetleni
             public class ToDoListController : ApiController
 
 ## <a name="using-azure-api-management-with-api-apps"></a>API Apps ile Azure API Management kullanma
-Bir API uygulamasıyla Azure API Management kullanıyorsanız, CORS’yi API uygulamasında değil API Management içinde yapılandırın. Daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Bir API uygulamasıyla Azure API Management kullanıyorsanız, CORS'yi API Management yerine hello API uygulamasında yapılandırın. Daha fazla bilgi için kaynakları aşağıdaki hello bakın:
 
 * [Azure API Management’a Genel Bakış (video: CORS 12:10’da başlar)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/)
 * [API Management etki alanları arası ilkeler](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
@@ -239,13 +239,13 @@ Bir API uygulamasıyla Azure API Management kullanıyorsanız, CORS’yi API uyg
 ## <a name="troubleshooting"></a>Sorun giderme
 Bu öğreticiyi izlerken bir sorunla karşılaşırsanız, bazı sorun giderme fikirlerini burada bulabilirsiniz.
 
-* [Visual Studio 2015 için .NET için Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003)’nin en yeni sürümünü kullandığınızdan emin olun.
-* CORS ayarında `https` değerini girdiğinizden ve ön uç web uygulamasını çalıştırmak için `https` kullandığınızdan emin olun.
-* CORS ayarını ön uç web uygulamasında değil orta katman API uygulamasında girdiğinizden emin olun.
-* CORS’yi hem uygulama kodunda hem de Azure App Service içinde yapılandırıyorsanız, App Service CORS ayarının uygulama kodunda yaptığınız ayarları geçersiz kılacağına dikkat edin. 
+* Merhaba hello en son sürümünü kullandığınızdan emin olun [Visual Studio 2015 için .NET için Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003).
+* Girdiğinizden emin olun `https` hello CORS ayarını ve kullandığınızdan emin olun `https` toorun hello ön uç web uygulaması.
+* Hello CORS ayarını girdiğiniz hello orta katman API uygulaması, hello ön uç web uygulamasında değil olduğundan emin olun.
+* CORS'yi hem uygulama kodunda hem de Azure App Service içinde yapılandırıyorsanız hello App Service CORS ayarının uygulama kodunda yaptığınız ne olursa olsun kılar unutmayın. 
 
-Sorun gidermeyi basitleştiren Visual Studio özellikleri hakkında daha fazla bilgi için bkz. [Visual Studio’da Azure App Service uygulamalarıyla ilgili sorunları giderme](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
+Daha fazla sorun gidermeyi basitleştiren Visual Studio özellikleri hakkında toolearn bkz [Visual Studio'daki sorun giderme Azure uygulama hizmetinde uygulamaları](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, istemci JavaScript kodunun farklı bir etki alanındaki bir API’yi çağırması için App Service CORS desteğini nasıl etkinleştireceğinizi öğrendiniz. API uygulamaları hakkında daha fazla bilgi için, [App Service’de kimlik doğrulamasına giriş](../app-service/app-service-authentication-overview.md) bölümünü okuyun ve ardından [API uygulamaları için kullanıcı kimlik doğrulamaları](app-service-api-dotnet-user-principal-auth.md) öğreticisine gidin.
+Bu makalede, nasıl tooenable App Service CORS desteği böylece istemci JavaScript kodunun farklı bir etki alanında bir API çağrısı gördünüz. toolearn hello okuma API uygulamaları hakkında daha fazla [App Service'te giriş tooauthentication](../app-service/app-service-authentication-overview.md), ve toohello Git [API uygulamaları için kullanıcı kimlik doğrulaması](app-service-api-dotnet-user-principal-auth.md) Öğreticisi.
 

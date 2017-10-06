@@ -1,6 +1,6 @@
 ---
-title: "Dile özgü şirket, oturum açma sayfasına Azure Active Directory'de markası ekleme | Microsoft Docs"
-description: "Belirli bir dil şirketten eklemeyi öğrenin marka resimler ve Azure bir oturum açma sayfası metni"
+title: "hello Azure Active Directory içinde tooyour oturum açma sayfası markalama aaaAdd dile özgü şirket | Microsoft Docs"
+description: "Tooadd belirli bir dil nasıl şirket markasıyla resim ve metin tooan Azure oturum açma sayfası öğrenin"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
-ms.openlocfilehash: e1fe8d855386ceec39edbc985538cdf32d78a13b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1e33c31abc242e8455290beb1f03760be7b9ac42
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-language-specific-company-branding-to-your-sign-in-page-in-the-azure-active-directory"></a>Dile özgü şirket, oturum açma sayfasına Azure Active Directory'de markası ekleme
-Birçok şirket, karışıklığı önlemek için yönettikleri hizmetlerde ve web sitelerinde tutarlı bir genel görünüm uygulamak ister. Azure Active Directory şirket Logonuzla ve özel renk düzenleri ile oturum açma sayfasının görünümünü özelleştirmenize olanak tanıyarak bu yeteneği sağlar. Oturum açma sayfası, Office 365 veya Azure AD kimlik sağlayıcınız olarak kullanan diğer web tabanlı uygulamalar için oturum açtığınızda görüntülenen sayfadır. Kimlik bilgilerinizi girmek için bu sayfayı ile etkileşim.
+# <a name="add-language-specific-company-branding-tooyour-sign-in-page-in-hello-azure-active-directory"></a>Dile özgü şirket tooyour oturum açma sayfasında hello Azure Active Directory markası ekleme
+tooavoid Karışıklığı önlemek için birçok şirket tüm hello Web siteleri ve yönettikleri hizmetlerde tooapply tutarlı bir görünüm istiyor. Azure Active Directory toocustomize hello hello oturum açma sayfası şirket Logonuzla ve özel renk düzenleri görünümünü sağlayarak bu yeteneği sağlar. Merhaba oturum açma sayfası 365 veya Azure AD kimlik sağlayıcınız olarak kullanan diğer web tabanlı uygulamalar tooOffice içinde oturum açtığınızda görüntülenen hello sayfasıdır. Kimlik bilgilerinizi bu sayfayı tooenter ile etkileşim.
 
-## <a name="customizing-the-sign-in-page-for-another-language"></a>Başka bir dil için oturum açma sayfasını özelleştirme
-Yalnızca, özel bir oturum açma sayfasında açıklandığı gibi oluşturduysanız, özel oturum açma sayfasına dile özgü öğeleri ekleyebilirsiniz [şirket markası, oturum açma sayfasına ekleme](active-directory-branding-custom-signon-azure-portal.md). Dizin başına bir oturum açma sayfası özelleştirilebilir öğeler varsayılan kümesiyle yapılandırabilirsiniz. Sayfa öğeleri varsayılan kümesini yapılandırdıktan sonra farklı yerel ayarlar için daha fazla sürüm yapılandırabilirsiniz. Ayrıca, çeşitli öğeleri karıştırabilir ve eşleştirebilirsiniz. Örneğin, olabilir:
+## <a name="customizing-hello-sign-in-page-for-another-language"></a>Başka bir dil için Hello oturum açma sayfasını özelleştirme
+Dile özgü öğeler tooyour özel oturum açma sayfası yalnızca, özel bir oturum açma sayfasında açıklandığı gibi oluşturduysanız ekleyebilirsiniz [tooyour oturum açma sayfası markalama şirket ekleme](active-directory-branding-custom-signon-azure-portal.md). Dizin başına bir oturum açma sayfası özelleştirilebilir öğeler varsayılan kümesiyle yapılandırabilirsiniz. Merhaba varsayılan sayfa öğeleri kümesi yapılandırdıktan sonra farklı yerel ayarlar için daha fazla sürüm yapılandırabilirsiniz. Ayrıca, çeşitli öğeleri karıştırabilir ve eşleştirebilirsiniz. Örneğin, olabilir:
 
-* Varsayılan oluşturma **oturum açma sayfası görüntü** tüm kültürler için ardından oluşturduğunuz belirli sürümler İngilizce ve Fransızca için. Tarayıcılarınızı bu iki dilden birine ayarladığınızda, varsayılan çizim için tüm diğer dillere görüntülenirken dile özgü görüntüsü görünür.
+* Varsayılan oluşturma **oturum açma sayfası görüntü** tüm kültürler için ardından oluşturduğunuz belirli sürümler İngilizce ve Fransızca için. Bu iki dillerden, tarayıcılar tooone ayarladığınızda, hello varsayılan çizim için tüm diğer dillere görüntülenirken hello dile özgü görüntüsü görünür.
 * Kuruluşunuz için farklı logolar (örneğin, Japonca veya İbranice sürümler) yapılandırabilirsiniz.
 
-Dil Varyasyon sayısını düşük bakım ve performans nedenleriyle tutmanızı öneririz.
+Merhaba dil Varyasyon sayısını düşük bakım ve performans nedenleriyle tutmanızı öneririz.
 
-**Şirket markası dizininize eklemek için:**
+**tooadd şirket markasıyla tooyour dizini:**
 
-1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2. Seçin **daha fazla hizmet**, girin **kullanıcılar ve gruplar** metin kutusuna ve ardından **Enter**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) hello dizin için genel yönetici olan bir hesapla.
+2. Seçin **daha fazla hizmet**, girin **kullanıcılar ve gruplar** hello metin kutusuna ve ardından **Enter**.
 
    ![Açılış kullanıcı yönetimi](./media/active-directory-branding-localize-azure-portal/user-management.png)
-3. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **şirket markası**.
-4. Üzerinde **kullanıcılar ve gruplar - şirket markası** dikey penceresinde, select **dil eklemek** komutu.
+3. Merhaba üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **şirket markası**.
+4. Merhaba üzerinde **kullanıcılar ve gruplar - şirket markası** dikey penceresinde, select hello **dil eklemek** komutu.
 
     ![Dile özgü marka öğeleri ekleme](./media/active-directory-branding-localize-azure-portal/add-language.png)
-5. Özelleştirmek istediğiniz öğeleri değiştirin. Tüm öğeler isteğe bağlıdır.
+5. Toocustomize istediğiniz hello öğeleri değiştirin. Tüm öğeler isteğe bağlıdır.
 6. **Kaydet** düğmesine tıklayın.
 
-Bunu görünmesi marka oturum açma sayfasına yapılan değişiklikler bir saate kadar sürebilir.
+Oturum açma toohello yapılan değişiklikler marka tooappear sayfa için tooan saat sürebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Şirket, oturum açma sayfasına markası ekleme](active-directory-branding-custom-signon-azure-portal.md)
+[Şirket markası tooyour oturum açma sayfası ekleme](active-directory-branding-custom-signon-azure-portal.md)

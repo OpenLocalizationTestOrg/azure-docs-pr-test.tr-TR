@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management'te ürün şablonları | Microsoft Docs"
-description: "Azure API Management Geliştirici Portalı ürün sayfalarında içeriğini özelleştirmeyi öğrenin."
+title: "Azure API Management'te aaaProduct şablonları | Microsoft Docs"
+description: "Merhaba ürün toocustomize Merhaba içeriğine hello Azure API Management Geliştirici Portalı'nda nasıl sayfaları hakkında bilgi edinin."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9ddbb9860b437cb3e7334bdf5891f2fba1cffb76
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 60600299287aad87f9b621782ab5ceb866601d03
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="product-templates-in-azure-api-management"></a>Azure API Management'te ürün şablonları
-Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriği özelleştirme yeteneği sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve düzenleyiciyi, gibi [DotLiquid tasarımcıları için](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfa denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde sayfaların yapılandırmak için büyük esneklik vardır.  
+Azure API Management yeteneği toocustomize hello Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriğini hello sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve hello düzenleyiciyi, gibi [tasarımcıları için DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [ Karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfasında denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde hello sayfaların büyük esneklik tooconfigure hello içeriğe sahip.  
   
- Bu bölümdeki şablonları Geliştirici Portalı ürün sayfalarında içeriğini özelleştirmenize olanak sağlar.  
+ Bu bölümdeki Hello şablonları hello Geliştirici Portalı'nda hello ürün sayfaları toocustomize hello içeriği sağlar.  
   
 -   [Ürün Listesi](#ProductList)  
   
 -   [Ürün](#Product)  
   
 > [!NOTE]
->  Örnek varsayılan şablonları aşağıdaki belgelerde yer alır ancak değişikliği sürekli geliştirmeler nedeniyle tabidir. İstenen tek tek şablonları giderek Geliştirici Portalı'nda Canlı varsayılan şablonları görüntüleyebilirsiniz. Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Örnek varsayılan şablonları belgelerine aşağıdaki hello dahil olan, ancak konu toochange toocontinuous geliştirmeler nedeniyle. İstenen toohello tek tek şablonları giderek hello Canlı varsayılan şablonları hello Geliştirici Portalı'nda görüntüleyebilirsiniz. Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="ProductList"></a>Ürün Listesi  
- **Ürün listesi** şablonu Geliştirici portalında ürün listesi sayfasının gövdesi özelleştirmenizi sağlar.  
+ Merhaba **ürün listesi** şablonu verir hello ürün listesi sayfasının toocustomize hello gövdesi hello Geliştirici Portalı'nda.  
   
  ![Ürün listesini](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
   
@@ -66,7 +66,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ### <a name="controls"></a>Denetimler  
- `Product list` Şablonu, aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba `Product list` şablonu hello aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
   
 -   [disk belleği denetimi](api-management-page-controls.md#paging-control)  
   
@@ -76,9 +76,9 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Sayfalama|[Disk belleği](api-management-template-data-model-reference.md#Paging) varlık.|Ürünler koleksiyonu için disk belleği bilgileri.|  
-|Filtreleme|[Filtreleme](api-management-template-data-model-reference.md#Filtering) varlık.|Ürün Listesi Sayfası için filtre bilgileri.|  
-|Ürünler|Koleksiyonu [ürün](api-management-template-data-model-reference.md#Product) varlıklar.|Geçerli kullanıcı için görünür olan ürünleri.|  
+|Sayfalama|[Disk belleği](api-management-template-data-model-reference.md#Paging) varlık.|Merhaba ürünleri koleksiyonu için başlangıç disk belleği bilgilerini.|  
+|Filtreleme|[Filtreleme](api-management-template-data-model-reference.md#Filtering) varlık.|Merhaba ürün listesi sayfası için filtre bilgilerini hello.|  
+|Ürünler|Koleksiyonu [ürün](api-management-template-data-model-reference.md#Product) varlıklar.|Merhaba ürünleri görünür toohello geçerli kullanıcı.|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -99,7 +99,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
         {  
             "Id": "56f9445ffaf7560049060001",  
             "Title": "Starter",  
-            "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "Description": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "Terms": "",  
             "ProductState": 1,  
             "AllowMultipleSubscriptions": false,  
@@ -108,7 +108,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
         {  
             "Id": "56f9445ffaf7560049060002",  
             "Title": "Unlimited",  
-            "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "Description": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "Terms": null,  
             "ProductState": 1,  
             "AllowMultipleSubscriptions": false,  
@@ -119,7 +119,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ##  <a name="Product"></a>Ürün  
- **Ürün** şablonu Geliştirici portalında ürün sayfasının gövdesi özelleştirmenizi sağlar.  
+ Merhaba **ürün** şablonu verir toocustomize hello hello ürün sayfası gövdesi hello Geliştirici Portalı'nda.  
   
  ![Geliştirici Portalı ürün sayfası](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
   
@@ -193,7 +193,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ### <a name="controls"></a>Denetimler  
- `Product list` Şablonu, aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba `Product list` şablonu hello aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
   
 -   [Abone düğmesi](api-management-page-controls.md#subscribe-button)  
   
@@ -201,17 +201,17 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Ürün|[Ürün](api-management-template-data-model-reference.md#Product)|Belirtilen ürün.|  
-|IsDeveloperSubscribed|Boole değeri|Olup geçerli kullanıcının bu ürüne abone olur.|  
-|SubscriptionState|Sayı|Abonelik durumu. Olası durumlar şunlardır:<br /><br /> -   `0 - suspended`– Abonelik engellenir ve abone ürünün herhangi bir API çağrılamaz.<br />-   `1 - active`– Aboneliğinizin etkin olduğunu.<br />-   `2 - expired`– Abonelik sona erme tarihini ulaştı ve devre dışı bırakıldı.<br />-   `3 - submitted`– Abonelik isteğinin geliştirici tarafından yapılan ancak henüz onaylanamıyor veya reddedilemiyor.<br />-   `4 - rejected`– Abonelik isteğinin bir yönetici tarafından reddedildi.<br />-   `5 - cancelled`– Abonelik geliştirici veya yönetici tarafından iptal edildi.|  
+|Ürün|[Ürün](api-management-template-data-model-reference.md#Product)|Belirtilen ürün Hello.|  
+|IsDeveloperSubscribed|Boole değeri|Merhaba geçerli kullanıcının abone toothis ürün olup olmadığı.|  
+|SubscriptionState|Sayı|Merhaba abonelik Hello durumu. Olası durumlar şunlardır:<br /><br /> -   `0 - suspended`– hello abonelik engellenir ve hello abone hello ürünün herhangi bir API çağrılamıyor.<br />-   `1 - active`– hello abonelik etkin olduğunu.<br />-   `2 - expired`– hello abonelik sona erme tarihini ulaştı ve devre dışı bırakıldı.<br />-   `3 - submitted`– hello abonelik isteği hello geliştirici tarafından yapılan ancak henüz onaylanamıyor veya reddedilemiyor.<br />-   `4 - rejected`– bir yönetici tarafından hello abonelik isteği reddedildi.<br />-   `5 - cancelled`– hello geliştirici veya yönetici tarafından hello aboneliği iptal edildi.|  
 |Sınırlar|Dizi|Bu özellik kullanım dışıdır ve kullanılmamalıdır.|  
 |DelegatedSubscriptionEnabled|Boole değeri|Olup olmadığını [temsilci](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) Bu abonelik için etkin.|  
-|DelegatedSubscriptionUrl|Dize|Temsilci etkinleştirilirse, yetkilendirilmiş abonelik URL.|  
-|IsAgreed|Boole değeri|Olup ürün koşulları varsa, geçerli kullanıcının koşullarını kabul etmiştir.|  
-|Abonelikler|Koleksiyonu [abonelik özeti](api-management-template-data-model-reference.md#SubscriptionSummary) varlıklar.|Ürün abonelikleri.|  
-|API'leri|Koleksiyonu [API](api-management-template-data-model-reference.md#API) varlıklar.|Bu ürüne API.|  
-|CannotAddBecauseSubscriptionNumberLimitReached|Boole değeri|Geçerli kullanıcının abonelik sınırı açısından bu ürüne abone olmak uygun olup olmadığı.|  
-|CannotAddBecauseMultipleSubscriptionsNotAllowed|Boole değeri|Geçerli kullanıcının bu ürünü veya izin verilmeden birden çok abonelik ile abone olmak uygun olup olmadığı.|  
+|DelegatedSubscriptionUrl|Dize|Temsilci etkinleştirilirse, hello abonelik URL temsilci.|  
+|IsAgreed|Boole değeri|Merhaba ürün koşulları varsa, olup hello geçerli kullanıcının anlaşılan toohello koşulları.|  
+|Abonelikler|Koleksiyonu [abonelik özeti](api-management-template-data-model-reference.md#SubscriptionSummary) varlıklar.|Merhaba abonelikleri toohello ürün.|  
+|API'leri|Koleksiyonu [API](api-management-template-data-model-reference.md#API) varlıklar.|Bu üründe Hello API'leri.|  
+|CannotAddBecauseSubscriptionNumberLimitReached|Boole değeri|Merhaba geçerli kullanıcı uygun toosubscribe toothis ürün şekilde toohello abonelik sınırına sahip olup olmadığı.|  
+|CannotAddBecauseMultipleSubscriptionsNotAllowed|Boole değeri|Merhaba geçerli kullanıcı uygun toosubscribe toothis şekilde toomultiple abonelikleri veya izin verilmeden ürünle olup olmadığı.|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -220,7 +220,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
     "Product": {  
         "Id": "56f9445ffaf7560049060001",  
         "Title": "Starter",  
-        "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+        "Description": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
         "Terms": "",  
         "ProductState": 1,  
         "AllowMultipleSubscriptions": false,  
@@ -258,4 +258,4 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](api-management-developer-portal-templates.md).
+Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](api-management-developer-portal-templates.md).

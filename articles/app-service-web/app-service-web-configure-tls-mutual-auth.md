@@ -1,6 +1,6 @@
 ---
-title: "Web App için TLS Karşılıklı Kimlik Doğrulamayı Yapılandırma"
-description: "Web uygulamanız TLS istemci sertifikası kimlik doğrulamasını kullanmak için yapılandırmayı öğrenin."
+title: "aaaHow tooConfigure TLS karşılıklı kimlik doğrulaması için Web uygulaması"
+description: "Nasıl tooconfigure web uygulama toouse istemci sertifika kimlik doğrulaması hakkında bilgi edinin TLS."
 services: app-service
 documentationcenter: 
 author: naziml
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8aeb9b35058fac50b8b38f6428207ad4a82d8637
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Web App için TLS Karşılıklı Kimlik Doğrulamayı Yapılandırma
+# <a name="how-tooconfigure-tls-mutual-authentication-for-web-app"></a>Nasıl tooConfigure TLS karşılıklı kimlik doğrulaması için Web uygulaması
 ## <a name="overview"></a>Genel Bakış
-Kimlik doğrulaması için farklı türlerde etkinleştirerek Azure web uygulamanıza erişimi kısıtlayabilirsiniz. Bunu yapmak için bir istek TLS/SSL üzerinden olduğunda istemci sertifikası kullanılarak kimlik doğrulaması için yoludur. Bu mekanizma TLS karşılıklı kimlik doğrulaması veya istemci sertifikası kimlik doğrulaması ve bu makalede istemci sertifikası kimlik doğrulamasını kullanmak için web uygulamanızı nasıl ayrıntılarıyla açıklar çağrılır.
+Kimlik doğrulaması için farklı türlerde etkinleştirerek erişim tooyour Azure web uygulaması kısıtlayabilirsiniz. Tek yönlü toodo dolayısıyla hello isteği TLS/SSL üzerinden olduğunda istemci sertifikası kullanarak tooauthenticate taşır. Bu mekanizma TLS karşılıklı kimlik doğrulaması veya istemci sertifikası kimlik doğrulaması olarak adlandırılır ve bu makalede ayrıntı nasıl toosetup, web uygulaması toouse istemci sertifikası kimlik.
 
-> **Not:** sitenizi HTTP ve HTTPS değil üzerinden erişirseniz, herhangi bir istemci sertifikası almaz. Uygulamanızın istemci sertifikası gerektiriyorsa, bu nedenle, istekleri uygulamanıza HTTP üzerinden izin vermemelisiniz.
+> **Not:** sitenizi HTTP ve HTTPS değil üzerinden erişirseniz, herhangi bir istemci sertifikası almaz. İstemci sertifikaları, uygulamanızın gerektiriyorsa, bu nedenle, istekleri tooyour uygulama HTTP üzerinden izin vermemelisiniz.
 > 
 > 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="configure-web-app-for-client-certificate-authentication"></a>Web uygulaması için istemci sertifikası kimlik doğrulamasını yapılandırma
-İstemci sertifikaları gerektirmek için web uygulamanızı için web uygulamanız için clientCertEnabled site ayarı ekleyin ve true olarak ayarlamanız gerekir. Bu ayar Portalı'nda yönetim deneyimi aracılığıyla şu anda kullanılabilir değil ve REST API bunu gerçekleştirmek için kullanılması gerekir.
+web uygulamanız için ayarlama ve tootrue ayarlamak clientCertEnabled site tooadd gereken web uygulaması toorequire istemci sertifikalarınızı hello toosetup. Bu ayar hello yönetim deneyimi hello Portal aracılığıyla şu anda kullanılabilir değil ve hello REST API kullanılan toobe tooaccomplish bu gerekir.
 
-Kullanabileceğiniz [ARMClient aracı](https://github.com/projectkudu/ARMClient) REST API çağrısı oluşturabilir kolaylaştırmak için. Aracın oturum oturum sonra aşağıdaki komutu yürütün gerekir:
+Merhaba kullanabilirsiniz [ARMClient aracı](https://github.com/projectkudu/ARMClient) toomake, kolay toocraft hello REST API çağrısı. Merhaba aracı oturum oturum sonra komut aşağıdaki tooissue hello gerekir:
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 
-{} her şeyi web uygulamanız için bilgi ile değiştirerek ve bir dosya oluşturulurken aşağıdaki JSON ile enableclientcert.json içerik çağrılır:
+{} her şeyi web uygulamanız için bilgi ile değiştirerek ve bir dosya oluşturulurken enableclientcert.json JSON aşağıdaki hello ile içerik çağrılır:
 
     {
         "location": "My Web App Location",
@@ -46,19 +46,19 @@ Kullanabileceğiniz [ARMClient aracı](https://github.com/projectkudu/ARMClient)
         }
     }
 
-Yerlerde, web uygulamanızın bulunduğu için "Konum" değerini değiştirdiğinizden emin olun ör Kuzey Orta ABD veya Batı ABD vs.
+Web uygulaması "Konum" toowherever toochange hello değeri Örneğin Kuzey Orta ABD veya Batı ABD vb. bulunan emin olun.
 
-Çevrilecek https://resources.azure.com kullanabilirsiniz `clientCertEnabled` özelliğine `true`.
+Https://resources.azure.com tooflip hello de kullanabilirsiniz `clientCertEnabled` özelliği çok`true`.
 
-> **Not:** Powershell'den ARMClient çalıştırırsanız, kaçış gerekir @ simgesinden geri değer çizgisi olan JSON dosyası için '.
+> **Not:** Powershell'den ARMClient çalıştırırsanız hello JSON dosyasını geri onay için @ sembolü tooescape hello gerekir '.
 > 
 > 
 
-## <a name="accessing-the-client-certificate-from-your-web-app"></a>Web uygulamanızdan istemci sertifikasına erişme
-ASP.NET kullanıyorsanız ve istemci sertifikası kimlik doğrulamasını kullanmak için uygulamanızı yapılandırmak için sertifika ile de kullanılabilir olması **HttpRequest.ClientCertificate** özelliği. Diğer uygulama yığınları için istemci sertifikası uygulamanızda "X-ARR-ClientCert" istek üst bilgisinde base64 ile kodlanmış değeri ile kullanılabilir. Uygulamanız bu değerinden bir sertifika oluşturur ve uygulamanızda herhangi bir kimlik doğrulama ve yetkilendirme amacıyla kullanın.
+## <a name="accessing-hello-client-certificate-from-your-web-app"></a>İstemci sertifikası gelen Web uygulamanızı Hello erişme
+ASP.NET kullanıyorsanız ve uygulama toouse istemci sertifikası kimlik doğrulamasını yapılandırma hello sertifika hello kullanılabilir **HttpRequest.ClientCertificate** özelliği. Diğer uygulama yığınlarını hello istemci sertifikası uygulamanızda hello "X-ARR-ClientCert" istek üst bilgisinde base64 ile kodlanmış değeri ile kullanılabilir. Uygulamanız bu değerinden bir sertifika oluşturur ve uygulamanızda herhangi bir kimlik doğrulama ve yetkilendirme amacıyla kullanın.
 
 ## <a name="special-considerations-for-certificate-validation"></a>Sertifika doğrulama için özel hususlar
-Uygulamaya gönderilen istemci sertifikası Azure Web Apps platformu tarafından herhangi bir doğrulama geçmez. Bu sertifika doğrulama web uygulaması sorumluluğundadır. Burada, kimlik doğrulama amacıyla sertifika özellikleri doğrular örnek ASP.NET kodu verilmiştir.
+toohello uygulama gönderilen hello istemci sertifikası herhangi bir doğrulama hello Azure Web Apps platformu tarafından geçmez. Bu sertifika doğrulama hello hello web uygulaması sorumluluğundadır. Burada, kimlik doğrulama amacıyla sertifika özellikleri doğrular örnek ASP.NET kodu verilmiştir.
 
     using System;
     using System.Collections.Specialized;
@@ -81,8 +81,8 @@ Uygulamaya gönderilen istemci sertifikası Azure Web Apps platformu tarafından
             public bool isValidCert = false;
 
             //
-            // Read the certificate from the header into an X509Certificate2 object
-            // Display properties of the certificate on the page
+            // Read hello certificate from hello header into an X509Certificate2 object
+            // Display properties of hello certificate on hello page
             //
             protected void Page_Load(object sender, EventArgs e)
             {
@@ -124,13 +124,13 @@ Uygulamaya gönderilen istemci sertifikası Azure Web Apps platformu tarafından
             //
             private bool IsValidClientCertificate()
             {
-                // In this example we will only accept the certificate as a valid certificate if all the conditions below are met:
-                // 1. The certificate is not expired and is active for the current time on server.
-                // 2. The subject name of the certificate has the common name nildevecc
-                // 3. The issuer name of the certificate has the common name nildevecc and organization name Microsoft Corp
-                // 4. The thumbprint of the certificate is 30757A2E831977D8BD9C8496E4C99AB26CB9622B
+                // In this example we will only accept hello certificate as a valid certificate if all hello conditions below are met:
+                // 1. hello certificate is not expired and is active for hello current time on server.
+                // 2. hello subject name of hello certificate has hello common name nildevecc
+                // 3. hello issuer name of hello certificate has hello common name nildevecc and organization name Microsoft Corp
+                // 4. hello thumbprint of hello certificate is 30757A2E831977D8BD9C8496E4C99AB26CB9622B
                 //
-                // This example does NOT test that this certificate is chained to a Trusted Root Authority (or revoked) on the server 
+                // This example does NOT test that this certificate is chained tooa Trusted Root Authority (or revoked) on hello server 
                 // and it allows for self signed certificates
                 //
 
@@ -175,7 +175,7 @@ Uygulamaya gönderilen istemci sertifikası Azure Web Apps platformu tarafından
                 // 4. Check thumprint of certificate
                 if (String.Compare(certificate.Thumbprint.Trim().ToUpper(), "30757A2E831977D8BD9C8496E4C99AB26CB9622B") != 0) return false;
 
-                // If you also want to test if the certificate chains to a Trusted Root Authority you can uncomment the code below
+                // If you also want tootest if hello certificate chains tooa Trusted Root Authority you can uncomment hello code below
                 //
                 //X509Chain certChain = new X509Chain();
                 //certChain.Build(certificate);

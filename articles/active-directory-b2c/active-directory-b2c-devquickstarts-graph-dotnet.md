@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory B2C: grafik API'si kullanın | Microsoft Docs"
-description: "İşlemini otomatikleştirmek için bir uygulama kimliği kullanarak bir B2C Kiracı için grafik API'sini çağırmak nasıl."
+title: "Azure Active Directory B2C: Kullanım hello grafik API'si | Microsoft Docs"
+description: "Nasıl toocall hello grafik API'si bir B2C Kiracı için bir uygulama kimliği tooautomate hello işlemi kullanarak."
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
@@ -14,66 +14,66 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: c838fcad21875c4f813159ad78d4c87129a40a86
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a17cdc4adf57dbf22592d99ef8ecde41652763fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: grafik API'si kullanın
-Azure Active Directory (Azure AD) B2C kiracılar çok büyük olma eğilimindedir. Bu, çok sayıda genel kiracı yönetim görevlerini programlı olarak yapılması gereken anlamına gelir. Kullanıcı Yönetimi buna birincil bir örnektir. B2C Kiracı için var olan bir kullanıcı deposunun geçirmeniz gerekebilir. Kullanıcı kaydı kendi sayfasında barındırmak ve arka planda Azure AD B2C dizininizde kullanıcı hesapları oluşturmak isteyebilirsiniz. Bu tür bir görev oluşturma, okuma, güncelleştirme gerektirir ve kullanıcı hesaplarını silin. Azure AD grafik API'sini kullanarak bu görevleri yapabilirsiniz.
+# <a name="azure-ad-b2c-use-hello-graph-api"></a>Azure AD B2C: hello grafik API'sini kullanın
+Azure Active Directory (Azure AD) B2C kiracılar toobe çok büyük eğilimlidir. Bu, birçok genel kiracı yönetim görevlerini programlı olarak gerçekleştirilen toobe gerektiği anlamına gelir. Kullanıcı Yönetimi buna birincil bir örnektir. Mevcut bir kullanıcı deposu tooa B2C Kiracı toomigrate gerekebilir. Kendi sayfasında toohost kullanıcı kaydı istediğiniz ve hello perde arkasında Azure AD B2C dizininizde kullanıcı hesapları oluşturun. Bu tür bir görev hello özelliği toocreate, okuma, güncelleştirme gerektiren ve kullanıcı hesaplarını silin. Bu görevleri hello Azure AD Graph API kullanarak yapabilirsiniz.
 
-B2C kiracılar için grafik API'si ile iletişim iki birincil modu mevcuttur.
+B2C kiracılar için hello grafik API'si ile iletişim iki birincil modu mevcuttur.
 
-* Görevleri gerçekleştirdiğinizde etkileşimli, bir kez çalıştır görevler için bir yönetici hesabı B2C Kiracı olarak işlem yapmalıdır. Bu modu yönetici, yönetici grafik API'si yapılan her çağrı gerçekleştirmeden önce kimlik bilgileriyle oturum gerektirir.
-* Otomatik, sürekli görevleri için bazı yönetim görevlerini gerçekleştirmek için gerekli ayrıcalıklara sağladığınız hizmet hesabı türünü kullanmanız gerekir. Azure AD'de uygulama kaydetme ve Azure AD ile kimlik doğrulaması tarafından bunu yapabilirsiniz. Bu kullanılarak yapılır bir **uygulama kimliği** kullanan [OAuth 2.0 istemci kimlik bilgileri vermenizi](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Bu durumda, uygulama grafik API'sini çağırmak için bir kullanıcı değil, olarak kendisini olarak görev yapar.
+* Merhaba görevleri gerçekleştirdiğinizde etkileşimli, bir kez çalıştır görevler için bir yönetici hesabı hello B2C Kiracı olarak işlem yapmalıdır. Yöneticinin tüm çağrıları toohello grafik API'si gerçekleştirmeden önce bu modu yönetici toosign kimlik bilgilerinizle gerektirir.
+* Otomatik, sürekli görevleri için bazı türünü sağladığınız hizmet hesabının hello gerekli ayrıcalıklara tooperform yönetim görevleri ile kullanmanız gerekir. Azure AD'de bu uygulama kaydetme ve tooAzure AD kimlik doğrulaması yapabilirsiniz. Bu kullanılarak yapılır bir **uygulama kimliği** hello kullanan [OAuth 2.0 istemci kimlik bilgileri vermenizi](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Bu durumda, hello uygulama bir kullanıcı olarak değil kendisini toocall hello grafik API'si görür.
 
-Bu makalede, biz otomatik kullanım örneğini gerçekleştirmek nasıl ele alacağız. Göstermek için size bir .NET 4.5 yapı `B2CGraphClient` gerçekleştiren kullanıcı oluşturma, okuma, güncelleştirme ve Sil (CRUD) işlemleridir. İstemci, bir Windows komut satırı çeşitli yöntemlerini çağırmasına izin veren arabirimi (CLI) sahip olacaktır. Bununla birlikte, kod etkileşimsiz, otomatik bir şekilde davranmasına yazılır.
+Bu makalede, sizi nasıl tooperform hello otomatik kullanım örneği ele alacağız. toodemonstrate, biz yapı .NET 4.5 `B2CGraphClient` gerçekleştiren kullanıcı oluşturma, okuma, güncelleştirme ve Sil (CRUD) işlemleridir. Merhaba istemci bir Windows komut satırı tooinvoke sağlayan arabirimi (CLI) çeşitli yöntemlerle sahip olur. Ancak, hello kodu toobehave etkileşimsiz, otomatik bir şekilde yazılır.
 
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Bir Azure AD B2C kiracısı edinme
-Uygulama veya kullanıcıların oluşturabilir veya Azure AD ile etkileşimde önce Azure AD B2C Kiracı ve Kiracı genel Yönetici hesabında gerekir. Zaten bir kiracı yoksa [Azure AD B2C ile çalışmaya başlama](active-directory-b2c-get-started.md).
+Uygulama veya kullanıcıların oluşturabilir veya Azure AD ile etkileşimde önce Azure AD B2C kiracısı ve hello kiracısında genel yönetici hesabı gerekir. Zaten bir kiracı yoksa [Azure AD B2C ile çalışmaya başlama](active-directory-b2c-get-started.md).
 
 ## <a name="register-your-application-in-your-tenant"></a>Kiracınızda uygulamanızı kaydetme
-B2C Kiracı aldıktan sonra aracılığıyla uygulamanızı kaydetmeniz gerekir [Azure Portal](https://portal.azure.com).
+B2C Kiracı aldıktan sonra hello aracılığıyla uygulamanızı tooregister gerek [Azure Portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Grafik API'si B2C kiracınızın kullanmak için genel kullanarak özel bir uygulamayı kaydetme gerekecektir *uygulama kayıtlar* Azure portaldaki dikey pencere **değil** Azure AD B2C'in  *Uygulamaları* dikey. Azure AD B2C'de 's kayıtlı zaten varolan B2C uygulamaları tekrar kullanamazsınız *uygulamaları* dikey.
+> toouse hello grafik API'si B2C kiracınızın ile Merhaba genel kullanarak tooregister adanmış bir uygulama gerekiyor *uygulama kayıtlar* dikey penceresinde hello Azure Portal, **değil** Azure AD B2C'in  *Uygulamaları* dikey. Hello Azure AD B2C'ın kayıtlı hello zaten varolan B2C uygulamaları tekrar kullanamazsınız *uygulamaları* dikey.
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sayfanın sağ üst köşesinde hesabınızı seçerek Azure AD B2C kiracınızın seçin.
-3. Sol Gezinti Bölmesi'nde seçin **daha Hizmetleri**, tıklatın **uygulama kayıtlar**, tıklatıp **Ekle**.
-4. Komut istemlerini izleyin ve yeni bir uygulama oluşturun. 
-    1. Seçin **Web uygulaması / API** uygulama türü olarak.    
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Azure AD B2C kiracınızın hello sağ üst köşedeki hello sayfasının hesabınızı seçerek belirleyin.
+3. Merhaba sol gezinti bölmesinde seçin **daha Hizmetleri**, tıklatın **uygulama kayıtlar**, tıklatıp **Ekle**.
+4. Merhaba komut istemlerini izleyin ve yeni bir uygulama oluşturun. 
+    1. Seçin **Web uygulaması / API** uygulama türü hello gibi.    
     2. Sağlamak **URI herhangi bir yeniden yönlendirme** (örneğin https://B2CGraphAPI) Bu örnek için uygun değil olarak.  
-5. Uygulama şimdi yukarı uygulamalar listesinde göster elde etmek için **uygulama kimliği** (istemci kimliği olarak da bilinir). Bir sonraki bölümde gereksinim duyacağınız kopyalayın.
-6. Ayarlar dikey penceresinde tıklayın **anahtarları** ve yeni bir anahtar (istemci gizli anahtarı olarak da bilinir) ekleyin. Ayrıca daha sonraki bir bölüme kullanmak için kopyalayın.
+5. Merhaba uygulama şimdi yukarı uygulamaları hello listesinde göster üzerinde tooobtain hello **uygulama kimliği** (istemci kimliği olarak da bilinir). Bir sonraki bölümde gereksinim duyacağınız kopyalayın.
+6. Merhaba ayarlar dikey penceresinde tıklayın **anahtarları** ve yeni bir anahtar (istemci gizli anahtarı olarak da bilinir) ekleyin. Ayrıca daha sonraki bir bölüme kullanmak için kopyalayın.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Yapılandırma oluşturmak, okumak ve güncelleştirmek, uygulamanız için izinler
-Şimdi oluşturma, okuma, güncelleştirme ve kullanıcıları silmek için gerekli tüm izinleri almak için uygulamanızı yapılandırmanız gerekir.
+Tooconfigure gereksinim artık tüm Merhaba, uygulama tooget izinleri toocreate gerekli, okuma, güncelleştirme ve kullanıcıları silme.
 
-1. Azure portal'ın uygulama kayıtlar dikey penceresinde devam etmeden, uygulamanızı seçin.
-2. Ayarlar dikey penceresinde tıklayın **gerekli izinleri**.
-3. Gerekli izinleri dikey penceresinde tıklayın **Windows Azure Active Directory**.
-4. Erişimi etkinleştir dikey penceresinde, seçin **dizin verilerini okuma ve yazma** iznini **uygulama izinleri** tıklatıp **kaydetmek**.
-5. Gerekli izinleri dikey geri, son olarak, tıklayın **izinler** düğmesi.
+1. İçinde etmeden Azure portal'ın uygulama kayıtlar dikey Merhaba, uygulamanızı seçin.
+2. Merhaba ayarlar dikey penceresinde tıklayın **gerekli izinleri**.
+3. Merhaba gerekli izinleri dikey penceresinde tıklayın **Windows Azure Active Directory**.
+4. Merhaba erişimi etkinleştir dikey penceresinde hello seçin **dizin verilerini okuma ve yazma** iznini **uygulama izinleri** tıklatıp **kaydetmek**.
+5. Son olarak, geri hello gerekli izinleri dikey penceresinde hello üzerinde tıklayın **izinler** düğmesi.
 
-Artık oluşturmak, okumak ve B2C kiracınızın kullanıcılardan güncelleştirmek için izni olan bir uygulama var.
+B2C kiracınızın izin toocreate, okuma ve güncelleştirme kullanıcıları olan bir uygulama artık sahipsiniz.
 
 ## <a name="configure-delete-permissions-for-your-application"></a>Uygulamanız için silme izinleri yapılandırma
-Şu anda *dizin verilerini okuma ve yazma* izin vermez **değil** kullanıcıları silme gibi tüm silme işlemleri yapmak için özelliğini içerir. Uygulamanız kullanıcıların silme olanağı vermek istiyorsanız, PowerShell ile ilgili aşağıdaki ek adımları yapmanız gerekir, aksi halde, sonraki bölüme atlayabilirsiniz.
+Şu anda hello *dizin verilerini okuma ve yazma* izin vermez **değil** hello özelliği toodo kullanıcıları silme gibi tüm silme işlemleri içerir. Uygulama hello özelliği toodelete kullanıcılarınızın toogive istiyorsanız, PowerShell ile ilgili aşağıdaki ek adımları toodo gerekir, aksi takdirde, toohello sonraki bölümü atlayabilirsiniz.
 
-İlk olarak, indirin ve yükleyin [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152). Ardından karşıdan yükleyip [64-bit Windows PowerShell için Azure Active Directory Modülü](http://go.microsoft.com/fwlink/p/?linkid=236297).
+İlk olarak, karşıdan yüklenip hello [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152). Ardından yükleyip hello [64-bit Windows PowerShell için Azure Active Directory Modülü](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
-PowerShell modülü yükledikten sonra PowerShell'i açın ve B2C kiracınızın bağlanın. Çalıştırdıktan sonra `Get-Credential`, bir kullanıcı adı ve parolanızı girmeniz için kullanıcı adını ve parolasını B2C Kiracı yönetici hesabınız istenir.
+Merhaba PowerShell modülü yükledikten sonra PowerShell'i açın ve tooyour B2C Kiracı bağlanın. Çalıştırdıktan sonra `Get-Credential`, bir kullanıcı adı ve parola, hello kullanıcı adını girin ve B2C Kiracı yönetici hesabınızın parolası istenir.
 
 > [!IMPORTANT]
-> Bir B2C Kiracı yönetici hesabı kullanmanız gerekir **yerel** B2C kiracısına. Bu hesapları şuna: myusername@myb2ctenant.onmicrosoft.com.
+> İhtiyacınız olan toouse bir B2C Kiracı yönetici hesabı **yerel** toohello B2C Kiracı. Bu hesapları şuna: myusername@myb2ctenant.onmicrosoft.com.
 
 ```powershell
 Connect-MsolService
 ```
 
-Kullanacağız artık **uygulama kimliği** uygulama kullanıcıları silmek için olanak tanıyan kullanıcı hesabı yönetici rolü atamak için aşağıdaki komut dosyasında. Tüm yapmanız gereken giriş bu rolleri iyi bilinen tanımlayıcıları sahip, bu nedenle, **uygulama kimliği** aşağıdaki betikte yer.
+Merhaba kullanacağız artık **uygulama kimliği** toodelete kullanıcılar olanak tanıyan tooassign hello uygulama hello kullanıcı hesabı yönetici rolü aşağıdaki hello komut. Bu roller, iyi bilinen tanımlayıcıları vardır, yani tüm toodo ihtiyacınız giriş, **uygulama kimliği** hello komut dosyasında aşağıdaki.
 
 ```powershell
 $applicationId = "<YOUR_APPLICATION_ID>"
@@ -81,108 +81,108 @@ $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
 Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-Uygulamanızı şimdi de B2C kiracınızın kullanıcıları silme izni vardır.
+Uygulamanızı şimdi izinleri toodelete B2C kiracınızın kullanıcılardan de vardır.
 
-## <a name="download-configure-and-build-the-sample-code"></a>Karşıdan yükleme, yapılandırma ve örnek kod derleme
-İlk olarak, örnek kodu indirin ve çalışmasını alın. Ardından biz yakından bakmak sürer.  Yapabilecekleriniz [örnek kod bir .zip dosyası olarak karşıdan](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). Ayrıca tercih ettiğiniz dizinine kopyalayabilirsiniz:
+## <a name="download-configure-and-build-hello-sample-code"></a>Karşıdan yükleme, yapılandırma ve hello örnek kodu derleme
+İlk olarak, hello örnek kodu indirin ve çalışmasını alın. Ardından biz yakından bakmak sürer.  Yapabilecekleriniz [hello örnek kod bir .zip dosyası olarak karşıdan](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). Ayrıca tercih ettiğiniz dizinine kopyalayabilirsiniz:
 
 ```
 git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 ```
 
-Açık `B2CGraphClient\B2CGraphClient.sln` Visual Studio çözümü Visual Studio'da. İçinde `B2CGraphClient` projesi, dosyayı açma `App.config`. Üç uygulama ayarlarını kendi değerlerinizle değiştirin:
+Açık hello `B2CGraphClient\B2CGraphClient.sln` Visual Studio çözümü Visual Studio'da. Merhaba, `B2CGraphClient` proje, açık hello dosya `App.config`. Merhaba üç uygulama ayarlarını kendi değerlerinizle değiştirin:
 
 ```
 <appSettings>
     <add key="b2c:Tenant" value="{Your Tenant Name}" />
-    <add key="b2c:ClientId" value="{The ApplicationID from above}" />
-    <add key="b2c:ClientSecret" value="{The Key from above}" />
+    <add key="b2c:ClientId" value="{hello ApplicationID from above}" />
+    <add key="b2c:ClientSecret" value="{hello Key from above}" />
 </appSettings>
 ```
 
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Ardından, sağ tıklayın `B2CGraphClient` çözüm ve örnek yeniden oluşturma. Başarılı olursa, şimdi olmalıdır bir `B2C.exe` içinde bulunan yürütülebilir dosyasını `B2CGraphClient\bin\Debug`.
+Ardından, hello üzerinde sağ `B2CGraphClient` hello örnek çözümü ve yeniden oluşturma. Başarılı olursa, şimdi olmalıdır bir `B2C.exe` içinde bulunan yürütülebilir dosyasını `B2CGraphClient\bin\Debug`.
 
-## <a name="build-user-crud-operations-by-using-the-graph-api"></a>Grafik API'sini kullanarak yapı kullanıcı CRUD işlemleri
-B2CGraphClient kullanmak için açık bir `cmd` Windows komut istemine ve dizininize değiştirmek `Debug` dizin. Ardından çalıştırın `B2C Help` komutu.
+## <a name="build-user-crud-operations-by-using-hello-graph-api"></a>Kullanıcı CRUD işlemleri hello grafik API'sini kullanarak oluşturma
+toouse hello B2CGraphClient, açık bir `cmd` Windows komut istemine ve dizin toohello değiştirmek `Debug` dizin. Merhaba çalıştırmak `B2C Help` komutu.
 
 ```
 > cd B2CGraphClient\bin\Debug
 > B2C Help
 ```
 
-Bu her komut kısa bir açıklamasını görüntüler. Aşağıdaki komutlardan birini çağırma her zaman `B2CGraphClient` Azure AD grafik API'sine isteğinde bulunur.
+Bu her komut kısa bir açıklamasını görüntüler. Aşağıdaki komutlardan birini çağırma her zaman `B2CGraphClient` isteği toohello Azure AD Graph API sağlar.
 
 ### <a name="get-an-access-token"></a>Bir erişim belirteci alma
-Grafik API'si için herhangi bir istek kimlik doğrulaması için bir erişim belirteci gerektirir. `B2CGraphClient`erişim belirteci almak için açık kaynak Active Directory Authentication Library (ADAL) kullanır. ADAL belirteç edinme basit bir API sağlayarak ve erişim belirteçleri önbelleğe alma gibi bazı önemli ayrıntıları alma verdiğiniz kolaylaştırır. Belirteçleri, ancak almak için ADAL kullanmanız gerekmez. Ayrıca, HTTP isteklerini hazırlayın tarafından belirteç alabilir.
+Tüm istek toohello grafik API'si bir erişim belirteci için kimlik doğrulaması gerektirir. `B2CGraphClient`kullandığı hello açık kaynak Active Directory Authentication Library (ADAL) toohelp erişim belirteci alın. ADAL belirteç edinme basit bir API sağlayarak ve erişim belirteçleri önbelleğe alma gibi bazı önemli ayrıntıları alma verdiğiniz kolaylaştırır. Toouse ADAL tooget belirteçleri, ancak yok. Ayrıca, HTTP isteklerini hazırlayın tarafından belirteç alabilir.
 
 > [!NOTE]
-> Bu kod örneği ADAL v2 grafik API'si ile iletişim kurmak için kullanır.  Azure AD grafik API'si ile kullanılabilen erişim belirteçleri almak için ADAL v2 veya v3 kullanılması gerekir.
+> Bu kod örneği hello grafik API'si ile sipariş toocommunicate ADAL v2 kullanır.  ADAL v2 veya v3 hello Azure AD grafik API'si ile kullanılabilen sipariş tooget erişim belirteçleri kullanmanız gerekir.
 > 
 > 
 
-Zaman `B2CGraphClient` çalıştığında, bir örneğini oluşturur `B2CGraphClient` sınıfı. Bu sınıf oluşturucusu ADAL kimlik doğrulaması iskele kurma ayarlar:
+Zaman `B2CGraphClient` çalıştırır, hello örneği oluşturur `B2CGraphClient` sınıfı. Bu sınıf için Hello Oluşturucu ADAL kimlik doğrulaması iskele kurma ayarlar:
 
 ```C#
 public B2CGraphClient(string clientId, string clientSecret, string tenant)
 {
-    // The client_id, client_secret, and tenant are provided in Program.cs, which pulls the values from App.config
+    // hello client_id, client_secret, and tenant are provided in Program.cs, which pulls hello values from App.config
     this.clientId = clientId;
     this.clientSecret = clientSecret;
     this.tenant = tenant;
 
-    // The AuthenticationContext is ADAL's primary class, in which you indicate the tenant to use.
+    // hello AuthenticationContext is ADAL's primary class, in which you indicate hello tenant toouse.
     this.authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenant);
 
-    // The ClientCredential is where you pass in your client_id and client_secret, which are
-    // provided to Azure AD in order to receive an access_token by using the app's identity.
+    // hello ClientCredential is where you pass in your client_id and client_secret, which are
+    // provided tooAzure AD in order tooreceive an access_token by using hello app's identity.
     this.credential = new ClientCredential(clientId, clientSecret);
 }
 ```
 
-Kullanacağız `B2C Get-User` bir örnek olarak komutu. Zaman `B2C Get-User` , CLI aramaları gibi ek tüm girişleri çağrılan `B2CGraphClient.GetAllUsers(...)` yöntemi. Bu yöntemi çağırır `B2CGraphClient.SendGraphGetRequest(...)`, grafik API'si için bir HTTP GET isteği gönderir. Önce `B2CGraphClient.SendGraphGetRequest(...)` gönderir GET isteği, onu önce bir erişim ADAL kullanarak belirtecini alır:
+Merhaba kullanacağız `B2C Get-User` bir örnek olarak komutu. Zaman `B2C Get-User` , hello CLI çağrıları hello gibi ek tüm girişleri çağrılan `B2CGraphClient.GetAllUsers(...)` yöntemi. Bu yöntemi çağırır `B2CGraphClient.SendGraphGetRequest(...)`, bir HTTP GET isteği toohello grafik API'si gönderir. Önce `B2CGraphClient.SendGraphGetRequest(...)` hello GET isteği gönderir, onu önce bir erişim ADAL kullanarak belirtecini alır:
 
 ```C#
 public async Task<string> SendGraphGetRequest(string api, string query)
 {
-    // First, use ADAL to acquire a token by using the app's identity (the credential)
-    // The first parameter is the resource we want an access_token for; in this case, the Graph API.
+    // First, use ADAL tooacquire a token by using hello app's identity (hello credential)
+    // hello first parameter is hello resource we want an access_token for; in this case, hello Graph API.
     AuthenticationResult result = authContext.AcquireToken("https://graph.windows.net", credential);
 
     ...
 
 ```
 
-Access grafik API'si için ADAL çağırarak belirteci alma `AuthenticationContext.AcquireToken(...)` yöntemi. Ardından ADAL döndüren bir `access_token` , uygulamanın kimliğini temsil eder.
+Bir erişim hello grafik API'si çağırma hello ADAL tarafından için belirteç sağlayabilmek için `AuthenticationContext.AcquireToken(...)` yöntemi. Ardından ADAL döndüren bir `access_token` hello uygulamanın kimliğini temsil eder.
 
 ### <a name="read-users"></a>Kullanıcıların okuma
-Kullanıcıların bir listesini almak veya belirli bir kullanıcı grafik API'SİNDEN elde etmek istediğinizde, bir HTTP gönderebilirsiniz `GET` isteği `/users` uç noktası. Tüm Kiracı kullanıcılar için bir istek şöyle görünür:
+Tooget kullanıcıların listesini istediğiniz veya belirli bir kullanıcı grafik API'si hello almak, bir HTTP gönderebilirsiniz `GET` toohello isteği `/users` uç noktası. Tüm Kiracı hello kullanıcılar için bir istek şöyle görünür:
 
 ```
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 ```
 
-Bu istek görmek için çalıştırın:
+toosee çalıştırmak, bu isteği:
 
  ```
  > B2C Get-User
  ```
 
-Dikkat edilecek iki önemli noktalar şunlardır:
+İki önemli noktalar toonote vardır:
 
-* ADAL edinilen erişim belirteci eklenen `Authorization` kullanarak üstbilgi `Bearer` düzeni.
-* B2C kiracılar için sorgu parametresi kullanmalısınız `api-version=1.6`.
+* Merhaba ADAL edinilen erişim belirteci toohello eklenen `Authorization` hello kullanarak üstbilgi `Bearer` düzeni.
+* B2C kiracılar için hello sorgu parametresi kullanmalısınız `api-version=1.6`.
 
-Bu ayrıntıları her ikisi de işlenir `B2CGraphClient.SendGraphGetRequest(...)` yöntemi:
+Bu ayrıntıları her ikisi de hello işlenir `B2CGraphClient.SendGraphGetRequest(...)` yöntemi:
 
 ```C#
 public async Task<string> SendGraphGetRequest(string api, string query)
 {
     ...
 
-    // For B2C user management, be sure to use the 1.6 Graph API version.
+    // For B2C user management, be sure toouse hello 1.6 Graph API version.
     HttpClient http = new HttpClient();
     string url = "https://graph.windows.net/" + tenant + api + "?" + "api-version=1.6";
     if (!string.IsNullOrEmpty(query))
@@ -190,7 +190,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
         url += "&" + query;
     }
 
-    // Append the access token for the Graph API to the Authorization header of the request by using the Bearer scheme.
+    // Append hello access token for hello Graph API toohello Authorization header of hello request by using hello Bearer scheme.
     HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url);
     request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
     HttpResponseMessage response = await http.SendAsync(request);
@@ -199,7 +199,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 ```
 
 ### <a name="create-consumer-user-accounts"></a>Tüketici kullanıcı hesapları oluşturun
-B2C kiracınızda kullanıcı hesapları oluştururken, bir HTTP gönderebilirsiniz `POST` isteği `/users` uç noktası:
+B2C kiracınızda kullanıcı hesapları oluştururken, bir HTTP gönderebilirsiniz `POST` toohello isteği `/users` uç noktası:
 
 ```
 POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
@@ -208,50 +208,50 @@ Content-Type: application/json
 Content-Length: 338
 
 {
-    // All of these properties are required to create consumer users.
+    // All of these properties are required toocreate consumer users.
 
     "accountEnabled": true,
-    "signInNames": [                            // controls which identifier the user uses to sign in to the account
+    "signInNames": [                            // controls which identifier hello user uses toosign in toohello account
         {
             "type": "emailAddress",             // can be 'emailAddress' or 'userName'
             "value": "joeconsumer@gmail.com"
         }
     ],
-    "creationType": "LocalAccount",            // always set to 'LocalAccount'
-    "displayName": "Joe Consumer",                // a value that can be used for displaying to the end user
-    "mailNickname": "joec",                        // an email alias for the user
+    "creationType": "LocalAccount",            // always set too'LocalAccount'
+    "displayName": "Joe Consumer",                // a value that can be used for displaying toohello end user
+    "mailNickname": "joec",                        // an email alias for hello user
     "passwordProfile": {
         "password": "P@ssword!",
-        "forceChangePasswordNextLogin": false   // always set to false
+        "forceChangePasswordNextLogin": false   // always set toofalse
     },
     "passwordPolicies": "DisablePasswordExpiration"
 }
 ```
 
-Bu isteği bu özelliklerin çoğu tüketici kullanıcıları oluşturmak için gereklidir. Daha fazla bilgi edinmek için tıklayın [burada](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Unutmayın `//` açıklamaları çizim için dahil edilmiştir. Bunları, gerçek bir istekte dahil etmeyin.
+Bu isteği bu özelliklerin çoğu, gerekli toocreate tüketici kullanıcılardır. toolearn daha fazlasını tıklatın [burada](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Bu hello Not `//` açıklamaları çizim için dahil edilmiştir. Bunları, gerçek bir istekte dahil etmeyin.
 
-İstek görmek için aşağıdaki komutlardan birini çalıştırın:
+toosee hello isteği, komutları aşağıdaki hello birini çalıştırın:
 
 ```
 > B2C Create-User ..\..\..\usertemplate-email.json
 > B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-`Create-User` Komutu bir .json dosyası olarak bir giriş parametresi alır. Bu, bir kullanıcı nesnesinin bir JSON temsili içerir. Örnek kodda iki örnek .json dosyası vardır: `usertemplate-email.json` ve `usertemplate-username.json`. Bu dosyalar, gereksinimlerinize uyacak şekilde değiştirebilirsiniz. Yukarıdaki gerekli alanlara ek olarak, bu dosyaları kullanabileceğiniz birkaç isteğe bağlı alanları dahil edilir. İsteğe bağlı alanları ayrıntıları bulunabilir [Azure AD Graph API varlık başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
+Merhaba `Create-User` komutu bir .json dosyası olarak bir giriş parametresi alır. Bu, bir kullanıcı nesnesinin bir JSON temsili içerir. Merhaba örnek kodda iki örnek .json dosyası vardır: `usertemplate-email.json` ve `usertemplate-username.json`. Bu dosyaları toosuit gereksinimlerinizi değiştirebilirsiniz. Ayrıca toohello gerekli alanları yukarıdaki, kullanabileceğiniz birkaç isteğe bağlı alanları bu dosyaları dahil edilir. Ayrıntılar hello isteğe bağlı alanları hello bulunabilir [Azure AD Graph API varlık başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
 
-POST isteğini nasıl oluşturulur görebilirsiniz `B2CGraphClient.SendGraphPostRequest(...)`.
+Merhaba POST isteği nasıl oluşturulur görebilirsiniz `B2CGraphClient.SendGraphPostRequest(...)`.
 
-* Bir erişim belirteci iliştirir `Authorization` isteği üstbilgisi.
+* Bir erişim belirteci toohello iliştirir `Authorization` hello isteği üstbilgisi.
 * Bu ayarlar `api-version=1.6`.
-* Bu JSON kullanıcı nesnesi istek gövdesinde içerir.
+* Bu, hello hello istek gövdesinde hello JSON kullanıcı nesnesi içerir.
 
 > [!NOTE]
-> Varolan bir kullanıcı mağazadan geçirmek istediğiniz hesapları varsa, daha düşük parola gücünü [Azure AD B2C tarafından zorlanan güçlü parola gücünü](https://msdn.microsoft.com/library/azure/jj943764.aspx), güçlü parola kullanma gereksinimini devre dışı bırakabilirsiniz `DisableStrongPassword` değer `passwordPolicies` özelliği. Örneğin, yukarıdaki gibi sağlanan oluşturma Kullanıcı isteği değiştirebilirsiniz: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
+> Merhaba hesapları var olan bir kullanıcı deposundan toomigrate başlangıç değerinden daha düşük parola gücünü sahip isterseniz [Azure AD B2C tarafından zorlanan güçlü parola gücünü](https://msdn.microsoft.com/library/azure/jj943764.aspx), hello kullanarakhellogüçlüparolagereksiniminidevredışıbırakabilirsiniz`DisableStrongPassword`hello değerinde `passwordPolicies` özelliği. Merhaba örneği için değiştirebileceğiniz gibi yukarıda verilen kullanıcı isteği oluşturma: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 > 
 > 
 
 ### <a name="update-consumer-user-accounts"></a>Tüketici kullanıcı hesaplarını güncelleştirme
-Kullanıcı nesneleri güncelleştirdiğinizde, kullanıcı nesneleri oluşturmak için kullandığınız bir benzer bir işlemdir. Ancak bu işlem HTTP kullanan `PATCH` yöntemi:
+Kullanıcı nesneleri güncelleştirdiğinizde hello benzer toohello toocreate kullanıcı nesneleri kullandığınız işlemdir. Ancak bu işlem hello HTTP kullanan `PATCH` yöntemi:
 
 ```
 PATCH https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
@@ -260,23 +260,23 @@ Content-Type: application/json
 Content-Length: 37
 
 {
-    "displayName": "Joe Consumer",                // this request updates only the user's displayName
+    "displayName": "Joe Consumer",                // this request updates only hello user's displayName
 }
 ```
 
-Bir kullanıcı yeni verilerle, JSON dosyalarınızın güncelleştirerek güncelleştirmeyi deneyin. Daha sonra kullanabilirsiniz `B2CGraphClient` aşağıdaki komutlardan birini çalıştırmak için:
+Tooupdate bir kullanıcı yeni verilerle, JSON dosyalarınızın güncelleştirerek deneyin. Daha sonra `B2CGraphClient` toorun aşağıdaki komutlardan birini:
 
 ```
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 ```
 
-İnceleme `B2CGraphClient.SendGraphPatchRequest(...)` bu isteği göndermek hakkında ayrıntılar için yöntem.
+Merhaba incelemek `B2CGraphClient.SendGraphPatchRequest(...)` yöntemi hakkında ayrıntılar için toosend bu isteği.
 
 ### <a name="search-users"></a>Kullanıcılarda arama
-B2C kiracınızda çeşitli şekillerde kullanıcılar için arama yapabilirsiniz. Kullanıcının kullanarak bir nesne kimliği veya kullanıcının oturum açma tanımlayıcı kullanarak iki (yani, `signInNames` özelliği).
+B2C kiracınızda çeşitli şekillerde kullanıcılar için arama yapabilirsiniz. Merhaba kullanıcının nesne kimliği veya hello kullanıcının oturum açma tanımlayıcı kullanarak iki kullanarak bir (yani, hello `signInNames` özelliği).
 
-Belirli bir kullanıcı için aramak için aşağıdaki komutlardan birini çalıştırın:
+Belirli bir kullanıcı için komutları toosearch aşağıdaki hello birini çalıştırın:
 
 ```
 > B2C Get-User <user-object-id>
@@ -291,36 +291,36 @@ Aşağıda birkaç örnek verilmiştir:
 ```
 
 ### <a name="delete-users"></a>Kullanıcıları silme
-Bir kullanıcının silinmesi için basit bir işlemdir. HTTP kullanmak `DELETE` yöntemi ve yapı doğru URL'nin nesne kimliği:
+Kullanıcı silme hello basit bir işlemdir. Kullanım hello HTTP `DELETE` hello yöntemi ve yapı hello URL'SİYLE düzeltmek nesne kimliği:
 
 ```
 DELETE https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 ```
 
-Bir örnek görmek için şu komutu girin ve konsola yazdırılır silme isteği görüntüleyin:
+toosee bir örnek yazdırılan toohello konsol bu komut ve görünüm hello silme isteği girin:
 
 ```
 > B2C Delete-User <object-id-of-user>
 ```
 
-İnceleme `B2CGraphClient.SendGraphDeleteRequest(...)` bu isteği göndermek hakkında ayrıntılar için yöntem.
+Merhaba incelemek `B2CGraphClient.SendGraphDeleteRequest(...)` yöntemi hakkında ayrıntılar için toosend bu isteği.
 
-Azure AD grafik API'si kullanıcı yönetimine ek olarak birçok başka eylemler gerçekleştirebilir. [Azure AD Graph API Başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) örnek istekleri yanı sıra her bir eylemde ayrıntıları sağlar.
+Toplama toouser Yönetimi'nde hello Azure AD Graph API birçok başka eylemler gerçekleştirebilir. [Azure AD Graph API Başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) örnek istekleri yanı sıra her bir eylemde ayrıntıları sağlar.
 
 ## <a name="use-custom-attributes"></a>Özel öznitelikler kullanma
-Çoğu tüketici uygulamaları herhangi bir tür özel kullanıcı profili bilgilerini depolamak gerekir. Bunu yapmak için bir yolu, özel bir öznitelik B2C kiracınızda tanımlamaktır. Sonra bu öznitelik bir kullanıcı nesnesi üzerinde herhangi bir özellik işle aynı şekilde davranabilirsiniz. Öznitelik güncelleştirmek, öznitelik Sil, özniteliğin sorgu, öznitelik oturum açma belirteçleri ve daha fazla talep olarak gönder.
+Çoğu tüketici uygulamaları herhangi bir tür özel kullanıcı profili bilgilerini toostore gerekir. Bunu yapmak için bir toodefine B2C kiracınızın özel bir öznitelikte yoludur. Ardından bu özniteliği hello davranabilirsiniz aynı şekilde bir kullanıcı nesnesi üzerinde herhangi bir özellik işle. Merhaba özniteliği güncelleştirebilir Sil hello özniteliğinin, sorgu hello özniteliği tarafından hello özniteliği ve oturum açma belirteçleri talep olarak gönder.
 
-Özel bir öznitelik B2C kiracınızda tanımlamak için bkz: [B2C özel öznitelik başvurusu](active-directory-b2c-reference-custom-attr.md).
+toodefine B2C kiracınızın özel bir öznitelikte bkz hello [B2C özel öznitelik başvurusu](active-directory-b2c-reference-custom-attr.md).
 
-B2C kiracınızda kullanarak tanımlanan özel özniteliklere görüntüleyebilirsiniz `B2CGraphClient`:
+B2C kiracınızda kullanarak tanımlanan özel özniteliklere hello görüntüleyebilirsiniz `B2CGraphClient`:
 
 ```
 > B2C Get-B2C-Application
 > B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
-Bu işlevler çıktısı gibi her özel öznitelik ayrıntılarını ortaya çıkarır:
+Bu işlevlerin Hello çıktı gibi her özel özniteliğinin hello ayrıntıları ortaya çıkarır:
 
 ```JSON
 {
@@ -338,18 +338,18 @@ Bu işlevler çıktısı gibi her özel öznitelik ayrıntılarını ortaya çı
 }
 ```
 
-Tam adı gibi kullanabilir `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`, kullanıcı nesneleri bir özellik olarak.  Yeni özellik ve özelliği için bir değer ile .json dosyanızı güncelleştirin ve ardından çalıştırın:
+Hello gibi tam adı kullanabilirsiniz `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`, kullanıcı nesneleri bir özellik olarak.  Merhaba yeni özellik ve hello özelliği için bir değer ile .json dosyanızı güncelleştirin ve ardından çalıştırın:
 
 ```
 > B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-Kullanarak `B2CGraphClient`, B2C Kiracı kullanıcılarınızın program aracılığıyla yönetebilen bir hizmet uygulaması sahip. `B2CGraphClient`Azure AD grafik API'sine kimliğini doğrulamak için kendi uygulama kimliğini kullanır. Ayrıca, istemci parolasını kullanarak belirteçleri da alır. Bu işlev uygulamanıza dahil, B2C uygulamalar için birkaç önemli nokta unutmayın:
+Kullanarak `B2CGraphClient`, B2C Kiracı kullanıcılarınızın program aracılığıyla yönetebilen bir hizmet uygulaması sahip. `B2CGraphClient`kendi uygulama kimliği tooauthenticate toohello Azure AD Graph API kullanır. Ayrıca, istemci parolasını kullanarak belirteçleri da alır. Bu işlev uygulamanıza dahil, B2C uygulamalar için birkaç önemli nokta unutmayın:
 
-* Uygulama doğru Kiracı izinleri gerekir.
-* Şimdilik, erişim belirteçleri almak için ADAL (MSAL değil) kullanmanız gerekir. (Ayrıca protokol iletilerini doğrudan bir kitaplık kullanılarak olmadan gönderebilirsiniz.)
-* Grafik API'si çağırdığınızda, kullanabilirsiniz `api-version=1.6`.
+* Toogrant hello uygulama hello uygun izinleri hello Kiracı gerekir.
+* Şimdilik, toouse ADAL (değil MSAL) tooget erişim belirteçleri gerekir. (Ayrıca protokol iletilerini doğrudan bir kitaplık kullanılarak olmadan gönderebilirsiniz.)
+* Merhaba grafik API'si çağırdığınızda, kullanabilirsiniz `api-version=1.6`.
 * Oluşturduğunuzda ve tüketici kullanıcıları güncelleştirmek birkaç özelliği yukarıda açıklandığı gibi gereklidir.
 
-Herhangi bir sorunuz veya Eylemler B2C kiracınızın grafik API'sini kullanarak gerçekleştirmek istediğiniz isteklerinde varsa, bu makalede bir yorum yazın veya bir sorunu GitHub kod örnek deposunda dosya.
+Herhangi bir sorunuz veya Eylemler tooperform hello grafik API'sini kullanarak istediğiniz istekleri varsa B2C kiracınızın bu makalede bir yorum yazın veya bir sorunu hello GitHub kod örnek deposunda dosya.
 

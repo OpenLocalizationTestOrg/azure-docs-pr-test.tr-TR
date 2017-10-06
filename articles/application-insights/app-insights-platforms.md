@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: bwren
-ms.openlocfilehash: 8bdaf9592ed29371ecfe8e9e5d2f8da9ac1795bb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 14b363c934a018ce72be97d1a0b74a6c2210656e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Geliştirici analizleri: diller, platformlar ve tümleştirmeler
 Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygulamalardır. Bunlardan bazıları üçüncü taraflar aracılığıyla sunulur.
@@ -82,4 +82,4 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [Akış Analizi](app-insights-export-power-bi.md)
 
 ## <a name="projects"></a>Kendi SDK’nizi derleme
-Diliniz veya platformunuz için henüz bir SDK yoksa, belki de bir tane derlemenin zamanı gelmiştir değil mi? [GitHub’da Application Insights SDK projesi](https://github.com/Microsoft/AppInsights-Home) altında listelenen mevcut SDK kodlarını gözden geçirin.
+Hiç henüz bir SDK diliniz veya platformunuz için belki de istediğiniz bir toobuild? SDK'ları hello listelenen varolan hello hello kodunu bakalım [github'da Application Insights SDK projesi](https://github.com/Microsoft/AppInsights-Home).

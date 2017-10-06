@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory v2.0 kimlik doğrulama kitaplıkları | Microsoft Docs"
-description: "Uyumlu istemci kitaplıkları ve sunucu ara yazılım kitaplıkları ve ilgili kitaplık, kaynak ve Azure Active Directory v2.0 uç noktası için örnekleri bağlantılar."
+title: "aaaAzure Active Directory v2.0 kimlik doğrulama kitaplıkları | Microsoft Docs"
+description: "Uyumlu istemci kitaplıkları ve sunucu ara yazılım kitaplıkları ve ilgili kitaplık, kaynak ve hello Azure Active Directory v2.0 uç noktası için örnekleri bağlantılar."
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,45 +15,45 @@ ms.workload: identity
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c8dc0fab1a4da2bf9ae1463cb5e17fc2c2b12e5c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d7affdaac3a087b951d54d96fa68edde2a065172
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 kimlik doğrulama kitaplıkları
-Azure Active Directory (Azure AD) v2.0 uç noktası endüstri standardı OAuth 2.0 ve Openıd Connect 1.0 protokollerini destekler. Microsoft ve diğer kuruluşlardan çeşitli kitaplıklarından v2.0 uç noktası ile kullanabilirsiniz.
+Hello Azure Active Directory (Azure AD) v2.0 uç hello endüstri standardı OAuth 2.0 ve Openıd Connect 1.0 protokollerini destekler. Microsoft ve diğer kuruluşlardan çeşitli kitaplıklarından hello v2.0 uç noktası ile kullanabilirsiniz.
 
-V2.0 uç noktası kullanan bir uygulama oluşturduğunuzda, bir güvenlik geliştirme yaşam döngüsü (SDL) Metodoloji gibi izleyin Protokolü etki alanı uzmanlar tarafından yazılan kitaplıkları kullanmanızı öneririz [birMicrosofttarafındanizlenen][Microsoft-SDL]. Elle kod destek protokoller için karar verirseniz, SDL Metodoloji izleyin ve Kapat güvenlik konuları her protokol için standartları özellikleri dikkat öneririz.
+Merhaba v2.0 uç noktası kullanan bir uygulama oluşturduğunuzda, bir güvenlik geliştirme yaşam döngüsü (SDL) Metodoloji gibi izleyin Protokolü etki alanı uzmanlar tarafından yazılan kitaplıkları kullanmanızı öneririz [birMicrosofttarafındanizlenenhello] [Microsoft-SDL]. Merhaba protokolleri toohand kod desteği karar verirseniz, SDL Metodoloji izleyin ve Kapat toohello güvenlik konuları hello standartları özellikleri her protokol için dikkat öneririz.
 
 ## <a name="types-of-libraries"></a>Tür kitaplıkları
 Azure AD v2.0 iki tür kitaplıklarını çalışır:
 
-* **İstemci kitaplıkları**. Yerel istemcileri ve sunucuları Microsoft Graph gibi bir kaynak çağırmak için erişim belirteçleri almak için istemci kitaplıkları'nı kullanın.
-* **Sunucu ara yazılım kitaplıkları**. Web uygulamaları, kullanıcı oturum açma için sunucu ara yazılım kitaplıkları kullanabilirsiniz. Web API'leri sunucusu ara yazılım kitaplıkları yerel istemciler veya diğer sunucular tarafından gönderilen belirteçleri doğrulamak için kullanın.
+* **İstemci kitaplıkları**. Yerel istemcileri ve sunucuları Microsoft Graph gibi bir kaynak çağırmak için istemci kitaplıkları tooget erişim belirteçleri kullanın.
+* **Sunucu ara yazılım kitaplıkları**. Web uygulamaları, kullanıcı oturum açma için sunucu ara yazılım kitaplıkları kullanabilirsiniz. Web API'leri yerel istemciler veya diğer sunucular tarafından gönderilen sunucu ara yazılımı kitaplıkları toovalidate belirteçlerini kullanın.
 
 ## <a name="library-support"></a>Kitaplık desteği
-V2.0 uç noktası kullandığınızda herhangi bir standartlara uygun kitaplığı seçebilirsiniz çünkü desteği nereye bilmeniz önemlidir. Sorunları ve kitaplık kodu özellik istekleri için kitaplık sahibine başvurun. Sorunlar ve Hizmet tarafı protokolünü uygulamasındaki özellik istekleri için Microsoft'a başvurun.
+Merhaba v2.0 uç noktası kullandığınızda herhangi bir standartlara uygun kitaplığı seçebilirsiniz, önemli tooknow demektir nerede toogo desteği. Sorunları ve kitaplık kodu özellik istekleri için hello kitaplığı sahibine başvurun. Sorunları ve hello Hizmet tarafı protokol uygulanması özellik istekleri için Microsoft'a başvurun.
 
 Kitaplıkları iki destek kategoride getirir:
 
 * **Microsoft tarafından desteklenen**. Microsoft bu kitaplıklar için düzeltme sağlayan ve SDL yapmıştır Bu kitaplıklar üzerinde durum tespitlerini.
-* **Uyumlu**. Microsoft, bu kitaplıklar temel senaryolarda test ve v2.0 uç noktası ile çalıştıkları onaylandı. Bu kitaplıklar için düzeltmeler ve bu kitaplıklar gözden yapılmadı Microsoft sağlamaz. Kitaplığın açık kaynaklı proje yönlendirilmiş sorunları ve özellik istekleri.
+* **Uyumlu**. Microsoft, bu kitaplıklar temel senaryolarda test ve hello v2.0 uç noktası ile çalıştıkları onaylandı. Bu kitaplıklar için düzeltmeler ve bu kitaplıklar gözden yapılmadı Microsoft sağlamaz. Sorunları ve özellik istekleri yönlendirilmiş toohello kitaplığın açık kaynaklı proje olması gerekir.
 
-Bu makalenin sonraki bölümlerinde v2.0 uç noktası ile çalışma kitaplıkların bir listesi için bkz.
+Merhaba v2.0 uç noktası ile çalışma kitaplıkların bir listesi için bu makaledeki hello sonraki bölümlere bakın.
 
 
 ## <a name="microsoft-supported-client-libraries"></a>Microsoft tarafından desteklenen istemci kitaplıkları
 
 > [!IMPORTANT]
-> MSAL Önizleme kitaplıkları, bir üretim ortamında kullanım için uygundur. Bizim geçerli üretim kitaplığı (ADAL) yaptığımız Bu kitaplıklar için aynı üretim düzeyi destek sunuyoruz. Önizleme sırasında biz MSAL API, dahili önbellek biçimi ve diğer hata düzeltmeleri veya özellik geliştirmeleri ile birlikte alın gerekecektir uyarısı olmadan bu kitaplıklar mekanizmaları değişiklikler yapabilir. Bu, uygulamanızın etkileyebilir. Örneğin, önbellek biçimini değişiklik yeniden oturum açmak için erişmeleri gibi kullanıcılarınızın etkileyebilir. Bir API değişikliği kodunuzu güncelleştirin gerektirebilir. Biz, altı ay içinde genel kullanılabilirlik sürüme güncelleştirmek ihtiyaç duyacağınız genel kullanılabilirlik sürümü sağladığımız açtığınızda Önizleme kullanılarak yazılmış uygulamalar olarak kitaplığı sürümü artık çalışabilir.
+> Merhaba MSAL Önizleme kitaplıkları, bir üretim ortamında kullanım için uygundur. Sağladığımız bizim geçerli üretim kitaplığı (ADAL) yaptığımız hello Bu kitaplıklar için aynı üretim düzeyi desteği. Merhaba Önizleme sırasında değişiklikleri toohello MSAL API, dahili önbellek biçimini vermiyoruz ve hata düzeltmeleri veya özellik geliştirmeleri birlikte tootake diğer mekanizmaları size bildirim olmadan bu kitaplıklar için gerekli. Bu, uygulamanızın etkileyebilir. Örneği için bir değişiklik toohello önbellek biçimini toosign içinde yeniden erişmeleri gibi kullanıcılarınızın etkileyebilir. Bir API değişikliği, tooupdate kodunuzu gerektirebilir. Merhaba tooupdate toohello genel kullanılabilirlik sürümü altı ay içinde isteriz genel kullanılabilirlik sürümü sağladığımız açtığınızda Önizleme kullanılarak yazılmış uygulamalar olarak kitaplığı sürümü artık çalışabilir.
 
 | Platform | Kitaplık | İndir | Kaynak kodu | Örnek | Başvuru
 | --- | --- | --- | --- | --- | --- |
 | .NET istemci, Windows mağazası, UWP, Xamarin iOS ve Android | MSAL .NET (Önizleme) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Masaüstü uygulaması](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
 | JavaScript | MSAL.js (Önizleme) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Tek sayfa uygulaması](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
 | iOS, macOS | MSAL (Önizleme) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS uygulaması](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
-| Android | MSAL (Önizleme) | [Merkezi bir depoya](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android uygulaması](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) |
+| Android | MSAL (Önizleme) | [Merhaba merkezi deposu](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android uygulaması](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) |
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Microsoft tarafından desteklenen sunucu ara yazılım kitaplıkları
 
@@ -78,12 +78,12 @@ Bu makalenin sonraki bölümlerinde v2.0 uç noktası ile çalışma kitaplıkla
 | Platform | Kitaplık adı | Test edilen sürüm | Kaynak kod | Örnek |
 |:---:|:---:|:---:|:---:|:---:|
 | Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [Sürüm 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
-| PHP | [PHP ligi oauth2 istemci](https://github.com/thephpleague/oauth2-client) | [Sürüm 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2 istemci](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
+| PHP | [Merhaba PHP ligi oauth2-istemci](https://github.com/thephpleague/oauth2-client) | [Sürüm 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2 istemci](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
 | Python Flask |[Flask OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask OAuthlib](https://github.com/lepture/flask-oauthlib) |[Web Uygulaması](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>İlgili içerik
-Azure AD v2.0 uç hakkında daha fazla bilgi için bkz: [Azure AD uygulama modeli v2.0 genel bakış][AAD-App-Model-V2-Overview].
+Merhaba hello Azure AD v2.0 uç noktası hakkında daha fazla bilgi için bkz: [Azure AD uygulama modeli v2.0 genel bakış][AAD-App-Model-V2-Overview].
 
 <!--Image references-->
 

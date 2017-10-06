@@ -1,5 +1,5 @@
 ---
-title: "Application Insights tarafından kullanılan IP adresleri | Microsoft Docs"
+title: "Application Insights tarafından kullanılan aaaIP adresleri | Microsoft Docs"
 description: "Application Insights tarafından gerekli sunucu güvenlik duvarı özel durumlar"
 services: application-insights
 documentationcenter: .net
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/11/2017
 ms.author: bwren
-ms.openlocfilehash: 3bb076c63223fc1567c6b7b25c1a513bbc81ed58
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2c101b8da2ba9594fbff607f4f7551cda80c3c25
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="ip-addresses-used-by-application-insights"></a>Application Insights tarafından kullanılan IP adresleri
-[Azure Application Insights](app-insights-overview.md) hizmeti, IP adreslerinin sayısı kullanır. İzlemekte olduğunuz uygulama güvenlik duvarının arkasında barındırılıyorsa bu adresleri bilmeniz gerekebilir.
+Merhaba [Azure Application Insights](app-insights-overview.md) hizmeti, IP adreslerinin sayısı kullanır. İzlemekte olduğunuz hello uygulama güvenlik duvarının arkasında barındırılıyorsa bu adresleri tooknow gerekebilir.
 
 > [!NOTE]
-> Bu adresler statik olsa da, biz zaman zaman değiştirmek gerekir mümkündür.
+> Bu adresler statik olsa da, toochange gerekir mümkündür atamalarını zaman tootime kaldırın.
 > 
 > 
 
 ## <a name="outgoing-ports"></a>Giden bağlantı noktaları
-Application Insights SDK'sı ve/veya Durum İzleyicisi portalına veri göndermeye izin vermek için sunucunuzun güvenlik duvarında bazı giden bağlantı noktalarını açmanız gerekir:
+Bazı sunucunuzun güvenlik duvarı tooallow hello Application Insights SDK'sı giden bağlantı noktaları ve/veya Durum İzleyicisi toosend veri toohello portal tooopen gerekir:
 
 | Amaç | URL | IP | Bağlantı Noktaları |
 | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ Durum İzleyicisi'ni yapılandırma - yalnızca değişiklik yaparken gerekir.
 | Çökme verileri |Gate.hockeyapp.NET |104.45.136.42 |80, 443 |
 
 ## <a name="availability-tests"></a>Kullanılabilirlik testleri
-Hangi adreslerinden listesidir [kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) çalıştırılır. Uygulamanıza web testleri çalıştırmak istediğinizi, ancak web sunucunuzu belirli istemciler hizmet için kısıtlı, test sunucuları bizim kullanılabilirlik gelen trafiğe izin gerekecektir.
+Bu hello hangi adreslerinden listesidir [kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) çalıştırılır. İstiyorsanız, uygulamanıza toorun web testleri, ancak bizim kullanılabilirlik test sunucularından gelen trafiği toopermit sahip olacaktır kısıtlı tooserving belirli istemciler, web sunucunuz olur.
 
 (IP adresleri konuma göre gruplandırılır) Bu adreslerden gelen 80 (http) ve gelen trafiği için 443 (https) bağlantı noktalarını açın:
 

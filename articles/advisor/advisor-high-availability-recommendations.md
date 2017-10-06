@@ -1,6 +1,6 @@
 ---
-title: "Azure Danışmanı yüksek kullanılabilirlik önerileri | Microsoft Docs"
-description: "Azure dağıtımlarınızı yüksek kullanılabilirliğini artırmak için Azure Danışmanı'nı kullanın."
+title: "aaaAzure Danışmanı yüksek kullanılabilirlik önerileri | Microsoft Docs"
+description: "Azure Danışmanı tooimprove yüksek kullanılabilirliğini Azure dağıtımlarınızı kullanın."
 services: advisor
 documentationcenter: NA
 author: kumudd
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 23c159471a6e5a7ad9cb545840e8afd3ac72ecba
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3ac75ce401271f0212d198d7a7dc75ab702b6eda
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor yüksek kullanılabilirlik önerileri
 
-Azure Danışmanı emin olun ve iş açısından kritik uygulamalarınızı sürekliliği artırmanıza yardımcı olur. Danışmanına göre yüksek kullanılabilirlik öneriler alabilirsiniz **yüksek kullanılabilirlik** Danışmanı Pano sekmesi.
+Azure Danışmanı emin olun ve iş açısından kritik uygulamalar hello sürekliliği artırmanıza yardımcı olur. Hello Danışmanı göre yüksek kullanılabilirlik öneriler alabilirsiniz **yüksek kullanılabilirlik** hello Danışmanı Pano sekmesi.
 
-![Advisor Panoda yüksek kullanılabilirlik düğmesi](./media/advisor-high-availability-recommendations/advisor-high-availability-tab.png)
+![Merhaba Danışmanı Panoda yüksek kullanılabilirlik düğmesi](./media/advisor-high-availability-recommendations/advisor-high-availability-tab.png)
 
 
 ## <a name="ensure-virtual-machine-fault-tolerance"></a>Sanal makine hataya dayanıklılık sağlamak
 
-Advisor bir kullanılabilirlik kümesi ve bir kullanılabilirlik kümesine taşıma önerir parçası olmayan sanal makineleri tanımlar. Uygulamanıza yedeklilik sağlamak için bir kullanılabilirlik kümesinde iki veya daha fazla sanal makinenin gruplandırılması önerilir. Bu yapılandırma ya da bir planlı veya plansız bir bakım olayı sırasında en az bir sanal makine kullanılabilir ve Azure sanal makinesi SLA karşılayan sağlar. Kullanılabilirlik kümesi için sanal makine oluşturmak için ya da sanal makineyi var olan bir kullanılabilirlik kümesine eklemeyi seçebilirsiniz.
+Advisor bir kullanılabilirlik kümesi ve bir kullanılabilirlik kümesine taşıma önerir parçası olmayan sanal makineleri tanımlar. Artıklık tooyour uygulama sağlamak için bir kullanılabilirlik kümesinde iki veya daha fazla sanal makineyi gruplandırmanız önerilir. Bu yapılandırma ya da bir planlı veya plansız bir bakım olayı sırasında en az bir sanal makine kullanılabilir ve Azure sanal makinesi SLA karşılıyor hello sağlar. Merhaba sanal makine ya da tooadd hello sanal makine tooan varolan kullanılabilirlik kümesi için bir kullanılabilirlik ya da toocreate seçebilirsiniz.
 
 > [!NOTE]
-> Bir kullanılabilirlik kümesi oluşturmayı seçerseniz, en az bir daha fazla sanal makine içine eklemeniz gerekir. En az bir makine olduğundan emin olmak için iki veya daha fazla sanal makine bir kullanılabilirlik kümesi bu, Grup kesinti sırasında kullanılabilir öneririz.
+> Bir kullanılabilirlik toocreate seçerseniz ayarla, en az bir daha fazla sanal makine içine eklemeniz gerekir. İki grup veya tooensure daha fazla sanal makine bir kullanılabilirlik kümesi öneririz en az bir makine kesinti sırasında kullanılabilir.
 
 ![Advisor öneri: sanal makine artıklık için kullanılabilirlik kümelerini kullanın](./media/advisor-high-availability-recommendations/advisor-high-availability-create-availability-set.png)
 
 ## <a name="ensure-availability-set-fault-tolerance"></a>Hataya dayanıklılık kullanılabilirlik kümesi emin olun 
 
-Advisor tek bir sanal makine içeren kullanılabilirlik kümeleri tanımlar ve bir veya daha fazla sanal makine eklemeyi önerir. Uygulamanıza yedeklilik sağlamak için bir kullanılabilirlik kümesinde iki veya daha fazla sanal makinenin gruplandırılması önerilir. Bu yapılandırma ya da bir planlı veya plansız bir bakım olayı sırasında en az bir sanal makine kullanılabilir ve Azure sanal makinesi SLA karşılayan sağlar. Ya da bir sanal makine oluşturmak için veya mevcut bir sanal makine kullanmayı ve kullanılabilirlik kümesine eklemek için seçebilirsiniz.  
+Advisor tek bir sanal makine içeren kullanılabilirlik kümeleri tanımlar ve bir veya daha fazla sanal makine tooit ekleme önerir. Artıklık tooyour uygulama sağlamak için bir kullanılabilirlik kümesinde iki veya daha fazla sanal makineyi gruplandırmanız önerilir. Bu yapılandırma ya da bir planlı veya plansız bir bakım olayı sırasında en az bir sanal makine kullanılabilir ve Azure sanal makinesi SLA karşılıyor hello sağlar. Bir sanal makine veya toouse var olan bir sanal makine ve tooadd ya da toocreate seçebilirsiniz, toohello kullanılabilirlik kümesi.  
 
-![Advisor öneri: bir veya daha fazla sanal makine bu kullanılabilirlik kümesine ekleme](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
+![Advisor öneri: bir veya daha fazla sanal makineleri toothis kullanılabilirlik kümesi Ekle](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
 
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Uygulama ağ geçidi hataya dayanıklılık sağlamak
-Uygulama ağ geçidi tarafından desteklenen kritik uygulamaların iş sürekliliğini sağlamak için hataya dayanıklılık için yapılandırılmamış uygulama ağ geçidi örnekleri Danışmanı tanımlar ve yapabileceğiniz düzeltme eylemleri önerir. Orta veya büyük tek örnekli uygulama ağ geçitleri Danışmanı tanımlar ve en az bir daha fazla örneğini eklemede önerir. Ayrıca, tek veya birden çok instance küçük uygulama ağ geçitleri tanımlar ve orta veya büyük SKU'ları için geçiş önerir. Advisor, uygulama ağ geçidi örnekleri bu kaynakların geçerli SLA gereksinimlerini karşılamak için yapılandırıldığından emin olmak için bu eylemleri önerir.
+Uygulama ağ geçidi tarafından desteklenen kritik uygulamaların tooensure hello iş sürekliliği, Advisor hataya dayanıklılık için yapılandırılmamış uygulama ağ geçidi örnekleri tanımlar ve yapabileceğiniz düzeltme eylemleri önerir . Orta veya büyük tek örnekli uygulama ağ geçitleri Danışmanı tanımlar ve en az bir daha fazla örneğini eklemede önerir. Ayrıca, tek veya birden çok instance küçük uygulama ağ geçitleri tanımlar ve geçirme toomedium veya büyük SKU'ları önerir. Advisor, uygulama ağ geçidi örnekleri yapılandırılmış toosatisfy hello bu kaynaklar için geçerli SLA gereksinimleri olan bu eylemleri tooensure önerir.
 
 ![Advisor öneri: iki veya daha fazla Orta veya büyük boyutlu uygulama ağ geçidi örnekleri dağıtma](./media/advisor-high-availability-recommendations/advisor-high-availability-application-gateway.png)
 
-## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>Sanal makine disklerini güvenilirliğini ve performansını geliştirmek
+## <a name="improve-hello-performance-and-reliability-of-virtual-machine-disks"></a>Merhaba performans ve sanal makine disklerini güvenilirliğini artırmak
 
-Advisor standart diskler ile sanal makineleri tanımlar ve premium disklere yükseltme önerir.
+Advisor standart diskler ile sanal makineleri tanımlar ve toopremium diskleri yükseltme önerir.
  
-Azure Premium depolama g/Ç kullanımı yoğun iş yükleri çalıştıran sanal makineler için yüksek performanslı, düşük gecikmeli disk desteği sunar. Premium depolama hesapları kullanan sanal makine diskler katı hal sürücüleri (SSD) verileri depolar. Uygulamanız için en iyi performans için premium depolama alanına yüksek IOPS gerektiren herhangi bir sanal makine disklerini geçirmek öneririz. 
+Azure Premium depolama g/Ç kullanımı yoğun iş yükleri çalıştıran sanal makineler için yüksek performanslı, düşük gecikmeli disk desteği sunar. Premium depolama hesapları kullanan sanal makine diskler katı hal sürücüleri (SSD) verileri depolar. Merhaba en iyi performans için uygulamanız için yüksek IOPS toopremium depolama gerektiren herhangi bir sanal makine disklerini geçirmek öneririz. 
 
-Disklerinizi yüksek IOPS ihtiyacınız yoksa, standart depolama tutarak maliyetleri sınırlayabilirsiniz. Standart depolama SSD yerine sabit disk sürücülerinin (HDD'ler) üzerinde sanal makine disk verilerini depolar. Sanal makine disklerinizi premium diskleri geçirmek seçebilirsiniz. Premium diskleri çoğu sanal makine SKU'ları üzerinde desteklenir. Premium diskleri kullanmak istiyorsanız, ancak bazı durumlarda, sanal makinenize SKU'ları da yükseltmeniz gerekebilir.
+Disklerinizi yüksek IOPS ihtiyacınız yoksa, standart depolama tutarak maliyetleri sınırlayabilirsiniz. Standart depolama SSD yerine sabit disk sürücülerinin (HDD'ler) üzerinde sanal makine disk verilerini depolar. Sanal makine disklerini toopremium disklerinizi toomigrate seçebilirsiniz. Premium diskleri çoğu sanal makine SKU'ları üzerinde desteklenir. Toouse premium diskler, isterseniz, ancak bazı durumlarda, tooupgrade, sanal makinenize SKU'ları da gerekebilir.
 
-![Advisor öneri: premium diskleri yükselterek, sanal makine diskleriniz güvenilirliğini geliştirmeye](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png)
+![Advisor öneri: toopremium diskleri yükselterek, sanal makine diskleriniz hello güvenilirliğini geliştirmeye](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png)
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Sanal makine verilerinizi yanlışlıkla silinmeye karşı koru
-Advisor burada yedekleme etkin değil ve yedekleme etkinleştirme önerir sanal makineleri tanımlar. Sanal makine yedekleme ayarı, iş açısından kritik verilerin kullanılabilirliğini sağlar ve yanlışlıkla silme veya bozulmasına karşı koruma sağlar.
+Advisor burada yedekleme etkin değil ve yedekleme etkinleştirme önerir sanal makineleri tanımlar. Sanal makine yedekleme ayarı Merhaba, iş açısından kritik verilerin kullanılabilirliğini sağlar ve yanlışlıkla silme veya bozulmasına karşı koruma sağlar.
 
-![Advisor öneri: Görev açısından kritik verilerinizi korumak için sanal makine yedeklemeyi yapılandırma](./media/advisor-high-availability-recommendations/advisor-high-availability-virtual-machine-backup.png)
+![Advisor öneri: sanal makine yedekleme tooprotect kritik verilerinizi yapılandırın](./media/advisor-high-availability-recommendations/advisor-high-availability-virtual-machine-backup.png)
 
 ## <a name="access-high-availability-recommendations-in-advisor"></a>Advisor erişim yüksek kullanılabilirlik önerileri
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
 
-2. Sol bölmede **daha fazla hizmet**.
+2. Merhaba sol bölmede **daha fazla hizmet**.
 
-3. Hizmet menü bölmesinde altında **izleme ve Yönetim**, tıklatın **Azure Danışmanı**.  
- Advisor Panosu görüntülenir.
+3. Hello menü bölmesi altında hizmet **izleme ve Yönetim**, tıklatın **Azure Danışmanı**.  
+ Merhaba Danışmanı Panosu görüntülenir.
 
-4. Advisor Panoda tıklatın **yüksek kullanılabilirlik** sekmesini tıklatın ve ardından önerileri almak istediğiniz aboneliği seçin.
+4. Hello Danışmanı Panoda hello tıklatın **yüksek kullanılabilirlik** sekmesini tıklatın ve ardından tooreceive önerileri istediğiniz hello aboneliği seçin.
 
 > [!NOTE]
-> Advisor önerileri erişmek için öncelikle *aboneliğinizi kaydetmek* Danışmanı ile. Bir abonelik kayıtlı olduğunda bir *abonelik sahibi* Danışmanı Pano başlatır ve tıkladığında **alma önerileri** düğmesi. Bu bir *tek seferlik işlem*. Abonelik kaydedildikten sonra Advisor önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *okuyucu* bir abonelik, bir kaynak grubu ya da belirli bir kaynak için.
+> tooaccess Advisor önerileri, şunları yapmalısınız ilk *aboneliğinizi kaydetmek* Danışmanı ile. Bir abonelik kayıtlı olduğunda bir *abonelik sahibi* başlatır hello Danışmanı Pano ve tıklama hello **alma önerileri** düğmesi. Bu bir *tek seferlik işlem*. Merhaba abonelik kaydedildikten sonra Advisor önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *okuyucu* abonelik, bir kaynak grubu için veya bir belirli kaynak.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Advisor önerileri hakkında daha fazla bilgi için bkz:
-* [Azure Danışmanı giriş](advisor-overview.md)
+* [Giriş tooAzure Danışmanı](advisor-overview.md)
 * [Danışman’ı kullanmaya başlama](advisor-get-started.md)
 * [Advisor maliyet önerileri](advisor-performance-recommendations.md)
 * [Advisor performans önerileri](advisor-performance-recommendations.md)

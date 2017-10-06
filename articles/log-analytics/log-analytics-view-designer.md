@@ -1,6 +1,6 @@
 ---
-title: "OMS günlük analizi verileri çözümlemek üzere görünümler oluşturma | Microsoft Docs"
-description: "Görünüm Tasarımcısı'nda günlük analizi OMS ve Azure portalında gösterilen özel görünümler oluşturmanıza olanak sağlar ve farklı görsel OMS depo veri içerir. Bu makale, Görünüm Tasarımcısı ve yordamları oluşturmak ve özel görünümler düzenlemek için genel bir bakış içerir."
+title: "aaaCreate OMS günlük analizi tooanalyze veri görünümleri | Microsoft Docs"
+description: "Görünüm Tasarımcısı'nda günlük analizi sağlar, toocreate özel hello OMS ve Azure portalında gösterilir ve farklı görsel hello OMS depo veri içeren görünümler. Bu makale, Görünüm Tasarımcısı ve yordamları oluşturmak ve özel görünümler düzenlemek için genel bir bakış içerir."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,87 +14,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.openlocfilehash: e3c463d749dc4179df58286b9bb75584880a6bc6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 40b4bfef50d70e4479b6cae16abfa8ec33d1a2f1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Günlük analizi özel görünümler oluşturmak için Görünüm Tasarımcısı kullanın
-Görünüm Tasarımcısı'nda [günlük analizi](log-analytics-overview.md) OMS deposundaki verileri farklı görselleştirmesini içeren OMS konsolunda özel görünümler oluşturmanıza olanak sağlar. Bu makale, Görünüm Tasarımcısı ve yordamları oluşturmak ve özel görünümler düzenlemek için genel bir bakış içerir.
+# <a name="use-view-designer-toocreate-custom-views-in-log-analytics"></a>Günlük analizi Görünüm Tasarımcısı toocreate özel görünümleri kullanma
+Merhaba Görünüm Tasarımcısı içinde [günlük analizi](log-analytics-overview.md) hello OMS deposundaki verileri farklı görselleştirmesini içeren toocreate özel görünümler hello OMS konsolunda sağlar. Bu makale, Görünüm Tasarımcısı ve yordamları oluşturmak ve özel görünümler düzenlemek için genel bir bakış içerir.
 
 Görünüm Tasarımcısı için kullanılabilir diğer makaleler şunlardır:
 
-* [Döşeme başvuru](log-analytics-view-designer-tiles.md) -her özel görünümlerde kullanılabilir döşeme ayarlarını başvuru.
-* [Görselleştirme bölümü başvuru](log-analytics-view-designer-parts.md) -her özel görünümlerde kullanılabilir döşeme ayarlarını başvuru.
+* [Döşeme başvuru](log-analytics-view-designer-tiles.md) -başvuru hello ayarlarının her hello için kendi özel görünümlerinizi de kullanılabilir toouse yerleştirir.
+* [Görselleştirme bölümü başvuru](log-analytics-view-designer-parts.md) -başvuru hello ayarlarının her hello için kendi özel görünümlerinizi de kullanılabilir toouse yerleştirir.
 
 >[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), tüm görünümleri sorgularda yazılmalıdır sonra [yeni sorgu dili](https://go.microsoft.com/fwlink/?linkid=856078).  Çalışma alanı yükseltilmeden önce oluşturulan görünümleri dönüştürülen automtically olacaktır.
+> Çalışma alanınızı yükseltilmiş toohello yüklediyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), tüm görünümleri sorgularda hello yazılmalıdır sonra [yeni sorgu dili](https://go.microsoft.com/fwlink/?linkid=856078).  Merhaba çalışma yükseltilmeden önce oluşturulan görünümleri dönüştürülen automtically olacaktır.
 
 ## <a name="concepts"></a>Kavramlar
-Görünüm Tasarımcısı ile oluşturulan görünümleri aşağıdaki tablodaki öğeler içerir.
+Aşağıdaki tablonun hello hello öğelerinde Hello Görünüm Tasarımcısı ile oluşturulan görünümleri içerir.
 
 | Bölümü | Açıklama |
 |:--- |:--- |
-| Döşeme |Ana günlük analizi genel bakış panosunda görüntülenir.  Bir görsel özel görünümde içerdiği bilgi özetlemeye içerir.  Döşeme farklı OMS depo kayıtlarının farklı görselleştirmeleri sağlar.  Özel Görünüm açmak için Kutucuğa tıklayın. |
-| Özel Görünüm |Kullanıcı kutucuğu tıklattığında görüntülenir.  Bir veya daha fazla görselleştirme bölümleri içerir. |
-| Görselleştirme bölümleri |OMS depo veri görselleştirme dayalı bir veya daha fazla [oturum aramaları](log-analytics-log-searches.md).  Çoğu bölümleri üst düzey bir görsel öğe sağlayan üstbilgi ve en iyi sonuç listesini içerir.  Farklı bölümü türleri OMS depo kayıtlarının farklı görselleştirmeleri sağlar.  Ayrıntılı kayıtları sağlayan bir günlük arama yapmak için bölümündeki öğelere tıklayın. |
+| Döşeme |Merhaba ana günlük analizi genel bakış panosunda görüntülenir.  Bir görsel hello içerdiği hello bilgi özetlemeye içeren özel bir görünüm.  Döşeme farklı hello OMS deposu kayıtlarının farklı görselleştirmeleri sağlar.  Merhaba üzerinde döşeme tooopen hello Özel Görünüm'ı tıklatın. |
+| Özel Görünüm |Merhaba kullanıcı döşeme hello üzerinde tıkladığında görüntülenir.  Bir veya daha fazla görselleştirme bölümleri içerir. |
+| Görselleştirme bölümleri |Merhaba OMS depo veri görselleştirme dayalı bir veya daha fazla [oturum aramaları](log-analytics-log-searches.md).  Çoğu bölümleri üst düzey bir görsel öğe sağlayan üstbilgi ve hello üst sonuçlarının bir listesini içerir.  Farklı bölümü türleri hello OMS deposu kayıtlarının farklı görselleştirmeleri sağlar.  Merhaba bölümü tooperform öğelere ayrıntılı kayıtları sağlayan bir günlük Ara'yı tıklatın. |
 
 ![Görünüm Tasarımcısı genel bakış](media/log-analytics-view-designer/overview.png)
 
-## <a name="add-view-designer-to-your-workspace"></a>Sunucunuzdan çalışma alanınıza Görünüm Tasarımcısı Ekle
-Görünüm Tasarımcısı Önizleme'de olsa da, çalışma alanınızı seçerek eklemelisiniz **Önizleme özellikleri** içinde **ayarları** OMS portalı bölümü.
+## <a name="add-view-designer-tooyour-workspace"></a>Görünüm Tasarımcısı tooyour çalışma Ekle
+Görünüm Tasarımcısı Önizleme'de olsa da, bunu tooyour çalışma alanını seçerek eklemeniz gerekir **Önizleme özellikleri** hello içinde **ayarları** hello OMS portalı bölümü.
 
 ![Önizlemeyi Etkinleştir](media/log-analytics-view-designer/preview.png)
 
 ## <a name="creating-and-editing-views"></a>Oluşturma ve görünümler düzenleme
 ### <a name="create-a-new-view"></a>Yeni bir görünüm oluşturma
-Yeni bir görünüm açmak **Görünüm Tasarımcısı** ana OMS panosunda Görünüm Tasarımcısı kutucuğa tıklayarak.
+Yeni bir görünüm hello açmak **Görünüm Tasarımcısı** Görünüm Tasarımcısı hello üzerinde tıklayarak hello ana OMS panosunda döşeme.
 
 ![Görünüm Tasarımcısı döşeme](media/log-analytics-view-designer/view-designer-tile.png)
 
 ### <a name="edit-an-existing-view"></a>Var olan bir görünümü düzenleme
-Görünüm Tasarımcısı'nda var olan bir görünümü düzenlemek için görünümü döşemesinin ana OMS panosunda tıklayarak açın.  Ardından **Düzenle** görünümü Görünüm Tasarımcısı'nda açmak için düğmeye.
+tooedit hello Görünüm Tasarımcısı, döşemesinin hello ana OMS panosunda tıklayarak açık hello görünümü içinde var olan bir görünümü.  Merhaba ardından **Düzenle** düğmesini tooopen hello hello Görünüm Tasarımcısı görünümünde.
 
 ![Bir görünümü düzenleme](media/log-analytics-view-designer/menu-edit.png)
 
 ### <a name="clone-an-existing-view"></a>Var olan bir görünümü kopyalama
-Bir görünüm kopyaladığınızda yeni bir görünüm oluşturur ve Görünüm Tasarımcısı'nda açar.  Yeni görünümü ile orijinal olarak "onu sonuna eklenen Kopyala" aynı ada sahip olacaktır.  Bir görünüm kopyalamak için varolan bir görünümü döşemesinin ana OMS panosunda tıklayarak açın.  Ardından **kopya** görünümü Görünüm Tasarımcısı'nda açmak için düğmeye.
+Bir görünüm kopyaladığınızda yeni bir görünüm oluşturur ve hello Görünüm Tasarımcısı açar.  Merhaba yeni görünüm aynı hello "Kopyala" eklenmiş toohello ucu ile orijinal olarak ad hello sahip olur.  tooclone açık bir görünüm döşemesinin hello ana OMS panosunda tıklayarak var olan bir görünümü hello.  Merhaba ardından **kopya** düğmesini tooopen hello hello Görünüm Tasarımcısı görünümünde.
 
 ![Bir görünüm kopyalama](media/log-analytics-view-designer/edit-menu-clone.png)
 
 ### <a name="delete-an-existing-view"></a>Var olan bir görünümü Sil
-Var olan bir görünümü silmek için görünümü döşemesinin ana OMS panosunda tıklayarak açın.  Ardından **Düzenle** görünümü Görünüm Tasarımcısı'nda açmak için düğmesine tıklayın ve **Görünümü Sil'i**.
+toodelete varolan bir görünümü döşemesinin hello ana OMS panosunda tıklayarak açık hello görünümü.  Merhaba ardından **Düzenle** tooopen hello hello Görünüm Tasarımcısı görünümünde düğmesine tıklayın ve **Görünümü Sil'i**.
 
 ![Bir görünümü Sil](media/log-analytics-view-designer/edit-menu-delete.png)
 
 ### <a name="export-an-existing-view"></a>Var olan bir görünümü dışarı aktarma
-Başka bir çalışma alanına alma veya kullanmak bir JSON dosyası için bir görünüm verebilirsiniz bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md).  Var olan bir görünümü vermek için ana OMS panosunda döşemesinin tıklayarak görünümünü açın.  Ardından **verme** tarayıcının indirme klasöründe bir dosya oluşturmak için düğmesi.  Dosya adı uzantısına sahip görünümün adı olacaktır *omsview*.
+Başka bir çalışma alanına alma veya kullanmak bir görünüm tooa JSON dosyasını dışarı aktarabilirsiniz bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md).  tooexport varolan bir görünümü döşemesinin hello ana OMS panosunda tıklayarak açık hello görünümü.  Başlangıç'ı tıklatın **dışarı** düğmesi toocreate hello tarayıcının indirme klasöründe bulunan bir dosyadır.  Merhaba dosyasının Hello adı hello uzantılı hello görünümün hello adı olacaktır *omsview*.
 
 ![Görünüm verme](media/log-analytics-view-designer/edit-menu-export.png)
 
 ### <a name="import-an-existing-view"></a>Var olan bir görünümü alma
-Alabileceğiniz bir *omsview* başka bir yönetim grubundan dışarı aktardığınız dosya.  Var olan bir görünümü almak için önce yeni bir görünüm oluşturun.  Ardından **alma** düğmesine tıklayın ve ardından *omsview* dosya.  Yapılandırma dosyasındaki var olan görünüme kopyalanacak.
+Alabileceğiniz bir *omsview* başka bir yönetim grubundan dışarı aktardığınız dosya.  Varolan bir görünümü tooimport önce yeni bir görünüm oluşturun.  Merhaba ardından **alma** düğmesi ve select hello *omsview* dosya.  Merhaba dosya Hello yapılandırmasında hello var olan görünüme kopyalanacak.
 
 ![Görünüm verme](media/log-analytics-view-designer/edit-menu-import.png)
 
 ## <a name="working-with-view-designer"></a>Görünüm Tasarımcısı ile çalışma
-Görünüm Tasarımcısı üç bölmesi vardır.  **Tasarım** bölmesinde özel görünümünü temsil eder.  Kutucuklar ve parçalarını eklediğinizde **denetim** bölmesine **tasarım** bölmesi görünümüne eklenirler.  **Özellikleri** bölmesinde döşeme veya seçili bölümü özelliklerini görüntüler.
+Merhaba Görünüm Tasarımcısı üç bölmesi vardır.  Merhaba **tasarım** bölmesinde hello özel görünüm temsil eder.  Eklediğinizde kutucukları ve bölümleri hello **denetim** bölmesinde toohello **tasarım** oldukları bölmesinde eklenen toohello görünümü.  Merhaba **özellikleri** bölmesinde hello döşeme veya seçili bölümü hello özelliklerini görüntüler.
 
 ![Görünüm Tasarımcısı](media/log-analytics-view-designer/view-designer-screenshot.png)
 
 ### <a name="configure-view-tile"></a>Görünümü kutucuğu yapılandırın
-Özel bir görünüm yalnızca tek bir döşeme olabilir.  Seçin **döşeme** sekmesinde **denetim** bölmesinde geçerli kutucuğu görüntülemek veya alternatif bir tanesini seçin.  **Özellikleri** bölmesinde geçerli döşeme özelliklerini görüntüler.  Ayrıntılı bilgilere göre döşeme özelliklerini yapılandırmak [döşeme başvuru](log-analytics-view-designer-tiles.md) tıklatıp **Uygula** değişiklikleri kaydetmek için.
+Özel bir görünüm yalnızca tek bir döşeme olabilir.  Select hello **döşeme** hello sekmesinde **denetim** bölmesinde tooview hello geçerli döşeme veya alternatif bir tanesini seçin.  Merhaba **özellikleri** hello geçerli döşemeye hello Özellikler bölmesinde görüntülenir.  Merhaba döşeme özelliklerini yapılandırmak toohello according ayrıntılı hello bilgilerinde [döşeme başvuru](log-analytics-view-designer-tiles.md) tıklatıp **Uygula** toosave değişiklikleri.
 
 ### <a name="configure-visualization-parts"></a>Görselleştirme bölümleri yapılandırma
-Bir görünüm görselleştirme bölümlerinin herhangi bir sayı içerebilir.  Seçin **Görünüm** sekmesini ve ardından görünümüne eklemek için bir görselleştirme bölümü.  **Özellikleri** bölmesinde seçilen bölümü özelliklerini görüntüler.  Görünüm Özellikleri ayrıntılı bilgilere göre yapılandırma [görselleştirme bölümü başvuru](log-analytics-view-designer-parts.md) tıklatıp **Uygula** değişiklikleri kaydetmek için.
+Bir görünüm görselleştirme bölümlerinin herhangi bir sayı içerebilir.  Select hello **Görünüm** sekmesini ve ardından bir görsel öğe Kısım tooadd toohello görünümü.  Merhaba **özellikleri** bölmesinde seçili hello bölümü hello özelliklerini görüntüler.  Merhaba görüntüleme yapılandırma toohello göre özellikleri ayrıntılı hello bilgilerinde [görselleştirme bölümü başvuru](log-analytics-view-designer-parts.md) tıklatıp **Uygula** toosave değişiklikler.
 
 ### <a name="delete-a-visualization-part"></a>Görselleştirme bölümü silin
-Tıklayarak görselleştirme bölümü görünümden kaldırabilirsiniz **X** bölümü sağ üst köşesinde düğmesini.
+Merhaba tıklayarak görselleştirme bölümü hello görünümünden kaldırabilirsiniz **X** hello sağ üst köşesinde hello bölümü düğmesini.
 
 ### <a name="rearrange-visualization-parts"></a>Görselleştirme bölümleri yeniden düzenleme
-Görünümler yalnızca bir satır görselleştirme bölümlerinin gerekir.  Varolan bölümleri görünümünde tıklatarak ve sürükleyerek yeni bir konuma yeniden düzenleyin.
+Görünümler yalnızca bir satır görselleştirme bölümlerinin gerekir.  Varolan bölümleri görünümünde tıklatarak ve sürükleyerek tooa yeni bir konuma yeniden düzenleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Ekleme [kutucukları](log-analytics-view-designer-tiles.md) özel görünüm.
-* Ekleme [görselleştirme bölümleri](log-analytics-view-designer-parts.md) özel görünüm.
+* Ekleme [kutucukları](log-analytics-view-designer-tiles.md) tooyour özel görünüm.
+* Ekleme [görselleştirme bölümleri](log-analytics-view-designer-parts.md) tooyour özel görünüm.

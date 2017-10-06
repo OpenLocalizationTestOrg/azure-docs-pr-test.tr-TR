@@ -14,72 +14,72 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: maheshu
-ms.openlocfilehash: 8306c1ff72d348f5f327b79617e1422a78e26bdb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 804d4ea7d1b3b07b6d224855c7adb90bdfe24022
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD etki alanı Hizmetleri için ağ konuları
-## <a name="how-to-select-an-azure-virtual-network"></a>Nasıl bir Azure sanal ağı seçin
-Aşağıdaki yönergeler Azure AD etki alanı Hizmetleri ile kullanmak için bir sanal ağ seçmenize yardımcı.
+## <a name="how-tooselect-an-azure-virtual-network"></a>Nasıl tooselect bir Azure sanal ağı
+Hello aşağıdaki yönergeler, Azure AD etki alanı Hizmetleri ile bir sanal ağ toouse seçmenize yardımcı.
 
 ### <a name="type-of-azure-virtual-network"></a>Azure sanal ağ türü
 * Klasik Azure sanal ağı Azure AD Etki Alanı Hizmetleri'nde etkinleştirebilirsiniz.
 * Azure AD etki alanı Hizmetleri **Azure Resource Manager kullanılarak oluşturulan sanal ağlarda etkinleştirilemez**.
-* Resource Manager tabanlı bir sanal ağ Azure AD etki alanı Hizmetleri etkin olduğu bir Klasik sanal ağa bağlanabilir. Bundan sonra Resource Manager tabanlı sanal ağında Azure AD Etki Alanı Hizmetleri'ni kullanabilirsiniz. Daha fazla bilgi için bkz: [ağ bağlantınızı](active-directory-ds-networking.md#network-connectivity) bölümü.
-* **Bölgesel sanal ağlar**: varolan bir sanal ağı kullanmayı planlıyorsanız, bölgesel bir sanal ağ olduğundan emin olun.
+* Azure AD etki alanı Hizmetleri etkin olduğu bir Resource Manager tabanlı sanal ağ tooa Klasik sanal ağına bağlanabilir. Bundan sonra Azure AD Etki Alanı Hizmetleri'ni hello Resource Manager tabanlı sanal ağlarda kullanabilirsiniz. Daha fazla bilgi için bkz: Merhaba [ağ bağlantınızı](active-directory-ds-networking.md#network-connectivity) bölümü.
+* **Bölgesel sanal ağlar**: toouse varolan bir sanal ağı planlıyorsanız bunun bölgesel bir sanal ağ olduğundan emin olun.
 
-  * Eski benzeşim grupları mekanizmasını kullanan sanal ağlar, Azure AD Etki Alanı Hizmetleri ile kullanılamaz.
-  * Azure AD Etki Alanı Hizmetleri'ni kullanmak üzere [eski sanal ağları bölgesel sanal ağlara geçirmeniz](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+  * Merhaba eski benzeşim grupları mekanizmasını kullanan sanal ağlar Azure AD etki alanı Hizmetleri ile kullanılamaz.
+  * Azure AD etki alanı Hizmetleri, toouse [eski sanal ağları tooregional sanal ağlar geçirmek](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
-### <a name="azure-region-for-the-virtual-network"></a>Sanal ağ için Azure bölgesi
-* Yönetilen etki alanı sanal ağ aynı Azure bölgesinde dağıtılır, Azure AD etki alanı Hizmetleri hizmeti etkinleştirin seçin.
+### <a name="azure-region-for-hello-virtual-network"></a>Merhaba sanal ağ için Azure bölgesi
+* Azure AD etki alanı hizmetlerinizi yönetilen etki alanı içinde dağıtılan hello sanal ağ tooenable hello hizmetinde seçin olduğu Azure bölgesinin hello.
 * Azure AD etki alanı Hizmetleri tarafından desteklenen bir Azure bölgesindeki bir sanal ağı seçin.
-* Azure AD Domain Services'in kullanılabildiği Azure bölgelerini öğrenmek için [bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına bakın.
+* Merhaba bkz [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services/) sayfa tooknow hello Azure bölgeleri Azure AD etki alanı Hizmetleri olduğu kullanılabilir.
 
-### <a name="requirements-for-the-virtual-network"></a>Sanal ağ gereksinimleri
-* **Azure, iş yükleri için yakınlık**: şu anda barındıran/Azure AD Etki Alanı Hizmetleri'ne erişmesi gereken sanal makineleri barındıracak sanal ağı seçin.
-* **DNS sunucuları özel/Getir kendi**: sanal ağ için yapılandırılmış hiçbir özel DNS sunucusunun olduğundan emin olun.
-* **Aynı etki alanı adı mevcut etki alanlarıyla**: Bu sanal ağda kullanılabilir aynı etki alanı adına sahip mevcut bir etki alanına sahip değil emin olun. Örneğin, seçilen sanal ağ üzerinde zaten "contoso.com" adında bir etki alanınız olduğunu varsayın. Daha sonra bir Azure AD etki alanı Hizmetleri yönetilen etki alanı (yani "contoso.com") aynı etki alanı adına bu sanal ağ ile etkinleştirmeyi deneyin. Azure AD Etki Alanı Hizmetleri'ni etkinleştirmeye çalışırken bir hatayla karşılaşırsınız. Bu sanal ağ üzerinde etki alanı adı için ad çakışmaları nedeniyle bu hatasıdır. Bu durumda, Azure AD Etki Alanı Hizmetleri tarafından yönetilen etki alanınızı ayarlamak için farklı bir ad kullanmanız gerekir. Alternatif olarak, var olan etki alanının sağlanmasını kaldırıp Azure AD Etki Alanı Hizmetleri'ni etkinleştirme işlemiyle devam edebilirsiniz.
+### <a name="requirements-for-hello-virtual-network"></a>Merhaba sanal ağ gereksinimleri
+* **Yakınlık tooyour Azure iş yükleri**: Merhaba şu anda barındıran/tooAzure AD Etki Alanı Hizmetleri'ne erişebilmek sanal makineleri barındıracak sanal ağı seçin.
+* **DNS sunucuları özel/Getir kendi**: hello sanal ağ için yapılandırılmış hiçbir özel DNS sunucusunun olduğundan emin olun.
+* **Mevcut etki alanlarıyla hello aynı etki alanı adı**: hello ile mevcut bir etki alanına sahip değil sağlamak aynı etki alanı adı bu sanal ağ üzerinde kullanılabilir. Örneğin, "contoso.com" zaten mevcut hello seçilen sanal ağ üzerinde adlı bir etki alanına sahip olduğunuzu varsayar. Daha sonra tooenable hello içeren bir Azure AD etki alanı Hizmetleri yönetilen etki alanı deneyin (yani "contoso.com") aynı etki alanı adı bu sanal ağ üzerinde. Tooenable Azure AD etki alanı Hizmetleri çalışırken bir hatayla karşılaşırsınız. Bu sanal ağ üzerinde hello etki alanı adı için tooname çakışmaları nedeniyle bu başarısız olur. Bu durumda, Azure AD etki alanı Hizmetleri yönetilen etki alanını farklı bir ad tooset kullanmanız gerekir. Alternatif olarak, hello varolan etki alanının sağlanmasını ve tooenable Azure AD etki alanı Hizmetleri devam edin.
 
 > [!WARNING]
-> Hizmeti etkinleştirdikten sonra etki alanı Hizmetleri'ni farklı bir sanal ağa taşıyamazsınız.
+> Merhaba hizmetini etkinleştirdikten sonra etki alanı Hizmetleri tooa farklı sanal ağ taşıyamazsınız.
 >
 >
 
 ## <a name="network-security-groups-and-subnet-design"></a>Ağ güvenlik grupları ve alt ağ tasarımı
-A [ağ güvenlik grubu (NSG)](../virtual-network/virtual-networks-nsg.md) izin veren veya bir sanal ağ üzerindeki VM örneklerinize ağ trafiğinin reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. NSG bir alt ağ ile ilişkili olduğunda ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur. Ayrıca, tekil bir VM trafik kısıtlanabilir başka bir NSG doğrudan bu VM ilişkilendirerek.
+A [ağ güvenlik grubu (NSG)](../virtual-network/virtual-networks-nsg.md) izin veren veya bir sanal ağ tooyour VM örnekleri ağ trafiği reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. Bir NSG'yi bir alt ağ ile ilişkili olduğunda hello ACL kuralları bu alt ağdaki tooall hello VM örnekleri uygulayın. Buna ek olarak, trafiği tooan tek tek VM kısıtlanabilir başka bir NSG ilişkilendirerek doğrudan toothat VM.
 
 ![Önerilen alt ağ tasarımı](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
 ### <a name="best-practices-for-choosing-a-subnet"></a>Bir alt ağı seçmeye yönelik en iyi uygulamalar
-* Azure AD etki alanı Hizmetleri dağıtmak bir **ayrı ayrılmış bir alt ağ** Azure sanal ağınızın içinde.
-* Nsg'ler yönetilen etki alanınız için ayrılmış bir alt ağ için geçerli değildir. Ayrılmış bir alt ağ için Nsg'ler uygulamalısınız olmanız **değil hizmeti için gereken bağlantı noktalarını engellemek ve etki alanınızı yönetmek**.
-* Aşırı yönetilen etki alanınız için ayrılmış bir alt ağ içinde kullanılabilir IP adresi sayısını kısıtlamaz. Bu kısıtlama, iki etki alanı denetleyicileri, yönetilen etki alanınız için kullanılabilir bulunmasını hizmet önler.
-* **Ağ geçidi alt ağı Azure AD Etki Alanı Hizmetleri'nde etkinleştirmeyin** sanal ağınızın.
+* Azure AD etki alanı Hizmetleri tooa dağıtmak **ayrı ayrılmış bir alt ağ** Azure sanal ağınızın içinde.
+* Nsg'ler ayrılmış toohello alt yönetilen etki alanınız için geçerli değildir. Nsg'ler ayrılmış toohello alt uygulamalısınız olmanız **değil hello bağlantı noktalarını gerekli tooservice engellemek ve etki alanınızı yönetmek**.
+* Aşırı yönetilen etki alanınız için ayrılmış hello alt ağ içindeki kullanılabilir IP adresleri hello sayısını kısıtlamaz. Bu kısıtlama, iki etki alanı denetleyicisi, yönetilen etki alanınız için kullanılabilir bulunmasını hello hizmet önler.
+* **Azure AD Etki Alanı Hizmetleri'nde hello ağ geçidi alt ağı etkinleştirmeyin** sanal ağınızın.
 
 > [!WARNING]
-> İlişkilendirdiğinizde, bir NSG bir alt ağ içinde Azure AD etki alanı Hizmetleri ile etkinleştirildiğinde, Microsoft'un hizmet ve etki alanını yönetme özelliğini bozabilir. Ayrıca, Azure AD kiracınız, yönetilen etki alanınız arasında eşitleme bozulur. **SLA, burada bir NSG engelleyen Azure AD etki alanı Hizmetleri güncelleştirme ve etki alanınızı yönetme uygulanmış olan dağıtımlar için geçerli değildir.**
+> İlişkilendirdiğinizde, bir NSG bir alt ağ içinde Azure AD etki alanı Hizmetleri ile etkinleştirildiğinde, Microsoft'un özelliği tooservice kesintiye neden ve hello etki alanını yönetme. Ayrıca, Azure AD kiracınız, yönetilen etki alanınız arasında eşitleme bozulur. **Burada bir NSG engelleyen Azure AD etki alanı Hizmetleri güncelleştirme ve etki alanınızı yönetme uygulanmış toodeployments Hello SLA geçerli değildir.**
 >
 >
 
 ### <a name="ports-required-for-azure-ad-domain-services"></a>Azure AD etki alanı Hizmetleri için gereken bağlantı noktaları
-Aşağıdaki bağlantı noktalarını hizmetine Azure AD etki alanı Hizmetleri için gerekli olan ve yönetilen etki alanınızı sürdürün. Bu bağlantı noktaları için yönetilen etki alanınız etkinleştirdiğiniz alt engellenmez emin olun.
+Merhaba aşağıdaki bağlantı noktaları için Azure AD etki alanı Hizmetleri tooservice gereklidir ve yönetilen etki alanınızı sürdürün. Bu bağlantı noktaları, yönetilen etki alanınız etkinleştirdiğiniz hello alt ağı için engellenmez emin olun.
 
 | Bağlantı noktası numarası | Amaç |
 | --- | --- |
 | 443 |Azure AD kiracınıza ile eşitleme |
 | 3389 |Etki alanınızın Yönetimi |
 | 5986 |Etki alanınızın Yönetimi |
-| 636 |Yönetilen etki alanınız için güvenli LDAP (LDAPS) erişim |
+| 636 |Güvenli LDAP (LDAPS) erişim tooyour yönetilen etki alanı |
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Azure AD etki alanı Hizmetleri ile sanal ağlar için örnek NSG
-Aşağıdaki tabloda, örnek bir Azure AD etki alanı Hizmetleri yönetilen etki alanına sahip bir sanal ağ için yapılandırabileceğiniz NSG gösterilmektedir. Bu kural, yönetilen etki alanı kalır emin olmak için yukarıda belirtilen bağlantı noktalarından gelen trafiğe düzeltme eki, güncelleştirilmiş ve Microsoft tarafından izlenen sağlar. Varsayılan 'DenyAll' kural, internet'ten diğer gelen trafik için geçerlidir.
+Aşağıdaki tablonun hello örnek bir Azure AD etki alanı Hizmetleri yönetilen etki alanına sahip bir sanal ağ için yapılandırabileceğiniz NSG gösterilmektedir. Bu kuralı belirli bağlantı noktaları tooensure yukarıda hello gelen trafiği kalır düzeltme eki, güncelleştirilmiş ve Microsoft tarafından izlenen yönetilen etki alanınızı verir. Merhaba varsayılan 'DenyAll' Kural tooall diğer gelen trafiği hello geçerlidir Internet.
 
-Ayrıca, NSG Internet üzerinden güvenli LDAP erişim kilitlemek nasıl gösterilmektedir. Güvenli LDAP erişim yönetilen etki alanınıza internet üzerinden değil etkinleştirdiyseniz, bu kuralı atla. NSG gelen LDAPS erişim TCP bağlantı noktası IP adreslerinin üzerinden 636 belirtilen kümesinden yalnızca izin veren kurallar kümesini içerir. Belirtilen IP adreslerini Internet üzerinden LDAPS erişime izin verecek şekilde NSG kuralı DenyAll NSG kural daha yüksek önceliğe sahip.
+Ayrıca, hello NSG de Internet üzerinden güvenli LDAP erişim tuşunu toolock hello nasıl gösterilmektedir. Bu kural Atla üzerinden güvenli LDAP erişim tooyour yönetilen etki alanı etkinleştirmediyseniz, Internet hello. Merhaba NSG gelen LDAPS erişim TCP bağlantı noktası IP adreslerinin üzerinden 636 belirtilen kümesinden yalnızca izin veren kurallar kümesini içerir. Merhaba NSG kuralı tooallow LDAPS erişimi hello üzerinden internet'ten belirtilen IP adreslerini hello DenyAll NSG kural daha yüksek önceliğe sahiptir.
 
-![Örnek internet üzerinden LDAPS erişimi güvenli hale getirmek için NSG](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![Merhaba Internet üzerinden örnek NSG toosecure LDAPS erişim](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
 **Daha fazla bilgi** - [bir ağ güvenlik grubu oluşturun](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -88,25 +88,25 @@ Ayrıca, NSG Internet üzerinden güvenli LDAP erişim kilitlemek nasıl göster
 Azure AD etki alanı Hizmetleri yönetilen etki alanı yalnızca tek bir Klasik sanal ağı Azure içinde etkinleştirilebilir. Azure Resource Manager kullanılarak oluşturulan sanal ağlar desteklenmez.
 
 ### <a name="scenarios-for-connecting-azure-networks"></a>Azure ağları bağlama senaryoları
-Aşağıdaki dağıtım senaryoları hiçbirini yönetilen etki alanınızı kullanmak için Azure sanal ağlara bağlanabilir:
+Azure sanal ağlar toouse hello yönetilen etki alanı herhangi bir dağıtım senaryoları aşağıdaki hello Bağlan:
 
-#### <a name="use-the-managed-domain-in-more-than-one-azure-classic-virtual-network"></a>Yönetilen etki alanında birden fazla Azure Klasik sanal ağı kullan
-Diğer Azure Klasik sanal ağlar Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz Azure Klasik sanal ağa bağlanabilir. Bu VPN bağlantısı, diğer sanal ağlara dağıtılabilir, iş yükleri ile yönetilen etki alanı kullanmanıza olanak sağlar.
+#### <a name="use-hello-managed-domain-in-more-than-one-azure-classic-virtual-network"></a>Etki alanında birden fazla Azure Klasik sanal ağı kullan hello yönetilen
+Diğer Azure Klasik sanal ağlar toohello Azure bağlanabilirsiniz Azure AD etki alanı Hizmetleri içinde etkinleştirdiğiniz Klasik sanal ağı. Bu VPN bağlantısının diğer sanal ağlarda dağıtılan iş yüklerinizi ile toouse hello yönetilen etki alanı sağlar.
 
 ![Klasik sanal ağ bağlantısı](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
 
-#### <a name="use-the-managed-domain-in-a-resource-manager-based-virtual-network"></a>Resource Manager tabanlı bir sanal ağdaki yönetilen etki alanı kullanın
-Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz Azure Klasik sanal ağı için Resource Manager tabanlı bir sanal ağa bağlanabilir. Bu bağlantı, Resource Manager tabanlı sanal ağda dağıtılmış, iş yükleri ile yönetilen etki alanı kullanmanıza olanak sağlar.
+#### <a name="use-hello-managed-domain-in-a-resource-manager-based-virtual-network"></a>Merhaba Resource Manager tabanlı bir sanal ağdaki yönetilen etki alanı kullanın
+Resource Manager tabanlı sanal ağ toohello Azure bağlanabilirsiniz Azure AD etki alanı Hizmetleri içinde etkinleştirdiğiniz Klasik sanal ağı. Bu bağlantı hello Resource Manager tabanlı sanal ağda dağıtılmış iş yüklerinizi ile toouse hello yönetilen etki alanı sağlar.
 
-![Klasik sanal ağ bağlantısı için kaynak yöneticisi](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
+![Resource Manager tooclassic sanal ağ bağlantısı](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
 
 ### <a name="network-connection-options"></a>Ağ bağlantısı seçenekleri
-* **Siteden siteye VPN bağlantıları kullanarak VNet-VNet bağlantıları**: başka bir sanal ağ (VNet-VNet) sanal ağa bağlanma benzer bir şirket içi site konumuna sanal bir ağa bağlanma. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır.
+* **Siteden siteye VPN bağlantıları kullanarak VNet-VNet bağlantıları**: benzer tooconnecting bir sanal ağ tooan şirket içi site konumuna olan bir sanal ağ tooanother sanal ağ (VNet-VNet) bağlanma. Her iki bağlantı türü bir VPN ağ geçidi tooprovide IPSec/IKE kullanarak güvenli bir tünel kullanın.
 
     ![VPN ağ geçidi kullanarak sanal ağ bağlantısı](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
     [Daha fazla bilgi - VPN ağ geçidi kullanarak sanal ağlara bağlanabilir](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* **VNet-VNet bağlantıları kullanarak sanal ağ eşlemesi**: sanal ağ eşlemesi mekanizmasıdır aynı bölgedeki iki sanal ağı Azure omurga ağı aracılığıyla birbirine bağlayan bir. Eşleme yapıldıktan sonra, iki sanal ağ tüm bağlantılarda tek bir sanal ağ gibi görünür. Bunlar ayrı kaynaklar olarak yönetilmeye devam eder, ancak bu sanal ağlardaki sanal makineler özel IP adresleri kullanarak birbirleriyle doğrudan iletişim kurabilir.
+* **VNet-VNet bağlantıları kullanarak sanal ağ eşlemesi**: sanal ağ eşlemesi mekanizmasıdır hello içindeki iki sanal ağları birbirine bağlayan bir hello Azure omurga ağı aracılığıyla aynı bölgede. Eşlendikten sonra iki sanal ağ hello tüm bağlantı amaçlar için bir tane olarak görünür. Bunlar ayrı kaynaklar olarak yönetilmeye devam eder, ancak bu sanal ağlardaki sanal makineler özel IP adresleri kullanarak birbirleriyle doğrudan iletişim kurabilir.
 
     ![Eşleme kullanarak sanal ağ bağlantısı](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
@@ -116,6 +116,6 @@ Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz Azure Klasik sanal ağı
 
 ## <a name="related-content"></a>İlgili İçerik
 * [Azure sanal ağ eşlemesi](../virtual-network/virtual-network-peering-overview.md)
-* [Klasik dağıtım modeli için VNet-VNet bağlantı yapılandırma](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
+* [Merhaba Klasik dağıtım modeli için VNet-VNet bağlantı yapılandırma](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Azure ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md)
 * [Bir ağ güvenlik grubu oluşturun](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

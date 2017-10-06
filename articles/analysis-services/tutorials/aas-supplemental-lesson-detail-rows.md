@@ -1,63 +1,46 @@
 ---
-title: "Azure Analysis Services öğreticisi ek ders: Ayrıntı Satırları | Microsoft Docs"
-description: "Azure Analysis Services öğreticisinde bir Ayrıntı Satırları İfadesinin nasıl oluşturulacağını açıklar."
-services: analysis-services
-documentationcenter: 
-author: minewiskan
-manager: erikre
-editor: 
-tags: 
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 05/26/2017
-ms.author: owend
-ms.openlocfilehash: fde5cd9a9efc3a13e731a91962ced5c086a72355
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+Başlık: aaa "Azure Analysis Services öğretici ek Ders: ayrıntı satırları | Microsoft Docs"Açıklama: nasıl toocreate ayrıntı satır ifadesinde bir hello Azure Analysis Services öğretici açıklar.
+Hizmetleri: analysis services documentationcenter: '' Yazar: minewiskan Yöneticisi: erikre Düzenleyicisi: '' etiketler: ''
+
+MS.assetid: ms.service: analysis services ms.devlang: NA ms.topic: get-makalesi ms.tgt_pltfrm: NA ms.workload: na ms.date: 26/05/2017 ms.author: owend
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Ek ders - Ayrıntı Satırları
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Bu ek derste DAX Düzenleyicisi'ni kullanarak özel bir Ayrıntı Satırları İfadesi tanımlayacaksınız. Ayrıntı Satırları İfadesi, son kullanıcılar için ölçünün toplu sonuçlarıyla ilgili daha fazla bilgi sağlayan bir ölçü özelliğidir. 
+Bu ek Ders içinde özel bir ayrıntı satırları ifade hello DAX Düzenleyicisi toodefine kullanın. Bir ayrıntı satırları ifadesi bir ölçü üzerinde son kullanıcılar bir ölçünün bir araya getirilir hello sonuçlarıyla ilgili daha fazla bilgi sağlayan bir özelliğidir. 
   
-Bu dersin tahmini tamamlanma süresi: **10 dakika**  
+Bu ders zaman toocomplete tahmini: **10 dakika**  
   
 ## <a name="prerequisites"></a>Ön koşullar  
-Bu ek ders konusu bir tablo modelleme öğreticisinin parçasıdır. Bu ek dersteki görevleri gerçekleştirmeden önce tüm önceki dersleri tamamlamış veya bir Adventure Works İnternet Satışları örnek model projesini tamamlamış olmanız gerekir.  
+Bu ek ders konusu bir tablo modelleme öğreticisinin parçasıdır. Bu ek Ders Hello görevleri gerçekleştirmeden önce tüm önceki dersleri tamamladınız veya bir tamamlanmış Adventure Works Internet satış örnek modeli projesi.  
   
-## <a name="what-do-we-need-to-solve"></a>Neyi çözmemiz gerekiyor?
-Bir Ayrıntı Satırları İfadesi eklemeden önce InternetTotalSales ölçümüzün ayrıntılarına bakalım.
+## <a name="what-do-we-need-toosolve"></a>Ne toosolve ihtiyacımız var?
+Ayrıntı satırları ifade eklemeden önce bizim InternetTotalSales ölçü hello ayrıntıları bakalım.
 
-1.  SSDT’de **Model** menüsü > **Excel'de çözümleme**’ye tıklayarak Excel'i açın ve boş bir PivotTable oluşturun.
+1.  Merhaba SSDT içinde tıklatın **modeli** menü > **Excel'de çözümleme özelliği** tooopen Excel ve boş bir PivotTable oluşturun.
   
-2.  **PivotTable Alanları**’nda FactInternetSales tablosundaki **InternetTotalSales** ölçüsünü **Değerler**, DimDate tablosundaki **CalendarYear** ölçüsünü **Sütunlar**, **EnglishCountryRegionName** ölçüsünü **Satırlar**’a ekleyin. PivotTable bu durumda bölge ve yıla göre InternetTotalSales ölçüsünden toplu sonuçları verir. 
+2.  İçinde **PivotTable alanları**, hello eklemek **InternetTotalSales** hello Factınternetsales tablosundan çok ölçü**değerleri**, **CalendarYear**hello DimDate'i ' çok tablo**sütunları**, ve **EnglishCountryRegionName** çok**satırları**. Bizim PivotTable artık bize toplanmış sonuçları bölgeler ve yıl hello InternetTotalSales ölçünün gelen sağlar. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. PivotTable'da bir yıl ve bölge adı için toplu değere çift tıklayın. Burada Avustralya ve 2014 yılının değerine çift tıkladık. Verileri (yararlı olmayan verileri) içeren yeni bir sayfa açılır.
+3. Hello PivotTable'da, bir yılın ve bölge adı için bir toplu değeri çift tıklatın. Burada size Avustralya ve hello için hello değer yıl 2014 çift. Verileri (yararlı olmayan verileri) içeren yeni bir sayfa açılır.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-Burada görmek istediğimiz, InternetTotalSales ölçümüzün toplu sonucuna katkıda bulunan veri sütunlarını ve satırlarını içeren bir tablodur. Bunu yapmak için, ölçünün bir özelliği olarak Ayrıntı Satırları İfadesini ekleyebiliriz.
+Burada toosee bizim InternetTotalSales ölçü toplanan toohello sonucunu katkıda veri satırları ve sütunları içeren bir tablo gibi ne biz olacaktır. Ayrıntı satırları ifade hello ölçü bir özellik olarak ekleyebiliriz, toodo.
 
 ## <a name="add-a-detail-rows-expression"></a>Ayrıntı Satırları İfadesi ekleme
 
-#### <a name="to-create-a-detail-rows-expression"></a>Ayrıntı Satırları İfadesi oluşturmak için 
+#### <a name="toocreate-a-detail-rows-expression"></a>toocreate bir ayrıntı satırları ifadesi 
   
-1. SSDT’deki FactInternetSales tablosunun ölçü kılavuzunda **InternetTotalSales** ölçüsüne tıklayın. 
+1. SSDT içinde hello Factınternetsales tablonun ölçü kılavuzda hello tıklatın **InternetTotalSales** ölçü. 
 
-2. **Özellikler** > **Ayrıntı Satırları İfadesi** menüsünde düzenleyici düğmesine tıklayarak DAX Düzenleyicisi’ni açın.
+2. İçinde **özellikleri** > **ayrıntı satırları ifade**, hello Düzenleyicisi düğmesi tooopen hello DAX Düzenleyicisi'ni tıklatın.
 
     ![aas-lesson-detail-rows-ellipse](../tutorials/media/aas-lesson-detail-rows-ellipse.png)
 
-3. DAX Düzenleyicisi'nde aşağıdaki ifadeyi girin:
+3. DAX Düzenleyicisi'nde hello ifade aşağıdaki girin:
 
     ```
     SELECTCOLUMNS(
@@ -72,9 +55,9 @@ Burada görmek istediğimiz, InternetTotalSales ölçümüzün toplu sonucuna ka
 
     ```
 
-    Bu ifade FactInternetSales tablosundaki ad, sütun ve ölçü sonuçlarını belirtir ve bir kullanıcı PivotTable veya raporda toplu bir sonuca çift tıkladığında ilgili tablolar döndürülür.
+    Bu ifade adlarının, sütun belirtir ve bir kullanıcı bir PivotTable veya rapor toplanmış bir sonuca tıklattığında hello Factınternetsales tablosunda ve ilgili tablolardaki ölçü sonuçlar döndürülür.
 
-4. Excel'e geri dönerek 3. Adımda oluşturulan sayfayı silin ve sonra bir toplu değere çift tıklayın. Bu kez, ölçü için tanımlanan Ayrıntı Satırları İfadesi özelliğiyle birlikte birçok yararlı veri içeren yeni bir sayfa açılır.
+4. Geri Excel'de adım 3'te oluşturulan hello sayfayı silmek, sonra bir toplu değeri çift tıklatın. Bu süre, hello ölçü için tanımlanmış bir ayrıntı satırları ifade özelliği ile çok daha kullanışlı verileri içeren yeni bir sayfa açar.
 
     ![aas-lesson-detail-rows-detailsheet](../tutorials/media/aas-lesson-detail-rows-detailsheet.png)
 

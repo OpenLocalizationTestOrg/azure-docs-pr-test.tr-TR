@@ -1,6 +1,6 @@
 ---
-title: "Azure Key Vault Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Anahtar Kasası hesabınızı kullanarak bulut kaynaklarınıza, uygulamalarınıza ve çözümlerinize erişen ve bunları şifreleyen anahtarlar oluşturma ve bunları koruma hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası."
+title: "aaaAzure anahtar kasası belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Bilgi nasıl toouse anahtar kasası toocreate ve erişmek ve bulut kaynakları, uygulama ve çözümler şifreleme anahtarları korumak. Öğreticiler, API başvuruları ve daha fazlası."
 services: key-vault
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 41db3ea23bc1e9895893201078b1ada3297418cb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a7fbebf94b3f345731ccba0ab788c83efa4c021e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="key-vault-documentation"></a>Anahtar Kasası Belgeleri
 
-Anahtar Kasası’nı kullanarak bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarını ve gizli anahtarları koruma ve yönetme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarını ve gizli anahtarları oluşturma ve koruma ile ilgili bilgiler içerir.
+Bilgi nasıl toouse anahtar kasası toosafeguard ve şifreleme anahtarları ve gizli anahtarları bulut uygulamalar ve hizmetler tarafından kullanılan yönetin. Öğreticiler, API başvuru ve diğer belgeleri göster, nasıl toocreate ve erişmek ve kaynakları ve çözümleri şifreleme anahtarları korumak.
 
 <ul class="panelContent cardsFTitle">
     <li>

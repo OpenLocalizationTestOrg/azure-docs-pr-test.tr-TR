@@ -1,6 +1,6 @@
 ---
-title: "Azure'da Docker Python ve PostgreSQL bir web uygulaması oluşturma | Microsoft Docs"
-description: "Bir PostgreSQL veritabanına bağlantı ile Azure içinde çalışma Docker Python uygulaması alma hakkında bilgi."
+title: "aaaBuild azure'da Docker Python ve PostgreSQL bir web uygulaması | Microsoft Docs"
+description: "Bilgi nasıl tooget Docker Python uygulaması Azure'da çalışan, bağlantı tooa PostgreSQL veritabanı."
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -15,23 +15,23 @@ ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: e70f85a1eb4a6e1a81e0ca4fae228ca97deca6fe
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e594ef9ec8c04ef2bf725e5f998691f3fb8cf815
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure'da Docker Python ve PostgreSQL bir web uygulaması oluşturma
 
-Azure Web Apps düzeyde ölçeklenebilir, otomatik olarak düzeltme eki uygulama web barındırma hizmeti sağlar. Bu öğretici, temel bir Docker Python web uygulaması oluşturma gösterilmektedir. Bu uygulama bir PostgreSQL veritabanına bağlanırsınız. İşiniz bittiğinde, Docker kapsayıcısı içinde çalışan bir Python Flask uygulaması gerekir [Azure App Service Web Apps](app-service-web-overview.md).
+Azure Web Apps düzeyde ölçeklenebilir, otomatik olarak düzeltme eki uygulama web barındırma hizmeti sağlar. Bu öğretici nasıl toocreate temel Docker Python web uygulaması Azure gösterir. Bu uygulama tooa PostgreSQL veritabanına bağlanırsınız. İşiniz bittiğinde, Docker kapsayıcısı içinde çalışan bir Python Flask uygulaması gerekir [Azure App Service Web Apps](app-service-web-overview.md).
 
 ![Docker Python Flask uygulamada Azure uygulama hizmeti](./media/app-service-web-tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
-MacOS üzerinde aşağıdaki adımları izleyebilirsiniz. Linux ve Windows yönergeleri çoğu durumda aynıdır, ancak bu öğreticide farklar ayrıntılı değil.
+MacOS üzerinde hello adımları izleyebilirsiniz. Linux ve Windows'da aynı hello çoğu durumda, ancak bu öğreticide hello farklar ayrıntılı değil yönergelerdir.
  
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için:
+toocomplete Bu öğretici:
 
 1. [Git'i yükleyin](https://git-scm.com/)
 1. [Python'ı yükleyin](https://www.python.org/downloads/)
@@ -42,38 +42,38 @@ Bu öğreticiyi tamamlamak için:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu konuda hello Azure CLI Sürüm 2.0 veya üstü çalıştığını gerektirir. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>Yerel PostgreSQL yüklemeyi sınamak ve bir veritabanı oluştur
 
-Terminal penceresi açın ve Çalıştır `psql postgres` yerel PostgreSQL sunucunuza bağlanmak için.
+Merhaba terminal penceresi açın ve çalıştırın `psql postgres` tooconnect tooyour yerel PostgreSQL sunucu.
 
 ```bash
 psql postgres
 ```
 
-Bağlantı başarılı olursa, PostgreSQL veritabanınız çalışıyor. Aksi takdirde, yerel PostgresQL veritabanınızı verilen adımları izleyerek başlatıldığından emin olun [yüklemeleri - PostgreSQL çekirdek dağıtım](https://www.postgresql.org/download/).
+Bağlantı başarılı olursa, PostgreSQL veritabanınız çalışıyor. Aksi takdirde, yerel PostgresQL veritabanınızı hello adımları izleyerek başlatıldığından emin olun [yüklemeleri - PostgreSQL çekirdek dağıtım](https://www.postgresql.org/download/).
 
 Adlı bir veritabanı oluşturmak *eventregistration* ve adlı bir ayrı veritabanı kullanıcı ayarlama *Yöneticisi* parolayla *supersecretpass*.
 
 ```bash
 CREATE DATABASE eventregistration;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
-GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
+GRANT ALL PRIVILEGES ON DATABASE eventregistration toomanager;
 ```
-Tür *\q* PostgreSQL istemci çıkmak için. 
+Tür *\q* tooexit hello PostgreSQL istemci. 
 
 <a name="step2"></a>
 
 ## <a name="create-local-python-flask-application"></a>Yerel Python Flask uygulaması oluşturma
 
-Bu adımda, yerel Python Flask projesi ayarlayın.
+Bu adımda, hello yerel Python Flask projesi ayarlayın.
 
-### <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
+### <a name="clone-hello-sample-application"></a>Merhaba örnek uygulaması kopyalama
 
-Terminal penceresi açın ve `CD` bir çalışma dizini için.  
+Açık hello terminal penceresi ve `CD` tooa çalışma dizini.  
 
-Örnek depoyu kopyalayın ve Git için aşağıdaki komutları çalıştırın *0,1 initialapp* serbest bırakın.
+Çalışma hello aşağıdaki komutları tooclone hello örnek depo ve Git toohello *0,1 initialapp* serbest bırakın.
 
 ```bash
 git clone https://github.com/Azure-Samples/docker-flask-postgres.git
@@ -83,12 +83,12 @@ git checkout tags/0.1-initialapp
 
 Bu örnek depo içeren bir [Flask](http://flask.pocoo.org/) uygulama. 
 
-### <a name="run-the-application"></a>Uygulamayı çalıştırma
+### <a name="run-hello-application"></a>Merhaba uygulamayı çalıştırın
 
 > [!NOTE] 
-> Bir sonraki adımda üretim veritabanı ile kullanmak için Docker kapsayıcısı oluşturarak bu işlemi basitleştirir.
+> Bir sonraki adımda Docker kapsayıcısı toouse hello üretim veritabanıyla oluşturarak bu işlemi basitleştirir.
 
-Gereken paketleri yükleyip uygulamayı başlatın.
+Merhaba gerekli paketleri yüklemek ve hello uygulamasını başlatın.
 
 ```bash
 pip install virtualenv
@@ -100,31 +100,31 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Uygulamanın tam olarak yüklendiğinde, aşağıdaki iletiye benzer bir şey görürsünüz:
+Merhaba uygulama tam olarak yüklendiğinde iletiden benzeri toohello bakın:
 
 ```bash
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty message
  * Serving Flask app "app"
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C tooquit)
 ```
 
-Bir tarayıcıda http://127.0.0.1:5000 gidin. Tıklatın **kaydedin!** ve bir test kullanıcısı oluşturun.
+Bir tarayıcıda toohttp://127.0.0.1:5000 gidin. Tıklatın **kaydedin!** ve bir test kullanıcısı oluşturun.
 
 ![Yerel olarak çalışan Python Flask uygulama](./media/app-service-web-tutorial-docker-python-postgresql-app/local-app.png)
 
-Flask örnek uygulamanın kullanıcı verilerini veritabanında depolar. Bir kullanıcı kaydetme sırasında başarılı olursa, veri uygulamanızı yerel PostgreSQL veritabanına yazma.
+Merhaba Flask örnek uygulamanın kullanıcı verilerini hello veritabanında depolar. Bir kullanıcı kaydetme sırasında başarılı olursa, uygulamanızın veri toohello yerel PostgreSQL veritabanına yazma.
 
-Flask sunucu zaman durdurmak için Ctrl + C terminale yazın. 
+toostop hello Flask sunucuda dilediğiniz zaman, Ctrl + C hello terminal yazın. 
 
 ## <a name="create-a-production-postgresql-database"></a>Bir üretim PostgreSQL veritabanı oluşturma
 
-Bu adımda, Azure PostgreSQL veritabanında oluşturun. Uygulamanızın Azure'a dağıtıldığında, bu bulut veritabanı kullanır.
+Bu adımda, Azure PostgreSQL veritabanında oluşturun. Uygulamanızı dağıtılan tooAzure olduğunda, bu bulut veritabanı kullanır.
 
-### <a name="log-in-to-azure"></a>Azure'da oturum açma
+### <a name="log-in-tooazure"></a>İçinde tooAzure oturum
 
-Şimdi Python uygulamanızı Azure App Service'te barındırmak için gereken kaynakları oluşturmak için Azure CLI 2.0 kullanmayı adımıdır.  [az login](/cli/azure/#login) komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin. 
+Devam eden toouse hello Azure CLI 2.0 toocreate hello kaynakları toohost Python uygulamanızı Azure App Service'te gerekli artık size aittir.  Tooyour hello Azure aboneliğiyle oturum [az oturum açma](/cli/azure/#login) komut ve hello ekrandaki yönergeleri izleyin. 
 
 ```azurecli
 az login 
@@ -132,29 +132,29 @@ az login
    
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#create) ile bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. 
+Oluşturma bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) hello ile [az grubu oluşturma](/cli/azure/group#create). 
 
 [!INCLUDE [Resource group intro](../../includes/resource-group.md)]
 
-Aşağıdaki örnek Batı ABD bölgesinde bir kaynak grubu oluşturur:
+Merhaba aşağıdaki örnekte bir kaynak grubu hello Batı ABD bölgesi oluşturur:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West US"
 ```
 
-Kullanım [az appservice listesi-konumları](/cli/azure/appservice#list-locations) listesi kullanılabilir konumlar için Azure CLI komutu.
+Kullanım hello [az appservice listesi-konumları](/cli/azure/appservice#list-locations) Azure CLI toolist kullanılabilir konumlarını komutu.
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL için Azure Veritabanı sunucusu oluşturma
 
-Bir PostgreSQL sunucusuyla [az postgres sunucusu oluşturmak](/cli/azure/documentdb#create) komutu.
+Bir PostgreSQL sunucusu ile Merhaba oluşturmak [az postgres sunucusu oluşturmak](/cli/azure/documentdb#create) komutu.
 
-Aşağıdaki komutta için bir benzersiz sunucu adı yerine  *\<postgresql_name >* yer tutucu ve bir kullanıcı adı için  *\<admin_username >* yer tutucu. Sunucu adı PostgreSQL uç noktanızı bir parçası olarak kullanılır (`https://<postgresql_name>.postgres.database.azure.com`), adının Azure içindeki tüm sunucular arasında benzersiz olması gerekir. İlk veritabanı yönetici kullanıcı hesabı için kullanıcı adıdır. Bu kullanıcı için bir parola çekme istenir.
+Hello hello için bir benzersiz sunucu adı yerine komutu, aşağıdaki  *\<postgresql_name >* yer tutucu ve hello için bir kullanıcı adı  *\<admin_username >* yer tutucusu . Merhaba sunucu adı, PostgreSQL uç noktanızı bir parçası olarak kullanılır (`https://<postgresql_name>.postgres.database.azure.com`), hello adı toobe benzersiz Azure içindeki tüm sunucular arasında olmalıdır. Merhaba ilk veritabanı yönetici kullanıcı hesabı Hello kullanıcı adıdır. Bu kullanıcı için bir parola istendiğinde toopick var.
 
 ```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>
 ```
 
-Azure CLI PostgreSQL sunucu için Azure veritabanı oluşturulduğunda, bilgileri aşağıdaki örneğe benzer şekilde gösterir:
+Hello Azure veritabanı PostgreSQL sunucusu oluşturulduğunda, hello Azure CLI aşağıdaki örneğine benzer toohello bilgileri gösterir:
 
 ```json
 {
@@ -180,15 +180,15 @@ Azure CLI PostgreSQL sunucu için Azure veritabanı oluşturulduğunda, bilgiler
 }
 ```
 
-### <a name="create-a-firewall-rule-for-the-azure-database-for-postgresql-server"></a>PostgreSQL sunucu için Azure veritabanı için bir güvenlik duvarı kuralı oluşturma
+### <a name="create-a-firewall-rule-for-hello-azure-database-for-postgresql-server"></a>Hello Azure veritabanı PostgreSQL sunucusu için bir güvenlik duvarı kuralı oluşturun
 
-Tüm IP adreslerinden veritabanına erişim için aşağıdaki Azure CLI komutunu çalıştırın.
+Tüm IP adreslerinden Azure CLI komut tooallow erişim toohello veritabanı aşağıdaki hello çalıştırın.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
 ```
 
-Azure CLI aşağıdaki örneğe benzer bir çıktı ile güvenlik duvarı kuralı oluşturmayı onaylar:
+Hello Azure CLI hello güvenlik duvarı kuralı oluşturma çıkış benzer toohello aşağıdaki örneğine ile onaylar:
 
 ```json
 {
@@ -201,69 +201,69 @@ Azure CLI aşağıdaki örneğe benzer bir çıktı ile güvenlik duvarı kural�
 }
 ```
 
-## <a name="connect-your-python-flask-application-to-the-database"></a>Python Flask uygulamanız veritabanına bağlan
+## <a name="connect-your-python-flask-application-toohello-database"></a>Python Flask uygulama toohello veritabanınız Bağlan
 
-Bu adımda, Python Flask örnek uygulamanızı oluşturduğunuz PostgreSQL server için Azure veritabanına bağlanın.
+Bu adımda oluşturduğunuz PostgreSQL sunucu, Python Flask örnek uygulama toohello Azure veritabanı bağlayın.
 
 ### <a name="create-an-empty-database-and-set-up-a-new-database-application-user"></a>Boş bir veritabanı oluşturun ve yeni bir veritabanı uygulama kullanıcı ayarlama
 
-Yalnızca tek bir veritabanına erişimi olan bir veritabanı kullanıcısı oluşturmalıdır. Sunucuya uygulama tam erişimi vermekten kaçının için bu kimlik bilgileri kullanacağız.
+Bir veritabanı kullanıcısı tooa tek yalnızca access veritabanı ile oluşturun. Merhaba uygulama tam erişim toohello sunucusu vererek bu kimlik bilgileri tooavoid kullanacaksınız.
 
-(Yönetici parolanızı girmeniz istenir) veritabanına bağlanın.
+(Yönetici parolanızı girmeniz istenir) toohello veritabanına bağlanın.
 
 ```bash
 psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
 ```
 
-Veritabanı ve kullanıcı PostgreSQL CLI oluşturun.
+Merhaba veritabanı ve kullanıcı PostgreSQL CLI hello oluşturun.
 
 ```bash
 CREATE DATABASE eventregistration;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
-GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
+GRANT ALL PRIVILEGES ON DATABASE eventregistration toomanager;
 ```
 
-Tür *\q* PostgreSQL istemci çıkmak için.
+Tür *\q* tooexit hello PostgreSQL istemci.
 
-### <a name="test-the-application-locally-against-the-azure-postgresql-database"></a>Uygulamayı yerel olarak Azure PostgreSQL veritabanına karşı test etme 
+### <a name="test-hello-application-locally-against-hello-azure-postgresql-database"></a>Merhaba uygulamayı yerel olarak hello Azure PostgreSQL veritabanına karşı test etme 
 
-Geri şimdi gidip *uygulama* klasörü kopyalanan Github depo veritabanı ortam değişkenleri güncelleştirerek Python Flask uygulamayı çalıştırabilirsiniz.
+Şimdi toohello geri dönerseniz *uygulama* hello klasörünü klonlanmış Github deposunu, hello veritabanı ortam değişkenleri güncelleştirerek hello Python Flask uygulamayı çalıştırabilirsiniz.
 
 ```bash
 FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
 FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Uygulamanın tam olarak yüklendiğinde, aşağıdaki iletiye benzer bir şey görürsünüz:
+Merhaba uygulama tam olarak yüklendiğinde iletiden benzeri toohello bakın:
 
 ```bash
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty message
  * Serving Flask app "app"
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C tooquit)
 ```
 
-Bir tarayıcıda http://127.0.0.1:5000 gidin. Tıklatın **kaydedin!** ve bir test kaydı oluşturun. Şimdi, Azure veritabanına veri yazma.
+Bir tarayıcıda toohttp://127.0.0.1:5000 gidin. Tıklatın **kaydedin!** ve bir test kaydı oluşturun. Şimdi, Azure'da verileri toohello veritabanı yazıyorsanız.
 
 ![Yerel olarak çalışan Python Flask uygulama](./media/app-service-web-tutorial-docker-python-postgresql-app/local-app.png)
 
-### <a name="running-the-application-from-a-docker-container"></a>Docker kapsayıcıdan uygulamayı çalıştırmayı
+### <a name="running-hello-application-from-a-docker-container"></a>Docker kapsayıcısı çalışan hello uygulamadan
 
-Docker kapsayıcısı görüntüsünü oluşturabilirsiniz.
+Merhaba Docker kapsayıcısı görüntüsünü oluşturabilirsiniz.
 
 ```bash
 cd ..
 docker build -t flask-postgresql-sample .
 ```
 
-Docker başarıyla kapsayıcı oluşturulduğu bir onay görüntüler.
+Docker bu başarıyla oluşturuldu BT hello kapsayıcı bir onay görüntüler.
 
 ```bash
 Successfully built 7548f983a36b
 ```
 
-Bir ortam değişkeni dosyasına veritabanı ortam değişkenleri eklemek *db.env*. Uygulama Azure PostgreSQL üretim veritabanına bağlanır.
+Veritabanı ortam değişkenleri tooan ortam değişken dosyası ekleme *db.env*. Merhaba uygulama toohello PostgreSQL üretim Azure veritabanında bağlanır.
 
 ```text
 DBHOST="<postgresql_name>.postgres.database.azure.com"
@@ -272,32 +272,32 @@ DBNAME="eventregistration"
 DBPASS="supersecretpass"
 ```
 
-Docker kapsayıcısı içinde uygulamadan çalıştırın. Aşağıdaki komutu ortam değişken dosyası belirtir ve yerel bağlantı noktası 5000 için varsayılan Flask bağlantı noktası 5000 eşler.
+Merhaba uygulama hello Docker kapsayıcısı içinde çalıştırın. Merhaba aşağıdaki komutu hello ortam değişken dosyası belirtir ve hello varsayılan Flask bağlantı noktası 5000 toolocal bağlantı noktası 5000 eşler.
 
 ```bash
 docker run -it --env-file db.env -p 5000:5000 flask-postgresql-sample
 ```
 
-Çıktı ne daha önce gördüğünüzle için benzer. Ancak, ilk veritabanı geçiş artık gerçekleştirilmesi gerekir ve bu nedenle atlanır.
+Merhaba çıktı, daha önce gördüğünüzle benzer toowhat şeklindedir. Ancak, hello ilk veritabanı geçiş artık gerçekleştirilen toobe gerekir ve bu nedenle atlanır.
 
 ```bash
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
  * Serving Flask app "app"
- * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C tooquit)
 ```
 
-Veritabanı zaten daha önce oluşturduğunuz kayıt içeriyor.
+daha önce oluşturduğunuz hello kayıt Hello veritabanı zaten var.
 
 ![Docker kapsayıcısı tabanlı Python Flask uygulama yerel olarak çalıştırma](./media/app-service-web-tutorial-docker-python-postgresql-app/local-docker.png)
 
-## <a name="upload-the-docker-container-to-a-container-registry"></a>Docker kapsayıcısı bir kapsayıcı kayıt defterine karşıya yükle
+## <a name="upload-hello-docker-container-tooa-container-registry"></a>Merhaba Docker kapsayıcısı tooa kapsayıcı kayıt defteri karşıya yükle
 
-Bu adımda, bir kapsayıcı kayıt defterine Docker kapsayıcısı yükleyin. Azure kapsayıcı kayıt defteri kullanırsınız, ancak Docker Hub gibi diğer popüler olanlar da kullanabilirsiniz.
+Bu adımda, hello Docker kapsayıcısı tooa kapsayıcı kayıt defteri karşıya yükleyin. Azure kapsayıcı kayıt defteri kullanırsınız, ancak Docker Hub gibi diğer popüler olanlar da kullanabilirsiniz.
 
 ### <a name="create-an-azure-container-registry"></a>Azure Container Registry oluşturma
 
-Bir kapsayıcı kayıt defteri oluşturmak için aşağıdaki komutu yerine  *\<registry_name >* tercih ettiğiniz bir benzersiz Azure kapsayıcı kayıt defteri adı.
+Komut toocreate bir kapsayıcı kayıt defteri aşağıdaki hello yerine  *\<registry_name >* tercih ettiğiniz bir benzersiz Azure kapsayıcı kayıt defteri adı.
 
 ```azurecli-interactive
 az acr create --name <registry_name> --resource-group myResourceGroup --location "West US" --sku Basic
@@ -325,16 +325,16 @@ az acr create --name <registry_name> --resource-group myResourceGroup --location
 }
 ```
 
-### <a name="retrieve-the-registry-credentials-for-pushing-and-pulling-docker-images"></a>Docker görüntüleri çekme ve itme için kayıt defteri kimlik bilgilerini alma
+### <a name="retrieve-hello-registry-credentials-for-pushing-and-pulling-docker-images"></a>Docker görüntüleri çekme ve itme hello kayıt defteri kimlik bilgilerini alma
 
-Kayıt defteri kimlik bilgilerini göstermek için önce yönetici modunu etkinleştirin.
+tooshow kayıt defteri kimlik bilgileri, Yönetici modu ilk etkinleştirin.
 
 ```azurecli-interactive
 az acr update --name <registry_name> --admin-enabled true
 az acr credential show -n <registry_name>
 ```
 
-İki parola bakın. Kullanıcı adı ve ilk parola not edin.
+İki parola bakın. Merhaba kullanıcı adı ve hello ilk parola not edin.
 
 ```json
 {
@@ -352,7 +352,7 @@ az acr credential show -n <registry_name>
 }
 ```
 
-### <a name="upload-your-docker-container-to-azure-container-registry"></a>Azure kapsayıcı kayıt defterine Docker kapsayıcısı karşıya yükle
+### <a name="upload-your-docker-container-tooazure-container-registry"></a>Docker kapsayıcısı tooAzure kapsayıcı kayıt defteri karşıya yükle
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name> -p "<registry_password>"
@@ -360,23 +360,23 @@ docker tag flask-postgresql-sample <registry_name>.azurecr.io/flask-postgresql-s
 docker push <registry_name>.azurecr.io/flask-postgresql-sample
 ```
 
-## <a name="deploy-the-docker-python-flask-application-to-azure"></a>Docker Python Flask uygulamayı Azure'a dağıtma
+## <a name="deploy-hello-docker-python-flask-application-tooazure"></a>Merhaba Docker Python Flask uygulama tooAzure dağıtma
 
-Bu adımda, Docker kapsayıcısı tabanlı Python Flask uygulamanızı Azure App Service'e dağıtın.
+Bu adımda, Docker kapsayıcısı tabanlı Python Flask uygulama tooAzure uygulama hizmeti dağıtın.
 
 ### <a name="create-an-app-service-plan"></a>App Service planı oluşturma
 
-[az appservice plan create](/cli/azure/appservice/plan#create) komutu ile bir App Service planı oluşturun. 
+Merhaba ile bir uygulama hizmeti planı oluştur [az uygulama hizmeti planı oluşturma](/cli/azure/appservice/plan#create) komutu. 
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-Aşağıdaki örnek, adlandırılmış bir Linux tabanlı uygulama hizmeti planı oluşturur *myAppServicePlan* kullanarak S1 fiyatlandırma katmanı:
+Merhaba aşağıdaki örnekte oluşturur adlı bir Linux tabanlı uygulama hizmeti planı *myAppServicePlan* fiyatlandırma katmanı hello S1 kullanarak:
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
 ```
 
-Uygulama hizmeti planı oluşturulduğunda, Azure CLI bilgileri aşağıdaki örneğe benzer şekilde gösterir:
+Uygulama hizmeti planı Hello oluşturulduğunda, hello Azure CLI bilgi benzer toohello aşağıdaki örneğine gösterir:
 
 ```json 
 {
@@ -416,17 +416,17 @@ Uygulama hizmeti planı oluşturulduğunda, Azure CLI bilgileri aşağıdaki ör
 
 ### <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-Bir web uygulaması oluşturma *myAppServicePlan* uygulama hizmeti planıyla [az webapp oluşturmak](/cli/azure/webapp#create) komutu. 
+Hello bir web uygulaması oluşturma *myAppServicePlan* hello ile uygulama hizmeti planı [az webapp oluşturmak](/cli/azure/webapp#create) komutu. 
 
-Web uygulaması kodunuzu dağıtmaya barındırma bir alan sağlar ve dağıtılmış uygulamanın görüntülemek bir URL sağlar. Web uygulaması oluşturmak için kullanın. 
+dağıtılan uygulama, bir barındırma kodunuzu toodeploy boşluk ve sizin için bir URL tooview hello sağlar hello web uygulamasını sağlar. Toocreate hello web uygulaması kullanın. 
 
-Aşağıdaki komutta,  *\<app_name >* yer tutucu benzersiz bir uygulama adına sahip. Bu ad web uygulaması için varsayılan URL parçası kitabıdır adının tüm Azure uygulama hizmetinde uygulamalar arasında benzersiz olması gerekir. 
+Hello hello Değiştir komutu, aşağıdaki  *\<app_name >* yer tutucu benzersiz bir uygulama adına sahip. Merhaba adının toobe benzersiz Azure App Service'te tüm uygulamalarında gerekir böylece bu adı hello varsayılan URL hello web uygulaması için bir parçasıdır. 
 
 ```azurecli
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan örnekteki gibi bilgiler gösterir: 
+Merhaba web uygulaması oluşturduğunuzda aşağıdaki örneğine bilgi benzer toohello hello Azure CLI gösterir: 
 
 ```json 
 {
@@ -443,13 +443,13 @@ Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan örnekteki gibi
 }
 ```
 
-### <a name="configure-the-database-environment-variables"></a>Veritabanı ortam değişkenlerini yapılandırın
+### <a name="configure-hello-database-environment-variables"></a>Merhaba veritabanı ortam değişkenlerini yapılandırın
 
-Öğreticide daha önce PostgreSQL veritabanına bağlanmak için ortam değişkenleri tanımlı.
+Öğreticide daha önce Merhaba, ortam değişkenleri tooconnect tooyour PostgreSQL veritabanında tanımlı.
 
-Ortam değişkenleri olarak ayarladığınız App Service'te _uygulama ayarları_ kullanarak [az webapp config appsettings kümesi](/cli/azure/webapp/config#set) komutu. 
+Ortam değişkenleri olarak ayarladığınız App Service'te _uygulama ayarları_ hello kullanarak [az webapp config appsettings kümesi](/cli/azure/webapp/config#set) komutu. 
 
-Aşağıdaki örnek veritabanı bağlantı ayrıntıları uygulama ayarlarını belirtir. Ayrıca kullanır *bağlantı noktası* değişkeni eşlemesine bağlantı noktası 5000 bağlantı noktası 80 üzerinde HTTP trafiği almak için Docker kapsayıcısı.
+Merhaba aşağıdaki örnek hello veritabanı bağlantı ayrıntıları uygulama ayarlarını belirtir. Ayrıca hello kullanır *bağlantı noktası* değişken toomap bağlantı noktası 5000 bağlantı noktası 80 üzerinde Docker kapsayıcısı tooreceive HTTP trafiğinden.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
@@ -463,23 +463,23 @@ Uygulama hizmeti otomatik olarak karşıdan yükle ve Docker kapsayıcısı çal
 az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-custom-image-name "<registry_name>.azurecr.io/flask-postgresql-sample" --docker-registry-server-url "https://<registry_name>.azurecr.io"
 ```
 
-Docker kapsayıcısı güncelleştirmek veya ayarlarını değiştirmek olduğunda, uygulamayı yeniden başlatın. Yeniden başlatma, tüm ayarları uygulanır ve en son kapsayıcı kayıt defterinden çekilir sağlar.
+Her hello Docker kapsayıcısı güncelleştirmek veya hello ayarlarını değiştirme hello uygulamayı yeniden başlatın. Yeniden başlatma, tüm ayarları uygulanır ve hello son kapsayıcı hello kayıt defterinden çekilir sağlar.
 
 ```azurecli-interactive
 az webapp restart --resource-group myResourceGroup --name <app_name>
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Azure web uygulaması'na göz atın 
+### <a name="browse-toohello-azure-web-app"></a>Toohello Azure web uygulaması Gözat 
 
-Web tarayıcınız üzerinden dağıtılan web uygulamasının göz atın. 
+Web tarayıcınız üzerinden dağıtılan toohello web uygulaması göz atın. 
 
 ```bash 
 http://<app_name>.azurewebsites.net 
 ```
 > [!NOTE]
-> Web uygulaması kapsayıcı indirilir ve kapsayıcı yapılandırma değiştirildikten sonra başlatıldı gerektiğinden yük daha uzun sürer.
+> Merhaba kapsayıcı indirilir ve hello kapsayıcısı yapılandırmasını değiştirildikten sonra başlatıldı toobe olduğundan hello web uygulaması uzun tooload alır.
 
-Önceki adımda Azure üretim veritabanına kaydedildi önceden kaydedilmiş konuklar bakın.
+Toohello Azure üretim veritabanını hello önceki adımda kaydedilen önceden kaydedilmiş konuklar bakın.
 
 ![Docker kapsayıcısı tabanlı Python Flask uygulama yerel olarak çalıştırma](./media/app-service-web-tutorial-docker-python-postgresql-app/docker-app-deployed.png)
 
@@ -487,15 +487,15 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="update-data-model-and-redeploy"></a>Güncelleştirme veri modeli ve yeniden dağıtın
 
-Bu adımda, Konuk modeli güncelleştirerek her olay kaydı katılanların sayısı ekleyin.
+Bu adımda, hello Konuk modeli güncelleştirerek hello sayıda katılımcı tooeach olay kaydı ekleyin.
 
-Kullanıma *0.2 geçiş* yayın aşağıdaki git komutu ile:
+Merhaba denetleyin *0.2 geçiş* git komut aşağıdaki hello sürümüyle:
 
 ```bash
 git checkout tags/0.2-migration
 ```
 
-Bu sürüm zaten gerekli görünümleri, denetleyicileri ve modeli için yapılan değişiklikler. Ayrıca aracılığıyla oluşturulan bir veritabanı geçiş içerir *alembic* (`flask db migrate`). Aşağıdaki git komutu yapılan tüm değişiklikleri görebilirsiniz:
+Bu sürümü zaten gerekli değişiklikleri tooviews, denetleyicilere ve model hello yaptı. Ayrıca aracılığıyla oluşturulan bir veritabanı geçiş içerir *alembic* (`flask db migrate`). Git komutu aşağıdaki hello yapılan tüm değişiklikleri görebilirsiniz:
 
 ```bash
 git diff 0.1-initialapp 0.2-migration
@@ -503,7 +503,7 @@ git diff 0.1-initialapp 0.2-migration
 
 ### <a name="test-your-changes-locally"></a>Yaptığınız değişiklikler yerel olarak test etme
 
-Değişikliklerinizi flask sunucunun yerel olarak çalıştırarak test etmek için aşağıdaki komutları çalıştırın.
+Aşağıdaki komutları tootest hello değişikliklerinizi çalışan hello flask sunucu tarafından yerel olarak çalıştırın.
 
 Mac / Linux:
 ```bash
@@ -513,13 +513,13 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Değişiklikleri görmek için tarayıcınızda http://127.0.0.1:5000 gidin. Bir test kaydı oluşturun.
+Tarayıcı tooview hello değişikliklerinizi toohttp://127.0.0.1:5000 gidin. Bir test kaydı oluşturun.
 
 ![Docker kapsayıcısı tabanlı Python Flask uygulama yerel olarak çalıştırma](./media/app-service-web-tutorial-docker-python-postgresql-app/local-app-v2.png)
 
-### <a name="publish-changes-to-azure"></a>Değişiklikler için Azure yayımlama
+### <a name="publish-changes-tooazure"></a>Değişiklikleri tooAzure yayımlama
 
-Yeni docker görüntüsünü oluşturabilirsiniz, kapsayıcı kayıt defterine gönderme ve uygulamayı yeniden başlatın.
+Merhaba yeni docker görüntüsünü oluşturabilirsiniz, toohello kapsayıcı kayıt defteri itme ve hello uygulamayı yeniden başlatın.
 
 ```bash
 docker build -t flask-postgresql-sample .
@@ -528,7 +528,7 @@ docker push <registry_name>.azurecr.io/flask-postgresql-sample
 az appservice web restart --resource-group myResourceGroup --name <app_name>
 ```
 
-Azure web uygulamasına gidin ve yeni işlevselliği yeniden deneyin. Başka bir olay kaydı oluşturun.
+Tooyour Azure web uygulamasına gidin ve hello yeni işlevsellik yeniden deneyin. Başka bir olay kaydı oluşturun.
 
 ```bash 
 http://<app_name>.azurewebsites.net 
@@ -538,19 +538,19 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="manage-your-azure-web-app"></a>Azure web uygulamanızı yönetme
 
-Git [Azure portal](https://portal.azure.com) oluşturduğunuz web uygulaması görmek için.
+Toohello Git [Azure portal](https://portal.azure.com) oluşturduğunuz toosee hello web uygulaması.
 
-Sol menüden **Uygulama Hizmetleri**’ne ve ardından Azure web uygulamanızın adına tıklayın.
+Merhaba sol menüden **uygulama hizmetleri**, Azure web uygulamanızın hello adını tıklatın.
 
-![Portaldan Azure web uygulamasına gitme](./media/app-service-web-tutorial-docker-python-postgresql-app/app-resource.png)
+![Portal Gezinti tooAzure web uygulaması](./media/app-service-web-tutorial-docker-python-postgresql-app/app-resource.png)
 
-Varsayılan olarak, portal, web uygulamanızın gösterir **genel bakış** sayfası. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Buradan ayrıca göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Sayfanın sol tarafında sekmeleri açabilir farklı yapılandırma sayfalarında gösterilir.
+Varsayılan olarak, web uygulamanızın hello portal gösterir **genel bakış** sayfası. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Buradan ayrıca göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Merhaba sekmeler hello sayfasının sol tarafında hello açabilirsiniz hello farklı yapılandırma sayfaları gösterir.
 
 ![Azure portalında App Service sayfası](./media/app-service-web-tutorial-docker-python-postgresql-app/app-mgmt.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Web uygulamanıza özel bir DNS adı eşleme öğrenmek için sonraki öğretici ilerleyin.
+İlerlemek toohello sonraki öğretici toolearn nasıl toomap özel DNS ad tooyour web uygulaması.
 
 > [!div class="nextstepaction"] 
-> [Mevcut bir özel DNS adını Azure Web Apps ile eşleme](app-service-web-tutorial-custom-domain.md)
+> [Harita bir var olan özel DNS adı tooAzure Web uygulamaları](app-service-web-tutorial-custom-domain.md)
