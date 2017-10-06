@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2B işbirliği kod ve PowerShell örnekleri | Microsoft Docs"
+title: "aaaAzure Active Directory B2B işbirliği kodu ve PowerShell örnekleri | Microsoft Docs"
 description: "Azure Active Directory B2B işbirliği için PowerShell ve kod örnekleri"
 services: active-directory
 documentationcenter: 
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: cae69f57627b3058bf96c3d1eea7dadc81147153
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8e4f66fcb50d190899304831ea7ccd2203c5468c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a><span data-ttu-id="879f4-103">Azure Active Directory B2B işbirliği kod ve PowerShell örnekleri</span><span class="sxs-lookup"><span data-stu-id="879f4-103">Azure Active Directory B2B collaboration code and PowerShell samples</span></span>
+# <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a><span data-ttu-id="78e06-103">Azure Active Directory B2B işbirliği kod ve PowerShell örnekleri</span><span class="sxs-lookup"><span data-stu-id="78e06-103">Azure Active Directory B2B collaboration code and PowerShell samples</span></span>
 
-## <a name="powershell-example"></a><span data-ttu-id="879f4-104">PowerShell örneği</span><span class="sxs-lookup"><span data-stu-id="879f4-104">PowerShell example</span></span>
-<span data-ttu-id="879f4-105">Toplu-dış kullanıcılar için bir kuruluş içinde depolanan e-posta adreslerinden davet bir. CSV dosyası.</span><span class="sxs-lookup"><span data-stu-id="879f4-105">You can bulk-invite external users to an organization from email addresses that you have stored in a .CSV file.</span></span>
+## <a name="powershell-example"></a><span data-ttu-id="78e06-104">PowerShell örneği</span><span class="sxs-lookup"><span data-stu-id="78e06-104">PowerShell example</span></span>
+<span data-ttu-id="78e06-105">Toplu-dış kullanıcılar tooan kuruluş içinde depolanan e-posta adreslerinden davet bir. CSV dosyası.</span><span class="sxs-lookup"><span data-stu-id="78e06-105">You can bulk-invite external users tooan organization from email addresses that you have stored in a .CSV file.</span></span>
 
-1. <span data-ttu-id="879f4-106">Hazırlayın. CSV dosya yeni bir CSV dosyası oluşturun ve invitations.csv olarak adlandırın.</span><span class="sxs-lookup"><span data-stu-id="879f4-106">Prepare the .CSV file Create a new CSV file and name it invitations.csv.</span></span> <span data-ttu-id="879f4-107">Bu örnekte, dosya C:\Data kaydedilir ve aşağıdaki bilgileri içerir:</span><span class="sxs-lookup"><span data-stu-id="879f4-107">In this example, the file is saved in C:\data, and contains the following information:</span></span>
+1. <span data-ttu-id="78e06-106">Merhaba hazırlayın. CSV dosya yeni bir CSV dosyası oluşturun ve invitations.csv olarak adlandırın.</span><span class="sxs-lookup"><span data-stu-id="78e06-106">Prepare hello .CSV file Create a new CSV file and name it invitations.csv.</span></span> <span data-ttu-id="78e06-107">Bu örnekte, hello dosya C:\Data kaydedilir ve aşağıdaki bilgilerle hello içerir:</span><span class="sxs-lookup"><span data-stu-id="78e06-107">In this example, hello file is saved in C:\data, and contains hello following information:</span></span>
   
-  <span data-ttu-id="879f4-108">Ad</span><span class="sxs-lookup"><span data-stu-id="879f4-108">Name</span></span>                  |  <span data-ttu-id="879f4-109">InvitedUserEmailAddress</span><span class="sxs-lookup"><span data-stu-id="879f4-109">InvitedUserEmailAddress</span></span>
+  <span data-ttu-id="78e06-108">Ad</span><span class="sxs-lookup"><span data-stu-id="78e06-108">Name</span></span>                  |  <span data-ttu-id="78e06-109">InvitedUserEmailAddress</span><span class="sxs-lookup"><span data-stu-id="78e06-109">InvitedUserEmailAddress</span></span>
   --------------------- | --------------------------
-  <span data-ttu-id="879f4-110">Gmail B2B davet edilene</span><span class="sxs-lookup"><span data-stu-id="879f4-110">Gmail B2B Invitee</span></span>     | b2binvitee@gmail.com
-  <span data-ttu-id="879f4-111">Outlook B2B davet edilene</span><span class="sxs-lookup"><span data-stu-id="879f4-111">Outlook B2B invitee</span></span>   | b2binvitee@outlook.com
+  <span data-ttu-id="78e06-110">Gmail B2B davet edilene</span><span class="sxs-lookup"><span data-stu-id="78e06-110">Gmail B2B Invitee</span></span>     | b2binvitee@gmail.com
+  <span data-ttu-id="78e06-111">Outlook B2B davet edilene</span><span class="sxs-lookup"><span data-stu-id="78e06-111">Outlook B2B invitee</span></span>   | b2binvitee@outlook.com
 
 
-2. <span data-ttu-id="879f4-112">Yeni cmdlet'leri kullanmayı en son Azure AD PowerShell almak için indirebileceğiniz güncelleştirilmiş Azure AD PowerShell modülünü yüklemelisiniz [Powershell modülünün sürüm sayfası](https://www.powershellgallery.com/packages/AzureADPreview)</span><span class="sxs-lookup"><span data-stu-id="879f4-112">Get the latest Azure AD PowerShell To use the new cmdlets, you must install the updated Azure AD PowerShell module, which you can download from [the Powershell module's release page](https://www.powershellgallery.com/packages/AzureADPreview)</span></span>
+2. <span data-ttu-id="78e06-112">Merhaba en son Azure AD PowerShell toouse alma yeni cmdlet'leri Merhaba, indirebileceğiniz güncelleştirilmiş hello Azure AD PowerShell modülü yüklemelisiniz [Powershell modülünün sürüm sayfası hello](https://www.powershellgallery.com/packages/AzureADPreview)</span><span class="sxs-lookup"><span data-stu-id="78e06-112">Get hello latest Azure AD PowerShell toouse hello new cmdlets, you must install hello updated Azure AD PowerShell module, which you can download from [hello Powershell module's release page](https://www.powershellgallery.com/packages/AzureADPreview)</span></span>
 
-3. <span data-ttu-id="879f4-113">Kiralama ile oturum açın</span><span class="sxs-lookup"><span data-stu-id="879f4-113">Sign in to your tenancy</span></span>
+3. <span data-ttu-id="78e06-113">Tooyour kiralama ile oturum açın</span><span class="sxs-lookup"><span data-stu-id="78e06-113">Sign in tooyour tenancy</span></span>
 
     ```
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
-4. <span data-ttu-id="879f4-114">PowerShell cmdlet'ini çalıştırın</span><span class="sxs-lookup"><span data-stu-id="879f4-114">Run the PowerShell cmdlet</span></span>
+4. <span data-ttu-id="78e06-114">Merhaba PowerShell cmdlet'ini çalıştırın</span><span class="sxs-lookup"><span data-stu-id="78e06-114">Run hello PowerShell cmdlet</span></span>
 
   ```
   $invitations = import-csv C:\data\invitations.csv
@@ -52,13 +52,13 @@ ms.lasthandoff: 07/11/2017
   foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
   ```
 
-<span data-ttu-id="879f4-115">Bu cmdlet bir davet e-posta adreslerine invitations.csv gönderir.</span><span class="sxs-lookup"><span data-stu-id="879f4-115">This cmdlet sends an invitation to the email addresses in invitations.csv.</span></span> <span data-ttu-id="879f4-116">Bu cmdlet, ek özellikleri içerir:</span><span class="sxs-lookup"><span data-stu-id="879f4-116">Additional features of this cmdlet include:</span></span>
-- <span data-ttu-id="879f4-117">E-posta iletisinde özelleştirilmiş metin</span><span class="sxs-lookup"><span data-stu-id="879f4-117">Customized text in the email message</span></span>
-- <span data-ttu-id="879f4-118">Davet edilen kullanıcı için bir görünen ad dahil</span><span class="sxs-lookup"><span data-stu-id="879f4-118">Including a display name for the invited user</span></span>
-- <span data-ttu-id="879f4-119">CCs için ileti göndermek ya da e-posta iletilerini tamamen gizleme</span><span class="sxs-lookup"><span data-stu-id="879f4-119">Sending messages to CCs or suppressing email messages altogether</span></span>
+<span data-ttu-id="78e06-115">Bu cmdlet bir davet toohello e-posta adresleri invitations.csv gönderir.</span><span class="sxs-lookup"><span data-stu-id="78e06-115">This cmdlet sends an invitation toohello email addresses in invitations.csv.</span></span> <span data-ttu-id="78e06-116">Bu cmdlet, ek özellikleri içerir:</span><span class="sxs-lookup"><span data-stu-id="78e06-116">Additional features of this cmdlet include:</span></span>
+- <span data-ttu-id="78e06-117">Merhaba e-posta iletisinde özelleştirilmiş metin</span><span class="sxs-lookup"><span data-stu-id="78e06-117">Customized text in hello email message</span></span>
+- <span data-ttu-id="78e06-118">Hello için bir görünen ad dahil olmak üzere kullanıcı davet</span><span class="sxs-lookup"><span data-stu-id="78e06-118">Including a display name for hello invited user</span></span>
+- <span data-ttu-id="78e06-119">İletileri tooCCs gönderirken ya da e-posta iletilerini tamamen gizleme</span><span class="sxs-lookup"><span data-stu-id="78e06-119">Sending messages tooCCs or suppressing email messages altogether</span></span>
 
-## <a name="code-sample"></a><span data-ttu-id="879f4-120">Kod örneği</span><span class="sxs-lookup"><span data-stu-id="879f4-120">Code sample</span></span>
-<span data-ttu-id="879f4-121">Burada B2B kullanıcı davet kaynak için kullanım URL almak için "yalnızca uygulama" modunda davet API'sini çağırmak nasıl gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="879f4-121">Here we illustrate how to call the invitation API, in "app-only" mode, to get the redemption URL for the resource to which you are inviting the B2B user.</span></span> <span data-ttu-id="879f4-122">Özel davet e-posta göndermek için belirtilir.</span><span class="sxs-lookup"><span data-stu-id="879f4-122">The goal is to send a custom invitation email.</span></span> <span data-ttu-id="879f4-123">Nasıl göründüğünü özelleştirmek ve grafik API'si göndermek için e-posta bir HTTP istemcisi ile birleştirilebilir.</span><span class="sxs-lookup"><span data-stu-id="879f4-123">The email can be composed with an HTTP client, so you can customize how it looks and send it through Graph API.</span></span>
+## <a name="code-sample"></a><span data-ttu-id="78e06-120">Kod örneği</span><span class="sxs-lookup"><span data-stu-id="78e06-120">Code sample</span></span>
+<span data-ttu-id="78e06-121">Burada "yalnızca uygulama" modunda toocall hello davet API, davet ettiğiniz hello kaynak toowhich tooget hello kullanım URL'sini B2B kullanıcı nasıl hello gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="78e06-121">Here we illustrate how toocall hello invitation API, in "app-only" mode, tooget hello redemption URL for hello resource toowhich you are inviting hello B2B user.</span></span> <span data-ttu-id="78e06-122">Merhaba, toosend özel davet e-posta hedeftir.</span><span class="sxs-lookup"><span data-stu-id="78e06-122">hello goal is toosend a custom invitation email.</span></span> <span data-ttu-id="78e06-123">hello e-posta nasıl göründüğünü özelleştirmek ve grafik API'si göndermek için bir HTTP istemcisi ile birleştirilebilir.</span><span class="sxs-lookup"><span data-stu-id="78e06-123">hello email can be composed with an HTTP client, so you can customize how it looks and send it through Graph API.</span></span>
 
 ```
 namespace SampleInviteApp
@@ -82,34 +82,34 @@ namespace SampleInviteApp
         static readonly string InviteEndPoint = "https://graph.microsoft.com/v1.0/invitations";
  
         /// <summary>
-        ///  Authentication endpoint to get token.
+        ///  Authentication endpoint tooget token.
         /// </summary>
         static readonly string EstsLoginEndpoint = "https://login.microsoftonline.com";
  
         /// <summary>
-        /// This is the tenantid of the tenant you want to invite users to.
+        /// This is hello tenantid of hello tenant you want tooinvite users to.
         /// </summary>
         private static readonly string TenantID = "";
  
         /// <summary>
-        /// This is the application id of the application that is registered in the above tenant.
-        /// The required scopes are available in the below link.
+        /// This is hello application id of hello application that is registered in hello above tenant.
+        /// hello required scopes are available in hello below link.
         /// https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/invitation_post
         /// </summary>
         private static readonly string TestAppClientId = "";
  
         /// <summary>
-        /// Client secret of the application.
+        /// Client secret of hello application.
         /// </summary>
         private static readonly string TestAppClientSecret = @"
  
         /// <summary>
-        /// This is the email address of the user you want to invite.
+        /// This is hello email address of hello user you want tooinvite.
         /// </summary>
         private static readonly string InvitedUserEmailAddress = @"";
  
         /// <summary>
-        /// This is the display name of the user you want to invite.
+        /// This is hello display name of hello user you want tooinvite.
         /// </summary>
         private static readonly string InvitedUserDisplayName = @"";
  
@@ -124,12 +124,12 @@ namespace SampleInviteApp
         }
  
         /// <summary>
-        /// Create the invitation object.
+        /// Create hello invitation object.
         /// </summary>
-        /// <returns>Returns the invitation object.</returns>
+        /// <returns>Returns hello invitation object.</returns>
         private static Invitation CreateInvitation()
         {
-            // Set the invitation object.
+            // Set hello invitation object.
             Invitation invitation = new Invitation();
             invitation.InvitedUserDisplayName = InvitedUserDisplayName;
             invitation.InvitedUserEmailAddress = InvitedUserEmailAddress;
@@ -139,7 +139,7 @@ namespace SampleInviteApp
         }
  
         /// <summary>
-        /// Send the guest user invite request.
+        /// Send hello guest user invite request.
         /// </summary>
         /// <param name="invitation">Invitation object.</param>
         private static void SendInvitation(Invitation invitation)
@@ -148,7 +148,7 @@ namespace SampleInviteApp
  
             HttpClient httpClient = GetHttpClient(accessToken);
  
-            // Make the invite call. 
+            // Make hello invite call. 
             HttpContent content = new StringContent(JsonConvert.SerializeObject(invitation));
             content.Headers.Add("ContentType", "application/json");
             var postResponse = httpClient.PostAsync(InviteEndPoint, content).Result;
@@ -157,10 +157,10 @@ namespace SampleInviteApp
         }
  
         /// <summary>
-        /// Get the HTTP client.
+        /// Get hello HTTP client.
         /// </summary>
         /// <param name="accessToken">Access token</param>
-        /// <returns>Returns the Http Client.</returns>
+        /// <returns>Returns hello Http Client.</returns>
         private static HttpClient GetHttpClient(string accessToken)
         {
             // setup http client.
@@ -169,20 +169,20 @@ namespace SampleInviteApp
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             httpClient.DefaultRequestHeaders.Add("client-request-id", Guid.NewGuid().ToString());
             Console.WriteLine(
-                "CorrelationID for the request: {0}",
+                "CorrelationID for hello request: {0}",
                 httpClient.DefaultRequestHeaders.GetValues("client-request-id").Single());
             return httpClient;
         }
  
         /// <summary>
-        /// Get the access token for our application to talk to microsoft graph.
+        /// Get hello access token for our application tootalk toomicrosoft graph.
         /// </summary>
-        /// <returns>Returns the access token for our application to talk to microsoft graph.</returns>
+        /// <returns>Returns hello access token for our application tootalk toomicrosoft graph.</returns>
         private static string GetAccessToken()
         {
             string accessToken = null;
  
-            // Get the access token for our application to talk to microsoft graph.
+            // Get hello access token for our application tootalk toomicrosoft graph.
             try
             {
                 AuthenticationContext testAuthContext =
@@ -194,7 +194,7 @@ namespace SampleInviteApp
             }
             catch (AdalException ex)
             {
-                Console.WriteLine("An exception was thrown while fetching the token: {0}.", ex);
+                Console.WriteLine("An exception was thrown while fetching hello token: {0}.", ex);
                 throw;
             }
  
@@ -217,7 +217,7 @@ namespace SampleInviteApp
             public string InvitedUserEmailAddress { get; set; }
  
             /// <summary>
-            /// Gets or sets a value indicating whether Invitation Manager should send the email to InvitedUser.
+            /// Gets or sets a value indicating whether Invitation Manager should send hello email tooInvitedUser.
             /// </summary>
             public bool SendInvitationMessage { get; set; }
  
@@ -231,17 +231,17 @@ namespace SampleInviteApp
 ```
 
 
-## <a name="next-steps"></a><span data-ttu-id="879f4-124">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="879f4-124">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="78e06-124">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="78e06-124">Next steps</span></span>
 
-<span data-ttu-id="879f4-125">Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:</span><span class="sxs-lookup"><span data-stu-id="879f4-125">Browse our other articles on Azure AD B2B collaboration:</span></span>
+<span data-ttu-id="78e06-125">Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:</span><span class="sxs-lookup"><span data-stu-id="78e06-125">Browse our other articles on Azure AD B2B collaboration:</span></span>
 
-* [<span data-ttu-id="879f4-126">Azure AD B2B işbirliği nedir?</span><span class="sxs-lookup"><span data-stu-id="879f4-126">What is Azure AD B2B collaboration?</span></span>](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [<span data-ttu-id="879f4-127">B2B işbirliği kullanıcı özellikleri</span><span class="sxs-lookup"><span data-stu-id="879f4-127">B2B collaboration user properties</span></span>](active-directory-b2b-user-properties.md)
-* [<span data-ttu-id="879f4-128">Bir role B2B işbirliği kullanıcı ekleme</span><span class="sxs-lookup"><span data-stu-id="879f4-128">Adding a B2B collaboration user to a role</span></span>](active-directory-b2b-add-guest-to-role.md)
-* [<span data-ttu-id="879f4-129">B2B işbirliği davetleri temsilci seçme</span><span class="sxs-lookup"><span data-stu-id="879f4-129">Delegate B2B collaboration invitations</span></span>](active-directory-b2b-delegate-invitations.md)
-* [<span data-ttu-id="879f4-130">Dinamik gruplar ve B2B işbirliği</span><span class="sxs-lookup"><span data-stu-id="879f4-130">Dynamic groups and B2B collaboration</span></span>](active-directory-b2b-dynamic-groups.md)
-* [<span data-ttu-id="879f4-131">SaaS uygulamaları B2B işbirliği için yapılandırma</span><span class="sxs-lookup"><span data-stu-id="879f4-131">Configure SaaS apps for B2B collaboration</span></span>](active-directory-b2b-configure-saas-apps.md)
-* [<span data-ttu-id="879f4-132">B2B işbirliği kullanıcı belirteçleri</span><span class="sxs-lookup"><span data-stu-id="879f4-132">B2B collaboration user tokens</span></span>](active-directory-b2b-user-token.md)
-* [<span data-ttu-id="879f4-133">B2B işbirliği kullanıcı taleplerini eşleme</span><span class="sxs-lookup"><span data-stu-id="879f4-133">B2B collaboration user claims mapping</span></span>](active-directory-b2b-claims-mapping.md)
-* [<span data-ttu-id="879f4-134">Office 365 dış paylaşım</span><span class="sxs-lookup"><span data-stu-id="879f4-134">Office 365 external sharing</span></span>](active-directory-b2b-o365-external-user.md)
-* [<span data-ttu-id="879f4-135">B2B işbirliği geçerli sınırlamalar</span><span class="sxs-lookup"><span data-stu-id="879f4-135">B2B collaboration current limitations</span></span>](active-directory-b2b-current-limitations.md)
+* [<span data-ttu-id="78e06-126">Azure AD B2B işbirliği nedir?</span><span class="sxs-lookup"><span data-stu-id="78e06-126">What is Azure AD B2B collaboration?</span></span>](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [<span data-ttu-id="78e06-127">B2B işbirliği kullanıcı özellikleri</span><span class="sxs-lookup"><span data-stu-id="78e06-127">B2B collaboration user properties</span></span>](active-directory-b2b-user-properties.md)
+* [<span data-ttu-id="78e06-128">B2B işbirliği kullanıcı tooa rolü ekleme</span><span class="sxs-lookup"><span data-stu-id="78e06-128">Adding a B2B collaboration user tooa role</span></span>](active-directory-b2b-add-guest-to-role.md)
+* [<span data-ttu-id="78e06-129">B2B işbirliği davetleri temsilci seçme</span><span class="sxs-lookup"><span data-stu-id="78e06-129">Delegate B2B collaboration invitations</span></span>](active-directory-b2b-delegate-invitations.md)
+* [<span data-ttu-id="78e06-130">Dinamik gruplar ve B2B işbirliği</span><span class="sxs-lookup"><span data-stu-id="78e06-130">Dynamic groups and B2B collaboration</span></span>](active-directory-b2b-dynamic-groups.md)
+* [<span data-ttu-id="78e06-131">SaaS uygulamaları B2B işbirliği için yapılandırma</span><span class="sxs-lookup"><span data-stu-id="78e06-131">Configure SaaS apps for B2B collaboration</span></span>](active-directory-b2b-configure-saas-apps.md)
+* [<span data-ttu-id="78e06-132">B2B işbirliği kullanıcı belirteçleri</span><span class="sxs-lookup"><span data-stu-id="78e06-132">B2B collaboration user tokens</span></span>](active-directory-b2b-user-token.md)
+* [<span data-ttu-id="78e06-133">B2B işbirliği kullanıcı taleplerini eşleme</span><span class="sxs-lookup"><span data-stu-id="78e06-133">B2B collaboration user claims mapping</span></span>](active-directory-b2b-claims-mapping.md)
+* [<span data-ttu-id="78e06-134">Office 365 dış paylaşım</span><span class="sxs-lookup"><span data-stu-id="78e06-134">Office 365 external sharing</span></span>](active-directory-b2b-o365-external-user.md)
+* [<span data-ttu-id="78e06-135">B2B işbirliği geçerli sınırlamalar</span><span class="sxs-lookup"><span data-stu-id="78e06-135">B2B collaboration current limitations</span></span>](active-directory-b2b-current-limitations.md)

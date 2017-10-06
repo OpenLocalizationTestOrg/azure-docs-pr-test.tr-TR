@@ -1,6 +1,6 @@
 ---
-title: "Azure Web uygulamaları için var olan bir özel DNS ad eşleme | Microsoft Docs"
-description: "Bir web uygulaması, mobil uygulama arka ucu veya Azure App Service'teki API uygulamasına varolan özel DNS etki alanı adı (gösterim etki alanında) eklemeyi öğrenin."
+title: "aaaMap var olan bir özel DNS ad tooAzure Web Apps | Microsoft Docs"
+description: "Nasıl tooadd var olan bir özel DNS etki alanı adı (gösterim etki alanında) tooa web uygulaması, mobil uygulama arka ucu veya Azure App Service'teki API uygulamasına öğrenin."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,268 +15,268 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 973cda462e8d258cc848e1036891c7f8af043102
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 2c4eea3c56c758ca11355554321ffa52dd2c6b9d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a><span data-ttu-id="3efa1-103">Harita Azure Web uygulamaları için varolan bir özel DNS adı</span><span class="sxs-lookup"><span data-stu-id="3efa1-103">Map an existing custom DNS name to Azure Web Apps</span></span>
+# <a name="map-an-existing-custom-dns-name-tooazure-web-apps"></a><span data-ttu-id="cd9e7-103">Harita bir var olan özel DNS adı tooAzure Web uygulamaları</span><span class="sxs-lookup"><span data-stu-id="cd9e7-103">Map an existing custom DNS name tooAzure Web Apps</span></span>
 
-<span data-ttu-id="3efa1-104">[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.</span><span class="sxs-lookup"><span data-stu-id="3efa1-104">[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.</span></span> <span data-ttu-id="3efa1-105">Bu öğretici, Azure Web uygulamaları için var olan bir özel DNS adını eşleştirmek nasıl gösterir.</span><span class="sxs-lookup"><span data-stu-id="3efa1-105">This tutorial shows you how to map an existing custom DNS name to Azure Web Apps.</span></span>
+<span data-ttu-id="cd9e7-104">[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-104">[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.</span></span> <span data-ttu-id="cd9e7-105">Bu öğretici nasıl toomap var olan bir özel DNS ad tooAzure Web uygulamaları gösterir.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-105">This tutorial shows you how toomap an existing custom DNS name tooAzure Web Apps.</span></span>
 
-![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+![Portal Gezinti tooAzure uygulama](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-<span data-ttu-id="3efa1-107">Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:</span><span class="sxs-lookup"><span data-stu-id="3efa1-107">In this tutorial, you learn how to:</span></span>
+<span data-ttu-id="cd9e7-107">Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:</span><span class="sxs-lookup"><span data-stu-id="cd9e7-107">In this tutorial, you learn how to:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="3efa1-108">Bir alt etki alanı eşleme (örneğin, `www.contoso.com`) bir CNAME kaydı kullanılarak</span><span class="sxs-lookup"><span data-stu-id="3efa1-108">Map a subdomain (for example, `www.contoso.com`) by using a CNAME record</span></span>
-> * <span data-ttu-id="3efa1-109">Kök etki alanını eşlemek (örneğin, `contoso.com`) kullanarak bir A kaydı</span><span class="sxs-lookup"><span data-stu-id="3efa1-109">Map a root domain (for example, `contoso.com`) by using an A record</span></span>
-> * <span data-ttu-id="3efa1-110">Joker karakter etki alanını eşlemek (örneğin, `*.contoso.com`) bir CNAME kaydı kullanılarak</span><span class="sxs-lookup"><span data-stu-id="3efa1-110">Map a wildcard domain (for example, `*.contoso.com`) by using a CNAME record</span></span>
-> * <span data-ttu-id="3efa1-111">Etki alanı eşlemesi komut dosyaları ile otomatikleştirme</span><span class="sxs-lookup"><span data-stu-id="3efa1-111">Automate domain mapping with scripts</span></span>
+> * <span data-ttu-id="cd9e7-108">Bir alt etki alanı eşleme (örneğin, `www.contoso.com`) bir CNAME kaydı kullanılarak</span><span class="sxs-lookup"><span data-stu-id="cd9e7-108">Map a subdomain (for example, `www.contoso.com`) by using a CNAME record</span></span>
+> * <span data-ttu-id="cd9e7-109">Kök etki alanını eşlemek (örneğin, `contoso.com`) kullanarak bir A kaydı</span><span class="sxs-lookup"><span data-stu-id="cd9e7-109">Map a root domain (for example, `contoso.com`) by using an A record</span></span>
+> * <span data-ttu-id="cd9e7-110">Joker karakter etki alanını eşlemek (örneğin, `*.contoso.com`) bir CNAME kaydı kullanılarak</span><span class="sxs-lookup"><span data-stu-id="cd9e7-110">Map a wildcard domain (for example, `*.contoso.com`) by using a CNAME record</span></span>
+> * <span data-ttu-id="cd9e7-111">Etki alanı eşlemesi komut dosyaları ile otomatikleştirme</span><span class="sxs-lookup"><span data-stu-id="cd9e7-111">Automate domain mapping with scripts</span></span>
 
-<span data-ttu-id="3efa1-112">Ya da kullanabileceğiniz bir **CNAME kaydı** veya bir **bir kayıt** App Service'e bir özel DNS adını eşleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="3efa1-112">You can use either a **CNAME record** or an **A record** to map a custom DNS name to App Service.</span></span> 
+<span data-ttu-id="cd9e7-112">Kullanabilirsiniz bir **CNAME kaydı** veya bir **kayıt** toomap özel DNS tooApp hizmet adı.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-112">You can use either a **CNAME record** or an **A record** toomap a custom DNS name tooApp Service.</span></span> 
 
 > [!NOTE]
-> <span data-ttu-id="3efa1-113">Bir kök etki alanı dışındaki tüm özel DNS adları için CNAME kullanmanızı öneririz (örneğin, `contoso.com`).</span><span class="sxs-lookup"><span data-stu-id="3efa1-113">We recommend that you use a CNAME for all custom DNS names except a root domain (for example, `contoso.com`).</span></span>
+> <span data-ttu-id="cd9e7-113">Bir kök etki alanı dışındaki tüm özel DNS adları için CNAME kullanmanızı öneririz (örneğin, `contoso.com`).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-113">We recommend that you use a CNAME for all custom DNS names except a root domain (for example, `contoso.com`).</span></span>
 
-<span data-ttu-id="3efa1-114">Canlı site ve DNS etki alanı adını App Service'e geçirmek için bkz [etkin bir DNS adı Azure App Service'e geçirme](app-service-custom-domain-name-migrate.md).</span><span class="sxs-lookup"><span data-stu-id="3efa1-114">To migrate a live site and its DNS domain name to App Service, see [Migrate an active DNS name to Azure App Service](app-service-custom-domain-name-migrate.md).</span></span>
+<span data-ttu-id="cd9e7-114">Canlı site ve kendi DNS etki alanı adı tooApp hizmeti toomigrate bkz [etkin bir DNS adı tooAzure uygulama hizmeti geçirmek](app-service-custom-domain-name-migrate.md).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-114">toomigrate a live site and its DNS domain name tooApp Service, see [Migrate an active DNS name tooAzure App Service](app-service-custom-domain-name-migrate.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="3efa1-115">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="3efa1-115">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="cd9e7-115">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="cd9e7-115">Prerequisites</span></span>
 
-<span data-ttu-id="3efa1-116">Bu öğreticiyi tamamlamak için:</span><span class="sxs-lookup"><span data-stu-id="3efa1-116">To complete this tutorial:</span></span>
+<span data-ttu-id="cd9e7-116">toocomplete Bu öğretici:</span><span class="sxs-lookup"><span data-stu-id="cd9e7-116">toocomplete this tutorial:</span></span>
 
-* <span data-ttu-id="3efa1-117">[Bir App Service uygulaması oluşturma](/azure/app-service/), veya başka bir öğretici için oluşturduğunuz bir uygulama kullanın.</span><span class="sxs-lookup"><span data-stu-id="3efa1-117">[Create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.</span></span>
-* <span data-ttu-id="3efa1-118">Bir etki alanı adı satın alın ve etki alanı sağlayıcınızın (örneğin, GoDaddy) DNS kayıt defterine erişim olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="3efa1-118">Purchase a domain name and make sure you have access to the DNS registry for your domain provider (such as GoDaddy).</span></span>
+* <span data-ttu-id="cd9e7-117">[Bir App Service uygulaması oluşturma](/azure/app-service/), veya başka bir öğretici için oluşturduğunuz bir uygulama kullanın.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-117">[Create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.</span></span>
+* <span data-ttu-id="cd9e7-118">Bir etki alanı adı satın alın ve etki alanı sağlayıcınızın (örneğin, GoDaddy) erişim toohello DNS kayıt defteri sahip olduğunuzdan emin olun.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-118">Purchase a domain name and make sure you have access toohello DNS registry for your domain provider (such as GoDaddy).</span></span>
 
-  <span data-ttu-id="3efa1-119">Örneğin, DNS girişlerini eklemek için `contoso.com` ve `www.contoso.com`, DNS ayarlarını yapılandırın olmalıdır `contoso.com` kök etki alanı.</span><span class="sxs-lookup"><span data-stu-id="3efa1-119">For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain.</span></span>
+  <span data-ttu-id="cd9e7-119">Örneğin, için DNS girişleri tooadd `contoso.com` ve `www.contoso.com`, mümkün tooconfigure hello DNS ayarlarını hello olmalıdır `contoso.com` kök etki alanı.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-119">For example, tooadd DNS entries for `contoso.com` and `www.contoso.com`, you must be able tooconfigure hello DNS settings for hello `contoso.com` root domain.</span></span>
 
   > [!NOTE]
-  > <span data-ttu-id="3efa1-120">Ad, göz önünde bulundurun var olan bir etki alanı yoksa [Azure portalını kullanarak bir etki alanı satın alma](custom-dns-web-site-buydomains-web-app.md).</span><span class="sxs-lookup"><span data-stu-id="3efa1-120">If you don't have an existing domain name, consider [purchasing a domain using the Azure portal](custom-dns-web-site-buydomains-web-app.md).</span></span> 
+  > <span data-ttu-id="cd9e7-120">Ad, göz önünde bulundurun var olan bir etki alanı yoksa [hello Azure portal kullanarak bir etki alanı satın alma](custom-dns-web-site-buydomains-web-app.md).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-120">If you don't have an existing domain name, consider [purchasing a domain using hello Azure portal](custom-dns-web-site-buydomains-web-app.md).</span></span> 
 
-## <a name="prepare-the-app"></a><span data-ttu-id="3efa1-121">Uygulamayı hazırlayın</span><span class="sxs-lookup"><span data-stu-id="3efa1-121">Prepare the app</span></span>
+## <a name="prepare-hello-app"></a><span data-ttu-id="cd9e7-121">Merhaba uygulamasını hazırlama</span><span class="sxs-lookup"><span data-stu-id="cd9e7-121">Prepare hello app</span></span>
 
-<span data-ttu-id="3efa1-122">Özel bir DNS adı bir web uygulamanızın için web uygulaması eşlemek için [uygulama hizmeti planı](https://azure.microsoft.com/pricing/details/app-service/) Ücretli katmanı olmalıdır (**paylaşılan**, **temel**, **standart**, veya  **Premium**).</span><span class="sxs-lookup"><span data-stu-id="3efa1-122">To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**).</span></span> <span data-ttu-id="3efa1-123">Bu adımda, App Service uygulaması desteklenen fiyatlandırma katmanı olan olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="3efa1-123">In this step, you make sure that the App Service app is in the supported pricing tier.</span></span>
+<span data-ttu-id="cd9e7-122">bir özel DNS adı tooa web uygulamanızın, hello web uygulaması toomap [uygulama hizmeti planı](https://azure.microsoft.com/pricing/details/app-service/) Ücretli katmanı olmalıdır (**paylaşılan**, **temel**, **standart**, veya  **Premium**).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-122">toomap a custom DNS name tooa web app, hello web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**).</span></span> <span data-ttu-id="cd9e7-123">Bu adımda, fiyatlandırma katmanı bu hello uygulama hello uygulamadır hizmeti desteklenen emin olun.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-123">In this step, you make sure that hello App Service app is in hello supported pricing tier.</span></span>
 
-### <a name="sign-in-to-azure"></a><span data-ttu-id="3efa1-124">Azure'da oturum açma</span><span class="sxs-lookup"><span data-stu-id="3efa1-124">Sign in to Azure</span></span>
+### <a name="sign-in-tooazure"></a><span data-ttu-id="cd9e7-124">İçinde tooAzure oturum</span><span class="sxs-lookup"><span data-stu-id="cd9e7-124">Sign in tooAzure</span></span>
 
-<span data-ttu-id="3efa1-125">Açık [Azure portal](https://portal.azure.com) ve Azure hesabınızla oturum açın.</span><span class="sxs-lookup"><span data-stu-id="3efa1-125">Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.</span></span>
+<span data-ttu-id="cd9e7-125">Açık hello [Azure portal](https://portal.azure.com) ve Azure hesabınızla oturum açın.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-125">Open hello [Azure portal](https://portal.azure.com) and sign in with your Azure account.</span></span>
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a><span data-ttu-id="3efa1-126">Azure portalında uygulama gidin</span><span class="sxs-lookup"><span data-stu-id="3efa1-126">Navigate to the app in the Azure portal</span></span>
+### <a name="navigate-toohello-app-in-hello-azure-portal"></a><span data-ttu-id="cd9e7-126">Toohello uygulamada hello Azure portalına gidin</span><span class="sxs-lookup"><span data-stu-id="cd9e7-126">Navigate toohello app in hello Azure portal</span></span>
 
-<span data-ttu-id="3efa1-127">Sol menüden seçin **uygulama hizmetleri**ve ardından uygulama adını seçin.</span><span class="sxs-lookup"><span data-stu-id="3efa1-127">From the left menu, select **App Services**, and then select the name of the app.</span></span>
+<span data-ttu-id="cd9e7-127">Merhaba sol menüden seçin **uygulama hizmetleri**ve ardından hello uygulamasının hello adı seçin.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-127">From hello left menu, select **App Services**, and then select hello name of hello app.</span></span>
 
-![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/select-app.png)
+![Portal Gezinti tooAzure uygulama](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-<span data-ttu-id="3efa1-129">Uygulama Hizmeti uygulamasının yönetim sayfasına bakın.</span><span class="sxs-lookup"><span data-stu-id="3efa1-129">You see the management page of the App Service app.</span></span>  
+<span data-ttu-id="cd9e7-129">Merhaba App Service uygulaması hello Yönetimi sayfasında bakın.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-129">You see hello management page of hello App Service app.</span></span>  
 
 <a name="checkpricing"></a>
 
-### <a name="check-the-pricing-tier"></a><span data-ttu-id="3efa1-130">Fiyatlandırma katmanı denetleyin</span><span class="sxs-lookup"><span data-stu-id="3efa1-130">Check the pricing tier</span></span>
+### <a name="check-hello-pricing-tier"></a><span data-ttu-id="cd9e7-130">Fiyatlandırma katmanı hello denetleyin</span><span class="sxs-lookup"><span data-stu-id="cd9e7-130">Check hello pricing tier</span></span>
 
-<span data-ttu-id="3efa1-131">Uygulama sayfanın sol gezinti bölmesinde kaydırın **ayarları** bölümünde ve seçin **(uygulama hizmeti planı) ölçeklendirme**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-131">In the left navigation of the app page, scroll to the **Settings** section and select **Scale up (App Service plan)**.</span></span>
+<span data-ttu-id="cd9e7-131">Sol gezinti hello uygulama sayfasının hello toohello kaydırma **ayarları** bölümünde ve seçin **(uygulama hizmeti planı) ölçeklendirme**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-131">In hello left navigation of hello app page, scroll toohello **Settings** section and select **Scale up (App Service plan)**.</span></span>
 
 ![Büyütme menüsü](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-<span data-ttu-id="3efa1-133">Uygulamanın geçerli katmanı mavi kenarlığı ile vurgulanır.</span><span class="sxs-lookup"><span data-stu-id="3efa1-133">The app's current tier is highlighted by a blue border.</span></span> <span data-ttu-id="3efa1-134">Uygulama içinde olmadığından emin olmak için kontrol edin **serbest** katmanı.</span><span class="sxs-lookup"><span data-stu-id="3efa1-134">Check to make sure that the app is not in the **Free** tier.</span></span> <span data-ttu-id="3efa1-135">İçinde özel DNS desteklenmiyor **serbest** katmanı.</span><span class="sxs-lookup"><span data-stu-id="3efa1-135">Custom DNS is not supported in the **Free** tier.</span></span> 
+<span data-ttu-id="cd9e7-133">Merhaba uygulamanın geçerli katmanı mavi kenarlığı ile vurgulanır.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-133">hello app's current tier is highlighted by a blue border.</span></span> <span data-ttu-id="cd9e7-134">Bu hello uygulama hello olmadığından emin toomake denetleyin **serbest** katmanı.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-134">Check toomake sure that hello app is not in hello **Free** tier.</span></span> <span data-ttu-id="cd9e7-135">Özel DNS hello desteklenmiyor **serbest** katmanı.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-135">Custom DNS is not supported in hello **Free** tier.</span></span> 
 
 ![Fiyatlandırma katmanı denetleyin](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-<span data-ttu-id="3efa1-137">Uygulama hizmeti planı değilse **serbest**, Kapat **fiyatlandırma katmanınızı seçin** sayfasında ve geçin [bir CNAME kaydı eşleme](#cname).</span><span class="sxs-lookup"><span data-stu-id="3efa1-137">If the App Service plan is not **Free**, close the **Choose your pricing tier** page and skip to [Map a CNAME record](#cname).</span></span>
+<span data-ttu-id="cd9e7-137">Merhaba uygulama hizmeti planı değilse **serbest**, Kapat hello **fiyatlandırma katmanınızı seçin** sayfasında ve çok atla[bir CNAME kaydı eşleme](#cname).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-137">If hello App Service plan is not **Free**, close hello **Choose your pricing tier** page and skip too[Map a CNAME record](#cname).</span></span>
 
 <a name="scaleup"></a>
 
-### <a name="scale-up-the-app-service-plan"></a><span data-ttu-id="3efa1-138">Uygulama hizmeti planı ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="3efa1-138">Scale up the App Service plan</span></span>
+### <a name="scale-up-hello-app-service-plan"></a><span data-ttu-id="cd9e7-138">Uygulama hizmeti planı Hello ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="cd9e7-138">Scale up hello App Service plan</span></span>
 
-<span data-ttu-id="3efa1-139">Boş olmayan katmanları birini seçin (**paylaşılan**, **temel**, **standart**, veya **Premium**).</span><span class="sxs-lookup"><span data-stu-id="3efa1-139">Select any of the non-free tiers (**Shared**, **Basic**, **Standard**, or **Premium**).</span></span> 
+<span data-ttu-id="cd9e7-139">Merhaba boş olmayan katmanları birini seçin (**paylaşılan**, **temel**, **standart**, veya **Premium**).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-139">Select any of hello non-free tiers (**Shared**, **Basic**, **Standard**, or **Premium**).</span></span> 
 
-<span data-ttu-id="3efa1-140">**Seç**'e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="3efa1-140">Click **Select**.</span></span>
+<span data-ttu-id="cd9e7-140">**Seç**'e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-140">Click **Select**.</span></span>
 
 ![Fiyatlandırma katmanı denetleyin](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
-<span data-ttu-id="3efa1-142">Aşağıdaki bildirim görürseniz, bir ölçeklendirme işlemi tamamlanır.</span><span class="sxs-lookup"><span data-stu-id="3efa1-142">When you see the following notification, the scale operation is complete.</span></span>
+<span data-ttu-id="cd9e7-142">Bildirim aşağıdaki hello gördüğünüzde, hello ölçeklendirme işlemi tamamlanır.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-142">When you see hello following notification, hello scale operation is complete.</span></span>
 
 ![Ölçek işlemi onayı](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 <a name="cname"></a>
 
-## <a name="map-a-cname-record"></a><span data-ttu-id="3efa1-144">Harita bir CNAME kaydı</span><span class="sxs-lookup"><span data-stu-id="3efa1-144">Map a CNAME record</span></span>
+## <a name="map-a-cname-record"></a><span data-ttu-id="cd9e7-144">Harita bir CNAME kaydı</span><span class="sxs-lookup"><span data-stu-id="cd9e7-144">Map a CNAME record</span></span>
 
-<span data-ttu-id="3efa1-145">Eğitmen örnekte için bir CNAME kaydı ekleyin `www` alt etki alanı (örneğin, `www.contoso.com`).</span><span class="sxs-lookup"><span data-stu-id="3efa1-145">In the tutorial example, you add a CNAME record for the `www` subdomain (for example, `www.contoso.com`).</span></span>
+<span data-ttu-id="cd9e7-145">Başlangıç Öğreticisi örnekte hello için bir CNAME kaydı ekleyin `www` alt etki alanı (örneğin, `www.contoso.com`).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-145">In hello tutorial example, you add a CNAME record for hello `www` subdomain (for example, `www.contoso.com`).</span></span>
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-the-cname-record"></a><span data-ttu-id="3efa1-146">CNAME kaydı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="3efa1-146">Create the CNAME record</span></span>
+### <a name="create-hello-cname-record"></a><span data-ttu-id="cd9e7-146">Merhaba CNAME kaydı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-146">Create hello CNAME record</span></span>
 
-<span data-ttu-id="3efa1-147">Uygulamanın varsayılan ana bilgisayar adı için bir alt etki alanı eşlemek için bir CNAME kaydı ekleyin (`<app_name>.azurewebsites.net`).</span><span class="sxs-lookup"><span data-stu-id="3efa1-147">Add a CNAME record to map a subdomain to the app's default hostname (`<app_name>.azurewebsites.net`).</span></span>
+<span data-ttu-id="cd9e7-147">Bir alt etki alanı toohello uygulamanın varsayılan ana bilgisayar adı bir CNAME kaydı toomap ekleyin (`<app_name>.azurewebsites.net`).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-147">Add a CNAME record toomap a subdomain toohello app's default hostname (`<app_name>.azurewebsites.net`).</span></span>
 
-<span data-ttu-id="3efa1-148">İçin `www.contoso.com` etki alanı örneği adı eşleyen bir CNAME kaydı ekleyin `www` için `<app_name>.azurewebsites.net`.</span><span class="sxs-lookup"><span data-stu-id="3efa1-148">For the `www.contoso.com` domain example, add a CNAME record that maps the name `www` to `<app_name>.azurewebsites.net`.</span></span>
+<span data-ttu-id="cd9e7-148">Hello için `www.contoso.com` etki alanı örneği hello adı eşleyen bir CNAME kaydı ekleyin `www` çok`<app_name>.azurewebsites.net`.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-148">For hello `www.contoso.com` domain example, add a CNAME record that maps hello name `www` too`<app_name>.azurewebsites.net`.</span></span>
 
-<span data-ttu-id="3efa1-149">CNAME ekledikten sonra DNS kayıtları sayfasında aşağıdaki gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="3efa1-149">After you add the CNAME, the DNS records page looks like the following example:</span></span>
+<span data-ttu-id="cd9e7-149">Merhaba CNAME ekledikten sonra aşağıdaki örneğine hello gibi hello DNS kayıtları sayfasında görünür:</span><span class="sxs-lookup"><span data-stu-id="cd9e7-149">After you add hello CNAME, hello DNS records page looks like hello following example:</span></span>
 
-![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+![Portal Gezinti tooAzure uygulama](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
-### <a name="enable-the-cname-record-mapping-in-azure"></a><span data-ttu-id="3efa1-151">CNAME kaydı eşleme Azure içinde etkinleştir</span><span class="sxs-lookup"><span data-stu-id="3efa1-151">Enable the CNAME record mapping in Azure</span></span>
+### <a name="enable-hello-cname-record-mapping-in-azure"></a><span data-ttu-id="cd9e7-151">Azure'da Hello CNAME kaydı eşleştirmeyi etkinleştir</span><span class="sxs-lookup"><span data-stu-id="cd9e7-151">Enable hello CNAME record mapping in Azure</span></span>
 
-<span data-ttu-id="3efa1-152">Azure Portalı'nda uygulama sayfası sol gezinti bölmesinde seçin **özel etki alanları**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-152">In the left navigation of the app page in the Azure portal, select **Custom domains**.</span></span> 
+<span data-ttu-id="cd9e7-152">Hello Azure portalında sol gezinti hello uygulama sayfasının hello seçin **özel etki alanları**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-152">In hello left navigation of hello app page in hello Azure portal, select **Custom domains**.</span></span> 
 
 ![Özel etki alanı menüsü](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-<span data-ttu-id="3efa1-154">İçinde **özel etki alanları** sayfası uygulama, özel tam DNS adı Ekle (`www.contoso.com`) listesi.</span><span class="sxs-lookup"><span data-stu-id="3efa1-154">In the **Custom domains** page of the app, add the fully qualified custom DNS name (`www.contoso.com`) to the list.</span></span>
+<span data-ttu-id="cd9e7-154">Merhaba, **özel etki alanları** sayfa hello özel DNS adını tam hello uygulama Ekle (`www.contoso.com`) toohello listesi.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-154">In hello **Custom domains** page of hello app, add hello fully qualified custom DNS name (`www.contoso.com`) toohello list.</span></span>
 
-<span data-ttu-id="3efa1-155">Seçin  **+**  yanındaki simge **ana bilgisayar adını eklemek**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-155">Select the **+** icon next to **Add hostname**.</span></span>
+<span data-ttu-id="cd9e7-155">Select hello  **+**  simgesi sonraki çok**ana bilgisayar adını eklemek**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-155">Select hello **+** icon next too**Add hostname**.</span></span>
 
 ![Ana bilgisayar adı ekleyin](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-<span data-ttu-id="3efa1-157">İçin bir CNAME kaydı gibi eklenen tam etki alanı adı yazın `www.contoso.com`.</span><span class="sxs-lookup"><span data-stu-id="3efa1-157">Type the fully qualified domain name that you added a CNAME record for, such as `www.contoso.com`.</span></span> 
+<span data-ttu-id="cd9e7-157">Merhaba tam etki alanı adını yazın, için bir CNAME kaydı gibi eklenen `www.contoso.com`.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-157">Type hello fully qualified domain name that you added a CNAME record for, such as `www.contoso.com`.</span></span> 
 
-<span data-ttu-id="3efa1-158">Seçin **doğrulamak**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-158">Select **Validate**.</span></span>
+<span data-ttu-id="cd9e7-158">Seçin **doğrulamak**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-158">Select **Validate**.</span></span>
 
-<span data-ttu-id="3efa1-159">**Ana bilgisayar adını eklemek** düğmesi etkinleştirilir.</span><span class="sxs-lookup"><span data-stu-id="3efa1-159">The **Add hostname** button is activated.</span></span> 
+<span data-ttu-id="cd9e7-159">Merhaba **ana bilgisayar adını eklemek** düğmesi etkinleştirilir.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-159">hello **Add hostname** button is activated.</span></span> 
 
-<span data-ttu-id="3efa1-160">Olduğundan emin olun **ana bilgisayar adı kayıt türü** ayarlanır **CNAME (www.example.com veya herhangi bir alt etki alanı)**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-160">Make sure that **Hostname record type** is set to **CNAME (www.example.com or any subdomain)**.</span></span>
+<span data-ttu-id="cd9e7-160">Olduğundan emin olun **ana bilgisayar adı kayıt türü** çok ayarlanır**CNAME (www.example.com veya herhangi bir alt etki alanı)**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-160">Make sure that **Hostname record type** is set too**CNAME (www.example.com or any subdomain)**.</span></span>
 
-<span data-ttu-id="3efa1-161">Seçin **ana bilgisayar adını eklemek**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-161">Select **Add hostname**.</span></span>
+<span data-ttu-id="cd9e7-161">Seçin **ana bilgisayar adını eklemek**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-161">Select **Add hostname**.</span></span>
 
-![DNS adı için uygulama ekleme](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+![DNS adı toohello uygulama Ekle](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-<span data-ttu-id="3efa1-163">Uygulamanın içinde yansıtılması yeni ana bilgisayar adı için biraz zaman alabilir **özel etki alanları** sayfası.</span><span class="sxs-lookup"><span data-stu-id="3efa1-163">It might take some time for the new hostname to be reflected in the app's **Custom domains** page.</span></span> <span data-ttu-id="3efa1-164">Verileri güncelleştirmek için tarayıcıyı yenilemeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="3efa1-164">Try refreshing the browser to update the data.</span></span>
+<span data-ttu-id="cd9e7-163">Merhaba uygulamanın içinde yansıtılan hello yeni ana bilgisayar adı toobe için biraz zaman alabilir **özel etki alanları** sayfası.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-163">It might take some time for hello new hostname toobe reflected in hello app's **Custom domains** page.</span></span> <span data-ttu-id="cd9e7-164">Merhaba tarayıcı tooupdate hello verileri yenilemeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-164">Try refreshing hello browser tooupdate hello data.</span></span>
 
 ![CNAME kaydı eklendi](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-<span data-ttu-id="3efa1-166">Bir adımı eksik veya herhangi bir yerde yazmış daha önce sayfanın sonundaki bir doğrulama hatası görürsünüz.</span><span class="sxs-lookup"><span data-stu-id="3efa1-166">If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.</span></span>
+<span data-ttu-id="cd9e7-166">Bir adımı eksik veya herhangi bir yerde yazmış hello sayfa hello altındaki bir doğrulama hatası daha önce bkz.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-166">If you missed a step or made a typo somewhere earlier, you see a verification error at hello bottom of hello page.</span></span>
 
 ![Doğrulama hatası](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
 <a name="a"></a>
 
-## <a name="map-an-a-record"></a><span data-ttu-id="3efa1-168">Bir A kaydı eşleme</span><span class="sxs-lookup"><span data-stu-id="3efa1-168">Map an A record</span></span>
+## <a name="map-an-a-record"></a><span data-ttu-id="cd9e7-168">Bir A kaydı eşleme</span><span class="sxs-lookup"><span data-stu-id="cd9e7-168">Map an A record</span></span>
 
-<span data-ttu-id="3efa1-169">Eğitmen örnekte kök etki alanı için bir A kaydı ekleyin (örneğin, `contoso.com`).</span><span class="sxs-lookup"><span data-stu-id="3efa1-169">In the tutorial example, you add an A record for the root domain (for example, `contoso.com`).</span></span> 
+<span data-ttu-id="cd9e7-169">Başlangıç Öğreticisi örnekte hello kök etki alanı için bir A kaydı ekleyin (örneğin, `contoso.com`).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-169">In hello tutorial example, you add an A record for hello root domain (for example, `contoso.com`).</span></span> 
 
 <a name="info"></a>
 
-### <a name="copy-the-apps-ip-address"></a><span data-ttu-id="3efa1-170">Uygulamanın IP adresini kopyalayın</span><span class="sxs-lookup"><span data-stu-id="3efa1-170">Copy the app's IP address</span></span>
+### <a name="copy-hello-apps-ip-address"></a><span data-ttu-id="cd9e7-170">Merhaba uygulamanın IP adresini kopyalayın</span><span class="sxs-lookup"><span data-stu-id="cd9e7-170">Copy hello app's IP address</span></span>
 
-<span data-ttu-id="3efa1-171">Bir A kaydı eşlemek için uygulamanın dış IP adresi gerekir.</span><span class="sxs-lookup"><span data-stu-id="3efa1-171">To map an A record, you need the app's external IP address.</span></span> <span data-ttu-id="3efa1-172">Bu IP adresi uygulamanın içinde bulabilirsiniz **özel etki alanları** Azure portalında sayfası.</span><span class="sxs-lookup"><span data-stu-id="3efa1-172">You can find this IP address in the app's **Custom domains** page in the Azure portal.</span></span>
+<span data-ttu-id="cd9e7-171">toomap bir A kaydı hello uygulamanın dış IP adresi gerekir.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-171">toomap an A record, you need hello app's external IP address.</span></span> <span data-ttu-id="cd9e7-172">Bu IP adresi hello uygulamanın içinde bulabilirsiniz **özel etki alanları** hello Azure portal sayfasında.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-172">You can find this IP address in hello app's **Custom domains** page in hello Azure portal.</span></span>
 
-<span data-ttu-id="3efa1-173">Azure Portalı'nda uygulama sayfası sol gezinti bölmesinde seçin **özel etki alanları**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-173">In the left navigation of the app page in the Azure portal, select **Custom domains**.</span></span> 
+<span data-ttu-id="cd9e7-173">Hello Azure portalında sol gezinti hello uygulama sayfasının hello seçin **özel etki alanları**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-173">In hello left navigation of hello app page in hello Azure portal, select **Custom domains**.</span></span> 
 
 ![Özel etki alanı menüsü](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-<span data-ttu-id="3efa1-175">İçinde **özel etki alanları** sayfasında, uygulamanın IP adresini kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="3efa1-175">In the **Custom domains** page, copy the app's IP address.</span></span>
+<span data-ttu-id="cd9e7-175">Merhaba, **özel etki alanları** sayfasında, hello uygulamanın IP adresini kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-175">In hello **Custom domains** page, copy hello app's IP address.</span></span>
 
-![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+![Portal Gezinti tooAzure uygulama](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-the-a-record"></a><span data-ttu-id="3efa1-177">A kaydını oluşturun</span><span class="sxs-lookup"><span data-stu-id="3efa1-177">Create the A record</span></span>
+### <a name="create-hello-a-record"></a><span data-ttu-id="cd9e7-177">Merhaba A kaydını oluşturun</span><span class="sxs-lookup"><span data-stu-id="cd9e7-177">Create hello A record</span></span>
 
-<span data-ttu-id="3efa1-178">Bir uygulama için bir A kaydı eşlemek için uygulama hizmeti gerektirir **iki** DNS kayıtları:</span><span class="sxs-lookup"><span data-stu-id="3efa1-178">To map an A record to an app, App Service requires **two** DNS records:</span></span>
+<span data-ttu-id="cd9e7-178">toomap bir A kaydı tooan uygulama, uygulama hizmeti gerekiyor. **iki** DNS kayıtları:</span><span class="sxs-lookup"><span data-stu-id="cd9e7-178">toomap an A record tooan app, App Service requires **two** DNS records:</span></span>
 
-- <span data-ttu-id="3efa1-179">Bir **A** uygulamanın IP adresine eşlemek için kayıt.</span><span class="sxs-lookup"><span data-stu-id="3efa1-179">An **A** record to map to the app's IP address.</span></span>
-- <span data-ttu-id="3efa1-180">A **TXT** uygulamanın varsayılan hostname eşlemek için kayıt `<app_name>.azurewebsites.net`.</span><span class="sxs-lookup"><span data-stu-id="3efa1-180">A **TXT** record to map to the app's default hostname `<app_name>.azurewebsites.net`.</span></span> <span data-ttu-id="3efa1-181">Uygulama hizmeti bu kaydı yalnızca yapılandırması sırasında özel etki alanı sahibi olduğunu doğrulamak için kullanır.</span><span class="sxs-lookup"><span data-stu-id="3efa1-181">App Service uses this record only at configuration time, to verify that you own the custom domain.</span></span> <span data-ttu-id="3efa1-182">Özel etki alanınız doğrulandı ve App Service'te yapılandırdıktan sonra bu TXT kaydı silebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="3efa1-182">After your custom domain is validated and configured in App Service, you can delete this TXT record.</span></span> 
+- <span data-ttu-id="cd9e7-179">Bir **A** toomap toohello uygulamanın IP adresini kaydedin.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-179">An **A** record toomap toohello app's IP address.</span></span>
+- <span data-ttu-id="cd9e7-180">A **TXT** toomap toohello uygulamanın varsayılan ana bilgisayar adı kayıt `<app_name>.azurewebsites.net`.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-180">A **TXT** record toomap toohello app's default hostname `<app_name>.azurewebsites.net`.</span></span> <span data-ttu-id="cd9e7-181">Uygulama hizmeti bu kaydı yalnızca yapılandırması sırasında hello özel etki alanı kendi tooverify kullanır.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-181">App Service uses this record only at configuration time, tooverify that you own hello custom domain.</span></span> <span data-ttu-id="cd9e7-182">Özel etki alanınız doğrulandı ve App Service'te yapılandırdıktan sonra bu TXT kaydı silebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-182">After your custom domain is validated and configured in App Service, you can delete this TXT record.</span></span> 
 
-<span data-ttu-id="3efa1-183">İçin `contoso.com` etki alanı örneği aşağıdaki tabloya göre A ve TXT kayıtlarını oluşturun (`@` genellikle kök etki alanını temsil eder).</span><span class="sxs-lookup"><span data-stu-id="3efa1-183">For the `contoso.com` domain example, create the A and TXT records according to the following table (`@` typically represents the root domain).</span></span> 
+<span data-ttu-id="cd9e7-183">Hello için `contoso.com` etki alanı örneği, aşağıdaki tablonun toohello göre hello A ve TXT kayıtlarını oluşturun (`@` genellikle temsil kök etki alanı hello).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-183">For hello `contoso.com` domain example, create hello A and TXT records according toohello following table (`@` typically represents hello root domain).</span></span> 
 
-| <span data-ttu-id="3efa1-184">Kayıt türü</span><span class="sxs-lookup"><span data-stu-id="3efa1-184">Record type</span></span> | <span data-ttu-id="3efa1-185">Host</span><span class="sxs-lookup"><span data-stu-id="3efa1-185">Host</span></span> | <span data-ttu-id="3efa1-186">Değer</span><span class="sxs-lookup"><span data-stu-id="3efa1-186">Value</span></span> |
+| <span data-ttu-id="cd9e7-184">Kayıt türü</span><span class="sxs-lookup"><span data-stu-id="cd9e7-184">Record type</span></span> | <span data-ttu-id="cd9e7-185">Host</span><span class="sxs-lookup"><span data-stu-id="cd9e7-185">Host</span></span> | <span data-ttu-id="cd9e7-186">Değer</span><span class="sxs-lookup"><span data-stu-id="cd9e7-186">Value</span></span> |
 | - | - | - |
-| <span data-ttu-id="3efa1-187">A</span><span class="sxs-lookup"><span data-stu-id="3efa1-187">A</span></span> | `@` | <span data-ttu-id="3efa1-188">IP adresinden [uygulamanın IP adresini kopyalayın](#info)</span><span class="sxs-lookup"><span data-stu-id="3efa1-188">IP address from [Copy the app's IP address](#info)</span></span> |
-| <span data-ttu-id="3efa1-189">TXT</span><span class="sxs-lookup"><span data-stu-id="3efa1-189">TXT</span></span> | `@` | `<app_name>.azurewebsites.net` |
+| <span data-ttu-id="cd9e7-187">A</span><span class="sxs-lookup"><span data-stu-id="cd9e7-187">A</span></span> | `@` | <span data-ttu-id="cd9e7-188">IP adresinden [kopyalama hello uygulamanın IP adresi](#info)</span><span class="sxs-lookup"><span data-stu-id="cd9e7-188">IP address from [Copy hello app's IP address](#info)</span></span> |
+| <span data-ttu-id="cd9e7-189">TXT</span><span class="sxs-lookup"><span data-stu-id="cd9e7-189">TXT</span></span> | `@` | `<app_name>.azurewebsites.net` |
 
-<span data-ttu-id="3efa1-190">Kayıtları eklendiğinde, DNS kayıtları sayfasında aşağıdaki gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="3efa1-190">When the records are added, the DNS records page looks like the following example:</span></span>
+<span data-ttu-id="cd9e7-190">Merhaba kayıtları eklendiğinde, hello DNS kayıtları sayfasında hello örnek aşağıdaki gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="cd9e7-190">When hello records are added, hello DNS records page looks like hello following example:</span></span>
 
 ![DNS kayıtları sayfasında](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
 <a name="enable-a"></a>
 
-### <a name="enable-the-a-record-mapping-in-the-app"></a><span data-ttu-id="3efa1-192">Uygulama A kaydı eşleştirmeyi etkinleştir</span><span class="sxs-lookup"><span data-stu-id="3efa1-192">Enable the A record mapping in the app</span></span>
+### <a name="enable-hello-a-record-mapping-in-hello-app"></a><span data-ttu-id="cd9e7-192">Merhaba hello uygulama kaydı eşlemesindeki etkinleştir</span><span class="sxs-lookup"><span data-stu-id="cd9e7-192">Enable hello A record mapping in hello app</span></span>
 
-<span data-ttu-id="3efa1-193">Uygulamanın edilene **özel etki alanları** sayfasında Azure Portalı'nda, özel tam DNS adı ekleyin (örneğin, `contoso.com`) listesi.</span><span class="sxs-lookup"><span data-stu-id="3efa1-193">Back in the app's **Custom domains** page in the Azure portal, add the fully qualified custom DNS name (for example, `contoso.com`) to the list.</span></span>
+<span data-ttu-id="cd9e7-193">Merhaba uygulamanın edilene **özel etki alanları** sayfasında hello Azure portal, hello özel DNS adını tam ekleyin (örneğin, `contoso.com`) toohello listesi.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-193">Back in hello app's **Custom domains** page in hello Azure portal, add hello fully qualified custom DNS name (for example, `contoso.com`) toohello list.</span></span>
 
-<span data-ttu-id="3efa1-194">Seçin  **+**  yanındaki simge **ana bilgisayar adını eklemek**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-194">Select the **+** icon next to **Add hostname**.</span></span>
+<span data-ttu-id="cd9e7-194">Select hello  **+**  simgesi sonraki çok**ana bilgisayar adını eklemek**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-194">Select hello **+** icon next too**Add hostname**.</span></span>
 
 ![Ana bilgisayar adı ekleyin](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
 
-<span data-ttu-id="3efa1-196">A kaydı için aşağıdaki gibi yapılandırılmış tam etki alanı adı yazın `contoso.com`.</span><span class="sxs-lookup"><span data-stu-id="3efa1-196">Type the fully qualified domain name that you configured the A record for, such as `contoso.com`.</span></span>
+<span data-ttu-id="cd9e7-196">Merhaba A kaydı, aşağıdaki gibi yapılandırılmış türü hello tam etki alanı adı `contoso.com`.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-196">Type hello fully qualified domain name that you configured hello A record for, such as `contoso.com`.</span></span>
 
-<span data-ttu-id="3efa1-197">Seçin **doğrulamak**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-197">Select **Validate**.</span></span>
+<span data-ttu-id="cd9e7-197">Seçin **doğrulamak**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-197">Select **Validate**.</span></span>
 
-<span data-ttu-id="3efa1-198">**Ana bilgisayar adını eklemek** düğmesi etkinleştirilir.</span><span class="sxs-lookup"><span data-stu-id="3efa1-198">The **Add hostname** button is activated.</span></span> 
+<span data-ttu-id="cd9e7-198">Merhaba **ana bilgisayar adını eklemek** düğmesi etkinleştirilir.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-198">hello **Add hostname** button is activated.</span></span> 
 
-<span data-ttu-id="3efa1-199">Olduğundan emin olun **ana bilgisayar adı kayıt türü** ayarlanır **bir kayıt (example.com)**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-199">Make sure that **Hostname record type** is set to **A record (example.com)**.</span></span>
+<span data-ttu-id="cd9e7-199">Olduğundan emin olun **ana bilgisayar adı kayıt türü** çok ayarlanır**bir kayıt (example.com)**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-199">Make sure that **Hostname record type** is set too**A record (example.com)**.</span></span>
 
-<span data-ttu-id="3efa1-200">Seçin **ana bilgisayar adını eklemek**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-200">Select **Add hostname**.</span></span>
+<span data-ttu-id="cd9e7-200">Seçin **ana bilgisayar adını eklemek**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-200">Select **Add hostname**.</span></span>
 
-![DNS adı için uygulama ekleme](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
+![DNS adı toohello uygulama Ekle](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-<span data-ttu-id="3efa1-202">Uygulamanın içinde yansıtılması yeni ana bilgisayar adı için biraz zaman alabilir **özel etki alanları** sayfası.</span><span class="sxs-lookup"><span data-stu-id="3efa1-202">It might take some time for the new hostname to be reflected in the app's **Custom domains** page.</span></span> <span data-ttu-id="3efa1-203">Verileri güncelleştirmek için tarayıcıyı yenilemeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="3efa1-203">Try refreshing the browser to update the data.</span></span>
+<span data-ttu-id="cd9e7-202">Merhaba uygulamanın içinde yansıtılan hello yeni ana bilgisayar adı toobe için biraz zaman alabilir **özel etki alanları** sayfası.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-202">It might take some time for hello new hostname toobe reflected in hello app's **Custom domains** page.</span></span> <span data-ttu-id="cd9e7-203">Merhaba tarayıcı tooupdate hello verileri yenilemeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-203">Try refreshing hello browser tooupdate hello data.</span></span>
 
 ![Bir kayıt eklendi](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
-<span data-ttu-id="3efa1-205">Bir adımı eksik veya herhangi bir yerde yazmış daha önce sayfanın sonundaki bir doğrulama hatası görürsünüz.</span><span class="sxs-lookup"><span data-stu-id="3efa1-205">If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.</span></span>
+<span data-ttu-id="cd9e7-205">Bir adımı eksik veya herhangi bir yerde yazmış hello sayfa hello altındaki bir doğrulama hatası daha önce bkz.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-205">If you missed a step or made a typo somewhere earlier, you see a verification error at hello bottom of hello page.</span></span>
 
 ![Doğrulama hatası](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
 <a name="wildcard"></a>
 
-## <a name="map-a-wildcard-domain"></a><span data-ttu-id="3efa1-207">Bir joker karakter etki alanına Eşle</span><span class="sxs-lookup"><span data-stu-id="3efa1-207">Map a wildcard domain</span></span>
+## <a name="map-a-wildcard-domain"></a><span data-ttu-id="cd9e7-207">Bir joker karakter etki alanına Eşle</span><span class="sxs-lookup"><span data-stu-id="cd9e7-207">Map a wildcard domain</span></span>
 
-<span data-ttu-id="3efa1-208">Eğitmen örnekte, eşleme bir [joker DNS adına](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (örneğin, `*.contoso.com`) için bir CNAME kaydı ekleyerek App Service uygulaması.</span><span class="sxs-lookup"><span data-stu-id="3efa1-208">In the tutorial example, you map a [wildcard DNS name](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (for example, `*.contoso.com`) to the App Service app by adding a CNAME record.</span></span> 
+<span data-ttu-id="cd9e7-208">Hello öğretici örnekte, eşleme bir [joker DNS adına](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (örneğin, `*.contoso.com`) toohello bir CNAME kaydı ekleyerek App Service uygulaması.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-208">In hello tutorial example, you map a [wildcard DNS name](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (for example, `*.contoso.com`) toohello App Service app by adding a CNAME record.</span></span> 
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-the-cname-record"></a><span data-ttu-id="3efa1-209">CNAME kaydı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="3efa1-209">Create the CNAME record</span></span>
+### <a name="create-hello-cname-record"></a><span data-ttu-id="cd9e7-209">Merhaba CNAME kaydı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-209">Create hello CNAME record</span></span>
 
-<span data-ttu-id="3efa1-210">Uygulamanın varsayılan ana bilgisayar adı için bir joker karakter ad eşlemek için bir CNAME kaydı ekleyin (`<app_name>.azurewebsites.net`).</span><span class="sxs-lookup"><span data-stu-id="3efa1-210">Add a CNAME record to map a wildcard name to the app's default hostname (`<app_name>.azurewebsites.net`).</span></span>
+<span data-ttu-id="cd9e7-210">Bir joker karakter adı toohello uygulamanın varsayılan ana bilgisayar adı bir CNAME kaydı toomap ekleyin (`<app_name>.azurewebsites.net`).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-210">Add a CNAME record toomap a wildcard name toohello app's default hostname (`<app_name>.azurewebsites.net`).</span></span>
 
-<span data-ttu-id="3efa1-211">İçin `*.contoso.com` etki alanı örneği CNAME kaydı adı eşler `*` için `<app_name>.azurewebsites.net`.</span><span class="sxs-lookup"><span data-stu-id="3efa1-211">For the `*.contoso.com` domain example, the CNAME record will map the name `*` to `<app_name>.azurewebsites.net`.</span></span>
+<span data-ttu-id="cd9e7-211">Hello için `*.contoso.com` etki alanı örneği hello CNAME kaydı hello adı eşleme `*` çok`<app_name>.azurewebsites.net`.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-211">For hello `*.contoso.com` domain example, hello CNAME record will map hello name `*` too`<app_name>.azurewebsites.net`.</span></span>
 
-<span data-ttu-id="3efa1-212">CNAME eklendiğinde, DNS kayıtları sayfasında aşağıdaki gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="3efa1-212">When the CNAME is added, the DNS records page looks like the following example:</span></span>
+<span data-ttu-id="cd9e7-212">Merhaba CNAME eklendiğinde hello DNS kayıtları sayfasında hello örnek aşağıdaki gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="cd9e7-212">When hello CNAME is added, hello DNS records page looks like hello following example:</span></span>
 
-![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
+![Portal Gezinti tooAzure uygulama](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
-### <a name="enable-the-cname-record-mapping-in-the-app"></a><span data-ttu-id="3efa1-214">Uygulamasında CNAME kaydı eşleştirmeyi etkinleştir</span><span class="sxs-lookup"><span data-stu-id="3efa1-214">Enable the CNAME record mapping in the app</span></span>
+### <a name="enable-hello-cname-record-mapping-in-hello-app"></a><span data-ttu-id="cd9e7-214">Merhaba uygulamasında Hello CNAME kaydı eşleştirmeyi etkinleştir</span><span class="sxs-lookup"><span data-stu-id="cd9e7-214">Enable hello CNAME record mapping in hello app</span></span>
 
-<span data-ttu-id="3efa1-215">Uygulama için joker karakter adıyla eşleşen tüm alt etki alanı artık ekleyebilirsiniz (örneğin, `sub1.contoso.com` ve `sub2.contoso.com` eşleşen `*.contoso.com`).</span><span class="sxs-lookup"><span data-stu-id="3efa1-215">You can now add any subdomain that matches the wildcard name to the app (for example, `sub1.contoso.com` and `sub2.contoso.com` match `*.contoso.com`).</span></span> 
+<span data-ttu-id="cd9e7-215">Merhaba joker adı toohello uygulama eşleşen alt etki alanı artık ekleyebilirsiniz (örneğin, `sub1.contoso.com` ve `sub2.contoso.com` eşleşen `*.contoso.com`).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-215">You can now add any subdomain that matches hello wildcard name toohello app (for example, `sub1.contoso.com` and `sub2.contoso.com` match `*.contoso.com`).</span></span> 
 
-<span data-ttu-id="3efa1-216">Azure Portalı'nda uygulama sayfası sol gezinti bölmesinde seçin **özel etki alanları**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-216">In the left navigation of the app page in the Azure portal, select **Custom domains**.</span></span> 
+<span data-ttu-id="cd9e7-216">Hello Azure portalında sol gezinti hello uygulama sayfasının hello seçin **özel etki alanları**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-216">In hello left navigation of hello app page in hello Azure portal, select **Custom domains**.</span></span> 
 
 ![Özel etki alanı menüsü](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-<span data-ttu-id="3efa1-218">Seçin  **+**  yanındaki simge **ana bilgisayar adını eklemek**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-218">Select the **+** icon next to **Add hostname**.</span></span>
+<span data-ttu-id="cd9e7-218">Select hello  **+**  simgesi sonraki çok**ana bilgisayar adını eklemek**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-218">Select hello **+** icon next too**Add hostname**.</span></span>
 
 ![Ana bilgisayar adı ekleyin](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-<span data-ttu-id="3efa1-220">Joker karakter etki alanıyla eşleşen bir tam etki alanı adı yazın (örneğin, `sub1.contoso.com`) ve ardından **doğrulama**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-220">Type a fully qualified domain name that matches the wildcard domain (for example, `sub1.contoso.com`), and then select **Validate**.</span></span>
+<span data-ttu-id="cd9e7-220">Merhaba joker karakter etki alanıyla eşleşen bir tam etki alanı adı yazın (örneğin, `sub1.contoso.com`) ve ardından **doğrulama**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-220">Type a fully qualified domain name that matches hello wildcard domain (for example, `sub1.contoso.com`), and then select **Validate**.</span></span>
 
-<span data-ttu-id="3efa1-221">**Ana bilgisayar adını eklemek** düğmesi etkinleştirilir.</span><span class="sxs-lookup"><span data-stu-id="3efa1-221">The **Add hostname** button is activated.</span></span> 
+<span data-ttu-id="cd9e7-221">Merhaba **ana bilgisayar adını eklemek** düğmesi etkinleştirilir.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-221">hello **Add hostname** button is activated.</span></span> 
 
-<span data-ttu-id="3efa1-222">Olduğundan emin olun **ana bilgisayar adı kayıt türü** ayarlanır **CNAME kaydı (www.example.com veya herhangi bir alt etki alanı)**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-222">Make sure that **Hostname record type** is set to **CNAME record (www.example.com or any subdomain)**.</span></span>
+<span data-ttu-id="cd9e7-222">Olduğundan emin olun **ana bilgisayar adı kayıt türü** çok ayarlanır**CNAME kaydı (www.example.com veya herhangi bir alt etki alanı)**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-222">Make sure that **Hostname record type** is set too**CNAME record (www.example.com or any subdomain)**.</span></span>
 
-<span data-ttu-id="3efa1-223">Seçin **ana bilgisayar adını eklemek**.</span><span class="sxs-lookup"><span data-stu-id="3efa1-223">Select **Add hostname**.</span></span>
+<span data-ttu-id="cd9e7-223">Seçin **ana bilgisayar adını eklemek**.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-223">Select **Add hostname**.</span></span>
 
-![DNS adı için uygulama ekleme](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
+![DNS adı toohello uygulama Ekle](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-<span data-ttu-id="3efa1-225">Uygulamanın içinde yansıtılması yeni ana bilgisayar adı için biraz zaman alabilir **özel etki alanları** sayfası.</span><span class="sxs-lookup"><span data-stu-id="3efa1-225">It might take some time for the new hostname to be reflected in the app's **Custom domains** page.</span></span> <span data-ttu-id="3efa1-226">Verileri güncelleştirmek için tarayıcıyı yenilemeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="3efa1-226">Try refreshing the browser to update the data.</span></span>
+<span data-ttu-id="cd9e7-225">Merhaba uygulamanın içinde yansıtılan hello yeni ana bilgisayar adı toobe için biraz zaman alabilir **özel etki alanları** sayfası.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-225">It might take some time for hello new hostname toobe reflected in hello app's **Custom domains** page.</span></span> <span data-ttu-id="cd9e7-226">Merhaba tarayıcı tooupdate hello verileri yenilemeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-226">Try refreshing hello browser tooupdate hello data.</span></span>
 
-<span data-ttu-id="3efa1-227">Seçin  **+**  yeniden joker karakter etki alanıyla eşleşen başka bir ana bilgisayar adını eklemek için simge.</span><span class="sxs-lookup"><span data-stu-id="3efa1-227">Select the **+** icon again to add another hostname that matches the wildcard domain.</span></span> <span data-ttu-id="3efa1-228">Örneğin, ekleyin `sub2.contoso.com`.</span><span class="sxs-lookup"><span data-stu-id="3efa1-228">For example, add `sub2.contoso.com`.</span></span>
+<span data-ttu-id="cd9e7-227">Select hello  **+**  simge tekrar tooadd hello joker karakter etki alanıyla eşleşen başka bir ana bilgisayar adı.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-227">Select hello **+** icon again tooadd another hostname that matches hello wildcard domain.</span></span> <span data-ttu-id="cd9e7-228">Örneğin, ekleyin `sub2.contoso.com`.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-228">For example, add `sub2.contoso.com`.</span></span>
 
 ![CNAME kaydı eklendi](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
-## <a name="test-in-browser"></a><span data-ttu-id="3efa1-230">Tarayıcıda test</span><span class="sxs-lookup"><span data-stu-id="3efa1-230">Test in browser</span></span>
+## <a name="test-in-browser"></a><span data-ttu-id="cd9e7-230">Tarayıcıda test</span><span class="sxs-lookup"><span data-stu-id="cd9e7-230">Test in browser</span></span>
 
-<span data-ttu-id="3efa1-231">Daha önce yapılandırılmış DNS adları göz atın (örneğin, `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, ve `sub2.contoso.com`).</span><span class="sxs-lookup"><span data-stu-id="3efa1-231">Browse to the DNS name(s) that you configured earlier (for example, `contoso.com`,  `www.contoso.com`, `sub1.contoso.com`, and `sub2.contoso.com`).</span></span>
+<span data-ttu-id="cd9e7-231">Daha önce yapılandırılmış toohello DNS adları göz atın (örneğin, `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, ve `sub2.contoso.com`).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-231">Browse toohello DNS name(s) that you configured earlier (for example, `contoso.com`,  `www.contoso.com`, `sub1.contoso.com`, and `sub2.contoso.com`).</span></span>
 
-![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+![Portal Gezinti tooAzure uygulama](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="automate-with-scripts"></a><span data-ttu-id="3efa1-233">Komut dosyalarıyla otomatikleştirme</span><span class="sxs-lookup"><span data-stu-id="3efa1-233">Automate with scripts</span></span>
+## <a name="automate-with-scripts"></a><span data-ttu-id="cd9e7-233">Komut dosyalarıyla otomatikleştirme</span><span class="sxs-lookup"><span data-stu-id="cd9e7-233">Automate with scripts</span></span>
 
-<span data-ttu-id="3efa1-234">Komut dosyaları ile özel etki alanlarını yönetimini kullanarak otomatikleştirebilirsiniz [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="3efa1-234">You can automate management of custom domains with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).</span></span> 
+<span data-ttu-id="cd9e7-234">Hello kullanarak yönetim komut dosyaları ile özel etki alanlarının otomatik hale getirebilirsiniz [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-234">You can automate management of custom domains with scripts, using hello [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).</span></span> 
 
-### <a name="azure-cli"></a><span data-ttu-id="3efa1-235">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="3efa1-235">Azure CLI</span></span> 
+### <a name="azure-cli"></a><span data-ttu-id="cd9e7-235">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="cd9e7-235">Azure CLI</span></span> 
 
-<span data-ttu-id="3efa1-236">Aşağıdaki komutu bir App Service uygulaması için yapılandırılmış bir özel DNS adı ekler.</span><span class="sxs-lookup"><span data-stu-id="3efa1-236">The following command adds a configured custom DNS name to an App Service app.</span></span> 
+<span data-ttu-id="cd9e7-236">komutu aşağıdaki hello bir yapılandırılmış özel DNS adı tooan App Service uygulaması ekler.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-236">hello following command adds a configured custom DNS name tooan App Service app.</span></span> 
 
 ```bash 
 az appservice web config hostname add \
@@ -285,11 +285,11 @@ az appservice web config hostname add \
     --name <fully_qualified_domain_name> 
 ``` 
 
-<span data-ttu-id="3efa1-237">Daha fazla bilgi için bkz: [bir web uygulaması için özel bir etki alanı eşleme](scripts/app-service-cli-configure-custom-domain.md).</span><span class="sxs-lookup"><span data-stu-id="3efa1-237">For more information, see [Map a custom domain to a web app](scripts/app-service-cli-configure-custom-domain.md).</span></span> 
+<span data-ttu-id="cd9e7-237">Daha fazla bilgi için bkz: [bir özel etki alanı tooa web uygulaması eşleme](scripts/app-service-cli-configure-custom-domain.md).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-237">For more information, see [Map a custom domain tooa web app](scripts/app-service-cli-configure-custom-domain.md).</span></span> 
 
-### <a name="azure-powershell"></a><span data-ttu-id="3efa1-238">Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="3efa1-238">Azure PowerShell</span></span> 
+### <a name="azure-powershell"></a><span data-ttu-id="cd9e7-238">Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="cd9e7-238">Azure PowerShell</span></span> 
 
-<span data-ttu-id="3efa1-239">Aşağıdaki komutu bir App Service uygulaması için yapılandırılmış bir özel DNS adı ekler.</span><span class="sxs-lookup"><span data-stu-id="3efa1-239">The following command adds a configured custom DNS name to an App Service app.</span></span> 
+<span data-ttu-id="cd9e7-239">komutu aşağıdaki hello bir yapılandırılmış özel DNS adı tooan App Service uygulaması ekler.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-239">hello following command adds a configured custom DNS name tooan App Service app.</span></span> 
 
 ```PowerShell  
 Set-AzureRmWebApp `
@@ -298,19 +298,19 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-<span data-ttu-id="3efa1-240">Daha fazla bilgi için bkz: [bir web uygulaması için özel bir etki alanı Ata](scripts/app-service-powershell-configure-custom-domain.md).</span><span class="sxs-lookup"><span data-stu-id="3efa1-240">For more information, see [Assign a custom domain to a web app](scripts/app-service-powershell-configure-custom-domain.md).</span></span>
+<span data-ttu-id="cd9e7-240">Daha fazla bilgi için bkz: [bir özel etki alanı tooa web uygulaması atamak](scripts/app-service-powershell-configure-custom-domain.md).</span><span class="sxs-lookup"><span data-stu-id="cd9e7-240">For more information, see [Assign a custom domain tooa web app](scripts/app-service-powershell-configure-custom-domain.md).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="3efa1-241">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="3efa1-241">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="cd9e7-241">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="cd9e7-241">Next steps</span></span>
 
-<span data-ttu-id="3efa1-242">Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:</span><span class="sxs-lookup"><span data-stu-id="3efa1-242">In this tutorial, you learned how to:</span></span>
+<span data-ttu-id="cd9e7-242">Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:</span><span class="sxs-lookup"><span data-stu-id="cd9e7-242">In this tutorial, you learned how to:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="3efa1-243">Bir alt etki alanı CNAME kaydı kullanılarak eşleme</span><span class="sxs-lookup"><span data-stu-id="3efa1-243">Map a subdomain by using a CNAME record</span></span>
-> * <span data-ttu-id="3efa1-244">Bir A kaydı kullanarak bir kök etki alanına Eşle</span><span class="sxs-lookup"><span data-stu-id="3efa1-244">Map a root domain by using an A record</span></span>
-> * <span data-ttu-id="3efa1-245">Bir CNAME kaydı kullanılarak bir joker karakter etki alanına Eşle</span><span class="sxs-lookup"><span data-stu-id="3efa1-245">Map a wildcard domain by using a CNAME record</span></span>
-> * <span data-ttu-id="3efa1-246">Etki alanı eşlemesi komut dosyaları ile otomatikleştirme</span><span class="sxs-lookup"><span data-stu-id="3efa1-246">Automate domain mapping with scripts</span></span>
+> * <span data-ttu-id="cd9e7-243">Bir alt etki alanı CNAME kaydı kullanılarak eşleme</span><span class="sxs-lookup"><span data-stu-id="cd9e7-243">Map a subdomain by using a CNAME record</span></span>
+> * <span data-ttu-id="cd9e7-244">Bir A kaydı kullanarak bir kök etki alanına Eşle</span><span class="sxs-lookup"><span data-stu-id="cd9e7-244">Map a root domain by using an A record</span></span>
+> * <span data-ttu-id="cd9e7-245">Bir CNAME kaydı kullanılarak bir joker karakter etki alanına Eşle</span><span class="sxs-lookup"><span data-stu-id="cd9e7-245">Map a wildcard domain by using a CNAME record</span></span>
+> * <span data-ttu-id="cd9e7-246">Etki alanı eşlemesi komut dosyaları ile otomatikleştirme</span><span class="sxs-lookup"><span data-stu-id="cd9e7-246">Automate domain mapping with scripts</span></span>
 
-<span data-ttu-id="3efa1-247">Bir web uygulaması için özel bir SSL sertifikası bağlama konusunda bilgi almak için sonraki öğretici ilerleyin.</span><span class="sxs-lookup"><span data-stu-id="3efa1-247">Advance to the next tutorial to learn how to bind a custom SSL certificate to a web app.</span></span>
+<span data-ttu-id="cd9e7-247">İlerlemek toohello sonraki öğretici toolearn nasıl toobind özel bir SSL sertifikası tooa web uygulaması.</span><span class="sxs-lookup"><span data-stu-id="cd9e7-247">Advance toohello next tutorial toolearn how toobind a custom SSL certificate tooa web app.</span></span>
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="3efa1-248">Azure Web uygulamaları için var olan özel bir SSL sertifikası bağlama</span><span class="sxs-lookup"><span data-stu-id="3efa1-248">Bind an existing custom SSL certificate to Azure Web Apps</span></span>](app-service-web-tutorial-custom-ssl.md)
+> [<span data-ttu-id="cd9e7-248">Bir var olan özel SSL sertifika tooAzure Web Apps bağlama</span><span class="sxs-lookup"><span data-stu-id="cd9e7-248">Bind an existing custom SSL certificate tooAzure Web Apps</span></span>](app-service-web-tutorial-custom-ssl.md)

@@ -1,63 +1,46 @@
 ---
-title: "Azure Analysis Services öğreticisi ek ders: Ayrıntı Satırları | Microsoft Docs"
-description: "Azure Analysis Services öğreticisinde bir Ayrıntı Satırları İfadesinin nasıl oluşturulacağını açıklar."
-services: analysis-services
-documentationcenter: 
-author: minewiskan
-manager: erikre
-editor: 
-tags: 
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 05/26/2017
-ms.author: owend
-ms.openlocfilehash: fde5cd9a9efc3a13e731a91962ced5c086a72355
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+<span data-ttu-id="6fe89-101">Başlık: aaa "Azure Analysis Services öğretici ek Ders: ayrıntı satırları | Microsoft Docs"Açıklama: nasıl toocreate ayrıntı satır ifadesinde bir hello Azure Analysis Services öğretici açıklar.</span><span class="sxs-lookup"><span data-stu-id="6fe89-101">title: aaa"Azure Analysis Services tutorial supplemental lesson: Detail Rows | Microsoft Docs" description: Describes how toocreate a Detail Rows Expression in hello Azure Analysis Services tutorial.</span></span>
+<span data-ttu-id="6fe89-102">Hizmetleri: analysis services documentationcenter: '' Yazar: minewiskan Yöneticisi: erikre Düzenleyicisi: '' etiketler: ''</span><span class="sxs-lookup"><span data-stu-id="6fe89-102">services: analysis-services documentationcenter: '' author: minewiskan manager: erikre editor: '' tags: ''</span></span>
+
+<span data-ttu-id="6fe89-103">MS.assetid: ms.service: analysis services ms.devlang: NA ms.topic: get-makalesi ms.tgt_pltfrm: NA ms.workload: na ms.date: 26/05/2017 ms.author: owend</span><span class="sxs-lookup"><span data-stu-id="6fe89-103">ms.assetid: ms.service: analysis-services ms.devlang: NA ms.topic: get-started-article ms.tgt_pltfrm: NA ms.workload: na ms.date: 05/26/2017 ms.author: owend</span></span>
 ---
-# <a name="supplemental-lesson---detail-rows"></a><span data-ttu-id="8b413-103">Ek ders - Ayrıntı Satırları</span><span class="sxs-lookup"><span data-stu-id="8b413-103">Supplemental lesson - Detail Rows</span></span>
+# <a name="supplemental-lesson---detail-rows"></a><span data-ttu-id="6fe89-104">Ek ders - Ayrıntı Satırları</span><span class="sxs-lookup"><span data-stu-id="6fe89-104">Supplemental lesson - Detail Rows</span></span>
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-<span data-ttu-id="8b413-104">Bu ek derste DAX Düzenleyicisi'ni kullanarak özel bir Ayrıntı Satırları İfadesi tanımlayacaksınız.</span><span class="sxs-lookup"><span data-stu-id="8b413-104">In this supplemental lesson, you use the DAX Editor to define a custom Detail Rows Expression.</span></span> <span data-ttu-id="8b413-105">Ayrıntı Satırları İfadesi, son kullanıcılar için ölçünün toplu sonuçlarıyla ilgili daha fazla bilgi sağlayan bir ölçü özelliğidir.</span><span class="sxs-lookup"><span data-stu-id="8b413-105">A Detail Rows Expression is a property on a measure, providing end-users more information about the aggregated results of a measure.</span></span> 
+<span data-ttu-id="6fe89-105">Bu ek Ders içinde özel bir ayrıntı satırları ifade hello DAX Düzenleyicisi toodefine kullanın.</span><span class="sxs-lookup"><span data-stu-id="6fe89-105">In this supplemental lesson, you use hello DAX Editor toodefine a custom Detail Rows Expression.</span></span> <span data-ttu-id="6fe89-106">Bir ayrıntı satırları ifadesi bir ölçü üzerinde son kullanıcılar bir ölçünün bir araya getirilir hello sonuçlarıyla ilgili daha fazla bilgi sağlayan bir özelliğidir.</span><span class="sxs-lookup"><span data-stu-id="6fe89-106">A Detail Rows Expression is a property on a measure, providing end-users more information about hello aggregated results of a measure.</span></span> 
   
-<span data-ttu-id="8b413-106">Bu dersin tahmini tamamlanma süresi: **10 dakika**</span><span class="sxs-lookup"><span data-stu-id="8b413-106">Estimated time to complete this lesson: **10 minutes**</span></span>  
+<span data-ttu-id="6fe89-107">Bu ders zaman toocomplete tahmini: **10 dakika**</span><span class="sxs-lookup"><span data-stu-id="6fe89-107">Estimated time toocomplete this lesson: **10 minutes**</span></span>  
   
-## <a name="prerequisites"></a><span data-ttu-id="8b413-107">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="8b413-107">Prerequisites</span></span>  
-<span data-ttu-id="8b413-108">Bu ek ders konusu bir tablo modelleme öğreticisinin parçasıdır.</span><span class="sxs-lookup"><span data-stu-id="8b413-108">This supplemental lesson topic is part of a tabular modeling tutorial.</span></span> <span data-ttu-id="8b413-109">Bu ek dersteki görevleri gerçekleştirmeden önce tüm önceki dersleri tamamlamış veya bir Adventure Works İnternet Satışları örnek model projesini tamamlamış olmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="8b413-109">Before performing the tasks in this supplemental lesson, you should have completed all previous lessons or have a completed Adventure Works Internet Sales sample model project.</span></span>  
+## <a name="prerequisites"></a><span data-ttu-id="6fe89-108">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="6fe89-108">Prerequisites</span></span>  
+<span data-ttu-id="6fe89-109">Bu ek ders konusu bir tablo modelleme öğreticisinin parçasıdır.</span><span class="sxs-lookup"><span data-stu-id="6fe89-109">This supplemental lesson topic is part of a tabular modeling tutorial.</span></span> <span data-ttu-id="6fe89-110">Bu ek Ders Hello görevleri gerçekleştirmeden önce tüm önceki dersleri tamamladınız veya bir tamamlanmış Adventure Works Internet satış örnek modeli projesi.</span><span class="sxs-lookup"><span data-stu-id="6fe89-110">Before performing hello tasks in this supplemental lesson, you should have completed all previous lessons or have a completed Adventure Works Internet Sales sample model project.</span></span>  
   
-## <a name="what-do-we-need-to-solve"></a><span data-ttu-id="8b413-110">Neyi çözmemiz gerekiyor?</span><span class="sxs-lookup"><span data-stu-id="8b413-110">What do we need to solve?</span></span>
-<span data-ttu-id="8b413-111">Bir Ayrıntı Satırları İfadesi eklemeden önce InternetTotalSales ölçümüzün ayrıntılarına bakalım.</span><span class="sxs-lookup"><span data-stu-id="8b413-111">Let's look at the details of our InternetTotalSales measure, before adding a Detail Rows Expression.</span></span>
+## <a name="what-do-we-need-toosolve"></a><span data-ttu-id="6fe89-111">Ne toosolve ihtiyacımız var?</span><span class="sxs-lookup"><span data-stu-id="6fe89-111">What do we need toosolve?</span></span>
+<span data-ttu-id="6fe89-112">Ayrıntı satırları ifade eklemeden önce bizim InternetTotalSales ölçü hello ayrıntıları bakalım.</span><span class="sxs-lookup"><span data-stu-id="6fe89-112">Let's look at hello details of our InternetTotalSales measure, before adding a Detail Rows Expression.</span></span>
 
-1.  <span data-ttu-id="8b413-112">SSDT’de **Model** menüsü > **Excel'de çözümleme**’ye tıklayarak Excel'i açın ve boş bir PivotTable oluşturun.</span><span class="sxs-lookup"><span data-stu-id="8b413-112">In SSDT, click the **Model** menu > **Analyze in Excel** to open Excel and create a blank PivotTable.</span></span>
+1.  <span data-ttu-id="6fe89-113">Merhaba SSDT içinde tıklatın **modeli** menü > **Excel'de çözümleme özelliği** tooopen Excel ve boş bir PivotTable oluşturun.</span><span class="sxs-lookup"><span data-stu-id="6fe89-113">In SSDT, click hello **Model** menu > **Analyze in Excel** tooopen Excel and create a blank PivotTable.</span></span>
   
-2.  <span data-ttu-id="8b413-113">**PivotTable Alanları**’nda FactInternetSales tablosundaki **InternetTotalSales** ölçüsünü **Değerler**, DimDate tablosundaki **CalendarYear** ölçüsünü **Sütunlar**, **EnglishCountryRegionName** ölçüsünü **Satırlar**’a ekleyin.</span><span class="sxs-lookup"><span data-stu-id="8b413-113">In **PivotTable Fields**, add the **InternetTotalSales** measure from the FactInternetSales table to **Values**, **CalendarYear** from the DimDate table to **Columns**, and **EnglishCountryRegionName** to **Rows**.</span></span> <span data-ttu-id="8b413-114">PivotTable bu durumda bölge ve yıla göre InternetTotalSales ölçüsünden toplu sonuçları verir.</span><span class="sxs-lookup"><span data-stu-id="8b413-114">Our PivotTable now gives us aggregated results from the InternetTotalSales measure by regions and year.</span></span> 
+2.  <span data-ttu-id="6fe89-114">İçinde **PivotTable alanları**, hello eklemek **InternetTotalSales** hello Factınternetsales tablosundan çok ölçü**değerleri**, **CalendarYear**hello DimDate'i ' çok tablo**sütunları**, ve **EnglishCountryRegionName** çok**satırları**.</span><span class="sxs-lookup"><span data-stu-id="6fe89-114">In **PivotTable Fields**, add hello **InternetTotalSales** measure from hello FactInternetSales table too**Values**, **CalendarYear** from hello DimDate table too**Columns**, and **EnglishCountryRegionName** too**Rows**.</span></span> <span data-ttu-id="6fe89-115">Bizim PivotTable artık bize toplanmış sonuçları bölgeler ve yıl hello InternetTotalSales ölçünün gelen sağlar.</span><span class="sxs-lookup"><span data-stu-id="6fe89-115">Our PivotTable now gives us aggregated results from hello InternetTotalSales measure by regions and year.</span></span> 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. <span data-ttu-id="8b413-116">PivotTable'da bir yıl ve bölge adı için toplu değere çift tıklayın.</span><span class="sxs-lookup"><span data-stu-id="8b413-116">In the PivotTable, double-click an aggregated value for a year and a region name.</span></span> <span data-ttu-id="8b413-117">Burada Avustralya ve 2014 yılının değerine çift tıkladık.</span><span class="sxs-lookup"><span data-stu-id="8b413-117">Here we double-clicked the value for Australia and the year 2014.</span></span> <span data-ttu-id="8b413-118">Verileri (yararlı olmayan verileri) içeren yeni bir sayfa açılır.</span><span class="sxs-lookup"><span data-stu-id="8b413-118">A new sheet opens containing data, but not useful data.</span></span>
+3. <span data-ttu-id="6fe89-117">Hello PivotTable'da, bir yılın ve bölge adı için bir toplu değeri çift tıklatın.</span><span class="sxs-lookup"><span data-stu-id="6fe89-117">In hello PivotTable, double-click an aggregated value for a year and a region name.</span></span> <span data-ttu-id="6fe89-118">Burada size Avustralya ve hello için hello değer yıl 2014 çift.</span><span class="sxs-lookup"><span data-stu-id="6fe89-118">Here we double-clicked hello value for Australia and hello year 2014.</span></span> <span data-ttu-id="6fe89-119">Verileri (yararlı olmayan verileri) içeren yeni bir sayfa açılır.</span><span class="sxs-lookup"><span data-stu-id="6fe89-119">A new sheet opens containing data, but not useful data.</span></span>
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-<span data-ttu-id="8b413-120">Burada görmek istediğimiz, InternetTotalSales ölçümüzün toplu sonucuna katkıda bulunan veri sütunlarını ve satırlarını içeren bir tablodur.</span><span class="sxs-lookup"><span data-stu-id="8b413-120">What we would like to see here is a table containing columns and rows of data that contribute to the aggregated result of our InternetTotalSales measure.</span></span> <span data-ttu-id="8b413-121">Bunu yapmak için, ölçünün bir özelliği olarak Ayrıntı Satırları İfadesini ekleyebiliriz.</span><span class="sxs-lookup"><span data-stu-id="8b413-121">To do that, we can add a Detail Rows Expression as a property of the measure.</span></span>
+<span data-ttu-id="6fe89-121">Burada toosee bizim InternetTotalSales ölçü toplanan toohello sonucunu katkıda veri satırları ve sütunları içeren bir tablo gibi ne biz olacaktır.</span><span class="sxs-lookup"><span data-stu-id="6fe89-121">What we would like toosee here is a table containing columns and rows of data that contribute toohello aggregated result of our InternetTotalSales measure.</span></span> <span data-ttu-id="6fe89-122">Ayrıntı satırları ifade hello ölçü bir özellik olarak ekleyebiliriz, toodo.</span><span class="sxs-lookup"><span data-stu-id="6fe89-122">toodo that, we can add a Detail Rows Expression as a property of hello measure.</span></span>
 
-## <a name="add-a-detail-rows-expression"></a><span data-ttu-id="8b413-122">Ayrıntı Satırları İfadesi ekleme</span><span class="sxs-lookup"><span data-stu-id="8b413-122">Add a Detail Rows Expression</span></span>
+## <a name="add-a-detail-rows-expression"></a><span data-ttu-id="6fe89-123">Ayrıntı Satırları İfadesi ekleme</span><span class="sxs-lookup"><span data-stu-id="6fe89-123">Add a Detail Rows Expression</span></span>
 
-#### <a name="to-create-a-detail-rows-expression"></a><span data-ttu-id="8b413-123">Ayrıntı Satırları İfadesi oluşturmak için</span><span class="sxs-lookup"><span data-stu-id="8b413-123">To create a Detail Rows Expression</span></span> 
+#### <a name="toocreate-a-detail-rows-expression"></a><span data-ttu-id="6fe89-124">toocreate bir ayrıntı satırları ifadesi</span><span class="sxs-lookup"><span data-stu-id="6fe89-124">toocreate a Detail Rows Expression</span></span> 
   
-1. <span data-ttu-id="8b413-124">SSDT’deki FactInternetSales tablosunun ölçü kılavuzunda **InternetTotalSales** ölçüsüne tıklayın.</span><span class="sxs-lookup"><span data-stu-id="8b413-124">In SSDT, in the FactInternetSales table's measure grid, click the **InternetTotalSales** measure.</span></span> 
+1. <span data-ttu-id="6fe89-125">SSDT içinde hello Factınternetsales tablonun ölçü kılavuzda hello tıklatın **InternetTotalSales** ölçü.</span><span class="sxs-lookup"><span data-stu-id="6fe89-125">In SSDT, in hello FactInternetSales table's measure grid, click hello **InternetTotalSales** measure.</span></span> 
 
-2. <span data-ttu-id="8b413-125">**Özellikler** > **Ayrıntı Satırları İfadesi** menüsünde düzenleyici düğmesine tıklayarak DAX Düzenleyicisi’ni açın.</span><span class="sxs-lookup"><span data-stu-id="8b413-125">In **Properties** > **Detail Rows Expression**, click the editor button to open the DAX Editor.</span></span>
+2. <span data-ttu-id="6fe89-126">İçinde **özellikleri** > **ayrıntı satırları ifade**, hello Düzenleyicisi düğmesi tooopen hello DAX Düzenleyicisi'ni tıklatın.</span><span class="sxs-lookup"><span data-stu-id="6fe89-126">In **Properties** > **Detail Rows Expression**, click hello editor button tooopen hello DAX Editor.</span></span>
 
     ![aas-lesson-detail-rows-ellipse](../tutorials/media/aas-lesson-detail-rows-ellipse.png)
 
-3. <span data-ttu-id="8b413-127">DAX Düzenleyicisi'nde aşağıdaki ifadeyi girin:</span><span class="sxs-lookup"><span data-stu-id="8b413-127">In DAX Editor, enter the following expression:</span></span>
+3. <span data-ttu-id="6fe89-128">DAX Düzenleyicisi'nde hello ifade aşağıdaki girin:</span><span class="sxs-lookup"><span data-stu-id="6fe89-128">In DAX Editor, enter hello following expression:</span></span>
 
     ```
     SELECTCOLUMNS(
@@ -72,16 +55,16 @@ ms.lasthandoff: 07/11/2017
 
     ```
 
-    <span data-ttu-id="8b413-128">Bu ifade FactInternetSales tablosundaki ad, sütun ve ölçü sonuçlarını belirtir ve bir kullanıcı PivotTable veya raporda toplu bir sonuca çift tıkladığında ilgili tablolar döndürülür.</span><span class="sxs-lookup"><span data-stu-id="8b413-128">This expression specifies names, columns, and measure results from the FactInternetSales table and related tables are returned when a user double-clicks an aggregated result in a PivotTable or report.</span></span>
+    <span data-ttu-id="6fe89-129">Bu ifade adlarının, sütun belirtir ve bir kullanıcı bir PivotTable veya rapor toplanmış bir sonuca tıklattığında hello Factınternetsales tablosunda ve ilgili tablolardaki ölçü sonuçlar döndürülür.</span><span class="sxs-lookup"><span data-stu-id="6fe89-129">This expression specifies names, columns, and measure results from hello FactInternetSales table and related tables are returned when a user double-clicks an aggregated result in a PivotTable or report.</span></span>
 
-4. <span data-ttu-id="8b413-129">Excel'e geri dönerek 3. Adımda oluşturulan sayfayı silin ve sonra bir toplu değere çift tıklayın.</span><span class="sxs-lookup"><span data-stu-id="8b413-129">Back in Excel, delete the sheet created in Step 3, then double-click an aggregated value.</span></span> <span data-ttu-id="8b413-130">Bu kez, ölçü için tanımlanan Ayrıntı Satırları İfadesi özelliğiyle birlikte birçok yararlı veri içeren yeni bir sayfa açılır.</span><span class="sxs-lookup"><span data-stu-id="8b413-130">This time, with a Detail Rows Expression property defined for the measure, a new sheet opens containing a lot more useful data.</span></span>
+4. <span data-ttu-id="6fe89-130">Geri Excel'de adım 3'te oluşturulan hello sayfayı silmek, sonra bir toplu değeri çift tıklatın.</span><span class="sxs-lookup"><span data-stu-id="6fe89-130">Back in Excel, delete hello sheet created in Step 3, then double-click an aggregated value.</span></span> <span data-ttu-id="6fe89-131">Bu süre, hello ölçü için tanımlanmış bir ayrıntı satırları ifade özelliği ile çok daha kullanışlı verileri içeren yeni bir sayfa açar.</span><span class="sxs-lookup"><span data-stu-id="6fe89-131">This time, with a Detail Rows Expression property defined for hello measure, a new sheet opens containing a lot more useful data.</span></span>
 
     ![aas-lesson-detail-rows-detailsheet](../tutorials/media/aas-lesson-detail-rows-detailsheet.png)
 
-5. <span data-ttu-id="8b413-132">Modelinizi yeniden dağıtın.</span><span class="sxs-lookup"><span data-stu-id="8b413-132">Redeploy your model.</span></span>
+5. <span data-ttu-id="6fe89-133">Modelinizi yeniden dağıtın.</span><span class="sxs-lookup"><span data-stu-id="6fe89-133">Redeploy your model.</span></span>
 
   
-## <a name="see-also"></a><span data-ttu-id="8b413-133">Ayrıca Bkz.</span><span class="sxs-lookup"><span data-stu-id="8b413-133">See Also</span></span>  
-<span data-ttu-id="8b413-134">[SELECTCOLUMNS İşlevi (DAX)](https://msdn.microsoft.com/library/mt761759.aspx) </span><span class="sxs-lookup"><span data-stu-id="8b413-134">[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx) </span></span>  
-[<span data-ttu-id="8b413-135">Ek Ders - Dinamik güvenlik</span><span class="sxs-lookup"><span data-stu-id="8b413-135">Supplemental Lesson - Dynamic security</span></span>](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
-[<span data-ttu-id="8b413-136">Ek Ders - Düzensiz hiyerarşiler</span><span class="sxs-lookup"><span data-stu-id="8b413-136">Supplemental Lesson - Ragged hierarchies</span></span>](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+## <a name="see-also"></a><span data-ttu-id="6fe89-134">Ayrıca Bkz.</span><span class="sxs-lookup"><span data-stu-id="6fe89-134">See Also</span></span>  
+<span data-ttu-id="6fe89-135">[SELECTCOLUMNS İşlevi (DAX)](https://msdn.microsoft.com/library/mt761759.aspx) </span><span class="sxs-lookup"><span data-stu-id="6fe89-135">[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx) </span></span>  
+[<span data-ttu-id="6fe89-136">Ek Ders - Dinamik güvenlik</span><span class="sxs-lookup"><span data-stu-id="6fe89-136">Supplemental Lesson - Dynamic security</span></span>](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
+[<span data-ttu-id="6fe89-137">Ek Ders - Düzensiz hiyerarşiler</span><span class="sxs-lookup"><span data-stu-id="6fe89-137">Supplemental Lesson - Ragged hierarchies</span></span>](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Domo | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Domo arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Domo arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,106 +13,106 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 919d2262cf9f14159a13370037301005b5b69da2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cc70f8e5013f864d275762bbc1f84bd9677e8c16
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-domo"></a><span data-ttu-id="2f4b0-103">Öğretici: Azure Active Directory Tümleştirme Domo ile</span><span class="sxs-lookup"><span data-stu-id="2f4b0-103">Tutorial: Azure Active Directory integration with Domo</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-domo"></a><span data-ttu-id="0fe5a-103">Öğretici: Azure Active Directory Tümleştirme Domo ile</span><span class="sxs-lookup"><span data-stu-id="0fe5a-103">Tutorial: Azure Active Directory integration with Domo</span></span>
 
-<span data-ttu-id="2f4b0-104">Bu öğreticide, Azure Active Directory (Azure AD) ile Domo tümleştirmek öğrenin.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-104">In this tutorial, you learn how to integrate Domo with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="0fe5a-104">Bu öğreticide, bilgi nasıl toointegrate Domo Azure Active Directory'ye (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="0fe5a-104">In this tutorial, you learn how toointegrate Domo with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="2f4b0-105">Domo Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="2f4b0-105">Integrating Domo with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="0fe5a-105">Domo Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="0fe5a-105">Integrating Domo with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="2f4b0-106">Domo erişimi, Azure AD'de kontrol edebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="2f4b0-106">You can control in Azure AD who has access to Domo</span></span>
-- <span data-ttu-id="2f4b0-107">Otomatik olarak için Domo (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="2f4b0-107">You can enable your users to automatically get signed-on to Domo (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="2f4b0-108">Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir</span><span class="sxs-lookup"><span data-stu-id="2f4b0-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="0fe5a-106">Erişim tooDomo sahip Azure AD'de kontrol edebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="0fe5a-106">You can control in Azure AD who has access tooDomo</span></span>
+- <span data-ttu-id="0fe5a-107">Kullanıcıların tooautomatically get açan tooDomo (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="0fe5a-107">You can enable your users tooautomatically get signed-on tooDomo (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="0fe5a-108">Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir</span><span class="sxs-lookup"><span data-stu-id="0fe5a-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="2f4b0-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="2f4b0-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="0fe5a-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="0fe5a-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="2f4b0-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="2f4b0-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="0fe5a-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="0fe5a-110">Prerequisites</span></span>
 
-<span data-ttu-id="2f4b0-111">Azure AD tümleştirme Domo ile yapılandırmak için aşağıdaki öğeleri gerekir:</span><span class="sxs-lookup"><span data-stu-id="2f4b0-111">To configure Azure AD integration with Domo, you need the following items:</span></span>
+<span data-ttu-id="0fe5a-111">tooconfigure Domo ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="0fe5a-111">tooconfigure Azure AD integration with Domo, you need hello following items:</span></span>
 
-- <span data-ttu-id="2f4b0-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="2f4b0-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="2f4b0-113">Bir Domo çoklu oturum açma etkin abonelik</span><span class="sxs-lookup"><span data-stu-id="2f4b0-113">A Domo single-sign on enabled subscription</span></span>
+- <span data-ttu-id="0fe5a-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="0fe5a-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="0fe5a-113">Bir Domo çoklu oturum açma etkin abonelik</span><span class="sxs-lookup"><span data-stu-id="0fe5a-113">A Domo single-sign on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="2f4b0-114">Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="0fe5a-114">tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="2f4b0-115">Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="2f4b0-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="0fe5a-115">Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:</span><span class="sxs-lookup"><span data-stu-id="0fe5a-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="2f4b0-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="2f4b0-117">Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="2f4b0-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="0fe5a-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="0fe5a-117">Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="0fe5a-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="2f4b0-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="2f4b0-118">Scenario description</span></span>
-<span data-ttu-id="2f4b0-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="2f4b0-120">Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="2f4b0-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="0fe5a-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="0fe5a-118">Scenario description</span></span>
+<span data-ttu-id="0fe5a-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="0fe5a-120">Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="0fe5a-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="2f4b0-121">Galeriden Domo ekleme</span><span class="sxs-lookup"><span data-stu-id="2f4b0-121">Adding Domo from the gallery</span></span>
-2. <span data-ttu-id="2f4b0-122">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="2f4b0-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="0fe5a-121">Merhaba Galerisi'nden Domo ekleme</span><span class="sxs-lookup"><span data-stu-id="0fe5a-121">Adding Domo from hello gallery</span></span>
+2. <span data-ttu-id="0fe5a-122">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="0fe5a-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-domo-from-the-gallery"></a><span data-ttu-id="2f4b0-123">Galeriden Domo ekleme</span><span class="sxs-lookup"><span data-stu-id="2f4b0-123">Adding Domo from the gallery</span></span>
-<span data-ttu-id="2f4b0-124">Azure AD Domo tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Domo eklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-124">To configure the integration of Domo into Azure AD, you need to add Domo from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-domo-from-hello-gallery"></a><span data-ttu-id="0fe5a-123">Merhaba Galerisi'nden Domo ekleme</span><span class="sxs-lookup"><span data-stu-id="0fe5a-123">Adding Domo from hello gallery</span></span>
+<span data-ttu-id="0fe5a-124">Azure AD'ye tooconfigure hello tümleştirme Domo, tooadd Domo hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-124">tooconfigure hello integration of Domo into Azure AD, you need tooadd Domo from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="2f4b0-125">**Galeriden Domo eklemek için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="2f4b0-125">**To add Domo from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="0fe5a-125">**tooadd Domo hello galerisinden hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="0fe5a-125">**tooadd Domo from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="2f4b0-126">İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="0fe5a-126">Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="2f4b0-128">Gidin **kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="2f4b0-129">Ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="0fe5a-128">Çok gidin**kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="0fe5a-129">Çok Git**tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-129">Then go too**All applications**.</span></span>
 
     ![Uygulamalar][2]
     
-3. <span data-ttu-id="2f4b0-131">Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="0fe5a-131">tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Uygulamalar][3]
 
-4. <span data-ttu-id="2f4b0-133">Arama kutusuna **Domo**.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-133">In the search box, type **Domo**.</span></span>
+4. <span data-ttu-id="0fe5a-133">Merhaba arama kutusuna yazın **Domo**.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-133">In hello search box, type **Domo**.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-domo-tutorial/tutorial_domo_search.png)
 
-5. <span data-ttu-id="2f4b0-135">Sonuçlar panelinde seçin **Domo**ve ardından **Ekle** uygulama eklemek için düğmesi.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-135">In the results panel, select **Domo**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="0fe5a-135">Merhaba Sonuçlar panelinde seçin **Domo**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-135">In hello results panel, select **Domo**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-domo-tutorial/tutorial_domo_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="2f4b0-137">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="2f4b0-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="2f4b0-138">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Domo ile test etme</span><span class="sxs-lookup"><span data-stu-id="2f4b0-138">In this section, you configure and test Azure AD single sign-on with Domo based on a test user called "Britta Simon."</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="0fe5a-137">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="0fe5a-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="0fe5a-138">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Domo ile test etme</span><span class="sxs-lookup"><span data-stu-id="0fe5a-138">In this section, you configure and test Azure AD single sign-on with Domo based on a test user called "Britta Simon."</span></span>
 
-<span data-ttu-id="2f4b0-139">Tekli çalışmaya oturum için Azure AD Domo karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Domo is to a user in Azure AD.</span></span> <span data-ttu-id="2f4b0-140">Diğer bir deyişle, bir Azure AD kullanıcısının Domo ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-140">In other words, a link relationship between an Azure AD user and the related user in Domo needs to be established.</span></span>
+<span data-ttu-id="0fe5a-139">Tek toowork'ın oturum açma hangi hello karşılık gelen Domo içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Domo is tooa user in Azure AD.</span></span> <span data-ttu-id="0fe5a-140">Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Domo hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-140">In other words, a link relationship between an Azure AD user and hello related user in Domo needs toobe established.</span></span>
 
-<span data-ttu-id="2f4b0-141">Domo içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-141">In Domo, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="0fe5a-141">Merhaba hello değeri Domo içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-141">In Domo, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="2f4b0-142">Yapılandırma ve Azure AD çoklu oturum açma Domo ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="2f4b0-142">To configure and test Azure AD single sign-on with Domo, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="0fe5a-142">tooconfigure ve Domo ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="0fe5a-142">tooconfigure and test Azure AD single sign-on with Domo, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="2f4b0-143">**[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="2f4b0-144">**[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="2f4b0-145">**[Domo test kullanıcısı oluşturma](#creating-a-domo-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Domo sağlamak için.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-145">**[Creating a Domo test user](#creating-a-domo-test-user)** - to have a counterpart of Britta Simon in Domo that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="2f4b0-146">**[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="2f4b0-147">**[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="0fe5a-143">**[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="0fe5a-144">**[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="0fe5a-145">**[Domo test kullanıcısı oluşturma](#creating-a-domo-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Domo içinde karşılık gelen.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-145">**[Creating a Domo test user](#creating-a-domo-test-user)** - toohave a counterpart of Britta Simon in Domo that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="0fe5a-146">**[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="0fe5a-147">**[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="2f4b0-148">Azure AD çoklu oturum açmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="2f4b0-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="0fe5a-148">Azure AD çoklu oturum açmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="0fe5a-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="2f4b0-149">Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Domo uygulamanızda yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Domo application.</span></span>
+<span data-ttu-id="0fe5a-149">Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Domo uygulamanızda yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Domo application.</span></span>
 
-<span data-ttu-id="2f4b0-150">**Azure AD çoklu oturum açma ile Domo yapılandırmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="2f4b0-150">**To configure Azure AD single sign-on with Domo, perform the following steps:**</span></span>
+<span data-ttu-id="0fe5a-150">**tooconfigure Azure AD çoklu oturum açma ile Domo, hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="0fe5a-150">**tooconfigure Azure AD single sign-on with Domo, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="2f4b0-151">Azure portalında üzerinde **Domo** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-151">In the Azure portal, on the **Domo** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="0fe5a-151">Hello hello üzerinde Azure portal'ın **Domo** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-151">In hello Azure portal, on hello **Domo** application integration page, click **Single sign-on**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. <span data-ttu-id="2f4b0-153">Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="0fe5a-153">Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-domo-tutorial/tutorial_domo_samlbase.png)
 
-3. <span data-ttu-id="2f4b0-155">Üzerinde **Domo etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="2f4b0-155">On the **Domo Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="0fe5a-155">Merhaba üzerinde **Domo etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="0fe5a-155">On hello **Domo Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-domo-tutorial/tutorial_domo_url.png)
 
-    <span data-ttu-id="2f4b0-157">a.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-157">a.</span></span> <span data-ttu-id="2f4b0-158">İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.domo.com`</span><span class="sxs-lookup"><span data-stu-id="2f4b0-158">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.domo.com`</span></span>
+    <span data-ttu-id="0fe5a-157">a.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-157">a.</span></span> <span data-ttu-id="0fe5a-158">Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<companyname>.domo.com`</span><span class="sxs-lookup"><span data-stu-id="0fe5a-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://<companyname>.domo.com`</span></span>
 
-    <span data-ttu-id="2f4b0-159">b.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-159">b.</span></span> <span data-ttu-id="2f4b0-160">İçinde **tanımlayıcısı** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın:</span><span class="sxs-lookup"><span data-stu-id="2f4b0-160">In the **Identifier** textbox, type a URL using the following patterns:</span></span>     
+    <span data-ttu-id="0fe5a-159">b.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-159">b.</span></span> <span data-ttu-id="0fe5a-160">Merhaba, **tanımlayıcısı** metin kutusuna, türü aşağıdaki hello kullanarak bir URL düzenleri:</span><span class="sxs-lookup"><span data-stu-id="0fe5a-160">In hello **Identifier** textbox, type a URL using hello following patterns:</span></span>     
 
     | |
     |--|    
@@ -129,127 +129,127 @@ ms.lasthandoff: 07/11/2017
     | `https://<companyname>.stage.domo.com` |
     
     > [!NOTE] 
-    > <span data-ttu-id="2f4b0-161">Bu değerler gerçek değildir.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-161">These values are not real.</span></span> <span data-ttu-id="2f4b0-162">Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-162">Update these values with the actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="2f4b0-163">Kişi [Domo istemci destek ekibi](mailto:support@domo.com) bu değerleri almak için.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-163">Contact [Domo Client support team](mailto:support@domo.com) to get these values.</span></span>
+    > <span data-ttu-id="0fe5a-161">Bu değerler gerçek değildir.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-161">These values are not real.</span></span> <span data-ttu-id="0fe5a-162">Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-162">Update these values with hello actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="0fe5a-163">Kişi [Domo istemci destek ekibi](mailto:support@domo.com) tooget bu değerleri.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-163">Contact [Domo Client support team](mailto:support@domo.com) tooget these values.</span></span>
 
-4. <span data-ttu-id="2f4b0-164">Domo uygulaması SAML onaylar belirli bir biçimde bekliyor.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-164">Domo application expects the SAML assertions in a specific format.</span></span> <span data-ttu-id="2f4b0-165">Bu uygulama için aşağıdaki talep yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-165">Configure the following claims for this application.</span></span> <span data-ttu-id="2f4b0-166">Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-166">You can manage the values of these attributes from the "**User Attributes**" section on application integration page.</span></span> <span data-ttu-id="2f4b0-167">Aşağıdaki ekran görüntüsünde, bu yapılandırma için bir örneği gösterir.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-167">The following screenshot shows an example for this configuration.</span></span> 
+4. <span data-ttu-id="0fe5a-164">Domo uygulama hello SAML onaylar belirli bir biçimde bekler.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-164">Domo application expects hello SAML assertions in a specific format.</span></span> <span data-ttu-id="0fe5a-165">Bu uygulama için talep aşağıdaki hello yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-165">Configure hello following claims for this application.</span></span> <span data-ttu-id="0fe5a-166">Hello başlangıç değerleri bu özniteliklerin yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-166">You can manage hello values of these attributes from hello "**User Attributes**" section on application integration page.</span></span> <span data-ttu-id="0fe5a-167">Ekran aşağıdaki hello Bu yapılandırmanın bir örneği gösterir.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-167">hello following screenshot shows an example for this configuration.</span></span> 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-domo-tutorial/tutorial_domo_attributes.png)
     
-5. <span data-ttu-id="2f4b0-169">İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="2f4b0-169">In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:</span></span>
+5. <span data-ttu-id="0fe5a-169">Merhaba, **kullanıcı öznitelikleri** hello bölüm **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği hello görüntüde gösterildiği gibi yapılandırmak ve hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="0fe5a-169">In hello **User Attributes** section on hello **Single sign-on** dialog, configure SAML token attribute as shown in hello image and perform hello following steps:</span></span>
     
-    | <span data-ttu-id="2f4b0-170">Öznitelik adı</span><span class="sxs-lookup"><span data-stu-id="2f4b0-170">Attribute Name</span></span> | <span data-ttu-id="2f4b0-171">Öznitelik değeri</span><span class="sxs-lookup"><span data-stu-id="2f4b0-171">Attribute Value</span></span> |
+    | <span data-ttu-id="0fe5a-170">Öznitelik adı</span><span class="sxs-lookup"><span data-stu-id="0fe5a-170">Attribute Name</span></span> | <span data-ttu-id="0fe5a-171">Öznitelik değeri</span><span class="sxs-lookup"><span data-stu-id="0fe5a-171">Attribute Value</span></span> |
     | ------------------- | -------------------- |    
-    | <span data-ttu-id="2f4b0-172">ad</span><span class="sxs-lookup"><span data-stu-id="2f4b0-172">name</span></span> | <span data-ttu-id="2f4b0-173">User.DisplayName</span><span class="sxs-lookup"><span data-stu-id="2f4b0-173">user.displayname</span></span> |
-    | <span data-ttu-id="2f4b0-174">E-posta</span><span class="sxs-lookup"><span data-stu-id="2f4b0-174">email</span></span> | <span data-ttu-id="2f4b0-175">User.Mail</span><span class="sxs-lookup"><span data-stu-id="2f4b0-175">user.mail</span></span> |
+    | <span data-ttu-id="0fe5a-172">ad</span><span class="sxs-lookup"><span data-stu-id="0fe5a-172">name</span></span> | <span data-ttu-id="0fe5a-173">User.DisplayName</span><span class="sxs-lookup"><span data-stu-id="0fe5a-173">user.displayname</span></span> |
+    | <span data-ttu-id="0fe5a-174">E-posta</span><span class="sxs-lookup"><span data-stu-id="0fe5a-174">email</span></span> | <span data-ttu-id="0fe5a-175">User.Mail</span><span class="sxs-lookup"><span data-stu-id="0fe5a-175">user.mail</span></span> |
     
-    <span data-ttu-id="2f4b0-176">a.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-176">a.</span></span> <span data-ttu-id="2f4b0-177">Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-177">Click **Add attribute** to open the **Add Attribute** dialog.</span></span>
+    <span data-ttu-id="0fe5a-176">a.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-176">a.</span></span> <span data-ttu-id="0fe5a-177">Tıklatın **Ekle özniteliği** tooopen hello **özniteliği eklemek** iletişim.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-177">Click **Add attribute** tooopen hello **Add Attribute** dialog.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-domo-tutorial/tutorial_attribute_04.png)
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-domo-tutorial/tutorial_attribute_05.png)
 
-    <span data-ttu-id="2f4b0-180">b.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-180">b.</span></span> <span data-ttu-id="2f4b0-181">İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-181">In the **Name** textbox, type the attribute name shown for that row.</span></span>
+    <span data-ttu-id="0fe5a-180">b.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-180">b.</span></span> <span data-ttu-id="0fe5a-181">Merhaba, **adı** metin kutusuna, ilgili satır için gösterilen türü hello öznitelik adı.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-181">In hello **Name** textbox, type hello attribute name shown for that row.</span></span>
     
-    <span data-ttu-id="2f4b0-182">c.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-182">c.</span></span> <span data-ttu-id="2f4b0-183">Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-183">From the **Value** list, type the attribute value shown for that row.</span></span>
+    <span data-ttu-id="0fe5a-182">c.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-182">c.</span></span> <span data-ttu-id="0fe5a-183">Merhaba gelen **değeri** listesinde, ilgili satır için gösterilen türü hello öznitelik değeri.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-183">From hello **Value** list, type hello attribute value shown for that row.</span></span>
     
-    <span data-ttu-id="2f4b0-184">d.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-184">d.</span></span> <span data-ttu-id="2f4b0-185">**Tamam**’a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-185">Click **Ok**.</span></span> 
+    <span data-ttu-id="0fe5a-184">d.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-184">d.</span></span> <span data-ttu-id="0fe5a-185">**Tamam**’a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-185">Click **Ok**.</span></span> 
  
-6. <span data-ttu-id="2f4b0-186">Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-186">On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.</span></span>
+6. <span data-ttu-id="0fe5a-186">Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-186">On hello **SAML Signing Certificate** section, click **Certificate(Base64)** and then save hello certificate file on your computer.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-domo-tutorial/tutorial_domo_certificate.png) 
 
-7. <span data-ttu-id="2f4b0-188">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-188">Click **Save** button.</span></span>
+7. <span data-ttu-id="0fe5a-188">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-188">Click **Save** button.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-domo-tutorial/tutorial_general_400.png)
 
 
-8. <span data-ttu-id="2f4b0-190">Üzerinde **Domo yapılandırma** 'yi tıklatın **yapılandırma Domo** açmak için **yapılandırma oturum açma** penceresi.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-190">On the **Domo Configuration** section, click **Configure Domo** to open **Configure sign-on** window.</span></span> <span data-ttu-id="2f4b0-191">Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**</span><span class="sxs-lookup"><span data-stu-id="2f4b0-191">Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**</span></span>   
+8. <span data-ttu-id="0fe5a-190">Merhaba üzerinde **Domo yapılandırma** 'yi tıklatın **yapılandırma Domo** tooopen **yapılandırma oturum açma** penceresi.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-190">On hello **Domo Configuration** section, click **Configure Domo** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="0fe5a-191">Kopya hello **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**</span><span class="sxs-lookup"><span data-stu-id="0fe5a-191">Copy hello **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from hello **Quick Reference section.**</span></span> 
 
    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-domo-tutorial/tutorial_domo_configure.png) 
 
-9. <span data-ttu-id="2f4b0-193">Çoklu oturum açma yapılandırmak için **Domo** yan, indirilen göndermek için ihtiyacınız **sertifika**, **SAML varlık kimliği**, **SAML çoklu oturum açma hizmet URL'si** ve **Sign-Out URL** için [Domo destek ekibi](mailto:support@domo.com).</span><span class="sxs-lookup"><span data-stu-id="2f4b0-193">To configure single sign-on on **Domo** side, you need to send the downloaded **Certificate**, **SAML Entity ID**, the **SAML Single Sign-On Service URL** and the **Sign-Out URL** to [Domo support team](mailto:support@domo.com).</span></span> <span data-ttu-id="2f4b0-194">Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-194">They set this setting to have the SAML SSO connection set properly on both sides.</span></span>
+9. <span data-ttu-id="0fe5a-193">tooconfigure çoklu oturum açma üzerinde **Domo** yan, indirilen toosend hello ihtiyacınız **sertifika**, **SAML varlık kimliği**, hello **SAML çoklu oturum açma hizmeti URL** ve hello **Sign-Out URL** çok[Domo destek ekibi](mailto:support@domo.com).</span><span class="sxs-lookup"><span data-stu-id="0fe5a-193">tooconfigure single sign-on on **Domo** side, you need toosend hello downloaded **Certificate**, **SAML Entity ID**, hello **SAML Single Sign-On Service URL** and hello **Sign-Out URL** too[Domo support team](mailto:support@domo.com).</span></span> <span data-ttu-id="0fe5a-194">Bunlar, bu ayar toohave hello iki tarafta da ayarlamanızı SAML SSO bağlantı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-194">They set this setting toohave hello SAML SSO connection set properly on both sides.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="2f4b0-195">Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="2f4b0-195">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="2f4b0-196">Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-196">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="2f4b0-197">Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="2f4b0-197">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="0fe5a-195">Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="0fe5a-195">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="0fe5a-196">Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-196">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="0fe5a-197">Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="0fe5a-197">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="2f4b0-198">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="2f4b0-198">Creating an Azure AD test user</span></span>
-<span data-ttu-id="2f4b0-199">Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-199">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="0fe5a-198">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="0fe5a-198">Creating an Azure AD test user</span></span>
+<span data-ttu-id="0fe5a-199">Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-199">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-<span data-ttu-id="2f4b0-201">**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="2f4b0-201">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="0fe5a-201">**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="0fe5a-201">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="2f4b0-202">İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-202">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="0fe5a-202">Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-202">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-domo-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="2f4b0-204">Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-204">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="0fe5a-204">Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-204">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-domo-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="2f4b0-206">Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-206">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="0fe5a-206">tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-206">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-domo-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="2f4b0-208">Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="2f4b0-208">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="0fe5a-208">Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="0fe5a-208">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-domo-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="2f4b0-210">a.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-210">a.</span></span> <span data-ttu-id="2f4b0-211">İçinde **adı** metin kutusuna, türü **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-211">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="0fe5a-210">a.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-210">a.</span></span> <span data-ttu-id="0fe5a-211">Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-211">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="2f4b0-212">b.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-212">b.</span></span> <span data-ttu-id="2f4b0-213">İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-213">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="0fe5a-212">b.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-212">b.</span></span> <span data-ttu-id="0fe5a-213">Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-213">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="2f4b0-214">c.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-214">c.</span></span> <span data-ttu-id="2f4b0-215">Seçin **Göster parola** ve değerini yazma **parola**.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-215">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="0fe5a-214">c.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-214">c.</span></span> <span data-ttu-id="0fe5a-215">Seçin **Göster parola** ve hello hello değerini yazma **parola**.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-215">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="2f4b0-216">d.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-216">d.</span></span> <span data-ttu-id="2f4b0-217">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-217">Click **Create**.</span></span>
+    <span data-ttu-id="0fe5a-216">d.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-216">d.</span></span> <span data-ttu-id="0fe5a-217">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-217">Click **Create**.</span></span>
  
-### <a name="creating-a-domo-test-user"></a><span data-ttu-id="2f4b0-218">Domo test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="2f4b0-218">Creating a Domo test user</span></span>
+### <a name="creating-a-domo-test-user"></a><span data-ttu-id="0fe5a-218">Domo test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="0fe5a-218">Creating a Domo test user</span></span>
 
-<span data-ttu-id="2f4b0-219">Bu bölümün amacı Britta Simon içinde Domo adlı bir kullanıcı oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-219">The objective of this section is to create a user called Britta Simon in Domo.</span></span> <span data-ttu-id="2f4b0-220">Domo yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-220">Domo supports just-in-time provisioning, which is by default enabled.</span></span>
+<span data-ttu-id="0fe5a-219">Bu bölümde Hello amacı toocreate Britta Simon içinde Domo adlı bir kullanıcı ' dir.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-219">hello objective of this section is toocreate a user called Britta Simon in Domo.</span></span> <span data-ttu-id="0fe5a-220">Domo yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-220">Domo supports just-in-time provisioning, which is by default enabled.</span></span>
 
-<span data-ttu-id="2f4b0-221">Bu bölümde, eylem öğe yok.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-221">There is no action item for you in this section.</span></span> <span data-ttu-id="2f4b0-222">Yeni bir kullanıcı henüz yoksa Domo erişme denemesi sırasında oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-222">A new user is created during an attempt to access Domo if it doesn't exist yet.</span></span>
+<span data-ttu-id="0fe5a-221">Bu bölümde, eylem öğe yok.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-221">There is no action item for you in this section.</span></span> <span data-ttu-id="0fe5a-222">Henüz yoksa yeni bir kullanıcı bir girişim tooaccess Domo sırasında oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-222">A new user is created during an attempt tooaccess Domo if it doesn't exist yet.</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="2f4b0-223">Azure AD test kullanıcısı atama</span><span class="sxs-lookup"><span data-stu-id="2f4b0-223">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="0fe5a-223">Hello Azure AD test kullanıcısı atama</span><span class="sxs-lookup"><span data-stu-id="0fe5a-223">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="2f4b0-224">Bu bölümde, Britta Domo için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-224">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Domo.</span></span>
+<span data-ttu-id="0fe5a-224">Bu bölümde, erişim tooDomo vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-224">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooDomo.</span></span>
 
 ![Kullanıcı atama][200] 
 
-<span data-ttu-id="2f4b0-226">**Domo için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="2f4b0-226">**To assign Britta Simon to Domo, perform the following steps:**</span></span>
+<span data-ttu-id="0fe5a-226">**tooassign Britta Simon tooDomo hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="0fe5a-226">**tooassign Britta Simon tooDomo, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="2f4b0-227">Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-227">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="0fe5a-227">Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-227">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Kullanıcı atama][201] 
 
-2. <span data-ttu-id="2f4b0-229">Uygulamalar listesinde **Domo**.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-229">In the applications list, select **Domo**.</span></span>
+2. <span data-ttu-id="0fe5a-229">Merhaba uygulamalar listesinde **Domo**.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-229">In hello applications list, select **Domo**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-domo-tutorial/tutorial_domo_app.png) 
 
-3. <span data-ttu-id="2f4b0-231">Soldaki menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-231">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="0fe5a-231">Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-231">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Kullanıcı atama][202] 
 
-4. <span data-ttu-id="2f4b0-233">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-233">Click **Add** button.</span></span> <span data-ttu-id="2f4b0-234">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-234">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="0fe5a-233">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-233">Click **Add** button.</span></span> <span data-ttu-id="0fe5a-234">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-234">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Kullanıcı atama][203]
 
-5. <span data-ttu-id="2f4b0-236">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-236">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="0fe5a-236">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-236">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="2f4b0-237">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-237">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="0fe5a-237">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-237">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="2f4b0-238">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-238">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="0fe5a-238">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-238">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="2f4b0-239">Çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="2f4b0-239">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="0fe5a-239">Çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="0fe5a-239">Testing single sign-on</span></span>
 
-<span data-ttu-id="2f4b0-240">Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-240">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
-<span data-ttu-id="2f4b0-241">Erişim paneli Domo parçasında tıklattığınızda, otomatik olarak Domo uygulamanıza açan.</span><span class="sxs-lookup"><span data-stu-id="2f4b0-241">When you click the Domo tile in the Access Panel, you should get automatically signed-on to your Domo application.</span></span>
+<span data-ttu-id="0fe5a-240">Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-240">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
+<span data-ttu-id="0fe5a-241">Merhaba Domo hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Domo uygulama almanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="0fe5a-241">When you click hello Domo tile in hello Access Panel, you should get automatically signed-on tooyour Domo application.</span></span>
 
-<span data-ttu-id="2f4b0-242">Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="2f4b0-242">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
+<span data-ttu-id="0fe5a-242">Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="0fe5a-242">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
 
-## <a name="additional-resources"></a><span data-ttu-id="2f4b0-243">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="2f4b0-243">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="0fe5a-243">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="0fe5a-243">Additional resources</span></span>
 
-* [<span data-ttu-id="2f4b0-244">Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi</span><span class="sxs-lookup"><span data-stu-id="2f4b0-244">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="2f4b0-245">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="2f4b0-245">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="0fe5a-244">İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları</span><span class="sxs-lookup"><span data-stu-id="0fe5a-244">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="0fe5a-245">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="0fe5a-245">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

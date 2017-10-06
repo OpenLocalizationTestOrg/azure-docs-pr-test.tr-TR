@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory B2C - Azure API Management kullanarak Geliştirici hesaplarını yetkilendirmede | Microsoft Docs"
-description: "API Management'te Azure Active Directory B2C kullanarak kullanıcıları yetkilendirmek öğrenin."
+title: "Azure Active Directory B2C - Azure API Management kullanarak aaaAuthorize Geliştirici hesaplarını | Microsoft Docs"
+description: "Bilgi nasıl API Management'te Azure Active Directory B2C kullanarak tooauthorize kullanıcılar."
 services: api-management
 documentationcenter: API Management
 author: miaojiang
@@ -14,112 +14,112 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: eb7deb1a79d9db9ac5cfbea69b8d3c564eb55577
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 28f7cae53138938dbbc848b4afcbf08b72690e37
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a><span data-ttu-id="66d8b-103">Azure API Management'te Azure Active Directory B2C kullanarak Geliştirici hesaplarını yetkilendirmede nasıl</span><span class="sxs-lookup"><span data-stu-id="66d8b-103">How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management</span></span>
-## <a name="overview"></a><span data-ttu-id="66d8b-104">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="66d8b-104">Overview</span></span>
-<span data-ttu-id="66d8b-105">Azure Active Directory B2C bir tüketiciye yönelik web ve mobil uygulamaları için bulut kimlik yönetimi çözümüdür.</span><span class="sxs-lookup"><span data-stu-id="66d8b-105">Azure Active Directory B2C is a cloud identity management solution for consumer-facing web and mobile applications.</span></span> <span data-ttu-id="66d8b-106">Geliştirici portalınızın erişimi yönetmek için kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="66d8b-106">You can use it to manage access to your developer portal.</span></span> <span data-ttu-id="66d8b-107">Bu kılavuz, Azure Active Directory B2C ile tümleştirmek için API Management hizmetiniz gerekli yapılandırmayla gösterir.</span><span class="sxs-lookup"><span data-stu-id="66d8b-107">This guide shows you the configuration that's required in your API Management service to integrate with Azure Active Directory B2C.</span></span> <span data-ttu-id="66d8b-108">Klasik Azure Active Directory'yi kullanarak Geliştirici portalına erişim etkinleştirme hakkında daha fazla bilgi için bkz: [Azure Active Directory'yi kullanarak Geliştirici hesaplarını yetkilendirmede nasıl].</span><span class="sxs-lookup"><span data-stu-id="66d8b-108">For information about enabling access to the developer portal by using classic Azure Active Directory, see [How to authorize developer accounts using Azure Active Directory].</span></span>
+# <a name="how-tooauthorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a><span data-ttu-id="2b4f0-103">Azure API Management'te Azure Active Directory B2C kullanarak tooauthorize Geliştirici nasıl hesapları</span><span class="sxs-lookup"><span data-stu-id="2b4f0-103">How tooauthorize developer accounts by using Azure Active Directory B2C in Azure API Management</span></span>
+## <a name="overview"></a><span data-ttu-id="2b4f0-104">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="2b4f0-104">Overview</span></span>
+<span data-ttu-id="2b4f0-105">Azure Active Directory B2C bir tüketiciye yönelik web ve mobil uygulamaları için bulut kimlik yönetimi çözümüdür.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-105">Azure Active Directory B2C is a cloud identity management solution for consumer-facing web and mobile applications.</span></span> <span data-ttu-id="2b4f0-106">Toomanage erişim tooyour Geliştirici Portalı kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-106">You can use it toomanage access tooyour developer portal.</span></span> <span data-ttu-id="2b4f0-107">Bu kılavuz, API Management hizmeti toointegrate Azure Active Directory B2C ile de gerekli yapılandırmayla hello gösterir.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-107">This guide shows you hello configuration that's required in your API Management service toointegrate with Azure Active Directory B2C.</span></span> <span data-ttu-id="2b4f0-108">Klasik Azure Active Directory kullanılarak erişim toohello Geliştirici Portalı etkinleştirme hakkında daha fazla bilgi için bkz: [nasıl tooauthorize Geliştirici kullanarak hesapları Azure Active Directory].</span><span class="sxs-lookup"><span data-stu-id="2b4f0-108">For information about enabling access toohello developer portal by using classic Azure Active Directory, see [How tooauthorize developer accounts using Azure Active Directory].</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="66d8b-109">Bu kılavuzdaki adımları tamamlamak için ilk bir uygulama oluşturmak için bir Azure Active Directory B2C kiracısına sahip olmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="66d8b-109">To complete the steps in this guide, you must first have an Azure Active Directory B2C tenant to create an application in.</span></span> <span data-ttu-id="66d8b-110">Ayrıca, kaydolma ve oturum açma ilkeleri hazır olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="66d8b-110">Also, you need to have signup and signin policies ready.</span></span> <span data-ttu-id="66d8b-111">Daha fazla bilgi için bkz: [Azure Active Directory B2C genel bakış].</span><span class="sxs-lookup"><span data-stu-id="66d8b-111">For more information, see [Azure Active Directory B2C overview].</span></span>
+> <span data-ttu-id="2b4f0-109">Bu kılavuzdaki toocomplete hello adımları, öncelikle bir Azure Active Directory B2C Kiracı toocreate bir uygulama olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-109">toocomplete hello steps in this guide, you must first have an Azure Active Directory B2C tenant toocreate an application in.</span></span> <span data-ttu-id="2b4f0-110">Ayrıca, toohave kaydolma ve oturum açma ilkeleri hazır gerekir.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-110">Also, you need toohave signup and signin policies ready.</span></span> <span data-ttu-id="2b4f0-111">Daha fazla bilgi için bkz: [Azure Active Directory B2C genel bakış].</span><span class="sxs-lookup"><span data-stu-id="2b4f0-111">For more information, see [Azure Active Directory B2C overview].</span></span>
 
-## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a><span data-ttu-id="66d8b-112">Azure Active Directory B2C kullanarak Geliştirici hesaplarını yetkilendirmede</span><span class="sxs-lookup"><span data-stu-id="66d8b-112">Authorize developer accounts by using Azure Active Directory B2C</span></span>
+## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a><span data-ttu-id="2b4f0-112">Azure Active Directory B2C kullanarak Geliştirici hesaplarını yetkilendirmede</span><span class="sxs-lookup"><span data-stu-id="2b4f0-112">Authorize developer accounts by using Azure Active Directory B2C</span></span>
 
-1. <span data-ttu-id="66d8b-113">Kullanmaya başlamak için tıklayın **yayımcı portalına** API Management hizmetiniz için Azure Portalı'nda.</span><span class="sxs-lookup"><span data-stu-id="66d8b-113">To get started, click **Publisher portal** in the Azure portal for your API Management service.</span></span> <span data-ttu-id="66d8b-114">Bu sizi API Management yayımcı portalına götürür.</span><span class="sxs-lookup"><span data-stu-id="66d8b-114">This takes you to the API Management publisher portal.</span></span>
+1. <span data-ttu-id="2b4f0-113">başlatıldı, tooget tıklatın **yayımcı portalına** hello API Management hizmetiniz için Azure Portalı'nda.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-113">tooget started, click **Publisher portal** in hello Azure portal for your API Management service.</span></span> <span data-ttu-id="2b4f0-114">Bu toohello API Management yayımcı portalına götürür.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-114">This takes you toohello API Management publisher portal.</span></span>
 
    ![Yayımcı portalı][api-management-management-console]
 
    > [!NOTE]
-   > <span data-ttu-id="66d8b-116">Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] içinde [Azure API Management öğretici ile çalışmaya başlama][Get started with Azure API Management].</span><span class="sxs-lookup"><span data-stu-id="66d8b-116">If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management tutorial][Get started with Azure API Management].</span></span>
+   > <span data-ttu-id="2b4f0-116">Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] hello içinde [Azure API Management öğreticiileçalışmayabaşlama][Get started with Azure API Management].</span><span class="sxs-lookup"><span data-stu-id="2b4f0-116">If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in hello [Get started with Azure API Management tutorial][Get started with Azure API Management].</span></span>
 
-2. <span data-ttu-id="66d8b-117">Üzerinde **API Management** menüsünde tıklatın **güvenlik**.</span><span class="sxs-lookup"><span data-stu-id="66d8b-117">On the **API Management** menu, click **Security**.</span></span> <span data-ttu-id="66d8b-118">Üzerinde **kimlikleri** sekmesinde, seçin **Azure Active Directory B2C**.</span><span class="sxs-lookup"><span data-stu-id="66d8b-118">On the **Identities** tab, choose **Azure Active Directory B2C**.</span></span>
+2. <span data-ttu-id="2b4f0-117">Merhaba üzerinde **API Management** menüsünde tıklatın **güvenlik**.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-117">On hello **API Management** menu, click **Security**.</span></span> <span data-ttu-id="2b4f0-118">Merhaba üzerinde **kimlikleri** sekmesinde, seçin **Azure Active Directory B2C**.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-118">On hello **Identities** tab, choose **Azure Active Directory B2C**.</span></span>
 
   ![Dış kimlikler 1][api-management-howto-aad-b2c-security-tab]
 
-3. <span data-ttu-id="66d8b-120">Not **tekrar yönlendirme URL'sini** ve anahtar Azure Active Directory B2C Azure portalında.</span><span class="sxs-lookup"><span data-stu-id="66d8b-120">Make a note of the **Redirect URL** and switch over to Azure Active Directory B2C in the Azure portal.</span></span>
+3. <span data-ttu-id="2b4f0-120">Merhaba Not **tekrar yönlendirme URL'sini** ve hello Azure portal'ın Active Directory B2C tooAzure üzerinden geçin.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-120">Make a note of hello **Redirect URL** and switch over tooAzure Active Directory B2C in hello Azure portal.</span></span>
 
   ![Dış kimlikler 2][api-management-howto-aad-b2c-security-tab-reply-url]
 
-4. <span data-ttu-id="66d8b-122">Tıklatın **uygulamaları** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="66d8b-122">Click the **Applications** button.</span></span>
+4. <span data-ttu-id="2b4f0-122">Merhaba tıklatın **uygulamaları** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-122">Click hello **Applications** button.</span></span>
 
   ![Yeni bir uygulama 1 kaydetme][api-management-howto-aad-b2c-portal-menu]
 
-5. <span data-ttu-id="66d8b-124">Tıklatın **Ekle** düğmesi yeni bir Azure Active Directory B2C uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="66d8b-124">Click the **Add** button to create a new Azure Active Directory B2C application.</span></span>
+5. <span data-ttu-id="2b4f0-124">Merhaba tıklatın **Ekle** düğmesini toocreate yeni bir Azure Active Directory B2C uygulaması.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-124">Click hello **Add** button toocreate a new Azure Active Directory B2C application.</span></span>
 
   ![Yeni bir uygulama 2 kaydetme][api-management-howto-aad-b2c-add-button]
 
-6. <span data-ttu-id="66d8b-126">İçinde **yeni uygulama** dikey penceresinde, uygulama için bir ad girin.</span><span class="sxs-lookup"><span data-stu-id="66d8b-126">In the **New application** blade, enter a name for the application.</span></span> <span data-ttu-id="66d8b-127">Seçin **Evet** altında **Web uygulaması/Web API**ve seçin **Evet** altında **örtük akışına izin**.</span><span class="sxs-lookup"><span data-stu-id="66d8b-127">Choose **Yes** under **Web App/Web API**, and choose **Yes** under **Allow implicit flow**.</span></span> <span data-ttu-id="66d8b-128">Ardından kopyalama **tekrar yönlendirme URL'sini** gelen **Azure Active Directory B2C** bölümünü **kimlikleri** sekmesinde yayımcı portalında ve yapıştırın **yanıt URL'si** metin kutusu.</span><span class="sxs-lookup"><span data-stu-id="66d8b-128">Then copy the **Redirect URL** from the **Azure Active Directory B2C** section of the **Identities** tab in the publisher portal, and paste it into the **Reply URL** text box.</span></span>
+6. <span data-ttu-id="2b4f0-126">Merhaba, **yeni uygulama** dikey penceresinde hello uygulama için bir ad girin.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-126">In hello **New application** blade, enter a name for hello application.</span></span> <span data-ttu-id="2b4f0-127">Seçin **Evet** altında **Web uygulaması/Web API**ve seçin **Evet** altında **örtük akışına izin**.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-127">Choose **Yes** under **Web App/Web API**, and choose **Yes** under **Allow implicit flow**.</span></span> <span data-ttu-id="2b4f0-128">Ardından kopya hello **tekrar yönlendirme URL'sini** hello gelen **Azure Active Directory B2C** hello bölümünü **kimlikleri** sekmesinde hello yayımcı Portalı'nda ve helloyapıştırma**Yanıt URL'si** metin kutusu.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-128">Then copy hello **Redirect URL** from hello **Azure Active Directory B2C** section of hello **Identities** tab in hello publisher portal, and paste it into hello **Reply URL** text box.</span></span>
 
   ![Yeni bir uygulamayı 3 Kaydet][api-management-howto-aad-b2c-app-details]
 
-7. <span data-ttu-id="66d8b-130">**Oluştur** düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="66d8b-130">Click the **Create** button.</span></span> <span data-ttu-id="66d8b-131">Uygulama oluşturulduğunda görünür **uygulamaları** dikey.</span><span class="sxs-lookup"><span data-stu-id="66d8b-131">When the application is created, it appears in the **Applications** blade.</span></span> <span data-ttu-id="66d8b-132">Ayrıntılarını görmek için uygulama adına tıklayın.</span><span class="sxs-lookup"><span data-stu-id="66d8b-132">Click the application name to see its details.</span></span>
+7. <span data-ttu-id="2b4f0-130">Merhaba tıklatın **oluşturma** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-130">Click hello **Create** button.</span></span> <span data-ttu-id="2b4f0-131">Merhaba uygulaması oluşturulduğunda hello göründüğü **uygulamaları** dikey.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-131">When hello application is created, it appears in hello **Applications** blade.</span></span> <span data-ttu-id="2b4f0-132">Merhaba uygulama adı toosee ayrıntılarını'ı tıklatın.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-132">Click hello application name toosee its details.</span></span>
 
   ![Yeni bir uygulama 4 kaydetme][api-management-howto-aad-b2c-app-created]
 
-8. <span data-ttu-id="66d8b-134">Gelen **özellikleri** dikey penceresinde, kopya **uygulama kimliği** panoya.</span><span class="sxs-lookup"><span data-stu-id="66d8b-134">From the **Properties** blade, copy the **Application ID** to the clipboard.</span></span>
+8. <span data-ttu-id="2b4f0-134">Merhaba gelen **özellikleri** dikey penceresinde, kopyalama hello **uygulama kimliği** toohello Pano.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-134">From hello **Properties** blade, copy hello **Application ID** toohello clipboard.</span></span>
 
   ![1 uygulama kimliği][api-management-howto-aad-b2c-app-id]
 
-9. <span data-ttu-id="66d8b-136">Geçiş yayımcı portalına dönün ve kimliği içine yapıştırma **istemci kimliği** metin kutusu.</span><span class="sxs-lookup"><span data-stu-id="66d8b-136">Switch back to the publisher portal and paste the ID into the **Client Id** text box.</span></span>
+9. <span data-ttu-id="2b4f0-136">Geçiş geri toohello yayımcı portalı ve hello kimliği hello yapıştırma **istemci kimliği** metin kutusu.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-136">Switch back toohello publisher portal and paste hello ID into hello **Client Id** text box.</span></span>
 
   ![Uygulama kimliği 2][api-management-howto-aad-b2c-client-id]
 
-10. <span data-ttu-id="66d8b-138">Azure portalına anahtarı, tıklatın **anahtarları** düğmesine tıklayın ve ardından **anahtar üret**.</span><span class="sxs-lookup"><span data-stu-id="66d8b-138">Switch back to the Azure portal, click the **Keys** button, and then click **Generate key**.</span></span> <span data-ttu-id="66d8b-139">Tıklatın **kaydetmek** yapılandırmasını kaydetmek ve görüntülemek için **uygulama anahtarı**.</span><span class="sxs-lookup"><span data-stu-id="66d8b-139">Click **Save** to save the configuration and display the **App key**.</span></span> <span data-ttu-id="66d8b-140">Anahtarı panoya kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="66d8b-140">Copy the key to the clipboard.</span></span>
+10. <span data-ttu-id="2b4f0-138">Anahtarı geri toohello Azure portal, hello tıklatın **anahtarları** düğmesine tıklayın ve ardından **anahtar üret**.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-138">Switch back toohello Azure portal, click hello **Keys** button, and then click **Generate key**.</span></span> <span data-ttu-id="2b4f0-139">Tıklatın **kaydetmek** toosave hello yapılandırması ve görüntü hello **uygulama anahtarı**.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-139">Click **Save** toosave hello configuration and display hello **App key**.</span></span> <span data-ttu-id="2b4f0-140">Merhaba anahtar toohello panoya kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-140">Copy hello key toohello clipboard.</span></span>
 
   ![1 uygulama anahtarı][api-management-howto-aad-b2c-app-key]
 
-11. <span data-ttu-id="66d8b-142">Geçiş yayımcı portalına dönün ve içine anahtarını yapıştırın **gizli** metin kutusu.</span><span class="sxs-lookup"><span data-stu-id="66d8b-142">Switch back to the publisher portal and paste the key into the **Client Secret** text box.</span></span>
+11. <span data-ttu-id="2b4f0-142">Anahtar geri toohello yayımcı portalı ve Yapıştır hello anahtara hello **gizli** metin kutusu.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-142">Switch back toohello publisher portal and paste hello key into hello **Client Secret** text box.</span></span>
 
   ![Uygulama anahtarı 2][api-management-howto-aad-b2c-client-secret]
 
-12. <span data-ttu-id="66d8b-144">Azure Active Directory B2C kiracısı'nda etki alanı adını belirtin **izin Kiracı**.</span><span class="sxs-lookup"><span data-stu-id="66d8b-144">Specify the domain name of the Azure Active Directory B2C tenant in **Allowed Tenant**.</span></span>
+12. <span data-ttu-id="2b4f0-144">Hello Azure Active Directory B2C kiracınızda Hello etki alanı adını belirtin **izin Kiracı**.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-144">Specify hello domain name of hello Azure Active Directory B2C tenant in **Allowed Tenant**.</span></span>
 
   ![İzin verilen Kiracı][api-management-howto-aad-b2c-allowed-tenant]
 
-13. <span data-ttu-id="66d8b-146">Belirtin **kaydolma İlkesi** ve **Signın İlkesi**.</span><span class="sxs-lookup"><span data-stu-id="66d8b-146">Specify the **Signup Policy** and **Signin Policy**.</span></span> <span data-ttu-id="66d8b-147">İsteğe bağlı olarak, ayrıca sağlayabilirsiniz **Profil Düzenleme İlkesi** ve **parola sıfırlama İlkesi**.</span><span class="sxs-lookup"><span data-stu-id="66d8b-147">Optionally, you can also provide the **Profile Editing Policy** and **Password Reset Policy**.</span></span>
+13. <span data-ttu-id="2b4f0-146">Merhaba belirtin **kaydolma İlkesi** ve **Signın İlkesi**.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-146">Specify hello **Signup Policy** and **Signin Policy**.</span></span> <span data-ttu-id="2b4f0-147">İsteğe bağlı olarak, ayrıca hello sağlayabilir **Profil Düzenleme İlkesi** ve **parola sıfırlama İlkesi**.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-147">Optionally, you can also provide hello **Profile Editing Policy** and **Password Reset Policy**.</span></span>
 
   ![İlkeler][api-management-howto-aad-b2c-policies]
 
   > [!NOTE]
-  > <span data-ttu-id="66d8b-149">İlkeler hakkında daha fazla bilgi için bkz: [Azure Active Directory B2C: Genişletilebilir ilke çerçevesini].</span><span class="sxs-lookup"><span data-stu-id="66d8b-149">For more information on policies, see [Azure Active Directory B2C: Extensible policy framework].</span></span>
+  > <span data-ttu-id="2b4f0-149">İlkeler hakkında daha fazla bilgi için bkz: [Azure Active Directory B2C: Genişletilebilir ilke çerçevesini].</span><span class="sxs-lookup"><span data-stu-id="2b4f0-149">For more information on policies, see [Azure Active Directory B2C: Extensible policy framework].</span></span>
 
-14. <span data-ttu-id="66d8b-150">İstenen yapılandırma belirttikten sonra tıklatın **kaydetmek**.</span><span class="sxs-lookup"><span data-stu-id="66d8b-150">After you've specified the desired configuration, click **Save**.</span></span>
+14. <span data-ttu-id="2b4f0-150">Merhaba istenen yapılandırma belirttikten sonra tıklatın **kaydetmek**.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-150">After you've specified hello desired configuration, click **Save**.</span></span>
 
-  <span data-ttu-id="66d8b-151">Değişiklikler kaydedildikten sonra geliştiricilerin yeni hesapları oluşturabilir ve Azure Active Directory B2C kullanarak oturum açın Geliştirici portalına olacaktır.</span><span class="sxs-lookup"><span data-stu-id="66d8b-151">After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure Active Directory B2C.</span></span>
+  <span data-ttu-id="2b4f0-151">Hello değişiklikler kaydedildikten sonra geliştiriciler yeni hesapları mümkün toocreate olması ve Azure Active Directory B2C kullanarak toohello Geliştirici Portalı'nda oturum.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-151">After hello changes are saved, developers will be able toocreate new accounts and sign in toohello developer portal by using Azure Active Directory B2C.</span></span>
 
-## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a><span data-ttu-id="66d8b-152">Azure Active Directory B2C kullanarak bir geliştirici hesabı için kaydolun</span><span class="sxs-lookup"><span data-stu-id="66d8b-152">Sign up for a developer account by using Azure Active Directory B2C</span></span>
+## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a><span data-ttu-id="2b4f0-152">Azure Active Directory B2C kullanarak bir geliştirici hesabı için kaydolun</span><span class="sxs-lookup"><span data-stu-id="2b4f0-152">Sign up for a developer account by using Azure Active Directory B2C</span></span>
 
-1. <span data-ttu-id="66d8b-153">Azure Active Directory B2C kullanarak bir geliştirici hesabı için kaydolmak için yeni bir tarayıcı penceresi açın ve geliştirici portalına gidin.</span><span class="sxs-lookup"><span data-stu-id="66d8b-153">To sign up for a developer account by using Azure Active Directory B2C, open a new browser window and go to the developer portal.</span></span> <span data-ttu-id="66d8b-154">Tıklatın **kaydolun** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="66d8b-154">Click the **Sign up** button.</span></span>
+1. <span data-ttu-id="2b4f0-153">toosign Azure Active Directory B2C kullanarak bir geliştirici hesabı için yeni bir tarayıcı penceresi açın ve toohello Geliştirici portalına gidin.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-153">toosign up for a developer account by using Azure Active Directory B2C, open a new browser window and go toohello developer portal.</span></span> <span data-ttu-id="2b4f0-154">Merhaba tıklatın **kaydolun** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-154">Click hello **Sign up** button.</span></span>
 
    ![Geliştirici Portalı 1][api-management-howto-aad-b2c-dev-portal]
 
-2. <span data-ttu-id="66d8b-156">İle kaydolmak isterseniz **Azure Active Directory B2C**.</span><span class="sxs-lookup"><span data-stu-id="66d8b-156">Choose to sign up with **Azure Active Directory B2C**.</span></span>
+2. <span data-ttu-id="2b4f0-156">İle toosign seçin **Azure Active Directory B2C**.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-156">Choose toosign up with **Azure Active Directory B2C**.</span></span>
 
    ![Geliştirici Portalı 2][api-management-howto-aad-b2c-dev-portal-b2c-button]
 
-3. <span data-ttu-id="66d8b-158">Önceki bölümde yapılandırılmış kaydolma İlkesi yönlendirilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="66d8b-158">You're redirected to the signup policy that you configured in the previous section.</span></span> <span data-ttu-id="66d8b-159">E-posta adresinizi veya var olan sosyal hesaplarınızı birini kullanarak kaydolmak seçin.</span><span class="sxs-lookup"><span data-stu-id="66d8b-159">Choose to sign up by using your email address or one of your existing social accounts.</span></span>
+3. <span data-ttu-id="2b4f0-158">Merhaba önceki bölümde yapılandırılmış yeniden yönlendirilen toohello kaydolma İlkesi demektir.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-158">You're redirected toohello signup policy that you configured in hello previous section.</span></span> <span data-ttu-id="2b4f0-159">Toosign e-posta adresinizi veya var olan sosyal hesaplarınızı birini kullanarak seçin.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-159">Choose toosign up by using your email address or one of your existing social accounts.</span></span>
 
    > [!NOTE]
-   > <span data-ttu-id="66d8b-160">Azure Active Directory B2C etkin tek seçenek ise **kimlikleri** sekmesini yayımcı Portalı'nda, kaydolma ilkeye doğrudan yönlendirilmesi.</span><span class="sxs-lookup"><span data-stu-id="66d8b-160">If Azure Active Directory B2C is the only option that's enabled on the **Identities** tab in the publisher portal, you'll be redirected to the signup policy directly.</span></span>
+   > <span data-ttu-id="2b4f0-160">Azure Active Directory B2C hello üzerinde etkin hello tek seçenek ise **kimlikleri** sekmesini hello yayımcı Portalı'nda, yeniden yönlendirilen toohello kaydolma İlkesi doğrudan olması.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-160">If Azure Active Directory B2C is hello only option that's enabled on hello **Identities** tab in hello publisher portal, you'll be redirected toohello signup policy directly.</span></span>
 
    ![Geliştirici portalı][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
-   <span data-ttu-id="66d8b-162">Kayıt işlemi tamamlandıktan sonra Geliştirici portalına yönlendirilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="66d8b-162">When the signup is complete, you're redirected back to the developer portal.</span></span> <span data-ttu-id="66d8b-163">Artık Geliştirici portalına API Management hizmet örneği için oturum açtınız.</span><span class="sxs-lookup"><span data-stu-id="66d8b-163">You're now signed in to the developer portal for your API Management service instance.</span></span>
+   <span data-ttu-id="2b4f0-162">Merhaba kaydolma tamamlandığında yeniden yönlendirilen geri toohello Geliştirici Portalı demektir.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-162">When hello signup is complete, you're redirected back toohello developer portal.</span></span> <span data-ttu-id="2b4f0-163">API Management hizmet örneği için şimdi toohello Geliştirici Portalı'nda oturum açtınız.</span><span class="sxs-lookup"><span data-stu-id="2b4f0-163">You're now signed in toohello developer portal for your API Management service instance.</span></span>
 
     ![Kayıt tamamlandı][api-management-registration-complete]
 
-## <a name="next-steps"></a><span data-ttu-id="66d8b-165">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="66d8b-165">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="2b4f0-165">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="2b4f0-165">Next steps</span></span>
 
-*  <span data-ttu-id="66d8b-166">[Azure Active Directory B2C genel bakış]</span><span class="sxs-lookup"><span data-stu-id="66d8b-166">[Azure Active Directory B2C overview]</span></span>
-*  <span data-ttu-id="66d8b-167">[Azure Active Directory B2C: Genişletilebilir ilke çerçevesini]</span><span class="sxs-lookup"><span data-stu-id="66d8b-167">[Azure Active Directory B2C: Extensible policy framework]</span></span>
-*  <span data-ttu-id="66d8b-168">[Azure Active Directory B2C, kimlik sağlayıcısı bir Microsoft hesabı kullanın]</span><span class="sxs-lookup"><span data-stu-id="66d8b-168">[Use a Microsoft account as an identity provider in Azure Active Directory B2C]</span></span>
-*  <span data-ttu-id="66d8b-169">[Azure Active Directory B2C, kimlik sağlayıcısı bir Google hesabı kullan]</span><span class="sxs-lookup"><span data-stu-id="66d8b-169">[Use a Google account as an identity provider in Azure Active Directory B2C]</span></span>
-*  <span data-ttu-id="66d8b-170">[Azure Active Directory B2C, kimlik sağlayıcısı LinkedIn hesabını kullan]</span><span class="sxs-lookup"><span data-stu-id="66d8b-170">[Use a LinkedIn account as an identity provider in Azure Active Directory B2C]</span></span>
-*  <span data-ttu-id="66d8b-171">[Azure Active Directory B2C, kimlik sağlayıcısı Facebook hesabıyla kullanın]</span><span class="sxs-lookup"><span data-stu-id="66d8b-171">[Use a Facebook account as an identity provider in Azure Active Directory B2C]</span></span>
+*  <span data-ttu-id="2b4f0-166">[Azure Active Directory B2C genel bakış]</span><span class="sxs-lookup"><span data-stu-id="2b4f0-166">[Azure Active Directory B2C overview]</span></span>
+*  <span data-ttu-id="2b4f0-167">[Azure Active Directory B2C: Genişletilebilir ilke çerçevesini]</span><span class="sxs-lookup"><span data-stu-id="2b4f0-167">[Azure Active Directory B2C: Extensible policy framework]</span></span>
+*  <span data-ttu-id="2b4f0-168">[Azure Active Directory B2C, kimlik sağlayıcısı bir Microsoft hesabı kullanın]</span><span class="sxs-lookup"><span data-stu-id="2b4f0-168">[Use a Microsoft account as an identity provider in Azure Active Directory B2C]</span></span>
+*  <span data-ttu-id="2b4f0-169">[Azure Active Directory B2C, kimlik sağlayıcısı bir Google hesabı kullan]</span><span class="sxs-lookup"><span data-stu-id="2b4f0-169">[Use a Google account as an identity provider in Azure Active Directory B2C]</span></span>
+*  <span data-ttu-id="2b4f0-170">[Azure Active Directory B2C, kimlik sağlayıcısı LinkedIn hesabını kullan]</span><span class="sxs-lookup"><span data-stu-id="2b4f0-170">[Use a LinkedIn account as an identity provider in Azure Active Directory B2C]</span></span>
+*  <span data-ttu-id="2b4f0-171">[Azure Active Directory B2C, kimlik sağlayıcısı Facebook hesabıyla kullanın]</span><span class="sxs-lookup"><span data-stu-id="2b4f0-171">[Use a Facebook account as an identity provider in Azure Active Directory B2C]</span></span>
 
 
 
@@ -172,10 +172,10 @@ ms.lasthandoff: 07/11/2017
 [api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
 [api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
+[How tooadd operations tooan API]: api-management-howto-add-operations.md
+[How tooadd and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Add APIs tooa product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
 [API Management policy reference]: api-management-policy-reference.md
@@ -184,19 +184,19 @@ ms.lasthandoff: 07/11/2017
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
-<span data-ttu-id="66d8b-172">[Azure Active Directory B2C genel bakış]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview</span><span class="sxs-lookup"><span data-stu-id="66d8b-172">[Azure Active Directory B2C overview]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview</span></span>
-<span data-ttu-id="66d8b-173">[Azure Active Directory'yi kullanarak Geliştirici hesaplarını yetkilendirmede nasıl]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad</span><span class="sxs-lookup"><span data-stu-id="66d8b-173">[How to authorize developer accounts using Azure Active Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad</span></span>
-<span data-ttu-id="66d8b-174">[Azure Active Directory B2C: Genişletilebilir ilke çerçevesini]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies</span><span class="sxs-lookup"><span data-stu-id="66d8b-174">[Azure Active Directory B2C: Extensible policy framework]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies</span></span>
-<span data-ttu-id="66d8b-175">[Azure Active Directory B2C, kimlik sağlayıcısı bir Microsoft hesabı kullanın]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app</span><span class="sxs-lookup"><span data-stu-id="66d8b-175">[Use a Microsoft account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app</span></span>
-<span data-ttu-id="66d8b-176">[Azure Active Directory B2C, kimlik sağlayıcısı bir Google hesabı kullan]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app</span><span class="sxs-lookup"><span data-stu-id="66d8b-176">[Use a Google account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app</span></span>
-<span data-ttu-id="66d8b-177">[Azure Active Directory B2C, kimlik sağlayıcısı Facebook hesabıyla kullanın]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app</span><span class="sxs-lookup"><span data-stu-id="66d8b-177">[Use a Facebook account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app</span></span>
-<span data-ttu-id="66d8b-178">[Azure Active Directory B2C, kimlik sağlayıcısı LinkedIn hesabını kullan]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app</span><span class="sxs-lookup"><span data-stu-id="66d8b-178">[Use a LinkedIn account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app</span></span>
+[Accessing hello Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
+[Azure Active Directory B2C genel bakış]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
+[nasıl tooauthorize Geliştirici kullanarak hesapları Azure Active Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
+[Azure Active Directory B2C: Genişletilebilir ilke çerçevesini]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
+[Azure Active Directory B2C, kimlik sağlayıcısı bir Microsoft hesabı kullanın]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
+[Azure Active Directory B2C, kimlik sağlayıcısı bir Google hesabı kullan]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
+[Azure Active Directory B2C, kimlik sağlayıcısı Facebook hesabıyla kullanın]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
+[Azure Active Directory B2C, kimlik sağlayıcısı LinkedIn hesabını kullan]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1
-[Configure an API to use OAuth 2.0 user authorization]: #step2
-[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Configure an API toouse OAuth 2.0 user authorization]: #step2
+[Test hello OAuth 2.0 user authorization in hello Developer Portal]: #step3
 [Next steps]: #next-steps
 
-[Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
+[Log in toohello Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
