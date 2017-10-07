@@ -1,6 +1,6 @@
 ---
-title: "Abonelik taşıma işlemi sonrasında anahtar kasası kiracı kimliğini değiştirme | Microsoft Belgeleri"
-description: "Abonelik farklı bir kiracıya taşındıktan sonra anahtar kasasına ilişkin kiracı kimliğini nasıl değiştireceğinizi öğrenin"
+title: "bir abonelik taşıdıktan sonra aaaChange hello anahtar kasası Kiracı kimliği | Microsoft Docs"
+description: "Bir abonelik tamamlandıktan sonra bir anahtar kasası için tooswitch hello Kiracı kimliği tooa farklı Kiracı nasıl taşınır öğrenin"
 services: key-vault
 documentationcenter: 
 author: amitbapat
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: 2f007dd4f877b48003cddcefa5f4321049853361
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4d0607208c61c57959439d2d0bd8feade4141fee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Abonelik taşıma işlemi sonrasında anahtar kasası kiracı kimliğini değiştirme
-### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>S: Aboneliğim A kiracısından B kiracısına taşındı. Mevcut anahtar kasama ilişkin kiracı kimliğini nasıl değiştirebilir ve B kiracısındaki sorumlular için doğru ACL'leri nasıl belirleyebilirim?
-Abonelikte yeni bir anahtar kasası oluşturduğunuzda, kasa bu abonelik için varsayılan Azure Active Directory kiracı kimliğine otomatik olarak bağlanır. Tüm erişim ilkesi girdileri de bu kiracı kimliğine bağlanır. Azure aboneliğinizi A kiracısından B kiracısına taşıdığınızda mevcut anahtar kasalarınız, B kiracısındaki sorumlular (kullanıcılar ve uygulamalar) tarafından erişilemez hale gelir. Bu sorunu düzeltmek için şunları yapmanız gerekir:
+### <a name="q-my-subscription-was-moved-from-tenant-a-tootenant-b-how-do-i-change-hello-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>S: Aboneliğimi Kiracı A tootenant B. taşındı Nasıl my olan bir anahtar kasası için hello Kiracı kimliği değiştirmek ve Kiracı B Sorumlular için doğru ACL ayarlamak?
+Bir abonelikte yeni bir anahtar kasası oluşturduğunuzda, bu abonelik için otomatik olarak bağlı toohello varsayılan Azure Active Directory Kiracı kimliği olur. Tüm erişim ilkesi girdileri de bağlı toothis Kiracı kimliğidir. Azure aboneliğinize taşıdığınızda kiracısı tootenant B, varolan anahtarınızı kasaları tarafından erişilemez Merhaba ilkelerini (kullanıcılar ve uygulamalar) Kiracı B. toofix içinde bu sorunu, gerekir:
 
-* Bu abonelikte var olan tüm anahtar kasalarıyla ilişkili kiracı kimliklerini B kiracısı olarak değiştirin.
+* Bu abonelik tootenant B. içinde varolan tüm anahtar kasalarını ilişkili değişiklik hello Kiracı kimliği
 * Mevcut tüm erişim ilkesi girdilerini kaldırın.
 * B kiracısı ile ilişkili yeni erişim ilkesi girdileri ekleyin.
 
-Örneğin, bir abonelikte A kiracısından B kiracısına taşınan 'myvault' adlı bir anahtar kasanız varsa bu anahtar kasası için kiracı kimliğini nasıl değiştireceğiniz ve eski erişim ilkelerini nasıl kaldıracağınız aşağıda gösterilmiştir.
+Örneğin, Kiracı A tootenant B, burada 's taşınan bir abonelikte 'myvault' anahtar kasası varsa, nasıl toochange hello kimliği bu anahtar kasası için Kiracı ve eski erişim ilkelerini kaldırın.
 
 <pre>
 $Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
@@ -39,10 +39,10 @@ $vault.Properties.AccessPolicies = @()
 Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>
 
-Taşıma işlemi öncesinde bu kasa A kiracısında olduğundan, ilk **$vault.Properties.TenantId** değeri A kiracısıyken **(Get-AzureRmContext).Tenant.TenantId** değeri B kiracısıdır.
+Bu kasaya Kiracı A hello taşıma önce olduğundan, özgün değeri hello **$vault. Properties.TenantId** Kiracı a while **(Get-AzureRmContext). Tenant.TenantId** olan Kiracı b
 
-Artık kasanız doğru kiracı kimliğiyle ilişkilendirildiğine ve eski erişim ilkesi girdileri kaldırıldığına göre, [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx) ile yeni erişim ilkesi girdileri belirleyebilirsiniz.
+Kasanızı hello doğru Kiracı kimliği ile ilişkili olan ve eski erişim ilkesi girdileri kaldırılır artık, yeni erişim ilkesi girişlerle ayarlayın [kümesi AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Anahtar Kasası ile ilgili sorularınız varsa bkz. [Azure Anahtar Kasası Forumları](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Azure anahtar kasası hakkında sorularınız varsa hello ziyaret [Azure anahtar kasası forumları](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 

@@ -1,6 +1,6 @@
 ---
-title: "İç yük dengeleyici genel bakış | Microsoft Docs"
-description: "İç yük dengeleyici ve özellikleri için genel bakış. Bir yük dengeleyici iç uç noktalar yapılandırmak Azure ve olası senaryoları için nasıl çalışır?"
+title: "aaaInternal yük dengeleyici genel bakış | Microsoft Docs"
+description: "İç yük dengeleyici ve özellikleri için genel bakış. Bir yük dengeleyici Azure ve olası senaryolar için tooconfigure iç uç noktaları nasıl çalışır?"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9a901aad224d8821c154e130e142699d57282b25
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="internal-load-balancer-overview"></a>İç yük dengeleyiciye genel bakış
 
-Yük Dengeleyici Internet'e, iç yük dengeleyiciye (ILB) yalnızca bulut hizmeti ya da Azure altyapı erişmek için VPN kullanarak iç kaynaklara trafiğini yönlendirir. Böylece bunlar hiçbir zaman doğrudan bir Internet uç noktasına sunulur altyapı yük dengeli sanal IP adreslerine bir bulut hizmeti ya da bir sanal ağ (VIP) erişimi sınırlandırır. Bu, iç Azure'da çalıştırmak ve bulut içinde veya kaynakları şirket içi erişilen için iş kolu (LOB) uygulamaları sağlar.
+Merhaba Internet'e yönelik Yük Dengeleyici, hello iç yük dengeleyiciye (ILB) trafiği yalnızca tooresources hello bulut hizmeti veya VPN tooaccess hello Azure altyapı kullanarak içinde yönlendirir. böylece hiçbir zaman doğrudan gösterilen tooan Internet uç noktası olmaz hello altyapı erişim toohello yük dengeli sanal IP adresleri (VIP) bir bulut hizmeti ya da bir sanal ağ kısıtlar. Bu iş (LOB) uygulamaları toorun Azure iç satırının sağlar ve hello bulut içinde veya kaynakları şirket içi erişilen.
 
 ## <a name="why-you-may-need-an-internal-load-balancer"></a>Bir iç yük dengeleyici neden ihtiyacınız
 
-Azure iç yük dengeleyici (ILB) Yük Dengeleme bir bulut hizmeti veya bölgesel kapsama sahip bir sanal ağ içinde bulunan sanal makineler arasında sağlar. Kullanım ve bölgesel kapsama sahip sanal ağ yapılandırması hakkında daha fazla bilgi için bkz: [bölgesel sanal ağlar](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) Azure Web günlüğündeki. Benzeşim grubu için yapılandırılmış mevcut sanal ağlar ILB’yi kullanamaz.
+Azure iç yük dengeleyici (ILB) Yük Dengeleme bir bulut hizmeti veya bölgesel kapsama sahip bir sanal ağ içinde bulunan sanal makineler arasında sağlar. Merhaba kullanın ve bölgesel kapsama sahip sanal ağ yapılandırması hakkında daha fazla bilgi için bkz: [bölgesel sanal ağlar](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) hello Azure blogu içinde. Benzeşim grubu için yapılandırılmış mevcut sanal ağlar ILB’yi kullanamaz.
 
-ILB Yük Dengeleme aşağıdaki türleri sağlar:
+ILB hello şu Yük Dengelemesi türlerini sağlar:
 
-* Sanal makineler aynı bulut hizmetinde bulunan sanal makineler kümesi için bir bulut hizmetinden içinde (bkz: Şekil 1).
-* (Bkz: Şekil 2) sanal aynı bulut hizmetinde bulunan sanal makineler kümesi için sanal ağdaki sanal makinelerden bir sanal ağ içindeki ağ.
-* (Bkz: Şekil 3) şirket içi bilgisayarlardan sanal aynı bulut hizmetinde bulunan sanal makineler kümesi için şirket içi sanal ağ için ağ.
-* Arka uç katmanları Internet'e değildir ancak Internet'e yönelik katmanından trafiği için Yük Dengeleme gerektiren Internet'e, çok katmanlı uygulamalar.
-* Yük Dengeleme ek yük dengeleyici donanım veya yazılım gerektirmeden Azure üzerinde barındırılan LOB uygulamaları için. Şirket içi sunucular, trafik yükü olduğu bilgisayarları kümesinde dahil dengeli.
+* Bir bulut hizmetinde hello içinde bulunan sanal makinelerin sanal makineleri tooa kümesinden aynı bulut hizmeti (bkz: Şekil 1).
+* Bir sanal ağ içindeki sanal makinelerden hello sanal ağ tooa kümesi içinde hello duran sanal makineleri aynı sanal Merhaba, bulut hizmeti (bkz: Şekil 2) ağ.
+* Bir şirket içi sanal ağ için şirket içi bilgisayarları tooa kümesinden hello içinde bulunan sanal makineleri aynı sanal Merhaba, bulut hizmeti (bkz: Şekil 3) ağ.
+* Merhaba arka uç katmanları Internet'e değildir ancak gerektirir Internet'e, çok katmanlı uygulamalar hello Internet'e katmanından trafiği için Dengeleme yükler.
+* Yük Dengeleme ek yük dengeleyici donanım veya yazılım gerektirmeden Azure üzerinde barındırılan LOB uygulamaları için. Şirket içi sunucular, trafik yükü olduğu bilgisayarları hello kümesinde dahil dengeli.
 
 ## <a name="internet-facing-multi-tier-applications"></a>Internet'e yönelik çok katmanlı uygulamalar
 
-Web katmanı Internet istemciler için Internet'e yönelik uç noktalar vardır ve Yük Dengelemesi kümesinin bir parçası olur. Yük Dengeleyici web sunucularına TCP bağlantı noktası 443 (HTTPS) için web istemcilerinden gelen trafiği dağıtır.
+Merhaba web katmanı Internet istemciler için Internet'e yönelik uç noktalar vardır ve Yük Dengelemesi kümesinin bir parçası olur. Merhaba yük dengeleyici TCP bağlantı noktası 443 (HTTPS) toohello web sunucuları için web istemcilerinden gelen trafiği dağıtır.
 
-Veritabanı sunucuları, web sunucuları için depolama alanı kullanan bir ILB uç nokta arkasındaki. ILB kümesindeki veritabanı sunucuları arasında dengeli trafiğidir uç nokta, bu veritabanı hizmeti yük dengeli.
+Merhaba veritabanı hello web sunucuları için depolama alanı kullanan bir ILB uç nokta arkasında sunucularıdır. Hangi trafiğidir hello ILB kümesindeki hello veritabanı sunucuları arasında dengeli uç nokta, bu veritabanı hizmeti yük dengeli.
 
-Aşağıdaki görüntüde aynı bulut hizmetinde çok katmanlı uygulama Internet'e gösterir.
+Görüntü gösterir aşağıdaki hello hello çok katmanlı uygulama Internet'e hello içinde aynı bulut hizmeti.
 
 ![İç Yük Dengeleme tek bulut hizmeti](./media/load-balancer-internal-overview/IC736321.png)
 
 Şekil 1 - Internet'e yönelik çok katmanlı uygulama
 
-ILB hizmet ILB için tüketen olandan farklı bir bulut hizmeti dağıtıldığında çok katmanlı bir uygulama için başka bir olası kullanılmasıdır.
+Merhaba ILB hello ILB için bir alıcı hello hizmet hello daha tooa farklı bir bulut hizmeti dağıtıldığında çok katmanlı bir uygulama için başka bir olası kullanılmasıdır.
 
-ILB uç noktası aynı sanal ağ kullanarak bulut hizmetlerine erişebilir. Aşağıdaki resimde, ön uç web sunucusu farklı bir bulut hizmeti veritabanı arka uç ve ILB uç noktası aynı sanal ağda kullanarak olduğundan gösterir.
+Bulut Hizmetleri aynı sanal ağ olacaktır hello kullanarak erişim toohello ILB uç noktası. ön uç web sunucuları hello veritabanı arka uç farklı bir bulut hizmetinden içinde görüntü görülmektedir izleyerek ve kullanarak hello hello ILB uç nokta hello içinde aynı sanal ağ.
 
 ![İç Yük Dengeleme bulut hizmetleri arasında](./media/load-balancer-internal-overview/IC744147.png)
 
@@ -58,23 +58,23 @@ ILB uç noktası aynı sanal ağ kullanarak bulut hizmetlerine erişebilir. Aşa
 
 ## <a name="intranet-line-of-business-applications"></a>İntranet iş kolu uygulamaları
 
-Şirket içi ağda istemcilerinden gelen trafiği almak Azure ağı için VPN bağlantısını kullanarak iş KOLU sunucuları arasında Yük Dengelemesi.
+Merhaba şirket ağındaki istemcilerinden gelen trafiği VPN bağlantısı tooAzure ağ kullanarak LOB sunucularını hello kümesi boyunca alın yük dengeli.
 
-İstemci makine erişimine, noktasını site VPN kullanarak Azure VPN hizmetinden bir IP adresine sahip olur. ILB uç nokta barındırılan LOB uygulaması kullanımına izin verir.
+Merhaba istemci makine noktası toosite VPN kullanarak Azure VPN hizmetinden erişim tooan IP adresi gerekir. Hello kullan hello hello ILB uç barındırılan LOB uygulaması sağlar.
 
-![Noktası site VPN kullanarak iç Yük Dengeleme](./media/load-balancer-internal-overview/IC744148.png)
+![İç Yük Dengeleme noktası toosite VPN kullanarak](./media/load-balancer-internal-overview/IC744148.png)
 
-Şekil 3 - LB bitiş noktasının ardındaki barındırılan LOB uygulamaları
+Şekil 3 - hello LB bitiş noktasının ardındaki barındırılan LOB uygulamaları
 
-Başka bir senaryo için LOB ILB uç nokta yapılandırıldığı sanal ağ için siteden siteye VPN olmalıdır. Bu, şirket içi ağ trafiğini ILB uç noktasına yönlendirilmesini sağlar.
+Başka bir hello LOB toohave hello ILB uç nokta yapılandırıldığı bir site toosite VPN toohello sanal ağ senaryodur. Bu, şirket içi ağ trafiği yönlendirilen toobe toohello ILB uç noktası sağlar.
 
-![Siteden siteye VPN kullanarak iç Yük Dengeleme](./media/load-balancer-internal-overview/IC744150.png)
+![İç Yük Dengeleme site toosite VPN kullanma](./media/load-balancer-internal-overview/IC744150.png)
 
-Şekil 4 - ILB uç noktasına yönlendirilen şirket içi ağ trafiği
+Şekil 4 - şirket içi ağ trafiğini yönlendirilen toohello ILB uç noktası
 
 ## <a name="limitations"></a>Sınırlamalar
 
-İç yük dengeleyici yapılandırmalarının SNAT desteklemez. Bu belge bağlamında, bağlantı noktası maskelenmiş kaynak ağ adresi çevirisi için SNAT başvuruyor.  Burada ilgili iç yük dengeleyicinin ön uç IP adresi ulaşmak için bir VM'de yük dengeleyici havuzu gerekiyor senaryoları için geçerlidir. Bu senaryo için iç yük dengeleyici desteklenmiyor. Bağlantı hataları Akış akış kaynaklanan VM dengelendiği olduğunda meydana gelir. Bir proxy stili yük dengeleyici gibi senaryolar için kullanmanız gerekir.
+İç yük dengeleyici yapılandırmalarının SNAT desteklemez. Bu belge Hello bağlamda SNAT tooport maskelenmiş kaynak ağ adresi çevirisi başvurur.  Bu, burada bir VM'de yük dengeleyici havuzuna tooreach hello ilgili iç yük dengeleyicinin ön uç IP adresi gerekiyor tooscenarios geçerlidir. Bu senaryo için iç yük dengeleyici desteklenmiyor. Bağlantı hataları Hello akış yükü dengelenmiş toohello hello akış kaynaklanan VM olduğunda meydana gelir. Bir proxy stili yük dengeleyici gibi senaryolar için kullanmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

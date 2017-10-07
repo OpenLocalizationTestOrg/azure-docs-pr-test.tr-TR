@@ -1,6 +1,6 @@
 ---
-title: "Görüntüleme ve ana bilgisayar adları değiştirme | Microsoft Docs"
-description: "Nasıl görüntülemek ve Azure sanal makineleri için ana bilgisayar adlarını değiştirmek, web ve çalışan rolleri ad çözümlemesi için"
+title: "aaaViewing ve ana bilgisayar adları değiştirme | Microsoft Docs"
+description: "Azure sanal makineleri için tooview ve değişiklik ana bilgisayar adları nasıl web ve çalışan rolleri ad çözümlemesi için"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-ms.openlocfilehash: 9a3a1e1b58dcb828e2d2d09c18f1aab6d46051aa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 17d0dd7911754a94db3f37b924b4687da1c70aca
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Görüntüleme ve ana bilgisayar adları değiştirme
-Ana bilgisayar adına göre başvurulacak rolü örneklerinizi izin vermek için her bir rol hizmeti yapılandırma dosyasında ana bilgisayar adı değeri ayarlamanız gerekir. İstenen konak adına ekleyerek bunu **vmName** özniteliği **rol** öğesi. Değeri **vmName** özniteliği her rol örneği ana bilgisayar adı için temel olarak kullanılır. Örneğin, varsa **vmName** olan *webrole* ve bu rol üç örneği vardır, ana bilgisayar adlarını örneklerinin olacaktır *webrole0*, *webrole1*, ve *webrole2*. Sanal makine adına dayalı bir sanal makine için konak adı doldurulmuş için sanal makineler için bir konak adı yapılandırma dosyasında belirtmek gerekmez. Bir Microsoft Azure hizmet yapılandırma hakkında daha fazla bilgi için bkz: [Azure hizmet yapılandırma şeması (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
+tooallow rol örnekleri toobe ana bilgisayar adına göre başvurulan, hello hizmet yapılandırma dosyasında her rol için hello ana bilgisayar adı için başlangıç değerini ayarlamanız gerekir. İstenen hello ana bilgisayar adı toohello ekleyerek bunu **vmName** hello özniteliği **rol** öğesi. Merhaba hello değerini **vmName** özniteliği hello ana bilgisayar adını her rol örneği için temel olarak kullanılır. Örneğin, varsa **vmName** olan *webrole* ve bu rol üç örneği vardır, hello ana bilgisayar adlarını hello örneklerinin olacaktır *webrole0*, *webrole1* , ve *webrole2*. Bir sanal makine için konak adı Hello hello sanal makine adını temel alarak doldurulduğundan toospecify hello yapılandırma dosyası, sanal makineler için bir konak adı gerekmez. Bir Microsoft Azure hizmet yapılandırma hakkında daha fazla bilgi için bkz: [Azure hizmet yapılandırma şeması (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
 ## <a name="viewing-hostnames"></a>Ana bilgisayar adları görüntüleme
-Sanal makineler ve rol örnekleri ana bilgisayar adlarını aşağıdaki araçlardan birini kullanarak bir bulut hizmetinde görüntüleyebilirsiniz.
+Merhaba veritabanınızı aşağıdaki araçlardan birini kullanarak bir bulut hizmetinde hello ana bilgisayar adlarını sanal makineler ve rol örnekleri görüntüleyebilirsiniz.
 
 ### <a name="azure-portal"></a>Azure Portal
-Kullanabileceğiniz [Azure portal](http://portal.azure.com) genel bakış dikey penceresinde bir sanal makine için sanal makineleri ana bilgisayar adlarını görüntülemek için. Dikey için bir değer gösterir göz önünde bulundurmanız **adı** ve **ana bilgisayar adı**. Bunlar başlangıçta aynı olsa da, ana bilgisayar adının değiştirilmesi sanal makine veya rol örneği adı değişmez.
+Merhaba kullanabilirsiniz [Azure portal](http://portal.azure.com) hello genel bakış dikey penceresinde bir sanal makine için sanal makineler için tooview hello konak adları. Dikey penceresinde hello unutmayın için bir değer gösterir **adı** ve **ana bilgisayar adı**. Başlangıçta hello olsa aynı hello ana bilgisayar adını değiştirme hello sanal makine veya rol örneğine hello adını değiştirmez.
 
-Rol örneklerine de Azure portalında görüntülenebilir, ancak bir bulut hizmeti örnekleri listelediğinizde, ana bilgisayar adı görüntülenmez. Her örneği için bir ad görürsünüz, ancak bu ad ana bilgisayar adını temsil etmiyor.
+Rol örnekleri hello Azure portal de görüntülenebilir, ancak bir bulut hizmeti hello durumlarda listelediğinizde hello ana bilgisayar adı görüntülenmez. Her örneği için bir ad görürsünüz, ancak bu ad hello ana bilgisayar adını temsil etmiyor.
 
 ### <a name="service-configuration-file"></a>Hizmet yapılandırma dosyası
-Dağıtılan bir hizmet için hizmet yapılandırma dosyası indirebilirsiniz **yapılandırma** Azure portalında hizmetin dikey. Ardından arayabileceğiniz **vmName** için öznitelik **rol adı** ana bilgisayar adı görmek için öğesi. Bu ana bilgisayar adı, her rol örneği ana bilgisayar adı için temel olarak kullanıldığını aklınızda bulundurun. Örneğin, varsa **vmName** olan *webrole* ve bu rol üç örneği vardır, ana bilgisayar adlarını örneklerinin olacaktır *webrole0*, *webrole1*, ve *webrole2*.
+Merhaba hizmet yapılandırma dosyası dağıtılan bir hizmet için hello indirebilirsiniz **yapılandırma** hello hizmetin dikey penceresinde hello Azure portalı. Merhaba sonra bakabilirsiniz **vmName** özniteliği hello için **rol adı** öğesi toosee hello ana bilgisayar adı. Bu ana bilgisayar adı her rol örneğinin hello ana bilgisayar adı için temel olarak kullanılan aklınızda bulundurun. Örneğin, varsa **vmName** olan *webrole* ve bu rol üç örneği vardır, hello ana bilgisayar adlarını hello örneklerinin olacaktır *webrole0*, *webrole1* , ve *webrole2*.
 
 ### <a name="remote-desktop"></a>Uzak Masaüstü
-Uzak Masaüstü'nü (Windows), Windows PowerShell uzaktan iletişimini (Windows) ya da sanal makineleri veya rol örneklerini (Linux ve Windows) SSH bağlantısını etkinleştirdikten sonra etkin bir Uzak Masaüstü bağlantı ana bilgisayar adından çeşitli şekillerde görüntüleyebilirsiniz:
+Uzak Masaüstü'nü (Windows), Windows PowerShell uzaktan iletişimini (Windows) veya SSH (Linux ve Windows) bağlantıları tooyour sanal makineleri veya rol örnekleri etkinleştirdikten sonra etkin bir Uzak Masaüstü bağlantı hello ana bilgisayar adından çeşitli şekillerde görüntüleyebilirsiniz:
 
-* Komut istemi veya SSH terminal ana bilgisayar adını yazın.
-* (Yalnızca Windows) tüm komut satırında/ipconfig yazın.
-* Bilgisayar adı, sistem ayarları (yalnızca Windows) görüntüleyin.
+* Merhaba komut istemi veya SSH terminal ana bilgisayar adını yazın.
+* (Yalnızca Windows) tüm hello komut satırında/ipconfig yazın.
+* Merhaba sistem görünümü hello bilgisayar adı ayarları (yalnızca Windows).
 
 ### <a name="azure-service-management-rest-api"></a>Azure Hizmet Yönetimi REST API'si
 Bir REST istemciden aşağıdaki yönergeleri izleyin:
 
-1. Azure Portalı'na bağlanmak için bir istemci sertifikası olduğundan emin olun. Bir istemci sertifikası edinmek için sunulan adımları izleyin [nasıl yapılır: indirme ve yayımlama ayarları içeri aktarma ve abonelik bilgileri](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Bir istemci sertifikası tooconnect toohello Azure portal olduğundan emin olun. bir istemci sertifikası tooobtain adımları içinde sunulan hello [nasıl yapılır: indirme ve yayımlama ayarları içeri aktarma ve abonelik bilgileri](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. X-ms-version değeri 2013-11-01 adlı bir üstbilgi girişi ayarlayın.
-3. Aşağıdaki biçimde bir istek gönderin: https://management.core.windows.net/\<subscrition kimliği\>/services/hostedservices/\<hizmet adı\>? katıştırmak ayrıntı = true
-4. Ara **ana bilgisayar adı** öğesini her **RoleInstance** öğesi.
+3. Biçim aşağıdaki hello bir istek gönderin: https://management.core.windows.net/\<subscrition kimliği\>/services/hostedservices/\<hizmet adı\>? katıştırmak ayrıntı = true
+4. Merhaba Ara **ana bilgisayar adı** öğesini her **RoleInstance** öğesi.
 
 > [!WARNING]
-> Ayrıca iç etki alanı soneki bulut hizmetinizden REST çağrısı yanıt için denetleyerek görüntüleyebilirsiniz **InternalDnsSuffix** öğesi veya ipconfig çalıştırarak/tüm bir komut isteminden kullanarak veya bir Uzak Masaüstü oturumunda (Windows) cat /etc/resolv.conf bir SSH terminal (Linux) çalışıyor.
+> Ayrıca hello iç etki alanı soneki bulut hizmetinizden hello REST çağrısı yanıt için hello denetleyerek görüntüleyebilirsiniz **InternalDnsSuffix** öğesi veya ipconfig çalıştırarak/tüm bir komut isteminden bir Uzak Masaüstü oturumunda (Windows) veya bir SSH terminal (Linux) gelen çalışan kat /etc/resolv.conf.
 > 
 > 
 
 ## <a name="modifying-a-hostname"></a>Bir ana bilgisayar adını değiştirme
-Değiştirilen hizmet yapılandırma dosyası karşıya ya da Uzak Masaüstü oturumu bilgisayardan yeniden adlandırma herhangi bir sanal makine veya rol örneği için ana bilgisayar adını değiştirebilirsiniz.
+Değiştirilen hizmet yapılandırma dosyası karşıya ya da Uzak Masaüstü oturumundan hello bilgisayarı yeniden adlandırma hello ana bilgisayar adı herhangi bir sanal makine veya rol örneği için değiştirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Ad çözümlemesi (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)

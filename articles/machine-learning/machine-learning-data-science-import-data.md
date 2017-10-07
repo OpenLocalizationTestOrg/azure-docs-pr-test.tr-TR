@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning Studio'ya veri içeri aktarma | Microsoft Docs"
-description: "Azure Machine Learning Studio çeşitli veri kaynaklarından veri aktarmak nasıl. Hangi veri türleri ve veri biçimleri desteklenir öğrenin."
+title: Machine Learning Studio aaaImport verisine | Microsoft Docs
+description: "Nasıl tooimport Azure Machine Learning Studio çeşitli veri kaynaklarından verilerinizi. Hangi veri türleri ve veri biçimleri desteklenir öğrenin."
 keywords: "veriler, veri biçimi, veri türleri, veri kaynakları, eğitim verilerini içeri aktarma"
 services: machine-learning
 documentationcenter: 
@@ -15,46 +15,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: garye;bradsev
-ms.openlocfilehash: b92b480e62f4ce4f4836dc5d0f6afbe80c6b664a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 830dcdde9d43809900c520a41d6d94a65731ca3c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Eğitim verilerinizi çeşitli veri kaynaklarından Azure Machine Learning Studio’ya alma
-Geliştirmek ve Tahmine dayalı analiz çözümü eğitmek için Machine Learning Studio'da kendi verilerinizi kullanmak için aşağıdakileri yapabilirsiniz: 
+toouse kendi verilerinizi Machine Learning Studio toodevelop ve tren bir Tahmine dayalı analiz çözümü şunları yapabilirsiniz: 
 
-* Verileri yüklemek bir **yerel dosya** çalışma alanınızda bir veri kümesi modülü oluşturmak için sabit sürücünüzden vaktinden
-* erişim verileri birinden birkaç **çevrimiçi veri kaynakları** denemenizi kullanarak çalışırken [veri içeri aktarma] [ import-data] Modülü 
+* Verileri yüklemek bir **yerel dosya** ilerisinde çalışma alanınızda bir veri kümesi modülü, sabit sürücü toocreate saat
+* erişim verileri birinden birkaç **çevrimiçi veri kaynakları** denemenizi hello kullanarak çalışırken [veri içeri aktarma] [ import-data] Modülü 
 * verileri başka bir Azure Machine learning kullanarak **denemeler** bir veri kümesi kaydedildi
 * Şirket içi verileri kullanan **SQL Server veritabanı**
 
-Bu seçeneklerin her biri konulardan birine menüsünde açıklanmıştır. Bu konular Machine Learning Studio'da kullanmak için bu çeşitli veri kaynaklarından veri içeri aktarma gösterir. 
+Bu seçeneklerin her biri hello konulardan birine hello menüsünde aşağıda açıklanmıştır. Bu konularda size nasıl toouse Machine Learning Studio'da tooimport verileri bu çeşitli veri kaynakları gösterir. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 > [!NOTE]
-> Eğitim verileri için kullanabileceğiniz bir Machine Learning Studio'da kullanılabilir birçok örnek veri kümesi yok. Bunlar hakkında daha fazla bilgi için bkz: [Azure Machine Learning Studio'daki örnek veri kümelerini kullanan](machine-learning-use-sample-datasets.md)).
+> Eğitim verileri için kullanabileceğiniz bir Machine Learning Studio'da kullanılabilir birçok örnek veri kümesi yok. Bunlar hakkında daha fazla bilgi için bkz: [hello örnek veri kümelerini Azure Machine Learning Studio'da kullanan](machine-learning-use-sample-datasets.md)).
 > 
 > 
 
-Bu giriş konu aynı zamanda veri Machine Learning Studio'da kullanım için hazır hale getirmek nasıl açıklanır ve hangi veri biçimleri ve veri türleri desteklenir açıklar. 
+Bu giriş konu aynı zamanda tooget veri için hazır Machine Learning Studio'da kullanımını açıklar ve hangi veri biçimleri ve veri türleri desteklenir açıklar. 
 
 > [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 > 
 > 
 
 ## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da kullanılmaya hazır veri al
-Machine Learning Studio, ayrılmış veya bazı durumlarda dikdörtgen olmayan veri kullanılabilmesine rağmen bir veritabanındaki verileri yapılandırılmış metin verileri gibi dikdörtgen veya tablo verilerle çalışmak üzere tasarlanmıştır.
+Machine Learning Studio, ayrılmış veya bazı durumlarda dikdörtgen olmayan veri kullanılabilmesine rağmen bir veritabanındaki verileri yapılandırılmış metin verileri gibi dikdörtgen veya tablo verilerle tasarlanmış toowork ' dir.
 
-Verilerinizi görece temiz ise en iyisidir. Diğer bir deyişle, tırnak işareti olmayan dizeler gibi sorunların denemenize verileri karşıya yüklemeden önce ilgilenebilmek istersiniz.
+Verilerinizi görece temiz ise en iyisidir. Diğer bir deyişle, denemenize hello verileri karşıya yüklemeden önce tootake tırnak işareti olmayan dizeler gibi sorunlar care of isteyeceksiniz.
 
-Ancak, yok modülleri Machine Learning Studio'daki, bazı işleme denemenizi içindeki verilerin etkinleştirin. Bağlı olarak makine öğrenimi algoritmaları kullanıyor olmanız, eksik değerleri ve seyrek veri gibi veri yapısal sorunların nasıl ele alacağız karar vermeniz gerekebilir ve ile yardımcı olabilecek modülleri vardır. Bakılacak yer **veri dönüştürme** bu işlevleri gerçekleştirmek modülleri için modül paletinin bölümü.
+Ancak, yok modülleri Machine Learning Studio'daki, bazı işleme denemenizi içindeki verilerin etkinleştirin. Kullanıyor hello machine learning algoritmaları bağlı olarak, toodecide nasıl gerekebilir eksik değerleri ve seyrek veri gibi veri yapısal sorunları ele alacağız ve ile yardımcı olabilecek modülleri vardır. Hello Ara **veri dönüştürme** hello modül paleti bu işlevleri gerçekleştirmek modüller bölümü.
 
-Denemenizin herhangi bir noktada görüntüleyebilir veya çıkış bağlantı noktasına tıklayarak modülü tarafından üretilen veri indirin. Modül bağlı olarak farklı indirme seçenekleri kullanılabilir olabilir veya Machine Learning Studio'da web tarayıcınızdan görselleştirmek mümkün olabilir.
+Denemenizin herhangi bir noktada görüntüleyebilir veya hello çıkış bağlantı noktasına tıklayarak modülü tarafından üretilen hello veri indirin. Merhaba modülü bağlı olarak farklı indirme seçenekleri kullanılabilir olabilir veya Machine Learning Studio'da web tarayıcınızdan mümkün toovisualize hello veri olabilir.
 
 ## <a name="data-formats-and-data-types-supported"></a>Desteklenen veri biçimleri ve veri türleri
-Veri türlerinin sayısı denemenize içeri aktarabilirsiniz, mekanizmaya bağlı olarak veri ve burada bu geldiği içeri aktarın:
+Veri türlerinin sayısı denemenize içeri aktarabilirsiniz, bağlı olarak hangi mekanizması tooimport veri ve burada bu geldiği kullanın:
 
 * Düz metin (.txt)
 * Virgülle ayrılmış değerler (CSV bir başlık (.csv) ile veya olmadan) (. nh.csv)
@@ -64,18 +64,18 @@ Veri türlerinin sayısı denemenize içeri aktarabilirsiniz, mekanizmaya bağl�
 * Hive tablosu
 * SQL veritabanı tablosu
 * OData değerleri
-* SVMLight veri (.svmlight) (bkz [SVMLight tanımı](http://svmlight.joachims.org/) biçimi bilgileri için)
-* Öznitelik ilişkisi dosya biçimi'ne (ARFF) veri (.arff) (bkz [ARFF tanımı](http://weka.wikispaces.com/ARFF) biçimi bilgileri için)
+* SVMLight veri (.svmlight) (Merhaba bkz [SVMLight tanımı](http://svmlight.joachims.org/) biçimi bilgileri için)
+* Öznitelik ilişkisi dosya biçimi'ne (ARFF) veri (.arff) (Merhaba bkz [ARFF tanımı](http://weka.wikispaces.com/ARFF) biçimi bilgileri için)
 * Zip dosyası (.zip)
 * R nesne ya da çalışma dosyası (. RData)
 
-Meta verileri içeren ARFF gibi biçiminde veri içe aktarırsanız, Machine Learning Studio bu meta veriler başlık ve her sütunun veri türünü tanımlamak için kullanır.
+Meta verileri içeren ARFF gibi biçiminde veri içe aktarırsanız, Machine Learning Studio bu meta verileri toodefine hello başlığı ve her sütunun veri türünü kullanır.
 
-Bu meta verileri içermeyen TSV veya CSV biçiminde gibi verileri içe aktarırsanız, Machine Learning Studio verileri örnekleyerek her sütun için veri türü oluşturur. Veri sütun başlıkları de yoksa, Machine Learning Studio varsayılan adlarını sağlar.
+Bu meta verileri içermeyen TSV veya CSV biçiminde gibi verileri içe aktarırsanız, Machine Learning Studio hello veri örnekleyerek her sütun için hello veri türü oluşturur. Merhaba veri sütun başlıkları de yoksa, Machine Learning Studio varsayılan adlarını sağlar.
 
-Açıkça belirtin veya kullanarak sütun başlıkları ve veri türlerini değiştirme [Düzenle meta veri][edit-metadata].
+Açıkça belirtin veya hello kullanarak sütunlar için hello başlıkları ve veri türlerini değiştirme [Düzenle meta veri][edit-metadata].
 
-Aşağıdaki **veri türleri** Machine Learning Studio tarafından tanınan:
+Merhaba aşağıdaki **veri türleri** Machine Learning Studio tarafından tanınan:
 
 * Dize
 * Tamsayı
@@ -84,12 +84,12 @@ Aşağıdaki **veri türleri** Machine Learning Studio tarafından tanınan:
 * Tarih saat
 * TimeSpan
 
-Machine Learning Studio adlı bir iç veri türü kullanan ***veri tablosu*** modülleri arasında veri iletmek için. Veri tablosu biçimi kullanarak, verilerinizi açıkça dönüştürebilirsiniz [veri kümesine Dönüştür] [ convert-to-dataset] modülü.
+Machine Learning Studio adlı bir iç veri türü kullanan ***veri tablosu*** modülleri arasında toopass veri. Verilerinizi açıkça hello kullanarak veri tablosu biçime dönüştürebilirsiniz [Dönüştür tooDataset] [ convert-to-dataset] modülü.
 
-Veri tablosu dışında biçimlerini kabul eden herhangi bir modül verileri veri tablosuna sessizce sonraki modülüne geçirmeden önce dönüştürür.
+Veri tablosu dışında biçimlerini kabul eden herhangi bir modül hello veri tooData tablo toohello sonraki modüle geçirmeden önce sessiz bir şekilde dönüştürür.
 
 Gerekirse, veri tablosu biçime geri CSV, TSV, ARFF veya diğer dönüştürme modülleri kullanarak SVMLight biçimine dönüştürebilirsiniz.
-Bakılacak yer **veri formatı dönüştürme** bu işlevleri gerçekleştirmek modülleri için modül paletinin bölümü.
+Hello Ara **veri formatı dönüştürme** hello modül paleti bu işlevleri gerçekleştirmek modüller bölümü.
 
 <!-- Module References -->
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/

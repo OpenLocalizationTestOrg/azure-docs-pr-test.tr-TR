@@ -1,5 +1,5 @@
 ---
-title: "Internet'e yönelik Yük Dengeleyici genel bakış | Microsoft Docs"
+title: "Yük Dengeleyici genel kullanıma yönelik aaaInternet | Microsoft Docs"
 description: "Internet'e yönelik Yük Dengeleyici ve özellikleri için genel bakış. Nasıl bir yük dengeleyici sanal makineler ve bulut hizmetlerini kullanarak Azure için çalışır."
 services: load-balancer
 documentationcenter: na
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: c420b38fbe8054bc4b701f89ebc417677ca47a27
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3514f945d69ec576ed256cdd01069491e3e43936
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="internet-facing-load-balancer-overview"></a>Internet kullanıma yönelik Yük Dengeleyici genel bakış
 
-Azure yük dengeleyici gelen trafiği ortak IP adresi ve bağlantı noktası numarasını özel IP adresi ve bağlantı noktası numarası sanal makinenin ve tersi yanıt trafiği sanal makineden eşler. Yük Dengeleme kurallarında belirli birden çok sanal makineler veya hizmetler arasındaki trafik türlerinin dağıtmak olanak sağlar. Örneğin, birden çok web sunucuları veya web rolleri web isteği trafik yükünü yayılabilir.
+Azure yük dengeleyici hello ortak IP adresi ve bağlantı noktası numarası gelen trafiği toohello özel IP adresi ve bağlantı noktası numarası hello sanal makinenin ve tersi hello yanıt trafiği hello sanal makineden eşler. Yük Dengeleme kuralları toodistribute belirli birden çok sanal makineler veya hizmetler arasındaki trafik türlerinin izin verir. Örneğin, birden çok web sunucuları veya web rolleri web isteği trafiği hello yükünü yayılabilir.
 
-Web rolleri veya çalışan rolleri örneklerini içeren bir bulut hizmeti için hizmet açıklaması (.csdef) dosyasında genel bir uç nokta tanımlayabilirsiniz.
+Web rolleri veya çalışan rolleri örneklerini içeren bir bulut hizmeti için genel bir uç nokta hello hizmet açıklaması (.csdef) dosyasında tanımlayabilirsiniz.
 
-*Servicedefinition.csdef* dosyası uç nokta yapılandırması içerir ve bir web veya çalışan rolü dağıtımı için birden çok rol örneği varsa, yük dengeleyici ayarları için olacaktır. Bulut dağıtımınız için örnek eklemek için örnek sayısı hizmet yapılandırma dosyası (.csfg) üzerinde değiştirmektedir.
+Merhaba *servicedefinition.csdef* dosyası hello uç nokta yapılandırması içerir ve bir web veya çalışan rolü dağıtımı için birden çok rol örneği varsa, hello yük dengeleyici ayarları için olacaktır. Merhaba yolu tooadd örnekleri tooyour bulut dağıtımı hello örnek sayısı hello hizmet yapılandırma dosyası (.csfg) üzerinde değiştiriyor.
 
-Yük dengeli bir uç nokta için genel ve özel TCP bağlantı noktası 80 üç sanal makineler arasında paylaşılan web trafiği için aşağıdaki şekilde gösterilmiştir. Bu üç sanal makine bir yük dengeli kümesi yok.
+Merhaba aşağıdaki şekilde hello ortak ve özel TCP bağlantı noktası 80 için üç sanal makineler arasında paylaşılan web trafiği için yük dengeli bir uç nokta gösterilmektedir. Bu üç sanal makine bir yük dengeli kümesi yok.
 
 ![Ortak yük dengeleyici örneği](./media/load-balancer-internet-overview/IC727496.png)
 
 Şekil 1 - web trafiği için yük dengeli uç nokta
 
-Internet istemcilerinin, TCP bağlantı noktası 80'bulut hizmetinin genel IP adresine web sayfası istekleri gönderdiğinizde, Azure yük dengeleyici istekleri için yük dengeli kümesi içinde üç sanal makine arasında dağıtır. Yük Dengeleyici algoritmalar hakkında daha fazla bilgi için bkz: [yük dengeleyici genel bakış sayfasında](load-balancer-overview.md#load-balancer-features).
+Internet istemcileri TCP bağlantı noktası 80 üzerinde toohello genel IP adresi hello bulut hizmetinin web sayfası istekleri gönderdiğinizde, hello Azure yük dengeleyici hello isteklerini hello yük dengeli kümesi içindeki hello üç sanal makineler arasında dağıtır. Yük Dengeleyici algoritmalar hakkında daha fazla bilgi için bkz: Merhaba [yük dengeleyici genel bakış sayfasında](load-balancer-overview.md#load-balancer-features).
 
 Varsayılan olarak, Azure yük dengeleyici ağ trafiği birden çok sanal makine örnekleri arasında eşit olarak dağıtır. Oturum benzeşimi de yapılandırabilirsiniz daha fazla bilgi için bkz: [yük dengeleyici dağıtım modu](load-balancer-distribution-mode.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hakkında bilgi edinin [iç yük dengeleyici](load-balancer-internal-overview.md) daha iyi bir uyum bulut dağıtımınız için hangi yük dengeleyici olduğundan daha iyi anlamak için.
+Hakkında bilgi edinin [iç yük dengeleyici](load-balancer-internal-overview.md) toobetter anlamak daha iyi bir uyum bulut dağıtımınız için hangi yük dengeleyicidir.
 
 Ayrıca [Internet'e yönelik Yük Dengeleyici oluşturmaya başlamak](load-balancer-get-started-internet-arm-ps.md) ve ne tür yapılandırma [dağıtım modu](load-balancer-distribution-mode.md) bir özel yük dengeleyici ağ trafiği davranışı için.
 
-Uygulamanızın yük dengeleyici arkasındaki sunucular için bağlantıları canlı tutması gerekiyorsa [yük dengeleyici için boşta kalma TCP zaman aşımı ayarları](load-balancer-tcp-idle-timeout.md) hakkında daha fazla bilgi edinebilirsiniz. Bu, Azure Load Balancer kullanırken boşta kalan bağlantı davranışları hakkında bilgi edinmenizi sağlayacaktır.
+Uygulamanızı tookeep bağlantıları canlı bir yük dengeleyicinin arkasındaki sunucular için gerekiyorsa, daha fazla hakkında anlayabileceği [boşta bir yük dengeleyici için TCP zaman aşımı ayarları](load-balancer-tcp-idle-timeout.md). Azure yük dengeleyici kullanırken toolearn boştaki bağlantı davranışı konusunda yardımcı olur.

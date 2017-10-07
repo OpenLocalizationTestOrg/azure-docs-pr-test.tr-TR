@@ -1,6 +1,6 @@
 ---
-title: "Wunderlist bağlayıcı ı n Azure mantıksal uygulamaları | Microsoft Docs"
-description: "Wunderlist bağlantı oluşturun ve mantıksal uygulamalar iş akışınızda oluşturmak için bu bağlantıyı kullanın."
+title: "aaaWunderlist bağlayıcı ı n Azure mantıksal uygulamaları | Microsoft Docs"
+description: "Bir bağlantı tooWunderlist oluşturun ve bu bağlantı toobuild logic apps içinde iş akışınız kullanın."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 899110992cc52ca5edf1706320fd5570473de784
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8b960a0bd8a16d51933dfc75e7291c8a0ae0f923
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-wunderlist-connector"></a>Wunderlist Bağlayıcısı ile çalışmaya başlama
-Wunderlist bitti kendi öğe alma kişilerin yardımcı olmak üzere bir Yapılacaklar listesi ve Görev Yöneticisi'ni sağlayın.  Loved bir Market listesini paylaşımı olup bir proje üzerinde çalışırken ya da bir tatil planlaması Wunderlist yakalama, paylaşma ve, to¬dos tamamlamak kolaylaştırır. Tüm Görevler yerden erişebilmeniz için Wunderlist anında telefon, tablet ve bilgisayar arasında eşitlenir.
+# <a name="get-started-with-hello-wunderlist-connector"></a>Merhaba Wunderlist Bağlayıcısı ile çalışmaya başlama
+Wunderlist bir Yapılacaklar listesi sağlayın ve Görev Yöneticisi'ni toohelp kişiler bitti kendi stuff alın.  Bir proje üzerinde çalışan bir Market listesi loved bir ile paylaştığınız ya da bir tatil planlaması, Wunderlist kolaylaştırır toocapture, paylaşımı ve, to¬dos tamamlayın. Tüm Görevler yerden erişebilmeniz için Wunderlist anında telefon, tablet ve bilgisayar arasında eşitlenir.
 
 Bir mantıksal uygulama artık oluşturarak başlama; bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="create-a-connection-to-wunderlist"></a>Wunderlist bağlantı oluşturun.
-Logic apps ile Wunderlist oluşturmak için önce oluşturmanız gerekir bir **bağlantı** ardından ayrıntılar için aşağıdaki özellikleri sağlar:
+## <a name="create-a-connection-toowunderlist"></a>Bir bağlantı tooWunderlist oluşturma
+toocreate Logic apps Wunderlist ile ilk oluşturmalısınız bir **bağlantı** ardından aşağıdaki özelliklere Merhaba hello ayrıntıları sağlayın:
 
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
 | Belirteç |Evet |Wunderlist kimlik bilgilerini sağlayın |
 
-Bağlantı oluşturduktan sonra Eylemler yürütür ve Tetikleyicileri dinlemek için kullanabilirsiniz.
+Merhaba bağlantısı oluşturduktan sonra tooexecute hello eylemlerini kullanın ve hello Tetikleyicileri dinleme.
 
-> [!INCLUDE [Steps to create a connection to Wunderlist](../../includes/connectors-create-api-wunderlist.md)]
+> [!INCLUDE [Steps toocreate a connection tooWunderlist](../../includes/connectors-create-api-wunderlist.md)]
 > 
 
 ## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/wunderlist/).
+Tüm tetikleyiciler ve Eylemler hello swagger içinde tanımlanan görüntüleyebilir ve ayrıca hello herhangi bir sınır bkz. [Bağlayıcısı ayrıntıları](/connectors/wunderlist/).
 
 ## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+Toohello dönün [API'leri listesi](apis-list.md).

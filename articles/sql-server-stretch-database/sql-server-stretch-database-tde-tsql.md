@@ -1,5 +1,5 @@
 ---
-title: "Saydam veri şifreleme Esnetme veritabanı TSQL - Azure için etkinleştirme | Microsoft Docs"
+title: "Saydam veri şifreleme için Esnetme veritabanı TSQL - Azure aaaEnable | Microsoft Docs"
 description: "Saydam veri şifreleme (TDE) Azure TSQL üzerinde SQL Server Esnetme veritabanı için etkinleştirin"
 services: sql-server-stretch-database
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: anvang
-ms.openlocfilehash: ed26c2b386e08b76f78b4a05e12c46d2b97c20f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a9ba23649656fb344480d79438a1115f0eb353bd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Saydam veri şifreleme (TDE) Azure (Transact-SQL) üzerinde Esnetme veritabanı için etkinleştirin
 > [!div class="op_single_selector"]
@@ -27,35 +27,35 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-Saydam veri şifreleme (TDE) gerçek zamanlı şifreleme ve şifre çözme veritabanının, ilişkili yedeklemelerinizi ve geri kalan işlem günlüğü dosyalarını uygulamasında yapılacak değişiklikler gerek kalmadan gerçekleştirerek kötü amaçlı etkinliği tehdide karşı korunmasına yardımcı olur.
+Saydam veri şifreleme (TDE) gerçek zamanlı şifreleme ve şifre çözme hello veritabanının, ilişkili yedeklemelerinizi ve geri kalan işlem günlüğü dosyalarını değişiklikleri toohello gerek kalmadan gerçekleştirerek kötü amaçlı etkinliği hello tehdide karşı korunmasına yardımcı olur. uygulama.
 
-TDE, veritabanının tamamını Depolama veritabanı şifreleme anahtarını adlı bir simetrik anahtar kullanarak şifreler. Veritabanı şifreleme anahtarını bir yerleşik bir sunucu sertifikası tarafından korunur. Yerleşik bir sunucu sertifikası Azure her sunucu için benzersizdir. Microsoft, bu sertifikalar otomatik olarak en az 90 günde döndürür. TDE genel bir açıklaması için bkz [saydam veri şifreleme (TDE)].
+TDE, bir simetrik anahtar adlı hello veritabanı şifreleme anahtarı kullanarak veritabanının tamamını hello depolanmasını şifreler. Merhaba veritabanı şifreleme anahtarı, bir yerleşik bir sunucu sertifikası tarafından korunur. Merhaba yerleşik bir sunucu sertifikası Azure her sunucu için benzersizdir. Microsoft, bu sertifikalar otomatik olarak en az 90 günde döndürür. TDE genel bir açıklaması için bkz [saydam veri şifreleme (TDE)].
 
 ## <a name="enabling-encryption"></a>Şifrelemeyi etkinleştirme
-TDE Azure etkinleştirmek için bir SQL Server Esnetme etkinleştirilmiş veritabanından veri depolama veritabanı geçişi, şunları yapın:
+bir SQL Server Esnetme etkinleştirilmiş veritabanından veri geçişi hello depolama Azure bir veritabanı için tooenable TDE hello şeyler aşağıdaki:
 
-1. Bağlanmak *ana* veritabanından bir yönetici veya bir üyesi olan bir oturum açma kullanarak veritabanını barındıran Azure sunucusuna **dbmanager** ana veritabanı rolü
-2. Veritabanı şifrelemek için şu deyimi yürütün.
+1. Toohello bağlanmak *ana* bir yönetici veya hello üyesi olan bir oturum açma kullanılarak hello Azure sunucusu barındırma hello veritabanı üzerinde veritabanı **dbmanager** hello ana veritabanı rolü
+2. Deyimi tooencrypt hello veritabanı aşağıdaki hello yürütün.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION ON;
 ```
 
 ## <a name="disabling-encryption"></a>Şifreleme devre dışı bırakma
-Azure TDE devre dışı bırakmak için bir SQL Server Esnetme etkinleştirilmiş veritabanından veri depolama veritabanı geçişi, şunları yapın:
+bir SQL Server Esnetme etkinleştirilmiş veritabanından veri geçişi hello depolama Azure bir veritabanı için toodisable TDE hello şeyler aşağıdaki:
 
-1. Bağlanmak *ana* bir yönetici veya bir üyesi olan bir oturum açma kullanılarak veritabanı **dbmanager** ana veritabanı rolü
-2. Veritabanı şifrelemek için şu deyimi yürütün.
+1. Toohello bağlanmak *ana* bir yönetici veya hello üyesi olan bir oturum açma kullanılarak veritabanı **dbmanager** hello ana veritabanı rolü
+2. Deyimi tooencrypt hello veritabanı aşağıdaki hello yürütün.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION OFF;
 ```
 
 ## <a name="verifying-encryption"></a>Şifreleme doğrulama
-Bir SQL Server Esnetme etkinleştirilmiş veritabanından verileri depolarken bir Azure veritabanı için şifreleme durum geçişi doğrulamak için şunları yapın:
+bir SQL Server Esnetme etkinleştirilmiş veritabanından veri geçişi hello depolama Azure bir veritabanı için tooverify şifreleme durum hello şeyler aşağıdaki:
 
-1. Bağlanmak *ana* ya da bir yönetici veya bir üyesi olan bir oturum açma kullanarak örnek veritabanı **dbmanager** ana veritabanı rolü
-2. Veritabanı şifrelemek için şu deyimi yürütün.
+1. Toohello bağlanmak *ana* ya da bir yönetici veya hello üyesi olan bir oturum açma kullanarak örnek veritabanı **dbmanager** hello ana veritabanı rolü
+2. Deyimi tooencrypt hello veritabanı aşağıdaki hello yürütün.
 
 ```sql
 SELECT

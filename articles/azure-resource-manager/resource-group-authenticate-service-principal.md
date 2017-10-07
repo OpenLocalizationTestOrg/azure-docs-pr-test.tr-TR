@@ -1,6 +1,6 @@
 ---
-title: "PowerShell ile Azure uygulama kimliği oluşturma | Microsoft Docs"
-description: "Bir Azure Active Directory uygulaması ve hizmet sorumlusu oluşturmak ve rol tabanlı erişim denetimi aracılığıyla kaynaklara erişim izni için Azure PowerShell kullanmayı açıklar. Uygulama ile bir parola veya sertifika kimlik doğrulaması yapmayı gösterir."
+title: "PowerShell ile Azure uygulaması için aaaCreate kimlik | Microsoft Docs"
+description: "Toouse Azure PowerShell toocreate bir Azure Active Directory uygulaması ve hizmet sorumlusu ve rol tabanlı erişim, erişim tooresources nasıl kontrol açıklar. Bunu gösterir nasıl tooauthenticate uygulamayla bir parola veya sertifika."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 55e83b0742652abbb42100a11a468bc13a7a8aed
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c534360799b590054a051e4426e5e27dccb559b7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma
+# <a name="use-azure-powershell-toocreate-a-service-principal-tooaccess-resources"></a>Bir hizmet asıl tooaccess kaynakları Azure PowerShell toocreate kullanın
 
-Bir uygulama ya da kaynaklara erişmek için gereken komut dosyası varsa, uygulamanın kendi kimlik bilgileriyle kimlik doğrulamasını ve uygulama için bir kimlik ayarlayın. Bu kimlik, bir hizmet sorumlusu bilinir. Bu yaklaşım sağlar:
+Bir uygulama ya da tooaccess kaynakları gereken komut dosyası varsa, kendi kimlik bilgileriyle hello uygulamanın kimlik doğrulamasını ve hello uygulama için bir kimlik ayarlayın. Bu kimlik, bir hizmet sorumlusu bilinir. Bu yaklaşım sağlar:
 
-* Kendi izinlerinizi farklı uygulama kimliği için izinleri atayın. Genellikle, bu izinleri tam olarak hangi uygulama yapması gereken için kısıtlanır.
+* İzinleri kendi izinlerinizi farklı toohello uygulama kimliği atayın. Genellikle, bu kısıtlı tooexactly hangi hello uygulamanın toodo ihtiyacı izinlerdir.
 * Sertifika kimlik doğrulaması için Katılımsız betik yürütülürken kullanın.
 
-Bu konuda nasıl kullanılacağını gösterir [Azure PowerShell](/powershell/azure/overview) kendi kimlik bilgilerini ve kimlik altında çalıştırmak bir uygulama için gereksinim duyduğunuz her şeyi ayarlamak için.
+Bu konu, nasıl gösterir toouse [Azure PowerShell](/powershell/azure/overview) tooset kendi kimlik bilgilerini ve kimlik altında bir uygulama toorun için ihtiyaç duyduğunuz her şeyi ayarlama.
 
 ## <a name="required-permissions"></a>Gerekli izinler
-Bu konuda tamamlamak için Azure Active Directory ve Azure aboneliğinize yeterli izniniz olması gerekir. Özellikle, Azure Active Directory'de bir uygulama oluşturun ve hizmet sorumlusu rol atama mümkün olması gerekir. 
+toocomplete bu konuda, Azure Active Directory ve Azure aboneliğinize yeterli izniniz olması gerekir. Özellikle, mümkün toocreate hello Azure Active Directory içinde bir uygulama olabilir. ve hello hizmet asıl tooa rolünü atamanız gerekir. 
 
-Hesabınızın yeterli izinlere sahip olup olmadığını denetlemenin en kolay yolu portalı kullanmaktır. Bkz: [gerekli izni denetleyin](resource-group-create-service-principal-portal.md#required-permissions).
+hesabınızın yeterli izinlere sahip olup olmadığı hello portalıdır hello en kolay yolu toocheck. Bkz: [gerekli izni denetleyin](resource-group-create-service-principal-portal.md#required-permissions).
 
-Şimdi, ile kimlik doğrulaması için bir bölüm için devam edin:
+Şimdi, ile kimlik doğrulaması için tooa bölüm devam edin:
 
 * [Parola](#create-service-principal-with-password)
 * [otomatik olarak imzalanan sertifika](#create-service-principal-with-self-signed-certificate)
@@ -42,17 +42,17 @@ Hesabınızın yeterli izinlere sahip olup olmadığını denetlemenin en kolay 
 
 ## <a name="powershell-commands"></a>PowerShell komutları
 
-Bir hizmet sorumlusu ayarlamak için kullanın:
+tooset bir hizmet sorumlusu yukarı kullanın:
 
 | Komut | Açıklama |
 | ------- | ----------- | 
 | [AzureRmADServicePrincipal yeni](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Bir Azure Active Directory Hizmet sorumlusu oluşturur |
-| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Belirtilen kapsamda belirtilen asıl belirtilen RBAC rolü atar. |
+| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Atar hello RBAC rolü toohello belirtilen asıl belirtilen, kapsam hello sırasında belirtilen. |
 
 
 ## <a name="create-service-principal-with-password"></a>Parola ile hizmet sorumlusu oluşturma
 
-Aboneliğiniz için katılımcı rolü ile bir hizmet sorumlusu oluşturmak için kullanın: 
+toocreate hello katkıda bulunan rolü, aboneliğiniz için hizmet sorumlusuyla kullanın: 
 
 ```powershell
 Login-AzureRmAccount
@@ -61,18 +61,18 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Örneğin yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 20 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {id} dizininde yok."
+Merhaba örneği için 20 saniye tooallow hello yeni hizmet asıl toopropagate Azure Active Directory boyunca biraz zaman uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {id} hello dizininde yok."
 
-Aşağıdaki komut dosyası varsayılan abonelik dışında bir kapsam belirtmenize olanak sağlar ve bir hata oluşursa rol atamasını yeniden deneme sayısı:
+Merhaba aşağıdaki betiği toospecify hello varsayılan abonelik dışında bir kapsam sağlar ve bir hata oluşursa, yeniden deneme rol ataması hello:
 
 ```powershell
 Param (
 
- # Use to set scope to resource group. If no value is provided, scope is set to subscription.
+ # Use tooset scope tooresource group. If no value is provided, scope is set toosubscription.
  [Parameter(Mandatory=$false)]
  [String] $ResourceGroup,
 
- # Use to set subscription. If no value is provided, default subscription is used. 
+ # Use tooset subscription. If no value is provided, default subscription is used. 
  [Parameter(Mandatory=$false)]
  [String] $SubscriptionId,
 
@@ -105,7 +105,7 @@ Param (
  }
 
  
- # Create Service Principal for the AD app
+ # Create Service Principal for hello AD app
  $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
@@ -113,7 +113,7 @@ Param (
  $Retries = 0;
  While ($NewRole -eq $null -and $Retries -le 6)
  {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    # Sleep here for a few seconds tooallow hello service principal application toobecome active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
@@ -121,24 +121,24 @@ Param (
  }
 ```
 
-Komut dosyası hakkında dikkat edilecek bazı öğeler için:
+Merhaba komut dosyasıyla ilgili bazı öğeleri toonote:
 
-* Varsayılan abonelik kimliği erişimi vermek için ResourceGroup veya Subscriptionıd parametreleri sağlamak gerekmez.
-* Yalnızca bir kaynak grubu için rol ataması kapsamını sınırlamak istediğinizde ResourceGroup parametresini belirtin.
-*  Bu örnekte, hizmet sorumlusu katkıda bulunan rolü ekleyin. Diğer roller için bkz: [RBAC: yerleşik roller](../active-directory/role-based-access-built-in-roles.md).
-* Komut dosyasını yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 15 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {id} dizininde yok."
-* Daha fazla abonelik veya kaynak grupları için hizmet asıl erişimi vermeniz gerekiyorsa, çalıştırmak `New-AzureRMRoleAssignment` farklı kapsamlar yeniden cmdlet'iyle.
+* toogrant hello kimlik erişim toohello varsayılan abonelik, gereksinim tooprovide ResourceGroup veya Subscriptionıd parametreleri.
+* Yalnızca toolimit hello hello rol ataması tooa kaynak grubu kapsamını istediğinizde hello ResourceGroup parametresini belirtin.
+*  Bu örnekte, hello hizmet asıl toohello katkıda bulunan rolü ekleyin. Diğer roller için bkz: [RBAC: yerleşik roller](../active-directory/role-based-access-built-in-roles.md).
+* Hello komut dosyası için 15 saniye tooallow hello yeni hizmet asıl toopropagate Azure Active Directory boyunca biraz zaman uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {id} hello dizininde yok."
+* Toogrant hello hizmet asıl erişim toomore abonelik veya kaynak grupları gerekiyorsa, hello çalıştırmak `New-AzureRMRoleAssignment` farklı kapsamlar yeniden cmdlet'iyle.
 
 
 ### <a name="provide-credentials-through-powershell"></a>PowerShell ile kimlik bilgileri sağlayın
-Şimdi, işlemleri gerçekleştirmek için uygulama olarak oturum açmak gerekir. Kullanıcı adı için `ApplicationId` uygulama için oluşturulan. Parola için hesabı oluşturulurken belirtilen bir kullanın. 
+Şimdi, hello uygulaması tooperform işlemleri toolog de gerekir. Merhaba kullanıcı adı için hello kullan `ApplicationId` Merhaba uygulaması için oluşturduğunuz. Merhaba parolasını hello hello hesabı oluşturulurken belirtilen birinin kullanın. 
 
 ```powershell   
 $creds = Get-Credential
 Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-id}
 ```
 
-Kiracı kimliği hassas, olmadığından doğrudan komut dosyanıza ekleme. Kiracı Kimliği almak gereken durumlarda kullanın:
+Merhaba Kiracı kimliği hassas, olmadığından doğrudan komut dosyanıza ekleme. Tooretrieve hello Kiracı kimliği gerekiyorsa kullanın:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
@@ -146,7 +146,7 @@ Kiracı kimliği hassas, olmadığından doğrudan komut dosyanıza ekleme. Kira
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Hizmet sorumlusu ile otomatik olarak imzalanan sertifika oluşturma
 
-Kendinden imzalı bir sertifika ve aboneliğiniz için katılımcı rolü ile bir hizmet sorumlusu oluşturmak için kullanın: 
+toocreate otomatik olarak imzalanan sertifika ve hello katkıda bulunan rolü, aboneliğiniz için bir hizmet sorumlusu kullanın: 
 
 ```powershell
 Login-AzureRmAccount
@@ -158,18 +158,18 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Örneğin yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 20 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {id} dizininde yok."
+Merhaba örneği için 20 saniye tooallow hello yeni hizmet asıl toopropagate Azure Active Directory boyunca biraz zaman uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {id} hello dizininde yok."
 
-Aşağıdaki komut dosyasında varsayılan abonelik dışında bir kapsam belirtmenize olanak sağlar ve bir hata oluşursa rol atamasını yeniden dener. Windows 10 veya Windows Server 2016 Azure PowerShell 2.0 yüklü olmalıdır.
+Merhaba aşağıdaki betiği toospecify hello varsayılan abonelik dışında bir kapsam sağlar ve bir hata oluşursa, yeniden deneme rol ataması hello. Windows 10 veya Windows Server 2016 Azure PowerShell 2.0 yüklü olmalıdır.
 
 ```powershell
 Param (
 
- # Use to set scope to resource group. If no value is provided, scope is set to subscription.
+ # Use tooset scope tooresource group. If no value is provided, scope is set toosubscription.
  [Parameter(Mandatory=$false)]
  [String] $ResourceGroup,
 
- # Use to set subscription. If no value is provided, default subscription is used. 
+ # Use tooset subscription. If no value is provided, default subscription is used. 
  [Parameter(Mandatory=$false)]
  [String] $SubscriptionId,
 
@@ -208,7 +208,7 @@ Param (
  $Retries = 0;
  While ($NewRole -eq $null -and $Retries -le 6)
  {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    # Sleep here for a few seconds tooallow hello service principal application toobecome active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
@@ -216,22 +216,22 @@ Param (
  }
 ```
 
-Komut dosyası hakkında dikkat edilecek bazı öğeler için:
+Merhaba komut dosyasıyla ilgili bazı öğeleri toonote:
 
-* Varsayılan abonelik kimliği erişimi vermek için ResourceGroup veya Subscriptionıd parametreleri sağlamak gerekmez.
-* Yalnızca bir kaynak grubu için rol ataması kapsamını sınırlamak istediğinizde ResourceGroup parametresini belirtin.
-* Bu örnekte, hizmet sorumlusu katkıda bulunan rolü ekleyin. Diğer roller için bkz: [RBAC: yerleşik roller](../active-directory/role-based-access-built-in-roles.md).
-* Komut dosyasını yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 15 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {id} dizininde yok."
-* Daha fazla abonelik veya kaynak grupları için hizmet asıl erişimi vermeniz gerekiyorsa, çalıştırmak `New-AzureRMRoleAssignment` farklı kapsamlar yeniden cmdlet'iyle.
+* toogrant hello kimlik erişim toohello varsayılan abonelik, gereksinim tooprovide ResourceGroup veya Subscriptionıd parametreleri.
+* Yalnızca toolimit hello hello rol ataması tooa kaynak grubu kapsamını istediğinizde hello ResourceGroup parametresini belirtin.
+* Bu örnekte, hello hizmet asıl toohello katkıda bulunan rolü ekleyin. Diğer roller için bkz: [RBAC: yerleşik roller](../active-directory/role-based-access-built-in-roles.md).
+* Hello komut dosyası için 15 saniye tooallow hello yeni hizmet asıl toopropagate Azure Active Directory boyunca biraz zaman uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {id} hello dizininde yok."
+* Toogrant hello hizmet asıl erişim toomore abonelik veya kaynak grupları gerekiyorsa, hello çalıştırmak `New-AzureRMRoleAssignment` farklı kapsamlar yeniden cmdlet'iyle.
 
-Varsa, **Windows 10 veya Windows Server 2016 Technical Preview gerekmez**, karşıdan yüklemek gereken [otomatik olarak imzalanan sertifika Oluşturucu](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) Microsoft Script Center gelen. İçeriğini ayıklayın ve ihtiyacınız cmdlet'i içeri aktarın.
+Varsa, **Windows 10 veya Windows Server 2016 Technical Preview gerekmez**, toodownload hello gereksinim [otomatik olarak imzalanan sertifika Oluşturucu](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) Microsoft Script Center gelen. İçeriğini ayıklayın ve ihtiyacınız hello cmdlet'i içeri aktarın.
 
 ```powershell  
 # Only run if you could not use New-SelfSignedCertificate
 Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
 ```
   
-Komut dosyasında, sertifikayı oluşturmak için aşağıdaki iki satırı değiştirin.
+Hello komut dosyasında, aşağıdaki iki satır toogenerate hello sertifika hello yerine koyun.
   
 ```powershell
 New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
@@ -239,7 +239,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Otomatik PowerShell komut dosyası aracılığıyla sertifikası sağlayın
-Bir hizmet sorumlusu oturum olduğunda, Kiracı kimliği dizininin AD uygulamanız için sağlamanız gerekir. Bir kiracı, Azure Active Directory örneğidir. Yalnızca bir aboneliğiniz varsa, kullanabilirsiniz:
+Bir hizmet sorumlusu oturum olduğunda, AD uygulamanız için hello dizininin tooprovide hello Kiracı kimliği gerekir. Bir kiracı, Azure Active Directory örneğidir. Yalnızca bir aboneliğiniz varsa, kullanabilirsiniz:
 
 ```powershell
 Param (
@@ -258,20 +258,20 @@ Param (
  Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
 ```
 
-Doğrudan komut dosyanıza katıştırmak için uygulama kimliği ve Kiracı kimliği harfe duyarlı değildir. Kiracı Kimliği almak gereken durumlarda kullanın:
+Merhaba uygulama kimliği ve Kiracı kimliği olmayan hassas, doğrudan komut dosyanıza katıştırmak için. Tooretrieve hello Kiracı kimliği gerekiyorsa kullanın:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 ```
 
-Uygulama Kimliğini almak gereken durumlarda kullanın:
+Tooretrieve hello uygulama kimliği gerekiyorsa kullanın:
 
 ```powershell
 (Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
 ```
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Sertifika yetkilisinden sertifika ile hizmet sorumlusu oluşturma
-Hizmet sorumlusu oluşturmak için bir sertifika yetkilisi tarafından verilen bir sertifika kullanmak için aşağıdaki komutu kullanın:
+toouse verilen sertifika, sertifika yetkilisi toocreate hizmet sorumlusu, aşağıdaki komut dosyası kullan hello:
 
 ```powershell
 Param (
@@ -311,7 +311,7 @@ Param (
  $Retries = 0;
  While ($NewRole -eq $null -and $Retries -le 6)
  {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    # Sleep here for a few seconds tooallow hello service principal application toobecome active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
@@ -321,15 +321,15 @@ Param (
  $NewRole
 ```
 
-Komut dosyası hakkında dikkat edilecek bazı öğeler için:
+Merhaba komut dosyasıyla ilgili bazı öğeleri toonote:
 
-* Erişim aboneliği kapsamlıdır.
-* Bu örnekte, hizmet sorumlusu katkıda bulunan rolü ekleyin. Diğer roller için bkz: [RBAC: yerleşik roller](../active-directory/role-based-access-built-in-roles.md).
-* Komut dosyasını yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 15 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {id} dizininde yok."
-* Daha fazla abonelik veya kaynak grupları için hizmet asıl erişimi vermeniz gerekiyorsa, çalıştırmak `New-AzureRMRoleAssignment` farklı kapsamlar yeniden cmdlet'iyle.
+* Kapsamlı toohello abonelik erişilebilir.
+* Bu örnekte, hello hizmet asıl toohello katkıda bulunan rolü ekleyin. Diğer roller için bkz: [RBAC: yerleşik roller](../active-directory/role-based-access-built-in-roles.md).
+* Hello komut dosyası için 15 saniye tooallow hello yeni hizmet asıl toopropagate Azure Active Directory boyunca biraz zaman uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {id} hello dizininde yok."
+* Toogrant hello hizmet asıl erişim toomore abonelik veya kaynak grupları gerekiyorsa, hello çalıştırmak `New-AzureRMRoleAssignment` farklı kapsamlar yeniden cmdlet'iyle.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Otomatik PowerShell komut dosyası aracılığıyla sertifikası sağlayın
-Bir hizmet sorumlusu oturum olduğunda, Kiracı kimliği dizininin AD uygulamanız için sağlamanız gerekir. Bir kiracı, Azure Active Directory örneğidir.
+Bir hizmet sorumlusu oturum olduğunda, AD uygulamanız için hello dizininin tooprovide hello Kiracı kimliği gerekir. Bir kiracı, Azure Active Directory örneğidir.
 
 ```powershell
 Param (
@@ -354,13 +354,13 @@ Param (
  Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
 ```
 
-Doğrudan komut dosyanıza katıştırmak için uygulama kimliği ve Kiracı kimliği harfe duyarlı değildir. Kiracı Kimliği almak gereken durumlarda kullanın:
+Merhaba uygulama kimliği ve Kiracı kimliği olmayan hassas, doğrudan komut dosyanıza katıştırmak için. Tooretrieve hello Kiracı kimliği gerekiyorsa kullanın:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 ```
 
-Uygulama Kimliğini almak gereken durumlarda kullanın:
+Tooretrieve hello uygulama kimliği gerekiyorsa kullanın:
 
 ```powershell
 (Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
@@ -368,57 +368,57 @@ Uygulama Kimliğini almak gereken durumlarda kullanın:
 
 ## <a name="change-credentials"></a>Kimlik bilgilerini değiştirme
 
-Ya da güvenliğinin aşılması veya bir kimlik bilgisi sona erme nedeniyle, bir AD uygulaması için kimlik bilgilerini değiştirmek için kullanın [Kaldır AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) ve [yeni AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential) cmdlet'leri.
+ya da güvenliğinin aşılması veya bir kimlik bilgisi sona erme nedeniyle, bir AD uygulaması için toochange hello kimlik hello kullan [Kaldır AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) ve [yeni AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential) cmdlet'leri.
 
-Bir uygulama için tüm kimlik bilgilerini kaldırmak için kullanın:
+tooremove bir uygulama için tüm hello kimlik bilgilerini kullan:
 
 ```powershell
 Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -All
 ```
 
-Bir parola eklemek için kullanın:
+tooadd bir parola kullanın:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-Bir sertifika değer eklemek için bu konudaki gösterildiği gibi otomatik olarak imzalanan bir sertifika oluşturun. Ardından, kullanın:
+tooadd sertifika değeri, bu konu başlığı altında gösterildiği gibi otomatik olarak imzalanan bir sertifika oluşturun. Ardından, kullanın:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
 ```
 
-## <a name="save-access-token-to-simplify-log-in"></a>Oturum açma basitleştirmek için erişim belirteci Kaydet
-Oturum açmak gereken her zaman hizmet asıl kimlik bilgilerini sağlayan önlemek için erişim belirteci kaydedebilirsiniz.
+## <a name="save-access-token-toosimplify-log-in"></a>Erişim belirteci toosimplify oturum Kaydet
+içinde toolog gereken her zaman tooavoid hello hizmet asıl kimlik bilgileri sağlama, hello erişim belirteci kaydedebilirsiniz.
 
-Bir sonraki oturumda geçerli erişim belirtecini kullanmak için profil kaydedin.
+toouse hello geçerli erişim belirteci bir sonraki oturumunda hello profil kaydedin.
    
 ```powershell
 Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 ```
    
-Profil açın ve içeriğini inceleyin. Bir erişim belirteci içerdiğine dikkat edin. El ile yeniden oturum açmayı yerine, yalnızca profili yükleyin.
+Hello profil açın ve içeriğini inceleyin. Bir erişim belirteci içerdiğine dikkat edin. El ile yeniden oturum açmayı yerine, yalnızca hello profili yükleyin.
    
 ```powershell
 Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 ```
 
 > [!NOTE]
-> Belirtecin geçerli olduğu sürece kaydedilmiş bir profil kullanarak yalnızca çalıştığı şekilde erişim belirtecinin süresi.
+> Merhaba belirtecin geçerli olduğu sürece kaydedilmiş bir profil kullanarak yalnızca çalıştığı şekilde hello erişim belirtecinin süresi.
 >  
 
-Alternatif olarak, oturum açmak için PowerShell REST işlemlerini çağırabilirsiniz. Kimlik doğrulaması yanıtından, diğer işlemleri ile kullanmak için erişim belirtecini alabilirsiniz. REST işlemlerini çağırarak erişim belirtecini alma bir örnek için bkz: [bir erişim belirteci oluşturma](resource-manager-rest-api.md#generating-an-access-token).
+Alternatif olarak, PowerShell toolog REST işlemlerini çağırabilirsiniz. Merhaba kimlik doğrulaması yanıttan hello erişim belirteci diğer işlemleri ile kullanılmak üzere alabilir. REST işlemlerini çağırarak hello erişim belirteci alma bir örnek için bkz: [bir erişim belirteci oluşturma](resource-manager-rest-api.md#generating-an-access-token).
 
 ## <a name="debug"></a>Hata ayıklama
 
-Bir hizmet sorumlusu oluşturma sırasında şu hatalarla karşılaşabilirsiniz:
+Bir hizmet sorumlusu oluşturma sırasında aşağıdaki hatalar hello karşılaşabilirsiniz:
 
-* **"Authentication_Unauthorized"** veya **"abonelik bağlamda bulunamadı."** Hesabınızı olmadığı zaman-bu hatayı görmek [gerekli izinleri](#required-permissions) uygulama kaydetmek için Azure Active Directory üzerinde. Yalnızca yönetici kullanıcıların Azure Active Directory'de uygulamaları kaydedebilirsiniz ve hesabınızın bir yönetici değil, bu hata genellikle, bakın Ya da bir yönetici rolü atayın veya kullanıcıların uygulamaları kaydetmek yöneticinize başvurun.
+* **"Authentication_Unauthorized"** veya **"abonelik hello bağlamda bulunamadı."** -Hesabınızı hello olmadığında bu hatayı gördüğünüz [gerekli izinleri](#required-permissions) hello Azure Active Directory tooregister bir uygulama üzerinde. Yalnızca yönetici kullanıcıların Azure Active Directory'de uygulamaları kaydedebilirsiniz ve hesabınızın bir yönetici değil, bu hata genellikle, bakın Yönetici tooeither atamak, tooan Yönetici rolü ya da tooenable kullanıcılar tooregister uygulamaları isteyin.
 
-* Hesabınızı **"kapsamı '/ subscriptions / {GUID}' üzerinde 'Microsoft.Authorization/roleAssignments/write' işlemini gerçekleştirme yetkisi yok."**  -Hesabınız için bir kimlik rol atamak için yeterli izinlere sahip olmadığında bu hataya bakın. Kullanıcı erişimi Yöneticisi rolüne eklemek için abonelik yöneticinize başvurun.
+* Hesabınızı **"yetkilendirme tooperform eylemi 'Microsoft.Authorization/roleAssignments/write' kapsamı üzerinde '/ subscriptions / {GUID}' yok."**  -Hesabınızı rol tooan kimlik yeterli izinleri tooassign olmadığında bu hatayı bakın. Abonelik Yöneticisi tooadd isteyin, tooUser erişim Yönetici rolü.
 
 ## <a name="sample-applications"></a>Örnek uygulamalar
-Farklı platformlarda üzerinden uygulama olarak oturum açma hakkında daha fazla bilgi için bkz:
+Farklı platformlarda üzerinden hello uygulama olarak oturum açma hakkında daha fazla bilgi için bkz:
 
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](/java/azure/java-sdk-azure-authenticate)
@@ -427,8 +427,8 @@ Farklı platformlarda üzerinden uygulama olarak oturum açma hakkında daha faz
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kaynakları yönetmek için Azure'da bir uygulamayı tümleştirme ayrıntılı adımlar için bkz: [Geliştirici Kılavuzu'na yetkilendirme Azure Kaynak Yöneticisi API'si ile](resource-manager-api-authentication.md).
+* Kaynakları yönetmek için Azure'da bir uygulamayı tümleştirme ayrıntılı adımlar için bkz: [Geliştirici Kılavuzu tooauthorization hello Azure Kaynak Yöneticisi API'si ile](resource-manager-api-authentication.md).
 * Uygulamalar ve hizmet asıl adı daha ayrıntılı bir açıklaması için bkz: [uygulama ve hizmet sorumlusu nesneleri](../active-directory/active-directory-application-objects.md). 
 * Azure Active Directory kimlik doğrulaması hakkında daha fazla bilgi için bkz: [Azure AD için kimlik doğrulama senaryoları](../active-directory/active-directory-authentication-scenarios.md).
-* Verilen veya kullanıcılar için reddedilen kullanılabilir eylemler listesi için bkz: [Azure Resource Manager kaynak sağlayıcısı işlemleri](../active-directory/role-based-access-control-resource-provider-operations.md).
+* Verilen veya toousers reddedilen kullanılabilir eylemler listesi için bkz: [Azure Resource Manager kaynak sağlayıcısı işlemleri](../active-directory/role-based-access-control-resource-provider-operations.md).
 

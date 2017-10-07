@@ -1,6 +1,6 @@
 ---
-title: "İşlem düğümlerinde - Azure Batch uygulama paketleri yükleme | Microsoft Docs"
-description: "İşlem düğümlerini birden fazla uygulamaları ve sürümlerini toplu yükleme için kolayca yönetmek için Azure Batch uygulama paketleri özelliği kullanın."
+title: "işlem düğümlerinde - Azure Batch uygulama paketleri aaaInstall | Microsoft Docs"
+description: "Toplu yükleme için sürümler işlem düğümleri ve kullanım hello uygulama paketleri Özelliği Azure Batch tooeasily birden çok uygulama yönetin."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,197 +15,197 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afcc04c80ec15872a22de5d5969a7ef6a583562f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 683be7b7f1bd5db7835332016f6dccb72f45c3b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>İşlem düğümleri Batch uygulama paketleri ile uygulamaları dağıtma
+# <a name="deploy-applications-toocompute-nodes-with-batch-application-packages"></a>Uygulamaları toocompute düğümleri Batch uygulama paketleri ile dağıtma
 
-Azure Batch uygulama paketleri özelliği kolay yönetim görev uygulamaları ve bunların dağıtımı havuzunuzdaki işlem düğümlerine sağlar. Uygulama paketleri ile karşıya yükleyin ve bunların destekleyici dosyaları dahil olmak üzere, görevlerinizin çalışan uygulamaların birden fazla sürümünü yönetin. Ardından otomatik olarak bir veya daha fazla işlem düğümlerine bu uygulamaları havuzunuzdaki dağıtabilirsiniz.
+Azure Batch uygulama paketleri özelliği Hello görev uygulamaları kolay yönetim sağlar ve bunların dağıtım toohello işlem düğümlerini havuzunuzdaki. Uygulama paketleri ile karşıya yükleyin ve birden fazla sürümünü de dahil olmak üzere destek dosyalarını, görevleri çalıştırmak hello uygulamaları yönetin. Ardından otomatik olarak bir dağıtabilirsiniz veya bu uygulamaları toohello fazlasını havuzunuzdaki düğümlerden işlem.
 
-Bu makalede, karşıya yükleme ve uygulama paketleri Azure portalında yönetmek öğreneceksiniz. Ardından bunları bir havuzun işlem düğümleri ile yüklemek hakkında bilgi edineceksiniz [Batch .NET] [ api_net] kitaplığı.
+Bu makalede, öğreneceksiniz nasıl tooupload ve hello Azure portal'ın uygulama paketlerini yönetin. Ardından nasıl tooinstall bir havuzun üzerlerinde ile işlem düğümleri öğreneceksiniz hello [Batch .NET] [ api_net] kitaplığı.
 
 > [!NOTE]
 > 
-> Uygulama paketleri 5 Temmuz 2017’den sonra oluşturulmuş tüm Batch havuzlarında desteklenir. Bunların 10 Mart 2016 ve 5 Haziran 2017 arasında oluşturulmuş Batch havuzlarında desteklenebilmesi için, havuzun Bulut Hizmeti yapılandırması kullanılarak oluşturulmuş olması gerekir. 10 Mart 2016’dan önce oluşturulan Batch havuzları uygulama paketlerini desteklemez.
+> Uygulama paketleri 5 Temmuz 2017’den sonra oluşturulmuş tüm Batch havuzlarında desteklenir. Bunlar yalnızca hello havuzu, bir bulut Hizmeti Yapılandırması kullanılarak oluşturulduysa 10 Mart 2016 ve 5 Temmuz 2017 arasında oluşturulan Batch havuzu üzerinde desteklenir. Önceki too10 Mart 2016 oluşturulan batch havuzları, uygulama paketleri desteklemez.
 >
-> API'ları oluşturma ve uygulama paketlerini Yönetme [Batch yönetimi .NET] parçası olan [[api_net_mgmt]] kitaplık. Bir işlem düğümünde uygulama paketleri yüklemek için API'ler parçası olan [Batch .NET] [ api_net] kitaplığı.  
+> Merhaba oluşturmak ve uygulama paketleri yönetmek için API hello [Batch yönetimi .NET] parçasıdır [[api_net_mgmt]] kitaplık. Merhaba bir işlem düğümünde uygulama paketleri yüklemek için API hello parçasıdır [Batch .NET] [ api_net] kitaplığı.  
 >
-> Burada açıklanan uygulama paketleri özelliği, ' service'nın önceki sürümlerinde kullanılabilir toplu işlem uygulamaları özelliği yerini alır.
+> Burada açıklanan hello uygulama paketleri özelliği hello toplu işlem uygulamaları özelliği hello hizmet önceki sürümlerinde kullanılabilir yerini alır.
 > 
 > 
 
 ## <a name="application-package-requirements"></a>Uygulama paketi gereksinimleri
-Uygulama paketlerini kullanmak için gerek [bir Azure depolama hesabı bağlantı](#link-a-storage-account) Batch hesabınıza.
+toouse uygulama paketleri, gereksinim duyduğunuz çok[bir Azure depolama hesabı bağlantı](#link-a-storage-account) tooyour toplu işlem hesabı.
 
-Bu özellik sunulmuştur [Batch REST API'si] [ api_rest] sürüm 2015 12 01.2.2 ve karşılık gelen [Batch .NET] [ api_net] kitaplığı sürüm 3.1.0. Her zaman son API sürümü Batch ile çalışırken kullanmanızı öneririz.
+Bu özellik sunulmuştur [Batch REST API'si] [ api_rest] sürüm 2015 12 01.2.2 ve hello karşılık gelen [Batch .NET] [ api_net] kitaplığı sürümü 3.1.0. Her zaman hello son API sürümü Batch ile çalışırken kullanmanızı öneririz.
 
 > [!NOTE]
-> Uygulama paketleri 5 Temmuz 2017’den sonra oluşturulmuş tüm Batch havuzlarında desteklenir. Bunların 10 Mart 2016 ve 5 Haziran 2017 arasında oluşturulmuş Batch havuzlarında desteklenebilmesi için, havuzun Bulut Hizmeti yapılandırması kullanılarak oluşturulmuş olması gerekir. 10 Mart 2016’dan önce oluşturulan Batch havuzları uygulama paketlerini desteklemez.
+> Uygulama paketleri 5 Temmuz 2017’den sonra oluşturulmuş tüm Batch havuzlarında desteklenir. Bunlar yalnızca hello havuzu, bir bulut Hizmeti Yapılandırması kullanılarak oluşturulduysa 10 Mart 2016 ve 5 Temmuz 2017 arasında oluşturulan Batch havuzu üzerinde desteklenir. Önceki too10 Mart 2016 oluşturulan batch havuzları, uygulama paketleri desteklemez.
 >
 >
 
 ## <a name="about-applications-and-application-packages"></a>Uygulamalar ve uygulama paketleri hakkında
-Azure Batch içindeki bir *uygulama* havuzunuzdaki işlem düğümlerine otomatik olarak indirilebilir sürümü tutulan ikili dosyaları kümesine başvuruyor. Bir *uygulama paketi* başvurduğu bir *belirli* bu ikili dosyaları ve temsil bir verilen *sürüm* uygulamanın.
+Azure Batch içindeki bir *uygulama* havuzunuzdaki işlem düğümlerine otomatik olarak indirilen toohello olabilir sürümlü ikili dosyaları tooa kümesini ifade eder. Bir *uygulama paketi* tooa başvuruyor *belirli* bu ikili dosyaları ve temsil bir verilen *sürüm* hello uygulamasının.
 
 ![Uygulamalar ve uygulama paketleri üst düzey diyagramı][1]
 
 ### <a name="applications"></a>Uygulamalar
-Toplu bir uygulamada içeriyor veya daha fazla uygulama paketleri ve uygulama için yapılandırma seçeneklerini belirtir. Örneğin, uygulamanın işlem düğümlerini ve kendi paketleri olup güncelleştirilmiş veya silinebilir yüklemek için varsayılan uygulama paketi sürümü belirtebilirsiniz.
+Toplu bir uygulamada içeriyor veya daha fazla uygulama paketleri ve Merhaba uygulaması için yapılandırma seçeneklerini belirtir. Örneğin, bir uygulama üzerinde işlem düğümlerini ve kendi paketleri olup güncelleştirilmiş veya silinebilir hello varsayılan uygulama paketi sürümü tooinstall belirtebilirsiniz.
 
 ### <a name="application-packages"></a>Uygulama paketleri
-Bir uygulama paketi uygulama ikili dosyaları içeren bir .zip dosyası ve görevlerinizi uygulamayı çalıştırmak gerekli destek dosyaları ' dir. Her uygulama paketi uygulamanın belirli bir sürümünü temsil eder.
+Bir uygulama paketi hello uygulama ikili dosyaları içeren bir .zip dosyası ve görevleri toorun hello uygulamanız için gerekli destek dosyaları ' dir. Her uygulama paketi hello uygulamanın belirli bir sürümünü temsil eder.
 
-Uygulama paketleri havuzu ve görev düzeylerde belirtebilirsiniz. Bir havuz veya görev oluşturduğunuzda, bir veya daha fazla bu paketleri ve (isteğe bağlı) bir sürüm belirtebilirsiniz.
+Uygulama paketleri hello havuzu ve görev düzeylerinde belirtebilirsiniz. Bir havuz veya görev oluşturduğunuzda, bir veya daha fazla bu paketleri ve (isteğe bağlı) bir sürüm belirtebilirsiniz.
 
-* **Havuz uygulama paketleri** dağıtılan *her* havuzdaki düğüm. Bir düğüm bir havuzu katıldığında ve onu yeniden başlatıldığı ya da dağıtılır.
+* **Havuz uygulama paketleri** çok dağıtılan*her* hello havuzdaki düğüm. Bir düğüm bir havuzu katıldığında ve onu yeniden başlatıldığı ya da dağıtılır.
   
-    Bir havuzdaki tüm düğümlerin işe ait görevleri yürüttüğünüzde havuzu uygulama paketleri uygundur. Bir veya daha fazla uygulama paketlerini bir havuz oluşturduğunuzda ve ekleme veya güncelleştirme mevcut havuzun paketleri belirtebilirsiniz. Varolan bir havuzun uygulama paketleri güncelleştirirseniz, düğümlerinden yeni paketi yüklemek için yeniden başlatmanız gerekir.
-* **Görev uygulama paketleri** yalnızca görevin komut satırı çalıştırmadan önce bir görevi çalıştırmak için zamanlanan bir işlem düğümünde dağıtılır. Belirtilen uygulama paketinin ve sürüm ise zaten düğümde değil imzalanmasını ve var olan paketi kullanılır.
+    Bir havuzdaki tüm düğümlerin işe ait görevleri yürüttüğünüzde havuzu uygulama paketleri uygundur. Bir veya daha fazla uygulama paketlerini bir havuz oluşturduğunuzda ve ekleme veya güncelleştirme mevcut havuzun paketleri belirtebilirsiniz. Varolan bir havuzun uygulama paketleri güncelleştirirseniz, alt düğümleri tooinstall hello yeni paketi yeniden başlatmanız gerekir.
+* **Görev uygulama paketleri** tooa işlem düğümü toorun hello görevin komut satırı çalıştırmadan önce bir görev zamanlanan yalnızca dağıtılır. Uygulama paketi ve sürümü olduğundan zaten hello düğümde Hello belirtilmişse değil imzalanmasını ve hello varolan paket kullanılır.
   
-    Görev uygulama paketleri Burada farklı işleri bir havuzu üzerinde çalışır ve bir iş tamamlandığında havuzu silinmez paylaşılan havuzu ortamlarında yararlıdır. İşinizin havuzdaki görevleri, düğümlerinden azsa uygulamanız yalnızca görevleri çalıştıran düğümlere dağıtıldığı için görev uygulama paketleri veri aktarımını azaltabilir.
+    Görev uygulama paketleri Burada farklı işleri bir havuzu üzerinde çalışır ve bir iş tamamlandığında hello havuzu silinmez paylaşılan havuzu ortamlarında yararlıdır. İşinizi hello havuzunda düğümleri'den daha az görev varsa, görev uygulama paketleri bir uygulamanız görevleri çalıştırmak dağıtılan yalnızca toohello düğümleri olduğundan veri aktarımını en aza indirebilirsiniz.
   
-    Büyük bir uygulamayı çalıştırma işleri görev uygulama paketi yararlanabilir diğer senaryolar verilmiştir ancak yalnızca birkaç görevler için. Örneğin, önceden işlem aşamanın veya ön işleme veya birleştirme uygulama ağır olduğu, bir birleştirme görev görev uygulama paketlerini kullanma yararlı.
+    Büyük bir uygulamayı çalıştırma işleri görev uygulama paketi yararlanabilir diğer senaryolar verilmiştir ancak yalnızca birkaç görevler için. Örneğin, önceden işlem aşama veya hello ön işleme veya birleştirme uygulama ağır olduğu, bir birleştirme görev görev uygulama paketlerini kullanarak yararlanabilir.
 
 > [!IMPORTANT]
-> Uygulamalar ve toplu işlem hesabı içindeki uygulama paketleri sayısını ve en fazla uygulama paket boyutu kısıtlamalar vardır. Bkz: [Azure Batch hizmeti için kotalar ve sınırlar](batch-quota-limit.md) bu sınırları hakkında ayrıntılı bilgi için.
+> Uygulamalar ve toplu işlem hesabı içindeki uygulama paketleri hello sayısını ve hello en fazla uygulama paket boyutu kısıtlamalar vardır. Bkz: [hello Azure Batch hizmeti için kotalar ve sınırlar](batch-quota-limit.md) bu sınırları hakkında ayrıntılı bilgi için.
 > 
 > 
 
 ### <a name="benefits-of-application-packages"></a>Uygulama paketleri yararları
-Uygulama paketleri, toplu Çözümünüzdeki kodu basitleştirmek ve görevlerinizi çalışan uygulamaları yönetmek için gerekli ek yükünü azaltın.
+Uygulama paketleri hello kodu Batch çözümü ve görevlerinizi çalıştırmak alt hello genel gider gerekli toomanage hello uygulamalarınızdaki basitleştirebilirsiniz.
 
-Uygulama paketleri ile uzun düğümlerine yüklemek için tek kaynak dosyaların listesini belirtmek, havuzun görev başlatma sahip değil. El ile uygulama dosyalarınızı Azure Storage veya düğümlerinizi birden fazla sürümünü yönetmek zorunda değilsiniz. Ve oluşturma hakkında endişelenmeniz gerekmez [SAS URL'leri](../storage/common/storage-dotnet-shared-access-signature-part-1.md) depolama hesabınızdaki dosyalarına erişim sağlamak için. Batch uygulama paketleri depolamak ve bunlara işlem düğümleri dağıtmak için Azure Storage ile arka planda çalışır.
+Uygulama paketleri ile havuzun görev başlatma toospecify hello düğümler üzerinde tek tek kaynak dosyaları tooinstall uzun bir listesi sahip değil. Uygulama dosyalarınızı Azure Storage veya düğümlerinizi birden fazla sürümünü yönetmek toomanually yok. Ve oluşturma hakkında tooworry gerekmeyen [SAS URL'leri](../storage/common/storage-dotnet-shared-access-signature-part-1.md) tooprovide depolama hesabınızdaki toohello dosyalara erişim. Merhaba arka planda Azure Storage toostore uygulama paketleri ile Works toplu ve bunları toocompute düğümleri dağıtabilirsiniz.
 
 > [!NOTE] 
-> Bir başlangıç görevinin toplam boyutunun kaynak dosyaları ve ortam değişkenleri dahil olmak üzere 32.768 karakter veya daha az olması gerekir. Başlangıç görevi bu sınırı aşarsa, uygulama paketleri kullanarak başka bir seçenektir. Ayrıca, kaynak dosyaları içeren bir sıkıştırılmış arşivi oluşturmak, bir BLOB Azure Storage olarak karşıya yükleme ve başlangıç görevinin komut satırından sıkıştırmasını açın. 
+> Merhaba toplam boyutu bir başlangıç görevi küçük veya buna eşit olmalıdır kaynak dosyaları ve ortam değişkenleri dahil, too32768 karakteri. Başlangıç görevi bu sınırı aşarsa, uygulama paketleri kullanarak başka bir seçenektir. Ayrıca, kaynak dosyaları içeren bir sıkıştırılmış arşivi oluşturma blob tooAzure depolama karşıya yükleme ve hello komut satırından, başlangıç görevinin sıkıştırmasını açın. 
 >
 >
 
 ## <a name="upload-and-manage-applications"></a>Karşıya yükleme ve uygulamalarını yönetme
-Kullanabileceğiniz [Azure portal] [ portal] veya [Batch yönetimi .NET](batch-management-dotnet.md) Batch hesabınızdaki uygulama paketlerini yönetmek için kitaplık. Sonraki birkaç bölümlerde, biz öncelikle bir depolama hesabı bağlantı sonra ekleme uygulamaları ve paketleri ve portal ile yönetme ele gösterilmektedir.
+Merhaba kullanabilirsiniz [Azure portal] [ portal] veya hello [Batch yönetimi .NET](batch-management-dotnet.md) kitaplığı toomanage hello uygulama paketleri Batch hesabınızdaki. Buna birkaç bölümler sonraki Merhaba, ilk nasıl toolink bir depolama hesabı sonra uygulamalarını ekleyerek ele almaktadır ve paketleri ve bunları yönetme portal hello gösteriyoruz.
 
 ### <a name="link-a-storage-account"></a>Bir depolama hesabı bağlantı
-Uygulama paketlerini kullanmak için bir Azure depolama hesabı toplu işlem hesabınıza bağlamanız gerekir. Henüz bir depolama hesabı yapılandırmadıysanız, Azure portal'ı ilk kez bir uyarı görüntüler **uygulamaları** parçasında **Batch hesabı** dikey.
+toouse uygulama paketleri, ilk Azure Storage hesabı tooyour toplu işlem hesabı bağlamanız gerekir. Henüz bir depolama hesabı yapılandırmadıysanız hello Azure portal uyarı hello hello'ı ilk kez görüntüler **uygulamaları** döşeme hello **Batch hesabı** dikey.
 
 > [!IMPORTANT]
-> Batch şu anda destekler *yalnızca* **genel amaçlı** 5. adımda açıklandığı gibi depolama hesabı türü [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account), [Azure storage hesapları hakkında](../storage/common/storage-create-storage-account.md). Batch hesabınıza bir Azure Storage hesabı bağladığınızda, bağlantı *yalnızca* bir **genel amaçlı** depolama hesabı.
+> Batch şu anda destekler *yalnızca* hello **genel amaçlı** 5. adımda açıklandığı gibi depolama hesabı türü [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account), [Azure hakkında Depolama hesapları](../storage/common/storage-create-storage-account.md). Bir Azure depolama hesabı tooyour toplu işlem hesabı bağladığınızda, bağlantı *yalnızca* bir **genel amaçlı** depolama hesabı.
 > 
 > 
 
 ![Azure portalında 'depolama hesabı yapılandırıldı' uyarısı][9]
 
-Batch hizmeti, uygulama paketlerinizi depolamak için ilişkili depolama hesabı kullanır. İki hesap bağladığınız sonra toplu işlem düğümleriniz bağlantılı depolama hesabına depolanan paketleri otomatik olarak dağıtabilirsiniz. Bir depolama hesabı toplu işlem hesabınıza bağlamak için tıklatın **depolama hesabı ayarlarını** üzerinde **uyarı** dikey ve ardından **depolama hesabı** üzerinde **depolama hesabı** dikey.
+Merhaba Batch hizmetini kullanan hello depolama hesabı toostore, uygulama paketlerinizi ilişkilendirilmiş. Merhaba iki hesap bağladığınız sonra toplu hello bağlantılı depolama hesabı tooyour işlem düğümlerine depolanan hello paketleri otomatik olarak dağıtabilirsiniz. toolink bir depolama hesabı tooyour Batch hesabını tıklatın **depolama hesabı ayarlarını** hello üzerinde **uyarı** dikey ve ardından **depolama hesabı** hello üzerinde**Depolama hesabı** dikey.
 
 ![Azure Portal'da depolama hesabı dikey seçin][10]
 
-Bir depolama hesabı oluşturmanızı öneririz *özellikle* , toplu işlem hesabı ile kullanmak için ve burada seçin. Bir depolama hesabının nasıl oluşturulacağı hakkında daha fazla ayrıntı için "Bir depolama hesabı oluşturma" görmek [hakkında Azure depolama hesapları](../storage/common/storage-create-storage-account.md). Bir depolama hesabı oluşturduktan sonra daha sonra bu toplu işlem hesabınızı kullanarak bağlayabilirsiniz **depolama hesabı** dikey.
+Bir depolama hesabı oluşturmanızı öneririz *özellikle* , toplu işlem hesabı ile kullanmak için ve burada seçin. Hakkında ayrıntılar için toocreate bir depolama hesabı bkz "Bir depolama hesabı oluşturma" [hakkında Azure depolama hesapları](../storage/common/storage-create-storage-account.md). Bir depolama hesabı oluşturduktan sonra daha sonra onu tooyour toplu işlem hesabı hello kullanarak bağlayabilirsiniz **depolama hesabı** dikey.
 
 > [!WARNING]
-> Batch hizmeti Azure Storage blok blobları, uygulama paketlerinizi depolamak için kullanır. Olduğunuz [normal olarak ücretlendirilir] [ storage_pricing] blok blobu veri. Uygulama paketlerinizi sayısı ve boyutu göz önünde bulundurun ve düzenli aralıklarla maliyetleri en aza indirmek için kullanım dışı paketleri kaldırmak emin olun.
+> Merhaba Batch hizmeti Azure Storage toostore, uygulama paketlerinizi blok blobları kullanır. Olduğunuz [normal olarak ücretlendirilir] [ storage_pricing] hello blok blobu veri. Emin tooconsider hello boyutu ve uygulama paketlerinizi sayısı ve düzenli olarak kullanım dışı paketleri toominimize maliyetleri kaldırın.
 > 
 > 
 
 ### <a name="view-current-applications"></a>Geçerli uygulamaları görüntüle
-Batch hesabınızda uygulamaları görüntülemek için **uygulamaları** görüntüleme çalışırken soldaki menüde menü öğesi **Batch hesabı** dikey.
+Batch hesabınızdaki tooview hello Uygulamalar'a tıklayın hello **uygulamaları** hello görüntülerken hello soldaki menüde menü öğesi **Batch hesabı** dikey.
 
 ![Uygulamaları döşeme][2]
 
-Bu menü seçeneğini seçerek açılır **uygulamaları** dikey penceresinde:
+Bu menü seçeneğini seçerek açar hello **uygulamaları** dikey penceresinde:
 
 ![Uygulamaları listeleme][3]
 
-**Uygulamaları** dikey hesabınızı ve aşağıdaki özellikleri her uygulama Kimliğini görüntüler:
+Merhaba **uygulamaları** hesabınızdaki her bir uygulama Kimliğini hello ve aşağıdaki özelliklere hello dikey penceresinde görüntüler:
 
-* **Paketleri**: Bu uygulama ile ilişkili sürüm sayısı.
-* **Varsayılan sürüm**: uygulama havuzu için belirttiğinizde bir sürüm belirtmezseniz yüklü uygulama sürümü. Bu ayar isteğe bağlıdır.
-* **Güncelleştirmelere izin**: olup paketini güncelleştirir, silme ve eklemeleri belirten değeri izin verilir. Bu ayarlanırsa **Hayır**, paket güncelleştirme ve silme işlemleri uygulama için devre dışıdır. Yalnızca yeni uygulama paketi sürümleri eklenebilir. Varsayılan değer **Evet**.
+* **Paketleri**: Merhaba bu uygulamayla ilişkili sürüm sayısı.
+* **Varsayılan sürüm**: hello uygulama havuzu için belirttiğinizde bir sürüm belirtmezseniz yüklü hello uygulama sürümü. Bu ayar isteğe bağlıdır.
+* **Güncelleştirmelere izin**: olup paketini güncelleştirir, silme ve eklemeleri belirten hello değeri izin verilir. Bu çok ayarlanırsa**Hayır**, paket güncelleştirme ve silme işlemleri hello uygulama için devre dışıdır. Yalnızca yeni uygulama paketi sürümleri eklenebilir. Merhaba varsayılandır **Evet**.
 
 ### <a name="view-application-details"></a>Uygulama Ayrıntıları görüntüle
-Bir uygulama ayrıntılarını içeren dikey penceresini açmak için uygulamada seçin **uygulamaları** dikey.
+bir uygulama, select hello uygulama hello ayrıntılarını hello içerir tooopen hello dikey **uygulamaları** dikey.
 
 ![Uygulama Ayrıntıları][4]
 
-Uygulama Ayrıntıları dikey penceresinde, uygulamanız için aşağıdaki ayarları yapılandırabilirsiniz.
+Merhaba uygulama ayrıntıları dikey penceresinde, uygulamanızın ayarlarını aşağıdaki hello yapılandırabilirsiniz.
 
 * **Güncelleştirmelere izin**: uygulama paketlerinin güncelleştirilmiş veya silinebilir olup olmadığını belirtin. Bu makalenin sonraki bölümlerinde "Güncelleştirmek veya bir uygulama paketini silmeniz" bakın.
-* **Varsayılan sürüm**: işlem düğümleri dağıtmak için bir varsayılan uygulama paketi belirleyin.
-* **Görünen ad**: Batch çözümünüzü uygulama hakkında bilgi Örneğin, Batch aracılığıyla müşterilerinize sağlayan bir hizmet UI gösterildiğinde kullanabileceğiniz bir kolay ad belirtin.
+* **Varsayılan sürüm**: varsayılan uygulama paketi toodeploy toocompute düğüm belirtin.
+* **Görünen ad**: kolay bir çözüm hello uygulamayla ilgili bilgileri gibi hello tooyour müşterileri toplu ile sağlayan bir hizmet UI gösterildiğinde kullanabilir, Batch ad belirtin.
 
 ### <a name="add-a-new-application"></a>Yeni bir uygulama Ekle
-Yeni bir uygulama oluşturmak için bir uygulama paketi eklemek ve yeni ve benzersiz uygulama kimliği belirtin. Yeni uygulama kimliği ile eklediğiniz ilk uygulama paketi, yeni uygulama da oluşturur.
+toocreate yeni bir uygulama bir uygulama paketi eklemek ve yeni ve benzersiz uygulama kimliği belirtin. Merhaba yeni uygulama kimliği ile eklediğiniz hello ilk uygulama paketi de hello yeni bir uygulama oluşturur.
 
-Tıklatın **Ekle** üzerinde **uygulamaları** açmak için dikey **yeni uygulama** dikey.
+Tıklatın **Ekle** hello üzerinde **uygulamaları** dikey tooopen hello **yeni uygulama** dikey.
 
 ![Azure portalında yeni uygulama dikey penceresi][5]
 
-**Yeni uygulama** dikey yeni uygulama ve uygulama paketi ayarlarını belirlemek için aşağıdaki alanları sağlar.
+Merhaba **yeni uygulama** dikey penceresinde hello aşağıdaki alanlar yeni uygulama ve uygulama paketi toospecify hello ayarlarını sağlar.
 
 **Uygulama Kimliği**
 
-Bu alan tabi standart Azure toplu işlem kimliği doğrulama kuralları, yeni uygulama Kimliğini belirtir. Bir uygulama kimliği sağlamak için kurallar aşağıdaki gibidir:
+Bu alan konu toohello standart Azure toplu işlem kimliği doğrulama kuralları, yeni uygulama hello Kimliğini belirtir. bir uygulama kimliği sağlamak için hello kurallar aşağıdaki gibidir:
 
-* Windows düğümlerinde kimlik alfasayısal karakterler, tire ve alt çizgi, herhangi bir birleşimini içerebilir. Linux düğümleri üzerinde yalnızca alfasayısal karakterler ve alt çizgi izin verilir.
+* Windows düğümlerinde hello kimlik alfasayısal karakterler, tire ve alt çizgi, herhangi bir birleşimini içerebilir. Linux düğümleri üzerinde yalnızca alfasayısal karakterler ve alt çizgi izin verilir.
 * Birden fazla 64 karakter içeremez.
-* Toplu işlem hesabı içinde benzersiz olmalıdır.
+* Toplu işlem hesabı Hello içinde benzersiz olmalıdır.
 * Servis talebi koruyarak ve büyük küçük harf duyarsız ' dir.
 
 **Sürüm**
 
-Bu alan karşıya yüklemekte olduğunuz uygulama paketi sürümünü belirtir. Sürüm dizelerini tabi aşağıdaki doğrulama kurallar şunlardır:
+Bu alan hello uygulama paketini karşıya yüklediğiniz hello sürümünü belirtir. Sürüm dizelerini doğrulama kuralları aşağıdaki konu toohello şunlardır:
 
-* Windows düğümlerinde sürüm dizesi alfasayısal karakterler, tire, alt çizgi ve nokta herhangi bir birleşimini içerebilir. Linux düğümleri üzerinde sürüm dizesi yalnızca alfasayısal karakterler ve alt çizgi içerebilir.
+* Windows düğümlerinde hello sürüm dizesi alfasayısal karakterler, tire, alt çizgi ve nokta herhangi bir birleşimini içerebilir. Linux düğümleri üzerinde hello sürüm dizesi yalnızca alfasayısal karakterler ve alt çizgi içerebilir.
 * Birden fazla 64 karakter içeremez.
-* Uygulama içinde benzersiz olmalıdır.
+* Merhaba uygulama içinde benzersiz olmalıdır.
 * Servis talebi koruyarak ve büyük küçük harf duyarsız'dır.
 
 **Uygulama paketi**
 
-Bu alan, uygulama yürütmek için gerekli destek dosyaları ve uygulama ikili dosyaları içeren .zip dosyasını belirtir. Tıklatın **bir dosya seçin** kutusu veya göz atın ve uygulama dosyalarını içeren bir .zip dosyası seçmek için klasör simgesine.
+Bu alan hello uygulama ikili dosyaları içeren hello .zip dosyası ve gerekli tooexecute Merhaba uygulaması destekleyici dosyaları belirtir. Merhaba tıklatın **bir dosya seçin** kutusu veya hello klasör simgesine toobrowse tooand uygulamanızın dosyaları içeren bir .zip dosyası seçin.
 
-Bir dosyayı seçtikten sonra tıklayın **Tamam** Azure Storage yüklenecek başlamak için. Karşıya yükleme işlemi tamamlandığında, portal bir bildirim görüntüler ve dikey penceresi kapanır. Karşıya yüklemekte olduğunuz dosya boyutu ve ağ bağlantınızın hızına bağlı olarak, bu işlem biraz zaman alabilir.
+Bir dosyayı seçtikten sonra tıklayın **Tamam** toobegin hello karşıya yükleme tooAzure depolama. Merhaba karşıya yükleme işlemi tamamlandığında hello portalı bir bildirim görüntüler ve hello dikey penceresi kapanır. Merhaba dosya karşıya yükleme ve başlangıç hızı ağ bağlantınızın olduğunu Hello boyutuna bağlı olarak bu işlem biraz zaman alabilir.
 
 > [!WARNING]
-> Kapatmayın **yeni uygulama** karşıya yükleme işlemi tamamlanmadan önce dikey. Bunun yapılması, karşıya yükleme işlemi durdurur.
+> Merhaba kapatmayın **yeni uygulama** hello karşıya yükleme işlemi tamamlanmadan önce dikey. Bunun yapılması hello karşıya yükleme işlemi durdurulacak.
 > 
 > 
 
 ### <a name="add-a-new-application-package"></a>Yeni bir uygulama paketi ekleme
-Olan bir uygulamanın yeni bir uygulama Paket sürümü eklemek için bir uygulama seçin **uygulamaları** dikey penceresinde'ı tıklatın **paketleri**, ardından **Ekle** açmak için **Ekle paket** dikey.
+tooadd olan bir uygulamanın yeni bir uygulama Paket sürümü hello bir uygulama seçin **uygulamaları** dikey penceresinde tıklatın **paketleri**, ardından **Ekle** tooopen Merhaba **Ekle paket** dikey.
 
 ![Azure portalında uygulama paketi dikey ekleme][8]
 
-Gördüğünüz gibi alanların eşleşen **yeni uygulama** dikey penceresinde, ancak **uygulama kimliği** kutusu devre dışıdır. Yeni uygulama için yaptığınız gibi belirtin **sürüm** yeni paketiniz için göz atın, **uygulama paketi** .zip dosyası ve ardından **Tamam** paketini karşıya yüklemek için.
+Gördüğünüz gibi hello alanları hello eşleşen **yeni uygulama** dikey ancak hello **uygulama kimliği** kutusu devre dışıdır. Merhaba yeni uygulaması için yaptığınız gibi hello belirtin **sürüm** tooyour yeni paketiniz için Gözat **uygulama paketi** .zip dosyası ve ardından **Tamam** tooupload hello Paket.
 
 ### <a name="update-or-delete-an-application-package"></a>Güncelleştirme veya uygulama paketi silme
-Güncelleştirmek veya var olan uygulama paketini silmek için uygulama ayrıntıları dikey penceresini açmak, **paketleri** açmak için **paketleri** dikey penceresinde tıklatın **üç nokta** gerçekleştirmek istediğiniz eylemi seçin ve değiştirmek için istediğiniz uygulama paketi satırında.
+var olan bir uygulama paketini, açık hello ayrıntıları dikey penceresinde hello uygulama tooupdate veya Sil'i tıklatın **paketleri** tooopen hello **paketleri** dikey penceresinde hello tıklatın **üç nokta**toomodify istediğiniz ve seçin tooperform istediğiniz hello eylem hello uygulama paketini hello satırda.
 
 ![Güncelleştirme veya Azure portalında paketi silme][7]
 
 **Güncelleştirme**
 
-Tıkladığınızda **güncelleştirme**, *güncelleştirme paketini* dikey penceresi görüntülenir. Bu dikey benzer *yeni uygulama paketi* dikey penceresinde, ancak yalnızca karşıya yüklemek için yeni bir ZIP dosyası belirtmenize olanak sağlayan paket seçimi alan etkinleştirilir.
+Tıkladığınızda **güncelleştirme**, hello *güncelleştirme paketini* dikey penceresi görüntülenir. Bu dikey benzer toohello olan *yeni uygulama paketi* toospecify yeni bir ZIP dosyası tooupload izin vererek, ancak yalnızca hello paket seçimi alanını etkin, dikey.
 
 ![Güncelleştirme paketi dikey Azure portalında][11]
 
 **Silme**
 
-Tıkladığınızda **silmek**, Paket sürümü silinmesini onaylaması istenir ve toplu Azure depolama biriminden paket siler. Bir uygulamanın varsayılan sürümü silerseniz **varsayılan sürüm** ayarını, uygulama için kaldırılır.
+Tıkladığınızda **silmek**tooconfirm hello hello Paket sürümü silinmesini sorulur ve toplu Azure depolama biriminden hello paketini siler. Bir uygulamanın hello varsayılan sürümü silerseniz, hello **varsayılan sürüm** ayarı Merhaba uygulaması kaldırılır.
 
 ![Uygulama silme][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>İşlem düğümlerinde uygulamaları yükleme
-Azure portal ile uygulama paketlerini yönetmek nasıl öğrendiğinize göre bunları işlem düğümleri ve toplu görevleri çalıştırmak için dağıtma aşağıdakiler ele.
+Artık nasıl hello Azure portal ile toomanage uygulama paketleri öğrendiğinize göre aşağıdakiler ele nasıl toodeploy bunları toocompute düğümleri ve toplu işlem görevleri ile çalıştırın.
 
 ### <a name="install-pool-application-packages"></a>Havuz uygulama paketlerini yükleme
-Bir havuzdaki tüm işlem düğümlerinde bir uygulama paketi yüklemek için bir veya daha fazla uygulama paketi belirleyin *başvuruları* havuzu için. Bir havuz için belirttiğiniz uygulama paketlerini her işlem düğümünde o düğüm havuza katıldığında ve düğümün yeniden başlatıldığı ya da yüklenir.
+tooinstall bir uygulama paketi tüm işlem düğümleri havuzunda, bir veya daha fazla uygulama paketi belirleyin *başvuruları* hello havuzu için. için bir havuz belirtin hello uygulama paketlerini her işlem düğümünde bu düğüme hello havuzu katıldığında ve hello düğümün yeniden başlatıldığı ya da zaman yüklenir.
 
-Batch .NET içinde bir veya daha fazla belirtin [CloudPool][net_cloudpool].[ ApplicationPackageReferences] [ net_cloudpool_pkgref] yeni bir havuz oluşturduğunuzda veya mevcut bir havuzu. [ApplicationPackageReference] [ net_pkgref] sınıfı, bir uygulama Kimliğini ve sürümünü bir havuzun üzerinde yüklemek için işlem düğümlerini belirtir.
+Batch .NET içinde bir veya daha fazla belirtin [CloudPool][net_cloudpool].[ ApplicationPackageReferences] [ net_cloudpool_pkgref] yeni bir havuz oluşturduğunuzda veya mevcut bir havuzu. Merhaba [ApplicationPackageReference] [ net_pkgref] sınıfı, bir uygulama kimliği ve sürüm tooinstall bulunan bir havuzdaki işlem düğümleri belirtir.
 
 ```csharp
-// Create the unbound CloudPool
+// Create hello unbound CloudPool
 CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
@@ -213,7 +213,7 @@ CloudPool myCloudPool =
         virtualMachineSize: "small",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
-// Specify the application and version to install on the compute nodes
+// Specify hello application and version tooinstall on hello compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 {
     new ApplicationPackageReference {
@@ -221,20 +221,20 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
         Version = "1.1001.2b" }
 };
 
-// Commit the pool so that it's created in the Batch service. As the nodes join
-// the pool, the specified application package is installed on each.
+// Commit hello pool so that it's created in hello Batch service. As hello nodes join
+// hello pool, hello specified application package is installed on each.
 await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Bir uygulama paketi dağıtım için herhangi bir nedenle başarısız olursa, Batch hizmeti düğüm işaretler [kullanılamaz][net_nodestate], ve bu düğümde yürütülmek zamanlanmış hiçbir görevler. Bu durumda, aşağıdakileri yapmalısınız **yeniden** paketi dağıtımı yeniden başlatmanız düğüme. Düğümü yeniden başlatmak, ayrıca görev düğümde yeniden zamanlamayı sağlar.
+> Bir uygulama paketi dağıtım için herhangi bir nedenle başarısız olursa, düğümün hello Batch hizmeti işaretleri hello [kullanılamaz][net_nodestate], ve bu düğümde yürütülmek zamanlanmış hiçbir görevler. Bu durumda, aşağıdakileri yapmalısınız **yeniden** hello düğümü tooreinitiate hello paketi dağıtımı. Görev hello düğümde yeniden zamanlamayı yeniden başlatmayı hello düğümü de sağlar.
 > 
 > 
 
 ### <a name="install-task-application-packages"></a>Görev uygulama paketlerini yükleme
-Benzer bir havuz için uygulama paketi belirttiğiniz *başvuruları* bir görev için. Bir görev, bir düğümü üzerinde çalışacak şekilde zamanlandığı paket indirilir ve yalnızca görevin komut satırı yürütülmeden önce ayıklanır. Belirtilen paket ve sürümü zaten yüklüyse, düğümde, paket yüklenmez ve var olan paketi kullanılır.
+Benzer tooa havuzu, belirttiğiniz uygulama paketi *başvuruları* bir görev için. Bir görev bir düğüm üzerinde zamanlanmış toorun olduğunda hello paket indirilir ve yalnızca hello görevin komut satırı yürütülmeden önce ayıklanan. Belirtilen paket ve sürümü zaten yüklüyse hello düğümde, hello paket yüklenmez ve hello mevcut paketi kullanılır.
 
-Bir görev uygulama paketini yüklemek için görev yapılandırmanız [CloudTask][net_cloudtask].[ ApplicationPackageReferences] [ net_cloudtask_pkgref] özelliği:
+tooinstall bir görev uygulama paketi yapılandırma hello görevin [CloudTask][net_cloudtask].[ ApplicationPackageReferences] [ net_cloudtask_pkgref] özelliği:
 
 ```csharp
 CloudTask task =
@@ -252,44 +252,44 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 };
 ```
 
-## <a name="execute-the-installed-applications"></a>Yüklü uygulamalar yürütme
-Bir havuz ya da görev için belirlediğiniz paketleri indirilir ve adlandırılmış bir dizin içinde ayıklanan `AZ_BATCH_ROOT_DIR` düğümün. Toplu da adlandırılan bir dizin yolunu içeren bir ortam değişkeni oluşturur. Görev komut satırları, düğümdeki uygulama başvururken bu ortam değişkenini kullanın. 
+## <a name="execute-hello-installed-applications"></a>Merhaba yüklü uygulamaları yürütme
+Merhaba, bir havuz ya da görev için belirttiğiniz paketleri karşıdan yüklenir ve hello dizininde adlı tooa ayıklanan `AZ_BATCH_ROOT_DIR` hello düğümü. Toplu dizin adlı hello yolu toohello içeren bir ortam değişkeni de oluşturur. Görev komut satırları Merhaba uygulaması hello düğümde başvururken bu ortam değişkenini kullanın. 
 
-Windows düğümlerinde değişkeni şu biçimdedir:
+Windows düğümlerinde hello biçimini izleyen hello değişkenidir:
 
 ```
 Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Linux düğümleri üzerinde biçimi biraz farklıdır. Nokta (.), kısa çizgi (-) ve numara işareti (#) düzleştirilmiş ortam değişkeninde alt çizgi için. Örneğin:
+Linux düğümleri üzerinde hello biçimi biraz farklıdır. Nokta (.), kısa çizgi (-) ve numara işareti (#) olduğundan hello ortam değişkeninde düzleştirilmiş toounderscores. Örneğin:
 
 ```
 Linux:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID_version
 ```
 
-`APPLICATIONID`ve `version` dağıtımı için belirtilen uygulama ve Paket sürümü karşılık gelen değerler. Örneğin, uygulama sürümünün 2.7 belirtilmişse *blender* yüklenmesi gereken Windows düğümlerinde, kendi dosyalarına erişmek için bu ortam değişkenini görev komut satırları kullanırsınız:
+`APPLICATIONID`ve `version` toohello uygulama ve Paket sürümü dağıtımı için belirtilen karşılık gelen değerler. Örneğin, uygulama sürümünün 2.7 belirtilmişse *blender* yüklenmesi gereken Windows düğümlerinde dosyalarından bu ortam değişkeni tooaccess görev komut satırları kullanır:
 
 ```
 Windows:
 AZ_BATCH_APP_PACKAGE_BLENDER#2.7
 ```
 
-Linux düğümleri üzerinde ortam değişkeni bu biçimde belirtin:
+Linux düğümleri üzerinde hello ortam değişkeni bu biçimde belirtin:
 
 ```
 Linux:
 AZ_BATCH_APP_PACKAGE_BLENDER_2_7
 ``` 
 
-Bir uygulama paketi yüklediğinizde, hesaplama düğümlerini dağıtmak için bir varsayılan sürümü belirtebilirsiniz. Bir uygulama için varsayılan bir sürümünün belirtilirse, uygulama başvurduğunuzda Sürüm soneki atlayabilirsiniz. Varsayılan Uygulama sürümü Azure portalında uygulamalar dikey penceresinde gösterildiği gibi belirleyebilirsiniz [karşıya yükleyin ve uygulamalarını yönetin](#upload-and-manage-applications).
+Bir uygulama paketini karşıya yüklediğinizde, varsayılan sürüm toodeploy tooyour işlem düğümlerini belirtebilirsiniz. Bir uygulama için varsayılan bir sürümünün belirtilmişse Merhaba uygulaması başvurduğunuzda hello Sürüm soneki atlayabilirsiniz. Merhaba varsayılan uygulama sürümü hello hello uygulamalar dikey penceresinde, Azure portal gösterildiği gibi belirleyebilirsiniz [karşıya yükleyin ve uygulamalarını yönetin](#upload-and-manage-applications).
 
-Örneğin, "2.7" uygulaması için varsayılan sürüm olarak ayarlarsanız *blender*ve görevlerinizi aşağıdaki ortam değişkeni başvurusu, sonra Windows düğümleriniz sürüm 2.7 çalıştırır:
+Örneğin, "2.7" Merhaba uygulama için varsayılan sürüm olarak ayarlarsanız *blender*ve görevlerinizi ortam değişkeni aşağıdaki hello başvuru, sonra Windows düğümleriniz sürüm 2.7 çalıştırır:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-Aşağıdaki kod parçacığını varsayılan sürümü başlatan bir örnek görev komut satırı gösterir *blender* uygulama:
+Merhaba aşağıdaki kod parçacığını gösterir hello hello varsayılan sürümü başlatan bir örnek görev komut satırı *blender* uygulama:
 
 ```csharp
 string taskId = "blendertask01";
@@ -299,18 +299,18 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> Bkz: [görevler için ortam ayarları](batch-api-basics.md#environment-settings-for-tasks) içinde [Batch özelliklerine genel bakış](batch-api-basics.md) işlem düğümü ortam ayarları hakkında daha fazla bilgi.
+> Bkz: [görevler için ortam ayarları](batch-api-basics.md#environment-settings-for-tasks) hello içinde [Batch özelliklerine genel bakış](batch-api-basics.md) işlem düğümü ortam ayarları hakkında daha fazla bilgi.
 > 
 > 
 
 ## <a name="update-a-pools-application-packages"></a>Bir havuzun uygulama paketlerini güncelleştirme
-Var olan bir havuzu bir uygulama paketiyle yapılandırılmış havuzu için yeni bir paket belirtebilirsiniz. Aşağıdaki durumlardan bir havuz için yeni bir paket başvuru belirtirseniz:
+Var olan bir havuzu bir uygulama paketiyle yapılandırılmış hello havuzu için yeni bir paket belirtebilirsiniz. Bir havuz için yeni bir paket başvuru belirtirseniz, hello aşağıdakileri uygulayın:
 
-* Toplu işlem hizmeti yeni belirtilen paket havuzuna Katıl tüm yeni düğümler ve herhangi bir düğümde, yeniden başlatıldığı ya da varolan yükler.
-* Paket referanslarını güncelleştirdiğinizde zaten havuzun düğümlerini otomatik olarak yeni uygulama paketi yükleme işlem. Bu, düğümler yeniden veya yeni paket almak için yeniden işlem.
-* Yeni bir paket dağıtıldığında, oluşturulan ortam değişkenleri yeni uygulama paket referanslarını yansıtır.
+* Hello Batch hizmeti hello havuzuna Katıl tüm yeni düğümler ve herhangi bir düğümde, yeniden başlatıldığı ya da varolan hello yeni belirtilen paketi yükler.
+* Merhaba paket referanslarını güncelleştirdiğinizde zaten hello havuzunda düğümlerini hello yeni uygulama paketi otomatik olarak yüklemeyin işlem. Bu, düğümlerin yeniden başlatılması gerekiyor veya görüntülenen tooreceive hello yeni paket işlem.
+* Yeni bir paket dağıtıldığında, ortam değişkenleri oluşturulan hello hello yeni uygulama paket referanslarını yansıtır.
 
-Bu örnekte, var olan bir havuzu 2.7 sürümüne sahip *blender* biri olarak yapılandırılmış bir uygulama, [CloudPool][net_cloudpool].[ ApplicationPackageReferences][net_cloudpool_pkgref]. Havuzun düğümleri 2.76b sürümüyle güncelleştirmek için yeni bir belirtin [ApplicationPackageReference] [ net_pkgref] yeni sürümü ve yürütme Değiştir.
+Bu örnekte, hello varolan havuzu hello 2.7 sürümüne sahip *blender* biri olarak yapılandırılmış bir uygulama, [CloudPool][net_cloudpool].[ ApplicationPackageReferences][net_cloudpool_pkgref]. Yeni bir sürümle 2.76b, tooupdate hello havuzun düğümleri belirtin [ApplicationPackageReference] [ net_pkgref] hello yeni sürümü ve yürütme hello değiştirin.
 
 ```csharp
 string newVersion = "2.76b";
@@ -324,13 +324,13 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Yeni sürüm yapılandırılmış, Batch hizmeti sürüm 2.76b hiçbirine yükler *yeni* havuzuna katılır düğümü. 2.76b olan düğümlerine yüklemek için *zaten* havuzunda yeniden veya onları yeniden görüntü oluşturma. Yeniden başlatılan düğümleri önceki paket dağıtımları dosyalarından korumak unutmayın.
+Merhaba yeni sürümü yapılandırıldı, hello Batch hizmeti sürüm 2.76b tooany yükler *yeni* hello havuzuna katılır düğümü. Merhaba düğümleri üzerinde tooinstall 2.76b *zaten* hello havuzundaki yeniden veya onları yeniden görüntü oluşturma. Yeniden başlatılan düğümleri önceki paket dağıtımlarından hello dosyaları korumak unutmayın.
 
-## <a name="list-the-applications-in-a-batch-account"></a>Bir Batch hesabında uygulamaları Listele
-Kullanarak uygulamalar ve bunların paketleri bir Batch hesabında listeleyebilirsiniz [ApplicationOperations][net_appops].[ ListApplicationSummaries] [ net_appops_listappsummaries] yöntemi.
+## <a name="list-hello-applications-in-a-batch-account"></a>Bir Batch hesabında hello uygulamaları listeleme
+Hello kullanarak hello uygulamaları ve bunların paketleri bir Batch hesabında listeleyebilirsiniz [ApplicationOperations][net_appops].[ ListApplicationSummaries] [ net_appops_listappsummaries] yöntemi.
 
 ```csharp
-// List the applications and their application packages in the Batch account.
+// List hello applications and their application packages in hello Batch account.
 List<ApplicationSummary> applications = await batchClient.ApplicationOperations.ListApplicationSummaries().ToListAsync();
 foreach (ApplicationSummary app in applications)
 {
@@ -344,11 +344,11 @@ foreach (ApplicationSummary app in applications)
 ```
 
 ## <a name="wrap-up"></a>Kaydırma
-Uygulama paketleri ile işlerini istediğiniz uygulamaları seçin ve Batch özellikli hizmetinizi işleriyle işlerken kullanılacak tam sürümünü belirtin, müşterilerinizin yardımcı olabilir. Karşıya yükleme ve kendi uygulamalarında hizmetinizde izlemek müşterilerinize özelliği de sağlayabilir.
+Uygulama paketleri ile işlerini hello uygulamaları seçin ve Batch özellikli hizmetinizi işleriyle işlerken hello tam sürümünü toouse belirtin, müşterilerinizin yardımcı olabilir. Ayrıca, hizmetinizi kendi uygulamaları izlemek için müşteriler tooupload hello olanağı sunar. ve.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Batch REST API'si] [ api_rest] uygulama paketleri ile çalışmak için destek de sağlar. Örneğin, [applicationPackageReferences] [ rest_add_pool_with_packages] öğesinde [bir havuz için bir hesap eklemek] [ rest_add_pool] REST API kullanarak yüklemek için paketler belirtme hakkında bilgi için. Bkz: [uygulamaları] [ rest_applications] Batch REST API'sini kullanarak uygulama bilgilerini elde etme hakkında ayrıntılar için.
-* Bilgi edinmek için nasıl programlı olarak [Azure Batch hesaplarını ve kotalarını Batch yönetimi .NET ile yönetme](batch-management-dotnet.md). [Batch yönetimi .NET][api_net_mgmt] kitaplığı, toplu uygulama veya hizmet hesabı oluşturma ve silme özellikleri etkinleştirebilir.
+* Merhaba [Batch REST API'si] [ api_rest] destek toowork ile uygulama paketleri de sağlar. Örneğin, hello bkz [applicationPackageReferences] [ rest_add_pool_with_packages] öğesinde [bir havuz tooan hesabı eklemek] [ rest_add_pool] hakkında bilgi için toospecify tooinstall hello REST API kullanarak paketler. Bkz: [uygulamaları] [ rest_applications] nasıl tooobtain uygulama bilgilerini kullanarak hello Batch REST API'si hakkında ayrıntılar için.
+* Bilgi nasıl tooprogrammatically [Azure Batch hesaplarını ve kotalarını Batch yönetimi .NET ile yönetme](batch-management-dotnet.md). Merhaba [Batch yönetimi .NET][api_net_mgmt] kitaplığı, toplu uygulama veya hizmet hesabı oluşturma ve silme özellikleri etkinleştirebilir.
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
 [api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet

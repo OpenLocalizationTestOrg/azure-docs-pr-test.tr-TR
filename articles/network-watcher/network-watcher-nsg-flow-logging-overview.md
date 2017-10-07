@@ -1,6 +1,6 @@
 ---
-title: "Akış günlüğü Azure Ağ İzleyicisi ile ağ güvenlik grupları için giriş | Microsoft Docs"
-description: "Bu sayfayı NSG akış günlükleri kullanımı Azure Ağ İzleyicisi, bir özellik açıklanmaktadır"
+title: "Azure Ağ İzleyicisi ile ağ güvenlik grupları için aaaIntroduction tooflow günlüğü | Microsoft Docs"
+description: "Bu sayfa toouse NSG akış Azure Ağ İzleyicisi özelliği nasıl günlüğe yazacağını açıklar"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,56 +14,56 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: b7a9162d6c6219b6b1c51a49cd34b9616e9d3e8f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: da85e946147b14717144cb47d1c742057c6dfa24
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Akış günlüğü ağ güvenlik grupları için giriş
+# <a name="introduction-tooflow-logging-for-network-security-groups"></a>Ağ güvenlik grupları için giriş tooflow günlüğü
 
-Ağ güvenlik grubu akış günlükleri, giriş ve çıkış IP trafiği bir ağ güvenlik grubu ile ilgili bilgileri görüntülemek izin veren bir Ağ İzleyicisi özelliğidir. Bu akış günlükleri json biçiminde yazılır ve Kural başına temelinde, akış uygulanır, akış (kaynak/hedef IP, kaynak/hedef bağlantı noktası, Protokolü), 5-tanımlama grubu bilgilerini NIC giden ve gelen akışları gösterir ve trafiğe izin verilen veya reddedilen.
+Ağ güvenlik grubu akış günlükleri, giriş ve çıkış IP trafiği bir ağ güvenlik grubu aracılığıyla tooview bilgilerini sağlayan Ağ İzleyicisi özelliğidir. Bu akış günlükleri json biçiminde yazılmıştır ve giden Göster gelen akış kuralı başına temelinde hello NIC hello akış uygular, 5-tanımlama grubu ilgili bilgilere hello akış (kaynak/hedef IP, kaynak/hedef bağlantı noktası, Protokolü) ve hello varsa trafiğine izin veya engellendi.
 
 ![Akış günlükleri genel bakış][1]
 
-Hedef ağ güvenlik grupları akış günlükleri, ancak bunlar değil aynı diğer günlükler görüntülenir. Akış günlükleri, aşağıdaki örnekte gösterildiği gibi yalnızca bir depolama hesabı içinde ve günlük yolu aşağıdaki depolanır:
+Hedef ağ güvenlik grupları akış günlükleri, ancak bunlar görüntülenmez aynı hello diğer günlükler hello. Akış günlükleri hello aşağıdaki örnekte gösterildiği gibi yalnızca bir depolama hesabı ve aşağıdaki hello günlük yolu içinde depolanır:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
 ```
 
-Diğer günlükler üzerinde görülen olarak aynı bekletme ilkeleri, akış günlüklerine uygulanır. Günlükleri günden 1 gün 365 gün olarak ayarlanabilir bir bekletme ilkesi vardır. Bekletme ilkesi ayarlanmazsa günlükler süresiz olarak saklanır.
+aynı hello diğer açtığında görülen bekletme ilkeleri uygulamak tooflow günlükleri. Günlükleri 1 gün too365 gün ayarlanabilir bir bekletme ilkesi vardır. Hello günlükleri sonsuza kadar bir bekletme ilkesi ayarlanmamışsa saklanır.
 
 ## <a name="log-file"></a>Günlük dosyası
 
-Akış günlükleri, birden çok özelliği vardır. Aşağıdaki listede NSG akış günlükte döndürülen özellikleri listesi bulunmaktadır:
+Akış günlükleri, birden çok özelliği vardır. Merhaba liste aşağıda hello NSG akış günlükte döndürülen hello özellikleri listesi verilmiştir:
 
-* **zaman** - olayın günlüğe yazıldığı zaman zaman
+* **zaman** - hello olayın günlüğe yazıldığı zaman zaman
 * **SistemKimliği** -ağ güvenlik grubu kaynak kimliği
-* **Kategori** -kategori olayı, bu her zaman olmaya NetworkSecurityGroupFlowEvent
-* **ResourceId** -kaynak NSG kimliği
+* **Kategori** -hello kategorisi başlangıç olayı, bu her zaman olmaya NetworkSecurityGroupFlowEvent
+* **ResourceId** -kaynak hello NSG kimliğini hello
 * **operationName** -her zaman NetworkSecurityGroupFlowEvents
-* **Özellikler** -akışının özellikleri koleksiyonu
-    * **Sürüm** -akış günlüğü olay şeması sürüm numarası
+* **Özellikler** -hello akışının özellikleri koleksiyonu
+    * **Sürüm** -hello akış günlüğü olay şeması sürüm numarası
     * **Akışlar** -akışları koleksiyonu. Bu özelliği farklı kurallar için birden fazla varlık içeriyor
-        * **Kural** -kural akışları listelenmiş
+        * **Kural** -hangi Merhaba akışları listelenen kuralı
             * **Akışlar** -akışları koleksiyonu
-                * **Mac** -burada akış toplandı VM için NIC MAC adresi
-                * **flowTuples** -virgülle ayrılmış biçimde akış tanımlama grubu için birden çok özellik içeren bir dize
-                    * **Zaman damgası** -akış UNIX dönem biçiminde oluştuğunda bu zaman damgası değerdir
-                    * **Kaynak IP** -kaynak IP
-                    * **Hedef IP** -hedef IP
-                    * **Kaynak bağlantı noktası** -kaynak bağlantı noktası
-                    * **Hedef bağlantı noktası** -hedef bağlantı noktası
-                    * **Protokol** -Akış Protokolü. Geçerli değerler **T** TCP için ve **U** UDP için
-                    * **Trafik akışı** -trafik akış yönü. Geçerli değerler **ı** gelen ve **O** için giden.
+                * **Mac** -hello NIC hello burada hello akış toplandı VM için MAC adresini hello
+                * **flowTuples** -virgülle ayrılmış biçimde hello akış tanımlama grubu için birden çok özellik içeren bir dize
+                    * **Zaman damgası** -UNIX dönem biçiminde hello akış oluştuğu sırada bu hello zaman damgası değerdir
+                    * **Kaynak IP** - hello IP kaynağı
+                    * **Hedef IP** -hedef IP hello
+                    * **Kaynak bağlantı noktası** - hello kaynak bağlantı noktası
+                    * **Hedef bağlantı noktası** -hedef bağlantı noktası hello
+                    * **Protokol** -hello hello akışının protokolü. Geçerli değerler **T** TCP için ve **U** UDP için
+                    * **Trafik akışı** -hello hello trafik akış yönü. Geçerli değerler **ı** gelen ve **O** için giden.
                     * **Trafik** - trafiğine izin verilen veya reddedilen olup olmadığını. Geçerli değerler **A** izin ve **D** reddedildi için.
 
 
-Akış günlüğü örneği verilmiştir. Gördüğünüz gibi önceki bölümde açıklanan özellik listesi izleyin birden çok kayıt vardır. 
+Merhaba, akış günlüğü örneği verilmiştir. Gördüğünüz gibi hello önceki bölümde açıklanan hello özellik listesi izleyin birden çok kayıt vardır. 
 
 > [!NOTE]
-> FlowTuples özelliği virgülle ayrılmış bir liste değerler.
+> Merhaba flowTuples özelliği virgülle ayrılmış bir liste değerler.
  
 ```json
 {
@@ -102,7 +102,7 @@ Akış günlüğü örneği verilmiştir. Gördüğünüz gibi önceki bölümde
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Akış günlükleri ziyaret ederek etkinleştirmeyi öğrenin [günlüğü etkinleştirme akışı](network-watcher-nsg-flow-logging-portal.md).
+Tooenable akış ziyaret ederek nasıl günlüğe yazacağını öğrenin [günlüğü etkinleştirme akışı](network-watcher-nsg-flow-logging-portal.md).
 
 NSG oturum açma hakkında bilgi edinin ziyaret ederek [günlük analizi için ağ güvenlik grupları (Nsg'ler)](../virtual-network/virtual-network-nsg-manage-log.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Dağıtma ve Linux tabanlı Hdınsight üzerinde Apache Storm topolojilerini yönetme | Microsoft Docs"
-description: "Dağıtma, izleme ve Linux tabanlı Hdınsight üzerinde Storm panosunu kullanarak Apache Storm topolojilerini yönetme öğrenin. Visual Studio Hadoop araçlarını kullanın."
+title: "aaaDeploy ve Linux tabanlı Hdınsight üzerinde Apache Storm topolojilerini yönetme | Microsoft Docs"
+description: "Nasıl toodeploy, izlemek ve hello Storm panosunu kullanarak Linux tabanlı Hdınsight üzerinde Apache Storm topolojilerini yönetmek öğrenin. Visual Studio Hadoop araçlarını kullanın."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/16/2017
 ms.author: larryfr
-ms.openlocfilehash: b9e82463030807d2674594e73f762fe93515d423
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3a1edb773089cc596fea423710aa88cf83c7b841
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Dağıtma ve Hdınsight üzerinde Apache Storm topolojilerini yönetme
 
-Bu belgede, yönetme ve izleme üzerinde Storm Hdınsight kümelerinde çalışan Storm topolojilerini temellerini öğrenin.
+Bu belgede, yönetme ve izleme üzerinde Storm Hdınsight kümelerinde çalışan Storm topolojilerini hello temellerini öğrenin.
 
 > [!IMPORTANT]
-> Bu makaledeki adımlarda Hdınsight kümesinde Linux tabanlı Storm gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
+> Merhaba bu makaledeki adımlarda Hdınsight kümesinde Linux tabanlı Storm gerektirir. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 >
 > Dağıtma ve Windows tabanlı Hdınsight üzerinde topolojileri izleme hakkında daha fazla bilgi için bkz: [dağıtma ve Windows tabanlı Hdınsight üzerinde Apache Storm topolojilerini yönetme](hdinsight-storm-deploy-monitor-topology.md)
 
@@ -37,9 +37,9 @@ Bu belgede, yönetme ve izleme üzerinde Storm Hdınsight kümelerinde çalışa
 
 * (İsteğe bağlı) **SSH ve SCP**: daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* (İsteğe bağlı) **Visual Studio**: Azure SDK'sı 2.5.1 ya da daha yeni ve Visual Studio için Data Lake araçları. Daha fazla bilgi için bkz: [Visual Studio için Data Lake araçları kullanarak çalışmaya başlama](hdinsight-hadoop-visual-studio-tools-get-started.md).
+* (İsteğe bağlı) **Visual Studio**: Azure SDK'sı 2.5.1 ya da daha yeni ve Visual Studio için Data Lake araçları hello. Daha fazla bilgi için bkz: [Visual Studio için Data Lake araçları kullanarak çalışmaya başlama](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-    Visual Studio aşağıdaki sürümlerinden biri:
+    Visual Studio sürümleri aşağıdaki hello biri:
 
   * Visual Studio 2012 ile [güncelleştirme 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
@@ -48,94 +48,94 @@ Bu belgede, yönetme ve izleme üzerinde Storm Hdınsight kümelerinde çalışa
 
   * Visual Studio 2015 (herhangi bir sürümünü)
 
-  * Visual Studio 2017 (herhangi bir sürümünü). Visual Studio 2017 için Data Lake araçları, Azure iş yükü bir parçası olarak yüklenir.
+  * Visual Studio 2017 (herhangi bir sürümünü). Visual Studio 2017 için Data Lake araçları hello Azure iş yükü bir parçası olarak yüklenir.
 
 ## <a name="submit-a-topology-visual-studio"></a>Bir topoloji gönderin: Visual Studio
 
-Hdınsight araçları C# veya karma topolojiler Storm kümenize göndermek için kullanılabilir. Örnek bir uygulamayı aşağıdaki adımları kullanın. Hdınsight araçları kullanarak kendi topolojileri oluşturma hakkında daha fazla bilgi için bkz: [Visual Studio için Hdınsight araçları kullanarak C# topolojileri geliştirme](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+Merhaba Hdınsight araçları kullanılan toosubmit C# veya karma topolojiler tooyour Storm kümesi olabilir. Aşağıdaki adımları hello örnek bir uygulama kullanın. Merhaba Hdınsight araçları kullanarak kendi topolojileri oluşturma hakkında daha fazla bilgi için bkz: [Visual Studio için Hdınsight araçları hello kullanarak C# topolojileri geliştirme](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-1. Visual Studio için Data Lake Araçları'nın en son sürümünü yüklemediyseniz, bkz: [Visual Studio için Data Lake araçları kullanarak çalışmaya başlama](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. Visual Studio için hello Data Lake Araçları'nın en son sürümünü hello yüklemediyseniz, bkz: [Visual Studio için Data Lake araçları kullanarak çalışmaya başlama](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
     > [!NOTE]
-    > Visual Studio için Data Lake araçları Visual Studio için Hdınsight araçları adıysa.
+    > Visual Studio için Data Lake araçları Hello adıysa hello Hdınsight araçları Visual Studio için.
     >
-    > Visual Studio için Data Lake araçları dahil edilmiştir __Azure iş yükü__ Visual Studio 2017 için.
+    > Visual Studio için Data Lake araçları hello dahil __Azure iş yükü__ Visual Studio 2017 için.
 
 2. Visual Studio'ni açın, **dosya** > **yeni** > **proje**.
 
-3. İçinde **yeni proje** iletişim kutusunda, genişletin **yüklü** > **şablonları**ve ardından **Hdınsight**. Şablonları listesinden seçin **Storm örnek**. İletişim kutusunun altında uygulama için bir ad yazın.
+3. Merhaba, **yeni proje** iletişim kutusunda, genişletin **yüklü** > **şablonları**ve ardından **Hdınsight**. Merhaba şablonları listesinden **Storm örnek**. Merhaba iletişim kutusunun Hello altında hello uygulama için bir ad yazın.
 
     ![Görüntü](./media/hdinsight-storm-deploy-monitor-topology-linux/sample.png)
 
-4. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve seçin **Hdınsight üzerinde Storm Gönder**.
+4. İçinde **Çözüm Gezgini**hello projesine sağ tıklayın ve seçin **hdınsight'ta tooStorm gönderme**.
 
    > [!NOTE]
-   > İstenirse, Azure aboneliğiniz için oturum açma kimlik bilgilerini girin. Birden fazla aboneliğiniz varsa, Hdınsight kümesi üzerinde Storm'a içeren oturum açın.
+   > İstenirse, Azure aboneliğinizin hello oturum açma kimlik bilgilerini girin. Birden fazla aboneliğiniz varsa, toohello Hdınsight kümesi üzerinde Storm'a içeren bir oturum açın.
 
-5. Hdınsight küme üzerinde Storm'a seçin **Storm kümesi** aşağı açılan listeyi ve ardından **gönderme**. Gönderim kullanarak başarılı olup olmadığını izleyebilirsiniz **çıkış** penceresi.
+5. Hdınsight kümesi üzerinde Storm'a hello seçin **Storm kümesi** aşağı açılan listeyi ve ardından **gönderme**. Hello kullanarak Hello gönderme başarılı olup olmadığını izleyebilirsiniz **çıkış** penceresi.
 
-## <a name="submit-a-topology-ssh-and-the-storm-command"></a>Bir topoloji gönderin: SSH ve Storm komutu
+## <a name="submit-a-topology-ssh-and-hello-storm-command"></a>Bir topoloji gönderin: SSH ve hello komutu Storm
 
-1. SSH Hdınsight kümesine bağlanın. Değiştir **kullanıcıadı** SSH oturum açma adı. Değiştir **CLUSTERNAME** Hdınsight küme adıyla:
+1. SSH tooconnect toohello Hdınsight kümesi kullanın. Değiştir **kullanıcıadı** SSH oturumunuzla hello adı. Değiştir **CLUSTERNAME** Hdınsight küme adıyla:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    Hdınsight kümenize bağlanmak için SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+    SSH tooconnect tooyour Hdınsight kullanma hakkında daha fazla bilgi için küme için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Örnek bir topoloji başlatmak için aşağıdaki komutu kullanın:
+2. Aşağıdaki komut toostart örnek bir topoloji hello kullan:
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
-    Bu komut kümede örnek WordCount topolojisini başlatır. Bu topoloji, rastgele cümleleri oluşturun ve cümleleri her sözcüğün geçtiği sayısı.
+    Bu komut hello kümede hello örnek WordCount topolojisini başlatır. Bu topoloji rastgele oluşturmak cümleleri ve her sözcüğün sayısı hello oluşma hello cümlelerde.
 
    > [!NOTE]
-   > Kümeye topoloji gönderirken `storm` komutunu kullanmadan önce kümeyi içeren jar dosyasını kopyalamanız gerekir. Dosyayı kümeye kopyalamak için kullanabileceğiniz `scp` komutu. Örneğin, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+   > Topoloji toohello küme gönderirken, ilk hello kullanmadan önce hello kümeyi içeren hello jar dosyasını kopyalamanız gerekir `storm` komutu. toocopy hello dosya toohello kümesi hello kullanabileceğiniz `scp` komutu. Örneğin, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
    >
-   > WordCount örneği ve diğer storm starter örnekleri `/usr/hdp/current/storm-client/contrib/storm-starter/` konumunda kümenize zaten dahil edilmiştir.
+   > Merhaba WordCount örneği ve diğer storm starter örnekleri zaten eklenir konumunda kümenize `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
 ## <a name="submit-a-topology-programmatically"></a>Bir topoloji gönderin: program aracılığıyla
 
-Bir topoloji Hdınsight üzerinde Storm için kümenizdeki barındırılan Nimbus hizmeti ile iletişim kurarak programlı olarak dağıtabilirsiniz. [https://github.com/Azure-Samples/hdinsight-Java-Deploy-Storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) nasıl dağıtıp Nimbus hizmeti aracılığıyla bir topoloji başlatmak gösteren bir Java uygulama örneğidir.
+Hdınsight'ta bir topoloji tooStorm hello kümenizdeki barındırılan Nimbus hizmeti ile iletişim kurarak programlı olarak dağıtabilirsiniz. [https://github.com/Azure-Samples/hdinsight-Java-Deploy-Storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) gösteren bir Java uygulama örneğidir nasıl toodeploy ve hello Nimbus hizmeti aracılığıyla bir topoloji başlatın.
 
 ## <a name="monitor-and-manage-visual-studio"></a>İzleme ve yönetme: Visual Studio
 
-Bir topoloji Visual Studio kullanarak başarıyla gönderildi, **Storm topolojilerini** küme görünür görüntüleyin. Topoloji çalışan topolojisi ile ilgili bilgileri görüntülemek için listeden seçin.
+Bir topoloji Visual Studio kullanarak başarıyla gönderildi, hello **Storm topolojilerini** hello küme görünür görüntüleyin. Merhaba topoloji hello listesi tooview topoloji çalıştıran hello bilgilerini seçin.
 
 ![Visual studio İzleyicisi](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
 > [!NOTE]
 > De görüntüleyebilirsiniz **Storm topolojilerini** gelen **Sunucu Gezgini** genişleterek **Azure** > **Hdınsight**ve Hdınsight kümesinde bir Storm sağ tıklayıp seçerek **görünüm Storm topolojilerini**.
 
-Şekil spout'lar veya Cıvatalar bu bileşenler hakkındaki bilgileri görüntülemek için seçin. Yeni bir pencere için seçilen her öğenin açar.
+Merhaba spout'lar ya da bu bileşenler hakkında bilgi tooview Cıvatalar hello şekli seçin. Yeni bir pencere için seçilen her öğenin açar.
 
 ### <a name="deactivate-and-reactivate"></a>Devre dışı bırakın ve yeniden etkinleştirin
 
-Sonlandırıldı veya yeniden kadar bir topoloji devre dışı bırakma, duraklatır. Bu işlemleri gerçekleştirmek için kullanın __etkinliğini__ ve __yeniden__ üst tarafındaki düğmeleri __topoloji özeti__.
+Sonlandırıldı veya yeniden kadar bir topoloji devre dışı bırakma, duraklatır. tooperform şu işlemleri kullanın hello __devre dışı bırak__ ve __yeniden__ hello hello üstündeki düğmeleri __topoloji özeti__.
 
 ### <a name="rebalance"></a>Yeniden dengelemeniz
 
-Bir topoloji dengelenmesi topolojisinin paralellik gözden geçirmek sistem izin verir. Daha fazla Not eklemek için küme yeniden boyutlandırılabilir, örneğin, yeniden dengelenmesi yeni düğümleri görmek için topoloji imkan tanır.
+Bir topoloji dengelenmesi hello sistem toorevise hello paralellik hello topolojisinin sağlar. Daha fazla Not hello küme tooadd yeniden boyutlandırılabilir, örneğin, yeniden dengelenmesi bir topoloji toosee hello yeni düğümler imkan tanır.
 
-Bir topoloji amacıyla kullanmak __yeniden dengelemeniz__ en üstündeki düğmesi __topoloji özeti__.
+toorebalance bir topoloji kullanmak hello __yeniden dengelemeniz__ düğmesi hello hello üstündeki __topoloji özeti__.
 
 > [!WARNING]
-> Bir topoloji ilk dengelenmesi topoloji, devre dışı bırakır çalışanları eşit bir kümede yeniden dağıtır, sonra son olarak yeniden dengelenmesi oluşmadan önce durumla durum topoloji döndürür. Topoloji etkin olduğunda, bu nedenle onu yeniden etkin hale gelir. Devre dışı bırakıldı, devre dışı kalır.
+> Bir topoloji ilk dengelenmesi hello topoloji, devre dışı bırakır çalışanları hello küme arasında eşit olarak yeniden dağıtır, sonra son olarak yeniden dengelenmesi oluşmadan önce durumla hello topoloji toohello durum döndürür. Hello topolojisi etkin olduğunda, bu nedenle onu yeniden etkin hale gelir. Devre dışı bırakıldı, devre dışı kalır.
 
 ### <a name="kill-a-topology"></a>Bir topoloji Sonlandır
 
-Storm topolojilerini durdurulmuş veya küme silinene kadar çalıştırmaya devam edin. Bir topoloji durdurmak için kullanma __KILL__ en üstündeki düğmesi __topoloji özeti__.
+Storm topolojilerini durdurulmuş veya hello küme silinene kadar çalışmaya devam edin. toostop bir topoloji kullanmak hello __KILL__ düğmesi hello hello üstündeki __topoloji özeti__.
 
-## <a name="monitor-and-manage-ssh-and-the-storm-command"></a>İzleme ve yönetme: SSH ve Storm komutu
+## <a name="monitor-and-manage-ssh-and-hello-storm-command"></a>İzleme ve yönetme: SSH ve hello komutu Storm
 
-`storm` Yardımcı program komut satırından çalışan topolojilerle çalışmanıza olanak sağlar. Kullanım `storm -h` komutları tam listesi için.
+Merhaba `storm` yardımcı programı topolojileri hello komut satırından çalıştırma ile toowork sağlar. Kullanım `storm -h` komutları tam listesi için.
 
 ### <a name="list-topologies"></a>Liste topolojileri
 
-Çalışan topolojilerle tüm listelemek için aşağıdaki komutu kullanın:
+Komut toolist aşağıdaki hello tüm çalışan topolojileri kullanın:
 
     storm list
 
-Bu komutun aşağıdaki metne benzer bilgiler döndürmesi gerekir:
+Bu komut, metin aşağıdaki bilgileri benzer toohello döndürür:
 
     Topology_name        Status     Num_tasks  Num_workers  Uptime_secs
     -------------------------------------------------------------------
@@ -143,7 +143,7 @@ Bu komutun aşağıdaki metne benzer bilgiler döndürmesi gerekir:
 
 ### <a name="deactivate-and-reactivate"></a>Devre dışı bırakın ve yeniden etkinleştirin
 
-Sonlandırıldı veya yeniden kadar bir topoloji devre dışı bırakma, duraklatır. Devre dışı bırakın ve yeniden etkinleştirmek için aşağıdaki komutu kullanın:
+Sonlandırıldı veya yeniden kadar bir topoloji devre dışı bırakma, duraklatır. Komut toodeactivate aşağıdaki hello kullanın ve yeniden etkinleştirin:
 
     storm Deactivate TOPOLOGYNAME
 
@@ -151,96 +151,96 @@ Sonlandırıldı veya yeniden kadar bir topoloji devre dışı bırakma, durakla
 
 ### <a name="kill-a-running-topology"></a>Çalışan bir topoloji Sonlandır
 
-Storm topolojileri, başlatıldığında, devam durdurulana kadar çalışıyor. Bir topoloji durdurmak için aşağıdaki komutu kullanın:
+Storm topolojileri, başlatıldığında, devam durdurulana kadar çalışıyor. toostop bir topoloji hello aşağıdaki komutu kullanın:
 
     storm kill TOPOLOGYNAME
 
 ### <a name="rebalance"></a>Yeniden dengelemeniz
 
-Bir topoloji dengelenmesi topolojisinin paralellik gözden geçirmek sistem izin verir. Daha fazla Not eklemek için küme yeniden boyutlandırılabilir, örneğin, yeniden dengelenmesi yeni düğümleri görmek için topoloji imkan tanır.
+Bir topoloji dengelenmesi hello sistem toorevise hello paralellik hello topolojisinin sağlar. Daha fazla Not hello küme tooadd yeniden boyutlandırılabilir, örneğin, yeniden dengelenmesi bir topoloji toosee hello yeni düğümler imkan tanır.
 
 > [!WARNING]
-> Bir topoloji ilk dengelenmesi topoloji, devre dışı bırakır çalışanları eşit bir kümede yeniden dağıtır, sonra son olarak yeniden dengelenmesi oluşmadan önce durumla durum topoloji döndürür. Topoloji etkin olduğunda, bu nedenle onu yeniden etkin hale gelir. Devre dışı bırakıldı, devre dışı kalır.
+> Bir topoloji ilk dengelenmesi hello topoloji, devre dışı bırakır çalışanları hello küme arasında eşit olarak yeniden dağıtır, sonra son olarak yeniden dengelenmesi oluşmadan önce durumla hello topoloji toohello durum döndürür. Hello topolojisi etkin olduğunda, bu nedenle onu yeniden etkin hale gelir. Devre dışı bırakıldı, devre dışı kalır.
 
     storm rebalance TOPOLOGYNAME
 
 ## <a name="monitor-and-manage-storm-ui"></a>İzleme ve yönetme: Storm kullanıcı Arabirimi
 
-Storm Kullanıcı Arabirimi çalışan topolojilerle çalışmaya yönelik bir web arabirimi sağlar ve HDInsight kümenize dahil edilir. Storm kullanıcı arabirimini görüntülemek için açmak üzere bir web tarayıcısı kullanın **https://CLUSTERNAME.azurehdinsight.net/stormui**, burada **CLUSTERNAME** kümenizin adıdır.
+Merhaba Storm kullanıcı Arabirimi çalışan topolojilerle çalışmaya yönelik bir web arabirimi sağlar ve Hdınsight kümenize dahil edilir. tooview hello Storm kullanıcı Arabirimi, bir web tarayıcısı tooopen kullanmak **https://CLUSTERNAME.azurehdinsight.net/stormui**, burada **CLUSTERNAME** hello kümenizin adıdır.
 
 > [!NOTE]
-> Bir kullanıcı adı ve parola girmeniz istenirse kümeyi oluştururken kullandığınız küme yöneticisi (yönetici) ve parolayı girin.
+> Hello Yöneticisi (Yönetici) ve ne zaman kullanılan parola tooprovide bir kullanıcı adı ve parola istenirse, girin oluşturma hello küme.
 
 ### <a name="main-page"></a>Ana sayfa
 
-Storm kullanıcı Arabirimi ana sayfasında aşağıdaki bilgileri sağlar:
+Merhaba Storm kullanıcı Arabirimi ana sayfasının Hello bilgisinden hello sağlar:
 
-* **Küme Özet**: Storm kümesi hakkında temel bilgiler.
-* **Topoloji özeti**: topolojileri çalışan bir listesi. Belirli topolojileri hakkında daha fazla bilgi görüntülemek için bu bölümdeki bağlantıları kullanın.
-* **Yönetici Özeti**: Storm İdarecisi hakkında bilgi.
-* **Nimbus yapılandırma**: kümenin Nimbus yapılandırması.
+* **Küme Özet**: hello Storm kümesi hakkında temel bilgiler.
+* **Topoloji özeti**: topolojileri çalışan bir listesi. Bu bölümde tooview Hello bağlantıları belirli topolojileri hakkında daha fazla bilgi kullanın.
+* **Yönetici Özeti**: hello Storm İdarecisi hakkında bilgi.
+* **Nimbus yapılandırma**: hello küme Nimbus yapılandırması.
 
 ### <a name="topology-summary"></a>Topoloji özeti
 
-Bir bağlantıdan seçme **topoloji özeti** bölüm topolojisi hakkında aşağıdaki bilgileri görüntüler:
+Merhaba bir bağlantı seçme **topoloji özeti** bölümü hello topolojisi hakkında bilgi aşağıdaki hello görüntüler:
 
-* **Topoloji özeti**: topolojisi hakkında temel bilgiler.
-* **Topoloji eylemleri**: topolojisini gerçekleştirdiğiniz yönetim işlemleri.
+* **Topoloji özeti**: hello topolojisi hakkında temel bilgiler.
+* **Topoloji eylemleri**: hello topolojisi gerçekleştirebilen yönetim işlemleri.
 
   * **Etkinleştirme**: devre dışı bırakılan bir topolojiyi işlemeyi sürdürür.
   * **Devre dışı**: çalışan topolojiyi duraklatır.
-  * **Yeniden dengelemeniz**: topolojisinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Bu işlem düğümleri artan veya azalan sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır.
+  * **Yeniden dengelemeniz**: hello hello topolojisinin paralelliğini ayarlar. Merhaba hello kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Bu işlem hello topoloji tooadjust paralellik toocompensate hello için artırılabilir veya hello kümedeki düğüm sayısını azaltılabilir sağlar.
 
-    Daha fazla bilgi için bkz. <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Bir Storm topolojisinin paralelliğini anlama</a>.
-  * **KILL**: belirtilen zaman aşımından sonra Storm topolojisini sonlandırır.
-* **Topoloji istatistikleri**: topoloji hakkındaki istatistiklerdir. Sayfada diğer girdiler için zaman dilimini ayarlamak için bağlantıları kullanın **penceresi** sütun.
-* **Spout'lar**: topolojisi tarafından kullanılan spout'lar. Belirli spout'lar hakkında daha fazla bilgi görüntülemek için bu bölümdeki bağlantıları kullanın.
-* **Cıvatalar**: topolojisi tarafından kullanılan Cıvatalar. Belirli Cıvatalar hakkında daha fazla bilgi görüntülemek için bu bölümdeki bağlantıları kullanın.
-* **Topoloji Yapılandırması**: Seçili topoloji yapılandırması.
+    Daha fazla bilgi için bkz: <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">hello bir Storm topolojisinin paralelliğini anlama</a>.
+  * **KILL**: hello belirtilen zaman aşımı sonra Storm topolojisini sonlandırır.
+* **Topoloji istatistikleri**: hello topoloji hakkındaki istatistiklerdir. tooset girişleri hello sayfasında kalan hello ilişkin zaman çerçevesini Merhaba, hello hello bağlantıları kullanın **penceresi** sütun.
+* **Spout'lar**: Merhaba spout'lar hello topolojisi tarafından kullanılır. Bu bölümde tooview Hello bağlantıları belirli spout'lar hakkında daha fazla bilgi kullanın.
+* **Cıvatalar**: Merhaba Cıvatalar hello topolojisi tarafından kullanılır. Bu bölümde tooview Hello bağlantıları belirli Cıvatalar hakkında daha fazla bilgi kullanın.
+* **Topoloji Yapılandırması**: Seçili hello topolojisinin hello yapılandırma.
 
 ### <a name="spout-and-bolt-summary"></a>Spout ve Cıvata özeti
 
-Spout gelen seçme **Spout'lar** veya **Cıvatalar** bölümleri seçili öğe hakkında aşağıdaki bilgileri görüntüler:
+Bir spout hello seçme **Spout'lar** veya **Cıvatalar** bölümleri hello seçili öğe hakkında bilgileri aşağıdaki hello görüntüler:
 
-* **Bileşen özeti**: spout veya Cıvata hakkında temel bilgiler.
-* **Spout/Cıvata istatistikleri**: spout veya Cıvata hakkındaki istatistiklerdir. Sayfada diğer girdiler için zaman dilimini ayarlamak için bağlantıları kullanın **penceresi** sütun.
-* **Giriş İstatistikleri** (yalnızca Cıvata): Cıvata tarafından kullanılan giriş akışları hakkında bilgi.
-* **Çıkış istatistikleri**: spout veya Cıvata bu tarafından gösterilen akışları hakkında bilgi.
-* **Yürütücüler**: spout veya Cıvata örnekleri hakkında bilgi. Seçin **bağlantı noktası** tanılama bilgilerinin günlüğünü görüntülemek belirli bir yürütücü için giriş üretilen Bu örneği için.
+* **Bileşen özeti**: Merhaba spout veya Cıvata hakkında temel bilgiler.
+* **Spout/Cıvata istatistikleri**: hello hakkındaki istatistiklerdir spout veya Cıvata. tooset girişleri hello sayfasında kalan hello ilişkin zaman çerçevesini Merhaba, hello hello bağlantıları kullanın **penceresi** sütun.
+* **Giriş İstatistikleri** (yalnızca Cıvata): hello hakkında bilgi giriş hello Cıvata tarafından kullanılan akışı.
+* **Çıkış istatistikleri**: spout veya Cıvata bu tarafından gösterilen hello akışları hakkında bilgi.
+* **Yürütücüler**: hello örneklerini hello spout veya Cıvata hakkında bilgi. Select hello **bağlantı noktası** girişi belirli Yürütücü tooview için tanılama bilgileri günlüğünü üretilen Bu örneği için.
 * **Hataları**: Bu hata bilgilerini spout veya Cıvata.
 
 ## <a name="monitor-and-manage-rest-api"></a>İzleme ve yönetme: REST API'si
 
-Benzer yönetim ve izleme işlevselliği REST API'sini kullanarak gerçekleştirebilmek için Storm kullanıcı Arabirimi REST API üzerinde oluşturulmuştur. REST API, yönetmek ve Storm topolojilerini izlemek için özel araçlar oluşturmak için kullanabilirsiniz.
+benzer yönetim ve izleme işlevselliği hello REST API kullanarak gerçekleştirebilmek için hello Storm kullanıcı Arabirimi REST API hello üzerinde oluşturulmuştur. Merhaba REST API toocreate özel araçlar yönetmek ve Storm topolojilerini izlemek için kullanabilirsiniz.
 
-Daha fazla bilgi için bkz: [Storm kullanıcı Arabirimi REST API](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html). Aşağıdaki bilgiler, REST API kullanarak hdınsight'ta Apache Storm özeldir.
+Daha fazla bilgi için bkz: [Storm kullanıcı Arabirimi REST API](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html). Merhaba aşağıdaki bilgiler belirli toousing hello Hdınsight üzerinde Apache Storm ile REST API sağlar.
 
 > [!IMPORTANT]
-> Storm REST API internet üzerinden genel kullanıma açık değildir ve Hdınsight küme baş düğümüne SSH tüneli kullanılarak erişilebilir olmalıdır. Oluşturma ve SSH tüneli kullanma hakkında daha fazla bilgi için bkz: [kullanım SSH Ambari web kullanıcı Arabirimi, ResourceManager, kaynak, iş, Oozie ve diğer web Uı'lar erişmek için tünel](hdinsight-linux-ambari-ssh-tunnel.md).
+> Merhaba Storm REST API genel kullanıma açık değil üzerinde Internet hello ve bir SSH tünel toohello Hdınsight küme baş düğümüne kullanarak erişilmesi gerekir. Oluşturma ve SSH tüneli kullanma hakkında daha fazla bilgi için bkz: [kullanım SSH tünel tooaccess Ambari web kullanıcı Arabirimi, ResourceManager, kaynak, iş, Oozie ve diğer web Uı'lar](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### <a name="base-uri"></a>Taban URI
 
-Linux tabanlı Hdınsight kümeleri REST API için taban URI konumundaki baş düğüm üzerinde kullanılabilir **API/https://HEADNODEFQDN:8744/v1/**. Baş düğüm etki alanı adı, küme oluşturma sırasında oluşturulur ve statik değil.
+Merhaba Linux tabanlı Hdınsight kümelerinde hello REST API için taban URI hello baş düğümü üzerinde kullanılabilir **API/https://HEADNODEFQDN:8744/v1/**. Merhaba etki alanı adı hello baş düğümü küme oluşturma sırasında oluşturulur ve statik değil.
 
-Küme baş düğüm için tam etki alanı adı (FQDN) birkaç farklı şekilde bulabilirsiniz:
+Merhaba küme baş düğümüne hello tam etki alanı adı (FQDN) birkaç farklı şekilde bulabilirsiniz:
 
-* **Bir SSH oturumundan**: komutunu `headnode -f` küme için bir SSH oturumundan.
-* **Ambari Web**: seçin **Hizmetleri** sayfanın üst kısmından seçip **Storm**. Gelen **Özet** sekmesine **Storm kullanıcı Arabirimi sunucu**. Storm kullanıcı Arabirimi ve REST API çalıştığı düğüm sayfanın en üstünde FQDN'sidir.
-* **Ambari REST API öğesinden**: komutunu `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` Storm kullanıcı Arabirimi ve REST API çalıştığı düğüm hakkında bilgi almak için. Değiştir **parola** küme için yönetici parolası ile. Değiştir **CLUSTERNAME** küme adı ile. Yanıtta, düğümün FQDN'sini "host_name" giriş içeriyor.
+* **Bir SSH oturumundan**: hello komutunu `headnode -f` bir SSH oturumu toohello kümeden.
+* **Ambari Web**: seçin **Hizmetleri** hello sayfa hello üstten seçip **Storm**. Merhaba gelen **Özet** sekmesine **Storm kullanıcı Arabirimi sunucu**. Merhaba hello Storm kullanıcı Arabirimi ve REST API çalışıyor hello düğümü FQDN'sini hello hello sayfanın başında ' dir.
+* **Ambari REST API öğesinden**: hello komutunu `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` üzerinde çalışan Storm kullanıcı Arabirimi ve REST API hello hello düğüm hakkında tooretrieve bilgi. Değiştir **parola** hello küme hello yönetici parolası ile. Değiştir **CLUSTERNAME** hello küme adı ile. Merhaba yanıtta hello hello düğümü FQDN'sini hello "host_name" giriş içeriyor.
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 
-REST API istekleri kullanmalıdır **temel kimlik doğrulaması**, Hdınsight Küme Yönetici adı ve parola kullanın.
+REST API kullanmalıdır istekleri toohello **temel kimlik doğrulaması**, hello Hdınsight Küme Yönetici adı ve parola kullanın.
 
 > [!NOTE]
-> Temel kimlik doğrulaması düz metin kullanarak gönderildiğinden, aşağıdakileri yapmalısınız **her zaman** küme ile iletişimin güvenliğini sağlamak için HTTPS kullanın.
+> Temel kimlik doğrulaması düz metin kullanarak gönderildiğinden, aşağıdakileri yapmalısınız **her zaman** hello kümeyle HTTPS toosecure iletişimleri kullanın.
 
 ### <a name="return-values"></a>Dönüş değerleri
 
-REST API öğesinden geri döndürülen bilgiler, yalnızca küme ya da sanal makineleri aynı Azure sanal ağ üzerinde küme içinde kullanılabilir olabilir. Örneğin, Zookeeper sunucuları için döndürülen tam etki alanı adı (FQDN), Internet'ten erişilemez.
+Hello REST API yalnızca hello küme içinde kullanılabilir olabilir veya sanal makinelerde hello küme aynı Azure sanal ağ hello döndürülen bilgi. Örneğin, Zookeeper sunucuları için döndürülen hello tam etki alanı adı (FQDN) olduğu değil Internet hello erişilebilir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Artık nasıl dağıtmak ve Storm panosunu kullanarak topolojileri izlemek, öğrenme öğrendiğinize göre nasıl [Maven kullanarak geliştirme Java tabanlı topolojiler](hdinsight-storm-develop-java-topology.md).
+Storm panosunu kullanarak toodeploy ve İzleyici topolojileri nasıl hello öğrendiğinize göre nasıl çok öğrenin[Maven kullanarak geliştirme Java tabanlı topolojiler](hdinsight-storm-develop-java-topology.md).
 
 Daha fazla örnek topolojileri listesi için bkz: [Hdınsight üzerinde Storm için örnek topolojiler](hdinsight-storm-example-topology.md).

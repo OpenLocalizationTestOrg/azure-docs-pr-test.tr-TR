@@ -1,5 +1,5 @@
 ---
-title: "Notification Hubs - kuruluş anında iletme mimarisi"
+title: "aaaNotification Hubs - kuruluş itme mimarisi"
 description: "Bir kuruluş ortamında Azure Notification Hubs kullanma yönergeleri"
 services: notification-hubs
 documentationcenter: 
@@ -14,26 +14,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: ae7c1c9644ecfe7fe4ad6e332cc0683a3b5df22f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c3afb83de1ba0882bf99e10f38cca40cb42d07a5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Kurumsal gönderim mimari kılavuzu
-Kuruluşlar bugün kademeli olarak mobil uygulamaları ya da kendi son kullanıcıları (harici) oluşturmak için doğru veya (iç) çalışanlar için geçiyor. Ana bilgisayarlar veya mobil uygulama mimariye tümleşik bazı iş kolu uygulamaları olması varolan arka uç sistemleri yerinde sahiptirler. Bu kılavuz, bu tümleştirme senaryoları için olası çözüm öneren yapmak en iyi nasıl hakkında konuşur.
+Kuruluşlar bugün kademeli olarak mobil uygulamaları ya da kendi son kullanıcıları (harici) oluşturmak için doğru veya hello çalışanların (iç) geçiyor. Ana bilgisayarlar olması varolan arka uç sistemleri yerinde olması veya tümleştirilmiş gereken bazı iş kolu uygulamaları mobil uygulama mimarisi hello. Bu kılavuz hakkında en iyi nasıl toodo toocommon senaryoları olası çözüm öneren Bu tümleştirme konuşur.
 
-Arka uç sistemleri ilgi bir olay meydana geldiğinde anında iletme bildirimi kendi mobil uygulama aracılığıyla kullanıcılara göndermek için sık gerekli değildir. Örneğin kendi iPhone üzerinde bankanın bankacılık uygulama olan banka müşteriye borç belirli bir miktar hesabını veya burada kendi Windows Phone bir bütçe onay uygulaması olan bir çalışanın Finans departmanından kendisine bir onay isteği aldığında bildirim almak isteyen bir intranet senaryosu yukarıda yapıldığında bildirilmesini istiyor.
+Hello arka uç sistemleri ilgi bir olay meydana geldiğinde, anında iletme bildirimi toohello kullanıcılar kendi mobil uygulama üzerinden göndermek için sık gerekli değildir. Örneğin belirli bir miktar hesabını veya kendi Windows Phone bir bütçe onay uygulaması olan bir çalışanın Finans departmanından toobe burada istediği intranet senaryosu yukarıda borç yapıldığında bildirim toobe hello bankanın bankacılık uygulama kendi iPhone üzerinde sahip bir banka Müşterinin istediği kendisine bir onay isteği aldığında bildirim.
 
-Banka hesabı veya onay işleme kullanıcı için bir itme başlatmalıdır bazı arka uç sistemi yapılması olasıdır. Tüm olay bildirim harekete geçirdiğinde itme uygulamak için mantığı aynı türde oluşturmalısınız gibi birden fazla arka uç sistemler olabilir. Burada son kullanıcıların farklı bildirimlerine abone ve hatta olabilir örneğin intranet mobil uygulamalar olması durumunda birden çok mobil uygulama burada bir mobil uygulama bildirimleri gibi birden fazla arka uç sistemlerden almak isteyebilirsiniz tek itme sistemiyle birlikte birkaç arka uç sistemleri tümleştirme karmaşıklık burada arasındadır. Arka uç sistemleri bilmiyorsanız veya burada ortak bir çözüm geleneksel herhangi olaylarının için arka uç sistemleri yoklar ve istemciye anında iletme iletileri göndermek için sorumlu olan bir bileşen tanıtmak için bırakıldı şekilde itme semantiği/teknolojisini bilmeniz gerekir.
-Burada size Azure Service Bus - çözüm ölçeklenebilir yaparken karmaşıklığını azaltır konu başlığının/aboneliğinin modeli kullanarak daha iyi bir çözüm hakkında konuşur.
+Merhaba banka hesabı veya onay işleme itme toohello kullanıcı başlatmalıdır bazı arka uç sisteminde yapılan büyük olasılıkla toobe değil. Bu tür birden fazla arka uç olabilir tüm oluşturmalısınız sistemlerini hello mantığı tooimplement itme aynı türde olduğunda bir bildirim bir olay tetikler. Son kullanıcılar toodifferent bildirimleri abone ve hatta olabilir hello intranet mobil uygulamaların hello durumda örneğin birden çok mobil uygulama olması yerde tek itme sistemiyle birlikte birkaç arka uç sistemleri tümleştirme burada Hello karmaşıklık arasındadır Burada bir mobil uygulama gibi birden fazla arka uç sistemleri tooreceive bildirimleri isteyebilirsiniz. Merhaba arka uç sistemleri bilmiyorsanız veya burada ortak bir çözüm geleneksel toointroduce hello arka uç sistemleri tüm olayları ilgi yokladığı ve Merhaba anında iletme iletileri göndermek için sorumlu olan bir bileşen olan için anında iletme semantiği/teknolojinin tooknow olması gerekir. toohello istemci.
+Burada size Azure Service Bus - hello çözüm ölçeklenebilir yaparken hello karmaşıklığını azaltır konu başlığının/aboneliğinin modeli kullanarak daha iyi bir çözüm hakkında konuşur.
 
-İşte çözümünün genel mimari (birden çok mobil uygulamaları ile genelleştirilmiş ancak yalnızca bir mobil uygulama olduğunda eşit oranda geçerlidir)
+İşte hello genel hello çözüm mimarisini (birden çok mobil uygulamaları ile genelleştirilmiş ancak yalnızca bir mobil uygulama olduğunda eşit oranda geçerlidir)
 
 ## <a name="architecture"></a>Mimari
 ![][1]
 
-Anahtar mimarisi Bu diyagramda programlama modeli konuları/abonelikleri sağlayan Azure Service Bus parçasıdır (adresinden hakkında daha fazla [Service Bus Pub/alt programlama]). Bu durumda, mobil arka uç olduğundan alıcı (genellikle [Azure mobil hizmeti], hangi mobil uygulamalara push başlatmak) doğrudan arka uç sistemlerden iletilerini değil, ancak bunun yerine biz tarafından sağlanan bir ara Soyutlama Katmanı sahip [Azure Service Bus] bir veya daha fazla arka uç sistemlerinden iletileri almak mobil arka uç sağlar. Hizmet veri yolu konusu her arka uç sistemleri Örneğin hesap, SA, temel olarak "" anında iletme bildirimi gönderilecek iletilerin başlatacaktır ilgi konulardır Finans oluşturulması gerekir. Arka uç sistemleri bu konulara gönderecek. Bir mobil arka uç, bir hizmet veri yolu abonelik oluşturarak bir veya daha fazla gibi konular için abone olabilirsiniz. Bu, karşılık gelen arka uç sistemden bir bildirim almak için mobil arka uç entitle. Aboneliği iletilerde dinlemek mobil arka uç devam eder ve bir ileti ulaşır ulaşmaz geri kapatır ve kendi bildirim hub'ına bildirimi olarak gönderir. Bildirim hub'ları sonra sonunda sunar ileti mobil uygulamaya. Bu nedenle anahtar bileşenleri özetlemek için biz vardır:
+Merhaba anahtar mimarisi Bu diyagramda parçasıdır programlama modeli konuları/abonelikleri sağlayan Azure Service Bus (adresinden hakkında daha fazla [Service Bus Pub/alt programlama]). Bu durumda, hello mobil arka uç olduğu hello alıcı (genellikle [Azure mobil hizmeti], hangi itme toohello mobil uygulamaları başlatmak) doğrudan hello arka uç sistemlerden iletilerini değil, ancak bunun yerine sahibiz bir tarafından sağlanan Ara Soyutlama Katmanı [Azure Service Bus] mobil arka uç tooreceive iletileri bir veya daha fazla arka uç sistemlerden sağlar. Hizmet veri yolu konusu her hello arka uç sistemleri Örneğin hesap, SA, temel olarak "" anında iletme bildirimi tarafından gönderilen iletileri toobe başlatacaktır ilgi konulardır Finans için oluşturulan toobe gerekir. Merhaba arka uç sistemleri toothese konuları gönderecek. Bir mobil arka uç tooone ya da daha fazla gibi konular, bir hizmet veri yolu abonelik oluşturarak abone olabilirsiniz. Bu hello mobil arka uç tooreceive hello karşılık gelen arka uç sisteminden bildirim entitle. Mobil arka uç toolisten iletileri için kendi aboneliklere ilişkin devam eder ve bir ileti ulaşır ulaşmaz geri kapatır ve bildirim tooits bildirim hub'ı olarak gönderir. Bildirim hub'ları sonra sonunda sunar hello ileti toohello mobil uygulama. Bu nedenle toosummarize hello anahtar bileşenleri, biz vardır:
 
 1. Arka uç sistemleri (LoB/eski sistemler için)
    * Hizmet veri yolu konusu oluşturur
@@ -41,47 +41,47 @@ Anahtar mimarisi Bu diyagramda programlama modeli konuları/abonelikleri sağlay
 2. Mobil arka uç
    * Hizmet aboneliği oluşturur
    * İleti (arka uç sistemden) alır
-   * İstemciler (aracılığıyla Azure bildirim hub'ı) bildirim gönderir
+   * Bildirim tooclients (aracılığıyla Azure bildirim hub'ı) gönderir
 3. Mobil uygulama
    * Alır ve bildirim göster
 
 ### <a name="benefits"></a>Yararları:
-1. Alıcı (mobil uygulama/hizmet bildirim hub'ı aracılığıyla) ve gönderen (arka uç sistemleri) arasında kesilmesi en az değişiklikle tümleştirilmekte ek arka uç sistemleri sağlar.
-2. Bu da bir veya daha fazla arka uç sistemlerden olaylarını almak için birden çok mobil uygulama senaryo hale getirir.  
+1. Merhaba hello alıcı (mobil uygulama/hizmet bildirim hub'ı aracılığıyla) ve gönderen (arka uç sistemleri) arasında kesilmesi en az değişiklikle tümleştirilmekte ek arka uç sistemleri sağlar.
+2. Bu da bir veya daha fazla arka uç sistemleri yapabilir tooreceive olaylarından olan birden çok mobil uygulama hello senaryo hale getirir.  
 
 ## <a name="sample"></a>Örnek:
 ### <a name="prerequisites"></a>Ön koşullar
-Kavramları yanı sıra ortak oluşturma ve yapılandırma adımları hakkında bilgi edinmek için aşağıdaki öğreticileri tamamlaması gerekir:
+Öğreticiler toofamiliarize hello kavramları ve bunun yanı sıra ortak oluşturma ve yapılandırma adımları izleyerek hello tamamlaması gerekir:
 
-1. [Service Bus Pub/alt programlama] -bu hizmet veri yolu konuları/abonelikleri ile çalışma ayrıntılarını açıklanmaktadır konuları/abonelikleri içerecek şekilde bir ad alanı oluşturmak nasıl nasıl iletileri gönderdikleri & Gönder.
-2. [Notification Hubs - Windows Evrensel Öğreticisine] -bu bir Windows mağazası uygulama ayarlama ve kaydetme ve bildirimleri almak için bildirim hub'ları nasıl kullanılacağını açıklar.
+1. [Service Bus Pub/alt programlama] -bu çalışma ile hizmet veri yolu konuları/abonelikleri hello ayrıntılarını nasıl açıklanmaktadır toocreate bir ad alanı toocontain konuları/abonelikler, nasıl toosend & iletileri gönderdikleri.
+2. [Notification Hubs - Windows Evrensel Öğreticisine] -bu nasıl tooset bir Windows mağazası uygulaması ve bildirim hub'ları tooregister kullanın ve ardından bildirimlerin açıklanmaktadır.
 
 ### <a name="sample-code"></a>Örnek kod
-Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşenlerine ayrılır:
+Merhaba tam örnek kod, şu adreste [bildirim Hub örnekleri]. Üç bileşenlerine ayrılır:
 
 1. **EnterprisePushBackendSystem**
    
-    a. Bu proje kullanıyor *WindowsAzure.ServiceBus* Nuget paketi ve dayanır [Service Bus Pub/alt programlama].
+    a. Bu proje hello kullanıyor *WindowsAzure.ServiceBus* Nuget paketi ve dayanır [Service Bus Pub/alt programlama].
    
-    b. Mobil uygulama teslim edilecek ileti başlatan bir LoB sistem benzetimini yapmak için bir basit C# konsol uygulaması budur.
+    b. Bir basit C# konsol uygulaması toosimulate toohello mobil uygulama teslim hello ileti toobe başlatan bir LoB sistem budur.
    
         static void Main(string[] args)
         {
             string connectionString =
                 CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
    
-            // Create the topic where we will send notifications
+            // Create hello topic where we will send notifications
             CreateTopic(connectionString);
    
             // Send message
             SendMessage(connectionString);
         }
    
-    c. `CreateTopic`Service Bus konu oluşturmak için iletileri burada göndereceğiz kullanılır.
+    c. `CreateTopic`kullanılan toocreate hello Service Bus konu iletileri burada göndereceğiz ' dir.
    
         public static void CreateTopic(string connectionString)
         {
-            // Create the topic if it does not exist already
+            // Create hello topic if it does not exist already
    
             var namespaceManager =
                 NamespaceManager.CreateFromConnectionString(connectionString);
@@ -92,19 +92,19 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
             }
         }
    
-    d. `SendMessage`Bu hizmet veri yolu konusu iletileri göndermek için kullanılır. Burada biz bir dizi rastgele ileti konusuna örnek amacıyla düzenli aralıklarla yalnızca gönderiyor. Normalde bir olay gerçekleştiğinde gönderecek bir arka uç sistemi olacaktır.
+    d. `SendMessage`kullanılan toosend hello iletileri toothis hizmet veri yolu konusu değil. Burada size rastgele iletileri toohello konu hello örnek hello amacı için düzenli olarak bir dizi yalnızca gönderiyor. Normalde bir olay gerçekleştiğinde gönderecek bir arka uç sistemi olacaktır.
    
         public static void SendMessage(string connectionString)
         {
             TopicClient client =
                 TopicClient.CreateFromConnectionString(connectionString, sampleTopic);
    
-            // Sends random messages every 10 seconds to the topic
+            // Sends random messages every 10 seconds toohello topic
             string[] messages =
             {
                 "Employee Id '{0}' has joined.",
                 "Employee Id '{0}' has left.",
-                "Employee Id '{0}' has switched to a different team."
+                "Employee Id '{0}' has switched tooa different team."
             };
    
             while (true)
@@ -124,27 +124,27 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
         }
 2. **ReceiveAndSendNotification**
    
-    a. Bu proje kullanıyor *WindowsAzure.ServiceBus* ve *Microsoft.Web.WebJobs.Publish* Nuget paketleri ve dayanır [Service Bus Pub/alt programlama].
+    a. Bu proje hello kullanıyor *WindowsAzure.ServiceBus* ve *Microsoft.Web.WebJobs.Publish* Nuget paketleri ve dayanır [Service Bus Pub/alt programlama].
    
-    b. Bu olarak çalışacak başka bir C# konsol uygulaması olan bir [Azure WebJob] LoB/arka uç sistemleri iletilerden dinlemek için sürekli çalışacak şekilde olduğundan. Bu, mobil arka uç parçası olacak.
+    b. Bu olarak çalışacak başka bir C# konsol uygulaması olan bir [Azure WebJob] toorun sürekli olduğundan hello LoB/arka uç sistemleri için toolisten iletileri. Bu, mobil arka uç parçası olacak.
    
         static void Main(string[] args)
         {
             string connectionString =
                      CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
    
-            // Create the subscription which will receive messages
+            // Create hello subscription which will receive messages
             CreateSubscription(connectionString);
    
             // Receive message
             ReceiveMessageAndSendNotification(connectionString);
         }
    
-    c. `CreateSubscription`konu için bir hizmet veri yolu aboneliği oluşturmak için arka uç sistem burada gönderecek kullanılır. İş senaryosu bağlı olarak bu bileşen (örneğin bazı iletileri sisteminden HR bazı Finans sistem ve benzeri alıyor olabilir) ilgili konular için bir veya daha fazla abonelik oluşturur
+    c. `CreateSubscription`Merhaba arka uç sistem burada gönderecek bir Service Bus abonelik hello konu için kullanılan toocreate var. Merhaba iş senaryosu bağlı olarak bu bileşen toocorresponding konuları (örneğin bazı iletileri sisteminden HR bazı Finans sistem ve benzeri alıyor olabilir) bir veya daha fazla abonelik oluşturur
    
         static void CreateSubscription(string connectionString)
         {
-            // Create the subscription if it does not exist already
+            // Create hello subscription if it does not exist already
             var namespaceManager =
                 NamespaceManager.CreateFromConnectionString(connectionString);
    
@@ -154,11 +154,11 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
             }
         }
    
-    d. ReceiveMessageAndSendNotification aboneliğini kullanarak konusundan iletisini okuyun ve okuma başarılı olursa sonra bir bildirim (senaryoda örnek Windows yerel bildirim) Azure bildirim hub'ları kullanarak mobil uygulamaya gönderilmek üzere oluşturabilir için kullanılır.
+    d. ReceiveMessageAndSendNotification kullanılan tooread hello aboneliğini kullanarak hello konu iletisidir ve okuma hello başarılı olursa bildiriminde (Merhaba Örnek senaryo Windows yerel bildirim) gönderilen toobe toohello mobil oluşturabilir Azure bildirim hub'ları kullanarak uygulama.
    
         static void ReceiveMessageAndSendNotification(string connectionString)
         {
-            // Initialize the Notification Hub
+            // Initialize hello Notification Hub
             string hubConnectionString = CloudConfigurationManager.GetSetting
                     ("Microsoft.NotificationHub.ConnectionString");
             hub = NotificationHubClient.CreateClientFromConnectionString
@@ -170,7 +170,7 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
    
             Client.Receive();
    
-            // Continuously process messages received from the subscription
+            // Continuously process messages received from hello subscription
             while (true)
             {
                 BrokeredMessage message = Client.Receive();
@@ -204,24 +204,24 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
             await hub.SendWindowsNativeNotificationAsync(message);
         }
    
-    e. Bu olarak yayımlamak için bir **WebJob**, Visual Studio çözümüne sağ tıklayın ve seçin **Web işi olarak Yayımla**
+    e. Bu olarak yayımlamak için bir **WebJob**, Visual Studio hello çözümüne sağ tıklayın ve seçin **Web işi olarak Yayımla**
    
     ![][2]
    
-    f. Yayımlama profilinizi seçin ve bu Web işi barındıracak olan zaten yoksa ve ardından Web sitesini bulduktan sonra yeni bir Azure Web sitesi oluşturma **Yayımla**.
+    f. Yayımlama profilinizi seçin ve bu Web işi barındıracak olan zaten yoksa ve ardından hello Web sitesini bulduktan sonra yeni bir Azure Web sitesi oluşturma **Yayımla**.
    
     ![][3]
    
-    g. Böylece zaman oturum "Sürekli Çalıştır" olarak iş yapılandırma [Klasik Azure portalı] aşağıdaki gibi bir şey görmeniz gerekir:
+    g. "Sürekli Çalıştır" Merhaba iş toobe toohello içinde oturum açtıklarında şekilde yapılandırmanız [Klasik Azure portalı] hello aşağıdaki gibi bir şey görmeniz gerekir:
    
     ![][4]
 3. **EnterprisePushMobileApp**
    
-    a. Mobil arka bir parçası olarak çalışan Web işi bildirimleri almak ve görüntüleme bir Windows mağazası uygulaması budur. Bu temel alır [Notification Hubs - Windows Evrensel Öğreticisine].  
+    a. Mobil arka bir parçası olarak hello WebJob çalışmasını bildirimleri alır ve görüntüler bir Windows mağazası uygulaması budur. Bu temel alır [Notification Hubs - Windows Evrensel Öğreticisine].  
    
-    b. Uygulamanızı bildirim almaya etkinleştirildiğinden emin olun.
+    b. Uygulamanızı etkin tooreceive bildirimleri olduğundan emin olun.
    
-    c. Kayıt kodu uygulamaya çağrılma aşağıdaki Notification Hubs zaman başlatıldığından emin olun (değiştirildikten sonra *HubName* ve *DefaultListenSharedAccessSignature*:
+    c. Bildirim hub'ları kayıt koddan bu hello hello uygulama başlatma sırasında çağrılma emin olun (Merhaba değiştirildikten sonra *HubName* ve *DefaultListenSharedAccessSignature*:
    
         private async void InitNotificationsAsync()
         {
@@ -230,7 +230,7 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
             var hub = new NotificationHub("[HubName]", "[DefaultListenSharedAccessSignature]");
             var result = await hub.RegisterNativeAsync(channel.Uri);
    
-            // Displays the registration ID so you know it was successful
+            // Displays hello registration ID so you know it was successful
             if (result.RegistrationId != null)
             {
                 var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
@@ -240,12 +240,12 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
         }
 
 ### <a name="running-sample"></a>Örnek çalıştırma:
-1. Web işi başarıyla çalıştığından ve "Çalıştır kesintisiz olarak" zamanlanmış emin olun.
-2. Çalıştırma **EnterprisePushMobileApp** Windows mağazası uygulaması başlayacak.
-3. Çalıştırma **EnterprisePushBackendSystem** LoB arka benzetimini yapacak ve göndermeye başla konsol uygulaması iletileri ve aşağıdaki gibi görünen bildirimleri görmeniz gerekir:
+1. Web işi başarıyla çalıştığını ve zamanlanmış çok "sürekli olarak çalıştır" emin olun.
+2. Merhaba çalıştırmak **EnterprisePushMobileApp** hello Windows mağazası uygulaması başlayacak.
+3. Merhaba çalıştırmak **EnterprisePushBackendSystem** hello LoB arka benzetimini yapacak ve göndermeye başla konsol uygulaması iletileri ve hello aşağıdaki gibi görünen bildirimleri görmeniz gerekir:
    
     ![][5]
-4. İletileri, ilk olarak Web işinizin Service Bus Aboneliklerde tarafından izlenen Service Bus konu başlıklarını gönderildi. Bir ileti alındığında bir bildirim oluşturuldu ve mobil uygulamaya gönderilir. İşlem günlükleri bağlantıyı gittiğinizde onaylamak için Web işi günlükleri aracılığıyla bakabilirsiniz [Klasik Azure portalı] Web işi için:
+4. Merhaba iletileri ilk olarak Web işinizin Service Bus Aboneliklerde tarafından izlenen tooService veri yolu konuları gönderildi. Bir ileti alındığında bir bildirim oluşturuldu ve toohello mobil uygulama gönderilir. Web işi günlüklerini günlükleri bağlantı toohello olduğunuzda tooconfirm hello işleme hello aracılığıyla bakabilirsiniz [Klasik Azure portalı] Web işi için:
    
     ![][6]
 

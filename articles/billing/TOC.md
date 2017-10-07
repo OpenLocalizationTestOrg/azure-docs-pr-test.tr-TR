@@ -1,6 +1,6 @@
 # başlarken
 ## [Beklenmeyen maliyetleri engelleme](billing-getting-started.md)
-## [Faturalandırmaya erişim izni verme](billing-manage-access.md)
+## [GRANT erişim toobilling](billing-manage-access.md)
 ## [Office 365 hesabıyla kaydolma](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Azure hesabı ile Office 365 için kaydolun](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Limitler ve kotalar](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)

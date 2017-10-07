@@ -1,6 +1,6 @@
 ---
-title: Azure'da Bottle uygulamalarla Python web
-description: "Azure App Service Web Apps’te bir Python web uygulaması çalıştırmayı gösteren bir öğretici."
+title: "azure'da Bottle ile aaaPython web uygulamaları"
+description: "Toorunning bir Python web uygulamasını Azure App Service Web Apps tanıtır Öğreticisi."
 services: app-service\web
 documentationcenter: python
 tags: python
@@ -15,21 +15,21 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2016
 ms.author: huvalo
-ms.openlocfilehash: de5831defc395cd8a4033be8c1fc5dc6cbc9d683
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 98acd7d8fcdbba326625121c20f9237d2663ea1e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="creating-web-apps-with-bottle-in-azure"></a>Azure'da Bottle ile Web uygulamaları oluşturma
-Bu öğretici, Azure App Service Web uygulamalarında Python çalıştırmaya başlamak açıklar. Web Apps sınırlı ücretsiz barındırma ve hızlı dağıtım sağlar ve Python’u kullanmanıza olanak tanır! Uygulamanız büyüdükçe, ücretli barındırmaya geçebilir ve aynı zamanda tüm diğer Azure hizmetleriyle tümleştirebilirsiniz.
+Bu öğretici, Azure App Service Web uygulamalarında Python çalıştırmaya tooget nasıl başlatılacağını açıklar. Web Apps sınırlı ücretsiz barındırma ve hızlı dağıtım sağlar ve Python’u kullanmanıza olanak tanır! Uygulamanız büyüdükçe, toopaid barındırma geçiş yapabilirsiniz ve tüm ile de tümleştirebilir gibi diğer Azure hizmetleriyle hello.
 
-Bottle web çerçevesi kullanarak bir web uygulaması oluşturacaksınız (Bu öğretici için alternatif sürümleri bkz [Django](web-sites-python-create-deploy-django-app.md) ve [Flask](web-sites-python-create-deploy-flask-app.md)). Azure Marketi'nde bir web uygulaması oluşturacak, Git dağıtımı ayarlayacak ve depoyu yerel olarak kopyalayacaksınız. Sonra web uygulamasını yerel olarak çalışacak, değişiklik, yürütme ve bunları için gönderme [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Öğretici, Windows veya Mac/Linux’ta bunun nasıl yapıldığını gösterir.
+Merhaba Bottle web çerçevesi kullanarak bir web uygulaması oluşturacaksınız (Bu öğretici için alternatif sürümleri bkz [Django](web-sites-python-create-deploy-django-app.md) ve [Flask](web-sites-python-create-deploy-flask-app.md)). Azure Market hello hello web uygulaması oluşturma, Git dağıtımı ayarlayacak ve hello depoyu yerel olarak kopyalayacaksınız. Hello web uygulamasını yerel olarak çalıştırmak, değişiklik, yürütme ve bunları çok gönderme sonra[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Eğitmen gösterir nasıl hello toodo bu Windows veya Mac/Linux.
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+> Azure hesabı için kaydolmadan önce Azure App Service ile başlatılan tooget istiyorsanız, çok Git[App Service'i deneyin](https://azure.microsoft.com/try/app-service/), burada hemen bir kısa süreli başlangıç web uygulaması App Service'te oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
 
@@ -43,27 +43,27 @@ Bottle web çerçevesi kullanarak bir web uygulaması oluşturacaksınız (Bu ö
 **Not**: TFS yayımlama şu anda Python projeleri için desteklenmiyor.
 
 ### <a name="windows"></a>Windows
-Python 2.7 ya da 3.4 yüklü (32 bit) değilse, Web Platformu Yükleyicisi'ni kullanarak [Python 2.7 için Azure SDK] veya [Python 3.4 için Azure SDK]’yı yüklemenizi öneririz. Bu, Python’un 32 bit sürümünü, setuptools, PIP, virtualenv vb.yükler (32 bit Python, Azure ana makinelerde yüklü olandır). Alternatif olarak, Python’u [python.org] adresinden edinebilirsiniz.
+Python 2.7 ya da 3.4 yüklü (32 bit) değilse, Web Platformu Yükleyicisi'ni kullanarak [Python 2.7 için Azure SDK] veya [Python 3.4 için Azure SDK]’yı yüklemenizi öneririz. Bu, Python, setuptools, PIP, virtualenv, (32 bit Python hello Azure ana makinelerde yüklü olandır) "Merhaba 32-bit sürümünü yükler. Alternatif olarak, Python’u [python.org] adresinden edinebilirsiniz.
 
-Git için, [Windows için Git] veya [Windows için GitHub]’ı öneririz. Visual Studio kullanıyorsanız, tümleşik Git desteğini kullanabilirsiniz.
+Git için, [Windows için Git] veya [Windows için GitHub]’ı öneririz. Visual Studio kullanıyorsanız hello tümleşik Git desteğini kullanabilirsiniz.
 
-Ayrıca [Visual Studio için Python Araçları 2.2]’yi yüklemenizi öneririz  Bu isteğe bağlıdır, ancak ücretsiz Visual Studio Community 2013 veya Web için Visual Studio Express 2013 içeren [Visual Studio] varsa, bu size mükemmel bir Python IDE verir.
+Ayrıca [Visual Studio için Python Araçları 2.2]’yi yüklemenizi öneririz  Bu isteğe bağlı, ancak varsa [Visual Studio]hello dahil olmak üzere ücretsiz Visual Studio Community 2013 veya Visual Studio Express 2013 Web sonra bu mükemmel bir Python IDE verir.
 
 ### <a name="maclinux"></a>Mac/Linux
 Python ve Git sizde zaten yüklü olmalıdır, ancak Python 2.7 veya 3.4 olduğundan emin olun.
 
-## <a name="web-app-creation-on-the-azure-portal"></a>Azure Portal'da Web uygulaması oluşturma
-Uygulamanızı oluşturmanın ilk adımı, [Azure Portal](https://portal.azure.com) aracılığıyla web uygulaması oluşturmaktır.  
+## <a name="web-app-creation-on-hello-azure-portal"></a>Hello Azure Portal Web uygulaması oluşturma
+Merhaba uygulamanızı oluşturmanın ilk adımı olan toocreate hello web uygulaması hello aracılığıyla [Azure Portal](https://portal.azure.com).  
 
-1. Azure Portal’da oturum açın ve sol alt köşede **NEW** düğmesine tıklayın. 
-2. Arama kutusuna, "python" yazın.
-3. Arama sonuçlarında seçin **Bottle**, ardından **oluşturma**.
-4. Yeni bir uygulama hizmeti planı ve yeni bir kaynak grubu oluşturma gibi yeni Bottle uygulamasını yapılandırın. Sonra, **Oluştur**’a tıklayın.
-5. Yeni oluşturulan web uygulamanız için, [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md) başlığındaki yönergeleri izleyerek Git yayımlamayı yapılandırın.
+1. Oturum hello Azure Portal ve hello tıklatın **yeni** hello sol alt köşedeki düğmesini. 
+2. Merhaba arama kutusuna "python" yazın.
+3. Merhaba arama sonuçlarında seçin **Bottle**, ardından **oluşturma**.
+4. Yeni bir uygulama hizmeti planı ve yeni bir kaynak grubu oluşturma gibi hello yeni Bottle uygulamasını yapılandırın. Sonra, **Oluştur**’a tıklayın.
+5. Merhaba yönergeleri izleyerek Git yayımlamayı yeni oluşturulan web uygulamanız için yapılandırma [yerel Git dağıtımı tooAzure uygulama hizmeti](app-service-deploy-local-git.md).
 
 ## <a name="application-overview"></a>Uygulamaya Genel Bakış
 ### <a name="git-repository-contents"></a>Git deposu içeriği
-Burada, sonraki bölümde kopyalayacağımız, ilk Git deposunda bulacağınız dosyalara bir genel bakış yer alır.
+Burada, hangi hello sonraki bölümde kopyalama hello ilk Git deposunda bulabilirsiniz hello dosyaları genel bir bakış verilmiştir.
 
     \routes.py
     \static\content\
@@ -74,11 +74,11 @@ Burada, sonraki bölümde kopyalayacağımız, ilk Git deposunda bulacağınız 
     \views\index.tpl
     \views\layout.tpl
 
-Uygulama için ana kaynaklar Ana düzenle birlikte 3 sayfadan (dizin, hakkında, iletişim) oluşur.  Statik içerik ve betikler bootstrap, jquery, modernize ve yanıtı içerir.
+Merhaba uygulaması için ana kaynaklar. Ana düzenle birlikte 3 sayfadan (dizin, hakkında, iletişim) oluşur.  Statik içerik ve betikler bootstrap, jquery, modernize ve yanıtı içerir.
 
     \app.py
 
-Yerel Geliştirme Sunucusu desteği. Uygulamayı yerel olarak çalıştırmak için bunu kullanın.
+Yerel Geliştirme Sunucusu desteği. Bu toorun hello uygulamayı yerel olarak kullanın.
 
     \BottleWebProject.pyproj
     \BottleWebProject.sln
@@ -91,12 +91,12 @@ Sanal ortamlar için IIS proxy ve PTVS uzaktan hata ayıklama desteği
 
     \requirements.txt
 
-Bu uygulamaya dış paketler gerekir. Dağıtım betiği pip bu dosyada listelenen paketleri pip yükler.
+Bu uygulamaya dış paketler gerekir. Bu dosyada listelenen yükleme hello paketleri Hello dağıtım betiği pip.
 
     \web.2.7.config
     \web.3.4.config
 
-IIS yapılandırma dosyaları. Dağıtım betiği, uygun web.x.y.config’i kullanır ve bunu web.config olarak kopyalar.
+IIS yapılandırma dosyaları. Merhaba dağıtım betiği hello uygun Web.x.y.config'i kullanır ve bunu web.config olarak kopyalar.
 
 ### <a name="optional-files---customizing-deployment"></a>İsteğe bağlı dosyalar - Dağıtımı özelleştirme
 [!INCLUDE [web-sites-python-customizing-deployment](../../includes/web-sites-python-customizing-deployment.md)]
@@ -105,7 +105,7 @@ IIS yapılandırma dosyaları. Dağıtım betiği, uygun web.x.y.config’i kull
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 ### <a name="additional-files-on-server"></a>Sunucu üzerindeki ek dosyalar
-Bazı dosyalar sunucuda yer alır ancak git deposuna eklenmez. Bunlar dağıtım betiği tarafından oluşturulur.
+Bazı dosyalar hello sunucuda var, ancak toohello git deposuna eklenmez. Bunlar hello dağıtım betiği tarafından oluşturulur.
 
     \web.config
 
@@ -113,83 +113,83 @@ IIS yapılandırma dosyası. Her dağıtımda web.x.y.config tarafından oluştu
 
     \env\
 
-Python sanal ortamı. Web uygulamasında uyumlu sanal ortam zaten yoksa, dağıtım ırasında oluşturulur.  Requirements.txt içinde listelenen paketler pip yüklüdür, ancak paketler zaten yüklü ise pip yüklemeyi atlar.
+Python sanal ortamı. Dağıtım sırasında hello web uygulamasında uyumlu sanal ortamın zaten mevcut değilse oluşturulur.  Requirements.txt içinde listelenen paketler pip yüklüdür, ancak hello paketler zaten yüklü ise pip yüklemeyi atlar.
 
-Sonraki 3 bölümde farklı 3 ortamda web uygulaması geliştirmeye devam etme açıklanmaktadır:
+Merhaba sonraki 3 bölümde nasıl tooproceed hello ile web uygulaması geliştirme altında farklı 3 ortamda açıklanmaktadır:
 
 * Windows, Visual Studio için Python Araçları ile
 * Windows, komut satırı ile
 * Mac/Linux, komut satırı ile
 
 ## <a name="web-app-development---windows---python-tools-for-visual-studio"></a>Web uygulaması geliştirme - Windows - Visual Studio için Python araçları
-### <a name="clone-the-repository"></a>Depoyu kopyalama
-İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
+### <a name="clone-hello-repository"></a>Kopya hello deposu
+İlk olarak, Azure Portal hello üzerinde sağlanan hello URL'yi kullanarak hello depoyu kopyalayın. Daha fazla bilgi için bkz: [yerel Git dağıtımı tooAzure uygulama hizmeti](app-service-deploy-local-git.md).
 
-Depo kök dizininde bulunan çözüm dosyasını (.sln) açın.
+Merhaba hello depo kök dizininde bulunan hello çözüm dosyasını (.sln) açın.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-solution-bottle.png)
 
 ### <a name="create-virtual-environment"></a>Sanal ortamı oluşturun.
 Şimdi, yerel geliştirme için sanal bir ortam oluşturacağız. Sağ **Python Ortamları**’na sağ tıklayın **Sanal Ortam Ekle...** seçeneğini seçin.
 
-* Ortam adının `env` olduğundan emin olun.
-* Temel yorumlayıcıyı seçin. Web uygulamanız için seçilen Python ile aynı sürümü kullandığınızdan emin olun (runtime.txt içinde veya Azure Portal’da uygulamanızın **Uygulama Ayarları** dikey penceresinde).
-* Paketleri indirme ve yükleme seçeneğinin işaretli olduğundan emin olun.
+* Merhaba ortamı Hello adı olduğundan emin olun `env`.
+* Merhaba temel yorumlayıcıyı seçin. Toouse hello web uygulamanız için seçilen Python ile aynı sürümü olduğundan emin olun (runtime.txt veya hello **uygulama ayarları** hello Azure Portal, web uygulamanızın dikey penceresinde).
+* Merhaba seçeneği toodownload ve yükleme paketleri işaretli olduğundan emin olun.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-add-virtual-env-27.png)
 
-**Oluştur**’a tıklayın. Bu, sanal ortamı oluşturur ve requirements.txt içinde listelenen bağımlılıkları yükler.
+**Oluştur**'a tıklayın. Bu işlem hello sanal ortam oluşturacak ve requirements.txt içinde listelenen bağımlılıkları yükler.
 
 ### <a name="run-using-development-server"></a>Geliştirme sunucusu kullanarak çalıştırma
-Hata ayıklamayı başlatmak için F5 tuşuna basın, böylece web tarayıcınız yerel olarak çalışan sayfaya otomatik olarak açılır.
+Otomatik olarak hata ayıklama tuşuna F5 toostart ve web tarayıcınız yerel olarak çalışan toohello sayfasını açar.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-Kaynaklarda kesme noktalarını ayarlayabilir, gözcü pencerelerini kullanabilirsiniz vb. Çeşitli özellikler hakkında daha fazla bilgi için bkz. [Visual Studio Belgeleri için Python Araçları].
+Kesme noktaları hello kaynakları, kullanım hello Gözcü pencerelerini, vb. ayarlayabilirsiniz. Merhaba bkz [Visual Studio belgeleri için Python Araçları] hakkında daha fazla bilgi için çeşitli özellikler hello.
 
 ### <a name="make-changes"></a>Değişiklik yapma
-Şimdi uygulama kaynakları ve/veya şablonlarında değişiklikler yapmayı deneyebilirsiniz.
+Şimdi değişiklikleri toohello uygulama kaynakları ve/veya şablonlarında yapmayı deneyebilirsiniz.
 
-Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
+Değişikliklerinizi test ettikten sonra bunları toohello Git deposuna kaydedin:
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-commit-bottle.png)
 
 ### <a name="install-more-packages"></a>Daha fazla paket yükleme
 Uygulamanızın Python ve Bottle ötesinde bağımlılıkları olabilir.
 
-Pip kullanarak ek paketleri yükleyebilirsiniz. Bir paketi yüklemek için, sanal ortamda sağ tıklayıp **Python Paketini Yükle**’yi seçin.
+Pip kullanarak ek paketleri yükleyebilirsiniz. bir paket tooinstall sağ tıklayın hello sanal ortam ve select **Python paketini Yükle**.
 
-Örneğin, size Azure Storage, Service Bus ve diğer Azure hizmetleri için erişim imkanı sağlayan, Python için Azure SDK'yı yüklemek için şunu girin: `azure`
+Örneğin, tooinstall Merhaba, tooAzure depolama, service bus ve diğer Azure hizmetleriyle erişmenizi girin Python için Azure SDK `azure`:
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-install-package-dialog.png)
 
-Sanal ortamda sağ tıklayıp **requirements.txt oluştur**’u seçerek requirements.txt dosyasını güncelleştirin.
+Merhaba sanal ortamda sağ tıklayıp **requirements.txt Oluştur** tooupdate requirements.txt.
 
-Ardından, requirements.txt dosyasındaki değişiklikleri Git deposuna uygulayın.
+Ardından, hello değişiklikleri toorequirements.txt toohello Git deposuna uygulayın.
 
-### <a name="deploy-to-azure"></a>Azure’a dağıtma
-Bir dağıtımı tetiklemek için tıklatın **Eşitle** veya **İlet**’e tıklayın. Eşitleme, iletme ve çekme işlemini yapar.
+### <a name="deploy-tooazure"></a>TooAzure dağıtma
+bir dağıtım tootrigger tıklayın **eşitleme** veya **anında**. Eşitleme, iletme ve çekme işlemini yapar.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-git-push.png)
 
-Sanal ortam, yükleme paketleri vb. oluşturacağında, ilk dağıtımın gerçekleşmesi biraz zaman alır.
+bir sanal ortam, yükleme paketleri vb. oluşturacağı gibi hello ilk dağıtım biraz zaman alabilir.
 
-Visual Studio dağıtımın ilerleme durumunu göstermez. Çıktıyı gözden geçirmek isterseniz, üzerinde bakın [Sorun Giderme - Dağıtım](#troubleshooting-deployment)’daki bölüme bakın.
+Visual Studio hello hello dağıtımının ilerlemesini göstermez. Tooreview hello çıkış isterseniz hello bölümüne bakarak [sorun giderme - dağıtım](#troubleshooting-deployment).
 
-Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
+Toohello Azure URL tooview değişikliklerinizi göz atın.
 
 ## <a name="web-app-development---windows---command-line"></a>Web uygulaması geliştirme - Windows - komut satırı
-### <a name="clone-the-repository"></a>Depoyu kopyalama
-İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın ve uzak olarak Azure deposunu ekleyin. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
+### <a name="clone-hello-repository"></a>Kopya hello deposu
+İlk olarak, Azure Portal hello üzerinde sağlanan hello URL'yi kullanarak hello depoyu kopyalayın ve uzak olarak hello Azure deposunu ekleyin. Daha fazla bilgi için bkz: [yerel Git dağıtımı tooAzure uygulama hizmeti](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
     git remote add azure <repo-url> 
 
 ### <a name="create-virtual-environment"></a>Sanal ortamı oluşturun.
-Geliştirme amacına yönelik yeni bir sanal ortam oluşturacağız (bunu depoya eklemeyin). Uygulama üzerinde çalışan her geliştiricinin yerel olarak kendininkini oluşturacağı şekilde, Python’daki sanal ortamlar yeniden yerleştirilebilir değildir.
+(Bunu toohello depoya eklemeyin) geliştirme amacıyla yeni bir sanal ortam oluşturacağız. Sanal ortamlar Hello uygulama üzerinde çalışan her geliştiricinin yerel olarak Kendininkini oluşturacağı şekilde python'daki, değildir.
 
-Web uygulamanız (runtime.txt veya Azure Portal'da web uygulamanız için uygulama ayarları dikey) için seçilen Python aynı sürümü kullandığınızdan emin olun
+Toouse hello web uygulamanızda (runtime.txt veya hello uygulama ayarları dikey penceresinde hello Azure Portal, web uygulaması) için seçilen Python ile aynı sürümü olduğundan emin olun
 
 Python 2.7:
 
@@ -199,27 +199,27 @@ Python 3.4:
 
     c:\python34\python.exe -m venv env
 
-Uygulamanız için gereken herhangi bir dış paketi yükleyin. Sanal ortamınıza paketleri yüklemek için depo kökündeki requirements.txt dosyasını kullanabilirsiniz:
+Uygulamanız için gereken herhangi bir dış paketi yükleyin. Sanal ortamınıza hello hello depo tooinstall hello paketleri kökünde hello requirements.txt dosyasını kullanabilirsiniz:
 
     env\scripts\pip install -r requirements.txt
 
 ### <a name="run-using-development-server"></a>Geliştirme sunucusu kullanarak çalıştırma
-Aşağıdaki komutla bir geliştirme sunucusu altında uygulamayı başlatabilirsiniz:
+Komutu aşağıdaki hello ile Merhaba uygulaması geliştirme sunucusu altında başlatabilirsiniz:
 
     env\scripts\python app.py
 
-Konsol URL’yi ve sunucunun dinlediği bağlantı noktasını görüntüler:
+Merhaba konsol hello URL'si gösterilir ve bağlantı noktası hello sunucu dinler:
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-run-local-bottle.png)
 
-Sonra, bu URL için web tarayıcınızı açın.
+Sonra web tarayıcısı toothat URL'nizi açın.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
 ### <a name="make-changes"></a>Değişiklik yapma
-Şimdi uygulama kaynakları ve/veya şablonlarında değişiklikler yapmayı deneyebilirsiniz.
+Şimdi değişiklikleri toohello uygulama kaynakları ve/veya şablonlarında yapmayı deneyebilirsiniz.
 
-Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
+Değişikliklerinizi test ettikten sonra bunları toohello Git deposuna kaydedin:
 
     git add <modified-file>
     git commit -m "<commit-comment>"
@@ -227,40 +227,40 @@ Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
 ### <a name="install-more-packages"></a>Daha fazla paket yükleme
 Uygulamanızın Python ve Bottle ötesinde bağımlılıkları olabilir.
 
-Pip kullanarak ek paketleri yükleyebilirsiniz. Örneğin, size Azure Storage, Service Bus ve diğer Azure hizmetleri için erişim imkanı sağlayan, Python için Azure SDK'yı yüklemek için aşağıdakileri yazın:
+Pip kullanarak ek paketleri yükleyebilirsiniz. Örneğin, tooinstall Merhaba, imkanı sağlayan, Python için Azure SDK tooAzure depolama, service bus ve diğer Azure hizmetleriyle türü erişebilirsiniz:
 
     env\scripts\pip install azure
 
-Requirements.txt dosyasını güncelleştirdiğinizden emin olun:
+Tooupdate requirements.txt emin olun:
 
     env\scripts\pip freeze > requirements.txt
 
-Değişiklikleri uygulayın:
+Merhaba değişiklikleri uygulayın:
 
     git add requirements.txt
     git commit -m "Added azure package"
 
-### <a name="deploy-to-azure"></a>Azure’a dağıtma
-Bir dağıtımı tetiklemek için, değişiklikleri Azure’a gönderin:
+### <a name="deploy-tooazure"></a>TooAzure dağıtma
+bir dağıtım tootrigger, anında iletme hello tooAzure değiştirir:
 
     git push azure master
 
-Sanal ortam oluşturma, paketleri yükleme, web.config oluşturma dahil dağıtım betiği çıktısını görürsünüz.
+Merhaba Merhaba, sanal ortam oluşturma, paketleri yükleme, web.config oluşturma dahil dağıtım betiği çıktısını görürsünüz.
 
-Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
+Toohello Azure URL tooview değişikliklerinizi göz atın.
 
 ## <a name="web-app-development---maclinux---command-line"></a>Web uygulaması geliştirme - Mac/Linux - komut satırı
-### <a name="clone-the-repository"></a>Depoyu kopyalama
-İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın ve uzak olarak Azure deposunu ekleyin. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
+### <a name="clone-hello-repository"></a>Kopya hello deposu
+İlk olarak, Azure Portal hello üzerinde sağlanan hello URL'yi kullanarak hello depoyu kopyalayın ve uzak olarak hello Azure deposunu ekleyin. Daha fazla bilgi için bkz: [yerel Git dağıtımı tooAzure uygulama hizmeti](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
     git remote add azure <repo-url> 
 
 ### <a name="create-virtual-environment"></a>Sanal ortamı oluşturun.
-Geliştirme amacına yönelik yeni bir sanal ortam oluşturacağız (bunu depoya eklemeyin). Uygulama üzerinde çalışan her geliştiricinin yerel olarak kendininkini oluşturacağı şekilde, Python’daki sanal ortamlar yeniden yerleştirilebilir değildir.
+(Bunu toohello depoya eklemeyin) geliştirme amacıyla yeni bir sanal ortam oluşturacağız. Sanal ortamlar Hello uygulama üzerinde çalışan her geliştiricinin yerel olarak Kendininkini oluşturacağı şekilde python'daki, değildir.
 
-Web uygulamanız için seçilen Python ile aynı sürümü kullandığınızdan emin olun (runtime.txt içinde veya Azure Portal’da uygulamanızın Uygulama Ayarları dikey penceresinde).
+Toouse hello web uygulamanızda (runtime.txt veya hello uygulama ayarları dikey penceresinde hello Azure Portal kullanarak web uygulamanızda) için seçilen Python ile aynı sürümü emin olun.
 
 Python 2.7:
 
@@ -271,27 +271,27 @@ Python 3.4:
     python -m venv env
 veya pyvenv env
 
-Uygulamanız için gereken herhangi bir dış paketi yükleyin. Sanal ortamınıza paketleri yüklemek için depo kökündeki requirements.txt dosyasını kullanabilirsiniz:
+Uygulamanız için gereken herhangi bir dış paketi yükleyin. Sanal ortamınıza hello hello depo tooinstall hello paketleri kökünde hello requirements.txt dosyasını kullanabilirsiniz:
 
     env/bin/pip install -r requirements.txt
 
 ### <a name="run-using-development-server"></a>Geliştirme sunucusu kullanarak çalıştırma
-Aşağıdaki komutla bir geliştirme sunucusu altında uygulamayı başlatabilirsiniz:
+Komutu aşağıdaki hello ile Merhaba uygulaması geliştirme sunucusu altında başlatabilirsiniz:
 
     env/bin/python app.py
 
-Konsol URL’yi ve sunucunun dinlediği bağlantı noktasını görüntüler:
+Merhaba konsol hello URL'si gösterilir ve bağlantı noktası hello sunucu dinler:
 
 ![](./media/web-sites-python-create-deploy-bottle-app/mac-run-local-bottle.png)
 
-Sonra, bu URL için web tarayıcınızı açın.
+Sonra web tarayıcısı toothat URL'nizi açın.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/mac-browser-bottle.png)
 
 ### <a name="make-changes"></a>Değişiklik yapma
-Şimdi uygulama kaynakları ve/veya şablonlarında değişiklikler yapmayı deneyebilirsiniz.
+Şimdi değişiklikleri toohello uygulama kaynakları ve/veya şablonlarında yapmayı deneyebilirsiniz.
 
-Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
+Değişikliklerinizi test ettikten sonra bunları toohello Git deposuna kaydedin:
 
     git add <modified-file>
     git commit -m "<commit-comment>"
@@ -299,27 +299,27 @@ Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
 ### <a name="install-more-packages"></a>Daha fazla paket yükleme
 Uygulamanızın Python ve Bottle ötesinde bağımlılıkları olabilir.
 
-Pip kullanarak ek paketleri yükleyebilirsiniz. Örneğin, size Azure Storage, Service Bus ve diğer Azure hizmetleri için erişim imkanı sağlayan, Python için Azure SDK'yı yüklemek için aşağıdakileri yazın:
+Pip kullanarak ek paketleri yükleyebilirsiniz. Örneğin, tooinstall Merhaba, imkanı sağlayan, Python için Azure SDK tooAzure depolama, service bus ve diğer Azure hizmetleriyle türü erişebilirsiniz:
 
     env/bin/pip install azure
 
-Requirements.txt dosyasını güncelleştirdiğinizden emin olun:
+Tooupdate requirements.txt emin olun:
 
     env/bin/pip freeze > requirements.txt
 
-Değişiklikleri uygulayın:
+Merhaba değişiklikleri uygulayın:
 
     git add requirements.txt
     git commit -m "Added azure package"
 
-### <a name="deploy-to-azure"></a>Azure’a dağıtma
-Bir dağıtımı tetiklemek için, değişiklikleri Azure’a gönderin:
+### <a name="deploy-tooazure"></a>TooAzure dağıtma
+bir dağıtım tootrigger, anında iletme hello tooAzure değiştirir:
 
     git push azure master
 
-Sanal ortam oluşturma, paketleri yükleme, web.config oluşturma dahil dağıtım betiği çıktısını görürsünüz.
+Merhaba Merhaba, sanal ortam oluşturma, paketleri yükleme, web.config oluşturma dahil dağıtım betiği çıktısını görürsünüz.
 
-Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
+Toohello Azure URL tooview değişikliklerinizi göz atın.
 
 ## <a name="troubleshooting---package-installation"></a>Sorun giderme - Paket Yükleme
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
@@ -328,10 +328,10 @@ Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Visual Studio için Bottle ve Python araçları hakkında daha fazla bilgi için aşağıdaki bağlantıları izleyin: 
+Bu bağlantılar toolearn Bottle ve Python araçları hakkında daha fazla bilgi için Visual Studio izleyin: 
 
 * [Bottle belgeleri]
-* [Visual Studio Belgeleri için Python Araçları]
+* [Visual Studio belgeleri için Python Araçları]
 
 Azure tablo depolaması ve MongoDB kullanma hakkında daha fazla bilgi için:
 
@@ -339,7 +339,7 @@ Azure tablo depolaması ve MongoDB kullanma hakkında daha fazla bilgi için:
 * [Bottle ve Visual Studio için Python araçları ile azure'da Azure tablo depolaması]
 
 ## <a name="whats-changed"></a>Yapılan değişiklikler
-* Web Sitelerinden App Service’e kadar değiştirme kılavuzu için bkz. [Azure App Service ve Mevcut Azure Hizmetlerine Etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Web siteleri tooApp hizmet değişikliği Kılavuzu toohello için bkz: [Azure App Service ve mevcut Azure hizmetlerine etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!--Link references-->
 [Bottle ve Visual Studio için Python araçları ile azure'da MongoDB]: web-sites-python-ptvs-bottle-table-storage.md
@@ -354,6 +354,6 @@ Azure tablo depolaması ve MongoDB kullanma hakkında daha fazla bilgi için:
 [Visual Studio için Python Araçları]: http://aka.ms/ptvs
 [Visual Studio için Python Araçları 2.2]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[Visual Studio Belgeleri için Python Araçları]: http://aka.ms/ptvsdocs 
+[Visual Studio belgeleri için Python Araçları]: http://aka.ms/ptvsdocs 
 [Bottle belgeleri]: http://bottlepy.org/docs/dev/index.html
 

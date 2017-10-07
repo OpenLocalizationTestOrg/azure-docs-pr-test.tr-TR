@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL veritabanı denetimi ile çalışmaya başlama | Microsoft Docs"
+title: "aaaGet başlatılan Azure SQL veritabanı denetimi ile | Microsoft Docs"
 description: "Azure SQL veritabanı denetimi ile çalışmaya başlama"
 services: sql-database
 documentationcenter: 
@@ -15,73 +15,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: f4324a59b5fa4c2e1ab5b1d7fc7e5fe986ea80f8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5494c602d702ac41992520f900c393a98cc7c989
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
-Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bunları Denetim günlüğüne yazar izler. Ayrıca denetleme:
+Azure SQL veritabanı denetimi veritabanı olaylarını izler ve bunları Azure depolama hesabınızdaki tooan denetim günlüğünü yazar. Ayrıca denetleme:
 
 * Yönetmeliklere uygunluğu korumanıza, veritabanı etkinliklerini anlamanıza ve ifade eden tutarsızlıklar ve iş endişeleri veya güvenlik ihlalleri hakkında daha fazla bilgi kavramanıza yardımcı olur.
 
-* Etkinleştirir ve uyumluluk garanti etmez ancak Uyumluluk standartlara uyulması kolaylaştırır. Bu destek standartları uyumluluğu Azure hakkında daha fazla bilgi programlar için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/compliance/).
+* Etkinleştirir ve uyumluluk garanti etmez ancak bağlılığı toocompliance standartları kolaylaştırır. Bu destek standartları uyumluluğu Azure hakkında daha fazla bilgi programları hello bakın [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/compliance/).
 
 
 ## <a id="subheading-1"></a>Genel Bakış denetim azure SQL veritabanı
 SQL veritabanı için denetimi kullanabilirsiniz:
 
 
-* **Korumak** seçili olayların bir denetim izi. Denetlenecek veritabanı eylemleri kategorilerini tanımlayabilirsiniz.
-* **Rapor** veritabanı etkinlik. Etkinlik ve olay Raporlama ile hızlı bir şekilde başlamak için önceden yapılandırılmış raporları ve panoyu kullanabilirsiniz.
+* **Korumak** seçili olayların bir denetim izi. Denetlenecek veritabanı Eylemler toobe kategorilerini tanımlayabilirsiniz.
+* **Rapor** veritabanı etkinlik. Önceden yapılandırılmış raporları ve etkinlik ve olay Raporlama ile hızlı şekilde kullanmaya bir Pano tooget kullanabilirsiniz.
 * **Analiz** raporlar. Şüpheli olayları, olağan dışı etkinliği ve eğilimleri bulabilirsiniz.
 
-Farklı türlerde olay kategorisi için Denetim açıklandığı şekilde yapılandırabilirsiniz [veritabanınız için denetimi ayarlamanız](#subheading-2) bölümü.
+Farklı türlerde olay kategorisi için Denetim hello açıklandığı gibi yapılandırabileceğiniz [veritabanınız için denetimi ayarlamanız](#subheading-2) bölümü.
 
-Denetim günlükleri, Azure aboneliğinizde Azure Blob depolama alanına yazılır.
+Denetim günlüklerini tooAzure Blob storage, Azure aboneliğinizde yazılır.
 
 
 ## <a id="subheading-8"></a>Sunucu düzeyinde ve veritabanı düzeyi denetim ilkesi tanımlayın
 
 Bir denetim ilkesi, belirli bir veritabanı veya varsayılan sunucu ilkesi olarak tanımlanabilir:
 
-* Sunucudaki tüm mevcut ve yeni oluşturulan veritabanları için bir sunucu ilkesi uygulanır.
+* Bir sunucu ilkesi tooall mevcut ve yeni oluşturulan veritabanları hello sunucu üzerinde uygulanır.
 
-* Varsa *sunucu blob denetimi etkin*, onu *veritabanı için her zaman geçerli* (diğer bir deyişle, veritabanı denetlenmez), bağımsız olarak veritabanı denetim ayarları.
+* Varsa *sunucu blob denetimi etkin*, onu *toohello veritabanı her zaman geçerli* (diğer bir deyişle, hello veritabanı denetlenmez), bağımsız olarak hello veritabanı denetim ayarları.
 
-* Veritabanı üzerinde BLOB denetiminin etkinleştirilmesi, sunucu üzerinde etkinleştirmenin yanı sıra olur *değil* geçersiz kılabilir veya sunucu blob denetimi ayarlarından herhangi birini değiştirin. Her iki denetimleri yan yana yer alır. Diğer bir deyişle, veritabanı (kez sunucu İlkesi ve bir kez tarafından veritabanı İlkesi) iki kez paralel olarak denetlenecektir.
+* Merhaba veritabanında toplama tooenabling üzerinde hello sunucuda denetim blob etkinleştirme olacak *değil* geçersiz kılabilir veya hello sunucu blob denetleme hello ayarlardan herhangi birini değiştirmek. Her iki denetimleri yan yana yer alır. Diğer bir deyişle, hello veritabanı (kez hello sunucu İlkesi ve bir kez tarafından hello veritabanı İlkesi) iki kez paralel olarak denetlenecektir.
 
    > [!NOTE]
    > Sunucu blob denetlenmesi ve veritabanı blob birlikte denetimi sürece etkinleştirme kaçınmanız gerekir:
-    > * Farklı bir kullanmak istediğiniz *depolama hesabı* veya *saklama dönemi* belirli bir veritabanı için.
-    > * Olay türlerini veya belirli bir veritabanı için olay türlerinden farklı kategorileri veya veritabanlarını sunucuda geri kalanı için denetlenen kategorileri denetlemek istediğiniz. Örneğin, yalnızca belirli bir veritabanı için denetlenmesi gereken tablo ekler olabilir.
+    > * Farklı bir toouse istediğiniz *depolama hesabı* veya *saklama dönemi* belirli bir veritabanı için.
+    > * Olay türlerinden farklı belirli bir veritabanı veya hello sunucudaki hello veritabanları hello geri kalanı için denetlenen kategorileri için tooaudit olay türleri veya kategoriler istiyorsunuz. Örneğin, yalnızca belirli bir veritabanı için denetlenen toobe gereken tablo ekler olabilir.
    > 
-   > Aksi takdirde, yalnızca sunucu düzeyinde blob denetlemeyi etkinleştirme ve devre dışı tüm veritabanları için veritabanı düzeyinde denetimi bırakın önerilir.
+   > Aksi takdirde, yalnızca sunucu düzeyinde blob denetimi ve veritabanı düzeyinde hello tüm veritabanları için devre dışı bırak denetimi etkinleştirmeniz önerilir.
 
 
 ## <a id="subheading-2"></a>Veritabanınız için denetimi ayarlamanız
-Aşağıdaki bölümde denetim Azure Portalı'nı kullanarak yapılandırmayı açıklar.
+Merhaba aşağıdaki bölümde hello Azure portal kullanarak denetim hello yapılandırmasını açıklar.
 
-1. [Azure Portal](https://portal.azure.com) gidin.
-2. Git **ayarları** denetlemek istediğiniz SQL veritabanı/SQL server'ın dikey. İçinde **ayarları** dikey penceresinde, select **denetim ve tehdit algılama**.
+1. Toohello Git [Azure portal](https://portal.azure.com).
+2. Toohello Git **ayarları** hello tooaudit istediğiniz SQL veritabanı/SQL server dikey. Merhaba, **ayarları** dikey penceresinde, select **denetim ve tehdit algılama**.
 
     <a id="auditing-screenshot"></a>![Gezinti Bölmesi][1]
-3. (Bu sunucudaki tüm mevcut ve yeni oluşturulan veritabanları için uygulanır) bir sunucu denetim ilkesini ayarlamak tercih ederseniz, seçebileceğiniz **sunucu ayarlarını görüntüleyin** veritabanı denetim dikey penceresinde bağlantı. Daha sonra görüntülemek veya sunucunun denetim ayarları değiştirin.
+3. (Bu sunucuda tooall mevcut ve yeni oluşturulan veritabanları uygulanır) olan bir sunucu denetim ilkesi yukarı tooset tercih ederseniz, hello seçebilirsiniz **sunucu ayarlarını görüntüleyin** hello veritabanı denetim dikey penceresinde bağlantı. Daha sonra görüntülemek veya hello sunucu denetim ayarlarını değiştirin.
 
     ![Gezinti Bölmesi][2]
-4. İçin veritabanı düzeyinde (ek olarak veya sunucu düzeyinde denetimi yerine), blob denetimi etkinleştirmeyi tercih ediyorsanız **denetim**seçin **ON**ve **türü denetimi**, seçin **Blob**.
+4. Tooenable hello veritabanı düzeyi (toplama tooor) sunucu düzeyinde denetimi yerine, blob denetimi için tercih ederseniz **denetim**seçin **ON**ve **türü denetimi** , seçin **Blob**.
 
-    Sunucu blob denetimi etkinse, veritabanı yapılandırılmış denetim yan yana sunucu blob denetim yer alır.  
+    Sunucu blob denetimi etkinse hello veritabanı yapılandırılmış denetim hello sunucu blob denetim yan yana yer alır.  
 
     ![Gezinti Bölmesi][3]
-5. Açmak için **denetim günlüklerini depolama** dikey penceresinde, select **depolama ayrıntıları**. Burada günlükleri kaydedilecek ve sonra eski günlükleri silinecek saklama dönemi, ardından Azure depolama hesabı seçin. Daha sonra, **Tamam**'a tıklayın. 
+5. tooopen hello **denetim günlüklerini depolama** dikey penceresinde, select **depolama ayrıntıları**. Burada günlükleri kaydedilecek ve hangi hello sonra eski günlükleri silinecek hello saklama dönemi ardından hello Azure depolama hesabı seçin. Daha sonra, **Tamam**'a tıklayın. 
    >[!TIP] 
-   >En iyi denetim raporları şablonları almak için denetlenen tüm veritabanları için aynı depolama hesabı kullanın. 
+   >Merhaba Denetim raporları şablonları, kullanım dışı en tooget hello hello denetlenen tüm veritabanları için aynı depolama hesabı. 
 
     <a id="storage-screenshot"></a>![Gezinti Bölmesi][4]
-6. Denetlenen olayları özelleştirmek istiyorsanız, PowerShell veya REST API bunu yapabilirsiniz. Daha fazla ayrıntı için bkz: [Otomasyon (PowerShell/REST API'si)](#subheading-7) bölümü.
-7. Denetim ayarlarını yapılandırdıktan sonra yeni tehdit algılama özelliğini açmak ve güvenlik uyarıları almak için e-postaları yapılandırın. Tehdit algılama kullandığınızda, olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini öngörülü uyarılar alırsınız. Daha fazla ayrıntı için bkz: [tehdit algılama ile çalışmaya başlama](sql-database-threat-detection-get-started.md).
+6. Toocustomize denetlenen hello olayları istiyorsanız, bunu PowerShell ile yapmak veya REST API hello. Daha fazla ayrıntı için bkz: Merhaba [Otomasyon (PowerShell/REST API'si)](#subheading-7) bölümü.
+7. Denetim ayarlarını yapılandırdıktan sonra yeni tehdit algılama özelliğini hello açın ve e-postaları tooreceive güvenlik uyarılarını yapılandırın. Tehdit algılama kullandığınızda, olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini öngörülü uyarılar alırsınız. Daha fazla ayrıntı için bkz: [tehdit algılama ile çalışmaya başlama](sql-database-threat-detection-get-started.md).
 8. **Kaydet** düğmesine tıklayın.
 
 
@@ -89,88 +89,88 @@ Aşağıdaki bölümde denetim Azure Portalı'nı kullanarak yapılandırmayı a
 
 
 ## <a id="subheading-3"></a>Denetim günlüklerini ve raporları analiz eder.
-Denetim günlükleri, Kurulum sırasında seçtiğiniz Azure depolama hesabında toplanır. Gibi bir araç kullanarak denetim günlüklerini keşfedebilirsiniz [Azure Storage Gezgini](http://storageexplorer.com/).
+Denetim günlüklerini hello Kurulum sırasında seçtiğiniz Azure depolama hesabında toplanır. Gibi bir araç kullanarak denetim günlüklerini keşfedebilirsiniz [Azure Storage Gezgini](http://storageexplorer.com/).
 
 BLOB denetim günlüklerini adlı bir kapsayıcı içindeki blob dosya koleksiyonu olarak kaydedilir **sqldbauditlogs**.
 
-Hiyerarşi blob denetim günlüklerini depolama klasörü, blob adlandırma kuralları ve günlük biçimi hakkında daha fazla ayrıntı için bkz: [Blob denetim günlük biçimi başvurusu (.docx dosya indirme)](https://go.microsoft.com/fwlink/?linkid=829599).
+Merhaba hello hiyerarşisini başlangıç blob denetim günlüklerini depolama klasörü, blob adlandırma kuralları ve günlük biçimi hakkında daha fazla ayrıntı için bkz: [Blob denetim günlük biçimi başvurusu (.docx dosya indirme)](https://go.microsoft.com/fwlink/?linkid=829599).
 
-Blob denetim günlüklerini görüntülemek için kullanabileceğiniz birkaç yöntem vardır:
+Günlükleri denetlemeyi tooview blob kullanabileceğiniz birkaç yöntem vardır:
 
-* Kullanım [Azure portal](https://portal.azure.com).  İlgili veritabanını açın. Veritabanının üstündeki **denetim ve tehdit algılama** dikey penceresinde tıklatın **denetim günlüklerini görüntüle**.
+* Kullanım hello [Azure portal](https://portal.azure.com).  Açık hello ilgili veritabanı. Merhaba veritabanının AT hello üst **denetim ve tehdit algılama** dikey penceresinde tıklatın **denetim günlüklerini görüntüle**.
 
     ![Gezinti Bölmesi][7]
 
-    Bir **denetim kayıtları** dikey penceresi açılır ve kendisinden, günlükleri görüntüleyebilirsiniz.
+    Bir **denetim kayıtları** içinden olmanız mümkün tooview hello günlükler dikey penceresi açılır.
 
-    - Belirli tarihleri tıklatarak görüntüleyebileceğiniz **filtre** en üstündeki **denetim kayıtları** dikey.
+    - Belirli tarihleri tıklatarak görüntüleyebileceğiniz **filtre** hello hello üstündeki **denetim kayıtları** dikey.
     - Bir sunucu İlkesi veya veritabanı ilke denetimi tarafından oluşturulan denetim kayıtları arasında geçiş yapabilirsiniz.
 
        ![Gezinti Bölmesi][8]
 
-* Bir sistem işlevi kullanın **sys.fn_get_audit_file** (Denetim günlüğü verilerini tablo biçiminde döndürmek için T-SQL). Bu işlev kullanma hakkında daha fazla bilgi için bkz: [sys.fn_get_audit_file belgelerine](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+* Merhaba sistem işlevi kullanın **sys.fn_get_audit_file** (T-SQL) tooreturn hello denetim günlüğü verilerini tablo biçiminde. Bu işlev kullanma hakkında daha fazla bilgi için bkz: Merhaba [sys.fn_get_audit_file belgelerine](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 
 * Kullanım **denetim dosyaları birleştirme** SQL Server Management Studio'da (SSMS 17 ile başlayarak):  
-    1. SSMS menüsünden seçin **dosya** > **açık** > **denetim dosyaları birleştirme**.
+    1. Merhaba SSMS menüsünden seçin **dosya** > **açık** > **denetim dosyaları birleştirme**.
 
         ![Gezinti Bölmesi][9]
-    2. **Denetim dosyaları Ekle** iletişim kutusu açılır. Aşağıdakilerden birini seçin **Ekle** Seçenekleri denetim dosyalarını yerel bir sürücüden birleştirme ya da Azure (size gerekecek Azure Storage ayrıntıları ve hesap anahtarı sağlamak) depolama biriminden almak isteyip istemediğinizi seçin.
+    2. Merhaba **denetim dosyaları Ekle** iletişim kutusu açılır. Merhaba birini seçin **Ekle** toomerge denetim bir yerel dosyaları olup olmadığını seçmek için seçenekler disk veya bunları Azure depolama alanından içeri aktarın (, gerekli tooprovide Azure Storage ayrıntılarını ve hesap anahtarı olacaktır).
 
-    3. Birleştirme için tüm dosyaları ekledikten sonra tıklatın **Tamam** birleştirme işlemini tamamlamak için.
+    3. Tüm dosyaları toomerge eklendikten sonra tıklatın **Tamam** toocomplete hello birleştirme işlemi.
 
-    4. Burada, görüntülemek ve analiz edin, yanı sıra bir XEL'e ya da CSV dosyası veya tablo dışa SSMS birleştirilmiş dosya açılır.
+    4. Merhaba birleştirilmiş dosya burada görüntüleyebilir ve, isteğe bağlı olarak verme tooan XEL'e veya CSV dosyası veya tooa tablo hem analiz SSMS açılır.
 
-* Kullanım [eşitleme uygulama](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) , oluşturduk. Azure üzerinde çalışır ve Operations Management Suite (OMS) SQL denetim günlüklerini OMS göndermek için günlük analizi genel API'leri kullanır. Eşitleme uygulamanın OMS günlük analizi Pano tüketimi için OMS günlük analizi SQL denetim günlüklerini iter. 
+* Kullanım hello [eşitleme uygulama](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) , oluşturduk. Azure üzerinde çalışır ve Operations Management Suite (OMS) günlük analizi Genel API toopush SQL denetim günlüklerini OMS kullanır. Merhaba eşitleme uygulaması hello OMS günlük analizi Pano tüketimi için OMS günlük analizi SQL denetim günlüklerini iter. 
 
 * Power BI kullanın. Görüntülemek ve denetim günlüğü verilerini Power bı'da analiz edin. Daha fazla bilgi edinmek [Power BI ve erişim indirilebilir bir şablon](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
-* Günlük dosyaları gibi bir araç kullanarak veya Portalı aracılığıyla Azure depolama blob kapsayıcısını indirin [Azure Storage Gezgini](http://storageexplorer.com/).
-    * Bir günlük dosyası yerel olarak indirdikten sonra açın, görüntülemek ve SSMS'ndeki günlükleri çözümlemek için dosyayı çift tıklayabilirsiniz.
-    * Ayrıca, Azure Storage Gezgini ile aynı anda birden çok dosya indirebilirsiniz. Özel bir alt klasör (örneğin, belirli bir tarihteki tüm günlük dosyalarını içeren bir alt) sağ tıklayın ve **Farklı Kaydet** içinde yerel bir klasöre kaydeder.
+* Günlük dosyaları gibi bir araç kullanarak veya hello Portalı aracılığıyla Azure depolama blob kapsayıcısını indirin [Azure Storage Gezgini](http://storageexplorer.com/).
+    * Bir günlük dosyası yerel olarak indirdikten sonra hello dosya tooopen çift tıklayarak görüntülemek ve SSMS içinde hello günlüklerini analiz edin.
+    * Ayrıca, Azure Storage Gezgini ile aynı anda birden çok dosya indirebilirsiniz. Özel bir alt klasör (örneğin, belirli bir tarihteki tüm günlük dosyalarını içeren bir alt) sağ tıklayın ve **Farklı Kaydet** yerel bir klasörde toosave.
 
 * Ek yöntemleri:
-   * Pek çok dosya (veya önceki öğeyi bu listede açıklandığı gibi tüm bir gün için günlük dosyalarını içeren bir alt klasörü) indirdikten sonra bunları yerel olarak daha önce açıklanan SSMS birleştirme Denetim dosyalarını yönergelerde açıklandığı gibi birleştirebilirsiniz.
+   * Pek çok dosya (veya hello önceki öğesi bu listede açıklandığı gibi tüm bir gün için günlük dosyalarını içeren bir alt klasörü) indirdikten sonra bunları yerel olarak daha önce açıklanan hello SSMS birleştirme Denetim dosyalarını yönergelerde açıklandığı gibi birleştirebilirsiniz.
 
    * Görünüm blob denetimi programlı olarak günlüğe kaydeder:
 
-     * Kullanım [genişletilmiş olaylar okuyucu](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C# Kitaplığı.
+     * Kullanım hello [genişletilmiş olaylar okuyucu](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C# Kitaplığı.
      * [Sorgu genişletilmiş olaylar dosyaları](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) PowerShell kullanarak.
 
 
 
 
 ## <a id="subheading-5"></a>Üretim uygulamaları
-<!--The description in this section refers to preceding screen captures.-->
+<!--hello description in this section refers toopreceding screen captures.-->
 
 ### <a id="subheading-6">Coğrafi olarak çoğaltılmış veritabanları denetleme</a>
-Coğrafi olarak çoğaltılmış veritabanları kullandığınızda, birincil veritabanı, ikincil veritabanı ya da her ikisini de denetim türüne bağlı olarak denetimini ayarlamak mümkündür.
+Coğrafi olarak çoğaltılmış veritabanları kullanırken hello birincil veritabanı, hello ikincil veritabanı ya da her ikisini de hello denetim türüne bağlı olarak denetim yukarı olası tooset olur.
 
-(Blob denetimi açmak veya kapatmak denetim ayarları yalnızca birincil veritabanından açılabilir olduğunu unutmayın) bu yönergeleri izleyin:
+(Blob denetimi açmak veya kapatmak denetim ayarları yalnızca hello birincil veritabanından açılabilir olduğunu unutmayın) bu yönergeleri izleyin:
 
-* **Birincil veritabanı**. BLOB, sunucuda veya veritabanının kendisi, Denetim açıklandığı gibi açıldıktan [veritabanınız için denetimi ayarlamanız](#subheading-2) bölümü.
-* **İkincil veritabanı**. Bölümünde açıklandığı gibi birincil veritabanında BLOB denetim açıldıktan [veritabanınız için denetimi ayarlamanız](#subheading-2) bölümü. 
-   * Üzerinde BLOB denetimi etkinleştirilmelidir *birincil veritabanının kendisi*, sunucu değil.
-   * BLOB denetimi birincil veritabanında etkinleştirildikten sonra aynı zamanda ikincil veritabanı etkin hale.
+* **Birincil veritabanı**. BLOB, hello sunucusunda veya hello veritabanının kendisi, Denetim hello açıklandığı gibi açıldıktan [veritabanınız için denetimi ayarlamanız](#subheading-2) bölümü.
+* **İkincil veritabanı**. Hello açıklandığı gibi hello birincil veritabanında BLOB denetim açıldıktan [veritabanınız için denetimi ayarlamanız](#subheading-2) bölümü. 
+   * BLOB denetimi üzerinde hello etkinleştirilmelidir *birincil veritabanının kendisi*, hello sunucusu değil.
+   * BLOB denetimi hello birincil veritabanında etkinleştirildikten sonra aynı zamanda hello ikincil veritabanı üzerinde etkin hale.
 
      >[!IMPORTANT]
-     >Varsayılan olarak, ikincil veritabanı için depolama ayarlarını çapraz bölge trafiği neden bu birincil veritabanının aynı olacaktır. Bu ikincil sunucuda blob denetimi ve yerel depolama için ikincil sunucu depolama ayarlarında yapılandırma etkinleştirerek önleyebilirsiniz. Bu ikincil veritabanı ve denetim günlüklerinin yerel depolama alanına kaydediliyor her veritabanı sonucunda için depolama konumu geçersiz kılar.  
+     >Varsayılan olarak, hello ikincil veritabanının hello depolama ayarlarını hello birincil veritabanının aynı toothose çapraz bölge trafiği neden olur. Bu blob hello ikincil sunucuda denetim ve yerel depolama hello ikincil sunucu depolama ayarlarında yapılandırma etkinleştirerek önleyebilirsiniz. Bu hello ikincil veritabanı ve denetim günlüklerini toolocal depolama alanı kaydetme her veritabanı sonucunda hello depolama konumu geçersiz kılar.  
 <br>
 
 ### <a id="subheading-6">Depolama anahtarını yeniden üretme</a>
-Üretimde büyük bir olasılıkla depolama anahtarlarınızı düzenli aralıklarla yenileyin. Anahtarlarınızı yenilerken denetim ilkesi yeniden kaydetmeniz gerekir. İşlem aşağıdaki gibidir:
+Üretimde, depolama alanınızın düzenli aralıklarla anahtarları büyük olasılıkla toorefresh demektir. Anahtarlarınızı yenilerken tooresave hello Denetim İlkesi gerekir. Merhaba işlem aşağıdaki gibidir:
 
-1. Açık **depolama ayrıntıları** dikey. İçinde **depolama erişim tuşu** kutusunda **ikincil**, tıklatıp **Tamam**. Ardından **kaydetmek** denetim yapılandırma dikey pencerenin üstündeki.
+1. Açık hello **depolama ayrıntıları** dikey. Merhaba, **depolama erişim tuşu** kutusunda **ikincil**, tıklatıp **Tamam**. Ardından **kaydetmek** yapılandırma dikey penceresi denetim hello hello üstünde.
 
     ![Gezinti Bölmesi][5]
-2. Depolama yapılandırma dikey penceresine gidin ve birincil erişim anahtarını yeniden oluşturma.
+2. Toohello depolama yapılandırma dikey gidin ve hello birincil erişim anahtarını yeniden oluşturma.
 
     ![Gezinti Bölmesi][6]
-3. Birincil ikincil depolama erişim anahtarı yeniden denetim yapılandırma dikey penceresine, anahtar ve ardından Git **Tamam**. Ardından **kaydetmek** denetim yapılandırma dikey pencerenin üstündeki.
-4. Depolama yapılandırma dikey penceresine geri dönün ve (için Hazırlanmakta sonraki anahtarın yenileme döngüsü) ikincil erişim anahtarını yeniden oluşturma.
+3. Yapılandırma dikey penceresi denetim toohello geri dönün, geçiş hello depolama erişim ikincil tooprimary anahtarından ve ardından **Tamam**. Ardından **kaydetmek** yapılandırma dikey penceresi denetim hello hello üstünde.
+4. Toohello depolama yapılandırma dikey ve üretme hello ikincil erişim tuşu (Merhaba sonraki anahtarın yenileme döngüsü için hazırlık) geri dönün.
 
 ## <a id="subheading-7"></a>Otomasyon (PowerShell/REST API)
-Azure SQL veritabanı'nda aşağıdaki Otomasyon araçları kullanarak denetim da yapılandırabilirsiniz:
+Otomasyon araçları aşağıdaki hello kullanarak Azure SQL veritabanı'nda denetim da yapılandırabilirsiniz:
 
 * **PowerShell cmdlet'leri**:
 

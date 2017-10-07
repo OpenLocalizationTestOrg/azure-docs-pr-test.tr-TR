@@ -1,6 +1,6 @@
 ---
-title: "Belirli Laboratuvar ilkeleri için kullanıcı izinleri verin | Microsoft Docs"
-description: "DevTest Labs her kullanıcının ihtiyaçlarına göre belirli Laboratuvar ilkeleri kullanıcı izinleri öğrenin"
+title: "aaaGrant kullanıcı izinleri toospecific Laboratuvar ilkeleri | Microsoft Docs"
+description: "Nasıl toogrant kullanıcı izinleri toospecific Laboratuvar ilkeleri DevTest Labs her kullanıcının ihtiyaçlarına göre bilgi edinin"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: tomarcher
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.openlocfilehash: 0bd9f83257834d9681479ba9117c48ffd6d6e166
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 35647ab837243188f06566cdf365b67fe33a3865
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="grant-user-permissions-to-specific-lab-policies"></a>Belirli Laboratuvar ilkeleri kullanıcı izinleri
+# <a name="grant-user-permissions-toospecific-lab-policies"></a>Kullanıcı izinleri toospecific Laboratuvar ilkeleri
 ## <a name="overview"></a>Genel Bakış
-Bu makalede PowerShell belirli Laboratuvar ilkesi kullanıcıların izinleri için nasıl kullanılacağı gösterilmektedir. Bu şekilde izinleri her kullanıcının gereksinimlerinize göre uygulanabilir. Örneğin, belirli bir kullanıcı VM ilke ayarları, ancak maliyet ilkeleri değiştirme olanağı vermek isteyebilirsiniz.
+Bu makalede gösterilmektedir nasıl toouse PowerShell toogrant kullanıcıların izinleri tooa belirli Laboratuvar ilkesi. Bu şekilde izinleri her kullanıcının gereksinimlerinize göre uygulanabilir. Örneğin, bir belirli kullanıcı hello özelliği toochange hello VM ilke ayarları toogrant isteyebilirsiniz, ancak değil hello ilkeleri maliyeti.
 
 ## <a name="policies-as-resources"></a>İlke kaynakları olarak
-' Da anlatıldığı gibi [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md) makale, RBAC Azure kaynaklarının ayrıntılı erişim yönetimini sağlar. RBAC kullanarak, DevOps ekibiniz içinde görevleri kurabilmeleri ve işlerini yapmak için gereksinim duydukları kullanıcılara sadece erişim miktarını verebilirsiniz.
+Hello anlatıldığı gibi [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md) makale, RBAC Azure kaynaklarının ayrıntılı erişim yönetimini sağlar. RBAC kullanarak, DevOps ekibiniz içinde görevleri kurabilmeleri ve tooperform işlerini gereken erişim toousers yalnızca hello miktarını verebilirsiniz.
 
-DevTest Labs'de RBAC eylem sağlayan bir kaynak türü ilkedir **Microsoft.DevTestLab/labs/policySets/policies/**. Her Laboratuvar ilke ilke kaynak türü, bir kaynak değildir ve bir RBAC rolü için kapsam olarak atanabilir.
+DevTest Labs'de hello RBAC eylem sağlayan bir kaynak türü ilkedir **Microsoft.DevTestLab/labs/policySets/policies/**. Her Laboratuvar ilke hello İlkesi kaynak türü, bir kaynak değildir ve bir kapsam tooan RBAC rolü olarak atanabilir.
 
-Örneğin, kullanıcıların okuma/yazma izni için **izin VM boyutları** İlkesi ile çalışır, özel bir rol oluşturmak **Microsoft.DevTestLab/labs/policySets/policies/*** Eylem ve bu özel rolü kapsamında uygun kullanıcılara atamak **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Örneğin, sipariş toogrant kullanıcıların okuma/yazma izni toohello içinde **izin VM boyutları** İlkesi, hello ile çalışır, özel bir rol oluşturmak **Microsoft.DevTestLab/labs/policySets/policies/** * Eylem ve ata hello uygun kullanıcıları toothis özel rol hello kapsamındaki **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-RBAC özel rolleri hakkında daha fazla bilgi edinmek için [özel roller erişim denetimi](../active-directory/role-based-access-control-custom-roles.md).
+toolearn RBAC, özel rolleri hakkında daha fazla bilgi görmek hello [özel roller erişim denetimi](../active-directory/role-based-access-control-custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>PowerShell kullanarak bir lab özel rol oluşturma
-Başlamak için yükleme ve Azure PowerShell cmdlet'leri yapılandırma açıklanacaktır aşağıdaki makaleyi okuyun gerekecektir: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
+Başlatılan sipariş tooget içinde anlatılmıştır makale aşağıdaki tooread hello gerekir nasıl tooinstall ve hello Azure PowerShell cmdlet'leri yapılandırma: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
 
-Azure PowerShell cmdlet'lerini ayarladıktan sonra aşağıdaki görevleri gerçekleştirebilirsiniz:
+Azure PowerShell cmdlet'lerini hello ayarladıktan sonra hello aşağıdaki görevleri gerçekleştirebilirsiniz:
 
-* Bir kaynak sağlayıcısı için tüm işlemleri/eylemleri listesi
+* Bir kaynak sağlayıcısı için tüm hello operations/eylemler listesi
 * Belirli bir rol eylemler listesi:
 * Özel bir rol oluşturun
 
-Aşağıdaki PowerShell betiğini bu görevleri gerçekleştirmek nasıl örnekleri gösterilmektedir:
+PowerShell Betiği aşağıdaki hello örnekleri gösterilmektedir tooperform bu görevler:
 
-    ‘List all the operations/actions for a resource provider.
+    ‘List all hello operations/actions for a resource provider.
     Get-AzureRmProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
 
     ‘List actions in a particular role.
@@ -60,10 +60,10 @@ Aşağıdaki PowerShell betiğini bu görevleri gerçekleştirmek nasıl örnekl
     $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policySets/policies/*")
     $policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)
 
-## <a name="assigning-permissions-to-a-user-for-a-specific-policy-using-custom-roles"></a>Özel roller kullanarak belirli bir ilke için bir kullanıcı için izinler atama
-Özel rollerinizi tanımladığınız sonra bunları kullanıcılara atayabilirsiniz. Bir kullanıcıya özel bir rol atamak için önce edinmeniz gerekir **objectID** bu kullanıcıyı temsil eden. Bunu yapmak için kullanmak **Get-AzureRmADUser** cmdlet'i.
+## <a name="assigning-permissions-tooa-user-for-a-specific-policy-using-custom-roles"></a>İzinleri tooa kullanıcı için özel roller kullanarak belirli bir ilke atama
+Özel rollerinizi tanımladığınız sonra bunları toousers atayabilirsiniz. Sipariş tooassign özel rol tooa kullanıcı, ilk hello edinmelidir **objectID** bu kullanıcıyı temsil eden. Merhaba kullanın, toodo **Get-AzureRmADUser** cmdlet'i.
 
-Aşağıdaki örnekte, **objectID** , *SomeUser* 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 kullanıcıdır.
+Aşağıdaki örneğine hello hello **objectID** Merhaba, *SomeUser* 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 kullanıcıdır.
 
     PS C:\>Get-AzureRmADUser -SearchString "SomeUser"
 
@@ -71,11 +71,11 @@ Aşağıdaki örnekte, **objectID** , *SomeUser* 05DEFF7B-0AC3-4ABF-B74D-6A72CD5
     -----------                    ----                           --------
     someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 
-Bulduktan sonra **objectID** kullanıcı ve özel rol adı için kullanıcı bu rol atayabilirsiniz **New-AzureRmRoleAssignment** cmdlet:
+Merhaba olduktan sonra **objectID** hello kullanıcı ve özel rol adı için bu rolü toohello kullanıcı hello ile atayabilirsiniz **New-AzureRmRoleAssignment** cmdlet:
 
     PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/policies/AllowedVmSizesInLab
 
-Önceki örnekte, **AllowedVmSizesInLab** İlkesi kullanılır. Aşağıdakilerden herhangi birini kullanabilirsiniz ilkeler:
+Merhaba önceki örnekte hello **AllowedVmSizesInLab** İlkesi kullanılır. Aşağıdaki ilkeler hello birini kullanabilirsiniz:
 
 * MaxVmsAllowedPerUser
 * MaxVmsAllowedPerLab
@@ -85,11 +85,11 @@ Bulduktan sonra **objectID** kullanıcı ve özel rol adı için kullanıcı bu 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir kez dikkate alınması gereken bazı sonraki adımlar şunlardır belirli Laboratuvar ilkeleri için kullanıcı izinleri verilen:
+Bir kez bazı sonraki adımları tooconsider İşte kullanıcı izinleri toospecific Laboratuvar ilkeleri, verilen:
 
-* [Laboratuvara erişimin güvenliğini sağlama](devtest-lab-add-devtest-user.md).
+* [Güvenli erişim tooa Laboratuvar](devtest-lab-add-devtest-user.md).
 * [Laboratuvar ilkeleri belirleme](devtest-lab-set-lab-policy.md).
 * [Laboratuvar şablonu oluşturma](devtest-lab-create-template.md).
 * [VM'leriniz için özel yapılar oluşturma](devtest-lab-artifact-author.md).
-* [Yapı içeren bir VM'yi laboratuvara ekleme](devtest-lab-add-vm-with-artifacts.md).
+* [Yapıları tooa Laboratuvar'yle bir VM'yi eklemek](devtest-lab-add-vm-with-artifacts.md).
 

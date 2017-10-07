@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Galerisi competitions | Microsoft Docs
-description: "Cortana Intelligence Galerisi'nde competitions keşfedin."
+title: aaaCortana Intelligence Galerisi competitions | Microsoft Docs
+description: "Merhaba Cortana Intelligence Galerisi competitions keşfedin."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 25ec625c1f32fd1477685196ea21ad6f582bc7ce
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 4631ac21b672b77141023d14e57a1d6523220624
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence Galerisi'nde competitions Bul
+# <a name="discover-competitions-in-hello-cortana-intelligence-gallery"></a>Merhaba Cortana Intelligence Galerisi competitions Bul
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence Competitions
-**[Competitions](https://gallery.cortanaintelligence.com/competitions)**  heyecan verici Cortana Intelligence Suite kullanarak karmaşık sorunları çözmek için veri bilimcilerine toplulukla rekabet olanağı sunar.
+**[Competitions](https://gallery.cortanaintelligence.com/competitions)**  heyecan verici bir fırsat toocompete veri bilimcilerine toosolve hello toplulukla Cortana Intelligence Suite kullanarak karmaşık sorunları sağlar.
 
-Competitions ile ilgili sık sorulan soruların yanıtları için bkz: [Microsoft Cortana Intelligence Competitions SSS](machine-learning-competition-faq.md).
+Yanıtlar toofrequently sorulan soruları için Competitions hakkında bkz [Microsoft Cortana Intelligence Competitions SSS](machine-learning-competition-faq.md).
 
 ## <a name="discover"></a>Keşif
-  Competitions galerisinde göz atmak için açık [galeri](http://gallery.cortanaintelligence.com), farenizi için noktası **daha fazla** galeri üstünde giriş sayfasını ve seçin **Competitions**.
+  Merhaba Galerisi, açık hello competitions toobrowse [galeri](http://gallery.cortanaintelligence.com), farenizi çok noktası**daha fazla** hello galeri hello üstünde giriş sayfasını açın ve seçin **Competitions**.
 
-![Galeri giriş sayfasından Competitions seçin](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
+![Merhaba galeri giriş sayfasından Competitions seçin](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
 
-  **[Competitions](https://gallery.cortanaintelligence.com/competitions)**  sayfa en popüler competitions listesini görüntüler.
-Tıklatın **tümünü görmek** tüm competitions görüntülemek için.
-Bu sayfadan galerisinde tüm competitions göz atabilirsiniz. Ayrıca, sol üst girme arama terimleri ve sayfa filtre ölçütü seçerek arayabilirsiniz.
+  **[Competitions](https://gallery.cortanaintelligence.com/competitions)**  sayfa hello en popüler competitions listesini görüntüler.
+Tıklatın **tümünü görmek** tooview tüm competitions.
+Bu sayfadan hello galeri içindeki tüm competitions göz atabilirsiniz. Filtre ölçütü hello sayfasının hello soldaki seçerek de arayabilir ve girme arama koşulların en üst hello.
 
- Tüm rekabet rekabet'in ayrıntılar sayfasını açın ve daha fazla bilgi okumak için tıklayın. Bu sayfada açıklama, geri bildirim sağlamak veya açıklamalar bölümüne aracılığıyla sorular sorun. Bunu arkadaş ya da LinkedIn veya Twitter paylaşım özelliklerini kullanarak iş arkadaşlarınızı bile paylaşabilirsiniz. Ayrıca sayfasını görüntülemek için diğer kullanıcıların davet edilmesi için rekabet bağlantısını e-posta gönderebilirsiniz.
+ Tüm rekabet tooopen rekabet ait ayrıntıları sayfası tıklatın ve daha fazla bilgi okuyun. Bu sayfada açıklama, geri bildirim sağlamak veya hello Açıklamalar bölümüne aracılığıyla sorular sorun. Bunu bile arkadaşlarınızla paylaşabilirsiniz ya da LinkedIn veya Twitter özelliklerini hello kullanarak iş arkadaşlarınızla paylaşabilirsiniz. Ayrıca bağlantı toothe rekabet tooinvite diğer kullanıcılar tooview hello sayfasında e-posta gönderebilirsiniz.
 
 ![Bu öğe arkadaşlarınızla paylaşın](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Kendi açıklamaları ekleme](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="enter-a-competition"></a>Bir rekabet girin
-Rekabet açık Ayrıntıları sayfasında durum ise, **etkin**. Rekabet girmek için tıklatın **girin rekabet** ve ihtiyacınız olan kaynakları ve adımlar, gereken yönergeler verilir.
+Merhaba rekabet açık hello Ayrıntıları sayfasında hello durum ise, **etkin**. tooenter hello rekabet tıklatın **girin rekabet** ve yönergeler gerekir ve hello tootake gereken adımları hello kaynaklarına sağlanacaktır.
 
 ![Rekabet etkindir](media/machine-learning-gallery-competitions/open-competition.png)
 
-Rekabet tamamladıysanız kazanan bir listesi gösterilir.
+Merhaba rekabet tamamladıysanız kazanan bir listesi gösterilir.
 
-**[BANA GALERİSİNE ELE >>](http://gallery.cortanaintelligence.com)**
+**[ELE BANA toohello Galerisi >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

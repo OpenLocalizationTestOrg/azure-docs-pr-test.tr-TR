@@ -1,6 +1,6 @@
 ---
-title: "Azure MFA sunucusu yükseltme | Microsoft Docs"
-description: "Adımlar ve Azure multi-Factor Authentication sunucusu daha yeni bir sürüme yükseltmek için yönergeler."
+title: "aaaAzure MFA sunucusu yükseltme | Microsoft Docs"
+description: "Adımlar ve kılavuz tooupgrade hello Azure çok faktörlü kimlik doğrulama sunucusu tooa daha yeni sürümü."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -15,96 +15,96 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aaa8d400e0e5f1c6be3a6d22cde6dd893ef4d546
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>En son Azure multi-Factor Authentication Sunucusu'na yükseltme
+# <a name="upgrade-toohello-latest-azure-multi-factor-authentication-server"></a>Toohello yükseltme en son Azure multi-Factor Authentication sunucusu
 
-Bu makalede Azure çok faktörlü kimlik doğrulama (MFA) sunucusu v6.0 yükseltme sürecini veya daha yüksek aracılığıyla anlatılmaktadır. PhoneFactor Aracısı'nın eski bir sürümüne yükseltme yapmanız oluştuysa, [PhoneFactor Aracısı'nı Azure multi-Factor Authentication Sunucusu'na yükseltme](multi-factor-authentication-get-started-server-upgrade.md).
+Bu makalede hello anlatılmaktadır Azure çok faktörlü kimlik doğrulama (MFA) sunucusu v6.0 yükseltme sürecini ya da daha yüksek. Tooupgrade hello PhoneFactor Aracısı'nın eski bir sürümü gereksinim duyarsanız, çok başvurun[yükseltme hello PhoneFactor Aracısı tooAzure çok faktörlü kimlik doğrulama sunucusu](multi-factor-authentication-get-started-server-upgrade.md).
 
-V6.x veya v7.x eski veya yeni yükseltiyorsanız, tüm bileşenler için .NET 4.5 .NET 2. 0 ' değiştirin. Tüm bileşenler için Microsoft Visual C++ 2015 Redistributable Update 1 veya daha yüksek de gerekir. Bunlar zaten yüklü değilse MFA sunucusu Yükleyici bu bileşenlerin x86 hem x64 sürümlerini yükler. Kullanıcı Portalı ve mobil uygulama Web hizmeti ayrı sunucularda çalıştırırsanız, bu bileşenlerin yükseltmeden önce bu paketleri yüklemeniz gerekir. En son Microsoft Visual C++ 2015 Redistributable güncelleştirmesi için arama yapabilirsiniz [Microsoft Download Center](https://www.microsoft.com/en-us/download/). 
+Yükseltme v6.x veya eski toov7.x ya da daha yeni varsa, tüm bileşenler .NET 2.0 too.NET 4.5 değiştirin. Tüm bileşenler için Microsoft Visual C++ 2015 Redistributable Update 1 veya daha yüksek de gerekir. Bunlar zaten yüklü değilse hello MFA sunucusu yükleyici hem hello x86 hem x64 sürümlerini bu bileşenleri yükler. Merhaba Kullanıcı Portalı ve mobil uygulama Web hizmeti ayrı sunucularda çalıştırırsanız, tooinstall bu paketleri bu bileşenler yükseltmeden önce gerekir. En son Microsoft Visual C++ 2015 Redistributable güncelleştirmesini hello hello arayabilirsiniz [Microsoft Download Center](https://www.microsoft.com/en-us/download/). 
 
-## <a name="install-the-latest-version-of-azure-mfa-server"></a>Azure MFA sunucusu en son sürümünü yükleyin
+## <a name="install-hello-latest-version-of-azure-mfa-server"></a>Azure MFA sunucusu Hello en son sürümünü yükleyin
 
-1. Konusundaki yönergeleri kullanın [Azure multi-Factor Authentication Sunucusu'nu indirmek](multi-factor-authentication-get-started-server.md#download-the-azure-multi-factor-authentication-server) Azure MFA sunucusu en son sürümünü almak için.
-2. MFA sunucusu veri dosyasındaki C:\Program Files\Multi-Factor Authentication (varsayılan yükleme konumu varsayılarak) Server\Data\PhoneFactor.pfdata ana MFA sunucunuzda konumunda bulunan bir yedeğini alın.
-3. Yüksek kullanılabilirlik için birden çok sunucu çalıştırırsanız, MFA sunucusu kimlik doğrulaması ve böylece yükseltiyorsanız sunucularına trafiği göndermeye Durdur istemci sistemleri değiştirin. Bir yük dengeleyici kullanırsanız, MFA sunucusu yük dengeleyiciden kaldırın, yükseltme yapın ve ardından sunucu grubuna geri ekleyin.
-4. Yeni Yükleyici her MFA sunucusunda çalıştırın. Eski veri dosyasındaki Yöneticisi tarafından çoğaltılmasını okuyabilir bağımlı sunucular ilk yükseltin. 
+1. Merhaba yönergeleri kullanın [indirme hello Azure çok faktörlü kimlik doğrulama sunucusu](multi-factor-authentication-get-started-server.md#download-the-azure-multi-factor-authentication-server) tooget hello en son sürümünü hello Azure MFA sunucusu.
+2. Merhaba MFA sunucusu veri dosyasındaki ana MFA sunucunuzda C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (olduğunu varsayarak hello varsayılan yükleme konumu) konumunda bulunan bir yedeğini alın.
+3. Yüksek kullanılabilirlik için birden çok sunucu çalıştırırsanız, toohello MFA sunucusu kimlik doğrulaması ve böylece yükseltiyorsanız toohello sunucuları trafiği göndermeye Durdur hello istemci sistemleri değiştirin. Bir yük dengeleyici kullanırsanız, MFA sunucusu hello yük dengeleyiciden kaldırın, yükseltme Merhaba ve ardından hello sunucu geri hello grubuna ekleyin.
+4. Merhaba yeni Yükleyici her MFA sunucusunda çalıştırın. Hello Yöneticisi tarafından çoğaltılmasını hello eski veri dosyası okuyabilir bağımlı sunucular ilk yükseltin. 
 
-  Yükleyiciyi çalıştırmadan önce geçerli MFA sunucusu kaldırmanız gerekmez. Yükleyici bir yerinde yükseltme gerçekleştirir. Aynı konuma (örneğin, C:\Program Files\Multi-Factor Authentication Server) yüklenmesini sağlayabilir yükleme yolunun önceki yüklemesinin kayıt defterinden kayıt. 
+  Geçerli MFA sunucunuz çalışan hello Yükleyici önce toouninstall gerekmez. Merhaba yükleyici yerinde yükseltme gerçekleştirir. aynı hello yükler şekilde hello yükleme yolu hello önceki yüklemesinden hello kayıt defterinden kayıt konum (örneğin, C:\Program Files\Multi-Factor Authentication Server). 
   
-5. Microsoft Visual C++ 2015 Redistributable bir güncelleştirme paketini yüklemek için istenirse isteğini kabul edin. Paket x86 hem x64 sürümleri yüklenir.
-5. Web hizmeti SDK'sı kullanıyorsanız, yeni Web hizmeti SDK'sı yüklemeniz istenir. Yeni Web hizmeti SDK'sı yüklediğinizde, sanal dizin adını önceden yüklenmiş sanal dizin (örneğin, Phonefactorwebservicesdk) eşleştiğinden emin olun.
-6. Tüm bağımlı sunucularında adımları yineleyin. Yeni ana olmasını ast birini Yükselt sonra eski ana sunucuyu yükseltin. 
+5. İstendiğinde tooinstall Microsoft Visual C++ 2015 Redistributable güncelleştirme paketini değilseniz, hello isteğini kabul edin. Her iki hello x86 hem x64 sürümleri hello paketi yüklenir.
+5. Merhaba Web hizmeti SDK'sı kullanıyorsanız istenir tooinstall hello yeni Web hizmeti SDK'sı. Yüklediğinizde yeni Web hizmeti SDK'sı Merhaba, daha önce yüklenmiş hello sanal dizin (örneğin, Phonefactorwebservicesdk) bu hello sanal dizin adıyla eşleştiğinden emin olun.
+6. Tüm bağımlı sunucularında Hello adımları yineleyin. Merhaba ast toobe hello yeni ana sonra yükseltme hello eski ana sunucu birini yükseltin. 
 
-## <a name="upgrade-the-user-portal"></a>Kullanıcı Portalı yükseltme
+## <a name="upgrade-hello-user-portal"></a>Merhaba Kullanıcı Portalı yükseltme
 
-1. Kullanıcı Portalı yükleme konumunu (örneğin, C:\inetpub\wwwroot\MultiFactorAuth) sanal dizinde bulunan web.config dosyasının yedeğini alın. Varsayılan tema için herhangi bir değişiklik yapıldıysa, App_Themes\Default klasörünün yanı sıra bir yedeğini alın. Varsayılan klasör bir kopyasını oluşturun ve varsayılan tema değiştirmek daha yeni bir tema oluşturmak daha iyidir.
-2. Kullanıcı Portalı diğer MFA sunucusu bileşenleri ile aynı sunucuda çalışıyorsa, MFA sunucusu yükleme, Kullanıcı Portalı'nı güncelleştirmek ister. İstemini kabul etmek ve kullanıcı portalı güncelleştirmesini yükleyin. Sanal dizin adını önceden yüklenmiş sanal dizin (örneğin, MultiFactorAuth) eşleşip eşleşmediğini denetleyin.
-3. Kullanıcı Portalı'nı kendi sunucusundaysa, MFA sunuculardan birinin yükleme konumundan multifactorauthenticationuserportalsetup64.msi dosyasını dosyasını kopyalayın ve kullanıcı portalı web sunucuya yerleştirin. Yükleyiciyi çalıştırın. 
+1. Merhaba sanal hello Kullanıcı Portalı yükleme konumu (örneğin, C:\inetpub\wwwroot\MultiFactorAuth) Directory'de hello web.config dosyasının yedeğini alın. Toohello varsayılan tema herhangi bir değişiklik yapıldıysa, hello App_Themes\Default klasörünün yanı sıra bir yedeğini alın. Daha iyi toocreate hello varsayılan klasör kopyasıdır ve toochange hello varsayılan tema daha yeni bir tema oluşturun.
+2. MFA sunucusu yüklemesi Hello Kullanıcı Portalı aynı sunucu diğer MFA sunucusu bileşenleri hello gibi hello hello üzerinde çalışıyorsa tooupdate hello Kullanıcı Portalı ister. Merhaba isteğini kabul edin ve hello Kullanıcı Portalı güncelleştirmesini yükleyin. Daha önce yüklenmiş hello sanal dizin (örneğin, MultiFactorAuth) bu hello sanal dizin adıyla eşleşen denetleyin.
+3. Merhaba Kullanıcı Portalı kendi sunucusundaysa, hello hello multifactorauthenticationuserportalsetup64.msi dosyasını dosya Kopyala yükleme konumu hello MFA sunucuları birinin ve hello Kullanıcı Portalı web sunucusuna yerleştirin. Merhaba yükleyiciyi çalıştırın. 
 
-  Belirten bir hata oluşursa, "Microsoft Visual C++ 2015 Redistributable Update 1 veya daha yüksek gereklidir" yükleyip en son güncelleştirme paketinden [Microsoft Download Center](https://www.microsoft.com/download/). X86 hem x64 sürümlerini yükleyin.
+  Belirten bir hata oluşursa, "Microsoft Visual C++ 2015 Redistributable Update 1 veya daha yüksek gereklidir" yükleyip hello son güncelleştirme paketini hello [Microsoft Download Center](https://www.microsoft.com/download/). Her iki hello x86 hem x64 sürümünü yükleyin.
 
-4. Güncelleştirilmiş Kullanıcı Portalı yazılım yüklendikten sonra yeni web.config dosyasına ile 1. adımda yaptığınız web.config yedekleme karşılaştırın. Yeni özniteliklere yeni web.config dosyasında yoksa, yedekleme web.config üzerine yeni bir sanal dizine kopyalayın. Başka bir seçenek kopyalayıp appSettings değerleri ve Web hizmeti SDK URL'si yedekleme dosyasından yeni özelliği web.config dosyasına yapıştırın oluşturmaktır.
+4. Kullanıcı Portalı yazılımı yüklü Hello güncelleştirdikten sonra hello yeni web.config dosyasını 1. adımda yaptığınız hello web.config yedekleme karşılaştırın. Yeni öznitelik hello yeni web.config dosyasında yoksa, hello sanal dizin toooverwrite hello yeni bir yedekleme web.config kopyalayın. Toocopy/Yapıştır hello appSettings değerleri ve hello Web hizmeti SDK hello yedekleme hello yeni web.config dosyasına URL'den bunun başka bir seçenektir.
 
-Birden çok sunucu üzerinde kullanıcı portalı varsa, bunların tümünün yüklemesinde yineleyin. 
+Birden çok sunucuya hello kullanıcı portalı varsa, bunların tümünün hello yüklemesinde yineleyin. 
 
 
-## <a name="upgrade-the-mobile-app-web-service"></a>Mobil uygulama Web Hizmeti'ni yükseltme
+## <a name="upgrade-hello-mobile-app-web-service"></a>Yükseltme hello mobil uygulama Web hizmeti
 
-1. Mobil uygulama Web hizmeti yükleme konumu (örneğin, C:\inetpub\wwwroot\app veya C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) sanal dizinde bulunan web.config dosyasının yedeğini alın.
-2. MFA sunucuları yükleme konumundan multifactorauthenticationmobileappwebservicesetup64.msi dosyasını dosyasını kopyalayın ve mobil uygulama kayıt web sunucuya yerleştirin.
-3. Yükleyiciyi çalıştırın. 
+1. Mobil uygulama Web hizmeti yükleme konumu (örneğin, C:\inetpub\wwwroot\app veya C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) hello sanal hello dizinde: hello web.config dosyasının yedeğini alın.
+2. Merhaba hello multifactorauthenticationmobileappwebservicesetup64.msi dosyasını dosya Kopyala yüklemesi hello MFA sunucuları konumunu ve hello mobil uygulama kayıt web sunucunuza yerleştirin.
+3. Merhaba yükleyiciyi çalıştırın. 
 
-  Microsoft Visual C++ 2015 Redistributable Update 1 veya daha yüksek gerekli olduğunu bildiren bir hata meydana gelirse, yükleyip en son güncelleştirme paketinden [Microsoft Download Center](https://www.microsoft.com/download/). X86 hem x64 sürümlerini yükleyin.
+  Microsoft Visual C++ 2015 Redistributable Update 1 veya daha yüksek gerekli olduğunu bildiren bir hata meydana gelirse yükleyip hello son güncelleştirme paketini hello [Microsoft Download Center](https://www.microsoft.com/download/). Her iki hello x86 hem x64 sürümünü yükleyin.
 
-4. Güncelleştirilmiş mobil uygulama Web hizmeti yazılım yüklendikten sonra yeni web.config dosyasına ile 1. adımda yedeklenen web.config dosyasını karşılaştırın. Yeni öznitelik yeni web.config dosyasında yoksa, kaydedilen web.config sanal dizine kopyalayın ve yeni bir üzerine yazma. Başka bir seçenek kopyalayıp appSettings değerleri ve Web hizmeti SDK URL'si yedekleme dosyasından yeni özelliği web.config dosyasına yapıştırın oluşturmaktır.
+4. Güncelleştirilmiş hello mobil uygulama Web hizmeti yazılım yüklendikten sonra hello yeni web.config dosyasını 1. adımda yedeklenen hello web.config dosyasında karşılaştırın. Yeni öznitelik hello yeni web.config dosyasında yoksa, kaydedilen web.config hello sanal dizinine kopyalayın ve hello yeni bir üzerine yazma. Toocopy/Yapıştır hello appSettings değerleri ve hello Web hizmeti SDK hello yedekleme hello yeni web.config dosyasına URL'den bunun başka bir seçenektir.
 
-Mobil uygulama Web hizmeti birden fazla sunucuda varsa, bunların tümünün yüklemesinde yineleyin. 
+Birden çok sunucuya hello mobil uygulama Web hizmeti varsa, bunların tümünün hello yüklemesinde yineleyin. 
 
-## <a name="upgrade-the-ad-fs-adapters"></a>AD FS bağdaştırıcısı yükseltme
+## <a name="upgrade-hello-ad-fs-adapters"></a>Yükseltme hello AD FS bağdaştırıcısı
 
 
 ### <a name="if-mfa-runs-on-different-servers-than-ad-fs"></a>MFA ADFS değerinden farklı sunucularda çalışıyorsa
 
-Multi-Factor Authentication sunucusu, AD FS sunucularından ayrı olarak çalıştırırsanız, bu yönergeler yalnızca geçerlidir. Her iki hizmet aynı sunucu üzerinde çalıştırıyorsanız, bu bölüm atlayın ve yükleme adımları gidin. 
+Multi-Factor Authentication sunucusu, AD FS sunucularından ayrı olarak çalıştırırsanız, bu yönergeler yalnızca geçerlidir. Her iki hizmet çalıştırırsanız hello aynı sunucuları, bu bölüm atlayın ve toohello yükleme adımlarını gidin. 
 
-1. AD FS'de kaydedildiği MultiFactorAuthenticationAdfsAdapter.config dosyasının bir kopyasını kaydedin veya aşağıdaki PowerShell komutunu kullanarak yapılandırmayı dışarı aktarma: `Export-AdfsAuthenticationProviderConfigurationData -Name [adapter name] -FilePath [path to config file]`. Bağdaştırıcı adı "WindowsAzureMultiFactorAuthentication" veya "AzureMfaServerAuthentication" daha önce yüklenmiş bağlı olarak sürümüdür.
-2. Aşağıdaki dosyaları MFA sunucusu yükleme konumundan AD FS sunucularına kopyalayın:
+1. AD FS'de kaydedildiği hello MultiFactorAuthenticationAdfsAdapter.config dosyasının bir kopyasını kaydedin veya hello aşağıdaki PowerShell komutunu kullanarak hello yapılandırmasını dışarı aktarma: `Export-AdfsAuthenticationProviderConfigurationData -Name [adapter name] -FilePath [path tooconfig file]`. Merhaba bağdaştırıcı adı "WindowsAzureMultiFactorAuthentication" veya "AzureMfaServerAuthentication" daha önce yüklenmiş hello bağlı olarak sürümüdür.
+2. Merhaba hello MFA sunucusu yükleme konumu toohello AD FS sunucularından aşağıdaki dosyaları kopyalayın:
 
   - MultiFactorAuthenticationAdfsAdapterSetup64.msi
   - Register-MultiFactorAuthenticationAdfsAdapter.ps1
   - Unregister-MultiFactorAuthenticationAdfsAdapter.ps1
   - MultiFactorAuthenticationAdfsAdapter.config
 
-3. Ekleyerek Register-MultiFactorAuthenticationAdfsAdapter.ps1 betiğini düzenleyin `-ConfigurationFilePath [path]` sonuna `Register-AdfsAuthenticationProvider` komutu. Değiştir *[path]* MultiFactorAuthenticationAdfsAdapter.config tam yolu ile dosya veya yapılandırma dosyasını dışarı önceki adımda. 
+3. Ekleyerek Hello Register-MultiFactorAuthenticationAdfsAdapter.ps1 betiğini düzenleyin `-ConfigurationFilePath [path]` hello toohello sonuna `Register-AdfsAuthenticationProvider` komutu. Değiştir *[path]* hello tam yolu toohello MultiFactorAuthenticationAdfsAdapter.config dosyasını veya hello yapılandırma dosyasını dışarı hello önceki adımda. 
 
-  Eski yapılandırma dosyası eşleşip eşleşmediğini görmek için yeni MultiFactorAuthenticationAdfsAdapter.config öznitelikleri denetleyin. Öznitelik eklenmiş veya yeni sürümde kaldırılmış, öznitelik değerleri eski yapılandırma dosyasından yeni bir kopyalayın. veya eşleştirmek için eski yapılandırma dosyasını değiştirin.
+  Merhaba eski yapılandırma dosyası eşleşirlerse hello yeni MultiFactorAuthenticationAdfsAdapter.config toosee hello öznitelikleri denetleyin. Öznitelik eklenmiş veya hello yeni sürümde kaldırılmış, hello eski yapılandırma dosyası toohello yeni bir hello öznitelik değerlerini kopyalayın veya hello eski yapılandırma dosyası toomatch değiştirin.
 
 ### <a name="install-new-ad-fs-adapters"></a>Yeni AD FS bağdaştırıcısı yükleme
 
 > [!IMPORTANT] 
-> Kullanıcılarınız, bu bölümün adım 3-8 sırasında iki aşamalı doğrulamayı gerçekleştirmek için gerekli değildir. Birden çok kümelerde yapılandırılmış AD FS varsa, Kaldır, yükseltme ve kesinti süresini önlemek için diğer kümeleri bağımsız olarak gruptaki her küme geri yükleyebilirsiniz.
+> Kullanıcılarınız, bu bölümün gerekli tooperform iki aşamalı doğrulama sırasında adım 3-8 olmaz. AD FS yapılandırılan varsa, birden çok kümeleri, kaldırabilirsiniz, yükseltme ve geri yükleme hello her kümedeki grubu bağımsız diğer kümeleri tooavoid kapalı kalma süresi hello.
 
-1. Bazı AD FS sunucuları grubundan kaldırın. Diğer düğümler çalışırken bu sunucuları güncelleştirin.
-2. AD FS grubundan kaldırıldı her bir sunucuda yeni AD FS Bağdaştırıcısı'nı yükleyin. MFA sunucusu her AD FS sunucusunda yüklüyse, MFA sunucusu yönetim UX güncelleştirebilirsiniz Aksi takdirde MultiFactorAuthenticationAdfsAdapterSetup64.msi çalıştırarak güncelleştirin. 
+1. Bazı AD FS sunucuları hello grubundan kaldırın. Başkalarının hala çalışıyor hello sırasında bu sunucuları güncelleştirin.
+2. Merhaba yeni AD FS bağdaştırıcısı hello AD FS grubundan kaldırıldı her sunucuya yükleyin. Merhaba MFA sunucusu her AD FS sunucusunda yüklüyse, hello MFA sunucusu Yöneticisi UX güncelleştirebilirsiniz Aksi takdirde MultiFactorAuthenticationAdfsAdapterSetup64.msi çalıştırarak güncelleştirin. 
 
-  Belirten bir hata oluşursa, "Microsoft Visual C++ 2015 Redistributable Update 1 veya daha yüksek gereklidir" yükleyip en son güncelleştirme paketinden [Microsoft Download Center](https://www.microsoft.com/download/). X86 hem x64 sürümlerini yükleyin.
+  Belirten bir hata oluşursa, "Microsoft Visual C++ 2015 Redistributable Update 1 veya daha yüksek gereklidir" yükleyip hello son güncelleştirme paketini hello [Microsoft Download Center](https://www.microsoft.com/download/). Her iki hello x86 hem x64 sürümünü yükleyin.
 
-3. Git **AD FS** > **kimlik doğrulama ilkeleri** > **genel çok faktörlü kimlik doğrulama ilkesini Düzenle**. İşaretini **WindowsAzureMultiFactorAuthentication** veya **AzureMFAServerAuthentication** (bağlı olarak yüklenen geçerli sürüm). 
+3. Çok Git**AD FS** > **kimlik doğrulama ilkeleri** > **genel çok faktörlü kimlik doğrulama ilkesini Düzenle**. İşaretini **WindowsAzureMultiFactorAuthentication** veya **AzureMFAServerAuthentication** (bağlı olarak yüklenen hello geçerli sürüm). 
 
   Bu adım tamamlandıktan sonra MFA sunucusu üzerinden iki aşamalı doğrulamayı adım 8 tamamlanana kadar bu AD FS kümede kullanılabilir değil.
 
-4. AD FS bağdaştırıcısı eski sürümü Unregister-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell betiğini çalıştırarak kaydını silin. Emin *-Name* parametresi ("WindowsAzureMultiFactorAuthentication" veya "AzureMFAServerAuthentication"), 3. adımda görüntülenen adı ile eşleşen. Merkezi bir yapılandırma olduğundan bu aynı AD FS kümesindeki tüm sunucular için geçerlidir.
-5. Yeni AD FS Bağdaştırıcısı'nı Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell betiğini çalıştırarak kaydedin. Merkezi bir yapılandırma olduğundan bu aynı AD FS kümesindeki tüm sunucular için geçerlidir.
-6. AD FS grubundan kaldırıldı her bir sunucuda AD FS hizmetini yeniden başlatın.
-7. Güncelleştirilmiş sunucusu AD FS grubunu ekleyin ve diğer sunucuları grubundan kaldırın.
-8. Git **AD FS** > **kimlik doğrulama ilkeleri** > **genel çok faktörlü kimlik doğrulama ilkesini Düzenle**. Denetleme **AzureMfaServerAuthentication**.
-9. Şimdi AD FS grubundan kaldırıldı sunucuları güncelleştirme 2. adımı yineleyin ve bu sunucular üzerinde AD FS hizmetini yeniden başlatın.
-10. Bu sunucular, AD FS grubuna geri ekleyin.
+4. Merhaba Unregister-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell betiğini çalıştırarak hello AD FS bağdaştırıcısının unregister hello eski sürümü. Bu hello olun *-Name* parametresi ("WindowsAzureMultiFactorAuthentication" veya "AzureMFAServerAuthentication"), 3. adımda görüntülenen hello adı ile eşleşen. Merkezi bir yapılandırma olduğundan bu hello aynı AD FS kümesindeki tooall sunucular için geçerlidir.
+5. Merhaba yeni AD FS bağdaştırıcısı hello Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell betiğini çalıştırarak kaydedin. Merkezi bir yapılandırma olduğundan bu hello aynı AD FS kümesindeki tooall sunucular için geçerlidir.
+6. Merhaba hello AD FS grubundan kaldırıldı her sunucuda AD FS hizmetini yeniden başlatın.
+7. Kaldır hello hello gruptan diğer sunuculara ve güncelleştirilmiş hello sunucuları toohello AD FS grubunu geri ekleyin.
+8. Çok Git**AD FS** > **kimlik doğrulama ilkeleri** > **genel çok faktörlü kimlik doğrulama ilkesini Düzenle**. Denetleme **AzureMfaServerAuthentication**.
+9. 2. adım tooupdate hello sunucular şimdi hello AD FS grubundan kaldırıldı yineleyin ve bu sunucular üzerinde hello AD FS hizmetini yeniden başlatın.
+10. Bu sunucuların geri hello AD FS grubuna ekleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

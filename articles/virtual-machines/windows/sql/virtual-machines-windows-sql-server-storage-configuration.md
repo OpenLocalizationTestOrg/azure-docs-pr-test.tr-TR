@@ -1,5 +1,5 @@
 ---
-title: "SQL Server VM'ler için depolama yapılandırması | Microsoft Docs"
+title: "SQL Server VM'ler için aaaStorage yapılandırma | Microsoft Docs"
 description: "Bu konu, nasıl Azure depolama için SQL Server Vm'lerinin (Resource Manager dağıtım modeli) sağlama sırasında yapılandırır açıklar. Ayrıca, depolama, var olan SQL Server VM'ler için nasıl yapılandırabileceğiniz açıklanmaktadır."
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: f10bac1189c94a581487d19fc0cc129acec6a636
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b50dbd698828780cfc044fa0966e8f4e2f3bb6c6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM'ler için depolama yapılandırması
-Azure'da bir SQL Server sanal makine görüntüsü yapılandırdığınızda, Portal depolama yapılandırmanızı otomatikleştirmek için yardımcı olur. Bu, belirli bir performans gereksinimlerinizi en iyi duruma getirmek için bu depolama SQL Server için erişilebilir hale getirme ve bu yapılandırma VM, depolama ekleme içerir.
+Azure'da bir SQL Server sanal makine görüntüsü yapılandırdığınızda hello Portal tooautomate depolama yapılandırmanıza yardımcı olur. Bu depolama toohello o depolama erişilebilir tooSQL sunucu yapma ve belirli bir performans gereksinimlerinizi toooptimize yapılandırma VM ekleme içerir.
 
-Bu konu, nasıl Azure depolama, SQL Server VM'ler için sağlama sırasında hem var olan VM'ler için yapılandırır açıklar. Bu yapılandırma dayanır [performansı en iyi uygulamaları](virtual-machines-windows-sql-performance.md) Azure SQL Server çalıştıran VM'ler için.
+Bu konu, nasıl Azure depolama, SQL Server VM'ler için sağlama sırasında hem var olan VM'ler için yapılandırır açıklar. Bu yapılandırma üzerinde hello dayalıdır [performansı en iyi uygulamaları](virtual-machines-windows-sql-performance.md) Azure SQL Server çalıştıran VM'ler için.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
-Otomatik depolama yapılandırma ayarlarını kullanmak için sanal makine aşağıdaki özelliklere gerektirir:
+toouse hello depolama yapılandırma ayarlarını otomatik, sanal makinenizin özelliklerini aşağıdaki hello gerektirir:
 
 * İle sağlanan bir [SQL Server galeri görüntüsü](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
-* Kullanan [Resource Manager dağıtım modeli](../../../azure-resource-manager/resource-manager-deployment-model.md).
+* Kullandığı hello [Resource Manager dağıtım modeli](../../../azure-resource-manager/resource-manager-deployment-model.md).
 * Kullanan [Premium depolama](../../../storage/common/storage-premium-storage.md).
 
 ## <a name="new-vms"></a>Yeni sanal makineleri
-Aşağıdaki bölümlerde, yeni SQL Server sanal makineler için depolama alanının nasıl yapılandırılacağını açıklar.
+Merhaba aşağıdaki bölümlerde nasıl tooconfigure depolama yeni SQL Server sanal makineler için.
 
 ### <a name="azure-portal"></a>Azure Portal
-Bir SQL Server galeri görüntüsü kullanarak bir Azure VM sağlanırken, depolama, yeni VM için otomatik olarak yapılandırmak seçebilirsiniz. Depolama boyutu, performans sınırlarını ve iş yükü türünü belirtin. Aşağıdaki ekran görüntüsünde, sağlama SQL VM sırasında kullanılan depolama yapılandırma dikey gösterir.
+Bir SQL Server galeri görüntüsü kullanarak bir Azure VM ayrılırken seçebileceğiniz tooautomatically hello depolama yeni VM için yapılandırın. Merhaba depolama boyutunu, performans sınırlarını ve iş yükü türünü belirtin. Merhaba aşağıdaki ekran görüntüsü SQL VM sırasında kullanılan hello depolama yapılandırma dikey sağlama gösterir.
 
 ![Sağlama sırasında SQL Server VM depolama yapılandırması](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Üzerinde yaptığınız seçimlere dayanarak, VM oluşturduktan sonra Azure aşağıdaki depolama yapılandırma görevleri gerçekleştirir:
+Üzerinde yaptığınız seçimlere göre Azure depolama yapılandırma görevleri hello VM oluşturduktan sonra aşağıdaki hello gerçekleştirir:
 
-* Oluşturur ve premium depolama veri diski sanal makineye iliştirir.
-* SQL Server tarafından erişilebilir olması için veri diski yapılandırır.
-* Belirtilen boyutu ve performans (IOPS ve üretilen iş) gereksinimlerine bağlı olarak bir depolama havuzu halinde veri diskleri yapılandırır.
-* Depolama havuzu, sanal makinede yeni bir sürücü ilişkilendirir.
+* Oluşturur ve premium depolama veri diskleri toohello sanal makineye iliştirir.
+* Merhaba veri diskleri toobe erişilebilir tooSQL sunucusu yapılandırır.
+* Bir depolama alanına Hello veri diskleri yapılandırır hello üzerinde temel havuzu belirtilen boyutu ve performans (IOPS ve üretilen iş) gereksinimleri.
+* Merhaba depolama havuzu hello sanal makine üzerinde yeni bir sürücü ilişkilendirir.
 * (Veri ambarı hareket işleme veya genel), belirtilen iş yükü türüne bağlı olarak bu yeni bir sürücüye en iyi duruma getirir.
 
-Azure depolama ayarlarını nasıl yapılandırır hakkında daha fazla ayrıntı için bkz: [depolama yapılandırma bölümü](#storage-configuration). Azure Portalı'nda bir SQL Server VM oluşturmak nasıl tam bir anlatım için bkz: [sağlama işlemi öğretici](virtual-machines-windows-portal-sql-server-provision.md).
+Merhaba nasıl Azure depolama ayarlarını yapılandırır hakkında daha fazla ayrıntı için bkz: [depolama yapılandırma bölümü](#storage-configuration). Toocreate SQL Server VM hello Azure Portal ile nasıl görürüm tam bir kılavuz [öğretici sağlama hello](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="resource-manage-templates"></a>Kaynak Yönet şablonları
-Aşağıdaki Resource Manager şablonları kullanırsanız, iki premium diskleri varsayılan olarak, hiçbir depolama havuzu yapılandırması ile ilişkilendirilir. Ancak, sanal makineye bağlı premium veri diski sayısı değiştirmek için bu şablonları özelleştirebilirsiniz.
+Resource Manager şablonları aşağıdaki hello kullanırsanız, iki premium diskleri varsayılan olarak, hiçbir depolama havuzu yapılandırması ile ilişkilendirilir. Ancak, ekli toohello sanal makine premium veri disklerinin bu şablonları toochange hello sayısını özelleştirebilirsiniz.
 
 * [Otomatik yedekleme ile VM oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
 * [Otomatik düzeltme eki uygulama ile VM oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
 * [AKV tümleştirme ile VM oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
 
 ## <a name="existing-vms"></a>Var olan sanal makineleri
-Var olan SQL Server VM'ler için Azure Portalı'ndaki bazı depolama ayarlarını değiştirebilirsiniz. VM'yi seçin, Ayarlar alanına gidin ve ardından SQL Server yapılandırma seçin. SQL Server yapılandırma dikey penceresinde, VM geçerli depolama kullanımını gösterir. VM'ın mevcut tüm sürücülerde Bu grafikte görüntülenir. Her bir sürücü için depolama alanı dört bölümlerde görüntüler:
+Var olan SQL Server VM'ler için hello Azure portal bazı depolama ayarlarını değiştirebilirsiniz. VM'yi seçin, toohello ayarlar alanına gidin ve ardından SQL Server yapılandırma seçin. Merhaba SQL Server yapılandırma dikey penceresinde hello geçerli depolama kullanımı vm'nizin gösterir. VM'ın mevcut tüm sürücülerde Bu grafikte görüntülenir. Her bir sürücü için dört bölümlerde hello depolama alanı görüntüler:
 
 * SQL veri
 * SQL günlüğü
@@ -69,47 +69,47 @@ Var olan SQL Server VM'ler için Azure Portalı'ndaki bazı depolama ayarların�
 
 ![Var olan SQL Server VM için depolama yapılandırma](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
-Yeni sürücü eklemek veya var olan sürücüsüne genişletmek için depolama yapılandırmak için grafiğin düzenleme bağlantısını tıklatın.
+tooconfigure depolama tooadd yeni bir sürücüye Merhaba veya var olan sürücüsüne genişletmek, hello grafik yukarıda hello Düzenle bağlantısına tıklayın.
 
-Bağlı olarak değişir gördüğünüz yapılandırma seçenekleri bu özelliği önce kullandınız. İlk kez kullanırken, depolama gereksinimleriniz için yeni bir sürücü belirtebilirsiniz. Bir sürücü oluşturmak için bu özelliği daha önce kullandıysanız, sürücünün depolama genişletmek seçebilirsiniz.
+Bu özellik önce olup olmadığını kullanmış bağlı olarak değişir bkz hello yapılandırma seçenekleri. Merhaba ilk kez kullanırken, depolama gereksinimleriniz için yeni bir sürücü belirtebilirsiniz. Bu özellik toocreate bir sürücü daha önce kullandıysanız, sürücünün depolama tooextend seçebilirsiniz.
 
-### <a name="use-for-the-first-time"></a>İlk kez kullanın
-Bu özellik, ilk kez kullanıyorsanız, depolama boyutu ve performans sınırları için yeni bir sürücü belirtebilirsiniz. Bu deneyim, ne zaman sağlama sırasında gördüğünüz için benzer. İkisi arasındaki temel fark, iş yükü türünü belirtin izin verilmeyen ' dir. Bu kısıtlama, sanal makinede mevcut tüm SQL Server yapılandırmaları kesintiye engeller.
+### <a name="use-for-hello-first-time"></a>Merhaba ilk kez kullanıma
+Bu özelliği kullanarak ilk kez doğruysa, belirtebilmeniz için yeni bir sürücü için depolama boyutu ve performans sınırlarını hello. Zaman sağlama sırasında göreceğiniz benzer toowhat deneyimidir. Merhaba ana toospecify hello iş yükü türüne izin verilmiyor farktır. Bu kısıtlama, var olan tüm SQL Server yapılandırmaları hello sanal makinedeki kesintiye engeller.
 
 ![SQL Server depolama kaydırıcılar yapılandırın](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-usage-sliders.png)
 
-Azure, belirtimlere bağlı yeni bir sürücüye oluşturur. Bu senaryoda, Azure aşağıdaki depolama yapılandırma görevleri gerçekleştirir:
+Azure, belirtimlere bağlı yeni bir sürücüye oluşturur. Bu senaryoda, Azure depolama yapılandırma görevleri aşağıdaki hello gerçekleştirir:
 
-* Oluşturur ve premium depolama veri diski sanal makineye iliştirir.
-* SQL Server tarafından erişilebilir olması için veri diski yapılandırır.
-* Belirtilen boyutu ve performans (IOPS ve üretilen iş) gereksinimlerine bağlı olarak bir depolama havuzu halinde veri diskleri yapılandırır.
-* Depolama havuzu, sanal makinede yeni bir sürücü ilişkilendirir.
+* Oluşturur ve premium depolama veri diskleri toohello sanal makineye iliştirir.
+* Merhaba veri diskleri toobe erişilebilir tooSQL sunucusu yapılandırır.
+* Bir depolama alanına Hello veri diskleri yapılandırır hello üzerinde temel havuzu belirtilen boyutu ve performans (IOPS ve üretilen iş) gereksinimleri.
+* Merhaba depolama havuzu hello sanal makine üzerinde yeni bir sürücü ilişkilendirir.
 
-Azure depolama ayarlarını nasıl yapılandırır hakkında daha fazla ayrıntı için bkz: [depolama yapılandırma bölümü](#storage-configuration).
+Merhaba nasıl Azure depolama ayarlarını yapılandırır hakkında daha fazla ayrıntı için bkz: [depolama yapılandırma bölümü](#storage-configuration).
 
 ### <a name="add-a-new-drive"></a>Yeni bir sürücü ekleyin
-SQL Server VM'nize depolama zaten yapılandırdıysanız, depolama alanını genişletmeyi iki yeni seçeneklerini getirir. İlk seçenek, VM performans düzeyini artırabilirsiniz yeni bir sürücüye eklemektir.
+SQL Server VM'nize depolama zaten yapılandırdıysanız, depolama alanını genişletmeyi iki yeni seçeneklerini getirir. Merhaba ilk tooadd VM hello performans düzeyini artırabilirsiniz yeni bir sürücüye seçenektir.
 
-![Yeni bir sürücü için bir SQL VM ekleme](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-add-new-drive.png)
+![Yeni bir sürücü tooa SQL VM ekleme](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-add-new-drive.png)
 
-Ancak, sürücü eklendikten sonra performans artışı elde etmek için bazı ek el ile yapılandırma gerçekleştirmelidir.
+Ancak, hello sürücü eklendikten sonra bazı ek el ile yapılandırma tooachieve hello performans artışı gerçekleştirmeniz gerekir.
 
-### <a name="extend-the-drive"></a>Sürücü genişletme
-Depolama alanını genişletmeyi için diğer varolan sürücü genişletmek için seçenektir. Bu seçenek kullanılabilir depolama alanı sürücünüzün artırır ancak performans artırmaz. Depolama havuzu oluşturulduktan sonra depolama havuzlarıyla sütun sayısı değiştirilemiyor. Sütun sayısı bu veri disklere yayılarak paralel yazma sayısını belirler. Bu nedenle, olan ek veri disklerinin performans artırılamıyor. Bunlar yalnızca yazılan veriler için daha fazla depolama alanı sağlayabilir. Bu sınırlama sürücü genişletirken sütun sayısı ekleyebileceğiniz veri diskleri minimum sayısını belirler, anlamına gelir. Dört veri diskleri ile bir depolama havuzunda oluşturursanız, bu nedenle sütunları da dört sayısıdır. Depolama, genişletmek istediğiniz zaman, en az dört veri diskleri eklemeniz gerekir.
+### <a name="extend-hello-drive"></a>Merhaba sürücü genişletme
+Merhaba depolama alanını genişletmeyi için başka bir seçeneğin tooextend hello varolan sürücüdür. Hello kullanılabilir depolama alanı sürücünüz için bu seçeneği artırır, ancak performans artırmaz. Depolama havuzlarıyla Hello depolama havuzu oluşturulduktan sonra hello sütun sayısı değiştirilemiyor. sütun sayısı Hello hello veri disklere yayılarak paralel yazma hello sayısını belirler. Bu nedenle, olan ek veri disklerinin performans artırılamıyor. Bunlar yalnızca yazılan hello veri için daha fazla depolama alanı sağlayabilir. Bu sınırlama hello sürücü genişletirken hello sütun sayısı hello minimum ekleyebileceğiniz veri diski sayısı belirlediğini anlamına gelir. Dört veri diskleri ile bir depolama havuzunda oluşturursanız, bu nedenle hello sütunları da dört sayısıdır. Merhaba depolama, genişletmek istediğiniz zaman, en az dört veri diskleri eklemeniz gerekir.
 
 ![Bir sürücü için bir SQL VM genişletme](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
 ## <a name="storage-configuration"></a>Depolama yapılandırması
-Bu bölümde, Azure SQL VM sağlama veya Azure Portal'da yapılandırması sırasında otomatik olarak gerçekleştirir. depolama yapılandırma değişiklikleri için bir başvuru sağlar.
+Bu bölümde, Azure SQL VM sağlama veya hello Azure Portal yapılandırması sırasında otomatik olarak gerçekleştirir hello depolama yapılandırma değişiklikleri için bir başvuru sağlar.
 
 * Azure VM için depolama ikiden TBs seçtiyseniz, depolama havuzu oluşturmaz.
-* VM için en az iki TBs depolama seçtiyseniz, Azure depolama havuzu yapılandırır. Bu konunun sonraki bölümlerinde, depolama havuzu yapılandırma ayrıntılarını sağlar.
-* Her zaman otomatik depolama yapılandırmasını kullanan [premium depolama](../../../storage/common/storage-premium-storage.md) P30 veri diski. Sonuç olarak, seçili numaranızı terabayt ve, VM'ye bağlı veri diski sayısı 1:1 eşlemesini yoktur.
+* VM için en az iki TBs depolama seçtiyseniz, Azure depolama havuzu yapılandırır. Bu konunun sonraki bölümlerinde Hello hello depolama havuzu yapılandırması hello ayrıntılarını sağlar.
+* Her zaman otomatik depolama yapılandırmasını kullanan [premium depolama](../../../storage/common/storage-premium-storage.md) P30 veri diski. Sonuç olarak, 1:1 eşleme terabayt seçili sayısı arasında ve veri diski sayısı hello tooyour VM bağlı.
 
-Fiyatlandırma bilgileri için bkz: [depolama fiyatlandırma](https://azure.microsoft.com/pricing/details/storage) sayfasında **Disk Depolama** sekmesi.
+Merhaba fiyatlandırma bilgileri için bkz: [depolama fiyatlandırma](https://azure.microsoft.com/pricing/details/storage) hello sayfasında **Disk Depolama** sekmesi.
 
-### <a name="creation-of-the-storage-pool"></a>Depolama havuzu oluşturma
-Azure, SQL Server sanal makinelerin depolama havuzu oluşturmak için aşağıdaki ayarları kullanır.
+### <a name="creation-of-hello-storage-pool"></a>Merhaba depolama havuzu oluşturma
+Azure SQL Server Vm'lerinde ayarları toocreate hello depolama havuzu aşağıdaki hello kullanır.
 
 | Ayar | Değer |
 | --- | --- |
@@ -123,23 +123,23 @@ Azure, SQL Server sanal makinelerin depolama havuzu oluşturmak için aşağıda
 | Sütun sayısı |Veri diski sayısı<sup>1</sup> |
 | TempDB konumu |Veri disklerinde depolanan<sup>2</sup> |
 
-<sup>1</sup> depolama havuzu oluşturulduktan sonra depolama havuzundaki sütun sayısı değiştirilemiyor.
+<sup>1</sup> hello depolama havuzu oluşturulduktan sonra hello hello depolama havuzundaki sütun sayısı değiştirilemiyor.
 
-<sup>2</sup> Bu ayar yalnızca depolama yapılandırma özelliğini kullanarak oluşturduğunuz ilk sürücü için geçerlidir.
+<sup>2</sup> Bu ayar yalnızca hello depolama yapılandırma özelliğini kullanarak oluşturduğunuz ilk sürücü toohello geçerlidir.
 
 ## <a name="workload-optimization-settings"></a>İş yükü iyileştirme ayarları
-Aşağıdaki tabloda kullanılabilir üç iş yükü türü seçenekleri ve bunların karşılık gelen iyileştirmeler açıklanmaktadır:
+Merhaba aşağıdaki tabloda hello üç iş yükü türü seçenekleri ve bunların karşılık gelen iyileştirmeler açıklanmaktadır:
 
 | İş yükü türü | Açıklama | En iyi duruma getirme |
 | --- | --- | --- |
 | **Genel** |Çoğu iş yükünü destekler varsayılan ayarı |None |
-| **İşlem işleme** |Depolama alanı geleneksel veritabanı OLTP iş yükleri için en iyi duruma getirir |İzleme bayrağı 1117<br/>İzleme bayrağı 1118 |
-| **Veri ambarı** |Çözümleme ve raporlama iş yükleri için depolama en iyi duruma getirir |İzleme bayrağı 610<br/>İzleme bayrağı 1117 |
+| **İşlem işleme** |Merhaba depolama geleneksel veritabanı OLTP iş yükleri için en iyi duruma getirir |İzleme bayrağı 1117<br/>İzleme bayrağı 1118 |
+| **Veri ambarı** |Merhaba depolama çözümleme ve raporlama iş yükleri için en iyi duruma getirir |İzleme bayrağı 610<br/>İzleme bayrağı 1117 |
 
 > [!NOTE]
-> SQL sanal makinesi depolama yapılandırması adımda seçerek sağladığınızda, yalnızca iş yükü türünü belirtebilirsiniz.
+> Merhaba depolama yapılandırması adımda seçerek SQL sanal makinesi sağladığınızda, yalnızca hello iş yükü türünü belirtebilirsiniz.
 >
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Vm'lerde SQL Server çalıştırma ile ilgili diğer konular için bkz: [Azure Virtual Machines'de SQL Server](virtual-machines-windows-sql-server-iaas-overview.md).
+Azure vm'lerinde SQL Server toorunning ilgili diğer konular için bkz: [Azure Virtual Machines'de SQL Server](virtual-machines-windows-sql-server-iaas-overview.md).

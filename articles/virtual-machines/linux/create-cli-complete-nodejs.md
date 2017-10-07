@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 1.0 ile eksiksiz bir Linux ortamı oluşturma | Microsoft Docs"
-description: "Depolama, bir Linux VM, bir sanal ağ ve alt ağ, bir yük dengeleyici, bir NIC, ortak bir IP ve tüm sıfırdan Azure CLI 1.0 kullanarak bir ağ güvenlik grubu oluşturun."
+title: "aaaCreate hello Azure CLI 1.0 ile eksiksiz bir Linux ortamı | Microsoft Docs"
+description: "Tüm hello Azure CLI 1.0 kullanarak plan hello depolama, bir Linux VM, bir sanal ağ ve alt ağ, bir yük dengeleyici, bir NIC, ortak bir IP ve bir ağ güvenlik grubu oluşturun."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -15,117 +15,117 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7fe00e138704fe9c9a1c9b87a7dd1afd6174e527
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Azure CLI 1.0 ile eksiksiz bir Linux ortamı oluşturma
-Bu makalede, bir yük dengeleyici ve geliştirme ve basit bilgi işlem için yararlı olan VM'ler çifti ile basit bir ağ oluşturun. İki çalışma, güvenli Linux, gelen herhangi bir yere Internet'te bağlanabileceği VM'ler kadar biz komut komut işleminde size kılavuzluk. Ardından, daha karmaşık ağlar ve ortamlar geçebilirsiniz.
+# <a name="create-a-complete-linux-environment-with-hello-azure-cli-10"></a>Azure CLI 1.0 hello ile eksiksiz bir Linux ortamı oluşturma
+Bu makalede, bir yük dengeleyici ve geliştirme ve basit bilgi işlem için yararlı olan VM'ler çifti ile basit bir ağ oluşturun. Biz komutu tarafından komut hello işleminde size kılavuzluk, iki çalışma kadar gelen herhangi bir yere hello Internet üzerinde bağlayabilirsiniz Linux VM'ler toowhich güvenli. Ardından, toomore karmaşık ağlar ve ortamları taşıyabilirsiniz.
 
-Yol boyunca bağımlılık hiyerarşi, Resource Manager dağıtım modeli sağlar ve bunu hakkında ne kadar güç sağlar öğrenin. Sistem nasıl yapılandırıldığını gördükten sonra bu çok daha hızlı bir şekilde kullanarak yeniden oluşturmak için kullanabileceğiniz [Azure Resource Manager şablonları](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ortamınızı bölümlerini nasıl bir araya getireceğinizi öğrenin sonra da, bunları otomatikleştirmek için şablonlar oluşturma daha kolay olur.
+Merhaba yol boyunca hello Resource Manager dağıtım modeli sağlar ve hakkında ne kadar güç sağlar hello bağımlılık hiyerarşi öğrenin. Merhaba sistem nasıl yapılandırıldığını gördükten sonra bu çok daha hızlı bir şekilde kullanarak yeniden oluşturmak için kullanabileceğiniz [Azure Resource Manager şablonları](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ayrıca, hello bölümleri ortamınızın nasıl bir araya getireceğinizi öğrenin sonra şablonları tooautomate oluşturarak bunları olur daha kolay.
 
-Ortam içerir:
+Merhaba ortamı içerir:
 
 * İki VM bir kullanılabilirlik kümesi içinde.
 * Yük Dengeleyici Yük Dengeleme kuralı bağlantı noktası 80 ile.
-* VM gelen istenmeyen trafiği korumak için ağ güvenlik grubu (NSG) kuralları.
+* Ağ güvenlik grubu (NSG), VM istenmeyen trafiğinden tooprotect kuralları.
 
-Bu özel ortam oluşturmak için en son gerekir [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Kaynak Yöneticisi modunda (`azure config mode arm`). Ayrıca aracı ayrıştırma JSON gerekir. Bu örnekte [jq](https://stedolan.github.io/jq/).
+toocreate bu özel ortam hello son gereksinim [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Kaynak Yöneticisi modunda (`azure config mode arm`). Ayrıca aracı ayrıştırma JSON gerekir. Bu örnekte [jq](https://stedolan.github.io/jq/).
 
 
-## <a name="cli-versions-to-complete-the-task"></a>Görevi tamamlamak için kullanılacak CLI sürümleri
-Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
+## <a name="cli-versions-toocomplete-hello-task"></a>CLI sürümleri toocomplete hello görevi
+CLI sürümleri aşağıdaki hello birini kullanarak hello görevi tamamlamak:
 
-- [Azure CLI 1.0](#quick-commands) – bizim CLI Klasik ve kaynak yönetimi dağıtım modeline (Bu makalede)
-- [Azure CLI 2.0](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız
+- [Azure CLI 1.0](#quick-commands) – bizim CLI hello Klasik ve kaynak yönetimi dağıtım modeline (Bu makalede)
+- [Azure CLI 2.0](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -bizim nesil CLI hello kaynak yönetimi dağıtım modeli için
 
 
 ## <a name="quick-commands"></a>Hızlı komutlar
-Bir VM için Azure karşıya yüklemek için hızlı bir şekilde, aşağıdaki bölümde ayrıntıları temel görevi gerekiyorsa komutları. Her adım başlangıç belgenin geri kalanı bulunabilir bilgi ve içerik daha ayrıntılı [burada](#detailed-walkthrough).
+Tooquickly gerekiyorsa hello görevi, hello bölüm ayrıntıları hello aşağıdaki komutları tooupload VM tooAzure temel. Her adım başlangıç hello belgenin hello kalan bulunabilir bilgi ve içerik daha ayrıntılı [burada](#detailed-walkthrough).
 
-Bilgisayarınızda yüklü olduğundan emin olun [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) oturum açmış ve Resource Manager modunu kullanma:
+Bilgisayarınızda yüklü olduğundan emin olun [Azure CLI 1.0 hello](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) oturum açmış ve Resource Manager modunu kullanma:
 
 ```azurecli
 azure config mode arm
 ```
 
-Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında `myResourceGroup`, `mystorageaccount`, ve `myVM`.
+Hello aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında `myResourceGroup`, `mystorageaccount`, ve `myVM`.
 
-Kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu oluşturur `myResourceGroup` içinde `westeurope` konumu:
+Merhaba kaynak grubu oluşturun. Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu `myResourceGroup` hello içinde `westeurope` konumu:
 
 ```azurecli
 azure group create -n myResourceGroup -l westeurope
 ```
 
-Kaynak Grup, JSON ayrıştırıcısı kullanarak doğrulayın:
+Merhaba kaynak grubu hello JSON ayrıştırıcısı kullanarak doğrulayın:
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Depolama hesabı oluşturun. Aşağıdaki örnek adlı bir depolama hesabı oluşturur `mystorageaccount`. (Depolama hesabı adı gerekir benzersiz olmalıdır, böylece kendi benzersiz bir ad sağlayın.)
+Merhaba depolama hesabı oluşturun. Merhaba aşağıdaki örnek adlı bir depolama hesabı oluşturur `mystorageaccount`. (Merhaba depolama hesabı adı gerekir benzersiz olması, bu nedenle, kendi benzersiz bir ad sağlayın.)
 
 ```azurecli
 azure storage account create -g myResourceGroup -l westeurope \
   --kind Storage --sku-name GRS mystorageaccount
 ```
 
-Depolama hesabı JSON ayrıştırıcısı kullanarak doğrulayın:
+Merhaba depolama hesabı hello JSON ayrıştırıcısı kullanarak doğrulayın:
 
 ```azurecli
 azure storage account show -g myResourceGroup mystorageaccount --json | jq '.'
 ```
 
-Sanal ağı oluşturun. Aşağıdaki örnek adlı bir sanal ağ oluşturur `myVnet`:
+Merhaba sanal ağ oluşturun. Merhaba aşağıdaki örnek adlı bir sanal ağ oluşturur `myVnet`:
 
 ```azurecli
 azure network vnet create -g myResourceGroup -l westeurope\
   -n myVnet -a 192.168.0.0/16
 ```
 
-Bir alt ağ oluşturun. Aşağıdaki örnek adlı bir alt ağı oluşturur `mySubnet`:
+Bir alt ağ oluşturun. Merhaba aşağıdaki örnek adlı bir alt ağı oluşturur `mySubnet`:
 
 ```azurecli
 azure network vnet subnet create -g myResourceGroup \
   -e myVnet -n mySubnet -a 192.168.1.0/24
 ```
 
-Sanal ağ ve alt JSON ayrıştırıcısı kullanarak doğrulayın:
+Merhaba sanal ağ ve alt hello JSON ayrıştırıcısı kullanarak doğrulayın:
 
 ```azurecli
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-Genel IP oluşturun. Aşağıdaki örnek adlı ortak IP oluşturur `myPublicIP` DNS adı ile `mypublicdns`. (DNS adı gerekir benzersiz olmalıdır, böylece kendi benzersiz bir ad sağlayın.)
+Genel IP oluşturun. Merhaba aşağıdaki örnekte oluşturur adlı ortak IP `myPublicIP` hello DNS adı ile `mypublicdns`. (Merhaba DNS adı gerekir benzersiz olması, bu nedenle, kendi benzersiz bir ad sağlayın.)
 
 ```azurecli
 azure network public-ip create -g myResourceGroup -l westeurope \
   -n myPublicIP  -d mypublicdns -a static -i 4
 ```
 
-Yük Dengeleyici oluşturun. Aşağıdaki örnek, adlandırılmış bir yük dengeleyici oluşturur `myLoadBalancer`:
+Merhaba yük dengeleyicisi oluşturun. Merhaba aşağıdaki örnek adlı bir yük dengeleyici oluşturur `myLoadBalancer`:
 
 ```azurecli
 azure network lb create -g myResourceGroup -l westeurope -n myLoadBalancer
 ```
 
-Yük Dengeleyici için bir ön uç IP havuzu oluşturun ve genel IP ilişkilendirebilirsiniz. Aşağıdaki örnek adlı bir ön uç IP havuzu oluşturur `mySubnetPool`:
+Merhaba yük dengeleyici için bir ön uç IP havuzu oluşturun ve hello genel IP ilişkilendirin. Merhaba aşağıdaki örnek adlı bir ön uç IP havuzu oluşturur `mySubnetPool`:
 
 ```azurecli
 azure network lb frontend-ip create -g myResourceGroup -l myLoadBalancer \
   -i myPublicIP -n myFrontEndPool
 ```
 
-Yük Dengeleyici için arka uç IP havuzu oluşturun. Aşağıdaki örnek adlı bir arka uç IP havuzu oluşturur `myBackEndPool`:
+Merhaba yük dengeleyici için Hello arka uç IP havuzu oluşturun. Merhaba aşağıdaki örnekte oluşturur adlı bir arka uç IP havuzu `myBackEndPool`:
 
 ```azurecli
 azure network lb address-pool create -g myResourceGroup -l myLoadBalancer \
   -n myBackEndPool
 ```
 
-SSH gelen ağ adresi çevirisi (NAT) kuralları yük dengeleyici için oluşturun. Aşağıdaki örnek, iki yük dengeleyici kuralı oluşturur `myLoadBalancerRuleSSH1` ve `myLoadBalancerRuleSSH2`:
+SSH gelen ağ adresi çevirisi (NAT) kuralları hello yük dengeleyici için oluşturun. Merhaba aşağıdaki örnekte oluşturur iki yük dengeleyici kuralları, `myLoadBalancerRuleSSH1` ve `myLoadBalancerRuleSSH2`:
 
 ```azurecli
 azure network lb inbound-nat-rule create -g myResourceGroup -l myLoadBalancer \
@@ -134,7 +134,7 @@ azure network lb inbound-nat-rule create -g myResourceGroup -l myLoadBalancer \
   -n myLoadBalancerRuleSSH2 -p tcp -f 4223 -b 22
 ```
 
-Web oluşturulamıyor gelen NAT kuralları yük dengeleyici için. Aşağıdaki örnek adlı yük dengeleyici kuralı oluşturur `myLoadBalancerRuleWeb`:
+Merhaba web oluşturmak yük dengeleyici gelen NAT kuralları hello için. Merhaba aşağıdaki örnek adlı bir yük dengeleyici kuralı oluşturur `myLoadBalancerRuleWeb`:
 
 ```azurecli
 azure network lb rule create -g myResourceGroup -l myLoadBalancer \
@@ -142,22 +142,22 @@ azure network lb rule create -g myResourceGroup -l myLoadBalancer \
   -t myFrontEndPool -o myBackEndPool
 ```
 
-Yük Dengeleyici durum araştırması oluşturun. Aşağıdaki örnek adlı bir TCP araştırması oluşturur `myHealthProbe`:
+Merhaba yük dengeleyici durum araştırması oluşturun. Merhaba aşağıdaki örnek adlı bir TCP araştırması oluşturur `myHealthProbe`:
 
 ```azurecli
 azure network lb probe create -g myResourceGroup -l myLoadBalancer \
   -n myHealthProbe -p "tcp" -i 15 -c 4
 ```
 
-Yük Dengeleyici, IP havuzları ve NAT kuralları JSON ayrıştırıcısı kullanarak doğrulayın:
+Merhaba yük dengeleyici, IP havuzları ve NAT kuralları hello JSON ayrıştırıcısı kullanarak doğrulayın:
 
 ```azurecli
 azure network lb show -g myResourceGroup -n myLoadBalancer --json | jq '.'
 ```
 
-İlk ağ arabirim kartı (NIC) oluşturun. Değiştir `#####-###-###` bölümleri, kendi Azure aboneliği ID'ye sahip Aboneliğinizi çıktısında kimliği not ettiğiniz **jq** oluşturmakta kaynakları incelediğinizde. Abonelik Kimliğinizle de görüntüleyebilirsiniz `azure account list`.
+Merhaba ilk ağ arabirim kartı (NIC) oluşturun. Hello yerine `#####-###-###` bölümleri, kendi Azure aboneliği ID'ye sahip Aboneliğinizi hello çıktısında kimliği not ettiğiniz **jq** oluşturmakta hello kaynakları incelediğinizde. Abonelik Kimliğinizle de görüntüleyebilirsiniz `azure account list`.
 
-Aşağıdaki örnek, adlandırılmış bir NIC oluşturur `myNic1`:
+Merhaba aşağıdaki örnekte oluşturur adlı bir NIC `myNic1`:
 
 ```azurecli
 azure network nic create -g myResourceGroup -l westeurope \
@@ -166,7 +166,7 @@ azure network nic create -g myResourceGroup -l westeurope \
   -e "/subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1"
 ```
 
-İkinci NIC oluşturun Aşağıdaki örnek, adlandırılmış bir NIC oluşturur `myNic2`:
+Merhaba ikinci NIC oluşturun Merhaba aşağıdaki örnekte oluşturur adlı bir NIC `myNic2`:
 
 ```azurecli
 azure network nic create -g myResourceGroup -l westeurope \
@@ -175,21 +175,21 @@ azure network nic create -g myResourceGroup -l westeurope \
   -e "/subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH2"
 ```
 
-İki NIC JSON ayrıştırıcısı kullanarak doğrulayın:
+Merhaba iki NIC hello JSON ayrıştırıcısı kullanarak doğrulayın:
 
 ```azurecli
 azure network nic show myResourceGroup myNic1 --json | jq '.'
 azure network nic show myResourceGroup myNic2 --json | jq '.'
 ```
 
-Ağ güvenlik grubu oluşturun. Aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur `myNetworkSecurityGroup`:
+Merhaba ağ güvenlik grubu oluşturun. Merhaba aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur `myNetworkSecurityGroup`:
 
 ```azurecli
 azure network nsg create -g myResourceGroup -l westeurope \
   -n myNetworkSecurityGroup
 ```
 
-Ağ güvenlik grubu için iki gelen kuralı ekleyin. Aşağıdaki örnek, iki kural oluşturur `myNetworkSecurityGroupRuleSSH` ve `myNetworkSecurityGroupRuleHTTP`:
+Merhaba ağ güvenlik grubu için iki gelen kuralı ekleyin. Merhaba aşağıdaki örnekte oluşturur iki kural `myNetworkSecurityGroupRuleSSH` ve `myNetworkSecurityGroupRuleHTTP`:
 
 ```azurecli
 azure network nsg rule create -p tcp -r inbound -y 1000 -u 22 -c allow \
@@ -198,26 +198,26 @@ azure network nsg rule create -p tcp -r inbound -y 1001 -u 80 -c allow \
   -g myResourceGroup -a myNetworkSecurityGroup -n myNetworkSecurityGroupRuleHTTP
 ```
 
-Ağ güvenlik grubu ve gelen kuralları JSON ayrıştırıcısı kullanarak doğrulayın:
+Merhaba ağ güvenlik grubu ve gelen kuralları hello JSON ayrıştırıcısı kullanarak doğrulayın:
 
 ```azurecli
 azure network nsg show -g myResourceGroup -n myNetworkSecurityGroup --json | jq '.'
 ```
 
-Ağ güvenlik grubu için iki NIC bağlayın:
+Merhaba ağ güvenliği bağlama toohello iki NIC grubu:
 
 ```azurecli
 azure network nic set -g myResourceGroup -o myNetworkSecurityGroup -n myNic1
 azure network nic set -g myResourceGroup -o myNetworkSecurityGroup -n myNic2
 ```
 
-Kullanılabilirlik kümesi oluşturun. Aşağıdaki örnek, kullanılabilirlik adlandırılmış kümesi oluşturur `myAvailabilitySet`:
+Merhaba kullanılabilirlik kümesi oluşturun. Merhaba aşağıdaki örnekte oluşturur kullanılabilirlik adlandırılmış kümesi `myAvailabilitySet`:
 
 ```azurecli
 azure availset create -g myResourceGroup -l westeurope -n myAvailabilitySet
 ```
 
-İlk Linux VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur `myVM1`:
+Oluşturma ilk Linux VM hello. Merhaba aşağıdaki örnekte oluşturur adlı bir VM'den `myVM1`:
 
 ```azurecli
 azure vm create \
@@ -235,7 +235,7 @@ azure vm create \
     --admin-username azureuser
 ```
 
-İkinci Linux VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur `myVM2`:
+Merhaba oluşturma Linux VM ikinci. Merhaba aşağıdaki örnekte oluşturur adlı bir VM'den `myVM2`:
 
 ```azurecli
 azure vm create \
@@ -253,32 +253,32 @@ azure vm create \
     --admin-username azureuser
 ```
 
-JSON ayrıştırıcı doğrulamak için oluşturulmuş her şeyi kullanın:
+Merhaba JSON ayrıştırıcı tooverify bu her şeyi, oluşturulmuş kullanın:
 
 ```azurecli
 azure vm show -g myResourceGroup -n myVM1 --json | jq '.'
 azure vm show -g myResourceGroup -n myVM2 --json | jq '.'
 ```
 
-Ortamınızı hızla yeni örnekleri yeniden oluşturmak için bir şablonu dışarı aktarın:
+Yeni ortam tooa şablonu tooquickly yeniden oluşturmanız yeni örneklerinizi dışarı aktarın:
 
 ```azurecli
 azure group export myResourceGroup
 ```
 
 ## <a name="detailed-walkthrough"></a>Ayrıntılı kılavuz
-Ortamınızı yapı gibi her komutun ne yaptığını ayrıntılı adımları açıklanmaktadır. Bu kavramlar, kendi özel ortamınız için geliştirme veya üretim derlerken faydalıdır.
+Merhaba izleyin ayrıntılı adımlar ortamınızı yapı gibi her komutun ne yaptığını açıklanmaktadır. Bu kavramlar, kendi özel ortamınız için geliştirme veya üretim derlerken faydalıdır.
 
-Bilgisayarınızda yüklü olduğundan emin olun [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) oturum açmış ve Resource Manager modunu kullanma:
+Bilgisayarınızda yüklü olduğundan emin olun [Azure CLI 1.0 hello](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) oturum açmış ve Resource Manager modunu kullanma:
 
 ```azurecli
 azure config mode arm
 ```
 
-Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında `myResourceGroup`, `mystorageaccount`, ve `myVM`.
+Hello aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında `myResourceGroup`, `mystorageaccount`, ve `myVM`.
 
 ## <a name="create-resource-groups-and-choose-deployment-locations"></a>Kaynak grupları oluşturun ve dağıtım konumları seçin
-Azure kaynak gruplarını yapılandırma bilgilerini ve kaynak dağıtımları mantıksal yönetimini etkinleştirmek için meta veriler içeren mantıksal dağıtım varlıklardır. Aşağıdaki örnek, bir kaynak grubu oluşturur `myResourceGroup` içinde `westeurope` konumu:
+Azure kaynak gruplarını yapılandırma bilgilerini ve meta veri tooenable hello mantıksal Yönetimi kaynak dağıtımlarını içeren mantıksal dağıtım varlıklardır. Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu `myResourceGroup` hello içinde `westeurope` konumu:
 
 ```azurecli
 azure group create --name myResourceGroup --location westeurope
@@ -301,9 +301,9 @@ info:    group create command OK
 ```
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
-Eklemek istediğiniz herhangi bir ek veri disklerinin ve VM diskleriniz için depolama hesapları gerekir. Kaynak grupları oluşturun sonra hemen hemen depolama hesapları oluşturun.
+Tooadd istediğiniz depolama hesapları olan ek veri disklerinin ve VM diskleri için gerekir. Kaynak grupları oluşturun sonra hemen hemen depolama hesapları oluşturun.
 
-Burada kullandığımız `azure storage account create` komutu, hesap, kaynak grubu konumu geçirme denetler ve istediğiniz depolama destek türü. Aşağıdaki örnek adlı bir depolama hesabı oluşturur `mystorageaccount`:
+Merhaba burada kullandığımız `azure storage account create` komutunu hello hello hesabı, hello kaynak grubu konumunu geçirme denetler ve istediğiniz depolama destek hello türü. Merhaba aşağıdaki örnek adlı bir depolama hesabı oluşturur `mystorageaccount`:
 
 ```azurecli
 azure storage account create \  
@@ -321,7 +321,7 @@ info:    Executing command storage account create
 info:    storage account create command OK
 ```
 
-Bizim kaynak grubu kullanarak incelemek için `azure group show` komutu, kullanalım [jq](https://stedolan.github.io/jq/) ile birlikte aracı `--json` Azure CLI seçeneği. (Kullanabileceğiniz **jsawk** veya JSON ayrıştırmak için tercih ettiğiniz herhangi bir dil kitaplığı.)
+Bizim kaynak grubunda hello kullanarak tooexamine `azure group show` komutu, hello kullanalım [jq](https://stedolan.github.io/jq/) aracı ile birlikte hello `--json` Azure CLI seçeneği. (Kullanabileceğiniz **jsawk** veya tooparse tercih ettiğiniz herhangi bir dil kitaplığı hello JSON.)
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -359,7 +359,7 @@ azure group show myResourceGroup --json | jq '.'
 }
 ```
 
-CLI kullanarak depolama hesabına araştırmak için ilk hesap adlarını ve anahtarları ayarlamanız gerekir. Aşağıdaki örnekte depolama hesabı adı seçtiğiniz bir adla değiştirin:
+Merhaba CLI kullanarak tooinvestigate hello depolama hesabı, önce tooset hello hesap adlarını ve anahtarları gerekir. Aşağıdaki seçtiğiniz bir adla örneğine hello hello depolama hesabında Hello adını değiştirin:
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show mystorageaccount --resource-group myResourceGroup --json | jq -r '.string')"
@@ -383,7 +383,7 @@ info:    storage container list command OK
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Bir sanal ağ ve alt ağ oluşturun
-Sonraki Azure ve Vm'lerinizi oluşturabileceğiniz bir alt ağ içinde çalışan bir sanal ağ oluşturmak ihtiyacınız olacak. Aşağıdaki örnek adlı bir sanal ağ oluşturur `myVnet` ile `192.168.0.0/16` adres öneki:
+Sonraki tooneed toocreate Azure ve Vm'lerinizi oluşturabileceğiniz bir alt ağ içinde çalışan bir sanal ağ oluşturacağız. Merhaba aşağıdaki örnek adlı bir sanal ağ oluşturur `myVnet` hello ile `192.168.0.0/16` adres öneki:
 
 ```azurecli
 azure network vnet create --resource-group myResourceGroup --location westeurope \
@@ -407,7 +407,7 @@ data:      192.168.0.0/16
 info:    network vnet create command OK
 ```
 
-Yeniden--json seçeneği kullanalım `azure group show` ve `jq` nasıl KAYNAKLARIMIZI oluşturmakta olduğumuz görmek için. Şimdi sahip olduğumuz bir `storageAccounts` kaynak ve `virtualNetworks` kaynak.  
+Yeniden hello--json seçeneği kullanalım `azure group show` ve `jq` toosee nasıl KAYNAKLARIMIZI oluşturmakta olduğumuz. Şimdi sahip olduğumuz bir `storageAccounts` kaynak ve `virtualNetworks` kaynak.  
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -452,7 +452,7 @@ azure group show myResourceGroup --json | jq '.'
 }
 ```
 
-Şimdi bir alt ağda oluşturalım `myVnet` sanal ağ, sanal makineleri dağıtılır. Kullanırız `azure network vnet subnet create` zaten oluşturduğumuz kaynakları birlikte komutu: `myResourceGroup` kaynak grubu ve `myVnet` sanal ağ. Aşağıdaki örnekte, eklediğimiz adlı alt ağın `mySubnet` alt ağ adresi öneki ile `192.168.1.0/24`:
+Şimdi bir alt ağ hello oluşturalım `myVnet` sanal ağ içinde hangi hello VM'ler dağıtılır. Merhaba kullanırız `azure network vnet subnet create` zaten oluşturduğumuz hello kaynakları birlikte komutu: Merhaba `myResourceGroup` kaynak grubu ve hello `myVnet` sanal ağ. Aşağıdaki örneğine hello adlı hello alt eklediğimiz `mySubnet` hello alt ağ adresi öneki ile `192.168.1.0/24`:
 
 ```azurecli
 azure network vnet subnet create --resource-group myResourceGroup \
@@ -463,9 +463,9 @@ azure network vnet subnet create --resource-group myResourceGroup \
 
 ```azurecli
 info:    Executing command network vnet subnet create
-+ Looking up the subnet "mySubnet"
++ Looking up hello subnet "mySubnet"
 + Creating subnet "mySubnet"
-+ Looking up the subnet "mySubnet"
++ Looking up hello subnet "mySubnet"
 data:    Id                              : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet
 data:    Type                            : Microsoft.Network/virtualNetworks/subnets
 data:    ProvisioningState               : Succeeded
@@ -475,7 +475,7 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-Alt ağ içindeki sanal ağı mantıksal olarak olduğundan, biz biraz farklı bir komutla alt ağ bilgilerini arayın. Kullanırız komut `azure network vnet show`, ancak kullanarak JSON çıktısını incelemek devam `jq`.
+Merhaba alt mantıksal olarak hello sanal ağ içinde olduğundan, biz biraz farklı bir komutla hello alt ağ bilgilerini arayın. Merhaba komutu kullanırız `azure network vnet show`, ancak kullanarak tooexamine hello JSON çıktısını devam `jq`.
 
 ```azurecli
 azure network vnet show myResourceGroup myVnet --json | jq '.'
@@ -513,7 +513,7 @@ azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
 ## <a name="create-a-public-ip-address"></a>Genel IP adresi oluşturma
-Şimdi biz yük dengeleyicinizin Ata genel IP adresi (PIP) oluşturalım. Vm'leriniz için Internet'ten kullanarak bağlanmak sağlar `azure network public-ip create` komutu. Varsayılan Adres dinamik olduğundan, adlandırılmış bir DNS girişi oluşturuyoruz **cloudapp.azure.com** kullanarak etki alanı `--domain-name-label` seçeneği. Aşağıdaki örnek adlı ortak IP oluşturur `myPublicIP` DNS adı ile `mypublicdns`. DNS adının benzersiz olması gerektiğinden, kendi benzersiz DNS adını belirtin:
+Şimdi biz tooyour yük dengeleyici atamak hello genel IP adresi (PIP) oluşturalım. Merhaba Internet gelen tooconnect tooyour VM'ler hello kullanarak sağlar `azure network public-ip create` komutu. Merhaba varsayılan adres dinamik olduğundan, adlandırılmış bir DNS girişi hello oluşturuyoruz **cloudapp.azure.com** hello kullanarak etki alanı `--domain-name-label` seçeneği. Merhaba aşağıdaki örnekte oluşturur adlı ortak IP `myPublicIP` hello DNS adı ile `mypublicdns`. Merhaba DNS adının benzersiz olması gerektiğinden, kendi benzersiz DNS adını belirtin:
 
 ```azurecli
 azure network public-ip create --resource-group myResourceGroup \
@@ -524,9 +524,9 @@ azure network public-ip create --resource-group myResourceGroup \
 
 ```azurecli
 info:    Executing command network public-ip create
-+ Looking up the public ip "myPublicIP"
++ Looking up hello public ip "myPublicIP"
 + Creating public ip address "myPublicIP"
-+ Looking up the public ip "myPublicIP"
++ Looking up hello public ip "myPublicIP"
 data:    Id                              : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP
 data:    Name                            : myPublicIP
 data:    Type                            : Microsoft.Network/publicIPAddresses
@@ -539,7 +539,7 @@ data:    FQDN                            : mypublicdns.westeurope.cloudapp.azure
 info:    network public-ip create command OK
 ```
 
-Kendisiyle görebilmeniz için genel IP adresini de üst düzey bir kaynak değildir `azure group show`.
+ile görebilirsiniz hello ortak IP adresini de üst düzey bir kaynak olduğundan `azure group show`.
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -591,7 +591,7 @@ azure group show myResourceGroup --json | jq '.'
 }
 ```
 
-Tam kullanarak alt etki alanının tam etki alanı adı (FQDN) de dahil olmak üzere daha fazla kaynak ayrıntılarını araştırabilirsiniz `azure network public-ip show` komutu. Ortak IP adresi kaynağı mantıksal olarak ayrıldı, ancak belirli bir adresi yok henüz atanmamış. Bir IP adresi elde etmek için değil henüz oluşturduk bir yük dengeleyici ihtiyacınız olacak.
+Merhaba tam kullanarak hello hello alt etki alanının tam etki alanı adı (FQDN) de dahil olmak üzere daha fazla kaynak ayrıntılarını araştırabilirsiniz `azure network public-ip show` komutu. Merhaba ortak IP adresi kaynağı mantıksal olarak ayrıldı, ancak belirli bir adresi yok henüz atanmamış. bir IP adresi tooobtain, tooneed değil henüz oluşturduk bir yük dengeleyici oluşturacağız.
 
 ```azurecli
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
@@ -617,7 +617,7 @@ azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
 ```
 
 ## <a name="create-a-load-balancer-and-ip-pools"></a>Bir yük dengeleyici ve IP havuzları oluşturma
-Bir yük dengeleyici oluşturduğunuzda, trafiği birden çok VM dağıtmanızı sağlar. Ayrıca, Bakım veya ağır yük durumunda kullanıcı isteklerine yanıt birden çok VM çalıştırarak uygulamanız için artıklık da sağlar. Aşağıdaki örnek, adlandırılmış bir yük dengeleyici oluşturur `myLoadBalancer`:
+Bir yük dengeleyici oluşturduğunuzda, toodistribute trafiği arasında birden çok VM sağlar. Ayrıca, Bakım veya ağır yükten hello olayı içinde toouser isteklerine yanıt birden çok VM çalıştırarak artıklık tooyour uygulama da sağlar. Merhaba aşağıdaki örnek adlı bir yük dengeleyici oluşturur `myLoadBalancer`:
 
 ```azurecli
 azure network lb create --resource-group myResourceGroup --location westeurope \
@@ -628,7 +628,7 @@ azure network lb create --resource-group myResourceGroup --location westeurope \
 
 ```azurecli
 info:    Executing command network lb create
-+ Looking up the load balancer "myLoadBalancer"
++ Looking up hello load balancer "myLoadBalancer"
 + Creating load balancer "myLoadBalancer"
 data:    Id                              : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer
 data:    Name                            : myLoadBalancer
@@ -638,9 +638,9 @@ data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
 
-Bizim yük dengeleyici sağlandığından bazı IP havuzları oluşturmak oldukça boş olur. Bizim yük dengeleyicisi, ön uç için diğeri için arka uç için iki IP havuzları oluşturmak üzere istiyoruz. Ön uç IP havuzu herkese görünür. Ayrıca, daha önce oluşturduğumuz PIP atamak biz konum değil. Ardından arka uç havuzu bizim VM'ler için bir konum olarak bağlanmak için kullanırız. Bu şekilde, sanal makineleri yük dengeleyiciye üzerinden trafik akabilir.
+Bizim yük dengeleyici sağlandığından bazı IP havuzları oluşturmak oldukça boş olur. Toocreate iki IP havuzları istiyoruz bizim yük dengeleyici, biri hello ön uç için diğeri hello arka uç için. Merhaba ön uç IP havuzu herkese görünür. Ayrıca, biz hello daha önce oluşturduğumuz PIP atamak hello konumu toowhich unutulmamalıdır. Ardından hello arka uç havuzu gibi bir konuma bizim VM'ler tooconnect için kullanırız. Bu şekilde hello trafiği hello yük dengeleyici toohello VM'ler akabilir.
 
-İlk olarak, bizim ön uç IP havuzu oluşturalım. Aşağıdaki örnek adlı bir ön uç havuzu oluşturur `myFrontEndPool`:
+İlk olarak, bizim ön uç IP havuzu oluşturalım. Merhaba aşağıdaki örnekte oluşturur adlı bir ön uç havuzu `myFrontEndPool`:
 
 ```azurecli
 azure network lb frontend-ip create --resource-group myResourceGroup \
@@ -652,8 +652,8 @@ azure network lb frontend-ip create --resource-group myResourceGroup \
 
 ```azurecli
 info:    Executing command network lb frontend-ip create
-+ Looking up the load balancer "myLoadBalancer"
-+ Looking up the public ip "myPublicIP"
++ Looking up hello load balancer "myLoadBalancer"
++ Looking up hello public ip "myPublicIP"
 + Updating load balancer "myLoadBalancer"
 data:    Name                            : myFrontEndPool
 data:    Provisioning state              : Succeeded
@@ -662,9 +662,9 @@ data:    Public IP address id            : /subscriptions/guid/resourceGroups/my
 info:    network lb mySubnet-ip create command OK
 ```
 
-Nasıl kullandık Not `--public-ip-name` içinde geçirmek için geçiş `myPublicIP` daha önce oluşturduğumuz. Genel IP adresini yük dengeleyici ile atama Vm'leriniz Internet üzerinden erişmek sağlar.
+Merhaba nasıl kullandık Not `--public-ip-name` toopass hello geçiş `myPublicIP` daha önce oluşturduğumuz. Merhaba ortak IP adresi toohello yük dengeleyici tooreach sağlar, VM'ler hello Internet üzerindeki.
 
-Ardından, bizim ikinci IP havuzu bizim arka uç trafiği için bu süre oluşturalım. Aşağıdaki örnek adlı bir arka uç havuzu oluşturur `myBackEndPool`:
+Ardından, bizim ikinci IP havuzu bizim arka uç trafiği için bu süre oluşturalım. Merhaba aşağıdaki örnekte oluşturur adlı bir arka uç havuzu `myBackEndPool`:
 
 ```azurecli
 azure network lb address-pool create --resource-group myResourceGroup \
@@ -675,14 +675,14 @@ azure network lb address-pool create --resource-group myResourceGroup \
 
 ```azurecli
 info:    Executing command network lb address-pool create
-+ Looking up the load balancer "myLoadBalancer"
++ Looking up hello load balancer "myLoadBalancer"
 + Updating load balancer "myLoadBalancer"
 data:    Name                            : myBackEndPool
 data:    Provisioning state              : Succeeded
 info:    network lb address-pool create command OK
 ```
 
-Bizim yük dengeleyici ile bakarak nasıl çalıştığını görebiliriz `azure network lb show` ve JSON çıktısını inceleyerek:
+Bizim yük dengeleyici ile bakarak nasıl çalıştığını görebiliriz `azure network lb show` hello JSON çıktısını inceleyerek:
 
 ```azurecli
 azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
@@ -728,7 +728,7 @@ azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
 ```
 
 ## <a name="create-load-balancer-nat-rules"></a>Yük dengeleyicisi NAT kuralları oluşturma
-Bizim yük dengeleyici üzerinden giden trafiği almak için biz ağ adresi gelen veya giden eylemleri belirtin çevirisi (NAT) kuralları oluşturmanız gerekir. Kullanılacak protokolü belirtin, sonra istediğiniz gibi dahili bağlantı noktaları için dış bağlantı noktası eşleme. Bizim ortamı için SSH bizim VM'ler bizim yük dengeleyiciye üzerinden izin veren bazı kurallar oluşturalım. TCP bağlantı noktası 22 (hangi daha sonra oluşturuyoruz) bizim Vm'lerinde yönlendirmek için TCP bağlantı noktalarını 4222 ve 4223 ayarlarız. Aşağıdaki örnek, adında bir kural oluşturur `myLoadBalancerRuleSSH1` bağlantı noktası 22 TCP bağlantı noktası 4222 eşlemek için:
+Bizim yük dengeleyici üzerinden akan tooget trafiği gelen veya giden eylemleri belirtin toocreate ağ adresi çevirisi (NAT) kuralları ihtiyacımız. Merhaba Protokolü toouse belirtin, sonra istediğiniz gibi dış bağlantı noktaları toointernal bağlantı noktalarını eşleyin. Bizim ortamı için SSH bizim yük dengeleyici tooour VM'ler izin veren bazı kurallar oluşturalım. (Bu, daha sonra oluşturuyoruz) bizim Vm'lerinde TCP bağlantı noktaları 4222 ve 4223 toodirect tooTCP bağlantı 22 ayarlarız. Merhaba aşağıdaki örnek adlı bir kural oluşturur `myLoadBalancerRuleSSH1` toomap TCP bağlantı noktası 4222 tooport 22:
 
 ```azurecli
 azure network lb inbound-nat-rule create --resource-group myResourceGroup \
@@ -740,7 +740,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
 
 ```azurecli
 info:    Executing command network lb inbound-nat-rule create
-+ Looking up the load balancer "myLoadBalancer"
++ Looking up hello load balancer "myLoadBalancer"
 warn:    Using default enable floating ip: false
 warn:    Using default idle timeout: 4
 warn:    Using default mySubnet IP configuration "myFrontEndPool"
@@ -756,7 +756,7 @@ data:    mySubnet IP configuration id    : /subscriptions/guid/resourceGroups/my
 info:    network lb inbound-nat-rule create command OK
 ```
 
-Yordamı, ikinci NAT kuralı için SSH için yineleyin. Aşağıdaki örnek, adında bir kural oluşturur `myLoadBalancerRuleSSH2` TCP bağlantı noktası 4223 bağlantı noktası 22 eşlemek için:
+Merhaba yordamı, ikinci NAT kuralı için SSH için yineleyin. Merhaba aşağıdaki örnek adlı bir kural oluşturur `myLoadBalancerRuleSSH2` toomap TCP bağlantı noktası 4223 tooport 22:
 
 ```azurecli
 azure network lb inbound-nat-rule create --resource-group myResourceGroup \
@@ -764,7 +764,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --frontend-port 4223 --backend-port 22
 ```
 
-Şimdi de tane bizim IP havuzları kadar kural takma web trafiği için TCP bağlantı noktası 80 için NAT kuralı oluşturun. Biz kural bizim VM'ler için ayrı ayrı takma yerine bir IP havuzuna kural bağlanacağını varsa biz ekleyebilir veya VM'ler IP havuzundan kaldırabilirsiniz. Yük Dengeleyici trafik akışını otomatik olarak ayarlar. Aşağıdaki örnek, adında bir kural oluşturur `myLoadBalancerRuleWeb` TCP bağlantı noktası 80 80 numaralı bağlantı noktasına eşlemek için:
+Şimdi de tane hello kural tooour IP havuzları takma web trafiği için TCP bağlantı noktası 80 için NAT kuralı oluşturun. Biz hello kural tooan hello kural tooour VM'ler ayrı ayrı takma yerine IP havuzu kanca varsa biz ekleyebilir veya VM'ler hello IP havuzundan kaldırabilirsiniz. Merhaba yük dengeleyici trafik akışını hello otomatik olarak ayarlar. Merhaba aşağıdaki örnek adlı bir kural oluşturur `myLoadBalancerRuleWeb` toomap TCP bağlantı noktası 80 tooport 80:
 
 ```azurecli
 azure network lb rule create --resource-group myResourceGroup \
@@ -777,7 +777,7 @@ azure network lb rule create --resource-group myResourceGroup \
 
 ```azurecli
 info:    Executing command network lb rule create
-+ Looking up the load balancer "myLoadBalancer"
++ Looking up hello load balancer "myLoadBalancer"
 warn:    Using default idle timeout: 4
 warn:    Using default enable floating ip: false
 warn:    Using default load distribution: Default
@@ -796,7 +796,7 @@ info:    network lb rule create command OK
 ```
 
 ## <a name="create-a-load-balancer-health-probe"></a>Bir yük dengeleyici durum araştırması oluştur
-Bir sistem durumu araştırması düzenli aralıklarla işletim ve tanımlanan isteklerine yanıt emin olmak için yük dengeleyicinin ardındaysa VM'ler denetler. Aksi durumda, kullanıcıların kendilerine yönlendirilmeye olmayan emin olmak için işlem kaldırılmış. Aralıklarla ve zaman aşımı değerlerinin yanı sıra durumu araştırması için özel denetimleri tanımlayabilirsiniz. Sistem durumu araştırmalarının hakkında daha fazla bilgi için bkz: [yük dengeleyici yoklamaları](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Aşağıdaki örnek, bir TCP oluşturur sistem durumu araştırılan adlandırılmış `myHealthProbe`:
+Bir sistem durumu araştırması düzenli aralıklarla hello bizim yük dengeleyici toomake işletim ve toorequests tanımlanan yanıt emin olan VM'ler üzerinde denetimleri. Bunlar gelen kaldırdıysanız değil, kullanıcılar olan olmayan işlemi tooensure toothem yönlendirilmiş. Aralıklarla ve zaman aşımı değerlerinin yanı sıra hello durumu araştırması için özel denetimleri tanımlayabilirsiniz. Sistem durumu araştırmalarının hakkında daha fazla bilgi için bkz: [yük dengeleyici yoklamaları](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Merhaba aşağıdaki örnekte oluşturur bir TCP durumu araştırılan adlandırılmış `myHealthProbe`:
 
 ```azurecli
 azure network lb probe create --resource-group myResourceGroup \
@@ -809,7 +809,7 @@ azure network lb probe create --resource-group myResourceGroup \
 ```azurecli
 info:    Executing command network lb probe create
 warn:    Using default probe port: 80
-+ Looking up the load balancer "myLoadBalancer"
++ Looking up hello load balancer "myLoadBalancer"
 + Updating load balancer "myLoadBalancer"
 data:    Name                            : myHealthProbe
 data:    Provisioning state              : Succeeded
@@ -820,16 +820,16 @@ data:    Number of probes                : 4
 info:    network lb probe create command OK
 ```
 
-Burada, 15 saniye bizim durumu denetimleri için bir aralığı belirtildi. Biz, en fazla dört araştırmalar (bir yük dengeleyici konak artık çalışmıyor varsaymadan önce dakika) eksik.
+Burada, 15 saniye bizim durumu denetimleri için bir aralığı belirtildi. Biz, en fazla dört araştırmalar (Merhaba barındıran artık çalışmıyor hello yük dengeleyici varsaymadan önce bir dakika) eksik.
 
-## <a name="verify-the-load-balancer"></a>Yük Dengeleyici doğrulayın
-Yük Dengeleyici yapılandırması şimdi yapılır. Yaptığınız adımlar şunlardır:
+## <a name="verify-hello-load-balancer"></a>Merhaba yük dengeleyici doğrulayın
+Şimdi hello yük dengeleyici yapılandırması yapılır. Yaptığınız hello adımlar şunlardır:
 
 1. Bir yük dengeleyici oluşturuldu.
-2. Bir ön uç IP havuzu oluşturduğunuz ve bir genel IP atanmış.
+2. Bir ön uç IP havuzu oluşturduğunuz ve bir ortak IP tooit atanmış.
 3. Sanal makineleri bağlanabileceği bir arka uç IP havuzu oluşturuldu.
-4. Yönetim için web uygulamamız için TCP bağlantı noktası 80 sağlayan bir kural birlikte VM'ler için SSH izin veren NAT kuralları oluşturuldu.
-5. Düzenli aralıklarla VM'ler denetlemek için bir sistem durumu araştırması eklendi. Bu sistem durumu araştırma, kullanıcılar artık çalışmıyor veya içerik hizmet veren bir VM erişmek denemeyin sağlar.
+4. SSH toohello VM'ler Yönetim için web uygulamamız için TCP bağlantı noktası 80 sağlayan bir kural ile birlikte izin veren NAT kuralları oluşturuldu.
+5. Sistem durumu araştırma tooperiodically onay hello VM'ler eklendi. Bu sistem durumu araştırma kullanıcılar tooaccess artık çalışmıyor veya içerik hizmet veren bir VM denemeyin sağlar.
 
 Şimdi, yük dengeleyici şimdi gibi göründüğünü gözden geçirin:
 
@@ -954,12 +954,12 @@ azure network lb show --resource-group myResourceGroup \
 }
 ```
 
-## <a name="create-an-nic-to-use-with-the-linux-vm"></a>Linux VM ile kullanmak için bir NIC oluşturun
-NIC program aracılığıyla kullanılabilir olduklarından kullanımları kuralları uygulayabilirsiniz. Birden fazla olabilir. Aşağıdaki `azure network nic create` komutu, yük arka uç IP havuzu NIC'ye bağlanacağını ve SSH trafiğe izin vermek için NAT kuralı ile ilişkilendirin.
+## <a name="create-an-nic-toouse-with-hello-linux-vm"></a>Bir NIC toouse hello ile Linux VM oluşturma
+NIC program aracılığıyla kullanılabilir olduklarından kuralları tootheir kullanım uygulayabilirsiniz. Birden fazla olabilir. Merhaba aşağıdaki `azure network nic create` komutu, hello NIC toohello yük arka uç IP Havuzu'nu bağlanmasını ve NAT kuralı toopermit SSH trafiği hello ile ilişkilendirin.
 
-Değiştir `#####-###-###` bölümleri, kendi Azure aboneliği ID'ye sahip Aboneliğinizi çıktısında kimliği not ettiğiniz `jq` oluşturmakta kaynakları incelediğinizde. Abonelik Kimliğinizle de görüntüleyebilirsiniz `azure account list`.
+Hello yerine `#####-###-###` bölümleri, kendi Azure aboneliği ID'ye sahip Aboneliğinizi hello çıktısında kimliği not ettiğiniz `jq` oluşturmakta hello kaynakları incelediğinizde. Abonelik Kimliğinizle de görüntüleyebilirsiniz `azure account list`.
 
-Aşağıdaki örnek, adlandırılmış bir NIC oluşturur `myNic1`:
+Merhaba aşağıdaki örnekte oluşturur adlı bir NIC `myNic1`:
 
 ```azurecli
 azure network nic create --resource-group myResourceGroup --location westeurope \
@@ -972,8 +972,8 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
 
 ```azurecli
 info:    Executing command network nic create
-+ Looking up the subnet "mySubnet"
-+ Looking up the network interface "myNic1"
++ Looking up hello subnet "mySubnet"
++ Looking up hello network interface "myNic1"
 + Creating network interface "myNic1"
 data:    Id                              : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic1
 data:    Name                            : myNic1
@@ -995,7 +995,7 @@ data:
 info:    network nic create command OK
 ```
 
-Kaynağı doğrudan inceleyerek ayrıntılarını görebilirsiniz. Kullanarak kaynağın incelemeniz `azure network nic show` komutu:
+Merhaba kaynak doğrudan inceleyerek hello ayrıntılarını görebilirsiniz. Hello kullanarak hello kaynağın incelemeniz `azure network nic show` komutu:
 
 ```azurecli
 azure network nic show myResourceGroup myNic1 --json | jq '.'
@@ -1043,7 +1043,7 @@ azure network nic show myResourceGroup myNic1 --json | jq '.'
 }
 ```
 
-Şimdi takma yeniden bizim arka uç IP havuzuna, ikinci bir NIC oluşturun. Bu zaman ikinci NAT kuralı SSH trafiğe izin verir. Aşağıdaki örnek, adlandırılmış bir NIC oluşturur `myNic2`:
+Oluşturuyoruz artık tooour arka uç IP havuzundaki yeniden takma, ikinci bir NIC hello. Bu zaman hello ikinci NAT kuralı SSH trafiğe izin verir. Merhaba aşağıdaki örnekte oluşturur adlı bir NIC `myNic2`:
 
 ```azurecli
 azure network nic create --resource-group myResourceGroup --location westeurope \
@@ -1053,14 +1053,14 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
 ```
 
 ## <a name="create-a-network-security-group-and-rules"></a>Bir ağ güvenlik grubu ve kuralları oluşturma
-Şimdi biz bir ağ güvenlik grubu ve NIC erişimi yöneten gelen kuralları oluşturma Bir ağ güvenlik grubu, bir NIC veya alt ağ için uygulanabilir. Vm'leriniz ve trafik akışını denetlemek için kurallar tanımlar. Aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur `myNetworkSecurityGroup`:
+Bir ağ güvenlik grubu oluşturun ve yöneten gelen kuralları hello artık toohello NIC erişim Bir ağ güvenlik grubu uygulanan tooa NIC veya alt ağ olabilir. Vm'leriniz ve bu moddan kuralları toocontrol hello trafik akışını tanımlayın. Merhaba aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur `myNetworkSecurityGroup`:
 
 ```azurecli
 azure network nsg create --resource-group myResourceGroup --location westeurope \
   --name myNetworkSecurityGroup
 ```
 
-NSG bağlantı noktası 22 (SSH desteklemek için) gelen bağlantılara izin vermek için gelen kuralı ekleyelim. Aşağıdaki örnek, adında bir kural oluşturur `myNetworkSecurityGroupRuleSSH` bağlantı noktası 22 üzerinde TCP'ye izin vermek için:
+Merhaba NSG tooallow için gelen kuralı hello ekleyelim gelen bağlantı noktası 22 (toosupport SSH) bağlantı. Merhaba aşağıdaki örnek adlı bir kural oluşturur `myNetworkSecurityGroupRuleSSH` tooallow TCP bağlantı noktası 22:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1069,7 +1069,7 @@ azure network nsg rule create --resource-group myResourceGroup \
   --name myNetworkSecurityGroupRuleSSH
 ```
 
-Şimdi NSG (web trafiği desteklemek için) 80 numaralı bağlantı noktasında gelen bağlantılara izin vermek için gelen kuralı ekleyelim. Aşağıdaki örnek, adında bir kural oluşturur `myNetworkSecurityGroupRuleHTTP` bağlantı noktası 80 üzerinde TCP'ye izin vermek için:
+Şimdi hello NSG tooallow için gelen kuralı hello ekleyelim gelen bağlantı noktası 80 (toosupport web trafiği) bağlantı. Merhaba aşağıdaki örnek adlı bir kural oluşturur `myNetworkSecurityGroupRuleHTTP` tooallow TCP bağlantı noktası 80 üzerinde:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1079,12 +1079,12 @@ azure network nsg rule create --resource-group myResourceGroup \
 ```
 
 > [!NOTE]
-> Gelen kuralı, gelen ağ bağlantıları için bir filtredir. Bu örnekte, bağlantı noktası 22 için herhangi bir istek NIC'ye bizim VM geçirilir, anlamına gelir VM'ler sanal NIC için NSG bağlayın. Bu gelen kuralı bir ağ bağlantısı hakkında ve bir uç nokta hakkında hangi hakkında Klasik dağıtımlarda olması. Bir bağlantı noktasını açmak için bırakmalıdır `--source-port-range` kümesine '\*' (öğesinden gelen istekleri kabul etmek için varsayılan değer) **herhangi** bağlantı noktası isteme. Bağlantı noktaları genellikle dinamik.
+> Merhaba gelen kuralı, gelen ağ bağlantıları için bir filtredir. Bu örnekte, hello NSG toohello tüm istek tooport 22 bizim VM NIC toohello geçirilen anlamına gelir VM'ler sanal NIC bağlayın. Bu gelen kuralı bir ağ bağlantısı hakkında ve bir uç nokta hakkında hangi hakkında Klasik dağıtımlarda olması. tooopen bir bağlantı noktası, hello bırakın gerekir `--source-port-range` çok Ayarla '\*' (Merhaba varsayılan değer) tooaccept gelen istekleri **herhangi** bağlantı noktası isteme. Bağlantı noktaları genellikle dinamik.
 >
 >
 
-## <a name="bind-to-the-nic"></a>NIC'ye bağlama
-NSG NIC'ler bağlayın. Bizim NIC'ler bizim ağ güvenlik grubuyla bağlanmak gerekir. Hem bizim NIC'ler kanca için her iki komutları çalıştırın:
+## <a name="bind-toohello-nic"></a>Toohello NIC bağlama
+Merhaba NSG toohello NIC'ler bağlayın. Tooconnect bizim NIC'ler bizim ağ güvenlik grubuyla ihtiyacımız var. Bizim NIC'ler her ikisi de yukarı toohook hem komutları çalıştırın:
 
 ```azurecli
 azure network nic set --resource-group myResourceGroup --name myNic1 \
@@ -1097,32 +1097,32 @@ azure network nic set --resource-group myResourceGroup --name myNic2 \
 ```
 
 ## <a name="create-an-availability-set"></a>Kullanılabilirlik kümesi oluşturma
-Kullanılabilirlik Yardım yayılan hata etki alanları ve yükseltme etki alanları arasında Vm'leriniz ayarlar. Kullanılabilirlik kümesi Vm'leriniz için oluşturalım. Aşağıdaki örnek, kullanılabilirlik adlandırılmış kümesi oluşturur `myAvailabilitySet`:
+Kullanılabilirlik Yardım yayılan hata etki alanları ve yükseltme etki alanları arasında Vm'leriniz ayarlar. Kullanılabilirlik kümesi Vm'leriniz için oluşturalım. Merhaba aşağıdaki örnekte oluşturur kullanılabilirlik adlandırılmış kümesi `myAvailabilitySet`:
 
 ```azurecli
 azure availset create --resource-group myResourceGroup --location westeurope
   --name myAvailabilitySet
 ```
 
-Sanal makineler, ortak bir güç kaynağı ve ağ anahtarı paylaşmak gruplandırması hata etki alanlarını tanımlayın. Varsayılan olarak, en çok üç hata etki alanlarında kullanılabilirlik kümesi içinde yapılandırılmış olan sanal makinelere ayrılır. Bu hata etki alanlarını birinde bir donanım sorunundan uygulamanızı çalıştıran her VM etkilemez olur. Azure otomatik olarak VM'ler hata etki alanlarında bunları bir kullanılabilirlik kümesine yerleştirdiğinizde dağıtır.
+Sanal makineler, ortak bir güç kaynağı ve ağ anahtarı paylaşmak gruplandırması hata etki alanlarını tanımlayın. Varsayılan olarak, kullanılabilirlik kümesi içinde yapılandırılmış hello sanal makineleri toothree hata etki alanları arasında ayrılır. Merhaba bir donanım sorunundan birinde bu hata etki alanları, uygulamanızı çalıştıran her VM etkilemez olur. Azure otomatik olarak VM'ler hello hata etki alanlarında bunları bir kullanılabilirlik kümesine yerleştirdiğinizde dağıtır.
 
-Yükseltme etki alanları, sanal makineler ve aynı anda yeniden temel alınan fiziksel donanım grupları belirtin. Yükseltme etki alanları yeniden başlatılır sıra planlı bakım sırasında sıralı olmayabilir, ancak aynı anda yalnızca bir yükseltme yeniden başlatıldı. Yeniden Azure otomatik olarak Vm'leriniz yükseltme etki alanları arasında bir kullanılabilirlik sitede yerleştirme sırasında dağıtır.
+Yükseltme etki alanları belirtmek sanal makineler ve hello yeniden temel alınan fiziksel donanım grupları aynı anda. Yükseltme etki alanları yeniden başlatılır hello sıra planlı bakım sırasında sıralı olmayabilir, ancak aynı anda yalnızca bir yükseltme yeniden başlatıldı. Yeniden Azure otomatik olarak Vm'leriniz yükseltme etki alanları arasında bir kullanılabilirlik sitede yerleştirme sırasında dağıtır.
 
-Daha fazla bilgi edinin [VM'ler kullanılabilirliğini yönetme](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Daha fazla bilgi edinin [VM'ler hello kullanılabilirliğini yönetme](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="create-the-linux-vms"></a>Linux VM oluşturma
-Internet'ten erişilebilen sanal makineleri desteklemek için depolama ve ağ kaynaklarının oluşturduğunuzu düşünün. Şimdi şimdi bunları VM'ler oluşturun ve bir parola sahip olmayan bir SSH anahtarı ile güvenli. Bu durumda, bir Ubuntu VM en son LTS göre oluşturmak için yapacağız. Biz kullanarak bu görüntü bilgilerini bulun `azure vm image list`açıklandığı gibi [Azure VM görüntülerini bulma](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="create-hello-linux-vms"></a>Merhaba Linux VM'ler oluşturma
+Internet'ten erişilebilen toosupport VM'ler hello depolama ve ağ kaynaklarını oluşturduğunuzu düşünün. Şimdi şimdi bunları VM'ler oluşturun ve bir parola sahip olmayan bir SSH anahtarı ile güvenli. Bu durumda, bir Ubuntu VM tabanlı hello üzerinde toocreate yapacağız en son LTS. Biz kullanarak bu görüntü bilgilerini bulun `azure vm image list`açıklandığı gibi [Azure VM görüntülerini bulma](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Komutunu kullanarak bir görüntü seçtik `azure vm image list westeurope canonical | grep LTS`. Bu durumda, kullandığımız `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Son alanı için biz geçirmek `latest` böylece gelecekte en son yapı'biz her zaman alın. (Kullanırız dizesi `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
+Merhaba komutunu kullanarak bir görüntü seçtik `azure vm image list westeurope canonical | grep LTS`. Bu durumda, kullandığımız `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Merhaba son alanı için biz geçirmek `latest` böylece hello gelecekte biz her zaman en son yapı hello alın. (kullanırız hello dizesi `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
 
-Bu sonraki adım zaten oluşturulmuş herkes alışkın olduğu bir ssh rsa ortak ve özel anahtarı eşleştirin Linux veya Mac kullanarak **ssh-keygen - t rsa -b 2048**. Tüm sertifika anahtar çiftleri varsa değil, `~/.ssh` dizin oluşturabilirsiniz bunları:
+Bu zaten oluşturdu tanıdık tooanyone sonraki adımdır bir ssh rsa ortak ve özel anahtarı eşleştirin Linux veya Mac kullanarak **ssh-keygen - t rsa -b 2048**. Tüm sertifika anahtar çiftleri varsa değil, `~/.ssh` dizin oluşturabilirsiniz bunları:
 
-* Kullanarak otomatik olarak `azure vm create --generate-ssh-keys` seçeneği.
-* Kullanarak el ile [kendiniz oluşturmanız için yönergeler](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Hello kullanarak otomatik olarak `azure vm create --generate-ssh-keys` seçeneği.
+* Kullanarak el ile [hello yönergeleri toocreate bunları kendiniz](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Alternatif olarak, kullanabileceğiniz `--admin-password` VM oluşturulduktan sonra SSH bağlantılarının kimliğini doğrulamak için yöntem. Bu yöntem genellikle daha az güvenlidir.
+Alternatif olarak, hello kullanabilirsiniz `--admin-password` yöntemi tooauthenticate SSH bağlantılarınızı hello VM sonra oluşturulur. Bu yöntem genellikle daha az güvenlidir.
 
-Bizim tüm kaynakları ve bilgileri ile birlikte getirerek VM oluşturuyoruz `azure vm create` komutu:
+Bizim tüm kaynaklara ve bilgi ile birlikte hello getirerek hello VM oluşturuyoruz `azure vm create` komutu:
 
 ```azurecli
 azure vm create \
@@ -1144,22 +1144,22 @@ azure vm create \
 
 ```azurecli
 info:    Executing command vm create
-+ Looking up the VM "myVM1"
-info:    Verifying the public key SSH file: /home/ahmet/.ssh/id_rsa.pub
-info:    Using the VM Size "Standard_DS1"
-info:    The [OS, Data] Disk or image configuration requires storage account
-+ Looking up the storage account mystorageaccount
-+ Looking up the availability set "myAvailabilitySet"
++ Looking up hello VM "myVM1"
+info:    Verifying hello public key SSH file: /home/ahmet/.ssh/id_rsa.pub
+info:    Using hello VM Size "Standard_DS1"
+info:    hello [OS, Data] Disk or image configuration requires storage account
++ Looking up hello storage account mystorageaccount
++ Looking up hello availability set "myAvailabilitySet"
 info:    Found an Availability set "myAvailabilitySet"
-+ Looking up the NIC "myNic1"
++ Looking up hello NIC "myNic1"
 info:    Found an existing NIC "myNic1"
-info:    Found an IP configuration with virtual network subnet id "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet" in the NIC "myNic1"
+info:    Found an IP configuration with virtual network subnet id "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet" in hello NIC "myNic1"
 info:    This is an NIC without publicIP configured
-info:    The storage URI 'https://mystorageaccount.blob.core.windows.net/' will be used for boot diagnostics settings, and it can be overwritten by the parameter input of '--boot-diagnostics-storage-uri'.
+info:    hello storage URI 'https://mystorageaccount.blob.core.windows.net/' will be used for boot diagnostics settings, and it can be overwritten by hello parameter input of '--boot-diagnostics-storage-uri'.
 info:    vm create command OK
 ```
 
-Varsayılan SSH anahtarları kullanılarak VM'nize hemen bağlanabilir. Yük Dengeleyici üzerinden geçirme bu yana uygun bağlantı noktasını belirttiğinizden emin olun. (Bizim ilk VM için NAT kuralı bağlantı noktası 4222 bizim VM iletmek için ayarlarız.)
+Varsayılan SSH anahtarları kullanılarak tooyour VM hemen bağlanabilir. Merhaba yük dengeleyici üzerinden geçirme bu yana hello uygun bağlantı noktasını belirttiğinizden emin olun. (Bizim ilk VM için hello NAT kuralı tooforward bağlantı noktası 4222 tooour VM ayarlarız.)
 
 ```bash
 ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
@@ -1168,11 +1168,11 @@ ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
 Çıktı:
 
 ```bash
-The authenticity of host '[mypublicdns.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
+hello authenticity of host '[mypublicdns.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
 ECDSA key fingerprint is 94:2d:d0:ce:6b:fb:7f:ad:5b:3c:78:93:75:82:12:f9.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added '[mypublicdns.westeurope.cloudapp.azure.com]:4222,[xx.xx.xx.xx]:4222' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
+Are you sure you want toocontinue connecting (yes/no)? yes
+Warning: Permanently added '[mypublicdns.westeurope.cloudapp.azure.com]:4222,[xx.xx.xx.xx]:4222' (ECDSA) toohello list of known hosts.
+Welcome tooUbuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
@@ -1187,7 +1187,7 @@ Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 ops@myVM1:~$
 ```
 
-Tane ikinci VM'nizi aynı şekilde oluşturun:
+Tane hello ikinci VM oluşturun aynı şekilde:
 
 ```azurecli
 azure vm create \
@@ -1205,7 +1205,7 @@ azure vm create \
   --admin-username azureuser
 ```
 
-Şimdi kullanabileceğiniz `azure vm show myResourceGroup myVM1` oluşturmuş olduğunuz incelemek için komutu. Bu noktada, Ubuntu Vm'leriniz yük dengeleyici arkasında (parolalar devre dışı bırakıldığı için), yalnızca, SSH anahtar çifti ile içine imzalayabilirsiniz Azure'da kullanıyorsunuz. Nginx veya httpd yükleyin, bir web uygulaması dağıtma ve trafiği de görmenize yük dengeleyici sanal makineleri her ikisine de aktığı.
+Merhaba şimdi kullanabileceğiniz `azure vm show myResourceGroup myVM1` oluşturmuş olduğunuz tooexamine komutu. Bu noktada, Ubuntu Vm'leriniz yük dengeleyici arkasında (parolalar devre dışı bırakıldığı için), yalnızca, SSH anahtar çifti ile içine imzalayabilirsiniz Azure'da kullanıyorsunuz. Nginx veya httpd yükleyin, bir web uygulaması dağıtma ve hello trafiğini hello yük dengeleyici tooboth hello VM'lerin aktığı.
 
 ```azurecli
 azure vm show --resource-group myResourceGroup --name myVM1
@@ -1215,8 +1215,8 @@ azure vm show --resource-group myResourceGroup --name myVM1
 
 ```azurecli
 info:    Executing command vm show
-+ Looking up the VM "TestVM1"
-+ Looking up the NIC "myNic1"
++ Looking up hello VM "TestVM1"
++ Looking up hello NIC "myNic1"
 data:    Id                              :/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1
 data:    ProvisioningState               :Succeeded
 data:    Name                            :myVM1
@@ -1269,23 +1269,23 @@ info:    vm show command OK
 ```
 
 
-## <a name="export-the-environment-as-a-template"></a>Ortam şablon olarak dışarı aktarma
-Ne bu ortamını yerleşik, aynı parametreleri ya da eşleşecek bir üretim ortamında ek geliştirme ortamı oluşturmak istediğiniz? Resource Manager, ortamınız için tüm parametreleri tanımlayan JSON şablonlarını kullanır. Bu JSON şablonunu başvurarak tüm ortamlar oluşturun. Yapabilecekleriniz [JSON şablonları el ile oluşturabilir](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya sizin için JSON şablonunu oluşturmak için varolan bir ortama verme:
+## <a name="export-hello-environment-as-a-template"></a>Merhaba ortamı şablon olarak dışarı aktarma
+Bir ek geliştirme ortamı hello toocreate ne istediğiniz bu ortam yerleşik göre aynı parametreleri veya eşleşecek bir üretim ortamında? Resource Manager, ortamınız için tüm hello parametreleri tanımlayan JSON şablonlarını kullanır. Bu JSON şablonunu başvurarak tüm ortamlar oluşturun. Yapabilecekleriniz [JSON şablonları el ile oluşturabilir](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya var olan bir ortam toocreate hello JSON şablonunu verdiğiniz:
 
 ```azurecli
 azure group export --name myResourceGroup
 ```
 
-Bu komut oluşturur `myResourceGroup.json` geçerli çalışma dizini dosyasında. Bu şablonu kullanarak bir ortam oluşturduğunuzda, yük dengeleyici, ağ arabirimlerine veya VM'ler için adlar dahil olmak üzere tüm kaynak adları, istenir. Ekleyerek bu adları şablon dosyanızın doldurabilirsiniz `-p` veya `--includeParameterDefaultValue` parametresi `azure group export` daha önce gösterilen komutu. Kaynak adları belirtmek için JSON şablonunuzu düzenleyin veya [parameters.json dosyası oluşturma](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kaynak adları belirtir.
+Bu komut hello oluşturur `myResourceGroup.json` geçerli çalışma dizini dosyasında. Bu şablonu kullanarak bir ortam oluşturduğunuzda, hello yük dengeleyici, ağ arabirimleri ya da VM'ler için hello adları dahil olmak üzere tüm hello kaynak adları istenir. Merhaba ekleyerek bu adları şablon dosyanızın doldurabilirsiniz `-p` veya `--includeParameterDefaultValue` parametresi toohello `azure group export` daha önce gösterilen komutu. JSON şablonunu toospecify hello kaynak adları, düzenlemek veya [parameters.json dosyası oluşturma](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) hello kaynak adları belirtir.
 
-Bir ortamda, şablonu oluşturmak için:
+şablonunuzu bir ortamdan toocreate:
 
 ```azurecli
 azure group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-Okumak isteyebilirsiniz [şablonlardan dağıtma hakkında daha fazla](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Artımlı olarak update ortamlar, parametre dosyasını kullanın ve şablonları bir tek bir depolama konumdan erişim hakkında bilgi edinin.
+Tooread isteyebilirsiniz [nasıl hakkında daha fazla şablonlardan toodeploy](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Nasıl tooincrementally güncelleştirme ortamlarda, hello parametreleri dosyasını kullanın ve şablonları bir tek bir depolama konumundan erişim hakkında bilgi edinin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık birden çok ağ bileşenleri ve VM'ler ile çalışmaya başlamak hazırsınız. Burada sunulan çekirdek bileşenlerini kullanarak uygulamanızı oluşturmak için bu örnek ortamı kullanabilirsiniz.
+Artık birden çok ağ bileşenleri ve VM'ler ile çalışmaya hazır toobegin demektir. Burada sunulan hello çekirdek bileşenlerini kullanarak, bu örnek ortamı toobuild uygulamanızı kullanabilirsiniz.

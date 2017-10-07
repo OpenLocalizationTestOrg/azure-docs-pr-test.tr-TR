@@ -1,6 +1,6 @@
 ---
-title: Azure Notification Hubs
-description: "Azure Notification Hubs ile anında iletme bildirimi özellikleri eklemeyi öğrenin."
+title: "aaaAzure bildirim hub'ları"
+description: "Nasıl tooadd anında bildirim yetenekleri Azure Notification Hubs ile bilgi edinin."
 author: ysxu
 manager: erikre
 editor: 
@@ -14,29 +14,29 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 1/17/2017
 ms.author: yuaxu
-ms.openlocfilehash: a1be0b13cd1feb582a23965df142e44d90ac6851
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 78ce34b6b094b560c8002ab9652f7ba4563c5c74
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-notification-hubs"></a>Azure Notification Hubs
 ## <a name="overview"></a>Genel Bakış
-Azure bildirim hub'ları, kullanımı kolay, çok platformlu, ölçeği itme altyapısı sağlar. Bir tek platformlar arası API çağrısı ile tüm Bulut veya şirket içi arka ucundan herhangi bir mobil platforma kolayca hedeflenen ve kişiselleştirilmiş anında iletme bildirimleri gönderebilirsiniz.
+Azure bildirim hub'ları, kullanımı kolay, çok platformlu, ölçeği itme altyapısı sağlar. Bir tek platformlar arası API çağrısı ile tüm Bulut veya şirket içi arka ucundan hedeflenen ve kişiselleştirilmiş anında iletme bildirimleri tooany mobil platformda kolayca gönderebilirsiniz.
 
 Bildirim hub'ları hem kuruluş hem de tüketici senaryoları için harika çalışır. Müşteriler için Notification Hubs kullanma birkaç örnek aşağıda verilmiştir:
 
-* Düşük gecikme ile milyonlara son dakika haberi bildirimleri gönderin.
-* İlginizi kullanıcı segmentlerine konum temelli kuponlar gönderin.
-* Kullanıcılara veya gruplara medya/Spor/Finans/oyun uygulamaları için olay ile ilgili bildirimler Gönder.
-* Promosyon içeriğini göster ve müşterilere pazar için uygulamalar iletin.
+* En son haberleri bildirimleri toomillions düşük gecikme süresine sahip gönderin.
+* Toointerested kullanıcı kesimlerini konum temelli kuponlar gönderin.
+* Olay ilgili bildirimler toousers veya medya/Spor/Finans/oyun uygulamaları için grupları gönderin.
+* Promosyon içeriği tooapps tooengage ve Pazar toocustomers iletin.
 * Yeni iletiler gibi Kurumsal olaylar kullanıcıları bilgilendirin ve iş öğeleri.
 * Çok faktörlü kimlik doğrulama kodları gönderin.
 
 ## <a name="what-are-push-notifications"></a>Anında İletme Bildirimleri nedir?
-Anında iletme bildirimleri olan bir form uygulama kullanıcı iletişim nerede mobil uygulamaları kullanıcılarının belirli istenen bilgileri, genellikle bir açılır pencere veya iletişim kutusu size bildirilir. Kullanıcılar görüntülemek veya iletiyi kapatmak genellikle seçebilir ve eski seçme bildirim iletilen mobil uygulama açılacaktır.
+Anında iletme bildirimleri olan bir form uygulama kullanıcı iletişim nerede mobil uygulamaları kullanıcılarının belirli istenen bilgileri, genellikle bir açılır pencere veya iletişim kutusu size bildirilir. Kullanıcıları, genellikle tooview seçin veya hello iletiyi yok sayın ve hello eski seçme hello bildirim iletilen hello mobil uygulama açılacaktır.
 
-Anında iletme bildirimleri güncel iş bilgilerini iletişim Kurumsal uygulamaları ve uygulamaya katılımı ve kullanımı artan tüketici uygulamaları için önemli. İlgili uygulamalar etkin olmasa da enerji tasarrufu sağlayan bildirimleri Göndericiler için esnek olarak, mobil cihazlar için kullanılabilir olduğundan ve en iyi uygulama kullanıcı iletişimini değil.
+Anında iletme bildirimleri güncel iş bilgilerini iletişim Kurumsal uygulamaları ve uygulamaya katılımı ve kullanımı artan tüketici uygulamaları için önemli. İlgili uygulamalar etkin olmasa da enerji tasarrufu sağlayan mobil cihazlar için hello bildirimleri Göndericiler için esnek ve kullanılabilir olduğundan hello en iyi uygulama kullanıcı iletişimini değildir.
 
 Birkaç popüler platformlar için anında iletme bildirimleri hakkında daha fazla bilgi için:
 * [iOS](https://developer.apple.com/notifications/)
@@ -44,44 +44,44 @@ Birkaç popüler platformlar için anında iletme bildirimleri hakkında daha fa
 * [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
 ## <a name="how-push-notifications-work"></a>Anında İletme Bildirimleri Nasıl Çalışır?
-Anında iletme bildirimleri adlı platforma özgü altyapılar aracılığıyla teslim edilir *Platform bildirim sistemleri* (PNSes). Bunlar, bir cihaza bir sağlanan teslim iletiye barebone itme işlevler işlemek ve ortak arabirim içermez sunar. İOS, Android ve Windows tüm müşteriler için bildirim göndermek için bir uygulama geliştiricisi sürümlerini APNS (Apple Push Notification hizmeti), FCM (Firebase Cloud Messaging) ve WNS (Windows bildirim hizmeti) ile gönderir toplu işleme sırasında çalışmanız gerekir.
+Anında iletme bildirimleri adlı platforma özgü altyapılar aracılığıyla teslim edilir *Platform bildirim sistemleri* (PNSes). Bunlar toodelivery ileti tooa aygıtla bir sağlanan işlemek ve ortak arabirim içermez barebone itme işlevler sunar. toosend bir bildirim tooall müşteriler hello iOS, Android ve Windows sürümlerinde, bir uygulamanın hello Geliştirici gerekir iş APNS (Apple Push Notification hizmeti), FCM (Firebase Cloud Messaging) ve WNS (Windows bildirim hizmeti), toplu işleme sırasında Merhaba gönderir.
 
 Yüksek bir düzeyde İşte nasıl anında iletme çalışır:
 
-1. İstemci uygulaması istediği bildirim almaya karar verir. Bu nedenle, benzersiz ve geçici gönderim tanıtıcısını almak için karşılık gelen PNS'ye bağlanır. Tanıtıcı türü (APNS belirteçleri sahipken ör WNS URI'dir) sistemine bağlıdır.
-2. İstemci uygulaması bu tanıtıcıyı uygulama arka ucu veya sağlayıcı depolar.
-3. Bir anında iletme bildirimi göndermek için uygulama arka uç belirli istemci uygulaması hedeflemek için tanıtıcıyı kullanarak PNS'ye bağlanır.
-4. PNS, tanıtıcı tarafından belirtilen cihaza bildirimi iletir.
+1. Merhaba istemci uygulaması tooreceive, bu nedenle kişiler hello PNS tooretrieve karşılık gelen, benzersiz ve geçici gönderim tanıtıcısını iter istediği karar verir. Merhaba tanıtıcı türü (URI'ler örneğin WNS APNS belirteçleri sahipken sahiptir) "Merhaba sistemine bağlıdır.
+2. Merhaba istemci uygulaması bu tanıtıcıyı hello uygulama arka ucu veya sağlayıcı depolar.
+3. toosend bir anında iletme bildirimi, hello uygulama arka uç hello PNS hello tanıtıcı tootarget belirli istemci uygulaması kullanarak iletişim kurar.
+4. Merhaba PNS hello tanıtıcı tarafından belirtilen hello bildirim toohello aygıt iletir.
 
 ![][0]
 
-## <a name="the-challenges-of-push-notifications"></a>Anında İletme Bildirimlerinin Zorlukları
-PNSes güçlü olsa da, bunlar kadar iş uygulama geliştiricisine yayın veya segmentli kullanıcılarına anında iletme bildirimleri gönderme gibi bile ortak anında iletme bildirimi senaryolarını uygulamak için bırakın.
+## <a name="hello-challenges-of-push-notifications"></a>Merhaba anında iletme bildirimleri zorlukları
+Yayın veya anında iletme bildirimleri toosegmented kullanıcılara gönderme gibi sipariş tooimplement bile ortak anında iletme bildirimi senaryolarda PNSes güçlü olsa da, bunlar kadar iş toohello uygulama geliştiricisi bırakın.
 
-Anında iletme çalışma, uygulamanın ana iş mantığı ilgisiz karmaşık altyapılar gerektirdiğinden mobil bulut Hizmetleri'nde, en çok istenen özelliklerden biridir. İnfrastructural zorluklarından bazıları şunlardır:
+Anında iletme biridir hello çalışma ilgisiz toohello uygulamanın ana iş mantığı olan karmaşık altyapılar gerektirdiğinden mobil bulut Hizmetleri özellikleri en istendi. Merhaba infrastructural zorluklarından bazıları şunlardır:
 
 * **Platform bağımlılığı**: 
 
-  * Arka uç PNSes değil birleşik gibi çeşitli platformlarda cihazları bildirimleri göndermek için karmaşık ve sabit korumak platforma bağımlı mantığı olmalıdır.
+  * PNSes değil birleşik gibi hello arka uç toohave karmaşık ve sabit korumak platforma bağımlı mantığı toosend bildirimleri toodevices çeşitli platformlarda gerekir.
 * **Ölçek**:
 
-  * PNS yönergelerine göre her uygulama başlatmada cihaz belirteçleri yenilenmelidir. Bu, yüksek miktarda trafiği ve veritabanı erişimi yalnızca belirteçlerini güncel tutmak için arka uç ilgilenme anlamına gelir. Cihaz sayısı yüzlerce ve milyonlarca binlerce büyürken oluşturma ve bu altyapısını sürdürme yoğun maliyetidir.
-  * Çoğu PNSes birden çok aygıt yayın desteklemez. Bu, bir milyon aygıtları PNSes bir milyon çağrıları sonuçlarında basit bir yayın anlamına gelir. Bu trafik miktarı en düşük gecikme süresi ile ölçeklendirme ölçeklendirebilmek kolay değildir.
+  * PNS yönergelerine göre her uygulama başlatmada cihaz belirteçleri yenilenmelidir. Bu çok miktarda trafiği hello arka uç ilgilenme ve veritabanına erişim yalnızca tookeep hello belirteçlerini güncel anlamına gelir. Cihaz Hello sayısını toohundreds ve milyonlarca binlerce büyürken oluşturma ve bu altyapısını sürdürme hello yoğun maliyetidir.
+  * Çoğu PNSes yayın toomultiple cihazlar desteklemez. Bu basit bir yayın tooa bir milyon çağrıları toohello PNSes milyon aygıtları sonuçlarında anlamına gelir. Bu trafik miktarı en düşük gecikme süresi ile ölçeklendirme ölçeklendirebilmek kolay değildir.
 * **Yönlendirme**:
   
-  * PNSes cihazlara iletileri göndermek için bir yol sağlar ancak çoğu uygulamaları bildirimleri kullanıcılara veya ilgi alanı gruplarına hedeflenir. Bu arka uç ilgi alanı gruplarına, kullanıcılar, özellikler, vb. ile cihazları ilişkilendirmek için bir kayıt defteri korumalıdır anlamına gelir. Bu ek yükü, bir uygulamanın Pazar ve bakım maliyetlerinin süresi ekler.
+  * Bir şekilde toosend iletileri toodevices PNSes sağlar ancak çoğu uygulamaları bildirimleri kullanıcılara veya ilgi alanı gruplarına hedeflenir. Bu, bir kayıt defteri tooassociate aygıtlarla ilgi alanı gruplarına, kullanıcılar, özellikler, vb. hello arka uç korumalıdır anlamına gelir. Bu ek yükü, bir uygulamanın toohello zaman toomarket ve bakım maliyetlerinin ekler.
 
 ## <a name="why-use-notification-hubs"></a>Neden Notification Hubs Kullanmalıyım?
-Bildirim hub'ları ortadan kaldırır, etkinleştirme ile ilişkili tüm karmaşıklık push kendi. Kendi çok platformlu, ölçeği anında iletme bildirimi altyapısı itme ilgili kodları azaltır ve arka basitleştirir. Bildirim hub'larıyla aygıtları arka uç iletileri kullanıcılara veya ilgi alanı gruplarına, aşağıdaki çizimde gösterildiği gibi gönderirken kendi PNS tanıtıcılarını bir hub ile kaydetmekten yalnızca sorumlu şunlardır:
+Bildirim hub'ları ortadan kaldırır, etkinleştirme ile ilişkili tüm karmaşıklık push kendi. Kendi çok platformlu, ölçeği anında iletme bildirimi altyapısı itme ilgili kodları azaltır ve arka basitleştirir. Bildirim hub'larıyla aygıtları hello arka uç iletileri toousers veya ilgi alanı gruplarına hello aşağıdaki şekilde gösterildiği gibi gönderirken kendi PNS tanıtıcılarını bir hub ile kaydetmekten yalnızca sorumlu şunlardır:
 
 ![][1]
 
-Bildirim hub'ları aşağıdaki avantajlara sahip kullanıma hazır itme altyapınız şöyledir:
+Bildirim hub'ları kullanıma hazır itme altyapınız avantajları aşağıdaki hello ile verilmiştir:
 
 * **Platformlar arası**
 
   * İOS, Android, Windows ve Kindle ve Baidu dahil tüm büyük gönderme platformlar için destek.
-  * Hiçbir platforma özgü iş platforma özgü veya platformdan bağımsız biçimlerde tüm platformlar için göndermek için ortak bir arabirim.
+  * Bir ortak arabirimi toopush tooall platformlarda hiçbir platforma özgü iş platforma özgü veya platformdan bağımsız biçimleri.
   * Aygıt Yönetimi tek bir yerde işleyin.
 * **Arka uçlarını arası**
   
@@ -89,46 +89,46 @@ Bildirim hub'ları aşağıdaki avantajlara sahip kullanıma hazır itme altyap�
   * .NET, Node.js, Java, vs.
 * **Zengin teslim düzeni kümesi**:
 
-  * *Bir veya birden çok platform için yayın*: platformlarda tek bir API çağrısı ile milyonlarca cihazı için anında yayınlayabilirsiniz.
-  * *İtme aygıta*: bildirimleri tek tek cihazlara hedefleyebilirsiniz.
-  * *İtme kullanıcıya*: etiketleri ve şablonları özellikleri, bir kullanıcının tüm platformlar arası cihazlara ulaşmak yardımcı olur.
-  * *Anında iletme kesimine dinamik etiketlerle*: etiketler özelliği yardımcı, segment aygıtları ve onlara anında iletme gereksinimlerinize bağlı olarak, bir kesim veya kesimleri (örneğin etkin ve yaşamlarını değil Seattle yeni kullanıcı) bir ifade gönderiyor olup olmadığını. Pub-sub sınırlı kalmayarak yerine, herhangi bir yere aygıt etiketleri güncelleştirebilir ve zaman.
+  * *Yayın tooone veya birden çok platform*: tek bir API çağrısı ile platformlarda cihazların toomillions anında yayınlayabilirsiniz.
+  * *Toodevice anında*: bildirimleri tooindividual aygıtları hedefleyebilirsiniz.
+  * *Toouser anında*: etiketleri ve şablonları özellikleri, bir kullanıcının tüm platformlar arası cihazlara ulaşmak yardımcı olur.
+  * *İtme dinamik etiketlerle toosegment*: etiketler özelliği segmentlere aygıtları ve tooone segment veya bir ifade kesimleri (örneğin etkin ve yaşamlarını yeni kullanıcı Seattle değil) göndermek isteyip tooyour gereksinimlerine göre toothem anında yardımcı olur. Kısıtlı toopub-sub yerine herhangi bir yere aygıt etiketleri güncelleştirebilir ve zaman.
   * *Yerelleştirilmiş itme*: şablonları özelliği, arka uç kodunu etkilemeden yerelleştirme elde yardımcı olur.
-  * *Sessiz anında*: sağlar gönderme çekme düzeni cihazlara sessiz bildirim göndermek ve bunları belirli çeken veya Eylemler tamamlamak için tetikleme.
-  * *Zamanlanmış itme*: dilediğiniz zaman bildirimleri göndermek için zamanlayabilirsiniz.
-  * *Doğrudan itme*: hizmetimizi kayıt aygıtlarla atlayın ve doğrudan toplu olarak cihaz tanıtıcılarını listesine gönderme.
+  * *Sessiz anında*: sağlar hello gönderme çekme düzeni sessiz bildirimleri toodevices gönderme ve toocomplete tetikleme belirli çeken veya eylemler.
+  * *Zamanlanmış itme*: toosend bildirimleri çıkışı dilediğiniz zaman zamanlayabilirsiniz.
+  * *Doğrudan itme*: bizim hizmeti ve doğrudan toplu iş gönderme tooa cihaz tanıtıcılarını listesi ile kayıt cihazları atlayabilirsiniz.
   * *Kişiselleştirilmiş anında iletme*: cihaz bildirme değişkenleri aygıta özgü gönderdiğiniz yardımcı kişiselleştirilmiş anında iletme bildirimleri özelleştirilmiş anahtar-değer çiftleri ile.
 * **Zengin telemetri**
   
-  * Azure portalı ve program aracılığıyla genel anında iletme, aygıt, hata ve işlem telemetri yok.
-  * İleti Telemetri her gönderme hizmetimizi başarıyla çıkışı iter toplu işleme için ilk isteği çağrısından izler.
-  * Platform bildirim sistemi geri bildirim Platform bildirim sistemleri hata ayıklamaya yardımcı olmak üzere tüm görüşleri iletişim kurar.
+  * Genel anında iletme, aygıt, hata ve işlem telemetri hello Azure portalında kullanılabilir ve program aracılığıyla.
+  * İleti Telemetri parçaları her zorlama başarıyla hello toplu işleme, ilk isteği çağrısı tooour hizmetinden iter.
+  * Platform bildirim sistemi geri bildirim Platform bildirim sistemleri tooassist hata ayıklama içindeki tüm görüşleri iletişim kurar.
 * **Ölçeklenebilirlik** 
   
-  * Hızlı ileti mimarisinin yeniden düzenlenmesinden veya aygıt parçalama kalmadan milyonlarca cihaza gönderebilir.
+  * Hızlı ileti toomillions mimarisinin yeniden düzenlenmesinden veya aygıt parçalama olmadan aygıtların gönderin.
 * **Güvenlik**
 
   * Paylaşılan erişim gizli anahtarı (SAS) veya Federasyon kimlik doğrulaması.
 
 ## <a name="integration-with-app-service-mobile-apps"></a>App Service Mobile Apps ile Tümleştirme
-Azure hizmetleri genelinde kesintisiz ve birleştirici bir deneyimi kolaylaştırmak amacıyla [App Service Mobile Apps]'in Notification Hubs'ı kullanan anında iletme bildirimleri için yerleşik desteği mevcuttur. [App Service Mobile Apps], Kurumsal Geliştiriciler ve Sistem Tümleştiricileri için mobil geliştiricilere zengin bir özellik kümesi sağlayan, yüksek düzeyde ölçeklenebilir, global olarak kullanılabilir bir mobil uygulama geliştirme platformu sunar.
+Azure Hizmetleri genelinde kesintisiz ve birleştirici bir deneyimi toofacilitate [App Service Mobile Apps] bildirim hub'ları kullanarak anında iletme bildirimleri için yerleşik desteğe sahiptir. [App Service Mobile Apps] Kurumsal geliştiriciler ve sistem zengin bir özellikler kümesi toomobile geliştiriciler tümleştiricileri için yüksek düzeyde ölçeklenebilir, genel olarak kullanılabilir bir mobil uygulama geliştirme platformu sunar.
 
-Mobile Apps geliştiricileri Notification Hubs'ı aşağıdaki iş akışı ile kullanabilir:
+Mobile Apps geliştiricileri Notification Hubs ile iş akışı aşağıdaki hello kullanabilir:
 
 1. Cihaz PNS tanıtıcısını alma
 2. Uygun Mobile Apps istemci SDK'sı kayıt API'si yoluyla Notification hubs'a cihazı kaydedin
-   * Mobile Apps'in güvenlik amacıyla kayıtlardaki tüm etiketleri kaldırdığını unutmayın. Etiketleri cihazlarla ilişkilendirmek için doğrudan arka ucunuzdan Notification Hubs ile çalışın.
+   * Mobile Apps'in güvenlik amacıyla kayıtlardaki tüm etiketleri kaldırdığını unutmayın. Aygıtlarla tooassociate etiketler doğrudan arka ucunuzdan Notification Hubs ile çalışın.
 3. Uygulama arka ucunuzdan Notification Hubs ile bildirimler gönderme
 
-Bu tümleştirme ile geliştiricilere sağlanan bazı kolaylıklar şunlardır:
+Bu tümleştirme ile toodevelopers bazı kolaylıklar şunlardır:
 
-* **Mobile Apps istemci SDK'ları**: Bu çoklu platform SDK'ları kayıt için basit API'ler sağlar ve otomatik olarak mobil uygulama ile bağlantılı bildirim hub'ına konuşun. Geliştiricilerin Notification Hubs kimlik bilgilerini sorgulaması ve ek bir hizmet ile çalışması gerekmez.
+* **Mobile Apps istemci SDK'ları**: Bu çoklu platform SDK'ları kayıt için basit API'ler sağlar ve toohello bildirim hub'ı otomatik olarak bağlantılı hello mobil uygulama ile görüşün. Geliştiriciler değil Notification Hubs kimlik bilgilerini aracılığıyla toodig gerekir ve ek bir hizmet ile çalışabilirsiniz.
 
-  * *İtme kullanıcıya*: SDK'ları otomatik olarak Mobile Apps kimliği doğrulanmış kullanıcı senaryosuna gönderimi sağlamak için kullanıcı kimliği ile verilen cihaz etiketi.
-  * *İtme aygıta*: SDK'ları otomatik olarak Mobile Apps yükleme kimliği GUID olarak geliştiricileri birden çok hizmet GUID'i saklama zahmetinden kurtarır Notification Hubs ile kaydetmek için kullanın.
-* **Yükleme modeli**: anında iletme bildirimi Hizmetleri ile hizalanan ve kullanımı kolay olan bir JSON yüklemesi bir aygıt ile ilişkili tüm gönderim özelliklerini temsil etmek için Notification Hubs en son gönderim modeli ile birlikte Mobile Apps çalışır.
-* **Esneklik**: geliştiriciler yerinde tümleştirme söz konusu bile Notification Hubs ile doğrudan çalışmak her zaman seçebilirsiniz.
-* **Tümleşik deneyim [Azure portal]**: bir özelliği mobil uygulamalarda görsel olarak temsil edilir ve geliştiriciler Mobile Apps aracılığıyla ilişkili bildirim hub'ı ile kolayca çalışabilir gibi anında.
+  * *Anında toouser*: hello SDK'ları otomatik olarak Mobile Apps kimliği doğrulanmış kullanıcı kimliği tooenable itme toouser senaryo aygıtla verilen hello etiketi.
+  * *Toodevice anında*: hello SDK'ları otomatik olarak kullan hello Mobile Apps yükleme kimliği GUID tooregister geliştiricileri birden çok hizmet GUID'i saklama hello zahmetinden kurtarır Notification Hubs ile olarak.
+* **Yükleme modeli**: tüm itme anında iletme bildirimi Hizmetleri ile hizalanan ve kolay toouse olan bir JSON yüklemesi bir aygıt ile ilişkili özellikleri Notification Hubs son itme modeli toorepresent Mobile Apps çalışır.
+* **Esneklik**: geliştiriciler doğrudan Notification Hubs ile toowork hello tümleştirmesiyle bile her zaman yerinde seçebilirsiniz.
+* **Tümleşik deneyim [Azure portal]**: bir özelliği mobil uygulamalarda görsel olarak temsil edilir ve geliştiriciler Mobile Apps aracılığıyla hello ilişkili bildirim hub'ı ile kolayca çalışabilir gibi anında.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Bu konu başlıklarında Notification Hubs hakkında daha fazla bilgi bulabilirsiniz:

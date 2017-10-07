@@ -1,6 +1,6 @@
 ---
-title: "Spark - Azure Python kitaplıkları ile Web sitesi günlüklerini çözümleme | Microsoft Docs"
-description: "Bu Not Azure hdınsight'taki Spark ile özel bir kitaplık kullanılarak günlük verilerini analiz etme gösterir."
+title: "Spark - Azure Python kitaplıklarla aaaAnalyze Web sitesi günlüklerini | Microsoft Docs"
+description: "Bu Not nasıl tooanalyze oturum Azure hdınsight'taki Spark ile özel bir kitaplık kullanılarak veri gösterir."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -16,39 +16,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.openlocfilehash: 2a028beb1e9eae89d32238e61b6f67c4c059a94a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 29e4308b2a359aee6d69494a98307d4da07f7909
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Hdınsight'ta Spark kümesinde ile özel bir Python kitaplığı kullanarak Web sitesi günlüklerini çözümleme
 
-Bu Not hdınsight'ta Spark ile özel bir kitaplık kullanılarak günlük verilerini analiz etme gösterir. Adlı bir Python kitaplığı kullandığımız özel kitaplığı olan **iislogparser.py**.
+Bu Not nasıl tooanalyze oturum hdınsight'ta Spark ile özel bir kitaplık kullanılarak veri gösterir. kullanırız hello özel kitaplığıdır adlı bir Python Kitaplığı **iislogparser.py**.
 
 > [!TIP]
-> Bu öğretici, Hdınsight'ta oluşturma (Linux) Spark kümesinde Jupyter not defteri olarak da kullanılabilir. Not Defteri deneyimi Python parçacıkları dizüstü çalıştırmadan olanak sağlar. Gelen öğretici bir not defteri içinde gerçekleştirmek için bir Spark kümesi oluşturma, Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), ve ardından not defteri çalıştırın **ile özel bir library.ipynb kullanarak Spark günlüklerini çözümleme** altında **PySpark**  klasörü.
+> Bu öğretici, Hdınsight'ta oluşturma (Linux) Spark kümesinde Jupyter not defteri olarak da kullanılabilir. Merhaba not defteri deneyimi hello Python parçacıkları hello dizüstü bilgisayarınızı kendisini çalıştırmadan olanak sağlar. bir not defteri içinde tooperform hello öğretici bir Spark kümesi oluşturma, Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), ve ardından hello dizüstü çalıştırın **ile özel bir library.ipynb kullanarak Spark günlüklerini çözümleme** hello altında  **PySpark** klasör.
 >
 >
 
 **Ön koşullar:**
 
-Aşağıdakilere sahip olmanız gerekir:
+Merhaba şunlara sahip olmanız gerekir:
 
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Hdınsight'ta bir Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="save-raw-data-as-an-rdd"></a>Ham veri bir RDD Kaydet
-Bu bölümde, kullanırız [Jupyter](https://jupyter.org) ham örnek verileri işlemek ve Hive tablo olarak Kaydet işlerini çalıştırmak için hdınsight'ta bir Apache Spark kümesi ile ilişkili dizüstü bilgisayar. Örnek, bir .csv dosyası (hvac.csv) kullanılabilir varsayılan olarak tüm kümelerde verilerdir.
+Bu bölümde, hello kullanırız [Jupyter](https://jupyter.org) ham örnek verileri işlemek ve Hive tablo olarak Kaydet Hdınsight toorun işleri Apache Spark kümesinde ile ilişkili dizüstü bilgisayar. bir .csv dosyası (hvac.csv) kullanılabilir varsayılan olarak tüm kümelerde Hello örnek verilerdir.
 
-Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz Power BI ve Tableau gibi BI araçları kullanarak Hive tablosu bağlanır.
+Verilerinizi bir Hive tablosu olarak kaydedildikten sonra hello sonraki bölümde biz toohello Hive tablosu Power BI ve Tableau gibi BI araçları kullanarak bağlanır.
 
-1. [Azure portalındaki](https://portal.azure.com/) başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.   
-2. Spark kümesi dikey penceresinden **Küme Panosu**’na ve ardından **Jupyter Notebook**’a tıklayın. İstenirse, küme için yönetici kimlik bilgilerini girin.
+1. Merhaba gelen [Azure portal](https://portal.azure.com/), (, onu toohello Sabitle) hello Panosu'ndan hello kutucuğuna Spark kümenizin tıklayın. Tooyour küme altında da gidebilirsiniz **tümüne Gözat** > **Hdınsight kümeleri**.   
+2. Merhaba Spark kümesi dikey penceresinden tıklatın **küme Panosu**ve ardından **Jupyter not defteri**. İstenirse, hello küme için hello yönetici kimlik bilgilerini girin.
 
    > [!NOTE]
-   > Aşağıdaki URL’yi tarayıcınızda açarak da Jupyter Notebook’a ulaşabilirsiniz. **CLUSTERNAME** değerini kümenizin adıyla değiştirin:
+   > Kümenizin açma hello tarayıcınızda URL aşağıdaki tarafından hello Jupyter Not Defteri de ulaşabilir. Değiştir **CLUSTERNAME** kümenizi hello adı:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
@@ -56,25 +56,25 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
 3. Yeni bir not defteri oluşturun. **Yeni** ve ardından **PySpark** seçeneğine tıklayın.
 
     ![Yeni bir Jupyter not defteri oluşturma](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Yeni bir Jupyter not defteri oluşturma")
-4. Yeni bir not defteri oluşturulur ve Untitled.pynb adı ile açılır. Üstteki not defteri adına tıklayın ve kolay bir ad girin.
+4. Yeni bir not defteri oluşturulur ve Untitled.pynb hello adı ile. Merhaba üstünde Hello dizüstü bilgisayar adına tıklayın ve kolay bir ad girin.
 
-    ![Not defteri adını belirtme](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Not defteri adını belirtme")
-5. PySpark çekirdeği kullanarak bir not defteri oluşturduğunuz için açıkça bir bağlam oluşturmanız gerekmez. Birinci kod hücresini çalıştırdığınızda Spark ve Hive bağlamları sizin için otomatik olarak oluşturulur. Bu senaryo için gereken türleri içeri aktararak işleme başlayabilirsiniz. Boş bir hücreye aşağıdaki kod parçacığını yapıştırın ve sonra basın **SHIFT + ENTER**.
+    ![Merhaba dizüstü bilgisayar için bir ad](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "hello dizüstü bilgisayar için bir ad sağlayın")
+5. Merhaba PySpark çekirdeği kullanarak bir not defteri oluşturduğunuz için siz toocreate bir bağlam açıkça gerekmez. Merhaba birinci kod hücresini çalıştırdığınızda Spark ve Hive bağlamları hello otomatik olarak sizin için oluşturulur. Bu senaryo için gerekli olan hello türleri içeri aktararak işleme başlayabilirsiniz. Boş bir hücre parçacığında aşağıdaki hello yapıştırın ve tuşuna basın **SHIFT + ENTER**.
 
         from pyspark.sql import Row
         from pyspark.sql.types import *
 
 
-1. Kümede zaten mevcut örnek günlük verileri kullanarak bir RDD oluşturun. Konumundaki küme ile ilişkili varsayılan depolama hesabındaki verilere erişebilir **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
+1. Merhaba örnek günlük verilerini zaten kullanılabilir hello kümede kullanılarak RDD oluşturun. Merhaba kümesine ilişkili hello varsayılan depolama hesabı hello verilerine erişebilir **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
 
         logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
 
-1. Örnek günlük doğrulamak için kümesinin başarıyla tamamlandı ve önceki adımla alın.
+1. Önceki adımda başarıyla tamamlandı hello bir örnek günlük kümesi tooverify alın.
 
         logs.take(5)
 
-    Aşağıdakine benzer bir çıktı görmeniz gerekir:
+    Bir çıkış benzer toohello aşağıdaki görmeniz gerekir:
 
         # -----------------
         # THIS IS AN OUTPUT
@@ -87,24 +87,24 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>Özel bir Python kitaplığı kullanarak günlük verileri analiz
-1. Yukarıdaki çıktıda üst bilgileri ilk birkaç satırı içerir ve bu başlığında açıklanan şema kalan her satırın eşleştirir. Bu tür günlükleri ayrıştırma karmaşık olabilir. Bu nedenle, özel bir Python kitaplığı kullandığımız (**iislogparser.py**) bu tür günlükleri çok daha kolay ayrıştırma yapar. Varsayılan olarak, bu kitaplık hdınsight'ta Spark kümenizin birlikte **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
+1. Merhaba çıkış yukarıdaki, o başlığında açıklanan hello şema her kalan satırıyla eşleşen ve hello ilk birkaç satırı hello üst bilgileri içerir. Bu tür günlükleri ayrıştırma karmaşık olabilir. Bu nedenle, özel bir Python kitaplığı kullandığımız (**iislogparser.py**) bu tür günlükleri çok daha kolay ayrıştırma yapar. Varsayılan olarak, bu kitaplık hdınsight'ta Spark kümenizin birlikte **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
 
-    Ancak, bu kitaplık olmayan `PYTHONPATH` Biz bu gibi bir içeri aktarma deyimini kullanarak kullanamazlar `import iislogparser`. Bu kitaplığı kullanmak için biz için tüm çalışan düğümleri dağıtmanız gerekir. Aşağıdaki kod parçacığında çalıştırın.
+    Ancak, bu kitaplığı hello değil `PYTHONPATH` Biz bu gibi bir içeri aktarma deyimini kullanarak kullanamazlar `import iislogparser`. toouse bu kitaplığı biz tooall hello çalışan düğümleri dağıtmalısınız. Aşağıdaki kod parçacığında hello çalıştırın.
 
         sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
-1. `iislogparser`bir işlev sağlar `parse_log_line` döndüren `None` günlük satır bir başlık satırıdır ve örneğini döndürür, `LogLine` günlük satırı karşılaşırsa sınıfı. Kullanım `LogLine` sınıfı yalnızca günlük satırları RDD ayıklamak için:
+1. `iislogparser`bir işlev sağlar `parse_log_line` döndüren `None` varsa bir günlük satırı sütun başlığı ve bir hello örneğini döndürür `LogLine` günlük satırı karşılaşırsa sınıfı. Kullanım hello `LogLine` sınıfı tooextract yalnızca hello RDD günlük satırlarından hello:
 
         def parse_line(l):
             import iislogparser
             return iislogparser.parse_log_line(l)
         logLines = logs.map(parse_line).filter(lambda p: p is not None).cache()
-2. Birkaç doğrulamak için ayıklanan günlük satırları başarıyla tamamlandı adım alır.
+2. Birkaç adım başarıyla tamamlandı hello ayıklanan günlük satırları tooverify alın.
 
        logLines.take(2)
 
-   Çıktının aşağıdakine benzer olması gerekir:
+   Merhaba çıkış benzer toohello aşağıdaki gibi olmalıdır:
 
        # -----------------
        # THIS IS AN OUTPUT
@@ -112,7 +112,7 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
 
        [2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46,
         2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
-3. `LogLine` Sınıfı, sırasıyla sahip bazı kullanışlı yöntemler gibi `is_error()`, bir günlük girişi bir hata kodu sahip olup olmadığını döndürür. Ayıklanan günlük satırları hataların sayısı işlem için bunu kullanın ve farklı bir dosya için tüm hataların oturum açın.
+3. Merhaba `LogLine` sınıfı, sırasıyla sahip bazı kullanışlı yöntemler gibi `is_error()`, bir günlük girişi bir hata kodu sahip olup olmadığını döndürür. Bu toocompute hello hata sayısı ayıklanan hello günlük satırlarında kullanın ve ardından tüm hello hataları tooa farklı dosya oturum.
 
        errors = logLines.filter(lambda p: p.is_error())
        numLines = logLines.count()
@@ -120,15 +120,15 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
        print 'There are', numErrors, 'errors and', numLines, 'log entries'
        errors.map(lambda p: str(p)).saveAsTextFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
-   Aşağıdaki gibi bir çıktı görmeniz gerekir:
+   Merhaba aşağıdaki gibi bir çıktı görmeniz gerekir:
 
        # -----------------
        # THIS IS AN OUTPUT
        # -----------------
 
        There are 30 errors and 646 log entries
-4. Aynı zamanda **Matplotlib** bir veri görselleştirmesi oluşturmak için. Örneğin, uzun süredir çalışan istekleri nedenini ayırt etmek istiyorsanız, ortalama hizmet en zaman dosyaları bulmak isteyebilirsiniz.
-   Aşağıdaki kod parçacığını bir isteğe hizmet vermek için çoğu sürdü üst 25 kaynakları alır.
+4. Aynı zamanda **Matplotlib** tooconstruct hello veri görselleştirme. Örneğin, uzun süredir çalışan istekleri tooisolate hello nedenini istiyorsanız hello çoğu zaman tooserve ortalama ele toofind hello dosyaları isteyebilirsiniz.
+   Aşağıdaki Hello parçacığı çoğu zaman tooserve bir istek aldı hello üst 25 kaynakları alır.
 
        def avgTimeTakenByKey(rdd):
            return rdd.combineByKey(lambda line: (line.time_taken, 1),
@@ -138,7 +138,7 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
 
        avgTimeTakenByKey(logLines.map(lambda p: (p.cs_uri_stem, p))).top(25, lambda x: x[1])
 
-   Aşağıdaki gibi bir çıktı görmeniz gerekir:
+   Merhaba aşağıdaki gibi bir çıktı görmeniz gerekir:
 
        # -----------------
        # THIS IS AN OUTPUT
@@ -169,7 +169,7 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
         (u'/blogposts/sqlvideos/sqlvideos.jpg', 102.0),
         (u'/blogposts/mvcrouting/step21.jpg', 101.0),
         (u'/blogposts/mvc4/step1.png', 98.0)]
-5. Ayrıca bu bilgileri çizim biçiminde sunabilir. Bir çizim oluşturmak için ilk adım, bize ilk geçici bir tablo oluşturun **AverageTime**. Tablo günlükleri belirli bir zamanda herhangi bir olağan dışı gecikme ani olup olmadığını görmek için zamana göre gruplandırır.
+5. Ayrıca bu bilgileri çizimin hello formunda sunabilir. Bir ilk adım toocreate bir çizim, bize ilk geçici bir tablo oluşturun **AverageTime**. belirli bir zamanda herhangi bir olağan dışı gecikme ani olsaydı hello tablo grupları hello zaman toosee tarafından günlüğe kaydeder.
 
        avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
        schema = StructType([StructField('Minutes', IntegerType(), True),
@@ -177,19 +177,19 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
 
        avgTimeTakenByMinuteDF = sqlContext.createDataFrame(avgTimeTakenByMinute, schema)
        avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
-6. Ardından tüm kayıtları almak için aşağıdaki SQL sorgusunu çalıştırın **AverageTime** tablo.
+6. Ardından SQL sorgu tooget aşağıdaki hello tüm hello kayıtları hello çalıştırabilirsiniz **AverageTime** tablo.
 
        %%sql -o averagetime
        SELECT * FROM AverageTime
 
-   `%%sql` Sihirli arkasından `-o averagetime` sorgu çıktısı (genellikle küme headnode) Jupyter sunucuda yerel olarak kalıcı olmasını sağlar. Çıktı olarak kalıcı bir [Pandas](http://pandas.pydata.org/) belirtilen ada sahip dataframe **averagetime**.
+   Merhaba `%%sql` Sihirli arkasından `-o averagetime` hello sorgu hello çıktısını (genellikle hello kümesinin hello headnode) hello Jupyter sunucuda yerel olarak kalıcı olmasını sağlar. Merhaba çıkış kalıcı olarak bir [Pandas](http://pandas.pydata.org/) dataframe hello ile belirtilen adı **averagetime**.
 
-   Aşağıdaki gibi bir çıktı görmeniz gerekir:
+   Merhaba aşağıdaki gibi bir çıktı görmeniz gerekir:
 
    ![SQL sorgu çıktısı](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "SQL sorgu çıktısı")
 
-   Hakkında daha fazla bilgi için `%%sql` Sihirli, bkz: [parametreleri desteklenen ile %% sql Sihirli](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
-7. Artık Matplotlib, veri görselleştirme oluşturmak için kullanılan bir kitaplık bir çizim oluşturmak için de kullanabilirsiniz. Çizim oluşturulması gerekir çünkü yerel olarak kalıcı gelen **averagetime** dataframe, kod parçacığında ile başlamalıdır `%%local` Sihirli. Bu kodu Jupyter sunucu üzerinde yerel olarak çalıştırın sağlar.
+   Merhaba hakkında daha fazla bilgi için `%%sql` Sihirli, bkz: [parametreleri ile Merhaba desteklenen %% sql Sihirli](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+7. Verilerin toocreate bir çizim tooconstruct görselleştirme kitaplığı kullanılan Matplotlib şimdi kullanabilirsiniz. Yerel olarak hello Hello çizim oluşturulması gerekir çünkü kalıcı **averagetime** dataframe, hello kod parçacığını hello ile başlamalıdır `%%local` Sihirli. Bu, hello kod hello Jupyter sunucusunda yerel olarak çalıştırın sağlar.
 
        %%local
        %matplotlib inline
@@ -199,10 +199,10 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
        plt.xlabel('Time (min)')
        plt.ylabel('Average time taken for request (ms)')
 
-   Aşağıdaki gibi bir çıktı görmeniz gerekir:
+   Merhaba aşağıdaki gibi bir çıktı görmeniz gerekir:
 
    ![Matplotlib çıkış](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib çıkış")
-8. Uygulamayı çalıştırmayı tamamladıktan sonra kaynakları serbest bırakmak için not defterini kapatmanız gerekir. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın. Bunun yapılması not defterini kapatır.
+8. Merhaba uygulaması çalıştıran bitirdikten sonra kapatma hello not defteri toorelease hello kaynakları gerekir. toodo çok hello **dosya** hello dizüstü menüsünde **Kapat ve Durdur**. Bu işlem kapatma ve Kapat hello dizüstü.
 
 ## <a name="seealso"></a>Ayrıca bkz.
 * [Genel Bakış: Azure HDInsight’ta Apache Spark](hdinsight-apache-spark-overview.md)
@@ -210,7 +210,7 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
 ### <a name="scenarios"></a>Senaryolar
 * [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](hdinsight-apache-spark-use-bi-tools.md)
 * [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning ile Spark: Spark Hdınsight toopredict yemek İnceleme sonuçlarını içinde kullanma](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark Akış: Gerçek zamanlı akış uygulamaları oluşturmak için HDInsight’ta Spark kullanma](hdinsight-apache-spark-eventhub-streaming.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
@@ -218,13 +218,13 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
 * [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
-* [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Intellij Idea toocreate için Hdınsight araçları eklentisi kullanma ve Spark Scala uygulamaları gönderin](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Uzaktan Intellij Idea toodebug Spark uygulamaları için Hdınsight araçları eklentisi kullanma](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](hdinsight-apache-spark-zeppelin-notebook.md)
 * [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Jupyter bilgisayarınıza yüklemek ve tooan Hdınsight Spark kümesi bağlanın](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Kaynakları yönetme
-* [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](hdinsight-apache-spark-resource-manager.md)
+* [Hello Azure hdınsight'ta Apache Spark küme kaynaklarını yönetme](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](hdinsight-apache-spark-job-debugging.md)

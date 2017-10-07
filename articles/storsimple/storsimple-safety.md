@@ -1,6 +1,6 @@
 ---
-title: "StorSimple cihazınız için güvenliği | Microsoft Docs"
-description: "Güvenlik kuralları, kılavuzları ve konuları açıklar ve güvenli bir şekilde yüklemek ve StorSimple Cihazınızı çalıştırmak açıklanmaktadır."
+title: "StorSimple cihazınız için aaaSafety | Microsoft Docs"
+description: "Güvenlik kuralları, yönergeleri ve ilgili önemli noktalar ve nasıl toosafely yüklemek ve StorSimple Cihazınızı çalıştırmak açıklanmaktadır."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: a178e8880bcbcada9d66eaacf5ccbdb7c55957cb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cb5e24582c0391d7b68cb5c74586815af4b58a8b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Güvenli bir şekilde yüklemek ve StorSimple Cihazınızı çalıştırmak
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png)
 ![güvenliği bildirim simgesi okuma](./media/storsimple-safety/IC740885.png) **okuma güvenlik ve sistem durumu bilgileri**
 
-Microsoft Azure StorSimple Cihazınızı geçerlidir bu makaledeki tüm güvenlik ve sistem durumu bilgileri okuyun. StorSimple Cihazınızı gelecekte başvurmak için ile birlikte gelen tüm yazdırılan kılavuzları tutun. Yönergeleri izleyin ve düzgün bir şekilde ayarlamak, kullanın ve bu ürünün önemli yaralanma veya ölüm riskini artırabilir veya cihaz veya cihazlara zarar için önemli hatası. A [bu kılavuzun indirilebilir sürümünü](http://www.microsoft.com/download/details.aspx?id=44233) da kullanılabilir.
+Tüm hello güvenliği ve tooyour Microsoft Azure StorSimple cihaz bu makalenin sistem durumu bilgileri okuyun. Tüm StorSimple Cihazınızı gelecekte başvurmak için ile birlikte gelen yazdırılan kılavuzları Merhaba devam eder. Hata toofollow yönergeleri ve düzgün bir şekilde ayarlamak, kullanın ve bu ürünün önemli yaralanma veya ölüm, veya hasar toohello cihaz veya cihazları hello riskini artırabilir için dikkat edin. A [bu kılavuzun indirilebilir sürümünü](http://www.microsoft.com/download/details.aspx?id=44233) da kullanılabilir.
 
 ## <a name="safety-icon-conventions"></a>Güvenlik simgesi kuralları
-İşte, ne zaman ayarlama ve Microsoft Azure StorSimple Cihazınızı çalıştırırken gözlenecek güvenlik önlemlerini gözden bulacaksınız simgeleri.
+İşte hello simgeleri ayarlama ve Microsoft Azure StorSimple Cihazınızı çalıştırırken gözlenen hello güvenlik önlemleri toobe inceleyin bulacaksınız.
 
 | Simgesi | Açıklama |
 |:--- |:--- |
-| ![Tehlike simgesi](./media/storsimple-safety/IC740879.png) **tehlike!** |Kaçınılması değil, ölüm veya ciddi yaralanma neden olur, zararlı bir durumu gösterir. Bu sinyal Word'ün en aşırı durumlarla sınırlı olacak. |
+| ![Tehlike simgesi](./media/storsimple-safety/IC740879.png) **tehlike!** |Kaçınılması değil, ölüm veya ciddi yaralanma neden olur, zararlı bir durumu gösterir. Bu sinyal toobe toohello en aşırı durumlarla sınırlı bir sözcüktür. |
 | ![Uyarı simgesi](./media/storsimple-safety/IC740879.png) **uyarı!** |Kaçınılması değil, ölüm veya ciddi yaralanma neden olabilir, zararlı bir durumu gösterir. |
 | ![Uyarı simgesi](./media/storsimple-safety/IC740879.png) **dikkat!** |Kaçınılması değil, küçük veya Orta yaralanma neden olabilir, zararlı bir durumu gösterir. |
 | ![Fark simgesi](./media/storsimple-safety/IC740881.png) **dikkat edin:** |Önemli ancak hasar ilgili olmayan kabul bilgi gösterir. |
@@ -44,87 +44,87 @@ Microsoft Azure StorSimple Cihazınızı geçerlidir bu makaledeki tüm güvenli
 ## <a name="handling-precautions"></a>Önlemleri işleme
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png) ![büyük ağırlık simgesi](./media/storsimple-safety/IC740883.png) **uyarı!** 
 
-Yaralanma riskini azaltmak için:
+Merhaba riskini yaralanma tooreduce:
 
-* Tam olarak yapılandırılmış bir muhafaza 32 kg (70 lb); tartmanız kendi kendinize yükseltmek çalışmayın.
-* Muhafaza geçmeden önce her zaman iki kişinin ağırlık işlemek kullanılabilir olduğundan emin olun. Bu ağırlık Yükselt çalışılırken, bir kişinin injuries karşılayabilir unutmayın.
-* Kasa, güç ve soğutma modülleri (PCMs) birim arkada bulunan işleyicilerinin tarafından kaldırın değil. Bunlar ağırlık olabilmesi için tasarlanmamıştır.
+* Tam olarak yapılandırılmış bir kasa too32 kg (70 lb); tartmanız toolift çalışmayın kendiniz tarafından.
+* Taşıma hello muhafaza önce her zaman iki kişinin kullanılabilir toohandle hello ağırlık olduğundan emin olun. Unutmayın, bir kişinin toolift çalışırken bu ağırlık injuries karşılayabilir.
+* Merhaba birim Hello arkada bulunan hello muhafaza hello tanıtıcıları hello güç ve soğutma modülleri (PCMs) tarafından Yükselt değil. Bunlar olmayan tootake hello ağırlık tasarlanmıştır.
 
 ## <a name="connection-precautions"></a>Bağlantı uyarıları
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png) ![elektrik Şoku simgesi](./media/storsimple-safety/IC740882.png) **uyarı!**
 
-Yaralanma, elektrik Şoku veya ölüm olasılığını azaltmak için:
+tooreduce hello olasılığını yaralanma, elektrik Şoku veya ölüm:
 
 * Birden çok AC kaynaklar tarafından gücü kullanıldığında tam yalıtımı için tüm tedarik güç bağlantısını kesin.
-* Kalıcı olarak birim taşımadan önce ya da herhangi bir yolla zarar görmüş olması düşünüyorsanız çıkarın.
-* Güç kaynağı kablosu güvenli elektrik earth bağlantı sağlar. Güç uygulamadan önce muhafaza grounding Ulusal ve yerel gereksinimlerini karşıladığını doğrulayın.
-* Muhafaza PCM'den kaldırılmasını önce güç bağlantısı her zaman kesildiğinden emin olun.
-* Güç kaynağı kablosu üzerinde Tak olması koşuluyla, ana aygıt kesin, yuva çıkışlar ekipman bulunduğundan emin olun ve kolayca erişilebilir.
+* Kalıcı olarak hello birim taşımadan önce ya da herhangi bir yolla zarar görmüş olması düşünüyorsanız çıkarın.
+* Güvenli elektrik earth bağlantı toohello güç kaynağı cords sağlar. Güç uygulamadan önce Hello grounding hello kasası, hello Ulusal ve yerel gereksinimlerini karşıladığını doğrulayın.
+* Merhaba güç bağlantısı her zaman hello Kasası ' bir PCM önceki toohello kaldırılmasını kesildiğinden emin olun.
+* Merhaba Tak hello güç kaynağı kablosu üzerinde olduğu hello ana aygıtın kesin, hello yuva çıkışlar hello ekipman bulunan ve kolayca erişilebilir olduğundan emin olun.
 
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png) ![elektrik Şoku simgesi](./media/storsimple-safety/IC740882.png) **uyarı!**
 
-Elektrik bağlantılarından yangın veya aşırı olasılığını azaltmak için:
+tooreduce hello olasılığını aşırı veya yangın hello elektrik bağlantılardan:
 
-* Uygun güç kaynağı teknik belirtiminde ayrıntılı gereksinimlerini karşılamak için elektrik aşırı koruma sağlar.
+* Uygun güç kaynağı elektrik aşırı koruma toomeet ile Merhaba teknik belirtiminde ayrıntılı hello gereksinimleri verilmektedir.
 * Bölündü güç kablosu ("Y" Müşteri adayları) kullanmayın.
-* Geçerli güvenlik, çıkması ve sıcaklık gereksinimlerine uymak için hiçbir kapsar kaldırılmalı ve tüm yuvaları eklenti modülleri ile doldurulması gerekir veya boşlukları sürücü.
-* Ekipman üreticisi tarafından belirtilen şekilde kullanıldığından emin olun. Bu donanım üreticisi tarafından belirtilmemiş bir şekilde kullanılırsa, donanım tarafından sağlanan koruma kesintiye uğrayabilir.
+* Geçerli güvenlik, çıkması ve sıcaklık gereksinimleri, hiçbir kapsar toocomply kaldırılmalı ve tüm yuvaları eklenti modülleri ile doldurulması gerekir veya boşlukları sürücü.
+* Merhaba ekipman hello üreticisi tarafından belirtilen şekilde kullanıldığından emin olun. Bu donanım hello üreticisi tarafından belirtilmemiş bir şekilde kullanılırsa, hello donanım tarafından sağlanan hello koruma kesintiye uğrayabilir.
 
 ![Fark simgesi](./media/storsimple-safety/IC740881.png) **dikkat edin:**
 
-Düzgün çalışması donanımınızı ve ürün zarar önlemek için:
+Merhaba düzgün çalışması için donanım ve tooprevent ürün kesimin için:
 
-* Cihaz arkasındaki RJ45 bağlantı yalnızca bir Ethernet bağlantı noktalarıdır. Bunlar telekomünikasyon ağa bağlı gerekir.
-* Cihaz ön arka soğutma tasarım uyum sağlayabilecek bir rafa yüklediğinizden emin olun.
-* Tüm eklenti modülleri ve boş kalıplarını Sistem Kasası parçasıdır. Yenisini hemen eklenebilir, bunlar yalnızca kaldırılmalıdır. Sistem, tüm modülleri veya yerinde boşlukları olmadan çalıştırılmamalıdır.
+* Merhaba RJ45 bağlantı hello cihaz arkasına Merhaba, yalnızca bir Ethernet bağlantı noktalarıdır. Bu, bağlı tooa telekomünikasyon ağ olması gerekir.
+* Ön arka soğutma tasarım barındırabilecek bir dolapta emin tooinstall hello cihaz olabilir.
+* Tüm eklenti modülleri ve boş kalıplarını hello Sistem Kasası parçasıdır. Yenisini hemen eklenebilir, bunlar yalnızca kaldırılmalıdır. tüm modülleri veya yerinde boşlukları olmadan Hello sistem çalıştırılmamalıdır.
 
 ## <a name="rack-system-precautions"></a>Raf sistem önlemler
-Dolap raf cihazı bağladığınızda aşağıdaki güvenliği gereksinimleri dikkate alınmalıdır.
+bir raf dolap hello cihazı bağladığınızda hello aşağıdaki güvenliği gereksinimleri dikkate alınmalıdır.
 
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png) ![ipucu tehlike simgesi](./media/storsimple-safety/IC740886.png) **uyarı!**
 
-Üzerinden bir ipucu gelen yaralanma olasılığını azaltmak için:
+Merhaba olasılığını yaralanma bir ipucu gelen tooreduce:
 
-* Raf tasarım yüklü kasaları toplam ağırlığını desteklemelidir ve raf tipping üzerinden normal kullanım veya yükleme sırasında itildiği veya engellemek uygun Dengeleme özellikleri eklemeniz gerekir.
-* Bir raf yüklenirken, raf Alttan dolabilir ve üstten aşağı boş.
-* Raf dışında birden fazla muhafaza toppling raf tehlike önlemek için bir zaman slayt değil.
+* Merhaba raf tasarım hello toplam yüklü hello kasaları ağırlığını desteklemelidir ve özellikleri uygun tooprevent hello raf Dengeleme tipping veya üzerinden normal kullanım veya yükleme sırasında gönderilen eklemeniz gerekir.
+* Bir raf yüklenirken hello raf hello aşağıdan yukarı ve hello üstten boş doldurun.
+* Birden fazla muhafaza hello raf toppling hello raf, zaman tooavoid hello tehlike adresindeki dışında slayt değil.
 
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png) ![elektrik Şoku simgesi](./media/storsimple-safety/IC740882.png) **uyarı!**
 
-Yaralanma, elektrik Şoku veya ölüm olasılığını azaltmak için:
+tooreduce hello olasılığını yaralanma, elektrik Şoku veya ölüm:
 
-* Raf güvenli elektrik dağıtım sistemi olması gerekir. Kasa için atlayarak geçerli koruma sağlamanız gerekir ve yüklü kasaları toplam sayısına göre aşırı değil gerekir. Ad plakası üzerinde gösterilen elektrik tüketim derecelendirme uyulması.
-* Elektrik dağıtım sistemi dolapta her kasa için güvenilir bir yerdeki sağlamanız gerekir.
-* Elektrik dağıtım sistemi tasarımını dikkate toplam başından başlayarak sızıntısını tüm mahfazalarında tüm güç kaynakları gelen geçerli almanız gerekir. Her güç kaynağı her muhafazada başından başlayarak sızıntısını geçerli 1.0 mA maksimum 60 Hz 264 Volt olduğuna dikkat edin. Raf "yüksek SIZINTISINI geçerli. etiketleme gerektirebilir Plan (dünya) bağlantı bir tedarik bağlanmadan önce gereklidir."
-* Kasa ile yapılandırıldığında raf UL 60950-1 IEC 60950-1/tr 60950-1 ve güvenlik gereksinimleri karşılaması gerekir.
+* Merhaba raf güvenli elektrik dağıtım sistemi olması gerekir. Merhaba kasası için atlayarak geçerli koruma sağlamanız gerekir ve hello toplam sayısı yüklü kasaları tarafından aşırı değil gerekir. Merhaba ad plakası üzerinde gösterilen hello elektrik tüketim derecelendirme uyulması.
+* Merhaba elektrik dağıtım sistemi hello dolapta her kasa için güvenilir bir yerdeki sağlamanız gerekir.
+* Merhaba elektrik dağıtım sistemi Hello tasarımını göz önünde bulundurarak hello toplam başından başlayarak sızıntısını tüm mahfazalarında tüm güç kaynakları gelen geçerli almanız gerekir. Her güç kaynağı her muhafazada başından başlayarak sızıntısını geçerli 1.0 mA maksimum 60 Hz 264 Volt olduğuna dikkat edin. "yüksek SIZINTISINI geçerli. etiketleme Hello raf gerektirebilir Plan (dünya) bağlantı bir tedarik bağlanmadan önce gereklidir."
+* Merhaba raf, Hello kasa ile yapılandırılmış, UL 60950-1 ve IEC 60950-1/tr 60950-1 hello güvenlik gereksinimlerini karşılaması gerekir.
 
 ![Fark simgesi](./media/storsimple-safety/IC740881.png) **dikkat edin:**
 
-Uygun raf sisteminizi soğutma için:
+Raf sisteminizi soğutma uygun Hello için:
 
-* Raf tasarım 35 derece derece (95 Fahrenhayt derece) ortam sıcaklığı maksimum muhafaza dikkate alır emin olun.
-* Sistem low-pressure, arka Egzoz yükleme (geri baskısı raf kapıları ve engellerini geçmemesi 5 Pascal [0,5 mm su ölçer] tarafından oluşturulan) ile çalıştırılır.
+* Merhaba raf tasarım 35 derece derece (95 Fahrenhayt derece) ortam sıcaklığı göz önünde bulundurarak hello maksimum muhafaza alır emin olun.
+* Merhaba sistem low-pressure, arka Egzoz yüklemeye işletilen (arka baskısı oluşturulan raf kapıları ve engellerini değil tooexceed tarafından 5 Pascal [0,5 mm su ölçer]).
 
 ## <a name="power-cooling-module-pcm-precautions"></a>Güç soğutma Modülü (PCM) önlemler
-Aygıt ile iki PCMs çalışmak üzere tasarlanmıştır. Her PCMs güç kaynağı ve çift eksen fan vardır. Kritik bir koşul sırasında sistem hatası nedeniyle normal işlemleri devam ederken bir güç kaynağı sağlar. İki PCMs (ve bu nedenle güç kaynakları) her zaman yüklü olması gerekir. Tek bir PCM yedek güç sağlamaz. Bu nedenle, tek PCM başarısızlığını kesinti süresi veya olası veri kaybına neden olabilir.
+Merhaba, iki PCMs ile tasarlanmış toooperate aygıttır. Her hello PCMs güç kaynağı ve çift eksen fan vardır. Kritik bir koşul sırasında normal işlemleri devam ederken bir güç kaynağı başarısız hello sistem sağlar. İki PCMs (ve bu nedenle güç kaynakları) her zaman yüklü olması gerekir. Tek bir PCM yedek güç sağlamaz. Bu nedenle, bile bir PCM hello başarısızlığını kesinti süresi veya olası veri kaybına neden olabilir.
 
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png) ![elektrik Şoku simgesi](./media/storsimple-safety/IC740882.png) **uyarı!**
 
-Yaralanma, elektrik Şoku veya ölüm olasılığını azaltmak için:
+tooreduce hello olasılığını yaralanma, elektrik Şoku veya ölüm:
 
-* Kapak PCM'den kaldırmayın. Elektrik Şoku içinde bir tehlike yoktur. PCM dönmek ve bir yedek almak için [Microsoft Support başvurun](storsimple-contact-microsoft-support.md).
+* Merhaba kapsar PCM hello kaldırmayın. Elektrik Şoku içinde bir tehlike yoktur. tooreturn PCM hello ve bir yedek elde [Microsoft Support başvurun](storsimple-contact-microsoft-support.md).
 
 ![Fark simgesi](./media/storsimple-safety/IC740881.png) **dikkat edin:**
 
-Düzgün çalışması donanımınızı ve ürün zarar önlemek için:
+Merhaba düzgün çalışması için donanım ve tooprevent ürün kesimin için:
 
-* 24 saat içinde başarısız PCM değiştirmeniz gerekir. Bir PCM yerini kaldırıldıktan sonra değiştirme kaldırıldıktan sonra 10 dakika içinde tamamlanması gerekir.
-* Yenisini hemen yüklenebilir sürece bir PCM kaldırmayın. Muhafaza yerinde tüm modüllerin olmadan işletilen gereken değil.
+* Değiştirmeniz gereken hello PCM 24 saat içinde başarısız oldu. Bir PCM yerini kaldırıldıktan sonra hello değiştirme kaldırıldıktan sonra 10 dakika içinde tamamlanması gerekir.
+* Yenisini hemen yüklenebilir sürece bir PCM kaldırmayın. Merhaba muhafaza yerinde tüm modüllerin olmadan işletilen gerekir değil.
 
 ## <a name="electrostatic-discharge-esd-precautions"></a>Elektrostatik deşarj (ESD) önlemler
 ![Fark simgesi](./media/storsimple-safety/IC740881.png) **dikkat edin:**
 
-ESD ile ilgili aşağıdaki uyarıları inceleyin.
+ESD ile ilgili dikkat edilmesi gereken noktaları aşağıdaki hello gözlemleyin.
 
 * Yüklü ve uygun bir antistatic bileğe kadar veya ankle strap denetlenebilir emin olun.
 * Tüm geleneksel ESD önlemleri modülleri ve bileşenleri işlerken gözlemleyin.
@@ -132,23 +132,23 @@ ESD ile ilgili aşağıdaki uyarıları inceleyin.
 * ESD zarar tarafından garanti kapsamında değildir.
 
 ## <a name="battery-disposal-precautions"></a>Pil elden önlemler
-Güç kaynağı özel pil geçici, kısa vadeli güç kesintileri sırasında bellek içeriğini korumak için kullanır. Pil PCM yerleştirildiğinden. Pil hakkında aşağıdaki bilgileri unutmayın.
+Merhaba güç kaynağı geçici, kısa vadeli güç kesintileri sırasında bellek özel pil tooprotect hello içeriğini kullanır. Merhaba pil hello PCM yerleştirildiğinden. Merhaba pil aklınızda bilgilerini aşağıdaki hello tutun.
 
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png) **uyarı!**
 
-Kısayoluyla, yangın, açılımı, yaralanma veya ölüm riskini azaltmak için:
+tooreduce hello riskini kısayoluyla, yangın, açılımı, yaralanma veya ölüm:
 
 * Ulusal/bölge yönetmeliklere uygun olarak kullanılan piller elden.
-* Değil ayır, crush, 60 derece derece (140 Fahrenhayt derece) ısı veya incinerate. PCM pil yalnızca sağlanan pil ile değiştirin. Başka bir pil kullanımını yangın veya açılımı riskini sayılabilir.
-* Bu güç kaynağı ' kaldırdıysanız koruyucu uç başlıkları pille kullanın.
+* Değil ayır, crush, 60 derece derece (140 Fahrenhayt derece) ısı veya incinerate. Merhaba PCM pil yalnızca sağlanan pil ile değiştirin. Başka bir pil kullanımını yangın veya açılımı riskini sayılabilir.
+* Bunlar hello güç kaynağı ' kaldırdıysanız koruyucu uç başlıkları hello pille kullanın.
 
 ![Fark simgesi](./media/storsimple-safety/IC740881.png) **dikkat edin:**
 
-Ne zaman sevkiyat veya piller uçakla, aksi takdirde taşıma izleyin adresinde IATA Lityum pil Kılavuzu belge [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Ne zaman sevkiyat veya hello piller uçakla, aksi takdirde taşıma izleyin hello IATA Lityum pil Kılavuzu belge adresinde [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
-Bu güvenlik uyarıları gözden geçirdikten sonra sonraki adımlar kutusundan çıkarma, rafa ve Cihazınızı kablo üzeresiniz.
+Bu güvenlik uyarıları gözden geçirdikten sonra sonraki adımlar hello toounpack, raf olan ve cihazınızın kablolarını bağlama.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* 8100 cihazınız için Git [StorSimple 8100 cihazınız yüklemek](storsimple-8100-hardware-installation.md).
-* Bir 8600 aygıt için Git [StorSimple 8600 model Cihazınızı yüklemek](storsimple-8600-hardware-installation.md).
+* 8100 cihazınız için çok Git[StorSimple 8100 cihazınız yüklemek](storsimple-8100-hardware-installation.md).
+* 8600 aygıt için çok Git[StorSimple 8600 model Cihazınızı yüklemek](storsimple-8600-hardware-installation.md).
 

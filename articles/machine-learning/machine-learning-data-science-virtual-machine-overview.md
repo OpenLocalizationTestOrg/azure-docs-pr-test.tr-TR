@@ -1,6 +1,6 @@
 ---
-title: Bir veri bilimi sanal makine nedir? | Microsoft Belgeleri
-description: "Anahtar analytics senaryoları ile veri bilimi sanal makineleri yapılması nereden başlayacaksınız."
+title: aaaWhat veri bilimi sanal makine mi? | Microsoft Belgeleri
+description: "Nasıl tooget anahtar analytics senaryoları ile veri bilimi sanal makineleri yapılması başlatıldı."
 keywords: "Veri bilimi araçları, veri bilimi sanal makine, veri bilimi, linux veri bilimi için Araçlar"
 services: machine-learning
 documentationcenter: 
@@ -15,42 +15,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: d6346419756cb0841c23f3ba63e479ba2397af54
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 18c7a75208671c663f3b6be6ee8d0bf666772e01
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-the-cloud-based-data-science-virtual-machine-for-linux-and-windows"></a>Linux ve Windows için bulut tabanlı veri bilimi sanal makine için giriş
-Veri bilimi sanal makine (DSVM) veri bilimi özellikle yapmak için Microsoft Azure bulut üzerinde özelleştirilmiş bir VM görüntüsü ' dir. Birçok popüler veri bilimi ve önceden yüklenmiş ve Gelişmiş analiz için akıllı uygulamaları derleme hızla başlatmak için önceden yapılandırılmış diğer araçları vardır. Windows Server ve Linux üzerinde kullanılabilir. Windows Server 2016 ve Server 2012 DSVM sürümü sunuyoruz. OpenLogic 7.2 CentOS tabanlı Linux dağıtımları ve Ubuntu 16.04 LTS üzerinde DSVM Linux sürümü sunuyoruz. 
+# <a name="introduction-toohello-cloud-based-data-science-virtual-machine-for-linux-and-windows"></a>Giriş toohello Linux ve Windows için veri bilimi sanal makine bulut tabanlı
+Merhaba veri bilimi sanal makine (DSVM) veri bilimi özellikle yapmak için Microsoft Azure bulut üzerinde özelleştirilmiş bir VM görüntüsü ' dir. Birçok popüler veri bilimi var ve diğer araçları önceden yüklenmiş ve Gelişmiş analiz için akıllı uygulamalar oluşturmaya toojump başlayın önceden yapılandırılmış. Windows Server ve Linux üzerinde kullanılabilir. DSVM'nin Windows sürümünü Server 2016 ve Server 2012'de sunuyoruz. Merhaba DSVM OpenLogic 7.2 CentOS tabanlı Linux dağıtımları ve Ubuntu 16.04 LTS üzerinde Linux sürümü sunuyoruz. 
 
-Bu konuda veri bilimi VM ile neler yapabileceğinizi açıklar, bazı VM kullanmaya yönelik temel senaryolar açıklanmaktadır, Windows ve Linux sürümlerinde kullanılabilir anahtar özellikler maddeler halinde listelemektedir ve bunları kullanmaya başlamak yönergeler sağlar.
+Bu konu hello veri bilimi VM ile neler yapabileceğiniz açıklanır hello VM kullanmaya yönelik temel senaryolar hello bazıları özetler, hello temel özellikleri hello Windows ve Linux sürümleri kullanılabilir maddeler halinde listelemektedir ve bunları kullanarak tooget nasıl başlatılacağını hakkında yönergeler sağlar.
 
-## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Veri bilimi sanal makine ile ne yapabilirim?
-Hedef, veri bilimi sanal makine, bir uyuşmazlık boş veri bilimi ortamıyla tüm beceri düzeylerini ve rolleri veri uzmanları sağlamaktır. Bu VM, karşılaştırılabilir bir ortamda, kendi alındı, harcadığınız önemli ölçüde zaman kazandırır. Bunun yerine, veri bilimi projenizi hemen bir yeni oluşturulan VM örneğinde başlatın. 
+## <a name="what-can-i-do-with-hello-data-science-virtual-machine"></a>Merhaba veri bilimi sanal makine ile ne yapabilirim?
+Merhaba hello veri bilimi sanal makinenin tüm beceri düzeylerini ve rolleri bir uyuşmazlık boş veri bilimi ortamıyla tooprovide veri uzmanları hedefidir. Bu VM, karşılaştırılabilir bir ortamda, kendi alındı, harcadığınız önemli ölçüde zaman kazandırır. Bunun yerine, veri bilimi projenizi hemen bir yeni oluşturulan VM örneğinde başlatın. 
 
-Veri bilimi VM tasarlanmış ve geniş kullanım senaryoları ile çalışmak için yapılandırılmış. Projenizi gereksinimleriniz değiştikçe yukarı veya aşağı ortamınızı ölçeklendirebilirsiniz. Tercih ettiğiniz dili program veri bilimi görevleri için kullanabilirsiniz. Diğer Araçları'nı yüklemek ve sistem tam gereksinimlerinize göre özelleştirin.
+Merhaba veri bilimi VM tasarlanmış ve geniş kullanım senaryoları ile çalışmak için yapılandırılmış. Projenizi gereksinimleriniz değiştikçe yukarı veya aşağı ortamınızı ölçeklendirebilirsiniz. Mümkün toouse, tercih edilen dili tooprogram veri bilimi görevlerdir. Diğer Araçları'nı yüklemek ve hello sistem tam gereksinimlerinize göre özelleştirin.
 
 ## <a name="key-scenarios"></a>Anahtar senaryoları
-Bu bölüm veri bilimi VM dağıtılabilir anahtar bazı senaryolar önerir.
+Bu bölümde bazı senaryoları için hangi hello veri bilimi VM dağıtılabilir önerir.
 
-### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Önceden yapılandırılmış analytics Masaüstü bulutta
-Veri bilimi VM ile yönetilen bulut Masaüstü yerel masaüstlerine değiştirmek için arayan veri bilimi ekipleri için bir taban çizgisi yapılandırmasını sağlar. Bu taban takımda tüm veri bilimcilerine denemeler doğrulayın ve işbirliği yükseltmek için tutarlı bir kurulumla sahip olmasını sağlar. Sysadmin yükünü azaltma ve değerlendirmenize, yüklemenize ve gelişmiş analizler yapmak için gereken çeşitli yazılım paketlerini korumak için gerekli süreye kaydederek maliyetleri de düşürür.  
+### <a name="preconfigured-analytics-desktop-in-hello-cloud"></a>Analytics Masaüstü hello bulutta yapılandırılmış
+Merhaba veri bilimi VM veri bilimi ekipleri yerel masaüstlerine yönetilen bulut masaüstüyle tooreplace görmek için bir taban çizgisi yapılandırmasını sağlar. Bu taban takımda tüm hello veri bilimcileri hangi tooverify denemeler ile tutarlı ayarladıktan ve işbirliği Yükselt sağlar. Merhaba sysadmin yükünü azaltarak ayrıca maliyetleri düşürür ve tooevaluate, yüklemek ve hello muhafaza hello zamanında kaydetme çeşitli yazılım paketleri gelişmiş analizler toodo gerekli.  
 
 ### <a name="data-science-training-and-education"></a>Veri bilimi eğitimi
-Kurumsal eğitmenler ve eğitimcilere sınıflar genellikle kendi Öğrenciler tutarlı bir kurulum olmasını sağlamak için bir sanal makine görüntüsü sağlar ve örnekler beklendiği iş, veri bilimi öğretir. Veri bilimi VM bir isteğe bağlı ortam desteği ve uyumsuzluk sorunları kolaylaştırır için tutarlı bir kurulum oluşturur. Burada sık, özellikle kısa eğitim sınıfları için oluşturulacak bu ortamları gereken durumlarda önemli ölçüde yararlanır.
+Kurumsal eğitmenler ve veri bilimi sınıfları genellikle öğretmek eğitimcilere bir sanal makine görüntü tooensure kendi Öğrenciler tutarlı bir kurulum olmasını ve hello örnekleri beklendiği iş sağlar. Merhaba veri bilimi VM hello desteği ve uyumsuzluk sorunları kolaylaştırır için tutarlı bir kurulum bir isteğe bağlı ortam oluşturur. Burada bu ortamları toobe gereken durumlarda sık, özellikle kısa eğitim sınıfları için yerleşik, önemli ölçüde yararlanabilir.
 
 ### <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>Büyük ölçekli projeleri için isteğe bağlı Esnek Kapasite
-Veri bilimi hackathons/competitions veya büyük ölçekli veri modellemesi ve araştırması gerektiren ölçeklendirilmiş kısa süre için genellikle donanım kapasitesi çıkışı. Veri bilimi VM hızlı bir şekilde çalıştırılması için güçlü bilgi işlem kaynakları gerektiren denemeler izin genişletilmiş sunucularda isteğe bağlı veri bilimi ortamınızın çoğaltılması yardımcı olabilir.
+Veri bilimi hackathons/competitions veya büyük ölçekli veri modellemesi ve araştırması gerektiren ölçeklendirilmiş kısa süre için genellikle donanım kapasitesi çıkışı. Merhaba veri bilimi VM hello veri bilimi ortamı hızla üzerinde isteğe bağlı çoğaltma, yüksek güçte bilgi işlem kaynakları toobe gerektiren denemeler izin genişletilmiş sunucularda çalıştırmak yardımcı olabilir.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Kısa vadeli deney ve değerlendirme
-Veri bilimi VM olabilir Visual Studio Araçları, derin öğrenme Jupyter / ML araç takımları ve yeni araçları ile en az topluluğuna popüler Kurulum çaba değerlendirmek veya Microsoft R Server, SQL Server gibi araçları öğrenmek için kullanılır. Veri bilimi VM hızlı bir şekilde ayarlanabilir beri tanıtımlar çevrimiçi oturumları veya konferans öğreticileri aşağıdaki yönergelerde yürütme yayımlanan denemeler çoğaltma gibi diğer kısa süreli kullanım senaryolarda uygulanabilir.
+Merhaba veri bilimi VM kullanılan tooevaluate bulunabilir veya araçları öğrenmek Microsoft R Server, SQL Server gibi Visual Studio Araçları, derin öğrenme Jupyter / ML araç takımları ve yeni araçları, popüler hello en az Kurulum çabayla topluluğu. Merhaba veri bilimi VM hızlı bir şekilde ayarlanabilir beri tanıtımlar çevrimiçi oturumları veya konferans öğreticileri aşağıdaki yönergelerde yürütme yayımlanan denemeler çoğaltma gibi diğer kısa süreli kullanım senaryolarda uygulanabilir.
 
 ### <a name="deep-learning"></a>Derin öğrenme
-Veri bilimi VM derin learning algoritmaları GPU (grafik işlem birimleri) tabanlı donanım kullanarak eğitim modeli için kullanılabilir. Azure bulut özellikleri ölçeklendirme VM, DSVM gerek göredir bulut üzerinde temel GPU donanım kullanmanıza yardımcı olur. Bir bir GPU geçirebilirsiniz büyük modelleri eğitimindeki VM tabanlı veya yüksek hızlı hesaplamalar aynı işletim sistemi diski tutarken gerekir.  DSVM Windows Server 2016 sürümünü GPU sürücüleri, çerçeveler ve learning algoritmaları derin GPU sürümü ile önceden yüklenmiş olarak gelir. Linux'ta GPU üzerinde öğrenme derin yalnızca etkin [veri bilimi sanal makine (Ubuntu) Linux sürümü için](http://aka.ms/dsvm/ubuntu). Tüm derin öğrenme çerçeveleri CPU moduna geri dönüş; bu durumda olur veri bilimi VM Windows/Ubuntu-2016 sürümü olmayan GPU tabanlı Azure sanal makinesi dağıtabilirsiniz. Daha önce Windows Server 2012 için biz yayımlanan bir [derin Araç Seti öğrenme](http://aka.ms/dsvm/deeplearning) ancak artık Windows tabanlı derin öğrenme iş yükleri için Windows Server 2016 kullanmanızı öneririz. DSVM sürümü yalnızca içeren CentOS tabanlı Linux CPU Araçlar (CNTK, Tensorflow, MXNet) öğrenme derin bazıları derlemeler ancak GPU sürücüleri ve çerçeveleri ile önceden yüklenmiş gelmez. 
+Merhaba veri bilimi VM derin learning algoritmaları GPU (grafik işlem birimleri) tabanlı donanım kullanarak eğitim modeli için kullanılabilir. Azure bulut özellikleri ölçeklendirme VM, DSVM gerek göredir hello bulut üzerinde temel GPU donanım kullanmanıza yardımcı olur. Bir geçirebilirsiniz tooa GPU tabanlı VM büyük modeli eğitimindeki veya yüksek hızlı hesaplamalar tutma sırasında aynı işletim sistemi diski hello.  DSVM Hello Windows Server 2016 sürümünü GPU sürücüleriyle çerçeveler ve hello learning algoritmaları derin GPU sürümü önceden yüklenmiş olarak gelir. Hello Linux üzerinde derin üzerinde GPU öğrenme yalnızca hello üzerinde etkin [veri bilimi sanal makine (Ubuntu) Linux sürümü için](http://aka.ms/dsvm/ubuntu). Tüm hello derin öğrenme çerçeveleri geri dönüş toohello CPU modu; bu durumda olur hello Windows/Ubuntu-2016 sürümünü veri bilimi VM toonon GPU tabanlı Azure sanal makinesi dağıtabilirsiniz. Daha önce Windows Server 2012 için biz yayımlanan bir [derin Araç Seti öğrenme](http://aka.ms/dsvm/deeplearning) ancak artık Windows tabanlı derin öğrenme iş yükleri için Windows Server 2016 kullanmanızı öneririz. Merhaba DSVM Hello CentOS tabanlı Linux sürümü CPU hello Araçlar (CNTK, Tensorflow, MXNet) öğrenme derin bazıları oluşturur ama hello GPU sürücüleri ve çerçeveleri ile önceden yüklenmiş gelmez yalnızca hello içerir. 
 
-## <a name="whats-included-in-the-data-science-vm"></a>Veri bilimi VM'yi neler dahildir?
-Veri bilimi sanal makine, birçok popüler veri bilimi ve zaten yüklenmiş ve yapılandırılmış araçları öğrenme derin vardır. Ayrıca, çeşitli Azure verileri ve çözümlemeler ürünleriyle çalışmak üzere kolaylaştıran araçlar içerir. Keşfetmek ve büyük ölçekli veri Microsoft R Server veya SQL Server 2016 kullanarak kümeleri Tahmine dayalı modelleri oluşturun. Bir ana bilgisayar diğer Araçları'nın açık kaynak topluluktan ve Microsoft: de dahil, aynı zamanda örnek kod ve dizüstü bilgisayarlar. Aşağıdaki tabloda maddeler halinde listelemektedir ve Windows ve Linux sürümlerinde, veri bilimi sanal makine bulunan ana bileşenler karşılaştırır.
+## <a name="whats-included-in-hello-data-science-vm"></a>Merhaba veri bilimi VM neler dahildir?
+Merhaba veri bilimi sanal makine, birçok popüler veri bilimi ve zaten yüklenmiş ve yapılandırılmış araçları öğrenme derin vardır. Ayrıca, çeşitli Azure verileri ve çözümlemeler ürünleri ile kolay toowork olun araçlar içerir. Keşfetmek ve büyük ölçekli veri hello Microsoft R Server veya SQL Server 2016 kullanarak kümeleri Tahmine dayalı modelleri oluşturun. Bir ana bilgisayar diğer Araçları'nın hello açık kaynak topluluktan ve Microsoft: de dahil, aynı zamanda örnek kod ve dizüstü bilgisayarlar. Merhaba aşağıdaki tabloda maddeler halinde listelemektedir ve hello ana bileşenler hello Windows ve Linux sürümleri hello veri bilimi sanal makine dahil karşılaştırır.
 
 
 | **Aracı**                                                           | **Windows sürümü** | **Linux sürümü** |
@@ -84,7 +84,7 @@ Veri bilimi sanal makine, birçok popüler veri bilimi ve zaten yüklenmiş ve y
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* .net framework | E | N |
 | Desktop'a | E | N |
-| Azure ve hizmetlerin Cortana Intelligence Suite erişmek için SDK'ları | E | E |
+| SDK'ları tooaccess Azure ve Cortana Intelligence Suite Hizmetleri | E | E |
 | **Veri taşıma ve Yönetim Araçları** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Storage Gezgini | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azure CLI](https://docs.microsoft.com/cli/azure/overview) | E | E |
@@ -119,18 +119,18 @@ Veri bilimi sanal makine, birçok popüler veri bilimi ve zaten yüklenmiş ve y
 
 
 
-## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Windows veri bilimi VM ile çalışmaya nasıl başlayacağınız
-* İstenen Windows DSVM edition örneği giderek oluşturun
+## <a name="how-tooget-started-with-hello-windows-data-science-vm"></a>Tooget hello Windows veri bilimi VM ile çalışmaya nasıl
+* İstenen hello Windows DSVM edition örneği giderek oluşturun
   * [Windows Server 2016 DSVM dayalı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm)
   
   or 
   * [Windows Server 2012 DSVM dayalı](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) 
-* Tıklatın **BT almak artık** düğmesi.
-* VM VM oluşturduğunuz sırada belirttiğiniz kimlik bilgilerini kullanarak, Uzak Masaüstü üzerinden oturum açın.
-* Bul ve kullanılabilir araçları başlatmak için tıklatın **Başlat** menüsü.
+* Merhaba tıklatın **BT almak artık** düğmesi.
+* Oturum açma toohello VM hello VM oluştururken belirttiğiniz hello kimlik bilgilerini kullanarak Uzak Masaüstü.
+* toodiscover ve başlatma hello Araçlar kullanılabilir'hello **Başlat** menüsü.
 
-## <a name="get-started-with-the-linux-data-science-vm"></a>Linux veri bilimi VM ile çalışmaya başlama
-* İstenen Linux DSVM edition örneği giderek oluşturun 
+## <a name="get-started-with-hello-linux-data-science-vm"></a>Merhaba Linux veri bilimi VM ile çalışmaya başlama
+* İstenen hello örneğini oluşturmak çok gezinme tarafından Linux DSVM edition
   * [Ubuntu DSVM dayalı](http://aka.ms/dsvm/ubuntu)
 
   or
@@ -138,17 +138,17 @@ Veri bilimi sanal makine, birçok popüler veri bilimi ve zaten yüklenmiş ve y
   * [OpenLogic CentOS DSVM dayalı](http://aka.ms/dsvm/centos)
 
   
-* Tıklatın **Şimdi Al** düğmesi.
-* Putty veya SSH VM oluştururken belirtilen kimlik bilgilerini kullanarak komut, gibi bir SSH istemciden VM'ye oturum açın.
-* Kabuk isteminde dsvm daha fazla bilgi girin.
-* İçin grafik bir masaüstü, istemci platformunuza X2Go istemci indirme [burada](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) ve Linux veri bilimi VM belge'ndaki yönergeleri izleyin [Linux veri bilimi sanal makine sağlama](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* Merhaba tıklatın **Şimdi Al** düğmesi.
+* Oturum açma toohello VM Putty veya SSH komutu gibi bir SSH istemcisi, hello kimlik bilgilerini kullanarak hello VM oluştururken belirttiğiniz.
+* Merhaba Kabuk isteminde dsvm daha fazla bilgi girin.
+* İçin grafik bir masaüstü, istemci platformunuza hello X2Go istemci indirme [burada](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) ve hello Linux veri bilimi VM belgedeki hello yönergeleri izleyerek [sağlama hello Linux veri bilimi sanal makine](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-### <a name="for-the-windows-data-science-vm"></a>Windows veri bilimi VM
-* Windows sürümünde kullanılabilir belirli araçlarını çalıştırma hakkında daha fazla bilgi için bkz: [Microsoft Veri bilimi sanal makine sağlama](machine-learning-data-science-provision-vm.md) ve
-* Windows VM üzerinde veri bilimi projeniz için gereken çeşitli görevleri gerçekleştirme hakkında daha fazla bilgi için bkz: [veri bilimi sanal makine yapabilir on nokta](machine-learning-data-science-vm-do-ten-things.md).
+### <a name="for-hello-windows-data-science-vm"></a>Merhaba Windows veri bilimi VM
+* Nasıl toorun belirli hello Windows sürümünde kullanılabilir araçları ile ilgili daha fazla bilgi için bkz: [sağlama hello Microsoft Veri bilimi sanal makine](machine-learning-data-science-provision-vm.md) ve
+* Tooperform hello Windows VM üzerinde veri bilimi projeniz için gereken çeşitli görevleri nasıl görürüm hakkında daha fazla bilgi için [hello veri bilimi sanal makine üzerinde yapabilir on nokta](machine-learning-data-science-vm-do-ten-things.md).
 
-### <a name="for-the-linux-data-science-vm"></a>Linux veri bilimi VM
-* Linux sürümünde bulunan belirli araçları çalıştırma hakkında daha fazla bilgi için bkz: [Linux veri bilimi sanal makine sağlama](machine-learning-data-science-linux-dsvm-intro.md).
-* Linux VM ile birçok ortak veri bilimi görevlerinin nasıl gerçekleştirileceğini gösterir bir anlatım için bkz: [veri bilimi üzerinde Linux veri bilimi sanal makine](machine-learning-data-science-linux-dsvm-walkthrough.md).
+### <a name="for-hello-linux-data-science-vm"></a>Merhaba Linux veri bilimi VM
+* Nasıl toorun belirli hello Linux sürümünde kullanılabilir araçları ile ilgili daha fazla bilgi için bkz: [sağlama hello Linux veri bilimi sanal makine](machine-learning-data-science-linux-dsvm-intro.md).
+* Gösteren tooperform birçok ortak veri bilimi hello Linux VM ile nasıl görevler için bkz [hello Linux veri bilimi sanal makine üzerinde veri bilimi](machine-learning-data-science-linux-dsvm-walkthrough.md).
 

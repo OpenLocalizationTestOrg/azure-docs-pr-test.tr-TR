@@ -1,6 +1,6 @@
 ---
-title: "Azure MFA ve üçüncü taraf VPN ile Gelişmiş senaryolar"
-description: "Cisco, Citrix ve Juniper ile tümleştirmek Azure MFA için adım adım yapılandırma kılavuzları."
+title: "Azure MFA ve üçüncü taraf VPN birlikte aaaAdvanced senaryoları"
+description: "Cisco, Citrix ve Juniper ile Azure MFA toointegrate için adım adım yapılandırma kılavuzları."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/13/2017
 ms.author: kgremban
-ms.openlocfilehash: afdd80585889ecd9248399094e918fde611468cb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e23960ca4977cc01271f99fa2bec70449e9acfff
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Azure çok faktörlü kimlik doğrulama ve üçüncü taraf VPN çözümlerinin Gelişmiş senaryolar
-Azure çok faktörlü kimlik doğrulaması çeşitli üçüncü taraf VPN çözümleri ile sorunsuz bir şekilde bağlanmak için kullanılabilir. Bu makalede, Cisco® ASA VPN Gereci, Citrix NetScaler SSL VPN Gereci ve Juniper ağları güvenli erişim/Pulse Secure bağlanmak güvenli SSL VPN Gereci odaklanır. Bu üç ortak cihazları yönelik olarak yapılandırma kılavuzları oluşturduğumuz, ancak multi-Factor Authentication sunucusu RADIUS, LDAP, IIS veya AD FS talep tabanlı kimlik doğrulaması kullanan çoğu sistemler ile tümleştirebilirsiniz. Daha ayrıntılı bilgi bulabilirsiniz [MFA sunucusu yapılandırmaları](multi-factor-authentication-get-started-server.md#next-steps).
+Azure çok faktörlü kimlik doğrulaması kullanılabilir tooseamlessly çeşitli üçüncü taraf VPN çözümleri bağlanın. Bu makalede, Cisco® ASA VPN Gereci, Citrix NetScaler SSL VPN Gereci ve hello Juniper ağları güvenli erişim/Pulse Secure bağlanmak güvenli SSL VPN Gereci odaklanır. Bu üç ortak cihazları yapılandırma kılavuzları tooaddress oluşturduğumuz, ancak multi-Factor Authentication sunucusu RADIUS, LDAP, IIS veya talep tabanlı kimlik doğrulaması tooAD FS kullanan çoğu sistemleriyle tümleştirilebilir. Daha ayrıntılı bilgi bulabilirsiniz [MFA sunucusu yapılandırmaları](multi-factor-authentication-get-started-server.md#next-steps).
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-multi-factor-authentication"></a>Cisco ASA VPN Gereci ve Azure multi-Factor Authentication
-Cisco AnyConnect® VPN oturum açmalar ve portala erişim için ek güvenlik sağlamak için Cisco® ASA VPN aygıtınızın Azure çok faktörlü kimlik doğrulaması tümleşir.  Bu yapılabilir LDAP veya RADIUS protokolü kullanılarak.  Ayrıntılı adım adım yapılandırma Kılavuzları'nı indirmek için aşağıdakilerden birini seçin.
+Cisco® ASA VPN Gereci tooprovide ek güvenlik Cisco AnyConnect® VPN oturumları ve portala erişim için Azure multi-Factor Authentication tümleştirir.  Bu yapılabilir ya da hello LDAP veya RADIUS protokolü kullanılarak.  Toodownload hello ayrıntılı adım adım yapılandırma aşağıdaki hello birini seçin size rehberlik eder.
 
 | Yapılandırma Kılavuzu | Açıklama |
 | --- | --- |
@@ -32,7 +32,7 @@ Cisco AnyConnect® VPN oturum açmalar ve portala erişim için ek güvenlik sa�
 | [Cisco Anyconnect VPN ve Azure MFA yapılandırması için RADIUS ile ASA](http://download.microsoft.com/download/4/5/7/4579C1CF-35B0-4FBE-8A1A-B49CB2CC0382/Cisco_ASA_Azure_MFA_RADIUS.docx) | Cisco ASA VPN aygıtınızın RADIUS kullanan Azure MFA ile tümleştirme |
 
 ## <a name="citrix-netscaler-ssl-vpn-and-azure-multi-factor-authentication"></a>Citrix NetScaler SSL VPN ve Azure çok faktörlü kimlik doğrulaması
-Azure çok faktörlü kimlik doğrulaması Citrix NetScaler SSL VPN oturum açmalar ve portala erişim için ek güvenlik sağlamak için Citrix NetScaler SSL VPN aygıtınızın tümleşir.  Bu yapılabilir LDAP veya RADIUS protokolü kullanılarak.  Ayrıntılı adım adım yapılandırma Kılavuzları'nı indirmek için aşağıdakilerden birini seçin.
+Citrix NetScaler SSL VPN Gereci tooprovide ek güvenlik Citrix NetScaler SSL VPN oturumları ve portala erişim için Azure multi-Factor Authentication tümleştirir.  Bu yapılabilir ya da hello LDAP veya RADIUS protokolü kullanılarak.  Toodownload hello ayrıntılı adım adım yapılandırma aşağıdaki hello birini seçin size rehberlik eder.
 
 | Yapılandırma Kılavuzu | Açıklama |
 | --- | --- |
@@ -40,7 +40,7 @@ Azure çok faktörlü kimlik doğrulaması Citrix NetScaler SSL VPN oturum açma
 | [RADIUS için Citrix NetScaler SSL VPN ve Azure MFA yapılandırma](http://download.microsoft.com/download/1/A/4/1A482764-4A63-45C2-A5EC-2B673ACCDD12/Citrix_NS_Azure_MFA_RADIUS.docx) | Citrix NetScaler SSL VPN aygıtınızın RADIUS kullanan Azure MFA ile tümleştirme |
 
 ## <a name="juniperpulse-secure-ssl-vpn-appliance-and-azure-multi-factor-authentication"></a>Juniper/Pulse Secure SSL VPN Gereci ve Azure multi-Factor Authentication
-Juniper/Pulse Secure SSL VPN aygıtınızın Juniper/Pulse Secure SSL VPN oturum açmalar ve portala erişim için ek güvenlik sağlamak için Azure multi-Factor Authentication tümleşir.  Bu yapılabilir LDAP veya RADIUS protokolü kullanılarak.  Ayrıntılı adım adım yapılandırma Kılavuzları'nı indirmek için aşağıdakilerden birini seçin.
+Juniper/Pulse Secure SSL VPN Gereci tooprovide ek güvenlik Juniper/Pulse Secure SSL VPN oturumları ve portala erişim için Azure multi-Factor Authentication tümleştirir.  Bu yapılabilir ya da hello LDAP veya RADIUS protokolü kullanılarak.  Toodownload hello ayrıntılı adım adım yapılandırma aşağıdaki hello birini seçin size rehberlik eder.
 
 | Yapılandırma Kılavuzu | Açıklama |
 | --- | --- |
@@ -49,6 +49,6 @@ Juniper/Pulse Secure SSL VPN aygıtınızın Juniper/Pulse Secure SSL VPN oturum
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure çok faktörlü kimlik doğrulaması için NPS uzantılı varolan kimlik altyapınızı büyütmek](multi-factor-authentication-nps-extension.md)
+- [Varolan kimlik altyapınızı hello NPS uzantısı ile Azure çok faktörlü kimlik doğrulamasını büyütmek](multi-factor-authentication-nps-extension.md)
 
 - [Azure Multi-Factor Authentication ayarlarını yapılandırma](multi-factor-authentication-whats-next.md)

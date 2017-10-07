@@ -1,0 +1,110 @@
+---
+title: "SensorTag cihaz & Azure IOT ağ geçidi - Başlarken | Microsoft Docs"
+description: "IOT ağ geçidi Starter Kit ile çalışmaya başlama, Azure IOT hub'ınızı oluşturması ve SensorTag ve ağ geçidi toohello IOT hub Bağlan"
+services: iot-hub
+documentationcenter: 
+author: shizn
+manager: timtl
+tags: 
+keywords: "Azure IOT hub, IOT ağ geçidi, Başlarken hello nesnelerin interneti, IOT Araç Seti"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+ms.assetid: 56d05f4e-f2c1-4b22-8701-f01e14deead6
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 3/21/2017
+ms.author: xshi
+ms.openlocfilehash: d8e4057e7774e43c069dd3f2f2e03f098c1ac844
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="get-started-with-iot-gateway-starter-kit-with-a-sensortag"></a>IOT ağ geçidi Starter Kit bir SensorTag ile kullanmaya başlama
+
+> [!div class="op_single_selector"]
+> * [SensorTag](iot-hub-gateway-kit-c-get-started.md)
+> * [Sanal cihaz](iot-hub-gateway-kit-c-sim-get-started.md)
+
+Bu öğreticide, ile çalışmanın temelleri hello öğrenerek başlamadan [IOT ağ geçidi Starter Kit](https://aka.ms/gateway-kit). Intel NUC ile Rüzgar Akarsu Linux ve hello çalıştıran çalışma [tı SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html#main). Nasıl tooseamleesly bağlanacağını aygıtları toohello bulut Azure IOT hub'ı kullanarak öğreneceksiniz.
+
+***
+**Bir pakete henüz yok mu?:** tıklatın [burada](https://aka.ms/gateway-kit). **Bir SensorTag yok mu?:** [Başlat ile bir sanal cihaz](iot-hub-gateway-kit-c-sim-get-started.md) veya [bir SensorTag satın alın](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/?INTC=SensorTag&HQS=sensortag)
+***
+
+## <a name="lesson-1-configure-your-nuc"></a>Ders 1: NUC cihazınızı yapılandırma
+![Lesson1 uçtan uca diyagramı](media/iot-hub-gateway-kit-lessons/e2e-lesson1.png)
+
+Bu ders içinde Intel NUC (sonraki birim, bilgisayar) hello Seti Azure IOT ağ geçidi olarak ayarlamak, NUC üzerinde hello Azure IOT kenar paketi yükleyin ve bir örnek uygulama tooverify hello ağ geçidi işlevi çalıştırın.
+
+*Zaman toocomplete tahmini: 15 dakika*
+
+Çok Git[Intel NUC IOT ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+
+## <a name="lesson-2-create-your-iot-hub"></a>Ders 2: IoT Hub'ı oluşturma
+![Lesson2 uçtan uca diyagramı](media/iot-hub-gateway-kit-lessons/e2e-lesson2.png)
+
+Bu alıştırmanın ilerisinde ana bilgisayarınızda hello araçları ve yazılımını yükleyin. Ardından, ücretsiz Azure hesabı oluşturun, Azure IOT hub'ınızı sağlamanıza ve ilk aygıtınızı hello IOT hub'ı oluşturmak.
+
+Bu ders başlamadan önce Ders 1 tamamlayın.
+
+### <a name="get-hello-tools"></a>Merhaba araçları edinin
+Merhaba araçları ve yazılım, ana bilgisayara yükleyin.
+
+*Zaman toocomplete tahmini: 20 dakika*
+
+Çok Git[alma hello araçları](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+
+### <a name="create-an-iot-hub-and-register-your-device"></a>IOT hub'ı oluşturma ve Cihazınızı kaydetme
+Kaynak grubu oluşturmak, ilk Azure IOT hub'ınızı sağlamak ve hello Azure CLI kullanarak ilk aygıt toohello IOT hub'ınızı ekleyin.
+
+*Zaman toocomplete tahmini: 10 dakika*
+
+Çok Git[IOT hub'ı oluşturma ve Cihazınızı kaydetme](iot-hub-gateway-kit-c-lesson2-register-device.md)
+
+## <a name="lesson-3-receive-messages-from-sensortag-and-read-messages-from-your-iot-hub"></a>Ders 3: SensorTag iletileri almasına ve IOT hub'ından iletileri okur
+Bu alıştırmanın ilerisinde, ağ geçidi betikleri tooautomate hello yapılandırma ve bırak örnek bir uygulama yürütülmesi kullanır. Bu tür uygulamalar modülleri tooaggregate ve dönüştürme veri koleksiyonu kullanmak, komutları işlemek veya herhangi bir sayıda ilişkili görevleri gerçekleştirin. Modülleri başka bir işlemle bir ileti Aracısı iletişim kurar. Merhaba örnek uygulaması bırak modülü ve bir IOT hub modülü vardır. Merhaba bırak modülü bırak SensorTag verileri alır. IOT hub modülü paketleri Hello veri tooyour IOT hub'ı sağlanan hello ağ geçidi çerçevesi aracılığıyla Azure IOT Edge'de gönderir ve alınan hello.
+
+![Ders 3 uçtan uca diyagramı](media/iot-hub-gateway-kit-lessons/e2e-lesson3.png)
+
+### <a name="configure-and-run-hello-ble-sample-app"></a>Yapılandırma ve hello bırak örnek uygulamayı çalıştırma
+SensorTag ve ağ geçidiniz arasında hello bağlantı kurun. Ardından hello yapılandırmayı tamamlamak ve hello bırak örnek uygulamayı çalıştırın.
+
+*Zaman toocomplete tahmini: 15 dakika*
+
+Çok Git[yapılandırma ve çalıştırma hello bırak örnek uygulaması](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
+
+### <a name="read-messages-from-your-iot-hub"></a>IOT hub'ından iletilerini okuyun
+Örnek kod, IOT hub'ından bilgisayar tooread iletileri ana bilgisayarda çalıştırın.
+
+*Zaman toocomplete tahmini: 15 dakika*
+
+Çok Git[IOT hub'ından iletilerini okuyun](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
+
+## <a name="lesson-4-save-messages-tooazure-table-storage"></a>Ders 4: iletileri tooAzure tablo depolama kaydedin.
+IOT hub'ından gelen iletileri alır ve bunları tooAzure Table storage yazan bir Azure işlevi uygulaması oluşturursunuz.
+
+![Ders 4 uçtan uca diyagramı](media/iot-hub-gateway-kit-lessons/e2e-lesson4.png)
+
+### <a name="create-an-azure-function-app-and-azure-storage-account"></a>Bir Azure işlevi uygulama ve Azure depolama hesabı oluştur
+Bir Azure Resource Manager şablonu toocreate bir Azure işlevi uygulama ve bir Azure Storage hesabı kullanın.
+
+*Zaman toocomplete tahmini: 10 dakika*
+
+Çok Git[bir Azure işlevi uygulama ve Azure depolama hesabı oluştur](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
+
+### <a name="read-messages-persisted-in-azure-table-storage"></a>İletileri okuma Azure tablo Depolama'da kalıcı
+TooAzure Table storage yazıldığı şekilde hello ağ geçidi bulut iletileri izleyin.
+
+*Zaman toocomplete tahmini: 5 dakika*
+
+Çok Git[iletilerini okuma Azure Table storage ' kalıcı](iot-hub-gateway-kit-c-lesson4-read-table-storage.md).
+
+## <a name="troubleshooting"></a>Sorun giderme
+Merhaba çözümlerinde hello dersleri sırasında herhangi bir sorun varsa, arayın [sorun giderme](iot-hub-gateway-kit-c-troubleshooting.md) makalesi.
+
+## <a name="explore-more"></a>Daha fazlasını keşfedin
+Merhaba ziyaret [Intel IOT ağ geçidi Seti Geliştirici bölge](http://software.intel.com/iot/microsoft-azure) toolearn daha fazla.

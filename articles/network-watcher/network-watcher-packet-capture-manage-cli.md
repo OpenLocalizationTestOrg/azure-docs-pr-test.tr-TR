@@ -1,6 +1,6 @@
 ---
-title: "Paket yakalama Azure Ağ İzleyicisi - Azure CLI 2.0 ile yönetme | Microsoft Docs"
-description: "Bu sayfa, Azure CLI 2.0 kullanan Ağ İzleyicisi'nin paket yakalama özelliği yönetmek açıklanmaktadır"
+title: "aaaManage paket yakalar Azure Ağ İzleyicisi - Azure CLI 2.0 | Microsoft Docs"
+description: "Bu sayfayı nasıl toomanage hello paket yakalama özelliği ağ Azure CLI 2.0 kullanan izleyicisinin açıklar"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: c94eb46f31f2f19b843ccd7bf77b8a39943a07d4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d19cb7d0ca3b7a9bc0546859e07ef6d4df4f42d3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>Paket yakalama Azure CLI 2.0 kullanan Azure Ağ İzleyicisi ile yönetme
 
@@ -29,13 +29,13 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST API'si](network-watcher-packet-capture-manage-rest.md)
 
-Ağ İzleyicisi paket yakalama, bir sanal makine gelen ve giden trafiği izlemek için yakalama oturumları oluşturmanıza olanak sağlar. Filtreler yalnızca trafiği yakalama emin olmak yakalama oturumu için sağlanır. Paket yakalama Tepkisel hem de önceden ağ anormallikleri tanılamanıza yardımcı olur. Diğer kullanımlar ağ yetkisiz erişim, istemci-sunucu iletişimleri ve çok daha fazlasını hata ayıklamak için bilgi sağlamasını ağ istatistikleri toplama içerir. Erişebildiklerinden uzaktan paket yakalamaları tetiklemek için bir paket yakalama el ile ve değerli zaman kazandırır istenen makine üzerinde çalışan iş yükünü Bu yetenek kolaylaştırır.
+Ağ İzleyicisi paket yakalama toocreate yakalama oturumları tootrack trafiği tooand bir sanal makineden sağlar. Filtreler, yalnızca istediğiniz hello trafiği yakalamak hello yakalama oturum tooensure için sağlanır. Paket yakalama toodiagnose ağ anormallikleri Tepkisel ve önceden yardımcı olur. Diğer kullanımlar bilgi ağ yetkisiz erişim, toodebug istemci-sunucu iletişimleri ve daha fazlasını sağlamasını ağ istatistikleri toplama içerir. Mümkün tooremotely tetikleyici paket yakalamaları olma yoluyla bu özelliği bir paket yakalama el ile ve değerli zaman kazandırır hello istenen makine üzerinde çalışan hello yük kolaylaştırır.
 
-Bu makalede, Windows, Mac ve Linux için kullanılabilir olduğu, kaynak yönetimi için dağıtım modelini, Azure CLI 2.0 bizim nesil CLI kullanılmaktadır.
+Bu makalede bizim nesil CLI hello kaynak yönetimi dağıtım modeli için Azure CLI 2.0, Windows, Mac ve Linux için kullanılabilir olduğu kullanır.
 
-Bu makaledeki adımları gerçekleştirmek için gerek [Mac, Linux ve Windows (Azure CLI) için Azure komut satırı arabirimini yükleyin](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Bu makaledeki adımları tooperform Merhaba, çok ihtiyacınız[hello Azure komut satırı arabirimi Mac, Linux ve Windows (Azure CLI) için yükleme](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
-Bu makalede paket yakalama için şu anda kullanılabilir farklı yönetim görevleri yoluyla alır.
+Bu makalede paket yakalama için şu anda kullanılabilir farklı yönetim görevleri hello alır.
 
 - [**Paket yakalama Başlat**](#start-a-packet-capture)
 - [**Paket yakalama işlemini durdurun**](#stop-a-packet-capture)
@@ -44,19 +44,19 @@ Bu makalede paket yakalama için şu anda kullanılabilir farklı yönetim göre
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, aşağıdaki kaynaklara sahip olduğunuz varsayılmaktadır:
+Bu makalede, kaynakları aşağıdaki hello olduğu varsayılır:
 
-- Paket yakalama oluşturmak istediğiniz bölgede Ağ İzleyicisi örneği
-- Bir sanal makine etkin paket yakalama uzantısına sahip.
+- Bir örneği toocreate paket yakalama istediğiniz Ağ İzleyicisinin hello bölgede
+- Merhaba paket sahip bir sanal makine uzantısı etkin yakalayın.
 
 > [!IMPORTANT]
-> Paket yakalama sanal makine üzerinde çalışan bir aracının gerektirir. Aracı bir uzantısı olarak yüklenir. VM uzantıları hakkında yönergeler için ziyaret [sanal makine uzantıları ve özellikleri](../virtual-machines/windows/extensions-features.md).
+> Paket yakalama hello sanal makine üzerinde çalışan bir aracı toobe gerektirir. Merhaba Aracısı bir uzantısı olarak yüklenir. VM uzantıları hakkında yönergeler için ziyaret [sanal makine uzantıları ve özellikleri](../virtual-machines/windows/extensions-features.md).
 
 ## <a name="install-vm-extension"></a>VM uzantısı yükleyin
 
 ### <a name="step-1"></a>1. Adım
 
-Çalıştırma `az vm extension set` cmdlet'ini paket yakalama Aracısı Konuk sanal makineye yükleyin.
+Merhaba çalıştırmak `az vm extension set` cmdlet tooinstall hello paket Yakalama aracı hello Konuk sanal makinedeki.
 
 Windows sanal makineler için:
 
@@ -72,13 +72,13 @@ az vm extension set --resource-group resourceGroupName --vm-name virtualMachineN
 
 ### <a name="step-2"></a>2. Adım
 
-Aracının yüklü olduğundan emin olun, çalıştırmayı `vm extension get` cmdlet'i ve kaynak grubu ve sanal makine adı geçirin. Sonuçta elde edilen listenin aracısının yüklü olduğundan emin olmak için kontrol edin.
+Aracı hello tooensure yüklü hello çalıştırmak `vm extension get` cmdlet'i ve hello kaynak grubu ve sanal makine adı geçirin. Merhaba sonuç listesi tooensure hello aracısı yüklü olup olmadığını denetleyin.
 
 ```azurecli
 az vm extension show -resource-group resourceGroupName --vm-name virtualMachineName --name NetworkWatcherAgentWindows
 ```
 
-Aşağıdaki örnek yanıt çalışmasını örneğidir`az vm extension show`
+Aşağıdaki örnek hello hello yanıt çalışmasını örneğidir`az vm extension show`
 
 ```json
 {
@@ -102,11 +102,11 @@ Aşağıdaki örnek yanıt çalışmasını örneğidir`az vm extension show`
 
 ## <a name="start-a-packet-capture"></a>Paket yakalama Başlat
 
-Yukarıdaki adımları tamamlandıktan sonra paket yakalama Aracısı sanal makineye yüklenir.
+Merhaba önceki adımları tamamlandıktan sonra hello paket yakalama Aracısı hello sanal makineye yüklenir.
 
 ### <a name="step-1"></a>1. Adım
 
-Ağ İzleyicisi örneği almak için sonraki adımdır bakın. Ağ İzleyicisi'ni kurulacağı adını iletilir `az network watcher show` 4. adımda cmdlet'i.
+Merhaba sonraki adıma tooretrieve hello Ağ İzleyicisi örneğidir. Ağ İzleyicisi Merhaba kurulacağı adını toohello geçirilen `az network watcher show` 4. adımda cmdlet'i.
 
 ```azurecli
 az network watcher show -resource-group resourceGroup -name networkWatcherName
@@ -114,7 +114,7 @@ az network watcher show -resource-group resourceGroup -name networkWatcherName
 
 ### <a name="step-2"></a>2. Adım
 
-Bir depolama hesabı alabilirsiniz. Bu depolama hesabını paket yakalama dosyasını depolamak için kullanılır.
+Bir depolama hesabı alabilirsiniz. Bu depolama hesabı kullanılan toostore hello paket yakalama dosyasıdır.
 
 ```azurecli
 azure storage account list
@@ -122,13 +122,13 @@ azure storage account list
 
 ### <a name="step-3"></a>3. Adım
 
-Filtreler, paket yakalama tarafından depolanan verileri sınırlamak için kullanılabilir. Aşağıdaki örnek, bir paket yakalama kurduğunuzda birkaç filtrelerle ayarlar.  İlk üç filtreleri giden TCP trafiğine yalnızca yerel bir IP 10.0.0.3 20, 80 ve 443 hedef bağlantı noktalarına toplayın.  Son filtre yalnızca UDP trafiğini toplar.
+Filtreler hello paket yakalama tarafından depolanan kullanılan toolimit hello veriler olabilir. Merhaba aşağıdaki örnekte bir paket yakalama kurduğunuzda birkaç filtrelerle ayarlar.  Merhaba ilk üç filtreleri giden TCP trafiğine yalnızca yerel bir IP 10.0.0.3 toplamak 20, 80 ve 443 toodestination bağlantı noktaları.  Merhaba son filtre yalnızca UDP trafiğini toplar.
 
 ```azurecli
 az network watcher packet-capture create --resource-group {resoureceurceGroupName} --vm {vmName} --name packetCaptureName --storage-account gwteststorage123abc --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
-Beklenen çıktı çalışmasını aşağıdaki örnekte olduğu `az network watcher packet-capture create` cmdlet'i.
+Merhaba aşağıdaki örnekte olduğu hello çalışmasını hello beklenen çıktı `az network watcher packet-capture create` cmdlet'i.
 
 ```json
 {
@@ -183,13 +183,13 @@ roviders/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapture_16_
 
 ## <a name="get-a-packet-capture"></a>Paket yakalama Al
 
-Çalışan `az network watcher packet-capture show` cmdlet, şu anda çalışan ya da tamamlanmış bir paket yakalama durumunu alır.
+Merhaba çalıştıran `az network watcher packet-capture show` cmdlet, şu anda çalışan ya da tamamlanmış bir paket yakalama hello durumunu alır.
 
 ```azurecli
 az network watcher packet-capture show --name packetCaptureName --location westcentralus
 ```
 
-Aşağıdaki örnek çıktısı olan `az network watcher packet-capture show` cmdlet'i. Yakalama işlemi tamamlandıktan sonra aşağıdaki örnektir. StopReason TimeExceeded ile PacketCaptureStatus değer durdurulmuş. Bu değer, paket yakalama başarılı oldu ve onun kez çalıştıktan gösterir.
+Merhaba aşağıdaki örnekte olduğu hello hello çıktısını `az network watcher packet-capture show` cmdlet'i. Merhaba yakalama işlemi tamamlandıktan sonra hello aşağıdaki örnektir. StopReason TimeExceeded ile Merhaba PacketCaptureStatus değer durdurulmuş. Bu değer hello paket yakalama başarılı oldu ve onun kez çalıştıktan gösterir.
 
 ```
 {
@@ -243,14 +243,14 @@ ure_16_22_34_630.cap"
 
 ## <a name="stop-a-packet-capture"></a>Paket yakalama işlemini durdurun
 
-Çalıştırarak `az network watcher packet-capture stop` yakalama oturumu Sürüyor ise cmdlet durduruldu.
+Merhaba çalıştırarak `az network watcher packet-capture stop` yakalama oturumu Sürüyor ise cmdlet durduruldu.
 
 ```azurecli
 az network watcher packet-capture stop --name packetCaptureName --location westcentralus
 ```
 
 > [!NOTE]
-> Cmdlet yanıt verir, o anda çalışan bir yakalama oturumu veya zaten durdurulmuş olan bir oturumu.
+> Hello cmdlet yanıt verir, o anda çalışan bir yakalama oturumu veya zaten durdurulmuş olan bir oturumu.
 
 ## <a name="delete-a-packet-capture"></a>Paket yakalama Sil
 
@@ -259,13 +259,13 @@ az network watcher packet-capture delete --name packetCaptureName --location wes
 ```
 
 > [!NOTE]
-> Paket yakalama silindiğinde depolama hesabındaki dosya silinmez.
+> Paket yakalama silindiğinde hello depolama hesabındaki hello dosya silinmez.
 
 ## <a name="download-a-packet-capture"></a>Paket yakalama indirin
 
-Paket yakalama oturumunuz tamamladıktan sonra blob depolama alanına veya VM üzerindeki yerel bir dosyaya yakalama dosyasını karşıya yüklenebilir. Paket yakalama depolama konumunu oturum oluşturma sırasında tanımlanır. Bunlar erişmek için uygun bir aracı yakalama dosyalarını bir depolama hesabına kaydedilmiş olan burada indirilebilir Microsoft Azure Storage Gezgini: http://storageexplorer.com/
+Paket yakalama oturumunuz tamamladıktan sonra hello yakalama dosyasını karşıya yüklenen tooblob depolama veya tooa yerel dosya hello VM üzerinde olabilir. Merhaba paket yakalama Hello depolama konumu hello oturum oluşturma sırasında tanımlanır. Bu yakalama uygun aracı tooaccess kaydedilmiş tooa depolama hesabıdır burada indirilebilir Microsoft Azure Storage Gezgini dosyaları: http://storageexplorer.com/
 
-Bir depolama hesabı belirtilirse, paket yakalama dosyaları şu konumda bir depolama hesabına kaydedilir:
+Bir depolama hesabı belirtilirse, paket yakalama dosyalarını tooa depolama hesabı konumu aşağıdaki hello kaydedilir:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
@@ -273,7 +273,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sanal makine uyarılarla paket yakalamaları görüntüleyerek otomatikleştirmeyi öğrenin [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
+Nasıl sanal makine uyarılarla tooautomate paket görüntüleyerek yakalar öğrenin [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
 
 Belirli trafik içinde veya dışında VM ziyaret ederek izin verilip verilmediğini Bul [denetleyin IP akış doğrulayın](network-watcher-check-ip-flow-verify-portal.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT Hub işleri anlama | Microsoft Docs"
-description: "Geliştirici Kılavuzu - birden çok cihaz üzerinde çalışmasına işlerini zamanlama IOT hub'ına bağlı. İşler, etiketler ve istenen özelliklerini güncelleştirmek ve birden çok aygıta doğrudan yöntemleri çağırma."
+title: "aaaUnderstand Azure IOT Hub işleri | Microsoft Docs"
+description: "Geliştirici Kılavuzu - birden çok aygıta işleri toorun zamanlama tooyour IOT hub'ı bağlı. İşler, etiketler ve istenen özelliklerini güncelleştirmek ve birden çok aygıta doğrudan yöntemleri çağırma."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
-ms.openlocfilehash: abb7f80662650efa8f158f32125ebc5350cb4f62
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8be134e6c379feae5087df8f562a74505c57afee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Birden fazla cihazda işleri zamanlama
 ## <a name="overview"></a>Genel Bakış
-Önceki makaleleri tarafından açıklandığı gibi Azure IOT hub'ı birkaç yapı taşlarını sağlar ([cihaz çifti özellikleri ve etiketleri] [ lnk-twin-devguide] ve [doğrudan yöntemleri][lnk-dev-methods]).  Genellikle, arka uç uygulamaları cihaz yöneticileri ve işleçleri güncelleştirmek ve IOT cihazları toplu ve zamanlanan saatte etkileşim etkinleştirir.  İşlerini cihaz çifti güncelleştirmeler ve bir cihaz kümesi karşı doğrudan yöntemleri yürütme zamanlama zaman kapsüller.  Örneğin, bir işleç başlatmak ve bir grup oluşturma işlemlerini kesintiye uğratan olmayacaktır zaman 43 ve 3 kat oluşturmanın cihazı yeniden başlatmak için bir iş izleyen bir arka uç uygulaması kullanırsınız.
+Önceki makaleleri tarafından açıklandığı gibi Azure IOT hub'ı birkaç yapı taşlarını sağlar ([cihaz çifti özellikleri ve etiketleri] [ lnk-twin-devguide] ve [doğrudan yöntemleri][lnk-dev-methods]).  Genellikle, arka uç uygulamalar aygıt Yöneticiler ve İşletmenleri tooupdate etkinleştirin ve IOT cihazları toplu ve zamanlanan saatte etkileşim.  İşlerini zamanlama zaman hello yürütme cihaz çifti güncelleştirmeleri ve bir cihaz kümesi karşı doğrudan yöntemlerin kapsüller.  Örneğin, bir işleç başlatmak ve iş tooreboot 43 ve 3 kat hello oluşturma işlemlerini kesintiye uğratan toohello olmayacaktır aynı anda oluşturmanın cihazlar izleyen bir arka uç uygulaması kullanırsınız.
 
-### <a name="when-to-use"></a>Kullanılması gereken durumlar
-Göz önünde bulundurun kullanarak, işlerin ne zaman: bir çözüm arka uç gereksinimlerini zamanlamak ve ilerleme durumunu izlemek için herhangi bir cihaz kümesi üzerinde şu etkinlikler:
+### <a name="when-toouse"></a>Zaman toouse
+Göz önünde bulundurun kullanarak, işlerin ne zaman: bir çözüm arka ucu gereksinimlerini tooschedule ve izleme herhangi bir cihaz kümesine etkinlikleri izleyerek hello ilerleme:
 
 * İstenen özellikleri güncelleştirme
 * Güncelleştirme etiketleri
 * Doğrudan yöntemleri çağırma
 
 ## <a name="job-lifecycle"></a>İş yaşam döngüsü
-İşlerini çözüm arka ucu tarafından başlatılan ve IOT Hub tarafından korunur.  Bir hizmet dönük URI ile bir işi başlatabilirsiniz (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) ve bir hizmet dönük URI aracılığıyla yürütülen bir işin ilerleme için sorgu (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`).  Bir iş başlatıldıktan sonra işleri sorgulama işlerin durumunu yenilemek arka uç uygulama sağlar.
+İşlerini hello çözüm arka ucu tarafından başlatılan ve IOT Hub tarafından korunur.  Bir hizmet dönük URI ile bir işi başlatabilirsiniz (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) ve bir hizmet dönük URI aracılığıyla yürütülen bir işin ilerleme için sorgu (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`).  Bir iş başlatıldıktan sonra işleri sorgulama çalışan işi hello arka uç uygulama toorefresh hello durumu sağlar.
 
 > [!NOTE]
-> Bir işi başlattığınızda özellik adları ve değerleri yalnızca US-ASCII yazdırılabilir içerebilir herhangi aşağıdaki kümesindeki dışında alfasayısal: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
+> Bir işi başlattığınızda özellik adları ve değerleri yalnızca US-ASCII yazdırılabilir içerebilir kümesi aşağıdaki hello birinde dışında alfasayısal: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 > 
 > 
 
 ## <a name="reference-topics"></a>Başvuru konuları:
-Aşağıdaki başvuru konuları işleri kullanma hakkında daha fazla bilgi sağlar.
+başvuru konuları aşağıdaki hello işleri kullanma hakkında daha fazla bilgi sağlar.
 
-## <a name="jobs-to-execute-direct-methods"></a>İşlerini doğrudan bir yöntem yürütülemez
-Yürütme için HTTP 1.1 istek ayrıntıları verilmiştir bir [doğrudan yöntemi] [ lnk-dev-methods] bir işi kullanarak cihazları bir dizi:
+## <a name="jobs-tooexecute-direct-methods"></a>İşlerini tooexecute doğrudan yöntemleri
+Merhaba yürütmek hello HTTP 1.1 İstek Ayrıntıları aşağıdadır bir [doğrudan yöntemi] [ lnk-dev-methods] bir işi kullanarak cihazları bir dizi:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -66,7 +66,7 @@ Yürütme için HTTP 1.1 istek ayrıntıları verilmiştir bir [doğrudan yönte
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
-Sorgu koşulu da tek bir cihaz kimliği veya aygıt aşağıda gösterildiği gibi kimlikleri listesini olabilir
+Merhaba sorgu koşulu da tek bir cihaz kimliği veya aygıt kimliklerinin bir listesi aşağıda gösterildiği gibi olabilir
 
 **Örnekler**
 ```
@@ -76,8 +76,8 @@ queryCondition = "deviceId IN ['MyDevice1']
 ```
 [IOT Hub sorgu dili] [ lnk-query] IOT hub'ı sorgu dili ek ayrıntılı kapsar.
 
-## <a name="jobs-to-update-device-twin-properties"></a>Cihaz çifti özelliklerini güncelleştirmek için işlemler
-Bir iş kullanarak cihaz çifti özelliklerini güncelleştirmek için HTTP 1.1 istek ayrıntıları verilmiştir:
+## <a name="jobs-tooupdate-device-twin-properties"></a>İşlerini tooupdate cihaz çifti özellikleri
+Merhaba, bir iş kullanarak cihaz çifti özelliklerini güncelleştirmek için HTTP 1.1 hello İstek Ayrıntıları aşağıdadır:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -97,7 +97,7 @@ Bir iş kullanarak cihaz çifti özelliklerini güncelleştirmek için HTTP 1.1 
     ```
 
 ## <a name="querying-for-progress-on-jobs"></a>İşlerini ilerleme sorgulama
-HTTP 1.1 istek ayrıntıları verilmiştir [işleri sorgulama][lnk-query]:
+Merhaba hello için HTTP 1.1 İstek Ayrıntıları aşağıdadır [işleri sorgulama][lnk-query]:
 
     ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
@@ -108,49 +108,49 @@ HTTP 1.1 istek ayrıntıları verilmiştir [işleri sorgulama][lnk-query]:
     User-Agent: <sdk-name>/<sdk-version>
     ```
 
-ContinuationToken yanıttan sağlanır.  
+Merhaba continuationToken hello yanıttan sağlanır.  
 
 ## <a name="jobs-properties"></a>İşlerini özellikleri
-Özellikler ve sorgulanırken işleri veya iş sonuçları için kullanılabilir karşılık gelen açıklamaları listesi verilmiştir.
+Merhaba, özellikleri ve sorgulanırken işleri veya iş sonuçları için kullanılabilir karşılık gelen açıklamaları listesi aşağıdadır.
 
 | Özellik | Açıklama |
 | --- | --- |
-| **iş kimliği** |Uygulama Kimliği iş için sağlanan. |
-| **startTime** |Uygulama için iş başlangıç zamanı (ISO 8601) sağlanan. |
-| **endTime** |IOT hub'ı zaman iş tamamlandı (ISO 8601) tarihi sağlanır. Yalnızca iş 'Tamamlandı' durumuna ulaştıktan sonra geçerli. |
+| **iş kimliği** |Uygulama Kimliği hello işi için sağlanan. |
+| **startTime** |Merhaba işi için sağlanan uygulama başlangıç saati (ISO 8601). |
+| **endTime** |Merhaba işi tamamlandığında IOT hub'ı tarih (ISO 8601) için sağlanan. Yalnızca 'Tamamlandı' hello durumu hello iş ulaştıktan sonra geçerli. |
 | **türü** |İşlerini türleri: |
-| **scheduledUpdateTwin**: İstenen özellikleri veya etiketleri kümesi güncelleştirmek için kullanılan bir işi. | |
-| **scheduledDeviceMethod**: cihaz çiftlerini kümesi üzerinde bir aygıt yöntemi çağırmak için kullanılan bir işi. | |
-| **durumu** |İşin geçerli durumu. Durum için olası değerler: |
-| **Bekleyen** : Zamanlanmış ve iş hizmeti tarafından çekilmesi bekleniyor. | |
-| **Zamanlanmış** : gelecekteki bir zamanı için zamanlanan. | |
+| **scheduledUpdateTwin**: kullanılan iş tooupdate istenen özellikleri veya etiketleri kümesi. | |
+| **scheduledDeviceMethod**: kullanılan iş tooinvoke bir dizi cihaz çiftlerini cihaz yöntemi. | |
+| **durumu** |Merhaba işin geçerli durumu. Durum için olası değerler: |
+| **Bekleyen** : Zamanlanmış ve bekleme toobe hello iş hizmeti tarafından toplanma. | |
+| **Zamanlanmış** : hello gelecekteki bir süre için zamanlanan. | |
 | **çalışan** : şu anda etkin iş. | |
 | **İptal** : işi iptal edildi. | |
 | **başarısız** : işi başarısız oldu. | |
 | **Tamamlanan** : işi tamamlandı. | |
-| **deviceJobStatistics** |İş yürütme hakkındaki istatistiklerdir. |
+| **deviceJobStatistics** |Merhaba işin yürütme hakkındaki istatistiklerdir. |
 
 **deviceJobStatistics** özellikleri.
 
 | Özellik | Açıklama |
 | --- | --- |
-| **deviceJobStatistics.deviceCount** |İşte cihaz sayısı. |
-| **deviceJobStatistics.failedCount** |İş başarısız olduğu cihazlar sayısı. |
-| **deviceJobStatistics.succeededCount** |İş yeri başarılı cihaz sayısı. |
-| **deviceJobStatistics.runningCount** |İşi çalışmakta olan aygıt sayısı. |
-| **deviceJobStatistics.pendingCount** |İşi çalıştırmak için beklemede olan aygıt sayısı. |
+| **deviceJobStatistics.deviceCount** |Cihazların Merhaba işi sayısı. |
+| **deviceJobStatistics.failedCount** |Merhaba iş başarısız olduğu cihazlar sayısı. |
+| **deviceJobStatistics.succeededCount** |Burada hello iş başarılı cihaz sayısı. |
+| **deviceJobStatistics.runningCount** |Merhaba işi çalışmakta olan aygıt sayısı. |
+| **deviceJobStatistics.pendingCount** |Toorun hello işi olan aygıt sayısı. |
 
 ### <a name="additional-reference-material"></a>Ek başvuru bilgileri
-IOT Hub Geliştirici Kılavuzu'ndaki diğer başvuru konuları içerir:
+Merhaba IOT Hub Geliştirici Kılavuzu diğer başvuru konularına şunları içerir:
 
-* [IOT Hub uç noktaları] [ lnk-endpoints] her IOT hub'ı çalışma zamanı ve yönetim işlemleri için kullanıma sunan çeşitli uç noktaları açıklar.
-* [Azaltma ve kotaları] [ lnk-quotas] IOT Hub hizmeti ve azaltma davranışı hizmetini kullandığınızda beklediğiniz uygulama kotaları açıklar.
-* [Azure IOT cihaz ve hizmet SDK'ları] [ lnk-sdks] çeşitli dil SDK'ları listeler, IOT Hub ile etkileşim hem cihaz hem de hizmet uygulamaları geliştirirken kullanın.
-* [IOT Hub cihaz çiftlerini, işler ve ileti yönlendirme için sorgu dili] [ lnk-query] IOT Hub'ından, cihaz çiftlerini ve işleri hakkında bilgi almak için kullanabileceğiniz IOT hub'ı sorgu dili açıklar.
-* [IOT Hub MQTT Destek] [ lnk-devguide-mqtt] IOT hub'ı desteği hakkında daha fazla bilgi için MQTT Protokolü sağlar.
+* [IOT Hub uç noktaları] [ lnk-endpoints] açıklar çalışma zamanı ve yönetim işlemleri için her IOT hub'ı sunan çeşitli uç noktaları hello.
+* [Azaltma ve kotaları] [ lnk-quotas] toohello IOT Hub hizmetine uygulamak ve hello hizmetini kullandığınızda azaltma davranışı tooexpect hello hello kotaları açıklar.
+* [Azure IOT cihaz ve hizmet SDK'ları] [ lnk-sdks] listeleri hello çeşitli dil SDK'ları, IOT Hub ile etkileşim hem cihaz hem de hizmet uygulamaları geliştirirken kullanın.
+* [IOT Hub cihaz çiftlerini, işler ve ileti yönlendirme için sorgu dili] [ lnk-query] hello tooretrieve bilgilerini IOT hub'dan cihaz çiftlerini ve işleri kullanabileceğiniz IOT hub'ı sorgu dili açıklar.
+* [IOT Hub MQTT Destek] [ lnk-devguide-mqtt] hello MQTT protokolü için IOT hub'ı desteği hakkında daha fazla bilgi sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıdaki IOT hub'ı öğreticide ilgilenen olabilir:
+Bu makalede açıklanan hello kavramların bazıları çıkışı tootry isterseniz, IOT hub'ı öğreticiyi izleyerek hello ilgilenen olabilir:
 
 * [Zamanlama ve yayın işleri][lnk-jobs-tutorial]
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri F # Geliştirici Başvurusu | Microsoft Docs"
-description: "F # kullanarak Azure işlevleri geliştirmek nasıl anlayın."
+title: "aaaAzure İşlevler F # Geliştirici Başvurusu | Microsoft Docs"
+description: "Anlamak nasıl toodevelop Azure kullanarak F # işlevleri."
 services: functions
 documentationcenter: fsharp
 author: sylvanc
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 1691d378263f6b4ce5072f5c621d8db02f774b5f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1ac366ba6f73d191c582dcd9214b688ef719617a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure işlevleri F # Geliştirici Başvurusu
 > [!div class="op_single_selector"]
@@ -30,17 +30,17 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-F # için Azure işlevleri küçük parçalarını kodu veya "işlevleri" bulutta kolayca çalıştırmak için bir çözümdür. Veri, F # işlevi işlev bağımsız değişkenleri aracılığıyla akar. Bağımsız değişken adları belirtilir `function.json`, ve işlevi Günlükçü ve iptal belirteçleri gibi şeyleri erişmek için önceden tanımlanmış adları vardır.
+F # için Azure işlevleri kolayca küçük parçalarını kodu veya "işlevleri" Merhaba bulutta çalışan bir çözümdür. Veri, F # işlevi işlev bağımsız değişkenleri aracılığıyla akar. Bağımsız değişken adları belirtilir `function.json`, ve işlevi Günlükçü ve iptal belirteçleri hello gibi işlemler erişmek için önceden tanımlanmış adları vardır.
 
-Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md).
+Bu makalede, zaten hello okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md).
 
 ## <a name="how-fsx-works"></a>.Fsx nasıl çalışır?
-Bir `.fsx` F # betiği bir dosyadır. Bu, tek bir dosyada bulunan F # proje olarak düşünülebilir. Dosyası kodu programınızın (Bu durumda, Azure işlevinizi) içerir ve bağımlılıkları yönetmek için yönergeleri.
+Bir `.fsx` F # betiği bir dosyadır. Bu, tek bir dosyada bulunan F # proje olarak düşünülebilir. Merhaba dosya iki hello kodunu programınız (Bu durumda, Azure işlevinizi) içerir ve bağımlılıkları yönetmek için yönergeleri.
 
-Kullandığınızda, bir `.fsx` bir Azure işlevi için yaygın olarak derlemeler "ortak" yerine işlevi kodlarına odaklanmasını olanak tanıyan sizin için otomatik olarak dahil gereklidir.
+Kullandığınızda, bir `.fsx` bir Azure işlevi için yaygın olarak derlemeleri hello "ortak" yerine işlevi kodu toofocus izin vererek sizin için otomatik olarak dahil gereklidir.
 
-## <a name="binding-to-arguments"></a>Bağımsız değişkenler bağlama
-Her bağlama bağımsız değişkenler, içinde ayrıntılı olarak bazı kümesini destekler [Azure işlevleri Tetikleyicileri ve bağlamaları Geliştirici Başvurusu](functions-triggers-bindings.md). Örneğin, bir blob tetikleyici destekleyen bağımsız değişken bağlamaları kullanarak bir F # kayıt ifade bir POCO biridir. Örneğin:
+## <a name="binding-tooarguments"></a>Tooarguments bağlama
+Bazı bağımsız değişkenler, küme içinde ayrıntılı hello olarak her bağlama destekleyen [Azure işlevleri Tetikleyicileri ve bağlamaları Geliştirici Başvurusu](functions-triggers-bindings.md). Örneğin, bir blob tetikleyici destekleyen hello bağımsız değişken bağlamaları kullanarak bir F # kayıt ifade bir POCO biridir. Örneğin:
 
 ```fsharp
 type Item = { Id: string }
@@ -50,11 +50,11 @@ let Run(blob: string, output: byref<Item>) =
     output <- item
 ```
 
-F # Azure işlevinizi bağımsız değişkenlerden biri veya daha fazla sürer. Biz Azure işlevleri bağımsız değişkenleri hakkında konuşurken biz başvurmak *giriş* bağımsız değişkenleri ve *çıkış* bağımsız değişkenler. Ne gibi ses giriş bağımsız değişkeni tam olduğundan: F # Azure işlevinizi için giriş. Bir *çıkış* değişkendir değişebilir veri veya `byref<>` geri veri iletmek için bir yol olarak hizmet veren bir bağımsız değişken *çıkışı* , işlevin.
+F # Azure işlevinizi bağımsız değişkenlerden biri veya daha fazla sürer. Biz Azure işlevleri bağımsız değişkenleri hakkında konuşurken biz çok başvuran*giriş* bağımsız değişkenleri ve *çıkış* bağımsız değişkenler. Ne gibi ses giriş bağımsız değişkeni tam olduğundan: tooyour F # Azure işlevi giriş. Bir *çıkış* değişkendir değişebilir veri veya `byref<>` şekilde toopass veri geri hizmet bağımsız değişkeni *çıkışı* , işlevin.
 
-Yukarıdaki örnekte `blob` bir giriş bağımsız değişkeni ve `output` bir çıktı bağımsız değişken. Kullandık bildirimi `byref<>` için `output` (eklemeye gerek yoktur `[<Out>]` ek açıklama). Kullanarak bir `byref<>` türü hangi kaydı veya bağımsız değişkeni başvuruda bulunduğu nesne değiştirmek, işlevi sağlar.
+Yukarıdaki hello örnekte `blob` bir giriş bağımsız değişkeni ve `output` bir çıktı bağımsız değişken. Kullandık bildirimi `byref<>` için `output` (hiçbir gerek tooadd hello yoktur `[<Out>]` ek açıklama). Kullanarak bir `byref<>` türü için hangi kaydı ya da nesne hello bağımsız değişkeni başvuruyor, işlevi toochange sağlar.
 
-İle bir F # kaydı bir girdi türü olarak kullanıldığında, kayıt tanımı işaretlenmelidir `[<CLIMutable>]` işlevinizi için kayıt geçirmeden önce alanlarını uygun şekilde ayarlamak Azure işlevleri framework izin vermek üzere. Başlık altında `[<CLIMutable>]` kaydı özellikler için ayarlayıcılar oluşturur. Örneğin:
+İle bir F # kaydı bir girdi türü olarak kullanıldığında, hello kayıt tanımı işaretlenmelidir `[<CLIMutable>]` içinde hello alanlarını uygun şekilde hello kayıt tooyour işlevi önce geçirme tooallow hello Azure işlevleri framework tooset sipariş. Merhaba başlık altında `[<CLIMutable>]` hello kaydı özellikler için ayarlayıcılar oluşturur. Örneğin:
 
 ```fsharp
 [<CLIMutable>]
@@ -79,7 +79,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Günlüğe kaydetme
-Çıktıyı oturum, [akış günlükleri](../app-service-web/web-sites-streaming-logs-and-console.md) F #'ta işlevinizi türünde bir bağımsız değişken zamanınızı `TraceWriter`. Tutarlılık için bu bağımsız değişken adlandırılan olan öneririz `log`. Örneğin:
+toolog çıkış tooyour [akış günlükleri](../app-service-web/web-sites-streaming-logs-and-console.md) F #'ta işlevinizi türünde bir bağımsız değişken zamanınızı `TraceWriter`. Tutarlılık için bu bağımsız değişken adlandırılan olan öneririz `log`. Örneğin:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -88,7 +88,7 @@ let Run(blob: string, output: byref<string>, log: TraceWriter) =
 ```
 
 ## <a name="async"></a>Zaman uyumsuz
-`async` İş akışı kullanılabilir, ancak sonuç döndürmesi gerekir bir `Task`. Bu, yapılabilir `Async.StartAsTask`, örneğin:
+Merhaba `async` iş akışı kullanılabilir, ancak hello sonuç gerekiyor tooreturn bir `Task`. Bu, yapılabilir `Async.StartAsTask`, örneğin:
 
 ```fsharp
 let Run(req: HttpRequestMessage) =
@@ -98,7 +98,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>İptal belirteci
-İşlevinizi kapatma işleyebilmesini gerekiyorsa verebilirsiniz bir [ `CancellationToken` ](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) bağımsız değişkeni. Bu ile birleştirilebilir `async`, örneğin:
+İşlevinizi toohandle kapatma düzgün biçimde gerekirse, verebilirsiniz bir [ `CancellationToken` ](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) bağımsız değişkeni. Bu ile birleştirilebilir `async`, örneğin:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -110,7 +110,7 @@ let Run(req: HttpRequestMessage, token: CancellationToken)
 ```
 
 ## <a name="importing-namespaces"></a>Ad alanlarını alma
-Ad alanları normal şekilde açılabilir:
+Ad alanları hello açılabilir her zamanki gibi:
 
 ```fsharp
 open System.Net
@@ -120,7 +120,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     ...
 ```
 
-Şu ad alanlarından otomatik olarak açılır:
+ad alanları aşağıdaki hello otomatik olarak açılır:
 
 * `System`
 * `System.Collections.Generic`
@@ -132,7 +132,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## <a name="referencing-external-assemblies"></a>Dış derlemelere başvurma
-Benzer şekilde, framework derleme başvuruları ile eklenmesi `#r "AssemblyName"` yönergesi.
+Benzer şekilde, framework derleme başvuruları ile Merhaba eklenmesi `#r "AssemblyName"` yönergesi.
 
 ```fsharp
 #r "System.Web.Http"
@@ -145,7 +145,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     ...
 ```
 
-Aşağıdaki derlemeler barındırma ortamı Azure işlevleri tarafından otomatik olarak eklenir:
+Merhaba aşağıdaki derlemeler otomatik barındırma ortamı hello Azure işlevleri tarafından eklenir:
 
 * `mscorlib`,
 * `System`
@@ -158,7 +158,7 @@ Aşağıdaki derlemeler barındırma ortamı Azure işlevleri tarafından otomat
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
-Ayrıca, aşağıdaki derlemeler özel ortası ve simplename tarafından başvurulan (örneğin `#r "AssemblyName"`):
+Ayrıca, derlemeleri aşağıdaki hello özel ortası ve simplename tarafından başvurulan (örneğin `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -166,10 +166,10 @@ Ayrıca, aşağıdaki derlemeler özel ortası ve simplename tarafından başvur
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-Özel derleme başvurusu ihtiyacınız varsa, derleme dosyasına yükleyebilirsiniz bir `bin` klasörüne görelidir dosyasını kullanarak adlandırın (örneğin, işlev ve başvurusu  `#r "MyAssembly.dll"`). İşlev klasörünüze dosyaları karşıya yükleme hakkında daha fazla bilgi için paket yönetimi hakkında aşağıdaki bölümüne bakın.
+Özel derleme tooreference gerekiyorsa, hello derleme dosyasına karşıya yükleyebilir bir `bin` klasörü göreli tooyour işlevi ve kullanarak hello dosya adı (örneğin başvurusu  `#r "MyAssembly.dll"`). Nasıl tooupload dosyaları tooyour işlevi klasörü hakkında daha fazla bilgi için paket Yönetimi bölümünde aşağıdaki hello bakın.
 
 ## <a name="editor-prelude"></a>Düzenleyici Prelude
-F # derleyici hizmetlerini destekleyen bir düzenleyici ad alanları ve Azure işlevleri otomatik olarak içeren derlemeler haberdar olmaz. Bu nedenle, kullandığınız derlemelerini bulmak Düzenleyicisi yardımcı olan bir prelude dahil edilecek ve ad alanları açıkça açmak için yararlı olabilir. Örneğin:
+F # derleyici hizmetlerini destekleyen bir düzenleyici hello ad alanları ve Azure işlevleri otomatik olarak içeren derlemeler haberdar olmaz. Bu nedenle, yararlı tooinclude kullanmakta olduğunuz hello derlemelerini bulmak hello Düzenleyicisi yardımcı olan bir prelude olabilir ve tooexplicitly ad alanları açın. Örneğin:
 
 ```fsharp
 #if !COMPILED
@@ -184,12 +184,12 @@ let Run(blob: string, output: byref<string>, log: TraceWriter) =
     ...
 ```
 
-Azure işlevleri, kodunuzu yürütüldüğünde, kaynağıyla işler `COMPILED` tanımlı, bu nedenle Düzenleyicisi prelude yoksayıldı.
+Azure işlevleri, kodunuzu yürütüldüğünde, hello kaynağıyla işler `COMPILED` tanımlanan şekilde hello Düzenleyicisi prelude göz ardı edilir.
 
 <a name="package"></a>
 
 ## <a name="package-management"></a>Paket Yönetimi
-NuGet paketlerini bir F # işlevi kullanmak için ekleyin bir `project.json` dosya işlevi uygulamanın dosya sistemi işlevin klasöründe. İşte bir örnek `project.json` NuGet paketi başvuru ekler dosya `Microsoft.ProjectOxford.Face` sürüm 1.1.0:
+F # işlevinde, toouse NuGet paketleri ekleme bir `project.json` hello işlevi uygulamanın dosya sisteminde dosyası toohello hello işlevin klasörü. İşte bir örnek `project.json` bir NuGet paketi başvuru çok ekler dosya`Microsoft.ProjectOxford.Face` sürüm 1.1.0:
 
 ```json
 {
@@ -203,16 +203,16 @@ NuGet paketlerini bir F # işlevi kullanmak için ekleyin bir `project.json` dos
 }
 ```
 
-Yalnızca .NET Framework 4.6 desteklenmez, bu nedenle olduğundan emin olun, `project.json` dosyayı belirtir `net46` aşağıda gösterildiği gibi.
+Hello .NET Framework 4.6 desteklenir yalnızca, bu nedenle olduğundan emin olun, `project.json` dosyayı belirtir `net46` aşağıda gösterildiği gibi.
 
-Karşıya yüklediğiniz zaman bir `project.json` dosya, çalışma zamanı paketleri alır ve paketi derleme başvuruları otomatik olarak ekler. Eklemeniz gerekmez `#r "AssemblyName"` yönergeleri. Yalnızca gerekli Ekle `open` deyimleri için `.fsx` dosya.
+Karşıya yüklediğiniz zaman bir `project.json` dosya, hello çalışma zamanı hello paketleri alır ve başvurular toohello paket derlemeler otomatik olarak ekler. Tooadd gerekmeyen `#r "AssemblyName"` yönergeleri. Yalnızca gerekli hello Ekle `open` deyimleri tooyour `.fsx` dosya.
 
-F # Hizmetleri derlemek Düzenleyicisi'nin etkileşim artırmak için Düzenleyicisi prelude otomatik olarak başvuru derlemeleri koymak isteyebilirsiniz.
+Tooput tooimprove, Düzenleyicisi prelude derlemelerde F # Hizmetleri derlemek etkileşim Düzenleyicisi'nin otomatik olarak başvuruyor. isteyebilir.
 
-### <a name="how-to-add-a-projectjson-file-to-your-azure-function"></a>Nasıl ekleneceği bir `project.json` Azure işlevinizi dosyasına
-1. Azure portalında işlevinizi açarak yapabilirsiniz işlevi uygulamanızı emin yaparak Başlangıç çalışıyor. Bu ayrıca akış günlüklerine paket yükleme çıktısı görüntülenir burada erişmenizi sağlar.
-2. Karşıya yüklemek için bir `project.json` dosya, açıklanan yöntemlerden birini kullanın [işlevi uygulama dosyaları güncelleştirmek nasıl](functions-reference.md#fileupdate). Kullanıyorsanız [Azure işlevleri için sürekli dağıtım](functions-continuous-deployment.md), ekleyebileceğiniz bir `project.json` ile dağıtım dalınızdaki eklemeden önce denemek için hazırlama dalı dosyasına.
-3. Sonra `project.json` dosya eklenir, işlevinizi aşağıdaki örneğe benzer bir çıktı günlük akış görürsünüz:
+### <a name="how-tooadd-a-projectjson-file-tooyour-azure-function"></a>Nasıl tooadd bir `project.json` dosya tooyour Azure işlevi
+1. Hello Azure portal işlevinizi açarak yapabilirsiniz işlevi uygulamanızı emin yaparak Başlangıç çalışıyor. Bu ayrıca toohello akış günlükleri paket yükleme çıktısı görüntülenir burada erişmenizi sağlar.
+2. tooupload bir `project.json` dosya, açıklanan hello yöntemlerden birini kullanın [nasıl tooupdate işlev uygulama dosyaları](functions-reference.md#fileupdate). Kullanıyorsanız [Azure işlevleri için sürekli dağıtım](functions-continuous-deployment.md), ekleyebileceğiniz bir `project.json` tooyour dağıtım şube eklemeden önce sipariş tooexperiment onunla dalında hazırlama tooyour dosya.
+3. Merhaba sonra `project.json` dosya eklenir, çıktı benzer toohello işlevinizi örnekte aşağıdaki günlük akış görürsünüz:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -232,7 +232,7 @@ F # Hizmetleri derlemek Düzenleyicisi'nin etkileşim artırmak için Düzenleyi
 ```
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
-Bir ortam değişkeni veya ayar değeri bir uygulamayı almak için `System.Environment.GetEnvironmentVariable`, örneğin:
+tooget bir ortam değişkeni veya kullanan bir uygulama ayarı değeri `System.Environment.GetEnvironmentVariable`, örneğin:
 
 ```fsharp
 open System.Environment
@@ -261,16 +261,16 @@ let mylog(log: TraceWriter, text: string) =
     log.Verbose(text);
 ```
 
-Yollar sağlar için `#load` göreli konumunu yönerge olan, `.fsx` dosya.
+Yollar sağlar toohello `#load` yönergesi olan göreli toohello konumunu, `.fsx` dosya.
 
-* `#load "logger.fsx"`işlev klasöründe bir dosya yükler.
-* `#load "package\logger.fsx"`bulunan bir dosya yükler `package` işlevi klasöründe.
-* `#load "..\shared\mylogger.fsx"`bulunan bir dosya yükler `shared` klasör başka bir deyişle, işlevi klasör ile aynı düzeyde doğrudan altında `wwwroot`.
+* `#load "logger.fsx"`Merhaba işlevi klasöründe bir dosya yükler.
+* `#load "package\logger.fsx"`Hello bulunan bir dosya yükler `package` hello işlevi klasöründe.
+* `#load "..\shared\mylogger.fsx"`Hello bulunan bir dosya yükler `shared` aynı düzeydeki hello işlevi klasör, başka bir deyişle, hello klasöre doğrudan altında `wwwroot`.
 
-`#load` Yönergesi yalnızca çalışır `.fsx` (F # betik) dosyaları ve değil `.fs` dosyaları.
+Merhaba `#load` yönergesi yalnızca çalışır `.fsx` (F # betik) dosyaları ve değil `.fs` dosyaları.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Daha fazla bilgi için kaynakları aşağıdaki hello bakın:
 
 * [F # Kılavuzu](/dotnet/articles/fsharp/index)
 * [Azure İşlevleri için En İyi Uygulamalar](functions-best-practices.md)

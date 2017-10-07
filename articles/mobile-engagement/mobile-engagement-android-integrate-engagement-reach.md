@@ -1,5 +1,5 @@
 ---
-title: "Azure Mobile Engagement Android SDK tümleştirmesi"
+title: "aaaAzure Mobile Engagement Android SDK tümleştirmesi"
 description: "En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,28 +14,28 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: piyushjo
-ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4ab6143771bdc0758a548abb529d6bde98fc0e4e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-integrate-engagement-reach-on-android"></a>Android'de Engagement Reach tümleştirme
+# <a name="how-toointegrate-engagement-reach-on-android"></a>TooIntegrate Engagement Reach nasıl Android
 > [!IMPORTANT]
-> Tümleştirme katılım nasıl Android belge üzerinde bu kılavuzu izlemeden önce açıklanan tümleştirme yordamı izlemeniz gerekir.
+> TooIntegrate android'de katılım nasıl belge bu kılavuzu izlemeden önce hello açıklanan hello tümleştirme yordamı izlemeniz gerekir.
 > 
 > 
 
 ## <a name="standard-integration"></a>Standart tümleştirme
 
-Projenize SDK ulaşma kaynak dosyalarını kopyalayın:
+Projenizdeki hello SDK ulaşma kaynak dosyalarını kopyalayın:
 
-* Dosyalarından kopyalamak `res/layout` klasörü teslim SDK'sı `res/layout` uygulamanızın klasör.
-* Dosyalarından kopyalamak `res/drawable` klasörü teslim SDK'sı `res/drawable` uygulamanızın klasör.
+* Hello Hello dosyaları kopyalamak `res/layout` klasörü teslim hello içine hello SDK ile `res/layout` uygulamanızın klasör.
+* Hello Hello dosyaları kopyalamak `res/drawable` klasörü teslim hello içine hello SDK ile `res/drawable` uygulamanızın klasör.
 
 Düzenleme, `AndroidManifest.xml` dosyası:
 
-* Aşağıdaki bölümde ekleyin (arasında `<application>` ve `</application>` etiketleri):
+* Ekle bölümden hello (Merhaba arasında `<application>` ve `</application>` etiketleri):
   
           <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
             <intent-filter>
@@ -78,47 +78,47 @@ Düzenleme, `AndroidManifest.xml` dosyası:
               <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
             </intent-filter>
           </receiver>
-* Önyüklemede tıklattınız değil Sistem bildirimleri yeniden yürütme izni gerekir (Aksi halde diskte tutulur ancak artık görüntülenmeyecek, gerçekten bu eklemek zorunda).
+* Önyüklemede tıklattınız değil bu izni tooreplay sistem bildirimleri gerekir (Aksi halde diskte tutulur ancak artık görüntülenmeyecek, gerçekten tooinclude bu gerekir).
   
           <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-* Kopyalama ve aşağıdaki bölümde düzenleme bildirimler (hem de uygulama ve sistem olanlar) için kullanılan bir simge belirtin (arasında `<application>` ve `</application>` etiketleri):
+* Kopyalama ve bölümden hello düzenleme bildirimler (hem de uygulama ve sistem olanlar) için kullanılan bir simge belirtin (Merhaba arasında `<application>` ve `</application>` etiketleri):
   
           <meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
 > [!IMPORTANT]
-> Bu bölüm **zorunlu** sistem bildirimleri Reach kampanyaları oluştururken kullanmayı planlıyorsanız. Android gösterilen gelen sistem bildirimleri simgeler olmadan engeller. Bu nedenle bu bölümde atlarsanız, son kullanıcılarınızın bunları almak mümkün olmaz.
+> Bu bölüm **zorunlu** sistem bildirimleri Reach kampanyaları oluştururken kullanmayı planlıyorsanız. Android gösterilen gelen sistem bildirimleri simgeler olmadan engeller. Bu bölümde atlarsanız, son kullanıcılarınıza mümkün tooreceive olmayacak şekilde bunları.
 > 
 > 
 
-* Büyük resim kullanarak sistem bildirimleri ile Kampanyalar oluşturursanız, aşağıdaki izinleri ekleyin gerekir (sonra `</application>` etiketi) eksikse:
+* Büyük resim kullanarak sistem bildirimleri ile Kampanyalar oluşturursanız, aşağıdaki izinleri tooadd hello gerekir (Merhaba sonra `</application>` etiketi) eksikse:
   
           <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
           <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
   
   * Android M ve uygulamanızı Android API düzeyi 23 ya da daha hedefleyip hedeflemediği ``WRITE_EXTERNAL_STORAGE`` izni kullanıcı onayı gerektirir. Lütfen okuyun [Bu bölümde](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
-* Sistem bildirimleri için cihazın halka ve/veya Titret Reach kampanya de belirtebilirsiniz. Bunun çalışması için aşağıdaki izin bildirildiğinden emin olun zorunda (sonra `</application>` etiketi):
+* Ayrıca hello belirtebilirsiniz sistem bildirimleri için Hello cihaz halka ve/veya Titret, kampanya ulaşabilirsiniz. Bunun için toowork, toomake izni aşağıdaki hello bildirildiğinden emin olması (Merhaba sonra `</application>` etiketi):
   
           <uses-permission android:name="android.permission.VIBRATE" />
   
-  Bu izin olmadan Android engeller sistem bildirimleri engeller halka veya Reach kampanya Yöneticisi'nde vibrate seçeneğini işaretli gösterilir.
+  Bu izin olmadan Android gösterildikten gelen sistem bildirimleri engeller, işaretlediyseniz hello halkası veya hello Titret hello Reach kampanya Yöneticisi'nde seçeneği.
 
 ## <a name="native-push"></a>Yerel gönderim
-Reach modülünün yapılandırılmış, cihazda Kampanyalar şekilde alabilmesi için yerel gönderimi yapılandırmanız gerekir.
+Reach modülünün yapılandırılmış, tooconfigure yerel gönderim toobe mümkün tooreceive hello Kampanyalar hello aygıtta gerekir.
 
 Android iki hizmet destekliyoruz:
 
-* Google Play aygıtları: kullanım [Google Cloud Messaging] izleyerek [tümleştirmek GCM katılım Kılavuzu ile nasıl](mobile-engagement-android-gcm-integrate.md) Kılavuzu.
-* Amazon aygıtları: kullanım [Amazon Device Messaging] izleyerek [tümleştirmek ADM katılım Kılavuzu ile nasıl](mobile-engagement-android-adm-integrate.md) Kılavuzu.
+* Google Play aygıtları: kullanım [Google Cloud Messaging] aşağıdaki hello tarafından [nasıl tooIntegrate engagement GCM Kılavuzu](mobile-engagement-android-gcm-integrate.md) Kılavuzu.
+* Amazon aygıtları: kullanım [Amazon Device Messaging] aşağıdaki hello tarafından [nasıl tooIntegrate engagement ADM Kılavuzu](mobile-engagement-android-adm-integrate.md) Kılavuzu.
 
-Amazon ve Google Play aygıtlar, geliştirme için 1 AndroidManifest.xml/APK içindeki tüm öğeler için olası hedef istiyorsanız. Ancak GCM kod bulursanız, Amazon gönderirken, bunlar uygulamanızı reddedebilir.
+Tootarget istiyorsanız, Amazon ve Google Play aygıtlar, kendi olası toohave geliştirme için 1 AndroidManifest.xml/APK içindeki tüm öğeler. Ancak GCM kod bulursanız tooAmazon gönderirken, bunlar uygulamanızı reddedebilir.
 
 Bu durumda birden çok APKs kullanmanız gerekir.
 
-**Uygulamanızı şimdi almak ve reach kampanyaları görüntülemek hazır!**
+**Hazır tooreceive ve görüntü Kampanyalar ulaşmak şimdi uygulamanızı değil!**
 
-## <a name="how-to-handle-data-push"></a>Veri gönderimi nasıl ele alınacağını
+## <a name="how-toohandle-data-push"></a>Nasıl toohandle veri gönderme
 ### <a name="integration"></a>Tümleştirme
-Reach veri gönderimleri almak, uygulamanızın istiyorsanız, bir alt sınıfı oluşturmak zorunda `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` ve içinde referans `AndroidManifest.xml` dosyası (arasında `<application>` ve/veya `</application>` etiketleri):
+Uygulama toobe mümkün istiyorsanız tooreceive ulaşma veri iter, toocreate bir alt sınıfı olması `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` ve hello başvuru `AndroidManifest.xml` dosyası (Merhaba arasında `<application>` ve/veya `</application>` etiketleri):
 
             <receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
               android:exported="false">
@@ -127,7 +127,7 @@ Reach veri gönderimleri almak, uygulamanızın istiyorsanız, bir alt sınıfı
               </intent-filter>
             </receiver>
 
-Geçersiz kılabilirsiniz `onDataPushStringReceived` ve `onDataPushBase64Received` geri aramalar. Örnek aşağıda verilmiştir:
+Merhaba geçersiz kılabilirsiniz `onDataPushStringReceived` ve `onDataPushBase64Received` geri aramalar. Örnek aşağıda verilmiştir:
 
             public class MyDataPushReceiver extends EngagementReachDataPushReceiver
             {
@@ -148,46 +148,46 @@ Geçersiz kılabilirsiniz `onDataPushStringReceived` ve `onDataPushBase64Receive
             }
 
 ### <a name="category"></a>Kategori
-Kategori parametresi bir veri gönderme kampanya oluşturduğunuzda isteğe bağlıdır ve filtre veri iter sağlar. Veri gönderimleri, farklı türlerde işleme birkaç yayın alıcılar varsa kullanışlıdır veya farklı tür itmek istiyorsanız, `Base64` veri ve ayrıştırmadan önce kendi türünü tanımlamak istiyorsanız.
+Merhaba kategori parametresi bir veri gönderme kampanya oluşturduğunuzda isteğe bağlıdır ve toofilter verileri iter sağlar. Veri gönderimleri, farklı türlerde işleme birkaç yayın alıcılar varsa kullanışlıdır veya toopush değişik istiyorsanız, `Base64` veri ve istediğiniz tooidentify bunları ayrıştırma önce kendi türü.
 
 ### <a name="callbacks-return-parameter"></a>Geri aramalar dönüş parametresi
-Dönüş parametresi düzgün işlenecek yönergelere `onDataPushStringReceived` ve `onDataPushBase64Received`:
+Bazı yönergeler tooproperly tanıtıcı hello dönüş parametresi işte `onDataPushStringReceived` ve `onDataPushBase64Received`:
 
-* Bir yayın alıcı döndürmelidir `null` içinde veri gönderimi nasıl ele alınacağını bilmiyorsa geri çağırma. Kategori veya yayın Alıcınız veri gönderimi işleyip işlemeyeceğini belirlemek için kullanmanız gerekir.
-* Yayın alıcı birini döndürmelidir `true` içinde veri gönderimi kabul ederse geri çağırma.
-* Yayın alıcı birini döndürmelidir `false` içinde veri gönderimi algılar ancak herhangi bir nedenle atar geri çağırma. Örneğin, sonuç `false` zaman alınan veri geçerli değil.
-* Bir alıcı döndürür yayın varsa `true` başka döndürür while `false` aynı veri gönderimi için davranış tanımsızdır, hiçbir zaman, yapmanız gerekir.
+* Bir yayın alıcı döndürmelidir `null` içinde nasıl toohandle veri gönderme bilmiyorsa hello geri çağırma. Yayın Alıcınız hello veri gönderimi veya işlemelidir olup olmadığını hello kategori toodetermine kullanmanız gerekir.
+* Merhaba yayın alıcı birini döndürmelidir `true` içinde hello veri gönderimi kabul ederse hello geri çağırma.
+* Merhaba yayın alıcı birini döndürmelidir `false` içinde hello veri gönderimi algılar ancak herhangi bir nedenle atar hello geri çağırma. Örneğin, sonuç `false` zaman hello alınan veri geçerli değil.
+* Bir alıcı döndürür yayın varsa `true` başka döndürür while `false` hello aynı veri gönderimi, hello davranış tanımsızdır için hiçbir zaman, yapmanız gerekir.
 
-Dönüş türü yalnızca ulaşma istatistikleri kullanılır:
+Merhaba dönüş türü yalnızca hello ulaşma istatistikleri için kullanılır:
 
-* `Replied`yayın alıcıları birini ya da döndürülürse artırılır `true` veya `false`.
-* `Actioned`yalnızca yayın alıcıları birini döndürülürse artırılır `true`.
+* `Replied`Merhaba yayın alıcıları birini ya da döndürülürse artırılır `true` veya `false`.
+* `Actioned`yalnızca hello birini döndürülen alıcıları yayını olmazsa artırılır `true`.
 
-## <a name="how-to-customize-campaigns"></a>Kampanyalar özelleştirme
-Kampanyalar özelleştirmek için Reach SDK'ın sağlanan düzenleri değiştirebilirsiniz.
+## <a name="how-toocustomize-campaigns"></a>Nasıl toocustomize Kampanyalar
+toocustomize Kampanyalar hello Reach SDK sağlanan hello düzenleri değiştirebilirsiniz.
 
-Düzenleri kullanılan tüm tanımlayıcıları tutmak ve özellikle metin görünümleri ve görüntü görünümleri için bir tanımlayıcı kullanın görünüm türlerini tutun. Bazı görünümler, yalnızca kendi türü değiştirilemez böylece alanları göstermek veya gizlemek için kullanılır. Lütfen sağlanan düzenleri görünümünde türünü değiştirmek istiyorsanız, kaynak kodunu kontrol edin.
+Merhaba düzenleri kullanılan tüm hello tanımlayıcıları tutmak ve özellikle metin görünümleri ve görüntü görünümleri için bir tanımlayıcı kullanın hello görünüm hello türlerini tutmak gerekir. Bazı görünümler yalnızca kullanılan toohide ya da kendi türü değiştirilemez alanları görüntüleyecek. Sağlanan hello düzenleri toochange hello bir görünüm türünü düşünüyorsanız lütfen hello kaynak kodunu denetleyin.
 
 ### <a name="notifications"></a>Bildirimler
 Bildirimler iki tür vardır: farklı düzeni dosyaları kullanan sistem ve uygulama içi bildirimler.
 
 #### <a name="system-notifications"></a>Sistem bildirimleri
-Sistem bildirimleri kullanmanız gerekir özelleştirmek için **kategorileri**. Atlayabilirsiniz [kategorileri](#categories).
+gereksinim duyduğunuz toouse hello toocustomize sistem bildirimleri **kategorileri**. Çok atlayabilirsiniz[kategorileri](#categories).
 
 #### <a name="in-app-notifications"></a>Uygulama bildirimleri
-Varsayılan olarak, bir uygulama bildirimi geçerli etkinliği kullanıcı arabirimi sayesinde Android yöntemi dinamik olarak eklenen görünümdür `addContentView()`. Bu bildirim bir katmana çağrılır. Uygulamanız herhangi bir düzende değiştirmenizi gerektirmediği için bildirim yer paylaşımları hızlı tümleştirme için mükemmeldir.
+Varsayılan olarak, bir uygulama bildirimi dinamik olarak eklenen toohello geçerli etkinliği kullanıcı arabirimi teşekkürler toohello Android yöntemi görünümdür `addContentView()`. Bu bildirim bir katmana çağrılır. Uygulamanız herhangi bir düzende, toomodify gerektirmediği için bildirim yer paylaşımları hızlı tümleştirme için mükemmeldir.
 
-Bildirim yer paylaşımları görünümünü değiştirmek için yalnızca dosyasını değiştirebilirsiniz `engagement_notification_area.xml` gereksinimlerinize.
+bildirim yer paylaşımları hello görünümünü toomodify, yalnızca değiştirebileceğiniz hello dosya `engagement_notification_area.xml` tooyour gerekir.
 
 > [!NOTE]
-> Dosya `engagement_notification_overlay.xml` bir bildirim katmana oluşturmak için kullanılan sunucudur dosyayı içeren `engagement_notification_area.xml`. (Katmana içinde bildirim alanında konumlandırma ettirilmesi gibi), gereksinimlerinize uyacak şekilde özelleştirebilirsiniz.
+> Merhaba dosya `engagement_notification_overlay.xml` kullanılan toocreate olan bir bildirim katmana hello olduğu hello dosya içeren `engagement_notification_area.xml`. Ayrıca toosuit özelleştirebilirsiniz gereksinimlerinizi (Merhaba bildirim alanında hello katmana içinde konumlandırma ettirilmesi gibi).
 > 
 > 
 
 ##### <a name="include-notification-layout-as-part-of-an-activity-layout"></a>Bir etkinlik düzeni bir parçası olarak bildirim düzeni içerir
-Yer paylaşımları hızlı tümleştirme için harika ancak kullanışsız veya özel durumlarda yan etkileri olabilir. Bir katmana sistem düzeyinde özel etkinlikler için yan etkileri önlemek kolaylaşır bir etkinlik, özelleştirilebilir.
+Yer paylaşımları hızlı tümleştirme için harika ancak kullanışsız veya özel durumlarda yan etkileri olabilir. Merhaba katmana sistem özel etkinlikler için kolay tooprevent yan etkileri kolaylaştırarak bir etkinlik düzeyde özelleştirilebilir.
 
-Varolan düzeninizi Android sayesinde bizim bildirim düzeni dahil karar verebilirler **dahil** deyimi. Aşağıdaki değiştirilmiş bir örneğidir `ListActivity` düzenini yalnızca içeren bir `ListView`.
+Bizim bildirim düzeni tooinclude, varolan düzeni teşekkürler toohello içinde Android karar verebilirsiniz **dahil** deyimi. Merhaba aşağıdaki değiştirilmiş bir örneğidir `ListActivity` düzenini yalnızca içeren bir `ListView`.
 
 **Engagement tümleştirmesi önce:**
 
@@ -217,33 +217,33 @@ Varolan düzeninizi Android sayesinde bizim bildirim düzeni dahil karar verebil
 
             </LinearLayout>
 
-Bu örnekte, özgün düzeni bir liste görünümü en üst düzey öğesi olarak kullanılan bu yana bir üst öğe kapsayıcısı eklediğimiz. Ayrıca eklediğimiz `android:layout_weight="1"` ile yapılandırılmış bir liste görünümü aşağıdaki görünüm eklemek için `android:layout_height="fill_parent"`.
+Bu örnekte Hello özgün düzeni bir liste görünümü hello en üst düzey öğe kullanılan bu yana bir üst öğe kapsayıcısı eklediğimiz. Ayrıca eklediğimiz `android:layout_weight="1"` bir liste görünümü aşağıda görünümü toobe mümkün tooadd yapılandırılmış `android:layout_height="fill_parent"`.
 
-Engagement Reach SDK'sı, bildirim düzeni bu etkinlikte bulunan ve bu etkinlik için bir katmana eklemez otomatik olarak algılar.
+Merhaba Engagement Reach SDK hello bildirim düzenini bu etkinlikte bulunan ve bu etkinlik için bir katmana eklemez otomatik olarak algılar.
 
 > [!TIP]
-> Uygulamanızda bir ListActivity kullanırsanız, görünür bir Reach katmana tıkladığınız için liste görünümünde öğeleri artık tepki engeller. Bu bilinen bir sorundur. Bu sorunu çözmek için bildirim düzeni düzeninde kendi listesi etkinliği gibi önceki örnekteki katıştırmak için öneririz.
+> Uygulamanızda bir ListActivity kullanırsanız, görünür bir Reach katmana, hello liste görünümünde tanımlandığında tooclicked öğeleri artık önler. Bu bilinen bir sorundur. toowork bu soruna geçici, kendi listesi etkinlik düzeni gibi hello önceki örnekteki tooembed hello bildirim düzende öneririz.
 > 
 > 
 
 ##### <a name="disabling-application-notification-per-activity"></a>Etkinlik başına uygulama bildirimini devre dışı bırakma
-Etkinliğiniz için eklenecek katmana istemediğiniz ve kendi düzende bildirim düzeni eklemezseniz, bu etkinlik bir katmana devre dışı bırakabilir `AndroidManifest.xml` ekleyerek bir `meta-data` bölümüne aşağıdaki örnekte ister:
+Merhaba istemiyorsanız katmana toobe tooyour etkinlik eklendi ve kendi düzende hello bildirim düzeni eklemezseniz, bu etkinlik hello hello katmana devre dışı bırakabilir `AndroidManifest.xml` ekleyerek bir `meta-data` bölüm hello aşağıdakileri ister Örnek:
 
             <activity android:name="SplashScreenActivity">
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
 #### <a name="categories"></a>Kategorileri
-Sağlanan düzenleri değiştirdiğinizde, tüm bildirimlerinizi görünümünü değiştirin. Kategoriler, bildirimler için çeşitli hedeflenen görünüyor (büyük olasılıkla davranışları) tanımlamanıza olanak sağlar. Bir kategori Reach kampanya oluşturduğunuzda belirtilebilir. Bu belgenin sonraki bölümlerinde açıklanan kategoriler de duyuruları ve yoklamaları, özelleştirmenize olanak tanır olduğunu aklınızda bulundurun.
+Düzenleri sağlanan hello değiştirdiğinizde, tüm bildirimlerinizi hello görünümünü değiştirin. Çeşitli hedeflenen toodefine (büyük olasılıkla davranışları) bildirimleri için görünür kategoriler. Bir kategori Reach kampanya oluşturduğunuzda belirtilebilir. Bu belgenin sonraki bölümlerinde açıklanan kategoriler de duyuruları ve yoklamaları, özelleştirmenize olanak tanır olduğunu aklınızda bulundurun.
 
-Bildirimlerinizi için bir kategori işleyici kaydetmek için uygulama başlatıldığında bir çağrı eklemeniz gerekir.
+Merhaba uygulaması başlatıldığında tooregister bildirimlerinizi için bir kategori işleyici, tooadd bir çağrı gerekir.
 
 > [!IMPORTANT]
-> Android: işlem özniteliği hakkında uyarı okuyun \<android sdk katılım işlem\> nasıl tümleştirmek engagement Android konuda devam etmeden önce.
+> Merhaba uyarı hello android: işlem özniteliği hakkında okuyun \<android sdk katılım işlem\> hello içinde nasıl tooIntegrate katılım devam etmeden önce Android konuda.
 > 
 > 
 
-Aşağıdaki örnek, önceki uyarı onaylanır ve bir alt sınıfı kullanın varsayar `EngagementApplication`:
+Merhaba aşağıdaki örneği hello önceki uyarı onaylanır ve bir alt sınıfı kullanma varsayar `EngagementApplication`:
 
             public class MyApplication extends EngagementApplication
             {
@@ -256,13 +256,13 @@ Aşağıdaki örnek, önceki uyarı onaylanır ve bir alt sınıfı kullanın va
               }
             }
 
-`MyNotifier` Nesne, bildirim kategori işleyici uygulamasıdır. Her iki uygulaması olan `EngagementNotifier` arabirimi veya varsayılan uygulaması bir alt sınıfı: `EngagementDefaultNotifier`.
+Merhaba `MyNotifier` nesne uygulamasıdır hello hello bildirim kategori işleyici. Her iki hello uygulaması olan `EngagementNotifier` arabirimi veya hello varsayılan uygulaması bir alt sınıfı: `EngagementDefaultNotifier`.
 
-Aynı bildirim birkaç kategorisi işleyebilir, bunları şöyle kaydedebilirsiniz dikkat edin:
+Aynı bildirim hello Not birkaç kategorisi işleyebilir, bunları şu şekilde kaydedebilirsiniz:
 
             reachAgent.registerNotifier(new MyNotifier(this), "myCategory", "myAnotherCategory");
 
-Varsayılan Kategori uygulaması değiştirmek için aşağıdaki örnekte, uygulamanızı gibi kaydedebilirsiniz:
+tooreplace hello varsayılan kategori uygulaması, aşağıdaki örneğine hello uygulamanızı gibi kaydedebilirsiniz:
 
             public class MyApplication extends EngagementApplication
             {
@@ -275,14 +275,14 @@ Varsayılan Kategori uygulaması değiştirmek için aşağıdaki örnekte, uygu
               }
             }
 
-İşleyici kullanılan geçerli kategorisi çoğu yöntemleri içinde geçersiz parametre olarak geçirilen `EngagementDefaultNotifier`.
+işleyici kullanılan hello geçerli kategorisi çoğu yöntemleri içinde geçersiz parametre olarak geçirilen `EngagementDefaultNotifier`.
 
 Olarak ya da geçirilir bir `String` parametresi veya dolaylı bir `EngagementReachContent` olan nesne bir `getCategory()` yöntemi.
 
-Üzerinde yöntemleri tanımlayarak bildirim oluşturma işlemi çoğunu değiştirebilirsiniz `EngagementDefaultNotifier`, daha gelişmiş özelleştirme için teknik belgeler ve kaynak kodu göz çekinmeyin.
+Üzerinde yöntemleri tanımlayarak hello bildirim oluşturma işlemi çoğunu değiştirebilirsiniz `EngagementDefaultNotifier`, daha gelişmiş özelleştirme eşitleyerek için ücretsiz tootake hello teknik belgeler ve hello kaynak koduna bakın.
 
 ##### <a name="in-app-notifications"></a>Uygulama bildirimleri
-Yalnızca belirli bir kategorideki için alternatif düzenleri kullanmak istiyorsanız, bunu aşağıdaki örnekteki uygulayabilirsiniz:
+Belirli bir kategorideki için yalnızca toouse alternatif düzenleri istiyorsanız, bu örnek aşağıdaki hello olduğu gibi uygulayabilirsiniz:
 
             public class MyNotifier extends EngagementDefaultNotifier
             {
@@ -324,7 +324,7 @@ Yalnızca belirli bir kategorideki için alternatif düzenleri kullanmak istiyor
 
             </RelativeLayout>
 
-Gördüğünüz gibi katmana görünümü standart olandan farklı tanımlayıcısıdır. Her düzeni yer paylaşımları için benzersiz bir tanımlayıcı kullanmak önemlidir.
+Gördüğünüz gibi hello katmana görünüm tanımlayıcısı hello standart bir farklıdır. Her düzeni yer paylaşımları için benzersiz bir tanımlayıcı kullanmak önemlidir.
 
 **Örnek `my_notification_area.xml` :**
 
@@ -406,14 +406,14 @@ Gördüğünüz gibi katmana görünümü standart olandan farklı tanımlayıc�
 
             </merge>
 
-Gördüğünüz gibi bildirim alanında görünümü standart olandan farklı tanımlayıcısıdır. Her düzeni bildirim alanları için benzersiz bir tanımlayıcı kullanır önemlidir.
+Gördüğünüz gibi hello bildirim alanı görünüm tanımlayıcısı hello standart bir farklıdır. Her düzeni bildirim alanları için benzersiz bir tanımlayıcı kullanır önemlidir.
 
-Bu basit örnek kategorisinin ekranın en üstte gösterilen uygulama (veya uygulama) bildirim yapar. Bildirim alanında kendisini kullanılan standart tanımlayıcıları değişmemiştir.
+Bu basit örnek kategorisinin Merhaba ekranında hello üst kısmında gösterilen uygulama (veya uygulama) bildirim yapar. Merhaba bildirim alanında kendisini kullanılan hello standart tanımlayıcıları değişmemiştir.
 
-Değiştirmek istediğiniz tanımlanacak varsa `EngagementDefaultNotifier.prepareInAppArea` yöntemi. Teknik belgeler ve kaynak kodunu aramak için önerilen `EngagementNotifier` ve `EngagementDefaultNotifier` bu Gelişmiş özelleştirme düzeyi istiyorsanız.
+Tooredefine hello sahip, toochange istiyorsanız `EngagementDefaultNotifier.prepareInAppArea` yöntemi. Önerilir toolook hello teknik belgeler ve hello kaynak kodunu `EngagementNotifier` ve `EngagementDefaultNotifier` bu Gelişmiş özelleştirme düzeyi istiyorsanız.
 
 ##### <a name="system-notifications"></a>Sistem bildirimleri
-Genişletme tarafından `EngagementDefaultNotifier`, geçersiz kılabilirsiniz `onNotificationPrepared` varsayılan uygulama tarafından hazırlanan bildirim değiştirmek için.
+Genişletme tarafından `EngagementDefaultNotifier`, geçersiz kılabilirsiniz `onNotificationPrepared` hello varsayılan uygulaması tarafından hazırlanan tooalter hello bildirim.
 
 Örneğin:
 
@@ -426,9 +426,9 @@ Genişletme tarafından `EngagementDefaultNotifier`, geçersiz kılabilirsiniz `
               return true;
             }
 
-Bu örnekte "devam eden" kategorisi kullanıldığında, devam eden bir olay görüntülenmesini içerik için bir sistem bildirimi yapar.
+Bu örnek hello "devam eden" kategorisi kullanıldığında, devam eden bir olay görüntülenmesini içerik için bir sistem bildirimi yapar.
 
-Oluşturmak istiyorsanız `Notification` nesne baştan geri dönebilirsiniz `false` yöntemi ve çağrı `notify` kendiniz `NotificationManager`. Bu durumda, tutmanızı önemli bir `contentIntent`, `deleteIntent` ve tarafından kullanılan bildirim tanımlayıcısı `EngagementReachReceiver`.
+Toobuild hello istiyorsanız `Notification` nesne baştan geri dönebilirsiniz `false` toohello yöntemi ve çağrı `notify` kendiniz hello `NotificationManager`. Bu durumda, tutmanızı önemli bir `contentIntent`, `deleteIntent` ve bildirim tanımlayıcısı tarafından kullanılan hello `EngagementReachReceiver`.
 
 Bu tür bir uygulama doğru bir örneği burada verilmiştir:
 
@@ -451,16 +451,16 @@ Bu tür bir uygulama doğru bir örneği burada verilmiştir:
 
               /* Notify here instead of super class */
               NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-              manager.notify(getNotificationId(content), myNotification); // notice the call to get the right identifier
+              manager.notify(getNotificationId(content), myNotification); // notice hello call tooget hello right identifier
 
               /* Return false, we notify ourselves */
               return false;
             }
 
 ##### <a name="notification-only-announcements"></a>Yalnızca bildirim duyuruları
-Yalnızca duyuru kılarak özelleştirilebilir bir bildirim tıklayarak Yönetim `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared` hazırlıklı değiştirmek için `Intent`. Bu yöntemi kullanarak bayrakları kolayca ayarlamak sağlar.
+Merhaba hello yönetimini tıklayın yalnızca duyuru kılarak özelleştirilebilir bir bildirim `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared` hazırlanmış toomodify hello `Intent`. Bu yöntemi kullanarak tootune hello bayrakları kolayca sağlar.
 
-Örneğin eklemek `SINGLE_TOP` bayrağı:
+Örneğin tooadd hello `SINGLE_TOP` bayrağı:
 
             @Override
             protected Intent onNotifAnnouncementIntentPrepared(EngagementNotifAnnouncement notifAnnouncement,
@@ -470,41 +470,41 @@ Yalnızca duyuru kılarak özelleştirilebilir bir bildirim tıklayarak Yönetim
               return intent;
             }
 
-Bu yöntem, eylem URL'si olmadan duyuru kullanılarak çağrılamaz. böylece arka planda ise, sistem bildirimleri eylemi olmadan URL şimdi uygulama başlatma eski katılım kullanıcılar için lütfen unutmayın. Bu amaç özelleştirirken düşünmelisiniz.
+Bu yöntem, eylem URL'si olmadan duyuru kullanılarak çağrılamaz. böylece arka planda ise, sistem bildirimleri eylemi olmadan URL şimdi hello uygulama başlatma eski katılım kullanıcılar için lütfen unutmayın. Hello hedefi özelleştirirken düşünmelisiniz.
 
 Ayrıca uygulayabilirsiniz `EngagementNotifier.executeNotifAnnouncementAction` sıfırdan.
 
 ##### <a name="notification-life-cycle"></a>Bildirim yaşam döngüsü
-Varsayılan Kategori kullanırken, bazı yaşam döngüsü yöntemleri üzerinde denir `EngagementReachInteractiveContent` nesne istatistikleri rapor ve kampanya durumunu güncelleştirin:
+Merhaba varsayılan kategori kullanırken, bazı yaşam döngüsü yöntemleri üzerinde hello denir `EngagementReachInteractiveContent` nesne tooreport istatistikleri ve güncelleştirme hello kampanya durumu:
 
-* Bildirim uygulamada görüntülenen ya da durum çubuğunda put `displayNotification` yöntemi (hangi istatistikleri raporları) çağrılır tarafından `EngagementReachAgent` varsa `handleNotification` döndürür `true`.
-* Bildirim kapatıldığında, `exitNotification` yöntemi çağrıldığında, istatistik bildirilir ve sonraki Kampanyalar şimdi işlenebilir.
-* Bildirim tıkladıysanız `actionNotification` olan çağrılır, istatistik bildirilir ve ilişkili amacı başlatılır.
+* Merhaba bildirim uygulamada görüntülenen ya da hello durum çubuğunda put hello `displayNotification` yöntemi (hangi istatistikleri raporları) çağrılır tarafından `EngagementReachAgent` varsa `handleNotification` döndürür `true`.
+* Merhaba bildirim kapatıldığında, hello `exitNotification` yöntemi çağrıldığında, istatistik bildirilir ve sonraki Kampanyalar şimdi işlenebilir.
+* Merhaba bildirim tıkladıysanız `actionNotification` olduğu adlı istatistik bildirilir ve ilişkili hello hedefi başlatıldığında.
 
-Uygulamanıza `EngagementNotifier` varsayılan davranışı, atlar başınıza bu yaşam döngüsü yöntemlerini çağırmaya sahip. Aşağıdaki örneklerde varsayılan davranış olduğu atlanır bazı durumlarda gösterilmektedir:
+Uygulamanıza `EngagementNotifier` atlamaların hello varsayılan davranışı, toocall bu yaşam döngüsü yöntemleri başınıza gerekir. Örnek hello hello varsayılan davranışı burada atlanır bazı durumlarda gösterilmiştir:
 
 * Genişletme yok `EngagementDefaultNotifier`, sıfırdan kategori işleme uygulanan örn.
-* Sistem bildirimleri için geçersiz kılınmış `onNotificationPrepared` ve değiştirdiğiniz `contentIntent` veya `deleteIntent` içinde `Notification` nesnesi.
-* Uygulama bildirimleri için geçersiz kılınmış `prepareInAppArea`, en az eşlemek mutlaka `actionNotification` , U.I birine denetler.
+* Sistem bildirimleri için hello geçersiz kılınmış `onNotificationPrepared` ve değiştirdiğiniz `contentIntent` veya `deleteIntent` hello içinde `Notification` nesnesi.
+* Uygulama bildirimleri için geçersiz kılınmış `prepareInAppArea`emin toomap olması en az `actionNotification` U.I denetimlerin tooone.
 
 > [!NOTE]
-> Varsa `handleNotification` bir özel durum, içeriği silinir atar ve `dropContent` olarak adlandırılır. Bu durum istatistiklerine bildirilir ve sonraki Kampanyalar şimdi işlenebilir.
+> Varsa `handleNotification` bir özel durum, içerik hello silinir ve `dropContent` olarak adlandırılır. Bu durum istatistiklerine bildirilir ve sonraki Kampanyalar şimdi işlenebilir.
 > 
 > 
 
 ### <a name="announcements-and-polls"></a>Duyuruları ve yoklamaları
 #### <a name="layouts"></a>Düzenleri
-Değiştirebileceğiniz `engagement_text_announcement.xml`, `engagement_web_announcement.xml` ve `engagement_poll.xml` metin Duyurular, web duyuruları ve yoklamaları özelleştirmek için dosyaları.
+Merhaba değiştirebileceğiniz `engagement_text_announcement.xml`, `engagement_web_announcement.xml` ve `engagement_poll.xml` toocustomize metin Duyurular, web duyuruları ve yoklamaları dosyaları.
 
-Bu dosyalar başlık alanını ve düğme alanının için iki ortak düzenleri paylaşır. Başlığa ilişkin Düzen `engagement_content_title.xml` ve eponymous drawable dosyası için arka plan kullanır. Eylem ve çıkış düğmeleri düzeni `engagement_button_bar.xml` ve eponymous drawable dosyası için arka plan kullanır.
+Bu dosyalar hello başlık alanı ve hello düğme alanının için iki ortak düzenleri paylaşır. Merhaba düzeni hello başlık `engagement_content_title.xml` ve kullandığı hello hello arka plan için eponymous drawable dosyası. Merhaba hello eylem ve çıkış düğmeleri için Düzen olan `engagement_button_bar.xml` ve kullandığı hello hello arka plan için eponymous drawable dosyası.
 
-Bir yoklamada soru düzeni ve seçimleri dinamik olarak birkaç kez kullanarak şişirileceğini `engagement_question.xml` sorular için Düzen dosyasını ve `engagement_choice.xml` seçimler dosya.
+Bir yoklamada soru düzeni hello ve seçimleri birkaç kez hello kullanarak dinamik olarak şişirileceğini `engagement_question.xml` düzeni dosyasını hello sorularınız ve hello `engagement_choice.xml` hello seçimler dosya.
 
 #### <a name="categories"></a>Kategoriler
 ##### <a name="alternate-layouts"></a>Alternatif düzenleri
-Bildirimler gibi kampanya kategori duyuruları ve yoklamaları için alternatif düzenleri sağlamak için kullanılabilir.
+Bildirimler gibi hello kampanya kategori duyuruları ve yoklamaları için kullanılan toohave alternatif düzenleri olabilir.
 
-Örneğin, bir metin duyuru için bir kategori oluşturmak için genişletebilirsiniz `EngagementTextAnnouncementActivity` ve referans `AndroidManifest.xml` dosyası:
+Örneğin, bir metin duyuru için bir kategori toocreate genişletebilirsiniz `EngagementTextAnnouncementActivity` ve hello başvuru `AndroidManifest.xml` dosyası:
 
             <activity android:name="com.your_company.MyCustomTextAnnouncementActivity">
               <intent-filter>
@@ -514,36 +514,36 @@ Bildirimler gibi kampanya kategori duyuruları ve yoklamaları için alternatif 
               </intent-filter>
             </activity>
 
-Hedefi filtre kategorisinde varsayılan duyuru etkinlik farkı yapmak için kullanılır.
+Merhaba hedefi hello kategoriye Not filtre kullanılır toomake hello farkı hello varsayılan duyuru etkinlik.
 
-Belirli bir kategorideki sağ etkinliği gidermek için hedefi sistem Reach SDK'sını kullanır ve çözümleme başarısız olursa, geri varsayılan kategorisine göre döner.
+Hello SDK ulaşmak için belirli bir kategorideki hello hedefi sistem tooresolve hello sağ etkinliğini kullanır ve hello çözümlemesi başarısız olursa, geri hello varsayılan kategorisine göre döner.
 
-Uygulamak sahip `MyCustomTextAnnouncementActivity`, yalnızca düzenini değiştirme (ancak aynı tanımlayıcılarını görüntüle tutmak) istiyorsanız, yalnızca aşağıdaki örnekte sınıfı gibi tanımlamak gerekir:
+Tooimplement sahip `MyCustomTextAnnouncementActivity`, yalnızca toochange hello düzeni istediğiniz (ancak aynı tanımlayıcılarını görüntüle hello tutmak varsa), yalnızca toodefine hello sınıfı gibi aşağıdaki örneğine hello gerekir:
 
             public class MyCustomTextAnnouncementActivity extends EngagementTextAnnouncementActivity
             {
               @Override
               protected String getLayoutName()
               {
-                return "my_text_announcement";  // tell super class to use R.layout.my_text_announcement
+                return "my_text_announcement";  // tell super class toouse R.layout.my_text_announcement
               }
             }
 
-Metin duyuruları varsayılan kategorisini değiştirmek için yalnızca Değiştir `android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"` , uygulamanız tarafından.
+yalnızca metin Duyurular, tooreplace hello varsayılan kategorisini değiştirin `android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"` , uygulamanız tarafından.
 
 Web duyuruları ve yoklamaları için benzer bir şekilde özelleştirilebilir.
 
-Web duyuruları için genişletebilirsiniz `EngagementWebAnnouncementActivity` ve etkinlik bildirmek `AndroidManifest.xml` aşağıdaki örnekte ister:
+Web duyuruları için genişletebilirsiniz `EngagementWebAnnouncementActivity` ve hello etkinlik bildirmek `AndroidManifest.xml` aşağıdaki örneğine hello ister:
 
             <activity android:name="com.your_company.MyCustomWebAnnouncementActivity">
               <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
                 <category android:name="my_category" />
-                <data android:mimeType="text/html" />    <!-- only difference with text announcements in the intent is the data mime type -->
+                <data android:mimeType="text/html" />    <!-- only difference with text announcements in hello intent is hello data mime type -->
               </intent-filter>
             </activity>
 
-Anketler için genişletebilirsiniz `EngagementPollActivity` ve declare, içinde `AndroidManifest.xml` aşağıdaki örnekte ister:
+Anketler için genişletebilirsiniz `EngagementPollActivity` ve içinde hello bildirme `AndroidManifest.xml` aşağıdaki örneğine hello ister:
 
             <activity android:name="com.your_company.MyCustomPollActivity">
               <intent-filter>
@@ -553,13 +553,13 @@ Anketler için genişletebilirsiniz `EngagementPollActivity` ve declare, içinde
             </activity>
 
 ##### <a name="implementation-from-scratch"></a>Sıfırdan uygulama
-Aşağıdakilerden birini genişletmeden duyuru (ve yoklama) etkinliklerinizi için kategoriler uygulayabilirsiniz `Engagement*Activity` Reach SDK tarafından sağlanan sınıfları. Örneğin, aynı görünümleri standart düzenleri kullanmayan bir düzen tanımlamak istiyorsanız kullanışlıdır.
+Hello genişletmeden kategorileri duyuru (ve yoklama) etkinliklerinizi için uygulayabileceğiniz `Engagement*Activity` sınıflar tarafından sağlanan hello Reach SDK. Bu örneğin toodefine görünümlerini aynı hello hello standart düzenleri kullanmaz bir düzen istiyorsanız kullanışlıdır.
 
-Gibi gelişmiş bildirim özelleştirme için standart uygulama kaynak koduna bakmanız önerilir.
+Gibi gelişmiş bildirim özelleştirmesi hello kaynak koduna hello standart uygulama toolook önerilir.
 
-Göz önünde bulundurmanız gereken bazı şeyler şunlardır: ulaşma içerik tanıtıcısı olan bir ek parametre (hedefi filtre karşılık gelen) belirli bir amaç etkinlikle başlayacaktır.
+Göz önünde bazı şeyleri tookeep şunlardır: ulaşma hello içerik tanıtıcısı olan bir ek parametre hello etkinliği belirli bir amaç (karşılık gelen toohello hedefi Filtresi) ile başlar.
 
-Kampanya web sitesinde oluşturulurken belirtilen alanları içeren içerik nesnesini almak için bunu yapabilirsiniz:
+ne zaman hello oluşturma kampanya hello web sitesinde, belirtilen hello alanları içeren tooretrieve hello içerik nesnesini bunu yapabilirsiniz:
 
             public class MyCustomTextAnnouncement extends EngagementActivity
             {
@@ -586,23 +586,23 @@ Kampanya web sitesinde oluşturulurken belirtilen alanları içeren içerik nesn
               }
             }
 
-STATISTICS için içerik görüntülendiği bildirmelisiniz `onResume` olay:
+STATISTICS için hello içerik hello görüntülenen bildirmelisiniz `onResume` olay:
 
             @Override
             protected void onResume()
             {
-             /* Mark the content displayed */
+             /* Mark hello content displayed */
              mContent.displayContent(this);
              super.onResume();
             }
 
-Sonra ya da çağırmayı unuttunuz mu `actionContent(this)` veya `exitContent(this)` arka plana etkinlik geçmeden önce içerik nesne üzerinde.
+Ardından, toocall ya da unutmayın `actionContent(this)` veya `exitContent(this)` arka plana hello etkinlik geçmeden önce hello içerik nesne üzerinde.
 
-Ya da yok çağırırsanız `actionContent` veya `exitContent`, istatistikleri (yani bir kampanya hiçbir analytics) gönderilen olmaz ve uygulama işlemini yeniden başlatılana kadar daha da önemlisi, sonraki Kampanyalar bildirilmez.
+Ya da yok çağırırsanız `actionContent` veya `exitContent`, istatistikleri (yani hello kampanyası hiçbir analytics) gönderilen olmaz ve daha da önemlisi, hello sonraki kampanyalar, değil hello uygulama işlemini yeniden başlatılana kadar bildirilir.
 
-Yönlendirme veya başka yapılandırma değişiklikleri yapabilir kodunu aktivite arka plana veya değil, standart uygulama içeriği kullanıcı etkinliği ayrılsa çıktı olarak bildirilen emin yapar giden olup olmadığını belirlemek hassas ( basarakyada`HOME`veya `BACK`) ancak yönlendirmesini değişirse değil.
+Yönlendirme veya başka yapılandırma değişiklikleri veya arka plana hello etkinliğine gittiği olup olmadığını hello kod hassas toodetermine olun, standart uygulama yapar emin hello içerik hello kullanıcı hello etkinlik (ya da bırakırsa çıktı olarak bildirilen hello tuşuna basarak `HOME` veya `BACK`) ancak hello yönlendirmesini değişirse değil.
 
-Uygulama ilginç parçası şöyledir:
+Merhaba ilginç parçası hello şöyledir:
 
             @Override
             protected void onUserLeaveHint()
@@ -617,14 +617,14 @@ Uygulama ilginç parçası şöyledir:
               {
                 /*
                  * Exit content on exit, this is has no effect if another process method has already been
-                 * called so we don't have to check anything here.
+                 * called so we don't have toocheck anything here.
                  */
                 mContent.exitContent(this);
               }
               super.onPause();
             }
 
-Aradığınız varsa, gördüğünüz gibi `actionContent(this)` Etkinliğin bitiş sonra `exitContent(this)` herhangi bir etkisi olmadan güvenli bir şekilde çağrılabilir.
+Aradığınız varsa, gördüğünüz gibi `actionContent(this)` hello Etkinliğin bitiş sonra `exitContent(this)` herhangi bir etkisi olmadan güvenli bir şekilde çağrılabilir.
 
 [here]:http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html

@@ -1,5 +1,5 @@
 ---
-title: "Cortana Intelligence Galerisi özel modüller | Microsoft Docs"
+title: "aaaCortana Intelligence Galerisi özel modüller | Microsoft Docs"
 description: "Cortana Intelligence Galerisi özel machine learning modülleri bulur."
 services: machine-learning
 documentationcenter: 
@@ -14,84 +14,84 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 56c308643ad6d20170174725f76f6ddbc76b3e22
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e2a2d39935e6d367eb192de723fb82318d04e2be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="discover-custom-machine-learning-modules-in-cortana-intelligence-gallery"></a>Cortana Intelligence Galerisi özel machine learning modülleri Bul
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Machine Learning Studio için özel modüller
-Cortana Intelligence Galerisi sunar birkaç [özel modüller](https://gallery.cortanaintelligence.com/customModules) Azure Machine Learning Studio özelliklerini genişletin. Denemelerinizi, daha gelişmiş Tahmine dayalı analiz çözümleri geliştirmek için kullanmak üzere modülleri içeri aktarabilirsiniz.
+Cortana Intelligence Galerisi sunar birkaç [özel modüller](https://gallery.cortanaintelligence.com/customModules) Azure Machine Learning Studio hello özelliklerini genişletin. Hatta daha gelişmiş Tahmine dayalı analiz çözümleri geliştirmek için hello modülleri toouse denemelerinizi içeri aktarabilirsiniz.
 
-Şu anda, Galeri modülleri teklifleri *zaman serisi analytics*, *ilişkilendirme kuralları*, *algoritmaları Kümeleme* (ötesinde k-ortalamaları), ve  *görselleştirmeleri*ve diğer workhorse yardımcı programı modüller.
+Şu anda hello galeri modülleri teklifleri *zaman serisi analytics*, *ilişkilendirme kuralları*, *algoritmaları Kümeleme* (ötesinde k-ortalamaları), ve  *görselleştirmeleri*ve diğer workhorse yardımcı programı modüller.
 
 
 ## <a name="discover"></a>Keşif
-Özel modüller göz atmak için [galerisinde](http://gallery.cortanaintelligence.com)altında **daha fazla**seçin **özel modüller**.
+toobrowse özel modüller [hello galeri içinde](http://gallery.cortanaintelligence.com)altında **daha fazla**seçin **özel modüller**.
 
-![Galeri giriş sayfasında özel modüller seçin](media/machine-learning-gallery-custom-modules/select-custom-modules-in-gallery.png)
+![Özel modüller hello galeri giriş sayfasında seçin](media/machine-learning-gallery-custom-modules/select-custom-modules-in-gallery.png)
 
- **[Özel modüller](https://gallery.cortanaintelligence.com/customModules)**  sayfa yakın zamanda eklenen ve popüler modülleri listesini görüntüler. Tüm özel modüller görüntülemek için seçin **tümünü görmek** düğmesi. Belirli bir özel modülü için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
+Merhaba  **[özel modüller](https://gallery.cortanaintelligence.com/customModules)**  sayfa yakın zamanda eklenen ve popüler modülleri listesini görüntüler. Tüm özel modüller tooview seçin hello **tümünü görmek** düğmesi. belirli bir özel modülü için toosearch seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimleri hello girebilirsiniz **arama** kutusunu hello sayfanın üst kısmındaki hello Galerisi.
 
-!["Tüm özel modüller göz atmak için select bkz: tüm"](media/machine-learning-gallery-custom-modules/click-see-all-for-all-custom-modules.png)
+![Tüm özel modüller "tümünü görmek" toobrowse seçin](media/machine-learning-gallery-custom-modules/click-see-all-for-all-custom-modules.png)
 
 ### <a name="understand"></a>Anlama
 
-Özel bir yayımlanan modülü nasıl çalıştığını anlamak için modül Ayrıntılar sayfası açmak için özel modülü seçin. Ayrıntılar sayfası tutarlı ve bilgilendirici öğrenme deneyimini sunar. Örneğin, modülün amacı Ayrıntılar sayfası vurgular ve beklenen giriş, çıkış ve parametreleri listeler. Ayrıntılar sayfası de inceleyin ve özelleştirme temel alınan kaynak kodu için bir bağlantı vardır.
+yayımlanan bir özel modülü nasıl çalışır, toounderstand hello özel modülü tooopen hello modül Ayrıntılar sayfası seçin. Merhaba Ayrıntılar sayfası tutarlı ve bilgilendirici öğrenme deneyimini sunar. Örneğin, hello Ayrıntılar sayfası hello modülü hello amacı vurgular ve beklenen giriş, çıkış ve parametreleri listeler. Merhaba Ayrıntıları sayfası, inceleyin ve özelleştirme bağlantı toohello temel alınan kaynak kodu da sahiptir.
 
 ### <a name="comment-and-share"></a>Açıklama ve paylaşma
-Ayrıntılar sayfası, özel bir modül **açıklamaları** bölümünde, açıklama, geri bildirim sağlamak veya için modülü hakkında sorular sorun. Arkadaş veya iş arkadaşlarınızı Twitter ya da LinkedIn modülü bile paylaşabilirsiniz. Ayrıca sayfasını görüntülemek için diğer kullanıcıların davet etmek için modül ayrıntıları sayfasına bağlantı e-posta gönderebilirsiniz.
+Bir özel modülü Ayrıntıları sayfasında hello **açıklamaları** bölümünde, açıklama, geri bildirim sağlamak veya için hello modülü hakkında soru sorun. Arkadaş veya iş arkadaşlarınızı Twitter ya da LinkedIn hello modülü bile paylaşabilirsiniz. Ayrıca bir bağlantı toohello modül Ayrıntıları sayfası, tooinvite diğer kullanıcılar tooview hello sayfasında e-posta gönderebilirsiniz.
 
 ![Bu öğe arkadaşlarınızla paylaşın](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Kendi açıklamaları ekleme](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="import"></a>İçeri Aktarma
-Kendi denemeler herhangi bir özel modülü Galeriden içeri aktarabilirsiniz.
+Merhaba galeri tooyour kendi denemeler herhangi bir özel modülü içeri aktarabilirsiniz.
 
-Cortana Intelligence Galerisi modülün bir kopyasını almak için iki yol sunar:
+Cortana Intelligence Galerisi iki yolu tooimport hello modülün bir kopyasını sunar:
 
-* **Galeriden**. Galeriden özel bir modülü içeri aktardığınızda, ayrıca modülü kullanmak nasıl bir örnek sağlar bir örnek denemeyi alırsınız.
-* **Studio içinden makine**. Machine Learning Studio'da çalışırken herhangi bir özel modülü içeri aktarabilirsiniz (Bu durumda, örnek deneme alma).
+* **Merhaba galeri gelen**. Galeri hello özel bir modülü içeri aktardığınızda, ayrıca nasıl toouse hello modülü, bir örnek verir bir örnek denemeyi alırsınız.
+* **Studio içinden makine**. Machine Learning Studio'da çalışırken herhangi bir özel modülü içeri aktarabilirsiniz (Bu durumda, hello örnek denemeyi alma).
 
-### <a name="from-the-gallery"></a>Galeriden
+### <a name="from-hello-gallery"></a>Galeri Hello
 
-1. Galeride modülü Ayrıntılar sayfasını açın. 
+1. Hello Galerisi, hello modülü Ayrıntılar sayfasını açın. 
 2. Seçin **Studio'da Aç**.
    
-    ![Galeriden açık özel Modülü](media/machine-learning-gallery-custom-modules/open-custom-module-from-gallery.png)
+    ![Açık özel modülünden hello Galerisi](media/machine-learning-gallery-custom-modules/open-custom-module-from-gallery.png)
    
-Her özel modülü modülü kullanmak nasıl oluşturulduğunu gösteren bir örnek denemeyi içerir. Seçtiğinizde, **Studio'da Aç**, bir örnek denemeyi Machine Learning Studio çalışma alanınızda açar. (Studio'ya zaten oturum açtınız, ilk oturum açma için Microsoft hesabınızı kullanarak sorulur.)
+Her özel modülü nasıl toouse hello modülü gösteren bir örnek denemeyi içerir. Seçtiğinizde, **Studio'da Aç**, hello örnek denemeyi Machine Learning Studio çalışma alanınızda açar. (TooStudio zaten oturum açtınız sorulur Microsoft hesabınızı kullanarak toofirst oturum açın.)
 
-Örnek deneme ek olarak, özel modülü, çalışma alanına kopyalanır. Ayrıca, tüm, yerleşik veya özel Machine Learning Studio modülleri, modül paletindeki yerleştirilir. Başka bir modül çalışma alanınızdaki gibi kendi denemeler içinde artık kullanabilirsiniz.
+Ayrıca toohello örnek deneme, hello özel modülü kopyalanan tooyour çalışma. Ayrıca, tüm, yerleşik veya özel Machine Learning Studio modülleri, modül paletindeki yerleştirilir. Başka bir modül çalışma alanınızdaki gibi kendi denemeler içinde artık kullanabilirsiniz.
 
 ### <a name="from-within-machine-learning-studio"></a>Studio içinden makine
 
 1. Machine Learning Studio'da seçin **yeni**.
-2. Seçin **Modülü**. Galeri modülleri listesinden seçin veya kullanarak belirli bir modülü bulmak **arama** kutusu.
-3. Farenizi bir modülü üzerine getirin ve ardından **alma Modülü**. (Modülü hakkında bilgi almak için seçin **galeri görünümünde**. Bu sizi galerisinde modülü ayrıntıları sayfasına götürür.)
+2. Seçin **Modülü**. Galeri modülleri listesinden seçin veya hello kullanarak belirli bir modülü bulmak **arama** kutusu.
+3. Farenizi bir modülü üzerine getirin ve ardından **alma Modülü**. (Merhaba modülü hakkında tooget bilgi seçin **galeri görünümünde**. Bu sizi toohello modül Ayrıntılar sayfası hello galeri götürür.)
    
     ![Machine Learning Studio'ya özel modülünü içeri aktarın](media/machine-learning-gallery-custom-modules/add-custom-module-in-studio.png)
 
-Özel modülü, çalışma alanına kopyalanır ve, yerleşik veya özel Machine Learning Studio modülleri, modül paleti yerleştirilir. Başka bir modül çalışma alanınızdaki gibi kendi denemeler içinde artık kullanabilirsiniz.
+Merhaba özel modülü kopyalanan tooyour çalışma ve, yerleşik veya özel Machine Learning Studio modülleri, modül paleti yerleştirilir. Başka bir modül çalışma alanınızdaki gibi kendi denemeler içinde artık kullanabilirsiniz.
 
 ## <a name="use"></a>Kullanım
 
-Ne olursa olsun, modülü içeri aktardığınızda özel bir modülü içeri aktarmak için seçtiğiniz yöntem, modül, modül paleti Machine Learning Studio'da yerleştirilir. Modül paletinden başka bir modül gibi çalışma alanınızda hiçbir denemesinde özel modülünü kullanabilirsiniz.
+Hangi yönteminden bağımsız olarak hello modülü, hello modülü içeri aktardığınızda özel bir modül, modül paleti Machine Learning Studio'da yerleştirilir tooimport seçin. Modül paletinden başka bir modül gibi çalışma alanınızda hiçbir deneme hello özel modülünü kullanabilirsiniz.
 
-İçeri aktarılan modül kullanmak için:
+içeri aktarılan modül toouse:
 
 1. Bir deneme oluşturmak veya var olan bir denemeyi açın.
-2. Modül paletindeki alanınızdaki özel modüller listesini genişletmek için seçin **özel**. Deneme tuvalinin sol için modül paletinin olur.
+2. tooexpand hello hello modül paletindeki alanınızdaki özel modüller listesini seçin **özel**. Merhaba modül paleti hello deneme tuvalinin toohello solundaki ' dir.
    
     ![Studio paletindeki Özel Modül listesi](media/machine-learning-gallery-custom-modules/custom-module-in-studio-palette.png)
-3. İçeri aktardığınız modülü seçin ve denemenizi için sürükleyin.
+3. İçeri aktardığınız hello modülü seçin ve tooyour deneme sürükleyin.
 
 
-**[Galerisine gidin](http://gallery.cortanaintelligence.com)**
+**[Toohello galerisine gidin](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

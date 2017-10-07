@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure sertifikalı program aracılığıyla önceden onaylanmıştır | Microsoft Docs"
-description: "Microsoft Azure sertifikalı partner programı ve sanal makine görüntüsü, çözüm şablonu, geliştirici hizmet veya Azure Market veri hizmeti satın alma hakkında bilgi edinin"
+title: "Hello Azure Microsoft Sertifikalı program aracılığıyla önceden onaylanmıştır aaaGet | Microsoft Docs"
+description: "Program ve nasıl üzerinde sanal makine görüntüsü, çözüm şablonu, geliştirici hizmeti veya veri hizmeti tooget toosell hello Azure Marketi Hello Azure Microsoft Sertifikalı İş ortağı hakkında bilgi edinin"
 services: marketplace-publishing
 documentationcenter: na
 author: HannibalSII
@@ -15,29 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b5741b59435a24125f6ecd55c3e7d934fd012961
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Microsoft Azure sertifikalı program önceden onaylanmıştır
-Bu makalede, Microsoft Azure sertifikalı böylece Azure Marketi çözümünüzü yayımlamak ve pazarlama avantajları uygun hale konusunda yönergeler sağlar. Microsoft Azure sertifikalı program ve onun avantajlarını ayrıntılı bakış için ziyaret [http://azure.com/certified](http://azure.com/certified).
+# <a name="get-pre-approved-via-hello-microsoft-azure-certified-program"></a>Hello Azure Microsoft Sertifikalı program önceden onaylanmıştır
+Bu makalede nasıl toobecome Azure Microsoft Sertifikalı çözümünüze yayımlaması Azure Marketi hello ve avantajları pazarlama nitelemek yönergeler sağlar. Hello Azure Microsoft Sertifikalı program ve onun avantajlarını ayrıntılı bakış için ziyaret [http://azure.com/certified](http://azure.com/certified).
 
 > [!IMPORTANT]
-> Azure sertifika yalnızca Azure Market sanal makine ya da bir çözüm şablonu oluşturmak için kullanacaksanız geçerlidir.
+> yalnızca bir sanal makine ya da hello Azure Market'ten bir çözüm şablonu toocreate yapacaksanız, Hello Azure sertifika geçerli.
 
 ## <a name="getting-started"></a>Başlarken
-1. Üzerinde uygulama formu doldurmak için Sertifikalı Çözüm ve Azure Marketi sayede alma ilk adımı yolunda olan [Azure Microsoft Sertifikalı](https://createopportunity.azurewebsites.net) Web sayfası.
-2. Uygunluk ölçütlere uyan ve uygulamanızı onaylanır, biz için sizinle yerleşik Azure Marketi çözümünüze çalışmaya başlar.
-3. Bir iş ortağı Hesap Yöneticisi'ni veya DX ortak Yöneticisi ile çalışıyorsanız, lütfen çözümünüz için sertifikalı Azure belirler isteyin program veya gitmek [Azure Microsoft Sertifikalı](http://createopportunity.azurewebsites.net) Web sayfası, uygulama formu doldurun ve iş ortağı Hesap Yöneticisi veya DX ortak yönetici e-posta Microsoft sponsoru kişi alanına girin.
+1. hello yolu toogetting Hello ilk adımı, çözümünüzün sertifikalı ve edildi toohello Azure Marketi ise hello uygulama formu hello üzerinde toofill [Azure Microsoft Sertifikalı](https://createopportunity.azurewebsites.net) Web sayfası.
+2. Merhaba uygunluk ölçütlere uyan ve uygulamanızı onaylanır, biz, çözüm toohello Azure Market, tooonboard ile çalışmaya başlar.
+3. Lütfen bir iş ortağı Hesap Yöneticisi'ni veya DX ortak Yöneticisi ile çalışıyorsanız, toonominate isteyin çözümünüz hello Azure sertifikalı için program veya Git toohello [Azure Microsoft Sertifikalı](http://createopportunity.azurewebsites.net) Web sayfası, hello uygulama formu doldururken ve iş ortağı Hesap Yöneticisi veya DX ortak Yöneticisi hello e-posta hello Microsoft sponsoru kişi alanına girin.
 
 > [!IMPORTANT]
-> **"Satış Yeri" ülkelerde** - kayıtlı varlık onaylanan "Satış Yeri" ülkelerde birinden olması gerekiyor hizmetlerinizi Microsoft Azure Market'te satmak için. Ödeme ve vergi nedeniyle kısıtlamadır. Etkin olarak arıyoruz ülkelerin listesi yakın gelecekte genişletin, bu nedenle bizi izlemeye devam edin. Bölüm 1b, tam listesi için bkz: [Azure Marketi katılım ilkeleri](http://go.microsoft.com/fwlink/?LinkID=526833).
+> **"Satış Yeri" ülkelerde** - toosell hizmetlerinizi Microsoft Azure Market hello üzerinde sipariş, onaylanan hello "Satış Yeri" ülkelerde birinden toobe kayıtlı varlığınız gerekiyor. Ödeme ve vergi nedeniyle kısıtlamadır. Etkin olarak tooexpand ülkelerin listesi hello yakın zaman içinde arıyoruz, bu nedenle bizi izlemeye devam edin. Merhaba, bölüm 1b Hello tam listesi için bkz [Azure Marketi katılım ilkeleri](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 
 ## <a name="next-step"></a>Sonraki adım
-Microsoft Azure sertifikalı programdan öncesi onay alındığında geçebilirsiniz [Microsoft hesabınızı Microsoft satıcı olarak kaydetmek](marketplace-publishing-accounts-creation-registration.md).
+Hello Azure Microsoft Sertifikalı programdan öncesi onay aldıktan sonra çok geçebilmeniz[Microsoft hesabınızı Microsoft satıcı olarak kaydetmek](marketplace-publishing-accounts-creation-registration.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Başlarken: bir teklifi Azure Marketinde yayımlama](marketplace-publishing-getting-started.md)
+* [Başlarken: nasıl toopublish bir teklif toohello Azure Market](marketplace-publishing-getting-started.md)

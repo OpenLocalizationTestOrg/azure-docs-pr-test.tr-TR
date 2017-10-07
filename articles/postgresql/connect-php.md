@@ -1,6 +1,6 @@
 ---
-title: "PHP kullanarak PostgreSQL için Azure Veritabanı’na bağlanma | Microsoft Docs"
-description: "Bu hızlı başlangıçta, PostgreSQL için Azure Veritabanı’na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz PHP kod örneği sağlanmıştır."
+title: "Veritabanı için PHP kullanarak PostgreSQL aaaConnect tooAzure | Microsoft Docs"
+description: "Bu hızlı başlangıç PostgreSQL için Azure veritabanındaki verileri sorgulamak ve tooconnect için kullanabileceğiniz bir PHP kod örneğini sağlar."
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,17 +11,17 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 06/29/2017
-ms.openlocfilehash: ed7c92e0689bca4056401d562271e3b6b7144dcf
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 008505e837e37cb8c7fea3fc164b3446c3580e46
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için PHP’yi kullanma
-Bu hızlı başlangıçta, [PHP](http://php.net/manual/intro-whatis.php) uygulaması kullanılarak PostgreSQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu makalede, PHP kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+# <a name="azure-database-for-postgresql-use-php-tooconnect-and-query-data"></a>Azure veritabanı PostgreSQL için: kullanım PHP tooconnect ve sorgu verileri
+Bu hızlı başlangıç gösteren Azure tooconnect tooan veritabanı nasıl PostgreSQL kullanmak için bir [PHP](http://php.net/manual/intro-whatis.php) uygulama. Nasıl toouse SQL deyimleri tooquery, Ekle, Güncelleştir ve hello veritabanında bulunan verileri silme gösterir. Bu makale, yeni tooworking PostgreSQL için Azure veritabanıyla olan ancak bu, PHP, kullanarak geliştirme ile bildiğinizi varsayar.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
+Bu hızlı başlangıç Bu kılavuzlara birini başlangıç noktası olarak oluşturulan hello kaynakları kullanır:
 - [DB Oluşturma - Portal](quickstart-create-server-database-portal.md)
 - [DB Oluşturma - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
@@ -30,36 +30,36 @@ PHP’yi kendi sunucunuza yükleyin veya PHP içeren bir Azure [web uygulaması]
 
 ### <a name="windows"></a>Windows
 - [PHP 7.1.4 iş parçacığı güvenli olmayan (x64) sürümünü](http://windows.php.net/download#php-7.1) indirin
-- PHP’yi yükleyin ve diğer yapılandırmalar için [PHP kılavuzuna](http://php.net/manual/install.windows.php) bakın
-- Kod, PHP yüklemesine dahil olan **pgsql** sınıfını (ext/php_pgsql.dll) kullanır. 
-- Genellikle `C:\Program Files\PHP\v7.1\php.ini` konumunda bulunan php.ini yapılandırma dosyasını düzenleyerek **pgsql** uzantısını etkinleştirin. Yapılandırma dosyası, `extension=php_pgsql.so` metnine sahip bir satır içermelidir. Gösterilmiyorsa metni ekleyip dosyayı kaydedin. Metin varsa, ancak metne noktalı virgül ön ekiyle açıklama eklenmişse noktalı virgülü kaldırarak metindeki açıklamayı silin.
+- PHP yükleme ve toohello başvuran [PHP el ile](http://php.net/manual/install.windows.php) daha fazla yapılandırma
+- Merhaba kodu kullanan hello **pgsql** hello PHP yükleme dahil sınıfı (ext/php_pgsql.dll). 
+- Etkin hello **pgsql** hello php.ini yapılandırma dosyası, genellikle konumundaki düzenleyerek uzantısı `C:\Program Files\PHP\v7.1\php.ini`. Merhaba yapılandırma dosyası hello metin içeren bir satır içermelidir `extension=php_pgsql.so`. Görüntülenmiyorsa, hello metin eklemek ve hello dosyasını kaydedin. Merhaba metin varsa, ancak noktalı virgül önekiyle açıklamalı hello metin hello noktalı kaldırarak açıklamadan çıkarın.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 - [PHP 7.1.4 iş parçacığı güvenli olmayan (x64) sürümünü](http://php.net/downloads.php) indirin 
-- PHP’yi yükleyin ve diğer yapılandırmalar için [PHP kılavuzuna](http://php.net/manual/install.unix.php) bakın
-- Kod, **pgsql** sınıfını (php_pgsql.so) kullanır. `sudo apt-get install php-pgsql` öğesini çalıştırarak yükleyin.
-- `/etc/php/7.0/mods-available/pgsql.ini` yapılandırma dosyasını düzenleyerek **pgsql** uzantısını etkinleştirin. Yapılandırma dosyası, `extension=php_pgsql.so` metnine sahip bir satır içermelidir. Gösterilmiyorsa metni ekleyip dosyayı kaydedin. Metin varsa, ancak metne noktalı virgül ön ekiyle açıklama eklenmişse noktalı virgülü kaldırarak metindeki açıklamayı silin.
+- PHP yükleme ve toohello başvuran [PHP el ile](http://php.net/manual/install.unix.php) daha fazla yapılandırma
+- Merhaba kodu kullanan hello **pgsql** sınıfı (php_pgsql.so). `sudo apt-get install php-pgsql` öğesini çalıştırarak yükleyin.
+- Etkin hello **pgsql** hello düzenleyerek uzantısı `/etc/php/7.0/mods-available/pgsql.ini` yapılandırma dosyası. Merhaba yapılandırma dosyası hello metin içeren bir satır içermelidir `extension=php_pgsql.so`. Görüntülenmiyorsa, hello metin eklemek ve hello dosyasını kaydedin. Merhaba metin varsa, ancak noktalı virgül önekiyle açıklamalı hello metin hello noktalı kaldırarak açıklamadan çıkarın.
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 - [PHP 7.1.4 sürümünü](http://php.net/downloads.php) indirin
-- PHP’yi yükleyin ve diğer yapılandırmalar için [PHP kılavuzuna](http://php.net/manual/install.macosx.php) bakın
+- PHP yükleme ve toohello başvuran [PHP el ile](http://php.net/manual/install.macosx.php) daha fazla yapılandırma
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
-PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
+Merhaba bağlantı gerekli bilgileri tooconnect toohello Azure veritabanı için PostgreSQL alın. Tam sunucu adını ve oturum açma kimlik bilgileri hello gerekir.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **mypgserver-20170401**) arayın.
-3. **mypgserver-20170401** sunucu adına tıklayın.
-4. Sunucunun **Genel Bakış** sayfasını seçin. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Merhaba sol taraftaki menüden Azure portalında, **tüm kaynakları** ve oluşturduğunuz, gibi hello sunucu araması **mypgserver 20170401**.
+3. Merhaba sunucu adına tıklatarak **mypgserver 20170401**.
+4. Select hello sunucunun **genel bakış** sayfası. Merhaba Not **sunucu adı** ve **sunucu yönetici oturum açma adı**.
  ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma Bilgileri](./media/connect-php/1-connection-string.png)
-5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+5. Sunucu oturum açma bilgilerinizi unutursanız, toohello gidin **genel bakış** tooview hello sunucu yönetici oturum açma adı sayfasında ve gerekirse sıfırlamak hello parola.
 
-## <a name="connect-and-create-a-table"></a>Bir tabloyu bağlama ve oluşturma
-**CREATE TABLE** SQL deyimini kullanarak bir tabloyu bağlamak ve oluşturmak ve ardından **INSERT INTO** SQL deyimlerini kullanarak tabloya satırlar eklemek için aşağıdaki kodu kullanın.
+## <a name="connect-and-create-a-table"></a>Bağlanma ve tablo oluşturma
+Kullanım hello aşağıdakileri tooconnect kod ve kullanarak bir tablo oluşturmak **CREATE TABLE** SQL deyimi, arkasından **INSERT INTO** SQL deyimleri tooadd satırları hello tabloya.
 
-Kod, PostgreSQL için Azure Veritabanı’na bağlanmak amacıyla [pg_connect()](http://php.net/manual/en/function.pg-connect.php) yöntemini çağırır. Ardından birkaç komutu çalıştırmak için birkaç kez [pg_query()](http://php.net/manual/en/function.pg-query.php) yöntemini ve her seferinde bir hata oluşursa ayrıntıları kontrol etmek için [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) yöntemini çağırır. Daha sonra bağlantıyı kapatmak için [pg_close()](http://php.net/manual/en/function.pg-close.php) yöntemini çağırır.
+Merhaba kod arama yönteminde [pg_connect()](http://php.net/manual/en/function.pg-connect.php) tooconnect tooAzure PostgreSQL için veritabanı. Yöntemini çağıran sonra [pg_query()](http://php.net/manual/en/function.pg-query.php) birkaç kez toorun çeşitli komutlar ve [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) toocheck hello ayrıntıları her zaman bir hata ortaya çıktıysa. Yöntem çağrıları sonra [pg_close()](http://php.net/manual/en/function.pg-close.php) tooclose hello bağlantı.
 
-`$host`, `$database`, `$user` ve `$password` parametrelerini kendi değerlerinizle değiştirin. 
+Hello yerine `$host`, `$database`, `$user`, ve `$password` kendi değerlerinizi parametrelerle. 
 
 ```php
 <?php
@@ -71,8 +71,8 @@ Kod, PostgreSQL için Azure Veritabanı’na bağlanmak amacıyla [pg_connect()]
 
     // Initialize connection object.
     $connection = pg_connect("host=$host dbname=$database user=$user password=$password") 
-        or die("Failed to create connection to database: ". pg_last_error(). "<br/>");
-    print "Successfully created connection to database.<br/>";
+        or die("Failed toocreate connection toodatabase: ". pg_last_error(). "<br/>");
+    print "Successfully created connection toodatabase.<br/>";
 
     // Drop previous table of same name if one exists.
     $query = "DROP TABLE IF EXISTS inventory;";
@@ -113,11 +113,11 @@ Kod, PostgreSQL için Azure Veritabanı’na bağlanmak amacıyla [pg_connect()]
 ```
 
 ## <a name="read-data"></a>Verileri okuma
-**SELECT** SQL deyimini kullanarak bağlanmak ve verileri okumak için aşağıdaki kodu kullanın. 
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak verileri okuyun bir **seçin** SQL deyimi. 
 
- Kod, PostgreSQL için Azure Veritabanı’na bağlanmak amacıyla [pg_connect()](http://php.net/manual/en/function.pg-connect.php) yöntemini çağırır. Ardından sonuçları bir sonuç kümesinde tutarak SELECT komutunu çalıştırmak için [pg_query()](http://php.net/manual/en/function.pg-query.php) yöntemini ve bir hata oluşursa ayrıntıları kontrol etmek için [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) yöntemini çağırır.  Sonuç kümesini okumak için döngüde satır başına bir kez [pg_fetch_row()](http://php.net/manual/en/function.pg-fetch-row.php) yöntemi çağrılır ve her dizi konumunda sütun başında bir veri değeri olacak şekilde `$row` dizisinde satır verileri alınır.  Sonuç kümesini boşaltmak için [pg_free_result()](http://php.net/manual/en/function.pg-free-result.php) yöntemi çağrılır. Daha sonra bağlantıyı kapatmak için [pg_close()](http://php.net/manual/en/function.pg-close.php) yöntemini çağırır.
+ Merhaba kod arama yönteminde [pg_connect()](http://php.net/manual/en/function.pg-connect.php) tooconnect tooAzure PostgreSQL için veritabanı. Yöntemini çağıran sonra [pg_query()](http://php.net/manual/en/function.pg-query.php) hello sonuçları bir sonuç kümesinde tutma toorun hello SELECT komutu ve [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) toocheck hello ayrıntıları, bir hata oluştu.  tooread hello sonuç kümesi, yöntem [pg_fetch_row()](http://php.net/manual/en/function.pg-fetch-row.php) satır ve hello satır bir dizide verileri alındıktan sonra bir döngüde adlı `$row`, her dizi konumu sütunda her bir veri değerine sahip.  toofree hello sonuç kümesi, yöntem [pg_free_result()](http://php.net/manual/en/function.pg-free-result.php) olarak adlandırılır. Yöntem çağrıları sonra [pg_close()](http://php.net/manual/en/function.pg-close.php) tooclose hello bağlantı.
 
-`$host`, `$database`, `$user` ve `$password` parametrelerini kendi değerlerinizle değiştirin. 
+Hello yerine `$host`, `$database`, `$user`, ve `$password` kendi değerlerinizi parametrelerle. 
 
 ```php
 <?php
@@ -129,11 +129,11 @@ Kod, PostgreSQL için Azure Veritabanı’na bağlanmak amacıyla [pg_connect()]
     
     // Initialize connection object.
     $connection = pg_connect("host=$host dbname=$database user=$user password=$password")
-                or die("Failed to create connection to database: ". pg_last_error(). "<br/>");
+                or die("Failed toocreate connection toodatabase: ". pg_last_error(). "<br/>");
 
-    print "Successfully created connection to database. <br/>";
+    print "Successfully created connection toodatabase. <br/>";
 
-    // Perform some SQL queries over the connection.
+    // Perform some SQL queries over hello connection.
     $query = "SELECT * from inventory";
     $result_set = pg_query($connection, $query) 
         or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
@@ -151,11 +151,11 @@ Kod, PostgreSQL için Azure Veritabanı’na bağlanmak amacıyla [pg_connect()]
 ```
 
 ## <a name="update-data"></a>Verileri güncelleştirme
-**UPDATE** SQL deyimini kullanarak bağlanmak ve verileri güncelleştirmek için aşağıdaki kodu kullanın.
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak veri güncelleştirme bir **güncelleştirme** SQL deyimi.
 
-Kod, PostgreSQL için Azure Veritabanı’na bağlanmak amacıyla [pg_connect()](http://php.net/manual/en/function.pg-connect.php) yöntemini çağırır. Ardından bir komut çalıştırmak için [pg_query()](http://php.net/manual/en/function.pg-query.php) yöntemini ve bir hata oluşursa ayrıntıları kontrol etmek için [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) yöntemini çağırır. Daha sonra bağlantıyı kapatmak için [pg_close()](http://php.net/manual/en/function.pg-close.php) yöntemini çağırır.
+Merhaba kod arama yönteminde [pg_connect()](http://php.net/manual/en/function.pg-connect.php) tooconnect tooAzure PostgreSQL için veritabanı. Yöntemini çağıran sonra [pg_query()](http://php.net/manual/en/function.pg-query.php) toorun bir komut ve [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) toocheck hello ayrıntıları, bir hata oluştu. Yöntem çağrıları sonra [pg_close()](http://php.net/manual/en/function.pg-close.php) tooclose hello bağlantı.
 
-`$host`, `$database`, `$user` ve `$password` parametrelerini kendi değerlerinizle değiştirin. 
+Hello yerine `$host`, `$database`, `$user`, ve `$password` kendi değerlerinizi parametrelerle. 
 
 ```php
 <?php
@@ -167,9 +167,9 @@ Kod, PostgreSQL için Azure Veritabanı’na bağlanmak amacıyla [pg_connect()]
 
     // Initialize connection object.
     $connection = pg_connect("host=$host dbname=$database user=$user password=$password")
-                or die("Failed to create connection to database: ". pg_last_error(). ".<br/>");
+                or die("Failed toocreate connection toodatabase: ". pg_last_error(). ".<br/>");
 
-    print "Successfully created connection to database. <br/>";
+    print "Successfully created connection toodatabase. <br/>";
 
     // Modify some data in table.
     $new_quantity = 200;
@@ -186,11 +186,11 @@ Kod, PostgreSQL için Azure Veritabanı’na bağlanmak amacıyla [pg_connect()]
 
 
 ## <a name="delete-data"></a>Verileri silme
-**DELETE** SQL deyimini kullanarak bağlanmak ve verileri okumak için aşağıdaki kodu kullanın. 
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak verileri okuyun bir **silmek** SQL deyimi. 
 
- Kod, PostgreSQL için Azure Veritabanı’na bağlanmak amacıyla [pg_connect()](http://php.net/manual/en/function.pg-connect.php) yöntemini çağırır. Ardından bir komut çalıştırmak için [pg_query()](http://php.net/manual/en/function.pg-query.php) yöntemini ve bir hata oluşursa ayrıntıları kontrol etmek için [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) yöntemini çağırır. Daha sonra bağlantıyı kapatmak için [pg_close()](http://php.net/manual/en/function.pg-close.php) yöntemini çağırır.
+ Merhaba kod arama yönteminde [pg_connect()](http://php.net/manual/en/function.pg-connect.php) tooconnect PostgreSQL için çok Azure veritabanı. Yöntemini çağıran sonra [pg_query()](http://php.net/manual/en/function.pg-query.php) toorun bir komut ve [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) toocheck hello ayrıntıları, bir hata oluştu. Yöntem çağrıları sonra [pg_close()](http://php.net/manual/en/function.pg-close.php) tooclose hello bağlantı.
 
-`$host`, `$database`, `$user` ve `$password` parametrelerini kendi değerlerinizle değiştirin. 
+Hello yerine `$host`, `$database`, `$user`, ve `$password` kendi değerlerinizi parametrelerle. 
 
 ```php
 <?php
@@ -202,9 +202,9 @@ Kod, PostgreSQL için Azure Veritabanı’na bağlanmak amacıyla [pg_connect()]
 
     // Initialize connection object.
     $connection = pg_connect("host=$host dbname=$database user=$user password=$password")
-            or die("Failed to create connection to database: ". pg_last_error(). ". </br>");
+            or die("Failed toocreate connection toodatabase: ". pg_last_error(). ". </br>");
 
-    print "Successfully created connection to database. <br/>";
+    print "Successfully created connection toodatabase. <br/>";
 
     // Delete some data from table.
     $name = '\'orange\'';

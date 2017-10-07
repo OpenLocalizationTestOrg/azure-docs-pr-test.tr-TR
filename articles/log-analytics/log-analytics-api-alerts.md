@@ -1,6 +1,6 @@
 ---
-title: "OMS günlük analizi uyarı REST API kullanarak"
-description: "Günlük analizi uyarı REST API, bu yer Operations Management Suite (OMS) günlük analizi uyarıları oluşturma ve yönetme olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve çeşitli örnekler ayrıntıları sağlar."
+title: "aaaUsing OMS günlük analizi uyarı REST API'si"
+description: "Merhaba günlük analizi uyarı REST API toocreate sağlar ve bu yer Operations Management Suite (OMS) günlük analizi uyarıları yönetin.  Bu makalede, farklı işlemler gerçekleştirmek için hello API ve çeşitli örnekler ayrıntıları sağlar."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -15,38 +15,38 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ce72ffef4394bf3bbe39fa420c4fcaa965ae35c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 418dc7eb71d6151c6380b8925f1f147a0e13b178
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve uyarı kurallarında günlük analizi REST API ile yönetme
-Günlük analizi uyarı REST API, uyarıları Operations Management Suite (OMS) oluşturma ve yönetme olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve çeşitli örnekler ayrıntıları sağlar.
+Merhaba günlük analizi uyarı REST API toocreate sağlar ve Uyarıları Operations Management Suite (OMS) yönetme.  Bu makalede, farklı işlemler gerçekleştirmek için hello API ve çeşitli örnekler ayrıntıları sağlar.
 
-Günlük analizi arama REST API RESTful ve Azure Resource Manager REST API'si erişilebilir. Bu belgede API kullanarak bir PowerShell komut satırı burada erişilen örnekler bulacaksınız [ARMClient](https://github.com/projectkudu/ARMClient), Azure Kaynak Yöneticisi API'si çağırma basitleştiren bir açık kaynak komut satırı aracı. ARMClient ve PowerShell kullanımını günlük analizi arama API erişmek için birçok seçenek biridir. Bu araçların OMS çalışma alanları çağrı yapmak ve bunların içindeki arama komutları gerçekleştirmek için RESTful Azure Kaynak Yöneticisi API'si kullanabilir. Arama sonuçlarını birçok farklı yolla programlı olarak kullanmanıza olanak sağlayan API arama sonuçlarını, JSON biçiminde çıktı.
+Merhaba günlük analizi Search REST API'sini RESTful olan ve hello Azure Resource Manager REST API'si erişilebilir. Bu belgede hello API kullanarak bir PowerShell komut satırı burada erişilen örnekler bulacaksınız [ARMClient](https://github.com/projectkudu/ARMClient), çağırma basitleştiren bir açık kaynak komut satırı aracı hello Azure Kaynak Yöneticisi API'si. Merhaba kullanımını ARMClient ve PowerShell birçok seçenekleri tooaccess hello günlük analizi arama API biridir. Bu araçların hello RESTful Azure Kaynak Yöneticisi API'si toomake çağrıları tooOMS çalışma alanları kullanma ve bunların içindeki arama komutları gerçekleştirin. Arama sonuçları tooyou toouse hello arama sonuçları birçok farklı yolla program aracılığıyla sağlayarak JSON biçiminde Hello API çıkarır.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Şu anda, uyarıları günlük analizi olarak kaydedilmiş bir aramayı ile yalnızca oluşturulabilir.  Başvurabilirsiniz [günlük Search REST API'sini](log-analytics-log-search-api.md) daha fazla bilgi için.
+Şu anda, uyarıları günlük analizi olarak kaydedilmiş bir aramayı ile yalnızca oluşturulabilir.  Toohello başvurabilir [günlük Search REST API'sini](log-analytics-log-search-api.md) daha fazla bilgi için.
 
 ## <a name="schedules"></a>Zamanlamalar
-Kaydedilmiş bir aramayı bir veya daha fazla zamanlama olabilir. Ne sıklıkta arama çalıştırma ve ölçütleri belirlenen zaman aralığı olan zamanlamayı tanımlar.
-Zamanlamaları aşağıdaki tabloda özelliklere sahip.
+Kaydedilmiş bir aramayı bir veya daha fazla zamanlama olabilir. Merhaba zamanlama ne sıklıkta hello arama çalıştırılan tanımlar ve hello zaman aralığı içinde hangi hello ölçütleri tanımlanır.
+Zamanlamaları, aşağıdaki tablonun hello hello özelliklere sahiptir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| aralığı |Arama ne sıklıkta çalıştırılır. Dakika cinsinden ölçülür. |
-| QueryTimeSpan |Ölçüt değerlendirildiği zaman aralığı. Aralıktan büyük veya eşit olmalıdır. Dakika cinsinden ölçülür. |
-| Sürüm |Kullanılan API sürümü.  Şu anda, bu her zaman 1 olarak ayarlanması gerekir. |
+| aralığı |Ne sıklıkta hello arama çalıştırılır. Dakika cinsinden ölçülür. |
+| QueryTimeSpan |hangi hello ölçütleri değerlendirildiği hello zaman aralığı. Eşit tooor aralığından daha büyük olmalıdır. Dakika cinsinden ölçülür. |
+| Sürüm |Merhaba kullanılan API sürümü.  Şu anda, bu her zaman too1 olarak ayarlanmalıdır. |
 
-Örneğin, bir olay sorgusu bir aralığı 15 dakika ve 30 dakikalık bir zaman aralığı ile göz önünde bulundurun. Bu durumda, sorgu 15 dakikada bir çalışır ve ölçütlerini gerçek üzerinden çözümlemek etseydi uyarı tetikleyen 30 dakikalık aralık.
+Örneğin, bir olay sorgusu bir aralığı 15 dakika ve 30 dakikalık bir zaman aralığı ile göz önünde bulundurun. Bu durumda, hello sorgu 15 dakikada bir çalışır ve hello ölçütleri 30 dakikalık aralık tooresolve tootrue etseydi uyarı tetikleyen.
 
 ### <a name="retrieving-schedules"></a>Zamanlamalar alınıyor
-Kayıtlı bir aramaya tüm zamanlamalar almak için Get yöntemini kullanın.
+Kullanım hello kayıtlı bir aramaya tüm zamanlamalar yöntemi tooretrieve alın.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules?api-version=2015-03-20
 
-Get yöntemi bir zamanlama Kimliğiyle kaydedilmiş bir aramayı için belirli bir zamanlama almak için kullanın.
+Kullanım hello belirli bir zamanlama için kaydedilmiş bir aramayı bir zamanlama kimliği tooretrieve yöntemiyle alın.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
 
@@ -66,82 +66,82 @@ Bir zamanlama için bir örnek yanıt aşağıdadır.
 ```
 
 ### <a name="creating-a-schedule"></a>Bir zamanlama oluşturma
-Put yöntemini benzersiz zamanlama Kimliğine sahip yeni bir zamanlama oluşturmak için kullanın.  Farklı ile ilişkili olsalar bile, iki zamanlamaları aynı Kimliğe sahip olamaz, kayıtlı aramalar unutmayın.  OMS konsolunda bir zamanlama oluşturmak, bir GUID zamanlama kimliği için oluşturulur
+Benzersiz zamanlama kimliği toocreate yeni bir zamanlama Hello Put yöntemini kullanın.  İki zamanlamaları olamaz sahip Merhaba, aynı kimliği kayıtlı aramalar farklı ile ilişkili olsa bile unutmayın.  Merhaba OMS konsolunda bir zamanlama oluşturmak, bir GUID hello zamanlama kimliği için oluşturulur
 
 > [!NOTE]
-> Tüm kayıtlı aramaları, çizelgeler ve günlük analizi API ile oluşturulan eylemler için ad, küçük olması gerekir.
+> Tüm kayıtlı aramaları, zamanlamaları ve günlük analizi API hello ile oluşturulan eylemler için Hello adı küçük olması gerekir.
 
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### <a name="editing-a-schedule"></a>Bir zamanlama düzenleme
-Bu zamanlamayı değiştirmek için aynı kayıtlı arama için bir zamanlama kimlikli Put yöntemini kullanın.  İstek gövdesini zamanlama etag eklemeniz gerekir.
+Kimliği aynı kaydedilmiş hello için arama zamanlama toomodify mevcut bir zamanlamayı ile Merhaba Put yöntemini kullanın.  Merhaba hello istek gövdesi hello etag hello planının eklemeniz gerekir.
 
       $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
       armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 
 ### <a name="deleting-schedules"></a>Zamanlamalar silme
-Delete yöntemi bir zamanlama Kimliğine sahip bir zamanlama silmek için kullanın.
+Zamanlama kimliği toodelete bir zamanlama Hello Delete yöntemini kullanın.
 
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
 
 
 ## <a name="actions"></a>Eylemler
-Bir zamanlama birden çok eylemler olabilir. Bir posta gönderme veya bir runbook'u başlatma gibi gerçekleştirmek için bir veya daha fazla işlem bir eylem tanımlayabilir veya ne zaman bir arama sonuçlarını bazı ölçütlere uyan belirleyen bir eşik tanımlayabilir.  Böylece eşiğine ulaşıldığında işlemleri gerçekleştirilen bazı eylemler her ikisi de tanımlayacaksınız.
+Bir zamanlama birden çok eylemler olabilir. Bir eylem bir posta gönderme veya bir runbook'u başlatma gibi bir veya daha fazla işlemleri tooperform tanımlayabilir veya ne zaman bir arama sonuçlarını hello bazı ölçütlere uyan belirleyen bir eşik tanımlayabilir.  Merhaba eşiğine ulaşıldığında hello işlemlerin gerçekleştirilmesi bazı eylemler her ikisi de tanımlayacaksınız.
 
-Tüm eylemler aşağıdaki tabloda özelliklere sahip.  Farklı türde bir uyarı aşağıda açıklanan farklı ek özellikler vardır.
+Tüm eylemleri aşağıdaki tablonun hello hello özelliklere sahiptir.  Farklı türde bir uyarı aşağıda açıklanan farklı ek özellikler vardır.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Tür |Eylem türü.  Şu anda olası uyarı ve Web kancası değerlerdir. |
-| Ad |Uyarı görünen adı. |
-| Sürüm |Kullanılan API sürümü.  Şu anda, bu her zaman 1 olarak ayarlanması gerekir. |
+| Tür |Merhaba eylem türü.  Şu anda hello olası değerler, uyarı ve Web kancası olur. |
+| Ad |Merhaba uyarı görünen adı. |
+| Sürüm |Merhaba kullanılan API sürümü.  Şu anda, bu her zaman too1 olarak ayarlanmalıdır. |
 
 ### <a name="retrieving-actions"></a>Eylemler Alınıyor
-Tüm eylemler için bir zamanlama almak için Get yöntemini kullanın.
+Kullanım hello tüm eylemler için bir zamanlama yöntemi tooretrieve alın.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules/{Schedule ID}/actions?api-version=2015-03-20
 
-Get yöntemini eylem Kimliğine sahip bir zamanlama için belirli bir eylem almak için kullanın.
+Kullanım hello hello Eylem Kimliği tooretrieve yöntemiyle bir zamanlama için belirli bir eylemi alın.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
 
 ### <a name="creating-or-editing-actions"></a>Oluşturma veya Eylemler düzenleme
-Yeni bir eylem oluşturmak için zamanlama için benzersiz olan bir eylem kimliği ile Put yöntemini kullanın.  OMS konsolunda bir eylem oluşturduğunuzda, bir GUID için eylem kimliğidir.
+Benzersiz toohello zamanlama toocreate yeni bir eylem bir eylem kimliği ile Merhaba Put yöntemini kullanın.  Bir eylemin hello OMS konsolunda oluşturduğunuzda, bir GUID için hello eylem kimliğidir.
 
 > [!NOTE]
-> Tüm kayıtlı aramaları, çizelgeler ve günlük analizi API ile oluşturulan eylemler için ad, küçük olması gerekir.
+> Tüm kayıtlı aramaları, zamanlamaları ve günlük analizi API hello ile oluşturulan eylemler için Hello adı küçük olması gerekir.
 
-Bu zamanlamayı değiştirmek için aynı kayıtlı arama için bir eylem kimliğiyle Put yöntemini kullanın.  İstek gövdesini zamanlama etag eklemeniz gerekir.
+Kimliği aynı kaydedilmiş hello için arama zamanlama toomodify var olan bir eylem ile Merhaba Put yöntemini kullanın.  Merhaba hello istek gövdesi hello etag hello planının eklemeniz gerekir.
 
-Aşağıdaki bölümlerde bu örnekler verilmiştir için yeni bir eylem oluşturmak için istek biçimi eylem türüne göre değişir.
+Bu örnekler aşağıdaki hello bölümler sağlanan şekilde hello istek biçimi yeni bir eylem oluşturmak için eylem türüne göre değişir.
 
 ### <a name="deleting-actions"></a>Eylemler siliniyor
-Delete yöntemi eylem Kimlikli bir eylem silmek için kullanın.
+Hello Eylem Kimliği toodelete eylemin Hello Delete yöntemini kullanın.
 
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/Actions/{Action ID}?api-version=2015-03-20
 
 ### <a name="alert-actions"></a>Uyarı eylemleri
-Bir zamanlama tek bir uyarı eylemi olması gerekir.  Uyarı eylemleri bir veya daha fazla aşağıdaki tabloda bölümler var.  Her daha aşağıda ayrıntılı olarak açıklanmıştır.
+Bir zamanlama tek bir uyarı eylemi olması gerekir.  Uyarı eylemleri, bir veya daha fazla tablo aşağıdaki hello hello bölümlerde sahip.  Her daha aşağıda ayrıntılı olarak açıklanmıştır.
 
 | Bölüm | Açıklama |
 |:--- |:--- |
-| Eşik |Eylem çalıştırıldığında ölçütlerini. |
-| EmailNotification |Birden çok alıcıya posta gönderin. |
-| Düzeltme |Bir runbook tanımlanan sorunu düzeltmeyi denemek için Azure Otomasyonu'nda başlatın. |
+| Eşik |Merhaba eylemi çalıştırıldığında ölçütlerini. |
+| EmailNotification |Posta toomultiple alıcılar gönderin. |
+| Düzeltme |Bir runbook'un Azure Otomasyon tooattempt tanımlanan toocorrect sorunu başlatın. |
 
 #### <a name="thresholds"></a>Eşikleri
-Bir uyarı eylem tek bir eşik olması gerekir.  Kayıtlı arama sonuçlarını arama ile ilişkili bir eylem Eşikte eşleştiğinde, başka bir işlem bu uygulamada çalıştırılır.  Böylece eşikleri içermeyen diğer türleri Eylemler ile kullanılan bir eylem yalnızca bir eşik de içerebilir.
+Bir uyarı eylem tek bir eşik olması gerekir.  Kaydedilmiş bir aramayı Hello sonuçlarını arama ile ilişkili bir eylemin hello eşiği eşleştiğinde, başka bir işlem bu uygulamada çalıştırılır.  Böylece eşikleri içermeyen diğer türleri Eylemler ile kullanılan bir eylem yalnızca bir eşik de içerebilir.
 
-Eşikleri aşağıdaki tabloda özelliklere sahip.
+Eşikleri aşağıdaki tablonun hello hello özelliklere sahiptir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| işleci |Eşik karşılaştırma işleci. <br> gt şundan = <br> lt = küçüktür |
-| Değer |Eşik değeri. |
+| işleci |Merhaba eşik karşılaştırma işleci. <br> gt şundan = <br> lt = küçüktür |
+| Değer |Merhaba eşik değeri. |
 
-Örneğin, bir olay sorgusu zaman aralığı 15 dakika, 30 dakikalık bir Timespan ve 10'dan büyük bir eşik ile göz önünde bulundurun. Bu durumda, sorgu 15 dakikada bir çalışır ve 30 dakikalık aralık oluşturulan 10 olayları döndürülen bir uyarı tetikleyen.
+Örneğin, bir olay sorgusu zaman aralığı 15 dakika, 30 dakikalık bir Timespan ve 10'dan büyük bir eşik ile göz önünde bulundurun. Bu durumda, hello sorgu 15 dakikada bir çalışır ve 30 dakikalık aralık oluşturulan 10 olayları döndürülen bir uyarı tetikleyen.
 
 Aşağıdaki örnek yanıt için bir eylem yalnızca bir eşik ile ' dir.  
 
@@ -156,23 +156,23 @@ Aşağıdaki örnek yanıt için bir eylem yalnızca bir eşik ile ' dir.
         "Version": 1
     }
 
-Put yöntemini benzersiz eylem kimliği ile yeni bir eşik eylemi için bir zamanlama oluşturmak için kullanın.  
+Merhaba Put yöntemi için bir zamanlama benzersiz Eylem Kimliği toocreate yeni bir eşik eylemi kullanın.  
 
     $thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
-Put yöntemini var olan bir eylem kimliği ile bir zamanlama için bir eşik eylemi değiştirmek için kullanın.  İstek gövdesini eylemin etag eklemeniz gerekir.
+Kullanım hello var olan bir eylem kimliği toomodify yöntemiyle bir zamanlama için bir eşik eylem yerleştirin.  Merhaba hello istek gövdesi hello eylemin hello etag eklemeniz gerekir.
 
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
 #### <a name="email-notification"></a>E-posta bildirimi
-E-posta bildirimleri bir veya daha fazla alıcıya posta gönderin.  Aşağıdaki tabloda özellikleri içerirler.
+Posta tooone ya da daha fazla alıcı e-posta bildirimleri gönderin.  Bunlar, aşağıdaki tablonun hello hello özellikleri içerir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
 | Alıcıları |Posta adresleri listesi. |
-| Konu |Posta konusu. |
+| Konu |Merhaba posta Hello konu. |
 | Eki |Bu her zaman "Hiçbiri" değerine sahip şekilde ekleri şu anda, desteklenmez. |
 
 Aşağıdaki örnek yanıt bir eşik ile bir e-posta bildirim eylemi için ' dir.  
@@ -190,32 +190,32 @@ Aşağıdaki örnek yanıt bir eşik ile bir e-posta bildirim eylemi için ' dir
                 "recipient1@contoso.com",
                 "recipient2@contoso.com"
             ],
-            "Subject": "This is the subject",
+            "Subject": "This is hello subject",
             "Attachment": "None"
         },
         "Version": 1
     }
 
-Put yöntemini benzersiz eylem kimliği ile yeni bir e-posta eylemi için bir zamanlama oluşturmak için kullanın.  Aşağıdaki örnek, bir e-posta bildirimi bir eşik ile oluşturur, bu nedenle kayıtlı arama sonuçlarını eşiği aştığında posta gönderilir.
+Merhaba Put yöntemi için bir zamanlama benzersiz Eylem Kimliği toocreate yeni bir e-posta eylemi kullanın.  Hello hello kaydedilmiş arama sonuçlarını hello eşiği aştığında hello posta gönderilen şekilde hello aşağıdaki örnek bir e-posta bildirimi bir eşik ile oluşturur.
 
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
+    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is hello subject', 'Attachment':'None'} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
-Put yöntemini var olan bir eylem kimliği ile bir zamanlama için bir e-posta eylemi değiştirmek için kullanın.  İstek gövdesini eylemin etag eklemeniz gerekir.
+Merhaba Put yöntemini bir varolan eylem kimliği toomodify ile bir e-posta eylemi için bir zamanlama kullanın.  Merhaba hello istek gövdesi hello eylemin hello etag eklemeniz gerekir.
 
-    $emailJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
+    $emailJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is hello subject', 'Attachment':'None'} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### <a name="remediation-actions"></a>Düzeltme eylemleri
-Düzeltmeler, Azure automation'da uyarı tarafından tanımlanan sorunu düzeltmeye çalışır bir runbook başlatın.  Bir düzeltme eylemi kullanılan runbook için bir Web kancası oluşturun ve ardından URI WebhookUri özelliğinde belirtmeniz gerekir.  OMS konsolunu kullanarak bu eylemi oluşturduğunuzda, yeni bir Web kancası runbook için otomatik olarak oluşturulur.
+Düzeltmeler, Azure automation'da hello uyarı tarafından tanımlanan toocorrect hello sorun çalışır bir runbook başlatın.  Bir düzeltme eylemi kullanılan hello runbook için bir Web kancası oluşturun ve ardından hello URI hello WebhookUri özelliği belirtmeniz gerekir.  Merhaba OMS konsolunu kullanarak bu eylemi oluşturduğunuzda, yeni bir Web kancası hello runbook için otomatik olarak oluşturulur.
 
-Düzeltmeler aşağıdaki tabloda özellikleri içerir.
+Düzeltmeler, aşağıdaki tablonun hello hello özellikleri içerir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| RunbookName |Runbook'un adı. Bu OMS çalışma alanınızdaki Otomasyon çözümünü yapılandırılan Otomasyon hesabı yayımlanan bir runbook'ta eşleşmelidir. |
-| WebhookUri |Web kancası URI'si. |
-| Süre sonu |Sona erme tarihi ve saati Web kancası.  Web kancası bir sona erme yoksa, bu geçerli bir gelecek tarih olabilir. |
+| RunbookName |Merhaba runbook adı. Bu hello Otomasyon çözümünü OMS çalışma alanınızdaki yapılandırılan hello Otomasyon hesabı yayımlanan bir runbook'ta eşleşmelidir. |
+| WebhookUri |Merhaba Web kancası URI'si. |
+| Süre sonu |Merhaba sona erme tarihi ve saati hello Web kancası.  Merhaba Web kancası bir sona erme yoksa, bu geçerli bir gelecek tarih olabilir. |
 
 Aşağıdaki örnek yanıt bir eşik ile bir düzeltme eylemi için ' dir.
 
@@ -235,18 +235,18 @@ Aşağıdaki örnek yanıt bir eşik ile bir düzeltme eylemi için ' dir.
         "Version": 1
     }
 
-Put yöntemini benzersiz eylem kimliği ile yeni bir düzeltme eylemi için bir zamanlama oluşturmak için kullanın.  Aşağıdaki örnek, bir düzeltme bir eşik ile oluşturur, bu nedenle kayıtlı arama sonuçlarını eşiği aştığında runbook başlatıldıktan.
+Merhaba Put yöntemini benzersiz Eylem Kimliği toocreate yeni bir düzeltme eylemi için bir zamanlama kullanın.  Merhaba hello kaydedilmiş arama sonuçlarını hello eşiği aştığında hello runbook başlatıldıktan şekilde hello aşağıdaki örnek bir düzeltme bir eşik ile oluşturur.
 
     $remediateJson = "{'properties': { 'Type':'Alert', 'Name': 'My Remediation Action', 'Version':'1', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'Remediation': {'RunbookName': 'My-Runbook', 'WebhookUri':'https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d', 'Expiry':'2018-02-25T18:27:20Z'} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
 
-Put yöntemini var olan bir eylem kimliği ile bir zamanlama için bir düzeltme eylemi değiştirmek için kullanın.  İstek gövdesini eylemin etag eklemeniz gerekir.
+Merhaba Put yöntemini bir varolan eylem kimliği toomodify ile bir düzeltme eylemi için bir zamanlama kullanın.  Merhaba hello istek gövdesi hello eylemin hello etag eklemeniz gerekir.
 
     $remediateJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Type':'Alert', 'Name': 'My Remediation Action', 'Version':'1', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'Remediation': {'RunbookName': 'My-Runbook', 'WebhookUri':'https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d', 'Expiry':'2018-02-25T18:27:20Z'} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
 
 #### <a name="example"></a>Örnek
-Yeni bir e-posta Uyarı oluşturmak için tam bir örnek verilmiştir.  Bu eşik ve e-posta içeren bir eylem birlikte yeni bir zamanlama oluşturur.
+Tam örnek toocreate yeni bir e-posta uyarı aşağıdadır.  Bu eşik ve e-posta içeren bir eylem birlikte yeni bir zamanlama oluşturur.
 
     $subscriptionId = "3d56705e-5b26-5bcc-9368-dbc8d2fafbfc"
     $resourceGroup  = "MyResourceGroup"    
@@ -259,20 +259,20 @@ Yeni bir e-posta Uyarı oluşturmak için tam bir örnek verilmiştir.  Bu eşik
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
 
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
+    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is hello subject', 'Attachment':'None'} }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
 ### <a name="webhook-actions"></a>Web kancası eylemleri
-Web kancası eylemleri, bir URL çağırma ve isteğe bağlı olarak gönderilecek bir yükü sağlayarak bir işlem başlatın.  Azure Otomasyon çalışma kitabı dışındaki işlemler çağırabilir Web kancası için amacı dışında düzeltme eylemleri benzerdir.  Uzak işlem teslim edilecek bir yükü sağlama ek seçeneği de sağlar.
+Web kancası eylemleri, bir URL çağırma ve isteğe bağlı olarak gönderilen bir yükü toobe sağlayan bir işlem başlatın.  Azure Otomasyon çalışma kitabı dışındaki işlemler çağırabilir Web kancası için amacı dışında benzer tooRemediation Eylemler oldukları.  Yükü teslim toobe toohello uzak bir işlem sağlayarak hello ek bir seçeneğiniz de sağlar.
 
-Web kancası eylemleri bir eşik gerekmez ancak bunun yerine bir uyarı eylem bir eşik ile sahip bir zamanlama eklenmelidir.  Eşiğine ulaşıldığında, tüm çalışan birden çok Web kancası eylemleri ekleyebilirsiniz.
+Web kancası eylemleri bir eşik gerekmez ancak bunun yerine bir eşik ile uyarı bir eylemi var. tooa zamanlama eklenmelidir.  Merhaba eşiğine ulaşıldığında, tüm çalışan birden çok Web kancası eylemleri ekleyebilirsiniz.
 
-Web kancası eylemleri aşağıdaki tabloda özellikleri içerir.
+Web kancası eylemleri aşağıdaki tablonun hello hello özellikleri içerir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| WebhookUri |Posta konusu. |
-| CustomPayload |Web kancası için gönderilecek özel yükü.  Web kancası bekleniyor üzerinde biçimi bağlıdır. |
+| WebhookUri |Merhaba posta Hello konu. |
+| CustomPayload |Özel yük toobe toohello Web kancası gönderdi.  Merhaba biçimi hangi hello Web kancası bekleniyor bağlı olacaktır. |
 
 Web kancası eylem ve bir eşik ile ilişkili bir uyarı eylem için örnek yanıt aşağıdadır.
 
@@ -307,7 +307,7 @@ Web kancası eylem ve bir eşik ile ilişkili bir uyarı eylem için örnek yan�
     }
 
 #### <a name="create-or-edit-a-webhook-action"></a>Oluşturma veya bir Web kancası eylemi düzenleme
-Put yöntemini benzersiz eylem kimliği ile yeni bir Web kancası eylemi için bir zamanlama oluşturmak için kullanın.  Kayıtlı arama sonuçlarını eşiği aştığında Web kancası tetiklenen amacıyla aşağıdaki örnek bir Web kancası eylemi ve bir uyarı eylem bir eşik ile oluşturur.
+Merhaba Put yöntemi için bir zamanlama benzersiz Eylem Kimliği toocreate yeni bir Web kancası eylemi kullanın.  Böylece Hello hello kaydedilmiş arama sonuçlarını hello eşiği aştığında hello Web kancası tetiklenen hello aşağıdaki örnek bir Web kancası eylemi ve bir uyarı eylem bir eşik ile oluşturur.
 
     $thresholdAction = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdAction
@@ -315,11 +315,11 @@ Put yöntemini benzersiz eylem kimliği ile yeni bir Web kancası eylemi için b
     $webhookAction = "{'properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
-Put yöntemini var olan bir eylem kimliği ile bir zamanlama için bir Web kancası eylemi değiştirmek için kullanın.  İstek gövdesini eylemin etag eklemeniz gerekir.
+Merhaba Put yöntemini bir varolan eylem kimliği toomodify ile bir Web kancası eylemi için bir zamanlama kullanın.  Merhaba hello istek gövdesi hello eylemin hello etag eklemeniz gerekir.
 
     $webhookAction = "{'etag': 'W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"','properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [günlük aramalar gerçekleştirmek için REST API](log-analytics-log-search-api.md) günlük analizi içinde.
+* Kullanım hello [REST API tooperform günlük aramaları](log-analytics-log-search-api.md) günlük analizi içinde.
 

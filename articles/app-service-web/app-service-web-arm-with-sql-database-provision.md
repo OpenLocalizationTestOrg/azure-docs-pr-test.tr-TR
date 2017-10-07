@@ -1,6 +1,6 @@
 ---
-title: "Bir SQL veritabanı kullanan bir web uygulaması sağla"
-description: "Bir SQL veritabanı içeren bir web uygulaması dağıtmak için bir Azure Resource Manager şablonunu kullanın."
+title: "aaaProvision bir SQL veritabanı kullanan bir web uygulaması"
+description: "Azure Resource Manager şablonu toodeploy bir SQL veritabanı içeren bir web uygulaması kullanın."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
-ms.openlocfilehash: cc34f684f8c50e95a62cb7b04fd2ddce5deb68d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 189c0122d201e88f15013bf241d66652ef23df4e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="provision-a-web-app-with-a-sql-database"></a>Bir SQL veritabanı ile bir web uygulaması sağla
-Bu konuda, bir web uygulaması ve SQL Database dağıtan bir Azure Resource Manager şablonunun nasıl oluşturulacağını öğreneceksiniz. Nasıl tanımlamak için hangi kaynağın dağıtılan ve ne zaman dağıtım yürütülen parametreler tanımlamak nasıl belirtilen öğreneceksiniz. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
+Bu konuda, öğreneceksiniz nasıl toocreate bir web uygulaması ve SQL Database dağıtan bir Azure Resource Manager şablonu. Şunları öğreneceksiniz nasıl toodefine hangi kaynağın dağıtılan ve nasıl toodefine parametreler hello dağıtım zaman yürütülür belirtilmiş. Kendi dağıtımlar için bu şablonu kullanabilir veya toomeet özelleştirebilirsiniz gereksinimlerinizi.
 
 Şablonları oluşturma hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Uygulamaları dağıtma hakkında daha fazla bilgi için bkz: [beklendiği azure'da karmaşık bir uygulama dağıtmak](app-service-deploy-complex-application-predictably.md).
 
-Tam şablon için bkz: [SQL veritabanı ile Web uygulaması şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
+Merhaba tam şablonu için bkz: [SQL veritabanı ile Web uygulaması şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -41,29 +41,29 @@ Bu şablon, dağıtacağınız:
 * Uyarı kuralları
 * App Insights
 
-Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıklayın:
+toorun dağıtım otomatik olarak Merhaba, düğme aşağıdaki hello tıklatın:
 
-[![Azure’a dağıtma](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
+[![TooAzure dağıtma](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
-## <a name="parameters-to-specify"></a>Belirtmek üzere Parametreler
+## <a name="parameters-toospecify"></a>Parametreleri toospecify
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 ### <a name="administratorlogin"></a>Admınıstratorlogın
-Veritabanı sunucusu Yöneticisi için kullanılacak hesap adı.
+hesap adı toouse hello veritabanı sunucusu Yöneticisi için hello.
 
     "administratorLogin": {
       "type": "string"
     }
 
 ### <a name="administratorloginpassword"></a>Admınıstratorlogınpassword
-Veritabanı sunucusu Yöneticisi için kullanılacak parola.
+Merhaba parola toouse hello veritabanı sunucusu Yöneticisi için.
 
     "administratorLoginPassword": {
       "type": "securestring"
     }
 
 ### <a name="databasename"></a>databaseName
-Oluşturulacak yeni veritabanının adı.
+Merhaba yeni veritabanı toocreate Hello adı.
 
     "databaseName": {
       "type": "string",
@@ -71,7 +71,7 @@ Oluşturulacak yeni veritabanının adı.
     }
 
 ### <a name="collation"></a>Harmanlama
-Uygun karakterlerin kullanımını yöneten için kullanılacak veritabanı harmanlaması.
+Merhaba veritabanı harmanlama toouse yöneten hello uygun için karakterini kullanın.
 
     "collation": {
       "type": "string",
@@ -79,7 +79,7 @@ Uygun karakterlerin kullanımını yöneten için kullanılacak veritabanı harm
     }
 
 ### <a name="edition"></a>Edition
-Oluşturmak için veritabanı türü.
+Veritabanı toocreate Hello türü.
 
     "edition": {
       "type": "string",
@@ -90,12 +90,12 @@ Oluşturmak için veritabanı türü.
         "Premium"
       ],
       "metadata": {
-        "description": "The type of database to create."
+        "description": "hello type of database toocreate."
       }
     }
 
 ### <a name="maxsizebytes"></a>maxSizeBytes
-Veritabanı için bayt cinsinden en büyük boyutu.
+Merhaba en fazla boyutu hello veritabanı için bayt cinsinden.
 
     "maxSizeBytes": {
       "type": "string",
@@ -103,7 +103,7 @@ Veritabanı için bayt cinsinden en büyük boyutu.
     }
 
 ### <a name="requestedserviceobjectivename"></a>requestedServiceObjectiveName
-Sürüm için performans düzeyine karşılık gelen adı. 
+Merhaba adı karşılık gelen toohello performans düzeyi edition için. 
 
     "requestedServiceObjectiveName": {
       "type": "string",
@@ -118,12 +118,12 @@ Sürüm için performans düzeyine karşılık gelen adı.
         "P3"
       ],
       "metadata": {
-        "description": "Describes the performance level for Edition"
+        "description": "Describes hello performance level for Edition"
       }
     }
 
 ## <a name="variables-for-names"></a>Adları için değişkenleri
-Bu şablon şablonda kullanılan adları oluşturmak değişkenleri içerir. Değişken değerleri kullanmak **uniqueString** kaynak grup kimliğinden bir ad oluşturmak için işlev.
+Bu şablon hello şablonda kullanılan adları oluşturmak değişkenleri içerir. Merhaba değişken değerleri kullanmak hello **uniqueString** toogenerate hello kaynak grubu kimliği adından işlev.
 
     "variables": {
         "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -132,9 +132,9 @@ Bu şablon şablonda kullanılan adları oluşturmak değişkenleri içerir. De�
     },
 
 
-## <a name="resources-to-deploy"></a>Dağıtılacak kaynaklar
+## <a name="resources-toodeploy"></a>Kaynakları toodeploy
 ### <a name="sql-server-and-database"></a>SQL Server ve veritabanı
-Yeni bir SQL Server ve veritabanı oluşturur. İçinde belirtilen sunucu adı **serverName** parametre ve belirttiğiniz konuma **serverLocation** parametresi. Yeni Sunucu oluştururken, veritabanı sunucusu Yöneticisi için bir oturum açma adı ve parola sağlamanız gerekir. 
+Yeni bir SQL Server ve veritabanı oluşturur. Merhaba sunucusunun Hello adı hello belirtilen **serverName** hello belirtilen parametre ve hello konumu **serverLocation** parametresi. Merhaba yeni sunucu oluştururken, bir oturum açma adı ve hello veritabanı sunucusu yönetici parolasını sağlamanız gerekir. 
 
     {
       "name": "[variables('sqlserverName')]",
@@ -373,7 +373,7 @@ Yeni bir SQL Server ve veritabanı oluşturur. İçinde belirtilen sunucu adı *
       },
       "properties": {
         "name": "[concat('CPUHigh ', variables('hostingPlanName'))]",
-        "description": "[concat('The average CPU is high across all the instances of ', variables('hostingPlanName'))]",
+        "description": "[concat('hello average CPU is high across all hello instances of ', variables('hostingPlanName'))]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
@@ -407,7 +407,7 @@ Yeni bir SQL Server ve veritabanı oluşturur. İçinde belirtilen sunucu adı *
       },
       "properties": {
         "name": "[concat('LongHttpQueue ', variables('hostingPlanName'))]",
-        "description": "[concat('The HTTP queue for the instances of ', variables('hostingPlanName'), ' has a large number of pending requests.')]",
+        "description": "[concat('hello HTTP queue for hello instances of ', variables('hostingPlanName'), ' has a large number of pending requests.')]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
@@ -446,7 +446,7 @@ Yeni bir SQL Server ve veritabanı oluşturur. İçinde belirtilen sunucu adı *
       }
     }
 
-## <a name="commands-to-run-deployment"></a>Dağıtımı çalıştırma komutları
+## <a name="commands-toorun-deployment"></a>Komutları toorun dağıtımı
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
@@ -462,6 +462,6 @@ Yeni bir SQL Server ve veritabanı oluşturur. İçinde belirtilen sunucu adı *
     az resource deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 
 > [!NOTE]
-> Parametreleri JSON dosyasının içeriğine bakın [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json).
+> Merhaba parametreleri JSON dosyasının içeriğine bakın [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json).
 >
 >

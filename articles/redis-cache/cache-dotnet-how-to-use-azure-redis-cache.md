@@ -1,6 +1,6 @@
 ---
-title: "Azure Redis Cache’i Kullanma | Microsoft Belgeleri"
-description: "Azure Redis Cache ile Azure, uygulamalarınızın performansını artırmayı öğrenin"
+title: "Azure Redis önbelleği aaaHow tooUse | Microsoft Docs"
+description: "Nasıl tooimprove hello Azure Redis önbelleği ile Azure, uygulamalarınızın performansını öğrenin"
 services: redis-cache,app-service
 documentationcenter: 
 author: steved0x
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/27/2017
 ms.author: sdanie
-ms.openlocfilehash: 3dfc026490093523446650c510dbebdd660e8b6b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 763d70c10972eec9a1885969e8da5bf1c4084727
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-redis-cache"></a>Azure Redis Cache’i kullanma
+# <a name="how-toouse-azure-redis-cache"></a>Nasıl tooUse Azure Redis önbelleği
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,83 +30,83 @@ ms.lasthandoff: 08/03/2017
 > 
 > 
 
-Bu kılavuz **Azure Redis Cache**’i kullanmaya başlamayı gösterir. Microsoft Azure Redis Cache popüler açık kaynak Redis Cache’i temel alır. Microsoft tarafından yönetilen güvenli, ayrılmış bir Redis Cache’e erişmenizi sağlar. Azure Redis Cache kullanılarak oluşturulan bir önbelleğe Microsoft Azure’daki her uygulamadan erişilebilir.
+Bu kılavuz size nasıl tooget kullanmaya gösterir **Azure Redis önbelleği**. Microsoft Azure Redis önbelleği hello popüler açık kaynak Redis önbelleğini temel alır. Size verir Microsoft tarafından yönetilen tooa güvenli, ayrılmış bir Redis önbelleğine erişmek. Azure Redis Cache kullanılarak oluşturulan bir önbelleğe Microsoft Azure’daki her uygulamadan erişilebilir.
 
-Microsoft Azure Redis Cache aşağıdaki katmanlarda kullanılabilir:
+Microsoft Azure Redis önbelleği Katmanlar izleyerek hello kullanılabilir:
 
-* **Temel** – Tek düğümlü. 53 GB'a kadar birden çok boyut.
-* **Standart** – İki düğümlü Birincil/Çoğaltma. 53 GB'a kadar birden çok boyut. %99,9 SLA.
-* **Premium** – İki düğümlü Birincil/Çoğaltma, En fazla 10 parça. 6 GB'tan 530 GB'a kadar birden çok boyut. [Redis kümesi](cache-how-to-premium-clustering.md), [Redis kalıcılığı](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md) dahil tüm Standart katman özellikleri ve fazlası. %99,9 SLA.
+* **Temel** – Tek düğümlü. Birden çok too53 GB boyutları.
+* **Standart** – İki düğümlü Birincil/Çoğaltma. Birden çok too53 GB boyutları. %99,9 SLA.
+* **Premium** – iki düğümlü birincil/çoğaltma ile too10 parça ayarlama. 6 GB too530 GB birden çok boyut. [Redis kümesi](cache-how-to-premium-clustering.md), [Redis kalıcılığı](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md) dahil tüm Standart katman özellikleri ve fazlası. %99,9 SLA.
 
 Her katman özellikler ve fiyatlandırma açısından farklıdır. Fiyatlandırma hakkında daha fazla bilgi için bkz. [Önbellek Fiyatlandırma Ayrıntıları][Cache Pricing Details].
 
-Bu kılavuz C\# kodu kullanarak [StackExchange.Redis][StackExchange.Redis] istemcisi kullanmayı gösterir. Ele alınan senaryolar **bir önbellek oluşturma ve yapılandırma**, **önbellek istemcilerini yapılandırma** ve **önbelleğe nesne ekleme ve nesneleri önbellekten kaldırma** konularını içerir. Azure Redis Cache’i kullanma hakkında daha fazla bilgi için bkz. [Sonraki Adımlar][Next Steps]. Redis Cache ile ASP.NET MVC web uygulaması oluşturmaya ilişkin adım bir öğretici için, bkz. [Redis Cache ile Web Uygulaması Oluşturma](cache-web-app-howto.md)
+Bu kılavuz size nasıl gösterir toouse hello [StackExchange.Redis] [ StackExchange.Redis] C kullanarak istemci\# kodu. Merhaba kapsanan senaryolar dahil **oluşturma ve bir önbellek yapılandırma**, **önbellek istemcilerini yapılandırma**, ve **ekleme ve nesneleri hello önbellekten kaldırma**. Azure Redis Cache’i kullanma hakkında daha fazla bilgi için bkz. [Sonraki Adımlar][Next Steps]. Bir ASP.NET MVC Redis önbelleği ile web uygulaması oluşturmanın adım adım öğretici için bkz [nasıl toocreate bir Web uygulamasını Redis önbelleği ile](cache-web-app-howto.md).
 
 <a name="getting-started-cache-service"></a>
 
 ## <a name="get-started-with-azure-redis-cache"></a>Azure Redis Cache’i kullanmaya başlama
-Azure Redis Cache’i kullanmaya başlamak kolaydır. Başlamak için, bir önbellek hazırlayın ve yapılandırın. Ardından, önbelleğe erişebilmeleri için önbellek istemcilerini yapılandırın. Önbellek istemcileri yapılandırıldıktan sonra, bunlarla çalışmaya başlayabilirsiniz.
+Azure Redis Cache’i kullanmaya başlamak kolaydır. tooget başlatıldı, sağlamak ve bir önbellek yapılandırın. Ardından, hello önbelleğe erişebilmeleri hello önbellek istemcilerini yapılandırın. Merhaba önbellek istemcileri yapılandırıldıktan sonra bunlarla çalışmaya başlayabilirsiniz.
 
-* [Önbelleği oluşturma][Create the cache]
-* [Önbellek istemcilerini yapılandırma][Configure the cache clients]
+* [Merhaba önbelleği oluşturma][Create hello cache]
+* [Merhaba önbellek istemcilerini yapılandırın][Configure hello cache clients]
 
 <a name="create-cache"></a>
 
 ## <a name="create-a-cache"></a>Bir önbellek oluşturma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-### <a name="to-access-your-cache-after-its-created"></a>Oluşturulduktan sonra önbelleğinize erişmek için
+### <a name="tooaccess-your-cache-after-its-created"></a>tooaccess önbelleğiniz sonraki oluşturulur
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
-Önbelleğinizi yapılandırma hakkında daha fazla bilgi için, bkz. [Azure Redis Cache’i yapılandırma](cache-configure.md).
+Önbelleğinizi yapılandırma hakkında daha fazla bilgi için bkz: [nasıl tooconfigure Azure Redis önbelleği](cache-configure.md).
 
 <a name="NuGet"></a>
 
-## <a name="configure-the-cache-clients"></a>Önbellek istemcilerini yapılandırma
+## <a name="configure-hello-cache-clients"></a>Merhaba önbellek istemcilerini yapılandırın
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
-İstemci projeniz önbelleğe almak üzere yapılandırıldığında, önbelleğinizle çalışmak için aşağıdaki bölümlerde açıklanan teknikleri kullanabilirsiniz.
+İstemci projeniz önbelleğe almak için yapılandırıldıktan sonra önbelleğinizle çalışmak için bölümleri aşağıdaki hello açıklanan hello teknikleri kullanabilirsiniz.
 
 <a name="working-with-caches"></a>
 
 ## <a name="working-with-caches"></a>Önbelleklerle Çalışma
-Bu bölümdeki adımlar Önbellek ile ortak görevler gerçekleştirmeyi açıklar.
+Bu bölümdeki Hello adımları nasıl önbellekle tooperform ortak görevler açıklanmaktadır.
 
-* [Önbelleğe bağlanma][Connect to the cache]
-* [Önbelleğe nesneler ekleme ve nesneleri önbellekten alma][Add and retrieve objects from the cache]
-* [Önbellekte .NET nesneleriyle çalışma](#work-with-net-objects-in-the-cache)
+* [Toohello Önbelleği'ne bağlama][Connect toohello cache]
+* [Ekleme ve nesneleri hello önbellekten alma][Add and retrieve objects from hello cache]
+* [Merhaba önbelleğinde .NET nesneleriyle çalışma](#work-with-net-objects-in-the-cache)
 
 <a name="connect-to-cache"></a>
 
-## <a name="connect-to-the-cache"></a>Önbelleğe bağlanma
-Program aracılığıyla bir önbellekle çalışmak için önbelleğe başvuru gerekir. Azure Redis Cache’e erişmek üzere StackExchange.Redis istemcisini kullanmak istediğiniz bir dosyanın en üstüne aşağıdakileri ekleyin.
+## <a name="connect-toohello-cache"></a>Toohello Önbelleği'ne bağlama
+tooprogrammatically iş sahip bir önbellek, bir başvuru toohello önbellek gerekir. Toohello üst toouse hello StackExchange.Redis istemcisi tooaccess bir Azure Redis önbelleği istediğiniz herhangi bir dosyasının içinden aşağıdaki hello ekleyin.
 
     using StackExchange.Redis;
 
 > [!NOTE]
-> StackExchange.Redis istemcisi .NET Framework 4 veya üst sürümünü gerektirir.
+> Merhaba StackExchange.Redis istemcisi .NET Framework 4 veya üstünü gerektirir.
 > 
 > 
 
-Azure Redis Cache bağlantısı `ConnectionMultiplexer` sınıfı tarafından yönetilir. Bu sınıf istemci uygulamanız genelinde paylaşılmak ve yeniden kullanılmak içindir ve işlem bazında oluşturulmasına gerek yoktur. 
+Azure Redis önbelleği hello tarafından yönetilen bağlantı toohello hello `ConnectionMultiplexer` sınıfı. Bu sınıf, paylaşılan ve istemci uygulamanız genelinde yeniden ve işlem bazında oluşturulan toobe gerekli değildir. 
 
-Bir Azure Redis Cache’e bağlanmak ve bağlı bir `ConnectionMultiplexer` örneği döndürülmesi için, statik `Connect` yöntemini çağırın ve önbellek uç noktasını ve anahtarı geçirin. Parola parametresi olarak Azure portalında oluşturulan anahtarı kullanın.
+Azure Redis önbelleği tooconnect tooan ve bağlı bir örneği döndürülmesi `ConnectionMultiplexer`, çağrı hello statik `Connect` yöntemi ve hello geçişinde önbellek uç noktasını ve anahtarı. Merhaba hello parola parametresi olarak Azure portalında üretilen hello anahtarı kullanın.
 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
 > [!IMPORTANT]
-> Uyarı: Kimlik bilgilerini asla kaynak kodunda depolamayın. Bu örneği basit tutmak için bunları kaynak kodunda gösteriyorum. Kimlik bilgilerini depolamaya hakkında bilgi için, bkz. [Uygulama Dizeleri ve Bağlantı Dizeleri Nasıl Çalışır?][How Application Strings and Connection Strings Work]
+> Uyarı: Kimlik bilgilerini asla kaynak kodunda depolamayın. tookeep Bu örneği basit ı bunları hello kaynak kodunda gösteren. Bkz: [nasıl uygulama dizeleri ve bağlantı dizeleri çalışma] [ How Application Strings and Connection Strings Work] hakkında bilgi için toostore kimlik bilgileri.
 > 
 > 
 
-SSL kullanmak istemiyorsanız, `ssl=false` ayarlayın ya da `ssl` parametresini atlayın.
+Toouse SSL istemiyorsanız ya da ayarlayın `ssl=false` veya hello çıkarın `ssl` parametresi.
 
 > [!NOTE]
-> SSL olmayan bağlantı noktasın yeni önbellekler için varsayılan olarak devre dışı bırakılmıştır. SSL olmayan bağlantı noktası etkinleştirme hakkında yönergeler için bkz. [Erişim Bağlantı Noktaları](cache-configure.md#access-ports).
+> Merhaba SSL olmayan bağlantı noktasının yeni önbellekler için varsayılan olarak devre dışıdır. Merhaba SSL olmayan bağlantı noktasının etkinleştirilmesi ile ilgili yönergeler için bkz: [erişim bağlantı noktaları](cache-configure.md#access-ports).
 > 
 > 
 
-Uygulamanızda bir `ConnectionMultiplexer` örneği paylaşmaya ilişkin bir yaklaşım, aşağıdaki örneğe benzer bir bağlı örnek döndüren statik özelliğe sahip olmaktır. Bu yaklaşım yalnızca tek bir bağlı `ConnectionMultiplexer` örneği başlatmak için iş parçacığı güvenli bir yol sağlar. Bu örneklerde `abortConnect` false olarak ayarlanır; bunun anlamı Azure Redis Cache’e bağlantı kurulmasa bile çağrının başarılı olacağıdır. `ConnectionMultiplexer` temel özelliklerinden biri ağ sorunu ya da diğer nedenler çözümlendiğinde önbellek bağlantısını otomatik olarak geri yüklemesidir.
+Bir yaklaşım toosharing bir `ConnectionMultiplexer` örneğidir uygulamanızda toohave aşağıdaki örneğine benzer toohello bir bağlı örnek döndüren statik özelliğe. Bu yaklaşım, bağlı tek bir iş parçacığı açısından güvenli şekilde tooinitialize sağlar `ConnectionMultiplexer` örneği. Bu örneklerde `abortConnect` bağlantı toohello Azure Redis önbelleği bile kurulamazsa hello çağrı başarılı anlamına gelir kümesi toofalse değil. Temel özelliklerinden biri `ConnectionMultiplexer` hello ağ sorunu ya da diğer nedenler çözüldükten sonra otomatik olarak bağlantı toohello önbellek yükler emin olan.
 
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -125,50 +125,50 @@ Gelişmiş bağlantı yapılandırma seçenekleri hakkında daha fazla bilgi iç
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-Bağlantı kurulduktan sonra, `ConnectionMultiplexer.GetDatabase` yöntemini çağırarak Redis Cache veritabanına bir başvuru döndürün. `GetDatabase` yönteminden döndürülen nesne küçük, geçişli bir nesnedir ve depolanması gerekmez.
+Merhaba bağlantı kurulduktan sonra bir başvuru toohello redis önbelleği veritabanına göre arama hello dönmek `ConnectionMultiplexer.GetDatabase` yöntemi. Merhaba hello döndürülen `GetDatabase` yöntemi basit bir geçiş nesnesi ve depolanan toobe gerekli değildir.
 
-    // Connection refers to a property that returns a ConnectionMultiplexer
-    // as shown in the previous example.
+    // Connection refers tooa property that returns a ConnectionMultiplexer
+    // as shown in hello previous example.
     IDatabase cache = Connection.GetDatabase();
 
-    // Perform cache operations using the cache object...
-    // Simple put of integral data types into the cache
+    // Perform cache operations using hello cache object...
+    // Simple put of integral data types into hello cache
     cache.StringSet("key1", "value");
     cache.StringSet("key2", 25);
 
-    // Simple get of data types from the cache
+    // Simple get of data types from hello cache
     string key1 = cache.StringGet("key1");
     int key2 = (int)cache.StringGet("key2");
 
-Azure Redis Cache’ler, bir Redis Cache’teki verileri mantıksal olarak ayırmak için yapılandırılabilir sayıda veritabanına (varsayılan değer 16) sahiptir. Daha fazla bilgi için bkz. [Redis veritabanı nedir?](cache-faq.md#what-are-redis-databases) ve [Varsayılan Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration).
+Azure Redis önbellekleri yapılandırılabilir Redis önbelleği içinde kullanılan toologically ayrı hello veri olabilir (varsayılan 16) veritabanlarının sahiptir. Daha fazla bilgi için bkz. [Redis veritabanı nedir?](cache-faq.md#what-are-redis-databases) ve [Varsayılan Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration).
 
-Artık Azure Redis Cache örneğine bağlanmayı ve önbellek veritabanına bir başvuru döndürmeyi bildiğinize göre, şimdi önbellekle çalışmaya göz atalım.
+Veritabanı tooconnect tooan Azure Redis önbelleği örneği ve return başvuru toohello nasıl önbelleğe bildiğinize göre hello önbellekle çalışmaya konumundaki bakalım.
 
 <a name="add-object"></a>
 
-## <a name="add-and-retrieve-objects-from-the-cache"></a>Önbelleğe nesneler ekleme ve nesneleri önbellekten alma
-`StringSet` ve `StringGet` yöntemleri.kullanılarak öğeleri bir önbellekte depolanabilir ve önbellekten alınabilir.
+## <a name="add-and-retrieve-objects-from-hello-cache"></a>Ekleme ve nesneleri hello önbellekten alma
+Öğeleri depolanır ve hello kullanarak önbellekten `StringSet` ve `StringGet` yöntemleri.
 
     // If key1 exists, it is overwritten.
     cache.StringSet("key1", "value1");
 
     string value = cache.StringGet("key1");
 
-Redis, Redis dizeleri kadar veri depolar, ancak bu dizeler önbellekte .NET nesneleri depolarken kullanılabilecek seri hale getirilmiş ikili veriler dahil, birçok veri türünü içerebilir.
+Çoğu veri Redis dizeleri, ancak bu dizeler olarak pek çok .NET nesneleri depolarken kullanılabilecek hello önbelleğinde seri hale getirilmiş ikili veriler dahil olmak üzere veri türünü içerebilir depoları redis.
 
-`StringGet` çağrılırken, nesne varsa, döndürülür ve nesne yoksa, `null` döndürülür. `null` döndürülürse istenen veri kaynağından değeri alabilir ve sonra kullanmak için önbellekte saklayabilirsiniz. Bu kullanım şekli edilgen önbellek düzeni olarak bilinir.
+Çağrılırken `StringGet`, hello nesne varsa, döndürülür ve onu yoksa `null` döndürülür. Varsa `null` döndürülür, hello değeri hello istenen veri kaynağından almak ve daha sonra kullanılmak hello önbelleğindeki saklayın. Bu kullanım deseni hello edilgen önbellek düzeni bilinir.
 
     string value = cache.StringGet("key1");
     if (value == null)
     {
-        // The item keyed by "key1" is not in the cache. Obtain
-        // it from the desired data source and add it to the cache.
+        // hello item keyed by "key1" is not in hello cache. Obtain
+        // it from hello desired data source and add it toohello cache.
         value = GetValueFromDataSource();
 
         cache.StringSet("key1", value);
     }
 
-Aynı zamanda aşağıdaki örnekte gösterildiği gibi `RedisValue` kullanabilirsiniz. `RedisValue`, tam sayı veri türleriyle çalışmaya yönelik örtük işleçlere sahiptir ve önbelleğe alınan öğe için `null` beklenen bir değerse yararlı olabilir.
+Aynı zamanda `RedisValue`hello aşağıdaki örnekte gösterildiği gibi. `RedisValue`, tam sayı veri türleriyle çalışmaya yönelik örtük işleçlere sahiptir ve önbelleğe alınan öğe için `null` beklenen bir değerse yararlı olabilir.
 
 
     RedisValue value = cache.StringGet("key1");
@@ -179,14 +179,14 @@ Aynı zamanda aşağıdaki örnekte gösterildiği gibi `RedisValue` kullanabili
     }
 
 
-Bir öğenin önbellekte sona erme tarihini belirtmek için, `StringSet` dizesine ait `TimeSpan` parametresini kullanın.
+bir öğenin hello önbelleğindeki kullanım hello toospecify hello sona erme `TimeSpan` parametresinin `StringSet`.
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
-## <a name="work-with-net-objects-in-the-cache"></a>Önbellekte .NET nesneleriyle çalışma
-Azure Redis Cache temel veri türlerinin yanı sıra .NET nesnelerini de önbelleğe alabilir, ancak bir .NET nesnesini önbelleğe alabilmek için seri hale getirilmesi gerekir. Bu .NET nesne serileştirmesi uygulama geliştiricisinin sorumluluğundadır ve geliştiriciye seri hale getirici tercihinde esneklik sağlar.
+## <a name="work-with-net-objects-in-hello-cache"></a>Merhaba önbelleğinde .NET nesneleriyle çalışma
+Azure Redis Cache temel veri türlerinin yanı sıra .NET nesnelerini de önbelleğe alabilir, ancak bir .NET nesnesini önbelleğe alabilmek için seri hale getirilmesi gerekir. Bu .NET nesne seri hale getirme hello uygulama geliştiricisi hello sorumluluğundadır ve hello seri hale getirici hello tercihini hello Geliştirici esnekliği sağlar.
 
-Nesneleri seri hale getirmenin basit bir yolu [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1)’te `JsonConvert` seri hale getirme yöntemleri kullanmak ve JSON’a ve JSON’dan seri hale getirmektir. Aşağıdaki örnekte bir `Employee` nesnesi örneği kullanılarak al ve ayarla seçeneği gösterilmiştir.
+Bir basit yol tooserialize nesneleri olan toouse hello `JsonConvert` seri hale getirme yöntemleri [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) ve tooand JSON öğesinden seri. Merhaba aşağıdaki örnek bir kullanılarak Al ve Ayarla gösterir bir `Employee` nesne örneği.
 
     class Employee
     {
@@ -200,7 +200,7 @@ Nesneleri seri hale getirmenin basit bir yolu [Newtonsoft.Json.NET](https://www.
         }
     }
 
-    // Store to cache
+    // Store toocache
     cache.StringSet("e25", JsonConvert.SerializeObject(new Employee(25, "Clayton Gragg")));
 
     // Retrieve from cache
@@ -209,36 +209,36 @@ Nesneleri seri hale getirmenin basit bir yolu [Newtonsoft.Json.NET](https://www.
 <a name="next-steps"></a>
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Artık temel bilgileri öğrendiğinize göre, Azure Redis Cache hakkında daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin.
+Merhaba öğrendiğinize göre Azure Redis önbelleği hakkında daha fazla bu bağlantılar toolearn izleyin.
 
-* Azure Redis Cache için ASP.NET sağlayıcılarına göz atın.
+* Out Hello Azure Redis önbelleği için ASP.NET sağlayıcılarına denetleyin.
   * [Azure Redis Oturum Durumu Sağlayıcısı](cache-aspnet-session-state-provider.md)
   * [Azure Redis Cache ASP.NET Çıktı Önbelleği Sağlayıcısı](cache-aspnet-output-cache-provider.md)
-* Önbelleğinizin sistem durumunu [izleyebilmeniz](cache-how-to-monitor.md) için [önbellek tanılamayı etkinleştirin](cache-how-to-monitor.md#enable-cache-diagnostics). Azure portalında ölçümleri görüntüleyebilir ve ayrıca istediğiniz araçları kullanarak bunları [indirebilir ve gözden geçirebilirsiniz](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
-* [StackExchange.Redis önbellek istemcisi belgelerine][StackExchange.Redis cache client documentation] bakın.
+* [Önbellek tanılamayı etkinleştirin](cache-how-to-monitor.md#enable-cache-diagnostics) , böylece [İzleyici](cache-how-to-monitor.md) hello önbelleğinizin sistem durumunu. Hello Azure portal ve ölçümler için de hello görüntüleyebilirsiniz [indirebilir ve gözden](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) bunları tercih ettiğiniz hello araçlarını kullanma.
+* Merhaba denetleyin [StackExchange.Redis önbellek istemcisi belgeleri][StackExchange.Redis cache client documentation].
   * Azure Redis Cache birçok Redis istemcisinden ve geliştirme dilinden erişilebilir. Daha fazla bilgi için bkz. [http://redis.io/clients][http://redis.io/clients].
 * Azure Redis Cache ayrıca Redsmin ve Redis Desktop Manager gibi üçüncü taraf hizmetler ve araçlarla birlikte kullanılabilir.
-  * Redsmin hakkında daha fazla bilgi için bkz. [Azure Redis bağlantı dizesi alma ve Redsmin ile birlikte kullanma][How to retrieve an Azure Redis connection string and use it with Redsmin].
+  * Redsmin birlikte hakkında daha fazla bilgi için bkz: [nasıl tooretrieve bir Azure Redis bağlantı dizesi ve redsmin ile birlikte][How tooretrieve an Azure Redis connection string and use it with Redsmin].
   * Azure Redis Cache’teki verilerinize erişin ve bunları [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager) kullanan bir GUI ile inceleyin.
-* [redis][redis] belgelerine bakın ve [redis veri türleri][redis data types] hakkında bilgi edinin ve [Redis veri türlerine on beş dakikalık bir giriş][a fifteen minute introduction to Redis data types] sayfasına göz atın.
+* Merhaba bkz [redis] [ redis] belgeleri ve hakkında bilgi [redis veri türleri] [ redis data types] ve [on beş dakikalık bir giriş tooRedis veri türleri][a fifteen minute introduction tooRedis data types].
 
 <!-- INTRA-TOPIC LINKS -->
 [Next Steps]: #next-steps
-[Introduction to Azure Redis Cache (Video)]: #video
+[Introduction tooAzure Redis Cache (Video)]: #video
 [What is Azure Redis Cache?]: #what-is
 [Create an Azure Cache]: #create-cache
 [Which type of caching is right for me?]: #choosing-cache
-[Prepare Your Visual Studio Project to Use Azure Caching]: #prepare-vs
-[Configure Your Application to Use Caching]: #configure-app
+[Prepare Your Visual Studio Project tooUse Azure Caching]: #prepare-vs
+[Configure Your Application tooUse Caching]: #configure-app
 [Get Started with Azure Redis Cache]: #getting-started-cache-service
-[Create the cache]: #create-cache
-[Configure the cache]: #enable-caching
-[Configure the cache clients]: #NuGet
+[Create hello cache]: #create-cache
+[Configure hello cache]: #enable-caching
+[Configure hello cache clients]: #NuGet
 [Working with Caches]: #working-with-caches
-[Connect to the cache]: #connect-to-cache
-[Add and retrieve objects from the cache]: #add-object
-[Specify the expiration of an object in the cache]: #specify-expiration
-[Store ASP.NET session state in the cache]: #store-session
+[Connect toohello cache]: #connect-to-cache
+[Add and retrieve objects from hello cache]: #add-object
+[Specify hello expiration of an object in hello cache]: #specify-expiration
+[Store ASP.NET session state in hello cache]: #store-session
 
 
 <!-- IMAGES -->
@@ -267,7 +267,7 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Cache hakkında daha 
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
 [Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
-[How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
+[How tooretrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
 [Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
@@ -276,16 +276,16 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Cache hakkında daha 
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
+[How tooConfigure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
-[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[How to: Set hello Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
 [StackExchange.Redis configuration model]: https://stackexchange.github.io/StackExchange.Redis/Configuration
 
-[Work with .NET objects in the cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
+[Work with .NET objects in hello cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
@@ -295,16 +295,16 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Cache hakkında daha 
 [Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
 
-[Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
+[Migrate tooAzure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Using Resource groups to manage your Azure resources]: ../azure-resource-manager/resource-group-overview.md
+[Using Resource groups toomanage your Azure resources]: ../azure-resource-manager/resource-group-overview.md
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [StackExchange.Redis cache client documentation]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
 [Redis data types]: http://redis.io/topics/data-types
-[a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
+[a fifteen minute introduction tooRedis data types]: http://redis.io/topics/data-types-intro
 
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 

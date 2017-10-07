@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama ağ geçidi - şablonları oluşturma | Microsoft Docs"
-description: "Bu sayfa, Azure Resource Manager şablonunu kullanarak, Azure uygulama ağ geçidi oluşturma yönergelerini verir."
+title: "Azure uygulama ağ geçidi - şablonları aaaCreate | Microsoft Docs"
+description: "Bu sayfa, hello Azure Resource Manager şablonu kullanarak bir Azure uygulama ağ geçidi yönergeleri toocreate sağlar"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
-ms.openlocfilehash: 46cca89ccb5bd77d57fabc3e9027fcebd38da8e7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fc18e553852551326d6a302abe2c7f8a08c2eb6c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonunu kullanarak uygulama ağ geçidi oluşturma
+# <a name="create-an-application-gateway-by-using-hello-azure-resource-manager-template"></a>Hello Azure Resource Manager şablonu kullanarak bir uygulama ağ geçidi oluşturma
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-create-gateway-portal.md)
@@ -28,11 +28,11 @@ ms.lasthandoff: 08/03/2017
 > * [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ve performans yönlendirmeli HTTP istekleri sağlar. Application Gateway; HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi, Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları, çoklu site desteği gibi birçok uygulama teslim denetleyicisi (ADC) özelliği sunar. Desteklenen özelliklerin tam listesi için ziyaret edin [uygulama ağ geçidi'ne genel bakış](application-gateway-introduction.md)
+Azure Application Gateway, bir katman 7 yük dengeleyicidir. Merhaba Bulut veya şirket içi olup, yük devretme ve performans yönlendirme HTTP isteklerini, farklı sunucular arasında sağlar. Application Gateway; HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi, Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları, çoklu site desteği gibi birçok uygulama teslim denetleyicisi (ADC) özelliği sunar. toofind desteklenen özelliklerin tam bir listesi ziyaret [uygulama ağ geçidi'ne genel bakış](application-gateway-introduction.md)
 
-Bu makalede, indirme ve var olan bir Azure Resource Manager şablonunu github'dan değiştirme ve şablonu GitHub, PowerShell ve Azure CLI dağıtımı aracılığıyla anlatılmaktadır.
+Bu makalede, indirme ve var olan bir Azure Resource Manager şablonunu github'dan değiştirme ve hello şablonu GitHub, PowerShell ve Azure CLI hello dağıtma anlatılmaktadır.
 
-Azure Resource Manager şablonunu hiçbir değişiklik yapmadan doğrudan GitHub'dan dağıtıyorsanız, GitHub'dan şablon dağıtma bölümüne atlayın.
+Yalnızca hello Azure Resource Manager şablonu herhangi bir değişiklik yapmadan doğrudan github'dan dağıtıyorsanız, Github'dan şablon toodeploy atlayın.
 
 ## <a name="scenario"></a>Senaryo
 
@@ -41,48 +41,48 @@ Bu senaryoda:
 * Bir uygulama ağ geçidi ile web uygulaması güvenlik duvarı oluşturun.
 * Ayrılmış 10.0.0.0/16 CIDR bloğu olan, VirtualNetwork1 adlı bir sanal ağ oluşturacaksınız.
 * Appgatewaysubnet adlı, CIDR bloğu olarak 10.0.0.0/28 kullanan bir alt ağ oluşturacaksınız.
-* Trafik yük dengelemesi yapmak istediğiniz web sunucuları için, önceden yapılandırılmış iki arka uç IP’si ayarlayacaksınız. Bu şablon örneğinde arka uç IP’leri 10.0.1.10 ve 10.0.1.11’dir.
+* Merhaba web sunucuları için önceden yapılandırılmış iki arka uç IP'leri ayarlamak tooload hello trafiği dengelemek istiyorsunuz. Bu şablon örneğinde hello arka uç IP de 10.0.1.10 ve 10.0.1.11.olacak.
 
 > [!NOTE]
-> Bu ayarlar, bu şablonun parametreleridir. Şablonu özelleştirmek için kuralları, dinleyiciyi, SSL ve diğer seçenekleri azuredeploy.json dosyasını değiştirebilirsiniz.
+> Bu ayarlar, bu şablonu hello parametreleridir. toocustomize hello şablonu, kurallar, hello dinleyicisi, SSL ve diğer seçenekleri hello azuredeploy.json dosyasını değiştirebilirsiniz.
 
 ![Senaryo](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
-## <a name="download-and-understand-the-azure-resource-manager-template"></a>Azure Resource Manager şablonu indirme ve anlama
+## <a name="download-and-understand-hello-azure-resource-manager-template"></a>İndirme ve hello Azure Resource Manager şablonu anlama
 
-GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resource Manager şablonunu indirebilir, istediğiniz değişikliği yapabilir ve yeniden kullanabilirsiniz. Bunu yapmak için aşağıdaki adımları kullanın:
+Merhaba mevcut Azure Resource Manager şablonu toocreate bir sanal ağ ve iki alt Github'dan indirdiğinizde, istediğiniz ve yeniden tüm değişiklikleri yapın. toodo, bu nedenle, hello aşağıdaki adımları kullanın:
 
-1. Gidin [etkin web uygulaması güvenlik duvarı ile uygulama ağ geçidi oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf).
+1. Çok gidin[etkin web uygulaması güvenlik duvarı ile uygulama ağ geçidi oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf).
 1. **azuredeploy.json** ve **RAW** öğelerine sırayla tıklayın.
-1. Dosyayı bilgisayarınızdaki yerel bir klasöre kaydedin.
-1. Eğer Azure Resource Manager şablonları hakkında bilginiz varsa, 7. adıma atlayın.
-1. Kaydettiğiniz dosyayı açın ve altındaki içeriğe bakın **parametreleri** satırında
+1. Merhaba dosya tooa yerel klasör bilgisayarınıza kaydedin.
+1. Azure Resource Manager şablonları hakkında bilginiz varsa 7 toostep atlayın.
+1. Kaydettiğiniz hello dosyasını açın ve altındaki hello içeriğe bakın **parametreleri** satırında
 1. Azure Resource Manager şablonu parametreleri, dağıtım sırasında doldurulabilecek değerler için yer tutucu sağlar.
 
   | Parametre | Açıklama |
   | --- | --- |
-  | **subnetPrefix** |Uygulama ağ geçidi alt ağının CIDR bloğu. |
-  | **applicationGatewaySize** | Uygulama ağ geçidi boyutu.  WAF yalnızca orta ve büyük ölçekli izin verir. |
-  | **backendIpaddress1** |İlk web sunucusunun IP adresi. |
-  | **backendIpaddress2** |İkinci web sunucusunun IP adresi. |
-  | **wafEnabled** | WAF etkin olup olmadığını belirlemek için ayarlama.|
-  | **wafMode** | Web uygulaması güvenlik duvarı modu.  Kullanılabilir seçenekler **önleme** veya **algılama**.|
-  | **wafRuleSetType** | WAF RuleSet türü.  Şu anda OWASP yalnızca desteklenen bir seçenektir. |
-  | **wafRuleSetVersion** |RuleSet sürümü. Şu anda desteklenen seçenekler OWASP CRS 2.2.9 ve 3.0 belirtilmiştir. |
+  | **subnetPrefix** |Merhaba uygulama ağ geçidi alt ağının CIDR bloğu. |
+  | **applicationGatewaySize** | Merhaba uygulama ağ geçidi boyutu.  WAF yalnızca orta ve büyük ölçekli izin verir. |
+  | **backendIpaddress1** |Merhaba ilk web sunucusunun IP adresi. |
+  | **backendIpaddress2** |Merhaba ikinci web sunucusunun IP adresi. |
+  | **wafEnabled** | WAF etkinleştirilirse toodetermine ayarlama.|
+  | **wafMode** | Merhaba web uygulaması güvenlik duvarı modu.  Kullanılabilir seçenekler **önleme** veya **algılama**.|
+  | **wafRuleSetType** | WAF RuleSet türü.  Şu anda OWASP hello seçeneği yalnızca desteklenen değil. |
+  | **wafRuleSetVersion** |RuleSet sürümü. Şu anda desteklenen hello seçenekler OWASP CRS 2.2.9 ve 3.0 belirtilmiştir. |
 
-1. Altındaki içeriği denetleyin **kaynakları** ve aşağıdaki özelliklere dikkat edin:
+1. Merhaba içeriği altında denetleyin **kaynakları** ve bildirimi hello aşağıdaki özellikleri:
 
-   * **type**. Şablon tarafından oluşturulan kaynak türü. Bu durumda, türüdür `Microsoft.Network/applicationGateways`, bir uygulama ağ geçidini temsil eder.
-   * **name**. Kaynağın adı. Kullanımına dikkat edin `[parameters('applicationGatewayName')]`, adı giriş olarak sizin tarafınızdan veya bir parametre dosyası dağıtımı sırasında sağlanan anlamına gelir.
-   * **properties**. Kaynak özelliklerinin listesi. Bu şablon, uygulama ağ geçidi oluştururken sanal ağı ve genel IP adresini kullanır.
+   * **type**. Merhaba şablon tarafından oluşturulan kaynak türü. Bu durumda, hello türüdür `Microsoft.Network/applicationGateways`, bir uygulama ağ geçidini temsil eder.
+   * **name**. Merhaba kaynak adı. Bildirim hello kullanımını `[parameters('applicationGatewayName')]`, bu hello adı başka bir deyişle, girdi olarak sizin tarafınızdan veya bir parametre dosyası dağıtımı sırasında sağlanır.
+   * **properties**. Merhaba kaynak özelliklerinin listesi. Bu şablon, uygulama ağ geçidi oluşturma sırasında hello sanal ağ ve genel IP adresini kullanır.
 
    > [!NOTE]
    > Şablonlar hakkında daha fazla bilgi için ziyaret edin: [Resource Manager şablonları başvurusu](/templates/)
 
-1. Geri gidin [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
+1. Geri çok gidin[https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Tıklatın **azuredeploy-parameters.json**ve ardından **RAW**.
-1. Dosyayı bilgisayarınızdaki yerel bir klasöre kaydedin.
-1. Kaydettiğiniz dosyayı açın ve parametre değerlerini düzenleyin. Senaryomuzda açıklanan uygulama ağ geçidini dağıtmak için aşağıdaki değerleri kullanın.
+1. Merhaba dosya tooa yerel klasör bilgisayarınıza kaydedin.
+1. Kaydettiğiniz hello dosyasını açın ve hello parametreleri hello değerlerini düzenleyin. Senaryomuzda açıklanan değerleri toodeploy hello uygulama ağ geçidi aşağıdaki hello kullanın.
 
     ```json
     {
@@ -123,88 +123,88 @@ GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resou
     }
     ```
 
-1. Dosyayı kaydedin. JSON şablonunu ve parametre şablonunu, [JSlint.com](http://www.jslint.com/) gibi çevrimiçi JSON doğrulama araçlarını kullanarak test edebilirsiniz.
+1. Merhaba dosyasını kaydedin. Merhaba JSON şablonunu ve parametre şablonunu gibi çevrimiçi JSON doğrulama araçlarını kullanarak test edebilirsiniz [JSlint.com](http://www.jslint.com/).
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>PowerShell kullanarak Azure Resource Manager şablonu dağıtma
+## <a name="deploy-hello-azure-resource-manager-template-by-using-powershell"></a>PowerShell kullanarak Hello Azure Resource Manager şablonu dağıtma
 
-Azure PowerShell'i hiç kullanmadıysanız, ziyaret edin: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) ve Azure'da oturum açıp aboneliğinizi seçmek için yönergeleri izleyin.
+Azure PowerShell'i hiç kullanmadıysanız, ziyaret edin: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview) Azure'da hello yönergeleri toosign izleyin ve aboneliğinizi seçin.
 
-1. PowerShell oturum açın
+1. Oturum açma tooPowerShell
 
     ```powershell
     Login-AzureRmAccount
     ```
 
-1. Hesapla ilişkili abonelikleri kontrol edin.
+1. Merhaba hesabının Hello abonelikleri kontrol edin.
 
     ```powershell
     Get-AzureRmSubscription
     ```
 
-    Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.
+    Kimlik bilgilerinizle istendiğinde tooauthenticate var.
 
-1. Hangi Azure aboneliğinizin kullanılacağını seçin.
+1. Azure abonelikleri toouse hangisinin seçin.
 
     ```powershell
     Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
     ```
 
-1. Gerekirse, **New-AzureResourceGroup** cmdlet’ini kullanarak bir kaynak grubu oluşturun. Aşağıdaki örnekte Doğu ABD konumunda AppgatewayRG adlı yeni bir kaynak grubu oluşturacaksınız.
+1. Gerekirse, hello kullanarak bir kaynak grubu oluşturma **New-AzureResourceGroup** cmdlet'i. Aşağıdaki örnek hello, Doğu ABD konumunda AppgatewayRG adlı bir kaynak grubu oluşturun.
 
     ```powershell
     New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Önceden indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni sanal ağı dağıtmak için, **New-AzureRmResourceGroupDeployment** cmdlet’ini çalıştırın.
+1. Merhaba çalıştırmak **New-AzureRmResourceGroupDeployment** indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını önceki hello kullanarak cmdlet toodeploy hello yeni sanal ağ.
     
     ```powershell
     New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-the-azure-cli"></a>Azure CLI kullanarak Azure Resource Manager şablonu dağıtma
+## <a name="deploy-hello-azure-resource-manager-template-by-using-hello-azure-cli"></a>Hello Azure CLI kullanarak Hello Azure Resource Manager şablonu dağıtma
 
-Azure CLI kullanarak indirdiğiniz Azure Resource Manager şablonu dağıtmak için aşağıdaki adımları izleyin:
+Azure CLI kullanarak indirdiğiniz toodeploy hello Azure Resource Manager şablonu hello aşağıdaki adımları izleyin:
 
-1. Daha önce Azure CLI kullanmadıysanız, [Azure CLI yükleme ve yapılandırma](/cli/azure/install-azure-cli) sayfasına gidin ve Azure hesabınızı ve aboneliğinizi seçene kadar talimatları uygulayın.
+1. Azure CLI hiç kullanmadıysanız bkz [yükleyin ve hello Azure CLI yapılandırma](/cli/azure/install-azure-cli) ve sonra Azure hesabınızı ve aboneliğinizi toohello noktaya hello talimatlarını izleyin.
 
-1. Gerekirse, çalıştırmak `az group create` aşağıdaki kod parçacığında gösterildiği gibi bir kaynak grubu oluşturmak için komutu. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md) sayfasını ziyaret edin.
+1. Gerekli olduğunda, çalışma hello `az group create` komutu toocreate hello aşağıdaki kod parçacığında gösterildiği gibi bir kaynak grubu. Merhaba hello komutunun çıkışını dikkat edin. Merhaba çıktıdan sonra gösterilen hello listede kullanılan hello parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md) sayfasını ziyaret edin.
 
     ```azurecli
     az group create --location westus --name appgatewayRG
     ```
     
-    **-n (veya --name)**. Yeni kaynak grubunun adı. Senaryomuz için bu ad, *appgatewayRG*.
+    **-n (veya --name)**. Merhaba yeni kaynak grubu adı. Senaryomuz için bu ad, *appgatewayRG*.
     
-    **-l (veya --location)**. Yeni kaynak grubunun oluşturulduğu Azure bölgesi. Bizim senaryomuz için sahip *westus*.
+    **-l (veya --location)**. Merhaba yeni kaynak grubunun oluşturulduğu azure bölgesi. Bizim senaryomuz için sahip *westus*.
 
-1. Çalıştırma `az group deployment create` şablonu ve parametre kullanarak yeni sanal ağı dağıtmak için cmdlet indirdiğiniz ve değiştirdiğiniz önceki adımda dosyaları. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
+1. Merhaba çalıştırmak `az group deployment create` hello şablonu ve parametre kullanarak cmdlet toodeploy hello yeni sanal ağ indirdiğiniz ve değiştirdiğiniz adım önceki hello dosyaları. Merhaba çıktıdan sonra gösterilen hello listede kullanılan hello parametreler açıklanmaktadır.
 
     ```azurecli
     az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
     ```
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>Dağıtmak için tıkla özelliğini kullanarak Azure Resource Manager şablonu dağıtma
+## <a name="deploy-hello-azure-resource-manager-template-by-using-click-to-deploy"></a>Dağıtmak için kullanarak Hello Azure Resource Manager şablonu dağıtma
 
-Dağıtmak için tıkla, Azure Resource Manager şablonlarını kullanmanın başka bir yoludur. Kolay bir Azure portalıyla şablonları kullanma yoludur.
+Dağıtmak için başka bir şekilde toouse Azure Resource Manager şablonları olur. Hello Azure portalında kolay bir yolu toouse şablonlarıyla olur.
 
-1. Git [web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturma](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/).
+1. Çok Git[web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturma](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/).
 
-1. **Azure’a dağıt**’a tıklayın.
+1. Tıklatın **tooAzure dağıtmak**.
 
-    ![Azure’a Dağıt](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
+    ![TooAzure dağıtma](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
     
-1. Portalda, dağıtım şablonu parametrelerini doldurun ve **Tamam**’a tıklayın.
+1. Hello dağıtım şablonu hello portalındaki hello parametrelerini doldurun ve tıklayın **Tamam**.
 
     ![Parametreler](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
     
-1. Seçin **hüküm ve koşulları yukarıda belirtildiği ediyorum** tıklatıp **satın alma**.
+1. Seçin **toohello hüküm ve koşullar yukarıda belirtildiği kabul** tıklatıp **satın alma**.
 
-1. Özel dağıtım dikey penceresinde **Oluştur**’a tıklayın.
+1. Merhaba özel dağıtım dikey penceresinde **oluşturma**.
 
-## <a name="providing-certificate-data-to-resource-manager-templates"></a>Resource Manager şablonları için sertifika verileri sağlayan
+## <a name="providing-certificate-data-tooresource-manager-templates"></a>Sertifika verileri tooResource Manager şablonları sağlama
 
-SSL sahip bir şablon kullanıldığında, sertifikanın karşıya yüklenen yerine bir base64 dizesi sağlanması gerekir. Dönüştürmek için bir .pfx veya base64 dizesi .cer kullanmak aşağıdaki komutlardan birini. Aşağıdaki komutları sertifika şablonu için sağlanan bir base64 dizesi dönüştürülemiyor. Beklenen çıktı bir değişkende depolanan ve şablonda yapıştırılan bir dizedir.
+SSL sahip bir şablon kullanırken hello sertifikanın karşıya yüklenen yerine bir base64 dizesi sağlanan toobe gerekir. tooconvert bir .pfx veya .cer tooa base64 dizesi komutları aşağıdaki hello birini kullanın. Merhaba aşağıdaki komutları toohello şablonu sağlanan hello sertifika tooa base64 dizesi, dönüştürün. Merhaba çıktı bir değişkende depolanan ve hello şablonunda yapıştırılan bir dize bekleniyordu.
 
 ### <a name="macos"></a>macOS
 ```bash
@@ -219,7 +219,7 @@ echo $cert
 
 ## <a name="delete-all-resources"></a>Tüm kaynakları silme
 
-Bu makalede oluşturulan tüm kaynakları silmek için aşağıdaki adımlardan birini tamamlayın:
+Bu makalede, aşağıdaki adımları hello tam bir oluşturulan tüm kaynakları toodelete:
 
 ### <a name="powershell"></a>PowerShell
 
@@ -235,9 +235,9 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SSL yükü boşaltmayı yapılandırmak istiyorsanız [SSL yükü boşaltma için uygulama ağ geçidi yapılandırma](application-gateway-ssl.md) sayfasını ziyaret edin.
+SSL boşaltma tooconfigure istiyorsanız, ziyaret edin: [SSL yük boşaltımı için bir uygulama ağ geçidi](application-gateway-ssl.md).
 
-İç yük dengeleyiciyle kullanacağınız uygulama ağ geçidi yapılandırmak istiyorsanız [İç yük dengeleyici (ILB) ile uygulama ağ geçidi oluşturma](application-gateway-ilb.md) sayfasını ziyaret edin.
+Bir iç yük dengeleyici ile bir uygulama ağ geçidi toouse tooconfigure istiyorsanız, ziyaret edin: [bir iç yük dengeleyici (ILB) ile bir uygulama ağ geçidi oluşturma](application-gateway-ilb.md).
 
 Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsanız, bkz.:
 

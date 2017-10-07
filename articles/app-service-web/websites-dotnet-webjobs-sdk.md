@@ -1,6 +1,6 @@
 ---
-title: Azure WebJobs SDK nedir?
-description: "Azure WebJobs SDK Giriş. SDK nedir, yararlıdır ve kod örnekleri tipik senaryolar açıklanmaktadır."
+title: "hello Azure WebJobs SDK aaaWhat olduğu"
+description: "Giriş toohello Azure WebJobs SDK. Hangi hello SDK, tipik senaryolar için kullanışlıdır olduğu ve kod örnekleri açıklanmaktadır."
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-ms.openlocfilehash: 8eb05b7cbfb4505f2e94c5b8e6d367ec63a2f033
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: efac7a75c3b68a6a6601fb298f2ccac9bd71709d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-is-the-azure-webjobs-sdk"></a>Azure WebJobs SDK nedir?
+# <a name="what-is-hello-azure-webjobs-sdk"></a>Hello Azure WebJobs SDK nedir
 ## <a id="overview"></a>Genel bakış
-Bu makalede WebJobs SDK nedir açıklanmakta, bazı ortak senaryolar için faydalı olur ve kodunuzda kullanma hakkında genel bir bakış sunar inceler.
+Bu makale, hangi Web işleri SDK'si hello açıklar ise, bazı ortak senaryolar için faydalı olur ve kodunuzda kullanma hakkında genel bir bakış sunar inceler.
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
-[Web işleri](websites-webjobs-resources.md) bir web uygulaması, API uygulaması veya mobil uygulama olarak aynı bağlamda bir program veya komut dosyasını çalıştırmanıza olanak sağlayan bir Azure uygulama hizmeti özelliğidir. Amacı [WebJobs SDK](websites-webjobs-resources.md) bir Web işi gerçekleştirebilirsiniz, görüntü işleme, sıra işleme, RSS toplama, dosya bakımı gibi ortak görevler için yazdığınız kodları kolaylaştırmaktır ve e-postaları gönderme. Web işleri SDK'si, Azure Storage ve Service Bus ile çalışmak için görev zamanlama ve hataları işleme ve diğer birçok yaygın senaryolar için yerleşik özellikler vardır. Ayrıca, Genişletilebilir olmak için tasarlanmıştır. [Web işleri SDK'si açık kaynak olan](https://github.com/Azure/azure-webjobs-sdk/)ve bir [uzantıları için açık kaynak deposu](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
+[Web işleri](websites-webjobs-resources.md) toorun sağlayan bir Azure uygulama hizmeti bir program veya komut dosyasında hello özelliğidir bir web uygulaması, API uygulaması veya mobil uygulama olarak aynı bağlamı. Merhaba hello amacı [WebJobs SDK](websites-webjobs-resources.md) toosimplify hello kodu yazma için bir Web işi gerçekleştirebilirsiniz, görüntü işleme, sıra işleme, RSS toplama, dosya bakımı gibi genel görevleri ve e-postaları gönderme. Merhaba Web işleri SDK'si, Azure Storage ve Service Bus ile çalışmak için görev zamanlama ve hataları işleme ve diğer birçok yaygın senaryolar için yerleşik özelliğine sahiptir. Ayrıca, tasarlanmış toobe genişletilebilir. Merhaba [Web işleri SDK'si açık kaynak olan](https://github.com/Azure/azure-webjobs-sdk/)ve bir [uzantıları için açık kaynak deposu](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
-WebJobs SDK aşağıdaki bileşenleri içerir:
+Merhaba WebJobs SDK hello aşağıdaki bileşenleri içerir:
 
-* **NuGet paketlerini**. Visual Studio konsol uygulaması projesine ekleyin NuGet paketlerini yöntemlerinizi Web işleri SDK'si özniteliklerle tasarlayarak kodunuzun kullandığı bir çerçeve sağlar.
-* **Pano**. WebJobs SDK parçası Azure App Service içinde bulunur ve zengin izleme ve tanılama NuGet paketlerini kullanan programlar için sağlar. Bu izleme ve tanılama özellikleri kullanmak için kod yazmak zorunda değilsiniz.
+* **NuGet paketlerini**. NuGet paketleri tooa Visual Studio konsol uygulama projesi Ekle yöntemlerinizi Web işleri SDK'si özniteliklerle tasarlayarak kodunuzun kullandığı bir çerçeve sağlar.
+* **Pano**. Merhaba WebJobs SDK parçası Azure App Service içinde bulunur ve zengin izleme ve tanılama hello NuGet paketlerini kullanan programlar için sağlar. Bu izleme ve tanılama özellikleri toowrite kod toouse yok.
 
 ## <a id="scenarios"></a>Senaryoları
-Azure WebJobs SDK ile daha kolay işleyebilir bazı tipik senaryolar şunlardır:
+Hello Azure WebJobs SDK ile daha kolay işleyebilir bazı tipik senaryolar şunlardır:
 
-* İşlem ya da diğer CPU yoğunluklu iş görüntü. Bir ortak Web siteleri görüntüler veya videoları karşıya yükleme olanağı özelliğidir. Genellikle, karşıya ancak bunu bekleyin kullanıcı yapmak istemiyorsanız sonra içeriği işlemek istersiniz.
-* Sıranın işleme. Arka uç hizmeti ile iletişim kurmak web ön uç için yaygın bir yolu sıraları kullanmaktır. Web sitesi işlerini halletmek ihtiyaç duyduğunda üzerine bir sıraya bir ileti iter. Arka uç hizmeti sırasından ileti çeker ve çalışır. Görüntü işleme için kuyrukları kullanabilirsiniz: kullanıcı dosya sayısı gönderildikten sonra Örneğin, dosya adları bir kuyruk iletisi işleme için arka uç tarafından çekilmesi yerleştirin. Veya site yanıt hızını artırmak için kuyrukları kullanabilirsiniz. Örneğin, bir SQL veritabanına doğrudan yazmak yerine, bir kuyruğa işiniz bittiğinde, kullanıcıya bildir yazma ve iş arka uç hizmeti tanıtıcı Yüksek gecikmeli ilişkisel veritabanı izin verin. Görüntü işlemine işleme sırası örneği için bkz: [WebJobs SDK Başlarken Öğreticisi](websites-dotnet-webjobs-sdk-get-started.md).
-* RSS toplama. RSS akışları listesini tutar bir siteniz varsa, tüm arka plan işlemi akışlarında makalelerinden çekme.
-* Dosya bakımı, toplama veya günlük dosyalarını temizleme gibi.  Bazı siteler tarafından veya bunlar üzerinde analiz işlerini çalıştırmak için birleştirmek istediğiniz ayrı zaman aralıkları için oluşturulan günlük dosyalarını olabilir. Veya, eski günlük dosyaları temizlemek için haftalık çalıştırmak için bir görev zamanlama isteyebilirsiniz.
-* Giriş Azure tablolara. Depolanan dosyaların ve blobları sahip ve bunları ayrıştırma ve tablolarındaki verileri depolamak istediğiniz. Giriş işlevi çok sayıda satır (bazı durumlarda milyonlarca) yazmak ve Web işleri SDK'si, bu işlev kolayca uygulamak mümkün kılar. SDK, ayrıca İlerleme göstergesi tabloda yazılmış satır sayısı gibi gerçek zamanlı izlenmesini sağlar.
-* Arka plan iş parçacığında, çalıştırmak istediğiniz diğer uzun süre çalışan görevler [e-postaları gönderme](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure). 
-* Yedekleme işlemi her gece gerçekleştirme gibi bir zamanlamaya göre çalıştırmak istediğiniz herhangi bir görevi.
+* İşlem ya da diğer CPU yoğunluklu iş görüntü. Bir ortak Web siteleri hello özelliği tooupload görüntülere veya videolara özelliğidir. Genellikle, yüklenir, ancak bunu sırada toomake hello kullanıcı bekleme istemediğiniz sonra toomanipulate hello içerik istiyor.
+* Sıranın işleme. Bir ortak bir arka uç hizmeti ile bir web ön uç toocommunicate toouse sıraları yoldur. Merhaba Web sitesi tooget işlerini gerektiğinde, bir sıra üzerine bir ileti iter. Arka uç hizmeti hello sırasından ileti çeker ve iş hello. Görüntü işleme için kuyrukları kullanabilirsiniz: hello kullanıcı dosya sayısı gönderildikten sonra Örneğin, hello dosya adları hello arka uç işleme göre toplanmış bir kuyruk iletisi toobe yerleştirin. Veya sıraları tooimprove site yanıtlama kullanabilir. Örneğin, doğrudan tooa SQL veritabanına yazma, yerine tooa sıra yazma, işiniz bittiğinde ve iş hello arka uç hizmeti tanıtıcı Yüksek gecikmeli ilişkisel veritabanı izin hello kullanıcı söyleyin. Merhaba görüntü işlemine işleme sırası bir örnek için bkz [WebJobs SDK Başlarken Öğreticisi](websites-dotnet-webjobs-sdk-get-started.md).
+* RSS toplama. RSS akışları listesini tutar bir siteniz varsa, tüm arka plan işlemi hello akışlarında hello makalelerinden çekme.
+* Dosya bakımı, toplama veya günlük dosyalarını temizleme gibi.  Bazı siteler tarafından ya da ayrı için oluşturulan günlük dosyalarını olabilir toocombine istediğiniz zaman aralıkları sipariş toorun analiz işleri üzerlerinde. Veya tooschedule görev toorun haftalık tooclean eski günlük dosyalarını isteyebilirsiniz.
+* Giriş Azure tablolara. Depolanan dosyaların ve BLOB'lar ve tooparse istiyorsanız bunları tablolarda hello veri depolamak ve. Merhaba Giriş işlevi çok sayıda satır (bazı durumlarda milyonlarca) yazma ve hello Web işleri SDK'si olası tooimplement kılar bu işlevselliği kolayca. Merhaba SDK ayrıca İlerleme göstergesi hello hello tablosuna yazılan satır sayısı gibi gerçek zamanlı izlenmesini sağlar.
+* Bir arka plan iş parçacığında toorun gibi istediğiniz diğer uzun süre çalışan görevler [e-postaları gönderme](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure). 
+* Yedekleme işlemi her gece gerçekleştirme gibi bir zamanlamada toorun istediğiniz herhangi bir görevi.
 
-Bu senaryolar çoğunu birden çok Web işleri aynı anda çalıştırırsınız: birden çok VM çalıştırmak için bir web uygulaması ölçeklendirme isteyebilirsiniz. Bazı senaryolarda bu birden çok kez işlenen aynı veri kaybına neden, ancak yerleşik sırası, blob ve WebJobs SDK, Service Bus Tetikleyicileri kullandığınızda bu bir sorun değildir. SDK işlevlerinizi yalnızca bir kez her ileti veya blob işleneceğini sağlar.
+Bu senaryolar çoğunu tooscale birden çok Web işleri aynı anda çalıştırırsınız: birden çok VM üzerinde bir web uygulaması toorun isteyebilirsiniz. Bu hello aynı işlenen veri sonuçlanabilir bazı senaryolarda birden çok kez değildir, ancak bu bir sorun hello yerleşik sırası, blob ve hello WebJobs SDK, Service Bus Tetikleyicileri kullandığınızda. Merhaba SDK işlevlerinizi yalnızca bir kez her ileti veya blob işleneceğini sağlar.
 
-WebJobs SDK Ayrıca ortak hata senaryoları işleme işlemek kolaylaştırır. Bir işlev işlemi başarısız olur ve zaman aşımları belirtilen süre sınırı içinde tamamlanmazsa bir işlev otomatik olarak iptal ayarlayabilirsiniz bildirimleri göndermek için uyarıları ayarlayın.
+Merhaba WebJobs SDK ayrıca kolay toohandle ortak hata işleme senaryolarını kolaylaştırır. Bir işlev işlemi başarısız olur ve zaman aşımları belirtilen süre sınırı içinde tamamlanmazsa bir işlev otomatik olarak iptal ayarlayabilirsiniz, uyarıları toosend bildirimler ayarlayabilirsiniz.
 
 ## <a id="code"></a>Kod örnekleri
-Azure Storage ile çalışma genel görevler işlemek için kod basittir. Konsol uygulamanızın içinde `Main` yöntemi, oluşturduğunuz bir `JobHost` yazma yöntemleri çağrıları koordine eden nesne. Web işleri SDK'si framework yöntemlerinizi çağrısının ne zaman ve ne kullanılacak parametre değerlerini bunları kullandığınız Web işleri SDK'si özniteliklerini temel alarak bilir. SDK sağlar *Tetikleyicileri* belirten çağrılacak, işlev hangi koşullar neden ve *bağlayıcıları* bilgilerin içine ve dışına yöntem parametreleri nasıl alınacağını belirtin.
+Azure Storage ile çalışma genel görevler işlemek için hello kod basittir. Konsol uygulamanızın içinde `Main` yöntemi, oluşturduğunuz bir `JobHost` hello koordinatları nesnesi yazdığınız toomethods çağırır. Merhaba WebJobs SDK framework zaman yöntemlerinizi ve toouse hangi parametre değerleri temel Web işleri SDK'si hello üzerinde toocall özniteliklerine bilir bunları kullanın. Merhaba SDK sağlar *Tetikleyicileri* belirten hello işlevi toobe olarak adlandırılan, hangi koşullar neden ve *bağlayıcıları* belirten nasıl tooget bilgi içine ve dışına yöntem parametreleri.
 
-Örneğin, [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) özniteliği neden olan bir sırada bir ileti aldı ve ileti biçimi JSON bir bayt dizisi veya özel bir tür için ileti otomatik olarak seri durumdan çıkarılmış ise, çağrılacak işlev. [BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) özniteliği, yeni blob Azure depolama hesabınız oluşturulduğunda bir işlem tetikler.
+Örneğin, hello [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) özniteliği bir sırada bir ileti aldı ve hello ileti biçimi bir bayt dizisi veya özel bir tür için JSON ise, selamlama iletisine otomatik olarak seri durumdan çıkarılmış olduğunda adlı bir işlev toobe neden olur. Merhaba [BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) özniteliği, yeni blob Azure depolama hesabınız oluşturulduğunda bir işlem tetikler.
 
 Bir kuyruk yoklar ve alınan her kuyruk iletisi için bir blob oluşturan basit bir program şöyledir:
 
@@ -67,22 +67,22 @@ Bir kuyruk yoklar ve alınan her kuyruk iletisi için bir blob oluşturan basit 
             writer.WriteLine(inputText);
         }
 
-`JobHost` Nesnesi bir arka plan işlevler kümesi için bir kapsayıcıdır. `JobHost` Nesne İşlevler, Gözcü bunları tetikleyen olayları izler ve tetikleyici olaylar meydana geldiğinde işlevleri yürütür. Çağırmanız bir `JobHost` yöntemi geçerli iş parçacığının veya bir arka plan iş parçacığı çalışmaya kapsayıcı işlem isteyip istemediğinizi belirtin. Örnekte, `RunAndBlock` yöntemi çalışan işlemi sürekli olarak geçerli iş parçacığı üzerinde.
+Merhaba `JobHost` nesne bir arka plan işlevler kümesi için bir kapsayıcıdır. Merhaba `JobHost` nesne izleyiciler hello işlevleri, bunları tetikleyen olayları izler ve tetikleyici olaylar meydana geldiğinde hello işlevleri yürütür. Çağırmanız bir `JobHost` yöntemi tooindicate hello kapsayıcı işlem toorun istediğinizi hello geçerli iş parçacığının veya bir arka plan iş parçacığı. Merhaba örnekte hello `RunAndBlock` yöntemi çalışmaları hello işlem sürekli hello geçerli iş parçacığı üzerinde.
 
-Çünkü `ProcessQueueMessage` yöntemi bu örnekte sahip bir `QueueTrigger` özniteliği, tetikleyici bu işlevi yeni bir kuyruk iletisi alınması için. `JobHost` Nesne izleyen yeni bir kuyruk iletisi belirtilen sırada (Bu örnekte "webjobsqueue") için ve biri bulunduğunda, çağıran `ProcessQueueMessage`. 
+Çünkü hello `ProcessQueueMessage` yöntemi bu örnekte sahip bir `QueueTrigger` özniteliği, hello tetikleyici bu işlevi yeni bir kuyruk iletisi hello alınması için. Merhaba `JobHost` nesne izleyen yeni kuyruk iletileri hello belirtilen sırasına (Bu örnekte "webjobsqueue") için ve biri bulunduğunda, çağıran `ProcessQueueMessage`. 
 
-`QueueTrigger` Özniteliği bağlamalar `inputText` kuyruk iletisini değeri parametresi. Ve `Blob` özniteliği bağlamalar bir `TextWriter` "containername" adlı bir kapsayıcı "blobname" adlı bir blob nesnesi.  
+Merhaba `QueueTrigger` özniteliği bağlar hello `inputText` hello kuyruk iletisi parametre toohello değeri. Ve hello `Blob` özniteliği bağlamalar bir `TextWriter` nesne tooa blob adındaki "containername" adlı bir kapsayıcı "blobname".  
 
         public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
             [Blob("containername/blobname")]TextWriter writer)
 
-İşlevi bu parametreler için blob kuyruk iletisini değerini yazmak için sonra kullanır:
+Merhaba işlevi sonra hello sıraya ileti toohello blob bu parametreleri toowrite hello değerini kullanır:
 
         writer.WriteLine(inputText);
 
-WebJobs SDK tetikleyici ve bağlayıcı özelliklerini yazmak zorunda kod büyük ölçüde basitleştirir. Kuyruklar, BLOB'lar veya dosyalarını işlemek için veya zamanlanmış görevler başlatmak için gereken alt düzey kodu sizin için Web işleri SDK'si çerçevesi tarafından yapılır. Örneğin, framework açılır henüz yoksa sıraları kuyruk oluşturur, iletileri okuma kuyruk, işleme tamamlandı, yoksa blob kapsayıcıları oluşturur henüz BLOB'lar vb. için yazar zaman siler iletileri kuyruğa.
+Hello tetikleyici ve bağlayıcı özelliklerini hello WebJobs SDK hello kod toowrite sahip büyük ölçüde basitleştirir. alt düzey kodu gerekli tooprocess kuyruklar, BLOB'lar, veya dosyaları ya da tooinitiate zamanlanmış görevler Merhaba, sizin için Web işleri SDK'si framework hello tarafından yapılır. Örneğin, hello framework henüz mevcut kuyruklar oluşturur, açılır sıra Merhaba, okuma iletileri kuyruğa, işlem tamamlandığında, yoksa blob kapsayıcıları oluşturur henüz tooblobs vb. Yazar zaman siler iletileri kuyruğa.
 
-Aşağıdaki kod örneğinde bir WebJob içinde Tetikleyicileri çeşitli gösterir: `QueueTrigger`, `FileTrigger`, `WebHookTrigger`, ve `ErrorTrigger`. 
+Merhaba aşağıdaki kod örneğinde Tetikleyicileri çeşitli bir WebJob içinde gösterilmektedir: `QueueTrigger`, `FileTrigger`, `WebHookTrigger`, ve `ErrorTrigger`. 
 
 ```
     public class Functions
@@ -120,11 +120,11 @@ Aşağıdaki kod örneğinde bir WebJob içinde Tetikleyicileri çeşitli göste
         public static void ErrorMonitor(
         [ErrorTrigger("00:01:00", 1)] TraceFilter filter, TextWriter log,
         [SendGrid(
-            To = "admin@emailaddress.com",
+            too= "admin@emailaddress.com",
             Subject = "Error!")]
          SendGridMessage message)
         {
-            // log last 5 detailed errors to the Dashboard
+            // log last 5 detailed errors toohello Dashboard
             log.WriteLine(filter.GetDetailedMessage(5));
             message.Text = filter.GetDetailedMessage(1);
         }
@@ -132,7 +132,7 @@ Aşağıdaki kod örneğinde bir WebJob içinde Tetikleyicileri çeşitli göste
 ```
 
 ## <a id="schedule"></a>Zamanlama
-`TimerTrigger` Özniteliği imkanı sunar, tetikleyici işlevlere bir zamanlamaya göre çalıştır. WebJobs SDK'yı kullanarak bir Web işinin Azure veya zamanlama tekil işlevler aracılığıyla bir bütün olarak bir Web işi zamanlama `TimerTrigger`. Kod örneği aşağıda verilmiştir.
+Merhaba `TimerTrigger` özniteliği özelliği tootrigger işlevleri toorun bir zamanlamaya göre hello sağlar. Web işleri SDK'si kullanarak bir Web işi bir tüm ile Azure veya zamanlama tekil işlevler hello gibi bir Web işi zamanlayabilirsiniz `TimerTrigger`. Kod örneği aşağıda verilmiştir.
 
 ```
 public class Functions
@@ -145,27 +145,27 @@ public class Functions
 }
 ```
 
-Daha fazla örnek kod için bkz: [TimerSamples.cs](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/ExtensionsSample/Samples/TimerSamples.cs) Github.com'u üzerinde azure webjobs sdk uzantıları deposunda.
+Daha fazla örnek kod için bkz: [TimerSamples.cs](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/ExtensionsSample/Samples/TimerSamples.cs) hello azure webjobs sdk uzantıları deposundaki Github.com'u.
 
 ## <a name="extensibility"></a>Genişletilebilirlik
-Yerleşik işlevselliği--sınırlı değil WebJobs SDK özel tetikleyiciler ve bağlayıcıları yazmanızı sağlar.  Örneğin, önbellek olayları ve düzenli zamanlamaları Tetikleyicileri yazabilirsiniz. Bir [açık kaynak deposu](https://github.com/Azure/azure-webjobs-sdk-extensions) içeren bir [WebJobs SDK genişletilebilirlik hakkında ayrıntılı kılavuz](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) ve yardımcı olması için örnek kod başlatılan kendi Tetikleyicileri ve bağlayıcıları yazma.
+Toobuilt bileşenini sınırlı değil işlevsellik--hello Web işleri SDK'si sağlar, toowrite özel tetikleyiciler ve bağlayıcıları.  Örneğin, önbellek olayları ve düzenli zamanlamaları Tetikleyicileri yazabilirsiniz. Bir [açık kaynak deposu](https://github.com/Azure/azure-webjobs-sdk-extensions) içeren bir [WebJobs SDK genişletilebilirlik hakkında ayrıntılı kılavuz](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) ve örnek kod toohelp başlamanıza kendi Tetikleyicileri ve bağlayıcıları yazma alın.
 
-## <a id="workerrole"></a>Web işleri dışında WebJobs SDK'sını kullanarak
-Kullanan bir programı Web işleri SDK'si standart bir konsol uygulamasıdır ve her yerden çalıştırabilirsiniz--Web işi çalıştırmak sahip değil. Program geliştirme bilgisayarınızda yerel olarak sınayabilirsiniz ve bu ortamlarda birini tercih ederseniz üretimde bir bulut hizmeti çalışan rolü veya bir Windows hizmeti çalıştırabilirsiniz. 
+## <a id="workerrole"></a>Merhaba WebJobs SDK Web işleri dışında kullanma
+Web işleri SDK'si standart bir konsol uygulamasıdır ve herhangi bir yere--çalıştırabilirsiniz hello hello kullanan bir programı bir Web işi toorun sahip değil. Geliştirme bilgisayarınızda ve bu ortamlarda birini tercih ederseniz, bir bulut hizmeti çalışan rolü veya bir Windows hizmeti çalıştırabilirsiniz üretim hello programı yerel olarak sınayabilirsiniz. 
 
-Ancak, Pano yalnızca bir Azure App Service web uygulaması için bir uzantı olarak kullanılabilir. Bir Web işi dışında çalıştırın ve panoyu kullanmaya devam istiyorsanız, WebJobs SDK Pano bağlantı dizenizi başvurduğu ve web uygulamanızın Web işleri Panosu'nu sonra işlevi yürütme hakkındaki verileri gösterecek aynı depolama hesabı kullanmak için bir web uygulaması yapılandırabilirsiniz programınızdan, başka bir yere çalışıyor. URL https:// kullanarak panoya alabilirsiniz*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions. Daha fazla bilgi için bkz: [WebJobs SDK ile yerel geliştirme için bir Pano alma](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), ancak blog postası eski bir bağlantı dizesi adı gösterdiğine dikkat edin. 
+Ancak, hello Panosu yalnızca bir Azure App Service web uygulaması için bir uzantı olarak kullanılabilir. Bir Web işi dışında toorun istediğiniz ve hala hello Pano kullanıyorsanız, bir web yapılandırabilirsiniz uygulama toouse hello WebJobs SDK Pano bağlantı dizenizi başvuruyor ve bu web uygulamanızın Web işleri Panosu'nu o işlevi hakkında veri gösterecektir aynı depolama hesabı yürütme programınızdan başka bir yere çalışıyor. Merhaba URL https:// kullanarak toohello Pano alabilirsiniz*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions. Daha fazla bilgi için bkz: [hello WebJobs SDK ile yerel geliştirme için bir Pano alma](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), ancak hello blog gönderisi eski bir bağlantı dizesi adı gösterdiğine dikkat edin. 
 
 ## <a id="nostorage"></a>Pano özellikleri
-Web işleri SDK'si Tetikleyicileri veya bağlayıcıları kullanmayın olsa bile WebJobs SDK çeşitli avantajları sağlar:
+Web işleri SDK'si Tetikleyicileri veya bağlayıcıları kullanmayın olsa bile hello WebJobs SDK çeşitli avantajları sağlar:
 
-* Panodan işlevleri çağırabilir.
-* Panodan işlevleri oynatabilirsiniz.
-* Belirli Web işi (Console.Out, Console.Error, izleme, vb. kullanılarak yazılmış uygulama günlükleri) ile bağlantılı ya da bunları oluşturulan belirli işlevi çağırma bağlı panosundaki günlüklerini görüntüleyebilirsiniz (günlükleri kullanılarak yazılmış bir `TextWriter` nesnesi SDK işlevi için parametre olarak geçtiğini). 
+* Merhaba Pano işlevleri çağırabilir.
+* Merhaba Pano işlevlerden oynatabilirsiniz.
+* Hello Panosu, bağlı toohello günlüklerini görüntüleyebilirsiniz belirli WebJob (Console.Out, Console.Error, izleme, vb. kullanılarak yazılmış uygulama günlükleri) veya bağlı bunları oluşturulan toohello belirli işlev çağrısını (günlükleri kullanılarak yazılmış bir `TextWriter` Bu hello SDK toohello işlevi parametre olarak geçirir. nesne). 
 
-Daha fazla bilgi için bkz: [el ile bir işlevi çağırmak nasıl](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) ve [nasıl günlüklerini yazma](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs) 
+Daha fazla bilgi için bkz: [nasıl bir işlevi çağırmak toomanually](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) ve [nasıl toowrite günlükleri](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs) 
 
 ## <a id="nextsteps"></a>Sonraki adımlar
-WebJobs SDK'sı hakkında daha fazla bilgi için bkz: [Azure Web işleri önerilen kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
+Merhaba WebJobs SDK hakkında daha fazla bilgi için bkz: [Azure Web işleri önerilen kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
 
-WebJobs SDK'sının en son geliştirmeleri hakkında daha fazla bilgi için bkz: [sürüm notları](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
+Merhaba hello en son geliştirmeleri toohello WebJobs SDK hakkında daha fazla bilgi için bkz [sürüm notları](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
 

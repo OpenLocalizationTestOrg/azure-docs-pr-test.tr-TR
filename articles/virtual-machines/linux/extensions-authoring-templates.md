@@ -1,5 +1,5 @@
 ---
-title: "Linux VM uzantıları şablonlarıyla geliştirme | Microsoft Docs"
+title: "Linux VM uzantıları aaaAuthoring şablonlarıyla | Microsoft Docs"
 description: "Linux VM'ler için uzantılı Azure Resource Manager şablonları yazma hakkında bilgi edinin"
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,40 +15,40 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 8b017306474670bf8dde1440128e16ec35146f24
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b797e442d8706956bbc06c5be611a2b0119055d3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="authoring-azure-resource-manager-templates-with-linux-vm-extensions"></a>Linux VM uzantıları ile Azure Resource Manager şablonları yazma
 [!INCLUDE [virtual-machines-common-extensions-authoring-templates](../../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
-Azure CLI üzerinden aşağıdaki commnad çalıştırın:
+Azure CLI üzerinden commnad aşağıdaki hello çalıştırın:
 
       Azure VM extension list
 
-Bu komut, yayımcı adı, uzantı adı ve sürümü aşağıdaki olarak döndürür:
+Bu komut döndürür hello Yayımcı adı, uzantı adı ve sürümü aşağıdaki olarak:
 
       Publisher                   : Microsoft.Azure.Extensions  
       ExtensionName               : DockerExtension
       Version                     : 1.0
 
-"Publisher", "tür" ve "typeHandlerVersion" sırasıyla yukarıdaki şablonu parçacığında bulunan üç bu özellikleri eşleyin.
+Bu üç özellik çok harita "publisher", "tür" ve "typeHandlerVersion" hello şablon parçacığı yukarıda sırasıyla içinde.
 
 > [!NOTE]
-> Bu her zaman en son uzantısı sürüm en güncel işlevselliğini kazanması için kullanılması önerilir.
+> Her zaman, önerilen toouse hello son uzantısı sürüm tooget en güncelleştirilmiş hello işlevselliğini gerçekleşir.
 > 
 > 
 
-## <a name="identifying-the-schema-for-the-extension-configuration-parameters"></a>Şema uzantısı yapılandırma parametreleri için tanımlama
-Bir uzantı şablon yazma ile sonraki adım, yapılandırma parametreleri sağlamak için biçimi belirlemektir. Her bir uzantı kendi parametreleri kümesini destekler.
+## <a name="identifying-hello-schema-for-hello-extension-configuration-parameters"></a>Merhaba uzantısı yapılandırma parametreleri için Hello Şeması Tanımlama
+Sonraki adım bir uzantı şablon yazma ile Merhaba yapılandırma parametreleri sağlamak için tooidentify hello biçimidir. Her bir uzantı kendi parametreleri kümesini destekler.
 
-Linux uzantıları için örnek yapılandırmaları bakmak için belgelere bakın tıklatın [Linux eExtensions örnekleri](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Linux uzantıları için örnek yapılandırması sırasında toolook tıklatın hello belgelerine bakın [Linux eExtensions örnekleri](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Lütfen VM uzantıları ile tam olarak tam bir şablon almak için aşağıdakini bakın.
+Lütfen tooget VM uzantıları ile tam olarak tam bir şablon aşağıdaki toohello bakın.
 
 [Bir Linux VM özel betik uzantısı](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-Şablon yazma sonra Azure CLI kullanarak dağıtabilirsiniz.
+Merhaba şablon yazma sonra hello Azure CLI kullanarak dağıtabilirsiniz.
 

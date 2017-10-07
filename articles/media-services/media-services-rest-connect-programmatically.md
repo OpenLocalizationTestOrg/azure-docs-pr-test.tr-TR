@@ -1,6 +1,6 @@
 ---
-title: "REST API kullanarak Media Services hesabına bağlanma | Microsoft Docs"
-description: "Bu konu, Media Services kullanarak REST API bağlanmak gösterilmiştir."
+title: "aaaConnecting tooMedia Hizmetleri REST API kullanarak hesabı | Microsoft Docs"
+description: "Bu konuda nasıl tooconnect tooMedia Hizmetleri kullanarak REST gösterilir API."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,52 +14,52 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 4feb0eb81823835e8e0b701463d85b27f5598019
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1d5064a3612dc96f5c5ad910d183d84fb70a3b6a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connecting-to-media-services-account-using-media-services-rest-api"></a>Media Services REST API kullanarak Media Services hesabına bağlanma
+# <a name="connecting-toomedia-services-account-using-media-services-rest-api"></a>TooMedia hizmetleri hesabı Media Services REST API kullanarak bağlanma
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-connect-programmatically.md)
 > * [REST](media-services-rest-connect-programmatically.md)
 > 
 > 
 
-Bu konu, Media Services REST API ile programlama yaparken Microsoft Azure Media Services programlama bağlantı elde açıklar.
+Bu konuda nasıl tooobtain programlı bağlantı tooMicrosoft Azure Media Services ile programlamada hello Media Services REST API açıklanmaktadır.
 
-Microsoft Azure Media Services erişirken iki şey gereklidir: Azure erişim denetimi Hizmetleri (ACS) ve Media Services URI tarafından kendisine sağlanan bir erişim belirteci. Bu istekler doğru üstbilgi değerlerini belirtin ve Media Services'e çağırırken doğru erişim belirtecinde yer geçirin sürece oluştururken, istediğiniz herhangi bir yöntem kullanabilirsiniz.
+Microsoft Azure Media Services erişirken iki şey gereklidir: Azure erişim denetimi Hizmetleri (ACS) ve hello Media Services URI tarafından kendisine sağlanan bir erişim belirteci. Merhaba doğru üstbilgi değerlerini belirtin ve Media Services'e çağırırken doğru hello erişim belirtecinde yer geçirin sürece bu istekleri oluştururken, istediğiniz herhangi bir yöntem kullanabilirsiniz.
 
-Aşağıdaki adımlar, Media Services'e bağlanmak için Media Services REST API kullanırken en yaygın iş akışını açıklar:
+Merhaba Media Services REST API tooconnect tooMedia kullanarak hizmetleri zaman aşağıdaki adımları hello hello en yaygın iş akışını açıklar:
 
 1. Bir erişim belirteci alma 
-2. URI Media Services'e bağlanma 
+2. Medya Hizmetleri URI toohello bağlanma 
    
    > [!NOTE]
-   > Başarıyla https://media.windows.net için bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Yeni bir URI yapılan sonraki çağrılar yapmanız gerekir.
-   > ODATA API meta veri açıklamasını içeren bir HTTP/1.1 200 yanıtı de alabilirsiniz.
+   > Başarıyla toohttps://media.windows.net bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Sonraki çağrılar toohello yapmanız gereken yeni bir URI.
+   > Merhaba ODATA API meta veri açıklamasını içeren bir HTTP/1.1 200 yanıtı de alabilirsiniz.
    > 
    > 
-3. Yeni URL, sonraki API çağrıları gönderin. 
+3. Sonraki API çağrıları toohello yeni URL'nizi gönderin. 
    
-    Örneğin, bağlanmaya varsa sonra aşağıdaki aldığınız:
+    Örneğin, tooconnect çalışıyorsanız, sonra hello aşağıdaki var:
    
         HTTP/1.1 301 Moved Permanently
         Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
    
-    Sonraki API aramalarınız https://wamsbayclus001rest-hs.cloudapp.net/api/ göndermeniz gerekir.
+    Sonraki API çağrıları toohttps://wamsbayclus001rest-hs.cloudapp.net/api/ göndermeniz gerekir.
 
     >[!NOTE]
-    >Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
+    >Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Merhaba kullanması gereken her zaman kullanıyorsanız, aynı ilke kimliği hello aynı gün / erişim izinlerini, örneğin, uzun bir süre (karşıya yükleme olmayan ilkeleri) yerinde hedeflenen tooremain olan bulucular ilkeleri. Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
 
 ## <a name="access-control-address"></a>Erişim denetimi adresi
 Media Services erişim denetimi https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn olduğu Kuzey Çin bölgesi dışında https://wamsprodglobal001acs.accesscontrol.windows.net adresidir.
 
 ## <a name="getting-an-access-token"></a>Bir erişim belirteci alma
-Media Services REST API aracılığıyla doğrudan erişmek için ACS bir erişim belirteci almak ve hizmete yaptığınız her HTTP isteği sırasında kullanın. Bu belirteç, bir HTTP isteği ve OAuth v2 protokolünü kullanarak üstbilgisinde sağlanan erişim talepler bağlı ACS tarafından sağlanan diğer belirteçleri benzerdir. Herhangi bir önkoşulu Media Services'e doğrudan bağlanmadan önce gerekmez.
+tooaccess Media Services doğrudan hello REST API aracılığıyla ACS bir erişim belirteci almak ve hello hizmetinde yaptığınız her HTTP isteği sırasında kullanın. Bir HTTP isteği ve hello OAuth v2 protokolünü kullanarak hello üstbilgisinde sağlanan erişim talepler bağlı ACS tarafından sağlanan benzer tooother belirteçleri belirtecidir. Herhangi bir önkoşulu tooMedia Hizmetleri doğrudan bağlanmadan önce gerekmez.
 
-Aşağıdaki örnek HTTP istek üstbilgisi ve bir belirteç almak için kullanılan gövde gösterir.
+Merhaba aşağıdaki örnek hello HTTP istek üstbilgisi ve kullanılan gövde tooretrieve bir belirteç gösterir.
 
 **Üstbilgi**:
 
@@ -74,9 +74,9 @@ Aşağıdaki örnek HTTP istek üstbilgisi ve bir belirteç almak için kullanı
 
 **Gövde**:
 
-Bu istek gövdesinde client_id ve client_secret değerleri kanıtlamanız gerekir; AccountName ve AccountKey değerleri için sırasıyla client_id ve client_secret karşılık gelir. Hesabınızı ayarladığınızda, bu değerler, Media Services tarafından sağlanır. 
+Bu istek hello gövdesinde tooprove hello client_id ve client_secret değerleri gerekir; client_id ve client_secret toohello AccountName ve AccountKey değerler, sırasıyla karşılık gelir. Hesabınızı ayarladığınızda, bu değerleri tooyou Media Services tarafından sağlanır. 
 
-Media Services hesabınızı AccountKey URL kodlanmış olması gerektiğini unutmayın (bkz [yüzde kodlama](http://tools.ietf.org/html/rfc3986#section-2.1) erişim belirteci isteğiniz client_secret değer olarak kullanırken.
+Media Services hesabınızı URL kodlanmış olmalıdır, hello AccountKey unutmayın (bkz [yüzde kodlama](http://tools.ietf.org/html/rfc3986#section-2.1) erişim belirteci isteğiniz hello client_secret değer olarak kullanırken.
 
     grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -86,7 +86,7 @@ Media Services hesabınızı AccountKey URL kodlanmış olması gerektiğini unu
     grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
 
 
-Aşağıdaki örnek erişimi içeren HTTP yanıtı yanıt gövdesinde belirteci gösterir.
+Merhaba aşağıdaki örnek hello erişim içeren hello HTTP yanıtı hello yanıt gövdesi içinde belirteci gösterir.
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache, no-store
@@ -108,18 +108,18 @@ Aşağıdaki örnek erişimi içeren HTTP yanıtı yanıt gövdesinde belirteci 
 
 
 > [!NOTE]
-> Bir dış depolama birimine "access_token" ve "expires_in" değerlerini önbelleğe almak için tavsiye edilir. Belirteç veri daha sonra depolama biriminden alınan ve yeniden, Media Services REST API çağrılarında kullanılan. Bu, özellikle burada belirteç güvenli bir şekilde birden çok bilgisayar veya işlemler arasında paylaşılabilir senaryoları için kullanışlıdır.
+> Toocache hello "access_token" ve "expires_in" değerlerini tooan harici depolama önerilir. Merhaba belirteç veri daha sonra hello depolama biriminden alınan ve yeniden, Media Services REST API çağrılarında kullanılan. Bu, özellikle burada hello belirteci güvenli bir şekilde birden çok bilgisayar veya işlemler arasında paylaşılabilir senaryoları için kullanışlıdır.
 > 
 > 
 
-Erişim belirteci "expires_in" değerini izlemek ve gerektiğinde, REST API çağrıları yeni belirteçleri ile güncelleştirmek emin olun.
+Emin toomonitor hello "expires_in" değerini hello erişim belirteci yapın ve gerektiği şekilde, REST API çağrıları yeni belirteçleri ile güncelleştirin.
 
-### <a name="connecting-to-the-media-services-uri"></a>URI Media Services'e bağlanma
-Media Services için URI https://media.windows.net/ köküdür. Bu URI başlangıçta bağlanmanız gerekir ve yanıt olarak 301 yeniden yönlendir alırsanız, yeni bir URI yapılan sonraki çağrılar olmanız gerekir. Ayrıca, herhangi bir yeniden yönlendirme/takip otomatik mantık isteklerinizi kullanmayın. HTTP fiilleri ve istek gövdelerine yeni bir URI iletilen değil.
+### <a name="connecting-toohello-media-services-uri"></a>Medya Hizmetleri URI toohello bağlanma
+Merhaba Media Services için URI https://media.windows.net/ köküdür. Başlangıçta toothis URI bağlanmanız gerekir ve yanıt olarak 301 yeniden yönlendir alırsanız, sonraki çağrılar toohello olmalısınız yeni bir URI. Ayrıca, herhangi bir yeniden yönlendirme/takip otomatik mantık isteklerinizi kullanmayın. HTTP fiilleri ve istek gövdelerine değil iletilir toohello yeni bir URI.
 
-Depolama hesabı adı ile aynı Media Services hesap kurulumu sırasında kullanılan olduğu varlık dosya yükleme ve indirme için URI kök https://yourstorageaccount.blob.core.windows.net/ olduğuna dikkat edin.
+Karşıya yükleme ve varlık dosyaları indirme için URI https://yourstorageaccount.blob.core.windows.net/ hello depolama hesabı adı hello Media Services hesap kurulumu sırasında kullanılan aynı olduğu bu hello kök unutmayın.
 
-Aşağıdaki örnek, Media Services kök URI (https://media.windows.net/) için HTTP isteği gösterir. İstek 301 yeniden yönlendirme yanıt olarak alır. Sonraki istek yeni bir URI (https://wamsbayclus001rest-hs.cloudapp.net/api/) kullanıyor.     
+Aşağıdaki örnek hello HTTP isteği toohello Media Services kök URI (https://media.windows.net/) gösterir. Merhaba istek 301 yeniden yönlendirme yanıt olarak alır. Merhaba Taleplerde kullanan yeni bir URI (https://wamsbayclus001rest-hs.cloudapp.net/api/) hello.     
 
 **HTTP isteği**:
 
@@ -143,11 +143,11 @@ Aşağıdaki örnek, Media Services kök URI (https://media.windows.net/) için 
     Content-Length: 164
 
     <html><head><title>Object moved</title></head><body>
-    <h2>Object moved to <a href="https://wamsbayclus001rest-hs.cloudapp.net/api/">here</a>.</h2>
+    <h2>Object moved too<a href="https://wamsbayclus001rest-hs.cloudapp.net/api/">here</a>.</h2>
     </body></html>
 
 
-**HTTP isteği** (yeni bir URI kullanarak):
+**HTTP isteği** (yeni bir URI hello kullanarak):
 
     GET https://wamsbayclus001rest-hs.cloudapp.net/api/ HTTP/1.1
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
@@ -176,7 +176,7 @@ Aşağıdaki örnek, Media Services kök URI (https://media.windows.net/) için 
 
 
 > [!NOTE]
-> Yeni bir URI aldıktan sonra Media Services ile iletişim kurmak için kullanılması gereken URI olmasıdır. 
+> Merhaba yeni aldıktan sonra URI, Media Services ile kullanılan toocommunicate olmalıdır URI hello. 
 > 
 > 
 

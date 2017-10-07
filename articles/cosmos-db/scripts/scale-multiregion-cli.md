@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB için Azure CLI betik-Multiregion çoğaltma | Microsoft Docs"
+title: "Azure Cosmos DB için aaaAzure CLI betik-Multiregion çoğaltma | Microsoft Docs"
 description: "Azure CLI komut dosyası örneği - Azure Cosmos DB için Multiregion çoğaltma"
 services: cosmos-db
 documentationcenter: cosmosdb
@@ -16,27 +16,27 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: ab716c28b88412438d0cea80377f9f0f40dc8bd6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e3590303ed3bda9eca1046bf62fff6b61333156c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>Birden çok bölgeye Azure Cosmos DB veritabanı hesabı çoğaltabilir ve yük devretme öncelikleri Azure CLI kullanarak yapılandırma
+# <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-hello-azure-cli"></a>Birden çok bölgeye Azure Cosmos DB veritabanı hesabı çoğaltabilir ve yük devretme öncelikleri hello Azure CLI kullanarak yapılandırma
 
-Bu örnek, birden çok bölgelerdeki Azure Cosmos DB veritabanı hesabı her türlü yinelenir ve Azure CLI kullanarak yük devretme öncelikleri yapılandırır.
+Bu örnek, birden çok bölgelerdeki Azure Cosmos DB veritabanı hesabı herhangi bir tür yinelenir ve hello Azure CLI kullanarak yük devretme öncelikleri yapılandırır.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu konuda hello Azure CLI Sürüm 2.0 veya üstü çalıştığını gerektirir. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
-[!code-azurecli-interactive[Ana](../../../cli_scripts/cosmosdb/scale-cosmosdb-replicate-multiple-regions/scale-cosmosdb-replicate-multiple-regions.sh?highlight=21-31 "ölçek Azure Cosmos birden çok bölgeye Veritabanına")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-replicate-multiple-regions/scale-cosmosdb-replicate-multiple-regions.sh?highlight=21-31 "Scale Azure Cosmos DB into multiple regions")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Komut dosyası örneği çalıştırdıktan sonra kaynak grubu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu kullanılabilir.
+Merhaba komut dosyası örneği çalıştırdıktan sonra komutu aşağıdaki hello kullanılan tooremove hello kaynak grubu ve onunla ilişkili tüm kaynakları olabilir.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -44,7 +44,7 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu komut dosyası komutları aşağıdaki hello kullanır. Her komut hello tablosundaki toocommand belirli belgeleri bağlar.
 
 | Komut | Notlar |
 |---|---|
@@ -54,6 +54,6 @@ Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Hello Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
 
-Ek Azure Cosmos DB CLI kod örnekleri bulunabilir [Azure Cosmos DB CLI belgelerine](../cli-samples.md).
+Ek Azure Cosmos DB CLI kod örnekleri hello bulunabilir [Azure Cosmos DB CLI belgelerine](../cli-samples.md).

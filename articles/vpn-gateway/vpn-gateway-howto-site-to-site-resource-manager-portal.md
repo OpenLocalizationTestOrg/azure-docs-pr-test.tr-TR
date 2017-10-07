@@ -1,6 +1,6 @@
 ---
-title: "Şirket içi ağınızı bir Azure sanal ağına bağlama: Siteden Siteye VPN: Portal | Microsoft Docs"
-description: "Şirket içi ağınız ile bir Azure sanal ağı arasında genel İnternet üzerinden bir IPSec bağlantısı oluşturma adımları. Bu adımlar portalı kullanarak Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı oluşturmanıza yardımcı olur."
+title: "Şirket içi ağ tooan Azure sanal ağı bağlanın: siteden siteye VPN: portalı | Microsoft Docs"
+description: "Şirket içi bir IPSec bağlantısı üzerinden tooan Azure sanal ağı ağ adımları toocreate genel Internet hello. Bu adımları hello portal kullanarak şirket içi siteden siteye VPN ağ geçidi bağlantı oluşturmanıza yardımcı olur."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0dec0d3744f76a06313928197f3a5229290ba32b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6f0acbaf1bf016026cefade048a116e94686103d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure portalında Siteden Siteye bağlantı oluşturma
+# <a name="create-a-site-to-site-connection-in-hello-azure-portal"></a>Hello Azure portalında bir siteden siteye bağlantı oluşturma
 
-Bu makalede, Azure portalını kullanarak şirket içi ağınızdan VNet’e Siteden Siteye VPN ağ geçidi bağlantısı oluşturma işlemi gösterilir. Bu makaledeki adımlar Resource Manager dağıtım modeli için geçerlidir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
+Bu makale size nasıl toouse hello Azure portal toocreate, şirket içi ağ toohello VNet bir siteden siteye VPN ağ geçidi bağlantısını gösterir. Bu makaledeki adımları Hello toohello Resource Manager dağıtım modeli uygulayın. Liste aşağıdaki hello farklı bir seçeneği seçerek farklı dağıtım aracını veya dağıtım modelini kullanarak bu yapılandırma ayrıca oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -33,21 +33,21 @@ Bu makalede, Azure portalını kullanarak şirket içi ağınızdan VNet’e Sit
 > 
 >
 
-Siteden Siteye VPN ağ geçidi bağlantısı, şirket içi ağınızı bir IPsec/IKE (IKEv1 veya IKEv2) tüneli üzerinden Azure sanal ağına bağlamak için kullanılır. Bu bağlantı türü için, şirket içinde yer alan ve kendisine atanmış dışarıya yönelik bir genel IP adresi atanmış olan bir VPN cihazı gerekir. VPN ağ geçitleri hakkında daha fazla bilgi için bkz. [VPN ağ geçidi hakkında](vpn-gateway-about-vpngateways.md).
+Kullanılan tooconnect bir siteden siteye VPN gateway bağlantısı olan bir IPSec/IKE (Ikev1 veya Ikev2) VPN tüneli üzerinden tooan Azure sanal ağı şirket içi ağ. Bağlantı bu tür bir VPN cihazı bulunan dışarıya dönük bir genel IP adresi atanmış tooit olan şirket içi gerektirir. VPN ağ geçitleri hakkında daha fazla bilgi için bkz. [VPN ağ geçidi hakkında](vpn-gateway-about-vpngateways.md).
 
 ![Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı diyagramı](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Yapılandırmanıza başlamadan önce aşağıdaki ölçütleri karşıladığınızı doğrulayın:
+Ölçüt yapılandırmanıza başlamadan önce aşağıdaki hello karşıladığınızı doğrulayın:
 
-* Uyumlu bir VPN cihazı ve bu cihazı yapılandırabilecek birinin bulunduğundan emin olun. Uyumlu VPN cihazları ve cihaz yapılandırması hakkında daha fazla bilgi için bkz.[VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md).
+* Uyumlu bir VPN cihazı ve mümkün tooconfigure olan birisi olduğundan emin olun. Uyumlu VPN cihazları ve cihaz yapılandırması hakkında daha fazla bilgi için bkz.[VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md).
 * VPN cihazınız için dışarıya dönük genel bir IPv4 adresi olduğunu doğrulayın. Bu IP adresi bir NAT’nin arkasında olamaz.
-* Şirket içi ağ yapılandırmanızda bulunan IP adresi aralıklarıyla ilgili fazla bilginiz yoksa size bu ayrıntıları sağlayabilecek biriyle çalışmanız gerekir. Bu yapılandırmayı oluşturduğunuzda, Azure’un şirket içi konumunuza yönlendireceği IP adres aralığı ön eklerini oluşturmanız gerekir. Şirket içi ağınızın alt ağlarından hiçbiri, bağlanmak istediğiniz sanal ağ alt ağlarıyla çakışamaz. 
+* Bulunan hello IP adresi aralıklarıyla ilgili bilginiz yoksa, şirket içi ağ, bu ayrıntıları sizin için sağlayabilecek biriyle toocoordinate gerekir. Bu yapılandırma oluşturduğunuzda, Azure tooyour şirket içi konumu yönlendirilecek hello IP adresi aralığı önekleri belirtmeniz gerekir. Şirket içi ağınıza hello ağların hiçbiri diz tooconnect için istediğiniz hello sanal ağ alt ağı üzerinden olabilir. 
 
 ### <a name="values"></a>Örnek değerler
 
-Bu makaledeki örneklerde aşağıdaki değerler kullanılır. Bu değerleri kullanarak bir test ortamı oluşturabilir veya bu makaledeki örnekleri daha iyi anlamak için bunlara bakabilirsiniz.
+Bu makaledeki örneklerde Hello değerleri aşağıdaki hello kullanın. Bu değerleri toocreate bir test ortamı kullanın veya toothem başvurun toobetter anlamak bu makaledeki hello örnekler.
 
 * **VNet Name:** TestVNet1
 * **Adres Alanı:** 
@@ -59,7 +59,7 @@ Bu makaledeki örneklerde aşağıdaki değerler kullanılır. Bu değerleri kul
 * **GatewaySubnet:** 10.11.255.0/27
 * **Kaynak Grubu:** TestRG1
 * **Konum:** Doğu ABD
-* **DNS Sunucusu:** İsteğe bağlıdır. DNS sunucunuzun IP adresidir.
+* **DNS Sunucusu:** İsteğe bağlıdır. Merhaba, DNS sunucunuzun IP adresi.
 * **Sanal Ağ Geçidi Adı: VNet1GW**
 * **Genel IP:** VNet1GWIP
 * **VPN Türü:** Yol tabanlı
@@ -74,59 +74,59 @@ Bu makaledeki örneklerde aşağıdaki değerler kullanılır. Bu değerleri kul
 
 ## <a name="dns"></a>2. DNS sunucusu belirleme
 
-Siteden Siteye bağlantı oluşturmak için DNS gerekli değildir. Ancak, sanal ağınıza dağıtılmış olan kaynaklarınız için ad çözümleme istiyorsanız bir DNS sunucusu belirtmeniz gerekir. Bu ayar, bu sanal ağ için ad çözümlemede kullanmak istediğiniz DNS sunucusunu belirtmenizi sağlar. Bir DNS sunucusu oluşturmaz. Ad çözümlemesi hakkında daha fazla bilgi için bkz. [VM'ler ve rol örnekleri için Ad Çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+DNS gerekli toocreate bir Site siteye bağlantı değil. Ancak, dağıtılan tooyour sanal ağ için kaynaklar toohave ad çözümlemesi istiyorsanız, bir DNS sunucusunu belirtmeniz gerekir. Bu ayar hello DNS sunucusu, bu sanal ağ için ad çözümlemesi için toouse istediğinizi belirtmenize olanak sağlar. Bir DNS sunucusu oluşturmaz. Ad çözümlemesi hakkında daha fazla bilgi için bkz. [VM'ler ve rol örnekleri için Ad Çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="gatewaysubnet"></a>3. Ağ geçidi alt ağını oluşturma
+## <a name="gatewaysubnet"></a>3. Merhaba ağ geçidi alt ağı oluşturun
 
 [!INCLUDE [vpn-gateway-aboutgwsubnet](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
-## <a name="VNetGateway"></a>4. VPN ağ geçidini oluşturma
+## <a name="VNetGateway"></a>4. Merhaba VPN ağ geçidi oluşturma
 
 [!INCLUDE [vpn-gateway-add-gw-s2s-rm-portal](../../includes/vpn-gateway-add-gw-s2s-rm-portal-include.md)]
 
-## <a name="LocalNetworkGateway"></a>5. Yerel ağ geçidini oluşturma
+## <a name="LocalNetworkGateway"></a>5. Merhaba yerel ağ geçidi oluşturma
 
-Yerel ağ geçidi genellikle şirket içi konumunuz anlamına gelir. Siteye Azure’un başvuruda bulunmak için kullanabileceği bir ad verir, ardından bağlantı oluşturacağınız şirket içi VPN cihazının IP adresini belirtirsiniz. Ayrıca, VPN ağ geçidi üzerinden VPN cihazına yönlendirilecek IP adresi ön eklerini de belirtirsiniz. Belirttiğiniz adres ön ekleri, şirket içi adresinizde yer alan ön eklerdir. Şirket içi ağınız değişirse veya VPN cihazının genel IP adresini değiştirmeniz gerekirse değerleri daha sonra kolayca güncelleştirebilirsiniz.
+Merhaba yerel ağ geçidi genellikle tooyour içi konumunuz anlamına gelir. Merhaba site olarak Azure tooit bakın, sonra kullanabilirsiniz hello IP adresi belirtin bir ad verin hello şirket içi VPN aygıtının toowhich bir bağlantı oluşturur. Ayrıca, hello VPN ağ geçidi toohello VPN cihazı yönlendirilecek hello IP adresi öneklerini belirtin. Belirttiğiniz hello adres öneklerini hello öneklerini şirket içi ağınızda yer alan var. Şirket içi ağ değişikliklerinizi veya toochange hello genel IP adresi hello VPN cihazı için gerekiyorsa, hello değerleri daha sonra kolayca güncelleştirebilirsiniz.
 
 [!INCLUDE [Add local network gateway](../../includes/vpn-gateway-add-lng-s2s-rm-portal-include.md)]
 
 ## <a name="VPNDevice"></a>6. VPN cihazınızı yapılandırma
 
-Bir şirket içi ağı ile Siteden Siteye bağlantılar için VPN cihazı gerekir. Bu adımda VPN cihazınızı yapılandıracaksınız. VPN cihazınızı yapılandırırken şunlar gerekir:
+Siteden siteye bağlantıları tooan şirket içi ağ bir VPN cihazı gerektirir. Bu adımda VPN cihazınızı yapılandıracaksınız. VPN Cihazınızı yapılandırırken hello aşağıdaki gerekir:
 
-- Paylaşılan bir anahtar. Siteden Siteye VPN bağlantınızı oluştururken belirttiğiniz paylaşılan anahtarın aynısıdır. Bu örneklerde temel bir paylaşılan anahtar kullanılır. Kullanmak için daha karmaşık bir anahtar oluşturmanız önerilir.
-- Sanal ağ geçidinizin Genel IP adresi. Azure Portal, PowerShell veya CLI kullanarak genel IP adresini görüntüleyebilirsiniz. Azure portalını kullanarak VPN ağ geçidinizin Genel IP adresini bulmak için **Sanal ağ geçitleri**’ne gidin ve ağ geçidinizin adına tıklayın.
+- Paylaşılan bir anahtar. Bu olduğu hello aynı paylaşılan siteden siteye VPN bağlantınızı oluştururken belirttiğiniz anahtarı. Bu örneklerde temel bir paylaşılan anahtar kullanılır. Daha karmaşık bir anahtar toouse oluşturmak öneririz.
+- Merhaba sanal ağ geçidinizin genel IP adresi. Hello Azure portal, PowerShell veya CLI kullanarak hello ortak IP adresini görüntüleyebilirsiniz. toofind hello hello Azure portal kullanarak VPN ağ geçidinizin genel IP adresi gidin çok**sanal ağ geçitleri**, ağ geçidiniz hello adını tıklatın.
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="CreateConnection"></a>7. VPN bağlantısını oluşturma
+## <a name="CreateConnection"></a>7. Merhaba VPN bağlantısı oluşturun
 
-Sanal ağ geçidiniz ile şirket içi VPN cihazınız arasında Siteden Siteye VPN bağlantısı oluşturun.
+Sanal ağ geçidiniz ve şirket içi VPN aygıtınızın arasında Hello siteden siteye VPN bağlantısı oluşturun.
 
 [!INCLUDE [Add connections](../../includes/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include.md)]
 
-## <a name="VerifyConnection"></a>8. VPN bağlantısını doğrulama
+## <a name="VerifyConnection"></a>8. Merhaba VPN bağlantısını doğrulama
 
 [!INCLUDE [Verify - Azure portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
-## <a name="connectVM"></a>Sanal makineye bağlanma
+## <a name="connectVM"></a>tooconnect tooa sanal makine
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+[!INCLUDE [Connect tooa VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="reset"></a>VPN ağ geçidini sıfırlama
+## <a name="reset"></a>Nasıl tooreset bir VPN ağ geçidi
 
-Bir veya daha fazla Siteden Siteye VPN tünelinde şirketler arası VPN bağlantısını kaybederseniz bir Azure VPN ağ geçidinin sıfırlanması yararlıdır. Bu durumda şirket içi VPN cihazlarınızın tümü düzgün çalışır, ancak Azure VPN ağ geçitleriyle IPsec tünelleri kuramaz. Adımlar için bkz. [VPN ağ geçidini sıfırlama](vpn-gateway-resetgw-classic.md).
+Bir veya daha fazla Siteden Siteye VPN tünelinde şirketler arası VPN bağlantısını kaybederseniz bir Azure VPN ağ geçidinin sıfırlanması yararlıdır. Bu durumda, şirket içi VPN cihazlarınızı tüm düzgün şekilde çalışıp çalışmadığını, ancak şu tooestablish hello Azure VPN ağ geçitleri ile IPSec tünelleri. Adımlar için bkz. [VPN ağ geçidini sıfırlama](vpn-gateway-resetgw-classic.md).
 
-## <a name="resize"></a>Ağ geçidi SKU’sunu değiştirme (ağ geçidini yeniden boyutlandırma)
+## <a name="resize"></a>Nasıl toochange bir ağ geçidi SKU'su (boyutlandırma bir ağ geçidi)
 
-Bir ağ geçidi SKU'sunu değiştirme adımları için bkz. [Ağ geçidi SKU'ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+Merhaba, bir ağ geçidi SKU'su toochange adımları için bkz: [ağ geçidi SKU'ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* BGP hakkında bilgi edinmek için [BGP’ye Genel Bakış](vpn-gateway-bgp-overview.md) ve [BGP’yi yapılandırma](vpn-gateway-bgp-resource-manager-ps.md) makalelerine bakın.
+* BGP hakkında daha fazla bilgi için bkz: Merhaba [BGP genel bakış](vpn-gateway-bgp-overview.md) ve [nasıl tooconfigure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Zorlamalı Tünel Oluşturma hakkında bilgi için bkz. [Zorlamalı Tünel Oluşturma Hakkında](vpn-gateway-forced-tunneling-rm.md).
 * Yüksek Oranda Kullanılabilir Etkin-Etkin bağlantılar hakkında bilgi için bkz. [Yüksek Oranda Kullanılabilir Şirket İçi ve Dışı ile Sanal Ağdan Sanal Ağa Bağlantı](vpn-gateway-highlyavailable.md).

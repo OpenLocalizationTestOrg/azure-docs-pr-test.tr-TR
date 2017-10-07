@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT kenar (Windows) bir cihazın benzetimini | Microsoft Docs"
-description: "Azure IOT kenar Windows üzerinde bir IOT hub'ına bir Azure IOT sınır ağ geçidi üzerinden telemetri gönderen sanal bir cihaz oluşturmak için nasıl kullanılır."
+title: "Azure IOT kenar (Windows) aygıtıyla aaaSimulate | Microsoft Docs"
+description: "Nasıl toouse Azure IOT kenar Windows toocreate sanal bir cihaz üzerinde bir Azure IOT sınır ağ geçidi tooan IOT hub'ı aracılığıyla telemetri gönderir."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: andbuc
-ms.openlocfilehash: e7eb2931993daf3f0aecbd4a43d27ebd5adc10b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ddbe85eb956e9934e80e2e80e09f77b24cf54856
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Bir sanal cihaz (Windows) ile cihaz bulut iletilerini göndermek için Azure IOT kenar kullanın
+# <a name="use-azure-iot-edge-toosend-device-to-cloud-messages-with-a-simulated-device-windows"></a>Bir sanal cihaz (Windows) ile Azure IOT kenar toosend cihaz bulut iletilerini kullanın
 
 [!INCLUDE [iot-hub-iot-edge-simulated-selector](../../includes/iot-hub-iot-edge-simulated-selector.md)]
 
 [!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
-## <a name="how-to-run-the-sample"></a>Örneği çalıştırma
+## <a name="how-toorun-hello-sample"></a>Nasıl toorun hello örnek
 
-**Build.cmd** komut dosyası oluşturur, çıktı **yapı** yerel kopyasını klasöründe **IOT kenar** deposu. Bu çıktı, bu örnekte kullanılan dört IOT kenar modüller içerir.
+Merhaba **build.cmd** betik hello çıktısını oluşturur **yapı** hello yerel kopyasını klasöründe **IOT kenar** deposu. Bu çıktı, bu örnekte kullanılan hello dört IOT kenar modüller içerir.
 
-Yapı betik basamak:
+Merhaba yapı betik basamak:
 
-* **Logger.dll** içinde **yapı\\modülleri\\Günlükçü\\hata ayıklama** klasör.
-* **iothub.dll** içinde **yapı\\modülleri\\ıothub\\hata ayıklama** klasör.
-* **kimlik\_map.dll** içinde **yapı\\modülleri\\identitymap\\hata ayıklama** klasör.
-* **Benzetimli\_device.dll** içinde **yapı\\modülleri\\benzetimli\_aygıt\\hata ayıklama** klasör.
+* **Logger.dll** hello içinde **yapı\\modülleri\\Günlükçü\\hata ayıklama** klasör.
+* **iothub.dll** hello içinde **yapı\\modülleri\\ıothub\\hata ayıklama** klasör.
+* **kimlik\_map.dll** hello içinde **yapı\\modülleri\\identitymap\\hata ayıklama** klasör.
+* **Benzetimli\_device.dll** hello içinde **yapı\\modülleri\\benzetimli\_aygıt\\hata ayıklama** klasör.
 
-Bu yolları için kullanma **modül yolu** değerleri aşağıdaki JSON ayarları dosyasında gösterildiği gibi:
+Bu yolları Merhaba kullanma **modül yolu** değerleri aşağıdaki JSON ayarları dosyasına hello gösterildiği gibi:
 
-Benzetimli\_aygıt\_bulut\_karşıya\_örnek işlemi komut satırı bağımsız değişkeni olarak bir JSON yapılandırma dosyasına yolunu alır. Aşağıdaki örnek JSON dosyası SDK deposunda sağlanan **örnekleri\\benzetimli\_aygıt\_bulut\_karşıya\_örnek\\src\\ Benzetimli\_aygıt\_bulut\_karşıya\_örnek\_win.json**. Bu yapılandırma dosyası IOT kenar modülleri veya örnek yürütülebilir dosyalar varsayılan olmayan konumlara yerleştirmek için yapı betik değiştirmediğiniz sürece olduğu gibi çalışır.
+Benzetimli hello\_aygıt\_bulut\_karşıya\_örnek işlemi hello yol tooa JSON yapılandırma dosyası komut satırı bağımsız değişkeni olarak alır. Merhaba aşağıdaki örnek JSON dosyası hello SDK deposu sırasında sağlanan **örnekleri\\benzetimli\_aygıt\_bulut\_karşıya\_örnek\\src\\ Benzetimli\_aygıt\_bulut\_karşıya\_örnek\_win.json**. Merhaba değiştirmediğiniz sürece olduğundan bu yapılandırma dosyası works betik tooplace hello IOT kenar modülleri oluşturabilir veya yürütülebilir dosyalar varsayılan olmayan konumlarda örnek.
 
 > [!NOTE]
-> Dizine göre modülü yollardır burada benzetimli\_aygıt\_bulut\_karşıya\_sample.exe bulunduğu. Örnek JSON yapılandırma dosyası, geçerli çalışma dizini içinde 'deviceCloudUploadGatewaylog.log' yazmak için varsayılan olarak ayarlanır.
+> Merhaba modülü burada hello benzetimli göreli toohello dizin yollardır\_aygıt\_bulut\_karşıya\_sample.exe bulunduğu. Merhaba örnek JSON yapılandırma dosyası varsayılan olarak toowriting too'deviceCloudUploadGatewaylog.log', geçerli çalışma dizininde.
 
-Dosyayı bir metin düzenleyicisinde açın **örnekleri\\benzetimli\_aygıt\_bulut\_karşıya\_örnek\\src\\benzetimli\_aygıt\_bulut\_karşıya\_win.json** yerel kopyasını içinde **IOT kenar** deposu. Bu dosya IOT kenar modüllerini örnek ağ geçidi yapılandırır:
+Merhaba dosyasını bir metin düzenleyicisinde açın **örnekleri\\benzetimli\_aygıt\_bulut\_karşıya\_örnek\\src\\benzetimli\_aygıt \_bulut\_karşıya\_win.json** hello yerel kopyasını içinde **IOT kenar** deposu. Bu dosya hello IOT kenar modüllerini hello örnek ağ geçidi yapılandırır:
 
-* **Iothub** modülü IOT hub'ınıza bağlanır. IOT hub'ınıza veri göndermek için yapılandırın. Özellikle, ayarlanan **IoTHubName** değerini IOT hub'ınızın adını ve ayarlayın **IoTHubSuffix** değeri **azure devices.net**. Ayarlama **aktarım** değeri birine: **HTTP**, **AMQP**, veya **MQTT**. Şu anda yalnızca **HTTP** tüm aygıt iletiler için bir TCP bağlantısı paylaşır. Değeri ayarlarsanız verilen **AMQP**, veya **MQTT**, IOT hub'ı her aygıt için ayrı bir TCP bağlantı ağ geçidi korur.
-* **Eşleme** modülü IOT Hub cihaz kimliklerinizi sanal cihazlarınızın MAC adreslerini eşler. Olduğundan emin olun **DeviceID** değerleriyle eşleşen IOT hub'ınızı ve, eklediğiniz iki aygıtların kimliklerini **deviceKey** değerleri içeren iki aygıtlarınızın anahtarları.
-* **BLE1** ve **BLE2** modüllerdir sanal cihazlar. Nasıl modülü MAC adresleri eşleşen Not **eşleme** modülü.
-* **Günlükçü** modülü, ağ geçidi etkinliği bir dosyaya kaydeder.
-* **Modül yolu** aşağıdaki örnekte gösterilen göre dizin değerlerdir burada benzetimli\_aygıt\_bulut\_karşıya\_sample.exe bulunduğu.
-* **Bağlantılar** dizi JSON dosyasının sonuna bağlayan **BLE1** ve **BLE2** modüllerini **eşleme** modülü ve **eşleme** modülüne **Iothub** modülü. Ayrıca tüm iletileri tarafından kaydedilir sağlar **Günlükçü** modülü.
+* Merhaba **Iothub** modülü tooyour IOT hub'ı bağlar. Bu toosend veri tooyour IOT hub'ı yapılandırın. Özellikle, kümesi hello **IoTHubName** değer toohello adı IOT hub'ınızın ve ayarlayın hello **IoTHubSuffix** çok değer**azure devices.net**. Set hello **aktarım** , değer tooone: **HTTP**, **AMQP**, veya **MQTT**. Şu anda yalnızca **HTTP** tüm aygıt iletiler için bir TCP bağlantısı paylaşır. Merhaba değeri çok ayarlarsanız**AMQP**, veya **MQTT**, hello ağ geçidi bir ayrı TCP bağlantısı tooIoT Hub her aygıt için korur.
+* Merhaba **eşleme** modülü sanal cihazlar tooyour IOT Hub cihaz kimliklerinizi hello MAC adreslerini eşler. Olduğundan emin olun **DeviceID** değerleri Eşleştir hello kimliklerini hello tooyour IOT hub ve o hello eklediğiniz iki aygıtları **deviceKey** değerleri içeren iki aygıtlarınızın hello anahtarları.
+* Merhaba **BLE1** ve **BLE2** modüllerdir benzetimli hello aygıtlar. Nasıl hello modülü MAC adresleri hello hello eşleşen Not **eşleme** modülü.
+* Merhaba **Günlükçü** modülü, ağ geçidi etkinliği tooa dosyanızı günlüğe kaydeder.
+* Merhaba **modül yolu** aşağıdaki örneğine hello gösterilen burada hello benzetimli göreli toohello dizin değerlerdir\_aygıt\_bulut\_karşıya\_sample.exe bulunduğu.
+* Merhaba **bağlantılar** dizi hello JSON dosyasının hello altındaki bağlayan hello **BLE1** ve **BLE2** modülleri toohello **eşleme** modülü ve hello **eşleme** modülü toohello **Iothub** modülü. Ayrıca tüm iletileri hello tarafından günlüğe kaydedilen sağlar **Günlükçü** modülü.
 
 ```json
 {
@@ -138,17 +138,17 @@ Dosyayı bir metin düzenleyicisinde açın **örnekleri\\benzetimli\_aygıt\_bu
 }
 ```
 
-Yapılandırma dosyasına yapılan değişiklikleri kaydedin.
+Toohello yapılandırma dosyası yaptığınız Hello Değişiklikleri Kaydet.
 
-Örneği çalıştırmak için:
+toorun hello örneği:
 
-1. Bir komut isteminde gidin **yapı** yerel kopyasını klasöründe **IOT kenar** deposu.
-2. Şu komutu çalıştırın:
+1. Bir komut isteminde toohello gidin **yapı** hello yerel kopyasını klasöründe **IOT kenar** deposu.
+2. Merhaba aşağıdaki komutu çalıştırın:
    
     ```cmd
     samples\simulated_device_cloud_upload\Debug\simulated_device_cloud_upload_sample.exe ..\samples\simulated_device_cloud_upload\src\simulated_device_cloud_upload_win.json
     ```
-3. Kullanabileceğiniz [aygıt explorer] [ lnk-device-explorer] veya [iothub-explorer] [ lnk-iothub-explorer] ağ geçidi'nden IOT hub'ınızın aldığı iletileri izlemek için aracı. Örneğin, ıothub explorer kullanarak aşağıdaki komutu kullanarak cihaz bulut iletilerini izleyebilirsiniz:
+3. Merhaba kullanabilirsiniz [aygıt explorer] [ lnk-device-explorer] veya [iothub-explorer] [ lnk-iothub-explorer] aracı hello IOT hub'ınızın aldığı toomonitor karışılama iletileri ağ geçidi. Örneğin, ıothub explorer kullanarak cihaz bulut iletilerini komutu aşağıdaki hello kullanarak izleyebilirsiniz:
 
     ```cmd
     iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
@@ -156,15 +156,15 @@ Yapılandırma dosyasına yapılan değişiklikleri kaydedin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-IOT kenar daha gelişmiş anlamak ve bazı kod örnekleri ile denemek için aşağıdaki Geliştirici öğreticiler ve kaynakları ziyaret edin:
+toogain IOT kenarı ve deneme daha gelişmiş bir anlayış bazı kod örnekleri ile ziyaret hello aşağıdaki Geliştirici öğreticiler ve kaynaklar:
 
 * [IOT Edge fiziksel CİHAZDAN cihaz bulut iletilerini gönder][lnk-physical-device]
 * [Azure IOT kenar][lnk-iot-edge]
 
-Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
+toofurther IOT hub'ı hello özelliklerini keşfedin, bakın:
 
 * [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
-* [IOT çözümünüzden zemin oluşturan güvenli][lnk-securing]
+* [IOT çözümünüzden plan hello güvenli][lnk-securing]
 
 <!-- Links -->
 [lnk-iot-edge]: https://github.com/Azure/iot-edge/

@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Bus konuları ve abonelikleri ile çalışmaya başlama | Microsoft Docs"
+title: "aaaGet başlatılan Azure Service Bus konuları ve abonelikleri | Microsoft Docs"
 description: "Service Bus mesajlaşma konuları ve aboneliklerini kullanan bir C# konsol uygulaması yazın."
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/30/2017
 ms.author: sethm
-ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 619d602599d97ecff2ded0681a383b19f1a8b7ad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus konuları ile çalışmaya başlama
 
@@ -26,74 +26,74 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="what-will-be-accomplished"></a>Ne elde edilecek
 
-Bu öğreticide aşağıdaki adımlar yer almaktadır:
+Bu öğretici hello aşağıdaki adımları kapsar:
 
-1. Azure portalı ile Service Bus ad alanı oluşturma.
-2. Azure portalı ile Service Bus konusu oluşturma.
-3. Azure portalı ile bu konu için bir Service Bus aboneliği oluşturma.
-4. Konuya ileti göndermek için bir konsol uygulaması yazma.
-5. Abonelikten bu iletiyi almak için bir konsol uygulaması yazma.
+1. Hello Azure portal kullanarak bir hizmet veri yolu ad alanı oluşturun.
+2. Hello Azure portal kullanarak bir Service Bus konu oluşturun.
+3. Hello Azure portal kullanarak bir Service Bus abonelik toothat konu oluşturun.
+4. Bir konsol uygulaması toosend bir ileti toohello konu yazın.
+5. Bir konsol uygulaması tooreceive hello abonelikten ileti yazın.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılmaktadır.
+1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticide Hello örnekler Visual Studio 2017 kullanın.
 2. Azure aboneliği.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure portalı kullanılarak ad alanı oluşturma
+## <a name="1-create-a-namespace-using-hello-azure-portal"></a>1. Hello Azure portal kullanarak ad alanı oluşturma
 
-Daha önce bir Service Bus Mesajlaşma ad alanı oluşturduysanız [Azure portalını kullanarak konu oluşturma](#2-create-a-topic-using-the-azure-portal) bölümüne atlayın.
+Service Bus Mesajlaşma hizmeti ad alanı zaten oluşturduysanız, toohello atlama [hello Azure portal kullanarak bir konu oluşturun](#2-create-a-topic-using-the-azure-portal) bölümü.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Azure portalını kullanarak konu oluşturma
+## <a name="2-create-a-topic-using-hello-azure-portal"></a>2. Hello Azure portal kullanarak bir konu oluşturun
 
-1. [Azure portalında][azure-portal] oturum açın.
-2. Portalın sol tarafındaki gezinme bölmesinde **Service Bus**'a tıklayın (**Service Bus** yoksa **Diğer hizmetler**'e tıklayın).
-3. Konuyu oluşturmak istediğiniz ad alanına tıklayın. Ad alanına genel bakış dikey penceresi görünür:
+1. Toohello üzerinde oturum [Azure portal][azure-portal].
+2. Hello sol gezinti bölmesinde hello portalı tıklatın **Service Bus** (görmüyorsanız **Service Bus**, tıklatın **daha fazla hizmet**).
+3. Toocreate hello konu istediğiniz hello ad alanına tıklayın. Merhaba ad genel bakış dikey penceresinde görünür:
    
     ![Konu başlığı oluşturma][createtopic1]
-4. **Service Bus ad alanı** dikey penceresinde **Konular** ve ardından **Konu ekle** düğmesine tıklayın.
+4. Merhaba, **Service Bus ad alanı** dikey penceresinde'ı tıklatın **konuları**, ardından **Ekle konu**.
    
     ![Konu Seçme][createtopic2]
-5. Konu için bir ad girin ve **Bölümlemeyi etkinleştir** seçeneğini kaldırın. Diğer seçenekleri varsayılan değerlerinde bırakın.
+5. Merhaba konu için bir ad girin ve hello işaretini **bölümleme etkinleştirmek** seçeneği. Merhaba diğer seçenekleri varsayılan değerleriyle bırakın.
    
     ![Yeni Seçme][createtopic3]
-6. Dikey pencerenin altında yer alan **Oluştur** düğmesine tıklayın.
+6. Merhaba dikey penceresinde Hello altındaki tıklatın **oluşturma**.
 
-## <a name="3-create-a-subscription-to-the-topic"></a>3. Konuya abonelik oluşturma
+## <a name="3-create-a-subscription-toohello-topic"></a>3. Bir abonelik toohello konu oluştur
 
-1. Portal kaynakları bölmesinde, 1. adımda oluşturduğunuz ad alanına tıklayın ve ardından 2. adımda oluşturduğunuz konu adına tıklayın.
-2. Genel bakış bölmesinin üst kısmında **Abonelik** seçeneğinin yanındaki artı işaretine tıklayarak bu konuya bir abonelik ekleyin.
+1. Merhaba portalı kaynakları bölmesinde, 1. adımda oluşturduğunuz hello ad alanına tıklayın ve ardından 2. adımda oluşturduğunuz hello konu adına tıklayın.
+2. Merhaba genel bakış bölmesinde, hello üstündeki hello tıklatın artı sonraki çok oturum**abonelik** tooadd bir abonelik toothis konu.
 
     ![Abonelik oluşturma][createtopic4]
 
-3. Abonelik için bir ad girin. Diğer seçenekleri varsayılan değerlerinde bırakın.
+3. Merhaba abonelik için bir ad girin. Merhaba diğer seçenekleri varsayılan değerleriyle bırakın.
 
-## <a name="4-send-messages-to-the-topic"></a>4. Konuya ileti gönderme
+## <a name="4-send-messages-toohello-topic"></a>4. İletileri toohello konu gönderin
 
-Konuya ileti göndermek için Visual Studio kullanılarak bir C# konsol uygulaması yazılır.
+toosend iletileri toohello konu, Visual Studio kullanarak C# konsol uygulaması yazma.
 
 ### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
 Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** projesi oluşturun.
 
-### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet paketi ekleme
+### <a name="add-hello-service-bus-nuget-package"></a>Merhaba Service Bus NuGet paketi ekleme
 
-1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
-2. **Gözat** sekmesine tıklayın, **Microsoft Azure Service Bus** araması yapın ve **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
+1. Yeni oluşturulan hello projesine sağ tıklatın ve **NuGet paketlerini Yönet**.
+2. Merhaba tıklatın **Gözat** sekmesinde, arama **Microsoft Azure Service Bus**seçip hello **WindowsAzure.ServiceBus** öğesi. Tıklatın **yükleme** toocomplete hello yükleme, ardından bu iletişim kutusunu kapatın.
    
     ![NuGet paketi seçme][nuget-pkg]
 
-### <a name="write-some-code-to-send-a-message-to-the-topic"></a>Konuya ileti göndermek için kod yazma
+### <a name="write-some-code-toosend-a-message-toohello-topic"></a>Bir ileti toohello konu bazı kod toosend yazma
 
-1. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
+1. Merhaba aşağıdakileri ekleyin `using` hello Program.cs dosyasının deyimi toohello üst.
    
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-2. `Main` yöntemine aşağıdaki kodu ekleyin. `connectionString` değişkenini, ad alanını oluştururken elde ettiğiniz bağlantı dizesine, `topicName` değerini ise konuyu oluştururken kullandığınız ada ayarlayın.
+2. Aşağıdaki kodu toohello hello eklemek `Main` yöntemi. Set hello `connectionString` değişken toohello bağlantı dizesi hello ad alanı oluştururken, edinilen ve ayarlama `topicName` hello konu oluşturulurken kullanılan toohello adı.
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -107,11 +107,11 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
 
     client.Send(message);
 
-    Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+    Console.WriteLine("Message successfully sent! Press ENTER tooexit program");
     Console.ReadLine();
     ```
    
-    Program.cs dosyanız aşağıdaki gibi görünmelidir.
+    Program.cs dosyanızın şu biçimde olması gerekir:
    
     ```csharp
     using System;
@@ -138,25 +138,25 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
 
                 client.Send(message);
 
-                Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+                Console.WriteLine("Message successfully sent! Press ENTER tooexit program");
                 Console.ReadLine();
             }
         }
     }
     ```
-3. Programı çalıştırın ve Azure portalını denetleyin: Ad alanının **Genel Bakış** dikey penceresinde konunuzun adına tıklayın. Konunun **Temel Bileşenler** dikey penceresi gösterilir. Dikey pencerenin alt kısmının yanında listelenen aboneliklerde, her bir aboneliğin **İleti Sayısı** değerinin artık 1 olmasına dikkat edin. İletileri almadan gönderen uygulamasını her çalıştırdığınızda (sonraki bölümde açıklandığı gibi), bu değer 1 artar. Ayrıca, uygulamanın konuya/aboneliğe ileti eklediği her durumda konunun geçerli boyutu, **Temel Bileşenler** dikey penceresindeki **Geçerli** değerini artırır.
+3. Merhaba programını çalıştırın ve hello Azure portal denetleyin: Konunuzu hello ad alanındaki hello adına tıklayın **genel bakış** dikey. Merhaba konu **Essentials** dikey penceresi görüntülenir. Bu hello hello dikey penceresinde Hello altına listelenen hello aboneliklerinden içinde fark **ileti sayısı** değeri her abonelik şimdi 1 olmalıdır. Her zaman hello gönderen uygulama (Merhaba sonraki bölümde açıklandığı gibi) hello ileti alma olmadan çalıştırdığınızda, bu değer 1 ile artırır. Ayrıca bu hello geçerli boyutu hello konu artışlarla hello unutmayın **geçerli** hello değeri **Essentials** dikey penceresinde hello uygulama bir ileti toohello konu başlığının/aboneliğinin ekler her zaman.
    
       ![İleti boyutu][topic-message]
 
-## <a name="5-receive-messages-from-the-subscription"></a>5. Abonelikten ileti alma
+## <a name="5-receive-messages-from-hello-subscription"></a>5. Merhaba abonelikten ileti alma
 
-1. Yeni gönderdiğiniz iletiyi veya iletileri almak için yeni bir konsol uygulaması oluşturun ve Service Bus NuGet paketine daha önceki gönderen uygulamasına benzer bir başvuru ekleyin.
-2. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
+1. tooreceive selamlama iletisine veya, yalnızca gönderilen iletiler, yeni bir konsol uygulaması oluşturun ve bir başvuru toohello Service Bus NuGet paketi, benzer toohello önceki gönderen uygulama ekleyin.
+2. Merhaba aşağıdakileri ekleyin `using` hello Program.cs dosyasının deyimi toohello üst.
    
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. `Main` yöntemine aşağıdaki kodu ekleyin. `connectionString` değişkenini, ad alanını oluştururken elde ettiğiniz bağlantı dizesine, `topicName` değerini ise konuyu oluştururken kullandığınız ada ayarlayın.
+3. Aşağıdaki kodu toohello hello eklemek `Main` yöntemi. Set hello `connectionString` değişken toohello bağlantı dizesi hello ad alanı oluştururken, edinilen ve ayarlamanıza `topicName` hello konu oluşturulurken kullanılan toohello adı.
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -170,7 +170,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
       Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
     });
    
-    Console.WriteLine("Press ENTER to exit program");
+    Console.WriteLine("Press ENTER tooexit program");
     Console.ReadLine();
     ```
    
@@ -197,13 +197,13 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
             Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
           });
 
-          Console.WriteLine("Press ENTER to exit program");   
+          Console.WriteLine("Press ENTER tooexit program");   
           Console.ReadLine();
         }
       }
     }
     ```
-4. Programı çalıştırın ve portalı tekrar denetleyin. **İleti Sayısı** ve **Geçerli** değerlerinin artık 0 olduğuna dikkat edin.
+4. Merhaba programını çalıştırın ve hello portal yeniden denetleyin. Bu hello fark **ileti sayısı** ve **geçerli** değerler şimdi 0.
    
     ![Konu uzunluğu][topic-message-receive]
 
@@ -211,7 +211,7 @@ Tebrikler! Bir konu ve abonelik oluşturdunuz, ileti gönderdiniz ve bu iletiyi 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Service Bus mesajlaşmasının daha gelişmiş özelliklerini gösteren [örneklerin bulunduğu GitHub depomuza](https://github.com/Azure/azure-service-bus/tree/master/samples) göz atın.
+Kullanıma bizim [örnekleri GitHub deposuyla](https://github.com/Azure/azure-service-bus/tree/master/samples) , göstermek daha gelişmiş özellikler Service Bus Mesajlaşma hello bazıları.
 
 <!--Image references-->
 

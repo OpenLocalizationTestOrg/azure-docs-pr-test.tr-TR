@@ -1,6 +1,6 @@
 ---
-title: "Kesintisiz akış Windows mağazası uygulaması Öğreticisi | Microsoft Docs"
-description: "Bir C# Windows mağazası uygulaması, kesintisiz akışı kayıttan yürütme için XML MediaElement denetimi ile içerik oluşturmak için Azure Media Services kullanmayı öğrenin."
+title: "aaaSmooth akış Windows mağazası uygulaması Öğreticisi | Microsoft Docs"
+description: "Nasıl toouse Azure Media Services toocreate XML MediaElement'i C# Windows mağazası uygulamasıyla kontrol tooplayback kesintisiz akış içeriği öğrenin."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: c9bb3b1915543fea3561cb309f55c4e8a74ded6d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b02aa2c7f68fe22a23ea846d72fdd23bfba2b19c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Windows mağazası uygulama akışı düzgün oluşturma
+# <a name="how-toobuild-a-smooth-streaming-windows-store-application"></a>Nasıl tooBuild kesintisiz akış Windows mağazası uygulaması
 
-Kesintisiz akış istemci SDK Windows 8 için isteğe bağlı ve canlı kesintisiz akış içeriği yürütmek Windows mağazası uygulamaları geliştiricilerin oluşturmalarını sağlar. Ek olarak temel kayıttan kesintisiz akış içeriğinin SDK Microsoft PlayReady koruma, kalite düzeyi kısıtlama, Canlı DVR, geçiş, durum güncelleştirmeleri (kalite düzeyi değişiklikleri gibi) için dinleme ses akışı gibi zengin özellikleri de sağlar ve hata olayları ve benzeri. Desteklenen özellikler daha fazla bilgi için bkz: [sürüm notları](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Daha fazla bilgi için bkz: [Windows 8 için Player Framework](http://playerframework.codeplex.com/). 
+Merhaba kesintisiz akış istemci SDK Windows 8 için isteğe bağlı ve canlı kesintisiz akış içeriği yürütebilirsiniz geliştiriciler toobuild Windows mağazası uygulamaları etkinleştirir. Ayrıca toohello temel içerik, hello SDK de akış kesintisiz çalınmasını Microsoft PlayReady koruma, kalite düzeyi kısıtlama, Canlı DVR, geçiş, (örneğin, kalite düzeyi değişiklikleri durum güncelleştirmeleri için dinleme ses akışı gibi zengin özellikleri sağlar ) ve hata olayları ve benzeri. Merhaba desteklenen hello özellikleri daha fazla bilgi için bkz: [sürüm notları](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Daha fazla bilgi için bkz: [Windows 8 için Player Framework](http://playerframework.codeplex.com/). 
 
 Bu öğretici dört dersleri içerir:
 
 1. Bir temel kesintisiz akış depolama uygulaması oluştur
-2. Medya ilerleme durumunu denetlemek için bir kaydırıcı çubuğu ekleme
+2. Bir kaydırma tooControl hello medya ilerleme çubuğu ekleyin
 3. Kesintisiz akış akışları seçin
 4. Kesintisiz akış parçaları seçin
 
 ## <a name="prerequisites"></a>Ön koşullar
 * Windows 8 32 bit veya 64-bit. Alma [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/evalcenter/jj554510.aspx) MSDN'den.
-* Visual Studio 2012 veya Visual Studio Express 2012 (veya sonraki bir sürümünü). Deneme sürümünden alabilirsiniz [burada](http://www.microsoft.com/visualstudio/11/downloads).
+* Visual Studio 2012 veya Visual Studio Express 2012 (veya sonraki bir sürümünü). Merhaba deneme sürümünden alabilirsiniz [burada](http://www.microsoft.com/visualstudio/11/downloads).
 * [Microsoft Windows 8 için İstemci SDK akış kesintisiz](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
-Tamamlanan çözümü her ders için MSDN Geliştirici kod örneklerini (kod Galerisi) indirilebilir: 
+Her ders tamamlandı hello çözümü MSDN Geliştirici kod örneklerini (kod Galerisi) indirilebilir: 
 
 * [Ders 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) - Media Player, akış basit Windows 8 kesintisiz 
 * [Ders 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) - basit Windows 8 düzgün Media Player kaydırıcı çubuğun ile akış denetimi 
@@ -45,22 +45,22 @@ Tamamlanan çözümü her ders için MSDN Geliştirici kod örneklerini (kod Gal
 
 ## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Ders 1: temel bir kesintisiz akış mağazası uygulaması oluşturma
 
-Bu ders içinde bir Windows mağazası uygulaması kesintisiz akış yürütmek için MediaElement denetimi içerik oluşturur.  Çalışan uygulama şuna benzer:
+Bu ders içinde bir Windows mağazası uygulaması MediaElement bir denetim tooplay kesintisiz akış ile içerik oluşturur.  Merhaba çalışan uygulama şuna benzer:
 
 ![Kesintisiz akış Windows mağazası uygulama örneği][PlayerApplication]
 
-Windows mağazası uygulaması geliştirme hakkında daha fazla bilgi için bkz: [geliştirmek harika uygulamaları Windows 8 için](http://msdn.microsoft.com/windows/apps/br229512.aspx). Bu ders aşağıdaki yordamları içerir:
+Windows mağazası uygulaması geliştirme hakkında daha fazla bilgi için bkz: [geliştirmek harika uygulamaları Windows 8 için](http://msdn.microsoft.com/windows/apps/br229512.aspx). Bu ders hello yordamları içerir:
 
 1. Bir Windows mağazası projesi oluşturma
-2. Tasarım kullanıcı arabirimi (XAML)
-3. Dosyanın arkasındaki kodu değiştirin
-4. Derleme ve uygulamayı test etme
+2. Tasarım hello kullanıcı arabirimi (XAML)
+3. Dosyanın arkasındaki Hello kodunu değiştirme
+4. Derleme ve hello uygulamayı test etme
 
-**Bir Windows mağazası projesi oluşturmak için**
+**toocreate bir Windows mağazası projesi**
 
 1. Visual Studio 2012 veya sonraki sürümünü çalıştırın.
-2. **DOSYA** menüsünde **Yeni**’ye ve sonra **Proje**’ye tıklayın.
-3. Yeni Proje iletişim kutusundan yazın veya aşağıdaki değerleri seçin:
+2. Merhaba gelen **dosya** menüsünde tıklatın **yeni**ve ardından **proje**.
+3. Merhaba yeni proje iletişim kutusundan türü ya da aşağıdaki select hello değerler:
 
 | Ad | Değer |
 | --- | --- |
@@ -73,10 +73,10 @@ Windows mağazası uygulaması geliştirme hakkında daha fazla bilgi için bkz:
 
 1. **Tamam** düğmesine tıklayın.
 
-**Kesintisiz akış istemci SDK'sına bir başvuru eklemek için**
+**tooadd başvuru toohello kesintisiz akış istemci SDK'sı**
 
 1. Çözüm Gezgini'nden sağ **SSPlayer**ve ardından **Başvuru Ekle**.
-2. Aşağıdaki değerleri yazın veya seçin:
+2. Değerleri aşağıdaki hello seçin veya yazın:
 
 | Ad | Değer |
 | --- | --- |
@@ -85,12 +85,12 @@ Windows mağazası uygulaması geliştirme hakkında daha fazla bilgi için bkz:
 
 1. **Tamam** düğmesine tıklayın. 
 
-Başvuruları ekledikten sonra hedeflenen bir platform (x64 veya x86) seçmeniz gerekir, ekleyerek başvuruları için herhangi bir CPU platform yapılandırması çalışmaz.  Çözüm Gezgini'nde, sarı renkli uyarı işareti bu başvurular eklenen görürsünüz.
+Merhaba başvuruları ekledikten sonra hedeflenen hello platform (x64 veya x86) seçmeniz gerekir, ekleyerek başvuruları için herhangi bir CPU platform yapılandırması çalışmaz.  Çözüm Gezgini'nde, sarı renkli uyarı işareti bu başvurular eklenen görürsünüz.
 
-**Tasarım player kullanıcı arabirimi**
+**toodesign hello player kullanıcı arabirimi**
 
-1. Çözüm Gezgini'nde, çift tıklayarak **MainPage.xaml** Tasarım görünümünde açın.
-2. Bulun  **&lt;kılavuz&gt;**  ve  **&lt;/Grid&gt;**  XAML dosyası etiketleri ve iki etiketleri arasına aşağıdaki kodu yapıştırın:
+1. Çözüm Gezgini'nde, çift tıklayarak **MainPage.xaml** tooopen hello tasarım görüntüleyin.
+2. Merhaba bulun  **&lt;kılavuz&gt;**  ve  **&lt;/Grid&gt;**  etiketleri hello XAML dosyası ve Yapıştır hello aşağıdaki kod hello iki etiketleri arasında:
 
          <Grid.RowDefinitions>
 
@@ -135,27 +135,27 @@ Başvuruları ekledikten sonra hedeflenen bir platform (x64 veya x86) seçmeniz 
             <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
          </StackPanel>
    
-   MediaElement denetimi kayıttan yürütme ortamı için kullanılır. SliderProgress adlı kaydırıcı denetimi sonraki Ders medya ilerleme durumunu denetlemek için kullanılır.
-3. Tuşuna **CTRL + S** dosyayı kaydetmek için.
+   Merhaba MediaElement denetimi kullanılan tooplayback medya ' dir. Merhaba kaydırıcı denetimi sliderProgress adlı hello sonraki Ders toocontrol hello medya ediyor kullanılır.
+3. Tuşuna **CTRL + S** toosave hello dosya.
 
-MediaElement denetimi kesintisiz akış içerik out-of-box desteklemiyor. Kesintisiz akış desteğini etkinleştirmek için dosya adı uzantısı ve MIME türüne göre kesintisiz akış bayt akışı işleyici kaydetmeniz gerekir.  Kaydetmek için Windows.Media ad MediaExtensionManager.RegisterByteStremHandler yöntemi kullanın.
+Merhaba MediaElement denetimi kesintisiz akış içerik out-of-box desteklemez. tooenable hello desteği, kesintisiz akış, kesintisiz akış bayt akışı hello işleyici dosya adı uzantısı ve MIME türü tarafından kaydetmeniz gerekir.  tooregister, hello Windows.Media ad alanının hello MediaExtensionManager.RegisterByteStremHandler yöntemini kullanın.
 
-Bu XAML dosyası içinde bazı olay işleyicileri denetimleri ile ilişkilendirilmiş.  Bu olay işleyicileri tanımlamanız gerekir.
+Bu XAML dosyası içinde bazı olay işleyicileri hello denetimleri ile ilişkilendirilmiş.  Bu olay işleyicileri tanımlamanız gerekir.
 
-**Dosyanın arkasındaki kod değiştirmek için**
+**dosyanın arkasındaki toomodify hello kodu**
 
 1. Çözüm Gezgini'nden sağ **MainPage.xaml**ve ardından **görünümü kodu**.
-2. Dosyanın üst kısmında, aşağıdaki ekleme deyimini kullanarak:
+2. Merhaba dosya Hello üstünde hello aşağıdakileri ekleyin deyimi kullanarak:
    
         using Windows.Media;
-3. Başında **MainPage** sınıfı, aşağıdaki veri üyesi ekleyin:
+3. Merhaba hello başında **MainPage** sınıfı, veri üyenin hello ekleyin:
    
          private MediaExtensionManager extensions = new MediaExtensionManager();
-4. Sonunda **MainPage** oluşturucusu, aşağıdaki iki satırı ekleyin:
+4. Merhaba hello sonunda **MainPage** oluşturucusu, hello aşağıdaki iki satırı ekleyin:
    
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
-5. Sonunda **MainPage** sınıfında, aşağıdaki kodu yapıştırın:
+5. Merhaba hello sonunda **MainPage** sınıfı, hello aşağıdaki kodu yapıştırın:
    
          # region UI Button Click Events
          private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -182,7 +182,7 @@ Bu XAML dosyası içinde bazı olay işleyicileri denetimleri ile ilişkilendiri
          }
          else
          {
-             txtStatus.Text = "Click the Play button to play the media source.";
+             txtStatus.Text = "Click hello Play button tooplay hello media source.";
          }
          }
          private void btnStop_Click(object sender, RoutedEventArgs e)
@@ -194,68 +194,68 @@ Bu XAML dosyası içinde bazı olay işleyicileri denetimleri ile ilişkilendiri
          private void sliderProgress_PointerPressed(object sender, PointerRoutedEventArgs e)
          {
 
-         txtStatus.Text = "Seek to position " + sliderProgress.Value;
+         txtStatus.Text = "Seek tooposition " + sliderProgress.Value;
          mediaElement.Position = new TimeSpan(0, 0, (int)(sliderProgress.Value));
          }
          # endregion
 
-SliderProgress_PointerPressed olay işleyicisi burada belirtilir.  Bu öğreticinin sonraki Ders içinde ele çalışma edinilir yapmak için daha fazla works vardır.
-6. Tuşuna **CTRL + S** dosyayı kaydetmek için.
+Merhaba sliderProgress_PointerPressed olay işleyicisi burada belirtilir.  Daha fazla works toodo tooget vardır, çalışma, hangi kapsamdaki hello sonraki Bu öğreticinin Ders.
+6. Tuşuna **CTRL + S** toosave hello dosya.
 
-Tamamlanmış dosyanın arkasındaki kod şöyle:
+Merhaba tamamlanmış hello kodu dosyanın arkasındaki şöyle:
 
 ![Visual Studio, kesintisiz akış Windows mağazası uygulamasında Codeview][CodeViewPic]
 
-**Derleme ve uygulamayı test etme**
+**toocompile ve test Merhaba uygulaması**
 
-1. Gelen **yapı** menüsünde tıklatın **Configuration Manager**.
-2. Değişiklik **etkin çözüm platformu** geliştirme platformu eşleşecek şekilde.
-3. Tuşuna **F6** Projeyi derlemek için. 
-4. Uygulamayı çalıştırmak için **F5**'e basın.
-5. Uygulama üst kısmında, varsayılan kesintisiz akış URL'sini kullanabilir veya farklı bir tane girin. 
-6. Tıklatın **ayarlamak kaynak**. Çünkü **Otomatik Yürüt** etkin varsayılan olarak, medyayı otomatik olarak yürütmek.  Medya kullanarak denetleyebilirsiniz **Yürüt**, **duraklatma** ve **durdurmak** düğmeler.  Dikey kaydırıcıyı kullanarak medya birimi kontrol edebilirsiniz.  Ancak medya ilerleme durumunu denetlemek için yatay kaydırıcı tam henüz uygulanmadı. 
+1. Merhaba gelen **yapı** menüsünde tıklatın **Configuration Manager**.
+2. Değişiklik **etkin çözüm platformu** toomatch geliştirme platformu.
+3. Tuşuna **F6** toocompile hello projesi. 
+4. Tuşuna **F5** toorun Merhaba uygulaması.
+5. Merhaba uygulaması Hello üstünde hello varsayılan kesintisiz akış URL'sini kullanabilir veya farklı bir tane girin. 
+6. Tıklatın **ayarlamak kaynak**. Çünkü **Otomatik Yürüt** hello medya yürütme otomatik olarak varsayılan olarak etkindir.  Merhaba medya hello kullanarak denetleyebilirsiniz **Yürüt**, **duraklatma** ve **durdurmak** düğmeler.  Merhaba dikey kaydırıcıyı kullanarak hello medya birimi kontrol edebilirsiniz.  Ancak medya ilerleme tam henüz uygulanmadı hello denetleme yatay kaydırıcı hello. 
 
-Lesson1 tamamladınız.  Bu ders, kesintisiz akış içeriği kayıttan yürütme için MediaElement denetimi kullanın.  Sonraki Ders kesintisiz akış içeriğinin ilerleme durumunu denetlemek için kaydırıcıyı ekleyeceksiniz.
+Lesson1 tamamladınız.  Bu alıştırmanın ilerisinde MediaElement denetimi tooplayback kesintisiz akış içeriği kullanın.  Merhaba sonraki ders, kesintisiz akış içeriği hello kaydırıcı toocontrol hello ilerlemesini ekleyeceksiniz.
 
-## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Ders 2: Media ilerleme durumunu denetlemek için bir kaydırıcı çubuğun ekleme
+## <a name="lesson-2-add-a-slider-bar-toocontrol-hello-media-progress"></a>Ders 2: kaydırma tooControl hello medya ilerleme çubuğu ekleme
 
-Ders 1'de, kesintisiz akış medya içeriği kayıttan yürütme MediaElement XAML denetimine sahip bir Windows mağazası uygulaması oluşturuldu.  Başlatma, durdurma ve duraklatma gibi bazı temel media işlevleri gelir.  Bu ders, uygulamaya kaydırıcı çubuğu denetimi ekleyeceksiniz.
+Ders 1'de, bir Windows mağazası uygulaması MediaElement XAML denetim tooplayback kesintisiz akış medya içeriği ile oluşturulmuş.  Başlatma, durdurma ve duraklatma gibi bazı temel media işlevleri gelir.  Bu alıştırmanın ilerisinde kaydırıcı çubuk denetim toohello uygulaması ekleyeceksiniz.
 
-Bu öğreticide, MediaElement denetimi geçerli konumuna bağlı kaydırıcı konumunu güncelleştirmek için bir zamanlayıcı kullanacağız.  Kaydırıcı başlangıç ve bitiş de canlı içerik durumunda güncelleştirilmesi gerekiyor zaman.  Bu, daha iyi Uyarlamalı kaynak güncelleştirme olayda işlenebilir.
+Bu öğreticide, hello geçerli hello MediaElement denetimi konumuna bağlı bir zamanlayıcı tooupdate hello kaydırıcı konumu kullanacağız.  Merhaba kaydırıcı başlatın ve bitiş zamanı da gerek toobe durumunda dinamik içerik güncelleştirildi.  Bu, daha iyi hello Uyarlamalı kaynak güncelleştirme olayda işlenebilir.
 
-Medya kaynaklarına medya veri üreten nesneleridir.  Kaynak Çözümleyici bir URL veya bayt akış alır ve bu içerik için uygun medya kaynağı oluşturur.  Kaynak çözümleyici medya kaynaklarına oluşturmak üzere uygulamalar için standart yoludur. 
+Medya kaynaklarına medya veri üreten nesneleridir.  Merhaba kaynak Çözümleyici bir URL veya bayt akış alır ve bu içerik hello uygun medya kaynağı oluşturur.  Merhaba kaynak çözümleyici hello standart hello uygulamaları toocreate medya kaynakları için yoludur. 
 
-Bu ders aşağıdaki yordamları içerir:
+Bu ders hello yordamları içerir:
 
-1. Kesintisiz akış işleyici kaydetme 
-2. Uyarlamalı Kaynak Yöneticisi düzeyi olay işleyicileri ekleme
-3. Uyarlamalı kaynak düzeyi olay işleyicileri ekleme
+1. Merhaba kesintisiz akış işleyici kaydetme 
+2. Merhaba Uyarlamalı Kaynak Yöneticisi düzeyi olay işleyicileri ekleme
+3. Merhaba Uyarlamalı kaynak düzeyi olay işleyicileri ekleme
 4. MediaElement olay işleyicileri ekleme
 5. Kaydırma çubuğu ilgili kod ekleme
-6. Derleme ve uygulamayı test etme
+6. Derleme ve hello uygulamayı test etme
 
-**Kesintisiz akış bayt akışı işleyici kaydetmek ve propertyset geçirmek için**
+**tooregister hello kesintisiz akış bayt akışı işleyicisi ve geçişi hello propertyset**
 
 1. Çözüm Gezgini'nden sağ tıklayın **MainPage.xaml**ve ardından **görünümü kodu**.
-2. Dosyanın başına aşağıdaki Ekle deyimi kullanarak:
+2. Merhaba dosya Hello başında hello aşağıdakileri ekleyin deyimi kullanarak:
 
         using Microsoft.Media.AdaptiveStreaming;
-3. MainPage sınıfı başına aşağıdaki veri üyeleri Ekle:
+3. Merhaba MainPage sınıfı Hello başlangıcında, veri üyeleri aşağıdaki hello ekleyin:
 
          private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
          private IAdaptiveSourceManager adaptiveSourceManager;
-4. İçinde **MainPage** oluşturucusu, sonra aşağıdaki kodu ekleyin **bu. Components() başlatılamadı;**  satır ve kayıt kod önceki Ders yazılmış satırları:
+4. İç hello **MainPage** oluşturucusu, koddan sonra hello hello eklemek **bu. Components() başlatılamadı;**  satır ve hello önceki Ders içinde yazılmış hello kayıt kod satırı:
 
-        // Gets the default instance of AdaptiveSourceManager which manages Smooth 
+        // Gets hello default instance of AdaptiveSourceManager which manages Smooth 
         //Streaming media sources.
         adaptiveSourceManager = AdaptiveSourceManager.GetDefault();
-        // Sets property key value to AdaptiveSourceManager default instance.
+        // Sets property key value tooAdaptiveSourceManager default instance.
         // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
         propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
-5. İçinde **MainPage** oluşturucusunu eklemek için iki RegisterByteStreamHandler yöntem Değiştir İleri parametreleri:
+5. İç hello **MainPage** oluşturucusu, hello iki RegisterByteStreamHandler yöntemleri tooadd hello İleri parametreleri değiştirin:
 
          // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
-         // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
+         // "text/xml" and "application/vnd.ms-ss" mime-types and pass hello propertyset. 
          // http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
          extensions.RegisterByteStreamHandler(
 
@@ -269,15 +269,15 @@ Bu ders aşağıdaki yordamları içerir:
             ".ism", 
             "application/vnd.ms-sstr+xml", 
          propertySet);
-6. Tuşuna **CTRL + S** dosyayı kaydetmek için.
+6. Tuşuna **CTRL + S** toosave hello dosya.
 
-**Uyarlamalı Kaynak Yöneticisi düzeyi olay işleyicisi eklemek için**
+**tooadd hello Uyarlamalı Kaynak Yöneticisi düzeyi olay işleyicisi**
 
 1. Çözüm Gezgini'nden sağ tıklayın **MainPage.xaml**ve ardından **görünümü kodu**.
-2. İçinde **MainPage** sınıfı, aşağıdaki veri üyesi ekleyin:
+2. İç hello **MainPage** sınıfı, veri üyenin hello ekleyin:
    
      Özel AdaptiveSource adaptiveSource = null;
-3. Sonunda **MainPage** sınıfı, aşağıdaki olay işleyicisini ekleyin:
+3. Merhaba hello sonunda **MainPage** sınıf, olay işleyicisi aşağıdaki hello ekleyin:
    
          # region Adaptive Source Manager Level Events
          private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
@@ -287,19 +287,19 @@ Bu ders aşağıdaki yordamları içerir:
          }
 
          # endregion Adaptive Source Manager Level Events
-4. Sonunda **MainPage** oluşturucusu, Uyarlamalı kaynak açık olaya abone olmak için aşağıdaki satırı ekleyin:
+4. Merhaba hello sonunda **MainPage** oluşturucusu, satır toosubscribe toohello Uyarlamalı kaynak açık olay aşağıdaki hello ekleyin:
    
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
-5. Tuşuna **CTRL + S** dosyayı kaydetmek için.
+5. Tuşuna **CTRL + S** toosave hello dosya.
 
-**Uyarlamalı kaynak düzeyi olay işleyicileri eklemek için**
+**tooadd Uyarlamalı kaynak düzeyi olay işleyicileri**
 
 1. Çözüm Gezgini'nden sağ tıklayın **MainPage.xaml**ve ardından **görünümü kodu**.
-2. İçinde **MainPage** sınıfı, aşağıdaki veri üyesi ekleyin:
+2. İç hello **MainPage** sınıfı, veri üyenin hello ekleyin:
    
      Özel AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate;   Özel bildirim manifestObject;
-3. Sonunda **MainPage** sınıfı, şu olay işleyicileri ekleyin:
+3. Merhaba hello sonunda **MainPage** sınıf, olay işleyicileri aşağıdaki hello ekleyin:
 
          # region Adaptive Source Level Events
          private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
@@ -322,7 +322,7 @@ Bu ders aşağıdaki yordamları içerir:
          }
 
          # endregion Adaptive Source Level Events
-4. Sonunda **mediaElement AdaptiveSourceOpened** yöntemi, olaylara abone olmak için aşağıdaki kodu ekleyin:
+4. Merhaba hello sonunda **mediaElement AdaptiveSourceOpened** yöntemi, kod toosubscribe toohello olayları aşağıdaki hello ekleyin:
    
          adaptiveSource.ManifestReadyEvent +=
 
@@ -333,14 +333,14 @@ Bu ders aşağıdaki yordamları içerir:
          adaptiveSource.AdaptiveSourceFailedEvent += 
 
             mediaElement_AdaptiveSourceFailed;
-5. Tuşuna **CTRL + S** dosyayı kaydetmek için.
+5. Tuşuna **CTRL + S** toosave hello dosya.
 
-Aynı olaylar, uygulamadaki tüm ortam öğeleri için ortak işlevselliği işlemek için kullanılan Uyarlamalı kaynak yöneticisi düzeyinde de kullanılabilir. Tüm AdaptiveSource olayları AdaptiveSourceManager altında basamaklı ve her AdaptiveSource, kendi olaylarını içerir.
+Merhaba işlevselliği ortak tooall ortam öğeleri hello uygulamasında işlemek için kullanılan Uyarlamalı kaynak yöneticisi düzeyinde de aynı olayları kullanılabilir. Tüm AdaptiveSource olayları AdaptiveSourceManager altında basamaklı ve her AdaptiveSource, kendi olaylarını içerir.
 
-**Ortam öğesi olay işleyicileri ekleme**
+**tooadd medya öğesi olay işleyicileri**
 
 1. Çözüm Gezgini'nden sağ tıklayın **MainPage.xaml**ve ardından **görünümü kodu**.
-2. Sonunda **MainPage** sınıfı, şu olay işleyicileri ekleyin:
+2. Merhaba hello sonunda **MainPage** sınıf, olay işleyicileri aşağıdaki hello ekleyin:
 
          # region Media Element Event Handlers
          private void MediaOpened(object sender, RoutedEventArgs e)
@@ -362,29 +362,29 @@ Aynı olaylar, uygulamadaki tüm ortam öğeleri için ortak işlevselliği işl
          }
 
          # endregion Media Element Event Handlers
-3. Sonunda **MainPage** oluşturucusu, alt simge olayları için aşağıdaki kodu ekleyin:
+3. Merhaba hello sonunda **MainPage** oluşturucusu, kod toosubscript toohello olayları aşağıdaki hello ekleyin:
 
          mediaElement.MediaOpened += MediaOpened;
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
-4. Tuşuna **CTRL + S** dosyayı kaydetmek için.
+4. Tuşuna **CTRL + S** toosave hello dosya.
 
-**Kaydırıcı çubuğun eklemek için kodu ilgili**
+**ilgili barkod tooadd kaydırıcı**
 
 1. Çözüm Gezgini'nden sağ tıklayın **MainPage.xaml**ve ardından **görünümü kodu**.
-2. Dosyanın başına aşağıdaki Ekle deyimi kullanarak:
+2. Merhaba dosya Hello başında hello aşağıdakileri ekleyin deyimi kullanarak:
       
         using Windows.UI.Core;
-3. İçinde **MainPage** sınıfı, aşağıdaki veri üyeleri Ekle:
+3. İç hello **MainPage** sınıfı, veri üyeleri aşağıdaki hello ekleyin:
    
          public static CoreDispatcher _dispatcher;
          private DispatcherTimer sliderPositionUpdateDispatcher;
-4. Sonunda **MainPage** oluşturucusu, aşağıdaki kodu ekleyin:
+4. Merhaba hello sonunda **MainPage** oluşturucusu, hello aşağıdaki kodu ekleyin:
    
          _dispatcher = Window.Current.Dispatcher;
          PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
          sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
-5. Sonunda **MainPage** sınıfında, aşağıdaki kodu ekleyin:
+5. Merhaba hello sonunda **MainPage** sınıfı, hello aşağıdaki kodu ekleyin:
 
          # region sliderMediaPlayer
          private double SliderFrequency(TimeSpan timevalue)
@@ -469,7 +469,7 @@ Aynı olaylar, uygulamadaki tüm ortam öğeleri için ortak işlevselliği işl
          # endregion sliderMediaPlayer
       
 >[!NOTE]
->CoreDispatcher dışı kullanıcı Arabirimi iş parçacığından için kullanıcı Arabirimi iş parçacığı değişiklik yapmak için kullanılır. Dağıtıcı iş parçacığı engeli durumunda, geliştirici UI klasöründe güncelleştirme amaçlayan öğesi tarafından sağlanan dağıtıcısı kullanmayı seçebilirsiniz.  Örneğin:
+>CoreDispatcher toohello UI dışı kullanıcı Arabirimi iş parçacığından iş parçacığı kullanılan toomake değişiklikler var. Dağıtıcı iş parçacığı engeli durumunda, geliştirici klasöründe tooupdate oranla toouse dağıtıcısı kullanıcı Arabirimi öğesi tarafından sağlanan seçebilirsiniz.  Örneğin:
    
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 
@@ -477,38 +477,38 @@ Aynı olaylar, uygulamadaki tüm ortam öğeleri için ortak işlevselliği işl
          double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
 
          sliderProgress.Maximum = absvalue; }); 
-6. Sonunda **mediaElement_AdaptiveSourceStatusUpdated** yöntemi, aşağıdaki kodu ekleyin:
+6. Merhaba hello sonunda **mediaElement_AdaptiveSourceStatusUpdated** yöntemi, hello aşağıdaki kodu ekleyin:
 
          setSliderStartTime(args.StartTime);
          setSliderEndTime(args.EndTime);
-7. Sonunda **MediaOpened** yöntemi, aşağıdaki kodu ekleyin:
+7. Merhaba hello sonunda **MediaOpened** yöntemi, hello aşağıdaki kodu ekleyin:
 
          sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
-8. Tuşuna **CTRL + S** dosyayı kaydetmek için.
+8. Tuşuna **CTRL + S** toosave hello dosya.
 
-**Derleme ve uygulamayı test etme**
+**toocompile ve test Merhaba uygulaması**
 
-1. Tuşuna **F6** Projeyi derlemek için. 
-2. Uygulamayı çalıştırmak için **F5**'e basın.
-3. Uygulama üst kısmında, varsayılan kesintisiz akış URL'sini kullanabilir veya farklı bir tane girin. 
+1. Tuşuna **F6** toocompile hello projesi. 
+2. Tuşuna **F5** toorun Merhaba uygulaması.
+3. Merhaba uygulaması Hello üstünde hello varsayılan kesintisiz akış URL'sini kullanabilir veya farklı bir tane girin. 
 4. Tıklatın **ayarlamak kaynak**. 
-5. Kaydırıcı çubuğun sınayın.
+5. Test hello kaydırıcı çubuk.
 
-Ders 2 tamamladınız.  Bu ders uygulamaya kaydırıcıyı eklendi. 
+Ders 2 tamamladınız.  Bu ders kaydırıcı tooapplication eklendi. 
 
 ## <a name="lesson-3-select-smooth-streaming-streams"></a>Ders 3: Kesintisiz akış akışları seçin
-Kesintisiz akış görüntüleyicileri tarafından seçilebilen birden çok dil ses izleri ile içerik akışı sağlamak yeteneğine sahiptir.  Bu alıştırmanın ilerisinde akışları seçmek görüntüleyiciler olanak sağlar. Bu ders aşağıdaki yordamları içerir:
+Kesintisiz akış, hello görüntüleyicileri tarafından seçilebilen birden çok dil ses izleri ile özellikli toostream içeriktir.  Bu alıştırmanın ilerisinde görüntüleyiciler tooselect akışları olanak sağlar. Bu ders hello yordamları içerir:
 
-1. XAML dosyasını değiştirme
-2. Kod behand dosyasını değiştirme
-3. Derleme ve uygulamayı test etme
+1. Merhaba XAML dosyasını değiştirme
+2. Merhaba kod behand dosyasını değiştirme
+3. Derleme ve hello uygulamayı test etme
 
-**XAML dosyasını değiştirmek için**
+**toomodify hello XAML dosyası**
 
 1. Çözüm Gezgini'nden sağ **MainPage.xaml**ve ardından **Görünüm Tasarımcısı**.
-2. Bulun &lt;Grid.RowDefinitions&gt;ve RowDefinitions görünür gibi değiştirin:
+2. Bulun &lt;Grid.RowDefinitions&gt;ve görünür gibi hello RowDefinitions değiştirin:
    
          <Grid.RowDefinitions>            
             <RowDefinition Height="20"/>
@@ -517,7 +517,7 @@ Kesintisiz akış görüntüleyicileri tarafından seçilebilen birden çok dil 
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
-3. İçinde &lt;kılavuz&gt;&lt;/Grid&gt; etiketler, böylece kullanıcılar kullanılabilir akışları listesini görmek ve seçin akışlar bir listbox denetimini tanımlamak için aşağıdaki kodu ekleyin:
+3. İç hello &lt;kılavuz&gt;&lt;/Grid&gt; etiketler eklemek hello kodundan aşağıdaki kodu toodefine listbox denetimi, böylece kullanıcılar kullanılabilir akışları hello listesini görmek ve akışlar seçin:
 
          <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
             <Grid.RowDefinitions>
@@ -542,12 +542,12 @@ Kesintisiz akış görüntüleyicileri tarafından seçilebilen birden çok dil 
                 </ListBox>
             </StackPanel>
          </Grid>
-4. Tuşuna **CTRL + S** değişiklikleri kaydedin.
+4. Tuşuna **CTRL + S** toosave hello değişiklikleri.
 
-**Dosyanın arkasındaki kod değiştirmek için**
+**dosyanın arkasındaki toomodify hello kodu**
 
 1. Çözüm Gezgini'nden sağ **MainPage.xaml**ve ardından **görünümü kodu**.
-2. SSPlayer ad alanı içinde yeni bir sınıf ekleyin:
+2. Merhaba SSPlayer ad alanı içinde yeni bir sınıf ekleyin:
    
         #region class Stream
    
@@ -574,7 +574,7 @@ Kesintisiz akış görüntüleyicileri tarafından seçilebilen birden çok dil 
                 get { return isCheckedValue; }
                 set
                 {
-                    // mMke the video stream always checked.
+                    // mMke hello video stream always checked.
                     if (stream.Type == MediaStreamType.Video)
                     {
                         isCheckedValue = true;
@@ -593,21 +593,21 @@ Kesintisiz akış görüntüleyicileri tarafından seçilebilen birden çok dil 
             }
         }
         #endregion class Stream
-3. MainPage sınıfı başlangıcında, aşağıdaki değişken tanımları ekleyin:
+3. Merhaba MainPage sınıfı Hello başında değişken tanımları aşağıdaki hello ekleyin:
    
          private List<Stream> availableStreams;
          private List<Stream> availableAudioStreams;
          private List<Stream> availableTextStreams;
          private List<Stream> availableVideoStreams;
-4. MainPage sınıfında, aşağıdaki bölge ekleyin:
+4. Merhaba MainPage sınıfı içinde bölge aşağıdaki hello ekleyin:
    
         #region stream selection
         ///<summary>
-        ///Functionality to select streams from IManifestStream available streams
+        ///Functionality tooselect streams from IManifestStream available streams
         /// </summary>
    
-        // This function is called from the mediaElement_ManifestReady event handler 
-        // to retrieve the streams and populate them to the local data members.
+        // This function is called from hello mediaElement_ManifestReady event handler 
+        // tooretrieve hello streams and populate them toohello local data members.
         public void getStreams(Manifest manifestObject)
         {
             availableStreams = new List<Stream>();
@@ -622,7 +622,7 @@ Kesintisiz akış görüntüleyicileri tarafından seçilebilen birden çok dil 
                     Stream newStream = new Stream(manifestObject.AvailableStreams[i]);
                     newStream.isChecked = false;
    
-                    //populate the stream lists based on the types
+                    //populate hello stream lists based on hello types
                     availableStreams.Add(newStream);
    
                     switch (newStream.ManifestStream.Type)
@@ -638,7 +638,7 @@ Kesintisiz akış görüntüleyicileri tarafından seçilebilen birden çok dil 
                             break;
                     }
    
-                    // Select the default selected streams from the manifest.
+                    // Select hello default selected streams from hello manifest.
                     for (int j = 0; j<manifestObject.SelectedStreams.Count; j++)
                     {
                         string selectedStreamName = manifestObject.SelectedStreams[j].Name;
@@ -656,12 +656,12 @@ Kesintisiz akış görüntüleyicileri tarafından seçilebilen birden çok dil 
             }
         }
    
-        // This function set the list box ItemSource
+        // This function set hello list box ItemSource
         private async void refreshAvailableStreamsListBoxItemSource()
         {
             try
             {
-                //update the stream check box list on the UI
+                //update hello stream check box list on hello UI
                 await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
                     => { lbAvailableStreams.ItemsSource = availableStreams; });
             }
@@ -687,7 +687,7 @@ Kesintisiz akış görüntüleyicileri tarafından seçilebilen birden çok dil 
                 }
             }
    
-            // Select the frist video stream from the list if no video stream is selected
+            // Select hello frist video stream from hello list if no video stream is selected
             if (!isOneVideoSelected)
             {
                 availableVideoStreams[0].isChecked = true;
@@ -701,11 +701,11 @@ Kesintisiz akış görüntüleyicileri tarafından seçilebilen birden çok dil 
                 {
                     selectedStreams.Add(availableAudioStreams[j].ManifestStream);
                     isOneAudioSelected = true;
-                    txtStatus.Text = "The audio stream is changed to " + availableAudioStreams[j].ManifestStream.Name;
+                    txtStatus.Text = "hello audio stream is changed too" + availableAudioStreams[j].ManifestStream.Name;
                 }
             }
    
-            // Select the frist audio stream from the list if no audio steam is selected.
+            // Select hello frist audio stream from hello list if no audio steam is selected.
             if (!isOneAudioSelected)
             {
                 availableAudioStreams[0].isChecked = true;
@@ -736,46 +736,46 @@ Kesintisiz akış görüntüleyicileri tarafından seçilebilen birden çok dil 
             }
         }
         #endregion stream selection
-5. MediaElement_ManifestReady yöntemini bulun, işlevi sonuna aşağıdaki kodu ekleyin:
+5. Merhaba mediaElement_ManifestReady yöntemini bulun, hello işlevi hello sonunda koddan hello Ekle:
    
         getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
    
-    Bu nedenle MediaElement bildirimi hazır olduğunda, kod kullanılabilir akışları listesini alır ve UI liste kutusu listesi ile doldurur.
-6. Kullanıcı arabirimini MainPage sınıfı içinde bulun düğmeleri olayları bölge'ye tıklayın ve ardından aşağıdaki işlevi ekleyin:
+    Bu nedenle MediaElement bildirimi hazır olduğunda, hello kod hello kullanılabilir akışları listesini alır ve hello UI liste kutusu hello listesi ile doldurur.
+6. Merhaba MainPage sınıfı içinde bulun hello UI düğmeleri olayları bölge'ye tıklayın ve ardından işlev tanımı aşağıdaki hello ekleyin:
    
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
    
-            // Create a list of the selected streams
+            // Create a list of hello selected streams
             createSelectedStreamsList(selectedStreams);
    
-            // Change streams on the presentation
+            // Change streams on hello presentation
             changeStreams(selectedStreams);
         }
 
-**Derleme ve uygulamayı test etme**
+**toocompile ve test Merhaba uygulaması**
 
-1. Tuşuna **F6** Projeyi derlemek için. 
-2. Uygulamayı çalıştırmak için **F5**'e basın.
-3. Uygulama üst kısmında, varsayılan kesintisiz akış URL'sini kullanabilir veya farklı bir tane girin. 
+1. Tuşuna **F6** toocompile hello projesi. 
+2. Tuşuna **F5** toorun Merhaba uygulaması.
+3. Merhaba uygulaması Hello üstünde hello varsayılan kesintisiz akış URL'sini kullanabilir veya farklı bir tane girin. 
 4. Tıklatın **ayarlamak kaynak**. 
-5. Varsayılan audio_eng dilidir. Audio_es audio_eng arasında geçiş yapmak deneyin. Her, yeni bir akış seçin, Gönder düğmesine tıklamanız gerekir.
+5. Merhaba varsayılan audio_eng dilidir. Tooswitch audio_eng audio_es arasındaki deneyin. Her, yeni bir akış seçin, hello gönder düğmesine tıklamanız gerekir.
 
-Ders 3 tamamladınız.  Bu alıştırmanın ilerisinde akışları seçmek için işlevsellik ekleyin.
+Ders 3 tamamladınız.  Bu alıştırmanın ilerisinde hello işlevselliği toochoose akışlar ekleyin.
 
 ## <a name="lesson-4-select-smooth-streaming-tracks"></a>Ders 4: Kesintisiz akış parçaları seçin
-Kesintisiz akış sunu farklı kalite düzeyleri (bit hızları) ve çözümlemeleri ile kodlanmış birden çok video dosyaları içerebilir. Bu ders, kullanıcıların parçaları seçmesine olanak sağlar. Bu ders aşağıdaki yordamları içerir:
+Kesintisiz akış sunu farklı kalite düzeyleri (bit hızları) ve çözümlemeleri ile kodlanmış birden çok video dosyaları içerebilir. Bu ders, kullanıcıların tooselect parçaları olanak sağlar. Bu ders hello yordamları içerir:
 
-1. XAML dosyasını değiştirme
-2. Kod behand dosyasını değiştirme
-3. Derleme ve uygulamayı test etme
+1. Merhaba XAML dosyasını değiştirme
+2. Merhaba kod behand dosyasını değiştirme
+3. Derleme ve hello uygulamayı test etme
 
-**XAML dosyasını değiştirmek için**
+**toomodify hello XAML dosyası**
 
 1. Çözüm Gezgini'nden sağ **MainPage.xaml**ve ardından **Görünüm Tasarımcısı**.
-2. Bulun &lt;kılavuz&gt; etiket adıyla **gridStreamAndBitrateSelection**, etiket sonuna aşağıdaki kodu ekleyin:
+2. Merhaba bulun &lt;kılavuz&gt; hello adı etiketiyle **gridStreamAndBitrateSelection**, hello etiketi hello sonunda koddan hello Ekle:
    
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
@@ -791,12 +791,12 @@ Kesintisiz akış sunu farklı kalite düzeyleri (bit hızları) ve çözümleme
              </ListBox.ItemTemplate>
          </ListBox>
          </StackPanel>
-3. Tuşuna **CTRL + S** he değişiklikleri kaydetmek için
+3. Tuşuna **CTRL + S** toosave kendisinin değiştirir
 
-**Dosyanın arkasındaki kod değiştirmek için**
+**dosyanın arkasındaki toomodify hello kodu**
 
 1. Çözüm Gezgini'nden sağ **MainPage.xaml**ve ardından **görünümü kodu**.
-2. SSPlayer ad alanı içinde yeni bir sınıf ekleyin:
+2. Merhaba SSPlayer ad alanı içinde yeni bir sınıf ekleyin:
    
         #region class Track
         public class Track
@@ -834,17 +834,17 @@ Kesintisiz akış sunu farklı kalite düzeyleri (bit hızları) ve çözümleme
             //public Track() { }
         }
         #endregion class Track
-3. MainPage sınıfı başlangıcında, aşağıdaki değişken tanımları ekleyin:
+3. Merhaba MainPage sınıfı Hello başında değişken tanımları aşağıdaki hello ekleyin:
    
         private List<Track> availableTracks;
-4. MainPage sınıfında, aşağıdaki bölge ekleyin:
+4. Merhaba MainPage sınıfı içinde bölge aşağıdaki hello ekleyin:
    
         #region track selection
         /// <summary>
-        /// Functionality to select video streams
+        /// Functionality tooselect video streams
         /// </summary>
    
-        /// This Function gets the tracks for the selected video stream
+        /// This Function gets hello tracks for hello selected video stream
         public void getTracks(Manifest manifestObject)
         {
             availableTracks = new List<Track>();
@@ -878,7 +878,7 @@ Kesintisiz akış sunu farklı kalite düzeyleri (bit hızları) ve çözümleme
             }
         }
    
-        // This function gets the video stream that is playing
+        // This function gets hello video stream that is playing
         private IManifestStream getVideoStream()
         {
             IManifestStream videoStream = null;
@@ -893,12 +893,12 @@ Kesintisiz akış sunu farklı kalite düzeyleri (bit hızları) ve çözümleme
             return videoStream;
         }
    
-        // This function set the UI list box control ItemSource
+        // This function set hello UI list box control ItemSource
         private async void refreshAvailableTracksListBoxItemSource()
         {
             try
             {
-                // Update the track check box list on the UI 
+                // Update hello track check box list on hello UI 
                 await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
                     => { lbAvailableVideoTracks.ItemsSource = availableTracks; });
             }
@@ -908,7 +908,7 @@ Kesintisiz akış sunu farklı kalite düzeyleri (bit hızları) ve çözümleme
             }        
         }
    
-        // This function creates a list of the selected tracks.
+        // This function creates a list of hello selected tracks.
         private void createSelectedTracksList(List<IManifestTrack> selectedTracks)
         {
             // Create a list of selected tracks
@@ -921,7 +921,7 @@ Kesintisiz akış sunu farklı kalite düzeyleri (bit hızları) ve çözümleme
             }
         }
    
-        // This function selects the tracks based on user selection 
+        // This function selects hello tracks based on user selection 
         private void changeTracks(List<IManifestTrack> selectedTracks)
         {
             IManifestStream videoStream = getVideoStream();
@@ -935,32 +935,32 @@ Kesintisiz akış sunu farklı kalite düzeyleri (bit hızları) ve çözümleme
             }
         }
         #endregion track selection
-5. MediaElement_ManifestReady yöntemini bulun, işlevi sonuna aşağıdaki kodu ekleyin:
+5. Merhaba mediaElement_ManifestReady yöntemini bulun, hello işlevi hello sonunda koddan hello Ekle:
    
          getTracks(manifestObject);
          refreshAvailableTracksListBoxItemSource();
-6. Kullanıcı arabirimini MainPage sınıfı içinde bulun düğmeleri olayları bölge'ye tıklayın ve ardından aşağıdaki işlevi ekleyin:
+6. Merhaba MainPage sınıfı içinde bulun hello UI düğmeleri olayları bölge'ye tıklayın ve ardından işlev tanımı aşağıdaki hello ekleyin:
    
          private void btnChangeStream_Click(object sender, RoutedEventArgs e)
          {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
 
-            // Create a list of the selected streams
+            // Create a list of hello selected streams
             createSelectedStreamsList(selectedStreams);
 
-            // Change streams on the presentation
+            // Change streams on hello presentation
             changeStreams(selectedStreams);
          }
 
-**Derleme ve uygulamayı test etme**
+**toocompile ve test Merhaba uygulaması**
 
-1. Tuşuna **F6** Projeyi derlemek için. 
-2. Uygulamayı çalıştırmak için **F5**'e basın.
-3. Uygulama üst kısmında, varsayılan kesintisiz akış URL'sini kullanabilir veya farklı bir tane girin. 
+1. Tuşuna **F6** toocompile hello projesi. 
+2. Tuşuna **F5** toorun Merhaba uygulaması.
+3. Merhaba uygulaması Hello üstünde hello varsayılan kesintisiz akış URL'sini kullanabilir veya farklı bir tane girin. 
 4. Tıklatın **ayarlamak kaynak**. 
-5. Varsayılan olarak, tüm video akışına parçaları seçilir. Bit hızı değişiklikleri denemek için en düşük bit hızı seçin ve ardından kullanılabilir en yüksek bit hızı seçin. Her bir değişiklikten sonra Gönder'i tıklatmalısınız.  Video kalitesini değişiklikleri görebilirsiniz.
+5. Varsayılan olarak, tüm hello video akışına hello parçalarının seçilir. tooexperiment hello bit hızı değişiklikleri, hello düşük bit hızı kullanılabilir seçin ve ardından hello yüksek bit hızı kullanılabilir seçin. Her bir değişiklikten sonra Gönder'i tıklatmalısınız.  Merhaba video kalitesini değişiklikleri görebilirsiniz.
 
-Ders 4 tamamladınız.  Bu alıştırmanın ilerisinde parçaları seçmek için işlevsellik ekleyin.
+Ders 4 tamamladınız.  Bu alıştırmanın ilerisinde hello işlevselliği toochoose parçaları ekleyin.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -969,7 +969,7 @@ Ders 4 tamamladınız.  Bu alıştırmanın ilerisinde parçaları seçmek için
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Diğer kaynaklar:
-* [Gelişmiş özelliklere sahip bir kesintisiz akış Windows 8 JavaScript uygulaması oluşturma](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+* [Toobuild nasıl Gelişmiş Özellikler ileri bir kesintisiz akış Windows 8 JavaScript uygulaması ile](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 * [Kesintisiz akış teknik genel bakış](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png

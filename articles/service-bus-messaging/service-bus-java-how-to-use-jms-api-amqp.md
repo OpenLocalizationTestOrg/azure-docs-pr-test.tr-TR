@@ -1,6 +1,6 @@
 ---
-title: AMQP 1.0 Java hizmet veri yolu API'si ile kullanma | Microsoft Docs
-description: "Java ileti hizmeti (JMS) Azure Service Bus ve Gelişmiş Message Queuing Protodol (AMQP) 1.0 ile nasıl kullanılır."
+title: Merhaba Java hizmet veri yolu API'si ile aaaHow toouse AMQP 1.0 | Microsoft Docs
+description: "Nasıl toouse Java ileti hizmeti (JMS) Azure Service Bus ve Gelişmiş Message Queuing Protodol (AMQP) 1.0 ile Merhaba."
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -14,31 +14,31 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 0848facd764c4fb0d7f95c1ae89ecb02a32257e1
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 3e1d0329f2675a2273e12bb7389d3ce38b156a5e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hizmet veri yolu AMQP 1.0 ile Java ileti hizmeti (JMS) API kullanma
-Gelişmiş Message Queuing Protokolü (AMQP) 1.0, güçlü, platformlar arası ileti uygulamaları oluşturmak için kullanabileceğiniz bir verimli, güvenilir ve hat düzeyinde Mesajlaşma protokolüdür.
+# <a name="how-toouse-hello-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Nasıl toouse hello Java ileti hizmeti (JMS) API Service Bus ve AMQP 1.0
+Merhaba Gelişmiş Message Queuing Protokolü (AMQP) 1.0 toobuild güçlü, platformlar arası ileti uygulamaları kullanabilirsiniz verimli, güvenilir ve hat düzeyinde bir Mesajlaşma iletişim kuralıdır.
 
-Destek için hizmet veri yolu AMQP 1.0 queuing kullanın ve yayımlama/aracılı Mesajlaşma özellikleri verimli bir ikili protokolünü kullanarak platformları aralığından abonelik anlamına gelir. Ayrıca, diller, çerçevelerinin ve işletim sistemlerinin bir karışımını kullanılarak oluşturulan bileşenlerden oluşan uygulamalar oluşturabilir.
+Hizmet kullanabileceğiniz anlamına gelir queuing hello ve yayımlama/aracılı Mesajlaşma özellikleri verimli bir ikili protokolünü kullanarak platformları aralığından abonelik veri yolu AMQP 1.0 için destek. Ayrıca, diller, çerçevelerinin ve işletim sistemlerinin bir karışımını kullanılarak oluşturulan bileşenlerden oluşan uygulamalar oluşturabilir.
 
-Bu makalede, popüler Java ileti hizmeti (JMS) API standart kullanarak Java uygulamalardan nasıl Service Bus (kuyruklar ve konu başlıkları Yayınla/Abone ol) özellikleri Mesajlaşma kullanılacağı açıklanmaktadır. Var olan bir [yardımcı makale](service-bus-amqp-dotnet.md) , hizmet veri yolu .NET API kullanarak aynı şeyi açıklanmaktadır. AMQP 1.0 kullanarak platformlar arası ileti hakkında bilgi edinmek için bu iki kılavuzları birlikte kullanabilirsiniz.
+Bu makalede, popüler Java ileti hizmeti (JMS) API standart toouse Service Bus Mesajlaşma özelliklerinden (kuyruklar ve yayımlama/abonelik konuları) kullanarak Java uygulamaları nasıl hello açıklanmaktadır. Var olan bir [yardımcı makale](service-bus-amqp-dotnet.md) nasıl toodo hello aynı hello Service Bus .NET API kullanarak açıklar. AMQP 1.0 kullanarak platformlar arası ileti gönderme hakkında şu iki kılavuzları birlikte toolearn kullanabilirsiniz.
 
 ## <a name="get-started-with-service-bus"></a>Service Bus’ı kullanmaya başlama
-Bu kılavuz, adlandırılan bir kuyruğun içeren bir hizmet veri yolu ad alanı zaten sahip olduğunuzu varsayar **sıra 1**. Bunu yapmanız sonra şunları yapabilirsiniz [ad alanı oluşturup sıra](service-bus-create-namespace-portal.md) kullanarak [Azure portal](https://portal.azure.com). Hizmet veri yolu ad alanları ve Kuyruklar oluşturma hakkında daha fazla bilgi için bkz: [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md).
+Bu kılavuz, adlandırılan bir kuyruğun içeren bir hizmet veri yolu ad alanı zaten sahip olduğunuzu varsayar **sıra 1**. Bunu yapmanız sonra şunları yapabilirsiniz [hello ad alanı ve Kuyruk oluşturma](service-bus-create-namespace-portal.md) hello kullanarak [Azure portal](https://portal.azure.com). Toocreate hizmet veri yolu ad alanları ve Kuyruklar nasıl görürüm hakkında daha fazla bilgi için [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Bölümlenmiş kuyruklar ve konu başlıkları da AMQP destekler. Daha fazla bilgi için bkz: [bölümlenmiş Mesajlaşma varlıkları](service-bus-partitioning.md) ve [hizmet veri yolu AMQP 1.0 desteği bölümlenmiş kuyruklar ve konu başlıkları](service-bus-partitioned-queues-and-topics-amqp-overview.md).
 > 
 > 
 
-## <a name="downloading-the-amqp-10-jms-client-library"></a>AMQP 1.0 JMS istemci kitaplığı indirme
-Apache Qpid JMS AMQP 1.0 istemci kitaplığının en son sürümü karşıdan yükleme konumu hakkında daha fazla bilgi için ziyaret [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
+## <a name="downloading-hello-amqp-10-jms-client-library"></a>İndirme hello AMQP 1.0 JMS istemci kitaplığı
+Burada toodownload hello hello Apache Qpid JMS AMQP 1.0 istemci kitaplığının en son sürümü hakkında daha fazla bilgi için [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
-Aşağıdaki dört JAR dosyalarını Apache Qpid JMS AMQP 1.0 dağıtım arşivinden Java sınıf oluşturma ve Service Bus ile JMS uygulamaları çalıştırırken eklemeniz gerekir:
+Merhaba Apache Qpid JMS AMQP 1.0 dağıtım arşiv toohello ' Java sınıf oluşturma ve Service Bus ile JMS uygulamaları çalıştırırken aşağıdaki dört JAR dosyaları hello eklemeniz gerekir:
 
 * geronimo jms\_1.1\_spec 1.0.jar
 * qpid-amqp-1-0-client-[Version].jar
@@ -47,51 +47,51 @@ Aşağıdaki dört JAR dosyalarını Apache Qpid JMS AMQP 1.0 dağıtım arşivi
 
 ## <a name="coding-java-applications"></a>Java uygulamalarını kodlama
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java adlandırma ve dizini arabirimi (JNDI)
-JMS, mantıksal ve fiziksel adlarını arasında ayrım oluşturmak için Java adlandırma ve dizin arabirimi (JNDI) kullanır. İki tür JMS nesneleri JNDI kullanarak çözümlenir: ConnectionFactory ve hedef. JNDI ad çözümleme görevlerini işlemek için farklı dizin hizmetleri ekleyebilirsiniz sağlayıcı modeli kullanır. Dosya tabanlı JNDI aşağıdaki özellikleri dosyası kullanılarak yapılandırılmış sağlayıcısı kitaplığı basit özellikleri ile birlikte gelen Apache Qpid JMS AMQP 1.0 Biçimlendir:
+JMS hello Java adlandırma ve dizin arabirimi (JNDI) toocreate mantıksal ve fiziksel adlarını arasında ayrım kullanır. İki tür JMS nesneleri JNDI kullanarak çözümlenir: ConnectionFactory ve hedef. JNDI farklı dizin hizmetleri toohandle ad çözümleme görevlerini ekleyebilirsiniz sağlayıcı modeli kullanır. Merhaba Apache Qpid JMS AMQP 1.0 kitaplığı basit özellikleri ile birlikte gelen dosya tabanlı JNDI hello aşağıdaki özellikleri dosyası kullanılarak yapılandırılmış sağlayıcısı biçimi:
 
 ```
 # servicebus.properties - sample JNDI configuration
 
-# Register a ConnectionFactory in JNDI using the form:
+# Register a ConnectionFactory in JNDI using hello form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
 connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 
-# Register some queues in JNDI using the form
+# Register some queues in JNDI using hello form
 # queue.[jndi_name] = [physical_name]
 # topic.[jndi_name] = [physical_name]
 queue.QUEUE = queue1
 ```
 
-#### <a name="configure-the-connectionfactory"></a>ConnectionFactory yapılandırın
-Girişi tanımlamak için kullanılan bir **ConnectionFactory** Qpid özellikleri JNDI sağlayıcısı şu biçimde dosyasıdır:
+#### <a name="configure-hello-connectionfactory"></a>Merhaba ConnectionFactory yapılandırın
+kullanılan girdisi toodefine hello bir **ConnectionFactory** hello Qpid özellikleri dosya JNDI biçimini izleyen Merhaba sağlayıcısıdır:
 
 ```
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-Burada **[jndi_name]** ve **[ConnectionURL]** şu anlama gelir:
+Burada **[jndi_name]** ve **[ConnectionURL]** anlamları aşağıdaki hello vardır:
 
-* **[jndi_name]** : ConnectionFactory mantıksal adı. Bu, JNDI IntialContext.lookup() yöntemini kullanarak Java uygulamasında çözümlenir addır.
-* **[ConnectionURL]** : JMS kitaplığı AMQP aracısı için gereken bilgileri sağlayan bir URL.
+* **[jndi_name]** : Merhaba ConnectionFactory hello mantıksal adı. Bu, Merhaba Java uygulaması hello JNDI IntialContext.lookup() yöntemini kullanarak çözümlenir hello addır.
+* **[ConnectionURL]** : Hello bilgilerle hello JMS kitaplığı sağlayan bir URL gerekli toohello AMQP Aracısı.
 
-Biçimi **ConnectionURL** aşağıdaki gibidir:
+Merhaba Hello biçimi **ConnectionURL** aşağıdaki gibidir:
 
 ```
 amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 ```
-Burada **[ad]**, **[SASPolicyName]** ve **[SASPolicyKey]** şu anlama gelir:
+Burada **[ad]**, **[SASPolicyName]** ve **[SASPolicyKey]** anlamları aşağıdaki hello vardır:
 
-* **[ad]** : Hizmet veri yolu ad alanı.
-* **[SASPolicyName]** : Sıra paylaşılan erişim imzası ilke adı.
-* **[SASPolicyKey]** : Sıra paylaşılan erişim imzası ilke anahtarı.
+* **[ad]** : Service Bus ad alanı hello.
+* **[SASPolicyName]** : hello sıra paylaşılan erişim imzası ilke adı.
+* **[SASPolicyKey]** : hello sıra paylaşılan erişim imzası ilke anahtarı.
 
 > [!NOTE]
-> URL kodlama parola kullanmanız gerekir. URL kodlaması yararlı bir yardımcı şu adresten edinilebilir [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> URL kodlama hello parola el ile gerekir. URL kodlaması yararlı bir yardımcı şu adresten edinilebilir [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 > 
 > 
 
 #### <a name="configure-destinations"></a>Hedeflerini yapılandırma
-Bir hedef Qpid özellikleri dosya JNDI sağlayıcısında tanımlamak için kullanılan girişinin aşağıdaki biçimi şöyledir:
+Merhaba giriş biçimini izleyen Merhaba hello Qpid özellikleri dosya JNDI sağlayıcısında bir hedefi olan toodefine kullanılır:
 
 ```
 queue.[jndi_name] = [physical_name]
@@ -103,21 +103,21 @@ or
 topic.[jndi_name] = [physical_name]
 ```
 
-Burada **[JNDI\_adı]** ve **[fiziksel\_adı]** şu anlama gelir:
+Burada **[JNDI\_adı]** ve **[fiziksel\_adı]** anlamları aşağıdaki hello vardır:
 
-* **[jndi_name]** : Hedef mantıksal adı. Bu, JNDI IntialContext.lookup() yöntemini kullanarak Java uygulamasında çözümlenir addır.
-* **[physical_name]** : Uygulama gönderir veya iletileri alan Service Bus varlık adı.
+* **[jndi_name]** : hello hedef hello mantıksal adı. Bu, Merhaba Java uygulaması hello JNDI IntialContext.lookup() yöntemini kullanarak çözümlenir hello addır.
+* **[physical_name]** : hello Service Bus varlık toowhich Merhaba uygulaması hello adını gönderir veya iletilerini alır.
 
 > [!NOTE]
-> Bir hizmet veri yolu konusu abonelikten alırken JNDI içinde belirtilen fiziksel adı konu adı olmalıdır. Dayanıklı abonelik JMS uygulama kodunda oluşturulduğunda, abonelik adını sağlanır. [Hizmet veri yolu AMQP 1.0 Geliştirici Kılavuzu](service-bus-amqp-dotnet.md) JMS Service Bus konularından ile çalışma hakkında daha fazla ayrıntı sağlar.
+> Bir hizmet veri yolu konusu abonelikten alırken hello fiziksel ad JNDI içinde belirtilen hello konunun hello adı olmalıdır. Merhaba dayanıklı abonelik hello JMS uygulama kodu oluşturulduğunda hello abonelik adı sağlanır. Merhaba [hizmet veri yolu AMQP 1.0 Geliştirici Kılavuzu](service-bus-amqp-dotnet.md) JMS Service Bus konularından ile çalışma hakkında daha fazla ayrıntı sağlar.
 > 
 > 
 
-### <a name="write-the-jms-application"></a>JMS uygulama yazma
-Özel API'leri veya JMS Service Bus ile kullanırken gereken seçenekler yok. Ancak, daha sonra ele alınacak bazı kısıtlamalar vardır. Herhangi bir JMS uygulama ile çözümleyebilmesi için JNDI ortamının yapılandırması ilk şey gerekli olduğu gibi bir **ConnectionFactory** ve hedefler.
+### <a name="write-hello-jms-application"></a>Merhaba JMS uygulaması yazma
+Özel API'leri veya JMS Service Bus ile kullanırken gereken seçenekler yok. Ancak, daha sonra ele alınacak bazı kısıtlamalar vardır. Herhangi bir JMS uygulama ile Merhaba JNDI ortamının, toobe mümkün tooresolve yapılandırması hello ilk şey gerekli olduğu gibi bir **ConnectionFactory** ve hedefler.
 
-#### <a name="configure-the-jndi-initialcontext"></a>JNDI InitialContext yapılandırın
-JNDI ortam yapılandırma bilgilerini bir hashtable javax.naming.InitialContext sınıfı oluşturucusuna geçirerek yapılandırılır. İki hashtable öğelerindeki ilk bağlam fabrikası ve sağlayıcı URL sınıf adı gereklidir. Aşağıdaki kod özellikleri dosya adlı bir özellik dosyası JNDI sağlayıcı tabanlı Qpid kullanmak için JNDI ortamını yapılandırma gösterir **servicebus.properties**.
+#### <a name="configure-hello-jndi-initialcontext"></a>Merhaba JNDI InitialContext yapılandırın
+Merhaba JNDI ortamı hello javax.naming.InitialContext sınıfı hello oluşturucuya yapılandırma bilgilerini bir hashtable geçirerek yapılandırılır. Merhaba iki gerekli hello hashtable içinde hello ilk bağlam fabrikası hello sınıf adını ve hello sağlayıcısı URL öğelerdir. Merhaba aşağıdaki kod nasıl tooconfigure hello JNDI ortam toouse hello Qpid özellikleri dosya adlı bir özellik dosyası JNDI sağlayıcı tabanlı gösterir **servicebus.properties**.
 
 ```java
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -127,7 +127,7 @@ InitialContext context = new InitialContext(env);
 ``` 
 
 ### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Service Bus kuyruğu kullanarak basit bir JMS uygulama
-Aşağıdaki örnek program sırasının JNDI mantıksal adı ile Service Bus kuyruğuna JMS TextMessages gönderir ve iletilerini geri alır.
+Merhaba aşağıdaki örnek program JMS TextMessages tooa Service Bus kuyruğuna sırasının hello JNDI mantıksal adı ile gönderir ve hello iletilerini geri alır.
 
 ```java
 // SimpleSenderReceiver.java
@@ -185,7 +185,7 @@ public class SimpleSenderReceiver implements MessageListener {
             }
 
             SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
-            System.out.println("Press [enter] to send a message. Type 'exit' + [enter] to quit.");
+            System.out.println("Press [enter] toosend a message. Type 'exit' + [enter] tooquit.");
             BufferedReader commandLine = new java.io.BufferedReader(new InputStreamReader(System.in));
 
             while (true) {
@@ -226,12 +226,12 @@ public class SimpleSenderReceiver implements MessageListener {
 }    
 ```
 
-### <a name="run-the-application"></a>Uygulamayı çalıştırma
-Uygulamayı çalıştıran biçiminde bir çıktı üretir:
+### <a name="run-hello-application"></a>Merhaba uygulamayı çalıştırın
+Merhaba uygulaması çalıştıran hello formunun bir çıktı üretir:
 
 ```
 > java SimpleSenderReceiver
-Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
 
 Sent message with JMSMessageID = ID:2867600614942270318
 Received message with JMSMessageID = ID:2867600614942270318
@@ -245,22 +245,22 @@ exit
 ```
 
 ## <a name="cross-platform-messaging-between-jms-and-net"></a>Platformlar arası ileti JMS ve .NET arasında
-Bu kılavuz, JMS kullanarak Service Bus gelen ve giden ileti gönderme ve alma nasıl oluşturulacağını gösterir. Ancak, AMQP 1.0 kilit yararları güvenilir bir şekilde ve tam bir güvenilirlik, alınıp iletilerle farklı dillerde yazılmış bileşenlerinden oluşturulacak uygulamalar sağlayan biridir.
+Bu kılavuz nasıl oluşturulacağını gösterir toosend ve hizmet JMS kullanarak veri yolundan iletileri tooand alırsınız. Ancak, hello avantajları AMQP 1.0 güvenilir bir şekilde ve tam bir güvenilirlik, alınıp iletilerle farklı dillerde yazılmış Bileşenler'den yerleşik uygulamaları toobe etkinleştirir biridir.
 
-Yukarıda açıklanan örnek JMS uygulama ve yardımcı makaleden gerçekleştirilecek benzer bir .NET uygulaması kullanarak [kullanarak Service Bus .NET AMQP 1.0 ile birlikte gelen](service-bus-amqp-dotnet.md), .NET ve Java arasında iletileri değiştirebilir. Platformlar arası Service Bus ve AMQP 1.0 kullanarak Mesajlaşma, ayrıntıları hakkında daha fazla bilgi için bu makaleyi okuyun.
+Yukarıda açıklanan hello örnek JMS uygulama ve yardımcı makaleden gerçekleştirilecek benzer bir .NET uygulaması kullanarak [kullanarak Service Bus .NET AMQP 1.0 ile birlikte gelen](service-bus-amqp-dotnet.md), .NET ve Java arasında iletileri değiştirebilir. Platformlar arası Service Bus ve AMQP 1.0 kullanarak Mesajlaşma, hello ayrıntıları hakkında daha fazla bilgi için bu makaleyi okuyun.
 
-### <a name="jms-to-net"></a>.NET için JMS
-.NET ileti JMS göstermek için:
+### <a name="jms-toonet"></a>JMS too.NET
+toodemonstrate JMS too.NET ileti:
 
-* Tüm komut satırı bağımsız değişkenleri olmadan .NET örnek uygulaması başlatın.
-* Java örnek uygulaması "sendonly" komut satırı bağımsız değişkeniyle başlatın. Bu modda, uygulama iletileri almaz sıradan, yalnızca gönderir.
-* Tuşuna **Enter** birkaç kez Java uygulama konsolunda neden olacak gönderilecek iletilerin.
-* Bu iletiler .NET uygulama tarafından alınır.
+* Tüm komut satırı bağımsız değişkenleri olmadan Merhaba .NET örnek uygulaması başlatın.
+* Merhaba Java örnek uygulaması hello "sendonly" komut satırı bağımsız değişkeniyle başlatın. Bu modda, hello uygulama hello kuyruktan iletileri almaz, yalnızca gönderir.
+* Tuşuna **Enter** birkaç kez hello Java uygulama konsolunda neden olacak gönderilen iletileri toobe.
+* Bu iletiler hello .NET uygulaması tarafından alınır.
 
 #### <a name="output-from-jms-application"></a>JMS uygulama çıktısı
 ```
 > java SimpleSenderReceiver sendonly
-Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
 Sent message with JMSMessageID = ID:4364096528752411591
 Sent message with JMSMessageID = ID:459252991689389983
 Sent message with JMSMessageID = ID:1565011046230456854
@@ -270,25 +270,25 @@ exit
 #### <a name="output-from-net-application"></a>.NET uygulaması çıktısı
 ```
 > SimpleSenderReceiver.exe    
-Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
 Received message with MessageID = 4364096528752411591
 Received message with MessageID = 459252991689389983
 Received message with MessageID = 1565011046230456854
 exit
 ```
 
-### <a name="net-to-jms"></a>JMS için .NET
-İleti gönderme ve alma JMS .NET göstermek için:
+### <a name="net-toojms"></a>.NET tooJMS
+toodemonstrate .NET tooJMS ileti:
 
-* .NET örnek uygulaması "sendonly" komut satırı bağımsız değişkeniyle başlatın. Bu modda, uygulama iletileri almaz sıradan, yalnızca gönderir.
-* Tüm komut satırı bağımsız değişkenleri olmadan Java örnek uygulamayı başlatın.
-* Tuşuna **Enter** birkaç kez .NET uygulama konsolunda neden olacak gönderilecek iletilerin.
-* Bu iletiler Java uygulama tarafından alınır.
+* Merhaba .NET örnek uygulaması hello "sendonly" komut satırı bağımsız değişkeniyle başlatın. Bu modda, hello uygulama hello kuyruktan iletileri almaz, yalnızca gönderir.
+* Tüm komut satırı bağımsız değişkenleri olmadan Hello Java örnek uygulamayı başlatın.
+* Tuşuna **Enter** birkaç kez hello .NET uygulama konsolunda neden olacak gönderilen iletileri toobe.
+* Bu iletiler hello Java uygulaması tarafından alınır.
 
 #### <a name="output-from-net-application"></a>.NET uygulaması çıktısı
 ```
 > SimpleSenderReceiver.exe sendonly
-Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
 Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3    
 Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
 Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
@@ -298,7 +298,7 @@ exit
 #### <a name="output-from-jms-application"></a>JMS uygulama çıktısı
 ```
 > java SimpleSenderReceiver    
-Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
 Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
 Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
 Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
@@ -306,22 +306,22 @@ exit
 ```
 
 ## <a name="unsupported-features-and-restrictions"></a>Desteklenmeyen özellikler ve kısıtlamalar
-Yani JMS Service Bus ile AMQP 1.0 üzerinden kullanırken, aşağıdaki kısıtlamalar mevcuttur:
+kısıtlamaları aşağıdaki hello JMS Service Bus ile AMQP 1.0 üzerinden öğesine kullanırken mevcuttur:
 
-* Yalnızca bir **MessageProducer** veya **MessageConsumer** başına izin verilen **oturum**. Birden çok oluşturmanız gerekiyorsa **MessageProducers** veya **MessageConsumers** bir uygulamada, ayrılmış bir oluşturma **oturum** her biri için.
+* Yalnızca bir **MessageProducer** veya **MessageConsumer** başına izin verilen **oturum**. Toocreate gerekiyorsa birden çok **MessageProducers** veya **MessageConsumers** bir uygulamada, ayrılmış bir oluşturma **oturum** her biri için.
 * Volatile konu abonelikleri şu anda desteklenmemektedir.
 * **MessageSelectors** şu anda desteklenmiyor.
-* Geçici hedefleri; Örneğin, **TemporaryQueue**, **TemporaryTopic** şu anda, bunların ile desteklenmemektedir **QueueRequestor** ve **TopicRequestor**Kullanılacakları API'leri.
+* Geçici hedefleri; Örneğin, **TemporaryQueue**, **TemporaryTopic** şu anda, birlikte hello desteklenmemektedir **QueueRequestor** ve **TopicRequestor**Kullanılacakları API'leri.
 * Uygulaması yapılan oturumlar ve dağıtılmış işlemler desteklenmiyor.
 
 ## <a name="summary"></a>Özet
-Nasıl yapılır bu kılavuz, popüler JMS API ve AMQP 1.0 kullanarak Service Bus aracılı Mesajlaşma özellikleri (kuyruklar ve konu başlıkları Yayınla/Abone ol) Java'dan kullanmak nasıl oluşturulacağını gösterir.
+Bu nasıl tooguide nasıl Java kullanarak toouse Service Bus aracılı Mesajlaşma özellikleri (kuyruklar ve yayımlama/abonelik konuları) popüler JMS API ve AMQP 1.0 hello gösterdi.
 
-Hizmet veri yolu AMQP 1.0 .NET, C, Python ve PHP gibi diğer dillerden de kullanabilirsiniz. Bu farklı diller kullanılarak oluşturulan bileşenleri ileti güvenilir bir şekilde gönderip ve AMQP 1.0 kullanarak tam bir güvenilirlik hizmet veri yolundaki destekler.
+Hizmet veri yolu AMQP 1.0 .NET, C, Python ve PHP gibi diğer dillerden de kullanabilirsiniz. Bu farklı diller kullanılarak oluşturulan bileşenleri, güvenilir ve hizmet veri yolundaki kullanılarak hello AMQP 1.0 desteği tam uygunluğunu iletileri değiştirebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure hizmet veri yolu AMQP 1.0 desteği](service-bus-amqp-overview.md)
-* [AMQP 1.0 ile Service Bus .NET API kullanma](service-bus-dotnet-advanced-message-queuing.md)
+* [Nasıl toouse AMQP 1.0 ile Merhaba Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 * [Hizmet veri yolu AMQP 1.0 Geliştirici Kılavuzu](service-bus-amqp-dotnet.md)
 * [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md)
 * [Java Geliştirici Merkezi](https://azure.microsoft.com/develop/java/)

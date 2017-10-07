@@ -1,6 +1,6 @@
 ---
 title: "Doğrulanıyor bağlantısı: Sorun giderme kılavuzu Azure ExpressRoute | Microsoft Docs"
-description: "Bu sayfa, sorun giderme ve bir expressroute bağlantı hattı uçtan uca bağlantısını doğrulama yönergelerini sağlar."
+description: "Bu sayfa, sorun giderme ve bir expressroute bağlantı hattı son tooend bağlantısını doğrulama yönergelerini sağlar."
 documentationcenter: na
 services: expressroute
 author: rambk
@@ -14,93 +14,93 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 5a6360b56963d219ab576fb3e2636b6c51dd72ac
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 713c39c7eafd77a4380b2a91902a9686f2ce1d85
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute bağlantısı doğrulanıyor
-Bir şirket içi ağ bağlantı sağlayıcı tarafından kolaylaştırılan özel bir bağlantı üzerinden Microsoft bulutunu genişletir, ExpressRoute aşağıdaki üç farklı ağ bölgeleri içerir:
+Bir şirket içi ağ bağlantı sağlayıcı tarafından kolaylaştırılan özel bir bağlantı üzerinden Microsoft bulut hello genişletir, ExpressRoute üç farklı ağ bölgeleri aşağıdaki hello içerir:
 
 -   Müşteri ağ
 -   Sağlayıcı ağ
 -   Microsoft Veri merkezinde
 
-Bu belgenin amacı, nereye tanımlamak için kullanıcı yardımcı olmaktır (veya bir olsa bile) bir bağlantı sorunu var ve böylece bu sorunu çözmek için uygun ekibinden yardım aramak için hangi bölgedeki. Bir sorunu gidermek için Microsoft destek gerekirse ile destek bilet [Microsoft Support][Support].
+Bu belgenin amacı Hello olduğu toohelp kullanıcı tooidentify nerede (veya bir olsa bile) bir bağlantı sorunu var ve hangi bölge içinde böylece tooseek Yardım uygun takım tooresolve hello sorundan. Microsoft destek gerekli tooresolve bir sorun varsa, bir destek bileti ile açmak [Microsoft Support][Support].
 
 > [!IMPORTANT]
-> Bu belge, tanılama ve basit sorunlarını giderme Yardımı için tasarlanmıştır. Microsoft destek için yenileme olması amaçlanmamıştır. Bir destek bileti ile açmak [Microsoft Support] [ Support] sağlanan yönergeleri kullanarak sorunu çözmeyi erişemiyorsanız.
+> Bu, hedeflenen toohelp tanılama ve basit sorunlarını giderme belgedir. Hedeflenen toobe Microsoft destek için yenileme değildir. Bir destek bileti ile açmak [Microsoft Support] [ Support] sağlanan hello yönergeleri kullanarak oluşturulamıyor toosolve hello sorun olması durumunda.
 >
 >
 
 ## <a name="overview"></a>Genel Bakış
-Aşağıdaki diyagramda bir müşteri ağı ExpressRoute kullanarak Microsoft ağına mantıksal bağlantısını gösterir.
+Merhaba Aşağıdaki diyagramda hello mantıksal bağlantısını ExpressRoute kullanarak bir müşteri ağ tooMicrosoft ağ gösterilmektedir.
 [![1]][1]
 
-Önceki diyagramda sayıları anahtar ağ noktalarını belirtin. Ağ noktaları genellikle ilişkili numaralarına göre bu makalede başvurulur.
+Diyagram önceki hello hello sayılar anahtar ağ noktalarını gösterir. Merhaba ağ noktaları genellikle ilişkili numaralarına göre bu makalede başvurulur.
 
-ExpressRoute bağlantı modeli (bulut Exchange birlikte bulundurma, noktadan noktaya Ethernet bağlantısı veya Any herhangi bir (IPVPN)) bağlı olarak ağ noktalarını 3 ve 4 anahtarları (Katman 2 aygıtları) kullanılabilir. Gösterilen anahtar ağ noktaları aşağıdaki gibidir:
+Bağlı olarak Hello ExpressRoute bağlantı modeli (bulut Exchange birlikte bulundurma, noktadan noktaya Ethernet bağlantısı veya Any herhangi bir (IPVPN)) hello ağ noktalarını 3 ve 4 anahtarları (Katman 2 aygıtları) kullanılabilir. gösterilen hello anahtar ağ noktaları aşağıdaki gibidir:
 
 1.  Müşteri işlem aygıt (örneğin, bir sunucu veya bilgisayar)
 2.  CEs: Müşteri sınır yönlendiricileri 
-3.  PEs (CE'e yönelik): sağlayıcısı sınır yönlendiricileri/müşteri sınır yönlendiricileri karşılıklı anahtarları. İçin bu belgede PE CEs adlandırılır.
-4.  PEs (MSEE'e yönelik): sağlayıcısı sınır yönlendiricileri/Msee'ler karşılıklı anahtarları. İçin bu belgede PE Msee'ler adlandırılır.
+3.  PEs (CE'e yönelik): sağlayıcısı sınır yönlendiricileri/müşteri sınır yönlendiricileri karşılıklı anahtarları. Bu belgedeki tooas PE CEs denir.
+4.  PEs (MSEE'e yönelik): sağlayıcısı sınır yönlendiricileri/Msee'ler karşılıklı anahtarları. Bu belgedeki tooas PE Msee'ler denir.
 5.  Msee'ler: Microsoft Enterprise Edge (MSEE) ExpressRoute yönlendiricileri
 6.  Sanal ağ (VNet) ağ geçidi
-7.  Azure sanal cihazda işlem
+7.  Cihaz hello Azure VNet üzerinde işlem
 
-Bulut Exchange birlikte bulundurma veya noktadan noktaya Ethernet bağlantısı bağlantı modeli kullanılıyorsa, müşteri sınır yönlendiricisi (2) BGP eşliği (5) Msee'ler ile oluşturmanız. Ağ noktalarını 3 ve 4 hala var ancak katman 2 cihaz olarak biraz saydam.
+Merhaba bulut Exchange birlikte bulundurma veya noktadan noktaya Ethernet bağlantısı bağlantı modeli kullanılıyorsa, hello müşteri sınır yönlendiricisi (2) BGP eşliği (5) Msee'ler ile oluşturmanız. Ağ noktalarını 3 ve 4 hala var ancak katman 2 cihaz olarak biraz saydam.
 
-Any herhangi bir (IPVPN) bağlantı modeli kullanılıyorsa, (MSEE'e yönelik) PEs (4) BGP eşliği (5) Msee'ler ile kurmak. Yollar sonra geri müşteri ağ IPVPN hizmet sağlayıcısı ağ üzerinden yayılması.
+Merhaba herhangi herhangi bir (IPVPN) bağlantı modeli kullanılıyorsa, PEs (MSEE'e yönelik) hello (4) BGP eşliği (5) Msee'ler ile kurmak. Yollar sonra geri toohello müşteri ağ hello IPVPN hizmet sağlayıcısı ağ üzerinden yayılır.
 
 >[!NOTE]
->ExpressRoute, yüksek kullanılabilirlik için yedek bir BGP oturumları Msee'ler (5) PE Msee'ler (4) arasındaki çift Microsoft gerektirir. Ağ yolları yedek çifti de müşteri ağ arasında PE CEs teşvik. Ancak, Any herhangi bir (IPVPN) bağlantı modelinde, tek bir CE aygıt (2) bir veya daha fazla PEs (3) için bağlı olabilir.
+>ExpressRoute, yüksek kullanılabilirlik için yedek bir BGP oturumları Msee'ler (5) PE Msee'ler (4) arasındaki çift Microsoft gerektirir. Ağ yolları yedek çifti de müşteri ağ arasında PE CEs teşvik. Ancak, herhangi herhangi bir (IPVPN) bağlantı modelinde, tek bir CE aygıt (2) bağlı tooone ya da daha fazla PEs (3) olabilir.
 >
 >
 
-Bir expressroute bağlantı hattı doğrulamak için aşağıdaki adımları (noktasıyla ilişkili sayıyla ağ) ele alınmaktadır:
+toovalidate bir expressroute bağlantı hattı, aşağıdaki adımları hello (noktasıyla ilişkili hello sayıyla hello ağ) ele alınmıştır:
 1. [Bağlantı hattı hazırlama ve durumu (5) doğrula](#validate-circuit-provisioning-and-state)
 2. [En az bir ExpressRoute doğrulamak eşliği, yapılandırılmış (5)](#validate-peering-configuration)
-3. [Microsoft ile hizmet arasında ARP doğrulama sağlayıcısı (4 ve 5 arasında bağlantı)](#validate-arp-between-microsoft-and-the-service-provider)
-4. [BGP ve (BGP 4 ila 5 5-bir VNet bağlıysa, 6 arasındaki) MSEE yollara doğrula](#validate-bgp-and-routes-on-the-msee)
-5. [Onay trafiği istatistikleri (trafik 5'ten geçirme)](#check-the-traffic-statistics)
+3. [Microsoft ve hello hizmet sağlayıcısı (bağlantı 4 ve 5 arasında) arasında ARP doğrula](#validate-arp-between-microsoft-and-the-service-provider)
+4. [BGP ve hello MSEE (BGP 4 too5 VNet bağlıysa, 5 too6 arasındaki) yollara doğrula](#validate-bgp-and-routes-on-the-msee)
+5. [Onay hello trafiği istatistikleri (trafik 5'ten geçirme)](#check-the-traffic-statistics)
 
-Daha fazla doğrulama ve denetimleri geri gelecekteki iade aylık eklenecek!
+Daha fazla doğrulama ve denetimleri hello gelecekteki iade geri aylık eklenecek!
 
 ##<a name="validate-circuit-provisioning-and-state"></a>Bağlantı hattı hazırlama ve durumunu doğrula
-Bağlantı modeli bağımsız olarak bir expressroute bağlantı hattı oluşturulması gerekir ve bu nedenle devre sağlama için bir hizmet anahtarı oluşturulur. Bir expressroute bağlantı hattı sağlama PE Msee'ler (4) ve Msee'ler (5) arasında yedekli bir katman 2 bağlantı kurar. Makale oluşturma, değiştirme, sağlamak ve bir expressroute bağlantı hattı doğrulamanın nasıl yapılacağı hakkında daha fazla bilgi için bkz: [oluşturma ve bir expressroute bağlantı hattı değiştirme][CreateCircuit].
+Oluşturulan toobe ve bu nedenle hizmet Hello bağlantı modeli bağımsız olarak, bir expressroute bağlantı hattı sahip devre sağlama için oluşturulan anahtarı. Bir expressroute bağlantı hattı sağlama PE Msee'ler (4) ve Msee'ler (5) arasında yedekli bir katman 2 bağlantı kurar. Hello makale nasıl toocreate, değiştirme, sağlamak ve bir expressroute bağlantı hattı doğrulayın daha fazla bilgi için bkz: [oluşturma ve bir expressroute bağlantı hattı değiştirme][CreateCircuit].
 
 >[!TIP]
->Bir hizmet anahtarı, bir expressroute bağlantı hattı benzersiz olarak tanımlar. Bu belgede belirtilen powershell komutların çoğu için bu anahtar gereklidir. Ayrıca, bir ExpressRoute sorun giderme, bağlantı hattı kolaylıkla tanımlamak için hizmet anahtarı sağlamak için bir expressroute bağlantı ortağı Microsoft'tan ya da Yardım gerekir.
+>Bir hizmet anahtarı, bir expressroute bağlantı hattı benzersiz olarak tanımlar. Bu belgede belirtilen hello powershell komutların çoğu için bu anahtar gereklidir. Ayrıca, Yardım ihtiyacınız olursa Microsoft'tan ya da bir expressroute bağlantı ortağı tootroubleshoot bir ExpressRoute sorun, hello hizmet sağlamak anahtar tooreadily hello hattı tanımlayın.
 >
 >
 
-###<a name="verification-via-the-azure-portal"></a>Azure Portalı aracılığıyla doğrulama
-Azure portalında seçerek bir expressroute bağlantı hattı durumunu denetlenebilir ![2][2] sol kenar çubuğu menü ve expressroute bağlantı hattı seçme. Bir expressroute bağlantı seçme "Tüm kaynaklar" altında listelenen bağlantı hattı ExpressRoute bağlantı hattı dikey penceresi açılır. İçinde ![3][3] dikey penceresinde aşağıdaki ekran görüntüsünde gösterildiği gibi essentials listelenen ExpressRoute bölümünü:
+###<a name="verification-via-hello-azure-portal"></a>Hello Azure portal aracılığıyla doğrulama
+Hello Azure portal'da, bir expressroute bağlantı hattı hello durumunu seçerek denetlenebilir ![2][2] expressroute bağlantı hattı üzerinde hello sol kenar çubuğu menüsüne ve ardından seçerek hello. Bir expressroute bağlantı seçme "Tüm kaynaklar" altında listelenen bağlantı hattı hello ExpressRoute bağlantı hattı dikey penceresi açılır. Merhaba, ![3][3] hello dikey penceresinde hello essentials hello aşağıdaki ekran görüntüsü gösterildiği gibi listelenen ExpressRoute bölümünü:
 
 ![4][4]    
 
-ExpressRoute essentials'ta *hattı durum* Microsoft tarafında devre durumunu gösterir. *Sağlayıcı durumu* bağlantı hattı olup olmadığını gösteren *hazırlandı/değil sağlanan* hizmet sağlayıcı tarafındaki. 
+Merhaba ExpressRoute Essentials içindeki *hattı durumu* hello Microsoft yan hello devreye hello durumunu gösterir. *Sağlayıcı durumu* hello hattı olup olmadığını gösteren *hazırlandı/değil sağlanan* hello hizmet sağlayıcı tarafında. 
 
-İşlem, olacak şekilde bir expressroute bağlantı hattı için *hattı durumu* olmalıdır *etkin* ve *sağlayıcı durumu* olmalıdır *hazırlandı*.
+Bir ExpressRoute bağlantı hattı toobe için işletimsel, hello *hattı durumu* olmalıdır *etkin* ve hello *sağlayıcı durumu* olmalıdır *hazırlandı*.
 
 >[!NOTE]
->Varsa *hattı durumu* olduğu etkin değilse, ilgili kişi [Microsoft Support][Support]. Varsa *sağlayıcı durumu* olan sağlanan değil, hizmet sağlayıcınıza başvurun.
+>Merhaba, *hattı durumu* olduğu etkin değilse, ilgili kişi [Microsoft Support][Support]. Merhaba, *sağlayıcı durumu* olan sağlanan değil, hizmet sağlayıcınıza başvurun.
 >
 >
 
 ###<a name="verification-via-powershell"></a>PowerShell aracılığıyla doğrulama
-Bir kaynak grubundaki tüm ExpressRoute bağlantı hatları listelemek için aşağıdaki komutu kullanın:
+toolist tüm ExpressRoute bağlantı hatları bir kaynak grubunda Merhaba, hello aşağıdaki komutu kullanın:
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->Azure portalı üzerinden, kaynak grubu adı elde edebilirsiniz. Bu belgenin önceki alt bölümüne bakın ve kaynak grubu adı örnek ekran görüntüsü listelendiğine dikkat edin.
+>Kaynak grubu adı hello Azure portal elde edebilirsiniz. Merhaba, bu belgenin önceki alt bölümüne bakın ve bu hello kaynak grubu adı hello örnek ekran görüntüsü listelenen not edin.
 >
 >
 
-Bir kaynak grubunda belirli bir expressroute bağlantı hattı seçmek için aşağıdaki komutu kullanın:
+belirli bir expressroute bağlantı hattı komutu aşağıdaki kullanım hello bir kaynak grubunda tooselect:
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
 
@@ -129,22 +129,22 @@ Bir kaynak grubunda belirli bir expressroute bağlantı hattı seçmek için aş
     Peerings                         : []
     Authorizations                   : []
 
-Bir expressroute bağlantı hattı işletimsel olup olmadığını onaylamak için belirli aşağıdaki alanları dikkat edin:
+tooconfirm bir expressroute bağlantı hattı çalıştığından, özellikle dikkat toohello alanları izleyen ödeme:
 
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
 
 >[!NOTE]
->Varsa *CircuitProvisioningState* olduğu etkin değilse, ilgili kişi [Microsoft Support][Support]. Varsa *ServiceProviderProvisioningState* olan sağlanan değil, hizmet sağlayıcınıza başvurun.
+>Merhaba, *CircuitProvisioningState* olduğu etkin değilse, ilgili kişi [Microsoft Support][Support]. Merhaba, *ServiceProviderProvisioningState* olan sağlanan değil, hizmet sağlayıcınıza başvurun.
 >
 >
 
 ###<a name="verification-via-powershell-classic"></a>PowerShell (Klasik) aracılığıyla doğrulama
-Bir abonelik altında tüm ExpressRoute bağlantı hatları listelemek için aşağıdaki komutu kullanın:
+toolist tüm ExpressRoute bağlantı hatları bir abonelik altında Merhaba, hello aşağıdaki komutu kullanın:
 
     Get-AzureDedicatedCircuit
 
-Belirli bir expressroute bağlantı hattı seçmek için aşağıdaki komutu kullanın:
+tooselect belirli bir expressroute bağlantı hattı hello aşağıdaki komutu kullanın:
 
     Get-AzureDedicatedCircuit -ServiceKey **************************************
 
@@ -160,41 +160,41 @@ Belirli bir expressroute bağlantı hattı seçmek için aşağıdaki komutu kul
     Sku                              : Standard
     Status                           : Enabled
 
-Bir expressroute bağlantı hattı işletimsel olup olmadığını onaylamak için belirli aşağıdaki alanları dikkat edin: ServiceProviderProvisioningState: sağlanan durum: etkin
+tooconfirm bir expressroute bağlantı hattı çalıştığından, özellikle dikkat toohello alanları izleyen ödeme: ServiceProviderProvisioningState: sağlanan durum: etkin
 
 >[!NOTE]
->Varsa *durum* olduğu etkin değilse, ilgili kişi [Microsoft Support][Support]. Varsa *ServiceProviderProvisioningState* olan sağlanan değil, hizmet sağlayıcınıza başvurun.
+>Merhaba, *durum* olduğu etkin değilse, ilgili kişi [Microsoft Support][Support]. Merhaba, *ServiceProviderProvisioningState* olan sağlanan değil, hizmet sağlayıcınıza başvurun.
 >
 >
 
 ##<a name="validate-peering-configuration"></a>Eşleme yapılandırmasını doğrulayın
-Hizmet sağlayıcısı expressroute bağlantı hattı Sağlama tamamlandıktan sonra bir yönlendirme yapılandırması MSEE PRs (4) Msee'ler (5) arasındaki expressroute bağlantı hattı üzerinden oluşturulabilir. Her expressroute bağlantı hattı etkin bir, iki veya üç yönlendirme bağlamları sahip olabilir: Azure özel eşleme (trafiğin Azure içindeki özel sanal ağların için), Azure ortak eşleme (trafiğin Azure genel IP adresleri için) ve Microsoft eşleme (trafiği Office 365 ve Dynamics 365). Oluşturma ve yönlendirme yapılandırmasını değiştirme hakkında daha fazla bilgi için bkz: [oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme][CreatePeering].
+Merhaba expressroute bağlantı hattı sağlama tamamlanmış hello Hello hizmet sağlayıcısı sahip olduktan sonra bir yönlendirme yapılandırması hello MSEE PRs (4) Msee'ler (5) arasındaki expressroute bağlantı hattı üzerinden oluşturulabilir. Her expressroute bağlantı hattı bir, iki veya üç yönlendirme bağlamları etkin olabilir: (trafiği tooprivate sanal ağlar Azure) Azure özel eşleme, (trafiği toopublic azure'daki IP adresleri) Azure ortak eşleme ve Microsoft (trafiği tooOffice 365 eşleme ve Dynamics 365). Hakkında daha fazla bilgi için toocreate ve yönlendirme yapılandırmasını değiştirmek, hello makalesine bakın [oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme][CreatePeering].
 
-###<a name="verification-via-the-azure-portal"></a>Azure Portalı aracılığıyla doğrulama
+###<a name="verification-via-hello-azure-portal"></a>Hello Azure portal aracılığıyla doğrulama
 >[!IMPORTANT]
->Burada görüntülerle ExpressRoute eşlemeler Azure portalında bilinen bir hata varsa *değil* hizmet sağlayıcısı tarafından yapılandırılmışsa Portalı'nda gösterilen. Portal veya PowerShell üzerinden ExpressRoute eşlemeleri ekleme *servis sağlayıcı ayarları geçersiz kılar*. Bu eylem, expressroute bağlantı hattı üzerinde yönlendirme keser ve ayarlarını geri yüklemek ve normal yönlendirme yeniden kurmak için hizmet sağlayıcı desteği gerektirir. Hizmet sağlayıcısı yalnızca Katman 2 hizmetleri sağlayan belirli ise yalnızca ExpressRoute eşlemeler değiştirin!
+>Merhaba; burada görüntülerle ExpressRoute eşlemeler olan Azure portal bilinen bir hata varsa *değil* hello hizmet sağlayıcısı tarafından yapılandırılmışsa hello Portalı'nda gösterilen. ExpressRoute eşlemeler hello portal veya PowerShell aracılığıyla ekleme *hello servis sağlayıcı ayarları geçersiz kılar*. Bu eylem hello hello expressroute bağlantı hattı üzerinde yönlendirmeyi keser ve hello hizmeti sağlayıcısı toorestore hello ayarlarının hello desteği gerektirir ve normal yönlendirme yeniden. Yalnızca bu hello hizmet sağlayıcısı yalnızca Katman 2 hizmetleri sağlayan belirli ise hello ExpressRoute eşlemeler değiştirin!
 >
 >
 
 <p/>
 >[!NOTE]
->Katman 3 hizmet sağlayıcısı tarafından sağlanır ve eşlemeler portalda boş, PowerShell servis sağlayıcı yapılandırılmış ayarları görmek için kullanılabilir.
+>Hizmet sağlayıcısı ve hello eşlemeler tarafından Hello hello Portalı'nda boş olması koşuluyla Katman 3 ise, PowerShell kullanılan toosee hello servis sağlayıcı yapılandırılmış ayarları olabilir.
 >
 >
 
-Azure portalında seçerek bir expressroute bağlantı hattı durumunu denetlenebilir ![2][2] sol kenar çubuğu menü ve expressroute bağlantı hattı seçme. Bir expressroute bağlantı seçme "Tüm kaynaklar" altında listelenen bağlantı hattı ExpressRoute bağlantı hattı dikey penceresi açılır. İçinde ![3][3] dikey penceresinde aşağıdaki ekran görüntüsünde gösterildiği gibi essentials'in listelenmesi ExpressRoute bölümünü:
+Hello Azure portal'da, bir expressroute bağlantı hattı durumunu seçerek denetlenebilir ![2][2] expressroute bağlantı hattı üzerinde hello sol kenar çubuğu menüsüne ve ardından seçerek hello. Bir expressroute bağlantı seçme "Tüm kaynaklar" altında listelenen bağlantı hattı hello ExpressRoute bağlantı hattı dikey penceresi açılacaktır. Merhaba, ![3][3] bölümüne hello dikey penceresinde hello ExpressRoute hello aşağıdaki ekran görüntüsü gösterildiği gibi essentials'in listelenmesi:
 
 ![5][5]
 
-Azure ortak ve Microsoft eşleme yönlendirme bağlamları etkin olmayan ancak önceki örnekte belirtilen Azure özel eşleme yönlendirme bağlamı olarak etkinleştirilir. Başarılı bir şekilde etkinleştirilmiş bir eşleme bağlamı listelenen (BGP için gerekli) birincil ve ikincil noktadan noktaya alt ağlar da gerekir. / 30 alt ağ arabiriminin IP adresini ve Msee'ler PE Msee için kullanılır. 
+Azure ortak ve Microsoft eşleme yönlendirme bağlamları etkin olmayan ancak örnek önceki hello belirtilen Azure özel eşleme yönlendirme bağlamı olarak etkinleştirilir. Başarılı bir şekilde etkinleştirilmiş bir eşleme bağlamı listelenen hello (BGP için gerekli) birincil ve ikincil noktadan noktaya alt ağlar da gerekir. Merhaba /30 alt ağlar hello Msee'ler hello arabirimi IP adresini ve PE Msee için kullanılır. 
 
 >[!NOTE]
->Bir eşleme etkin değilse, atanan birincil ve ikincil alt ağları PE Msee'ler yapılandırmasına eşleşip eşleşmediğini denetleyin. Aksi durumda, MSEE yönlendiricilerde yapılandırmasını değiştirmek için başvurmak [oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme][CreatePeering]
+>Bir eşleme etkin değilse, atanan hello birincil ve ikincil alt ağları eşleşip eşleşmediğini denetleyin PE Msee'ler hello yapılandırmasına. Değilse, toochange hello yapılandırma, MSEE yönlendiricilerde çok başvurun[oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme][CreatePeering]
 >
 >
 
 ###<a name="verification-via-powershell"></a>PowerShell aracılığıyla doğrulama
-Azure özel eşleme yapılandırma ayrıntılarını almak için aşağıdaki komutları kullanın:
+tooget hello Azure özel yapılandırma ayrıntılarını eşliği hello aşağıdaki komutları kullanın:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
@@ -216,19 +216,19 @@ Bir başarılı bir şekilde yapılandırılmış özel eşleme için bir örnek
     MicrosoftPeeringConfig     : null
     ProvisioningState          : Succeeded
 
- Başarılı bir şekilde etkinleştirilmiş bir eşleme bağlamı, listelenen birincil ve ikincil adres öneklerini gerekir. / 30 alt ağ arabiriminin IP adresini ve Msee'ler PE Msee için kullanılır.
+ Başarılı bir şekilde etkinleştirilmiş bir eşleme bağlamı listelenen hello birincil ve ikincil adres öneklerini gerekir. Merhaba /30 alt ağlar hello Msee'ler hello arabirimi IP adresini ve PE Msee için kullanılır.
 
-Azure ortak eşleme yapılandırma ayrıntılarını almak için aşağıdaki komutları kullanın:
+tooget hello Azure genel yapılandırma ayrıntılarını eşliği hello aşağıdaki komutları kullanın:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
 
-Microsoft eşlemesi yapılandırma ayrıntılarını almak için aşağıdaki komutları kullanın:
+tooget hello Microsoft eşleme yapılandırma ayrıntılarını, hello aşağıdaki komutları kullanın:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt
 
-Bir eşleme yapılandırılmamışsa bir hata iletisi olacaktır. Belirtilen eşleme (Azure Bu örnekte eşliği genel) içinde hattı yapılandırılmadığında bir örnek yanıt:
+Bir eşleme yapılandırılmamışsa bir hata iletisi olacaktır. Merhaba eşleme (Azure Bu örnekte eşliği genel) belirtildiği zaman bir örnek yanıt hello hattı içinde yapılandırılmamış:
 
     Get-AzureRmExpressRouteCircuitPeeringConfig : Sequence contains no matching element
     At line:1 char:1
@@ -240,12 +240,12 @@ Bir eşleme yapılandırılmamışsa bir hata iletisi olacaktır. Belirtilen eş
 
 <p/>
 >[!NOTE]
->Bir eşleme etkin değilse, atanan birincil ve ikincil alt ağları Bağlantılı PE MSEE yapılandırmasına eşleşip eşleşmediğini denetleyin. Ayrıca denetleyin doğru *Vlanıd*, *AzureASN*, ve *PeerASN* üzerinde Msee'ler kullanılır ve bu değerleri eşleniyorsa bağlantılı PE MSEE üzerinde kullanılan olanlara. MD5 karma seçilirse, paylaşılan anahtar MSEE ve PE MSEE çiftine aynı olması gerekir. MSEE yönlendiricilerde yapılandırmasını değiştirmek için başvurmak [oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme] [CreatePeering].  
+>Bir eşleme etkin değilse hello atanan birincil ve ikincil alt ağları eşleşme hello hello yapılandırmasına PE MSEE bağlı olmadığını denetleyin. Ayrıca onay hello varsa düzeltin *Vlanıd*, *AzureASN*, ve *PeerASN* üzerinde Msee'ler kullanılır ve bu değerleri toohello hello üzerinde kullanılan olanları eşleniyorsa PE MSEE bağlanır. MD5 karma seçilirse, hello paylaşılan anahtar MSEE ve PE MSEE çiftine aynı olması gerekir. Merhaba MSEE yönlendiricilerde toochange hello yapılandırma başvurmak çok [oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme] [CreatePeering].  
 >
 >
 
 ### <a name="verification-via-powershell-classic"></a>PowerShell (Klasik) aracılığıyla doğrulama
-Azure özel eşleme yapılandırma ayrıntılarını almak için aşağıdaki komutu kullanın:
+tooget hello Azure özel yapılandırma ayrıntılarını eşliği hello aşağıdaki komutu kullanın:
 
     Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
@@ -264,40 +264,40 @@ Azure özel eşleme yapılandırma ayrıntılarını almak için aşağıdaki ko
     State                          : Enabled
     VlanId                         : 100
 
-A başarılı bir şekilde, etkinleştirilmiş eşleme bağlamı, listelenen birincil ve ikincil eş alt ağlar sahip olabilir. / 30 alt ağ arabiriminin IP adresini ve Msee'ler PE Msee için kullanılır.
+A başarılı bir şekilde, etkinleştirilmiş eşleme bağlam listelenen hello birincil ve ikincil eş alt sahip olabilir. Merhaba /30 alt ağlar hello Msee'ler hello arabirimi IP adresini ve PE Msee için kullanılır.
 
-Azure ortak eşleme yapılandırma ayrıntılarını almak için aşağıdaki komutları kullanın:
+tooget hello Azure genel yapılandırma ayrıntılarını eşliği hello aşağıdaki komutları kullanın:
 
     Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 
-Microsoft eşlemesi yapılandırma ayrıntılarını almak için aşağıdaki komutları kullanın:
+tooget hello Microsoft eşleme yapılandırma ayrıntılarını, hello aşağıdaki komutları kullanın:
 
     Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
 >[!IMPORTANT]
->Katman 3 eşlemeler hizmet sağlayıcısı tarafından ayarlanan, portal veya PowerShell üzerinden ExpressRoute eşlemeler ayarlama, servis sağlayıcı ayarları üzerine yazar. Sağlayıcı yan eşleme ayarları sıfırlama hizmet sağlayıcısının desteği gerektirir. Hizmet sağlayıcısı yalnızca Katman 2 hizmetleri sağlayan belirli ise yalnızca ExpressRoute eşlemeler değiştirin!
+>Katman 3 eşlemeler hello hizmet sağlayıcısı tarafından ayarlanan, hello ExpressRoute eşlemeler hello portal veya PowerShell aracılığıyla ayarlama hello servis sağlayıcı ayarları üzerine yazar. Merhaba sağlayıcı yan eşleme ayarları sıfırlama hello hizmet sağlayıcısının hello desteği gerektirir. Yalnızca bu hello hizmet sağlayıcısı yalnızca Katman 2 hizmetleri sağlayan belirli ise hello ExpressRoute eşlemeler değiştirin!
 >
 >
 
 <p/>
 >[!NOTE]
->Bir eşleme etkin değilse, atanan birincil ve ikincil eş alt ağları Bağlantılı PE MSEE yapılandırmasına eşleşip eşleşmediğini denetleyin. Ayrıca denetleyin doğru *Vlanıd*, *AzureAsn*, ve *PeerAsn* üzerinde Msee'ler kullanılır ve bu değerleri eşleniyorsa bağlantılı PE MSEE üzerinde kullanılan olanlara. MSEE yönlendiricilerde yapılandırmasını değiştirmek için başvurmak [oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme] [CreatePeering].
+>Bir eşleme etkin değilse hello birincil ve ikincil eş atanan alt ağları eşleşme hello yapılandırmasına hello PE MSEE bağlı olmadığını denetleyin. Ayrıca onay hello varsa düzeltin *Vlanıd*, *AzureAsn*, ve *PeerAsn* üzerinde Msee'ler kullanılır ve bu değerleri toohello hello üzerinde kullanılan olanları eşleniyorsa PE MSEE bağlanır. Merhaba MSEE yönlendiricilerde toochange hello yapılandırma başvurmak çok [oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme] [CreatePeering].
 >
 >
 
-## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Microsoft hizmet sağlayıcısı arasında ARP doğrula
-Bu bölüm, PowerShell (Klasik) komutlarını kullanır. Azure Resource Manager PowerShell komutları kullanıyorsanız, aboneliğe yönetici/ortak yönetici erişimi olduğundan emin olun [Klasik Azure portalı][OldPortal]. Azure Resource Manager kullanarak sorun giderme için komutları lütfen [Resource Manager dağıtım modeli alma ARP tablolarda] [ ARP] belge.
+## <a name="validate-arp-between-microsoft-and-hello-service-provider"></a>ARP arasında Microsoft ve hello hizmeti sağlayıcısını doğrulayın
+Bu bölüm, PowerShell (Klasik) komutlarını kullanır. Azure Resource Manager PowerShell komutları kullanıyorsanız, yönetici/ortak yönetici erişimi toohello abonelik aracılığıyla sahip olduğundan emin olun [Klasik Azure portalı][OldPortal]. Azure Resource Manager kullanarak sorun giderme için komutları toohello başvurun [hello Resource Manager dağıtım modeli alma ARP tablolarda] [ ARP] belge.
 
 >[!NOTE]
->ARP almak için Azure portalı ve Azure Resource Manager PowerShell komutları kullanılabilir. Azure Resource Manager PowerShell komutları ile bir hatayla karşılaşılmazsa Klasik PowerShell komutlarını Klasik PowerShell komutları de Azure Resource Manager ExpressRoute bağlantı hatları ile çalışması olarak çalışması gerekir.
+>tooget ARP, hello Azure portalı ve Azure Resource Manager PowerShell komutları kullanılabilir. Hello Azure Resource Manager PowerShell komutları ile bir hatayla karşılaşılmazsa Klasik PowerShell komutlarını Klasik PowerShell komutları de Azure Resource Manager ExpressRoute bağlantı hatları ile çalışması olarak çalışması gerekir.
 >
 >
 
-Özel eşleme için birincil MSEE'nin yönlendiriciden ARP tablosu almak için aşağıdaki komutu kullanın:
+tooget hello hello özel eşliği olarak birincil MSEE'nin yönlendirici ARP tablosundan Merhaba, hello aşağıdaki komutu kullanın:
 
     Get-AzureDedicatedCircuitPeeringArpInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 
-Bir örnek yanıt başarılı senaryoda komutu için:
+Bir örnek yanıt hello başarılı senaryoda hello komutu için:
 
     ARP Info:
 
@@ -305,28 +305,28 @@ Bir örnek yanıt başarılı senaryoda komutu için:
                  113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
-Benzer şekilde, MSEE ARP tablosundan kontrol edebilirsiniz *birincil*/*ikincil* yolu için *özel*/*ortak*/*Microsoft* eşlemeleri.
+Benzer şekilde, hello hello hello MSEE ARP tablosundan kontrol edebilirsiniz *birincil*/*ikincil* yolu için *özel* /  *Ortak*/*Microsoft* eşlemeleri.
 
-Aşağıdaki örnek, bir eşleme için komut yanıtı yok gösterir.
+Merhaba aşağıdaki örnekte gösterildiği bir eşleme için hello komut yanıtı hello yok.
 
     ARP Info:
        
 >[!NOTE]
->ARP tablosu MAC adreslerinin eşlenen arabirimlerin IP adreslerini yoksa, aşağıdaki bilgileri gözden geçirin:
->1. Varsa/30 ilk IP adresini MSEE PR ve MSEE arasındaki bağlantıyı MSEE PR. arabirimde kullanılır atanan alt ağ Azure, ikinci IP adresi Msee için her zaman kullanır.
->2. Hizmet (S-Tag) VLAN etiketlerini ve müşteri (C-Tag) hem de MSEE PR ve MSEE çifti eşleşip eşleşmediğini denetleyin.
+>Merhaba ARP tablosu yoksa hello arabirimlerin IP adreslerini tooMAC adresleri, aşağıdaki bilgileri gözden geçirme hello eşlenmiş:
+>1. Merhaba ilk IP adresi hello /30 alt arasında hello bağlantı için atanmışsa MSEE PR hello ve MSEE MSEE PR. hello arabirimde kullanılır Azure hello ikinci IP adresi Msee için her zaman kullanır.
+>2. Merhaba müşteri (C-etiketi) ve hizmet (S-Tag) VLAN etiketlerini hem MSEE PR ve MSEE çifti eşleşip eşleşmediğini denetleyin.
 >
 >
 
-## <a name="validate-bgp-and-routes-on-the-msee"></a>BGP ve MSEE yollara doğrula
-Bu bölüm, PowerShell (Klasik) komutlarını kullanır. Azure Resource Manager PowerShell komutları kullanıyorsanız, aboneliğe yönetici/ortak yönetici erişimi olduğundan emin olun [Klasik Azure portalı][OldPortal]
+## <a name="validate-bgp-and-routes-on-hello-msee"></a>BGP ve hello MSEE yollara doğrula
+Bu bölüm, PowerShell (Klasik) komutlarını kullanır. Azure Resource Manager PowerShell komutları kullanıyorsanız, yönetici/ortak yönetici erişimi toohello abonelik aracılığıyla sahip olduğundan emin olun [Klasik Azure portalı][OldPortal]
 
 >[!NOTE]
->BGP bilgi almak için Azure portalı ve Azure Resource Manager PowerShell komutları kullanılabilir. Azure Resource Manager PowerShell komutları ile bir hatayla karşılaşılmazsa Klasik PowerShell komutlarını Klasik PowerShell komutları de Azure Resource Manager ExpressRoute bağlantı hatları ile çalışması olarak çalışması gerekir.
+>Azure portalı ve Azure Resource Manager PowerShell komutları kullanılabilir tooget BGP bilgileri, her iki hello. Hello Azure Resource Manager PowerShell komutları ile bir hatayla karşılaşılmazsa Klasik PowerShell komutlarını Klasik PowerShell komutları de Azure Resource Manager ExpressRoute bağlantı hatları ile çalışması olarak çalışması gerekir.
 >
 >
 
-Belirli bir yönlendirme bağlamının (BGP komşu) yönlendirme tablosu özetini almak için aşağıdaki komutu kullanın:
+tooget yönlendirme tablosunu (BGP komşu) için belirli bir yönlendirme bağlam Özet Merhaba, hello aşağıdaki komutu kullanın:
 
     Get-AzureDedicatedCircuitPeeringRouteTableSummary -AccessType Private -Path Primary -ServiceKey "*********************************"
 
@@ -337,24 +337,24 @@ Bir örnek yanıt şöyledir:
             Neighbor                   V                  AS              UpDown         StatePfxRcd
             10.0.0.1                   4                ####                8w4d                  50
 
-Önceki örnekte gösterildiği gibi komut yönlendirme ne kadar süreyle bağlamı için kurulmuş belirlemek yararlıdır. Ayrıca, eşleme yönlendirici tarafından tanıtılan rota ön sayısını gösterir.
+Hello önceki örnekte gösterildiği gibi hello hello yönlendirme bağlamı ne kadar süreyle kurulduğunda için yararlı toodetermine komuttur. Ayrıca, yol önekleri hello eşleme yönlendirici tarafından tanıtılan sayısını gösterir.
 
 >[!NOTE]
->Durumu etkin veya boş ise, atanan birincil ve ikincil eş alt ağları Bağlantılı PE MSEE yapılandırmasına eşleşip eşleşmediğini denetleyin. Ayrıca denetleyin doğru *Vlanıd*, *AzureAsn*, ve *PeerAsn* üzerinde Msee'ler kullanılır ve bu değerleri eşleniyorsa bağlantılı PE MSEE üzerinde kullanılan olanlara. MD5 karma seçilirse, paylaşılan anahtar MSEE ve PE MSEE çiftine aynı olması gerekir. MSEE yönlendiricilerde yapılandırmasını değiştirmek için başvurmak [oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme][CreatePeering].
+>Merhaba durumu etkin veya boş ise, hello birincil ve ikincil eş atanan alt ağları eşleşme hello yapılandırmasına hello PE MSEE bağlı olmadığını denetleyin. Ayrıca onay hello varsa düzeltin *Vlanıd*, *AzureAsn*, ve *PeerAsn* üzerinde Msee'ler kullanılır ve bu değerleri toohello hello üzerinde kullanılan olanları eşleniyorsa PE MSEE bağlanır. MD5 karma seçilirse, hello paylaşılan anahtar MSEE ve PE MSEE çiftine aynı olması gerekir. Merhaba MSEE yönlendiricilerde toochange hello yapılandırma başvurmak çok[oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme][CreatePeering].
 >
 >
 
 <p/>
 >[!NOTE]
->Belirli bir eşlemesi içinde belirli hedefler erişilebilir değilse, belirli eşleme bağlamına ait Msee'ler rota tablosu denetleyin. Yönlendirme tablosunda (NATed IP olabilir) eşleşen bir önek varsa yola NSG/güvenlik duvarları/ACL'leri varsa ve trafiğe izin olmadığını denetleyin.
+>Belirli bir eşlemesi içinde belirli hedefler erişilebilir değilse, toohello belirli eşleme bağlam ait hello Msee'ler hello rota tablosu denetleyin. (NATed IP olabilir) eşleşen bir önek hello yönlendirme tablosunda varsa, hello yolda NSG/güvenlik duvarları/ACL'leri varsa ve hello trafiğe olmadığını denetleyin.
 >
 >
 
-Tam yönlendirme tablosu MSEE almak için *birincil* belirli yolu *özel* bağlamı yönlendirme, aşağıdaki komutu kullanın:
+tooget hello tam yönlendirme tablosundan MSEE hello üzerinde *birincil* hello belirli yolu *özel* yönlendirme bağlamı, komutu aşağıdaki kullanım hello:
 
     Get-AzureDedicatedCircuitPeeringRouteTableInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 
-Komutu için bir örnek başarılı sonuç verilmiştir:
+Merhaba komutu için bir örnek başarılı sonuç verilmiştir:
 
     Route Table Info:
 
@@ -363,24 +363,24 @@ Komutu için bir örnek başarılı sonuç verilmiştir:
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
     ...
 
-Benzer şekilde, MSEE yönlendirme tablosundan kontrol edebilirsiniz *birincil*/*ikincil* yolu için *özel*/*ortak*/*Microsoft* eşleme bağlamı.
+Benzer şekilde, hello yönlendirme hello hello MSEE tablosundan kontrol edebilirsiniz *birincil*/*ikincil* yolu için *özel* / *Ortak*/*Microsoft* eşleme bağlamı.
 
-Aşağıdaki örnek, bir eşleme için komut yanıtı yok gösterir:
+Merhaba aşağıdaki örnekte gösterildiği bir eşleme için hello komut yanıtı hello yok:
 
     Route Table Info:
 
-##<a name="check-the-traffic-statistics"></a>Onay trafiği istatistikleri
-Birleşik birincil ve ikincil yol trafiğini istatistikleri--bayt ve bir kapatma--bir eşleme bağlamında almak için aşağıdaki komutu kullanın:
+##<a name="check-hello-traffic-statistics"></a>Onay hello trafiği istatistikleri
+tooget hello birincil ve ikincil yol trafiğini istatistikleri--bayt ve bir kapatma--bir eşleme bağlamında, komutu aşağıdaki kullanım hello birleştirilmiş:
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
 
-Komutun bir örnek çıktı verilmiştir:
+Örnek bir çıktı hello komut şöyledir:
 
     PrimaryBytesIn PrimaryBytesOut SecondaryBytesIn SecondaryBytesOut
     -------------- --------------- ---------------- -----------------
          240780020       239863857        240565035         239628474
 
-Örnek bir çıktı mevcut olmayan eşleme için komut şöyledir:
+Mevcut olmayan eşleme için hello komutunun örnek çıktı verilmiştir:
 
     Get-AzureDedicatedCircuitStats : ResourceNotFound: Can not find any subinterface for peering type 'Public' for circuit '97f85950-01dd-4d30-a73c-bf683b3a6e5c' .
     At line:1 char:1
@@ -390,7 +390,7 @@ Komutun bir örnek çıktı verilmiştir:
         + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.GetAzureDedicatedCircuitPeeringStatsCommand
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Daha fazla bilgi veya Yardım için aşağıdaki bağlantıları kontrol edin:
+Daha fazla bilgi veya Yardım için bağlantılar aşağıdaki hello denetleyin:
 
 - [Microsoft Destek][Support]
 - [Oluşturma ve bir expressroute bağlantı hattı değiştirme][CreateCircuit]

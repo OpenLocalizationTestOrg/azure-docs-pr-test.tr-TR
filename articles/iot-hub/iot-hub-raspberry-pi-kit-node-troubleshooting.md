@@ -1,6 +1,6 @@
 ---
-title: "Böğürtlenli Pi (C) bağlanmak için Azure IOT - sorunlarını giderme | Microsoft Docs"
-description: "Sayfa Raspberry Pi Node.js deneyimi için sorun giderme"
+title: "Connect Raspberry pi (C) tooAzure IOT - sorunlarını giderme | Microsoft Docs"
+description: "Sayfa hello Raspberry Pi Node.js deneyimi için sorun giderme"
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,61 +17,61 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: f9058068972ddbb674d3cd159948835dc88c4451
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f0807104550e8e53a132f7741564b33f1db17ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting"></a>Sorun giderme
 ## <a name="hardware-issues"></a>Donanım sorunları
-### <a name="the-application-runs-well-but-the-led-is-not-blinking"></a>Uygulama iyi çalışır ancak ışığı yanıp sönen değil
-Bu sorun, her zaman donanım hattı bağlantı ilişkilidir. Sorunları belirlemek için aşağıdaki adımları kullanın:
+### <a name="hello-application-runs-well-but-hello-led-is-not-blinking"></a>çalıştırır yanı sıra ancak LED hello Merhaba uygulaması yanıp sönen değil
+Bu her zaman ilgili toohardware hattı bağlantı sorunudur. Aşağıdaki adımları tooidentify sorunları hello kullan:
 
-1. Doğru seçtiğiniz denetleyin **GPIO'yu** panonuzu üzerinde. İki bağlantı noktası olmalıdır **GPIO'yu GND (PIN 6)** ve **GPIO'yu 04 (PIN 7)**.
-2. LED polarite doğru olduğunu denetleyin. Uzun leg belirtmelidir **pozitif**, Number PIN.
-3. Kullanım **3, 3v PIN** ve **GND PIN** üzerinde Raspberry 3 ila Pi. Pi DC Güç kabul eder. LED düzgün çalışıp çalışmadığını denetleyin.
+1. Merhaba doğru seçtiğiniz denetleyin **GPIO'yu** panonuzu üzerinde. Merhaba iki bağlantı noktası olmalıdır **GPIO'yu GND (PIN 6)** ve **GPIO'yu 04 (PIN 7)**.
+2. Merhaba polarite, LED, doğru olup olmadığını denetleyin. Merhaba uzun leg hello belirtmek **pozitif**, Number PIN.
+3. Kullanım hello **3, 3v PIN** ve **GND PIN** Raspberry Pi 3. Pi DC Güç hello kabul eder. Bu hello LED düzgün çalışır denetleyin.
 
 ![LED belirtimi](media/iot-hub-raspberry-pi-lessons/troubleshooting/led_spec.png)
 
 ### <a name="other-hardware-issues"></a>Diğer donanım sorunları
-Raspberry Pi 3'te sık karşılaşılan sorunları giderme hakkında daha fazla bilgi için bkz: [resmi sorun giderme sayfa](http://elinux.org/R-Pi_Troubleshooting).
+Merhaba Raspberry Pi 3'te sık karşılaşılan sorunları giderme hakkında daha fazla bilgi için bkz: [resmi sorun giderme sayfa](http://elinux.org/R-Pi_Troubleshooting).
 
 ## <a name="nodejs-package-issues"></a>Node.js paket sorunları
 ### <a name="no-response-during-gulp-tasks"></a>Gulp görevler sırasında yanıt yok
-Ekleyebileceğiniz gulp görevleri çalıştırma sorunlarla karşılaşmanız halinde, `--verbose` hata ayıklama seçeneği. Ctrl + C'ı kullanarak geçerli gulp görevleri sonlandırmak deneyin ve ardından görmek için konsol penceresinde aşağıdaki komutu çalıştırın hata ayıklama iletilerini. Ayrıntılı hata iletileri, konsol çıktısı görebilirsiniz.
+Çalışan gulp görevleri sorunlarla karşılaşırsanız, hello ekleyebilirsiniz `--verbose` hata ayıklama seçeneği. Ctrl + C'ı kullanarak tooterminate geçerli gulp görevleri deneyin ve ardından konsol penceresinde toosee hata ayıklama iletileri komutunda aşağıdaki hello çalıştırın. Ayrıntılı hata iletileri, konsol çıktısı görebilirsiniz.
 
 ```bash
 gulp --verbose
 ```
 
 ### <a name="device-discovery-issues"></a>Aygıt Bulma sorunları
-İlgili genel sorunları gidermede yardım için `devdisco` komutu, onay [Benioku](https://github.com/Azure/device-discovery-cli/blob/develop/readme.md).
+İlgili hello ortak sorunları gidermede yardım için `devdisco` komutu, hello denetleyin [Benioku](https://github.com/Azure/device-discovery-cli/blob/develop/readme.md).
 
 ### <a name="npm-issues"></a>npm sorunları
-Aşağıdaki komutu kullanarak npm paket güncelleştirmeyi deneyin:
+Tooupdate komutu aşağıdaki hello kullanarak npm paket deneyin:
 
 ```bash
 npm install -g npm
 ```
 
-Sorun devam ederse, bu makalenin sonunda yorumlarınızı bırakın veya bir GitHub sorunu oluşturmak bizim [örnek depo](https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started).
+Merhaba sorun devam ederse, bu makalenin hello sonunda yorumlarınızı bırakın veya bir GitHub sorunu oluşturmak bizim [örnek depo](https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started).
 
 ## <a name="remote-debugging"></a>Uzaktan hata ayıklama
-### <a name="run-the-sample-application-in-debug-mode"></a>Örnek uygulamayı hata ayıklama modunda çalıştırın
+### <a name="run-hello-sample-application-in-debug-mode"></a>Hata ayıklama modunda Hello örnek uygulamayı çalıştırın
 ```bash
 gulp run --debug
 ```
 
-Hata ayıklama altyapısı hazır olduğunda, görmelisiniz ```Debugger listening on port 5858``` konsol çıkışı.
+Merhaba hata ayıklama altyapısı hazır olduğunda, görmelisiniz ```Debugger listening on port 5858``` hello konsol çıkışı.
 
-### <a name="configure-visual-studio-code-to-connect-to-the-remote-device"></a>Visual Studio Code uzak cihaza bağlanmak için yapılandırın
-1. Açık **hata ayıklama** sol tarafındaki paneli.
-2. Yeşil tıklatın **hata ayıklamayı Başlat** (F5) düğmesi. Visual Studio Code Launch.json'u dosyasını açar.
-3. Launch.json'u dosyasını aşağıdaki içerik ile güncelleştirin. Değiştir `[device hostname or IP address]` gerçek aygıt IP adresi veya ana bilgisayar adı.
+### <a name="configure-visual-studio-code-tooconnect-toohello-remote-device"></a>Visual Studio Code tooconnect toohello uzak aygıt yapılandırma
+1. Açık hello **hata ayıklama** hello yan sol panelde.
+2. Merhaba yeşil tıklatın **hata ayıklamayı Başlat** (F5) düğmesi. Visual Studio Code Launch.json'u dosyasını açar.
+3. Merhaba Launch.json'u dosya içeriği aşağıdaki hello ile güncelleştirin. Değiştir `[device hostname or IP address]` Merhaba, gerçek cihaz IP adresi veya ana bilgisayar adı ile.
 
 > [!NOTE]
-> Visual Studio hata ayıklama hakkında daha fazla bilgi için lütfen [Visual Studio kodda hata ayıklama](https://code.visualstudio.com/Docs/editor/debugging#_launchjson-attributes).
+> Merhaba Visual Studio hata ayıklama, hakkında daha fazla toolearn başvurun çok[Visual Studio kodda hata ayıklama](https://code.visualstudio.com/Docs/editor/debugging#_launchjson-attributes).
 
 
 ```json
@@ -96,23 +96,23 @@ Hata ayıklama altyapısı hazır olduğunda, görmelisiniz ```Debugger listenin
 
 ![Uzaktan hata ayıklama yapılandırması](media/iot-hub-raspberry-pi-lessons/troubleshooting/remote_debugging_configuration.png)
 
-### <a name="attach-to-the-remote-application"></a>Uzak uygulamasına ekleme
-Yeşil tıklatın **hata ayıklamayı Başlat** hata ayıklamayı başlatmak için (F5) düğmesini.
+### <a name="attach-toohello-remote-application"></a>Toohello uzak uygulama ekleme
+Merhaba yeşil tıklatın **hata ayıklamayı Başlat** (F5) düğmesini toostart hata ayıklama.
 
-Okuma [JavaScript VS code'da](https://code.visualstudio.com/docs/languages/javascript#_debugging) hata ayıklayıcı hakkında daha fazla bilgi için.
+Okuma [JavaScript VS code'da](https://code.visualstudio.com/docs/languages/javascript#_debugging) toolearn hello hata ayıklayıcı hakkında daha fazla.
 
 ![Uzaktan etkileşimli hata ayıklama](media/iot-hub-raspberry-pi-lessons/troubleshooting/remote_debugging_interactive.png)
 
 ## <a name="azure-cli-issues"></a>Azure CLI sorunları
-Azure komut satırı arabirimi (Azure CLI) önizleme yapıdır. Çözümleri aramak için kullanabileceğiniz [Önizleme Yükleme Kılavuzu](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md).
+Hello Azure komut satırı arabirimi (Azure CLI) önizleme yapıdır. tooseek çözümleri hello kullanabilir [Önizleme Yükleme Kılavuzu](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md).
 
-Tüm hatalar aracı ile karşılaşırsanız, dosya bir [sorunu](https://github.com/Azure/azure-cli/issues) içinde **sorunları** GitHub depo bölümü.
+Tüm hatalar hello aracı ile karşılaşırsanız, dosya bir [sorunu](https://github.com/Azure/azure-cli/issues) hello içinde **sorunları** hello GitHub deposuna bölümü.
 
-Sık karşılaşılan sorunları giderme konusunda yardım için kontrol [Benioku](https://github.com/Azure/azure-cli/blob/master/README.rst).
+Sık karşılaşılan sorunları giderme konusunda yardım için hello denetleyin [Benioku](https://github.com/Azure/azure-cli/blob/master/README.rst).
 
 ## <a name="python-installation-issues"></a>Python yükleme sorunları
 ### <a name="legacy-installation-issues-macos"></a>Eski yükleme sorunları (macOS)
-PIP yüklüyorsanız, eski paketleri ile yüklendiğinde izin hatası atılır **su** izinleri. Python brew (macOS) kullanarak önceki bir yüklemesini tümüyle kaldırılmamış. Bu durum oluşur. Önceki yüklemeye ait bazı PIP paketler izni hataya neden olan kök tarafından oluşturuldu. Kök tarafından yüklenen bu paketleri kaldırmak için çözümüdür. Bu görevi tamamlamak için aşağıdaki adımları kullanın:
+PIP yüklüyorsanız, eski paketleri ile yüklendiğinde izin hatası atılır **su** izinleri. Python brew (macOS) kullanarak önceki bir yüklemesini tümüyle kaldırılmamış. Bu durum oluşur. Önceki yüklemeye ait bazı PIP paketler hello izni hatasına neden oluyor kök tarafından oluşturuldu. Merhaba çözüm tooremove bu paketleri kök tarafından yüklü değil. Aşağıdaki adımları toocomplete hello bu görevi kullanın:
 
 1. Gidin: /usr/local/lib/python2.7/site-packages
 2. Kök tarafından oluşturulan listesi paketler:`ls -l | grep root`
@@ -120,36 +120,36 @@ PIP yüklüyorsanız, eski paketleri ile yüklendiğinde izin hatası atılır *
 4. Python yeniden yükleyin.
 
 ## <a name="azure-iot-hub-issues"></a>Azure IOT hub'ı sorunları
-Azure CLI ile Azure IOT hub'ınızı başarıyla kaynak sağlandı ve IOT hub'ınıza bağlanan cihazları yönetmek için bir aracı ihtiyacınız varsa aşağıdaki araçları deneyin.
+Azure CLI ile Azure IOT hub'ınızı başarıyla kaynak sağlandı ve tooyour IOT hub'a bağlanan bir aracı toomanage hello aygıtları ihtiyacınız varsa araçları aşağıdaki hello deneyin.
 
 ### <a name="device-explorer"></a>Cihaz Gezgini
-[Aygıt explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) aracı Windows yerel makinenizde çalıştırır ve Azure IOT hub'ınıza bağlanır. Aşağıdaki ile iletişim kurar [IOT Hub uç noktaları](iot-hub-devguide.md):
+Merhaba [aygıt explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) aracı Windows yerel makinenizde çalıştırır ve azure'da tooyour IOT hub'ı bağlar. Merhaba aşağıdaki ile iletişim kurar [IOT Hub uç noktaları](iot-hub-devguide.md):
 
 
-* *Cihaz Kimlik Yönetimi* sağlamak ve IOT hub'ınıza kayıtlı cihazları yönetmek için.
-* *Cihaz bulut alma* cihazınızın IOT hub'ına gönderilen iletileri izleyebilmek.
-* *Bulut cihaz Gönder* IOT hub'ından aygıtlarınıza iletileri gönderebilmesi.
+* *Cihaz Kimlik Yönetimi* tooprovision ve IOT hub'ınıza kayıtlı cihazları yönetme.
+* *Cihaz bulut alma* aygıt tooyour IOT hub'dan gönderilen iletileri izleyebilmek.
+* *Bulut cihaz Gönder* IOT hub'ından tooyour aygıtları iletileri gönderebilmesi.
 
-IOT hub bağlantı dizenizi tüm özellikleri kullanmak için bu aracı içinde yapılandırın.
+IOT hub bağlantı dizenizi bu aracı toouse içindeki tüm özelliklerini yapılandırın.
 
 ### <a name="iothub-explorer"></a>ıothub Gezgini
-[ıothub explorer](https://github.com/Azure/iothub-explorer) cihazları yönetmek için bir örnek çok platformlu CLI aracıdır. Cihaz kimlik kayıt defterinde yönetmek, cihaz bulut iletilerini izlemek ve bulut-cihaz iletilerini göndermek için aracını kullanabilirsiniz.
+[ıothub explorer](https://github.com/Azure/iothub-explorer) bir örnek çok platformlu CLI toomanage aygıtları aracıdır. Merhaba kimlik kayıt defterinde hello aracı toomanage hello aygıtları'nı kullanın, cihaz bulut iletilerini izlemek ve bulut-cihaz iletilerini göndermek.
 
-Iothub explorer Aracı (ön) en son sürümünü yüklemek için komut satırı ortamınızda aşağıdaki komutu çalıştırın:
+tooinstall hello ıothub explorer aracı, aşağıdaki komut, komut satırı ortamınızdaki hello çalıştırın (ön) en son sürümünü hello:
 
 ```bash
 npm install -g iothub-explorer@latest
 ```
 
-Tüm ıothub explorer komutları ve bunların parametreleri hakkında ek Yardım almak için aşağıdaki komutu kullanın:
+Tüm hakkında ek Yardım tooget iothub-explorer komutlar ve bunların parametrelerini hello komutu aşağıdaki hello kullanabilirsiniz:
 
 ```bash
 iothub-explorer help
 ```
 
 ### <a name="azure-portal"></a>Azure portalına
-Tam CLI deneyimi oluşturma ve Azure kaynaklarınızı yönetmenize yardımcı olur. Kullanmak isteyebilirsiniz [Azure portal](../azure-portal-overview.md) sağlama Yardım, yönetmek ve Azure kaynaklarınızı hata ayıklamak için.
+Tam CLI deneyimi oluşturma ve Azure kaynaklarınızı yönetmenize yardımcı olur. Toouse hello isteyebilirsiniz [Azure portal](../azure-portal-overview.md) toohelp sağlamanıza, yönetmek ve Azure kaynaklarınızı hata ayıklama.
 
 ## <a name="azure-storage-issues"></a>Azure depolama sorunları
-[Microsoft Azure Storage Gezgini (Önizleme)](http://storageexplorer.com) Windows, macOS ve Linux Azure Storage verilerle çalışmak için kullanabileceğiniz bir Microsoft tek başına uygulamadır. Bu aracı kullanarak tablonuza bağlanabilir ve içindeki verilerin bakın. Azure Storage sorunlarını gidermek için bu aracı kullanabilirsiniz.
+[Microsoft Azure Storage Gezgini (Önizleme)](http://storageexplorer.com) toowork Windows, macOS ve Linux Azure Storage veri ile kullanabileceğiniz Microsoft tek başına uygulamadır. Bu aracı kullanarak tooyour tablo bağlanabilir ve hello verilerde bakın. Bu aracı tootroubleshoot Azure depolama sorunlarınızı kullanabilirsiniz.
 

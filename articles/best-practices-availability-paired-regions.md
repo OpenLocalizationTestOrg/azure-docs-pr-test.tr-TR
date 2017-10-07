@@ -1,6 +1,6 @@
 ---
 title: "İş devamlılığı ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri | Microsoft Docs"
-description: "Uygulamaların veri merkezi hataları sırasında dayanıklı olmasını sağlamak için Azure bölgesel eşleme hakkında bilgi edinin."
+description: "Azure bölgesel eşleştirme, tooensure hakkında uygulamaların veri merkezi hataları sırasında dayanıklı olduğunu öğrenin."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2017
 ms.author: raynew
-ms.openlocfilehash: 2984daa3b99fa9c858d43c3dcfb930add2040e2e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 68a3a33a8e768c72fa296d42c9ab97049232d169
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş devamlılığı ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri
 
 ## <a name="what-are-paired-regions"></a>Hangi bölgeleri eşleştirilmiş?
 
-Azure dünyanın birden çok coğrafi olarak çalışır. Bir Azure Coğrafya, en az bir Azure bölgesi içeren dünya tanımlı bir alandır. Bir Azure bölgesine bir veya daha fazla veri merkezleri içeren bir coğrafi konum içinde bir alandır.
+Merhaba Dünya birden çok coğrafi olarak Azure çalışır. Bir Azure Coğrafya, en az bir Azure bölgesi içeren hello World tanımlı bir alandır. Bir Azure bölgesine bir veya daha fazla veri merkezleri içeren bir coğrafi konum içinde bir alandır.
 
-Her Azure bölgesi birlikte bölgesel çifti yapmadan aynı coğrafi konum içinde başka bir bölge ile eşleştirilmiş. Kendi Coğrafya dışında bir bölge ile eşleştirilmiş Brezilya Güney istisnadır.
+Her Azure bölgesi hello içinde başka bir bölge ile eşleştirilmiş bir bölgesel çifti birlikte yapmadan aynı Coğrafya. Merhaba, kendi Coğrafya dışında bir bölge ile eşleştirilmiş Brezilya Güney istisnadır.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
@@ -60,40 +60,40 @@ Tablo 1 - Azure bölgesel çiftlerini eşleme
 > (1) Brezilya Güney benzersiz çünkü kendi Coğrafya dışında bir bölge ile eşlenmiş. Brezilya Güney'nın ikincil bölge Orta Güney ABD, ancak orta Güney ABD'ın ikincil bölge Brezilya Güney değil.
 
 
-Azure'nın yalıtım ve kullanılabilirlik ilkelerden yararlanmak için Bölgesel çiftleri arasında iş yükleri çoğaltmak öneririz. Örneğin, planlı Azure sistem güncelleştirmeleri sırayla dağıtılır (değil, aynı anda) eşleştirilmiş bölgeler arasında. Hatta ender olayda hatalı bir güncelleştirme, her iki bölgeleri aynı anda etkilenmez, anlamına gelir. Ayrıca, geniş bir kesinti olasılığı olayda her çifti dışında en az bir bölge kurtarılması öncelik.
+Azure'nın yalıtım ve kullanılabilirlik ilkelerden Bölgesel çiftleri toobenefit arasında iş yükleri çoğaltmak öneririz. Örneğin, planlı Azure sistem güncelleştirmeleri sırayla dağıtılır (Merhaba değil, aynı anda) eşleştirilmiş bölgeler arasında. Bile hello ender olayda hatalı bir güncelleştirme, her iki bölgeleri aynı anda etkilenmez, anlamına gelir. Ayrıca, hello kurtarılamaz geniş bir kesinti içinde her çifti dışında en az bir bölge kurtarılması öncelik.
 
 ## <a name="an-example-of-paired-regions"></a>Eşleştirilmiş bölgeler örneği
-Şekil 2'in altında olağanüstü durum kurtarma için bölgesel çifti kullanan kuramsal bir uygulamayı gösterir. Yeşil sayıları (Azure, depolama, işlem ve veritabanı) üç Azure Hizmetleri ve bölgeler arasında çoğaltmak için nasıl yapılandırıldığına çapraz bölge etkinliklerini vurgulayın. Eşleştirilmiş bölgeler arasında dağıtma benzersiz avantajları turuncu numaralarına göre vurgulanır.
+Şekil 2'de aşağıdaki hello bölgesel çifti olağanüstü durum kurtarma için kullandığı kuramsal bir uygulamayı gösterir. Merhaba yeşil numaraları (Azure, depolama, işlem ve veritabanı) üç Azure Hizmetleri hello çapraz bölge etkinliklerini vurgulayın ve nasıl oldukları tooreplicate bölgeler arasında yapılandırılır. eşleştirilmiş bölgeler arasında dağıtma hello benzersiz avantajlarını hello turuncu numaralarına göre vurgulanır.
 
 ![Eşleştirilmiş bölge avantajları genel bakış](./media/best-practices-availability-paired-regions/PairedRegionsOverview2.png)
 
 Şekil 2 – kuramsal Azure bölgesel çifti
 
 ## <a name="cross-region-activities"></a>Çapraz bölge etkinlikleri
-Şekil 2 başvurulan gibi.
+Başvurulan tooin Şekil 2.
 
-![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure işlem (PaaS)** – kaynaklar kullanılabilir başka bir bölgede bir olağanüstü durum sırasında önceden sağlamak için ek işlem kaynakları sağlamanız gerekir. Daha fazla bilgi için bkz: [Azure dayanıklılık teknik kılavuz](resiliency/resiliency-technical-guidance.md).
+![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure işlem (PaaS)** – başka işlem kaynakları sağlamak önceden tooensure kaynaklar başka bir bölgede bir olağanüstü durum sırasında kullanılabilir. Daha fazla bilgi için bkz: [Azure dayanıklılık teknik kılavuz](resiliency/resiliency-technical-guidance.md).
 
-![Depolama](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** -bir Azure depolama hesabı oluşturduğunuzda, coğrafi olarak yedekli depolama (GRS) varsayılan olarak yapılandırılır. GRS ile otomatik olarak üç kez verilerinizi, birincil bölge içinde ve üç kez eşleştirilmiş bölgede çoğaltılır. Daha fazla bilgi için bkz: [Azure depolama artıklığı seçeneği](storage/common/storage-redundancy.md).
+![Depolama](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** -bir Azure depolama hesabı oluşturduğunuzda, coğrafi olarak yedekli depolama (GRS) varsayılan olarak yapılandırılır. GRS ile verileriniz otomatik olarak üç kez hello birincil bölge içinde ve üç kez hello eşleştirilmiş bölgede yinelenir. Daha fazla bilgi için bkz: [Azure depolama artıklığı seçeneği](storage/common/storage-redundancy.md).
 
-![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL veritabanlarını** – ile Azure SQL standart coğrafi çoğaltma, eşleştirilmiş bir bölge için işlemleri zaman uyumsuz olarak çoğaltılmasını yapılandırabilirsiniz. Premium coğrafi çoğaltma ile dünyanın her bölge için çoğaltma yapılandırabilirsiniz; Ancak, bu kaynakları çoğu olağanüstü durum kurtarma senaryoları için eşlenmiş bir bölgede dağıttığınız öneririz. Daha fazla bilgi için bkz: [Azure SQL Database coğrafi çoğaltma](sql-database/sql-database-geo-replication-overview.md).
+![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL veritabanlarını** – ile Azure SQL standart coğrafi çoğaltma, zaman uyumsuz çoğaltma işlemleri tooa eşleştirilmiş bölgesinin yapılandırabilirsiniz. Premium, coğrafi çoğaltma, çoğaltma tooany bölge hello world yapılandırabilirsiniz; Ancak, bu kaynakları çoğu olağanüstü durum kurtarma senaryoları için eşlenmiş bir bölgede dağıttığınız öneririz. Daha fazla bilgi için bkz: [Azure SQL Database coğrafi çoğaltma](sql-database/sql-database-geo-replication-overview.md).
 
-![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** -Resource Manager kendiliğinden bölgeler arasında Hizmet Yönetim bileşenlerinin mantıksal yalıtım sağlar. Bu mantıksal hataları bir bölgede başka bir etkisi olasılığı daha düşüktür anlamına gelir.
+![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** -Resource Manager kendiliğinden bölgeler arasında Hizmet Yönetim bileşenlerinin mantıksal yalıtım sağlar. Bu mantıksal bir bölgede hatalarıdır olasılığını tooimpact anlamına gelir. başka bir.
 
 ## <a name="benefits-of-paired-regions"></a>Eşleştirilmiş bölgeler yararları
-Şekil 2 başvurulan gibi.  
+Başvurulan tooin Şekil 2.  
 
 ![Yalıtım](./media/best-practices-availability-paired-regions/5Orange.png)
-**fiziksel yalıtım** – olası, Azure, bu tüm coğrafi bölgelerde pratik veya mümkün olmasa da, en az 300 mil bölgesel çiftindeki veri merkezleri arasında ayrım tercih eder. Fiziksel veri merkezi ayrımı doğal afetler, hukuki unrest, güç kesintileri veya aynı anda hem bölgeler etkilemeden fiziksel ağ kesintileri olasılığını azaltır. Yalıtım kısıtlamaları Coğrafya (Coğrafya boyutu, güç/ağ altyapısı kullanılabilirlik, düzenlemeler, vb.) içinde tabidir.  
+**fiziksel yalıtım** – olası, Azure, bu tüm coğrafi bölgelerde pratik veya mümkün olmasa da, en az 300 mil bölgesel çiftindeki veri merkezleri arasında ayrım tercih eder. Fiziksel veri merkezi ayrımı doğal afetler, hukuki unrest, güç kesintileri veya aynı anda hem bölgeler etkilemeden fiziksel ağ kesintileri hello olasılığını azaltır. Yalıtım konu toohello kısıtlamaları hello Coğrafya (Coğrafya boyutu, güç/ağ altyapısı kullanılabilirlik, düzenlemeler, vb.) içinde ' dir.  
 
 ![Çoğaltma](./media/best-practices-availability-paired-regions/6Orange.png)
-**Platform tarafından sağlanan çoğaltma** -eşleştirilmiş bölgeye otomatik çoğaltma coğrafi olarak yedekli depolama alanı gibi bazı hizmetler sağlar.
+**Platform tarafından sağlanan çoğaltma** -otomatik çoğaltma toohello eşleştirilmiş bölge coğrafi olarak yedekli depolama alanı gibi bazı hizmetler sağlar.
 
 ![Kurtarma](./media/best-practices-availability-paired-regions/7Orange.png)
-**bölge kurtarma sipariş** – geniş bir kesinti her çifti dışında bir bölge kurtarılması öncelik durumunda. Eşleştirilmiş bölgeler arasında dağıtılan uygulamalar için bir öncelik ile kurtarılan bölgelerinin garanti. Bir uygulama değil eşleştirilmelidir bölgeler arasında dağıtılırsa, Kurtarma – seçilen bölgeler kurtarılacak son iki olabilir kötü durumda gecikebilir.
+**bölge kurtarma sipariş** – geniş bir kesinti hello olayda her çifti dışında bir bölge kurtarılması öncelik. Eşleştirilmiş bölgeler arasında dağıtılan uygulamalar hello bölgelerinden öncelikli kurtarılan toohave sağlanır. Bir uygulama değil eşleştirilmelidir bölgeler arasında dağıtılırsa, Kurtarma – hello servis talebi hello seçilen bölgeler kurtarılan son iki toobe hello kötü gecikebilir.
 
 ![Güncelleştirmeleri](./media/best-practices-availability-paired-regions/8Orange.png)
-**sıralı güncelleştirme** – planlanan Azure sistem güncelleştirmelerini yapılır eşleştirilmiş bölgelere sırayla (değil, aynı anda) kapalı kalma süresi, hataları ve hatalı güncelleştirmesi ender olayda mantıksal hatalarının etkisini en aza indirmek için.
+**sıralı güncelleştirme** – planlanan Azure sistem güncelleştirmelerini yapılır toopaired bölgeler sırayla (Merhaba değil, aynı anda) toominimize kapalı kalma süresi, hataları ve mantıksal hataları hello ender olayda hello etkisi bozuk bir güncelleştirmesi.
 
 ![Veri](./media/best-practices-availability-paired-regions/9Orange.png)
-**veri residency** – vergi ve yasa zorlama dairesi amaçları için veri residency gereksinimlerini karşılamak için çiftini (hariç Brezilya Güney) olarak aynı Coğrafya içinde bir bölgede bulunuyor.
+**veri residency** – bir bölge içinde hello aynı bulunduğu Coğrafya (Brezilya Güney, hello durumla) çiftini vergi ve yasa zorlama dairesi amaçları için sipariş toomeet veri residency gereksinimlerinde olarak.

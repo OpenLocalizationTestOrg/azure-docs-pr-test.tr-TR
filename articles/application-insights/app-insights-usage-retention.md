@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights ile web uygulamaları için kullanıcı bekletme analizi | Microsoft docs"
-description: "Kaç kullanıcının uygulamanıza dönüş?"
+title: "Azure Application Insights ile web uygulamaları için aaaUser bekletme analizi | Microsoft docs"
+description: "Kaç kullanıcının tooyour uygulamaya dönün?"
 services: application-insights
 documentationcenter: 
 author: botatoes
@@ -12,42 +12,42 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
-ms.openlocfilehash: 7f7ca19ab171278bbd82f68e3822bc650b25373d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8bcee5f1611afbd69016ec3eef27832c304762a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights ile web uygulamaları için kullanıcı bekletme çözümlemesi
 
-Bekletme özelliği [Azure Application Insights](app-insights-overview.md) , analiz, uygulamanızın nasıl sayıda kullanıcının döneceğini ve ne sıklıkta belirli görevleri veya hedeflerinize ulaşmak yardımcı olur. Örneğin, bir oyun sitesi çalıştırırsanız, kimin kazanan sonra iade numarayla oyun kaybettikten sonra siteye geri dönün kullanıcılar sayıda karşılaştırın. Bu bilgi, kullanıcı deneyiminizi ve iş stratejinizi geliştirmenize yardımcı olabilir.
+Merhaba bekletme özelliği [Azure Application Insights](app-insights-overview.md) kaç kullanıcı analiz yardımcı dönmek tooyour uygulama ve ne sıklıkta belirli görevleri veya hedeflerinize ulaşmak. Örneğin, bir oyun sitesi çalıştırırsanız, kimin kazanan sonra iade toohello site hello numarasıyla oyun kaybettikten sonra iade kullanıcıların hello sayıları karşılaştırma. Bu bilgi, kullanıcı deneyiminizi ve iş stratejinizi geliştirmenize yardımcı olabilir.
 
 ## <a name="get-started"></a>başlarken
 
-Veri saklama aracında Application Insights portalında henüz görmüyorsanız, [kullanım araçları ile çalışmaya başlama öğrenin](app-insights-usage-overview.md).
+Merhaba Application Insights portalında hello bekletme aracında veri henüz görmüyorsanız, [tooget hello kullanım araçları ile çalışmaya nasıl bilgi](app-insights-usage-overview.md).
 
-## <a name="the-retention-tool"></a>Bekletme aracı
+## <a name="hello-retention-tool"></a>Merhaba bekletme aracı
 
 ![Elde tutma aracı](./media/app-insights-usage-retention/retention.png)
 
-1. Araç, yeni bekletme raporları oluşturmak, varolan bekletme raporları açmak, geçerli bekletme raporu kaydedin veya kaydedilmiş raporları yapılan değişiklikleri geri, rapor veri yenileme, e-posta veya doğrudan bağlantı raporu paylaşmak ve belgelerine erişmek olarak kaydetmek kullanıcılara Sayfa. 
-2. Varsayılan olarak, bekletme herhangi bir şey mi tüm kullanıcılar daha sonra geri geldiği ve belirli bir süre boyunca başka bir şey mi gösterir. Belirli kullanıcı etkinlikleri odaklanmak daraltmak için olayları farklı bileşimini seçebilirsiniz.
-3. Bir veya daha fazla filtre özellikleri ekleyin. Örneğin, belirli bir ülke veya bölgedeki kullanıcılar üzerinde odaklanabilirsiniz. Tıklatın **güncelleştirme** filtreleri ayarladıktan sonra. 
-4. Genel saklama grafik seçili süre kullanıcı bekletme özetini gösterir. 
-5. Izgara Sorgu Oluşturucu #2'göre tutulur kullanıcı sayısını gösterir. Her satır, dönem gösterilen zaman içinde herhangi bir olay gerçekleştiren bir kohort kullanıcıların temsil eder. Sıradaki her hücre en az bir kez daha sonraki bir süre içinde bu kohort kaç döndürülen gösterir. Bazı kullanıcılar, birden fazla dönemde döndürebilir. 
-6. Öngörüler kartları üst beş başlatma olaylarını ve daha iyi anlamak kendi saklama rapor kullanıcılara vermek için üst beş döndürülen olayları gösterir. 
+1. Hello araç toocreate yeni bekletme Raporlar kullanıcılara, varolan bekletme raporları açın, geçerli bekletme raporu kaydedin veya farklı kaydet, yapılan değişiklikleri toosaved raporları geri, hello raporu, e-posta veya doğrudan bağlantı ve erişim hello aracılığıyla paylaşımı rapor verileri Yenile belgeler sayfası. 
+2. Varsayılan olarak, bekletme herhangi bir şey mi tüm kullanıcılar daha sonra geri geldiği ve belirli bir süre boyunca başka bir şey mi gösterir. Olayları toonarrow hello belirli kullanıcı etkinlikleri odaklanmak farklı bileşimini seçebilirsiniz.
+3. Bir veya daha fazla filtre özellikleri ekleyin. Örneğin, belirli bir ülke veya bölgedeki kullanıcılar üzerinde odaklanabilirsiniz. Tıklatın **güncelleştirme** hello filtreleri ayarladıktan sonra. 
+4. Merhaba genel saklama grafik kullanıcı bekletme özetini süre seçili hello arasında gösterir. 
+5. Merhaba kılavuz according toohello Sorgu Oluşturucu #2'hello sayısı, kullanıcı korunur gösterir. Her satır, dönem gösterilen hello zaman içinde herhangi bir olay gerçekleştiren bir kohort kullanıcıların temsil eder. Merhaba satırdaki her hücre en az bir kez daha sonraki bir süre içinde bu kohort kaç döndürülen gösterir. Bazı kullanıcılar, birden fazla dönemde döndürebilir. 
+6. Merhaba Öngörüler kartları üst beş başlatma olaylarını göstermek ve daha iyi anlamak kendi saklama raporun üst beş olayları toogive kullanıcı döndürdü. 
 
 ![Bekletme fare vurgulu](./media/app-insights-usage-retention/hover.png)
 
-Kullanıcı hücrenin ne anlama geldiğini açıklayan analytics düğmesi ve araç ipuçları erişmek için bekletme aracı hücreleri üzerine getirin. Analytics düğmesi hücreden kullanıcı oluşturmak için önceden girilmiş bir sorgu Analytics aracıyla kullanıcılara alır. 
+Kullanıcıların hücreleri hello bekletme aracı tooaccess hello analytics düğmesine üzerine getirin ve hangi hello hücre açıklayan araç ipuçları anlamına gelir. Merhaba Analytics düğmesi kullanıcılar toohello analiz aracı önceden doldurulmuş haldedir sorgu toogenerate kullanıcılarla hello hücreden alır. 
 
-## <a name="use-business-events-to-track-retention"></a>Bekletme izlemek için iş olaylarını kullanın
+## <a name="use-business-events-tootrack-retention"></a>İş olayları tootrack bekletme kullanın
 
-En kullanışlı bekletme analiz almak için önemli iş faaliyetlerine temsil olayları ölçün. 
+tooget hello en yararlı bekletme analiz, önemli iş faaliyetlerine temsil eden ölçü olaylar. 
 
-Örneğin, çok sayıda kullanıcı görüntülediği oyuna olmadan bir sayfa uygulamanızda açılabilir. Yalnızca sayfa görünümleri izleme yanlış tahminidir kaç kişinin önceden keyfini sonra oyun dönün, bu nedenle sağlar. Oynatıcıları döndürme NET bir resim almak için uygulamanızı bir kullanıcı gerçekte yürütürken özel bir olay göndermesi gerekir.  
+Örneğin, çok sayıda kullanıcı görüntülediği hello oyuna olmadan bir sayfa uygulamanızda açılabilir. Yalnızca hello sayfa görünümleri izleme yanlış tahminidir kaç kişinin, daha önce keyfini sonra hello oyun tooplay dönün, bu nedenle sağlar. tooget oynatıcıları döndürme NET bir resim, uygulamanızı bir kullanıcı gerçekte yürütürken özel bir olay göndermesi gerekir.  
 
-Anahtar iş eylemlerini temsil eden özel olaylar kod ve bunlar bekletme çözümleme için kullanmak için iyi bir uygulamadır. Oyun sonucu yakalamak için özel bir olay Application Insights'a gönderme kod satırı yazmanız gerekir. Web sayfası koduna veya Node.JS yazma, şuna benzer:
+Bu anahtar iş eylemleri temsil eder ve bu bekletme çözümleme için kullanmak iyi bir uygulama toocode özel olayları gösterir. toocapture hello oyun sonucu, toowrite kod toosend özel olay tooApplication Öngörüler kolu gerekir. Merhaba web sayfası koduna veya Node.JS yazma, şuna benzer:
 
 ```JavaScript
     appinsights.trackEvent("won game");
@@ -63,8 +63,8 @@ ASP.NET sunucusu kod:
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Kullanımı deneyimleri etkinleştirmek için göndermeye Başla [özel olaylar](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) veya [sayfa görünümleri](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Özel olaylar veya sayfa görünümleri zaten gönderirseniz, kullanıcıların hizmetinizin kullanımını öğrenmek için kullanım araçları keşfedin.
+- tooenable kullanımı deneyimleri, göndermeye Başla [özel olaylar](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) veya [sayfa görünümleri](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Özel olaylar ya da sayfa görünümleri keşfedin hello kullanım araçları toolearn zaten gönderirseniz kullanıcılar hizmetinizi kullanma.
     - [Kullanıcılar, Oturumlar, Etkinlikler](app-insights-usage-segmentation.md)
     - [Huniler](usage-funnels.md)
     - [Kullanıcı Akışları](app-insights-usage-flows.md)

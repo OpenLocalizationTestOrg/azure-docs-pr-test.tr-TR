@@ -1,6 +1,6 @@
 ---
-title: "Azure CDN kurallar altyapısı kullanarak HTTP davranışı geçersiz kılma | Microsoft Docs"
-description: "Kurallar altyapısı, belirli türde bir içerik teslim engelleme gibi HTTP isteklerini Azure CDN tarafından nasıl işleneceğini özelleştirme, önbellek ilkesi tanımlayın ve HTTP üstbilgileri değiştirmenize olanak sağlar."
+title: "Hello Azure CDN kurallar altyapısı kullanarak aaaOverride HTTP davranışı | Microsoft Docs"
+description: "HTTP üstbilgileri değiştirmek ve önbellek ilkesi tanımlayın veya Hello kurallar altyapısı belirli içerik türlerini hello teslimini engelleme gibi HTTP isteklerini Azure CDN tarafından nasıl işleneceğini toocustomize sağlar."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,66 +14,66 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: abfe283476206b181018d187675b47112dc5ad2f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dd7194be9dbda43180c64568d3e1f52c5c513a7e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı kullanarak HTTP davranışı geçersiz kılma
+# <a name="override-http-behavior-using-hello-azure-cdn-rules-engine"></a>Hello Azure CDN kurallar altyapısı kullanarak HTTP davranışı geçersiz kılma
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Kurallar altyapısı HTTP isteklerini, belirli türde bir içerik teslim engelleme, önbellek ilkesi tanımlama ve HTTP üstbilgileri değiştirme gibi işlenme özelleştirmenizi sağlar.  Bu öğretici bir kural oluşturma CDN varlıklar önbelleğe alma davranışını değiştirir gösterilmektedir.  Ayrıca video içeriği bulunmamaktadır kullanılabilir "[Ayrıca bkz.](#see-also)" bölümü.
+Merhaba kurallar altyapısı HTTP isteklerini, belirli türde bir içerik hello teslimini engelleme, önbellek ilkesi tanımlama ve HTTP üstbilgileri değiştirme gibi işlenme toocustomize sağlar.  Bu öğretici bir kural oluşturma önbelleğe alma davranışı CDN varlıklarını hello değiştirecek gösterilmektedir.  Ayrıca video içeriği hello kullanılabilir yok "[Ayrıca bkz.](#see-also)" bölümü.
 
    > [!TIP] 
-   > Ayrıntılı sözdizimi başvuru için bkz: [kuralları altyapısı başvurusu](cdn-rules-engine-reference.md).
+   > Ayrıntılı bir başvuru toohello sözdizimi için bkz: [kuralları altyapısı başvurusu](cdn-rules-engine-reference.md).
    > 
 
 
 ## <a name="tutorial"></a>Öğretici
-1. CDN profili dikey penceresinden tıklayın **Yönet** düğmesi.
+1. Merhaba CDN profili dikey penceresinden hello tıklayın **Yönet** düğmesi.
    
     ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-rules-engine/cdn-manage-btn.png)
    
-    CDN Yönetim Portalı'nı açar.
-2. Tıklayın **HTTP büyük** sekmesini ve ardından, **kurallar altyapısı**.
+    Merhaba CDN Yönetim Portalı açar.
+2. Tıklatın hello üzerinde **HTTP büyük** sekmesini ve ardından, **kurallar altyapısı**.
    
     Yeni bir kural için seçenekler görüntülenir.
    
     ![CDN yeni kural seçenekleri](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
-   > Birden çok kural listelenmiş görevlerin sırası nasıl işlendiğini etkiler. Bir sonraki kural önceki bir kural tarafından belirtilen eylemleri geçersiz kılabilir.
+   > içinde birden çok kural listelenen hello sırasını nasıl işlendiğini etkiler. Bir sonraki kural önceki bir kural tarafından belirtilen hello Eylemler geçersiz kılabilir.
    > 
    > 
-3. Bir ad girin **adı / açıklaması** metin kutusu.
-4. Kuralın uygulanacağı istekleri türünü tanımlayın.  Varsayılan olarak, **her zaman** eşleşme koşul seçilidir.  Kullanacağınız **her zaman** Bu öğretici için bu nedenle, seçili bırakın.
+3. Hello bir ad girin **adı / açıklaması** metin kutusu.
+4. Merhaba kuralın uygulanacağı istekleri Hello türünü tanımlayın.  Varsayılan olarak, hello **her zaman** eşleşme koşul seçilidir.  Kullanacağınız **her zaman** Bu öğretici için bu nedenle, seçili bırakın.
    
    ![CDN eşleşme koşulu](./media/cdn-rules-engine/cdn-request-type.png)
    
    > [!TIP]
-   > Açılır listede kullanılabilen koşullar türlerde eşleşme vardır.  Eşleşme koşul solundaki mavi bilgi simgesine tıklayarak şu anda seçili koşul ayrıntılı olarak anlatılmıştır.
+   > Koşullar hello açılır menüde kullanılabilir türlerde eşleşme vardır.  Merhaba mavi Bilgi simgesi toohello üzerinde tıklatarak hello eşleşme koşul solundaki şu anda seçili hello koşul ayrıntılı anlatılmıştır.
    > 
-   >  Ayrıntılı koşullu ifadeler tam listesi için bkz: [kurallar altyapısı koşullu ifadeler](cdn-rules-engine-reference-match-conditions.md).
+   >  Merhaba tam listesi için ayrıntılı koşullu ifadeler için bkz [kurallar altyapısı koşullu ifadeler](cdn-rules-engine-reference-match-conditions.md).
    >  
-   > Eşleşme koşullar ayrıntılı tam listesi için bkz [kurallar altyapısı eşleşen koşullar](cdn-rules-engine-reference-match-conditions.md).
+   > Hello tam listesi ayrıntılı eşleşme koşulları için bkz: [kurallar altyapısı eşleşen koşullar](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-5. Tıklatın  **+**  düğmesine **özellikleri** yeni bir özellik eklemek için.  Sol taraftaki açılır menüde seçin **zorla iç Max-Age**.  Görüntülenen metin kutusuna girin **300**.  Geri kalan varsayılan değerler bırakın.
+5. Merhaba tıklatın  **+**  sonraki çok düğmesini**özellikleri** tooadd yeni bir özellik.  Merhaba soldaki Hello açılır menüde seçin **zorla iç Max-Age**.  Görüntülenen hello metin kutusuna girin **300**.  Varsayılan değerleri kalan hello bırakın.
    
    ![CDN özelliği](./media/cdn-rules-engine/cdn-new-feature.png)
    
    > [!NOTE]
-   > Olarak eşleşme koşullarla yeni özellik solundaki mavi bilgi simgesine tıklayarak bu özellik hakkındaki ayrıntıları görüntüler.  Durumunda **zorla iç Max-Age**, biz varlığın geçersiz kılma **Cache-Control** ve **Expires** CDN kenar düğümüne kaynaktan varlık zaman yenilenecek denetlemek için üstbilgiler.  Bizim örneğimizde, 300 saniye CDN kenar düğümüne varlık kendi kaynaktan varlık yenileme önce 5 dakika için önbelleğe anlamına gelir.
+   > Eşleşme koşullarla hello mavi Bilgi simgesi toohello tıklatarak Merhaba yeni bıraktığınız özelliği bu özellik hakkındaki ayrıntıları görüntüler.  Merhaba durumda **zorla iç Max-Age**, biz hello varlığın geçersiz kılma **Cache-Control** ve **Expires** hello CDN kenar düğümüne hello yenilediğinizde üstbilgileri toocontrol Varlık hello kaynaktan.  Bizim örneğimizde, 300 saniye hello CDN kenar düğümüne hello varlık hello varlık kendi kaynaktan yenileme önce 5 dakika için önbelleğe anlamına gelir.
    > 
-   > Ayrıntılı özelliklerin tam listesi için bkz: [kurallar altyapısı özellik ayrıntıları](cdn-rules-engine-reference-features.md).
+   > Merhaba özelliklerin tam listesini ayrıntılı için bkz: [kurallar altyapısı özellik ayrıntıları](cdn-rules-engine-reference-features.md).
    > 
    > 
-6. Tıklatın **Ekle** yeni kuralını kaydetmek için düğmesi.  Yeni Kural artık onayını bekliyor. Bunu onaylandıktan sonra durumu değiştirilecek **bekleyen XML** için **etkin XML**.
+6. Merhaba tıklatın **Ekle** düğmesini toosave hello yeni kural.  Merhaba yeni kural artık onayını bekliyor. Bunu onaylandıktan sonra hello durum değiştirilecek **bekleyen XML** çok**etkin XML**.
    
    > [!IMPORTANT]
-   > Kuralları değişiklikleri yayılması 90 dakika sürebilir.
+   > Kuralları değişikliklerin too90 dakika toopropagate hello CDN aracılığıyla yukarı alabilir.
    > 
    > 
 
@@ -83,5 +83,5 @@ Kurallar altyapısı HTTP isteklerini, belirli türde bir içerik teslim engelle
 * [Kurallar altyapısı eşleşme koşulları](cdn-rules-engine-reference-match-conditions.md)
 * [Kurallar altyapısı koşullu ifadeler](cdn-rules-engine-reference-conditional-expressions.md)
 * [Kurallar altyapısı özellikleri](cdn-rules-engine-reference-features.md)
-* [Kurallar altyapısı kullanarak varsayılan HTTP davranışı geçersiz kılma](cdn-rules-engine.md)
+* [Merhaba kurallar altyapısı kullanarak varsayılan HTTP davranışı geçersiz kılma](cdn-rules-engine.md)
 * [Azure Cuma: Azure CDN's güçlü yeni Premium özellikleri](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)

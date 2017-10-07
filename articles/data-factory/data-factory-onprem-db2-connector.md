@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Factory kullanarak DB2'den veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kopyalama etkinliği kullanarak bir şirket içi DB2 veritabanından veri taşıma hakkında bilgi edinin"
+title: Azure Data Factory kullanarak aaaMove verilerden DB2 | Microsoft Docs
+description: "Azure Data Factory kopyalama etkinliği kullanarak bir şirket içi DB2 toomove verileri nasıl veritabanı öğrenin"
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 6a89cc44724dbb5b46a9e89d6da24d9b35ddbbef
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 696ac059be644cb3901c37d2fc746e0682c65a1f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory kopyalama etkinliği kullanarak DB2 taşıma verileri
-Bu makalede kopya etkinliği Azure Data Factory'de veri bir şirket içi DB2 veritabanından veri deposuna kopyalamak için nasıl kullanabileceğinizi açıklar. Desteklenen bir havuz olarak listelenen tüm depolama, veri kopyalayabilirsiniz [Data Factory veri taşıma etkinlikleri](data-factory-data-movement-activities.md#supported-data-stores-and-formats) makalesi. Bu konu, kopyalama etkinliği kullanarak veri taşıma genel bir bakış sunar ve desteklenen veri deposu birleşimlerini listeler Data Factory makale oluşturur. 
+Bu makalede Azure Data Factory toocopy veri bir şirket içi DB2 veritabanına tooa veri deposundaki kopyalama etkinliği nasıl kullanabileceğinizi açıklar. Merhaba, desteklenen bir havuz olarak listelenen veri tooany deposuna kopyalayabilirsiniz [Data Factory veri taşıma etkinlikleri](data-factory-data-movement-activities.md#supported-data-stores-and-formats) makalesi. Bu konu, kopyalama etkinliği kullanarak veri taşıma genel bir bakış sunar ve desteklenen hello veri deposu birleşimlerini listeler hello Data Factory makale üzerinde oluşturur. 
 
-Veri Fabrikası şu anda bir DB2 veritabanından yalnızca veri taşımayı destekleyen bir [desteklenen havuz veri deposu](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Verileri diğer veriler taşıma veritabanı desteklenmiyor bir DB2 depolar.
+Veri Fabrikası şu anda bir DB2 veritabanına tooa yalnızca taşıma verilerden destekler [desteklenen havuz veri deposu](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Verileri diğer veriler taşıma tooa DB2 veritabanına desteklenmiyor depolar.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Veri Fabrikası destekleyen kullanarak bir şirket içi DB2 veritabanına bağlanma [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md). Verilerinizi taşımak için ağ geçidi veri ardışık ayarlamak adım adım yönergeler için bkz: [buluta şirket içinden veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makalesi.
+Veri Fabrikası hello kullanarak bağlanan tooan şirket içi DB2 veritabanına destekler [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md). Adım adım yönergeler tooset hello ağ geçidi verileri için verilerinizi toomove kanal bkz hello [şirket içi toocloud veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makalesi.
 
-DB2 Azure Iaas sanal üzerinde barındırılıyorsa bile bir ağ geçidi gereklidir. Veri deposu olarak aynı Iaas VM ağ geçidi yükleyebilirsiniz. Ağ geçidi veritabanına bağlanıyorsanız, farklı bir sanal ağ geçidi yükleyebilirsiniz.
+Merhaba DB2 Azure Iaas sanal üzerinde barındırılan olsa bile bir ağ geçidi gereklidir. Merhaba ağ geçidi üzerinde hello yükleyebilirsiniz hello veri deposu olarak aynı Iaas VM. Hello ağ geçidi toohello veritabanı bağlanırsanız, farklı bir VM hello ağ geçidi yükleyebilirsiniz.
 
-Veri Yönetimi ağ geçidi yerleşik bir DB2 sürücü sağlar, DB2'den verileri kopyalamak için bir sürücüyü el ile yüklemeniz gerekmez.
+Yerleşik bir DB2 sürücü Hello veri yönetimi ağ geçidi sağlar, sizin için toomanually sürücü toocopy veri DB2'den yüklemeniz gerekir.
 
 > [!NOTE]
-> Bağlantı ve ağ geçidi sorunları giderme hakkında ipuçları için bkz: [ağ geçidi sorunlarını giderme](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) makalesi.
+> Merhaba bağlantı ve ağ geçidi sorunları giderme hakkında ipuçları için bkz: [ağ geçidi sorunlarını giderme](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) makalesi.
 
 
 ## <a name="supported-versions"></a>Desteklenen sürümler
-Veri Fabrikası DB2 Bağlayıcısı'nı aşağıdaki IBM DB2 platformları ve dağıtılmış ilişkisel veritabanı mimarisi (DRDA) SQL Erişim Yöneticisi sürüm 9, 10 ve 11 sürümleriyle destekler:
+Merhaba veri fabrikası DB2 Bağlayıcısı IBM DB2 platformları ve dağıtılmış ilişkisel veritabanı mimarisi (DRDA) SQL Erişim Yöneticisi sürüm 9, 10 ve 11 sürümleriyle aşağıdaki hello destekler:
 
 * IBM DB2 z/OS sürümü 11.1 için
 * IBM DB2 z/OS sürümü 10.1 için
@@ -48,79 +48,79 @@ Veri Fabrikası DB2 Bağlayıcısı'nı aşağıdaki IBM DB2 platformları ve da
 * IBM DB2 sürüm 10.1 LUW için
 
 > [!TIP]
-> "Bir SQL deyimi yürütme isteğine karşılık gelen paket bulunamadı. hata iletisi alırsanız SQLSTATE 51002 SQLCODE =-805, = "işletim sistemi normal kullanıcı için gerekli bir paketi oluşturulmaz nedenidir. Bu sorunu çözmek için DB2 sunucu türü için bu yönergeleri izleyin:
-> - DB2 için i (AS400): kopyalama etkinliği çalıştırmadan önce normal bir kullanıcı için koleksiyonu oluşturun power user olanak tanır. Koleksiyonu oluşturmak için komutu kullanın:`create collection <username>`
-> - DB2 için z/OS veya LUW: ortak izin kopya kez çalıştırmak için--verme yürütme yüksek ayrıcalıklı bir hesap--power user veya paket yetkilileri ve bağlama, BINDADD, sahip yönetim kullanın. Gerekli paketi kopyalama sırasında otomatik olarak oluşturulur. Daha sonra sonraki kopyalama çalışmalarınız için normal kullanıcının geçiş yapabilirsiniz.
+> "Hello paket karşılık gelen tooan SQL deyimi yürütme isteği bulunamadı. hello hata iletisi alırsanız SQLSTATE 51002 SQLCODE =-805, = "hello nedeni hello normal kullanıcı hello işletim sistemi için gerekli bir paketi oluşturulmaz. tooresolve Bu sorun, DB2 sunucu türü için aşağıdaki yönergeleri izleyin:
+> - DB2 için i (AS400): kopyalama etkinliği çalıştırmadan önce hello toplamalarında hello normal kullanıcı oluşturma power user olanak tanır. toocreate hello koleksiyonu, use hello komutu:`create collection <username>`
+> - DB2 için z/OS veya LUW: kullanım yüksek ayrıcalıklı bir hesap--power user veya paket yetkilileri ve bağlama, BINDADD, sahip yönetim toorun hello kez kopya yürütme tooPUBLIC izinleri--verin. Merhaba gerekli paketi hello kopyalama sırasında otomatik olarak oluşturulur. Daha sonra sonraki kopyalama çalışmalarınız için geri toohello normal kullanıcı geçebilirsiniz.
 
 ## <a name="getting-started"></a>Başlarken
-Farklı araçlar ve API'ler kullanarak bir şirket içi DB2 veri deposundan verileri taşımak için kopyalama etkinliği ile işlem hattı oluşturabilirsiniz: 
+Farklı araçlar ve API'ler kullanarak kopyalama etkinliği toomove verilerle bir şirket içi DB2 veri deposu bir ardışık düzen oluşturabilirsiniz: 
 
-- Bir işlem hattı oluşturmak için en kolay yolu, Azure Data Factory Kopyalama Sihirbazı'nı kullanmaktır. Hızlı bir anlatım Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hakkında bilgi için bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md). 
-- Azure portalı, Visual Studio, Azure PowerShell, Azure Resource Manager şablonu, .NET API ve REST API de dahil olmak üzere bir işlem hattı oluşturmak için araçlar da kullanabilirsiniz. Kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- Merhaba en kolay yolu toocreate bir ardışık düzen toouse hello Azure Data Factory Kopyalama Sihirbazı ' dir. Hello hızlı bir anlatım hello Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hakkında bilgi için bkz: [Öğreticisi: hello Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md). 
+- Araçlar toocreate hello Azure portal, Visual Studio, Azure PowerShell, bir Azure Resource Manager şablonu, hello .NET API ve hello gibi bir işlem hattı de kullanabilirsiniz REST API. Adım adım yönergeler toocreate kopyalama etkinliği ile işlem hattı için bkz: Merhaba [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
-Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin:
+Merhaba araçları veya API'lerle de kullansanız adımları toocreate veri kaynağına veri dosyaları tooa havuz veri deposunu taşır ardışık aşağıdaki hello gerçekleştirin:
 
-1. Veri depoları, veri fabrikası için çıkış ve giriş bağlantısı bağlantılı Hizmetleri oluşturun.
-2. Kopyalama işlemi için girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma. 
+1. Bağlı hizmetler toolink girdi ve çıktı veri depoları tooyour veri fabrikası oluşturun.
+2. Veri kümeleri toorepresent girişi oluşturun ve çıktı verilerini hello kopyalama işlemi için. 
 3. Bir giriş olarak bir veri kümesi ve bir veri kümesini çıktı olarak alan kopyalama etkinliği ile işlem hattı oluşturacaksınız. 
 
-Data Factory bağlantılı için JSON tanımları, kopyalama Sihirbazı'nı kullandığınızda, hizmetler, veri kümelerini ve ardışık düzen varlıklar otomatik olarak sizin için oluşturulur. Araçları veya API'ler (dışında .NET API'si) kullandığınızda, JSON biçimini kullanarak Data Factory varlıklarını tanımlayın. [JSON örnek: veri kopyalama DB2'den Azure Blob depolama alanına](#json-example-copy-data-from-db2-to-azure-blob) bir şirket içi DB2 veri deposundan verileri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları gösterir.
+Merhaba, JSON tanımları hello Data Factory bağlı Hizmetleri, kopyalama Sihirbazı'nı kullandığınızda veri kümelerini ve ardışık düzen varlıklar otomatik olarak sizin için oluşturulur. Araçları veya API'ler (Merhaba dışında .NET API'si) kullandığınızda, hello Data Factory varlıklarını hello JSON biçimi kullanarak tanımlayın. Merhaba [JSON örnek: veri DB2 tooAzure Blob Depolama kopyalama](#json-example-copy-data-from-db2-to-azure-blob) hello JSON tanımlarını hello için bir şirket içi DB2 veri deposundaki kullanılan toocopy verileri Data Factory varlıklarını gösterir.
 
-Aşağıdaki bölümler, belirli bir DB2 veri deposuna Data Factory varlıklarını tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümlerde hello belirli tooa DB2 veri deposudur kullanılan toodefine hello Data Factory varlıklarını JSON özellikleri hello hakkında ayrıntılar verilmektedir.
 
 ## <a name="db2-linked-service-properties"></a>DB2 bağlantılı hizmet özellikleri
-Aşağıdaki tabloda bir DB2 bağlantılı hizmete özel JSON özellikleri listeler.
+Aşağıdaki tablonun hello belirli tooa DB2 bağlantılı hizmet hello JSON özellikleri listeler.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| **türü** |Bu özelliği ayarlamak **OnPremisesDB2**. |Evet |
-| **Sunucu** |DB2 sunucunun adıdır. |Evet |
-| **Veritabanı** |DB2 veritabanının adı. |Evet |
-| **Şema** |DB2 veritabanında şema adı. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır |
-| **authenticationType** |DB2 veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
-| **Kullanıcı adı** |Basic veya Windows kimlik doğrulaması kullanıyorsanız, kullanıcı hesabının adı. |Hayır |
-| **Parola** |Kullanıcı hesabının parolası. |Hayır |
-| **gatewayName** |Data Factory hizmetinin şirket içi DB2 veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| **türü** |Bu özellik çok ayarlanmalıdır**OnPremisesDB2**. |Evet |
+| **Sunucu** |Merhaba hello DB2 sunucunun adıdır. |Evet |
+| **Veritabanı** |Merhaba DB2 veritabanına Hello adı. |Evet |
+| **Şema** |Merhaba şema hello DB2 veritabanında Hello adı. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır |
+| **authenticationType** |kullanılan tooconnect toohello DB2 veritabanı kimlik doğrulaması Hello türü. Merhaba olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
+| **Kullanıcı adı** |Basic veya Windows kimlik doğrulaması kullanırsanız hello kullanıcı hesabı için Hello adı. |Hayır |
+| **Parola** |Merhaba kullanıcı hesabının parolasını Hello. |Hayır |
+| **gatewayName** |Data Factory hizmetinin hello hello ağ geçidinin Hello adı tooconnect toohello şirket içi DB2 veritabanına kullanmanız gerekir. |Evet |
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilir özelliklerin listesi için bkz [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler, gibi **yapısı**, **kullanılabilirlik**ve **İlkesi** bir veri kümesi için JSON, tüm veri kümesi türleri (Azure SQL, Azure Blob Depolama, Azure Table depolama için benzer vb.).
+Merhaba hello bölümleri ve veri kümelerini tanımlamak için kullanılabilir özelliklerin listesi için bkz [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler, gibi **yapısı**, **kullanılabilirlik**ve hello **İlkesi** bir veri kümesi için JSON, tüm veri türleri (Azure SQL, Azure Blob storage, Azure Table için benzer Depolama vb.).
 
-**TypeProperties** bölüm veri kümesi her tür için farklıdır ve verilerin veri deposunda konumu hakkında bilgi sağlar. **TypeProperties** bir veri kümesi için bir bölüm türü **RelationalTable**, DB2 veri kümesini içeren aşağıdaki özelliğe sahiptir:
+Merhaba **typeProperties** bölüm veri kümesi her tür için farklıdır ve hello veri deposundaki hello veri hello konumu hakkında bilgi sağlar. Merhaba **typeProperties** bir veri kümesi için bir bölüm türü **RelationalTable**, hello DB2 veri kümesini içeren, özellik aşağıdaki hello vardır:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| **tableName** |DB2 veritabanı örneğinde bağlantılı hizmet başvurduğu tablonun adı. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** türü kopyalama etkinliği özelliğinin **RelationalSource** belirtilir) |
+| **tableName** |Merhaba bağlantılı hizmet hello hello DB2 veritabanı örneğinde Merhaba tablonun adını gösterir. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır (Merhaba, **sorgu** türü kopyalama etkinliği özelliğinin **RelationalSource** belirtilir) |
 
 ## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
-Bölümleri ve kopyalama etkinlikleri tanımlamak için kullanılabilir olan özelliklerin listesi için bkz [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Etkinlik özellikleri gibi kopyalamak **adı**, **açıklama**, **girişleri** tablo **çıkarır** tablo ve **İlkesi**, tüm etkinlikler türleri için kullanılabilir. Kullanılabilir özellikler **typeProperties** her etkinlik türü için etkinliğin bölümü. Kopya etkinliği için özellikleri, veri kaynaklarının ve havuzlarını türlerine bağlı olarak farklılık gösterir.
+Merhaba hello bölümleri ve kopyalama etkinlikleri tanımlamak için kullanılabilir özelliklerin listesi için bkz [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Etkinlik özellikleri gibi kopyalamak **adı**, **açıklama**, **girişleri** tablo **çıkarır** tablo ve **İlkesi**, tüm etkinlikler türleri için kullanılabilir. Merhaba hello kullanılabilir özellikler **typeProperties** her etkinlik türü için hello etkinliğin bölümü. Kopya etkinliği için hello özellikleri hello türlerini veri kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
 
-Kopyalama kaynağı türü olduğunda etkinliği için **RelationalSource** (içeren DB2), aşağıdaki özellikler mevcuttur **typeProperties** bölümü:
+Kopyalama hello kaynak türü olduğunda etkinliği için **RelationalSource** (içeren DB2), aşağıdaki özelliklere hello hello kullanılabilir **typeProperties** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| **Sorgu** |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin, `"query": "select * from "MySchema"."MyTable""` |Hayır (varsa **tableName** özellik kümesinin belirtilen) |
+| **Sorgu** |Merhaba özel sorgu tooread hello verileri kullanın. |SQL sorgu dizesi. Örneğin, `"query": "select * from "MySchema"."MyTable""` |Hayır (Merhaba, **tableName** özellik kümesinin belirtilen) |
 
 > [!NOTE]
-> Şema ve tablo adları büyük/küçük harfe duyarlıdır. Sorgu deyimini kullanarak özellik adları alın "" (çift tırnak). Örneğin:
+> Şema ve tablo adları büyük/küçük harfe duyarlıdır. Merhaba sorgu deyimi içinde özellik adları kullanarak alın "" (çift tırnak). Örneğin:
 >
 > ```sql
 > "query": "select * from "DB2ADMIN"."Customers""
 > ```
 
-## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON örnek: veri kopyalama DB2'den Azure Blob depolama alanına
-Bu örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnek veri DB2 veritabanından Blob depolama alanına kopyalama gösterilmektedir. Ancak, veriler için kopyalanabilir [desteklenen herhangi bir veriyi depolamak Havuz türü](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kullanarak Azure Data Factory kopyalama etkinliği.
+## <a name="json-example-copy-data-from-db2-tooazure-blob-storage"></a>JSON örnek: DB2 tooAzure Blob Depolama veri kopyalama
+Bu örnek örnek JSON tanımları sağlar, toocreate bir ardışık düzen hello kullanarak kullanabilirsiniz [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Merhaba örnek nasıl tooBlob depolama toocopy verilerden bir DB2 veritabanına gösterir. Ancak, veriler çok kopyalanabilir[desteklenen herhangi bir veriyi depolamak Havuz türü](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kullanarak Azure Data Factory kopyalama etkinliği.
 
-Örnek aşağıdaki Data Factory varlıklarını sahiptir:
+Merhaba örnek Data Factory varlıklarını aşağıdaki hello sahiptir:
 
 - Bir DB2 bağlantılı hizmet türü [OnPremisesDb2](data-factory-onprem-db2-connector.md#linked-service-properties)
 - Bir Azure Blob Depolama bağlantılı hizmet türü [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
 - Bir giriş [dataset](data-factory-create-datasets.md) türü [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties)
 - Bir çıkış [dataset](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-- A [ardışık düzen](data-factory-create-pipelines.md) kullanan kopyalama etkinliği ile [RelationalSource](data-factory-onprem-db2-connector.md#copy-activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) özellikleri
+- A [ardışık düzen](data-factory-create-pipelines.md) hello kullanan kopyalama etkinliği ile [RelationalSource](data-factory-onprem-db2-connector.md#copy-activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) özellikleri
 
-Örnek veri DB2 veritabanına bir sorgu sonucunda bir Azure blob saatlik kopyalar. Aşağıdaki örnekte kullanılan JSON özellikleri varlık tanımları izleyen bölümlerde açıklanmıştır.
+Merhaba örnek veri DB2 veritabanına tooan Azure blob bir sorgu sonucunda saatlik kopyalar. Merhaba örnekte kullanılan JSON özellikleri hello hello varlık tanımları izleyin hello bölümlerde açıklanmıştır.
 
-İlk adım olarak yükleyin ve bir veri ağ geçidi yapılandırın. Yönergeler [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makalesi.
+İlk adım olarak yükleyin ve bir veri ağ geçidi yapılandırın. Yönergelerdir hello [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makalesi.
 
 **DB2 bağlı hizmet**
 
@@ -158,9 +158,9 @@ Bu örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz ör
 
 **DB2 girdi veri kümesi**
 
-Örnek DB2 "zaman serisi veri için" zaman damgası"etiketli bir sütun sahip MyTable" adlı bir tablo oluşturduğunuzu varsayar.
+Merhaba örnek DB2 "Merhaba zaman serisi veri için" zaman damgası"etiketli bir sütun sahip MyTable" adlı bir tablo oluşturduğunuzu varsayar.
 
-**Dış** özelliği ayarlanmış "true" Bu ayar, bu veri kümesi data factory dış ve veri fabrikasında bir etkinlik tarafından üretilen değil Data Factory hizmetinin bildirir. Dikkat **türü** özelliği ayarlanmış **RelationalTable**.
+Merhaba **dış** özelliği true olarak ayarlamak çok "." Bu ayar, bu veri kümesi dış toohello veri fabrikası olan ve hello veri fabrikasında bir etkinlik tarafından üretilen değil hello Data Factory hizmetinin bildirir. Bu hello fark **türü** özelliği çok ayarlanmış**RelationalTable**.
 
 
 ```json
@@ -188,7 +188,7 @@ Bu örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz ör
 
 **Azure Blob dataset çıktı**
 
-Veri yazıldığı için yeni bir blob saatte ayarlayarak **sıklığı** "Saat" özelliğine ve **aralığı** özelliği 1. **FolderPath** özelliği blob dinamik olarak değerlendirilmesi için işleniyor dilim başlangıç zamanı temel alarak. Klasör yolu yıl, ay, gün ve saati başlangıç saatinden bölümlerini kullanır.
+Veri yazıldığı tooa yeni blob her saat ayarı hello tarafından **sıklığı** özelliği çok "Saat" ve hello **aralığı** özelliği too1. Merhaba **folderPath** özelliği hello blob dinamik olarak değerlendirilmesi için işleniyor hello dilimin hello başlangıç zamanı temel alarak. Merhaba klasör yolu hello yıl, ay, gün ve saat bölümlerini hello başlangıç saatini kullanır.
 
 ```json
 {
@@ -246,15 +246,15 @@ Veri yazıldığı için yeni bir blob saatte ayarlayarak **sıklığı** "Saat"
 }
 ```
 
-**Ardışık düzeni için kopyalama etkinliği**
+**Ardışık düzeni için başlangıç kopyalama etkinliği**
 
-Ardışık Düzen belirtilen giriş ve çıktı veri kümeleri için yapılandırılmış ve saatte bir çalışacak şekilde zamanlanmış kopyalama etkinliği içerir. Ardışık düzeni için JSON tanımında **kaynak** türü ayarlanmış **RelationalSource** ve **havuz** türü ayarlanmış **BlobSink**. SQL sorgusu için belirtilen **sorgu** özelliği "Siparişler" tablosundan verileri seçer.
+Merhaba ardışık düzen içeren yapılandırılmış bir kopyalama etkinliği toouse belirtilen giriş ve çıkış veri kümeleri ve saatte zamanlanmış toorun değil. Hello JSON tanımını hello ardışık düzeni için hello **kaynak** türü olarak ayarlanmış çok**RelationalSource** ve hello **havuz** türü olarak ayarlanmış çok**BlobSink**. Merhaba belirtilen hello SQL sorgusu **sorgu** özelliği hello "Siparişler" tablosundan hello veri seçer.
 
 ```json
 {
     "name": "CopyDb2ToBlob",
     "properties": {
-        "description": "pipeline for the copy activity",
+        "description": "pipeline for hello copy activity",
         "activities": [
             {
                 "type": "Copy",
@@ -295,12 +295,12 @@ Ardışık Düzen belirtilen giriş ve çıktı veri kümeleri için yapılandı
 ```
 
 ## <a name="type-mapping-for-db2"></a>DB2 için tür eşlemesi
-Bölümünde belirtildiği gibi [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale, kopyalama etkinliği türü aşağıdaki iki aşamalı yaklaşımı kullanarak havuz için kaynak türünden otomatik tür dönüşümleri gerçekleştirir:
+Hello belirtildiği gibi [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale, kopyalama etkinliği, iki aşamalı bir yaklaşım aşağıdaki hello kullanarak kaynak türü toosink türünden otomatik tür dönüşümleri gerçekleştirir:
 
-1. Yerel kaynak türünden bir .NET türüne dönüştürün
-2. Bir .NET türünden bir yerel havuz türüne dönüştürün
+1. Yerel kaynak türü tooa .NET türü Dönüştür
+2. .NET türü tooa yerel Havuz türü Dönüştür
 
-Kopya etkinliği bir DB2 türünden bir .NET türü veri dönüştürdüğünde aşağıdaki eşlemelerini kullanılır:
+Kopya etkinliği bir DB2 türü tooa .NET türünden hello veri dönüştürdüğünde hello aşağıdaki eşlemelerini kullanılır:
 
 | DB2 veritabanı türü | .NET framework türü |
 | --- | --- |
@@ -345,11 +345,11 @@ Kopya etkinliği bir DB2 türünden bir .NET türü veri dönüştürdüğünde 
 | XML |Byte] |
 | char |Dize |
 
-## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme
-Havuz dataset sütunlara kaynak veri kümesinde sütun eşleme hakkında bilgi edinmek için [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
+## <a name="map-source-toosink-columns"></a>Kaynak toosink sütunları eşleme
+hello kaynak dataset toocolumns hello havuz kümesindeki toomap sütunlarında nasıl görürüm toolearn [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
 
 ## <a name="repeatable-reads-from-relational-sources"></a>İlişkisel kaynaklardan yinelenebilir okuma
-İlişkisel veri deposundan verileri kopyaladığınızda, Yinelenebilirlik istenmeyen sonuçları önlemek için göz önünde bulundurun. Azure Data Factory'de bir dilim el ile çalıştırabilirsiniz. Yeniden deneme de yapılandırabilirsiniz **İlkesi** özelliği için bir veri kümesi bir hata oluştuğunda bir dilimi yeniden çalıştırın. Aynı veri dilimi yeniden kaç kez olsun ve dilim yeniden nasıl bakılmaksızın okuduğunuzdan emin olun. Daha fazla bilgi için bkz: [Repeatable okur ilişkisel kaynaklardan](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+İlişkisel veri deposundan verileri kopyaladığınızda, Yinelenebilirlik göz tooavoid tutmak istenmeyen sonuçları. Azure Data Factory'de bir dilim el ile çalıştırabilirsiniz. Merhaba yeniden deneme de yapılandırabilirsiniz **İlkesi** özelliği için bir veri kümesi toorerun bir hata oluştuğunda bir dilim. Merhaba aynı veri nasıl geçtiğinden bağımsız okuma emin olun birçok kez hello dilimi yeniden çalıştırın ve ne olursa olsun, nasıl hello dilimi yeniden çalıştırın. Daha fazla bilgi için bkz: [Repeatable okur ilişkisel kaynaklardan](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Performans ve ayar
-Kopyalama etkinliği ve performansı iyileştirmek için yollar performansını etkileyen anahtar Etkenler hakkında bilgi edinin [kopya etkinliği performansının ve ayarlama Kılavuzu](data-factory-copy-activity-performance.md).
+Kopyalama etkinliği ve yolları toooptimize performans hello hello performansını etkileyen anahtar Etkenler hakkında bilgi edinin [kopya etkinliği performansının ve ayarlama Kılavuzu](data-factory-copy-activity-performance.md).

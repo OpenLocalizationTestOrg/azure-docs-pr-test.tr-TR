@@ -1,6 +1,6 @@
 ---
-title: "Azure DevTest Labs paylaşılan IP adresleri anlama | Microsoft Docs"
-description: "Paylaşılan IP adreslerini Azure DevTest Labs laboratuvarınız sanal makineleri erişmek için gereken genel IP adresleri en aza indirmek için nasıl kullandığını öğrenin."
+title: "aaaUnderstand paylaşılan Azure DevTest Labs IP adresleri | Microsoft Docs"
+description: "Azure DevTest Labs paylaşılan IP adreslerini toominimize hello ortak IP adresleri gerekli tooaccess laboratuvarınız sanal makineleri nasıl kullandığını öğrenin."
 services: devtest-lab
 documentationcenter: na
 author: camsoper
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: casoper
-ms.openlocfilehash: 9f6e1980bf5ea5b41da98a135d89f1c5159921a7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8756410117a9d550d567d372174bf1ea96703c74
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Azure DevTest Labs paylaşılan IP adresleri anlama
 
-Azure DevTest Labs Laboratuvar sanal makineleri tek tek laboratuvarınız sanal makineleri erişmek için gereken genel IP adresleri sayısını en aza indirmek için ortak aynı IP adresini paylaşan olanak sağlar.  Bu makalede, paylaşılan IP'leri iş ve bunların ilgili yapılandırma seçenekleri açıklanmaktadır.
+Azure DevTest Labs sağlar Laboratuvar VM'ler paylaşımı tek tek laboratuvarınız sanal makineleri aynı ortak IP adresi toominimize hello sayıda ortak IP adresleri gerekli tooaccess hello.  Bu makalede, paylaşılan IP'leri iş ve bunların ilgili yapılandırma seçenekleri açıklanmaktadır.
 
 ## <a name="shared-ip-setting"></a>IP ayarı paylaşılan
 
-Bir laboratuvar oluşturduğunuzda, bir sanal ağ alt ağında yer alıyor.  Varsayılan olarak, bu alt ağ ile oluşturulan **etkinleştir paylaşılan ortak IP** kümesine *Evet*.  Bu yapılandırma tüm alt ağa bir genel IP adresi oluşturur.  Sanal ağlar ve alt ağları yapılandırma hakkında daha fazla bilgi için bkz: [Azure DevTest Labs'de sanal ağ yapılandırma](devtest-lab-configure-vnet.md).
+Bir laboratuvar oluşturduğunuzda, bir sanal ağ alt ağında yer alıyor.  Varsayılan olarak, bu alt ağ ile oluşturulan **etkinleştir paylaşılan ortak IP** çok ayarlamak*Evet*.  Bu yapılandırma hello tüm alt ağ için bir genel IP adresi oluşturur.  Sanal ağlar ve alt ağları yapılandırma hakkında daha fazla bilgi için bkz: [Azure DevTest Labs'de sanal ağ yapılandırma](devtest-lab-configure-vnet.md).
 
 ![Yeni Laboratuvar alt ağ](media/devtest-lab-shared-ip/lab-subnet.png)
 
-Var olan Laboratuarları için bu seçeneği seçerek etkinleştirebilirsiniz **yapılandırma ve ilkeleri > sanal ağlar**. Ardından, listeden bir sanal ağı seçin ve seçin **etkinleştirmek genel IP paylaşılan** seçilen alt ağ için. Bir ortak IP adresi Laboratuvar VM'ler arasında paylaşmak istemiyorsanız, bu seçenek, tüm laboratuvarında devre dışı bırakabilirsiniz.
+Var olan Laboratuarları için bu seçeneği seçerek etkinleştirebilirsiniz **yapılandırma ve ilkeleri > sanal ağlar**. Ardından, bir sanal ağ hello listeden seçip seçin **etkinleştirmek genel IP paylaşılan** seçilen alt ağ için. Laboratuvar VM'ler arasında bir ortak IP adresi tooshare istemiyorsanız, bu seçenek, tüm laboratuvarında devre dışı bırakabilirsiniz.
 
-Bu Laboratuvar varsayılan paylaşılan IP olarak oluşturulan herhangi bir VM.  İçinde VM oluştururken, bu ayar gösterilebilir **Gelişmiş ayarları** altında dikey **IP adresi yapılandırması**.
+Bu Laboratuvar varsayılan toousing paylaşılan IP oluşturulan herhangi bir VM.  Merhaba VM oluştururken, bu ayar hello gösterilebilir **Gelişmiş ayarları** altında dikey **IP adresi yapılandırması**.
 
 ![Yeni VM](media/devtest-lab-shared-ip/new-vm.png)
 
-- **Paylaşılan:** olarak oluşturulan tüm sanal makineleri **paylaşılan** (RG) bir kaynak grubuna yerleştirilir. Tek bir IP adresi için RG ve tüm sanal makineleri rg bu IP adresini kullanacak atanır.
+- **Paylaşılan:** olarak oluşturulan tüm sanal makineleri **paylaşılan** (RG) bir kaynak grubuna yerleştirilir. Tek bir IP adresi için RG ve hello RG tüm Vm'lerde bu IP adresini kullanacak atanır.
 - **Genel:** oluşturduğunuz her VM kendi IP adresi vardır ve kendi kaynak grubunda oluşturulur.
-- **Özel:** oluşturduğunuz her VM özel IP adresini kullanır. Bu VM için Uzak Masaüstü ile internet'ten doğrudan bağlanabiliyor olmaz.
+- **Özel:** oluşturduğunuz her VM özel IP adresini kullanır. Merhaba doğrudan mümkün tooconnect toothis VM olmaz Internet Uzak Masaüstü ile.
 
-Paylaşılan IP etkin olan bir VM alt ağına eklendiğinde DevTest Labs otomatik olarak VM için bir yük dengeleyici ekler ve VM üzerinde RDP noktasına ileten bir TCP bağlantı noktası numarası ortak IP adresini atar.  
+Paylaşılan IP etkin'yle bir VM'yi toohello alt eklendiğinde DevTest Labs otomatik olarak hello VM tooa yük dengeleyici ekler ve toohello hello VM üzerinde RDP noktasına iletme hello genel IP adresi üzerinde bir TCP bağlantı noktası numarası atar.  
 
-## <a name="using-the-shared-ip"></a>Paylaşılan IP kullanma
+## <a name="using-hello-shared-ip"></a>IP paylaşılan Hello kullanma
 
-- **Linux kullanıcıları:** VM IP adresini veya tam etki alanı adını, bağlantı noktası tarafından üste ve ardından kullanarak SSH. Örneğin, aşağıdaki resimde VM'e bağlanmak için RDP adresidir `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.
+- **Linux kullanıcıları:** hello IP adresini veya tam etki alanı adı, izleyen iki nokta ile kullanarak SSH toohello VM hello bağlantı noktası tarafından izlenen. Örneğin, aşağıdaki hello görüntü içinde hello RDP adres VM tooconnect toohello `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.
 
   ![VM örneği](media/devtest-lab-shared-ip/vm-info.png)
 
-- **Windows kullanıcıları:** seçin **Bağlan** önceden yapılandırılmış bir RDP dosyasını karşıdan yüklemek ve VM erişmek için Azure Portal'da düğmesi.
+- **Windows kullanıcıları:** Select hello **Bağlan** hello Azure portal toodownload üzerinde önceden yapılandırılmış bir RDP dosyası düğmesini ve hello VM erişebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

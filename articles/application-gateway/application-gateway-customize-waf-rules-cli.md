@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama ağ geçidi - Azure CLI 2.0 Web uygulaması güvenlik duvarı kurallarında özelleştirme | Microsoft Docs"
-description: "Bu makalede Azure CLI 2.0 ile uygulama ağ geçidi web uygulaması güvenlik duvarı kurallarında özelleştirme hakkında bilgi sağlar."
+title: "Azure uygulama ağ geçidi - Azure CLI 2.0 aaaCustomize web uygulaması güvenlik duvarı kuralları | Microsoft Docs"
+description: "Bu makalede, nasıl toocustomize web uygulaması güvenlik duvarı uygulama ağ geçidi'nde hello Azure CLI 2.0 ile kurallar hakkında bilgi sağlar."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,34 +14,34 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
-ms.openlocfilehash: 456be048dc2d82cd50d145b71f17a84a7189ea96
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b83ffb9f6a7e0d0c8c970885d2bcb3b63d32581c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customize-web-application-firewall-rules-through-the-azure-cli-20"></a>Web uygulaması güvenlik duvarı kuralları Azure CLI 2.0 aracılığıyla özelleştirme
+# <a name="customize-web-application-firewall-rules-through-hello-azure-cli-20"></a>Web uygulaması güvenlik duvarı kuralları hello Azure CLI 2.0 aracılığıyla özelleştirme
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 
-Azure uygulama ağ geçidi web uygulaması Güvenlik Duvarı (WAF) web uygulamaları için koruma sağlar. Bu korumalar açık Web uygulaması güvenlik proje (OWASP) çekirdek kuralı ayarlayın (CR tarafından) sağlanır. Bazı kurallar hatalı pozitif sonuç neden ve gerçek trafiği engelle. Bu nedenle, uygulama ağ geçidi Kural gruplarını ve kurallarını özelleştirme yeteneği sağlar. Özel kural gruplarını ve kurallarını hakkında daha fazla bilgi için bkz: [web uygulaması güvenlik duvarı CRS Kural gruplarını ve kurallarını listesi](application-gateway-crs-rulegroups-rules.md).
+Hello Azure uygulama ağ geçidi web uygulaması Güvenlik Duvarı (WAF) web uygulamaları için koruma sağlar. Bu korumalar hello açık Web uygulaması güvenlik proje (OWASP) çekirdek kuralı ayarlayın (CR) tarafından sağlanır. Bazı kurallar hatalı pozitif sonuç neden ve gerçek trafiği engelle. Bu nedenle, uygulama ağ geçidi hello yetenek toocustomize Kural gruplarını ve kurallarını sağlar. Merhaba belirli kuralı grupları ve kuralları hakkında daha fazla bilgi için bkz: [web uygulaması güvenlik duvarı CRS Kural gruplarını ve kurallarını listesi](application-gateway-crs-rulegroups-rules.md).
 
 ## <a name="view-rule-groups-and-rules"></a>Görünüm kural gruplar ve kurallar
 
-Aşağıdaki kod örnekleri, kuralları ve yapılandırılabilir Kural gruplarını görüntülemek nasıl gösterir.
+kod örnekleri aşağıdaki hello nasıl tooview kurallar ve kural yapılandırılabilir grupları göster.
 
 ### <a name="view-rule-groups"></a>Kural grupları görüntüle
 
-Aşağıdaki örnek, kural gruplarını görüntülemek gösterilmektedir:
+Aşağıdaki örneğine hello nasıl tooview hello Kural gruplarını gösterir:
 
 ```azurecli-interactive
 az network application-gateway waf-config list-rule-sets --type OWASP
 ```
 
-Önceki örnekte kesilmiş yanıttan aşağıdaki çıktısı şöyledir:
+Çıktı aşağıdaki hello örnek önceki hello kesilmiş yanıttan şöyledir:
 
 ```
 [
@@ -88,13 +88,13 @@ az network application-gateway waf-config list-rule-sets --type OWASP
 
 ### <a name="view-rules-in-a-rule-group"></a>Bir kural gruptaki kurallarını görüntüle
 
-Aşağıdaki örnek, belirtilen kural gruptaki kurallarını görüntülemek gösterilmektedir:
+Aşağıdaki örneğine hello nasıl tooview belirtilen kural grubunda kurallar gösterir:
 
 ```azurecli-interactive
 az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
 ```
 
-Önceki örnekte kesilmiş yanıttan aşağıdaki çıktısı şöyledir:
+Çıktı aşağıdaki hello örnek önceki hello kesilmiş yanıttan şöyledir:
 
 ```
 [
@@ -127,7 +127,7 @@ az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP
 
 ## <a name="disable-rules"></a>Kuralları devre dışı
 
-Aşağıdaki örnek kuralları devre dışı bırakır `910018` ve `910017` bir uygulama ağ geçidi üzerinde:
+Merhaba aşağıdaki örnek kuralları devre dışı bırakır `910018` ve `910017` bir uygulama ağ geçidi üzerinde:
 
 ```azurecli-interactive
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
@@ -135,7 +135,7 @@ az network application-gateway waf-config set --resource-group AdatumAppGatewayR
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Devre dışı kurallarınızı yapılandırdıktan sonra WAF günlükleri görüntülemek nasıl öğrenebilirsiniz. Daha fazla bilgi için bkz: [uygulama ağ geçidi tanılama](application-gateway-diagnostics.md#diagnostic-logging).
+Devre dışı kurallarınızı yapılandırdıktan sonra öğrenebilirsiniz nasıl tooview WAF günlüklerinizi. Daha fazla bilgi için bkz: [uygulama ağ geçidi tanılama](application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

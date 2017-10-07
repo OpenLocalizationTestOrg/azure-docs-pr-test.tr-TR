@@ -1,6 +1,6 @@
 ---
-title: "Şirket içi veri ağ geçidi | Microsoft Docs"
-description: "Analysis Services sunucunuzun azure'da şirket içi veri kaynağına bağlanır, bir şirket içi ağ geçidi gereklidir."
+title: "aaaOn içi veri ağ geçidi | Microsoft Docs"
+description: "Bir şirket içi ağ geçidi, Azure Analysis Services sunucunuzun tooon içi veri kaynaklarına bağlanacak ise gereklidir."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,65 +15,65 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/21/2017
 ms.author: owend
-ms.openlocfilehash: 514b5404e8cbfa0baa657eb41736e20cad502638
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fc7b9c69e6f81b41deb7a5d6d963225593845d84
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Azure şirket içi veri ağ geçidi ile şirket içi veri kaynaklarına bağlanma
-Şirket içi veri ağ geçidi, şirket içi veri kaynakları ve Azure Analysis Services sunucularınızı bulutta arasında güvenli veri aktarımını sağlayan bir köprü gibi davranır. Aynı bölgede birden çok Azure Analysis Services sunucusu ile çalışma ek olarak, ağ geçidinin en son sürümünü de Azure Logic Apps, Power BI, güç uygulamaları ve Microsoft Flow ile çalışır. Tek bir ağ geçidi ile aynı bölgede birden çok hizmet ilişkilendirebilirsiniz. 
+# <a name="connecting-tooon-premises-data-sources-with-azure-on-premises-data-gateway"></a>Azure şirket içi veri ağ geçidi ile tooon içi veri kaynaklarına bağlanma
+Merhaba şirket içi veri ağ geçidi, şirket içi veri kaynakları ve Azure Analysis Services sunucularınızı hello bulutta arasında güvenli veri aktarımını sağlayan bir köprü gibi davranır. Toplama tooworking hello birden çok Azure Analysis Services sunucusu ile aynı bölgede, hello hello ağ geçidinin en son sürümünü de Azure Logic Apps, Power BI, güç uygulamaları ve Microsoft Flow ile çalışır. Birden çok Hizmetleri'nde hello ilişkilendirebilirsiniz tek bir ağ geçidi ile aynı bölgede. 
 
- Azure Analysis Services aynı bölgede bir ağ geçidi kaynağı gerektirir. Örneğin, Doğu ABD 2 bölgede Azure Analysis Services sunucuları varsa, bir ağ geçidi kaynağı Doğu ABD 2 bölgesindeki gerekir. Doğu ABD 2 birden çok sunucu, aynı ağ geçidi kullanabilirsiniz.
+ Azure Analysis Services gerektiren bir ağ geçidi kaynağı hello aynı bölgede. Örneğin, Azure Analysis Services sunucuları hello Doğu ABD 2 bölgede varsa, bir ağ geçidi kaynağı hello Doğu ABD 2 bölgesindeki gerekir. Doğu ABD 2 birden çok sunucuya hello kullanabilirsiniz aynı ağ geçidi.
 
-İlk kez ağ geçidi ile kurulumun tamamlanmasında dört bölümden oluşan bir işlemdir:
+İlk kez hello ağ geçidi hello ile kurulumun tamamlanmasında dört bölümden oluşan bir işlemdir:
 
 - **Kurulumunu indirin ve çalıştırın** -Bu adım, kuruluşunuzdaki bir bilgisayarda bir ağ geçidi hizmeti yükler.
 
-- **Ağ geçidini kaydetmek** - Bu adımda, bir ad belirtin ve kurtarma anahtarı, ağ geçidiniz için ve ağ geçidiniz ağ geçidi bulut hizmeti ile kaydetme bir bölge seçin.
+- **Ağ geçidini kaydetmek** - Bu adımda, bir ad belirtin ve kurtarma anahtarı, ağ geçidiniz için ve ağ geçidiniz hello ağ geçidi bulut hizmeti ile kaydetme bir bölge seçin.
 
 - **Bir ağ geçidi kaynağı oluşturma** -Bu adımda, Azure aboneliğinizde bir ağ geçidi kaynağı oluşturun.
 
-- **Sunucularınız, ağ geçidi kaynağına bağlanma** -aboneliğinizde bir ağ geçidi kaynağına sahip olduktan sonra sunucularınız tarafından bağlanan başlayabilirsiniz.
+- **Sunucuları tooyour ağ geçidi kaynağına bağlanmasına** -aboneliğinizde bir ağ geçidi kaynağına sahip olduğunda, sunucuları tooit bağlanma başlayabilirsiniz.
 
-Aboneliğiniz için yapılandırılmış bir ağ geçidi kaynağına sahip olduğunda, birden çok sunucu ve diğer hizmetler için bağlayabilirsiniz. Faklı bir ağ geçidi yükleyin ve farklı bir bölgede sunucuları veya diğer hizmetler varsa ek ağ geçidi kaynakları oluşturun yeterlidir.
+Aboneliğiniz için yapılandırılmış bir ağ geçidi kaynağına sahip olduğunda, birden çok sunucu ve diğer hizmetleri tooit bağlanabilir. Yalnızca tooinstall faklı bir ağ geçidi gerekir ve farklı bir bölgede sunucuları veya diğer hizmetler varsa ek ağ geçidi kaynakları oluşturun.
 
-Hemen kullanmaya başlamak için bkz: [yüklemek ve şirket içi veri ağ geçidi yapılandırma](analysis-services-gateway-install.md).
+hemen kullanmaya tooget bkz [yüklemek ve şirket içi veri ağ geçidi yapılandırma](analysis-services-gateway-install.md).
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
-Bir bilgisayara yüklemeniz, kuruluşunuzda ağ geçidi Windows hizmeti olarak çalışan **şirket içi veri ağ geçidi**. Bu yerel hizmet Azure Service Bus aracılığıyla ağ geçidi bulut hizmetine kayıtlı. Ardından Azure aboneliğiniz için bir ağ geçidi kaynağı ağ geçidi bulut hizmeti oluşturun. Azure Analysis Services sunucuları, ağ geçidi kaynağı bağlanmıştır. Sunucunuzdaki modelleri kaynakları sorgular veya işleme için şirket içi verilerinize bağlanın gerektiğinde, bir sorgu ve veri akışı ağ geçidi kaynağı, Azure Service Bus, yerel şirket içi veri ağ geçidi hizmeti ve veri kaynaklarınızı erişir. 
+bir bilgisayara yüklemeniz, kuruluşunuzda hello ağ geçidi çalıştıran bir Windows hizmeti olarak **şirket içi veri ağ geçidi**. Bu yerel hizmet hello Azure Service Bus aracılığıyla ağ geçidi bulut hizmetine kayıtlı. Ardından Azure aboneliğiniz için bir ağ geçidi kaynağı ağ geçidi bulut hizmeti oluşturun. Ardından sunuculardır, Azure Analysis Services tooyour ağ geçidi kaynağına bağlandı. İçi sunucu ihtiyacını tooconnect tooyour modellerinde sorgular veya işlem için veri kaynakları, bir sorgu ve veri akış ilişkilerinden geçen hello ağ geçidi kaynağı, Azure Service Bus, yerel şirket içi veri ağ geçidi hizmeti ve veri kaynaklarınızı hello. 
 
 ![Nasıl çalışır?](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 Sorgular ve veri akış:
 
-1. Bir sorgu tarafından şifrelenmiş kimlik bilgileri bulut hizmetiyle şirket içi veri kaynağı için oluşturulur. Daha sonra işlemek ağ geçidi için bir sırasına gönderilir.
-2. Ağ geçidi bulut Hizmeti'ne sorgu analiz eder ve isteği iter [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
-3. Şirket içi veri ağ geçidi bekleyen istekler için Azure Service Bus yoklar.
-4. Ağ geçidi sorgu alır, kimlik bilgileri şifresini çözer ve veri kaynağı bu kimlik bilgileri ile bağlanır.
-5. Ağ geçidi yürütme için veri kaynağı sorgusu gönderir.
-6. Sonuçları, ağ geçidi dönün ve bulut hizmeti ve sunucunuz üzerine veri kaynağından gönderilir.
+1. Bir sorgu hello şirket içi veri kaynağı için hello şifreli kimlik bilgileriyle hello bulut hizmeti tarafından oluşturulur. Ardından, tooa sıra hello ağ geçidi tooprocess için de gönderdi.
+2. Merhaba ağ geçidi bulut Hizmeti'ne hello sorgu analiz eder ve hello isteği toohello iter [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
+3. Merhaba şirket içi veri ağ geçidi hello Azure hizmet veri yolu için bekleyen istekler yoklar.
+4. Hello ağ geçidi hello sorgu alır, hello kimlik şifresini çözer ve toohello veri kaynakları söz konusu kimlik bilgileriyle bağlanır.
+5. Merhaba ağ geçidi hello sorgu toohello veri kaynağı için yürütme gönderir.
+6. Merhaba sonuçları hello veri kaynağından geri toohello ağ geçidi, ardından hello bulut hizmeti ve sunucunuz üzerine gönderilir.
 
 ## <a name="windows-service-account"></a>Windows hizmet hesabı
-Şirket içi veri ağ geçidi kullanacak şekilde yapılandırılmış *NT SERVICE\PBIEgwService* Windows hizmeti oturum açma kimlik bilgileri. Varsayılan olarak, bir hizmet olarak oturum açma hakkı vardır; ağ geçidi yüklüyorsanız makine bağlamında. Bu kimlik bilgileri, şirket içi veri kaynaklarına bağlanmak için kullanılan aynı hesap ya da Azure hesabınızda değil.  
+Merhaba şirket içi veri ağ geçidi olduğu yapılandırılmış toouse *NT SERVICE\PBIEgwService* hello Windows hizmeti oturum açma kimlik bilgileri için. Varsayılan olarak, bir hizmet olarak oturum açmada sağ hello sahiptir; Merhaba ağ geçidi yüklüyorsanız hello makine Hello bağlamında. Bu kimlik bilgileri, aynı kullanılan hesap tooconnect tooon içi veri kaynakları veya Azure hesabınızda hello değil.  
 
-Proxy sunucunuz kimlik doğrulaması nedeniyle ile sorunlarla karşılaşırsanız, Windows hizmet hesabı etki alanı kullanıcısına değiştirmek isteyebilirsiniz veya yönetilen hizmet hesabı.
+Proxy sunucunuzu sorunlarla karşılaşırsanız tooauthentication, hello Windows hizmet hesabı tooa etki alanı kullanıcı ya da yönetilen toochange isteyebilir hizmet hesabı.
 
 ## <a name="ports"></a>Bağlantı noktaları
-Ağ geçidi, Azure Service Bus giden bir bağlantı oluşturur. Giden bağlantı noktaları iletişim kurar: TCP 443 (varsayılan), 5671, 5672, 9354 aracılığıyla 9350.  Ağ geçidi gelen bağlantı noktalarının gerektirmez.
+Merhaba ağ geçidi giden bağlantı tooAzure hizmet veri yolu oluşturur. Giden bağlantı noktaları iletişim kurar: TCP 443 (varsayılan), 5671, 5672, 9354 aracılığıyla 9350.  Merhaba ağ geçidi gelen bağlantı noktalarının gerektirmez.
 
-Güvenlik Duvarı'nda, veri bölgesinin IP adreslerini güvenilir listeye öneririz. İndirebilirsiniz [Microsoft Azure veri merkezi IP listesi](https://www.microsoft.com/download/details.aspx?id=41653). Bu liste haftalık güncelleştirilir.
+Beyaz liste hello IP adresleri, Güvenlik Duvarı'nda, veri bölgesinin öneririz. Merhaba indirebilirsiniz [Microsoft Azure veri merkezi IP listesi](https://www.microsoft.com/download/details.aspx?id=41653). Bu liste haftalık güncelleştirilir.
 
 > [!NOTE]
-> Azure veri merkezi IP listesinde listelenen IP adresleri CIDR gösteriminde değil. Örneğin, 10.0.0.0/24 10.0.0.24 aracılığıyla 10.0.0.0 anlamına gelmez. Daha fazla bilgi edinmek [CIDR gösteriminde](http://whatismyipaddress.com/cidr).
+> Merhaba IP hello Azure veri merkezi IP listesinde listelenen CIDR gösteriminde adresleridir. Örneğin, 10.0.0.0/24 10.0.0.24 aracılığıyla 10.0.0.0 anlamına gelmez. Merhaba hakkında daha fazla bilgi [CIDR gösteriminde](http://whatismyipaddress.com/cidr).
 >
 >
 
-Ağ Geçidi tarafından kullanılan tam etki alanı adları şunlardır:
+Merhaba, hello ağ geçidi tarafından kullanılan hello tam olarak nitelenmiş etki alanı adlarını verilmiştir.
 
 | Etki alanı adları | Giden bağlantı noktaları | Açıklama |
 | --- | --- | --- |
-| *. powerbı.com |80 |Yükleyici indirmek için kullanılan HTTP. |
+| *. powerbı.com |80 |HTTP toodownload hello yükleyici kullanılır. |
 | *. powerbı.com |443 |HTTPS |
 | *. analysis.windows.net |443 |HTTPS |
 | *. login.windows.net |443 |HTTPS |
@@ -82,11 +82,11 @@ Ağ Geçidi tarafından kullanılan tam etki alanı adları şunlardır:
 | *. frontend.clouddatahub.net |443 |HTTPS |
 | *. core.windows.net |443 |HTTPS |
 | Login.microsoftonline.com |443 |HTTPS |
-| *. msftncsi.com |443 |Ağ geçidi Power BI hizmeti tarafından erişilemediğinde internet bağlantısı test etmek için kullanılır. |
+| *. msftncsi.com |443 |Merhaba ağ geçidi hello Power BI hizmeti tarafından erişilemediğinde tootest internet bağlantısı kullanılır. |
 | *.microsoftonline p.com |443 |Yapılandırmasına bağlı olarak kimlik doğrulaması için kullanılır. |
 
 ### <a name="force-https"></a>Azure Service Bus ile HTTPS iletişimi zorlama
-Doğrudan TCP yerine HTTPS kullanarak Azure Service Bus ile iletişim kurmak için ağ geçidi zorlayabilirsiniz; Ancak, bunun nedenle performansı büyük ölçüde düşürebilir. Değiştirebileceğiniz *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* değerini değiştirerek dosya `AutoDetect` için `Https`. Bu genellikle bir dosyadır *C:\Program Files\On içi veri ağ geçidi*.
+Doğrudan TCP yerine HTTPS kullanarak Azure Service Bus ile Merhaba ağ geçidi toocommunicate zorlayabilirsiniz; Ancak, bunun nedenle performansı büyük ölçüde düşürebilir. Merhaba değiştirebileceğiniz *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* başlangıç değerinden değiştirerek dosya `AutoDetect` çok`Https`. Bu genellikle bir dosyadır *C:\Program Files\On içi veri ağ geçidi*.
 
 ```
 <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
@@ -98,67 +98,67 @@ Doğrudan TCP yerine HTTPS kullanarak Azure Service Bus ile iletişim kurmak iç
 
 ### <a name="general"></a>Genel
 
-**Q**: bir ağ geçidi bulutta Azure SQL veritabanı gibi veri kaynakları için ihtiyacım var? <br/>
-**A**: Hayır Bir ağ geçidi yalnızca şirket içi veri kaynağına bağlanır.
+**Q**: bir ağ geçidi hello bulutta Azure SQL veritabanı gibi veri kaynakları için ihtiyacım var? <br/>
+**A**: Hayır Bir ağ geçidi tooon içi veri kaynakları yalnızca bağlanır.
 
-**Q**: ağ geçidi veri kaynağı ile aynı makinede yüklü olması gerekmez? <br/>
-**A**: Hayır Ağ geçidi sağlanan bağlantı bilgilerini kullanarak veri kaynağına bağlanır. Bu bağlamda bir istemci uygulaması olarak, ağ geçidi göz önünde bulundurun. Ağ geçidi yalnızca, genellikle aynı ağ üzerinde sağlanan sunucu adı bağlanmak için özellik gerekiyor.
+**Q**: hello ağ geçidi aynı makine hello veri kaynağı olarak hello yüklü toobe sahip mi? <br/>
+**A**: Hayır Merhaba ağ geçidi sağlanan hello bağlantı bilgilerini kullanarak toohello veri kaynağına bağlanır. Bu bağlamda bir istemci uygulaması olarak Hello ağ geçidi göz önünde bulundurun. Merhaba ağ geçidi yalnızca, genellikle hello üzerinde aynı sağlanan hello yetenek tooconnect toohello sunucu adı gerekiyor ağ.
 
 <a name="why-azure-work-school-account"></a>
 
-**Q**: neden gerekiyor mu oturum açmak için bir iş veya Okul hesabı kullanmanız? <br/>
-**A**: yalnızca Azure bir iş veya Okul hesabınız, şirket içi veri ağ geçidi yüklediğinizde. Oturum açma hesabınızın Azure Active Directory (Azure AD) tarafından yönetilen bir kiracı depolanır. Genellikle, Azure AD hesabınızın kullanıcı asıl adı (UPN) e-posta adresi ile eşleşir.
+**Q**: neden ı toouse bir iş gerekir veya Okul hesabı toosign? <br/>
+**A**: yalnızca Azure bir iş veya Okul hesabınız hello şirket içi veri ağ geçidi yüklediğinizde. Oturum açma hesabınızın Azure Active Directory (Azure AD) tarafından yönetilen bir kiracı depolanır. Genellikle, Azure AD hesabınızın kullanıcı asıl adı (UPN) hello e-posta adresi ile eşleşir.
 
 **Q**: kimlik bilgilerimi depolandığı? <br/>
-**A**: bir veri kaynağı için girdiğiniz kimlik bilgileri şifrelenir ve ağ geçidi bulut hizmetinde depolanır. Kimlik bilgileri şirket içi veri ağ geçidi şifresi çözülür.
+**A**: bir veri kaynağı için girdiğiniz hello kimlik bilgileri şifrelenir ve hello ağ geçidi bulut Hizmeti'ne depolanır. Merhaba kimlik hello şirket içi veri ağ geçidi şifresi çözülür.
 
 **Q**: ağ bant genişliği için tüm gereksinimleri vardır? <br/>
-**A**: ağınızı öneririz sahip bağlantısı iyi verimlilik vardır. Her ortam farklıdır ve gönderilen verilerin miktarını sonuçları etkiler. ExpressRoute kullanarak şirket içi ve Azure veri merkezleri arasında işleme düzeyini güvence altına almak için yardımcı olabilir.
-Üçüncü taraf aracı Azure hızı Test uygulaması, üretilen iş ölçer yardımcı olmak için kullanabilirsiniz.
+**A**: ağınızı öneririz sahip bağlantısı iyi verimlilik vardır. Her ortam farklıdır ve gönderilen verilerin miktarını hello hello sonuçları etkiler. ExpressRoute kullanarak şirket içi ve hello Azure veri merkezleri arasında işleme düzeyini tooguarantee yardımcı olabilir.
+Merhaba üçüncü taraf aracı Azure hızı Test uygulama toohelp ölçer, üretilen iş kullanabilirsiniz.
 
-**Q**: bir veri kaynağına ağ geçidi'nden sorguları çalıştırmak için gecikme süresi nedir? En iyi mimarisi nedir? <br/>
-**A**: ağ gecikmesini azaltmak için veri kaynağı olarak mümkün olduğunca yakın ağ geçidini yükleyin. Gerçek veri kaynağı üzerinde ağ geçidi yükleyebilirsiniz, bu yakınlık sunulan gecikme süresi en aza indirir. Veri merkezleri çok göz önünde bulundurun. Örneğin, Batı ABD datacenter hizmetinizi kullanır ve SQL Server bir Azure VM ile barındırılan varsa, Azure VM Batı ABD çok olması gerekir. Bu yakınlık gecikme süresi en aza indirir ve çıkış ücretlerini Azure VM'de önler.
+**Q**: hello gecikmesi çalışan sorguları tooa veri kaynağından hello ağ geçidi nedir? Merhaba en iyi mimarisi nedir? <br/>
+**A**: tooreduce ağ gecikmesi, mümkün olduğunca yakın toohello veri kaynağı olarak yükleme hello ağ geçidi. Merhaba gerçek veri kaynağında hello ağ geçidi yükleyebilirsiniz, bu yakınlık sunulan hello gecikme süresi en aza indirir. Merhaba veri merkezleri çok göz önünde bulundurun. Örneğin, hizmetiniz hello Batı ABD datacenter kullanır ve SQL Server'ın bir Azure VM ile barındırılan olması durumunda, Azure VM hello Batı ABD çok olması gerekir. Bu yakınlık gecikme süresi en aza indirir ve çıkış ücretlerini hello Azure VM üzerinde önler.
 
-**Q**: nasıl sonuçları gönderilir bulut için? <br/>
-**A**: sonuçları, Azure Service Bus gönderilir.
+**Q**: gönderilen sonuçları geri toohello bulut şeklini? <br/>
+**A**: sonuçları hello Azure Service Bus gönderilir.
 
-**Q**: tüm gelen bağlantıları buluttan ağ geçidine vardır? <br/>
-**A**: Hayır Ağ geçidi, Azure Service Bus giden bağlantılara kullanır.
+**Q**: tüm gelen bağlantıları toohello ağ geçidi'nden hello bulut vardır? <br/>
+**A**: Hayır Merhaba ağ geçidi giden bağlantılar tooAzure hizmet veri yolu kullanır.
 
-**Q**: ne ı giden bağlantıları engelle? Açmak neler gerekir? <br/>
-**A**: bağlantı noktaları ve ağ geçidini kullanan konakları bakın.
+**Q**: ne ı giden bağlantıları engelle? Ne tooopen gerekir? <br/>
+**A**: hello bağlantı noktaları ve ağ geçidi kullanan hello konakları bakın.
 
-**Q**: ne gerçek Windows hizmeti adı verilir?<br/>
-**A**: içinde Hizmetleri, ağ geçidi şirket içi veri ağ geçidi hizmeti çağrılır.
+**Q**: ne hello gerçek Windows hizmeti adı verilir?<br/>
+**A**: Services'de hello ağ geçidi şirket içi veri ağ geçidi hizmeti olarak adlandırılır.
 
-**Q**: ağ geçidi Windows hizmeti bir Azure Active Directory hesabıyla çalıştırabilir miyim? <br/>
-**A**: Hayır Windows hizmeti geçerli bir Windows hesabı olması gerekir. Varsayılan olarak, hizmet hizmet SID, NT SERVICE\PBIEgwService çalışır.
+**Q**: ağ geçidi Windows hizmeti bir Azure Active Directory hesap ile çalıştırmak hello? <br/>
+**A**: Hayır Merhaba Windows hizmeti geçerli bir Windows hesabı olması gerekir. Varsayılan olarak, hello ile hizmet SID, NT SERVICE\PBIEgwService hello hizmeti çalışır.
 
 ### <a name="high-availability"></a>Yüksek kullanılabilirlik ve olağanüstü durum kurtarma
 
 **Q**: olağanüstü durum kurtarma için kullanılabilir seçenekleri nelerdir? <br/>
-**A**: Kurtarma anahtarını geri yüklemek veya bir ağ geçidi taşımak için kullanabilirsiniz. Ağ geçidi yüklediğinizde, Kurtarma anahtarını belirtin.
+**A**: hello kurtarma anahtarı toorestore kullanın veya bir ağ geçidi taşıyın. Merhaba ağ geçidi yüklediğinizde hello kurtarma anahtarını belirtin.
 
-**Q**: Kurtarma anahtarı avantajı nedir? <br/>
-**A**: Kurtarma anahtarı geçirmek veya ağ geçidi ayarlarınızı sonra bir olağanüstü durum kurtarma için bir yol sağlar.
+**Q**: hello kurtarma anahtarı hello avantajı nedir? <br/>
+**A**: hello kurtarma anahtarı bir şekilde toomigrate sağlar veya ağ geçidi ayarlarınızı sonra bir olağanüstü durum kurtarma.
 
 ## <a name="troubleshooting"></a>Sorunlarını giderme
 
-**Q**: nasıl ı görebilir ne sorguları yükleniyor şirket içi veri kaynağına gönderilen? <br/>
-**A**: gönderilen sorgular sorgu izlemeyi etkinleştirebilirsiniz. Sorgu geri sorun giderme tamamlanınca özgün değeri izleme değiştirmeyi unutmayın. Sorgu izlemesi açık bırakarak daha büyük günlükleri oluşturur.
+**Q**: nasıl sorguları toohello şirket içi veri kaynağına gönderilen görebilir? <br/>
+**A**: gönderilen hello sorgular sorgu izlemeyi etkinleştirebilirsiniz. Sorun giderme tamamlanınca toohello özgün değeri geri izleme toochange sorgu unutmayın. Sorgu izlemesi açık bırakarak daha büyük günlükleri oluşturur.
 
 Ayrıca, izleme sorguları için veri kaynağınız olan araçlar da bakabilirsiniz. Örneğin, SQL Server ve Analysis Services için genişletilmiş olaylar veya SQL Profiler kullanabilirsiniz.
 
-**Q**: ağ geçidi günlüklerini nerede? <br/>
+**Q**: hello gateway günlükleri nerede? <br/>
 **A**: Bu konunun ilerleyen bölümlerinde günlüklere bakın.
 
-### <a name="update"></a>En son sürüme güncelleştir
+### <a name="update"></a>Güncelleştirme toohello en son sürümü
 
-Ağ geçidi sürümü güncel olmayan hale geldiğinde birçok sorunları ortaya. Genel iyi uygulama olarak, en son sürümünü kullandığınızdan emin olun. Ağ geçidi, bir veya daha uzun bir ay için güncelleştirmediyseniz, ağ geçidinin en son sürümünü yüklemeyi göz önünde bulundurun ve sorunu yeniden bakın.
+Merhaba ağ geçidi sürümü güncel olmayan hale geldiğinde birçok sorunları ortaya. Genel iyi uygulama olarak, hello en son sürümünü kullandığınızdan emin olun. Merhaba ağ geçidi için ayda bir veya daha uzun güncelleştirmediyseniz hello hello ağ geçidinin en son sürümünü yüklemeyi göz önünde bulundurun ve hello sorunu yeniden bakın.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Hata: kullanıcı gruba eklenemedi. (-2147463168 PBIEgwService performans günlük kullanıcılar)
+### <a name="error-failed-tooadd-user-toogroup--2147463168-pbiegwservice-performance-log-users"></a>Hata: tooadd kullanıcı toogroup başarısız oldu. (-2147463168 PBIEgwService performans günlük kullanıcılar)
 
-Desteklenmeyen bir etki alanı denetleyicisinde ağ geçidini yüklemeye çalıştığınızda bu hatayı alabilirsiniz. Bir etki alanı denetleyicisi olmayan bir makineye ağ geçidi dağıttığınızdan emin olun.
+Desteklenmeyen bir etki alanı denetleyicisinde tooinstall hello ağ geçidi çalışırsanız, bu hatayı alabilirsiniz. Bir etki alanı denetleyicisi olmayan bir makineyi hello geçidinde dağıttığınızdan emin olun.
 
 ## <a name="logs"></a>Günlükleri
 
@@ -177,16 +177,16 @@ Günlük dosyaları bir önemli sorun giderirken kaynaktır.
 
 #### <a name="event-logs"></a>Olay günlükleri
 
-Veri Yönetimi ağ geçidi ve PowerBIGateway logs altında bulabilirsiniz **uygulama ve hizmet günlükleri**.
+Veri Yönetimi ağ geçidi ve PowerBIGateway günlüklerini altında hello bulabilirsiniz **uygulama ve hizmet günlükleri**.
 
 
 ## <a name="telemetry"></a>Telemetri
 Telemetri, izleme ve sorun giderme için kullanılabilir. Varsayılan olarak
 
-**Telemetriyi etkinleştirmek için**
+**telemetri üzerinde tooturn**
 
-1.  Şirket içi veri ağ geçidi istemci dizini bilgisayarda denetleyin. Genellikle,. **%SystemDrive%\Program Files\On içi veri ağ geçidi**. Veya, Hizmetler konsolunu açın ve yürütülebilir dosya yolunu denetleyin: şirket içi veri ağ geçidi hizmeti bir özelliğidir.
-2.  İstemci dizininden Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config dosyasında. SendTelemetry ayarı true olarak değiştirin.
+1.  Merhaba şirket içi veri ağ geçidi istemci dizini hello bilgisayarda denetleyin. Genellikle,. **%SystemDrive%\Program Files\On içi veri ağ geçidi**. Veya, Hizmetler konsolunu açın ve hello yolu tooexecutable denetleyin: hello şirket içi veri ağ geçidi hizmeti bir özelliğidir.
+2.  Merhaba Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config dosyasında istemci dizininden. Merhaba SendTelemetry ayarı tootrue değiştirin.
         
     ```
         <setting name="SendTelemetry" serializeAs="String">
@@ -194,7 +194,7 @@ Telemetri, izleme ve sorun giderme için kullanılabilir. Varsayılan olarak
         </setting>
     ```
 
-3.  Yaptığınız değişiklikleri kaydedin ve Windows hizmetini yeniden başlatın: şirket içi veri ağ geçidi hizmeti.
+3.  Yaptığınız değişiklikleri kaydedin ve hello Windows hizmetini yeniden başlatın: şirket içi veri ağ geçidi hizmeti.
 
 
 

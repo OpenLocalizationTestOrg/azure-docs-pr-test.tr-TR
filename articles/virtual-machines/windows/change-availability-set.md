@@ -1,6 +1,6 @@
 ---
-title: "Sanal makineleri kullanılabilirlik kümesini değiştirme | Microsoft Docs"
-description: "Azure PowerShell ve Resource Manager dağıtım modeli kullanarak, sanal makineleriniz için ayarlanmış kullanılabilirlik değiştirmeyi öğrenin."
+title: "sanal makineleri kullanılabilirlik kümesi aaaChange | Microsoft Docs"
+description: "Azure PowerShell ve hello Resource Manager dağıtım modeli kullanarak, sanal makineleriniz için toochange hello kullanılabilirlik nasıl ayarlanacağını öğrenin."
 keywords: 
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
-ms.openlocfilehash: d1daa01191480eaeb81727416b2134b00c698dc3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 3b1cc010a6d4c4883f2e34da9cfca4372aec92cb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-availability-set-for-a-windows-vm"></a>Kullanılabilirlik için bir Windows VM kümesini değiştirin
-Aşağıdaki adımlar, Azure PowerShell kullanarak bir VM'i kullanılabilirlik kümesini değiştirmek açıklar. Bir VM yalnızca kullanılabilirlik oluşturulduğunda kümesi için eklenebilir. Kullanılabilirlik değiştirmek için ayarlamanız, silmeniz ve sanal makine oluşturmanız gerekir. 
+# <a name="change-hello-availability-set-for-a-windows-vm"></a>Merhaba kullanılabilirlik kümesi için bir Windows VM değiştirme
+Aşağıdaki adımları hello nasıl toochange hello Azure PowerShell kullanarak bir VM'i kullanılabilirlik kümesini açıklayın. Bir VM yalnızca tooan kullanılabilirlik oluşturulduğunda kümesi eklenebilir. Sipariş toochange hello kullanılabilirlik kümesinde toodelete gerekir ve hello sanal makine oluşturun. 
 
-## <a name="change-the-availability-set-using-powershell"></a>Kullanılabilirlik PowerShell kullanarak kümesini değiştirin
-1. Değiştirilecek VM'den aşağıdaki anahtar ayrıntılarını yakalayın.
+## <a name="change-hello-availability-set-using-powershell"></a>PowerShell kullanarak değişiklik hello kullanılabilirlik kümesi
+1. Aşağıdaki anahtar ayrıntılara değiştiren hello VM toobe hello yakalayın.
    
-    VM adı
+    Merhaba VM adı
    
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroupName <Name-of-resource-group> -Name <name-of-VM>
@@ -41,7 +41,7 @@ Aşağıdaki adımlar, Azure PowerShell kullanarak bir VM'i kullanılabilirlik k
     $vm.HardwareProfile.VmSize
     ```
    
-    Ağ birincil ağ arabirimi ve VM varsa isteğe bağlı ağ arabirimleri
+    Ağ birincil ağ arabirimi ve isteğe bağlı ağ arabirimleri üzerinde varsa VM hello
    
     ```powershell
     $vm.NetworkProfile.NetworkInterfaces[0].Id
@@ -67,17 +67,17 @@ Aşağıdaki adımlar, Azure PowerShell kullanarak bir VM'i kullanılabilirlik k
     ```powershell
     $vm.Extensions
     ```
-2. VM diskleri veya ağ arabirimleri herhangi birini silmeden silin.
+2. Merhaba VM hello diskleri veya hello ağ arabirimleri herhangi birini silmeden silin.
    
     ```powershell
     Remove-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName> 
     ```
-3. Kullanılabilirlik zaten yoksa, kümesini oluşturma
+3. Merhaba kullanılabilirlik zaten yoksa, kümesi oluşturma
    
     ```powershell
     New-AzureRmAvailabilitySet -ResourceGroupName <resourceGroupName> -Name <availabilitySetName> -Location "<location>" 
     ```
-4. Yeni kullanılabilirlik kümesi kullanarak VM yeniden oluşturun
+4. Yeniden hello yeni kullanılabilirlik kümesi kullanarak VM hello
    
     ```powershell
     $vm2 = New-AzureRmVMConfig -VMName <VM-name> -VMSize <vm-size> -AvailabilitySetId <availability-set-id>
@@ -88,10 +88,10 @@ Aşağıdaki adımlar, Azure PowerShell kullanarak bir VM'i kullanılabilirlik k
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. Veri diskleri ve uzantıları ekleyin. Daha fazla bilgi için bkz: [Attach veri diski VM'ye](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ve [Resource Manager şablonları uzantılarında](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions). Veri diskleri ve uzantıları PowerShell veya Azure CLI kullanarak VM eklenebilir.
+5. Veri diskleri ve uzantıları ekleyin. Daha fazla bilgi için bkz: [veri diski ekleme tooVM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ve [Resource Manager şablonları uzantılarında](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions). Veri diskleri ve uzantıları toohello VM eklenen PowerShell veya Azure CLI kullanarak.
 
 ## <a name="example-script"></a>Örnek komut dosyası
-Aşağıdaki komut dosyasını gerekli bilgileri toplama, orijinal VM silme ve yeni bir kullanılabilirlik kümesinde yeniden ilişkin bir örnek verilmektedir.
+Merhaba aşağıdaki komut dosyasını bir örnek sağlar hello gerekli bilgileri toplama silme hello özgün VM ve yeni bir kullanılabilirlik kümesinde yeniden oluşturma.
 
 ```powershell
     #set variables
@@ -103,7 +103,7 @@ Aşağıdaki komut dosyasını gerekli bilgileri toplama, orijinal VM silme ve y
     #Get VM Details
     $OriginalVM = get-azurermvm -ResourceGroupName $rg -Name $vmName
 
-    #Output VM details to file
+    #Output VM details toofile
     "VM Name: " | Out-File -FilePath $outFile 
     $OriginalVM.Name | Out-File -FilePath $outFile -Append
 
@@ -127,7 +127,7 @@ Aşağıdaki komut dosyasını gerekli bilgileri toplama, orijinal VM silme ve y
     $OriginalVM.StorageProfile.DataDisks | Out-File -FilePath $outFile -Append
     }
 
-    #Remove the original VM
+    #Remove hello original VM
     Remove-AzureRmVM -ResourceGroupName $rg -Name $vmName
 
     #Create new availability set if it does not exist
@@ -136,7 +136,7 @@ Aşağıdaki komut dosyasını gerekli bilgileri toplama, orijinal VM silme ve y
     $availset = New-AzureRmAvailabilitySet -ResourceGroupName $rg -Name $newAvailSetName -Location $OriginalVM.Location
     }
 
-    #Create the basic configuration for the replacement VM
+    #Create hello basic configuration for hello replacement VM
     $newVM = New-AzureRmVMConfig -VMName $OriginalVM.Name -VMSize $OriginalVM.HardwareProfile.VmSize -AvailabilitySetId $availSet.Id
     Set-AzureRmVMOSDisk -VM $NewVM -VhdUri $OriginalVM.StorageProfile.OsDisk.Vhd.Uri  -Name $OriginalVM.Name -CreateOption Attach -Windows
 
@@ -150,10 +150,10 @@ Aşağıdaki komut dosyasını gerekli bilgileri toplama, orijinal VM silme ve y
         Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic
     }
 
-    #Create the VM
+    #Create hello VM
     New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -DisableBginfoExtension
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Ek depolama alanı, VM için ek bir ekleyerek [veri diski](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Ek depolama alanı tooyour VM ek ekleyerek [veri diski](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

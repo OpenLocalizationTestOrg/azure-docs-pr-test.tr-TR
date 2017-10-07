@@ -1,6 +1,6 @@
 ---
-title: "SMTP Bağlayıcısı Azure Logic Apps içinde | Microsoft Docs"
-description: "Logic apps ile Azure uygulama hizmeti oluşturun. E-posta göndermek için SMTP'ye bağlanın."
+title: "Azure mantıksal uygulamaları aaaSMTP Bağlayıcısı | Microsoft Docs"
+description: "Logic apps ile Azure uygulama hizmeti oluşturun. TooSMTP toosend e-posta bağlayın."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,58 +15,58 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 1cf96bbf8bd215d7ddb3c99860a5cb4e668be3c2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 36bb836851014d24f2e069fda8376ad7a08c943b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-smtp-connector"></a>SMTP Bağlayıcısı ile çalışmaya başlama
-E-posta göndermek için SMTP'ye bağlanın.
+# <a name="get-started-with-hello-smtp-connector"></a>Merhaba SMTP Bağlayıcısı ile çalışmaya başlama
+TooSMTP toosend e-posta bağlayın.
 
-Kullanılacak [tüm bağlayıcıların](apis-list.md), ilk mantıksal uygulama oluşturmanız gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+toouse [tüm bağlayıcıların](apis-list.md), toocreate bir mantıksal uygulama ilk gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="connect-to-smtp"></a>SMTP Bağlan
-Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce ilk önce oluşturmanız gerekir bir *bağlantı* hizmet. A [bağlantı](connectors-overview.md) bir mantıksal uygulama ile başka bir hizmet arasında bağlantı sağlar. Örneğin, SMTP bağlanmak için önce bir SMTP gerekir *bağlantı*. Bir bağlantı oluşturmak için normalde, bağlandığınız hizmete erişmek için kullandığınız kimlik bilgilerini girin. Bu nedenle, SMTP örnekte, bağlantı adı, SMTP sunucu adresi ve SMTP bağlantı oluşturmak için kullanıcı oturum açma bilgileri için kimlik bilgilerini girin.  
+## <a name="connect-toosmtp"></a>TooSMTP Bağlan
+Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce toocreate ilk gerekiyor bir *bağlantı* toohello hizmet. A [bağlantı](connectors-overview.md) bir mantıksal uygulama ile başka bir hizmet arasında bağlantı sağlar. Örneğin, tooconnect tooSMTP önce bir SMTP gerekir *bağlantı*. toocreate bir bağlantı için connect tooaccess hello hizmeti normalde kullandığınız hello kimlik bilgilerini girin. Bu nedenle, hello SMTP örnekte hello kimlik bilgilerini tooyour bağlantı adı, SMTP sunucu adresleri ve kullanıcı oturum açma bilgileri toocreate hello bağlantı tooSMTP girin.  
 
-### <a name="create-a-connection-to-smtp"></a>SMTP bağlantı oluşturun.
-> [!INCLUDE [Steps to create a connection to SMTP](../../includes/connectors-create-api-smtp.md)]
+### <a name="create-a-connection-toosmtp"></a>Bir bağlantı tooSMTP oluşturma
+> [!INCLUDE [Steps toocreate a connection tooSMTP](../../includes/connectors-create-api-smtp.md)]
 > 
 > 
 
 ## <a name="use-an-smtp-trigger"></a>Bir SMTP tetikleyicisi kullanın
-Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Bir tetikleyici bir mantıksal uygulama tanımlı kullanılan toostart hello iş akışı olabilecek bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
-Bu örnekte, SMTP kendi, tetikleyici olmadığından kullanacağız **bir nesne oluşturulduğunda Salesforce -** tetikleyici. Salesforce'ta yeni bir nesne oluşturulduğunda, bu tetikleyici etkinleştirir. Sağlayacak şekilde her bir yeni sağlama Salesforce içinde oluşturulur Bizim örneğimizde, bunu yaparız bir *e-posta Gönder* eylem oluşur oluşturulan yeni müşteri adayına ilişkin bir bildirim ile SMTP bağlayıcısı aracılığıyla.
+SMTP kendi, tetikleyici olmadığından bu örnekte, hello kullanacağız **bir nesne oluşturulduğunda Salesforce -** tetikleyici. Salesforce'ta yeni bir nesne oluşturulduğunda, bu tetikleyici etkinleştirir. Sağlayacak şekilde her bir yeni sağlama Salesforce içinde oluşturulur Bizim örneğimizde, bunu yaparız bir *e-posta Gönder* eylem oluşur oluşturulmakta hello yeni müşteri adayına ilişkin bir bildirim ile Merhaba SMTP bağlayıcısı aracılığıyla.
 
-1. Girin *salesforce* arama kutusuna logic apps tasarımcısında seçip **bir nesne oluşturulduğunda Salesforce -** tetikleyici.  
+1. Girin *salesforce* hello arama kutusuna hello logic apps tasarımcısında hello seçip **bir nesne oluşturulduğunda Salesforce -** tetikleyici.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
-2. **Bir nesne oluşturulduğunda** denetim görüntülenir.
+2. Merhaba **bir nesne oluşturulduğunda** denetim görüntülenir.
    ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. Seçin **nesne türü** seçip *neden* nesneleri listesinde. Bu adımda, her bir yeni sağlama Salesforce'ta oluşturulduğunda, mantıksal uygulamanızı uyarır tetikleyici oluşturmakta olduğunuz belirten.  
+3. Select hello **nesne türü** seçip *neden* nesneleri hello listesinden. Bu adımda, her bir yeni sağlama Salesforce'ta oluşturulduğunda, mantıksal uygulamanızı uyarır tetikleyici oluşturmakta olduğunuz belirten.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
-4. Tetikleyici oluşturuldu.  
+4. Merhaba tetikleyici oluşturuldu.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## <a name="use-an-smtp-action"></a>SMTP eylemi kullanın
-Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Bir eylem, bir mantıksal uygulama tanımlı hello iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
-Tetikleyici eklenen, yeni sağlama Salesforce'ta oluşturulduğunda gerçekleşir bir SMTP eylem eklemek için aşağıdaki adımları izleyin.
+Merhaba tetikleyici eklendi, yeni sağlama Salesforce'ta oluşturulduğunda gerçekleşir bu adımları tooadd SMTP eylemi izleyin.
 
-1. Seçin **+ yeni adım** yeni bir sağlama oluşturulduğunda, almak istediğiniz eylem eklemek için.  
+1. Seçin **+ yeni adım** tooadd hello eylem istediğinizi tootake yeni bir sağlama oluşturulduğunda.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
-2. Seçin **Eylem Ekle**. Bu açılır, herhangi bir işlem arayabileceğiniz arama kutusu yapmak istiyorsunuz.  
+2. Seçin **Eylem Ekle**. Bu açılır hello arama kutusu için herhangi bir işlem, arayabileceğiniz tootake ister.  
    ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
-3. Girin *smtp* SMTP ilgili eylemler için aranacak.  
-4. Seçin **SMTP - e-posta Gönder** ne zaman gerçekleştirilecek eylemi yeni sağlama oluşturulur. Eylem denetim bloğu açılır. Bunu daha önceden yapmadıysanız, smtp Tasarımcı bloğu içindeki bağlantı gerekir.  
+3. Girin *smtp* Eylemler ilgili tooSMTP toosearch.  
+4. Seçin **SMTP - e-posta Gönder** hello yeni sağlama oluşturulduğunda eylem tootake hello gibi. Merhaba eylem denetim bloğu açılır. Daha önce yapmadıysanız seçerseniz, smtp bağlantı tooestablish hello Tasarımcı bloğunda gerekir.  
    ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)    
-5. İstenen e-posta bilgilerinizi giriş **SMTP - e-posta Gönder** bloğu.  
+5. İstenen e-posta bilgilerinizi hello giriş **SMTP - e-posta Gönder** bloğu.  
    ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
-6. İş akışınızı etkinleştirmek için çalışmanızı kaydedin.  
+6. İş akışınızı sipariş tooactivate kaydedin.  
 
 ## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/smtpconnector/).
+Tüm tetikleyiciler ve Eylemler hello swagger içinde tanımlanan görüntüleyebilir ve ayrıca hello herhangi bir sınır bkz. [Bağlayıcısı ayrıntıları](/connectors/smtpconnector/).
 
 ## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+Toohello dönün [API'leri listesi](apis-list.md).

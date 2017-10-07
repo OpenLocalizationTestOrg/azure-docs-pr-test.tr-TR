@@ -1,6 +1,6 @@
 ---
-title: "Azure portalını kullanarak içerik koruma ilkelerini yapılandırma | Microsoft Docs"
-description: "Bu makalede Azure portal içerik koruma ilkelerini yapılandırmak için nasıl kullanılacağı gösterilmektedir. Makale ayrıca varlıklarınızı dinamik şifrelemeyi etkinleştirmek nasıl gösterir."
+title: "aaaConfiguring içerik koruma ilkeleri kullanılarak hello Azure portalı | Microsoft Docs"
+description: "Bu makalede, nasıl toouse hello Azure portal tooconfigure içerik koruma ilkeleri gösterilmektedir. Merhaba makale ayrıca gösterir nasıl tooenable dinamik şifreleme varlıklarınızı için."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,74 +14,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 67b3fa9936daebeafb7e87fe3a7b0c7e0105b3b3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3e7ce6ddaa0e738b5a1e26dafe9eef2df221f039
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Azure portalını kullanarak içerik koruma ilkelerini yapılandırma
+# <a name="configuring-content-protection-policies-using-hello-azure-portal"></a>Hello Azure portal kullanarak içerik koruma ilkelerini yapılandırma
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+> toocomplete Bu öğretici bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 > 
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Microsoft Azure Media Services (AMS), depolama, işleme ve teslim üzerinden bilgisayarınıza çıkışında medyanızdan güvenli olanak sağlar. Media Services göndermenizi sağlayan içeriğinizi Gelişmiş Şifreleme Standardı ((128-bit şifreleme anahtarları kullanılarak) AES ile), PlayReady ve/veya Widevine DRM ve Apple FairPlay kullanarak ortak şifreleme (CENC) dinamik olarak şifrelenmiş. 
+Microsoft Azure Media Services (AMS), depolama, işleme ve teslim üzerinden bilgisayarınıza hello çıkışında medyanızdan, toosecure sağlar. Media Services toodeliver verir içeriğinizi Gelişmiş Şifreleme Standardı ((128-bit şifreleme anahtarları kullanılarak) AES ile), PlayReady ve/veya Widevine DRM ve Apple FairPlay kullanarak ortak şifreleme (CENC) dinamik olarak şifrelenmiş. 
 
-AMS DRM lisansları teslim etmek için bir hizmet sunar ve AES anahtarları yetkili istemcilere temizleyin. Azure portalında bir oluşturmanızı sağlayan **anahtarı/lisans yetkilendirme ilkesi** şifrelemeleri tüm türleri.
+AMS DRM lisansları teslim etmek için bir hizmet sunar ve AES anahtarları tooauthorized istemcileri temizleyin. Hello Azure portal, toocreate bir sağlar **anahtarı/lisans yetkilendirme ilkesi** şifrelemeleri tüm türleri.
 
-Bu makalede Azure portalıyla içerik koruma ilkeleri yapılandırma gösterilmektedir. Makale ayrıca varlıklarınızı için dinamik şifreleme uygulamak nasıl gösterir.
+Bu makalede nasıl tooconfigure içerik koruma ilkeleri hello Azure portal ile gösterilir. Merhaba makale ayrıca gösterir nasıl tooapply dinamik şifreleme tooyour varlıklar.
 
 
 > [!NOTE]
-> Koruma ilkeleri oluşturmak için Klasik Azure portalı kullandıysanız, ilkeleri görüntülenmeyebilir [Azure portal](https://portal.azure.com/). Ancak, tüm eski ilkeleri hala mevcut. Azure Media Services .NET SDK kullanarak bunları inceleyin veya [Azure-Media-Services-Gezgini](https://github.com/Azure/Azure-Media-Services-Explorer/releases) Aracı (varlık sağ tıklatın ilkeleri görmek için görüntüleme bilgileri (F4) -> -> içerik anahtarlar sekmesini tıklatın -> tıklatın Aç anahtar). 
+> Hello Azure Klasik portalı toocreate koruma ilkeleri kullandıysanız, hello ilkeleri hello görünmeyebilir [Azure portal](https://portal.azure.com/). Ancak, eski tüm hello hala ilkeler yok. Bunları inceleyebilirsiniz kullanarak Azure Media Services .NET SDK veya hello hello [Azure-Media-Services-Gezgini](https://github.com/Azure/Azure-Media-Services-Explorer/releases) Aracı (toosee hello ilkeleri hello varlık üzerinde sağ -> görüntü bilgileri (F4) -> içerik anahtarları sekmesi ->'ı tıklatın Merhaba anahtarını tıklatın). 
 > 
-> Yeni ilkeleri kullanarak, varlık şifrelemek isterseniz, Azure portalıyla yapılandırmak, Kaydet'i tıklatın ve dinamik şifreleme yeniden uygulayın. 
+> Yeni ilkeleri kullanarak, varlık tooencrypt istiyorsanız hello Azure portal ile yapılandırmak, Kaydet'i tıklatın ve dinamik şifreleme yeniden uygulayın. 
 > 
 > 
 
 ## <a name="start-configuring-content-protection"></a>İçerik koruma yapılandırma Başlat
-İçerik koruma, AMS hesabınızı genel yapılandırmaya başlamak için portalı kullanmak için aşağıdakileri yapın:
+İçerik koruma, genel tooyour AMS hesabının yapılandırma toouse hello portal toostart hello aşağıdaki:
 
-1. [Azure portalında](https://portal.azure.com/) Azure Media Services hesabınızı seçin.
+1. Merhaba, [Azure portal](https://portal.azure.com/), Azure Media Services hesabınızı seçin.
 2. Seçin **ayarları** > **içerik koruma**.
 
 ![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
 ## <a name="keylicense-authorization-policy"></a>Anahtar/lisans yetkilendirme ilkesi
-AMS anahtarını veya lisans isteğinde kullanıcıların kimliklerini doğrulama birden çok yöntemini destekler. İçerik anahtarı yetkilendirme ilkesinin tarafınızdan yapılandırılması ve istemciye delived için istemci anahtarı/lisans sırayla tarafından karşılanır. İçerik anahtarı yetkilendirme ilkesini bir veya daha fazla yetkilendirme kısıtlamaları olabilir: **açmak** veya **belirteci** kısıtlama.
+AMS anahtarını veya lisans isteğinde kullanıcıların kimliklerini doğrulama birden çok yöntemini destekler. Merhaba içerik anahtarı yetkilendirme ilkesinin tarafınızdan yapılandırılması ve sırayla hello anahtar/lisans toobe delived toohello istemcisi için istemci tarafından karşılanır. Merhaba içerik anahtarı yetkilendirme ilkesini bir veya daha fazla yetkilendirme kısıtlamaları olabilir: **açmak** veya **belirteci** kısıtlama.
 
-Azure portalında bir oluşturmanızı sağlayan **anahtarı/lisans yetkilendirme ilkesi** şifrelemeleri tüm türleri.
+Hello Azure portal, toocreate bir sağlar **anahtarı/lisans yetkilendirme ilkesi** şifrelemeleri tüm türleri.
 
 ### <a name="open"></a>Açık
-Açık sınırlama Sistem anahtarı anahtar istekte herkes için teslim eder, anlamına gelir. Bu kısıtlama, test amaçları için yararlı olabilir. 
+Açık sınırlama hello sistem anahtar isteği yapan hello anahtar tooanyone göndereceği anlamına gelir. Bu kısıtlama, test amaçları için yararlı olabilir. 
 
 ### <a name="token"></a>Belirteç
-Belirteç kısıtlamalı ilkenin beraberinde bir Güvenli Belirteç Hizmeti (STS) tarafından verilmiş bir belirteç bulunmalıdır. Media Services, basit Web belirteçleri (SWT) biçimini ve JSON Web Token (JWT) biçimlerindeki belirteçleri destekler. Media Services, güvenli belirteç hizmetleri sağlamaz. Özel bir STS oluşturabilir veya Microsoft Azure ACS sorunu belirteçleri yararlanın. STS, belirteç kısıtlamasına yapılandırmasında belirtilen belirtilen anahtarı ve sorunu talepleri imzalı bir belirteç oluşturmak için yapılandırılmalıdır. Media Services anahtar teslim hizmeti istenen anahtarı (veya lisans) istemcinin belirtecin geçerli olup olmadığını ve bu belirteci yapılandırmış anahtarı (veya lisans) için talepleri döndürür.
+Merhaba belirteç kısıtlamalı ilkenin, bir güvenli belirteç hizmeti (STS) tarafından verilmiş bir belirteç tarafından eklenmelidir. Media Services, hello basit Web belirteçleri (SWT) biçimi ve JSON Web Token (JWT) biçimlerindeki belirteçleri destekler. Media Services, güvenli belirteç hizmetleri sağlamaz. Özel bir STS oluşturabilir veya Microsoft Azure ACS tooissue belirteçleri yararlanın. Merhaba STS bir belirteci imzalayan belirtilen hello ile yapılandırılmış toocreate olmalıdır hello belirteç kısıtlamasına yapılandırmasında belirtilen anahtarı ve çıkış talep. Bu yapılandırılmış hello belirteci için eşleşme hello anahtarı (veya lisans) Hello Media Services anahtar teslim hizmeti hello istenen hello belirteci geçerliyse, anahtarı (veya lisans) toohello istemci ve hello döndürülecek talepleri.
 
-Belirteç yapılandırma İlkesi sınırlı olduğunda, birincil doğrulama anahtarı, veren ve İzleyici parametreleri belirtmeniz gerekir. Birincil doğrulama anahtar belirteci ile imzalandığı anahtarı içerir, veren belirtecini veren güvenli belirteç hizmeti. Kaynak belirteci erişimini yetkilendirir veya (bazen kapsam denir) İzleyici belirteç amacı açıklanır. Media Services anahtar teslim hizmeti, bu değerleri belirteci şablon değerleri eşleştiğini doğrular.
+Merhaba belirteç kısıtlamalı ilkenin yapılandırırken hello birincil doğrulama anahtarı, veren ve İzleyici parametreleri belirtmeniz gerekir. Merhaba birincil doğrulama anahtarı içeren hello hello belirteci imzalayan, veren hello belirteci veren hello güvenli belirteç hizmeti olan anahtar. Merhaba kaynak hello belirteci erişimini yetkilendirir veya (bazen kapsam denir) hello İzleyici hello belirteci hello amacı açıklanır. Merhaba Media Services anahtar teslim hizmeti bu değerleri hello belirteci hello değerleri hello şablonunda eşleştiğini doğrular.
 
 ![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
 ## <a name="playready-rights-template"></a>PlayReady haklar şablonu
-PlayReady haklar şablonu hakkında ayrıntılı bilgi için bkz: [Media Services PlayReady lisans şablonu genel bakış](media-services-playready-license-template-overview.md).
+Merhaba PlayReady haklar şablonu hakkında ayrıntılı bilgi için bkz: [Media Services PlayReady lisans şablonu genel bakış](media-services-playready-license-template-overview.md).
 
 ### <a name="non-persistent"></a>Kalıcı olmayan
-Lisans kalıcı olarak yapılandırırsanız, player lisans kullanırken, yalnızca bellekte tutulur.  
+Lisans kalıcı olarak yapılandırırsanız, hello player hello lisans kullanırken, yalnızca bellekte tutulur.  
 
 ![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection003.png)
 
 ### <a name="persistent"></a>Kalıcı
-Lisans kalıcı olarak yapılandırırsanız, istemci üzerinde kalıcı depolama alanına kaydedilir.
+Merhaba lisans kalıcı olarak yapılandırırsanız, hello istemcide kalıcı depolama alanına kaydedilir.
 
 ![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
 ## <a name="widevine-rights-template"></a>Widevine haklar şablonu
-Widevine haklar şablonu hakkında ayrıntılı bilgi için bkz: [Widevine lisans şablonu genel bakış](media-services-widevine-license-template-overview.md).
+Merhaba Widevine haklar şablonu hakkında ayrıntılı bilgi için bkz: [Widevine lisans şablonu genel bakış](media-services-widevine-license-template-overview.md).
 
 ### <a name="basic"></a>Temel
-Seçtiğinizde, **temel**, şablonu tüm varsayılanları değerlerle oluşturulur.
+Seçtiğinizde, **temel**, hello şablonu tüm varsayılanları değerlerle oluşturulur.
 
 ### <a name="advanced"></a>Gelişmiş
 Widevine yapılandırmalarının öncelikli seçeneği hakkında ayrıntılı açıklamalar için bkz: [bu](media-services-widevine-license-template-overview.md) konu.
@@ -89,15 +89,15 @@ Widevine yapılandırmalarının öncelikli seçeneği hakkında ayrıntılı a�
 ![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## <a name="fairplay-configuration"></a>FairPlay yapılandırma
-FairPlay şifrelemeyi etkinleştirmek için uygulama sertifika ve uygulama gizli anahtarı (İSTEYİN) FairPlay yapılandırma seçeneği sağlamanız gerekir. FairPlay yapılandırması ve gereksinimleri hakkında ayrıntılı bilgi için bkz: [bu](media-services-protect-hls-with-fairplay.md) makalesi.
+tooenable FairPlay şifreleme hello FairPlay yapılandırma seçeneği tooprovide hello uygulaması sertifikası ve uygulama gizli anahtarı (İSTEYİN) gerekir. FairPlay yapılandırması ve gereksinimleri hakkında ayrıntılı bilgi için bkz: [bu](media-services-protect-hls-with-fairplay.md) makalesi.
 
 ![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
-## <a name="apply-dynamic-encryption-to-your-asset"></a>Varlık için dinamik şifreleme Uygula
-Dinamik şifreleme yararlanmak için kaynak dosyanızı bit hızı Uyarlamalı MP4 dosyaları kümesine kodlayın gerekir.
+## <a name="apply-dynamic-encryption-tooyour-asset"></a>Dinamik şifreleme tooyour varlık Uygula
+tootake avantajı dinamik şifrelenmesi tooencode kaynak dosyanızı bit hızı Uyarlamalı MP4 dosyaları kümesine ihtiyacınız.
 
-### <a name="select-an-asset-that-you-want-to-encrypt"></a>Şifrelemek istediğiniz bir varlığı seçin
-Tüm varlıklarınızı görmek için seçin **ayarları** > **varlıklar**.
+### <a name="select-an-asset-that-you-want-tooencrypt"></a>Tooencrypt istediğiniz varlığı seçin
+toosee, varlıklar seçin **ayarları** > **varlıklar**.
 
 ![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
@@ -110,7 +110,7 @@ AES anahtar şifrelemesi tüm akış protokollerine etkinleştirilecek Temizle: 
 ![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
 #### <a name="drm"></a>DRM
-DRM sekmesini seçin, içerik koruma ilkelerinin farklı seçenek sunulur (hangi artık yapılandırmış olmanız gerekir) + akış protokolleri kümesi.
+Merhaba DRM sekmesini seçin, içerik koruma ilkelerinin farklı seçenek sunulur (hangi artık yapılandırmış olmanız gerekir) + akış protokolleri kümesi.
 
 * **PlayReady ve Widevine MPEG-DASH ile** -PlayReady ve Widevine DRMs MPEG-DASH akışınızı dinamik olarak şifreler.
 * **PlayReady ve Widevine MPEG-DASH ile + HLS ile FairPlay** -PlayReady ve Widevine DRMs olan MPEG-DASH akış dinamik olarak şifreler. Ayrıca, HLS akış FairPlay ile şifreler.
@@ -118,14 +118,14 @@ DRM sekmesini seçin, içerik koruma ilkelerinin farklı seçenek sunulur (hangi
 * **Yalnızca MPEG-DASH ile Widevine** -, MPEG-DASH Widevine DRM ile dinamik olarak şifreler.
 * **FairPlay yalnızca HLS ile** -FairPlay olan, HLS akış dinamik olarak şifreler.
 
-FairPlay şifrelemesini etkinleştirmek için içerik koruma ayarlar dikey FairPlay yapılandırma seçeneği uygulama sertifika ve uygulama gizli anahtarı (İSTEYİN) sağlamanız gerekir.
+tooenable FairPlay şifreleme hello içerik koruma ayarlar dikey FairPlay yapılandırma seçeneğini hello tooprovide hello uygulaması sertifikası ve uygulama gizli anahtarı (İSTEYİN) gerekir.
 
 ![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
-Şifreleme seçimi yaptıktan sonra basın **Uygula**.
+Merhaba şifreleme seçimi yaptıktan sonra basın **Uygula**.
 
 >[!NOTE] 
->Yürüt planlıyorsanız, bir AES HLS Safari'de şifrelenmiş bkz [bu blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Tooplay planlıyorsanız bir AES HLS Safari'de şifrelenmiş bkz [bu blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Media Services öğrenme yollarını gözden geçirin.

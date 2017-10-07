@@ -1,6 +1,6 @@
 ---
-title: "Sunucuları kaldırın ve koruma devre dışı bırakma | Microsoft Docs"
-description: "Bu makalede Site Recovery kasası sunucularından kaydı ve sanal makineleri ve fiziksel sunucuları için korumayı devre dışı bırakmak için açıklar."
+title: "aaaRemove sunucuları ve koruma devre dışı bırakma | Microsoft Docs"
+description: "Bu makalede nasıl toounregister sunucuları bir Site kurtarma kasası ve sanal makineleri ve fiziksel sunucuları için toodisable korumayı açıklar."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,82 +14,82 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: raynew
-ms.openlocfilehash: 43f92a35dc9b04584badd1c9f1152470246b5012
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 95f20433f782c93685ad4bae93c6bc0e2d2f2356
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="remove-servers-and-disable-protection"></a>Sunucuları kaldırma ve korumayı devre dışı bırakma
 
-Azure Site Recovery hizmeti, iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı sağlar. Hizmet, çoğaltma, yük devretme ve sanal makinelerin ve fiziksel sunucuları kurtarma düzenler. Makineler, Azure'a veya bir ikincil şirket içi veri merkezine çoğaltılabilir. Hızlı bir genel bakış için [Azure Site Recovery nedir?](site-recovery-overview.md) konusunu okuyun.
+Hello Azure Site Recovery hizmeti tooyour iş devamlılığı ve olağanüstü durum kurtarma (BCDR) stratejinize katkı sağlar. Çoğaltma, yük devretme ve sanal makinelerin ve fiziksel sunucuları kurtarma Hello hizmet düzenler. Makineler çoğaltılmış tooAzure veya tooa ikincil şirket içi veri merkezi olabilir. Hızlı bir genel bakış için [Azure Site Recovery nedir?](site-recovery-overview.md) konusunu okuyun.
 
-Bu makalede, Azure portalında bir kurtarma Hizmetleri kasası sunucularından kaydı etme ve Site Recovery tarafından korunan makineler için korumayı devre dışı bırakma açıklanmaktadır.
+Bu makalede nasıl hello Azure portal toounregister sunucularından bir kurtarma Hizmetleri kasası ve nasıl toodisable koruma makineler için Site Recovery tarafından korunan açıklanır.
 
-Tüm yorumlarınızı ve sorularınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
+Tüm yorumlarınızı ve sorularınızı bu makalenin veya hello hello altındaki sonrası [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="unregister-a-connected-configuration-server"></a>Bağlantılı yapılandırma sunucusu kaydı
 
-VMware Vm'leri veya Windows/Linux fiziksel sunucuları Azure'a çoğaltma durumunda bir kasa bağlı yapılandırma sunucusundan gibi kaydını kaldırabilirsiniz:
+VMware Vm'leri veya Windows/Linux fiziksel sunucuları tooAzure çoğaltma durumunda bir kasa bağlı yapılandırma sunucusundan gibi kaydını kaldırabilirsiniz:
 
-1. Makine korumasını devre dışı bırakın. İçinde **korunan öğeler** > **çoğaltılan öğeler**, makine adını sağ tıklayın > **silmek**.
-2. Tüm ilkeler ilişkisini kaldırın. İçinde **Site Recovery altyapısı** > **için VMWare ve fiziksel makineler** > **çoğaltma ilkeleri**, ilişkili ilkeye çift tıklayın. Yapılandırma sunucusu sağ tıklayın > **ilişkisini**.
-3. Herhangi bir ek şirket içi işlem veya ana hedef sunucuları kaldırın. İçinde **Site Recovery altyapısı** > **için VMWare ve fiziksel makineler** > **yapılandırma sunucularına**, sunucuya sağ tıklayın > **silmek**.
-4. Yapılandırma sunucusu silin.
-5. Ana hedef sunucu üzerinde çalışan mobilite hizmetini elle kaldırın (Bu ya da ayrı bir olacak sunucu veya yapılandırma sunucusu üzerinde çalışan).
+1. Makine korumasını devre dışı bırakın. İçinde **korunan öğeler** > **çoğaltılan öğeler**, sağ hello makine > **silmek**.
+2. Tüm ilkeler ilişkisini kaldırın. İçinde **Site Recovery altyapısı** > **için VMWare ve fiziksel makineler** > **çoğaltma ilkeleri**, hello çift tıklatın ilişkili ilke. Sağ hello yapılandırma sunucusu > **ilişkisini**.
+3. Herhangi bir ek şirket içi işlem veya ana hedef sunucuları kaldırın. İçinde **Site Recovery altyapısı** > **için VMWare ve fiziksel makineler** > **yapılandırma sunucularına**, sağ hello sunucu > **Silmek**.
+4. Merhaba yapılandırma sunucusu silin.
+5. Merhaba ana hedef sunucu üzerinde çalışan hello mobilite hizmetini elle kaldırın (Bu ya da ayrı bir olacak sunucu veya hello yapılandırma sunucusu üzerinde çalışan).
 6. Herhangi bir ek işlem sunucusu kaldırın.
-7. Yapılandırma sunucusundan kaldırın.
-8. Yapılandırma sunucusunda Site Recovery tarafından yüklenen MySQL örneğini kaldırın.
-9. Yapılandırma sunucusu kayıt defterinde anahtar silinmeye ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery``.
+7. Merhaba yapılandırma sunucusundan kaldırın.
+8. Merhaba yapılandırma sunucusunda Site Recovery tarafından yüklenen MySQL hello örneğini kaldırın.
+9. Merhaba yapılandırma sunucusu Hello kayıt defterinde hello anahtarını silmek ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery``.
 
 ## <a name="unregister-a-unconnected-configuration-server"></a>Bağlantısız yapılandırma sunucusu kaydı
 
-VMware Vm'leri veya Windows/Linux fiziksel sunucuları Azure'a çoğaltma durumunda bir kasa bağlantısız yapılandırma sunucusundan gibi kaydını kaldırabilirsiniz:
+VMware Vm'leri veya Windows/Linux fiziksel sunucuları tooAzure çoğaltma durumunda bir kasa bağlantısız yapılandırma sunucusundan gibi kaydını kaldırabilirsiniz:
 
-1. Makine korumasını devre dışı bırakın. İçinde **korunan öğeler** > **çoğaltılan öğeler**, makine adını sağ tıklayın > **silmek**. Seçin **makineyi yönetmeyi Durdur**.
-2. Herhangi bir ek şirket içi işlem veya ana hedef sunucuları kaldırın. İçinde **Site Recovery altyapısı** > **için VMWare ve fiziksel makineler** > **yapılandırma sunucularına**, sunucuya sağ tıklayın > **silmek**.
-3. Yapılandırma sunucusu silin.
-4. Ana hedef sunucu üzerinde çalışan mobilite hizmetini elle kaldırın (Bu ya da ayrı bir olacak sunucu veya yapılandırma sunucusu üzerinde çalışan).
+1. Makine korumasını devre dışı bırakın. İçinde **korunan öğeler** > **çoğaltılan öğeler**, sağ hello makine > **silmek**. Seçin **hello makineyi yönetmeyi Durdur**.
+2. Herhangi bir ek şirket içi işlem veya ana hedef sunucuları kaldırın. İçinde **Site Recovery altyapısı** > **için VMWare ve fiziksel makineler** > **yapılandırma sunucularına**, sağ hello sunucu > **Silmek**.
+3. Merhaba yapılandırma sunucusu silin.
+4. Merhaba ana hedef sunucu üzerinde çalışan hello mobilite hizmetini elle kaldırın (Bu ya da ayrı bir olacak sunucu veya hello yapılandırma sunucusu üzerinde çalışan).
 5. Herhangi bir ek işlem sunucusu kaldırın.
-6. Yapılandırma sunucusundan kaldırın.
-7. Yapılandırma sunucusunda Site Recovery tarafından yüklenen MySQL örneğini kaldırın.
-8. Yapılandırma sunucusu kayıt defterinde anahtar silinmeye ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery``.
+6. Merhaba yapılandırma sunucusundan kaldırın.
+7. Merhaba yapılandırma sunucusunda Site Recovery tarafından yüklenen MySQL hello örneğini kaldırın.
+8. Merhaba yapılandırma sunucusu Hello kayıt defterinde hello anahtarını silmek ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery``.
 
 ## <a name="unregister-a-connected-vmm-server"></a>Bağlı bir VMM sunucusunun kaydı silinemedi
 
-En iyi uygulama, Azure'a bağlıyken VMM sunucusunun kaydı öneririz. Bu ayarları VMM sunucularında (ve diğer eşleştirilmiş bulut VMM sunucularıyla) düzgün temizlendiğinden sağlar. Bağlantı kalıcı bir sorun varsa, bağlantısız bir sunucu yalnızca kaldırmanız gerekir. VMM sunucusu bağlı değilse, el ile ayarlarını temizlemek için bir komut dosyasını çalıştırmak gerekir.
+En iyi uygulama, bu tooAzure bağlandığında hello VMM sunucusunun kaydı öneririz. Bu ayarları hello VMM sunucularında (ve diğer eşleştirilmiş bulut VMM sunucularıyla) düzgün temizlendiğinden sağlar. Bağlantı kalıcı bir sorun varsa, bağlantısız bir sunucu yalnızca kaldırmanız gerekir. Merhaba VMM sunucusu bağlı değil, gerekir toomanually betik tooclean ayarlarını çalıştırın.
 
-1. Kaldırmak istediğiniz VMM sunucusundaki sanal makineleri çoğaltmak durdurun.
-2. Silmek istediğiniz VMM sunucusundaki Bulutlar tarafından kullanılan tüm ağ eşlemeleri silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **ağ eşlemesi**, ağ eşlemesi sağ tıklayın > **silmek**.
-3. Kaldırmak istediğiniz VMM sunucusundaki Bulutlar ilkelerden çoğaltma ilişkisini kaldırın.  İçinde **Site Recovery altyapısı** > **için System Center VMM** >  **çoğaltma ilkeleri**, ilişkili ilkeye çift tıklayın. Buluta sağ tıklayın > **ilişkisini**.
-4. VMM sunucusu veya etkin VMM düğümü silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **VMM sunucuları**, sunucuya sağ tıklayın > **silmek**.
-5. Sağlayıcı VMM sunucusunda el ile kaldırın. Bir kümeniz varsa, tüm düğümlerden kaldırın.
-6. El ile Azure'da çoğaltıyorsanız Microsoft Kurtarma Hizmetleri aracısını silinen bulutlarındaki Hyper-V konakları kaldırın.
+1. Merhaba tooremove istediğiniz VMM sunucusu üzerinde bulutlarındaki sanal makineleri çoğaltmak durdurun.
+2. Merhaba toodelete istediğiniz VMM sunucusunu bulutlarda tarafından kullanılan tüm ağ eşlemeleri silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **ağ eşlemesi**, hello ağ eşlemesi sağ tıklayın >  **Silme**.
+3. Merhaba tooremove istediğiniz VMM sunucusunu bulutlarda ilkelerden çoğaltma ilişkisini kaldırın.  İçinde **Site Recovery altyapısı** > **için System Center VMM** >  **çoğaltma ilkeleri**, ilişkili hello ilkeye çift tıklayın. Merhaba buluta sağ tıklayın > **ilişkisini**.
+4. Merhaba VMM sunucusu veya etkin VMM düğümü silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **VMM sunucuları**, sağ hello server >  **Silme**.
+5. Merhaba sağlayıcısı hello VMM sunucusunda el ile kaldırın. Bir kümeniz varsa, tüm düğümlerden kaldırın.
+6. TooAzure çoğaltıyorsanız el ile silinmiş hello bulutlarındaki Hyper-V konakları hello Microsoft Kurtarma Hizmetleri Aracısı'nı kaldırın.
 
 
 
 ### <a name="unregister-an-unconnected-vmm-server"></a>Bağlantısız bir VMM sunucusunun kaydı silinemedi
 
-1. Kaldırmak istediğiniz VMM sunucusundaki sanal makineleri çoğaltmak durdurun.
-2. Silmek istediğiniz VMM sunucusundaki Bulutlar tarafından kullanılan tüm ağ eşlemeleri silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **ağ eşlemesi**, ağ eşlemesi sağ tıklayın > **silmek**.
-3. VMM sunucusu Kimliğini not alın.
-4. Kaldırmak istediğiniz VMM sunucusundaki Bulutlar ilkelerden çoğaltma ilişkisini kaldırın.  İçinde **Site Recovery altyapısı** > **için System Center VMM** >  **çoğaltma ilkeleri**, ilişkili ilkeye çift tıklayın. Buluta sağ tıklayın > **ilişkisini**.
-5. VMM sunucusu veya etkin düğüm silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **VMM sunucuları**, sunucuya sağ tıklayın > **silmek**.
-6. İndirme ve çalıştırma [temizleme betiğini](http://aka.ms/asr-cleanup-script-vmm) VMM sunucusunda. PowerShell ile açmak **yönetici olarak çalıştır** seçeneği, varsayılan (LocalMachine) kapsamı yürütme ilkesini değiştirmek için. Komut dosyasında, kaldırmak istediğiniz VMM sunucusunu Kimliğini belirtin. Betik kaydı ve bulut eşleştirme bilgilerini sunucusundan kaldırır.
-5. Kaldırmak istediğiniz VMM sunucusundaki Bulutlar ile eşleştirilmiş bulut içeren herhangi bir VMM sunucularında temizleme betiğini çalıştırın.
-6. Yüklü sağlayıcı olan tüm diğer pasif VMM küme düğümlerine temizleme betiğini çalıştırın.
-7. Sağlayıcı VMM sunucusunda el ile kaldırın. Bir kümeniz varsa, tüm düğümlerden kaldırın.
-8. Azure'a çoğaltma, Microsoft Kurtarma Hizmetleri aracısını Hyper-V konakları silinen bulutlarındaki kaldırabilirsiniz
+1. Merhaba tooremove istediğiniz VMM sunucusu üzerinde bulutlarındaki sanal makineleri çoğaltmak durdurun.
+2. Toodelete istediğiniz hello VMM sunucusundaki Bulutlar tarafından kullanılan tüm ağ eşlemeleri silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **ağ eşlemesi**, hello ağ eşlemesi sağ tıklayın >  **Silme**.
+3. Merhaba VMM sunucusu Hello Kimliğini not alın.
+4. Merhaba tooremove istediğiniz VMM sunucusunu bulutlarda ilkelerden çoğaltma ilişkisini kaldırın.  İçinde **Site Recovery altyapısı** > **için System Center VMM** >  **çoğaltma ilkeleri**, ilişkili hello ilkeye çift tıklayın. Merhaba buluta sağ tıklayın > **ilişkisini**.
+5. Merhaba VMM sunucusu veya etkin düğüm silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **VMM sunucuları**, sağ hello server >  **Silme**.
+6. İndirme ve çalıştırma hello [temizleme betiğini](http://aka.ms/asr-cleanup-script-vmm) hello VMM sunucusunda. PowerShell ile Merhaba açmak **yönetici olarak çalıştır** seçeneği, toochange hello yürütme İlkesi hello varsayılan (LocalMachine) kapsam için. Merhaba komut dosyasında hello tooremove istediğiniz VMM sunucusunu hello Kimliğini belirtin. Merhaba betik kaydı ve bulut eşleştirme bilgilerini hello sunucusundan kaldırır.
+5. Merhaba tooremove istediğiniz VMM sunucusu üzerinde Bulutları ile eşleştirilmiş bulut içeren herhangi bir VMM sunucularında Hello temizleme betiğini çalıştırın.
+6. Merhaba sağlayıcısı yüklü olan tüm diğer pasif VMM küme düğümlerine Hello temizleme betiğini çalıştırın.
+7. Merhaba sağlayıcısı hello VMM sunucusunda el ile kaldırın. Bir kümeniz varsa, tüm düğümlerden kaldırın.
+8. TooAzure çoğaltma, hello Microsoft Kurtarma Hizmetleri aracısını silinmiş hello bulutlarındaki Hyper-V konakları kaldırırsanız.
 
 ## <a name="unregister-a-hyper-v-host-in-a-hyper-v-site"></a>Bir Hyper-V sitesi bir Hyper-V ana bilgisayar kaydı
 
 VMM tarafından yönetilmeyen Hyper-V konaklarının, Hyper-V sitesi toplanır. Bir konak bir Hyper-V sitede aşağıdaki gibi kaldırın:
 
-1. Hyper-V ana bilgisayarda yer alan VM'ler için çoğaltma devre dışı bırakın.
-2. Hyper-V sitesi için ilkeler ilişkisini kaldırın. İçinde **Site Recovery altyapısı** > **için Hyper-V sitelerini** >  **çoğaltma ilkeleri**, ilişkili ilkeye çift tıklayın. Sitesi > **ilişkisini**.
-3. Hyper-V konakları silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **Hyper-V konakları**, sunucuya sağ tıklayın > **silmek**.
-4. Tüm konaklar ondan temizlendikten sonra Hyper-V sitesi silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **Hyper-V sitelerini**, siteye sağ tıklayın > **silmek**.
-5. Aşağıdaki komut dosyasını kaldırdığınız her Hyper-V ana bilgisayarda çalıştırın. Betik sunucu ayarları temizler ve kasadan kaydını siler.
+1. Hyper-V hello ana bilgisayarda yer alan VM'ler için çoğaltma devre dışı bırakın.
+2. Merhaba Hyper-V sitesi için ilkeler ilişkisini kaldırın. İçinde **Site Recovery altyapısı** > **için Hyper-V sitelerini** >  **çoğaltma ilkeleri**, ilişkili hello ilkeye çift tıklayın. Sağ hello site > **ilişkisini**.
+3. Hyper-V konakları silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **Hyper-V konakları**, sağ hello server >  **Silme**.
+4. Tüm konaklar ondan temizlendikten sonra hello Hyper-V sitesi silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **Hyper-V sitelerini**, sağ hello site >  **Silme**.
+5. Komut dosyası kaldırdığınız her Hyper-V ana bilgisayarda aşağıdaki hello çalıştırın. Merhaba betik hello sunucusundaki ayarları temizler ve hello kasasından kaydını siler.
 
 
         `` pushd .
@@ -101,13 +101,13 @@ VMM tarafından yönetilmeyen Hyper-V konaklarının, Hyper-V sitesi toplanır. 
              $isAdmin=$principal.IsInRole($administrators)
              if (!$isAdmin)
              {
-                "Please run the script as an administrator in elevated mode."
+                "Please run hello script as an administrator in elevated mode."
                 $choice = Read-Host
                 return;       
              }
 
             $error.Clear()    
-            "This script will remove the old Azure Site Recovery Provider related properties. Do you want to continue (Y/N) ?"
+            "This script will remove hello old Azure Site Recovery Provider related properties. Do you want toocontinue (Y/N) ?"
             $choice =  Read-Host
 
             if (!($choice -eq 'Y' -or $choice -eq 'y'))
@@ -120,7 +120,7 @@ VMM tarafından yönetilmeyen Hyper-V konaklarının, Hyper-V sitesi toplanır. 
             $service = Get-Service -Name $serviceName
             if ($service.Status -eq "Running")
             {
-                "Stopping the Azure Site Recovery service..."
+                "Stopping hello Azure Site Recovery service..."
                 net stop $serviceName
             }
 
@@ -152,12 +152,12 @@ VMM tarafından yönetilmeyen Hyper-V konaklarının, Hyper-V sitesi toplanır. 
                 "Registry keys removed."
             }
 
-            # First retrive all the certificates to be deleted
+            # First retrive all hello certificates toobe deleted
             $ASRcerts = Get-ChildItem -Path cert:\localmachine\my | where-object {$_.friendlyname.startswith('ASR_SRSAUTH_CERT_KEY_CONTAINER') -or $_.friendlyname.startswith('ASR_HYPER_V_HOST_CERT_KEY_CONTAINER')}
             # Open a cert store object
             $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("My","LocalMachine")
             $store.Open('ReadWrite')
-            # Delete the certs
+            # Delete hello certs
             "Removing all related certificates"
             foreach ($cert in $ASRcerts)
             {
@@ -176,42 +176,42 @@ VMM tarafından yönetilmeyen Hyper-V konaklarının, Hyper-V sitesi toplanır. 
 
 ## <a name="disable-protection-for-a-vmware-vm-or-physical-server"></a>VMware VM veya fiziksel sunucu için koruma devre dışı bırak
 
-1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, makine adını sağ tıklayın > **silmek**.
+1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, sağ hello makine > **silmek**.
 2. İçinde **makineyi Kaldır**, aşağıdaki seçeneklerden birini seçin:
-    - **(Önerilen) makine için korumayı devre dışı**. Makine çoğaltmasını durdurmak için bu seçeneği kullanın. Site Recovery ayarları otomatik olarak temizlenecek. Yalnızca aşağıdaki durumlarda bu seçenek görürsünüz:
-        - **VM birim yeniden boyutlandırılıyor**— sanal makine bir kritik duruma geçer bir birim yeniden boyutlandırdığınızda. Kurtarma noktalarının azure'da korurken devre dışı bırakır koruma için bu seçeneği belirleyin. Makine için korumayı yeniden etkinleştirdiğinizde, yeniden boyutlandırılmış birim için verileri Azure'a aktarılır.
-        - **Bir yük devretme yakın zamanda çalıştırdıysanız**— ortamınızı test etmek için bir yük devretme çalıştırdıktan sonra şirket içi makineler yeniden korumaya başlamak için bu seçeneği belirleyin. Her bir sanal makine devre dışı bırakır ve sonra bunlar için korumayı yeniden etkinleştirmeniz gerekir. Bu ayar makineyle devre dışı bırakma Azure içinde çoğaltma sanal makinesi etkilemez. Mobility hizmetinin makineden kaldırmak yok.
-    - **Makineyi yönetmeyi Durdur**. Bu seçeneği seçerseniz, makine yalnızca kasadan kaldırılır. Şirket içi makine için koruma ayarları etkilenmeyecek. Makine ayarlarını kaldırın ve makine Azure aboneliğinden kaldırmak için Mobility hizmeti kaldırarak ayarları temizlemek gerekir.
+    - **(Önerilen) hello makine için korumayı devre dışı**. Bu seçenek toostop Hello makinenin çoğaltıldığını kullanın. Site Recovery ayarları otomatik olarak temizlenecek. Aşağıdaki durumlarda hello bu seçeneği yalnızca görürsünüz:
+        - **Merhaba VM birim yeniden boyutlandırılıyor**— sanal bir birim hello yeniden boyutlandırdığınızda makine kritik duruma geçer. Kurtarma noktalarının azure'da korurken bu seçeneği toodisables koruma seçin. Merhaba makine için korumayı yeniden etkinleştirdiğinizde, hello veri hello yeniden boyutlandırılmış birim için aktarılan tooAzure olur.
+        - **Bir yük devretme yakın zamanda çalıştırdıysanız**— ortamınızın bir yük devretme tootest çalıştırdıktan sonra şirket içi makineleri yeniden koruma bu seçeneği toostart seçin. Her bir sanal makine devre dışı bırakır ve ardından tooenable koruma için yeniden gereksinim duyarsınız. Bu ayar devre dışı bırakma hello makineyle azure'da hello çoğaltma sanal makine etkilemez. Merhaba Mobility hizmeti hello makineden kaldırmak yok.
+    - **Merhaba makineyi yönetmeyi Durdur**. Bu seçeneği belirlerseniz, hello makine yalnızca hello kasadan kaldırılır. Şirket içi hello makine için koruma ayarları etkilenmeyecek. tooremove ayarları hello makinesindeki ve tooremove hello hello Azure aboneliği makineden hello Mobility hizmeti kaldırarak tooclean hello ayarlarının gerekir.
 
 ## <a name="disable-protection-for-a-hyper-v-vm-in-a-vmm-cloud"></a>VMM bulutundaki Hyper-V VM için korumayı devre dışı
 
-1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, makine adını sağ tıklayın > **silmek**.
+1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, sağ hello makine > **silmek**.
 2. İçinde **makineyi Kaldır**, aşağıdaki seçeneklerden birini seçin:
 
-    - **(Önerilen) makine için korumayı devre dışı**. Makine çoğaltmasını durdurmak için bu seçeneği kullanın. Site Recovery ayarları otomatik olarak temizlenecek.
-    - **Makineyi yönetmeyi Durdur**. Bu seçeneği seçerseniz, makine yalnızca kasadan kaldırılır. Şirket içi makine için koruma ayarları etkilenmeyecek. Makine ayarlarını kaldırın ve makine Azure aboneliğinden kaldırmak için ayarları el ile temizlemek aşağıdaki yönergeleri kullanarak gerekir. Sanal makine ve sabit diskleri silmek için seçerseniz, bunlar hedef konumundan kaldırılması olduğunu unutmayın.
+    - **(Önerilen) hello makine için korumayı devre dışı**. Bu seçenek toostop Hello makinenin çoğaltıldığını kullanın. Site Recovery ayarları otomatik olarak temizlenecek.
+    - **Merhaba makineyi yönetmeyi Durdur**. Bu seçeneği belirlerseniz, hello makine yalnızca hello kasadan kaldırılır. Şirket içi hello makine için koruma ayarları etkilenmeyecek. tooremove ayarları hello makinesindeki ve tooremove hello hello Azure aboneliği makineden, tooclean hello ayarlarının yukarı el ile aşağıdaki hello yönergeleri kullanarak gerekir. Toodelete hello sanal makine ve sabit disk seçin, bunlar hello hedef konumundan kaldırılması olduğunu unutmayın.
 
-### <a name="clean-up-protection-settings---replication-to-a-secondary-vmm-site"></a>Koruma ayarlarını - ikincil VMM sitesi için çoğaltma Temizle
+### <a name="clean-up-protection-settings---replication-tooa-secondary-vmm-site"></a>Koruma ayarlarını - çoğaltma tooa ikincil VMM sitesi Temizle
 
-Seçtiyseniz **makineyi yönetmeyi Durdur** ve birincil sanal makine ayarlarını temizlemek için birincil sunucuda bu komut dosyasını çalıştırın, ikincil bir siteye çoğaltmak. VMM konsolundan VMM PowerShell konsolunu açmak için PowerShell düğmesini tıklatın. SQLVM1, sanal makine adı ile değiştirin.
+Seçtiyseniz **hello makineyi yönetmeyi Durdur** ve tooa ikincil site, çoğaltma çalıştırdığınız bu betiği hello birincil sunucu tooclean hello ayarlarını hello birincil sanal makine için. Merhaba VMM konsolunda hello PowerShell düğmesi tooopen hello VMM PowerShell Konsolu'nu tıklatın. SQLVM1 sanal makineniz hello adıyla değiştirin.
 
          ``$vm = get-scvirtualmachine -Name "SQLVM1"
          Set-SCVirtualMachine -VM $vm -ClearDRProtection``
-2. İkincil VMM sunucusunda ikincil sanal makinenin ayarlarını temizlemek için bu komut dosyasını çalıştırın:
+2. Bu komut dosyası tooclean hello ayarlarını hello ikincil sanal makinenin Hello ikincil VMM sunucusunda çalıştırın:
 
         ``$vm = get-scvirtualmachine -Name "SQLVM1"
         Remove-SCVirtualMachine -VM $vm -Force``
-3. Böylece ikincil VM yeniden VMM konsolunda algılanan ikincil VMM sunucusunda Hyper-V ana bilgisayar sunucusunda sanal makineleri yenileyin.
-4. VMM sunucusundaki çoğaltma ayarlarını yukarıdaki adımları temizleyin. Sanal makine için çoğaltma durdurmak istiyorsanız, aşağıdaki komut dosyasını birincil ve ikincil VM'ler çalıştırın. SQLVM1, sanal makine adı ile değiştirin.
+3. Böylece Hello ikincil VM yeniden hello VMM konsolunda algılanan hello ikincil VMM sunucusunda hello Hyper-V konak sunucusunda hello sanal makineleri yenileyin.
+4. Yukarıdaki adımları Hello hello çoğaltma ayarları hello VMM sunucusunda temizlenir. Merhaba sanal makinesi, aşağıdaki komut dosyası hello çalıştırmak için toostop çoğaltma istiyorsanız, birincil ve ikincil VM'ler hello. SQLVM1 sanal makineniz hello adıyla değiştirin.
 
         ``Remove-VMReplication –VMName “SQLVM1”``
 
-### <a name="clean-up-protection-settings---replication-to-azure"></a>Koruma ayarlarını - Azure'a çoğaltma için temizleme
+### <a name="clean-up-protection-settings---replication-tooazure"></a>Koruma ayarlarını - çoğaltma tooAzure Temizle
 
-1. Seçtiyseniz **makineyi yönetmeyi Durdur** ve kaynak VMM sunucusunda bu komut dosyası çalıştırma Azure PowerShell kullanarak VMM konsolundan çoğaltır.
+1. Seçtiyseniz **hello makineyi yönetmeyi Durdur** ve çoğaltma tooAzure, hello VMM konsolundan PowerShell kullanarak hello kaynak VMM sunucusunda, bu komut dosyasını çalıştırın.
         ``$vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection``
-2. Yukarıdaki adımları VMM sunucusundaki çoğaltma ayarları temizleyin. Hyper-V ana bilgisayar sunucusunda çalışan sanal makine için çoğaltma durdurmak için bu komut dosyasını çalıştırın. SQLVM1 adıyla bir sanal makine ve host01.contoso.com Hyper-V konak sunucusu adını değiştirin.
+2. Yukarıdaki adımları Hello hello VMM sunucusundaki hello çoğaltma ayarları temizleyin. toostop çoğaltma hello Hyper-V ana bilgisayar sunucusunda çalışan hello sanal makine için bu komut dosyasını çalıştırın. SQLVM1 hello adıyla bir sanal makine ve host01.contoso.com hello hello Hyper-V konak sunucusu adını değiştirin.
 
         ``$vmName = "SQLVM1"
         $hostName  = "host01.contoso.com"
@@ -222,14 +222,14 @@ Seçtiyseniz **makineyi yönetmeyi Durdur** ve birincil sanal makine ayarların�
 
 ## <a name="disable-protection-for-a-hyper-v-vm-in-a-hyper-v-site"></a>Bir Hyper-V sitesindeki bir Hyper-V sanal makine için korumayı devre dışı bırakın
 
-Azure için Hyper-V sanal makinelerini çoğaltıyorsanız olmadan bir VMM sunucusu, bu yordamı kullanın.
+Bir VMM Sunucu olmadan Hyper-V sanal makineleri tooAzure çoğaltma yapıyorsanız bu yordamı kullanın.
 
-1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, makine adını sağ tıklayın > **silmek**.
-2. İçinde **makineyi Kaldır**, aşağıdaki seçenekleri seçebilirsiniz:
+1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, sağ hello makine > **silmek**.
+2. İçinde **makineyi Kaldır**, aşağıdaki seçenekleri şu hello seçebilirsiniz:
 
-   - **(Önerilen) makine için korumayı devre dışı**. Makine çoğaltmasını durdurmak için bu seçeneği kullanın. Site Recovery ayarları otomatik olarak temizlenecek.
-   - **Makineyi yönetmeyi Durdur**. Bu seçeneği seçerseniz, makine kasadan yalnızca kaldırılır. Şirket içi makine için koruma ayarları etkilenmeyecek. Makine ayarlarını kaldırın ve sanal makineyi Azure aboneliğinden kaldırmak için ayarları el ile temizlenmesi gerekir. Sanal makine ve sabit diskleri silmek için seçerseniz hedef konumundan kaldırılacak.
-3. Seçtiyseniz **makineyi yönetmeyi Durdur**, sanal makine için çoğaltmayı kaldırmak için kaynak Hyper-V ana bilgisayarı sunucusunda, bu komut dosyasını çalıştırın. SQLVM1, sanal makine adı ile değiştirin.
+   - **(Önerilen) hello makine için korumayı devre dışı**. Bu seçenek toostop Hello makinenin çoğaltıldığını kullanın. Site Recovery ayarları otomatik olarak temizlenecek.
+   - **Merhaba makineyi yönetmeyi Durdur**. Bu seçeneği belirlerseniz hello makine hello kasadan yalnızca kaldırılacak. Şirket içi hello makine için koruma ayarları etkilenmeyecek. tooremove ayarları hello makinesindeki ve hello Azure aboneliği tooremove hello sanal makineden, tooclean hello ayarlarını yukarı el ile yapmanız gerekir. Toodelete hello sanal makine ve kendi sabit diskleri seçerseniz hello hedef konumundan kaldırılacak.
+3. Seçtiyseniz **hello makineyi yönetmeyi Durdur**, tooremove çoğaltma hello sanal makine için bu betiği hello kaynak Hyper-V ana bilgisayar sunucusunda çalıştırın. SQLVM1 sanal makineniz hello adıyla değiştirin.
 
         $vmName = "SQLVM1"
         $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"

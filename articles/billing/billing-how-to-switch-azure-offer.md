@@ -1,6 +1,6 @@
 ---
-title: "Değişiklik Azure abonelik teklif | Microsoft Docs"
-description: "Azure aboneliğinizi değiştirmek ve abonelik yönetimi Portalı'nı kullanarak farklı bir teklif geçiş hakkında bilgi edinin"
+title: aaaChange Azure abonelik teklif | Microsoft Docs
+description: "Nasıl toochange, Azure aboneliği ve anahtar tooa farklı teklif hakkında kullanarak bilgi hello Abonelik Yönetim Portalı"
 services: 
 documentationcenter: 
 author: genlin
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: genli
-ms.openlocfilehash: e5616a43b0a5f9545ad3450af32ad6062af9d5a7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3bed1f270296ebeff70fa8d2e02c08ad6da27184
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="switch-your-azure-subscription-to-another-offer"></a>Azure aboneliğiniz başka bir teklife geç
+# <a name="switch-your-azure-subscription-tooanother-offer"></a>Azure aboneliği tooanother teklifiniz geçiş
 
-Farklı bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) müşteri, başka bir teklif için Azure aboneliğinizin geçirebilirsiniz [hesap Merkezi'nde](https://account.windowsazure.com/Subscriptions). Örneğin, yararlanmak için bu özelliği kullanabilirsiniz [Visual Studio aboneleri için aylık kredilerle](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Üzerinde iseniz [ücretsiz deneme](https://azure.microsoft.com/free/), bilgi nasıl [Kullandıkça Öde yükseltme](billing-upgrade-azure-subscription.md).
+Farklı bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) müşteri, Azure aboneliği tooanother teklifiniz hello geçebilirsiniz [hesap Merkezi](https://account.windowsazure.com/Subscriptions). Örneğin, bu özellik tootake avantajlarından hello kullanabilirsiniz [Visual Studio aboneleri için aylık kredilerle](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Üzerinde iseniz [ücretsiz deneme](https://azure.microsoft.com/free/), nasıl çok öğrenin[yükseltme tooPay olarak-size-Git](billing-upgrade-azure-subscription.md).
 
 ## <a name="whats-supported"></a>Ne desteklenir:
 
-| Kaynak | Bitiş |
+| Kaynak | çok|
 | --- | --- |
 | [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) |[Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/) |
 | [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |
@@ -51,80 +51,80 @@ Farklı bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p
 
 1. Kullandıkça Öde aboneliğinizi seçin.
 
-1. **Başka bir teklife geç** seçeneğine tıklayın. Bu düğme, yalnızca Kullandıkça Öde aboneliğine sahipseniz ve ilk fatura döneminiz sona erdiyse kullanılabilir.
+1. Tıklatın **anahtar tooanother teklif**. Hello düğmesi yalnızca üzerinde Kullandıkça Öde iseniz kullanılabilir ve ilk fatura süreniz ile tamamlandı.
 
-   ![Sayfanın sağ tarafında anahtar teklif düğmesi dikkat edin](./media/billing-how-to-switch-azure-offer/switchbutton.png)
+   ![Bildirim hello anahtar hello sağ tarafında hello sayfasının düğmesini sunma](./media/billing-how-to-switch-azure-offer/switchbutton.png)
 
-1. **İstediğiniz teklif seçin** teklifleri listesinden aboneliğinizi olarak değiştirilebilir. Bu liste hesabınız ile ilişkili üyeliklerini göre değişir. Hiçbir şey olup olmadığını denetleyin [için geçiş kullanılabilir teklifleri listesi](#whats-supported) ve doğru üyeliklerini olduğundan emin olun. 
+1. **Select hello teklif istediğiniz** hello teklifleri listesinden aboneliğinizi olarak değiştirilebilir. Bu liste hesabınız ile ilişkili hello üyeliklerini göre değişir. Merhaba hiçbir şey olup olmadığını denetleyin [için geçiş kullanılabilir teklifleri listesi](#whats-supported) ve hello sağ üyeliklerini olduğundan emin olun. 
 
-   ![Geçiş yapmak istediğiniz bir teklif seçin](./media/billing-how-to-switch-azure-offer/selectoffer.png)
+   ![Tooswitch için istediğiniz bir teklif seçin](./media/billing-how-to-switch-azure-offer/selectoffer.png)
 
-1. Geçiş yapıyorsanız teklif bağlı olarak, geçiş etkisi hakkında bir not görebilirsiniz. Bu liste dikkatle gidin ve devam etmeden önce yönergeleri izleyin.
+1. Geçiş yapıyorsanız hello teklif bağlı olarak geçiş hello etkisi hakkında bir not görebilirsiniz. Bu liste dikkatle gidin ve devam etmeden önce hello yönergeleri izleyin.
 
-   ![Notlarını gözden geçirin](./media/billing-how-to-switch-azure-offer/thingstonote.png)
+   ![Merhaba notlarını gözden geçirin](./media/billing-how-to-switch-azure-offer/thingstonote.png)
 
-1. Aboneliğinizi yeniden adlandırabilirsiniz. Varsayılan olarak, biz bunu yeni teklif adına ayarlayın. Tıklatın **anahtar teklif** işlemi tamamlamak için.
+1. Aboneliğinizi yeniden adlandırabilirsiniz. Varsayılan olarak, bu toohello yeni teklif ayarlarız adı. Tıklatın **anahtar teklif** toocomplete hello işlemi.
 
-   ![Yeşil düğmesini tıklatın](./media/billing-how-to-switch-azure-offer/confirmpage.png)
+   ![Merhaba yeşil düğmesini tıklatın](./media/billing-how-to-switch-azure-offer/confirmpage.png)
 
-1. Başarılı! Aboneliğiniz için yeni teklif artık anahtarlanır.
+1. Başarılı! Aboneliğinizi şimdi anahtarlı toohello yeni teklifidir.
 
 ## <a name="what-is-an-azure-offer"></a>Bir Azure teklifi nedir?
 
-Bir Azure teklifidir *türü* sahip olduğunuz Azure aboneliğinin. Örneğin, [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/), [Open ile Azure](https://azure.microsoft.com/offers/ms-azr-0111p/), ve [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) olan tüm Azure sunar. Her teklif farklı olan [koşulları](https://azure.microsoft.com/support/legal/offer-details/) ve bazı özel avantajlara sahip olursunuz. Aboneliğinizi teklif hesap Merkezi'nde abonelik sayfasında bulunabilir. Daha fazla bilgi almak için teklif adına tıklayın.
+Bir hello Azure teklifidir *türü* hello Azure aboneliğine sahip biri. Örneğin, [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/), [Open ile Azure](https://azure.microsoft.com/offers/ms-azr-0111p/), ve [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) olan tüm Azure sunar. Her teklif farklı olan [koşulları](https://azure.microsoft.com/support/legal/offer-details/) ve bazı özel avantajlara sahip olursunuz. Aboneliğinizin Hello teklif hello hesap Merkezi'nde abonelik sayfasında bulunabilir. Merhaba teklif adı tooget Ayrıntılar'ı tıklatın.
 
-   ![Daha fazla bilgi almak için hesap Merkezi'nde teklif bağlantısına tıklayın](./media/billing-how-to-switch-azure-offer/offerlink.png)
+   ![Daha fazla ayrıntı hesap Merkezi'nde tooget Hello teklif bağlantıya tıklayın](./media/billing-how-to-switch-azure-offer/offerlink.png)
 
 ## <a name="why-cant-i-switch-offers"></a>Teklifler neden geçiş yapamazsınız?
 
-Görmemiş olabilirsiniz **başka bir teklife geçiş** varsa düğmesi:
+Merhaba göremeyebilirsiniz **anahtar tooanother teklif** varsa düğmesi:
 
-* Açık değil [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/). Şu anda yalnızca Kullandıkça Öde abonelikleri başka bir teklife geçiş.
+* Açık değil [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/). Yalnızca Kullandıkça Öde abonelikleri anahtarlı tooanother teklif şu anda olabilir.
 
-  * Üzerinde iseniz [ücretsiz deneme](https://azure.microsoft.com/free/), bilgi nasıl [Kullandıkça Öde yükseltme](billing-upgrade-azure-subscription.md).
-  * Farklı bir abonelik tekliften geçiş yapmak için [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+  * Üzerinde iseniz [ücretsiz deneme](https://azure.microsoft.com/free/), nasıl çok öğrenin[yükseltme tooPay olarak-size-Git](billing-upgrade-azure-subscription.md).
+  * farklı bir abonelik tooswitch tekliften [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-* Yine, ilk fatura dönemi olduğunuz; teklifleri geçiş yapmadan önce sona erdirmek, ilk fatura dönemi için beklemeniz gerekir.
+* Yine, ilk fatura dönemi olduğunuz; geçiş yapabilirsiniz önce tooend sunar, ilk fatura dönemi için beklemeniz gerekir.
 
 Görebilirsiniz **teklif yok kullanılabilir, ülke veya bölgenizde şu anda** varsa:
 
-* Bir teklif anahtar için uygun değilsiniz. Denetleme [için geçiş kullanılabilir teklifleri listesi](#whats-supported).
+* Bir teklif anahtar için uygun değilsiniz. Merhaba denetleyin [için geçiş kullanılabilir teklifleri listesi](#whats-supported).
 
 * Bazı teklifleri tüm ülkelerde kullanılamayabilir.
 
-## <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>Azure teklifleri my hizmetine geçiş yapma ve faturalama yaptığı?
+## <a name="what-does-switching-azure-offers-do-toomy-service-and-billing"></a>Azure teklifleri toomy hizmeti değiştirme ve faturalama yaptığı?
 
-Burada, değiştirdiğinizde Azure hesap Merkezi'nde sunar olanlar Ayrıntılar verilmiştir.
+Burada, değiştirdiğinizde Azure hesap merkezi hello sunar olanlar hello Ayrıntılar verilmiştir.
 
 ### <a name="no-service-downtime"></a>Hizmeti kapalı kalma süresi yok
 
-Abonelikle ilişkili tüm kullanıcılar için bir hizmet kesintisi yok. Bununla birlikte, geçiş teklif sınırlamaları olabilir. Örneğin, başka bir abonelik için üretim kaynakları taşımak gereken şekilde bazı teklifleri üretim kullanılmasını engeller.
+Merhaba abonelikle ilişkili tüm kullanıcılar için bir hizmet kesintisi yok. Ancak, toomay geçiş hello teklif kısıtlamaları vardır. Örneğin, toomove üretim kaynakları tooanother abonelik gerekir böylece bazı teklifleri üretim kullanılmasını engeller.
 
 ### <a name="quota-increases-are-reset"></a>Kota artar Sıfırla
 
-Geçirdiğinizde teklifleri, her [sınırı ve kota artırır varsayılan sınır](../azure-supportability/resource-manager-core-quotas-request.md) sıfırlanır. Varsayılan sınırından daha fazla kaynak olsa bile herhangi bir hizmet kesintisi yok. Örneğin, 200 çekirdek, aboneliğinizde kullanıyorsanız, ardından teklifleri geçiş çekirdek kota varsayılanına 20 olarak belirlenen çekirdek sıfırlar. 200 çekirdek kullanan sanal makineleri etkilenmez ve çalışmaya devam eder. Ancak, başka bir kota isteği artırmak yapmazsanız, tüm daha fazla sayıda çekirdek sağlayamazsınız.
+Geçirdiğinizde teklifleri, her [sınırı ve kota artırır hello varsayılan sınır](../azure-supportability/resource-manager-core-quotas-request.md) sıfırlanır. Merhaba varsayılan sınırından daha fazla kaynak olsa bile herhangi bir hizmet kesintisi yok. Örneğin, 200 çekirdek, aboneliğinizde kullanıyorsanız, ardından teklifleri geçiş çekirdek kota geri toohello varsayılan 20 olarak belirlenen çekirdek sıfırlar. Merhaba hello 200 çekirdek kullanan sanal makineleri etkilenmez ve toorun devam eder. Ancak, başka bir kota isteği artırmak yapmazsanız, tüm daha fazla sayıda çekirdek sağlayamazsınız.
 
 ### <a name="billing"></a>Faturalandırma
 
-Geçiş günde bir fatura için tüm bekleyen ücretleri oluşturulur. Ardından, aboneliğinizin yeni teklif 's fiyatlandırma koşulları faturalandırılır. Abonelik faturalama Yıldönümü teklifleri değiştirdiğiniz tarih değiştirir. Kullanım ve teklif değişiklik korunmaz önce öneririz değiştirmeden önce bir kopyasını indirmek için veri faturalama.
+Geçiş hello günde bir fatura için tüm bekleyen ücretleri oluşturulur. Ardından, aboneliğinizin hello yeni teklif 's fiyatlandırma koşulları faturalandırılır. Abonelik Yıldönümü değişiklikleri toohello tarihi teklifleri değişmiş faturalama. Kullanım ve hello teklif değişiklik korunmaz önce öneririz değiştirmeden önce bir kopyasını indirmek için veri faturalama.
 
 > [!NOTE]
-> Faturalama ile ilgili kısıtlamalar nedeniyle teklif anahtarları bir abonelik oluşturduktan sonra ilk faturalama döngüsü içinde mümkün değildir.
+> Toobilling ile ilgili kısıtlamalar teklif anahtarları bir abonelik oluşturduktan sonra ilk fatura dönemi içinde hello mümkün değildir.
 >
 >
 
-## <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Kullandıkça Öde aboneliğine gelen geçirebilirsiniz [bulut çözümü sağlayıcısı](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) veya [Kurumsal Anlaşma](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
+## <a name="can-i-migrate-from-pay-as-you-go-toocloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Kullandıkça Öde çok geçirebilirsiniz[bulut çözümü sağlayıcısı](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) veya [Kurumsal Anlaşma](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* CSP'ye geçirmek için bkz [CSP Azure abonelik geçiş](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
+* toomigrate tooCSP bkz [Azure abonelik geçişi tooCSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
 
-* İçin EA geçirmek için kayıt hesabınızı EA ekleme yöneticiniz olması. Aboneliklerinizi EA kayıt altında taşınmış olması için davet e-postadaki yönergeleri izleyin. Daha fazla bilgi için bkz: [var olan bir hesabı ilişkilendirin](https://ea.azure.com/helpdocs/associateExistingAccount) EA Portalı'nda.
+* toomigrate tooEA kayıt hesabınızı EA hello ekleme yöneticiniz sahip. EA kayıt altında aboneliklerinizi taşınmış hello davet e-posta toohave'ndaki yönergeleri izleyin. toolearn daha, fazla [var olan bir hesabı ilişkilendirin](https://ea.azure.com/helpdocs/associateExistingAccount) hello EA Portalı'nda.
 
-## <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Yeni bir abonelik için veri ve hizmetlerini geçirebilirsiniz?
+## <a name="can-i-migrate-data-and-services-tooa-new-subscription"></a>Veri ve hizmetlere tooa yeni abonelik geçirebilir miyim?
 
-* Kaynakların doğrudan yeni aboneliği taşımak, bkz: [yeni kaynak grubu veya abonelik kaynaklarını taşıma](../azure-resource-manager/resource-group-move-resources.md).
+* Merhaba kaynaklar geçirebilir doğrudan toohello yeni abonelik, bkz: [kaynakları toonew kaynak grubuna veya aboneliğe taşıma](../azure-resource-manager/resource-group-move-resources.md).
 
-* Bir Azure aboneliği ve içindeki her şeyi sahipliğini başka birine aktarmak için bkz: [bir Azure aboneliği sahipliğini aktarma](billing-subscription-transfer.md)
+* tootransfer sahipliği ve bir Azure aboneliği içindeki her şeyi toosomeone başka bkz [bir Azure aboneliği sahipliğini aktarma](billing-subscription-transfer.md)
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 
-Hala daha fazla, sorularınız varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala daha fazla, sorularınız varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorunu Çözümlendi hızla tooget.

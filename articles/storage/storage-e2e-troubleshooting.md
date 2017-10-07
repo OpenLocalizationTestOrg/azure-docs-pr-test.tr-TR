@@ -1,5 +1,5 @@
 ---
-title: "Tanılama & ileti Çözümleyicisi ile Azure Storage sorunlarını giderme | Microsoft Docs"
+title: "Tanılama & ileti Çözümleyicisi ile Azure depolama aaaTroubleshooting | Microsoft Docs"
 description: "Azure Storage Analytics, AzCopy ve Microsoft Message Analyzer uçtan uca sorun giderme gösteren bir öğretici"
 services: storage
 documentationcenter: dotnet
@@ -13,105 +13,105 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: robinsh
-ms.openlocfilehash: e2b739772f98a9c23253c58bb2bbd3560814ccaa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f0b7886911c35de1fdc0bcbe6f83c220ddb38cf5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage ölçümleri ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi'ni kullanarak uçtan uca sorun giderme
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-Tanılama ve sorun giderme oluşturma ve Microsoft Azure Storage ile istemci uygulamalarını desteklemek için anahtar bir yetenektir. Azure uygulaması dağıtılmış yapısı nedeniyle, tanılama ve sorun giderme hataları ve performans sorunlarını geleneksel ortamlarda daha karmaşık olabilir.
+Tanılama ve sorun giderme oluşturma ve Microsoft Azure Storage ile istemci uygulamalarını desteklemek için anahtar bir yetenektir. Azure uygulaması dağıtılmış toohello yapısı, tanılama ve sorun giderme hataları ve performans sorunlarını geleneksel ortamlarda daha karmaşık olabilir.
 
-Bu öğreticide, biz performansını etkiler ve uçtan uca bu hataları giderin belirli hataları belirlemek nasıl ekleyebileceğiniz gösterilmektedir istemci uygulaması en iyi duruma getirmek için Microsoft ve Azure Storage tarafından sağlanan araçları kullanarak.
+Bu öğreticide, biz göstermek nasıl tooidentify performansını etkiler ve uçtan uca bu hataları giderin belirli hataları sipariş toooptimize hello istemci uygulamasında Microsoft ve Azure Storage tarafından sağlanan araçları kullanarak.
 
-Bu öğretici, uçtan uca bir sorun giderme senaryosu uygulamalı incelenmesi sağlar. Azure depolama uygulama sorunlarını giderme için bir ayrıntılı kavramsal kılavuzu için bkz: [izleme, tanılama ve Microsoft Azure Storage sorun giderme](storage-monitoring-diagnosing-troubleshooting.md).
+Bu öğretici, uçtan uca bir sorun giderme senaryosu uygulamalı incelenmesi sağlar. Bir kapsamlı kavramsal kılavuz tootroubleshooting Azure depolama uygulamalar için bkz [izleme, tanılama ve Microsoft Azure Storage sorun giderme](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Azure Storage uygulamaları sorun giderme araçları
-Microsoft Azure depolama kullanan istemci uygulamalar sorun giderme için ne zaman bir sorun oluştu ve sorunun nedeni ne olabilir belirlemek için Araçlar bileşimini kullanabilirsiniz. Bu araçlar şunları içerir:
+Microsoft Azure depolama kullanan tootroubleshoot istemci uygulamalar bir sorun oluştuğunda araçları toodetermine ve hello sorunun hangi hello nedeni olabilir bir bileşimini kullanabilirsiniz. Bu araçlar şunları içerir:
 
 * **Azure depolama çözümlemeleri**. [Azure Storage Analytics](/rest/api/storageservices/Storage-Analytics) ölçümleri ve Azure Storage için günlük kaydını sağlar.
   
-  * **Depolama ölçümleri** işlem ölçümlerini ve depolama hesabınız için kapasite ölçümlerini izler. Ölçümleri kullanarak, uygulamanızın farklı ölçüleri çeşitli göre nasıl gerçekleştirmekte belirleyebilirsiniz. Bkz: [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) depolama analizi tarafından izlenen ölçümleri türleri hakkında daha fazla bilgi için.
-  * **Depolama günlük** her istek Azure Depolama Hizmetleri sunucu tarafı günlüğüne kaydeder. Günlük ayrıntılı veri yapılan işleme dahil olmak üzere her istek, işlem ve gecikme bilgileri durumunu izler. Bkz: [depolama Analytics günlük biçimi](/rest/api/storageservices/Storage-Analytics-Log-Format) günlüklerine depolama analizi tarafından yazılan istek ve yanıt verileri hakkında daha fazla bilgi için.
+  * **Depolama ölçümleri** işlem ölçümlerini ve depolama hesabınız için kapasite ölçümlerini izler. Ölçümleri kullanarak, uygulamanızın farklı ölçüleri according tooa çeşitli nasıl gerçekleştirmekte belirleyebilirsiniz. Bkz: [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) depolama analizi tarafından izlenen ölçümleri hello türleri hakkında daha fazla bilgi için.
+  * **Depolama günlük** her isteği toohello Azure Storage Hizmetleri tooa sunucu-tarafı günlüğüne kaydeder. Merhaba durumunu hello işlemi ve gecikme bilgileri Hello günlük parçaları ayrıntılı veri hello işlemi de dahil olmak üzere her istek için gerçekleştirilecek. Bkz: [depolama Analytics günlük biçimi](/rest/api/storageservices/Storage-Analytics-Log-Format) toohello günlükleri depolama analizi tarafından yazılmış hello istek ve yanıt veriler hakkında daha fazla bilgi için.
 
 > [!NOTE]
-> Çoğaltma türü, bölge olarak yedekli depolama (ZRS) depolama hesaplarıyla ölçümleri veya şu anda etkin günlüğe kaydetme özelliğine sahip değilsiniz. 
+> Çoğaltma türü, bölge olarak yedekli depolama (ZRS) depolama hesaplarıyla hello ölçümleri veya şu anda etkin günlüğe kaydetme özelliğine sahip değilsiniz. 
 > 
 > 
 
-* **Azure portal**. Depolama hesabınız için ölçümleri ve günlük yapılandırabilirsiniz [Azure portal](https://portal.azure.com). Ayrıca, grafikler ve uygulamanızı zaman içinde nasıl gerçekleştirmekte gösteren grafikleri görüntüleyin ve uygulamanız için belirtilen bir ölçüm beklenenden farklı gerçekleştirirse sizi bilgilendirmek üzere uyarılar yapılandırın.
+* **Azure portal**. Depolama hesabınızdaki hello için ölçümleri ve günlük yapılandırabilirsiniz [Azure portal](https://portal.azure.com). Ayrıca, grafikler ve uygulamanızı zaman içinde nasıl gerçekleştirmekte gösteren grafikleri görüntüleyin ve uygulamanızı daha farklı gerçekleştirirse, belirtilen bir ölçüm için beklenen uyarıları toonotify yapılandırın.
   
-    Bkz: [Azure portalında bir depolama hesabını izleme](storage-monitor-storage-account.md) Azure portalında izlemeyi yapılandırma hakkında bilgi için.
-* **AzCopy**. Microsoft Message Analyzer kullanarak analiz için yerel bir dizine günlük BLOB'ları kopyalamak için AzCopy kullanabilmeniz için Azure Storage için sunucu günlüklerine BLOB olarak depolanır. Bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md) AzCopy hakkında daha fazla bilgi.
-* **Microsoft Message Analyzer**. İleti Çözümleyicisi günlük dosyalarını kullanır ve filtre, arama ve Grup günlük veri, hata ve performans sorunlarını analiz etmek için kullanabileceğiniz yararlı ayarlar kolaylaştırır görsel bir biçimde günlük verileri görüntüleyen bir araçtır. Bkz: [Microsoft Message Analyzer işletim kılavuzu](http://technet.microsoft.com/library/jj649776.aspx) ileti Çözümleyicisi hakkında daha fazla bilgi.
+    Bkz: [hello Azure portalında bir depolama hesabını izleme](storage-monitor-storage-account.md) hello Azure portal izlemeyi yapılandırma hakkında bilgi için.
+* **AzCopy**. Microsoft Message Analyzer kullanarak analiz için AzCopy toocopy hello günlük BLOB'lar tooa yerel dizin kullanabilmeniz için Azure Storage için sunucu günlüklerine BLOB olarak depolanır. Bkz: [hello AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md) AzCopy hakkında daha fazla bilgi.
+* **Microsoft Message Analyzer**. İleti Çözümleyicisi günlük dosyalarını kullanır ve kolay toofilter, arama ve veri tooanalyze hataları ve performans sorunlarını kullanabileceğiniz yararlı ayarlar oturum Grup kolaylaştırır görsel bir biçimde günlük verileri görüntüleyen bir araçtır. Bkz: [Microsoft Message Analyzer işletim kılavuzu](http://technet.microsoft.com/library/jj649776.aspx) ileti Çözümleyicisi hakkında daha fazla bilgi.
 
-## <a name="about-the-sample-scenario"></a>Örnek senaryo hakkında
-Bu öğreticide, biz burada düşük yüzde başarı oranı Azure depolama çağıran bir uygulama için Azure Storage ölçümlerini gösterir bir senaryo inceleyeceğiz. Düşük yüzde başarı oranı ölçümü (olarak gösterilen **PercentSuccess** içinde [Azure portal](https://portal.azure.com) ve ölçümleri tablolardaki), başarılı, ancak 299 büyük bir HTTP durum kodu döndürür işlemlerini izler. Sunucu tarafı depolama günlük dosyalarında bir işlem durumuyla işlemlerini kaydedilir **ClientOtherErrors**. Düşük yüzde başarı ölçüm hakkında daha fazla ayrıntı için bkz: [ölçümleri Göster düşük PercentSuccess veya analytics günlük girdilerine sahip ClientOtherErrors işlem durumundaki işlemlerini](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+## <a name="about-hello-sample-scenario"></a>Merhaba Örnek senaryo hakkında
+Bu öğreticide, biz burada düşük yüzde başarı oranı Azure depolama çağıran bir uygulama için Azure Storage ölçümlerini gösterir bir senaryo inceleyeceğiz. düşük yüzde başarı oranı ölçüm hello (olarak gösterilen **PercentSuccess** hello içinde [Azure portal](https://portal.azure.com) ve hello ölçümleri tablolardaki), başarılı, ancak daha büyük bir HTTP durum kodu döndürür işlemleri izler 299. Merhaba sunucu tarafı depolama günlük dosyalarında bir işlem durumuyla işlemlerini kaydedilir **ClientOtherErrors**. Merhaba düşük yüzde başarı ölçüm hakkında daha fazla ayrıntı için [ölçümleri Göster düşük PercentSuccess veya analytics günlük girdilerine sahip ClientOtherErrors işlem durumundaki işlemlerini](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
-Azure depolama işlemleri HTTP durum kodları 299 büyük normal işlevleri bir parçası olarak döndürebilir. Ancak bazı durumlarda bu hatalar istemci uygulamanızın performansı iyileştirebilir olabileceğini gösteriyor.
+Azure depolama işlemleri HTTP durum kodları 299 büyük normal işlevleri bir parçası olarak döndürebilir. Ancak bazı durumlarda bu hatalar istemci uygulamanız için mümkün toooptimize olabileceğini gösteriyor geliştirilmiş performans.
 
-Bu senaryoda, biz % 100 altındaki herhangi bir şey olması düşük yüzde başarı oranı ele alacağız. Ancak, farklı bir ölçüm düzeyi gereksinimlerinize göre seçebilirsiniz. Uygulamanızın veya test sırasında bir taban çizgisi dayanıklılık için temel performans ölçümlerini oluşturmanızı öneririz. Örneğin, karar verebilir temel test üzerinde % 90 veya % 85 tutarlı yüzde başarı oranını uygulamanızın olması gerekir. Ölçüm verilerini gösterir, uygulamanın o numarasından deviating sonra artırma neden olabilecek araştırabilirsiniz.
+Bu senaryoda, biz düşük yüzde başarı oranı toobe % 100 altındaki her şeyi ele alacağız. Tooyour gereksinimlerine göre farklı bir ölçüm düzeyi, ancak seçebilirsiniz. Uygulamanızın veya test sırasında bir taban çizgisi dayanıklılık için temel performans ölçümlerini oluşturmanızı öneririz. Örneğin, karar verebilir temel test üzerinde % 90 veya % 85 tutarlı yüzde başarı oranını uygulamanızın olması gerekir. Ölçüm verilerini Merhaba uygulaması bulunan sayının deviating olduğunu gösteriyorsa, hello artış neden olabilecek araştırabilirsiniz.
 
-Biz yüzde başarı oranı ölçüm %100 olduğunu kurduktan sonra bizim Örnek senaryo için biz ölçümlere ilişkilendirmek ve bunları ne düşük yüzde başarı oranı nedenini için kullanan hatalarını bulmak için günlüklerini inceleyin. Özellikle 400 aralığında hataları inceleyeceğiz. Ardından biz daha yakından (bulunamadı) 404 hatalarını araştırın.
+Biz kurduktan sonra hello yüzde başarı Oranı % 100 ölçümüdür, biz toohello ölçümleri ilişkilendirmek hello günlükleri toofind hello hataları inceleyin ve bunları bizim Örnek senaryo için hello düşük yüzde başarı oranı ne toofigure neden oluyor. Özellikle hello 400 aralıktaki hataları inceleyeceğiz. Ardından biz daha yakından (bulunamadı) 404 hatalarını araştırın.
 
 ### <a name="some-causes-of-400-range-errors"></a>400-range hataların bazı nedenler
-Aşağıdaki örnekler örnekleme Azure Blob Storage ve bunların olası nedenleri istekler için bazı 400-range hata sayısı gösterilir. Bu hata, yanı sıra 300 aralığı ve 500 aralığı hataları hiçbirini düşük yüzde başarı oranı için katkıda bulunabilir.
+Merhaba örneklere örnekleme Azure Blob Storage'a karşı istek için bazı 400-range hataları ve bunların olası nedenleri gösterir. Bu hata, yanı sıra hello 300 aralığı ve hello 500 aralık, hatalar hiçbirini tooa düşük yüzde başarı oranı katkıda bulunabilir.
 
-Aşağıdaki listelerde gölgeden uzak tam olduğuna dikkat edin. Bkz: [durum ve hata kodları](http://msdn.microsoft.com/library/azure/dd179382.aspx) hataları her depolama hizmetleri için özel ve genel Azure Storage hataları hakkında ayrıntılı bilgi için MSDN'de.
+Merhaba listelerde gölgeden uzak tam olduğuna dikkat edin. Bkz: [durum ve hata kodları](http://msdn.microsoft.com/library/azure/dd179382.aspx) genel Azure Storage hataları ve belirli hataları tooeach hello depolama hizmetleri hakkında ayrıntılı bilgi için MSDN'de.
 
 **Durum kodu 404 (bulunamadı) örnekleri**
 
-Blob veya kapsayıcı bulunmadığı için bir kapsayıcı veya blob karşı okuma işlemi başarısız olduğunda oluşur.
+Merhaba blob veya kapsayıcı bulunmadığı için bir kapsayıcı veya blob karşı okuma işlemi başarısız olduğunda oluşur.
 
 * Bir kapsayıcı veya blob bu isteği önce başka bir istemci tarafından silindiyse oluşur.
-* Kapsayıcı veya blob var olup olmadığını denetledikten sonra oluşturan bir API çağrısı kullanılıyorsa oluşur. CreateIfNotExists API'ları kapsayıcısı veya blob varlığını denetlemek için önce bir HEAD çağrı olun; yoksa, 404 hatası döndürülür ve ardından kapsayıcı veya blob yazmak için ikinci PUT çağrı yapılır.
+* Merhaba kapsayıcı veya blob var olup olmadığını denetledikten sonra oluşturan bir API çağrısı kullanılıyorsa oluşur. Merhaba CreateIfNotExists API'leri hello varlığını hello kapsayıcı veya blob ilk toocheck çağrısı HEAD olun; yoksa, 404 hatası döndürülür ve ardından ikinci PUT çağrı toowrite hello kapsayıcı veya blob yapılır.
 
 **Durum kodu 409 (Çakışma) örnekleri**
 
-* Yeni kapsayıcı veya blob, varlık için önce denetlemeden oluşturmak için bir oluşturma API kullanırsanız ve bir kapsayıcı veya bu adı taşıyan blob zaten oluşur.
-* Bir kapsayıcı silindi ve silme işlemi tamamlanmadan önce aynı ada sahip yeni bir kapsayıcı oluşturma girişimi varsa ortaya çıkar.
+* Bir API oluşturma toocreate yeni bir kapsayıcı veya blob, varlık için önce denetlemeden kullanırsanız ve bir kapsayıcı veya bu adı taşıyan blob zaten oluşur.
+* Bir kapsayıcı silindi ve toocreate hello hello silme işlemi tamamlanmadan önce aynı ad ile yeni bir kapsayıcı çalışırsanız oluşur.
 * Bir kapsayıcı veya blob kira belirtin ve zaten mevcut bir kira ise oluşur.
 
 **Durum kodu 412 (önkoşul başarısız oldu) örnekleri**
 
-* Koşullu üstbilgisi tarafından belirtilen koşulu karşılanmadı oluşur.
-* Belirtilen kira kimliği kapsayıcı veya blob kira Kimliğiyle eşleşmiyor oluşur.
+* Koşullu üstbilgisi tarafından belirtilen hello koşulu karşılanmadı oluşur.
+* Belirtilen hello kira kimliği hello kapsayıcı veya blob hello kira Kimliğiyle eşleşmiyor oluşur.
 
 ## <a name="generate-log-files-for-analysis"></a>Analiz için günlük dosyaları oluşturma
-Bunlardan herhangi biri ile çalışmayı tercih ancak bu öğreticide, ileti Çözümleyicisi üç farklı türde günlük dosyaları ile çalışma için kullanırız:
+Bunlardan herhangi biriyle toowork seçebilir ancak bu öğreticide, ileti Çözümleyicisi toowork üç farklı türde günlük dosyaları ile kullanacağız:
 
-* **Sunucu günlüğü**, Azure Storage günlüğü etkinleştirdiğinizde oluşturuldu. Sunucu günlüğü bir Azure Storage Hizmetleri - blob, kuyruk, tablo ve dosya karşı olarak adlandırılan her işlemi hakkındaki verileri içerir. Sunucu günlüğü, hangi işlemi çağrıldı ve hangi durum kodu döndürülen yanı sıra diğer ayrıntılarını istek ve yanıt gösterir.
-* **.NET istemci günlüğü**, .NET uygulama içinde istemci tarafı günlüğe etkinleştirdiğinizde oluşturuldu. İstemci günlük nasıl istemci isteği hazırlar ve alır ve yanıt işlediği hakkında ayrıntılı bilgiler içerir.
-* **HTTP ağ izleme günlüğü**, hangi verileri toplar Azure Storage'a karşı işlemleri dahil olmak üzere HTTP/HTTPS istek ve yanıt verileri. Bu öğreticide, biz ileti Çözümleyicisi aracılığıyla ağ izleme oluşturacaksınız.
+* Merhaba **sunucu günlüğü**, Azure Storage günlüğü etkinleştirdiğinizde oluşturuldu. Merhaba sunucu günlüğü hello Azure Storage Hizmetleri - blob, kuyruk, tablo ve dosya birini karşı olarak adlandırılan her işlemi hakkındaki verileri içerir. hangi işlemi çağrıldı ve hangi durum kodu döndürülen yanı sıra diğer ayrıntılarını hello istek ve yanıt Hello server günlüğünü gösterir.
+* Merhaba **.NET istemci günlüğü**, .NET uygulama içinde istemci tarafı günlüğe etkinleştirdiğinizde oluşturuldu. Merhaba istemci günlüğü nasıl hello istemci hello isteği hazırlar ve alır ve hello yanıt işlediği hakkında ayrıntılı bilgi içerir.
+* Merhaba **HTTP ağ izleme günlüğü**, hangi verileri toplar Azure Storage'a karşı işlemleri dahil olmak üzere HTTP/HTTPS istek ve yanıt verileri. Bu öğreticide, biz hello ağ izleme ileti Çözümleyicisi aracılığıyla oluşturacaksınız.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Sunucu tarafı günlüğe kaydetme ve ölçümleri yapılandırın
-Böylece çözümlemek için istemci uygulamasında verileri sahibiz ilk olarak, size Azure Storage günlüğe kaydetme ve ölçümleri, yapılandırmanız gerekir. Aracılığıyla günlüğe kaydetme ve çeşitli şekillerde - ölçümlerini yapılandırabilirsiniz [Azure portal](https://portal.azure.com), PowerShell kullanarak veya program aracılığıyla. Bkz: [depolama ölçümlerini etkinleştirme ve ölçüm verilerini görüntüleme](http://msdn.microsoft.com/library/azure/dn782843.aspx) ve [depolama günlüğünü etkinleştirme ve erişim günlüğü verilerini](http://msdn.microsoft.com/library/azure/dn782840.aspx) günlüğe kaydetme ve ölçümleri yapılandırma hakkında ayrıntılı bilgi için MSDN'de.
+Böylece hello istemci uygulaması tooanalyze verilerden sahibiz ilk olarak, biz tooconfigure Azure Storage günlüğe kaydetme ve ölçümleri, gerekir. Günlüğe kaydetme ve ölçümleri çeşitli şekillerde - hello yoluyla yapılandırabileceğiniz [Azure portal](https://portal.azure.com), PowerShell kullanarak veya program aracılığıyla. Bkz: [depolama ölçümlerini etkinleştirme ve ölçüm verilerini görüntüleme](http://msdn.microsoft.com/library/azure/dn782843.aspx) ve [depolama günlüğünü etkinleştirme ve erişim günlüğü verilerini](http://msdn.microsoft.com/library/azure/dn782840.aspx) günlüğe kaydetme ve ölçümleri yapılandırma hakkında ayrıntılı bilgi için MSDN'de.
 
-**Azure portalı üzerinden**
+**Hello Azure portal**
 
-Yapılandırmak için günlüğe kaydetme ve depolama için ölçümleri kullanarak hesap [Azure portal](https://portal.azure.com), yönergeleri [Azure portalında bir depolama hesabını izleme](storage-monitor-storage-account.md).
+tooconfigure günlüğe kaydetme ve depolama hesabı kullanarak ölçümleri hello [Azure portal](https://portal.azure.com), hello yönergeleri izleyin [hello Azure portalında bir depolama hesabını izleme](storage-monitor-storage-account.md).
 
 > [!NOTE]
-> Azure portalını kullanarak dakika ölçümleri ayarlamak mümkün değildir. Ancak, bunları bu öğreticinin amaçları ve uygulamanız ile performans sorunları incelemeye ayarlamanızı öneririz. Aşağıda gösterildiği gibi PowerShell veya program aracılığıyla depolama istemci kitaplığı kullanarak dakika ölçümleri ayarlayabilirsiniz.
+> Şu olası tooset minute ölçümleri hello Azure portal kullanarak da değil. Ancak, bunları bu öğreticinin hello amaçları ve uygulamanız ile performans sorunları incelemeye ayarlamanızı öneririz. Aşağıda gösterildiği gibi PowerShell veya program aracılığıyla hello depolama istemci kitaplığı kullanarak dakika ölçümleri ayarlayabilirsiniz.
 > 
-> Azure portalı dakika ölçümleri, saatlik ölçümleri yalnızca görüntüleyemiyor unutmayın.
+> Azure portal'ı hello dakika ölçümleri, saatlik ölçümleri yalnızca görüntüleyemiyor unutmayın.
 > 
 > 
 
 **PowerShell yoluyla**
 
-Azure PowerShell ile çalışmaya başlamak için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
+Azure, PowerShell kullanmaya tooget bkz [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview).
 
-1. Kullanım [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet PowerShell penceresine Azure kullanıcı hesabınızı eklemek için:
+1. Kullanım hello [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet tooadd Azure kullanıcı hesabı toohello PowerShell penceresinde:
    
     ```powershell
     Add-AzureAccount
     ```
 
-2. İçinde **Microsoft Azure'da oturum aç** penceresinde, e-posta adresi ve hesabınızla ilişkili parolayı yazın. Azure, kimlik bilgilerini doğrulayıp kaydeder ve pencereyi kapatır.
-3. PowerShell penceresinde aşağıdaki komutları çalıştırarak öğretici için kullandığınız depolama hesabı için varsayılan depolama hesabı ayarlayın:
+2. Merhaba, **tooMicrosoft Azure oturum** penceresinde hello e-posta adresini yazın ve hesabınızla ilişkili parola. Azure kimliğini doğrular ve hello kimlik bilgileri kaydeder ve hello penceresini kapatır.
+3. Merhaba PowerShell penceresinde aşağıdaki komutları yürüterek hello öğretici için kullanmakta olduğunuz hello varsayılan depolama hesabı toohello depolama hesabı ayarlayın:
    
     ```powershell
     $SubscriptionName = 'Your subscription name'
@@ -119,197 +119,197 @@ Azure PowerShell ile çalışmaya başlamak için bkz: [Azure PowerShell'i yükl
     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
-4. Blob hizmeti için depolama günlük kaydını etkinleştir:
+4. Blob hizmeti için Hello günlük depolama etkinleştirin:
    
     ```powershell
     Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
     ```
 
-5. Ayarlanacak emin Blob hizmeti için depolama ölçümlerini etkinleştirme **- MetricsType** için `Minute`:
+5. Merhaba emin tooset yapmadan Blob hizmeti için depolama ölçümlerini etkinleştirme **- MetricsType** çok`Minute`:
    
     ```powershell
     Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 ### <a name="configure-net-client-side-logging"></a>.NET istemci-tarafı günlüğünü yapılandırma
-.NET uygulaması için istemci tarafı günlüğe kaydetmeyi yapılandırmak için uygulamanın yapılandırma dosyasında (web.config veya app.config) .NET tanılama etkinleştirin. Bkz: [istemci-tarafı .NET depolama istemci kitaplığı ile oturum](http://msdn.microsoft.com/library/azure/dn782839.aspx) ve [istemci-tarafı Java için Microsoft Azure depolama SDK'sı günlüğü](http://msdn.microsoft.com/library/azure/dn782844.aspx) ayrıntılı bilgi için MSDN'de.
+tooconfigure istemci-tarafı .NET uygulaması için oturum .NET tanılama hello uygulamanın yapılandırma dosyasında (web.config veya app.config) etkinleştirin. Bkz: [istemci-tarafı .NET depolama istemci kitaplığı hello ile oturum](http://msdn.microsoft.com/library/azure/dn782839.aspx) ve [istemci-tarafı hello Java için Microsoft Azure depolama SDK'sı ile oturum](http://msdn.microsoft.com/library/azure/dn782844.aspx) ayrıntılı bilgi için MSDN'de.
 
-İstemci-tarafı günlük nasıl istemci isteği hazırlar ve alır ve yanıt işlediği hakkında ayrıntılı bilgi içerir.
+Merhaba istemci-tarafı günlük nasıl hello istemci hello isteği hazırlar ve alır ve hello yanıt işlediği hakkında ayrıntılı bilgi içerir.
 
-Depolama istemcisi kitaplığı istemci-tarafı günlük verileri uygulamanın yapılandırma dosyasında (web.config veya app.config) belirtilen konumda depolanır.
+Hello depolama istemci kitaplığı hello uygulamanın yapılandırma dosyasında (web.config veya app.config) belirtilen hello konumdaki istemci-tarafı günlük verilerini depolar.
 
 ### <a name="collect-a-network-trace"></a>Bir ağ izlemesi Topla
-İstemci uygulamanızı çalışırken bir HTTP/HTTPS ağ izleme toplamak için ileti Çözümleyicisi'ni kullanabilirsiniz. İleti Çözümleyicisi kullanır [Fiddler](http://www.telerik.com/fiddler) arka uçtaki. Ağ izleme toplamak önce şifrelenmemiş HTTPS trafiği kaydetmek için fiddler'ı yapılandırmanızı öneririz:
+İstemci uygulamanızı çalışırken ileti Çözümleyicisi toocollect bir HTTP/HTTPS ağ izleme kullanabilirsiniz. İleti Çözümleyicisi kullanır [Fiddler](http://www.telerik.com/fiddler) hello üzerinde arka uç. Merhaba ağ izleme toplamak önce Fiddler şifrelenmemiş toorecord HTTPS trafiği yapılandırmanızı öneririz:
 
 1. Yükleme [Fiddler](http://www.telerik.com/download/fiddler).
 2. Fiddler'ı başlatın.
 3. Seçin **Araçlar | Fiddler seçenekleri**.
-4. Seçenekleri iletişim kutusunda emin **yakalama HTTPS bağlanır** ve **şifresini HTTPS trafiği** her ikisi de, aşağıda gösterildiği gibi seçilir.
+4. Merhaba Seçenekleri iletişim kutusunda emin **yakalama HTTPS bağlanır** ve **şifresini HTTPS trafiği** her ikisi de, aşağıda gösterildiği gibi seçilir.
 
 ![Fiddler seçeneklerini yapılandırma](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
-Öğretici için toplamak ve bir ağ izlemesi ilk ileti Çözümleyicisi'nde kaydedin, sonra izleme ve günlüklerini çözümlemek için bir analysis oturumu oluşturun. İleti Çözümleyicisi'nde bir ağ izlemesi toplamak için:
+Merhaba öğretici için toplamak ve bir ağ izlemesi ilk ileti Çözümleyicisi'nde kaydedin sonra bir analiz oturum tooanalyze hello izleme oluşturun ve günlükleri hello. İleti Çözümleyicisi'nde bir ağ izlemesi toocollect:
 
 1. İleti Çözümleyicisi'nde seçin **dosya | Hızlı İzleme | Şifrelenmemiş HTTPS**.
-2. İzleme hemen başlar. Seçin **durdurmak** biz yalnızca izleme depolama trafiği için yapılandırabilmeniz izlemeyi durdurmak için.
-3. Seçin **Düzenle** izleme oturumu düzenlemek için.
-4. Seçin **yapılandırma** sağındaki bağlantı **Microsoft Pef WebProxy** ETW sağlayıcı.
-5. İçinde **Gelişmiş ayarları** iletişim kutusunda, tıklatın **sağlayıcı** sekmesi.
-6. İçinde **Hostname filtre** alanında, boşlukla ayrılmış depolama noktalarınızı belirtin. Örneğin, aşağıdaki gibi noktalarınızı belirtebilirsiniz; değiştirme `storagesample` depolama hesabınızın adını için:
+2. Merhaba izleme hemen başlar. Seçin **durdurmak** toostop hello izleme böylece biz yalnızca tootrace depolama trafiği yapılandırabilirsiniz.
+3. Seçin **Düzenle** tooedit hello izleme oturumu.
+4. Select hello **yapılandırma** toohello hello sağındaki bağlantı **Microsoft Pef WebProxy** ETW sağlayıcı.
+5. Merhaba, **Gelişmiş ayarları** iletişim kutusunda, hello tıklatın **sağlayıcı** sekmesi.
+6. Merhaba, **Hostname filtre** alanında, boşlukla ayrılmış depolama noktalarınızı belirtin. Örneğin, aşağıdaki gibi noktalarınızı belirtebilirsiniz; değiştirme `storagesample` toohello depolama hesabınızın adını:
 
     ```   
     storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net
     ```
 
-7. İletişim kutusundan çıkmak ve tıklayın **yeniden** böylece yalnızca Azure depolama ağ trafiğini izleme dahil, yerinde hostname filtreli izleme toplamaya başlamak için.
+7. Merhaba iletişim çıkmak ve tıklatın **yeniden** böylece yalnızca Azure depolama ağ trafiği hello izleme dahil, yerinde hello hostname filtreli hello iz toplamadan toobegin.
 
 > [!NOTE]
-> Ağ izleme toplama tamamladıktan sonra şifre çözme HTTPS trafiği için Fiddler'da değiştirmiş olabilecek ayarları geri kesinlikle öneririz. Fiddler Seçenekleri iletişim kutusunda seçimini **yakalama HTTPS bağlanır** ve **şifresini HTTPS trafiği** onay kutuları.
+> Ağ izleme toplama tamamladıktan sonra Fiddler toodecrypt HTTPS trafiği değişmiş olabilir hello ayarları geri kesinlikle öneririz. Merhaba Fiddler Seçenekleri iletişim kutusunda hello seçimini **yakalama HTTPS bağlanır** ve **şifresini HTTPS trafiği** onay kutularını.
 > 
 > 
 
-Bkz: [ağ izleme özelliklerini kullanmayı](http://technet.microsoft.com/library/jj674819.aspx) daha ayrıntılı bilgi için TechNet'teki.
+Bkz: [hello ağ izleme özelliklerini kullanmayı](http://technet.microsoft.com/library/jj674819.aspx) daha ayrıntılı bilgi için TechNet'teki.
 
-## <a name="review-metrics-data-in-the-azure-portal"></a>Azure portalında ölçümleri verileri gözden geçirin
-Uygulamanızı bir süre çalıştıran sonra görünür ölçümler grafiklerde inceleyebilirsiniz [Azure portal](https://portal.azure.com) hizmetiniz bir nasıl gerçekleştirmekte izlemek için.
+## <a name="review-metrics-data-in-hello-azure-portal"></a>Hello Azure portal, ölçümleri verileri gözden geçirin
+Uygulamanızı bir süre çalıştıran sonra hello görünür hello ölçümler grafiklerde inceleyebilirsiniz [Azure portal](https://portal.azure.com) tooobserve nasıl hizmetinizi gerçekleştirme.
 
-İlk olarak, Azure portalında depolama hesabınıza gidin. Varsayılan olarak, bir izleme grafik ile **başarı oranı** ölçüm hesabı dikey penceresinde görüntülenir. Daha önce farklı ölçümleri görüntülemek için grafiği değiştirdiyseniz eklemek **başarı oranı** ölçüm.
+İlk olarak, tooyour depolama hesabında hello Azure portalına gidin. Varsayılan olarak, bir izleme ile Merhaba grafik **başarı oranı** ölçüm hello hesabı dikey penceresinde görüntülenir. Merhaba grafik toodisplay farklı ölçümleri önceden değiştirdiyseniz hello eklemek **başarı oranı** ölçüm.
 
-Şimdi görürsünüz **başarı oranı** izleme grafikte, diğer bir ölçümleri birlikte eklediğiniz. Biz sonraki ileti Çözümleyicisi'ndeki günlükleri çözümleyerek araştırmak senaryosunda yüzde başarı biraz % 100 aşağıda hızıdır.
+Şimdi görürsünüz **başarı oranı** grafik izleme hello yanı sıra diğer bir ölçümleri eklediğiniz. Biz sonraki ileti Çözümleyicisi'nde hello günlüklerini analiz araştırmak hello senaryoda hello yüzde başarı biraz % 100 aşağıda hızıdır.
 
 Ekleme ve ölçümleri grafikleri özelleştirme hakkında daha fazla bilgi için bkz: [ölçümler grafiklerde özelleştirme](storage-monitor-storage-account.md#customize-metrics-charts).
 
 > [!NOTE]
-> Depolama ölçümleri etkinleştirdikten sonra Azure Portalı'nda görünmesi ölçümleri verileriniz için biraz zaman alabilir. Geçerli saat sona ermeden önceki saat saatlik ölçümleri Azure portalında görüntülenmez olmasıdır. Ayrıca, dakika ölçümleri Azure portalında şu anda görüntülenmiyor. Bu nedenle bağlı olarak ölçümleri etkinleştirdiğinizde, ölçüm verilerini görmek için iki saat sürebilir.
+> Depolama ölçümleri etkinleştirdikten sonra hello Azure portal, ölçümleri veri tooappear için biraz zaman alabilir. Hello geçerli saatte sona ermeden önceki saat hello için saatlik ölçümleri hello Azure portal görüntülenmez olmasıdır. Ayrıca, dakika ölçümleri hello Azure portal şu anda görüntülenmiyor. Bu nedenle bağlı olarak ölçümleri etkinleştirdiğinizde, tootwo saatleri toosee ölçümleri verileri alabilir.
 > 
 > 
 
-## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Yerel bir dizine sunucu günlükleri kopyalamak için AzCopy kullanın
-Ölçümleri tablolara yazılan sırasında azure depolama BLOB'ları için sunucu günlüğü verileri yazar. Günlük BLOB'lar iyi bilinen kullanılabilir `$logs` depolama hesabınız için kapsayıcı. Böylece, araştırmak istediğiniz zaman aralığını kolayca bulabilir günlük BLOB'lar yıl, ay, gün ve saat tarafından hiyerarşik olarak adlandırılır. Örneğin, `storagesample` hesabı, 01/02/2015, 8-9'da, gelen günlük BLOB'lar için kapsayıcı `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Bu kapsayıcı tek tek bloblar, sıralı olarak, itibaren adlandırıldığından `000000.log`.
+## <a name="use-azcopy-toocopy-server-logs-tooa-local-directory"></a>AzCopy toocopy sunucu günlüklerini tooa yerel dizin kullanın
+Ölçümleri tootables yazılır sırasında azure Storage server günlük veri tooblobs yazar. Merhaba iyi bilinen günlük BLOB'lar kullanılabilir `$logs` depolama hesabınız için kapsayıcı. Böylece hello tooinvestigate istediğiniz zaman aralığını kolayca bulabilir günlük BLOB'lar yıl, ay, gün ve saat tarafından hiyerarşik olarak adlandırılır. Örneğin, hello içinde `storagesample` hesabıdır 02/01/2015 ' dan 8-09: 00, hello günlük BLOB hello kapsayıcısı `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Bu kapsayıcıda Hello tek tek bloblar adlı ardışık olarak itibaren `000000.log`.
 
-Bu sunucu tarafı günlük dosyaları bir konumla yerel makinenize indirmek için AzCopy komut satırı aracını kullanabilirsiniz. Örneğin, klasöre 2 Ocak 2015 tarihinde gerçekleşen blobu işlemleri için günlük dosyalarını indirmek için aşağıdaki komutu kullanabilirsiniz `C:\Temp\Logs\Server`; Değiştir `<storageaccountname>` depolama hesabınızın adıyla ve `<storageaccountkey>` hesap erişim anahtarı ile:
+Bu sunucu tarafı günlük dosyaları tooa konumu tercih ettiğiniz hello AzCopy komut satırı aracı toodownload yerel makinenizde kullanabilirsiniz. Merhaba sürdü blobu işlemleri yerleştirmek için aşağıdaki komutu toodownload hello günlük dosyaları gibi kullanabilirsiniz 2 Ocak 2015 toohello klasörü `C:\Temp\Logs\Server`; Değiştir `<storageaccountname>` depolama hesabınızın hello adla ve `<storageaccountkey>` ile Hesap erişim anahtarı:
 
 ```azcopy
 AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 ```
-İndirmek için AzCopy kullanılabilir [Azure indirmeleri](https://azure.microsoft.com/downloads/) sayfası. AzCopy kullanma hakkında daha fazla bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md).
+AzCopy hello üzerinde yüklenebilir [Azure indirmeleri](https://azure.microsoft.com/downloads/) sayfası. AzCopy kullanma hakkında daha fazla bilgi için bkz: [hello AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md).
 
 Sunucu tarafı günlüklerini indirme hakkında ek bilgi için bkz: [karşıdan depolama günlüğü günlük verileri](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
-## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Günlük verileri çözümlemek için Microsoft Message Analyzer'ı kullanın
-Microsoft Message Analyzer, yakalama, görüntüleme ve trafik, olaylar ve sorun giderme ve tanılama senaryolarda diğer sistem veya uygulama iletileri Mesajlaşma Protokolü çözümlemek için kullanılan bir araçtır. İleti Çözümleyicisi'ni de yüklemek için toplama ve günlük verileri çözümlemek sağlar ve izleme dosyaları kaydedilir. İleti Çözümleyicisi hakkında daha fazla bilgi için bkz: [Microsoft Message Analyzer işletim kılavuzu](http://technet.microsoft.com/library/jj649776.aspx).
+## <a name="use-microsoft-message-analyzer-tooanalyze-log-data"></a>Microsoft Message Analyzer tooanalyze günlük verileri kullanma
+Microsoft Message Analyzer, yakalama, görüntüleme ve trafik, olaylar ve sorun giderme ve tanılama senaryolarda diğer sistem veya uygulama iletileri Mesajlaşma Protokolü çözümlemek için kullanılan bir araçtır. İleti Çözümleyicisi'ni de tooload, toplama, etkinleştirir ve günlük verileri çözümlemek ve izleme dosyaları kaydedilir. İleti Çözümleyicisi hakkında daha fazla bilgi için bkz: [Microsoft Message Analyzer işletim kılavuzu](http://technet.microsoft.com/library/jj649776.aspx).
 
-İleti Çözümleyicisi varlıklar Azure depolama için sunucu, istemci ve ağ günlüklerini analiz etmenize yardım içerir. Bu bölümde, biz depolama günlüklerine düşük yüzde başarı sorunu gidermek için bu araçları kullanmak nasıl ele alacağız.
+İleti Çözümleyicisi varlıklar Azure Storage için tooanalyze sunucusu, istemci ve ağ günlükleri Yardım içerir. Bu bölümde, toouse Bu araçlar tooaddress düşük yüzde başarılı şekilde sorunun nasıl hello biz ele alacağız hello depolama günlükleri.
 
-### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>İleti Çözümleyicisi ve Azure depolama varlıkları yükleyip
-1. Karşıdan [ileti Çözümleyicisi](http://www.microsoft.com/download/details.aspx?id=44226) Microsoft Yükleme Merkezi'ndeki ve yükleyiciyi çalıştırın.
+### <a name="download-and-install-message-analyzer-and-hello-azure-storage-assets"></a>İleti Çözümleyicisi ve hello Azure depolama varlıklar yükleyip
+1. Karşıdan [ileti Çözümleyicisi](http://www.microsoft.com/download/details.aspx?id=44226) gelen Microsoft Download Center hello ve hello yükleyiciyi çalıştırın.
 2. İleti Çözümleyicisi'ni başlatın.
-3. Gelen **Araçları** menüsünde, select **varlık Yöneticisi**. İçinde **varlık Yöneticisi** iletişim kutusunda **indirmeleri**, sonra filtre **Azure Storage**. Aşağıdaki resimde gösterildiği gibi Azure depolama varlıkları görürsünüz.
-4. Tıklatın **eşitleme tüm görüntülenen öğelerin** Azure depolama varlıklar yüklemek için. Kullanılabilir Varlıklar şunları içerir:
-   * **Azure depolama renk kurallarını:** Azure depolama renk kuralları belirli bir izleme bilgileri içeren iletileri vurgulamak için renk, metin ve yazı tipi stillerini kullanan özel filtreler tanımlamak etkinleştirin.
-   * **Azure depolama grafikler:** Azure depolama grafikleri olan sunucu günlüğü verileri grafik önceden tanımlanmış grafikler. Şu anda Azure Storage grafikler kullanmak için yalnızca sunucu günlüğü analiz kılavuza yükleyebilir olduğunu unutmayın.
-   * **Azure depolama ayrıştırıcıları:** Azure Storage ayrıştırıcıları analiz kılavuzunda görüntülemek için Azure Storage istemci, sunucu ve HTTP günlükleri ayrıştırılamıyor.
-   * **Azure depolama filtreler:** Azure depolama filtreleri verilerinizi analiz kılavuzunda sorgulamak için kullanabileceğiniz önceden tanımlanmış ölçütleri şunlardır.
-   * **Azure depolama görünüm düzenler:** Azure depolama görünüm düzenler: önceden tanımlanmış sütun düzenleri ve analiz kılavuzunda gruplandırmaları.
-5. Varlıkları yükledikten sonra ileti Çözümleyicisi'ni yeniden başlatın.
+3. Merhaba gelen **Araçları** menüsünde, select **varlık Yöneticisi**. Merhaba, **varlık Yöneticisi** iletişim kutusunda **indirmeleri**, sonra filtre **Azure Storage**. Hello Azure depolama varlıklar, hello aşağıda gösterildiği gibi göreceksiniz.
+4. Tıklatın **eşitleme tüm görüntülenen öğelerin** tooinstall hello Azure depolama varlıklar. Merhaba kullanılabilir varlıklar şunları içerir:
+   * **Azure depolama renk kurallarını:** Azure depolama renk kurallarını etkinleştirin, metin, bir renk kullanan toodefine özel filtreler ve yazı tipi stilleri bir izleme belirli bilgiler içeren toohighlight iletileri.
+   * **Azure depolama grafikler:** Azure depolama grafikleri olan sunucu günlüğü verileri grafik önceden tanımlanmış grafikler. Şu anda Azure Storage toouse grafikleri, yalnızca yük hello server günlüğünü analiz kılavuz hello olabilir dikkat edin.
+   * **Azure depolama ayrıştırıcıları:** hello Azure Storage ayrıştırıcıları ayrıştırma hello Azure Storage istemci, sunucu ve HTTP günlükleri sipariş toodisplay bunları hello analiz kılavuz.
+   * **Azure depolama filtreler:** Azure depolama filtreleridir önceden tanımlanmış ölçütleri tooquery hello analiz kılavuz verilerinizi kullanabilirsiniz.
+   * **Azure depolama görünüm düzenler:** Azure depolama görünüm düzenler: önceden tanımlanmış sütun düzenleri ve hello analiz Kılavuz içindeki gruplandırmalar.
+5. Merhaba varlıklar yükledikten sonra ileti Çözümleyicisi'ni yeniden başlatın.
 
 ![İleti Çözümleyicisi varlık Yöneticisi](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
 
 > [!NOTE]
-> Tüm bu öğreticinin amaçları doğrultusunda gösterilen ve Azure Storage varlıkları yükleyin.
+> Tüm hello Bu öğreticinin amaçları doğrultusunda gösterilen hello Azure Storage varlıklar yükleyin.
 > 
 > 
 
 ### <a name="import-your-log-files-into-message-analyzer"></a>Günlük dosyalarınızın ileti çözümleyicisine alma
 Tüm kaydedilmiş günlük dosyalarınızı (sunucu tarafı, istemci tarafı ve ağ), Microsoft Message Analyzer tek bir oturumda çözümleme için içine aktarabilirsiniz.
 
-1. Üzerinde **dosya** Microsoft Message Analyzer'nde menüsünü **yeni oturum**ve ardından **boş oturum**. İçinde **yeni oturum** iletişim kutusunda, analiz oturumunuz için bir ad girin. İçinde **oturumun ayrıntılarına** paneli, tıklayın **dosyaları** düğmesi.
-2. İleti Çözümleyicisi tarafından oluşturulan ağ izleme verilerini yüklemek için tıklayın **dosyaları Ekle**göz atın, web izleme oturumunuzda .matp dosyanızı kaydedildiği konum için .matp dosyasını seçin ve tıklatın **açık**.
-3. Sunucu tarafı günlük verilerini yüklemek için tıklayın **dosyaları Ekle**, sunucu tarafı günlüklerinizi indirdiğiniz konuma gözatın, çözümlemek ve istediğiniz zaman aralığını için günlük dosyalarını seçin **açık**. Ardından **oturumun ayrıntılarına** paneli, Ayarla **metin günlüğü Yapılandırması** her sunucu tarafı günlük dosyası için açılan **AzureStorageLog** Microsoft Message Analyzer günlük dosyasını doğru ayrıştırma emin olmak için.
-4. İstemci-tarafı günlük verilerini yüklemek için tıklayın **dosyaları Ekle**, istemci-tarafı günlüklerinizi kaydettiğiniz konuma göz atın, çözümlemek ve günlük dosyaları seçin **açık**. Ardından **oturumun ayrıntılarına** paneli, Ayarla **metin günlüğü Yapılandırması** her istemci-tarafı günlük dosyası için açılan **AzureStorageClientDotNetV4** Microsoft Message Analyzer günlük dosyasını doğru ayrıştırma emin olmak için.
-5. Tıklatın **Başlat** içinde **yeni oturum** yüklemek ve günlük verilerini ayrıştırmak için iletişim kutusu. İleti Çözümleyicisi çözümleme kılavuzunda günlük verilerini görüntüler.
+1. Merhaba üzerinde **dosya** Microsoft Message Analyzer'nde menüsünü **yeni oturum**ve ardından **boş oturum**. Merhaba, **yeni oturum** iletişim kutusunda, analiz oturumunuz için bir ad girin. Merhaba, **oturumun ayrıntılarına** paneli, üzerinde hello tıklatın **dosyaları** düğmesi.
+2. İleti Çözümleyicisi tarafından oluşturulan tooload hello ağ izleme verilerini tıklayın **dosyaları Ekle**, kaydettiğiniz .matp dosyanızı, web izleme oturumunuzda, select hello .matp dosya toohello konumunu bulun ve tıklatın **açın**.
+3. tooload hello sunucu tarafı günlük verilerini tıklayın **dosyaları Ekle**, sunucu tarafı günlüklerinizi indirdiğiniz toohello konumunu bulun, seçin tooanalyze istediğiniz ve tıklatın hello zaman aralığı için hello günlük dosyalarını **açmak**. Ardından hello **oturumun ayrıntılarına** paneli, kümesi hello **metin günlüğü Yapılandırması** her sunucu tarafı günlük dosyası için çok açılan**AzureStorageLog** tooensure Microsoft İleti Çözümleyicisi hello günlük dosyası doğru ayrıştıramıyor.
+4. tooload hello istemci-tarafı günlük verilerini tıklayın **dosyaları Ekle**, istemci-tarafı günlüklerinizi kaydettiğiniz toohello konumunu bulun, seçin tooanalyze istediğiniz ve tıklatın hello günlük dosyalarını **açık**. Ardından hello **oturumun ayrıntılarına** paneli, kümesi hello **metin günlüğü Yapılandırması** her istemci-tarafı günlük dosyası için çok açılan**AzureStorageClientDotNetV4** tooensure, Microsoft Message Analyzer hello günlük dosyası doğru ayrıştıramıyor.
+5. Tıklatın **Başlat** hello içinde **yeni oturum** iletişim tooload ve ayrıştırma hello günlük verileri. Merhaba ileti Çözümleyicisi çözümleme kılavuz Hello günlük verilerini görüntüler.
 
-Aşağıdaki resimde, sunucu, istemci ve ağ izleme günlük dosyaları ile yapılandırılmış bir örnek oturumu gösterilmektedir.
+Sunucu, istemci ve ağ izleme günlük dosyaları ile yapılandırılmış bir örnek oturumu Hello resimde gösterilmektedir.
 
 ![İleti Çözümleyicisi oturum yapılandırma](./media/storage-e2e-troubleshooting/configure-mma-session-1.png)
 
-İleti Çözümleyicisi belleğe günlük dosyalarını yükler unutmayın. Çok sayıda günlük verileri varsa, ileti Çözümleyicisi'nden en iyi performansı alabilmek için filtre uygulamak istediğiniz.
+İleti Çözümleyicisi belleğe günlük dosyalarını yükler unutmayın. Çok sayıda günlük verileri varsa, toofilter isteyeceksiniz sipariş tooget hello en iyi performansı Message Analyzer içinde.
 
-İlk olarak, gözden geçirme ilgilendiğiniz zaman aralığını belirleyin ve bu zaman dilimi olabildiğince küçük tutun. Çoğu durumda dakika veya saat en çok bir süre gözden geçirmek isteyeceksiniz. En küçük kümesini gereksinimlerinizi karşılayan günlükleri alın.
+İlk olarak, gözden geçirme ilgilendiğiniz hello zaman çerçevesi belirlemek ve bu zaman dilimi olabildiğince küçük tutun. Çoğu durumda tooreview dakika veya en çok saat dilimi isteyeceksiniz. Merhaba küçük gereksinimlerinizi karşılayan günlükleri kümesini içeri aktarın.
 
-Büyük miktarda günlük veri hala varsa, oturum filtrelemek için önce günlük verilerinizi yüklenmeye belirtmek isteyebilirsiniz. İçinde **oturum filtre** kutusunda **Kitaplığı** önceden tanımlanmış bir filtre seçmek için düğmesini; Örneğin, tercih **genel zaman filtresi ı** Azure depolama biriminden filtreler bir zaman aralığında filtre uygulamak için. Başlangıç ve zaman damgası görmek istediğiniz aralığı için bitiş belirtmek için filtre ölçütlerini daha sonra düzenleyebilirsiniz. Bir özel durum kodu de filtre uygulayabilirsiniz; Örneğin, yalnızca durum kodu 404 olduğu günlük girişlerini yük seçebilirsiniz.
+Büyük miktarda günlük veri hala varsa, bu yükleme önce sonra toospecify oturum filtre toofilter günlük verilerinizi isteyebilirsiniz. Merhaba, **oturum filtre** kutusu, select hello **Kitaplığı** düğmesini toochoose önceden tanımlanmış bir filtre; Örneğin, tercih **genel zaman filtresi ı** Azure Storage filtreler hello gelen bir zaman aralığı üzerinde toofilter. Merhaba filtre ölçütü toospecify hello başlangıç sonra düzenleyebilirsiniz ve zaman damgası başlangıç aralığı için bitiş toosee istiyorsunuz. Bir özel durum kodu de filtre uygulayabilirsiniz; Örneğin, hello durum kodu 404 olduğu tooload yalnızca günlük girişlerini seçebilirsiniz.
 
 Microsoft Message Analyzer günlük verilerini alma hakkında daha fazla bilgi için bkz: [ileti verilerini alma](http://technet.microsoft.com/library/dn772437.aspx) TechNet'te.
 
-### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>Günlük dosyası verilerini ilişkilendirmek için istemci İstek Kimliği'ni kullanın
-Azure Storage istemci kitaplığı, benzersiz istemci istek kimliği her istek için otomatik olarak oluşturur. İleti Çözümleyicisi içindeki tüm üç günlüklerini arasında verilerin bağıntısını kurmaya kullanabilmek için bu değer istemci günlüğü, sunucu günlüğü ve ağ izleme için yazılmıştır. Bkz: [istemci istek kimliği](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) istemci hakkında ek bilgi için kimliği isteyin.
+### <a name="use-hello-client-request-id-toocorrelate-log-file-data"></a>Merhaba istemci istek kimliği toocorrelate günlük dosyası verilerini kullanın
+Hello Azure Storage istemci kitaplığı, benzersiz istemci istek kimliği her istek için otomatik olarak oluşturur. İleti Çözümleyicisi içindeki tüm üç günlüklerini arasında toocorrelate veri kullanabilmek için bu değeri toohello istemci günlüğü, hello sunucu günlüğü ve hello ağ izleme, yazılır. Bkz: [istemci istek kimliği](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) hello istemci hakkında ek bilgi için kimliği isteyin.
 
-Aşağıdaki bölümler ilişkilendirmek için önceden yapılandırılmış ve özel yerleşim görünümleri kullanmayı açıklar ve Grup verileri istemci istek kimliği temel alınarak
+Merhaba aşağıdaki önceden yapılandırılmış toouse ve toocorrelate ve grup verilerini hello istemci isteği temel alarak özel yerleşim görünümlerin nasıl kimliği bölümlerde
 
-### <a name="select-a-view-layout-to-display-in-the-analysis-grid"></a>Analiz ızgarada gösterilecek bir görünüm düzeni seçin
-İleti Çözümleyicisi için depolama varlıkların yararlı gruplandırmaları ve sütunları farklı senaryolar için verilerinizle görüntülemek için kullanabileceğiniz önceden yapılandırılmış görünümler Azure depolama görünüm düzenleri içerir. Ayrıca, özel görünüm düzenleri oluşturabilir ve bunları yeniden kullanmak üzere kaydedin.
+### <a name="select-a-view-layout-toodisplay-in-hello-analysis-grid"></a>Hello analiz Izgara Görünümü düzeni toodisplay seçin
+İleti Çözümleyicisi için Hello depolama varlıkların önceden yapılandırılmış görünümler, toodisplay verilerinizi yararlı gruplandırmaları ve sütunlarla farklı senaryolar için kullanabileceğiniz Azure depolama görünüm düzenleri içerir. Ayrıca, özel görünüm düzenleri oluşturabilir ve bunları yeniden kullanmak üzere kaydedin.
 
-Resmin gösterir altında **görünüm düzeni** menüsünde seçerek kullanılabilir **görünüm düzeni** araç şeridinden. Azure Storage için Görünüm düzenleri altında gruplanan **Azure Storage** menüde düğümü. Arayabilirsiniz `Azure Storage` düzenleri yalnızca Azure depolama alanında filtrelemek için arama kutusunu görüntüleyin. Sık kullanılan yapmak ve menüsünün üstünde görüntülemek için bir görünüm düzeni yanındaki yıldız öğesini de seçebilirsiniz.
+Merhaba resimde gösterilmektedir hello **görünüm düzeni** menüsünde seçerek kullanılabilir **görünüm düzeni** hello araç şeridinden. Azure Storage için Hello görünüm düzenleri hello altında gruplandırılır **Azure Storage** hello menüde düğümü. Arayabilirsiniz `Azure Storage` hello arama kutusu toofilter Azure depolama üzerinde yalnızca düzenleri görüntüleyin. Merhaba yıldız sonraki tooa görünüm düzeni toomake öğesini de seçebilirsiniz sık kullanılan bir BT ve başlangıç menüsünde hello üstünde görüntüle.
 
 ![Düzen menüsü görüntüleme](./media/storage-e2e-troubleshooting/view-layout-menu.png)
 
-Başından itibaren seçin **ClientRequestID ve modül göre gruplandırılmış**. Bu görünüm düzeni üç günlüğü verileri ilk istemci istek kimliği, sonra bir kaynak günlük dosyasını günlük (veya **Modülü** ileti Çözümleyicisi). Bu görünüm ile belirli bir istemci istek kimliği detaya ve tüm üç günlük dosyaları için istemci istek kimliği verilerden bakın
+ile select toobegin **ClientRequestID ve modül göre gruplandırılmış**. Bu görünüm düzeni üç günlüğü verileri ilk istemci istek kimliği, sonra bir kaynak günlük dosyasını günlük (veya **Modülü** ileti Çözümleyicisi). Bu görünüm ile belirli bir istemci istek kimliği detaya ve tüm üç günlük dosyaları için istemci istek kimliği verilerden bakın
 
-Resim gösterir Aşağıda örnek günlük verilerle görüntülenen bir sütun alt kümesini bu görünümü uygulanır. Belirli bir istemci istek kimliği için istemci günlüğü, sunucu günlüğü ve ağ izleme verilerini analiz kılavuz görüntüler görebilirsiniz.
+Merhaba resimde bu düzeni görünüm uygulanmış toohello örnek günlük verileri, görüntülenen bir sütun alt kümesini gösterir. Belirli bir istemci istek kimliği için hello istemci günlüğü, sunucu günlüğü ve ağ izleme verilerini hello analiz kılavuz görüntüler görebilirsiniz.
 
 ![Azure depolama görünüm düzeni](./media/storage-e2e-troubleshooting/view-layout-client-request-id-module.png)
 
 > [!NOTE]
-> Farklı günlük dosyaları farklı sütuna sahip birden çok günlük dosyası verilerini analiz kılavuzunda görüntülendiğinde, belirli bir satır için herhangi bir veri bazı sütunları içermeyebilir şekilde. Örneğin, yukarıdaki resimde, istemci günlük satırları için tüm verileri gösterme **zaman damgası**, **TimeElapsed**, **kaynak**, ve **hedef** sütunları, çünkü bu sütun istemci günlüğünde yok, ancak ağ izleme yok. Benzer şekilde, **zaman damgası** sütun sunucu günlüğünden zaman damgası veri görüntüler, ancak hiçbir veri görüntülenen **TimeElapsed**, **kaynak**, ve **hedef** sunucu günlüğü parçası olmayan sütunları.
+> Farklı günlük dosyaları farklı sütuna sahip birden çok günlük dosyalarından veri hello analiz kılavuz görüntülendiğinde, belirli bir satır için herhangi bir veri bazı sütunları içermeyebilir şekilde. Örneğin, yukarıdaki hello resim istemci günlük satırları hello için herhangi bir veri gösterme **zaman damgası**, **TimeElapsed**, **kaynak**, ve **hedef** sütunları, çünkü bu sütunlar hello istemci günlüğünde yok ancak hello ağ izlemesinde mevcut. Benzer şekilde, hello **zaman damgası** sütunu zaman damgası veri hello sunucu günlüğünden görüntüler, ancak hiçbir veri Merhaba görüntülenir **TimeElapsed**, **kaynak**, ve  **Hedef** hello sunucu günlüğü parçası olmayan sütunları.
 > 
 > 
 
-Azure Storage görünüm düzenleri kullanmanın yanı sıra, aynı zamanda tanımlamak ve kendi görünüm düzenleri kaydedin. Verileri gruplandırma diğer istediğiniz alanları seçin ve gruplandırma özel düzeniniz de bir parçası olarak kaydedin.
+Ayrıca toousing hello Azure Storage görünüm düzenleri, ayrıca tanımlamak ve kendi görünüm düzenleri kaydedin. Verileri gruplandırma diğer istediğiniz alanları seçin ve hello gruplandırma özel düzeniniz de bir parçası olarak kaydedin.
 
-### <a name="apply-color-rules-to-the-analysis-grid"></a>Analiz kılavuza renk kuralları uygula
-Depolama varlıklar hataları çözümleme kılavuzunda farklı türlerini tanımlamak üzere bir görsel anlamına gelir teklif renk kurallarını da içerir. Yalnızca sunucu günlüğü ve ağ izleme için görünmesi için önceden tanımlanmış renk kuralları HTTP hataları için geçerlidir.
+### <a name="apply-color-rules-toohello-analysis-grid"></a>Renk kurallarını toohello analiz kılavuz Uygula
+Merhaba depolama varlıklar bir görsel tooidentify hello analiz kılavuz hataları farklı türlerde anlamına gelir. teklif renk kurallarını da içerir. yalnızca hello sunucu günlüğü ve ağ izleme için görüntülenecek şekilde hello önceden tanımlanmış renk kurallarını tooHTTP hatalar, geçerlidir.
 
-Renk kurallarını uygulamak için seçin **renk kurallarını** araç şeridinden. Azure Storage renk kurallarını menüde görürsünüz. Öğretici için seçin **istemci hataları (durum kodu 400-499 arasında)**, aşağıdaki resimde gösterildiği gibi.
+tooapply renk kurallarını seçin **renk kurallarını** hello araç şeridinden. Hello Azure Storage renk kurallarını hello menüde görürsünüz. Merhaba öğreticide seçin **istemci hataları (durum kodu 400-499 arasında)**hello aşağıda gösterildiği gibi.
 
 ![Azure depolama görünüm düzeni](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
-Azure Storage renk kurallarını kullanarak ek olarak, aynı zamanda tanımlamak ve kendi renk kurallarını kaydedin.
+Ayrıca toousing hello Azure Storage renk kuralları, ayrıca tanımlamak ve kendi renk kurallarını kaydedin.
 
-### <a name="group-and-filter-log-data-to-find-400-range-errors"></a>400-range hatalarını bulmak için Grup ve filtre günlük verileri
-Ardından, grubu ve tüm hataları 400 aralıkta bulmak için günlük verileri filtreleyin.
+### <a name="group-and-filter-log-data-toofind-400-range-errors"></a>Grup ve filtre veri toofind 400-range hatalarını günlüğe
+Ardından, grubu ve hello günlük veri toofind hello 400 aralığındaki tüm hataları filtre.
 
-1. Bulun **StatusCode** analiz kılavuz sütunu sağ sütun başlığını ve select **grup**.
-2. Ardından, gruplandırma **ClientRequestId** sütun. Verileri analiz kılavuzunda şimdi durum kodu ve istemci istek kimliği tarafından düzenlenir görürsünüz
-3. Zaten görüntülenmiyorsa, Görünüm filtresi araç penceresi görüntüler. Araç şeridinde seçin **aracı Windows**, ardından **Görünüm Filtresi**.
-4. Yalnızca 400-range hataları görüntülemek için günlük verilerini filtrelemek için aşağıdaki filtre ölçütü eklemek **Görünüm Filtresi** penceresi ve tıklatın **Uygula**:
+1. Merhaba bulun **StatusCode** hello analiz kılavuz, sağ hello sütun başlığını ve select sütununda **grup**.
+2. Ardından, hello üzerinde Grup **ClientRequestId** sütun. Analiz kılavuz şimdi durumu tarafından düzenlenen hello hello verilerde kod ve tarafından istemci istek kimliği görürsünüz
+3. Zaten görüntülenmiyorsa, hello Görünüm filtresi araç penceresi görüntüler. Merhaba araç şeridinde seçin **aracı Windows**, ardından **Görünüm Filtresi**.
+4. toofilter hello günlük veri toodisplay yalnızca 400 aralığı hataları, filtre ölçütü toohello aşağıdaki hello eklemek **Görünüm Filtresi** penceresi ve tıklatın **Uygula**:
 
     ```   
     (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
     ```
 
-Aşağıdaki resimde bu gruplandırma ve filtre sonuçlarını gösterir. Genişletme **ClientRequestID** durum kodu 409, gruplandırma altına alan Örneğin, bu durum kodunda sonuçlanan bir işlem gösterir.
+Merhaba resimde bu gruplandırma ve filtre hello sonuçları gösterilmektedir. Genişleyen hello **ClientRequestID** bu durum kodunda sonuçlanan bir işlem gösterir Durum kodu için 409, örneğin, gruplandırma hello alan.
 
 ![Azure depolama görünüm düzeni](./media/storage-e2e-troubleshooting/400-range-errors1.png)
 
-Bu filtre uygulandıktan sonra göreceğiniz istemci günlüğü satırları dışlanır, istemci olarak günlük içermemesi bir **StatusCode** sütun. Başından itibaren biz sunucu ve 404 hatalarını bulmak için ağ izleme günlüklerini gözden geçirin ve bunları neden istemci işlemleri incelemek için istemci günlüğüne sonra getireceğiz.
+Bu filtre uygulandıktan sonra göreceğiniz hello istemci günlüğü satırları dışlanır, hello istemci günlüğü içermemesi bir **StatusCode** sütun. toobegin ile biz hello sunucu ve ağ izleme günlükleri toolocate 404 hataları gözden geçirin ve ardından toothem eden toohello istemci günlük tooexamine hello istemci işlemleri getireceğiz.
 
 > [!NOTE]
-> Üzerindeki filtre **StatusCode** sütun ve hala durum kodunu olduğu null günlük girişlerini içeren filtre için bir ifade eklerseniz, istemci günlük dahil olmak üzere, tüm üç günlükleri görüntüleme verileri. Bu filtre ifadesi oluşturmak için kullanın:
+> Merhaba üzerinde filtreleyebilirsiniz **StatusCode** sütun ve yine de dahil olmak üzere, tüm üç günlükleri görüntüleme verilerden hello durum kodu olduğu null günlük girişlerini içeren bir ifade toohello filtre eklerseniz, istemci günlük hello. tooconstruct Bu filtre ifadesi kullanın:
 > 
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
 > 
-> Bu filtre tüm satırları istemciden günlük ve yalnızca sunucu günlüğü ve HTTP günlüğü satırlarından durum kodu 400'den büyük olduğu döndürür. İstemci istek kimliği ve modül göre gruplandırılmış görünümü Düzen uygularsanız, arama kaydırın veya istediğiniz tüm üç günlüklerini burada gösterilir olanları bulmak için günlük girişlerini aracılığıyla.   
+> Bu filtre tüm satırları hello istemciden günlük ve yalnızca hello sunucu günlüğü ve HTTP günlüğü satırlarından hello durum kodu 400'den büyük olduğu döndürür. İstemci istek kimliği ve modül göre gruplandırılmış toohello görünüm düzeni uygularsanız, arama yapabilir veya hello arasında kaydırma günlük girişleri toofind olanları üç günlüğü burada gösterilir.   
 > 
 > 
 
-### <a name="filter-log-data-to-find-404-errors"></a>404 hatalarını bulmak için filtre günlük verileri
-Depolama varlıklar hataları veya aradığınız eğilimleri bulmak için günlük verileri daraltmak için kullanabileceğiniz önceden tanımlanmış filtreler aşağıdakileri içerir. Ardından, şu iki önceden tanımlanmış filtre uygulamak: sunucu ve ağ izleme günlükleri 404 hataları filtreleyen ve verileri belirtilen zaman aralığı filtreleyen bir.
+### <a name="filter-log-data-toofind-404-errors"></a>Günlük veri toofind 404 hatalarını filtre
+Merhaba depolama varlıklar toonarrow veri toofind hello hataları günlüğe veya aradığınız eğilimleri kullanabileceğiniz önceden tanımlanmış filtreler aşağıdakileri içerir. Ardından, şu iki önceden tanımlanmış filtre uygulamak: hello sunucusu ve ağ izleme günlükleri 404 hataları filtreleyen ve hello verileri belirtilen zaman aralığı üzerinde filtreleyen bir.
 
-1. Zaten görüntülenmiyorsa, Görünüm filtresi araç penceresi görüntüler. Araç şeridinde seçin **aracı Windows**, ardından **Görünüm Filtresi**.
-2. Görünüm Filtresi penceresinde seçin **Kitaplığı**ve arama `Azure Storage` Azure Storage bulmak için filtreler. İçin filtreyi seçin **404 (bulunamadı) tüm günlüklerde iletileri**.
-3. Görüntü **Kitaplığı** menü yeniden bulun ve seçin **genel zaman filtresi**.
-4. Filtre, görüntülemek istediğiniz aralığı için gösterilen zaman damgaları düzenleyin. Bu, analiz etmek için veri aralığını daraltmak için yardımcı olur.
-5. Filtre aşağıdaki örneğe benzer görünmelidir. Tıklatın **Uygula** analiz kılavuza filtre uygulamak için.
+1. Zaten görüntülenmiyorsa, hello Görünüm filtresi araç penceresi görüntüler. Merhaba araç şeridinde seçin **aracı Windows**, ardından **Görünüm Filtresi**.
+2. Merhaba Görünüm Filtresi penceresinde seçin **Kitaplığı**ve arama `Azure Storage` toofind hello Azure Storage filtreler. Select hello filtresini **404 (bulunamadı) tüm günlüklerde iletileri**.
+3. Görüntü hello **Kitaplığı** menü yeniden bulun ve seçin hello **genel zaman filtresi**.
+4. Merhaba zaman damgaları tooview istediğiniz Hello filtre toohello aralığında gösterilen düzenleyin. Bu, veri tooanalyze toonarrow hello aralığı yardımcı olur.
+5. Filtre aşağıdaki benzer toohello örnek görüntülenmesi gerekir. Tıklatın **Uygula** tooapply hello filtre toohello analiz kılavuz.
 
     ```   
     ((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And
@@ -319,35 +319,35 @@ Depolama varlıklar hataları veya aradığınız eğilimleri bulmak için günl
     ![Azure depolama görünüm düzeni](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
 
 ### <a name="analyze-your-log-data"></a>Günlük verileri analiz etme
-Gruplandırılmış ve verilerinizi filtre göre üretilen 404 hatalarını tek tek isteklerin ayrıntıları inceleyebilirsiniz. Geçerli Görünüm düzende veri günlüğü kaynağı tarafından sonra istemci istek kimliği göre gruplandırılır. Biz isteklerinde, 404 StatusCode alanın içerdiği filtre olduğundan, yalnızca sunucu ve ağ izleme verilerini, istemci günlük verilerini göreceğiz.
+Gruplandırılmış ve verilerinizi filtre göre üretilen 404 hatalarını tek tek isteklerin hello ayrıntıları inceleyebilirsiniz. Merhaba geçerli görünümü düzende hello veri günlüğü kaynağı tarafından sonra istemci istek kimliği göre gruplandırılır. Biz isteklerinde, 404 hello StatusCode alan içerdiği filtre olduğundan, yalnızca hello sunucu ve ağ izleme verilerini, hello istemci günlük verileri değil göreceğiz.
 
-Aşağıdaki resimde belirli bir istek blob mevcut olmadığından bir Blob alma işlemi bir 404 burada verdiğini gösterir. Bazı sütunları Standart görünümden ilgili verileri görüntülemek için kaldırılmış unutmayın.
+Merhaba resimde belirli bir istek hello blob mevcut olmadığından bir Blob alma işlemi bir 404 burada verdiğini gösterir. Bazı sütunları görünümden hello standart sipariş toodisplay hello ilgili verileri kaldırılmış unutmayın.
 
 ![Filtrelenen sunucu ve ağ izleme günlükleri](./media/storage-e2e-troubleshooting/server-filtered-404-error.png)
 
-Ardından, biz bu istemci istek kimliği hata oluştuğunda istemci sürüyordu hangi eylemleri görmek için istemci günlük verileri ile ilişkilendirilmesi. İkinci bir sekmede açtığında istemci günlüğü verilerini görüntülemek bu oturum için yeni bir analiz Izgara Görünümü görüntüleyebilirsiniz:
+Ardından, biz bu istemci istek kimliği hello istemci günlük veri toosee ile Merhaba hata oluştuğunda hangi eylemleri hello istemci sürüyordu ilişkilendirilmesi. İkinci bir pencerede açılır bu oturumu tooview hello istemci günlük verileri için yeni bir analiz Izgara Görünümü görüntüleyebilirsiniz:
 
-1. İlk olarak, değerini kopyalayın **ClientRequestId** panoya alan. Bunu yapmak için her iki satır seçilmesi, bulma **ClientRequestId** alan, veri değeri sağ tıklayarak ve seçme **Kopyala 'ClientRequestId'**.
-2. Araç şeridinde seçin **yeni Viewer**seçeneğini belirleyip **analiz kılavuz** yeni bir sekme açın. Yeni sekmesi tüm verileri gruplandırma, filtre veya renk kurallarını olmadan, günlük dosyalarında gösterir.
-3. Araç şeridinde seçin **görünüm düzeni**seçeneğini belirleyip **tüm .NET istemci sütunları** altında **Azure Storage** bölümü. Bu görünüm düzeni, sunucu ve ağ izleme günlükleri yanı sıra günlük istemci verileri gösterir. Varsayılan olarak üzerinde sıralanır **MessageNumber** sütun.
-4. Ardından, istemci günlük istemci istek kimliği için arama Araç şeridinde seçin **iletileri Bul'u**, istemci istek kimliği üzerinde bir özel filtre belirtmek **Bul** alan. Kendi istemci istek kimliği belirleme filtresi için şu sözdizimini kullanın:
+1. İlk olarak, hello hello değerini kopyalayın **ClientRequestId** alan toohello Pano. Her iki satır seçerek hello bulma bunu yapabilirsiniz **ClientRequestId** hello veri değeri sağ tıklayarak ve seçme alan **Kopyala 'ClientRequestId'**.
+2. Merhaba araç şeridinde seçin **yeni Viewer**seçeneğini belirleyip **analiz kılavuz** tooopen yeni sekmesini hello yeni bir sekme gösteren tüm verileri gruplandırma, filtre veya renk kurallarını olmadan, günlük dosyalarında.
+3. Merhaba araç şeridinde seçin **görünüm düzeni**seçeneğini belirleyip **tüm .NET istemci sütunları** hello altında **Azure Storage** bölümü. Bu görünüm düzeni, sunucu ve ağ izleme günlükleri hello istemci günlüğü ve bunun yanı sıra hello verileri gösterir. Varsayılan olarak üzerinde hello sıralanır **MessageNumber** sütun.
+4. İleri arama hello istemci günlüğü hello istemci istek kimliği için Merhaba araç şeridinde seçin **iletileri Bul'u**, hello hello istemci istek kimliği üzerinde bir özel filtre belirtmek **Bul** alan. Kendi istemci istek kimliği belirtme hello filtre için aşağıdaki sözdizimini kullanın:
 
     ```
     *ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
     ```
 
-İleti Çözümleyicisi'ni bulur ve burada arama ölçütleriyle eşleşen istemci isteği kimliği ilk günlük girişi seçer İstemci günlüğü vardır her istemci istek kimliği için birden çok girişi, üzerinde gruplandırmak istediğiniz şekilde **ClientRequestId** hepsini bir araya görmeyi kolaylaştırmak için alan. Aşağıdaki resimde tüm iletileri istemci günlük için belirtilen istemci istek kimliği gösterir
+İleti Çözümleyicisi'ni bulur ve burada hello arama ölçütleriyle eşleşen hello istemci istek kimliği hello ilk günlük girişi seçer Merhaba istemci günlüğüne vardır her istemci istek kimliği için birden çok girişi toogroup isteyebilirsiniz hello uygulamaları **ClientRequestId** alan toomake bunu daha kolay toosee hepsini bir araya bunları. Merhaba resmin tüm hello İstemcisi'nde hello iletilerinin Merhaba günlük gösterir altında istemci istek kimliği belirtildi.
 
 ![İstemci günlük gösteren 404 hataları](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
 
-Bu iki sekme görünümü düzenleri gösterilen verileri kullanarak ne hataya neden belirlemek için istek verileri analiz edebilirsiniz. Ayrıca, önceki bir olayı 404 hatası neden, görmek için bunu öncesinde istekleri da bakabilirsiniz. Örneğin, bu istemci İstek Kimliği'blob silinmiş olup olmadığını veya hata nedeniyle bir kapsayıcı veya blob CreateIfNotExists API'yi çağıran istemci uygulaması ise belirlemek için önceki istemci günlük girişlerini gözden geçirebilirsiniz. İstemci günlüğünde blob'un adresinde bulabilirsiniz **açıklama** alan; sunucu ve ağ izleme günlükleri, bu bilgileri görünür **Özet** alan.
+Bu iki sekme hello görünüm düzenleri gösterilen hello verileri kullanarak ne hello hataya neden hello isteği veri toodetermine çözümleyebilirsiniz. Ayrıca, önceki bir olayı toohello 404 hatası neden, bu bir toosee öncesinde isteklerinin da bakabilirsiniz. Örneğin, bu istemci istek kimliği toodetermine hello blob silinmiş olup olmadığını veya hello hata nedeniyle bir kapsayıcı veya blob CreateIfNotExists API çağırma toohello istemci uygulaması ise önceki hello istemci günlük girişlerini gözden geçirebilirsiniz. Merhaba istemci günlüğünde hello hello blob'un adresi bulabilirsiniz **açıklama** alan; hello sunucu ve ağ izleme günlükleri, bu bilgileri hello görünür **Özet** alan.
 
-404 hatası verdiğini blob adresi öğrendikten sonra daha fazla araştırabilirsiniz. Günlük girişlerini aynı blob işlemleri ile ilişkili diğer iletiler için arama yaparsanız, istemci varlık daha önce silinmiş olup olmadığını kontrol edebilirsiniz.
+Başlangıç adresi hello 404 hatası verdiğini hello BLOB öğrendikten sonra daha fazla araştırabilirsiniz. Merhaba günlük girişlerini ile ilişkili diğer iletiler için arama yaparsanız hello işlemleri aynı blob, hello istemci hello varlık daha önce silinmiş olup olmadığını denetleyin.
 
 ## <a name="analyze-other-types-of-storage-errors"></a>Başka tür depolama hataları çözümleme
-İleti Çözümleyicisi günlük verilerinizi çözümlemek için kullandıysanız, başka tür görünümünü kullanarak hataları çözümleyebilirsiniz düzenleri, renk kurallarını ve arama ve filtreleme. Aşağıdaki tablolarda, karşılaşabileceğiniz bazı sorunlar ve bunları bulmak için kullanabileceğiniz filtreleme ölçütlerini listeler. Filtreler ve dil filtreleme ileti Çözümleyicisi oluşturma ile ilgili daha fazla bilgi için bkz: [ileti verileri filtreleme](http://technet.microsoft.com/library/jj819365.aspx).
+İleti Çözümleyicisi tooanalyze günlük verilerinizi kullandıysanız, başka tür görünümünü kullanarak hataları çözümleyebilirsiniz düzenleri, renk kurallarını ve arama ve filtreleme. Merhaba tabloları listelerde bazı sorunlar karşılaşırsanız ve toolocate kullanabileceğiniz filtreleme ölçütlerini hello bunları. Dil filtresi filtreleri ve hello ileti Çözümleyicisi oluşturma hakkında daha fazla bilgi için bkz [ileti verileri filtreleme](http://technet.microsoft.com/library/jj819365.aspx).
 
-| Araştırmak için... | Filtre ifadesi kullan... | İfade günlüğüne uygular (istemci, sunucu, ağ, tüm) |
+| tooInvestigate... | Filtre ifadesi kullan... | İfade uygulanacağı tooLog (istemci, sunucu, ağ, tüm) |
 | --- | --- | --- |
 | Bir kuyruk iletisi Teslimde beklenmeyen gecikme |"Yeniden deneniyor, işlem başarısız oldu." AzureStorageClientDotNetV4.Description içerir |İstemci |
 | HTTP PercentThrottlingError artış |HTTP. Response.StatusCode 500 &#124; &#124; == HTTP. Response.StatusCode 503 == |Ağ |
@@ -370,6 +370,6 @@ Azure storage'da sorun giderme uçtan uca senaryoları hakkında daha fazla bilg
 
 * [İzleme, tanılama ve Microsoft Azure Storage sorunlarını giderme](storage-monitoring-diagnosing-troubleshooting.md)
 * [Depolama Analizi](http://msdn.microsoft.com/library/azure/hh343270.aspx)
-* [Azure portalında bir depolama hesabını izleme](storage-monitor-storage-account.md)
-* [AzCopy Komut Satırı Yardımcı Programı ile veri aktarımı](storage-use-azcopy.md)
+* [İzleyici bir depolama hesabında hello Azure portalı](storage-monitor-storage-account.md)
+* [Merhaba AzCopy komut satırı yardımcı programı ile veri aktarımı](storage-use-azcopy.md)
 * [Microsoft Message Analyzer işletim kılavuzu](http://technet.microsoft.com/library/jj649776.aspx)

@@ -1,6 +1,6 @@
 ---
-title: "Hdınsight'ta Hadoop Oozie kullanın | Microsoft Docs"
-description: "Hadoop Oozie Hdınsight, büyük veri hizmeti kullanın. Oozie iş akışı tanımlamak ve Oozie işi göndermek öğrenin."
+title: "hdınsight'ta Hadoop Oozie aaaUse | Microsoft Docs"
+description: "Hadoop Oozie Hdınsight, büyük veri hizmeti kullanın. Bilgi nasıl toodefine bir Oozie iş akışı ve Oozie işi gönderin."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -17,31 +17,31 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 36fe3e4220ec92699b6d52cba47cd6b83f361d66
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 12d0cf1a01838ab0f4e699c384ce2fb18f85cbad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Oozie Hadoop ile tanımlamak ve Hdınsight'ta bir iş akışını çalıştırmak için kullanın.
+# <a name="use-oozie-with-hadoop-toodefine-and-run-a-workflow-in-hdinsight"></a>Hdınsight'ta bir iş akışını çalıştırma ve Hadoop toodefine ile Oozie kullanın
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Apache Oozie bir iş akışı tanımlayın ve üzerinde Hdınsight iş akışını çalıştırmak için nasıl kullanılacağını öğrenin. Oozie Düzenleyicisi hakkında bilgi edinmek için [Hdınsight ile zamana dayalı Oozie Düzenleyicisi Hadoop kullanma][hdinsight-oozie-coordinator-time]. Azure Data Factory öğrenmek için bkz: [kullanım Pig ve Hive Data Factory ile][azure-data-factory-pig-hive].
+Hdınsight iş akışında toouse Apache Oozie toodefine bir iş akışı ve Çalıştır nasıl hello öğrenin. toolearn hello Oozie Düzenleyicisi hakkında bkz [Hdınsight ile zamana dayalı Oozie Düzenleyicisi Hadoop kullanma][hdinsight-oozie-coordinator-time]. Azure Data Factory toolearn bkz [kullanım Pig ve Hive Data Factory ile][azure-data-factory-pig-hive].
 
-Apache Oozie, Hadoop işlerini yöneten bir iş akışı/koordinasyon sistemidir. Bu Hadoop yığını ile tümleşiktir ve Apache MapReduce, Apache Pig, Apache Hive ve Apache Sqoop için Hadoop işlerini destekler. Ayrıca, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanılabilir.
+Apache Oozie, Hadoop işlerini yöneten bir iş akışı/koordinasyon sistemidir. Merhaba Hadoop yığını ile tümleştirilir ve Apache MapReduce, Apache Pig, Apache Hive ve Apache Sqoop için Hadoop işlerini destekler. Ayrıca, Java programları veya kabuk betikleri gibi belirli tooa sistem kullanılan tooschedule işler de olabilir.
 
-Bu öğreticide yönergeleri izleyerek uygulama iş akışı iki eylemleri içerir:
+Bu öğreticide hello yönergeleri izleyerek uygulamak hello iş akışı iki eylemleri içerir:
 
 ![İş akışı diyagramı][img-workflow-diagram]
 
-1. Hive eylem log4j dosyasını her günlük düzeyi türünün oluşumları saymak için HiveQL betiğini çalıştırır. Her log4j dosyasını türünün ve önem örneğin gösterir [günlük düzeyi] alan içeren bir dizi alanlarının oluşur:
+1. Bir Hive eylem HiveQL betiğini toocount hello log4j dosyasında her günlük düzeyi türü oluşumları çalıştırır. Her log4j dosyasını hello türü ve hello önem derecesi, örneğin gösteren bir [günlük düzeyi] alan içeren bir dizi alanlarının oluşur:
    
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
         2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
         ...
    
-    Hive betiği çıkış benzer:
+    Merhaba Hive betik çıktısı benzer:
    
         [DEBUG] 434
         [ERROR] 3
@@ -51,15 +51,15 @@ Bu öğreticide yönergeleri izleyerek uygulama iş akışı iki eylemleri içer
         [WARN]  4
    
     Hive hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma][hdinsight-use-hive].
-2. Sqoop eylem HiveQL çıktı Azure SQL veritabanındaki bir tablo dışa aktarır. Sqoop hakkında daha fazla bilgi için bkz: [Hdınsight ile kullanım Hadoop Sqoop][hdinsight-use-sqoop].
+2. Sqoop eylemin hello HiveQL çıkış tooa bir Azure SQL veritabanı tablosunda dışa aktarır. Sqoop hakkında daha fazla bilgi için bkz: [Hdınsight ile kullanım Hadoop Sqoop][hdinsight-use-sqoop].
 
 > [!NOTE]
-> Hdınsight kümelerinde desteklenen Oozie sürümleri için bkz: [Hdınsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?] [hdinsight-versions].
+> Hdınsight kümelerinde desteklenen Oozie sürümleri için bkz: [Hdınsight tarafından sağlanan hello Hadoop küme sürümlerindeki yenilikler nelerdir?] [hdinsight-versions].
 > 
 > 
 
 ### <a name="prerequisites"></a>Ön koşullar
-Bu öğreticiye başlamadan önce aşağıdaki öğesi olması gerekir:
+Bu öğreticiye başlamadan önce hello öğesi aşağıdaki olması gerekir:
 
 * **Azure PowerShell içeren bir iş istasyonu**. 
   
@@ -67,11 +67,11 @@ Bu öğreticiye başlamadan önce aşağıdaki öğesi olması gerekir:
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
   
 
-## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Oozie iş akışı ve ilgili HiveQL betiğini tanımlayın
-Oozie iş akışı tanımları hPDL (XML işlem tanım dili) yazılır. Varsayılan iş akışı dosya adı *workflow.xml*. Bu öğreticide kullandığınız iş akışı dosyası verilmiştir.
+## <a name="define-oozie-workflow-and-hello-related-hiveql-script"></a>Merhaba HiveQL betiğini ilgili ve Oozie iş akışı tanımlama
+Oozie iş akışı tanımları hPDL (XML işlem tanım dili) yazılır. Merhaba varsayılan iş akışı dosya adı *workflow.xml*. Merhaba, bu öğreticide kullandığınız hello iş akışı dosyası aşağıdadır.
 
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
-        <start to = "RunHiveScript"/>
+        <start too= "RunHiveScript"/>
 
         <action name="RunHiveScript">
             <hive xmlns="uri:oozie:hive-action:0.2">
@@ -125,80 +125,80 @@ Oozie iş akışı tanımları hPDL (XML işlem tanım dili) yazılır. Varsayı
         <end name="end"/>
     </workflow-app>
 
-İş akışında tanımlanan iki eylemler vardır. Başlangıç için eylem *RunHiveScript*. Eylem başarıyla çalışırsa, bir sonraki eylem olan *RunSqoopExport*.
+Merhaba iş akışında tanımlanan iki eylemler vardır. Merhaba start-tooaction olan *RunHiveScript*. Merhaba eylemi başarıyla çalışırsa, hello sonraki eylemdir *RunSqoopExport*.
 
-RunHiveScript birkaç değişkeni yok. Azure PowerShell kullanarak Oozie iş istasyonunuzdan gönderdiğinizde değerlerini geçirin.
+Merhaba RunHiveScript birkaç değişkeni yok. Azure PowerShell kullanarak hello Oozie iş istasyonunuzdan gönderdiğinizde hello değerlerini geçirin.
 
 <table border = "1">
 <tr><th>İş akışı değişkenleri</th><th>Açıklama</th></tr>
-<tr><td>${Jobtracker'a}</td><td>Hadoop işi İzleyicisi URL'sini belirtir. Kullanım <strong>jobtrackerhost:9010</strong> Hdınsight sürüm 3.0 ve 2.1 içinde.</td></tr>
-<tr><td>${İş}</td><td>Hadoop adı düğümü URL'sini belirtir. Örneğin, varsayılan dosya sistemi adresi kullanın <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>İş için gönderildiğinde sıra adı belirtir. Kullanım <strong>varsayılan</strong>.</td></tr>
+<tr><td>${Jobtracker'a}</td><td>Merhaba Hadoop işi İzleyicisi Merhaba URL'sini belirtir. Kullanım <strong>jobtrackerhost:9010</strong> Hdınsight sürüm 3.0 ve 2.1 içinde.</td></tr>
+<tr><td>${İş}</td><td>Merhaba Hadoop adı düğümü Hello URL'sini belirtir. Örneğin, Hello varsayılan dosya sistemi adresini kullanın <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
+<tr><td>${queueName}</td><td>İş hello hello sıra adı gönderildiği belirtir. Kullanım hello <strong>varsayılan</strong>.</td></tr>
 </table>
 
 <table border = "1">
 <tr><th>Eylem değişkeni yığını</th><th>Açıklama</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Create Table Hive komutu için kaynak dizini belirtir.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>INSERT üzerine deyimi için çıkış klasörünü belirtir.</td></tr>
-<tr><td>${hiveTableName}</td><td>Log4j veri dosyalarına başvuran Hive tablosu adını belirtir.</td></tr>
+<tr><td>${hiveDataFolder}</td><td>Merhaba hello Hive Create Table komutu için kaynak dizini belirtir.</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>Merhaba Ekle üzerine deyimi için Hello çıkış klasörünü belirtir.</td></tr>
+<tr><td>${hiveTableName}</td><td>Merhaba log4j veri dosyalarına başvuran hello Hive tablosu Hello adını belirtir.</td></tr>
 </table>
 
 <table border = "1">
 <tr><th>Sqoop eylem değişkeni</th><th>Açıklama</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Azure SQL veritabanı bağlantı dizesi belirtir.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Veriler için dışa Azure SQL veritabanı tablosu belirtir.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Hive Ekle üzerine deyimi için çıkış klasörünü belirtir. Bu Sqoop verme (verme-dir) için aynı klasörüdür.</td></tr>
+<tr><td>${sqlDatabaseConnectionString}</td><td>Hello Azure SQL veritabanı bağlantı dizesi belirtir.</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>Merhaba veriler için dışa hello Azure SQL veritabanı tablosunda belirtir.</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>Merhaba Hive Ekle üzerine deyimi için Hello çıkış klasörünü belirtir. Merhaba budur aynı klasöre hello Sqoop verme (verme-dir).</td></tr>
 </table>
 
 Oozie iş akışı ve iş akışı eylemlerinin kullanma hakkında daha fazla bilgi için bkz: [Apache Oozie 4.0 belgelerine] [ apache-oozie-400] (Hdınsight sürüm 3.0 için) veya [Apache Oozie 3.3.2 belgelerine] [ apache-oozie-332] (Hdınsight sürüm 2.1 için).
 
-İş akışı Hive eylemde HiveQL komut dosyasını çağırır. Bu komut dosyasını üç HiveQL ifadelerini içerir:
+Merhaba Hive eylemin hello iş akışında bir HiveQL komut dosyasını çağırır. Bu komut dosyasını üç HiveQL ifadelerini içerir:
 
     DROP TABLE ${hiveTableName};
     CREATE EXTERNAL TABLE ${hiveTableName}(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION '${hiveDataFolder}';
     INSERT OVERWRITE DIRECTORY '${hiveOutputFolder}' SELECT t4 AS sev, COUNT(*) AS cnt FROM ${hiveTableName} WHERE t4 LIKE '[%' GROUP BY t4;
 
-1. **DROP TABLE deyimi** varsa log4j Hive tablosu siler.
-2. **CREATE TABLE deyimi** log4j günlük dosyası konumuna işaret log4j Hive dış tablo oluşturur. Alan sınırlayıcı ",". Varsayılan satır ayırıcı "\n" dir. Hive dış tablo birden çok kez Oozie iş akışını çalıştırmak istiyorsanız, özgün konumundan kaldırılmakta olan veri dosyası önlemek için kullanılır.
-3. **INSERT üzerine deyimi** log4j Hive tablosu her günlük düzeyi türünden oluşumlarını sayar ve çıktı Azure storage'da bir blob kaydeder.
+1. **Merhaba DROP TABLE deyimi** siler hello log4j Hive tablosu varsa.
+2. **Merhaba CREATE TABLE deyimi** toohello hello log4j günlük dosyasının konumunu işaret log4j Hive dış tablo oluşturur. Merhaba alan sınırlayıcı ",". Merhaba varsayılan satır ayırıcı "\n" dir. Hive dış tablo birden çok kez toorun hello Oozie iş akışı istiyorsanız hello özgün konumundan kaldırılmakta kullanılan tooavoid hello veri dosyasıdır.
+3. **Merhaba Ekle üzerine deyimi** hello log4j Hive tablosu her günlük düzeyi türünden hello oluşumlarını sayar ve Azure depolama alanında hello çıktı tooa blob kaydeder.
 
-Komut dosyasında kullanılan üç değişkenleri şunlardır:
+Merhaba komut dosyasında kullanılan üç değişkenleri şunlardır:
 
 * ${hiveTableName}
 * ${hiveDataFolder}
 * ${hiveOutputFolder}
 
-İş akışı tanımı dosyası (Bu öğreticide workflow.xml) bu değerleri bu HiveQL betiğini çalışma zamanında geçirir.
+Merhaba iş akışı tanımı dosyası (Bu öğreticide workflow.xml) bu değerleri toothis çalışma zamanında HiveQL betiğini geçirir.
 
-İş akışı dosyası ve HiveQL dosya bir blob kapsayıcısında depolanır.  Daha sonra Bu öğreticide kullandığınız PowerShell Betiği hem dosyaları için varsayılan depolama hesabı kopyalar. 
+Merhaba iş akışı dosyası ve hello HiveQL dosya bir blob kapsayıcısında depolanır.  Merhaba, daha sonra Bu öğreticide kullandığınız PowerShell Betiği hem dosyaları toohello varsayılan depolama hesabı kopyalar. 
 
 ## <a name="submit-oozie-jobs-using-powershell"></a>PowerShell kullanarak Oozie işlerini gönderme
-Azure PowerShell cmdlet'lerin Oozie işleri tanımlamak için şu anda sağlamaz. Kullanabileceğiniz **Invoke-RestMethod** cmdlet'ini Oozie web hizmetlerini çağırır. Oozie web hizmetleri API'si bir HTTP REST JSON API'dir. Oozie web hizmetleri API'si hakkında daha fazla bilgi için bkz: [Apache Oozie 4.0 belgelerine] [ apache-oozie-400] (Hdınsight sürüm 3.0 için) veya [Apache Oozie 3.3.2 belgelerine] [ apache-oozie-332] (Hdınsight sürüm 2.1 için).
+Azure PowerShell cmdlet'lerin Oozie işleri tanımlamak için şu anda sağlamaz. Merhaba kullanabilirsiniz **Invoke-RestMethod** cmdlet tooinvoke Oozie web hizmetleri. bir HTTP REST JSON API Hello Oozie web hizmetleri API'si var. Merhaba Oozie web hizmetleri API'si hakkında daha fazla bilgi için bkz: [Apache Oozie 4.0 belgelerine] [ apache-oozie-400] (Hdınsight sürüm 3.0 için) veya [Apache Oozie 3.3.2 belgelerine] [ apache-oozie-332] (Hdınsight sürüm 2.1 için).
 
-Bu bölümdeki PowerShell Betiği aşağıdaki adımları gerçekleştirir:
+Merhaba PowerShell Betiği bu bölümdeki hello aşağıdaki adımları gerçekleştirir:
 
-1. Azure'a bağlayın.
+1. TooAzure bağlanın.
 2. Bir Azure kaynak grubu oluşturun. Daha fazla bilgi için bkz: [kullanım Azure PowerShell'i Azure Resource Manager ile](../powershell-azure-resource-manager.md).
-3. Bir Azure SQL veritabanı sunucusu, Azure SQL veritabanına ve iki tablo oluşturun. Bunlar, Sqoop eylem iş akışı tarafından kullanılır.
+3. Bir Azure SQL veritabanı sunucusu, Azure SQL veritabanına ve iki tablo oluşturun. Bunlar, hello Sqoop eylemin hello iş akışında tarafından kullanılır.
    
-    Tablo adı *log4jLogCount*.
-4. Oozie işlerini çalıştırmak için kullanılan Hdınsight kümesi oluşturun.
+    Merhaba tablo adı *log4jLogCount*.
+4. Bir Hdınsight kümesi kullanılan toorun Oozie işleri oluşturun.
    
-    Küme incelemek için Azure portalında veya Azure PowerShell'i kullanabilirsiniz.
-5. Oozie iş akışı dosyası ve HiveQL komut dosyası için varsayılan dosya sistemi kopyalayın.
+    tooexamine hello küme hello Azure portalında veya Azure PowerShell'i kullanabilirsiniz.
+5. Merhaba oozie iş akışı dosyası ve hello HiveQL betiğini dosya toohello varsayılan dosya sistemi kopyalayın.
    
     Her iki dosyaları bir ortak Blob kapsayıcısında depolanır.
    
-   * HiveQL betiğini (useoozie.hql) (wasb:///tutorials/useoozie/useoozie.hql) Azure depolama alanına kopyalayın.
-   * Workflow.XML için wasb:///tutorials/useoozie/workflow.xml kopyalayın.
-   * Veri dosyasını kopyalayın (/ example/data/sample.log) wasb:///tutorials/useoozie/data/sample.log için.
+   * Merhaba HiveQL betiğini (useoozie.hql) tooAzure depolama (wasb:///tutorials/useoozie/useoozie.hql) kopyalayın.
+   * Workflow.XML toowasb:///tutorials/useoozie/workflow.xml kopyalayın.
+   * Kopya hello veri dosyası (/ example/data/sample.log) toowasb:///tutorials/useoozie/data/sample.log.
 6. Oozie işi gönderin.
    
-    OOzie iş sonuçları incelemek için Azure SQL veritabanına bağlanmak için Visual Studio veya diğer Araçlar'ı kullanın.
+    tooexamine hello OOzie iş sonuçları, Visual Studio'ya veya diğer araçlar tooconnect toohello Azure SQL Database kullanın.
 
-Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasını çalıştırabilirsiniz. Yalnızca ilk 7 değişkenleri yapılandırmanız gerekir.
+Burada, hello betik verilmiştir.  Windows PowerShell ISE hello komut dosyasını çalıştırabilirsiniz. Tooconfigure yeterlidir ilk 7 değişkenleri hello.
 
-    #region - provide the following values
+    #region - provide hello following values
 
     $subscriptionID = "<Enter your Azure subscription ID>"
 
@@ -207,7 +207,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
     $sqlDatabasePassword = "<Enter SQL Database Login Password>"
 
     # HDInsight cluster HTTP user credential used for creating and connectin
-    $httpUserName = "admin"  # The default name is "admin"
+    $httpUserName = "admin"  # hello default name is "admin"
     $httpPassword = "<Enter HDInsight Cluster HTTP User Password>"
 
     # Used for creating Azure service names
@@ -240,8 +240,8 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
     # Treat all errors as terminating
     $ErrorActionPreference = "Stop"
 
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{
         Login-AzureRmAccount
@@ -285,8 +285,8 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
             -StartIpAddress $workstationIPAddress `
             -EndIpAddress $workstationIPAddress
 
-        #To allow other Azure services to access the server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. 
-        #Note that this allows Azure traffic from any Azure subscription to access the server.
+        #tooallow other Azure services tooaccess hello server add a firewall rule and set both hello StartIpAddress and EndIpAddress too0.0.0.0. 
+        #Note that this allows Azure traffic from any Azure subscription tooaccess hello server.
         New-AzureRmSqlServerFirewallRule `
             -ResourceGroupName $resourceGroupName `
             -ServerName $sqlDatabaseServerName `
@@ -316,7 +316,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
     #endregion
 
     #region - Create SQL database tables
-    Write-Host "Creating the log4jlogs table  ..." -ForegroundColor Green
+    Write-Host "Creating hello log4jlogs table  ..." -ForegroundColor Green
 
     $sqlDatabaseTableName = "log4jLogsCount"
     $cmdCreateLog4jCountTable = " CREATE TABLE [dbo].[$sqlDatabaseTableName](
@@ -332,7 +332,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
     $conn.ConnectionString = $sqlDatabaseConnectionString
     $conn.Open()
 
-    # Create the log4jlogs table and index
+    # Create hello log4jlogs table and index
     $cmd = New-Object System.Data.SqlClient.SqlCommand
     $cmd.Connection = $conn
     $cmd.CommandText = $cmdCreateLog4jCountTable
@@ -343,16 +343,16 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
 
     #region - Create HDInsight cluster
 
-    Write-Host "Creating the HDInsight cluster and the dependent services ..." -ForegroundColor Green
+    Write-Host "Creating hello HDInsight cluster and hello dependent services ..." -ForegroundColor Green
 
-    # Create the default storage account
+    # Create hello default storage account
     New-AzureRmStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
         -Location $location `
         -Type Standard_LRS
 
-    # Create the default Blob container
+    # Create hello default Blob container
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
@@ -363,7 +363,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
         -Name $defaultBlobContainerName `
         -Context $defaultStorageAccountContext 
 
-    # Create the HDInsight cluster
+    # Create hello HDInsight cluster
     $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
     $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
 
@@ -379,7 +379,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
         -DefaultStorageAccountKey $defaultStorageAccountKey `
         -DefaultStorageContainer $defaultBlobContainerName 
 
-    # Validate the cluster
+    # Validate hello cluster
     Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
     #endregion
 
@@ -390,8 +390,8 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
     # Both files are stored in a public Blob
     $publicBlobContext = New-AzureStorageContext -StorageAccountName "hditutorialdata" -Anonymous
 
-    # WASB folder for storing the Oozie tutorial files.
-    $destFolder = "tutorials/useoozie"  # Do NOT use the long path here
+    # WASB folder for storing hello Oozie tutorial files.
+    $destFolder = "tutorials/useoozie"  # Do NOT use hello long path here
 
     Start-CopyAzureStorageBlob `
         -Context $publicBlobContext `
@@ -411,7 +411,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
         -DestBlob "$destFolder/workflow.xml" `
         -Force
 
-    #validate the copy
+    #validate hello copy
     Get-AzureStorageBlob `
         -Context $defaultStorageAccountContext `
         -Container $defaultBlobContainerName `
@@ -424,9 +424,9 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
 
     #endregion
 
-    #region - copy the sample.log file
+    #region - copy hello sample.log file
 
-    Write-Host "Make a copy of the sample.log file ... " -ForegroundColor Green
+    Write-Host "Make a copy of hello sample.log file ... " -ForegroundColor Green
 
     Start-CopyAzureStorageBlob `
         -Context $defaultStorageAccountContext `
@@ -436,7 +436,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
         -DestContainer $defaultBlobContainerName `
         -destBlob "$destFolder/data/sample.log" 
 
-    #validate the copy
+    #validate hello copy
     Get-AzureStorageBlob `
         -Context $defaultStorageAccountContext `
         -Container $defaultBlobContainerName `
@@ -451,7 +451,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
     $oozieJobName = $namePrefix + "OozieJob"
 
     #Oozie WF variables
-    $oozieWFPath="$storageUri/tutorials/useoozie"  # The default name is workflow.xml. And you don't need to specify the file name.
+    $oozieWFPath="$storageUri/tutorials/useoozie"  # hello default name is workflow.xml. And you don't need toospecify hello file name.
     $waitTimeBetweenOozieJobStatusCheck=10
 
     #Hive action variables
@@ -539,7 +539,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
     Write-Host "Oozie server status is $oozieServerSatus."
 
     # create Oozie job
-    Write-Host "Sending the following Payload to the cluster:" -ForegroundColor Green
+    Write-Host "Sending hello following Payload toohello cluster:" -ForegroundColor Green
     Write-Host "`n--------`n$OoziePayload`n--------"
     $clusterUriCreateJob = "https://$hdinsightClusterName.azurehdinsight.net:443/oozie/v2/jobs"
     $response = Invoke-RestMethod -Method Post -Uri $clusterUriCreateJob -Credential $httpCredential -Body $OoziePayload -ContentType "application/xml" -OutVariable $OozieJobName #-debug
@@ -549,15 +549,15 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
     Write-Host "Oozie job id is $oozieJobId..."
 
     # start Oozie job
-    Write-Host "Starting the Oozie job $oozieJobId..." -ForegroundColor Green
+    Write-Host "Starting hello Oozie job $oozieJobId..." -ForegroundColor Green
     $clusterUriStartJob = "https://$hdinsightClusterName.azurehdinsight.net:443/oozie/v2/job/" + $oozieJobId + "?action=start"
     $response = Invoke-RestMethod -Method Put -Uri $clusterUriStartJob -Credential $httpCredential | Format-Table -HideTableHeaders #-debug
 
     # get job status
-    Write-Host "Sleeping for $waitTimeBetweenOozieJobStatusCheck seconds until the job metadata is populated in the Oozie metastore..." -ForegroundColor Green
+    Write-Host "Sleeping for $waitTimeBetweenOozieJobStatusCheck seconds until hello job metadata is populated in hello Oozie metastore..." -ForegroundColor Green
     Start-Sleep -Seconds $waitTimeBetweenOozieJobStatusCheck
 
-    Write-Host "Getting job status and waiting for the job to complete..." -ForegroundColor Green
+    Write-Host "Getting job status and waiting for hello job toocomplete..." -ForegroundColor Green
     $clusterUriGetJobStatus = "https://$hdinsightClusterName.azurehdinsight.net:443/oozie/v2/job/" + $oozieJobId + "?show=info"
     $response = Invoke-RestMethod -Method Get -Uri $clusterUriGetJobStatus -Credential $httpCredential
     $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
@@ -565,7 +565,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
 
     while($JobStatus -notmatch "SUCCEEDED|KILLED")
     {
-        Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state...waiting $waitTimeBetweenOozieJobStatusCheck seconds for the job to complete..."
+        Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state...waiting $waitTimeBetweenOozieJobStatusCheck seconds for hello job toocomplete..."
         Start-Sleep -Seconds $waitTimeBetweenOozieJobStatusCheck
         $response = Invoke-RestMethod -Method Get -Uri $clusterUriGetJobStatus -Credential $httpCredential
         $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
@@ -578,12 +578,12 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE komut dosyasın�
     #endregion
 
 
-**Öğreticiyi yeniden çalıştırmak için**
+**toore çalıştırma başlangıç Öğreticisi**
 
-İş akışını yeniden çalıştırmak için aşağıdaki öğeleri silmeniz gerekir:
+toore çalıştırma hello iş akışı öğeleri aşağıdaki hello silmeniz gerekir:
 
-* Hive betiği çıkış dosyası
-* Log4jLogsCount tablosundaki verileri
+* Merhaba Hive betik çıkış dosyası
+* Merhaba log4jLogsCount tablosunda Hello veri
 
 Kullanabileceğiniz bir örnek PowerShell komut dosyasını şöyledir:
 
@@ -599,14 +599,14 @@ Kullanabileceğiniz bir örnek PowerShell komut dosyasını şöyledir:
     $sqlDatabaseName = "<SQLDatabaseName>"
     $sqlDatabaseTableName = "log4jLogsCount"
 
-    Write-host "Delete the Hive script output file ..." -ForegroundColor Green
+    Write-host "Delete hello Hive script output file ..." -ForegroundColor Green
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                 -ResourceGroupName $resourceGroupName `
                                 -Name $defaultStorageAccountName)[0].Value
     $destContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
     Remove-AzureStorageBlob -Context $destContext -Blob "tutorials/useoozie/output/000000_0" -Container $defaultBlobContainerName
 
-    Write-host "Delete all the records from the log4jLogsCount table ..." -ForegroundColor Green
+    Write-host "Delete all hello records from hello log4jLogsCount table ..." -ForegroundColor Green
     $conn = New-Object System.Data.SqlClient.SqlConnection
     $conn.ConnectionString = "Data Source=$sqlDatabaseServerName.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseLogin;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
     $conn.open()
@@ -618,10 +618,10 @@ Kullanabileceğiniz bir örnek PowerShell komut dosyasını şöyledir:
     $conn.close()
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Oozie iş akışı tanımlama ve PowerShell kullanarak bir Oozie işi çalıştırmak öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu öğreticide, nasıl öğrenilen toodefine bir Oozie iş akışı ve nasıl toorun bir Oozie iş PowerShell kullanarak. toolearn daha makaleler hello bakın:
 
 * [Hdınsight ile zamana dayalı Oozie düzenleyicisi kullanın][hdinsight-oozie-coordinator-time]
-* [Hadoop ile hdınsight'ta Hive mobil ahize kullanımını çözümleme için kullanmaya başlama][hdinsight-get-started]
+* [Hadoop ile Hive Hdınsight tooanalyze mobil ahize kullanımda kullanmaya başlama][hdinsight-get-started]
 * [Hdınsight ile Azure Blob storage kullanma][hdinsight-storage]
 * [PowerShell kullanarak Hdınsight yönetme][hdinsight-admin-powershell]
 * [Hdınsight'ta Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data]

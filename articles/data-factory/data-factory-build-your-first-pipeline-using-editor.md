@@ -1,6 +1,6 @@
 ---
-title: "İlk data factory’nizi derleme (Azure portalı) | Microsoft Belgeleri"
-description: "Bu öğreticide, Azure Portal'daki Data Factory Düzenleyiciyi kullanarak örnek bir Azure Data Factory işlem hattı oluşturursunuz."
+title: "aaaBuild ilk data factory'nizi (Azure portalı) | Microsoft Docs"
+description: "Bu öğreticide Data Factory Düzenleyici'hello Azure portal kullanarak örnek bir Azure Data Factory işlem hattı oluşturacaksınız."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 9c958aecb841fa02349c6b9e5e1984f6ba4fb611
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fc80776001b181a59c04d80d2e05c20b107a63f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>Öğretici: Azure portal kullanarak ilk Azure data factory’nizi derleme
 > [!div class="op_single_selector"]
@@ -30,86 +30,86 @@ ms.lasthandoff: 08/29/2017
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-Bu makalede, ilk Azure veri fabrikanızı oluşturmak için [Azure portalını](https://portal.azure.com/) nasıl kullanacağınızı öğreneceksiniz. Diğer araçları/SDK’ları kullanarak öğreticiyi uygulamak için açılır listedeki seçeneklerden birini belirleyin. 
+Bu makalede, bilgi nasıl toouse [Azure portal](https://portal.azure.com/) toocreate ilk Azure data factory'nizi. diğer araçlar/SDK, kullanarak toodo hello öğretici seçin hello seçeneklerden birini hello aşağı açılan listeden. 
 
-Bu öğreticideki işlem hattı bir etkinlik içerir: **HDInsight Hive etkinliği**. Bu etkinlik, Azure HDInsight kümesi üzerinde çıkış verileri üretmek üzere giriş verilerini dönüştüren bir hive betiği çalıştırır. İşlem hattı, belirtilen başlangıç ve bitiş saatleri arasında ayda bir kez çalışacak şekilde zamanlanmıştır. 
+Bu öğreticide Hello ardışık bir etkinlik vardır: **Hdınsight Hive etkinliği**. Bu etkinlik dönüşümler veri tooproduce çıkış veri girişi bir Azure Hdınsight kümesinde bir hive betiği çalıştırır. Başlangıç ve bitiş zamanlarını hello arasında bir ay belirtilen sonra hello ardışık düzen zamanlanmış toorun ' dir. 
 
 > [!NOTE]
-> Bu öğreticideki veri işlem hattı, çıkış verileri üretmek üzere giriş verilerini dönüştürür. Azure Data Factory kullanarak verileri kopyalama öğreticisi için bkz. [Öğretici: Blob Depolama’dan SQL Veritabanı’na veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Bu öğreticide Hello veri ardışık giriş verisi tooproduce çıktı verilerini dönüştürür. Nasıl bir öğretici için Azure Data Factory kullanarak toocopy verileri görmek [Öğreticisi: Blob Storage tooSQL veritabanı ' veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> Bir işlem hattında birden fazla etkinlik olabilir. Bir etkinliğin çıkış veri kümesini diğer etkinliğin giriş veri kümesi olarak ayarlayarak iki etkinliği zincirleyebilir, yani bir etkinliğin diğerinden sonra çalıştırılmasını sağlayabilirsiniz. Daha fazla bilgi için bkz. [Data Factory'de zamanlama ve yürütme](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
+> Bir işlem hattında birden fazla etkinlik olabilir. Ve hello çıkış veri kümesi bir etkinlik hello hello dataset diğer etkinlik girişi olarak ayarlayarak (bir etkinlik sonra başka bir Çalıştır) iki etkinlik zincir. Daha fazla bilgi için bkz. [Data Factory'de zamanlama ve yürütme](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## <a name="prerequisites"></a>Ön koşullar
-1. [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) makalesinin tamamını okuyun ve **ön koşul** adımlarını tamamlayın.
-2. Bu makale, Azure Data Factory hizmetine kavramsal bir genel bakış sağlamaz. Hizmet hakkında ayrıntılı bir genel bakış için [Azure Data Factory'ye giriş](data-factory-introduction.md) makalesine gitmenizi öneririz.  
+1. Okuyun [öğreticiye genel bakış](data-factory-build-your-first-pipeline.md) makale ve tam hello **önkoşul** adımları.
+2. Bu makalede hello Azure Data Factory hizmetine kavramsal bir genel bakış sağlamaz. Gitmenizi öneririz [giriş tooAzure Data Factory](data-factory-introduction.md) hello hizmetinin makale için ayrıntılı bir genel bakış.  
 
 ## <a name="create-data-factory"></a>Veri fabrikası oluşturma
-Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattında bir veya daha fazla etkinlik olabilir. Örneğin, verileri bir kaynaktan bir hedef veri deposuna kopyalamak için Kopyalama Etkinliği, giriş verilerini ürün çıkış verilerine dönüştürecek Hive betiğini çalıştırmak için de HDInsight Hive etkinliği. Bu adımda data factory oluşturmayla başlayalım.
+Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattında bir veya daha fazla etkinlik olabilir. Örneğin, bir kopyalama etkinliği toocopy verilerinden bir kaynak tooa hedef veri deposu ve Hdınsight Hive etkinliği toorun bir Hive betiği tootransform veri tooproduct çıktı verileri girin. Bu adımda hello data factory oluşturmayla başlayalım.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Soldaki menüde **YENİ**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Tıklatın **yeni** hello sol menüsünde **veri + analiz**, tıklatıp **Data Factory**.
 
    ![Dikey pencere oluşturma](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
-3. **Yeni data factory** dikey penceresinde, Ad olarak **GetStartedDF** girin.
+3. Merhaba, **yeni data factory** dikey penceresinde girin **GetStartedDF** hello adı için.
 
    ![Yeni veri fabrikası dikey penceresi](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
    > [!IMPORTANT]
-   > Azure data factory adı **küresel olarak benzersiz** olmalıdır. **Veri fabrikası adı "GetStartedDF" kullanılamıyor** hatasını alırsanız. Veri fabrikasının adını (örneğin adınızBaşlarkenVF) değiştirin ve yeniden oluşturmayı deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
+   > Merhaba adı'hello Azure data Factory olması **genel benzersiz**. Merhaba hatayı alırsanız: **veri fabrikası adı "GetStartedDF" kullanılabilir değil**. Hello veri fabrikası (örneğin, yournameGetStartedDF) Hello adını değiştirin ve oluşturmayı yeniden deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
    >
-   > Data factory adı gelecekte bir **DNS** adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.
+   > Merhaba veri fabrikasının Hello adı olarak kaydedilmesi bir **DNS** hello gelecekte olarak adlandırın ve bu nedenle herkese görünür hale gelmiştir.
    >
    >
-4. Data factory’yi oluşturmak istediğiniz **Azure aboneliği**’ni seçin.
-5. Mevcut bir **kaynak grubu** seçin ya da bir kaynak grubu oluşturun. Öğreticide kullanmak için şu adla bir kaynak grubu oluşturun: **ADFGetStartedRG**.
-6. Data factory için **konum** seçin. Açılır listede yalnızca Data Factory hizmeti tarafından desteklenen bölgeler gösterilmektedir.
-7. **Panoya sabitle**’yi seçin. 
-8. **Yeni data factory** dikey penceresinde **Oluştur**’a tıklayın.
+4. Select hello **Azure aboneliği** oluşturulan hello veri fabrikası toobe istediğiniz.
+5. Mevcut bir **kaynak grubu** seçin ya da bir kaynak grubu oluşturun. Merhaba öğretici için adlı bir kaynak grubu oluşturun: **ADFGetStartedRG**.
+6. Select hello **konumu** hello veri fabrikası için. Yalnızca Hello Data Factory hizmeti tarafından desteklenen bölgeler hello aşağı açılan listesinde gösterilir.
+7. Seçin **PIN toodashboard**. 
+8. Tıklatın **oluşturma** hello üzerinde **yeni data factory** dikey.
 
    > [!IMPORTANT]
-   > Data Factory örnekleri oluşturmak için abonelik/kaynak grubu düzeyinde [Data Factory Katılımcısı](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) rolünün üyesi olmanız gerekir.
+   > toocreate Data Factory örnekleri hello üyesi olmalıdır [veri fabrikası katkıda bulunan](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) hello abonelik/kaynak grubu düzeyinde rol.
    >
    >
-7. Panoda, şu duruma sahip aşağıdaki kutucuğu görürsünüz: Veri fabrikası dağıtılıyor.    
+7. Merhaba Panoda durumuyla döşeme hello aşağıdakilere bakın: dağıtma veri fabrikası.    
 
    ![Data factory durumu oluşturma](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
-8. Tebrikler! İlk data factory’nizi başarıyla oluşturdunuz. Data factory sorunsuz oluşturulduktan sonra data factory sayfasını görürsünüz, burada size data factory içeriği gösterilir.     
+8. Tebrikler! İlk data factory’nizi başarıyla oluşturdunuz. Merhaba veri fabrikası başarıyla oluşturulduktan sonra gösterir hello veri fabrikası sayfasına bakın hello hello data Factory içeriği.     
 
     ![Data Factory dikey penceresi](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
-Data factory içinde bir işlem hattı oluşturmadan önce birkaç Data Factory varlığı oluşturmanız gerekir. Önce veri depolarını/işlemleri veri deponuza bağlamak için bağlı hizmetler oluşturun, bağlı veri depolarında giriş/çıkış verilerini temsil etmek üzere giriş ve çıkış veri kümeleri tanımlayın, sonra da bu veri kümelerini kullanan bir etkinlikle işlem hattını oluşturun.
+Merhaba data factory'de işlem hattı oluşturmadan önce toocreate birkaç Data Factory varlıklarını önce gerekir. Bağlı hizmetler toolink veri depolarını/işlemlerini tooyour veri depolamak, giriş tanımlayın ve çıktı veri kümeleri toorepresent girdi/çıktı verilerini bağlı veri depolarında ve ardından bu veri kümeleri kullanan bir etkinlik hello işlem hattı oluşturma ilk oluşturduğunuzda.
 
 ## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
-Bu adımda, Azure Depolama hesabınızı ve isteğe bağlı Azure HDInsight kümesini data factory’nize bağlarsınız. Azure Depolama hesabı, bu örnekteki işlem hattı için girdi ve çıktı verilerini tutar. HDInsight bağlı hizmeti, bu örnekteki işlem hattının etkinliğinde belirtilen Hive betiğini çalıştırmak için kullanılır. Senaryonuzda hangi [veri deposu](data-factory-data-movement-activities.md)/[işlem hizmetlerinin](data-factory-compute-linked-services.md) kullanılacağını belirleyin ve bağlı hizmetler oluşturarak bu hizmetleri data factory’ye bağlayın.  
+Bu adımda, Azure Storage hesabınızı ve bir isteğe bağlı Azure Hdınsight küme tooyour data factory bağlayın. Azure depolama hesabı bu örnekteki hello ardışık düzeni için girdi ve çıktı verilerini ayrı tutma hello hello. Merhaba Hdınsight bağlı hizmeti kullanılan toorun hello ardışık bu örnekteki hello etkinliğinde belirtilen Hive betiği ' dir. Ne tanımlamak [veri deposu](data-factory-data-movement-activities.md)/[işlem Hizmetleri](data-factory-compute-linked-services.md) senaryonuzda kullanılır ve bağlı hizmetler oluşturarak bu hizmetleri toohello veri fabrikası bağlayın.  
 
 ### <a name="create-azure-storage-linked-service"></a>Azure Storage bağlı hizmeti oluşturma
-Bu adımda, Azure Depolama hesabınızı veri fabrikanıza bağlarsınız. Bu öğreticide, giriş/çıkış verilerini ve HQL betik dosyasını depolamak için aynı Azure Depolama hesabını kullanırsınız.
+Bu adımda, Azure depolama hesabı tooyour veri fabrikanıza bağlayın. Bu öğreticide kullandığınız hello toostore girdi/çıktı verilerin ve HQL hello komut dosyasını aynı Azure depolama hesabı.
 
-1. **GetStartedDF** için **DATA FACTORY** dikey penceresinde **Geliştir ve dağıt**’a tıklayın. Data Factory Düzenleyicisi’ni görmeniz gerekir.
+1. Tıklatın **yazar ve dağıtma** hello üzerinde **DATA FACTORY** dikey **GetStartedDF**. Merhaba Data Factory Düzenleyici görmeniz gerekir.
 
    ![Geliştir ve dağıt kutucuğu](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 2. **Yeni data store**’a tıklayın ve **Azure depolama**’yı seçin.
 
    ![Yeni veri deposu - Azure Depolama - menü](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
-3. Düzenleyicide Azure Storage bağlı hizmeti oluşturmak için JSON betiğini görmeniz gerekir.
+3. Görmeniz gerekir hello Azure depolama alanı oluşturmak için JSON betiği bağlantılı hizmeti hello düzenleyicisinde.
 
    ![Azure Storage bağlı hizmeti](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
-4. **accountname** sözcüğünü Azure depolama hesabınızın adıyla, **accountkey** sözcüğünü de Azure depolama hesabının erişim anahtarıyla değiştirin. Depolama erişim anahtarınızı nasıl alabileceğinizi öğrenmek için [Depolama hesabınızı yönetme](../storage/common/storage-create-storage-account.md#manage-your-storage-account) sayfasındaki depolama erişim anahtarlarını görüntüleme, kopyalama ve yeniden oluşturma bilgilerine bakın.
-5. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’a tıklayın.
+4. Değiştir **hesap adı** hello Azure depolama hesabınızın adını içeren ve **hesap anahtarı** hello erişim anahtarı hello Azure depolama hesabı olan. toolearn tooget depolama alanınızın erişim nasıl anahtar, hello bilgi nasıl tooview, kopyalama ve yeniden oluşturma depolama erişim anahtarları içinde hakkında [depolama hesabınızı yönetme](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+5. Tıklatın **dağıtma** toodeploy hello bağlantılı hizmet çubuğu hello komutu.
 
     ![Dağıt düğmesi](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Bağlı hizmet sorunsuz dağıtıldıktan sonra **Taslak-1** penceresi artık görünmemelidir; soldaki ağaç görünümünde **AzureStorageLinkedService** görürsünüz.
+   Merhaba bağlı hizmet başarıyla dağıtıldıktan sonra hello **taslak-1** penceresi görünmemelidir; gördüğünüz **AzureStorageLinkedService** hello hello soldaki ağaç görünümünde.
 
     ![Menüde Storage Bağlı Hizmeti](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Azure HDInsight bağlı hizmeti oluşturma
-Bu adımda, isteğe bağlı HDInsight kümesini data factory’nize bağlarsınız. HDInsight kümesi çalışma zamanında otomatik olarak oluşturulur ve işlenmesi bittiğinde ve belirtilen sürede boşta kalırsa silinir.
+Bu adımda, bir isteğe bağlı Hdınsight kümesi tooyour data factory bağlayın. Merhaba Hdınsight küme otomatik olarak çalışma zamanında oluşturulur ve hello belirtilen süre boyunca işlem yapma ve boşta bittikten sonra silinir.
 
-1. **Data Factory Düzenleyicisi**’nde komut çubuğundaki **... Diğer**, **Yeni işlem** öğelerine tıklayın ve **İsteğe bağlı HDInsight kümesi**’ni seçin.
+1. Merhaba, **Data Factory düzenleyici**, tıklatın **... Diğer**, **Yeni işlem** öğelerine tıklayın ve **İsteğe bağlı HDInsight kümesi**’ni seçin.
 
     ![Yeni işlem](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
-2. Aşağıdaki kod parçacığını kopyalayıp **Taslak-1** penceresine yapıştırın. JSON parçacığı, istek üzerine HDInsight kümesi oluşturmak için kullanılan özellikleri tanımlar.
+2. Aşağıdaki kod parçacığında toohello hello kopyalayıp **taslak-1** penceresi. Merhaba JSON parçacığında kullanılan toocreate hello Hdınsight küme isteğe bağlı hello özellikleri açıklar.
 
     ```JSON
     {
@@ -127,38 +127,38 @@ Bu adımda, isteğe bağlı HDInsight kümesini data factory’nize bağlarsın�
     }
     ```
 
-    Aşağıdaki tabloda, kod parçacığında kullanılan JSON özellikleri için açıklamalar verilmektedir:
+    Merhaba aşağıdaki tabloda hello parçacığında kullanılan hello JSON özellikleri için açıklamalar sağlanır:
 
    | Özellik | Açıklama |
    |:--- |:--- |
-   | ClusterSize |HDInsight kümesi boyutunu belirtir. |
-   | TimeToLive | Silinmeden önce HDInsight kümesinin boşta kalma süresini belirtir. |
-   | linkedServiceName | HDInsight tarafından oluşturulan günlükleri depolamak için kullanılan depolama hesabını belirtir. |
+   | ClusterSize |Merhaba Hdınsight kümesi Hello boyutunu belirtir. |
+   | TimeToLive | Silinmeden önce hello Hdınsight kümesi, o hello boşta kalma süresini belirtir. |
+   | linkedServiceName | Hdınsight tarafından oluşturulan kullanılan toostore hello günlükleri olan hello depolama hesabını belirtir. |
 
-    Aşağıdaki noktalara dikkat edin:
+    Hello aşağıdaki noktaları göz önünde bulundurun:
 
-   * Data Factory, sizin için JSON ile **Linux tabanlı** bir HDInsight kümesi oluşturur. Ayrıntılar için bkz. [İsteğe Bağlı HDInsight Bağlı Hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+   * Merhaba Data Factory oluşturur bir **Linux tabanlı** hello JSON ile sizin için Hdınsight kümesi. Ayrıntılar için bkz. [İsteğe Bağlı HDInsight Bağlı Hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
    * İsteğe bağlı HDInsight kümesi yerine **kendi HDInsight kümenizi** kullanabilirsiniz. Ayrıntılar için bkz. [HDInsight Bağlı Hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
-   * HDInsight kümesi JSON’da belirttiğiniz blob depolamada (**linkedServiceName**) bir **varsayılan kapsayıcı** oluşturur. HDInsight, küme silindiğinde bu kapsayıcıyı silmez. Bu davranış tasarım gereğidir. İsteğe bağlı HDInsight bağlı hizmeti kullanıldığında, mevcut canlı bir küme olmadığı sürece bir dilim her işlendiğinde bir HDInsight kümesi oluşturulur (**timeToLive**). Küme, işlem tamamlandığında otomatik olarak silinir.
+   * Merhaba Hdınsight kümesi oluşturur bir **varsayılan kapsayıcı** hello JSON belirtilen hello blob depolamada (**linkedServiceName**). Hdınsight Hello küme silindiğinde bu kapsayıcıyı silmez. Bu davranış tasarım gereğidir. İsteğe bağlı HDInsight bağlı hizmeti kullanıldığında, mevcut canlı bir küme olmadığı sürece bir dilim her işlendiğinde bir HDInsight kümesi oluşturulur (**timeToLive**). Merhaba işlem bittiğinde hello küme otomatik olarak silinir.
 
-       Daha fazla dilim işlendikçe, Azure blob depolamanızda çok sayıda kapsayıcı görürsünüz. İşlerin sorunları giderilmesi için bunlara gerek yoksa, depolama maliyetini azaltmak için bunları silmek isteyebilirsiniz. Bu kapsayıcıların adları şu deseni izler: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Azure blob depolamada kapsayıcı silmek için [Microsoft Storage Gezgini](http://storageexplorer.com/) gibi araçları kullanın.
+       Daha fazla dilim işlendikçe, Azure blob depolamanızda çok sayıda kapsayıcı görürsünüz. Bunları hello işlerin sorunları giderilmesi için ihtiyacınız yoksa, toodelete isteyebilirsiniz bunları tooreduce hello depolama maliyeti. Bu kapsayıcıların Hello adları izleyen bir desen: "adf**yourdatafactoryname**-**linkedservicename**- datetimestamp". Gibi araçlar kullanın [Microsoft Storage Gezgini](http://storageexplorer.com/) toodelete kapsayıcılarında Azure blob depolama.
 
      Ayrıntılar için bkz. [İsteğe Bağlı HDInsight Bağlı Hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
-3. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’a tıklayın.
+3. Tıklatın **dağıtma** toodeploy hello bağlantılı hizmet çubuğu hello komutu.
 
     ![İsteğe bağlı HDInsight bağlı hizmetini dağıtma](./media/data-factory-build-your-first-pipeline-using-editor/ondemand-hdinsight-deploy.png)
-4. Hem **AzureStorageLinkedService**, hem de **HDInsightOnDemandLinkedService** öğesinin soldaki ağaç görünümünde olduğunu onaylayın.
+4. Her ikisi de gördüğünüzü onaylayın **AzureStorageLinkedService** ve **Hdınsightondemandlinkedservice** hello hello soldaki ağaç görünümünde.
 
     ![Bağlı hizmetlerin bulunduğu ağaç görünümü](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>Veri kümeleri oluşturma
-Bu adımda, Hive işlenmesi için girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturursunuz. Bu veri kümeleri, bu öğreticide daha önce oluşturduğunuz **AzureStorageLinkedService** öğesine başvurur. Bağlı hizmet Azure Storage hesabını belirtirken, veri kümeleri de girdi ve çıktı verilerini tutan depolama biriminde kapsayıcı, klasör, dosya adı belirtir.   
+Bu adımda, veri kümeleri toorepresent hello girişi oluşturun ve Hive işlenmesi için verileri çıktı. Bu veri kümeleri toohello başvuran **AzureStorageLinkedService** Bu öğreticide daha önce oluşturduğunuz. bağlantılı hizmet noktaları tooan Azure depolama hesabı hello ve veri kümeleri, giriş tutan hello depolamada kapsayıcı, klasör, dosya adı belirtin ve çıktı verilerini.   
 
 ### <a name="create-input-dataset"></a>Girdi veri kümesi oluşturma
-1. **Data Factory Düzenleyicisi**’nde komut çubuğundaki **... Diğer**, **Yeni veri kümesi** öğelerine tıklayın ve **Azure Blob depolama** öğesini seçin.
+1. Merhaba, **Data Factory düzenleyici**, tıklatın **... Daha fazla** hello komut çubuğunda **yeni veri kümesi**seçip **Azure Blob Depolama**.
 
     ![Yeni veri kümesi](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
-2. Aşağıdaki kod parçacığını kopyalayıp Taslak-1 penceresine yapıştırın. JSON parçacığında, işlem hattındaki etkinliğin girdi verilerini temsil eden **AzureBlobInput** adlı bir veri kümesi oluşturmaktasınız. Ek olarak, girdi verilerinin **adfgetstarted** adlı blob kapsayıcısında ve **inputdata** adlı klasörde bulunduğunu belirtin.
+2. Aşağıdaki kod parçacığında toohello taslak-1 penceresinde hello kopyalayıp yeniden açın. Merhaba JSON parçacığında adlı bir veri kümesi oluşturmakta olduğunuz **Azureblobınput** hello ardışık düzeninde bir etkinliğin girdi verilerini temsil eden. Ayrıca, hello giriş verisi adlı hello blob kapsayıcısında bulunur belirttiğiniz **adfgetstarted** ve adlı hello klasör **inputdata**.
 
     ```JSON
     {
@@ -183,27 +183,27 @@ Bu adımda, Hive işlenmesi için girdi ve çıktı verilerini temsil edecek ver
         }
     }
     ```
-    Aşağıdaki tabloda, kod parçacığında kullanılan JSON özellikleri için açıklamalar verilmektedir:
+    Merhaba aşağıdaki tabloda hello parçacığında kullanılan hello JSON özellikleri için açıklamalar sağlanır:
 
    | Özellik | Açıklama |
    |:--- |:--- |
-   | type |Veriler Azure blob depolama alanında yer aldığından type özelliği **AzureBlob** olarak ayarlanmıştır. |
-   | linkedServiceName |Daha önce oluşturduğunuz **AzureStorageLinkedService**'e başvurur. |
-   | folderPath | Blob **kapsayıcısını** ve giriş bloblarını içeren **klasörü** belirtir. | 
-   | fileName |Bu özellik isteğe bağlıdır. Bu özelliği atarsanız, tüm folderPath dosyaları alınır. Bu öğreticide yalnızca **input.log** işlenir. |
-   | type |Günlük dosyaları metin biçiminde olduğundan **TextFormat**'i kullanacağız. |
-   | columnDelimiter |Günlük dosyalarındaki sütunlar **virgül karakteri (`,`)** ile ayrılmıştır |
-   | frequency/interval |frequency **Ay**, interval ise **1** olarak ayarlanmıştır. Bu, giriş dilimlerinin aylık olarak kullanılabileceğini belirtir. |
-   | external | Bu özellik, giriş verileri bu işlem hattı tarafından oluşturulmadıysa **true** olarak ayarlanır. Bu öğreticide, input.log dosyası bu işlem hattı tarafından oluşturulmamıştır, bu nedenle özelliği true olarak ayarlayacağız. |
+   | type |Merhaba type özelliği çok ayarlamak**AzureBlob** verileri Azure blob depolama alanında bulunduğundan. |
+   | linkedServiceName |Toohello başvuruyor **AzureStorageLinkedService** daha önce oluşturduğunuz. |
+   | folderPath | Merhaba blob belirtir **kapsayıcı** ve hello **klasörü** giriş BLOB'ları içerir. | 
+   | fileName |Bu özellik isteğe bağlıdır. Bu özelliği atarsanız, hello folderPath tüm hello dosyalarından çekilir. Bu öğreticide, yalnızca hello **input.log** işlenir. |
+   | type |Merhaba günlük dosyaları metin biçiminde kullandığımız için olan **TextFormat**. |
+   | columnDelimiter |Merhaba günlük dosyalarındaki sütunlar tarafından ayrılmış **virgül karakteriyle (`,`)** |
+   | frequency/interval |sıklığını çok**ay** ve aralığı **1**, kullanılabilir aylık olan dilimler giriş o hello anlamına gelir. |
+   | external | Bu özellik çok ayarlanır**true** hello giriş verileri bu ardışık düzen tarafından oluşturulmamış olması durumunda. Bu öğreticide, hello özelliği tootrue ayarlarız şekilde hello input.log dosyası bu ardışık düzen tarafından oluşturulmaz. |
 
     Bu JSON özellikleri hakkında daha fazla bilgi için bkz. [Azure Blob bağlayıcısı makalesi](data-factory-azure-blob-connector.md#dataset-properties).
-3. Yeni oluşturulan veri kümesini dağıtmak için komut çubuğunda **Dağıt**’a tıklayın. Veri kümesini soldaki ağaç görünümünde görmeniz gerekir.
+3. Tıklatın **dağıtma** toodeploy yeni oluşturulan hello dataset çubuğu hello komutu. Merhaba dataset hello hello soldaki ağaç görünümünde görmeniz gerekir.
 
 ### <a name="create-output-dataset"></a>Çıktı veri kümesi oluşturma
-Şimdi, Azure Blob depolamada depolanan çıktı verilerini göstermek için çıktı veri kümesi oluşturursunuz.
+Şimdi, hello çıkış veri kümesi toorepresent hello çıktı verilerini hello Azure Blob Depolama depolanan oluşturun.
 
-1. **Data Factory Düzenleyicisi**’nde komut çubuğundaki **... Diğer**, **Yeni veri kümesi** öğelerine tıklayın ve **Azure Blob depolama** öğesini seçin.  
-2. Aşağıdaki kod parçacığını kopyalayıp Taslak-1 penceresine yapıştırın. JSON parçacığında, **AzureBlobOutput** adlı bir veri kümesi oluşturur ve Hive betiğinin oluşturacağı verilerin yapısını belirtirsiniz. Ek olarak, sonuçların **adfgetstarted** adlı blob kapsayıcısında ve **partitioneddata** adlı klasörde depolandığını belirtin. Burada, **availability** bölümü çıktı veri kümesinin aylık tabanda oluşturulduğunu belirtiyor.
+1. Merhaba, **Data Factory düzenleyici**, tıklatın **... Daha fazla** hello komut çubuğunda **yeni veri kümesi**seçip **Azure Blob Depolama**.  
+2. Aşağıdaki kod parçacığında toohello taslak-1 penceresinde hello kopyalayıp yeniden açın. Merhaba JSON parçacığında adlı bir veri kümesi oluşturmakta olduğunuz **AzureBlobOutput**ve hello Hive betiği tarafından üretilen hello verilerin hello yapısını belirtme. Ayrıca, hello sonuçları adlı hello blob kapsayıcısında depolanır belirttiğiniz **adfgetstarted** ve adlı hello klasör **partitioneddata**. Merhaba **kullanılabilirlik** bölümü belirtiyor bu hello çıktı veri kümesi, aylık olarak oluşturulur.
 
     ```JSON
     {
@@ -225,22 +225,22 @@ Bu adımda, Hive işlenmesi için girdi ve çıktı verilerini temsil edecek ver
       }
     }
     ```
-    Bu özelliklerin açıklamaları için **Girdi veri kümesi oluşturma** bölümüne bakın. Veri kümesi Data Factory hizmeti tarafından oluşturulduğundan çıktı veri kümesinde dış özellik ayarlamazsınız.
-3. Yeni oluşturulan veri kümesini dağıtmak için komut çubuğunda **Dağıt**’a tıklayın.
-4. Veri kümesinin başarıyla oluşturulduğunu doğrulayın.
+    Bkz: **hello girdi veri kümesi oluşturma** bu özelliklerin açıklamaları için bölüm. Merhaba dataset hello Data Factory hizmeti tarafından oluşturulduğundan çıktı veri hello dış özelliği ayarlı değil.
+3. Tıklatın **dağıtma** toodeploy yeni oluşturulan hello dataset çubuğu hello komutu.
+4. Bu hello veri kümesi başarıyla oluşturuldu doğrulayın.
 
     ![Bağlı hizmetlerin bulunduğu ağaç görünümü](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
 ## <a name="create-pipeline"></a>İşlem hattı oluşturma
-Bu adımda, **HDInsightHive** etkinliğiyle ilk işlem hattınızı oluşturursunuz. Girdi diliminin ayda bir (frequency: Month, interval: 1) kullanılabilir, çıktı dilimi ayda bir oluşturulur ve etkinlik zamanlayıcı özelliği de ayda bir olacak şekilde ayarlanır. Çıktı veri kümesi ve etkinlik zamanlayıcı ayarlarının eşleşmesi gerekir. Şu anda, çıktı veri kümesi zamanlamayı yönetendir; bu nedenle etkinlik hiçbir çıktı oluşturmasa bile sizin bir çıktı veri kümesi oluşturmanız gerekir. Etkinlik herhangi bir girdi almazsa, girdi veri kümesi oluşturma işlemini atlayabilirsiniz. Aşağıdaki JSON’da kullanılan özellikler bu bölümün sonunda anlatılmaktadır.
+Bu adımda, **HDInsightHive** etkinliğiyle ilk işlem hattınızı oluşturursunuz. Girdi dilimi kullanılabilir aylık (sıklığı: Month, interval: 1), çıktı diliminin ayda bir oluşturulduğunu ve hello etkinlik hello Zamanlayıcı özelliğinin de toomonthly ayarlayın. Merhaba çıktı veri kümesi ve hello etkinlik Zamanlayıcı Hello ayarlarının eşleşmesi gerekir. Şu anda, çıktı veri kümesi hello etkinlik herhangi bir çıktı üretmez olsa bile bir çıkış veri kümesi oluşturmanız gerekir böylece hangi sürücüleri zamanlama, hello değil. Merhaba etkinlik herhangi bir girdi almazsa oluşturma hello girdi veri kümesi atlayabilirsiniz. JSON aşağıdaki hello kullanılan hello özellikleri hello bu bölümün sonuna açıklanmıştır.
 
-1. **Data Factory Düzenleyicisi**’nde, **Ellipsis (…) More commands**’e (Üç nokta (…) Daha fazla komut’a) sonra da **Yeni işlem hattı**’na tıklayın.
+1. Merhaba, **Data Factory düzenleyici**, tıklatın **üç nokta (...) Daha fazla komut** ve ardından **yeni işlem hattı**.
 
     ![yeni işlem hattı düğmesi](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
-2. Aşağıdaki kod parçacığını kopyalayıp Taslak-1 penceresine yapıştırın.
+2. Aşağıdaki kod parçacığında toohello taslak-1 penceresinde hello kopyalayıp yeniden açın.
 
    > [!IMPORTANT]
-   > **storageaccountname**’i JSON’daki depolama adınızla değiştirin.
+   > Değiştir **storageaccountname** depolama hesabınızdaki hello JSON hello adı.
    >
    >
 
@@ -289,111 +289,111 @@ Bu adımda, **HDInsightHive** etkinliğiyle ilk işlem hattınızı oluşturursu
     }
     ```
 
-    JSON parçacığında, HDInsight kümesinde Veri işleyecek Hive’ı kullanan etkinlikten oluşmuş bir işlem hattı oluşturuyorsunuz.
+    Merhaba JSON parçacığında, Hdınsight kümesinde Hive tooprocess veri kullanan tek bir etkinlik oluşan bir işlem hattı oluşturuyorsunuz.
 
-    **partitionweblogs.hql** Hive betik dosyası Azure depolama hesabında (scriptLinkedService tarafından belirtilen **AzureStorageLinkedService** adıyla) ve **adfgetstarted** kapsayıcısındaki **betik** klasöründe depolanır.
+    Merhaba Hive betik dosyası **partitionweblogs.hql**, hello Azure depolama hesabı depolanır (adlı hello scriptLinkedService tarafından belirtilen **AzureStorageLinkedService**) ve  **komut dosyası** hello kapsayıcı klasöründe **adfgetstarted**.
 
-    Burada, **defines** bölümü hive betiğine Hive yapılandırma değerleri olarak (örn., ${hiveconf:inputtable}, ${hiveconf:partitionedtable}) geçirilecek çalışma zamanı ayarlarını belirtmek için kullanılır.
+    Merhaba **tanımlar** bölümdür toohello hive betiğini Hive yapılandırma değerleri olarak geçirilir kullanılan toospecify hello çalışma zamanı ayarları (örn., ${hiveconf: inputtable}, ${hiveconf}).
 
-    İşlem hattının **start** ve **end** özellikleri işlem hattının etkin dönemini belirtir.
+    Merhaba **Başlat** ve **son** hello ardışık düzen özelliklerini hello etkin dönem hello ardışık belirtir.
 
-    JSON etkinliğinde, Hive betiğinin **linkedServiceName** – **HDInsightOnDemandLinkedService** tarafından belirtilen işlemde çalışacağını belirtirsiniz.
+    Bu hello Hive betiğini hello tarafından belirtilen hello işlem üzerinde çalıştığı belirtin Hello JSON etkinliğinde **linkedServiceName** – **Hdınsightondemandlinkedservice**.
 
    > [!NOTE]
-   > Örnekte kullanılan JSON özellikleri hakkında ayrıntılı bilgi için [Azure Data Factory’deki işlem hatları ve etkinlikler](data-factory-create-pipelines.md) sayfasındaki “JSON İşlem Hatları” bölümüne bakın.
+   > "Ardışık düzen JSON" bölümüne bakın [işlem hatlarının ve etkinliklerin Azure Data Factory](data-factory-create-pipelines.md) hello örnekte kullanılan JSON özellikleri hakkında ayrıntılı bilgi için.
    >
    >
-3. Şunları onaylayın:
+3. Merhaba aşağıdakileri doğrulayın:
 
-   1. Azure blob depolamada **adfgetstarted** kapsayıcısının **inputdata** klasöründe **input.log** dosyasının olduğunu
-   2. Azure blob depolamada **adfgetstarted** kapsayıcısının **script** klasöründe **partitionweblogs.hql** dosyasının olduğunu. Bu dosyaları görmüyorsanız lütfen [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md)’taki önkoşul adımları tamamlayın.
-   3. **storageaccountname**’i JSON işlem hattındaki depolama adınızla değiştirdiğinizi onaylayın.
-4. İşlem hattını dağıtmak için komut çubuğunda **Dağıt**’a tıklayın. **start** ve **end** zamanları geçmişe ayarlanmış ve **isPaused** yanlış olarak ayarlanmış olduğundan işlem hattı (işlem hattında etkinlik) dağıtıldıktan hemen sonra çalışır.
-5. İşlem hattını ağaç görünümünde gördüğünüzü onaylayın.
+   1. **input.log** dosyasından hello **inputdata** hello klasörünü **adfgetstarted** hello Azure blob depolama kapsayıcısında
+   2. **partitionweblogs.hql** dosyasından hello **betik** hello klasörünü **adfgetstarted** hello Azure blob depolama kapsayıcısında. Tam hello önkoşul adımları hello [öğreticiye genel bakış](data-factory-build-your-first-pipeline.md) bu dosyaları görmüyorsanız.
+   3. Değiştirdiğinizi onaylayın **storageaccountname** depolama hesabınızdaki hello hello adıyla JSON kanalı.
+4. Tıklatın **dağıtma** toodeploy hello ardışık çubuğu hello komutu. Merhaba itibaren **Başlat** ve **son** hello son kez ayarlanır ve **isPaused** dağıtıldıktan hemen sonra kümesi toofalse, hello ardışık düzen (Merhaba ardışık düzeninde etkinlik) çalışması olduğu.
+5. Merhaba ardışık hello ağaç görünümünde gördüğünüzü onaylayın.
 
     ![İşlem hattının bulunduğu ağaç görünümü](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 6. Tebrikler, ilk işlem hattınızı başarıyla oluşturdunuz.
 
 ## <a name="monitor-pipeline"></a>İşlem hattını izleme
 ### <a name="monitor-pipeline-using-diagram-view"></a>Diyagram Görünümünü kullanarak işlem hattını izleme
-1. Data Factory Düzenleyici dikey penceresini kapatmak ve Data Factory dikey penceresine dönmek için **X** işaretine, sonra da **Diyagram**’a tıklayın.
+1. Tıklatın **X** tooclose Data Factory Düzenleyici dikey toonavigate toohello Data Factory dikey penceresine geri tıklatın ve **diyagramı**.
 
     ![Diyagram kutucuğu](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
-2. Diyagram Görünümü’nde, işlem hatlarına ve bu öğreticide kullanılan veri kümelerine bir genel bakış görürsünüz.
+2. Hello diyagram görünümü, hello ardışık düzen ve Bu öğreticide kullanılan veri kümelerine genel bakış konusuna bakın.
 
     ![Diyagram Görünümü](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
-3. İşlem hattındaki tüm etkinlikleri görüntülemek için diyagramdaki işlem hattına sağ tıklayın ve Açık İşlem Hattı’na tıklayın.
+3. tooview hello düzenindeki hello sağ kanaldaki tüm etkinlikleri Diyagram ve ardışık düzeni Aç'ı tıklatın.
 
     ![İşlem hattı menüsünü açma](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
-4. İşlem hattında HDInsightHive etkinliğini gördüğünüzü onaylayın.
+4. Merhaba ardışık düzeninde hello Hdınsighthive etkinliğini gördüğünüzü onaylayın.
 
     ![İşlem hattı görünümünü açma](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
 
-    Önceki görünüme dönmek için en üstteki içerik haritası menüsünde **Data factory**’ye tıklayın.
-5. **Diyagram Görünümü**’nde **AzureBlobInput** veri kümesine çift tıklayın. Dilimin **Hazır** durumunda olduğunu onaylayın. Dilimin Hazır durumda gösterilmesi birkaç dakika alabilir. Bir süre bekledikten sonra bu gerçekleşmiyorsa, girdi dosyasının (input.log) doğru kapsayıcıda (adfgetstarted) ve klasörde (inputdata) olup olmadığına bakın.
+    toonavigate toohello önceki görünüme geri tıklatın **veri fabrikası** hello içerik haritası menüsünde hello üstünde.
+5. Merhaba, **diyagram görünümü**, hello dataset çift **Azureblobınput**. Bu hello dilim onaylayın **hazır** durumu. Bu işlem birkaç dakika hello dilim tooshow için hazır durumda kadar sürebilir. Bir süre bekledikten sonra gerçekleşmez hello doğru kapsayıcıda (adfgetstarted) ve klasörde (inputdata) yerleştirilen hello girdi dosyasının (input.log) yüklü olup olmadığına bakın.
 
    ![Girdi dilimi hazır durumda](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
-6. **AzureBlobInput** dikey penceresini kapatmak için **X** işaretine tıklayın.
-7. **Diyagram Görünümü**’nde **AzureBlobOutput** veri kümesine çift tıklayın. Dilimin işlenmekte olduğunu görürsünüz.
+6. Tıklatın **X** tooclose **Azureblobınput** dikey.
+7. Merhaba, **diyagram görünümü**, hello dataset çift **AzureBlobOutput**. İşlenmekte olan bu hello dilim bakın.
 
    ![Veri kümesi](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-8. İşlem tamamlandığında dilimi **Hazır** durumunda görürsünüz.
+8. İşlem bittiğinde hello dilimi bkz **hazır** durumu.
 
    ![Veri kümesi](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
    > [!IMPORTANT]
-   > İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır (yaklaşık 20 dakika). Bu nedenle, işlem hattının dilimi işlemesi için **yaklaşık 30 dakika** bekleyin.
+   > İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır (yaklaşık 20 dakika). Bu nedenle, hello ardışık düzen beklediğiniz çok ele **yaklaşık olarak 30 dakika** tooprocess hello dilim.
    >
    >
 
-9. Dilim **Hazır** durumunda olduğunda çıktı verileri için blob depolama alanınızın **adfgetstarted** kapsayıcısında **partitioneddata** klasörünü denetleyin.  
+9. Merhaba dilim olduğunda **hazır** durum, hello denetleyin **partitioneddata** hello klasöründe **adfgetstarted** hello için blob depolama alanınızın kapsayıcısında çıkış verileri.  
 
    ![çıktı verileri](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
-10. Dilimin ayrıntılarını bir **Veri dilimi** dikey penceresinde görmek için dilime tıklayın.
+10. Merhaba dilim toosee ayrıntılarını içinde tıklatın bir **veri dilimi** dikey.
 
    ![Veri dilimi ayrıntıları](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)  
-11. Bir etkinlik çalışmasına ilişkin ayrıntıları (bu senaryoda Hive etkinliği) bir **Etkinlik çalışma ayrıntıları** penceresinde görmek için **Etkinlik çalışma listesi** içinden bir etkinlik çalışmasına tıklayın.   
+11. Hello çalıştırmak bir etkinliği **etkinlik çalışır listesi** toosee etkinliği hakkında ayrıntılı bir çalıştır (Senaryomuzda Hive etkinliğiyle) bir **etkinlik çalışma ayrıntıları** penceresi.   
 
    ![Etkinlik çalışma ayrıntıları](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
-   Yürütülen Hive sorgusunu ve durum bilgilerini günlük dosyalarında görebilirsiniz. Bu günlükler her türlü sorunu gidermek için kullanışlıdır.
+   Merhaba günlük dosyalarından yürütüldü hello Hive sorgusu ve durum bilgileri görebilirsiniz. Bu günlükler her türlü sorunu gidermek için kullanışlıdır.
    Daha fazla ayrıntı için [Azure portal dikey penceresi kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-pipelines.md) makalesine bakın.
 
 > [!IMPORTANT]
-> Dilim başarıyla işlendiğinde girdi dosyası silinir. Bu nedenle, dilimi yeniden çalıştırmak veya öğreticiyi yeniden uygulamak isterseniz girdi dosyasını (input.log) adfgetstarted kapsayıcısının inputdata klasörüne yükleyin.
+> Merhaba dilim başarıyla işlendiğinde hello girdi dosyası silinir. Bu nedenle, toorerun hello dilim istediğiniz veya öğreticiyi yeniden Merhaba, hello adfgetstarted kapsayıcısının hello girdi dosyasını (input.log) toohello inputdata klasörüne yükleyin.
 >
 >
 
 ### <a name="monitor-pipeline-using-monitor--manage-app"></a>İzleme ve Yönetme Uygulamasını kullanarak işlem hattını izleme
-İşlem hatlarınızı izlemek için İzleme ve Yönetme uygulamasını da kullanabilirsiniz. Bu uygulamanın kullanımına ilişkin ayrıntılı bilgi için bkz. [İzleme ve Yönetme Uygulamasını kullanarak Azure Data Factory işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md).
+İzleyicisi'ni kullanın ve uygulama toomonitor hatlarınızı yönetme. Bu uygulamanın kullanımına ilişkin ayrıntılı bilgi için bkz. [İzleme ve Yönetme Uygulamasını kullanarak Azure Data Factory işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md).
 
-1. Data factory’nin giriş sayfasındaki **İzleme ve Yönetme** kutucuğuna tıklayın.
+1. Tıklatın **İzleyici & Yönet** döşeme hello veri fabrikanızın giriş sayfasında.
 
     ![İzleme ve Yönetme kutucuğu](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
-2. **İzleme ve Yönetme uygulaması**’nı görmeniz gerekir. **Başlangıç saati** ve **Bitiş saati** değerlerini işlem hattınızın başlangıç ve bitiş saatleriyle eşleşecek şekilde değiştirin ve **Uygula**’ya tıklayın.
+2. **İzleme ve Yönetme uygulaması**’nı görmeniz gerekir. Değişiklik hello **başlangıç zamanı** ve **bitiş saati** toomatch başlangıç ve bitiş zamanları, ardışık ve tıklatın **Uygula**.
 
     ![İzleme ve Yönetme Uygulaması](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
-3. Ayrıntılarını görmek için **Etkinlik Pencereleri** listesinden bir etkinlik penceresi seçin.
+3. Bir etkinlik penceresinde hello seçin **etkinlik Windows** toosee ayrıntılarını listeler.
 
     ![Etkinlik penceresi ayrıntıları](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 
 ## <a name="summary"></a>Özet
-Bu öğreticide, HDInsight hadoop kümesindeki Hive betiği çalıştırılarak verileri işlemek için bir Azure data factory oluşturdunuz. Aşağıdaki adımları uygulamak için Azure Portal’da Data Factory Düzenleyici’yi kullandınız:  
+Bu öğreticide, bir Hdınsight hadoop kümesindeki Hive betiği çalıştıran bir Azure data factory tooprocess veri oluşturuldu. Hello Data Factory Düzenleyici'hello Azure portal toodo hello aşağıdaki adımları kullanılır:  
 
 1. Oluşturulan Azure **data factory**.
 2. Oluşturulan iki **bağlı hizmet**:
-   1. Girdi/çıktı dosyalarını tutan Azure blob depolamanızı data factory’ye bağlamak için **Azure Storage** bağlı hizmeti.
-   2. İsteğe bağlı HDInsight Hadoop kümesini data factory’ye bağlamak için isteğe bağlı **Azure HDInsight** bağlı hizmeti. Azure Data Factory, girdi verilerini işlemek, çıktı verilerini de oluşturmak için tam zamanında HDInsight Hadoop kümesi oluşturur.
-3. İşlem hattındaki HDInsight Hive etkinliğiyle ilgili girdi ve çıktı verilerini açıklayan oluşturulan iki **veri kümesi**.
+   1. **Azure depolama** hizmet toolink toohello veri fabrikası girdi/çıktı dosyalarını tutan Azure blob depolama alanınızın bağlı.
+   2. **Azure Hdınsight** isteğe bağlı bir isteğe bağlı Hdınsight Hadoop küme toohello data factory hizmeti toolink bağlı. Azure Data Factory Hdınsight Hadoop küme yalnızca zaman tooprocess giriş verileri hem de üretim çıktı verilerini oluşturur.
+3. Oluşturulan iki **veri kümeleri**, hello ardışık düzende Hdınsight Hive etkinliğiyle ilgili girdi ve çıktı verilerini açıklayan.
 4. **HDInsight Hive** etkinliğine sahip oluşturulan bir **işlem hattı**.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bu makalede, isteğe bağlı HDInsight kümesinde bir Hive betiği çalıştıran dönüştürme etkinliğine (HDInsight Etkinliği) sahip işlem hattı oluşturdunuz. Verileri Azure Blob’tan Azure SQL’e kopyalamak için Kopyalama Etkinliği’nin kullanılması hakkında bilgi için bkz. [Öğretici: Verileri Azure blob’tan Azure SQL’e kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Bu makalede, isteğe bağlı HDInsight kümesinde bir Hive betiği çalıştıran dönüştürme etkinliğine (HDInsight Etkinliği) sahip işlem hattı oluşturdunuz. toouse Azure Blob tooAzure SQL, bir kopyalama etkinliği toocopy verileri nasıl görürüm toosee [öğretici: bir Azure blob tooAzure SQL veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 | Konu | Açıklama |
 |:--- |:--- |
-| [İşlem hatları](data-factory-create-pipelines.md) |Bu makale, Azure Data Factory’de işlem hatlarının ve etkinliklerini anlamanıza ve senaryonuz ya da işletmeniz için uçtan uca veri odaklı iş akışları oluşturmak amacıyla bunları nasıl kullanacağınızı anlamanıza yardımcı olur. |
+| [İşlem hatları](data-factory-create-pipelines.md) |Bu makalede, işlem hatlarının ve etkinliklerin Azure Data Factory anlamanıza yardımcı olur ve nasıl toouse bunları tooconstruct uçtan uca veri odaklı iş akışlarının senaryo veya iş. |
 | [Veri kümeleri](data-factory-create-datasets.md) |Bu makale, Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olur. |
-| [Zamanlama ve yürütme](data-factory-scheduling-and-execution.md) |Bu makalede Azure Data Factory uygulama modelinin zamanlama ve yürütme yönleri açıklanmaktadır. |
-| [İzleme Uygulaması kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md) |Bu makalede İzleme ve Yönetim Uygulaması kullanılarak işlem hatlarını izleme, yönetme ve hatalarını ayıklama işlemleri açıklanmaktadır. |
+| [Zamanlama ve yürütme](data-factory-scheduling-and-execution.md) |Bu makalede Azure Data Factory uygulama modelinin hello zamanlama ve yürütme yönleri açıklanmaktadır. |
+| [İzleme Uygulaması kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md) |Bu makalede nasıl toomonitor, yönetme ve hatalarını ayıklama işlem hatlarını izleme ve yönetim uygulaması hello kullanarak. |

@@ -1,5 +1,5 @@
 ---
-title: "Azure uygulama ağ geçidi web uygulaması güvenlik duvarı CRS Kural gruplarını ve kurallarını | Microsoft Docs"
+title: "aaaAzure uygulama ağ geçidi web uygulaması Güvenlik Duvarı'nın CRS Kural gruplarını ve kurallarını | Microsoft Docs"
 description: "Bu sayfa, web uygulaması güvenlik duvarı CRS Kural gruplarını ve kurallarını bilgi sağlar."
 documentationcenter: na
 services: application-gateway
@@ -15,17 +15,17 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-ms.openlocfilehash: 9f4445b7ceb5b39c7907b1ca4c7bf0ad52ba8212
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6be139847392baeb235bc48b079335c1e0d8287b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Web uygulaması güvenlik duvarı CRS Kural gruplarını ve kurallarını listesi sunulan
 
-Uygulama ağ geçidi web uygulaması Güvenlik Duvarı (WAF) web uygulamaları, Ortak Güvenlik Açıkları ve güvenlik açıklarına korur. Bu OWASP çekirdek kural kümeleri üzerinde 2.2.9 veya 3.0 göre tanımlanan kurallar yoluyla yapılır. Bu kurallar bir kuralı tarafından temelinde devre dışı bırakılabilir. Bu makale, sunulan rulesets ve geçerli kurallarını içerir.
+Uygulama ağ geçidi web uygulaması Güvenlik Duvarı (WAF) web uygulamaları, Ortak Güvenlik Açıkları ve güvenlik açıklarına korur. Bu hello OWASP çekirdek kural kümeleri üzerinde 2.2.9 veya 3.0 göre tanımlanan kurallar yoluyla yapılır. Bu kurallar bir kuralı tarafından temelinde devre dışı bırakılabilir. Bu makale hello geçerli kuralları ve sunulan rulesets içerir.
 
-Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygulaması güvenlik duvarı kullanırken kullanılabilir olan kuralları olur.  Her tablo belirli bir CRS sürümü için bir kural grubu bulunan kuralları gösterir.
+Aşağıdaki tablolar hello hello kuralı grupları ve uygulama ağ geçidi ile web uygulaması güvenlik duvarı kullanırken kullanılabilir olan kuralları ' dir.  Her tablo hello kuralları belirli bir CRS sürümü için bir kural grubu bulunan temsil eder.
 
 ##<a name="owasp30"></a>OWASP_3.0
 
@@ -110,7 +110,7 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 |920011|Kural 920011|
 |920012|Kural 920012|
 |920100|Geçersiz bir HTTP istek satır|
-|920130|İstek gövdesi ayrıştırılamadı.|
+|920130|Tooparse istek gövdesi başarısız oldu.|
 |920140|Çok bölümlü istek gövdesi katı doğrulama başarısız PE %@{REQBODY_PROCESSOR_ERROR =} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} BULUNUR %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
 |920160|Content-Length HTTP üstbilgisi sayısal değil.|
 |920170|GET veya HEAD gövde içerikle isteyin.|
@@ -342,7 +342,7 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 |---|---|
 |960911|Geçersiz bir HTTP istek satır|
 |981227|Apache hata = isteğinde geçersiz bir URI.|
-|960912|İstek gövdesi ayrıştırılamadı.|
+|960912|Tooparse istek gövdesi başarısız oldu.|
 |960914|Çok bölümlü istek gövdesi katı doğrulama başarısız PE %@{REQBODY_PROCESSOR_ERROR =} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} BULUNUR %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
 |960915|Çok bölümlü ayrıştırıcı olası eşleşmeyen sınır algıladı.|
 |960016|Content-Length HTTP üstbilgisi sayısal değil.|
@@ -400,9 +400,9 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 
 |RuleId|Açıklama|
 |---|---|
-|990002|Site güvenlik tarayıcısı taranan isteği gösterir|
-|990901|Site güvenlik tarayıcısı taranan isteği gösterir|
-|990902|Site güvenlik tarayıcısı taranan isteği gösterir|
+|990002|Bir tarayıcı güvenlik taradı hello Site isteği gösterir|
+|990901|Bir tarayıcı güvenlik taradı hello Site isteği gösterir|
+|990902|Bir tarayıcı güvenlik taradı hello Site isteği gösterir|
 |990012|Sahte web sitesi Gezgin|
 
 ### <a name="crs40"></a>crs_40_generic_attacks
@@ -592,6 +592,6 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ziyaret ederek WAF kuralları devre dışı bırakma hakkında bilgi edinin: [özelleştirme WAF kuralları](application-gateway-customize-waf-rules-portal.md)
+Nasıl toodisable WAF adresini ziyaret ederek kurallar öğrenin: [özelleştirme WAF kuralları](application-gateway-customize-waf-rules-portal.md)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png

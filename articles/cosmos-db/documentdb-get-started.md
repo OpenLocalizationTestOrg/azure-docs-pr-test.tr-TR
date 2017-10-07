@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos DB: DocumentDB API başlangıç öğreticisi | Microsoft Docs"
-description: "DocumentDB API'sini kullanarak çevrimiçi bir veritabanı ve C# konsol uygulaması oluşturan öğretici."
+description: "Çevrimiçi bir veritabanı ve hello DocumentDB API kullanarak C# konsol uygulaması oluşturan bir Öğreticisi."
 keywords: "nosql öğreticisi, çevrimiçi veritabanı, c# konsol uygulaması"
 services: cosmos-db
 documentationcenter: .net
@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: anhoh
-ms.openlocfilehash: 72f66081a6409f980ec6bca5188f585489245a36
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 65a181f715a670987492ad7815ef2ec94498e84d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB: DocumentDB API başlangıç öğreticisi
 > [!div class="op_single_selector"]
@@ -32,70 +32,70 @@ ms.lasthandoff: 08/18/2017
 >  
 > 
 
-Azure Cosmos DB: DocumentDB API başlangıç öğreticisine hoş geldiniz! Bu öğreticiyi uyguladıktan sonra, Azure Cosmos DB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
+Hoş Geldiniz toohello Azure Cosmos DB DocumentDB API başlangıç Öğreticisi! Bu öğreticiyi uyguladıktan sonra, Azure Cosmos DB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
 
 Şu konulara değineceğiz:
 
-* Azure Cosmos DB hesabı oluşturma ve hesaba bağlanma
+* Oluşturma ve tooan Azure Cosmos DB hesabına bağlanma
 * Visual Studio Çözümünüzü yapılandırma
 * Çevrimiçi bir veritabanı oluşturma
 * Koleksiyon oluşturma
 * JSON belgeleri oluşturma
-* Koleksiyonu sorgulama
+* Merhaba koleksiyonu sorgulama
 * Bir belgeyi değiştirme
 * Bir belgeyi silme
-* Veritabanını silme
+* Merhaba veritabanını silme
 
-Zamanınız yok mu? Endişelenmeyin! Eksiksiz çözümü [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)'da bulabilirsiniz. Hızlı yönergeler için [NoSQL öğreticisi tam çözümünü edinme](#GetSolution) bölümüne atlayın.
+Zamanınız yok mu? Endişelenmeyin! Merhaba eksiksiz bir çözüm edinilebilir [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). Toohello atlama [hello tam NoSQL Öğreticisi çözümü edinme bölümüne](#GetSolution) hızlı yönergeler için.
 
-Ardından bize geri bildirim sağlamak için lütfen bu sayfanın üst veya alt kısmındaki oylama düğmelerini kullanın. Doğrudan sizinle iletişim kurmamızı isterseniz yorumlarınıza e-posta adresinizi ekleyin.
+Daha sonra lütfen hello kullan oylama hello üstüne veya altına bu sayfa toogive, bize geri bildirim düğmeler. Bize istiyorsanız toocontact doğrudan düşündüğünüz e-posta adresi serbest tooinclude yorumlarınızı içinde.
 
 Şimdi başlayalım!
 
-## <a name="prerequisites"></a>Önkoşullar
-Lütfen aşağıdakilere sahip olduğunuzdan emin olun:
+## <a name="prerequisites"></a>Ön koşullar
+Merhaba aşağıdaki sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz. 
-    * Alternatif olarak bu öğretici için [Azure Cosmos DB Öykünücüsü](local-emulator.md)’nü kullanabilirsiniz.
+    * Alternatif olarak, hello kullanabilirsiniz [Azure Cosmos DB öykünücüsü](local-emulator.md) Bu öğretici için.
 * [Visual Studio Community 2017](http://www.visualstudio.com/).
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
-Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [Visual Studio Çözümünüzü Kurma](#SetupVS)'ya atlayabilirsiniz. Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız öykünücünün kurulumunu gerçekleştirmek için lütfen [Azure Cosmos DB Öykünücüsü](local-emulator.md) konusundaki adımları izleyin ve [Visual Studio Çözümünüzü Ayarlama](#SetupVS) adımına atlayın.
+Bir Azure Cosmos DB hesabı oluşturalım. Toouse istediğiniz bir hesap zaten varsa, şimdi çok atlayabilirsiniz[Visual Studio çözümünüzü kurma](#SetupVS). Hello Azure Cosmos DB öykünücüsü kullanıyorsanız, lütfen hello adımları izleyin [Azure Cosmos DB öykünücüsü](local-emulator.md) toosetup öykünücüsü hello ve İleri çok atlayabilirsiniz[Visual Studio çözümünüzü kurma](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>2. Adım: Visual Studio çözümünüzü kurma
 1. Bilgisayarınızda **Visual Studio 2017**'yi açın.
-2. **Dosya** menüsünde **Yeni**'yi seçin ve ardından **Proje**'yi seçin.
-3. **Yeni Proje** iletişim kutusunda, **Şablonlar** / **Visual C#** / **Konsol Uygulaması**'nı seçin, projenizi adlandırın ve ardından **Tamam**'a tıklayın.
-   ![Yeni Proje penceresinin ekran görüntüsü](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
-4. **Çözüm Gezgini**'nde Visual Studio çözümünüzün altındaki yeni konsol uygulamanıza sağ tıklayın ve **NuGet Paketlerini Yönet...** öğesine tıklayın.
+2. Merhaba üzerinde **dosya** menüsünde, select **yeni**ve ardından **proje**.
+3. Merhaba, **yeni proje** iletişim kutusunda **şablonları** / **Visual C#** / **konsol uygulaması**, adı Proje ve ardından **Tamam**.
+   ![Merhaba yeni proje penceresinin ekran görüntüsü](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+4. Merhaba, **Çözüm Gezgini**, Visual Studio çözümünüzün yeni konsol uygulamanızın üzerinde sağ tıklayın ve ardından **NuGet paketlerini Yönet...**
     
-    ![Proje için Sağ Tıklama Menüsünün ekran görüntüsü](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-5. **NuGet** sekmesinde **Gözat**'a tıklayın ve arama kutusuna **azure documentdb** yazın.
-6. Sonuçlarda **Microsoft.Azure.DocumentDB**'yi bulun ve **Yükle**'ye tıklayın.
-   Azure Cosmos DB DocumentDB API'si istemci kitaplığı için paket kimliği [Microsoft Azure DocumentDB istemci Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
-   ![Azure Cosmos DB İstemci SDK'sını bulmak için Nuget Menüsünün ekran görüntüsü](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+    ![Merhaba sağ tıklama menüsünün hello proje için ekran görüntüsü](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+5. Merhaba, **Nuget** sekmesini tıklatın, **Gözat**ve türü **azure documentdb** hello arama kutusuna.
+6. Merhaba sonuçları içinde bulmak **Microsoft.Azure.DocumentDB** tıklatıp **yükleme**.
+   Merhaba hello Azure Cosmos DB DocumentDB API'si istemci kitaplığı için paket kimliği [Microsoft Azure DocumentDB istemci Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
+   ![Azure Cosmos DB istemci SDK'sını bulmak için Nuget menüsünün hello ekran görüntüsü](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
-    Çözümdeki değişiklikleri gözden geçirme hakkında bir ileti alırsanız **Tamam**'a tıklayın. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
+    Değişiklikleri toohello çözümü gözden geçirme hakkında bir ileti alırsanız tıklatın **Tamam**. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
 
-Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu öğreticinin tamamlanmış kod projesini [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)'da bulabilirsiniz.
+Harika! Biz hello Kurulumu tamamladığımıza göre biraz kod yazmaya başlayalım. Bu öğreticinin tamamlanmış kod projesini [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)'da bulabilirsiniz.
 
-## <a id="Connect"></a>3. Adım: Azure Cosmos DB hesabına bağlanma
-İlk olarak, Program.cs dosyasında C# uygulamanızın başlangıcına bu başvuruları ekleyin:
+## <a id="Connect"></a>3. adım: tooan Azure Cosmos DB hesap bağlanma
+İlk olarak, bunlar ekleyin başvuran C# uygulamanız, hello Program.cs dosyasındaki toohello başlangıcı:
 
     using System;
     using System.Linq;
     using System.Threading.Tasks;
 
-    // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART tooYOUR CODE
     using System.Net;
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
     using Newtonsoft.Json;
 
 > [!IMPORTANT]
-> Bu öğreticiyi tamamlamak için, yukarıdaki bağımlılıkları eklediğinizden emin olun.
+> Sipariş toocomplete hello öğreticide hello yukarıdaki bağımlılıkları eklediğinizden emin olun.
 > 
 > 
 
@@ -103,38 +103,38 @@ Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu �
 
     public class Program
     {
-        // ADD THIS PART TO YOUR CODE
+        // ADD THIS PART tooYOUR CODE
         private const string EndpointUrl = "<your endpoint URL>";
         private const string PrimaryKey = "<your primary key>";
         private DocumentClient client;
 
-Ardından, uç nokta URL’nizi ve birincil anahtarınızı almak için tekrar [Azure Portal](https://portal.azure.com)’a gidin. Uç nokta URL’si ve birincil anahtar, uygulamanızın nereye bağlanacağını anlaması ve Azure Cosmos DB’nin uygulamanızın bağlantısına güvenmesi için gereklidir.
+Ardından, head geri toohello [Azure Portal](https://portal.azure.com) tooretrieve uç noktasının URL'sini ve birincil anahtar. Merhaba uç noktasının URL'sini ve birincil anahtar, uygulama toounderstand için gerekli olan nerede tooconnect ve Azure Cosmos DB tootrust için uygulamanızın bağlantı.
 
-Azure Portal'da Azure Cosmos DB hesabınıza gidin ve ardından **Anahtarlar**’a tıklayın.
+İçinde Azure Portal Merhaba, tooyour Azure Cosmos DB hesap gidin ve ardından **anahtarları**.
 
-Portaldaki URI’yi kopyalayın ve program.cs dosyasındaki `<your endpoint URL>` içine yapıştırın. Ardından portaldan BİRİNCİL ANAHTARI kopyalayın ve `<your primary key>` içine yapıştırın.
+Merhaba URI hello Portal'dan kopyalayın ve yapıştırın `<your endpoint URL>` hello program.cs dosyasındaki. BİRİNCİL anahtar hello portalından hello kopyalayıp yapıştırın sonra `<your primary key>`.
 
-![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan Azure Portal'ın ekran görüntüsü Azure Cosmos DB hesabı dikey penceresinde ANAHTARLAR düğmesi vurgulanmış, ETKİN hub'ı vurgulanmış ve Anahtarlar dikey penceresinde URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir Azure Cosmos DB hesabını gösterir][keys]
+![Merhaba hello NoSQL Öğreticisi toocreate C# konsol uygulaması tarafından kullanılan Azure Portal ekran görüntüsü. Hesap, hello etkin hub vurgulandığı ile Merhaba hello Azure Cosmos DB hesabı dikey penceresinde ANAHTARLAR düğmesi ve anahtarlar dikey penceresinde hello üzerinde hello URI, birincil anahtar ve ikincil anahtar değerleri vurgulanmış bir Azure Cosmos DB gösterir][keys]
 
-Ardından **DocumentClient**'ın yeni bir örneğini oluşturarak uygulamayı başlatacağız.
+Ardından, Merhaba uygulaması hello yeni bir örneğini oluşturarak başlayacağız **DocumentClient**.
 
-**Main** yönteminin altına yeni **DocumentClient**'ımızın örneğini oluşturacak **GetStartedDemo** adlı bu zaman uyumsuz yeni görevi ekleyin.
+Merhaba aşağıda **ana** yöntemi adlı bu zaman uyumsuz yeni görevi ekleyin **GetStartedDemo**, örneğini oluşturacak, yeni **DocumentClient**.
 
     static void Main(string[] args)
     {
     }
 
-    // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART tooYOUR CODE
     private async Task GetStartedDemo()
     {
         this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
     }
 
-Zaman uyumsuz görevinizi **Main** yönteminizden çalıştırmak için aşağıdaki kodu ekleyin. **Main** yöntemi özel durumları yakalar ve bunları konsola yazar.
+Zaman uyumsuz görevinizi Hello aşağıdaki kod toorun eklemek, **ana** yöntemi. Merhaba **ana** yöntemi özel durumları yakalar ve bunları toohello konsol yazar.
 
     static void Main(string[] args)
     {
-            // ADD THIS PART TO YOUR CODE
+            // ADD THIS PART tooYOUR CODE
             try
             {
                     Program p = new Program();
@@ -152,39 +152,39 @@ Zaman uyumsuz görevinizi **Main** yönteminizden çalıştırmak için aşağı
             }
             finally
             {
-                    Console.WriteLine("End of demo, press any key to exit.");
+                    Console.WriteLine("End of demo, press any key tooexit.");
                     Console.ReadKey();
             }
 
-Uygulamanızı çalıştırmak için **F5**'e basın. Konsol penceresi çıktısı, bağlantının kurulduğunu onaylayan `End of demo, press any key to exit.` iletisini görüntüler.  Ardından konsol penceresini kapatabilirsiniz. 
+Tuşuna **F5** toorun uygulamanızı. Merhaba konsol penceresi çıktısı görüntüler selamlama iletisine `End of demo, press any key tooexit.` hello bağlantısı kuruldu onaylama.  Daha sonra hello konsol penceresi kapatabilirsiniz. 
 
-Tebrikler! Bir Azure Cosmos DB hesabına başarıyla bağlandınız, şimdi Azure Cosmos DB kaynaklarıyla çalışmaya bakalım.  
+Tebrikler! Başarılı bir şekilde bağlı tooan Azure Cosmos DB hesap, artık Azure Cosmos DB kaynaklarla çalışmak bir bakalım.  
 
 ## <a name="step-4-create-a-database"></a>4. Adım: Veritabanı oluşturma
-Bir veritabanı oluşturmak için kodu eklemeden önce, konsola yazma için bir yardımcı yöntemi ekleyin.
+Bir veritabanı oluşturmak için hello kodu eklemeden önce toohello konsol yazmak için bir yardımcı yöntemi ekleyin.
 
-**WriteToConsoleAndPromptToContinue** yöntemini kopyalayın ve **GetStartedDemo** yönteminin sonrasında yapıştırın.
+Kopyalama ve yapıştırma hello **WriteToConsoleAndPromptToContinue** yöntemi hello sonra **GetStartedDemo** yöntemi.
 
-    // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART tooYOUR CODE
     private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
     {
             Console.WriteLine(format, args);
-            Console.WriteLine("Press any key to continue ...");
+            Console.WriteLine("Press any key toocontinue ...");
             Console.ReadKey();
     }
 
-Azure Cosmos DB [veritabanınız](documentdb-resources.md#databases), **DocumentClient** sınıfının [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) yöntemi kullanılarak oluşturulabilir. Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.
+Azure Cosmos DB [veritabanı](documentdb-resources.md#databases) hello kullanarak oluşturulan [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) hello yöntemi **DocumentClient** sınıfı. Bir veritabanı hello mantıksal, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama kapsayıcısıdır.
 
-Aşağıdaki kodu kopyalayın ve istemci oluşturmanın sonrasında **GetStartedDemo** yönteminize yapıştırın. Bu, *FamilyDB* adlı bir veritabanı oluşturur.
+Kopyala ve Yapıştır hello aşağıdaki kod tooyour **GetStartedDemo** hello istemci oluşturulduktan sonra yöntemi. Bu, *FamilyDB* adlı bir veritabanı oluşturur.
 
     private async Task GetStartedDemo()
     {
         this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
-        // ADD THIS PART TO YOUR CODE
+        // ADD THIS PART tooYOUR CODE
         await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
 
-Uygulamanızı çalıştırmak için **F5**'e basın.
+Tuşuna **F5** toorun uygulamanızı.
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB veritabanı oluşturdunuz.  
 
@@ -194,36 +194,36 @@ Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB veritabanı oluşturdunu
 > 
 > 
 
-Bir [koleksiyon](documentdb-resources.md#collections), **DocumentClient** sınıfının [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) yöntemi kullanılarak oluşturulabilir. Koleksiyon, JSON belgelerinin ve ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır.
+A [koleksiyonu](documentdb-resources.md#collections) hello kullanarak oluşturulan [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) hello yöntemi **DocumentClient** sınıfı. Koleksiyon, JSON belgelerinin ve ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır.
 
-Aşağıdaki kodu kopyalayın ve veritabanı oluşturmanın sonrasında **GetStartedDemo** yönteminize yapıştırın. Bu, *FamilyCollection* adlı bir belge koleksiyonu oluşturur.
+Kopyala ve Yapıştır hello aşağıdaki kod tooyour **GetStartedDemo** hello veritabanı oluşturulduktan sonra yöntemi. Bu, *FamilyCollection* adlı bir belge koleksiyonu oluşturur.
 
         this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
         await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
 
-        // ADD THIS PART TO YOUR CODE
+        // ADD THIS PART tooYOUR CODE
          await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB"), new DocumentCollection { Id = "FamilyCollection" });
 
-Uygulamanızı çalıştırmak için **F5**'e basın.
+Tuşuna **F5** toorun uygulamanızı.
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belge koleksiyonu oluşturdunuz.  
 
 ## <a id="CreateDoc"></a>6. Adım: JSON belgeleri oluşturma
-Bir [belge](documentdb-resources.md#documents), **DocumentClient** sınıfının [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) yöntemi kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içeriğidir. Şimdi bir veya daha fazla belge ekleyebiliriz. Veritabanınızda depolamak istediğiniz veriler zaten varsa, Azure Cosmos DB kullanabilirsiniz [veri geçiş aracı](import-data.md) verileri bir veritabanına aktarmak için.
+A [belge](documentdb-resources.md#documents) hello kullanarak oluşturulan [Documentclient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) hello yöntemi **DocumentClient** sınıfı. Belgeler, kullanıcı tanımlı (rastgele) JSON içeriğidir. Şimdi bir veya daha fazla belge ekleyebiliriz. İstediğiniz toostore veritabanınızda veriler zaten varsa, hello Azure Cosmos DB kullanabilirsiniz [veri geçiş aracı](import-data.md) tooimport hello verileri bir veritabanına.
 
-İlk olarak, bu örnekte Azure Cosmos DB içinde depolanan nesneleri temsil edecek bir **Family** sınıfı oluşturmamız gerekir. **Family**'nin içinde kullanılan **Parent**, **Child**, **Pet**, **Address** alt sınıflarını da oluşturacağız. Belgelerin, JSON'da **id** olarak seri hale getirilmiş bir **Id** özelliğine sahip olmaları gerektiğini unutmayın. Bu sınıfları oluşturmak için **GetStartedDemo** yönteminden sonra aşağıdaki iç alt sınıfları ekleyin.
+İlk olarak, toocreate ihtiyacımız bir **ailesi** Bu örnekte Azure Cosmos DB içinde depolanan nesneleri temsil edecek sınıfı. **Family**'nin içinde kullanılan **Parent**, **Child**, **Pet**, **Address** alt sınıflarını da oluşturacağız. Belgelerin, JSON'da **id** olarak seri hale getirilmiş bir **Id** özelliğine sahip olmaları gerektiğini unutmayın. İç alt sınıfları hello sonra aşağıdaki hello ekleyerek bu sınıfları oluşturmak **GetStartedDemo** yöntemi.
 
-**Family**, **Parent**, **Child**, **Pet** ve **Address** sınıflarını kopyalayın ve **WriteToConsoleAndPromptToContinue** yönteminin sonrasına yapıştırın.
+Kopyalama ve yapıştırma hello **ailesi**, **üst**, **alt**, **evcil hayvan**, ve **adresi** hello sonra sınıfları **WriteToConsoleAndPromptToContinue** yöntemi.
 
     private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
     {
         Console.WriteLine(format, args);
-        Console.WriteLine("Press any key to continue ...");
+        Console.WriteLine("Press any key toocontinue ...");
         Console.ReadKey();
     }
 
-    // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART tooYOUR CODE
     public class Family
     {
         [JsonProperty(PropertyName = "id")]
@@ -266,9 +266,9 @@ Bir [belge](documentdb-resources.md#documents), **DocumentClient** sınıfının
         public string City { get; set; }
     }
 
-**CreateFamilyDocumentIfNotExists** yöntemini kopyalayın ve **Address** sınıfınızın altına yapıştırın.
+Kopyalama ve yapıştırma hello **Createfamilydocumentıfnotexists** yöntemini, **adresi** sınıfı.
 
-    // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART tooYOUR CODE
     private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
     {
         try
@@ -290,16 +290,16 @@ Bir [belge](documentdb-resources.md#documents), **DocumentClient** sınıfının
         }
     }
 
-Andersen Ailesi ve Wakefield Ailesi için birer tane olmak üzere iki belge yerleştirin.
+Ve iki belge, her biri için hello Andersen ailesi ve Wakefield ailesi hello ekleme.
 
-Aşağıdaki kodu kopyalayın ve belge koleksiyonu oluşturmanın sonrasında **GetStartedDemo** yönteminize yapıştırın.
+Kopyala ve Yapıştır hello aşağıdaki kod tooyour **GetStartedDemo** hello belge koleksiyonu oluşturulduktan sonra yöntemi.
 
     await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
     
     await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB"), new DocumentCollection { Id = "FamilyCollection" });
 
 
-    // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART tooYOUR CODE
     Family andersenFamily = new Family
     {
             Id = "Andersen.1",
@@ -365,36 +365,36 @@ Aşağıdaki kodu kopyalayın ve belge koleksiyonu oluşturmanın sonrasında **
 
     await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
-Uygulamanızı çalıştırmak için **F5**'e basın.
+Tuşuna **F5** toorun uygulamanızı.
 
 Tebrikler! Başarılı bir şekilde iki Azure Cosmos DB belgesi oluşturdunuz.  
 
-![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan belgeler, hesap, çevrimiçi veritabanı ve koleksiyon arasındaki hiyerarşik ilişkiyi gösteren diyagram](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Gösteren hello hello hesabı, hello çevrimiçi veritabanı, hello koleksiyon arasındaki hiyerarşik ilişkiyi Diyagram ve C# konsol uygulaması hello NoSQL Öğreticisi toocreate tarafından kullanılan hello belgeler](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>7. Adım: Azure Cosmos DB kaynaklarını sorgulama
-Azure Cosmos DB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](documentdb-sql-query.md) gerçekleştirilmesini destekler.  Aşağıdaki örnek kod, önceki adımda yerleştirdiğimiz belgelerde hem Azure Cosmos DB SQL söz dizimi hem de LINQ kullanarak çalıştırabileceğimiz çeşitli sorguları gösterir.
+Azure Cosmos DB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](documentdb-sql-query.md) gerçekleştirilmesini destekler.  Merhaba aşağıdaki örnek kod çeşitli sorgularını gösterir - hem Azure Cosmos DB SQL kullanarak, sözdizimi ve bunun yanı sıra karşı çalıştırabilirsiniz LINQ - biz hello önceki adımda eklenen belgelerde hello.
 
-**ExecuteSimpleQuery** yöntemini kopyalayın ve **CreateFamilyDocumentIfNotExists** yönteminizin sonrasına yapıştırın.
+Kopyalama ve yapıştırma hello **ExecuteSimpleQuery** sonra yöntemi, **Createfamilydocumentıfnotexists** yöntemi.
 
-    // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART tooYOUR CODE
     private void ExecuteSimpleQuery(string databaseName, string collectionName)
     {
         // Set some common query options
         FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
 
-            // Here we find the Andersen family via its LastName
+            // Here we find hello Andersen family via its LastName
             IQueryable<Family> familyQuery = this.client.CreateDocumentQuery<Family>(
                     UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), queryOptions)
                     .Where(f => f.LastName == "Andersen");
 
-            // The query is executed synchronously here, but can also be executed asynchronously via the IDocumentQuery<T> interface
+            // hello query is executed synchronously here, but can also be executed asynchronously via hello IDocumentQuery<T> interface
             Console.WriteLine("Running LINQ query...");
             foreach (Family family in familyQuery)
             {
                     Console.WriteLine("\tRead {0}", family);
             }
 
-            // Now execute the same query via direct SQL
+            // Now execute hello same query via direct SQL
             IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
                     UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
                     "SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
@@ -406,147 +406,147 @@ Azure Cosmos DB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sor
                     Console.WriteLine("\tRead {0}", family);
             }
 
-            Console.WriteLine("Press any key to continue ...");
+            Console.WriteLine("Press any key toocontinue ...");
             Console.ReadKey();
     }
 
-Aşağıdaki kodu kopyalayın ve ikinci belge oluşturmanın sonrasında **GetStartedDemo** yönteminize yapıştırın.
+Kopyala ve Yapıştır hello aşağıdaki kod tooyour **GetStartedDemo** hello ikinci belge oluşturmanın sonra yöntemi.
 
     await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
-    // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART tooYOUR CODE
     this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
-Uygulamanızı çalıştırmak için **F5**'e basın.
+Tuşuna **F5** toorun uygulamanızı.
 
 Tebrikler! Bir Azure Cosmos DB koleksiyonunu başarıyla sorguladınız.
 
-Aşağıdaki diyagram oluşturduğunuz koleksiyonda Azure Cosmos DB SQL sorgusu söz diziminin nasıl çağrıldığını gösterir, aynı mantık LINQ sorgusu için de geçerlidir.
+Merhaba Aşağıdaki diyagram hello Azure Cosmos DB SQL sorgusu söz dizimi karşı hello koleksiyonu olarak adlandırılır, nasıl oluşturulacağını gösterir ve hello aynı mantığı uygular de toohello LINQ sorgusu.
 
-![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan sorgunun kapsamını ve anlamını gösteren diyagram](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![Merhaba kapsamını ve hello sorgunun anlamını diyagramı bir C# konsol uygulaması hello NoSQL Öğreticisi toocreate tarafından kullanılan](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
-[FROM](documentdb-sql-query.md#FromClause) Azure Cosmos DB sorguları zaten tek bir koleksiyon kapsamında olduğundan anahtar sözcüğü sorguda isteğe bağlıdır. Bu nedenle, "FROM Families f", "FROM root r" veya seçtiğiniz herhangi bir başka değişken adıyla değiştirilebilir. Azure Cosmos DB Families, root veya seçtiğiniz değişken adı olarak Infer, varsayılan olarak geçerli koleksiyonun başvuru.
+Merhaba [FROM](documentdb-sql-query.md#FromClause) Azure Cosmos DB sorguları kapsamlı tooa tek koleksiyon zaten olduğu için anahtar sözcüğü hello sorguda isteğe bağlıdır. Bu nedenle, "FROM Families f", "FROM root r" veya seçtiğiniz herhangi bir başka değişken adıyla değiştirilebilir. Azure Cosmos DB aileleri, kök veya hello değişken adı, seçtiğiniz, başvuru hello geçerli koleksiyonu varsayılan olarak Infer.
 
 ## <a id="ReplaceDocument"></a>8. Adım: JSON belgesini değiştirme
 Azure Cosmos DB, JSON belgelerini değiştirmeyi destekler.  
 
-**ReplaceFamilyDocument** yöntemini kopyalayın ve **ExecuteSimpleQuery** yönteminizin sonrasına yapıştırın.
+Kopyalama ve yapıştırma hello **ReplaceFamilyDocument** sonra yöntemi, **ExecuteSimpleQuery** yöntemi.
 
-    // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART tooYOUR CODE
     private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
     {
          await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
          this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
     }
 
-Aşağıdaki kodu kopyalayın ve sorgu yürütmenin sonrasına, **GetStartedDemo** yönteminizin sonuna yapıştırın. Belgeyi değiştirdikten sonra, aynı sorgu tekrar çalıştırılarak değiştirilen belge görüntülenir.
+Kopyala ve Yapıştır hello aşağıdaki kod tooyour **GetStartedDemo** hello yöntemi hello sonunda hello sorgu yürütme sonrasında yöntemi. Merhaba belgeyi değiştirdikten sonra bu hello çalıştıracaktır aynı tooview değiştirilen hello belgeyi yeniden sorgula.
 
     await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
     this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
-    // ADD THIS PART TO YOUR CODE
-    // Update the Grade of the Andersen Family child
+    // ADD THIS PART tooYOUR CODE
+    // Update hello Grade of hello Andersen Family child
     andersenFamily.Children[0].Grade = 6;
 
     await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
 
     this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
-Uygulamanızı çalıştırmak için **F5**'e basın.
+Tuşuna **F5** toorun uygulamanızı.
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belgesini değiştirdiniz.
 
 ## <a id="DeleteDocument"></a>9. Adım: JSON belgesini silme
 Azure Cosmos DB, JSON belgelerini silmeyi destekler.  
 
-**DeleteFamilyDocument** yöntemini kopyalayın ve **ReplaceFamilyDocument** yönteminizin sonrasına yapıştırın.
+Kopyalama ve yapıştırma hello **DeleteFamilyDocument** sonra yöntemi, **ReplaceFamilyDocument** yöntemi.
 
-    // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART tooYOUR CODE
     private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
     {
          await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
          Console.WriteLine("Deleted Family {0}", documentName);
     }
 
-Aşağıdaki kodu kopyalayın ve ikinci sorgu yürütmenin sonrasına, **GetStartedDemo** yönteminizin sonuna yapıştırın.
+Kopyala ve Yapıştır hello aşağıdaki kod tooyour **GetStartedDemo** hello ikinci sorguyu yürütmenin, hello yöntemi hello sonunda sonra yöntemi.
 
     await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
     
     this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
     
-    // ADD THIS PART TO CODE
+    // ADD THIS PART tooCODE
     await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
 
-Uygulamanızı çalıştırmak için **F5**'e basın.
+Tuşuna **F5** toorun uygulamanızı.
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belgesini sildiniz.
 
-## <a id="DeleteDatabase"></a>10. Adım: Veritabanını silme
-Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler vb.) kaldırılır.
+## <a id="DeleteDatabase"></a>10. adım: hello veritabanını silme
+Veritabanı oluşturulan silme hello hello veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler, vb.) kaldırır.
 
-Tüm veritabanını ve tüm alt kaynaklarını silmek için aşağıdaki kodu kopyalayın ve belge silmenin sonrasında **GetStartedDemo** yönteminize yapıştırın.
+Kopyala ve Yapıştır hello aşağıdaki kod tooyour **GetStartedDemo** yöntemini hello belge sonra toodelete hello tüm veritabanını ve tüm alt kaynaklarını silin.
 
     this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
     await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
 
-    // ADD THIS PART TO CODE
-    // Clean up/delete the database
+    // ADD THIS PART tooCODE
+    // Clean up/delete hello database
     await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
 
-Uygulamanızı çalıştırmak için **F5**'e basın.
+Tuşuna **F5** toorun uygulamanızı.
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB veritabanını sildiniz.
 
 ## <a id="Run"></a>11. Adım: C# konsol uygulamanızı hep birlikte çalıştırın!
-Uygulamayı hata ayıklama modunda oluşturmak için Visual Studio'da F5'e basın.
+Visual Studio toobuild hello uygulamasında hata ayıklama modunda F5'e basın.
 
-Başlarken uygulamanızın bir konsol penceresinde çıktısını görmeniz gerekir. Çıktı, eklediğimiz sorguların sonuçlarını gösterir ve aşağıdaki örnek metinle eşleşmelidir.
+Başlarken uygulamanızın bir konsol penceresinde hello çıktısını görmeniz gerekir. Merhaba çıktı hello hello sonuçlarını gösterir eklenir ve hello örnek metinle eşleşmelidir sorgular.
 
     Created FamilyDB
-    Press any key to continue ...
+    Press any key toocontinue ...
     Created FamilyCollection
-    Press any key to continue ...
+    Press any key toocontinue ...
     Created Family Andersen.1
-    Press any key to continue ...
+    Press any key toocontinue ...
     Created Family Wakefield.7
-    Press any key to continue ...
+    Press any key toocontinue ...
     Running LINQ query...
         Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
     Running direct SQL query...
         Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
     Replaced Family Andersen.1
-    Press any key to continue ...
+    Press any key toocontinue ...
     Running LINQ query...
         Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":6,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
     Running direct SQL query...
         Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":6,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
     Deleted Family Andersen.1
-    End of demo, press any key to exit.
+    End of demo, press any key tooexit.
 
-Tebrikler! Bu öğreticiyi tamamladınız ve çalışan bir C# konsol uygulamasına sahipsiniz!
+Tebrikler! Merhaba öğreticisini tamamladınız ve çalışma C# konsol uygulaması sahip!
 
-## <a id="GetSolution"></a> Tam öğretici çözümünü edinin
-Bu öğreticideki adımları tamamlama fırsatınız olmadıysa veya yalnızca kod örneklerini indirmek isterseniz [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)'dan ulaşabilirsiniz. 
+## <a id="GetSolution"></a>Merhaba tam Öğreticisi çözümünü edinme
+Toocomplete hello adımları Bu öğreticinin veya yalnızca istediğiniz toodownload hello kod örnekleri saati yoksa alamadık, buradan edinebilirsiniz [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
-GetStarted çözümünü oluşturmak için aşağıdakilere ihtiyacınız olacak:
+toobuild hello GetStarted çözümünü hello aşağıdaki gerekir:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz.
 * Bir [Azure Cosmos DB hesabı][cosmos-db-create-account].
-* GitHub'da bulunan [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) çözümü.
+* Merhaba [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) çözüm Github'da kullanılabilir.
 
-Visual Studio'da Azure Cosmos DB .NET SDK başvuruları geri yüklemek için sağ **GetStarted** Çözüm Gezgini ve ardından çözüm **NuGet paketi geri yüklemeyi etkinleştir**. Ardından, App.config dosyasında EndpointUrl ve AuthorizationKey değerlerini [Azure Cosmos DB hesabına bağlanma](#Connect) bölümünde açıklandığı gibi güncelleştirin.
+toorestore hello başvuruları toohello Azure Cosmos DB .NET SDK Visual Studio'da sağ hello **GetStarted** Çözüm Gezgini ve ardından çözüm **NuGet paketi geri yüklemeyi etkinleştir**. Ardından, hello App.config dosyasında açıklandığı gibi hello EndpointUrl ve AuthorizationKey değerlerini güncelleştirin [tooan Azure Cosmos DB hesabını bağlaması](#Connect).
 
 Hepsi bu kadar, derleyin ve devam edin!
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Daha karmaşık bir ASP.NET MVC öğreticisi mi istiyorsunuz? Bkz: [ASP.NET MVC Öğreticisi: Web uygulaması geliştirme Azure Cosmos DB ile](documentdb-dotnet-application.md).
-* Azure Cosmos DB ile ölçek ve performans testi mi yapmak istiyorsunuz? Bkz: [performansı ve ölçeği Azure Cosmos DB ile test etme](performance-testing.md)
-* Bilgi edinmek için nasıl [Azure Cosmos DB istekleri, kullanım ve depolama izleme](monitor-accounts.md).
-* [Query Playground](https://www.documentdb.com/sql/demo)'daki örnek veri kümelerimizde sorgular çalıştırın.
-* Azure Cosmos DB hakkında daha fazla bilgi için bkz: ['na Hoş Geldiniz Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
+* Tooperform ölçek ve performans ile Azure Cosmos DB istiyorsunuz? Bkz: [performansı ve ölçeği Azure Cosmos DB ile test etme](performance-testing.md)
+* Nasıl çok öğrenin[Azure Cosmos DB istekleri, kullanım ve depolama izleme](monitor-accounts.md).
+* Merhaba, örnek veri kümelerimizde sorgular çalıştırın [Query Playground](https://www.documentdb.com/sql/demo).
+* toolearn Azure Cosmos DB hakkında daha fazla bilgi görmek [tooAzure Cosmos DB Hoş Geldiniz](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 [cosmos-db-create-account]: create-documentdb-dotnet.md#create-account

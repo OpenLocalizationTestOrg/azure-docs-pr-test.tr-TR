@@ -1,6 +1,6 @@
 ---
-title: "Uygulama hizmeti ortamı | Microsoft Docs"
-description: "Azure uygulama hizmeti ortamı nedir? Uygulama hizmeti ortamı giriş."
+title: "aaaApp hizmeti ortamı | Microsoft Docs"
+description: "Azure uygulama hizmeti ortamı nedir? Giriş tooApp hizmeti ortamı."
 keywords: "Azure uygulama hizmeti ortamı, sanal ağ, güvenli ağ oluşturma"
 services: app-service
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: stefsch
-ms.openlocfilehash: 1de3f2c513f4f5ce6fd2ab2b57514122955a9a98
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1b59fed4e5a72d4c4805e1dca203747e07e77103
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="app-service-environment-documentation"></a>Uygulama hizmeti ortamı belgeleri
 Bir uygulama hizmeti ortamını bir [Premium] [ PremiumTier] hizmet Azure App Service uygulamalarını yüksek ölçekte güvenli bir şekilde çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlayan bir Azure uygulama hizmeti planı seçeneği de dahil olmak üzere [Web Apps][WebApps], [Mobile Apps][MobileApps], ve [API uygulamaları][APIApps].  
@@ -31,9 +31,9 @@ Uygulama hizmeti ortamları gerektiren uygulama iş yükleri için idealdir:
 
 Müşterilerin, tek bir Azure bölge içinde ve aynı zamanda birden çok Azure bölgeler arasında birden fazla App Service ortamları oluşturabilirsiniz.  Bu uygulama hizmeti ortamları yatay olarak ölçekleme durumu daha az uygulama katmanları yüksek RPS iş yüklerini desteklemek için ideal hale getirir.
 
-Uygulama hizmeti ortamları yalnızca tek bir müşterinin uygulamalarını çalıştırmak için yalıtılmış, her zaman bir sanal ağ içinde dağıtılır.  Müşterilerin sahip hem uygulama gelen ve giden ağ trafiği kullanarak üzerinde ayrıntılı denetim [ağ güvenlik grubu][NetworkSecurityGroups].  Uygulamaları, şirket içi kurumsal kaynaklara sanal ağları üzerinden yüksek hızlı güvenli bağlantılar da oluşturabilirsiniz.
+Uygulama hizmeti ortamları yalıtılmış toorunning yalnızca tek bir müşterinin uygulamalardır, her zaman bir sanal ağ içinde dağıtılır.  Müşterilerin sahip hem uygulama gelen ve giden ağ trafiği kullanarak üzerinde ayrıntılı denetim [ağ güvenlik grubu][NetworkSecurityGroups].  Uygulamalar, sanal ağlar tooon içi şirket kaynaklarına yüksek hızlı güvenli bağlantılar da oluşturabilirsiniz.
 
-Uygulamaları sık iç veritabanları gibi şirket kaynaklarına erişmek ve web Hizmetleri gerekir.  Uygulama hizmeti ortamları üzerinde çalışan uygulamalar aracılığıyla erişilebilen kaynaklara erişebilir [siteden siteye] [ SiteToSite] VPN ve [Azure ExpressRoute] [ ExpressRoute] bağlantıları.
+Uygulamaların sık iç veritabanları ve web Hizmetleri gibi şirket kaynaklarına tooaccess gerekir.  Uygulama hizmeti ortamları üzerinde çalışan uygulamalar aracılığıyla erişilebilen kaynaklara erişebilir [siteden siteye] [ SiteToSite] VPN ve [Azure ExpressRoute] [ ExpressRoute] bağlantıları.
 
 * [App Service Ortamı nedir?](../app-service-web/app-service-app-service-environment-intro.md)
 * [App Service Ortamı oluşturma](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)

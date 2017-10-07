@@ -1,6 +1,6 @@
 ---
-title: "Operations Management Suite (OMS) yönetim çözümleri görünümlerde | Microsoft Docs"
-description: "Yönetim çözümleri Operations Management Suite (OMS) genellikle verileri görselleştirmek için bir veya daha fazla görünümleri içerir.  Bu makalede, Görünüm Tasarımcısı tarafından oluşturulan bir görünüm vermek ve bir yönetim çözümü dahil açıklar. "
+title: "Operations Management Suite (OMS) Yönetimi çözümlerinde aaaViews | Microsoft Docs"
+description: "Yönetim çözümleri Operations Management Suite (OMS) genellikle bir veya daha fazla görünümleri toovisualize verileri içerir.  Bu makalede nasıl tooexport bir görünüm hello Görünüm Tasarımcısı tarafından oluşturulan ve bir yönetim çözümü içerir. "
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 303861465014a27289f831332b3d95925c0ae66d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Operations Management Suite (OMS) yönetim çözümleri (Önizleme) görünümlerde
 > [!NOTE]
-> Bu, şu anda önizlemede OMS yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.    
+> Bu, şu anda önizlemede OMS yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema konu toochange ' dir.    
 >
 >
 
-[Yönetim çözümleri Operations Management Suite (OMS)](operations-management-suite-solutions.md) genellikle verileri görselleştirmek için bir veya daha fazla görünümleri içerir.  Bu makalede tarafından oluşturulan bir görünüm dışarı aktarma [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) ve bir yönetim çözümü içerir.  
+[Yönetim çözümleri Operations Management Suite (OMS)](operations-management-suite-solutions.md) genellikle bir veya daha fazla görünümleri toovisualize verileri içerir.  Bu makalede tooexport bir görünüm hello tarafından nasıl oluşturulacağını açıklar [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) ve bir yönetim çözümü içerir.  
 
 > [!NOTE]
-> Bu makaledeki örnekler parametreleri ve gerekli olduğunu veya yönetim çözümleri için ortak olduğunu ve açıklanan değişkenleri kullanma [Operations Management Suite (OMS) yönetimi çözümleri oluşturma](operations-management-suite-solutions-creating.md)
+> Merhaba bu makaledeki örnekler parametreleri ve ya da gerekli veya ortak toomanagement çözümleri ve açıklanan değişkenleri kullanma [Operations Management Suite (OMS) yönetimi çözümleri oluşturma](operations-management-suite-solutions-creating.md)
 >
 >
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu makale, zaten nasıl hakkında bilgi sahibi olduğunuzu varsayar [bir yönetim çözümü oluşturma](operations-management-suite-solutions-creating.md) ve çözüm dosya yapısı.
+Bu makale, zaten çok konusunda bilgi sahibi olduğunuzu varsayar[bir yönetim çözümü oluşturma](operations-management-suite-solutions-creating.md) ve bir çözüm dosyasının hello yapısı.
 
 ## <a name="overview"></a>Genel Bakış
-Bir yönetim çözümü bir görünüm eklemek için oluşturduğunuz bir **kaynak** içinde için [çözüm dosyasını](operations-management-suite-solutions-creating.md).  Görünümün ayrıntılı yapılandırma tanımlayan JSON ancak ve bir şey yok tipik çözüm Yazar el ile oluşturmak mümkün olacaktır genellikle karmaşıktır.  Görünümü kullanarak oluşturmak için kullanılan en yaygın yöntem olan [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md)dışa aktarın ve ardından ayrıntılı yapılandırmasına ekleyin.
+bir yönetim çözümü bir görünümde tooinclude, oluşturduğunuz bir **kaynak** hello içinde için [çözüm dosyasını](operations-management-suite-solutions-creating.md).  Merhaba hello görünümün ayrıntılı yapılandırma tanımlayan JSON ancak ve bir şey yok tipik çözüm Yazar mümkün toocreate el ile olacaktır genellikle karmaşıktır.  Merhaba en yaygın yöntem hello kullanarak toocreate hello görünümdür [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md)dışa aktarın ve ardından ayrıntılı yapılandırma toohello çözümünün ekleyin.
 
-Görünüm bir çözüme eklemek için temel adımlar aşağıda belirtilmiştir.  Her adım, aşağıdaki bölümlerde daha ayrıntılı açıklanmıştır.
+Merhaba temel adımlar tooadd bir görünüm tooa çözümü aşağıdaki gibidir.  Her adım, aşağıdaki hello bölümlerde daha ayrıntılı açıklanmıştır.
 
-1. Görünüm bir dosyaya aktarın.
-2. Görünüm kaynak çözümde oluşturun.
-3. Ayrıntıları Görüntüle ekleyin.
+1. Merhaba görünüm tooa dosyası dışarı aktarın.
+2. Merhaba görünüm kaynak hello çözümde oluşturun.
+3. Merhaba görünümü ayrıntıları ekleyin.
 
-## <a name="export-the-view-to-a-file"></a>Görünüm bir dosyaya dışarı aktarma
-Bölümündeki yönergeleri izleyin [günlük analizi Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) bir görünüm bir dosyaya vermek için.  Dışarı aktarılan dosyayı aynı JSON biçiminde olacaktır [öğeleri çözüm dosyası olarak](operations-management-suite-solutions-solution-file.md).  
+## <a name="export-hello-view-tooa-file"></a>Merhaba görünüm tooa dosyası dışarı aktarma
+Merhaba yönergeleri izleyin [günlük analizi Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) tooexport tooa dosyasını görüntüle.  Merhaba dışarı aktarılan dosyayı olması ile JSON biçiminde hello aynı [öğeleri hello çözüm dosyası olarak](operations-management-suite-solutions-solution-file.md).  
 
-**Kaynakları** görünüm dosyası öğe türüne sahip bir kaynak olacaktır **Microsoft.OperationalInsights/workspaces** , OMS çalışma alanını temsil eder.  Bu öğe bir alt öğe türüne sahip olacaktır **görünümleri** görünümü temsil eder ve ayrıntılı yapılandırmasını içerir.  Bu öğenin ayrıntılarını kopyalamanız ve ardından çözümünüze kopyalayın.
+Merhaba **kaynakları** hello görünüm dosyasının öğesi türüne sahip bir kaynak olacaktır **Microsoft.OperationalInsights/workspaces** temsil OMS çalışma hello.  Bu öğe bir alt öğe türüne sahip olacaktır **görünümleri** hello görünümü temsil eder ve ayrıntılı yapılandırmasını içerir.  Bu öğenin hello ayrıntıları kopyalamanız ve çözümünüze kopyalayın.
 
-## <a name="create-the-view-resource-in-the-solution"></a>Çözümde görünüm kaynağı oluşturma
-Aşağıdaki görünüm kaynağa eklemek **kaynakları** çözüm dosyanızın öğesi.  Bu, aynı zamanda eklemelisiniz seçeneklerdir değişkenleri kullanır.  Unutmayın **Pano** ve **OverviewTile** dışarı aktarılan görünüm dosyasından karşılık gelen özelliklerle kılacak yer tutucuları özelliklerdir.
+## <a name="create-hello-view-resource-in-hello-solution"></a>Merhaba çözümde Hello görünüm kaynağı oluşturma
+Görünüm kaynak toohello aşağıdaki hello eklemek **kaynakları** çözüm dosyanızı öğesidir.  Bu, aynı zamanda eklemelisiniz seçeneklerdir değişkenleri kullanır.  Bu hello Not **Pano** ve **OverviewTile** hello dışarı aktarılan görünüm dosyasından hello karşılık gelen özelliklerle kılacak yer tutucuları özelliklerdir.
 
     {
         "apiVersion": "[variables('LogAnalyticsApiVersion')]",
@@ -73,28 +73,28 @@ Aşağıdaki görünüm kaynağa eklemek **kaynakları** çözüm dosyanızın �
         }
     }
 
-Çözüm dosyası değişkenleri öğesine aşağıdaki değişkenleri eklemek ve bu çözümünüz için değerleri değiştirin.
+Değişkenleri toohello değişkenleri hello çözüm dosyasının öğesinin aşağıdaki hello ekleyin ve başlangıç değerleri toothose çözümünüz için değiştirin.
 
     "LogAnalyticsApiVersion": "2015-11-01-preview",
     "ViewAuthor": "Your name."
-    "ViewDescription": "Optional description of the view."
-    "ViewName": "Provide a name for the view here."
+    "ViewDescription": "Optional description of hello view."
+    "ViewName": "Provide a name for hello view here."
 
 
-Dışarı aktarılan görünüm dosyanızdan tüm görünüm kaynak kopyalamak, ancak bunu çözümünüzde çalıştırmak aşağıdaki değişiklikleri yapmanız gerekir unutmayın.  
+Dışarı aktarılan görünüm dosyanızdan hello tüm görünüm kaynak kopyalamak, ancak toowork, çözümünüz için aşağıdaki değişiklikler toomake hello gerekir unutmayın.  
 
-* **Türü** görünüm için kaynak gelen değiştirilmesi gereken **görünümleri** için **Microsoft.OperationalInsights/workspaces**.
-* **Adı** görünüm kaynak için özellik çalışma alanı adı içerecek şekilde değiştirilmesi gerekir.
-* Çalışma alanı bağımlılığını çalışma kaynak çözümde tanımlı değil bu yana kaldırılması gerekiyor.
-* **DisplayName** özelliği görünümüne eklenmesi gerekiyor.  **Kimliği**, **adı**, ve **DisplayName** tüm eşleşmesi gerekir.
-* Parametre adları gerekli parametrelerinin eşleşecek şekilde değiştirilmesi gerekir.
-* Değişkenleri çözümde tanımlanan ve uygun özelliklerinde kullanılır.
+* Merhaba **türü** hello görünüm için kaynak değiştirildi toobe gereken **görünümleri** çok**Microsoft.OperationalInsights/workspaces**.
+* Merhaba **adı** hello görünüm kaynak için özellik değişti toobe tooinclude hello çalışma alanı adı gerekiyor.
+* Merhaba çalışma Hello bağımlılığını hello çalışma kaynak hello çözümde tanımlı değil beri kaldırılan toobe gerekir.
+* **DisplayName** özelliği gereksinimlerini toobe toohello görünüm eklendi.  Merhaba **kimliği**, **adı**, ve **DisplayName** tüm eşleşmesi gerekir.
+* Parametre adları değiştirilmelidir toomatch hello gerekli parametre kümesi.
+* Değişkenleri hello çözümde tanımlanan ve hello uygun özelliklerinde kullanılır.
 
-## <a name="add-the-view-details"></a>Görünüm ayrıntılarını Ekle
-Dışarı aktarılan görünüm dosyası görünüm kaynak iki öğelerinde içerecek **özellikleri** adlı öğe **Pano** ve **OverviewTile** ayrıntılı içerir Görünüm yapılandırması.  Bu iki öğenin ve içerikleri içine kopyalamak **özellikleri** çözüm dosyanızdaki görünüm kaynak öğesidir.
+## <a name="add-hello-view-details"></a>Merhaba görünüm ayrıntılarını Ekle
+Merhaba Hello görünüm kaynak dosya hello iki öğelerinde içerecek görünüm dışarı **özellikleri** adlı öğe **Pano** ve **OverviewTile** hello içerir ayrıntılı yapılandırma hello görünümünün.  Bu iki öğenin ve içerikleri hello kopyalamak **özellikleri** hello görünüm kaynak çözüm dosyanızdaki öğesidir.
 
 ## <a name="example"></a>Örnek
-Örneğin, aşağıdaki örnek basit çözüm dosyasını bir görünümle gösterir.  Üç nokta (...) için gösterilen **Pano** ve **OverviewTile** alanı nedeniyle içeriği.
+Örneğin, aşağıdaki örnek hello basit çözüm dosyasını bir görünümle gösterir.  Üç nokta (...) Merhaba gösterilen **Pano** ve **OverviewTile** alanı nedeniyle içeriği.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

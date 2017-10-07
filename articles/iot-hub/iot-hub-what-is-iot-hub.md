@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT Hub'a genel bakış | Microsoft Belgeleri"
-description: "Azure IoT Hub hizmetine genel bakış: IoT Hub, cihaz bağlantısı, nesnelerin interneti iletişim düzenleri, ağ geçitleri ve hizmet destekli iletişim düzeni nedir?"
+title: "aaaAzure IOT hub'a genel bakış | Microsoft Docs"
+description: "Hello Azure IOT Hub hizmetine genel bakış: IOT Hub, cihaz bağlantısı, nesnelerin interneti iletişim düzenleri, ağ geçitleri ve hello hizmet destekli iletişim düzeni nedir"
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -15,70 +15,70 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d290ee8a3cee1242f14726b5cf7ca531a3f5830a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d0b46868a1ec9e13c8f107b90269c5307f4ba27c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="overview-of-the-azure-iot-hub-service"></a>Azure IoT Hub hizmetine genel bakış
+# <a name="overview-of-hello-azure-iot-hub-service"></a>Hello Azure IOT Hub hizmetine genel bakış
 
-Azure IoT Hub'a hoş geldiniz. Bu makale Azure IoT Hub'a genel bir bakış sağlar ve bir Nesnelerin İnterneti (IoT) çözümü uygularken bu hizmeti neden kullanmanız gerektiğini açıklar. Azure IoT Hub, milyonlarca IoT cihazları ile bir çözüm arka ucu arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir hizmettir. Azure IoT Hub:
+TooAzure IOT Hub'na Hoş Geldiniz. Bu makale Azure IOT Hub genel bir bakış sağlar ve bu hizmet tooimplement bir nesnelerin interneti (IOT) çözümü neden kullanmanız gerektiğini açıklar. Azure IoT Hub, milyonlarca IoT cihazları ile bir çözüm arka ucu arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir hizmettir. Azure IoT Hub:
 
 * Tek yönlü mesajlaşma, dosya aktarımı ve request-reply metotları gibi cihazdan buluta ve buluttan cihaza iletişimi seçeneği sunar.
-* Diğer Azure hizmetlerine yerleşik bildirim temelli ileti yönlendirme sunar.
+* Yerleşik bildirim temelli ileti yönlendirme tooother Azure hizmetleri sağlar.
 * Cihaz meta verileri ve eşitlenmiş durum bilgileri için sorgulanabilir depolama sağlar.
 * Cihaz başına güvenlik anahtarları veya X.509 sertifikaları kullanarak güvenli iletişim ve erişim denetimi olanağı sağlar.
 * Cihaz bağlantısı ve cihaz kimlik yönetimi etkinlikleri için kapsamlı izleme sağlar.
-* En popüler diller ve platformlar için cihaz kitaplıklarını içerir.
+* Merhaba en popüler diller ve platformlar için cihaz kitaplıklarını içerir.
 
-[IoT Hub ile Event Hubs Karşılaştırması][lnk-compare] makalesi, bu iki hizmet arasındaki önemli farklılıkları açıklar ve IoT çözümlerinizde IoT Hub'ı kullanmanın avantajlarını vurgular.
+Merhaba makale [karşılaştırma, IOT Hub ve Event Hubs] [ lnk-compare] hello bu iki hizmet arasındaki önemli farklılıkları açıklar ve IOT çözümlerinizde IOT hub'ı kullanmanın yararları hello vurgular.
 
-Azure ve IoT Hub'ın, IoT çözümünüzün güvenliğini sağlamanıza nasıl yardımcı olduğu hakkında daha fazla bilgi için bkz. [Her yönüyle Nesnelerin İnterneti güvenliği][lnk-security-ground-up].
+IOT çözümünüzü güvenli Azure ve IOT hub'ı nasıl yardımcı daha fazla bilgi için bkz: [plan hello nesnelerin interneti güvenlikten][lnk-security-ground-up].
 
 ![Nesnelerin interneti çözümünde bulut ağ geçidi olarak Azure IoT Hub][img-architecture]
 
 > [!NOTE]
-> IoT mimarisinin ayrıntılı incelemesi için bkz. [Microsoft Azure IoT Başvuru Mimarisi][lnk-refarch].
+> IOT mimarisinin ayrıntılı incelemesi için bkz: Merhaba [Microsoft Azure IOT başvuru mimarisi][lnk-refarch].
 
 ## <a name="iot-device-connectivity-challenges"></a>IoT cihaz bağlantısı zorlukları
 
-IoT Hub ve cihaz kitaplıkları, cihazların düzgün ve güvenli bir şekilde çözüm arka ucuna bağlanmasındaki zorlukları aşabilmenize yardımcı olur. IoT cihazları:
+IOT Hub ve hello cihaz kitaplıkları toomeet hello zorluklar nasıl yardımcı tooreliably ve güvenli bir şekilde aygıtları toohello çözüm arka ucu bağlanın. IoT cihazları:
 
 * İnsan olan bir operatörü bulunmayan ve genellikle katıştırılmış sistemlerdir.
 * Fiziksel erişimin pahalı olduğu uzak konumlarda olabilir.
-* Yalnızca çözüm arka ucu aracılığıyla erişilebilir.
+* Yalnızca hello çözüm arka ucu aracılığıyla erişilebilir.
 * Sınırlı güç ve işleme kaynaklarına sahip olabilir.
 * Aralıklı, yavaş veya pahalı bir ağ bağlantısına sahip olabilir.
-* Mülkiyete ait, özel veya sektöre özgü uygulama protokolleri kullanması gerekebilir.
+* Toouse mülkiyete ait, özel veya sektöre özgü uygulama protokolleri gerekebilir.
 * Büyük bir popüler donanım ve yazılım platformu kümesi kullanılarak oluşturulabilir.
 
-Yukarıdaki gereksinimlere ek olarak, tüm IoT çözümlerinin ölçek, güvenlik ve güvenilirlik de sunması gerekir. Elde edilen bağlantı gereksinimleri kümesi, web kapsayıcıları ve mesajlaşma aracıları gibi geleneksel teknolojiler kullandığınızda uygulaması zor ve zaman alıcı olabilir.
+Ayrıca yukarıdaki toohello gereksinimler, tüm IOT çözümlerinin de ölçek, güvenlik ve güvenilirlik de sunması gerekir. web kapsayıcıları ve mesajlaşma aracıları gibi geleneksel teknolojiler kullandığınızda hello elde edilen bağlantı gereksinimleri zor ve zaman alıcı tooimplement kümesidir.
 
 ## <a name="why-use-azure-iot-hub"></a>Azure IoT Hub neden kullanılır?
 
-Azure IoT Hub, cihaz bağlantısı sorunlarını mesajlaşma, dosya aktarımı ve request-reply metotları gibi çok sayıda [cihazdan buluta][lnk-d2c-guidance] ve [buluttan cihaza][lnk-c2d-guidance] iletişim seçeneğine ek olarak, aşağıdaki yollarla ele alır:
+Tooa zengin ayrıca kümesi [cihaz bulut] [ lnk-d2c-guidance] ve [bulut cihaz] [ lnk-c2d-guidance] iletişim seçenekleri, Mesajlaşma, içeren dosya aktarımları ve istek-yanıt yöntemleri, Azure IOT Hub adresleri yolları aşağıdaki hello cihaz bağlantısı zorlukları hello:
 
-* **Cihaz çiftleri**. [Cihaz çiftlerini][lnk-twins] kullanarak depolama, eşitleme, cihaz meta verilerini ve durum bilgisini sorgulama işlemlerini yapabiliriniz. Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve koşullar) depolayan JSON belgelerdir. IoT Hub’ı, IoT Hub'ına bağladığınız her cihaz için bir cihaz çifti sürdürür.
+* **Cihaz çiftleri**. [Cihaz çiftlerini][lnk-twins] kullanarak depolama, eşitleme, cihaz meta verilerini ve durum bilgisini sorgulama işlemlerini yapabiliriniz. Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve koşullar) depolayan JSON belgelerdir. IOT Hub cihaz çifti tooIoT Hub bağlanmak her aygıt için devam ettirir.
 
-* **Cihaz başına kimlik doğrulaması ve güvenli bağlantı**. IoT Hub'a bağlanmalarını sağlamak için her bir cihaza kendi [güvenlik anahtarını][lnk-devguide-security] sağlayabilirsiniz. [IoT Hub kimlik kayıt defteri][lnk-devguide-identityregistry], cihaz kimliklerini ve anahtarlarını bir çözümün içinde depolar. Bir çözüm arka ucu, cihazları tek tek izin verme veya reddetme listesine ekleyerek cihaz erişiminde tam denetim olanağı sağlar.
+* **Cihaz başına kimlik doğrulaması ve güvenli bağlantı**. Her bir cihaza kendi sağlayabilirsiniz [güvenlik anahtarı] [ lnk-devguide-security] tooenable, tooconnect tooIoT Hub. Merhaba [IOT Hub kimlik kayıt defteri] [ lnk-devguide-identityregistry] cihaz kimliklerini ve anahtarlarını bir çözümün içinde depolar. Bir çözüm arka ucu tek cihazlara tooallow ekleyebilir veya listeleri tooenable tam kontrole cihaz erişimini engellemek.
 
-* **Bildirim temelli kurallara göre cihazdan buluta iletileri Azure hizmetlerine yönlendirme**. IoT Hub, hub'ınızın cihazdan buluta iletileri göndereceği yeri denetlemek için yönlendirme kurallarına göre ileti yolları tanımlamanızı sağlar. Yönlendirme kuralları için kod yazmanız gerekmez ve bu kurallar, özel alma sonrası ileti dağıtıcılarının yerini alabilir.
+* **Rota cihaz-bulut iletileri bildirim temelli kurallara göre tooAzure Hizmetleri**. IOT hub'ı yollarını burada hub'ınızın cihaz bulut iletilerini gönderir yönlendirme kuralları toocontrol üzerinde dayalı, toodefine ileti sağlar. Yönlendirme kuralları, toowrite herhangi bir kod gerektirmez ve özel sonrası alım message dağıtıcıları hello yerini alabilir.
 
-* **Cihaz bağlantısı işlemlerini izleme**. Cihaz kimlik yönetimi işlemleri ve cihaz bağlantısı etkinlikleri hakkında ayrıntılı işlem günlükleri alabilirsiniz. Bu izleme olanağı, IoT çözümünüzün yanlış kimlik bilgileriyle bağlanmaya, çok sık ileti göndermeye veya tüm bulut-cihaz iletilerini reddetmeye çalışan cihazlar gibi bağlantı sorunlarını tanımlaması sağlanır.
+* **Cihaz bağlantısı işlemlerini izleme**. Cihaz kimlik yönetimi işlemleri ve cihaz bağlantısı etkinlikleri hakkında ayrıntılı işlem günlükleri alabilirsiniz. Yanlış kimlik bilgileriyle tooconnect deneyin cihazları çok sık ileti göndermeye veya tüm bulut-cihaz iletilerini reddetmeye gibi IOT çözüm tooidentify bağlantı sorunları, bu izleme yeteneği sağlar.
 
 * **Kapsamlı bir cihaz kitaplıkları kümesi**. [Azure IoT cihaz SDK'ları][lnk-device-sdks], Linux dağıtımları, Windows ve gerçek zamanlı işletim sistemlerinin çoğu için C gibi çeşitli diller ve platformlarda kullanılabilir ve desteklenir. Azure IoT cihaz SDK'ları C#, Java ve JavaScript gibi yönetilen dilleri de destekler.
 
-* **IoT protokolleri ve genişletilebilirlik**. Çözümünüz cihaz kitaplıklarını kullanamazsa IoT Hub, cihazların yerel olarak MQTT v3.1.1, HTTP 1.1 veya AMQP 1.0 protokollerini kullanmasını sağlayan bir genel protokolü kullanıma sunar. Ayrıca özel protokollere destek sağlamak için şu yollarla IoT Hub'ı genişletebilirsiniz:
+* **IoT protokolleri ve genişletilebilirlik**. Çözümünüzü hello cihaz kitaplıklarını kullanamazsa IOT Hub cihazları toonatively kullanım hello MQTT v3.1.1, HTTP 1.1 veya AMQP 1.0 protokollerini etkinleştiren bir genel Protokolü kullanıma sunar. IOT hub'ı toosupport tarafından özel protokoller için aynı zamanda genişletebilirsiniz:
 
-  * Özel protokolünüzü IoT Hub tarafından algılanan üç protokolden birine dönüştüren [Azure IoT Edge][lnk-iot-edge] ile bir alan ağ geçidi oluşturarak.
-  * Bulutta çalışan açık kaynaklı bir bileşen olan [Azure IoT protokolü ağ geçidini][protocol-gateway] özelleştirerek.
+  * Bir alan ağ geçidi ile oluşturma [Azure IOT kenar] [ lnk-iot-edge] IOT Hub tarafından anlaşılan üç protokolden hello ', özel protokol tooone dönüştürür.
+  * Özelleştirme hello [Azure IOT protokolü ağ geçidini][protocol-gateway], hello bulutta çalışan açık kaynaklı bir bileşen.
 
-* **Ölçek**. Azure IoT Hub, saniye başına milyonlarca eş zamanlı cihazı ve milyonlarca etkinliği ölçeklendirir.
+* **Ölçek**. Azure IOT Hub, eş zamanlı cihazı toomillions ve saniye başına milyonlarca olayı ölçeklendirir.
 
 ## <a name="gateways"></a>Ağ geçitleri
 
-Bir IoT çözümündeki ağ geçidi genellikle buluta dağıtılan bir [protokol ağ geçidi][lnk-iotedge] veya cihazlarınızla yerel olarak dağıtılan bir [alan ağ geçidi][lnk-field-gateway] olur. Bir protokol ağ geçidi, MQTT veya AMQP gibi protokol çevirisi gerçekleştirir. Bir alan ağ geçidi kenarda analiz çalıştırabilir, gecikme süresini düşüren, cihaz yönetimi hizmetleri sağlayan, güvenlik ve gizlilik kısıtlamaları getiren zamana duyarlı kararlar verebilir ve protokol çevirileri gerçekleştirebilir. Her iki ağ geçidi de cihazlarınız ve IoT hub'ınız arasında aracı görevi yapar.
+Bir IOT çözümündeki bir ağ geçidi genellikle ya da olduğu bir [protokol ağ geçidi] [ lnk-iotedge] hello buluta dağıtılan veya [alan ağ geçidi] [ lnk-field-gateway] diğer bir deyişle Yerel cihazlarınızı dağıtılmış. Bir protokol ağ geçidi protokol çevirisi, örneğin MQTT tooAMQP gerçekleştirir. Bir alan ağ geçidi hello kenarda analiz çalıştırmak, zamana duyarlı kararlar tooreduce gecikme, cihaz Yönetimi Hizmetleri sağlayabilecek, güvenlik ve gizlilik kısıtlamaları getirebilecek ve de protokol çevirileri gerçekleştirebilir. Her iki ağ geçidi de cihazlarınız ve IoT hub'ınız arasında aracı görevi yapar.
 
 Bir alan ağ geçidi, çözümünüzde erişim ve bilgi akışını yönetmede genellikle etkin bir rol oynadığından, basit bir trafik yönlendirme cihazından (bir ağ adresi çeviri cihazı veya güvenlik duvarı gibi) farklıdır.
 
@@ -86,35 +86,35 @@ Bir çözümde hem protokol hem de alan geçitleri olabilir.
 
 ## <a name="how-does-iot-hub-work"></a>IoT Hub nasıl çalışır?
 
-Azure IoT Hub, cihazlarınız ve çözüm arka ucunuz arasındaki etkileşimlere aracılık etmek için [hizmet destekli iletişim][lnk-service-assisted-pattern] deseni uygular. Hizmet destekli iletişimin amacı, IoT Hub gibi bir denetim sistemi ile güvenilmeyen fiziksel alanlarda dağıtılan özel amaçlı cihazlar arasında güvenilir ve çift yönlü iletişim yolları oluşturmaktır. Desen aşağıdaki ilkeleri oluşturur:
+Azure IOT hub'ı uygulayan hello [hizmet destekli iletişim] [ lnk-service-assisted-pattern] aygıtlarınızın ve çözümünüzü arasındaki düzeni toomediate hello etkileşimler son yedekleme. Merhaba hizmet destekli iletişim tooestablish güvenilir, çift yönlü iletişim yolları IOT Hub ve güvenilmeyen fiziksel alanda dağıtılan özel amaçlı cihazlar gibi bir denetim sistemi arasında hedefidir. Merhaba düzeni ilkeler aşağıdaki hello oluşturur:
 
 * Güvenlik diğer tüm işlevlerden önceliklidir.
 
-* Cihazlar istenmemiş ağ bilgilerini kabul etmez. Bir cihaz tüm bağlantıları kurar ve yalnızca giden bağlantı şeklinde yönlendirir. Bir cihazın çözüm arka ucundan bir komut alması için, işlenmeyi bekleyen herhangi bir komut olup olmadığını denetlemek üzere cihazın düzenli olarak bağlantı başlatması gerekir.
+* Cihazlar istenmemiş ağ bilgilerini kabul etmez. Bir cihaz tüm bağlantıları kurar ve yalnızca giden bağlantı şeklinde yönlendirir. Aygıt tooreceive hello çözüm arka ucu komuttan, hello aygıt düzenli olarak bağlantı toocheck tüm bekleyen komutları tooprocess için başlatması gerekir.
 
-* Cihazlar, eşlendikleri hizmetlerden yalnızca IoT Hub gibi iyi bilinenlere bağlanmalı veya yönlendirme oluşturmalıdır.
+* Aygıtları yalnızca bağlayın tooor bunlar eşlenen, IOT Hub gibi yollar toowell bilinen hizmetleri oluşturun.
 
-* Cihaz ile hizmet veya cihaz ile ağ geçidi arasındaki iletişim yolunun güvenliği, uygulama protokol katmanında sağlanır.
+* Merhaba iletişim yolunun veya cihaz ile ağ geçidi cihazını ve hizmetini arasında hello uygulama protokol katmanında güvenli hale getirilir.
 
 * Sistem düzeyinde yetkilendirme ve kimlik doğrulama cihaz başına kimliği temel alır. Bunlar erişim kimlik bilgilerini ve izinleri neredeyse anında iptal edilebilir hale getirir.
 
-* Güç veya bağlantı sorunları nedeniyle belirli aralıklarla bağlanan cihazlar için çift yönlü iletişim, komutların ve cihaz bildirimlerinin bir cihazın bunları almak için bağlanmasına kadar tutularak gerçekleştirilir. IoT Hub, cihazın gönderdiği komutlar için cihaza özgü kuyruklar oluşturur.
+* Düzensiz aralıklarla hataya son toopower veya bağlantı sorunları bağlanan cihazlar için çift yönlü iletişim komutların ve cihaz bildirimlerinin bir cihazın tooreceive bağlanana kadar tutarak barındırılması bunları. IOT Hub, gönderdiği hello komutlar için cihaza özgü sıraları tutar.
 
-* Uygulama yük verilerinin güvenliği, ağ geçitleri aracılığıyla belirli bir hizmete korumalı geçiş için ayrı ayrı sağlanır.
+* Uygulama yük verilerinin ayrı ayrı ağ geçitleri tooa belirli hizmeti aracılığıyla korumalı geçiş için güvenlik altına alınır.
 
-Mobil sektörü, [Windows Anında Bildirim Servisi][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] ve [Apple Anında İletilen Bildirim Servisi][lnk-apple-push] gibi anında iletme bildirimi hizmetlerini uygulamak amacıyla hizmet destekli iletişim düzenini çok büyük ölçeklerle kullanmaktadır.
+Merhaba mobil sektörü hello hizmet destekli iletişim düzenini devasa ölçüde tooimplement anında iletme bildirimi Hizmetleri gibi kullandı [Windows anında bildirim Hizmetleri][lnk-wns], [Google Cloud Messaging'i][lnk-google-messaging], ve [Apple anında iletilen bildirim servisi][lnk-apple-push].
 
 IoT Hub, ExpressRoute'un ortak eşleme yolundan desteklenmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir cihazdan ileti göndermenin ve bu iletileri IoT Hub'dan almanın yanı sıra ileti yollarını nasıl yapılandıracağınızı öğrenmek için bkz. [IoT Hub ile ileti gönderme ve alma][lnk-send-messages].
+nasıl toosend iletileri bir aygıttan ve IOT hub'ı yanı sıra nasıl tooconfigure iletiyi yönlendirir, alma toolearn bkz [IOT Hub ile iletileri almasına ve göndermesine][lnk-send-messages].
 
-Cihazlarınızı uzaktan yönetmeniz, yapılandırmanız ve güncelleştirmeniz için IoT Hub'ın standartlara dayalı cihaz yönetimini nasıl etkinleştirdiği hakkında bilgi almak üzere bkz. [IoT Hub ile cihaz yönetimine genel bakış][lnk-device-management].
+IOT Hub, tooremotely yönetmek, yapılandırmak ve aygıtlarınızın güncelleştirmek için standartlara dayalı aygıt yönetimi sağlar nasıl toolearn bkz [cihaz yönetimine genel bakış IOT Hub ile][lnk-device-management].
 
-İstemci uygulamalarını çok sayıda cihaz donanımı platformunda ve işletim sisteminde uygulamak için Azure IoT cihaz SDK'larını kullanabilirsiniz. Cihaz SDK'ları, bir IoT hub'ına telemetri gönderme ve buluttan cihaza iletilerini alma işlemlerini gerçekleştiren kitaplıkları içerir. Cihaz SDK'larını kullandığınızda, IoT Hub ile iletişim kurmak için çeşitli ağ protokolleri arasından seçim yapabilirsiniz. Daha fazla bilgi için bkz. [Cihaz SDK'ları hakkında bilgi][lnk-device-sdks].
+çok çeşitli cihaz donanım platformları ve işletim sistemleri tooimplement istemci uygulamaları, hello Azure IOT cihaz SDK'ları kullanabilirsiniz. Merhaba cihaz SDK'ları telemetri tooan IOT hub ve alma bulut cihaza iletileri gönderme kolaylaştırmak kitaplıkları içerir. Merhaba cihaz SDK'ları kullandığınızda IOT Hub ile çeşitli ağ protokolleri toocommunicate seçebilirsiniz. toolearn daha, hello fazla [cihaz SDK'ları hakkında bilgi][lnk-device-sdks].
 
-Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT Hub ile çalışmaya başlama][lnk-get-started] öğreticisine bakın.
+biraz kod yazmaya ve bazı örnekler çalıştıran başlatılan tooget bkz hello [IOT Hub ile çalışmaya başlama] [ lnk-get-started] Öğreticisi.
 
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
 

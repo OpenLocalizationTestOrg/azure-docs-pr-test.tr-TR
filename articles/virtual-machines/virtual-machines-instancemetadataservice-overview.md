@@ -1,6 +1,6 @@
 ---
-title: "Azure örneği meta veri hizmeti'ne genel bakış | Microsoft Docs"
-description: "Sanal makinenin işlem, ağ ve yaklaşan Bakımı olaylar hakkında bilgi almak için rESTful arabirimi."
+title: "aaaAzure örneği meta veri hizmetine genel bakış | Microsoft Docs"
+description: "Sanal makinenin işlem, ağ ve yaklaşan Bakımı olayları hakkında rESTful arabirimi tooget bilgi."
 services: virtual-machines-windows, virtual-machines-linux,virtual-machines-scale-sets, cloud-services
 documentationcenter: virtual-machines
 author: harijay
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: harijay
-ms.openlocfilehash: d601d8fdb92bf2d3253ba99cdeee10e09591689c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e87cdf28f80b9ef8cc566b637549c48846862f0c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örneği meta veri hizmeti 
 
 
-Azure örneği meta veri hizmeti yönetmek ve sanal makinelerinizi yapılandırmak için kullanılan sanal makine örneği çalıştırma hakkında bilgi sağlar.
+Hello Azure örneği meta veri hizmeti kullanılan toomanage ve sanal makineleri yapılandırma sanal makine örneği çalıştırma hakkında bilgi sağlar.
 Bu, SKU, ağ yapılandırması ve yaklaşan Bakımı olayları gibi bilgileri içerir. Hangi tür bilgileri kullanılabilir daha fazla bilgi için bkz: [meta veri kategorileri](#instance-metadata-data-categories).
 
-Azure'nın örnek meta veri hizmeti REST uç noktası aracılığıyla oluşturulan tüm Iaas VM'ler için erişilebilir olan [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Uç nokta iyi bilinen yönlendirilemeyen IP adresinde mevcuttur (`169.254.169.254`), erişilebilir yalnızca VM dahilinde.
+Azure'nın örnek meta verileri hizmetidir, erişilebilir tooall Iaas Vm'leri hello oluşturulan bir REST uç [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Merhaba uç nokta iyi bilinen yönlendirilemeyen IP adresinde mevcuttur (`169.254.169.254`), erişilebilir yalnızca VM hello içinde.
 
 ### <a name="important-information"></a>Önemli bilgiler
 
-Bu hizmet **genel olarak kullanılabilir** genel Azure bölgelerindeki. Genel Önizleme kamu, Çin ve Almanca Azure bulutu için ayarlanır. Düzenli olarak, sanal makine örnekleri ilgili yeni bilgiler kullanıma sunmak için güncelleştirmeleri alır. Bu sayfayı güncel yansıtır [veri kategorilerini](#instance-metadata-data-categories) kullanılabilir.
+Bu hizmet **genel olarak kullanılabilir** genel Azure bölgelerindeki. Genel Önizleme kamu, Çin ve Almanca Azure bulutu için ayarlanır. Düzenli olarak, sanal makine örnekleri hakkında güncelleştirmeleri tooexpose yeni bilgi alır. Bu sayfayı hello güncel yansıtır [veri kategorilerini](#instance-metadata-data-categories) kullanılabilir.
 
 ## <a name="service-availability"></a>Hizmet kullanılabilirliği
-Hizmeti genel olarak kullanılabilir tüm genel Azure bölgelerde kullanılabilir. Kamu, Çin veya Almanya bölgelerde genel önizlemede hizmetidir.
+Merhaba hizmeti tüm genel olarak kullanılabilir genel Azure bölgelerde kullanılabilir. Merhaba hello kamu, Çin veya Almanya bölgelerde genel önizlemede hizmetidir.
 
 Bölgeler                                        | Kullanılabilirlik?
 -----------------------------------------------|-----------------------------------------------
@@ -42,26 +42,26 @@ Bölgeler                                        | Kullanılabilirlik?
 [Azure Çin](https://www.azure.cn/)                                                           | Önizleme
 [Azure Almanya](https://azure.microsoft.com/en-us/overview/clouds/germany/)                    | Önizleme
 
-Hizmet diğer Azure bulutta kullanılabilir olduğunda bu tabloya güncelleştirilir.
+Merhaba hizmet diğer Azure bulutta kullanılabilir olduğunda bu tabloya güncelleştirilir.
 
-Örneği meta veri hizmeti denemek için bir VM'den oluşturmak [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) veya [Azure portal](http://portal.azure.com) yukarıdaki bölgelerde ve aşağıdaki örnekleri izleyin.
+hello örneği meta veri hizmeti, çıkışı tootry oluşturma bir sanal makineden [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) veya hello [Azure portal](http://portal.azure.com) bölgeler ve izleme hello örneklere yukarıda hello içinde.
 
 ## <a name="usage"></a>Kullanım
 
 ### <a name="versioning"></a>Sürüm oluşturma
-Örnek meta veri sürümü tutulan hizmetidir. Sürümleri zorunludur ve geçerli sürümü `2017-04-02`.
+Merhaba örneği meta veri hizmeti sürümü tutulan ' dir. Sürümleri zorunludur ve hello geçerli sürümü `2017-04-02`.
 
 > [!NOTE] 
-> Önceki Önizleme sürümleri {son} API sürümü desteklenen zamanlanmış olaylar. Bu biçim artık desteklenmemektedir ve gelecekte kullanım dışı kalacaktır.
+> Önceki Önizleme sürümleri {son} hello api sürümü desteklenen zamanlanmış olaylar. Bu biçim artık desteklenmemektedir ve hello gelecekteki kullanım dışı kalacaktır.
 
-Yeni sürümler eklediğimiz gibi komut dosyalarınızı belirli veri biçimleri üzerinde bağımlılıkları varsa, daha eski sürümlerini yine de uyumluluk için erişilebilir. Ancak, hizmetin genel olarak kullanılabilir olduğunda geçerli Önizleme version(2017-03-01) kullanılamayabilir olduğunu unutmayın.
+Yeni sürümler eklediğimiz gibi komut dosyalarınızı belirli veri biçimleri üzerinde bağımlılıkları varsa, daha eski sürümlerini yine de uyumluluk için erişilebilir. Ancak, hello hizmeti genel olarak kullanılabilir olduğunda bu hello geçerli Önizleme version(2017-03-01) kullanılamayabilir unutmayın.
 
 ### <a name="using-headers"></a>Üst bilgileri kullanma
-Örnek meta veri hizmeti sorguladığınızda başlık sağlamalısınız `Metadata: true` istek istemeden yönlendirilmeyen emin olmak için.
+Merhaba örneği meta veri hizmeti sorguladığınızda hello üstbilgi sağlamalısınız `Metadata: true` tooensure hello talep istemeden yönlendirilmeyen.
 
 ### <a name="retrieving-metadata"></a>Meta veri alma
 
-Örnek meta verileri oluşturulan yönetilen/kullanarak sanal makineleri çalıştırmak için kullanılabilir [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Aşağıdaki isteği kullanarak bir sanal makine örneği için tüm veri kategorilerini erişebilirsiniz:
+Örnek meta verileri oluşturulan yönetilen/kullanarak sanal makineleri çalıştırmak için kullanılabilir [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). İstek aşağıdaki hello kullanarak bir sanal makine örneği için tüm veri kategorilerini erişebilirsiniz:
 
 ```
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
@@ -71,34 +71,34 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Tüm örnek meta veri sorguları büyük/küçük harfe duyarlıdır.
 
 ### <a name="data-output"></a>Veri çıkışı
-Varsayılan olarak, örnek meta veri hizmeti verileri JSON biçiminde döndürür (`Content-Type: application/json`). Ancak, farklı API'leri verileri farklı biçimlerde istediyseniz döndürebilir.
-Aşağıdaki tabloda, API destekleyebilir diğer veri biçimlerini başvurudur.
+Varsayılan olarak, JSON biçiminde hello örneği meta veri hizmeti verileri döndürür (`Content-Type: application/json`). Ancak, farklı API'leri verileri farklı biçimlerde istediyseniz döndürebilir.
+Merhaba aşağıdaki tabloda bir API destekleyebilir diğer veri biçimlerinin başvurudur.
 
 API | Varsayılan veri biçimi | Diğer biçimlere
 --------|---------------------|--------------
 /instance | JSON | Metin
 /scheduledevents | JSON | Yok
 
-Varsayılan olmayan yanıt biçimi erişmek için bir istek sorgu dizesi parametresi olarak istenen biçim belirtin. Örneğin:
+Varsayılan olmayan yanıt biçimi tooaccess hello isteği bir sorgu dizesi parametresi olarak hello istenen biçim belirtin. Örneğin:
 
 ```
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
 ### <a name="security"></a>Güvenlik
-Örnek meta veri Hizmeti uç noktası yalnızca yönlendirilebilir olmayan bir IP adresi üzerinde çalışan sanal makine örneği içinde erişilebilir. Ayrıca, herhangi bir ile istek bir `X-Forwarded-For` üstbilgi hizmeti tarafından reddedildi.
-Biz de içerecek şekilde istekleri gerektiren bir `Metadata: true` üstbilgi gerçek isteği doğrudan istenen ve istenmeyen yeniden yönlendirme bir parçası olduğundan emin olun. 
+Merhaba örneği meta veri Hizmeti uç noktası yalnızca yönlendirilebilir olmayan bir IP adresi üzerinde sanal makine örneğini çalıştıran hello içinde erişilebilir. Ayrıca, herhangi bir ile istek bir `X-Forwarded-For` üstbilgi hello hizmeti tarafından reddedildi.
+Biz de istekleri toocontain gerektiren bir `Metadata: true` gerçek isteği hello üstbilgi tooensure olan doğrudan istenen ve istenmeyen yeniden yönlendirme parçası değil. 
 
 ### <a name="error"></a>Hata
-Bir veri öğesi bulunamadı veya hatalı biçimlendirilmiş bir istek varsa örneği meta veri hizmeti standart HTTP hatalarını döndürür. Örneğin:
+Bir veri öğesi bulunamadı veya hatalı biçimlendirilmiş bir istek varsa hello örneği meta veri hizmeti standart HTTP hatalarını döndürür. Örneğin:
 
 HTTP durum kodu | Neden
 ----------------|-------
 200 TAMAM |
 400 Hatalı istek | Eksik `Metadata: true` üstbilgisi
-404 Bulunamadı | İstenen öğe does't var 
+404 Bulunamadı | Merhaba İstenen öğe does't var 
 405 Yönteme izin verilmiyor | Yalnızca `GET` ve `POST` istekleri desteklenir
-429 çok fazla istek | API şu anda en fazla saniyede 5 sorgularını destekler
+429 çok fazla istek | Merhaba API şu anda en fazla saniye başına 5 sorguları destekler
 500 hizmet hatası     | Bir süre sonra yeniden deneyin
 
 ### <a name="examples"></a>Örnekler
@@ -117,7 +117,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 **Yanıt**
 
 > [!NOTE] 
-> Yanıtı bir JSON dizesidir. Aşağıdaki örnek yanıt okunabilirlik için pretty yazdırılmıştır.
+> Merhaba yanıt bir JSON dizesidir. Aşağıdaki örnek yanıt hello okunabilirlik için pretty yazdırılmıştır.
 
 ```
 {
@@ -164,7 +164,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 **Yanıt**
 
 > [!NOTE] 
-> Yanıtı bir JSON dizesidir. Aşağıdaki örnek yanıt okunabilirlik için pretty yazdırılmıştır.
+> Merhaba yanıt bir JSON dizesidir. Aşağıdaki örnek yanıt hello okunabilirlik için pretty yazdırılmıştır.
 
 ```
 {
@@ -212,13 +212,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 **İstek**
 
-Örnek meta verileri alınabilir Windows PowerShell yardımcı programı `curl`: 
+Örnek meta verileri alınabilir Windows hello PowerShell yardımcı programı `curl`: 
 
 ```
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
-Aracılığıyla veya `Invoke-RestMethod` cmdlet:
+Merhaba aracılığıyla veya `Invoke-RestMethod` cmdlet:
     
 ```
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
@@ -227,7 +227,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 **Yanıt**
 
 > [!NOTE] 
-> Yanıtı bir JSON dizesidir. Aşağıdaki örnek yanıt okunabilirlik için pretty yazdırılmıştır.
+> Merhaba yanıt bir JSON dizesidir. Aşağıdaki örnek yanıt hello okunabilirlik için pretty yazdırılmıştır.
 
 ```
 {
@@ -274,26 +274,26 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```
 
 ## <a name="instance-metadata-data-categories"></a>Örnek meta veri kategorileri
-Aşağıdaki veri kategorilerini örneği meta veri hizmeti kullanılabilir:
+Veri kategorilerini aşağıdaki hello hello örneği meta veri hizmeti kullanılabilir:
 
 Veriler | Açıklama
 -----|------------
-location | Azure bölgesi VM çalışır durumda
-ad | VM adı 
-Teklif | VM görüntüsü için bilgi sunar. Bu değer yalnızca Azure resmi Galerisi'nden dağıtılan görüntüleri için mevcuttur.
-Yayımcı | VM görüntüsü yayımcısı
-SKU | VM görüntüsü için belirli SKU  
-Sürüm | VM görüntüsü 
+location | Azure bölgesi hello VM çalışıyor
+ad | Merhaba VM adı 
+Teklif | Merhaba VM görüntüsü için bilgi sunar. Bu değer yalnızca Azure resmi Galerisi'nden dağıtılan görüntüleri için mevcuttur.
+Yayımcı | Merhaba VM görüntüsü yayımcısı
+SKU | Belirli SKU hello VM görüntüsü için  
+Sürüm | Merhaba VM görüntüsü 
 osType | Linux veya Windows 
-platformUpdateDomain |  [Güncelleştirme etki alanı](virtual-machines-windows-manage-availability.md) VM'nin çalışır durumda
-platformFaultDomain | [Hata etki alanı](virtual-machines-windows-manage-availability.md) VM'nin çalışır durumda
-Bunun nedeni | [Benzersiz tanımlayıcı](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) VM
+platformUpdateDomain |  [Güncelleştirme etki alanı](virtual-machines-windows-manage-availability.md) hello VM çalışır
+platformFaultDomain | [Hata etki alanı](virtual-machines-windows-manage-availability.md) hello VM çalışır
+Bunun nedeni | [Benzersiz tanımlayıcı](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) hello VM için
 vmSize | [VM boyutu](virtual-machines-windows-sizes.md)
-IPv4/privateIpAddress | VM yerel IPv4 adresi 
-IPv4/Publicıpaddress | VM genel IPv4 adresi
-alt ağ/adresi | VM alt ağ adresi
+IPv4/privateIpAddress | Merhaba VM yerel IPv4 adresi 
+IPv4/Publicıpaddress | Merhaba VM genel IPv4 adresi
+alt ağ/adresi | Merhaba VM alt ağ adresi
 alt ağ/öneki | Alt ağ öneki, örnek 24
-IPv6/IPADDRESS | VM yerel IPv6 adresi
+IPv6/IPADDRESS | Merhaba VM yerel IPv6 adresi
 MacAddress | VM mac adresi 
 scheduledevents | Genel önizlemesini görmek, şu anda [scheduledevents](virtual-machines-scheduled-events.md)
 
@@ -301,7 +301,7 @@ scheduledevents | Genel önizlemesini görmek, şu anda [scheduledevents](virtua
 
 ### <a name="tracking-vm-running-on-azure"></a>Azure üzerinde çalışan VM izleme
 
-Bir hizmet sağlayıcısı olarak yazılımınızı çalışan VM sayısı izlemek veya VM benzersizliğini izlemeniz gereken aracıların gerekebilir. Bir VM için benzersiz bir kimliği elde edebilmek için kullanmak `vmId` örneği meta veri hizmetinden alan.
+Bir hizmet sağlayıcısı olarak tootrack hello yazılımınızı çalışan VM sayısı gerektirebilir veya hello VM tootrack benzersizliğini gereksinim aracılara sahip. toobe mümkün tooget benzersiz bir kimlik kullanmak hello bir VM için `vmId` örneği meta veri hizmetinden alan.
 
 **İstek**
 
@@ -317,8 +317,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Yerleştirme kapsayıcıların veri bölümlerini arıza/güncelleştirme etki alanı tabanlı 
 
-Belirli senaryolar, farklı veri çoğaltmaları yerleşimini prime çok önemlidir. Örneğin, [HDFS çoğaltma yerleştirme](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) veya kapsayıcı yerleştirme aracılığıyla bir [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) bilmek gerektirebilir `platformFaultDomain` ve `platformUpdateDomain` VM'nin çalışır.
-Bu veri örneği meta veri hizmeti üzerinden doğrudan sorgulayabilir.
+Belirli senaryolar, farklı veri çoğaltmaları yerleşimini prime çok önemlidir. Örneğin, [HDFS çoğaltma yerleştirme](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) veya kapsayıcı yerleştirme aracılığıyla bir [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) tooknow hello gerektirebilir `platformFaultDomain` ve `platformUpdateDomain` VM üzerinde çalışan hello.
+Bu verileri hello örneği meta veri hizmeti aracılığıyla doğrudan sorgulayabilir.
 
 **İstek**
 
@@ -332,9 +332,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 0
 ```
 
-### <a name="getting-more-information-about-the-vm-during-support-case"></a>Destek olayı sırasında VM hakkında daha fazla bilgi alma 
+### <a name="getting-more-information-about-hello-vm-during-support-case"></a>Destek olayı sırasında hello VM hakkında daha fazla bilgi alma 
 
-Bir hizmet sağlayıcısı olarak, burada VM hakkında daha fazla bilgiye istediğiniz bir destek çağrısı alabilirsiniz. İşlem meta verileri paylaşmak için müşteri isteyen Azure VM'de türü hakkında bilgi edinmek için profesyonel desteği için temel bilgiler sağlayabilir. 
+Bir hizmet sağlayıcısı olarak hello VM hakkında daha fazla bilgi bir destek çağrısı tooknow oluşturulacağı yeri alabilirsiniz. Merhaba müşteri tooshare soran hello işlem meta verileri VM hello tür hakkında temel bilgiler hello destek profesyonel tooknow için Azure üzerinde sağlayabilir. 
 
 **İstek**
 
@@ -345,7 +345,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 **Yanıt**
 
 > [!NOTE] 
-> Yanıtı bir JSON dizesidir. Aşağıdaki örnek yanıt okunabilirlik için pretty yazdırılmıştır.
+> Merhaba yanıt bir JSON dizesidir. Aşağıdaki örnek yanıt hello okunabilirlik için pretty yazdırılmıştır.
 
 ```
 {
@@ -365,7 +365,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
-### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>VM içindeki farklı dillerde kullanarak meta veri hizmeti çağrılırken örnekleri 
+### <a name="examples-of-calling-metadata-service-using-different-languages-inside-hello-vm"></a>Farklı diller hello VM içinde kullanarak meta veri hizmeti çağrılırken örnekleri 
 
 Dil | Örnek 
 ---------|----------------
@@ -380,23 +380,23 @@ Bash       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.sh
     
 
 ## <a name="faq"></a>SSS
-1. Hata alıyorum `400 Bad Request, Required metadata header not specified`. Bu ne anlama geliyor?
-   * Üst bilgisi örneği meta veri hizmeti gerektiriyor `Metadata: true` istekte geçirilecek. Bu üst REST çağrısı geçirme örneği meta veri hizmeti erişmesini sağlar. 
+1. Merhaba hata alıyorum `400 Bad Request, Required metadata header not specified`. Bu ne anlama geliyor?
+   * Hello örneği meta veri hizmeti gerektirir hello üstbilgi `Metadata: true` toobe hello istekte geçirildi. Bu üst hello REST çağrısı erişim toohello örneği meta veri hizmeti sağlar. 
 2. Neden VM'im için işlem bilgi alıyorum değil mi?
-   * Şu anda örneği meta veri hizmeti, yalnızca Azure Kaynak Yöneticisi ile oluşturulan örnekleri destekler. Gelecekte, biz bulut hizmeti VM'ler için destek ekleyebilirsiniz.
+   * Şu anda hello örneği meta veri hizmeti, yalnızca Azure Kaynak Yöneticisi ile oluşturulan örnekleri destekler. Hello gelecekteki, biz bulut hizmeti VM'ler için destek ekleyebilirsiniz.
 3. Sanal Makinem Azure Resource Manager aracılığıyla geri bir süre oluşturdum. Bkz: değil neden ben meta veri bilgileri işlem?
-   * Eylül 2016 sonra oluşturulan tüm VM'ler için ekleme bir [etiketi](../azure-resource-manager/resource-group-using-tags.md) görmeye başlayacaksınız için meta veri işlem. (Eylül 2016 öncesinde oluşturulan) eski VM'ler için ekleme/meta verilerini yenilemek için VM uzantıları veya veri diski Kaldır.
-4. Neden iletisi alıyorum hata `500 Internal Server Error`?
-   * Lütfen üstel geri alma sistem göre isteğinizi yeniden deneyin. Sorun devam ederse Azure desteğine başvurun.
+   * Eylül 2016 sonra oluşturulan tüm VM'ler için ekleme bir [etiketi](../azure-resource-manager/resource-group-using-tags.md) toostart görme işlem meta verileri. (Eylül 2016 öncesinde oluşturulan) eski VM'ler için ekleme/uzantıları veya veri diskleri toohello VM toorefresh meta verileri kaldır.
+4. Neden iletisi alıyorum hello hata `500 Internal Server Error`?
+   * Lütfen üstel geri alma sistem göre isteğinizi yeniden deneyin. Merhaba sorun devam ederse Azure desteğine başvurun.
 5. Burada ek soruları/açıklamalar paylaşmak?
    * Yorumlarınızı üzerinde http://feedback.azure.com gönderin.
 7. Bu sanal makine ölçek kümesi örneği için çalışır?
    * Evet meta veri hizmeti için ölçek kümesi örnek kullanılabilir. 
-6. Hizmet için nasıl destek alma?
-   * Hizmeti için destek almak için uzun denemeden sonra meta veri yanıtı alabilir olduğunuz değil VM için Azure portalında bir destek sorununu oluşturma 
+6. Merhaba hizmeti için destek nasıl sağlarım?
+   * hello hizmet tooget desteği hello değil mümkün tooget meta veri yanıtı uzun denemeden sonra olduğunuz VM için Azure portalında bir destek sorununu oluşturma 
 
    ![Örnek meta verileri desteği](./media/virtual-machines-instancemetadataservice-overview/InstanceMetadata-support.png)
     
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- Daha fazla bilgi edinmek [scheduledevents](virtual-machines-scheduled-events.md) API **içinde genel Önizleme** örneği meta veri hizmeti tarafından sağlanan.
+- Merhaba hakkında daha fazla bilgi [scheduledevents](virtual-machines-scheduled-events.md) API **içinde genel Önizleme** hello örneği meta veri hizmeti tarafından sağlanan.

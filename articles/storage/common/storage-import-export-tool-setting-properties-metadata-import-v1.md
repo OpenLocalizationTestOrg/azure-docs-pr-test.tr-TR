@@ -1,6 +1,6 @@
 ---
-title: "Özellikleri ve Azure içeri/dışarı aktarma - v1 kullanarak meta verileri ayarlama | Microsoft Docs"
-description: "Özellikler ve hedef BLOB'ları üzerinde Azure içeri/dışarı aktarma Aracı çalıştırırken sürücülerinizin hazırlamak için ayarlanacak meta veri belirtin öğrenin. İçeri/Dışarı Aktarma Aracı'nın v1 başvuruyor."
+title: "aaaSetting özellikleri ve Azure içeri/dışarı aktarma - v1 kullanarak meta verilerini | Microsoft Docs"
+description: "Hello Azure içeri/dışarı aktarma aracı tooprepare sürücülerinizin çalıştırırken toospecify özellikleri ve meta veriler toobe hello hedef BLOB'ları üzerinde nasıl ayarlanacağını öğrenin. Merhaba içeri/dışarı aktarma aracı toov1 başvuruyor."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 77bdaa5559de86cd1de9f30e70656e47fd5719e2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5b7b1c346ecde8a26d985bd5de7efcf7d86eb9e3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="setting-properties-and-metadata-during-the-import-process"></a>İçeri aktarma işlemi sırasında özellikleri ve meta verileri ayarlama
-Sürücülerinizin hazırlamak üzere Microsoft Azure içeri/dışarı aktarma aracı çalıştırdığınızda, özellikleri ve hedef BLOB'ları üzerinde ayarlamak için meta veriler belirtebilirsiniz. Şu adımları uygulayın:  
+# <a name="setting-properties-and-metadata-during-hello-import-process"></a>Özellikleri ayarlama ve hello sırasında meta veri alma işlemi
+Merhaba Microsoft Azure içeri/dışarı aktarma aracı tooprepare sürücülerinizin çalıştırdığınızda, özellikleri ve meta veri toobe hello hedef BLOB'ları üzerinde ayarlamak belirtebilirsiniz. Şu adımları uygulayın:  
   
-1.  BLOB özelliklerini ayarlamak için özellik adları ve değerleri belirtir, yerel bilgisayarınızda bir metin dosyası oluşturun.  
+1.  tooset blob özellikleri, özellik adları ve değerleri belirtir, yerel bilgisayarınızda bir metin dosyası oluşturun.  
   
-2.  BLOB meta verileri ayarlamak için yerel bilgisayarınızda meta verileri adları ve değerleri bir metin dosyası oluşturun.  
+2.  tooset meta verileri blob, meta veri adları ve değerleri belirtir, yerel bilgisayarınızda bir metin dosyası oluşturun.  
   
-3.  Bir parçası olarak geçişi birini veya her ikisini Azure içeri/dışarı aktarma aracı için bu dosyalar için tam yolu `PrepImport` işlemi.  
+3.  Merhaba tam yolu tooone veya bu dosyaları toohello Azure içeri/dışarı aktarma aracı her ikisi de hello bir parçası olarak geçirin `PrepImport` işlemi.  
   
 > [!NOTE]
->  Özellikler veya meta veri dosya kopyalama oturumun bir parçası belirttiğinizde, bu kopya oturumu bir parçası olarak alınan her blob için bu özellikleri veya meta veriler ayarlanır. İçeri aktarılan BLOB'ları bazıları için özellikleri veya meta veriler farklı bir kümesini belirtmek istiyorsanız, farklı özellikleri veya meta veri dosyaları ile ayrı kopya oturumu oluşturmanız gerekir.  
+>  Özellikler veya meta veri dosya kopyalama oturumun bir parçası belirttiğinizde, bu kopya oturumu bir parçası olarak alınan her blob için bu özellikleri veya meta veriler ayarlanır. İçeri aktarılan hello BLOB'ları bazıları için toospecify özellikleri veya meta veriler farklı bir kümesini istiyorsanız, ayrı bir kopyalama farklı özellikleri veya meta veri dosyaları oturumla toocreate gerekir.  
   
 ## <a name="specify-blob-properties-in-a-text-file"></a>Bir metin dosyasına BLOB özellikleri belirtin  
-BLOB özelliklerini belirtmek için bir yerel metin dosyası oluşturun ve öğeleri ve değerleri olarak özellik değerleri olarak özellik adlarını belirtir XML içerir. Bazı özellik değerleri belirten örnek aşağıda verilmiştir:  
+toospecify blob özellikleri, bir yerel metin dosyası oluşturun ve öğeleri ve değerleri olarak özellik değerleri olarak özellik adlarını belirtir XML içerir. Bazı özellik değerleri belirten örnek aşağıda verilmiştir:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -44,10 +44,10 @@ BLOB özelliklerini belirtmek için bir yerel metin dosyası oluşturun ve öğe
 </Properties>  
 ```
   
-Dosya gibi yerel bir konuma kaydetmeniz `C:\WAImportExport\ImportProperties.txt`.  
+Merhaba dosya tooa yerel bir konum gibi kaydetmek `C:\WAImportExport\ImportProperties.txt`.  
   
 ## <a name="specify-blob-metadata-in-a-text-file"></a>Bir metin dosyasına BLOB meta verileri belirtin  
-Benzer şekilde, blob meta verileri belirtmek için meta veri adlarının öğeleri ve meta veri değerlerinin değerler olarak olarak belirten bir yerel metin dosyası oluşturun. Bazı meta veri değerleri belirten örnek aşağıda verilmiştir:  
+Benzer şekilde, toospecify meta verileri blob, meta veri adlarının öğeleri ve meta veri değerlerinin değerler olarak olarak belirten bir yerel metin dosyası oluşturun. Bazı meta veri değerleri belirten örnek aşağıda verilmiştir:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -58,10 +58,10 @@ Benzer şekilde, blob meta verileri belirtmek için meta veri adlarının öğel
 </Metadata>  
 ```
   
-Dosya gibi yerel bir konuma kaydetmeniz `C:\WAImportExport\ImportMetadata.txt`.  
+Merhaba dosya tooa yerel bir konum gibi kaydetmek `C:\WAImportExport\ImportMetadata.txt`.  
   
-## <a name="create-a-copy-session-including-the-properties-or-metadata-files"></a>Özellikler veya meta veri dosyaları dahil olmak üzere bir kopya oturum oluşturma  
-İçeri aktarma işi hazırlama Azure içeri/dışarı aktarma aracı çalıştırdığınızda, komut satırını kullanarak üzerinde özellikleri dosyası belirtin `PropertyFile` parametresi. Komut satırını kullanarak üzerinde meta veri dosyası belirtin `/MetadataFile` parametresi. Her iki dosya belirten örnek aşağıda verilmiştir:  
+## <a name="create-a-copy-session-including-hello-properties-or-metadata-files"></a>Oturum kopyalama dahil olmak üzere hello özellikleri veya meta veri dosyaları oluşturma  
+Hello Azure içeri/dışarı aktarma aracı tooprepare hello alma işi çalıştırdığınızda, hello komut satırında hello kullanarak hello özellikleri dosya belirtin `PropertyFile` parametresi. Merhaba meta veri dosyası hello komut satırında hello kullanarak belirtin `/MetadataFile` parametresi. Her iki dosya belirten örnek aşağıda verilmiştir:  
   
 ```
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  

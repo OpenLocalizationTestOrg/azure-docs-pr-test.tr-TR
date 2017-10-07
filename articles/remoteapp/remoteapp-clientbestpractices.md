@@ -1,6 +1,6 @@
 ---
-title: "En iyi uygulamalar Azure RemoteApp istemcileri için | Microsoft Docs"
-description: "RemoteApp istemcileri kullanmak için en iyi uygulamalar hakkında bilgi edinin"
+title: "Azure RemoteApp istemciler için aaaBest uygulamaları | Microsoft Docs"
+description: "Merhaba RemoteApp istemcileri kullanmak için en iyi uygulamalar hakkında bilgi edinin"
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 416cd37a907010176fe331ddb908a35b6fd6b253
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aa0ccb2f51d381462b78d60e966b87a67d8c247e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="best-practices-for-azure-remoteapp-clients"></a>Azure RemoteApp istemcileri için en iyi yöntemler
 > [!IMPORTANT]
-> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Okuma hello [duyuru](https://go.microsoft.com/fwlink/?linkid=821148) Ayrıntılar için.
 > 
 > 
 
-Aşağıdaki bilgiler, Azure RemoteApp istemcileri kullanmanıza yardımcı olabilir:
+Aşağıdaki bilgilerle hello Azure RemoteApp istemcileri kullanmanıza yardımcı olabilir:
 
-* Her zaman en son istemciyi kullanın. Bu, kullanmakta olduğunuz istemci sürümü en son hata düzeltmeleri, geliştirmeleri ve özellikleri sahip olmasını sağlar. Otomatik olarak uygun mağaza istemcisi için güncelleştirmeleri almak için kaydolmanız gerekebilir.
-* Belirli bir süre etkin olup olmadığını RemoteApp otomatik olarak oturumunuzu. Veri kaybını önlemek için hizmeti kullanmayı bitirdikten sonra uygulamaları kapatarak öneririz.
+* Her zaman en son istemciyi hello kullanın. Bu, hello sağlar çalıştırdığınız istemci sürümüne sahip hello en son hata düzeltmeleri, geliştirmeleri ve özellikler. Gereksinim duyabileceğiniz toosign tooautomatically yukarı hello uygun deposunda hello istemcisi için güncelleştirmeler alırsınız.
+* Belirli bir süre etkin olup olmadığını RemoteApp otomatik olarak oturumunuzu. Sipariş tooprevent veri kaybına hello hizmetini kullanarak tamamladığınızda, uygulamalarınızın kapatma öneririz.
 

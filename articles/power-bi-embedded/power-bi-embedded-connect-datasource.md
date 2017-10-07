@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Power BI Embedded - bir veri kaynağına bağlanma"
-description: "Power BI Embedded, veri kaynaklarına bağlanmak"
+title: "aaaMicrosoft Power BI Embedded - bağlanan tooa veri kaynağı"
+description: "Power BI Embedded, toodata kaynaklarına bağlanın"
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/06/2017
 ms.author: asaxton
-ms.openlocfilehash: 9f614bbc63eae788aa52132c8f0e42ad8963559a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b1aad6e638104716d90f7e1d060eefcbc9daedbc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-a-data-source"></a>Bir veri kaynağına bağlanma
-İle **Power BI Embedded**, raporlar, kendi uygulamanıza eklenebilir. Uygulamanıza bir Power BI raporu, rapor tarafından temel alınan veri bağlanır **alma** yapılandırarak veya verilerin bir kopyasını **doğrudan bağlanma** kullanarak veri kaynağı için **DirectQuery**.
+# <a name="connect-tooa-data-source"></a>Tooa veri kaynağına bağlanma
+İle **Power BI Embedded**, raporlar, kendi uygulamanıza eklenebilir. Power BI raporu uygulamanıza bulunmadığında, arka plandaki tarafından veri toohello hello rapor bağlanır **alma** hello veri ya da bir kopyasını **doğrudan bağlanma** toohello veri kaynağını kullanan  **DirectQuery**.
 
-**İçeri Aktarma** ve **DirectQuery**.arasındaki farklar burada yer almaktadır.
+Kullanarak arasındaki farklar hello işte **alma** ve **DirectQuery**.
 
 | İçeri Aktarma | DirectQuery |
 | --- | --- |
-| Tablolar, sütunlar *ve veri* içeri aktarılan veya raporun veri kümesine kopyalar. Temel alınan verilerde meydana değişiklikleri görmek için yenileme veya alma, bir tam, güncel veri kümesini yeniden gerekir. |Yalnızca *tablolar ve sütunlar* içeri aktarılan veya raporun veri kümesine kopyalar. Her zaman en güncel verileri görüntülediğiniz. |
+| Tablolar, sütunlar *ve veri* içeri aktarılan veya hello raporun kümesine kopyalar. toosee bu oluştu toohello temel alınan veriler değiştiğinde, yenileme veya alma, bir tam, güncel veri kümesini yeniden. |Yalnızca *tablolar ve sütunlar* içeri aktarılan veya hello raporun kümesine kopyalar. Her zaman hello en güncel verileri görüntülediğiniz. |
 
 Power BI Embedded ile DirectQuery bulut veri kaynaklarıyla kullanabilirsiniz, ancak veri kaynakları şu anda şirket içi değil.
 
 > [!NOTE]
-> Şirket içi veri ağ geçidi, şu anda Power BI Embedded ile desteklenmiyor. Bu, şirket içi veri kaynakları ile DirectQuery kullanamayacağınız anlamına gelir.
+> Merhaba şirket içi veri ağ geçidi Power BI Embedded ile şu anda desteklenmiyor. Bu, şirket içi veri kaynakları ile DirectQuery kullanamayacağınız anlamına gelir.
 
 ## <a name="supported-data-sources"></a>Desteklenen veri kaynakları
 
@@ -43,31 +43,31 @@ Power BI Embedded ile DirectQuery bulut veri kaynaklarıyla kullanabilirsiniz, a
 
 **İçeri Aktarma**
 
-Tüm Power BI Desktop içinde kullanılabilir veri kaynakları kullanarak içeri aktarabilirsiniz. Şunları yapacaksınız **değil** Power BI Embedded içinde bu verileri yenileyemezsiniz. Değişiklikleri Power BI Embedded, PBIX dosyanızı karşıya yüklemek gerekecektir. Ağ geçidi nedeni budur. 
+Tüm hello kullanılabilir veri kaynaklarını Power BI Desktop içinde kullanarak içeri aktarabilirsiniz. Şunları yapacaksınız **değil** mümkün toorefresh Power BI Embedded içinde bu verileri olabilir. Tooupload değişiklikleri olacaktır tooyour PBIX dosyası tooPower BI Embedded. Bu toono kullanılabilir ağ geçididir. 
 
 ## <a name="benefits-of-using-directquery"></a>DirectQuery kullanmanın yararları
 İki birincil avantajları vardır kullanırken **DirectQuery**:
 
-* **DirectQuery** tüm verileri çok büyük veri kümeleri, burada, aksi takdirde olacaktır ilk alınacak unfeasible üzerinden görselleştirmeleri oluşturmanıza olanak sağlar.
-* Veri değişikliklerini temel alınan veri yenileme gerektirebilir ve bazı raporlar için geçerli verileri görüntülemek için gereken büyük veri aktarımları, yeniden içeri aktarılmasını verilerin unfeasible sağlama gerektirebilir. Bunun aksine, **DirectQuery** raporları her zaman güncel verileri kullanın.
+* **DirectQuery** sağlar, yapı görselleştirmeleri Burada, aksi takdirde olacaktır unfeasible toofirst alma çok büyük veri kümeleri üzerinde tüm veri hello.
+* Veri değişikliklerini temel alınan veri yenileme gerektirebilir ve bazı raporlar için hello toodisplay geçerli verileri büyük veri aktarımları, yeniden içeri aktarılmasını verilerin unfeasible sağlama gerektirebilir. Bunun aksine, **DirectQuery** raporları her zaman güncel verileri kullanın.
 
 ## <a name="limitations-of-directquery"></a>DirectQuery sınırlamaları
-   Kullanımıyla ilgili birkaç sınırlama vardır **DirectQuery**:
+   Bazı sınırlamalar toousing vardır **DirectQuery**:
 
 * Tüm tablolar tek bir veritabanından gelmelidir.
-* Sorgu fazla karmaşık olması durumunda bir hata ortaya çıkar. Hatayı gidermek için en az karmaşık olacak şekilde sorguyu yeniden düzenlemeniz gerekir. Sorgu karmaşık olması gerekiyorsa kullanmak yerine verileri içe aktarmanız gerekir **DirectQuery**.
-* İlişki filtreleme, her iki yönde yerine tek bir yön sınırlıdır.
-* Bir sütunun veri türünü değiştiremezsiniz.
+* Merhaba sorgu fazla karmaşık olması durumunda bir hata ortaya çıkar. en az karmaşık olacak şekilde tooremedy hello hata, hello sorgu yeniden düzenlemeniz gerekir. Merhaba sorgu karmaşık olması gerekiyorsa kullanmak yerine tooimport hello verilere ihtiyaç duyarsınız **DirectQuery**.
+* İlişki filtreleme, her iki yönde yerine sınırlı tooa tek yön olur.
+* Merhaba bir sütunun veri türünü değiştiremezsiniz.
 * Varsayılan olarak, sınırlamalar ölçüler izin DAX ifadeleri yerleştirilir. Bkz: [DirectQuery ve ölçüleri](#measures).
 
 <a name="measures"/>
 
 ## <a name="directquery-and-measures"></a>DirectQuery ve ölçüleri
-Temel alınan veri kaynağına gönderilen sorguların kabul edilebilir performans sahip emin olmak için sınırlamalar ölçüler üzerinde kullanılan. Kullanırken **Power BI Desktop**, Gelişmiş kullanıcılar seçerek bu sınırlamaya atlamak seçebilirsiniz **Dosya > Seçenekler ve Ayarlar > Seçenekler**. İçinde **seçenekleri** iletişim kutusunda, seçin **DirectQuery**ve seçeneğini **DirectQuery modunda Kısıtlanmamış ölçümlere izin**. Bu seçenek belirlendiğinde, bir ölçü için geçerli olan herhangi bir DAX ifade kullanılabilir. Kullanıcıların farkında olması gerekir; Ancak, verileri içe aktarıldığında gerçekleştiren çok iyi bazı değerler çok yavaş neden olabileceğini arka ucuna sorgular zaman içinde kaynak **DirectQuery** modu. 
+kabul edilebilir performans toohello veri kaynağındaki gönderilen tooensure sorguların vardır, sınırlamalar ölçüler üzerinde uygulanmaz. Kullanırken **Power BI Desktop**, Gelişmiş kullanıcılar seçebilirsiniz toobypass bu sınırlamaya seçerek **Dosya > Seçenekler ve Ayarlar > Seçenekler**. Merhaba, **seçenekleri** iletişim kutusunda, seçin **DirectQuery**ve hello seçeneğini belirleyin **DirectQuery modunda Kısıtlanmamış ölçümlere izin**. Bu seçenek belirlendiğinde, bir ölçü için geçerli olan herhangi bir DAX ifade kullanılabilir. Kullanıcıların farkında olması gerekir; Ancak, hello verileri içe aktarıldığında bazı ifadeleri, çok iyi gerçekleştireceğini çok yavaş sorguları toohello arka neden olabilir, kaynağı **DirectQuery** modu. 
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [Microsoft Power BI Embedded ile çalışmaya başlama](power-bi-embedded-get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)
+Başka sorunuz mu var? [Merhaba Power BI topluluk deneyin](http://community.powerbi.com/)
 

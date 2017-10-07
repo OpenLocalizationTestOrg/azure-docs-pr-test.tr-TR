@@ -1,6 +1,6 @@
 ---
-title: "Azure İç yük dengeleyicisi oluşturma - PowerShell klasik | Microsoft Docs"
-description: "Klasik dağıtım modelinde PowerShell kullanarak iç yük dengeleyici oluşturmayı öğrenin"
+title: "aaaCreate Azure iç yük dengeleyici - Klasik PowerShell | Microsoft Docs"
+description: "Toocreate bir iç yük dengeleyici hello Klasik dağıtım modelinde PowerShell kullanarak nasıl öğrenin"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: f701fb3564c62cf8088cc4362a10c5e2c2301ae6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 382db80c42ffab09905513019b72e85a4f9dfeff
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>PowerShell kullanarak iç yük dengeleyici (klasik) oluşturmaya başlama
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. [Bu adımları Resource Manager modeli kullanarak gerçekleştirmeyi](load-balancer-get-started-ilb-arm-ps.md) öğrenin.
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makalede, hello Klasik dağıtım modeli kullanılarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. Nasıl çok öğrenin[hello Resource Manager modelini kullanarak bu adımları uygulamadan](load-balancer-get-started-ilb-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -39,28 +39,28 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="create-an-internal-load-balancer-set-for-virtual-machines"></a>Sanal makineler için iç yük dengeleyici oluşturma
 
-İç yük dengeleyici kümesi ve trafiğini bu kümeye gönderecek sunucuları oluşturmak için aşağıdaki adımları uygulamanız gerekir:
+bir iç yük dengeleyicisi ayarlayın ve bunların trafiğini tooit göndereceğiniz sunucuları hello toocreate toodo hello aşağıdaki vardır:
 
-1. Gelen trafiğin uç noktası olacak ve bu trafiğe yük dengeli bir kümenin sunucularında yük dengelemesi yapacak bir İç Yük Dengeleme örneği oluşturun.
-2. Gelen trafiği alacak sanal makinelere karşılık gelen uç noktalar ekleyin.
-3. Yük dengelemesi yapılacak trafiği gönderecek sunucuları trafiklerini İç Yük Dengeleme örneğinin sanal IP (VIP) adresine gönderecek şekilde yapılandırın.
+1. İç yük iş yükünün bir yük dengeli kümesi hello sunucular arasında dengeli gelen trafik toobe hello uç nokta olacak Dengeleme örneği oluşturun.
+2. Merhaba gelen trafiği almak toohello sanal makineleri karşılık gelen uç noktalarını ekleyin.
+3. Kendi trafiği toohello sanal IP (VIP) adresi iç Yük Dengeleme hello örneğinin toosend hello trafiği toobe yük dengeli gönderme hello sunucularını yapılandırın.
 
 ### <a name="step-1-create-an-internal-load-balancing-instance"></a>1. Adım: İç Yük Dengeleme örneği oluşturun
 
-Mevcut bir bulut hizmeti veya bölgesel sanal ağ üzerine dağıtılmış bulut hizmeti için aşağıdaki Windows PowerShell komutlarını kullanarak İç Yük Dengeleme örneğin oluşturabilirsiniz:
+Var olan bir bulut hizmetini veya bölgesel bir sanal ağ altında dağıtılan bir bulut hizmeti için bir iç Yük Dengeleme örneği ile Windows PowerShell komutlarını aşağıdaki hello oluşturabilirsiniz:
 
 ```powershell
 $svc="<Cloud Service Name>"
 $ilb="<Name of your ILB instance>"
-$subnet="<Name of the subnet within your virtual network>"
-$IP="<The IPv4 address to use on the subnet-optional>"
+$subnet="<Name of hello subnet within your virtual network>"
+$IP="<hello IPv4 address toouse on hello subnet-optional>"
 
 Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 ```
 
-Bu [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) Windows PowerShell cmdlet örneğinde DefaultProbe parametre kümesi kullanıldığına dikkat edin. Ek parametre kümeleri hakkında daha fazla bilgi için bkz. [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
+Unutmayın hello bu kullanımını [Ekle AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) Windows PowerShell cmdlet hello DefaultProbe parametre kümesi kullanır. Ek parametre kümeleri hakkında daha fazla bilgi için bkz. [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
 
-### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>2. Adım: İç Yük Dengeleme örneğine uç noktaları ekleyin
+### <a name="step-2-add-endpoints-toohello-internal-load-balancing-instance"></a>2. adım: uç noktaları toohello iç Yük Dengeleme örneği ekleme
 
 Örnek aşağıda verilmiştir:
 
@@ -76,47 +76,47 @@ $ilb="ilbset"
 Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 ```
 
-### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>3. Adım: Sunucularınızı trafiklerini yeni İç Yük Dengeleme uç noktasına gönderecek şekilde yapılandırın
+### <a name="step-3-configure-your-servers-toosend-their-traffic-toohello-new-internal-load-balancing-endpoint"></a>3. adım: sunucuları toosend kendi trafiği toohello yeni iç Yük Dengeleme uç noktasını yapılandırma
 
-Yük dengelemesi uygulanacak trafiğe sahip sunucuları İç Yük Dengeleme örneğinin yeni IP adresini (VIP) kullanacak şekilde yapılandırmanız gerekir. Bu, İç Yük Dengeleme örneğinin dinlediği adrestir. Çoğu durumda tek yapmanız gereken İç Yük Dengeleme örneği VIP’sinin DNS kaydını yapmak veya değiştirmektir.
+Sahip çok yapılandırdığınız hello sunucuları, trafiğine giderek toobe yükü dengelenmiş toouse hello yeni IP adresi (Merhaba VIP) hello iç Yük Dengeleme örnek olacak. Bu örnek hangi hello üzerinde iç Yük Dengeleme dinleme hello adresidir. Çoğu durumda, toojust gereksinim ekleyin veya hello VIP hello örneğinin iç Yük Dengeleme için bir DNS kaydı değiştirin.
 
-İç Yük Dengeleme örneğini oluştururken IP adresi belirttiyseniz VIP’ye sahipsiniz demektir. Belirtmediyseniz VIP’yi görmek için aşağıdaki komutları kullanabilirsiniz:
+Başlangıç IP adresi hello iç Yük Dengeleme örnek hello oluşturma sırasında belirtilen zaten hello VIP varsa. Aksi takdirde, komutları aşağıdaki hello gelen hello VIP görebilirsiniz:
 
 ```powershell
 $svc="<Cloud Service Name>"
 Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
-Bu komutları kullanmak için istenen değerleri yazıp < ve > işaretlerini silin. Örnek aşağıda verilmiştir:
+toouse bu komutları doldurun hello değerleri ve Kaldır merhaba < ve >. Örnek aşağıda verilmiştir:
 
 ```powershell
 $svc="mytestcloud"
 Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
-Get-AzureInternalLoadBalancer komutu ekranındaki IP adresini not edin ve trafiğin VIP’ye gönderildiğinden emin olmak için sunucularınızda veya DNS kayıtlarınızda gerekli değişiklikleri yapın.
+Merhaba Get-AzureInternalLoadBalancer komutu görüntüsünü Merhaba, hello IP adresini not edin ve hello gerekli değişiklikleri tooyour sunucuları veya trafiği toohello VIP gönderilir DNS kayıtları tooensure olun.
 
 > [!NOTE]
-> Microsoft Azure platformu, farklı yönetim senaryoları için genel olarak yönlendirilebilen statik bir IPv4 adresi kullanır. IP adresi: 168.63.129.16. Bu IP adresinin güvenlik duvarları tarafından engellenmesi beklenmeyen davranışlara neden olabilir.
-> Azure İç Yük Dengeleme açısından bu IP adresi, araştırmaların yük dengeleyiciden izlenerek yük dengeli kümede yer alan sanal makinelerin durumunun belirlenmesini sağlar. Bir iç yük dengeli kümedeki Azure sanal makinelerine gelen trafiği kısıtlamak için bir Ağ Güvenlik Grubu kullanılması veya Sanal Alt Ağ uygulanması halinde 168.63.129.16 adresinden gelen trafiğe izin verecek şekilde bir Ağ Güvenlik Kuralının uygulandığından emin olun.
+> Merhaba Microsoft Azure platformu statik, genel olarak yönlendirilebilir bir IPv4 adresi çeşitli yönetim senaryoları için kullanır. Başlangıç IP adresi 168.63.129.16 değil. Bu IP adresinin güvenlik duvarları tarafından engellenmesi beklenmeyen davranışlara neden olabilir.
+> Saygı tooAzure ile iç Yük Dengeleme, bu IP adresi, yük dengelenmiş bir küme içinde sanal makineler için hello yük dengeleyici toodetermine hello sistem durumu araştırmalarının izleme tarafından kullanılır. Bir ağ güvenlik grubu kullanılan toorestrict trafiği tooAzure sanal makineleri bir dahili yük dengeli kümesindeki ya uygulanan tooa sanal ağ alt ağı ise, bir ağ güvenlik kuralı tooallow trafiği 168.63.129.16 eklendiğinden emin olun.
 
 ## <a name="example-of-internal-load-balancing"></a>İç yük dengeleme örneği
 
-İki örnek yapılandırma için yük dengeli küme oluşturmayla ilgili adım adım talimatlar için aşağıdaki bölümlere bakın.
+iki örnek yapılandırmalar için yük dengeli kümesi oluşturma hello son tooend işlemiyle toostep gördüğünüz hello bölümler.
 
 ### <a name="an-internet-facing-multi-tier-application"></a>İnternet'e yönelik, çok katmanlı uygulama
 
-İnternet’e yönelik web sunucusu kümesi için yük dengeli veritabanı hizmeti sunmak istiyorsunuz. İki sunucu kümesi de tek bir Azure bulut hizmetinde. 1433 numaralı TCP bağlantı noktasına gelen web sunucusu trafiğinin veritabanı katmanındaki iki sanal makineye dağıtılması gerekiyor. Yapılandırma Şekil 1’de gösterilmektedir.
+Tooprovide İnternete dönük web sunucuları kümesi için bir yük dengeli veritabanı hizmeti istiyorsunuz. İki sunucu kümesi de tek bir Azure bulut hizmetinde. Web sunucusu trafiği tooTCP bağlantı noktası 1433 hello veritabanı katmanı iki sanal makine arasında dağıtılmalıdır. Şekil 1'hello yapılandırmasını gösterir.
 
-![Veritabanı katmanı için iç yük dengeli küme](./media/load-balancer-internal-getstarted/IC736321.png)
+![Merhaba veritabanı katmanı için iç yük dengeli kümesi](./media/load-balancer-internal-getstarted/IC736321.png)
 
-Yapılandırma şunları içerir:
+Merhaba yapılandırması hello aşağıdakilerden oluşur:
 
-* Sanal makineleri barındıran mevcut bulut hizmeti mytestcloud olarak adlandırılmıştır.
-* Mevcut iki veritabanı sunucusu DB1 ve DB2 olarak adlandırılmıştır.
-* Web katmanındaki web sunucuları, veritabanı katmanındaki veritabanı sunucularına özel IP adresini kullanarak bağlanmaktadır. Diğer bir seçenek de sanal ağ için kendi DNS sunucunuzu kullanmak ve iç yük dengeleyici kümesi için A kaydı oluşturmaktır.
+* Merhaba sanal makineleri barındıran hello mevcut bulut hizmeti mytestcloud adlandırılır.
+* Merhaba iki varolan veritabanı sunucuları DB1, DB2 adlandırılır.
+* Merhaba web katmanı Web sunucularının hello veritabanı katmanı toohello veritabanı sunucuları hello özel IP adresini kullanarak bağlanın. Başka bir seçenek hello sanal ağ için kendi DNS toouse olan ve hello iç yük dengeleyici kümesi için bir A kaydı el ile kaydedin.
 
-Aşağıdaki komutlar **ILBset** adlı yeni bir İç Yük Dengeleme örneği yapılandırır ve iki veritabanına karşılık gelen sanal makinelere uç noktalar ekler:
+Merhaba aşağıdaki komutları yapılandırma adlı yeni bir iç Yük Dengeleme örnek **ILBset** ve toohello iki veritabanı sunucularına karşılık gelen uç noktaları toohello sanal makineleri ekleyin:
 
 ```powershell
 $svc="mytestcloud"
@@ -137,16 +137,16 @@ Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epnam
 
 ## <a name="remove-an-internal-load-balancing-configuration"></a>İç Yük Dengeleme yapılandırmasını kaldırma
 
-Bir sanal makineyi iç yük dengeleme örneğinin uç noktası olmaktan çıkarmak için şu komutları kullanın:
+sanal makine örneğinden bir iç yük dengeleyici, aşağıdaki komutları kullanın hello bir uç nokta olarak tooremove:
 
 ```powershell
 $svc="<Cloud service name>"
-$vmname="<Name of the VM>"
-$epname="<Name of the endpoint>"
+$vmname="<Name of hello VM>"
+$epname="<Name of hello endpoint>"
 Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 ```
 
-Bu komutları kullanmak için istenen değerleri yazıp < ve > işaretlerini silin.
+toouse bu komutları doldurun hello kaldırma hello değerlerde < ve >.
 
 Örnek aşağıda verilmiştir:
 
@@ -157,14 +157,14 @@ $epname="TCP-1433-1433"
 Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 ```
 
-Bir bulut hizmetindeki iç yük dengeleyici örneğini kaldırmak için şu komutları kullanın:
+tooremove aşağıdaki komutları kullanın hello bir bulut hizmeti bir iç yük dengeleyici örneği:
 
 ```powershell
 $svc="<Cloud service name>"
 Remove-AzureInternalLoadBalancer -ServiceName $svc
 ```
 
-Bu komutları kullanmak için istenen değerleri yazıp < ve > işaretlerini silin.
+Bu komutlar, toouse hello değer girin ve hello Kaldır < ve >.
 
 Örnek aşağıda verilmiştir:
 
@@ -175,7 +175,7 @@ Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 ## <a name="additional-information-about-internal-load-balancer-cmdlets"></a>İç yük dengeleyici cmdlet'leri hakkında ek bilgi
 
-İç Yük Dengeleyici cmdlet’leri hakkında ek bilgi almak için Windows PowerShell komut isteminde şu komutları çalıştırın:
+tooobtain komutlar Windows PowerShell isteminde aşağıdaki hello çalıştırmak, iç Yük Dengeleme cmdlet'leri hakkında ek bilgi:
 
 ```powershell
 Get-Help New-AzureInternalLoadBalancerConfig -full

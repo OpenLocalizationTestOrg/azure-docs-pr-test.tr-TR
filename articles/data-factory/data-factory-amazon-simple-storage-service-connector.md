@@ -1,6 +1,6 @@
 ---
-title: "Veri Fabrikası kullanarak Amazon Basit Depolama hizmetinden veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kullanarak Amazon Basit Depolama hizmetinden (S3) veri taşıma hakkında bilgi edinin."
+title: "Veri Fabrikası kullanarak aaaMove verilerden Amazon basit depolama hizmeti | Microsoft Docs"
+description: "Hakkında bilgi edinin Azure Data Factory kullanarak toomove verilerden Amazon Basit Depolama Birimi Hizmeti (S3)."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.openlocfilehash: 3e21f7dfccc3b235071344a28c7d94f65e6bf9ac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8a8cd2845fd1de74413bd0372f3aabfb4817549b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Amazon Basit Depolama hizmetinden veri taşıma
-Bu makalede kopya etkinliği Azure Data Factory'de verileri Amazon Basit Depolama hizmetinden (S3) taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi.
+Bu makalede nasıl toouse hello kopyalama etkinliği Azure Data Factory toomove verileri Amazon Basit Depolama hizmetinden (S3) açıklanmaktadır. Üzerinde hello derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalenin hello kopyalama etkinliği ile veri taşıma için genel bir bakış sunar.
 
-Verileri Amazon S3'ten herhangi desteklenen havuz veri deposuna kopyalayabilirsiniz. Veri depoları havuzlarını kopyalama etkinliği tarafından desteklenen bir listesi için bkz: [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Veri Fabrikası şu anda yalnızca taşıma Amazon S3 verileri diğer veri depolarına destekler, ancak verileri diğer veriler taşıma değil Amazon S3 depolar.
+Verileri Amazon S3 desteklenen tooany havuz veri deposundan kopyalayabilirsiniz. Verileri bir listesi için desteklenen depoları hello kopyalama etkinliği tarafından havuzlarını hello görür [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Veri Fabrikası şu anda yalnızca taşıma verileri Amazon S3 tooother veri depolarını destekler, ancak verileri diğer veriler taşıma değil tooAmazon S3 depolar.
 
 ## <a name="required-permissions"></a>Gerekli izinler
-Amazon S3'ten verileri kopyalamak için aşağıdaki izinleri verilmiş olan emin olun:
+Amazon S3 toocopy verilerden hello aşağıdaki izinleri verilmiş olan emin olun:
 
 * `s3:GetObject`ve `s3:GetObjectVersion` Amazon S3 nesne işlemleri için.
-* `s3:ListBucket`Amazon S3 Demetini işlemleri için. Data Factory Kopyalama Sihirbazı'nı kullanıyorsanız `s3:ListAllMyBuckets` de gereklidir.
+* `s3:ListBucket`Amazon S3 Demetini işlemleri için. Merhaba Data Factory Kopyalama Sihirbazı, kullanıyorsanız `s3:ListAllMyBuckets` de gereklidir.
 
-Amazon S3 izinlerin tam listesi hakkında daha fazla ayrıntı için bkz: [belirleyen izinleri bir ilke](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+Amazon S3 izinleri hello tam listesi hakkında daha fazla ayrıntı için bkz: [belirleyen izinleri bir ilke](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="getting-started"></a>Başlarken
 Farklı araçlar veya API'lerini kullanarak bir Amazon S3 kaynaktan verileri taşır kopyalama etkinliği ile işlem hattı oluşturun.
 
-Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Hızlı bir kılavuz için bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md).
+Merhaba en kolay yolu toocreate bir ardışık düzen olduğu toouse hello **Kopyalama Sihirbazı'nı**. Hızlı bir kılavuz için bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md).
 
-Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Aşağıdaki araçlar toocreate bir ardışık düzen hello de kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Adım adım yönergeler toocreate kopyalama etkinliği ile işlem hattı için bkz: Merhaba [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Araçları veya API'ler kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin:
+Araçları veya API'lerle de kullansanız adımları toocreate veri kaynağına veri dosyaları tooa havuz veri deposunu taşır ardışık aşağıdaki hello gerçekleştirin:
 
-1. Oluşturma **bağlantılı Hizmetleri** girdi ve çıktı verilerini bağlamak için veri fabrikanıza depolar.
-2. Oluşturma **veri kümeleri** kopyalama işlemi için girdi ve çıktı verilerini temsil etmek için.
+1. Oluşturma **bağlantılı Hizmetleri** toolink girdi ve çıktı veri depoları tooyour veri fabrikası.
+2. Oluşturma **veri kümeleri** giriş ve çıkış toorepresent hello için veri kopyalama işlemi.
 3. Oluşturma bir **ardışık düzen** bir giriş olarak bir veri kümesi ve bir veri kümesini çıktı olarak alan kopyalama etkinliği ile.
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçları veya API'ler (dışında .NET API'si) kullandığınızda, JSON biçimini kullanarak bu Data Factory varlıklarını tanımlayın. Bir Amazon S3 veri deposundan verileri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları içeren bir örnek için bkz: [JSON örnek: veri kopyalama Amazon S3'ten Azure Blob](#json-example-copy-data-from-amazon-s3-to-azure-blob) bu makalenin.
+Başlangıç Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları (bağlı hizmetler, veri kümeleri ve hello ardışık düzeni) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçları veya API'ler (dışında .NET API'si) kullandığınızda, bu Data Factory varlıklarını hello JSON biçimini kullanarak tanımlayın. Merhaba kullanılan toocopy verileri Amazon S3 veri deposundan Data Factory varlıkları için JSON tanımları içeren bir örnek için bkz [JSON örnek: Blob Amazon S3 tooAzure veri kopyalama](#json-example-copy-data-from-amazon-s3-to-azure-blob) bu makalenin.
 
 > [!NOTE]
 > Kopyalama etkinliği için desteklenen dosya ve sıkıştırma biçimleri hakkında daha fazla ayrıntı için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md).
 
-Aşağıdaki bölümler, Amazon S3 Data Factory varlıklarını belirli tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümlerde hello kullanılan toodefine Data Factory varlıkları belirli tooAmazon S3 JSON özellikleri hakkında ayrıntılı bilgiler sağlar.
 
 ## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
-Bağlı hizmet, veri fabrikası için bir veri deposu bağlar. Bağlı hizmet türü oluşturma **AwsAccessKey** veri fabrikanıza Amazon S3 veri deponuza bağlamak için. Aşağıdaki tabloda, Amazon S3 JSON öğeleri belirli bir açıklamasını sağlar (AwsAccessKey) bağlı hizmeti.
+Bağlı hizmet, bir veri deposu tooa veri fabrikası bağlar. Bağlı hizmet türü oluşturma **AwsAccessKey** toolink Amazon S3 verilerinizi depolamak tooyour veri fabrikası. Aşağıdaki tablonun hello bağlı açıklamasını JSON öğeleri belirli tooAmazon S3 (AwsAccessKey) hizmeti sağlar.
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| accessKeyID |Gizli erişim anahtarı kimliği. |Dize |Evet |
-| secretAccessKey |Gizli erişim anahtar kendisi. |Şifrelenmiş gizli dize |Evet |
+| accessKeyID |Merhaba gizli erişim anahtarı kimliği. |Dize |Evet |
+| secretAccessKey |Merhaba gizli erişim anahtarı kendisi. |Şifrelenmiş gizli dize |Evet |
 
 Örnek aşağıda verilmiştir:
 
@@ -77,22 +77,22 @@ Bağlı hizmet, veri fabrikası için bir veri deposu bağlar. Bağlı hizmet t�
 ```
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
-Girdi verileri Azure Blob Depolama alanında temsil etmek üzere bir veri kümesi belirtmek için veri kümesine tür özelliği ayarlayın **AmazonS3**. Ayarlama **linkedServiceName** Amazon S3 adını dataset özelliğinin bağlı hizmeti. Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md). 
+toospecify dataset toorepresent giriş verileri Azure Blob storage'da kümesi hello type özelliği hello kümesinin çok**AmazonS3**. Set hello **linkedServiceName** hello dataset toohello adının hello Amazon S3 özelliği bağlı hizmeti. Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md). 
 
-Bölümler yapısı, kullanılabilirlik ve ilke gibi tüm veri türleri (örneğin, SQL database, Azure blob ve Azure tablo) benzer. **TypeProperties** bölüm veri kümesi her tür için farklıdır ve verilerin veri deposunda konumu hakkında bilgi sağlar. **TypeProperties** bir veri kümesi için bir bölüm türü **AmazonS3** (Amazon S3 dataset içerir) aşağıdaki özelliklere sahiptir:
+Bölümler yapısı, kullanılabilirlik ve ilke gibi tüm veri türleri (örneğin, SQL database, Azure blob ve Azure tablo) benzer. Merhaba **typeProperties** bölüm veri kümesi her tür için farklıdır ve hello veri deposundaki hello veri hello konumu hakkında bilgi sağlar. Merhaba **typeProperties** bir veri kümesi için bir bölüm türü **AmazonS3** (Merhaba Amazon S3 dataset içerir) hello aşağıdaki özelliklere sahiptir:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| bucketName |S3 demetini adı. |Dize |Evet |
-| anahtar |S3 nesne anahtarı. |Dize |Hayır |
-| önek |S3 nesne anahtarı için önek. Seçilen nesneler, anahtarları Bu önek ile başlatın. Yalnızca anahtar boş olduğunda geçerlidir. |Dize |Hayır |
-| Sürüm |S3 sürüm etkinleştirilirse S3 nesne sürümü. |Dize |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [JSON biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi ](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Dosyaları olarak kopyalamak istiyorsanız-olan dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır | |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır | |
+| bucketName |Merhaba S3 demetini adı. |Dize |Evet |
+| anahtar |Merhaba S3 nesne anahtarı. |Dize |Hayır |
+| önek |Merhaba S3 nesne anahtarı için önek. Seçilen nesneler, anahtarları Bu önek ile başlatın. Yalnızca anahtar boş olduğunda geçerlidir. |Dize |Hayır |
+| Sürüm |Merhaba S3 nesnesinin S3 sürüm etkinleştirilirse Hello sürümü. |Dize |Hayır |
+| Biçimi | şu biçimi türlerini hello desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Set hello **türü** biçimi tooone şu değerlerden biri altında özellik. Merhaba daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [JSON biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi ](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Toocopy dosyaları olarak istiyorsanız-dosya tabanlı depolar (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları Atla hello biçimi bölümünde arasındadır. |Hayır | |
+| Sıkıştırma | Merhaba türünü ve hello veri sıkıştırma düzeyini belirtin. desteklenen hello türleri şunlardır: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. desteklenen hello düzeyleri şunlardır: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır | |
 
 
 > [!NOTE]
-> **bucketName + tuşu** burada demet S3 nesneleri için kök kapsayıcı ve anahtarıdır S3 nesnenin tam yolunun S3 nesnenin konumunu belirtir.
+> **bucketName + tuşu** hello S3 nesnesinin burada demet hello S3 nesneleri için kök kapsayıcı ve anahtarıdır hello tam yol toohello S3 nesnesini hello konumunu belirtir.
 
 ### <a name="sample-dataset-with-prefix"></a>Örnek veri kümesi önekiyle
 
@@ -143,7 +143,7 @@ Bölümler yapısı, kullanılabilirlik ve ilke gibi tüm veri türleri (örneğ
 ```
 
 ### <a name="dynamic-paths-for-s3"></a>S3 için dinamik yollar
-Önceki örnekte sabit değerleri kullanan **anahtar** ve **bucketName** Amazon S3 dataset özelliklerinde.
+Merhaba önceki örnek sabit değerleri Merhaba kullanır **anahtar** ve **bucketName** hello Amazon S3 dataset özelliklerinde.
 
 ```json
 "key": "testFolder/test.orc",
@@ -157,19 +157,19 @@ Veri Fabrikası SliceStart gibi sistem değişkenleri kullanarak çalışma zama
 "bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
 ```
 
-Aynı yapabileceğiniz **önek** bir Amazon S3 dataset özelliğinin. Desteklenen işlevleri ve değişkenler listesi için bkz: [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md).
+Yapabileceğiniz aynı Merhaba hello **önek** bir Amazon S3 dataset özelliğinin. Desteklenen işlevleri ve değişkenler listesi için bkz: [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md).
 
 ## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen oluşturma](data-factory-create-pipelines.md). Ad, açıklama, giriş ve çıkış tabloları ve ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir. Kullanılabilir özellikler **typeProperties** bölüm etkinliğin her etkinlik türü ile değişir. Kopya etkinliği için özellikler türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir. Kopyalama etkinliği kaynağında türü olduğunda **FileSystemSource** (içeren Amazon S3), aşağıdaki özellikler kullanılabilir **typeProperties** bölümü:
+Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen oluşturma](data-factory-create-pipelines.md). Ad, açıklama, giriş ve çıkış tabloları ve ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir. Hello kullanılabilen özellikleri **typeProperties** hello etkinlik bölümünü her etkinlik türü ile değişir. Merhaba kopya etkinliği için özellikler hello türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir. Merhaba kopyalama etkinliğinde bir kaynak türü olduğunda **FileSystemSource** (içeren Amazon S3), özellik aşağıdaki hello sağlanmıştır **typeProperties** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| Özyinelemeli |Özyinelemeli S3 listesinde olup olmadığını belirtir dizini altındaki nesneleri. |true/false |Hayır |
+| Özyinelemeli |Toorecursively listesi S3 hello dizini altında nesneleri olup olmadığını belirtir. |true/false |Hayır |
 
-## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>JSON örnek: veri kopyalama Amazon S3'ten Azure Blob depolama alanına
-Bu örnek, Amazon S3'ten bir Azure Blob depolama alanına veri kopyalama gösterilmektedir. Ancak, verileri doğrudan kopyalanabilir [desteklenen havuzlarını hiçbirini](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Data Factory kopyalama etkinliği kullanarak.
+## <a name="json-example-copy-data-from-amazon-s3-tooazure-blob-storage"></a>JSON örnek: Amazon S3 tooAzure Blob Depolama veri kopyalama
+Bu örnek göstermektedir nasıl toocopy verileri Amazon S3 tooan Azure Blob Depolama. Ancak, verileri doğrudan çok kopyalanabilir[desteklenen hello havuzlarını hiçbirini](data-factory-data-movement-activities.md#supported-data-stores-and-formats) veri fabrikasında hello kopyalama etkinliği kullanarak.
 
-Örnek aşağıdaki Data Factory varlıkları için JSON tanımları sağlar. Bu tanımları verileri Amazon S3'ten kullanarak Blob depolama alanına kopyalamak için bir işlem hattı oluşturmak için kullanabileceğiniz [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
+Merhaba örnek Data Factory varlıklarını aşağıdaki hello için JSON tanımları sağlar. Hello kullanarak bu tanımları toocreate Amazon S3 tooBlob depolama, ardışık düzen toocopy verilerden kullanabileceğiniz [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
 
 * Bağlı hizmet türü [AwsAccessKey](#linked-service-properties).
 * Bağlı hizmet türü [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -177,7 +177,7 @@ Bu örnek, Amazon S3'ten bir Azure Blob depolama alanına veri kopyalama göster
 * Bir çıkış [dataset](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 * A [ardışık düzen](data-factory-create-pipelines.md) kullanan kopyalama etkinliği ile [FileSystemSource](#copy-activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Örnek verileri Amazon S3'ten saatte bir Azure blob kopyalar. Bu örnekler kullanılan JSON özellikleri örnekleri aşağıdaki bölümlerde açıklanmıştır.
+Merhaba örnek verileri Amazon S3 tooan Azure blob ' saatte kopyalar. Bu örnekler kullanılan hello JSON özellikleri hello örnekleri aşağıdaki bölümlerde açıklanmıştır.
 
 ### <a name="amazon-s3-linked-service"></a>Amazon S3 bağlı hizmet
 
@@ -210,7 +210,7 @@ Bu örnek, Amazon S3'ten bir Azure Blob depolama alanına veri kopyalama göster
 
 ### <a name="amazon-s3-input-dataset"></a>Amazon S3 girdi veri kümesi
 
-Ayarı **"dış": true** Data Factory hizmetinin veri kümesi data factory dış olduğunu bildirir. Bu özellik, bir işlem hattında etkinlik tarafından üretilen olmayan bir giriş veri kümesi üzerinde true olarak ayarlayın.
+Ayarı **"dış": true** hello Data Factory hizmetinin bu hello dataset dış toohello veri fabrikası olduğunu bildirir. Bu özellik tootrue hello ardışık düzeninde bir etkinlik tarafından üretilen olmayan bir girdi veri kümesi ayarlayın.
 
 ```json
     {
@@ -237,7 +237,7 @@ Ayarı **"dış": true** Data Factory hizmetinin veri kümesi data factory dış
 
 ### <a name="azure-blob-output-dataset"></a>Azure Blob çıktı veri kümesi
 
-Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1). Blob klasör yolu dinamik işlenmekte olan dilim başlangıç zamanı temel alınarak değerlendirilir. Klasör yolu yıl, ay, gün ve saatleri bölümlerini başlangıç saatini kullanır.
+Veri saatte tooa yeni blob yazılır (sıklığı: saat, aralığı: 1). hello blob Hello klasör yolu dinamik işlenmekte olan hello dilimin hello başlangıç zamanı temel alınarak değerlendirilir. Merhaba klasör yolu hello yıl, ay, gün ve saat bölümlerini hello başlangıç saatini kullanır.
 
 ```json
 {
@@ -298,7 +298,7 @@ Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1). Blob 
 
 ### <a name="copy-activity-in-a-pipeline-with-an-amazon-s3-source-and-a-blob-sink"></a>Bir Amazon S3 kaynak ve blob havuz sahip işlem hattı kopyalama etkinliği
 
-Ardışık Düzen giriş ve çıkış veri kümeleri kullanmak üzere yapılandırıldığı ve saatte çalışacak şekilde zamanlanır kopyalama etkinliği içerir. JSON tanımını düzenindeki **kaynak** türü ayarlanmış **FileSystemSource**, ve **havuz** türü ayarlanmış **BlobSink**.
+Merhaba ardışık düzen içeren yapılandırılmış toouse olan kopyalama etkinliği girdi ve çıktı veri kümeleri hello ve zamanlanmış toorun her saatte birdir. JSON tanımını Hello ardışık düzeninde, hello **kaynak** türü olarak ayarlanmış çok**FileSystemSource**, ve **havuz** türü olarak ayarlanmış çok**BlobSink**.
 
 ```json
 {
@@ -346,12 +346,12 @@ Ardışık Düzen giriş ve çıkış veri kümeleri kullanmak üzere yapıland�
 }
 ```
 > [!NOTE]
-> Bir havuz veri kümesinden sütunlara kaynak kümesinden sütunları eşlemek için bkz: [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
+> Kaynak veri kümesi toocolumns bir havuz veri kümesinden toomap sütunlarından bkz [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Aşağıdaki makalelere bakın:
+Aşağıdaki makaleleri hello bakın:
 
-* Bu veri fabrikası ve onu en iyi duruma getirmek için çeşitli yollar veri taşıma (kopyalama etkinliği) etkisi performansını anahtar Etkenler hakkında bilgi için bkz [kopyalama etkinliği performans ve ayarlama Kılavuzu](data-factory-copy-activity-performance.md).
+* anahtarı hakkında toolearn Etkenler etkisi performans veri fabrikasında (kopyalama etkinliği) veri hareketlerini ve çeşitli yolları toooptimize, hello bkz [kopyalama etkinliği performans ve ayarlama Kılavuzu](data-factory-copy-activity-performance.md).
 
-* Kopyalama etkinliği ile işlem hattı oluşturmak için adım adım yönergeler için bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* Kopyalama etkinliği ile işlem hattı oluşturmak için adım adım yönergeler için bkz: Merhaba [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

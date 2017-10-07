@@ -1,6 +1,6 @@
 ---
-title: "Docker makine ile azure'da Docker konakları oluştur | Microsoft Docs"
-description: "Docker Azure'da docker ana bilgisayarları oluşturmak için makine kullanımını açıklar."
+title: "aaaCreate Docker barındıran Docker makine ile azure'da | Microsoft Docs"
+description: "Docker toocreate docker makineler Azure kullanımını açıklar."
 services: azure-container-service
 documentationcenter: na
 author: mlearned
@@ -14,50 +14,50 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 766d327a87ed13e04166d71c3d9ae0a1e7a66d19
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fbf67e8189bbf33f874c4a9b619a931f28ccee12
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Docker-Machine ile Azure’da Docker Ana Bilgisayarları Oluşturma
-Çalışan [Docker](https://www.docker.com/) kapsayıcıları VM docker arka plan programı çalıştıran bir konak gerektirir.
-Bu konuda nasıl kullanılacağını açıklar [docker makine](https://docs.docker.com/machine/) yeni Linux VM'ler, Azure'da çalışan Docker daemon ile yapılandırılmış oluşturmak için komutu. 
+Çalışan [Docker](https://www.docker.com/) kapsayıcıları konak VM çalışan hello docker daemon gerektirir.
+Bu konuda açıklanmaktadır nasıl toouse hello [docker makine](https://docs.docker.com/machine/) toocreate yeni Linux VM'ler, yapılandırılmış ile Merhaba Docker arka plan programı, Azure'da çalışan komutu. 
 
 **Not:** 
 
 * *Bu makalede docker makine sürüm 0.9.0-rc2 ya da büyük bağlıdır*
-* *Windows kapsayıcıları docker-makine üzerinden yakın gelecekte desteklenecektir*
+* *Windows kapsayıcıları docker-makine hello yakın zaman içinde aracılığıyla desteklenir*
 
 ## <a name="create-vms-with-docker-machine"></a>Docker makineyle VM'ler oluşturma
-Docker ana VM'ler ile Azure oluşturmak `docker-machine create` komutu kullanılarak `azure` sürücü. 
+Docker ana bilgisayar sanal makineleri Azure'da hello ile oluşturma `docker-machine create` hello kullanarak komutu `azure` sürücü. 
 
-Azure sürücüsü, abonelik kimliği gereklidir. Kullanabileceğiniz [Azure CLI](cli-install-nodejs.md) veya [Azure Portal](https://portal.azure.com) Azure aboneliğinizi alınamadı. 
+Hello Azure sürücüsü, abonelik kimliği gereklidir. Merhaba kullanabilirsiniz [Azure CLI](cli-install-nodejs.md) veya hello [Azure Portal](https://portal.azure.com) tooretrieve Azure aboneliğinizi. 
 
-**Azure Portalı'nı kullanarak**
+**Hello Azure Portal kullanarak**
 
-* Seçin **abonelikleri** sol gezinti sayfasında ve kopyalama abonelik kimliği.
+* Seçin **abonelikleri** hello sol gezinti sayfası ve kopyalama hello abonelik kimliğine.
 
-**Azure CLI kullanma**
+**Hello Azure CLI kullanma**
 
-* Tür ```azure account list``` ve abonelik kimliğini kopyalayın.
+* Tür ```azure account list``` ve kopyalama hello abonelik kimliği.
 
-Tür `docker-machine create --driver azure` seçenekleri ve varsayılan değerleri görmek için.
-Ayrıca bkz [Docker Azure sürücü belgelerine](https://docs.docker.com/machine/drivers/azure/) daha fazla bilgi için. 
+Tür `docker-machine create --driver azure` toosee hello seçenekleri ve varsayılan değerleri.
+Merhaba de görebilirsiniz [Docker Azure sürücü belgelerine](https://docs.docker.com/machine/drivers/azure/) daha fazla bilgi için. 
 
-Aşağıdaki örnek bağlı kullanır [varsayılan değerlerin](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22), ancak isteğe bağlı olarak bu değerleri ayarlayın: 
+Merhaba aşağıdaki örnek dayanır hello [varsayılan değerlerin](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22), ancak isteğe bağlı olarak bu değerleri ayarlayın: 
 
-* Azure dns için oluşturulan sertifikaları ve genel IP ile ilişkili adı. Sanal makineniz DNS adıdır. VM ardından güvenli bir şekilde Durdur, dinamik IP bırakın ve vm ile yeni bir IP yeniden başlatıldıktan sonra yeniden bağlanmayı olanağı sunar. Adı ön eki Bu bölge UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com benzersiz olması gerekir.
-* VM giden internet erişimi için bağlantı noktası 80'i açın
-* daha hızlı premium depolama alanını VM boyutu
-* premium depolama vm disk için kullanılır
+* Azure dns hello genel IP ile ilişkili hello adı ve oluşturulan sertifikaları için. Sanal makinenizin hello DNS adı budur. Hello VM sonra güvenli bir şekilde Durdur, hello dinamik IP bırakın ve hello vm ile yeni bir IP yeniden başlatıldıktan sonra hello özelliği tooreconnect sağlayın. Merhaba adı ön eki Bu bölge UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com benzersiz olması gerekir.
+* Merhaba VM giden internet erişimi için bağlantı noktası 80'i açın
+* Merhaba VM tooutilize daha hızlı premium depolama boyutu
+* premium depolama Hello vm disk için kullanılır
 
 ```
 docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-dns <Your UNIQUE_DNSNAME_PREFIX> --azure-open-port 80 --azure-size Standard_DS1_v2 --azure-storage-type "Premium_LRS" mydockerhost 
 ```
 
 ## <a name="choose-a-docker-host-with-docker-machine"></a>Docker docker makineyle seçin
-Docker-makine konağınız için bir giriş olduktan sonra docker komutlarını çalıştırırken varsayılan ana bilgisayar ayarlayabilirsiniz.
+Docker-makine konağınız için bir giriş olduktan sonra docker komutlarını çalıştırırken hello varsayılan ana bilgisayar ayarlayabilirsiniz.
 
 ## <a name="using-powershell"></a>PowerShell’i kullanma
 ```powershell
@@ -69,7 +69,7 @@ docker-machine env MyDockerHost | Invoke-Expression
 eval $(docker-machine env MyDockerHost)
 ```
 
-Belirtilen konak karşı şimdi docker komutları çalıştırabilirsiniz
+Şimdi docker komutları hello belirtilen konak karşı çalıştırabilirsiniz
 
 ```
 docker ps
@@ -77,17 +77,17 @@ docker info
 ```
 
 ## <a name="run-a-container"></a>Bir kapsayıcı çalıştırın
-Yapılandırılmış olan bir konak ana bilgisayarınız doğru yapılandırılmış olup olmadığını sınamak için basit bir web sunucusu artık çalıştırabilirsiniz.
-Burada bir standart nginx yansıması kullanın, bağlantı noktası 80 üzerinde dinleme yapması gerektiğini belirtin ve VM konak yeniden başlatılırsa, kapsayıcı olur de yeniden (`--restart=always`). 
+Yapılandırılmış olan bir konak ana bilgisayarınız doğru yapılandırılmış olup olmadığını basit bir web sunucusu tootest şimdi çalıştırabilirsiniz.
+Burada bir standart nginx yansıması kullanın, bağlantı noktası 80 üzerinde dinleme yapması gerektiğini belirtin ve hello konak VM yeniden başlatılırsa, hello kapsayıcı olur de yeniden (`--restart=always`). 
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
 ```
 
-Çıktı aşağıdaki gibi görünmelidir:
+Merhaba çıktı hello aşağıdaki gibi görünmelidir:
 
 ```
-Unable to find image 'nginx:latest' locally
+Unable toofind image 'nginx:latest' locally
 latest: Pulling from library/nginx
 efd26ecc9548: Pull complete
 a3ed95caeb02: Pull complete
@@ -98,7 +98,7 @@ Status: Downloaded newer image for nginx:latest
 25942c35d86fe43c688d0c03ad478f14cc9c16913b0e1c2971cb32eb4d0ab721
 ```
 
-## <a name="test-the-container"></a>Test kapsayıcısı
+## <a name="test-hello-container"></a>Test hello kapsayıcısı
 Kullanarak çalışan kapsayıcılar inceleyin `docker ps`:
 
 ```bash
@@ -106,7 +106,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
 ```
 
-Ve çalışan kapsayıcı görmek için şunu yazın `docker-machine ip <VM name>` tarayıcıya girmek için IP adresini bulmak için:
+Ve, kapsayıcı türü çalıştıran toosee hello `docker-machine ip <VM name>` toofind başlangıç IP adresi tooenter hello tarayıcıda:
 
 ```
 PS C:\> docker-machine ip MyDockerHost
@@ -117,7 +117,7 @@ PS C:\> docker-machine ip MyDockerHost
 
 ## <a name="summary"></a>Özet
 Docker-makineyle Azure docker ana bilgisayarlar için ayrı ayrı docker ana doğrulamaları kolayca sağlayabilirsiniz.
-Üretim için kapsayıcı görevi, barındırma bkz [Azure kapsayıcı hizmeti](http://aka.ms/AzureContainerService)
+İçin üretim hello bkz kapsayıcıları için barındırma [Azure kapsayıcı hizmeti](http://aka.ms/AzureContainerService)
 
-Visual Studio ile .NET Core uygulamaları geliştirmek için bkz: [Visual Studio için Docker araçları](http://aka.ms/DockerToolsForVS)
+Visual Studio .NET Core uygulamalarla toodevelop bakın [Visual Studio için Docker araçları](http://aka.ms/DockerToolsForVS)
 

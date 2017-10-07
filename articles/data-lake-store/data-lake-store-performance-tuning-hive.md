@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Lake Store'a Hive performans yönergeleri ayarlama | Microsoft Docs"
+title: "Data Lake Store Hive performans ayarlama yönergeleri aaaAzure | Microsoft Docs"
 description: "Azure Data Lake Store'a Hive performans kuralları ayarlama"
 services: data-lake-store
 documentationcenter: 
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: e10bf8f7cbae2b81d22823ff74fe652c6bcb2da3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e44daeb6ad3b64e893c709df63b56444a330729f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Performans Kılavuzu Hive Hdınsight ve Azure Data Lake Store için ayarlama
 
-Varsayılan ayarları birçok farklı kullanım örnekleri arasında iyi bir performans sağlamak üzere ayarlanmış.  G/ç yoğun sorgularında Hive ADLS ile daha iyi performans almak için ayarlanabilecek.  
+Merhaba varsayılan ayarları tooprovide iyi bir performans birçok farklı kullanım örnekleri arasında ayarlanmış.  G/ç yoğun sorgularında Hive bizi tooget daha iyi performans ADLS sahip olabilir.  
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
-* **Azure Hdınsight kümesi** bir Data Lake Store hesabına erişim. Bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](data-lake-store-hdinsight-hadoop-use-portal.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
-* **Hdınsight'ta Hive çalıştıran**.  [Hive kullanma hdınsight'ta] Hdınsight'ta Hive işleri çalıştırma hakkında bilgi için bkz (https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-hive)
+* **Bir Azure Data Lake Store hesabı**. Yönergeler için toocreate bir, bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
+* **Azure Hdınsight kümesi** erişim tooa Data Lake Store hesabı ile. Bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](data-lake-store-hdinsight-hadoop-use-portal.md). Merhaba küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
+* **Hdınsight'ta Hive çalıştıran**.  Hdınsight üzerinde çalışan Hive işi hakkında toolearn bakın [Hive kullanma hdınsight'ta] (https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-hive)
 * **Performans ayarlama yönergeleri ADLS**.  Genel performans için bkz [Data Lake deposu performans rehberi ayarlama](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametreler
 
-ADLS performansı için ince ayar için en önemli ayarları şunlardır:
+Merhaba en önemli ayarları tootune ADLS performansı için şunlardır:
 
-* **Hive.tez.Container.size** – her görevleri tarafından kullanılan bellek miktarı
+* **Hive.tez.Container.size** – hello her görevleri tarafından kullanılan bellek miktarı
 
 * **Tez.Grouping.Min boyutu** – minimum boyutu her Eşleyici
 
@@ -44,27 +44,27 @@ ADLS performansı için ince ayar için en önemli ayarları şunlardır:
 
 * **Hive.Exec.reducer.bytes.Per.reducer** – her reducer boyutu
 
-**Hive.tez.Container.size** -kapsayıcı boyutu her görev için kullanılabilir bellek miktarını belirler.  Eşzamanlılık kovanında denetlemek için ana giriş budur.  
+**Hive.tez.Container.size** -hello kapsayıcı boyutu belirler her görev için ne kadar kullanılabilir bellek yok.  Merhaba ana giriş denetleme hello eşzamanlılık kovanında için budur.  
 
-**Tez.Grouping.Min boyutu** – Bu parametre her Eşleyici minimum boyutu ayarlamanıza olanak tanır.  Tez seçer mappers sayısı bu parametre değerinden daha küçükse, Tez Burada ayarlanan değeri kullanır.  
+**Tez.Grouping.Min boyutu** – Bu parametre, tooset hello en küçük boyut her Eşleyici sağlar.  Tez seçer mappers Hello sayısı bu parametre, başlangıç değerinden daha küçükse, Tez Burada ayarlanan hello değeri kullanır.  
 
-**Tez.Grouping.max boyutu** – parametresi, her Eşleyici en büyük boyutunu ayarlamanızı sağlar.  Tez seçer mappers sayısı bu parametre değerinden büyükse, Tez Burada ayarlanan değeri kullanır.  
+**Tez.Grouping.max boyutu** – hello parametresi, tooset hello en büyük boyutu her Eşleyici verir.  Tez seçer mappers Hello sayısı bu parametre, başlangıç değerinden büyük olursa, Tez Burada ayarlanan hello değeri kullanır.  
 
-**Hive.Exec.reducer.bytes.Per.reducer** – Bu parametre her reducer boyutunu ayarlar.  Varsayılan olarak, her reducer 256 MB'tır.  
+**Hive.Exec.reducer.bytes.Per.reducer** – Bu parametre her reducer hello boyutunu ayarlar.  Varsayılan olarak, her reducer 256 MB'tır.  
 
 ## <a name="guidance"></a>Rehber
 
-**Hive.Exec.reducer.bytes.Per.reducer ayarlamak** – veri sıkıştırılmamış olduğunda varsayılan değer iyi çalışır.  Sıkıştırılmış veri boyutu reducer azaltmanız gerekir.  
+**Hive.Exec.reducer.bytes.Per.reducer ayarlamak** – hello veri sıkıştırılmamış olduğunda hello varsayılan değer iyi çalışır.  Sıkıştırılmış veri hello reducer hello boyutunu azaltmanız gerekir.  
 
-**Hive.tez.Container.size ayarlamak** – her bir düğümündeki bellek yarn.nodemanager.resource.memory mb belirtilir ve HDI kümesi üzerinde varsayılan olarak doğru bir şekilde ayarlamanız gerekir.  YARN içinde uygun bellek ayarlama hakkında ek bilgi için bkz [sonrası](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Hive.tez.Container.size ayarlamak** – her bir düğümündeki bellek yarn.nodemanager.resource.memory mb belirtilir ve HDI kümesi üzerinde varsayılan olarak doğru bir şekilde ayarlamanız gerekir.  YARN içinde hello uygun bellek ayarlama hakkında ek bilgi için bkz [sonrası](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
-G/ç yoğun iş yükleri, Tez kapsayıcı boyutu azaltarak daha fazla paralellik yararlı olabilir. Bu kullanıcı eşzamanlılık artıran daha fazla kapsayıcı sağlar.  Ancak, bazı Hive sorguları önemli miktarda belleği (örneğin MapJoin) gerektirir.  Görev yeterli belleğe sahip değil bir yetersiz bellek özel durumu çalışma zamanı sırasında alırsınız.  Yetersiz bellek özel durumları alırsanız, bellek artırmanız gerekir.   
+G/ç yoğun iş yükleri hello Tez kapsayıcı boyutu azaltarak daha fazla paralellik yararlı olabilir. Bu hello kullanıcı eşzamanlılık artıran daha fazla kapsayıcı sağlar.  Ancak, bazı Hive sorguları önemli miktarda belleği (örneğin MapJoin) gerektirir.  Merhaba görev yeterli belleğe sahip değil bir yetersiz bellek özel durumu çalışma zamanı sırasında alırsınız.  Yetersiz bellek özel durumları alırsanız, hello bellek artırmanız gerekir.   
 
-Çalışan görevler veya paralellik eşzamanlı sayısını, toplam YARN bellek tarafından sınırlanmış.  YARN kapsayıcı sayısı, kaç tane eş zamanlı görevleri çalıştırabilir benimsendiği belirler.  Düğüm başına YARN bellek bulmak için Ambari gidebilirsiniz.  YARN için gidin ve yapılandırmalar sekmesini görüntüleyin.  YARN bellek Bu pencerede görüntülenir.  
+çalışan görevler veya paralellik eşzamanlı sayısını Hello hello toplam YARN bellek tarafından sınırlanmış.  YARN kapsayıcı Hello sayısı, kaç tane eş zamanlı görevleri çalıştırabilir benimsendiği belirler.  Düğüm başına toofind hello YARN bellek, tooAmbari gidebilirsiniz.  TooYARN gidin ve hello yapılandırmalar sekmesini görüntüleyin.  Merhaba YARN bellek Bu pencerede görüntülenir.  
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size
-ADLS kullanarak performansı iyileştirme anahtarını mümkün olduğunca eşzamanlılık artırmaktır.  Tez ayarlayın gerekmez böylece oluşturulması gereken görevlerin sayısını otomatik olarak hesaplar.   
+ADLS kullanarak hello anahtar tooimproving performansını tooincrease hello eşzamanlılık mümkün olduğunca ' dir.  Tez tooset gerek yoktur, oluşturulması gereken görevlerin hello sayısını otomatik olarak hesaplar.   
 
 ## <a name="example-calculation"></a>Örnek hesaplama
 
@@ -77,13 +77,13 @@ Bir 8 düğüm D14 küme sahip varsayalım.
 ## <a name="limitations"></a>Sınırlamalar
 **ADLS azaltma** 
 
-ADLS tarafından sağlanan bant genişliği sınırlarını isabet UIf, görev hataları görmeye başlarsınız. Bu görev günlükleri gözlemci azaltma hatalar nedeniyle tanımlanamadı.  Tez kapsayıcı boyutu artırarak paralellik düşürebilir.  Daha fazla eşzamanlılık işiniz için ihtiyacınız varsa, lütfen bizimle iletişime geçin.   
+ADLS tarafından toosee görev hataları başlarsınız sağlanan hello isabet UIf bant genişliği sınırlar. Bu görev günlükleri gözlemci azaltma hatalar nedeniyle tanımlanamadı.  Tez kapsayıcı boyutu artırarak hello paralellik düşürebilir.  Daha fazla eşzamanlılık işiniz için ihtiyacınız varsa, lütfen bizimle iletişime geçin.   
 
-Kısıtlanan durumunda denetlemek için hata ayıklama istemci tarafında günlüğünü etkinleştirmeniz gerekir. İşte nasıl bunu yapabilirsiniz:
+Kısıtlanan durumunda toocheck tooenable hello hata ayıklama hello istemci tarafında günlüğü gerekir. İşte nasıl bunu yapabilirsiniz:
 
-1. Hive config log4j özelliklerinde aşağıdaki özelliği yerleştirin. Bu Ambari görünümünden yapılabilir: log4j.logger.com.microsoft.azure.datalake.store=DEBUG tüm düğümleri/hizmet yapılandırma etkili olması yeniden başlatın.
+1. Merhaba log4j Hive yapılandırma özelliklerinde bir özellik aşağıdaki hello yerleştirin. Bu Ambari görünümünden yapılabilir: log4j.logger.com.microsoft.azure.datalake.store=DEBUG hello config tootake efekti için tüm hello düğümleri/hizmetini yeniden başlatın.
 
-2. Kısıtlanan HTTP 429 hata kodunu hive günlük dosyasında görürsünüz. Hive günlük dosyası içinde /tmp/,&lt;kullanıcı&gt;/hive.log
+2. Kısıtlanan hello HTTP 429 hata kodunu hello hive günlük dosyasında görürsünüz. Merhaba hive günlük dosyası, içinde /tmp/&lt;kullanıcı&gt;/hive.log
 
 ## <a name="further-information-on-hive-tuning"></a>Hive ayarlama hakkında daha fazla bilgi
 

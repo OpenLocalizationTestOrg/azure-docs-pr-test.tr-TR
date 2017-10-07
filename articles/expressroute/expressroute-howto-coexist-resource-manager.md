@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.openlocfilehash: b29147a37f9a90fc80e16b350ac9b91daac1d7f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: efda9f89d95617c8c4e75af91b20631dc468d4db
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma
 > [!div class="op_single_selector"]
@@ -28,33 +28,33 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Siteden Siteye VPN ve ExpressRoute eşzamanlı bağlantılarını yapılandırmanın çeşitli avantajları vardır. ExressRoute için güvenli bir yük devretme yolu olarak Siteden Siteye VPN yapılandırabilir veya ExpressRoute aracılığıyla bağlanmayan sitelere bağlanmak için Siteden Siteye VPN’ler kullanabilirsiniz. Bu makalede iki senaryo için de yapılandırma adımları verilmektedir. Bu makale Resource Manager dağıtım modelleri için geçerlidir ve PowerShell kullanır. Bu yapılandırma Azure portalında kullanılamaz.
+Siteden Siteye VPN ve ExpressRoute eşzamanlı bağlantılarını yapılandırmanın çeşitli avantajları vardır. ExressRoute için güvenli bir yük devretme yolu olarak siteden siteye VPN yapılandırmak veya ExpressRoute aracılığıyla bağlanmayan siteden siteye VPN tooconnect toosites kullanın. Biz bu makalede her iki senaryoyu hello adımları tooconfigure kapsar. Bu makalede toohello Resource Manager dağıtım modeli uygular ve PowerShell kullanır. Bu yapılandırma hello Azure portalında kullanılabilir değil.
 
 > [!IMPORTANT]
-> Aşağıdaki yönergeleri izlemeden önce ExpressRoute bağlantı hatlarının önceden yapılandırılmış olması gerekir. Devam etmeden önce [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-arm.md) ve [yönlendirmeyi yapılandırma](expressroute-howto-routing-arm.md) kılavuzlarını izlediğinizden emin olun.
+> Aşağıdaki hello yönergeleri izlemeden önce ExpressRoute bağlantı hatlarının önceden yapılandırılmış olması gerekir. Merhaba kılavuzları çok izlediğinizden emin olun[bir expressroute bağlantı hattı oluşturma](expressroute-howto-circuit-arm.md) ve [yönlendirmeyi yapılandırma](expressroute-howto-routing-arm.md) devam etmeden önce.
 > 
 > 
 
 ## <a name="limits-and-limitations"></a>Sınırlar ve sınırlamalar
 * **Geçiş yönlendirmesi desteklenmez.** Siteden Siteye VPN aracılığıyla bağlanan yerel ağınız ve ExpressRoute aracılığıyla bağlanan yerel ağınız arasında (Azure aracılığıyla) yönlendirme yapamazsınız.
-* **Temel SKU ağ geçidi desteklenmez.** Hem [ExpressRoute ağ geçidi](expressroute-about-virtual-network-gateways.md) hem de [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md) için Temel SKU olmayan bir ağ geçidi kullanmanız gerekir.
+* **Temel SKU ağ geçidi desteklenmez.** Temel SKU olmayan ağ geçidi için her iki hello kullanmalısınız [ExpressRoute ağ geçidi](expressroute-about-virtual-network-gateways.md) ve hello [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Yalnızca rota tabanlı VPN ağ geçidi desteklenir.** Rota tabanlı [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) kullanmanız gerekir.
-* **VPN ağ geçidiniz için statik rota yapılandırılmalıdır.** Yerel ağınız hem ExpressRoute hem de Siteden Siteye VPN’e bağlıysa Siteden Siteye VPN bağlantısını genel İnternet’e yönlendirebilmeniz için yerel ağınızda statik bir rotanın yapılandırılmış olması gerekir.
-* **Öncelikle ExpressRoute ağ geçidinin yapılandırılıp bir devreye bağlanması gerekir.** Siteden Siteye VPN ağ geçidini ekleyebilmek için önce ExpressRoute ağ geçidini oluşturup bir devreye bağlamanız gerekir.
+* **VPN ağ geçidiniz için statik rota yapılandırılmalıdır.** Yerel ağınıza bağlı tooboth ExpressRoute ve bir Site siteye VPN, bir statik yol, yerel ağ tooroute hello siteden siteye VPN bağlantısı toohello yapılandırılmış olması gerekiyor, ortak Internet.
+* **ExpressRoute ağ geçidi önce yapılandırılmalıdır ve tooa hattı bağlanır.** Merhaba ExpressRoute ağ geçidi ilk oluşturmak ve hello siteden siteye VPN ağ geçidi eklemeden önce tooa hattı bağlamanız gerekir.
 
 ## <a name="configuration-designs"></a>Yapılandırma tasarımları
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Siteden siteye VPN’i ExpressRoute için bir yük devretme yolu olarak yapılandırma
-Siteden siteye bir VPN bağlantısını ExpressRoute için yedek olarak yapılandırabilirsiniz. Bu yalnızca Azure özel eşleme yoluna bağlı sanal ağlar için geçerlidir. Azure ortak ve Microsoft eşlemeleri aracılığıyla erişilebilen hizmetler için VPN tabanlı yük devretme çözümü yoktur. ExpressRoute bağlantı hattı her zaman birincil bağlantıdır. Veriler yalnızca ExpressRoute bağlantı hattı başarısız olursa, Siteden Siteye VPN üzerinden akar.
+Siteden siteye bir VPN bağlantısını ExpressRoute için yedek olarak yapılandırabilirsiniz. Bu, yalnızca toovirtual ağlar bağlantılı toohello Azure özel eşleme yoluna geçerlidir. Azure ortak ve Microsoft eşlemeleri aracılığıyla erişilebilen hizmetler için VPN tabanlı yük devretme çözümü yoktur. Merhaba expressroute bağlantı hattı her zaman hello birincil bağlantıdır. Yalnızca hello expressroute bağlantı hattı başarısız olursa veriler hello siteden siteye VPN yolu üzerinden akar.
 
 > [!NOTE]
-> Her iki yol da aynı olduğunda ExpressRoute bağlantı hattı Siteden Siteye VPN’ye tercih edilse de Azure paketin hedefine yönelik yolu seçmek için en uzun ön ek eşleşmesini kullanır.
+> Zaman aynı olan iki yollar hello expressroute bağlantı hattı siteden siteye VPN üzerinden tercih edilen olmakla birlikte, Azure doğru hello paketin hedef hello uzun önek eşleştirme toochoose hello rota kullanır.
 > 
 > 
 
 ![Bir arada var olma](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 
-### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>ExpressRoute aracılığıyla bağlanılmayan sitelere bağlanmak için Siteden Siteye VPN yapılandırma
-Ağınızı bazı sitelerin Azure’a Siteden Siteye VPN üzerinden doğrudan ve bazı sitelerin ExpressRoute üzerinden bağlanması için yapılandırabilirsiniz. 
+### <a name="configure-a-site-to-site-vpn-tooconnect-toosites-not-connected-through-expressroute"></a>ExpressRoute aracılığıyla bağlanılmayan bir siteden siteye VPN tooconnect toosites yapılandırın
+Burada bazı siteler tooAzure siteden siteye VPN üzerinden doğrudan bağlanın ve bazı sitelerin ExpressRoute üzerinden bağlanması ağınız yapılandırabilirsiniz. 
 
 ![Bir arada var olma](media/expressroute-howto-coexist-resource-manager/scenario2.jpg)
 
@@ -63,23 +63,23 @@ Ağınızı bazı sitelerin Azure’a Siteden Siteye VPN üzerinden doğrudan ve
 > 
 > 
 
-## <a name="selecting-the-steps-to-use"></a>Kullanılacak adımları seçme
-Aralarından seçim yapabileceğiniz iki farklı yordam kümesi vardır. Seçtiğiniz yapılandırma yordamı, bağlanmak istediğiniz mevcut bir sanal ağ olup olmadığına veya yeni bir sanal ağ oluşturmak isteyip istememenize bağlıdır.
+## <a name="selecting-hello-steps-toouse"></a>Merhaba adımları toouse seçme
+Yordamlar toochoose iki farklı kümesi vardır. Seçtiğiniz hello yapılandırma yordamı için tooconnect istediğiniz veya yeni bir sanal ağ toocreate istediğiniz var olan bir sanal ağ olup olmadığına bağlıdır.
 
-* Bir VNet’im yok ve bir tane oluşturmam gerekiyor.
+* I yoksa bir VNet ve toocreate biri gerekir.
   
-    Zaten bir sanal ağınız yoksa, bu yordam Resource Manager dağıtım modelini kullanarak yeni bir sanal ağ oluşturmak ve yeni ExpressRoute ve Siteden Siteye VPN bağlantıları oluşturmak için size yol gösterir. Sanal ağı yapılandırmak için, [Yeni bir sanal ağ ve bir arada var olabilen bağlantılar oluşturmak için](#new) bölümündeki adımları izleyin.
+    Zaten bir sanal ağınız yoksa, bu yordam Resource Manager dağıtım modelini kullanarak yeni bir sanal ağ oluşturmak ve yeni ExpressRoute ve Siteden Siteye VPN bağlantıları oluşturmak için size yol gösterir. tooconfigure bir sanal ağ içinde hello adımları izleyin [toocreate yeni bir sanal ağ ve bir arada var olabilen bağlantılar](#new).
 * Zaten bir Resource Manager dağıtım modeli VNet’im var.
   
-    Mevcut bir Siteden Siteye VPN bağlantısı veya ExpressRoute bağlantısına sahip bir sanal ağınız zaten olabilir. [Zaten olan bir VNet için aynı anda mevcut bağlantılar yapılandırma](#add) bölümü, ağ geçidini silme ve ardından yeni ExpressRoute ve Siteden Siteye VPN bağlantıları oluşturma işlemi boyunca size yol gösterir. Yeni bağlantılar oluşturulurken adımların belirli bir sırayla tamamlanması gerekir. Ağ geçitleriniz ve bağlantılarınızı oluşturmak için diğer makalelerdeki yönergeleri kullanmayın.
+    Mevcut bir Siteden Siteye VPN bağlantısı veya ExpressRoute bağlantısına sahip bir sanal ağınız zaten olabilir. Merhaba [tooconfigure arada var olabilen bağlantılar zaten olan bir VNet için](#add) bölüm hello ağ geçidini silme ve ardından yeni ExpressRoute ve siteden siteye VPN bağlantıları oluşturma size yol gösterir. Merhaba adımları Hello yeni bağlantıları oluştururken, belirli bir sırada tamamlanması gerekir. Diğer makaleler toocreate Hello yönergeleri, ağ geçitleri ve bağlantıları kullanmayın.
   
-    Bu yordamda, bir arada var olabilen bağlantılar oluşturmak, ağ geçidinizi silmenizi ve ardından yeni ağ geçitlerini yapılandırmanızı gerektirir. Ağ geçidinizi ve bağlantıları silip yeniden oluştururken şirket içi ve dışı bağlantılarınız için kapalı kalma süresi yaşarsınız ancak VM’leriniz veya hizmetlerinizi yeni bir sanal ağa geçirmeniz gerekmez. VM'leriniz ve hizmetleriniz bunu yapmak için yapılandırılmışsa, ağ geçidi yapılandırması sırasında yük dengeleyici üzerinden iletişim kurmaya devam eder.
+    Bu yordam, bir arada var olabilen bağlantılar oluşturmak, ağ geçidi, toodelete gerektirir ve yeni ağ geçitlerini yapılandırmak. Şirket içi bağlantılarınız için kapalı kalma süresi silin ve ağ geçidiniz ve bağlantıları oluşturun, ancak toomigrate gerekmez herhangi biri sanal makineleri veya hizmetleri tooa yeni sanal ağınız olacaktır. Yapılandırılmış toodo şekilde olmaları durumunda, ağ geçidi yapılandırması sırasında VM'ler ve hizmetler hello yük dengeleyici üzerinden kullanıma mümkün toocommunicate olmaya devam eder.
 
-## <a name="new"></a>Yeni bir sanal ağ ve bir arada var olabilen bağlantılar oluşturmak için
+## <a name="new"></a>toocreate yeni bir sanal ağ ve arada var olabilen bağlantılar
 Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve ExpressRoute bağlantıları oluşturma işlemleri adım adım açıklanmıştır.
 
-1. Azure PowerShell cmdlet’lerinin en son sürümünü yükleyin. Cmdlet'leri yükleme hakkında bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview). Bu yapılandırma için kullanacağınız cmdlet'ler tanıdıklarınızdan biraz farklı olabilir. Bu yönergelerde belirtilen cmdlet'leri kullandığınızdan emin olun.
-2. Hesabınızda oturum açın ve ortamı ayarlayın.
+1. Merhaba hello Azure PowerShell cmdlet'lerinin en son sürümünü yükleyin. Merhaba cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview). Bu yapılandırma için kullandığınız hello cmdlet'leri ne tanımanız değerinden biraz farklı olabilir. Bu yönergelerde emin toouse hello cmdlet'leri belirtilmiş.
+2. Tooyour hesabında oturum ve hello ortamını ayarlama.
 
   ```powershell
   login-AzureRmAccount
@@ -88,10 +88,10 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
   $VNetASN = 65010
   ```
-3. Ağ Geçidi Alt Ağı içeren bir sanal ağ oluşturun. Sanal ağ yapılandırması hakkında daha fazla bilgi için bkz. [Azure Virtual Network yapılandırma](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+3. Ağ Geçidi Alt Ağı içeren bir sanal ağ oluşturun. Merhaba sanal ağ yapılandırması hakkında daha fazla bilgi için bkz: [Azure sanal ağ yapılandırması](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
    
    > [!IMPORTANT]
-   > Ağ Geçidi Alt Ağı /27 veya daha kısa bir ön ek (örneğin /26 veya /25) olmalıdır.
+   > Merhaba ağ geçidi alt ağı/27 veya daha kısa bir önek (örneğin, /26 veya/25) olmalıdır.
    > 
    > 
    
@@ -108,12 +108,12 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
   Add-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
   ```
    
-    VNet yapılandırmasını kaydedin.
+    Merhaba VNet yapılandırmasını kaydedin.
 
   ```powershell
   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-4. <a name="gw"></a>ExpressRoute ağ geçidi oluşturun. ExpressRoute ağ geçidi yapılandırması hakkında daha fazla bilgi için bkz. [ExpressRoute ağ geçidi yapılandırması](expressroute-howto-add-gateway-resource-manager.md). GatewaySKU değeri *Standard*, *HighPerformance* veya *UltraPerformance* olmalıdır.
+4. <a name="gw"></a>ExpressRoute ağ geçidi oluşturun. Merhaba ExpressRoute ağ geçidi yapılandırması hakkında daha fazla bilgi için bkz: [ExpressRoute ağ geçidi Yapılandırması](expressroute-howto-add-gateway-resource-manager.md). Merhaba gatewaysku *standart*, *HighPerformance*, veya *UltraPerformance*.
 
   ```powershell
   $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
@@ -121,13 +121,13 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
   $gwConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
   $gw = New-AzureRmVirtualNetworkGateway -Name "ERGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "ExpressRoute" -GatewaySku Standard
   ```
-5. ExpressRoute ağ geçidini ExpressRoute bağlantı hattına bağlayın. Bu adım tamamlandıktan sonra, ExpressRoute aracılığıyla şirket içi ağınız ve Azure arasında bağlantı kurulur. Bağlantı işlemi hakkında daha fazla bilgi için bkz.[VNets’i ExpressRoute’a bağlama](expressroute-howto-linkvnet-arm.md).
+5. Merhaba ExpressRoute ağ geçidi toohello expressroute bağlantı hattı bağlayın. Bu adımı tamamladıktan sonra şirket içi ağınız ve ExpressRoute aracılığıyla Azure arasında hello bağlantı kurulur. Merhaba bağlantı işlemi hakkında daha fazla bilgi için bkz: [Vnets'i tooExpressRoute](expressroute-howto-linkvnet-arm.md).
 
   ```powershell
   $ckt = Get-AzureRmExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
   New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
   ```
-6. <a name="vpngw"></a>Ardından, Siteden Siteye VPN ağ geçidinizi oluşturun. VPN ağ geçidi yapılandırması hakkında daha fazla bilgi için bkz. [Siteden Siteye bağlantı ile VNet yapılandırma](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md). GatewaySKU değeri *Standard*, *HighPerformance* veya *UltraPerformance* olmalıdır. VpnType değeri *RouteBased* olmalıdır.
+6. <a name="vpngw"></a>Ardından, Siteden Siteye VPN ağ geçidinizi oluşturun. Merhaba VPN ağ geçidi yapılandırması hakkında daha fazla bilgi için bkz: [bir VNet ile siteden siteye bağlantı yapılandırma](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md). Merhaba gatewaysku *standart*, *HighPerformance*, veya *UltraPerformance*. Merhaba VpnType gerekir *RouteBased*.
 
   ```powershell
   $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
@@ -136,51 +136,51 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
   New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard"
   ```
    
-    Azure VPN ağ geçidi, BGP yönlendirme protokolünü destekler. Aşağıdaki komuta -Asn anahtarını ekleyerek söz konusu Sanal Ağ için ASN (AS Numarası) belirtebilirsiniz. Bu parametreyi belirtmediğinizde AS numarası varsayılan olarak 65515 şeklinde ayarlanır.
+    Azure VPN ağ geçidi, BGP yönlendirme protokolünü destekler. Bu sanal ağ için komutu aşağıdaki hello hello - Asn anahtarını ekleyerek, ASN (AS numarası) belirtebilirsiniz. Bu parametre belirtmeden varsayılan tooAS 65515 numarası.
 
   ```powershell
   $azureVpn = New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard" -Asn $VNetASN
   ```
    
-    BGP eşleme IP’sini ve Azure’un VPN ağ geçidi için kullandığı AS numarasını $azureVpn.BgpSettings.BgpPeeringAddress ve $azureVpn.BgpSettings.Asn’de bulabilirsiniz. Daha fazla bilgi için bkz. Azure VPN ağ geçidi için [BGP’yi yapılandırma](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md).
-7. Bir yerel site VPN ağ geçidi varlığı oluşturun. Bu komut, şirket içi VPN ağ geçidinizi yapılandırmaz. Azure VPN ağ geçidinin bağlanabilmesi için ortak IP ve şirket içi adres alanı gibi yerel ağ geçidi ayarlarını paylaşmanıza olanak tanır.
+    BGP eşliği IP hello ve hello Azure $azureVpn.BgpSettings.BgpPeeringAddress ve $azureVpn.BgpSettings.Asn hello VPN ağ geçidi için kullandığı bir sayı olarak bulabilir. Daha fazla bilgi için bkz. Azure VPN ağ geçidi için [BGP’yi yapılandırma](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md).
+7. Bir yerel site VPN ağ geçidi varlığı oluşturun. Bu komut, şirket içi VPN ağ geçidinizi yapılandırmaz. Bunun yerine, hello genel IP gibi tooprovide hello yerel ağ geçidi ayarları sağlar ve hello Azure VPN ağ geçidi tooit bağlanabilmesi hello şirket içi adres alanı.
    
-    Yerel VPN cihazınız yalnızca statik yönlendirmeyi destekliyorsa statik rotaları aşağıdaki şekilde yapılandırabilirsiniz:
+    Yerel VPN Cihazınızı yalnızca statik yönlendirmeyi destekliyorsa, aşağıdaki şekilde hello hello statik yollar yapılandırabilirsiniz:
 
   ```powershell
   $MyLocalNetworkAddress = @("10.100.0.0/16","10.101.0.0/16","10.102.0.0/16")
   $localVpn = New-AzureRmLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress *<Public IP>* -AddressPrefix $MyLocalNetworkAddress
   ```
    
-    Yerel VPN cihazınız BGP’yi destekliyorsa ve dinamik yönlendirmeyi etkinleştirmek istiyorsanız yerel VPN cihazınızın kullandığı BGP eşleme IP’sini ve AS numarasını bilmeniz gerekir.
+    Yerel VPN Cihazınızı hello BGP destekler ve tooenable dinamik yönlendirme istiyorsanız tooknow hello BGP gereken IP ve yerel VPN numarası gibi hello eşliği aygıt kullanır.
 
   ```powershell
   $localVPNPublicIP = "<Public IP>"
-  $localBGPPeeringIP = "<Private IP for the BGP session>"
+  $localBGPPeeringIP = "<Private IP for hello BGP session>"
   $localBGPASN = "<ASN>"
   $localAddressPrefix = $localBGPPeeringIP + "/32"
   $localVpn = New-AzureRmLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress $localVPNPublicIP -AddressPrefix $localAddressPrefix -BgpPeeringAddress $localBGPPeeringIP -Asn $localBGPASN
   ```
-8. Yerel VPN cihazınızı yeni Azure VPN ağ geçidine bağlanmak için yapılandırın. VPN cihazını yapılandırma hakkında daha fazla bilgi için bkz. [VPN Cihazı Yapılandırma](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
-9. Azure’da Siteden Siteye ağ geçidini yerel ağ geçidine bağlayın.
+8. Yerel VPN cihaz tooconnect toohello yeni Azure VPN ağ geçidinizi yapılandırın. VPN cihazını yapılandırma hakkında daha fazla bilgi için bkz. [VPN Cihazı Yapılandırma](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
+9. Bağlantı hello siteden siteye VPN ağ geçidinde Azure toohello yerel ağ geçidi.
 
   ```powershell
   $azureVpn = Get-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
   New-AzureRmVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
   ```
 
-## <a name="add"></a>Zaten mevcut bir VNet için bir arada var olabilen bağlantılar yapılandırma
-Zaten bir sanal ağınız varsa, ağ geçidi alt ağ boyutunu kontrol edin. Ağ geçidi alt ağı /28 veya /29 ise, önce sanal ağ geçidi silmeniz ve ağ geçidi alt ağı boyutunu artırmanız gerekir. Bu bölümdeki adımlar bunu nasıl yapacağınızı gösterir.
+## <a name="add"></a>zaten olan bir VNet için tooconfigure arada var olabilen bağlantılar
+Varolan bir sanal ağınız varsa, hello ağ geçidi alt ağ boyutunu kontrol edin. Merhaba ağ geçidi alt ağı /28 veya/29 ise, öncelikle hello sanal ağ geçidini silmek ve hello ağ geçidi alt ağ boyutunu artırın. Merhaba bu bölümdeki adımları şunları nasıl yapacağınızı toodo.
 
-Ağ geçidi alt ağı /27 veya daha büyükse ve sanal ağ ExpressRoute üzerinden bağlanıyorsa, aşağıdaki adımları atlayarak önceki bölümdeki ["6. Adım - Siteden Siteye VPN ağ geçidi oluşturma"](#vpngw) bölümüne geçebilirsiniz. 
+Merhaba ağ geçidi alt ağı /27 ise veya daha büyük ve hello sanal ağ ExpressRoute üzerinden bağlı olduğundan, hello adımları atlayın ve çok devam["6. adım - siteden siteye VPN ağ geçidi oluşturma"](#vpngw) hello önceki bölümdeki. 
 
 > [!NOTE]
-> Mevcut ağ geçidini sildiğinizde, bu yapılandırma üzerinde çalışırken, yerel şirket sanal ağ bağlantısını kaybeder. 
+> Merhaba mevcut ağ geçidini sildiğinizde, bu yapılandırma üzerinde çalışırken, yerel şirket hello bağlantı tooyour sanal ağ kaybedersiniz. 
 > 
 > 
 
-1. Azure PowerShell cmdlet’lerinin en yeni sürümünü yüklemeniz gerekir. Cmdlet'leri yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview). Bu yapılandırma için kullanacağınız cmdlet'ler tanıdıklarınızdan biraz farklı olabilir. Bu yönergelerde belirtilen cmdlet'leri kullandığınızdan emin olun. 
-2. Mevcut ExpressRoute veya Siteden Siteye VPN ağ geçidini silin.
+1. Tooinstall hello en son sürümünü hello Azure PowerShell cmdlet'lerini gerekir. Cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview). Bu yapılandırma için kullandığınız hello cmdlet'leri ne tanımanız değerinden biraz farklı olabilir. Bu yönergelerde emin toouse hello cmdlet'leri belirtilmiş. 
+2. Merhaba mevcut ExpressRoute veya siteden siteye VPN ağ geçidini silin.
 
   ```powershell 
   Remove-AzureRmVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
@@ -193,7 +193,7 @@ Ağ geçidi alt ağı /27 veya daha büyükse ve sanal ağ ExpressRoute üzerind
 4. /27 veya daha büyük bir Ağ Geçidi Alt Ağı ekleyin.
    
    > [!NOTE]
-   > Sanal ağınızda ağ geçidi alt ağı boyutunu artırmak için yeterli IP adresi kalmadıysa, daha fazla IP adresi alanı eklemeniz gerekir.
+   > Yeterli IP adresi, sanal ağ tooincrease hello ağ geçidi alt ağı boyutuna sahip değilseniz, daha fazla IP adresi alanı tooadd gerekir.
    > 
    > 
 
@@ -202,15 +202,15 @@ Ağ geçidi alt ağı /27 veya daha büyükse ve sanal ağ ExpressRoute üzerind
   Add-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
   ```
    
-    VNet yapılandırmasını kaydedin.
+    Merhaba VNet yapılandırmasını kaydedin.
 
   ```powershell
   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-5. Bu noktada, hiçbir ağ geçidi olmayan bir VNet’e sahip olursunuz. Yeni ağ geçitleri oluşturmak ve bağlantılarınızı tamamlamak için, önceki adım kümesinde bulabileceğiniz [4. Adım - Bir ExpressRoute ağ geçidi oluşturma](#gw) bölümüyle devam edebilirsiniz.
+5. Bu noktada, hiçbir ağ geçidi olmayan bir VNet’e sahip olursunuz. toocreate yeni ağ geçitleri ve bağlantılarınızı tamamlamak, devam edebilmeniz [4. adım - bir ExpressRoute ağ geçidi oluşturma](#gw), önceki adımları kümesini hello bulunan.
 
-## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>VPN ağ geçidine noktadan siteye yapılandırması eklemek için
-Bir arada var olan kurulumda VPN ağ geçidinize Noktadan Siteye yapılandırması eklemek için aşağıdaki adımları izleyebilirsiniz.
+## <a name="tooadd-point-to-site-configuration-toohello-vpn-gateway"></a>tooadd noktadan siteye yapılandırması toohello VPN ağ geçidi
+Bir arada var olan kurulumda tooadd noktadan siteye yapılandırması tooyour VPN ağ geçidi hello adımları izleyebilirsiniz.
 
 1. VPN İstemcisi adres havuzunu ekleyin.
 
@@ -218,7 +218,7 @@ Bir arada var olan kurulumda VPN ağ geçidinize Noktadan Siteye yapılandırmas
   $azureVpn = Get-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
   Set-AzureRmVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
   ```
-2. VPN ağ geçidiniz için VPN kök sertifikasını Azure’a yükleyin. Bu örnekte, kök sertifikasının aşağıdaki PowerShell cmdlet’lerinin çalıştığı yerel makinede saklandığı varsayılır.
+2. Merhaba VPN kök sertifika tooAzure VPN ağ geçidinizi için karşıya yükleyin. Bu örnekte, bu hello kök sertifikası PowerShell cmdlet'lerini aşağıdaki hello çalıştırdığı hello yerel makinede saklandığı varsayılır.
 
   ```powershell
   $p2sCertFullName = "RootErVpnCoexP2S.cer" 
@@ -231,4 +231,4 @@ Bir arada var olan kurulumda VPN ağ geçidinize Noktadan Siteye yapılandırmas
 Noktadan Siteye VPN hakkında daha fazla bilgi içini bkz. [Noktadan Siteye bağlantı yapılandırma](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-ExpressRoute hakkında daha fazla bilgi için, bkz. [ExpressRoute SSS](expressroute-faqs.md).
+ExpressRoute hakkında daha fazla bilgi için bkz: Merhaba [ExpressRoute SSS](expressroute-faqs.md).

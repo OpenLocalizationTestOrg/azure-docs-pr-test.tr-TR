@@ -1,6 +1,6 @@
 ---
-title: ".NET kullanarak Media Services hesabına bağlanma"
-description: "Bu konu, Media Services kullanarak .NET bağlanmak gösterilmiştir."
+title: ".NET kullanarak aaaConnecting tooMedia hizmetleri hesabı"
+description: "Bu konuda gösterilir nasıl tooconnect tooMedia Hizmetleri kullanarak .NET."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,42 +14,42 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 892932116934952265a21ab17aac3434b5760136
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a23bd285f7cae17ae5831e1e50e73947afbb9a3d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connecting-to-media-services-account-using-media-services-sdk-for-net"></a>.NET için Media Services SDK'sını kullanarak Media Services hesabı bağlanma
+# <a name="connecting-toomedia-services-account-using-media-services-sdk-for-net"></a>TooMedia hizmetleri hesabı .NET için Media Services SDK'sını kullanarak bağlanma
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-connect-programmatically.md)
 > * [.NET](media-services-dotnet-connect-programmatically.md)
 > 
 > 
 
-Bu konu, .NET için Media Services SDK'sı ile programlamada Microsoft Azure Media Services programlama bağlantı elde açıklar.
+Bu konuda nasıl tooobtain programlı bağlantı tooMicrosoft Azure Media Services ile programlamada hello Media Services SDK'sı için .NET açıklanmaktadır.
 
-## <a name="connecting-to-media-services"></a>Media Services'e bağlanma
-Media Services'e program aracılığıyla bağlanmak için gerekir daha önce bir Azure hesabı ayarlamanız, Media Services, hesabında yapılandırılmış ve ardından Media Services SDK ile geliştirme için Visual Studio projesi için .NET ayarlayın. Daha fazla bilgi için Kurulum geliştirme için Media Services SDK'sı ile .NET için bkz.
+## <a name="connecting-toomedia-services"></a>TooMedia Hizmetleri bağlanma
+tooconnect tooMedia Hizmetleri programlı olarak daha önce bir Azure hesabı ayarlamanız, Media Services, hesabında yapılandırılmış ve ardından Visual Studio projesini hello Media Services SDK ile geliştirme .NET için ayarlamanız gerekir. Daha fazla bilgi için Kurulum geliştirme için .NET için Media Services SDK'sı hello ile bakın.
 
-Media Services hesabı Kurulum işleminin sonunda aşağıdaki gerekli bağlantı değerleri alınır. Media Services'e program bağlantıları kurmak için bunları kullanın.
+Merhaba işleminin sonunda hello Media Services hesap kurulumu, gerekli hello aşağıdaki aldığınız bağlantı değerleri. Bu toomake programlı bağlantılarını kullanmak tooMedia Hizmetleri.
 
 * Media Services hesap adınız.
 * Media Services hesabı anahtarınızı.
 
-Bu değerleri bulmaya Azure Yönetimi Portalı'na medya hizmeti hesabınızı seçin ve tıklayın Git "**ANAHTARLARI Yönet**" portal penceresinin en altındaki simgesi. Her bir metin kutusunun yanındaki simgeye tıklandığında söz konusu değer sistem panosuna kopyalanır.
+Bu değerleri, toofind toohello Azure Yönetimi portalı gidin, medya hizmeti hesabınızı seçin ve üzerinde hello "**ANAHTARLARI Yönet**" Merhaba portal penceresinin hello altındaki simgesine. Merhaba simgesi sonraki tooeach metin kutusu kopyaları hello değeri toohello sistem Pano'ya'yı tıklatın.
 
 ## <a name="creating-a-cloudmediacontext-instance"></a>CloudMediaContext örneği oluşturma
-Media Services oluşturmanız karşı programlama başlatmak için bir **CloudMediaContext** sunucu bağlamı temsil eden örneği. **CloudMediaContext** işleri, varlıklar, dosyaları, erişim ilkeleri ve bulucular dahil olmak üzere önemli koleksiyonları başvurular içerir.
+gereksinim duyduğunuz toocreate Hizmetleri medya karşı programlama toostart bir **CloudMediaContext** hello sunucu bağlamı temsil eden örneği. Merhaba **CloudMediaContext** işleri, varlıklar, dosyaları, erişim ilkeleri ve bulucular dahil olmak üzere başvuruları tooimportant koleksiyonları içerir.
 
 > [!NOTE]
-> **CloudMediaContext** sınıfı iş parçacığı içinde korumalı değil. Yeni bir CloudMediaContext işlem kümesi veya iş parçacığı başına oluşturmanız gerekir.
+> Merhaba **CloudMediaContext** sınıfı iş parçacığı içinde korumalı değil. Yeni bir CloudMediaContext işlem kümesi veya iş parçacığı başına oluşturmanız gerekir.
 > 
 > 
 
-CloudMediaContext beş Oluşturucusu aşırı yüklemeye sahip. Ele oluşturucular kullanmak için önerilen **MediaServicesCredentials** bir parametre olarak. Daha fazla bilgi için bkz: **yeniden erişim denetimi hizmeti belirteçleri** , izler. 
+CloudMediaContext beş Oluşturucusu aşırı yüklemeye sahip. Ele önerilen toouse oluşturucular olan **MediaServicesCredentials** bir parametre olarak. Merhaba daha fazla bilgi için bkz: **yeniden erişim denetimi hizmeti belirteçleri** , izler. 
 
-Aşağıdaki örnek, genel CloudMediaContext(MediaServicesCredentials credentials) Oluşturucu kullanır:
+Merhaba aşağıdaki örnek hello genel CloudMediaContext(MediaServicesCredentials credentials) Oluşturucu kullanır:
 
     // _cachedCredentials and _context are class member variables. 
     _cachedCredentials = new MediaServicesCredentials(
@@ -60,22 +60,22 @@ Aşağıdaki örnek, genel CloudMediaContext(MediaServicesCredentials credential
 
 
 ## <a name="reusing-access-control-service-tokens"></a>Erişim denetimi hizmeti belirteçleri yeniden kullanma
-Bu bölümde, erişim denetimi hizmeti belirteçleri MediaServicesCredentials bir parametre olarak geçirmesine CloudMediaContext oluşturucuları kullanarak tekrar gösterilmektedir.
+Bu bölümde, nasıl tooreuse erişim denetimi hizmeti MediaServicesCredentials bir parametre olarak geçirmesine CloudMediaContext oluşturucuları kullanarak belirteçleri gösterir.
 
-[Azure Active Directory erişim denetimi](https://msdn.microsoft.com/library/hh147631.aspx) (erişim denetimi hizmeti veya ACS olarak da bilinir) olan web uygulamalarına erişmek için kimlik doğrulaması ve Kullanıcıları yetkilendirmek kolay bir yol sağlayan bulut tabanlı bir hizmet. Microsoft Azure Media Services hizmetlerinin erişimi yine de bir ACS belirteci gerektirir OAuth protokolünün kontrol eder. Media Services ACS belirteçleri bir yetkilendirme sunucusundan alır.
+[Azure Active Directory erişim denetimi](https://msdn.microsoft.com/library/hh147631.aspx) (erişim denetimi hizmeti veya ACS olarak da bilinir) olan tootheir web uygulamaları kimlik doğrulama ve yetki vererek kullanıcıların toogain erişim kolay bir yol sağlayan bulut tabanlı bir hizmet. Microsoft Azure Media Services tooits Hizmetleri yine de bir ACS belirteci gerektirir OAuth protokolünün erişimi kontrol eder. Media Services hello ACS belirteçleri bir yetkilendirme sunucusundan alır.
 
-Media Services SDK'sı ile geliştirirken, SDK kod çünkü yöneticileri belirteçleri ile mücadele etmek değil seçebilirsiniz, bunları. Ancak, tam olarak ACS belirteçlerini yönetin SDK izin vererek, gereksiz belirteç isteklerini yol açar. Belirteçleri istediği zaman alır ve istemci ve sunucu kaynaklarını kullanır. Ayrıca, oranı çok yüksekse, ACS sunucu istekleri kısıtlar. Sınıra 30 saniye başına isteklerinin bkz. [ACS Service sınırlamalar](https://msdn.microsoft.com/library/gg185909.aspx) daha fazla ayrıntı için.
+Merhaba Media Services SDK'sı ile geliştirirken, çünkü toonot anlaşma hello belirteçleri ile seçebilirsiniz SDK kod yöneticileri Merhaba, bunları. Ancak, veren hello SDK tam olarak yönetmek hello ACS belirteçleri müşteri adayları toounnecessary belirteç isteklerini. Belirteçleri istediği zaman alır ve hello istemci ve sunucu kaynaklarını kullanır. Ayrıca, Hello oranı çok yüksek ise hello ACS sunucu hello istekleri kısıtlar. Merhaba sınırı saniyede 30 istekler, bkz: [ACS Service sınırlamalar](https://msdn.microsoft.com/library/gg185909.aspx) daha fazla ayrıntı için.
 
-Media Services SDK sürüm 3.0.0.0 ile başlayarak, ACS belirteç yeniden kullanabilirsiniz. **CloudMediaContext** ele oluşturucular **MediaServicesCredentials** parametre olarak ACS belirteç birden çok bağlamları arasında paylaşımını etkinleştirin. MediaServicesCredentials sınıfı Media Services kimlik bilgileri yalıtır. Bir ACS belirteci kullanılabilir ise ve sona erme zamanı bilinen belirteç ile yeni bir MediaServicesCredentials örneği oluşturun ve CloudMediaContext oluşturucuya geçirin. Not süreleri doluncaya her Media Services SDK'sı belirteçleri otomatik olarak yeniler. Aşağıdaki örneklerde gösterildiği gibi ACS belirteçleri yeniden kullanmak için iki yolu vardır.
+Media Services SDK'sı sürüm 3.0.0.0 Hello ile başlayarak, hello ACS belirteçleri yeniden kullanabilirsiniz. Merhaba **CloudMediaContext** ele oluşturucular **MediaServicesCredentials** paylaşım hello ACS belirteç birden çok bağlamları arasında bir parametre olarak etkinleştirin. Merhaba MediaServicesCredentials sınıfı hello Media Services kimlik bilgileri yalıtır. Bir ACS belirteci kullanılabilir ise ve sona erme zamanı bilinen hello belirteci ile yeni bir MediaServicesCredentials örneği oluşturun ve CloudMediaContext toohello oluşturucusunun geçirin. Süreleri doluncaya her Media Services SDK'sı otomatik olarak hello Not belirteçleri yeniler. İki yolu vardır tooreuse ACS belirteçleri hello aşağıdaki örnekte gösterildiği gibi.
 
-* Önbelleğe alabilir **MediaServicesCredentials** nesnesinde bellek (örneğin, bir statik sınıf değişkeni). Daha sonra önbelleğe alınmış nesnenin CloudMediaContext oluşturucuya geçirin. MediaServicesCredentials nesne hala geçerliyse, yeniden kullanılabilir bir ACS belirteci içeriyor. Belirtecin geçerli değilse MediaServicesCredentials oluşturucuya verilen kimlik bilgilerini kullanarak Media Services SDK'sı tarafından yenilenecektir.
+* Merhaba önbelleğe **MediaServicesCredentials** nesnesinde bellek (örneğin, bir statik sınıf değişkeni). Daha sonra önbelleğe hello nesne toohello CloudMediaContext Oluşturucusu geçirin. Merhaba MediaServicesCredentials nesne hala geçerliyse, yeniden kullanılabilir bir ACS belirteci içeriyor. Media Services SDK'sı hello kimlik bilgilerini kullanarak toohello MediaServicesCredentials Oluşturucusu verilen Hello belirteci tarafından hello yenilenecek geçerli değil.
   
-    Unutmayın **MediaServicesCredentials** nesnesini RefreshToken çağrıldıktan sonra geçerli bir belirteci alır. **CloudMediaContext** çağrıları **RefreshToken** oluşturucuda yöntemi. Bir dış depolama birimine simge değerlerini kaydetmeyi planlıyorsanız, belirteç verileri kaydetmeden önce TokenExpiration değerinin geçerli olup olmadığını denetlemek emin olun. Geçerli durumda değilse, önbelleğe alma önce RefreshToken çağırın.
+    Bu hello Not **MediaServicesCredentials** nesne RefreshToken çağrılır hello sonra geçerli bir belirteci alır. Merhaba **CloudMediaContext** çağrıları hello **RefreshToken** hello Oluşturucusu yöntemi. Toosave hello simge değerlerini tooan harici depolama planlıyorsanız, hello belirteci verileri kaydetmeden önce hello TokenExpiration değeri geçerli olup olmadığını toocheck emin olun. Geçerli durumda değilse, önbelleğe alma önce RefreshToken çağırın.
   
-        // Create and cache the Media Services credentials in a static class variable.
+        // Create and cache hello Media Services credentials in a static class variable.
         _cachedCredentials = new MediaServicesCredentials(_mediaServicesAccountName, _mediaServicesAccountKey);
 
-        // Use the cached credentials to create a new CloudMediaContext object.
+        // Use hello cached credentials toocreate a new CloudMediaContext object.
         if(_cachedCredentials == null)
         {
             _cachedCredentials = new MediaServicesCredentials(_mediaServicesAccountName, _mediaServicesAccountKey);
@@ -83,23 +83,23 @@ Media Services SDK sürüm 3.0.0.0 ile başlayarak, ACS belirteç yeniden kullan
 
         CloudMediaContext context = new CloudMediaContext(_cachedCredentials);
 
-* AccessToken dize ve TokenExpiration değerleri de önbelleğe alabilir. Değerleri daha sonra önbelleğe alınan belirteç verilerle yeni bir MediaServicesCredentials nesnesi oluşturmak için kullanılabilir.  Bu, özellikle burada belirteç güvenli bir şekilde birden çok bilgisayar veya işlemler arasında paylaşılabilir senaryoları için kullanışlıdır.
+* Merhaba AccessToken dize ve hello TokenExpiration değerleri de önbelleğe alabilir. Merhaba değerleri daha sonra yeni bir MediaServicesCredentials nesne önbelleğe hello belirteci verilerle kullanılan toocreate olabilir.  Bu, özellikle burada hello belirteci güvenli bir şekilde birden çok bilgisayar veya işlemler arasında paylaşılabilir senaryoları için kullanışlıdır.
   
-    Aşağıdaki kod parçacıkları Bu örnekte tanımlanmamış SaveTokenDataToExternalStorage, GetTokenDataFromExternalStorage ve UpdateTokenDataInExternalStorageIfNeeded yöntemlerini çağırın. Bir dış depolama birimine belirteci verileri güncelleştirmek depolamak ve almak için bu yöntemleri tanımlayabilirsiniz. 
+    Merhaba aşağıdaki kod parçacıkları hello Bu örnekte tanımlanmamış SaveTokenDataToExternalStorage, GetTokenDataFromExternalStorage ve UpdateTokenDataInExternalStorageIfNeeded yöntemlerini çağırın. Bir dış depolama bu yöntemleri toostore, alma ve güncelleştirme belirteci verileri tanımlayabilirsiniz. 
   
         CloudMediaContext context1 = new CloudMediaContext(_mediaServicesAccountName, _mediaServicesAccountKey);
   
-        // Get token values from the context.
+        // Get token values from hello context.
         var accessToken = context1.Credentials.AccessToken;
         var tokenExpiration = context1.Credentials.TokenExpiration;
   
         // Save token values for later use. 
-        // The SaveTokenDataToExternalStorage method should check 
-        // whether the TokenExpiration value is valid before saving the token data. 
+        // hello SaveTokenDataToExternalStorage method should check 
+        // whether hello TokenExpiration value is valid before saving hello token data. 
         // If it is not valid, call MediaServicesCredentials’s RefreshToken before caching.
         SaveTokenDataToExternalStorage(accessToken, tokenExpiration);
   
-    Kaydedilen belirteç değerler MediaServicesCredentials oluşturmak için kullanın.
+    Simge değerlerini toocreate MediaServicesCredentials kaydedilmiş hello kullanın.
 
         var accessToken = "";
         var tokenExpiration = DateTime.UtcNow;
@@ -116,7 +116,7 @@ Media Services SDK sürüm 3.0.0.0 ile başlayarak, ACS belirteç yeniden kullan
 
         CloudMediaContext context2 = new CloudMediaContext(credentials);
 
-    Belirteç Media Services SDK'sı tarafından güncelleştirildi durumda belirteci kopyalama güncelleştirin. 
+    Merhaba belirteci hello Media Services SDK'sı tarafından güncelleştirildi durumda hello belirteci kopyalama güncelleştirin. 
 
         if(tokenExpiration != context2.Credentials.TokenExpiration)
         {
@@ -124,13 +124,13 @@ Media Services SDK sürüm 3.0.0.0 ile başlayarak, ACS belirteç yeniden kullan
         }
 
 
-* Birden çok Media Services hesabı (örneğin, amaçları veya coğrafi dağıtım paylaşımı yükle) varsa (ConcurrentDictionary System.Collections.Concurrent.ConcurrentDictionary koleksiyonu kullanarak MediaServicesCredentials nesneleri önbelleğe alabilir koleksiyon birden çok iş parçacığı tarafından eşzamanlı olarak erişilebilir anahtar/değer çiftleri iş parçacığı koleksiyonu temsil eder). Ardından, önbelleğe alınmış kimlik bilgilerini almak için GetOrAdd yöntemi kullanabilirsiniz. 
+* Birden çok Media Services hesabı (örneğin, amaçları veya coğrafi dağıtım paylaşımı yükle) varsa hello System.Collections.Concurrent.ConcurrentDictionary koleksiyonu (hello kullanarak MediaServicesCredentials nesneleri önbelleğe alabilir ConcurrentDictionary koleksiyonu birden çok iş parçacığı tarafından eşzamanlı olarak erişilebilir anahtar/değer çiftlerinin iş parçacığı koleksiyonunu temsil eder). Daha sonra hello GetOrAdd yöntemi tooget hello önbelleğe alınmış kimlik bilgilerini kullanabilirsiniz. 
   
-        // Declare a static class variable of the ConcurrentDictionary type in which the Media Services credentials will be cached.  
+        // Declare a static class variable of hello ConcurrentDictionary type in which hello Media Services credentials will be cached.  
         private static readonly ConcurrentDictionary<string, MediaServicesCredentials> mediaServicesCredentialsCache = 
             new ConcurrentDictionary<string, MediaServicesCredentials>();
 
-        // Cache (or get already cached) Media Services credentials. Use these credentials to create a new CloudMediaContext object.
+        // Cache (or get already cached) Media Services credentials. Use these credentials toocreate a new CloudMediaContext object.
         static public CloudMediaContext CreateMediaServicesContext(string accountName, string accountKey)
         {
             CloudMediaContext cloudMediaContext;
@@ -145,8 +145,8 @@ Media Services SDK sürüm 3.0.0.0 ile başlayarak, ACS belirteç yeniden kullan
             return cloudMediaContext;
         }
 
-## <a name="connecting-to-a-media-services-account-located-in-the-north-china-region"></a>Kuzey Çin bölgede bulunan bir Media Services hesabına bağlanma
-Hesabınızı Kuzey Çin bölgede yer alıyorsa, aşağıdaki oluşturucuyu kullanın:
+## <a name="connecting-tooa-media-services-account-located-in-hello-north-china-region"></a>Merhaba Kuzey Çin bölgede bulunan tooa Media Services hesabına bağlanma
+Hesabınızı hello Kuzey Çin bölgede yer alıyorsa oluşturucudan hello kullanın:
 
     public CloudMediaContext(Uri apiServer, string accountName, string accountKey, string scope, string acsBaseAddress)
 
@@ -161,9 +161,9 @@ Hesabınızı Kuzey Çin bölgede yer alıyorsa, aşağıdaki oluşturucuyu kull
 
 
 ## <a name="storing-connection-values-in-configuration"></a>Yapılandırmada bağlantı değerlerini depolama
-Bağlantı değerleri, özellikle hassas hesap adı ve parola gibi yapılandırmasında depolamak için yüksek oranda önerilen bir yöntemdir. Ayrıca, önemli yapılandırma verilerini şifrelemek önerilen yöntemdir. Tüm yapılandırma dosyasını Windows şifreleme dosya sistemi (EFS) kullanarak şifreleyebilirsiniz. EFS dosya üzerinde etkinleştirmek için dosyaya sağ tıklayın, **özellikleri**ve şifreleme etkinleştirmek **Gelişmiş** Ayarlar sekmesi. Veya korumalı yapılandırmayı kullanarak bir yapılandırma dosyası seçili bölümlerini şifreleme için özel bir çözüm oluşturabilirsiniz. Bkz: [korumalı yapılandırma kullanarak yapılandırma bilgilerini şifrelemek](https://msdn.microsoft.com/library/53tyfkaw.aspx).
+Bir yüksek oranda önerilen uygulama toostore bağlantı değerleri, özellikle hassas hesap adı ve parola, yapılandırma gibi olur. Ayrıca, önerilen uygulama tooencrypt önemli yapılandırma verilerini vardır. Merhaba tüm yapılandırma dosyası hello Windows şifreleme dosya sistemi (EFS) kullanarak şifreleyebilirsiniz. tooenable hello dosyasını sağ tıklatın, bir dosyada EFS seçin **özellikleri**ve hello şifrelemeyi etkinleştirmek **Gelişmiş** Ayarlar sekmesi. Veya korumalı yapılandırmayı kullanarak bir yapılandırma dosyası seçili bölümlerini şifreleme için özel bir çözüm oluşturabilirsiniz. Bkz: [korumalı yapılandırma kullanarak yapılandırma bilgilerini şifrelemek](https://msdn.microsoft.com/library/53tyfkaw.aspx).
 
-Aşağıdaki App.config dosyası gerekli bağlantı değerleri içerir. Değerler <appSettings> Media Services hesabı Kurulum işleminden aldığınız gerekli değerleri öğesidir.
+Aşağıdaki App.config dosyasına hello gerekli hello bağlantı değerleri içerir. Merhaba hello değerleri <appSettings> hello Media Services hesabı Kurulum işleminden aldığınız hello gerekli değerleri öğesidir.
 
     <configuration>
       <appSettings>
@@ -173,7 +173,7 @@ Aşağıdaki App.config dosyası gerekli bağlantı değerleri içerir. Değerle
     </configuration>
 
 
-Bağlantı değerleri yapılandırmasından almak için kullanabileceğiniz **ConfigurationManager** sınıfı ve kodunuzu alanlarına değerler atayın:
+tooretrieve bağlantı değerleri yapılandırmadan kullanabileceğiniz hello **ConfigurationManager** sınıfı ve hello değerleri toofields kodunuzda atayın:
 
     private static readonly string _accountName = ConfigurationManager.AppSettings["MediaServicesAccountName"];
     private static readonly string _accountKey = ConfigurationManager.AppSettings["MediaServicesAccountKey"];

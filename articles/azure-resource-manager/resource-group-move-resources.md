@@ -1,6 +1,6 @@
 ---
-title: "Azure kaynakları için yeni abonelik veya kaynak grubu taşıma | Microsoft Docs"
-description: "Yeni kaynak grubu ya da abonelik kaynaklarını taşımak için Azure Resource Manager kullanın."
+title: "aaaMove, Azure kaynaklarını toonew abonelik veya kaynak grubu | Microsoft Docs"
+description: "Azure Resource Manager toomove kaynakları tooa yeni kaynak grubu veya abonelik kullanın."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: e138f80e808968ab4bf5c11cfd5fd46fe4a1bcce
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 09d35f0afbbcdc0c66779f98a982d878f0807497
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
-Bu konu, yeni bir abonelik veya yeni bir kaynak grubu aynı abonelikte kaynakları taşımak gösterilmiştir. Kaynak taşıma için portal, PowerShell, Azure CLI veya REST API'sini kullanabilirsiniz. Taşıma işlemleri bu konuda Azure Destek'ten herhangi bir Yardım için kullanılabilir.
+# <a name="move-resources-toonew-resource-group-or-subscription"></a>Kaynakları toonew kaynak grubuna veya aboneliğe taşıma
+Bu konu, nasıl toomove kaynakları tooeither yeni bir abonelik veya yeni bir kaynak grubunda hello gösterir. aynı abonelik. Merhaba portal, PowerShell, Azure CLI veya hello REST API toomove kaynak kullanabilirsiniz. Merhaba taşıma bu konudaki tüm Yardım Azure desteği olmadan kullanılabilir tooyou işlemleridir.
 
-Kaynaklar taşınırken işlemi sırasında kaynak grubu ve hedef grubu kilitlenir. Yazma ve silme işlemleri taşıma işlemi tamamlanana kadar kaynak gruplarında engellenir. Bu kilit ekleyemez, güncelleştirme veya kaynak gruplarındaki kaynakları silin, ancak kaynaklar dondurulmuş gelmez anlamına gelir. Örneğin, bir SQL Server ve veritabanının yeni bir kaynak grubuna taşırsanız, veritabanı kullanan bir uygulama kapalı kalma süresi karşılaşır. Bunu hala okuyabilir ve veritabanına yazma.
+Kaynaklar taşınırken hello kaynak grubu ve hello hedef grubu hello işlemi sırasında kilitlenir. Yazma ve silme işlemleri hello taşıma işlemi tamamlanana kadar hello kaynak gruplarında engellenir. Bu kilit ekleyemez, güncelleştirme veya hello kaynak gruplarındaki kaynakları silin, ancak hello kaynakları dondurulmuş gelmez anlamına gelir. Örneğin, bir SQL Server ve kendi veritabanı tooa yeni kaynak grubu taşırsanız, hello veritabanı kullanan bir uygulama kapalı kalma süresi karşılaşır. Bunu hala okuyabilir ve toohello veritabanı yazma.
 
-Kaynağın konumu değiştirilemez. Bir kaynak taşıma yalnızca bu yeni bir kaynak grubuna taşınır. Yeni kaynak grubu farklı bir konum olabilir, ancak kaynak konumunu değiştirmez.
+Merhaba kaynak hello konumunu değiştiremezsiniz. Bir kaynak taşıma yalnızca bu tooa yeni kaynak grubu taşınır. Merhaba yeni kaynak grubu farklı bir konum olabilir, ancak hello kaynak hello konumunu değiştirmez.
 
 > [!NOTE]
-> Bu makalede, mevcut Azure içindeki kaynaklara önerme hesap taşımayı açıklar. Gerçekte (önceden ödenecek Kullandıkça Öde yükseltme gibi) sunan Azure hesabınızda değiştirmek mevcut kaynakları ile çalışmak için bkz: devam ederken istiyorsanız [Azure aboneliğinizi başka bir teklife geç](../billing/billing-how-to-switch-azure-offer.md).
+> Bu makalede, mevcut Azure içindeki toomove kaynakların nasıl önerme hesap açıklanmaktadır. Azure hesabınızda (Kullandıkça Öde toopre-ödeme yükseltme gibi), mevcut kaynaklarla toowork devam ederken sunumu gerçekten toochange istiyorsanız bkz [Azure aboneliği tooanother teklifiniz geçiş](../billing/billing-how-to-switch-azure-offer.md).
 >
 >
 
 ## <a name="checklist-before-moving-resources"></a>Kaynakları geçmeden önce denetim listesi
-Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adımlar vardır. Bu koşulları doğrulayarak hataları önleyebilirsiniz.
+Bir kaynak taşımadan önce bazı önemli adımlar tooperform vardır. Bu koşulları doğrulayarak hataları önleyebilirsiniz.
 
-1. Kaynak ve hedef abonelikler aynı içinde bulunmalıdır [Azure Active Directory Kiracı](../active-directory/active-directory-howto-tenant.md). Her iki aboneliğin aynı Kiracı kimliği olduğunu denetlemek için Azure PowerShell veya Azure CLI kullanın.
+1. Merhaba kaynak ve hedef abonelikler hello içinde aynı bulunmalıdır [Azure Active Directory Kiracı](../active-directory/active-directory-howto-tenant.md). Her iki aboneliğin sahip Merhaba, aynı toocheck Kiracı kimliği, Azure PowerShell veya Azure CLI kullanın.
 
   Azure PowerShell için kullanın:
 
@@ -49,28 +49,28 @@ Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adıml
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, abonelik için dizini değiştirmek deneyebilirsiniz. Ancak, bu seçenek yalnızca bir Microsoft hesabıyla (Kurumsal bir hesap değil) oturum açmış hizmet yöneticileri için kullanılabilir. Dizini değiştirme girişiminde oturum [Klasik portal](https://manage.windowsazure.com/)seçip **ayarları**ve aboneliği seçin. Varsa **dizini Düzenle** simgesi kullanılabilir, ilişkili Azure Active Directory değiştirmek için seçin.
+  Merhaba kimlikleri için Kiracı varsa hello kaynak ve hedef abonelikler olmayan aynı hello toochange hello dizin hello abonelik için deneyebilirsiniz. Ancak, bu seçenek yalnızca kullanılabilir tooService bir Microsoft hesabıyla (Kurumsal bir hesap değil) oturum açmış yöneticileri içindir. Başlangıç dizini, toohello günlüğünde değiştirme tooattempt [Klasik portal](https://manage.windowsazure.com/)seçip **ayarları**ve hello abonelik seçin. Merhaba, **dizini Düzenle** simge mevcut ise, toochange seçin hello ilişkili Azure Active Directory.
 
   ![dizini Düzenle](./media/resource-group-move-resources/edit-directory.png)
 
-  Bu simge kullanılabilir durumda değilse, kaynakları için yeni bir kiracı taşımak için desteğe başvurmanız gerekir.
+  Bu simge kullanılabilir durumda değilse, desteği toomove hello kaynakları tooa yeni Kiracı başvurmanız gerekir.
 
-2. Hizmet, kaynakları taşıma olanağını sağlamalıdır. Bu konu, taşıma kaynakları hangi hizmetlerin etkinleştirmek ve hangi hizmetlerin taşıma kaynakları etkinleştirmeyin listeler.
-3. Hedef abonelik, taşınan kaynağın kaynak sağlayıcısına kayıtlı olmalıdır. Belirten bir hata alırsanız, **kaynak türü için abonelik kayıtlı değil**. Kaynağı taşıdığınız yeni abonelik, ilgili kaynak türüyle daha önce kullanılmamışsa bu sorunla karşılaşabilirsiniz. Kayıt durumunu denetleme ve kaynak sağlayıcılarını kaydetme hakkında bilgi almak için bkz. [Kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md).
+2. Merhaba hizmetini hello özelliği toomove kaynakları etkinleştirmeniz gerekir. Bu konu, taşıma kaynakları hangi hizmetlerin etkinleştirmek ve hangi hizmetlerin taşıma kaynakları etkinleştirmeyin listeler.
+3. Merhaba hedef abonelik taşınan hello kaynağının hello kaynak sağlayıcısı için kayıtlı olması gerekir. Bu hello bildiren bir hata alırsanız, **kaynak türü için abonelik kayıtlı değil**. Kaynak tooa yeni bir abonelik taşırken bu sorunla karşılaşabilir, ancak bu abonelik hiçbir zaman bu kaynak türü ile kullanıldı. toolearn nasıl toocheck hello kayıt durumunu ve kaynak sağlayıcıları kaydetme bkz [kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md).
 
-## <a name="when-to-call-support"></a>Destek çağrısı yapıldığında
-Bu konuda gösterilen Self Servis işlemleri üzerinden en fazla kaynak taşıyabilirsiniz. Self Servis işlemleri için kullanın:
+## <a name="when-toocall-support"></a>Toocall desteği
+Bu konuda gösterilen hello Self Servis işlemleri üzerinden en fazla kaynak taşıyabilirsiniz. Merhaba Self Servis işlemleri için kullanın:
 
 * Resource Manager kaynaklarını taşıma
-* Klasik kaynakları göre taşımak [Klasik dağıtım kısıtlamaları](#classic-deployment-limitations).
+* Toohello göre Klasik kaynakları taşımak [Klasik dağıtım kısıtlamaları](#classic-deployment-limitations).
 
 Gerektiğinde desteğini arayın:
 
-* Kaynaklarınızın bir yeni bir Azure hesabı (ve Azure Active Directory kiracısı) taşıyın.
-* Klasik kaynakları taşımak ancak kısıtlamalarla sorunu yaşıyor.
+* Kaynakları tooa yeni Azure hesabı (ve Azure Active Directory kiracısı) taşıyın.
+* Klasik kaynakları taşımak ancak hello kısıtlamalarla sorunu yaşıyor.
 
 ## <a name="services-that-enable-move"></a>Taşıma Etkinleştirme Hizmetleri
-Şimdilik, bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunlardır:
+Şimdilik, taşıma tooboth yeni bir kaynak grubu ve abonelik etkinleştirmek hello hizmetler şunlardır:
 
 * API Management
 * App Service uygulamalarının (web uygulamaları) - bkz [App Service sınırlamalar](#app-service-limitations)
@@ -110,18 +110,18 @@ Gerektiğinde desteğini arayın:
 * Depolama
 * Depolama (Klasik) - bkz [Klasik dağıtım sınırlamaları](#classic-deployment-limitations)
 * Akış analizi - Stream Analytics işleri de çalıştırırken taşınamaz durumu.
-* SQL veritabanı sunucusu - veritabanı ve sunucu, aynı kaynak grubunda bulunmaları gerekir. Bir SQL server taşıdığınızda, tüm veritabanlarını da taşınır.
+* SQL veritabanı sunucusuna - hello veritabanı ve sunucu bulunmalıdır hello aynı kaynak grubu. Bir SQL server taşıdığınızda, tüm veritabanlarını da taşınır.
 * Traffic Manager
 * Virtual Machines
-* Sanal makineler sertifikayla anahtar kasasında depolanan - yeni kaynak grubu aynı abonelikte etkindir, ancak çapraz abonelik taşıma etkin değil taşıyın.
+* Anahtar kasası - taşıma toonew kaynak grubu aynı abonelik içinde depolanan sertifika sanal makinelerle etkindir, ancak çapraz abonelik taşıma etkin değil.
 * Sanal makineler (Klasik) - bkz [Klasik dağıtım sınırlamaları](#classic-deployment-limitations)
 * Sanal Makine Ölçek Kümeleri
-* VNet eşlemesi devre dışı bırakılmış kadar sanal ağlar - şu anda, eşlenmiş bir sanal ağ taşınamaz. Sonra devre dışı, sanal ağ başarıyla taşınabilir ve VNet eşlemesi etkinleştirilebilir. Ayrıca, sanal ağ kaynak Gezinti bağlantıları olan herhangi bir alt ağ içeriyorsa, bir sanal ağ farklı bir aboneliğe taşınamaz. Örneğin, bu alt ağ Microsoft.Cache redis kaynak dağıtıldığında bir sanal ağ alt kaynak Gezinti bağlantısı vardır.
+* VNet eşlemesi devre dışı bırakılmış kadar sanal ağlar - şu anda, eşlenmiş bir sanal ağ taşınamaz. Bir kez devre dışı, sanal ağ başarıyla taşınabilmesi hello ve hello VNet eşlemesi etkinleştirilebilir. Ayrıca, kaynak Gezinti bağlantıları olan herhangi bir alt ağ Hello sanal ağ içeriyorsa, bir sanal ağ taşınan tooa farklı bir abonelik olamaz. Örneğin, bu alt ağ Microsoft.Cache redis kaynak dağıtıldığında bir sanal ağ alt kaynak Gezinti bağlantısı vardır.
 * VPN Gateway
 
 
 ## <a name="services-that-do-not-enable-move"></a>Taşıma etkinleştirmeyin Hizmetleri
-Şu anda bir kaynak taşıma etkinleştirmeyin hizmetler şunlardır:
+şu anda bir kaynak taşıma etkinleştirmeyin hello hizmetler şunlardır:
 
 * AD etki alanı Hizmetleri
 * AD karma sistem durumu hizmeti
@@ -130,26 +130,26 @@ Gerektiğinde desteğini arayın:
 * BizTalk Services
 * Kapsayıcı Hizmeti
 * Express Route
-* DevTest Labs - taşıma aynı Abonelikteki yeni kaynak grubu için etkinleştirildi, ancak çapraz abonelik taşıma etkin değil.
+* DevTest Labs - taşıma toonew kaynak grubu aynı abonelikte etkindir, ancak abonelik taşıma etkin değil.
 * Dynamics LCS
 * Yönetilen disklerden oluşturulan görüntüler
 * Yönetilen Diskler
 * Yönetilen uygulamalar
-* Kurtarma Hizmetleri kasası - ayrıca yapın kurtarma Hizmetleri kasası ile ilişkili işlem, ağ ve depolama kaynaklarını taşıyamazsınız bkz [kurtarma Hizmetleri sınırlamaları](#recovery-services-limitations).
+* Kurtarma Hizmetleri kasası - ile ilişkili değil hello işlem, ağ ve depolama kaynakları taşıma kurtarma hizmetleri de hello yapmak kasa için bkz: [kurtarma Hizmetleri sınırlamaları](#recovery-services-limitations).
 * Güvenlik
 * Yönetilen disklerden oluşturulan anlık görüntüler
 * StorSimple cihaz Yöneticisi
 * Yönetilen bir diske sahip sanal makineler
 * Bkz: Sanal ağları (Klasik) - [Klasik dağıtım sınırlamaları](#classic-deployment-limitations)
-* Market kaynaklardan - oluşturulan sanal makineleri abonelikler arasında taşınamaz. Kaynağın geçerli abonelikte sağlaması kaldırılıyor. sağlaması ve yeniden yeni abonelikte dağıtılmış gerekiyor
+* Market kaynaklardan - oluşturulan sanal makineleri abonelikler arasında taşınamaz. Merhaba geçerli abonelikte sağlaması kaldırılıyor. sağlaması ve yeniden hello yeni abonelikte dağıtılmış toobe kaynak gerekiyor
 
 ## <a name="app-service-limitations"></a>App Service sınırlamalar
-Uygulama hizmeti uygulamaları ile çalışırken, yalnızca bir uygulama hizmeti planı taşınamıyor. App Service uygulamalarının taşımak için seçenekleriniz şunlardır:
+Uygulama hizmeti uygulamaları ile çalışırken, yalnızca bir uygulama hizmeti planı taşınamıyor. toomove App Service uygulamalarının Seçenekleriniz şunlardır:
 
-* Uygulama hizmeti planı ve diğer tüm uygulama hizmeti kaynakları bu kaynak grubunda zaten App Service kaynakları yok yeni bir kaynak grubuna taşıyın. Bu gereksinim, hatta uygulama hizmeti plan ile ilişkili olmayan uygulama hizmeti kaynakları taşımalısınız anlamına gelir.
-* Uygulamalar farklı bir kaynak grubuna taşımak, ancak tüm uygulama hizmeti planları özgün kaynak grubunda tutun.
+* Merhaba uygulama hizmeti planı ve diğer tüm uygulama hizmeti kaynakları App Service kaynakları zaten sahip olmayan bu kaynak grubu tooa yeni kaynak grubu içinde taşıyın. Uygulama hizmeti kaynakları bile taşımalısınız anlamına gelir hello bu gereksinim, uygulama hizmeti planı hello ile ilişkili değildir.
+* Hello uygulamaları tooa farklı bir kaynak grubu taşıma, ancak hello özgün kaynak grubundaki tüm uygulama hizmeti planları tutun.
 
-Uygulama hizmeti planı düzgün çalışabilmesi için aynı kaynak grubunda için uygulaması olarak bulunmaları gerekmez.
+Merhaba uygulama hizmeti planı içinde tooreside gerekmez hello hello app hello uygulama toofunction için aynı kaynak grubunda doğru.
 
 Örneğin, kaynak grubunuz varsa:
 
@@ -165,65 +165,65 @@ Seçenekleriniz şunlardır:
 
 Diğer tüm birleşimler, bir uygulama hizmeti planı (uygulama hizmeti kaynak türlü) taşırken bırakılamaz arkasındaki bir kaynak türü bırakarak içerir.
 
-Web uygulamanızın farklı bir kaynak grubu, uygulama hizmeti planı daha bulunur, ancak her ikisi de yeni bir kaynak grubuna taşımak istediğiniz iki adımda taşıma gerçekleştirmeniz gerekir. Örneğin:
+Web uygulamanızın farklı bir kaynak grubu, uygulama hizmeti planı daha bulunur, ancak her iki tooa yeni kaynak grubu toomove istediğiniz iki adımda hello taşıma gerçekleştirmeniz gerekir. Örneğin:
 
 * **Web-a** bulunan **web grubu**
 * **planı bir** bulunan **planı Grup**
-* İstediğiniz **web-a** ve **planı-a** bulunması için **birleştirilmiş Grup**
+* İstediğiniz **web-a** ve **planı-a** tooreside içinde **birleştirilmiş Grup**
 
-Bu taşıma gerçekleştirmek için iki ayrı taşıma işlemi aşağıdaki sırayla gerçekleştirin:
+Bu taşıma hello dizisi aşağıdaki iki ayrı taşıma işlemleri tooaccomplish:
 
-1. Taşıma **web-a** için **planı Grup**
-2. Taşıma **web-a** ve **planı-a** için **Birleştirilmiş grup**.
+1. Merhaba taşıma **web-a** çok**planı Grup**
+2. Taşıma **web-a** ve **planı-a** çok**Birleştirilmiş grup**.
 
-Yeni kaynak grubu veya abonelik sorunları olmadan, bir uygulama hizmet sertifikası taşıyabilirsiniz. Ancak, web uygulamanızı dışarıdan satın ve uygulamaya karşıya bir SSL sertifikası içeriyorsa, web uygulaması taşımadan önce sertifika silmeniz gerekir. Örneğin, aşağıdaki adımları gerçekleştirebilirsiniz:
+Bir uygulama hizmet sertifikası tooa yeni kaynak grubu veya abonelik sorunları olmadan taşıyabilirsiniz. Ancak, web uygulamanızı harici olarak satın alınan ve toohello uygulamanın karşıya bir SSL sertifikası içeriyorsa, taşıma hello web uygulaması önce hello sertifika silmeniz gerekir. Örneğin, aşağıdaki adımları hello gerçekleştirebilirsiniz:
 
-1. Karşıya yüklenen sertifikanın web uygulamasından silme
-2. Web uygulaması taşıma
-3. Web uygulaması'na ve sertifikayı karşıya yüklemek
+1. Merhaba karşıya sertifika hello web uygulamasından silme
+2. Taşıma hello web uygulaması
+3. Merhaba sertifika toohello web uygulamasını yükleme
 
 ## <a name="recovery-services-limitations"></a>Kurtarma Hizmetleri kısıtlamaları
-Ağ, depolama için etkin değil taşıyın veya işlem kaynaklarını Azure Site Recovery ile olağanüstü durum kurtarma ayarlamak için kullanılır.
+Taşıma ağ, depolama için etkin değil veya işlem kaynakları Azure Site Recovery ile olağanüstü durum kurtarma yukarı tooset kullanılır.
 
-Örneğin, şirket içi makinelerinizi bir depolama hesabına (Storage1) çoğaltmasını ayarladıktan ve bir sanal ağa (Network1) bağlı sanal makine (VM1) olarak Azure için yük devretme sonrasında gündeme için korumalı makine istediğinizi varsayalım. Bu Azure kaynakları - Storage1, VM1 ve Network1 - hiçbirini aynı abonelik içindeki kaynak grupları arasında veya abonelikler arasında taşınamıyor.
+Örneğin, şirket içi makineler tooa depolama hesabınız (Storage1) çoğaltmayı ayarlama ayarladığınız düşünün ve sonra Yük devretme tooAzure tooa sanal ağ (Network1) bir sanal makineye (VM1) bağlı olarak yukarı korumalı hello makine toocome istiyor. Bu Azure kaynakları - Storage1, VM1, hiçbirini taşıyamazsınız ve Network1 - arasında kaynak grupları hello aynı abonelik veya abonelikler arasında.
 
 ## <a name="hdinsight-limitations"></a>Hdınsight sınırlamaları
 
-Yeni Abonelik veya kaynak grubu için Hdınsight kümeleri taşıyabilirsiniz. Ancak, ağ kaynaklarını (örneğin, sanal ağ, NIC veya yük dengeleyici) bir Hdınsight kümesine bağlı abonelikler arasında taşınamaz. Ayrıca, küme için bir sanal makineye bağlı bir NIC yeni bir kaynak grubuna taşıyamazsınız.
+Hdınsight kümeleri tooa yeni abonelik veya kaynak grubu taşıyabilirsiniz. Ancak, abonelikleri hello kaynakları bağlantılı toohello Hdınsight kümesi (örneğin, hello sanal ağ, NIC veya yük dengeleyici) ağ üzerinden taşınamıyor. Ayrıca, tooa yeni kaynak grubu ekli tooa sanal makine hello küme için bir NIC taşınamıyor.
 
-Hdınsight kümesi için yeni bir abonelik taşırken, diğer kaynakları (örneğin, depolama hesabı) taşıyın. Ardından, Hdınsight kümesi tek başına taşıyın.
+Bir Hdınsight kümesi tooa yeni abonelik taşırken, diğer kaynakları (gibi hello depolama hesabı) taşıyın. Ardından, hello Hdınsight kümesi tek başına taşıyın.
 
 ## <a name="classic-deployment-limitations"></a>Klasik dağıtım sınırlamaları
-Klasik modeli aracılığıyla dağıtılan kaynakları taşıma seçeneklerini taşıdığınız bir abonelik içindeki veya yeni bir abonelik için kaynaklara göre farklılık gösterir.
+Merhaba hello Klasik modeli aracılığıyla dağıtılan kaynakları taşıma için seçenekler taşıdığınız bir abonelik veya tooa yeni abonelik içindeki hello kaynaklara göre değişir.
 
 ### <a name="same-subscription"></a>Aynı abonelik
-Kaynaklar aynı abonelik içindeki başka bir kaynak grubu için bir kaynak grubundan taşırken, aşağıdaki kısıtlamalar geçerlidir:
+Bir kaynak grubu tooanother kaynak grubundaki aynı abonelik, kısıtlamaları aşağıdaki hello uygulamak hello içindeki kaynaklar taşınırken:
 
 * Sanal ağları (Klasik) taşınamaz.
-* Sanal makineler (Klasik) bulut hizmetiyle taşınması gerekir.
-* Tüm sanal makineleri taşıma içerdiği durumlarda bulut hizmeti yalnızca taşınabilir.
+* Sanal makineler (Klasik) hello bulut hizmetiyle taşınması gerekir.
+* Merhaba taşıma tüm sanal makineleri içerdiğinde bulut hizmeti yalnızca taşınabilir.
 * Aynı anda yalnızca bir bulut hizmeti taşınabilir.
 * Aynı anda yalnızca bir depolama hesabı (Klasik) taşınabilir.
-* Depolama hesabı (Klasik), sanal makine ya da bir bulut hizmeti ile aynı işlemde taşınamaz.
+* Depolama hesabı (Klasik) hello taşınamaz bir sanal makine ya da bir bulut hizmeti ile aynı işlemi.
 
-Klasik kaynaklar aynı abonelik içindeki yeni bir kaynak grubuna taşımak için standart taşıma işlemleri aracılığıyla kullanmak [portal](#use-portal), [Azure PowerShell](#use-powershell), [Azure CLI](#use-azure-cli), veya [REST API](#use-rest-api). Resource Manager kaynaklarını taşımak için kullandığınız gibi işlemlerin aynısını kullanın.
+toomove Klasik kaynakları tooa yeni kaynak grubu içinde Merhaba aynı abonelik, hello aracılığıyla hello standart taşıma işlemlerini kullanmak [portal](#use-portal), [Azure PowerShell](#use-powershell), [Azure CLI](#use-azure-cli), veya [REST API](#use-rest-api). Kullandığınız hello aynı işlemleri Resource Manager kaynaklarını taşımak için kullanın.
 
 ### <a name="new-subscription"></a>Yeni abonelik
-Kaynaklar için yeni bir abonelik taşırken, aşağıdaki kısıtlamalar geçerlidir:
+Kaynakları tooa yeni abonelik taşırken kısıtlamaları aşağıdaki hello Uygula:
 
-* Abonelikteki tüm Klasik kaynaklar aynı işlem içinde taşınması gerekir.
-* Hedef abonelik diğer Klasik kaynakları içermemesi gerekir.
-* Taşıma yalnızca klasik taşıma için ayrı bir REST API aracılığıyla istenebilir. Klasik kaynaklar için yeni bir abonelik taşırken standart Resource Manager taşıma komutlar çalışmaz.
+* Hello hello Abonelikteki tüm Klasik kaynaklar taşınmalıdır aynı işlemi.
+* Merhaba hedef abonelik diğer Klasik kaynakları içermemesi gerekir.
+* Merhaba taşıma yalnızca klasik taşıma için ayrı bir REST API aracılığıyla istenebilir. Klasik kaynaklar tooa yeni abonelik taşırken Hello standart Resource Manager taşıma komutlar çalışmaz.
 
-Klasik kaynaklar için yeni bir aboneliği taşımak için Klasik kaynakları için belirli REST işlemlerini kullanın. REST kullanmak için aşağıdaki adımları gerçekleştirin:
+toomove Klasik kaynakları tooa yeni abonelik, belirli tooclassic kaynakları hello REST işlemlerini kullanın. toouse REST, hello aşağıdaki adımları gerçekleştirin:
 
-1. Kaynak abonelik bir çapraz abonelik taşıma katılabilmesi için denetleyin. Aşağıdaki işlemi kullanın:
+1. Çapraz abonelik hello kaynak abonelik katılabilir onay taşıyın. Merhaba aşağıdaki işlemi kullanın:
 
   ```HTTP   
   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
 
-     İstek gövdesinde şunları içerir:
+     Merhaba istek gövdesinde şunları içerir:
 
   ```json
   {
@@ -231,7 +231,7 @@ Klasik kaynaklar için yeni bir aboneliği taşımak için Klasik kaynakları i�
   }
   ```
 
-     Yanıt için doğrulama işlemi aşağıdaki biçimdedir:
+     Merhaba doğrulama işlemi için Hello yanıt biçimi aşağıdaki hello şöyledir:
 
   ```json
   {
@@ -243,13 +243,13 @@ Klasik kaynaklar için yeni bir aboneliği taşımak için Klasik kaynakları i�
   }
   ```
 
-2. Hedef abonelik bir çapraz abonelik taşıma katılabilmesi için denetleyin. Aşağıdaki işlemi kullanın:
+2. Çapraz abonelik hello hedef abonelik katılabilir onay taşıyın. Merhaba aşağıdaki işlemi kullanın:
 
   ```HTTP
   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
 
-     İstek gövdesinde şunları içerir:
+     Merhaba istek gövdesinde şunları içerir:
 
   ```json
   {
@@ -257,14 +257,14 @@ Klasik kaynaklar için yeni bir aboneliği taşımak için Klasik kaynakları i�
   }
   ```
 
-     Kaynak abonelik doğrulama ile aynı biçimi yanıt kullanılıyor.
-3. Her iki aboneliğin doğrulama başarılı olursa, tüm Klasik kaynaklar bir abonelikten şu işlemi başka bir aboneliğe taşıyın:
+     Merhaba yanıt aynı hello kaynak abonelik doğrulama biçimi hello kullanılıyor.
+3. Her iki aboneliğin doğrulama başarılı olursa, tüm Klasik kaynaklar ile aşağıdaki işlemi hello bir abonelik tooanother abonelikten Taşı:
 
   ```HTTP
   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
   ```
 
-    İstek gövdesinde şunları içerir:
+    Merhaba istek gövdesinde şunları içerir:
 
   ```json
   {
@@ -272,38 +272,38 @@ Klasik kaynaklar için yeni bir aboneliği taşımak için Klasik kaynakları i�
   }
   ```
 
-İşlemi birkaç dakika çalışabilir.
+Merhaba işlemi birkaç dakika çalışabilir.
 
 ## <a name="use-portal"></a>Portal kullanma
-Kaynakları taşımak için bu kaynakları içeren kaynak grubunu seçin ve ardından **taşıma** düğmesi.
+toomove kaynaklar, bu kaynakları içeren hello kaynak grubu seçin ve ardından hello seçin **taşıma** düğmesi.
 
 ![Kaynakları taşıma](./media/resource-group-move-resources/select-move.png)
 
-Yeni bir kaynak grubu veya yeni bir abonelik için kaynakları taşıma olup olmadığını seçin.
+Merhaba kaynakları tooa yeni kaynak grubu veya yeni bir abonelik taşıma olup olmadığını seçin.
 
-Taşıma için kaynak ve hedef kaynak grubu seçin. Bu kaynaklar için komut dosyaları güncelleştirmek ve seçmek gereken kabul **Tamam**. Önceki adımda Düzenle abonelik simgesini seçtiyseniz, hedef abonelik seçmeniz gerekir.
+Merhaba kaynakları toomove ve hello hedef kaynak grubu seçin. Bu kaynaklar ve seçim için tooupdate betikleri gereksinim kabul **Tamam**. Merhaba önceki adımda hello Düzenle abonelik simgesini seçtiyseniz hello hedef aboneliği seçmeniz gerekir.
 
 ![hedef seçin](./media/resource-group-move-resources/select-destination.png)
 
-İçinde **bildirimleri**, taşıma işleminin çalıştığını görürsünüz.
+İçinde **bildirimleri**, taşıma işlemi çalıştıran bu hello bakın.
 
 ![taşıma durumunu göster](./media/resource-group-move-resources/show-status.png)
 
-Tamamlandığında, sonucu bildirilir.
+Tamamlandığında, hello sonucunu bildirilir.
 
 ![taşıma sonucu göster](./media/resource-group-move-resources/show-result.png)
 
 ## <a name="use-powershell"></a>PowerShell kullanma
-Başka bir kaynak grubuna veya aboneliğe mevcut kaynakları taşımak için kullanmak `Move-AzureRmResource` komutu.
+toomove varolan kaynakları tooanother kaynak grubuna veya aboneliğe hello kullanın, `Move-AzureRmResource` komutu.
 
-İlk örnek yeni bir kaynak grubu için bir kaynak taşıma gösterir.
+ilk örnekteki Hello nasıl toomove bir kaynak tooa yeni kaynak grubu.
 
 ```powershell
 $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
 ```
 
-İkinci örnek, birden çok kaynakları yeni bir kaynak grubuna taşımak gösterilmiştir.
+Merhaba ikinci örnekteki nasıl toomove birden çok kaynak tooa yeni kaynak grubu.
 
 ```powershell
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
@@ -311,14 +311,14 @@ $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
-Yeni bir aboneliği taşımak için bir değer dahil `DestinationSubscriptionId` parametresi.
+toomove tooa yeni abonelik, hello için bir değer dahil `DestinationSubscriptionId` parametresi.
 
-Belirtilen kaynaklar taşımak istediğiniz onaylamanız istenir.
+Bunu Sorduğunuza toomove hello istediğiniz tooconfirm belirtilen kaynaklar.
 
 ```powershell
 Confirm
-Are you sure you want to move these resources to the resource group
-'/subscriptions/{guid}/resourceGroups/newRG' the resources:
+Are you sure you want toomove these resources toohello resource group
+'/subscriptions/{guid}/resourceGroups/newRG' hello resources:
 
 /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
 /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
@@ -326,28 +326,28 @@ Are you sure you want to move these resources to the resource group
 ```
 
 ## <a name="use-azure-cli-20"></a>Azure CLI 2.0 kullanın
-Başka bir kaynak grubuna veya aboneliğe mevcut kaynakları taşımak için kullanmak `az resource move` komutu. Kaynak taşımak için kimlikleri kaynakları sağlar. Kaynak kimlikleri aşağıdaki komutu kullanarak elde edebilirsiniz:
+toomove varolan kaynakları tooanother kaynak grubuna veya aboneliğe hello kullanın, `az resource move` komutu. Merhaba kaynak hello kaynakları toomove kimliklerini sağlar. Kaynak kimlikleri komutu aşağıdaki hello ile alabilirsiniz:
 
 ```azurecli
 az resource show -g sourceGroup -n storagedemo --resource-type "Microsoft.Storage/storageAccounts" --query id
 ```
 
-Aşağıdaki örnek, bir depolama hesabını yeni bir kaynak grubuna taşımak gösterilmiştir. İçinde `--ids` parametresi, kaynak taşımak için kimlikleri boşlukla ayrılmış bir listesini sağlayın.
+Aşağıdaki örnek hello nasıl toomove bir depolama hesabı tooa yeni kaynak grubu gösterir. Merhaba, `--ids` parametresi hello kaynak kimlikleri toomove boşlukla ayrılmış bir listesini sağlayın.
 
 ```azurecli
 az resource move --destination-group newgroup --ids "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo"
 ```
 
-Yeni bir abonelik taşımanızı sağlayan `--destination-subscription-id` parametresi.
+toomove tooa yeni abonelik, hello sağlamak `--destination-subscription-id` parametresi.
 
 ## <a name="use-azure-cli-10"></a>Azure CLI 1.0 kullanın
-Başka bir kaynak grubuna veya aboneliğe mevcut kaynakları taşımak için kullanmak `azure resource move` komutu. Kaynak taşımak için kimlikleri kaynakları sağlar. Kaynak kimlikleri aşağıdaki komutu kullanarak elde edebilirsiniz:
+toomove varolan kaynakları tooanother kaynak grubuna veya aboneliğe hello kullanın, `azure resource move` komutu. Merhaba kaynak hello kaynakları toomove kimliklerini sağlar. Kaynak kimlikleri komutu aşağıdaki hello ile alabilirsiniz:
 
 ```azurecli
 azure resource list -g sourceGroup --json
 ```
 
-Aşağıdaki biçimde döndürür:
+Biçim aşağıdaki hello döndürür:
 
 ```azurecli
 [
@@ -366,25 +366,25 @@ Aşağıdaki biçimde döndürür:
 ]
 ```
 
-Aşağıdaki örnek, bir depolama hesabını yeni bir kaynak grubuna taşımak gösterilmiştir. İçinde `-i` parametresi, kaynak kimlikleri taşımak için virgülle ayrılmış bir listesini sağlayın.
+Aşağıdaki örnek hello nasıl toomove bir depolama hesabı tooa yeni kaynak grubu gösterir. Merhaba, `-i` parametresi hello kaynak kimlikleri toomove virgülle ayrılmış bir listesini sağlayın.
 
 ```azurecli
 azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
 ```
 
-Belirtilen kaynak taşımak istediğiniz onaylamanız istenir.
+Bunu Sorduğunuza toomove hello istediğiniz tooconfirm belirtilen kaynak.
 
 ## <a name="use-rest-api"></a>REST API’yi kullanma
-Başka bir kaynak grubuna veya aboneliğe mevcut kaynakları taşımak için çalıştırın:
+toomove mevcut kaynakları tooanother kaynak grubuna veya aboneliğe, çalıştırın:
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
 ```
 
-İstek gövdesinde hedef kaynak grubu ve kaynakları taşımak için belirtin. Taşıma REST işlemi hakkında daha fazla bilgi için bkz: [taşıma kaynakları](https://msdn.microsoft.com/library/azure/mt218710.aspx).
+Merhaba istek gövdesinde hello hedef kaynak grubu ve hello kaynakları toomove belirtin. Merhaba taşıma REST işlemi hakkında daha fazla bilgi için bkz: [taşıma kaynakları](https://msdn.microsoft.com/library/azure/mt218710.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Aboneliğinizi yönetmek için PowerShell cmdlet'leri hakkında bilgi edinmek için [Resource Manager ile Azure PowerShell'i kullanarak](powershell-azure-resource-manager.md).
-* Aboneliğinizi yönetmek için Azure CLI komutları hakkında bilgi edinmek için [Resource Manager ile Azure CLI kullanarak](xplat-cli-azure-resource-manager.md).
-* Aboneliğinizi yönetmeye yönelik portal özellikleri hakkında bilgi edinmek için [kaynakları yönetmek için Azure portalını kullanarak](resource-group-portal.md).
-* Kaynaklarınız için bir mantıksal kuruluş uygulama hakkında bilgi edinmek için [etiketleri kullanarak kaynaklarınızı düzenleme](resource-group-using-tags.md).
+* Aboneliğinizi yönetmek için PowerShell cmdlet'leri hakkında toolearn bkz [Resource Manager ile Azure PowerShell'i kullanarak](powershell-azure-resource-manager.md).
+* Aboneliğinizi yönetmek için Azure CLI komutları hakkında toolearn bkz [kullanma hello Azure CLI Resource Manager ile](xplat-cli-azure-resource-manager.md).
+* Aboneliğinizi yönetmek için portal özellikleri hakkında toolearn bkz [hello Azure portal toomanage kaynakları kullanarak](resource-group-portal.md).
+* bir mantıksal kuruluş tooyour kaynakları uygulama hakkında toolearn bkz [kullanarak kaynaklarınızı tooorganize etiketler](resource-group-using-tags.md).

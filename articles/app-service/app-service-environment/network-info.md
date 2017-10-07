@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama hizmeti ortamı ile ağ konuları"
-description: "Ana ağ trafiği ve Nsg'ler ve Udr'ler, ana ile nasıl ayarlanacağı açıklanır"
+title: "Azure uygulama hizmeti ortamı ile aaaNetworking konuları"
+description: "Hello ana ağ trafiğini açıklar ve nasıl tooset Nsg'ler ve Udr'ler, ana ile"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3be0d7a202ff53f5532fd7169a50a04cfaf88832
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d4d3000f4d4d75814b1e6d47079d967334eb1a3b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Uygulama hizmeti ortamı için ağ konuları #
 
@@ -25,16 +25,16 @@ ms.lasthandoff: 08/29/2017
 
  Azure [uygulama hizmeti ortamı] [ Intro] bir Azure App Service, Azure sanal ağınıza (VNet) bir alt ağ içinde dağıtımıdır. Uygulama hizmeti ortamı (ana) için iki dağıtım türleri şunlardır:
 
-- **Dış ana**: internet'ten erişilebilen bir IP adresi üzerinde ana barındırılan uygulamalar kullanıma sunar. Daha fazla bilgi için bkz: [bir dış ana oluşturma][MakeExternalASE].
-- **ILB ana**: ana barındırılan uygulamalar üzerinde bir IP adresi sanal ağınızın içinde kullanıma sunar. Bir ILB ana çağırdı neden olan bir iç yük dengeleyici (ILB) iç uç noktadır. Daha fazla bilgi için bkz: [oluşturma ve kullanma bir ILB ana][MakeILBASE].
+- **Dış ana**: hello ana barındırılan uygulamalar internet'ten erişilebilen bir IP adresi üzerinde açığa çıkarır. Daha fazla bilgi için bkz: [bir dış ana oluşturma][MakeExternalASE].
+- **ILB ana**: çıkarır hello ana barındırılan uygulamalar üzerinde bir IP adresi sanal ağınızın içinde. Merhaba dahili uç noktayı bir ILB ana çağırdı neden olan bir iç yük dengeleyici (ILB) ' dir. Daha fazla bilgi için bkz: [oluşturma ve kullanma bir ILB ana][MakeILBASE].
 
-Artık uygulama hizmeti ortamı iki sürümü vardır: ASEv1 ve ASEv2. ASEv1 hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı v1 giriş][ASEv1Intro]. ASEv1 Klasik veya Resource Manager Vnet'i dağıtılabilir. ASEv2 yalnızca Resource Manager Vnet'i dağıtılabilir.
+Artık uygulama hizmeti ortamı iki sürümü vardır: ASEv1 ve ASEv2. ASEv1 hakkında daha fazla bilgi için bkz: [giriş tooApp hizmeti ortamı v1][ASEv1Intro]. ASEv1 Klasik veya Resource Manager Vnet'i dağıtılabilir. ASEv2 yalnızca Resource Manager Vnet'i dağıtılabilir.
 
-İnternet'e giden tüm çağrılarından bir ana sanal ağ için ana atanmış bir VIP aracılığıyla bırakın. Bu VIP genel IP ana gelen internet'e gidin tüm çağrıları için kaynak IP ise. Kaynak IP, ana uygulamalar sanal ağınızın içinde veya bir VPN kaynaklara çağrıları yaparsanız, ana tarafından kullanılan alt ağdaki IP biridir. Ana sanal ağ içinde olduğundan, ayrıca herhangi bir ek yapılandırma olmadan sanal ağ içindeki kaynaklara erişebilir. VNet şirket içi ağınıza bağlanırsa, ana uygulamalarında kaynaklarına erişimi de vardır'e sahip. Her ana ya da uygulamanızı daha fazla yapılandırmak gerekmez.
+Bir ana gelen toohello Git tüm çağrıları Internet hello ana hello için atanan bir VIP aracılığıyla VNet bırakın. Merhaba bu VIP ortak IP hello kaynak IP toohello Git hello ana gelen tüm çağrıları için ise Internet. Hello kaynak IP, ana Hello uygulamalarında sanal ağınızın içinde veya bir VPN çağrıları tooresources yaparsanız, ana tarafından kullanılan hello alt ağdaki IP hello biridir. Merhaba ana hello VNet içinde olduğundan, ayrıca herhangi bir ek yapılandırma olmadan hello VNet içindeki kaynaklara erişebilir. Merhaba VNet bağlı tooyour şirket içi ağ ise, uygulamalar, ana de erişim tooresources sahip. Tooconfigure hello ana ya da uygulamanızı herhangi başka gerekmez.
 
 ![Dış ana][1] 
 
-Bir dış ana varsa, genel VIP ana uygulamalarınız için çözümlemek uç nokta da şöyledir:
+Bir dış ana varsa, hello genel VIP ayrıca ana uygulamalarınızı toofor gidermek hello uç noktadır:
 
 * HTTP/S'DİR. 
 * FTP/S'DİR. 
@@ -43,40 +43,40 @@ Bir dış ana varsa, genel VIP ana uygulamalarınız için çözümlemek uç nok
 
 ![ILB ANA][2]
 
-Bir ILB ana varsa, ILB'nin IP adresini HTTP/S, FTP/sn, web dağıtımı ve uzaktan hata ayıklama için uç noktadır.
+Bir ILB ana varsa, başlangıç IP adresi hello ILB HTTP/S, FTP/sn, web dağıtımı ve uzaktan hata ayıklama için hello uç noktadır.
 
-Normal uygulama erişim bağlantı noktaları şunlardır:
+Merhaba normal uygulama erişim bağlantı noktaları şunlardır:
 
-| Kullanım | Kaynak | Bitiş |
+| Kullanım | Kaynak | çok|
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Kullanıcı tarafından yapılandırılabilir |  80, 443 |
 |  FTP/FTPS    | Kullanıcı tarafından yapılandırılabilir |  21, 990, 10001-10020 |
 |  Visual Studio uzaktan hata ayıklama  |  Kullanıcı tarafından yapılandırılabilir |  4016, 4018, 4020, 4022 |
 
-Bu, bir dış ana ya da bir ILB ana iseniz geçerlidir. Bir dış ana üzerinde değilseniz, bu bağlantı noktalarına genel VIP ulaştı. Bir ILB ana değilseniz, bu bağlantı noktalarına ILB ulaştı. Bağlantı noktası 443 kilitlemek portalda kullanıma bazı özellikler üzerinde bir etkisi olabilir. Daha fazla bilgi için bkz: [Portal bağımlılıkları](#portaldep).
+Bu, bir dış ana ya da bir ILB ana iseniz geçerlidir. Bir dış ana üzerinde değilseniz, bu bağlantı noktalarına hello genel VIP ulaştı. Bir ILB ana değilseniz, bu bağlantı noktalarına hello ILB ulaştı. Bağlantı noktası 443 kilitlemek hello portalda kullanıma bazı özellikler üzerinde bir etkisi olabilir. Daha fazla bilgi için bkz: [Portal bağımlılıkları](#portaldep).
 
 ## <a name="ase-dependencies"></a>Ana bağımlılıkları ##
 
 Bir ana gelen erişim bağımlılık:
 
-| Kullanım | Kaynak | Bitiş |
+| Kullanım | Kaynak | çok|
 |-----|------|----|
 | Yönetim | App Service management adresleri | ANA alt: 454, 455 |
 |  ANA iç iletişim | ANA alt: tüm bağlantı noktaları | ANA alt: tüm bağlantı noktaları
 |  Azure yük dengeleyici izin gelen | Azure yük dengeleyici | ANA alt: tüm bağlantı noktaları
 |  Uygulama atanmış IP adresleri | Atanmış adresleri uygulama | ANA alt: tüm bağlantı noktaları
 
-Gelen trafik komut ve sistem izleme yanı sıra ana denetim sağlar. Bu trafik kaynağı IP'leri içinde listelenen [adresleri ana Yönetimi] [ ASEManagement] belge. Tüm IP'ler 454 ve 455 bağlantı noktalarında gelen erişime izin verecek şekilde ağ güvenliği yapılandırması gerekir.
+Hello gelen trafiği komut ve toosystem ek izleme hello ana denetim sağlar. Bu trafik için Hello kaynak IP'leri hello listelenen [adresleri ana Yönetimi] [ ASEManagement] belge. Merhaba ağ güvenliği yapılandırması 454 ve 455 bağlantı noktalarında tüm IP'ler tooallow erişimden gerekir.
 
-İç bileşeni için kullanılan pek çok bağlantı noktaları olduğundan ana alt ağ içindeki iletişim ve bunlar değiştirebilirsiniz.  Bu, tüm bağlantı noktaları ana alt ağdaki ana alt ağ üzerinden erişilebilir olmasını gerektirir. 
+Vardır hello ana alt ağ içindeki birçok bağlantı noktası iç bileşeni iletişim için kullanılan ve değişiklik.  Bu, tüm hello ana alt toobe hello ana alt ağdan erişilebilir hello bağlantı noktalarını gerektirir. 
 
-Azure yük dengeleyici ve ana alt ağ arasındaki iletişimin açık olması gereken minimum bağlantı noktaları 454 ve 455 16001 içindir. 16001 bağlantı noktası, yük dengeleyici ve ana arasındaki Koru canlı akış için kullanılır. Bir ILB ana kullandığınız sonra yalnızca 454, 455, 16001 aşağıya doğru trafiği kilitleyebilirsiniz bağlantı noktaları.  Bir dış ana kullanıyorsanız, normal uygulama erişim bağlantı noktaları dikkate almanız gerekir.  Atanan uygulamayı adresleri kullanıyorsanız, tüm bağlantı noktalarını açmanız gerekir.  Belirli bir uygulamayı bir adresi atandığında, yük dengeleyici, önceden HTTP ve HTTPS trafiği için ana göndermek için Bilinmeyen bağlantı noktalarını kullanır.
+Bu gereksinim toobe açık hello Azure yük dengeleyici hello ana alt hello minimum bağlantı noktaları arasında hello iletişimi için 454 ve 455 16001 olan. Merhaba 16001 bağlantı noktası hello yük dengeleyici ve hello ana arasındaki Koru canlı akış için kullanılır. Bir ILB ana kullanıyorsanız, trafik toojust hello 454, 455, 16001 bağlantı noktalarını aşağı kilitleyebilirsiniz.  Daha sonra bir dış ana kullanıyorsanız, hesabı hello normal uygulama erişim bağlantı noktasına tootake gerekir.  Atanan uygulamayı adresleri kullanıyorsanız tooopen gerekir, tooall bağlantı noktaları.  Bir adresi tooa belirli uygulama atandığında, hello yük dengeleyici önceden toosend HTTP ve HTTPS trafiği toohello ana Bilinmeyen bağlantı noktalarını kullanır.
 
-Atanmış IP adresleri uygulamalarınızı ana alt ağa atanan IP gelen trafiğe izin verecek şekilde gereken uygulama kullanıyorsanız.
+Uygulama atanmış IP adresleri kullanıyorsanız tooyour uygulamaları toohello ana alt IP'leri atanan hello tooallow trafiğinden gerekir.
 
-Giden erişim için bir ana birden çok dış sistemlerde bağlıdır. Bu sistem bağımlılıkların DNS adları ile tanımlanır ve sabit bir IP adresleri kümesini eşleme yok. Bu nedenle, ana çeşitli bağlantı noktaları tüm dış IP ana alt ağdan giden erişim gerektirir. Bir ana aşağıdaki giden bağımlılıklara sahiptir:
+Giden erişim için bir ana birden çok dış sistemlerde bağlıdır. Bu sistem bağımlılıkları DNS adları ile tanımlanır ve IP adresleri kümesini sabit tooa eşleme yok. Bu nedenle, hello ana hello ana alt tooall giden erişim gerektiren çeşitli bağlantı noktaları üzerinden dış IP. Bir ana giden bağımlılıklar aşağıdaki hello sahiptir:
 
-| Kullanım | Kaynak | Bitiş |
+| Kullanım | Kaynak | çok|
 |-----|------|----|
 | Azure Storage | ANA alt ağ | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 yalnızca gereklidir ASEv1 için.) |
 | Azure SQL Database | ANA alt ağ | Database.Windows.NET: 1433 11000 11999, 14000 14999 (daha fazla bilgi için bkz: [SQL Database V12 bağlantı noktası kullanımı](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
@@ -87,19 +87,19 @@ Giden erişim için bir ana birden çok dış sistemlerde bağlıdır. Bu sistem
 | Azure DNS                     | ANA alt ağ            |  Internet: 53
 | ANA iç iletişim    | ANA alt: tüm bağlantı noktaları |  ANA alt: tüm bağlantı noktaları
 
-Ana Bu bağımlılıklar erişimi kaybederse, çalışmayı durdurur. Bu yetecek kadar uzun süre durum oluştuğunda ana askıya alındı.
+Merhaba ana toothese bağımlılıkları erişimi kaybederse, çalışmayı durdurur. Ana hello uzun yeterli, durumda, askıya alınmış durumda.
 
 ### <a name="customer-dns"></a>Müşteri DNS ###
 
-VNet müşteri tanımlı bir DNS sunucusu ile yapılandırılmışsa, Kiracı İş yükleri bunu kullanın. Ana hala yönetim amacıyla Azure DNS ile iletişim kurması gerekiyor. 
+Merhaba VNet müşteri tanımlı bir DNS sunucusu ile yapılandırılmışsa, hello Kiracı İş yükleri bunu kullanın. Merhaba ana hala yönetim amacıyla Azure DNS ile toocommunicate gerekiyor. 
 
-VNet DNS diğer tarafındaki bir VPN müşteri ile yapılandırılmışsa, DNS sunucusu ana içeren alt ağ üzerinden erişilebilir olması gerekir.
+Merhaba VNet müşteriyle DNS üzerinde yapılandırılmışsa, VPN diğer tarafını Merhaba, hello DNS sunucusu hello ana içeren hello alt ağ üzerinden erişilebilir olması gerekir.
 
 <a name="portaldep"></a>
 
 ## <a name="portal-dependencies"></a>Portal bağımlılıkları ##
 
-ANA işlevsel bağımlılıkları ek olarak, portal deneyimiyle ilgili birkaç ek öğeler vardır. Bazı Azure portalında özelliklerini doğrudan erişim bağımlı _SCM site_. Azure App Service'te her uygulama için iki URL'leri vardır. İlk uygulamanızı erişmek için URL'dir. İkinci olarak da adlandırılır SCM sitesine erişmek için URL'dir _Kudu konsol_. SCM site kullanan özellikler şunlardır:
+Toplama toohello ana işlevsel bağımlılıkları, birkaç ek öğeler ilgili toohello portal deneyimi vardır. Hello Azure Portalı'nda hello özelliklerden bazıları üzerinde doğrudan erişim too_SCM site_ bağlıdır. Azure App Service'te her uygulama için iki URL'leri vardır. Merhaba ilk URL uygulamanızı tooaccess değil. Merhaba ikinci hello olarak da bilinir tooaccess hello SCM site URL'dir _Kudu konsol_. Merhaba SCM site kullanan özellikler şunlardır:
 
 -   Web işleri
 -   İşlevler
@@ -109,62 +109,62 @@ ANA işlevsel bağımlılıkları ek olarak, portal deneyimiyle ilgili birkaç e
 -   İşlem Gezgini
 -   Konsol
 
-Bir ILB ana kullandığınızda, SCM site internet sanal ağ dışında erişilebilir değildir. Uygulamanızı bir ILB ana barındırıldığında, bazı özellikleri portaldan çalışmaz.  
+Bir ILB ana kullandığınızda, hello SCM site Internet VNet hello dışında erişilebilir değildir. Uygulamanızı bir ILB ana barındırıldığında, bazı özellikleri hello portalından çalışmaz.  
 
-Birçok SCM site bağımlı bu yetenekleri de doğrudan Kudu konsolunda kullanılabilir. Bunu doğrudan yerine portalını kullanarak bağlanabilir. Uygulamanızı ILB ASE'de barındırılıyorsa, oturum açmak için yayımlama kimlik bilgilerinizi kullanın. ILB ASE'de barındırılan bir uygulamanın SCM sitesine erişmek için URL'si aşağıdaki biçime sahiptir: 
+Birçok hello SCM site bağımlı bu yetenekleri de doğrudan hello Kudu konsolunda kullanılabilir. Tooit yerine doğrudan hello portalını kullanarak bağlanabilir. Uygulamanızı ILB ASE'de barındırılıyorsa, yayımlama kimlik bilgileri toosign kullanın. Merhaba URL tooaccess hello SCM site ILB ASE'de barındırılan bir uygulamanın biçimini izleyen hello sahiptir: 
 
 ```
-<appname>.scm.<domain name the ILB ASE was created with> 
+<appname>.scm.<domain name hello ILB ASE was created with> 
 ```
 
-ILB ana etki alanı adı ise *contoso.net* ve uygulama adınız *testapp*, uygulamanın en üst sınırına *testapp.contoso.net*. İle gidiyor SCM sitenin en üst sınırına *testapp.scm.contoso.net*.
+ILB ana hello etki alanı adı ise *contoso.net* ve uygulama adınız *testapp*, hello uygulama adresindeki ulaşıldığında *testapp.contoso.net*. ile gidiyor hello SCM site adresindeki ulaşıldığında *testapp.scm.contoso.net*.
 
 ### <a name="functions-and-web-jobs"></a>İşlevler ve Web işleri ###
 
-İşlevler ve Web işleri SCM siteye bağımlı olan ancak tarayıcınız SCM sitenin ulaşabileceği sürece, uygulamalarınızı ILB ASE'de olsa bile, portalı kullanmak için desteklenir.  İle ILB ana kendinden imzalı bir sertifika kullanıyorsanız, bu sertifika güven için tarayıcınızı etkinleştirmeniz gerekir.  IE ve sertifika anlamına gelir kenar için bilgisayar güven deposunda olması gerekir.  Tarayıcıda sertifika önceki büyük olasılıkla scm sitenin doğrudan basarsa tarafından kabul ettiğiniz anlamına gelir sonra Chrome kullanıyorsanız.  En iyi çözüm, güven tarayıcı zinciri ticari bir sertifika kullanmaktır.  
+İşlevler ve Web işleri hello SCM siteye bağımlı olan ancak tarayıcınız hello SCM site ulaşabilir sürece, uygulamalarınızı ILB ASE'de olsa bile hello portalı kullanmak için desteklenir.  İle ILB ana kendinden imzalı bir sertifika kullanıyorsanız, sertifika, tarayıcı tootrust tooenable gerekir.  IE ve hello sertifika anlamına gelir kenar depolamak toobe hello bilgisayar güvende sahiptir.  Merhaba sertifika hello tarayıcıda önceki büyük olasılıkla hello scm site doğrudan basarsa tarafından kabul ettiğiniz anlamına gelir sonra Chrome kullanıyorsanız.  Merhaba en iyi toouse hello tarayıcı zincirindeki güven bir ticari sertifikası çözümüdür.  
 
 ## <a name="ase-ip-addresses"></a>ANA IP adresleri ##
 
-Bir ana dikkat edilmesi gereken birkaç IP adresi vardır. Bunlar:
+Bir ana birkaç IP adreslerini toobe farkında sahiptir. Bunlar:
 
 - **Gelen ortak IP adresi**: bir dış ana uygulama trafiği ve bir dış ana ve bir ILB ana yönetim trafiği için kullanılır.
-- **Giden genel IP**: hangi VPN yönlendirilen değil, VNet bırakın giden bağlantılar ana "Kimden" IP olarak kullanılacak.
+- **Giden genel IP**: IP "Kimden" Merhaba ana giden bağlantılar için bu bırakın hello VNet, hangi VPN yönlendirilen olmayan hello olarak kullanılır.
 - **ILB IP adresi**: bir ILB ana kullanıyorsanız.
 - **Uygulama tarafından atanan IP tabanlı SSL adresleri**: bir dış ana ve IP tabanlı SSL yapılandırıldığında mümkün.
 
-Bu IP adreslerine ana Arabiriminden kolayca Azure portalında bir ASEv2 içinde görülebilir. Bir ILB ana varsa, ILB'nin IP listelenir.
+Bu IP adreslerine hello ana UI ' kolayca bir ASEv2 hello Azure portal'ın içinde görülebilir. Bir ILB ana varsa, hello IP hello ILB için listelenir.
 
 ![IP adresleri][3]
 
 ### <a name="app-assigned-ip-addresses"></a>Uygulama tarafından atanan IP adresleri ###
 
-Bir dış ana ile tek tek uygulamalar için IP adresleri atayabilirsiniz. Bir ILB ana ile yapamazsınız. Kendi IP adresini için uygulamanızı yapılandırma hakkında daha fazla bilgi için bkz: [Azure web uygulamaları için var olan özel bir SSL sertifikası bağlama](../../app-service-web/app-service-web-tutorial-custom-ssl.md).
+Bir dış ana ile tooindividual uygulamalar IP adresleri atayabilirsiniz. Bir ILB ana ile yapamazsınız. Hakkında daha fazla bilgi için tooconfigure uygulama toohave kendi IP adresini bakın [bir var olan özel SSL sertifikası tooAzure web uygulamaları bağlamak](../../app-service-web/app-service-web-tutorial-custom-ssl.md).
 
-Uygulama kendi IP tabanlı SSL adresine sahipse, ana o IP adresine eşlemek için iki bağlantı noktası ayırır. Bir bağlantı noktası HTTP trafiği için ve diğer bağlantı noktası için HTTPS şeklindedir. Bu bağlantı noktaları ana kullanıcı arabiriminde IP adresleri bölümünde listelenir. Uygulamaları erişilemeyen veya trafiği bağlantı noktalarından VIP ulaşabilir olmalıdır. Bu gereksinim, ağ güvenlik grupları (Nsg'ler) yapılandırdığınızda unutmayın.
+Uygulama kendi IP tabanlı SSL adresine sahipse, ana hello iki bağlantı noktaları toomap toothat IP adresi ayırır. Bir bağlantı noktası HTTP trafiği için ve hello diğer bağlantı noktası için HTTPS. Bu bağlantı noktalarını hello ana UI hello IP adresleri bölümünde listelenir. Trafiği, bu bağlantı noktalarından mümkün tooreach olmalıdır hello VIP veya hello uygulamalar erişilemez. Ağ güvenlik grupları (Nsg'ler) yapılandırdığınızda bu önemli tooremember gereksinimdir.
 
 ## <a name="network-security-groups"></a>Ağ Güvenlik Grupları ##
 
-[Ağ güvenlik grupları] [ NSGs] bir sanal ağ içindeki ağ erişimi denetleme olanağı sağlar. Portalı'nı kullandığınızda, her şeyi reddetmek için en düşük öncelikli bir örtük izin verme kuralı yoktur. Derleme olan, kuralları izin verir.
+[Ağ güvenlik grupları] [ NSGs] bir sanal ağ içindeki hello özelliği toocontrol ağ erişim sağlar. Merhaba portal'ı kullanmanızı olduğunda örtülü reddetme kuralı en düşük öncelik toodeny hello her şeyi. Derleme olan, kuralları izin verir.
 
-ASE'de, ana barındırmak için kullanılan sanal makineleri erişimi yok. Bunlar, Microsoft tarafından yönetilen bir abonelikte demektir. Ana uygulamaları için erişimi kısıtlamak istiyorsanız, ana alt ağda Nsg'ler ayarlayın. Bunu yaparken dikkatli ana bağımlılıkları dikkat edin. Bağımlılıkları engellerseniz, ana çalışmayı durdurur.
+ASE'de, erişim toohello kullanılan VM'ler toohost hello ana kendisini yok. Bunlar, Microsoft tarafından yönetilen bir abonelikte demektir. Merhaba ana toorestrict erişim toohello uygulamaları istiyorsanız Nsg'ler hello ana alt ağda ayarlayın. Bunu yaparken dikkatli toohello ana bağımlılıkları dikkat edin. Bağımlılıkları engellerseniz hello ana çalışmayı durdurur.
 
-Nsg'ler, Azure portal veya PowerShell aracılığıyla yapılandırılabilir. Burada yer alan bilgiler Azure Portalı'nı gösterir. Oluşturma ve Nsg'ler altında en üst düzey bir kaynak olarak portalda yönetme **ağ**.
+Nsg'ler hello Azure portal veya PowerShell aracılığıyla yapılandırılabilir. Burada Hello bilgileri hello Azure portal gösterir. Oluşturma ve altında en üst düzey bir kaynak olarak hello Portalı'nda Nsg'ler yönetme **ağ**.
 
-Gelen ve giden gereksinimlerini dikkate alınır, Nsg'ler Bu örnekte gösterilen Nsg'ler benzemelidir. VNet adres aralığı _192.168.250.0/16_, ve ana bulunduğu alt ağ _192.168.251.128/25_.
+Merhaba gelen ve giden gereksinimlerini dikkate alınır, hello Nsg'ler Bu örnekte gösterilen benzer toohello Nsg'ler görünmelidir. Merhaba VNet adres aralığı olan _192.168.250.0/16_, ve hello ana bulunduğu hello alt _192.168.251.128/25_.
 
-Bu örnekte liste üstündeki ana işlevi ilk iki gelen gereksinimlerini gösterilmektedir. Bunlar ana yönetimini etkinleştirme ve ana kendisiyle iletişim kurmasına izin verin. Diğer girişler tüm Kiracı yapılandırılabilir ve ana barındırılan uygulamalar için ağ erişimi yönetebilirler. 
+Bu örnekte hello listesinin hello üstünde ilk iki gelen gereksinimleri hello ana toofunction Hello gösterilmektedir. Bunlar ana yönetim etkinleştirin ve hello ana toocommunicate kendisiyle verin. Merhaba diğer girişler tüm Kiracı yapılandırılabilir ve ağ erişim toohello ana barındırılan uygulamalar yönetebilirler. 
 
 ![Gelen güvenlik kuralları][4]
 
-Varsayılan kural ana alt ağına anlaşmak için sanal ağ içindeki IP sağlar. Başka bir varsayılan kural ana ile iletişim kurmak için ortak VIP olarak da bilinen yük dengeleyici sağlar. Varsayılan kuralları görmek için seçin **varsayılan kuralları** yanına **Ekle** simgesi. NSG gösterilen kuralları sonra şey kural reddetme put ise, VIP ve ana arasındaki trafiği engeller. VNet içinde gelen trafiği engellemek için izin veren kendi gelen kuralı ekleyin. Bir kaynak için AzureLoadBalancer eşit hedefi ile kullanmak **herhangi** ve bir bağlantı noktası aralığı  **\*** . NSG kuralının ana alt ağına uygulandığından hedef belirli olması gerekmez.
+Varsayılan kural hello IP'leri hello sanal tootalk toohello ana alt sağlar. Başka bir varsayılan kural hello yük dengeleyici, olarak da bilinen hello genel VIP hello ana ile toocommunicate sağlar. toosee hello varsayılan kuralları seçin **varsayılan kuralları** sonraki toohello **Ekle** simgesi. Merhaba NSG gösterilen kuralları sonra şey kural reddetme yerleştirirseniz hello VIP ve hello ana arasındaki trafiği engeller. gelen tooprevent trafik Vnet'in hello içinde kendi kural tooallow ekleme gelen. Bir hedef kaynak eşit tooAzureLoadBalancer kullanmak **herhangi** ve bir bağlantı noktası aralığı  **\*** . Merhaba NSG kural uygulanan toohello ana alt ağı olduğundan, toobe özel hello hedef gerekmez.
 
-Uygulamanız için bir IP adresi atanmışsa, bağlantı noktalarını açık tutmak emin olun. Bağlantı noktaları görmek için seçin **uygulama hizmeti ortamı** > **IP adreslerini**.  
+Bir IP adresi tooyour uygulama atanmışsa, bağlantı noktalarını açmak hello tutmak emin olun. toosee hello bağlantı noktalarını seçin **uygulama hizmeti ortamı** > **IP adreslerini**.  
 
-Aşağıdaki giden kurallar gösterilen tüm öğeler, son öğenin dışında gereklidir. Bunlar, bu makalenin önceki bölümlerinde belirtilenlerle ana bağımlılıkları ağ erişimini etkinleştirir. Bunlardan herhangi birinin engellerseniz, ana çalışmayı durdurur. Listesindeki son öğeyi kullanarak sanal ağınızdaki diğer kaynakları ile iletişim kurmak, ana sağlar.
+Giden Kuralları aşağıdaki hello gösterilen tüm hello öğeler hello son öğenin dışında gereklidir. Bunlar, bu makalenin önceki bölümlerinde belirtilenlerle ağ erişim toohello ana bağımlılıkları etkinleştirin. Bunlardan herhangi birinin engellerseniz, ana çalışmayı durdurur. Merhaba listesindeki son öğeyi Merhaba, ana toocommunicate kullanarak sanal ağınızdaki diğer kaynaklarla sağlar.
 
 ![Giden güvenlik kuralları][5]
 
-Nsg'lerinizi tanımlandıktan sonra ana açıktır alt ağa atayın. Ana sanal ağ veya alt ağ hatırlamıyorsanız ana Yönetim Portalı'ndan görebilirsiniz. Alt ağınız NSG atamak için kullanıcı Arabirimi alt ağa gidin ve NSG seçin.
+Nsg'lerinizi tanımlandıktan sonra bunları, ana açıktır toohello alt atayın. Merhaba ana sanal ağ veya alt ağ hatırlamıyorsanız hello ana Yönetim Portalı'ndan görebilirsiniz. tooassign NSG tooyour alt Merhaba, toohello alt UI gidin ve hello NSG seçin.
 
 ## <a name="routes"></a>Yollar ##
 
@@ -176,51 +176,51 @@ Azure ExpressRoute ile ağınızı yapılandırırken yollara en yaygın olarak 
 
 BGP yolları sistem yolları geçersiz kılar. BGP yolları Udr'ler geçersiz. Azure sanal ağlar yollar hakkında daha fazla bilgi için bkz: [kullanıcı tanımlı yollar genel bakış][UDRs].
 
-Sistem yönetmek için ana kullanan Azure SQL veritabanı güvenlik duvarı vardır. Ana genel VIP kaynaklanacak şekilde iletişim gerektirir. ExpressRoute bağlantısı aşağı ve başka bir IP adresi çıkış gönderilirse ana gelen SQL veritabanına bağlantıları reddedilir.
+Hello ana toomanage hello sistem kullandığını hello Azure SQL veritabanı güvenlik duvarı vardır. Merhaba ana genel VIP gelen iletişimi toooriginate gerektirir. Merhaba ExpressRoute bağlantısı aşağı ve başka bir IP adresi çıkış gönderilirse bağlantıları toohello SQL hello ana veritabanından reddedilir.
 
-Gelen yönetim isteklerini yanıtlar ExpressRoute gönderirse yanıt adresini özgün hedef farklıdır. Bu uyuşmazlık TCP iletişimi keser.
+ExpressRoute hello yanıtları tooincoming yönetim isteği gönderirse hello yanıt adresi hello özgün hedef farklıdır. Bu uyuşmazlık hello TCP iletişimi keser.
 
-Ana ağınızı bir ExpressRoute ile yapılandırılırken çalışmaya yapmak için kolay şeydir:
+Sanal ağınızı bir ExpressRoute ile yapılandırılırken, ana toowork için hello kolay şey toodo şöyledir:
 
--   Tanıtmak için ExpressRoute yapılandırma _0.0.0.0/0_. Varsayılan olarak, zorla tünel giden tüm trafiği şirket içi.
--   Bir UDR oluşturun. Bir adres öneki ile ana içeren alt ağ geçerli _0.0.0.0/0_ ve bir sonraki atlama türü _Internet_.
+-   ExpressRoute tooadvertise yapılandırma _0.0.0.0/0_. Varsayılan olarak, zorla tünel giden tüm trafiği şirket içi.
+-   Bir UDR oluşturun. Bir adres öneki ile Merhaba ana içeren toohello alt ağ geçerli _0.0.0.0/0_ ve bir sonraki atlama türü _Internet_.
 
-Bu iki değişiklik yaparsanız, ana alt ağdan kaynaklanan Internet hedefleyen trafiğe works ExpressRoute ve ana aşağı zorlanmaz. 
+Bu iki değişiklik yaparsanız, hello ana alt ağdan kaynaklanan Internet hedefleyen trafiğe works hello ExpressRoute ve hello ana aşağı zorlanmaz. 
 
 > [!IMPORTANT]
-> Bir UDR tanımlanan rotalar ExpressRoute yapılandırma tarafından tanıtılan rotaları önceliklidir için belirli olması gerekir. Yukarıdaki örnek, geniş 0.0.0.0/0 adres aralığını kullanır. Bu büyük olasılıkla yanlışlıkla daha belirli adres aralıkları Yol tanıtımlarını tarafından geçersiz kılınabilir.
+> bir UDR tanımlanan hello rotalar yeterince spesifik tootake öncelik hello ExpressRoute yapılandırma tarafından tanıtılan yollar üzerinde olmalıdır. Merhaba önceki örnekte hello geniş 0.0.0.0/0 adres aralığını kullanır. Bu büyük olasılıkla yanlışlıkla daha belirli adres aralıkları Yol tanıtımlarını tarafından geçersiz kılınabilir.
 >
-> ASEs ortak eşleme yolu yolları özel eşleme yoluna arası tanıtma ExpressRoute yapılandırmalarla desteklenmez. Microsoft'tan Yol tanıtımlarını ilgili yapılandırılmış ortak eşleme ile ExpressRoute yapılandırmaları. Reklam çok sayıda Microsoft Azure IP adres aralıklarını içerir. Özel eşliği yolda arası tanıtılan adres aralıklarını, tüm giden ağ paketlerinin ana'nın alt ağdan bir müşterinin şirket içi ağ altyapısına tünelli zorla demektir. Bu ağ akışı ASEs ile şu anda desteklenmiyor. Bu sorun için bir çözüm, ortak eşleme yolu arası reklam yolları özel eşleme yoluna önlemektir.
+> ASEs yolundan hello ortak eşleme yolu toohello özel eşliği yollarını arası tanıtmanız ExpressRoute yapılandırmalarla desteklenmez. Microsoft'tan Yol tanıtımlarını ilgili yapılandırılmış ortak eşleme ile ExpressRoute yapılandırmaları. Merhaba reklam çok sayıda Microsoft Azure IP adres aralıklarını içerir. Merhaba özel eşliği yolda arası tanıtılan Hello adres aralıkları, tüm giden ağ paketlerinin hello ana'nın alt ağdan zorlamalı tünel tooa müşterinin şirket içi ağ altyapısı demektir. Bu ağ akışı ASEs ile şu anda desteklenmiyor. Bir çözüm toothis hello ortak eşleme yolu toohello özel eşliği yolu toostop arası reklam yolları sorunudur.
 
-Bir UDR oluşturmak için aşağıdaki adımları izleyin:
+toocreate bir UDR şu adımları izleyin:
 
-1. Azure portalına gidin. Seçin **ağ** > **yol tablosu**.
+1. Toohello Azure portalına gidin. Seçin **ağ** > **yol tablosu**.
 
-2. Sanal ağınızı aynı bölgede yeni bir yol tablosu oluşturun.
+2. Hello yeni bir yol tablosu oluşturmanız sanal ağınızı aynı bölgede.
 
 3. Kullanıcı Arabirimi, rota tablosu içindeki seçin **yollar** > **Ekle**.
 
-4. Ayarlama **sonraki atlama türü** için **Internet** ve **adres ön eki** için **0.0.0.0/0**. **Kaydet**’i seçin.
+4. Set hello **sonraki atlama türü** çok**Internet** ve hello **adres ön eki** çok**0.0.0.0/0**. **Kaydet**’i seçin.
 
-    Ardından aşağıdaki gibi bir şey görürsünüz:
+    Ardından hello aşağıdaki gibi bir şey görürsünüz:
 
     ![İşlev yolları][6]
 
-5. Yeni yol tablosu oluşturduktan sonra ana içeren alt ağa gidin. Yol tablosu portal listeden seçin. Değişiklik kaydettikten sonra alt ağ ile belirtilen yollar ve Nsg'ler sonra görmeniz gerekir.
+5. Merhaba yeni yol tablosu oluşturduktan sonra ana içeren toohello alt gidin. Yol tablosu hello portalında hello listeden seçin. Merhaba değişiklik kaydettikten sonra hello Nsg'ler ve yolları, alt ağ ile belirtildiği sonra görmeniz gerekir.
 
     ![Nsg'ler ve yolları][7]
 
 ### <a name="deploy-into-existing-azure-virtual-networks-that-are-integrated-with-expressroute"></a>ExpressRoute ile tümleşik olan Azure sanal ağlarda dağıtma ###
 
-ExpressRoute ile tümleşik bir VNet içine, ana dağıtmak için dağıtılan ana istediğiniz alt ağ önceden yapılandırın. Ardından bunu dağıtmak için bir Resource Manager şablonunu kullanın. Bir ana sanal ağ içinde zaten oluşturmak için yapılandırılmış ExpressRoute sahiptir:
+toodeploy, ana ExpressRoute ile tümleşik bir VNet içine önceden dağıtılan hello ana istediğiniz hello alt ağ. Resource Manager şablonu toodeploy kullanın. toocreate bir ana sanal ağda zaten yapılandırılmış ExpressRoute sahiptir:
 
-- Ana barındırmak için bir alt ağ oluşturun.
+- Bir alt ağ toohost hello ana oluşturun.
 
     > [!NOTE]
-    > Hiçbir şey alt ancak ana olabilir. Gelecekteki büyümeyi de izin veren bir adres alanı seçtiğinizden emin olun. Bu ayarı daha sonra değiştiremezsiniz. Dosya boyutu öneririz `/25` 128 adreslerine sahip.
+    > Hiçbir şey hello alt ancak hello ana olabilir. Emin toochoose Gelecekteki büyümeyi de izin veren bir adres alanı olması. Bu ayarı daha sonra değiştiremezsiniz. Dosya boyutu öneririz `/25` 128 adreslerine sahip.
 
-- Daha önce açıklandığı gibi Udr'ler (örneğin, yol tablolarını) oluşturun ve bu alt ağda ayarlayın.
-- Ana açıklandığı gibi bir Resource Manager şablonunu kullanarak oluşturduğunuz [Resource Manager şablonu kullanarak bir ana oluşturma][MakeASEfromTemplate].
+- Daha önce açıklandığı gibi Udr'ler (örneğin, yol tablolarını) oluşturun ve hello alt ağda ayarlayın.
+- Hello ana açıklandığı gibi bir Resource Manager şablonunu kullanarak oluşturduğunuz [Resource Manager şablonu kullanarak bir ana oluşturma][MakeASEfromTemplate].
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png

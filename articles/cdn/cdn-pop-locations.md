@@ -1,5 +1,5 @@
 ---
-title: "Azure CDN POP konumları | Microsoft Docs"
+title: "aaaAzure CDN POP konumları | Microsoft Docs"
 description: "Bu konu Azure CDN bulunma noktası konumları listeler."
 services: cdn
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7c13931aa6d17036e59674cdd917e3ca221ac57f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f10afb12c168aa610f996f1e49b0ef133f2236a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cdn-pop-locations"></a>Azure CDN POP Konumları
 Bu konu için geçerli POP konumları listeler **verizon'dan Azure CDN** ve **akamai'den Azure CDN**.
@@ -26,7 +26,7 @@ Bu konu için geçerli POP konumları listeler **verizon'dan Azure CDN** ve **ak
 > [!IMPORTANT]
 > \***Akamai'den Azure CDN** POP konumları değil ayrı ayrı duyurulmuş.  
 > 
-> Her iki sağlayıcı kendi CDN altyapılar oluşturmanın farklı yolu vardır.  Biz kullanmak üzere hangi Azure CDN ürünü karar vermek için POP konumları kullanarak karşı önerilir ve bunun yerine özellikleri ve son kullanıcı performans göz önünde bulundurun.  Kullanıcılarınız için doğru Azure CDN ürünü seçmek için her iki sağlayıcılarla performansını test edin. 
+> Her iki sağlayıcı kendi CDN altyapılar oluşturmanın farklı yolu vardır.  Biz POP konumları toodecide hangi Azure CDN ürünü toouse karşı kullanmanızı öneririz ve bunun yerine özellikleri ve son kullanıcı performans göz önünde bulundurun.  Her iki sağlayıcıları toochoose hello sağ Azure CDN ürünü için kullanıcılarınızın Hello performansı test edin. 
 > 
 > 
 
@@ -44,5 +44,5 @@ Bu konu için geçerli POP konumları listeler **verizon'dan Azure CDN** ve **ak
 | Avustralya ve Yeni Zelanda |Melbourne, Avustralya<br />Sidney, Avustralya |**& #x 2713;**\* |
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [Uygulamaları güvenilir listeye almayı için son IP adreslerini almak için Azure CDN uç düğümleri API](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
+* [Azure CDN uç düğümleri API tooget son IP adresleri için uygulamaları güvenilir listeye almayı](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
 

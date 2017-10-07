@@ -1,5 +1,5 @@
 ---
-title: "Gerçek zamanlı Olay Stream Analytics olay işleme ile işleme | Microsoft Docs"
+title: "Stream Analytics olay işleme ile işleme aaaReal zamanı olay | Microsoft Docs"
 description: "Gerçek zamanlı Olay işleme ve analizi etkinleştirmek için Azure Hizmetleri kümesi nasıl çalışabilirler öğrenin."
 keywords: "gerçek zamanlı işleme, olay işleme, referans mimarisi"
 services: stream-analytics,event-hubs,storage,sql-database
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: jeffstok
-ms.openlocfilehash: b3057be995e551aac0761c3ce40a8dbf828a5f29
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a43c503d709609ba61e9932822d30bc2208906ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Başvuru mimarisi: Gerçek zamanlı Olay Microsoft Azure akış Analizi ile işleme
-Gerçek zamanlı Olay Azure akış Analizi ile işleme için başvuru mimarisi, Microsoft Azure ile hizmet (PaaS) akış işleme çözümü olarak gerçek zamanlı bir platform dağıtmak için genel şeması sağlamaya yöneliktir.
+gerçek zamanlı Olay Azure akış Analizi ile işleme için Hello başvuru mimarisi hedeflenen tooprovide gerçek zamanlı bir platform Microsoft Azure ile hizmet (PaaS) akış işleme çözümü olarak dağıtmak için genel Şeması ' dir.
 
 ## <a name="summary"></a>Özet
-Geleneksel olarak, analiz çözümleri analiz öncesinde verilerin depolandığı yetenekleri ETL (ayıklama, dönüştürme ve yükleme) ve veri ambarı, gibi temel. Daha fazla hızlı bir şekilde gelen veriler dahil değişen gereksinimleri, bu varolan model sınırla zorlayan. Yeni bir özellik olmamasına karşın, bir yaklaşım yaygın olarak tüm endüstri verticals benimsemiştir değil ve depolama önce akışları taşıma içinde verileri analiz etme olanağı bir çözümüdür. 
+Geleneksel olarak, analiz çözümleri yeteneklerine ETL (ayıklama, dönüştürme ve yükleme) ve veri ambarı, gibi veri depolanan önceki tooanalysis nerede dayalı. Daha fazla hızlı bir şekilde gelen veriler dahil değişen gereksinimleri, bu varolan modeli toohello sınırı zorlayan. Yeni bir özellik olmamasına karşın, hello yaklaşım yaygın tüm endüstri verticals benimsemiştir değil ve Hello özelliği tooanalyze veri taşıma akışları önceki toostorage içinde bir çözümüdür. 
 
-Microsoft Azure bir dizi farklı çözüm senaryoları ve gereksinimleri destekleyebildiğini analytics teknolojilerin kapsamlı bir katalog sağlar. Uçtan uca çözümünü dağıtmak için hangi Azure Hizmetleri seçme teklifleri derecesini verilen zor olabilir. Bu yazı, birlikte çalışabilirlik olay akışı çözümünü destekleyen çeşitli Azure Hizmetleri ve özellikleri açıklamak için tasarlanmıştır. Ayrıca müşteriler bu yaklaşım türünden yararlanabilir senaryolardan bazıları açıklanmaktadır.
+Microsoft Azure bir dizi farklı çözüm senaryoları ve gereksinimleri destekleyebildiğini analytics teknolojilerin kapsamlı bir katalog sağlar. Hangi Azure Hizmetleri toodeploy uçtan uca çözümü teklifleri hello derecesini verilen zor olabilir seçme. Bu yazı tasarlanmış toodescribe hello özellikleri olduğunu ve birlikte çalışabilirlik, hello olay akışı çözümünü destekleyen çeşitli Azure Hizmetleri. Ayrıca müşteriler bu yaklaşım türünden yararlanabilir hello senaryolardan bazıları açıklanmaktadır.
 
 ## <a name="contents"></a>İçindekiler
 * Yönetici Özeti
-* Gerçek zamanlı analiz giriş
+* Giriş tooReal zamanı analizi
 * Değer teklifinde Azure gerçek zamanlı veri
 * Gerçek zamanlı analiz için ortak senaryolar
 * Mimarisi ve bileşenleri
@@ -54,7 +54,7 @@ Microsoft Azure bir dizi farklı çözüm senaryoları ve gereksinimleri destekl
 Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Giriş tooAzure akış analizi](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)

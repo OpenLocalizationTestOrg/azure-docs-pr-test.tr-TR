@@ -1,6 +1,6 @@
 ---
-title: "Hdınsight için Azure Kaynak Yöneticisi Araçları geçirme | Microsoft Docs"
-description: "Hdınsight kümeleri için Azure Resource Manager geliştirme araçları geçirme"
+title: "aaaMigrate tooAzure kaynak yöneticisi için Hdınsight araçları | Microsoft Docs"
+description: "Hdınsight kümeleri için nasıl toomigrate tooAzure Resource Manager geliştirme araçları"
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.openlocfilehash: 708d22b9ce53d4dbc07c6bcde0c46dcd238291bb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c087ae63d2544e5badae6be9c258f783aa92e2ef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Hdınsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme
+# <a name="migrating-tooazure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Hdınsight kümeleri geçirme tooAzure Resource Manager tabanlı geliştirme araçları
 
-Hdınsight, Hdınsight için Azure Service Manager ASM tabanlı araçlar kaldırmaktadır. Azure PowerShell, Azure CLI veya Hdınsight .NET SDK'sı Hdınsight kümeleriyle çalışmak için kullanıyorsanız, PowerShell'i, CLI ve .NET SDK'sı ileride Azure Resource Manager ARM tabanlı sürümleri kullanmanız önerilir. Bu makalede yeni ARM tabanlı yaklaşımı geçirmek nasıl işaretçileri sağlar. Uygun olduğunda, bu makalede ayrıca ASM ve ARM arasındaki farklar çıkışı yaklaşımlar Hdınsight için işaret eder.
+Hdınsight, Hdınsight için Azure Service Manager ASM tabanlı araçlar kaldırmaktadır. Azure PowerShell, Azure CLI veya hello Hdınsight .NET SDK'sı toowork Hdınsight kümeleri ile kullanıyorsanız, Azure Resource Manager ARM tabanlı kullanmaları toouse hello sürümleri PowerShell'i, CLI ve .NET SDK'sı ileride. Bu makalede işaretçiler hakkında yönergeler sağlar. toomigrate toohello yeni ARM tabanlı yaklaşım. Uygun olduğunda, bu makalede hello ASM ve ARM yaklaşımlar Hdınsight için hello farklarını çıkışı da işaret eder.
 
 > [!IMPORTANT]
-> ASM desteği PowerShell'i, CLI, temel ve .NET SDK'yı Durdur **1 Ocak 2017**.
+> ASM Hello desteği PowerShell'i, CLI, temel ve .NET SDK'yı Durdur **1 Ocak 2017**.
 > 
 > 
 
-## <a name="migrating-azure-cli-to-azure-resource-manager"></a>Azure CLI Azure Kaynak Yöneticisi geçirme
-Önceki bir yükleme Yükseltmekte olduğunuz sürece Azure CLI artık Azure Resource Manager (ARM) moduna varsayılan olarak ayarlanır; Bu durumda, kullanmanız gerekebilir `azure config mode arm` ARM moduna geçmek için komutu.
+## <a name="migrating-azure-cli-tooazure-resource-manager"></a>Geçirme Azure CLI tooAzure Kaynak Yöneticisi
+önceki bir yükleme Yükseltmekte olduğunuz sürece hello Azure CLI şimdi tooAzure Resource Manager (ARM) mod, varsayılan olarak; Bu durumda, toouse hello gerekebilir `azure config mode arm` komut tooswitch tooARM modu.
 
-Azure Hizmet Yönetimi (ASM) kullanılarak Hdınsight ile çalışmak için Azure CLI sağlanan temel komutları ARM kullanırken aynıdır; Ancak bazı parametreler ve anahtarları yeni adlara sahip ve çok sayıda yeni parametreler kullanılabilir ARM kullanırken yoktur. Örneğin, artık kullanabilirsiniz `azure hdinsight cluster create` Azure sanal bir küme içinde oluşturulmalıdır veya Hive ağ ve Oozie meta depo bilgileri belirtmek için.
+Merhaba temel komutları o hello toowork Azure Hizmet Yönetimi (ASM) kullanılarak Hdınsight ile sağlanan Azure CLI olan hello aynı ARM kullanırken; Ancak bazı parametreler ve anahtarları yeni adlara sahip ve çok sayıda yeni parametreler kullanılabilir ARM kullanırken yoktur. Örneğin, artık kullanabilirsiniz `azure hdinsight cluster create` toospecify hello Azure sanal bir küme içinde oluşturulmalıdır veya Hive ağ ve Oozie meta depo bilgileri.
 
 Hdınsight ile Azure Resource Manager ile çalışmak için temel komutlar şunlardır:
 
@@ -42,25 +42,25 @@ Hdınsight ile Azure Resource Manager ile çalışmak için temel komutlar şunl
 * `azure hdinsight cluster show`-Varolan bir kümeye hakkındaki bilgileri görüntüleme
 * `azure hdinsight cluster list`-Azure aboneliğiniz için Hdınsight kümeleri listeler
 
-Kullanım `-h` parametreleri ve her komut için kullanılabilen anahtarlar incelemek için anahtar.
+Kullanım hello `-h` tooinspect hello parametreleri ve her komut için kullanılabilen anahtarlar geçin.
 
 ### <a name="new-commands"></a>Yeni komutları
 Azure Resource Manager ile kullanılabilen yeni komutlar şunlardır:
 
-* `azure hdinsight cluster resize`-Kümedeki çalışan düğümü sayısını dinamik olarak değiştirir
-* `azure hdinsight cluster enable-http-access`-Küme HTTPs erişmesini sağlar (üzerinde varsayılan olarak)
-* `azure hdinsight cluster disable-http-access`-kümesine HTTPs erişimi devre dışı bırakır
+* `azure hdinsight cluster resize`-değişiklikleri hello kümedeki çalışan düğümü sayısını dinamik olarak hello
+* `azure hdinsight cluster enable-http-access`-HTTPs erişim toohello küme sağlar (üzerinde varsayılan olarak)
+* `azure hdinsight cluster disable-http-access`-HTTPs erişim toohello küme devre dışı bırakır
 * `azure hdinsight script-action`-oluşturma/betik eylemleri bir kümede yönetmek için komutlar sağlar
-* `azure hdinsight config`-bir yapılandırma dosyası oluşturma ile birlikte kullanılabilir komutlar sağlar `hdinsight cluster create` yapılandırma bilgilerini sağlamak için komutu.
+* `azure hdinsight config`-için bir yapılandırma dosyası oluşturma ile Merhaba kullanılabilir komutlar sağlar `hdinsight cluster create` tooprovide yapılandırma bilgilerini komutu.
 
 ### <a name="deprecated-commands"></a>Kullanım dışı komutları
-Kullanırsanız `azure hdinsight job` Hdınsight kümenize iş göndermek için komutları bu ARM komutlarını kullanılabilir değil. İşlerini Hdınsight'a gelen komut dosyalarını program aracılığıyla göndermek gerekiyorsa, bunun yerine Hdınsight tarafından sağlanan REST API'lerini kullanmanız gerekir. REST API'lerini kullanarak işlerini göndermenin daha fazla bilgi için aşağıdaki belgelere bakın.
+Merhaba kullanırsanız `azure hdinsight job` komutları toosubmit işleri tooyour Hdınsight kümesi, bunlar hello ARM komutlarını kullanılabilir değildir. Tooprogrammatically gönderme işleri tooHDInsight komut dosyalarından gerekiyorsa, bunun yerine hello Hdınsight tarafından sağlanan REST API'lerini kullanmanız gerekir. REST API'lerini kullanarak işlerini göndermenin daha fazla bilgi için aşağıdaki belgeleri hello bakın.
 
 * [CURL kullanarak Hdınsight'ta Hadoop ile MapReduce işleri çalıştırma](hdinsight-hadoop-use-mapreduce-curl.md)
 * [CURL kullanarak Hdınsight'ta Hadoop ile Hive sorguları çalıştırma](hdinsight-hadoop-use-hive-curl.md)
 * [CURL kullanarak Hdınsight'ta Hadoop ile pig işleri çalıştırma](hdinsight-hadoop-use-pig-curl.md)
 
-MapReduce çalıştırmak için diğer yöntemler hakkında bilgi, Hive ve etkileşimli olarak Pig için bkz: [hdınsight'ta Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md), [hdınsight'ta Hadoop ile Hive kullanma](hdinsight-use-hive.md), ve [Hadoop ile Pig kullanma Hdınsight](hdinsight-use-pig.md).
+Diğer yolları toorun MapReduce hakkında bilgi için Hive ve etkileşimli olarak Pig bkz [hdınsight'ta Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md), [hdınsight'ta Hadoop ile Hive kullanma](hdinsight-use-hive.md), ve [Hadoop ile Pig kullanma Hdınsight](hdinsight-use-pig.md).
 
 ### <a name="examples"></a>Örnekler
 **Küme oluşturma**
@@ -79,7 +79,7 @@ MapReduce çalıştırmak için diğer yöntemler hakkında bilgi, Hive ve etkil
 * Yeni komutu (ARM)-`azure hdinsight cluster list`
 
 > [!NOTE]
-> Liste komutu için kaynak grubunu kullanarak belirtme `-g` yalnızca kümeler belirtilen kaynak grubunda döndürür.
+> Merhaba Listele komutu için kaynak grubunu kullanarak hello belirtme `-g` yalnızca hello kümeler hello belirtilen kaynak grubunda döndürür.
 > 
 > 
 
@@ -88,22 +88,22 @@ MapReduce çalıştırmak için diğer yöntemler hakkında bilgi, Hive ve etkil
 * Eski komutu (ASM)-`azure hdinsight cluster show myhdicluster`
 * Yeni komutu (ARM)-`azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
-## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Azure Resource Manager Azure PowerShell geçirme
-Azure Resource Manager (ARM) modunda Azure PowerShell hakkında genel bilgi şu adreste bulunabilir: [Azure PowerShell kullanarak Azure Resource Manager ile](../powershell-azure-resource-manager.md).
+## <a name="migrating-azure-powershell-tooazure-resource-manager"></a>Geçirme Azure PowerShell tooAzure Kaynak Yöneticisi
+Merhaba hello Azure Resource Manager (ARM) modunda Azure PowerShell hakkında genel bilgiler bulunabilir [Azure PowerShell kullanarak Azure Resource Manager ile](../powershell-azure-resource-manager.md).
 
-Azure PowerShell ARM cmdlet'leri yüklü yan yana ASM cmdlet'leri olabilir. İki modun cmdlet'leri, adlarına göre ayırt edilebilir.  ARM modu *AzureRmHDInsight* için karşılaştırma cmdlet'in adlarındaki *AzureHDInsight* ASM modunda.  Örneğin, *yeni AzureRmHDInsightCluster* vs. *AzureHDInsightCluster yeni*. Parametreleri ve anahtarları haber adlara sahip ve çok sayıda yeni parametreler kullanılabilir ARM kullanırken yoktur.  Örneğin, birkaç cmdlet'leri adlı yeni bir anahtar gerektiren *- ResourceGroupName*. 
+Hello Azure PowerShell ARM cmdlet'leri yüklü yan yana hello ASM cmdlet'leri ile olabilir. Merhaba iki moddan Hello cmdlet'leri, adlarına göre ayırt edilebilir.  Merhaba ARM modu *AzureRmHDInsight* çok karşılaştırma hello cmdlet'in adlarındaki*AzureHDInsight* hello ASM modunda.  Örneğin, *yeni AzureRmHDInsightCluster* vs. *AzureHDInsightCluster yeni*. Parametreleri ve anahtarları haber adlara sahip ve çok sayıda yeni parametreler kullanılabilir ARM kullanırken yoktur.  Örneğin, birkaç cmdlet'leri adlı yeni bir anahtar gerektiren *- ResourceGroupName*. 
 
-Hdınsight cmdlet'lerini kullanabilmek için Azure hesabınıza bağlanın ve yeni bir kaynak grubu oluşturmanız gerekir:
+Merhaba Hdınsight cmdlet'lerini kullanmadan önce tooyour Azure hesabı bağlanmak ve yeni bir kaynak grubu oluşturmanız gerekir:
 
 * Login-AzureRmAccount veya [seçin AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). Bkz: [bir hizmet sorumlusu Azure Resource Manager ile kimlik doğrulaması](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Yeni-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### <a name="renamed-cmdlets"></a>Yeniden adlandırılmış cmdlet'leri
-Windows PowerShell konsolunda Hdınsight ASM cmdlet'leri listelemek için:
+toolist hello Hdınsight ASM cmdlet'lerini Windows PowerShell konsolunda:
 
     help *azurermhdinsight*
 
-Aşağıdaki tabloda, ASM cmdlet'leri ve ARM modunda adları listelenmektedir:
+Merhaba aşağıdaki tabloda hello ASM cmdlet'leri ve hello ARM modunda adları listelenmektedir:
 
 | ASM cmdlet'leri | ARM cmdlet'leri |
 | --- | --- |
@@ -136,21 +136,21 @@ Aşağıdaki tabloda, ASM cmdlet'leri ve ARM modunda adları listelenmektedir:
 | Wait-AzureHDInsightJob |[Bekleme AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603834.aspx) |
 
 ### <a name="new-cmdlets"></a>Yeni cmdlet’ler
-Yalnızca ARM modunda kullanılabilir yeni cmdlet'leri şunlardır: 
+Merhaba, yalnızca hello ARM modunda kullanılabilir hello yeni cmdlet'ler şunlardır. 
 
 **Betik eylemi cmdlet'leri ilgili:**
 
-* **Get-AzureRmHDInsightPersistedScriptAction**: bir küme için kalıcı betik eylemleri alır ve bunları kronolojik sırada listeler veya ayrıntıları için belirtilen kalıcı betik eylemi alır. 
-* **Get-AzureRmHDInsightScriptActionHistory**: bir küme için betik eylemi geçmişi alır ve geriye doğru kronolojik sırada listeler ya da daha önce yürütülen betik eylemi ayrıntılarını alır. 
+* **Get-AzureRmHDInsightPersistedScriptAction**: alır hello bir küme için betik eylemleri kalıcı kronolojik sırayla listelenir ve Ayrıntılar için belirtilen kalıcı betik eylemi alır. 
+* **Get-AzureRmHDInsightScriptActionHistory**: hello betik eylemi geçmişi bir küme için alır ve geriye doğru kronolojik sırayla listelenir ya da daha önce yürütülen betik eylemi ayrıntılarını alır. 
 * **Remove-AzureRmHDInsightPersistedScriptAction**: kalıcı betik eylemi bir Hdınsight kümeden kaldırır.
-* **Set-AzureRmHDInsightPersistedScriptAction**: kalıcı betik eylemi olması için daha önce yürütülen betik eylemi ayarlar.
-* **Gönderme AzureRmHDInsightScriptAction**: Azure Hdınsight kümesi için yeni bir betik eylemi gönderir. 
+* **Set-AzureRmHDInsightPersistedScriptAction**: daha önce yürütülen betik eylemi toobe kalıcı betik eylemi ayarlar.
+* **Gönderme AzureRmHDInsightScriptAction**: yeni bir komut dosyası eylemi tooan Azure Hdınsight kümesi gönderir. 
 
 Ek kullanım bilgileri için bkz: [özelleştirme Linux tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Clsuter kimlik cmdlet'leri ilgili:**
 
-* **Ekleme AzureRmHDInsightClusterIdentity**: Hdınsight kümesi Azure Data Lake depoları erişebilmesi için bir küme kimliği bir küme yapılandırma nesnesine ekler. Bkz: [Azure PowerShell kullanarak Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Ekleme AzureRmHDInsightClusterIdentity**: Merhaba Hdınsight kümesi Azure Data Lake depoları erişebilmesi için bir küme kimlik tooa küme yapılandırma nesnesi ekler. Bkz: [Azure PowerShell kullanarak Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Örnekler
 **Küme oluşturma**
@@ -224,39 +224,39 @@ Yeni komut (ARM):
 * [Pig işleri gönderme](hdinsight-hadoop-use-pig-powershell.md)
 * [Sqoop işleri gönderme](hdinsight-hadoop-use-sqoop-powershell.md)
 
-## <a name="migrating-to-the-arm-based-hdinsight-net-sdk"></a>ARM tabanlı Hdınsight .NET SDK'sı geçirme
-Azure Hizmet Yönetimi-based [(ASM) Hdınsight .NET SDK'sı](https://msdn.microsoft.com/library/azure/mt416619.aspx) artık kullanım dışı bırakılmıştır. Azure kaynak yönetimi tabanlı kullanmaları [(ARM) Hdınsight .NET SDK'sı](https://msdn.microsoft.com/library/azure/mt271028.aspx). Aşağıdaki ASM tabanlı Hdınsight paketleri kullanım dışıdır.
+## <a name="migrating-toohello-arm-based-hdinsight-net-sdk"></a>Geçirme toohello ARM tabanlı Hdınsight .NET SDK'sı
+Azure Hizmet Yönetimi-based hello [(ASM) Hdınsight .NET SDK'sı](https://msdn.microsoft.com/library/azure/mt416619.aspx) artık kullanım dışı bırakılmıştır. Kullanmaları toouse olan Azure kaynak yönetimi tabanlı hello [(ARM) Hdınsight .NET SDK'sı](https://msdn.microsoft.com/library/azure/mt271028.aspx). Merhaba aşağıdaki ASM tabanlı Hdınsight paketleri itibaren kullanımdan kalkacaktır.
 
 * `Microsoft.WindowsAzure.Management.HDInsight`
 * `Microsoft.Hadoop.Client`
 
-Bu bölümde ARM tabanlı SDK'sını kullanarak bazı görevleri gerçekleştirmek hakkında daha fazla bilgi için işaretçiler sağlar.
+Bu bölümde işaretçileri toomore ilgili bilgiler verilmektedir tooperform kullanarak görevleri hello ARM tabanlı SDK belirli.
 
-| Nasıl yapılır... ARM tabanlı Hdınsight SDK kullanarak | Bağlantılar |
+| Nasıl yapılır... hello ARM tabanlı Hdınsight SDK kullanarak | Bağlantılar |
 | --- | --- |
 | .NET SDK kullanarak Hdınsight kümeleri oluşturma |Bkz: [Hdınsight kümeleri oluşturma .NET SDK kullanarak](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
 | .NET SDK'sı ile betik eylemi kullanarak bir küme özelleştirme |Bkz: [özelleştirme Hdınsight Linux kümeleri betik eylemi kullanarak](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
-| .NET SDK'sı ile etkileşimli olarak Azure Active Directory kullanarak uygulamaları kimlik doğrulaması |Bkz: [.NET SDK kullanarak Hive sorgularını çalıştırma](hdinsight-hadoop-use-hive-dotnet-sdk.md). Bu makaledeki kod parçacığında, etkileşimli kimlik doğrulaması yaklaşımı kullanır. |
+| .NET SDK'sı ile etkileşimli olarak Azure Active Directory kullanarak uygulamaları kimlik doğrulaması |Bkz: [.NET SDK kullanarak Hive sorgularını çalıştırma](hdinsight-hadoop-use-hive-dotnet-sdk.md). Bu makalede Hello kod parçacığını hello etkileşimli kimlik doğrulaması yaklaşımı kullanır. |
 | Uygulamaları etkileşimsiz .NET SDK ile Azure Active Directory'yi kullanarak kimlik doğrulaması |Bkz: [Hdınsight için etkileşimli olmayan uygulamalar oluşturma](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | .NET SDK kullanarak Hive işi Gönder |Bkz: [gönderme Hive işleri](hdinsight-hadoop-use-hive-dotnet-sdk.md) |
 | .NET SDK kullanarak bir Pig işi gönderin |Bkz: [gönderme Pig işleri](hdinsight-hadoop-use-pig-dotnet-sdk.md) |
 | .NET SDK kullanarak Sqoop işi Gönder |Bkz: [gönderme Sqoop işleri](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) |
 | .NET SDK kullanarak Hdınsight kümeleri listesi |Bkz: [listesi Hdınsight kümeleri](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | .NET SDK kullanarak Hdınsight kümelerini ölçeklendirme |Bkz: [ölçek Hdınsight kümeleri](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
-| .NET SDK kullanarak Hdınsight kümelerini GRANT/revoke erişimi |Bkz: [Hdınsight kümelerine Grant/revoke erişim](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |
+| .NET SDK kullanarak Grant/revoke erişim tooHDInsight kümeleri |Bkz: [Grant/revoke erişim tooHDInsight kümeleri](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |
 | HTTP kullanıcı kimlik bilgilerini .NET SDK kullanarak Hdınsight kümelerini güncelleştirme |Bkz: [Hdınsight kümeleri için güncelleştirme HTTP kullanıcı kimlik bilgileri](hdinsight-administer-use-dotnet-sdk.md#update-http-user-credentials) |
-| .NET SDK kullanarak Hdınsight kümeleri için varsayılan depolama hesabı bulunamadı |Bkz: [Hdınsight kümeleri için varsayılan depolama hesabı bulunamadı](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
+| .NET SDK kullanarak Hdınsight kümeleri için Hello varsayılan depolama hesabı bulunamadı |Bkz: [Hdınsight kümeleri için hello varsayılan depolama hesabı bulunamadı](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
 | .NET SDK kullanarak Hdınsight kümelerini Sil |Bkz: [silmek Hdınsight kümeleri](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
 
 ### <a name="examples"></a>Örnekler
-Nasıl bir işlem olduğunu ilişkin bazı örnekler şunlardır ASM tabanlı SDK'sı ve eşdeğer kod parçacığında için ARM tabanlı SDK kullanılarak gerçekleştirilir.
+Nasıl bir işlem olduğunu ilişkin bazı örnekler şunlardır hello ASM tabanlı SDK ve hello eşdeğer kod parçacığını Merhaba ARM tabanlı SDK kullanılarak gerçekleştirilir.
 
 **Bir küme CRUD istemcisi oluşturma**
 
 * Eski komutu (ASM)
   
         //Certificate auth
-        //This logs the application in using a subscription administration certificate, which is not offered in Azure Resource Manager (ARM)
+        //This logs hello application in using a subscription administration certificate, which is not offered in Azure Resource Manager (ARM)
   
         const string subid = "454467d4-60ca-4dfd-a556-216eeeeeeee1";
         var cred = new HDInsightCertificateCredential(new Guid(subid), new X509Certificate2(@"path\to\certificate.cer"));
@@ -264,8 +264,8 @@ Nasıl bir işlem olduğunu ilişkin bazı örnekler şunlardır ASM tabanlı SD
 * Yeni komutu (ARM) (hizmet sorumlusu yetkilendirme)
   
         //Service principal auth
-        //This will log the application in as itself, rather than on behalf of a specific user.
-        //For details, including how to set up the application, see:
+        //This will log hello application in as itself, rather than on behalf of a specific user.
+        //For details, including how tooset up hello application, see:
         //   https://azure.microsoft.com/en-us/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
   
         var authFactory = new AuthenticationFactory();
@@ -282,8 +282,8 @@ Nasıl bir işlem olduğunu ilişkin bazı örnekler şunlardır ASM tabanlı SD
 * Yeni komutu (ARM) (kullanıcı kimlik doğrulaması)
   
         //User auth
-        //This will log the application in on behalf of the user.
-        //The end-user will see a login popup.
+        //This will log hello application in on behalf of hello user.
+        //hello end-user will see a login popup.
   
         var authFactory = new AuthenticationFactory();
   

@@ -1,6 +1,6 @@
 ---
-title: "3 düğümü dağıtma küme Deis | Microsoft Docs"
-description: "3 düğümü oluşturma bu makalede Azure Resource Manager şablonu kullanarak azure'da küme Deis"
+title: "3 düğümü Deis aaaDeploy küme | Microsoft Docs"
+description: "Bu makalede nasıl toocreate 3 düğümü Deis bir Azure Resource Manager şablonu kullanarak azure'da küme"
 services: virtual-machines-linux
 documentationcenter: 
 author: HaishiBai
@@ -16,63 +16,63 @@ ms.workload: infrastructure-services
 ms.date: 06/24/2015
 ms.author: hbai
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a0c3dd7562dfb5ce54c2ebfd4665109f59cd8fd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a4c0fb8cbb849264e64b433540157c9afecd184e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-and-configure-a-3-node-deis-cluster-in-azure"></a>3 düğümünü yapılandırmak ve dağıtmak Azure kümesinde Deis
-Bu makalede, sağlama aracılığıyla anlatan bir [Deis](http://deis.io/) Azure kümede. Dağıtma ve bir örnek ölçeklendirme için gerekli sertifikaları oluşturmasına tüm adımlar kapsanmaktadır **Git** yeni sağlanan kümede uygulama.
+Bu makalede, sağlama aracılığıyla anlatan bir [Deis](http://deis.io/) Azure kümede. Merhaba gerekli sertifikaları toodeploying oluşturma ve bir örnek ölçeklendirme hello adımların tümünü kapsayan **Git** hello yeni sağlanan kümede uygulama.
 
-Aşağıdaki diyagramda, dağıtılan Sistem mimarisini gösterir. Küme kullanarak bir Sistem Yöneticisi yönetir araçları gibi Deis **deis** ve **deisctl**. Bağlantıları bağlantıları üye birine Küme düğümlerinde ileten bir Azure yük dengeleyici üzerinden kurulur. İstemcilerin erişim uygulamalar da yük dengeleyici aracılığıyla dağıtılan. Bu durumda, yük dengeleyici için trafiğini bir kümede barındırılan karşılık gelen Docker kapsayıcıları trafiği daha fazla routs yönlendirici kafes Deis.
+Merhaba Aşağıdaki diyagramda dağıtılan hello sistemin hello mimarisi gösterilmektedir. Küme hello kullanarak bir Sistem Yöneticisi yönetir araçları gibi Deis **deis** ve **deisctl**. Bağlantıları hello bağlantıları tooone hello üyesinin hello küme düğümlerinde ileten bir Azure yük dengeleyici üzerinden kurulur. Merhaba istemcileri erişim uygulamalar da hello yük dengeleyici aracılığıyla dağıtılan. Bu durumda, hello yük dengeleyici hello trafiği tooa iletir daha fazla trafik toocorresponding Docker kapsayıcıları hello kümede barındırılan routs yönlendirici kafes Deis.
 
   ![Dağıtılan Desis küme mimarisi diyagramı](./media/deis-cluster/architecture-overview.png)
 
-Aşağıdaki adımlarda size çalıştırmak için ihtiyacınız vardır:
+Aşağıdaki adımları hello aracılığıyla sipariş toorun ihtiyacınız vardır:
 
 * Etkin bir Azure aboneliği. Yoksa, ücretsiz izi alma [azure.com](https://azure.microsoft.com/).
-* Azure kaynak gruplarını kullanmak için iş veya Okul kimliği. Kişisel hesap ve bir Microsoft kimliğiyle günlük varsa, gerek [bir iş kimliği, kişisel sunudan oluşturma](../windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Ya da--bağlı olarak istemci işletim sistemi [Azure PowerShell](/powershell/azureps-cmdlets-docs) veya [Mac, Linux ve Windows için Azure CLI](../../cli-install-nodejs.md).
-* [OpenSSL](https://www.openssl.org/). OpenSSL gerekli sertifikaları oluşturmak için kullanılır.
+* Bir iş veya Okul kimlik toouse Azure kaynak gruplarını. Kişisel hesap ve bir Microsoft kimliğiyle günlük varsa, çok ihtiyacınız[bir iş kimliği, kişisel sunudan oluşturma](../windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Ya da--istemci işletim sistemine bağlı olarak--hello [Azure PowerShell](/powershell/azureps-cmdlets-docs) veya hello [Mac, Linux ve Windows için Azure CLI](../../cli-install-nodejs.md).
+* [OpenSSL](https://www.openssl.org/). OpenSSL kullanılan toogenerate hello gerekli sertifikaları olur.
 * Git istemci gibi [Git Bash](https://git-scm.com/).
-* Örnek uygulamayı test etmek için de bir DNS sunucusu gerekir. Herhangi bir DNS sunucuları veya joker karakter A kayıtlarını destekleyen Hizmetleri'ni kullanabilirsiniz.
-* Çalıştırmak için bir bilgisayar istemci araçları Deis. Yerel makine veya sanal makine kullanabilirsiniz. Neredeyse her Linux dağıtım noktasında bu araçları çalıştırabilirsiniz ancak Ubuntu aşağıdaki yönergeleri kullanın.
+* tootest Merhaba örnek uygulaması, bir DNS sunucusu gerekir. Herhangi bir DNS sunucuları veya joker karakter A kayıtlarını destekleyen Hizmetleri'ni kullanabilirsiniz.
+* Bir bilgisayar toorun istemci araçları Deis. Yerel makine veya sanal makine kullanabilirsiniz. Neredeyse her Linux dağıtım noktasında bu araçları çalıştırabilirsiniz ancak hello aşağıdaki yönergeleri kullanın Ubuntu.
 
-## <a name="provision-the-cluster"></a>Küme sağlama
-Bu bölümde, kullanacağınız bir [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) açık kaynak havuzu şablonu [azure hızlı başlangıç şablonlarını](https://github.com/Azure/azure-quickstart-templates). İlk olarak, şablonu kopyalayın. Ardından, kimlik doğrulama için yeni bir SSH anahtar çifti oluşturacaksınız. Ve daha sonra küme için yeni bir tanımlayıcı yapılandıracaksınız. Ve son olarak, kabuk betiği veya PowerShell Betiği kümesi sağlamak için kullanmanız.
+## <a name="provision-hello-cluster"></a>Sağlama hello küme
+Bu bölümde, kullanacağınız bir [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) hello açık kaynak havuzu şablonu [azure hızlı başlangıç şablonlarını](https://github.com/Azure/azure-quickstart-templates). İlk olarak, hello şablonu kopyalayın. Ardından, kimlik doğrulama için yeni bir SSH anahtar çifti oluşturacaksınız. Ve daha sonra küme için yeni bir tanımlayıcı yapılandıracaksınız. Ve son olarak, hello Kabuk betiği veya hello PowerShell komut dosyası tooprovision hello küme kullanacaksınız.
 
-1. Depoyu kopyalayın: [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
+1. Kopya hello deposu: [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
    
         git clone https://github.com/Azure/azure-quickstart-templates
-2. Şablon klasöre gidin:
+2. Toohello şablon klasöre gidin:
    
         cd azure-quickstart-templates\deis-cluster-coreos
 3. SSH-keygen kullanarak yeni bir SSH anahtar çifti oluşturun:
    
         ssh-keygen -t rsa -b 4096 -c "[your_email@domain.com]"
-4. Yukarıdaki özel anahtarı kullanarak bir sertifika oluşturun:
+4. Özel anahtarı yukarıda Hello kullanarak bir sertifika oluşturun:
    
-        openssl req -x509 -days 365 -new -key [your private key file] -out [cert file to be generated]
-5. Git [https://discovery.etcd.io/new](https://discovery.etcd.io/new) yeni bir küme belirteci şuna benzer görünen oluşturmak için:
+        openssl req -x509 -days 365 -new -key [your private key file] -out [cert file toobe generated]
+5. Çok Git[https://discovery.etcd.io/new](https://discovery.etcd.io/new) toogenerate yeni bir küme belirteç görünen şuna benzer:
    
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
    <br />
-   Bu ücretsiz hizmeti benzersiz bir belirtecinden her CoreOS küme olmalıdır. Lütfen bakın [CoreOS belgelerine](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) daha fazla ayrıntı için.
-6. Değiştirme **bulut config.yaml** varolan dosyaya **bulma** yeni belirteci ile belirteci:
+   Her CoreOS küme toohave bu ücretsiz hizmetinden benzersiz bir belirteç gerekiyor. Lütfen bakın [CoreOS belgelerine](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) daha fazla ayrıntı için.
+6. Merhaba değiştirme **bulut config.yaml** tooreplace hello varolan dosya **bulma** hello yeni belirteci ile belirteci:
    
         #cloud-config
         ---
         coreos:
           etcd:
             # generate a new token for each unique cluster from https://discovery.etcd.io/new
-            # uncomment the following line and replace it with your discovery URL
+            # uncomment hello following line and replace it with your discovery URL
             discovery: https://discovery.etcd.io/3973057f670770a7628f917d58c2208a
         ...
-7. Değiştirme **azuredeploy-parameters.json** dosya: bir metin düzenleyicisinde 4. adımda oluşturduğunuz sertifika açın. Arasındaki tüm metni kopyalayın `----BEGIN CERTIFICATE-----` ve `-----END CERTIFICATE-----` içine **sshKeyData** parametresi (tüm satırbaşı karakterlerini Kaldır gerekir).
-8. Değiştirme **newStorageAccountName** parametresi. Bu VM OS diskler için depolama hesabıdır. Bu hesap adı genel olarak benzersiz olması gerekir.
-9. Değiştirme **publicDomainName** parametresi. Bu yük dengeleyici genel IP ile ilişkili DNS adının bir parçası olur. Son FQDN biçimini olacaktır *[Bu parametrenin değeri]*. *[Bölge]* . cloudapp.azure.com. Örneğin, ad deishbai32 belirtirseniz ve kaynak grubu, Batı ABD bölgesi dağıtılır, ardından deishbai32.westus.cloudapp.azure.com yük dengeleyiciye son FQDN olacaktır.
-10. Parametre dosyasını kaydedin. Ve ardından Azure PowerShell kullanarak küme sağlayabilirsiniz:
+7. Merhaba değiştirme **azuredeploy-parameters.json** dosya: bir metin düzenleyicisinde 4. adımda oluşturduğunuz açık hello sertifika. Arasındaki tüm metni kopyalayın `----BEGIN CERTIFICATE-----` ve `-----END CERTIFICATE-----` hello içine **sshKeyData** (gerekir tooremove tüm satırbaşı karakterlerini) parametre.
+8. Merhaba değiştirme **newStorageAccountName** parametresi. VM OS diskler için depolama hesabı hello budur. Bu hesap adı toobe genel benzersiz sahiptir.
+9. Merhaba değiştirme **publicDomainName** parametresi. Bu hello yük dengeleyici genel IP ile ilişkili hello DNS adının bir parçası olur. Merhaba son FQDN hello biçimi olacaktır *[Bu parametrenin değeri]*. *[Bölge]* . cloudapp.azure.com. Örneğin, deishbai32 hello adı belirtin ve hello kaynak grubu dağıtılan toohello Batı ABD bölgesi sonra hello son ise FQDN tooyour yük dengeleyici deishbai32.westus.cloudapp.azure.com olabilir.
+10. Merhaba parametre dosyasını kaydedin. Ve ardından Azure PowerShell kullanarak hello küme sağlayabilirsiniz:
     
         .\deploy-deis.ps1 -ResourceGroupName [resource group name] -ResourceGroupLocation "West US" -TemplateFile
         .\azuredeploy.json -ParametersFile .\azuredeploy-parameters.json -CloudInitFile .\cloud-config.yaml
@@ -81,49 +81,49 @@ Bu bölümde, kullanacağınız bir [Azure Resource Manager](../../azure-resourc
     
         ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
         -c ./cloud-config.yaml  
-11. Kaynak grubu sağlandıktan sonra gruptaki tüm kaynakların Azure Klasik portalında görebilirsiniz. Aşağıdaki ekran görüntüsünde gösterildiği gibi bir sanal ağ aynı kullanılabilirlik kümesine katılan üç VM'ler ile kaynak grubu içerir. Grup ilişkili bir ortak IP sahip bir yük dengeleyici de içerir.
+11. Merhaba kaynak grubu sağlandıktan sonra Azure Klasik portalında hello gruptaki tüm hello kaynakların görebilirsiniz. Aşağıdaki ekran, hello hello kaynak grubu içeren bir sanal ağ üç VM'ler ile gösterildiği gibi toohello birleştirilir aynı kullanılabilirlik kümesi. Merhaba grubunun ilişkili bir ortak IP sahip bir yük dengeleyici de içerir.
     
-    ![Klasik Azure portalı üzerinde sağlanan kaynak grubu](./media/deis-cluster/resource-group.png)
+    ![Klasik Azure portalı üzerinde Hello sağlanan kaynak grubu](./media/deis-cluster/resource-group.png)
 
-## <a name="install-the-client"></a>İstemci Yükleme
-Gereksinim duyduğunuz **deisctl** denetlemek için küme Deis. Deisctl tüm küme düğümlerinde otomatik olarak yüklenir ancak ayrı bir yönetim makinede deisctl kullanmak iyi bir uygulamadır. Ayrıca, tüm düğümler yalnızca özel IP adresleri yapılandırıldığından, düğüm makinelere bağlanmak için bir ortak IP sahip yük dengeleyici üzerinden tünel SSH kullanmanız gerekir. Fiziksel bir ayrı Ubuntu üzerinde deisctl ya da sanal makineyi ayarlama adımları verilmiştir.
+## <a name="install-hello-client"></a>Merhaba istemcisini yükleme
+Gereksinim duyduğunuz **deisctl** toocontrol, küme Deis. Deisctl tüm hello küme düğümlerinde otomatik olarak yüklenir ancak ayrı bir yönetim makinede iyi bir uygulama toouse deisctl var. Ayrıca, tüm düğümler yalnızca özel IP adresleriyle yapılandırılmış olmadığından toouse tooconnect toohello düğümü makineler ortak bir IP hello yük dengeleyici ile SSH tünel gerekir. Merhaba aşağıdaki deisctl ayrı bir Ubuntu fiziksel veya sanal makine kurma hello adımlardır.
 
 1. Yükleme deisctl:mkdir deis
    
         cd deis
         curl -sSL http://deis.io/deisctl/install.sh | sh -s 1.6.1
         sudo ln -fs $PWD/deisctl /usr/local/bin/deisctl
-2. Özel anahtarınızı ssh aracı ekleyin:
+2. Özel anahtar toossh aracınızı ekleyin:
    
         eval `ssh-agent -s`
-        ssh-add [path to the private key file, see step 1 in the previous section]
+        ssh-add [path toohello private key file, see step 1 in hello previous section]
 3. Deisctl yapılandırın:
    
-        export DEISCTL_TUNNEL=[public ip of the load balancer]:2223
+        export DEISCTL_TUNNEL=[public ip of hello load balancer]:2223
 
-Şablon 1, 2224 örneğine 2 ve 3 örneğine 2225 örnek 2223 eşleme gelen NAT kuralları tanımlar. Bu deisctl aracını kullanmak için artıklık sağlar. Klasik Azure portalı aşağıdaki kurallara inceleyebilirsiniz:
+Merhaba şablonu tanımlar 2223 tooinstance 1, eşleme gelen NAT kuralları 2224 tooinstance 2 ve 3 2225 tooinstance. Bu, hello deisctl aracını kullanmak için artıklık sağlar. Klasik Azure portalı aşağıdaki kurallara inceleyebilirsiniz:
 
-![Yük Dengeleyici NAT kuralları](./media/deis-cluster/nat-rules.png)
+![Merhaba yük dengeleyicisi NAT kuralları](./media/deis-cluster/nat-rules.png)
 
 > [!NOTE]
-> Şu anda şablonu yalnızca 3 düğümlü kümeler destekler. Azure Resource Manager şablonu döngü sözdizimi desteklemiyor NAT kuralı tanımını uygulamasındaki bir sınırlama nedeniyle budur.
+> Şu anda hello şablonu yalnızca 3 düğümlü kümeler destekler. Azure Resource Manager şablonu döngü sözdizimi desteklemiyor NAT kuralı tanımını uygulamasındaki bir sınırlama nedeniyle budur.
 > 
 > 
 
-## <a name="install-and-start-the-deis-platform"></a>Yükleme ve başlangıç platform Deis
-Artık yükleme ve başlangıç deisctl kullanarak platform Deis:
+## <a name="install-and-start-hello-deis-platform"></a>Yükleme ve hello Başlat platform Deis
+Deisctl tooinstall kullanın ve hello Başlat artık platform Deis:
 
     deisctl config platform set domain=[some domain]
-    deisctl config platform set sshPrivateKey=[path to the private key file]
+    deisctl config platform set sshPrivateKey=[path toohello private key file]
     deisctl install platform
     deisctl start platform
 
 > [!NOTE]
-> Platform başlatma biraz zaman alır (10 dakika kadar). Özellikle, oluşturucu hizmeti başlatılıyor uzun zaman alabilir. Ve bazen başarılı olması için birkaç denemeden sürer: işlemi askıda görünüyorsa, yazmayı deneyin `ctrl+c` komutu yürütme ayırın ve yeniden deneyin.
+> Başlangıç hello platform biraz zaman alır (10 dakika kadar). Özellikle, hello Oluşturucu hizmeti başlatılıyor uzun zaman alabilir. Ve bazen birkaç denemeden toosucceed sürer: hello işlemi toohang görünüyorsa, yazmayı deneyin `ctrl+c` toobreak yürütülmesi hello komutu ve yeniden deneyin.
 > 
 > 
 
-Kullanabileceğiniz `deisctl list` tüm hizmetlerin çalışıp çalışmadığını doğrulamak için:
+Kullanabileceğiniz `deisctl list` tüm hizmetleri çalıştırılıyorsa tooverify:
 
     deisctl list
     UNIT                            MACHINE                 LOAD    ACTIVE          SUB
@@ -155,12 +155,12 @@ Kullanabileceğiniz `deisctl list` tüm hizmetlerin çalışıp çalışmadığ�
     deis-store-volume.service       9c79bbdd.../10.0.0.5    loaded  active          running
     deis-store-volume.service       ebe3005e.../10.0.0.6    loaded  active          running
 
-Tebrikler! Çalışan bir olduğuna artık Azure üzerinde clsuter Deis! Ardından, şimdi örnek eylem kümede görmek için Git uygulama dağıtın.
+Tebrikler! Çalışan bir olduğuna artık Azure üzerinde clsuter Deis! Ardından, şimdi örnek Git uygulama toosee hello eylem kümede dağıtın.
 
 ## <a name="deploy-and-scale-a-hello-world-application"></a>Dağıtma ve Hello World uygulama ölçeklendirme
-Aşağıdaki adımlar, bir "Hello World" dağıtma gösterir küme uygulamaya gidin. Adımlar dayanır [belgelerine Deis](http://docs.deis.io/en/latest/using_deis/using-dockerfiles/#using-dockerfiles).
+Merhaba aşağıdaki adımları nasıl toodeploy "Hello World" Git Göster uygulama toohello kümesi. Merhaba adımları temel [belgelerine Deis](http://docs.deis.io/en/latest/using_deis/using-dockerfiles/#using-dockerfiles).
 
-1. Yönlendirme kafes düzgün çalışması bir joker karakter A kaydı yük dengeleyici genel IP için işaret eden bir etki alanınız için sahip olmanız gerekir. Aşağıdaki ekran görüntüsü bir örnek etki alanı kaydı için A kaydı üzerinde GoDaddy gösterir:
+1. Merhaba yönlendirme kafes toowork için düzgün şekilde hello yük dengeleyicinin genel IP toohello işaret eden etki alanınız için toohave bir joker karakter A kaydı gerekir. Merhaba aşağıdaki ekran görüntüsü bir örnek etki alanı kaydı için hello A kaydı üzerinde GoDaddy gösterir:
    
     ![Godaddy A kaydı](./media/deis-cluster/go-daddy.png)
    
@@ -171,11 +171,11 @@ Aşağıdaki adımlar, bir "Hello World" dağıtma gösterir küme uygulamaya gi
         cd deis
         curl -sSL http://deis.io/deis-cli/install.sh | sh
         ln -fs $PWD/deis /usr/local/bin/deis
-3. Yeni bir SSH anahtarı oluşturun ve sonra GitHub için ortak anahtarı ekleyin (doğal olarak, aynı zamanda mevcut anahtarlarınızı yeniden kullanabilirsiniz). Yeni bir SSH anahtar çifti oluşturmak için kullanın:
+3. Yeni bir SSH anahtarı oluşturun ve sonra hello ortak anahtar tooGitHub ekleyin (doğal olarak, aynı zamanda mevcut anahtarlarınızı yeniden kullanabilirsiniz). Yeni bir SSH anahtar çifti, toocreate kullanın:
    
         cd ~/.ssh
-        ssh-keygen (press [Enter]s to use default file names and empty passcode)
-4. İd_rsa.pub veya tercih ettiğiniz ortak anahtar için GitHub ekleyin. Bu, SSH anahtarları yapılandırma ekranında eklemek SSH anahtar düğmesini kullanarak yapabilirsiniz:
+        ssh-keygen (press [Enter]s toouse default file names and empty passcode)
+4. İd_rsa.pub veya tercih ettiğiniz, tooGitHub hello ortak anahtarı ekleyin. Bu, SSH anahtarları yapılandırma ekranında hello eklemek SSH anahtar düğmesini kullanarak yapabilirsiniz:
    
    ![GitHub anahtarı](./media/deis-cluster/github-key.png)
    
@@ -184,9 +184,9 @@ Aşağıdaki adımlar, bir "Hello World" dağıtma gösterir küme uygulamaya gi
    
         deis register http://deis.[your domain]
    <p />
-6. SSH anahtarı ekleyin:
+6. Merhaba SSH anahtarını ekleyin:
    
-        deis keys:add [path to your SSH public key]
+        deis keys:add [path tooyour SSH public key]
    <p />      
 7. Bir uygulama oluşturun.
    
@@ -195,29 +195,29 @@ Aşağıdaki adımlar, bir "Hello World" dağıtma gösterir küme uygulamaya gi
         deis create
         git push deis master
    <p />
-8.Git itme, birkaç dakika sürer oluşturulan ve dağıtılan, Docker görüntüleri tetikler. My deneyimlerden bazen, adım 10 (özel deponuza Pushing görüntü) kilitlenebilir. Bu gerçekleştiğinde, işlemi durdurmak, kullanarak uygulamayı kaldırma ' uygulamaları deis: – a destroy <application name> ` to remove the application and try again. You can use `apps:list deis' uygulamanızı adını öğrenmek için. Her şeyi işe yararsa komut çıktılarını sonunda aşağıdaki gibi bir şey görmeniz gerekir:
+8.Merhaba git itme, birkaç dakika sürer oluşturulan ve dağıtılan, Docker görüntüleri toobe tetikler. My deneyimlerden bazen, adım 10 (Pushing görüntü tooprivate depo) kilitlenebilir. Bu gerçekleştiğinde, hello işlemi durdurabilirsiniz Kaldır hello kullanılarak uygulama ' uygulamaları deis: – a destroy <application name> ` tooremove hello application and try again. You can use `apps:list deis' toofind uygulamanızın hello adı çıkışı. Her şeyi işe yararsa komut çıktılarını hello sonunda hello aşağıdaki gibi bir şey görmeniz gerekir:
    
         -----> Launching...
-               done, lambda-underdog:v2 deployed to Deis
+               done, lambda-underdog:v2 deployed tooDeis
                http://lambda-underdog.artitrack.com
-               To learn more, use `deis help` or visit http://deis.io
-        To ssh://git@deis.artitrack.com:2222/lambda-underdog.git
+               toolearn more, use `deis help` or visit http://deis.io
+        toossh://git@deis.artitrack.com:2222/lambda-underdog.git
          * [new branch]      master -> master
    <p />
-9. Uygulama çalışıp çalışmadığını doğrulayın:
+9. Merhaba uygulaması çalışıp çalışmadığını doğrulayın:
    
         curl -S http://[your application name].[your domain]
    Şunu görmeniz gerekir:
    
-        Welcome to Deis!
-        See the documentation at http://docs.deis.io/ for more information.
-        (you can use geis apps:list to get the name of your application).
+        Welcome tooDeis!
+        See hello documentation at http://docs.deis.io/ for more information.
+        (you can use geis apps:list tooget hello name of your application).
    <p />
-10. Ölçek uygulama 3 örnekleri:
+10. Ölçek hello uygulama too3 örnekleri:
     
         deis scale cmd=3
     <p />
-11. Kullanabileceğiniz isteğe bağlı olarak, uygulamanızın ayrıntılarını incelemek için bilgi deis. Aşağıdaki çıktıları my uygulaması dağıtımından şunlardır:
+11. İsteğe bağlı olarak kullanabileceğiniz bilgi tooexamine Ayrıntılar, uygulamanızın deis. Merhaba aşağıdaki çıktıları my uygulaması dağıtımından şunlardır:
     
         deis info
         === lambda-underdog Application
@@ -243,10 +243,10 @@ Aşağıdaki adımlar, bir "Hello World" dağıtma gösterir küme uygulamaya gi
         No domains
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Yeni bir sağlamak için tüm adımları gitti bu makalede Azure Resource Manager şablonu kullanarak azure'da küme Deis. Şablonu, Yük Dengeleme dağıtılan uygulamalar için yanı sıra bağlantıları tooling içinde artıklık destekler. Genel IP'ler değerli genel IP kaynakları kaydeder ve uygulamalarını barındırmak için daha güvenli bir ortam sağlayan üye düğümleri kullanarak şablonu de önler. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Yeni bir Deis tüm hello adımları tooprovision gitti bu makalede Azure Resource Manager şablonu kullanarak azure'da küme. Merhaba şablonu Yük Dengeleme dağıtılan uygulamalar için yanı sıra bağlantıları tooling içinde artıklık destekler. Genel IP'ler değerli genel IP kaynakları kaydeder ve toohost uygulamaları daha güvenli bir ortam sağlayan üye düğümlerinde kullanarak Hello şablon de önler. toolearn daha makaleler hello bakın:
 
 [Azure Resource Manager'a genel bakış][resource-group-overview]  
-[Azure CLI kullanma][azure-command-line-tools]  
+[Nasıl toouse hello Azure CLI][azure-command-line-tools]  
 [Azure Resource Manager ile Azure PowerShell'i kullanma][powershell-azure-resource-manager]  
 
 [azure-command-line-tools]: ../../cli-install-nodejs.md

@@ -17,14 +17,14 @@
 ### [Kurumsal gönderme mimari kılavuzu](notification-hubs-enterprise-push-notification-architecture.md)
 
 ## Geliştirme
-### [GCM kullanarak Android’e anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-gcm-get-started.md)
+### [GCM kullanarak anında iletme bildirimleri tooAndroid Gönder](notification-hubs-android-push-notification-google-gcm-get-started.md)
 ### [Bing Uzamsal Veriler ile coğrafi sınırlamalı bildirimler gönderme](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-### Belirli kullanıcılara bildirme
+### Anında iletme toospecific kullanıcılar
 #### [Android](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
 #### [iOS](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
-#### [ASP.NET kullanılarak geçerli kullanıcıyı kaydetme](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
+#### [ASP.NET kullanarak hello geçerli kullanıcı kaydı](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [Platformlar arası bildirim gönderme](notification-hubs-aspnet-cross-platform-notification.md)
 ### Sunucu SDK’ları ile çalışma
 #### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)

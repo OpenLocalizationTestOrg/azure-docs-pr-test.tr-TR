@@ -1,5 +1,5 @@
 ---
-title: "Azure IOT - Ders 2 Arduino bağlanın: Azure Araçları (Ubuntu) | Microsoft Docs"
+title: "Arduino tooAzure IOT - Ders 2 bağlanın: Azure Araçları (Ubuntu) | Microsoft Docs"
 description: "Python ve Azure komut satırı arabirimi (Azure CLI) üzerinde Ubuntu yükleyin."
 services: iot-hub
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: a2f83e59a37abc3f44e770b22ac089b88481a6a4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7eb9c891a6340fee018894883583022d740ecb6f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-azure-tools-ubuntu-1604"></a>Azure Araçları (Ubuntu 16.04) alın
 
@@ -32,23 +32,23 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="what-you-will-do"></a>Ne yapacağını
 
-Azure komut satırı arabirimi (Azure CLI) yükleyin. Herhangi bir sorun varsa, çözümleri için Ara [sorun giderme sayfası](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md) Adafruit yumuşatma M0 WiFi Arduino panonuz için.
+Hello Azure komut satırı arabirimi (Azure CLI) yükleyin. Herhangi bir sorun varsa, hello çözümlerini arayın [sorun giderme sayfası](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md) Adafruit yumuşatma M0 WiFi Arduino panonuz için.
 
 ## <a name="what-you-will-learn"></a>Bilgi edineceksiniz
 Bu makalede, şunları öğreneceksiniz:
-* Azure CLI yükleme.
-* Azure CLI IOT GUID'sinin ekleme.
+* Nasıl tooinstall Azure CLI hello.
+* Nasıl tooadd hello Azure CLI IOT GUID'sinin.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 * Bir Internet bağlantısı olan bir Ubuntu bilgisayar.
 * Etkin bir Azure aboneliği. Bir hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz deneme sürümü hesabı](http://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.
 
-## <a name="install-the-azure-cli"></a>Azure CLI'yı yükleme
-Azure CLI çok platformlu bir komut satırı deneyimi, Azure için doğrudan komut satırından sağlamak için çalışma ve kaynakları yönetmenize olanak sağlar.
+## <a name="install-hello-azure-cli"></a>Hello Azure CLI yükleme
+Hello Azure CLI, Azure, komut satırı tooprovision doğrudan toowork etkinleştirme için birden çok platformlu bir komut satırı deneyimi sağlar ve kaynakları yönetin.
 
-En son Azure CLI yüklemek için aşağıdaki adımları izleyin:
+tooinstall en son Azure CLI Merhaba, şu adımları izleyin:
 
-1. Bir terminal penceresi aşağıdaki komutları çalıştırın. Azure CLI yüklemek için beş dakika sürebilir.
+1. Bir terminal penceresi komutlarda aşağıdaki hello çalıştırın. Beş dakika tooinstall hello Azure CLI alabilir.
 
    ```bash
    sudo apt-get update
@@ -59,18 +59,18 @@ En son Azure CLI yüklemek için aşağıdaki adımları izleyin:
    sudo pip install --upgrade azure-cli
    sudo pip install --upgrade azure-cli-iot
    ```
-2. Aşağıdaki komutu çalıştırarak yüklemeyi doğrulayın:
+2. Merhaba aşağıdaki komutu çalıştırarak Hello yüklemeyi doğrulayın:
 
    ```bash
    az iot -h
    ```
 
-Yükleme başarılı olursa aşağıdaki çıktı görmeniz gerekir.
+Merhaba yükleme başarılı olup olmadığını hello aşağıdaki çıktı görmeniz gerekir.
 
 ![Başarı belirten bir çıkış][output]
 
 ## <a name="summary"></a>Özet
-Azure CLI yüklediniz. Sonraki göreviniz Azure CLI kullanarak Azure IOT hub ve cihaz kimliğinizi oluşturmaktır.
+Hello Azure CLI yüklediniz. Sonraki göreviniz toocreate olan Azure IOT hub ve cihaz kimliğini kullanarak Azure CLI hello.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [IOT hub'ınızı oluşturun ve Arduino panonuzu kaydedin][create-your-iot-hub-and-register-your-arduino-board]

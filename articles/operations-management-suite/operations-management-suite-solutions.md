@@ -1,6 +1,6 @@
 ---
-title: "Operations Management Suite (OMS) çözümleri | Microsoft Docs"
-description: "Çözümleri, müşterilerin kendi OMS çalışma alanına ekleyebilirsiniz paketlenmiş yönetim senaryoları sağlayarak Operations Management Suite (OMS) işlevselliği genişletir.  Bu makalede, müşterileri ve ortakları tarafından oluşturulan nasıl özel çözümler hakkında ayrıntılar sağlar."
+title: aaaSolutions Operations Management Suite (OMS) | Microsoft Docs
+description: "Çözümleri genişletmek hello işlevselliği Operations Management Suite (OMS) paketlenmiş yönetim senaryoları sağlayarak müşteriler tootheir OMS çalışma ekleyebilirsiniz.  Bu makalede, müşterileri ve ortakları tarafından oluşturulan nasıl özel çözümler hakkında ayrıntılar sağlar."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2443dd73fdf441721bd6f6f340da515d9f5a22a2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5b5a538f1bc4b5577bec94db08bd43668bc6584a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="working-with-management-solutions-in-operations-management-suite-oms-preview"></a>Yönetim çözümleri Operations Management Suite (OMS) (Önizleme) içinde ile çalışma
 > [!NOTE]
@@ -27,85 +27,85 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Yönetim çözümleri, müşterilerin ortamlarına ekleyebilirsiniz paketlenmiş yönetim senaryoları sağlayarak Operations Management Suite (OMS) işlevselliği genişletir.  Ek olarak [Microsoft tarafından sağlanan çözüm](../log-analytics/log-analytics-add-solutions.md), iş ortakları ve müşterileri kendi ortamında kullanılan veya topluluk aracılığıyla müşterilere sunulacağını için yönetim çözümleri oluşturabilirsiniz.
+Yönetim çözümleri genişletmek hello işlevselliği Operations Management Suite (OMS) paketlenmiş yönetim senaryoları sağlayarak müşteriler tootheir ortamına ekleyebilirsiniz.  Ayrıca çok[Microsoft tarafından sağlanan çözüm](../log-analytics/log-analytics-add-solutions.md), iş ortakları ve müşterileri kendi ortamında kullanılan veya hello topluluk aracılığıyla kullanılabilir toocustomers yapılan yönetim çözümleri toobe oluşturabilirsiniz.
 
 ## <a name="finding-and-installing-management-solutions"></a>Bulma ve yönetim çözümleri yükleme
-Bulma ve yönetim çözümleri aşağıdaki bölümlerde açıklandığı gibi yükleme için birden çok yöntem bulunmaktadır.
+Bulma ve yönetim çözümleri hello aşağıdaki bölümlerde açıklandığı gibi yükleme için birden çok yöntem bulunmaktadır.
 
 ### <a name="azure-marketplace"></a>Azure Market
-Yönetim çözümleri Microsoft tarafından sağlanan ve Azure portalında Azure Marketi'nden güvenilen ortaklar yüklü olabilir.
+Yönetim çözümleri Microsoft tarafından sağlanan ve güvenilen ortaklar hello Azure Marketi hello Azure Portalı'ndan yüklenebilir.
 
-1. Azure portalında oturum açın.
-2. Sol bölmede seçin **daha fazla hizmet**.
-3. Aşağı kaydırarak ya da **çözümleri** veya türü *çözümleri* içine **filtre** iletişim.
-4. Tıklatın **+ Ekle** düğmesi.
-5. Arama tıklatarak da giderek, ilgilendiğiniz çözümleri için **filtre** düğmesini veya yazarak **arama Everthing** kutusu.
-6. Ayrıntılı bilgilerini görüntülemek için bir Market öğesini tıklatın.
-7. Tıklatın **oluşturma** açmak için **Çözüm Ekle** bölmesi.
-8. Gerekli bilgileri gibi istenir [OMS çalışma ve Automation hesabı](#oms-workspace-and-automation-account) ek olarak çözümdeki herhangi bir parametre için değerler.
-9. Tıklatın **oluşturma** çözümü yüklemek için.
+1. Toohello Azure portalında oturum açın.
+2. Merhaba sol bölmesinde seçin **daha fazla hizmet**.
+3. Ya da aşağı kaydırın çok**çözümleri** veya türü *çözümleri* hello içine **filtre** iletişim.
+4. Merhaba tıklatın **+ Ekle** düğmesi.
+5. Arama ya giderek, ilgilendiğiniz çözümleri için hello tıklatarak **filtre** düğmesini veya hello yazarak **arama Everthing** kutusu.
+6. Market öğesi tooview ayrıntılı bilgilerini'ı tıklatın.
+7. Tıklatın **oluşturma** tooopen hello **Çözüm Ekle** bölmesi.
+8. Hello gibi istendiğinde toorequired bilgileri olacaktır [OMS çalışma ve Automation hesabı](#oms-workspace-and-automation-account) toovalues herhangi bir parametre için çözüm ayrıca hello.
+9. Tıklatın **oluşturma** tooinstall hello çözümü.
 
 ### <a name="oms-portal"></a>OMS portalı
-Microsoft tarafından sağlanan yönetim çözümleri OMS portalında çözümleri galerisinden yüklenebilir.
+Microsoft tarafından sağlanan yönetim çözümleri hello Çözümleri Galerisi hello OMS Portalı'ndan yüklenebilir.
 
-1. OMS portalında oturum açın.
-2. Tıklatın **Çözümleri Galerisi** döşeme.
-3. OMS Çözümleri Galerisi sayfasında, her kullanılabilir bir çözüm hakkında bilgi edinin. OMS için eklemek istediğiniz çözüm adına tıklayın.
-4. Seçtiğiniz çözüm için sayfada çözümü hakkında ayrıntılı bilgi görüntülenir. **Ekle**'ye tıklayın.
-5. Sayfa OMS ve verilerinizi OMS hizmetine işledikten sonra kullanmaya başlayabilmeniz için genel bakış görünür eklenen çözüm için yeni bir kutucuk.
+1. İçinde toohello OMS portalında oturum açın.
+2. Merhaba tıklatın **Çözümleri Galerisi** döşeme.
+3. Merhaba OMS Çözümleri Galerisi sayfasında, her kullanılabilir bir çözüm hakkında bilgi edinin. Merhaba çözüm tooadd tooOMS istediğiniz Hello adına tıklayın.
+4. Seçtiğiniz hello çözüm başlangıç sayfasında, hello çözümü hakkında ayrıntılı bilgi görüntülenir. **Ekle**'ye tıklayın.
+5. OMS genel bakış sayfasında hello ve verilerinizi hello OMS hizmetine işledikten sonra kullanmaya başlayabilmeniz için görünür eklenen hello çözüm için yeni bir kutucuk.
 
 ### <a name="azure-quickstart-templates"></a>Azure Hızlı Başlangıç Şablonları
-Topluluk üyeleri Azure hızlı başlangıç şablonlarını yönetim çözümleri gönderebilirsiniz.  Sonraki yüklemesi için bu şablonları yükleyebileceğiniz veya bunları öğrenmek için incelemek için nasıl [kendi çözümleri oluşturma](#creating-a-solution).
+Merhaba topluluk üyeleri yönetim çözümleri tooAzure hızlı başlangıç şablonlarını gönderebilirsiniz.  Sonraki yüklemesi için bu şablonları yükleyebilirsiniz veya bunları nasıl çok toolearn incelemek[kendi çözümleri oluşturma](#creating-a-solution).
 
-1. Açıklanan işlemi izleyin [OMS çalışma ve Automation hesabı](#oms-workspace-and-automation-account) çalışma ve hesabı bağlamak için.
-2. Git [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/documentation/templates/).  
+1. Açıklanan hello süreci izleyin [OMS çalışma ve Automation hesabı](#oms-workspace-and-automation-account) toolink çalışma ve hesap.
+2. Çok Git[Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/documentation/templates/).  
 3. İlgilendiğiniz bir çözüm arayın.
-4. Çözümü sonuçlarını ayrıntılarını görüntülemek için seçin.
-5. Tıklatın **Azure'a Dağıt** düğmesi.
-6. Çözümdeki herhangi bir parametre için bir kaynak grubu ve konum değerleri yanı sıra gibi bilgileri sağlamak için istenir.
-7. Tıklatın **satın alma** çözümü yüklemek için.
+4. Merhaba çözümü hello sonuçları tooview ayrıntılarını seçin.
+5. Merhaba tıklatın **tooAzure dağıtmak** düğmesi.
+6. Merhaba kaynak grubunu ve konumu toplama toovalues hello çözümdeki herhangi bir parametre için de gibi istendiğinde tooprovide bilgileri olacaktır.
+7. Tıklatın **satın alma** tooinstall hello çözümü.
 
 ### <a name="deploy-azure-resource-manager-template"></a>Azure Resource Manager şablonu dağıtma
-Topluluk veya sizin alma çözümleri [kendiniz oluşturmanız](#creating-a-solution) Resource Manager şablonu uygulanır ve için standart yöntemlerden herhangi birini kullanabilirsiniz [bir şablonu dağıtmayı](../azure-resource-manager/resource-group-template-deploy-portal.md).  Çözüm yüklemeden önce oluşturma bağlamak ve gerekir unutmayın [OMS çalışma ve Automation hesabı](#oms-workspace-and-automation-account).
+Merhaba topluluk veya sizin alma çözümleri [kendiniz oluşturmanız](#creating-a-solution) Resource Manager şablonu uygulanır ve hello için standart yöntemlerden herhangi birini kullanabilirsiniz [bir şablonu dağıtmayı](../azure-resource-manager/resource-group-template-deploy-portal.md).  Merhaba çözüm yüklemeden önce oluşturmalı ve bağlantı hello olduğunu Not [OMS çalışma ve Automation hesabı](#oms-workspace-and-automation-account).
 
 ## <a name="oms-workspace-and-automation-account"></a>OMS çalışma ve Automation hesabı
-Çoğu yönetim çözümleri gerektiren bir [OMS çalışma](../log-analytics/log-analytics-manage-access.md) görünümleri içerecek şekilde ve bir [Otomasyon hesabı](../automation/automation-security-overview.md#automation-account-overview) runbook'ları ve ilgili kaynakları içerecek şekilde. Hesap ve çalışma alanı aşağıdaki gereksinimleri karşılaması gerekir.
+Çoğu yönetim çözümleri gerektiren bir [OMS çalışma](../log-analytics/log-analytics-manage-access.md) toocontain görünümleri ve bir [Otomasyon hesabı](../automation/automation-security-overview.md#automation-account-overview) toocontain runbook'ları ve ilgili kaynakları. Çalışma alanı hello ve hesap hello aşağıdaki gereksinimleri karşılaması gerekir.
 
 * Bir çözümü, yalnızca bir OMS çalışma ve bir Automation hesabı kullanabilirsiniz.  
-* OMS çalışma ve bir çözüm tarafından kullanılan Otomasyon hesabı birbirine bağlı olması gerekir. Bir OMS çalışma yalnızca bir Automation hesabı için bağlı ve Automation hesabı yalnızca bir OMS çalışma alanına bağlanır.
-* Bağlantılı olması için OMS çalışma ve Automation hesabı aynı kaynak grubu ve bölge olması gerekir.  Doğu ABD bölgesinde bir OMS çalışma istisnadır ve ve Automation hesabında Doğu ABD 2.
+* Merhaba OMS çalışma ve bir çözüm tarafından kullanılan Otomasyon hesabı bağlı tooone olmalıdır başka bir. Bir OMS çalışma yalnızca bağlantılı tooone Otomasyon hesabı olabilir ve bir Otomasyon hesabı yalnızca bağlantılı tooone OMS çalışma olabilir.
+* toobe bağlı, hello OMS çalışma ve hello aynı kaynak grubu ve bölge Otomasyon hesabı olması gerekir.  Merhaba istisnadır Doğu ABD bölgesinde bir OMS çalışma ve ve Automation hesabında Doğu ABD 2.
 
 ### <a name="creating-a-link-between-an-oms-workspace-and-automation-account"></a>Bir OMS çalışma ve Otomasyon hesabı arasında bir bağlantı oluşturuluyor
-Nasıl OMS çalışma alanını belirtin ve yükleme yöntemi, çözümünüz için Otomasyon hesabı bağlıdır.
+Nasıl hello OMS çalışma alanını ve Automation hesabı hello yükleme yöntemi, çözümünüz için bağlıdır.
 
-* Microsoft Çözüm OMS portalı üzerinden yüklediğinizde, geçerli OMS çalışma alanında yüklenir ve herhangi bir Otomasyon hesabı gereklidir.
-* Azure Market üzerinden bir çözüm yüklediğinizde, bir OMS çalışma ve Otomasyon hesabı için istenir ve aralarındaki bağlantının sizin için oluşturulur.  
-* Azure Market dışında çözümleri için çözüm yüklemeden önce OMS çalışma ve Automation hesabı bağlanmalıdır.  Azure Marketi'nde herhangi bir çözüm ve Automation hesabı ve OMS çalışma alanını seçerek bunu yapabilirsiniz.  OMS çalışma ve Automation hesabı seçili hemen sonra bağlantı oluşturulacağından çözümü gerçekten yüklemek zorunda değilsiniz.  Daha sonra bağlantısı oluşturulduktan sonra herhangi bir çözümü bu OMS çalışma ve Automation hesabı kullanabilirsiniz. 
+* Microsoft Çözüm hello OMS portalı üzerinden yüklediğinizde hello geçerli OMS çalışma alanında yüklenir ve herhangi bir Otomasyon hesabı gereklidir.
+* Hello Azure Market üzerinden bir çözüm yüklediğinizde, bir OMS çalışma ve Otomasyon hesabı için istenir ve aralarındaki hello bağlantı sizin için oluşturulur.  
+* Hello Azure Market dışında çözümleri için hello OMS çalışma ve Automation hesabı hello çözüm yüklemeden önce bağlanmalıdır.  Hello Azure Marketi herhangi bir çözüm ve hello OMS çalışma ve Automation hesabı seçerek bunu yapabilirsiniz.  Merhaba OMS çalışma ve Automation hesabı seçili hemen hello bağlantı oluşturulacağından hello çözümü yüklemek tooactually yok.  Ardından Hello bağlantısı oluşturulduktan sonra herhangi bir çözümü bu OMS çalışma ve Automation hesabı kullanabilirsiniz. 
 
-### <a name="verifying-the-link-between-an-oms-workspace-and-automation-account"></a>Bir OMS çalışma ve Otomasyon hesabı arasındaki bağlantıyı doğrulama
-Bir OMS çalışma ve aşağıdaki yordamı kullanarak bir Otomasyon hesabı arasındaki bağlantıyı doğrulayabilirsiniz.
+### <a name="verifying-hello-link-between-an-oms-workspace-and-automation-account"></a>Bir OMS çalışma ve Otomasyon hesabı arasında Hello bağlantı doğrulanıyor
+Bir OMS çalışma ve hello aşağıdaki yordamı kullanarak bir Otomasyon hesabı arasında hello bağlantı doğrulayabilirsiniz.
 
-1. Azure portalında Otomasyon hesabı seçin.
-2. Listenin sonuna kaydırın **ayarları** bölmesi.
-3. Adlı bir bölüm olup olmadığını **OMS Kaynakları** içinde **ayarları** bölmesi, ardından bu hesap bir OMS çalışma alanına eklenir.
-4. Seçin **çalışma** OMS çalışma ayrıntılarını görüntülemek için bu Otomasyon hesabına bağlanır.
+1. Hello Azure portal Hello Otomasyon hesabı seçin.
+2. Merhaba kaydırma toohello alt **ayarları** bölmesi.
+3. Adlı bir bölüm olup olmadığını **OMS Kaynakları** hello içinde **ayarları** bölmesi, sonra bu hesabı ekli tooan OMS çalışma alanıdır.
+4. Seçin **çalışma** tooview hello hello OMS çalışma ayrıntılarını toothis Otomasyon hesabına bağlanır.
 
 ## <a name="listing-management-solutions"></a>Yönetim çözümleri listeleme
-Aşağıdaki yordam için yönetim çözümleri Azure aboneliğinize bağlı çalışma alanları görüntülemek için kullanın.
+Aşağıdaki yordam tootooview hello yönetim çözümlerine hello çalışma alanları bağlantılı tooyour Azure aboneliği hello kullanın.
 
-1. Azure portalında oturum açın.
-2. Sol bölmede seçin **daha fazla hizmet**.
-3. Aşağı kaydırarak ya da **çözümleri** veya türü *çözümleri* içine **filtre** iletişim.
+1. Toohello Azure portalında oturum açın.
+2. Merhaba sol bölmesinde seçin **daha fazla hizmet**.
+3. Ya da aşağı kaydırın çok**çözümleri** veya türü *çözümleri* hello içine **filtre** iletişim.
 4. Tüm çalışma alanlarında yüklü çözümleri listelenir.
 
-OMS Portalı'nı kullanarak geçerli çalışma alanında yüklü Microsoft çözümleri görüntüleyebilirsiniz unutmayın.
+Merhaba geçerli çalışma hello OMS portalı kullanarak alanında yalnızca hello Microsoft çözümleri görüntüleyebilirsiniz unutmayın.
 
 ## <a name="removing-a-management-solution"></a>Bir yönetim çözümü kaldırma
-Bir yönetim çözümü kaldırıldığında, Çözümdeki tüm kaynaklar da kaldırılır.  
+Bir yönetim çözümü kaldırıldığında, hello Çözümdeki tüm kaynaklar da kaldırılır.  
 
-1. Konusundaki yordamı kullanarak Azure portalında çözümü bulmak [çözümleri listeleme](#listing-solutions).
-2. Kaldırmak istediğiniz çözümü seçin.
-3. Tıklatın **silmek** düğmesi.
+1. Merhaba çözüm hello Azure bulun hello yordamda kullanarak portal [çözümleri listeleme](#listing-solutions).
+2. Tooremove istediğiniz hello çözümü seçin.
+3. Merhaba tıklatın **silmek** düğmesi.
 
 ## <a name="creating-a-management-solution"></a>Bir yönetim çözümü oluşturma
 Yönetim çözümleri oluşturma konusunda tam yönergeler şurada bulunabilir [Operations Management Suite (OMS) çözümleri oluşturma](operations-management-suite-solutions-creating.md). 

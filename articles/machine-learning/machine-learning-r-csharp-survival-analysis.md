@@ -1,5 +1,5 @@
 ---
-title: "(kullanım dışı) Azure Machine Learning ile hayatta çözümleme | Microsoft Docs"
+title: Azure Machine Learning ile hayatta analiz AAA(deprecated) | Microsoft Docs
 description: "(kullanım dışı) Acil ihtiyaç analiz olay oluşumu olasılık"
 services: machine-learning
 documentationcenter: 
@@ -16,47 +16,47 @@ ms.date: 01/06/2017
 ms.author: zhangya
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 7d4066d5f15a39c428d8035257c4841f9b3cc775
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: af946d8df5ba650a9d74fbabbe3b15d3a07dd508
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-survival-analysis"></a>(kullanım dışı) Acil ihtiyaç çözümleme
 
 > [!NOTE]
-> Microsoft DataMarket kullanımdan kaldırıldı ve bu API kullanım dışı bırakıldı. 
+> Merhaba Microsoft DataMarket kullanımdan kaldırıldı ve bu API kullanım dışı bırakıldı. 
 > 
-> Çok sayıda kullanışlı örnek denemeleri ve API'leri bulabilirsiniz [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com). Galeri hakkında daha fazla bilgi için bkz: [paylaşımı ve Cortana Intelligence Galerisi kaynakları bulmak](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Çok sayıda kullanışlı örnek denemeleri ve API hello bulabilirsiniz [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com). Merhaba galeri hakkında daha fazla bilgi için bkz: [paylaşımı ve hello Cortana Intelligence Galerisi kaynakları bulmak](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Birçok senaryolarda değerlendirme altında ana sonucu olaya ilgi saattir. Diğer bir deyişle, "Bu olay meydana gelir?" olduğunda soru istedi. Örnek olarak, burada verileri tanımlayan geçen süre (gün, yıl, mesafe, vb.) durumlarda faiz (Hastalık relapse, alınan Doktora derece, Fren paneli hatası) olay kadar göz önünde bulundurun oluşur. Her örnek verileri belirli bir nesneye (bir süre bekleyin, öğrencinin, bir araba, vb.) temsil eder.
+Birçok senaryolarda hello ana sonucu değerlendirme altında hello zaman tooan ilgi etkinliğidir. "Bu olay meydana gelir?," başka bir deyişle, hello soru istedi. Örnek olarak, burada hello verileri tanımlayan hello geçen süre (gün, yıl, mesafe, vb.) durumlarda hello kadar göz önünde bulundurun (Hastalık relapse, alınan Doktora derece, Fren paneli hatası) ilgi olayı oluşur. Merhaba veri her örnek, belirli bir nesneye (bir süre bekleyin, öğrencinin, bir araba, vb.) temsil eder.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Bu [web hizmeti](https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) "ilgi olay zaman n nesnesinin x tarafından gerçekleşir olasılık nedir?" sorusunu yanıtlar Acil ihtiyaç çözümleme modeli sağlayarak, modeli eğitmek ve test için veri sağlamak kullanıcıların bu web hizmeti sağlar. Denemeyi ana temasını ilgi olay gerçekleşene kadar geçen süre modellemektir. 
+Bu [web hizmeti](https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) "ne olay ilgi hello hello olasılık zaman n nesnesinin x tarafından gerçekleştirilecek?" Merhaba soru yanıtlar Acil ihtiyaç çözümleme modeli sağlayarak, bu web hizmeti kullanıcıların toosupply veri tootrain hello modeli sağlar ve test. Merhaba olay ilgi gerçekleşene kadar hello deneme hello ana temasını toomodel hello hello geçen süre uzunluğu olabilir. 
 
-> Bu web hizmeti tarafından kullanıcılara – potansiyel olarak mobil uygulama, bir Web sitesi aracılığıyla ya da bile yerel bir bilgisayarda, örneğin tüketilmesi. Ancak web hizmetinin amacı, ayrıca Azure Machine Learning web hizmetleri R kodu üstünde oluşturmak için nasıl kullanılabileceği bir örnek olarak hizmet verecek. Yalnızca birkaç satırlık bir R kodu ve Azure Machine Learning Studio içinde bir düğmeye tıklama ile bir deneme R kodu ile oluşturulan ve bir web hizmeti olarak yayımlanan. Web hizmeti için Azure Marketi yayımlanan ve kullanıcılar ve aygıtlar için herhangi bir altyapı Kurulumu yazarı tarafından oluşturulan web hizmeti ile dünya genelindeki tüketilen.  
+> Bu web hizmeti tarafından kullanıcılara – potansiyel olarak mobil uygulama, bir Web sitesi aracılığıyla ya da bile yerel bir bilgisayarda, örneğin tüketilmesi. Ancak hello amacı hello web hizmeti, ayrıca Azure Machine Learning kullanılan toocreate web hizmetleri R kodu en üstünde nasıl olabilir bir örnek olarak tooserve. Yalnızca birkaç satırlık bir R kodu ve Azure Machine Learning Studio içinde bir düğmeye tıklama ile bir deneme R kodu ile oluşturulan ve bir web hizmeti olarak yayımlanan. Merhaba web hizmeti sonra yayımlanan toohello Azure Marketi olabilir ve kullanıcılar ve aygıtlar için herhangi bir altyapı Kurulumu hello web hizmeti hello yazarı tarafından ile Merhaba dünya genelindeki tüketilen.  
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Web hizmetinin tüketim
-Web hizmetinin giriş veri şeması aşağıdaki tabloda gösterilmiştir. Altı bilgi parçalarını giriş olarak gerekiyor: verileri eğitim verileri test etme, ilgi, "saat" dizinini zaman boyut, "olay" boyut ve değişken türleri dizini (sürekli veya faktörü). Eğitim verileri burada satırları virgülle ayrılır ve sütunları noktalı virgülle ayrılmış bir dize ile temsil edilir. Veri özellikleri sayısı esnektir. Giriş dizisinde tüm öğeler sayısal olmalıdır. Eğitim verileri (Uyuşturucu kullanımı, Doktora derece, Fren paneli hataya neden araba alma Öğrenci döndürme hasta ilgi olay kadar (hasta alma uyuşturucu işleme programları, Öğrenci başlangıç Doktora incelemesi, başlangıç güdümlü, vb. bir araba) incelemesi başlangıç noktası itibaren geçen zaman birimleri (gün, yıl, mesafe, vb.) sayısı "zaman" boyutu belirtir. VS.) oluşur. "Olay" boyut ilgi olay incelemesinde sonunda oluşup oluşmadığını gösterir. Değerini "olay = 1", "saat" boyuta göre; belirtilen saatte ilgi olayı meydana anlamına gelir "olay = 0", "saat" boyutu tarafından belirtilen zaman tarafından ilgi olay gerçekleşmedi anlamına gelir.
+Merhaba giriş verisi şeması hello web hizmeti, aşağıdaki tablonun hello gösterilir. Altı bilgi parçalarını hello giriş olarak gerekiyor: eğitim verileri, test verileri, ilgilendiğiniz zaman, "saat" boyutun başlangıç dizini, "olay" boyut ve hello değişken türleri hello dizini (sürekli veya faktörü). Merhaba eğitim verilerini burada hello satırları virgülle ayrılmış ve hello sütunları noktalı virgülle ayrılmış bir dize ile temsil edilir. Merhaba hello veri özelliklerini esnek sayısıdır. Merhaba giriş dizesi tüm hello öğeler sayısal olmalıdır. Merhaba başlangıç noktası hello araştırmak bu yana (alma uyuşturucu işleme programları, Öğrenci başlangıç Doktora incelemesi, bir araba toobe başlayarak bir Hasta geçen zaman birimleri (gün, yıl, mesafe, vb.) hello sayısı hello "zaman" boyutu Hello eğitim verileri gösterir güdümlü, vs.) Merhaba (Merhaba hasta döndürme toodrug kullanımı, hello Öğrenci alma hello Doktora derece, hello araba sahip Fren paneli hatası, vb.) ilgi olay gerçekleşene kadar. Merhaba "olay" boyut hello olay ilgi hello hello incelemesi sonunda olup olmadığını belirtir. Değerini "olay = 1" olay ilgi hello anlamına gelir oluşur hello "zaman" boyuta göre; belirtilen hello zaman "olay = 0" olay ilgi hello anlamına gelir hello "zaman" boyutu tarafından belirtilen hello zamana göre değil oluştu.
 
 * trainingdata - bir karakter dizesi. Satır virgülle ayrılır ve sütunları noktalı virgülle ayrılır. Her satır, "saat" boyut, "olay" boyut ve bir göstergesi olduğu değişkenleri içerir.
 * testingdata - belirli bir nesne için bir göstergesi olduğu değişkenleri içeren veri bir satır.
-* time_of_interest - faiz n geçen süre.
-* index_time - (1'den başlayarak) "saat" boyutun sütun dizini.
-* index_event - (1'den başlayarak) "olay" boyutun sütun dizini.
+* time_of_interest - faiz n hello geçen süre.
+* index_time - hello sütun dizini hello "zaman" boyutunun (1'den başlayarak).
+* index_event - hello sütun dizini hello "olay" boyutun (1'den başlayarak).
 * variable_types - noktalı virgül, ayırıcı olarak bir karakter dizesi. 0 sürekli değişkenleri ve 1 faktörü değişkenleri gösterir.
 
-Çıktı tarafından belirli bir zamanda gerçekleşen bir olay olasılıktır. 
+Merhaba çıktı tarafından belirli bir zamanda gerçekleşen bir olay hello olasılıktır. 
 
-> Bu hizmet Azure Marketi üzerinde barındırılan bir OData hizmeti aynıdır; Bu POST veya GET yöntemleri ile çağrılabilir. 
+> Bu hizmet Azure Marketi hello üzerinde barındırılan bir OData hizmeti aynıdır; Bu POST veya GET yöntemleri ile çağrılabilir. 
 > 
 > 
 
-Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (bir örnek uygulaması [burada](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)). 
+Otomatik bir şekilde hello hizmetinde tüketen birkaç yolu vardır (bir örnek uygulaması [burada](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)). 
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Web hizmet tüketimi için C# kodunu başlatılıyor:
     public class Input
@@ -93,14 +93,14 @@ Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (bir örnek uygul
 
 
 
-Bu test yorumu aşağıdaki gibidir. Veri amacı varsayılarak Uyuşturucu kullanım için dönüş iki işleme programları birini alınan hastalar için kadar geçen süre model sağlamaktır. Web hizmeti okuma çıktısı: hastalar 35 yaşında olan, önceki sahip Uyuşturucu işleme 2 kez uzun konut işleme program alma ve heroin ve cocaine kullanımı ile Uyuşturucu kullanım döndürme olasılığı %95.64 gün 500.
+Bu test Hello yorumu aşağıdaki gibidir. Merhaba veri Hello amacı toomodel hello geçen süre kadar hello olduğunu varsayarak hello iki işleme programları birini alınan hello hastalar için toodrug kullanım döndürür. Merhaba hello web hizmeti okuma çıktısını: hastalar 35 yaşında olan, önceki sahip Uyuşturucu işleme 2 kez hello uzun konut işleme programı, alma ve heroin ve cocaine kullanımı ile toohello Uyuşturucu kullanım döndürme hello %95.64 olasılıktır günü 500.
 
 ## <a name="creation-of-web-service"></a>Web hizmeti oluşturma
-> Bu web hizmeti, Azure Machine Learning kullanılarak oluşturuldu. Denemeler oluşturma tanıtım videoları yanı sıra, ücretsiz deneme için ve [web hizmetleri yayımlama](machine-learning-publish-a-machine-learning-web-service.md), lütfen bkz [azure.com/ml](http://azure.com/ml). Bir ekran görüntüsünü her denemenin içinde modülü için web hizmeti ve örnek kod oluşturulan deneme aşağıdadır.
+> Bu web hizmeti, Azure Machine Learning kullanılarak oluşturuldu. Denemeler oluşturma tanıtım videoları yanı sıra, ücretsiz deneme için ve [web hizmetleri yayımlama](machine-learning-publish-a-machine-learning-web-service.md), lütfen bkz [azure.com/ml](http://azure.com/ml). Bir ekran görüntüsünü her hello deneyin içinde hello modüllerin hello web hizmeti ve örnek kod oluşturulan hello deneme aşağıdadır.
 > 
 > 
 
-Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu ve iki [R betiği yürütün] [ execute-r-script] modülleri çalışma çekilen. Veri şeması ile basit bir oluşturulmuş [R betiği yürütün][execute-r-script], web hizmeti için giriş veri şeması tanımlar. Bu modül sonra ikinci bağlantılı [R betiği yürütün] [ execute-r-script] iş ana modülü. Bu modül veri ön işleme, model oluşturmanın ve tahminleri yapar. Veri önişlem adımda, uzun bir dize tarafından temsil edilen giriş verileri dönüştürülen ve veri çerçeveye dönüştürülür. Model oluşturma adımda dış R paketi "survival_2.37-7.zip" acil ihtiyaç analizi yürütmek için önce yüklenir. "Coxph" işlevi serisi veri işleme görevlerini sonra yürütülür. "Coxph" işlevi için acil ihtiyaç analiz ayrıntılarını R belgelerinden okuyabilir. Tahmin adımda, bir test örneği eğitilen modelini "surfit" işlevi ile sağlanan ve acil ihtiyaç eğri bu test örneği için "eğri" değişken olarak üretilir. Son olarak, ilgilendiğiniz zaman olasılığını elde edilir. 
+Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu ve iki [R betiği yürütün] [ execute-r-script] modülleri hello çalışma çekilen. Merhaba veri şeması ile basit bir oluşturulmuş [R betiği yürütün][execute-r-script], hello giriş veri şeması hello web hizmeti tanımlar. Bu modül ise toohello ikinci bağlantılı [R betiği yürütün] [ execute-r-script] iş ana modülü. Bu modül veri ön işleme, model oluşturmanın ve tahminleri yapar. Merhaba veri önişlem adımda, uzun bir dize tarafından temsil edilen hello giriş veri dönüştürülen ve veri çerçeveye dönüştürülür. Hello modeli oluşturma adımında, dış R paketi "survival_2.37-7.zip" acil ihtiyaç analizi yürütmek için önce yüklenir. Merhaba "coxph" işlevi serisi veri işleme görevlerini sonra yürütülür. Merhaba "coxph" işlevi için acil ihtiyaç analiz Hello ayrıntılarını hello R belgelerinden okuyabilir. Merhaba tahmin adımda, bir test örneği hello eğitilen modelini hello "surfit" işlevi ile sağlanan ve hello hayatta eğri bu test örneği için "eğri" değişken olarak üretilir. Son olarak, ilgi hello süreyi hello olasılık elde edilir. 
 
 ### <a name="experiment-flow"></a>Deneme akışı:
 ![Deneme akışı][1]
@@ -118,7 +118,7 @@ Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu ve iki [R be
 
     sampleInput=data.frame(trainingdata,testingdata,time_of_interest,index_time,index_event,variable_types)
 
-    maml.mapOutputPort("sampleInput"); #send data to output port
+    maml.mapOutputPort("sampleInput"); #send data toooutput port
 
 #### <a name="module-2"></a>Modül 2:
     #Read data from input port
@@ -148,7 +148,7 @@ Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu ve iki [R be
     install.packages("src/packages_survival/survival_2.37-7.zip",lib=".",repos=NULL,verbose=TRUE)
     library(survival)
 
-    # Prepare to build model
+    # Prepare toobuild model
     attach(mydata)
 
     for (i in 1:n_col){ mydata[,i]=as.numeric(mydata[,i])} 
@@ -160,7 +160,7 @@ Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu ve iki [R be
     variable_types = unlist(strsplit(as.character(variable_types),";"))
 
     len = length(v_predictors)
-    c="" # Construct the execution string
+    c="" # Construct hello execution string
     for (i in 1:len){
     if(i==len){
     if(variable_types[i]!=0){ c=paste(c, "factor(",v_predictors[i],")",sep="")}
@@ -174,7 +174,7 @@ Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu ve iki [R be
     f=paste(f,c)
     f=paste(f,", data=mydata )")
 
-    # Fit a Cox proportional hazards model and get the predicted survival curve for a testing instance 
+    # Fit a Cox proportional hazards model and get hello predicted survival curve for a testing instance 
     fit=eval(parse(text=f))
 
     testingdata = as.data.frame(matrix(testingdata, ncol=len,byrow = TRUE),stringsAsFactors=FALSE)
@@ -183,7 +183,7 @@ Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu ve iki [R be
 
     curve=survfit(fit,testingdata)
 
-    # Based on user input, find the event occurrence probability
+    # Based on user input, find hello event occurrence probability
     position_closest=which.min(abs(prob_event$time - time_of_interest))
 
     if(prob_event[position_closest,"time"]==time_of_interest){# exact match
@@ -196,7 +196,7 @@ Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu ve iki [R be
     }else{output=(prob_event[position_closest,"prob"]+prob_event[position_closest+1,"prob"])/2}
     }
 
-    #Pull out results to send to web service
+    #Pull out results toosend tooweb service
     output=paste(round(100*output, 2), "%") 
     maml.mapOutputPort("output"); #output port
 
@@ -204,10 +204,10 @@ Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu ve iki [R be
 
 
 ## <a name="limitations"></a>Sınırlamalar
-Bu web hizmeti yalnızca sayısal değerler özellik değişkenleri (sütunları) olarak alabilir. "Olay" sütunu yalnızca değer 0 veya 1 alabilir. "Zaman" sütununu pozitif bir tamsayı olması gerekir.
+Bu web hizmeti yalnızca sayısal değerler özellik değişkenleri (sütunları) olarak alabilir. Merhaba "olay" sütunu yalnızca değer 0 veya 1 alabilir. Merhaba "zaman" sütununu toobe pozitif bir tamsayı olmalıdır.
 
 ## <a name="faq"></a>SSS
-Web hizmeti veya Azure Marketi'nde yayımlama tüketimi hakkında sık sorulan sorular için bkz: [burada](machine-learning-marketplace-faq.md).
+Merhaba web hizmetinin veya yayımlama toohello Azure Marketi tüketimi hakkında sık sorulan sorular için bkz: [burada](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
 

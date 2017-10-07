@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB kullanarak Java uygulaması geliştirme öğreticisi | Microsoft Docs"
-description: "Bu Java web uygulaması Öğreticisi Azure Web Siteleri'nde barındırılan bir Java uygulaması erişim verileri ve Azure Cosmos DB ve DocumentDB API depolamak için nasıl kullanılacağını gösterir."
+title: "Azure Cosmos DB kullanarak aaaJava uygulaması geliştirme Öğreticisi | Microsoft Docs"
+description: "Bu Java web uygulaması Öğreticisi nasıl toouse Azure Cosmos DB hello DocumentDB API toostore hello ve Azure Web Siteleri'nde barındırılan bir Java uygulamasında verilere gösterir."
 keywords: "Uygulama geliştirme, veritabanı öğreticisi, java uygulaması, java web uygulaması öğreticisi, documentdb, Azure, Microsoft Azure"
 services: cosmos-db
 documentationcenter: java
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 292115b5603c6f05a5eab3492d4b3e2096b58ed2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e073de23beb0037ee1e37b48a69e8fe7cdc3fc1d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Azure Cosmos DB ve DocumentDB API kullanarak bir Java web uygulaması oluşturma
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-hello-documentdb-api"></a>Azure Cosmos DB ve hello DocumentDB API kullanarak bir Java web uygulaması oluşturma
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
@@ -30,88 +30,88 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-Bu Java web uygulaması Öğreticisi nasıl kullanılacağını gösterir [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) depolamak ve Azure App Service Web Apps üzerinde barındırılan bir Java uygulamasında verilere erişmek için hizmet. Bu konu başlığında şunları öğreneceksiniz:
+Bu Java web uygulaması Öğreticisi şunların nasıl yapıldığını gösterir toouse hello [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hizmeti toostore ve erişim verilerini Azure App Service Web Apps üzerinde barındırılan bir Java uygulamasında. Bu konu başlığında şunları öğreneceksiniz:
 
-* Eclipse'te temel bir JavaServer sayfaları (JSP) uygulaması oluşturma.
-* [Azure Cosmos DB Java SDK’sı](https://github.com/Azure/azure-documentdb-java) kullanılarak Azure Cosmos DB hizmetiyle çalışma.
+* Nasıl toobuild eclipse'te temel bir JavaServer sayfaları (JSP) uygulaması.
+* Toowork hello Azure Cosmos DB ile nasıl hizmet hello kullanarak [Azure Cosmos DB Java SDK'sı](https://github.com/Azure/azure-documentdb-java).
 
-Bu Java uygulaması öğreticisi görevleri oluşturmanızı, almanızı ve aşağıdaki görüntüde gösterilen şekilde tamamlandı olarak işaretlemenizi sağlayan bir web tabanlı görev yönetimi uygulamasını nasıl oluşturacağınızı gösterir. Yapılacaklar listesindeki görevlerin her biri, Azure Cosmos DB'de JSON belgeleri olarak depolanır.
+Bu Java uygulaması Öğreticisi, toocreate, almak ve işareti etkinleştirir toocreate web tabanlı görev yönetimi uygulamasını nasıl görevler tamamlandı olarak hello görüntü aşağıdaki gösterildiği gibi gösterir. Her bir hello görev hello Yapılacaklar listesinde Azure Cosmos DB JSON belgeleri olarak depolanır.
 
 ![Yapılacaklar Listesi Java uygulamam](./media/documentdb-java-application/image1.png)
 
 > [!TIP]
-> Bu uygulama geliştirme öğreticisi, Java kullanımına ilişkin deneyim sahibi olduğunuzu varsayar. Java veya [önkoşul araçlarında](#Prerequisites) yeniyseniz GitHub'dan [yapılacaklar](https://github.com/Azure-Samples/documentdb-java-todo-app) projesinin tamamını indirmenizi ve [bu makalenin sonundaki yönergeleri](#GetProject) kullanarak projeyi oluşturmanızı öneririz. Oluşturduktan sonra, proje bağlamında kodu daha iyi kavramak için makaleyi inceleyebilirsiniz.  
+> Bu uygulama geliştirme öğreticisi, Java kullanımına ilişkin deneyim sahibi olduğunuzu varsayar. Yeni tooJava veya hello ise [önkoşul araçlarında](#Prerequisites), hello tam indirme öneririz [Yapılacaklar](https://github.com/Azure-Samples/documentdb-java-todo-app) GitHub ve kullanarak proje [hello sonunda hello bu yönergeleri makale](#GetProject). Oluşturduktan sonra hello makale toogain Insight hello proje hello bağlamında hello kodu gözden geçirebilirsiniz.  
 > 
 > 
 
 ## <a id="Prerequisites"></a>Bu Java web uygulaması öğreticisi için önkoşullar
-Bu uygulama geliştirme öğreticisine başlamadan önce aşağıdakilere sahip olmanız gerekir:
+Bu uygulama geliştirme Öğreticisine başlamadan önce hello şunlara sahip olmanız gerekir:
 
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/)
 
     OR
 
-    Yerel bir [Azure Cosmos DB Öykünücüsü](local-emulator.md) yüklemesi.
+    Merhaba yerel yüklemesi [Azure Cosmos DB öykünücüsü](local-emulator.md).
 * [Java Geliştirme Seti (JDK) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Java EE Geliştiricileri için Eclipse IDE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Etkin bir Java Çalışma zamanı ortamı (ör. Tomcat veya Jetty) sahip bir Azure Web sitesi.](../app-service-web/web-sites-java-get-started.md)
 
-Bu araçları ilk kez yüklüyorsanız coreservlets.com adresindeki [Öğretici: TomCat7'yi yükleme ve Eclipse ile kullanma](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesinin Hızlı Başlangıç bölümünde yükleme işlem için bir adım adım kılavuz mevcuttur.
+Hello için bu araçları ilk kez yüklüyorsanız coreservlets.com hello hızlı başlangıç bölümünde hello yükleme işleminin bir kılavuz sağlar. kendi [öğretici: tomcat7'yi yükleme ve Eclipse ile kullanma](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesi.
 
 ## <a id="CreateDB"></a>1. adım: Azure Cosmos DB hesabı oluşturma
-İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya bu öğretici için Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız [2. Adım: Java JSP uygulaması oluşturma](#CreateJSP) adımına atlayabilirsiniz.
+İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız yok veya kullanıyorsanız bu öğretici için Azure Cosmos DB öykünücüsü hello kullanıyorsanız, çok atlayabilirsiniz[2. adım: hello Java JSP uygulaması oluşturma](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-## <a id="CreateJSP"></a>2. Adım: Java JSP uygulaması oluşturma
-JSP uygulaması oluşturmak için:
+## <a id="CreateJSP"></a>2. adım: Merhaba Java JSP uygulaması oluşturma
+toocreate hello JSP uygulaması:
 
-1. İlk olarak, bir Java projesi oluşturarak başlayacağız. Eclipse'i başlatın, ardından **Dosya**'ya tıklayın, **Yeni**'ye tıklayın ve ardından **Dinamik Web Projesi**'ne tıklayın. Kullanılabilir bir proje olarak **Dinamik Web Projesi**'ni listelenmiş şekilde görmüyorsanız şunu yapın: **Dosya**'ya tıklayın, **Yeni**'ye tıklayın, **Proje**… seçeneğine tıklayın, **Web**'i genişletin, **Dinamik Web Projesi**'ne tıklayın ve **İleri**'ye tıklayın.
+1. İlk olarak, bir Java projesi oluşturarak başlayacağız. Eclipse'i başlatın, ardından **Dosya**'ya tıklayın, **Yeni**'ye tıklayın ve ardından **Dinamik Web Projesi**'ne tıklayın. Görmüyorsanız, **dinamik Web projesi** kullanılabilir bir proje listelenen, aşağıdaki hello: tıklatın **dosya**, tıklatın **yeni**,'ı tıklatın **proje**... genişletin **Web**, tıklatın **dinamik Web projesi**, tıklatıp **sonraki**.
    
     ![JSP Java Uygulaması Geliştirme](./media/documentdb-java-application/image10.png)
-2. **Proje adı** kutusuna bir proje adı girin ve **Hedef Çalışma Zamanı** açılan menüsünde isteğe bağlı olarak bir değer seçin (ör. Apache Tomcat v7.0) ve ardından **Son**'a tıklayın. Bir hedef çalışma zamanının seçilmesi, projenizi Eclipse aracılığıyla yerel olarak çalıştırmanızı sağlar.
-3. Eclipse'te Proje Gezgini görünümünde projenizi genişletin. **WebContent**'e sağ tıklayın, **Yeni**'ye tıklayın ve ardından **JSP Dosyası**'na tıklayın.
-4. **Yeni JSP Dosyası** iletişim kutusunda dosyaya **index.jsp** adını verin. Üst klasörü aşağıdaki resimde gösterildiği gibi **WebContent** olarak tutun ve ardından **İleri**'ye tıklayın.
+2. Hello proje adı girin **proje adı** kutusunda ve hello **hedef çalışma zamanı** açılan menüsünde isteğe bağlı olarak bir değer (örn. Apache Tomcat v7.0) seçin ve ardından **Son**. Bir hedef çalışma zamanı seçildiğinde, toorun projeniz yerel olarak Eclipse aracılığıyla etkinleştirilir.
+3. Eclipse'te, hello Proje Gezgini görünümünde projenizi genişletin. **WebContent**'e sağ tıklayın, **Yeni**'ye tıklayın ve ardından **JSP Dosyası**'na tıklayın.
+4. Merhaba, **yeni JSP dosyası** iletişim kutusu, ad hello dosyası **index.jsp**. Merhaba üst klasörünü olarak **WebContent**, aşağıdaki çizimde hello ve ardından gösterildiği gibi **sonraki**.
    
     ![Yeni bir JSP Dosyası Oluşturma - Java Web Uygulaması Öğreticisi](./media/documentdb-java-application/image11.png)
-5. **Select JSP Template (JSP Şablon Seçme)** iletişim kutusunda bu öğreticinin amacı doğrultusunda **New JSP File (html) (Yeni JSP Dosyası (html))** seçeneğini belirleyin ve ardından **Finish (Son)** düğmesine tıklayın.
-6. index.jsp dosyası Eclipse'te açıldığında, var olan **öğesinin içinde** <body>Hello World! (Merhaba Dünya!) ifadesinin görüntülenmesi için metni ekleyin. Güncelleştirilmiş <body> içeriğiniz aşağıdaki kod gibi görünmelidir:
+5. Merhaba, **JSP şablon seç** iletişim kutusunda, Bu öğretici seçimi hello amaçla **yeni JSP dosyası (html)**ve ardından **son**.
+6. Merhaba index.jsp dosyası Eclipse'te açıldığında, metin toodisplay ekleme **Merhaba Dünya!** Merhaba varolan içinde <body> öğesi. Güncelleştirilmiş <body> içerik hello kod aşağıdaki gibi görünmelidir:
    
         <body>
             <% out.println("Hello World!"); %>
         </body>
-7. index.jsp dosyasını kaydedin.
-8. 2 adımda bir hedef çalışma zamanı ayarlarsanız **Proje**'ye ve ardından **Çalıştır**'a tıklayıp JSP uygulamanızı yerel olarak çalıştırabilirsiniz:
+7. Merhaba index.jsp dosyasını kaydedin.
+8. 2. adımda bir hedef çalışma zamanı ayarlarsanız, tıklayabilirsiniz **proje** ve ardından **çalıştırmak** toorun JSP uygulamanızı yerel olarak:
    
     ![Hello World - Java Uygulaması Öğreticisi](./media/documentdb-java-application/image12.png)
 
-## <a id="InstallSDK"></a>3. Adım: DocumentDB Java SDK'sını yükleme
-[Apache Maven](http://maven.apache.org/), DocumentDB Java SDK'sını ve bağımlılıklarını çekmenin en kolay yolunu sağlar.
+## <a id="InstallSDK"></a>3. adım: Merhaba DocumentDB Java SDK'sını yükleme
+Merhaba hello DocumentDB Java SDK'sını ve bağımlılıklarını en kolay yolu toopull aracılığıyladır [Apache Maven](http://maven.apache.org/).
 
-Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven projesine dönüştürmeniz gerekir:
+toodo bunu hello aşağıdaki adımları tamamlayarak proje tooa maven projenizi tooconvert gerekir:
 
-1. Proje Gezgini'nde projenize sağ tıklayın, **Yapılandır**'a tıklayın, **Maven Projesine Dönüştür**'e tıklayın.
-2. **Yeni POM oluştur** penceresinde varsayılanları kabul edin ve **Son**'a tıklayın.
-3. **Proje Gezgini**'nde pom.xml dosyasını açın.
-4. **Bağımlılıklar** sekmesindeki **Bağımlılıklar** bölmesinde **Ekle**'ye tıklayın.
-5. **Bağımlılık Seç** penceresinde aşağıdakileri yapın:
+1. Merhaba proje Gezgini'nde projenize sağ tıklayın, **yapılandırma**, tıklatın **tooMaven proje Dönüştür**.
+2. Merhaba, **yeni POM Oluştur** penceresinde hello Varsayılanları kabul edin ve tıklatın **son**.
+3. İçinde **Proje Gezgini**açın hello pom.xml dosyasını.
+4. Merhaba üzerinde **bağımlılıkları** sekmede hello **bağımlılıkları** bölmesinde tıklatın **Ekle**.
+5. Merhaba, **bağımlılık Seç** penceresinde, aşağıdaki hello:
    
-   * İçinde **Grup Kimliği** kutusuna, com.microsoft.azure girin.
-   * İçinde **Artifact ID** kutusuna, azure-documentdb girin.
-   * İçinde **sürüm** kutusuna, 1.5.1 girin.
+   * Merhaba, **Grup Kimliği** kutusuna, com.microsoft.azure girin.
+   * Merhaba, **Artifact ID** kutusuna, azure-documentdb girin.
+   * Merhaba, **sürüm** kutusuna, 1.5.1 girin.
      
    ![DocumentDB Java Uygulaması SDK'sını yükleme](./media/documentdb-java-application/image13.png)
      
-   * Veya bağımlılık XML'sini grup kimliği ve yapı kimliği için doğrudan bir metin düzenleyicisi aracılığıyla pom.XML'ye ekleyin:
+   * Grup Kimliği ve yapı kimliği için hello bağımlılık XML ekleyin bir metin düzenleyicisi aracılığıyla doğrudan toohello pom.xml:
      
         <dependency><groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version></dependency>
-6. Tıklatın **Tamam** ve Maven DocumentDB Java SDK'sını yükler.
-7. Pom.xml dosyasını kaydedin.
+6. Tıklatın **Tamam** ve Maven hello DocumentDB Java SDK'sını yükler.
+7. Merhaba pom.xml dosyasını kaydedin.
 
-## <a id="UseService"></a>4. Adım: Azure Cosmos DB hizmetini bir Java uygulamasında kullanma
-1. İlk olarak, Todoıtem nesnesini TodoItem.java içinde şimdi tanımlayın:
+## <a id="UseService"></a>4. adım: hello Azure Cosmos DB hizmeti bir Java uygulamasında kullanma
+1. İlk olarak, şimdi hello Todoıtem nesnesini TodoItem.java içinde tanımlayın:
    
         @Data
         @Builder
@@ -122,8 +122,8 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
             private String name;
         }
    
-    Bu projede oluşturucuyu, alıcıları ve ayarlayıcıları oluşturmak için [Project Lombok](http://projectlombok.org/)'u kullanıyoruz. Alternatif olarak, bu kodu el ile yazabilir veya IDE'nin oluşturmasını sağlayabilirsiniz.
-2. Azure Cosmos DB hizmetini çağırmak için yeni bir **DocumentClient** örneği oluşturmanız gerekir. Genel olarak, sonraki her istek için yeni bir istemci oluşturmak yerine **DocumentClient**'ı tekrar kullanmak en iyisidir. İstemciyi bir **DocumentClientFactory**'ye sarmalayarak tekrar kullanabiliriz. DocumentClientFactory.java içinde kaydettiğiniz panonuza URI ve birincil anahtar değeri yapıştırmanız gereken [1. adım](#CreateDB). [YOUR\_ENDPOINT\_HERE] yerine URI'nizi ve [YOUR\_KEY\_HERE] yerine BİRİNCİL ANAHTARINIZI girin.
+    Bu projede kullanıyoruz [Project Lombok](http://projectlombok.org/) toogenerate hello oluşturucusu, alıcılar, ayarlayıcılar ve oluşturucu. Alternatif olarak, bu kodu el ile yazabilir veya sahip hello IDE oluşturur.
+2. tooinvoke hello Azure Cosmos DB hizmeti, gerekir örneği yeni bir **DocumentClient**. Genel olarak, en iyi tooreuse hello olan **DocumentClient** - yerine sonraki her istek için yeni bir istemci oluşturmak. Biz hello istemci hello istemciyi yeniden bir **DocumentClientFactory**. DocumentClientFactory.java içinde tooyour Pano'da kaydettiğiniz toopaste hello URI ve birincil anahtar değerine ihtiyacı vardır [1. adım](#CreateDB). [YOUR\_ENDPOINT\_HERE] yerine URI'nizi ve [YOUR\_KEY\_HERE] yerine BİRİNCİL ANAHTARINIZI girin.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -134,45 +134,45 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
         public static DocumentClient getDocumentClient() {
             return documentClient;
         }
-3. Şimdi Yapılacaklar öğelerimizi Azure Cosmos DB'de kalıcı hale getirmeyi özetlemek için bir Veri Erişim Nesnesi (DAO) oluşturalım.
+3. Şimdi bizim Yapılacaklar öğelerini tooAzure Cosmos DB kalıcı bir veri erişim nesnesi (DAO) tooabstract oluşturalım.
    
-    Yapılacaklar öğelerini bir koleksiyona kaydetmek için, istemcinin hangi veritabanı ve koleksiyona kalıcı hale getireceğini (kendine bağlantılar tarafından başvurulduğu üzere) bilmesi gerekir. Genel olarak, veritabanına ek gidiş gelişleri önlemek için veritabanı ve koleksiyonu mümkün olduğunda ön belleğe almak en iyisidir.
+    İçinde toosave Yapılacaklar öğelerini tooa koleksiyonu sipariş, hello istemci tooknow çok hangi veritabanı ve koleksiyonu toopersist gerekir (tarafından başvurulduğu kendine bağlantılar). Genel olarak, en iyi toocache hello veritabanı ve koleksiyonu mümkün olduğunda olduğu tooavoid ek gidiş dönüş toohello veritabanı.
    
-    Aşağıdaki kod, veritabanımızın ve koleksiyonumuzun varsa nasıl alınacağını veya yoksa yenisinin nasıl oluşturulacağını gösterir:
+    Merhaba aşağıdaki kod gösterir nasıl tooretrieve veritabanımızın ve koleksiyonumuzun var veya yoksa yeni bir tane oluşturun:
    
         public class DocDbDao implements TodoDao {
-            // The name of our database.
+            // hello name of our database.
             private static final String DATABASE_ID = "TodoDB";
    
-            // The name of our collection.
+            // hello name of our collection.
             private static final String COLLECTION_ID = "TodoCollection";
    
-            // The Azure Cosmos DB Client
+            // hello Azure Cosmos DB Client
             private static DocumentClient documentClient = DocumentClientFactory
                     .getDocumentClient();
    
-            // Cache for the database object, so we don't have to query for it to
+            // Cache for hello database object, so we don't have tooquery for it to
             // retrieve self links.
             private static Database databaseCache;
    
-            // Cache for the collection object, so we don't have to query for it to
+            // Cache for hello collection object, so we don't have tooquery for it to
             // retrieve self links.
             private static DocumentCollection collectionCache;
    
             private Database getTodoDatabase() {
                 if (databaseCache == null) {
-                    // Get the database if it exists
+                    // Get hello database if it exists
                     List<Database> databaseList = documentClient
                             .queryDatabases(
                                     "SELECT * FROM root r WHERE r.id='" + DATABASE_ID
                                             + "'", null).getQueryIterable().toList();
    
                     if (databaseList.size() > 0) {
-                        // Cache the database object so we won't have to query for it
-                        // later to retrieve the selfLink.
+                        // Cache hello database object so we won't have tooquery for it
+                        // later tooretrieve hello selfLink.
                         databaseCache = databaseList.get(0);
                     } else {
-                        // Create the database if it doesn't exist.
+                        // Create hello database if it doesn't exist.
                         try {
                             Database databaseDefinition = new Database();
                             databaseDefinition.setId(DATABASE_ID);
@@ -180,8 +180,8 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
                             databaseCache = documentClient.createDatabase(
                                     databaseDefinition, null).getResource();
                         } catch (DocumentClientException e) {
-                            // TODO: Something has gone terribly wrong - the app wasn't
-                            // able to query or create the collection.
+                            // TODO: Something has gone terribly wrong - hello app wasn't
+                            // able tooquery or create hello collection.
                             // Verify your connection, endpoint, and key.
                             e.printStackTrace();
                         }
@@ -193,7 +193,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
    
             private DocumentCollection getTodoCollection() {
                 if (collectionCache == null) {
-                    // Get the collection if it exists.
+                    // Get hello collection if it exists.
                     List<DocumentCollection> collectionList = documentClient
                             .queryCollections(
                                     getTodoDatabase().getSelfLink(),
@@ -201,11 +201,11 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
                                             + "'", null).getQueryIterable().toList();
    
                     if (collectionList.size() > 0) {
-                        // Cache the collection object so we won't have to query for it
-                        // later to retrieve the selfLink.
+                        // Cache hello collection object so we won't have tooquery for it
+                        // later tooretrieve hello selfLink.
                         collectionCache = collectionList.get(0);
                     } else {
-                        // Create the collection if it doesn't exist.
+                        // Create hello collection if it doesn't exist.
                         try {
                             DocumentCollection collectionDefinition = new DocumentCollection();
                             collectionDefinition.setId(COLLECTION_ID);
@@ -214,8 +214,8 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
                                     getTodoDatabase().getSelfLink(),
                                     collectionDefinition, null).getResource();
                         } catch (DocumentClientException e) {
-                            // TODO: Something has gone terribly wrong - the app wasn't
-                            // able to query or create the collection.
+                            // TODO: Something has gone terribly wrong - hello app wasn't
+                            // able tooquery or create hello collection.
                             // Verify your connection, endpoint, and key.
                             e.printStackTrace();
                         }
@@ -225,22 +225,22 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
                 return collectionCache;
             }
         }
-4. Sonraki adım, TodoItems öğelerini koleksiyonda kalıcı hale getirmek için biraz kod yazmaktır. Bu örnekte TodoItem Eski Basit Java Nesnelerini (POJO'lar) JSON belgelerine seri hale getirmek ve seri durumdan çıkarmak için [Gson](https://code.google.com/p/google-gson/)'u kullanacağız.
+4. Merhaba sonraki adım toowrite toohello koleksiyonundaki bazı kod toopersist hello Todoıtems olduğu. Bu örnekte, kullanacağız [Gson](https://code.google.com/p/google-gson/) tooserialize ve seri durumundan Todoıtem eski basit Java nesnelerini (Pojo'lar) tooJSON belgeleri.
    
         // We'll use Gson for POJO <=> JSON serialization for this example.
         private static Gson gson = new Gson();
    
         @Override
         public TodoItem createTodoItem(TodoItem todoItem) {
-            // Serialize the TodoItem as a JSON Document.
+            // Serialize hello TodoItem as a JSON Document.
             Document todoItemDocument = new Document(gson.toJson(todoItem));
    
-            // Annotate the document as a TodoItem for retrieval (so that we can
-            // store multiple entity types in the collection).
+            // Annotate hello document as a TodoItem for retrieval (so that we can
+            // store multiple entity types in hello collection).
             todoItemDocument.set("entityType", "todoItem");
    
             try {
-                // Persist the document using the DocumentClient.
+                // Persist hello document using hello DocumentClient.
                 todoItemDocument = documentClient.createDocument(
                         getTodoCollection().getSelfLink(), todoItemDocument, null,
                         false).getResource();
@@ -251,10 +251,10 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. Azure Cosmos DB veritabanları ve koleksiyonlarına benzer şekilde belgelere de kendine bağlantılar tarafından başvurulur. Aşağıdaki yardımcı işlevi, belgeleri kendine bağlantı yerine başka bir öznitelik (ör. "id") aracılığıyla almamızı sağlar:
+5. Azure Cosmos DB veritabanları ve koleksiyonlarına benzer şekilde belgelere de kendine bağlantılar tarafından başvurulur. yardımcı işlevi sağlar bize alma belgeleri başka bir öznitelik (örneğin, "id") tarafından hello yerine kendi bağlantı:
    
         private Document getDocumentById(String id) {
-            // Retrieve the document using the DocumentClient.
+            // Retrieve hello document using hello DocumentClient.
             List<Document> documentList = documentClient
                     .queryDocuments(getTodoCollection().getSelfLink(),
                             "SELECT * FROM root r WHERE r.id='" + id + "'", null)
@@ -266,33 +266,33 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
                 return null;
             }
         }
-6. Id ile bir TodoItem JSON belgesini alıp ardından bunu bir POJO'ya seri durumdan çıkarmak için 5. adımdaki yardımcı yöntemi kullanabiliriz:
+6. Merhaba yardımcı yöntem kimliğine göre 5. adım tooretrieve bir Todoıtem JSON belgesini kullanın ve tooa POJO'ya seri durumdan:
    
         @Override
         public TodoItem readTodoItem(String id) {
-            // Retrieve the document by id using our helper method.
+            // Retrieve hello document by id using our helper method.
             Document todoItemDocument = getDocumentById(id);
    
             if (todoItemDocument != null) {
-                // De-serialize the document in to a TodoItem.
+                // De-serialize hello document in tooa TodoItem.
                 return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
             } else {
                 return null;
             }
         }
-7. DocumentDB SQL kullanarak bir koleksiyonu veya TodoItems listesini almak için DocumentClient'ı da kullanabiliriz:
+7. Biz de hello DocumentClient tooget bir koleksiyonu veya Todoıtems DocumentDB SQL kullanarak listesini kullanarak şunları yapabilirsiniz:
    
         @Override
         public List<TodoItem> readTodoItems() {
             List<TodoItem> todoItems = new ArrayList<TodoItem>();
    
-            // Retrieve the TodoItem documents
+            // Retrieve hello TodoItem documents
             List<Document> documentList = documentClient
                     .queryDocuments(getTodoCollection().getSelfLink(),
                             "SELECT * FROM root r WHERE r.entityType = 'todoItem'",
                             null).getQueryIterable().toList();
    
-            // De-serialize the documents in to TodoItems.
+            // De-serialize hello documents in tooTodoItems.
             for (Document todoItemDocument : documentList) {
                 todoItems.add(gson.fromJson(todoItemDocument.toString(),
                         TodoItem.class));
@@ -300,21 +300,21 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
    
             return todoItems;
         }
-8. DocumentClient ile bir belgeyi güncelleştirmenin birçok yolu vardır. Yapılacaklar listesi uygulamamızda bir TodoItem'ın tamamlandı ve tamamlanmadı durumları arasında geçiş yapabilmek istiyoruz. Belgenin içinde "tamamlandı" özniteliğini güncelleştirerek bunu yapabiliriz:
+8. Merhaba DocumentClient ile bir belge birçok yolu tooupdate vardır. Bizim Yapılacaklar listesi uygulaması Todoıtem tam olup toobe mümkün tootoggle istiyoruz. Hello hello belge içinde "tamamlandı" özniteliğini güncelleştirerek bunu yapabiliriz:
    
         @Override
         public TodoItem updateTodoItem(String id, boolean isComplete) {
-            // Retrieve the document from the database
+            // Retrieve hello document from hello database
             Document todoItemDocument = getDocumentById(id);
    
-            // You can update the document as a JSON document directly.
-            // For more complex operations - you could de-serialize the document in
-            // to a POJO, update the POJO, and then re-serialize the POJO back in to
+            // You can update hello document as a JSON document directly.
+            // For more complex operations - you could de-serialize hello document in
+            // tooa POJO, update hello POJO, and then re-serialize hello POJO back in to
             // a document.
             todoItemDocument.set("complete", isComplete);
    
             try {
-                // Persist/replace the updated document.
+                // Persist/replace hello updated document.
                 todoItemDocument = documentClient.replaceDocument(todoItemDocument,
                         null).getResource();
             } catch (DocumentClientException e) {
@@ -324,17 +324,17 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-9. Son olarak, listemizden bir TodoItem'ı silebilmek istiyoruz. Bunu yapmak için daha önce yazmış olduğumuz yardımcı yöntemi kullanarak kendine bağlantıyı alıp ardından istemciye bunu silmesini söyleyebiliriz:
+9. Son olarak, hello özelliği toodelete Todoıtem listemizden istiyoruz. toodo Bu, daha önce yazdığımız hello yardımcı yöntemini kullanırız tooretrieve kendi bağlantı hello ve hello istemci toodelete söyleyin onu:
    
         @Override
         public boolean deleteTodoItem(String id) {
-            // Azure Cosmos DB refers to documents by self link rather than id.
+            // Azure Cosmos DB refers toodocuments by self link rather than id.
    
-            // Query for the document to retrieve the self link.
+            // Query for hello document tooretrieve hello self link.
             Document todoItemDocument = getDocumentById(id);
    
             try {
-                // Delete the document by self link.
+                // Delete hello document by self link.
                 documentClient.deleteDocument(todoItemDocument.getSelfLink(), null);
             } catch (DocumentClientException e) {
                 e.printStackTrace();
@@ -344,10 +344,10 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
             return true;
         }
 
-## <a id="Wire"></a>5. Adım: Java uygulaması geliştirme projesinin geriye kalan kısmını bağlama
-Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir Hızlı kullanıcı arabirimi oluşturma ve bunu dao'muza.
+## <a id="Wire"></a>5. adım: Java uygulaması geliştirme projesinin hello hello kalan birlikte bağlantı kabloları
+Biz hello eğlenceli kısımları tamamladığımıza göre şimdi bitleri - kalan tüm toobuild bir hızlı kullanıcı arabirimi ve DAO tooour wire.
 
-1. İlk olarak, DAO'muzu çağırmak için bir denetleyici oluşturmakla başlayalım:
+1. İlk olarak, bir denetleyici toocall bizim DAO oluşturmaya başlayalım:
    
         public class TodoItemController {
             public static TodoItemController getInstance() {
@@ -389,8 +389,8 @@ Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir
             }
         }
    
-    Karmaşık bir uygulamada, denetleyici DAO'nun üstünde karmaşık bir iş mantığı barındırabilir.
-2. Ardından, HTTP isteklerini denetleyiciye yönlendirmek için bir servlet oluşturacağız:
+    Daha karmaşık bir uygulamada hello denetleyicisi hello DAO üstünde karmaşık iş mantığı barındırabilir.
+2. Ardından, bir servlet tooroute HTTP isteklerini toohello denetleyicisi oluşturacağız:
    
         public class TodoServlet extends HttpServlet {
             // API Keys
@@ -452,7 +452,7 @@ Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir
                 doGet(request, response);
             }
         }
-3. Kullanıcıya görüntülenecek web kullanıcı arabirimi ihtiyacımız. Daha önce oluşturduğumuz index.jsp'yi yeniden yazalım:
+3. Bir web kullanıcı arabirimi toodisplay toohello kullanıcı ihtiyacımız. Merhaba index.jsp daha önce oluşturduğumuz yeniden yazalım:
     ```html
         <html>
         <head>
@@ -464,7 +464,7 @@ Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir
           <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
    
           <style>
-            /* Add padding to body for fixed nav bar */
+            /* Add padding toobody for fixed nav bar */
             body {
               padding-top: 50px;
             }
@@ -486,7 +486,7 @@ Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir
    
             <hr/>
    
-            <!-- The ToDo List -->
+            <!-- hello ToDo List -->
             <div class = "todoList">
               <table class="table table-bordered table-striped" id="todoItems">
                 <thead>
@@ -534,18 +534,18 @@ Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir
    
           </div>
    
-          <!-- Placed at the end of the document so the pages load faster -->
+          <!-- Placed at hello end of hello document so hello pages load faster -->
           <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
           <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/bootstrap.min.js"></script>
           <script src="assets/todo.js"></script>
         </body>
         </html>
     ```
-4. Ve son olarak, web kullanıcı arabirimi ile servlet'i birbirine bağlamak için bazı istemci tarafı JavaScript'i yazın:
+4. Son olarak, bazı istemci tarafı JavaScript tootie hello web kullanıcı arabirimini yazmak ve servlet'i birbirine hello:
    
         var todoApp = {
           /*
-           * API methods to call Java backend.
+           * API methods toocall Java backend.
            */
           apiEndpoint: "api",
    
@@ -625,7 +625,7 @@ Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir
               $(this).text("Updating...");
               $(this).prop("disabled", true);
    
-              // Call api to update todo items.
+              // Call api tooupdate todo items.
               $.each(todoApp.ui_updateId(), function(index, value) {
                 todoApp.updateTodoItem(value.name, value.value);
                 $(value).remove();
@@ -699,7 +699,7 @@ Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir
           },
    
           /*
-           * Install the TodoApp
+           * Install hello TodoApp
            */
           install: function() {
             todoApp.bindCreateButton();
@@ -713,47 +713,47 @@ Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir
         $(document).ready(function() {
           todoApp.install();
         });
-5. Harika! Şimdi geriye yalnızca uygulamayı test etmek kaldı. Uygulamayı yerel olarak çalıştırın, ardından öğe adı ve kategoriyi doldurarak ve **Görev Ekle**'ye tıklayarak birkaç Yapılacaklar öğesi ekleyin.
-6. Öğe göründükten sonra, onay kutusundaki işareti değiştirip **Görevleri Güncelleştir**'e tıklayarak öğeyi tamamlandı veya tamamlanmadı olarak güncelleştirebilirsiniz.
+5. Harika! Kalan tüm sunulmuştur tootest Merhaba uygulaması. Merhaba uygulamayı yerel olarak çalıştırın ve hello öğe adı ve kategoriyi doldurarak ve tıklayarak birkaç Yapılacaklar öğesi ekleyin **Görev Ekle**.
+6. Merhaba öğe göründükten sonra hello onay kutusu geçiş ve tıklayarak tamamlanmadan olarak güncelleştirebilirsiniz **güncelleştirme görevleri**.
 
-## <a id="Deploy"></a>6. adım: Java uygulamanızı Azure Web siteleri için dağıtma
+## <a id="Deploy"></a>6. adım: Java uygulaması tooAzure Web siteleri dağıtma
 Uygulamanızı bir WAR dosyası olarak dışarı aktarma ve ya da kaynak denetimi (ör. Gıt) veya FTP aracılığıyla karşıya kadar basit Java uygulamalarını dağıtma azure Web siteleri yapar.
 
-1. Uygulamanızı bir WAR dosyası olarak dışarı aktarmak için projenize sağ tıklayın **Proje Gezgini**, tıklatın **verme**ve ardından **WAR dosyasını**.
-2. **WAR Dışarı Aktar** penceresinde aşağıdakileri yapın:
+1. Uygulamanızı bir WAR dosyası olarak tooexport sağ tıklatın, projenizde üzerinde **Proje Gezgini**, tıklatın **verme**ve ardından **WAR dosyasını**.
+2. Merhaba, **WAR dışarı** penceresinde, aşağıdaki hello:
    
-   * Web projesi kutusuna azure-documentdb-java-sample metnini girin.
-   * Hedef kutusunda WAR dosyasını kaydetmek için bir hedef seçin.
+   * Merhaba Web projesi kutusuna azure-documentdb-java-sample girin.
+   * Merhaba hedef kutusunda bir hedef toosave hello WAR dosyası seçin.
    * **Son**'a tıklayın.
-3. Eldeki elinizde bir WAR dosyası, yalnızca bunu Azure Web sitenizin için yükleyebilirsiniz **webapps** dizin. Dosyayı karşıya yükleme ile ilgili yönergeler için bkz: [Azure App Service Web Apps bir Java uygulama eklemek](../app-service-web/web-sites-java-add-app.md).
+3. Eldeki elinizde bir WAR dosyası, yalnızca bu tooyour Azure Web sitesine ait yükleyebilirsiniz **webapps** dizin. Merhaba dosya karşıya yükleme ile ilgili yönergeler için bkz: [bir Java uygulaması tooAzure App Service Web Apps eklemek](../app-service-web/web-sites-java-add-app.md).
    
-    WAR dosyası webapps dizinine yüklendikten sonra, çalışma zamanı ortamı bunu eklemiş olduğunuzu algılar ve otomatik olarak yükler.
-4. Tamamlanmış ürününüzü görmek için http://YOUR için gidin\_SITE\_NAME.azurewebsites.net/azure-java-sample/ ve görevlerinizi eklemeye başlayın!
+    Merhaba WAR dosyasını karşıya yüklenen toohello webapps dizinine eklendiğinde, hello çalışma zamanı ortamı bunu eklemiş ve otomatik olarak algılar.
+4. tooview tamamlanmış ürününüzü toohttp://YOUR gidin\_SITE\_NAME.azurewebsites.net/azure-java-sample/ ve görevlerinizi eklemeye başlayın!
 
-## <a id="GetProject"></a>Projeyi GitHub'dan alma
-Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) projesinde bulunur. todo projesini Eclipse'e aktarmak için [Önkoşullar](#Prerequisites) bölümünde listelenen yazılım ve kaynaklara sahip olduğunuzdan emin olun ve ardından aşağıdakileri yapın:
+## <a id="GetProject"></a>Merhaba projeyi Github'dan alma
+Bu öğreticideki tüm hello örnekleri hello dahil edilen [Yapılacaklar](https://github.com/Azure-Samples/documentdb-java-todo-app) projeyi github'dan edinilebilir. tooimport hello Yapılacaklar Eclipse, projeye emin olun hello yazılım ve hello listelenen kaynakları [Önkoşullar](#Prerequisites) bölümünde, ardından aşağıdaki hello:
 
-1. [Proje Lombok](http://projectlombok.org/)'u yükleyin. Lombok projede oluşturucular, alıcılar ve ayarlayıcılar oluşturmak için kullanılır. Lombok.jar dosyasını indirdikten sonra, yüklemek için buna çift tıklayın veya komut satırından yükleyin.
-2. Eclipse açıksa kapatın ve Lombok'u yüklemek için yeniden başlatın.
-3. Eclipse'te **Dosya** menüsünde **İçeri Aktar**'a tıklayın.
-4. **İçeri Aktar** penceresinde **Git**'e tıklayın, **Git Projeleri**'ne tıklayın ve ardından **İleri**'ye tıklayın.
-5. **Depo Kaynağı Seçin** ekranında **URI'yi kopyalama**'ya tıklayın.
-6. Üzerinde **kaynak Git deposu** ekranında **URI** kutusuna https://github.com/Azure-Samples/java-todo-app.git girin ve ardından **sonraki**.
-7. **Dal Seçimi** ekranında **master**'ın seçili olduğundan emin olun ve ardından **İleri**'ye tıklayın.
-8. **Yerel Hedef** ekranında deponun kopyalanabileceği bir klasör seçmek için **Gözat**'a tıklayın ve ardından **İleri**'ye tıklayın.
-9. **Projeleri içeri aktarmada kullanmak için sihirbaz seçin** ekranında **Var olan projeleri içeri aktar**'ın seçili olduğundan emin olun ve ardından **İleri**'ye tıklayın.
-10. **Projeleri İçeri Aktar** ekranında **DocumentDB** projesinin seçimini kaldırın ve ardından **Son**'a tıklayın. DocumentDB projesi Azure Cosmos DB Java biz bağımlılık olarak ekleyeceğimiz SDK içerir.
-11. İçinde **Proje Gezgini**, azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java için gidin ve HOST ve MASTER_KEY değerlerini URI ve birincil anahtar yerine, Azure Cosmos DB hesap ve ardından dosyayı kaydedin. Daha fazla bilgi için bkz. [1. Adım. Bir Azure Cosmos DB veritabanı hesabı oluşturma](#CreateDB).
-12. **Proje Gezgini**'nde **azure-documentdb-java-sample**'a sağ tıklayın, **Yapı Yolu**'na tıklayın ve ardından **Oluşturma Yolunu Yapılandır**'a tıklayın.
-13. **Java Oluşturma Yolu** ekranında sağ bölmedeki **Kitaplıklar** sekmesini seçin ve ardından **Dış JAR'lar Ekle**'ye tıklayın. Lombok.jar dosyasının konumuna gidin, **Aç**'a tıklayın ve ardından **Tamam**'a tıklayın.
-14. **Özellikler** penceresini tekrar açmak için 12. adımı kullanın ve ardından sol bölmedeki **Hedeflenen Çalışma Zamanları**'na tıklayın.
-15. **Hedeflenen Çalışma Zamanları** ekranında **Yeni**'ye tıklayın, **Apache Tomcat v7.0**'ı seçin ve ardından **Tamam**'a tıklayın.
-16. **Özellikler** penceresini tekrar açmak için 12. adımı kullanın ve ardından sol bölmedeki **Proje Modelleri**'ne tıklayın.
-17. **Proje Modelleri** ekranında **Dinamik Web Modülü**'nü ve **Java**'yı seçin ve ardından **Tamam**'a tıklayın.
-18. Ekranın en altındaki **Sunucular** sekmesinde **Localhost'ta Tomcat v7.0 Sunucusu**'na sağ tıklayın ve ardından **Ekle ve Kaldır**'a tıklayın.
-19. **Ekle ve Kaldır** penceresinde **azure-documentdb-java-sample**'ı **Yapılandırılmış** kutusuna taşıyın ve ardından **Son**'a tıklayın.
-20. İçinde **sunucuları** sekmesinde, sağ **Server localhost'ta Tomcat v7.0**ve ardından **yeniden**.
-21. Bir tarayıcıda http://localhost:8080/azure-documentdb-java-sample/ adresine gidin ve görev listenize eklemeye başlayın. Varsayılan bağlantı noktası değerlerinizi değiştirdiyseniz 8080'i seçtiğiniz değere değiştirmeyi unutmayın.
-22. Projenizi bir Azure web sitesine dağıtmak için bkz. [6. Adım. Uygulamanızı Azure Web siteleri için dağıtmak](#Deploy).
+1. [Proje Lombok](http://projectlombok.org/)'u yükleyin. Lombok kullanılan toogenerate Oluşturucular, alıcılar ve ayarlayıcılar hello projesinde olur. Merhaba lombok.jar dosyasını indirdikten sonra buna çift tıklayarak tooinstall onu veya hello komut satırından yükleyin.
+2. Eclipse açıksa kapatın ve tooload Lombok yeniden başlatın.
+3. Eclipse'te, hello **dosya** menüsünde tıklatın **alma**.
+4. Merhaba, **alma** penceresinde, tıklatın **Git**, tıklatın **Git projeleri**ve ardından **sonraki**.
+5. Merhaba üzerinde **depo kaynağı seçin** ekranında **URI'yi kopyalama**.
+6. Merhaba üzerinde **kaynak Git deposu** ekranında hello **URI** kutusuna https://github.com/Azure-Samples/java-todo-app.git girin ve ardından **sonraki**.
+7. Merhaba üzerinde **dal seçimi** ekranında, emin **ana** seçilir ve ardından **sonraki**.
+8. Merhaba üzerinde **yerel hedef** ekranında **Gözat** tooselect burada hello deposu kopyalanabilir ve ardından bir klasörü **sonraki**.
+9. Merhaba üzerinde **projeleri İçeri Aktarma Sihirbazı'nı toouse seçin** ekranında, emin **var olan projeleri içeri aktar** seçilir ve ardından **sonraki**.
+10. Merhaba üzerinde **projeleri içeri aktar** ekran, Seçimi Kaldır hello **DocumentDB** proje ve ardından **son**. Merhaba DocumentDB projesi hello Azure Cosmos DB Java biz bağımlılık olarak ekleyeceğimiz SDK içerir.
+11. İçinde **Proje Gezgini**, tooazure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java gidin ve hello URI ve birincil anahtar hello HOST ve MASTER_KEY değerlerini değiştirin Azure Cosmos DB hesabını tıklatın ve ardından Kaydet hello dosya. Daha fazla bilgi için bkz. [1. Adım. Bir Azure Cosmos DB veritabanı hesabı oluşturma](#CreateDB).
+12. İçinde **Proje Gezgini**, hello sağ tıklayın **azure-documentdb-java-sample**, tıklatın **yapı yolu**ve ardından **oluşturma yolunu Yapılandır**.
+13. Merhaba üzerinde **Java oluşturma yolu** , hello sağ bölmede, select Merhaba ekranında **kitaplıkları** sekmesini ve ardından **dış Jar'lar Ekle**. Merhaba lombok.jar dosyasının konumunu toohello gidin ve tıklayın **açık**ve ardından **Tamam**.
+14. Kullanım 12. adımı tooopen hello **özellikleri** penceresini tekrar ve ardından hello sol bölmedeki tıklatın **hedeflenen çalışma zamanları**.
+15. Merhaba üzerinde **hedeflenen çalışma zamanları** ekranında **yeni**seçin **Apache Tomcat v7.0**ve ardından **Tamam**.
+16. Kullanım 12. adımı tooopen hello **özellikleri** penceresini tekrar ve ardından hello sol bölmedeki tıklatın **proje modelleri**.
+17. Merhaba üzerinde **proje modelleri** ekran, select **dinamik Web Modülü** ve **Java**ve ardından **Tamam**.
+18. Merhaba üzerinde **sunucuları** sekmesinde hello ekranın hello altında sağ **Server localhost'ta Tomcat v7.0** ve ardından **ekleme ve kaldırma**.
+19. Merhaba üzerinde **ekleme ve kaldırma** penceresinde taşıma **azure-documentdb-java-sample** toohello **yapılandırıldı** kutusuna ve ardından **son**.
+20. Merhaba, **sunucuları** sekmesinde, sağ **Server localhost'ta Tomcat v7.0**ve ardından **yeniden**.
+21. Bir tarayıcıda toohttp://localhost:8080 gidin / azure-documentdb-java-sample / ve tooyour görev listesi eklemeye başlayın. Varsayılan bağlantı noktası değerlerini değiştirdiyseniz, seçtiğiniz 8080 toohello değerini değiştirin unutmayın.
+22. toodeploy, proje tooan Azure web sitesine bakın [adım 6. Uygulama tooAzure Web sitelerini dağıtmak](#Deploy).
 
 [1]: media/documentdb-java-application/keys.png

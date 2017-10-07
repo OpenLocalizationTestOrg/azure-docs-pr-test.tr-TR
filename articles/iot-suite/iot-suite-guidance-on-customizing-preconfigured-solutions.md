@@ -1,6 +1,6 @@
 ---
-title: "Önceden yapılandırılmış çözümleri özelleştirme | Microsoft Docs"
-description: "Azure IOT paketi önceden yapılandırılmış çözümleri Özelleştirme Kılavuzu verilmektedir."
+title: "aaaCustomizing önceden yapılandırılmış çözümleri | Microsoft Docs"
+description: "Nasıl toocustomize hello Azure IOT paketi önceden yapılandırılmış çözümler hakkında rehberlik sağlar."
 services: 
 suite: iot-suite
 documentationcenter: .net
@@ -15,73 +15,73 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: corywink
-ms.openlocfilehash: bdf4cd89d5ad0392337dfe761108608d506adf18
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1a8573f5ac6ed944c44459df495446f15174d513
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>Önceden yapılandırılmış bir çözümü özelleştirme
 
-Azure IOT paketi ile sağlanan önceden yapılandırılmış çözümler bir uçtan uca çözümü sunmak için birlikte çalışan suite içinde hizmetlerini gösterme. Bu başlangıç noktasından genişletmek ve belirli senaryolar için çözümü özelleştirme çeşitli yerlerde vardır. Aşağıdaki bölümlerde bu ortak özelleştirme noktalarını açıklanmaktadır.
+Azure IOT paketi Hello ile sağlanan hello önceden yapılandırılmış çözüm hello suite çalışma birlikte toodeliver bir uçtan uca çözüm içinde hello hizmetlerini gösterme. Bu başlangıç noktasından genişletmek ve belirli senaryolar için hello çözümü özelleştirme çeşitli yerlerde vardır. Aşağıdaki bölümlerde hello bu ortak özelleştirme noktaları açıklar.
 
-## <a name="find-the-source-code"></a>Kaynak kodu bulun
+## <a name="find-hello-source-code"></a>Merhaba kaynak kod Bul
 
-Önceden yapılandırılmış çözümler için kaynak kodunu şu depoları Github'da kullanılabilir:
+depoları aşağıdaki hello Github'da Hello kaynak kodu hello önceden yapılandırılmış çözümleri için kullanılabilir:
 
 * Uzaktan izleme: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 * Tahmine dayalı Bakım: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 * Bağlı Fabrika: [https://github.com/Azure/azure-iot-connected-factory](https://github.com/Azure/azure-iot-connected-factory)
 
-Önceden yapılandırılmış çözümler için kaynak kodunu desenleri ve Azure IOT paketi kullanarak bir IOT çözüm uçtan uca işlevselliğini uygulamak için kullanılan yöntemler göstermek için sağlanmıştır. Derleme ve GitHub depolarının çözümlerinde dağıtma hakkında daha fazla bilgi bulabilirsiniz.
+toodemonstrate hello desenleri ve uygulamalar tooimplement hello uçtan uca Azure IOT paketi kullanarak bir IOT çözüm işlevselliğini kullanılan hello önceden yapılandırılmış çözümleri için hello kaynak kodu sağlanır. Hakkında daha fazla bilgi bulabilirsiniz toobuild ve hello GitHub depolarının hello çözümlerinde dağıtın.
 
-## <a name="change-the-preconfigured-rules"></a>Önceden yapılandırılmış kurallarını değiştirin
+## <a name="change-hello-preconfigured-rules"></a>Önceden yapılandırılmış hello kuralları Değiştir
 
-Uzaktan izleme çözümü üç içeren [Azure akış analizi](https://azure.microsoft.com/services/stream-analytics/) cihaz bilgilerini, telemetri ve çözümdeki kuralları mantığı işlemek için işler.
+Merhaba Uzaktan izleme çözümü üç içeren [Azure akış analizi](https://azure.microsoft.com/services/stream-analytics/) toohandle cihaz bilgilerini, telemetri ve hello çözümde kuralları mantığı işler.
 
-Üç akış analizi işleri ve bunların söz dizimi ayrıntılı olarak açıklanmıştır [Uzaktan izleme çözümünde gezinme önceden yapılandırılmış](iot-suite-remote-monitoring-sample-walkthrough.md). 
+Merhaba üç analytics iş akışı ve bunların söz dizimi hello derinlemesine açıklanmıştır [Uzaktan izleme çözümünde gezinme önceden yapılandırılmış](iot-suite-remote-monitoring-sample-walkthrough.md). 
 
-Bu işleri doğrudan mantığı alter düzenleyin veya senaryonuz için belirli mantığı ekleyin. Akış analizi işleri şu şekilde bulabilirsiniz:
+Tooalter mantığı hello veya mantığı belirli tooyour senaryo Ekle doğrudan bu işleri düzenleyebilirsiniz. Akış analizi işleri gibi hello bulabilirsiniz:
 
-1. Git [Azure portal](https://portal.azure.com).
-2. IOT çözümünüzü aynı ada sahip kaynak grubuna gidin. 
-3. Değiştirmek istediğiniz Azure akış analizi işi seçin. 
-4. Seçerek işini durdurma **durdurmak** , komutları kümesi. 
-5. Giriş, sorgu ve çıkış düzenleyin.
+1. Çok Git[Azure portal](https://portal.azure.com).
+2. Toohello kaynak grubuyla aynı IOT çözümü olarak ad hello gidin. 
+3. Toomodify istediğiniz hello Azure akış analizi işi seçin. 
+4. Seçerek durdurma hello işi **durdurmak** , komutları hello kümesi. 
+5. Merhaba giriş, sorgu ve çıkışlarla düzenleyin.
    
-    Basit bir değişiklikle için sorgu değiştirmektir **kuralları** kullanmak için iş bir **"<"** yerine bir **">"**. Çözüm portalı görüntülenmeye **">"** kullandığınızda, kural düzenleme, ancak temel alınan iş değişikliği nedeniyle davranışı nasıl çevrilmiş dikkat edin.
-6. İşi Başlat
+    Basit bir değişiklikle toochange hello hello için sorgudur **kuralları** iş toouse bir **"<"** yerine bir **">"**. Merhaba çözüm portalı görüntülenmeye **">"** kullandığınızda, kural düzenleme, ancak iş temel hello toohello değişikliği nedeniyle hello davranışı nasıl çevrilmiş dikkat edin.
+6. Merhaba işi Başlat
 
 > [!NOTE]
-> İşlerini değiştirilmesine Pano başarısız olmasına neden olabilir şekilde Uzaktan izleme Panosu belirli verilere, bağlıdır.
+> Merhaba işleri değiştirme hello Pano toofail neden şekilde hello Uzaktan izleme Panosu belirli verilere, bağlıdır.
 
 ## <a name="add-your-own-rules"></a>Kendi kurallarınızı ekleme
 
-Önceden yapılandırılmış Azure akış analizi işi değiştirmenin yanı sıra, yeni işleri ekleyin veya yeni sorgular için var olan işler eklemek için Azure portalını kullanabilirsiniz.
+Ayrıca Azure akış analizi işi toochanging hello önceden yapılandırılmış, hello Azure portal tooadd yeni işleri kullanın veya yeni sorgular tooexisting işleri ekleyin.
 
 ## <a name="customize-devices"></a>Aygıtları özelleştirme
 
-En yaygın uzantısı etkinlikler senaryonuz için belirli cihazlar ile çalışmaktadır. Cihazları ile çalışmak için birkaç yöntem vardır. Senaryonuz eşleşecek şekilde bir sanal cihaz değiştirilmesine veya kullanarak bu yöntemleri dahil [IOT cihaz SDK'sı] [ IoT Device SDK] çözüme fiziksel Cihazınızı bağlamak için.
+Merhaba en yaygın uzantısı etkinliklerden birini aygıtları belirli tooyour senaryoyla çalışmaktadır. Cihazları ile çalışmak için birkaç yöntem vardır. Bir sanal cihaz toomatch senaryonuz değiştirilmesine veya hello kullanarak bu yöntemleri dahil [IOT cihaz SDK'sı] [ IoT Device SDK] tooconnect fiziksel cihaz toohello çözümünüzü.
 
-Cihaz ekleme için adım adım yönergeler için bkz: [IOT paketi bağlanan cihazları](iot-suite-connecting-devices.md) makale ve [C SDK'sı örneği izleme uzaktan](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). Bu örnek, Uzaktan izleme önceden yapılandırılmış çözümü ile çalışmak üzere tasarlanmıştır.
+Merhaba adım adım kılavuzu tooadding cihazlar için bkz [IOT paketi bağlanan cihazları](iot-suite-connecting-devices.md) makale ve hello [C SDK'sı örneği izleme uzaktan](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). Merhaba Uzaktan izleme çözümü ile tasarlanmış toowork örnektir.
 
 ### <a name="create-your-own-simulated-device"></a>Sanal cihazınız oluşturma
 
-Dahil [Uzaktan izleme çözümünün kaynak kodu](https://github.com/Azure/azure-iot-remote-monitoring), .NET simulator değil. Bu simulator çözümün bir parçası sağlanan olur ve farklı meta veriler, telemetri, Gönder ve farklı komutları ve yöntemleri yanıt şekilde değiştirebilirsiniz.
+Hello dahil [Uzaktan izleme çözümünün kaynak kodu](https://github.com/Azure/azure-iot-remote-monitoring), .NET simulator değil. Bu simulator hello bir hello çözüm ve parçası toosend farklı meta veriler, telemetri, alter ve toodifferent komutları ve yöntemleri yanıt olarak sağlanan ' dir.
 
-Önceden yapılandırılmış Uzaktan izleme çözümü önceden yapılandırılmış benzeticisinde sıcaklık ve nem telemetri yayan için bir cihazın benzetimini yapar. Benzetici değiştirebileceğiniz [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) proje GitHub deposuna çatallanmış zaman.
+Merhaba önceden yapılandırılmış Uzaktan izleme çözümü hello benzeticisinde sıcaklık ve nem telemetri yayan için bir cihazın benzetimini yapar. Merhaba hello benzeticisinde değiştirebileceğiniz [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) proje hello GitHub deposunu çatallanmış zaman.
 
 ### <a name="available-locations-for-simulated-devices"></a>Sanal cihazlar için kullanılabilir konumları
 
-Varsayılan konumlar kümesidir Seattle/Redmond, Washington, Amerika Birleşik Devletleri. Bu konumları değiştirebilirsiniz [SampleDeviceFactory.cs][lnk-sample-device-factory].
+Merhaba varsayılan konumları kümesidir Seattle/Redmond, Washington, Amerika Birleşik Devletleri. Bu konumları değiştirebilirsiniz [SampleDeviceFactory.cs][lnk-sample-device-factory].
 
-### <a name="add-a-desired-property-update-handler-to-the-simulator"></a>İstenen özellik güncelleştirme işleyicisi simulator ekleyin
+### <a name="add-a-desired-property-update-handler-toohello-simulator"></a>İstenen özellik güncelleştirme işleyicisi toohello simulator ekleme
 
-Çözüm Portalı'nda bir aygıt için istenen bir özellik için bir değer ayarlayabilirsiniz. Bu özelliği işlemek için cihaz sorumluluğunda değiştirme isteği cihaz istenen özellik değeri aldığında olur. Özellik değeri değişikliği istenen özelliği aracılığıyla desteği eklemek için bir işleyici simulator eklemeniz gerekir.
+Merhaba çözüm portalında bir aygıt için istenen bir özellik için bir değer ayarlayabilirsiniz. Merhaba aygıt istenen hello özellik değeri aldığında bu hello hello aygıt toohandle hello özellik değişikliği isteğini sorumluluğundadır. bir özellik değeri değişikliği tooadd desteği istenen bir özelliği üzerinden tooadd işleyici toohello simulator gerekir.
 
-Simulator işleyicilerini içeren **SetPointTemp** ve **TelemetryInterval** ayarlayarak güncelleştirebilirsiniz özellikleri istenen çözüm portalı değerleri.
+Merhaba simulator içeren hello için işleyiciler **SetPointTemp** ve **TelemetryInterval** ayarlayarak güncelleştirebilirsiniz özellikleri istenen hello çözüm portalı değerleri.
 
-Aşağıdaki örnek, işleyicisi gösterir **SetPointTemp** özelliğinde istenen **CoolerDevice** sınıfı:
+Merhaba aşağıdaki örnekte gösterilir hello hello işleyicisi **SetPointTemp** hello özelliğinde istenen **CoolerDevice** sınıfı:
 
 ```csharp
 protected async Task OnSetPointTempUpdate(object value)
@@ -93,11 +93,11 @@ protected async Task OnSetPointTempUpdate(object value)
 }
 ```
 
-Bu yöntem telemetri noktası sıcaklık güncelleştirir ve değişikliği geri IOT Hub'ına bildirilen özelliği ayarlanarak bildirir.
+Bu yöntem sıcaklık ve raporları hello geri tooIoT Hub bildirilen özelliği ayarlanarak değiştirmek hello telemetri noktası güncelleştirir.
 
-Önceki örnekte düzeni izleyerek kendi özelliklerinizi için kendi işleyicilerinizi ekleyebilirsiniz.
+Örnek önceki hello aşağıdaki hello desende tarafından kendi özelliklerinizi için kendi işleyicilerinizi ekleyebilirsiniz.
 
-Ayrıca istenen özelliği işleyicisine aşağıdaki örnekte gösterildiği gibi bağlamanız gerekir **CoolerDevice** Oluşturucusu:
+Ayrıca hello istenen özellik toohello işleyicisi hello hello örnekten aşağıdaki gösterildiği gibi bağlamanız gerekir **CoolerDevice** Oluşturucusu:
 
 ```csharp
 _desiredPropertyUpdateHandlers.Add(SetPointTempPropertyName, OnSetPointTempUpdate);
@@ -105,16 +105,16 @@ _desiredPropertyUpdateHandlers.Add(SetPointTempPropertyName, OnSetPointTempUpdat
 
 Unutmayın **SetPointTempPropertyName** olan "Config.SetPointTemp" tanımlanan bir sabit.
 
-### <a name="add-support-for-a-new-method-to-the-simulator"></a>Yeni bir yöntem için destek simulator Ekle
+### <a name="add-support-for-a-new-method-toohello-simulator"></a>Yeni bir yöntem toohello simulator desteği ekleme
 
-Yeni bir desteği eklemek için simulator özelleştirebilirsiniz [yöntemi (doğrudan yöntemi)][lnk-direct-methods]. Gereken iki temel adımlar verilmiştir:
+Merhaba simulator tooadd desteği için yeni bir özelleştirebilirsiniz [yöntemi (doğrudan yöntemi)][lnk-direct-methods]. Gereken iki temel adımlar verilmiştir:
 
-- Benzetici, IOT hub yönteminin ayrıntılarla önceden yapılandırılmış çözümde bildirmeniz gerekir.
-- Simulator çağırdığınızda, ondan yöntem çağrısının işlemek için kod içermelidir **cihaz ayrıntıları** Masası Çözüm Gezgini'nde ya da bir iş.
+- Merhaba simulator hello IOT hub'hello yönteminin ayrıntılarla hello önceden yapılandırılmış çözümde bildirmeniz gerekir.
+- Merhaba simulator, kod toohandle hello yöntem çağrısı içermelidir, hello çağırdığınızda **cihaz ayrıntıları** Masası hello Çözüm Gezgini'nde ya da bir iş.
 
-Çözüm kullanan önceden yapılandırılmış Uzaktan izleme *özellikleri bildirilen* IOT hub'ına desteklenen yöntemlerden ayrıntılarını göndermek için. Çözüm arka ucu yöntem çağrılarına geçmişini yanı sıra her bir cihaz tarafından desteklenen tüm yöntemleri listesini tutar. Bu cihazlar hakkındaki bilgileri görüntülemek ve çözüm portalında yöntemleri çağırma.
+Merhaba çözümü kullanan önceden yapılandırılmış Uzaktan izleme *özellikleri bildirilen* desteklenen yöntemleri tooIoT hub toosend ayrıntıları. Merhaba çözüm arka ucu yöntem çağrılarına geçmişini yanı sıra her bir cihaz tarafından desteklenen tüm hello yöntemlerinin listesini tutar. Bu cihazlar hakkındaki bilgileri görüntülemek ve hello çözüm portalı yöntemleri çağırır.
 
-Bir aygıt bir yöntem destekler, cihaz yönteme ayrıntılarını eklemeniz gerekir IOT hub'ı bildirmek için **SupportedMethods** bildirilen özellikleri düğümünde:
+toonotify hello IOT hub, bir aygıt bir yöntem desteklediğini hello aygıt hello yöntemi toohello ayrıntılarını eklemelisiniz **SupportedMethods** hello düğümünde bildirilen özellikleri:
 
 ```json
 "SupportedMethods": {
@@ -123,35 +123,35 @@ Bir aygıt bir yöntem destekler, cihaz yönteme ayrıntılarını eklemeniz ger
 }
 ```
 
-Yöntem imzası aşağıdaki biçime sahiptir: `<method name>--<parameter #0 name>-<parameter #1 type>-...-<parameter #n name>-<parameter #n type>`. Örneğin, belirtmek için **InitiateFirmwareUpdate** yöntemi bekliyor adlı bir dize parametresi **FwPackageURI**, aşağıdaki yöntemi imzası kullanın:
+Merhaba yöntemi imzası olan biçimini izleyen hello: `<method name>--<parameter #0 name>-<parameter #1 type>-...-<parameter #n name>-<parameter #n type>`. Örneğin, toospecify hello **InitiateFirmwareUpdate** yöntemi bekliyor adlı bir dize parametresi **FwPackageURI**, yöntem imzası aşağıdaki hello kullanın:
 
 ```json
 InitiateFirmwareUpate--FwPackageURI-string: "description of method"
 ```
 
-Desteklenen parametre türleri listesi için bkz: **CommandTypes** altyapısı projesi sınıfta.
+Merhaba desteklenen parametre türleri listesi için bkz: **CommandTypes** hello altyapısı projesi sınıfta.
 
-Bir yöntem silmek için yöntem imzası ayarlamak `null` bildirilen özellikleri.
+toodelete bir yöntem hello yöntemi imza çok ayarlama`null` özellikleri hello bildirdi.
 
 > [!NOTE]
-> Çözüm arka ucu, aldığında, yalnızca desteklenen yöntemleri hakkında bilgi güncelleştirmeleri bir *aygıt bilgileri* aygıttan ileti.
+> aldığında hello çözüm arka ucu yalnızca desteklenen yöntemleri hakkında bilgi güncelleştirmeleri bir *aygıt bilgileri* hello aygıttan ileti.
 
-Aşağıdaki kod örnek alarak **SampleDeviceFactory** ortak proje sınıfında bir yöntem listesine eklemek nasıl gösterir **SupportedMethods** aygıt tarafından gönderilen bildirilen özellikleri:
+Merhaba hello kod örnekten aşağıdaki **SampleDeviceFactory** hello ortak sınıfında proje gösterir nasıl tooadd yöntemi toohello listesini, **SupportedMethods** hello hello tarafından gönderilen özellikleri bildirdi aygıt:
 
 ```csharp
 device.Commands.Add(new Command(
     "InitiateFirmwareUpdate",
     DeliveryType.Method,
-    "Updates device Firmware. Use parameter 'FwPackageUri' to specifiy the URI of the firmware file, e.g. https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin",
+    "Updates device Firmware. Use parameter 'FwPackageUri' toospecifiy hello URI of hello firmware file, e.g. https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin",
     new[] { new Parameter("FwPackageUri", "string") }
 ));
 ```
 
-Bu kod parçacığını ayrıntılarını ekler **InitiateFirmwareUpdate** çözüm portalı ve gerekli yöntem parametreleri ayrıntılarını görüntülemek için metin dahil yöntemi.
+Bu kod parçacığını hello ayrıntılarını ekler **InitiateFirmwareUpdate** metin toodisplay hello çözüm portalı ve hello ayrıntılarını dahil yöntemi gereken yöntem parametreleri.
 
-Simulator bildirilen özellikleri, IOT hub'ına simulator başladığında desteklenen yöntemlerin listesi dahil olmak üzere gönderir.
+Merhaba simulator hello desteklenen yöntemlerin listesi tooIoT hello simulator başladığında Hub içeren bildirilen özelliklerini gönderir.
 
-Simulator koduna desteklediği her bir yöntemi için bir işleyici ekleyin. Varolan işleyiciler görebilirsiniz **CoolerDevice** Simulator.WebJob projesinde sınıfı. Aşağıdaki örnek, işleyicisi gösterir **InitiateFirmwareUpdate** yöntemi:
+Onu destekleyen her bir yöntemi için bir işleyici toohello simulator kodu ekleyin. Merhaba varolan işleyicileri hello görebilirsiniz **CoolerDevice** hello Simulator.WebJob projesinde sınıfı. Merhaba aşağıdaki örnekte gösterilir hello işleyicisi **InitiateFirmwareUpdate** yöntemi:
 
 ```csharp
 public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodRequest, object userContext)
@@ -195,58 +195,58 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 }
 ```
 
-Yöntem işleyici adları ile başlamalı `On` ardından yöntemin adı. **MethodRequest** parametresi çözüm arka ucu ile yöntemi çağırma geçirilen herhangi bir parametre içeriyor. Dönüş değeri türü olmalıdır **görev&lt;MethodResponse&gt;**. **BuildMethodResponse** yardımcı program yöntemi, dönüş değeri oluşturmanıza yardımcı olur.
+Yöntem işleyici adları ile başlamalı `On` ardından hello yöntemi hello adı. Merhaba **methodRequest** parametresi ile Merhaba yöntemi çağırma hello çözüm arka uçtan geçirilen herhangi bir parametre içeriyor. Merhaba dönüş değeri türü olmalıdır **görev&lt;MethodResponse&gt;**. Merhaba **BuildMethodResponse** yardımcı program yöntemi hello dönüş değeri oluşturmanıza yardımcı olur.
 
-Yöntem işleyicisinin içinden, olabilir:
+Merhaba yöntemi işleyicisinin içinden, olabilir:
 
 - Zaman uyumsuz bir görevi başlatın.
-- İstenen özelliklerinden almak *cihaz çifti* IOT hub.
-- Bir tek bildirilen özelliğini kullanarak güncelleştirme **SetReportedPropertyAsync** yönteminde **CoolerDevice** sınıfı.
-- Birden çok bildirilen özellikleri oluşturarak güncelleştirmek bir **TwinCollection** örneği ve arama **Transport.UpdateReportedPropertiesAsync** yöntemi.
+- İstenen özelliklerini hello almak *cihaz çifti* IOT hub.
+- Merhaba kullanan tek bildirilen bir özellik güncelleştirme **SetReportedPropertyAsync** hello yönteminde **CoolerDevice** sınıfı.
+- Birden çok bildirilen özellikleri oluşturarak güncelleştirmek bir **TwinCollection** örneği ve arama hello **Transport.UpdateReportedPropertiesAsync** yöntemi.
 
-Bellenim güncelleştirme sabitlerini aşağıdaki adımları gerçekleştirir:
+Merhaba bellenim güncelleştirme sabitlerini hello aşağıdaki adımları gerçekleştirir:
 
-- Cihazın üretici yazılımı güncelleştirme isteğini kabul edemiyor denetler.
-- Zaman uyumsuz olarak bellenim güncelleştirme işlemi başlatır ve işlem tamamlandığında, telemetri sıfırlar.
-- Hemen istek aygıt tarafından kabul belirtmek için "FirmwareUpdate kabul" iletisi döndürür.
+- Denetimleri hello mümkün tooaccept hello bellenim güncelleştirme isteği aygıttır.
+- Zaman uyumsuz olarak hello bellenim güncelleştirme işlemi başlatır ve hello işlemi tamamlandığında hello telemetri sıfırlar.
+- "Kabul FirmwareUpdate" döndürür hello hemen ileti tooindicate hello isteği hello aygıt tarafından kabul edildi.
 
 ### <a name="build-and-use-your-own-physical-device"></a>Derleme ve (fiziksel) aygıtınızı kullanın
 
-[Azure IOT SDK'ları](https://github.com/Azure/azure-iot-sdks) kitaplıkları çok sayıda aygıt türleri (diller ve işletim sistemleri) bağlamak için IOT çözümleriyle sağlar.
+Merhaba [Azure IOT SDK'ları](https://github.com/Azure/azure-iot-sdks) kitaplıkları çok sayıda aygıt türleri (diller ve işletim sistemleri) bağlamak için IOT çözümleriyle sağlar.
 
 ## <a name="modify-dashboard-limits"></a>Pano sınırları değiştirme
 
 ### <a name="number-of-devices-displayed-in-dashboard-dropdown"></a>Pano açılır listede görüntülenen aygıt sayısı
 
-200 varsayılandır. Bu sayıyı değiştirin [DashboardController.cs][lnk-dashboard-controller].
+Merhaba, 200 varsayılandır. Bu sayıyı değiştirin [DashboardController.cs][lnk-dashboard-controller].
 
-### <a name="number-of-pins-to-display-in-bing-map-control"></a>Sayısını Bing harita denetiminde görüntüleme
+### <a name="number-of-pins-toodisplay-in-bing-map-control"></a>Bing harita denetimindeki PIN'ler toodisplay sayısı
 
-200 varsayılandır. Bu sayıyı değiştirin [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
+Merhaba, 200 varsayılandır. Bu sayıyı değiştirin [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
 
 ### <a name="time-period-of-telemetry-graph"></a>Süre telemetri grafik
 
-Varsayılan değer 10 dakikadır. Bu değeri değiştirebilirsiniz [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
+Merhaba varsayılan değer 10 dakikadır. Bu değeri değiştirebilirsiniz [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
 ## <a name="manually-set-up-application-roles"></a>Uygulama rolleri el ile ayarlamanız
 
-Aşağıdaki yordam nasıl ekleneceğini açıklar **yönetici** ve **ReadOnly** uygulama rolleri önceden yapılandırılmış bir çözüm için. Azureiotsuite.com sitesinden zaten sağlanan önceden yapılandırılmış çözümler içerdiğini unutmayın **yönetici** ve **ReadOnly** rolleri.
+Merhaba aşağıdaki yordamda açıklanmıştır nasıl tooadd **yönetici** ve **ReadOnly** uygulama rolleri tooa önceden yapılandırılmış çözümü. Merhaba azureiotsuite.com sitesinden zaten sağlanan önceden yapılandırılmış çözümler hello içerdiğini **yönetici** ve **ReadOnly** rolleri.
 
-Üyeleri **ReadOnly** rolü Pano ve cihaz listesini görebilirsiniz ancak cihazları eklemek, cihaz özniteliklerine değiştirmek veya komutlarını göndermek için izin verilmiyor.  Üyeleri **yönetici** rol Çözümdeki tüm işlevlere tam erişimi vardır.
+Merhaba üyeleri **ReadOnly** rolü hello Pano ve hello cihaz listesini görebilirsiniz ancak tooadd cihazları, cihaz öznitelikleri Değiştir veya gönderme komutlar izin verilmiyor.  Merhaba üyeleri **yönetici** rolüne sahip tam erişim tooall hello işlevselliği hello çözümde.
 
-1. Git [Klasik Azure portalı][lnk-classic-portal].
+1. Toohello Git [Klasik Azure portalı][lnk-classic-portal].
 2. **Active Directory**’yi seçin.
-3. Çözümünüzü sağlarken kullandığınız AAD Kiracı adına tıklayın.
+3. Çözümünüzü sağlarken, kullanılan hello AAD kiracısını Hello adına tıklayın.
 4. **Uygulamalar**'a tıklayın.
-5. Önceden yapılandırılmış çözümünüzün adıyla eşleşen uygulamanın adına tıklayın. Uygulamanızı listede görmüyorsanız, seçin **Şirketimin sahip olduğu uygulamalar** içinde **Göster** onay işareti açılır ve'ı tıklatın.
-6. Sayfanın alt kısmındaki tıklatın **yönetmek bildirim** ve ardından **karşıdan bildirim**.
-7. Bu yordam bir .json dosyası yerel makinenize indirir. Tercih ettiğiniz bir metin düzenleyicisinde düzenlemek için bu dosyayı açın.
-8. .Json dosyası üçüncü satırında, görebilirsiniz:
+5. Merhaba, önceden yapılandırılmış çözümünüzün adıyla eşleşen hello uygulamanın adını tıklatın. Uygulamanızı hello listesinde görmüyorsanız seçin **Şirketimin sahip olduğu uygulamalar** hello içinde **Göster** tıklayın ve açılan hello onay işareti.
+6. Merhaba sayfasının Hello altında tıklatın **yönetmek bildirim** ve ardından **karşıdan bildirim**.
+7. Bu yordam bir .json dosyası tooyour yerel makine indirir. Tercih ettiğiniz bir metin düzenleyicisinde düzenlemek için bu dosyayı açın.
+8. Merhaba üçüncü satıra hello .json dosyası, görebilirsiniz:
 
    ```json
    "appRoles" : [],
    ```
-   Bu satırı aşağıdaki kodla değiştirin:
+   Bu satırı koddan hello ile değiştirin:
 
    ```json
    "appRoles": [
@@ -254,7 +254,7 @@ Aşağıdaki yordam nasıl ekleneceğini açıklar **yönetici** ve **ReadOnly**
    "allowedMemberTypes": [
    "User"
    ],
-   "description": "Administrator access to the application",
+   "description": "Administrator access toohello application",
    "displayName": "Admin",
    "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
    "isEnabled": true,
@@ -264,7 +264,7 @@ Aşağıdaki yordam nasıl ekleneceğini açıklar **yönetici** ve **ReadOnly**
    "allowedMemberTypes": [
    "User"
    ],
-   "description": "Read only access to device information",
+   "description": "Read only access toodevice information",
    "displayName": "Read Only",
    "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
    "isEnabled": true,
@@ -272,23 +272,23 @@ Aşağıdaki yordam nasıl ekleneceğini açıklar **yönetici** ve **ReadOnly**
    } ],
    ```
 
-9. (Mevcut dosyanın üzerine yazabilirsiniz) güncelleştirilmiş .json dosyasını kaydedin.
-10. Klasik Azure portalı, sayfanın sonundaki seçin **yönetmek bildirim** sonra **karşıya bildirim** önceki adımda kaydettiğiniz .json dosyası karşıya yüklemek için.
-11. Artık eklemiş olduğunuz **yönetici** ve **ReadOnly** uygulamanız için rolleri.
-12. Bu rollerden birinin dizininizdeki bir kullanıcı atamak için bkz: [azureiotsuite.com sitesindeki izinler][lnk-permissions].
+9. Merhaba güncelleştirilmiş .json dosyası (Merhaba varolan dosyanın üzerine) kaydedin.
+10. Merhaba hello sayfanın hello sonundaki Klasik Azure portalı seçin **yönetmek bildirim** sonra **karşıya bildirim** hello önceki adımda kaydettiğiniz tooupload hello .json dosyası.
+11. Merhaba şimdi eklediğiniz **yönetici** ve **ReadOnly** rolleri tooyour uygulama.
+12. tooassign, dizininizdeki bu rolleri tooa kullanıcı birini bkz [hello azureiotsuite.com sitesindeki izinler][lnk-permissions].
 
 ## <a name="feedback"></a>Geri Bildirim
 
-Bir özelleştirme zorunda görmek bu belgedeki kapsanan istiyorsunuz? Özellik önerileri eklemek [kullanıcı sesi](https://feedback.azure.com/forums/321918-azure-iot), ya da bu makaleye yorum. 
+Bu belgede ele alınan toosee istediğiniz özelleştirme var mı? Özellik önerileri çok eklemek[kullanıcı sesi](https://feedback.azure.com/forums/321918-azure-iot), ya da bu makaleye yorum. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Önceden yapılandırılmış çözümleri özelleştirme seçenekleri hakkında daha fazla bilgi için bkz:
+Daha fazla hello seçenekleri hello önceden yapılandırılmış çözümleri özelleştirme hakkında toolearn bakın:
 
-* [Mantıksal uygulama, Azure IOT paketi uzaktan önceden yapılandırılmış izleme çözümüne bağlama][lnk-logicapp]
-* [Önceden yapılandırılmış Uzaktan izleme çözümü ile dinamik telemetri kullanın][lnk-dynamic]
-* [Önceden yapılandırılmış Uzaktan izleme çözümü cihaz bilgileri meta veriler][lnk-devinfo]
-* [Bağlı Fabrika çözüm OPC UA sunucularınızdan veri biçimini Özelleştir][lnk-cf-customize]
+* [Mantıksal uygulama tooyour Azure IOT paketi uzaktan önceden yapılandırılmış izleme çözümü bağlantı][lnk-logicapp]
+* [Dinamik telemetri hello Uzaktan izleme çözümü ile kullanma][lnk-dynamic]
+* [Cihaz bilgi meta verilerde hello Uzaktan izleme çözümü][lnk-devinfo]
+* [Merhaba Fabrika çözüm görüntüler veri OPC UA sunucularınızdan nasıl bağlanacağını özelleştirme][lnk-cf-customize]
 
 [lnk-logicapp]: iot-suite-logic-apps-tutorial.md
 [lnk-dynamic]: iot-suite-dynamic-telemetry.md

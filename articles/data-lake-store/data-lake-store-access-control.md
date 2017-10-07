@@ -1,5 +1,5 @@
 ---
-title: "Data Lake Store’da erişim denetimine genel bakış | Microsoft Belgeleri"
+title: "erişim denetimi Data Lake Store'da aaaOverview | Microsoft Docs"
 description: "Azure Data Lake Store’da erişim denetiminin çalışma şekli hakkında bilgi edinin"
 services: data-lake-store
 documentationcenter: 
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.openlocfilehash: 99fbad770290d280bdec490d988391ad276ce1ee
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1cc5d578f22ef0a123a1547abebfb4795ea09139
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Azure Data Lake Store’da erişim denetimi
 
-Azure Data Lake Store; HDFS ve sonuç olarak POSIX erişim denetimi modelinden türetilen bir erişim denetimi modeli kullanır. Bu makalede Data Lake Store için erişim denetimi modelinin temel bilgileri özetlenmektedir. HDFS erişim denetimi modeli hakkında daha fazla bilgi için bkz. [HDFS İzinleri Kılavuzu](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
+Azure Data Lake Store sırayla hello POSIX erişim denetimi modeli türetilen HDFS türeyen bir erişim denetimi modeli uygular. Bu makalede hello erişim denetimi modeli Data Lake Store için hello temelleri özetlenmektedir. toolearn hello HDFS erişim denetimi modeli hakkında daha fazla bilgi görmek [HDFS izinleri Kılavuzu](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
 ## <a name="access-control-lists-on-files-and-folders"></a>Dosyalar ve klasörler üzerindeki erişim denetimi listeleri
 
 İki tür erişim denetim listesi (ACL) vardır: **Erişim ACL’leri** ve **Varsayılan ACL’ler**.
 
-* **Erişim ACL’leri**: Bunlar bir nesneye erişimi denetler. Hem dosyalar hem de klasörler Erişim ACL’lerine sahiptir.
+* **Erişim ACL'ler**: Bu denetim erişim tooan nesnesi. Hem dosyalar hem de klasörler Erişim ACL’lerine sahiptir.
 
-* **Varsayılan ACL’ler**: Bir klasör ile ilişkili olan ACL’lerin o klasör altında oluşturulan tüm alt öğelere ilişkin Erişim ACL’lerini belirleyen bir "şablonudur". Dosyalar Varsayılan ACL’ye sahip değildir.
+* **Varsayılan ACL'leri**: "Bu klasörü altında oluşturulan tüm alt öğeleri için hello erişim ACL'ler belirleyen bir klasörle ilişkili şablonu" ACL'leri. Dosyalar Varsayılan ACL’ye sahip değildir.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
 
-Hem Erişim ACL'leri hem de Varsayılan ACL'ler aynı yapıdadır.
+Erişim ACL'ler ve varsayılan ACL'leri sahip hello aynı yapısı.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
 
 
 
 > [!NOTE]
-> Bir üst öğe üzerindeki Varsayılan ACL’nin değiştirilmesi zaten var olan alt öğelerin Erişim ACL’sini veya Varsayılan ACL’sini etkilemez.
+> Bir üst hello varsayılan ACL değişen hello erişim ACL veya varsayılan ACL zaten alt öğelerinin etkilemez.
 >
 >
 
@@ -49,27 +49,27 @@ Hem Erişim ACL'leri hem de Varsayılan ACL'ler aynı yapıdadır.
 
 Her dosya ve klasör bu kimlikler için farklı izinlere sahiptir:
 
-* Dosyanın sahibi olan kullanıcı
-* Sahip olan grup
+* sahibi olan kullanıcı hello dosyasının hello
+* Merhaba sahibi olan Grup
 * Adlandırılmış kullanıcılar
 * Adlandırılmış gruplar
 * Diğer tüm kullanıcılar
 
-Kullanıcıların ve grupların kimlikleri, Azure Active Directory (Azure AD) kimlikleridir. Bu nedenle, aksi belirtilmediği sürece, Data Lake Store bağlamında "Kullanıcı", Azure AD kullanıcısı veya Azure AD güvenlik grubu olabilir.
+Merhaba kimlikleri kullanıcıların ve grupların Azure Active Directory (Azure AD) hesaplardır. Aksi belirtilmediği sürece, bir "kullanıcı" Merhaba bağlamındaki Data Lake Store, bu nedenle herhangi bir Azure AD kullanıcısının veya bir Azure AD güvenlik grubuna anlamına gelir.
 
 ## <a name="permissions"></a>İzinler
 
-Dosya sistemi nesnesi üzerinde **Okuma**, **Yazma** ve **Yürütme** izinleri bulunur ve bunlar aşağıdaki tabloda gösterildiği gibi dosyalar ve klasörler üzerinde kullanılabilir:
+bir dosya sistemi nesnenin Hello izinleri olan **okuma**, **yazma**, ve **yürütme**, ve dosya ve klasörleri aşağıdaki tablonun hello gösterildiği gibi kullanılabilmesi için:
 
 |            |    Dosya     |   Klasör |
 |------------|-------------|----------|
-| **Okuma (R)** | Bir dosyanın içeriğini okuyabilir | Klasörün içeriğini listelemek için **Okuma** ve **Yürütme** izinlerini gerektirir|
-| **Yazma (W)** | Bir dosyaya yazabilir veya ekleyebilir | Bir klasörde alt öğeler oluşturmak için **Yazma** ve **Yürütme** gerektirir |
-| **Yürütme (X)** | Data Lake Store bağlamında herhangi bir anlamı yoktur | Bir klasörün alt öğelerini geçirmek için gereklidir |
+| **Okuma (R)** | Bir dosyanın içeriğini Hello okuyabilir | Gerektirir **okuma** ve **yürütme** toolist hello hello klasörünün içeriğini|
+| **Yazma (W)** | Yazma veya tooa dosya ekleme | Gerektirir **yazma** ve **yürütme** klasöründeki toocreate alt öğeleri |
+| **Yürütme (X)** | Data Lake Store hello bağlamında herhangi bir şey gelmez | Bir klasörün gerekli tootraverse hello alt öğeleri |
 
 ### <a name="short-forms-for-permissions"></a>İzinlerin kısaltmaları
 
-**RWX**, **Okuma + Yazma + Yürütme** için kullanılır. **Okuma=4**, **Yazma=2** ve **Yürütme=1** olup toplamları izinleri temsil eden daha da kısaltılmış bir sayısal biçim mevcuttur. Bazı örnekler aşağıda verilmiştir.
+**RWX** kullanılan tooindicate olan **okuma + yazma + yürütme**. Daha fazla sıkıştırılmış bir sayısal form bulunduğu **okuma = 4**, **yazma = 2**, ve **Execute = 1**, hangi hello toplamını hello izinleri temsil eder. Bazı örnekler aşağıda verilmiştir.
 
 | Sayısal biçim | Kısa biçim |      Anlamı     |
 |--------------|------------|------------------------|
@@ -81,68 +81,68 @@ Dosya sistemi nesnesi üzerinde **Okuma**, **Yazma** ve **Yürütme** izinleri b
 
 ### <a name="permissions-do-not-inherit"></a>İzinler devralınmaz
 
-Data Lake Store tarafından kullanılan POSIX stili modelinde bir öğenin izinleri öğenin kendisine depolanır. Diğer bir deyişle, bir öğenin izinleri üst öğelerinden devralınamaz.
+Data Lake Store tarafından kullanılan hello POSIX tipi modelinde, bir öğe için izinleri hello öğede depolanır. Diğer bir deyişle, bir öğe için izinleri hello üst öğelerinden devralınan olamaz.
 
-## <a name="common-scenarios-related-to-permissions"></a>İzinlerle ilgili yaygın senaryolar
+## <a name="common-scenarios-related-toopermissions"></a>Yaygın senaryolar ilgili toopermissions
 
-Bir Data Lake Store hesabı üzerinde belirli işlemlerin gerçekleştirilmesi için gereken izinleri anlamanıza yardımcı olacak bazı yaygın senaryolar aşağıda verilmiştir.
+Şunlardır anlamak hangi izinlerin olduğunu bazı ortak senaryolar toohelp belirli işlemlerin bir Data Lake Store hesabındaki tooperform gerekli.
 
-### <a name="permissions-needed-to-read-a-file"></a>Bir dosyayı okumak için gereken izinler
+### <a name="permissions-needed-tooread-a-file"></a>Bir dosya tooread gereken izinler
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
 
-* Dosyanın okunması için çağıranın **Okuma** izinlerine sahip olması gerekir.
-* Dosyayı içeren klasör yapısındaki tüm klasörler için çağıranın **Yürütme** izinlerine sahip olması gerekir.
+* Okuma hello dosya toobe için hello çağıran gereksinimlerini **okuma** izinleri.
+* Tüm hello dosyasını içeren hello Klasör yapısındaki klasörler hello için hello çağıran gereksinimlerini **yürütme** izinleri.
 
-### <a name="permissions-needed-to-append-to-a-file"></a>Bir dosyaya eklemek için gereken izinler
+### <a name="permissions-needed-tooappend-tooa-file"></a>Tooappend tooa dosya gereken izinler
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
 
-* Eklemenin yapılacağı dosya için çağıranın **Yazma** izinlerine sahip olması gerekir.
-* Dosyayı içeren tüm klasörler için çağıranın **Yürütme** izinlerine sahip olması gerekir.
+* Merhaba dosya toobe eklenen için hello çağıran gereksinimlerini **yazma** izinleri.
+* Tüm hello dosya içeren klasörleri hello için hello çağıran gereksinimlerini **yürütme** izinleri.
 
-### <a name="permissions-needed-to-delete-a-file"></a>Bir dosyayı silmek için gereken izinler
+### <a name="permissions-needed-toodelete-a-file"></a>Bir dosya toodelete gereken izinler
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
 
-* Üst klasör için çağıranın **Yazma + Yürütme** izinlerine sahip olması gerekir.
-* Dosyanın yolundaki diğer tüm klasörler için çağıranın **Yürütme** izinlerine sahip olması gerekir.
+* Merhaba üst klasör için hello çağıran gereksinimlerini **yazma + yürütme** izinleri.
+* Tüm diğer hello dosyanın yolu klasörlerde hello için hello çağıran gereksinimlerini **yürütme** izinleri.
 
 
 
 > [!NOTE]
-> Önceki iki koşul geçerli oldukça dosyayı silmek için dosya üzerinde yazma izinleri gerekli değildir.
+> Merhaba dosyanın izinlerini önceki iki koşul hello sürece bunu true gerekli toodelete olmayan yazma.
 >
 >
 
-### <a name="permissions-needed-to-enumerate-a-folder"></a>Bir klasörü listelemek için gereken izinler
+### <a name="permissions-needed-tooenumerate-a-folder"></a>Bir klasör tooenumerate gereken izinler
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
 
-* Listelenecek klasör için çağıranın **Okuma + Yürütme** izinlerine sahip olması gerekir.
-* Tüm üst klasörler için çağıranın **Yürütme** izinlerine sahip olması gerekir.
+* Başlangıç klasörü tooenumerate için hello çağıran gereksinimlerini **okuma + yürütme** izinleri.
+* Tüm üst klasörlerin hello için hello çağıran gereksinimlerini **yürütme** izinleri.
 
-## <a name="viewing-permissions-in-the-azure-portal"></a>Azure portalında görüntüleme izinleri
+## <a name="viewing-permissions-in-hello-azure-portal"></a>Hello Azure portalı izinlerini görüntüleme
 
-Data Lake Store hesabının **Veri Gezgini** dikey penceresinde **Erişim**’e tıklayarak bir dosya veya klasörün ACL’lerini görebilirsiniz. **mydatastore** hesabı altındaki **catalog** klasörüne ilişkin ACL’leri görmek için **Erişim**’e tıklayın.
+Merhaba gelen **Veri Gezgini** hello Data Lake Store hesabı dikey tıklayın **erişim** toosee hello ACL'ler bir dosya veya klasör. Tıklatın **erişim** toosee Merhaba ACL'ler hello **katalog** hello altında bir klasör **mydatastore** hesabı.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-Bu dikey pencerenin üst tarafında sahip olduğunuz izinlerin özeti gösterilir. (Ekran görüntüsünde Bob kullanıcıdır.) Bunun altında erişim izinleri gösterilir. Bundan sonra **Erişim** dikey penceresinde **Basit Görünüm**’e tıklayarak daha basit bir görünüm görün.
+Bu dikey penceresinde hello üst kısmında elinizde hello izinleri genel bir bakış gösterilir. (Merhaba ekran görüntüsünde, hello Bob kullanıcıdır.) Hello erişim izinleri gösterilir. Bundan sonra gelen hello **erişim** dikey penceresinde tıklatın **Basit Görünüm** toosee hello daha basit görünümü.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Varsayılan ACL’ler, maske ve süper kullanıcı kavramlarının gösterildiği daha gelişmiş görünümü görmek için **Gelişmiş Görünüm**’e tıklayın.
+Tıklatın **Gelişmiş Görünüm** Gelişmiş daha görünümü toosee hello varsayılan ACL'leri, maskesi ve süper kullanıcı hello kavramlarını burada gösterilir.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
-## <a name="the-super-user"></a>Süper kullanıcı
+## <a name="hello-super-user"></a>Merhaba süper kullanıcı
 
-Süper kullanıcı, Data Lake Store’daki tüm kullanıcılar arasında en fazla hakka sahiptir. Süper kullanıcı:
+Süper kullanıcı hello hello Data Lake Store tüm hello kullanıcıların çoğu haklara sahip olur. Süper kullanıcı:
 
-* **Tüm** dosya ve klasörlerde RWX İzinlerine sahiptir.
-* Herhangi bir dosya veya klasörün izinlerini değiştirebilir.
-* Herhangi bir dosya veya klasörün sahibi olan kullanıcıyı ya da grubu değiştirebilir.
+* Çok RWX izinlerine sahip**tüm** dosyalar ve klasörler.
+* Herhangi bir dosya veya klasör Hello izinleri değiştirebilirsiniz.
+* Sahibi olan kullanıcı veya grubu herhangi bir dosya veya klasör hello değiştirebilirsiniz.
 
 Azure’da bir Data Lake Store hesabının birkaç Azure rolü vardır, bunlar:
 
@@ -150,100 +150,100 @@ Azure’da bir Data Lake Store hesabının birkaç Azure rolü vardır, bunlar:
 * Katkıda Bulunanlar
 * Okuyucular
 
-Bir Data Lake Store hesabında **Sahipler** rolündeki herkes otomatik olarak o hesabın süper kullanıcısıdır. Daha fazla bilgi için bkz. [Rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
-Süper kullanıcı izinlerine sahip özel bir rol tabanlı erişim denetimi (RBAC) rolü oluşturmak isterseniz şu izinleri vermeniz gerekir:
+Herkesin hello **sahipleri** bir Data Lake Store hesabı rolüdür otomatik olarak bu hesap için süper kullanıcı. toolearn daha, fazla [rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
+Toocreate süper kullanıcı izinlerine sahip bir özel rol tabanlı erişim denetimi (RBAC) rolüne istiyorsanız, aşağıdaki izinleri toohave hello gerekir:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
 
 
-## <a name="the-owning-user"></a>Sahip olan kullanıcı
+## <a name="hello-owning-user"></a>Merhaba sahibi olan kullanıcı
 
-Öğeyi oluşturan kullanıcı otomatik olarak öğenin sahibi olan kullanıcıdır. Sahip olan kullanıcı şunları yapabilir:
+Merhaba öğesini oluşturan hello otomatik olarak kullanıcı hello öğesinin sahibi olan hello kullanıcıdır. Sahip olan kullanıcı şunları yapabilir:
 
-* Sahip olunan bir dosyanın izinlerini değiştirme.
-* Sahip olan kullanıcı aynı zamanda hedef grubun bir üyesi oldukça, sahip olunan bir dosyanın sahibi olan grubunu değiştirme.
+* Ait bir dosyanın Hello izinleri değiştirin.
+* Merhaba sahibi olan kullanıcı da hello hedef grubunun bir üyesi olduğu sürece aitse, bir dosya grubunun sahibi olan hello değiştirin.
 
 > [!NOTE]
-> Sahip olan kullanıcı başka bir sahibi olunan dosyanın sahibini *değiştiremez*. Bir dosya veya klasörün sahibi olan kullanıcıyı yalnızca süper kullanıcılar değiştirebilir.
+> sahibi olan kullanıcı hello *olamaz* sahibi olan kullanıcı başka bir ait dosyasının hello değiştirin. Yalnızca süper kullanıcılar, kullanıcı bir dosyanın veya klasörün sahibi olan hello değiştirebilirsiniz.
 >
 >
 
-## <a name="the-owning-group"></a>Sahip olan grup
+## <a name="hello-owning-group"></a>Merhaba sahibi olan Grup
 
-POSIX ACL’lerinde her kullanıcı bir "birincil grup" ile ilişkilendirilir. Örneğin, "gamze" adlı kullanıcı "finans" grubuna ait olabilir. Gamze ayrıca birden fazla gruba ait olabilir, ancak bir grup her zaman birincil grubu olarak atanır. POSIX’te Gamze bir dosya oluşturduğunda o dosyanın sahibi olan grup birincil grubu olarak ayarlanır (bu örnekte "finans" grubudur).
+Hello POSIX ACL'leri, her kullanıcı bir "birincil grubuyla." ilişkilendirildiği Örneğin, kullanıcı "alice" toohello "Finans" grubuna ait olabilir. Alice toomultiple grupları ait olabilir, ancak bir grup her zaman kendi birincil grup olarak atanır. Bir dosya Alice oluşturduğunda, POSIX içinde bu durumda "Finans.", tooher birincil grubu bu dosya grubu hello ayarlanmış
 
-Yeni bir dosya sistemi öğesi oluşturulduğunda, Data Lake Store sahip olan gruba bir değer atar.
+Yeni bir dosya sistemi öğesi oluşturulduğunda, Data Lake Store Grup sahibi olan bir değer toohello atar.
 
-* **Olay 1**: Kök klasör "/". Bir Data Lake Store hesabı oluşturulduğunda bu klasör oluşturulur. Bu durumda sahip olan grup, hesabı oluşturan kullanıcıya ayarlanır.
-* **Olay 2** (Diğer her olay): Yeni bir olay oluşturulduğunda sahip olan grup üst klasörden kopyalanır.
+* **Durum 1**: hello kök klasörü "/". Bir Data Lake Store hesabı oluşturulduğunda bu klasör oluşturulur. Bu durumda, hello sahibi olan Grup hello hesap oluşturan toohello kullanıcı ayarlanır.
+* **Durum 2** (her diğer harf): yeni bir öğe oluşturulduğunda hello sahibi olan Grup hello üst klasörden kopyalanır.
 
-Sahip olan grup aşağıdakiler tarafından değiştirilebilir:
+Hello sahibi olan grup tarafından değiştirilebilen:
 * Herhangi bir süper kullanıcı.
-* Sahip olan kullanıcı aynı zamanda hedef grubun üyesi ise sahip olan kullanıcı.
+* Merhaba Hello sahibi olan kullanıcı aynı zamanda hello hedef grubunun bir üyesi ise kullanıcı yapamaz.
 
 ## <a name="access-check-algorithm"></a>Erişim denetimi algoritması
 
-Aşağıdaki çizimde Data Lake Store hesaplarına yönelik erişim denetimi algoritması gösterilmektedir.
+Aşağıdaki çizimde hello hello erişim denetimi algoritması için Data Lake Store hesaplarını temsil eder.
 
 ![Data Lake Store ACL’leri algoritması](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)
 
 
-## <a name="the-mask-and-effective-permissions"></a>Maske ve "etkili izinler"
+## <a name="hello-mask-and-effective-permissions"></a>Merhaba maskesi ve "etkili izinleri"
 
-**Maske**, erişim denetimi algoritmasını gerçekleştirirken **adlandırılmış kullanıcılar**, **sahip olan grup** ve **adlandırılmış gruplar** için erişimi sınırlandırmak üzere kullanılan bir RWX değeridir. Maskeye ilişkin anahtar kavramlar aşağıda verilmiştir.
+Merhaba **maskesi** bir RWX olan değer için kullanılan toolimit erişim **kullanıcı adlı**, hello **grubu**, ve **grupları adlı** olduğunuzda Merhaba erişim denetimi algoritması gerçekleştiriliyor. Merhaba hello maskesi için temel kavramları şunlardır.
 
-* Maske, "etkili izinleri" oluşturur. Diğer bir deyişle, erişim denetimi zamanında izinleri değiştirir.
-* Maske doğrudan dosya sahibi ve herhangi bir süper kullanıcı tarafından düzenlenebilir.
-* Maske etkili izin oluşturmaya yönelik izinleri kaldırabilir. Maske etkili izne izinler *ekleyemez*.
+* "yürürlükte olan izinlerini." Merhaba maskesi oluşturur Diğer bir deyişle, erişim denetimi hello aynı anda hello izinlerini değiştirir.
+* Merhaba maskesi doğrudan hello dosya sahibine ve Süper kullanıcılar tarafından düzenlenebilir.
+* Merhaba maskesi izinleri toocreate hello etkili izni kaldırabilirsiniz. Merhaba maskesi *olamaz* izinleri toohello etkili izni ekleyin.
 
-Bazı örneklere bakalım. Aşağıdaki örnekte maske **RWX** olarak ayarlanmıştır. Diğer bir deyişle maske herhangi bir izni kaldırmaz. Adlandırılmış kullanıcı, sahip olan kullanıcı ve adlandırılmış grup, erişim denetimi sırasında değiştirilmez.
+Bazı örneklere bakalım. Aşağıdaki örneğine hello hello maskesi çok ayarlanır**RWX**, o hello maskesi başka bir deyişle, tüm izinleri kaldırmaz. Merhaba adlı grubu ve grubun adlı kullanıcının hello yürürlükte olan izinlerini hello erişim denetimi sırasında değiştirilmediğini değil.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
 
-Aşağıdaki örnekte maske **R-X** olarak ayarlanmıştır. Bu nedenle, erişim denetimi sırasında **adlandırılmış kullanıcı**, **sahip olan grup** ve **adlandırılmış grup** için **Yazma izinlerini kapatır**.
+Aşağıdaki örneğine hello hello maskesi çok ayarlanır**R-X**. Bu şekilde gelir **hello yazma izinleri devre dışı bırakır** için **adlı kullanıcının**, **grubu**, ve **Grup adlı** hello zaman erişim denetleyin.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
 
-Başvuru için bir dosyanın veya klasörün maskesinin Azure portalında nerede göründüğü aşağıda gösterilmiştir.
+Başvuru için İşte bir dosya veya klasör için hello maskesi hello Azure portalında göründüğü.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> Yeni bir Data Lake Store hesabı için kök klasörün ("/") Erişim ACL’si ve Varsayılan ACL’si için maske varsayılan olarak RWX’tir.
+> Yeni bir Data Lake Store hesabı, hello erişim ACL hello maskesini ve varsayılan ACL hello kök için tooRWX klasörü ("/") varsayılan olarak ayarlanır.
 >
 >
 
 ## <a name="permissions-on-new-files-and-folders"></a>Yeni dosyalar ve klasörler üzerindeki izinler
 
-Var olan bir klasör altında yeni bir dosya ya da klasör oluşturulduğunda üst klasördeki Varsayılan ACL aşağıdakileri belirler:
+Yeni bir dosya veya klasörün altında varolan bir klasörü oluşturulduğunda hello hello üst klasörü üzerinde ACL varsayılan belirler:
 
 - Bir alt klasörün Varsayılan ACL’si ve Erişim ACL’si.
 - Bir alt dosyanın Erişim ACL’si (dosyaları Varsayılan ACL’ye sahip değildir).
 
-### <a name="the-access-acl-of-a-child-file-or-folder"></a>Bir alt dosya veya klasörün Erişim ACL’si
+### <a name="hello-access-acl-of-a-child-file-or-folder"></a>Merhaba bir alt dosya veya klasöre erişim ACL
 
-Bir alt dosya veya klasör oluşturulduğunda, üst öğenin Varsayılan ACL’si alt dosya veya klasörün Erişim ACL’si olarak kopyalanır. Ayrıca, **diğer** kullanıcının üst klasör varsayılan ACL’sinde RWX izinleri varsa alt öğenin Erişim ACL’sinden kaldırılır.
+Bir alt dosya veya klasör oluşturulduğunda, hello üst öğenin varsayılan ACL hello alt dosya veya klasör erişim ACL hello kopyalanır. Ayrıca, varsa **diğer** kullanıcı hello üst öğenin varsayılan ACL RWX izinlere sahip, hello alt öğesi'nin erişim ACL'den kaldırılır.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
 
-Çoğu senaryoda yukarıdaki bilgiler bir alt öğenin Erişim ACL’sinin belirlenmesi için yeterlidir. Ancak, POSIX sistemlerini biliyor ve bu bilgilerin nasıl elde edildiğini derinlemesine öğrenmek istiyorsanız bu makalenin sonraki bölümlerinde bulunan [Yeni dosyalar ve klasörler için Erişim ACL’lerini oluşturmada Umask rolü](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) kısmına bakın.
+Çoğu senaryoda, hello önceki tüm alt öğenin erişim ACL belirleme hakkında tooknow ihtiyacınız bilgilerdir. POSIX sistemleri ve istediğiniz toounderstand ayrıntılı bu dönüşüm nasıl gerçekleştirilir bilginiz varsa, ancak hello bölümüne bakın [yeni dosyalar ve klasörler için erişim ACL hello oluşturma Umask'ın rol](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) bu makalenin ilerisinde yer.
 
 
 ### <a name="a-child-folders-default-acl"></a>Bir alt klasörün Varsayılan ACL’si
 
-Üst klasör altında bir alt klasör oluşturulduğunda üst klasörün Varsayılan ACL’si olduğu gibi alt klasörün Varsayılan ACL’sine kopyalanır.
+Üst klasörü altında bir alt klasör oluşturulduğunda, toohello alt klasörün varsayılan ACL olduğu gibi hello üst klasörün varsayılan ACL üzerinden kopyalanır.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
 
 ## <a name="advanced-topics-for-understanding-acls-in-data-lake-store"></a>Data Lake Store’da ACL’leri anlamaya yönelik gelişmiş konular
 
-Data Lake Store dosyaları veya klasörleri için ACL’lerin nasıl belirlendiğini anlamanıza yardımcı olan birkaç gelişmiş konu aşağıda verilmiştir.
+Data Lake Store dosya ve klasörler için ACL'ler nasıl belirlendiğini anlamak bazı gelişmiş konular toohelp aşağıda verilmiştir.
 
-### <a name="umasks-role-in-creating-the-access-acl-for-new-files-and-folders"></a>Yeni dosyalar ve klasörler için Erişim ACL’lerini oluşturmada Umask rolü
+### <a name="umasks-role-in-creating-hello-access-acl-for-new-files-and-folders"></a>Umask'ın rol hello erişim ACL yeni dosyalar ve klasörler için oluşturma
 
-POSIX ile uyumlu bir sistemde genel kavram umask’in yeni bir alt klasör veya klasörün Erişim ACL’si üzerinde **sahip olan kullanıcı**, **sahip olan grup** ve **diğer** iznini dönüştürmek için kullanılan üst klasördeki 9 bitlik bir değer olmasıdır. Bir umask’in bit değerleri alt öğenin Erişim ACL’sinde hangi bitlerin kapatılacağını belirler. Bu nedenle **sahip olan kullanıcı**, **sahip olan grup** ve **diğer** için izinlerin yayılmasını seçici olarak önlemek üzere kullanılır.
+POSIX uyumlu bir sistemde hello genel kavram, umask tootransform hello izni için kullandığı hello üst klasörde 9-bitlik bir değer olup **sahibi olan kullanıcı**, **grubu**, ve  **diğer** hello erişim ACL yeni alt dosya veya klasör üzerinde. bir umask Hello bitleri hangi BITS tooturn hello alt öğesi'nin erişim ACL'de kapalı tanımlayın. Bu nedenle kullanılır tooselectively önlemek için izinleri hello yayılmasını **sahibi olan kullanıcı**, **grubu**, ve **diğer**.
 
-Bir HDFS sisteminde umask genellikle yöneticiler tarafından denetlenen site genelindeki bir yapılandırma seçeneğidir. Data Lake Store değiştirilemeyen bir **hesap genelinde umask** kullanır. Aşağıdaki tabloda Data Lake Store için umask gösterilmektedir.
+Bir HDFS sisteminde hello umask genellikle yöneticiler tarafından denetlenen bir sitewide yapılandırma seçenektir. Data Lake Store değiştirilemeyen bir **hesap genelinde umask** kullanır. Aşağıdaki tablo gösterir hello hello için Data Lake Store maskesini kaldırın.
 
 | Kullanıcı grubu  | Ayar | Yeni alt öğenin Erişim ACL’si üzerindeki etkisi |
 |------------ |---------|---------------------------------------|
@@ -251,73 +251,73 @@ Bir HDFS sisteminde umask genellikle yöneticiler tarafından denetlenen site ge
 | Sahip olan grup| ---     | Etki yok                             |
 | Diğer       | RWX     | Okuma + Yazma + Yürütme iznini kaldırma         |
 
-Aşağıdaki çizimde bu umask eylemi gösterilmektedir. Net etki **diğer** kullanıcı için **Okuma + Yazma + Yürütme** izninin kaldırılmasıdır. Umask **sahip olan kullanıcı** ve **sahip olan grup** için bitleri belirtmediğinden bu izinler dönüştürülmez.
+Aşağıdaki çizimde hello bu umask eylemde gösterir. Merhaba net etkisidir tooremove **okuma + yazma + yürütme** için **diğer** kullanıcı. Merhaba umask BITS belirtmediğinden **sahibi olan kullanıcı** ve **grubu**, bu izinleri olmayan dönüştürülür.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
 
-### <a name="the-sticky-bit"></a>Yapışkan bit
+### <a name="hello-sticky-bit"></a>Merhaba Yapışkan bit
 
-Yapışkan bit POSIX dosya sisteminin daha gelişmiş bir özelliğidir. Data Lake Store bağlamında yapışkan bitin gerekli olması düşük bir olasılıktır.
+Merhaba Yapışkan bit POSIX dosya sistemi, daha gelişmiş bir özelliktir. Data Lake Store Hello bağlamında bu hello Yapışkan bit gerekli düşüktür.
 
-Aşağıdaki tabloda yapışkan bitin Data Lake Store’da nasıl çalıştığı gösterilmektedir.
+Merhaba aşağıdaki tabloda hello Yapışkan bit Data Lake Store içinde nasıl çalıştığı gösterilmektedir.
 
 | Kullanıcı grubu         | Dosya    | Klasör |
 |--------------------|---------|-------------------------|
 | Yapışkan bit **Kapalı** | Etki yok   | Etki yok.           |
-| Yapışkan bit **Açık**  | Etki yok   | Bir alt öğenin **süper kullanıcıları** ve **sahip olan kullanıcısı** dışında herkesin alt öğeyi silmesini veya yeniden adlandırmasını önler.               |
+| Yapışkan bit **Açık**  | Etki yok   | Herkes dışında engeller **Süper kullanıcılar** ve hello **sahibi olan kullanıcı** bir alt öğenin silmesini ve o alt öğesi yeniden adlandırılıyor.               |
 
-Yapışkan bit Azure portalında gösterilmez.
+Merhaba Yapışkan bit hello Azure portalında gösterilmez.
 
 ## <a name="common-questions-about-acls-in-data-lake-store"></a>Data Lake Store’daki ACL’ler hakkında sık sorulan sorular
 
 Data Lake Store’daki ACL’lerle ilgili olarak sık sorulan bazı sorular aşağıda verilmiştir.
 
-### <a name="do-i-have-to-enable-support-for-acls"></a>ACL desteğini etkinleştirmem gerekiyor mu?
+### <a name="do-i-have-tooenable-support-for-acls"></a>ACL tooenable desteği var mı?
 
 Hayır. ACL’ler üzerinden erişim denetimi Data Lake Store hesabı için her zaman açıktır.
 
-### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Bir klasörü ve içindekileri yinelemeli olarak silmek için hangi izinler gereklidir?
+### <a name="which-permissions-are-required-toorecursively-delete-a-folder-and-its-contents"></a>Hangi izinlerin gerekli toorecursively delete klasörü ve içeriği misiniz?
 
-* Üst klasör **Yazma + Yürütme** izinlerine sahip olmalıdır.
-* Silinecek klasör ve içindeki her klasör **Okuma + Yazma + Yürütme** izinlerini gerektirir.
+* Merhaba üst klasörü olmalıdır **yazma + yürütme** izinleri.
+* Silinen klasör toobe hello ve her bir klasörde gerektirir **okuma + yazma + yürütme** izinleri.
 
 > [!NOTE]
-> Klasörlerdeki dosyaları silmek için Yazma izni gerekmez. Ayrıca, "/" kök klasör **hiçbir zaman** silinemez.
+> Klasörlerde toodelete dosyaları yazma izinleri gerekmez. Ayrıca, hello kök klasörü "/" için **hiçbir zaman** silinecektir.
 >
 >
 
-### <a name="who-is-the-owner-of-a-file-or-folder"></a>Bir dosyanın veya klasörün sahibi kimdir?
+### <a name="who-is-hello-owner-of-a-file-or-folder"></a>Bir dosya veya klasör hello sahibi kim?
 
-Bir dosyayı veya klasörü oluşturan kişi bunların sahibi olur.
+bir dosya veya klasör Hello oluşturan hello sahibi olur.
 
-### <a name="which-group-is-set-as-the-owning-group-of-a-file-or-folder-at-creation"></a>Oluşturma sırasında bir dosyanın veya klasörün sahibi olan grubu olarak hangi grup ayarlanır?
+### <a name="which-group-is-set-as-hello-owning-group-of-a-file-or-folder-at-creation"></a>Hangi Grup, bir dosyanın veya klasörün oluşturmada grubu hello olarak ayarlanır?
 
-Sahip olan grup, yeni dosya veya klasörün oluşturulduğu üst klasörün sahibi olan gruptan kopyalanır.
+Merhaba sahibi olan Grup hello üst klasörünün altında hangi hello yeni dosya veya klasör oluşturulur grubu hello kopyalanır.
 
-### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Bir dosyanın sahibiyim, ancak gereken RWX izinlerine sahip değilim. Ne yapmalıyım?
+### <a name="i-am-hello-owning-user-of-a-file-but-i-dont-have-hello-rwx-permissions-i-need-what-do-i-do"></a>Sahibi olan kullanıcı dosyasının hello ben ama ihtiyacım hello RWX izinleri yok. Ne yapmalıyım?
 
-Sahip olan kullanıcı kendisine gerekli olan her türlü RWX iznini vermek için dosyanın izinlerini değiştirebilir.
+Merhaba sahibi olan kullanıcı hello dosya toogive hello izinlerini kendilerini ihtiyaç duydukları tüm RWX izinleri değiştirebilirsiniz.
 
-### <a name="when-i-look-at-acls-in-the-azure-portal-i-see-user-names-but-through-apis-i-see-guids-why-is-that"></a>Azure portalında ACL’lere baktığımda kullanıcı adlarını görüyorum, ancak API’lere baktığımda GUID’leri görüyorum, bunun nedeni nedir?
+### <a name="when-i-look-at-acls-in-hello-azure-portal-i-see-user-names-but-through-apis-i-see-guids-why-is-that"></a>ACL'ler baktığınızda hello Azure portalı kullanıcı adları görüyorum ancak GUID, görüyorum API'leri aracılığıyla neden?
 
-ACL’lerdeki girişler, Azure AD’de kullanıcılara karşılık gelen GUID’ler olarak depolanır. API’ler GUID’leri olduğu gibi döndürür. Azure portalı mümkün olduğunda GUID’leri kolay adlara çevirerek ACL’lerin daha kolay kullanılmasını sağlamaya çalışır.
+Merhaba ACL girişleri toousers Azure AD içinde karşılık gelen GUID olarak depolanır. Merhaba API'leri olduğu gibi hello GUID'ler döndür. Hello Azure portal toomake ACL'ler daha kolay toouse kolay adlar mümkün olduğunda içine çevirme hello GUID'ler ile çalışır.
 
-### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-im-using-the-azure-portal"></a>Azure portalını kullanırken neden bazen ACL’lerde GUID’leri görüyorum?
+### <a name="why-do-i-sometimes-see-guids-in-hello-acls-when-im-using-hello-azure-portal"></a>Hello Azure portalı kullanırken neden bazen hello ACL'lerinde GUID'ler görüyorum?
 
-Kullanıcı artık Azure AD’de mevcut değilse bir GUID gösterilir. Bu genellikle, kullanıcı şirketten ayrıldığında veya Azure AD’de kullanıcının hesabı silindiğinde gerçekleşir.
+Merhaba kullanıcı artık Azure AD'de mevcut olmayan bir GUID gösterilir. Genellikle bu hello kullanıcı hello şirket bırakıldığına veya hesaplarında Azure AD'de silinmiş olması durumunda gerçekleşir.
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Data Lake Store ACL’lerin devralınmasını destekler mi?
 
 Hayır.
 
-### <a name="what-is-the-difference-between-mask-and-umask"></a>Maske ile umask arasındaki fark nedir?
+### <a name="what-is-hello-difference-between-mask-and-umask"></a>Merhaba maskesi ve umask arasındaki fark nedir?
 
 | maske | umask|
 |------|------|
-| **Maske** özelliği her dosya ve klasörde bulunur. | **Umask** ise Data Lake Store hesabının bir özelliğidir. Bu nedenle, Data Lake Store’de yalnızca tek bir umask vardır.    |
-| Bir dosya veya klasördeki maske özelliği, dosyanın sahibi olan kullanıcı veya grup ya da süper kullanıcı tarafından değiştirilebilir. | Umask özelliği ise süper kullanıcı dahil hiçbir kullanıcı tarafından değiştirilemez. Bu özellik, değiştirilemeyen sabit bir değerdir.|
-| Maske özelliği bir kullanıcının dosya ya da klasör üzerinde işlem gerçekleştirme hakkına sahip olup olmadığını belirlemek üzere çalışma zamanındaki erişim denetimi algoritması sırasında kullanılır. Maskenin rolü, erişim denetimi sırasında "etkili izinleri" oluşturmaktır. | Umask, erişim denetimi sırasında hiç kullanılmaz. Umask bir klasörün yeni alt öğelerinin Erişim ACL’sini belirlemek için kullanılır. |
-| Maske; erişim denetimi sırasında adlandırılmış kullanıcı, adlandırılmış grup ve sahip olan kullanıcı için geçerli olan 3 bitlik bir RWX değeridir.| Umask ise yeni bir alt öğenin sahip olan kullanıcı, sahip olan grup ve **diğer** kullanıcısı için geçerli olan 9 bitlik bir değerdir.|
+| Merhaba **maskesi** özelliği, her dosya ve klasör kullanılabilir. | Merhaba **umask** hello Data Lake Store hesabı bir özelliğidir. Bu nedenle hello Data Lake Store yalnızca tek bir umask yoktur.    |
+| bir dosya veya klasör Hello maskesi özelliği sahibi olan kullanıcı veya bir dosya veya süper kullanıcı grubu hello tarafından değiştirilebilir. | herhangi bir kullanıcı tarafından bile süper kullanıcı Hello umask özelliği değiştirilemez. Bu özellik, değiştirilemeyen sabit bir değerdir.|
+| bir kullanıcı işlemi bir dosya veya klasör üzerinde hello sağ tooperform olup hello maskesi özelliği hello erişim denetimi algoritması çalışma zamanı toodetermine adresindeki sırasında kullanılır. Merhaba hello maskesi toocreate "etkili izinleri" Merhaba erişim denetimi anda rolüdür. | Merhaba umask erişim denetimi sırasında hiç kullanılmaz. Merhaba umask kullanılan toodetermine hello erişim ACL bir klasörün yeni alt öğelerinin ' dir. |
+| Merhaba maskesi toonamed kullanıcı, adlandırılmış grup ve sahibi olan kullanıcı erişim denetimi hello aynı anda uygulayan bir 3-bit'lik RWX değerdir.| Merhaba umask toohello sorumlu grubu, kullanıcı, geçerli bir 9 bit değerdir ve **diğer** yeni bir alt.|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>POSIX erişim denetimi modeli hakkında daha fazla bilgiyi nereden bulabilirim?
 

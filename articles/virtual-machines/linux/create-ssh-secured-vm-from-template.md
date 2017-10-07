@@ -1,6 +1,6 @@
 ---
-title: "Bir şablondan bir Linux VM oluşturma | Microsoft Docs"
-description: "Bir Resource Manager şablonu bir Linux VM oluşturmak için Azure CLI 2.0 kullanma"
+title: "bir şablondan bir Linux VM azure'da aaaCreate | Microsoft Docs"
+description: "Nasıl toouse hello Azure CLI 2.0 toocreate bir Resource Manager şablondan bir Linux VM"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -16,29 +16,29 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 908a8a0c82b2d21fb25c9b33dbd714570d1ac272
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f4b8c4103cccbae13c679ff2a2cac928a0e8e809
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile Linux sanal makine oluşturma
-Bu makalede Azure Resource Manager şablonları ve Azure CLI 2.0 ile Linux sanal makine (VM) hızlı bir şekilde dağıtma gösterilmektedir. Bu adımları [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md) ile de gerçekleştirebilirsiniz.
+# <a name="how-toocreate-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Nasıl toocreate Azure Resource Manager şablonları kullanarak Linux sanal makine
+Bu makale size nasıl tooquickly dağıtmak Azure Resource Manager şablonları ve hello Azure CLI 2.0 ile Linux sanal makine (VM) gösterir. Bu adımları hello ile de gerçekleştirebilirsiniz [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md).
 
 
 ## <a name="templates-overview"></a>Şablonlara genel bakış
-Azure Resource Manager şablonları altyapısı ve Azure çözümünüzü yapılandırmasını tanımlayan JSON dosyalarıdır. Bir şablon kullanarak çözümünü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. Şablon ve oluşturmak nasıl biçimi hakkında daha fazla bilgi için bkz: [, ilk Azure Resource Manager şablonu oluşturma](../../azure-resource-manager/resource-manager-create-first-template.md). Kaynak türleri için JSON söz dizimini görüntülemek üzere bkz. [Azure Resource Manager şablonlarında kaynak tanımlama](/azure/templates/).
+Azure Resource Manager şablonları hello altyapısı ve Azure çözümünüzü yapılandırmasını tanımlayan JSON dosyalarıdır. Bir şablon kullanarak çözümünü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. toolearn hello şablon ve onu nasıl oluşturmak hello biçimi hakkında daha fazla bilgi görmek [, ilk Azure Resource Manager şablonu oluşturma](../../azure-resource-manager/resource-manager-create-first-template.md). tooview hello JSON söz dizimi kaynak türleri için bkz: [kaynakları tanımlayan Azure Resource Manager şablonları](/azure/templates/).
 
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
-Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir kaynak grubu bir sanal makine önce oluşturulması gerekir. Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupVM* içinde *eastus* bölge:
+Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir kaynak grubu bir sanal makine önce oluşturulması gerekir. Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myResourceGroupVM* hello içinde *eastus* bölge:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
-Aşağıdaki örnek, bir VM'den oluşturur [bu Azure Resource Manager şablonu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) ile [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create). İçeriği gibi kendi SSH ortak anahtarı değerini sağlamalısınız *~/.ssh/id_rsa.pub*. SSH anahtar çifti oluşturmanız gerekiyorsa, bkz: [nasıl oluşturulacağı ve Linux VM'ler için Azure'da SSH anahtar çifti kullanılmaya](mac-create-ssh-keys.md).
+Merhaba aşağıdaki örnekte oluşturur bir VM'den [bu Azure Resource Manager şablonu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) ile [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create). Merhaba içeriğine gibi kendi SSH ortak anahtarını Hello değerini sağlamalısınız *~/.ssh/id_rsa.pub*. SSH anahtar çifti toocreate gerekirse bkz [nasıl toocreate ve kullanım bir SSH çifti Azure Linux VM'ler için anahtar](mac-create-ssh-keys.md).
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -46,9 +46,9 @@ az group deployment create --resource-group myResourceGroup \
   --parameters '{"sshKeyData": {"value": "ssh-rsa AAAAB3N{snip}B9eIgoZ"}}'
 ```
 
-Bu örnekte, Github'da depolanan bir şablon belirtilen. Ayrıca indirin veya bir şablon oluşturmak ve yerel yolu ile aynı belirtin `--template-file` parametresi.
+Bu örnekte, Github'da depolanan bir şablon belirtilen. Ayrıca indirin veya bir şablon oluşturmak ve hello ile Merhaba yerel bir yol belirtin aynı `--template-file` parametresi.
 
-VM için SSH için ortak IP adresi ile elde [az ağ ortak IP Göster](/cli/azure/network/public-ip#show):
+tooSSH tooyour VM elde hello ortak IP adresiyle [az ağ ortak IP Göster](/cli/azure/network/public-ip#show):
 
 ```azurecli
 az network public-ip show \
@@ -58,11 +58,11 @@ az network public-ip show \
     --output tsv
 ```
 
-Normal olarak, VM için SSH kullanabilirsiniz:
+Bundan sonra normal olarak SSH tooyour VM yapabilirsiniz:
 
 ```bash
 ssh azureuser@<ipAddress>
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu örnekte, temel bir Linux VM oluşturdunuz. Uygulama çerçeveleri dahil etmek veya daha karmaşık ortamları oluşturma daha fazla Resource Manager şablonları için Gözat [Azure hızlı başlangıç Şablon Galerisi](https://azure.microsoft.com/documentation/templates/).
+Bu örnekte, temel bir Linux VM oluşturdunuz. Merhaba, uygulama çerçeveleri dahil etmek veya daha karmaşık ortamları oluşturma daha fazla Resource Manager şablonları için Gözat [Azure hızlı başlangıç Şablon Galerisi](https://azure.microsoft.com/documentation/templates/).

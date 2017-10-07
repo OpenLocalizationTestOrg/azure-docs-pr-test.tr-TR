@@ -1,6 +1,6 @@
 ---
-title: "İlk önyükleme azure'da bir Linux VM özelleştirme | Microsoft Docs"
-description: "Bulut Init ve anahtar kasası customze Linux VM'ler için Azure'da önyükleme ilk kez kullanmayı öğrenin"
+title: "ilk önyükleme azure'da bir Linux VM aaaCustomize | Microsoft Docs"
+description: "Nasıl toouse bulut başlatma ve anahtar kasası toocustomze Linux VM'ler hello ilk kez bunlar Azure'da önyükleme öğrenin"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,35 +16,35 @@ ms.workload: infrastructure
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6adf4e43aa80c28c6f5f8d8a071966323ba85723
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 280189723ac0205226f9c0068bd605da13249ace
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>İlk önyükleme Linux sanal makine özelleştirme
-Bir önceki öğreticide öğrenilen nasıl NGINX SSH bir sanal makine (VM) ve el ile yükleyin. VM'ler hızlı ve tutarlı bir şekilde oluşturmak için tür Otomasyon genellikle istendiğini. İlk önyükleme bir VM özelleştirmek için ortak bir yaklaşım kullanmaktır [bulut init](https://cloudinit.readthedocs.io). Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+# <a name="how-toocustomize-a-linux-virtual-machine-on-first-boot"></a>Nasıl toocustomize Linux sanal bir makinede ilk önyükleme
+Önceki bir öğreticide, nasıl öğrenilen tooSSH tooa sanal makine (VM) ve NGINX el ile yükleyin. hızlı ve tutarlı bir şekilde, tür Otomasyon toocreate VM'ler genellikle istenen. Ortak bir yaklaşım toocustomize ilk önyüklemede VM toouse olan [bulut init](https://cloudinit.readthedocs.io). Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Bir bulut init yapılandırma dosyası oluşturma
 > * Bir bulut init dosyası kullanan bir VM oluşturma
-> * VM oluşturulduktan sonra çalışan bir Node.js uygulaması görüntüleyin
-> * Sertifikaları güvenli bir şekilde anahtar kasası kullanın
+> * Merhaba VM oluşturulduktan sonra çalışan bir Node.js uygulaması görüntüleyin
+> * Anahtar kasası toosecurely deposu sertifikaları kullanma
 > * Güvenli NGINX dağıtımlarında bulut init otomatikleştirme
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).  
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, Bu öğretici hello Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).  
 
 
 
 ## <a name="cloud-init-overview"></a>Bulut init genel bakış
-[Bulut init](https://cloudinit.readthedocs.io) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çalışırken, ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.
+[Bulut init](https://cloudinit.readthedocs.io) yaygın olarak kullanılan bir yaklaşım toocustomize hello için ilk kez önyükleme bir Linux VM aynıdır. Bulut init tooinstall paketleri ve dosyaları veya tooconfigure kullanıcılar ve güvenlik yazma kullanabilirsiniz. Bulut init hello ilk önyükleme işlemi sırasında çalışırken, hiçbir ek adımlar vardır veya aracıları tooapply yapılandırmanız gerekiyor.
 
-Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığınız **get apt yükleme** veya **yum yükleme** bir paketi yüklemek için. Bunun yerine, yüklemek için paketlerin listesini tanımlayabilirsiniz. Bulut init otomatik olarak seçtiğiniz distro için yerel paket Yönetim Aracı'nı kullanır.
+Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığınız **get apt yükleme** veya **yum yükleme** tooinstall bir paket. Bunun yerine, paketleri tooinstall listesi tanımlayabilirsiniz. Bulut init hello Yerel Paket yönetim aracı için seçtiğiniz hello distro otomatik olarak kullanır.
 
-Bulut dahil ve Azure'a sağladıkları görüntülerinde çalışma başlatma almak için ortaklarımızın ile çalışıyoruz. Aşağıdaki tabloda Azure platform görüntüleri geçerli bulut init kullanılabilirliğine özetlenmektedir:
+Bizim ortakları tooget bulut dahil başlatma çalışmak ve çalışma tooAzure sağladıkları hello görüntülerinde duyuyoruz. Aşağıdaki tablonun hello hello geçerli bulut init kullanılabilirlik Azure platform görüntüleri özetlenmektedir:
 
 | Diğer ad | Yayımcı | Sunduğu | SKU | Sürüm |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -54,9 +54,9 @@ Bulut dahil ve Azure'a sağladıkları görüntülerinde çalışma başlatma al
 
 
 ## <a name="create-cloud-init-config-file"></a>Bulut init yapılandırma dosyası oluşturma
-Bulut-init uygulamada görmek için NGINX yükler ve bir basit 'Hello World' Node.js uygulaması çalıştıran bir VM oluşturun. Aşağıdaki bulut init yapılandırma gerekli paketleri yükler, bir Node.js uygulaması oluşturur sonra başlatmak ve uygulamayı başlatır.
+Eylem toosee bulut başlatma NGINX yükler ve basit bir 'Hello World' Node.js uygulaması çalıştıran bir VM oluşturun. Bulut init yapılandırma aşağıdaki hello hello gerekli paketleri yükler, bir Node.js uygulaması oluşturur sonra başlatmak ve hello uygulama başlatır.
 
-Geçerli kabuğunuzu adlı bir dosya oluşturun *bulut init.txt* ve aşağıdaki yapılandırma yapıştırın. Örneğin, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. İstediğiniz herhangi bir düzenleyicisini kullanabilirsiniz. Girin `sensible-editor cloud-init.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
+Geçerli kabuğunuzu adlı bir dosya oluşturun *bulut init.txt* Yapıştır hello izleyerek yapılandırma. Örneğin, yerel makinenizde değil hello bulut Kabuk hello dosya oluşturun. İstediğiniz herhangi bir düzenleyicisini kullanabilirsiniz. Girin `sensible-editor cloud-init.txt` toocreate hello dosya ve kullanılabilir düzenleyicileri listesini görebilirsiniz. Merhaba tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun, özellikle ilk satırı hello:
 
 ```yaml
 #cloud-config
@@ -103,13 +103,13 @@ runcmd:
 Bulut init yapılandırma seçenekleri hakkında daha fazla bilgi için bkz: [bulut init yapılandırma örnekleri](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
-Bir VM oluşturmadan önce bir kaynak grubuyla oluşturmanız [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAutomate* içinde *eastus* konumu:
+Bir VM oluşturmadan önce bir kaynak grubuyla oluşturmanız [az grubu oluşturma](/cli/azure/group#create). Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myResourceGroupAutomate* hello içinde *eastus* konumu:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Şimdi bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#create). Kullanım `--custom-data` bulut init yapılandırma dosyanızda geçirmek için parametre. Tam yolunu belirtmeniz *bulut init.txt* mevcut çalışma dizininizi dışında dosyasını kaydettiyseniz yapılandırma. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myAutomatedVM*:
+Şimdi bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#create). Kullanım hello `--custom-data` parametresi toopass bulut init yapılandırma dosyası. Merhaba tam yolu toohello sağlamak *bulut init.txt* mevcut çalışma dizininizi dışında hello dosyasını kaydettiyseniz yapılandırma. Merhaba aşağıdaki örnekte oluşturur adlı bir VM'den *myAutomatedVM*:
 
 ```azurecli-interactive 
 az vm create \
@@ -121,34 +121,34 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
-Oluşturulacak VM, yüklemek için paketleri ve uygulamayı başlatmak için birkaç dakika sürer. Azure CLI sorusu döndükten sonra çalışmaya devam arka plan görevleri vardır. Başka bir birkaç uygulamaya erişmek için dakika olabilir. VM oluşturduğunuzda not edin `publicIpAddress` Azure CLI tarafından görüntülenir. Bu adres, Node.js uygulaması bir web tarayıcısı aracılığıyla erişmek için kullanılır.
+Oluşturulan, hello VM toobe birkaç dakika sürer hello paketleri tooinstall ve hello uygulama toostart. Hello Azure CLI toohello istemi döndükten sonra toorun devam arka plan görevleri vardır. Başka bir birkaç hello uygulamaya erişmek için dakika olabilir. Merhaba VM oluşturduğunuzda hello not edin `publicIpAddress` hello Azure CLI tarafından görüntülenir. Kullanılan tooaccess hello Node.js uygulaması bir web tarayıcısı aracılığıyla adresidir.
 
-Bağlantı noktası 80 Internet'ten açın, VM ulaşmak web trafiğe izin verecek şekilde [az vm Aç-port](/cli/azure/vm#open-port):
+açık bağlantı noktası 80 hello Internet gelen ile VM'nizi tooallow web trafiği tooreach [az vm Aç-port](/cli/azure/vm#open-port):
 
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
 ## <a name="test-web-app"></a>Test web uygulaması
-Bir web tarayıcısı açın ve girin artık *http://<publicIpAddress>*  adres çubuğundaki. Kendi ortak sağlamak VM IP adresinden oluşturma işlemi. Node.js uygulamanızı aşağıdaki örnekte olduğu gibi görüntülenir:
+Bir web tarayıcısı açın ve girin artık *http://<publicIpAddress>*  hello adres çubuğundaki. Kendi ortak sağlamak hello VM IP adresinden oluşturma işlemi. Node.js uygulamanızı aşağıdaki örneğine hello olduğu gibi görüntülenir:
 
 ![Çalışan NGINX sitesini görüntüle](./media/tutorial-automate-vm-deployment/nginx.png)
 
 
 ## <a name="inject-certificates-from-key-vault"></a>Anahtar kasası sertifikaları Ekle
-Bu isteğe bağlı bir bölüm nasıl güvenli bir şekilde Azure anahtar kasası sertifikaları depolamak ve VM dağıtımı sırasında Ekle gösterir. Sertifikaları içeren özel bir görüntü kullanarak yerine desteklenmiş, bu işlem en güncel sertifikaları ilk önyükleme üzerinde bir VM eklenmiş sağlar. İşlemi sırasında sertifika hiçbir zaman Azure platformu bırakır veya bir komut dosyası, komut satırı geçmiş veya şablonda sunulur.
+Bu isteğe bağlı bir bölüm nasıl güvenli bir şekilde Azure anahtar kasası sertifikaları depolamak ve hello VM dağıtımı sırasında Ekle gösterir. Merhaba sertifikaları içeren özel bir görüntü kullanarak yerine desteklenmiş, bu işlem hello en güncel sertifikaları tooa VM ilk önyüklemede eklenmiş sağlar. Merhaba işlemi sırasında hiçbir zaman hello sertifika hello Azure platformu bırakır veya bir komut dosyası, komut satırı geçmiş veya şablonda sunulur.
 
-Azure anahtar kasası, şifreleme anahtarlarını ve gizli anahtarları, sertifikalar veya parolaları gibi koruma sağlar. Anahtar kasası anahtar yönetimi işlemini kolaylaştırmaya yardımcı olur ve erişmek ve veri şifreleme anahtarları denetim kurmanızı sağlar. Bu senaryo oluşturmak ve bir sertifika kullanmak için bazı anahtar kasası kavramları tanıtır, ancak anahtar kasası kullanma hakkında ayrıntılı bir genel bakış değildir.
+Azure anahtar kasası, şifreleme anahtarlarını ve gizli anahtarları, sertifikalar veya parolaları gibi koruma sağlar. Anahtar kasası hello anahtar yönetimi işlemini kolaylaştırmaya yardımcı olur ve erişmek ve veri şifreleme anahtarları toomaintain denetimini etkinleştirir. Bu senaryo bazı anahtar kasası kavramları toocreate ve bir sertifika kullan sunar, ancak konusunda kapsamlı bir genel bakış değil toouse anahtar kasası.
 
-Aşağıdaki adımlar, nasıl gösterir:
+Aşağıdaki adımları hello nasıl göster:
 
 - Azure anahtar kasası oluşturma
-- Oluşturmak veya bir sertifika anahtar Kasası'na Karşıya Yükle
-- Bir VM içinde eklemesine sertifikasından gizli anahtar oluşturma
-- Bir VM oluşturun ve sertifika Ekle
+- Oluşturmak veya bir sertifika toohello anahtar kasası karşıya yükle
+- Merhaba sertifika tooinject tooa VM içinde bir gizli anahtar oluşturma
+- Bir VM oluşturun ve hello sertifika Ekle
 
 ### <a name="create-an-azure-key-vault"></a>Azure anahtar kasası oluşturma
-İlk olarak, bir anahtar kasası ile oluşturma [az keyvault oluşturma](/cli/azure/keyvault#create) ve bir VM dağıttığınızda kullanım için etkinleştirin. Her anahtar kasası benzersiz bir ad gerektirir ve tüm küçük olmalıdır. Değiştir *mykeyvault* aşağıdaki örnekte kendi benzersiz bir anahtar kasası ad ile:
+İlk olarak, bir anahtar kasası ile oluşturma [az keyvault oluşturma](/cli/azure/keyvault#create) ve bir VM dağıttığınızda kullanım için etkinleştirin. Her anahtar kasası benzersiz bir ad gerektirir ve tüm küçük olmalıdır. Değiştir *mykeyvault* kendi benzersiz bir anahtar kasası ad örnekle aşağıdaki hello içinde:
 
 ```azurecli-interactive 
 keyvault_name=mykeyvault
@@ -159,7 +159,7 @@ az keyvault create \
 ```
 
 ### <a name="generate-certificate-and-store-in-key-vault"></a>Sertifika oluşturmak ve anahtar kasasına depolamak
-Üretim kullanımı için güvenilen bir sağlayıcı tarafından imzalanmış geçerli bir sertifika almanız gerekir [az keyvault sertifika alma](/cli/azure/keyvault/certificate#import). Bu öğretici için aşağıdaki örnek, otomatik olarak imzalanan bir sertifika ile nasıl oluşturabileceğiniz gösterir [az keyvault sertifika oluştur](/cli/azure/keyvault/certificate#create) varsayılan sertifika ilkesi kullanır:
+Üretim kullanımı için güvenilen bir sağlayıcı tarafından imzalanmış geçerli bir sertifika almanız gerekir [az keyvault sertifika alma](/cli/azure/keyvault/certificate#import). Bu öğretici için hello aşağıdaki örnek otomatik olarak imzalanan bir sertifika ile nasıl oluşturabileceğiniz gösterir [az keyvault sertifika oluştur](/cli/azure/keyvault/certificate#create) hello varsayılan sertifika ilkesi kullanır:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -170,7 +170,7 @@ az keyvault certificate create \
 
 
 ### <a name="prepare-certificate-for-use-with-vm"></a>VM ile kullanmak için sertifika hazırlama
-VM sırasında sertifikayı kullanmak üzere işlem oluşturma, sertifikanızla kimliği elde [az keyvault gizli listesi sürümleri](/cli/azure/keyvault/secret#list-versions). VM önyüklemede ekleme, böylece sertifikayla dönüştürmek için belirli bir biçimde sertifikanın gerekir [az vm biçimi-gizli](/cli/azure/vm#format-secret). Aşağıdaki örnek sonraki adımlarda kullanım kolaylığı için değişkenleri bu komutların çıktısı atar:
+toouse hello sertifika hello VM sırasında işlem oluşturma, sertifikanızla hello kimliği elde [az keyvault gizli listesi sürümleri](/cli/azure/keyvault/secret#list-versions). Merhaba VM hello sertifika gereken belirli bir biçim tooinject önyüklemede, bu nedenle dönüştürmeden hello sertifikayla [az vm biçimi-gizli](/cli/azure/vm#format-secret). Aşağıdaki örnek hello hello kullanım kolaylığı için bu komutları toovariables hello çıktısını sonraki adımlar atar:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -181,10 +181,10 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
 
-### <a name="create-cloud-init-config-to-secure-nginx"></a>NGINX güvenli hale getirmek için bulut init yapılandırma oluşturma
-VM, sertifikaları oluşturduğunuzda ve anahtarlar depolanır korumalı içinde */var/lib/waagent/* dizin. Sertifika VM ekleme ve NGINX yapılandırma otomatikleştirmek için güncelleştirilmiş bulut init config önceki örnekten kullanabilirsiniz.
+### <a name="create-cloud-init-config-toosecure-nginx"></a>Bulut init config toosecure NGINX oluşturma
+VM, sertifikaları oluşturduğunuzda ve anahtarlar, korumalı hello depolanır */var/lib/waagent/* dizin. tooautomate ekleme hello sertifika toohello VM ve NGINX yapılandırma, güncelleştirilmiş bulut init config hello önceki örnekteki kullanabilirsiniz.
 
-Adlı bir dosya oluşturun *bulut init secured.txt* ve aşağıdaki yapılandırma yapıştırın. Yeniden bulut Kabuğu'nu kullanırsanız, bulut init yapılandırma dosyası yok ve yerel makinenizde değil oluşturun. Kullanım `sensible-editor cloud-init-secured.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
+Adlı bir dosya oluşturun *bulut init secured.txt* Yapıştır hello izleyerek yapılandırma. Yeniden hello bulut Kabuğu'nu kullanırsanız, hello bulut init yapılandırma dosyası yok ve yerel makinenizde değil oluşturun. Kullanım `sensible-editor cloud-init-secured.txt` toocreate hello dosya ve kullanılabilir düzenleyicileri listesini görebilirsiniz. Merhaba tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun, özellikle ilk satırı hello:
 
 ```yaml
 #cloud-config
@@ -236,7 +236,7 @@ runcmd:
 ```
 
 ### <a name="create-secure-vm"></a>Güvenli VM oluşturma
-Şimdi bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#create). Sertifika verileri ile anahtar Kasası'ndan eklenen `--secrets` parametresi. Önceki örnekte olduğu gibi aynı zamanda bulut init config ile geçirdiğiniz `--custom-data` parametre:
+Şimdi bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#create). Merhaba sertifika verileri ile Merhaba anahtar Kasası'nı eklenen `--secrets` parametresi. Merhaba önceki örnekte olduğu gibi aynı zamanda hello bulut init config hello ile geçirdiğiniz `--custom-data` parametre:
 
 ```azurecli-interactive 
 az vm create \
@@ -249,9 +249,9 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Oluşturulacak VM, yüklemek için paketleri ve uygulamayı başlatmak için birkaç dakika sürer. Azure CLI sorusu döndükten sonra çalışmaya devam arka plan görevleri vardır. Başka bir birkaç uygulamaya erişmek için dakika olabilir. VM oluşturduğunuzda not edin `publicIpAddress` Azure CLI tarafından görüntülenir. Bu adres, Node.js uygulaması bir web tarayıcısı aracılığıyla erişmek için kullanılır.
+Oluşturulan, hello VM toobe birkaç dakika sürer hello paketleri tooinstall ve hello uygulama toostart. Hello Azure CLI toohello istemi döndükten sonra toorun devam arka plan görevleri vardır. Başka bir birkaç hello uygulamaya erişmek için dakika olabilir. Merhaba VM oluşturduğunuzda hello not edin `publicIpAddress` hello Azure CLI tarafından görüntülenir. Kullanılan tooaccess hello Node.js uygulaması bir web tarayıcısı aracılığıyla adresidir.
 
-VM ulaşmak güvenli web trafiği izin vermek için 443 numaralı bağlantı noktasını Internet'ten gelen ile açmayı [az vm Aç-port](/cli/azure/vm#open-port):
+açık bağlantı noktası 443 hello Internet gelen ile VM'nizi tooallow güvenli web trafiği tooreach [az vm Aç-port](/cli/azure/vm#open-port):
 
 ```azurecli-interactive 
 az vm open-port \
@@ -261,26 +261,26 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Test güvenli web uygulaması
-Bir web tarayıcısı açın ve girin artık *https://<publicIpAddress>*  adres çubuğundaki. Kendi ortak sağlamak VM IP adresinden oluşturma işlemi. Kendinden imzalı bir sertifika kullanılması durumunda güvenlik uyarısı kabul edin:
+Bir web tarayıcısı açın ve girin artık *https://<publicIpAddress>*  hello adres çubuğundaki. Kendi ortak sağlamak hello VM IP adresinden oluşturma işlemi. Kendinden imzalı bir sertifika kullanılması durumunda hello güvenlik uyarısı kabul edin:
 
 ![Web tarayıcısı güvenlik uyarısını kabul edin](./media/tutorial-automate-vm-deployment/browser-warning.png)
 
-Güvenli NGINX siteniz ve Node.js uygulaması ardından aşağıdaki örnekte olduğu gibi görüntülenir:
+Güvenli NGINX siteniz ve Node.js uygulaması ardından aşağıdaki örneğine hello olduğu gibi görüntülenir:
 
 ![Çalışan güvenli NGINX sitesini görüntüle](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, VM'ler ilk önyüklemesi bulut init ile yapılandırılır. Size nasıl öğrenilen için:
+Bu öğreticide, VM'ler ilk önyüklemesi bulut init ile yapılandırılır. Şunları öğrendiniz:
 
 > [!div class="checklist"]
 > * Bir bulut init yapılandırma dosyası oluşturma
 > * Bir bulut init dosyası kullanan bir VM oluşturma
-> * VM oluşturulduktan sonra çalışan bir Node.js uygulaması görüntüleyin
-> * Sertifikaları güvenli bir şekilde anahtar kasası kullanın
+> * Merhaba VM oluşturulduktan sonra çalışan bir Node.js uygulaması görüntüleyin
+> * Anahtar kasası toosecurely deposu sertifikaları kullanma
 > * Güvenli NGINX dağıtımlarında bulut init otomatikleştirme
 
-Özel VM görüntüleri oluşturma hakkında bilgi almak için sonraki öğretici ilerleyin.
+Toohello sonraki öğretici toolearn nasıl ilerlemek toocreate özel VM görüntüler.
 
 > [!div class="nextstepaction"]
 > [Özel VM görüntüleri oluşturma](./tutorial-custom-images.md)

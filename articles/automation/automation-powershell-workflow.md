@@ -1,6 +1,6 @@
 ---
-title: "Azure otomasyonu için PowerShell iş akışı öğrenme | Microsoft Docs"
-description: "Bu makalede PowerShell ve PowerShell iş akışı ve kavramları Automation runbook'larına geçerli arasındaki belirli farkları anlamak için hızlı Ders yazarlar PowerShell ile tanıdık yöneliktir."
+title: "Azure otomasyonu için PowerShell iş akışı aaaLearning | Microsoft Docs"
+description: "Bu makalede Hızlı Ders yazarlar PowerShell toounderstand hello belirli farklılıklar PowerShell ve PowerShell iş akışı ve kavramları geçerli tooAutomation runbook'lar arasında aşina yöneliktir."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 4de812c7f863e42a6ed10c2312d61b8377e06431
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 362c504eb96d31b99a826b128e6a591beecaa084
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Otomasyon runbook'ları için temel Windows PowerShell iş akışı kavramları öğrenme 
-Azure Otomasyonu runbook'ları Windows PowerShell iş akışları olarak uygulanır.  Bir Windows PowerShell iş akışı, bir Windows PowerShell komut dosyası için benzer ancak yeni bir kullanıcıya kafa karıştırıcı olabilir önemli bazı farklar vardır.  Bu makale, PowerShell iş akışı kullanarak runbook'ları yazmanıza yardımcı olmak için tasarlanmıştır, ancak denetim noktaları gerekmedikçe PowerShell kullanarak runbook'ları yazma öneririz.  PowerShell iş akışı runbook'ları yazarken birkaç söz dizimi farkları yüklenir ve bu farklılıklar etkin iş akışları yazmak için biraz daha fazla iş gerektirmez.  
+Azure Otomasyonu runbook'ları Windows PowerShell iş akışları olarak uygulanır.  Bir Windows PowerShell iş akışı benzer tooa Windows PowerShell komut dosyası ancak kafa karıştırıcı tooa yeni kullanıcı olabilecek önemli farklılıklar vardır.  Bu makalede PowerShell iş akışı kullanarak runbook'ları yazma hedeflenen toohelp olsa da, denetim noktaları gerekmedikçe PowerShell kullanarak runbook'ları yazma öneririz.  PowerShell iş akışı runbook'ları yazarken birkaç söz dizimi farkları yüklenir ve bu farklılıklar biraz daha fazla iş toowrite etkin iş akışı gerektirmez.  
 
-Bir iş akışı, uzun süre çalışan görevler gerçekleştiren veya birden fazla cihazda veya yönetilen düğümler arasında birden fazla adımın eşgüdümünü gerektiren programlı ve bağlı adımlar dizisidir. Bir iş akışının normal betiğe avantajları aynı anda birden çok aygıt karşı bir eylem gerçekleştirme yeteneğini ve hatadan otomatik olarak kurtarma yeteneğini içerir. Bir Windows PowerShell iş akışı Windows Workflow Foundation kullanan bir Windows PowerShell komut dosyasıdır. İş akışı Windows PowerShell sözdizimi kullanılarak yazılsa ve Windows PowerShell tarafından başlatılsa olsa da, Windows Workflow Foundation tarafından işlenir.
+Bir iş akışı, uzun süre çalışan görevler gerçekleştiren veya birden fazla cihazda veya yönetilen düğümler arasında hello birden fazla adımın eşgüdümünü gerektiren programlı ve bağlı adımlar dizisidir. Merhaba bir iş akışının normal betiğe hello özelliği yararları toosimultaneously birden çok aygıt karşı bir eylemi gerçekleştirir ve hello özelliği tooautomatically hatalarından kurtarın. Bir Windows PowerShell iş akışı Windows Workflow Foundation kullanan bir Windows PowerShell komut dosyasıdır. Merhaba iş akışı Windows PowerShell sözdizimi kullanılarak yazılsa ve Windows PowerShell tarafından başlatılsa olsa da, Windows Workflow Foundation tarafından işlenir.
 
-Bu makalede konularda tam Ayrıntılar için bkz [Windows PowerShell iş akışı ile çalışmaya başlama](http://technet.microsoft.com/library/jj134242.aspx).
+Bu makalede hello konularda tam Ayrıntılar için bkz [Windows PowerShell iş akışı ile çalışmaya başlama](http://technet.microsoft.com/library/jj134242.aspx).
 
 ## <a name="basic-structure-of-a-workflow"></a>Bir iş akışının temel yapısı
-Bir PowerShell iş akışı için bir PowerShell Betiği dönüştürme ilk adımı ile kapsayan **iş akışı** anahtar sözcüğü.  Bir iş akışı ile başlayan **iş akışı** ayraçlar içinde betiğin gövdesi anahtar sözcüğünü. İş akışının adı **iş akışı** anahtar sözcüğünü aşağıdaki sözdiziminde gösterildiği gibi:
+Merhaba ilk adım tooconverting bir PowerShell komut dosyası tooa PowerShell iş akışı, ile Merhaba kapsayan **iş akışı** anahtar sözcüğü.  Bir iş akışı ile Merhaba başlatır **iş akışı** hello ayraçlar içinde hello betik gövdesi arkasından anahtar sözcüğü. Merhaba iş akışının Hello adından sonra hello **iş akışı** hello sözdizimi aşağıdaki gösterildiği gibi anahtar sözcüğü:
 
     Workflow Test-Workflow
     {
        <Commands>
     }
 
-İş akışının adı Otomasyon runbook'u adı eşleşmelidir. Runbook içeri sonra dosya adı iş akışı adı ile eşleşmesi gerekir ve içinde bitmelidir *.ps1*.
+Hello hello iş akışı hello Otomasyon runbook'u hello adı eşleşmelidir. Merhaba runbook alınmakta sonra hello filename hello iş akışı adıyla eşleşmelidir ve sonunda *.ps1*.
 
-İş akışına parametre eklemek için kullanın **Param** anahtar sözcüğü bir betik için olduğu gibi.
+tooadd parametreleri toohello iş akışı, kullanım hello **Param** anahtar sözcüğü tooa betik olduğu gibi.
 
 ## <a name="code-changes"></a>Kod değişiklikleri
-PowerShell iş akışı kodu birkaç önemli değişiklikler dışında bir kod PowerShell neredeyse aynı arar.  Aşağıdaki bölümlerde bir iş akışında çalıştırmak için bir PowerShell Betiği onun için yapmanız gereken değişiklikleri açıklanmaktadır.
+PowerShell iş akışı kodu birkaç önemli değişiklikler dışında bir kod neredeyse aynı tooPowerShell arar.  Aşağıdaki bölümlerde hello bir iş akışında toorun için toomake tooa PowerShell Betiği gereken değişiklikleri açıklar.
 
 ### <a name="activities"></a>Etkinlikler
-Bir etkinlik, bir iş akışındaki belirli bir görevdir. Yalnızca bir komut dosyası bir veya daha fazla komuttan oluşması gibi bir iş akışı etkinliklerinin sırayla gerçekleştirilen bir veya daha fazla oluşur. Bir iş akışı çalıştığında, Windows PowerShell iş akışı birçok Windows PowerShell cmdlet'leri otomatik olarak etkinliklere dönüştürür. Runbook'unuzda bu cmdlet'leri birini belirttiğinizde, Windows Workflow Foundation tarafından karşılık gelen etkinlik çalıştırılır. Karşılık gelen bir etkinliği olmayan cmdlet'ler için Windows PowerShell iş akışı cmdlet'i otomatik olarak çalışan bir [Inlinescript](#inlinescript) etkinlik. Hariç tutulan ve bir iş akışında açıkça bunları bir Inlinescript bloğunda eklemediğiniz sürece kullanılamaz cmdlet'leri kümesi yok. Bu kavramlarla ilgili daha ayrıntılı bilgi için bkz: [betik iş akışlarında etkinlikleri kullanma](http://technet.microsoft.com/library/jj574194.aspx).
+Bir etkinlik, bir iş akışındaki belirli bir görevdir. Yalnızca bir komut dosyası bir veya daha fazla komuttan oluşması gibi bir iş akışı etkinliklerinin sırayla gerçekleştirilen bir veya daha fazla oluşur. Bir iş akışı çalıştığında, Windows PowerShell iş akışı otomatik olarak birçok hello Windows PowerShell cmdlet'leri tooactivities dönüştürür. Runbook'unuzda bu cmdlet'leri birini belirttiğinizde, Windows Workflow Foundation tarafından hello karşılık gelen etkinlik çalıştırılır. Karşılık gelen bir etkinliği olmayan cmdlet'ler için Windows PowerShell iş akışı içinde hello cmdlet'i otomatik olarak çalıştırır bir [Inlinescript](#inlinescript) etkinlik. Hariç tutulan ve bir iş akışında açıkça bunları bir Inlinescript bloğunda eklemediğiniz sürece kullanılamaz cmdlet'leri kümesi yok. Bu kavramlarla ilgili daha ayrıntılı bilgi için bkz: [betik iş akışlarında etkinlikleri kullanma](http://technet.microsoft.com/library/jj574194.aspx).
 
-İş akışı etkinlikleri çalışmalarını yapılandıran ortak parametreler kümesini paylaşır. İş akışı ortak parametreleri hakkında daha fazla ayrıntı için bkz: [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+İş akışı etkinlikleri çalışmalarını ortak parametreleri tooconfigure kümesini paylaşır. Merhaba iş akışı ortak parametreleri hakkında daha fazla ayrıntı için bkz: [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="positional-parameters"></a>Konumsal Parametreler
 Konumsal parametreler, etkinlikler ve iş akışı cmdlet'leri ile kullanamazsınız.  Bunun anlamı tüm parametre adları kullanmasıdır.
 
-Örneğin, tüm çalışan hizmetler alır aşağıdaki kodu göz önünde bulundurun.
+Örneğin, tüm çalışan hizmetler alır koddan hello göz önünde bulundurun.
 
      Get-Service | Where-Object {$_.Status -eq "Running"}
 
-Bir iş akışında aynı bu kodu çalıştırmak çalışırsanız, "parametre kümesi belirtilen adlandırılmış parametreler kullanılarak çözümlenemiyor."gibi bir ileti alırsınız  Bu sorunu gidermek için aşağıdaki gibi parametre adı sağlayın.
+Bir iş akışı aynı bu kodda toorun çalışırsanız, "parametreleri adlı parametre kümesi belirtilen hello kullanılarak çözümlenemiyor."gibi bir ileti alırsınız  toocorrect bunu hello aşağıdaki gibi hello parametre adı sağlayın.
 
     Workflow Get-RunningServices
     {
@@ -62,14 +62,14 @@ Bir iş akışında aynı bu kodu çalıştırmak çalışırsanız, "parametre 
     }
 
 ### <a name="deserialized-objects"></a>Seri durumdan çıkarılmış nesneleri
-İş akışlarında nesneleri serisi.  Özellikleri hala kullanılabilir anlamına gelir, ancak bunların yöntemleri.  Örneğin, hizmet nesnesinin Stop yöntemi kullanarak bir hizmet durdurur aşağıdaki PowerShell kodu göz önünde bulundurun.
+İş akışlarında nesneleri serisi.  Özellikleri hala kullanılabilir anlamına gelir, ancak bunların yöntemleri.  Örneğin, hello hizmeti nesnesinin hello Stop yöntemi kullanarak bir hizmet durdurur PowerShell kodu aşağıdaki hello göz önünde bulundurun.
 
     $Service = Get-Service -Name MyService
     $Service.Stop()
 
-Bu bir iş akışında çalıştırmayı denerseniz, "bir Windows PowerShell iş akışında yöntem çağırma desteklenmiyor." bildiren bir hata alıyorsunuz  
+Toorun bu bir iş akışında denerseniz, "bir Windows PowerShell iş akışında yöntem çağırma desteklenmiyor." bildiren bir hata alıyorsunuz  
 
-Bir seçenektir bu iki satır kod sarmalamak için bir [Inlinescript](#inlinescript) engelle; Bu durumda $Service bloğu içinde bir hizmet nesnesi olması.
+Bir seçenektir toowrap bu iki satır kod bir [Inlinescript](#inlinescript) engelle; Bu durumda $Service hello bloğu içinde bir hizmet nesnesi olması.
 
     Workflow Stop-Service
     {
@@ -79,7 +79,7 @@ Bir seçenektir bu iki satır kod sarmalamak için bir [Inlinescript](#inlinescr
         }
     }
 
-Başka bir seçenek varsa yöntemi aynı işlevi gerçekleştirir başka bir cmdlet kullanmaktır.  Bizim örnek Hizmeti Durdur cmdlet Stop yöntemi ile aynı işlevselliği sağlar ve bir iş akışı için aşağıdakileri kullanabilirsiniz.
+Başka bir seçenektir toouse gerçekleştirir başka bir cmdlet hello hello yöntemi aynı işlevselliği varsa.  Bizim örnek hello Hizmeti Durdur cmdlet hello sağlar hello durdurma yöntemi ve aynı işlevselliği hello aşağıdaki iş akışı için kullanır.
 
     Workflow Stop-MyService
     {
@@ -89,16 +89,16 @@ Başka bir seçenek varsa yöntemi aynı işlevi gerçekleştirir başka bir cmd
 
 
 ## <a name="inlinescript"></a>Inlinescript
-**Inlinescript** etkinlik, bir veya daha fazla komutu yerine PowerShell iş akışı gibi geleneksel PowerShell betiğini çalıştırmak gerektiğinde kullanışlıdır.  Bir iş akışındaki komutları için Windows Workflow Foundation işleme için gönderilirken, bir Inlinescript bloğundaki komutlar Windows PowerShell tarafından işlenir.
+Merhaba **Inlinescript** etkinlik, PowerShell iş akışı yerine geleneksel PowerShell Betiği olarak bir veya daha fazla komut toorun ihtiyacınız olduğunda yararlıdır.  Bir iş akışındaki komutları tooWindows Workflow Foundation işleme için gönderilirken, bir Inlinescript bloğundaki komutlar Windows PowerShell tarafından işlenir.
 
-Inlinescript aşağıdaki aşağıdaki sözdizimini kullanır.
+Inlinescript aşağıda gösterilen sözdizimi aşağıdaki hello kullanır.
 
     InlineScript
     {
       <Script Block>
     } <Common Parameters>
 
-Çıkışı bir değişkene atayarak bir Inlinescript çıkış döndürebilir. Aşağıdaki örnek, bir hizmetini durdurur ve hizmet adı çıkarır.
+Merhaba çıktı tooa değişkeni atayarak bir Inlinescript çıkış döndürebilir. Merhaba aşağıdaki örnekte bir hizmetini durdurur ve hello hizmet adı çıkarır.
 
     Workflow Stop-MyService
     {
@@ -112,7 +112,7 @@ Inlinescript aşağıdaki aşağıdaki sözdizimini kullanır.
     }
 
 
-Bir Inlinescript bloğu içine değerlerinin geçmesini sağlayabilirsiniz, ancak kullanmalısınız **$Using** kapsam değiştiricisi.  Aşağıdaki örnek, hizmet adı değişkeni tarafından sağlanan dışında önceki örnekle aynıdır.
+Bir Inlinescript bloğu içine değerlerinin geçmesini sağlayabilirsiniz, ancak kullanmalısınız **$Using** kapsam değiştiricisi.  Merhaba hizmet adı değişkeni tarafından sağlanan hello aşağıdaki örnek aynı toohello önceki örnek olmasıdır.
 
     Workflow Stop-MyService
     {
@@ -128,18 +128,18 @@ Bir Inlinescript bloğu içine değerlerinin geçmesini sağlayabilirsiniz, anca
     }
 
 
-Inlinescript etkinlikleri belirli iş akışlarında kritik olabilir, ancak iş akışı yapıları desteklemez ve yalnızca aşağıdaki nedenlerle gerekli olduğunda kullanılmalıdır:
+Inlinescript etkinlikleri belirli iş akışlarında kritik olabilir, ancak iş akışı yapıları desteklemez ve yalnızca aşağıdaki nedenlerle hello için gerekli olduğunda kullanılmalıdır:
 
-* Kullanamazsınız [kontrol noktaları](#checkpoints) bir Inlinescript bloğunun. Blokta bir hata meydana gelirse, blok başından devam gerekir.
+* Kullanamazsınız [kontrol noktaları](#checkpoints) bir Inlinescript bloğunun. Merhaba blokta bir hata meydana gelirse, hello hello blok başından devam gerekir.
 * Kullanamazsınız [Paralel yürütme](#parallel-processing) bir InlineScriptBlock içinde.
-* Inlinescript bloğunun tüm uzunluğu için Windows PowerShell oturumunu tuttuğu beri Inlinescript iş akışı ölçeklenebilirliğini etkiler.
+* Hello Inlinescript bloğunun tüm uzunluğu hello hello Windows PowerShell oturumunu tuttuğu beri Inlinescript hello iş akışı ölçeklenebilirliğini etkiler.
 
 Inlinescript kullanma hakkında daha fazla bilgi için bkz: [bir iş akışında Windows PowerShell komutlarını çalıştırma](http://technet.microsoft.com/library/jj574197.aspx) ve [about_ınlinescript](http://technet.microsoft.com/library/jj649082.aspx).
 
 ## <a name="parallel-processing"></a>Paralel işleme
-Windows PowerShell iş akışlarının bir avantajı, bir komut kümesi yerine paralel sıralı olarak tipik bir betikteki gibi ile gerçekleştirmek için yeteneğidir.
+Windows PowerShell iş akışlarının bir avantajı hello özelliği tooperform komutları yerine paralel sıralı olarak tipik bir betikteki gibi ile kümesidir.
 
-Kullanabileceğiniz **paralel** eşzamanlı olarak çalıştıran birden çok komut içeren bir betik bloğu oluşturmak için anahtar sözcüğü. Bu, aşağıdaki aşağıdaki sözdizimini kullanır. Bu durumda, Activity1 ve Activity2 aynı anda başlar. Activity3 ancak Activity1 ve Activity2 yalnızca tamamladıktan sonra başlar.
+Merhaba kullanabilirsiniz **paralel** anahtar sözcüğü toocreate eşzamanlı olarak çalışan birden çok komutlar ile bir betik bloğu. Bu, aşağıda gösterilen sözdizimi aşağıdaki hello kullanır. Bu durumda, Activity1 ve Activity2 başlar hello aynı anda. Activity3 ancak Activity1 ve Activity2 yalnızca tamamladıktan sonra başlar.
 
     Parallel
     {
@@ -149,13 +149,13 @@ Kullanabileceğiniz **paralel** eşzamanlı olarak çalıştıran birden çok ko
     <Activity3>
 
 
-Örneğin, bir ağ hedefe birden çok dosya Kopyala aşağıdaki PowerShell komutlarını göz önünde bulundurun.  Sonraki başlatılmadan önce kopyalama, bir dosya bitmesi gerekir böylece bu komutlar sırayla çalışır.     
+Örneğin, birden çok dosya tooa Ağ hedefi Kopyala PowerShell komutlarını aşağıdaki hello göz önünde bulundurun.  Bu bir dosyayı hello sonraki başlatılmadan önce kopyalama bitmesi gerekir böylece bu komutlar sıralı olarak çalıştırılır.     
 
     Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
     Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
     Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
 
-Bunların tümü aynı anda kopyalama işlemini başlatmak için aşağıdaki iş akışı bu aynı komutları paralel olarak çalışır.  Yalnızca tüm sonra kopyalanan tamamlama iletisi görüntülenir.
+Merhaba aşağıdaki iş akışı bunları aynı komutları paralel olarak hepsi aynı hello kopyalama başlatılması çalıştırır zaman.  Yalnızca tüm sonra kopyalanan hello tamamlama iletisi görüntülenir.
 
     Workflow Copy-Files
     {
@@ -170,7 +170,7 @@ Bunların tümü aynı anda kopyalama işlemini başlatmak için aşağıdaki i�
     }
 
 
-Kullanabileceğiniz **ForEach-Parallel** aynı anda bir koleksiyondaki her öğe için komutları işlemek üzere yapısı. Betik bloğundaki komutlar sırayla yürütülürken koleksiyondaki öğeler paralel olarak işlenir. Bu, aşağıdaki aşağıdaki sözdizimini kullanır. Bu durumda, Activity1 koleksiyondaki tüm öğeleri aynı anda başlar. Activity1 tamamlandıktan sonra her öğe için Activity2 başlatır. Activity3 ancak yalnızca tüm öğeler için Activity1 ve Activity2 tamamlandığında başlar.
+Merhaba kullanabilirsiniz **ForEach-Parallel** tooprocess bir koleksiyondaki her öğe için komutları eşzamanlı olarak oluşturun. Merhaba hello betik bloğundaki komutlar sırayla yürütülürken hello koleksiyonundaki hello öğeler paralel olarak işlenir. Bu, aşağıda gösterilen sözdizimi aşağıdaki hello kullanır. Bu durumda, Activity1 başlar hello aynı hello koleksiyondaki tüm öğeleri zaman. Activity1 tamamlandıktan sonra her öğe için Activity2 başlatır. Activity3 ancak yalnızca tüm öğeler için Activity1 ve Activity2 tamamlandığında başlar.
 
     ForEach -Parallel ($<item> in $<collection>)
     {
@@ -179,7 +179,7 @@ Kullanabileceğiniz **ForEach-Parallel** aynı anda bir koleksiyondaki her öğe
     }
     <Activity3>
 
-Aşağıdaki örnek, paralel olarak dosyaları kopyalanıyor önceki örneğe benzerdir.  Bu durumda, onu kopyaladıktan sonra her dosya için bir ileti görüntülenir.  Yalnızca tüm sonra tamamen kopyaladıktan son tamamlama ileti görüntülenir.
+Aşağıdaki örneğine hello paralel olarak dosyaları kopyalanıyor benzer toohello önceki bir örnektir.  Bu durumda, onu kopyaladıktan sonra her dosya için bir ileti görüntülenir.  Yalnızca tüm sonra tamamen kopyaladıktan hello son tamamlama ileti görüntülenir.
 
     Workflow Copy-Files
     {
@@ -195,13 +195,13 @@ Aşağıdaki örnek, paralel olarak dosyaları kopyalanıyor önceki örneğe be
     }
 
 > [!NOTE]
-> Bu güvenilir olmayan sonuçlar vermek için göstermiştir bu yana çalışan alt runbook'ları paralel olarak önermiyoruz.  Bazen alt runbook'tan çıkış gösterilmez ve bir alt runbook ayarlarında diğer paralel alt runbook'lar etkileyebilir
+> Bu toogive güvenilir olmayan sonuçlar gösterilen olduğundan, alt runbook'ları paralel olarak çalışan önermiyoruz.  Merhaba bazen hello alt runbook'un çıktısını görünmez ve bir alt runbook ayarlarında etkileyebilecek diğer paralel alt runbook'ları hello
 >
 
 ## <a name="checkpoints"></a>Kontrol noktaları
-A *denetim noktası* değişkenlerin geçerli değerlerini ve bu noktaya kadar üretilen çıktıyı içerir iş akışının geçerli durumuna anlık görüntüsüdür. Bir iş akışı hata sona erer veya askıya alındı, ardından İleri çalıştırıldığında, akışı başlangıcı yerine en son denetim noktasından başlayacaktır.  İle bir iş akışında bir denetim noktası ayarlayabilirsiniz **Checkpoint-Workflow** etkinlik.
+A *denetim noktası* iş akışının hello değişkenlerin geçerli değerlerini içeren hello hello geçerli durumunun bir anlık görüntüdür ve herhangi bir oluşturulan toothat noktası çıktı. Bir iş akışı hata sona erer veya askıya alındı, hello hello akışı hello başlangıcı yerine en son denetim noktasından onu İleri çalıştırıldığında başlatılır.  Merhaba ile bir iş akışında bir denetim noktası ayarlayabilirsiniz **Checkpoint-Workflow** etkinlik.
 
-Aşağıdaki örnek kodda bir özel durum activity2 sonrasında sona erdirmek iş akışı neden olur. İş akışını yeniden çalıştırdığınızda, yalnızca son denetim noktasının ayarlandığı sonra bu yana Activity2 çalıştırarak başlatır.
+Activity2 neden hello sonra iş akışı tooend hello aşağıdaki örnek kod, bir özel durum oluşur. Merhaba iş akışını yeniden çalıştırdığınızda, yalnızca en son kontrol hello ayarladıktan sonra bu yana Activity2 çalıştırarak başlatır.
 
     <Activity1>
     Checkpoint-Workflow
@@ -209,9 +209,9 @@ Aşağıdaki örnek kodda bir özel durum activity2 sonrasında sona erdirmek i�
     <Exception>
     <Activity3>
 
-Özel durum olabilecek ve gereken etkinliklerin iş akışı devam ettirildiğinde tekrarlanmaması sonra bir iş akışında denetim noktaları ayarlamanız gerekir. Örneğin, iş akışınızı bir sanal makine oluşturabilir. Önce ve sonra sanal makine oluşturma komutlarının bir denetim noktası ayarlayabilirsiniz. Oluşturma başarısız olursa, iş akışını yeniden başlatılırsa, komutlar tekrarlar. Oluşturma başarılı olduktan sonra akışı başarısız olursa, iş akışı sürdürüldüğünde sonra sanal makineyi yeniden oluşturulmaz.
+Yatkın tooexception olabilir ve olmamalıdır etkinlikleri hello iş akışı devam ettirildiğinde tekrarlanmaması sonra bir iş akışında denetim noktaları ayarlamanız gerekir. Örneğin, iş akışınızı bir sanal makine oluşturabilir. Öncesinde ve sonrasında hello komutları toocreate hello sanal makine bir denetim noktası ayarlayabilirsiniz. Merhaba oluşturma başarısız olursa hello iş akışı yeniden başlatılırsa, ardından hello komutları yinelenmesi. Merhaba oluşturma başarılı olduktan sonra hello akışı başarısız olursa, hello iş akışı sürdürüldüğünde sonra hello sanal makine yeniden oluşturulmaz.
 
-Aşağıdaki örnek, birden çok dosyalarını bir ağ konumuna kopyalar ve sonra her bir dosyanın bir denetim noktası ayarlar.  Ağ konumu kaybolursa, iş akışı hata sona erer.  Yeniden başlatıldığında, önceden kopyaladığınız dosyalar atlanır anlamı son denetim noktası devam eder.
+Aşağıdaki örneğine hello birden çok dosya tooa ağ konumuna kopyalar ve sonra her bir dosyanın bir denetim noktası ayarlar.  Merhaba ağ konumu kaybolursa, hello iş akışı hata sona erer.  Yeniden başlatıldığında, önceden kopyaladığınız hello dosyalar atlanır anlamı hello son denetim noktası devam eder.
 
     Workflow Copy-Files
     {
@@ -227,9 +227,9 @@ Aşağıdaki örnek, birden çok dosyalarını bir ağ konumuna kopyalar ve sonr
         Write-Output "All files copied."
     }
 
-Çağırdıktan sonra kullanıcı adı kimlik bilgilerini kalıcı değildir çünkü [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) etkinlik veya null ve sonra bunları yeniden sonra varlık deposundan almak için kimlik bilgilerini ayarlamak gereken en son kontrol sonra  **Suspend-Workflow** ya da kontrol noktası çağrılır.  Aksi takdirde, aşağıdaki hata iletisini alabilirsiniz: *iş akışının devam ettirilemez, Kalıcılık veri bırakılamadı tamamen kaydedildi, veya kaydedilen çünkü kalıcı veri ya da bozulmuş. İş akışını yeniden başlatmanız gerekir.*
+Merhaba çağırdıktan sonra kullanıcı adı kimlik bilgilerini kalıcı değildir çünkü [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) etkinlik veya hello en son kontrol sonra tooset hello kimlik bilgileri toonull gerekir ve sonra bunları yeniden hello varlık Mağaza'dan sonra alır **Suspend-Workflow** ya da kontrol noktası çağrılır.  Aksi takdirde hello aşağıdaki hata iletisini alabilirsiniz: *hello iş akışı tanımlı işlemi yapamazsınız sürdürüldü, Kalıcılık veri bırakılamadı tamamen kaydedildi, veya kaydedilen çünkü kalıcı veri ya da bozulmuş. Merhaba iş akışını yeniden başlatmanız gerekir.*
 
-Aşağıdaki aynı kod bu PowerShell iş akışı larınızda nasıl ele alınacağını gösterir.
+aynı koddan hello gösteren nasıl toohandle bu PowerShell iş akışı runbook'larınızdaki.
 
     workflow CreateTestVms
     {
@@ -240,9 +240,9 @@ Aşağıdaki aynı kod bu PowerShell iş akışı larınızda nasıl ele alınac
 
        foreach ($VmName in $VmsToCreate)
          {
-          # Do work first to create the VM (code not shown)
+          # Do work first toocreate hello VM (code not shown)
 
-          # Now add the VM
+          # Now add hello VM
           New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
 
           # Checkpoint so that VM creation is not repeated if workflow suspends
@@ -256,7 +256,7 @@ Aşağıdaki aynı kod bu PowerShell iş akışı larınızda nasıl ele alınac
 
 Hizmet sorumlusu ile yapılandırılmış olan bir farklı çalıştır hesabını kullanarak kimlik doğrulaması yaptıklarını, bu gerekli değildir.  
 
-Kontrol noktaları hakkında daha fazla bilgi için bkz: [betik iş akışına denetim noktaları ekleme](http://technet.microsoft.com/library/jj574114.aspx).
+Kontrol noktaları hakkında daha fazla bilgi için bkz: [komut dosyası iş akışına denetim noktaları ekleme tooa](http://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md)
+* PowerShell iş akışı runbook'ları ile başlatılan tooget bakın [ilk PowerShell iş akışı runbook Uygulamam](automation-first-runbook-textual.md)

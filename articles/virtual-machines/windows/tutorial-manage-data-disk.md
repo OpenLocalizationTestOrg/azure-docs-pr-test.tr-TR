@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell ile Azure diskleri yönetme | Microsoft Docs"
-description: "Öğretici - Azure PowerShell ile Azure diskleri yönetme"
+title: aaaManage Azure diskleri hello Azure PowerShell ile | Microsoft Docs
+description: "Öğretici - Azure diskleri hello Azure PowerShell ile yönetme"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6f1bc9361745adc211f22416a7ba8ac1b8dc614e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2f61ad18bc94bab527d7ae593da603c6073adc89
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>PowerShell ile Azure diskleri yönetme
 
-Azure sanal makineleri diskleri sanal makineleri işletim sistemi, uygulamaları ve verileri depolamak için kullanır. Bir VM oluşturulurken bir disk boyutu ve beklenen iş yükü için uygun yapılandırma seçmek önemlidir. Bu öğretici, dağıtma ve VM diskleri yönetme kapsar. Hakkında bilgi edinin:
+Azure sanal makineleri diskleri toostore hello VM'ler işletim sistemi, uygulamaları ve verileri kullanın. Bir VM oluştururken önemli toochoose disk boyutu ve yapılandırma beklenen uygun toohello iş yüküne bağlıdır. Bu öğretici, dağıtma ve VM diskleri yönetme kapsar. Hakkında bilgi edinin:
 
 > [!div class="checklist"]
 > * İşletim sistemi ve geçici disklerle
@@ -33,15 +33,15 @@ Azure sanal makineleri diskleri sanal makineleri işletim sistemi, uygulamaları
 > * Disk performansı
 > * Ekleme ve veri diskleri hazırlama
 
-Bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz: [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
+Bu öğretici hello Azure PowerShell modülü 3,6 veya sonraki bir sürümü gerektiriyor. Çalıştırma ` Get-Module -ListAvailable AzureRM` toofind hello sürümü. Tooupgrade gerekirse bkz [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
 
 ## <a name="default-azure-disks"></a>Azure diskleri varsayılan
 
-Bir Azure sanal makine oluşturulduğunda, iki disk otomatik olarak sanal makineye bağlanmış. 
+Bir Azure sanal makine oluşturulduğunda, iki diskleri otomatik olarak eklenen toohello sanal makine içindir. 
 
-**İşletim sistemi diski** -işletim sistemi disklerinde en fazla 1 terabayttan küçük boyuta sahip ve VM'ler işletim sistemi barındırır.  İşletim sistemi diski bir sürücü harfi atanmış *c:* varsayılan olarak. İşletim sistemi disk yapılandırması önbelleğe alma disk işletim sistemi performans için optimize edilmiştir. İşletim sistemi diski **vermemelisiniz** konak uygulamalar veya veri. Uygulamalar ve veriler için bu makalenin sonraki bölümlerinde ayrıntılı bir veri diski kullanın.
+**İşletim sistemi diski** - işletim sistemi disklerinde too1 terabayt boyutta ve ana hello VM'ler işletim sistemi.  Merhaba işletim sistemi diski bir sürücü harfi atanmış *c:* varsayılan olarak. Merhaba işletim sistemi disk yapılandırması önbelleğe alma hello disk işletim sistemi performans için optimize edilmiştir. Merhaba işletim sistemi disk **vermemelisiniz** konak uygulamalar veya veri. Uygulamalar ve veriler için bu makalenin sonraki bölümlerinde ayrıntılı bir veri diski kullanın.
 
-**Geçici disk** -geçici diskleri VM ile aynı Azure konakta bulunan bir katı hal sürücüsü kullanın. Temp disklerinin yüksek oranda kullanıcı durumda ve geçici veri işleme gibi işlemler için kullanılabilir. Ancak, VM yeni bir ana bilgisayara taşındığında, geçici bir diskte depolanan tüm verileri kaldırılır. Geçici disk boyutunu VM boyutu tarafından belirlenir. Geçici diskleri bir sürücü harfi atanmış *d:* varsayılan olarak.
+**Geçici disk** -geçici diskler hello üzerinde bulunan bir katı hal sürücüsü kullanan aynı Azure ana bilgisayar hello VM olarak. Temp disklerinin yüksek oranda kullanıcı durumda ve geçici veri işleme gibi işlemler için kullanılabilir. Ancak, Hello VM taşınan tooa yeni ana bilgisayar ise, geçici bir diskte depolanan tüm verileri kaldırılır. Merhaba hello geçici disk boyutunu hello VM boyutu tarafından belirlenir. Geçici diskleri bir sürücü harfi atanmış *d:* varsayılan olarak.
 
 ### <a name="temporary-disk-sizes"></a>Geçici disk boyutları
 
@@ -56,7 +56,7 @@ Bir Azure sanal makine oluşturulduğunda, iki disk otomatik olarak sanal makine
 
 ## <a name="azure-data-disks"></a>Azure veri diski
 
-Uygulama yükleme ve verilerini depolamak için ek veri disklerinin eklenebilir. Veri diskleri sağlam ve esnek veri depolama burada istenen herhangi bir durumda kullanılmalıdır. Her veri diski 1 terabayttan küçük maksimum kapasitesine sahiptir. Kaç tane veri diskleri için bir VM eklenebilecek sanal makine boyutunu belirler. Her VM çekirdek için iki veri diskleri eklenebilir. 
+Uygulama yükleme ve verilerini depolamak için ek veri disklerinin eklenebilir. Veri diskleri sağlam ve esnek veri depolama burada istenen herhangi bir durumda kullanılmalıdır. Her veri diski 1 terabayttan küçük maksimum kapasitesine sahiptir. kaç tane veri diskleri ekli tooa VM olabilir hello sanal makine Hello boyutunu belirler. Her VM çekirdek için iki veri diskleri eklenebilir. 
 
 ### <a name="max-data-disks-per-vm"></a>VM başına en fazla veri diski
 
@@ -79,7 +79,7 @@ Standart Depolama, HDD’ler ile desteklenir ve yüksek performans sunarken uygu
 
 ### <a name="premium-disk"></a>Premium disk
 
-Premium diskler, SSD tabanlı yüksek performanslı, düşük gecikme süreli disk tarafından desteklenir. Üretim iş yükü çalıştıran VM'ler için mükemmel. Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi ve FS-serisi VM'ler. Üç tür (P10, P20, P30) Premium diskleri gelir, disk türü disk boyutunu belirler. Disk boyutu değeri seçerken, sonraki türü yuvarlanır. 128 GB boyutu ise, örneğin, disk türünü P10, 129 ve 512 P20 ve üzerinde 512 P30 arasında olacaktır. 
+Premium diskler, SSD tabanlı yüksek performanslı, düşük gecikme süreli disk tarafından desteklenir. Üretim iş yükü çalıştıran VM'ler için mükemmel. Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi ve FS-serisi VM'ler. Üç tür (P10, P20, P30) Premium diskleri gelir, hello disk türü hello hello diskin boyutunu belirler. Seçerken, bir disk boyutu hello değeri toohello sonraki türü yuvarlanır. Örneğin, Hello boyutu 128 GB hello disk türü ise P10, 129 ve 512 P20 ve üzerinde 512 P30 arasında olacaktır. 
 
 ### <a name="premium-disk-performance"></a>Premium disk performansı
 
@@ -89,37 +89,37 @@ Premium diskler, SSD tabanlı yüksek performanslı, düşük gecikme süreli di
 | Disk başına IOPS | 500 | 2,300 | 5,000 |
 Disk başına aktarım hızı | 100 MB/s | 150 MB/s | 200 MB/sn |
 
-Yukarıdaki tabloda, disk başına maksimum IOPS tanımlanmaktadır olsa da, daha yüksek düzeyde performans birden çok veri diskleri bölümlemesine tarafından elde edilebilir. Örneğin, 64 veri diskleri Standard_GS5 VM eklenebilir. Her bu disklerin P30 boyuta sahip değilse, en fazla 80.000 IOPS elde edilebilir. VM başına maksimum IOPS hakkında ayrıntılı bilgi için bkz: [Linux VM boyutları](./sizes.md).
+Disk başına maksimum IOPS Merhaba tablonun yukarısındaki tanımlayan olsa da, daha yüksek düzeyde performans birden çok veri diskleri bölümlemesine tarafından elde edilebilir. Örneğin, 64 veri diskleri olabilir tooStandard_GS5 VM bağlı. Her bu disklerin P30 boyuta sahip değilse, en fazla 80.000 IOPS elde edilebilir. VM başına maksimum IOPS hakkında ayrıntılı bilgi için bkz: [Linux VM boyutları](./sizes.md).
 
 ## <a name="create-and-attach-disks"></a>Oluşturma ve diskleri ekleme
 
-Örneğin bu öğreticiyi tamamlamak için var olan bir sanal makine olması gerekir. Gerekirse, bu [komut dosyası örneği](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) sizin için bir tane oluşturabilirsiniz. Çalışma öğretici aracılığıyla değiştirdiğinizde VM ve kaynak grubu adları gerektiğinde.
+Bu öğreticide toocomplete hello örnek, mevcut bir sanal makine olması gerekir. Gerekirse, bu [komut dosyası örneği](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) sizin için bir tane oluşturabilirsiniz. Çalışma hello öğretici aracılığıyla değiştirdiğinizde hello kaynak grubu VM adları ve gerektiğinde.
 
-İlk yapılandırma ile oluşturmayı [yeni AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). Aşağıdaki örnek boyutu 128 gigabayt bir disk yapılandırır.
+Merhaba ilk yapılandırma ile oluşturmayı [yeni AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). Aşağıdaki örnek hello 128 gigabayt cinsinden boyutu olan bir disk yapılandırır.
 
 ```powershell
 $diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
 ```
 
-Sahip veri diski oluşturma [yeni AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk) komutu.
+Merhaba ile Merhaba veri diski oluşturma [yeni AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk) komutu.
 
 ```powershell
 $dataDisk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myDataDisk -Disk $diskConfig
 ```
 
-İle verileri diske eklemek istediğiniz sanal makine Al [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) komutu.
+Tooadd hello veri diski toowith hello istediğiniz Get hello sanal makine [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) komutu.
 
 ```powershell
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-Sanal makine yapılandırması için veri diski Ekle [Ekle AzureRmVMDataDisk](/powershell/module/azurerm.compute/add-azurermvmdatadisk) komutu.
+Ekle hello veri disk toohello sanal makine yapılandırmasıyla hello [Ekle AzureRmVMDataDisk](/powershell/module/azurerm.compute/add-azurermvmdatadisk) komutu.
 
 ```powershell
 $vm = Add-AzureRmVMDataDisk -VM $vm -Name myDataDisk -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 1
 ```
 
-Sanal makineyle güncelleştirme [güncelleştirme-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk) komutu.
+Merhaba sanal makine ile Merhaba güncelleştirme [güncelleştirme-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk) komutu.
 
 ```powershell
 Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
@@ -127,11 +127,11 @@ Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 
 ## <a name="prepare-data-disks"></a>Veri diskleri hazırlama
 
-Bir disk sanal makineye bağlandıktan sonra işletim sistemi diski kullanacak şekilde yapılandırılması gerekir. Aşağıdaki örnek VM eklenen ilk diski el ile yapılandırmak nasıl gösterir. Bu işlem ayrıca kullanarak otomatikleştirilebilir [özel betik uzantısı](./tutorial-automate-vm-deployment.md).
+Bir disk ekli toohello sanal makine sağlandıktan sonra yapılandırılmış toobe toouse hello disk hello işletim sistemi gerekir. Merhaba aşağıdaki örnekte nasıl toomanually yapılandırmak hello ilk disk eklenen gösterir toohello VM. Bu işlem ayrıca hello kullanarak otomatikleştirilebilir [özel betik uzantısı](./tutorial-automate-vm-deployment.md).
 
 ### <a name="manual-configuration"></a>El ile yapılandırma
 
-RDP bağlantısı ile sanal makine oluşturun. PowerShell'i açın ve bu komut dosyasını çalıştırın.
+RDP bağlantısı ile Merhaba sanal makine oluşturun. PowerShell'i açın ve bu komut dosyasını çalıştırın.
 
 ```powershell
 Get-Disk | Where partitionstyle -eq 'raw' | `
@@ -151,7 +151,7 @@ Bu öğreticide, VM diskleri konuları hakkında gibi öğrenilen:
 > * Disk performansı
 > * Ekleme ve veri diskleri hazırlama
 
-VM yapılandırması otomatikleştirme hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+VM yapılandırması otomatikleştirme hakkında toohello sonraki öğretici toolearn ilerleyin.
 
 > [!div class="nextstepaction"]
 > [VM yapılandırmasını otomatikleştirme](./tutorial-automate-vm-deployment.md)

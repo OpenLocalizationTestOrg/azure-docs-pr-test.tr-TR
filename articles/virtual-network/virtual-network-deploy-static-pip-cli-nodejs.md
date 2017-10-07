@@ -1,6 +1,6 @@
 ---
-title: "Bir statik genel IP adresi ile - Azure CLI 1.0 bir VM oluşturma | Microsoft Docs"
-description: "Azure komut satırı arabirimi (CLI) 1.0 kullanarak bir statik genel IP adresi ile VM oluşturmayı öğrenin."
+title: bir statik genel IP adresiyle - Azure CLI 1.0 VM aaaCreate | Microsoft Docs
+description: "Nasıl toocreate ile bir statik genel IP adresini kullanarak bir VM hello Azure komut satırı arabirimi (CLI) 1.0 öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a373c32271096308678fe3402e8420cc14fe5935
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3ee906b65735830757b455df00f9f8d4373be3dd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-10"></a>Azure CLI 1.0 kullanarak bir statik genel IP adresiyle bir VM oluşturma
+# <a name="create-a-vm-with-a-static-public-ip-address-using-hello-azure-cli-10"></a>Hello Azure CLI 1.0 kullanarak bir statik genel IP adresiyle bir VM oluşturma
 
 > [!div class="op_single_selector"]
 > * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
@@ -35,21 +35,21 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli yerine en yeni dağıtımlar için Microsoft önerir Resource Manager dağıtım modelini kullanarak yer almaktadır.
+> Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makalede, Microsoft hello Klasik dağıtım modeli yerine çoğu yeni dağıtımlar için önerir hello Resource Manager dağıtım modeli kullanılarak kapsar.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-Azure CLI 1.0 (Bu makalede) kullanarak bu görevi tamamlayabilirsiniz veya [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md). 
+Hello Azure CLI 1.0 (Bu makalede) veya hello kullanarak bu görevi tamamlayabilirsiniz [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md). 
 
 ## <a name = "create"></a>1. adım - kodunuzu Başlat
-Kullanılan tam bash komut dosyası indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Ortamınızda çalışması için komut dosyasını değiştirmek için aşağıdaki adımları tamamlayın:
+Kullanılan hello tam bash komut dosyası indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Aşağıdaki adımları toochange hello betik toowork ortamınızdaki hello tamamlayın:
 
-Dağıtımınız için kullanmak istediğiniz değerleri temel alarak aşağıdaki değişkenlerinin değerlerini değiştirin. Bu makalede kullanılan senaryo için aşağıdaki değerleri eşleyin:
+Merhaba değerlerini değiştirin dağıtımınız için toouse istediğiniz hello değişkenleri aşağıdaki hello değerlerine göre. Bu makalede kullanılan değerleri harita toohello senaryo aşağıdaki hello:
 
 ```azurecli
-# Set variables for the new resource group
+# Set variables for hello new resource group
 rgName="IaaSStory"
 location="westus"
 
@@ -79,8 +79,8 @@ pipName="PIPWEB1"
 dnsName="iaasstoryws1"
 ```
 
-## <a name="step-2---create-the-necessary-resources-for-your-vm"></a>Adım 2 - gerekli kaynaklar için VM oluşturma
-Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafından kullanılacak gerekir.
+## <a name="step-2---create-hello-necessary-resources-for-your-vm"></a>2. adım - hello gerekli kaynaklar için VM oluşturma
+Bir VM oluşturmadan önce bir kaynak grubu, VNet, ortak IP ve NIC ihtiyacınız toobe hello VM tarafından kullanılır.
 
 1. Yeni bir kaynak grubu oluşturun.
 
@@ -88,7 +88,7 @@ Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafında
     azure group create $rgName $location
     ```
 
-2. VNet ve alt ağ oluşturun.
+2. Oluşturma VNet ve alt ağ hello.
 
     ```azurecli
     azure network vnet create --resource-group $rgName \
@@ -101,7 +101,7 @@ Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafında
         --address-prefix $subnetPrefix
     ```
 
-3. Genel IP kaynağı oluşturun.
+3. Merhaba genel IP kaynağı oluşturun.
 
     ```azurecli
     azure network public-ip create --resource-group $rgName \
@@ -111,7 +111,7 @@ Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafında
         --domain-name-label $dnsName
     ```
 
-4. Yukarıdaki genel IP ile oluşturulan alt ağdaki sanal makine için ağ arabirimi (NIC) oluşturun. İlk komut kümesini almak için kullanılan fark **kimliği** , yukarıda oluşturduğunuz alt ağının.
+4. Yukarıdaki hello genel IP ile oluşturulan hello alt hello VM için Hello ağ arabirimi (NIC) oluşturun. Bildirim hello ilk komutları kümesidir kullanılan tooretrieve hello **kimliği** yukarıda oluşturduğunuz hello alt.
 
     ```azurecli
     subnetId="$(azure network vnet subnet show --resource-group $rgName \
@@ -129,10 +129,10 @@ Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafında
     ```
 
    > [!TIP]
-   > İlk komut kullanımlar yukarıda [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) ve [dize düzenlemesi](http://tldp.org/LDP/abs/html/string-manipulation.html) (daha açık belirtmek gerekirse substring kaldırma).
+   > Merhaba kullanımlar yukarıda ilk komut [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) ve [dize düzenlemesi](http://tldp.org/LDP/abs/html/string-manipulation.html) (daha açık belirtmek gerekirse substring kaldırma).
    >
 
-5. VM işletim sistemi sürücüsünü barındırmak için bir depolama hesabı oluşturun.
+5. Bir depolama hesabı toohost hello VM işletim sistemi sürücüsü oluşturun.
 
     ```azurecli
     azure storage account create $stdStorageAccountName \
@@ -140,10 +140,10 @@ Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafında
         --location $location --type LRS
     ```
 
-## <a name="step-3---create-the-vm"></a>3. adım - VM oluşturma
+## <a name="step-3---create-hello-vm"></a>3. adım - hello VM oluşturma
 Gereken tüm kaynakların yerine getirildiğinden, yeni bir VM oluşturabilirsiniz.
 
-1. VM oluşturun.
+1. Merhaba VM oluşturun.
 
     ```azurecli
     azure vm create --resource-group $rgName \
@@ -160,18 +160,18 @@ Gereken tüm kaynakların yerine getirildiğinden, yeni bir VM oluşturabilirsin
         --admin-username $username \
         --admin-password $password
     ```
-2. Komut dosyasını kaydedin.
+2. Merhaba komut dosyasını kaydedin.
 
-## <a name="step-4---run-the-script"></a>Adım 4 - komut dosyasını çalıştır
-Gerekli değişiklikleri yapma ve komut dosyası anlama sonra yukarıda Göster, komut dosyasını çalıştırın.
+## <a name="step-4---run-hello-script"></a>Adım 4 - çalışma hello komut dosyası
+Gerekli değişiklikleri yapma ve hello betik anlama sonra yukarıda Göster, hello komut dosyasını çalıştırın.
 
-1. Bir bash konsoldan, yukarıdaki komut dosyasını çalıştırın.
+1. Bir bash konsoldan, yukarıdaki hello komut dosyasını çalıştırın.
 
     ```azurecli
     sh myscript.sh
     ```
 
-2. Birkaç dakika sonra aşağıdaki çıktıda görüntülenmesi gerekir.
+2. birkaç dakika sonra aşağıdaki Hello çıktıda görüntülenmesi gerekir.
 
         info:    Executing command group create
         info:    Getting resource group IaaSStory
@@ -197,9 +197,9 @@ Gerekli değişiklikleri yapma ve komut dosyası anlama sonra yukarıda Göster,
         data:      192.168.0.0/16
         info:    network vnet create command OK
         info:    Executing command network vnet subnet create
-        info:    Looking up the subnet "FrontEnd"
+        info:    Looking up hello subnet "FrontEnd"
         info:    Creating subnet "FrontEnd"
-        info:    Looking up the subnet "FrontEnd"
+        info:    Looking up hello subnet "FrontEnd"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
         data:    Type                            : Microsoft.Network/virtualNetworks/subnets
         data:    ProvisioningState               : Succeeded
@@ -208,9 +208,9 @@ Gerekli değişiklikleri yapma ve komut dosyası anlama sonra yukarıda Göster,
         data:
         info:    network vnet subnet create command OK
         info:    Executing command network public-ip create
-        info:    Looking up the public ip "PIPWEB1"
+        info:    Looking up hello public ip "PIPWEB1"
         info:    Creating public ip address "PIPWEB1"
-        info:    Looking up the public ip "PIPWEB1"
+        info:    Looking up hello public ip "PIPWEB1"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/publicIPAddresses/PIPWEB1
         data:    Name                            : PIPWEB1
         data:    Type                            : Microsoft.Network/publicIPAddresses
@@ -223,10 +223,10 @@ Gerekli değişiklikleri yapma ve komut dosyası anlama sonra yukarıda Göster,
         data:    FQDN                            : iaasstoryws1.westus.cloudapp.azure.com
         info:    network public-ip create command OK
         info:    Executing command network nic create
-        info:    Looking up the network interface "NICWEB1"
-        info:    Looking up the public ip "PIPWEB1"
+        info:    Looking up hello network interface "NICWEB1"
+        info:    Looking up hello public ip "PIPWEB1"
         info:    Creating network interface "NICWEB1"
-        info:    Looking up the network interface "NICWEB1"
+        info:    Looking up hello network interface "NICWEB1"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkInterfaces/NICWEB1
         data:    Name                            : NICWEB1
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -246,10 +246,10 @@ Gerekli değişiklikleri yapma ve komut dosyası anlama sonra yukarıda Göster,
         info:    Creating storage account
         info:    storage account create command OK
         info:    Executing command vm create
-        info:    Looking up the VM "WEB1"
-        info:    Using the VM Size "Standard_A1"
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        info:    Looking up the storage account iaasstorystorage
-        info:    Looking up the NIC "NICWEB1"
+        info:    Looking up hello VM "WEB1"
+        info:    Using hello VM Size "Standard_A1"
+        info:    hello [OS, Data] Disk or image configuration requires storage account
+        info:    Looking up hello storage account iaasstorystorage
+        info:    Looking up hello NIC "NICWEB1"
         info:    Creating VM "WEB1"
         info:    vm create command OK

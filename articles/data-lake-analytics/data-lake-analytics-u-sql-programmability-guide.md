@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Lake için U-SQL Programlama Kılavuzu | Microsoft Docs"
-description: "Bir bulut tabanlı büyük veri platformu oluşturmanıza olanak sağlayan bir hizmetler kümesi olan Azure Data Lake içinde hakkında bilgi edinin."
+title: "Azure Data Lake için aaaU-SQL Programlama Kılavuzu | Microsoft Docs"
+description: "Merhaba toocreate sağlayan bir hizmetler kümesi olan Azure Data Lake içinde hakkında bir bulut tabanlı büyük veri platformu öğrenin."
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: e4e298475d7be7d51c8bd55be498371ed6ce77a9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cc8f126234c6106a0dc633ce85a1d9ab1e634e30
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL Programlama Kılavuzu
 
-U-SQL, büyük veri türü için iş yüklerinin tasarlanmış bir sorgu dildir. U-SQL benzersiz özellikler SQL benzeri tanımlayıcı dili genişletilebilirlik ve C# tarafından sağlanan programlama ile birleşimidir. Bu kılavuzda, biz genişletilebilirlik ve C# kullanarak etkin U-SQL dili ile programlama yoğunlaşabilirsiniz.
+U-SQL, büyük veri türü için iş yüklerinin tasarlanmış bir sorgu dildir. Merhaba benzersiz özelliklerinden biri U-SQL hello hello SQL benzeri tanımlayıcı dili hello genişletilebilirlik ve C# tarafından sağlanan programlama ile birleşimidir. Bu kılavuzda, biz hello genişletilebilirlik ve C# kullanarak etkin hello U-SQL dili ile programlama yoğunlaşabilirsiniz.
 
 ## <a name="requirements"></a>Gereksinimler
 
@@ -29,7 +29,7 @@ U-SQL, büyük veri türü için iş yüklerinin tasarlanmış bir sorgu dildir.
 
 ## <a name="get-started-with-u-sql"></a>U-SQL ile çalışmaya başlama  
 
-Aşağıdaki U-SQL betiği bakalım:
+U-SQL betiği aşağıdaki hello bakalım:
 
 ```
 @a  = 
@@ -53,7 +53,7 @@ Adlı bir satır kümesi tanımlar @a ve adlı bir satır kümesi oluşturur @re
 
 Bir C# ifadesi gibi U-SQL mantıksal işlemleriyle birlikte bir U-SQL ifadesidir `AND`, `OR`, ve `NOT`. U-SQL deyimleri seçin, ayıklama, kullanılabilir nerede, otomatik olarak sahip olmak ve GROUP BY BİLDİRİN.
 
-Örneğin, aşağıdaki komut dosyasını bir dize bir DateTime değeri SELECT yan tümcesinde ayrıştırır.
+Örneğin, komut dosyası izleyen hello bir dize bir DateTime değeri hello SELECT yan tümcesinde ayrıştırır.
 
 ```
 @results =
@@ -64,14 +64,14 @@ Bir C# ifadesi gibi U-SQL mantıksal işlemleriyle birlikte bir U-SQL ifadesidir
     FROM @a;    
 ```
 
-Aşağıdaki komut dosyasını bir dize bir DateTime değeri DECLARE deyimi içinde ayrıştırır.
+Merhaba aşağıdaki komut dosyasını bir dize bir DateTime değeri DECLARE deyimi içinde ayrıştırır.
 
 ```
 DECLARE @d DateTime = ToDateTime.Date("2016/01/01");
 ```
 
 ### <a name="use-c-expressions-for-data-type-conversions"></a>Veri türü dönüştürmeleri için C# ifadeleri kullanma
-Aşağıdaki örnek, C# ifadeler kullanarak bir datetime veri dönüştürme nasıl yapabilirsiniz gösterir. Bu belirli bir senaryoda, dize TarihSaat veri gece 00:00:00 saat gösterimi standart DateTime değerine dönüştürülür.
+C# ifadeler kullanarak bir datetime veri dönüştürme nasıl yapabilirsiniz aşağıdaki örneğine hello gösterir. Bu belirli bir senaryoda, gece yarısı 00:00:00 saat gösterimi dönüştürülmüş toostandard datetime dize datetime verilerdir.
 
 ```
 DECLARE @dt String = "2016-07-06 10:23:15";
@@ -81,17 +81,17 @@ DECLARE @dt String = "2016-07-06 10:23:15";
         Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
         dt AS olddt
     FROM @rs0;
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 too@output_file USING Outputters.Text();
 ```
 
 ### <a name="use-c-expressions-for-todays-date"></a>Bugünün tarihini C# ifadeleri kullanma
-Bugünün tarihini çıkarmak için aşağıdaki C# ifade kullanabilirsiniz:
+toopull bugünün tarihini, C# ifade aşağıdaki hello biz kullanabilirsiniz:
 
 ```
 DateTime.Now.ToString("M/d/yyyy")
 ```
 
-Bu ifade bir komut dosyası kullanma örneği şöyledir:
+Örneği nasıl toouse bu ifadede bir komut dosyası:
 
 ```
 @rs1 =
@@ -110,40 +110,40 @@ Bu ifade bir komut dosyası kullanma örneği şöyledir:
 
 
 ## <a name="using-net-assemblies"></a>.NET derlemelerini kullanma
-U-SQL'nin genişletilebilirlik modeli, özel kod ekleme olanağı yoğun olarak kullanır. Şu anda, U-SQL kendi Microsoft eklemek için kolay yollar sağlar. NET tabanlı kodda (özellikle, C#). Ancak, VB.NET veya F # gibi diğer .NET dilleri yazılmış özel kod ekleyebilirsiniz. 
+U-SQL'nin genişletilebilirlik modeli yoğun hello özelliği tooadd özel kodunu kullanır. Şu anda, U-SQL, kolay yolları tooadd ile kendi Microsoft sağlar. NET tabanlı kodda (özellikle, C#). Ancak, VB.NET veya F # gibi diğer .NET dilleri yazılmış özel kod ekleyebilirsiniz. 
 
 ### <a name="register-a-net-assembly"></a>Bir .NET derlemesi kaydetme
 
-Bir .NET derlemesi bir U-SQL veritabanına yerleştirmek için CREATE ASSEMBLY deyimini kullanın. Bir veritabanında bir derlemeyi olduktan sonra U-SQL betiklerini referans DERLEMESİNİ deyimi kullanarak bu derlemeler kullanabilirsiniz. 
+Merhaba CREATE ASSEMBLY deyimi tooplace bir U-SQL veritabanına bir .NET derlemesi kullanın. Bir veritabanında bir derlemeyi olduktan sonra U-SQL betikleri hello referans DERLEMESİNİ deyimi kullanarak bu derlemeler kullanabilirsiniz. 
 
-Aşağıdaki kod, bir derlemeyi kaydetmeye gösterilmektedir:
+kodun gösterdiği nasıl aşağıdaki hello tooregister bütünleştirilmiş:
 
 ```
 CREATE ASSEMBLY MyDB.[MyAssembly]
     FROM "/myassembly.dll";
 ```
 
-Aşağıdaki kod, bir derleme başvurusu gösterilmektedir:
+kodun gösterdiği nasıl aşağıdaki hello tooreference bütünleştirilmiş:
 
 ```
 REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
-Başvurun [derleme kayıt yönergeleri](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) , bu konuda daha ayrıntılı ele alınmaktadır.
+Merhaba başvurun [derleme kayıt yönergeleri](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) , bu konuda daha ayrıntılı ele alınmaktadır.
 
 
 ### <a name="use-assembly-versioning"></a>Derleme sürümü oluşturma kullanın
-Şu anda, U-SQL .NET Framework sürüm 4.5 kullanır. Bu nedenle, kendi derlemeleri çalışma zamanı bu sürümü ile uyumlu olduğundan emin olun.
+Şu anda, U-SQL hello .NET Framework sürüm 4.5 kullanır. Bu nedenle, kendi derlemeleri hello çalışma zamanı bu sürümü ile uyumlu olduğundan emin olun.
 
-U-SQL kodun bir 64-bit (x 64) biçiminde daha önce belirtildiği gibi. Bu nedenle, kodunuzu x64 üzerinde çalıştırmak için derlendiğinden emin olun. Aksi takdirde, daha önce gösterilen yanlış biçim hatası alırsınız.
+U-SQL kodun bir 64-bit (x 64) biçiminde daha önce belirtildiği gibi. Böylece kodunuzu derlenmiş toorun x64 üzerinde olduğundan emin olun. Aksi takdirde, daha önce gösterilen hello yanlış biçim hatası alırsınız.
 
-Her derleme dll dosyasını karşıya ve farklı bir çalışma zamanı, yerel bir derleme veya bir yapılandırma dosyası gibi bir kaynak dosya en fazla 400 MB olabilir. Kaynak dağıtma aracılığıyla ya da derlemeler ve ek dosyalarına başvuruları yoluyla dağıtılan kaynakları toplam boyutu 3 GB aşamaz.
+Her derleme dll dosyasını karşıya ve farklı bir çalışma zamanı, yerel bir derleme veya bir yapılandırma dosyası gibi bir kaynak dosya en fazla 400 MB olabilir. Kaynak dağıtma aracılığıyla veya başvuruları tooassemblies ve bunların ek dosyaları aracılığıyla dağıtılan kaynakları Hello toplam boyutu 3 GB aşamaz.
 
-Son olarak, her U-SQL veritabanı herhangi verilen derleme bir sürümü yalnızca içerebileceğini unutmayın. Örneğin, sürüm 7 ve sürüm 8 NewtonSoft Json.Net kitaplığının ihtiyacınız varsa, bunları iki farklı veritabanlarında kaydetmeniz gerekir. Ayrıca, her komut dosyası yalnızca bir verilen derleme DLL sürümüne başvurabilir. Bu bakımdan, U-SQL C# derleme yönetimi ve sürüm oluşturma semantiğini izler.
+Son olarak, her U-SQL veritabanı herhangi verilen derleme bir sürümü yalnızca içerebileceğini unutmayın. Sürüm 7 ve 8 sürümü hello NewtonSoft Json.Net kitaplığı ihtiyacınız varsa, örneğin, tooregister gereken iki farklı veritabanlarındaki bunları. Ayrıca, her komut dosyası yalnızca belirli bir derleme DLL tooone sürümü başvurabilir. Bu bakımdan, U-SQL Yönetimi ve sürüm oluşturma derleme hello C# semantiği izler.
 
 
 ## <a name="use-user-defined-functions-udf"></a>Kullanıcı tanımlı işlevler kullanın: UDF
-U-SQL kullanıcı tanımlı işlevler veya UDF, parametreleri kabul, (örneğin, karmaşık bir hesaplama) bir eylem gerçekleştirmek ve bu eylem bir değer olarak sonuç yordamları programlama. UDF dönüş değerini, yalnızca tek bir skaler olabilir. U-SQL UDF temel U-SQL betiği diğer C# skaler bir işlev gibi çağrılabilir.
+U-SQL kullanıcı tanımlı işlevler veya UDF, parametreleri kabul eder, (örneğin, karmaşık bir hesaplama) bir eylem gerçekleştirmek ve bir değer olarak bu eylemin hello sonuç yordamları programlama. Merhaba Döndür UDF değeri yalnızca tek bir skaler olabilir. U-SQL UDF temel U-SQL betiği diğer C# skaler bir işlev gibi çağrılabilir.
 
 U-SQL kullanıcı tanımlı işlevler olarak başlatma öneririz **ortak** ve **statik**.
 
@@ -154,11 +154,11 @@ public static string MyFunction(string param1)
 }
 ```
 
-İlk bir UDF oluşturma basit örneğe bakalım.
+İlk bir UDF oluşturma hello basit örneğe bakalım.
 
-Bu kullanım örneği senaryosu biz mali ayı ilk oturum açma için belirli kullanıcı ve Mali Çeyrek yıl de dahil olmak üzere mali dönemi belirlemeniz gerekir. Senaryomuzda yılın ilk mali ayı Haziran ' dir.
+Bu kullanım örneği senaryosu hello mali çeyreği ve mali ayı hello ilk oturum açma hello belirli bir kullanıcı için de dahil olmak üzere toodetermine hello mali süresi gerekir. Merhaba bizim senaryoda hello yılın ilk mali ayı Haziran ' dir.
 
-Mali dönemi hesaplamak için size aşağıdaki C# işlevi tanıtmaktadır:
+toocalculate mali dönem, biz C# işlevi aşağıdaki hello sunar:
 
 ```
 public static string GetFiscalPeriod(DateTime dt)
@@ -195,11 +195,11 @@ public static string GetFiscalPeriod(DateTime dt)
 }
 ```
 
-Mali ayı ve üç aylık dönem hesaplar ve bir string değeri döndürür. Haziran için ilk mali Çeyreğin ilk ayı "Q1:P1" kullanırız. Temmuz, biz "Q1:P2" kullanın ve benzeri.
+Mali ayı ve üç aylık dönem hesaplar ve bir string değeri döndürür. Merhaba ilk ayın hello ilk mali çeyreği, Haziran için "Q1:P1" kullanın. Temmuz, biz "Q1:P2" kullanın ve benzeri.
 
-Bu, biz U-SQL Projemizin kullanacaksanız bir normal C# işlevdir.
+Devam eden toouse U-SQL Projemizin gerçekleştirildiğine dair normal bir C# işlevi budur.
 
-Arka plan kodu bölüm bu senaryoda, nasıl göründüğünü aşağıda verilmiştir:
+Merhaba arka plan kodu bölüm bu senaryoda, nasıl göründüğünü aşağıda verilmiştir:
 
 ```
 using Microsoft.Analytics.Interfaces;
@@ -251,13 +251,13 @@ namespace USQL_Programmability
 }
 ```
 
-Şimdi Biz bu işlev temel U-SQL komut dosyasından çağıracaksınız. Bunu yapmak için bu durumda NameSpace.Class.Function(parameter) olduğu ad alanı dahil işlevi tam olarak nitelenmiş bir ad vermek sahibiz.
+Şimdi biz toocall bu işlev hello temel U-SQL komut dosyasından adımıdır. toodo Bu, biz tooprovide hello ad alanı, bu durumda NameSpace.Class.Function(parameter) olduğu dahil olmak üzere hello işlevi için tam bir ada sahip.
 
 ```
 USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)
 ```
 
-Gerçek U-SQL temel betiği aşağıdadır:
+Merhaba gerçek U-SQL temel betiği aşağıdadır:
 
 ```
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -285,11 +285,11 @@ DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
     GROUP BY user, des;
 
 OUTPUT @rs1 
-    TO @output_file 
+    too@output_file 
     USING Outputters.Text();
 ```
 
-Çıkış dosyası komut dosyası yürütme aşağıdadır:
+Merhaba çıktı dosyası hello komut dosyası yürütme aşağıdadır:
 
 ```
 0d8b9630-d5ca-11e5-8329-251efa3a2941,2016-02-11T07:04:17.2630000-08:00,2016-06-01T00:00:00.0000000,"Q3:8","User1",""
@@ -302,19 +302,19 @@ OUTPUT @rs1
 Bu örnek, basit bir satır içi U-SQL UDF'de kullanımını gösterir.
 
 ### <a name="keep-state-between-udf-invocations"></a>UDF çağrılarını arasında durumu tutun
-U-SQL C# programlama nesnelerini daha, arka plan kodu Genel değişkenler aracılığıyla etkileşim kullanan gelişmiş. Aşağıdaki iş kullanım örneği senaryosu bakalım.
+U-SQL C# programlama nesnelerini daha, hello arka plan kodu Genel değişkenler aracılığıyla etkileşim kullanan gelişmiş. İş kullanım örneği senaryosu aşağıdaki hello bakalım.
 
-Büyük kuruluşlarda, kullanıcıların iç uygulamaları çeşitleri arasında geçiş yapabilirsiniz. Bunlar, Microsoft Dynamics CRM, Powerbı vb. içerebilir. Müşteriler kullanıcılar kullanım eğilimleri nelerdir, farklı uygulamalar arasında nasıl geçiş, bir telemetri analizi uygulamak istediğiniz ve benzeri. Uygulama kullanımı en iyi duruma getirme iş için belirtilir. Farklı uygulamalar veya oturum açma belirli yordamları birleştirmek de isteyebilirsiniz.
+Büyük kuruluşlarda, kullanıcıların iç uygulamaları çeşitleri arasında geçiş yapabilirsiniz. Bunlar, Microsoft Dynamics CRM, Powerbı vb. içerebilir. Müşteriler tooapply kullanıcıların hangi hello kullanım olan ve benzeri eğilimlerin farklı uygulamalar arasında nasıl geçiş, bir telemetri analizi isteyebilirsiniz. Merhaba hello iş için toooptimize uygulama kullanımı hedeftir. Ayrıca toocombine farklı uygulamalar veya oturum açma belirli yordamları isteyebilirsiniz.
 
-Bu hedefe ulaşmak için biz oturum kimliklerini belirlemek ve öteleme arasında oluştu son oturumun süresi gerekir.
+tooachieve bu hedef toodetermine oturum kimlikleri ve gecikme süresi arasında hello oluştu son oturumun sunuyoruz.
 
-Bir önceki oturum açma bulma ve ardından bu oturum açma aynı uygulama için oluşturulan tüm oturumları atamak gerekir. U-SQL temel betiği bize ÖTELEME işlevi zaten hesaplanmış sütunlar üzerinde hesaplamalar uygulamak izin vermeyen ilk iştir. Belirli bir oturum için aynı süre içinde tüm oturumları tutmak sahibiz ikinci iştir.
+Bir önceki oturum açma toofind gerekir ve oluşturulan toohello yükleniyor bu oturum açma tooall oturumları atamak aynı uygulama. Merhaba ilk temel U-SQL betiği bize tooapply hesaplamalar önceden hesaplanan sütunlar ÖTELEME işleviyle üzerinden izin vermez, iştir. Merhaba ikinci tookeep hello hello içindeki tüm oturumlar için belirli bir oturum sahibiz iştir aynı süre.
 
-İçinde bir arka plan kodu bölümü genel değişkeni kullanırız bu sorunu çözmek için: `static public string globalSession;`.
+toosolve Bu sorun bir arka plan kodu bölüm içinde genel değişkeni kullanırız: `static public string globalSession;`.
 
-Bu genel değişkeni tüm satır kümesi için komut dosyası yürütme sırasında uygulanır.
+Bu genel değişkeni bizim komut dosyası yürütme sırasında uygulanan toohello tüm satır kümesidir.
 
-U-SQL programımız arka plan kodu bölümünü şöyledir:
+U-SQL programımız hello arka plan kodu bölümü aşağıda verilmiştir:
 
 ```
 using Microsoft.Analytics.Interfaces;
@@ -352,9 +352,9 @@ namespace USQLApplication21
 }
 ```
 
-Bu örnek, genel değişkeni gösterir `static public string globalSession;` içinde kullanılan `getStampUserSession` işlevi ve oturum parametresi değiştirildiğinde her zaman yeniden.
+Gösterir hello genel değişkeni Bu örnek `static public string globalSession;` hello içinde kullanılan `getStampUserSession` işlevi ve alma yeniden her zaman hello oturum parametresi değiştirilir.
 
-U-SQL temel komut aşağıdaki gibidir:
+Merhaba temel U-SQL betiği aşağıdaki gibidir:
 
 ```
 DECLARE @in string = @"\UserSession\test1.tsv";
@@ -399,14 +399,14 @@ DECLARE @out3 string = @"\UserSession\Out3.csv";
     WHERE UserName != "UserName";
 
 OUTPUT @rs2
-    TO @out2
+    too@out2
     ORDER BY UserName, EventDateTime ASC
     USING Outputters.Csv();
 ```
 
-İşlev `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` burada ikinci bellek satır kümesi hesaplama sırasında çağrılır. Bunu geçirir `UserSessionTimestamp` sütun ve kadar değeri döndürür `UserSessionTimestamp` değişti.
+İşlev `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` burada hello ikinci bellek satır kümesi hesaplama sırasında çağrılır. Merhaba geçirir `UserSessionTimestamp` sütun ve döndürür hello değeri kadar `UserSessionTimestamp` değişti.
 
-Çıktı dosyası aşağıdaki gibidir:
+Merhaba çıktı dosyası aşağıdaki gibidir:
 
 ```
 "2016-02-19T07:32:36.8420000-08:00","User1",,True,"72a0660e-22df-428e-b672-e0977007177f"
@@ -433,17 +433,17 @@ OUTPUT @rs2
 "2016-02-19T01:20:31.4800000-08:00","User4","2016-02-18T14:37:27.6560000-08:00",False,"2136f4cf-7c7d-43c1-8ae2-08f4ad6a6e08"
 ```
 
-Bu örnek bir genel değişkeni tüm bellek satır kümesi için uygulanan bir arka plan kodu bölüm içinde kullandığımız daha karmaşık bir kullanım örneği senaryosu gösterilmektedir.
+Bu örnek bir genel değişkeni uygulanan toohello tüm bellek satır kümesi olan bir arka plan kodu bölüm içinde kullandığımız daha karmaşık bir kullanım örneği senaryosu gösterilmektedir.
 
 ## <a name="use-user-defined-types-udt"></a>Kullanıcı tanımlı türler kullanın: UDT
-Kullanıcı tanımlı türler veya UDT, başka bir programlama, U-SQL özelliğidir. U-SQL UDT bir normal C# kullanıcı tanımlı tür gibi davranır. C# yerleşik ve özel kullanıcı tanımlı türler kullanılmasına kesin türü belirtilmiş bir dil değil.
+Kullanıcı tanımlı türler veya UDT, başka bir programlama, U-SQL özelliğidir. U-SQL UDT bir normal C# kullanıcı tanımlı tür gibi davranır. C# yerleşik ve özel kullanıcı tanımlı türler hello kullanılmasına kesin türü belirtilmiş bir dil değil.
 
-U-SQL örtük olarak serileştirmek veya satır kümeleri tepe arasında UDT geçirildiğinde rasgele atama anlayabileceği olamaz. Bu, kullanıcının açık bir biçimlendirici IFormatter arabirimini kullanarak sağlamak sahip anlamına gelir. Bu, U-SQL ile serileştirme sağlar ve yöntemleri için UDT anlayabileceği.
+U-SQL örtük olarak serileştirmek veya satır kümeleri tepe arasında hello UDT geçirildiğinde rasgele atama anlayabileceği olamaz. Bu, açık bir biçimlendirici tooprovide hello IFormatter arabirimini kullanarak hello kullanıcının sahip anlamına gelir. Bu U-SQL ile Merhaba sağlar seri hale getirmek ve seri durumdan hello UDT yöntemleri.
 
 > [!NOTE]
-> U-SQL'nin yerleşik ayıklayıcıları ve outputters şu anda serileştirmek veya seri durumdan UDT veri ya da hatta IFormatter kümesiyle dosyalarından. Bu nedenle çıktı ifadesiyle bir dosyaya UDT veri yazma veya bir ayıklayıcısı ile okuma, bir string veya byte dizisi olarak geçirmeniz gerekir. Ardından serileştirme çağırın ve kod (diğer bir deyişle, UDT'ın ToString() yöntemini) açıkça seri durumundan çıkarma. Kullanıcı tanımlı ayıklayıcıları ve outputters, diğer yandan okuyabilir ve atama yazma.
+> U-SQL'nin yerleşik ayıklayıcıları ve outputters şu anda serileştirmek veya seri durumdan UDT veri tooor dosyalarını bile hello IFormatter kümesi. UDT veri tooa hello çıkış deyimi dosyasıyla yazıyorsanız ya da toopass sahip bir ayıklayıcısı okuma, böyle bir string veya byte dizisi olarak. Ardından hello serileştirme çağırın ve kod (diğer bir deyişle, hello UDT'ın ToString() yöntemini) açıkça seri durumundan çıkarma. Kullanıcı tanımlı ayıklayıcıları ve hello diğer üzerinde outputters el okuyabilir ve atama yazma.
 
-Biz UDT AYIKLAYICISI veya OUTPUTTER (dışında önceki seçin), aşağıda gösterildiği gibi kullanırsanız:
+Aşağıda gösterildiği gibi toouse AYIKLAYICISI veya OUTPUTTER (dışında önceki seçin), UDT deneyin ise:
 
 ```
 @rs1 =
@@ -452,14 +452,14 @@ Biz UDT AYIKLAYICISI veya OUTPUTTER (dışında önceki seçin), aşağıda gös
     FROM @rs0;
 
 OUTPUT @rs1 
-    TO @output_file 
+    too@output_file 
     USING Outputters.Text();
 ```
 
-Biz, şu hata iletisini alıyorsunuz:
+Aşağıdaki hata hello aldığımız:
 
 ```
-Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
+Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used toooutput column myfield of type
 MyNameSpace.Myfunction_Returning_UDT.
 
 Description:
@@ -468,14 +468,14 @@ Outputters.Text only supports built-in types.
 
 Resolution:
 
-Implement a custom outputter that knows how to serialize this type, or call a serialization method on the type in
-the preceding SELECT.   C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
+Implement a custom outputter that knows how tooserialize this type, or call a serialization method on hello type in
+hello preceding SELECT. C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
 USQL-Programmability\Types.usql 52  1   USQL-Programmability
 ```
 
-İçinde outputter UDT ile çalışmak için ya da ToString() yöntemiyle dize veya bir özel outputter oluşturmak için seri hale getirmek sahibiz.
+outputter içinde toowork UDT ile ya da sahip olduğumuz tooserialize, toostring ile ToString() yöntemini hello veya özel bir outputter oluşturun.
 
-Atama, grup tarafından şu anda kullanılamaz. UDT grubu tarafından kullanılıyorsa, aşağıdaki hata oluşturulur:
+Atama, grup tarafından şu anda kullanılamaz. UDT grubu tarafından kullanılıyorsa, aşağıdaki hata hello oluşturulur:
 
 ```
 Error   1   E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
@@ -487,33 +487,33 @@ GROUP BY doesn't support UDT or Complex types.
 
 Resolution:
 
-Add a SELECT statement where you can project a scalar column that you want to use with GROUP BY.
+Add a SELECT statement where you can project a scalar column that you want toouse with GROUP BY.
 C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\USQL-Programmability\Types.usql
 62  5   USQL-Programmability
 ```
 
-UDT tanımlamak için biz gerekir:
+UDT toodefine, biz gerekir:
 
-* Şu ad alanlarından ekleyin:
+* Ad alanları aşağıdaki hello ekleyin:
 
 ```
 using Microsoft.Analytics.Interfaces
 using System.IO;
 ```
 
-* Ekleme `Microsoft.Analytics.Interfaces`, UDT arabirimler için gerekli olduğu. Ayrıca, `System.IO` IFormatter arabirimi tanımlamak için gerekli.
+* Ekleme `Microsoft.Analytics.Interfaces`, hello UDT arabirimler için gerekli olduğu. Ayrıca, `System.IO` gerekli toodefine hello IFormatter arabirimi olabilir.
 
 * Kullanılan tanımlı bir tür SqlUserDefinedType özniteliğiyle tanımlayın.
 
-**SqlUserDefinedType** bir tür tanımı bir kullanıcı tanımlı tür (UDT) U-SQL'de bir bütünleştirilmiş işaretlemek için kullanılır. Öznitelik özellikleri UDT fiziksel özelliklerini yansıtır. Bu sınıf devralınan olamaz.
+**SqlUserDefinedType** kullanılan toomark bir türü kullanıcı tanımlı bir tür (UDT) olarak derlemedeki U-SQL tanımıdır. Merhaba özellikleri hello öznitelikte hello UDT fiziksel özelliklerini hello yansıtır. Bu sınıf devralınan olamaz.
 
 SqlUserDefinedType UDT tanımı için gerekli bir özniteliktir.
 
-Sınıf oluşturucu:  
+Merhaba sınıfının Hello Oluşturucusu:  
 
 * SqlUserDefinedTypeAttribute (türü biçimlendirici)
 
-* Biçimlendirici yazın: gerekli bir UDT biçimlendirici--özellikle tanımlamak için parametre türü `IFormatter` arabirimi gerekir bayraklarıdır burada.
+* Biçimlendirici yazın: gerekli parametre toodefine bir UDT biçimlendirici--özellikle hello hello türü `IFormatter` arabirimi gerekir bayraklarıdır burada.
 
 ```
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -521,7 +521,7 @@ public class MyType
 { … }
 ```
 
-* Tipik UDT, ayrıca aşağıdaki örnekte gösterildiği gibi IFormatter arabirimi tanımını gerektirir:
+* Tipik UDT hello aşağıdaki örnekte gösterildiği gibi hello IFormatter arabirimi tanımını da gerektirir:
 
 ```
 public class MyTypeFormatter : IFormatter<MyType>
@@ -534,25 +534,25 @@ public class MyTypeFormatter : IFormatter<MyType>
 }
 ```
 
-`IFormatter` Arabirimi serileştirir ve kök türüne sahip bir nesne grafiğinin XML'deki serileştiren \<typeparamref name = "T" >.
+Merhaba `IFormatter` arabirimi serileştirir ve hello kök türüne sahip bir nesne grafiğinin XML'deki serileştiren \<typeparamref name = "T" >.
 
-\<typeparam name = "T" > serileştirme ve seri durumdan kök türü için Nesne grafiği.
+\<typeparam name = "T" > merhaba kök türü için hello Nesne grafiği tooserialize ve seri durumdan.
 
-* **Seri durumdan**: Sağlanan akış verilerini XML'deki serileştirir ve grafik nesnelerinin reconstitutes.
+* **Seri durumdan**: sağlanan hello akış hello verileri XML'deki serileştirir ve hello grafik nesnelerinin reconstitutes.
 
-* **Seri hale**: bir nesne ya da nesneleriyle verilen kök sağlanan akış grafiği Serileştirir.
+* **Seri hale**: bir nesne ya da nesne, grafik kök toohello sağlanan akış verilen hello ile Serileştirir.
 
-`MyType`Örnek: türünün örneği.  
-`IColumnWriter`yazıcı / `IColumnReader` okuyucu: temel sütun akış.  
-`ISerializationContext`Bağlam: seri hale getirme sırasında akış kaynak veya hedef bağlamının belirten bayrakları kümesini tanımlayan Enum.
+`MyType`Örnek: Merhaba türünün örneği.  
+`IColumnWriter`yazıcı / `IColumnReader` okuyucu: sütun akış temel hello.  
+`ISerializationContext`Bağlam: Enum hello kaynak veya hedef bağlamı hello akış için serileştirme sırasında belirten bayrakları kümesini tanımlar.
 
-* **Ara**: kaynak veya hedef bağlamı kalıcı depolama olmadığını belirtir.
+* **Ara**: Bu hello kaynak veya hedef bağlamı kalıcı depolama değil belirtir.
 
-* **Kalıcılığı**: kaynak veya hedef bağlamı kalıcı depolama alanının olduğunu belirtir.
+* **Kalıcılığı**: Bu hello kaynak veya hedef bağlam kalıcı depolama olduğunu belirtir.
 
-Bir normal C# türü olarak bir U-SQL UDT tanımı geçersiz kılmaları işleçlerini gibi içerebilir +/ == /! =. Statik yöntemler de içerir. Biz bu UDT U-SQL MIN toplama işlevi için parametre olarak kullanacaksanız, örneğin, biz tanımlamak varsa < işleci geçersiz kılma.
+Bir normal C# türü olarak bir U-SQL UDT tanımı geçersiz kılmaları işleçlerini gibi içerebilir +/ == /! =. Statik yöntemler de içerir. Biz toouse bu UDT parametresi tooa U-SQL MIN toplama işlevi kullanacaksanız, örneğin, toodefine sahibiz < işleci geçersiz kılma.
 
-Bu kılavuzda daha önce belirli bir tarihten Qn:Pn (Q1:P10) biçiminde mali dönem tanımlaması için bir örnek gösterilmektedir. Aşağıdaki örnek, mali dönemi değerlerini için özel bir tür tanımlamak gösterilmiştir.
+Bu kılavuzda daha önce Qn:Pn (Q1:P10) hello biçiminde hello belirli tarihten mali dönem tanımlaması için bir örnek gösterilmektedir. Aşağıdaki örnek hello nasıl toodefine özel mali dönem için değerler girin gösterir.
 
 Aşağıdaki özel UDT ve IFormatter arabirimi arka plan kodu bölümle örneğidir:
 
@@ -655,11 +655,11 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-İki sayı türü tanımlanmış içerir: üç aylık dönem ve ay. İşleç == /! = / > / < ve statik yöntemi ToString() burada tanımlanır.
+Merhaba tanımlı türünü içeren iki sayı: üç aylık dönem ve ay. İşleç == /! = / > / < ve statik yöntemi ToString() burada tanımlanır.
 
-Daha önce belirtildiği gibi UDT SELECT ifadelerde kullanılabilir, ancak OUTPUTTER/AYIKLAYICISI özel serileştirme kullanılamaz. ToString() bir dize olarak serileştirilmesi gereken ya da özel bir OUTPUTTER/AYIKLAYICISI kullanılır.
+Daha önce belirtildiği gibi UDT SELECT ifadelerde kullanılabilir, ancak OUTPUTTER/AYIKLAYICISI özel serileştirme kullanılamaz. Ya da ToString() bir dize olarak serileştirilmiş veya özel bir OUTPUTTER/AYIKLAYICISI kullanılan toobe de vardır.
 
-Şimdi şimdi UDT kullanımını tartışın. Arka plan kodu bölümünde, biz bizim GetFiscalPeriod işlevi için değiştirilmiştir:
+Şimdi şimdi UDT kullanımını tartışın. Arka plan kodu bölümünde bizim GetFiscalPeriod işlevi toohello aşağıdaki değiştirilmiştir:
 
 ```
 public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
@@ -696,9 +696,9 @@ public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
 }
 ```
 
-Gördüğünüz gibi bizim FiscalPeriod türü değeri döndürür.
+Gördüğünüz gibi bizim FiscalPeriod türü hello değerini döndürür.
 
-Daha fazla U-SQL temel komut dosyasında kullanmak nasıl bir örneği burada sunuyoruz. Bu örnek, farklı UDT çağırma formlardan U-SQL betiği gösterir.
+Burada nasıl toouse başka işlemler U-SQL temel komut dosyasında bir örnek sağlar. Bu örnek, farklı UDT çağırma formlardan U-SQL betiği gösterir.
 
 ```
 DECLARE @input_file string = @"c:\work\cosmos\usql-programmability\input_file.tsv";
@@ -733,14 +733,14 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            fiscalmonth,
            USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
 
-       // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
+       // This user-defined type was created in hello prior SELECT.  Passing hello UDT toothis subsequent SELECT would have failed if hello UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
            des
     FROM @rs1;
 
 OUTPUT @rs2 
-    TO @output_file 
+    too@output_file 
     USING Outputters.Text();
 ```
 
@@ -905,9 +905,9 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 ```
 
 ## <a name="use-user-defined-aggregates-udagg"></a>Kullanıcı tanımlı toplamlarda kullanın: UDAGG
-Kullanıcı tanımlı toplamlarda, toplama ile ilgili olan tüm işlevler out-of--box U-SQL ile gönderilmeyen ' dir. Örneğin, özel matematik hesaplamaları, dize birleştirmeler, işlemeleri dizeler vb. ile gerçekleştirmek için bir toplama olabilir.
+Kullanıcı tanımlı toplamlarda, toplama ile ilgili olan tüm işlevler out-of--box U-SQL ile gönderilmeyen ' dir. Merhaba örneği özel matematik hesaplamaları, dize birleştirmeler işlemeleri dizeler, bir toplama tooperform olması ve benzeri.
 
-Kullanıcı tanımlı toplama temel sınıf tanımı aşağıdaki gibidir:
+Merhaba kullanıcı tanımlı toplama temel sınıf tanımı aşağıdaki gibidir:
 
 ```c#
     [SqlUserDefinedAggregate]
@@ -921,12 +921,12 @@ Kullanıcı tanımlı toplama temel sınıf tanımı aşağıdaki gibidir:
     }
 ```
 
-**SqlUserDefinedAggregate** türü kullanıcı tanımlı toplama olarak kayıtlı olduğunu belirtir. Bu sınıf devralınan olamaz.
+**SqlUserDefinedAggregate** hello türü kullanıcı tanımlı toplama olarak kayıtlı olduğunu belirtir. Bu sınıf devralınan olamaz.
 
 SqlUserDefinedType özniteliği **isteğe bağlı** UDAGG tanımı.
 
 
-Üç soyut parametreleri geçirmek temel sınıf sağlar: iki giriş parametreleri ve bir sonucu olarak. Veri türleri değişkendir ve sınıf devralma sırasında tanımlanması gerekir.
+Merhaba temel sınıf toopass üç soyut parametrelerinin sağlar: iki giriş parametreleri ve bir hello sonucunda olarak. Başlangıç veri türleri değişkendir ve sınıf devralma sırasında tanımlanması gerekir.
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
@@ -945,17 +945,17 @@ public class GuidAggregate : IAggregate<string, string, string>
 ```
 
 * **Init** hesaplaması sırasında her grup için bir kez çağırır. Bu, her toplama grubu için bir başlatma yordamının sağlar.  
-* **Accumulate** her bir değer için bir kez çalıştırılır. Toplama algoritması ana işlevsellik sağlar. Sınıf devralma sırasında tanımlanan çeşitli veri türlerine sahip toplama değerlerini için kullanılabilir. Değişken veri türünde iki parametre kabul edebilir.
-* **Sonlandırma** her grup için sonucu çıkarmak için işlem sonunda toplama grubu başına bir kez çalıştırılır.
+* **Accumulate** her bir değer için bir kez çalıştırılır. Bu, hello toplama algoritması hello ana işlevsellik sağlar. Kullanılan tooaggregate değerleri sınıf devralma sırasında tanımlanan çeşitli veri türlerine sahip olabilir. Değişken veri türünde iki parametre kabul edebilir.
+* **Sonlandırma** toooutput hello sonuç her grup için işleme hello sonunda toplama grubu başına bir kez çalıştırılır.
 
-Doğru giriş ve çıkış veri türlerinin bildirmek için sınıf tanımını aşağıdaki şekilde kullanın:
+toodeclare doğru girdi ve çıktı veri türlerini kullanın hello sınıf tanımını gibi:
 
 ```
 public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
-* T1: ilk parametre birikmesine
-* T2: ilk parametre birikmesine
+* T1: İlk parametre tooaccumulate
+* T2: İlk parametre tooaccumulate
 * TResult: dönüş türü Sonlandır
 
 Örneğin:
@@ -971,9 +971,9 @@ public class GuidAggregate : IAggregate<string, string, string>
 ```
 
 ### <a name="use-udagg-in-u-sql"></a>U-SQL UDAGG kullanın
-UDAGG kullanmak için ilk kod arkasında tanımlayın veya daha önce bahsedildiği gibi varolan programlama DLL başvuru.
+toouse UDAGG, ilk kod arkasında tanımlayın veya daha önce bahsedildiği gibi hello varolan programlama DLL başvurun.
 
-Ardından aşağıdaki sözdizimini kullanın:
+Ardından sözdizimi aşağıdaki hello kullanın:
 
 ```
 AGG<UDAGG_functionname>(param1,param2)
@@ -1029,30 +1029,30 @@ DECLARE @output_file string = @" \usql-programmability\output_file.tsv";
     FROM @rs0
     GROUP BY user;
 
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 too@output_file USING Outputters.Text();
 ```
 
-Bu kullanım örneği senaryosu sınıfı GUID'leri belirli kullanıcılar için birleştirme.
+Bu kullanım örneği senaryosu sınıfı GUID'leri hello belirli kullanıcılar için birleştirme.
 
 ## <a name="use-user-defined-objects-udo"></a>Kullanıcı tanımlı nesneler kullanın: UDO
-U-SQL kullanıcı tanımlı nesneler veya UDO adlı özel programlama nesneleri tanımlamanıza olanak sağlar.
+U-SQL kullanıcı tanımlı nesneler veya UDO adlı toodefine özel programlama nesnelerini sağlar.
 
-U-SQL UDO listesi aşağıdadır:
+Merhaba, U-SQL UDO listesi aşağıdadır:
 
 * Kullanıcı tanımlı ayıklayıcıları
     * Extract satır satır
-    * Özel yapılandırılmış dosyalarından veri ayıklama gerçekleştirmek için kullanılır
+    * Özel yapılandırılmış dosyalarından tooimplement veri ayıklama kullanılan
 
 * Kullanıcı tanımlı outputters
     * Çıkış satır satır
-    * Çıktı özel veri türleri veya özel dosya biçimleri kullanılan
+    * Kullanılan toooutput özel veri türleri veya özel dosya biçimleri
 
 * Kullanıcı tanımlı işlemcileri
     * Bir satır almak ve bir satır üretir
-    * Sütun sayısını azaltın veya varolan bir sütun kümesinden türetilmiş değerlerle yeni sütun oluşturmak için kullanılır
+    * Kullanılan tooreduce sütun sayısı hello veya varolan bir sütun kümesinden türetilmiş değerlerle yeni sütun oluşturmak
 
 * Kullanıcı tanımlı appliers
-    * Bir satır alın ve n satır 0 üretir
+    * Bir satır alın ve 0 toon satır üretir
     * Dış/ARASI UYGULA ile kullanılan
 
 * Kullanıcı tanımlı combiners
@@ -1060,9 +1060,9 @@ U-SQL UDO listesi aşağıdadır:
 
 * Kullanıcı tanımlı reducers
     * N satırları almak ve bir satır üretir
-    * Satır sayısını azaltmak için kullanılan
+    * Kullanılan tooreduce hello satır sayısı
 
-UDO genellikle açıkça U-SQL komut dosyasında aşağıdaki U-SQL deyimlerini bir parçası olarak adlandırılır:
+UDO genellikle U-SQL komut U-SQL deyimlerini aşağıdaki hello bir parçası olarak açıkça çağrılır:
 
 * EXTRACT
 * ÇIKTI
@@ -1071,10 +1071,10 @@ UDO genellikle açıkça U-SQL komut dosyasında aşağıdaki U-SQL deyimlerini 
 * AZALTMA
 
 > [!NOTE]  
-> UDO'ın 0,5 Gb bellek tüketmesine sınırlıdır.  Bu bellek kısıtlaması yerel yürütmeleri için geçerli değildir.
+> UDO'ın sınırlı tooconsume 0,5 Gb bellek var.  Bu bellek sınırlama toolocal yürütmeleri geçerli değildir.
 
 ## <a name="use-user-defined-extractors"></a>Kullanıcı tanımlı ayıklayıcıları kullanın
-U-SQL EXTRACT deyimi kullanarak dış veri almanıza izin verir. Bir ayıklama deyimi yerleşik UDO ayıklayıcıları kullanabilirsiniz:  
+U-SQL EXTRACT deyimi kullanarak tooimport dış veri sağlar. Bir ayıklama deyimi yerleşik UDO ayıklayıcıları kullanabilirsiniz:  
 
 * *Extractors.Text()*: farklı kodlamaları sınırlandırılmış metin dosyalarından ayıklama sağlar.
 
@@ -1082,13 +1082,13 @@ U-SQL EXTRACT deyimi kullanarak dış veri almanıza izin verir. Bir ayıklama d
 
 * *Extractors.Tsv()*: ayıklama sekmeyle ayrılmış değerinden farklı kodlamaları (TSV) dosyaları sağlar.
 
-Özel ayıklayıcısı geliştirmek yararlı olabilir. Biz aşağıdaki görevlerden herhangi birini yapmak istiyorsanız, bu veri içe aktarma sırasında yararlı olabilir:
+Yararlı toodevelop özel ayıklayıcısı olabilir. Biz toodo görevleri aşağıdaki hello hiçbirini istiyorsanız, bu veri içe aktarma sırasında yararlı olabilir:
 
-* Giriş verisi sütunları bölme ve tek tek değerleri değiştirerek değiştirin. İŞLEMCİ işlevselliğini sütunları birleştirmek için daha iyi olur.
+* Giriş verisi sütunları bölme ve tek tek değerleri değiştirerek değiştirin. Merhaba İŞLEMCİ işlevselliğini sütunları birleştirmek için daha iyi olur.
 * Web sayfaları ve e-posta gibi yapılandırılmamış veriler veya XML/JSON gibi yarı yapılandırılmamış veriler ayrıştırılamadı.
 * Desteklenmeyen kodlama verileri ayrıştırılamıyor.
 
-Bir kullanıcı tarafından tanımlanan ayıklayıcısı veya Opyalanan tanımlamak için oluşturmamız gerekir bir `IExtractor` arabirimi. Tüm giriş parametreleri için sütun/satır sınırlayıcıları gibi ayıklayıcısı ve kodlama, sınıf oluşturucuda tanımlanması gerekir. `IExtractor` Arabirimi için bir tanım da içermelidir `IEnumerable<IRow>` gibi geçersiz kıl:
+bir kullanıcı tarafından tanımlanan ayıklayıcısı toodefine veya Opyalanan, ihtiyacımız toocreate bir `IExtractor` arabirimi. Sütun/satır sınırlayıcıları ve kodlama, hello sınıfı hello oluşturucuda tanımlanan toobe gerektiği gibi tüm parametreleri toohello ayıklayıcısı girin. Merhaba `IExtractor` arabirimi hello için bir tanım da içermelidir `IEnumerable<IRow>` gibi geçersiz kıl:
 
 ```
 [SqlUserDefinedExtractor]
@@ -1102,20 +1102,20 @@ public class SampleExtractor : IExtractor
 }
 ```
 
-**SqlUserDefinedExtractor** öznitelik türü kullanıcı tanımlı bir ayıklayıcısı kayıtlı olduğunu gösterir. Bu sınıf devralınan olamaz.
+Merhaba **SqlUserDefinedExtractor** öznitelik, hello türü kullanıcı tanımlı bir ayıklayıcısı kayıtlı olduğunu gösterir. Bu sınıf devralınan olamaz.
 
-SqlUserDefinedExtractor Opyalanan tanımı için isteğe bağlı bir özniteliktir. Opyalanan nesnesi için AtomicFileProcessing özelliği tanımlamak için kullanılır.
+SqlUserDefinedExtractor Opyalanan tanımı için isteğe bağlı bir özniteliktir. Toodefine AtomicFileProcessing özelliği hello Opyalanan nesne için kullanılır.
 
 * bool AtomicFileProcessing   
 
 * **doğru** bu ayıklayıcısı atomik giriş dosyaları (JSON, XML,...) gerektirdiğini belirtir =
 * **yanlış** bu ayıklayıcısı bölünmüş / dağıtılmış dosyalarla (CSV, SEQ,...) başa belirtir =
 
-Ana Opyalanan programlamasına nesneler **giriş** ve **çıkış**. Giriş nesnesi girdi verisi olarak numaralandırmak için kullanılan `IUnstructuredReader`. Çıkış nesnesi ayıklayıcısı etkinlik sonucunda çıkış veri kümesi için kullanılır.
+Merhaba ana Opyalanan programlamasına nesneler **giriş** ve **çıkış**. Merhaba giriş nesnesidir kullanılan tooenumerate girdi verisi olarak `IUnstructuredReader`. kullanılan tooset çıktı verilerini hello ayıklayıcısı etkinlik sonucunda Hello çıkış nesnesidir.
 
-Giriş verisi üzerinden erişilen `System.IO.Stream` ve `System.IO.StreamReader`.
+Merhaba giriş verileri üzerinden erişildiğinde `System.IO.Stream` ve `System.IO.StreamReader`.
 
-Giriş sütunları numaralandırması için biz ilk giriş akışı satır ayırıcı kullanarak ayırın.
+Giriş sütunları numaralandırması için biz ilk hello Giriş akışı satır ayırıcı kullanarak ayırın.
 
 ```
 foreach (Stream current in input.Split(my_row_delimiter))
@@ -1136,17 +1136,17 @@ foreach (Stream current in input.Split(my_row_delimiter))
 }
 ```
 
-Çıktı veri kümesi için kullanırız `output.Set` yöntemi.
+tooset çıktı verilerini, hello kullanırız `output.Set` yöntemi.
 
-Özel ayıklayıcısı yalnızca sütunlar ve tanımlanmış değerler ile çıkış çıktıları anlamak önemlidir. Yöntem çağrısının ayarlayın.
+Merhaba çıkışıyla sütunlar ve tanımlanmış değerler yalnızca özel ayıklayıcısı hello toounderstand çıkarır önemlidir. Yöntem çağrısının ayarlayın.
 
 ```
 output.Set<string>(count, part);
 ```
 
-Gerçek ayıklayıcısı çıkış çağırarak tetiklenir `yield return output.AsReadOnly();`.
+Merhaba gerçek ayıklayıcısı çıkış çağırarak tetiklenir `yield return output.AsReadOnly();`.
 
-Ayıklayıcısı örnek aşağıda verilmiştir:
+Merhaba ayıklayıcısı örneği aşağıda verilmiştir:
 
 ```
 [SqlUserDefinedExtractor(AtomicFileProcessing = true)]
@@ -1167,13 +1167,13 @@ public class FullDescriptionExtractor : IExtractor
     public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
     {
          string line;
-         //Read the input line by line
+         //Read hello input line by line
          foreach (Stream current in input.Split(_encoding.GetBytes("\r\n")))
          {
         using (System.IO.StreamReader streamReader = new StreamReader(current, this._encoding))
          {
              line = streamReader.ReadToEnd().Trim();
-             //Split the input by the column delimiter
+             //Split hello input by hello column delimiter
              string[] parts = line.Split(this._col_delim);
              int count = 0; // start with first column
              foreach (string part in parts)
@@ -1185,13 +1185,13 @@ public class FullDescriptionExtractor : IExtractor
              }
              else if (count == 2)
              {
-                 // for column “user”, convert to UPPER case
+                 // for column “user”, convert tooUPPER case
                  output.Set<string>(count, part.ToUpper());
 
              }
              else
              {
-                 // keep the rest of the columns as-is
+                 // keep hello rest of hello columns as-is
                  output.Set<string>(count, part);
              }
              count += 1;
@@ -1205,7 +1205,7 @@ public class FullDescriptionExtractor : IExtractor
 }
 ```
 
-Bu kullanım örneği senaryosu ayıklayıcısı "guid" sütunu için GUID oluşturur ve "kullanıcı" sütundaki değerleri büyük harflere dönüştürür. Özel ayıklayıcıları giriş verilerini ayrıştırma ve onu düzenleme daha karmaşık sonuçlara yol açabilir.
+Bu kullanım örneği senaryosu hello ayıklayıcısı hello GUID "guid" sütunu için yeniden oluşturur ve "kullanıcı" sütun tooupper örneğinin hello değerleri dönüştürür. Özel ayıklayıcıları giriş verilerini ayrıştırma ve onu düzenleme daha karmaşık sonuçlara yol açabilir.
 
 Özel ayıklayıcısı kullanan temel U-SQL komut dosyası aşağıdadır:
 
@@ -1222,25 +1222,25 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
     FROM @input_file
         USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 
-OUTPUT @rs0 TO @output_file USING Outputters.Text();
+OUTPUT @rs0 too@output_file USING Outputters.Text();
 ```
 
 ## <a name="use-user-defined-outputters"></a>Kullanıcı tanımlı outputters kullanın
-Kullanıcı tanımlı outputter yerleşik U-SQL işlevselliğini genişletmek izin veren başka bir U-SQL UDO ' dir. Benzer şekilde ayıklayıcısı vardır birkaç yerleşik outputters.
+Kullanıcı tanımlı outputter tooextend yerleşik U-SQL işlevselliği sağlayan başka bir U-SQL UDO ' dir. Benzer toohello ayıklayıcısı, birkaç yerleşik outputters vardır.
 
-* *Outputters.Text()*: veri farklı kodlamaları sınırlandırılmış metin dosyasına yazar.
-* *Outputters.Csv()*: veri farklı kodlamaları virgülle ayrılmış değer (CSV) dosyasına yazar.
-* *Outputters.Tsv()*: veri farklı kodlamaları sekmesini ayrılmış değerler (TSV) dosyasına yazar.
+* *Outputters.Text()*: metin dosyalarını farklı kodlamaları veri toodelimited yazar.
+* *Outputters.Csv()*: veri toocomma virgülle ayrılmış değer (CSV) dosyaları farklı kodlamaları yazar.
+* *Outputters.Tsv()*: veri tootab virgülle ayrılmış değer (TSV) dosyaları farklı kodlamaları yazar.
 
-Özel outputter özel tanımlanmış bir biçimde veri yazmak sağlar. Aşağıdaki görevler için yararlı olabilir:
+Özel outputter özel tanımlanmış bir biçimde toowrite veri sağlar. Bu görevleri aşağıdaki hello için yararlı olabilir:
 
-* Veri yarı yapılandırılmış veya yapılandırılmamış dosyalara yazma.
+* Veri toosemi yapılandırılmış veya yapılandırılmamış dosyaları yazma.
 * Veri yazma değil Kodlamalar desteklenir.
 * Çıktı verilerini değiştirme veya özel öznitelikleri ekleme.
 
-Kullanıcı tanımlı outputter tanımlamak için oluşturmamız gerekir `IOutputter` arabirimi.
+Kullanıcı tanımlı toodefine outputter ihtiyacımız toocreate hello `IOutputter` arabirimi.
 
-Aşağıdadır temel `IOutputter` sınıfı uygulama:
+Aşağıdadır hello temel `IOutputter` sınıfı uygulama:
 
 ```
 public abstract class IOutputter : IUserDefinedOperator
@@ -1252,7 +1252,7 @@ public abstract class IOutputter : IUserDefinedOperator
 }
 ```
 
-Sütun/satır sınırlayıcıları, kodlama ve vb. gibi outputter tüm giriş parametreleri sınıfı oluşturucuda tanımlanması gerekir. `IOutputter` Arabirimi için bir tanım da içermelidir `void Output` geçersiz kılar. Öznitelik `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` atomik dosya işleme için isteğe bağlı olarak ayarlanabilir. Daha fazla bilgi için aşağıdaki ayrıntılarına bakın.
+Sütun/satır sınırlayıcıları, kodlama ve benzeri, hello sınıfı hello oluşturucuda tanımlanan toobe gerektiği gibi tüm parametreleri toohello outputter girin. Merhaba `IOutputter` arabirimi için bir tanım da içermelidir `void Output` geçersiz kılar. Merhaba özniteliği `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` atomik dosya işleme için isteğe bağlı olarak ayarlanabilir. Daha fazla bilgi için hello aşağıdaki ayrıntılara bakın.
 
 ```
 [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1276,24 +1276,24 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output`Giriş her satır için çağrılır. Döndürdüğü `IUnstructuredWriter output` satır kümesi.
-* Oluşturucu sınıfı için kullanıcı tanımlı outputter parametreleri geçirmek için kullanılır.
-* `Close`İsteğe bağlı olarak pahalı durumunu serbest bırakmak veya son satırını zaman yazıldı belirlemek için geçersiz kılmak için kullanılır.
+* `Output`Giriş her satır için çağrılır. Merhaba döndürür `IUnstructuredWriter output` satır kümesi.
+* Merhaba Oluşturucusu sınıfı kullanılır toopass parametreleri toohello kullanıcı tanımlı outputter.
+* `Close`kullanılan toooptionally toorelease pahalı durumu geçersiz kılabilir veya ne zaman hello son satırını yazıldı belirleyin.
 
-**SqlUserDefinedOutputter** öznitelik türü kullanıcı tanımlı bir outputter kayıtlı olduğunu gösterir. Bu sınıf devralınan olamaz.
+**SqlUserDefinedOutputter** öznitelik, hello türü kullanıcı tanımlı bir outputter kayıtlı olduğunu gösterir. Bu sınıf devralınan olamaz.
 
-SqlUserDefinedOutputter, kullanıcı tanımlı outputter tanımı için isteğe bağlı bir özniteliktir. AtomicFileProcessing özelliği tanımlamak için kullanılır.
+SqlUserDefinedOutputter, kullanıcı tanımlı outputter tanımı için isteğe bağlı bir özniteliktir. Toodefine hello AtomicFileProcessing özelliği kullandı.
 
 * bool AtomicFileProcessing   
 
 * **doğru** bu outputter atomik çıktı dosyaları (JSON, XML,...) gerektirdiğini belirtir =
 * **yanlış** bu outputter bölünmüş / dağıtılmış dosyalarla (CSV, SEQ,...) başa belirtir =
 
-Ana programlamasına nesneler **satır** ve **çıkış**. **Satır** nesne çıktı verisi olarak numaralandırmak için kullanılan `IRow` arabirimi. **Çıktı** hedef dosyasına çıkış veri kümesi için kullanılır.
+Merhaba ana programlamasına nesneler **satır** ve **çıkış**. Merhaba **satır** nesnesidir kullanılan tooenumerate çıktı verisi olarak `IRow` arabirimi. **Çıktı** kullanılan tooset çıkış veri toohello hedef dosyasıdır.
 
-Çıktı verilerini üzerinden erişilen `IRow` arabirimi. Çıktı verilerini bir satır aynı anda geçirilir.
+Merhaba çıktı verilerini hello erişilen `IRow` arabirimi. Çıktı verilerini bir satır aynı anda geçirilir.
 
-Değerlerini ayrı ayrı IRow arabiriminin Get yöntemini çağırarak numaralandırılmıştır:
+Merhaba tek tek değerleri hello IRow arabiriminin hello Get yöntemini çağırarak numaralandırılmıştır:
 
 ```
 row.Get<string>("column_name")
@@ -1307,11 +1307,11 @@ var col = schema[i];
 string val = row.Get<string>(col.Name)
 ```
 
-Bu yaklaşım, herhangi bir meta veri şema için esnek bir outputter oluşturmanıza olanak sağlar.
+Bu yaklaşım toobuild herhangi bir meta veri şema için esnek bir outputter sağlar.
 
-Çıktı verilerini kullanarak dosyaya yazılan `System.IO.StreamWriter`. Akış parametre kümesine `output.BaseStrea` parçası olarak `IUnstructuredWriter output`.
+Merhaba çıktı verilerini toofile kullanılarak yazılan `System.IO.StreamWriter`. Merhaba akışı parametre olarak ayarlanmış çok`output.BaseStrea` parçası olarak `IUnstructuredWriter output`.
 
-Dosyaya veri arabelleği sonra her bir satır yineleme temizlemek önemli olduğunu unutmayın. Ayrıca, `StreamWriter` nesne özniteliğiyle etkin atılabilir (varsayılan) ve birlikte kullanılmalıdır **kullanarak** anahtar sözcüğü:
+Her satır yinelemeden sonra önemli tooflush hello veri arabelleği toohello dosyası olduğunu unutmayın. Ayrıca, hello `StreamWriter` nesne özniteliğiyle etkin hello atılabilir (varsayılan) ile Merhaba kullanılmalıdır **kullanarak** anahtar sözcüğü:
 
 ```
 using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._encoding))
@@ -1320,10 +1320,10 @@ using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._enc
 }
 ```
 
-Aksi takdirde Flush() yöntemini her yinelemeden sonra açıkça çağırın. Bu aşağıdaki örnekte gösteriyoruz.
+Aksi takdirde Flush() yöntemini her yinelemeden sonra açıkça çağırın. Bu örnekte aşağıdaki hello gösteriyoruz.
 
 ### <a name="set-headers-and-footers-for-user-defined-outputter"></a>Üstbilgiler ve altbilgiler kullanıcı tanımlı outputter için ayarlama
-Üstbilgi ayarlamak için tek yineleme yürütme akışı kullanın.
+tooset bir üstbilgi tek yineleme yürütme akışı kullanın.
 
 ```
 public override void Output(IRow row, IUnstructuredWriter output)
@@ -1344,9 +1344,9 @@ if (isHeaderRow)
 }
 ```
 
-İlk kodda `if (isHeaderRow)` blok yalnızca bir kez gerçekleştirilir.
+Merhaba kodda ilk hello `if (isHeaderRow)` blok yalnızca bir kez gerçekleştirilir.
 
-Altbilgi için örneğine başvuru kullanın `System.IO.Stream` nesne (`output.BaseStream`). Altbilgi çağrısının yönteminde yazma `IOutputter` arabirimi.  (Daha fazla bilgi için aşağıdaki örneğe bakın.)
+Merhaba altbilgiyi hello başvuru toohello örneğini kullanması `System.IO.Stream` nesne (`output.BaseStream`). Merhaba altbilgi hello hello çağrısının yöntemi yazma `IOutputter` arabirimi.  (Daha fazla bilgi için aşağıdaki örneğine hello bakın.)
 
 Kullanıcı tanımlı bir outputter örneği aşağıdadır:
 
@@ -1369,10 +1369,10 @@ public class HTMLOutputter : IOutputter
     this.encoding = ((encoding == null) ? Encoding.UTF8 : encoding);
     }
 
-    // The Close method is used to write the footer to the file. It's executed only once, after all rows
+    // hello Close method is used toowrite hello footer toohello file. It's executed only once, after all rows
     public override void Close().
     {
-    //Reference to IO.Stream object - g_writer
+    //Reference tooIO.Stream object - g_writer
     StreamWriter streamWriter = new StreamWriter(g_writer, this.encoding);
     streamWriter.Write("</table>");
     streamWriter.Flush();
@@ -1383,7 +1383,7 @@ public class HTMLOutputter : IOutputter
     {
     System.IO.StreamWriter streamWriter = new StreamWriter(output.BaseStream, this.encoding);
 
-    // Metadata schema initialization to enumerate column names
+    // Metadata schema initialization tooenumerate column names
     ISchema schema = row.Schema;
 
     // This is a data-independent header--HTML table definition
@@ -1419,7 +1419,7 @@ public class HTMLOutputter : IOutputter
         string val = "";
         try
         {
-        // Data type enumeration--required to match the distinct list of types from OUTPUT statement
+        // Data type enumeration--required toomatch hello distinct list of types from OUTPUT statement
         switch (col.Type.Name.ToString().ToLower())
         {
             case "string": val = row.Get<string>(col.Name).ToString(); break;
@@ -1439,13 +1439,13 @@ public class HTMLOutputter : IOutputter
     {
         isHeaderRow = false;
     }
-    // Reference to the instance of the IO.Stream object for footer generation
+    // Reference toohello instance of hello IO.Stream object for footer generation
     g_writer = output.BaseStream;
     streamWriter.Flush();
     }
 }
 
-// Define the factory classes
+// Define hello factory classes
 public static class Factory
 {
     public static HTMLOutputter HTMLOutputter(bool isHeader = false, Encoding encoding = null)
@@ -1471,23 +1471,23 @@ DECLARE @output_file string = @"\usql-programmability\output_file.html";
          USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 
 OUTPUT @rs0 
-    TO @output_file 
+    too@output_file 
     USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
 Tablo verisi bir HTML dosyası oluşturur bir HTML outputter budur.
 
 ### <a name="call-outputter-from-u-sql-base-script"></a>U-SQL temel betikten outputter çağırın
-Özel outputter temel U-SQL komut dosyasından çağırmak için outputter nesne yeni bir örneğini oluşturulması gerekir.
+toocall özel outputter hello temel U-SQL komut dosyasından, oluşturulan toobe hello yeni hello outputter nesnesinin örneği vardır.
 
 ```sql
-OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeader: true);
+OUTPUT @rs0 too@output_file USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
-Nesnesinin bir örneği temel komut dosyasında oluşturmamak için size bir işlev sarmalayıcı bizim önceki örnekte gösterildiği gibi oluşturabilirsiniz:
+Merhaba örneği oluşturmayı tooavoid nesne temel komut dosyasında bizim önceki örnekte gösterildiği gibi bir işlevi sarmalayıcı oluşturabilir:
 
 ```c#
-        // Define the factory classes
+        // Define hello factory classes
         public static class Factory
         {
             public static HTMLOutputter HTMLOutputter(bool isHeader = false, Encoding encoding = null)
@@ -1497,20 +1497,20 @@ Nesnesinin bir örneği temel komut dosyasında oluşturmamak için size bir iş
         }
 ```
 
-Bu durumda, özgün çağrısı aşağıdaki gibi görünür:
+Bu durumda, hello özgün çağrısı hello aşağıdaki gibi görünür:
 
 ```
 OUTPUT @rs0 
-TO @output_file 
+too@output_file 
 USING USQL_Programmability.Factory.HTMLOutputter(isHeader: true);
 ```
 
 ## <a name="use-user-defined-processors"></a>Kullanıcı tanımlı işlemcilerini kullanıyor.
-Kullanıcı tanımlı işlemci veya UDP, U-SQL programlama özelliklerine uygulayarak gelen satırların işlemenize olanak sağlayan UDO türüdür. UDP sütunu birleştirme, değerleri değiştirmek ve gerekirse, yeni sütun eklemek etkinleştirir. Temel olarak, gerekli veri öğeleri oluşturmak için bir satır kümesi işlem yardımcı olabilir.
+Kullanıcı tanımlı işlemci veya UDP, U-SQL programlama özelliklerine uygulayarak tooprocess hello gelen satırları sağlayan UDO türüdür. UDP toocombine sütunları sağlar, değerleri değiştirmek ve gerekirse, yeni sütun ekleyin. Temel olarak bir satır kümesi tooproduce gerekli veri öğeleri tooprocess yardımcı olur.
 
-Bir UDP tanımlamak için oluşturmamız gerekir bir `IProcessor` ile arabirim `SqlUserDefinedProcessor` için UDP isteğe bağlı öznitelik.
+toodefine bir UDP, ihtiyacımız toocreate bir `IProcessor` hello arabirimiyle `SqlUserDefinedProcessor` için UDP isteğe bağlı öznitelik.
 
-Bu arabirim tanımı içermelidir `IRow` arabirimi satır kümesi geçersiz kılmak, aşağıdaki örnekte gösterildiği gibi:
+Bu arabirim hello hello tanımı içermelidir `IRow` arabirimi satır kümesi geçersiz kılmak, hello aşağıdaki örnekte gösterildiği gibi:
 
 ```
 [SqlUserDefinedProcessor]
@@ -1523,29 +1523,29 @@ public override IRow Process(IRow input, IUpdatableRow output)
 }
 ```
 
-**SqlUserDefinedProcessor** türü kullanıcı tanımlı bir işlemci olarak kayıtlı olduğunu belirtir. Bu sınıf devralınan olamaz.
+**SqlUserDefinedProcessor** hello türü kullanıcı tanımlı bir işlemci olarak kayıtlı olduğunu belirtir. Bu sınıf devralınan olamaz.
 
-SqlUserDefinedProcessor özniteliği **isteğe bağlı** UDP tanımı.
+Merhaba SqlUserDefinedProcessor özniteliği **isteğe bağlı** UDP tanımı.
 
-Ana programlamasına nesneler **giriş** ve **çıkış**. Giriş nesnesi giriş sütunları ve çıkış numaralandırır ve çıktı verilerini işlemci etkinliğinin sonucu olarak ayarlamak için kullanılır.
+Merhaba ana programlamasına nesneler **giriş** ve **çıkış**. Merhaba giriş kullanılan tooenumerate giriş sütunları ve çıktı ve tooset çıktı verilerini hello işlemci etkinliğinin sonucunda nesnesidir.
 
-Giriş sütunları numaralandırması için kullandığımız `input.Get` yöntemi.
+Giriş sütunları numaralandırması için kullandığımız hello `input.Get` yöntemi.
 
 ```
 string column_name = input.Get<string>("column_name");
 ```
 
-Parametresi için `input.Get` yöntemdir parçası olarak geçirilen bir sütun `PRODUCE` yan tümcesi `PROCESS` U-SQL temel komut dosyası ifadesi. Burada doğru veri türünü kullanmak gerekir.
+parametresi için hello `input.Get` yöntemdir hello bir parçası olarak geçirilen bir sütun `PRODUCE` hello yan tümcesi `PROCESS` temel hello U-SQL komut dosyası ifadesi. Toouse ihtiyacımız hello doğru veri buraya yazın.
 
-Çıkış için kullan `output.Set` yöntemi.
+Çıkış için hello kullan `output.Set` yöntemi.
 
-Bu özel üretici yalnızca çıkarır sütunlar ve ile tanımlanmış değerler dikkate almak önemlidir `output.Set` yöntem çağrısı.
+Önemli toonote o özel üretici yalnızca çıkarır sütunlar ve hello ile tanımlı değerler `output.Set` yöntem çağrısı.
 
 ```
 output.Set<string>("mycolumn", mycolumn);
 ```
 
-Gerçek işlemci çıktı çağırarak tetiklenir `return output.AsReadOnly();`.
+Merhaba gerçek işlemci çıktı çağırarak tetiklenir `return output.AsReadOnly();`.
 
 Bir işlemci örneği aşağıda verilmiştir:
 
@@ -1567,9 +1567,9 @@ public override IRow Process(IRow input, IUpdatableRow output)
 }
 ```
 
-Bu kullanım örneği senaryosu, var olan sütunlar--bu durumda, "kullanıcı" için büyük harf ve "des" birleştirerek "full_description" adlı yeni bir sütun işlemci oluşturuyor. Ayrıca, bir GUID oluşturur ve özgün ve yeni GUID değerleri döndürür.
+Bu kullanım örneği senaryosu hello işlemci büyük harf ve "des" "kullanıcı" Merhaba varolan sütunlar--bu durumda, birleştirerek "full_description" adlı yeni bir sütun oluşturuyor. Ayrıca, bir GUID oluşturur ve hello özgün ve yeni GUID değerleri döndürür.
 
-Önceki örnekte görebildiğiniz gibi C# sırasında yöntemi çağırabilirsiniz `output.Set` yöntem çağrısı.
+Merhaba önceki örnekte görebildiğiniz gibi C# sırasında yöntemi çağırabilirsiniz `output.Set` yöntem çağrısı.
 
 Özel bir işlemci kullanan temel U-SQL komut dosyası örneği verilmiştir:
 
@@ -1593,26 +1593,26 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
              new_guid Guid
      USING new USQL_Programmability.FullDescriptionProcessor();
 
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 too@output_file USING Outputters.Text();
 ```
 
 ## <a name="use-user-defined-appliers"></a>Kullanıcı tanımlı appliers kullanın
-U-SQL kullanıcı tanımlı bir applier, özel bir C# işlev Sorguda dış tablo ifadesi tarafından döndürülen her satır için çağrılacak sağlar. Sağ giriş sol girdisinden her satır için hesaplanan ve üretilen satırları son çıktı için birleştirilir. Sol ve sağ giriş sütunları kümesi birleşimi UYGULA operatör tarafından üretilen sütun listesi var.
+Kullanıcı tanımlı bir U-SQL applier hello dış tablo ifadesi bir sorgu tarafından döndürülen her satır için tooinvoke özel C# işlevi sağlar. Merhaba sağ giriş hello sol giriş gelen her satır için hesaplanan ve üretilen hello satırları hello son çıktı için birleştirilir. Merhaba hello UYGULA operatör tarafından üretilen sütunları listesidir hello sol ve sağ giriş hello sütunlar hello kümesiyle hello birleşimi.
 
-Kullanıcı tanımlı applier USQL seçin ifadenin bir parçası çağrılır.
+Kullanıcı tanımlı applier hello USQL seçin ifadesi bir parçası olarak çağrılır.
 
-Kullanıcı tanımlı applier tipik çağrısı aşağıdaki gibi görünür:
+Merhaba tipik kullanıcı tanımlı applier görünüyor hello aşağıdaki gibi toohello arayın:
 
 ```
 SELECT …
 FROM …
-CROSS APPLYis used to pass parameters
+CROSS APPLYis used toopass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
 Bir SELECT ifadesinde appliers kullanma hakkında daha fazla bilgi için bkz: [seçin, U-SQL seçme ARASI uygulamak ve OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).
 
-Kullanıcı tanımlı applier temel sınıf tanımı aşağıdaki gibidir:
+Merhaba kullanıcı tanımlı applier temel sınıf tanımı aşağıdaki gibidir:
 
 ```
 public abstract class IApplier : IUserDefinedOperator
@@ -1623,7 +1623,7 @@ public abstract IEnumerable<IRow> Apply(IRow input, IUpdatableRow output);
 }
 ```
 
-Kullanıcı tanımlı bir applier tanımlamak için oluşturmamız gerekir `IApplier` ile Arabirimi [`SqlUserDefinedApplier`] özniteliği için kullanıcı tanımlı applier tanım isteğe bağlıdır.
+Kullanıcı tanımlı bir applier toodefine ihtiyacımız toocreate hello `IApplier` hello arabirimiyle [`SqlUserDefinedApplier`] özniteliği için kullanıcı tanımlı applier tanım isteğe bağlıdır.
 
 ```
 [SqlUserDefinedApplier]
@@ -1641,23 +1641,23 @@ public class ParserApplier : IApplier
 }
 ```
 
-* Uygulama dış tablonun her satırı için çağrılır. Döndürdüğü `IUpdatableRow` satır kümesi çıktı.
-* Oluşturucu sınıfı için kullanıcı tanımlı applier parametreleri geçirmek için kullanılır.
+* Uygulama hello dış tablodaki her satır için çağrılır. Merhaba döndürür `IUpdatableRow` satır kümesi çıktı.
+* Merhaba Oluşturucusu kullanılan toopass parametreleri toohello applier kullanıcı tanımlı bir sınıftır.
 
-**SqlUserDefinedApplier** türü kullanıcı tanımlı bir applier kayıtlı olduğunu belirtir. Bu sınıf devralınan olamaz.
+**SqlUserDefinedApplier** hello türü kullanıcı tanımlı bir applier kayıtlı olduğunu belirtir. Bu sınıf devralınan olamaz.
 
 **SqlUserDefinedApplier** olan **isteğe bağlı** kullanıcı tanımlı applier tanımı.
 
 
-Ana programlamasına nesneleri aşağıdaki gibidir:
+Merhaba ana programlamasına nesneleri aşağıdaki gibidir:
 
 ```
 public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 ```
 
-Giriş satır kümeleri olarak geçirilir `IRow` giriş. Çıktı satırları olarak oluşturulan `IUpdatableRow` çıkış arabirimi.
+Giriş satır kümeleri olarak geçirilir `IRow` giriş. Merhaba çıkış satır olarak oluşturulan `IUpdatableRow` çıkış arabirimi.
 
-Tek tek sütun adları çağırarak belirlenebilir `IRow` şema yöntemi.
+Tek tek sütun adlarına göre arama hello belirlenebilir `IRow` şema yöntemi.
 
 ```
 ISchema schema = row.Schema;
@@ -1665,35 +1665,35 @@ var col = schema[i];
 string val = row.Get<string>(col.Name)
 ```
 
-Gelen gerçek veri değerleri almak için `IRow`, Get() yöntemi kullanırız `IRow` arabirimi.
+Merhaba gelen tooget hello gerçek veri değerleri `IRow`, hello Get() yöntemi kullanırız `IRow` arabirimi.
 
 ```
 mycolumn = row.Get<int>("mycolumn")
 ```
 
-Veya şema sütun adı kullanırız:
+Veya hello şema sütun adı kullanırız:
 
 ```
 row.Get<int>(row.Schema[0].Name)
 ```
 
-Çıkış değerleri ile ayarlanmalıdır `IUpdatableRow` çıktı:
+Merhaba çıkış değerleri ile ayarlanmalıdır `IUpdatableRow` çıktı:
 
 ```
 output.Set<int>("mycolumn", mycolumn)
 ```
 
-Özel appliers sütunlar ve ile tanımlanmış değerler yalnızca çıktı anlamak önemlidir `output.Set` yöntem çağrısı.
+Özel appliers sütunlar ve ile tanımlanmış değerler yalnızca çıktı önemli toounderstand olan `output.Set` yöntem çağrısı.
 
-Gerçek çıkış çağırarak tetiklenir `yield return output.AsReadOnly();`.
+Merhaba gerçek çıkış çağırarak tetiklenir `yield return output.AsReadOnly();`.
 
-Kullanıcı tanımlı applier parametreleri oluşturucuya geçirilebilir. Applier temel U-SQL betiği applier çağrısında sırasında tanımlanması gerektiğini sütunlar değişken sayıda geri dönebilirsiniz.
+Merhaba kullanıcı tanımlı applier parametreleri toohello Oluşturucusu geçirilebilir. Applier hello applier temel U-SQL betiği çağrısında sırasında tanımlanan toobe gereken sütunlar değişken sayıda geri dönebilirsiniz.
 
 ```
 new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
 ```
 
-Kullanıcı tanımlı applier örneği aşağıdadır:
+Merhaba kullanıcı tanımlı applier örneği şöyledir:
 
 ```
 [SqlUserDefinedApplier]
@@ -1751,7 +1751,7 @@ public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 }
 ```
 
-Bu kullanıcı tarafından tanımlanan applier için temel U-SQL betiği aşağıdadır:
+Bu kullanıcı tarafından tanımlanan applier hello temel U-SQL betiği aşağıdadır:
 
 ```
 DECLARE @input_file string = @"c:\usql-programmability\car_fleet.tsv";
@@ -1777,10 +1777,10 @@ DECLARE @output_file string = @"c:\usql-programmability\output_file.tsv";
     CROSS APPLY
     new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
 
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 too@output_file USING Outputters.Text();
 ```
 
-Bu kullanım örnek senaryoda, kullanıcı tanımlı applier araba yakıt özellikleri için virgülle ayrılmış değer ayrıştırıcı gibi davranır. Giriş dosyası satırları şuna benzer:
+Bu kullanım örnek senaryoda, kullanıcı tanımlı applier görevi görür hello araba için virgülle ayrılmış değer ayrıştırıcı özellikleri yakıt. Merhaba giriş dosyası satırları hello şu şekilde görünür:
 
 ```
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
@@ -1788,30 +1788,30 @@ Bu kullanım örnek senaryoda, kullanıcı tanımlı applier araba yakıt özell
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 
-Normal bir sekmeyle ayrılmış TSV dosya marka ve model gibi araba özellikleri içeren özellikleri sütunu var. Bu özellikler Ayrıştırılmış tablo sütunları için gerekir. Sağlanan applier geçirilen parametresine bağlı olarak sonuç kümesinde özellikleri sayısını dinamik oluşturmanıza olanak sağlar. Tüm özellikleri veya özellikler yalnızca belirli bir grup oluşturabilirsiniz.
+Normal bir sekmeyle ayrılmış TSV dosya marka ve model gibi araba özellikleri içeren özellikleri sütunu var. Bu özellikler ayrıştırılmış toohello tablo sütunları olması gerekir. sağlanan hello applier ayrıca hello özelliklerinde dinamik bir dizi satır kümesi, geçirilen hello parametresi temelinde neden toogenerate sağlar. Tüm özellikleri veya özellikler yalnızca belirli bir grup oluşturabilirsiniz.
 
     …USQL_Programmability.ParserApplier ("all")
     …USQL_Programmability.ParserApplier ("make")
     …USQL_Programmability.ParserApplier ("make&model")
 
-Kullanıcı tanımlı applier applier nesnesinin yeni bir örneğini çağrılabilir:
+Merhaba kullanıcı tanımlı applier applier nesnesinin yeni bir örneğini çağrılabilir:
 
 ```
 CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
-Veya bir sarmalayıcı fabrika yöntemi çağrıldı:
+Veya bir sarmalayıcı fabrika yöntemi hello çağrıldı:
 
 ```c#
     CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
 ## <a name="use-user-defined-combiners"></a>Kullanıcı tanımlı combiners kullanın
-Kullanıcı tanımlı Birleştirici veya UDC, sol ve sağ satır kümeleri özel mantığına göre satırları birleştirmek sağlar. Kullanıcı tanımlı birleştirici birleştirme ifadesiyle kullanılır.
+Kullanıcı tanımlı Birleştirici veya UDC, sol ve sağ satır kümeleri özel mantığına göre toocombine satırları etkinleştirir. Kullanıcı tanımlı birleştirici birleştirme ifadesiyle kullanılır.
 
-Bir Birleştirici hem giriş satır kümeleri, gruplandırma sütunlarında, beklenen sonucu şema ve ek bilgiler hakkında gerekli bilgileri sağlar birleştirme ifade ile çağrılan.
+Her iki hello giriş satır kümeleri hakkında gerekli bilgileri hello sağlar hello birleştirme ifade ile bir Birleştirici çağrılmakta, sütunlar hello gruplandırma hello beklenen sonucu şema ve ek bilgi.
 
-Temel bir U-SQL komut dosyasında bir Birleştirici çağırmak için size aşağıdaki sözdizimini kullanın:
+temel bir U-SQL komut dosyasında bir Birleştirici toocall, söz dizimi aşağıdaki hello kullanın:
 
 ```
 Combine_Expression :=
@@ -1826,7 +1826,7 @@ Combine_Expression :=
 
 Daha fazla bilgi için bkz: [BİRLEŞTİRMEK ifade (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).
 
-Kullanıcı tanımlı bir Birleştirici tanımlamak için oluşturmamız gerekir `ICombiner` ile Arabirimi [`SqlUserDefinedCombiner`] özniteliği için bir kullanıcı tarafından tanımlanan birleştirici tanım isteğe bağlıdır.
+Kullanıcı tanımlı bir Birleştirici toodefine ihtiyacımız toocreate hello `ICombiner` hello arabirimiyle [`SqlUserDefinedCombiner`] özniteliği için bir kullanıcı tarafından tanımlanan birleştirici tanım isteğe bağlıdır.
 
 Temel `ICombiner` sınıf tanımı:
 
@@ -1841,7 +1841,7 @@ public abstract IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-Özel uygulanması bir `ICombiner` arabirim tanımı içermelidir bir `IEnumerable<IRow>` geçersiz kılma birleştirin.
+Özel uyarlamasını hello bir `ICombiner` arabirimi hello tanımı içermelidir bir `IEnumerable<IRow>` geçersiz kılma birleştirin.
 
 ```
 [SqlUserDefinedCombiner]
@@ -1856,45 +1856,45 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-**SqlUserDefinedCombiner** öznitelik türü kullanıcı tanımlı bir Birleştirici kayıtlı olduğunu gösterir. Bu sınıf devralınan olamaz.
+Merhaba **SqlUserDefinedCombiner** öznitelik, hello türü kullanıcı tanımlı bir Birleştirici kayıtlı olduğunu gösterir. Bu sınıf devralınan olamaz.
 
-**SqlUserDefinedCombiner** Birleştirici modu özelliği tanımlamak için kullanılır. Bir kullanıcı tarafından tanımlanan birleştirici tanımı için isteğe bağlı bir özniteliktir.
+**SqlUserDefinedCombiner** kullanılan toodefine hello Birleştirici modu özelliğidir. Bir kullanıcı tarafından tanımlanan birleştirici tanımı için isteğe bağlı bir özniteliktir.
 
 CombinerMode modu
 
-CombinerMode enum, şu değerleri alabilir:
+CombinerMode enum değerleri aşağıdaki hello alabilir:
 
-* Tam (0) her çıktı satır olası tüm giriş satırları sol ve sağ ile aynı anahtar değerine bağlıdır.
+* Her çıktı satır olası tüm hello giriş satırları bağlıdır tam (0) sol ve sağ hello ile aynı anahtar değeri.
 
-* Sol soldan (ve büyük olasılıkla tüm satırların aynı anahtar değeriyle sağdan) tek bir giriş satır her çıktı satır bağlıdır (1).
+* Sol (1) tek bir giriş satır hello soldan her çıktı satır bağlıdır (ve büyük olasılıkla tüm satırları hello hello sağ ile aynı anahtar değeri).
 
-* Sağa (2) sağa (ve büyük olasılıkla tüm satırların aynı anahtar değeriyle soldan) tek bir giriş satır her çıktı satır bağlıdır.
+* Sağa doğru hello tek giriş satırdan her çıktı satır bağlıdır (2) (ve büyük olasılıkla tüm satırları hello ile Merhaba soldan aynı anahtar değeri).
 
-* İç (3) tek bir giriş satır sol ve sağda aynı değere sahip her çıktı satır bağlıdır.
+* Her çıktı satır bağlıdır tek bir giriş, iç (3) satır sol ve sağ hello ile aynı değer.
 
 Örnek: [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
 
-Ana programlamasına nesneler şunlardır:
+Merhaba ana programlamasına nesneler şunlardır:
 
 ```c#
     public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
         IUpdatableRow output
 ```
 
-Giriş satır kümeleri olarak geçirilir **sol** ve **sağ** `IRowset` arabirimi türü. Her iki satır kümeleri işleme için numaralandırılmış gerekir. Böylece biz numaralandırır ve gerekirse, önbelleğe zorunda kez, her bir arabirime yalnızca sıralayabilirsiniz.
+Giriş satır kümeleri olarak geçirilir **sol** ve **sağ** `IRowset` arabirimi türü. Her iki satır kümeleri işleme için numaralandırılmış gerekir. Böylece tooenumerate sahip ve gerekirse, önbelleğe yalnızca her bir arabirime bir kez sıralayabilirsiniz.
 
-Amacıyla önbelleğe alma işlemi için bir liste oluşturabilir\<T\> tür bellek yapısı sonuç olarak bir LINQ Sorgu yürütme, özellikle listesi <`IRow`>. Anonim veri türü, numaralandırma sırasında da kullanılabilir.
+Amacıyla önbelleğe alma işlemi için bir liste oluşturabilir\<T\> tür bellek yapısı sonuç olarak bir LINQ Sorgu yürütme, özellikle listesi <`IRow`>. Merhaba anonim veri türü de numaralandırma sırasında kullanılabilir.
 
-Bkz: [LINQ sorgularını (C#) giriş](https://msdn.microsoft.com/library/bb397906.aspx) LINQ sorguları hakkında daha fazla bilgi ve [IEnumerable\<T\> arabirimi](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) IEnumerablehakkındadahafazlabilgiiçin\<T\> arabirimi.
+Bkz: [giriş tooLINQ sorgular (C#)](https://msdn.microsoft.com/library/bb397906.aspx) LINQ sorguları hakkında daha fazla bilgi ve [IEnumerable\<T\> arabirimi](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) IEnumerablehakkındadahafazlabilgiiçin\<T\> arabirimi.
 
-Gelen gerçek veri değerleri almak için `IRowset`, Get() yöntemi kullanırız `IRow` arabirimi.
+Merhaba gelen tooget hello gerçek veri değerleri `IRowset`, hello Get() yöntemi kullanırız `IRow` arabirimi.
 
 ```
 mycolumn = row.Get<int>("mycolumn")
 ```
 
-Tek tek sütun adları çağırarak belirlenebilir `IRow` şema yöntemi.
+Tek tek sütun adlarına göre arama hello belirlenebilir `IRow` şema yöntemi.
 
 ```
 ISchema schema = row.Schema;
@@ -1902,13 +1902,13 @@ var col = schema[i];
 string val = row.Get<string>(col.Name)
 ```
 
-Veya şema sütun adı kullanarak:
+Veya hello şema sütun adı kullanarak:
 
 ```
 c# row.Get<int>(row.Schema[0].Name)
 ```
 
-LINQ ile genel numaralandırma aşağıdaki gibi görünür:
+LINQ ile Merhaba genel numaralandırma hello aşağıdaki gibi görünür:
 
 ```
 var myRowset =
@@ -1919,15 +1919,15 @@ var myRowset =
                           }).ToList();
 ```
 
-Her iki satır kümeleri numaralandırma sonra biz tüm satırları döngü alınacaktır. Sol satır kümesindeki her satır için biz bizim Birleştirici koşulu karşılıyor tüm satırları bulmak için adımıdır.
+Her iki satır kümeleri numaralandırma sonra tüm satırların üzerinden tooloop çağıracaksınız. Merhaba sol satır kümesindeki her satır için biz toofind bizim Birleştirici hello koşulu karşılayan tüm satırları adımıdır.
 
-Çıkış değerleri ile ayarlanmalıdır `IUpdatableRow` çıktı.
+Merhaba çıkış değerleri ile ayarlanmalıdır `IUpdatableRow` çıktı.
 
 ```
 output.Set<int>("mycolumn", mycolumn)
 ```
 
-Arama için gerçek çıktı tetiklediği `yield return output.AsReadOnly();`.
+Merhaba gerçek çıkış çok çağırarak tetiklenir`yield return output.AsReadOnly();`.
 
 Birleştirici örnek aşağıda verilmiştir:
 
@@ -1983,9 +1983,9 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-Bu kullanım örneği senaryosu biz için satıcıya bir analiz raporu oluşturmakta olduğunuz. Birden fazla $20.000 maliyet ve, belirli bir zaman çerçevesi içinde normal perakende üzerinden daha hızlı Web sitesi aracılığıyla satmak tüm ürünleri bulmak için belirtilir.
+Bu kullanım örneği senaryosu biz analizi raporu hello satıcısında için oluşturmakta olduğunuz. Merhaba, belirli bir zaman çerçevesi içinde hello normal perakende üzerinden daha hızlı hello Web sitesi aracılığıyla maliyet birden fazla $20.000 ve, tüm ürünleri satmak toofind hedefidir.
 
-Burada, temel U-SQL betiği verilmiştir. Normal bir birleştirme ve bir Birleştirici arasında mantığı karşılaştırabilirsiniz:
+Merhaba temel U-SQL betiği aşağıdadır. Normal bir birleştirme ve bir Birleştirici arasında hello mantığı karşılaştırabilirsiniz:
 
 ```sql
 DECLARE @LocalURI string = @"\usql-programmability\";
@@ -2076,18 +2076,18 @@ PRODUCE OrderDateKey int,
         Reseller_Sales_Amount decimal
 USING new USQL_Programmability.CombineSales();
 
-OUTPUT @rs1 TO @output_file1 USING Outputters.Tsv();
-OUTPUT @rs2 TO @output_file2 USING Outputters.Tsv();
+OUTPUT @rs1 too@output_file1 USING Outputters.Tsv();
+OUTPUT @rs2 too@output_file2 USING Outputters.Tsv();
 ```
 
-Kullanıcı tanımlı bir Birleştirici applier nesnesinin yeni bir örneğini çağrılabilir:
+Kullanıcı tanımlı bir Birleştirici hello applier nesnesinin yeni bir örneğini çağrılabilir:
 
 ```
 USING new MyNameSpace.MyCombiner();
 ```
 
 
-Veya bir sarmalayıcı fabrika yöntemi çağrıldı:
+Veya bir sarmalayıcı fabrika yöntemi hello çağrıldı:
 
 ```
 USING MyNameSpace.MyCombiner();
@@ -2095,13 +2095,13 @@ USING MyNameSpace.MyCombiner();
 
 ## <a name="use-user-defined-reducers"></a>Kullanıcı tanımlı reducers kullanın
 
-U-SQL özel satır kümesi reducers C# ile kullanıcı tanımlı işleci Genişletilebilirlik Çerçevesi'ni kullanıp IReducer arabirimi uygulama yazmanızı sağlar.
+U-SQL, C# toowrite özel satır kümesi reducers hello kullanıcı tanımlı işleci Genişletilebilirlik Çerçevesi'ni kullanıp IReducer arabirimi uygulama sağlar.
 
-Kullanıcı tanımlı reducer veya UDR, gereksiz satırları (içe aktarma) veri ayıklama sırasında ortadan kaldırmak için kullanılabilir. Ayrıca, yönetmek ve satırları ve sütunları değerlendirmek için de kullanılabilir. Programlanabilirlik mantığına göre onu da hangi satırların ayıklanması gereken tanımlayabilirsiniz.
+Kullanıcı tanımlı reducer veya UDR, kullanılan tooeliminate gereksiz satır veri ayıklama sırasında (içe aktarma) olabilir. Ayrıca kullanılan toomanipulate ve olması satırları ve sütunları değerlendirin. Programlanabilirlik mantığına göre onu da hangi satırların ayıklanan toobe gereksinim tanımlayabilirsiniz.
 
-UDR sınıf tanımlamak için oluşturmamız gerekir bir `IReducer` isteğe bağlı bir arabirimiyle `SqlUserDefinedReducer` özniteliği.
+toodefine UDR sınıfı, ihtiyacımız toocreate bir `IReducer` isteğe bağlı bir arabirimiyle `SqlUserDefinedReducer` özniteliği.
 
-Bu sınıf arabirimi için bir tanım içermelidir `IEnumerable` arabirimi satır kümesi geçersiz.
+Bu sınıf arabirimi hello için bir tanım içermelidir `IEnumerable` arabirimi satır kümesi geçersiz.
 
 ```
 [SqlUserDefinedReducer]
@@ -2116,15 +2116,15 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-**SqlUserDefinedReducer** öznitelik türü kullanıcı tanımlı bir reducer kayıtlı olduğunu gösterir. Bu sınıf devralınan olamaz.
-**SqlUserDefinedReducer** kullanıcı tanımlı reducer tanımı için isteğe bağlı bir özniteliktir. IsRecursive özelliği tanımlamak için kullanılır.
+Merhaba **SqlUserDefinedReducer** öznitelik, hello türü kullanıcı tanımlı bir reducer kayıtlı olduğunu gösterir. Bu sınıf devralınan olamaz.
+**SqlUserDefinedReducer** kullanıcı tanımlı reducer tanımı için isteğe bağlı bir özniteliktir. Toodefine IsRecursive özelliği kullandı.
 
 * bool IsRecursive    
 * **doğru** bu Reducer ıdempotent olup olmadığını gösterir =
 
-Ana programlamasına nesneler **giriş** ve **çıkış**. Giriş nesnesi giriş satırları numaralandırmak için kullanılır. Çıkış, etkinlik azaltma sonucunda çıktı satırları ayarlamak için kullanılır.
+Merhaba ana programlamasına nesneler **giriş** ve **çıkış**. Merhaba giriş kullanılan tooenumerate giriş satırları nesnesidir. Çıktı etkinlik azaltma sonucu olarak kullanılan tooset çıkış satır sayısıdır.
 
-Giriş satırları numaralandırması için kullandığımız `Row.Get` yöntemi.
+Giriş satırları numaralandırması için kullandığımız hello `Row.Get` yöntemi.
 
 ```
 foreach (IRow row in input.Rows)
@@ -2133,17 +2133,17 @@ foreach (IRow row in input.Rows)
 }
 ```
 
-Parametresi için `Row.Get` yöntemdir parçası olarak geçirilen bir sütun `PRODUCE` sınıfının `REDUCE` U-SQL temel komut dosyası ifadesi. Biz de doğru veri türünde burada kullanmanız gerekir.
+hello için parametresi hello `Row.Get` yöntemdir hello bir parçası olarak geçirilen bir sütun `PRODUCE` hello sınıfının `REDUCE` temel hello U-SQL komut dosyası ifadesi. Toouse ihtiyacımız burada hello doğru veri türü de.
 
-Çıkış için kullan `output.Set` yöntemi.
+Çıkış için hello kullan `output.Set` yöntemi.
 
-Bu özel reducer yalnızca ile tanımlanmış değerleri çıkarır anlamak önemlidir `output.Set` yöntem çağrısı.
+İle tanımlanan özel reducer çıkışları değerler yalnızca hello önemli toounderstand olan `output.Set` yöntem çağrısı.
 
 ```
 output.Set<string>("mycolumn", guid);
 ```
 
-Gerçek reducer çıkış çağırarak tetiklenir `yield return output.AsReadOnly();`.
+Merhaba gerçek reducer çıkış çağırarak tetiklenir `yield return output.AsReadOnly();`.
 
 Reducer örnek aşağıda verilmiştir:
 
@@ -2181,7 +2181,7 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-Bu kullanım örneği senaryosu reducer boş kullanıcı adı satırlarla atlıyor. Her satır kümesinde için gereken her sütun okur, ardından, kullanıcı adının uzunluğu değerlendirir. Kullanıcı adı değer uzunluğu 0'dan ise gerçek satır çıkarır.
+Bu kullanım örneği senaryosu hello reducer boş kullanıcı adı satırlarla atlıyor. Her satır kümesinde için gereken her sütun okur, ardından hello hello kullanıcı adının uzunluğu değerlendirir. Kullanıcı adı değer uzunluğu 0'dan ise hello gerçek satır çıkarır.
 
 Özel reducer kullanan temel U-SQL komut dosyası aşağıdadır:
 
@@ -2214,6 +2214,6 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
     FROM @rs1;
 
 OUTPUT @rs2 
-    TO @output_file 
+    too@output_file 
     USING Outputters.Text();
 ```

@@ -1,6 +1,6 @@
 ---
 title: "Oluşturma ve bir expressroute bağlantı hattı değiştirme: PowerShell: Azure Klasik | Microsoft Docs"
-description: "Bu makalede, oluşturma ve bir expressroute bağlantı hattı sağlama için adım adım anlatılmaktadır. Bu makalede ayrıca durumu, güncelleştirme veya silme denetleyin ve hattınız yetkisini kaldırma kullanmayı gösterir."
+description: "Bu makalede, oluşturma ve bir expressroute bağlantı hattı sağlama hello adım adım anlatılmaktadır. Bu makalede ayrıca, nasıl toocheck hello durumu, güncelleştirme veya silme ve hattınız yetkisini kaldırma gösterir."
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 3b12bbb21ebf6a0160227c4a281c420cf192d6f7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9897c88776a2153ba22aa9ff328becb9f12b660b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell-classic"></a>Oluşturma ve PowerShell (Klasik) kullanarak bir expressroute bağlantı hattı değiştirme
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/03/2017
 > * [PowerShell (klasik)](expressroute-howto-circuit-classic.md)
 >
 
-Bu makalede, PowerShell cmdlet'leri ve klasik dağıtım modeli kullanarak bir Azure expressroute bağlantı hattı oluşturmak için adım adım anlatılmaktadır. Bu makalede ayrıca durumu, güncelleştirme veya silme denetleyin ve bir expressroute bağlantı hattı yetkisini kaldırma kullanmayı gösterir.
+Bu makalede PowerShell cmdlet'leri ve hello Klasik dağıtım modeli kullanarak bir Azure expressroute bağlantı hattı hello adımları toocreate anlatılmaktadır. Bu makalede ayrıca, nasıl toocheck hello durumu, güncelleştirme veya silme ve bir expressroute bağlantı hattı yetkisini kaldırma gösterir.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -40,60 +40,60 @@ Bu makalede, PowerShell cmdlet'leri ve klasik dağıtım modeli kullanarak bir A
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-### <a name="step-1-review-the-prerequisites-and-workflow-articles"></a>1. Adım Önkoşulları ve iş akışı makaleleri gözden geçirin
-Gözden geçirdiğinizden emin olun [Önkoşullar](expressroute-prerequisites.md) ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.  
+### <a name="step-1-review-hello-prerequisites-and-workflow-articles"></a>1. Adım Merhaba önkoşulları ve iş akışı makaleleri gözden geçirin
+Merhaba gözden geçirdiğinizden emin olun [Önkoşullar](expressroute-prerequisites.md) ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.  
 
-### <a name="step-2-install-the-latest-versions-of-the-azure-service-management-sm-powershell-modules"></a>2. Adım Azure Hizmet Yönetimi (SM) PowerShell modülleri en son sürümlerini yükleyin
-' Ndaki yönergeleri izleyin [Azure PowerShell cmdlet'leri ile çalışmaya başlama](/powershell/azure/overview) bilgisayarınızı Azure PowerShell modülleri kullanacak şekilde yapılandırma hakkında adım adım yönergeler için.
+### <a name="step-2-install-hello-latest-versions-of-hello-azure-service-management-sm-powershell-modules"></a>2. Adım Merhaba hello Azure Hizmet Yönetimi (SM) PowerShell modülleri en son sürümlerini yükleyin
+Merhaba yönergeleri izleyin [Azure PowerShell cmdlet'leri ile çalışmaya başlama](/powershell/azure/overview) nasıl hakkında adım adım yönergeler için tooconfigure bilgisayar toouse hello Azure PowerShell modüllerinizi.
 
-### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Adım Azure hesabınızda oturum açın ve bir abonelik seçin
-1. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
+### <a name="step-3-log-in-tooyour-azure-account-and-select-a-subscription"></a>3. Adım Tooyour Azure hesabı oturum ve bir abonelik seçin
+1. Yükseltilmiş haklarla PowerShell Konsolunuzu açın ve tooyour hesap bağlanın. Bağlandığınız örnek toohelp aşağıdaki hello kullan:
 
         Login-AzureRmAccount
 
-2. Hesapla ilişkili abonelikleri kontrol edin.
+2. Merhaba hesabının Hello abonelikleri kontrol edin.
 
         Get-AzureRmSubscription
 
-3. Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçin.
+3. Birden fazla aboneliğiniz varsa, toouse istediğiniz hello aboneliği seçin.
 
         Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-4. Ardından, Klasik dağıtım modeli için PowerShell için Azure aboneliğinize eklemek için aşağıdaki cmdlet'i kullanın.
+4. Ardından, aşağıdaki cmdlet'i tooadd hello Azure aboneliği tooPowerShell hello Klasik dağıtım modeli için kullanın.
 
         Add-AzureAccount
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Oluşturma ve bir expressroute bağlantı hattı sağlama
-### <a name="step-1-import-the-powershell-modules-for-expressroute"></a>1. Adım ExpressRoute için PowerShell modülleri alın
- Zaten yapmadıysanız, Azure ve ExpressRoute modüllerini PowerShell oturumuna ExpressRoute cmdlet'lerini kullanmaya başlamak için içeri aktarmanız gerekir. Yerel bilgisayarınızda yüklü olan bir konumdan modülleri içeri aktarın. Konumun modüllerini yüklemek için kullanılan yönteme bağlı olarak aşağıdaki örnekte gösterildiği farklı olabilir. Örnek gerekiyorsa değiştirin.  
+### <a name="step-1-import-hello-powershell-modules-for-expressroute"></a>1. Adım ExpressRoute için Hello PowerShell modülleri alın
+ Zaten yapmadıysanız, sipariş toostart hello ExpressRoute cmdlet'lerini kullanmaya hello PowerShell oturumunda hello Azure ve ExpressRoute modülleri almanız gerekir. Merhaba modülleri içe hello oldukları konumu tooon yerel bilgisayarınızda yüklü. Tooinstall hello modülleri kullanılan Hello yöntemine bağlı olarak, başlangıç konumu aşağıdaki örnekte gösterildiği hello farklı olabilir. Merhaba örneği gerekiyorsa değiştirin.  
 
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-### <a name="step-2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Adım Desteklenen sağlayıcılar, konumları ve bant genişlikleri listesini alma
-Bir expressroute bağlantı hattı oluşturmadan önce desteklenen bağlantı sağlayıcıları, konumları ve bant seçeneklerini listesi gerekir.
+### <a name="step-2-get-hello-list-of-supported-providers-locations-and-bandwidths"></a>2. Adım Desteklenen sağlayıcılar, konumları ve bant genişlikleri Hello listesini alma
+Bir expressroute bağlantı hattı oluşturmadan önce desteklenen bağlantı sağlayıcıları, konumları ve bant genişliği seçenekleri hello listesi gerekir.
 
-PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` , sonraki adımlarda kullanacağınız bu bilgiler verir:
+PowerShell cmdlet hello `Get-AzureDedicatedCircuitServiceProvider` , sonraki adımlarda kullanacağınız bu bilgiler verir:
 
     Get-AzureDedicatedCircuitServiceProvider
 
-Bağlantı sağlayıcınız listelenip listelenmediğini denetleyin. Bir bağlantı hattı oluşturduğunuzda, daha sonra gerekir çünkü aşağıdaki bilgileri not edin:
+Bağlantı sağlayıcınız listelenip toosee kontrol edin. Bir bağlantı hattı oluşturduğunuzda, daha sonra gerekir çünkü aşağıdaki bilgilerle hello not edin:
 
 * Ad
 * PeeringLocations
 * BandwidthsOffered
 
-Artık bir expressroute bağlantı hattı oluşturmak hazırsınız.         
+Şimdi hazır toocreate bir expressroute bağlantı hattı olduğunuz.         
 
 ### <a name="step-3-create-an-expressroute-circuit"></a>3. Adım ExpressRoute bağlantı hattı oluşturma
-Aşağıdaki örnek 200 MB/sn expressroute bağlantı hattı üzerinden Equinix Silikon Vadisi'nde oluşturulacağını gösterir. Farklı bir sağlayıcı ve farklı ayarlar kullanıyorsanız, bu bilgileri isteğiniz yaptığınızda değiştirin.
+Aşağıdaki örnek hello nasıl toocreate 200 MB/sn expressroute bağlantı hattı Silikon vadisi Equinix aracılığıyla gösterir. Farklı bir sağlayıcı ve farklı ayarlar kullanıyorsanız, bu bilgileri isteğiniz yaptığınızda değiştirin.
 
 > [!IMPORTANT]
-> ExpressRoute bağlantı hattınız bir hizmet anahtarı verilen andan itibaren Fatura edilecek. Bağlantı sağlayıcı bağlantı hattı sağlamak hazır olduğunda bu işlemi gerçekleştirmek emin olun.
+> ExpressRoute bağlantı hattınız bir hizmet anahtarı verilen hello andan itibaren Fatura edilecek. Merhaba bağlantı sağlayıcı hazır tooprovision hello hattı olduğunda bu işlemi gerçekleştirmek emin olun.
 > 
 > 
 
-Yeni bir hizmet anahtarı için bir örnek isteği verilmiştir:
+Merhaba, yeni bir hizmet anahtarı için bir örnek isteği aşağıdadır:
 
     $Bandwidth = 200
     $CircuitName = "MyTestCircuit"
@@ -102,21 +102,21 @@ Yeni bir hizmet anahtarı için bir örnek isteği verilmiştir:
 
     New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData
 
-Veya, bir expressroute premium eklentisi ile oluşturmak istiyorsanız, aşağıdaki örneği kullanın. Başvurmak [ExpressRoute SSS](expressroute-faqs.md) premium eklentisi hakkında daha fazla ayrıntı için.
+Ya da toocreate hello premium eklentisi ile bir expressroute bağlantı hattı istiyorsanız, aşağıdaki kullanım hello örneğine. Toohello başvuran [ExpressRoute SSS](expressroute-faqs.md) hello premium eklentisi hakkında daha fazla ayrıntı için.
 
     New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
 
 
-Yanıt hizmet anahtarını içerir. Aşağıdaki komutu çalıştırarak tüm parametrelerin ayrıntılı açıklamaları alabilirsiniz:
+Merhaba yanıt hello hizmet anahtarı içerir. Merhaba aşağıdakini çalıştırarak tüm hello parametrelerin ayrıntılı açıklamaları alabilirsiniz:
 
     get-help new-azurededicatedcircuit -detailed
 
-### <a name="step-4-list-all-the-expressroute-circuits"></a>4. Adım. Tüm ExpressRoute bağlantı hatları listesi
-Çalıştırabilirsiniz `Get-AzureDedicatedCircuit` oluşturduğunuz tüm expressroute bağlantı hatları listesini almak için komutu:
+### <a name="step-4-list-all-hello-expressroute-circuits"></a>4. Adım. Tüm hello ExpressRoute bağlantı hatları listesi
+Merhaba çalıştırabilirsiniz `Get-AzureDedicatedCircuit` tooget tüm listesini hello oluşturduğunuz ExpressRoute bağlantı hatları komutu:
 
     Get-AzureDedicatedCircuit
 
-Yanıt aşağıdaki örneğe benzer bir şey olacaktır:
+Merhaba yanıt aşağıdaki örneğine benzeri toohello olacaktır:
 
     Bandwidth                        : 200
     CircuitName                      : MyTestCircuit
@@ -127,7 +127,7 @@ Yanıt aşağıdaki örneğe benzer bir şey olacaktır:
     Sku                              : Standard
     Status                           : Enabled
 
-Herhangi bir zamanda bu bilgileri kullanarak alabilirsiniz `Get-AzureDedicatedCircuit` cmdlet'i. Hiçbir parametre olmadan çağrıyı yapan tüm devreler listeler. Hizmet anahtarınız listelenen *ServiceKey* alan.
+Hello kullanarak herhangi bir zamanda bu bilgiler alabilirsiniz `Get-AzureDedicatedCircuit` cmdlet'i. Hiçbir parametre olmadan çağrı hello yapmadan tüm hello devreleri listeler. Hizmet anahtarınız hello listelenmez *ServiceKey* alan.
 
     Get-AzureDedicatedCircuit
 
@@ -140,32 +140,32 @@ Herhangi bir zamanda bu bilgileri kullanarak alabilirsiniz `Get-AzureDedicatedCi
     Sku                              : Standard
     Status                           : Enabled
 
-Aşağıdaki komutu çalıştırarak tüm parametrelerin ayrıntılı açıklamaları alabilirsiniz:
+Merhaba aşağıdakini çalıştırarak tüm hello parametrelerin ayrıntılı açıklamaları alabilirsiniz:
 
     get-help get-azurededicatedcircuit -detailed
 
-### <a name="step-5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Adım. Hizmet anahtarı sağlamak için bağlantı sağlayıcınızı Gönder
-*ServiceProviderProvisioningState* hizmet sağlayıcı tarafında sağlama geçerli durumu hakkında bilgi sağlar. *Durum* Microsoft tarafında durumunu sağlar. Bağlantı hattı durumları sağlama hakkında daha fazla bilgi için bkz: [iş akışları](expressroute-workflows.md#expressroute-circuit-provisioning-states) makalesi.
+### <a name="step-5-send-hello-service-key-tooyour-connectivity-provider-for-provisioning"></a>5. Adım. Merhaba hizmet anahtar tooyour bağlantı sağlayıcı sağlamak için Gönder
+*ServiceProviderProvisioningState* hello hizmet sağlayıcı tarafında sağlama hello geçerli durumu hakkında bilgi sağlar. *Durum* Microsoft yan hello üzerinde hello durumunu sağlar. Merhaba hattı durumları sağlama hakkında daha fazla bilgi için bkz: [iş akışları](expressroute-workflows.md#expressroute-circuit-provisioning-states) makalesi.
 
-Yeni bir expressroute bağlantı hattı oluşturduğunuzda, bağlantı hattı şu durumda olacaktır:
+Yeni bir expressroute bağlantı hattı oluşturduğunuzda, hello hattı durumu aşağıdaki hello olacaktır:
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-Bağlantı sağlayıcı onu sizin için etkinleştirme sürecinde olduğunda bağlantı hattı aşağıdaki durumuna gidin:
+Merhaba hattı hello bağlantı sağlayıcı için etkinleştirme işleminin hello olduğunda durumu aşağıdaki toohello geçer:
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
 
-Bir expressroute bağlantı hattı, onu kullanabilmek aşağıdaki durumda olması gerekir:
+Bir expressroute bağlantı hattı, toobe mümkün toouse durumunu izleyen hello onu olması gerekir:
 
     ServiceProviderProvisioningState : Provisioned
     Status                           : Enabled
 
 
-### <a name="step-6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Adım. Durum ve hattı anahtar durumunu düzenli aralıklarla denetleyin
-Bu, sağlayıcınız hattınız etkin olduğunda bilmenizi sağlar. Bağlantı hattı yapılandırıldıktan sonra *ServiceProviderProvisioningState* olarak görüntülenir *hazırlandı* aşağıdaki örnekte gösterildiği gibi:
+### <a name="step-6-periodically-check-hello-status-and-hello-state-of-hello-circuit-key"></a>6. Adım. Merhaba durumunu ve hello hattı anahtar hello durumunu düzenli aralıklarla denetleyin
+Bu, sağlayıcınız hattınız etkin olduğunda bilmenizi sağlar. Merhaba hattı yapılandırıldıktan sonra *ServiceProviderProvisioningState* olarak görüntülenir *hazırlandı* hello aşağıdaki örnekte gösterildiği gibi:
 
     Get-AzureDedicatedCircuit
 
@@ -179,18 +179,18 @@ Bu, sağlayıcınız hattınız etkin olduğunda bilmenizi sağlar. Bağlantı h
     Status                           : Enabled
 
 ### <a name="step-7-create-your-routing-configuration"></a>7. Adım. Yönlendirme yapılandırması oluşturma
-Başvurmak [expressroute bağlantı hattı yönlendirme yapılandırması (oluşturma ve hattı eşlemeler değiştirme)](expressroute-howto-routing-classic.md) makale adım adım yönergeler için.
+Toohello başvuran [expressroute bağlantı hattı yönlendirme yapılandırması (oluşturma ve hattı eşlemeler değiştirme)](expressroute-howto-routing-classic.md) makale adım adım yönergeler için.
 
 > [!IMPORTANT]
-> Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan bağlantı hatları için geçerlidir. Yönetilen sunan bir hizmet sağlayıcısı kullanıyorsanız, Katman 3 Hizmetleri (genellikle bir IP VPN, MPLS gibi), bağlantı sağlayıcınız yapılandırmak ve yönetmek için yönlendirme.
+> Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan toocircuits geçerlidir. Yönetilen sunan bir hizmet sağlayıcısı kullanıyorsanız, Katman 3 Hizmetleri (genellikle bir IP VPN, MPLS gibi), bağlantı sağlayıcınız yapılandırmak ve yönetmek için yönlendirme.
 > 
 > 
 
-### <a name="step-8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. adım. ExpressRoute bağlantı hattına bir sanal ağı bağlama
-Ardından, bir sanal ağ, expressroute bağlantı hattına bağlayın. Başvurmak [sanal ağlara bağlama ExpressRoute bağlantı hatları](expressroute-howto-linkvnet-classic.md) adım adım yönergeler için. ExpressRoute için Klasik dağıtım modeli kullanarak bir sanal ağ oluşturma gerekiyorsa bkz [ExpressRoute için bir sanal ağ oluşturma](expressroute-howto-vnet-portal-classic.md).
+### <a name="step-8-link-a-virtual-network-tooan-expressroute-circuit"></a>8. adım. Sanal ağ tooan expressroute bağlantı hattı bağlantı
+Ardından, sanal ağ tooyour expressroute bağlantı hattı bağlayın. Çok başvuran[bağlama ExpressRoute bağlantı hattına toovirtual ağlar](expressroute-howto-linkvnet-classic.md) adım adım yönergeler için. ExpressRoute için hello Klasik dağıtım modeli kullanarak bir sanal ağ toocreate gerekirse bkz [ExpressRoute için bir sanal ağ oluşturma](expressroute-howto-vnet-portal-classic.md).
 
-## <a name="getting-the-status-of-an-expressroute-circuit"></a>Bir expressroute bağlantı hattı durumunu alma
-Herhangi bir zamanda bu bilgileri kullanarak alabilirsiniz `Get-AzureCircuit` cmdlet'i. Hiçbir parametre olmadan çağrıyı yapan tüm devreler listeler.
+## <a name="getting-hello-status-of-an-expressroute-circuit"></a>Bir expressroute bağlantı hattı Hello durumunu alma
+Hello kullanarak herhangi bir zamanda bu bilgiler alabilirsiniz `Get-AzureCircuit` cmdlet'i. Hiçbir parametre olmadan çağrı hello yapmadan tüm hello devreleri listeler.
 
     Get-AzureDedicatedCircuit
 
@@ -212,7 +212,7 @@ Herhangi bir zamanda bu bilgileri kullanarak alabilirsiniz `Get-AzureCircuit` cm
     Sku                              : Standard
     Status                           : Enabled
 
-Çağrısına parametre olarak hizmet anahtarını geçirerek belirli bir expressroute bağlantı hattı hakkında bilgi alabilirsiniz.
+Bir parametre toohello araması olarak hello hizmet anahtarını geçirerek belirli bir expressroute bağlantı hattı hakkında bilgi alabilirsiniz.
 
     Get-AzureDedicatedCircuit -ServiceKey "*********************************"
 
@@ -226,24 +226,24 @@ Herhangi bir zamanda bu bilgileri kullanarak alabilirsiniz `Get-AzureCircuit` cm
     Status                           : Enabled
 
 
-Aşağıdaki örnek çalıştırarak tüm parametrelerin ayrıntılı açıklamaları alabilirsiniz:
+Aşağıdaki örnek hello çalıştırarak tüm hello parametrelerin ayrıntılı açıklamaları alabilirsiniz:
 
     get-help get-azurededicatedcircuit -detailed
 
 ## <a name="modifying-an-expressroute-circuit"></a>Bir expressroute bağlantı hattı değiştirme
 Bağlantı etkilemeden belirli bir expressroute bağlantı hattı özelliklerini değiştirebilirsiniz.
 
-Kapalı kalma süresi olmadan aşağıdakileri yapabilirsiniz:
+Yapabileceğiniz kapalı kalma süresi ile aşağıdaki hello:
 
 * Etkinleştirmek veya devre dışı bir expressroute bağlantı hattı için ExpressRoute premium eklentisi.
-* Sağlanmış kapasite kullanılabilir bağlantı noktası, expressroute bağlantı hattı bant genişliğini artırır. Bir bağlantı hattının bant genişliğini eski sürüme düşürmeyi desteklenmediğini unutmayın. 
-* Ölçüm plan sınırsız veri ölçülen verilerden değiştirin. Ölçülen veri sınırsız verilerden ölçüm planı değiştirmek desteklenmez unutmayın.
+* Artış hello bant genişliği, expressroute bağlantı hattı var. kapasite kullanılabilir hello bağlantı noktasında sağlanır. Önceki sürüme indirme bir bağlantı hattının bant genişliği hello Not desteklenmiyor. 
+* Ölçülen veri tooUnlimited veri planından ölçümü hello değiştirin. Bu değişen hello ölçüm planından veri desteklenmiyor sınırsız veri tooMetered unutmayın.
 * Etkinleştirme ve devre dışı *izin Klasik işlemleri*.
 
-Başvurmak [ExpressRoute SSS](expressroute-faqs.md) sınırlar ve sınırlamalar hakkında daha fazla bilgi için.
+Toohello başvuran [ExpressRoute SSS](expressroute-faqs.md) sınırlar ve sınırlamalar hakkında daha fazla bilgi için.
 
-### <a name="to-enable-the-expressroute-premium-add-on"></a>ExpressRoute premium eklentisi etkinleştirmek için
-Aşağıdaki PowerShell cmdlet'ini kullanarak, varolan bağlantı hattınız için ExpressRoute premium eklentisi etkinleştirebilirsiniz:
+### <a name="tooenable-hello-expressroute-premium-add-on"></a>tooenable hello ExpressRoute premium eklentisi
+Merhaba aşağıdaki PowerShell cmdlet'ini kullanarak, varolan bağlantı hattınız için hello ExpressRoute premium eklentisi etkinleştirebilirsiniz:
 
     Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
 
@@ -256,22 +256,22 @@ Aşağıdaki PowerShell cmdlet'ini kullanarak, varolan bağlantı hattınız iç
     Sku                              : Premium
     Status                           : Enabled
 
-Bağlantı hattınız şimdi etkin ExpressRoute premium eklentisi özellikleri sahip olur. Biz komutu başarıyla çalıştırıldı hemen premium eklenti özellik faturalama başlayacak unutmayın.
+Bağlantı hattınız şimdi hello ExpressRoute premium eklentisi özellikleri etkin olacaktır. Biz hello komutu başarıyla çalıştırıldı hemen için hello premium eklenti özelliğini faturalama başlayacak unutmayın.
 
-### <a name="to-disable-the-expressroute-premium-add-on"></a>ExpressRoute premium eklentisi devre dışı bırakmak için
+### <a name="toodisable-hello-expressroute-premium-add-on"></a>toodisable hello ExpressRoute premium eklentisi
 > [!IMPORTANT]
-> Standart bağlantı hattı için izin daha büyük olan kaynaklar kullanıyorsanız, bu işlemi başarısız olabilir.
+> Merhaba standart bağlantı hattı için izin daha büyük olan kaynaklar kullanıyorsanız, bu işlemi başarısız olabilir.
 > 
 > 
 
 #### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-* Standart Premium'dan düşürmek önce devresine bağlı sanal ağlar sayısı 10'dan az olduğundan emin olmalısınız. Bunu yapmazsanız, güncelleştirme isteği başarısız olur ve olması, premium oranları faturalandırılır.
-* Tüm sanal ağları diğer coğrafi bölgelerde bağlantısını gerekir. Bunu yapmazsanız, güncelleştirme isteği başarısız olur ve olması, premium oranları faturalandırılır.
-* Yol tablosu özel eşleme için 4. 000'den az yolları olmalıdır. Rota tablosu boyutunuz 4.000 yolları büyükse, BGP oturumu bırakacaktır ve 4.000 tanıtılan ön ek sayısı gider kadar yeniden iler hale olmaz.
+* Premium toostandard düşürmek önce sanal ağlar bağlantılı toohello hattı hello sayısı 10'dan az olduğundan emin olmalısınız. Bunu yapmazsanız, güncelleştirme isteği başarısız olur ve Faturalanan hello premium oranları olması.
+* Tüm sanal ağları diğer coğrafi bölgelerde bağlantısını gerekir. Bunu yapmazsanız, güncelleştirme isteği başarısız olur ve Faturalanan hello premium oranları olması.
+* Yol tablosu özel eşleme için 4. 000'den az yolları olmalıdır. Rota tablosu boyutunuz 4.000 yolları büyükse, hello BGP oturumu bırakacaktır ve 4.000 tanıtılan önekler hello sayısı gider kadar yeniden iler hale olmaz.
 
-#### <a name="disable-the-premium-add-on"></a>Premium eklentisi devre dışı bırak
-Aşağıdaki PowerShell cmdlet'ini kullanarak var olan bağlantı hattınız için ExpressRoute premium eklentisi devre dışı bırakabilirsiniz:
+#### <a name="disable-hello-premium-add-on"></a>Merhaba premium eklentisi devre dışı bırak
+Merhaba aşağıdaki PowerShell cmdlet'ini kullanarak var olan bağlantı hattınız için hello ExpressRoute premium eklentisi devre dışı bırakabilirsiniz:
 
     Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
 
@@ -286,19 +286,19 @@ Aşağıdaki PowerShell cmdlet'ini kullanarak var olan bağlantı hattınız iç
 
 
 
-### <a name="to-update-the-expressroute-circuit-bandwidth"></a>ExpressRoute bağlantı hattı bant genişliğini güncelleştirmek için
-Denetleme [ExpressRoute SSS](expressroute-faqs.md) desteklenen sağlayıcınız için bant seçenekleri. Sunucudaki fiziksel bağlantı noktası (hattınız oluşturulduğu) izin verdiği sürece, varolan bağlantı hattınız boyutundan büyük herhangi bir boyutta seçebilirsiniz.
+### <a name="tooupdate-hello-expressroute-circuit-bandwidth"></a>tooupdate hello ExpressRoute devresi bant genişliği
+Merhaba denetleyin [ExpressRoute SSS](expressroute-faqs.md) desteklenen sağlayıcınız için bant seçenekleri. (Hattınız oluşturulduğu) hello fiziksel bağlantı noktası izin verdiği sürece, varolan bağlantı hattınız hello boyutundan büyük olan herhangi bir boyutta seçebilirsiniz.
 
 > [!IMPORTANT]
-> Varolan bir bağlantı üzerinde yetersiz kapasite ise expressroute bağlantı hattı yeniden başlatmanız gerekebilir. Varsa hiçbir ek kapasite kullanılabilir o konumda bağlantı hattı yükseltemezsiniz.
+> Merhaba varolan bağlantı noktasında yetersiz kapasite ise toorecreate hello expressroute bağlantı hattı olabilir. Varsa hiçbir ek kapasite kullanılabilir o konumda hello hattı yükseltemezsiniz.
 >
-> Bir expressroute bağlantı hattı kesintiye uğratmadan bant indiremezsiniz. Bant genişliği eski sürüme düşürmeyi expressroute bağlantı hattı yetkisini kaldırma ve yeni bir expressroute bağlantı hattı yeniden hazırlayana gerektirir.
+> Bir expressroute bağlantı hattı kesintiye uğratmadan hello bant genişliği azaltma olamaz. Bant genişliği eski sürüme düşürmeyi toodeprovision hello expressroute bağlantı hattı gerektirir ve yeni bir expressroute bağlantı hattı yeniden sağlayın.
 > 
 > 
 
 #### <a name="resize-a-circuit"></a>Bir bağlantı hattı yeniden boyutlandırma
 
-Gereksinim boyutu karar verdikten sonra bağlantı hattınız yeniden boyutlandırmak için aşağıdaki komutu kullanabilirsiniz:
+Gereksinim boyutu karar verdikten sonra komutu tooresize aşağıdaki hello hattınız kullanabilirsiniz:
 
     Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
 
@@ -311,11 +311,11 @@ Gereksinim boyutu karar verdikten sonra bağlantı hattınız yeniden boyutland�
     Sku                              : Standard
     Status                           : Enabled
 
-Bağlantı hattınız Microsoft tarafında boyutlandırılmış. Bu değişiklik eşleşecek şekilde kendi tarafında yapılandırmalar güncelleştirileceğini bağlantı sağlayıcınız başvurmanız gerekir. Biz üzerinde bu noktasından güncelleştirilmiş bant seçeneği için faturalama başlayacak unutmayın.
+Bağlantı hattınız hello Microsoft tarafında boyutlandırılmış. Bu değişiklik, bağlantı sağlayıcısı tooupdate yapılandırmalarını kendi yan toomatch başvurmanız gerekir. Biz Merhaba faturalama başlayacak Not bant genişliği seçeneği bu noktasından güncelleştirdi.
 
-Bağlantı hattı bant genişliğini artırma olduğunda aşağıdaki hata görürseniz, bu var. Varolan hattınız oluşturulduğu fiziksel bağlantı noktası üzerinde hiçbir yeterli bant genişliği sol anlamına gelir. Bağlantı hattı silin ve yeni bir bağlantı hattı gereksinim boyutu oluşturmak zorunda. 
+Merhaba hello hattı bant genişliğini artırma olduğunda aşağıdaki hata görürseniz, bu var. Varolan hattınız oluşturulduğu hello fiziksel bağlantı noktası hiçbir yeterli bant genişliği sol anlamına gelir. Bu hattı toodelete sahip ve yeni bir hattı ihtiyacınız hello boyutunun oluşturma. 
 
-    Set-AzureDedicatedCircuitProperties : InvalidOperation : Insufficient bandwidth available to perform this circuit
+    Set-AzureDedicatedCircuitProperties : InvalidOperation : Insufficient bandwidth available tooperform this circuit
     update operation
     At line:1 char:1
     + Set-AzureDedicatedCircuitProperties -ServiceKey ********************* ...
@@ -328,21 +328,21 @@ Bağlantı hattı bant genişliğini artırma olduğunda aşağıdaki hata gör�
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-* Expressroute bağlantı hattı başarılı olması bu işlem için tüm sanal ağlardan bağlantısını gerekir. Bu işlem başarısız olursa, devresine bağlı sanal ağlar olup olmadığını denetleyin.
-* Sağlama durumu ExpressRoute bağlantı hattı hizmet sağlayıcı ise **sağlama** veya **hazırlandı** kendi tarafında hattı yetkisini kaldırma için hizmet sağlayıcınıza birlikte çalışmalısınız. Kaynakları ayırabilir ve hizmet sağlayıcısı devre sağlama kaldırma işlemi tamamlandıktan ve bize bildiren kadar sizi faturalandırmak devam eder.
-* Hizmet sağlayıcısı hattı sağlaması kaldırılıyor. sağlaması değilse (sağlama durumu hizmet sağlayıcısı kümesine **sağlanmadı**), ardından bağlantı hattı silebilirsiniz. Bu bağlantı hattı için fatura durdurur.
+* Tüm sanal ağlardan hello expressroute bağlantı hattı için bu işlemi toosucceed bağlantısını gerekir. Denetleme olan tüm sanal ağlarınız varsa toosee, bu işlem başarısız olursa toohello hattı bağlı.
+* Merhaba ExpressRoute bağlantı hattı Hizmet Sağlayıcısı sağlama durumu ise **sağlama** veya **hazırlandı** kendi tarafında hizmet sağlayıcısı toodeprovision hello hattınız ile çalışmanız gerekir. Biz tooreserve kaynakları devam edecek ve hello hizmet sağlayıcısı sağlamayı hello hattı tamamlandıktan ve bize bildiren kadar sizi faturalandırmak.
+* Merhaba hizmet sağlayıcısı hello hattı sağlaması kaldırılıyor. sağlaması değilse (Merhaba Hizmet Sağlayıcısı sağlama durumu çok ayarlamak**sağlanmadı**) hello hattı sonra silebilirsiniz. Bu hello hattı için fatura durdurur.
 
 #### <a name="delete-a-circuit"></a>Bir bağlantı hattı Sil
 
-Aşağıdaki komutu çalıştırarak, expressroute bağlantı hattı silebilirsiniz:
+Hello aşağıdaki komutu çalıştırarak, expressroute bağlantı hattı silebilirsiniz:
 
     Remove-AzureDedicatedCircuit -ServiceKey "*********************************"
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bağlantı hattınız oluşturduktan sonra aşağıdakileri yaptığınızdan emin olun:
+Bağlantı hattınız oluşturduktan sonra aşağıdaki hello emin olun:
 
 * [Oluşturma ve expressroute bağlantı hattı için yönlendirmeyi değiştirme](expressroute-howto-routing-classic.md)
-* [Sanal ağ, ExpressRoute devresine bağlama](expressroute-howto-linkvnet-classic.md)
+* [Sanal ağ tooyour expressroute bağlantı hattı bağlantı](expressroute-howto-linkvnet-classic.md)
 

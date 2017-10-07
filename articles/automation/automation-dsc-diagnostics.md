@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu DSC OMS günlük analizi için raporlama verilerini iletmek | Microsoft Docs"
-description: "Bu makalede, istenen durum yapılandırması (DSC) ek bilgiler sunmak için Microsoft Operations Management Suite günlük analizi ve yönetimi için raporlama verilerini göndermek gösterilmiştir."
+title: "Azure Otomasyonu DSC raporlama veri tooOMS günlük analizi aaaForward | Microsoft Docs"
+description: "Bu makalede gösterilir nasıl toosend istenen durum raporlama veri tooMicrosoft Operations Management Suite günlük analizi toodeliver ek bilgiler ve yönetim Yapılandırma hizmeti (DSC)."
 services: automation
 documentationcenter: 
 author: eslesar
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: eslesar
-ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 21f78d5549d53ba3d7e237f55d9086f380cf3351
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Azure Otomasyonu DSC OMS günlük analizi veri raporlama ilet
+# <a name="forward-azure-automation-dsc-reporting-data-toooms-log-analytics"></a>Azure Otomasyonu DSC veri tooOMS günlük analizi raporlama ilet
 
-Automation DSC düğüm durumu verilerinin, Microsoft Operations Management Suite (OMS) günlük analizi çalışma alanına gönderebilirsiniz.  
-Uyumluluk durumu Azure portalında veya PowerShell DSC düğüm yapılandırmaları kaynaklarında tek tek ve düğümler için görülebilir. Günlük analizi ile şunları yapabilirsiniz:
+Automation DSC düğüm durumu veri tooyour Microsoft Operations Management Suite (OMS) günlük analizi çalışma alanı gönderebilirsiniz.  
+Uyumluluk durumu hello Azure portal veya PowerShell ile tek tek DSC kaynakları düğüm yapılandırmaları ve düğümler için görülebilir. Günlük analizi ile şunları yapabilirsiniz:
 
 * Yönetilen düğümler ve ayrı ayrı kaynaklar için uyumluluk bilgilerini alma
 * Bir e-posta veya uyumluluk durumuna dayalı uyarı Tetikle
@@ -32,88 +32,88 @@ Uyumluluk durumu Azure portalında veya PowerShell DSC düğüm yapılandırmala
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Automation DSC raporlarınızı günlük analizi için göndermeye başlayın, gerekir:
+Automation DSC gönderme toostart tooLog analizi raporları, gerekir:
 
-* Kasım 2016 veya sonraki sürümünün [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
-* Bir Azure Otomasyonu hesabı. Daha fazla bilgi için bkz: [Azure Automation ile çalışmaya başlama](automation-offering-get-started.md)
+* Kasım 2016 hello veya sonraki sürümünün [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
+* Azure Otomasyonu hesabı. Daha fazla bilgi için bkz: [Azure Automation ile çalışmaya başlama](automation-offering-get-started.md)
 * Günlük analizi çalışma alanı ile bir **otomasyon ve Denetim** hizmet teklifi. Daha fazla bilgi için bkz: [günlük Analytics ile çalışmaya başlama](../log-analytics/log-analytics-get-started.md).
 * En az bir Azure Otomasyonu DSC düğümü. Daha fazla bilgi için bkz: [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md) 
 
 ## <a name="set-up-integration-with-log-analytics"></a>Günlük analizi ile tümleştirmeyi ayarlamak
 
-Azure Automation DSC'den günlük analizi veri almaya başlamak için aşağıdaki adımları tamamlayın:
+verileri Azure Automation DSC'den günlük analizi, şu adımları tam hello alma toobegin:
 
-1. PowerShell Azure hesabınızda oturum açın. Bkz: [oturum oturum Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
-1. Alma _ResourceId_ aşağıdaki PowerShell komutunu çalıştırarak Otomasyon hesabınızın: (birden fazla Otomasyon hesabı varsa, seçin _ResourceId_ yapılandırmak istediğiniz hesap için).
+1. İçinde tooyour PowerShell Azure hesabında oturum açın. Bkz: [oturum oturum Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. Merhaba almak _ResourceId_ hello aşağıdaki PowerShell komutunu çalıştırarak Otomasyon hesabınızın: (birden fazla Otomasyon hesabı varsa, hello seçin _ResourceId_ istediğiniz hello hesabı tooconfigure).
 
   ```powershell
-  # Find the ResourceId for the Automation Account
+  # Find hello ResourceId for hello Automation Account
   Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
   ```
-1. Alma _ResourceId_ aşağıdaki PowerShell komutunu çalıştırarak günlük analizi çalışma alanınızın: (birden çok çalışma alanı varsa, seçin _ResourceId_ yapılandırmak istediğiniz çalışma alanı için).
+1. Merhaba alma _ResourceId_ hello aşağıdaki PowerShell komutunu çalıştırarak günlük analizi çalışma alanınızın: (birden çok çalışma alanı varsa, hello seçin _ResourceId_ istediğiniz hello çalışma alanı için tooconfigure).
 
   ```powershell
-  # Find the ResourceId for the Log Analytics workspace
+  # Find hello ResourceId for hello Log Analytics workspace
   Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
   ```
-1. Aşağıdaki PowerShell komutunu çalıştırın değiştirme `<AutomationResourceId>` ve `<WorkspaceResourceId>` ile _ResourceId_ değerleri önceki adımların her biri:
+1. Aşağıdaki PowerShell komutunu, değiştirme çalıştırma hello `<AutomationResourceId>` ve `<WorkspaceResourceId>` hello ile _ResourceId_ değerleri hello önceki adımların her biri:
 
   ```powershell
   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories "DscNodeStatus"
   ```
 
-Verileri Azure Automation DSC'den günlük analizi alma işlemini durdurmak istiyorsanız, aşağıdaki PowerShell komutunu çalıştırın.
+Azure Automation DSC'den günlük analizi veri alma toostop istiyorsanız, hello aşağıdaki PowerShell komutunu çalıştırın.
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Categories "DscNodeStatus"
 ```
 
-## <a name="view-the-dsc-logs"></a>DSC günlükleri görüntüle
+## <a name="view-hello-dsc-logs"></a>Merhaba DSC günlüklerini görüntüle
 
-Automation DSC verileriniz için günlük analizi ile tümleştirme ayarladıktan sonra bir **günlük arama** düğmesi görüntülenecek **DSC düğümleri** dikey Otomasyon hesabınızın. Tıklatın **günlük arama** DSC düğümü verileri için günlükleri görüntülemek için düğmeye.
+Automation DSC verileriniz için günlük analizi ile tümleştirme ayarladıktan sonra bir **günlük arama** düğmesi üzerinde hello görünecektir **DSC düğümleri** dikey Otomasyon hesabınızın. Merhaba tıklatın **günlük arama** düğmesini tooview hello günlükleri DSC düğümü veriler için.
 
 ![Günlük Ara düğmesi](media/automation-dsc-diagnostics/log-search-button.png)
 
-**Günlük arama** dikey penceresi açılır ve gördüğünüz bir **DscNodeStatusData** her DSC düğümü için işlemi ve **DscResourceStatusData** işlemi her [DSC kaynağı](https://msdn.microsoft.com/powershell/dsc/resources) bu düğüme uygulanan düğüm yapılandırması adı verilen.
+Merhaba **günlük arama** dikey penceresi açılır ve gördüğünüz bir **DscNodeStatusData** her DSC düğümü için işlemi ve **DscResourceStatusData** işlemi her [DSC Kaynak](https://msdn.microsoft.com/powershell/dsc/resources) hello düğüm yapılandırması uygulanan toothat düğüm olarak adlandırılır.
 
-**DscResourceStatusData** işlemi başarısız DSC kaynakları için hata bilgilerini içerir.
+Merhaba **DscResourceStatusData** işlemi başarısız DSC kaynakları için hata bilgilerini içerir.
 
-Bu işlem için verileri görmek için listedeki her bir işlemin'ı tıklatın.
+Merhaba liste toosee hello verilerini her bir işlemde bu işlem için tıklatın.
 
-[Günlük analizi arayarak. günlükleri görüntüleyebilirsiniz Bkz: [Bul günlük aramaları kullanarak verileri](../log-analytics/log-analytics-log-searches.md).
-DSC günlüklerinizi bulmak için aşağıdaki sorguyu yazın:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
+[Günlük analizi arayarak. hello günlüklerini görüntüleyebilirsiniz Bkz: [Bul günlük aramaları kullanarak verileri](../log-analytics/log-analytics-log-searches.md).
+Türü hello aşağıdaki sorgu toofind, DSC günlükleri:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
 
-Ayrıca, sorgu işlemi adıyla da daraltabilirsiniz. Örneğin: ' türü AzureDiagnostics ResourceProvider = = "MICROSOFT. OTOMASYON"kategorisi"DscNodeStatus"OperationName ="DscNodeStatusData"=
+Ayrıca, hello sorgu hello işlemi adıyla da daraltabilirsiniz. Örneğin: ' türü AzureDiagnostics ResourceProvider = = "MICROSOFT. OTOMASYON"kategorisi"DscNodeStatus"OperationName ="DscNodeStatusData"=
 
 ### <a name="send-an-email-when-a-dsc-compliance-check-fails"></a>DSC uyumluluk denetimi başarısız olduğunda bir e-posta Gönder
 
-Bizim üst müşteri isteklerinden biri, bir şeyler bir DSC yapılandırması yanlış gittiğinde bir e-posta veya bir metin gönderme olanağı içindir.   
+Bir şeyler bir DSC yapılandırması yanlış gittiğinde bizim üst müşteri isteklerini hello özelliği toosend için bir e-posta veya bir metin biridir.   
 
-Bir uyarı kuralı oluşturmak için bir günlük arama uyarı çağıracağı DSC rapor kayıtlar için oluşturarak başlayın.  Tıklatın **uyarı** oluşturmak ve uyarı kuralı yapılandırmak için düğmesi.
+toocreate bir uyarı kuralı, bir günlük arama hello uyarı çağıracağı hello DSC rapor kayıtlar için oluşturarak başlayın.  Merhaba tıklatın **uyarı** düğmesini toocreate ve hello uyarı kuralı yapılandırın.
 
-1. Günlük analizi genel bakış sayfasında **günlük arama**.
-1. Uyarınız için günlük arama sorgusunu sorgu alanına aşağıdaki arama yazarak oluşturun:`Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
+1. Merhaba günlük analizi genel bakış sayfasında, **günlük arama**.
+1. Arama hello sorgu alanına aşağıdaki hello yazarak, uyarı için bir günlük arama sorgusu oluşturun:`Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
-  Günlüklerini birden fazla Otomasyon hesabı veya abonelik alanınıza ayarladıysanız, uyarılarınızı aboneliği ve Automation hesabı göre gruplandırabilirsiniz.  
-  Otomasyon hesabı adı DscNodeStatusData arama kaynak alanından elde edilebilir.  
-1. Açmak için **uyarı kuralı Ekle** ekranında **uyarı** sayfanın üst kısmındaki. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz: [günlük analizi uyarılarını](../log-analytics/log-analytics-alerts.md#alert-rules).
+  Birden fazla Otomasyon hesabı veya abonelik tooyour çalışma günlüklerinden ayarladıysanız uyarılarınızı aboneliği ve Automation hesabı göre gruplandırabilirsiniz.  
+  Automation hesabı adını DscNodeStatusData hello arama hello kaynak alanından elde edilebilir.  
+1. tooopen hello **uyarı kuralı Ekle** ekranında **uyarı** hello sayfanın üst kısmındaki hello. Başlangıç seçenekleri tooconfigure hello uyarı hakkında daha fazla bilgi için bkz: [günlük analizi uyarılarını](../log-analytics/log-analytics-alerts.md#alert-rules).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Tüm düğümleri arasında başarısız DSC kaynakları bulun
 
 Günlük analizi kullanmanın bir avantajı, düğümlere başarısız olup olmadığını denetler arayabilirsiniz ' dir.
-Başarısız DSC kaynakları tüm örneklerini bulmak için.
+toofind başarısız DSC kaynakları tüm örneklerini.
 
-1. Günlük analizi genel bakış sayfasında **günlük arama**.
-1. Uyarınız için günlük arama sorgusunu sorgu alanına aşağıdaki arama yazarak oluşturun:`Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
+1. Merhaba günlük analizi genel bakış sayfasında, **günlük arama**.
+1. Arama hello sorgu alanına aşağıdaki hello yazarak, uyarı için bir günlük arama sorgusu oluşturun:`Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
 
 ### <a name="view-historical-dsc-node-status"></a>Geçmiş DSC düğüm durumu görüntüle
 
-Son olarak, zaman içinde DSC düğüm durumu geçmişi görselleştirmek isteyebilirsiniz.  
-DSC düğümü durumunuzu durumunun zamanla aramak için bu sorguyu kullanın.
+Son olarak, zaman içinde DSC düğüm durumu geçmişi toovisualize isteyebilirsiniz.  
+Bu sorgu toosearch zamanla DSC düğümü durumunuzu hello durumunun kullanabilirsiniz.
 
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=DscNodeStatus NOT(ResultType="started") | measure Count() by ResultType interval 1hour`  
 
-Bu düğüm durumu bir grafik zaman içinde görüntüler.
+Bu grafik hello düğüm durumu zaman içinde görüntüler.
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
 
@@ -123,76 +123,76 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki kategorisi oluşturu
 
 | Özellik | Açıklama |
 | --- | --- |
-| TimeGenerated |Tarih ve saat uyumluluk denetimi ne zaman çalıştırıldığı. |
+| TimeGenerated |Tarih ve saat hello uyumluluk denetimi ne zaman çalıştırıldığı. |
 | OperationName |DscNodeStatusData |
-| ResultType |Düğüm uyumlu olup olmadığı. |
-| NodeName_s |Yönetilen düğümünün adı. |
-| NodeComplianceStatus_s |Düğüm uyumlu olup olmadığı. |
-| DscReportStatus |Uyumluluğu denetle olup olmadığını başarıyla çalıştırıldı. |
-| ConfigurationMode | Nasıl yapılandırması düğüme uygulanır. Olası değerler şunlardır: __"ApplyOnly"__,__"ApplyandMonitior"__, ve __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC yapılandırmasını uygular ve yeni bir yapılandırma hedef düğüme veya bir sunucudan yeni bir yapılandırma çekilen itildiği sürece başka hiçbir şey yapmaz. Yeni yapılandırma ilk uygulamadan sonra DSC önceden yapılandırılmış bir durumdan kayması kontrol etmez. DSC çalışır önce başarılı olana kadar yapılandırmayı uygulamak __ApplyOnly__ etkisi alır. </li><li> __ApplyAndMonitor__: Bu varsayılan değerdir. LCM'yi yeni tüm yapılandırmalar için geçerlidir. Hedef düğüm istenen durumundan drifts yeni yapılandırma ilk uygulamadan sonra günlükleri tutarsızlık DSC bildirir. DSC çalışır önce başarılı olana kadar yapılandırmayı uygulamak __ApplyAndMonitor__ etkisi alır.</li><li>__ApplyAndAutoCorrect__: DSC tüm yeni yapılandırmaları uygular. Yeni yapılandırma ilk uygulamadan sonra hedef düğüm istenen durumundan drifts DSC günlükleri tutarsızlık raporları ve geçerli yapılandırmasını yeniden uygular.</li></ul> |
-| HostName_s | Yönetilen düğümünün adı. |
-| IP adresi | Yönetilen düğümü IPv4 adresi. |
+| ResultType |Merhaba düğümü uyumlu olup olmadığı. |
+| NodeName_s |Merhaba yönetilen düğümünün Hello adı. |
+| NodeComplianceStatus_s |Merhaba düğümü uyumlu olup olmadığı. |
+| DscReportStatus |Olup hello uyumluluk denetimi başarıyla çalıştırıldı. |
+| ConfigurationMode | Nasıl hello yapılandırma uygulanan toohello düğümdür. Olası değerler şunlardır: __"ApplyOnly"__,__"ApplyandMonitior"__, ve __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC hello yapılandırmasını uygular ve yeni bir yapılandırma toohello hedef düğüm veya bir sunucudan yeni bir yapılandırma ne zaman çekilir itildiği sürece başka hiçbir şey yapmaz. Yeni yapılandırma ilk uygulamadan sonra DSC önceden yapılandırılmış bir durumdan kayması kontrol etmez. DSC çalışır tooapply hello yapılandırma önce başarılı olana kadar __ApplyOnly__ etkisi alır. </li><li> __ApplyAndMonitor__: hello varsayılan değer budur. LCM'yi Hello yeni tüm yapılandırmaları geçerlidir. İstenen hello durumundan Hello hedef düğüm drifts yeni yapılandırma ilk uygulamadan sonra günlükleri hello tutarsızlık DSC bildirir. DSC çalışır tooapply hello yapılandırma önce başarılı olana kadar __ApplyAndMonitor__ etkisi alır.</li><li>__ApplyAndAutoCorrect__: DSC tüm yeni yapılandırmaları uygular. DSC hello hedef düğüm istenen hello durumundan drifts, yeni yapılandırma ilk uygulamadan sonra günlükleri hello tutarsızlık raporları ve hello geçerli yapılandırmasını yeniden uygular.</li></ul> |
+| HostName_s | Merhaba yönetilen düğümünün Hello adı. |
+| IP adresi | Merhaba Hello IPv4 adresini düğümü yönetilen. |
 | Kategori | DscNodeStatus |
-| Kaynak | Azure Otomasyonu hesabının adı. |
-| Tenant_g | Arayanlar için Kiracı tanımlayan GUID. |
-| NodeId_g |Yönetilen düğümü tanıtan GUID. |
-| DscReportId_g |Rapor tanımlar GUID. |
-| LastSeenTime_t |Tarih ve saat raporun son görüntülenen zaman. |
-| ReportStartTime_t |Tarih ve saat raporun başlatıldığı. |
-| ReportEndTime_t |Tarih ve saat raporun tamamlanmış olduğunda. |
-| NumberOfResources_d |Düğüme uygulanan yapılandırmasında DSC kaynakları sayısı çağrılır. |
-| SourceSystem | Günlük analizi nasıl veriler toplanır. Her zaman *Azure* Azure tanılama için. |
-| ResourceId |Azure Otomasyonu hesabını belirtir. |
-| ResultDescription | Bu işlem açıklaması. |
-| SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
-| ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
+| Kaynak | hello Azure Automation hesabını Hello adı. |
+| Tenant_g | Merhaba çağıran hello Kiracı tanımlayan GUID. |
+| NodeId_g |Merhaba yönetilen düğümü tanıtan GUID. |
+| DscReportId_g |Merhaba rapor tanımlar GUID. |
+| LastSeenTime_t |Tarih ve saat hello rapor en son ne zaman görüntülenebilir. |
+| ReportStartTime_t |Tarih ve saat hello rapor başlatıldığı. |
+| ReportEndTime_t |Tarih ve saat zaman hello rapor tamamlandı. |
+| NumberOfResources_d |DSC kaynakları Hello sayısı hello uygulanan yapılandırma toohello düğümünde çağrılır. |
+| SourceSystem | Günlük analizi nasıl hello veri toplanmadı. Her zaman *Azure* Azure tanılama için. |
+| ResourceId |Hello Azure Otomasyonu hesabını belirtir. |
+| ResultDescription | Bu işlem için Hello açıklaması. |
+| SubscriptionId | Merhaba hello Otomasyon hesabı için Azure aboneliği kimlik (GUID). |
+| ResourceGroup | Merhaba Otomasyon hesabı hello kaynak grubunun adı. |
 | ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |Uyumluluk raporu bağıntı kimliği GUID. |
+| CorrelationId |Merhaba hello uyumluluk raporu bağıntı kimliği olan GUID. |
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
 | Özellik | Açıklama |
 | --- | --- |
-| TimeGenerated |Tarih ve saat uyumluluk denetimi ne zaman çalıştırıldığı. |
+| TimeGenerated |Tarih ve saat hello uyumluluk denetimi ne zaman çalıştırıldığı. |
 | OperationName |DscResourceStatusData|
-| ResultType |Kaynak uyumlu olup olmadığı. |
-| NodeName_s |Yönetilen düğümünün adı. |
+| ResultType |Merhaba kaynak uyumlu olup olmadığı. |
+| NodeName_s |Merhaba yönetilen düğümünün Hello adı. |
 | Kategori | DscNodeStatus |
-| Kaynak | Azure Otomasyonu hesabının adı. |
-| Tenant_g | Arayanlar için Kiracı tanımlayan GUID. |
-| NodeId_g |Yönetilen düğümü tanıtan GUID. |
-| DscReportId_g |Rapor tanımlar GUID. |
-| DscResourceId_s |DSC kaynağı örneğinin adı. |
-| DscResourceName_s |DSC kaynağı adı. |
-| DscResourceStatus_s |DSC kaynağı uyumlu olup olmadığı. |
-| DscModuleName_s |DSC kaynağı içeren PowerShell modülü adı. |
-| DscModuleVersion_s |DSC kaynağı içeren PowerShell modülü sürümü. |
-| DscConfigurationName_s |Düğüme uygulanan yapılandırmasının adı. |
-| ErrorCode_s | Kaynak başarısız olursa hata kodu. |
-| ErrorMessage_s |Kaynak başarısız olursa hata iletisi. |
-| DscResourceDuration_d |DSC kaynağı çalıştığı saniye cinsinden süre. |
-| SourceSystem | Günlük analizi nasıl veriler toplanır. Her zaman *Azure* Azure tanılama için. |
-| ResourceId |Azure Otomasyonu hesabını belirtir. |
-| ResultDescription | Bu işlem açıklaması. |
-| SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
-| ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
+| Kaynak | hello Azure Automation hesabını Hello adı. |
+| Tenant_g | Merhaba çağıran hello Kiracı tanımlayan GUID. |
+| NodeId_g |Merhaba yönetilen düğümü tanıtan GUID. |
+| DscReportId_g |Merhaba rapor tanımlar GUID. |
+| DscResourceId_s |Merhaba DSC kaynağı örneği Hello adı. |
+| DscResourceName_s |Merhaba DSC kaynağı Hello adı. |
+| DscResourceStatus_s |Merhaba DSC kaynağı uyumlu olup olmadığı. |
+| DscModuleName_s |Merhaba DSC kaynağı içeren hello PowerShell modülü Hello adı. |
+| DscModuleVersion_s |Merhaba DSC kaynağı içeren hello PowerShell modülü sürümü Hello. |
+| DscConfigurationName_s |Merhaba yapılandırmasının Hello adı toohello düğümü uygulanır. |
+| ErrorCode_s | Merhaba kaynak başarısız olursa hello hata kodu. |
+| ErrorMessage_s |Merhaba kaynak başarısız olursa hello hata iletisi. |
+| DscResourceDuration_d |DSC kaynağı hello saniye cinsinden Hello saat kaldı. |
+| SourceSystem | Günlük analizi nasıl hello veri toplanmadı. Her zaman *Azure* Azure tanılama için. |
+| ResourceId |Hello Azure Otomasyonu hesabını belirtir. |
+| ResultDescription | Bu işlem için Hello açıklaması. |
+| SubscriptionId | Merhaba hello Otomasyon hesabı için Azure aboneliği kimlik (GUID). |
+| ResourceGroup | Merhaba Otomasyon hesabı hello kaynak grubunun adı. |
 | ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |Uyumluluk raporu bağıntı kimliği GUID. |
+| CorrelationId |Merhaba hello uyumluluk raporu bağıntı kimliği olan GUID. |
 
 ## <a name="summary"></a>Özet
 
-Automation DSC verileriniz için günlük analizi göndererek, Automation DSC düğümleri tarafından durumunu daha iyi bir anlayış alabilirsiniz:
+Automation DSC veri tooLog Analytics göndererek hello durumunu, Automation DSC düğümleri göre daha iyi bir anlayış alabilirsiniz:
 
-* Bir sorun olduğunda bildirimde bulunacak uyarılar ayarlama
-* Runbook sonuçlarınızı görselleştirmek için özel görünümleri ve arama sorguları kullanarak, runbook iş durumu ve diğer anahtar göstergeleri veya ölçümleri ilgili.  
+* Bir sorun olduğunda uyarıları toonotify ayarlama
+* Özel görünümleri ve arama sorguları toovisualize kullanarak, runbook sonuçları, runbook iş durumu ve diğer anahtar göstergeleri veya ölçümleri ilgili.  
 
-Günlük analizi Automation DSC verilerinize büyük işletimsel görünürlük sağlar ve adres olaylar daha hızlı yardımcı olabilir.  
+Günlük analizi büyük işletimsel görünürlük tooyour Automation DSC verileri sağlar ve adres olaylar daha hızlı yardımcı olabilir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Farklı arama sorguları oluşturmak ve günlük analizi ile Automation DSC günlükleri gözden geçirmek hakkında daha fazla bilgi için bkz: [oturum aramaları günlük analizi](../log-analytics/log-analytics-log-searches.md)
-* Azure Otomasyonu DSC kullanma hakkında daha fazla bilgi edinmek için [Azure Otomasyonu DSC ile çalışmaya başlama](automation-dsc-getting-started.md)
-* OMS Log Analytics ve veri toplama kaynakları hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te Azure depolama verileri toplamaya genel bakış](../log-analytics/log-analytics-azure-storage.md)
+* Günlük analizi ile nasıl tooconstruct farklı arama sorguları ve gözden geçirme Automation DSC hello hakkında daha fazla oturum toolearn bakın [oturum aramaları günlük analizi](../log-analytics/log-analytics-log-searches.md)
+* Azure Otomasyonu DSC kullanma hakkında daha fazla toolearn bakın [Azure Otomasyonu DSC ile çalışmaya başlama](automation-dsc-getting-started.md)
+* OMS günlük analizi ve veri toplama kaynakları hakkında daha fazla toolearn bakın [toplama Azure storage veri günlük analizi genel bakış](../log-analytics/log-analytics-azure-storage.md)
 

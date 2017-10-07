@@ -1,6 +1,6 @@
 ---
-title: "Parola için yapılandırılmış bir Azure AD galeri uygulaması oturumu açmada sorun çoklu oturum açma | Microsoft Docs"
-description: "Parola çoklu oturum açma için yapılandırılmış Azure AD galeri uygulamaları için oturum açma ile ilgili sorunları gidermek için kılavuzluk sorunlu alanları açıklanır"
+title: "Azure AD galeri uygulama parolasını yapılandırılmış tooan imzalama aaaProblems çoklu oturum açma | Microsoft Docs"
+description: "Kılavuzu tootroubleshoot tooAzure içinde ilgili toosigning parola çoklu oturum açma için yapılandırılmış AD galeri uygulamaları sorunları sağlamak sorunlu alanları açıklanır"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: c90b61812affb7e7af05cf3e302d045958da59be
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f53ef4176db37dc6b1da2d61027155a6ba8f331e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Parola çoklu oturum açma için yapılandırılmış bir Azure AD galeri uygulaması için oturum açma sorunları
+# <a name="problems-signing-in-tooan-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Tooan parola çoklu oturum açma için yapılandırılmış bir Azure AD galeri uygulama imzalama sorunları
 
-Erişim paneli, Azure AD Yöneticisi erişim verildi görünümü ve başlatma bulut tabanlı uygulamalar Azure Active Directory (Azure AD) bir iş veya Okul hesabı olan bir kullanıcının sağlayan bir web tabanlı portal olmaktır. Azure AD sürümleri olan bir kullanıcı, Self Servis grup ve erişim paneli üzerinden uygulama yönetim özellikleri de kullanabilirsiniz. Erişim paneli Azure Portalı'ndan ayrıdır ve kullanıcıların bir Azure aboneliğine sahip olmasını gerektirmez.
+Merhaba erişim paneli, hangi etkinleştirir bir iş veya Okul sahip bir kullanıcı hesabı Azure Active Directory (Azure AD) tooview ve başlatma bulut tabanlı uygulamalarda o hello Azure AD yönetici web tabanlı bir portal erişim verildi ' dir. Azure AD sürümleri olan bir kullanıcı, Self Servis grup ve hello erişim paneli üzerinden uygulama yönetim özellikleri de kullanabilirsiniz. Merhaba erişim paneli hello Azure portal ' ayrıdır ve kullanıcıların toohave bir Azure aboneliği gerektirmez.
 
-Parola tabanlı çoklu oturum açma (SSO) erişimi Masası'nda kullanmak için erişim paneli uzantısı kullanıcının tarayıcısında yüklenmesi gerekir. Bir kullanıcı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinde bu uzantıyı otomatik olarak yüklenir.
+toouse parola tabanlı çoklu oturum açma (SSO) hello erişim paneli, hello erişim paneli uzantısı içinde hello kullanıcının tarayıcısında yüklenmesi gerekir. Bir kullanıcı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinde bu uzantıyı otomatik olarak yüklenir.
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Erişim paneli toplantı tarayıcı gereksinimleri
+## <a name="meeting-browser-requirements-for-hello-access-panel"></a>Merhaba erişim paneli toplantı tarayıcı gereksinimleri
 
-Erişim paneli JavaScript destekleyen bir tarayıcı gerektirir ve CSS etkinleştirdi. Parola tabanlı çoklu oturum açma (SSO) erişimi Masası'nda kullanmak için erişim paneli uzantısı kullanıcının tarayıcısında yüklenmesi gerekir. Bir kullanıcı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinde bu uzantıyı otomatik olarak yüklenir.
+JavaScript destekleyen bir tarayıcı Hello erişim paneli gerektirir ve CSS etkinleştirdi. toouse parola tabanlı çoklu oturum açma (SSO) hello erişim paneli, hello erişim paneli uzantısı içinde hello kullanıcının tarayıcısında yüklenmesi gerekir. Bir kullanıcı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinde bu uzantıyı otomatik olarak yüklenir.
 
-Parola tabanlı, SSO için son kullanıcının tarayıcılar olabilir:
+Parola tabanlı, SSO için hello son kullanıcının tarayıcılar olabilir:
 
 -   Internet Explorer 8, 9, 10, 11--Windows 7 veya üzeri
 
@@ -38,29 +38,29 @@ Parola tabanlı, SSO için son kullanıcının tarayıcılar olabilir:
 -   Firefox 26,0 veya daha sonra--Windows XP SP2 veya sonraki ve Mac OS X 10,6 veya üzeri
 
 >[!NOTE]
->Tarayıcı uzantıları köşesi desteklendiğinde hale kenar Windows 10 için kullanılabilir hale parola tabanlı SSO uzantısı.
+>tarayıcı uzantıları köşesi desteklendiğinde hale kenar Windows 10 için kullanılabilir hale hello parola tabanlı SSO uzantısı.
 >
 >
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Erişim paneli tarayıcı uzantısı yükleme
+## <a name="how-tooinstall-hello-access-panel-browser-extension"></a>Nasıl tooinstall hello erişim paneli tarayıcı uzantısı
 
-Erişim paneli tarayıcı uzantısı yüklemek için aşağıdaki adımları izleyin:
+tooinstall hello erişim paneli tarayıcı uzantısı hello adımları izleyin:
 
-1.  Açık [erişim paneli](https://myapps.microsoft.com) olarak oturum açın ve desteklenen tarayıcılar birinde bir **kullanıcı** Azure ad.
+1.  Açık hello [erişim paneli](https://myapps.microsoft.com) hello Desteklenen tarayıcılar ve oturum açma olarak birinde bir **kullanıcı** Azure ad.
 
-2.  tıklatın bir **parola SSO uygulaması** erişim panelinde.
+2.  Tıklatın bir **parola SSO uygulaması** hello erişim paneli içinde.
 
-3.  Yazılımı yüklemek soran istem içinde seçin **Şimdi Yükle**.
+3.  Hello komut istemi soran tooinstall hello yazılımda seçin **Şimdi Yükle**.
 
-4.  Tarayıcınıza bağlı için karşıdan yükleme bağlantısı yönlendirilmiş. **Ekleme** tarayıcınız uzantısı.
+4.  Tarayıcınıza bağlı yönlendirilmiş toohello indirme bağlantısı olabilir. **Ekleme** hello uzantısı tooyour tarayıcı.
 
-5.  Tarayıcınız isterse, ya da seçin **etkinleştirmek** veya **izin** uzantısı.
+5.  Tarayıcınız isterse, tooeither seçin **etkinleştirmek** veya **izin** hello uzantısı.
 
 6.  Bir kez yüklenir, **yeniden** tarayıcı oturumunda.
 
-7.  Erişim paneline oturum açın ve, varsa görebilirsiniz **başlatma** parola SSO uygulamaları
+7.  Erişim paneli hello oturum açın ve, varsa görebilirsiniz **başlatma** parola SSO uygulamaları
 
-Ayrıca uzantısı Chrome ve Firefox için aşağıya doğrudan bağlantılarından yükleyebilirsiniz:
+Ayrıca hello uzantısı Chrome ve Firefox için hello doğrudan bağlantılarından aşağıdaki yükleyebilirsiniz:
 
 -   [Chrome erişim paneli uzantısı](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
@@ -68,119 +68,119 @@ Ayrıca uzantısı Chrome ve Firefox için aşağıya doğrudan bağlantıların
 
 ## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Internet Explorer için Grup İlkesi ayarı
 
-Uzaktan erişim paneli uzantısı Internet Explorer için kullanıcılarınızın makinelere yüklemeniz olanak tanıyan Grup İlkesi ayarlayabilirsiniz.
+Kullanıcılarınızın makinelerde Internet Explorer için tooremotely yükleme hello erişim paneli uzantısına izin ver Grup İlkesi ayarlayabilirsiniz.
 
-Önkoşullar şunlardır:
+Merhaba Önkoşullar şunlardır:
 
--   Ayarlamış olduğunuz [Active Directory etki alanı Hizmetleri](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), ve kullanıcılarınızın makineler, etki alanına.
+-   Ayarlamış olduğunuz [Active Directory etki alanı Hizmetleri](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), ve kullanıcılarınızın makineler tooyour etki alanına katılmış.
 
--   Grup İlkesi nesnesi (GPO) düzenlemek için "Ayarları düzenleme" izni olması gerekir. Varsayılan olarak, aşağıdaki güvenlik gruplarının üyeleri bu izne sahip: etki alanı yöneticileri, kuruluş yöneticileri ve Group Policy Creator Owners. [Daha fazla bilgi edinin](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Merhaba "ayarlarını Düzenle" izni tooedit hello Grup İlkesi nesnesi (GPO) olması gerekir. Varsayılan olarak, güvenlik grupları aşağıdaki hello üyeleri bu izne sahip: etki alanı yöneticileri, kuruluş yöneticileri ve Group Policy Creator Owners. [Daha fazla bilgi edinin](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-Öğreticiyi izleyin [Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısı dağıtma](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy) adım adım yönergeler için Grup İlkesi yapılandırmak ve kullanıcılara dağıtma.
+Merhaba öğreticisini izleyin [nasıl tooDeploy hello erişim paneli uzantısı Grup İlkesi'ni kullanarak Internet Explorer için](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy) ilişkin adım adım yönergeler nasıl tooconfigure hello Grup İlkesi ve toousers dağıtın.
 
-## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Internet Explorer erişim panelinde sorun giderme
+## <a name="troubleshoot-hello-access-panel-in-internet-explorer"></a>Merhaba erişim paneli Internet Explorer'da sorun giderme
 
-İzleyin [erişim paneli uzantısı Internet Explorer için sorun giderme](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) uzantısı için IE yapılandırma erişim için bir tanılama aracı ve adım adım yönergeler Kılavuzu.
+Merhaba izleyin [sorun giderme hello Internet Explorer için erişim paneli uzantısı](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) hello uzantısı için IE yapılandırma erişim için bir tanılama aracı ve adım adım yönergeler Kılavuzu.
 
-## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Parola çoklu oturum açma galeri olmayan uygulama için yapılandırma
+## <a name="how-tooconfigure-password-single-sign-on-for-a-non-gallery-application"></a>Tooconfigure parola nasıl tek bir galeri olmayan uygulaması için oturum açma
 
-Bir uygulama için gereken Azure AD galerisinden yapılandırmak için:
+tooconfigure hello Azure AD Galeriden bir uygulama şunları yapmanız gerekir:
 
 -   [Bir galeri olmayan uygulama ekleme](#add-a-non-gallery-application)
 
--   [Uygulaması parola çoklu oturum açma için yapılandırma](#configure-the-application-for-password-single-sign-on)
+-   [Merhaba uygulaması parola çoklu oturum açma için yapılandırma](#configure-the-application-for-password-single-sign-on)
 
--   [Uygulamaya kullanıcılar atama](#assign-users-to-the-application)
+-   [Kullanıcıların toohello uygulama atama](#assign-users-to-the-application)
 
 ### <a name="add-a-non-gallery-application"></a>Bir galeri olmayan uygulama ekleme
 
-Azure AD Galeriden bir uygulama eklemek için aşağıdaki adımları izleyin:
+tooadd hello Azure AD galeri, bir uygulamadan hello adımları izleyin:
 
-1.  Açık [Azure Portal](https://portal.azure.com) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık hello [Azure Portal](https://portal.azure.com) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  Tıklatın **kurumsal uygulamalar** hello Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **Ekle** düğmesine sağ üst köşede **kurumsal uygulamalar** dikey penceresi
+5.  Merhaba tıklatın **Ekle** hello sağ üst köşesindeki hello düğmesi **kurumsal uygulamalar** dikey
 
 6.  tıklatın **olmayan galeri uygulaması.**
 
-7.  Uygulamanızda adını girin **adı** metin kutusu. Seçin **ekleyin.**
+7.  Merhaba, uygulamanızın hello adını **adı** metin kutusu. Seçin **ekleyin.**
 
-Kısa bir süre sonra uygulamanın yapılandırma dikey görüyor.
+Kısa bir süre sonra mümkün toosee hello uygulamanın yapılandırma dikey olabilir.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Uygulaması parola çoklu oturum açma için yapılandırma
+### <a name="configure-hello-application-for-password-single-sign-on"></a>Merhaba uygulaması parola çoklu oturum açma için yapılandırma
 
-Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki adımları izleyin:
+tooconfigure çoklu oturum açma bir uygulama için başlangıç adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  Tıklatın **kurumsal uygulamalar** hello Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  Tıklatın **tüm uygulamaları** tooview tüm uygulamalarınızın listesi.
 
-   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+   * Burada göstermek istediğiniz Merhaba uygulaması görmüyorsanız hello kullan **filtre** denetim hello hello üstündeki **tüm uygulamalar listesini** ve kümesi hello **Göster** çok seçenek **Tüm uygulamalar.**
 
-6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin
+6.  Tooconfigure çoklu oturum açma hello uygulamasını seçin
 
-7.  Uygulamanın yüklediği sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Merhaba uygulamanın yüklediği sonra hello tıklayın **çoklu oturum açma** hello uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Modunu seçin **parola tabanlı oturum açma.**
+8.  Select hello modu **parola tabanlı oturum açma.**
 
-9.  Girin **oturum açma URL'si**. Bu kullanıcılar, kullanıcı adını ve oturum açmak için parola girdiğiniz yere URL'dir. Oturum açma alanları URL'de göründüğünden emin olun.
+9.  Merhaba girin **oturum açma URL'si**. Bu kullanıcılar kendi kullanıcı adı ve parola toosign içinde için girdiğiniz yere hello URL'dir. Merhaba oturum alanları hello URL'de göründüğünden emin olun.
 
-10. Kullanıcılar uygulamayı atayın.
+10. Kullanıcıların toohello uygulama atayın.
 
-11. Ayrıca, kullanıcı adına kimlik bilgilerini kullanıcıları satırlarını seçerek ve tıklayarak sağlayabilirsiniz **güncelleştirme kimlik bilgileri** ve kullanıcılar adına kullanıcı adı ve parola girme. Aksi takdirde, kullanıcılar başlatma sırasında kimlik kendilerini girmeniz istenir.
+11. Ayrıca, ayrıca hello kullanıcı adına kimlik bilgilerini hello satırları hello kullanıcıların seçerek ve tıklayarak sağlayabilirsiniz **güncelleştirme kimlik bilgileri** ve hello kullanıcılar adına hello kullanıcı adı ve parola girme. Aksi takdirde, kullanıcılar istendiğinde tooenter hello kimlik bilgilerinin kendilerini başlatma bağlı olması.
 
-### <a name="assign-users-to-the-application"></a>Uygulamaya kullanıcılar atama
+### <a name="assign-users-toohello-application"></a>Kullanıcıların toohello uygulama atama
 
-Bir veya daha fazla kullanıcının uygulamaya doğrudan atamak için aşağıdaki adımları izleyin:
+tooassign bir veya daha fazla kullanıcı tooan uygulama, doğrudan başlangıç adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  Tıklatın **kurumsal uygulamalar** hello Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  Tıklatın **tüm uygulamaları** tooview tüm uygulamalarınızın listesi.
 
-   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+   * Burada göstermek istediğiniz Merhaba uygulaması görmüyorsanız hello kullan **filtre** denetim hello hello üstündeki **tüm uygulamalar listesini** ve kümesi hello **Göster** çok seçenek **Tüm uygulamalar.**
 
-6.  Listeden bir kullanıcıya atamak istediğiniz uygulamayı seçin.
+6.  Tooassign kullanıcı toofrom hello listesini hello uygulamasını seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Merhaba uygulamanın yüklediği sonra tıklayın **kullanıcılar ve gruplar** hello uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Tıklatın **Ekle** üstünde düğmesini **kullanıcılar ve gruplar** açmak için liste **eklemek atama** dikey.
+8.  Hello tıklatın **Ekle** hello üstünde düğmesi **kullanıcılar ve gruplar** listesi tooopen hello **eklemek atama** dikey.
 
-9.  tıklatın **kullanıcılar ve gruplar** seçicisini **eklemek atama** dikey.
+9.  Merhaba tıklatın **kullanıcılar ve gruplar** hello seçicisini **eklemek atama** dikey.
 
-10. Yazın **tam adı** veya **e-posta adresi** içine atama ilgilenen kullanıcının **ad veya e-posta adresine göre arama** arama kutusu.
+10. Merhaba türü **tam adı** veya **e-posta adresi** hello atama ilgilenen hello kullanıcının **ad veya e-posta adresine göre arama** arama kutusu.
 
-11. Üzerine gelerek **kullanıcı** ortaya çıkarmak için listedeki bir **onay kutusunu**. Kullanıcının profil fotoğrafınız veya logosu, kullanıcı eklemek için yanındaki onay kutusuna tıklayın **seçili** listesi.
+11. Merhaba getirin **kullanıcı** hello listesi tooreveal içinde bir **onay kutusunu**. Kullanıcı toohello Hello onay kutusu sonraki toohello kullanıcının profili fotoğraf veya logosu tooadd tıklatın **seçili** listesi.
 
-12. **İsteğe bağlı:** başlamayı tercih ederseniz **birden fazla kullanıcı ekleme**, başka bir tür **tam adı** veya **e-posta adresi** içine **ad veya e-posta adresine göre arama** arama kutusu ve bu kullanıcıyı eklemek için onay kutusunu işaretleyin **seçili** listesi.
+12. **İsteğe bağlı:** çok isterseniz**birden fazla kullanıcı ekleme**, başka bir tür **tam adı** veya **e-posta adresi** hello içine **ada göre ara veya e-posta adresi** arama kutusu ve bu kullanıcı toohello hello onay kutusunu tooadd tıklatın **seçili** listesi.
 
-13. Kullanıcıların seçerek bittiğinde tıklatın **seçin** düğmesi uygulamaya atanan kullanıcılar ve gruplar listesi eklemek için.
+13. Kullanıcıların seçerek bittiğinde hello tıklatın **seçin** düğmesini tooadd bunları kullanıcılar ve gruplar toobe toohello listesi atanan toohello uygulama.
 
-14. **İsteğe bağlı:** tıklatın **rolü Seç** seçicide **eklemek atama** seçtiğiniz kullanıcılara atamak için bir rol seçin dikey.
+14. **İsteğe bağlı:** hello tıklatın **rolü Seç** hello seçicide **eklemek atama** dikey tooselect rol seçtiğiniz tooassign toohello kullanıcılar.
 
-15. Tıklatın **atamak** uygulamayı Seçilen kullanıcılara atamak için düğmesi.
+15. Merhaba tıklatın **atamak** düğmesini tooassign hello uygulama toohello seçilen kullanıcılar.
 
-Kısa bir süre sonra seçtiğiniz kullanıcıların erişim panelinde bu uygulamaları başlatabilir.
+Seçtiğiniz hello kullanıcılar kısa bir süre mümkün toolaunch bu uygulamalarında değiştirdikten sonra erişim Paneli'ne hello.
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Bu sorun giderme adımları sorunu çözümleme yaparsanız
+## <a name="if-these-troubleshooting-steps-do-not-hello-resolve-hello-issue"></a>Sorun giderme adımları değil hello varsa hello sorunu çözün
 
-bir destek bileti aşağıdaki bilgilerle varsa açın:
+bir destek bileti varsa aşağıdaki bilgilerle hello ile açın:
 
 -   Bağıntı hata kimliği
 
@@ -195,5 +195,5 @@ bir destek bileti aşağıdaki bilgilerle varsa açın:
 -   Fiddler izlemeleri
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Çoklu oturum açma uygulamalarınızı uygulama proxy'si ile sağlayın.](active-directory-application-proxy-sso-using-kcd.md)
+[Uygulama proxy'si ile çoklu oturum açma tooyour uygulamaları sağlayın](active-directory-application-proxy-sso-using-kcd.md)
 

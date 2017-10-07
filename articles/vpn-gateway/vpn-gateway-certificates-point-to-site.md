@@ -1,6 +1,6 @@
 ---
 title: "Oluştur ve noktası Site için sertifikalar verme: PowerShell: Azure | Microsoft Docs"
-description: "Bu makale, otomatik olarak imzalanan sertifika oluşturmak, ortak anahtarını dışarı aktarmak ve Windows 10'PowerShell kullanarak istemci sertifikalarını oluşturmak için adımlar içerir."
+description: "Windows 10'PowerShell kullanarak istemci sertifikalarını oluşturmak ve hello ortak anahtarını dışarı aktarmak veya bu makalede adımları toocreate otomatik olarak imzalanan sertifikayı içerir."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: f96b9b212b9322d0677e49ff95184d0feccca2df
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 11dda015368cda5ce9799fcc4f01d7c542b84fe8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Oluşturma ve PowerShell kullanarak Windows 10 noktadan siteye bağlantıları için sertifikaları verme
 
-Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullanır. Bu makalede bir otomatik olarak imzalanan sertifika oluşturmak ve Windows 10'PowerShell kullanarak istemci sertifikalarını oluşturmak nasıl gösterir. Kök sertifikalarını yüklemek nasıl gibi noktadan siteye yapılandırma adımlarını arıyorsanız ' yapılandırma noktası siteye ' makaleleri birini aşağıdaki listeden seçin:
+Noktadan siteye bağlantılar, sertifikalar tooauthenticate kullanır. Bu makalede Windows 10'PowerShell kullanarak istemci sertifikalarını oluşturmak ve nasıl toocreate otomatik olarak imzalanan bir kök sertifika gösterir. Nasıl tooupload kök sertifikaları, aşağıdaki hello hello ' yapılandırma noktası siteye ' makalelerinden birini seçin listeler gibi noktadan siteye yapılandırma adımları için istiyorsanız:
 
 > [!div class="op_single_selector"]
 > * [Otomatik olarak imzalanan sertifikalar - PowerShell oluşturma](vpn-gateway-certificates-point-to-site.md)
@@ -35,16 +35,16 @@ Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullan�
 > 
 
 
-Windows 10 çalıştıran bir bilgisayarda bu makaledeki adımları uygulamanız gerekir. Sertifikalarını oluşturmak için kullandığınız PowerShell cmdlet'leri Windows 10 işletim sisteminin bir parçası olan ve diğer Windows sürümlerinde çalışmaz. Windows 10 bilgisayarını, yalnızca sertifikalarını oluşturmak için gereklidir. Sertifikaları oluşturduktan sonra bunları karşıya yükleyebilir veya tüm desteklenen istemci işletim sistemine yükleyin. 
+Bu makalede Windows 10 çalıştıran bir bilgisayarda hello adımları gerçekleştirmeniz gerekir. Merhaba PowerShell cmdlet'leri toogenerate sertifikalar kullanmak hello Windows 10 işletim sisteminin bir parçası olan ve diğer Windows sürümlerinde çalışmaz. Merhaba Windows 10, yalnızca gerekli toogenerate hello sertifikaları bilgisayardır. Merhaba sertifikaları oluşturduktan sonra bunları karşıya yükleyebilir veya tüm desteklenen istemci işletim sistemine yükleyin. 
 
-Bir Windows 10 bilgisayara erişiminiz yoksa kullanabileceğiniz [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) sertifikalarını oluşturmak için. Her iki yöntemi kullanarak oluşturduğunuz sertifikalar herhangi yüklenebilir [desteklenen](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) istemci işletim sistemi.
+Erişim tooa Windows 10 bilgisayarı yoksa kullanabileceğiniz [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) toogenerate sertifikalar. Merhaba her iki yöntemi kullanarak oluşturduğunuz sertifikalar herhangi yüklenebilir [desteklenen](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) istemci işletim sistemi.
 
 ## <a name="rootcert"></a>Otomatik olarak imzalanan sertifika oluştur
 
-Bir otomatik olarak imzalanan sertifika oluşturmak için New-SelfSignedCertificate cmdlet'ini kullanın. Ek parametre bilgi için bkz: [yeni SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Merhaba yeni SelfSignedCertificate cmdlet toocreate otomatik olarak imzalanan bir sertifika kullanın. Ek parametre bilgi için bkz: [yeni SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 1. Windows 10 çalıştıran bir bilgisayarda, yükseltilmiş ayrıcalıklarla bir Windows PowerShell konsolu açın.
-2. Otomatik olarak imzalanan sertifika oluşturmak için aşağıdaki örneği kullanın. Aşağıdaki örnek, '' Sertifikalar-Geçerli User\Personal\Certificates' otomatik olarak yüklenen P2SRootCert' adlı otomatik olarak imzalanan bir sertifika oluşturur. Sertifika açarak görüntüleyebileceğiniz *certmgr.msc*, veya *kullanıcı sertifikaları yönetme*.
+2. Aşağıdaki örnek toocreate hello otomatik olarak imzalanan sertifika hello kullanın. Merhaba aşağıdaki örnek 'otomatik 'Sertifikalar-Geçerli User\Personal\Certificates' yüklü P2SRootCert' adlı otomatik olarak imzalanan bir sertifika oluşturur. Açarak hello sertifikayı görüntüleyebilirsiniz *certmgr.msc*, veya *kullanıcı sertifikaları yönetme*.
 
   ```powershell
   $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -53,29 +53,29 @@ Bir otomatik olarak imzalanan sertifika oluşturmak için New-SelfSignedCertific
   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
   ```
 
-### <a name="cer"></a>Ortak anahtarı (.cer) aktarın
+### <a name="cer"></a>Dışarı aktarma hello ortak anahtarı (.cer)
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-Exported.cer dosyasını Azure'a yüklenmelidir. Yönergeler için bkz: [noktadan siteye bağlantı yapılandırma](vpn-gateway-howto-point-to-site-rm-ps.md#upload). Bir ek güvenilen kök sertifika eklemek için [Bu bölümde](vpn-gateway-howto-point-to-site-rm-ps.md#addremovecert) makalenin.
+Merhaba exported.cer dosyası karşıya yüklenen tooAzure olması gerekir. Yönergeler için bkz: [noktadan siteye bağlantı yapılandırma](vpn-gateway-howto-point-to-site-rm-ps.md#upload). bir ek güvenilen kök sertifika tooadd [Bu bölümde](vpn-gateway-howto-point-to-site-rm-ps.md#addremovecert) hello makalenin.
 
-### <a name="export-the-self-signed-root-certificate-and-public-key-to-store-it-optional"></a>(İsteğe bağlı) depolamak için ortak anahtar ve otomatik olarak imzalanan kök sertifikasını dışarı aktarma
+### <a name="export-hello-self-signed-root-certificate-and-public-key-toostore-it-optional"></a>Merhaba otomatik olarak imzalanan sertifika ve ortak anahtar toostore vermek, (isteğe bağlı)
 
-Otomatik olarak imzalanan kök sertifikasını dışarı aktarma ve güvenli bir şekilde depolamak isteyebilirsiniz. Varsa olmadan, yapabilir daha sonra başka bir bilgisayara yükleyin ve daha fazla istemci sertifikalarını oluşturmak veya başka bir .cer dosyasına dışarı aktarma. Bir .pfx otomatik olarak imzalanan kök sertifikasını dışarı aktarmak için kök sertifikasını seçin ve açıklandığı gibi aynı adımları kullanın [bir istemci sertifikası verme](#clientexport).
+Tooexport hello otomatik olarak imzalanan kök sertifikası ve güvenli bir şekilde depolamak isteyebilirsiniz. Varsa olmadan, yapabilir daha sonra başka bir bilgisayara yükleyin ve daha fazla istemci sertifikalarını oluşturmak veya başka bir .cer dosyasına dışarı aktarma. tooexport hello .pfx, select hello kök sertifikası ve kullanım aynı adımları açıklandığı gibi hello olarak kök sertifikayı otomatik olarak imzalanan [bir istemci sertifikası verme](#clientexport).
 
 ## <a name="clientcert"></a>İstemci sertifikası oluşturma
 
-Noktadan Siteye bağlantı kullanarak bir sanal ağa bağlanan her istemci bilgisayarda bir istemci sertifikası yüklü olmalıdır. Ardından dışa otomatik olarak imzalanan kök sertifikasından bir istemci sertifikasını oluşturmak ve istemci sertifikasını yükleyin. İstemci sertifikası yüklü değilse, kimlik doğrulaması başarısız olur. 
+Tooa bağlanan her istemci bilgisayar noktadan siteye kullanarak VNet yüklü bir istemci sertifikası olması gerekir. Ardından dışa hello otomatik olarak imzalanan kök sertifikasından bir istemci sertifikasını oluşturmak ve hello istemci sertifikası yükleyin. Merhaba istemci sertifikası yüklü değilse, kimlik doğrulaması başarısız olur. 
 
-Aşağıdaki adımlarda, otomatik olarak imzalanan kök sertifikasından bir istemci sertifikası oluşturma aracılığıyla yol. Birden çok istemci sertifikaları aynı kök sertifikası oluşturabilir. Aşağıdaki adımları kullanarak istemci sertifikalarını oluşturmak, istemci sertifikasının, sertifikayı oluşturmak için kullanılan bilgisayarda otomatik olarak yüklenir. Bir istemci sertifikası başka bir istemci bilgisayara yüklemek istiyorsanız, sertifikayı dışa aktarabilirsiniz.
+Merhaba aşağıdaki adımlar, otomatik olarak imzalanan kök sertifikasından bir istemci sertifikası oluşturma aracılığıyla yol. Merhaba birden çok istemci sertifikaları verebilir aynı kök sertifikaya. Merhaba adımları kullanarak istemci sertifikalarını oluşturmak, hello istemci sertifikasını otomatik olarak hello bilgisayarda toogenerate hello sertifika kullanılan yüklenir. Tooinstall başka bir istemci bilgisayarında bir istemci sertifikası istiyorsanız hello sertifika verebilirsiniz.
 
-Örnekler, bir yıl içinde süresi dolar bir istemci sertifikasını oluşturmak için yeni SelfSignedCertificate cmdlet'ini kullanın. İstemci sertifikası için farklı süre sonu değeri ayarlama gibi ek parametre bilgi için bkz [yeni SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Merhaba örnekler hello yeni SelfSignedCertificate cmdlet toogenerate bir yıl içinde süresi dolar bir istemci sertifikası kullanır. Merhaba istemci sertifikası, farklı sona erme değeri ayarlanırken gibi ek parametre bilgi için bkz [yeni SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 ### <a name="example-1"></a>Örnek 1
 
-Bu örnek önceki bölümden bildirilen '$cert' değişkeni kullanır. PowerShell Konsolu otomatik olarak imzalanan sertifika oluşturduktan sonra kapalı veya yeni bir PowerShell konsol oturumda ek istemci sertifikaları oluşturma, içindeki adımları kullanın [örnek 2](#ex2).
+Bu örnekte '$cert' hello önceki bölümde değişkeninden bildirilen hello kullanır. Otomatik olarak imzalanan sertifika Merhaba, veya yeni bir PowerShell konsol oturumda oluşturarak ek istemci sertifikaları sonra hello PowerShell konsolunu kapattıysanız, hello adımlarda kullanmak [örnek 2](#ex2).
 
-Değiştirme ve bir istemci sertifikasını oluşturmak için örnek çalıştırın. Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, 'P2SChildCert' adlı bir istemci sertifikası sonucudur.  Alt sertifika başka bir ad vermek istiyorsanız, CN değeri değiştirin. Bu örnek çalıştırırken TextExtension değiştirmeyin. Oluşturduğunuz istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli User\Personal\Certificates' otomatik olarak yüklenir.
+Değiştirme ve bir istemci sertifikası hello örnek toogenerate çalıştırın. Değişiklik yapmadan aşağıdaki örneğine hello çalıştırırsanız, hello 'P2SChildCert' adlı bir istemci sertifikası sonucudur.  Tooname hello alt sertifika başka bir konuda istiyorsanız hello CN değeri değiştirin. Bu örnek çalıştırırken Hello TextExtension değiştirmeyin. oluşturduğunuz hello istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli User\Personal\Certificates' otomatik olarak yüklenir.
 
 ```powershell
 New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -87,14 +87,14 @@ New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 
 ### <a name="ex2"></a>Örnek 2
 
-Ek istemci sertifikalarını oluşturmakta ya da otomatik olarak imzalanan sertifika oluşturmak için kullanılan aynı PowerShell oturumunda kullanmıyorsanız, aşağıdaki adımları kullanın:
+Ek istemci sertifikaları oluşturma veya olan kullanmıyorsa hello aynı PowerShell oturumunda, otomatik olarak imzalanan sertifika, aşağıdaki adımları kullanın hello toocreate kullanılan:
 
-1. Bilgisayarda yüklü otomatik olarak imzalanan kök sertifikayı belirleyin. Bu cmdlet, bilgisayarınızda yüklü sertifikaların listesini döndürür.
+1. Merhaba bilgisayarda yüklü hello otomatik olarak imzalanan kök sertifikayı belirleyin. Bu cmdlet, bilgisayarınızda yüklü sertifikaların listesini döndürür.
 
   ```powershell
   Get-ChildItem -Path “Cert:\CurrentUser\My”
   ```
-2. Konu adı döndürülen listesinden bulun ve sonra onu yanında bir metin dosyasına bulunur parmak izini kopyalayın. Aşağıdaki örnekte, iki sertifika vardır. CN adı bir alt sertifika oluşturmak istediğiniz otomatik olarak imzalanan sertifika adıdır. Bu durumda, 'P2SRootCert'.
+2. Liste, sonra bulunan sonraki tooit tooa metin Kopyala hello parmak izi döndürülen hello Hello konu adını bulun dosya. Aşağıdaki örnek hello, iki sertifika vardır. Merhaba CN adı toogenerate alt sertifika istediğiniz hello otomatik olarak imzalanan sertifika hello adıdır. Bu durumda, 'P2SRootCert'.
 
   ```
   Thumbprint                                Subject
@@ -102,18 +102,18 @@ Ek istemci sertifikalarını oluşturmakta ya da otomatik olarak imzalanan serti
   AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
   7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
   ```
-3. Önceki adımdan parmak kullanarak kök sertifikası için bir değişken bildirin. Parmak İZİ alt sertifika oluşturmak istediğiniz kök sertifika parmak iziyle değiştirin.
+3. Merhaba parmak hello önceki adımdaki kullanarak hello kök sertifikası için bir değişken bildirin. Parmak İZİ toogenerate alt sertifika istediğiniz hello kök sertifikası hello parmak iziyle değiştirin.
 
   ```powershell
   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
   ```
 
-  Örneğin, önceki adımda P2SRootCert için parmak izini kullanarak değişkeni şöyle görünür:
+  Örneğin, hello parmak hello önceki adımda P2SRootCert için kullanarak, hello değişkeni şöyle görünür:
 
   ```powershell
   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
   ```
-4.  Değiştirme ve bir istemci sertifikasını oluşturmak için örnek çalıştırın. Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, 'P2SChildCert' adlı bir istemci sertifikası sonucudur. Alt sertifika başka bir ad vermek istiyorsanız, CN değeri değiştirin. Bu örnek çalıştırırken TextExtension değiştirmeyin. Oluşturduğunuz istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli User\Personal\Certificates' otomatik olarak yüklenir.
+4.  Değiştirme ve bir istemci sertifikası hello örnek toogenerate çalıştırın. Değişiklik yapmadan aşağıdaki örneğine hello çalıştırırsanız, hello 'P2SChildCert' adlı bir istemci sertifikası sonucudur. Tooname hello alt sertifika başka bir konuda istiyorsanız hello CN değeri değiştirin. Bu örnek çalıştırırken Hello TextExtension değiştirmeyin. oluşturduğunuz hello istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli User\Personal\Certificates' otomatik olarak yüklenir.
 
   ```powershell
   New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -135,5 +135,5 @@ Ek istemci sertifikalarını oluşturmakta ya da otomatik olarak imzalanan serti
 
 Noktası Site yapılandırmanızı ile devam edin. 
 
-* İçin **Resource Manager** dağıtım modeli adımları bkz [bir sanal ağa noktadan siteye bağlantı yapılandırma](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
-* İçin **Klasik** dağıtım modeli adımları bkz [bir sanal ağ (Klasik) bir noktadan siteye VPN bağlantısı yapılandırma](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+* İçin **Resource Manager** dağıtım modeli adımları bkz [bir noktadan siteye bağlantı tooa VNet yapılandırma](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
+* İçin **Klasik** dağıtım modeli adımları bkz [bir noktadan siteye VPN bağlantısı tooa VNet (Klasik) yapılandırma](vpn-gateway-howto-point-to-site-classic-azure-portal.md).

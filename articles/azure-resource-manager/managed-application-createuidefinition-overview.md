@@ -1,6 +1,6 @@
 ---
-title: "Azure yönetilen uygulamalar oluşturma UI tanımı anlama | Microsoft Docs"
-description: "Azure yönetilen uygulamaları için kullanıcı Arabirimi tanımları oluşturmayı açıklar"
+title: "Azure yönetilen uygulamaları için kullanıcı Arabirimi tanımı oluşturma aaaUnderstand | Microsoft Docs"
+description: "Açıklar nasıl toocreate UI tanımları Azure yönetilen uygulamalar"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 176b891538f85c5638a2321561c3d8bd377d245b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d53ddf438c24d5a6cb8dd53ca0b4694ab0462515
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-createuidefinition"></a>CreateUiDefinition ile çalışmaya başlama
-Bu belge, Azure portal tarafından yönetilen bir uygulama oluşturmak için kullanılan kullanıcı arabirimi oluşturmak için kullanılan bir CreateUiDefinition çekirdek kavramlarını tanıtır.
+Bu belge hello çekirdek hello Azure portal toogenerate hello kullanıcı arabirimi tarafından yönetilen bir uygulama oluşturmak için kullanılan bir CreateUiDefinition kavramlarını tanıtır.
 
 ```json
 {
@@ -39,34 +39,34 @@ Bir CreateUiDefinition her zaman üç özellikleri içerir:
 
 * işleyici
 * Sürüm
-* Parametreleri
+* parametreler
 
-Yönetilen uygulamalar için işleyici her zaman olmalıdır `Microsoft.Compute.MultiVm`, ve en son desteklenen sürümünü `0.1.2-preview`.
+Yönetilen uygulamalar için işleyici her zaman olmalıdır `Microsoft.Compute.MultiVm`, ve en son desteklenen hello sürümü `0.1.2-preview`.
 
-Parameters özelliği şema sürümü ve belirtilen işleyici birleşimi bağlıdır. Yönetilen uygulamalar için desteklenen özelliklerdir `basics`, `steps`, ve `outputs`. Temel kavramları ve adımları özelliklerini içeren _öğeleri_ - gibi metin kutuları ve bırakmalar - Azure portalında görüntülenecek. Çıktılar özelliğini Azure Resource Manager dağıtım şablonu parametreleri için belirtilen öğelerinin çıkış değerlerini eşlemek için kullanılır.
+Merhaba parameters özelliği Hello şeması hello birleşimi hello belirtilen işleyici ve sürüm üzerinde bağlıdır. Yönetilen uygulamalar için desteklenen hello özelliklerdir `basics`, `steps`, ve `outputs`. Hello temel kavramları ve adımları özelliklerini içeren hello _öğeleri_ - metin kutuları ve bırakmalar gibi - toobe hello Azure portal görüntülenir. kullanılan toomap hello çıkış değerini özelliktir hello çıkışları belirtilen öğeleri toohello hello Azure Resource Manager dağıtım şablonu parametrelerinin hello.
 
-Dahil olmak üzere `$schema` önerilir ancak isteğe bağlıdır. Belirtilmişse, değerin için `version` içinde eşleşmelidir `$schema` URI.
+Dahil olmak üzere `$schema` önerilir ancak isteğe bağlıdır. Belirtilmişse, değeri hello `version` hello hello içinde sürümüyle eşleşmelidir `$schema` URI.
 
 ## <a name="basics"></a>Temel Bilgiler
-Temel bilgileri her zaman Azure portalında bir CreateUiDefinition ayrıştırırken oluşturulan Sihirbazı'nın ilk adımı adımdır. Belirtilen öğeleri görüntüleme yanı sıra `basics`, portalı abonelik, kaynak grubu ve dağıtımı için konum seçmek kullanıcıları için öğeleri yerleştirir. Genellikle, bir küme veya yönetici kimlik bilgileri adı gibi dağıtım çapında parametreler için sorgu öğeleri bu adımı tamamlamalıdır.
+Merhaba temel bilgileri her zaman hello Azure portalında bir CreateUiDefinition ayrıştırırken oluşturulan hello Sihirbazı'nın ilk adımı hello adımdır. Toodisplaying hello öğeleri ayrıca belirtilen `basics`, hello portalı kullanıcıları toochoose hello abonelik, kaynak grubunu ve konumu hello dağıtılmak için öğeleri yerleştirir. Genellikle, bir küme veya yönetici kimlik bilgileri hello adı gibi dağıtım çapında parametreleri için sorgu öğeleri bu adımda gitmeniz gerekir.
 
-Bir öğenin davranışı kullanıcının abonelik, kaynak grubu veya konum bağımlı olması durumunda, bu öğenin temel kullanılamaz. Örneğin, **Microsoft.Compute.SizeSelector** kullanıcının abonelik ve kullanılabilir boyutların listesi belirlemek için konum bağlıdır. Bu nedenle, **Microsoft.Compute.SizeSelector** adımlarda yalnızca kullanılabilir. Genellikle, yalnızca öğeleri **Microsoft.Common** ad alanı temelleri kullanılabilir. Ancak bazı öğeler diğer ad (gibi **Microsoft.Compute.Credentials**), kullanıcının içeriğine bağlı verme, hala izin verilir.
+Bir öğenin davranışı hello kullanıcının abonelik, kaynak grubu veya konum bağımlı olması durumunda, bu öğenin temel bilgileri kullanılamaz. Örneğin, **Microsoft.Compute.SizeSelector** hello kullanıcının abonelik ve konumda toodetermine hello kullanılabilir boyutların listesi üzerinde bağlıdır. Bu nedenle, **Microsoft.Compute.SizeSelector** adımlarda yalnızca kullanılabilir. Genellikle, yalnızca öğeleri hello **Microsoft.Common** ad alanı temelleri kullanılabilir. Ancak bazı öğeler diğer ad (gibi **Microsoft.Compute.Credentials**), kullanıcının Merhaba içeriğine bağlı verme, hala izin verilir.
 
 ## <a name="steps"></a>Adımlar
-Adımları özelliği her biri bir veya daha fazla öğe içeren temel bilgileri sonra görüntülemek için sıfır veya daha fazla ek adımlar içerebilir. Rol veya dağıtılan uygulama katmanı başına adımları eklemeyi düşünün. Örneğin, bir adım ana düğüm girdileri için ve çalışan düğümleri için bir adım bir kümede ekleyin.
+Merhaba adımları özellik sıfır veya daha fazla ek adımlar toodisplay her biri bir veya daha fazla öğe içeren temel bilgileri sonra içerebilir. Rol veya dağıtılan hello uygulama katmanı başına adımları eklemeyi düşünün. Örneğin, bir adım hello ana düğüm girdileri için ve adım hello çalışan düğümleri için bir kümede ekleyin.
 
 ## <a name="outputs"></a>Çıkışları
-Azure Portalı'nı kullanan `outputs` öğelerinden eşlemek için özellik `basics` ve `steps` Azure Resource Manager dağıtım şablonu parametreleri. Bu sözlüğün anahtarlarını şablon parametrelerinin adları ve değerleri başvurulan öğelerin çıkış nesnelerden özellikleridir.
+Hello Azure portal kullanır hello `outputs` özelliği toomap öğelerinden `basics` ve `steps` hello Azure Resource Manager dağıtım şablonu toohello parametreleri. Bu sözlüğün anahtarlarını Hello hello şablon parametrelerinin hello adlarının ve başvurulan hello öğelerden hello çıkış nesnelerin özelliklerini hello değerlerdir.
 
 ## <a name="functions"></a>İşlevler
-Benzer şekilde [şablon işlevleri](resource-group-template-functions.md) Azure Kaynak Yöneticisi'nde (hem de söz dizimi ve işlevsellik) CreateUiDefinition öğeleri girişleri ve çıkışları ile çalışmak için işlevleri sağlayan yanı sıra koşulları gibi özellikleri.
+Benzer çok[şablon işlevleri](resource-group-template-functions.md) Azure Kaynak Yöneticisi'nde (hem de söz dizimi ve işlevsellik) CreateUiDefinition öğeleri girişleri ve çıkışları ile çalışmak için işlevleri sağlayan yanı sıra koşulları gibi özellikleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-CreateUiDefinition kendisini basit bir şeması vardır. Tüm desteklenen öğeleri ve aşağıdaki belgeler wondrous ayrıntılı olarak açıklayan işlevleri gerçek derinliği geldiği:
+CreateUiDefinition kendisini basit bir şeması vardır. Hello gerçek derinliğini, tüm desteklenen hello öğeleri ve İşlevler, belgeleri aşağıdaki hangi hello wondrous ayrıntılı olarak açıklayın gelir:
 
 - [Öğeleri](managed-application-createuidefinition-elements.md)
 - [İşlevler](managed-application-createuidefinition-functions.md)
 
 CreateUiDefinition için geçerli bir JSON şeması burada bulunur: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
 
-Sonraki sürümlerinde aynı konumda kullanılabilir. Değiştir `0.1.2-preview` URL'sinin ve `version` kullanmayı düşündüğünüz sürüm tanıtıcısını değerle. Şu anda desteklenen sürüm tanımlayıcılardır `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview`, ve `0.1.2-preview`.
+Sonraki sürümlerinde kullanılabilir hello aynı konumu. Hello yerine `0.1.2-preview` hello URL ve hello bölümünü `version` değeri toouse düşündüğünüz hello sürüm tanımlayıcısına sahip. şu anda desteklenen hello sürüm tanımlayıcılardır `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview`, ve `0.1.2-preview`.

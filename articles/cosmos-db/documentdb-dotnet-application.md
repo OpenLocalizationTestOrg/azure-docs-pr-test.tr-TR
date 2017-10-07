@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos DB için ASP.NET MVC öğreticisi: Web Uygulaması Geliştirme | Microsoft Docs"
-description: "Azure Cosmos DB'yi kullanarak bir MVC web uygulaması oluşturmak için hazırlanan ASP.NET MVC öğreticisi. Azure Web Siteleri'nde barındırılan bir yapılacaklar uygulamasında JSON ve erişim verilerini depolayacaksınız - adım adım ASP.NET MVC öğreticisi."
+description: "ASP.NET MVC Öğreticisi toocreate Azure Cosmos DB kullanarak bir MVC web uygulaması. Azure Web Siteleri'nde barındırılan bir yapılacaklar uygulamasında JSON ve erişim verilerini depolayacaksınız - adım adım ASP.NET MVC öğreticisi."
 keywords: "asp.net mvc öğreticisi, web uygulaması dağıtımı, mvc web uygulaması, asp net mvc adım adım öğreticisi"
 services: cosmos-db
 documentationcenter: .net
@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
-ms.openlocfilehash: 3f2950fe25feb8f3ee81cc0a79bf624f0ee33bd5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: dac2a9599b395524533e6fe14983789ff095331f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC Öğreticisi: Azure Cosmos DB ile Web uygulaması geliştirme
 > [!div class="op_single_selector"]
@@ -30,100 +30,100 @@ ms.lasthandoff: 08/18/2017
 > 
 > 
 
-Bu makale, JSON belgelerini depolama ve sorgulama amacıyla Azure Cosmos DB'yi nasıl verimli bir şekilde kullanabileceğinizi vurgulamak için, Azure Cosmos DB kullanarak bir yapılacaklar uygulamasının nasıl oluşturulacağını gösteren uçtan uca bir kılavuz sağlar. Görevler, JSON belgeleri olarak Azure Cosmos DB'de depolanır.
+toohighlight nasıl verimli bir şekilde Azure Cosmos DB toostore yararlanır ve JSON belgelerini sorgulamak bu makalede nasıl gösteren bir uçtan uca kılavuz sağlar toobuild Azure Cosmos DB kullanarak bir Yapılacaklar uygulamasının. Merhaba görevleri Azure Cosmos DB JSON belgeleri olarak depolanır.
 
-![Bu öğreticiyle oluşturulan yapılacaklar listesi MVC web uygulamasının ekran görüntüsü - adım adım ASP.NET MVC öğreticisi](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image01.png)
+![Merhaba Yapılacaklar listesi MVC web uygulaması Bu öğretici - adım adım Asp.net MVC Öğreticisi tarafından oluşturulan ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
-Bu kılavuz, Azure Cosmos DB hizmet depolamak için nasıl kullanılacağı ve erişim verilerini Azure üzerinde barındırılan bir ASP.NET MVC web uygulamasından gösterir. ASP.NET MVC bileşenleri yerine yalnızca Azure Cosmos DB'ye odaklanan bir öğretici arıyorsanız bkz. [Azure Cosmos DB C# konsol uygulaması oluşturma](documentdb-get-started.md).
+Bu kılavuz size nasıl toouse hello Azure Cosmos DB hizmeti toostore ve erişim verilerini Azure üzerinde barındırılan bir ASP.NET MVC web uygulamasından gösterir. Yalnızca Azure Cosmos DB odaklanan bir öğretici arıyorsanız ve hello ASP.NET MVC bileşenleri görmezsiniz [bir Azure Cosmos DB C# konsol uygulaması oluşturma](documentdb-get-started.md).
 
 > [!TIP]
-> Bu öğretici, ASP.NET MVC ve Azure Web Siteleri'ni kullanma konusunda deneyim sahibi olduğunuzu varsayar. ASP.NET veya [önkoşul araçlarında](#_Toc395637760) yeniyseniz [GitHub][GitHub] konumundan örnek projenin tamamını indirmenizi ve bu örnekteki yönergeleri uygulamanızı öneririz. Oluşturduktan sonra, proje bağlamında kodu daha iyi kavramak için bu makaleyi inceleyebilirsiniz.
+> Bu öğretici, ASP.NET MVC ve Azure Web Siteleri'ni kullanma konusunda deneyim sahibi olduğunuzu varsayar. Yeni tooASP.NET veya hello ise [önkoşul araçlarında](#_Toc395637760), hello konumundan örnek projenin tamamını indirme öneririz [GitHub] [ GitHub] hello yönergeleri izleyerek Bu örnek. Oluşturduktan sonra bu makale toogain Insight hello proje hello bağlamında hello kodu gözden geçirebilirsiniz.
 > 
 > 
 
 ## <a name="_Toc395637760"></a>Bu veritabanı öğreticisi için önkoşullar
-Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzdan emin olmanız gerekir:
+Bu makaledeki Hello yönergeleri izlemeden önce hello aşağıdaki sahip olduğundan emin olun:
 
 * Etkin bir Azure hesabı. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
 
     OR
 
-    Yerel bir [Azure Cosmos DB Öykünücüsü](local-emulator.md) yüklemesi.
+    Merhaba yerel yüklemesi [Azure Cosmos DB öykünücüsü](local-emulator.md).
 * [Visual Studio 2017](http://www.visualstudio.com/).  
-* Visual Studio 2017, Visual Studio yükleyicisi kullanılabilen .NET için Microsoft Azure SDK.
+* Visual Studio 2017, Visual Studio yükleyicisi hello kullanılabilen .NET için Microsoft Azure SDK.
 
-Bu makaledeki tüm ekran görüntüleri Microsoft Visual Studio Community 2017 kullanılarak alınmıştır. Sisteminiz farklı bir sürüme sahip yapılandırılmışsa ekranlarınızın ve seçeneklerinizin tamamen eşleşmeme olasılığı, ancak yukarıdaki önkoşulları karşılarsanız bu çözümün çalışması gerekir mümkündür.
+Tüm hello ekran görüntüleri bu makalede Microsoft Visual Studio Community 2017 kullanılarak alınmıştır. Sisteminiz farklı bir sürüme sahip yapılandırılmışsa ekranlarınızın ve seçeneklerinizin tamamen eşleşmeme olasılığı, ancak hello yukarıdaki Önkoşullar karşılıyorsa bu çözümün çalışması gerekir mümkündür.
 
 ## <a name="_Toc395637761"></a>1. Adım: Azure Cosmos DB veritabanı hesabı oluşturma
-İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir SQL (DocumentDB) hesabı için Azure Cosmos DB varsa veya Bu öğretici için Azure Cosmos DB öykünücüsü kullanıyorsanız, adımına atlayabilirsiniz [yeni bir ASP.NET MVC uygulaması oluşturma](#_Toc395637762).
+İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir SQL (DocumentDB) hesabı için Azure Cosmos DB veya kullanıyorsanız bu öğretici için Azure Cosmos DB öykünücüsü Merhaba, çok atlayabilirsiniz[yeni bir ASP.NET MVC uygulaması oluşturma](#_Toc395637762).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
 <br/>
-Şimdi yeni bir ASP.NET MVC uygulamasının nasıl oluşturulacağını en başından başlayarak inceleyeceğiz. 
+Biz şimdi nasıl toocreate hello yeni bir ASP.NET MVC uygulamasından başından başlayarak yukarı aracılığıyla yol gösterir. 
 
 ## <a name="_Toc395637762"></a>2. Adım: Yeni bir ASP.NET MVC uygulaması oluşturma
 
-1. Visual Studio'da, **Dosya** menüsündeki **Yeni** seçeneğine gidin ve ardından **Proje**'ye tıklayın. **Yeni Proje** iletişim kutusu görünür.
+1. Visual Studio'da, hello **dosya** menüsünde çok noktası**yeni**ve ardından **proje**. Merhaba **yeni proje** iletişim kutusu görüntülenir.
 
-2. **Proje türleri** bölmesinde **Şablonlar**, **Visual C#**, **Web**'i genişletin ve ardından **ASP.NET Web Uygulaması**'nı seçin.
+2. Merhaba, **proje türleri** bölmesini genişletin **şablonları**, **Visual C#**, **Web**ve ardından **ASP.NET Web uygulaması** .
 
-      ![ASP.NET Web Uygulaması proje türü vurgulanmış şekilde Yeni Proje iletişim kutusunun ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+      ![Merhaba yeni proje iletişim kutusu ile Merhaba ASP.NET Web uygulaması proje türü vurgulanmış ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
-3. **Ad** kutusunda projenin adını yazın. Bu öğretici "todo" adını kullanır. Bunun dışında bir şey kullanmayı seçerseniz bu öğreticinin todo ad alanından söz ettiği her yerde sağlanan kod örneklerini uygulamanıza verdiğiniz ada göre ayarlamanız gerekir. 
-4. Projeyi oluşturmak istediğiniz klasöre gitmek için **Gözat**'a tıklayın ve ardından **Tamam**'a tıklayın.
+3. Merhaba, **adı** kutusu, hello projesinin türü hello adı. Bu öğretici "todo" Merhaba adını kullanır. Bunun dışında bir şey toouse seçerseniz, Bu öğretici hello todo ad alanıyla ilgili ettiği her yerde sonra tooadjust hello sağlanan kod örnekleri toouse uygulamanızı adlı yeterlidir. 
+4. Tıklatın **Gözat** Burada, gibi toocreate hello proje ve ardından toonavigate toohello klasörü **Tamam**.
    
-      **Yeni ASP.NET Web uygulaması** iletişim kutusu görüntülenir.
+      Merhaba **yeni ASP.NET Web uygulaması** iletişim kutusu görüntülenir.
    
-    ![MVC uygulama şablonu vurgulanmış ile yeni bir ASP.NET Web uygulaması iletişim kutusunun ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-MVC.png)
-5. Şablonlar bölmesinde **MVC**'yi seçin.
+    ![Merhaba MVC uygulama şablonu vurgulanmış ile Merhaba yeni ASP.NET Web uygulaması iletişim kutusu ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+5. Merhaba Şablonlar bölmesinde seçin **MVC**.
 
-6. **Tamam**'a tıklayarak Visual Studio'nun boş ASP.NET MVC şablonu çevresinde iskele oluşturmasını sağlayın. 
+6. Tıklatın **Tamam** ve Visual Studio yapı iskelesi hello boş ASP.NET MVC şablonu çevresinde oluşturmasını sağlayabilirsiniz. 
 
           
-7. Visual Studio demirbaş MVC uygulamasını oluşturmayı tamamlandıktan sonra, yerel olarak çalıştırabileceğiniz boş bir ASP.NET uygulamasına sahip olursunuz.
+7. Visual Studio hello Demirbaş MVC uygulamasını oluşturmayı tamamlandıktan sonra yerel olarak çalıştırabileceğiniz boş bir ASP.NET uygulamasına sahip.
    
-    Hepimizin ASP.NET "Hello World" uygulamasını gördüğünden emin olduğum için, projeyi yerel olarak çalıştırmayı atlayacağız. Şimdi doğrudan bu projeye Azure Cosmos DB eklemeye ve uygulamamızı oluşturmaya geçelim.
+    Yerel olarak biz olduğunuz tüm görülen hello ASP.NET "Hello World" emin olduğum için çalışan hello proje atlayın uygulama. Düz tooadding Azure Cosmos DB toothis proje ve uygulamamızı oluşturmaya edelim.
 
-## <a name="_Toc395637767"></a>3. Adım: MVC web uygulaması projenize Azure Cosmos DB ekleme
-Bu çözüm için gereken ASP.NET MVC altyapısının çoğunu elde ettiğimize göre, bu öğreticinin asıl amacı olan MVC web uygulamamıza Azure Cosmos DB'yi eklemeye geçelim.
+## <a name="_Toc395637767"></a>3. adım: Azure Cosmos DB tooyour MVC web uygulaması projesi ekleme
+Biz bu çözüm için ihtiyacımız hello ASP.NET MVC tesisat çoğunu sahip olduğunuza göre şimdi Azure Cosmos DB tooour MVC web uygulaması ekleme, bu öğreticinin asıl amacı toohello alın.
 
-1. Azure Cosmos DB .NET SDK'sı paketlenir ve bir NuGet paketi olarak dağıtılmış. NuGet paketini Visual Studio'da almak için, **Çözüm Gezgini**'nde projeye sağ tıklayarak ve ardından **NuGet Paketlerini Yönet**'e tıklayarak Visual Studio'daki NuGet paket yöneticisini kullanın.
+1. Hello Azure Cosmos DB .NET SDK'sını paketlenir ve bir NuGet paketi olarak dağıtılmış. tooget Visual Studio'da NuGet paketi Merhaba, hello projeye sağ tıklayarak Visual Studio'daki hello NuGet paket yöneticisini kullanın **Çözüm Gezgini** ve ardından **NuGet paketlerini Yönet**.
    
-    ![NuGet Paketlerini Yönet vurgulanmış şekilde, Çözüm Gezgini'nde web uygulaması projesi için sağ tıklama seçeneklerinin ekran görüntüsü.](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
+    ![Merhaba ekran görüntüsü seçenekler NuGet paketlerini Yönet vurgulanmış ile Çözüm Gezgini'nde başlangıç web uygulaması projesi için sağ tıklatın.](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
-    **NuGet Paketlerini Yönet** iletişim kutusu görünür.
-2. NuGet **Gözat** kutusunda ***Azure DocumentDB*** yazın. (Paket adı için Azure Cosmos DB güncelleştirilmemiş.)
+    Merhaba **NuGet paketlerini Yönet** iletişim kutusu görüntülenir.
+2. Merhaba NuGet içinde **Gözat** kutusuna ***Azure DocumentDB***. (Merhaba paket adı güncelleştirilmiş tooAzure Cosmos DB yedeklenmedi.)
    
-    Sonuçlardan yüklemek **Microsoft.Azure.DocumentDB Microsoft tarafından** paket. Bu, indirin ve Newtonsoft.Json gibi tüm bağımlılıkları yanı sıra Azure Cosmos DB paketini yükleyin. **Önizleme** penceresinde **Tamam**'a tıklayıp **Lisans Kabulü** penceresinde **Kabul Ediyorum**'a tıklayarak yüklemeyi tamamlayın.
+    Merhaba sonuçlarından hello yüklemek **Microsoft.Azure.DocumentDB Microsoft tarafından** paket. Bu, indirin ve Newtonsoft.Json gibi tüm bağımlılıkları yanı sıra hello Azure Cosmos DB paketini yükleyin. ' I tıklatın **Tamam** hello içinde **Önizleme** penceresinde ve **kabul ediyorum** hello içinde **lisans kabulünü** penceresi toocomplete hello yükleme.
    
-    ![Microsoft Azure DocumentDB İstemci Kitaplığı vurgulanmış şekilde NuGet Paketlerini Yönet penceresinin ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Microsoft Azure DocumentDB istemci kitaplığı vurgulanmış hello ile Merhaba NuGet paketlerini Yönet penceresinin ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
-      Alternatif olarak, paketi yüklemek için Paket Yöneticisi Konsolu'nu kullanabilirsiniz. Bunu yapmak için, **Araçlar** menüsünde **NuGet Paket Yöneticisi**'ne tıklayın ve ardından **Paket Yöneticisi Konsolu**'na tıklayın. İstendiğinde aşağıdakileri yazın.
+      Alternatif olarak, Paket Yöneticisi konsolu tooinstall hello paket hello kullanabilirsiniz. toodo şekilde, hello **Araçları** menüsünde tıklatın **NuGet Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**. Merhaba isteminde hello aşağıdakini yazın.
    
         Install-Package Microsoft.Azure.DocumentDB
         
-3. Paket yüklendikten sonra, Visual Studio çözümünüz Microsoft.Azure.Documents.Client ve Newtonsoft.Json olmak üzere iki yeni başvuru eklenmiş şekilde aşağıdakine benzemelidir.
+3. Merhaba paket yüklendikten sonra Visual Studio çözümünüzü eklenen, iki yeni başvuru Microsoft.Azure.Documents.Client ve Newtonsoft.Json hello aşağıdakilerle benzemelidir.
    
-    ![Çözüm Gezgini'nde JSON veri projesine eklenen iki başvurunun ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-added-references.png)
+    ![Merhaba iki başvurunun ekran görüntüsü, Çözüm Gezgini'nde toohello JSON veri projesine eklendi](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
-## <a name="_Toc395637763"></a>4. Adım: ASP.NET MVC uygulamasını ayarlama
-Şimdi bu MVC uygulamasına modeller, görünümler ve denetleyiciler ekleyelim:
+## <a name="_Toc395637763"></a>4. adım: ASP.NET MVC uygulaması hello ayarlama
+Şimdi Merhaba modeller, görünümler ve denetleyiciler toothis MVC uygulaması ekleyelim:
 
 * [Model ekleme](#_Toc395637764).
 * [Denetleyici ekleme](#_Toc395637765).
 * [Görünümler ekleme](#_Toc395637766).
 
 ### <a name="_Toc395637764"></a>JSON veri modeli ekleme
-MVC'de **M** olan modeli oluşturarak başlayalım. 
+Merhaba oluşturarak başlayalım **M** MVC'de, model hello. 
 
-1. **Çözüm Gezgini**'nde **Modeller** klasörüne sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Sınıf**'a tıklayın.
+1. İçinde **Çözüm Gezgini**, sağ hello **modelleri** klasörünü tıklatın **Ekle**ve ardından **sınıfı**.
    
-      **Yeni Öğe Ekle** iletişim kutusu görünür.
+      Merhaba **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
 2. Yeni sınıfınıza **Item.cs** adını verin ve **Ekle**'ye tıklayın. 
-3. Bu yeni **Item.cs** dosyasında, son *using deyiminden* sonra aşağıdakini ekleyin.
+3. Bu yeni **Item.cs** dosya, hello aşağıdakileri hello sonra son ekleyin *deyimiyle*.
    
         using Newtonsoft.Json;
 4. Şimdi de bu kodu 
@@ -132,7 +132,7 @@ MVC'de **M** olan modeli oluşturarak başlayalım.
         {
         }
    
-    aşağıdaki kodla değiştirin.
+    koddan hello ile.
    
         public class Item
         {
@@ -149,90 +149,90 @@ MVC'de **M** olan modeli oluşturarak başlayalım.
             public bool Completed { get; set; }
         }
    
-    Azure Cosmos DB'deki tüm veriler kablo üzerinden geçer ve JSON olarak depolanır. JSON.NET tarafından nesnelerinizin seri hale getirilme/seri durumundan çıkarılma yolunu denetlemek için, yeni oluşturduğumuz **Item** sınıfında gösterildiği şekilde **JsonProperty** özniteliğini kullanabilirsiniz. Bunu yapmak **zorunda** değilsiniz ancak özelliklerimin JSON camelCase adlandırma kurallarına uyduğundan emin olmak istiyorum. 
+    Tüm veriler Azure Cosmos veritabanı hello kablo üzerinden geçer ve JSON olarak depolanır. nesnelerinizin seri/seri kullanabileceğiniz JSON.NET tarafından toocontrol hello şekilde hello **Item** özniteliği hello gösterildiği gibi **öğesi** yeni oluşturduğumuz sınıfı. Sizin **sahip** toodo bu ancak sorun istediğiniz tooensure özelliklerimin hello JSON camelCase adlandırma kuralları izleyin. 
    
-    Özellik adının biçimini JSON'a gittiği zaman denetlemenin yanı sıra, **Açıklama** özelliğinde yaptığım gibi .NET özelliklerinizi tamamen yeniden adlandırabilirsiniz. 
+    JSON'a gittiği ancak hello ile olduğu gibi .NET özelliklerinizi tamamen adlandırabilirsiniz hello özellik adının hello biçimi yalnızca denetleyebilirsiniz **açıklama** özelliği. 
 
 ### <a name="_Toc395637765"></a>Denetleyici ekleme
-**M** ile işimiz bitti; şimdi de MVC'deki **C**'yi, yani denetleyici sınıfını oluşturalım.
+Merhaba mvc'deki **M**, şimdi hello oluşturalım **C** ' yi, yani denetleyici sınıfını.
 
-1. **Çözüm Gezgini**'nde **Denetleyiciler** klasörüne sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Denetleyici**'ye tıklayın.
+1. İçinde **Çözüm Gezgini**, sağ hello **denetleyicileri** klasörünü tıklatın **Ekle**ve ardından **denetleyicisi**.
    
-    **İskele Ekle** iletişim kutusu görünür.
+    Merhaba **İskele Ekle** iletişim kutusu görüntülenir.
 2. **MVC 5 Denetleyici - Boş**'u seçin ve ardından **Ekle**'ye tıklayın.
    
-    ![MVC 5 Denetleyici - Boş seçeneği vurgulanmış şekilde İskele Ekle iletişim kutusunun ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+    ![MVC 5 denetleyici - boş seçeneği vurgulanmış hello ile Merhaba İskele Ekle iletişim kutusunun ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 3. Yeni Denetleyicinize **ItemController** adını verin.
    
-    ![Denetleyici Ekle iletişim kutusunun ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
+    ![Merhaba denetleyici Ekle iletişim kutusunun ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
    
-    Dosya oluşturulduktan sonra, Visual Studio çözümünüz **Çözüm Gezgini**'nde yeni ItemController.cs dosyasıyla aşağıdakine benzemelidir. Daha önce oluşturduğunuz yeni Item.cs dosyası da gösterilmektedir.
+    Merhaba dosya oluşturulduktan sonra Visual Studio çözümünüzü hello aşağıdaki hello yeni Itemcontroller.cs dosyasıyla benzemelidir **Çözüm Gezgini**. Merhaba daha önce oluşturduğunuz yeni Item.cs dosyası da gösterilmektedir.
    
-    ![Yeni ItemController.cs dosyası ve Item.cs dosyası vurgulanmış şekilde Visual Studio çözümü - Çözüm Gezgini'nin ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
+    ![Merhaba Visual Studio çözümü - hello yeni Itemcontroller.cs dosyası ve Item.cs dosyası vurgulanmış şekilde çözüm Gezgini'nin ekran](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
    
-    ItemController.cs'yi kapatabilirsiniz, buna daha sonra geri döneceğiz. 
+    Itemcontroller.cs'yi kapatabilirsiniz, biz tooit daha sonra yine gelmenizi. 
 
 ### <a name="_Toc395637766"></a>Görünümler ekleme
-Şimdi MVC'deki **V**'yi, yani görünümleri oluşturalım:
+Şimdi, hello oluşturalım **V** MVC uygulamasında hello görünümleri:
 
 * [Öğe Dizini görünümü ekleme](#AddItemIndexView).
 * [Yeni Öğe görünümü ekleme](#AddNewIndexView).
 * [Düzenleme Öğesi görünümü ekleme](#_Toc395888515).
 
 #### <a name="AddItemIndexView"></a>Öğe Dizini görünümü ekleme
-1. **Çözüm Gezgini**'nde **Görünümler** klasörünü genişletin, daha önce **ItemController**'ı eklediğinizde Visual Studio'nun sizin için oluşturduğu boş **Öğe** klasörüne sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Görünüm**'e tıklayın.
+1. İçinde **Çözüm Gezgini**, hello genişletin **görünümleri** klasörü, sağ hello boş **öğesi** hello eklediğinizde Visual Studio için oluşturduğunuz klasöre  **Itemcontroller** daha önce tıklatın **Ekle**ve ardından **Görünüm**.
    
-    ![Görünüm Ekle komutları vurgulanmış şekilde Visual Studio'nun oluşturduğu Öğe klasörünü gösteren Çözüm Gezgini'nin ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view.png)
-2. **Görünüm Ekle** iletişim kutusunda aşağıdakileri yapın:
+    ![Visual Studio hello Görünüm Ekle komutları vurgulanmış oluşturulan hello öğe klasörünü gösteren Çözüm Gezgini ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view.png)
+2. Merhaba, **Görünüm Ekle** iletişim kutusunda, aşağıdaki hello:
    
-   * **Görünüm adı** kutusunda ***Index*** yazın.
-   * **Şablon** kutusunda ***Liste***'yi seçin.
-   * **Model sınıfı** kutusunda ***Öğe (todo.Models)*** seçeneğini belirleyin.
-   * Düzen sayfası kutusunda ***~/Views/Shared/_Layout.cshtml*** yazın.
+   * Merhaba, **Görünüm adı** kutusuna ***dizin***.
+   * Merhaba, **şablonu** kutusunda ***listesi***.
+   * Merhaba, **Model sınıfı** kutusunda ***öğesi (Yapılacaklar. Modeller)***.
+   * Merhaba düzen sayfası kutusunda yazın ***~/Views/Shared/_Layout.cshtml***.
      
-   ![Görünüm Ekle iletişim kutusunu gösteren ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
-3. Bu değerlerin tümü ayarlandıktan sonra, **Ekle**'ye tıklayın ve Visual Studio'nun yeni bir şablon görünümü oluşturmasına izin verin. Tamamlandığında, oluşturulan cshtml dosyasını açar. Daha sonra geri döneceğimiz için Visual Studio'daki bu dosyayı kapatabiliriz.
+   ![Ekran görüntüsü gösteren hello Görünüm Ekle iletişim kutusu](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
+3. Bu değerlerin tümü ayarlandıktan sonra, **Ekle**'ye tıklayın ve Visual Studio'nun yeni bir şablon görünümü oluşturmasına izin verin. Bunu yaptıktan sonra oluşturulan hello cshtml dosyasını açar. Biz tooit daha sonra yine gelmenizi şekilde Biz bu dosyayı Visual Studio kapatabilirsiniz.
 
 #### <a name="AddNewIndexView"></a>Yeni Öğe görünümü ekleme
-**Öğe Dizini** görünümü oluşturmamıza benzer şekilde, şimdi de yeni **Öğeler** oluşturmak için yeni bir görünüm oluşturacağız.
+Oluşturduğumuz benzer toohow bir **öğe dizini** görünümü, biz şimdi oluşturacak yeni oluşturmak için yeni bir görünüm **öğeleri**.
 
-1. **Çözüm Gezgini**'nde **Öğe** klasörüne tekrar sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Görünüm**'e tıklayın.
-2. **Görünüm Ekle** iletişim kutusunda aşağıdakileri yapın:
+1. İçinde **Çözüm Gezgini**, sağ hello **öğesi** klasörü yeniden tıklatın **Ekle**ve ardından **Görünüm**.
+2. Merhaba, **Görünüm Ekle** iletişim kutusunda, aşağıdaki hello:
    
-   * **Görünüm adı** kutusunda ***Create*** yazın.
-   * **Şablon** kutusunda ***Oluştur***'u seçin.
-   * **Model sınıfı** kutusunda ***Öğe (todo.Models)*** seçeneğini belirleyin.
-   * Düzen sayfası kutusunda ***~/Views/Shared/_Layout.cshtml*** yazın.
+   * Merhaba, **Görünüm adı** kutusuna ***oluşturma***.
+   * Merhaba, **şablonu** kutusunda ***oluşturma***.
+   * Merhaba, **Model sınıfı** kutusunda ***öğesi (Yapılacaklar. Modeller)***.
+   * Merhaba düzen sayfası kutusunda yazın ***~/Views/Shared/_Layout.cshtml***.
    * **Ekle**'ye tıklayın.
    
 #### <a name="_Toc395888515"></a>Düzenleme Öğesi görünümü ekleme
-Son olarak, bir **Öğe**'yi düzenlemek için daha önce kullandığımız yolu tekrarlayarak son bir görünüm ekleyin.
+Ve son olarak, düzenleme için son bir görünüm ekleyin bir **öğesi** hello içinde öncekiyle aynı şekilde.
 
-1. **Çözüm Gezgini**'nde **Öğe** klasörüne tekrar sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Görünüm**'e tıklayın.
-2. **Görünüm Ekle** iletişim kutusunda aşağıdakileri yapın:
+1. İçinde **Çözüm Gezgini**, sağ hello **öğesi** klasörü yeniden tıklatın **Ekle**ve ardından **Görünüm**.
+2. Merhaba, **Görünüm Ekle** iletişim kutusunda, aşağıdaki hello:
    
-   * **Görünüm adı** kutusunda ***Edit*** yazın.
-   * **Şablon** kutusunda ***Düzenle***'yi seçin.
-   * **Model sınıfı** kutusunda ***Öğe (todo.Models)*** seçeneğini belirleyin.
-   * Düzen sayfası kutusunda ***~/Views/Shared/_Layout.cshtml*** yazın.
+   * Merhaba, **Görünüm adı** kutusuna ***Düzenle***.
+   * Merhaba, **şablonu** kutusunda ***Düzenle***.
+   * Merhaba, **Model sınıfı** kutusunda ***öğesi (Yapılacaklar. Modeller)***.
+   * Merhaba düzen sayfası kutusunda yazın ***~/Views/Shared/_Layout.cshtml***.
    * **Ekle**'ye tıklayın.
 
-Bunu yaptıktan sonra, bu görünümlere daha sonra geri döneceğimiz için Visual Studio'daki tüm cshtml belgelerini kapatın.
+Bunu yaptıktan sonra toothese görünümleri daha sonra geri döneceksiniz olarak Visual Studio tüm hello cshtml belgelerini kapatın.
 
 ## <a name="_Toc395637769"></a>5. Adım: Azure Cosmos DB’yi bağlama
-Standart MVC işleri hallolduğuna göre, Azure Cosmos DB için kod eklemeye dönelim. 
+Merhaba standart MVC işleri hallolduğuna göre tooadding hello kodu Azure Cosmos DB dönelim. 
 
-Bu bölümde, aşağıdakileri işlemek için kod ekleyeceğiz:
+Bu bölümde, kod toohandle hello aşağıdaki ekleyeceğiz:
 
 * [Tamamlanmamış Öğeleri listeleme](#_Toc395637770).
 * [Öğeler ekleme](#_Toc395637771).
 * [Öğeleri düzenleme](#_Toc395637772).
 
 ### <a name="_Toc395637770"></a>MVC web uygulamanızda tamamlanmamış Öğeleri listeleme
-Burada yapılacak ilk şey, Azure Cosmos DB'ye bağlanmayı ve kullanmayı sağlayan tüm mantığı içeren bir sınıf eklemektir. Bu öğretici için tüm bu mantığı DocumentDBRepository adlı bir depo sınıfına kapsülleyeceğiz. 
+Merhaba ilk şey toodo burada olan tüm hello mantığı tooconnect tooand kullanım Azure Cosmos DB içeren bir sınıf ekleyin. Bu öğretici için size tüm bu mantığı DocumentDBRepository adlı tooa depo sınıfına kapsülleyeceğiz. 
 
-1. **Çözüm Gezgini**'nde projeye sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Sınıf**'a tıklayın. Yeni sınıfa **DocumentDBRepository** adını verin ve **Ekle**'ye tıklayın.
-2. Yeni oluşturulan **DocumentDBRepository** sınıfında *ad alanı* bildiriminin üstüne aşağıdaki *using deyimlerini* ekleyin
+1. İçinde **Çözüm Gezgini**, hello projeye sağ tıklayın, **Ekle**ve ardından **sınıfı**. Ad hello yeni sınıf **DocumentDBRepository** tıklatıp **Ekle**.
+2. Yeni oluşturulan hello içinde **DocumentDBRepository** sınıfı ve hello aşağıdakileri ekleyin *using deyimleri* hello yukarıda *ad alanı* bildirimi
    
         using Microsoft.Azure.Documents; 
         using Microsoft.Azure.Documents.Client; 
@@ -248,7 +248,7 @@ Burada yapılacak ilk şey, Azure Cosmos DB'ye bağlanmayı ve kullanmayı sağl
         {
         }
    
-    aşağıdaki kodla değiştirin.
+    koddan hello ile.
    
         public static class DocumentDBRepository<T> where T : class
         {
@@ -306,17 +306,17 @@ Burada yapılacak ilk şey, Azure Cosmos DB'ye bağlanmayı ve kullanmayı sağl
         }
    
     
-3. Bazı değerleri yapılandırmadan okuyoruz, bu nedenle uygulamanızın **Web.config** dosyasını açın ve `<AppSettings>` bölümünün altına aşağıdaki satırları ekleyin.
+3. Bazı değerler yapılandırmasından okuduğunuz, bu nedenle hello Aç **Web.config** uygulamanızın dosyasını ve satırlar hello altında aşağıdaki hello ekleyin `<AppSettings>` bölümü.
    
-        <add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
-        <add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal"/>
+        <add key="endpoint" value="enter hello URI from hello Keys blade of hello Azure Portal"/>
+        <add key="authKey" value="enter hello PRIMARY KEY, or hello SECONDARY KEY, from hello Keys blade of hello Azure  Portal"/>
         <add key="database" value="ToDoList"/>
         <add key="collection" value="Items"/>
-4. Şimdi de Azure Portal'ın Anahtarlar dikey penceresini kullanarak *endpoint* ve *authKey* değerlerini güncelleştirin. Uç nokta ayarının değeri olarak Anahtarlar dikey penceresinden **URI**'yi kullanın ve authKey ayarının değeri olarak Anahtarlar dikey penceresinden **BİRİNCİL ANAHTAR** veya **İKİNCİL ANAHTAR**'ı kullanın.
+4. Şimdi, hello değerlerini güncelleştirin *endpoint* ve *authKey* hello anahtarlar dikey penceresinde hello Azure Portal kullanarak. Merhaba kullanmak **URI** hello hello uç noktası ayarı ve kullanım hello hello değeri olarak anahtarlar dikey penceresinden **birincil anahtar**, veya **ikincil anahtar** hello hello hello değeri olarak anahtarlar dikey penceresinden authKey ayarının.
 
-    Azure Cosmos DB depoyu şimdi bağlamayı, alır dikkatli uygulama mantığımızı ekleyelim.
+    Alır dikkatli'hello Azure Cosmos DB depoyu şimdi bağlamayı, uygulama mantığımızı ekleyelim.
 
-1. Bir yapılacaklar listesi uygulamasıyla yapabilmeyi istediğimiz ilk şey, tamamlanmamış öğeleri görüntülemektir.  **DocumentDBRepository** sınıfının içinde herhangi bir yere aşağıdaki kod parçacığını kopyalayıp yapıştırın.
+1. Merhaba ilk şey toodisplay hello tamamlanmamış öğeleri toobe mümkün toodo bir Yapılacaklar listesi uygulaması ile olan istiyoruz.  Aşağıdaki kod parçacığını hello içinde istediğiniz yere hello kopyalayıp **DocumentDBRepository** sınıfı.
    
         public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
         {
@@ -333,13 +333,13 @@ Burada yapılacak ilk şey, Azure Cosmos DB'ye bağlanmayı ve kullanmayı sağl
    
             return results;
         }
-2. Daha önce eklediğimiz **ItemController**'ı açın ve ad alanı bildiriminin üstüne aşağıdaki *using deyimlerini* ekleyin.
+2. Açık hello **Itemcontroller** daha önce eklenen ve hello aşağıdakileri ekleyin *using deyimleri* hello ad alanı bildiriminin üstüne.
    
         using System.Net;
         using System.Threading.Tasks;
         using todo.Models;
    
-    Projeniz "todo" olarak adlandırılmamışsa using "todo.Models" deyimini projenizin adını yansıtacak şekilde güncelleştirmeniz gerekir.
+    Projeniz "todo" adlı değil, ardından "todo. kullanarak tooupdate gerekir Modelleri"; projeniz tooreflect hello adı.
    
     Şimdi de bu kodu
    
@@ -349,7 +349,7 @@ Burada yapılacak ilk şey, Azure Cosmos DB'ye bağlanmayı ve kullanmayı sağl
             return View();
         }
    
-    aşağıdaki kodla değiştirin.
+    koddan hello ile.
    
         [ActionName("Index")]
         public async Task<ActionResult> IndexAsync()
@@ -357,40 +357,40 @@ Burada yapılacak ilk şey, Azure Cosmos DB'ye bağlanmayı ve kullanmayı sağl
             var items = await DocumentDBRepository<Item>.GetItemsAsync(d => !d.Completed);
             return View(items);
         }
-3. **Global.asax.cs**'yi açın ve **Application_Start** yöntemine aşağıdaki satırı ekleyin 
+3. Açık **Global.asax.cs** ve satır toohello aşağıdaki hello ekleyin **Application_Start** yöntemi 
    
         DocumentDBRepository<todo.Models.Item>.Initialize();
 
-Bu noktada çözümünüzün herhangi bir hata olmadan oluşturulabiliyor olması gerekir.
+Bu noktada çözümünüzün hatasız mümkün toobuild olmalıdır.
 
-Uygulamayı şimdi çalıştırırsanız **HomeController**'a ve söz konusu denetleyicinin **Dizin** görünümüne gidersiniz. Başta seçtiğimiz MVC şablonu projesinin varsayılan davranışı budur ancak biz bunu istemiyoruz! Bu davranışı değiştirmek için bu MVC uygulamasındaki yönlendirmeyi değiştirelim.
+Merhaba uygulamayı şimdi çalıştırırsanız toohello geçecek **HomeController** ve hello **dizin** söz konusu denetleyicinin görünümü. Merhaba başlangıcında seçtik hello MVC şablonu projesinin hello varsayılan davranışı budur ancak biz bunu istemiyoruz! Bu davranış bu MVC uygulama tooalter yönlendirme hello değiştirelim.
 
-***App\_Start\RouteConfig.cs***'yi açın, "defaults:" ile başlayan satırı bulun ve aşağıdakine benzeyecek şekilde değiştirin.
+Açık ***uygulama\_Start\RouteConfig.cs*** ve başlayarak hello satırı bulun "Varsayılanları:" ve aşağıdaki tooresemble hello değiştirin.
 
         defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
-Bu, yönlendirme davranışını denetlemek için URL'de bir değer belirtmemeniz durumunda, denetleyici olarak **Giriş** yerine **Öğe**'yi ve görünüm olarak **Dizin**'i kullanmasını ASP.NET MVC'ye söyler.
+Bu şimdi hello URL toocontrol bir değer belirtmediyseniz, yönlendirme davranışını yerine hello ASP.NET MVC söyler **giriş**, kullanın **öğesi** hello denetleyici ve kullanıcı olarak **dizin** hello görünüm olarak.
 
-Uygulamayı şimdi çalıştırırsanız uygulama depo sınıfını çağıran ve tamamlanmamış tüm öğeleri **Görünümler**\\**Öğe**\\**Dizin** görünümüne getiren GetItems yöntemini kullanan **ItemController**'ınızı çağırır. 
+Merhaba uygulaması çalıştırırsanız, bunu şimdi, **Itemcontroller** hangi toohello depo sınıfında çağırın ve tüm hello tamamlanmamış öğeleri toohello hello Getıtems yöntemini tooreturn kullanmak **görünümleri** \\ **Öğesi**\\**dizin** görünümü. 
 
 Bu projeyi şimdi oluşturur ve çalıştırırsanız buna benzeyen bir şey görürsünüz.    
 
-![Bu veritabanı öğreticisi tarafından oluşturulan yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/documentdb-dotnet-application/build-and-run-the-project-now.png)
+![Bu veritabanı Öğreticisi tarafından oluşturulan hello Yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/documentdb-dotnet-application/build-and-run-the-project-now.png)
 
 ### <a name="_Toc395637771"></a>Öğeler ekleme
-Boş bir kılavuzdan başka şeyler görmek için veritabanımıza biraz öğe ekleyelim.
+Şimdi bir boş kılavuz toolook başka şeyler sahibiz şekilde bazı öğeler Veritabanımıza yerleştirin.
 
-Azure Cosmos DB'deki kaydı kalıcı hale getirmek için Azure Cosmos DBRepository ve ItemController'a biraz kod ekleyelim.
+Bazı kodlar çok ekleyelim Azure Cosmos DBRepository ve Itemcontroller'a toopersist hello kayıt Azure Cosmos veritabanı.
 
-1. **DocumentDBRepository** sınıfınıza aşağıdaki yöntemi ekleyin.
+1. Yöntem tooyour aşağıdaki hello eklemek **DocumentDBRepository** sınıfı.
    
        public static async Task<Document> CreateItemAsync(T item)
        {
            return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
        }
    
-   Bu yöntem yalnızca kendisine geçirilen nesneyi alır ve Azure Cosmos DB'de devam ettirir.
-2. ItemController.cs dosyasını açın ve sınıfın içine aşağıdaki kod parçacığını ekleyin. ASP.NET MVC **Oluştur** eylemi için ne yapacağını bu şekilde bilir. Bu durumda yalnızca daha önce oluşturulan ilişkili Create.cshtml görünümünü işler.
+   Bu yöntem yalnızca tooit geçirilen nesneyi alır ve Azure Cosmos DB'de devam ettirir.
+2. Merhaba Itemcontroller.cs dosyasını açın ve aşağıdaki kod parçacığını hello sınıfı içinde hello ekleyin. ASP.NET MVC hello için hangi toodo nasıl bilir budur **oluşturma** eylem. Bu durumda yalnızca işleme hello Create.cshtml görünümünü daha önce oluşturulan ilişkili.
    
         [ActionName("Create")]
         public async Task<ActionResult> CreateAsync()
@@ -398,8 +398,8 @@ Azure Cosmos DB'deki kaydı kalıcı hale getirmek için Azure Cosmos DBReposito
             return View();
         }
    
-    Şimdi bu denetleyicide **Oluştur** görünümünden gönderim kabul edecek biraz daha koda ihtiyacımız var.
-3. Bu denetleyici için bir POST formuyla ASP.NET MVC'ye ne yapacağını söyleyen ItemController.cs sınıfına bir sonraki kod blokunu ekleyin.
+    Şimdi bu denetleyici hello hello gönderim kabul edecek biraz daha koda ihtiyacımız **oluşturma** görünümü.
+3. Merhaba sonraki bloğu kod toohello hangi toodo Bu denetleyici için POST formuyla ASP.NET MVC söyleyen Itemcontroller.cs sınıfına ekleyin.
    
         [HttpPost]
         [ActionName("Create")]
@@ -415,18 +415,18 @@ Azure Cosmos DB'deki kaydı kalıcı hale getirmek için Azure Cosmos DBReposito
             return View(item);
         }
    
-    Bu kod DocumentDBRepository'ye çağrı yapar ve yeni todo öğesini veritabanında kalıcı hale getirmek için CreateItemAsync yöntemini kullanır. 
+    Bu kod toohello DocumentDBRepository çağırır ve hello Createıtemasync yöntemini toopersist hello yeni Yapılacaklar öğesi toohello bir veritabanı kullanır. 
    
-    **Güvenlik Notu**: **ValidateAntiForgeryToken** özniteliği burada bu uygulamayı siteler arası istek sahteciliği saldırılarına karşı korunmaya yardımcı olmak için kullanılır. Bu özniteliği eklemek tek başına yeterli değildir, görünümlerinizin de bu sahteciliği karşı önleme belirteci ile çalışması gerekir. Bu konu hakkında daha fazla bilgi ve bunu doğru uygulamaya yönelik örnekler için lütfen bkz. [Siteler Arası İstek Sahteciliğini Önleme][Preventing Cross-Site Request Forgery]. [GitHub][GitHub]'da sağlanan kaynak kodu tam uygulamayı içerir.
+    **Güvenlik Notu**: Merhaba **ValidateAntiForgeryToken** özniteliği kullanılır burada toohelp bu uygulamayı siteler arası istek sahteciliği saldırılarına karşı koruyun. Bu öznitelik yalnızca eklemekten daha fazla tooit, kendi görünümlerinizi de bu sahteciliğe karşı koruma belirteci ile toowork gerekir. Merhaba konu ve nasıl tooimplement bunu doğru şekilde, lütfen görmek örnekleri hakkında daha fazla bilgi için [siteler arası istek sahteciliğini önleme][Preventing Cross-Site Request Forgery]. Sağlanan kaynak kodu Hello [GitHub] [ GitHub] hello tam uygulamayı içerir.
    
-    **Güvenlik Notu**: Aşırı gönderim saldırılarına karşı korunmaya yardımcı olmak için yöntem parametresinde **Bind** özniteliğini de kullanırız. Daha ayrıntılı bilgi için lütfen bkz. [ASP.NET MVC'de Temel CRUD İşlemleri][Basic CRUD Operations in ASP.NET MVC].
+    **Güvenlik Notu**: hello de kullanırız **bağlamak** hello yöntemi parametresi toohelp öznitelikte aşırı gönderim saldırılarına karşı koruyun. Daha ayrıntılı bilgi için lütfen bkz. [ASP.NET MVC'de Temel CRUD İşlemleri][Basic CRUD Operations in ASP.NET MVC].
 
-Veritabanımıza yeni Öğeler eklemek için gereken kod burada son bulur.
+Merhaba gerekli kod tooadd yeni öğeleri tooour veritabanı sonlanır.
 
 ### <a name="_Toc395637772"></a>Öğeleri Düzenleme
-Yapacağımız son bir şey kaldı, bu da veritabanında **Öğeler**'i düzenleme ve bunları tamamlanmış olarak işaretleme özelliğini eklemektir. Düzenleme görünümü projeye zaten eklenmişti, bu nedenle yalnızca denetleyicimize ve **DocumentDBRepository** sınıfına biraz kod eklememiz gereklidir.
+Toodo bize için son bir şey yoktur ve tooadd hello özelliği tooedit **öğeleri** hello veritabanı ve toomark olarak tamamlandı. Merhaba düzenleme görünümü zaten toohello proje eklenmiş, yalnızca tooadd ihtiyacımız şekilde tooour denetleyici ve toohello bazı kodu **DocumentDBRepository** yeniden sınıf.
 
-1. **DocumentDBRepository** sınıfına aşağıdakileri ekleyin.
+1. Toohello aşağıdaki hello eklemek **DocumentDBRepository** sınıfı.
    
         public static async Task<Document> UpdateItemAsync(string id, T item)
         {
@@ -453,10 +453,10 @@ Yapacağımız son bir şey kaldı, bu da veritabanında **Öğeler**'i düzenle
             }
         }
    
-    Bu yöntemlerin ilki olan **GetItem**, Azure Cosmos DB'den bir Öğe getirir ve bu öğe **ItemController**'a ve sonra **Düzenle** görünümüne geçirilir.
+    Bu yöntemlerin ilki olan Hello **GetItem** Azure Cosmos DB'den geri toohello geçirilen bir öğe getirir **Itemcontroller** ve ardından toohello **Düzenle** görünümü.
    
-    Yeni eklediğimiz yöntemlerin ikincisi, Azure Cosmos DB'deki **Belge**'yi, **ItemController**'dan geçirilen **Belge**'nin sürümüyle değiştirir.
-2. Aşağıdakileri **ItemController** sınıfına ekleyin.
+    Merhaba hello yöntemlerinin ikinci yalnızca değiştirir hello eklediğimiz **belge** Azure Cosmos veritabanı hello hello sürümüyle **belge** hello geçirilen **Itemcontroller**.
+2. Toohello aşağıdaki hello eklemek **Itemcontroller** sınıfı.
    
         [HttpPost]
         [ActionName("Edit")]
@@ -489,52 +489,52 @@ Yapacağımız son bir şey kaldı, bu da veritabanında **Öğeler**'i düzenle
             return View(item);
         }
    
-    İlk yöntem, kullanıcı **Dizin** görünümünden **Düzenle** bağlantısına tıkladığında meydana gelen Http GET'ini işler. Bu yöntem Azure Cosmos DB'den bir [**Belge**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) getirir ve bunu **Düzenle** görünümüne geçirir.
+    Merhaba ilk yöntemi tanıtıcıları hello kullanıcı tıkladığında, üzerinde hello olur Http GET hello **Düzenle** hello bağlantısından **dizin** görünümü. Bu yöntem getirir bir [ **belge** ](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) Azure Cosmos DB'den ve toohello geçirir **Düzenle** görünümü.
    
-    Ardından, **Düzenle** görünümü **IndexController**'a bir Http POST yapar. 
+    Merhaba **Düzenle** görünüm sonra bir Http POST toohello yapın **Indexcontroller**. 
    
-    Eklediğimiz ikinci yöntem, güncelleştirilmiş nesneyi veritabanında kalıcı hale getirmek üzere Azure Cosmos DB'ye geçirir.
+    güncelleştirilmiş hello nesne tooAzure Cosmos DB toobe geçirme tanıtıcıları eklediğimiz ikinci yöntem hello hello veritabanında kalıcı.
 
-Hepsi bu; uygulamamızı çalıştırmak, tamamlanmamış **Öğeleri** listelemek, yeni **Öğeler** eklemek ve **Öğeleri** düzenlemek için ihtiyacımız olan her şey bu kadar.
+Bunu ihtiyacımız olan her şey toorun uygulamamız olan olan, tamamlanmamış listesi **öğeleri**, yeni Ekle **öğeleri**ve düzenleme **öğeleri**.
 
-## <a name="_Toc395637773"></a>6. Adım: Uygulamayı yerel olarak çalıştırma
-Yerel makinenizde uygulamayı test etmek için aşağıdakileri yapın:
+## <a name="_Toc395637773"></a>6. adım: hello uygulama yerel olarak çalıştırma
+yerel makinenizde tootest Merhaba uygulaması hello aşağıdaki:
 
-1. Uygulamayı hata ayıklama modunda oluşturmak için Visual Studio'da F5'e basın. Bu işlemin uygulamayı oluşturması ve bir tarayıcıyı daha önce gördüğümüz boş kılavuz sayfasıyla başlatması gerekir:
+1. Visual Studio toobuild hello uygulamasında hata ayıklama modunda F5'e basın. Merhaba uygulaması derleme ve önce gördüğümüz hello boş kılavuz sayfasıyla bir tarayıcıyı başlatacak:
    
-    ![Bu veritabanı öğreticisi tarafından oluşturulan yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+    ![Bu veritabanı Öğreticisi tarafından oluşturulan hello Yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
    
      
-2. **Yeni Oluştur** bağlantısına tıklayın ve **Ad** ve **Açıklama** alanlarına değerler ekleyin. **Tamamlandı** onay kutusunu seçmeden bırakın, aksi halde yeni **Öğe** tamamlanmış durumda eklenir ve ilk listede görünmez.
+2. Merhaba tıklatın **Yeni Oluştur** değerleri toohello ekleyin ve bağlama **adı** ve **açıklama** alanları. Merhaba bırakın **tamamlandı** onay kutusu seçili değilse hello yeni **öğesi** tamamlanmış durumda eklenir ve hello ilk listede görünmez.
    
-    ![Oluştur görünümünün ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
-3. **Oluştur**'a tıklayın, böylece **Dizin** görünümüne geri yönlendirilirsiniz ve **Öğeniz** listede görünür.
+    ![Merhaba Oluştur görünümünün ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
+3. Tıklatın **oluşturma** ve yeniden yönlendirilen geri toohello **dizin** Görünüm ve **öğesi** hello listesinde görünür.
    
-    ![Dizin görünümünün ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
+    ![Merhaba dizin görünümünün ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
    
-    Yapılacaklar listenize birkaç **Öğe** daha ekleyebilirsiniz.
+    Ücretsiz tooadd birkaç daha eşitleyerek **öğeleri** tooyour Yapılacaklar listesi.
     
-4. Listedeki bir **Öğe**'nin yanındaki **Düzenle**'ye tıklayın, böylece **Tamamlandı** bayrağı dahil olmak üzere nesnenizin herhangi bir özelliğini güncelleştirebileceğiniz **Düzenle** görünümüne gidersiniz. **Tamamlandı** bayrağını işaretler ve **Kaydet**'e tıklarsanız **Öğe** tamamlanmamış görevler listesinden kaldırılır.
+4. Tıklatın **Düzenle** sonraki tooan **öğesi** hello listedeki toohello alınır **Düzenle** hello dahil olmak üzere nesnenizin herhangi bir özelliği güncelleştirme Görünüm  **Tamamlanan** bayrağı. Merhaba işaretlerseniz **tam** bayrak ve tıklatın **kaydetmek**, hello **öğesi** hello tamamlanmamış görevler listesinden kaldırılır.
    
-    ![Tamamlandı kutusu işaretlenmiş şekilde Dizin görünümünün ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
-5. Uygulamayı test ettikten sonra, uygulamanın hata ayıklamasını durdurmak için Ctrl+F5'e basın. Dağıtıma hazırsınız!
+    ![Merhaba hello tamamlandı kutusu işaretli şekilde dizin görünümünün ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
+5. Merhaba uygulamayı test ettikten sonra Ctrl + F5 toostop hello uygulama hata ayıklama tuşuna basın. Hazır toodeploy olduğunuz!
 
-## <a name="_Toc395637774"></a>7. adım: Azure uygulama hizmeti uygulamaya dağıtma 
-Azure Cosmos DB ile düzgün çalışmasını tam uygulama sahip olduğunuza göre bu web uygulamasını Azure App Service'e dağıtmak için yapacağız.  
+## <a name="_Toc395637774"></a>7. adım: hello uygulama tooAzure uygulama hizmeti dağıtma 
+Merhaba tam uygulamaya sahip olduğunuza Azure Cosmos DB ile düzgün çalışmasını toodeploy bu web uygulaması tooAzure uygulama hizmeti yapacağız.  
 
-1. Bu uygulamayı yayımlamak için yapmanız gereken tek şey, **Çözüm Gezgini**'nde projeye sağ tıklamak ve **Yayımla**'ya tıklamaktır.
+1. toopublish toodo ihtiyacınız bu uygulamanın tüm olduğunu hello projeye sağ tıklayın **Çözüm Gezgini** tıklatıp **Yayımla**.
    
-    ![Çözüm Gezgini'nde Yayımla seçeneğinin ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-publish.png)
+    ![Merhaba Çözüm Gezgini'nde Yayımla seçeneğinin ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-publish.png)
 
-2. İçinde **Yayımla** iletişim kutusu, tıklatın **Microsoft Azure App Service**seçeneğini belirleyip **Yeni Oluştur** tıklayın veya bir uygulama hizmeti profili oluşturma **var olanı Seç**  varolan profili kullanmak için.
+2. Merhaba, **Yayımla** iletişim kutusu, tıklatın **Microsoft Azure App Service**seçeneğini belirleyip **Yeni Oluştur** toocreate bir uygulama hizmeti profil ya da'ı tıklatın **seçin Varolan** toouse bir profil.
 
     ![Visual Studio'da Yayımla iletişim kutusu](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-publish-to-existing.png)
 
-3. Var olan bir Azure uygulama hizmeti profiliniz varsa, abonelik adınızı girin. Kullanım **Görünüm** kaynak grubu veya kaynak türü göre sıralamak için filtre sonra Azure uygulama hizmeti seçin. 
+3. Var olan bir Azure uygulama hizmeti profiliniz varsa, abonelik adınızı girin. Kullanım hello **Görünüm** toosort kaynak grubu veya kaynak türü tarafından filtre sonra Azure uygulama hizmeti seçin. 
    
     ![Visual Studio'da uygulama hizmeti iletişim kutusu](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-app-service.png)
 
-4. Yeni bir Azure uygulama hizmeti profili oluşturmak için tıklatın **Yeni Oluştur** içinde **Yayımla** iletişim kutusu. İçinde **App Service Oluştur** iletişim kutusunda, Web uygulaması adı ve uygun abonelik, kaynak grubu ve uygulama hizmeti planı girin ve ardından **oluşturma**.
+4. Yeni bir Azure uygulama hizmeti profili toocreate tıklatın **Yeni Oluştur** hello içinde **Yayımla** iletişim kutusu. Merhaba, **App Service Oluştur** iletişim kutusunda, Web uygulaması adı ve uygun abonelik, kaynak grubu ve uygulama hizmeti planı girin ve ardından **oluşturma**.
 
     ![Visual Studio'da uygulama hizmeti iletişim kutusu oluşturma](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
@@ -543,9 +543,9 @@ Visual Studio birkaç saniye içinde web uygulamanızı yayımlamayı bitirecek 
 
 
 ## <a name="_Toc395637775"></a>Sonraki adımlar
-Tebrikler! Yalnızca ilk ASP.NET MVC Azure Cosmos DB kullanarak web uygulaması oluşturdunuz ve bunu Azure yayımladınız. Bu öğreticide bulunmayan ayrıntı ve silme işlevleri dahil olmak üzere, tüm uygulamanın kaynak kodu [GitHub][GitHub]'dan indirilebilir veya kopyalanabilir. Uygulamanıza bunları eklemek isterseniz kodu alın ve bu uygulamaya ekleyin.
+Tebrikler! Yalnızca ilk ASP.NET MVC Azure Cosmos DB kullanarak web uygulaması oluşturdunuz ve bunu tooAzure yayımladınız. Merhaba hello ayrıntı dahil olmak üzere Merhaba tam uygulaması için kaynak kodu ve silme bu dahil edilmemiş işlevlerinin öğretici indirilebilir veya kopyalamanın [GitHub][GitHub]. Bu nedenle bu tooyour uygulama eklemek isterseniz hello kodu alın ve toothis uygulama ekleyin.
 
-Uygulamanıza ek işlevsellik eklemek için kullanılabilen API'leri inceleyin [Azure Cosmos DB .NET kitaplığı](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) ve Azure Cosmos DB .NET Kitaplığı'na katkıda bulunmaktan çekinmeyin [GitHub] [GitHub]. 
+tooadd ek işlevler tooyour uygulama, gözden geçirme hello API'leri hello kullanılabilir [Azure Cosmos DB .NET kitaplığı](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) üzerinde boş toocontribute toohello Azure Cosmos DB .NET kitaplığı eşitleyerek [GitHub] [GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx

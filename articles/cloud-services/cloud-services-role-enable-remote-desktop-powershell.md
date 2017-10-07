@@ -1,6 +1,6 @@
 ---
-title: "PowerShell kullanarak Azure Cloud Services rolünde için Uzak Masaüstü Bağlantısı etkinleştir"
-description: "Uzak Masaüstü bağlantılara izin vermek için PowerShell kullanarak azure bulut hizmeti uygulamanızı yapılandırma"
+title: "aaaEnable PowerShell kullanarak Azure Cloud Services rolünde için Uzak Masaüstü Bağlantısı"
+description: "Nasıl tooconfigure azure bulut hizmeti uygulaması PowerShell tooallow Uzak Masaüstü bağlantıları kullanma"
 services: cloud-services
 documentationcenter: 
 author: thraka
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 171f27c92ee9de14301ebb664e9ba3bcd98c394d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 3f46b014f29f1c0be0e1b485d2f0152424162bb2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>PowerShell kullanarak Azure Cloud Services rolünde için Uzak Masaüstü Bağlantısı etkinleştir
 > [!div class="op_single_selector"]
@@ -29,39 +29,39 @@ ms.lasthandoff: 08/18/2017
 >
 >
 
-Uzak Masaüstü, Azure'da çalışan rolü Masaüstü erişmenize olanak tanır. Uzak Masaüstü Bağlantısı çalışırken, uygulamanızın sorunları tanılamak ve gidermek için kullanabilirsiniz.
+Uzak Masaüstü tooaccess hello Masaüstü Azure'da çalışan bir rolün sağlar. Çalışırken uygulamanız ile sorunları tanılamak ve Uzak Masaüstü Bağlantısı tootroubleshoot kullanın.
 
-Bu makalede, Uzak Masaüstü'nü PowerShell kullanarak, bulut hizmeti rollerinizi etkinleştirmek açıklar. Bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) Bu makale için gereken önkoşulları için. Uygulama dağıtıldıktan sonra Uzak Masaüstü'nü etkinleştirmek için PowerShell Uzak Masaüstü uzantısı kullanır.
+Bu makalede nasıl tooenable Uzak Masaüstü'nü PowerShell kullanarak, bulut hizmeti rollerinizi. Bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview) için bu makalede gerekli hello Önkoşullar için. Merhaba uygulama dağıtıldıktan sonra Uzak Masaüstü'nü etkinleştirmek için PowerShell hello Uzak Masaüstü uzantısı kullanır.
 
 ## <a name="configure-remote-desktop-from-powershell"></a>Uzak Masaüstü PowerShell üzerinden yapılandırmak
-[Kümesi AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet'i belirtilen roller veya Bulut hizmeti dağıtımınızın tüm roller üzerinde Uzak Masaüstü etkinleştirmenize olanak sağlar. Cmdlet'i Uzak Masaüstü kullanıcı için kullanıcı adı ve parola belirtmenize olanak tanır *kimlik bilgisi* bir PSCredential nesnesi kabul parametresi.
+Merhaba [kümesi AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet'i belirtilen roller veya Bulut hizmeti dağıtımınızın tüm roller üzerinde Uzak Masaüstü tooenable sağlar. Merhaba cmdlet hello Uzak Masaüstü kullanıcı hello aracılığıyla hello kullanıcı adı ve parola belirtmenize olanak sağlar *kimlik bilgisi* bir PSCredential nesnesi kabul parametresi.
 
-PowerShell etkileşimli olarak kullanıyorsanız, kolayca PSCredential nesnesinin çağırarak ayarlayabilirsiniz [Get-kimlik bilgilerinin](https://technet.microsoft.com/library/hh849815.aspx) cmdlet'i.
+PowerShell etkileşimli olarak kullanıyorsanız, hello PSCredential nesnesinin arama hello tarafından kolayca ayarlayabilirsiniz [Get-kimlik bilgilerinin](https://technet.microsoft.com/library/hh849815.aspx) cmdlet'i.
 
 ```
 $remoteusercredentials = Get-Credential
 ```
 
-Bu komut, güvenli bir şekilde uzak kullanıcı için kullanıcı adı ve parola girmesini sağlayan bir iletişim kutusu görüntüler.
+Bu komut, tooenter hello kullanıcı adı ve parola hello uzak kullanıcı için güvenli bir şekilde sağlayan bir iletişim kutusu görüntüler.
 
-PowerShell Otomasyon senaryolarda yardımcı olduğundan, ayrıca ayarlayabilirsiniz **PSCredential** , kullanıcı etkileşimi gerektirmeyen şekilde nesnesi. İlk olarak, güvenli bir parola ayarlamanız gerekir. Düz metinli bir parola dönüştürür kullanarak bir güvenli dize belirterek başlamadan [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Bir şifrelenmiş standart dize kullanarak bu güvenli dize dönüştürmeniz gerekir sonraki [ConvertFrom SecureString](https://technet.microsoft.com/library/hh849814.aspx). Bu şifreli bir standart dize kullanarak bir dosyaya kaydedebilirsiniz [kümesi içeriği](https://technet.microsoft.com/library/ee176959.aspx).
+PowerShell Otomasyon senaryolarda yardımcı olduğundan, hello de ayarlayabilirsiniz **PSCredential** , kullanıcı etkileşimi gerektirmeyen şekilde nesnesi. İlk olarak, tooset güvenli bir parola gerekir. Düz metinli bir parola tooa güvenli dize dönüştürür belirterek başlamadan kullanarak [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Sonraki tooconvert güvenli Bu dize bir şifrelenmiş standart dize kullanarak gereksinim duyduğunuz [ConvertFrom SecureString](https://technet.microsoft.com/library/hh849814.aspx). Bu şifreli standart dize tooa dosyasını kullanarak kaydedebilirsiniz [kümesi içeriği](https://technet.microsoft.com/library/ee176959.aspx).
 
-Böylece her zaman parola yazmak zorunda kalmazsınız güvenli parola dosyası da oluşturabilirsiniz. Ayrıca, güvenli parola dosyasına düz metin dosyasından daha iyidir. Güvenli parola dosyası oluşturmak için aşağıdaki PowerShell kullanın:
+Böylece her zaman hello Parolada tootype yok güvenli parola dosyası da oluşturabilirsiniz. Ayrıca, güvenli parola dosyasına düz metin dosyasından daha iyidir. PowerShell toocreate güvenli parola dosyasına aşağıdaki hello kullan:
 
 ```
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ```
 
 > [!IMPORTANT]
-> Parolayı ayarlarken, karşıladığından emin olun [karmaşıklık gereksinimlerini](https://technet.microsoft.com/library/cc786468.aspx).
+> Merhaba parolayı ayarlarken hello karşıladığından emin olun [karmaşıklık gereksinimlerini](https://technet.microsoft.com/library/cc786468.aspx).
 >
 >
 
-Güvenli parola dosyasından kimlik bilgisi nesnesi oluşturmak için dosya içeriğini okumak ve bunları geri bir güvenli dize kullanmaya Dönüştür [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
+toocreate hello kimlik bilgisi nesnesinin hello güvenli parola dosyasından gerekir hello dosya içeriklerini okuma ve bunları dönüştürmeniz geri tooa güvenli bir dize kullanarak [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
-[Kümesi AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet'ini de kabul eder bir *sona erme* belirten parametresi bir **DateTime** hangi kullanıcı hesabının süresi sırasında. Örneğin, geçerli tarih ve saat birkaç gün süresi dolacak şekilde hesabı ayarlayabilirsiniz.
+Merhaba [kümesi AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet'ini de kabul eder bir *sona erme* belirten parametresi bir **DateTime** hello kullanıcı hesabının süresi dolar. Örneğin, birkaç gün hello hesap tooexpire geçerli tarih ve saat hello ayarlayabilirsiniz.
 
-Bu PowerShell örnek bir bulut hizmeti Uzak Masaüstü uzantısı kümesi gösterilmektedir:
+Bu PowerShell örnek nasıl tooset hello Uzak Masaüstü uzantısı'nda bir bulut hizmeti gösterir:
 
 ```
 $servicename = "cloudservice"
@@ -71,12 +71,12 @@ $expiry = $(Get-Date).AddDays(1)
 $credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
 Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry
 ```
-Dağıtım yuvası ve Uzak Masaüstü'nü etkinleştirmek istediğiniz rolleri Ayrıca isteğe bağlı olarak belirtebilirsiniz. Bu parametre belirtilmezse, Uzak Masaüstü'nü tüm rollerde cmdlet sağlar **üretim** dağıtım yuvası.
+Merhaba dağıtım yuvası ve tooenable Uzak Masaüstü'nü istediğiniz rolleri Ayrıca isteğe bağlı olarak belirtebilirsiniz. Bu parametre belirtilmezse, Uzak Masaüstü'nü hello tüm rollerde hello cmdlet sağlar **üretim** dağıtım yuvası.
 
-Dağıtımla ilişkili Uzak Masaüstü uzantısıdır. Hizmeti için yeni bir dağıtım oluşturursanız, bu dağıtımda, Uzak Masaüstü'nü etkinleştirin sahip. Her zaman Uzak Masaüstü etkin olmasını istiyorsanız, PowerShell komut dosyalarını iş akışınıza dağıtım tümleştirme düşünmelisiniz.
+Uzak Masaüstü uzantısı Hello dağıtımı ile ilişkilidir. Merhaba hizmeti için yeni bir dağıtım oluşturursanız, bu dağıtım üzerinde tooenable Uzak Masaüstü sahip. Ardından, her zaman etkin toohave Uzak Masaüstü istiyorsanız, dağıtım iş akışınıza hello PowerShell betikleri tümleştirme düşünmelisiniz.
 
 ## <a name="remote-desktop-into-a-role-instance"></a>Rol örneği içine Uzak Masaüstü
-[Get-AzureRemoteDesktopFile](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet'tir kullanılan Uzak Masaüstü bulut hizmetinizin belirli rol örneği başlatın. Kullanabileceğiniz *LocalPath* RDP indirmek için parametre dosyası yerel olarak. Veya kullanabilirsiniz *başlatma* doğrudan bulut Hizmeti rol örneğine erişmek için Uzak Masaüstü Bağlantısı iletişim kutusunu başlatmak için parametre.
+Merhaba [Get-AzureRemoteDesktopFile](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet'tir kullanılan tooremote Desktop'a bulut hizmetinizin belirli rol örneği. Merhaba kullanabilirsiniz *LocalPath* parametresi toodownload hello RDP dosyasını yerel olarak. Veya hello kullanabilirsiniz *başlatma* parametresi toodirectly başlatma hello Uzak Masaüstü Bağlantısı iletişim tooaccess hello bulut hizmet rolü örneği.
 
 ```
 Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
@@ -84,29 +84,29 @@ Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -L
 
 
 ## <a name="check-if-remote-desktop-extension-is-enabled-on-a-service"></a>Uzak Masaüstü uzantısı'nda bir hizmeti etkin olup olmadığını denetleyin
-[Get-AzureServiceRemoteDesktopExtension](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet görüntüler Uzak Masaüstü etkin veya bir hizmet dağıtımı için devre dışı. Cmdlet Uzak Masaüstü kullanıcı ve Uzak Masaüstü uzantısı için etkin rolleri için kullanıcı adını döndürür. Varsayılan olarak, bu dağıtım yuvasına gerçekleşir ve hazırlama yuvası kullanmayı seçebilirsiniz.
+Merhaba [Get-AzureServiceRemoteDesktopExtension](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet görüntüler Uzak Masaüstü etkin veya bir hizmet dağıtımı için devre dışı. Merhaba cmdlet hello Uzak Masaüstü kullanıcı ve hello Uzak Masaüstü uzantısı için etkin hello rolleri için hello kullanıcı adını döndürür. Varsayılan olarak, bu hello dağıtım yuvasına gerçekleşir ve bunun yerine hazırlık yuvasındaki toouse hello seçebilirsiniz.
 
 ```
 Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
 ## <a name="remove-remote-desktop-extension-from-a-service"></a>Uzak Masaüstü uzantısı bir hizmetten kaldırın
-Uzak Masaüstü uzantısı bir dağıtımda zaten etkinleştirdiyseniz ve uzak masaüstü ayarlarını güncelleştirmek ihtiyacınız varsa, ilk uzantısını kaldırın. Ve yeni ayarlarla yeniden etkinleştirin. Örneğin, uzak kullanıcı hesabı için yeni bir parola ayarlayın veya hesabın süresi istiyorsanız. Bunun yapılması, etkin Uzak Masaüstü uzantısına sahip var olan dağıtımlar üzerinde gereklidir. Yeni dağıtımlar için yalnızca uzantısı doğrudan uygulayabilirsiniz.
+Merhaba Uzak Masaüstü uzantısı bir dağıtımda zaten etkinleştirdiyseniz ve uzak masaüstü ayarlarını tooupdate hello, ilk hello uzantısını kaldırın. Ve hello yeni ayarlarla yeniden etkinleştirin. Örneğin, tooset istiyorsanız hello uzak kullanıcı hesabı veya hello hesabı için yeni bir parola süresi. Bunun yapılması hello Uzak Masaüstü uzantısı etkin olan mevcut dağıtımlarında gereklidir. Yeni dağıtımlar için yalnızca hello uzantısı doğrudan uygulayabilirsiniz.
 
-Uzak Masaüstü uzantısı dağıtımından kaldırmak için kullanabileceğiniz [Kaldır AzureServiceRemoteDesktopExtension](/powershell/module/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet'i. Dağıtım yuvası ve Uzak Masaüstü uzantıyı kaldırmak istediğiniz rol Ayrıca isteğe bağlı olarak belirtebilirsiniz.
+tooremove hello Uzak Masaüstü uzantısı hello dağıtımından, kullanabileceğiniz hello [Kaldır AzureServiceRemoteDesktopExtension](/powershell/module/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet'i. Ayrıca isteğe bağlı olarak, hello dağıtım yuvası ve tooremove hello Uzak Masaüstü uzantısı istediğiniz rolü de belirtebilirsiniz.
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 
 > [!NOTE]
-> Uzantı yapılandırması tamamen kaldırmak için çağırmalıdır *kaldırmak* cmdlet'iyle **UninstallConfiguration** parametresi.
+> toocompletely Kaldır hello uzantı yapılandırması hello çağrı *kaldırmak* hello cmdlet'iyle **UninstallConfiguration** parametresi.
 >
-> **UninstallConfiguration** parametresi hizmetine uygulanan herhangi bir uzantı yapılandırma kaldırır. Hizmet yapılandırmasıyla ilişkili her uzantı yapılandırmadır. Çağırma *kaldırmak* cmdlet olmadan **UninstallConfiguration** keser <mark>dağıtım</mark> uzantısı yapılandırmasından nedenle etkili bir şekilde kaldırılıyor uzantı. Ancak, uzantısı Yapılandırma hizmeti ile ilişkili olarak kalır.
+> Merhaba **UninstallConfiguration** parametresi kaldırır herhangi bir uzantı yapılandırma diğer bir deyişle uygulanan toohello hizmet. Merhaba hizmet yapılandırmasıyla ilişkili her uzantı yapılandırmadır. Arama hello *kaldırmak* cmdlet olmadan **UninstallConfiguration** hello keser <mark>dağıtım</mark> hello uzantısı yapılandırmasından nedenle etkili bir şekilde kaldırılıyor Merhaba uzantısı. Ancak, hello uzantı yapılandırması hello hizmeti ile ilişkili olarak kalır.
 >
 >
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-[Bulut hizmetleri yapılandırmak için nasıl](cloud-services-how-to-configure.md)
+[Nasıl tooConfigure bulut Hizmetleri](cloud-services-how-to-configure.md)
 [bulut SSS - Uzak Masaüstü Hizmetleri](cloud-services-faq.md)

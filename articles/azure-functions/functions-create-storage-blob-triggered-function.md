@@ -1,6 +1,6 @@
 ---
-title: "Azure'da Blob depolama tarafından tetiklenen bir işlev oluşturma | Microsoft Docs"
-description: "Azure Blob depolamaya eklenen öğeler tarafından çağrılan sunucusuz bir işlev oluşturmak için Azure İşlevlerini kullanın."
+title: "Azure Blob Depolama Birimi tarafından tetiklenen bir işlev aaaCreate | Microsoft Docs"
+description: "Kullanım Azure işlevleri toocreate öğeleri tarafından çağrılan sunucusuz bir işlev tooAzure Blob Depolama eklendi."
 services: azure-functions
 documentationcenter: na
 author: ggailey777
@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1ddd056903b1a2f973a58bd7054ea2b8281607c3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: acb7d29abb07a22da11d0e65d2ed54591f8e3f4f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Azure Blob depolama ile tetiklenen bir işlev oluşturma
 
-Azure Blob depolamada dosyalar karşıya yüklendiğinde veya güncelleştirildiğinde tetiklenen bir işlev oluşturma hakkında bilgi edinin.
+Toocreate dosyaları olduğunda tetiklenen bir işlev Azure Blob depolama alanına güncelleştirilmiş tooor nasıl karşıya öğrenin.
 
-![Günlüklerde iletiyi görüntüleyin.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
+![Merhaba günlüklerine iletiyi görüntüle.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-+ [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/)'ni indirip yükleme.
++ Merhaba yükleyip [Microsoft Azure Storage Gezgini](http://storageexplorer.com/).
 + Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
@@ -41,66 +41,66 @@ Azure Blob depolamada dosyalar karşıya yüklendiğinde veya güncelleştirildi
 
 ![İşlev uygulaması başarıyla oluşturuldu.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
-Ardından, yeni işlev uygulamasında bir işlev oluşturun.
+Ardından, hello yeni işlev uygulamada bir işlev oluşturun.
 
 <a name="create-function"></a>
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Blob depolama ile tetiklenen bir işlev oluşturma
 
-1. İşlev uygulamanızı genişletin ve **İşlevler**'in yanındaki **+** düğmesine tıklayın. Bu, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir.
+1. Merhaba, işlev uygulaması'nı genişletin ve  **+**  sonraki çok düğmesini**işlevler**. Bu işlev uygulamanızda hello ilk işlevi ise seçin **özel işlevi**. Merhaba eksiksiz işlev şablonları görüntüler.
 
-    ![Azure portalındaki İşlevler hızlı başlangıç sayfası](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
+    ![Hello Azure portalı hızlı başlangıç sayfasında işlevleri](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. İstediğiniz dil için **BlobTrigger** şablonunu seçin ve tabloda belirtilen ayarları kullanın.
+2. Select hello **BlobTrigger** şablonu istediğiniz dili ve hello tabloda belirtildiği gibi hello ayarları kullanın.
 
-    ![Blob depolama ile tetiklenen bir işlev oluşturun.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Merhaba Blob Depolama tetiklenen bir işlev oluşturun.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 
     | Ayar | Önerilen değer | Açıklama |
     |---|---|---|
-    | **Path**   | mycontainer/{name}    | İzlenmekte olan Blob depolamanın konumu. Blob’un dosya adı bağlamaya _name_ parametresi olarak geçirilir.  |
-    | **Depolama hesabı bağlantısı** | AzureWebJobStorage | İşlev uygulamanız tarafından kullanılmakta olan depolama hesabı bağlantısını kullanabilir veya yeni bir bağlantı oluşturabilirsiniz.  |
+    | **Path**   | mycontainer/{name}    | İzlenmekte olan Blob depolamanın konumu. Merhaba dosya adı hello BLOB hello bağlama hello olarak geçirilir _adı_ parametresi.  |
+    | **Depolama hesabı bağlantısı** | AzureWebJobStorage | Merhaba depolama hesabı bağlantısı işlevi uygulamanız tarafından zaten kullanılmakta kullanın veya yeni bir tane oluşturun.  |
     | **İşlevinizi adlandırın** | İşlev uygulamanızda benzersiz olmalıdır | Blob ile tetiklenen bu işlevin adı. |
 
-3. İşlevinizi oluşturmak için **Oluştur**'a tıklayın.
+3. Tıklatın **oluşturma** toocreate işlevinizi.
 
-Ardından Azure Depolama hesabınıza bağlanıp **mycontainer** kapsayıcısını oluşturun.
+Ardından, tooyour Azure depolama hesabı bağlanmak ve hello oluşturmak **mycontainer** kapsayıcı.
 
-## <a name="create-the-container"></a>Kapsayıcı oluşturma
+## <a name="create-hello-container"></a>Merhaba kapsayıcı oluşturma
 
-1. İşlevinizde **Tümleştir**'e tıklayın, **Belgeler**'i genişletin ve hem **Hesap adı** hem de **Hesap anahtarı** değerlerini kopyalayın. Depolama hesabına bağlanmak için bu kimlik bilgilerini kullanacaksınız. Depolama hesabınıza önceden bağlandıysanız 4. adıma geçin.
+1. İşlevinizde **Tümleştir**'e tıklayın, **Belgeler**'i genişletin ve hem **Hesap adı** hem de **Hesap anahtarı** değerlerini kopyalayın. Bu kimlik bilgileri tooconnect toohello depolama hesabı kullanın. Depolama hesabınız zaten bağlanmış olduğunuz toostep 4 atlayın.
 
-    ![Depolama hesabı bağlantısı için kimlik bilgilerini alın.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
+    ![Merhaba depolama hesabı bağlantısı kimlik bilgilerini edinin.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/) aracını çalıştırın, sol taraftaki bağlan simgesine tıklayın, **Depolama hesabı adı ve anahtarı kullan**'ı seçin ve **İleri**'ye tıklayın.
+1. Merhaba çalıştırmak [Microsoft Azure Storage Gezgini](http://storageexplorer.com/) aracı, hello tıklatın Bağlan simgesi hello sol tarafta, seçin **bir depolama hesabı adı ve anahtar kullanmak**, tıklatıp **sonraki**.
 
-    ![Depolama Hesabı Gezgini aracını çalıştırın.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
+    ![Merhaba depolama hesabı Gezgini aracını çalıştırın.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 
-1. 1 Adımda kopyaladığınız **Hesap adı** ve **Hesap anahtarı** değerlerini girin, **İleri**'ye ve ardından **Bağlan**'a tıklayın. 
+1. Merhaba girin **hesap adı** ve **hesap anahtarı** 1. adımdaki tıklatın **sonraki** ve ardından **Bağlan**. 
 
-    ![Depolama kimlik bilgilerini girin ve bağlanın.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
+    ![Merhaba depolama kimlik bilgilerini girin ve bağlanın.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Bağlı depolama hesabını genişletin, **Blob kapsayıcılar**’a sağ tıklayın, **Blob kapsayıcı oluştur**’a tıklayın, `mycontainer` yazın ve ardından Enter tuşuna basın.
+1. Merhaba bağlı depolama hesabı'nı genişletin, sağ tıklatın **Blob kapsayıcıları**, tıklatın **oluşturma blob kapsayıcısı**, türü `mycontainer`, ve ENTER tuşuna basın.
 
     ![Depolama kuyruğu oluşturun.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
-Artık bir blob kapsayıcısına sahip olduğunuza göre, kapsayıcıya bir dosya yükleyerek işlevi test edebilirsiniz.
+Bir blob kapsayıcısını sahip olduğunuza göre bir dosya toohello kapsayıcısı yükleyerek hello işlevi test edebilirsiniz.
 
-## <a name="test-the-function"></a>İşlevi test etme
+## <a name="test-hello-function"></a>Test hello işlevi
 
-1. Azure portalına dönün, işlevinizi bulun, sayfanın en altındaki **Günlükler** bölümünü genişletin ve günlük akışının duraklatılmış olmadığından emin olun.
+1. Geri Azure portal hello, Gözat tooyour işlevi genişletin hello **günlükleri** hello sonunda hello sayfası ve emin olun, bu günlük akış duraklatıldı değil.
 
 1. Depolama Gezgini’nde depolama hesabınızı genişletin, **Blob kapsayıcıları** ve **mycontainer** öğesine tıklayın. **Karşıya Yükle**’ye ve ardından **Dosyaları yükle...** seçeneğine tıklayın.
 
-    ![Dosyayı blob kapsayıcısına yükleyin.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
+    ![Bir dosya toohello blob kapsayıcısı karşıya yükleyin.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 
-1. **Dosyaları karşıya yükle** iletişim kutusunda **Dosyalar** alanına tıklayın. Yerel bilgisayarınızda görüntü dosyası gibi bir dosyaya gidin, seçin, **Aç**’ı ve ardından **Karşıya Yükle**’yi seçin.
+1. Merhaba, **dosyaları karşıya yükleme** iletişim kutusunda, hello **dosyaları** alan. Bir görüntü dosyası gibi yerel bilgisayarınızda tooa dosyasını bulun, seçin ve **açık** ve ardından **karşıya**.
 
-1. İşlev günlüklerinize geri dönün ve blob’un okunduğunu doğrulayın.
+1. Tooyour işlev günlükleri gidip bu hello blobu okuma emin olun.
 
-   ![Günlüklerde iletiyi görüntüleyin.](./media/functions-create-storage-blob-triggered-function/functions-blob-storage-trigger-view-logs.png)
+   ![Merhaba günlüklerine iletiyi görüntüle.](./media/functions-create-storage-blob-triggered-function/functions-blob-storage-trigger-view-logs.png)
 
     >[!NOTE]
-    > İşlev uygulamanız varsayılan Tüketim planında çalıştığında, blob’un eklenmesi veya güncelleştirilmesi ile işlevin tetiklenmesi arasında birkaç dakika gecikme olabilir. Blob ile tetiklenen işlevlerde düşük gecikme süresi gerekiyorsa, işlev uygulamanızı bir App Service planında çalıştırmayı düşünün.
+    > İşlevi uygulamanızı hello varsayılan tüketim planında çalıştığında, olabilir bir gecikme dakika arasında hello eklenen veya güncelleştirilen blob ile Merhaba tooseveral yukarı işlev tetiklenen. Blob ile tetiklenen işlevlerde düşük gecikme süresi gerekiyorsa, işlev uygulamanızı bir App Service planında çalıştırmayı düşünün.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -108,7 +108,7 @@ Artık bir blob kapsayıcısına sahip olduğunuza göre, kapsayıcıya bir dosy
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Blob depolamaya bir blob eklendiğinde çalışacak bir işlev oluşturdunuz. 
+Güncelleştirilmiş tooor Blob storage'da bir blob eklendiğinde çalıştırılan bir işlev oluşturdunuz. 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

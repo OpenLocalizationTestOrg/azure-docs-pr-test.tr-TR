@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI örnek komut dosyası - bir Azure Redis önbelleği oluşturma | Microsoft Docs"
+title: "aaaAzure CLI komut dosyası örneği - bir Azure Redis önbelleği oluşturma | Microsoft Docs"
 description: "Azure CLI örnek komut dosyası - bir Azure Redis önbelleği oluşturma"
 services: redis-cache
 documentationcenter: 
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/14/2017
 ms.author: sdanie
-ms.openlocfilehash: c6b153d80de4cbf2bec1bc70d67be7befa0c5ec3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 85b007a426fbd4752034ec8663835963d140dd75
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-redis-cache"></a>Azure Redis Cache oluşturma
 
-Bu senaryoda, bir Azure Redis önbelleği oluşturmayı öğrenin.
+Bu senaryoda, nasıl toocreate bir Azure Redis önbelleği öğrenin.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
-[!code-azurecli[Ana](../../../cli_scripts/redis-cache/create-cache/create-cache.sh "Azure Redis önbelleği")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/create-cache/create-cache.sh "Azure Redis Cache")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut, bir kaynak grubu ve redis önbelleği oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu komut dosyası komutları toocreate aşağıdaki hello bir kaynak grubu ve redis önbelleği kullanır. Her komut hello tablosundaki toocommand belirli belgeleri bağlar.
 
 | Komut | Notlar |
 |---|---|
@@ -45,6 +45,6 @@ Bu komut, bir kaynak grubu ve redis önbelleği oluşturmak için aşağıdaki k
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Hello Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
 
-Ek Azure Redis önbelleği CLI kod örnekleri bulunabilir [Azure Redis önbelleği belgelerine](../cli-samples.md).
+Ek Azure Redis önbelleği CLI kod örnekleri hello bulunabilir [Azure Redis önbelleği belgelerine](../cli-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning web hizmetleri için günlüğe kaydetme | Microsoft Docs"
-description: "Machine Learning web hizmetleri için günlüğe kaydetmeyi etkinleştirmek öğrenin. Günlük API'leri gidermenize yardımcı olacak ek bilgiler sağlar."
+title: "Machine Learning web hizmetleri için aaaLogging | Microsoft Docs"
+description: "Bilgi nasıl tooenable günlüğü için Machine Learning web hizmetleri. Günlük toohelp hello API'leri sorun giderme ek bilgi sağlar."
 services: machine-learning
 documentationcenter: 
 author: raymondlaghaeian
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: raymondl;garye
-ms.openlocfilehash: 7d0b2db01427430d6b0a317cdfefc265dd4b06e2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ed23933d52d2151af658af2307d7df8743071f65
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Machine Learning web hizmetleri için günlüğe kaydetmeyi etkinleştirme
-Bu belgede, Machine Learning web hizmetleri günlüğe kaydetme özelliği bilgiler sağlanmaktadır. Günlük yalnızca bir hata numarası ve Machine Learning API'ları aramalarınız gidermenize yardımcı olabilecek bir ileti ötesinde ek bilgi sağlar.  
+Bu belge Machine Learning web hizmetlerini yeteneğini günlüğü hello hakkında bilgi sağlar. Günlük yalnızca bir hata numarası ve, Machine Learning API çağrıları toohello gidermenize yardımcı olabilecek bir ileti ötesinde ek bilgi sağlar.  
 
-## <a name="how-to-enable-logging-for-a-web-service"></a>Bir Web hizmeti için günlük kaydını etkinleştirme
+## <a name="how-tooenable-logging-for-a-web-service"></a>Nasıl bir Web hizmeti için tooenable günlüğü
 
-Gelen günlük kaydını etkinleştir [Azure Machine Learning Web Hizmetleri](https://services.azureml.net) portal. 
+Merhaba günlüğe etkinleştirmek [Azure Machine Learning Web Hizmetleri](https://services.azureml.net) portal. 
 
-1. Oturum açtığınızda Azure Machine Learning Web Hizmetleri portalında [https://services.azureml.net](https://services.azureml.net). Klasik web hizmeti, ayrıca Portalı'na tıklayarak alabilirsiniz **yeni Web Hizmetleri deneyiminizin** Machine Learning Studio'da Machine Learning Web Hizmetleri sayfasında.
+1. Toohello Azure Machine Learning Web Hizmetleri portalında oturum [https://services.azureml.net](https://services.azureml.net). Klasik web hizmeti, ayrıca toohello portal tıklayarak alabilirsiniz **yeni Web Hizmetleri deneyiminizin** Machine Learning Studio'da hello Machine Learning Web Hizmetleri sayfasında.
 
    ![Yeni Web Hizmetleri deneyiminizin bağlantısı](media/machine-learning-web-services-logging/new-web-services-experience-link.png)
 
-2. Üst menü çubuğunda **Web Hizmetleri** için yeni web hizmeti veya tıklatın **Klasik Web Hizmetleri** için Klasik web hizmeti.
+2. Merhaba üst menü çubuğunda **Web Hizmetleri** için yeni web hizmeti veya tıklatın **Klasik Web Hizmetleri** için Klasik web hizmeti.
 
    ![Yeni veya Klasik web hizmetleri seçin](media/machine-learning-web-services-logging/select-web-service.png)
 
-3. İçin yeni bir web hizmeti, web hizmeti adına tıklayın. Klasik web hizmeti, web hizmeti adına tıklayın ve uygun endpoint sonraki sayfada'ı tıklatın.
+3. Yeni bir web hizmeti için hello web hizmeti adına tıklayın. Klasik web hizmeti hello web hizmeti adına tıklayın ve hello uygun endpoint hello sonraki sayfada'ı tıklatın.
 
-4. Üst menü çubuğunda **yapılandırma**.
+4. Merhaba üst menü çubuğunda **yapılandırma**.
 
-5. Ayarlama **Enable Logging** için seçenek *hata* (yalnızca hataları günlüğe kaydetmek için) veya *tüm* (için tam günlük kaydı).
+5. Set hello **Enable Logging** çok seçenek*hata* (toolog yalnızca hatalar) veya *tüm* (için tam günlük kaydı).
 
    ![Günlük düzeyini seçin](media/machine-learning-web-services-logging/enable-logging.png)
 
 6. **Kaydet** düğmesine tıklayın.
 
-7. Klasik web hizmetleri için oluşturmanız **ml tanılama** kapsayıcı.
+7. Klasik web hizmetleri için hello oluşturmanız **ml tanılama** kapsayıcı.
 
-   Tüm web hizmeti günlükleri adlı blob kapsayıcısında tutulur **ml tanılama** web hizmeti ile ilişkili depolama hesabındaki. Yeni web hizmetleri için bu kapsayıcı web hizmetine erişim ilk kez oluşturulur. Klasik web hizmetleri için zaten yoksa kapsayıcı oluşturmanız gerekir. 
+   Tüm web hizmeti günlükleri adlı blob kapsayıcısında tutulur **ml tanılama** hello depolama hesabındaki hello web hizmeti ile ilişkilendirilmiş. Yeni web hizmetleri için bu kapsayıcı hello web hizmetine erişim ilk kez hello oluşturulur. Klasik web hizmetleri için zaten yoksa toocreate hello kapsayıcı gerekir. 
 
-   1. İçinde [Azure portal](https://portal.azure.com), web hizmeti ile ilişkilendirilmiş depolama hesabına gidin.
+   1. Merhaba, [Azure portal](https://portal.azure.com)gidin hello web hizmeti ile ilişkili toohello depolama hesabı.
 
    2. Altında **Blob hizmeti**, tıklatın **kapsayıcıları**.
 
-   3. Varsa kapsayıcı **ml tanılama** mevcut değil, tıklatın **+ kapsayıcı**, kapsayıcı "ml-Tanılama" ad verin ve seçin **erişim türüne** "Blob" olarak. **Tamam** düğmesine tıklayın.
+   3. Varsa hello kapsayıcı **ml tanılama** mevcut değil,'ı tıklatın **+ kapsayıcı**hello kapsayıcı hello adı "ml-Tanılama" verin ve seçin hello **erişim türüne** "Blob" olarak. **Tamam** düğmesine tıklayın.
 
       ![Günlük düzeyini seçin](media/machine-learning-web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >
-> Klasik web hizmeti, Machine Learning Studio Web Hizmetleri panosunda da günlüğe kaydetmeyi etkinleştirmek için bir anahtar vardır. Ancak, günlük kaydı Web Hizmetleri Portalı aracılığıyla şimdi yönetildiğinden, bu makalede anlatıldığı gibi günlüğe kaydetme portalı üzerinden etkinleştirmeniz gerekir. Studio'da oturum zaten etkinleştirilmişse Web Hizmetleri Portalı'nda günlüğü devre dışı bırakın ve yeniden etkinleştirin.
+> Klasik web hizmeti, hello Web Hizmetleri Pano Machine Learning Studio'da bir geçiş tooenable günlük de vardır. Ancak, günlük şimdi hello Web Hizmetleri Portalı aracılığıyla yönetildiğinden dolayı bu makalesinde açıklandığı gibi hello portal üzerinden oturum tooenable gerekir. Studio'da oturum zaten etkinleştirilmişse hello Web Hizmetleri portalı, günlüğü devre dışı bırakın ve yeniden etkinleştirin.
 
 
-## <a name="the-effects-of-enabling-logging"></a>Günlüğü etkinleştirme etkileri
-Günlük kaydı etkinleştirildiğinde tanılama ve web hizmeti uç noktası hatalarından oturum **ml tanılama** Azure depolama hesabı blob kapsayıcısında kullanıcının çalışma alanıyla bağlı. Bu kapsayıcıdaki tüm web hizmeti uç noktaları için bu depolama hesabıyla ilişkili tüm çalışma alanları için tüm tanılama bilgileri tutar.
+## <a name="hello-effects-of-enabling-logging"></a>Merhaba etkilerini günlüğünü etkinleştirme
+Günlük kaydı etkinleştirildiğinde, hello tanılama ve hello web hizmeti uç noktası hatalarından hello kaydedilir **ml tanılama** hello Azure depolama hesabı blob kapsayıcısında hello kullanıcının çalışma ile bağlantılı. Bu kapsayıcıdaki tüm hello web hizmeti uç noktaları için bu depolama hesabıyla ilişkili tüm hello çalışma alanları için tüm hello tanılama bilgileri tutar.
 
-Günlükleri, herhangi bir Azure depolama hesabı keşfetmek kullanılabilen çeşitli araçlar kullanılarak görüntülenebilir. Daha kolay olabilir Azure Portal'da depolama hesabı gitmek için **kapsayıcıları**ve kapsayıcı ardından **ml tanılama**.  
+Merhaba günlükleri hello birini çeşitli araçlar kullanılabilir tooexplore Azure Storage hesabını kullanarak görüntülenebilir. Hello kolay toonavigate toohello depolama hesabında hello Azure portal olması, tıklatın **kapsayıcıları**ve ardından hello kapsayıcı **ml tanılama**.  
 
 ## <a name="log-blob-detail-information"></a>Günlük blob ayrıntı bilgileri
-Her bir blob kapsayıcısında tanılama bilgileri için aşağıdaki eylemleri tam olarak birine tutar:
+Merhaba kapsayıcıdaki her blob tam olarak bir eylemler aşağıdaki hello hello tanılama bilgilerini içerir:
 
-* Bir toplu iş yürütme yönteminin yürütülmesi  
-* İstek-yanıt yönteminin bir yürütme  
+* Merhaba toplu iş yürütme yönteminin yürütülmesi  
+* Bir yürütme hello istek-yanıt yöntemi  
 * İstek-yanıt kapsayıcı başlatma
 
-Her bir blob adı ön eki aşağıdaki biçime sahiptir: 
+Her bir blob Hello adını form aşağıdaki hello öneki vardır: 
 
 
 `{Workspace Id}-{Web service Id}-{Endpoint Id}/{Log type}`
 
 
-Burada _oturum türü_ aşağıdaki değerlerden biri:  
+Burada _oturum türü_ değerleri aşağıdaki hello biridir:  
 
 * Toplu işlem  
 * puan/istekleri  

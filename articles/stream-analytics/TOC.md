@@ -24,9 +24,9 @@
 ### [JavaScript UDF’lerini tümleştirme](stream-analytics-javascript-user-defined-functions.md)
 ### [REST API ve Machine Learning tümleştirme](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Çıktıları oluştur](stream-analytics-define-outputs.md)
-### [Azure İşlevleri’ne çıktı sağlama](stream-analytics-functions-redis.md)
-### [Data Lake Store’a çıktı sağlama](stream-analytics-data-lake-output.md)
-### [DocumentDB’ye çıktı sağlama](stream-analytics-documentdb-output.md)
+### [Çıkış tooAzure işlevleri](stream-analytics-functions-redis.md)
+### [Çıktı tooData Lake deposu](stream-analytics-data-lake-output.md)
+### [Çıktı tooDocumentDB](stream-analytics-documentdb-output.md)
 
 ## İzleme ve iyileştirme
 ### [Uyarı ekleme](stream-analytics-set-up-alerts.md)
@@ -34,7 +34,7 @@
 ### [Programlama yoluyla işleri izleme](stream-analytics-monitor-jobs.md)
 ### [PowerShell ile işleri izleme](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Akış Birimlerini İyileştirme](stream-analytics-streaming-unit-consumption.md)
-### [İşlemeyi artırmak için ölçeklendirme](stream-analytics-scale-jobs.md)
+### [Ölçek tooincrease işleme](stream-analytics-scale-jobs.md)
 ### [Machine Learning işlevleri ölçeği](stream-analytics-scale-with-machine-learning-functions.md)
 
 ## Yönet
@@ -52,7 +52,7 @@
 
 ## Otomatikleştirme
 ### [Visual Studio Araçları](stream-analytics-tools-for-visual-studio.md)
-### [Yönetim .NET SDK’sini kullanma](stream-analytics-dotnet-management-sdk.md)
+### [Merhaba yönetimi .NET SDK'yı kullanın](stream-analytics-dotnet-management-sdk.md)
 ### [Tek tıklamayla PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Başvuru

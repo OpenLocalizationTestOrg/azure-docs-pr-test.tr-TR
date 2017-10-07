@@ -1,6 +1,6 @@
 ---
-title: "Logic apps içinde yineleme tetikleyici ekleme | Microsoft Docs"
-description: "Yineleme tetikleyici ve bir Azure mantıksal uygulama ile kullanmak nasıl genel bakış."
+title: logic apps aaaAdd hello yinelenme tetikleyici | Microsoft Docs
+description: "Merhaba yinelenme tetikleyici, genel bakış ve nasıl toouse bir Azure mantıksal uygulama ile."
 services: 
 documentationcenter: 
 author: jeffhollan
@@ -15,49 +15,49 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: fe558958c316c8dba42163e277ae01451f712e5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e7c625c382a88a1e7cdfff4ddc0caf55727232bd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-recurrence-trigger"></a>Yineleme tetikleyici ile çalışmaya başlama
-Yineleme tetikleyici kullanarak bulutta güçlü iş akışları oluşturabilirsiniz.
+# <a name="get-started-with-hello-recurrence-trigger"></a>Merhaba yinelenme tetikleyici ile çalışmaya başlama
+Merhaba yinelenme tetikleyicisini kullanarak hello bulutta güçlü iş akışları oluşturabilirsiniz.
 
 Örneğin, şunları yapabilirsiniz:
 
-* Bir iş akışı SQL saklı yordamı her gün çalışacak şekilde zamanlayın.
-* Belirli bir hashtag hakkında geçen hafta içinde tüm tweet'leri özetini e-posta.
+* İş akışı toorun SQL saklı yordamı her gün zamanlayın.
+* Merhaba belirli bir hashtag hakkında geçen hafta içinde tüm tweet'leri özetini e-posta.
 
-Yineleme tetikleyici bir mantıksal uygulama kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+bir mantıksal uygulama Hello yinelenme tetikleyici kullanmaya tooget bkz [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-a-recurrence-trigger"></a>Bir yineleme tetikleyici kullanın
-Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](connectors-overview.md).
+Bir tetikleyici bir mantıksal uygulama tanımlı kullanılan toostart hello iş akışı olabilecek bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](connectors-overview.md).
 
-Bir mantıksal uygulama yinelenme tetikleyici ayarlama konusunda bir örnek sırası şöyledir:
+Nasıl bir yinelenme yukarı tooset tetikleyen bir mantıksal uygulama bir örnek sırası şöyledir:
 
-1. Ekleme **yineleme** tetikleyici bir mantıksal uygulama ilk adımı olarak.
-2. Parametrelerde yineleme aralığını doldurun.
+1. Merhaba eklemek **yineleme** tetikleyici hello bir mantıksal uygulama ilk adımı olarak.
+2. Merhaba parametrelerinde hello yineleme aralığını doldurun.
 
-Mantıksal uygulama artık çalışma sonrasında her zaman aralığı başlatır.
+Merhaba mantıksal uygulama artık çalışma sonrasında her zaman aralığı başlatır.
 
 ![HTTP tetikleyicisi](./media/connectors-native-recurrence/using-trigger.png)
 
 ## <a name="trigger-details"></a>Tetikleyici ayrıntıları
-Yineleme tetikleyici yapılandırabilirsiniz aşağıdaki özelliklere sahip.
+Merhaba yinelenme tetikleyici hello aşağıdaki yapılandırabileceğiniz özelliklere sahiptir.
 
 Bu mantıksal uygulama belirtilen bir süre sonra ateşlenir.
 A * gerekli bir alan olduğu anlamına gelir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
-| Sıklık * |Sıklık |Zaman birimi: `Second`, `Minute`, `Hour`, `Day`, veya `Year`. |
-| Aralık * |aralığı |Verilen sıklığı aralığını yineleme için. |
+| Sıklık * |frequency |zaman birimi Hello: `Second`, `Minute`, `Hour`, `Day`, veya `Year`. |
+| Aralık * |interval |Merhaba yinelemesi sıklığı verilen hello Hello aralığı. |
 | Saat Dilimi |saat dilimi |Bir başlangıç saati UTC uzaklığı sağlanırsa, bu saat dilimi kullanılır. |
-| Başlangıç zamanı |startTime |Başlangıç saati [ISO 8601 biçim](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). |
+| Başlangıç zamanı |startTime |Merhaba başlangıç saati [ISO 8601 biçim](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). |
 
 <br>
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi, platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md). Logic apps diğer kullanılabilir bağlayıcılar bakarak keşfedebilirsiniz bizim [API'leri listesi](apis-list.md).
+Şimdi, hello platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md). Keşfedebilirsiniz bakarak logic apps içinde kullanılabilir diğer bağlayıcıları hello bizim [API'leri listesi](apis-list.md).
 

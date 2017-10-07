@@ -1,6 +1,6 @@
 ---
-title: "Karma yapılandırmak için Azure Active Directory'ye katılmış cihazlarda nasıl | Microsoft Docs"
-description: "Karma Azure Active Directory'ye katılmış cihazları yapılandırmayı öğrenin."
+title: "aaaHow tooconfigure karma Azure Active Directory'ye katılmış cihazları | Microsoft Docs"
+description: "Nasıl tooconfigure karma Azure Active Directory'ye katılmış cihazlarda öğrenin."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,64 +15,64 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4580075df9fce74664b22aa24065ba1885692384
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f97ea436eca2833d8a9843acd19e5c633bc0fc07
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
+# <a name="how-tooconfigure-hybrid-azure-active-directory-joined-devices"></a>Nasıl tooconfigure karma Azure Active Directory'ye katılmış cihazlarda
 
-Azure Active Directory'de (Azure AD) ile cihaz yönetimi, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak aygıtlardan kullanıcılarınızın kaynaklarınızı eriştiğiniz emin olabilirsiniz. Daha fazla ayrıntı için bkz: [Azure Active Directory'de cihaz yönetimine giriş](device-management-introduction.md).
+Azure Active Directory'de (Azure AD) ile cihaz yönetimi, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak aygıtlardan kullanıcılarınızın kaynaklarınızı eriştiğiniz emin olabilirsiniz. Daha fazla ayrıntı için bkz: [giriş toodevice Yönetimi Azure Active Directory'de](device-management-introduction.md).
 
-Şirket içi Active Directory ortamında varsa ve Azure AD etki alanına katılmış cihazlarınızı katılmasını istediğiniz, bu karma Azure AD alanına katılmış cihazları yapılandırarak gerçekleştirebilirsiniz. Konu ile ilgili adımları sağlar. 
+Bir şirket içi Active Directory ortamına sahip ve, etki alanına katılmış aygıtlar tooAzure AD toojoin istiyorsanız bunu karma Azure AD alanına katılmış cihazları yapılandırarak gerçekleştirebilirsiniz. Merhaba konu sağlar, hello ile ilgili adımlar. 
 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Karma Azure AD alanına katılmış aygıtlar ortamınızda yapılandırmaya başlamadan önce kendiniz desteklenen senaryolar ve kısıtlamalar ile kazanmalısınız.  
+Yapılandırmaya başlamadan önce ortamınızda karma Azure AD katılmış cihazlarda, kendiniz hello desteklenen senaryolar ve hello kısıtlamaları kazanmalısınız.  
 
-Açıklamaları okunabilirliğini artırmak için bu konuda aşağıdaki terim kullanır: 
+Merhaba okunabilirliğini hello açıklamaları tooimprove, bu konuda terim aşağıdaki hello kullanır: 
 
-- **Windows geçerli aygıtları** -Windows 10 veya Windows Server 2016 çalıştıran etki alanına katılmış cihazlar için bu terim başvuruyor.
-- **Windows alt düzey aygıtları** -bu terim tümüne başvuruyor **desteklenen** çalışan Windows 10 ne Windows Server 2016 etki alanına katılmış Windows cihazları.  
+- **Windows geçerli aygıtları** -Windows 10 veya Windows Server 2016 çalıştıran toodomain katılmış cihazlarda bu terimi anlamına gelir.
+- **Windows alt düzey aygıtları** -bu terim tooall başvuruyor **desteklenen** çalışan Windows 10 ne Windows Server 2016 etki alanına katılmış Windows cihazları.  
 
 
 ### <a name="windows-current-devices"></a>Geçerli Windows cihazları
 
-- Windows masaüstü işletim sistemi çalıştıran cihazlar için Windows 10 Anniversary güncelleştirme (sürüm 1607) kullanılmasını öneririz veya sonraki bir sürümü. 
-- Geçerli Windows cihazlarının kaydı **olan** parola karma eşitlemesi yapılandırmaları gibi Federasyon olmayan ortamlarda desteklenir.  
+- Merhaba Windows masaüstü işletim sistemi çalıştıran cihazlar için Windows 10 Anniversary güncelleştirme (sürüm 1607) kullanılmasını öneririz veya sonraki bir sürümü. 
+- Merhaba geçerli Windows cihazlarının kaydı **olan** parola karma eşitlemesi yapılandırmaları gibi Federasyon olmayan ortamlarda desteklenir.  
 
 
 ### <a name="windows-down-level-devices"></a>Windows alt düzey aygıtları
 
-- Aşağıdaki Windows alt düzey aygıtları desteklenir:
+- Windows alt düzey aygıtları aşağıdaki hello desteklenir:
     - Windows 8.1
     - Windows 7
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- Windows alt düzey aygıtları kaydını **olan** sorunsuz çoklu oturum açma ile federe olmayan ortamlarda desteklenen [Azure Active Directory sorunsuz çoklu oturum açma](https://aka.ms/hybrid/sso).
-- Windows alt düzey aygıtları kaydını **değil** dolaşım profilleri kullanarak cihazları için desteklenir. Dolaşım profilleri veya ayarlarını FQDN'yi kullanıyorsanız, Windows 10 kullanın.
+- Merhaba Windows alt düzey cihazlarının kaydı **olan** sorunsuz çoklu oturum açma ile federe olmayan ortamlarda desteklenen [Azure Active Directory sorunsuz çoklu oturum açma](https://aka.ms/hybrid/sso).
+- Merhaba Windows alt düzey cihazlarının kaydı **değil** dolaşım profilleri kullanarak cihazları için desteklenir. Dolaşım profilleri veya ayarlarını FQDN'yi kullanıyorsanız, Windows 10 kullanın.
 
 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Karma Azure AD alanına katılmış cihazları, kuruluşunuzda etkinleştirmeye başlamadan önce Azure AD güncel bir sürümünü çalıştırdığından emin olmanız gerekir bağlanın.
+Karma Azure AD alanına katılmış cihazları, kuruluşunuzda etkinleştirme başlamadan önce Azure AD güncel bir sürümünü çalıştırdığından emin toomake gerekir bağlanın.
 
 Azure AD Connect:
 
-- Bilgisayar hesabında şirket içi Active Directory (AD) ve Azure AD cihaz nesne arasındaki ilişkiyi tutar. 
+- Şirket içi Active Directory (AD) ve Azure AD'de hello cihaz nesnesi hello bilgisayar hesabını arasındaki ilişkiyi Hello tutar. 
 - Başka bir aygıt etkinleştirir ilgili özellikler gibi iş için Windows Hello.
 
 
 
 ## <a name="configuration-steps"></a>Yapılandırma adımları
 
-Karma Azure AD alanına katılmış aygıtlar çeşitli Windows cihaz platformları için yapılandırabilirsiniz. Bu konu, tüm normal yapılandırma senaryoları için gerekli adımları içerir.  
+Karma Azure AD alanına katılmış aygıtlar çeşitli Windows cihaz platformları için yapılandırabilirsiniz. Bu konuda, tüm normal yapılandırma senaryoları için gerekli hello adımlarını içerir.  
 
-Senaryonuz için gerekli olan adımları özetini almak için aşağıdaki tabloyu kullanın:  
+Aşağıdaki tablo tooget senaryonuz için gerekli olan hello adımlara genel bir bakış hello kullan:  
 
 
 
@@ -88,20 +88,20 @@ Senaryonuz için gerekli olan adımları özetini almak için aşağıdaki tablo
 
 ## <a name="step-1-configure-service-connection-point"></a>1. adım: hizmet bağlantı noktası yapılandırma
 
-Hizmet bağlantı noktası (SCP) nesnesi, cihazlar tarafından kayıt sırasında Azure AD Kiracı bilgileri bulmak için kullanılır. Şirket içi Active Directory (AD), SCP nesnesi karma Azure AD alanına katılmış cihazlar için adlandırma bağlamı bölüm bilgisayarın ormanın yapılandırmada mevcut olmalıdır. Her ormanda yalnızca bir yapılandırma adlandırma bağlamında yoktur. Bir Çoklu orman Active Directory yapılandırması, hizmet bağlantı noktası etki alanına katılmış bilgisayarları içeren tüm ormanlarda mevcut olması gerekir.
+Merhaba hizmet bağlantı noktası (SCP) nesnesinin hello kayıt toodiscover sırasında Azure AD Kiracı bilgilerini cihazlar tarafından kullanılır. Şirket içi Active Directory (AD), hello yapılandırma adlandırma bağlamı bölümünde hello bilgisayarın orman hello SCP nesnesi hello karma Azure AD alanına katılmış cihazlar için mevcut olmalıdır. Her ormanda yalnızca bir yapılandırma adlandırma bağlamında yoktur. Bir Çoklu orman Active Directory yapılandırması, etki alanına katılmış bilgisayarları içeren tüm ormanlarda hello hizmet bağlantı noktası mevcut olmalıdır.
 
-Kullanabileceğiniz [ **Get-ADRootDSE** ](https://technet.microsoft.com/library/ee617246.aspx) ormanınızın yapılandırma adlandırma bağlamında almak üzere.  
+Merhaba kullanabilirsiniz [ **Get-ADRootDSE** ](https://technet.microsoft.com/library/ee617246.aspx) cmdlet tooretrieve hello yapılandırma adlandırma bağlamında ormanınızın.  
 
-Active Directory etki alanı adına sahip bir orman için *fabrikam.com*, yapılandırma adlandırma bağlamında değil:
+Merhaba Active Directory etki alanı adına sahip bir orman için *fabrikam.com*, hello yapılandırma adlandırma bağlamında değil:
 
 `CN=Configuration,DC=fabrikam,DC=com`
 
-Ormanınıza etki alanına katılmış cihazların otomatik kayıt için SCP nesnesi şu konumdadır:  
+Ormanınıza hello otomatik kaydı etki alanına katılmış cihazlar için hello SCP nesnesi şu konumdadır:  
 
 `CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,[Your Configuration Naming Context]`
 
-Nasıl Azure AD Connect dağıttığınız bağlı olarak, SCP nesnesi zaten yapılandırılmış olabilir.
-Nesne varlığını doğrulayın ve aşağıdaki Windows PowerShell Betiği kullanılarak bulma değerleri alabilirsiniz: 
+Nasıl Azure AD Connect dağıttığınız bağlı olarak, hello SCP nesnesi zaten yapılandırılmış olabilir.
+Hello nesne hello varlığını doğrulayın ve Windows PowerShell Betiği aşağıdaki hello kullanarak hello bulma değerleri alabilirsiniz: 
 
     $scp = New-Object System.DirectoryServices.DirectoryEntry;
 
@@ -109,19 +109,19 @@ Nesne varlığını doğrulayın ve aşağıdaki Windows PowerShell Betiği kull
 
     $scp.Keywords;
 
-**$Scp. Anahtar sözcükler** çıktı Azure AD Kiracı bilgileri örneğin gösterir:
+Merhaba **$scp. Anahtar sözcükler** çıktı hello Azure AD Kiracı bilgileri, örneğin gösterir:
 
     azureADName:microsoft.com
     azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
-Hizmet bağlantı noktası mevcut değilse, bunu çalıştırarak oluşturabilirsiniz `Initialize-ADSyncDomainJoinedComputerSync` Azure AD Connect sunucunuzda cmdlet'i. Kuruluş yönetici kimlik bilgileri, bu cmdlet'i çalıştırmak için gereklidir.  
-Cmdlet:
+Merhaba hizmet bağlantı noktası mevcut değilse, bunu hello çalıştırarak oluşturabilirsiniz `Initialize-ADSyncDomainJoinedComputerSync` Azure AD Connect sunucunuzda cmdlet'i. Kuruluş yönetici kimlik bilgileri gerekli toorun bu cmdlet'tir.  
+Merhaba cmdlet:
 
-- Azure AD Connect bağlı Active Directory ormanındaki hizmet bağlantı noktası oluşturur. 
-- Belirtmenizi gerektirir `AdConnectorAccount` parametresi. Active Directory Bağlayıcısı hesabı Azure ad connect yapılandırılan hesap budur. 
+- Azure AD Connect bağlı hello Active Directory ormanındaki Hello hizmet bağlantı noktası oluşturur. 
+- Toospecify hello gerektirir `AdConnectorAccount` parametresi. Active Directory Bağlayıcısı hesabı Azure ad connect yapılandırılmış hello hesap budur. 
 
 
-Aşağıdaki komut dosyası cmdlet'ini kullanarak bir örnek gösterilmektedir. Bu komut `$aadAdminCred = Get-Credential` bir kullanıcı adı yazın gerektirir. Kullanıcı asıl adı (UPN) biçiminde kullanıcı adı sağlamanız gerekir (`user@example.com`). 
+Merhaba aşağıdaki komut dosyası hello cmdlet'ini kullanarak bir örnek gösterilmektedir. Bu komut `$aadAdminCred = Get-Credential` tootype bir kullanıcı adı gerektirir. Merhaba kullanıcı asıl adı (UPN) biçiminde tooprovide hello kullanıcı adı gerekir (`user@example.com`). 
 
 
     Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
@@ -130,14 +130,14 @@ Aşağıdaki komut dosyası cmdlet'ini kullanarak bir örnek gösterilmektedir. 
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
-`Initialize-ADSyncDomainJoinedComputerSync` Cmdlet:
+Merhaba `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
-- Bir etki alanı denetleyicisinde çalışan Active Directory Web Hizmetleri dayanan Active Directory PowerShell modülü kullanır. Active Directory Web Hizmetleri, Windows Server 2008 R2 çalıştıran etki alanı denetleyicilerinde ve üzerinde desteklenir.
-- Yalnızca tarafından desteklenen **MSOnline PowerShell modülü sürümü 1.1.166.0**. Bu modül indirmek için bunu kullanın [bağlantı](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Bir etki alanı denetleyicisinde çalışan Active Directory Web Hizmetleri dayanan hello Active Directory PowerShell modülü kullanır. Active Directory Web Hizmetleri, Windows Server 2008 R2 çalıştıran etki alanı denetleyicilerinde ve üzerinde desteklenir.
+- Yalnızca hello tarafından desteklenen **MSOnline PowerShell modülü sürümü 1.1.166.0**. toodownload bu modül bu [bağlantı](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
 
-Windows Server 2008 veya önceki sürümlerini çalıştıran etki alanı denetleyicileri için hizmet bağlantı noktası oluşturmak için aşağıdaki komut dosyası kullanın.
+Windows Server 2008 veya önceki sürümlerini çalıştıran etki alanı denetleyicileri için toocreate hello hizmet bağlantı noktası aşağıdaki hello komut dosyası kullanın.
 
-Bir Çoklu orman yapılandırması, hizmet bağlantı noktası bilgisayarları var olduğu her ormanda oluşturmak için aşağıdaki komut dosyasını kullanmanız gerekir:
+Bir Çoklu orman yapılandırması, komut dosyası toocreate hello hizmet bağlantı noktası bilgisayarları var olduğu her bir orman içinde aşağıdaki hello kullanmanız gerekir:
  
     $verifiedDomain = "contoso.com"    # Replace this with any of your verified domain names in Azure AD
     $tenantID = "72f988bf-86f1-41af-91ab-2d7cd011db47"    # Replace this with you tenant ID
@@ -158,42 +158,42 @@ Bir Çoklu orman yapılandırması, hizmet bağlantı noktası bilgisayarları v
 
 ## <a name="step-2-setup-issuance-of-claims"></a>2. adım: talep verme kurma
 
-Bir Federasyon Azure AD yapılandırma cihazlar Active Directory Federasyon Hizmetleri (AD FS) üzerinde kullanır veya 3. taraf bir Federasyon Hizmeti için Azure AD kimlik doğrulaması yapmak için şirket içi. Cihazların Azure Active Directory cihaz kayıt Hizmeti'ne karşı (Azure DRS) kaydetmek için bir erişim belirteci almak için kimlik doğrulaması.
+Bir Federasyon Azure AD yapılandırma cihazlar Active Directory Federasyon Hizmetleri (AD FS) üzerinde kullanır veya 3. taraf bir Federasyon Hizmeti tooauthenticate tooAzure AD şirket içi. Aygıtları tooget bir erişim belirteci tooregister hello Azure Active Directory cihaz kayıt Hizmeti'ne (Azure DRS) karşı kimlik doğrulaması.
 
-Windows geçerli cihazlar şirket içi Federasyon Hizmeti tarafından barındırılan tümleşik Windows kimlik etkin bir WS-Trust uç (1.3 veya 2005 sürümleri) kullanarak kimlik doğrulaması.
+Windows hello şirket içi Federasyon Hizmeti tarafından barındırılan tümleşik Windows kimlik doğrulaması tooan etkin WS-Trust uç noktası (1.3 veya 2005 sürümler) kullanarak geçerli aygıtların kimlik doğrulaması.
 
 > [!NOTE]
-> AD FS, ya da kullanırken **adfs/services/güven/13/windowstransport** veya **adfs/services/güven/2005/windowstransport** etkinleştirilmesi gerekir. Ayrıca Web kimlik doğrulaması Proxy kullanıyorsanız, bu uç noktası proxy yayımlanır emin olun. Hangi uç noktalarının altında AD FS Yönetim Konsolu aracılığıyla özelliğinin etkinleştirilip etkinleştirilmediğini **hizmet > uç noktaları**.
+> AD FS, ya da kullanırken **adfs/services/güven/13/windowstransport** veya **adfs/services/güven/2005/windowstransport** etkinleştirilmesi gerekir. Ayrıca hello Web kimlik doğrulaması Proxy kullanıyorsanız, bu uç noktaya hello proxy üzerinden yayımlanan emin olun. Hangi uç noktalarının altında hello AD FS Yönetim Konsolu aracılığıyla özelliğinin etkinleştirilip etkinleştirilmediğini **hizmet > uç noktaları**.
 >
->AD FS, şirket içi Federasyon Hizmeti olarak yoksa, WS-Trust 1.3 veya 2005 uç noktalarının ve bunlar meta veri değişimi dosyası (MEX) aracılığıyla yayımlanır destekledikleri emin olmak için satıcınızın yönergeleri izleyin.
+>AD FS, şirket içi Federasyon Hizmeti olarak yoksa, WS-Trust 1.3 veya 2005 uç noktalarının ve bunlar hello meta veri değişimi dosya (MEX) yayımlanır desteklediğinden emin, satıcı toomake hello yönergeleri izleyin.
 
-Aşağıdaki talep tamamlanması, cihaz kaydı için Azure DRS'tarafından alınan belirteç bulunmalıdır. Azure DRS Azure AD ile sonra yeni oluşturulan cihaz nesnesi bilgisayar hesabı ile şirket içi ilişkilendirmek için Azure AD Connect tarafından kullanılan bu bilgilerin bazıları, bir cihaz nesnesi oluşturun.
+Merhaba aşağıdaki talep için cihaz kayıt toocomplete Azure DRS tarafından alınan hello belirtecindeki mevcut olması gerekir. Azure DRS Azure AD ile sonra Azure AD Connect tooassociate yeni oluşturulan hello cihaz nesnesi hello bilgisayar hesabı şirket tarafından kullanılan bu bilgilerin bazıları, bir cihaz nesnesi oluşturun.
 
 * `http://schemas.microsoft.com/ws/2012/01/accounttype`
 * `http://schemas.microsoft.com/identity/claims/onpremobjectguid`
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`
 
-Birden fazla doğrulanan etki alanı adı varsa, bilgisayarlar için aşağıdaki talep sağlamanız gerekir:
+Birden fazla doğrulanan etki alanı adı varsa, talep bilgisayarlar için aşağıdaki tooprovide hello gerekir:
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-Zaten bir İmmutableıd talep (örn., alternatif oturum açma kimliği) dağıttığınız, bilgisayarlar için karşılık gelen bir talep sağlamanız gerekir:
+Zaten bir İmmutableıd talep (örn., alternatif oturum açma kimliği) dağıttığınız bilgisayarlar için bir karşılık gelen talep tooprovide gerekir:
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
-Aşağıdaki bölümlerde hakkında bilgiler yer:
+Aşağıdaki bölümlerde hello hakkında bilgiler yer:
  
-- Değerlerin her talep olmalıdır
+- Merhaba değerleri her talep olmalıdır
 - Nasıl bir tanımı gibi AD FS'de görüneceği
 
-Tanımı, değerleri mevcut olup olmadığını veya bunları oluşturmanız gerekiyorsa doğrulamak için yardımcı olur.
+Merhaba tanımı yardımcı olan tooverify hello değerleri mevcut olup olmadığını veya toocreate ihtiyacınız varsa, bunları.
 
 > [!NOTE]
-> Şirket içi Federasyon sunucunuz için AD FS kullanmıyorsanız, bu talepleri vermek için uygun bir yapılandırma oluşturmak için satıcınızın yönergeleri izleyin.
+> Şirket içi Federasyon sunucunuz için AD FS kullanmıyorsanız, bu talepler satıcınızın yönergeleri toocreate hello uygun yapılandırma tooissue izleyin.
 
 ### <a name="issue-account-type-claim"></a>Sorunu hesap türü talep
 
-**`http://schemas.microsoft.com/ws/2012/01/accounttype`**-Bu talep değerini içermelidir **DJ**, cihaz etki alanına katılmış bir bilgisayar olarak tanımlar. AD FS'de şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
+**`http://schemas.microsoft.com/ws/2012/01/accounttype`**-Bu talep değerini içermelidir **DJ**, hello cihaz etki alanına katılmış bir bilgisayar olarak tanımlar. AD FS'de şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
 
     @RuleName = "Issue account type for domain-joined computers"
     c:[
@@ -206,9 +206,9 @@ Tanımı, değerleri mevcut olup olmadığını veya bunları oluşturmanız ger
         Value = "DJ"
     );
 
-### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>Bilgisayar hesabı içi objectGUID sorun
+### <a name="issue-objectguid-of-hello-computer-account-on-premises"></a>Sorunu objectGUID hello bilgisayar hesabı şirket içinde
 
-**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`**-Bu talebi içermelidir **objectGUID** şirket içi bilgisayar hesabı değeri. AD FS'de şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
+**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`**-Bu talep hello içermelidir **objectGUID** hello değerini şirket içi bilgisayar hesabı. AD FS'de şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
 
     @RuleName = "Issue object GUID for domain-joined computers"
     c1:[
@@ -228,9 +228,9 @@ Tanımı, değerleri mevcut olup olmadığını veya bunları oluşturmanız ger
         param = c2.Value
     );
  
-### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Bilgisayar hesabı içi objectSID sorun
+### <a name="issue-objectsid-of-hello-computer-account-on-premises"></a>Sorunu objectSID hello bilgisayar hesabı şirket içinde
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`**-Bu talebi içermelidir **objectSID** şirket içi bilgisayar hesabı değeri. AD FS'de şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`**-Bu talep hello hello içermelidir **objectSID** hello değerini şirket içi bilgisayar hesabı. AD FS'de şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -247,9 +247,9 @@ Tanımı, değerleri mevcut olup olmadığını veya bunları oluşturmanız ger
 
 ### <a name="issue-issuerid-for-computer-when-multiple-verified-domain-names-in-azure-ad"></a>Birden çok etki alanı adlarını Azure AD'de belirlediğinizde issuerID bilgisayar için sorun
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`**-Herhangi bir şirket içi Federasyon Hizmeti ile (AD FS veya 3. taraf) bağlanma doğrulanmış etki alanı adlarını Tekdüzen Kaynak Tanımlayıcısı (URI) Bu talebi içermelidir belirteç veren. ' De AD FS, yukarıdaki olanlardan sonra olanları belirli sırayla görüneceği verme dönüştürme kuralları ekleyebilirsiniz. Lütfen açıkça kullanıcılar için kuralı vermek için bir kural gerekli olduğuna dikkat edin. Aşağıdaki kuralları, kullanıcı ve bilgisayar kimlik doğrulaması tanımlama ilk bir kuralı eklenir.
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`**-Bu talep hello hiçbirinin Tekdüzen Kaynak Tanımlayıcısı (URI) ile Merhaba bağlanmak etki alanı adları şirket içi Federasyon Hizmeti (AD FS veya 3. taraf) sertifika veren hello belirteci doğrulandı hello içermesi gerekir. AD FS içinde sonra belirli bir sıraya Merhaba, olanları yukarıdaki olanları aşağıdaki hello gibi görünmesini verme dönüştürme kuralları ekleyebilirsiniz. Lütfen gerekli kullanıcılar için bir kural tooexplicitly sorunu hello kural unutmayın. Merhaba kuralları'nda aşağıdaki kullanıcı ve bilgisayar kimlik doğrulaması tanımlama ilk bir kuralı eklenir.
 
-    @RuleName = "Issue account type with the value User when its not a computer"
+    @RuleName = "Issue account type with hello value User when its not a computer"
     NOT EXISTS(
     [
         Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", 
@@ -261,7 +261,7 @@ Tanımı, değerleri mevcut olup olmadığını veya bunları oluşturmanız ger
         Value = "User"
     );
     
-    @RuleName = "Capture UPN when AccountType is User and issue the IssuerID"
+    @RuleName = "Capture UPN when AccountType is User and issue hello IssuerID"
     c1:[
         Type == "http://schemas.xmlsoap.org/claims/UPN"
     ]
@@ -291,15 +291,15 @@ Tanımı, değerleri mevcut olup olmadığını veya bunları oluşturmanız ger
     );
 
 
-Yukarıdaki talep
+Yukarıdaki Hello talep kümesinde
 
-- `$<domain>`AD FS hizmet URL'si
-- `<verified-domain-name>`Azure AD'de doğrulanmış etki alanı adlarınızı biri ile değiştirmek için gereken bir yer tutucudur
+- `$<domain>`Merhaba AD FS hizmet URL'si
+- `<verified-domain-name>`tooreplace doğrulanmış etki alanı adlarınızı biri ile Azure AD içinde gereksinim duyduğunuz bir yer tutucudur
 
 
 
-Doğrulanmış etki alanı adları hakkında daha fazla ayrıntı için bkz: [bir özel etki alanı adını Azure Active Directory'ye ekleme](active-directory-add-domain.md).  
-Doğrulanmış şirket etki alanlarının bir listesini almak için kullanabileceğiniz [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet'i. 
+Doğrulanmış etki alanı adları hakkında daha fazla ayrıntı için bkz: [özel etki alanı adı tooAzure Active Directory eklemek](active-directory-add-domain.md).  
+tooget doğrulanmış şirket etki alanlarının bir listesini, kullanabileceğiniz hello [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet'i. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
@@ -325,9 +325,9 @@ Doğrulanmış şirket etki alanlarının bir listesini almak için kullanabilec
         param = c2.Value
     );
 
-### <a name="helper-script-to-create-the-ad-fs-issuance-transform-rules"></a>AD FS verme dönüştürme kuralları oluşturmak için yardımcı kod
+### <a name="helper-script-toocreate-hello-ad-fs-issuance-transform-rules"></a>Yardımcı betik toocreate hello AD FS verme dönüştürme kuralları
 
-Aşağıdaki komut dosyası, yukarıda açıklanan kuralları dönüştürme verme oluşturulmasını ile yardımcı olur.
+Merhaba aşağıdaki betiği hello verme hello oluşturulmasını ile yukarıda açıklanan kuralları dönüştürme yardımcı olur.
 
     $multipleVerifiedDomainNames = $false
     $immutableIDAlreadyIssuedforUsers = $false
@@ -377,7 +377,7 @@ Aşağıdaki komut dosyası, yukarıda açıklanan kuralları dönüştürme ver
 
     $rule4 = ''
     if ($multipleVerifiedDomainNames -eq $true) {
-    $rule4 = '@RuleName = "Issue account type with the value User when it is not a computer"
+    $rule4 = '@RuleName = "Issue account type with hello value User when it is not a computer"
     NOT EXISTS(
     [
         Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", 
@@ -389,7 +389,7 @@ Aşağıdaki komut dosyası, yukarıda açıklanan kuralları dönüştürme ver
         Value = "User"
     );
     
-    @RuleName = "Capture UPN when AccountType is User and issue the IssuerID"
+    @RuleName = "Capture UPN when AccountType is User and issue hello IssuerID"
     c1:[
         Type == "http://schemas.xmlsoap.org/claims/UPN"
     ]
@@ -450,133 +450,133 @@ Aşağıdaki komut dosyası, yukarıda açıklanan kuralları dönüştürme ver
 
 ### <a name="remarks"></a>Açıklamalar 
 
-- Bu komut dosyası kuralları için varolan kuralları ekler. Komut dosyası iki kez çalıştırmayın kuralları iki kez eklenebilir olduğundan. Karşılık gelen hiçbir kural bu talepleri (karşılık gelen koşullarda) için komut dosyası yeniden çalıştırmadan önce var olduğundan emin olun.
+- Bu komut dosyası hello kuralları toohello mevcut kurallar ekler. Merhaba kuralları ayarlamak için çalışmıyor hello betik iki kez iki kez eklenir. Karşılık gelen hiçbir kural (koşullarda hello karşılık gelen) bu talepler için hello betiği yeniden çalıştırmadan önce var olduğundan emin olun.
 
-- (Azure AD portalı veya Get-MsolDomains cmdlet'i aracılığıyla gösterildiği gibi) birden çok doğrulanmış etki alanı adı varsa, değerini ayarlamak **$multipleVerifiedDomainNames** betikteki **$true**. Ayrıca Azure AD Connect veya başka yöntemler aracılığıyla oluşturulan tüm mevcut issuerid talep kaldırdığınızdan emin olun. Bu kural için örnek aşağıda verilmiştir:
+- Merhaba değerini ayarlayın (hello Azure AD portalında veya hello Get-MsolDomains cmdlet'i aracılığıyla gösterildiği gibi) birden çok doğrulanmış etki alanı adı, varsa **$multipleVerifiedDomainNames** hello çok komut dosyası**$true**. Ayrıca Azure AD Connect veya başka yöntemler aracılığıyla oluşturulan tüm mevcut issuerid talep kaldırdığınızdan emin olun. Bu kural için örnek aşağıda verilmiştir:
 
 
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
         => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-- Zaten yayımlandı durumunda bir **İmmutableıd** kullanıcı hesapları için talep, değerini **$immutableIDAlreadyIssuedforUsers** betikteki **$true**.
+- Zaten yayımlandı durumunda bir **İmmutableıd** hello değeri olarak ayarlayın, kullanıcı hesapları için talep **$immutableIDAlreadyIssuedforUsers** hello çok komut dosyası**$true**.
 
 ## <a name="step-3-enable-windows-down-level-devices"></a>Adım 3: Windows alt düzey aygıtları etkinleştirin
 
 Bazı etki alanına katılmış aygıtlarınız Windows cihazları sürümlerdeki, gerekir:
 
-- Kullanıcıların aygıtlarını kaydetmesini sağlamak için Azure AD içinde bir ilke ayarlayın.
+- Bir ilke Azure AD tooenable kullanıcılar tooregister aygıtları ayarlayın.
  
-- Şirket içi Federasyon hizmetini desteklemek için bir talep yapılandırma **tümleşik Windows kimlik doğrulaması (IWA)** cihaz kaydı için.
+- Şirket içi Federasyon Hizmeti tooissue talep toosupport yapılandırma **tümleşik Windows kimlik doğrulaması (IWA)** cihaz kaydı için.
  
-- Azure AD cihaz kimlik doğrulama uç noktası cihaz doğrulanırken sertifika istemleri önlemek için yerel Intranet bölgesine ekleyin.
+- Merhaba aygıt doğrulanırken tooavoid sertifika ister hello Azure AD cihaz kimlik doğrulama uç noktası toohello yerel Intranet bölgeler ekleyin.
 
-### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Kullanıcıların aygıtlarını kaydetmesini sağlamak için Azure AD'de ilkesini ayarlama
+### <a name="set-policy-in-azure-ad-tooenable-users-tooregister-devices"></a>İlke Azure AD tooenable kullanıcılar tooregister aygıtları ayarlayın.
 
-Windows alt düzey cihazları kaydetmek için kullanıcıların Azure AD'de cihazları kaydetmek izin vermek için ayarı ayarlandığından emin olmanız gerekir. Azure Portal'da, bu ayarı altında bulabilirsiniz:
+tooregister Windows alt düzey aygıtları toomake tooallow kullanıcılar Azure AD'de tooregister cihazları ayarlama bu hello ayarlandığından emin gerekir. Hello Azure portalı, bu ayarı altında bulabilirsiniz:
 
 `Azure Active Directory > Users and groups > Device settings`
     
-Aşağıdaki ilke ayarlamak **tüm**: **kullanıcıları Azure AD ile cihazlarını kaydetme**
+Merhaba aşağıdaki İlkesi çok ayarlanmalıdır**tüm**: **kullanıcıları Azure AD ile cihazlarını kaydetme**
 
 ![Cihaz kaydetme](./media/active-directory-conditional-access-automatic-device-registration-setup/23.png)
 
 
 ### <a name="configure-on-premises-federation-service"></a>Şirket içi Federasyon hizmetini yapılandır 
 
-Şirket içi Federasyon hizmetinizi veren desteklemelidir **authenticationmehod** ve **wiaormultiauthn** aşağıda gösterildiği gibi kodlanmış bir değer resouce_params parametresiyle tutan Azure AD bağlı olan taraf için kimlik doğrulama isteği alırken talepleri:
+Şirket içi Federasyon hizmetinizi veren hello desteklemelidir **authenticationmehod** ve **wiaormultiauthn** bir kimlik doğrulama alırken talep isteği toohello Azure AD bağlı olan taraf bulunduran bir resouce_params parametre gösterildiği gibi kodlanmış bir değeri olan aşağıdaki:
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
     which decoded is {"Properties":[{"Key":"acr","Value":"wiaormultiauthn"}]}
 
-Böyle bir istek geldiğinde, şirket içi Federasyon Hizmeti tümleşik Windows kimlik doğrulaması kullanarak kullanıcı kimlik doğrulaması yapmalıdır ve başarılı üzerinde aşağıdaki iki talep kesmeniz gerekir:
+Böyle bir istek geldiğinde, hello şirket içi Federasyon Hizmeti tümleşik Windows kimlik doğrulaması kullanarak hello kullanıcı kimlik doğrulaması yapmalıdır ve başarı iki talep aşağıdaki hello kesmeniz gerekir:
 
     http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows
     http://schemas.microsoft.com/claims/wiaormultiauthn
 
-AD FS'de kimlik doğrulama yöntemini geçişleri üzerinden bir verme dönüştürme kuralı eklemeniz gerekir.  
+AD FS içinde verme dönüştürme kural bu geçişleri üzerinden hello kimlik doğrulama yöntemi eklemeniz gerekir.  
 
-**Bu kural eklemek için:**
+**tooadd bu kural:**
 
-1. AD FS yönetim konsolunda Git `AD FS > Trust Relationships > Relying Party Trusts`.
-2. Microsoft Office 365 kimlik Platformu'na bağlı taraf güven nesnesi sağ tıklayın ve ardından **talep kurallarını Düzenle**.
-3. Üzerinde **verme dönüştürme kuralları** sekmesine **Kuralı Ekle**.
-4. İçinde **talep kuralı** şablonu listesinden **talepleri özel kural kullanarak Gönder**.
+1. Merhaba AD FS yönetim konsolunda çok Git`AD FS > Trust Relationships > Relying Party Trusts`.
+2. Merhaba Microsoft Office 365 kimlik Platformu'na bağlı taraf güven nesnesi sağ tıklayın ve ardından **talep kurallarını Düzenle**.
+3. Merhaba üzerinde **verme dönüştürme kuralları** sekmesine **Kuralı Ekle**.
+4. Merhaba, **talep kuralı** şablonu listesinden **talepleri özel kural kullanarak Gönder**.
 5. Seçin **sonraki**.
-6. İçinde **talep kuralı adı** kutusuna **kimlik doğrulama yöntemi talep kuralı**.
-7. İçinde **talep kuralı** kutusunda, aşağıdaki kural yazın:
+6. Merhaba, **talep kuralı adı** kutusuna **kimlik doğrulama yöntemi talep kuralı**.
+7. Merhaba, **talep kuralı** kutusu, aşağıdaki kural türü hello:
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. Değiştirildikten sonra Federasyon sunucunuzda aşağıdaki PowerShell komutunu yazın  **\<RPObjectName\>**  adıyla bağlı olan taraf nesnesi, Azure AD bağlı olan taraf güven nesnesi. Bu nesne genellikle adlı **Microsoft Office 365 kimlik Platformu'na**.
+8. Değiştirildikten sonra Federasyon sunucunuzda aşağıdaki hello PowerShell komutunu yazın  **\<RPObjectName\>**  hello bağlı olan taraf için nesne adı, Azure AD bağlı olan taraf güven nesnesi ile. Bu nesne genellikle adlı **Microsoft Office 365 kimlik Platformu'na**.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
-### <a name="add-the-azure-ad-device-authentication-end-point-to-the-local-intranet-zones"></a>Azure AD cihaz kimlik doğrulama uç noktası yerel Intranet bölgesine ekleyin
+### <a name="add-hello-azure-ad-device-authentication-end-point-toohello-local-intranet-zones"></a>Hello Azure AD cihaz kimlik doğrulama uç noktası toohello yerel Intranet bölgeler ekleyin
 
-Sertifika önlemek için kayıt aygıtları kullanıcılar yerel Intranet bölgesine Internet Explorer'da aşağıdaki URL'yi eklemek için etki alanına katılmış cihazlar için bir ilke itme Azure AD kimlik doğrulaması sırasında ister:
+tooAzure Internet Explorer'da URL toohello yerel Intranet bölgesine izleyen bir ilke tooyour etki alanına katılmış aygıtlar tooadd hello gönderebilir AD kaydı cihazları kullanıcıların kimliğini doğrularken tooavoid sertifika ister:
 
 `https://device.login.microsoftonline.com`
 
 ## <a name="step-4-control-deployment-and-rollout"></a>Adım 4: Denetimi dağıtımı ve dağıtım
 
-Gerekli adımları tamamladıktan sonra etki alanına katılmış cihazları otomatik olarak Azure AD katılım hazırsınız:
+Merhaba gerekli adımları tamamladıktan sonra hazır tooautomatically birleştirme Azure AD etki alanına katılmış aygıtlar şunlardır:
 
 - Windows 10 Anniversary güncelleştirmesi ve Windows Server 2016 çalıştıran tüm etki alanına katılmış cihazlar otomatik olarak kayıt aygıt adresindeki Azure AD ile yeniden başlatın veya kullanıcı oturum açma. 
 
-- Yeni cihazların etki alanına katılma işlemi tamamlandıktan sonra aygıt yeniden başlatıldığında Azure AD ile kaydedin.
+- Yeni cihazların Merhaba etki alanına katılma işlemi tamamlandıktan sonra hello aygıt yeniden başlatıldığında Azure AD ile kaydedin.
 
-- Daha önce Azure AD olan cihaz kayıtlı (örneğin, Intune için) için geçiş "*etki alanına katılmış, AAD kayıtlı*"; Ancak, etki alanının normal akıştaki nedeniyle tüm cihazlar arasında tamamlamak bu işlem biraz zaman alabilir ve kullanıcı etkinliği.
+- Daha önce Azure AD olan cihaz kayıtlı (örneğin, Intune için) çok geçiş "*etki alanına katılmış, AAD kayıtlı*"; Ancak, gereken süre bu işlem toocomplete için toohello normal akışı nedeniyle tüm cihazlar arasında etki alanı ve kullanıcı etkinliğini.
 
 ### <a name="remarks"></a>Açıklamalar
 
-- Windows 10 ve Windows Server 2016 etki alanına katılmış bilgisayarlar otomatik kaydını piyasaya sürümü denetlemek için Grup İlkesi nesnesini kullanabilirsiniz.
+- Windows 10 ve Windows Server 2016 etki alanına katılmış bilgisayarlar otomatik kaydını bir Grup İlkesi nesnesi toocontrol hello sunumu kullanabilirsiniz.
 
-- Windows 10 Kasım 2015 güncelleştirmesi otomatik olarak birleştiren Azure AD ile **yalnızca** sunum Grup İlkesi nesnesi ayarlarsanız.
+- Windows 10 Kasım 2015 güncelleştirmesi otomatik olarak birleştiren Azure AD ile **yalnızca** hello sunum Grup İlkesi nesnesi ayarlarsanız.
 
-- Kullanıcılarınıza Windows alt düzey bilgisayarların, dağıttığınız bir [Windows Installer paketi](#windows-installer-packages-for-non-windows-10-computers) seçtiğiniz bilgisayarlara.
+- dağıtabileceğiniz toorollout Windows alt düzey bilgisayarların bir [Windows Installer paketi](#windows-installer-packages-for-non-windows-10-computers) seçtiğiniz toocomputers.
 
-- Windows 8.1 etki alanına katılmış cihazlar için Grup İlkesi nesnesini itme olursa, bir birleştirme denenir; Ancak, kullanmanız önerilir [Windows Installer paketi](#windows-installer-packages-for-non-windows-10-computers) tüm Windows alt düzey aygıtları katılmak için. 
+- Merhaba Grup İlkesi nesnesi tooWindows 8.1 etki alanına katılmış aygıtlar itme olursa, bir birleştirme denenir; Ancak, hello kullanmanız önerilir [Windows Installer paketi](#windows-installer-packages-for-non-windows-10-computers) toojoin tüm Windows alt düzey cihazlar. 
 
 ### <a name="create-a-group-policy-object"></a>Bir Grup İlkesi nesnesi oluşturma 
 
-Windows geçerli bilgisayarların piyasaya sürümü denetlemek için dağıtmanız **etki alanına katılmış bilgisayarları cihaz olarak kaydetme** kaydetmek istediğiniz aygıtları için Grup İlkesi nesnesi. Örneğin, bir kuruluş birimi veya bir güvenlik grubu için ilke dağıtabilirsiniz.
+toocontrol hello sunum geçerli bilgisayarların Windows hello dağıtmalısınız **etki alanına katılmış bilgisayarları cihaz olarak kaydetme** tooregister istediğiniz Grup İlkesi nesnesi toohello aygıtlar. Örneğin, hello İlkesi tooan kuruluş birimi ya da tooa güvenlik grubu dağıtabilirsiniz.
 
-**İlke ayarlamak için:**
+**tooset hello İlkesi:**
 
-1. Açık **Sunucu Yöneticisi'ni**ve ardından `Tools > Group Policy Management`.
-2. Otomatik kaydı Windows geçerli bilgisayarların etkinleştirmek istediğiniz etki alanı için karşılık gelen etki alanı düğümüne gidin.
+1. Açık **Sunucu Yöneticisi'ni**ve çok Git`Tools > Group Policy Management`.
+2. Windows geçerli bilgisayarların tooactivate otomatik kaydı istediğiniz toohello etki alanı karşılık gelen toohello etki alanı düğümüne gidin.
 3. Sağ **Grup İlkesi nesneleri**ve ardından **yeni**.
 4. Grup İlkesi nesnesi için bir ad yazın. Örneğin, * karma Azure AD birleştirme. 
 5. **Tamam** düğmesine tıklayın.
 6. Yeni Grup İlkesi nesneniz sağ tıklayın ve ardından **Düzenle**.
-7. Git **Bilgisayar Yapılandırması** > **ilkeleri** > **Yönetim Şablonları** > **Windows bileşenleri** > **aygıt kaydı**. 
+7. Çok Git**Bilgisayar Yapılandırması** > **ilkeleri** > **Yönetim Şablonları** > **Windows Bileşenleri** > **aygıt kaydı**. 
 8. Sağ **etki alanına katılmış bilgisayarları cihaz olarak kaydetme**ve ardından **Düzenle**.
    
    > [!NOTE]
-   > Bu Grup İlkesi şablonu, Grup İlkesi Yönetimi konsolunun önceki sürümlerden adlandırıldı. Konsol önceki bir sürümünü kullanıyorsanız, Git `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
+   > Bu Grup İlkesi şablonu hello Grup İlkesi Yönetimi konsolunun önceki sürümlerden adlandırıldı. Merhaba konsol önceki bir sürümünü kullanıyorsanız, çok Git`Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
 7. Seçin **etkin**ve ardından **Uygula**.
 8. **Tamam** düğmesine tıklayın.
-9. Grup İlkesi nesnesini, bir konumla bağlayın. Örneğin, belirli bir kuruluş birimine olarak bağlayabilirsiniz. Otomatik olarak Azure AD ile katılmak bilgisayarları belirli güvenlik grubuna da bağlayabilirsiniz. Bu ilke tüm etki alanına katılmış Windows 10 ve Windows Server 2016 kuruluşunuzdaki bilgisayarlara atamak için Grup İlkesi nesnesini etki alanına bağlayın.
+9. Bağlantı hello Grup İlkesi nesnesi tooa konum. Örneğin, tooa belirli bir kuruluş birimine bağlantı oluşturabilirsiniz. Ayrıca otomatik olarak Azure AD ile katılmak bilgisayarları tooa belirli güvenlik grubunun bağlayabilirsiniz. tooset Bu ilke tüm etki alanına katılmış Windows 10 ve Windows Server 2016 kuruluşunuzdaki bilgisayarların, bağlantı hello Grup İlkesi nesnesi toohello etki alanı için.
 
 ### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Windows 10 bilgisayarları için Windows Installer paketleri
 
-Federasyon ortamında Windows alt düzey bilgisayarları etki alanına katılmış katılmak için indirin ve bu Windows Installer (.msi) paketi İndirme Merkezi'nden yüklemek [Windows 10 bilgisayarlar için Microsoft çalışma alanına katılma](https://www.microsoft.com/en-us/download/details.aspx?id=53554) Sayfa.
+toojoin etki alanına katılmış Windows alt düzey bilgisayarları Federasyon ortamında, indirin ve bu Windows Installer (.msi) paketi İndirme Merkezi'nden hello yükleyin [Microsoft çalışma alanına katılma için Windows 10 bilgisayarları](https://www.microsoft.com/en-us/download/details.aspx?id=53554)sayfası.
 
-Paketi, System Center Configuration Manager gibi yazılım dağıtım sistemi kullanarak dağıtabilirsiniz. Paket ile standart sessiz yükleme seçeneklerini destekler *sessiz* parametresi. System Center Configuration Manager geçerli dalının tamamlanmış kayıtlar izleme yeteneği gibi önceki sürümlerinden ek avantajlar sunar. Daha fazla bilgi için bkz: [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
+Bir yazılım dağıtım sistemi gibi System Center Configuration Manager kullanılarak hello paketi dağıtabilirsiniz. Merhaba paketi destekler hello hello standart sessiz yükleme seçenekleriyle *sessiz* parametresi. System Center Configuration Manager geçerli dalının hello özelliği tamamlandı tootrack kayıtlar gibi önceki sürümlerinden ek avantajlar sunar. Daha fazla bilgi için bkz: [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
 
-Yükleyici sistemde kullanıcının bağlamında çalışan zamanlanmış bir görev oluşturur. Kullanıcı Windows açtığında görevi tetiklenir. Görev sessizce aygıt tümleşik Windows kimlik doğrulaması kullanarak kimlik doğrulama sonra Azure AD kullanıcı kimlik bilgileri ile birleştirir. Aygıtta zamanlanmış görev görmek için Git **Microsoft** > **çalışma alanına katılma**ve Görev Zamanlayıcı Kitaplığı'na gidin.
+Hello yükleyici hello sistemde hello kullanıcının bağlamında çalışan zamanlanmış bir görev oluşturur. içinde tooWindows Hello kullanıcı oturum açtığında hello görevi tetiklenir. Merhaba görev sessizce hello aygıt hello kullanıcı kimlik bilgileriyle tümleşik Windows kimlik doğrulaması kullanarak kimlik doğrulama sonra Azure AD ile birleştirir. toosee hello zamanlanan görev hello aygıtta Git çok**Microsoft** > **çalışma alanına katılma**, ve ardından toohello Görev Zamanlayıcı Kitaplığı gidin.
 
 ## <a name="step-5-verify-joined-devices"></a>5. adım: alanına katılmamış aygıtlar doğrulayın
 
-Kullanarak, kuruluşunuzda başarılı alanına katılmamış aygıtlar denetleyebilirsiniz [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet'te [Azure Active Directory PowerShell Modülü](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Hello kullanarak, kuruluşunuzda başarılı alanına katılmamış aygıtlar denetleyebilirsiniz [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) hello cmdlet'te [Azure Active Directory PowerShell Modülü](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
-Bu cmdlet'in çıktısı, kayıtlı ve Azure AD ile birleştirilmiş cihazları gösterir. Tüm cihazlar almak için kullanın **-tüm** parametresi ve bunları filtre kullanarak **deviceTrustType** özelliği. Etki alanına katılmış aygıtlar değerine sahip **etki alanına katılmış**.
+Bu cmdlet Hello çıktısını, kayıtlı ve Azure AD ile birleşik olan cihazları gösterir. tooget, tüm cihazların Merhaba kullanmak **-tüm** parametre ve filtre hello kullanarak bunları **deviceTrustType** özelliği. Etki alanına katılmış aygıtlar değerine sahip **etki alanına katılmış**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Active Directory'de cihaz yönetimine giriş](device-management-introduction.md)
+* [Azure Active Directory'de giriş toodevice Yönetimi](device-management-introduction.md)
 
 
 

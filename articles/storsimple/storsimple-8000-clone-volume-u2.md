@@ -1,6 +1,6 @@
 ---
-title: StorSimple 8000 serisi bir birimde kopyalama | Microsoft Docs
-description: "Farklı kopya türleri ve kullanım tanımlar ve tek tek bir birim bir StorSimple 8000 serisi cihazda kopyalamak için bir yedek nasıl kullanabileceğinizi açıklar."
+title: StorSimple 8000 serisi bir birimde aaaClone | Microsoft Docs
+description: "Merhaba farklı kopya türleri ve kullanım ve bir yedekleme kümesi tooclone bağımsız bir birim bir StorSimple 8000 serisi cihazda nasıl kullanabileceğiniz açıklanmaktadır."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,93 +14,93 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/26/2017
 ms.author: alkohli
-ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4f7e1f62f17c7b2bd72820a00a5ab87b7e192332
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>StorSimple cihaz Yöneticisi hizmeti Azure portalında bir birim kopyalamak için kullanın.
+# <a name="use-hello-storsimple-device-manager-service-in-azure-portal-tooclone-a-volume"></a>Azure portal tooclone bir birim Hello StorSimple cihaz Yöneticisi hizmetini kullanma
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğretici bir yedekleme kümesi aracılığıyla tek bir birim kopyalamak için nasıl kullanabileceğinizi açıklar **yedekleme kataloğu** dikey. Ayrıca arasındaki farkı açıklar *geçici* ve *kalıcı* klonlar. Bu öğreticideki yönergeler güncelleştirme 3 veya sonraki sürümünü çalıştıran tüm StorSimple 8000 serisi aygıta uygular.
+Bu öğretici bir yedekleme kümesi tooclone hello aracılığıyla tek bir birim nasıl kullanabileceğinizi açıklar **yedekleme kataloğu** dikey. Ayrıca hello birbirinden açıklar *geçici* ve *kalıcı* klonlar. Bu öğreticide Hello yönerge güncelleştirme 3 veya üstünü çalıştıran tooall hello StorSimple 8000 serisi aygıt geçerlidir.
 
-StorSimple cihaz Yöneticisi hizmeti **yedekleme kataloğu** dikey penceresinde el ile veya otomatik yedeklemeler durumdayken, oluşturulan tüm yedekleme kümelerini görüntüler. Bu gibi durumlarda, bir birim sonra bir yedekleme kopyalama kümesi seçebilirsiniz.
+Merhaba StorSimple cihaz Yöneticisi hizmeti **yedekleme kataloğu** dikey penceresinde el ile veya otomatik yedeklemeler durumdayken, oluşturulan tüm hello yedekleme kümelerini görüntüler. Ardından, bir birim bir yedekleme kümesi tooclone seçebilirsiniz.
 
  ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
 
 ## <a name="considerations-for-cloning-a-volume"></a>Bir birim kopyalama dikkat edilmesi gereken noktalar
 
-Aşağıdaki bilgiler bir birim kopyalarken göz önünde bulundurun.
+Bir birim kopyalarken aşağıdaki bilgilerle hello göz önünde bulundurun.
 
-- Bir kopya normal birimi olarak aynı şekilde davranır. Bir birimde mümkündür herhangi bir işlem kopya için kullanılabilir.
+- Bir kopya hello aynı şekilde davranır normal bir birim olarak yolu. Bir birimde mümkündür herhangi bir işlem hello kopya için kullanılabilir.
 
-- İzleme ve varsayılan yedekleme otomatik olarak kopyalanan bir birimde devre dışı. Kopyalanan bir birimi tüm yedeklemeler için gerekir.
+- İzleme ve varsayılan yedekleme otomatik olarak kopyalanan bir birimde devre dışı. Tüm yedeklemeler için tooconfigure kopyalanan birim gerekir.
 
-- Yerel olarak sabitlenmiş bir birim katmanlı birim kopyalandı. Yerel olarak sabitlenmiş için kopyalanan birimi gerekiyorsa, kopyalama işlemi başarıyla tamamlandıktan sonra kopyanın yerel olarak sabitlenmiş bir birim dönüştürebilirsiniz. Yerel olarak sabitlenmiş bir birim için katmanlı birim dönüştürme hakkında daha fazla bilgi için Git [birim türünü değiştirme](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
+- Yerel olarak sabitlenmiş bir birim katmanlı birim kopyalandı. Yerel olarak sabitlenmiş kopyalanan birim toobe hello varsa, başlangıç kopyalama işlemi başarıyla tamamlandıktan sonra hello kopya tooa yerel olarak sabitlenmiş birim dönüştürebilirsiniz. Çok katmanlı birim tooa yerel olarak dönüştürme hakkında bilgi sabitlenmiş birim için Git[değiştirmek hello birim türü](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
 
-- Kopyalanan bir birimden dönüştürmeyi deneyin (Bunu yine bir geçici kopya olduğunda) hemen kopyalandıktan sonra yerel olarak sabitlenmiş katmanlı dönüştürme şu hata iletisiyle başarısız olur:
+- (Bunu yine bir geçici kopya olduğunda) hemen kopyalandıktan sonra katmanlı toolocally kopyalanan bir birimden sabitlenmiş tooconvert deneyin hello dönüştürme hello aşağıdaki hata iletisi ile başarısız olur:
 
-    `Unable to modify the usage type for volume {0}. This can happen if the volume being modified is a transient clone and hasn’t been made permanent. Take a cloud snapshot of this volume and then retry the modify operation.`
+    `Unable toomodify hello usage type for volume {0}. This can happen if hello volume being modified is a transient clone and hasn’t been made permanent. Take a cloud snapshot of this volume and then retry hello modify operation.`
 
-    Yalnızca farklı bir cihaz açın kopyalama, bu hata alınır. Yerel olarak sabitlenmiş geçici kopya kalıcı bir kopya ilk dönüştürürseniz birimi başarıyla dönüştürebilirsiniz. Kalıcı bir kopya dönüştürmek için geçici kopya bir bulut anlık görüntüsünü.
+    Yalnızca tooa farklı cihazda kopyalama, bu hata alınır. Merhaba geçici kopya tooa kalıcı kopya ilk dönüştürürseniz sabitlenmiş hello birim toolocally başarıyla dönüştürebilirsiniz. Merhaba geçici kopya tooconvert bir bulut anlık görüntüsünü, tooa kalıcı kopya.
 
 ## <a name="create-a-clone-of-a-volume"></a>Bir birimin bir kopyasını oluşturun
 
-Yerel kullanarak aynı aygıt, başka bir aygıt veya Bulut uygulaması bir kopya oluşturabilirsiniz veya Bulut anlık görüntüsü.
+Kopya oluşturma hello aynı aygıt, başka bir aygıt veya Bulut uygulaması yerel kullanarak veya Bulut anlık görüntü.
 
-Aşağıdaki yordamda bir kopya yedekleme Kataloğu'ndan oluşturmayı açıklar.  Gitmek için kopya başlatmak için alternatif bir yöntemi olan **birimleri**, bir birim seçin, sağ tıklatarak bağlam menüsü çağırma ve seçmek için **kopya**.
+Aşağıdaki Hello yordamı nasıl toocreate hello bir kopya yedekleme kataloğu açıklar.  Alternatif yöntem tooinitiate kopya toogo çok uzun**birimleri**bir birim seçin, sonra tooinvoke hello bağlam menüsü sağ tıklatın ve seçin **kopya**.
 
-Yedekleme Kataloğu'ndan biriminiz bir kopyasını oluşturmak için aşağıdaki adımları gerçekleştirin.
+Merhaba yedekleme Kataloğu'ndan adımları toocreate biriminiz kopyasını aşağıdaki hello gerçekleştirin.
 
-#### <a name="to-clone-a-volume"></a>Birim kopyalama
+#### <a name="tooclone-a-volume"></a>tooclone bir birim
 
-1. StorSimple cihaz Yöneticisi hizmetinize gidin ve ardından **yedekleme kataloğu**.
+1. Tooyour StorSimple cihaz Yöneticisi hizmeti gidin ve ardından **yedekleme kataloğu**.
 
 2. Bir yedekleme kümesi aşağıdaki gibi seçin:
    
-   1. Uygun cihazı seçin.
-   2. Aşağı açılan listesinde, seçmek istediğiniz yedekleme için birim veya yedekleme ilkesini seçin.
-   3. Zaman aralığı belirtin.
-   4. Tıklatın **Uygula** bu sorguyu yürütmek için.
+   1. Merhaba uygun cihazı seçin.
+   2. Merhaba aşağı açılan listesinde, tooselect istediğiniz hello yedekleme için hello birim veya yedekleme ilkesini seçin.
+   3. Merhaba zaman aralığı belirtin.
+   4. Tıklatın **Uygula** tooexecute bu sorgu.
 
-    Yedekleme seçili birimle ilişkilendirilen veya yedekleme İlkesi yedekleme kümelerini listesinde görüntülenmelidir.
+    Merhaba seçili hello birim veya yedekleme ilkesiyle ilişkili yedeklemeler yedekleme kümelerini hello listesinde görüntülenmelidir.
    
     ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. İlişkili birimleri görüntülemek için yedekleme kümesini genişletin. Geri yüklemeden önce bu birimleri ana bilgisayar ve aygıt çevrimdışına alınması gerekir. Birimleri erişimi **birimleri** Cihazınızı dikey ve adımları izleyin [bir birim çevrimdışına](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) çevrimdışı duruma getirmek için.
+3. Merhaba yedekleme kümesi tooview ilişkili hello birimleri genişletin. Geri yüklemeden önce bu birimleri hello ana bilgisayar ve aygıt çevrimdışına alınması gerekir. Erişim hello hello birimlerde **birimleri** dikey cihaz ve ardından izleme hello adımları [bir birim çevrimdışına](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) tootake çevrimdışı.
    
    > [!IMPORTANT]
-   > Çevrimdışı birimler cihazda olabilmesi birimlerde çevrimdışı konak ilk olarak, gerçekleştirdiğinizden emin olun. Konakta birimler çevrimdışı almazsanız, olası veri bozulmasına yol açabilir.
+   > Merhaba aygıtta çevrimdışı hello birimleri olabilmesi hello birimlerde çevrimdışı hello konak ilk olarak, gerçekleştirdiğinizden emin olun. Merhaba konakta çevrimdışı hello birimleri almazsanız, büyük olasılıkla toodata bozulmasına yol açabilir.
    
-4. Geri gidin **yedekleme kataloğu** ve yedekleme kümesinde bir birim seçin. Sağ tıklayın ve ardından bağlam menüsünden seçin **kopya**.
+4. Geri toohello gidin **yedekleme kataloğu** ve yedekleme kümesinde bir birim seçin. Sağ tıklayın ve ardından hello bağlam menüsünden seçin **kopya**.
 
    ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 
-3. İçinde **kopya** dikey penceresinde, aşağıdaki adımları uygulayın:
+3. Merhaba, **kopya** dikey penceresinde, adımları hello:
    
-    1. Bir hedef cihaz tanımlayın. Bu, kopyanın oluşturulacağı konumdur. Aynı aygıt seçin veya başka bir aygıt belirtin.
+    1. Bir hedef cihaz tanımlayın. Bu hello kopya oluşturulacağı hello konumdur. Merhaba aynı cihaz veya başka bir aygıt belirtmek seçebilirsiniz.
 
       > [!NOTE]
-      > Kopya için gereken kapasiteyi hedef cihazda kullanılabilir kapasiteden daha düşük olduğundan emin olun.
+      > Merhaba kopyalama için gereken hello kapasite hello hedef cihazda kullanılabilir hello kapasitesinden daha düşük olduğundan emin olun.
        
-    2. Kopya için benzersiz birim adı belirtin. Adı 3 ile 127 karakter içermelidir.
+    2. Kopya için benzersiz birim adı belirtin. Merhaba ad 3 ile 127 karakter içermelidir.
       
         > [!NOTE]
-        > **Kopya birim olarak** alan **katmanlı** yerel olarak sabitlenmiş bir birim kopyalama olsa bile. Bu ayarı değiştiremezsiniz; Ancak, yerel olarak da sabitlenmelidir kopyalanan birimi gerekiyorsa, kopya yerel olarak sabitlenmiş bir birim dönüştürebilir, kopya başarıyla oluşturduktan sonra. Yerel olarak sabitlenmiş bir birim için katmanlı birim dönüştürme hakkında daha fazla bilgi için Git [birim türünü değiştirme](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
+        > Merhaba **kopya birim olarak** alan **katmanlı** yerel olarak sabitlenmiş bir birim kopyalama olsa bile. Bu ayarı değiştiremezsiniz; Bununla birlikte, kopyalanan birim toobe de yerel olarak sabitlenmiş hello varsa, hello kopya başarıyla oluşturduktan sonra hello kopya tooa yerel olarak sabitlenmiş birim dönüştürebilirsiniz. Çok katmanlı birim tooa yerel olarak dönüştürme hakkında bilgi sabitlenmiş birim için Git[değiştirmek hello birim türü](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
           
-    3. Altında **bağlı Konaklar**, kopya için bir erişim denetimi kaydı (ACR) belirtin. Yeni bir ACR ekleyebilir veya var olan listeden seçin. ACR hangi ana bilgisayarların bu kopya erişebilirsiniz belirler.
+    3. Altında **bağlı Konaklar**, hello kopya için bir erişim denetimi kaydı (ACR) belirtin. Yeni bir ACR ekleyebilir veya hello varolan listeden seçin. Merhaba ACR hangi ana bilgisayarların bu kopya erişebilirsiniz belirler.
       
         ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
-    4. Tıklatın **kopya** işlem tamamlanamadı.
+    4. Tıklatın **kopya** toocomplete hello işlemi.
 
-4. Bir kopya iş başlatılır ve kopya başarıyla oluşturulduğunda size bildirilir. İş bildirimi tıklatın veya gitmek **işleri** kopya işi izlemek için dikey penceresini.
+4. Bir kopya iş başlatılır ve hello kopya başarıyla oluşturulduğunda size bildirilir. Merhaba iş bildirimi tıklatın ya da çok Git**işleri** dikey toomonitor hello kopyalama işi.
 
     ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
 
-7. Kopya işi tamamlandıktan sonra aygıtınıza gidin ve ardından **birimleri**. Birimleri listesinde, yeni kaynak biriminin aynı birim kapsayıcısı oluşturuldu kopya görmeniz gerekir.
+7. Merhaba kopya işi tamamlandıktan sonra tooyour aygıt gidin ve ardından **birimleri**. Birimleri Hello listesinde hello aynı az önce oluşturulan hello kopya görmelisiniz hello kaynak biriminin birim kapsayıcısı.
 
     ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 
@@ -108,20 +108,20 @@ Bu yolla oluşturulan bir kopya geçici kopya ' dir. Kopya türleri hakkında da
 
 
 ## <a name="transient-vs-permanent-clones"></a>Geçici ve kalıcı klonlar karşılaştırması
-Yalnızca başka bir cihaza kopyaladığınızda geçici klonlar oluşturulur. Bir yedekleme kümesi için farklı bir cihaz StorSimple cihaz Yöneticisi tarafından yönetilen belirli bir birimden kopyalayabilirsiniz. Geçici kopya özgün birimin verilere başvuru vardır ve okuma ve yerel olarak hedef cihazda yazmak için bu verileri kullanır.
+Yalnızca tooanother aygıt kopyaladığınızda geçici klonlar oluşturulur. Merhaba StorSimple cihaz Yöneticisi tarafından yönetilen bir yedekleme kümesi tooa farklı bir cihaz belirli bir birimden kopyalayabilirsiniz. Merhaba geçici kopya hello özgün birimin başvuruları toohello veri vardır ve bu verileri tooread ve yazma hello hedef cihazda yerel olarak kullanır.
 
-Bir geçici kopya bir bulut anlık görüntüsünü sonra sonuçta elde edilen kopya olan bir *kalıcı* kopya. Bu işlem sırasında verilerin bir kopyasını Bulutu üzerinde oluşturulur ve bu verileri kopyalamak için saat veri ve (bir Azure Azure kopyalama budur) Azure gecikmeleri boyutu tarafından belirlenir. Bu işlem için hafta gün sürebilir. Geçici kopya kalıcı bir kopya olur ve tüm başvuruları gelen kopyalandı özgün birimin verilere sahip değil.
+Bir geçici kopya bir bulut anlık görüntüsünü sonra hello elde edilen kopya olan bir *kalıcı* kopya. Bu işlem sırasında hello verilerin bir kopyasını hello Bulutu üzerinde oluşturulur ve bu verileri hello veri hello boyutu tarafından belirlenir zaman toocopy hello ve (bir Azure Azure kopyalama budur) Azure gecikmeleri hello. Bu işlem gün tooweeks alabilir. Merhaba geçici kopya kalıcı bir kopya olur ve gelen kopyalandı tüm başvuruları toohello özgün birimin verileri yok.
 
 ## <a name="scenarios-for-transient-and-permanent-clones"></a>Geçici ve kalıcı klonlar senaryoları
-Aşağıdaki bölümlerde geçici ve kalıcı klonlar kullanılabilir örnek durumlar açıklanmaktadır.
+Aşağıdaki bölümlerde hello geçici ve kalıcı klonlar kullanılabilir örnek durumlar açıklanmaktadır.
 
 ### <a name="item-level-recovery-with-a-transient-clone"></a>Geçici bir kopya ile öğe düzeyinde kurtarma
-Bir yıl eski Microsoft PowerPoint sunusu dosyası kurtarmak gerekir. BT yöneticiniz bu süre belirli yedekten tanımlar ve birim filtreler. Yönetici daha sonra birim klonlar, aradığınız dosya bulur ve olanak sağlar. Bu senaryoda, bir geçici kopya kullanılır.
+Toorecover bir yıl eski Microsoft PowerPoint sunusu dosyası gerekir. BT yöneticiniz hello belirli saat yedekten tanımlar ve ardından birim filtreleri hello. Hello Yöneticisi sonra hello birim klonlar, aradığınız hello dosyayı bulur ve tooyou sağlar. Bu senaryoda, bir geçici kopya kullanılır.
 
-### <a name="testing-in-the-production-environment-with-a-permanent-clone"></a>Kalıcı bir kopya ile üretim ortamında test etme
-Üretim ortamında test hata doğrulamanız gerekir. Üretim ortamında birimin bir kopyasını oluşturun ve sonra bu kopya bağımsız kopyalanan birim oluşturmak için bir bulut anlık görüntüsünü. Bu senaryoda, kalıcı bir kopya kullanılır.
+### <a name="testing-in-hello-production-environment-with-a-permanent-clone"></a>Kalıcı bir kopya ile Merhaba üretim ortamında test etme
+Tooverify hello üretim ortamında test hata gerekir. Merhaba üretim ortamında hello birimin bir kopyasını oluşturun ve sonra bu kopya toocreate bağımsız kopyalanan birimin bir bulut anlık görüntüsünü. Bu senaryoda, kalıcı bir kopya kullanılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi edinmek için nasıl [bir yedeklemek kümesinden StorSimple birimini geri](storsimple-8000-restore-from-backup-set-u2.md).
-* Bilgi edinmek için nasıl [StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-8000-manager-service-administration.md).
+* Nasıl çok öğrenin[bir yedeklemek kümesinden StorSimple birimini geri](storsimple-8000-restore-from-backup-set-u2.md).
+* Nasıl çok öğrenin[kullanım StorSimple Cihazınızı StorSimple cihaz Yöneticisi hizmeti tooadminister hello](storsimple-8000-manager-service-administration.md).
 

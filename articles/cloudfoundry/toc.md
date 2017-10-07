@@ -2,7 +2,7 @@
 # Hızlı Başlangıçlar
 ## [Market şablonu](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)
 # Öğreticiler
-## [CF Uygulamasını Azure’a dağıtma](/azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app)
+## [CF uygulama tooAzure dağıtma](/azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app)
 ## [Azure üzerinde CloudFoundry](/azure/virtual-machines/linux/cloudfoundry-get-started)
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

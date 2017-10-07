@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyon karma Runbook çalışanları | Microsoft Docs"
-description: "Bu makalede, yükleme ve yerel veri merkezinde veya Bulut sağlayıcısı makinelerde runbook'lar çalıştırmanıza olanak sağlayan Azure Automation'ın bir özellik olan karma Runbook çalışanı kullanma hakkında bilgiler sağlar."
+title: "aaaAzure Otomasyon karma Runbook çalışanları | Microsoft Docs"
+description: "Bu makalede, yükleme ve toorun runbook'ları, yerel veri merkezi ya da bulut sağlayıcınız makinelerde sağlayan Azure Automation'ın bir özellik olan karma Runbook çalışanı kullanma hakkında bilgiler sağlar."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,160 +14,160 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 67aa0f407fd669df559ce1a8d411650158462aef
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ccee35e8324149a79ff692a867e5ce7801299bcb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Veri merkezi veya karma Runbook çalışanı ile bulut kaynakları otomatikleştirme
-Azure bulutta çalışan beri Azure Otomasyonu'nda Runbook'lar diğer Bulut veya şirket içi ortamınız kaynaklarına erişemez.  Azure Otomasyon karma Runbook çalışanı özelliği runbook'ları doğrudan rolünü barındıran bilgisayarda ve bu yerel kaynakları yönetmek için ortamında kaynaklara karşı çalıştırmanıza olanak sağlar. Runbook'ları depolanan ve Azure Otomasyonu'nda yönetilir ve bir veya daha fazla atanmış bilgisayarlara teslim.  
+Hello Azure bulut çalıştırdıkları beri Azure Otomasyonu'nda Runbook'lar diğer Bulut veya şirket içi ortamınız kaynaklarına erişemez.  Merhaba karma Runbook çalışanı Özelliği Azure Automation'ın toorun runbook'ları doğrudan hello rolünü barındıran hello bilgisayarda ve hello ortamı toomanage kaynaklara karşı bu yerel kaynakları sağlar. Runbook'ları depolanan ve Azure Otomasyonu'nda yönetilir ve tooone veya daha fazla atanmış bilgisayarlara teslim.  
 
-Bu işlevsellik aşağıdaki resimde gösterilmiştir:<br>  
+Bu işlev görüntü aşağıdaki hello gösterilmiştir:<br>  
 
 ![Karma Runbook çalışanı genel bakış](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
-Karma Runbook çalışanı rolü ve dağıtım konuları teknik bir genel bakış için bkz: [Otomasyon mimarisine genel bakış](automation-offering-get-started.md#automation-architecture-overview).    
+Merhaba karma Runbook çalışanı rolü ve dağıtım konuları teknik bir genel bakış için bkz: [Otomasyon mimarisine genel bakış](automation-offering-get-started.md#automation-architecture-overview).    
 
 ## <a name="hybrid-runbook-worker-groups"></a>Karma Runbook çalışan grupları
-Her karma Runbook çalışanı aracı yüklediğinizde, belirttiğiniz bir karma Runbook çalışanı grubunun bir üyesidir.  Bir gruba bir aracıyı ekleyebilirsiniz, ancak yüksek kullanılabilirlik grubunda birden çok aracı yükleyebilirsiniz.
+Her karma Runbook çalışanı hello aracı yüklediğinizde, belirttiğiniz bir karma Runbook çalışanı grubunun bir üyesidir.  Bir gruba bir aracıyı ekleyebilirsiniz, ancak yüksek kullanılabilirlik grubunda birden çok aracı yükleyebilirsiniz.
 
-Bir karma Runbook çalışanını bir runbook'u başlattığınızda, üzerinde çalıştığı grubu belirtin.  Grubun üyelerini isteği hangi çalışan hizmetleri belirleyin.  Belirli bir çalışan belirtemezsiniz.
+Bir karma Runbook çalışanını bir runbook'u başlattığınızda, üzerinde çalıştığı hello grubu belirtin.  Merhaba grubunun üyeleri, hello hello isteği hangi çalışan hizmetleri belirleyin.  Belirli bir çalışan belirtemezsiniz.
 
-## <a name="relationship-to-service-management-automation"></a>Hizmet Yönetimi Otomasyonu ilişkisi
-[Service Management Automation (SMA)](https://technet.microsoft.com/library/dn469260.aspx) , yerel veri merkezinde Azure Automation tarafından desteklenen aynı runbook'ları çalıştırmanızı sağlar. Windows Azure Pack SMA yönetimi için bir grafik arabirim içerdiğinden SMA genellikle Windows Azure paketi ile birlikte dağıtılır. Azure Otomasyonu, SMA runbook'ları ve SMA yapılandırmayı içeren veritabanı API ve Runbook çalışanları runbook işleri yürütmek için barındırmak için web sunucuları içeren yerel bir yükleme gerektirir. Azure Otomasyonu bulutta bu hizmetleri sağlar ve yalnızca yerel ortamınızdaki karma Runbook çalışanları korumak gerektirir.
+## <a name="relationship-tooservice-management-automation"></a>İlişki tooService Yönetimi Otomasyonu
+[Service Management Automation (SMA)](https://technet.microsoft.com/library/dn469260.aspx) sağlar toorun Merhaba, yerel veri merkezinde Azure Automation tarafından desteklenen aynı runbook'ları. Windows Azure Pack SMA yönetimi için bir grafik arabirim içerdiğinden SMA genellikle Windows Azure paketi ile birlikte dağıtılır. Azure Otomasyonu, SMA web sunucuları toohost hello API, bir veritabanı toocontain runbook'ları ve SMA yapılandırma ve Runbook çalışanları tooexecute runbook işleri içeren yerel bir yükleme gerektirir. Azure Otomasyonu hello bulutta bu hizmetler sağlar ve yalnızca yerel ortamınızdaki toomaintain hello karma Runbook çalışanları gerektirir.
 
-Varolan bir SMA kullanıcı varsa, Azure Automation'ın herhangi bir değişiklik yapmadan karma Runbook çalışanı ile kullanılan, kendi kimlik doğrulaması kaynaklarına gerçekleştirdikleri varsayılarak açıklandığı üzere runbook'larınızın taşıyabilirsiniz [runbook'lar bir karma Runbook üzerinde çalışır Çalışan](automation-hrw-run-runbooks.md).  SMA runbook'ları, bu kimlik doğrulaması runbook'ları için sağlayabilir çalışan sunucu üzerindeki hizmet hesabı bağlamında çalışır.
+Varolan bir SMA kullanıcı varsa, bunlar açıklandığı gibi kendi kimlik doğrulama tooresources gerçekleştireceğini varsayılarak herhangi bir değişiklik yapmadan karma Runbook çalışanı ile kullanılan, runbook'ları tooAzure Otomasyon toobe taşıyabilirsiniz [runbook'lar bir karma Runbook üzerinde çalışır Çalışan](automation-hrw-run-runbooks.md).  Merhaba hizmet hesabı, kimlik doğrulamasının hello runbook'lar için sağlayabilir hello çalışan sunucu üzerindeki hello bağlamında SMA runbook'ları çalıştırın.
 
-Azure Otomasyon karma Runbook çalışanı ya da hizmet yönetimi Otomasyonu ile gereksinimleriniz için daha uygun olup olmadığını belirlemek için aşağıdaki ölçütleri kullanabilirsiniz.
+Azure Otomasyon karma Runbook çalışanı ya da hizmet yönetimi Otomasyonu ile gereksinimleriniz için daha uygun olup olmadığını ölçütleri toodetermine aşağıdaki hello kullanabilirsiniz.
 
-* SMA grafiksel Yönetim arabirimine gerekiyorsa, Windows Azure Pack bağlı temel bileşenlerinin yerel bir yükleme gerektirir. Daha fazla yerel kaynaklar yalnızca yerel runbook çalışanları üzerinde yüklü bir aracı gereken Azure Otomasyonu daha yüksek bakım maliyetleri gereklidir. Aracılar daha fazla bakım maliyetlerini azaltmak Operations Management Suite tarafından yönetilir.
-* Azure Otomasyonu runbook bulutta depolar ve bunları şirket içi karma Runbook çalışanları için sunar. Güvenlik ilkeniz Bu davranış izin vermez, SMA kullanmanız gerekir.
+* SMA grafiksel Yönetim arabirimine gerekliyse, bağlı tooWindows Azure Pack bileşenlerinin temel alınan yerel olarak yüklenmesini gerektirir. Daha fazla yerel kaynaklar yalnızca yerel runbook çalışanları üzerinde yüklü bir aracı gereken Azure Otomasyonu daha yüksek bakım maliyetleri gereklidir. Merhaba aracıları daha fazla bakım maliyetlerini azaltmak Operations Management Suite tarafından yönetilir.
+* Azure Otomasyonu runbook hello bulutta depolar ve bunları tooon içi karma Runbook çalışanları sunar. Güvenlik ilkeniz Bu davranış izin vermez, SMA kullanmanız gerekir.
 * System Center ile SMA bulunur; ve bu nedenle, System Center 2012 R2 lisansı gerektirir. Azure Otomasyonu, bir katmanlı abonelik modeline dayanır.
 * Azure Otomasyonu Gelişmiş Özellikler SMA'da kullanılamaz grafik runbook'lar gibi.
 
-## <a name="installing-the-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı yükleme 
+## <a name="installing-hello-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı Hello yükleme 
 
-Yüklemek ve bir Windows karma Runbook çalışanı yapılandırmak için iki yöntemi vardır.  Önerilen yöntem, tam bir Windows bilgisayarı yapılandırmak için gerekli işlemini otomatikleştirmek için bir Otomasyon runbook'u kullanıyor.  İkinci yöntem, el ile rolünü yüklemek ve yapılandırmak için adım adım bir yordam takip ediyor.  
+tooinstall ve bir Windows karma Runbook çalışanı yapılandırma, kullanılabilir iki yöntem vardır.  Merhaba önerilen yöntemiyle bir Otomasyon runbook toocompletely otomatikleştirmek hello işlem gerekli tooconfigure bir Windows bilgisayar.  Merhaba ikinci yöntem, bir adım adım yordam toomanually yükleme aşağıdaki ve hello yapılandırın.  
 
 > [!NOTE]
-> İstenen durum yapılandırması (DSC) ile karma Runbook çalışanı rolü destekleyen sunucularınızın yapılandırmasını yönetmek için DSC düğümleri olarak eklemeniz gerekir.  Ekleme hakkında daha fazla bilgi için DSC ile yönetimine görebileceği [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md).           
+> toomanage hello yapılandırma hello karma Runbook çalışanı rolü istenen durum yapılandırması (DSC) ile destekleme sunucularınızın tooadd ihtiyacınız DSC düğümleri olarak bunları.  Ekleme hakkında daha fazla bilgi için DSC ile yönetimine görebileceği [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md).           
 ><br>
->Etkinleştirirseniz, [güncelleştirme yönetimi çözümü](../operations-management-suite/oms-solution-update-management.md), OMS çalışma alanına bağlı herhangi bir Windows bilgisayarı otomatik olarak bu çözümde bulunan runbook'ları desteklemek için bir karma Runbook çalışanı olarak yapılandırılır.  Ancak, bu Otomasyon hesabında zaten tanımlanmış bir karma çalışanı grubu kayıtlı değil.  Bilgisayar grubuna Otomasyon runbook'ları çözüm ve karma Runbook çalışanı grup üyeliği için aynı hesabı kullanarak sürece desteklemek için bir karma Runbook çalışanı Otomasyon hesabınızda eklenebilir.  Bu işlev Karma Runbook Çalışanının 7.2.12024.0 sürümüne eklenmiştir.  
+>Merhaba etkinleştirirseniz [güncelleştirme yönetimi çözümü](../operations-management-suite/oms-solution-update-management.md), herhangi bir Windows bilgisayarda bağlı tooyour OMS çalışma bu çözümde bulunan karma Runbook çalışanı toosupport runbook'lar otomatik olarak yapılandırılır.  Ancak, bu Otomasyon hesabında zaten tanımlanmış bir karma çalışanı grubu kayıtlı değil.  Merhaba çözüm ve karma Runbook çalışanı grup üyeliği için aynı hesabı hello kullanmakta olduğunuz sürece hello bilgisayar, Otomasyon hesabı toosupport Otomasyon runbook'ları tooa karma Runbook çalışanı grubu eklenebilir.  Bu işlev tooversion 7.2.12024.0 hello karma Runbook çalışanı olarak eklendi.  
 
-Aşağıdaki bilgileri gözden geçirin ilgili [donanım ve yazılım gereksinimleri](automation-offering-get-started.md#hybrid-runbook-worker) ve [ağınıza hazırlamaya yönelik bilgi](automation-offering-get-started.md#network-planning) bir karma Runbook çalışanı dağıtmaya başlamadan önce.  Bir runbook worker başarıyla dağıttıktan sonra gözden [runbook'lar bir karma Runbook çalışanı üzerinde çalışacak](automation-hrw-run-runbooks.md) runbook'larınızın, şirket içi veri merkezi ya da diğer bulut ortamı süreçlerini otomatikleştirmek için yapılandırma hakkında bilgi edinmek için.  
+Gözden geçirme hello hello ilgili bilgiler aşağıdaki [donanım ve yazılım gereksinimleri](automation-offering-get-started.md#hybrid-runbook-worker) ve [ağınıza hazırlamaya yönelik bilgi](automation-offering-get-started.md#network-planning) bir karma Runbook çalışanı dağıtmaya başlamadan önce.  Bir runbook worker başarıyla dağıttıktan sonra gözden [runbook'lar bir karma Runbook çalışanı üzerinde çalışacak](automation-hrw-run-runbooks.md) toolearn, şirket içi veri merkezi veya başka bir bulut ortamında tooconfigure runbook'lar tooautomate nasıl işler.  
  
 ### <a name="automated-deployment"></a>Otomatik dağıtım
 
-Yükleme ve Windows karma çalışan rolü yapılandırmasını otomatik hale getirmek için aşağıdaki adımları gerçekleştirin.  
+Hello aşağıdaki gerçekleştirme adımları tooautomate hello yükleme ve yapılandırma hello Windows karma çalışanı rolü.  
 
-1. Karşıdan *yeni OnPremiseHybridWorker.ps1* betikten [PowerShell Galerisi](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) doğrudan karma Runbook çalışanı rolünü çalıştıran bilgisayara veya başka bir bilgisayardan, ortamınızdaki ve çalışana kopyalayın.  
+1. Merhaba karşıdan *yeni OnPremiseHybridWorker.ps1* hello betikten [PowerShell Galerisi](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) hello karma Runbook çalışanı rolü çalıştıran bilgisayardan doğrudan hello veya başka bir bilgisayardan, ortam ve toohello çalışan kopyalayın.  
 
-    *Yeni OnPremiseHybridWorker.ps1* komut dosyası yürütme sırasında aşağıdaki parametreleri gerektirir:
+    Merhaba *yeni OnPremiseHybridWorker.ps1* komut dosyası yürütme sırasında şu parametreler hello gerektirir:
 
-  * *AutomationAccountName* (zorunlu) - Otomasyon hesabınızın adını.  
-  * *ResourceGroupName* (zorunlu) - kaynak grubunun adını Otomasyon hesabınızla ilişkilendirilmiş.  
-  * *HybridGroupName* (zorunlu) - Bu senaryoyu destekleyen runbook'ları için hedef olarak belirttiğiniz bir karma Runbook çalışanı grubunun adı. 
-  *  *Subscriptionıd* (zorunlu) - Automation hesabınız olarak Azure abonelik kimliği.
-  *  *WorkspaceName* (isteğe bağlı) - OMS çalışma alanı adı.  Bir OMS çalışma alanı yoksa, komut dosyası oluşturur ve bir yapılandırır.  
+  * *AutomationAccountName* (zorunlu) - hello Otomasyon hesabınızın adını.  
+  * *ResourceGroupName* (zorunlu) - hello Otomasyon hesabınızla ilişkili hello kaynak grubunun adını.  
+  * *HybridGroupName* (zorunlu) - hello runbook'lar bu senaryoyu desteklemek için hedef olarak belirttiğiniz bir karma Runbook çalışanı grubunun hello adı. 
+  *  *Subscriptionıd* (zorunlu) - Azure abonelik kimliği'de, Automation hesabınızı bulunduğu hello.
+  *  *WorkspaceName* (isteğe bağlı) - hello OMS çalışma alanı adı.  Bir OMS çalışma alanı yoksa, hello betiği oluşturur ve bir yapılandırır.  
 
      > [!NOTE]
-     > Şu anda OMS ile tümleştirme için desteklenen tek Otomasyon bölgeleri şunlardır: - **Avustralya Güneydoğu**, **Doğu ABD 2**, **Güneydoğu Asya**, ve **Batı Avrupa** .  Otomasyon hesabınızı bu bölgeler içinde değilse, komut dosyasını bir OMS çalışma alanı oluşturur ama, bunları birlikte bağlayamazsınız, sizi uyarır.
+     > Şu anda hello OMS ile tümleştirme için desteklenen tek Otomasyon bölgeleri şunlardır: - **Avustralya Güneydoğu**, **Doğu ABD 2**, **Güneydoğu Asya**, ve **Batı Avrupa**.  Otomasyon hesabınızı bu bölgeler içinde değilse, bir OMS çalışma hello komut dosyası oluşturur ama, bunları birlikte bağlayamazsınız, sizi uyarır.
      > 
-2. Bilgisayarınızda Başlat **Windows PowerShell** gelen **Başlat** ekran Yönetici modunda.  
-3. PowerShell komut satırı kabuğundan indirilir ve bu parametrelerin değerlerini değiştirme yürütmek komut dosyasını içeren klasöre gidin *- AutomationAccountName*, *- ResourceGroupName*, *- HybridGroupName*, *- Subscriptionıd*, ve *- WorkspaceName*.
+2. Bilgisayarınızda Başlat **Windows PowerShell** hello gelen **Başlat** ekran Yönetici modunda.  
+3. PowerShell komut satırı kabuğu Hello indirilir ve bunu parametrelerinin hello değerleri değiştirme yürütme hello betik içeren toohello klasörüne gidin *- AutomationAccountName*, *- ResourceGroupName* , *- HybridGroupName*, *- Subscriptionıd*, ve *- WorkspaceName*.
 
      > [!NOTE] 
-     > Betiği yürüttükten sonra Azure kimlik doğrulaması istenir.  **Gerekir** abonelik Yöneticileri rolünün üyesi ve aboneliğin ortak yöneticisi olan bir hesapla oturum açın.  
+     > Hello betiği yürüttükten sonra Azure ile istendiğinde tooauthenticate olursunuz.  **Gerekir** hello abonelik Yöneticileri rolünün üyesi ve hello aboneliğinin ortak yöneticisi olan bir hesapla oturum açın.  
      >  
     
         .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> `
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
 
-4. Yüklemeyi kabul istenir **NuGet** ve Azure kimlik bilgilerinizle kimliğinizi isteyip istemediğiniz sorulur.<br><br> ![Yeni OnPremiseHybridWorker betik yürütme işlemi](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
+4. İstendiğinde tooagree tooinstall olduğunuz **NuGet** ve istendiğinde tooauthenticate Azure kimlik bilgilerinizle.<br><br> ![Yeni OnPremiseHybridWorker betik yürütme işlemi](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
-5. Komut dosyası tamamlandıktan sonra karma çalışan grupları dikey penceresinde yeni Grup ve üye sayısı gösterilir veya varolan bir grubu, üye sayısı artar.  Grup listesinden seçebilirsiniz **karma çalışan grupları** dikey penceresinde ve select **karma çalışanları** döşeme.  Üzerinde **karma çalışanları** dikey penceresi, her listelenen grubunun üyesi bakın.  
+5. Merhaba betik tamamlandıktan sonra hello karma çalışan grupları dikey penceresinde hello yeni Grup ve üye sayısı gösterilir veya varolan bir grubu, üye hello sayısı artar.  Merhaba üzerinde hello listesinden hello grup seçebilirsiniz **karma çalışan grupları** dikey penceresinde ve select hello **karma çalışanları** döşeme.  Merhaba üzerinde **karma çalışanları** dikey penceresinde hello Grup listelenen her bir üyesi bakın.  
 
 ### <a name="manual-deployment"></a>El ile dağıtımı 
-İlk iki adımı Otomasyon ortamınız için bir kez gerçekleştirin ve sonra her bir çalışan bilgisayar için kalan adımları yineleyin.
+Merhaba ilk iki kez Otomasyon ortamınız için adımları ve her bir çalışan bilgisayar adımları kalan hello yineleyin.
 
 #### <a name="1-create-operations-management-suite-workspace"></a>1. Operations Management Suite çalışma alanı oluşturma
 Bir Operations Management Suite çalışma alanı zaten yoksa yönergeleri kullanarak bir tane oluşturmak [çalışma alanınızı yönetmek](../log-analytics/log-analytics-manage-access.md). Zaten varsa, varolan bir çalışma alanını kullanabilirsiniz.
 
-#### <a name="2-add-automation-solution-to-operations-management-suite-workspace"></a>2. Otomasyon çözümünü Operations Management Suite çalışma alanına ekleyin
-Çözümleri işlevselliği için Operations Management Suite ekleyin.  Otomasyon çözümünü Azure Otomasyon karma Runbook çalışanı desteği dahil olmak üzere için işlevsellik ekler.  Çözüm, çalışma alanına eklediğinizde, otomatik olarak çalışan bileşenleri sonraki adımda yükleyecek aracı bilgisayar için iter.
+#### <a name="2-add-automation-solution-toooperations-management-suite-workspace"></a>2. Otomasyon çözümünü tooOperations Management Suite çalışma alanı Ekle
+Çözümleri işlevselliği tooOperations Management Suite ekleyin.  Merhaba Otomasyon çözümünü Azure Otomasyon karma Runbook çalışanı desteği dahil olmak üzere için işlevsellik ekler.  Merhaba çözüm tooyour çalışma eklediğinizde, otomatik olarak hello sonraki adımda yükleyecek çalışan bileşenleri toohello aracı bilgisayar aşağı iter.
 
-Bölümündeki yönergeleri izleyin [Çözümleri Galerisi kullanarak bir çözüm eklemek için](../log-analytics/log-analytics-add-solutions.md) eklemek için **Otomasyon** Operations Management Suite çalışma alanınızı çözüme.
+Merhaba yönergeleri izleyin [tooadd hello Çözümleri Galerisi kullanarak bir çözüm](../log-analytics/log-analytics-add-solutions.md) tooadd hello **Otomasyon** çözüm tooyour Operations Management Suite çalışma.
 
-#### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Microsoft Monitoring Agent Yükleme
-Microsoft Monitoring Agent, Operations Management Suite bilgisayarlara bağlanır.  Şirket içi bilgisayarınıza aracıyı yüklemek ve alanınıza bağlanın, karma Runbook çalışanı için gerekli bileşenleri otomatik olarak indirir.
+#### <a name="3-install-hello-microsoft-monitoring-agent"></a>3. Merhaba Microsoft İzleme Aracısı yükleme
+Merhaba Microsoft İzleme Aracısı Bilgisayarları tooOperations Management Suite bağlanır.  Şirket içi bilgisayarınıza hello aracı yüklediğinizde ve tooyour çalışma bağlayın karma Runbook çalışanı için gerekli hello bileşenleri otomatik olarak indirir.
 
-Bölümündeki yönergeleri izleyin [günlük analizi bağlanmak Windows bilgisayarlara](../log-analytics/log-analytics-windows-agents.md) şirket içi bilgisayara aracı yüklemek için.  Birden çok Worker ortamınıza eklemek için birden çok bilgisayar için bu işlemi yineleyebilirsiniz.
+Merhaba yönergeleri izleyin [bağlanmak Windows bilgisayarları tooLog Analytics](../log-analytics/log-analytics-windows-agents.md) hello şirket içi bilgisayarda tooinstall hello Aracısı.  Birden çok çalışanları tooyour ortamı için birden çok bilgisayar tooadd bu işlemi yineleyebilirsiniz.
 
-Aracı başarıyla Operations Management Suite bağlandığında, üzerinde listelenecektir **bağlı kaynakları** Operations Management Suite sekmesinde **ayarları** bölmesi.  Adlı bir klasör varsa, aracı doğru Otomasyon çözümünü indirdiğini doğrulamak **AzureAutomationFiles** C:\Program Files\Microsoft Monitoring Agent\Agent içinde.  Karma Runbook çalışanı sürümünü onaylamak için C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ ve Not gezinebilirsiniz \\ *sürüm* alt klasörü.   
+Merhaba Aracısı başarıyla tooOperations Management Suite bağlandığında, üzerinde hello listelenecektir **bağlı kaynakları** hello Operations Management Suite sekmesinde **ayarları** bölmesi.  Bu hello aracı karşıdan düzgün hello Otomasyon çözümünü adlı bir klasör olduğunda doğrulayabilirsiniz **AzureAutomationFiles** C:\Program Files\Microsoft Monitoring Agent\Agent içinde.  Merhaba sürümü hello karma Runbook çalışanı tooconfirm, tooC:\Program Files\Microsoft izleme Agent\Agent\AzureAutomation\ ve Not hello gidin \\ *sürüm* alt klasörü.   
 
-#### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Runbook ortamını yüklemek ve Azure Otomasyonu bağlanın
-Bir aracı Operations Management Suite eklediğinizde, Otomasyon çözümünü iter **HybridRegistration** içeren PowerShell Modülü **Add-HybridRunbookWorker** cmdlet'i.  Bu cmdlet, bilgisayarda runbook ortamını yüklemek ve Azure Automation ile kaydetmek için kullanın.
+#### <a name="4-install-hello-runbook-environment-and-connect-tooazure-automation"></a>4. Merhaba runbook ortamını yüklemek ve tooAzure Otomasyon bağlanın
+Bir aracı tooOperations Management Suite eklediğinizde, hello Otomasyon çözümünü hello iter **HybridRegistration** hello içeren PowerShell Modülü **Add-HybridRunbookWorker** cmdlet'i.  Bu cmdlet'i tooinstall hello runbook ortamını hello bilgisayarda kullanmak ve Azure Automation ile kaydeder.
 
-Yönetici modunda bir PowerShell oturumu açın ve modülü içeri aktarmak için aşağıdaki komutları çalıştırın.
+Yönetici modunda bir PowerShell oturumu açın ve aşağıdaki komutları tooimport hello modülü hello çalıştırın.
 
     cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
     Import-Module HybridRegistration.psd1
 
-Ardından çalıştırın **Add-HybridRunbookWorker** aşağıdaki sözdizimini kullanarak cmdlet:
+Merhaba çalıştırmak **Add-HybridRunbookWorker** cmdlet sözdizimi aşağıdaki hello kullanarak:
 
     Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
-Bu cmdlet olanağını için gerekli bilgileri almak **anahtarları Yönet** Azure portaldaki dikey pencere.  Seçerek bu dikey penceresini açmak **anahtarları** gelen seçeneği **ayarları** dikey penceresinde, Automation hesabı.
+Bu cmdlet hello gelen gerekli hello bilgi edinebilirsiniz **anahtarları Yönet** dikey penceresinde hello Azure portalı.  Merhaba seçerek bu dikey penceresini açmak **anahtarları** hello seçeneğinden **ayarları** dikey penceresinde, Automation hesabı.
 
 ![Karma Runbook çalışanı genel bakış](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* **GroupName** karma Runbook çalışan grubu adıdır. Bu grubun automation hesabında zaten varsa, geçerli bilgisayar kendisine eklenir.  Daha sonra zaten yoksa eklenir.
-* **Uç nokta** olan **URL** alanındaki **anahtarları Yönet** dikey.
-* **Belirteç** olan **birincil erişim anahtarını** içinde **anahtarları Yönet** dikey.  
+* **GroupName** hello karma Runbook çalışan grubu hello adıdır. Bu grubun hello automation hesabında zaten varsa, hello geçerli bilgisayar tooit eklenir.  Daha sonra zaten yoksa eklenir.
+* **Uç nokta** hello olan **URL** hello alanındaki **anahtarları Yönet** dikey.
+* **Belirteç** hello olan **birincil erişim anahtarını** hello içinde **anahtarları Yönet** dikey.  
 
-Kullanım **-Verbose** anahtarı ile **Add-HybridRunbookWorker** yüklemesi hakkında ayrıntılı bilgi almak için.
+Kullanım hello **-Verbose** anahtarı ile **Add-HybridRunbookWorker** tooreceive hakkında ayrıntılı bilgi hello yükleme.
 
 #### <a name="5-install-powershell-modules"></a>5. PowerShell modülleri yükleme
-Runbook'lar etkinlikler ve Azure Otomasyonu ortamınızda yüklü modülleri tanımlanan cmdlet'leri birini kullanabilirsiniz.  Otomatik olarak bu modülleri el ile yüklemeniz gerekir böylece şirket içi bilgisayarlara yine de dağıtılmaz.  Özel durum için Azure Automation cmdlet'leri erişimi tüm Azure Hizmetleri ve etkinlikleri sağlama varsayılan olarak yüklü Azure modülüdür.
+Runbook'ları hello etkinlikleri ve Azure Otomasyonu ortamınızda yüklü hello modüllerdeki tanımlanan cmdlet'leri herhangi birini kullanabilirsiniz.  El ile yüklemeniz gerekir böylece bu modüllerin otomatik olarak dağıtılan tooon içi bilgisayarlar yine de olup olmadığı.  Merhaba, hello erişim toocmdlets tüm Azure Hizmetleri ve etkinlikleri için Azure otomasyonu için varsayılan olarak yüklenen Azure modülü istisnadır.
 
-Karma Runbook çalışanı özelliği birincil amacı, yerel kaynakları yönetmek için olduğundan, büyük olasılıkla bu kaynakları destekleyen modüllerin yüklemeniz gerekir.  Başvurabilirsiniz [yükleme modülleri](http://msdn.microsoft.com/library/dd878350.aspx) Windows PowerShell modülleri yükleme hakkında bilgi için.  Yüklü modülleri, böylece karma çalışanı tarafından otomatik olarak içe aktarılır PSModulePath ortam değişkeni tarafından başvurulan bir konumda olması gerekir.  Daha fazla bilgi için bkz: [PSModulePath yükleme yolunun değiştirerek](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx). 
+Merhaba birincil amacı hello karma Runbook çalışanı özelliğinin toomanage yerel kaynaklar olduğundan, büyük olasılıkla destek bu kaynakları tooinstall hello modülleri gerek vardır.  Çok başvurabilir[yükleme modülleri](http://msdn.microsoft.com/library/dd878350.aspx) Windows PowerShell modülleri yükleme hakkında bilgi için.  Yüklü modülleri, böylece hello karma çalışanı tarafından otomatik olarak içe aktarılır PSModulePath ortam değişkeni tarafından başvurulan bir konumda olması gerekir.  Daha fazla bilgi için bkz: [değiştirme hello PSModulePath yükleme yolu](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx). 
 
 ## <a name="removing-hybrid-runbook-worker"></a>Karma Runbook çalışanı kaldırma 
-Bir veya daha fazla karma Runbook çalışanları bir gruptan kaldırdığınızda veya grup gereksinimlerinize bağlı olarak kaldırabilirsiniz.  Bir karma Runbook çalışanı bir şirket içi bilgisayardan kaldırmak için aşağıdaki adımları gerçekleştirin.
+Bir veya daha fazla karma Runbook çalışanları bir gruptan kaldırmak veya gereksinimlerinize bağlı olarak hello grup kaldırabilirsiniz.  tooremove bir karma Runbook çalışanı bir şirket içi bilgisayardan hello aşağıdaki adımları gerçekleştirin.
 
-1. Azure Portal'da, Automation hesabınızı gidin.  
-2. Gelen **ayarları** dikey penceresinde, select **anahtarları** ve alan değerlerini Not **URL** ve **birincil erişim anahtarını**.  Bu bilgiler sonraki adımda gerekir.
-3. Yönetici modunda bir PowerShell oturumu açın ve şu komutu çalıştırın `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`.  Kullanım **-Verbose** geçiş kaldırma işleminin ayrıntılı günlüğü için.
+1. Hello Azure portal, tooyour Otomasyon hesabı gidin.  
+2. Merhaba gelen **ayarları** dikey penceresinde, select **anahtarları** ve alan hello değerlerini not edin **URL** ve **birincil erişim anahtarını**.  Bu bilgiler sonraki adımda hello gerekir.
+3. Yönetici modunda bir PowerShell oturumu açın ve hello aşağıdaki komutu çalıştırarak command - `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`.  Kullanım hello **-Verbose** geçiş hello kaldırma işleminin ayrıntılı günlüğü için.
 
 > [!NOTE]
-> Bu Microsoft İzleme Aracısı bilgisayardan, yalnızca işlevsellik ve karma Runbook çalışanı rolü yapılandırmasını kaldırmaz.  
+> Bu hello Microsoft İzleme Aracısı hello bilgisayardan yalnızca hello işlevselliği ve hello karma Runbook çalışanı rolü yapılandırmasını kaldırmaz.  
 
 ## <a name="remove-hybrid-worker-groups"></a>Karma çalışan grupları kaldırın
-Bir grubu kaldırmak için önce bir karma Runbook çalışanı daha önce gösterilen yordamı kullanarak grubunun bir üyesi olan her bilgisayarda kaldırmanız gerekir ve ardından grubunu kaldırmak için aşağıdaki adımları gerçekleştirin.  
+bir grup tooremove, öncelikle daha önce gösterilen hello yordamı kullanarak hello grubunun bir üyesi olan her bir bilgisayardan tooremove hello karma Runbook çalışanı gerekir ve ardından aşağıdaki adımları tooremove hello Grup hello gerçekleştirebilirsiniz.  
 
-1. Azure Portal'da Automation hesabını açın.
-2. Seçin **karma çalışan grupları** döşeme ve **karma çalışan grupları** dikey penceresinde, silmek istediğiniz grubu seçin.  Belirli grup seçtikten sonra **karma çalışanı grubu** özellikleri dikey penceresi görüntülenir.<br> ![Karma Runbook çalışan grubu dikey penceresi](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
-3. Özellikleri dikey penceresinde seçili grubun tıklatın **silmek**.  Bu eylemi onaylamanızı isteyen bir ileti görüntülenir seçin **Evet** devam etmek istediğinizden eminseniz.<br> ![Grubu Sil onay iletişim kutusu](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> Bu işlemin tamamlanması birkaç saniye alabilir ve ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.  
+1. Hello Azure portal Hello Automation hesabını açın.
+2. Select hello **karma çalışan grupları** döşeme ve hello **karma çalışan grupları** dikey penceresinde, select hello grubu toodelete istiyor.  Merhaba belirli bir grup seçtikten sonra hello **karma çalışanı grubu** özellikleri dikey penceresi görüntülenir.<br> ![Karma Runbook çalışan grubu dikey penceresi](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
+3. Merhaba özellikleri dikey penceresinde hello seçilen grup, tıklatın **silmek**.  Bu eylem, seçin, soran tooconfirm bir ileti görüntülenir **Evet** tooproceed istediğinizden eminseniz.<br> ![Grubu Sil onay iletişim kutusu](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> Bu işlem birkaç sürebilir saniye toocomplete ve altında ilerleme durumunu izleyebilirsiniz **bildirimleri** hello menüsünde.  
 
 ## <a name="troubleshooting"></a>Sorun giderme 
-Karma Runbook çalışanı çalışan kaydetmek, runbook işlerini almak ve durum raporu için Otomasyon hesabınızın iletişim kurmak için Microsoft Monitoring Agent bağlıdır. Çalışan kaydı başarısız olursa hata bazı olası nedenleri şunlardır:  
+Durum raporu ve runbook işleri almak veya Hello karma Runbook çalışanı üzerinde hello ile Otomasyon hesabı tooregister hello çalışan Microsoft Monitoring Agent toocommunicate bağlıdır. Merhaba çalışan kaydı başarısız olursa hello hata bazı olası nedenleri şunlardır:  
 
-1. Karma çalışanı bir proxy veya güvenlik duvarı arkasında ' dir.  
-    Bilgisayarın, bağlantı noktası 443 üzerinde *.azure automation.net giden erişimi olduğunu doğrulayın.  
+1. Merhaba karma çalışanı bir proxy veya güvenlik duvarı arkasında ' dir.  
+    Merhaba bilgisayarın giden erişim too*.azure-automation.net bağlantı noktası 443 üzerinde olduğunu doğrulayın.  
 
-2. Karma çalışanı üzerinde çalıştığı bilgisayar en düşük donanım daha azı [gereksinimleri](automation-offering-get-started.md#hybrid-runbook-worker).  
-    Karma Runbook çalışanı çalıştıran bilgisayarlar, bu özellik barındırmak için atamadan önce en düşük donanım gereksinimlerini karşılamalıdır. Aksi halde, kaynak kullanımı diğer arka plan işlemleri ve yürütme sırasında runbook'lar tarafından neden Çekişme bağlı olarak bilgisayar üzerinde kullanılan haline gelir ve runbook işi gecikmeler veya zaman aşımları neden.
-   Karma Runbook çalışanı özelliği yürütmek için atanan bilgisayarın en düşük donanım gereksinimlerini karşıladığını onaylayın.  Aşması durumunda, karma Runbook çalışanı işlemlerinin performansını ile Windows arasında herhangi bir bağıntı belirlemek için CPU ve bellek kullanımını izleyin.  Bellek veya CPU baskısı ise, bu yükseltme veya ek işlemciler ekleme ya da kaynak sorununu giderin ve hatayı gidermek için bellek artırmak için gereken gösteriyor olabilir. Alternatif olarak, iş yükü taleplerini artıştır gerekli belirttiğinizde, ölçek ve en düşük gereksinimleri destekleyebilen farklı işlem kaynak seçin.
+2. Merhaba bilgisayar hello karma çalışanı daha az üzerinde çalıştığı hello en düşük donanım daha [gereksinimleri](automation-offering-get-started.md#hybrid-runbook-worker).  
+    Karma Runbook çalışanı karşılamalıdır hello çalıştıran bilgisayarlar toohost atamadan önce en düşük donanım gereksinimleri hello bu özellik. Aksi takdirde, diğer arka plan işlemleri ve yürütme sırasında runbook'lar tarafından neden Çekişme hello kaynak kullanımı, bağlı olarak hello bilgisayar üzerinde kullanılan haline gelir ve runbook işi gecikmeler veya zaman aşımlarına neden.
+   Toorun hello karma Runbook çalışanı özelliği belirlenmiş hello bilgisayar hello en düşük donanım gereksinimlerini karşılayan onaylayın.  Destekliyorsa, CPU ve bellek kullanımı toodetermine karma Runbook çalışanı işlemlerin hello performansını ile Windows arasında herhangi bir bağıntı izleyin.  Bellek veya CPU baskısı ise, bu hello gerek tooupgrade belirtmek veya ek işlemciler ekleme veya artış bellek tooaddress kaynak performans sorunu hello ve hello hatayı giderin. Alternatif olarak, hello en düşük gereksinimlerini destekleyen ve iş yükü taleplerini artıştır gerekli belirttiğinizde ölçeklendirme farklı işlem kaynak seçin.
     
-3. Microsoft İzleme Aracısı hizmeti çalışmıyor.  
-    Microsoft İzleme Aracısı Windows hizmeti çalışmıyorsa bu karma Runbook çalışanı Azure Automation ile iletişim kurmasını engeller.  Aracı, PowerShell içinde aşağıdaki komutu girerek çalıştığını doğrulayın: `get-service healthservice`.  Hizmet durdurulursa, hizmeti başlatmak için PowerShell içinde aşağıdaki komutu girin: `start-service healthservice`.  
+3. Merhaba Microsoft İzleme Aracısı hizmeti çalışmıyor.  
+    Merhaba Microsoft İzleme Aracısı Windows hizmeti çalışmıyorsa bu hello karma Runbook çalışanı Azure Automation ile iletişim kurmasını engeller.  Merhaba aracı PowerShell komutunda aşağıdaki hello girerek çalıştığını doğrulayın: `get-service healthservice`.  Merhaba hizmeti durdurulursa, PowerShell toostart hello hizmeti komutunda aşağıdaki hello girin: `start-service healthservice`.  
 
-4. İçinde **uygulama ve Hizmetleri Logs\Operations Yöneticisi** olay günlüğü olay 4502 ve EventMessage içeren gördüğünüz **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**aşağıdaki açıklamasıyla: *hizmeti tarafından sunulan sertifika <wsid>. oms.opinsights.azure.com Microsoft Hizmetleri için kullanılan bir sertifika yetkilisi tarafından değil yayınlandı. TLS/SSL iletişimi karşılar bir proxy çalıştırıyorsanız görmek için ağ yöneticinize başvurun. KB3126513 makalesine ek sorun giderme bilgileri için bağlantı sorunları var.*
-    Bu, proxy veya ağ güvenlik duvarı blockking iletişimi için Microsoft Azure neden olabilir.  Bilgisayarın, 443 numaralı bağlantı noktalarına *.azure automation.net giden erişimi olduğunu doğrulayın.
+4. Merhaba, **uygulama ve Hizmetleri Logs\Operations Yöneticisi** olay günlüğü olay 4502 ve EventMessage içeren gördüğünüz **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**açıklama aşağıdaki hello ile: *hello hizmeti tarafından sunulan hello sertifika <wsid>. oms.opinsights.azure.com Microsoft Hizmetleri için kullanılan bir sertifika yetkilisi tarafından değil yayınlandı. TLS/SSL iletişimi karşılar bir proxy kullanıyorsanız, ağ yöneticisi toosee temasa geçin. Merhaba KB3126513 makalesine ek sorun giderme bilgileri için bağlantı sorunları var.*
+    Bu, proxy veya ağ güvenlik duvarı blockking iletişim tooMicrosoft tarafından Azure neden olabilir.  Merhaba bilgisayarın, 443 numaralı bağlantı noktalarına giden erişim too*.azure-automation.net olduğunu doğrulayın.
 
-Günlükleri yerel olarak her karma çalışanı C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes konumunda depolanır.  Herhangi bir uyarı veya hata olayları için yazılmış olup olmadığını denetleyebilir **uygulama ve Hizmetleri Logs\Microsoft-SMA\Operations** ve **uygulama ve Hizmetleri Logs\Operations Yöneticisi** olay günlüğü bir bağlantı veya ekleme rolünün bir Azure Otomasyonu veya sorun normal işlemleri gerçekleştirirken etkileyen diğer sorunu gösterir.  
+Günlükleri yerel olarak her karma çalışanı C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes konumunda depolanır.  Herhangi bir uyarı veya hata olayları toohello yazılmış olup olmadığını denetleyebilir **uygulama ve Hizmetleri Logs\Microsoft-SMA\Operations** ve **uygulama ve Hizmetleri Logs\Operations Yöneticisi** olay günlüğü bir bağlantı veya ekleme hello rol tooAzure Otomasyon veya sorun normal işlemleri gerçekleştirirken etkileyen diğer sorunu gösterir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Gözden geçirme [runbook'lar bir karma Runbook çalışanı üzerinde çalışacak](automation-hrw-run-runbooks.md) runbook'larınızın, şirket içi veri merkezi ya da diğer bulut ortamı süreçlerini otomatikleştirmek için yapılandırma hakkında bilgi edinmek için.
+Gözden geçirme [runbook'lar bir karma Runbook çalışanı üzerinde çalışacak](automation-hrw-run-runbooks.md) toolearn, şirket içi veri merkezi veya başka bir bulut ortamında tooconfigure runbook'lar tooautomate nasıl işler.

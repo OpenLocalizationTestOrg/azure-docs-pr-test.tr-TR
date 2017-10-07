@@ -1,5 +1,5 @@
 ---
-title: "Bir şablonu kullanarak bir Azure Event Hubs ad alanı ve tüketici grubu oluşturun | Microsoft Docs"
+title: "bir şablonu kullanarak bir Azure Event Hubs ad alanı ve tüketici grubu aaaCreate | Microsoft Docs"
 description: "Azure Resource Manager şablonları kullanarak bir tüketici grubu ve bir event hub ile Event Hubs ad alanı oluşturma"
 services: event-hubs
 documentationcenter: .net
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: eb9a80eec0326aaa605cb8b21aecbaeec94ff212
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 74b0d6b3fbe848705e2c20e628aa4e5269b53edb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak olay hub'ı ve tüketici grubu ile bir olay hub'ları ad alanı oluşturma
 
-Bu makalede bir olay hub ile Event Hubs türünde bir ad ve bir tüketici grubu oluşturur bir Azure Resource Manager şablonu kullanmayı gösterir. Makaleyi nasıl tanımlamak için hangi kaynağın dağıtılan ve ne zaman dağıtım yürütülen parametreler tanımlamak nasıl belirtilen gösterir. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz
+Bu makalede nasıl toouse bir Azure Resource Manager şablonu, bir ad alanı türü Event Hubs bir olay hub'ı tek bir tüketici grubu oluşturur ve gösterilmektedir. Merhaba gösterir makalesi nasıl toodefine hangi kaynağın dağıtılan ve nasıl olan toodefine hello dağıtım zaman yürütülür parametrelerinizi. Kendi dağıtımlar için bu şablonu kullanabilir veya toomeet özelleştirebilirsiniz gereksinimlerinizi
 
 Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
 
-Tam şablon için bkz: [olay hub'ı ve tüketici grubu şablonunu] [ Event Hub and consumer group template] github'da.
+Merhaba Hello tam şablonu için bkz [olay hub'ı ve tüketici grubu şablonunu] [ Event Hub and consumer group template] github'da.
 
 > [!NOTE]
-> En yeni şablonları denetlemek için [Azure Hızlı Başlangıç Şablonları][Azure Quickstart Templates] galerisini ziyaret edin ve Event Hubs araması yapın.
+> Merhaba son şablonları için toocheck ziyaret hello [Azure hızlı başlangıç şablonlarını] [ Azure Quickstart Templates] Galerisi ve Event Hubs arayın.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Ne dağıtacaksınız?
 Bu şablon kullanılarak bir olay hub'ı ve bir tüketici grubu içeren bir olay hub'ları ad dağıtır.
 
-[Event Hubs](event-hubs-what-is-event-hubs.md), düşük gecikme süresi ve yüksek güvenilirlikle Azure’a büyük ölçekte olay ve telemetri girişi sağlayan bir olay işleme hizmetidir.
+[Olay hub'ları](event-hubs-what-is-event-hubs.md) büyük ölçekte kullanılan hizmet tooprovide olayı ve telemetri giriş tooAzure düşük gecikme süreli ve yüksek güvenilirlik işlemeyi bir olaydır.
 
-Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıklayın:
+toorun dağıtım otomatik olarak Merhaba, düğme aşağıdaki hello tıklatın:
 
-[![Azure’a dağıtma](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+[![TooAzure dağıtma](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametreler
-Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon, tüm parametre değerlerini içeren `Parameters` adlı bir bölüm içerir. Dağıttığınız projesini temel alan veya dağıtmakta olduğunuz ortamına bağlı olarak değişir bu değerleri için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri şablondaki dağıtılan kaynakları tanımlar.
+Azure Resource Manager ile tanımladığınız parametreler için değerler hello şablon dağıtıldığında toospecify istediğiniz. Merhaba şablonu adlı bir bölüm içerir `Parameters` tüm hello parametre değerlerini içerir. Dağıttığınız hello projesini temel alan veya dağıttığınız hello ortamı toowhich üzerinde temel değişir bu değerleri için bir parametre tanımlamanız gerekir. Her zaman kalın değerleri aynı hello için parametreleri tanımlamayın. Her parametre değeri hello şablonunda dağıtılan hello kaynakları tanımlar.
 
-Şablon aşağıdaki parametreleri tanımlar:
+Merhaba şablonu şu parametreler hello tanımlar:
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
-Oluşturulacak Event Hubs ad alanının adı.
+Merhaba olay hub'ları ad alanı toocreate Hello adı.
 
 ```json
 "eventHubNamespaceName": {
@@ -57,7 +57,7 @@ Oluşturulacak Event Hubs ad alanının adı.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
-Event Hubs ad alanında oluşturulan olay hub’ının adı.
+Merhaba event hub'ı hello olay hub'ları ad alanında oluşturulan Hello adı.
 
 ```json
 "eventHubName": {
@@ -66,7 +66,7 @@ Event Hubs ad alanında oluşturulan olay hub’ının adı.
 ```
 
 ### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
-Olay hub'ı için oluşturulan tüketici grubu adı.
+Merhaba olay hub'ı için oluşturulan hello tüketici grubu Hello adı.
 
 ```json
 "eventHubConsumerGroupName": {
@@ -75,7 +75,7 @@ Olay hub'ı için oluşturulan tüketici grubu adı.
 ```
 
 ### <a name="apiversion"></a>apiVersion
-Şablonun API sürümü.
+Merhaba şablon Hello API sürümü.
 
 ```json
 "apiVersion": {
@@ -83,7 +83,7 @@ Olay hub'ı için oluşturulan tüketici grubu adı.
 }
 ```
 
-## <a name="resources-to-deploy"></a>Dağıtılacak kaynaklar
+## <a name="resources-toodeploy"></a>Kaynakları toodeploy
 Tür bir ad oluşturur **EventHubs**bir olay hub'ı ve bir tüketici grubu.
 
 ```json
@@ -127,7 +127,7 @@ Tür bir ad oluşturur **EventHubs**bir olay hub'ı ve bir tüketici grubu.
    ],
 ```
 
-## <a name="commands-to-run-deployment"></a>Dağıtımı çalıştırma komutları
+## <a name="commands-toorun-deployment"></a>Komutları toorun dağıtımı
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
@@ -143,7 +143,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
+Bağlantılar aşağıdaki hello ziyaret ederek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
 
 * [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)
 * [Olay Hub’ı oluşturma](event-hubs-create.md)
@@ -152,5 +152,5 @@ Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi e
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
+[Using hello Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 [Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/

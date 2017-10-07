@@ -1,6 +1,6 @@
 ---
-title: "Node.js Başlangıç Kılavuzu | Microsoft Belgeleri"
-description: "Basit bir Node.js web uygulaması oluşturma ve Azure bulut hizmetine dağıtma hakkında bilgi edinin."
+title: aaaNode.js Getting Started Guide | Microsoft Docs
+description: "Nasıl toocreate basit bir Node.js web uygulaması ve tooan Azure bulut hizmeti dağıtmak öğrenin."
 services: cloud-services
 documentationcenter: nodejs
 author: TomArcher
@@ -14,65 +14,65 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.openlocfilehash: 980643f35c78bbae7b1b12336331ca15ad4fb89b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 22945bfcc1b0e5da2a2d37dc5cc86be013cc0b5c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Bir Node.js uygulaması derleme ve Azure Cloud Service’e dağıtma
+# <a name="build-and-deploy-a-nodejs-application-tooan-azure-cloud-service"></a>Derleme ve bir Node.js uygulaması tooan Azure bulut hizmeti dağıtma
 
-Bu öğreticide Azure Cloud Service’te çalışan basit bir Node.js uygulamasını oluşturma işlemi gösterilmektedir. Cloud Services, Azure’daki ölçeklenebilir bulut uygulamalarının yapı taşlarıdır. Uygulamanızın ön uç ve arka uç bileşenlerinin ayrılmasına ve bağımsız yönetimi ile ölçek artırımına imkan tanır.  Cloud Services her bir rolü güvenilir bir şekilde barındırmaya yönelik sağlam bir özel sanal makine sağlar.
+Bu öğreticide gösterilmiştir nasıl toocreate basit bir Node.js uygulama bir Azure bulut hizmeti çalışıyor. Bulut, azure'daki ölçeklenebilir bulut uygulamalarının yapı taşları hello hizmetleridir. Merhaba ayırma ve bağımsız yönetimi ile uygulamanızın ön uç ve arka uç bileşenlerinin genişleme sağlarlar.  Cloud Services her bir rolü güvenilir bir şekilde barındırmaya yönelik sağlam bir özel sanal makine sağlar.
 
-Cloud Services ve Azure Websites ile Virtual machines hizmetlerine benzerlikleri hakkında daha fazla bilgi için bkz. [Azure Websites, Cloud Services ve Virtual Machines karşılaştırması].
+Bulut Hizmetleri ve bunların nasıl tooAzure Web siteleri ve sanal makineleri karşılaştırın hakkında daha fazla bilgi için bkz: [Azure Websites, Cloud Services ve sanal makineleri karşılaştırma].
 
 > [!TIP]
-> Basit bir web sitesi tasarlamak mı istiyorsunuz? Senaryonuz yalnızca basit bir web sitesi ön ucu içeriyorsa, [basit bir web uygulaması kullanmayı] düşünün. Web uygulamanız büyüdükçe ve gereksinimleriniz değiştikçe kolayca Cloud Services’e yükseltebilirsiniz.
+> Toobuild basit bir Web sitesi mi arıyorsunuz? Senaryonuz yalnızca basit bir web sitesi ön ucu içeriyorsa, [basit bir web uygulaması kullanmayı] düşünün. Web uygulamanız büyüdükçe ve gereksinimleriniz değiştikçe kolayca bulut hizmeti tooa yükseltebilirsiniz.
 
-Bu öğreticiyi izleyerek bir web rolünün içinde barındırılan basit bir web uygulaması oluşturacaksınız. Uygulamanızı yerel olarak test etmek ve ardından PowerShell komut satırı araçlarını kullanarak dağıtmak için işlem öykünücüsünü kullanacaksınız.
+Bu öğreticiyi izleyerek bir web rolünün içinde barındırılan basit bir web uygulaması oluşturacaksınız. Merhaba işlem öykünücüsü tootest uygulamanızı yerel olarak kullanın ardından PowerShell komut satırı araçlarını kullanarak dağıtın.
 
-Uygulama basit bir "hello world" uygulamasıdır:
+Merhaba, basit bir "hello world" uygulaması uygulamadır:
 
-![Hello World web sayfasını gösteren bir web tarayıcısı][A web browser displaying the Hello World web page]
+![Merhaba Hello World web sayfasını gösteren bir web tarayıcısı][A web browser displaying hello Hello World web page]
 
 ## <a name="prerequisites"></a>Ön koşullar
 > [!NOTE]
 > Bu öğretici Windows gerektiren Azure PowerShell’i kullanır.
 
 * [Azure PowerShell]'i yükleyip yapılandırın.
-* [.NET 2.7 için Azure SDK’sını] indirip yükleyin. Yükleme kurulumunda şunları seçin:
+* Merhaba yükleyip [.NET 2.7 için Azure SDK]. Kurulum Hello yüklemek, seçin:
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
 
 ## <a name="create-an-azure-cloud-service-project"></a>Azure Cloud Service projesi oluşturma
-Temel Node.js iskelesiyle birlikte yeni bir Azure Cloud Service projesi oluşturmak için aşağıdaki görevleri gerçekleştirin:
+Aşağıdaki görevler toocreate temel Node.js iskelesiyle birlikte yeni bir Azure bulut hizmeti projesi hello gerçekleştirin:
 
-1. **Windows PowerShell**’i Yönetici olarak çalıştırın; **Başlat Menüsü** veya **Başlangıç Ekranı**’ndan **Windows PowerShell** araması yapın.
-2. Aboneliğinize [PowerShell’i bağlayın].
-3. Projeyi oluşturmak için aşağıdaki PowerShell cmdlet'ini girin:
+1. Çalıştırma **Windows PowerShell** yönetici olarak; hello **Başlat menüsü** veya **Başlat ekranında**, arama **Windows PowerShell**.
+2. [PowerShell'i bağlayın] tooyour abonelik.
+3. PowerShell cmdlet toocreate toocreate hello proje aşağıdaki hello girin:
 
         New-AzureServiceProject helloworld
 
-    ![New-AzureService helloworld komutunun sonucu][The result of the New-AzureService helloworld command]
+    ![Merhaba hello New-AzureService helloworld komutunun sonucu][hello result of hello New-AzureService helloworld command]
 
-    **New-AzureServiceProject** cmdlet’i bir Node.js uygulamasını Cloud Service’te yayımlamaya yönelik basit bir yapı oluşturur. Azure’da yayımlamak için gerekli yapılandırma dosyalarını içerir. Cmdlet ayrıca çalışma dizininizi hizmetin diziniyle değiştirir.
+    Merhaba **New-AzureServiceProject** cmdlet'i bir Node.js uygulaması tooa bulut hizmeti yayımlamak için basit bir yapı oluşturur. Yayımlama tooAzure için gerekli yapılandırma dosyalarını içerir. Merhaba cmdlet'i ayrıca hello hizmeti için çalışma dizini toohello dizini değiştirir.
 
-    Cmdlet aşağıdaki dosyaları oluşturur:
+    Merhaba cmdlet aşağıdaki dosyaları hello oluşturur:
 
    * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** ve **ServiceDefinition.csdef**: Uygulamanızı yayımlamak için gereken Azure’a özel dosyalar. Daha fazla bilgi için bkz. [Azure için Barındırılan Hizmet Oluşturmaya Genel Bakış].
-   * **deploymentSettings.json**: Azure PowerShell dağıtım cmdlet’leri tarafından kullanılan yerel ayarları depolar.
-4. Yeni bir web rolü eklemek için aşağıdaki komutu girin:
+   * **deploymentSettings.json**: hello Azure PowerShell dağıtım cmdlet'leri tarafından kullanılan yerel ayarları depolar.
+4. Komut tooadd yeni bir web rolü aşağıdaki hello girin:
 
        Add-AzureNodeWebRole
 
-   ![The output of the Add-AzureNodeWebRole command][The output of the Add-AzureNodeWebRole command]
+   ![Merhaba hello Add-AzureNodeWebRole komutunun çıktısı][hello output of hello Add-AzureNodeWebRole command]
 
-   **Add-AzureNodeWebRole** cmdlet’i basit bir Node.js uygulaması oluşturur. Ayrıca yeni rol için yapılandırma girdileri eklemek üzere **.csfg** ve **.csdef** dosyalarını değiştirir.
+   Merhaba **Add-AzureNodeWebRole** cmdlet'i basit bir Node.js uygulaması oluşturur. Ayrıca hello değiştirdiği **.csfg** ve **.csdef** tooadd hello yeni rol için yapılandırma girdileri dosyaları.
 
    > [!NOTE]
-   > Bir rol adı belirtmezseniz varsayılan ad kullanılır. Birinci cmdlet parametresi olarak bir ad sağlayabilirsiniz: `Add-AzureNodeWebRole MyRole`
+   > Bir rol adı belirtmezseniz varsayılan ad kullanılır. Bir ad hello birinci cmdlet parametresi olarak sağlayabilirsiniz:`Add-AzureNodeWebRole MyRole`
 
-Node.js uygulaması web rolünün dizininde (varsayılan olarak **WebRole1**) bulunan **server.js** dosyasında tanımlanır. Kod aşağıdaki gibidir:
+Merhaba Node.js uygulaması hello dosyasında tanımlanan **server.js**hello web rolü için hello dizininde bulunan (**WebRole1** varsayılan olarak). Merhaba kod aşağıdadır:
 
     var http = require('http');
     var port = process.env.port || 1337;
@@ -81,103 +81,103 @@ Node.js uygulaması web rolünün dizininde (varsayılan olarak **WebRole1**) bu
         res.end('Hello World\n');
     }).listen(port);
 
-Bu kod temelde [nodejs.org] web sitesindeki "Hello World" örneğiyle aynıdır, ancak bulut ortamı tarafından atanan bağlantı noktası numarasını kullanır.
+Bu kod temelde "Hello World" Merhaba aynı örnek üzerinde hello hello olan [nodejs.org] Web sitesi, hello bulut ortamı tarafından atanan hello bağlantı noktası numarasını kullanır.
 
-## <a name="deploy-the-application-to-azure"></a>Uygulamayı Azure’a dağıtma
+## <a name="deploy-hello-application-tooazure"></a>Merhaba uygulama tooAzure dağıtma
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. [MSDN abone avantajınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ya da [ücretsiz hesap için kaydolabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+> toocomplete Bu öğretici bir Azure hesabınızın olması gerekir. [MSDN abone avantajınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ya da [ücretsiz hesap için kaydolabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
-### <a name="download-the-azure-publishing-settings"></a>Azure yayımlama ayarlarını indirme
-Uygulamanızı Azure’a dağıtmak için öncelikle Azure aboneliğinizin yayımlama ayarlarını indirmeniz gerekir.
+### <a name="download-hello-azure-publishing-settings"></a>Hello Azure indirme ayarları yayımlama
+toodeploy, uygulama tooAzure önce ayarları Azure aboneliğinizin yayımlama hello indirmeniz gerekir.
 
-1. Aşağıdaki Azure PowerShell cmdlet'ini çalıştırın:
+1. Merhaba aşağıdaki Azure PowerShell cmdlet'ini çalıştırın:
 
        Get-AzurePublishSettingsFile
 
-   Bu işlem, yayımlama ayarları indirme sayfasına gitmek için tarayıcınızı kullanır. Bir Microsoft Hesabı ile oturum açmanız istenebilir. İstenirse Azure aboneliğinizle ilişkili olan hesabı kullanın.
+   Bu, tarayıcınızı kullanır toonavigate toohello yayımlama ayarları indirme sayfası. Bir Microsoft Account istendiğinde toolog olabilir. Bu durumda, Azure aboneliğinizle ilişkili hello hesabı kullanın.
 
-   İndirilen profili kolayca erişebileceğiniz bir dosya konumuna kaydedin.
-2. İndirdiğiniz yayımlama profilini içeri aktarmak için aşağıdaki cmdlet'i çalıştırın:
+   Kolayca erişebilirsiniz indirilen hello profil tooa dosya konumuna kaydedin.
+2. Cmdlet'i tooimport hello profil indirdiğiniz yayımlama çalıştırın:
 
-       Import-AzurePublishSettingsFile [path to file]
+       Import-AzurePublishSettingsFile [path toofile]
 
     > [!NOTE]
-    > Yayımlama ayarlarını indirdikten sonra, başka bir kişinin hesabınıza erişmesine imkan tanıyabilecek bilgiler içerdiğinden indirdiğiniz .publishSettings dosyasını silmeyi düşünün.
+    > Merhaba aldıktan sonra yayımlama ayarları, birisi verebilecek bilgiler içerdiğinden indirdiğiniz .publishSettings dosyasını hello silme göz önünde bulundurun tooaccess hesabınızı.
 
-### <a name="publish-the-application"></a>Uygulamayı yayımlama
-Yayımlamak için aşağıdaki komutu çalıştırın:
+### <a name="publish-hello-application"></a>Merhaba uygulama yayımlama
+toopublish, hello aşağıdaki komutları çalıştırın:
 
       $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
     Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
-* **-ServiceName** dağıtımın adını belirtir. Bu bir benzersiz ad olmalıdır, aksi takdirde yayımlama işlemi başarısız olur. **Get-Date** komutu, adı benzersiz hale getirmesi gereken bir tarih/saat dizesine eklenir.
-* **-Location**, uygulamanın barındırılacağı veri merkezini belirtir. Kullanılabilir veri merkezlerinin listesini görmek için **Get-AzureLocation** cmdlet'ini kullanın.
-* **-Launch** bir tarayıcı penceresi açar ve dağıtım tamamlandıktan sonra barındırılan hizmete gider.
+* **-ServiceName** hello dağıtım hello adını belirtir. Bu benzersiz bir ad olmalıdır, aksi takdirde hello yayımlama işlemi başarısız olur. Merhaba **Get-Date** komutu tacks hello adın benzersiz olması bir tarih dizesi.
+* **-Location** hello uygulama içinde barındırılan hello datacenter belirtir. toosee kullanılabilir veri merkezlerinin, kullanım hello listesini **Get-AzureLocation** cmdlet'i.
+* **-Launch** bir tarayıcı penceresi açar ve dağıtım tamamlandıktan sonra barındırılan toohello hizmet gider.
 
-Yayımlama başarılı olduktan sonra aşağıdakine benzer bir yanıt görürsünüz:
+Yayımlama başarılı olduktan sonra yanıt benzer toohello aşağıdaki görürsünüz:
 
-![The output of the Publish-AzureService command][The output of the Publish-AzureService command]
+![Merhaba hello Publish-AzureService komutunun çıktısı][hello output of hello Publish-AzureService command]
 
 > [!NOTE]
-> Uygulamanın dağıtılması ve ilk kez yayımlandığında kullanılabilir olması birkaç dakika sürebilir.
+> Bu hello uygulama toodeploy için birkaç dakika sürer ve ilk kez yayımlandığında kullanılabilir hale gelir.
 
-Dağıtım tamamlandıktan sonra bir tarayıcı penceresi açın ve bulut hizmetine gidin.
+Merhaba dağıtım tamamlandıktan sonra bir tarayıcı penceresi açın ve toohello bulut hizmetine gidin.
 
-![Hello world sayfasını gösteren bir tarayıcı penceresi; URL sayfanın Azure’da barındırıldığını gösterir.][A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]
+![Merhaba hello world sayfasını gösteren bir tarayıcı penceresi; Merhaba URL hello sayfanın Azure'da barındırıldığını gösterir.][A browser window displaying hello hello world page; hello URL indicates hello page is hosted on Azure.]
 
 Uygulamanız artık Azure üzerinde çalışıyor.
 
-**Publish-AzureServiceProject** cmdlet’i aşağıdaki adımları uygular:
+Merhaba **Publish-AzureServiceProject** cmdlet'i hello aşağıdaki adımları gerçekleştirir:
 
-1. Dağıtacağınız bir paket oluşturur. Paket, uygulama klasörünüzdeki tüm dosyaları içerir.
-2. Mevcut değilse yeni bir **depolama hesabı** oluşturur. Azure depolama hesabı, dağıtım sırasında uygulama paketini depolamak için kullanılır. Dağıtım bittikten sonra depolama hesabını güvenli bir şekilde silebilirsiniz.
-3. Henüz mevcut değilse yeni bir **bulut hizmeti** oluşturur. **Bulut hizmeti** uygulamanızın Azure’a dağıtıldığında barındırıldığı kapsayıcıdır. Daha fazla bilgi için bkz. [Azure için Barındırılan Hizmet Oluşturmaya Genel Bakış].
-4. Dağıtım paketini Azure’da yayımlar.
+1. Bir paket toodeploy oluşturur. Hello paket, uygulama klasöründeki tüm hello dosyaları içerir.
+2. Mevcut değilse yeni bir **depolama hesabı** oluşturur. Hello Azure depolama hesabı, dağıtım sırasında kullanılan toostore hello uygulama paketi değil. Dağıtımını gerçekleştirdikten sonra hello depolama hesabı güvenle silebilirsiniz.
+3. Henüz mevcut değilse yeni bir **bulut hizmeti** oluşturur. A **bulut hizmeti** , uygulamanızın barındırıldığını dağıtılan tooAzure olduğunda hello kapsayıcıdır. Daha fazla bilgi için bkz. [Azure için Barındırılan Hizmet Oluşturmaya Genel Bakış].
+4. Merhaba dağıtım paketi tooAzure yayımlar.
 
 ## <a name="stopping-and-deleting-your-application"></a>Uygulamanızı durdurma ve silme
-Uygulamanızı dağıttıktan sonra ek maliyetlerden kaçınmak için devre dışı bırakmak isteyebilirsiniz. Azure web rolü örneklerini harcanan sunucu saati başına faturalandırır. Uygulamanız dağıtıldıktan sonra örnekler çalışmadığında ve durdurulmuş halde olduğunda bile sunucu saati harcanır.
+Uygulamanızı dağıttıktan sonra toodisable isteyebilirsiniz, ek maliyetlerden kaçınmak için. Azure web rolü örneklerini harcanan sunucu saati başına faturalandırır. Uygulamanızı dağıtıldığında Hello örnekler çalışmadığında ve hello durdurulmuş durumda olsa bile sunucu saati harcanır.
 
-1. Windows PowerShell penceresinde önceki bölümde oluşturulan hizmet dağıtımını aşağıdaki cmdlet ile durdurun:
+1. Merhaba Windows PowerShell penceresinde hello hizmet dağıtımı cmdlet aşağıdaki hello ile Merhaba önceki bölümde oluşturduğunuz durdurun:
 
        Stop-AzureService
 
-   Hizmetin durdurulması birkaç dakika sürebilir. Hizmet durdurulduğunda bunu belirten bir ileti alırsınız.
+   Merhaba hizmetin durdurulması birkaç dakika sürebilir. Merhaba hizmet durdurulduğunda bunu belirten bir ileti alırsınız.
 
-   ![The status of the Stop-AzureService command][The status of the Stop-AzureService command]
-2. Hizmeti silmek için aşağıdaki cmdlet'i çağırın:
+   ![Hello hello Stop-AzureService komutunun durumu][hello status of hello Stop-AzureService command]
+2. toodelete hello hizmeti, cmdlet aşağıdaki çağrı hello:
 
        Remove-AzureService
 
-   İstendiğinde hizmeti silmek için **Y** yazın.
+   İstendiğinde, girin **Y** toodelete hello hizmet.
 
-   Hizmetin silinmesi birkaç dakika sürebilir. Hizmet silindikten sonra bunu belirten bir ileti alırsınız.
+   Merhaba hizmetin silinmesi birkaç dakika sürebilir. Merhaba hizmet silindikten sonra hello hizmeti silinmiş olduğunu belirten bir ileti alırsınız.
 
-   ![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
+   ![Merhaba Remove-AzureService komutunun Hello durumu][hello status of hello Remove-AzureService command]
 
    > [!NOTE]
-   > Hizmetin silinmesi, hizmet ilk kez yayımlandığında oluşturulan depolama hesabını silmez ve kullanılan depolama alanı için faturalandırılmaya devam edersiniz. Depolama alanı başka bir işlem tarafından kullanılmıyorsa silmek isteyebilirsiniz.
+   > Merhaba hizmetin silinmesi hello hizmet ilk kez yayımlandığında oluşturulan hello depolama hesabı silmez ve kullanılan depolama alanı için fatura toobe devam eder. Hiçbir şey hello depo kullanıyorsa toodelete isteyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi].
+Daha fazla bilgi için bkz: Merhaba [Node.js Geliştirici Merkezi].
 
 <!-- URL List -->
 
-[Azure Websites, Cloud Services ve Virtual Machines karşılaştırması]: ../app-service-web/choose-web-site-cloud-service-vm.md
+[Azure Websites, Cloud Services ve sanal makineleri karşılaştırma]: ../app-service-web/choose-web-site-cloud-service-vm.md
 [basit bir web uygulaması kullanmayı]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[.NET 2.7 için Azure SDK’sını]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[PowerShell’i bağlayın]: /powershell/azureps-cmdlets-docs#step-3-connect
+[.NET 2.7 için Azure SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
+[PowerShell'i bağlayın]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Azure için Barındırılan Hizmet Oluşturmaya Genel Bakış]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Geliştirici Merkezi]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 
-[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[hello result of hello New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[hello output of hello Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying hello Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[hello output of hello Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[A browser window displaying hello hello world page; hello URL indicates hello page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[hello status of hello Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[hello status of hello Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png

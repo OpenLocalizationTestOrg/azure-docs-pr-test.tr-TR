@@ -1,5 +1,5 @@
 ---
-title: "DMZ örnek – yapı ağ güvenlik duvarı, UDR ve NSG ile korunacak DMZ | Microsoft Docs"
+title: "bir güvenlik duvarı, UDR ve NSG ağlarla aaaDMZ örnek – yapı DMZ tooProtect | Microsoft Docs"
 description: "Bir güvenlik duvarı ile DMZ derleme, kullanıcı tanımlı yönlendirme (UDR) ve ağ güvenlik grupları (NSG)"
 services: virtual-network
 documentationcenter: na
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: cc121f9cd5fe3c3e9ac2c70fbb7d982a80bb345d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Örnek 3 – bir çevre ağ güvenlik duvarı, UDR ve NSG ile korumak için derleme
-[Güvenlik sınırı en iyi yöntemler sayfasına dön][HOME]
+# <a name="example-3--build-a-dmz-tooprotect-networks-with-a-firewall-udr-and-nsg"></a>Örnek 3 – bir güvenlik duvarı, UDR ve NSG ağlarla DMZ tooProtect derleme
+[Dönüş toohello güvenlik sınırı en iyi uygulamalar sayfası][HOME]
 
-Bu örnek, bir güvenlik duvarı, dört windows sunucuları, kullanıcı tanımlı yönlendirme, IP iletimi ve ağ güvenlik grupları ile DMZ oluşturur. Bu da her her adımın daha derin bir anlayış sağlamak için ilgili komutları yol gösterir. Ayrıca bir ayrıntılı sağlamak için bir trafik senaryosu bölümü olan adım adım çevre savunma katmanlar arasında nasıl trafiği devam eder. Son olarak, içindeki başvuruların sınamak ve çeşitli senaryolarıyla denemeler için bu ortamı oluşturmak için yönerge ve tam bir kod bölümüdür. 
+Bu örnek, bir güvenlik duvarı, dört windows sunucuları, kullanıcı tanımlı yönlendirme, IP iletimi ve ağ güvenlik grupları ile DMZ oluşturur. Bu da her hello ilgili komutları tooprovide her adımın daha derin bir anlayış yol gösterir. Ayrıca vardır bir trafik senaryo bölüm tooprovide ayrıntılı bir adım adım derinlemesine savunma hello katmanları üzerinden trafik geçer nasıl DMZ hello. Son olarak, hello references bölümünde hello tam kod ve yönerge toobuild bu ortam tootest çeşitli senaryoları ile deneme ise. 
 
 ![Çift yönlü DMZ NVA, NSG ve UDR][1]
 
 ## <a name="environment-setup"></a>Ortam Kurulumu
-Bu örnekte, aşağıdakileri içeren bir abonelik vardır:
+Bu örnekte hello aşağıdakileri içeren bir abonelik vardır:
 
 * Üç bulut hizmetlerini: "SecSvc001", "FrontEnd001" ve "BackEnd001"
 * Bir sanal ağ "CorpNetwork" üç alt ağ ile: "SecNet", "Ön uç" ve "Arka uç"
-* Bu örnekte bir güvenlik duvarı, bir ağ sanal gereç SecNet alt ağına bağlı
+* Bu örnekte bir güvenlik duvarı, bir ağ sanal gereç toohello SecNet alt bağlı
 * Uygulama web sunucusu ("IIS01") temsil eden bir Windows sunucusu
 * Uygulama geri temsil eden iki windows sunucuları sunucuları ("AppVM01", "AppVM02") end
 * Bir DNS sunucusu ("DNS01") temsil eden bir Windows sunucusu
 
-Başvurular bölümündeki yukarıda açıklanan ortamı çoğunu oluşturacak bir PowerShell komut dosyası yok. VM'ler ve sanal ağlar, derleme örnek komut dosyası tarafından yapılır rağmen değil açıklanmıştır bu belgede ayrıntılı.
+Merhaba başvurular bölümünde yukarıda açıklanan hello ortamı çoğunu oluşturacak bir PowerShell komut dosyası yok. Yapı hello VM'ler ve sanal ağlar, bu belgede ayrıntılı hello örnek komut dosyası tarafından yapılır rağmen açıklanmamaktadır.
 
-Ortamı oluşturmak için:
+toobuild hello ortamı:
 
-1. References bölümünde bulunan ağ yapılandırma xml dosyasını kaydedin (adlar, konum ve IP adresleri verilen senaryo eşleşecek şekilde güncelleştirilir)
-2. Kullanıcı değişkenleri karşı (Abonelikleri, hizmet adlarını, vb.) çalıştırılacak komut dosyasıdır ortamıyla eşleşecek şekilde güncelleştirin
-3. PowerShell komut dosyası yürütme
+1. (Adları, konum ve IP adreslerini toomatch verilen hello senaryo güncelleştirilmiş) hello başvurular bölümüne dahil hello ağ yapılandırma xml dosyasını kaydedin
+2. Güncelleştirme hello kullanıcı değişkenleri hello betik toomatch hello ortamı hello komut olan toobe Çalıştır (Abonelikleri, hizmet adlarını vb. karşı)
+3. PowerShell'de Hello komut dosyası yürütme
 
-**Not**: PowerShell Betiği miktarlara bölge ağ yapılandırması xml dosyasında miktarlara bölge ile eşleşmelidir.
+**Not**: hello PowerShell Betiği miktarlara hello bölge hello ağ yapılandırması xml dosyasında miktarlara hello bölge eşleşmesi gerekir.
 
-Komut dosyası başarıyla çalıştıktan sonra aşağıdaki sonrası betik adımlar izlenebilir:
+Merhaba komut dosyası başarıyla çalıştıktan sonra sonrası betik adımları izleyerek hello izlenebilir:
 
-1. Güvenlik duvarı kuralları ayarlamak, bu başlıklı bölümde aşağıda ele alınmıştır: güvenlik duvarı kuralı açıklaması.
-2. İsteğe bağlı olarak web sunucusu ve uygulama sunucusu bu DMZ yapılandırma ile test izin vermek için basit bir web uygulaması ile ayarlamak için iki komut dosyası başvuruları bölümünde bulunur.
+1. Merhaba güvenlik duvarı kuralları ayarlamak, bu başlıklı hello aşağıdaki bölümde ele alınmıştır: güvenlik duvarı kuralı açıklaması.
+2. İsteğe bağlı olarak iki komut dosyaları tooset hello web sunucusu ve uygulama sunucusu bu DMZ yapılandırma ile test basit bir web uygulaması tooallow ile Merhaba başvurular bölümünde bulunur.
 
-Komut dosyası kuralları tamamlanması gerekir Güvenlik Duvarı'nı başarıyla çalıştıktan sonra bu başlıklı bölümde ele alınmıştır: güvenlik duvarı kuralları.
+Merhaba komut dosyası başarıyla çalıştıktan sonra hello güvenlik duvarı kuralları tamamlandı toobe gerekir, bu başlıklı hello bölümde ele alınmıştır: güvenlik duvarı kuralları.
 
 ## <a name="user-defined-routing-udr"></a>Kullanıcı tanımlı yönlendirme (UDR)
-Varsayılan olarak, aşağıdaki sistem yolları gibi tanımlanır:
+Varsayılan olarak, sistem yolları aşağıdaki hello olarak tanımlanır:
 
         Effective routes : 
          Address Prefix    Next hop type    Next hop IP address Status   Source     
@@ -67,35 +67,35 @@ Varsayılan olarak, aşağıdaki sistem yolları gibi tanımlanır:
          {172.16.0.0/12}   Null                                 Active   Default    
          {192.168.0.0/16}  Null                                 Active   Default
 
-Her zaman VNETLocal vnet'in (IE, ağdan Vnet'e her belirli VNet nasıl tanımlandığına bağlı olarak değişir), belirli bir ağ için tanımlanan adres ön ' dir. Kalan sistem yolları statik ve yukarıdaki varsayılan.
+Merhaba VNETLocal hello tanımlanan adres ön hello VNet (IE, her belirli VNet nasıl tanımlandığına bağlı olarak VNet tooVNet değiştirilecek), belirli bir ağ için her zaman olur. Merhaba kalan sistem yolları statik ve yukarıdaki varsayılan.
 
-Öncelik, ettirilmesi yollar en uzun ön ek eşleşmesi (LPM) yöntemiyle işlenir, böylece en özel bir rota tablosunda belirtilen hedef adresi için geçerli olur.
+Öncelik, ettirilmesi yollar hello en uzun ön ek eşleşmesi (LPM) yöntemiyle işlenir, böylece hello hello tablosunda en belirgin yolu hedef adres verilen tooa geçerli olur.
 
-Bu nedenle, yerel ağ (10.0.0.0/16) trafiği (örneğin sunucuya DNS01, 10.0.2.4) 10.0.0.0/16 rota nedeniyle hedefine VNet arasında yönlendirilecektir. Diğer bir deyişle, 10.0.2.4 için 10.0.0.0/16 en özel bir rota 10.0.0.0/8 ve 0.0.0.0/0 de geçerli olabilir, ancak daha az olduğundan belirli kullanıcılar bu trafiği etkilemez olsa bile yoldur. Böylece 10.0.2.4 trafiği, yerel vnet'in sonraki atlama sahip ve yalnızca hedef yol.
+Bu nedenle, trafiği (örneğin toohello DNS01 sunucusu 10.0.2.4) hello yerel ağ (10.0.0.0/16) hello VNet tooits hedef toohello 10.0.0.0/16 rota son üzerinden yönlendirilecektir. Diğer bir deyişle, 10.0.2.4 için hello 10.0.0.0/16 yol hello en belirgin, hello 10.0.0.0/8 ve 0.0.0.0/0 de geçerli olabilir, ancak daha az belirli olduğundan bu trafiği etkilemez olsa bile yoldur. Bu nedenle hello trafiği too10.0.2.4 yerel VNet hello ve yalnızca toohello hedef yol bir sonraki atlama olarak gerekir.
 
-Trafik tasarlanmıştır 10.1.1.1 için örneğin, 10.0.0.0/16 rota uygularsanız olmayacaktır, ancak bu 10.0.0.0/8 en belirgin olacaktır ve bu trafiği olacaktır ("siyah holed") sonraki atlama Null olduğundan bırakıldı. 
+Trafik tasarlanmıştır 10.1.1.1 için örneğin, hello 10.0.0.0/16 rota olmayacaktır uygularsanız, ancak hello 10.0.0.0/8 hello en belirgin olacaktır ve bu hello trafiği olacaktır ("siyah holed") hello sonraki atlama değeri Null olduğundan bırakıldı. 
 
-Hedef herhangi biri Null ön ekler veya VNETLocal önekleri uygulanmadı sonra en az belirli izleyin yönlendirmek, 0.0.0.0/0 ve Internet'e sonraki atlama olarak ve bu nedenle Azure'nın Internet kenar çıkışı yönlendirilmesi.
+Merhaba hedef tooany hello Null önekleri veya hello VNETLocal önekleri uygulayın kaydetmedi ve hello az belirli izlersiniz yönlendirmek, 0.0.0.0/0 ve toohello hello sonraki atlama olarak Internet ve böylece Azure'nın Internet kenar çıkışı yönlendirilmesi.
 
-Rota tablosunda iki aynı önekleri varsa, yolları "kaynak" özniteliğine dayanarak tercih sırasına göre şudur:
+Merhaba rota tablosunda iki aynı önekleri varsa hello tercih sırasına göre hello yolları "kaynak" özniteliğine dayanarak hello aşağıda verilmiştir:
 
-1. "Değerinin VirtualAppliance" el ile tabloya eklenen kullanıcı tanımlanan rota =
-2. "VPNGateway" dinamik rota (BGP), karma ağlarla kullanıldığında = dinamik Protokolü otomatik olarak eşlenmiş ağ değişiklikleri yansıtır gibi dinamik ağ protokolü tarafından eklenen, bu yollar zaman içinde değişebilir
-3. "Varsayılan" rota yukarıdaki tabloda gösterildiği gibi sistem yolları, yerel VNet ve statik girdilerini =.
+1. "Değerinin VirtualAppliance" = kullanıcı tanımlı yol el ile eklenen toohello tablosu
+2. "VPNGateway" dinamik rota (BGP), karma ağlarla kullanıldığında = hello dinamik Protokolü otomatik olarak eşlenmiş ağ değişiklikleri yansıtır gibi dinamik ağ protokolü tarafından eklenen, bu yollar zaman içinde değişebilir
+3. "Varsayılan" Merhaba sistem yolları = hello rota tabloda yukarıda gösterildiği gibi yerel VNet ve hello statik girişleri hello.
 
 > [!NOTE]
-> Giden ve gelen zorlamak için VPN ağ geçitleri trafiği bir ağ sanal gereç (NVA) yönlendirilmeden şirketler arası ve ExpressRoute ile kullanıcı tanımlı yönlendirme (UDR) artık kullanabilirsiniz.
+> Gelen şirket içi toobe yönlendirilmiş tooa ağ sanal gereç (NVA) trafiği ve giden ExpressRoute ve VPN ağ geçitleri tooforce ile artık kullanıcı tanımlı yönlendirme (UDR) kullanabilirsiniz.
 > 
 > 
 
-#### <a name="creating-the-local-routes"></a>Yerel yollar oluşturma
-Bu örnekte, iki yönlendirme tablolarını gereklidir, her biri ön uç ve arka uç alt ağlar için. Her tablo için belirli alt uygun statik yollar ile yüklenir. Bu örneğin amacı doğrultusunda, her tablo üç yol vardır:
+#### <a name="creating-hello-local-routes"></a>Merhaba yerel yollar oluşturma
+Bu örnekte, iki yönlendirme tablolarını gereklidir, her biri hello ön uç ve arka uç alt ağlar için. Her tablo için alt ağ verilen hello uygun statik yollar ile yüklenir. Bu örnek Hello amaçla her tablo üç yol vardır:
 
-1. Güvenlik Duvarı atlamak yerel alt ağ trafiğine izin vermek için yerel alt ağ trafiği hiçbir sonraki atlama ile tanımlanan
-2. Bir sonraki güvenlik duvarı olarak tanımlanan atlama ile sanal ağ trafiği, bu doğrudan yönlendirmek yerel VNet trafiğe izin veren varsayılan kuralı geçersiz kılar
-3. Bir sonraki Güvenlik Duvarı'nı tanımlanan atlama ile tüm kalan trafiği (0/0)
+1. Tanımlanan bir sonraki atlama tooallow yerel alt ağ trafiği toobypass hello güvenlik duvarı olmayan yerel alt ağ trafiği
+2. Bir sonraki güvenlik duvarı olarak tanımlanan atlama ile sanal ağ trafiği, bu yerel VNet trafiği tooroute doğrudan veren hello varsayılan kuralı geçersiz kılar
+3. Bir sonraki atlama ile tüm kalan trafiği (0/0) güvenlik duvarı hello olarak tanımlanan
 
-Yönlendirme tabloları oluşturulduktan sonra bunlar için alt ağlarını bağlıdır. Ön uç alt ağ için bir kez oluşturulur ve alt ağına bağlı yönlendirme tablosu aşağıdaki gibi görünmelidir:
+Merhaba yönlendirme tablolarını oluşturulduktan sonra bunların ilişkili tootheir alt ağlardır. Merhaba ön uç için alt ağ yönlendirme tablosu, oluşturup bağlı sonra toohello alt aşağıdaki gibi görünmelidir:
 
         Effective routes : 
          Address Prefix    Next hop type    Next hop IP address Status   Source     
@@ -105,33 +105,33 @@ Yönlendirme tabloları oluşturulduktan sonra bunlar için alt ağlarını bağ
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
 
-Yol tablosu oluşturmak, bir kullanıcı tanımlı yolu ekleyin ve ardından yol tablosu bir alt ağa bağlamak için kullanılan bu örnek için aşağıdaki komutları (Not; dolar işareti ile başlayan altındaki öğeleri (örn: $BESubnet) kullanıcı tanımlı değişkenler başvuru bölümünde, bu belgenin betikten):
+Bu örnek için kullanılan toobuild hello rota tablosundan hello aşağıdaki komutlar, kullanıcı tanımlı yol eklemek ve hello rota tablosu tooa alt ağa bağlamak (Not; dolar işareti ile başlayan altındaki öğeleri (örn: $BESubnet) hello komut dosyasından kullanıcı tanımlı değişkenler Merhaba başvuru bölümü, bu belgenin):
 
-1. Temel yönlendirme tablosu oluşturulması gerekir. Bu kod parçacığında arka uç alt ağ için tablo oluşturulmasını gösterir. Komut dosyasında karşılık gelen bir tablo için ön uç alt da oluşturulur.
+1. İlk hello temel yönlendirme tablosu oluşturulması gerekir. Bu kod parçacığında hello arka uç alt ağ için hello tablosu hello oluşturulmasını gösterir. Merhaba komut dosyasında karşılık gelen bir tablo için hello ön uç alt da oluşturulur.
    
      AzureRouteTable yeni-ad $BERouteTableName '
    
          -Location $DeploymentLocation `
          -Label "Route table for $BESubnet subnet"
-2. Yol tablosu oluşturulduktan sonra belirli kullanıcı tanımlı yollar eklenebilir. Bu konuda kırpılmış, tüm trafik (0.0.0.0/0) (bir değişken $VMIP [0] komut dosyasındaki sanal gereç oluşturulduğunda atanan IP adresi geçirmek için kullanılır) sanal gereç aracılığıyla yönlendirilir. Komut dosyasında karşılık gelen kuralı da ön uç tabloda oluşturulur.
+2. Merhaba yol tablosu oluşturulduktan sonra belirli kullanıcı tanımlı yollar eklenebilir. Bu konuda kırpılmış, tüm trafik (0.0.0.0/0) (bir $VMIP [0], başlangıç IP adresi hello sanal gereç önceki hello komut dosyasında oluşturulduğunda atanan kullanılan toopass değişkendir) hello sanal gereç aracılığıyla yönlendirilir. Merhaba komut dosyasında karşılık gelen bir kural hello ön uç tablosunda da oluşturulur.
    
      Get-AzureRouteTable $BERouteTableName | `
    
-         Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+         Set-AzureRoute -RouteName "All traffic tooFW" -AddressPrefix 0.0.0.0/0 `
          -NextHopType VirtualAppliance `
          -NextHopIpAddress $VMIP[0]
-3. Yukarıdaki rota girişi, doğrudan hedef ve ağ sanal Gerece yönlendirmek için sanal ağ içindeki trafiği izin varsayılan "0.0.0.0/0" yol, ancak hala var olan varsayılan 10.0.0.0/16 kuralı geçersiz kılar. Doğru Bu davranış izleme kuralı eklenmelidir.
+3. Rota girişi yukarıda Hello kılar hello varsayılan "0.0.0.0/0" yol, ancak hala hangi belirleyebilmesini varolan hello varsayılan 10.0.0.0/16 kuralı trafiği hello VNet tooroute içinde doğrudan toohello hedef ve toohello ağ sanal gereç. toocorrect bu davranışı hello izleyin kural eklenmesi gerekir.
    
         Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+            Set-AzureRoute -RouteName "Internal traffic tooFW" -AddressPrefix $VNetPrefix `
             -NextHopType VirtualAppliance `
             -NextHopIpAddress $VMIP[0]
-4. Bu noktada yapılacak bir seçenek yoktur. Yukarıdaki iki yollar değerlendirmesi, tek bir alt ağ içindeki bile trafiği için Güvenlik Duvarı'nda tüm trafik yönlendirilecek. Yerel Güvenlik Duvarı müdahalesi olmadan üçüncü yönlendirmek için bir alt ağ içindeki trafiği izin vermek için çok özel kural eklenebilir ancak bu, istenebilir. Bu yol var bildiren herhangi bir adresi destine yerel alt ağ yalnızca için rota doğrudan (NextHopType VNETLocal =).
+4. Bu noktada yaptığınız bir seçim toobe yoktur. İki yoldan yukarıda hello ile tüm trafik değerlendirmesi, tek bir alt ağ içindeki bile trafiği için Güvenlik Duvarı'nı toohello yönlendirilecek. Üçüncü, belirli bir kural eklenebilir hello Güvenlik Duvarı'nı müdahalesi olmadan yerel olarak bir alt ağ tooroute içinde tooallow trafiği ancak bu, istenebilir. Bu yol var bildiren herhangi bir adresi destine hello yerel alt ağ yalnızca için rota doğrudan (NextHopType VNETLocal =).
    
         Get-AzureRouteTable $BERouteTableName | `
             Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
             -NextHopType VNETLocal
-5. Son olarak, oluşturulur ve kullanıcı tanımlı yollar ile doldurulur yönlendirme tablosu ile tablonun şimdi bir alt ağa bağlı olmalıdır. Komut dosyasında, ön uç yol tablosu ayrıca ön uç alt ağına bağlı. Burada, arka uç alt ağ için bağlama komut verilmiştir.
+5. Son olarak, oluşturulur ve kullanıcı tanımlı yollar ile doldurulur hello yönlendirme tablosunu ile Merhaba tablo şimdi ilişkili tooa alt olmalıdır. Hello komut dosyasında hello ön uç yol tablosu da ilişkili toohello Frontend alt ağı var. Merhaba bağlama betik hello arka uç alt ağ için aşağıda verilmiştir.
    
      Set-AzureSubnetRouteTable - VirtualNetworkName $VNetName '
    
@@ -139,42 +139,42 @@ Yol tablosu oluşturmak, bir kullanıcı tanımlı yolu ekleyin ve ardından yol
         -RouteTableName $BERouteTableName
 
 ## <a name="ip-forwarding"></a>IP İletimi
-Bir yardımcı UDR için özelliktir IP iletimi. Gereci özellikle trafiği alabilmesine ve bu trafiğin ultimate hedefine iletmek imkan tanıyan bir sanal gereç bir ayar budur.
+Bir yardımcı özelliği tooUDR olduğu IP iletimi. Bu özellikle tooreceive trafiğe izin veren bir sanal gereç ayarda toohello Gereci ele ve bu trafiği tooits ultimate hedef iletin.
 
-AppVM01 trafiğinden DNS01 sunucusuna bir istek yapıyorsa örnek olarak, UDR bu Güvenlik Duvarı'na rota. Etkin IP iletimi ile DNS01 hedef (10.0.2.4) trafiği (10.0.0.4) Gereci tarafından kabul ve olması ultimate hedefine (10.0.2.4) iletilir. Yol tablosu sonraki atlama olarak bir güvenlik duvarına sahip olsa bile Güvenlik Duvarı'nı etkin IP iletimi, trafiği Gereci tarafından kabul değil. 
+AppVM01 trafiğinden istek toohello DNS01 sunucusu yaparsa örnek olarak, bu toohello güvenlik duvarı UDR rota. Etkin IP iletimi ile hello trafiği hello DNS01 hedef (10.0.2.4) için hello Gereci (10.0.0.4) tarafından kabul ve olması tooits ultimate hedef (10.0.2.4) iletilir. Merhaba yol tablosu hello güvenlik duvarı hello sonraki atlama olarak olmasına rağmen hello üzerinde Güvenlik Duvarı etkin IP iletimi, trafiği hello Gereci tarafından kabul değil. 
 
 > [!IMPORTANT]
-> Kullanıcı tanımlı yönlendirme ile birlikte IP iletimi etkinleştirmeyi unutmayın önemlidir.
+> Kritik tooremember tooenable IP iletimi kullanıcı tanımlı yönlendirme ile birlikte olur.
 > 
 > 
 
-IP iletimi ayarlama tek bir komut ve VM oluşturma zamanında yapılabilir. Bu örnek akış için kod parçacığında komut dosyasının sonuna doğru olduğundan ve UDR komutları ile gruplandırılır:
+IP iletimi ayarlama tek bir komut ve VM oluşturma zamanında yapılabilir. Hello için bu örnek hello kod parçacığını akışını hello komut dosyasının hello sonuna doğru olduğundan ve hello UDR komutları ile gruplandırılmış:
 
-1. Bu durumda, bir sanal gereç, güvenlik duvarı olan VM örneği çağırın ve IP iletimini etkinleştirme (Not; dolar işareti kırmızı başlayarak herhangi bir öğeye (örn: $VMName[0]), bu belgenin başvuru bölümdeki komut dosyasından bir kullanıcı tanımlı değişkendir. Köşeli ayraçlar [0], sıfır VM'ler değişiklik yapmadan çalışmak örnek komut dosyası için bir dizi ilk VM'yi temsil eder, Güvenlik Duvarı'nı (VM 0) ilk VM olması gerekir):
+1. Sanal gereç olan hello VM örneği çağrısı, Güvenlik Duvarı bu durumda hello ve IP iletimini etkinleştirme (Not; dolar işareti kırmızı başlayarak herhangi bir öğeye (örn: $VMName[0]), bu belgenin hello başvuru bölümünde hello komut dosyasından bir kullanıcı tanımlı değişkendir. köşeli ayraçlar [0] sıfır Merhaba, temsil VM'ler, hello dizideki hello örnek komut dosyası toowork değişiklik yapmadan için ilk VM Merhaba, ilk VM (VM 0) olmalıdır hello hello Güvenlik Duvarı):
    
      Get-AzureVM-$ServiceName [0] [0] $VMName - ServiceName adı | `
    
         Set-AzureIPForwarding -Enable
 
 ## <a name="network-security-groups-nsg"></a>Ağ Güvenlik Grupları (NSG)
-Bu örnekte, bir NSG grubu yerleşik ve tek bir kural ile yüklenir. Bu grup, ardından yalnızca ön uç ve arka uç alt ağlara (SecNet değil) bağlıdır. Aşağıdaki kural oluşturulmakta olan bildirimli olarak:
+Bu örnekte, bir NSG grubu yerleşik ve tek bir kural ile yüklenir. Bu grup ise yalnızca toohello ön uç ve arka uç alt ağlar (değil SecNet hello) bağlı. Bildirimli olarak kural aşağıdaki hello üretiliyor:
 
-1. Tüm trafiği (tüm bağlantı noktaları) Internet'ten (tüm alt ağlar) tüm sanal ağa reddedildi
+1. Merhaba Internet toohello tüm trafiği (tüm bağlantı noktaları) tüm sanal ağ (tüm alt ağlar) reddedildi
 
-Nsg'ler Bu örnekte kullanılan cihazın ana amacı el ile yetersizliğini karşı savunma ikincil bir katmanı olarak olsa da. Ön uç ya da internet'ten gelen tüm trafiği engellemek istiyoruz veya arka uç alt ağlar, trafiği yalnızca SecNet alt ağ güvenlik duvarı aracılığıyla akış (ve ardından IF, alt ağlar ön uç veya arka uç açın gerekli). Ayrıca, bir yerde, UDR kurallarla ön uç veya arka uç alt yaptı tüm trafik çıkışı Güvenlik Duvarı'nda (UDR) sayesinde yönlendirilmesi. Güvenlik Duvarı'nı bu asimetrik bir akış halinde görür ve giden trafik bırakma. Bu nedenle ön uç ve arka uç alt ağ korumaya güvenlik üç katmanı vardır; 1) açık uç nokta yok FrontEnd001 ve BackEnd001 bulut hizmetlerini, 2) Nsg'ler trafiğini Internet'ten, 3) güvenlik duvarı bırakma asimetrik trafiği engelleme.
+Nsg'ler Bu örnekte kullanılan cihazın ana amacı el ile yetersizliğini karşı savunma ikincil bir katmanı olarak olsa da. Hello Internet tooeither hello ön uç gelen tüm trafiği tooblock istiyoruz veya arka uç alt ağlar, trafiği yalnızca hello SecNet alt toohello güvenlik duvarı akış (ve ardından IF uygun toohello ön uç veya arka uç alt ağlar). Ayrıca, bir yerde, hello UDR kurallarla ön uç veya arka uç alt hello yaptı tüm trafik toohello Güvenlik Duvarı (teşekkürler tooUDR) yönlendirilmesi. Merhaba Güvenlik Duvarı'nı bu asimetrik bir akış halinde görür ve hello giden trafiği bırakma. Bu nedenle üç katmanlı güvenlik koruma hello ön uç ve arka uç alt ağları vardır; 1) hiçbir açık uç noktalarda hello FrontEnd001 ve BackEnd001 bulut Hizmetleri, 2) Nsg'ler reddetme trafiği hello 3) hello güvenlik duvarı asimetrik trafiğini atar.
 
-Bir ilginç Bu örnekte ağ güvenlik grubu ile ilgili güvenlik alt ağ içerir tüm sanal ağ Internet trafiği engellemek için olan yalnızca bir kural, aşağıda gösterilen içerdiğini noktasıdır. 
+Bu örnekte hello ağ güvenlik grubu ile ilgili bir ilginç noktası, yalnızca bir kural, aşağıda gösterilen hello güvenlik alt ağ içeren toodeny Internet trafiği toohello tüm sanal ağ olan içermesidir. 
 
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
-        Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
-        from the Internet" `
+        Set-AzureNetworkSecurityRule -Name "Isolate hello $VNetName VNet `
+        from hello Internet" `
         -Type Inbound -Priority 100 -Action Deny `
         -SourceAddressPrefix INTERNET -SourcePortRange '*' `
         -DestinationAddressPrefix VIRTUAL_NETWORK `
         -DestinationPortRange '*' `
         -Protocol *
 
-NSG yalnızca ön uç ve arka uç alt ağa bağlı olduğundan, kuralın trafiğinde ancak işlenen değil gelen güvenlik alt ağ için. Sonuç olarak, NSG, hiçbir zaman güvenlik alt ağına bağlı olduğundan NSG kural VNet üzerinde herhangi bir adresi yok Internet trafiğini diyor olsa bile, trafik için güvenlik alt ağ akar.
+NSG, yalnızca hello toohello ön uç ve arka uç alt ağları bağlı olduğundan, hello kural trafiğinde ancak işlenen değil toohello güvenlik alt ağ gelen. Sonuç olarak, NSG gerçekleştirilemeyen hello toohello güvenlik alt ağa bağlı olduğundan hello NSG Kuralı Internet trafiği tooany adres Vnet'in hello üzerinde söyler. olsa bile, trafik toohello güvenlik alt ağ akar.
 
     Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
         -SubnetName $FESubnet -VirtualNetworkName $VNetName
@@ -183,131 +183,131 @@ NSG yalnızca ön uç ve arka uç alt ağa bağlı olduğundan, kuralın trafiğ
         -SubnetName $BESubnet -VirtualNetworkName $VNetName
 
 ## <a name="firewall-rules"></a>Güvenlik Duvarı Kuralları
-Güvenlik Duvarı'nı kuralları iletme oluşturulması gerekir. Güvenlik duvarı engelleme veya iletme tüm gelen, giden ve içi-VNet trafiği olduğundan birçok güvenlik duvarı kuralları gerekir. Ayrıca, tüm gelen trafiği güvenlik hizmeti genel IP adresine (farklı bağlantı noktalarını), güvenlik duvarı tarafından işlenmek üzere karşılaşır. Alt ağlar ayarlamadan önce mantıksal akış diyagramı için en iyi uygulamadır ve daha sonra önlemek için güvenlik duvarı kuralları rework. Aşağıdaki şekilde, bu örnek için güvenlik duvarı kurallarının mantıksal bir görünümdür:
+Merhaba güvenlik duvarında kuralları iletme oluşturulan toobe gerekir. Merhaba güvenlik duvarı engelleme veya iletme tüm gelen, giden ve içi-VNet trafiği olduğundan birçok güvenlik duvarı kuralları gerekir. Ayrıca, tüm gelen trafiği hello güvenlik hizmeti genel IP adresi karşılaşır (farklı bağlantı noktalarını), toobe hello güvenlik duvarı tarafından işlenir. Toodiagram hello mantıksal akışları hello alt ağları ve güvenlik duvarı kuralları tooavoid olacak yeniden çalışma ihtimalinden daha sonra ayarlama önce bir en iyi uygulamadır. Hello aşağıdaki şekilde hello güvenlik duvarı kuralları bu örnek için mantıksal bir görünümünü gösterilmiştir:
 
-![Güvenlik duvarı kurallarını mantıksal görünümü][2]
+![Mantıksal görünümünü hello güvenlik duvarı kuralları][2]
 
 > [!NOTE]
-> Ağ sanal kullanılan Gereci bağlı olarak, yönetim bağlantı noktalarını değişir. Barracuda NextGen Firewall başvurulan Bu örnekte, bağlantı noktası 22, 801 ve 807 kullanır. Lütfen kullanılan aygıt yönetimi için kullanılan tam bağlantı noktalarını bulmak için Gereci satıcı belgelerine bakın.
+> Ağ sanal gereç kullanılan hello üzerinde bağlı olarak, hello yönetim bağlantı noktalarını değişir. Barracuda NextGen Firewall başvurulan Bu örnekte, bağlantı noktası 22, 801 ve 807 kullanır. Lütfen kullanılan hello aygıt yönetimi için kullanılan hello Gereci satıcı belgelerine toofind hello tam bağlantı noktalarını bakın.
 > 
 > 
 
 ### <a name="logical-rule-description"></a>Mantıksal kural açıklaması
-Mantıksal Yukarıdaki diyagramda, güvenlik alt ağ güvenlik duvarı o alt ağdaki yalnızca kaynak ve bu diyagramda, güvenlik duvarı kuralları ve nasıl bunlar mantıksal olarak izin verme veya trafiği akışı ve gerçek yönlendirilmiş yol değil reddetme gösteren beri gösterilmez. Ayrıca, RDP trafiğine için daha yüksek seçilen dış bağlantı noktalarını bağlantı noktaları (8014 – 8026) aralıklı ve biraz daha kolay okunabilir olması için yerel IP adresi son iki sekizlisinin hizalamak için seçildi (örneğin yerel sunucu 10.0.1.4 dış bağlantı noktasıyla ilişkili adresidir 8014), ancak daha yüksek herhangi çakışmayan bağlantı noktaları kullanılabilir.
+Merhaba mantıksal Yukarıdaki diyagramda, hello güvenlik duvarı hello yalnızca o alt ağdaki kaynaktır ve bu diyagramda hello güvenlik duvarı kuralları ve nasıl mantıksal olarak izin ver veya Reddet trafik akışına ve hello gerçek yönlendirilmiş yol değil gösteren hello güvenlik alt ağ gösterilmez. Ayrıca, daha kolay okunabilir olması için yerel IP adresi hello iki sekizlisinin hello RDP trafiğine yüksek aralıklı bağlantı noktaları (8014 – 8026) olduğundan ve bundan seçili toosomewhat Hizala ile hello için seçilen hello dış bağlantı noktalarını en son (örneğin yerel sunucu adresi 10.0.1.4 ilişkili olduğu dış bağlantı noktası 8014), ancak daha yüksek herhangi çakışmayan bağlantı noktaları kullanılabilir.
 
 Bu örnek için 7 tür kuralların ihtiyacımız, bu kural türleri aşağıda açıklanmıştır:
 
 * Dış kuralları (için gelen trafiği):
-  1. Güvenlik Duvarı Yönetimi kuralı: Bu uygulama yeniden yönlendirme kuralı ağ sanal gereç yönetim bağlantı noktalarına geçirmek trafiğine izin verir.
-  2. RDP kuralları (her windows server için): Bu dört kurallar (her sunucu için bir tane) RDP aracılığıyla tek sunucuların Yönetimi izin verir. Bu ayrıca ağ sanal kullanılan gereç özelliklerine bağlı olarak tek bir kural içine paketlenmiş.
-  3. Uygulama trafiği kuralları: Ön uç web trafiği için ilk ve ikinci arka uç trafiği (örn. web sunucusu için veri katmanı) için iki uygulama trafiği kuralları vardır. Bu kurallar yapılandırmasını (burada, sunucularınızın yerleştirilir) ağ mimarisi bağımlı ve trafik akışları (hangi yönde trafik akışına ve hangi bağlantı noktaları kullanılır).
-     * İlk kural, uygulama sunucusuna ulaşmaya gerçek uygulama trafiğine izin verir. Diğer kurallardan izin verirken, güvenlik, yönetim, vb. için uygulama ne harici kullanıcılar ya da hizmetleri uygulamaları erişmesine izin kurallardır. Bu örnekte, bağlantı noktası 80 üzerinde tek bir web sunucusu yoktur, böylece bir tek uygulama güvenlik duvarını gelen trafiği web sunucuları iç IP adresi için harici IP yönlendirilecek. Yeniden yönlendirilen trafiği oturum NAT iç sunucuya sahip.
-     * İkinci uygulama trafik kuralı AppVM01 sunucu (ancak değil AppVM02) için anlaşmak Web sunucusu herhangi bir bağlantı izin vermek için arka uç kuralıdır.
+  1. Güvenlik Duvarı Yönetimi kuralı: Bu uygulama yeniden yönlendirme kuralı hello ağ sanal gereç trafiği toopass toohello yönetim bağlantı noktaları sağlar.
+  2. RDP kuralları (her windows server için): Bu dört kurallar (her sunucu için bir tane) hello Yönetimi tek tek sunucular RDP aracılığıyla izin verir. Bu ayrıca hello kullanılan ağ sanal gereç hello yeteneklerini bağlı olarak tek bir kural içine paketlenmiş.
+  3. Uygulama trafiği kuralları: İki uygulama trafiği kuralları, hello hello ön uç web trafiği için ilk ve ikinci hello arka uç trafiği (örneğin web sunucusu toodata katmanı) için hello vardır. Bu kurallar Hello yapılandırmasını hello ağ mimarisi (sunucularınızı yerleştirildiği) ve (hangi yönde hello trafik akışlarının ve hangi bağlantı noktalarının kullanılacağını) trafiği akışı değişir.
+     * Merhaba ilk kural hello gerçek uygulama trafiği tooreach hello uygulama sunucusu izin verir. Merhaba diğer kurallar izin verirken, güvenlik, yönetim, vb. için uygulama ne hello uygulamaları dış kullanıcı ve hizmet tooaccess izin kurallardır. Bu örnek için bağlantı noktası 80 üzerinde tek bir web sunucusu yoktur, böylece bir tek uygulama güvenlik duvarını gelen trafiği toohello dış IP, toohello web sunucuları iç IP adresi yönlendirir. Hello vardı NAT trafiği oturumu yeniden yönlendirilen toohello iç sunucu.
+     * İkinci uygulama trafik kuralı hello herhangi bir bağlantı arka uç kural tooallow hello Web sunucusu tootalk toohello AppVM01 sunucu (ancak değil AppVM02) hello.
 * İç kurallardan (içi-VNet trafiği)
-  1. Internet kuralı giden: Bu kural seçilen ağlara geçirmek için herhangi bir ağ trafiğinden izin verir. Bu genellikle varsayılan bir kural zaten güvenlik duvarında ancak devre dışı durumdayken kuralıdır. Bu kural, bu örnek için etkinleştirilmelidir.
-  2. DNS kuralı: Bu kural DNS sunucusuna iletmek yalnızca DNS (bağlantı noktası 53) trafiği sağlar. Çoğu trafiğinden ön uç arka uç için engellenen bu ortam için bu kural tüm yerel alt ağ üzerinden DNS özellikle sağlar.
-  3. Alt ağ için alt kuralı: Bu kural, ön uç alt (ancak tersi) herhangi bir sunucuya bağlanmak için arka uç alt ağda herhangi bir sunucu izin vermektir.
-* Yedek operatördür kuralı (yukarıdaki birini karşılamıyor trafiği):
-  1. Tüm trafik kuralı Reddet: Bu her zaman son kural (bakımından öncelik) olmalıdır ve trafik akışlarına bu nedenle bu kural tarafından bırakılacak önceki kurallardan herhangi birinin eşleştirmek başarısız olur. Bu varsayılan bir kural ve genellikle etkin, değişikliğe genellikle gereklidir.
+  1. Giden tooInternet kuralı: Bu kural herhangi bir ağ trafiğinden toopass seçili toohello ağlar izin verir. Bu genellikle varsayılan bir kural zaten hello güvenlik duvarı, ancak devre dışı durumdayken kuralıdır. Bu kural, bu örnek için etkinleştirilmelidir.
+  2. DNS kuralı: Bu kural yalnızca DNS (bağlantı noktası 53) trafiği toopass toohello DNS sunucusu sağlar. Merhaba ön uç toohello arka uç çoğu trafiğinden engellenen bu ortam için bu kural tüm yerel alt ağ üzerinden DNS özellikle sağlar.
+  3. Alt ağ tooSubnet kuralı: herhangi bir sunucuda hello arka uç alt tooconnect tooany sunucusu hello ön uç alt ağdaki (ancak hello geriye doğru değil) tooallow bu kuralıdır.
+* Yedek operatördür kuralı (yukarıdaki hello birini karşılamıyor trafiği):
+  1. Tüm trafik kuralı Reddet: Bu her zaman son bir kural hello (bakımından öncelik) olmalıdır ve trafik akışlarına şekilde toomatch bu kural tarafından bırakılacak kuralları önceki hello hiçbirini başarısız olur. Bu varsayılan bir kural ve genellikle etkin, değişikliğe genellikle gereklidir.
 
 > [!TIP]
-> İkinci uygulama trafik kuralı üzerinde herhangi bir bağlantı için en belirli bağlantı noktası gerçek bir senaryoda bu örneğin kolay izin verilir ve adres aralıkları, bu kural, saldırı yüzeyini azaltmak için kullanılmalıdır.
+> Merhaba ikinci uygulama trafik kuralı, herhangi bir bağlantı için bu örneği kolay izin verilir, gerçek senaryo hello bu kural, kullanılan tooreduce hello saldırı yüzeyini en belirli bağlantı noktasının ve adres aralıkları olmalıdır.
 > 
 > 
 
 <br />
 
 > [!IMPORTANT]
-> Yukarıdaki kurallarda oluşturulduktan sonra trafiğine izin verilen veya istendiği gibi reddedilen emin olmak için her bir kural önceliğini gözden geçirilmesi önemlidir. Bu örnekte, öncelik sırasına göre kurallardır. Güvenlik Duvarı'nı yanlış sıralı kuralları nedeniyle dışında kilitlenmesi kolaydır. En azından, Yönetim güvenlik duvarı kendisi için her zaman mutlak en yüksek öncelik kuralı olduğundan emin olun.
+> Tüm kuralları yukarıda hello oluşturulduktan sonra tooreview hello her kural tooensure trafiğin önceliğini izin verilen veya istendiği gibi reddedilen önemlidir. Bu örnekte, hello öncelik sırasına göre kurallardır. Merhaba güvenlik duvarı kuralları toomis sipariş son dışında kilitli kolay toobe olur. En azından hello Yönetimi hello güvenlik duvarı kendisi için her zaman hello mutlak en yüksek öncelik kuralı olduğundan emin olun.
 > 
 > 
 
 ### <a name="rule-prerequisites"></a>Kural önkoşulları
-Bir Güvenlik Duvarı'nı çalıştıran sanal makine için önkoşuldur ortak uç noktaları. Trafiğini işlemek Güvenlik Duvarı için uygun ortak bitiş noktalarının açık olması gerekir. Bu örnekte trafiğin üç tür vardır; Windows sunucuları ve 3) uygulama trafiğini denetlemek için RDP trafiğine 1) yönetim trafiğinin Güvenlik Duvarı'nı Denetim ve güvenlik duvarı kuralları, 2). Bu üç sütunlar üst trafik türleri üzerinde güvenlik duvarı kuralları mantıksal görünümünü yarısı'dır.
+Merhaba sanal makine çalışan hello Güvenlik Duvarı için önkoşul vardır ortak uç noktaları. Merhaba güvenlik duvarı tooprocess trafiği için hello uygun ortak bitiş noktalarının açık olması gerekir. Bu örnekte trafiğin üç tür vardır; 1) yönetim trafiğini toocontrol hello güvenlik duvarı ve güvenlik duvarı kuralları, 2) RDP trafiğine toocontrol hello windows sunucuları ve 3) uygulama trafiği. Merhaba üç sütun üst hello trafik türlerinin hello güvenlik duvarı kuralları mantıksal görünümünü yarısı bunlar.
 
 > [!IMPORTANT]
-> Burada anahtar takeway unutmayın vermektir **tüm** trafiğinin güvenlik duvarı üzerinden gelen. Bu nedenle IIS01 sunucuya Uzak Masaüstü için ön uç bulut hizmeti ve ön uç alt olmasına rağmen bu sunucuya erişmek için biz RDP için güvenlik duvarı bağlantı noktası 8014 gerekir ve RDP isteği IIS01 RDP Por için dahili olarak yönlendirmek Güvenlik Duvarı'nı izin ver t. Azure portal'ın "Bağlan" düğmesi olduğundan IIS01 için doğrudan bir RDP yol yok (portal görebilirsiniz uzaklığa kadar) çalışmaz. Bu, Internet'ten gelen tüm bağlantıları güvenlik hizmeti ve bir bağlantı noktası, örneğin secscv001.cloudapp.net:xxxx (başvuru harici bağlantı noktası, iç IP ve bağlantı noktası eşlemesi için yukarıdaki diyagramda) anlamına gelir.
+> Burada anahtar takeway tooremember olduğundan, **tüm** trafiği hello güvenlik duvarı üzerinden gelen. Bunu tooremote Masaüstü toohello IIS01 sunucu, onu hello ön uç bulut hizmeti ve hello ön uç alt tooaccess tooRDP toohello güvenlik duvarı üzerinde ihtiyacımız bu sunucu olsa bile 8014 bağlantı noktası ve hello güvenlik duvarı tooroute hello RDP isteği dahili izin toohello IIS01 RDP bağlantı noktası. Merhaba "Azure portal'ın Bağlan düğmesini olduğu için hiçbir doğrudan RDP yolu tooIIS01 (Merhaba portal görebilirsiniz uzaklığa kadar) çalışmaz". Tüm bağlantılar yani hello Internet toohello güvenlik hizmeti ve bir bağlantı noktası, örneğin secscv001.cloudapp.net:xxxx (başvuru hello hello eşleme harici bağlantı noktası, iç IP ve bağlantı noktası diyagramı yukarıda) olacaktır.
 > 
 > 
 
-Bir uç nokta ya da VM oluşturma zamanında açılabilir veya yapı örnek komut dosyasında yapılan ve aşağıda bu kod parçacığında gösterildiği gibi post (Not; herhangi bir dolar işareti öğesi başlayarak (örn: $VMName[$i]) olan bir kullanıcı tanımlı değişken başvuru ntüle komut Bu belgenin n. Köşeli ayraçlar "$i" [$i] VM'ler dizisi belirli bir VM'de dizi sayısını temsil eder):
+Bir uç nokta hello zaman VM oluşturma ya da açılabilir veya yapı hello örnek komut dosyasında yapılan ve aşağıda bu kod parçacığında gösterildiği gibi post (Not; herhangi bir dolar işareti öğesi başlayarak (örn: $VMName[$i]) olan bir kullanıcı tanımlı değişken hello referen hello betikten Bu belgenin CE bölümü. köşeli ayraçlar [$i] "$i" Hello hello dizi sayısını VM'ler dizisindeki belirli bir VM'yi temsil eder):
 
     Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
         -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
         Update-AzureVM
 
-Değişkenleri, ancak uç noktalar kullanımını, nedeniyle değil açıkça burada gösterilen ancak **yalnızca** güvenlik bulut Hizmeti'ndeki açılır. Tüm gelen trafiği yönetildiğinden emin olmak için budur (yönlendirilmiş NAT bırakılan) güvenlik duvarı tarafından.
+Değişkenleri, ancak uç noktalar toohello kullanımı, son değil açıkça burada gösterilen ancak **yalnızca** hello güvenlik bulut hizmeti üzerinde açılır. Tüm gelen trafiği işlenir tooensure budur (yönlendirilmiş NAT bırakılan) hello güvenlik duvarı tarafından.
 
-Bir yönetim İstemcisi Güvenlik Duvarı'nı yönetmek ve gerekli yapılandırmaları oluşturmak için bir Bilgisayara yüklü gerekir. Belge, Güvenlik Duvarı (veya diğer NVA) satıcı cihaz yönetme konusuna bakın. Bu bölümde ve sonraki bölümde, güvenlik duvarı kuralları oluşturma, geri kalan güvenlik duvarı yapılandırmasını kendisini satıcılar Yönetimi istemcisi (yani Azure portal veya PowerShell) aracılığıyla anlatmaktadır.
+Bir yönetim istemcisi yüklü bir bilgisayar toomanage hello Güvenlik Duvarı'nı toobe gerekir ve gerekli hello yapılandırmaları oluşturun. Merhaba, Güvenlik Duvarı (veya diğer NVA) belgelerinden satıcı nasıl toomanage hello üzerinde aygıt bakın. Bu bölümde ve hello sonraki bölümde, güvenlik duvarı kuralları oluşturma, Hello kalanı hello hello güvenlik duvarı yapılandırmasını kendisini hello satıcılar Yönetimi istemcisi (yani hello Azure portal veya PowerShell) aracılığıyla anlatmaktadır.
 
-İstemci Yükleme ve bu örnekte kullanılan Barracuda bağlanmak için yönergeler şurada bulunabilir: [Barracuda NG yönetici](https://techlib.barracuda.com/NG61/NGAdmin)
+İstemci Yükleme ve bağlantı toohello Bu örnekte kullanılan Barracuda için yönergeler şurada bulunabilir: [Barracuda NG yönetici](https://techlib.barracuda.com/NG61/NGAdmin)
 
-Güvenlik Duvarı üzerine ancak güvenlik duvarı kuralları oluşturmadan önce oturum sonra kuralları daha kolay oluşturma yapabilirsiniz iki önkoşul nesne sınıfları vardır; Ağ & hizmeti nesneleri.
+Merhaba güvenlik duvarı üzerine ancak güvenlik duvarı kuralları oluşturmadan önce oturum sonra oluşturma hello kuralları kolaylaştırabilir iki önkoşul nesne sınıfları vardır; Ağ & hizmeti nesneleri.
 
-Bu örnekte, üç adlandırılmış ağ nesneleri tanımlı (ön uç alt ağ ve DNS sunucusunun IP adresi için de bir ağ nesnesi Backend alt ağı için bir) olmalıdır. Adlandırılmış bir ağ oluşturmak için; Barracuda NG yönetici istemci panodan başlayarak, yapılandırma sekmesine gidin, işletimsel yapılandırma bölümünde Ruleset, ardından "Ağlar" altında güvenlik duvarı nesneleri menüsünü tıklatın, ardından yeni Düzenle ağları menüsünde tıklatın. Ağ nesnesi artık, adını ve önekini ekleyerek oluşturulabilir:
+Bu örnekte, üç adlandırılmış ağ nesneleri tanımlı (Merhaba Frontend alt ağı ve hello arka uç alt ağ, ayrıca hello hello DNS sunucusunun IP adresi için bir ağ nesnesi için bir) olmalıdır. Adlandırılmış ağ toocreate; Merhaba Barracuda NG yönetici istemci panodan başlayarak, toohello yapılandırma sekmesine gidin, hello işletimsel yapılandırma bölümü Ruleset, ardından "Ağlar" Merhaba güvenlik duvarı nesneleri menüsünün altında'ı tıklatın, ardından yeni hello Düzenle ağları menüde tıklatın. Merhaba ağ nesnesi artık, hello adını ve hello önekini ekleyerek oluşturulabilir:
 
 ![Bir ön uç ağ nesnesi oluşturun][3]
 
-Bu ön uç alt ağ için bir adlandırılmış ağ oluşturur, arka uç alt ağ için de benzer bir nesne oluşturulmalıdır. Şimdi alt ağlar güvenlik duvarı kurallarında ada göre daha kolay başvurulabilir.
+Bu hello FrontEnd alt ağı için bir adlandırılmış ağ oluşturur, benzer bir nesne de hello arka uç alt oluşturulmalıdır. Şimdi hello alt hello güvenlik duvarı kuralları ada göre daha kolay başvurulabilir.
 
-DNS sunucu nesnesi:
+Merhaba DNS sunucu nesnesi için:
 
 ![Bir DNS sunucusu nesnesi oluşturun][4]
 
-Bu tek IP adresi başvurusu DNS kuralı belgenin devamındaki kullanılmadan.
+Bu tek IP adresi başvurusu DNS kuralı hello belgenin devamındaki kullanılmadan.
 
-İkinci önkoşul nesneleri Hizmetleri nesneleridir. Bunlar, her sunucu için RDP bağlantı noktaları temsil eder. Varolan RDP hizmeti nesnesi varsayılan RDP bağlantı noktasına bağlı olduğundan, 3389, dış bağlantı noktalarını (8014-8026) trafiğine izin verecek şekilde yeni hizmetler oluşturulabilir. Yeni bağlantı noktaları, varolan RDP hizmeti eklenemedi, ancak tanıtım kolaylığı için her sunucu için tek bir kuralı oluşturulabilir. Bir sunucu için yeni bir RDP kuralı oluşturmak için; Barracuda NG yönetici istemci panodan başlayarak, yapılandırma sekmesine gidin, işletimsel yapılandırma bölümünde Ruleset, tıklayın ardından "Hizmetler" altında güvenlik duvarı nesneleri menüsünü tıklatın, hizmetlerin listesini kaydırın ve "RDP" hizmetini seçin. Sağ tıklayın ve kopyalayın, sonra sağ tıklatın ve Yapıştır seçin. Düzenlenebilir bir RDP Copy1 hizmet nesnesi artık yok. RDP Copy1 sağ tıklatın ve Düzenle, Düzenle hizmet penceresi aşağıda gösterildiği gibi kadar pop nesnesi seçin:
+Merhaba ikinci önkoşul nesneleri Hizmetleri nesneleridir. Bunlar, her sunucu için hello RDP bağlantı noktaları temsil eder. Merhaba varolan RDP hizmet nesnesi ilişkili toohello varsayılan RDP bağlantı noktası olduğundan, 3389, yeni hizmetler hello dış bağlantı noktalarından (8014-8026) tooallow trafiği oluşturulabilir. Merhaba yeni bağlantı noktaları ayrıca toohello varolan RDP hizmeti eklenemedi, ancak tanıtım kolaylığı için her sunucu için tek bir kuralı oluşturulabilir. bir sunucu için yeni bir RDP kural toocreate; Merhaba Barracuda NG yönetici istemci panodan başlangıç toohello yapılandırma sekmesine gidin, hello işletimsel yapılandırma bölümü Ruleset, tıklatın ardından hello güvenlik duvarı nesneleri menüsünde hello hizmetlerin listesini aşağı kaydırın altında "Hizmetler"'i tıklatın ve hello seçin "RDP" hizmet. Sağ tıklayın ve kopyalayın, sonra sağ tıklatın ve Yapıştır seçin. Düzenlenebilir bir RDP Copy1 hizmet nesnesi artık yok. RDP Copy1 sağ tıklayın ve Düzenle'yi seçin, hizmet penceresi aşağıda gösterildiği gibi açılır nesnesi Düzenle hello:
 
 ![Varsayılan RDP kuralı kopyası][5]
 
-Değerleri, belirli bir sunucu için RDP hizmeti göstermek için sonra düzenlenebilir. AppVM01 için yukarıdaki varsayılan RDP kural yeni hizmet adı, açıklama ve dış RDP Şekil 8 diyagramda kullanılan bağlantı noktası yansıtacak şekilde değiştirilmesi gerekir (Not: bağlantı noktalarını belirli bu sunucu için kullanılan dış bağlantı noktası 3389 RDP varsayılandan değiştirilir söz konusu olduğunda AppVM01 8025 dış bağlantı noktasıdır) değiştirilmiş hizmeti aşağıda verilmiştir:
+Merhaba değerler sonra düzenlenen toorepresent hello RDP hizmeti belirli bir sunucu olabilir. Varsayılan yukarıda AppVM01 hello için RDP kural değiştirilmiş tooreflect yeni bir hizmet adı, açıklama, olmalıdır ve dış RDP bağlantı noktası kullanılan hello Şekil 8 diyagramı (Not: hello bağlantı noktalarını hello RDP varsayılan bağlantı noktasının bu amaçla kullanılan 3389 toohello dış değiştirildi belirli AppVM01 hello dış bağlantı noktasının hello durumda sunucudur 8025) hello değiştirilmiş hizmeti aşağıda gösterilmiştir:
 
 ![AppVM01 kuralı][6]
 
-Geri kalan sunucular için RDP hizmetleri oluşturmak için bu işlemin yinelenmesi gerekir; AppVM02, DNS01 ve IIS01. Bu hizmetler oluşturma kuralı oluşturmayı daha basit ve daha belirgin sonraki bölümde hale getirir.
+Bu işlem, yinelenen toocreate sunucuları kalan hello için RDP Hizmetleri olmalıdır; AppVM02, DNS01 ve IIS01. Bu hizmetler Hello oluşturulmasını hello kural oluşturma daha basit ve daha belirgin hello sonraki bölümde hale getirir.
 
 > [!NOTE]
-> Bir RDP Hizmeti Güvenlik Duvarı için iki nedenden dolayı gerekli değildir; 1) ilk VM Güvenlik Duvarı olduğundan Linux tabanlı görüntü SSH tanesi kullanılacak bağlantı noktası 22 RDP ve 2) bağlantı noktası 22 yerine VM yönetimi ve diğer yönetim bağlantı noktalarına iki Yönetim bağlantısı için aşağıda açıklanan ilk yönetim kuraldaki izin verilir.
+> Bir RDP hizmeti hello Güvenlik Duvarı için iki nedenden dolayı gerekli değildir; 1) ilk hello güvenlik duvarı VM olduğu bir Linux tabanlı görüntüsü SSH bağlantı noktası 22 RDP ve 2) bağlantı noktası 22 yerine VM yönetimi için kullanılabilir ve diğer yönetim bağlantı noktalarına iki hello tooallow yönetim bağlantısı için aşağıda açıklanan ilk yönetim kuralında izin verilir.
 > 
 > 
 
 ### <a name="firewall-rules-creation"></a>Güvenlik duvarı kuralları oluşturma
 Bu örnekte kullanılan güvenlik duvarı kuralları üç tür vardır, hepsinin ayrı simgeler vardır:
 
-Uygulama yeniden yönlendirme kuralı: ![uygulama yeniden yönlendirme simgesi][7]
+Merhaba uygulama yeniden yönlendirme kuralı: ![uygulama yeniden yönlendirme simgesi][7]
 
-Hedef NAT kuralı: ![hedef NAT simgesi][8]
+Merhaba hedef NAT kuralı: ![hedef NAT simgesi][8]
 
-Geçişi kuralı: ![geçirmek simgesi][9]
+Merhaba geçişi kuralı: ![geçirmek simgesi][9]
 
-Bu kural hakkında daha fazla bilgi Barracuda web sitesinde bulunabilir.
+Bu kural hakkında daha fazla bilgi hello Barracuda web sitesinde bulunabilir.
 
-Aşağıdaki kuralları oluşturun (veya var olan varsayılan kuralları doğrulamak için), Barracuda NG yönetici istemci panodan başlangıç yapılandırma sekmesine gidin, işletimsel yapılandırmasında bölüm Ruleset tıklayın. Adlı bir kılavuz "Ana kuralları" varolan etkin ve devre dışı bırakılan kuralları bu Güvenlik Duvarı'nı gösterir. Bu kılavuz sağ üst köşesindeki olan küçük, yeşil "+" düğmesini tıklatın, yeni bir kural oluşturmak için burayı tıklatın (Not: güvenlik duvarını "değişiklikleri kilitlenebilir", görürseniz bir düğme "Kilit" olarak işaretlenmiş ve oluşturmak veya kuralları düzenlemek için "kural kümesi kilidini açmak için" Bu düğmeye tıklayın sorunu yaşıyor ve  düzenlenmesine izin verilir). Varolan bir kuralı düzenlemek istiyorsanız, o kural seçin, sağ tıklayın ve kuralını Düzenle seçin.
+toocreate kuralları aşağıdaki hello (veya var olan varsayılan kuralları doğrulayın), hello Barracuda NG yönetici istemci panodan başlatma, toohello yapılandırma sekmesine gidin, hello işletimsel yapılandırma bölümü Ruleset'ı tıklatın. Bir kılavuz olarak adlandırılan, "Ana kuralları" Merhaba etkin ve devre dışı bırakılan kuralları bu Güvenlik Duvarı'nda mevcut gösterir. Merhaba sağ üst köşedeki bu kılavuz, küçük, yeşil olduğundan "+" düğmesini tıklatın, bu toocreate yeni bir kural tıklayın (Not: güvenlik duvarını "değişiklikleri kilitlenebilir", bir düğme "Kilit" olarak işaretlenmiş ve güncelleştirilemiyor toocreate olan veya kuralları düzenlemek, bu düğmeye tıkladığınızda görürseniz çok "kilidini" kural se hello t ve düzenlenmesine izin verilir). Mevcut bir kuralı tooedit istiyorsanız, o kural seçin, sağ tıklayın ve kuralını Düzenle seçin.
 
-Kurallarınızı oluşturulan ve/veya değiştirilmiş, bunlar Güvenlik Duvarı'na gönderilen ve gerekir etkinleştirildiğinden, bu değil yapıldığında kural değişiklikler etkili olmaz. Anında iletme ve etkinleştirme sürecini ayrıntıları kural açıklamaları açıklanmıştır.
+Kurallarınızı oluşturulan ve/veya değiştirilmiş sonra olmalıdırlar gönderilen toohello Güvenlik Duvarı'nı ve etkinleştirildi, bu değişiklikler değil kazanacak hello kural yapılmazsa. Merhaba itme ve etkinleştirme işlemi hello ayrıntıları kural açıklamaları açıklanmıştır.
 
-Bu örnek tamamlamak için gereken her bir kural ayrıntılarını aşağıda açıklanmıştır:
+Bu örnekte aşağıdaki gibi açıklanmıştır her kural gerekli toocomplete Hello özellikleri:
 
-* **Güvenlik Duvarı yönetimi kural**: Bu uygulama yeniden yönlendirme kuralı trafiğin Bu örnekte ağ sanal gerecin yönetim noktalarına Barracuda NextGen Firewall geçmesine izin verir. Yönetim bağlantı noktalarını 801, 807 ve isteğe bağlı olarak 22 ' dir. İç ve dış bağlantı noktaları (yani hiçbir bağlantı noktası çevirisi) aynıdır. Bu kural, Kurulum MGMT erişim, varsayılan bir kural ve varsayılan (olarak Barracuda NextGen Firewall sürüm 6.1) etkinleştirilmiş.
+* **Güvenlik Duvarı yönetimi kural**: Bu uygulama yeniden yönlendirme kuralı trafiği hello ağ sanal gereç, bu örnekte Barracuda NextGen Firewall toopass toohello yönetim bağlantı noktaları sağlar. 801, 807 ve isteğe bağlı olarak 22 Hello yönetim bağlantı noktalarıdır. Merhaba iç ve dış bağlantı noktaları olan hello aynı (yani hiçbir bağlantı noktası çevirisi). Bu kural, Kurulum MGMT erişim, varsayılan bir kural ve varsayılan (olarak Barracuda NextGen Firewall sürüm 6.1) etkinleştirilmiş.
   
     ![Güvenlik Duvarı Yönetimi kuralı][10]
 
 > [!TIP]
-> Bu kuralın kaynak adres alanı, olan Yönetim IP adres aralıklarını biliniyorsa, bu kapsamı azaltma ayrıca yönetim bağlantı noktalarına saldırı yüzeyini azaltmak.
+> Merhaba bu kuralın kaynak adres alanında herhangi, hello yönetim IP adres aralıklarını bilinen, bu kapsamı azaltma ayrıca hello saldırı yüzeyini toohello yönetim bağlantı noktalarını azaltmak.
 > 
 > 
 
-* **RDP kuralları**: Bu hedef NAT kuralları izin ver RDP aracılığıyla tek sunucuların yönetimi.
-  Bu kuralı oluşturmak için gereken dört önemli alanlar şunlardır:
+* **RDP kuralları**: Bu hedef NAT kuralları tek tek sunucular RDP aracılığıyla hello yönetimini izin.
+  Bu kural dört gereken kritik alanları toocreate vardır:
   
-  1. RDP yerden, başvuru "Herhangi bir" izin vermek için kaynak – kaynak alanında kullanılır.
-  2. Dış bağlantı noktalarını sunucuları yerel IP adresi ve bağlantı noktası 3386 (varsayılan RDP bağlantı noktası) için yeniden yönlendirme, hizmeti – bu durumda "AppVM01 RDP" daha önce oluşturduğunuz uygun hizmet nesnesi kullanın. Bu belirli AppVM01 RDP erişim kuralıdır.
-  3. Hedef – olmalıdır *Güvenlik Duvarı'nda yerel bağlantı noktası*, "DCHP 1 yerel IP" ya da statik IP kullanıyorsanız eth0. Sıra numarasını (eth0, eth1, vb.), ağ Gereci birden çok yerel arabirimi varsa, farklı olabilir. Bu güvenlik duvarı olduğundan göndermesinin giden bağlantı noktasıdır (alıcı bağlantı noktası ile aynı olabilir), gerçek yönlendirilmiş hedef hedef listesi alanıdır.
-  4. Yeniden yönlendirme – bu bölümün sonunda bu trafiği yönlendirmek nereye sanal gereç bildirir. En basit yeniden yönlendirme IP ve bağlantı noktası (isteğe bağlı) hedef listesi alanında yerleştirmektir. Hiçbir bağlantı noktası kullanılıyorsa, hedef bağlantı noktası gelen istekte olacaktır (IE hiçbir çevirisi), bir bağlantı noktası bağlantı noktası belirlendiyse kullanılan de NAT yanı sıra IP adresi olur.
+  1. Kaynak – tooallow RDP yerden hello başvurusu "Any" Merhaba kaynak alanında kullanılır.
+  2. Merhaba dış bağlantı noktaları toohello sunucuları yerel IP adresi ve tooport 3386 (Merhaba varsayılan RDP bağlantı noktası) yeniden yönlendirme, hizmeti – uygun hizmeti nesnesi, bu durumda "AppVM01 RDP" daha önce oluşturduğunuz hello kullanın. RDP erişim tooAppVM01 için bu belirli kuralıdır.
+  3. Hedef – hello olmalıdır *hello Güvenlik Duvarı'nda yerel bağlantı noktası*, "DCHP 1 yerel IP" ya da statik IP kullanıyorsanız eth0. Başlangıç sıra numarası (eth0, eth1, vb.), ağ Gereci birden çok yerel arabirimi varsa, farklı olabilir. Bu hello bağlantı noktasıdır hello güvenlik duvarı göndermesinin (olabilir aynı bağlantı noktasını almayı hello hello), hello gerçek yönlendirilmiş hedefi olan hello hedef listesinin alanında.
+  4. Yeniden yönlendirme – Bu bölümde tooultimately bu trafiği burada yeniden yönlendirme hello sanal gereç söyler. Merhaba basit yeniden yönlendirme tooplace hello IP ve bağlantı noktası (isteğe bağlı) hello hedef liste alanda ' dir. Bağlantı noktası yok hello gelen istekte kullanılan hello hedef bağlantı noktası ise olacaktır (IE hiçbir çevirisi), bir bağlantı noktası başlangıç bağlantı noktası belirlendiyse kullanılan de NAT birlikte hello IP adresi olur.
      
      ![Güvenlik Duvarı RDP kuralı][11]
      
-     Dört RDP kuralları toplam oluşturulması gerekecektir: 
+     Dört RDP kuralları toplam oluşturulan toobe gerekir: 
      
      | Kural Adı | Sunucu | Hizmet | Hedef listesi |
      | --- | --- | --- | --- |
@@ -317,272 +317,272 @@ Bu örnek tamamlamak için gereken her bir kural ayrıntılarını aşağıda a�
      | RDP AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
 
 > [!TIP]
-> Kaynak ve hizmet alanların kapsamını daraltma saldırı yüzeyini azaltır. İşlevselliği sağlayacak en sınırlı kapsam kullanılmalıdır.
+> Merhaba kaynak Hello kapsamını ve hizmet alanları aşağı daraltma hello saldırı yüzeyini azaltır. işlevselliği sağlayacak en sınırlı hello kapsam kullanılmalıdır.
 > 
 > 
 
-* **Uygulama trafik kurallarını**: ön uç web trafiği için ilk ve ikinci arka uç trafiği (örn. web sunucusu için veri katmanı) için iki uygulama trafiği kuralları vardır. Bu kurallar (burada, sunucularınızın yerleştirilir) ağ mimarisine göre değişir ve trafik akışları (hangi yönde trafik akışına ve hangi bağlantı noktaları kullanılır).
+* **Uygulama trafik kurallarını**: iki uygulama trafiği kuralları, hello hello ön uç web trafiği için ilk ve ikinci hello arka uç trafiği (örneğin web sunucusu toodata katmanı) için hello vardır. Bu kurallar hello ağ mimarisi (sunucularınızı yerleştirildiği) ve (hangi yönde hello trafik akışlarının ve hangi bağlantı noktalarının kullanılacağını) trafiği akışı değişir.
   
-    Önce ele alınan web trafiği için ön uç kuralı gösterilmiştir:
+    Önce ele alınan hello ön uç web trafiği için kuraldır:
   
     ![Güvenlik Duvarı Web kuralı][12]
   
-    Bu hedef NAT kuralı uygulama sunucusuna ulaşmaya gerçek uygulama trafiğine izin verir. Diğer kurallardan izin verirken, güvenlik, yönetim, vb. için uygulama ne harici kullanıcılar ya da hizmetleri uygulamaları erişmesine izin kurallardır. Bu örnekte, bağlantı noktası 80 üzerinde tek bir web sunucusu yok, bu nedenle tek uygulama güvenlik duvarını gelen trafiği web sunucuları iç IP adresi için harici IP yönlendirilecek.
+    Bu hedef NAT kuralı hello gerçek uygulama trafiği tooreach hello uygulama sunucusu sağlar. Merhaba diğer kurallar izin verirken, güvenlik, yönetim, vb. için uygulama ne hello uygulamaları dış kullanıcı ve hizmet tooaccess izin kurallardır. Bu örnek için bağlantı noktası 80 üzerinde bir tek bir web sunucusu olduğundan, böylece hello tek uygulama güvenlik duvarını gelen trafiği toohello dış IP, toohello web sunucuları iç IP adresi yönlendirir.
   
-    **Not**: hedef listesi alanına atanan bağlantı noktası yok, bu nedenle gelen bağlantı noktası 80 (veya seçili hizmeti için 443) web sunucusu yeniden yönlendirilmesini kullanılır. Web sunucusu farklı bir bağlantı noktasında dinleme yapıyorsanız, örneğin 8080 bağlantı noktası, 10.0.1.4:8080 de bağlantı noktası yönlendirmeye izin vermek için hedef liste alanı güncelleştirilemedi.
+    **Not**: hello hedef listesi alanına atanan bağlantı noktası yok, bu nedenle hello gelen bağlantı noktası 80 (veya hello seçili hizmet için 443'tür) hello web sunucusu hello yönlendirilmesini kullanılacak. Merhaba web sunucusunun farklı bir bağlantı noktasında dinleme, örneğin 8080 bağlantı noktası, hello hedef listesi alan güncelleştirilmiş too10.0.1.4:8080 tooallow hello bağlantı noktası yeniden yönlendirmesi için de olabilir.
   
-    Sonraki uygulama trafik kuralı AppVM01 sunucu (ancak değil AppVM02) için anlaşmak Web sunucusu herhangi bir hizmeti izin vermek için arka uç kuralı gösterilmiştir:
+    sonraki uygulama trafik kuralı hello herhangi bir hizmeti arka uç kural tooallow hello Web sunucusu tootalk toohello AppVM01 sunucu (ancak değil AppVM02) hello:
   
     ![Güvenlik Duvarı AppVM01 kuralı][13]
   
-    Bu geçiş kuralı herhangi bir IIS sunucusuna AppVM01 ulaşmak için ön uç alt ağda verir (IP adresi 10.0.2.5) herhangi bir bağlantı üzerinde web uygulaması tarafından gerekli verilere erişmek için herhangi bir iletişim kuralı kullanarak.
+    Bu geçiş kuralı hello web uygulama tarafından gerek duyulan tüm Protokolü tooaccess verileri kullanarak tüm IIS sunucusunda hello ön uç alt tooreach hello AppVM01 (IP adresi 10.0.2.5) herhangi bir bağlantı noktasında verir.
   
-    Bu ekran görüntüsü, bir "\<taşınmaya açık\>" 10.0.2.5 hedef olarak belirtmek için hedef alanındaki değer kullanılır. Bu şunlardan biri olabilir gösterildiği gibi veya açık adlı ağ (DNS sunucusu için Önkoşullar'da yapıldığı gibi) nesnesi. Bu toplayıcınızın yöntemi kullanılacak Güvenlik Duvarı'nın kadar yöneticisidir. Altına boş bir ilk satır 10.0.2.5 Explict Desitnation eklemek için çift \<taşınmaya açık\> ve açılır penceresinde adresini girin.
+    Bu ekran görüntüsü, bir "\<taşınmaya açık\>" Merhaba hedef alan toosignify 10.0.2.5 hello hedef olarak kullanılır. Bu şunlardan biri olabilir gösterildiği gibi veya açık adlı ağ (Merhaba DNS sunucusu hello önkoşulları içinde'da yapıldığı gibi) nesnesi. Toowhich yöntemi kullanılacağından bu toohello hello Güvenlik Duvarı'nın yöneticisidir. tooadd Explict Desitnation olarak 10.0.2.5 çift hello ilk boş satır altında \<taşınmaya açık\> ve açılır hello penceresinde hello adresini girin.
   
-    Böylece bağlantı yöntemi "No SNAT" ayarlayabilirsiniz bu dahili trafiği olduğundan geçirmek bu kural, NAT gereklidir.
+    Böylece Hello bağlantı yöntemini çok ayarlayabilirsiniz bu dahili trafiği olduğundan geçirmek bu kural, NAT gerekli "No SNAT".
   
-    **Not**: Bu kural kaynak ağında olan herhangi bir kaynak yalnızca olacaksa bir veya web sunucuları, bilinen belirli sayıda ön uç alt ağda, ağ nesnesi kaynak tüm ön uç alt ağa yerine tam bu IP adreslerine daha belirgin oluşturulabilir.
+    **Not**: hello kaynak bu kuralda ağdır hello FrontEnd alt ağı üzerinde herhangi bir kaynak yalnızca olacaktır bir veya daha belirli toothose tam IP adreslerinin yerine web sunucuları, kaynak olabilir bir ağ nesnesi bilinen belirli sayıda oluşturduysanız toobe ön uç alt ağın tamamını Hello.
 
 > [!TIP]
-> Bu kural hizmet "Herhangi" örnek uygulama kullanması daha kolay hale getirmek için kullanır, bu da Icmpv4 izin verir (ping) tek bir kural. Ancak, önerilen bir uygulama değildir. Bağlantı noktalarını ve protokolleri ("Hizmetler") uygulama işlemi bu sınır saldırı yüzeyini küçültmek sağlayan en olası daraltıldığı.
+> Bu kural "Tüm" toomake örnek uygulama daha kolay toosetup hello ve kullanmak hello hizmeti kullanıyorsa, bu da Icmpv4 izin verir (ping) tek bir kural. Ancak, önerilen bir uygulama değildir. Merhaba bağlantı noktalarını ve protokolleri ("Hizmetler") bu sınırından uygulama işlemi tooreduce hello saldırı yüzeyini veren daraltılmış toohello minimum mümkün olması gerekir.
 > 
 > 
 
 <br />
 
 > [!TIP]
-> Bu kural kullanılan bir hedef açık başvuru gösterir, ancak tutarlı bir yaklaşım güvenlik duvarı yapılandırmasında kullanılmalıdır. Adlandırılmış ağ nesnesi boyunca daha kolay okunabilirlik ve desteklenebilirlik için kullanılması önerilir. Açık-taşınmaya burada yalnızca bir alternatif başvuru yöntemi göstermek için kullanılır ve (özellikle karmaşık yapılandırmalar için) genellikle önerilmez.
+> Bu kural kullanılan bir hedef açık başvuru gösterir, ancak hello güvenlik duvarı yapılandırmasını tutarlı bir yaklaşım kullanılmalıdır. Ağ nesnesi adlı bu hello kullanılabilir boyunca daha kolay okunabilir olması ve desteklenebilirlik için önerilir. Merhaba açık taşınmaya kullanılan burada yalnızca tooshow bir alternatif başvuru yöntemidir ve (özellikle karmaşık yapılandırmalar için) genellikle önerilmez.
 > 
 > 
 
-* **Internet kuralı giden**: Bu geçirmek kuralı izin ver seçili hedef ağlara geçirmek için herhangi bir kaynak ağ trafiği. Bu kural varsayılan bir kural zaten genellikle Barracuda NextGen Güvenlik Duvarı'nda olmakla birlikte, devre dışı durumda. Bu kurala sağ etkinleştirme kural komutu erişebilirsiniz. Burada gösterilen kural, bu kural kaynak özniteliği için bu belgenin önkoşul bölümüne başvurular olarak oluşturulan iki yerel alt ağlar eklemek için değiştirildi.
+* **Giden tooInternet kural**: Bu geçirmek kuralı izin ver hiçbir kaynak ağ toopass toohello seçili hedef ağ trafiği. Bu kural hello Barracuda NextGen Güvenlik Duvarı'nda genellikle zaten varsayılan kural, ancak devre dışı durumda. Bu kurala sağ hello etkinleştirme kural komutu erişebilirsiniz. Burada gösterilen hello kural hello önkoşul bölüm bu kural, bu belge toohello kaynak özniteliğinin başvurular olarak oluşturulan değiştirilmiş tooadd hello iki yerel alt ağları olmuştur.
   
     ![Giden güvenlik duvarı kuralı][14]
-* **DNS kuralı**: Bu geçirmek kural DNS sunucusuna iletmek yalnızca DNS (bağlantı noktası 53) trafiğine izin verir. Bu kural, çoğu trafiğinden ön uç arka uç için engellenen bu ortam için DNS özellikle sağlar.
+* **DNS kuralı**: Bu geçirmek kural yalnızca DNS (bağlantı noktası 53) trafiği toopass toohello DNS sunucusu izin verir. Bu kural, hello ön uç toohello arka uç çoğu trafiğinden engellenen bu ortam için DNS özellikle sağlar.
   
     ![Güvenlik Duvarı DNS kuralı][15]
   
-    **Not**: Bu ekran görüntüsü bağlantı yöntemi bulunur. Bu kural, iç IP adresi trafiği iç IP olduğundan, hiçbir NATing gerekli değildir, bu bağlantı yöntemi için bu geçişi kuralı "No SNAT" ayarlanır.
-* **Alt ağ için alt kural**: Bu geçirmek etkinleştirildi ve ön uç alt ağda herhangi bir sunucuya bağlanmak için arka uç alt ağda herhangi bir sunucu izin vermek için değiştirilen varsayılan bir kural kuralıdır. Bu kural tüm iç trafiği olduğundan, bağlantı yöntemi için Hayır SNAT ayarlanabilir.
+    **Not**: Bu ekran görüntüsü hello bağlantı yöntemini bulunur. Bu kural iç IP toointernal IP adresi trafiği için olduğundan, hiçbir NATing gerekli değildir, bu hello bağlantı yönteminin çok ayarlandığını bu geçişi kuralı için "Hayır SNAT".
+* **Alt ağ tooSubnet kural**: Bu geçirmek etkinleştirildi varsayılan bir kural kuralıdır ve herhangi bir sunucuya geri hello uç alt tooconnect tooany sunucusu üzerinde değiştirilmiş tooallow hello ön uç alt. Bu kural tüm iç trafiği olduğundan Hello bağlantı yöntemini tooNo SNAT ayarlanabilir.
   
     ![Güvenlik Duvarı içi sanal ağ kuralı][16]
   
-    **Not**: çift yönlü onay kutusu işaretli (veya, çoğu kurallarında işaretli değil), bu "tek yönlü" kural sağlar, bu kural için önemli budur, ön uç ağ ancak ters arka uç alt ağından bağlantı başlatılabilir. Bu onay kutusu işaretli değilse bu kural bizim mantıksal diyagramdan istenmediği çift yönlü trafiği etkinleştirir.
-* **Reddetme tüm trafik kuralı**: Bu her zaman son bir kural (bakımından öncelik) olmalıdır ve trafik herhangi biriyle eşleşen başarısız akışlar, bu nedenle önceki onu bırakılacak bu kural tarafından kuralları. Bu varsayılan bir kural ve genellikle etkin, değişikliğe genellikle gereklidir. 
+    **Not**: hello çift yönlü onay kutusu işaretli (veya, çoğu kurallarında işaretli değil), bu "tek yönlü" kural sağlar, bu kural için önemli budur, bir bağlantı hello arka uç alt toohello ön uç ağ üzerinden başlatılabilir ancak ters hello değil. Bu onay kutusu işaretli değilse bu kural bizim mantıksal diyagramdan istenmediği çift yönlü trafiği etkinleştirir.
+* **Reddetme tüm trafik kuralı**: Bu her zaman son bir kural hello (bakımından öncelik) olmalıdır ve trafik başarısız toomatch kuralları önceki hello hiçbirini akışlar, bu nedenle, bu kural tarafından düşürülür. Bu varsayılan bir kural ve genellikle etkin, değişikliğe genellikle gereklidir. 
   
     ![Güvenlik duvarı kuralı Reddet][17]
 
 > [!IMPORTANT]
-> Yukarıdaki kurallarda oluşturulduktan sonra trafiğine izin verilen veya istendiği gibi reddedilen emin olmak için her bir kural önceliğini gözden geçirilmesi önemlidir. Bu örnekte, Barracuda Management istemcisi kurallarında iletme, ana kılavuzunda görünmesi gereken sırayla kurallardır.
+> Tüm kuralları yukarıda hello oluşturulduktan sonra tooreview hello her kural tooensure trafiğin önceliğini izin verilen veya istendiği gibi reddedilen önemlidir. Bu örnekte, hello hello hello Barracuda Management istemcisi kurallarında iletme, ana kılavuz görüntülenmelidir hello sırayla kurallardır.
 > 
 > 
 
 ## <a name="rule-activation"></a>Kural etkinleştirme
-Mantığı diyagramı belirtimi değiştiren ruleset ile ruleset Güvenlik Duvarı'na karşıya ve sonra etkinleştirilmelidir.
+Merhaba değiştiren ruleset toohello belirtimiyle hello mantığı diyagramı, hello ruleset olmalıdır toohello Güvenlik Duvarı'nı karşıya ve ardından etkinleştirildi.
 
 ![Güvenlik duvarı kuralını etkinleştirme][18]
 
-Yönetim istemcisi üst sağ alt köşesindeki düğmeleri oluşan bir küme var. Değiştirilen kuralları Güvenlik Duvarı'na göndermek için "Değişiklikleri Gönder" düğmesini tıklatın, ardından "Etkinleştir" düğmesini tıklatın.
+Merhaba üst sağ köşesinde hello management istemcisi düğmeleri oluşan bir küme var. Merhaba "değişiklikleri" Gönder düğmesi toosend değiştiren hello kuralları toohello güvenlik duvarı, ardından hello "Etkinleştir" düğmesini tıklatın.
 
-Güvenlik Duvarı ruleset etkinleştirme ile bu örnek ortamı yapı tamamlanır.
+Merhaba güvenlik duvarı ruleset Hello etkinleştirme ile bu örnek ortamı yapı tamamlanır.
 
 ## <a name="traffic-scenarios"></a>Trafik senaryoları
 > [!IMPORTANT]
-> Bir anahtar takeway unutmayın vermektir **tüm** trafiğinin güvenlik duvarı üzerinden gelen. Bu nedenle IIS01 sunucuya Uzak Masaüstü için ön uç bulut hizmeti ve ön uç alt olmasına rağmen bu sunucuya erişmek için biz RDP için güvenlik duvarı bağlantı noktası 8014 gerekir ve RDP isteği IIS01 RDP Por için dahili olarak yönlendirmek Güvenlik Duvarı'nı izin ver t. Azure portal'ın "Bağlan" düğmesi olduğundan IIS01 için doğrudan bir RDP yol yok (portal görebilirsiniz uzaklığa kadar) çalışmaz. Bu, Internet'ten gelen tüm bağlantıları güvenlik hizmeti ve bağlantı noktası, örneğin secscv001.cloudapp.net:xxxx anlamına gelir.
+> Bir anahtar takeway tooremember olduğundan, **tüm** trafiği hello güvenlik duvarı üzerinden gelen. Bunu tooremote Masaüstü toohello IIS01 sunucu, onu hello ön uç bulut hizmeti ve hello ön uç alt tooaccess tooRDP toohello güvenlik duvarı üzerinde ihtiyacımız bu sunucu olsa bile 8014 bağlantı noktası ve hello güvenlik duvarı tooroute hello RDP isteği dahili izin toohello IIS01 RDP bağlantı noktası. Merhaba "Azure portal'ın Bağlan düğmesini olduğu için hiçbir doğrudan RDP yolu tooIIS01 (Merhaba portal görebilirsiniz uzaklığa kadar) çalışmaz". Tüm bağlantılar yani hello Internet toohello güvenlik hizmeti ve bir bağlantı noktası, örneğin secscv001.cloudapp.net:xxxx olacaktır.
 > 
 > 
 
-Bu senaryolar için aşağıdaki güvenlik duvarı kuralları yerinde olmalıdır:
+Bu senaryolarda, güvenlik duvarı kuralları aşağıdaki hello yerinde olmalıdır:
 
 1. Güvenlik Duvarı Yönetimi
-2. RDP IIS01 için
-3. RDP DNS01 için
-4. RDP AppVM01 için
-5. RDP AppVM02 için
-6. Web uygulaması trafiği
-7. AppVM01 uygulama trafiği
-8. Giden internet
-9. DNS01 için ön uç
-10. İçi alt ağ trafiği (yalnızca ön uç için arka uç)
+2. RDP tooIIS01
+3. RDP tooDNS01
+4. RDP tooAppVM01
+5. RDP tooAppVM02
+6. Web uygulaması trafiği toohello
+7. Uygulama trafiği tooAppVM01
+8. Giden toohello Internet
+9. Ön uç tooDNS01
+10. İçi alt ağ trafiği (yalnızca arka uç toofront ucu)
 11. Tümünü Reddet
 
-Gerçek güvenlik duvarı ruleset büyük olasılıkla bu ek olarak birçok diğer kurallar vardır, belirli bir güvenlik duvarı kurallarında farklı öncelik numaraları burada listelenenlerden daha da sahip olur. Bu liste ve ilişkili numaralar on bu kurallar ve bunları arasında göreli öncelik arasında uygunluk sağlamak üzeresiniz. Diğer bir deyişle; Gerçek Güvenlik Duvarı'nı 5 kural sayısı olabilir, ancak "Güvenlik duvarı Yönetimi" kuralıdır ve "RDP için DNS01" kural amacıyla bu listeyi hizalayın sürece "RDP için IIS01" olabilir. Listenin içinde de yardımcı olur kısaltma; izin verme senaryolar aşağıda Örneğin "FW kuralı 9 (DNS)". Ayrıca okumanızdır dört RDP kuralları topluca çağrılır, "RDP kuralları" trafik senaryo olduğunda için RDP ilgisiz.
+Hello gerçek güvenlik duvarı ruleset, büyük olasılıkla başka birçok kurala toplama toothese vardır, olanları burada listelenen hello daha hello kurallarında belirtilen herhangi bir güvenlik duvarını ayrıca farklı öncelik numaraları gerekir. Bu liste ve ilişkili numaralar yalnızca bu on kurallar ve bunları arasında hello göreli öncelik arasında tooprovide ilgi markalarıdır. Diğer bir deyişle; Merhaba gerçek Güvenlik Duvarı'nı, kural numarası 5 olabilir, ancak hello "Güvenlik duvarı Yönetimi" kural altında ve bu listeyi hello amacı ile hizalamaya hello "RDP tooDNS01" kural üstünde olduğu sürece hello "RDP tooIIS01" olabilir. Başlangıç listesi, büyük bir de kısaltma izin vererek senaryolar aşağıda hello yardımcı olur; Örneğin "FW kuralı 9 (DNS)". Ayrıca okumanızdır dört RDP kuralları topluca olacaktır hello olarak adlandırılan, "RDP kuralları hello" Merhaba trafik senaryo ilgisiz tooRDP olduğunda.
 
-Ayrıca ağ güvenlik grupları yerinde geri çağırma ön uç ve arka uç ağlardaki gelen Internet trafiği için.
+Ağ güvenlik grupları yerinde gelen Internet trafiği hello ön uç ve arka uç alt ağları olduğunu da geri çağırma.
 
-#### <a name="allowed-internet-to-web-server"></a>(İzin verilir) Web sunucusuna Internet
+#### <a name="allowed-internet-tooweb-server"></a>(İzin verilir) Internet tooWeb sunucu
 1. Internet kullanıcı istekleri HTTP sayfasına SecSvc001.CloudApp.Net (Internet'e yönelik bulut hizmeti)
-2. Bulut hizmeti geçiş trafiği 80 numaralı bağlantı noktasında güvenlik duvarı arabiriminizi 10.0.0.4:80 üzerinde açık uç noktası aracılığıyla
-3. Güvenlik alt ağına atanmış hiçbir NSG bunu sistem NSG kuralları güvenlik duvarı trafiğine izin verecek.
-4. İç IP adresi (10.0.1.4) Güvenlik Duvarı'nın trafik isabetler
+2. Bulut hizmeti geçiş trafiği 80 numaralı bağlantı noktasını toofirewall arabirimde 10.0.0.4:80 açık uç noktası aracılığıyla
+3. Sistem NSG kuralları trafiği toofirewall izin verecek şekilde tooSecurity alt ağ, hiçbir NSG atanan
+4. Merhaba Güvenlik Duvarı (10.0.1.4) iç IP adresi trafik isabetler
 5. Güvenlik duvarı kuralı işleme başlar:
-   1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-   2. FW kuralları 2-5 (RDP kurallar) yok, uygulamak için sonraki kural taşıma
-   3. FW kural 6 (uygulama: Web) uygulama trafiğine izin verilir, güvenlik duvarı NAT 10.0.1.4 (IIS01) için
-6. Ön uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1'i (blok Internet) olmayan uygulama (Bu trafiği NAT oluştu güvenlik duvarı tarafından gerekir, böylece kaynak adresi şimdi güvenlik alt ağ üzerinde olan güvenlik duvarı ve ön uç alt ağa göre NSG "yerel" trafiği olarak görülen ve böylece izin), sonraki kural taşıma
-   2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin verme, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-7. IIS01 web trafiği için dinleme, bu isteği alır ve isteği işlemeye başlıyor
-8. IIS01 girişimleri AppVM01 arka uç alt ağdaki bir FTP oturumu başlatır
-9. Ön uç alt ağdaki UDR rota güvenlik duvarı sonraki atlama yapar.
+   1. FW kural 1'i (FW Mgmt) uygulanmaz, taşıma toonext kuralı
+   2. FW kuralları 2-5 (RDP kurallar) yok, uygulama toonext kuralı Taşı
+   3. FW kural 6 (uygulama: Web) uygulama trafiğine izin verilir, güvenlik duvarı NAT onu too10.0.1.4 (IIS01)
+6. Merhaba ön uç alt gelen kuralı işleme başlar:
+   1. Olmayan NSG kural 1'i (blok Internet) uygulama (Bu trafiği NAT edildi hello güvenlik duvarı tarafından gerekir, böylece hello kaynak adresi şimdi hello güvenlik alt ağ üzerinde olan hello güvenlik duvarı ve hello ön uç alt ağa göre NSG toobe "yerel" trafik görülen ve böylece izin verilir), toonext kuralı Taşı
+   2. Varsayılan NSG kuralları alt toosubnet trafiğe izin verecek, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
+7. IIS01 web trafiği için dinleme, bu isteği alır ve hello isteği işlemeye başlıyor
+8. Arka uç alt ağdaki bir FTP oturumunun tooAppVM01 tooinitiates IIS01 çalışır
+9. ön uç alt ağdaki Hello UDR rota hello güvenlik duvarı hello sonraki atlama yapar
 10. Ön uç alt ağdaki hiçbir giden kuralları, trafiğe izin verilir
 11. Güvenlik duvarı kuralı işleme başlar:
-    1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-    2. FW kuralı 2-5 (RDP kurallar) yok, uygulamak için sonraki kural taşıma
-    3. FW kural 6 (uygulama: Web) geçerli değil, sonraki kural taşıma
-    4. FW kural 7 ' (uygulama: arka uç) uygulama trafiğine izin verilir, güvenlik duvarı 10.0.2.5 (AppVM01) trafiği iletir
-12. Arka uç alt gelen kuralı işleme başlar:
-    1. NSG kural 1'i (blok Internet) değil, uygulamak için sonraki kural taşıma
-    2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin verme, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-13. AppVM01 isteği alır ve oturumu başlatır ve yanıtlar
-14. Arka uç alt ağdaki UDR rota güvenlik duvarı sonraki atlama yapar.
-15. Yanıt izin arka uç alt ağda giden hiçbir NSG kuralları olduğundan
-16. Bu yerleşik bir oturum üzerinde trafiği döndürmektir çünkü güvenlik duvarı yanıtı web sunucusu (IIS01) geçirir.
+    1. FW kural 1'i (FW Mgmt) uygulanmaz, taşıma toonext kuralı
+    2. FW kuralı 2-5 (RDP kurallar) uygulanmaz, taşıma toonext kuralı
+    3. FW kural 6 (uygulama: Web) uygulamak için değil, toonext kuralı Taşı
+    4. FW kural 7 ' (uygulama: arka uç) uygulama trafiğine izin verilir, güvenlik duvarı iletir trafiği too10.0.2.5 (AppVM01)
+12. Merhaba arka uç alt gelen kuralı işleme başlar:
+    1. NSG kural 1'i (blok Internet) uygulanmaz, taşıma toonext kuralı
+    2. Varsayılan NSG kuralları alt toosubnet trafiğe izin verecek, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
+13. AppVM01 hello isteği alır ve hello oturumu başlatır ve yanıtlar
+14. arka uç alt ağdaki Hello UDR rota hello güvenlik duvarı hello sonraki atlama yapar
+15. Olduğundan giden hiçbir NSG kuralları hello arka uç alt hello yanıt üzerinde izin verilir
+16. Bu trafik üzerinde döndürüyor çünkü kurulan oturum hello güvenlik duvarı hello yanıt geri toohello web sunucusu (IIS01) geçirir.
 17. Ön uç alt gelen kuralı işleme başlar:
-    1. NSG kural 1'i (blok Internet) değil, uygulamak için sonraki kural taşıma
-    2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin verme, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-18. IIS Sunucu yanıtı alır, AppVM01 işlemle tamamlandıktan ve HTTP yanıtı oluşturma tamamlandıktan, istek sahibine gönderilen bu HTTP yanıtı
-19. Yanıt izin verilen ön uç alt ağda giden hiçbir NSG kuralları olduğundan
-20. HTTP yanıtı güvenlik duvarı İsabetli ve bu yerleşik bir NAT oturum yanıtı olduğundan güvenlik duvarı tarafından kabul edilir
-21. Güvenlik Duvarı yanıtı Internet kullanıcı ardından yönlendirir.
-22. Olduğundan Hayır giden NSG kuralları veya yanıt izin verilen ön uç alt ağdaki UDR atlama ve Internet kullanıcının istenen web sayfasının alır.
+    1. NSG kural 1'i (blok Internet) uygulanmaz, taşıma toonext kuralı
+    2. Varsayılan NSG kuralları alt toosubnet trafiğe izin verecek, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
+18. Hello IIS sunucusu hello yanıtı alır, AppVM01 hello işlemle tamamlar ve yapı hello HTTP yanıtı tamamlandıktan, toohello istek sahibi gönderilen bu HTTP yanıtı
+19. Olduğundan giden hiçbir NSG kuralları hello ön uç alt hello yanıt üzerinde izin verilir
+20. HTTP yanıt isabet hello güvenlik duvarı hello ve bu hello yanıt tooan kurulmuş olduğundan NAT oturum hello güvenlik duvarı tarafından kabul edilir
+21. Merhaba güvenlik duvarı hello yanıt geri toohello Internet kullanıcı ardından yönlendirir.
+22. Hiçbir giden NSG kuralları veya UDR atlama olduğundan hello ön uç alt ağda hello yanıt izin verilir ve hello web sayfasının hello Internet kullanıcı alır.
 
-#### <a name="allowed-internet-rdp-to-backend"></a>(İzin verilir) Internet arka uç için RDP
-1. Sunucu Yöneticisi internet üzerindeki AppVM01 8025 "RDP için AppVM01" güvenlik duvarı kuralı kullanıcı tarafından atanan bağlantı noktası numarasını olduğu SecSvc001.CloudApp.Net:8025 üzerinden RDP oturumu istekleri
-2. Bulut hizmeti 10.0.0.4:8025 güvenlik duvarı arabirimde 8025 bağlantı noktasında açık uç noktası üzerinden trafiğe geçirir
-3. Güvenlik alt ağına atanmış hiçbir NSG bunu sistem NSG kuralları güvenlik duvarı trafiğine izin verecek.
+#### <a name="allowed-internet-rdp-toobackend"></a>(İzin verilir) Internet RDP tooBackend
+1. Sunucu Yöneticisi Internet üzerinde RDP oturumu tooAppVM01 8025 hello "RDP tooAppVM01" güvenlik duvarı kuralı için hello kullanıcıya atanan bağlantı noktası numarası olduğu SecSvc001.CloudApp.Net:8025 aracılığıyla istekleri
+2. Hello bulut hizmeti, bağlantı noktası 8025 toofirewall 10.0.0.4:8025 arabirimde üzerinde hello açık uç noktası üzerinden trafiğe geçirir.
+3. Sistem NSG kuralları trafiği toofirewall izin verecek şekilde tooSecurity alt ağ, hiçbir NSG atanan
 4. Güvenlik duvarı kuralı işleme başlar:
-   1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-   2. FW Kural 2 (RDP IIS) değil, uygulamak için sonraki kural taşıma
-   3. FW kural 3 (RDP DNS01) değil, uygulamak için sonraki kural taşıma
-   4. FW kuralı 4 (RDP AppVM01) uygulamak için trafik verilir, güvenlik duvarı NAT 10.0.2.5:3386 kendisine (AppVM01 üzerinde RDP noktasına)
-5. Arka uç alt gelen kuralı işleme başlar:
-   1. Olmayan NSG kural 1'i (blok Internet) uygulama (Bu trafiği NAT oluştu güvenlik duvarı tarafından gerekir, böylece kaynak adresi şimdi güvenlik alt ağ üzerinde olan güvenlik duvarı ve arka uç alt ağa göre NSG "yerel" trafiği olarak görülen ve böylece izin verilir), sonraki kural taşıma
-   2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin verme, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
+   1. FW kural 1'i (FW Mgmt) uygulanmaz, taşıma toonext kuralı
+   2. FW Kural 2 (RDP IIS) için geçerli değildir, taşıma toonext kuralı
+   3. FW kuralı 3 (RDP DNS01) değil, uygulama toonext kuralı Taşı
+   4. FW kuralı 4 (RDP AppVM01) uygulamak için trafik verilir, güvenlik duvarı NAT onu too10.0.2.5:3386 (AppVM01 üzerinde RDP noktasına)
+5. Merhaba arka uç alt gelen kuralı işleme başlar:
+   1. Olmayan NSG kural 1'i (blok Internet) uygulama (Bu trafiği NAT edildi hello güvenlik duvarı tarafından gerekir, böylece hello kaynak adresi şimdi hello güvenlik alt ağ üzerinde olan hello güvenlik duvarı ve hello arka uç alt ağa göre NSG toobe "yerel" trafik görülen ve böylece izin verilir), toonext kuralı Taşı
+   2. Varsayılan NSG kuralları alt toosubnet trafiğe izin verecek, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
 6. AppVM01 RDP trafiği için dinleme ve yanıtlar
 7. Giden hiçbir NSG kuralları, varsayılan kuralları uygula ve dönüş trafiğine izin verilir
-8. UDR Güvenlik Duvarı'na giden trafik, sonraki atlama olarak yönlendirir.
-9. Bu yerleşik bir oturum üzerinde trafiği döndürmektir çünkü güvenlik duvarı yanıtı Internet kullanıcı geçirir.
+8. UDR giden trafiği toohello güvenlik duvarı hello sonraki atlama olarak yönlendirir.
+9. Bu trafik üzerinde döndürüyor çünkü kurulan oturum hello güvenlik duvarı hello yanıt geri toohello Internet kullanıcı geçirir.
 10. RDP oturumu etkin
 11. Kullanıcı adı ve parolasını AppVM01 ister
 
 #### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(İzin verilir) DNS sunucusundaki Web sunucusu DNS araması
-1. Sunucu, IIS01, www.data.gov bir veri akışı gereksinimlerini ancak adresini çözümlemek için gereksinimlerini web.
-2. Ağ yapılandırma için VNet listeleri DNS01 (arka uç alt ağda 10.0.2.4) birincil DNS sunucusu olarak IIS01 DNS isteği için DNS01 gönderir
-3. UDR Güvenlik Duvarı'na giden trafik, sonraki atlama olarak yönlendirir.
-4. Giden hiçbir NSG kuralları ön uç alt ağına bağlı olan, trafiğe izin verilir
+1. Sunucu, IIS01, gereksinimlerini www.data.gov bir veri akışı web ancak tooresolve adresi hello.
+2. Merhaba ağ yapılandırma hello VNet listeleri DNS01 (10.0.2.4 hello arka uç alt ağdaki) hello birincil DNS sunucusu olarak, IIS01 hello DNS isteği tooDNS01 gönderir
+3. UDR giden trafiği toohello güvenlik duvarı hello sonraki atlama olarak yönlendirir.
+4. Giden hiçbir NSG kuralları ilişkili toohello Frontend alt ağı olan, trafiğe izin verilir
 5. Güvenlik duvarı kuralı işleme başlar:
-   1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-   2. FW kuralı 2-5 (RDP kurallar) yok, uygulamak için sonraki kural taşıma
-   3. FW kuralları 6 ve 7 (uygulama kuralları) verme geçerli, sonraki kural taşıma
-   4. FW kural 8 (Internet için) değil, uygulamak için sonraki kural taşıma
-   5. FW kural 9 (DNS) geçerli, trafiğe izin verilir, güvenlik duvarı 10.0.2.4 (DNS01) trafiğini
-6. Arka uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1'i (blok Internet) değil, uygulamak için sonraki kural taşıma
-   2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin verme, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-7. DNS sunucusu isteği alır
-8. DNS sunucusu önbelleğe adresi yoksa ve bir kök DNS sunucusu internet'te sorar
-9. UDR Güvenlik Duvarı'na giden trafik, sonraki atlama olarak yönlendirir.
+   1. FW kural 1'i (FW Mgmt) uygulanmaz, taşıma toonext kuralı
+   2. FW kuralı 2-5 (RDP kurallar) uygulanmaz, taşıma toonext kuralı
+   3. FW kuralları 6 ve 7 (uygulama kuralları) uygulama, taşıma toonext kuralı
+   4. FW kural 8 (tooInternet) değil, uygulama toonext kuralı Taşı
+   5. FW kural 9 (DNS) geçerli, trafiğe izin verilir, güvenlik duvarı trafiği too10.0.2.4 (DNS01) iletir
+6. Merhaba arka uç alt gelen kuralı işleme başlar:
+   1. NSG kural 1'i (blok Internet) uygulanmaz, taşıma toonext kuralı
+   2. Varsayılan NSG kuralları alt toosubnet trafiğe izin verecek, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
+7. DNS sunucusu hello isteği alır
+8. DNS sunucusu önbelleğe hello adresi yoksa ve bir kök DNS sunucusu üzerinde hello ister Internet
+9. UDR giden trafiği toohello güvenlik duvarı hello sonraki atlama olarak yönlendirir.
 10. Giden hiçbir NSG kuralları arka uç alt ağdaki trafiğe izin verilir
 11. Güvenlik duvarı kuralı işleme başlar:
-    1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-    2. FW kuralı 2-5 (RDP kurallar) yok, uygulamak için sonraki kural taşıma
-    3. FW kuralları 6 ve 7 (uygulama kuralları) verme geçerli, sonraki kural taşıma
-    4. FW kural 8 (Internet için) geçerlidir, trafiğe izin verilir, çıkışı SNAT Internet üzerindeki kök DNS sunucusuna oturumdur
-12. Bu oturumda Güvenlik Duvarı'ndan başlatılan olduğundan, Internet DNS sunucusu yanıt, yanıt güvenlik duvarı tarafından kabul edilir
-13. Yerleşik bir oturum olarak güvenlik duvarı yanıt DNS01 başlatma sunucusuna iletir.
-14. Arka uç alt gelen kuralı işleme başlar:
-    1. NSG kural 1'i (blok Internet) değil, uygulamak için sonraki kural taşıma
-    2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin verme, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-15. DNS sunucusu alır ve yanıtı önbelleğe alır ve ardından geri IIS01 ilk isteğine yanıt verir
-16. Arka uç alt ağdaki UDR rota güvenlik duvarı sonraki atlama yapar.
-17. Giden hiçbir NSG kuralları arka uç alt ağda var, trafiğe izin verilir
-18. Bu Güvenlik Duvarı'nda yerleşik bir oturum, yanıt IIS sunucuya geri güvenlik duvarı tarafından iletilir
+    1. FW kural 1'i (FW Mgmt) uygulanmaz, taşıma toonext kuralı
+    2. FW kuralı 2-5 (RDP kurallar) uygulanmaz, taşıma toonext kuralı
+    3. FW kuralları 6 ve 7 (uygulama kuralları) uygulama, taşıma toonext kuralı
+    4. FW kural 8 (tooInternet) geçerli, trafiğe izin verilir, oturum SNAT hello Internet DNS sunucusunda tooroot çıkışı
+12. Bu oturumda hello Güvenlik Duvarı'ndan başlatılan olduğundan, Internet DNS sunucusu yanıt, hello yanıt hello güvenlik duvarı tarafından kabul edilir
+13. Yerleşik bir oturum olarak hello güvenlik duvarı sunucusu, DNS01 başlatma hello yanıt toohello iletir.
+14. Merhaba arka uç alt gelen kuralı işleme başlar:
+    1. NSG kural 1'i (blok Internet) uygulanmaz, taşıma toonext kuralı
+    2. Varsayılan NSG kuralları alt toosubnet trafiğe izin verecek, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
+15. Merhaba DNS sunucusu ve hello yanıtı önbelleğe alır ve toohello ilk isteği geri tooIIS01 yanıt verir
+16. arka uç alt ağdaki Hello UDR rota hello güvenlik duvarı hello sonraki atlama yapar
+17. Giden hiçbir NSG kuralları hello arka uç alt ağda var, trafiğe izin verilir
+18. Bu yerleşik bir oturum hello Güvenlik Duvarı'nda, hello yanıt hello Güvenlik Duvarı'nı geri toohello IIS sunucu tarafından iletilen
 19. Ön uç alt gelen kuralı işleme başlar:
-    1. Gelen için geçerli NSG kural yok NSG hiçbiri uygulama kuralları için ön uç alt ağa, arka uç alt ağından gelen trafik
-    2. Trafiğe izin için alt ağlar arasında trafiğe izin varsayılan sistem kuralı bu trafiği olanak tanır
-20. IIS01 DNS01 yanıtı alır
+    1. Merhaba NSG kuralları hiçbiri geçerli şekilde hello arka uç alt toohello ön uç alt ağından tooInbound trafiği uygulayan NSG kural yok
+    2. Merhaba trafiğe izin şekilde hello varsayılan sistem kuralı alt ağlar arasında trafiğe izin vermek bu trafiği olanak tanır
+20. IIS01 hello yanıt DNS01 alır.
 
-#### <a name="allowed-backend-server-to-frontend-server"></a>(İzin verilir) Ön uç sunucusu için arka uç sunucusu
-1. RDP aracılığıyla AppVM02 için oturum açmış bir yönetici, doğrudan windows dosya Gezgini aracılığıyla IIS01 sunucusundan bir dosya istediğinde
-2. Arka uç alt ağdaki UDR rota güvenlik duvarı sonraki atlama yapar.
-3. Yanıt izin arka uç alt ağda giden hiçbir NSG kuralları olduğundan
+#### <a name="allowed-backend-server-toofrontend-server"></a>(İzin verilir) Arka uç sunucusu tooFrontend
+1. Windows dosya Gezgini üzerinden hello IIS01 sunucu doğrudan bir dosya tooAppVM02 RDP aracılığıyla oturum açmış bir yönetici istekleri
+2. arka uç alt ağdaki Hello UDR rota hello güvenlik duvarı hello sonraki atlama yapar
+3. Olduğundan giden hiçbir NSG kuralları hello arka uç alt hello yanıt üzerinde izin verilir
 4. Güvenlik duvarı kuralı işleme başlar:
-   1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-   2. FW kuralı 2-5 (RDP kurallar) yok, uygulamak için sonraki kural taşıma
-   3. FW kuralları 6 ve 7 (uygulama kuralları) verme geçerli, sonraki kural taşıma
-   4. FW kural 8 (Internet için) değil, uygulamak için sonraki kural taşıma
-   5. FW kural 9 (DNS) değil, uygulamak için sonraki kural taşıma
-   6. FW kural 10 (içi alt ağ) geçerli, trafiğe izin verilir, güvenlik duvarı trafiği 10.0.1.4 (IIS01) geçirir.
+   1. FW kural 1'i (FW Mgmt) uygulanmaz, taşıma toonext kuralı
+   2. FW kuralı 2-5 (RDP kurallar) uygulanmaz, taşıma toonext kuralı
+   3. FW kuralları 6 ve 7 (uygulama kuralları) uygulama, taşıma toonext kuralı
+   4. FW kural 8 (tooInternet) değil, uygulama toonext kuralı Taşı
+   5. FW kural 9 (DNS) uygulanmaz, taşıma toonext kuralı
+   6. FW kural 10 (içi alt ağ) geçerli, trafiğe izin verilir, güvenlik duvarı trafiği too10.0.1.4 (IIS01) geçirir
 5. Ön uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1'i (blok Internet) değil, uygulamak için sonraki kural taşıma
-   2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin verme, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-6. Uygun kimlik doğrulama ve yetkilendirme varsayıldığında, IIS01 isteği kabul eder ve yanıtlar
-7. Ön uç alt ağdaki UDR rota güvenlik duvarı sonraki atlama yapar.
-8. Yanıt izin verilen ön uç alt ağda giden hiçbir NSG kuralları olduğundan
-9. Bu Güvenlik Duvarı'nda var olan bir oturum olarak bu yanıt izin verilir ve güvenlik duvarı AppVM02 yanıtı döndürür
+   1. NSG kural 1'i (blok Internet) uygulanmaz, taşıma toonext kuralı
+   2. Varsayılan NSG kuralları alt toosubnet trafiğe izin verecek, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
+6. Uygun kimlik doğrulama ve yetkilendirme varsayıldığında, IIS01 hello isteği kabul eder ve yanıtlar
+7. ön uç alt ağdaki Hello UDR rota hello güvenlik duvarı hello sonraki atlama yapar
+8. Olduğundan giden hiçbir NSG kuralları hello ön uç alt hello yanıt üzerinde izin verilir
+9. Bu hello Güvenlik Duvarı'nda var olan bir oturum olarak bu yanıt izin verilir ve hello güvenlik duvarı hello yanıt tooAppVM02 döndürür
 10. Arka uç alt gelen kuralı işleme başlar:
-    1. NSG kural 1'i (blok Internet) değil, uygulamak için sonraki kural taşıma
-    2. Varsayılan NSG kuralları alt ağ için alt ağ trafiğine izin verme, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
-11. AppVM02 yanıtı alır
+    1. NSG kural 1'i (blok Internet) uygulanmaz, taşıma toonext kuralı
+    2. Varsayılan NSG kuralları alt toosubnet trafiğe izin verecek, trafiğe izin verilir, NSG kuralının işlenmesi Durdur
+11. AppVM02 hello yanıtı alır
 
-#### <a name="denied-internet-direct-to-web-server"></a>(Reddedildi) Web sunucusuna doğrudan Internet
-1. Internet kullanıcı FrontEnd001.CloudApp.Net hizmeti aracılığıyla IIS01, web sunucusu erişmeyi dener
-2. HTTP trafiği için açık uç nokta yok olduğundan bu bulut hizmeti aracılığıyla geçecek değil ve sunucunun ulaşmak olmayacaktır
-3. Uç noktaları için herhangi bir nedenle açıksa, ön uç alt ağdaki (blok Internet) NSG bu trafiği engeller
-4. Son olarak, ön uç alt UDR rota tüm giden trafiği IIS01 Güvenlik Duvarı'nda sonraki atlama olarak gönderir ve Güvenlik Duvarı'nı bu asimetrik trafiği olarak görebilir ve giden yanıt en az üç bağımsız katmanlar arasında savunma vardır nedenle bırakma Internet ve yetkisiz/uygunsuz erişimi engelleme kendi bulut hizmeti aracılığıyla IIS01.
+#### <a name="denied-internet-direct-tooweb-server"></a>(Reddedildi) Internet doğrudan tooWeb sunucu
+1. Internet kullanıcı tooaccess hello web sunucusu, IIS01, hello FrontEnd001.CloudApp.Net hizmeti ile çalışır
+2. HTTP trafiği için açık uç nokta yok olduğundan bu hello bulut hizmeti geçip geçmeyeceğini değil ve hello sunucusuna ulaşabilir olmayacaktır
+3. Hello NSG (blok Internet) hello ön uç alt ağdaki Hello uç noktaları için herhangi bir nedenle açıksa, bu trafiği engeller
+4. Son olarak, hello ön uç alt UDR rota hello sonraki atlama olarak IIS01 toohello Güvenlik Duvarı'ndan tüm giden trafiği gönderebilir ve hello Güvenlik Duvarı'nı bu asimetrik trafiği olarak görebilir ve hello giden yanıt en az üç bağımsız katmanı vardır nedenle bırakma Merhaba arasında yetkisiz/uygunsuz erişimi engelleme kendi bulut hizmeti Internet ve IIS01 yolu.
 
-#### <a name="denied-internet-to-backend-server"></a>(Reddedildi) Arka uç sunucusuna Internet
-1. Internet kullanıcı BackEnd001.CloudApp.Net hizmeti aracılığıyla AppVM01 bir dosyaya erişmeyi dener
-2. Dosya Paylaşımı için açık uç nokta yok olduğundan bu bulut hizmeti geçip geçmeyeceğini değil ve tarafından sunucuya ulaşmak olmayacaktır
-3. NSG (blok Internet) uç noktaları için herhangi bir nedenle açıksa, bu trafiği engeller
-4. Son olarak, UDR rota tüm giden trafiği AppVM01 Güvenlik Duvarı'nda sonraki atlama olarak gönderir ve Güvenlik Duvarı'nı bu asimetrik trafiği olarak görebilir ve böylece savunma internet arasında en az üç bağımsız katmanı vardır giden yanıt bırakma ve Yetkisiz/uygunsuz erişimi engelleme kendi bulut hizmeti aracılığıyla AppVM01.
+#### <a name="denied-internet-toobackend-server"></a>(Reddedildi) Internet tooBackend sunucu
+1. Internet kullanıcı tooaccess AppVM01 bir dosyada hello BackEnd001.CloudApp.Net hizmeti ile çalışır
+2. Dosya Paylaşımı için açık uç nokta yok olduğundan bu hello bulut hizmeti geçip geçmeyeceğini değil ve hello sunucusuna ulaşabilir olmayacaktır
+3. Herhangi bir nedenden dolayı Hello uç noktaları açıksa hello NSG (blok Internet) bu trafiği engeller
+4. Son olarak, hello UDR rota hello sonraki atlama olarak AppVM01 toohello Güvenlik Duvarı'ndan tüm giden trafiği gönderebilir ve hello Güvenlik Duvarı'nı bu asimetrik trafiği olarak görebilir ve hello giden yanıt en az üç bağımsız katmanlar arasında savunma vardır nedenle bırakma Internet ve AppVM01 yetkisiz/uygunsuz erişimi engelleme kendi bulut hizmeti ile Merhaba.
 
-#### <a name="denied-frontend-server-to-backend-server"></a>(Reddedildi) Arka uç sunucusuna ön uç sunucusu
-1. IIS01 aşılmış ve arka uç sunucuları alt için tararken kötü amaçlı kod çalıştığını varsayar.
-2. Ön uç alt UDR rota tüm giden trafiği IIS01 Güvenlik Duvarı'na sonraki atlama olarak gönderebilir. Bu, güvenliği aşılan VM tarafından değiştirilebilir bir şey değildir.
-3. İstek AppVM01 veya trafiğe Güvenlik Duvarı'nı (nedeniyle FW kuralları 7 ve 9) tarafından izin DNS aramaları için DNS sunucusu olduğunda güvenlik duvarının trafiğini işleyecek. Diğer tüm trafik FW kural 11 göre (tüm reddetme) engellenebilir.
-4. Tehdit algılama Gelişmiş Güvenlik Duvarı'nı etkinleştirildi (da değil kapsanan bu belgede, Gelişmiş tehdit özellikleri, belirli bir ağ Gereci satıcı belgelerine bakın), hatta temel iletme kuralları tarafından izin trafiği Bu konuda ele alınan belge engelledi trafiği bilinen imzaları ya da bir Gelişmiş tehdit kuralı bayrak desenler içeriyorsa.
+#### <a name="denied-frontend-server-toobackend-server"></a>(Reddedildi) Ön uç sunucusu tooBackend sunucu
+1. IIS01 aşılmış ve kötü amaçlı kod tooscan hello arka uç sunucuları alt çalışırken çalıştığını varsayar.
+2. Merhaba ön uç alt UDR rota tüm giden trafiği IIS01 toohello Güvenlik Duvarı'nı hello sonraki atlama olarak gönderebilir. Bu tarafından değiştirilmiş bir şey değil hello tehlikeye VM.
+3. Hello isteği tooAppVM01 veya trafiği hello Güvenlik Duvarı'nı (son tooFW kuralları 7 ve 9) tarafından izin verilebilir DNS araması için toohello DNS sunucusu olduğunda hello güvenlik duvarı hello trafiği işleme. Diğer tüm trafik FW kural 11 göre (tüm reddetme) engellenebilir.
+4. Tehdit algılama Gelişmiş hello güvenlik duvarı etkinleştirildi (da değil kapsanan bu belgede, Gelişmiş tehdit özellikleri, belirli bir ağ Gereci hello satıcı belgelerine bakın), hatta tarafından hello kuralları iletme temel izin trafiği Bu konuda ele alınan belge engelledi hello trafiği bilinen imzaları ya da bir Gelişmiş tehdit kuralı bayrak desenler içeriyorsa.
 
 #### <a name="denied-internet-dns-lookup-on-dns-server"></a>(Reddedildi) DNS sunucusunda Internet DNS araması
-1. Internet kullanıcı DNS01 BackEnd001.CloudApp.Net hizmeti aracılığıyla bir iç DNS kaydını arama dener 
-2. DNS trafiği için açık uç nokta yok olduğundan bu bulut hizmeti aracılığıyla geçip geçmeyeceğini değil ve sunucunun ulaşmak olmayacaktır
-3. Uç noktaları için herhangi bir nedenle açıksa, ön uç alt ağda NSG kuralının (blok Internet) bu trafiği engeller
-4. Son olarak, arka uç alt UDR rota tüm giden trafiği DNS01 Güvenlik Duvarı'nda sonraki atlama olarak gönderir ve Güvenlik Duvarı'nı bu asimetrik trafiği olarak görebilir ve giden yanıt en az üç bağımsız katmanlar arasında savunma vardır nedenle bırakma Internet ve yetkisiz/uygunsuz erişimi engelleme kendi bulut hizmeti aracılığıyla DNS01.
+1. Internet kullanıcı toolookup DNS01 BackEnd001.CloudApp.Net hizmeti aracılığıyla bir iç DNS kaydını çalışır 
+2. DNS trafiği için açık uç nokta yok olduğundan bu hello bulut hizmeti geçip geçmeyeceğini değil ve hello sunucusuna ulaşabilir olmayacaktır
+3. Herhangi bir nedenden dolayı Hello uç noktaları açıksa hello ön uç alt ağdaki hello NSG kuralının (blok Internet) bu trafiği engeller
+4. Son olarak, hello arka uç alt UDR rota hello sonraki atlama olarak DNS01 toohello Güvenlik Duvarı'ndan tüm giden trafiği gönderebilir ve hello Güvenlik Duvarı'nı bu asimetrik trafiği olarak görebilir ve hello giden yanıt en az üç bağımsız katmanı vardır nedenle bırakma Merhaba arasında yetkisiz/uygunsuz erişimi engelleme kendi bulut hizmeti Internet ve DNS01 yolu.
 
-#### <a name="denied-internet-to-sql-access-through-firewall"></a>(Reddedildi) SQL erişimi güvenlik duvarı üzerinden İnternete
+#### <a name="denied-internet-toosql-access-through-firewall"></a>(Reddedildi) Güvenlik Duvarı üzerinden Internet tooSQL erişimi
 1. Internet kullanıcı SQL verileri SecSvc001.CloudApp.Net (Internet'e yönelik bulut hizmeti) ' ister.
-2. SQL için açık uç nokta yok olduğundan bu bulut hizmeti geçip geçmeyeceğini değil ve güvenlik duvarı ulaşmak olmayacaktır
-3. SQL uç noktaları için herhangi bir nedenle açıksa, güvenlik duvarı kuralı işlemeye başlamak:
-   1. FW kural 1'i (FW Mgmt) değil, uygulamak için sonraki kural taşıma
-   2. FW kuralları 2-5 (RDP kurallar) yok, uygulamak için sonraki kural taşıma
-   3. FW kural 6 ve 7 (uygulama kuralları) verme geçerli, sonraki kural taşıma
-   4. FW kural 8 (Internet için) değil, uygulamak için sonraki kural taşıma
-   5. FW kural 9 (DNS) değil, uygulamak için sonraki kural taşıma
-   6. FW kural 10 (içi alt ağ) değil, uygulamak için sonraki kural taşıma
+2. SQL için açık uç nokta yok olduğundan bu hello bulut hizmeti geçip geçmeyeceğini değil ve hello güvenlik duvarı ulaşmak olmayacaktır
+3. Herhangi bir nedenden dolayı SQL uç noktaları açıksa hello güvenlik duvarı kuralı işlemeye başlamak:
+   1. FW kural 1'i (FW Mgmt) uygulanmaz, taşıma toonext kuralı
+   2. FW kuralları 2-5 (RDP kurallar) yok, uygulama toonext kuralı Taşı
+   3. FW kural 6 ve 7 (uygulama kuralları) uygulama, taşıma toonext kuralı
+   4. FW kural 8 (tooInternet) değil, uygulama toonext kuralı Taşı
+   5. FW kural 9 (DNS) uygulanmaz, taşıma toonext kuralı
+   6. FW kural 10 (içi alt ağ) değil, uygulama toonext kuralı Taşı
    7. FW kural 11 (Tümünü Reddet) geçerli, engellenmiş, Dur kural işlenirken trafiğidir
 
 ## <a name="references"></a>Başvurular
 ### <a name="main-script-and-network-config"></a>Ana komut dosyası ve ağ yapılandırması
-Tam komut dosyasını bir PowerShell komut dosyası kaydedin. Ağ Yapılandırma "NetworkConf2.xml" adlı bir dosyaya kaydedin.
-Kullanıcı tanımlı değişkenleri gerektiği gibi değiştirin. Komut dosyasını çalıştırın, ardından yukarıdaki güvenlik duvarı kuralı kurulum yönergeleri izleyin.
+Merhaba tam komut dosyası bir PowerShell komut dosyası kaydedin. Merhaba ağ yapılandırma "NetworkConf2.xml" adlı bir dosyaya kaydedin.
+Merhaba kullanıcı tanımlı değişkenleri gerektiği gibi değiştirin. Merhaba komut dosyasını çalıştırın, ardından hello güvenlik duvarı kuralı kurulum yönergeleri yukarıdaki izleyin.
 
 #### <a name="full-script"></a>Tam komut dosyası
-Kullanıcı tanımlı değişkenleri esas alarak bu betiği olur:
+Merhaba kullanıcı tanımlı değişkenleri esas alarak bu betiği olur:
 
-1. Bir Azure aboneliğine Bağlanma
+1. Tooan Azure aboneliğine bağlanma
 2. Yeni depolama hesabı oluşturma
-3. Yeni bir VNet ve ağ yapılandırma dosyasında tanımlanan üç alt ağlar oluşturun
+3. Yeni bir VNet ve hello ağ yapılandırma dosyasında tanımlanan üç alt ağlar oluşturun
 4. Beş sanal makineler oluşturun; Güvenlik Duvarı'nı 1 ve 4 windows server Vm'leri
 5. UDR dahil olmak üzere yapılandırın:
    1. İki yeni yönlendirme tabloları oluşturma
-   2. Yollar tablolarına ekleme
-   3. Tablolar için uygun alt ağları bağlama
-6. NVA üstünde IP iletimini etkinleştirme
+   2. Yollar toohello tabloları ekleyin
+   3. Tablolar tooappropriate alt ağları bağlama
+6. IP iletimi NVA hello üzerinde etkinleştir
 7. NSG dahil olmak üzere yapılandırın:
    1. Bir NSG oluşturma
    2. Bir kural ekleme
-   3. NSG için uygun alt ağları bağlama
+   3. Merhaba NSG toohello uygun alt ağları bağlama
 
 Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çalıştırılmalıdır.
 
@@ -601,21 +601,21 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
        - Three new cloud services
        - Three Subnets (SecNet, FrontEnd, and BackEnd subnets)
        - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
-       - One server on the FrontEnd Subnet
-       - Three Servers on the BackEnd Subnet
-       - IP Forwading from the FireWall out to the internet
-       - User Defined Routing FrontEnd and BackEnd Subnets to the NVA
+       - One server on hello FrontEnd Subnet
+       - Three Servers on hello BackEnd Subnet
+       - IP Forwading from hello FireWall out toohello internet
+       - User Defined Routing FrontEnd and BackEnd Subnets toohello NVA
 
-      Before running script, ensure the network configuration file is created in
-      the directory referenced by $NetworkConfigFile variable (or update the
-      variable to reflect the path and file name of the config file being used).
+      Before running script, ensure hello network configuration file is created in
+      hello directory referenced by $NetworkConfigFile variable (or update the
+      variable tooreflect hello path and file name of hello config file being used).
 
      .Notes
       Everyone's security requirements are different and can be addressed in a myriad of ways.
-      Please be sure that any sensitive data or applications are behind the appropriate
-      layer(s) of protection. This script serves as an example of some of the techniques
+      Please be sure that any sensitive data or applications are behind hello appropriate
+      layer(s) of protection. This script serves as an example of some of hello techniques
       that can be used, but should not be used for all scenarios. You are responsible to
-      assess your security needs and the appropriate protections needed, and then effectively
+      assess your security needs and hello appropriate protections needed, and then effectively
       implement those protections.
 
       Security Service (SecNet subnet 10.0.0.0/24)
@@ -632,7 +632,7 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
     #>
 
     # Fixed Variables
-        $LocalAdminPwd = Read-Host -Prompt "Enter Local Admin Password to be used for all VMs"
+        $LocalAdminPwd = Read-Host -Prompt "Enter Local Admin Password toobe used for all VMs"
         $VMName = @()
         $ServiceName = @()
         $VMFamily = @()
@@ -642,8 +642,8 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
         $VMIP = @()
 
     # User Defined Global Variables
-      # These should be changes to reflect your subscription and services
-      # Invalid options will fail in the validation section
+      # These should be changes tooreflect your subscription and services
+      # Invalid options will fail in hello validation section
 
       # Subscription Access Details
         $subID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -680,10 +680,10 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
         $NSGName = "MyVNetSG"
 
     # User Defined VM Specific Config
-        # Note: To ensure UDR and IP forwarding is setup
-        # properly this script requires VM 0 be the NVA.
+        # Note: tooensure UDR and IP forwarding is setup
+        # properly this script requires VM 0 be hello NVA.
 
-        # VM 0 - The Network Virtual Appliance (NVA)
+        # VM 0 - hello Network Virtual Appliance (NVA)
           $VMName += "myFirewall"
           $ServiceName += $SecureService
           $VMFamily += "Firewall"
@@ -692,7 +692,7 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
           $SubnetName += $SecNet
           $VMIP += "10.0.0.4"
 
-        # VM 1 - The Web Server
+        # VM 1 - hello Web Server
           $VMName += "IIS01"
           $ServiceName += $FrontEndService
           $VMFamily += "Windows"
@@ -701,7 +701,7 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
           $SubnetName += $FESubnet
           $VMIP += "10.0.1.4"
 
-        # VM 2 - The First Appliaction Server
+        # VM 2 - hello First Appliaction Server
           $VMName += "AppVM01"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -710,7 +710,7 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
           $SubnetName += $BESubnet
           $VMIP += "10.0.2.5"
 
-        # VM 3 - The Second Appliaction Server
+        # VM 3 - hello Second Appliaction Server
           $VMName += "AppVM02"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -719,7 +719,7 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
           $SubnetName += $BESubnet
           $VMIP += "10.0.2.6"
 
-        # VM 4 - The DNS Server
+        # VM 4 - hello DNS Server
           $VMName += "DNS01"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -745,8 +745,8 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
         Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
               New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
 
-      # Update Subscription Pointer to New Storage Account
-        Write-Host "Updating Subscription Pointer to New Storage Account" -ForegroundColor Cyan 
+      # Update Subscription Pointer tooNew Storage Account
+        Write-Host "Updating Subscription Pointer tooNew Storage Account" -ForegroundColor Cyan 
         Set-AzureSubscription –SubscriptionId $subID -CurrentStorageAccountName $StorageAccountName -ErrorAction Stop
 
     # Validation
@@ -757,33 +757,33 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
          $FatalError = $true}
 
     If (Test-AzureName -Service -Name $SecureService) { 
-        Write-Host "The SecureService service name is already in use, please pick a different service name." -ForegroundColor Yellow
+        Write-Host "hello SecureService service name is already in use, please pick a different service name." -ForegroundColor Yellow
         $FatalError = $true}
-    Else { Write-Host "The FrontEndService service name is valid for use." -ForegroundColor Green}
+    Else { Write-Host "hello FrontEndService service name is valid for use." -ForegroundColor Green}
 
     If (Test-AzureName -Service -Name $FrontEndService) { 
-        Write-Host "The FrontEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
+        Write-Host "hello FrontEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
         $FatalError = $true}
-    Else { Write-Host "The FrontEndService service name is valid for use" -ForegroundColor Green}
+    Else { Write-Host "hello FrontEndService service name is valid for use" -ForegroundColor Green}
 
     If (Test-AzureName -Service -Name $BackEndService) { 
-        Write-Host "The BackEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
+        Write-Host "hello BackEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
         $FatalError = $true}
-    Else { Write-Host "The BackEndService service name is valid for use." -ForegroundColor Green}
+    Else { Write-Host "hello BackEndService service name is valid for use." -ForegroundColor Green}
 
     If (-Not (Test-Path $NetworkConfigFile)) { 
-        Write-Host 'The network config file was not found, please update the $NetworkConfigFile variable to point to the network config xml file.' -ForegroundColor Yellow
+        Write-Host 'hello network config file was not found, please update hello $NetworkConfigFile variable toopoint toohello network config xml file.' -ForegroundColor Yellow
         $FatalError = $true}
-    Else { Write-Host "The network config file was found" -ForegroundColor Green
+    Else { Write-Host "hello network config file was found" -ForegroundColor Green
             If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+                Write-Host 'hello deployment location was not found in hello network config file, please check hello network config file tooensure hello $DeploymentLocation varible is correct and hello netowrk config file matches.' -ForegroundColor Yellow
                 $FatalError = $true}
-            Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
+            Else { Write-Host "hello deployment location was found in hello network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occured, please see hello above messages for more information." -ForegroundColor Red
         Return}
-    Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
+    Else { Write-Host "Validation passed, now building hello environment." -ForegroundColor Green}
 
     # Create VNET
         Write-Host "Creating VNET" -ForegroundColor Cyan 
@@ -806,11 +806,11 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
                     Set-AzureSubnet  –SubnetNames $SubnetName[$i] | `
                     Set-AzureStaticVNetIP -IPAddress $VMIP[$i] | `
                     New-AzureVM –ServiceName $ServiceName[$i] -VNetName $VNetName -Location $DeploymentLocation
-                # Set up all the EndPoints we'll need once we're up and running
-                # Note: All traffic goes through the firewall, so we'll need to set up all ports here.
-                #       Also, the firewall will be redirecting traffic to a new IP and Port in a forwarding
-                #       rule, so all of these endpoint have the same public and local port and the firewall
-                #       will do the mapping, NATing, and/or redirection as declared in the firewall rules.
+                # Set up all hello EndPoints we'll need once we're up and running
+                # Note: All traffic goes through hello firewall, so we'll need tooset up all ports here.
+                #       Also, hello firewall will be redirecting traffic tooa new IP and Port in a forwarding
+                #       rule, so all of these endpoint have hello same public and local port and hello firewall
+                #       will do hello mapping, NATing, and/or redirection as declared in hello firewall rules.
                 Add-AzureEndpoint -Name "MgmtPort1" -Protocol tcp -PublicPort 801  -LocalPort 801  -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
                 Add-AzureEndpoint -Name "MgmtPort2" -Protocol tcp -PublicPort 807  -LocalPort 807  -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
                 Add-AzureEndpoint -Name "HTTP"      -Protocol tcp -PublicPort 80   -LocalPort 80   -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
@@ -818,7 +818,7 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
                 Add-AzureEndpoint -Name "RDPApp1"   -Protocol tcp -PublicPort 8025 -LocalPort 8025 -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
                 Add-AzureEndpoint -Name "RDPApp2"   -Protocol tcp -PublicPort 8026 -LocalPort 8026 -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
                 Add-AzureEndpoint -Name "RDPDNS01"  -Protocol tcp -PublicPort 8024 -LocalPort 8024 -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
-                # Note: A SSH endpoint is automatically created on port 22 when the appliance is created.
+                # Note: A SSH endpoint is automatically created on port 22 when hello appliance is created.
                 }
             Else
                 {
@@ -837,8 +837,8 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
     # Configure UDR and IP Forwarding
         Write-Host "Configuring UDR" -ForegroundColor Cyan
 
-      # Create the Route Tables
-        Write-Host "Creating the Route Tables" -ForegroundColor Cyan 
+      # Create hello Route Tables
+        Write-Host "Creating hello Route Tables" -ForegroundColor Cyan 
         New-AzureRouteTable -Name $BERouteTableName `
             -Location $DeploymentLocation `
             -Label "Route table for $BESubnet subnet"
@@ -846,33 +846,33 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
             -Location $DeploymentLocation `
             -Label "Route table for $FESubnet subnet"
 
-      # Add Routes to Route Tables
-        Write-Host "Adding Routes to the Route Tables" -ForegroundColor Cyan 
+      # Add Routes tooRoute Tables
+        Write-Host "Adding Routes toohello Route Tables" -ForegroundColor Cyan 
         Get-AzureRouteTable $BERouteTableName `
-            |Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+            |Set-AzureRoute -RouteName "All traffic tooFW" -AddressPrefix 0.0.0.0/0 `
             -NextHopType VirtualAppliance `
             -NextHopIpAddress $VMIP[0]
         Get-AzureRouteTable $BERouteTableName `
-            |Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+            |Set-AzureRoute -RouteName "Internal traffic tooFW" -AddressPrefix $VNetPrefix `
             -NextHopType VirtualAppliance `
             -NextHopIpAddress $VMIP[0]
         Get-AzureRouteTable $BERouteTableName `
             |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
             -NextHopType VNETLocal
         Get-AzureRouteTable $FERouteTableName `
-            |Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+            |Set-AzureRoute -RouteName "All traffic tooFW" -AddressPrefix 0.0.0.0/0 `
             -NextHopType VirtualAppliance `
             -NextHopIpAddress $VMIP[0]
         Get-AzureRouteTable $FERouteTableName `
-            |Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+            |Set-AzureRoute -RouteName "Internal traffic tooFW" -AddressPrefix $VNetPrefix `
             -NextHopType VirtualAppliance `
             -NextHopIpAddress $VMIP[0]
         Get-AzureRouteTable $FERouteTableName `
             |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $FEPrefix `
             -NextHopType VNETLocal
 
-      # Assoicate the Route Tables with the Subnets
-        Write-Host "Binding Route Tables to the Subnets" -ForegroundColor Cyan 
+      # Assoicate hello Route Tables with hello Subnets
+        Write-Host "Binding Route Tables toohello Subnets" -ForegroundColor Cyan 
         Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
             -SubnetName $BESubnet `
             -RouteTableName $BERouteTableName
@@ -880,49 +880,49 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
             -SubnetName $FESubnet `
             -RouteTableName $FERouteTableName
 
-     # Enable IP Forwarding on the Virtual Appliance
+     # Enable IP Forwarding on hello Virtual Appliance
         Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] `
             |Set-AzureIPForwarding -Enable
 
     # Configure NSG
-        Write-Host "Configuring the Network Security Group (NSG)" -ForegroundColor Cyan
+        Write-Host "Configuring hello Network Security Group (NSG)" -ForegroundColor Cyan
 
-      # Build the NSG
-        Write-Host "Building the NSG" -ForegroundColor Cyan
+      # Build hello NSG
+        Write-Host "Building hello NSG" -ForegroundColor Cyan
         New-AzureNetworkSecurityGroup -Name $NSGName -Location $DeploymentLocation -Label "Security group for $VNetName subnets in $DeploymentLocation"
 
       # Add NSG Rule
-        Write-Host "Writing rules into the NSG" -ForegroundColor Cyan
-        Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet from the Internet" -Type Inbound -Priority 100 -Action Deny `
+        Write-Host "Writing rules into hello NSG" -ForegroundColor Cyan
+        Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Isolate hello $VNetName VNet from hello Internet" -Type Inbound -Priority 100 -Action Deny `
             -SourceAddressPrefix INTERNET -SourcePortRange '*' `
             -DestinationAddressPrefix VIRTUAL_NETWORK -DestinationPortRange '*' `
             -Protocol *
 
-      # Assign the NSG to two Subnets
-        # The NSG is *not* bound to the Security Subnet. The result
-        # is that internet traffic flows only to the Security subnet
-        # since the NSG bound to the Frontend and Backback subnets
-        # will Deny internet traffic to those subnets.
-        Write-Host "Binding the NSG to two subnets" -ForegroundColor Cyan
+      # Assign hello NSG tootwo Subnets
+        # hello NSG is *not* bound toohello Security Subnet. hello result
+        # is that internet traffic flows only toohello Security subnet
+        # since hello NSG bound toohello Frontend and Backback subnets
+        # will Deny internet traffic toothose subnets.
+        Write-Host "Binding hello NSG tootwo subnets" -ForegroundColor Cyan
         Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $FESubnet -VirtualNetworkName $VNetName
         Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $BESubnet -VirtualNetworkName $VNetName
 
     # Optional Post-script Manual Configuration
       # Configure Firewall
-      # Install Test Web App (Run Post-Build Script on the IIS Server)
-      # Install Backend resource (Run Post-Build Script on the AppVM01)
+      # Install Test Web App (Run Post-Build Script on hello IIS Server)
+      # Install Backend resource (Run Post-Build Script on hello AppVM01)
       Write-Host
       Write-Host "Build Complete!" -ForegroundColor Green
       Write-Host
       Write-Host "Optional Post-script Manual Configuration Steps" -ForegroundColor Gray
       Write-Host " - Configure Firewall" -ForegroundColor Gray
-      Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
-      Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
+      Write-Host " - Install Test Web App (Run Post-Build Script on hello IIS Server)" -ForegroundColor Gray
+      Write-Host " - Install Backend resource (Run Post-Build Script on hello AppVM01)" -ForegroundColor Gray
       Write-Host
 
 
 #### <a name="network-config-file"></a>Ağ yapılandırma dosyası
-Güncelleştirilmiş konumla bu xml dosyasını kaydedin ve bu dosyaya yukarıdaki komut $NetworkConfigFile değişken bağlantı ekleyin.
+Güncelleştirilmiş konumla bu xml dosyasını kaydedin ve hello bağlantı toothis toohello $NetworkConfigFile değişkeni yukarıdaki hello komut dosyası ekleyin.
 
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
@@ -958,11 +958,11 @@ Güncelleştirilmiş konumla bu xml dosyasını kaydedin ve bu dosyaya yukarıda
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Örnek uygulama komut dosyaları
-Bu ve diğer çevre örnekleri için örnek bir uygulama yüklemek isterseniz, bir aşağıdaki bağlantıda sağlanmış: [örnek uygulama betiği][SampleApp]
+Bu ve diğer çevre örnekleri için örnek bir uygulama tooinstall istiyorsanız, bir bağlantı aşağıdaki hello sağlanmış: [örnek uygulama betiği][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "Çift yönlü DMZ NVA, NSG ve UDR"
-[2]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3firewalllogical.png "Güvenlik duvarı kurallarını mantıksal görünümü"
+[2]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3firewalllogical.png "Mantıksal görünümünü hello güvenlik duvarı kuralları"
 [3]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectfrontend.png "Bir ön uç ağ nesnesi oluşturun"
 [4]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectdns.png "Bir DNS sunucusu nesnesi oluşturun"
 [5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpa.png "Varsayılan RDP kuralı kopyası"

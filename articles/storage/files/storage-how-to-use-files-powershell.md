@@ -1,6 +1,6 @@
 ---
-title: "PowerShell kullanarak Azure Dosya depolamayı yönetme | Microsoft Docs"
-description: "PowerShell kullanarak Azure Dosya depolamayı yönetmeyi öğrenin."
+title: aaaHow toouse PowerShell toomanage Azure File storage | Microsoft Docs
+description: "Toouse PowerShell toomanage Azure File storage öğrenin."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
-ms.openlocfilehash: ce62d4423ce711a6902aed7b8174ff4e827f6083
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7bd84c9cfa31782aedf4a209cb15d4b8d92e2737
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-powershell-to-manage-azure-file-storage"></a>PowerShell kullanarak Azure Dosya depolamayı yönetme
-Dosya paylaşımları oluşturmak ve yönetmek için Azure PowerShell’i kullanabilirsiniz.
+# <a name="how-toouse-powershell-toomanage-azure-file-storage"></a>Nasıl toouse PowerShell toomanage Azure dosya depolama
+Azure PowerShell toocreate ve dosya paylaşımlarını yönetmek kullanabilirsiniz.
 
-## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Azure Storage için PowerShell cmdlet’leri yükleme
-PowerShell’i kullanmaya hazırlamak için Azure PowerShell cmdlet’lerini indirin ve yükleyin. Yükleme noktası ve yükleme yönergeleri için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
+## <a name="install-hello-powershell-cmdlets-for-azure-storage"></a>Azure Storage için Hello PowerShell cmdlet'lerini yükleyin
+tooprepare toouse PowerShell, indirin ve hello Azure PowerShell cmdlet'lerini yükleyin. Bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azureps-cmdlets-docs) noktası ve yükleme yönergeleri için hello yükleyin.
 
 > [!NOTE]
-> En güncel Azure PowerShell modülünü indirmeniz ve yüklemeniz veya yükseltmeniz önerilir.
+> Bu, indirin ve yükleyin veya toohello en son Azure PowerShell modülü yükseltme önerilir.
 > 
 > 
 
-**Başlat**’a tıklayıp **Windows PowerShell** yazarak Azure PowerShell penceresini açın. PowerShell penceresi sizin için Azure Powershell modülünü yükler.
+**Başlat**’a tıklayıp **Windows PowerShell** yazarak Azure PowerShell penceresini açın. Merhaba PowerShell penceresinde hello Azure Powershell modülü sizin yerinize yükler.
 
 ## <a name="create-a-context-for-your-storage-account-and-key"></a>Depolama hesabınız ve anahtarı için bir bağlam oluşturma
-Depolama hesabı bağlamını oluşturun. Bağlam, depolama hesabı adını ve hesap anahtarını kapsar. Hesap anahtarını [Azure portalından](https://portal.azure.com) kopyalama yönergeleri için bkz. [Depolama erişim anahtarlarını görüntüleme ve kopyalama](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
+Merhaba depolama hesabı bağlamını oluşturun. Merhaba bağlam Merhaba, depolama hesabı adı ve hesap anahtarını kapsar. Hesap anahtarınızı hello kopyalama yönergeleri için [Azure portal](https://portal.azure.com), bkz: [depolama erişim tuşlarını görüntüleme ve kopyalama](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
 
-`storage-account-name` ve `storage-account-key` değerlerini aşağıdaki örnekte olduğu gibi depolama hesabı adı ve anahtarınız ile değiştirin.
+Değiştir `storage-account-name` ve `storage-account-key` depolama hesabı adı ve örnek aşağıdaki hello anahtarında ile.
 
 ```powershell
 # create a context for account and key
@@ -44,7 +44,7 @@ $ctx=New-AzureStorageContext storage-account-name storage-account-key
 ```
 
 ## <a name="create-a-new-file-share"></a>Yeni dosya paylaşımı oluşturma
-`logs` adında yeni bir paylaşım oluşturun.
+Adlı hello yeni paylaşım oluşturun `logs`.
 
 ```powershell
 # create a new share
@@ -54,44 +54,44 @@ $s = New-AzureStorageShare logs -Context $ctx
 Artık, File Storage’da bir dosya paylaşımınız bulunur. Şimdi, bir dizin ve dosya ekleyeceğiz.
 
 > [!IMPORTANT]
-> Dosya paylaşımınızın adı küçük harflerden oluşmalıdır. Dosya paylaşımlarının ve dosyaların adlandırılması hakkında tüm ayrıntılara ulaşmak için bkz. [Paylaşımları, Dizinleri, Dosyaları ve Meta Verileri Adlandırma ve Bunlara Başvuruda Bulunma](https://msdn.microsoft.com/library/azure/dn167011.aspx)
+> Merhaba, dosya paylaşımının adını tamamen küçük harfli olması gerekir. Dosya paylaşımlarının ve dosyaların adlandırılması hakkında tüm ayrıntılara ulaşmak için bkz. [Paylaşımları, Dizinleri, Dosyaları ve Meta Verileri Adlandırma ve Bunlara Başvuruda Bulunma](https://msdn.microsoft.com/library/azure/dn167011.aspx)
 > 
 > 
 
-## <a name="create-a-directory-in-the-file-share"></a>Dosya paylaşımında bir dizin oluşturma
-Paylaşımda bir dizin oluşturun. Aşağıdaki örnekte, dizin `CustomLogs` olarak adlandırılmıştır.
+## <a name="create-a-directory-in-hello-file-share"></a>Merhaba dosya paylaşımında bir dizin oluşturun
+Merhaba paylaşımda bir dizin oluşturun. Aşağıdaki örneğine hello hello dizin adlı `CustomLogs`.
 
 ```powershell
-# create a directory in the share
+# create a directory in hello share
 New-AzureStorageDirectory -Share $s -Path CustomLogs
 ```
 
-## <a name="upload-a-local-file-to-the-directory"></a>Dizine yerel bir dosya yükleme
-Şimdi, dizine yerel bir doya yükleyin. Aşağıdaki örnekte `C:\temp\Log1.txt` konumundan bir dosya yüklenir. Dosya yolunu yerel makinenizdeki geçerli bir dosyaya işaret edecek şekilde düzenleyin.
+## <a name="upload-a-local-file-toohello-directory"></a>Bir yerel dosya toohello dizin karşıya yükle
+Şimdi bir yerel dosya toohello dizin karşıya yükleyin. Merhaba aşağıdaki örnek dosya karşıya yükleme `C:\temp\Log1.txt`. Hello dosya yolu geçerli bir dosya tooa yerel makinenizde işaret şekilde düzenleyin.
 
 ```powershell
-# upload a local file to the new directory
+# upload a local file toohello new directory
 Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
 ```
 
-## <a name="list-the-files-in-the-directory"></a>Dizindeki dosyaları listeleme
-Dizindeki dosyaları görmek üzere tüm dizin dosyalarını listeleyebilirsiniz. Bu komut, CustomLogs dizinindeki dosyaları ve alt dizinleri (varsa) döndürür.
+## <a name="list-hello-files-in-hello-directory"></a>Merhaba dizininde hello dosyaları listeleme
+toosee hello dosya hello dizinindeki tüm hello dizin dosyalarını listeleyebilirsiniz. (Varsa) Bu komut hello CustomLogs dizinindeki hello dosyaları ve alt dizinleri döndürür.
 
 ```powershell
-# list files in the new directory
+# list files in hello new directory
 Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
 ```
 
-Get-AzureStorageFile, hangi dizin nesnesi geçiriliyorsa, onun için dosyaların ve dizinlerin bir listesini döndürür. "Get-AzureStorageFile -Share $s" kök dizindeki dosyaların ve dizinlerin bir listesini döndürür. Alt dizindeki dosyaların bir listesini almak için alt dizini Get-AzureStorageFile dizinine geçirmeniz gerekir. Böylece şu işlemleri gerçekleştirmiş olursunuz; komutun kanala kadar olan ilk parçası CustomLogs alt dizininin dizin örneğini döndürür. Daha sonra, CustomLogs alt dizinindeki dosyaları ve dizinleri döndüren Get-AzureStorageFile dizinine geçirilir.
+Get-AzureStorageFile, hangi dizin nesnesi geçiriliyorsa, onun için dosyaların ve dizinlerin bir listesini döndürür. "Get-AzureStorageFile-Share $s" Merhaba kök dizinindeki dosyaları ve dizinleri listesini döndürür. tooget alt dizindeki dosyaların listesi, toopass hello alt tooGet-AzureStorageFile sahip. Bu yaptığı olan--hello toohello kanal hello komutu ilk parçası CustomLogs hello alt dizininin dizin örneğini döndürür. Daha sonra customlogs alt dizinindeki hello dosyaları ve dizinleri döndüren Get-AzureStorageFile içine geçirilir.
 
 ## <a name="copy-files"></a>Dosyaları kopyalama
-Azure PowerShell’in 0.9.7 sürümünden başlayarak, bir dosyayı başka bir dosyaya, bir dosyayı başka bir bloba veya bir blobu bir dosyaya kopyalayabilirsiniz. Bu kopyalama işlemlerinin PowerShell cmdlet'leri kullanılarak nasıl yapılacağı aşağıda gösterilmiştir.
+Azure PowerShell'in 0.9.7 sürümünden başlayarak, tooanother dosyası, dosya tooa blob veya bir blobu tooa dosyayı kopyalayabilirsiniz. Aşağıda nasıl tooperform bu kopyalama göstermek PowerShell cmdlet'lerini kullanarak işlemleri.
 
 ```powershell
-# copy a file to the new directory
+# copy a file toohello new directory
 Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
 
-# copy a blob to a file directory
+# copy a blob tooa file directory
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## <a name="next-steps"></a>Sonraki adımlar

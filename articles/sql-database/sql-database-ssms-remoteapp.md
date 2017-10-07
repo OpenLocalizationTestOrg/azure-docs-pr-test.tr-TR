@@ -1,6 +1,6 @@
 ---
-title: "Azure Remoteapp'te SQL Server Management Studio'yu kullanarak SQL veritabanına bağlanma | Microsoft Docs"
-description: "SQL Server Management Studio Azure Remoteapp'te güvenlik ve performans için SQL veritabanına bağlanırken kullanmayı öğrenmek için bu öğreticiyi kullanın"
+title: "Azure Remoteapp'te SQL Server Management Studio kullanarak veritabanı aaaConnect tooSQL | Microsoft Docs"
+description: "Bu öğretici toolearn kullanma toouse SQL Server Management Studio'da Azure RemoteApp üzerinde güvenlik ve tooSQL veritabanına bağlanırken performansı"
 services: sql-database
 documentationcenter: 
 author: adhurwit
@@ -14,109 +14,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: adhurwit
-ms.openlocfilehash: ae1f2fa38d38fe6c10bc7960fddb07ae330d1eeb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 73994f9a1eb3e48efa5d7c4f976b00cfcbc88d75
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-sql-server-management-studio-in-azure-remoteapp-to-connect-to-sql-database"></a>Azure RemoteApp SQL veritabanına bağlanmak için SQL Server Management Studio'yu kullanın
+# <a name="use-sql-server-management-studio-in-azure-remoteapp-tooconnect-toosql-database"></a>Azure RemoteApp tooconnect tooSQL veritabanı SQL Server Management Studio'yu kullanın
 
 > [!IMPORTANT]
-> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp kullanımdan kaldırılıyor. Okuma hello [duyuru](https://go.microsoft.com/fwlink/?linkid=821148) Ayrıntılar için.
 >
 
 ## <a name="introduction"></a>Giriş
-Bu öğretici, SQL Server Management Studio (SSMS) Azure Remoteapp'te SQL veritabanına bağlanmak için nasıl kullanılacağını gösterir. Azure RemoteApp SQL Server Management Studio'da ayarlama işleminde size yol göstermektedir, yararlarını açıklar ve Azure Active Directory'de kullanabileceğiniz güvenlik özellikleri gösterir.
+Bu öğretici şunların nasıl yapıldığını gösterir Azure RemoteApp tooconnect tooSQL veritabanı içinde toouse SQL Server Management Studio (SSMS). SQL Server Management Studio'da Azure RemoteApp kurma hello işlem size yol göstermektedir, hello avantajlar açıklanır ve Azure Active Directory'de kullanabileceğiniz güvenlik özellikleri gösterir.
 
-**Tahmini tamamlanma süresi:** 45 dakika
+**Zaman toocomplete tahmini:** 45 dakika
 
 ## <a name="ssms-in-azure-remoteapp"></a>Azure RemoteApp SSMS
 Azure RemoteApp, uygulamalar sunuyor Azure RDS hizmetidir. Daha fazla bilgi aşağıda öğrenebilirsiniz: [RemoteApp nedir?](../remoteapp/remoteapp-whatis.md)
 
-Azure Remoteapp'te çalıştıran SSMS SSMS yerel olarak çalışan olarak aynı deneyimi sağlar.
+Azure RemoteApp verir çalıştıran SSMS SSMS yerel olarak çalışan olarak aynı deneyimi hello.
 
 ![Azure Remoteapp'te çalıştıran SSMS gösteren ekran görüntüsü][1]
 
 ## <a name="benefits"></a>Avantajlar
-Azure Remoteapp'te SSMS kullanarak birçok avantajları vardır dahil olmak üzere:
+Birçok avantajları toousing Azure RemoteApp SSMS vardır dahil olmak üzere:
 
-* Azure SQL Server 1433 numaralı bağlantı noktasını (Azure dışında) harici olarak gösterilmesine izin yok.
-* Ekleme ve IP adreslerini Azure SQL server Güvenlik Duvarı'nda kaldırma tutmak gerek yoktur.
+* Azure SQL Server 1433 numaralı bağlantı noktasını (Azure dışında) dışarıdan kullanıma sunulan toobe yok.
+* Ekleme ve IP adreslerini hello Azure SQL server Güvenlik Duvarı'nı kaldırma hiçbir gerek tookeep.
 * Tüm Azure RemoteApp bağlantıları HTTPS üzerinden gerçekleşmesi 443 numaralı bağlantı noktasını kullanarak şifrelenmiş Uzak Masaüstü Protokolü
 * Çok kullanıcılı ve ölçeklendirebilirsiniz.
-* SQL veritabanı ile aynı bölgede SSMS sahip öğesinden bir performans kazancı yoktur.
-* Azure RemoteApp kullanımı kullanıcı etkinlik raporları olan Azure Active Directory Premium sürümü ile denetleyebilirsiniz.
+* SSMS hello sahip öğesinden bir performans kazancı yoktur hello SQL veritabanı ile aynı bölgeye.
+* Azure RemoteApp kullanımı hello Premium edition kullanıcı etkinlik raporları olan Azure Active Directory ile denetleyebilirsiniz.
 * Çok faktörlü kimlik doğrulamasını (MFA) etkinleştirebilirsiniz.
-* Herhangi bir yerden herhangi bir iOS, Android, Mac, Windows Phone ve Windows bilgisayarın içeren desteklenen Azure RemoteApp istemcisinde kullanırken SSMS erişim.
+* Erişim herhangi bir yere hello birini kullanırken SSMS, iOS, Android, Mac, Windows Phone ve Windows bilgisayarın içeren Azure RemoteApp istemcileri desteklenir.
 
-## <a name="create-the-azure-remoteapp-collection"></a>Azure RemoteApp koleksiyonu oluşturun
-Azure RemoteApp koleksiyonunuzun SSMS ile oluşturmak için adımlar şunlardır:
+## <a name="create-hello-azure-remoteapp-collection"></a>Hello Azure RemoteApp koleksiyonu oluşturun
+Azure RemoteApp koleksiyonunuzun SSMS ile Merhaba adımları toocreate şunlardır:
 
 ### <a name="1-create-a-new-windows-vm-from-image"></a>1. Yeni bir Windows VM görüntüsünü oluşturma
-"Windows Server Uzak Masaüstü Oturumu Ana bilgisayar Windows Server 2012 R2" görüntü galeriden yeni VM yapmak için kullanın.
+Merhaba "Windows Server Uzak Masaüstü Oturumu Ana bilgisayar Windows Server 2012 R2" Merhaba galeri toomake görüntüden yeni VM'nin kullanın.
 
 ### <a name="2-install-ssms-from-sql-express"></a>2. SSMS SQL hızlı yükleme
-Yeni VM gidin ve bu indirme sayfasına gidin: [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/download/details.aspx?id=42299)
+Üzerine gidin yeni VM hello ve toothis indirme sayfasına gidin: [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/download/details.aspx?id=42299)
 
-Yalnızca SSMS indirmek için bir seçenek yoktur. Yükleme sonra yükleme dizinine gidin ve SSMS yüklemek için Kurulumu çalıştırın.
+Bir seçenek tooonly indirme SSMS yoktur. Yükleme sonra hello yükleme dizinine gidin ve Kurulum tooinstall SSMS çalıştırın.
 
-Ayrıca SQL Server 2014 Service Pack 1 yüklemeniz gerekir. Buradan indirebilirsiniz: [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/download/details.aspx?id=46694)
+Ayrıca SQL Server 2014 Service Pack 1 tooinstall gerekir. Buradan indirebilirsiniz: [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/download/details.aspx?id=46694)
 
 SQL Server 2014 Service Pack 1 Azure SQL veritabanı ile çalışmak için gerekli işlevselliği içerir.
 
 ### <a name="3-run-validate-script-and-sysprep"></a>3. Doğrulama betiği çalıştırma ve Sysprep
-VM masaüstünde bir PowerShell Betiği doğrula adı verilir. Bu, çift tıklayarak dosyayı çalıştırın. VM uzak uygulamaları barındırmak için kullanıma hazır olduğunu doğrular. Doğrulama tamamlandıktan sonra ister Sysprep'i-çalıştırmak seçin.
+Üzerinde Hello hello VM masaüstünün doğrulama adlı bir PowerShell komut dosyasıdır. Bu, çift tıklayarak dosyayı çalıştırın. Bu hello VM uzak uygulamaları barındırmak için kullanılan hazır toobe olduğunu doğrular. Doğrulama tamamlandığında toorun sysprep - ister toorun seçin.
 
-Sysprep tamamlandığında VM kapatma.
+Sysprep tamamlandığında VM hello kapanır.
 
-Azure RemoteApp görüntüsü oluşturma hakkında daha fazla bilgi için bkz: [Azure RemoteApp şablon görüntüsü oluşturma](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx)
+bir Azure RemoteApp görüntüsü oluşturma hakkında daha fazla toolearn bakın: [nasıl toocreate RemoteApp şablon görüntüsü ile Azure](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx)
 
 ### <a name="4-capture-image"></a>4. Yansıma Yakalama
-VM çalışmayı durdurdu geçerli portalında bulun ve yakalayın.
+Ne zaman VM, durdu hello hello geçerli portalında bulun ve yakalayın.
 
-Yansıma yakalama hakkında daha fazla bilgi için bkz: [Klasik dağıtım modeli kullanılarak oluşturulmuş bir Azure Windows sanal makine bir görüntüsünü yakalama](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+bir görüntü yakalama hakkında daha fazla toolearn bakın [hello Klasik dağıtım modeli kullanılarak oluşturulmuş bir Azure Windows sanal makine bir görüntüsünü yakalama](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-### <a name="5-add-to-azure-remoteapp-template-images"></a>5. Azure RemoteApp şablon görüntüleri ekleme
-Geçerli portal Azure RemoteApp bölümünde, şablon görüntüleri sekmesine gidin ve Ekle'yi tıklatın. Açılır kutusunda "bir görüntü, sanal makineleri kitaplıktan Al" seçin ve ardından yeni oluşturduğunuz görüntüyü seçin.
+### <a name="5-add-tooazure-remoteapp-template-images"></a>5. TooAzure RemoteApp şablon görüntüleri ekleme
+Hello hello geçerli portal Azure RemoteApp bölümü, toohello şablon görüntüleri sekmesine gidin ve Ekle'yi tıklatın. Hello açılır kutusunda "bir görüntü, sanal makineleri kitaplıktan Al" seçin ve ardından hello oluşturduğunuz görüntü seçin.
 
 ### <a name="6-create-cloud-collection"></a>6. Bulut koleksiyonu oluşturma
-Geçerli portalında yeni bir Azure RemoteApp bulut koleksiyonu oluşturun. Yeni içeri aktardığınız şablon görüntüsü yüklü SSMS ile seçin.
+Hello geçerli Portalı'nda, yeni Azure RemoteApp bulut koleksiyonu oluşturma. Merhaba şablon görüntüsü yüklü SSMS ile aktardığınız seçin.
 
 ![Yeni bulut koleksiyonu oluşturma][2]
 
 ### <a name="7-publish-ssms"></a>7. SSMS yayımlama
-Yayımlama, yeni bulut koleksiyonu seçme sekmesinde Başlat menüsünden uygulama yayımlama ve SSMS listeden seçin.
+Yeni bulut koleksiyonunuzu select Yayımla sekmesinde bir uygulama yayımlama hello üzerinde Başlat menüsü hello ve SSMS hello listeden seçin.
 
 ![Uygulama yayımlama][5]
 
 ### <a name="8-add-users"></a>8. Kullanıcı ekle
-Kullanıcı erişim sekmesinde yalnızca SSMS içeren bu Azure RemoteApp koleksiyonu erişebilecek kullanıcıları seçebilirsiniz.
+Merhaba kullanıcı erişimini sekmesinde yalnızca SSMS içeren erişim toothis Azure RemoteApp koleksiyonu vardır hello kullanıcılar seçebilir.
 
 ![Kullanıcı Ekleme][6]
 
-### <a name="9-install-the-azure-remoteapp-client-application"></a>9. Azure RemoteApp istemci uygulaması yükleme
+### <a name="9-install-hello-azure-remoteapp-client-application"></a>9. Merhaba Azure RemoteApp istemci uygulaması yükleme
 Bir Azure RemoteApp istemcisini yükleyip: [karşıdan | Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/clients.aspx)
 
 ## <a name="configure-azure-sql-server"></a>Azure SQL server yapılandırma
-Gerekli yalnızca Azure Hizmetleri için güvenlik duvarını etkinleştirildiğinden emin olmak için yapılandırmadır. Ardından bu çözümü kullanıyorsanız, Güvenlik Duvarı'nı açmak için herhangi bir IP adresi eklemek gerekmez. SQL Server için izin verilen ağ trafiği Azure hizmetlerinden tutulur.
+Azure Hizmetleri tooensure gerekli yapılandırma, yalnızca hello hello Güvenlik Duvarı etkin. Ardından bu çözümü kullanıyorsanız tooadd tüm IP adresleri tooopen hello Güvenlik Duvarı'nı gerekmez. SQL Server toohello izin hello ağ trafiği Azure hizmetlerinden tutulur.
 
 ![Azure izin ver][4]
 
 ## <a name="multi-factor-authentication-mfa"></a>Çok faktörlü kimlik doğrulaması (MFA)
-MFA bu uygulama için özel olarak etkinleştirilebilir. Azure Active Directory'yi uygulamalar sekmesine gidin. Microsoft Azure RemoteApp için bir giriş bulacaksınız. Bu uygulama'yı tıklatın ve ardından yapılandırın, bu uygulama için MFA etkinleştirebilirsiniz sayfası aşağıdaki görürsünüz.
+MFA bu uygulama için özel olarak etkinleştirilebilir. Azure Active Directory'yi toohello uygulamalar sekmesine gidin. Microsoft Azure RemoteApp için bir giriş bulacaksınız. Bu uygulama'yı tıklatın ve ardından yapılandırma hello sayfası aşağıdaki burada bu uygulama için MFA etkinleştirebilirsiniz görürsünüz.
 
 ![MFA'yı etkinleştirin][3]
 
 ## <a name="audit-user-activity-with-azure-active-directory-premium"></a>Azure Active Directory Premium ile kullanıcı etkinliğini denetleyin
-Azure AD Premium yoksa dizininize lisansları bölümünde Aç sahip. Etkin Premium ile Premium düzeyine kullanıcılar atayabilirsiniz.
+Tooturn sahip sonra Azure AD Premium, yoksa, üzerinde hello dizininizin lisansları bölümü. Etkin Premium ile toohello Premium düzeyi kullanıcılar atayabilirsiniz.
 
-Azure Active Directory'de bir kullanıcıya gidin, sonra Azure RemoteApp için oturum açma bilgilerini görmek için etkinlik sekmesini gidebilirsiniz.
+Azure Active Directory'yi tooa kullanıcı olduğunuzda, ardından toohello etkinlik sekmesini toosee oturum açma bilgileri tooAzure RemoteApp gidebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yukarıdaki adımları tamamladıktan sonra Azure RemoteApp istemci çalıştırılabilir ve oturum açma atanmış bir kullanıcı ile olacaktır. SSMS ile uygulamalarınızı biri olarak sunulur ve Azure SQL sunucusuna erişimi olan bilgisayarınızda yüklenmişse, gibi çalıştırabilirsiniz.
+Tüm hello yukarıdaki adımları tamamladıktan sonra mümkün toorun hello Azure RemoteApp istemcisi ve olması atanmış bir kullanıcı ile oturum aç. SSMS ile uygulamalarınızı biri olarak sunulur ve bilgisayarınızda erişim tooAzure SQL server ile yüklenmişse, gibi çalıştırabilirsiniz.
 
-SQL veritabanına bağlantı yapma hakkında daha fazla bilgi için bkz: [SQL Server Management Studio ile SQL veritabanına bağlanma ve örnek T-SQL sorgusu gerçekleştirmeyi](sql-database-connect-query-ssms.md).
+Nasıl toomake hello bağlantı tooSQL veritabanı ile ilgili daha fazla bilgi için bkz: [tooSQL veritabanı SQL Server Management Studio ile bağlanma ve örnek T-SQL sorgusu gerçekleştirmeyi](sql-database-connect-query-ssms.md).
 
 Her şeyi şimdilik olmasıdır. Keyfini çıkarın!
 

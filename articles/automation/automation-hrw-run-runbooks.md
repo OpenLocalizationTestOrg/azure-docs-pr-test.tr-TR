@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyon karma Runbook çalışanını runbook'ları çalıştırmak | Microsoft Docs"
-description: "Bu makalede, yerel veri merkezinde veya Bulut sağlayıcısı karma Runbook çalışan rolü ile makinelerde çalışan runbook'ları hakkında bilgi sağlar."
+title: "Azure Otomasyon karma Runbook çalışanı aaaRun runbook'larda | Microsoft Docs"
+description: "Bu makalede, yerel veri merkezinde veya Bulut sağlayıcısı hello karma Runbook çalışanı rolü ile makinelerde çalışan runbook'ları hakkında bilgi sağlar."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,68 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: 993bc3ea480a329541ca4ae825189cdb5a2b4a8b
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 51961e02603e5690edd11e577594ad2ddea489a7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Bir karma Runbook çalışanı üzerinde çalışan runbook'ları 
-Azure Automation ve karma Runbook çalışanı üzerinde çalışacak çalışan runbook'ları yapısını fark yoktur. Her ile kullandığınız runbook'ları kaynakları yerel bilgisayarda veya dağıtıldığı, runbook'ları sırasında yerel ortamında kaynaklara karşı bir karma Runbook çalışanı genellikle hedefleyen runbook'ları yönetmek beri büyük olasılıkla ancak önemli ölçüde farklı Azure Otomasyonu, Azure bulut kaynaklarında genellikle yönetin.
+Azure Automation ve karma Runbook çalışanı üzerinde çalışacak çalışan runbook'ların hello yapısındaki arasında fark yoktur. Her ile kullandığınız runbook'ları kaynakları hello yerel bilgisayarda kendisini veya dağıtıldığı, runbook'ları sırasında hello yerel ortamında kaynaklara karşı bir karma Runbook çalışanı genellikle hedefleyen runbook'ları yönetmek beri büyük olasılıkla ancak önemli ölçüde farklı Azure Otomasyonu'nda genellikle hello Azure bulut kaynakları yönetin.
 
-Azure Otomasyon karma Runbook çalışanı için bir runbook'u düzenlemek, ancak runbook Düzenleyicisinde test edin çalışırsanız, ilgili sorunlar olabilir.  Yerel kaynaklar Azure Otomasyonu ortamınızda; bu durumda yüklenmeyebilir erişim PowerShell modülleri, test başarısız olur.  Gerekli modüllerini yükleyin, ardından runbook çalışır, ancak tam test için yerel kaynaklara erişmek mümkün olmaz.
+Azure Otomasyon karma Runbook çalışanı için bir runbook düzenleyebilirsiniz ancak tootest hello runbook hello düzenleyicisinde çalışırsanız ilgili sorunlar olabilir.  Merhaba yerel kaynakları Azure Otomasyonu ortamınızda; bu durumda yüklenmeyebilir erişen hello PowerShell modülleri hello test başarısız olur.  Yüklerseniz hello modülleri, gerekli sonra hello runbook çalışır, ancak tam bir test için yerel kaynak mümkün tooaccess olmaz.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Karma Runbook çalışanını runbook başlatma
-[Azure Otomasyonu Runbook başlatma](automation-starting-a-runbook.md) bir runbook'u başlatmak için farklı yöntemleri açıklar.  Karma Runbook çalışanı ekler bir **RunOn** bir karma Runbook çalışan grubu adını belirtebileceğiniz seçeneği.  Bir grubu belirtilirse, ardından runbook alınır ve o grubun çalışanlar tarafından çalıştırılan.  Bu seçenek belirtilmezse, ardından onu Azure Otomasyonu'nda normal olarak çalıştırılır.
+[Azure Otomasyonu Runbook başlatma](automation-starting-a-runbook.md) bir runbook'u başlatmak için farklı yöntemleri açıklar.  Karma Runbook çalışanı ekler bir **RunOn** bir karma Runbook çalışan grubu hello adını belirtebileceğiniz seçeneği.  Bir grubu belirtilirse, ardından hello runbook alınır ve tarafından o gruptaki hello çalışanı çalıştırın.  Bu seçenek belirtilmezse, ardından onu Azure Otomasyonu'nda normal olarak çalıştırılır.
 
-Azure portalında bir runbook'u başlattığınızda ile sunulan bir **çalıştıracağınız** seçebileceğiniz seçeneği **Azure** veya **karma çalışanı**.  Seçerseniz **karma çalışanı**, sonra da aşağı açılır listeden grup seçebilirsiniz.
+Hello Azure portalında bir runbook'u başlattığınızda ile sunulan bir **çalıştıracağınız** seçebileceğiniz seçeneği **Azure** veya **karma çalışanı**.  Seçerseniz **karma çalışanı**, hello Grup aşağı açılır listeden seçin, sonra.
 
-Kullanım **RunOn** parametresi.  Windows PowerShell kullanarak MyHybridGroup adlı bir karma Runbook çalışan grubu üzerinde Test-Runbook adlı bir runbook'u başlatmak için aşağıdaki komutu kullanabilirsiniz.
+Kullanım hello **RunOn** parametresi.  Komut toostart Windows PowerShell kullanarak MyHybridGroup adlı bir karma Runbook çalışan grubu üzerinde Test-Runbook adlı bir runbook aşağıdaki hello kullanabilirsiniz.
 
     Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 
 > [!NOTE]
-> **RunOn** parametresi eklendiği **başlangıç AzureAutomationRunbook** 0.9.1 sürümünde Microsoft Azure PowerShell cmdlet'i.  Yapmanız gerekenler [en son sürümü karşıdan](https://azure.microsoft.com/downloads/) yüklü daha önceki bir varsa.  Yalnızca bir iş istasyonunda burada Windows Powershell'den runbook başlatılıyor bu sürümü yüklemeniz gerekir.  Bu bilgisayardan runbook'ları başlatmak düşünmüyorsanız çalışan bilgisayara yüklemeniz gerekmez.  Bu Otomasyon hesabınızda yüklenecek Azure Powershell en son sürümünü gerektirir olduğundan başka bir runbook'tan bir karma Runbook çalışanı üzerinde şu anda bir runbook başlatılamıyor.  En son sürümü Azure Otomasyonu'nda otomatik olarak güncelleştirilir ve otomatik olarak çalışanlarına en kısa sürede gönderilen.
+> Merhaba **RunOn** parametresi toohello eklenen **başlangıç AzureAutomationRunbook** 0.9.1 sürümünde Microsoft Azure PowerShell cmdlet'i.  Yapmanız gerekenler [hello en son sürümü karşıdan](https://azure.microsoft.com/downloads/) yüklü daha önceki bir varsa.  Yalnızca bu sürümü, Windows Powershell'den hello runbook başlatılıyor bir iş istasyonunda tooinstall gerekir.  Tooinstall gerekmez hello çalışan bilgisayar üzerinde toostart runbook'lar o bilgisayardan düşünmüyorsanız.  Bu Otomasyon hesabınızda yüklü Azure Powershell toobe en son sürümünü hello gerektiren bu yana bir runbook şu anda başka bir runbook'tan bir karma Runbook çalışanı üzerinde başlatılamıyor.  Merhaba en son sürümü Azure Otomasyonu'nda otomatik olarak güncelleştirilir ve toohello çalışanları en kısa sürede otomatik olarak gönderilir.
 >
 >
 
 ## <a name="runbook-permissions"></a>Runbook izinleri
-Bir karma Runbook çalışanı üzerinde çalışan runbook'ları, genellikle Azure dışında kaynaklara erişmesi beri runbook'ları Azure kaynakları için kimlik doğrulaması için kullanılan yöntemin kullanamazsınız.  Runbook yerel kaynakları için kendi kimlik doğrulaması ya da sağlayabilir veya tüm runbook'lar için bir kullanıcı bağlamı sağlamak üzere bir farklı çalıştır hesabı belirtebilirsiniz.
+Bir karma Runbook çalışanı üzerinde çalışan runbook'ları kullanmak aynı hello olamaz genelde runbook'ları Azure dışında kaynaklara erişmesi beri tooAzure kaynakları kimlik doğrulaması için kullanılan yöntem.  Merhaba runbook toolocal kaynakları ya da kendi kimlik doğrulaması sağlayabilir veya bir RunAs hesabı tooprovide tüm runbook'lar için bir kullanıcı bağlamı belirtebilirsiniz.
 
 ### <a name="runbook-authentication"></a>Runbook kimlik doğrulaması
-Kendi kimlik doğrulama sunucusuna erişecek kaynaklara sağlamaları gerekir böylece varsayılan olarak, yerel sistem hesabı bağlamında runbook'ları şirket içi bilgisayarda çalıştırın.  
+Bunlar erişecek kendi kimlik doğrulama tooresources sağlamanız gerekir varsayılan olarak, runbook'ları hello şirket içi bilgisayardaki yerel sistem hesabı hello hello bağlamında çalıştırın.  
 
-Kullanabileceğiniz [kimlik bilgisi](http://msdn.microsoft.com/library/dn940015.aspx) ve [sertifika](http://msdn.microsoft.com/library/dn940013.aspx) varlıklar runbook'unuzda cmdlet'leri farklı kaynaklarda kimlik doğrulaması için kimlik bilgilerini belirtmenizi sağlar.  Aşağıdaki örnek, bir bilgisayarı yeniden başlatır bir runbook bir kısmı gösterir.  Kimlik bilgilerini bir kimlik bilgisi varlığı ve değişken varlığı bilgisayardan adını alır ve ardından bilgisayarı yeniden başlat cmdlet'iyle bu değerleri kullanır.
+Kullanabileceğiniz [kimlik bilgisi](http://msdn.microsoft.com/library/dn940015.aspx) ve [sertifika](http://msdn.microsoft.com/library/dn940013.aspx) runbook'unuzda toodifferent kaynakları doğrulanabilir şekilde toospecify kimlik bilgilerine izin ver cmdlet'leri ile varlıklar.  Merhaba aşağıdaki örnek bir bilgisayarı yeniden başlatır bir runbook bir kısmı gösterir.  Kimlik bilgileri bir değişken varlığı hello bilgisayardan kimlik bilgisi varlığı ve hello adını alır ve ardından bu değerleri hello Restart-Computer cmdlet'iyle kullanır.
 
     $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -Name "MyCredential"
     $Computer = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" -Name  "ComputerName"
 
     Restart-Computer -ComputerName $Computer -Credential $Cred
 
-Ayrıca yararlanabilirsiniz [Inlinescript](automation-powershell-workflow.md#inlinescript), kod bloklarını tarafından belirtilen kimlik bilgilerine sahip başka bir bilgisayarda çalıştırmanıza olanak sağlayan [PSCredential ortak parametresi](http://technet.microsoft.com/library/jj129719.aspx).
+Ayrıca yararlanabilirsiniz [Inlinescript](automation-powershell-workflow.md#inlinescript), olanak sağlayan kod toorun blokları başka bir bilgisayarda hello tarafından belirtilen kimlik bilgileriyle [PSCredential ortak parametresi](http://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="runas-account"></a>RunAs hesabı
-Belirleyebileceğiniz yerel kaynakları için kendi kimlik doğrulaması runbook'ları sahip olmak yerine bir **RunAs** hesap için bir karma çalışanı grubu.  Belirttiğiniz bir [kimlik bilgisi varlığı](automation-credentials.md) yerel kaynaklara erişimi olan ve gruptaki bir karma Runbook çalışanı üzerinde çalışan tüm runbook'ları bu kimlik bilgileri altında çalıştırın.  
+Belirleyebileceğiniz toolocal kaynakları kendi kimlik doğrulaması sağlamak runbook'lar sahip olmak yerine bir **RunAs** hesap için bir karma çalışanı grubu.  Belirttiğiniz bir [kimlik bilgisi varlığı](automation-credentials.md) toolocal erişimine sahip ve hello grubundaki bir karma Runbook çalışanı üzerinde çalışan tüm runbook'ları bu kimlik bilgileri altında çalıştırın.  
 
-Kullanıcı adı kimlik bilgisi için aşağıdaki biçimlerden birinde olmalıdır:
+Merhaba kimlik bilgisi için Hello kullanıcı adı biçimleri aşağıdaki hello biri olmalıdır:
 
 * etki alanı\kullanıcı adı
 * username@domain
-* Kullanıcı adı (için hesapları şirket içi bilgisayarın yerel)
+* Kullanıcı adı (için yerel toohello şirket içi bilgisayar hesapları)
 
-Karma çalışanı grubu için bir RunAs hesabı belirtmek için aşağıdaki yordamı kullanın:
+Aşağıdaki yordam toospecify karma çalışanı grubu için bir RunAs hesabı hello kullan:
 
-1. Oluşturma bir [kimlik bilgisi varlığı](automation-credentials.md) yerel kaynaklara erişim.
-2. Azure Portal'da Automation hesabını açın.
-3. Seçin **karma çalışan grupları** döşeme ve grubu seçin.
+1. Oluşturma bir [kimlik bilgisi varlığı](automation-credentials.md) erişim toolocal kaynaklara sahip.
+2. Hello Azure portal Hello Automation hesabını açın.
+3. Select hello **karma çalışan grupları** döşeme ve hello grubu seçin.
 4. Seçin **tüm ayarları** ve ardından **karma çalışanı grubu ayarları**.
-5. Değişiklik **Farklı Çalıştır** gelen **varsayılan** için **özel**.
-6. Kimlik bilgisi seçin ve tıklatın **kaydetmek**.
+5. Değişiklik **Çalıştır** gelen **varsayılan** çok**özel**.
+6. Merhaba kimlik bilgisi seçip tıklatın **kaydetmek**.
 
 ### <a name="automation-run-as-account"></a>Automation farklı çalıştır hesabı
-Azure'daki kaynakların dağıtımı için otomatik yapı işleminizin bir parçası olarak, şirket içi bir görev veya grup adımı, dağıtım sırası desteklemek üzere sistemler için erişim gerektirebilir.  Azure farklı çalıştır hesabını kullanarak kimlik doğrulamasını desteklemek için farklı çalıştır hesabı sertifikası yüklemeniz gerekir.  
+Azure'daki kaynakların dağıtımı için otomatik yapı işleminizin bir parçası olarak, erişim tooon içi sistemleri toosupport bir görev veya grup adımı, dağıtım sırası gerektirebilir.  Merhaba farklı çalıştır hesabını kullanarak Azure karşı kimlik doğrulamasını toosupport, tooinstall hello farklı çalıştır hesabı sertifikası gerekir.  
 
-Aşağıdaki PowerShell runbook *verme RunAsCertificateToHybridWorker*, Azure Automation hesabınızdan farklı çalıştır sertifika verir ve indirir ve bunu bir karma yerel makine sertifika deposuna aktarır çalışan aynı hesaba bağlı.  Bu adım tamamlandıktan sonra çalışan farklı çalıştır hesabını kullanarak Azure kimlik doğrulamasını başarıyla doğrular.
+PowerShell runbook aşağıdaki hello *verme RunAsCertificateToHybridWorker*, Azure Otomasyonu hesabınızı hello Çalıştır sertifika verir ve indirir ve bunu hello yerel makine sertifika deposuna aktarır bir Karma çalışanı bağlı toohello aynı hesabı.  Bu adım tamamlandıktan sonra hello çalışan tooAzure hello farklı çalıştır hesabını kullanarak kimlik doğrulamasını başarıyla doğrular.
 
     <#PSScriptInfo
     .VERSION 1.0
@@ -95,12 +95,12 @@ Aşağıdaki PowerShell runbook *verme RunAsCertificateToHybridWorker*, Azure Au
 
     <#  
     .SYNOPSIS  
-    Exports the Run As certificate from an Azure Automation account to a hybrid worker in that account. 
+    Exports hello Run As certificate from an Azure Automation account tooa hybrid worker in that account. 
   
     .DESCRIPTION  
-    This runbook exports the Run As certificate from an Azure Automation account to a hybrid worker in that account.
-    Run this runbook in the hybrid worker where you want the certificate installed.
-    This allows the use of the AzureRunAsConnection to authenticate to Azure and manage Azure resources from runbooks running in the hybrid worker.
+    This runbook exports hello Run As certificate from an Azure Automation account tooa hybrid worker in that account.
+    Run this runbook in hello hybrid worker where you want hello certificate installed.
+    This allows hello use of hello AzureRunAsConnection tooauthenticate tooAzure and manage Azure resources from runbooks running in hello hybrid worker.
 
     .EXAMPLE
     .\Export-RunAsCertificateToHybridWorker
@@ -112,19 +112,19 @@ Aşağıdaki PowerShell runbook *verme RunAsCertificateToHybridWorker*, Azure Au
 
     [OutputType([string])] 
 
-    # Set the password used for this certificate
+    # Set hello password used for this certificate
     $Password = "YourStrongPasswordForTheCert"
 
     # Stop on errors
     $ErrorActionPreference = 'stop'
 
-    # Get the management certificate that will be used to make calls into Azure Service Management resources
+    # Get hello management certificate that will be used toomake calls into Azure Service Management resources
     $RunAsCert = Get-AutomationCertificate -Name "AzureRunAsCertificate"
        
-    # location to store temporary certificate in the Automation service host
+    # location toostore temporary certificate in hello Automation service host
     $CertPath = Join-Path $env:temp  "AzureRunAsCertificate.pfx"
    
-    # Save the certificate
+    # Save hello certificate
     $Cert = $RunAsCert.Export("pfx",$Password)
     Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose 
 
@@ -132,7 +132,7 @@ Aşağıdaki PowerShell runbook *verme RunAsCertificateToHybridWorker*, Azure Au
     $SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
     Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword -Exportable | Write-Verbose
 
-    # Test that authentication to Azure Resource Manager is working
+    # Test that authentication tooAzure Resource Manager is working
     $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection" 
     
     Add-AzureRmAccount `
@@ -143,18 +143,18 @@ Aşağıdaki PowerShell runbook *verme RunAsCertificateToHybridWorker*, Azure Au
 
     Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
 
-    # List automation accounts to confirm Azure Resource Manager calls are working
+    # List automation accounts tooconfirm Azure Resource Manager calls are working
     Get-AzureRmAutomationAccount | Select AutomationAccountName
 
-Kaydet *verme RunAsCertificateToHybridWorker* runbook bilgisayarınıza bir `.ps1` uzantısı.  Otomasyon hesabınızda içeri aktarın ve değişkenin değerini değiştirerek bu runbook'u düzenlemek `$Password` kendi parolanızı ile.  Yayımlama ve çalıştıran ve runbook'ları farklı çalıştır hesabını kullanarak kimlik doğrulaması karma çalışanı grubu hedefleme runbook çalıştırın.  İş akışı yerel makine deposuna sertifika alma girişimi raporları ve kaç tane Automation hesapları aboneliğinizde tanımlanır ve kimlik doğrulaması başarılı olup olmadığını bağlı olarak birden fazla satır ile izler.  
+Merhaba Kaydet *verme RunAsCertificateToHybridWorker* runbook tooyour bilgisayarla bir `.ps1` uzantısı.  Otomasyon hesabınızda içeri aktarın ve hello hello değişkeninin değerini değiştirme hello runbook düzenleme `$Password` kendi parolanızı ile.  Yayımlama ve çalıştıran ve runbook'ları hello farklı çalıştır hesabını kullanarak kimlik doğrulaması hello karma çalışanı grubu hedefleme hello runbook çalıştırın.  Merhaba iş akışı raporları hello girişimi tooimport hello sertifika hello yerel makine deposunu ve kaç tane Automation hesapları aboneliğinizde tanımlanır ve kimlik doğrulaması başarılı olup olmadığını bağlı olarak birden fazla satır ile aşağıdaki.  
 
 ## <a name="troubleshooting-runbooks-on-hybrid-runbook-worker"></a>Karma Runbook çalışanı runbook'larda sorun giderme
-Günlükleri yerel olarak her karma çalışanı C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes konumunda depolanır.  Karma çalışanı de kaydeder hatalarını ve olaylarını Windows olay günlüğünde altında **uygulama ve Hizmetleri Logs\Microsoft-SMA\Operational**.  Çalışan üzerinde yürütülen runbook'ları ilgili olayları için yazılır **uygulama ve Hizmetleri Logs\Microsoft-Automation\Operational**.  **Microsoft SMA** günlük çalışan ve runbook işleme gönderilen runbook işi ilgili pek çok daha fazla olay içerir.  Sırada **Microsoft Otomasyon** olay günlüğü sahip değil birçok olay runbook yürütülmesi gidermeye yardımcı ayrıntılarla ve sonuçları runbook işi, en az bulacaksınız.  
+Günlükleri yerel olarak her karma çalışanı C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes konumunda depolanır.  Karma çalışanı de kaydeder hatalarını ve olaylarını hello Windows olay günlüğünde altında **uygulama ve Hizmetleri Logs\Microsoft-SMA\Operational**.  Olaylar ilgili hello çalışan üzerinde yürütülen toorunbooks çok yazılır**uygulama ve Hizmetleri Logs\Microsoft-Automation\Operational**.  Merhaba **Microsoft SMA** günlük pek çok daha fazla olayları ilgili toohello runbook işi basılmış toohello çalışan ve hello işlenmesini hello runbook içerir.  Merhaba sırasında **Microsoft Otomasyon** olay günlüğü sahip değil birçok olay runbook yürütülmesi hello sorun giderme konusunda yardımcı ayrıntılarla ve hello sonuçları hello runbook işi, en az bulacaksınız.  
 
-[Runbook çıkışı ve iletileri](automation-runbook-output-and-messages.md) Azure Otomasyon karma gönderilen bulutta çalışan runbook işleri gibi çalıştırın.  Bu gibi durumlarda, ayrıntılı ve ilerleme akışları ayrıca diğer runbook'lar için olduğu gibi etkinleştirebilirsiniz.  
+[Runbook çıkışı ve iletileri](automation-runbook-output-and-messages.md) karma çalışanları yalnızca Otomasyon gibi hello bulutta çalışan runbook işleri tooAzure gönderilir.  Merhaba ayrıntılı de etkinleştirebilir ve ilerleme akışları hello aynı diğer runbook'lar için oluşturursunuz.  
 
-Runbook'larınızın başarıyla tamamlanamamasının ve Özet iş durumunu gösterir **askıya**, lütfen sorun giderme makalesi gözden [karma Runbook çalışanı: bir runbook işi askıya alındı durumu ile sona erer ](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).   
+Runbook'larınızın başarıyla tamamlanamamasının ve Özet hello iş durumunu gösterir **askıya alındı**, lütfen sorun giderme makalesi hello gözden [karma Runbook çalışanı: durum koduyla bir runbook işi sonlandırır Askıya](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).   
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir runbook'u başlatmak için kullanılan farklı yöntemleri hakkında daha fazla bilgi için bkz: [Azure Otomasyonu Runbook başlatma](automation-starting-a-runbook.md).  
-* PowerShell ve PowerShell iş akışı runbook'ları metin düzenleyicisini kullanarak Azure Automation ile çalışmak için farklı yordamlar anlamak için bkz: [Azure Otomasyon Runbook'u düzenleme](automation-edit-textual-runbook.md)
+* toolearn kullanılan toostart bir runbook olabilecek daha hello farklı yöntemler hakkında bkz [Azure Otomasyonu Runbook başlatma](automation-starting-a-runbook.md).  
+* PowerShell ve PowerShell iş akışı runbook'ları hello metin düzenleyicisi kullanarak Azure Automation ile çalışma toounderstand hello farklı yordamlara bakın [Azure Otomasyon Runbook'u düzenleme](automation-edit-textual-runbook.md)

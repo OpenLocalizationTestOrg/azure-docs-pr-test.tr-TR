@@ -1,6 +1,6 @@
 ---
-title: "Azure olay kılavuz olay şeması"
-description: "Azure olay kılavuz olan olaylar için sağlanan özellikler açıklanmaktadır."
+title: "aaaAzure olay kılavuz şeması"
+description: "Azure olay kılavuz olan olaylar için sağlanan hello özellikleri açıklar."
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,34 +8,34 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: babanisa
-ms.openlocfilehash: 9e3c7b31ef23b29827d7184dc033227685ed92f8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 37178a5650b93fd9072d9cff3333aae14b2a2ba7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-grid-event-schema"></a>Kılavuz olay şeması
 
-Bu makale, olaylar için şema ve özellikleri sağlar. Olayları oluşan bir dizi beş gerekli dize özellikleri ve gerekli **veri** nesnesi. Tüm olayları için herhangi bir yayımcıdan yaygın özelliklerdir. **Veri** nesne her yayımcı için özel özellikleri içerir. Sistem konuları için bu özellikleri depolama veya olay hub'ları gibi kaynak sağlayıcısı özgüdür.
+Bu makalede hello özellikler ve şema olayları sağlar. Olayları oluşan bir dizi beş gerekli dize özellikleri ve gerekli **veri** nesnesi. Merhaba, herhangi bir yayımcıyı ortak tooall olaylarından özelliklerdir. Merhaba **veri** nesne belirli tooeach yayımcı özellikler içerir. Sistem için bu özellikleri depolama veya olay hub'ları gibi belirli toohello kaynak sağlayıcısı konulardır.
 
-Olayları Azure olay kılavuza birden çok olay nesneleri içeren bir dizide gönderilir. Yalnızca tek bir olay ise, dizi 1 uzunluğuna sahip. 
+Olayları tooAzure olay kılavuz birden fazla olay nesneleri içeren bir dizide gönderilir. Yalnızca tek bir olay ise hello dizi 1 uzunluğuna sahip. 
  
 ## <a name="event-properties"></a>Olay Özellikleri
 
-Tüm olaylar aynı aşağıdaki üst düzey veri içermez.
+Tüm olayları hello içerecek üst düzey veri aşağıdaki aynı.
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Konu | Dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. |
-| Konu | Dize | Yayımcı için olay konu yolu tanımlı. |
-| Olay türü | Dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
-| EventTime | Dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
-| id | Dize | Olay için benzersiz tanımlayıcı. |
-| Veri | Nesne | Olay verileri kaynak sağlayıcıya özel. |
+| Konu | Dize | Tam kaynak yolu toohello olay kaynağı. Bu alan yazılabilir değil. |
+| Konu | Dize | Yayımcı tanımlanmış bir yol toohello olay konu. |
+| Olay türü | Dize | Merhaba olay türleri bu olay kaynağı için kayıtlı. |
+| EventTime | Dize | Başlangıç saati hello olay hello sağlayıcının UTC zamanı temel alınarak oluşturulur. |
+| id | Dize | Merhaba olay için benzersiz tanımlayıcı. |
+| Veri | Nesne | Olay verileri belirli toohello kaynak sağlayıcısı. |
 
 ## <a name="available-event-sources"></a>Kullanılabilir olay kaynakları
 
-Aşağıdaki olay kaynakları olayları olay kılavuz aracılığıyla tüketim için yayımlayın:
+olay kaynakları aşağıdaki hello olayları olay kılavuz aracılığıyla tüketim için yayımlayın:
 
 * Kaynak grupları (yönetim işlemlerini)
 * Azure abonelikleri (yönetim işlemlerini)
@@ -126,7 +126,7 @@ Kaynak grupları şimdi VM oluşturulduğunda gibi yönetim olaylarını Azure K
 
 ## <a name="event-hubs"></a>Event Hubs
 
-Olay hub'ları olaylardır şu anda yalnızca bir dosyayı otomatik olarak yakalama özelliğini kullanarak depoya gönderildiğinde yayılan.
+Olay hub'ları olaylardır şu anda yalnızca bir dosya toostorage hello yakalama özelliğini kullanarak otomatik olarak gönderildiğinde yayılan.
 
 ### <a name="available-event-types"></a>Kullanılabilir olay türleri
 
@@ -134,7 +134,7 @@ Olay hub'ları olaylardır şu anda yalnızca bir dosyayı otomatik olarak yakal
 
 ### <a name="example-event"></a>Örnek olayı
 
-Bu örnek olay yakalama bir dosya depoladığında gerçekleşen bir olay hub'ları olay şeması gösterir. 
+Bu örnek olay yakalama bir dosya depoladığında gerçekleşen bir olay hub'ları olay hello şeması gösterir. 
 
 ```json
 [
@@ -173,7 +173,7 @@ Azure Blob Storage ile özel Önizleme olay kılavuz ile tümleştirme için kay
 
 ### <a name="example-event"></a>Örnek olayı
 
-Bu örnek olay blob oluşturulduğunda, yükseltilmiş bir depolama olay şeması gösterir. 
+Bu örnek olay hello şema blob oluşturulduğunda, yükseltilmiş bir depolama olayının gösterir. 
 
 ```json
 [
@@ -206,11 +206,11 @@ Bu örnek olay blob oluşturulduğunda, yükseltilmiş bir depolama olay şemas�
 
 ## <a name="custom-topics"></a>Özel konular
 
-Özel olaylarınızı veri yükü tarafından tanımlanır ve tüm biçiminin düzgün JSON olabilir. Üst düzey veri standart kaynağı tanımlı olayları aynı alanları içermelidir. Olaylar için özel konular yayımlarken, Yönlendirme ve filtreleme yardımcı olmak üzere, olayların konu modelleme düşünmelisiniz.
+Özel olaylarınızı Hello veri yükünü tarafından tanımlanır ve tüm biçiminin düzgün JSON olabilir. Merhaba üst düzey veri hello aynı standart kaynağı tanımlı olayları olarak alanları içermelidir. Olayları toocustom konuları yayımlarken, Yönlendirme ve filtreleme, olayları tooaid hello konusunun modelleme düşünmelisiniz.
 
 ### <a name="example-event"></a>Örnek olayı
 
-Aşağıdaki örnek, özel bir konu için bir olay gösterir:
+Aşağıdaki örnek hello özel bir konu için bir olay gösterir:
 ````json
 [
   {
@@ -230,5 +230,5 @@ Aşağıdaki örnek, özel bir konu için bir olay gösterir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Olay kılavuz giriş için bkz: [olay kılavuz nedir?](overview.md)
-* Bir olay kılavuz abonelik oluşturma hakkında bilgi edinmek için [olay kılavuz abonelik şema](subscription-creation-schema.md).
+* Bir giriş tooEvent kılavuz için bkz: [olay kılavuz nedir?](overview.md)
+* bir olay kılavuz abonelik oluşturma hakkında daha fazla toolearn bkz [olay kılavuz abonelik şema](subscription-creation-schema.md).

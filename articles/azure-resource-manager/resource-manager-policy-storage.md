@@ -1,6 +1,6 @@
 ---
-title: "Depolama hesapları için Azure kaynak ilkeleri | Microsoft Docs"
-description: "Depolama hesapları dağıtımını yönetmek için Azure Resource Manager ilkelerini açıklar."
+title: "Depolama hesapları için aaaAzure kaynak ilkeleri | Microsoft Docs"
+description: "Depolama hesapları hello dağıtımını yönetmek için Azure Resource Manager ilkelerini açıklar."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6612ee61f5c50e743241b92030660cea7ae7094d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d37fc4bcf7cdec71b0e14f6231fc138bfb6a7893
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="apply-resource-policies-to-storage-accounts"></a>Depolama hesapları için kaynak ilkelerini uygula
-Bu konu çeşitli gösterir [kaynak ilkeleri](resource-manager-policy.md) Azure depolama hesapları için geçerli olabilir. Bu ilkeler kuruluşunuza dağıtmış depolama hesapları için tutarlılık emin olun. 
+# <a name="apply-resource-policies-toostorage-accounts"></a>Kaynak ilkeleri toostorage hesapları Uygula
+Bu konu çeşitli gösterir [kaynak ilkeleri](resource-manager-policy.md) tooAzure depolama hesapları uygulayabilirsiniz. Bu ilkeler kuruluşunuza dağıtmış hello depolama hesapları için tutarlılık emin olun. 
 
 ## <a name="define-permitted-storage-account-types"></a>İzin verilen depolama hesabı türlerini tanımlayın
 
-Aşağıdaki ilke hangi kısıtlayan [depolama hesabı türlerini](../storage/common/storage-redundancy.md) dağıtılabilir:
+Merhaba aşağıdaki ilke hangi kısıtlayan [depolama hesabı türlerini](../storage/common/storage-redundancy.md) dağıtılabilir:
 
 ```json
 {
@@ -52,11 +52,11 @@ Aşağıdaki ilke hangi kısıtlayan [depolama hesabı türlerini](../storage/co
 }
 ```
 
-İzin verilen SKU'lar kabul etmek için bir parametre ile benzer bir ilke kuralı, bir yerleşik ilke tanımı kullanılabilir. Kaynak Kimliği yerleşik ilkesine sahip `/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1`. 
+SKU'ları izin hello kabul etmek için bir parametre ile benzer bir ilke kuralı, bir yerleşik ilke tanımı kullanılabilir. Merhaba yerleşik ilkesine sahip hello kaynak Kimliğini `/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1`. 
 
 ## <a name="define-permitted-access-tier"></a>İzin verilen erişim katmanı tanımlayın
 
-Aşağıdaki ilke türünü belirtir. [erişim katmanı](../storage/blobs/storage-blob-storage-tiers.md) depolama hesapları için belirtilebilir:
+Merhaba aşağıdaki ilke hello türünü belirtir [erişim katmanı](../storage/blobs/storage-blob-storage-tiers.md) depolama hesapları için belirtilebilir:
 
 ```json
 {
@@ -86,7 +86,7 @@ Aşağıdaki ilke türünü belirtir. [erişim katmanı](../storage/blobs/storag
 
 ## <a name="ensure-encryption-is-enabled"></a>Şifreleme etkin olduğundan emin olun
 
-Tüm depolama hesaplarını etkinleştirmek için aşağıdaki ilke gerektiriyorsa [depolama hizmeti şifrelemesi](../storage/common/storage-service-encryption.md):
+Merhaba aşağıdaki ilke gerektiren tüm depolama hesapları tooenable [depolama hizmeti şifrelemesi](../storage/common/storage-service-encryption.md):
 
 ```json
 {
@@ -110,9 +110,9 @@ Tüm depolama hesaplarını etkinleştirmek için aşağıdaki ilke gerektiriyor
 }
 ```
 
-Bu ilke kuralı olarak da kaynak kimliği yerleşik ilke tanımı kullanılabilir `/providers/Microsoft.Authorization/policyDefinitions/7c5a74bf-ae94-4a74-8fcf-644d1e0e6e6f`.
+Bu ilke kuralı olarak da hello kaynak kimliği olan yerleşik ilke tanımı kullanılabilir `/providers/Microsoft.Authorization/policyDefinitions/7c5a74bf-ae94-4a74-8fcf-644d1e0e6e6f`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* (Yukarıdaki örneklerde gösterildiği gibi) bir ilke kuralı tanımladıktan sonra ilke tanımı oluşturun ve bir kapsama atamanız gerekir. Kapsamı bir abonelik, kaynak grubu veya kaynak olabilir. Portal üzerinden ilkeler atamak için bkz: [atamak ve kaynak ilkelerini yönetmek için kullanım Azure portal](resource-manager-policy-portal.md). REST API'si, PowerShell veya Azure CLI aracılığıyla ilkeleri atamak için bkz: [atayın ve komut dosyası aracılığıyla ilkelerini yönetme](resource-manager-policy-create-assign.md). 
-* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](resource-manager-subscription-governance.md).
+* (Örnekler önceki hello gösterildiği gibi) bir ilke kuralı tanımlama sonra toocreate hello ilke tanımı gerekir ve tooa kapsamı atayın. Merhaba kapsam abonelik, kaynak grubu veya kaynak olabilir. Merhaba portal aracılığıyla tooassign ilkeleri Bkz [kullanım Azure portal tooassign ve kaynak ilkelerini yönetme](resource-manager-policy-portal.md). REST API'si, PowerShell veya Azure CLI aracılığıyla tooassign ilkeleri Bkz [atayın ve komut dosyası aracılığıyla ilkelerini yönetme](resource-manager-policy-create-assign.md). 
+* Kuruluşların Resource Manager tooeffectively nasıl kullanabileceğiniz hakkında rehberlik için abonelikleri yönetmek için bkz: [Azure enterprise iskele - Düzenleyici abonelik idare](resource-manager-subscription-governance.md).
 

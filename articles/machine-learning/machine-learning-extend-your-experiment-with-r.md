@@ -1,6 +1,6 @@
 ---
-title: "R ile denemenizi genişletme | Microsoft Docs"
-description: "R betiği yürütün modülünü kullanarak Azure Machine Learning Studio işlevselliğini R diliyle genişletmek nasıl."
+title: aaaExtend R ile denemenizi | Microsoft Docs
+description: "Nasıl tooextend hello Azure Machine Learning Studio işlevselliğini hello R diliyle hello R betiği yürütün modülünü kullanarak."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: fe207ef917980be8b554ad9c08176d108b19fb71
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 396489f26f367a744922af65e04f056c7afa1399
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="extend-your-experiment-with-r"></a>R ile denemenizi genişletme
-Kullanarak Azure Machine Learning Studio işlevselliğini R diliyle genişletebilirsiniz [R betiği yürütün] [ execute-r-script] modülü.
+Hello kullanarak Azure Machine Learning Studio hello işlevselliğini hello R diliyle genişletebilirsiniz [R betiği yürütün] [ execute-r-script] modülü.
 
-Bu modül, birden çok giriş veri kümeleri kabul eder ve tek bir veri kümesini çıktı olarak üretir. Bir R betiği içine yazabilirsiniz **R betiği** parametresinin [R betiği yürütün] [ execute-r-script] modülü.
+Bu modül, birden çok giriş veri kümeleri kabul eder ve tek bir veri kümesini çıktı olarak üretir. Merhaba bir R betiği yazabilirsiniz **R betiği** hello parametresinin [R betiği yürütün] [ execute-r-script] modülü.
 
-Her giriş bağlantı noktası modülün aşağıdakine benzer bir kod kullanarak erişebilirsiniz:
+Her giriş bağlantı noktası hello modülünün benzer toohello aşağıdaki kodu kullanarak erişebilirsiniz:
 
     dataset1 <- maml.mapInputPort(1)
 
 ## <a name="listing-all-currently-installed-packages"></a>Şu anda yüklü olan tüm paketleri listeleme
-Yüklü olan paketlerin listesini değiştirebilirsiniz. Şu anda yüklü olan paketlerin listesini bulunabilir [R paketleri Azure Machine Learning tarafından desteklenen](https://msdn.microsoft.com/library/azure/mt741980.aspx).
+yüklü paketler Hello listesini değiştirebilirsiniz. Şu anda yüklü olan paketlerin listesini bulunabilir [R paketleri Azure Machine Learning tarafından desteklenen](https://msdn.microsoft.com/library/azure/mt741980.aspx).
 
-Aşağıdaki kodu girerek yüklü paketleri tam, güncel listesini alabilirsiniz [R betiği yürütün] [ execute-r-script] Modülü:
+Kod hello aşağıdaki hello girerek hello tam, güncel yüklü olan paketlerin listesini alabilirsiniz [R betiği yürütün] [ execute-r-script] Modülü:
 
     out <- data.frame(installed.packages(,,,fields="Description"))
     maml.mapOutputPort("out")
 
-Bu paket listesini çıkış bağlantı noktasına gönderir [R betiği yürütün] [ execute-r-script] modülü.
-Connect gibi bir dönüştürme modülü paket listesini görüntülemek için [CSV'ye Dönüştür] [ convert-to-csv] sol çıktısı için [R betiği yürütün] [ execute-r-script] modülü denemeyi çalıştırın, çıktı dönüştürme modülü seçin ve ardından **karşıdan**. 
+Bu paketleri toohello çıkış bağlantı noktasına hello hello listesi gönderir [R betiği yürütün] [ execute-r-script] modülü.
+tooview hello paket listesinde, bir dönüştürme modülü gibi bağlanmak [Dönüştür tooCSV] [ convert-to-csv] hello çıktısını sol toohello [R betiği yürütün] [ execute-r-script]modülü hello denemeyi çalıştırın, hello çıktı hello dönüştürme modülü seçin ve ardından **karşıdan**. 
 
-!["CSV Dönüştür" modülü çıktısını indirme](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
+!["TooCSV Dönüştür" modülü çıktısını indirme](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
 
 
 <!--
-For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
+For convenience, here is hello [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 -->
 
 ## <a name="importing-packages"></a>Paket alma
-Aşağıdaki komutları kullanarak henüz yüklenmemişse paketleri içeri aktarabilirsiniz [R betiği yürütün] [ execute-r-script] Modülü:
+Merhaba komutlarda aşağıdaki hello kullanarak henüz yüklenmemişse paketleri içeri aktarabilirsiniz [R betiği yürütün] [ execute-r-script] Modülü:
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
 
-Burada `my_favorite_package.zip` dosyası paketinizi içerir.
+Burada hello `my_favorite_package.zip` dosyası paketinizi içerir.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

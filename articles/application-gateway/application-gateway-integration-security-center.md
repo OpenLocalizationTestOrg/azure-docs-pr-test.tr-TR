@@ -1,5 +1,5 @@
 ---
-title: "Azure Güvenlik Merkezi ile uygulama ağ geçidi tümleştirme | Microsoft Docs"
+title: "Azure Güvenlik Merkezi ile ağ geçidi tümleştirme aaaApplication | Microsoft Docs"
 description: "Bu sayfa, uygulama ağ geçidi Azure Güvenlik Merkezi ile nasıl tümleştirildiği bilgi sağlar."
 documentationcenter: na
 services: application-gateway
@@ -15,73 +15,73 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: gwallace
-ms.openlocfilehash: 737cdff3140be68cf9d6d396b470dd09c65c52f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6f6ace105e84c01f525ab02938e81ce040c5c9d9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Uygulama ağ geçidi ve Azure Güvenlik Merkezi arasında tümleştirme genel bakış
 
-Uygulama ağ geçidi ve Güvenlik Merkezi, web uygulaması kaynaklarınızı korumanıza nasıl yardımcı öğrenin. Uygulama ağ geçidi web uygulaması Güvenlik Duvarı (WAF) ile tümleşir [Güvenlik Merkezi](../security-center/security-center-intro.md) önlemek için sorunsuz bir görünümünü sağlamak için algılamak ve korumasız web uygulamaları, ortamınızdaki tehditlere yanıt verir.
+Uygulama ağ geçidi ve Güvenlik Merkezi, web uygulaması kaynaklarınızı korumanıza nasıl yardımcı öğrenin. Uygulama ağ geçidi web uygulaması Güvenlik Duvarı (WAF) ile tümleşir [Güvenlik Merkezi](../security-center/security-center-intro.md) tooprovide sorunsuz görünüm tooprevent algılamak ve toothreats toounprotected web uygulamaları, ortamınızdaki yanıt.
 
 ## <a name="overview"></a>Genel Bakış
 
-Uygulama ağ geçidi WAF Güvenlik Merkezi'nde açığından yararlanma girişimi ve güvenlik açıkları web uygulamaları korumak için önerilir. WAF tarafından korunmayan etkin web kaynakları Güvenlik Merkezi'nde yüksek önem derecesi öneriler göster. Web uygulaması güvenlik duvarı için öneriler üzerinde gösterilen **genel bakış** sayfasında **uygulamaları**.
+Uygulama ağ geçidi WAF Güvenlik Merkezi'nde açığından yararlanma girişimi ve güvenlik açıkları web uygulamaları korumak için önerilir. WAF tarafından korunmayan etkin web kaynakları hello Güvenlik Merkezi'nde yüksek önem derecesi öneriler göster. Web uygulaması güvenlik duvarı için öneriler hello üzerinde gösterilen **genel bakış** sayfasında **uygulamaları**.
 
 ![Güvenlik Merkezi ile tümleştirme][1]
 
-İlgili web uygulaması güvenlik duvarı öneri ayrıntılarını gösteren yeni bir dikey pencere açılır herhangi bir önerimiz'yı tıklatın.
+Web uygulaması güvenlik duvarı ile ilgili herhangi bir önerimiz tıklatarak hello öneri hello ayrıntılarını gösteren yeni bir dikey pencere açılır.
 
-## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Mevcut bir kaynağı bir web uygulaması güvenlik duvarı ekleme
+## <a name="add-a-web-application-firewall-tooan-existing-resource"></a>Web uygulaması güvenlik duvarı tooan mevcut kaynak ekleyin
 
-Gidin **daha Hizmetleri** > **güvenlik + kimlik** > **Güvenlik Merkezi** ve **Güvenlik Merkezi - genel bakış** dikey penceresinde tıklatın **uygulamaları**. Üzerinde **Güvenlik Merkezi - uygulamaları** dikey penceresinde, tablo, Güvenlik Merkezi, aboneliğinizde algıladı uygulamaların bir listesini içerir.
+Çok gidin**daha Hizmetleri** > **güvenlik + kimlik** > **Güvenlik Merkezi** ve hello **Güvenlik Merkezi - genel bakış**  dikey penceresinde tıklatın **uygulamaları**. Merhaba üzerinde **Güvenlik Merkezi - uygulamaları** dikey penceresinde hello tablo, Güvenlik Merkezi, aboneliğinizde algıladı uygulamaların bir listesini içerir.
 
 ![Web uygulamaları][3]
 
-Kritik bir sorunu web uygulamasıyla tıklayarak, get **uygulama güvenlik durumu** dikey. Aşağıdaki resimde, bir web uygulaması güvenlik duvarı tarafından korumalı olmayan web uygulaması. 
+Kritik bir sorunu web uygulamasıyla tıklayarak, hello alma **uygulama güvenlik durumu** dikey. Merhaba resimde, bir web uygulaması güvenlik duvarı tarafından korumalı olmayan web uygulaması hello. 
 
 ![korumalı web kaynakları][2]
 
-Tıklatın **bir web uygulaması güvenlik duvarı ekleme** altında **önerileri** açmak için **bir Web uygulaması güvenlik duvarı ekleme** dikey.
+Tıklatın **bir web uygulaması güvenlik duvarı ekleme** altında **önerileri** tooopen hello **bir Web uygulaması güvenlik duvarı ekleme** dikey.
 
-Olmayan mevcut bir uygulama ağ geçidi, veya yeni bir tane oluşturmak istediğiniz varsa, tıklatın **Yeni Oluştur** ve **yeni Web uygulaması güvenlik duvarı oluşturma** dikey penceresinde ve tıklatın **Microsoft - uygulama ağ geçidi**. Bu uygulama ağ geçidi oluşturmak için adımlara götürür. Bu noktada, bu kaynak bir web uygulaması güvenlik duvarı tarafından korunduğunu şimdi Güvenlik Merkezi korumalı bir kaynağın izler, web uygulamanızın eklenir. Bu, arka uç havuzu üye olarak eklemez.
+Olmayan mevcut bir uygulama ağ geçidi sahip ya da toocreate yeni bir tane yoksa, tıklatın **Yeni Oluştur** ve hello **yeni Web uygulaması güvenlik duvarı oluşturma** dikey penceresinde ve tıklatın **Microsoft - Uygulama ağ geçidi**. Merhaba adımları toocreate bir uygulama ağ geçidi alır. Bu noktada, bu kaynak bir web uygulaması güvenlik duvarı tarafından korunduğunu şimdi Güvenlik Merkezi korumalı bir kaynağın izler, web uygulamanızın eklenir. Bu, arka uç havuzu üye olarak eklemez.
 
 Mevcut bir uygulama ağ geçidi varsa, bunun altında seçebilirsiniz **var olan çözümünü kullanma**
 
 ![Web uygulaması güvenlik duvarı Ekle dikey penceresi][4]
 
-Bir web uygulaması Güvenlik Merkezi aracılığıyla bir uygulama ağ geçidi için bir arka uç havuzu üye olarak kaynak eklemez ekleme, bu uygulama ağ geçidi kaynağı doğrudan yapılmalıdır.
+Bir web uygulaması tooan uygulama ağ geçidi Güvenlik Merkezi aracılığıyla arka uç havuzu üye olarak hello kaynak eklemez ekleme, bu hello uygulama ağ geçidi kaynağı üzerinde doğrudan yapılmalıdır.
 
-## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Bir kaynak için var olan bir web uygulaması güvenlik duvarı ekleyin
+## <a name="add-a-resource-tooan-existing-web-application-firewall"></a>Bir kaynak tooan varolan web uygulaması güvenlik duvarı ekleme
 
-Gidin **daha Hizmetleri** > **güvenlik + kimlik** > **Güvenlik Merkezi** ve **Güvenlik Merkezi - genel bakış** dikey penceresinde tıklatın **iş ortağı çözümleri**. Var olan Güvenlik Merkezi kullanan bir uygulama ağ geçitleri Göster **iş ortağı çözümleri** dikey.
+Çok gidin**daha Hizmetleri** > **güvenlik + kimlik** > **Güvenlik Merkezi** ve hello **Güvenlik Merkezi - genel bakış**  dikey penceresinde tıklatın **iş ortağı çözümleri**. Var olan Güvenlik Merkezi kullanan bir uygulama ağ geçitleri Göster hello **iş ortağı çözümleri** dikey.
 
 ![iş ortağı çözümleri][7]
 
-Tıklatın **bağlantı uygulaması** açmak için **bağlantı uygulamaları** dikey penceresinde, burada, belirtilen olduğundan seçeneklerini mevcut uygulamaları seçin. Koruma ve uygulamaları seçmek **Tamam**. Bu web uygulaması uygulama ağ geçidi arka uç havuzuna eklemez. Güvenlik Merkezi izlemek için bu kaynakları korumalı bir kaynak olarak ayarlar. Kaynak arka uç havuzu üye olarak eklemek için bu uygulama ağ geçidi tıklayabilirsiniz geçerli dikey penceresinden yapılmalıdır **çözüm konsolunu** uygulama ağ geçidi kaynağı'na, web uygulaması arka uç havuzuna ekleyebileceğiniz gerçekleştirilecek.
+Tıklatın **bağlantı uygulaması** tooopen hello **bağlantı uygulamaları** dikey penceresinde, burada, belirtilen olduğundan hello seçenekleri tooselect var olan uygulamalar. Merhaba uygulamaları tooprotect seçin ve tıklatın **Tamam**. Bu, başlangıç web uygulaması toohello arka uç havuzu hello uygulama ağ geçidi eklemez. Güvenlik Merkezi izlemek için bu hello kaynakları korumalı bir kaynak olarak ayarlar. tooadd hello kaynak bir arka uç havuzu üye olarak bu hello uygulama ağ geçidinde yapılmalıdır, hello geçerli dikey penceresinden tıklayabilirsiniz **çözüm konsolunu** hello web, ekleyebileceğiniz toohello uygulama ağ geçidi kaynağı gerçekleştirilecek toobe Uygulama toohello arka uç havuzu.
 
 ![iş ortağı çözümleri uygulamaları][6]
 
 ## <a name="finalize-configuration"></a>Yapılandırma Sonlandır
 
-Güvenlik Merkezi, bir uygulama ağ geçidi korunan bir kaynağa olarak eklenen uygulamalar izler.  Bu kaynak izler ve onu bir uygulama ağ geçidi tarafından korunmasını sağlar. Özel IP, genel IP veya NIC, sanal makinenin uygulama ağ geçidi arka uç havuzuna eklemek için sonraki adım olacaktır. Bu, ek bir öneri yapılana kadar **uygulama korumayı Sonlandır** kaynağı eklenene kadar gösterilir.
+Güvenlik Merkezi parçaları uygulamaları tooan uygulama ağ geçidi korumalı bir kaynağın eklendi.  Bu kaynak hello durumunu izler ve onu bir uygulama ağ geçidi tarafından korunmasını sağlar. Hello sonraki tooadd hello özel IP, genel IP veya NIC, sanal makine toohello arka uç havuzunun hello uygulama ağ geçidi adımdır. Bu, ek bir öneri yapılana kadar **uygulama korumayı Sonlandır** hello kaynağı eklenene kadar gösterilir.
 
 ![Web uygulaması güvenlik duvarı Ekle dikey penceresi][5]
 
 ## <a name="security-alerts"></a>Güvenlik Uyarıları
 
-Güvenlik Merkezi içinde gitmek **ALGILAMA** > **güvenlik uyarıları**.  Burada, uygulama ağ geçitleri için WAF uyarıları bulun. Uyarıları WAF kural tarafından bölünür.
+Güvenlik Merkezi içinde çok gidin**ALGILAMA** > **güvenlik uyarıları**.  Burada, uygulama ağ geçitleri için WAF uyarıları bulun. Uyarıları WAF kural tarafından bölünür.
 
 ![Güvenlik Uyarıları][8]
 
-Bir kural tıklatarak uyarıların bir listesi için bu belirli WAF kuralı sağlar. Her uyarı bulma hakkında ek ayrıntılar gösterir. Uygulama ağ geçidi için bağlantı ayrıntıları sağlayın.
+Bir kural tıklatarak uyarıların bir listesi için bu belirli WAF kuralı sağlar. Her uyarı hello bulma hakkında ek ayrıntılar gösterir. bir bağlantı toohello uygulama ağ geçidi Hello ayrıntıları sağlayın.
  
 ![Uyarı ayrıntıları][9]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Web uygulaması güvenlik duvarı var olan bir uygulama ağ geçidi'nı etkinleştirme hakkında bilgi için [oluştur veya güncelleştir web uygulaması güvenlik duvarı ile Azure uygulama ağ geçidi](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
+nasıl tooenable web uygulaması Güvenlik Duvarı'nı var olan bir uygulama ağ geçidi ziyaret toolearn [oluştur veya güncelleştir web uygulaması güvenlik duvarı ile Azure uygulama ağ geçidi](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

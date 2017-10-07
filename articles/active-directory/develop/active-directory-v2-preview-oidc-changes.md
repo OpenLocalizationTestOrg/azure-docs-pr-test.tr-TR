@@ -1,6 +1,6 @@
 ---
-title: "Azure AD v2.0 uç noktasına değişiklikleri | Microsoft Docs"
-description: "Uygulama modeli v2.0 Genel Önizleme protokolleri yapılan değişikliklerin bir açıklaması."
+title: "aaaChanges toohello Azure AD v2.0 uç | Microsoft Docs"
+description: "Toohello uygulama modeli v2.0 Genel Önizleme protokolleri yapılan değişikliklerin bir açıklaması."
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,28 +15,28 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ae73833a68db14804dc40eaf07ff7d3effaa9052
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d7b28a481e12d5dbbc4a10110193bdbd754f4929
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="important-updates-to-the-v20-authentication-protocols"></a>Önemli güncelleştirmeleri v2.0 kimlik doğrulama protokolleri
-Uyarı geliştiriciler! Sonraki iki hafta boyunca size birkaç güncelleştirmeleri bizim Önizleme dönemi boyunca yazılmış uygulamalar için önemli değişiklikler olduğu anlamına gelebilir bizim v2.0 kimlik doğrulama protokolleri için yapacak.  
+# <a name="important-updates-toohello-v20-authentication-protocols"></a>Önemli güncelleştirmeleri toohello v2.0 kimlik doğrulama protokolleri
+Uyarı geliştiriciler! Merhaba sonraki iki hafta biz birkaç güncelleştirmeleri bizim Önizleme dönemi boyunca yazılmış uygulamalar için önemli değişiklikler olduğu anlamına gelebilir tooour v2.0 kimlik doğrulama protokolleri yapacak.  
 
 ## <a name="who-does-this-affect"></a>Kimin bu etkiliyor mu?
-V2.0 kullanmak için yazılmış olan tüm uygulamaların kimlik doğrulama uç noktası Yakınsanan,
+Toouse hello v2.0 yazılmış uygulamalar kimlik doğrulama uç noktası Yakınsanan,
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 ```
 
-V2.0 uç noktası hakkında daha fazla bilgi bulunabilir [burada](active-directory-appmodel-v2-overview.md).
+Merhaba v2.0 uç noktası hakkında daha fazla bilgi bulunabilir [burada](active-directory-appmodel-v2-overview.md).
 
-V2.0 uç noktası doğrudan v2.0 protokol kodlayarak kullanarak bir uygulama oluşturduysanız bizim Openıd Connect veya OAuth web middlewares birini kullanarak veya kimlik doğrulaması gerçekleştirmek için 3 diğer taraf kitaplıklar kullanılarak, projelerinizi test ve değişiklikler yapmak için hazırlıklı olmalıdır Gerekirse.
+Bizim Openıd Connect veya OAuth web middlewares birini kullanarak doğrudan toohello v2.0 protokol kodlayarak hello v2.0 uç kullanarak bir uygulama oluşturduktan ya da 3 diğer taraf kitaplıklar tooperform kimlik doğrulamasını kullanarak, olmalısınız yapma ve projeleri tootest hazır gerekirse değiştirir.
 
 ## <a name="who-doesnt-this-affect"></a>Kimin bu etkilemez?
-Üretim Azure AD kimlik doğrulama uç noktası karşı yazılan tüm uygulamalar
+Merhaba üretim Azure AD kimlik doğrulama uç noktası karşı yazılan tüm uygulamalar
 
 ```
 https://login.microsoftonline.com/common/oauth2/authorize
@@ -44,11 +44,11 @@ https://login.microsoftonline.com/common/oauth2/authorize
 
 Bu protokol taş ayarlanır ve herhangi bir değişiklik yaşayan değil.
 
-Ayrıca, uygulamanızı **yalnızca** kimlik doğrulaması gerçekleştirmek için bizim ADAL kitaplığını kullanır değişikliği gerekmez.  ADAL değişiklikleri uygulamanızdan tam korumalı.  
+Ayrıca, uygulamanızı **yalnızca** bizim ADAL kitaplığı tooperform kimlik doğrulaması kullanan toochange hiçbir şey olmaz.  ADAL hello değişiklikleri uygulamanızdan tam korumalı.  
 
-## <a name="what-are-the-changes"></a>Değişiklikleri nelerdir?
-### <a name="removing-the-x5t-value-from-jwt-headers"></a>JWT üstbilgileri x5t değeri kaldırma
-V2.0 uç belirteç hakkında ilgili meta veriler üstbilgi parametreleri bölümüyle içerir JWT belirteçleri yaygın, kullanır.  Bizim geçerli Jwt'ler birini üstbilgisi kod çözme, aşağıdakine benzer bulur:
+## <a name="what-are-hello-changes"></a>Merhaba değişiklikleri nelerdir?
+### <a name="removing-hello-x5t-value-from-jwt-headers"></a>Merhaba x5t değeri JWT üstbilgileri kaldırma
+Merhaba v2.0 uç hello belirteci hakkında ilgili meta veriler üstbilgi parametreleri bölümüyle içerir JWT belirteçleri yaygın, kullanır.  Bizim geçerli Jwt'ler birini hello üstbilgisinin kod çözme, aşağıdakine benzer bulur:
 
 ```
 { 
@@ -59,23 +59,23 @@ V2.0 uç belirteç hakkında ilgili meta veriler üstbilgi parametreleri bölüm
 }
 ```
 
-Burada "x5t" ve "anlaşmalı" özellikleri Openıd Connect meta veri uç noktasından alınan olarak belirtecin imzayı doğrulamak için kullanılacak ortak anahtarı tanımlayın.
+Her iki hello "x5t" ve "çocuk" özelliklerini hello ortak anahtarı burada tanımlayın, kullanılan toovalidate hello belirtecinin imzası hello Openıd Connect meta veri uç noktasından alınan olması gerekir.
 
-Burada yapıyoruz "x5t" özelliği kaldırmak için farklıdır.  Belirteçleri doğrulamak için mekanizmalarının aynısını kullanmaya devam edebilir, ancak doğru ortak anahtar Openıd Connect Protokolü belirtilen olarak almak için yalnızca "anlaşmalı" özelliğini yararlanmalıdır. 
+Burada yapıyoruz hello değişiklik tooremove hello "x5t" özelliğidir.  Aynı mekanizmaları toovalidate belirteçler, ancak yalnızca hello "çocuk" özelliği tooretrieve hello doğru ortak anahtar üzerinde belirtilen hello Openıd Connect Protokolü yararlanmalıdır toouse hello devam edebilir. 
 
 > [!IMPORTANT]
-> **İşinizi: uygulamanızı x5t değeri varlığını bağlı değildir emin olun.**
+> **İşinizi: uygulamanızı hello x5t değeri hello varlığını bağlı değildir emin olun.**
 > 
 > 
 
 ### <a name="removing-profileinfo"></a>Profile_info kaldırma
-Daha önce v2.0 uç noktası bir base64 ile kodlanmış JSON nesnesi adı verilen belirteç yanıtları döndürme edilmiş `profile_info`.  Bir erişim belirteci v2.0 uç noktasından bir istek göndererek isterken:
+Daha önce hello v2.0 uç base64 ile kodlanmış JSON nesnesi adı verilen belirteç yanıtları döndürme `profile_info`.  Bir erişim belirteci hello v2.0 uç noktasından bir istek göndererek isterken:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-Yanıt aşağıdaki JSON nesnesi gibi görünür:
+Merhaba yanıt hello JSON nesnesi aşağıdaki gibi görünür:
 
 ```
 { 
@@ -88,9 +88,9 @@ Yanıt aşağıdaki JSON nesnesi gibi görünür:
 }
 ```
 
-`profile_info` Uygulamaya - kendi görünen ad, ad, Soyadı, e-posta adresi, tanımlayıcı ve benzeri oturum açan kullanıcı bilgilerini bulunan değer.  Öncelikle, `profile_info` belirteç önbelleğe alma işlemi için kullanılan ve nedeniyle görüntüler.
+Merhaba `profile_info` hello uygulamaya - kendi görünen ad, ad, Soyadı, e-posta adresi, tanımlayıcı ve benzeri oturum açan hello kullanıcı hakkındaki bilgileri yer alan değeri.  Öncelikle, hello `profile_info` belirteç önbelleğe alma işlemi için kullanılan ve nedeniyle görüntüler.
 
-Biz şimdi kaldırma `profile_info` değer – ancak endişelenmeyin, biz yine bu bilgiler biraz farklı bir yerde geliştiricilere sağlanmaktadır.  Yerine `profile_info`, v2.0 uç şimdi döndürülecek bir `id_token` her belirteci yanıt:
+Biz şimdi hello kaldırma `profile_info` değer – ancak endişelenmeyin, biz, bu bilgileri toodevelopers biraz farklı bir yerde sağlanmaktadır.  Yerine `profile_info`, hello v2.0 uç şimdi döndürecektir bir `id_token` her belirteci yanıt:
 
 ```
 { 
@@ -103,17 +103,17 @@ Biz şimdi kaldırma `profile_info` değer – ancak endişelenmeyin, biz yine b
 }
 ```
 
-Kod çözme ve profile_info alınan aynı bilgileri almak için id_token ayrıştırılamadı.  İd_token bir JSON Web Token (JWT), Openıd Connect tarafından belirtilen içeriğiyle ' dir.  Bunu yapmak için kod kadar çok benzer olmalıdır – id_token Orta segment (gövde) ayıklamak yeterlidir ve base64 JSON nesnesi içinde erişmek için kod çözme.
+Kod çözme ve hello id_token ayrıştırılamadı tooretrieve hello profile_info alınan aynı bilgileri.  Merhaba id_token bir JSON Web Token (JWT), Openıd Connect tarafından belirtilen içeriğiyle ' dir.  Merhaba bunu kodu çok benzer olmalıdır – tooextract hello Orta yeterlidir segment (Merhaba gövde) hello id_token base64 ve kod çözme tooaccess hello JSON nesnesi içinde.
 
-Sonraki iki hafta içinde kullanıcı bilgilerini herhangi birinden almak için uygulamanızı kod `id_token` veya `profile_info`; hangisi mevcuttur.  Değişiklik yapıldığında bu şekilde, uygulamanızı sorunsuz geçiş işleyebilir `profile_info` için `id_token` kesinti olmadan.
+Merhaba sonraki iki hafta ya da Merhaba, uygulama tooretrieve hello kullanıcı bilgilerinizin kodu `id_token` veya `profile_info`; hangisi mevcuttur.  Merhaba değişiklik yapıldığında bu şekilde, uygulamanızı sorunsuz bir şekilde hello geçiş işleyebilir `profile_info` çok`id_token` kesinti olmadan.
 
 > [!IMPORTANT]
-> **İşinizi: uygulamanızı varlığını bağlı değildir emin olun `profile_info` değeri.**
+> **İşinizi: uygulamanızı hello hello varlığını bağlı değildir emin olun `profile_info` değeri.**
 > 
 > 
 
 ### <a name="removing-idtokenexpiresin"></a>İd_token_expires_in kaldırma
-Benzer şekilde `profile_info`, biz de kaldırma `id_token_expires_in` yanıtlardan parametresi.  Daha önce v2.0 uç noktası için bir değer döndürmesi `id_token_expires_in` her id_token yanıtta, örneğin bir authorize yanıt yanı sıra:
+Benzer çok`profile_info`, biz de hello kaldırma `id_token_expires_in` yanıtlardan parametresi.  Daha önce hello v2.0 uç noktası için bir değer döndürmesi `id_token_expires_in` her id_token yanıtta, örneğin bir authorize yanıt yanı sıra:
 
 ```
 https://myapp.com?id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...&id_token_expires_in=3599...
@@ -132,15 +132,15 @@ Ya da belirteç yanıtı:
 }
 ```
 
-`id_token_expires_in` Değeri id_token kalması için geçerli saniye sayısını belirtmek.  Şimdi, biz kaldırıyorsunuz `id_token_expires_in` tamamen değeri.  Bunun yerine, Openıd Connect standart kullanabilir `nbf` ve `exp` bir id_token geçerliliğini incelemek talep.  Bkz: [v2.0 belirteç başvurusu](active-directory-v2-tokens.md) bu talepler hakkında daha fazla bilgi için.
+Merhaba `id_token_expires_in` değeri hello hello id_token kalması için geçerli saniye sayısını belirtmek.  Şimdi, biz hello kaldırıyorsunuz `id_token_expires_in` tamamen değeri.  Bunun yerine, hello Openıd Connect standart kullanabilir `nbf` ve `exp` bir id_token tooexamine hello geçerliliğini talepleri.  Merhaba bkz [v2.0 belirteç başvurusu](active-directory-v2-tokens.md) bu talepler hakkında daha fazla bilgi için.
 
 > [!IMPORTANT]
-> **İşinizi: uygulamanızı varlığını bağlı değildir emin olun `id_token_expires_in` değeri.**
+> **İşinizi: uygulamanızı hello hello varlığını bağlı değildir emin olun `id_token_expires_in` değeri.**
 > 
 > 
 
-### <a name="changing-the-claims-returned-by-scopeopenid"></a>Kapsam tarafından döndürülen talep değiştirme openıd =
-Bu değişiklik en önemli – aslında, v2.0 uç noktası kullanan neredeyse her uygulama etkiler.  Birçok uygulama, v2.0 uç noktası için kullanılacak istekleri göndermek `openid` gibi kapsam:
+### <a name="changing-hello-claims-returned-by-scopeopenid"></a>Kapsam tarafından döndürülen hello talep değiştirme openıd =
+Bu değişiklik hello en önemli – aslında olacaktır, hello v2.0 uç noktası kullanan neredeyse her uygulama etkiler.  Hello kullanarak birçok uygulamaları gönderme istekleri toohello v2.0 uç `openid` gibi kapsam:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -151,9 +151,9 @@ client_id=...
 &scope=openid offline_access https://outlook.office.com/mail.read
 ```
 
-Bugün, ne zaman kullanıcıya izin verir `openid` kapsam, uygulamanızın elde edilen id_token çok sayıda kullanıcı hakkındaki bilgileri alır.  Bu talep adlarıyla, tercih edilen kullanıcı adı, e-posta adresi, nesne kimliği ve daha fazla bilgi içerebilir.
+Bugün, ne zaman hello kullanıcı verir hello onaylarının `openid` kapsamı, uygulamanızı alır bol miktarda hello kullanıcı hakkındaki bilgileri id_token kaynaklanan hello.  Bu talep adlarıyla, tercih edilen kullanıcı adı, e-posta adresi, nesne kimliği ve daha fazla bilgi içerebilir.
 
-Bu güncelleştirme, biz bilgileri değiştiriyorsunuz, `openid` kapsam için daha iyi comform Openıd Connect belirtimiyle, uygulama erişimini ortaya koymaktadır.  `openid` Kapsam yalnızca kullanıcı oturum sağlamak ve kullanıcı için uygulamaya özgü tanımlayıcıyı alma `sub` id_token talep.  Yalnızca bir id_token Taleplerde `openid` verilen kapsam herhangi bir kişisel bilgi yoktur olacaktır.  Örnek id_token talep şunlardır:
+Bu güncelleştirme, biz hello bilgileri o hello değiştiriyorsunuz `openid` kapsam, uygulama erişimini, toobetter comform hello belirtimi Openıd Connect ile ortaya koymaktadır.  Merhaba `openid` kapsam yalnızca uygulama toosign hello kullanıcınız izin ve uygulamaya özgü tanımlayıcıyı hello kullanıcı için hello alırsınız `sub` hello id_token talep.  bir id_token talepleri yalnızca hello ile Merhaba `openid` verilen kapsam herhangi bir kişisel bilgi yoktur olacaktır.  Örnek id_token talep şunlardır:
 
 ```
 { 
@@ -169,12 +169,12 @@ Bu güncelleştirme, biz bilgileri değiştiriyorsunuz, `openid` kapsam için da
 }
 ```
 
-Uygulamanızda kullanıcıyla ilgili kişisel bilgileri (PII) elde etmek istiyorsanız, uygulamanızı kullanıcıdan ek izinler istemeniz gerekir.  Openıd Connect spec – iki yeni kapsamlar için destek sunuyoruz `email` ve `profile` , bunu yapmak izin kapsamları –.
+Uygulamanızda hello kullanıcı hakkında tooobtain kişisel bilgileri (PII) istiyorsanız, uygulamanızı toorequest hello kullanıcıdan ek izinler gerekir.  İki yeni kapsamlar için destek hello Openıd Connect spec – hello sunuyoruz `email` ve `profile` toodo şekilde izin kapsamları –.
 
-* `email` Kapsamı çok basit – kullanıcının birincil e-posta adresi uygulama erişiminizi sağlayan `email` id_token talep.  Unutmayın `email` talep her zaman olmayacak id_tokens içinde mevcut – yalnızca kullanıcının profilinde varsa dahil edilir.
-* `profile` Kapsam ortaya koymaktadır tüm diğer ilgili temel bilgileri kendi adı, tercih edilen kullanıcı adı, bir kullanıcının, uygulama erişimini nesne kimliği ve benzeri.
+* Merhaba `email` kapsamı çok basit –, uygulama erişim toohello kullanıcının birincil e-posta adresi hello aracılığıyla verir `email` hello id_token talep.  Bu hello Not `email` talep her zaman olmayacak id_tokens içinde mevcut – yalnızca hello kullanıcının profilindeki varsa dahil edilir.
+* Merhaba `profile` nesne kimliği kapsam ortaya koymaktadır, uygulama erişim tooall hello kullanıcı – kendi adı, tercih edilen kullanıcı adı, hakkındaki diğer temel bilgileri ve benzeri.
 
-Bu sayede uygulamanız açığa en az bir şekilde kod – yalnızca uygulamanızı işini yapmak için gerektirdiği bilgiler kümesi için kullanıcıya sor.  Kümesini uygulamanız şu anda alıyor kullanıcı bilgileri alma devam etmek istiyorsanız, tüm üç kapsamlar yetkilendirme isteklerinizi içermelidir:
+Toocode bu sayede uygulamanız açığa en az bir şekilde – hello kullanıcı uygulamanızı işini toodo gerektirdiği bilgiler yalnızca hello kümesi için sorabilirsiniz.  Uygulamanız şu anda alıyor kullanıcı bilgilerini hello kümesini alma toocontinue istiyorsanız, tüm üç kapsamlar yetkilendirme isteklerinizi içermelidir:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -185,55 +185,55 @@ client_id=...
 &scope=openid profile email offline_access https://outlook.office.com/mail.read
 ```
 
-Uygulamanızı göndermeye başlamak `email` ve `profile` hemen kapsamlar ve v2.0 uç noktası bu iki kapsamları kabul ve gerektiği şekilde kullanıcıların izinleri isteyen başlamak.  Ancak, yorumu değişikliği `openid` kapsamı değil kazanacak için birkaç hafta.
+Uygulamanızı hello gönderme başlayabilirsiniz `email` ve `profile` kapsamları hemen ve hello v2.0 uç bu iki kapsamları kabul ve gerektiği şekilde kullanıcıların izinleri isteyen başlayın.  Bununla birlikte, hello değişikliği hello hello yorumu içinde `openid` kapsamı değil kazanacak için birkaç hafta.
 
 > [!IMPORTANT]
-> **İşinizi: eklemek `profile` ve `email` uygulamanızı kullanıcı hakkındaki bilgileri gerektiriyorsa kapsamları.**  ADAL bu izinlerin ikisini de isteklerinde varsayılan olarak dahil edeceğini unutmayın. 
+> **İşinizi: hello eklemek `profile` ve `email` uygulamanızı hello kullanıcı hakkındaki bilgileri gerektiriyorsa kapsamları.**  ADAL bu izinlerin ikisini de isteklerinde varsayılan olarak dahil edeceğini unutmayın. 
 > 
 > 
 
-### <a name="removing-the-issuer-trailing-slash"></a>Sondaki eğik çizgi veren kaldırılıyor.
-Daha önce v2.0 uç noktasından belirteçleri görünen veren değeri form sürdü
+### <a name="removing-hello-issuer-trailing-slash"></a>Merhaba veren eğik kaldırılıyor.
+Daha önce belirteçleri hello v2.0 uç noktasından görünür hello veren değeriyle hello form sürdü
 
 ```
 https://login.microsoftonline.com/{some-guid}/v2.0/
 ```
 
-GUID, belirtecin Azure AD kiracısı Tenantıd olduğu.  Bu değişikliklerle veren değeri olur
+Merhaba GUID hello Tenantıd hello belirteç hello Azure AD Kiracı olduğu.  Bu değişikliklerle hello veren değeri olur
 
 ```
 https://login.microsoftonline.com/{some-guid}/v2.0 
 ```
 
-Her iki simge ve Openıd Connect bulma belge.
+Her iki simge ve hello Openıd Connect bulma belge.
 
 > [!IMPORTANT]
-> **İşinizi: uygulamanızı veren doğrulama sırasında hem ile hem de eğik olmadan veren değeri kabul ettiğinden emin olun.**
+> **İşinizi: uygulamanızı veren doğrulama sırasında hello veren değeriyle hem ile hem de eğik olmadan kabul ettiğinden emin olun.**
 > 
 > 
 
 ## <a name="why-change"></a>Neden değişiyor?
-Bu değişiklikler tanıtımı için birincil motivasyon Openıd Connect standart belirtimi ile uyumlu olacak.  Openıd Connect uyumlu olma yoluyla Microsoft Identity hizmetleriyle ve diğer endüstri kimlik Hizmetleri ile tümleştirme arasındaki farklar en aza indirmek umuyoruz.  Microsoft farklara uyum sağlamak için kitaplıkları değiştirmek zorunda kalmadan kendi sık kullanılan açık kaynak kimlik doğrulama kitaplıkları kullanabilirsiniz, geliştiricilerin istiyoruz.
+Bu değişiklikler tanıtımı için birincil motivasyon hello toobe hello standart belirtimi Openıd Connect ile uyumlu olur.  Openıd Connect uyumlu olma yoluyla Microsoft Identity Hizmetleri ve diğer kimlik hizmetlerle hello sektörünün tümleştirme arasındaki farklar toominimize umuyoruz.  Tooenable geliştiriciler toouse kendi sık kullanılan açık kaynak kimlik doğrulama kitaplıkları tooalter hello kitaplıkları tooaccommodate Microsoft farklar gerek kalmadan istiyoruz.
 
 ## <a name="what-can-you-do"></a>Ne yapabilirsiniz?
-Bugün itibariyle, yukarıda açıklanan tüm değişiklikleri yapma başlayabilirsiniz.  Hemen yapmanız gerekir:
+Bugünden itibaren tüm yukarıda açıklanan hello değişiklikleri yapma başlayabilirsiniz.  Hemen yapmanız gerekir:
 
-1. **Bağımlılıkları kaldırmak `x5t` Üstbilgi parametresi.**
-2. **Geçiş işleyebilmesini `profile_info` için `id_token` belirteci yanıtlarındaki.**
-3. **Bağımlılıkları kaldırmak `id_token_expires_in` yanıt parametresi.**
-4. **Ekleme `profile` ve `email` uygulamanızı temel kullanıcı bilgileri gerektiriyorsa, uygulamanızın kapsamları.**
+1. **Merhaba tüm bağımlılıkları kaldırın `x5t` Üstbilgi parametresi.**
+2. **Merhaba geçiş işleyebilmesini `profile_info` çok`id_token` belirteci yanıtlarındaki.**
+3. **Merhaba tüm bağımlılıkları kaldırın `id_token_expires_in` yanıt parametresi.**
+4. **Merhaba eklemek `profile` ve `email` uygulamanızı temel kullanıcı bilgilerini gerekiyorsa kapsamları tooyour uygulama.**
 5. **Hem ile hem de eğik olmadan belirteçleri veren değerleri kabul edin.**
 
-Bizim [v2.0 protokolü belgeleri](active-directory-v2-protocols.md) zaten kodunuzu güncelleştirin yardımcı olacak başvuru olarak kullanabilir şekilde bu değişiklikleri yansıtacak şekilde güncelleştirildi.
+Bizim [v2.0 protokolü belgeleri](active-directory-v2-protocols.md) kodunuzu güncelleştirin yardımcı olacak başvuru olarak kullanabilir şekilde güncelleştirilmiş tooreflect bu değişiklikler, zaten.
 
-Değişiklikleri kapsamını herhangi bir sorunuz varsa, lütfen Twitter'da Bize Ulaşın çekinmeyin @AzureAD.
+Merhaba değişiklikleri hello kapsamını herhangi başka bir sorunuz varsa, lütfen ücretsiz tooreach hissedilmesini çıkış Twitter'da toous @AzureAD.
 
 ## <a name="how-often-will-protocol-changes-occur"></a>Protokol değişiklikleri sıklığını?
-Şu kimlik doğrulama protokolleri tüm daha fazla kesme değiştirir öngörüyor musunuz.  İstediğiniz zaman tekrar yakında güncelleştirme işlemini bu tür gitmek zorunda kalmazsınız böylece Biz bu değişiklikleri bir yayın alanına bilerek paketleme.  Elbette, avantajlarından yararlanmak yakınsanmış v2.0 kimlik doğrulama hizmeti özellikleri eklemek devam, ancak bu değişiklikleri ADDITIVE ve kod varolan sonu olması gerekir.
+Biz toohello kimlik doğrulama protokolleri tüm daha fazla kesme değiştirir öngörüyor musunuz.  İstediğiniz zaman tekrar yakında bu tür bir güncelleştirme işlemi üzerinden toogo olmayacaktır böylece Biz bu değişiklikleri bir yayın alanına bilerek paketleme.  Elbette, biz tooadd özellikleri toohello devam edecek özelliklerden yararlanabilirsiniz v2.0 kimlik doğrulama hizmeti Yakınsanan, ancak bu değişiklikleri ADDITIVE ve kod varolan sonu olması gerekir.
 
-Son olarak, Önizleme dönemi boyunca şeyler çalışırken için teşekkür ederiz söylemek isteriz.  Öngörüler ve bizim erken Benimseyenler deneyimlerini bugüne kadarki çok atanmış olması ve sizin görüşlerini paylaşın devam edeceğiz umuyoruz.
+Son olarak, hello Önizleme dönemi boyunca şeyler çalışırken için teşekkür ederiz toosay isteriz.  Merhaba Öngörüler ve bizim erken Benimseyenler deneyimlerini bugüne kadarki çok atanmış olması ve tooshare görüşlerini ve fikriniz devam edeceğiz umuyoruz.
 
 Mutluluk kodlama!
 
-Microsoft Identity bölme
+Merhaba Microsoft Identity bölme
 

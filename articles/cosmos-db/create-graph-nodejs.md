@@ -1,6 +1,6 @@
 ---
-title: "Grafik API'sini kullanarak Azure Cosmos DB Node.js uygulaması oluşturma | Microsoft Docs"
-description: "Azure Cosmos DB'ye bağlanmak ve veritabanını sorgulamak için kullanabileceğiniz bir Node.js kod örneği sunar"
+title: aaaBuild grafik API'sini kullanarak Azure Cosmos DB Node.js uygulama | Microsoft Docs
+description: "Tooconnect tooand kullanabileceğiniz bir Node.js kodu örnek sorgu Azure Cosmos DB sunar"
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -15,25 +15,25 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/14/2017
 ms.author: denlee
-ms.openlocfilehash: 6d14719938af0ce825955389824441e111024869
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1445755842bc4e4a84ca2b2f789aadde8467e190
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Grafik API'sini kullanarak bir Node.js uygulaması oluşturma
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
+Azure Cosmos DB hello Genel dağıtılmış birden çok model veritabanı Microsoft'tan hizmetidir. Hızlı bir şekilde oluşturmak ve belge, anahtar/değer ve grafik veritabanları, her biri hello genel dağıtım ve yatay ölçek özelliklerini Azure Cosmos DB'nin hello çekirdek yararlı sorgulayabilirsiniz. 
 
-Bu hızlı başlangıç makalesinde, Azure portalı kullanılarak Grafik API'si (önizleme), veritabanı ve grafik için Azure Cosmos DB hesabının nasıl oluşturulacağı gösterilmiştir. Bu adımların ardından açık kaynaklı [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure) sürücüsünü kullanarak bir konsol uygulaması oluşturabilir ve çalıştırabilirsiniz.  
+Bu hızlı başlangıç makalede nasıl toocreate bir Azure Cosmos DB hesap grafik API'si (Önizleme), veritabanı ve grafik hello Azure portal kullanarak gösterilmektedir. Ardından derleme ve hello açık kaynaklı kullanarak bir konsol uygulaması çalıştırma [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure) sürücü.  
 
 > [!NOTE]
-> `gremlin-secure` npm modülü, `gremlin` modülünün Azure Cosmos DB ile bağlantı kurmak için gereken SSL ve SASL desteğine sahip değiştirilmiş bir sürümüdür. Kaynak kodu [GitHub](https://github.com/CosmosDB/gremlin-javascript)’dan edinilebilir.
+> Merhaba npm modülünü `gremlin-secure` değiştirilmiş bir sürümüdür `gremlin` modülüyle SSL ve Azure Cosmos DB ile bağlanmak için gereken SASL desteği. Kaynak kodu [GitHub](https://github.com/CosmosDB/gremlin-javascript)’dan edinilebilir.
 >
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız gerekir:
+Bu örneği çalıştırmadan önce aşağıdaki önkoşullar hello sahip olmanız gerekir:
 * [Node.js](https://nodejs.org/en/) v0.10.29 sürümü veya sonraki bir sürüm
 * [Git](http://git-scm.com/)
 
@@ -47,25 +47,25 @@ Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız ge
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
+## <a name="clone-hello-sample-application"></a>Merhaba örnek uygulaması kopyalama
 
-Şimdi GitHub'dan bir Grafik API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Artık şimdi kopya grafik API'si uygulama github'dan hello bağlantı dizesini ayarlamak ve çalıştırın. Ne kadar kolay toowork verilerle program aracılığıyla olduğunu görürsünüz. 
 
-1. Git Bash gibi bir Git terminal penceresi açın ve bir çalışma diziniyle değiştirin (`cd` komutuyla).  
+1. Git Bash gibi bir Git terminal penceresi açın ve değiştirme (aracılığıyla `cd` komutu) tooa çalışma dizini.  
 
-2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. 
+2. Çalışma hello aşağıdaki tooclone hello örnek depo komutu. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git
     ```
 
-3. Çözüm dosyasını Visual Studio'da açın. 
+3. Visual Studio'da Hello çözüm dosyasını açın. 
 
-## <a name="review-the-code"></a>Kodu gözden geçirin
+## <a name="review-hello-code"></a>Merhaba kod gözden geçirme
 
-Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `app.js` dosyasını açtığınızda aşağıdaki kod satırlarıyla karşılaşacaksınız. 
+Neler olduğuna dair hello uygulamada hızlı bir gözden geçirme olalım. Açık hello `app.js` dosyasını ve kod satırı aşağıdaki hello bulabilirsiniz. 
 
-* Gremlin istemcisi oluşturulur.
+* Merhaba Gremlin istemci oluşturulur.
 
     ```nodejs
     const client = Gremlin.createClient(
@@ -79,9 +79,9 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `app.js` dosya
         });
     ```
 
-  Tüm yapılandırmalar, aşağıdaki bölümde düzenlediğimiz `config.js` öğesinde yer alır.
+  Merhaba tümünü bağlantılardır `config.js`, hangi biz bölümden hello düzenleyin.
 
-* `client.execute` yöntemiyle bir dizi Gremlin adımı yürütülür.
+* Bir dizi Gremlin adımı ile Merhaba yürütülme `client.execute` yöntemi.
 
     ```nodejs
     console.log('Running Count'); 
@@ -94,32 +94,32 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `app.js` dosya
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
-1. Config.js dosyasını açın. 
+1. Açık hello config.js dosyası. 
 
-2. Config.js dosyasında, config.endpoint anahtarını Azure portalının **Genel Bakış** sayfasında bulunan **Gremlin URI** değeriyle doldurun. 
+2. Config.js içinde hello config.endpoint hello anahtarla doldurun **Gremlin URI** başlangıç değerinden **genel bakış** hello Azure portal sayfası. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
-    ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-graph-nodejs/gremlin-uri.png)
+    ![Görüntüleme ve kopyalama hello Azure portalına erişim tuşu, anahtarlar dikey penceresinde](./media/create-graph-nodejs/gremlin-uri.png)
 
-   **Gremlin URI** değeri boşsa, portaldaki **Anahtarlar** sayfasında bulunan **URI** değerini kullanıp https:// bölümünü çıkararak ve belgeleri grafiklere dönüştürerek bir değer oluşturabilirsiniz.
+   Merhaba, **Gremlin URI** değer boşsa, hello hello değeri oluşturabilir **anahtarları** hello kullanarak hello portal sayfasında **URI** https:// kaldırma ve değiştirme değeri belgeleri toographs.
 
-   Gremlin uç noktası, `mygraphdb.graphs.azure.com` (`https://mygraphdb.graphs.azure.com` veya `mygraphdb.graphs.azure.com:433` değil) gibi protokol/bağlantı noktası numarası olmayan tek ana bilgisayar adı olmalıdır.
+   Merhaba Gremlin uç noktası olmalıdır hello protokolü/bağlantı noktası numarası olmadan yalnızca hello ana bilgisayar adı gibi `mygraphdb.graphs.azure.com` (değil `https://mygraphdb.graphs.azure.com` veya `mygraphdb.graphs.azure.com:433`).
 
-3. Config.js dosyasında, config.primaryKey değerini Azure portalının **Anahtarlar** sayfasında bulunan **Birincil Anahtar** değeriyle doldurun. 
+3. Config.js içinde hello config.primaryKey hello değeri doldurun **birincil anahtar** başlangıç değerinden **anahtarları** hello Azure portal sayfası. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   ![Azure portalı Anahtarlar dikey penceresi](./media/create-graph-nodejs/keys.png)
+   ![Azure portal anahtarlar dikey penceresinde Hello](./media/create-graph-nodejs/keys.png)
 
-4. Veritabanı adını ve config.database ve config.collection değerinin grafik (kapsayıcı) adını girin. 
+4. Merhaba veritabanı adı ve hello değeri config.database ve config.collection grafik (kapsayıcı) adını girin. 
 
 Aşağıda, tamamlanan config.js dosyanızın nasıl görüneceğine ilişkin bir örnek bulabilirsiniz:
 
 ```nodejs
 var config = {}
 
-// Note that this must not have HTTPS or the port number
+// Note that this must not have HTTPS or hello port number
 config.endpoint = "testgraphacct.graphs.azure.com";
 config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
@@ -128,38 +128,38 @@ config.collection = "Persons"
 module.exports = config;
 ```
 
-## <a name="run-the-console-app"></a>Konsol uygulamasını çalıştırma
+## <a name="run-hello-console-app"></a>Merhaba konsol uygulamasını çalıştırın
 
-1. Terminal penceresi açın ve projeye dahil olan package.json dosyası için yükleme diziniyle değiştirin (`cd` komutuyla).  
+1. Bir terminal penceresi açın ve değiştirme (aracılığıyla `cd` komutu) toohello yükleme dizini hello projeye dahil hello package.json dosyası için.  
 
-2. `gremlin-secure` dahil gerekli npm modüllerini yüklemek için `npm install` öğesini çalıştırın.
+2. Çalıştırma `npm install` tooinstall hello npm modülleri dahil olmak üzere, gerekli `gremlin-secure`.
 
-3. Node.js uygulamanızı başlatmak için bir terminalde `node app.js` komutunu çalıştırın.
+3. Çalıştırma `node app.js` terminal toostart içinde düğüm uygulamanızı.
 
 ## <a name="browse-with-data-explorer"></a>Veri Gezgini ile Göz Ama
 
-Artık Azure portalındaki Veri Gezgini'ne dönerek yeni grafik verilerinizi görüntüleyebilir, sorgulayabilir, değiştirebilir ve bu verilerle çalışabilirsiniz.
+Şimdi tooData Explorer hello Azure portal tooview içinde geri dönün, sorgu değiştirin ve yeni grafik verilerinizle çalışır.
 
-Yeni veritabanı, Veri Gezgini'nin **Grafikler** bölmesinde görüntülenir. Veritabanını ve ardından koleksiyonu genişletip **Grafik**’e tıklayın.
+Veri Gezgini'nde hello yeni veritabanı hello görünür **grafikleri** bölmesi. Hello koleksiyon tarafından izlenen hello veritabanını genişletin, sonra tıklatın **grafik**.
 
-Örnek uygulama tarafından oluşturulan veriler, **Filtre Uygula**’ya tıkladığınızda **Grafik** sekmesinin sonraki bölmesinde gösterilir.
+Merhaba örnek uygulama tarafından oluşturulan hello veri hello içinde hello sonraki bölmesinde görüntülenir **grafik** sekmesine tıkladığınızda **Filtre Uygula**.
 
-Filtreyi test etmek için `g.V()` işlemini `.has('firstName', 'Thomas')` ile tamamlamayı deneyin. Değerin büyük küçük harfe duyarlı olduğunu unutmayın.
+Tamamlanıyor deneyin `g.V()` ile `.has('firstName', 'Thomas')` tootest hello filtre. Merhaba değeri büyük küçük harfe duyarlı olduğunu unutmayın.
 
-## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
+## <a name="review-slas-in-hello-azure-portal"></a>Gözden geçirme SLA'hello Azure portalı
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-your-resources"></a>Kaynaklarınızı temizleme
 
-Bu uygulamayı kullanmaya devam etmeyi düşünmüyorsanız aşağıdakileri yaparak bu makalede oluşturduğunuz tüm kaynakları silin: 
+Bu uygulamayı kullanarak toocontinue düşünmüyorsanız hello aşağıdakileri yaparak bu makalede oluşturulan tüm kaynakları silin: 
 
-1. Azure portalında sol taraftaki menüden **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
-2. Kaynak grubu sayfanızda **Sil**'e tıklayın, silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
+1. Merhaba hello sol gezinti menüsünde, Azure portal'ı tıklatın **kaynak grupları**ve ardından oluşturduğunuz hello kaynak hello adına tıklayın. 
+2. Kaynak grubu sayfanızda tıklatın **silmek**, silinen hello kaynak toobe hello adını yazın ve ardından **silmek**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak grafik oluşturmayı ve bir uygulamayı çalıştırmayı öğrendiniz. Artık daha karmaşık sorgular oluşturabilir ve Gremlin kullanarak güçlü grafik geçişi mantığını kullanabilirsiniz. 
+Bu makalede, bir Azure Cosmos DB hesap toocreate Veri Gezgini'ni kullanarak bir grafik oluşturma ve bir uygulama çalıştırmasına öğrendiniz. Artık daha karmaşık sorgular oluşturabilir ve Gremlin kullanarak güçlü grafik geçişi mantığını kullanabilirsiniz. 
 
 > [!div class="nextstepaction"]
 > [Gremlin kullanarak sorgulama](tutorial-query-graph.md)

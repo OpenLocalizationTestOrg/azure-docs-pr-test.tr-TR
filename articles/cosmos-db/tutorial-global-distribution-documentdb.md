@@ -1,6 +1,6 @@
 ---
-title: "DocumentDB API için Azure Cosmos DB genel dağıtım Öğreticisi | Microsoft Docs"
-description: "DocumentDB API kullanarak Azure Cosmos DB genel dağıtım Kurulum öğrenin."
+title: "DocumentDB API için aaaAzure Cosmos DB genel dağıtım Öğreticisi | Microsoft Docs"
+description: "Nasıl toosetup Azure Cosmos DB genel dağıtım kullanarak izin ver hello DocumentDB API öğrenin."
 services: cosmos-db
 keywords: "genel dağıtım, documentdb"
 documentationcenter: 
@@ -15,51 +15,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: f4d8efe9814bd28bb902567a23b541bc9b5414a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a1d5f01faa62407fbbc9c078ef4a9589a1a29219
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>DocumentDB API kullanarak Azure Cosmos DB genel dağıtım ayarlama
+# <a name="how-toosetup-azure-cosmos-db-global-distribution-using-hello-documentdb-api"></a>Nasıl toosetup Azure Cosmos DB genel dağıtım kullanarak izin ver hello DocumentDB API
 
-Bu makalede, Azure portalında Azure Cosmos DB genel dağıtım kurulumu ve DocumentDB API kullanarak bağlanmak için nasıl kullanılacağını gösterir.
+Bu makalede, nasıl toouse Azure portal toosetup Azure Cosmos DB genel dağıtım hello ve hello DocumentDB API kullanarak bağlanmak gösterir.
 
-Bu makalede aşağıdaki görevleri içerir: 
+Bu makalede görevleri aşağıdaki hello yer almaktadır: 
 
 > [!div class="checklist"]
-> * Azure portalını kullanarak genel dağıtım yapılandırma
-> * Genel dağıtım kullanarak yapılandırma [DocumentDB API'leri](documentdb-introduction.md)
+> * Genel dağıtım Hello Azure portal kullanarak yapılandırma
+> * Hello kullanarak genel dağıtım yapılandırma [DocumentDB API'leri](documentdb-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-documentdb-api"></a>DocumentDB API kullanarak bir tercih edilen bölge bağlanma
+## <a name="connecting-tooa-preferred-region-using-hello-documentdb-api"></a>Tooa tercih edilen bölge Hello DocumentDB API kullanarak bağlanma
 
-Anlamıyla yararlanabilmek için [genel dağıtım](distribute-data-globally.md), istemci uygulamaları, belge işlemlerini gerçekleştirmek için kullanılacak bölgelerin sıralı tercih listesi belirtebilirsiniz. Bu bağlantı İlkesi ayarlayarak yapılabilir. Azure Cosmos DB hesabı yapılandırması, geçerli bölge kullanılabilirliği ve belirtilen tercih listesi bağlı olarak, en iyi endpoint yazma gerçekleştirmek ve okuma işlemleri için DocumentDB SDK tarafından seçilir.
+Sipariş tootake avantajlarından içinde [genel dağıtım](distribute-data-globally.md), istemci uygulamalarının hello sıralı kullanılan tooperform belge işlemleri bölgeleri toobe tercih listesi belirtebilirsiniz. Bu, başlangıç bağlantı İlkesi ayarlayarak yapılabilir. Hello Azure Cosmos DB hesap yapılandırmasını temel alarak, geçerli bölge kullanılabilirliği ve hello tercih listesi, belirtilen hello çoğu en iyi bitiş noktası tarafından DocumentDB SDK'sı tooperform yazma ve okuma işlemlerini hello seçilir.
 
-Bu tercih listesi DocumentDB SDK'ları kullanarak bağlantı başlatırken belirtilir. SDK'ları isteğe bağlı bir parametre "PreferredLocations" kabul Azure bölgeleri diğer bir deyişle sıralı bir listesi.
+Bu tercih listesi hello DocumentDB SDK'ları kullanarak bağlantı başlatırken belirtilir. Merhaba SDK'ları isteğe bağlı bir parametre "PreferredLocations" kabul Azure bölgeleri diğer bir deyişle sıralı bir listesi.
 
-SDK, bölge geçerli tüm yazma işlemlerini yazma otomatik olarak gönderir.
+Merhaba SDK tüm yazma toohello geçerli yazma bölge otomatik olarak gönderir.
 
-İlk kullanılabilir bölge PreferredLocations listesindeki tüm okuma gönderilir. İstek başarısız olursa, istemci listeyi sonraki bölgeyi başarısız ve benzeri.
+Tüm okuma toohello ilk kullanılabilir bölge hello PreferredLocations listesinde gönderilir. Merhaba isteği başarısız olursa, hello istemci hello listesi toohello sonraki bölgeyi başarısız ve benzeri.
 
-SDK'ları yalnızca PreferredLocations içinde belirtilen bölgeler okuma dener. Bu nedenle, örneğin, veritabanı hesabı üç bölgelerde kullanılabilir, ancak PreferredLocations için iki yazma olmayan bölgeleri yalnızca istemci belirtir, sonra okuma yazma bölge, yük devretme durumunda bile dışında sunulacak.
+Merhaba SDK'ları yalnızca tooread PreferredLocations içinde belirtilen hello bölgelerinden deneyecek. Bu nedenle, örneğin, hello veritabanı hesabı üç bölgelerde kullanılabilir, ancak PreferredLocations için iki hello yazma olmayan bölgeleri yalnızca hello istemci belirtir, sonra okuma yük devretme hello durumda bile hello yazma bölgesi dışında sunulacak.
 
-Uygulama, geçerli yazma uç noktası doğrulayın ve WriteEndpoint ve ReadEndpoint, SDK sürümü 1.8 ve üzeri kullanılabilir iki özelliklerini denetleyerek SDK tarafından seçilen endpoint okuyun.
+Merhaba uygulaması hello geçerli yazma uç noktası doğrulayın ve uç nokta denetimi iki özellikleri, WriteEndpoint ve ReadEndpoint, SDK sürümü 1.8 ve üzeri kullanılabilir tarafından hello SDK tarafından seçilen okuyun.
 
-PreferredLocations özellik ayarlanmamışsa, tüm istekleri geçerli yazma bölgesinden sunulacak.
+Merhaba PreferredLocations özellik ayarlanmamışsa, tüm istekleri hello geçerli yazma bölgesinden sunulacak.
 
 ## <a name="net-sdk"></a>.NET SDK
-SDK kod değişiklikleri kullanılabilir. Bu durumda, SDK'yı otomatik olarak her iki okuma yönlendirir ve geçerli yazma bölgesine yazar.
+Merhaba SDK kod değişiklikleri kullanılabilir. Bu durumda, hello SDK otomatik olarak her iki okuma yönlendirir ve toohello geçerli yazma bölge yazar.
 
-Sürüm 1,8 ve daha sonra .NET SDK'sına, ConnectionPolicy parametresi DocumentClient oluşturucusu için Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations adlı bir özelliğe sahiptir. Bu özellik koleksiyonu türünde `<string>` ve bölge adları listesi içermelidir. Üzerinde biçimlendirilen dize değerleri bölge adı sütun başına [Azure bölgeleri] [ regions] boşluk önce veya sonra ilk sayfasında ve karakter sırasıyla en son.
+Sürüm 1,8 ve sonraki hello .NET SDK'sı, hello ConnectionPolicy parametresi hello DocumentClient oluşturucusu için Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations adlı bir özelliğe sahiptir. Bu özellik koleksiyonu türünde `<string>` ve bölge adları listesi içermelidir. Merhaba hello bölge adı sütunu başına biçimlendirilen Hello dize değerleri [Azure bölgeleri] [ regions] , boşluk önce veya sonra hello ilk sayfa ve karakter sırasıyla en son.
 
-Geçerli yazma ve okuma uç noktaları sırasıyla DocumentClient.WriteEndpoint ve DocumentClient.ReadEndpoint kullanılabilir.
+Merhaba geçerli yazma ve okuma uç noktaları sırasıyla DocumentClient.WriteEndpoint ve DocumentClient.ReadEndpoint kullanılabilir.
 
 > [!NOTE]
-> Uç noktalar için URL'leri uzun süreli sabitleri düşünülmemelidir. Hizmet, bunlar herhangi bir noktada güncelleştirebilir. SDK, bu değişiklik otomatik olarak yönetir.
+> Merhaba URL'leri hello uç noktalar için uzun süreli sabitleri düşünülmemelidir. Merhaba hizmet bunlar herhangi bir noktada güncelleştirebilir. Merhaba SDK bu değişikliği otomatik olarak yönetir.
 >
 >
 
@@ -81,44 +81,44 @@ DocumentClient docClient = new DocumentClient(
     accountKey,
     connectionPolicy);
 
-// connect to DocDB
+// connect tooDocDB
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
 ## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS, JavaScript ve Python SDK'ları
-SDK kod değişiklikleri kullanılabilir. Bu durumda, SDK'yı otomatik olarak okuma ve yazma geçerli bölge yazma yönlendirir.
+Merhaba SDK kod değişiklikleri kullanılabilir. Bu durumda, SDK otomatik olarak doğrudan hello hem okur ve toohello geçerli yazma bölge yazar.
 
-Sürüm 1,8 ve her SDK'ın daha sonra ConnectionPolicy parametresi DocumentClient oluşturucusu için yeni bir özellik DocumentClient.ConnectionPolicy.PreferredLocations çağrılır. Bu parametre olan bölge adlarının bir listesini alan bir dizeler dizisi. Bölge adı sütununda başına biçimli adları [Azure bölgeleri] [ regions] sayfası. Önceden tanımlanmış sabitleri kolaylık nesnesinde AzureDocuments.Regions kullanabilirsiniz
+Sürüm 1,8 ve daha sonra her SDK'sının hello ConnectionPolicy parametre hello DocumentClient Oluşturucusu DocumentClient.ConnectionPolicy.PreferredLocations adlı yeni bir özellik için. Bu parametre olan bölge adlarının bir listesini alan bir dizeler dizisi. Merhaba bölge adı hello sütununda başına biçimli Hello adları [Azure bölgeleri] [ regions] sayfası. Önceden tanımlanmış hello sabitleri hello kolaylık nesne AzureDocuments.Regions kullanabilirsiniz
 
-Geçerli yazma ve okuma uç noktaları sırasıyla DocumentClient.getWriteEndpoint ve DocumentClient.getReadEndpoint kullanılabilir.
+Merhaba geçerli yazma ve okuma uç noktaları sırasıyla DocumentClient.getWriteEndpoint ve DocumentClient.getReadEndpoint kullanılabilir.
 
 > [!NOTE]
-> Uç noktalar için URL'leri uzun süreli sabitleri düşünülmemelidir. Hizmet, bunlar herhangi bir noktada güncelleştirebilir. SDK bu değişikliği otomatik olarak işler.
+> Merhaba URL'leri hello uç noktalar için uzun süreli sabitleri düşünülmemelidir. Merhaba hizmet bunlar herhangi bir noktada güncelleştirebilir. Merhaba SDK bu değişikliği otomatik olarak işler.
 >
 >
 
-NodeJS/Javascript için bir kod örneği aşağıdadır. Python ve Java aynı düzeni izler.
+NodeJS/Javascript için bir kod örneği aşağıdadır. Python ve Java hello izleyecek aynı düzeni.
 
 ```java
 // Creating a ConnectionPolicy object
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 
-// Setting read region selection preference, in the following order -
+// Setting read region selection preference, in hello following order -
 // 1 - West US
 // 2 - East US
 // 3 - North Europe
 connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
 
-// initialize the connection
+// initialize hello connection
 var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
 ```
 
 ## <a name="rest"></a>REST
-Veritabanı hesabı birden çok bölgede kullanılabilir yapıldıktan sonra istemciler aşağıdaki URI üzerinde bir GET isteği gerçekleştirerek, kullanılabilirlik sorgulayabilir.
+Veritabanı hesabı birden çok bölgede kullanılabilir yapıldıktan sonra istemciler kendi kullanılabilirlik URI aşağıdaki hello üzerinde bir GET isteği gerçekleştirerek sorgulayabilir.
 
     https://{databaseaccount}.documents.azure.com/
 
-Hizmet bölgeler ve bunların karşılık gelen Azure Cosmos DB uç noktası URI için çoğaltmaları listesini döndürür. Geçerli yazma bölgeyi yanıtında gösterilir. İstemci ardından aşağıdaki gibi daha fazla tüm REST API istekleri için uygun uç noktası seçebilirsiniz.
+Merhaba hizmet bölgeler ve bunların karşılık gelen Azure Cosmos DB uç noktası URI için hello çoğaltmaları listesini döndürür. Merhaba geçerli yazma bölge hello yanıt olarak belirtilir. Merhaba istemci hello uygun uç noktası daha fazla tüm REST API istekleri için daha sonra şu şekilde seçebilirsiniz.
 
 Örnek yanıt
 
@@ -153,27 +153,27 @@ Hizmet bölgeler ve bunların karşılık gelen Azure Cosmos DB uç noktası URI
     }
 
 
-* Tüm PUT, POST ve DELETE isteklerini belirtilen yazma URI gitmeniz gerekir
-* Tüm alır ve diğer salt okunur istekleri (örneğin sorgular) için istemcinin istediği herhangi bir uç nokta gidebilir
+* Tüm PUT, POST ve DELETE isteklerini gitmelidir belirtilen toohello URI yazma
+* Tüm alır ve diğer salt okunur istekleri (örneğin sorgular) tooany endpoint hello istemcinin tercih gidebilir
 
-Yazma isteklerini salt okunur bölgelere 403 ("Yasak") HTTP hata koduyla başarısız olur.
+Yazma isteklerini yalnızca tooread bölgeler 403 ("Yasak") HTTP hata koduyla başarısız olur.
 
-Yazma bölge sonra istemcinin ilk bulma aşama değişirse, önceki yazma bölgeye sonraki yazma 403 ("Yasak") HTTP hata koduyla başarısız olur. İstemci, daha sonra yeniden güncelleştirilmiş yazma bölge almak için bölgelerin listesi ALMANIZ gerekir.
+Merhaba yazma bölge sonra değişirse hello istemcinin ilk bulma aşaması, sonraki toohello önceki yazma bölge 403 ("Yasak") HTTP hata koduyla başarısız olur yazar. Merhaba istemci sonra hello bölgelerin listesi yeniden tooget hello güncelleştirilmiş yazma bölge ALMANIZ gerekir.
 
-Bu, bu öğreticinin tamamlanan kadar. Genel olarak çoğaltılmış hesabınızı tutarlılığını okuyarak yönetmek nasıl öğrenebilirsiniz [Azure Cosmos veritabanı tutarlılık düzeylerini](consistency-levels.md). Ve Azure Cosmos DB'de nasıl genel veritabanı çoğaltma hakkında daha fazla bilgi çalıştığı için bkz: [Azure Cosmos DB genel verilerle dağıtmak](distribute-data-globally.md).
+Bu, bu öğreticinin tamamlanan kadar. Nasıl toomanage hello genel çoğaltılmış hesabınızı tutarlılığını okuyarak öğrenebilirsiniz [Azure Cosmos veritabanı tutarlılık düzeylerini](consistency-levels.md). Ve Azure Cosmos DB'de nasıl genel veritabanı çoğaltma hakkında daha fazla bilgi çalıştığı için bkz: [Azure Cosmos DB genel verilerle dağıtmak](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan:
+Bu öğreticide, hello aşağıdakileri yaptığınızdan:
 
 > [!div class="checklist"]
-> * Azure portalını kullanarak genel dağıtım yapılandırma
-> * DocumentDB API'lerini kullanarak genel dağıtım yapılandırma
+> * Genel dağıtım Hello Azure portal kullanarak yapılandırma
+> * Merhaba DocumentDB API'leri kullanılarak genel dağıtım yapılandırma
 
-Artık Azure Cosmos DB yerel öykünücüsü kullanarak yerel olarak geliştirme konusunda bilgi almak için sonraki öğretici devam edebilirsiniz.
+Toohello sonraki öğretici toolearn şimdi devam etmek için nasıl Azure Cosmos DB yerel öykünücüsü kullanarak yerel olarak toodevelop hello.
 
 > [!div class="nextstepaction"]
-> [Yerel olarak öykünücü ile geliştirme](local-emulator.md)
+> [Yerel olarak hello öykünücü ile geliştirme](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
 

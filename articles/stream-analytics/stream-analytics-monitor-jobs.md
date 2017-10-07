@@ -1,6 +1,6 @@
 ---
-title: "Program aracılığıyla akış analizi işleri izleme | Microsoft Docs"
-description: "Program aracılığıyla REST API'leri, Azure SDK'sı veya PowerShell oluşturulan akış analizi işleri izleme öğrenin."
+title: "Stream Analytics aaaProgrammatically İzleyici işleri | Microsoft Docs"
+description: "Nasıl tooprogrammatically izlemek REST API'leri, Azure SDK'sı veya PowerShell oluşturulan akış analizi işleri öğrenin."
 keywords: ".NET izleme, iş izleme, izleme uygulaması"
 services: stream-analytics
 documentationcenter: 
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
-ms.openlocfilehash: 0d39e77316a03a705586af3ba970a7be1208ec85
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 44a9c29c2161ee81ea76ece4646a8691bf5d5b48
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Program aracılığıyla bir akış analizi işi İzleyicisi oluşturma
 
-Bu makalede, Stream Analytics işi için izlemeyi etkinleştirmek gösterilmiştir. REST API'leri, Azure SDK'sı veya PowerShell oluşturulan stream Analytics işlerini izleme varsayılan olarak etkin gerekmez. El ile Azure portalında iş İzleyici sayfasına giderek ve etkinleştir düğmesine tıkladığınızda etkinleştirebilirsiniz veya bu makaledeki adımları izleyerek bu işlemi otomatikleştirebilirsiniz. İzleme verilerini Stream Analytics işiniz için Azure portal, ölçümleri alanında görünecektir.
+Bu makalede gösterilir nasıl tooenable Stream Analytics işi için izleme. REST API'leri, Azure SDK'sı veya PowerShell oluşturulan stream Analytics işlerini izleme varsayılan olarak etkin gerekmez. El ile hello Azure portal toohello işin izleme sayfası giderek etkinleştirebilirsiniz ve hello tıklatarak düğmesini etkinleştirin veya bu makalede hello adımları izleyerek bu işlemi otomatikleştirebilirsiniz. izleme verilerini hello hello Stream Analytics işiniz için Azure portalı hello ölçümleri bölümünde gösterilir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu işlem başlamadan önce aşağıdakilere sahip olmanız gerekir:
+Bu işlem başlamadan önce hello şunlara sahip olmanız gerekir:
 
 * Visual Studio 2017 veya 2015
 * [Azure .NET SDK'sı](https://azure.microsoft.com/downloads/) indirilir ve yüklenir
-* İzleme etkin olması gerekiyorsa var olan bir akış analizi işi
+* Toohave izleme etkin gereken var olan bir akış analizi işi
 
 ## <a name="create-a-project"></a>Proje oluşturma
 
 1. Visual Studio C# .NET konsol uygulaması oluşturun.
-2. Paket Yöneticisi Konsolu'nda NuGet paketlerini yüklemek için aşağıdaki komutları çalıştırın. İlk Azure Stream Analytics yönetimi .NET SDK ' dir. İzlemeyi etkinleştirmek için kullanılan Azure İzleyici SDK'sı ikinci adrestir. Bir kimlik doğrulaması için kullanılacak Azure Active Directory istemcidir.
+2. Hello Paket Yöneticisi konsolu, tooinstall hello NuGet paketlerini çalışma hello aşağıdaki komutları. Merhaba ilk hello Azure Stream Analytics yönetimi .NET SDK'sı biridir. Merhaba ikinci kullanılacak Azure İzleyici SDK hello olandır tooenable izleme. Merhaba son hello Azure Active Directory kimlik doğrulaması için kullanılacak bir istemci biridir.
    
    ```
    Install-Package Microsoft.Azure.Management.StreamAnalytics
    Install-Package Microsoft.Azure.Insights -Pre
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    ```
-3. Aşağıdaki appSettings bölümünü App.config dosyasına ekleyin.
+3. Merhaba aşağıdaki appSettings bölümünde toohello App.config dosyasına ekleyin.
    
    ```
    <appSettings>
@@ -60,12 +60,12 @@ Bu işlem başlamadan önce aşağıdakilere sahip olmanız gerekir:
      <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
    </appSettings>
    ```
-   İçin değerleri *Subscriptionıd* ve *ActiveDirectoryTenantId* Azure aboneliği ve Kiracı kimlikleri. Aşağıdaki PowerShell cmdlet'ini çalıştırarak bu değerleri alabilirsiniz:
+   İçin değerleri *Subscriptionıd* ve *ActiveDirectoryTenantId* Azure aboneliği ve Kiracı kimlikleri. Merhaba aşağıdaki PowerShell cmdlet'ini çalıştırarak bu değerleri alabilirsiniz:
    
    ```
    Get-AzureAccount
    ```
-4. Aşağıdaki using deyimlerini projenin kaynak dosyasında (Program.cs).
+4. Merhaba aşağıdakileri ekleyin hello projesindeki deyimleri toohello kaynak dosyasını (Program.cs) kullanarak.
    
    ```
      using System;
@@ -114,12 +114,12 @@ Bu işlem başlamadan önce aşağıdakilere sahip olmanız gerekir:
                  return result.AccessToken;
              }
    
-             throw new InvalidOperationException("Failed to acquire token");
+             throw new InvalidOperationException("Failed tooacquire token");
      }
 
 ## <a name="create-management-clients"></a>Yönetim istemcileri oluşturma
 
-Aşağıdaki kod, gerekli değişkenleri ve yönetim istemcilerin ayarlarsınız.
+Merhaba aşağıdaki kodu hello gerekli değişkenleri ve yönetim istemcilerin ayarlar.
 
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
@@ -141,16 +141,16 @@ Aşağıdaki kod, gerekli değişkenleri ve yönetim istemcilerin ayarlarsınız
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Var olan bir akış analizi işi için izlemeyi etkinleştir
 
-Aşağıdaki kod için izlemeyi etkinleştirir bir **varolan** Stream Analytics işi. İlk kod parçası, belirli Stream Analytics işi hakkında bilgi almak için GET isteğini Stream Analytics Hizmeti'ne karşı gerçekleştirir. Kullandığı *kimliği* Put yöntemi PUT gönderir kod yarısı isteği Öngörüler hizmeti Stream Analytics işi için izlemeyi etkinleştirmek için ikinci bir parametre olarak özellik (GET isteği alındı).
+Merhaba aşağıdaki kod için izlemeyi etkinleştirir bir **varolan** Stream Analytics işi. Merhaba ilk bölümü hello kod hello Stream Analytics hizmeti tooretrieve hello belirli Stream Analytics işi bilgilerini bir GET isteği gerçekleştirir. Merhaba kullanan *kimliği* (Merhaba GET isteğini alındı) özelliği hello hello Put yöntemi için bir parametre olarak toohello Öngörüler bir PUT İsteği gönderir hello kodu ikinci yarısında hizmet tooenable Merhaba Stream Analytics izleme İş.
 
 >[!WARNING]
->Daha önce farklı Stream Analytics işi, Azure Portalı aracılığıyla ya da program aracılığıyla yoluyla için izleme etkinleştirdiyseniz, kod, aşağıda **önceden izleme etkin olduğunda kullandığınız aynı depolama hesabı adı sağlamanızı öneririz.**
+>Daha önce farklı Stream Analytics işi, hello Azure portal aracılığıyla ya da program aracılığıyla yoluyla kod, aşağıda hello için izleme etkinleştirdiyseniz, **hello sağlamanızı öneririz ne zaman kullanılan aynı depolama hesabı adı, daha önce izleme etkin.**
 > 
-> Depolama hesabı bölgesine Stream Analytics işiniz oluşturduğunuz, iş için özel olarak bağlanır.
+> Merhaba depolama hesabı, özellikle toohello işinde, kendisini Stream Analytics işiniz oluşturulan bağlantılı toohello bölgedir.
 > 
-> Tüm Stream Analytics işleri (ve tüm diğer Azure kaynakları) aynı bölgede paylaşmak izleme verilerini depolamak için bu depolama hesabı. Farklı bir depolama hesabı belirtirseniz, bu, bir akış analizi işleri veya diğer Azure kaynaklarına izlemede istenmeyen yan etkileri neden olabilir.
+> Tüm Stream Analytics aynı bölgede işleri (ve tüm diğer Azure kaynakları) izleme verileri bu depolama hesabı toostore paylaşın. Farklı bir depolama hesabı belirtirseniz, bu, bir akış analizi işleri veya diğer Azure kaynaklarına hello izlemede istenmeyen yan etkileri neden olabilir.
 > 
-> Değiştirmek için kullandığınız depolama hesabı adı `<YOUR STORAGE ACCOUNT NAME>` aşağıdaki kodda için izlemeyi etkinleştirme Stream Analytics işi ile aynı abonelikte olduğundan bir depolama hesabı olmalıdır.
+> hello depolama hesabı adı tooreplace kullandığınız `<YOUR STORAGE ACCOUNT NAME>` koddan hello hello olan bir depolama hesabını olmalıdır için izlemeyi etkinleştirme hello Stream Analytics işi aynı abonelik.
 > 
 > 
 
@@ -179,7 +179,7 @@ Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Giriş tooAzure akış analizi](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)

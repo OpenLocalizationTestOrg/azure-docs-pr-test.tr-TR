@@ -1,6 +1,6 @@
 ---
-title: "Azure’da ilk Java web uygulamanızı oluşturma"
-description: "Basit bir Java uygulaması dağıtarak App Service'te web uygulamalarının nasıl çalıştırılacağını öğrenin."
+title: "aaaCreate ilk Java web uygulamanıza Azure"
+description: "Nasıl toorun web uygulama hizmetinde uygulamalar temel bir Java uygulama dağıtarak öğrenin."
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
@@ -15,24 +15,24 @@ ms.topic: quickstart
 ms.date: 6/7/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc
-ms.openlocfilehash: b91b9bde5eb8ea0d7e2196056b635fe54095e748
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 81315c07b5aa84cbec50a17b2cb3914927b19c00
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure’da ilk Java web uygulamanızı oluşturma
 
-[Azure Uygulama Hizmeti](../app-service/app-service-value-prop-what-is.md)’nin [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) özelliği, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu hızlı başlangıçta, [Java EE Geliştiricileri için Eclipse IDE](http://www.eclipse.org/) kullanarak App Service’e nasıl Java web uygulaması dağıtılacağı gösterilmektedir.
+Merhaba [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) özelliği [Azure App Service](../app-service/app-service-value-prop-what-is.md) düzeyde ölçeklenebilir, otomatik olarak düzeltme eki uygulama web barındırma hizmeti sağlar. Bu hızlı başlangıç nasıl toodeploy bir Java web uygulaması tooApp hizmet hello kullanarak gösterir [Java EE geliştiricileri için Eclipse IDE](http://www.eclipse.org/).
 
 !["Merhaba Azure!" örnek web uygulaması](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu hızlı başlangıcı tamamlamak için şunları yükleyin:
+toocomplete Bu hızlı başlangıç yükleyin:
 
-* Ücretsiz [Java EE Geliştiricileri için Eclipse IDE](http://www.eclipse.org/downloads/). Bu hızlı başlangıçta Eclipse Neon kullanılır.
-* [Eclipse için Azure Araç Takımı](/azure/azure-toolkit-for-eclipse-installation).
+* Merhaba ücretsiz [Java EE geliştiricileri için Eclipse IDE](http://www.eclipse.org/downloads/). Bu hızlı başlangıçta Eclipse Neon kullanılır.
+* Merhaba [Eclipse için Azure Araç Seti](/azure/azure-toolkit-for-eclipse-installation).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,7 +40,7 @@ Bu hızlı başlangıcı tamamlamak için şunları yükleyin:
 
 Eclipse’te **Dosya** > **Yeni** > **Dinamik Web Projesi**’ni seçin.
 
-**Yeni Dinamik Web Projesi** iletişim kutusunda, projeyi **MyFirstJavaOnAzureWebApp** olarak adlandırın ve **Son**’u seçin.
+Merhaba, **yeni dinamik Web projesi** iletişim kutusu, ad hello proje **MyFirstJavaOnAzureWebApp**seçip **son**.
    
 ![Yeni Dinamik Web Projesi iletişim kutusu](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -50,19 +50,19 @@ Proje Gezgini görüntülenmiyorsa, gezgini geri yükleyin.
 
 ![Eclipse için Java EE çalışma alanı](./media/app-service-web-get-started-java/pe.png)
 
-Proje Gezgini'nde **MyFirstJavaOnAzureWebApp** projesini genişletin.
+Proje Gezgini'nde hello genişletin **MyFirstJavaOnAzureWebApp** projesi.
 **WebContent**’e sağ tıklayın ve **Yeni** > **JSP Dosyası**’nı seçin.
 
 ![Proje Gezgini'nde yeni JSP dosyasına yönelik menü](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
 
-**Yeni JSP Dosyası** iletişim kutusunda:
+Merhaba, **yeni JSP dosyası** iletişim kutusunda:
 
-* Dosyayı **index.jsp** olarak adlandırın.
+* Ad hello dosyası **index.jsp**.
 * **Son**’u seçin.
 
   ![Yeni JSP Dosyası iletişim kutusu](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
 
-index.jsp dosyasında, `<body></body>` öğesini aşağıdaki işaretlemeyle değiştirin:
+Merhaba index.jsp dosyasında hello değiştirin `<body></body>` biçimlendirme aşağıdaki hello sahip öğe:
 
 ```jsp
 <body>
@@ -70,21 +70,21 @@ index.jsp dosyasında, `<body></body>` öğesini aşağıdaki işaretlemeyle de�
 </body>
 ```
 
-Değişiklikleri kaydedin.
+Merhaba değişiklikleri kaydedin.
 
-## <a name="publish-the-web-app-to-azure"></a>Web uygulamasını Azure’da yayımlama
+## <a name="publish-hello-web-app-tooazure"></a>Yayımlama Hello web uygulama tooAzure
 
-Proje Gezgini’nde projeye sağ tıklayın ve **Azure** > **Azure Web App olarak yayımla**’yı seçin.
+Proje Gezgini'nde hello projesine sağ tıklayın ve ardından **Azure** > **Azure Web uygulaması olarak Yayımla**.
 
 ![Azure Web App Olarak Yayımla bağlam menüsü](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-**Azure Oturum Açma** iletişim kutusunda **Etkileşimli** seçeneğini değiştirmeyin ve **Oturum aç**’ı seçin.
+Merhaba, **Azure oturum açma** iletişim kutusu, Canlı hello **etkileşimli** seçeneğini ve ardından **oturum**.
 
-Oturum açma yönergelerini izleyin.
+Oturum açma Hello yönergeleri izleyin.
 
 ### <a name="deploy-web-app-dialog-box"></a>Web Uygulaması Dağıtma iletişim kutusu
 
-Azure hesabınızda oturum açtıktan sonra, **Web Uygulaması Dağıtma** iletişim kutusu açılır.
+Tooyour Azure hesabı imzaladıktan sonra hello **Web uygulaması dağıtma** iletişim kutusu görüntülenir.
 
 **Oluştur**’u seçin.
 
@@ -92,20 +92,20 @@ Azure hesabınızda oturum açtıktan sonra, **Web Uygulaması Dağıtma** ileti
 
 ### <a name="create-app-service-dialog-box"></a>App Service Oluşturma iletişim kutusu
 
-**App Service Oluşturma** iletişim kutusu varsayılan değerlerle açılır. Aşağıdaki görüntüde gösterilen **170602185241** sayısı, sizin iletişim kutunuzda farklıdır.
+Merhaba **App Service Oluştur** varsayılan değerlerle iletişim kutusu görüntülenir. Merhaba numarası **170602185241** aşağıdaki hello görüntü farklı iletişim kutusunda gösterilir.
 
 ![App Service Oluşturma iletişim kutusu](./media/app-service-web-get-started-java/cas1.png)
 
-**App Service Oluşturma** iletişim kutusunda:
+Merhaba, **App Service Oluştur** iletişim kutusunda:
 
-* Web uygulaması için oluşturulan adı değiştirmeyin. Bu ad Azure genelinde benzersiz olmalıdır. Ad, web uygulamasının URL adresinin bir parçasıdır. Örneğin, web uygulamasının adı **MyJavaWebApp** ise URL şu şekildedir: *myjavawebapp.azurewebsites.net*.
-* Varsayılan web kapsayıcısını değiştirmeyin.
+* Merhaba web uygulaması için oluşturulan hello adı bırakın. Bu ad Azure genelinde benzersiz olmalıdır. Merhaba adı hello URL adresi hello web uygulaması için bir parçasıdır. Örneğin: hello web uygulaması adı ise **MyJavaWebApp**, URL hello *myjavawebapp.azurewebsites.net*.
+* Merhaba varsayılan web kapsayıcısını tutun.
 * Bir Azure aboneliği seçin.
-* **App Service planı** sekmesinde:
+* Merhaba üzerinde **uygulama hizmeti planı** sekmesi:
 
-  * **Yeni oluştur**: App Service planının adı olan varsayılan değeri değiştirmeyin.
+  * **Yeni Oluştur**: hello uygulama hizmeti planı hello adıdır hello varsayılan tutun.
   * **Konum**: **Batı Avrupa**’yı veya size yakın olan bir konumu seçin.
-  * **Fiyatlandırma katmanı**: Ücretsiz seçeneğini belirleyin. Özellikler için bkz. [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
+  * **Fiyatlandırma katmanı**: Merhaba boş seçeneği seçin. Özellikler için bkz. [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
 
    ![App Service Oluşturma iletişim kutusu](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
@@ -113,7 +113,7 @@ Azure hesabınızda oturum açtıktan sonra, **Web Uygulaması Dağıtma** ileti
 
 ### <a name="resource-group-tab"></a>Kaynak grubu sekmesi
 
-**Kaynak grubu** sekmesini seçin. Kaynak grubu için oluşturulmuş varsayılan değeri değiştirmeyin.
+Select hello **kaynak grubu** sekmesi. Merhaba kaynak grubu için Hello oluşturulan varsayılan değeri koruyun.
 
 ![Kaynak grubu sekmesi](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
 
@@ -122,38 +122,38 @@ Azure hesabınızda oturum açtıktan sonra, **Web Uygulaması Dağıtma** ileti
 **Oluştur**’u seçin.
 
 <!--
-### The JDK tab
+### hello JDK tab
 
-Select the **JDK** tab. Keep the default, and then select **Create**.
+Select hello **JDK** tab. Keep hello default, and then select **Create**.
 
 ![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
 -->
 
-Azure Araç Takımı web uygulamasını oluşturur ve bir ilerleme durumu iletişim kutusu görüntüler.
+Hello Azure Araç Seti hello web uygulamasını oluşturur ve ilerleme durumu iletişim kutusu görüntüler.
 
 ![App Service Oluşturma İlerleme Durumu iletişim kutusu](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
 ### <a name="deploy-web-app-dialog-box"></a>Web Uygulaması Dağıtma iletişim kutusu
 
-**Web Uygulaması Dağıtma** iletişim kutusunda **Köke dağıt**’ı seçin. *wingtiptoys.azurewebsites.net* adresinde bir uygulama hizmetiniz varsa ve köke dağıtmazsanız, **MyFirstJavaOnAzureWebApp** adlı web uygulaması *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp* adresine dağıtılır.
+Merhaba, **Web uygulaması dağıtma** iletişim kutusunda **tooroot dağıtmak**. Bir uygulama hizmeti varsa *wingtiptoys.azurewebsites.net* ve toohello kök, adlı hello web uygulamasına dağıtma **MyFirstJavaOnAzureWebApp** çok dağıtılan *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
 ![Web Uygulaması Dağıtma iletişim kutusu](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
-İletişim kutusunda Azure, JDK ve web kapsayıcısı seçimleri gösterilir.
+Merhaba iletişim kutusunu gösterir hello Azure, JDK ve web kapsayıcısı seçimleri.
 
-Web uygulamasını Azure’da yayımlamak için **Dağıt**’ı seçin.
+Seçin **dağıtma** toopublish hello web uygulama tooAzure.
 
-Yayımlama işlemi tamamlandığında, **Azure Etkinlik Günlüğü** iletişim kutusundaki **Yayımlandı** bağlantısını seçin.
+Yayımlama Hello sona erdiğinde, hello seçin **yayımlanan** hello bağlantıyı **Azure etkinlik günlüğü** iletişim kutusu.
 
 ![Azure Etkinlik Günlüğü iletişim kutusu](./media/app-service-web-get-started-java/aal.png)
 
-Tebrikler! Web uygulamanızı başarılı bir şekilde Azure’da dağıttınız. 
+Tebrikler! Web uygulaması tooAzure başarıyla dağıtmış. 
 
 !["Merhaba Azure!" örnek web uygulaması](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## <a name="update-the-web-app"></a>Web uygulamasını güncelleştirme
+## <a name="update-hello-web-app"></a>Güncelleştirme hello web uygulaması
 
-Örnek JSP kodunu farklı bir ileti olarak değiştirin.
+Merhaba örnek JSP kod tooa farklı ileti değiştirin.
 
 ```jsp
 <body>
@@ -161,35 +161,35 @@ Tebrikler! Web uygulamanızı başarılı bir şekilde Azure’da dağıttınız
 </body>
 ```
 
-Değişiklikleri kaydedin.
+Merhaba değişiklikleri kaydedin.
 
-Proje Gezgini’nde projeye sağ tıklayın ve **Azure** > **Azure Web App olarak yayımla**’yı seçin.
+Proje Gezgini'nde hello projesine sağ tıklayın ve ardından **Azure** > **Azure Web uygulaması olarak Yayımla**.
 
-**Web Uygulaması Dağıtma** iletişim kutusu açılır ve daha önce oluşturduğunuz uygulama hizmetini gösterir. 
+Merhaba **Web uygulaması dağıtma** iletişim kutusu belirir ve daha önce oluşturduğunuz uygulama hizmeti hello gösterir. 
 
 > [!NOTE]
-> Her yayımlama işleminde **Köke dağıt**’ı seçin.
+> Seçin **tooroot dağıtmak** yayımladığınız her zaman.
 >
 
-Web uygulamasını seçip **Dağıt**’ı seçin. Bunu yaptığınızda değişiklikler yayımlanır.
+Merhaba web uygulaması seçip **dağıtma**, hello değişiklikleri yayımlar.
 
-**Yayımlanıyor** bağlantısı göründüğünde, web uygulamasına gitmek ve değişiklikleri görmek için bu bağlantıyı seçin.
+Ne zaman hello **yayımlama** toobrowse toohello web uygulamasını seçin ve hello değişiklikleri görmek bağlantısı görüntülenir.
 
-## <a name="manage-the-web-app"></a>Web uygulamasını yönetme
+## <a name="manage-hello-web-app"></a>Merhaba web uygulamasını yönetme
 
-Oluşturduğunuz web uygulamasını görmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
+Toohello Git <a href="https://portal.azure.com" target="_blank">Azure portal</a> oluşturduğunuz toosee hello web uygulaması.
 
-Soldaki menüden **Kaynak Grupları**'nı seçin.
+Merhaba sol menüden seçin **kaynak grupları**.
 
-![Portalda kaynak gruplarına gitme](media/app-service-web-get-started-java/rg.png)
+![Portal gezinme tooresource grupları](media/app-service-web-get-started-java/rg.png)
 
-Kaynak grubunu seçin. Sayfada bu hızlı başlangıçta oluşturduğunuz kaynaklar gösterilir.
+Merhaba kaynak grubu seçin. Başlangıç sayfası, bu hızlı başlangıç, oluşturduğunuz hello kaynakları gösterir.
 
 ![myResourceGroup kaynak grubu](media/app-service-web-get-started-java/rg2.png)
 
-Web uygulamasını (önceki resimde **webapp-170602193915**) seçin.
+Select hello web uygulaması (**webapp 170602193915** görüntü önceki hello içinde).
 
-**Genel Bakış** sayfası açılır. Bu sayfada uygulamanın nasıl çalıştığına ilişkin bir görünüm sağlanır. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Sayfanın sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırmaları gösterir. 
+Merhaba **genel bakış** sayfası görüntülenir. Bu sayfayı hello uygulama nasıl çalıştığını bir görünümünü sağlar. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Merhaba sekmeler hello sayfasının sol tarafında hello hello açabilirsiniz farklı yapılandırmaları gösterir. 
 
 ![Azure portalında App Service sayfası](media/app-service-web-get-started-java/web-app-blade.png)
 

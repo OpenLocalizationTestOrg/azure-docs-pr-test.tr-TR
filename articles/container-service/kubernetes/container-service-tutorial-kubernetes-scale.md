@@ -1,5 +1,5 @@
 ---
-title: "Azure kapsayıcı hizmeti Öğreticisi - uygulamayı Ölçeklendir | Microsoft Docs"
+title: "aaaAzure kapsayıcı hizmeti Öğreticisi - uygulamayı Ölçeklendir | Microsoft Docs"
 description: "Azure kapsayıcı hizmeti Öğreticisi - uygulamayı Ölçeklendir"
 services: container-service
 documentationcenter: 
@@ -17,34 +17,34 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 62e70e34d06f5220734ff85c70a0c9b475f9579b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 29571eef0fd91bd6b40f00d8c018539f320179bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Ölçek Kubernetes pod'ları ve Kubernetes altyapısı
 
-Öğreticiler takip, Azure kapsayıcı Hizmeti'nde çalışan Kubernetes küme sahip olmanız ve Azure oylama uygulaması dağıtılır. 
+Hello öğreticileri takip, Azure kapsayıcı Hizmeti'nde çalışan Kubernetes küme sahip olmanız ve hello Azure oylama uygulaması dağıtılır. 
 
-Bu öğreticide parçası beş yedi, uygulama pod'ları ölçeğini ve pod otomatik ölçeklendirmeyi deneyin. Ayrıca iş yüklerini barındırmak için kümenin kapasite değiştirmek için Azure VM Aracısı düğüm sayısının ölçeğini öğrenin. Tamamlanan görevler aşağıdakileri içerir:
+Bu öğreticide parçası beş yedi, hello pod'ları hello uygulamasında ölçeğini ve pod otomatik ölçeklendirmeyi deneyin. Ayrıca, nasıl Azure VM Aracısı düğümleri toochange tooscale hello sayısı hello iş yüklerini barındırmak için kümenin kapasite öğrenin. Tamamlanan görevler aşağıdakileri içerir:
 
 > [!div class="checklist"]
 > * Kubernetes pod'ları el ile ölçeklendirme
-> * Otomatik ölçeklendirme uygulaması ön ucu çalıştıran pod'ları yapılandırma
-> * Kubernetes Azure Aracısı düğümleri ölçeklendirme
+> * Merhaba uygulaması ön ucu çalıştıran otomatik ölçeklendirme pod'ları yapılandırma
+> * Merhaba Kubernetes Azure Aracısı düğümleri ölçeklendirme
 
-Sonraki öğreticilerde, Azure oy uygulama güncelleştirilir ve Kubernetes küme izlemek için Operations Management Suite yapılandırılmış.
+Sonraki öğreticilerde, hello Azure oy uygulama güncelleştirilir ve Operations Management Suite toomonitor hello Kubernetes kümesi yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Önceki eğitimlerine bir uygulama bir kapsayıcı görüntü, Azure kapsayıcı kayıt defterine karşıya bu görüntü ve oluşturulan Kubernetes küme paketlenmiştir. Uygulama sonra Kubernetes kümede çalıştırıldı. Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./container-service-tutorial-kubernetes-prepare-app.md). 
+Önceki öğreticileri, bir uygulama bir kapsayıcı görüntüsüne paketlenmiş, tooAzure kapsayıcı kayıt defteri ve oluşturulan bir Kubernetes kümesi bu görüntüyü karşıya. Merhaba uygulaması sonra hello Kubernetes kümede çalıştırıldı. Bu adımları yapmadıysanız ve boyunca toofollow istersiniz, toohello dönmek [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 En azından, Bu öğretici bir Kubernetes kümesi ile çalışan bir uygulama gerektirir.
 
 ## <a name="manually-scale-pods"></a>Pod'ları el ile ölçeklendirin
 
-Bu nedenle şimdiye kadar Azure oy ön uç ve Redis örnek silinmiş dağıtıldı, her tek bir çoğaltma ile. Doğrulamak için çalıştırın [kubectl almak](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu.
+Bugüne kadarki hello Azure oy ön uç ve Redis örnek dağıtıldıktan, her tek bir çoğaltma ile. Merhaba çalıştırmak tooverify [kubectl almak](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu.
 
 ```azurecli-interactive
 kubectl get pods
@@ -58,13 +58,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-El ile pod'ları içinde sayısını değiştirme `azure-vote-front` dağıtım kullanarak [kubectl ölçek](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) komutu. Bu örnek 5 sayısını artırır.
+El ile pod'ları hello içinde hello sayısını değiştirme `azure-vote-front` hello kullanarak dağıtım [kubectl ölçek](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) komutu. Bu örnek hello numara too5 artırır.
 
 ```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Çalıştırma [kubectl pod'ları alma](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) Kubernetes pod'ları oluşturmakta olduğunu doğrulayın. Bir dakika veya bunu sonra ek pod'ları çalıştırıyorsanız:
+Çalıştırma [kubectl pod'ları alma](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) tooverify Kubernetes hello pod'ları oluşturuyor. Bir dakika veya bunu sonra ek hello pod'ları çalıştırıyorsanız:
 
 ```azurecli-interactive
 kubectl get pods
@@ -84,9 +84,9 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Otomatik ölçeklendirme pod'ları
 
-Kubernetes destekleyen [yatay pod otomatik ölçeklendirmeyi](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) ayarlamak için pod'ları CPU kullanımına bağlı olarak bir dağıtımda sayısı veya diğer ölçümleri seçin. 
+Kubernetes destekleyen [yatay pod otomatik ölçeklendirmeyi](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) tooadjust hello pod'ları CPU kullanımı veya diğer bağlı olarak bir dağıtımda sayısını ölçümleri seçin. 
 
-Autoscaler kullanmak için pod'ları CPU istekleri ve tanımlanan sınırları olması gerekir. İçinde `azure-vote-front` dağıtım, ön uç kapsayıcı 0,5 sınırına sahip istekleri 0,25 CPU CPU. Ayarları gibi görünür:
+toouse hello autoscaler, pod'ları CPU istekleri ve sınırları tanımlanmış olması gerekir. Merhaba, `azure-vote-front` dağıtımı, ön uç kapsayıcı istekleri 0,25 CPU 0,5 sınırı ile Merhaba CPU. gibi Hello ayarlarını arayın:
 
 ```YAML
 resources:
@@ -96,14 +96,14 @@ resources:
      cpu: 500m
 ```
 
-Aşağıdaki örnek kullanır [kubectl otomatik ölçeklendirme](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) pod'ları içinde sayısı için otomatik ölçeklendirme komutu `azure-vote-front` dağıtım. Burada, CPU kullanımı % 50 aşarsa, en fazla 10 için pod'ları autoscaler artırır.
+Merhaba aşağıdaki örnek kullanır hello [kubectl otomatik ölçeklendirme](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) komut tooautoscale hello pod'ları hello içinde sayısı `azure-vote-front` dağıtım. Burada, CPU kullanımı % 50 aşarsa hello autoscaler hello pod'ları tooa en fazla 10 artırır.
 
 
 ```azurecli-interactive
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Autoscaler durumunu görmek için aşağıdaki komutu çalıştırın:
+Merhaba autoscaler, komutu aşağıdaki hello çalıştırmak toosee hello durumu:
 
 ```azurecli-interactive
 kubectl get hpa
@@ -116,19 +116,19 @@ NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
-Azure oy uygulama üzerinde minimum yük ile birkaç dakika sonra pod çoğaltmaların sayısı 3'e otomatik olarak azaltır.
+Merhaba pod çoğaltmaların sayısı hello Azure oy uygulama üzerinde minimum yük ile birkaç dakika sonra otomatik olarak too3 azaltır.
 
-## <a name="scale-the-agents"></a>Aracıları ölçeklendirme
+## <a name="scale-hello-agents"></a>Ölçek hello aracıları
 
-Önceki öğreticide varsayılan komutlarını kullanarak Kubernetes kümenize oluşturduysanız, üç Aracısı düğüm yok. Daha fazla veya daha az sayıda kapsayıcı iş yükleri kümenizde düşünüyorsanız, aracı sayısı el ile ayarlayabilirsiniz. Kullanım [az acs ölçeklendirme](/cli/azure/acs#scale) komut ve aracılarla sayısını belirtin `--new-agent-count` parametresi.
+Merhaba önceki öğreticide varsayılan komutlarını kullanarak Kubernetes kümenize oluşturduysanız, üç Aracısı düğüm yok. Daha fazla veya daha az sayıda kapsayıcı iş yükleri kümenizde düşünüyorsanız, aracı hello sayısı el ile ayarlayabilirsiniz. Kullanım hello [az acs ölçeklendirme](/cli/azure/acs#scale) komutu ve aracı hello sayısı ile Merhaba belirtin `--new-agent-count` parametresi.
 
-Aşağıdaki örnek 4 adlı Kubernetes kümedeki Aracısı düğüm sayısını artırır *myK8sCluster*. Komut birkaç tamamlamak için dakika sürer.
+Merhaba aşağıdaki örnek hello sayısını Aracısı düğümleri too4 adlı hello Kubernetes kümedeki artırır *myK8sCluster*. birkaç dakika toocomplete Hello komutu alır.
 
 ```azurecli-interactive
 az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-count 4
 ```
 
-Komut çıktısı aracı sayısı düğümleri değerinde gösterir `agentPoolProfiles:count`:
+Merhaba komutu çıktısı hello sayısını Aracısı düğümleri hello değerinde gösterir `agentPoolProfiles:count`:
 
 ```azurecli
 {
@@ -151,10 +151,10 @@ Bu öğreticide, farklı ölçekleme özelliklerini Kubernetes kümenizdeki kull
 
 > [!div class="checklist"]
 > * Kubernetes pod'ları el ile ölçeklendirme
-> * Otomatik ölçeklendirme uygulaması ön ucu çalıştıran pod'ları yapılandırma
-> * Kubernetes Azure Aracısı düğümleri ölçeklendirme
+> * Merhaba uygulaması ön ucu çalıştıran otomatik ölçeklendirme pod'ları yapılandırma
+> * Merhaba Kubernetes Azure Aracısı düğümleri ölçeklendirme
 
-Kubernetes uygulamada güncelleştirmek hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Kubernetes uygulamada güncelleştirme hakkında toohello sonraki öğretici toolearn ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Bir uygulamada Kubernetes güncelleştir](./container-service-tutorial-kubernetes-app-update.md)

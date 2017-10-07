@@ -1,6 +1,6 @@
 ---
-title: "Eclipse için Azure Gezgini'ni kullanarak sanal makineleri yönetme | Microsoft Docs"
-description: "Eclipse için Azure Gezgini'ni kullanarak Azure sanal makinelerinizi yönetmeyi öğrenin."
+title: "kullanılarak aaaManage sanal makine hello Eclipse için Azure Explorer | Microsoft Docs"
+description: "Nasıl toomanage kullanarak Azure, sanal makineleriniz için Azure Explorer hello öğrenin Eclipse."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,15 +14,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 9784e8af9c530078afee06f08a23403a44b0762f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aa83ec7546a0a8514842723b51ce8a5af81f98f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-virtual-machines-by-using-the-azure-explorer-for-eclipse"></a>Eclipse için Azure Gezgini'ni kullanarak sanal makineleri yönetme
+# <a name="manage-virtual-machines-by-using-hello-azure-explorer-for-eclipse"></a>Eclipse için hello Azure Gezgini kullanarak sanal makineleri yönetme
 
-Eclipse için Azure araç seti bir parçası olan Azure Gezgini, bunların Azure hesabında Eclipse tümleşik geliştirme ortamı (IDE) içindeki sanal makineleri yönetmek için kullanımı kolay çözümünü Java geliştiricilere sağlar.
+Hello hello Eclipse için Azure araç seti bir parçası olan Azure Gezgini, kullanıcıların Azure hesabından sanal makineleri yönetmek için kullanımı kolay çözümünü Java geliştiricilere sağlar hello Eclipse tümleşik geliştirme ortamı (IDE) içinde.
 
 [!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
@@ -30,116 +30,116 @@ Eclipse için Azure araç seti bir parçası olan Azure Gezgini, bunların Azure
 
 ## <a name="create-a-virtual-machine-in-eclipse"></a>Eclipse'te bir sanal makine oluşturun
 
-Azure Gezgini'ni kullanarak bir sanal makine oluşturmak için aşağıdakileri yapın:
+toocreate hello Azure Gezgini kullanarak bir sanal makine hello aşağıdaki:
 
-1. Azure hesabınızı kullanarak oturum [oturum açma yönergeleri Eclipse için Azure Araç Seti için].
+1. Tooyour Azure hesabı hello kullanarak oturum [oturum açma yönergeleri hello Eclipse için Azure Araç Seti için].
 
-2. İçinde **Azure Gezgini** görüntülemek için Genişlet **Azure** düğümünü sağ tıklatın **sanal makineler**ve ardından **VM Oluştur**.
+2. Merhaba, **Azure Gezgini** görüntülemek için hello genişletin **Azure** düğümü, sağ **sanal makineler**ve ardından **VM Oluştur**.
 
-   ![VM Oluştur komutu][CR01]  
-   **Yeni sanal makine oluşturma** Sihirbazı açılır.
+   ![Merhaba VM Oluştur komutu][CR01]  
+   Merhaba **yeni sanal makine oluşturma** Sihirbazı açılır.
 
-3. İçinde **bir abonelik seçin** penceresinde, aboneliğinizi seçin ve ardından **sonraki**.
+3. Merhaba, **bir abonelik seçin** penceresinde, aboneliğinizi seçin ve ardından **sonraki**.
 
-   ![Bir abonelik penceresi seçin][CR02]
+   ![Merhaba Seç bir abonelik penceresi][CR02]
 
-4. İçinde **bir sanal makine görüntüsü seçin** penceresinde, aşağıdaki bilgileri girin:
+4. Merhaba, **bir sanal makine görüntüsü seçin** penceresinde, aşağıdaki bilgilerle hello girin:
 
    * **Konum**: sanal makineniz oluşturulacağı belirtir (örneğin, *Batı ABD*).
 
-   * **Yayımcı**: kullanmak, sanal makine oluşturmak için görüntüyü oluşturan yayımcı belirtir (örneğin, *Microsoft*).
+   * **Yayımcı**: sanal makineniz toocreate kullanmanız hello görüntüyü oluşturan hello yayımcı belirtir (örneğin, *Microsoft*).
 
-   * **Teklif**: Seçili yayımcıdan kullanmak için sunumu sanal makine belirtir (örneğin, *JDK*).
+   * **Teklif**: hello sanal makine toouse hello seçili yayımcıdan sunumu belirtir (örneğin, *JDK*).
 
-   * **SKU**: stok tutma birimini (SKU) gelen Seçili teklifi kullanılacak belirtir (örneğin, *JDK_8*).
+   * **SKU**: hello stok tutma birimini (SKU) toouse hello Seçili teklifi gelen belirtir (örneğin, *JDK_8*).
 
-   * **Sürüm #**: hangi sürümünün kullanılacağını seçilen SKU belirtir.
+   * **Sürüm #**: Seçili hello hangi sürümünü belirtir SKU toouse.
 
-    ![Bir sanal makine görüntüsü penceresi seçin][CR03]
+    ![Merhaba, bir sanal makine görüntüsü penceresi seçin][CR03]
 
 5. **İleri**’ye tıklayın.
 
-6. İçinde **sanal makine temel ayarları** penceresinde, aşağıdaki bilgileri girin:
+6. Merhaba, **sanal makine temel ayarları** penceresinde, aşağıdaki bilgilerle hello girin:
 
-   * **Sanal makine adı**: yeni sanal bir harfle başlamalı ve yalnızca harf, rakam ve tire içeren makinenizi adını belirtir.
+   * **Sanal makine adı**: Merhaba, yeni sanal makine için ad, bir harf ile başlamalı ve yalnızca harf, rakam ve tire içerebilir, belirtir.
 
-   * **Boyutu**: çekirdek ve sanal makine için ayrılacak bellek sayısını belirtir.
+   * **Boyutu**: çekirdek ve bellek tooallocate sanal makineniz için hello sayısını belirtir.
 
-   * **Kullanıcı adı**: sanal makineniz yönetmek için oluşturmak için yönetici hesaplarını belirtir.
+   * **Kullanıcı adı**: sanal makineniz yönetmek için hello yönetici hesabı toocreate belirtir.
 
-   * **Parola** ve **Onayla**: yönetici hesabının parolasını belirtir.
+   * **Parola** ve **Onayla**: Merhaba, yönetici hesabının parolasını belirtir.
 
-    ![Sanal makine temel Ayarları penceresi][CR04]
+    ![Merhaba sanal makine temel Ayarları penceresi][CR04]
 
 7. **İleri**’ye tıklayın.
 
-8. İçinde **yeni depolama hesabı oluştur** penceresinde, aşağıdaki bilgileri girin:
+8. Merhaba, **yeni depolama hesabı oluştur** penceresinde, aşağıdaki bilgilerle hello girin:
 
-   * **Kaynak grubu**: kaynak grubu, sanal makine için belirtir. Aşağıdaki seçeneklerden birini seçin:
-      * **Yeni Oluştur**: yeni bir kaynak grubu oluşturmak istediğiniz belirtir.
-      * **Var olanı kullan**: Azure hesabınızla ilişkili olan bir kaynak grubunu seçmek istediğiniz belirtir.
+   * **Kaynak grubu**: hello kaynak grubu, sanal makine için belirtir. Seçenekler aşağıdaki hello birini seçin:
+      * **Yeni Oluştur**: toocreate yeni bir kaynak grubu istediğinizi belirtir.
+      * **Var olanı kullan**: tooselect Azure hesabınızla ilişkili olan bir kaynak grubunu istediğinizi belirtir.
 
-      ![Yeni depolama hesabı oluştur iletişim kutusu][CR05]
+      ![Merhaba yeni depolama hesabı oluştur iletişim kutusu][CR05]
 
-   * **Depolama hesabı**: sanal makineniz depolamak için kullanılacak depolama hesabını belirtir. Mevcut bir depolama hesabını kullanabilir veya yeni bir hesap oluşturabilirsiniz.
+   * **Depolama hesabı**: sanal makineniz depolamak için depolama hesabı toouse hello belirtir. Mevcut bir depolama hesabını kullanabilir veya yeni bir hesap oluşturabilirsiniz.
 
-   * **Sanal ağ** ve **alt**: sanal ağ ve sanal makinenin bağlanacağı alt belirtir. Bir mevcut ağ ve alt ağ kullanabilir veya yeni bir ağ ve alt ağ oluşturabilirsiniz. Seçerseniz **Yeni Oluştur**, aşağıdaki iletişim kutusu görüntülenir:
+   * **Sanal ağ** ve **alt**: hello sanal ağ ve sanal makinenin bağlanacağı alt belirtir. Bir mevcut ağ ve alt ağ kullanabilir veya yeni bir ağ ve alt ağ oluşturabilirsiniz. Seçerseniz **Yeni Oluştur**, iletişim kutusu aşağıdaki hello görüntülenir:
 
-      ![Yeni sanal ağ oluştur iletişim kutusu][CR06]
+      ![Merhaba yeni sanal ağ oluştur iletişim kutusu][CR06]
 
-9. İçinde **ilişkili kaynakları** penceresinde, aşağıdaki bilgileri girin:
+9. Merhaba, **ilişkili kaynakları** penceresinde, aşağıdaki bilgilerle hello girin:
 
-   * **Genel IP adresi**: sanal makineniz için dışa dönük IP adresini belirtir. Yeni bir IP adresi oluşturmak seçebilir veya sanal makinenize genel bir IP adresi değil olacaksa, seçebileceğiniz **(hiçbiri)**.
+   * **Genel IP adresi**: sanal makineniz için dışa dönük IP adresini belirtir. Yeni bir IP adresi toocreate seçebilir veya sanal makinenize genel bir IP adresi değil olacaksa, seçebileceğiniz **(hiçbiri)**.
 
    * **Ağ güvenlik grubu**: isteğe bağlı ağ güvenlik duvarı, sanal makine için belirtir. Var olan bir Güvenlik Duvarı'nı seçin veya sanal makinenize bir ağ Güvenlik Duvarı'nı kullanmayacaksa, seçebileceğiniz **(hiçbiri)**.
 
-   * **Kullanılabilirlik kümesi**: isteğe bağlı bir kullanılabilirlik kümesi, sanal makinenize ait olabilir belirtir. Mevcut bir kullanılabilirlik kümesi seçin veya yeni bir kullanılabilirlik kümesi oluşturmak veya sanal makinenize bir kullanılabilirlik kümesine ait değil, seçebileceğiniz **(hiçbiri)**.
+   * **Kullanılabilirlik kümesi**: isteğe bağlı bir kullanılabilirlik kümesi, sanal makinenize ait olabilir belirtir. Mevcut bir kullanılabilirlik kümesi seçin veya yeni bir kullanılabilirlik kümesi oluşturun veya sanal makineniz tooan kullanılabilirlik kümesine ait değil, seçebileceğiniz **(hiçbiri)**.
 
-   ![İlişkilendirilmiş kaynakları penceresi][CR07]
+   ![Merhaba ilişkili kaynakları penceresi][CR07]
 
 9. **Son**'a tıklayın.  
-  Yeni sanal makinenizi Azure Gezgini aracı penceresinde görüntülenir.
+  Yeni bir sanal makine hello Azure Gezgini aracı penceresinde görüntülenir.
 
    ![Yeni sanal makine][CR08]
 
 ## <a name="restart-a-virtual-machine-in-eclipse"></a>Eclipse'te bir sanal makineyi yeniden başlatın
 
-Eclipse'te Azure Gezgini'ni kullanarak bir sanal makineyi yeniden başlatmak için aşağıdakileri yapın:
+Eclipse'te, hello Azure Gezgini kullanarak bir sanal makine toorestart hello aşağıdaki:
 
-1. İçinde **Azure Gezgini** görüntülemek, sanal makineye sağ tıklayın ve ardından **yeniden**.
+1. Merhaba, **Azure Gezgini** görüntülemek, hello sanal makineye sağ tıklayın ve ardından **yeniden**.
 
-   ![Sanal makine yeniden başlatma komutu][RE01]
+   ![Merhaba sanal makine yeniden başlatma komutu][RE01]
 
-2. Onay penceresinde **Evet**.
+2. Merhaba onay penceresinde **Evet**.
 
-   ![Yeniden başlatma onay penceresi][RE02]
+   ![Merhaba yeniden onay penceresi][RE02]
 
 ## <a name="shut-down-a-virtual-machine-in-eclipse"></a>Eclipse'te bir sanal makineyi kapatın
 
-Eclipse'te Azure Gezgini'ni kullanarak çalışan bir sanal makineyi kapatıp için aşağıdakileri yapın:
+Eclipse'te, hello Azure Gezgini kullanarak çalışan bir sanal makineyi aşağı tooshut hello aşağıdaki:
 
-1. İçinde **Azure Gezgini** görüntülemek, sanal makineye sağ tıklayın ve ardından **kapatma**.
+1. Merhaba, **Azure Gezgini** görüntülemek, hello sanal makineye sağ tıklayın ve ardından **kapatma**.
 
-   ![Sanal makine kapatma komutu][SH01]
+   ![Merhaba sanal makine kapatma komutu][SH01]
 
-2. Onay penceresinde **Evet**.
+2. Merhaba onay penceresinde **Evet**.
 
-   ![Sanal makinenin kapatılması onay penceresi][SH02]
+   ![Merhaba sanal makinenin kapatılması onay penceresi][SH02]
 
 ## <a name="delete-a-virtual-machine-in-eclipse"></a>Eclipse'te sanal makineyi silme
 
-Eclipse'te Azure Gezgini'ni kullanarak bir sanal makineyi silmek için aşağıdakileri yapın:
+Eclipse'te, hello Azure Gezgini kullanarak bir sanal makine toodelete hello aşağıdaki:
 
-1. İçinde **Azure Gezgini** görüntülemek, sanal makineye sağ tıklayın ve ardından **silmek**.
+1. Merhaba, **Azure Gezgini** görüntülemek, hello sanal makineye sağ tıklayın ve ardından **silmek**.
 
-   ![Sanal makine Delete komutu][DE01]
+   ![Merhaba sanal makinesi Delete komutu][DE01]
 
-2. Onay penceresinde **Evet**.
+2. Merhaba onay penceresinde **Evet**.
 
-   ![Sanal makine silme işlemi onay penceresi][DE02]
+   ![Merhaba sanal makine silme işlemi onay penceresi][DE02]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure sanal makine boyutları ve fiyatlandırma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Azure sanal makine boyutları ve fiyatlandırma hakkında daha fazla bilgi için kaynakları aşağıdaki hello bakın:
 
 * Azure sanal makine boyutları
   * [Azure'da Windows sanal makineler için Boyutlar]
@@ -148,17 +148,17 @@ Azure sanal makine boyutları ve fiyatlandırma hakkında daha fazla bilgi için
   * [Windows sanal makine fiyatlandırma]
   * [Linux sanal makine fiyatlandırma]
 
-Java IDE Azure araç takımları hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Java IDE hello Azure araç takımları hakkında daha fazla bilgi için kaynakları aşağıdaki hello bakın:
 
 * [Eclipse için Azure Araç Seti]
-  * [Eclipse için Azure Araç Seti yenilikleri]
-  * [Eclipse için Azure Araç Setini Yükleme]
-  * [oturum açma yönergeleri Eclipse için Azure Araç Seti için]
+  * [Merhaba Eclipse için Azure Araç Seti yenilikleri]
+  * [Yükleme hello Eclipse için Azure Araç Seti]
+  * [oturum açma yönergeleri hello Eclipse için Azure Araç Seti için]
   * [Eclipse'te Azure Hello World web uygulaması oluşturma]
 * [IntelliJ için Azure Araç Seti]
-  * [Intellij için Azure Araç Seti yenilikleri]
-  * [IntelliJ için Azure Araç Setini Yükleme]
-  * [Oturum açma Azure Araç Seti için Intellij için yönergeler]
+  * [Merhaba Intellij için Azure Araç Seti yenilikleri]
+  * [Yükleme hello Intellij için Azure Araç Seti]
+  * [Oturum açma hello Azure Araç Seti için Intellij için yönergeler]
   * [Intellij Azure'da Hello World web uygulaması oluşturun]
 
 Azure Java ile kullanma hakkında daha fazla bilgi için bkz: [Azure Java Geliştirici Merkezi] ve [Visual Studio Team Services için Java Araçları].
@@ -169,12 +169,12 @@ Azure Java ile kullanma hakkında daha fazla bilgi için bkz: [Azure Java Geliş
 [IntelliJ için Azure Araç Seti]: ./azure-toolkit-for-intellij.md
 [Eclipse'te Azure Hello World web uygulaması oluşturma]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Intellij Azure'da Hello World web uygulaması oluşturun]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Eclipse için Azure Araç Setini Yükleme]: ./azure-toolkit-for-eclipse-installation.md
-[IntelliJ için Azure Araç Setini Yükleme]: ./azure-toolkit-for-intellij-installation.md
-[oturum açma yönergeleri Eclipse için Azure Araç Seti için]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Oturum açma Azure Araç Seti için Intellij için yönergeler]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Eclipse için Azure Araç Seti yenilikleri]: ./azure-toolkit-for-eclipse-whats-new.md
-[Intellij için Azure Araç Seti yenilikleri]: ./azure-toolkit-for-intellij-whats-new.md
+[Yükleme hello Eclipse için Azure Araç Seti]: ./azure-toolkit-for-eclipse-installation.md
+[Yükleme hello Intellij için Azure Araç Seti]: ./azure-toolkit-for-intellij-installation.md
+[oturum açma yönergeleri hello Eclipse için Azure Araç Seti için]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Oturum açma hello Azure Araç Seti için Intellij için yönergeler]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Merhaba Eclipse için Azure Araç Seti yenilikleri]: ./azure-toolkit-for-eclipse-whats-new.md
+[Merhaba Intellij için Azure Araç Seti yenilikleri]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Geliştirici Merkezi]: https://azure.microsoft.com/develop/java/
 [Visual Studio Team Services için Java Araçları]: https://java.visualstudio.com/

@@ -1,6 +1,6 @@
 ---
-title: "Etiket mantıksal kuruluşunuz için Azure kaynaklarını | Microsoft Docs"
-description: "Faturalama ve yönetmek için Azure kaynaklarını düzenlemek için etiketleri uygulamak gösterilmiştir."
+title: "aaaTag Azure mantıksal kuruluş kaynakları | Microsoft Docs"
+description: "Nasıl tooapply tooorganize Azure etiketleri gösterir faturalama ve yönetmek için kaynaklar."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: tomfitz
-ms.openlocfilehash: 4f52c30614ad39da8a34ff6ecfb707b75400517f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e07470463d160f8cefe5c80bc91e66a96af6ca45
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-tags-to-organize-your-azure-resources"></a>Azure kaynaklarınızı düzenlemek için etiketleri kullanma
+# <a name="use-tags-tooorganize-your-azure-resources"></a>Azure kaynaklarınızı etiketleri tooorganize kullanın
 [!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
 
 > [!NOTE]
-> Azure Resource Manager işlemlerini destekleyen kaynaklara etiket uygulayabilirsiniz. Bir sanal makine, sanal ağ veya Klasik dağıtım modeli üzerinden depolama hesabı oluşturduysanız (gibi Klasik Azure Portalı aracılığıyla), bu kaynak için bir etiket uygulanamıyor. Etiketleme desteklemek için bu kaynakları Kaynak Yöneticisi aracılığıyla yeniden dağıtın. Diğer tüm kaynaklar etiketleme desteği.
+> Azure Resource Manager işlemlerini destekleyen etiketleri yalnızca tooresources uygulayabilirsiniz. Bir sanal makine, sanal ağ ya da (örneğin olarak aracılığıyla Klasik Azure portalı hello) hello Klasik dağıtım modeli üzerinden depolama hesabı oluşturduysanız, etiket toothat kaynak uygulanamıyor. toosupport etiketleme, bu kaynakları Kaynak Yöneticisi aracılığıyla yeniden dağıtın. Diğer tüm kaynaklar etiketleme desteği.
 > 
 > 
 
 ## <a name="policies-for-tag-consistency"></a>Etiket tutarlılık için ilkeleri
 
-Kuruluşunuz için standart kurallar oluşturmak için kaynak ilkelerini kullanabilirsiniz. Kaynakları uygun değerlerle etiketlenir olun ilkeleri oluşturabilirsiniz. Daha fazla bilgi için bkz: [etiketleri için kaynak ilkelerini uygulamak](resource-manager-policy-tags.md).
+Kaynak ilkeleri toocreate standart kurallar, kuruluşunuz için kullanabilirsiniz. Kaynakları hello uygun değerlerle etiketlenir olun ilkeleri oluşturabilirsiniz. Daha fazla bilgi için bkz: [etiketleri için kaynak ilkelerini uygulamak](resource-manager-policy-tags.md).
 
 ## <a name="powershell"></a>PowerShell
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Bir *kaynak grubunun* mevcut etiketlerini görmek şunu kullanın:
+toosee hello için varolan etiketleri bir *kaynak grubu*, kullanın:
 
 ```azurecli
 az group show -n examplegroup --query tags
 ```
 
-Bu betik aşağıdaki biçimde veri döndürür:
+Bu komut dosyası biçimini izleyen hello döndürür:
 
 ```json
 {
@@ -52,45 +52,45 @@ Bu betik aşağıdaki biçimde veri döndürür:
 }
 ```
 
-*Kaynak kimliği belirtilmiş bir kaynağın* mevcut etiketlerini görmek için şunu kullanın:
+toosee hello için varolan etiketleri bir *belirtilen kaynak Kimliğine sahip kaynak*, kullanın:
 
 ```azurecli
 az resource show --id {resource-id} --query tags
 ```
 
-Veya varolan etiketleri için görmek için bir *belirtilen adını, türünü ve kaynak grubuna sahip kaynak*, kullanın:
+Ya da toosee hello için varolan etiketleri bir *belirtilen adını, türünü ve kaynak grubuna sahip kaynak*, kullanın:
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-Belirli bir etikete sahip kaynak gruplarını elde etmek için kullanın `az group list`:
+belirli bir etikete sahip tooget kaynak gruplarını kullanma `az group list`:
 
 ```azurecli
 az group list --tag Dept=IT
 ```
 
-Özel etiket ve değerine sahip tüm kaynakları almak için `az resource list`:
+bir özel etiket ve değer, sahip tüm hello kaynakları tooget kullanmak `az resource list`:
 
 ```azurecli
 az resource list --tag Dept=Finance
 ```
 
-Bir kaynağa veya kaynak grubuna etiket uyguladığınız her durumda ilgili kaynağın veya kaynak grubunun üzerinde mevcut olan etiketlerin üzerine yazarsınız. Bu nedenle, kaynakta veya kaynak grubunda etiketlerin mevcut olup olmamasına bağlı olarak farklı bir yaklaşım kullanmanız gerekir. 
+Etiketler tooa kaynağa veya bir kaynak grubuna uygulamak her zaman, o kaynak veya kaynak grubu hello varolan etiketleri üzerine yazın. Bu nedenle, olup hello kaynağı veya kaynak grubunu varolan etiketleri temel alarak farklı bir yaklaşım kullanmanız gerekir. 
 
-*Mevcut etiketi olmayan bir kaynak grubuna* etiket eklemek için şunu kullanın:
+tooadd etiketler tooa *kaynak grubu mevcut etiketleri olmadan*, kullanın:
 
 ```azurecli
 az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-*Mevcut etiketi olmayan bir kaynağa* etiket eklemek için şunu kullanın:
+tooadd etiketler tooa *varolan etiketleri olmadan kaynak*, kullanın:
 
 ```azurecli
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ``` 
 
-Etiketleri zaten olan bir kaynağın etiketleri eklemek için varolan etiketleri almak, bu değeri yeniden biçimlendirin ve var olan ve yeni etiketler yeniden uygulayın: 
+Etiketler, zaten tooadd etiketleri tooa kaynak hello varolan etiketleri almak, bu değeri yeniden biçimlendirin ve hello mevcut ve yeni etiketler yeniden uygulayın: 
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
@@ -98,7 +98,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Bir kaynak grubundaki tüm etiketleri *kaynaklardaki mevcut etiketleri korumadan* gruptaki kaynaklara uygulamak için aşağıdaki betiği kullanın:
+tooapply tüm etiketleri bir kaynak grubu tooits kaynakları ve *hello kaynaklardaki varolan etiketleri korumuyor*, komut dosyası izleyen hello kullanın:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -114,7 +114,7 @@ do
 done
 ```
 
-Tüm etiketleri kaynaklarını için bir kaynak grubundan uygulamak için ve *kaynaklardaki varolan etiketleri korumak*, aşağıdaki komut dosyasını kullanın:
+tooapply tüm etiketleri bir kaynak grubu tooits kaynakları ve *kaynaklardaki varolan etiketleri korumak*, komut dosyası izleyen hello kullanın:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -142,23 +142,23 @@ done
 
 
 ## <a name="rest-api"></a>REST API
-Azure portalı ve her ikisini de kullanmanız PowerShell [Resource Manager REST API'si](https://docs.microsoft.com/rest/api/resources/) arka planda. Başka bir ortama etiketleme tümleştirme gerekiyorsa, etiketleri kullanarak alabileceğiniz **almak** kaynak kimliği ile güncelleştirme kullanarak etiketleri kümesi üzerinde bir **düzeltme eki** çağırın.
+Hello Azure portalı ve PowerShell hello kullan [Resource Manager REST API'si](https://docs.microsoft.com/rest/api/resources/) hello perde arkasında. Başka bir ortama etiketleme toointegrate gerekiyorsa, etiketleri kullanarak alabileceğiniz **almak** hello kaynak kimliği ve güncelleştirme hello kümesi üzerinde etiketleri kullanarak bir **düzeltme eki** çağırın.
 
 ## <a name="tags-and-billing"></a>Etiketleri ve faturalama
-Faturalama verileriniz gruplandırmak için etiketler kullanın. Örneğin, birden çok VM farklı kuruluşlarda çalıştırıyorsanız, etiketleri Grup kullanım için maliyet merkezi tarafından kullanın. Etiketler, maliyetleri üretim ortamında çalışan sanal makineler için fatura kullanımı gibi çalışma zamanı ortamı tarafından kategorilere ayırmak için de kullanabilirsiniz.
+Faturalama verileriniz etiketleri toogroup kullanabilirsiniz. Örneğin, birden çok VM farklı kuruluşlarda çalıştırıyorsanız, hello etiketleri toogroup kullanımını maliyet merkezi tarafından kullanın. Merhaba üretim ortamında çalışan sanal makineler için fatura kullanım hello gibi çalışma zamanı ortamı tarafından etiketleri toocategorize maliyetleri de kullanabilirsiniz.
 
 
-Etiketler hakkında bilgi alabilir [Azure kaynak kullanımı ve RateCard API'leri](../billing/billing-usage-rate-card-overview.md) veya kullanım virgülle ayrılmış değerler (CSV) dosyası. Kullanım dosyasını indirin [Azure hesap portalı](https://account.windowsazure.com/) veya [EA portal](https://ea.azure.com). Faturalandırma bilgileri programlı erişim hakkında daha fazla bilgi için bkz: [Microsoft Azure kaynak tüketimini Öngörüler elde](../billing/billing-usage-rate-card-overview.md). REST API işlemleri için bkz: [Azure faturalama REST API Başvurusu](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Merhaba aracılığıyla etiketleri hakkında bilgi alabilir [Azure kaynak kullanımı ve RateCard API'leri](../billing/billing-usage-rate-card-overview.md) veya hello kullanım virgülle ayrılmış değerler (CSV) dosyası. Hello hello kullanım dosyasını karşıdan [Azure hesap portalı](https://account.windowsazure.com/) veya [EA portal](https://ea.azure.com). Programlı erişim toobilling bilgileri hakkında daha fazla bilgi için bkz: [Microsoft Azure kaynak tüketimini Öngörüler elde](../billing/billing-usage-rate-card-overview.md). REST API işlemleri için bkz: [Azure faturalama REST API Başvurusu](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
 
-Faturalama etiketleriyle destekleyen hizmetler için kullanım CSV yüklediğinizde etiketler görünür **etiketleri** sütun. Daha fazla bilgi için bkz: [faturanızı anlamak için Microsoft Azure](../billing/billing-understand-your-bill.md).
+Faturalama etiketleriyle destekleyen hizmetler için hello kullanım CSV yüklediğinizde hello hello etiketler görünür **etiketleri** sütun. Daha fazla bilgi için bkz: [faturanızı anlamak için Microsoft Azure](../billing/billing-understand-your-bill.md).
 
 ![Faturalama etiketlerinde bakın](./media/resource-group-using-tags/billing_csv.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Özelleştirilmiş ilkeler kullanarak aboneliğinizi arasında kısıtlamaları ve kuralları uygulayabilirsiniz. Tanımladığınız bir ilke tüm kaynakların belirli bir etiket için bir değere sahip gerektirebilir. Daha fazla bilgi için bkz: [kaynakları yönetmek ve erişimi denetlemek için ilkeleri kullanma](resource-manager-policy.md).
-* Kaynakları dağıtırken Azure PowerShell kullanarak bir giriş için bkz: [Azure PowerShell kullanarak Azure Resource Manager ile](powershell-azure-resource-manager.md).
-* Kaynakları dağıtırken Azure CLI kullanarak bir giriş için bkz: [Mac, Linux ve Windows Azure Resource Manager ile Azure CLI kullanarak](xplat-cli-azure-resource-manager.md).
-* Portalı kullanarak bir giriş için bkz: [Azure kaynaklarınızı yönetmek için Azure portalını kullanarak](resource-group-portal.md).  
-* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](resource-manager-subscription-governance.md).
+* Özelleştirilmiş ilkeler kullanarak aboneliğinizi arasında kısıtlamaları ve kuralları uygulayabilirsiniz. Tanımladığınız bir ilke tüm kaynakların belirli bir etiket için bir değere sahip gerektirebilir. Daha fazla bilgi için bkz: [ilkeleri toomanage kaynakları kullanın ve erişimi denetlemenize](resource-manager-policy.md).
+* Bir giriş toousing Azure PowerShell kaynakları dağıtıyorsanız, bkz: [Azure PowerShell kullanarak Azure Resource Manager ile](powershell-azure-resource-manager.md).
+* Bir giriş toousing hello Azure CLI için kaynakları dağıtıyorsanız, bkz: [kullanma hello Mac, Linux ve Windows Azure Resource Manager ile Azure CLI](xplat-cli-azure-resource-manager.md).
+* Bir giriş toousing hello portal için bkz: [kullanarak Azure kaynaklarınızı Azure portal toomanage hello](resource-group-portal.md).  
+* Kuruluşların Resource Manager tooeffectively nasıl kullanabileceğiniz hakkında rehberlik için abonelikleri yönetmek için bkz: [Azure enterprise iskele - Düzenleyici abonelik idare](resource-manager-subscription-governance.md).
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Application Insights ile web uygulamaları için kullanım analizi | Microsoft docs"
+title: "Azure Application Insights ile web uygulamaları için aaaUsage çözümleme | Microsoft docs"
 description: "Kullanıcılarınızın ve web uygulamanızı ile neler yaptığını anlayın."
 services: application-insights
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
-ms.openlocfilehash: 63b74399790b718e14a5b6e09bc009a336caf928
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f7f9173cf411fa0d2dfb3b5ba99134a02bbc0e89
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="usage-analysis-for-web-applications-with-application-insights"></a>Application Insights ile web uygulamaları için kullanım analizi
 
@@ -24,90 +24,90 @@ Web uygulamanızın hangi özellikleri en popüler var mı? Kullanıcılarınız
 
 ## <a name="send-telemetry-from-your-app"></a>Telemetriyi uygulamanızdan Gönder
 
-Uygulama sunucusu kodunuzu hem de web sayfalarınıza Application Insights yükleyerek en iyi deneyimi elde edilir. İstemci ve sunucu bileşenleri, uygulamanızın telemetri geri analiz için Azure portalı gönderin.
+Uygulama sunucusu kodunuzu hem de web sayfalarınıza Application Insights yükleyerek Hello en iyi deneyimi elde edilir. Merhaba istemci ve sunucu bileşenleri, uygulamanızın telemetri geri toohello analiz için Azure portalı gönderin.
 
-1. **Sunucu kodu:** için uygun modülünü yükleyin, [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-azure.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), veya [diğer](app-insights-platforms.md) uygulama.
+1. **Sunucu kodu:** için yükleme hello uygun modülü, [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-azure.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), veya [diğer](app-insights-platforms.md) uygulama.
 
-    * *Sunucu kodu yüklemek istemiyor musunuz? Yalnızca [Azure Application Insights kaynağı oluşturma](app-insights-create-new-resource.md).*
+    * *Tooinstall sunucu kodu istiyor mu? Yalnızca [Azure Application Insights kaynağı oluşturma](app-insights-create-new-resource.md).*
 
-2. **Web sayfası koduna:** açmak [Azure portal](https://portal.azure.com), uygulamanız için Application Insights kaynağı açın ve ardından açın **Başlarken > İzleme ve tanılama istemci tarafı**. 
+2. **Web sayfası koduna:** açık hello [Azure portal](https://portal.azure.com), uygulamanız için hello Application Insights kaynağı açın ve ardından açın **Başlarken > İzleme ve tanılama istemci tarafı**. 
 
-    ![Komut dosyası ana web sayfanızın head kopyalayın.](./media/app-insights-usage-overview/02-monitor-web-page.png)
+    ![Merhaba komut dosyası ana web sayfanızın hello head kopyalayın.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
 
-3. **Telemetri alın:** projeniz için bir kaç dakika hata ayıklama modunda çalıştırılması ve genel bakış dikey penceresinde Application Insights sonuçlarında arayın.
+3. **Telemetri alın:** projeniz için bir kaç dakika hata ayıklama modunda çalıştırılması ve hello genel bakış dikey penceresinde Application Insights sonuçlarında arayın.
 
-    Uygulamanızın performansını izlemek ve uygulamanızla kullanıcıların ne yaptıklarını bulmak için uygulamanızı yayımlayın.
+    Uygulamanızın performansını uygulama toomonitor yayımlama ve uygulamanızla kullanıcıların ne yaptıklarını bulun.
 
 ## <a name="include-user-and-session-id-in-your-telemetry"></a>Kullanıcı ve oturum kimliği, telemetri dahil
-Zaman içinde kullanıcıları izlemek için Application Insights bunları belirlemenin bir yolu gerektirir. Bir kullanıcı kimliği veya bir oturum kimliği gerektirmez yalnızca kullanım aracı olayları araçtır
+zaman içinde tootrack kullanıcılar, Application Insights gerektirir yolu tooidentify bunları. bir kullanıcı kimliği veya bir oturum kimliği gerektirmez yalnızca kullanım aracı araçtır hello olayları hello
 
 Bu kimlikleri göndermeye Başla [burada](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Kullanım demografisine ve istatistikleri keşfedin
 Kişiler uygulamanızı kullandığınızda, bunlar en, kullanıcılarınızın bulunduğu ilgileniyor hangi sayfaların, hangi tarayıcılar ve işletim sistemleri bunlar kullandığını öğrenin. 
 
-Kullanıcı ve oturum raporları, veri sayfaları veya özel olaylar tarafından filtre ve bunları konumu, ortam ve sayfa gibi özelliklere göre segmentlere ayırmak. Kendi filtreler de ekleyebilirsiniz.
+Merhaba kullanıcı ve oturum raporlar verilerinize sayfaları veya özel olaylar göre filtre uygulamak ve bunları konumu, ortam ve sayfa gibi özelliklere göre segmentlere ayırmak. Kendi filtreler de ekleyebilirsiniz.
 
 ![Kullanıcılar](./media/app-insights-usage-overview/users.png)  
 
-Veri kümesi ilginç kalıpları çıkışı sağdaki Öngörüler gelin.  
+Veri kümesi hello ilginç kalıpları çıkışı Öngörüler hello sağ üzerinde gelin.  
 
-* **Kullanıcılar** rapor içinde seçilen zaman dönemleriniz sayfalarınızı erişim benzersiz kullanıcı sayısı sayar. (Kullanıcılar tanımlama bilgilerini kullanarak sayılır. Birisi farklı tarayıcılar veya istemci makinelerle sitenize erişen veya kendi tanımlama bilgilerini temizler, ardından bunlar birden çok kez sayılacaktır.)
-* **Oturumları** raporu, sitenize erişen kullanıcı oturumlarını sayar. Bir süre etkinlik bir süre işlem yapılmadığında birden fazla yarım saat biri tarafından sonlandırıldı, bir kullanıcı tarafından oturumdur.
+* Merhaba **kullanıcılar** rapor hello sayıda sayfalarınızı içinde seçilen zaman dönemleriniz erişim benzersiz kullanıcı sayısı. (Kullanıcılar tanımlama bilgilerini kullanarak sayılır. Birisi farklı tarayıcılar veya istemci makinelerle sitenize erişen veya kendi tanımlama bilgilerini temizler, ardından bunlar birden çok kez sayılacaktır.)
+* Merhaba **oturumları** rapor sitenize erişen kullanıcı oturumlarını hello sayısını sayar. Bir süre etkinlik bir süre işlem yapılmadığında birden fazla yarım saat biri tarafından sonlandırıldı, bir kullanıcı tarafından oturumdur.
 
-[Kullanıcıları, oturumlar ve olayları araçları hakkında daha fazla bilgi](app-insights-usage-segmentation.md)  
+[Merhaba kullanıcıları, oturumlar ve olayları araçları hakkında daha fazla bilgi](app-insights-usage-segmentation.md)  
 
 ## <a name="page-views"></a>Sayfa görünümleri
 
-Kullanım dikey penceresinden en popüler sayfalarınızı dökümünü almak için sayfa görünümleri döşeme tıklayın:
+Merhaba kullanım dikey penceresinden hello sayfa görünümleri döşeme tooget en popüler sayfalarınızı dökümünü tıklayın:
 
-![Genel Bakış dikey penceresinden sayfa görünümleri grafiği tıklatın](./media/app-insights-usage-overview/05-games.png)
+![Merhaba genel bakış dikey penceresinden hello sayfa görünümleri grafik tıklayın](./media/app-insights-usage-overview/05-games.png)
 
-Yukarıdaki örnek bir oyun web sitesinden ' dir. Grafikte, biz hemen görebilirsiniz:
+Yukarıdaki Hello örnek bir oyun web sitesinden ' dir. Merhaba grafikten biz hemen görebilirsiniz:
 
-* Kullanım, geçen hafta içinde geliştirilmiş kurmadı. Belki de arama motoru iyileştirme hakkında düşünüyoruz?
-* Tenis en popüler oyun sayfasıdır. Daha fazla geliştirmeleri bu sayfaya şimdi odaklanır.
-* Ortalama, kullanıcıların tenis sayfasını yaklaşık üç kez haftalık ziyaret edin. (Yaklaşık üç kat daha fazla oturumları kullanıcıları daha vardır.)
-* Kullanıcıların çoğunun ABD çalışma hafta sırasında ve çalışma saatleri içinde sitesini ziyaret edin. Web sayfasında belki de bir "hızlı gizle" düğmesini sunuyoruz.
-* [Ek açıklamaları](app-insights-annotations.md) Web sitesi yeni sürümlerini ne zaman dağıtılan grafikte göster. Son dağıtımlarda hiçbirinin kullanım belirgin bir etkisi vardı.
+* Kullanım, geçen hafta hello geliştirilmiş kurmadı. Belki de arama motoru iyileştirme hakkında düşünüyoruz?
+* Tenis hello en popüler oyun sayfasıdır. Şimdi daha fazla geliştirmeleri toothis sayfasında odaklanın.
+* Ortalama, kullanıcıların hello tenis sayfasını yaklaşık üç kez haftalık ziyaret edin. (Yaklaşık üç kat daha fazla oturumları kullanıcıları daha vardır.)
+* Kullanıcıların çoğunun hello ABD çalışma hafta sırasında ve çalışma saatleri içinde hello sitesini ziyaret edin. Belki de biz "hızlı gizle" düğmesini hello web sayfasında sağlamanız gerekir.
+* Merhaba [ek açıklamaları](app-insights-annotations.md) hello Web sitesi yeni sürümlerini ne zaman dağıtılan hello grafikte göster. Merhaba son dağıtımlarda hiçbirinin kullanım belirgin bir etkisi vardı.
 
-Ne sitenizi siteniz, sayfa görünümü telemetrisi gönderir özel bir özellik tarafından bölme gibi daha ayrıntılı trafiği incelemek istediğiniz?
+Ne tooinvestigate hello trafiği tooyour site, site, sayfa görünümü telemetrisi gönderir özel bir özellik tarafından bölme gibi daha ayrıntılı istediğiniz?
 
-1. Açık **olayları** Application Insights kaynağı menüde aracı. Bu araç kaç sayfa görünümleri ve özel olaylar çeşitli süzme, cohorting ve kesimleme seçenekleri dayalı uygulamanızdan gönderilen analiz etmenize olanak sağlar.
-2. "Kimin kullanılan" açılır listede "Any sayfa görünümü" seçin.
-3. "Tarafından bölme" açılır listede, sayfa görünümü telemetrisi bölmek bir özellik seçin.
+1. Açık hello **olayları** hello Application Insights kaynağı menüsünde aracı. Bu araç kaç sayfa görünümleri ve özel olaylar çeşitli süzme, cohorting ve kesimleme seçenekleri dayalı uygulamanızdan gönderilen analiz etmenize olanak sağlar.
+2. "Any sayfa görünümü" Hello "Kimin kullanılan" açılır listesinde, seçin.
+3. Merhaba "Tarafından bölme" açılır listede tarafından hangi toosplit sayfanızı görüntülemek telemetri özelliğini seçin.
 
 ## <a name="retention---how-many-users-come-back"></a>Bekletme - kaç kullanıcı döndürülmesini?
 
-Bekletme ne sıklıkta bir, belirli bir zaman aralığındaki yüzdeler sırasında bazı iş eylemi gerçekleştiren kullanıcı cohorts göre kendi uygulama kullanmak için kullanıcılarınızın dönüş anlamanıza yardımcı olur. 
+Bekletme ne sıklıkta kullanıcılarınızın toouse belirli bir zaman aralığı sırasında bazı iş eylemi gerçekleştiren kullanıcı cohorts göre kendi uygulama dönüş anlamanıza yardımcı olur. 
 
-- Hangi belirli özellikleri diğerlerinden geri daha fazla gelen kullanıcıların neden anlama 
+- Hangi belirli özellikleri diğerlerinden daha fazla toocome geri kullanıcıların neden anlama 
 - Form varsayımlar gerçek kullanıcı verilerine dayalı 
 - Bekletme ürününüz için bir sorun olup olmadığını 
 
 ![Bekletme](./media/app-insights-usage-overview/retention.png) 
 
-Üstteki bekletme denetimleri, belirli olayları ve saklama hesaplamak için zaman aralığını tanımlamanıza olanak sağlar. Orta grafiğinde görsel bir genel saklama yüzdesi belirtilen zaman aralığına göre sağlar. Grafiğin altındaki belirli bir dönemde saklama temsil eder. Bu düzeyde ayrıntı, kullanıcıların ne yaptıklarını ve ne daha ayrıntılı ayrıntı düzeyi döndürmeyi kullanıcıları etkileyebilecek anlamanıza olanak sağlar.  
+Merhaba bekletme denetimleri üstte, toodefine belirli olayları ve zaman aralığı toocalculate bekletme izin verir. Merhaba hello Orta grafiğinde verir görsel bir hello belirtilen hello zaman aralığına göre genel saklama yüzdesi. Merhaba alt Hello grafikte saklama belirli bir dönemde temsil eder. Bu düzeyde ayrıntı kullanıcıların ne yaptıklarını toounderstand ve ne daha ayrıntılı ayrıntı düzeyi döndürmeyi kullanıcıları etkileyebilecek sağlar.  
 
-[Bekletme aracı hakkında daha fazla bilgi](app-insights-usage-retention.md)
+[Merhaba bekletme aracı hakkında daha fazla bilgi](app-insights-usage-retention.md)
 
 ## <a name="custom-business-events"></a>Özel iş olayları
 
-Kullanıcılar web uygulamanızı ile neler NET bir anlayış almak için özel günlük olaylarıyla kod satırlarını eklemek yararlıdır. Bu olaylar herhangi bir şey satın alma veya oyun kazanma gibi daha önemli iş olaylarına belirli düğmelerini gibi ayrıntılı kullanıcı eylemlerine izleyebilirsiniz. 
+tooget hangi kullanıcıların NET bir anlayış yapmak, web uygulamanızı, yararlı tooinsert satırlık bir kod toolog özel olaylar. Bu olayların her şeyi belirli düğmelerini, satın alma veya oyun kazanma gibi toomore önemli iş olayları gibi ayrıntılı kullanıcı eylemlerine izleyebilirsiniz. 
 
-Bazı durumlarda, sayfa görünümleri yararlı olaylar gösterebilir rağmen genel doğru değil. Bir kullanıcı, ürün satın alma olmadan bir ürün sayfasını açabilir. 
+Bazı durumlarda, sayfa görünümleri yararlı olaylar gösterebilir rağmen genel doğru değil. Bir kullanıcı hello ürün satın alma olmadan bir ürün sayfasını açabilir. 
 
-Belirli iş olaylarla kullanıcılarınızın siteniz aracılığıyla kullanıcılarınızın ilerleme grafik. Farklı seçenekler için tercihlerini çıkışı bulabilir ve bunlar bırakma out veya sorunlar vardır. Bu bilgiyle, geliştirme kapsamınızı önceliklerini hakkında bilinçli kararlar yapabilirsiniz.
+Belirli iş olaylarla kullanıcılarınızın siteniz aracılığıyla kullanıcılarınızın ilerleme grafik. Farklı seçenekler için tercihlerini çıkışı bulabilir ve bunlar bırakma out veya sorunlar vardır. Bu bilgiyle, geliştirme kapsamınızı hello öncelikleri hakkında bilinçli kararlar yapabilirsiniz.
 
-Web sayfasında olayları kaydedilebilir:
+Olayları hello web sayfasında kaydedilebilir:
 
 ```JavaScript
 
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
-Veya web uygulamasının sunucu tarafı:
+Veya sunucu tarafı hello web uygulaması hello:
 
 ```C#
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -118,27 +118,27 @@ Veya web uygulamasının sunucu tarafı:
     tc.TrackEvent("CompletedPurchase");
 ```
 
-Filtre ya da Portalı'nda incelediğinizde olayları bölme özellik değerlerini bu olaylara iliştirebilirsiniz. Ayrıca, tek bir kullanıcıya etkinlik dizisini izlemenizi sağlayan bir anonim kullanıcı kimliği gibi her olay için bir standart özellikler kümesi eklenir.
+Filtre ya da hello Portalı'nda incelediğinizde hello olayları bölme özellik değerleri toothese olayları ekleyebilirsiniz. Ayrıca, bir standart özellikler tootrace hello tek bir kullanıcı etkinliklerini bir dizi sağlar anonim kullanıcı kimliği gibi ekli tooeach olay kümesidir.
 
 Daha fazla bilgi edinmek [özel olaylar](app-insights-api-custom-events-metrics.md#trackevent) ve [özellikleri](app-insights-api-custom-events-metrics.md#properties).
 
 ### <a name="slice-and-dice-events"></a>Dilimlediği olayları
 
-Kullanıcıları, oturumlar ve olayları araçlarında dilim ve kullanıcı, olay adı ve özellikleri tarafından özel olaylar inin.
+Merhaba kullanıcıları, oturumlar ve olayları araçları dilim ve kullanıcı, olay adı ve özellikleri tarafından özel olaylar inin.
 ![Kullanıcılar](./media/app-insights-usage-overview/users.png)  
   
-## <a name="design-the-telemetry-with-the-app"></a>Tasarım telemetri uygulama
+## <a name="design-hello-telemetry-with-hello-app"></a>Merhaba telemetri hello uygulama ile tasarlama
 
-Her bir özellik, uygulamanızın tasarlarken, kullanıcılarınız ile başarısını ölçmek için nasıl adımıdır göz önünde bulundurun. Hangi iş olaylarını kaydetmek için gereken ve izleme olayları için uygulamanıza başından çağıran kodu karar verin.
+Her bir özellik, uygulamanızın tasarlarken nasıl toomeasure başarısını Kullanıcılarınızla adımıdır göz önünde bulundurun. Ne başlatma toorecord gerekir ve olaylar için çağrı uygulamanıza hello izleme hello kod iş olayları karar verin.
 
 ## <a name="a--b-testing"></a>A | B testi
-Bir özelliğin hangi değişken daha başarılı olacaktır bilmiyorsanız, bunların her farklı erişilebilir kullanıcıların her ikisi de serbest bırakın. Her başarısını ölçmenize ve birleştirilmiş bir sürüme taşıyın.
+Bir özelliğin hangi değişken daha başarılı olacaktır bilmiyorsanız, bunların her erişilebilir toodifferent kullanıcıların her ikisi de serbest bırakın. Her Hello başarısını ölçmenize ve tooa birleşik sürüm taşıyın.
 
-Bu bir teknik uygulamanızı her sürümü tarafından gönderilen tüm telemetri için ayrı özellik değerlerini ekleyin. Bunu etkin TelemetryContext özelliklerini tanımlayarak yapabilirsiniz. Bu varsayılan özellikleri, uygulamanın gönderdiği - her telemetri iletiye özel iletilerinizi değil, ancak standart telemetriyi de eklenir.
+Bu yöntem, her sürümü, uygulamanız tarafından gönderilen farklı özellik değerleri tooall hello telemetri ekleyin. Bunu hello özelliklerini tanımlayarak yapabilirsiniz etkin TelemetryContext. Bu varsayılan özellikleri uygulama hello tooevery telemetri iletisi gönderir - yalnızca, özel iletiler, ancak de standart telemetri hello eklenir.
 
-Application Insights portalında filtre ve farklı sürümlerini karşılaştırmak için özellik değerleri, verilerinizde bölebilirsiniz.
+Merhaba Application Insights portalında filtre ve hello özellik değerleri, verilerinizde toocompare hello farklı sürümlerini farklı şekilde bölebilirsiniz.
 
-Bunu yapmak için [telemetri Başlatıcı ayarlama](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
+toodo bunu [telemetri Başlatıcı ayarlama](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
 ```C#
 
@@ -153,7 +153,7 @@ Bunu yapmak için [telemetri Başlatıcı ayarlama](app-insights-api-filtering-s
     }
 ```
 
-Web uygulama Başlatıcı Global.asax.cs gibi:
+Merhaba web uygulama Başlatıcı Global.asax.cs gibi:
 
 ```C#
 
@@ -165,7 +165,7 @@ Web uygulama Başlatıcı Global.asax.cs gibi:
     }
 ```
 
-Tüm yeni TelemetryClients belirttiğiniz özellik değeri otomatik olarak ekler. Telemetri olaylarını tek tek varsayılan değerleri geçersiz kılabilirsiniz.
+Tüm yeni TelemetryClients belirttiğiniz başlangıç özellik değeri otomatik olarak ekler. Telemetri olaylarını tek tek hello varsayılan değerleri geçersiz kılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
    - [Kullanıcılar, Oturumlar, Etkinlikler](app-insights-usage-segmentation.md)

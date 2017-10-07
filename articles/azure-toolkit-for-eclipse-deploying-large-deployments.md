@@ -1,6 +1,6 @@
 ---
-title: "Büyük dağıtımlar dağıtma"
-description: "Eclipse için Azure Araç Seti kullanarak büyük dağıtımlar dağıtmayı öğrenin."
+title: "aaaDeploying büyük dağıtımlar"
+description: "Eclipse için Azure Araç Seti kullanarak toodeploy büyük dağıtımları nasıl hello öğrenin."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,27 +14,27 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: e12e379e2b6727653e2377b1760c3745596a1e9c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6b1d2a7a5e49c78154fc856a221e64ca8dcfbe9a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploying-large-deployments"></a>Büyük dağıtımlar dağıtma
-Dağıtımınız varsayılan approot klasöründe bulunması için çok büyük ise, JDK için yerel depolama kaynağı dağıtım kök klasör olarak kullanabilirsiniz ve uygulama sunucusu.
+Dağıtımınızı hello varsayılan approot klasöründe yer alan çok büyük toobe ise, JDK için yerel depolama kaynağı hello dağıtım kök klasör olarak kullanabilirsiniz ve uygulama sunucusu.
 
-## <a name="to-use-a-local-storage-resource-as-the-deployment-root-folder-for-large-deployments"></a>Yerel depolama kaynağı büyük dağıtımlar için dağıtım kök klasör olarak kullanmak için
-1. Yeni bir yerel depolama kaynağı oluşturun. Kaynağın adını belirttiğinizin önemi yoktur. Depolama kaynaklarını rol düzeyinde tanımlanır. İçinden oluşturduğunuz yeni bir yerel depolama kaynağı yerel depolama yapılandırma iletişim erişmek için en hızlı aşağıdaki adımları kullanarak yoludur: rolünde sağ **Proje Gezgini** Görünüm (Azure projenizi genişletin düğüm) rolü görmüyorsanız, tıklatın **Azure**ve ardından **yerel depolama**. İçinde **yerel depolama** iletişim kutusunda, tıklatın **Ekle** yeni bir yerel depolama kaynağı oluşturmak için.
+## <a name="toouse-a-local-storage-resource-as-hello-deployment-root-folder-for-large-deployments"></a>toouse büyük dağıtımlar için hello dağıtım kök klasör olarak yerel depolama kaynağı
+1. Yeni bir yerel depolama kaynağı oluşturun. Merhaba hello kaynağın adını belirttiğinizin önemi yoktur. Depolama kaynaklarını hello rol düzeyinde tanımlanır. Merhaba içinden oluşturduğunuz yeni bir yerel depolama kaynağı hızlı şekilde tooaccess hello yerel depolama yapılandırması iletişim kutusunda, aşağıdaki adımları hello kullanmaktır: hello sağ hello rolünde **Proje Gezgini** Görünüm (genişletin, Azure projesi düğümü) hello rolü görmüyorsanız, tıklatın **Azure**ve ardından **yerel depolama**. Merhaba içinde **yerel depolama** iletişim kutusunda, tıklatın **Ekle** toocreate yeni bir yerel depolama kaynağı.
 
-2. İstenen boyuta (karşılaşabileceğinizi herhangi bir şey daha az aynı dosyanın boyutu sorunları approot neden olabilir) en az 2048 MB ayarlayın.
+2. Set hello istenen boyutu tooat (hiçbir şey daha az hello aynı dosya boyutu sorunlara neden karşılaşabileceğinizi hello approot) en az 2048 MB.
 
-3. Emin **rol örneği geri dönüştürüldüğünde içeriği temiz** denetlenir; bu dağıtımın başlangıç mantığı rol örneği olduğunda çakışmaları kaynak önceden var olan dosyalarla engellenmesine yardımcı olur geri dönüştürüldü.
+3. Emin **hello rol örneği geri dönüştürüldüğünde hello içeriği temiz** denetlenir; bu hello dağıtımın başlangıç mantığı çakışmaları hello kaynak önceden var olan dosyaları ile engellenmesine yardımcı olur rolü'ne zaman hello geri dönüştürüldüğünde örneğidir.
 
-4. Emin **kaynağın dizin yolu dağıtımdan sonra Depolama ortam değişkeni** değeri dizeye ayarlayın **DEPLOYROOT**. Yerel depolama kaynak iletişim aşağıdakine benzer görünecektir.
+4. Bu hello olun **dağıtımdan sonra hello kaynağın dizin yolu ortam değişkeni depolamak** değeri toohello dize ayarlanır **DEPLOYROOT**. Yerel depolama kaynak iletişim benzer toohello aşağıdaki arar.
 
    ![][ic667943]
 
-Alternatif olarak, kullanırsanız **DEPLOYROOT** olarak *adı* yerel kaynağınız ve, otomatik olarak oluşturulan ortam değişkeni adı değiştirmeyin (hangi şekilde ayarlanacak **DEPLOYROOT_ YOL** bu durumda), uygulamanız için çalışması.
+Alternatif olarak, kullanırsanız **DEPLOYROOT** hello olarak *adı* yerel kaynağınız ve, hello otomatik olarak oluşturulan ortam değişkeni adı değiştirmeyin (hangi ayarlanacak çok **DEPLOYROOT_PATH** bu durumda), uygulamanız için çalışması.
 
 Yerel depolama kaynağı oluşturma hakkında daha fazla bilgi bulunabilir [yerel depolama özellikleri][Local storage properties].
 
@@ -43,16 +43,16 @@ Yerel depolama kaynağı oluşturma hakkında daha fazla bilgi bulunabilir [yere
 
 [Eclipse'te Azure Merhaba Dünya uygulaması oluşturma][Creating a Hello World Application for Azure in Eclipse]
 
-[Eclipse için Azure araç setini yükleme][Installing the Azure Toolkit for Eclipse] 
+[Yükleme hello Eclipse için Azure Araç Seti][Installing hello Azure Toolkit for Eclipse] 
 
-Azure Java ile kullanma hakkında daha fazla bilgi için bkz: [Azure Java Geliştirici Merkezi][Azure Java Developer Center].
+Azure Java ile kullanma hakkında daha fazla bilgi için bkz: Merhaba [Azure Java Geliştirici Merkezi][Azure Java Developer Center].
 
 <!-- URL List -->
 
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Installing hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Local storage properties]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
 
 <!-- IMG List -->

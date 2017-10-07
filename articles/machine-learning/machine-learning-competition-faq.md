@@ -1,5 +1,5 @@
 ---
-title: Cortana Intelligence Competitions SSS | Microsoft Docs
+title: aaaCortana Intelligence Competitions SSS | Microsoft Docs
 description: "Microsoft Cortana Intelligence Competitions hakkında sık sorulan sorular."
 services: machine-learning
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: haining;garye
-ms.openlocfilehash: 4ed387d9ef595312d4fcde78b2fdc3644e96ee27
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: de51de4fed0f4e54d02af430706de01e05b50495
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence Yarışmaları Hakkında SSS
 **Cortana Intelligence Competitions nedir?**
 
-Microsoft Cortana Intelligence Competitions bize topluca bazı dünyanın en karmaşık veri bilimi sorunlarını çözme tarafından bir genel veri meraklıları topluluğu birleştirme izin verir. Cortana Intelligence Competitions gelen veri meraklıları rekabet ve yüksek oranda doğru ve akıllı bir veri bilimi modelleri oluşturmak için dünya genelindeki izin verir. Bizim barındırılan competitions herkese ilk kez kullanıma sunulan benzersiz veri kümelerini dayanır. Katılımcıların ödül win veya tanıma bizim üst 10 ortak Skorbordu aracılığıyla alın. Lütfen gidin [burada](http://aka.ms/CIComp) Competitions giriş sayfasına erişmek için.
+Merhaba Microsoft Cortana Intelligence Competitions bize toounite genel bir veri meraklıları topluluğu topluca bazı hello dünyanın en karmaşık veri bilimi sorunlarını çözme tarafından izin verir. Cortana Intelligence Competitions hello world toocompete gelen veri meraklıları izin ve yüksek oranda doğru ve akıllı bir veri bilimi modelleri oluşturabilir. Bizim barındırılan competitions ilk kez herkese Merhaba kullanımına sunulan benzersiz veri kümeleri hakkında temel alır. Katılımcıların ödül win veya tanıma bizim üst 10 ortak Skorbordu aracılığıyla alın. Lütfen gidin [burada](http://aka.ms/CIComp) tooaccess hello Competitions giriş sayfası.
 
 **Ne sıklıkta Microsoft yeni competitions yayımlayacak mı?**
 
@@ -35,82 +35,82 @@ Lütfen kullanın bizim [Microsoft Azure Machine Learning Forumu](https://social
 
 **Bir rekabet nasıl girilir?**
 
-Erişim [Competitions](https://gallery.cortanaintelligence.com/competitions) giriş sayfası [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com/), veya gitmek [http://aka.ms/CIComp](http://aka.ms/CIComp). Giriş sayfası çalışmakta olan tüm competitions listeler. Her rekabet ayrıntılı yönergeler ve katılım kuralları, ödül ve süresi, kayıt sayfasındaki.
+Erişim hello [Competitions](https://gallery.cortanaintelligence.com/competitions) hello giriş sayfası [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com/), ya da çok Git[http://aka.ms/CIComp](http://aka.ms/CIComp). Merhaba giriş sayfası çalışmakta olan tüm competitions listeler. Her rekabet ayrıntılı yönergeler ve katılım kuralları, ödül ve süresi, kayıt sayfasındaki.
 
-1. Tüm yönergeleri okuyun, katılmasını istediğiniz rekabet bulmak ve öğretici videoyu izleyin ve ardından **girin rekabet** Starter deneme mevcut Azure Machine Learning çalışma alanınıza kopyalamak için düğmesi. Bir çalışma alanına erişim sahip değilseniz, birini oluşturmalısınız önceden. Başlatıcı denemeyi çalıştırın, performans ölçüm inceleyin, sonra modeli performansını artırmak için yaratıcılığınızı kullanın. Bu adımda, sürenin büyük bölümünden olasılıkla harcamanız.   
+1. Tüm hello yönergeleri ve izleme hello öğreticinin video, okuma, tooparticipate gibi hello rekabet Bul ardından hello tıklatın **girin rekabet** düğmesi toocopy hello Starter deneme mevcut Azure makinenizi içine Learning çalışma alanı. Erişim tooa çalışma zaten sahip değilseniz, birini oluşturmalısınız önceden. Merhaba Starter denemeyi çalıştırın, hello performans ölçüm inceleyin ve sonra yaratıcılık tooimprove hello performansınızı hello modelinin kullanın. Bu adımda zaman hello çoğunluğu büyük olasılıkla harcamanız.   
 
-2. Tahmine dayalı bir deneme Starter denemenizi dışında eğitilen model oluşturun. Ardından dikkatle giriş ayarlamak ve şema rekabet belgelerinde belirtilen gereksinimleri uydukları emin olmak için web hizmetinin çıktı. Eğitmen belge genellikle bu ayrıntılı yönergeler. Eğitmen video varsa da izleyebilirsiniz.   
+2. Tahmine dayalı bir deneme Starter denemenizi dışında hello eğitilen model oluşturun. Ardından dikkatle hello giriş ayarlamak ve hello web hizmeti tooensure hello rekabet belgelerinde belirtilen toohello gereksinimlerini uygun şema çıktı. Başlangıç Öğreticisi belge genellikle bu ayrıntılı yönergeler. Başlangıç Öğreticisi video, ayrıca, varsa da izleyebilirsiniz.   
 
-3. Tahmine dayalı denemenizi dışında bir web hizmetini dağıtın. Web hizmetini kullanarak test **Test** düğmesini veya emin olmak için otomatik olarak oluşturulan Excel şablonu doğru çalışıp çalışmadığını.   
+3. Tahmine dayalı denemenizi dışında bir web hizmetini dağıtın. Web hizmetiniz Hello kullanarak test **Test** düğmesini veya hello Excel şablonu düzgün çalıştığından, tooensure için otomatik olarak oluşturulur.   
 
-4. Web hizmetiniz rekabet girdi olarak göndermek ve ortak, puan Cortana Intelligence Galerisi rekabet sayfasındaki bakın. Ve Skorbordu yaparsanız karşılayın!  
+4. Web hizmetiniz hello rekabet girdi olarak göndermek ve ortak, puan hello Cortana Intelligence Galerisi rekabet sayfasındaki bakın. Ve hello Skorbordu yaparsanız karşılayın!  
 
-Bir giriş başarıyla gönderdikten sonra geri kopyalanan Starter denemenizi için yineleme, Tahmine dayalı denemenizi güncelleştirmek, web hizmetini güncelleştirmek ve yeni bir giriş gönderme gidebilirsiniz.   
+Bir giriş başarıyla gönderdikten sonra Starter deneme tooyour kopyalanan geri dönün, yineleme ve Tahmine dayalı denemenizi güncelleştirmek, hello web hizmetini güncelleştirmek ve yeni bir giriş gönderme.   
 
 **Açık kaynaklı araçları bu competitions katılmak için kullanabilir miyim?**
 
-Azure Machine Learning Studio, bulut tabanlı bir hizmetine Cortana Intelligence Suite içinde veri bilimi modellerinin ve gönderme için rekabet girişleri oluşturmak için geliştirme için rekabet katılımcıları yararlanın. Yalnızca Machine Learning Studio'da makine öğrenimi denemelerine oluşturmak için bir GUI arabirimi sağlar, kendi R ve/veya Python komut dosyaları için yerel yürütme getirmek de sağlar. Zengin bir açık kaynak R/Python paketlerini kümesiyle Studio'da R ve Python çalışma zamanları gelir ve deneme de bir parçası olarak kendi paketleri içeri aktarabilirsiniz. Studio stili veri keşfi boşaltmak yerleşik bir Jupyter Not Defteri hizmetinin de vardır. Elbette, her zaman rekabet kullanılan veri kümelerindeki indirebilir ve Machine Learning Studio dışında sık kullanılan aracında keşfedin. 
+Merhaba rekabet katılımcıları Azure Machine Learning Studio, bulut tabanlı bir hizmetine Cortana Intelligence Suite içinde hello veri bilimi modelleri ve göndermelerini toocreate rekabet girişler geliştirilmesi için yararlanın. Yalnızca Machine Learning Studio'da makine öğrenimi denemelerine oluşturmak için bir GUI arabirimi sağlar, ayrıca kendi R ve/veya Python komut dosyaları için yerel yürütme toobring sağlar. Merhaba R ve Python çalışma zamanları Studio'da zengin bir açık kaynak R/Python paketlerini kümesiyle gelen ve kendi paketleri hello deneme bir parçası olarak içeri aktarabilirsiniz. Studio, toodo ücretsiz stili veri keşfi için yerleşik bir Jupyter Not Defteri hizmeti de vardır. Elbette, her zaman hello rekabet kullanılan hello veri kümeleri indirebilir ve Machine Learning Studio dışında sık kullanılan aracında keşfedin. 
 
-**Girmek için bir veri Bilimcisi olması gerekiyor mu?**
+**Toobe veri Bilimcisi tooenter gerekiyor mu?**
 
-Hayır. Aslında, veri meraklıları, veri bilimi merak ediyor ve diğer aspiring veri bilimcilerine bizim bağlamı bağlamı girmek için öneririz. Biz rekabet herkese izin vermek için destekleyici belgeler tasarladıktan. Bizim hedef kitle aşağıdaki gibidir:
+Hayır. Aslında, veri meraklıları, veri bilimi hakkında merak bu ve diğer aspiring veri bilimcilerine tooenter bizim bağlamı bağlamı öneririz. Biz destekleyici belgeler tooallow herkes tasarladıktan toocompete. Bizim hedef kitle aşağıdaki gibidir:
 
-* **Veri geliştiriciler**, **veri Bilimcilerine**, **BI** ve **analiz uzmanlarının**: verileri ve çözümlemeler içerik için oluşturmaktan sorumlu olan kişiler Başkalarının kullanmak için
-* **Veri Stewards**: verileri, ne anlama geldiğini ve nasıl, kullanılmaya ve hangi amaçla bilgisine sahip olanlar
+* **Veri geliştiriciler**, **veri Bilimcilerine**, **BI** ve **analiz uzmanlarının**: verileri ve çözümlemeler içerik için oluşturmaktan sorumlu olan kişiler Başkalarının tooconsume
+* **Veri Stewards**: verileri, ne anlama geldiğini ve nasıl tasarlanmıştır Merhaba hakkında hello bilgisine sahip olanlar toobe kullanılan ve hangi amaçla
 * **Öğrenciler** & **Araştırmacıları:** üniversiteler ya da yoğun açık çevrimiçi kurslar (MOOCs) katılımcıları akademik program aracılığıyla becerileri öğrenme ve verileri elde ilgili
 
 **Ekip olarak my arkadaşlarınızla girin?**
 
-Rekabet platform şu anda takım katılımı desteklemiyor. Her rekabet giriş tek bir kullanıcı kimliğine bağlıdır. 
+Merhaba rekabet platformu takım katılım şu anda desteklemiyor. Her rekabet giriş bağlı tooa tek kullanıcı kimliğidir. 
 
-**Bir rekabet katılmak ödeme gerekiyor mu?**
+**Bir toopay tooparticipate gerekiyor mu?**
 
-Katılmayı competitions ücretsizdir. Ancak, bir Azure Machine Learning çalışma alanına katılmayı erişmeniz. Yalnızca geçerli bir Microsoft hesabı veya bir Office 365 hesabınızla oturum günlüğü tarafından bir kredi kartı olmadan boş bir çalışma alanı oluşturabilirsiniz. Bir Azure veya Cortana Intelligence Suite müşteri değilseniz, oluşturabilir ve aynı Azure aboneliği altında bir standart çalışma alanını kullanın. Bir Azure aboneliği satın almak isterseniz, Git [Azure fiyatlandırma](https://azure.microsoft.com/pricing) sayfası. Standart ücretler standart çalışma alanına denemeler oluşturmak için kullanırken geçerli olduğunu unutmayın. Bkz: [fiyatlandırma bilgileri Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) daha fazla bilgi için. 
+Competitions de serbest tooparticipate ' dir. Ancak, erişim tooan Azure Machine Learning çalışma alanı tooparticipate zorunda. Yalnızca geçerli bir Microsoft hesabı veya bir Office 365 hesabınızla oturum günlüğü tarafından bir kredi kartı olmadan boş bir çalışma alanı oluşturabilirsiniz. Bir Azure veya Cortana Intelligence Suite müşteri değilseniz, oluşturma ve standart çalışma hello altında kullanma aynı Azure aboneliği. Bir Azure aboneliği toopurchase isterseniz, toohello Git [Azure fiyatlandırma](https://azure.microsoft.com/pricing) sayfası. Merhaba standart ücretler standart çalışma tooconstruct denemeler kullanırken geçerli olduğunu unutmayın. Bkz: [fiyatlandırma bilgileri Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) daha fazla bilgi için. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **Ortak ve özel puanları nelerdir?**
 
-Çoğu competitions içinde genellikle 10-20 dakika içinde yaptığınız her gönderi için ortak bir puan alırsınız fark edeceksiniz. Ancak rekabet sona erdikten sonra son sıralama için kullanılan özel bir puan alırsınız. 
+Çoğu competitions içinde genellikle 10-20 dakika içinde yaptığınız her gönderi için ortak bir puan alırsınız fark edeceksiniz. Ancak hello rekabet sona erdikten sonra son sıralama için kullanılan özel bir puan alırsınız. 
 
 Şunlar olur:
 
-* Rekabet kullanılan tüm veri kümesinin rastgele stratification eğitim ve test (Kalan) veri ile ayrılır. Hem eğitim hem de veri sınama etiketleri dağıtımlarını tutarlı olduğundan emin olmak için rastgele bölünmüş stratified.
-* Eğitim verileri karşıya ve size Starter deneme veri içeri aktarma modül yapılandırmasındaki bir parçası olarak belirtilen.
-* Test verilerinin aynı stratification kullanarak ortak ve özel test verisine, daha fazla ayrılır.
-* Genel test verileri Puanlama ilk gidiş için kullanılır. Sonuç ortak puan adlandırılır ve girişinizin gönderdiğinizde gönderimi geçmişinizde gördüğünüz olur. Bu puanı, göndermek için her giriş hesaplanır. Bu ortak puanı üzerinde ortak Skorbordu derecelendirmek için kullanılır.
-* Rekabet sona erdikten sonra özel test verilerinin Puanlama son gidiş için kullanılır. Bu özel puan adlandırılır. 
-* Her katılımcı için en yüksek ortak puanları girişlerle sabit sayıda (Bu sayı rekabet bağlı olarak değişebilir) özel Puanlama gidiş girmek için otomatik olarak seçilir. En yüksek özel skoru girişle daha sonra sonuçta ödül kazanan belirler son derecelendirme girmek için seçilir.  
+* Merhaba rekabet kullanılan hello tüm veri kümesinin rastgele eğitim ve test etme (kalan hello) veri stratification ile ayrılır. Merhaba rastgele bölünmüş stratified tooensure hem eğitim hem de veri sınama etiketleri hello dağıtımlarını tutarlı olduğundan emin olur.
+* Merhaba eğitim verileri karşıya ve hello Starter deneme hello veri içeri aktarma modül yapılandırmasındaki bir parçası olarak tooyou verilir.
+* aynı stratification kullanarak özel test verileri hello ve verileri test etme hello daha fazla ortak bölebilirsiniz.
+* Merhaba genel test verileri Puanlama, hello ilk gidiş için kullanılır. Merhaba sonuç adlandırılır tooas hello ortak puanı ve girişinizin gönderdiğinizde gönderimi geçmişinizde gördüğünüz olur. Bu puanı, göndermek için her giriş hesaplanır. Bu ortak puanı kullanılan toorank olduğundan, hello ortak Skorbordu.
+* Merhaba özel test verileri hello rekabet sona erdikten sonra Puanlama hello son gidiş için kullanılır. Bu özel puan başvurulan tooas olduğu. 
+* Her bir katılımcının hello yüksek ortak puanları girişlerle sabit sayıda (Bu sayı hello rekabet bağlı olarak değişebilir) otomatik olarak belirlenen tooenter hello özel Puanlama gidiş ' dir. Seçili tooenter hello sonra sonuçta hello ödül kazanan belirler son derecelendirme hello en yüksek özel puanı hello girişidir.  
 
 **Müşteriler rekabet bizim platformunda barındırabilir?**
 
-Bizimle iş ortaklığı ve ortak ve özel competitions bizim platformunda barındırmak için 3. taraf kuruluşlar Sihirbazına Hoş Geldiniz. Bu tür competitions onboarding işlemini tartışır mutluluk olacak rekabet hazırlanma ekibi sunuyoruz.  Lütfen bizimle iletişime alma [ compsupport@microsoft.com ](mailto:compsupport@microsoft.com) daha fazla ayrıntı için. 
+Biz 3. taraf kuruluşlar toopartner bizimle Hoş Geldiniz ve ortak ve özel competitions bizim platformda barındırır. Onboarding işlemi böyle competitions için toodiscuss hello mutluluk olacak rekabet hazırlanma ekibi sunuyoruz.  Lütfen bizimle iletişime alma [ compsupport@microsoft.com ](mailto:compsupport@microsoft.com) daha fazla ayrıntı için. 
 
-**Gönderimleri için sınırlamalar nelerdir?**
+**Gönderimleri hello sınırlamalar nelerdir?**
 
-Tipik bir rekabet 24 saat aralığında (UTC saat 00:00:00 için 23:59:59) gönderebilirsiniz girdi sayısı ve rekabet süresinde gönderebilirsiniz girişleri toplam sayısını sınırlamak seçebilirsiniz. Bir sınırlama aşıldığında, ilgili hata iletileri alırsınız. 
+Tipik bir rekabet toolimit hello 24 saat aralığında (UTC saat 00:00:00 too23:59:59) gönderin ve toplam girdi sayısı bu değeri hello rekabet hello süresinde gönderebilirsiniz hello girdi sayısı seçebilirsiniz. Bir sınırlama aşıldığında, ilgili hata iletileri alırsınız. 
 
 **Bir rekabet win ne olur?**
 
-Microsoft özel Skorbordu sonuçlarını doğrular ve ardından olduğumuzda sizinle iletişime. Lütfen e-posta adresinizi kullanıcı profilinizde güncel olduğundan emin olun.
+Microsoft hello özel Skorbordu hello sonuçlarını doğrular ve ardından olduğumuzda sizinle iletişime. Lütfen e-posta adresinizi kullanıcı profilinizde toodate olduğundan emin olun.
 
-**Bir rekabet win olursa nasıl ödül para alır?**
+**Bir rekabet win olursa nasıl hello ödül para alır?**
 
-Rekabet kazanan varsa, uygunluk, lisans ve sürümünden bir bildirim imzalamak gerekir. Bu form rekabet kuralları reiterates. Kazanan ABD mükellefleri değillerse W-9 ya da bir formu W-8BEN BİZE vergi formu doldurmanız gerekir. Biz tüm kazanan ödül ödeme işleminin bir parçası olarak kayıt e-posta kullanarak sizinle iletişim kuracaktır. Lütfen bizim [hüküm ve koşullar](http://aka.ms/comptermsandconditions) ek ayrıntılar için.
+Rekabet kazanan varsa, toosign uygunluk, lisans ve sürümünden bir bildirimi gerekir. Bu form hello rekabet kuralları reiterates. ABD mükellefleri değillerse kazanan toofill BİZE vergi formu W-9 ya da bir formu W-8BEN gerekir. Biz tüm kazanan hello ödül ödeme işleminin bir parçası olarak kayıt e-posta kullanarak sizinle iletişim kuracaktır. Lütfen tooour bakın [hüküm ve koşullar](http://aka.ms/comptermsandconditions) ek ayrıntılar için.
 
-**Ne birden fazla giriş aynı puanı alır?**
+**Ne hello birden fazla giriş aldığı aynı puan?**
 
-Gönderme bağlantı kesici saattir. Daha önce gönderilen girişi daha sonra gönderilen girişi outranks.
+Merhaba bağlantı-kesici Hello gönderme zamanı geldi. daha önce gönderilen hello girişi daha sonra gönderilen hello girişi outranks.
 
 **Kullanarak katılabilirsiniz Konuk çalışma?**
 
-Hayır. Katılmak için bir ücretsiz veya standart bir çalışma alanı kullanmanız gerekir. Bir konuk çalışma alanında rekabet starter deneme açabilir ancak, bu çalışma alanından gönderimi için geçerli bir girişi oluşturmak kullanabileceksiniz değil. 
+Hayır. Bir ücretsiz veya standart çalışma tooparticipate kullanmanız gerekir. Bir konuk çalışma alanında hello rekabet starter deneme açabilir ancak mümkün toocreate bu çalışma alanından gönderimi için geçerli bir girdi olmaması. 
 
 **Tüm Azure bölgesinde bir çalışma alanını kullanarak katılabilmesi için?**
 
-Şu anda, rekabet platform çalışma gönderildiği girişleri yalnızca destekler **Orta Güney ABD** Azure bölgesi. Herhangi bir ücretsiz çalışma alanından bir giriş gönderebilirsiniz şekilde Orta Güney ABD içinde tüm ücretsiz çalışma alanları bulunur. Standart çalışma kullanmayı seçerseniz, yalnızca emin olun Güney Orta ABD Azure bölgesinde bulunan, aksi takdirde, Gönderiminizi başarılı olmaz. 
+Şu anda hello rekabet platform hello çalışma gönderildiği girişleri yalnızca destekler **Orta Güney ABD** Azure bölgesi. Herhangi bir ücretsiz çalışma alanından bir giriş gönderebilirsiniz şekilde Orta Güney ABD içinde tüm ücretsiz çalışma alanları bulunur. Standart çalışma toouse seçerseniz, yalnızca olun hello Güney merkez ABD Azure bölgesinde bulunan, aksi takdirde, Gönderiminizi başarılı olmaz. 
 
 **Biz kullanıcıların competitions çözümleri ve girişleri tutarım?**
 
-Kullanıcı girişi yalnızca değerlendirme amacıyla kazanan çözümleri tanımlamak korunur. Lütfen bizim [hüküm ve koşullar](http://aka.ms/comptermsandconditions) özellikleri için.
+Kullanıcı girişi yalnızca değerlendirme amacıyla tooidentify hello kazanan çözümleri için korunur. Lütfen tooour bakın [hüküm ve koşullar](http://aka.ms/comptermsandconditions) özellikleri için.
 

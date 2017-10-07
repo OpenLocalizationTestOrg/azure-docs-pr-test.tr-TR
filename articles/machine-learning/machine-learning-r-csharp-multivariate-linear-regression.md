@@ -1,5 +1,5 @@
 ---
-title: "(kullanım dışı) Multivariate doğrusal regresyon - Azure | Microsoft Docs"
+title: "AAA(deprecated) Multivariate doğrusal regresyon - Azure | Microsoft Docs"
 description: "(kullanım dışı) Multivariate doğrusal regresyon"
 services: machine-learning
 documentationcenter: 
@@ -16,42 +16,42 @@ ms.date: 01/06/2017
 ms.author: jaymathe
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 65a8005139e920cd19593e954fc1bf836354bdf3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 0ff7221cd06c0ef059b0c5bf327016588174dcfe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-multivariate-linear-regression"></a>(kullanım dışı) Multivariate doğrusal regresyon
 
 > [!NOTE]
-> Microsoft DataMarket kullanımdan kaldırıldı ve bu API kullanım dışı bırakıldı. 
+> Merhaba Microsoft DataMarket kullanımdan kaldırıldı ve bu API kullanım dışı bırakıldı. 
 > 
-> Çok sayıda kullanışlı örnek denemeleri ve API'leri bulabilirsiniz [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com). Galeri hakkında daha fazla bilgi için bkz: [paylaşımı ve Cortana Intelligence Galerisi kaynakları bulmak](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Çok sayıda kullanışlı örnek denemeleri ve API hello bulabilirsiniz [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com). Merhaba galeri hakkında daha fazla bilgi için bkz: [paylaşımı ve hello Cortana Intelligence Galerisi kaynakları bulmak](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Bağımsız değişkenleri esas alarak her kişi (i) için bir veri kümeniz ve hızlı bir şekilde bağımlı bir değişken (y) tahmin etmek istediğiniz varsayalım. Doğrusal regresyon, bu tür tahminleri için kullanılan yaygın bir istatistik tekniğidir. Burada bağımlı değişken y sürekli bir değeri olduğu varsayılır.  
+Bağımsız değişkenleri esas alarak her kişi (i) için bir veri kümeniz ve tooquickly gibi bağımlı bir değişken (y) tahmin etmek varsayalım. Doğrusal regresyon, bu tür tahminleri için kullanılan yaygın bir istatistik tekniğidir. Burada hello bağımlı değişken y toobe sürekli bir değeri kabul edilir.  
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Basit bir senaryoyu araştırmacı kendi yüksekliği (x) dayalı bir kişinin (y) ağırlığını tahmin etmek nerede çalışıyor olabilir. Daha gelişmiş bir senaryo araştırmacı burada ek bilgi için (örneğin, ağırlık, cinsiyetiniz, yarış) tek tek ve tek tek ağırlığını tahmin etmek çalışır olabilir. Bu [web hizmeti](https://datamarket.azure.com/dataset/aml_labs/multivariate_regression) veriler için doğrusal regresyon modeli sığar ve tahmin edilen bir değer (y) her veri gözlemleri çıkarır.
+Basit bir senaryoyu hello araştırmacı toopredict hello kendi yüksekliği (x) dayalı bir kişinin (y) ağırlığını nerede çalışıyor olabilir. Daha gelişmiş bir senaryo burada hello araştırmacı hello (gibi ağırlık, cinsiyetiniz, yarış) tek tek ek bilgi ve toopredict hello hello tek ağırlığını çalışır olabilir. Bu [web hizmeti](https://datamarket.azure.com/dataset/aml_labs/multivariate_regression) sığar hello doğrusal regresyon modeli toohello veri ve çıkışları her hello gözlemleri hello veri için tahmin edilen bir değer (y) hello.
 
-> Bu web hizmeti tarafından kullanıcılara – potansiyel olarak mobil uygulama, bir Web sitesi aracılığıyla ya da bile yerel bir bilgisayarda, örneğin tüketilmesi. Ancak web hizmetinin amacı, ayrıca Azure Machine Learning web hizmetleri R kodu üstünde oluşturmak için nasıl kullanılabileceği bir örnek olarak hizmet verecek. Yalnızca birkaç satırlık bir R kodu ve Azure Machine Learning Studio içinde bir düğmeye tıklama ile bir deneme R kodu ile oluşturulan ve bir web hizmeti olarak yayımlanan. Web hizmeti için Azure Marketi yayımlanan ve kullanıcılar ve aygıtlar için herhangi bir altyapı Kurulumu yazarı tarafından oluşturulan web hizmeti ile dünya genelindeki tüketilen.  
+> Bu web hizmeti tarafından kullanıcılara – potansiyel olarak mobil uygulama, bir Web sitesi aracılığıyla ya da bile yerel bir bilgisayarda, örneğin tüketilmesi. Ancak hello amacı hello web hizmeti, ayrıca Azure Machine Learning kullanılan toocreate web hizmetleri R kodu en üstünde nasıl olabilir bir örnek olarak tooserve. Yalnızca birkaç satırlık bir R kodu ve Azure Machine Learning Studio içinde bir düğmeye tıklama ile bir deneme R kodu ile oluşturulan ve bir web hizmeti olarak yayımlanan. Merhaba web hizmeti sonra yayımlanan toohello Azure Marketi olabilir ve kullanıcılar ve aygıtlar için herhangi bir altyapı Kurulumu hello web hizmeti hello yazarı tarafından ile Merhaba dünya genelindeki tüketilen.  
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Web hizmetinin tüketim
-Bu web hizmeti tüm gözlemleri bağımsız değişkenleri göre bağımlı değişkenin tahmin edilen değerler sağlar. Web hizmeti burada satır (,) virgülle ayrılır ve sütunları noktalı virgülle (;) ayrılmış bir dize olarak veri girişi için son kullanıcı bekliyor. Web hizmeti, aynı anda 1 satır bekler ve ilk sütun bağımlı değişkenin olmasını bekler. Bir örnek veri kümesini şöyle:
+Bu web hizmeti verir hello hello bağımlı tüm hello gözlemleri hello bağımsız değişkenleri göre değişken değerleri tahmin. Merhaba web hizmeti hello son kullanıcı tooinput veri burada satır (,) virgülle ayrılır ve sütunları noktalı virgülle (;) ayrılmış bir dize bekliyor. Merhaba web hizmeti, aynı anda 1 satır bekler ve hello ilk sütun toobe hello bağımlı değişken bekliyor. Bir örnek veri kümesini şöyle:
 
 ![Örnek veriler][1]
 
-Bağımlı bir değişken olmadan gözlemleri "NA" için y girmelisiniz. Yukarıdaki veri kümesi aşağıdaki dize şöyle için giriş verileri: "10 5; 2,18; 1; 6,6; 5.3; 2.1,7; 5; 5,22; 3; 4,12; 2; 1, ad 3; 4". Çıktı, her bağımsız değişkenleri esas alarak satır için tahmin edilen değerdir. 
+Bağımlı bir değişken olmadan gözlemleri "NA" için y girmelisiniz. Merhaba verileri dataset üzerinde hello için olması hello aşağıdaki dizesi girin: "10 5; 2,18; 1; 6,6; 5.3; 2.1,7; 5; 5,22; 3; 4,12; 2; 1, ad 3; 4". Merhaba hello her hello satır için tahmin edilen değer hello bağımsız değişkenlerine bağlı olduğu çıktı. 
 
-> Bu hizmet Azure Marketi üzerinde barındırılan bir OData hizmeti aynıdır; Bu POST veya GET yöntemleri ile çağrılabilir. 
+> Bu hizmet Azure Marketi hello üzerinde barındırılan bir OData hizmeti aynıdır; Bu POST veya GET yöntemleri ile çağrılabilir. 
 > 
 > 
 
-Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (bir örnek uygulaması [burada](http://microsoftazuremachinelearning.azurewebsites.net/MultipleLinearRegressionService.aspx)).
+Otomatik bir şekilde hello hizmetinde tüketen birkaç yolu vardır (bir örnek uygulaması [burada](http://microsoftazuremachinelearning.azurewebsites.net/MultipleLinearRegressionService.aspx)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Web hizmet tüketimi için C# kodunu başlatılıyor:
     public class Input
@@ -84,11 +84,11 @@ Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (bir örnek uygul
 
 
 ## <a name="creation-of-web-service"></a>Web hizmeti oluşturma
-> Bu web hizmeti, Azure Machine Learning kullanılarak oluşturuldu. Denemeler oluşturma tanıtım videoları yanı sıra, ücretsiz deneme için ve [web hizmetleri yayımlama](machine-learning-publish-a-machine-learning-web-service.md), lütfen bkz [azure.com/ml](http://azure.com/ml). Bir ekran görüntüsünü her denemenin içinde modülü için web hizmeti ve örnek kod oluşturulan deneme aşağıdadır.
+> Bu web hizmeti, Azure Machine Learning kullanılarak oluşturuldu. Denemeler oluşturma tanıtım videoları yanı sıra, ücretsiz deneme için ve [web hizmetleri yayımlama](machine-learning-publish-a-machine-learning-web-service.md), lütfen bkz [azure.com/ml](http://azure.com/ml). Bir ekran görüntüsünü her hello deneyin içinde hello modüllerin hello web hizmeti ve örnek kod oluşturulan hello deneme aşağıdadır.
 > 
 > 
 
-Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu ve iki [R betiği yürütün] [ execute-r-script] modülleri çalışma çekilen. Bu web hizmeti bir Azure Machine Learning deneme ile temel bir R betiği çalıştırır. Bu deneme 2 bölümü vardır: şema tanımı ve eğitim modeli + Puanlama. İlk modülü burada ilk değişkenin bağımlı değişken ve kalan değişkenleri bağımsız girdi veri kümesi, beklenen yapısını tanımlar. İkinci modül giriş verileri için bir genel doğrusal regresyon modeli sığar.  
+Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu ve iki [R betiği yürütün] [ execute-r-script] modülleri hello çalışma çekilen. Bu web hizmeti bir Azure Machine Learning deneme ile temel bir R betiği çalıştırır. 2 bölümleri toothis denemeler vardır: şema tanımı ve eğitim modeli + Puanlama. Merhaba ilk modülü burada hello ilk değişken hello bağımlı değişken ve hello kalan değişkenleri bağımsız hello girdi veri kümesi, beklenen hello yapısını tanımlar. Merhaba ikinci modül hello giriş verileri için bir genel doğrusal regresyon modeli sığar.  
 
 ![Deneme akışı][3]
 
@@ -114,10 +114,10 @@ Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu ve iki [R be
     maml.mapOutputPort("out");  
 
 ## <a name="limitations"></a>Sınırlamalar
-Bu, birden çok doğrusal regresyon web hizmeti, çok basit bir örnektir. Yukarıdaki örnek koddan görüldüğü gibi hiçbir hata yakalama uygulanır ve hizmetin her şeyi sürekli bir değişken (izin verilen kategorik özellikleri yok), hizmet girişleri sayısal değerler yalnızca bu web hizmeti oluşturma zamanında olduğunu varsayar. Ayrıca, hizmet şu anda sınırlı veri boyutu son web hizmeti çağrısı ve model web hizmeti adlı her zaman uygun olduğunu olgu istek/yanıt yapısı işler. 
+Bu, birden çok doğrusal regresyon web hizmeti, çok basit bir örnektir. Yukarıdaki Hello örnek koddan görüldüğü gibi hiçbir hata yakalama uygulanır ve hello hizmeti her şeyi (izin verilen kategorik özellikleri yok), sürekli bir değişkeni, hello hizmeti yalnızca girişleri sayısal değer olarak bu web hello oluşturulmasını hello aynı anda varsayar hizmet. Ayrıca, hello Hizmet şu anda sınırlı veri boyutu işlediğinde, hello web hizmeti her çağrıldığında toohello istek/yanıt yapısını hello web hizmeti model hello çağrısı ve hello olgu uygun. 
 
 ## <a name="faq"></a>SSS
-Web hizmeti veya Azure Marketi'nde yayımlama tüketimi hakkında sık sorulan sorular için bkz: [burada](machine-learning-marketplace-faq.md).
+Merhaba web hizmetinin veya yayımlama toohello Azure Marketi tüketimi hakkında sık sorulan sorular için bkz: [burada](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img1.png
 [2]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img2.png

@@ -1,5 +1,5 @@
 ---
-title: "Azure içinde birden fazla IP yapılandırması dengelemesini | Microsoft Docs"
+title: "birden çok IP yapılandırmaları Azure Dengeleme aaaLoad | Microsoft Docs"
 description: "Birincil ve ikincil IP yapılandırmaları yükdengeleme"
 services: load-balancer
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: annahar
-ms.openlocfilehash: a8550519f094ca7afcd868a14b313337627f97d3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: fe1cdb317350942ff759229491c2025e98dd24a1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>PowerShell kullanarak birden fazla IP yapılandırması üzerinde yükdengeleme
 
@@ -27,16 +27,16 @@ ms.lasthandoff: 08/18/2017
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
-Bu makalede, bir ikincil ağ arabirimi (NIC) üzerinde birden çok IP adresleriyle Azure yük dengeleyici kullanmayı açıklar. Bu senaryo için Windows, her birincil ve ikincil bir NIC ile çalışan iki VM sahibiz Her ikincil NIC'ler, iki IP yapılandırmaları vardır. Her VM Web siteleri contoso.com ve fabrikam.com barındırır. Her Web sitesi IP yapılandırmaları birine ikincil NIC üzerinde bağlı Azure yük dengeleyici iki ön uç IP adresi, bir Web sitesi için ilgili IP yapılandırmasını trafiğini dağıtmak için her Web sitesi için kullanıma sunmak için kullanırız. Bu senaryo aynı bağlantı noktası numarası hem ön uçlar yanı sıra arasında her iki arka uç havuzu IP adreslerini kullanır.
+Bu makalede, nasıl bir ikincil ağ arabirimi (NIC) toouse Azure yük dengeleyici ile birden çok IP adresleri açıklanmaktadır. Bu senaryo için Windows, her birincil ve ikincil bir NIC ile çalışan iki VM sahibiz Her ikincil hello NIC'lerin iki IP yapılandırmaları vardır. Her VM Web siteleri contoso.com ve fabrikam.com barındırır. İlişkili tooone hello IP yapılandırmalarının hello ikincil NIC üzerinde her Web sitesi olan Azure yük dengeleyici tooexpose iki ön uç IP adresi, her bir Web sitesi, toodistribute trafiği toohello ilgili IP hello Web sitesinin yapılandırması için bir tane kullanırız. Bu senaryoda hem ön uçlar yanı sıra arasında her iki arka uç havuzu IP adreslerini hello aynı bağlantı noktası numarası kullanır.
 
 ![LB senaryo görüntüsü](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Birden çok IP yapılandırmaları dengelemek için adımları
+## <a name="steps-tooload-balance-on-multiple-ip-configurations"></a>Adımları tooload bakiyesi birden fazla IP yapılandırması
 
-Bu makalede açıklanan senaryo elde etmek için aşağıdaki adımları izleyin:
+Bu makalede açıklanan tooachieve hello senaryo Hello adımları izleyin:
 
-1. Azure PowerShell'i yükleyin. Azure PowerShell’in en son sürümünü yükleme, aboneliğinizi seçme ve hesabınızda oturum açma hakkında bilgi almak için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
-2. Aşağıdaki ayarları kullanarak bir kaynak grubu oluşturun:
+1. Azure PowerShell'i yükleyin. Bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview) hello Azure PowerShell'in en son sürümünü yükleme, aboneliğinizi seçme ve tooyour hesabında imzalama hakkında bilgi.
+2. Ayarları aşağıdaki hello kullanarak bir kaynak grubu oluşturun:
 
     ```powershell
     $location = "westcentralus".
@@ -45,13 +45,13 @@ Bu makalede açıklanan senaryo elde etmek için aşağıdaki adımları izleyin
 
     Daha fazla bilgi için bkz: 2. adım [bir kaynak grubu oluşturmak](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
-3. [Bir kullanılabilirlik kümesi oluşturmak](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) Vm'leriniz içerecek şekilde. Bu senaryo için aşağıdaki komutu kullanın:
+3. [Bir kullanılabilirlik kümesi oluşturmak](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) toocontain Vm'leriniz. Bu senaryo için komutu aşağıdaki hello kullan:
 
     ```powershell
     New-AzureRmAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. 5'te 3 adımları yönergeleri izleyin [bir Windows VM oluşturma](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) makale tek bir NIC ile VM oluşturma hazırlama 6.1 adımı yürütme ve adım 6.2 yerine aşağıdakileri kullanın:
+4. 5'te 3 adımları yönergeleri izleyin [bir Windows VM oluşturma](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) makalesi tek bir NIC ile VM tooprepare hello oluşturma 6.1 adımı yürütme ve 6.2 adım yerine hello aşağıdakileri kullanın:
 
     ```powershell
     $availset = Get-AzureRmAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
@@ -60,7 +60,7 @@ Bu makalede açıklanan senaryo elde etmek için aşağıdaki adımları izleyin
 
     Daha sonra tamamlamak [bir Windows VM oluşturma](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) 6,8 aracılığıyla 6.3 adımları.
 
-5. İkinci IP yapılandırması her sanal makineleri ekleyin. ' Ndaki yönergeleri izleyin [birden çok IP adresi sanal makinelere atamak](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) makalesi. Aşağıdaki yapılandırma ayarları kullanın:
+5. Merhaba VM'ler, ikinci bir IP yapılandırması tooeach ekleyin. Merhaba yönergeleri izleyin [toovirtual makineleri birden çok IP adresi atamak](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) makalesi. Yapılandırma ayarları aşağıdaki hello kullan:
 
     ```powershell
     $NicName = "VM1-NIC2"
@@ -70,11 +70,11 @@ Bu makalede açıklanan senaryo elde etmek için aşağıdaki adımları izleyin
     $Subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -VirtualNetwork $myVnet
     ```
 
-    Bu öğretici amacıyla genel IP'ler ikincil IP yapılandırmaları ilişkilendirmek gerekmez. Genel IP ilişkilendirme bölümü kaldırmak için komutu düzenleyin.
+    Bu öğreticinin hello amaçla tooassociate hello ikincil IP yapılandırmaları olan ve genel IP'ler gerekmez. Hello komutu tooremove hello ortak IP ilişkilendirme bölümünü düzenleyin.
 
-6. 4. adım, bu makalenin 6-VM2 için yeniden tamamlayın. Bunu yaparken VM2 VM adıyla değiştirdiğinizden emin olun. İkinci VM için sanal ağ oluşturma gerekmez unutmayın. Kullanım durumunu temel alarak yeni bir alt ağ oluşturamaz veya olabilir.
+6. 4. adım, bu makalenin 6-VM2 için yeniden tamamlayın. Bunun yapılması emin tooreplace hello VM adı tooVM2 olabilir. Merhaba toocreate bir sanal ağ gerekmez Not ikinci VM. Kullanım durumunu temel alarak yeni bir alt ağ oluşturamaz veya olabilir.
 
-7. İki ortak IP adresi oluşturun ve bunları uygun değişkenlerde gösterildiği gibi depolar:
+7. İki ortak IP adresi oluşturun ve bunları gösterildiği gibi hello uygun değişkenlerde saklayın:
 
     ```powershell
     $publicIP1 = New-AzureRmPublicIpAddress -Name PublicIp1 -ResourceGroupName contosofabrikam -Location 'West Central US' -AllocationMethod Dynamic -DomainNameLabel contoso
@@ -109,7 +109,7 @@ Bu makalede açıklanan senaryo elde etmek için aşağıdaki adımları izleyin
     $mylb = New-AzureRmLoadBalancer -ResourceGroupName contosofabrikam -Name mylb -Location 'West Central US' -FrontendIpConfiguration $frontendIP1 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
     ```
 
-11. İkinci arka uç adres havuzu ve ön uç IP yapılandırması, yeni oluşturulan yük dengeleyiciye ekleyin:
+11. Merhaba ikinci arka uç adres havuzu ve ön uç IP yapılandırması tooyour yeni oluşturulan yük dengeleyici ekleyin:
 
     ```powershell
     $mylb = Get-AzureRmLoadBalancer -Name "mylb" -ResourceGroupName $myResourceGroup | Add-AzureRmLoadBalancerBackendAddressPoolConfig -Name fabrikampool | Set-AzureRmLoadBalancer
@@ -119,7 +119,7 @@ Bu makalede açıklanan senaryo elde etmek için aşağıdaki adımları izleyin
     Add-AzureRmLoadBalancerRuleConfig -Name HTTP -LoadBalancer $mylb -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80 | Set-AzureRmLoadBalancer
     ```
 
-12. Aşağıdaki komutları NIC'ler alın ve ardından her iki IP yapılandırmaları her ikincil NIC'in yük dengeleyici arka uç adres havuzuna ekleyin:
+12. Aşağıdaki Hello komutları hello NIC'ler alın ve her ikincil NIC toohello arka uç adres havuzu Merhaba, her iki IP yapılandırmalarını yük dengeleyici ekleyin:
 
     ```powershell
     $nic1 = Get-AzureRmNetworkInterface -Name "VM1-NIC2" -ResourceGroupName "MyResourcegroup";
@@ -136,8 +136,8 @@ Bu makalede açıklanan senaryo elde etmek için aşağıdaki adımları izleyin
     $nic2 | Set-AzureRmNetworkInterface
     ```
 
-13. Son olarak, DNS kaynak kayıtlarını yük dengeleyici ilgili ön uç IP adresine işaret edecek şekilde yapılandırmanız gerekir. Azure DNS'de etki alanlarınızı barındırabilir. Azure DNS yük dengeleyici ile kullanma hakkında daha fazla bilgi için bkz: [kullanarak Azure DNS diğer Azure hizmetleriyle](../dns/dns-for-azure-services.md).
+13. Son olarak, DNS kaynak kayıtlarını toopoint toohello ilgili ön uç IP adresi hello yük dengeleyici için yapılandırmanız gerekir. Azure DNS'de etki alanlarınızı barındırabilir. Azure DNS yük dengeleyici ile kullanma hakkında daha fazla bilgi için bkz: [kullanarak Azure DNS diğer Azure hizmetleriyle](../dns/dns-for-azure-services.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Yük Dengeleme Azure hizmetlerinde birleştirme hakkında daha fazla bilgi edinin [Azure'da Yük Dengeleme hizmetlerini kullanarak](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Günlükleri farklı türde Azure'da yönetmek ve yük dengeleyici sorunlarını gidermek için nasıl kullanabileceğinizi öğrenin [analytics Azure yük dengeleyici için oturum](../load-balancer/load-balancer-monitor-log.md).
+- Nasıl toocombine Yük Dengeleme Azure hizmetleri hakkında daha fazla bilgi [Azure'da Yük Dengeleme hizmetlerini kullanarak](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- Nasıl günlükleri farklı türlerde içinde Azure toomanage kullanın ve yük dengeleyici sorun giderme öğrenin [analytics Azure yük dengeleyici için oturum](../load-balancer/load-balancer-monitor-log.md).

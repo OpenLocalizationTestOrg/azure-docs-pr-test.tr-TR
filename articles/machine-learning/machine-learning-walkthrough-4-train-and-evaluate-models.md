@@ -1,6 +1,6 @@
 ---
-title: "4. adım: Eğitmek ve Tahmine dayalı analitik modelleri değerlendirme | Microsoft Docs"
-description: "4. adımını geliştirme Tahmine dayalı bir çözüm izlenecek yol: eğitme, Puanlama ve Azure Machine Learning Studio'da birden fazla modeli değerlendirin."
+title: "4. adım: Eğitmek ve hello Tahmine dayalı analitik modelleri değerlendirme | Microsoft Docs"
+description: "4. adımını hello geliştirmek Tahmine dayalı bir çözüm izlenecek yol: eğitme, Puanlama ve Azure Machine Learning Studio'da birden fazla modeli değerlendirin."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,180 +14,180 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 58d46dd1464ec0a3fc9639f78d4429e0e778c2bf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d86d7c5ae7524f71fe44d985db67c4618b7965a8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Kılavuz Adımı 4: Öngörücü analiz modelleri hakkında eğitim ve değerlendirme
-Bu konu, izlenecek dördüncü adımı içerir [Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirme](machine-learning-walkthrough-develop-predictive-solution.md)
+# <a name="walkthrough-step-4-train-and-evaluate-hello-predictive-analytic-models"></a>Gözden geçirme adım 4: Eğitmek ve hello Tahmine dayalı analitik modelleri değerlendir
+Bu konu, hello izlenecek hello dördüncü adımı içerir [Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirme](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Bir Machine Learning çalışma alanı oluşturma](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [Mevcut verileri yükleme](machine-learning-walkthrough-2-upload-data.md)
 3. [Yeni bir deneme oluşturma](machine-learning-walkthrough-3-create-new-experiment.md)
-4. **Modelleri eğitme ve değerlendirme**
-5. [Web hizmetini dağıtma](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Web hizmetine erişim](machine-learning-walkthrough-6-access-web-service.md)
+4. **Eğitmek ve hello modelleri değerlendir**
+5. [Merhaba Web hizmetini dağıtma](machine-learning-walkthrough-5-publish-web-service.md)
+6. [Merhaba Web hizmetine erişim](machine-learning-walkthrough-6-access-web-service.md)
 
 - - -
-Machine learning modellerini oluşturmak için Azure Machine Learning Studio'da kullanmanın avantajlarından biri tek bir deneme zamanında birden fazla türde bir model deneyin ve sonuçları karşılaştırmak için yeteneğidir. Bu tür bir deney sorununuzu için en iyi çözüm bulmanıza yardımcı olur.
+Biri makine öğrenimi modellerini oluşturmak için Azure Machine Learning Studio'da kullanmanın yararları hello hello özelliği tootry birden fazla türde bir model tek bir deneme zamanında ve hello sonucu karşılaştırın. Bu tür bir deney sorununuzu için hello en iyi çözüm bulmanıza yardımcı olur.
 
-Bu kılavuzda geliştirme yapıyorsanız denemesinde biz modelleri iki farklı türde oluşturacak ve bizim son deneme şu kullanmak istediğiniz algoritmayı karar vermek için Puanlama sonuçlarını karşılaştırın.  
+Biz bu kılavuzda geliştirmekte hello denemesinde, biz modelleri iki farklı türde oluşturacak ve sonra bunların Puanlama sonuçları toodecide algoritmayı karşılaştırmak bizim son deneme toouse istiyoruz.  
 
-Biz arasından seçim çeşitli modellerin vardır. Kullanılabilir modelleri görmek için genişletin **Machine Learning** modül paletindeki düğümünü genişletin ve ardından **modeli Başlat** ve altındaki düğümleri. Bu deneme amaçları doğrultusunda, biz seçersiniz [iki sınıflı destek vektör makinesi] [ two-class-support-vector-machine] (SVM) ve [iki-Class Boosted karar ağacı] [ two-class-boosted-decision-tree] modüller.    
+Biz arasından seçim çeşitli modellerin vardır. toosee hello modelleri kullanılabilir genişletin hello **Machine Learning** hello modül paletindeki düğümünü genişletin ve ardından **modeli Başlat** ve hello düğümü altındaki. Bu deneme Hello amaçları doğrultusunda, biz hello seçersiniz [iki sınıflı destek vektör makinesi] [ two-class-support-vector-machine] (SVM) ve hello [iki-Class Boosted karar ağacı] [ two-class-boosted-decision-tree] modüller.    
 
 > [!TIP]
-> Çözmeye çalıştığınız belirli sorun Machine Learning algoritmayı en iyi uyan karar vermeyle ilgili Yardım almak için bkz: [için Microsoft Azure Machine Learning algoritmaları seçme](machine-learning-algorithm-choice.md).
+> Machine Learning algoritmayı en iyi karar tooget Yardım uygun hello belirli sorun toosolve çalıştığınız için bkz: [nasıl Microsoft Azure Machine Learning için toochoose algoritmaları](machine-learning-algorithm-choice.md).
 > 
 > 
 
-## <a name="train-the-models"></a>Modelleri eğitme
+## <a name="train-hello-models"></a>Merhaba modelleri eğitme
 
-Her ikisi de ekleyeceğiz [iki-Class Boosted karar ağacı] [ two-class-boosted-decision-tree] modülü ve [iki sınıflı destek vektör makinesi] [ two-class-support-vector-machine] bu deneme modülünde.
+Her iki hello ekleyeceğiz [iki-Class Boosted karar ağacı] [ two-class-boosted-decision-tree] modülü ve [iki sınıflı destek vektör makinesi] [ two-class-support-vector-machine] bu modülü denemeler yapın.
 
 ### <a name="two-class-boosted-decision-tree"></a>İki sınıflı artırılmış karar ağacı
 
-İlk olarak, şimdi artırılmış karar ağacı modelini ayarlayın.
+İlk olarak, şirketinizdeki boosted hello karar ağacı modelini ayarlayın.
 
-1. Bul [iki-Class Boosted karar ağacı] [ two-class-boosted-decision-tree] modül paletindeki modülünü tuvale sürükleyin.
+1. Hello bulur [iki-Class Boosted karar ağacı] [ two-class-boosted-decision-tree] hello modül paleti modülünde hello tuvale sürükleyin.
 
-2. Bul [Train Model] [ train-model] modülünü tuvale sürükleyin ve çıkışına bağlayın [iki-Class Boosted karar ağacı] [ two-class-boosted-decision-tree] Modül sol giriş bağlantı noktası [Train Model] [ train-model] modülü.
+2. Hello bulur [Train Model] [ train-model] modülü, hello tuvale sürükleyin ve ardından hello hello çıkışına bağlayın [iki-Class Boosted karar ağacı] [ two-class-boosted-decision-tree]modülü toohello sol giriş bağlantı noktası hello [Train Model] [ train-model] modülü.
    
-   [İki-Class Boosted karar ağacı] [ two-class-boosted-decision-tree] modülü genel model başlatır ve [modeli eğitmek] [ train-model] eğitmek için eğitim verileri kullanır Model. 
+   Merhaba [iki-Class Boosted karar ağacı] [ two-class-boosted-decision-tree] modülü hello genel modeli, başlatır ve [Train Model] [ train-model] eğitim verileri kullanır tootrain hello modeli. 
 
-3. Sol sol çıkışına bağlayın [R betiği yürütün] [ execute-r-script] modülü sağ giriş bağlantı noktası [Train Model] [ train-model] (karar içinde Modülü [Adım 3](machine-learning-walkthrough-3-create-new-experiment.md) bölünmüş veri modülünün eğitim sol taraftan gelen veriler kullanmak için bu kılavuzun).
+3. Merhaba sol hello sol çıkışına bağlayın [R betiği yürütün] [ execute-r-script] modülü toohello sağ giriş bağlantı noktası hello [Train Model] [ train-model] (biz Modülü içinde karar [adım 3](machine-learning-walkthrough-3-create-new-experiment.md) yan hello bölünmüş veri modülünün eğitim sol hello gelen bu izlenecek yol toouse hello veri).
    
    > [!TIP]
-   > İki girişleri ve çıkışları birini gerekmez [R betiği yürütün] [ execute-r-script] biz bunları eklenmemiş bırakabilirsiniz, bu nedenle bu deneme için modülü. 
+   > İki hello girdi ve hello hello çıkışları biri gerekmez [R betiği yürütün] [ execute-r-script] biz bunları eklenmemiş bırakabilirsiniz, bu nedenle bu deneme için modülü. 
    > 
    > 
 
-Bu bölümü denemeyi şimdi şuna benzer:  
+Bu kısmı hello denemeyi şimdi şuna benzer:  
 
 ![Bir model eğitimi][1]
 
-Bildirmek ihtiyacımız artık [Train Model] [ train-model] modülü modelin kredi riski değer tahmin etmek istiyoruz.
+Tootell hello ihtiyacımız artık [Train Model] [ train-model] modülü hello model toopredict hello kredi riski değeri istiyoruz.
 
-1. Seçin [Train Model] [ train-model] modülü. İçinde **özellikleri** bölmesinde tıklatın **başlatma Sütun seçiciyi**.
+1. Select hello [Train Model] [ train-model] modülü. Merhaba, **özellikleri** bölmesinde tıklatın **başlatma Sütun seçiciyi**.
 
-2. İçinde **tek bir sütun seçin** iletişim kutusunda, türü "Kredi riski" altındaki arama alanında **kullanılabilir sütunlar**, aşağıda "Kredi riski"'ı seçin ve sağ ok düğmesine tıklayın ( **>** ) "Kredi riski" taşımak için **seçili sütun**. 
+2. Merhaba, **tek bir sütun seçin** iletişim kutusunda, türü "Kredi riski" Merhaba arama alanında altında **kullanılabilir sütunlar**, aşağıda "Kredi riski"'ı seçin ve hello sağ ok düğmesine tıklayın ( **>** ) toomove "çok kredi riski"**seçili sütun**. 
 
-    ![Train Model modülü için kredi riski sütun seçin][0]
+    ![Merhaba Train Model modülü için Hello kredi riski sütun seçin][0]
 
-3. Tıklatın **Tamam** onay işareti.
+3. Merhaba tıklatın **Tamam** onay işareti.
 
 ### <a name="two-class-support-vector-machine"></a>Çift Sınıflı Destek Vektör Makinesi
 
-Ardından, SVM modelini ayarlayın.  
+Ardından, hello SVM modelini ayarlayın.  
 
-Öncelikle, SVM hakkında biraz açıklama. Artırılmış karar ağaçları iyi herhangi bir türde özellikleri ile çalışmaz. Doğrusal bir sınıflandırıcı SVM modülü oluşturur olduğundan, tüm sayısal özellikleri aynı ölçeğini varsa ancak ürettiği modeli en iyi test hata var. Bir "Tanh" dönüştürmesi kullanırız tüm sayısal özellikleri aynı ölçek dönüştürmek için (ile [normalleştirin veri] [ normalize-data] Modülü). Bu bizim numaraları [0,1] aralığına dönüştürür. Biz dize özellikleri el ile dönüştürme gerek kalmaması SVM modülü kategorik özellikleri ve ardından ikili 0/1 özellikleri, dize özellikleri dönüştürür. Ayrıca, kredi riski sütun (sütun 21) dönüştürmek istemediğiniz - sayısal ancak tek başına bırakmak ihtiyacımız şekilde tahmin etmek için model eğitim değerdir.  
+Öncelikle, SVM hakkında biraz açıklama. Artırılmış karar ağaçları iyi herhangi bir türde özellikleri ile çalışmaz. Doğrusal bir sınıflandırıcı Hello SVM modülü oluşturur olduğundan, tüm sayısal özellikleri hello olduğunda ancak ürettiği hello modeli hello en iyi test hatalı aynı ölçek. tüm sayısal tooconvert özellikleri toohello aynı ölçeklendirme, bir "Tanh" dönüştürmesi kullanıyoruz (Merhaba ile [normalleştirin veri] [ normalize-data] Modülü). Bu bizim numaraları hello [0,1] aralığına dönüştürür. dize özellikleri toocategorical Özellikler'i ve ardından toobinary 0/1 özellikler Hello SVM modülü dönüştürür, biz olmayan şekilde toomanually dize özellikleri dönüştürme. Ayrıca, biz tootransform hello kredi riski sütun (sütun 21) istemediğiniz - sayısal ancak bu eğitim hello değeri hello modeli toopredict tooleave ihtiyacımız şekilde, tek başına.  
 
-SVM modeli kurmak için aşağıdakileri yapın:
+Merhaba SVM modeli yukarı tooset hello aşağıdaki:
 
-1. Bul [iki sınıflı destek vektör makinesi] [ two-class-support-vector-machine] modül paletindeki modülünü tuvale sürükleyin.
+1. Hello bulur [iki sınıflı destek vektör makinesi] [ two-class-support-vector-machine] hello modül paleti modülünde hello tuvale sürükleyin.
 
-2. Sağ [Train Model] [ train-model] modülü, select **kopya**, seçin ve tuvale sağ tıklatın **Yapıştır**. Kopyasını [Train Model] [ train-model] modül aynı sütun seçimi özgün olarak sahiptir.
+2. Sağ hello [Train Model] [ train-model] modülü, select **kopyalama**ve ardından hello tuvale sağ tıklatın ve seçin **Yapıştır**. Merhaba hello kopyasını [Train Model] [ train-model] modülüne sahip hello hello özgün olarak aynı sütun seçimi.
 
-3. Çıkışına bağlayın [iki sınıflı destek vektör makinesi] [ two-class-support-vector-machine] modülü sol giriş bağlantı noktası saniye [Train Model] [ train-model] modülü.
+3. Merhaba Hello çıkışına bağlayın [iki sınıflı destek vektör makinesi] [ two-class-support-vector-machine] modülü toohello sol giriş bağlantı noktası Merhaba, ikinci [Train Model] [ train-model] Modül.
 
-4. Bul [normalleştirin veri] [ normalize-data] modülünü tuvale sürükleyin.
+4. Hello bulur [normalleştirin veri] [ normalize-data] modülü ve hello tuvale sürükleyin.
 
-5. Sol sol çıkışına bağlayın [R betiği yürütün] [ execute-r-script] giriş (bildirim için birden fazla modülü modülünün çıkış bağlantı noktasına bağlı olduğunu) Bu modülün modül.
+5. Merhaba sol hello sol çıkışına bağlayın [R betiği yürütün] [ execute-r-script] modül toohello girişi Bu modülün (bildirim hello çıkış bağlantı noktasına bir modülün başka bir modül'den bağlı toomore olabilir).
 
-6. Sol çıkış bağlantı noktasına bağlanmak [normalleştirin veri] [ normalize-data] modülü sağ giriş bağlantı noktası saniye [Train Model] [ train-model] modülü.
+6. Merhaba çıkış bağlantı noktasına sol hello bağlanmak [normalleştirin veri] [ normalize-data] modülü toohello sağ giriş bağlantı noktası hello ikinci [Train Model] [ train-model] modülü.
 
 Bu bizim deneme kısmı bu gibi görünmelidir:  
 
-![Eğitim ikinci modeli][2]  
+![Eğitim hello ikinci modeli][2]  
 
-Şimdi yapılandırmak [normalleştirin veri] [ normalize-data] Modülü:
+Şimdi hello yapılandırmak [normalleştirin veri] [ normalize-data] Modülü:
 
-1. Seçmek için tıklatın [normalleştirin veri] [ normalize-data] modülü. İçinde **özellikleri** bölmesinde, **Tanh** için **dönüştürme yöntemi** parametresi.
+1. Tooselect hello tıklatın [normalleştirin veri] [ normalize-data] modülü. Merhaba, **özellikleri** bölmesinde, **Tanh** hello için **dönüştürme yöntemi** parametresi.
 
-2. Tıklatın **başlatma Sütun seçiciyi**, "Hiçbir sütun" seçin **şununla Başla**seçin **INCLUDE** ilk açılır menüde seçin **sütun türü** ikinci açılır ve seçin **sayısal** üçüncü açılır. Bu, tüm sayısal sütunlar (ve yalnızca sayısal) dönüştürüldüğünden belirtir.
+2. Tıklatın **başlatma Sütun seçiciyi**, "Hiçbir sütun" seçin **şununla Başla**seçin **INCLUDE** hello ilk açılır menüde seçin **sütun türü**ikinci açılır hello ve seçin **sayısal** içinde hello üçüncü açılır. Bu, tüm hello sayısal sütunlar (ve yalnızca sayısal) dönüştürüldüğünden belirtir.
 
-3. Bu satır sağındaki artı (+) tıklayın - bu bırakmalar satırının oluşturur. Seçin **hariç** ilk açılır menüde seçin **sütun adları** ikinci açılır ve "metin alanında risk kredi" girin. Bu kredi riski sütun yoksayılmalıdır belirtir (Bu sütunu sayısal olduğundan ve biz bunu siz bıraksanız dönüştürülmesi böylece bunun ihtiyacımız).
+3. Tıklatın artı (+) toohello bu satırın sağ hello - bu bırakmalar satırının oluşturur. Seçin **hariç** hello ilk açılır menüde seçin **sütun adları** ikinci açılır hello ve "Merhaba metin alanında risk kredi" girin. Bu, hello kredi riski sütuna dikkate belirtir (Bu olduğundan bu sütun sayısal ve bunu dönüştürülmüş biz bunu siz bıraksanız toodo ihtiyacımız).
 
-4. Tıklatın **Tamam** onay işareti.  
+4. Merhaba tıklatın **Tamam** onay işareti.  
 
-    ![Veri normalleştirin modülü sütunlarını seçin][5]
+    ![Merhaba normalleştirin veri modülü sütunlarını seçin][5]
 
-[Normalleştirin veri] [ normalize-data] modülü kredi riski sütun dışında tüm sayısal sütunlarda Tanh dönüştürme gerçekleştirmek için şimdi ayarlanır.  
+Merhaba [normalleştirin veri] [ normalize-data] modülüdür şimdi kümesi tooperform hello kredi riski sütun dışında tüm sayısal sütunlarda Tanh dönüştürme.  
 
-## <a name="score-and-evaluate-the-models"></a>Puanlama ve modelleri değerlendir
+## <a name="score-and-evaluate-hello-models"></a>Puanlama ve hello modelleri değerlendir
 
-Tarafından ayrıldı çıkışı test verilerinin kullanırız [bölünmüş veri] [ split] bizim eğitilmiş modeller Puanlama modülü. Biz, ardından, daha iyi sonuçlar oluşturulan görmek için iki model sonuçlarını karşılaştırabilirsiniz.  
+Merhaba tarafından ayrıldı verileri test etme hello kullanırız [bölünmüş veri] [ split] modülü tooscore bizim eğitilmiş modeller. Biz, ardından daha iyi sonuçlar oluşturulan hello iki modelleri toosee hello sonuçlarını karşılaştırabilirsiniz.  
 
-### <a name="add-the-score-model-modules"></a>Score Model modülleri ekleme
+### <a name="add-hello-score-model-modules"></a>Merhaba Score Model modülleri ekleme
 
-1. Bul [Score Model] [ score-model] modülünü tuvale sürükleyin.
+1. Hello bulur [Score Model] [ score-model] modülü ve hello tuvale sürükleyin.
 
-2. Bağlantı [Train Model] [ train-model] bağlı Modülü [iki-Class Boosted karar ağacı] [ two-class-boosted-decision-tree] modülü sol giriş bağlantı noktası [Score Model] [ score-model] modülü.
+2. Merhaba bağlanmak [Train Model] [ train-model] toohello bağlandı Modülü [iki-Class Boosted karar ağacı] [ two-class-boosted-decision-tree] modülü toohello sol giriş başlangıç bağlantı noktası [Score Model] [ score-model] modülü.
 
-3. Sağa bağlanmak [R betiği yürütün] [ execute-r-script] Modülü (test verilerimizi) sağ giriş bağlantı noktası [Score Model] [ score-model] modülü.
+3. Merhaba sağ bağlanmak [R betiği yürütün] [ execute-r-script] Modülü (test verilerimizi) toohello sağ giriş bağlantı noktası hello [Score Model] [ score-model] modülü.
 
     ![Score Model modülünün bağlı][6]
    
-   [Score Model] [ score-model] modülü artık test verilerinin kredi bilgileri alın, modeli aracılığıyla çalıştırmak ve modeli oluşturur gerçek kredi riski sütuna tahminleri Karşılaştır verileri test etme.
+   Merhaba [Score Model] [ score-model] modülü şimdi veri hello modeli aracılığıyla çalıştırmak, test hello hello kredi bilgileri alın ve karşılaştırma hello tahminleri hello modeli oluşturur hello gerçek ile kredi riski verileri test etme hello sütun.
 
-4. Kopyalama ve yapıştırma [Score Model] [ score-model] modülü ikinci bir kopyasını oluşturun.
+4. Kopyalama ve yapıştırma hello [Score Model] [ score-model] modülü toocreate ikinci bir kopyası.
 
-5. SVM modeli çıkışına bağlayın (diğer bir deyişle, çıkış bağlantı [Train Model] [ train-model] bağlı Modülü [iki sınıflı destek vektör makinesi] [ two-class-support-vector-machine] Modülü) ikinci giriş noktasına [Score Model] [ score-model] modülü.
+5. Merhaba SVM modeli Hello çıkışına bağlayın (diğer bir deyişle, başlangıç bağlantı noktası hello çıktı [Train Model] [ train-model] toohello bağlandı Modülü [iki sınıflı destek vektör makinesi] [ two-class-support-vector-machine] Modülü) toohello giriş bağlantı noktası hello ikinci [Score Model] [ score-model] modülü.
 
-6. SVM modeli için eğitim verileri yaptığımız gibi test verileri için aynı dönüştürme yapmak sahibiz. Bu nedenle kopyalama ve yapıştırma [normalleştirin veri] [ normalize-data] ikinci bir kopyasını oluşturmak ve sağa bağlanmak için Modülü [R betiği yürütün] [ execute-r-script] modülü.
+6. Merhaba SVM modeli için aynı dönüşüm toohello test verileri toohello eğitim verilerini yaptığımız gibi hello toodo sahip. Merhaba şekilde kopyalayıp [normalleştirin veri] [ normalize-data] modülü toocreate ikinci kopya ve toohello sağ bağlamak [R betiği yürütün] [ execute-r-script] modülü.
 
-7. İkinci sol çıkışına bağlayın [normalleştirin veri] [ normalize-data] modülü sağ giriş bağlantı noktası saniye [Score Model] [ score-model] modülü.
+7. Merhaba sol hello çıktısını ikinci bağlanmak [normalleştirin veri] [ normalize-data] modülü toohello sağ giriş bağlantı noktası hello ikinci [Score Model] [ score-model] Modül.
 
     ![Bağlı her iki Score Model modülleri][7]
 
-### <a name="add-the-evaluate-model-module"></a>Evaluate Model Modül Ekle
+### <a name="add-hello-evaluate-model-module"></a>Merhaba Evaluate Model Modül Ekle
 
-İki Puanlama sonuçları değerlendirin ve bunları karşılaştırmak için kullanırız bir [Evaluate Model] [ evaluate-model] modülü.  
+tooevaluate iki Puanlama sonuçları hello ve bunları karşılaştırır, kullandığımız bir [Evaluate Model] [ evaluate-model] modülü.  
 
-1. Bul [Evaluate Model] [ evaluate-model] modülünü tuvale sürükleyin.
+1. Hello bulur [Evaluate Model] [ evaluate-model] modülü ve hello tuvale sürükleyin.
 
-2. Çıkış bağlantı noktasına bağlanmak [Score Model] [ score-model] sol giriş bağlantı noktası için artırılmış karar ağacı modeli ile ilişkili Modülü [Evaluate Model] [ evaluate-model] modülü.
+2. Merhaba Hello çıkış bağlantı noktasına bağlanmak [Score Model] [ score-model] hello ile ilişkilendirilmiş modül boosted karar ağacı modeli sol toohello giriş hello bağlantı noktası [Evaluate Model] [ evaluate-model] modülü.
 
-3. Diğer bağlanmak [Score Model] [ score-model] modülü sağ giriş bağlantı noktası.  
+3. Merhaba diğer bağlanmak [Score Model] [ score-model] modülü toohello sağ giriş bağlantı noktası.  
 
     ![Modeli değerlendirin bağlı Modülü][8]
 
-### <a name="run-the-experiment-and-check-the-results"></a>Denemeyi çalıştırmak ve sonuçları denetleyin
+### <a name="run-hello-experiment-and-check-hello-results"></a>Merhaba denemeyi çalıştırın ve hello sonuçlarını kontrol edin
 
-Denemeyi çalıştırmak için tıklatın **çalıştırmak** tuvale aşağıdaki düğmesine. Birkaç dakika sürebilir. Dönen göstergesi her modül çalışıp çalışmadığını ve ardından modülünün tamamladığında yeşil bir onay işareti gösterir gösterir. Tüm modülleri bir onay işareti varsa, deneme çalışması sona erdi.
+toorun Merhaba deneme, hello tıklatın **çalıştırmak** hello tuvale aşağıdaki düğmesine. Birkaç dakika sürebilir. Dönen göstergesi her modül çalışıp çalışmadığını ve ardından hello modülünün tamamladığında yeşil bir onay işareti gösterir gösterir. Tüm hello modülleri bir onay işareti varsa, hello deneme çalışması sona erdi.
 
-Denemeyi bu gibi görünmelidir:  
+Merhaba deneme bu gibi görünmelidir:  
 
 ![Her iki modeli değerlendirme][3]
 
-Sonuçları denetlemek için çıkış bağlantı noktasına tıklayın [Evaluate Model] [ evaluate-model] modülü ve select **Görselleştir**.  
+toocheck hello sonuçları hello hello çıkış bağlantı noktasına tıklayın [Evaluate Model] [ evaluate-model] modülü ve select **Görselleştir**.  
 
-[Evaluate Model] [ evaluate-model] modülü eğriler ve iki puanlanmış modelleri sonuçları karşılaştırmak izin ölçümleri çifti oluşturur. Alıcı işleci karakteristiğini (ROC) Eğriler, duyarlık/geri çağırma Eğriler ya da yükseltme Eğriler olarak sonuçlarını görüntüleyebilirsiniz. Görüntülenen ek verileri karışıklığı matrisi, eğri (AUC) ve diğer ölçümleri alanında toplu değerlerini içerir. Kaydırıcıyı sola veya sağa hareket ettirerek eşik değerini değiştirin ve ölçümleri kümesi nasıl etkilediği bakın.  
+Merhaba [Evaluate Model] [ evaluate-model] modülü eğriler ve toocompare hello hello iki puanlanmış modelleri sonuçlarını izin ölçümleri çifti oluşturur. Alıcı işleci karakteristiğini (ROC) Eğriler, duyarlık/geri çağırma Eğriler ya da yükseltme Eğriler olarak hello sonuçlarını görüntüleyebilirsiniz. Görüntülenen ek verileri karışıklığı matrisi, hello eğri (AUC) hello alanında toplu değerlerini ve diğer ölçümleri içerir. Taşıma hello kaydırıcı tarafından sola veya sağa hello eşik değerini değiştirin ve ölçümleri hello kümesi nasıl etkilediği bakın.  
 
-Grafik sağında tıklatın **veri kümesi belirtmek** veya **karşılaştırmak için veri kümesi belirtmek** ilişkili eğri vurgulayın ve aşağıdaki ilişkili ölçümleri görüntülemek için. Eğriler göstergede "veri kümesi belirtmek" sol giriş bağlantı noktasına karşılık gelen [Evaluate Model] [ evaluate-model] modül - Örneğimizde, artırılmış karar ağacı modeli budur. "Karşılaştırmak için veri kümesi belirtmek" sağ giriş bağlantı noktasını - bu örnekte SVM modeli karşılık gelir. Bu etiketler birine tıkladığınızda, bu model için eğri vurgulanır ve aşağıdaki grafikte gösterildiği gibi ilgili ölçümleri görüntülenir.  
+toohello hello grafiğin sağına tıklayın **veri kümesi belirtmek** veya **dataset toocompare skoru** toohighlight hello ilişkili eğrisi ve toodisplay hello ilişkili aşağıdaki ölçümleri. Merhaba Eğriler Hello göstergede "veri kümesi belirtmek" hello, giriş bağlantı noktası sol toohello karşılık gelen [Evaluate Model] [ evaluate-model] modül - Örneğimizde, bu boosted hello karar ağacı modelidir. "Veri kümesi toocompare skoru" toohello sağ giriş bağlantı noktasını - hello SVM modeli Bu örnekte karşılık gelir. Bu etiketler birine tıkladığınızda, bu model için hello eğri vurgulanır ve hello grafiği aşağıdaki gösterildiği gibi hello karşılık gelen ölçümleri görüntülenir.  
 
 ![Modelleri için ROC Eğriler][4]
 
-Bu değerleri inceleyerek, hangi model Aradığınız sonuçları vermiş, en yakın olan karar verebilirsiniz. Geri dönün ve farklı modellerde parametre değerlerini değiştirerek denemenizi üzerinde yineleme. 
+Bu değerleri inceleyerek, aradığınız sonuçları hello en yakın toogiving modeldir karar verebilirsiniz. Geri dönün ve parametre değerlerini hello farklı modellerde değiştirerek denemenizi üzerinde yineleme. 
 
-Bilim bu sonuçları yorumlayarak ve model performans ayarlama resim ise bu kılavuzun kapsamı dışındadır. Ek Yardım için aşağıdaki makaleler okuyun:
-- [Azure Machine Learning modeli performansını değerlendirmek nasıl](machine-learning-evaluate-model-performance.md)
-- [Azure Machine Learning algoritmaları en iyi duruma getirmek için parametreleri seçin](machine-learning-algorithm-parameters-optimize.md)
+Merhaba Bilim ve bu sonuçları yorumlayarak ve hello modeli performans ayarlama resim, bu kılavuzda dış hello kapsamını olur. Ek Yardım için aşağıdaki makaleler hello okuyun:
+- [Nasıl tooevaluate model Azure Machine Learning performansı](machine-learning-evaluate-model-performance.md)
+- [Azure Machine Learning, algoritmaları parametreleri toooptimize seçin](machine-learning-algorithm-parameters-optimize.md)
 - [Azure Machine Learning modeli sonuçlarında yorumlama](machine-learning-interpret-model-results.md)
 
 > [!TIP]
-> Denemeyi bu yineleme kaydını her çalıştırdığınızda çalıştırma geçmişi korunur. Bu yineleme görüntülemek ve tıklayarak herhangi biri, geri dönüp **ÇALIŞTIRMA GEÇMİŞİNİ GÖRÜNTÜLE** tuvale aşağıda. Tıklatabilirsiniz **önceki Çalıştır** içinde **özellikleri** hemen bir önceki yineleme dönmek için bölmeniz Aç.
+> Merhaba deneme bu yineleme kaydını her çalıştırdığınızda hello çalıştırma geçmişi korunur. Bu yinelemeleri görüntülemek ve tıklayarak tooany, geri dönüp **ÇALIŞTIRMA GEÇMİŞİNİ GÖRÜNTÜLE** hello tuvale aşağıda. De tıklayabilirsiniz **önceki Çalıştır** hello içinde **özellikleri** hemen önceki bölmesinde tooreturn toohello yineleme hello bir açık olması.
 > 
-> Tıklayarak denemenizin herhangi bir yinelemesini kopyasını yapabilirsiniz **SAVE AS** tuvale aşağıda. 
-> Deneme kullanmak **Özet** ve **açıklama** özellikleri, deneme yinelemelerini çalıştınız kaydını tutun.
+> Tıklayarak denemenizin herhangi bir yinelemesini kopyasını yapabilirsiniz **SAVE AS** hello tuvale aşağıda. 
+> Merhaba deneme kullanmak **Özet** ve **açıklama** özellikleri tookeep, deneme yinelemelerini çalıştınız kaydını.
 > 
 > Daha fazla ayrıntı için bkz: [Azure Machine Learning Studio'da deneme yinelemelerini yönetme](machine-learning-manage-experiment-iterations.md).  
 > 
 > 
 
 - - -
-**Sonraki: [web hizmetini dağıtma](machine-learning-walkthrough-5-publish-web-service.md)**
+**Sonraki: [hello web hizmetini dağıtma](machine-learning-walkthrough-5-publish-web-service.md)**
 
 [0]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train-model-select-column.png
 [1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/experiment-with-train-model.png

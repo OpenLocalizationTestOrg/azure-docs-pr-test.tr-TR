@@ -1,6 +1,6 @@
 ---
-title: "Azure cloud services için İnternet’e yönelik yük dengeleyicisi oluşturma | Microsoft Docs"
-description: "Klasik dağıtımda bulut hizmetleri için İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
+title: "Azure bulut Hizmetleri için aaaCreate bir Internet'e yönelik Yük Dengeleyici | Microsoft Docs"
+description: "Nasıl toocreate Internet'e yönelik Yük Dengeleyici bulut Hizmetleri için Klasik dağıtım modelinde öğrenin"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: 1ceaafebcaebecb04314c7da62c69b2e9b5ba39a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d93cf76d417cbfc744cf07ba48c43a63cc14df69
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Bulut hizmetleri için İnternet’e yönelik yük dengeleyici oluşturmaya başlama
 
@@ -31,17 +31,17 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure kaynaklarıyla çalışmadan önce Azure’da şu anda iki dağıtım modeli olduğunu anlamak önemlidir: Azure Resource Manager ve klasik. Azure kaynaklarıyla çalışmadan önce [dağıtım modellerini ve araçlarlarını](../azure-classic-rm.md) iyice anladığınızdan emin olun. Bu makalenin en üstündeki sekmelere tıklayarak farklı araçlarla ilgili belgeleri görüntüleyebilirsiniz. Bu makale, klasik dağıtım modelini kapsamaktadır. [Azure Resource Manager kullanarak İnternet’e yönelik yük dengeleyici oluşturma](load-balancer-get-started-internet-arm-ps.md) sayfasını da inceleyebilirsiniz.
+> Azure kaynaklarıyla çalışmadan önce Azure'da şu anda iki dağıtım modeli olduğunu önemli toounderstand olduğu: Azure Resource Manager ve klasik. Azure kaynaklarıyla çalışmadan önce [dağıtım modellerini ve araçlarlarını](../azure-classic-rm.md) iyice anladığınızdan emin olun. Bu makalenin hello üstünde hello sekmeleri tıklayarak farklı araçlarla ilgili hello belgeleri görüntüleyebilirsiniz. Bu makalede, hello Klasik dağıtım modeli yer almaktadır. Ayrıca [nasıl toocreate Internet'e yönelik Yük Dengeleyici Azure Resource Manager kullanarak bilgi](load-balancer-get-started-internet-arm-ps.md).
 
-Bulut hizmetleri yük dengeleyici ile otomatik olarak yapılandırılır ve hizmet modeliyle özelleştirilebilir.
+Bulut Hizmetleri, bir yük dengeleyici ile otomatik olarak yapılandırılır ve hello hizmet modeli özelleştirilebilir.
 
-## <a name="create-a-load-balancer-using-the-service-definition-file"></a>Hizmet tanım dosyası kullanarak yük dengeleyici oluşturma
+## <a name="create-a-load-balancer-using-hello-service-definition-file"></a>Merhaba hizmet tanımı dosyası kullanarak bir yük dengeleyici oluşturma
 
-Bulut hizmetinizi güncelleştirme amacıyla .NET 2.5 için Azure SDK kullanabilirsiniz. Bulut hizmetleri için uç nokta ayarları [servicedefinition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef dosyasında yapılır.
+.NET 2.5 tooupdate için Azure SDK'sı Merhaba, bulut hizmetinden yararlanabilirsiniz. Bulut Hizmetleri için uç nokta ayarlarını hello yapılan [hizmet tanımı](https://msdn.microsoft.com/library/azure/gg557553.aspx) .csdef dosyası.
 
-Aşağıdaki örnekte servicedefinition.csdef dosyasının bir bulut dağıtımı için nasıl yapılandırıldığı gösterilmektedir:
+Merhaba aşağıdaki örnek bir bulut dağıtımı için bir servicedefinition.csdef dosyası nasıl yapılandırıldığını gösterir:
 
-Bir bulut dağıtımı tarafından oluşturulmuş .csdef dosyası parçacığını denetlediğinizde, dış uç noktanın 10000, 10001 ve 10002 numaralı bağlantı noktaları üzerinde HTTP bağlantı noktalarını kullanacak şekilde yapılandırıldığını görebilirsiniz.
+Bulut dağıtım tarafından oluşturulan hello .csdef dosyası için Hello parçacığı denetimi, 10000, 10001 ve 10002 bağlantı noktası hello yapılandırılan dış uç noktası toouse bağlantı noktaları HTTP görebilirsiniz.
 
 ```xml
 <ServiceDefinition name=“Tenant“>
@@ -66,7 +66,7 @@ Bir bulut dağıtımı tarafından oluşturulmuş .csdef dosyası parçacığın
 
 ## <a name="check-load-balancer-health-status-for-cloud-services"></a>Bulut hizmetleri için yük dengeleyici sistem durumunu denetleme
 
-Aşağıda bir sistem durumu araştırma örneği verilmiştir:
+Merhaba, bir sistem durumu araştırması örneği aşağıdadır:
 
 ```xml
 <LoadBalancerProbes>
@@ -74,13 +74,13 @@ Aşağıda bir sistem durumu araştırma örneği verilmiştir:
 </LoadBalancerProbes>
 ```
 
-Yük dengeleyici uç nokta bilgilerini ve araştırma bilgilerini kullanarak sistem durumunu sorgulamak için kullanılabilecek `http://{DIP of VM}:80/Probe.aspx` biçiminde bir URL oluşturur.
+Merhaba yük dengeleyici hello araştırma toocreate hello uç noktasının hello bilgileri ve hello hello biçiminde bir URL birleştirir `http://{DIP of VM}:80/Probe.aspx` kullanılan tooquery hello hello hizmet durumunu olabilir.
 
-Hizmet aynı IP adresinden gelen aralıklı araştırmaları algılar. Bu, sanal makinenin çalıştığı düğümün ana bilgisayarından gelen sistem durumu araştırma isteğidir. Yük dengeleyicinin, hizmetin iyi durumda olduğunu kabul etmesi için hizmetin HTTP 200 durum koduyla yanıt vermesi gerekir. Diğer tüm HTTP durum kodları (503 gibi) sanal makineyi sistemin dışında bırakır.
+Merhaba hizmeti algılar hello gelen düzenli araştırmalar aynı IP adresi. Merhaba sanal makinenin çalıştığı hello düğümü hello ana bilgisayardan gelen hello sistem durumu araştırma isteğinin budur. Merhaba hizmeti hello hizmet sağlıklı olduğunu hello yük dengeleyici tooassume için bir HTTP 200 durum koduyla toorespond sahiptir. Sanal makineyi döndürme dışına alır hello doğrudan diğer HTTP durum kodu (örneğin 503).
 
-Araştırma tanımı ayrıca araştırma sıklığını da denetler. Yukarıdaki durumda yük dengeleyici uç noktayı 5 saniyede bir araştırmaktadır. 10 saniye (iki araştırma aralığı) boyunca olumlu yanıt gelmemesi halinde araştırma sonucu olumsuz kabul edilir ve sanal makine sistemin dışında tutulur. Benzer şekilde, hizmetin sistem dışında tutulması sırasında olumlu yanıt alınması halinde hizmet yeniden devreye alınır. Hizmet durumu sağlam ve sağlam değil şeklinde değişiklik gösteriyorsa yük dengeleyici, hizmetin birkaç araştırma boyunca sağlam olduğunu algılaması halinde hizmetin devreye alınmasını geciktirmeye karar verebilir.
+Merhaba araştırma tanımı da hello araştırma hello sıklığını denetler. Örneğimizde yukarıdaki hello yük dengeleyici hello uç nokta her 5 saniye yoklama. 10 saniye (iki yoklama aralıkları) olumlu bir yanıt alınmazsa, hello araştırma aşağı kabul edilir ve hello sanal makine dışına döndürme alınır. Benzer şekilde, döndürme dışında hello hizmetidir ve olumlu bir yanıt alındı, hello hizmeti geri toorotation hemen yerleştirilir. Merhaba hizmeti arasında sağlıklı ve sağlıksız dalgalı, araştırmalar sayısı için sağlıklı bırakıldı kadar hello yük dengeleyici toodelay hello yeniden giriş hello hizmeti geri toorotation karar verebilirsiniz.
 
-Daha fazla bilgi için [sistem durumu araştırması](https://msdn.microsoft.com/library/azure/jj151530.aspx) hizmet tanım düzenini denetleyin.
+Hello için Hello hizmet tanımı şemayı denetle [durumu araştırması](https://msdn.microsoft.com/library/azure/jj151530.aspx) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

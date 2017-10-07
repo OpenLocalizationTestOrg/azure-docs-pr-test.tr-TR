@@ -1,5 +1,5 @@
 ---
-title: "Yıldız Çalıştır-CCM + Linux VM'ler üzerinde HPC Pack ile | Microsoft Docs"
+title: "aaaRun yıldız-CCM + Linux VM'ler üzerinde HPC Pack ile | Microsoft Docs"
 description: "Azure üzerinde Microsoft HPC Pack küme dağıtma ve bir yıldız çalıştırma-CCM + işi birden çok Linux işlem düğümlerini bir RDMA ağ üzerinden."
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8265013cb295f53d6d4354ab2f100ef20d9f4c8c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Yıldız Çalıştır-CCM + Linux RDMA üzerinde Microsoft HPC Pack ile Azure'da küme
-Bu makalede, Azure ve Çalıştır Microsoft HPC Pack kümede dağıtma gösterilmektedir bir [CD adapco yıldız-CCM +](http://www.cd-adapco.com/products/star-ccm%C2%AE) InfiniBand ile bağlandığına birden çok Linux işlem düğümlerinde iş.
+Bu makale size nasıl toodeploy Microsoft HPC Pack küme Azure ve Çalıştır gösterir. bir [CD adapco yıldız-CCM +](http://www.cd-adapco.com/products/star-ccm%C2%AE) InfiniBand ile bağlandığına birden çok Linux işlem düğümlerinde iş.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-Microsoft HPC Pack büyük ölçekli HPC ve paralel uygulamalar, Microsoft Azure sanal makinelerin kümelerde MPI uygulamaları da dahil olmak üzere çeşitli çalıştırmak için özellikleri sağlar. HPC Pack çalışan Linux HPC uygulamaları bir HPC Pack kümede dağıtılan Linux işlem düğümü vm'lerde de destekler. Linux işlem düğümlerini HPC Pack ile kullanma giriş bilgileri için bkz: [Linux işlem düğümlerini Azure bir HPC Pack kümesindeki kullanmaya başlama](hpcpack-cluster.md).
+Microsoft HPC Pack büyük ölçekli HPC ve paralel uygulamalar, Microsoft Azure sanal makinelerin kümelerde MPI uygulamaları da dahil olmak üzere çeşitli özellikler toorun sağlar. HPC Pack çalışan Linux HPC uygulamaları bir HPC Pack kümede dağıtılan Linux işlem düğümü vm'lerde de destekler. Bir giriş toousing Linux işlem düğümleri HPC paketi ile bakın [Linux işlem düğümlerini Azure bir HPC Pack kümesindeki kullanmaya başlama](hpcpack-cluster.md).
 
 ## <a name="set-up-an-hpc-pack-cluster"></a>Bir HPC Pack kümesi
-HPC Pack Iaas dağıtım betiklerinden karşıdan [Yükleme Merkezi'nden](https://www.microsoft.com/en-us/download/details.aspx?id=44949) ve yerel olarak ayıklayın.
+Hello Hello HPC Pack Iaas dağıtım betikleri indirin [Yükleme Merkezi'nden](https://www.microsoft.com/en-us/download/details.aspx?id=44949) ve yerel olarak ayıklayın.
 
-Azure PowerShell önkoşuldur. PowerShell yerel makinenizde yapılandırılmamışsa, makaleyi okuyun [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
+Azure PowerShell önkoşuldur. PowerShell yerel makinenizde yapılandırılmamışsa, lütfen hello makaleyi okuyun [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview).
 
-Bu yazma zaman, SLES 12, CentOS 6.5 ve CentOS 7.1 (içeren InfiniBand sürücüleri için Azure) Azure Marketi Linux görüntülerden içindir. Bu makalede, SLES 12 kullanımı hakkında temel alır. Market HPC destekleyen tüm Linux görüntüleri adını almak için aşağıdaki PowerShell komutunu çalıştırabilirsiniz:
+Bu yazma Hello anda hello Linux hello (içeren hello InfiniBand sürücüleri için Azure) Azure Marketi görüntülerden SLES 12, CentOS 6.5 ve CentOS 7.1 içindir. Bu makalede, SLES 12 hello kullanımını temel alır. tooretrieve hello adı hello Market HPC destekleyen tüm Linux görüntülerin hello aşağıdaki PowerShell komutunu çalıştırabilirsiniz:
 
 ```
     get-azurevmimage | ?{$_.ImageName.Contains("hpc") -and $_.OS -eq "Linux" }
 ```
 
-Çıkış, bu görüntüleri kullanılabilir konumu ve görüntü adı listeler (**görüntü adı**) daha sonra dağıtım şablonunda kullanılacak.
+Merhaba çıkış listeler bu görüntüleri kullanılabilir olduğunu ve hello görüntü adı hello konumu (**görüntü adı**) daha sonra hello dağıtım şablonda kullanılan toobe.
 
-Küme dağıtmadan önce bir HPC paketi dağıtım şablon dosyası derleme sahip. Küçük bir küme hedefleme olduğundan, baş düğüm etki alanı denetleyicisi olması ve yerel bir SQL veritabanı ana bilgisayar.
+Merhaba küme dağıtmadan önce bir HPC paketi dağıtım şablon dosyası toobuild sahip. Küçük bir küme hedefleme olduğundan, hello baş düğüm hello etki alanı denetleyicisi olması ve yerel bir SQL veritabanı ana bilgisayar.
 
-Aşağıdaki şablonu bu tür bir baş düğüm dağıtmak, adlı bir XML dosyası oluşturma **MyCluster.xml**ve değerlerini değiştirme **Subscriptionıd**, **StorageAccount**,  **Konum**, **VMName**, ve **ServiceName** sizin ile.
+Merhaba aşağıdaki şablon böyle bir baş düğüm dağıtmak, adlı bir XML dosyası oluşturma **MyCluster.xml**ve hello değerlerini değiştirme **Subscriptionıd**, **StorageAccount**,  **Konum**, **VMName**, ve **ServiceName** sizin ile.
 
     <?xml version="1.0" encoding="utf-8" ?>
     <IaaSClusterConfig>
@@ -79,138 +79,138 @@ Aşağıdaki şablonu bu tür bir baş düğüm dağıtmak, adlı bir XML dosyas
       </LinuxComputeNodes>
     </IaaSClusterConfig>
 
-Baş düğüm oluşturma, yükseltilmiş bir komut istemi PowerShell komutunu çalıştırarak başlatın:
+Merhaba baş düğüm oluşturma, yükseltilmiş bir komut istemi'nde hello PowerShell komutunu çalıştırarak başlatın:
 
 ```
     .\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml
 ```
 
-20-30 dakika sonra baş düğüm hazır olmanız gerekir. Tıklatarak için Azure portalından bağlanabilirsiniz **Bağlan** sanal makinenin simgesi.
+20 too30 dakika sonra hello baş düğüm hazır. Merhaba tıklatarak hello Azure portal ' tooit bağlanabilirsiniz **Bağlan** hello sanal makinenin simgesi.
 
-Sonunda, DNS ileticisi düzeltme yapmanız gerekebilir. Bunu yapmak için DNS Yöneticisi'ni başlatın.
+Sonunda toofix hello DNS ileticisi olabilir. toodo, bu nedenle, DNS Yöneticisi'ni başlatın.
 
-1. DNS Yöneticisi ' nde seçin sunucu adına sağ tıklayın **özellikleri**ve ardından **İleticiler** sekmesi.
-2. Tıklatın **Düzenle** herhangi ileticiler kaldırmak için düğmesine tıklayın ve ardından **Tamam**.
-3. Olduğundan emin olun **hiçbir ileticiler mevcutsa, kök ipuçlarını kullanacak** onay kutusu seçilidir ve ardından **Tamam**.
+1. Sağ hello sunucu adının DNS Yöneticisi ' nde seçin **özellikleri**ve ardından hello **İleticiler** sekmesi.
+2. Merhaba tıklatın **Düzenle** tooremove herhangi ileticiler düğmesine tıklayın ve ardından **Tamam**.
+3. Bu hello emin olun **hiçbir ileticiler mevcutsa, kök ipuçlarını kullanacak** onay kutusu seçilidir ve ardından **Tamam**.
 
 ## <a name="set-up-linux-compute-nodes"></a>Linux işlem düğümlerini ayarlayın
-Baş düğüm oluşturmak için kullanılan aynı dağıtım şablonu kullanarak Linux işlem düğümlerini dağıtın.
+Hello kullanarak hello Linux işlem düğümlerini dağıtmak toocreate hello baş düğüm kullanılan aynı dağıtım şablonu.
 
-Dosya Kopyala **MyCluster.xml** baş düğüm ve güncelleştirme yerel makinenizden **NodeCount** dağıtmak istediğiniz düğümlerin sayısını etiketi (< = 20). Her A9 örneği aboneliğinizde 16 çekirdeğe tüketir olduğundan Azure kota, yeterli kullanılabilir çekirdeğe sahip dikkatli olun. Daha fazla sanal makineleri aynı bütçeye kullanmak istiyorsanız, A9 yerine A8 örnekleri (8 çekirdek) kullanabilirsiniz.
+Merhaba dosya Kopyala **MyCluster.xml** yerel makine toohello baş düğüm ve güncelleştirme hello **NodeCount** toodeploy istediğiniz düğümlerin sayısını hello etiketi (< = 20). Dikkatli toohave kullanılabilir yeterli çekirdek Azure kotanızı ile olması her A9 örneği aboneliğinizde 16 çekirdeğe tüketir. Daha fazla VM hello toouse istiyorsanız A8 örnekleri (8 çekirdek) yerine A9 kullanabilirsiniz aynı bütçeyi.
 
-Baş düğümünde HPC Pack Iaas dağıtım betikleri kopyalayın.
+Merhaba baş düğümünde hello HPC Pack Iaas dağıtım betikleri kopyalayın.
 
-Yükseltilmiş bir komut isteminde aşağıdaki Azure PowerShell komutlarını çalıştırın:
+Yükseltilmiş bir komut istemi'de Azure PowerShell komutlarını aşağıdaki hello çalıştırın:
 
-1. Çalıştırma **Add-AzureAccount** Azure aboneliğinize bağlanmak için.
-2. Birden çok aboneliğiniz varsa çalıştırmak **Get-AzureSubscription** onları listelemek için.
-3. Varsayılan bir abonelik çalıştırarak ayarlayın **Select-AzureSubscription - varlığıyla SubscriptionName xxxx-varsayılan** komutu.
-4. Çalıştırma **.\New-HPCIaaSCluster.ps1 - ConfigFile MyCluster.xml** Linux işlem düğümlerini dağıtmaya başlamak için.
+1. Çalıştırma **Add-AzureAccount** tooconnect tooyour Azure aboneliği.
+2. Birden çok aboneliğiniz varsa çalıştırmak **Get-AzureSubscription** toolist bunları.
+3. Varsayılan bir abonelik hello çalıştırarak ayarlayın **Select-AzureSubscription - varlığıyla SubscriptionName xxxx-varsayılan** komutu.
+4. Çalıştırma **.\New-HPCIaaSCluster.ps1 - ConfigFile MyCluster.xml** toostart Linux işlem düğümlerini dağıtma.
    
    ![Baş düğüm dağıtım eylem][hndeploy]
 
-HPC Pack Küme Yöneticisi aracını açın. Birkaç dakika sonra Linux işlem düğümlerini düzenli olarak küme işlem düğümleri listede görünür. Klasik dağıtım modeliyle Iaas VM'ler sıralı olarak oluşturulur. Düğüm sayısını önemliyse, böylece tüm dağıtılan alma önemli miktarda zaman alabilir.
+Merhaba HPC Pack Küme Yöneticisi aracını açın. Birkaç dakika sonra Linux işlem düğümlerini düzenli olarak küme işlem düğümleri listede görünür. Merhaba Klasik dağıtım modeliyle Iaas VM'ler sıralı olarak oluşturulur. Düğüm sayısını Hello önemliyse, böylece tüm dağıtılan alma önemli miktarda zaman alabilir.
 
 ![Linux düğümleri HPC Pack Küme Yöneticisi'nde][clustermanager]
 
-Kümedeki tüm düğümler hazır ve çalışır olduğundan, ek altyapı ayarları vardır.
+Tüm düğüm hello kümede hazır ve çalışır olduğundan, ek Altyapı ayarlarını toomake vardır.
 
 ## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Windows ve Linux düğümleri için bir Azure dosya paylaşımı ayarlama
-Azure dosya hizmeti, komut dosyaları, uygulama paketleri ve veri dosyalarını depolamak için kullanabilirsiniz. Azure dosya kalıcı deposu olarak Azure Blob Depolama CIFS işlevleri sağlar. Bu en ölçeklenebilir bir çözüm değildir, ancak basit bir olduğundan ve özel VM'ler gerektirmeyen unutmayın.
+Hello Azure dosya hizmeti toostore komut dosyaları, uygulama paketleri ve veri dosyalarını kullanabilirsiniz. Azure dosya kalıcı deposu olarak Azure Blob Depolama CIFS işlevleri sağlar. Bu hello en ölçeklenebilir bir çözüm değildir, ancak hello basit bir olduğundan ve özel VM'ler gerektirmeyen unutmayın.
 
-Makalesindeki yönergeleri izleyerek bir Azure dosya paylaşımı oluşturmak [Windows Azure File storage ile çalışmaya başlama](../../../storage/files/storage-dotnet-how-to-use-files.md).
+Merhaba makaledeki hello yönergeleri izleyerek bir Azure dosya paylaşımı oluşturmak [Windows Azure File storage ile çalışmaya başlama](../../../storage/files/storage-dotnet-how-to-use-files.md).
 
-Depolama hesabınız olarak adını tutmak **saname**, dosya paylaşımı adı olarak **sharename**ve depolama hesabı anahtarı olarak **sakey**.
+Depolama hesabınız olarak Hello adını tutmak **saname**, hello dosya paylaşımı adı olarak **sharename**ve hello depolama hesabı anahtarı olarak **sakey**.
 
-### <a name="mount-the-azure-file-share-on-the-head-node"></a>Baş düğümünde Azure dosya paylaşımını bağlama
-Yükseltilmiş bir komut istemi açın ve yerel makine kasaya kimlik bilgilerini depolamak için aşağıdaki komutu çalıştırın:
+### <a name="mount-hello-azure-file-share-on-hello-head-node"></a>Merhaba baş düğümünde Hello Azure dosya paylaşımını bağlama
+Yükseltilmiş bir komut istemi açın ve komut toostore hello hello yerel makine kasa kimlik bilgilerini aşağıdaki hello çalıştırın:
 
 ```
     cmdkey /add:<saname>.file.core.windows.net /user:<saname> /pass:<sakey>
 ```
 
-Ardından, Azure dosya paylaşımını bağlama için çalıştırın:
+Çalıştırma ardından toomount hello Azure dosya paylaşımı:
 
 ```
     net use Z: \\<saname>.file.core.windows.net\<sharename> /persistent:yes
 ```
 
-### <a name="mount-the-azure-file-share-on-linux-compute-nodes"></a>Linux işlem düğümlerini Azure dosya paylaşımını bağlama
-HPC paketi ile birlikte gelen bir yararlı aracı clusrun araçtır. İşlem düğümleri kümesi üzerinde aynı anda aynı komutu çalıştırmak için bu komut satırı aracını kullanabilirsiniz. Örneğimizde, bunu Azure dosya paylaşımını bağlama ve onu yeniden başlatmalar varlığını sürdürmesi için kalıcı olması için kullanılır.
-Baş düğüm yükseltilmiş bir komut istemi içinde aşağıdaki komutları çalıştırın.
+### <a name="mount-hello-azure-file-share-on-linux-compute-nodes"></a>Linux işlem düğümlerinde Hello Azure dosya paylaşımını bağlama
+HPC paketi ile birlikte gelen bir yararlı aracı hello clusrun araçtır. İşlem düğümleri kümesi üzerinde aynı anda aynı komutu bu komut satırı aracı toorun hello kullanabilirsiniz. Bu örnekte, toomount hello Azure dosya paylaşımı kullandı ve toosurvive yeniden başlatmalar kalır.
+Merhaba baş düğümünde yükseltilmiş bir komut istemi içinde hello aşağıdaki komutları çalıştırın.
 
-Bağlama dizin oluşturmak için:
+toocreate hello bağlama dizini:
 
 ```
     clusrun /nodegroup:LinuxNodes mkdir -p /hpcdata
 ```
 
-Azure dosya paylaşımını bağlama için:
+toomount hello Azure dosya paylaşımı:
 
 ```
     clusrun /nodegroup:LinuxNodes mount -t cifs //<saname>.file.core.windows.net/<sharename> /hpcdata -o vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777
 ```
 
-Bağlama paylaşım devam ettirmek için:
+toopersist hello bağlama paylaşımı:
 
 ```
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
 
 ## <a name="install-star-ccm"></a>Yıldız yükle-CCM +
-Azure VM örnekleri A8 ve A9 InfiniBand destek ve RDMA yetenekleri sağlar. Bu özellikleri etkinleştirecek çekirdek sürücüleri, Windows Server 2012 R2, SUSE 12, CentOS 6.5 ve Azure Marketi CentOS 7.1 görüntüleri için kullanılabilir. Microsoft MPI ve Intel MPI (5.x sürümü), bu sürücüleri Azure'da destekleyen iki MPI kitaplıkları var.
+Azure VM örnekleri A8 ve A9 InfiniBand destek ve RDMA yetenekleri sağlar. Bu özellikleri etkinleştirmek hello çekirdek sürücüler, Windows Server 2012 R2, SUSE 12, CentOS 6.5 ve hello Azure Marketi CentOS 7.1 görüntüleri için kullanılabilir. Microsoft MPI ve Intel MPI (5.x sürümü), bu sürücüleri Azure'da destekleyen hello iki MPI kitaplıkları var.
 
 CD adapco yıldız-CCM + 11.x bırakın ve daha sonra Intel MPI sürümüyle birlikte Azure InfiniBand desteği dahil olacak şekilde 5.x.
 
-Linux64 alma yıldız-CCM + paketinden [CD adapco portal](https://steve.cd-adapco.com). Örneğimizde, karma duyarlık 11.02.010 sürümünde kullandık.
+Merhaba Linux64 alma yıldız-CCM + hello paketinden [CD adapco portal](https://steve.cd-adapco.com). Örneğimizde, karma duyarlık 11.02.010 sürümünde kullandık.
 
-Baş düğüm içinde **/hpcdata** Azure dosya paylaşımı, adlandırılmış bir kabuk betiği oluşturma **setupstarccm.sh** aşağıdaki içeriğe sahip. Bu komut dosyası yıldız ayarlamak için her işlem düğümünde çalıştırılacak-CCM + yerel olarak.
+Merhaba baş düğümünde, hello **/hpcdata** Azure dosya paylaşımı, adlandırılmış bir kabuk betiği oluşturmak **setupstarccm.sh** içeriği aşağıdaki hello ile. Bu komut dosyasını her işlem düğümü tooset yıldız yukarı üzerinde çalıştırmak-CCM + yerel olarak.
 
 #### <a name="sample-setupstarcmsh-script"></a>Örnek setupstarcm.sh komut dosyası
 ```
     #!/bin/bash
-    # setupstarcm.sh to set up STAR-CCM+ locally
+    # setupstarcm.sh tooset up STAR-CCM+ locally
 
-    # Create the CD-adapco main directory
+    # Create hello CD-adapco main directory
     mkdir -p /opt/CD-adapco
 
-    # Copy the STAR-CCM package from the file share to the local directory
+    # Copy hello STAR-CCM package from hello file share toohello local directory
     cp /hpcdata/StarCCM/STAR-CCM+11.02.010_01_linux-x86_64.tar.gz /opt/CD-adapco/
 
-    # Extract the package
+    # Extract hello package
     tar -xzf /opt/CD-adapco/STAR-CCM+11.02.010_01_linux-x86_64.tar.gz -C /opt/CD-adapco/
 
-    # Start a silent installation of STAR-CCM without the FLEXlm component
+    # Start a silent installation of STAR-CCM without hello FLEXlm component
     /opt/CD-adapco/starccm+_11.02.010/STAR-CCM+11.02.010_01_linux-x86_64-2.5_gnu4.8.bin -i silent -DCOMPUTE_NODE=true -DNODOC=true -DINSTALLFLEX=false
 
     # Update memory limits
     echo "*               hard    memlock         unlimited" >> /etc/security/limits.conf
     echo "*               soft    memlock         unlimited" >> /etc/security/limits.conf
 ```
-Yıldız ayarlamak için şimdi-CCM + tüm Linux işlem düğümleri, yükseltilmiş bir komut istemi açın ve aşağıdaki komutu çalıştırın:
+Şimdi, tooset yıldız yukarı-CCM + tüm Linux işlem düğümleri, yükseltilmiş bir komut istemi açın ve hello aşağıdaki komutu çalıştırın:
 
 ```
     clusrun /nodegroup:LinuxNodes bash /hpcdata/setupstarccm.sh
 ```
 
-Komut çalışırken, Küme Yöneticisi'nin ısı Haritası kullanarak CPU kullanımını izleyebilirsiniz. Birkaç dakika sonra tüm düğümleri doğru şekilde ayarlanmış olması.
+Hello komutu çalışırken hello ısı Haritası Küme Yöneticisi'nin kullanarak hello CPU kullanımını izleyebilirsiniz. Birkaç dakika sonra tüm düğümleri doğru şekilde ayarlanmış olması.
 
 ## <a name="run-star-ccm-jobs"></a>Yıldız Çalıştır-CCM + işleri
-HPC Pack kullanılan iş Zamanlayıcı yeteneklerini için yıldız çalıştırmak için-CCM + işler. Bunu yapmak için destek iş başlatmak ve yıldız çalıştırmak için kullanılan birkaç komut dosyalarının gerekiyor-CCM +. Giriş verilerini Azure dosya paylaşımında kolaylık olması için ilk olarak tutulur.
+HPC Pack iş Zamanlayıcı yeteneklerini sipariş toorun yıldız için kullanıldığından-CCM + işler. toodo bu nedenle, biz kullanılan toostart hello iş ve yıldız çalıştırmak birkaç komut dosyalarının destek hello-CCM +. Merhaba giriş verisi hello Azure dosya paylaşımında kolaylık olması için ilk olarak tutulur.
 
-Aşağıdaki PowerShell betiğini bir yıldız sıraya almak için kullanılan-CCM + işi. Üç bağımsız değişkeni alır:
+PowerShell Betiği aşağıdaki hello olduğu kullanılan tooqueue bir yıldız-CCM + işi. Üç bağımsız değişkeni alır:
 
-* Model adı
-* Kullanılacak düğüm sayısı
-* Kullanılacak her bir düğümüne çekirdek sayısı
+* Merhaba model adı
+* kullanılan düğümlerin toobe Hello sayısı
+* Merhaba kullanılan her düğüm toobe üzerinde çekirdek sayısı
 
-Çünkü yıldız-CCM + bellek bant genişliği doldurabilirsiniz işlem düğümleri başına daha az çekirdek kullanın ve yeni düğümler eklemek genellikle daha iyi olur. Tam düğümü başına çekirdek sayısı, işlemci ailesi ve bağlantı hızı değişir.
+Çünkü yıldız-CCM + hello bellek bant genişliği doldurabilirsiniz, daha az çekirdek başına, genellikle daha iyi toouse işlem düğümleri ve yeni düğümler ekleyin. Merhaba tam düğümü başına çekirdek sayısı hello işlemci ailesi ve hello bağlantı hızı değişir.
 
-Düğümleri yalnızca iş için ayrılmış ve diğer işlemlerle paylaşılamaz. İş MPI iş olarak doğrudan başlatılmadı. **Runstarccm.sh** Kabuk betiği MPI Başlatıcısı başlayacak.
+Merhaba düğümleri özel olarak hello iş için ayrılmış ve diğer işlemlerle paylaşılamaz. Merhaba iş MPI iş olarak doğrudan başlatılmadı. Merhaba **runstarccm.sh** Kabuk betiği hello MPI Başlatıcısı başlayacak.
 
-Giriş modeli ve **runstarccm.sh** betik depolanır **/hpcdata** daha önce oluşturulmuş paylaşımı.
+Merhaba giriş modeli ve hello **runstarccm.sh** betik hello depolanan **/hpcdata** daha önce oluşturulmuş paylaşımı.
 
-Günlük dosyaları ile iş kimliği adlı ve depolanan **/hpcdata paylaşımı**, yıldız birlikte-CCM + çıkış dosyaları.
+Günlük dosyaları hello iş kimliği ile aynı ada sahiptir ve hello depolanan **/hpcdata paylaşımı**, hello yıldız birlikte-CCM + çıkış dosyaları.
 
 #### <a name="sample-submitstarccmjobps1-script"></a>Örnek SubmitStarccmJob.ps1 komut dosyası
 ```
@@ -221,13 +221,13 @@ Günlük dosyaları ile iş kimliği adlı ve depolanan **/hpcdata paylaşımı*
     $nbNodes=$args[1]
 
     #---------------------------------------------------------------------------------------------------------
-    # Create a new job; this will give us the job ID that's used to identify the name of the uploaded package in Azure
+    # Create a new job; this will give us hello job ID that's used tooidentify hello name of hello uploaded package in Azure
     #
     $job = New-HpcJob -Name "$modelName $nbNodes $nbCoresPerNode" -Scheduler $scheduler -NumNodes $nbNodes -NodeGroups "LinuxNodes" -FailOnTaskFailure $true -Exclusive $true
     $jobId = [String]$job.Id
 
     #---------------------------------------------------------------------------------------------------------
-    # Submit the job     
+    # Submit hello job     
     $workdir =  "/hpcdata"
     $execName = "$nbCoresPerNode runner.java $modelName.sim"
 
@@ -242,10 +242,10 @@ Değiştir **runner.java** , tercih edilen yıldız ile-CCM + Java modeli Başla
 ```
     #!/bin/bash
     echo "start"
-    # The path of this script
+    # hello path of this script
     SCRIPT_PATH="$( dirname "${BASH_SOURCE[0]}" )"
     echo ${SCRIPT_PATH}
-    # Set the mpirun runtime environment
+    # Set hello mpirun runtime environment
     export CDLMD_LICENSE_FILE=1999@flex.cd-adapco.com
 
     # mpirun command
@@ -256,11 +256,11 @@ Değiştir **runner.java** , tercih edilen yıldız ile-CCM + Java modeli Başla
     COUNT=${#NODESCORES[@]}
     NBCORESPERNODE=$1
 
-    # Create the hostfile file
+    # Create hello hostfile file
     NODELIST_PATH=${SCRIPT_PATH}/hostfile_$$
     echo ${NODELIST_PATH}
 
-    # Get every node name and write into the hostfile file
+    # Get every node name and write into hello hostfile file
     I=1
     NBNODES=0
     while [ ${I} -lt ${COUNT} ]
@@ -271,7 +271,7 @@ Değiştir **runner.java** , tercih edilen yıldız ile-CCM + Java modeli Başla
     done
     let "NBCORES=${NBNODES}*${NBCORESPERNODE}"
 
-    # Run STAR-CCM with the hostfile argument
+    # Run STAR-CCM with hello hostfile argument
     #  
     ${STARCCM} -np ${NBCORES} -machinefile ${NODELIST_PATH} \
         -power -podkey "<yourkey>" -rsh ssh \
@@ -284,11 +284,11 @@ Değiştir **runner.java** , tercih edilen yıldız ile-CCM + Java modeli Başla
     exit ${RTNSTS}
 ```
 
-Testimizde, bir isteğe bağlı güç lisans belirteci kullandık. Bu bir belirteç ayarlamanız gerekir. **$CDLMD_LICENSE_FILE** ortam değişkenine  **1999@flex.cd-adapco.com**  ve anahtar **- podkey** komut satırı seçeneği.
+Testimizde, bir isteğe bağlı güç lisans belirteci kullandık. Bu bir belirteç tooset hello sahip **$CDLMD_LICENSE_FILE** ortam değişkeni çok **1999@flex.cd-adapco.com**  ve hello hello anahtarında **- podkey** hello komut satırı seçeneği .
 
-Bazı başlatma sonra komut dosyasını ayıklar--gelen **$CCP_NODES_CORES** ortam değişkenlerini ayarlama, HPC Pack--MPI Başlatıcısı'nı kullanan bir hostfile oluşturmak için düğüm listesi. Bu hostfile işi, satır başına bir ad için kullanılan işlem düğümü adlarının listesini içerir.
+Bazı başlatma hello betik ayıklar--hello **$CCP_NODES_CORES** HPC Pack ayarlanan--ortam değişkenlerini hello MPI Başlatıcısı hello hostfile kullanan düğümleri toobuild listesi. Bu hostfile hello hello işi, satır başına bir ad için kullanılan işlem düğümü adlarının listesini içerir.
 
-Biçimi **$CCP_NODES_CORES** bu deseni izler:
+Merhaba biçimi **$CCP_NODES_CORES** bu deseni izler:
 
 ```
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
@@ -296,28 +296,28 @@ Biçimi **$CCP_NODES_CORES** bu deseni izler:
 
 Konumlar:
 
-* `<Number of nodes>`Bu iş için ayrılan düğümler sayısıdır.
-* `<Name of node_n_...>`Bu iş için ayrılmış her düğümün adıdır.
-* `<Cores of node_n_...>`Bu iş için ayrılmış düğümünde çekirdek sayısıdır.
+* `<Number of nodes>`toothis iş ayrılan düğümler Hello sayısıdır.
+* `<Name of node_n_...>`Merhaba toothis iş ayrılan her düğümün adıdır.
+* `<Cores of node_n_...>`Çekirdek toothis iş ayrılan hello düğümde Hello sayısıdır.
 
-Çekirdek sayısı (**$NBCORES**) düğüm sayısını temel alınarak hesaplanır (**$NBNODES**) ve düğümü başına çekirdek sayısı (parametre olarak sağlanan **$NBCORESPERNODE**).
+Merhaba çekirdek sayısı (**$NBCORES**) de hesaplanan göre hello düğüm sayısı: (**$NBNODES**) ve hello düğümü başına çekirdek sayısı (parametre olarak sağlanan **$NBCORESPERNODE**).
 
-MPI seçenekleri için Azure üzerinde Intel MPI ile kullanılan olanlardır:
+Merhaba MPI seçenekler için hello Azure üzerinde Intel MPI ile kullanılan olanları şunlardır:
 
-* `-mpi intel`Intel MPI belirtmek için.
-* `-fabric UDAPL`Azure InfiniBand fiiller kullanmak için.
-* `-cpubind bandwidth,v`YILDIZ ile MPI için bant genişliğini iyileştirmek için-CCM +.
-* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"`Intel ile Azure InfiniBand iş MPI yapmak için ve gerekli düğümü başına çekirdek sayısını ayarlama.
-* `-batch`Yıldız başlatmak için-CCM + toplu iş modunda kullanıcı Arabirimi ile.
+* `-mpi intel`Intel MPI toospecify.
+* `-fabric UDAPL`toouse Azure InfiniBand fiilleri.
+* `-cpubind bandwidth,v`YILDIZ ile MPI için toooptimize bant genişliği-CCM +.
+* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"`toomake Intel MPI iş ile Azure InfiniBand ve tooset hello düğümü başına çekirdek sayısı gereklidir.
+* `-batch`toostart yıldız-CCM + toplu iş modunda kullanıcı Arabirimi ile.
 
-Son olarak, bir işlemi başlatmak için düğümlerinizin ve çalışıyor olduğundan ve Küme Yöneticisi'nde çevrimiçi olduğundan emin olun. Ardından bir PowerShell komut isteminde bu çalıştırın:
+Son olarak, toostart bir işin, düğümlerin ve çalışıyor olduğundan ve Küme Yöneticisi'nde çevrimiçi olduğundan emin olun. Ardından bir PowerShell komut isteminde bu çalıştırın:
 
 ```
     .\ SubmitStarccmJob.ps1 <model> <nbNodes> <nbCoresPerNode>
 ```
 
 ## <a name="stop-nodes"></a>Düğümler durdurun
-Daha sonra testlerinizi ile bitirdikten sonra durdurmak ve düğümler başlatmak için aşağıdaki HPC Pack PowerShell komutlarını kullanabilirsiniz:
+Daha sonra testlerinizi ile işiniz bittiğinde sonra HPC Pack PowerShell komutları toostop aşağıdaki hello kullanın ve düğümleri başlatın:
 
 ```
     Stop-HPCIaaSNode.ps1 -Name <prefix>-00*

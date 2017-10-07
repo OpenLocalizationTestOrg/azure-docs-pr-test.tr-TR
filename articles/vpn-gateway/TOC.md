@@ -63,7 +63,7 @@
 ### [Genel bakış ve Azure yapılandırması](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Örnek: Cisco ASA cihazı (IKEv2/BGP yok)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## Sorun giderme
-### [Bir sanal ağa VPN aktarım hızını doğrulama](vpn-gateway-validate-throughput-to-vnet.md)
+### [VPN işleme tooa VNet doğrula](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Topluluk tarafından önerilen VPN veya güvenlik duvarı cihaz ayarları](vpn-gateway-third-party-settings.md)
 ### [Noktadan Siteye bağlantı sorunu](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Siteden Siteye bağlantı aralıklı olarak kesiliyor](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)

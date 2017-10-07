@@ -1,5 +1,5 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - Reach nasıl yapılır"
+title: "Mobile Engagement kullanıcı arabirimi - aaaAzure nasıl ulaşması"
 description: "Azure Mobile Engagement için kullanıcı arabirimi genel bakış"
 services: mobile-engagement
 documentationcenter: 
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 33a0a9d0c399cb7f0a791c4c16dde2e2d62364ca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b6dafd09d894214d4c386f5c6f157a77671606f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>Son kullanıcılarınıza ulaşmak için kullanarak ve yönetmeye başlamak nasıl iter
-SDK'sını uygulamanıza tam olarak tümleşiktir sonra kullanmaya başlamak, uygulamanızın kullanıcılara anında iletme bildirimleri UI ulaşma bölüm.  
+# <a name="how-tooget-started-using-and-managing-pushes-tooreach-out-tooyour-end-users"></a>Nasıl tooget kullanmaya ve tooreach tooyour son kullanıcılar çıkışı iter yönetme
+Merhaba SDK tamamen uygulamanıza tümleşiktir sonra hello hello ulaşma hello UI tooPush bildirimleri toohello kullanıcılar, uygulamanızın bölümünü kullanmaya başlayabilirsiniz.  
 
 ## <a name="do-your-first-push-notification-campaign"></a>İlk anında iletme bildirimi kampanyanızı yapın
-* SDK'sı ile uygulamanızı elinizin tümleştirilmiş onaylayın. 
+* Merhaba SDK'sı ile uygulamanızı elinizin tümleştirilmiş onaylayın. 
 * Uygulamanızı seçin
 
 ![First1][1]
 
-* "Reach" bölümü ve tıklatın "Yeni duyuru için" gidin
+* Toohello "Reach" bölümü ve tıklatın "Yeni duyuru" gidin
 
 ![First2][2]
 
@@ -37,19 +37,19 @@ SDK'sını uygulamanıza tam olarak tümleşiktir sonra kullanmaya başlamak, uy
   
 ![First3][3]
 
-* Nasıl bildirim, uygulama yalnızca gönderilmesi gereken seçin
+* Nasıl hello bildirim, uygulama yalnızca gönderilmesi gereken seçin
 
 ![First4][4]
 
-* Anında iletme istediğiniz iletiyi oluşturun
+* Toopush istediğiniz hello iletisi oluşturun
 
 ![First5][5]
 
-* Bir başlık (isteğe bağlı) bildirim yazabilir.
+* Merhaba bildirim (isteğe bağlı) bir başlık yazabilir.
 * Anında iletme iletisi içeriği yazma.
-* Görüntüyü karşıya yükleyebilirsiniz. Dosyanın boyutu 32.768 baytı aşamaz unutmayın.
-* Ayrıca daha fazla seçenek seçmek olanağına sahip, ancak bu öğretici için odak, daha sonra göreceğiz.
-* Yalnızca bildirim olarak içerik türünü seçin
+* Görüntüyü karşıya yükleyebilirsiniz. Merhaba hello dosyasının boyutunu 32.768 baytı aşamaz unutmayın.
+* Seçenekleri daha fazla hello özelliği tooselect de, ancak bu öğreticide hello odağının, daha sonra göreceğiz.
+* Yalnızca bildirim olarak Hello içerik türü seçin
 
 ![First6][6]
 
@@ -61,58 +61,58 @@ SDK'sını uygulamanıza tam olarak tümleşiktir sonra kullanmaya başlamak, uy
 ![Test1][8]
 
 * Cihazınızı kaydedin.
-* Anında iletme cihazın onay kutusuna tıklayın.
-* Anında iletme cihaza göndermek için "Test" düğmesine tıklayın.
+* Tıklatın hello aygıt hello onay kutusunu toopush istiyor.
+* Merhaba üzerinde "Test" düğmesine toosend hello itme toohello aygıt'ı tıklatın.
 
 ![Test2][9]
 
-* Kampanya etkinleştir
+* Merhaba kampanyayı etkinleştirmek
 
 ![test3][10]
 
-* Kampanyanızı oluşturduğunuza göre yalnızca kullanıcılarınıza edilmesini bildirim için etkinleştirmeniz gerekir.
+* Kampanyanızı oluşturduğunuza göre tooactivate yeterlidir tooyour kullanıcılar hello bildirim toobe için gönderilir.
 
 ## <a name="send-personalized-pushes"></a>Kişiselleştirilmiş bildirim gönder
-* Bu örnek, bir özel indirim kod anında iletme bildirimi girildiği push oluşturur.
+* Bu örnek, bir özel indirim kodu hello anında iletme bildirimi girildiği push oluşturur.
 
 ![Personalize1][11]
 
-Kişiselleştirme çalışır, böylece tarafından bir işaretçi bir uygulama bilgisi etiketinde değiştirerek kullanıcının ilk olarak tanımlanan uygun app-info olduğundan emin olmak gerekir. Bu örnekte ve hedef kullanıcı tanımlı rebate_code adlı bir uygulama bilgisi etiketi sahip olur.
-Yukarıda gördüğünüz gibi anında bildirim içeriği uygulama bilgisi etiketi gerçek içerik tarafından değiştirilmesini olduğunu bildirecektir işaret ${rebate_code} içerir.
+Kişiselleştirme çalışır, böylece tarafından bir işaretçi bir uygulama bilgisi etiketinde değiştirerek toomake hello kullanıcının hello uygun app-info ilk tanımlı olduğundan emin sahip olacaksınız. Bu örnek hello hedeflenen kullanıcılara tanımlanan rebate_code adlı bir uygulama bilgisi etiketi sahip olur.
+Yukarıda gördüğünüz gibi hello anında bildirim içeriği hello tarafından hello uygulama bilgisi etiketinin gerçek içerik yerine toobe olduğunu gösteren hello işaret ${rebate_code} içerir.
 
 > [!WARNING]
-> Uygulama bilgileri etiketi için kullanıcı tanımlı değil, kullanıcı anında alır değil.
+> Merhaba uygulama bilgisi etiketi hello kullanıcıdan tanımlanmazsa hello kullanıcı hello itme alırsınız.
 
 * Sonuç
 
 ![Personalize2][12]
 
-### <a name="you-can-further-personalize-the-text-your-notification"></a>Daha fazla metin bildiriminizin kişiselleştirebilirsiniz
+### <a name="you-can-further-personalize-hello-text-your-notification"></a>Daha fazla hello metin bildiriminizin kişiselleştirebilirsiniz
 ![Personalize3][13]
 
-* Bildirim başlığı dahil olmak üzere,
-* Ve ileti içeriği.
-* Duyuru (metin görünümü veya Web görünümü) türünü seçin
+* Merhaba bildirim Hello başlığı dahil olmak üzere,
+* Ve selamlama iletisine Merhaba içeriğine.
+* Duyuru (metin görünümü veya Web görünümü) Hello türünü seçin
 
 ![Personalize4][14]
 
-### <a name="the-body-of-an-announcement-may-also-be-personalized-with"></a>Duyuru gövdesi ile de kişiselleştirilmiş:
-* Eylem URL'si giriş sayfası özelleştirmek istediğiniz
-* Başlık
-* İleti gövdesi.
+### <a name="hello-body-of-an-announcement-may-also-be-personalized-with"></a>Duyuru Hello gövdesi ile de kişiselleştirilmiş:
+* Giriş sayfasında toocustomize hello Hello eylem URL'si, istediğiniz
+* Merhaba başlığı
+* Merhaba hello ileti gövdesi.
 
 ## <a name="differentiate-your-push-notification-in-or-out-of-app"></a>Bilgisayarınızı anında iletilen bildirim (içeri veya uygulama dışında) ayırt
-* Anında iletme, uygulamanızı seçin, "Reach" bölümüne gidin, seçin veya bir anında iletme kampanya oluşturacak ve "Bildirim" bölümüne gidin bildirim türünü seçin.
-* ' I tıklatın, "teslimat modunu" istediğiniz.
-* Bildirim istediğinizde "Kısıtlamak etkinlikler" onay kutusunu tıklayarak belirli etkinlikleri (ekranları) oluşur.
+* Anında iletme, uygulamanızı seçin, toohello "Reach" bölümüne gidin, seçin veya bir anında iletme kampanya oluşturacak ve toohello "Bildirim" bölümüne gidin bildirim Hello türünü seçin.
+* ' I tıklatın, "teslimat" Merhaba üzerinde istediğiniz.
+* Belirli etkinlikleri (ekranları) hello bildirim istediğinizde "Kısıtlamak etkinlikler" onay kutusunu oluşur hello tıklayın.
 
 ![Differentiate1][15]
 
 ### <a name="out-of-app-only-delivery-mode"></a>"Yalnızca uygulama dışında" teslimat
 ![Differentiate2][16]
 
-"Yalnızca uygulama dışında" teslimat uygulama kapatıldığında anında iletme bildirimi sağlar. Standart anında iletme bildirimi budur.
-"Yalnızca uygulama dışı" seçtiğinizde, zaten uygulamanız (APNS veya GCM) oluşturuyor platform sertifikalardan sağlamış olmanız gerekiyor.
+"Yalnızca uygulama dışında" teslimat hello uygulama kapatıldığında anında iletme bildirimi sağlar. Merhaba standart anında iletme bildirimi budur.
+"Yalnızca uygulama dışı" seçtiğinizde, zaten uygulamanız (APNS veya GCM) oluşturuyor hello platform hello sertifikalardan sağlamış olmanız gerekiyor.
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [Apple anında bildirim hizmeti – sertifikaları](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), [Google bulut Mesajlaşma – sertifika](http://developer.android.com/google/gcm/index.html) 
@@ -120,75 +120,75 @@ Yukarıda gördüğünüz gibi anında bildirim içeriği uygulama bilgisi etike
 ### <a name="in-app-only-delivery-mode"></a>"uygulama yalnızca" teslimat
 ![Differentiate3][17]
 
-Uygulama çalışırken "Uygulama yalnızca" teslimat anında iletme bildirimi sağlar.
-Bu bildirim için APNS ve GCM sistem üzerinden gitmek gerekmez.
-Uygulama teslim sistemi kullanıcılarınıza ulaşmak için kullanabilirsiniz.
-Tam bildirim özelleştirmek ve etkinlik (ekran) bildirim görüntüleneceği karar verebilirsiniz.
+Merhaba uygulama çalışırken "Uygulama yalnızca" teslimat anında iletme bildirimi sağlar.
+Bu bildirim için hello APNS aracılığıyla toogo ve GCM sistem gerekmez.
+Kullanıcılarınıza hello uygulama teslim sistemi tooreach kullanabilirsiniz.
+Tam olarak hello bildirim özelleştirmek ve hangi etkinliğin (ekran) hello bildirim görünür karar verebilirsiniz.
 
 ### <a name="anytime-delivery-mode"></a>"Dilediğiniz zaman" teslimat
-Bir "Her zaman" teslimat seçebilirsiniz, uygulama veya çalışıp çalışmadığını kullanıcınızın ulaşması sağlar.
-"Dilediğiniz zaman" seçtiğinizde, zaten uygulamanız (APNS veya GCM) oluşturuyor platform sertifikalardan sağlamış olmanız gerekiyor. 
+Bir "Her zaman" teslimat seçebilirsiniz, son olup hello tooreach sağlar veya uygulama çalıştıran.
+"Dilediğiniz zaman" seçtiğinizde, zaten uygulamanız (APNS veya GCM) oluşturuyor hello platform hello sertifikalardan sağlamış olmanız gerekiyor. 
 
 ## <a name="schedule-a-push-campaign"></a>Anında iletme kampanya zamanlama
-### <a name="plan-to-start-a-campaign"></a>Bir kampanya başlatmak planlama
+### <a name="plan-toostart-a-campaign"></a>TooStart bir kampanya planlama
 ![Shedule1][18]
 
-21 Mart olduğu ve yapmak için bir bildirime sahip, 22 Mart için gece yarısı planlanmış. Push yapmak için arabirimi önünde kalmak gerekmez! Önceden bildirimleri gönderilecek tam dakika planlayabilirsiniz.
+Mart 21st hello olduğundan ve bir duyuru toomake sahip Merhaba Mart 22nd gece yarısı planlanmış. Merhaba arabirimi toodo push önünde toostay yok! Bildirim gönderilir önceden hello tam dakika planlayabilirsiniz.
 
-* Kaldırma onay "Hiçbiri" onay kutusunu ve bir başlangıç saati seçin 
-* Tarih ve itme kampanya başlamasını istediğiniz saati seçin.
+* Kaldırma onay hello "Hiçbiri" onay kutusunu ve bir başlangıç saati seçin 
+* Başlangıç tarihi ve toostart hello itme kampanya hello saatini seçin.
 
-### <a name="plan-to-end-a-campaign"></a>Bir kampanya sona erdirmek planlama
+### <a name="plan-tooend-a-campaign"></a>Tooend bir kampanya planlama
 ![Shedule2][19]
 
-Kampanyanızı 25 Mart üzerinde 3:00 pm durdurmak istiyor ancak orada yapmak için olmayacaktır biliyor.
-İtme arabirimi önünde kalmak gerekmez! Önceden, kampanya durur tam dakika planlayabilirsiniz.
+Hello üzerinde kampanya toostop Mart 25 3:00 pm istediğiniz ancak, olmayacak var. toodo biliyorsanız.
+Merhaba arabirimi toopush önünde toostay yok! Kampanyanızı durdurur önceden hello tam dakika planlayabilirsiniz.
 
-* Tıklayın "yok" onay kutusunu veya bir bitiş saati seçin
-* Tarih ve saat itme kampanya tamamlamak istiyorsanız seçin.
+* "Hiçbiri" Merhaba üzerinde tıklatın onay kutusu veya bir bitiş saati seçin
+* Başlangıç tarihi ve toofinish hello itme kampanya hello saatini seçin.
 
 ### <a name="end-a-campaign-manually"></a>Bir kampanya el ile bitmelidir
 ![Shedule3][20]
 
-Varsayılan olarak, "None" onay kutuları seçilir.
-Başka bir deyişle, ulaşma bölümünde etkinleştirmek ve reach bölümüne durdurulacak zaman sona ereceği hemen sonra kampanya başlar.
+Varsayılan olarak, "None" onay kutularının seçili hello.
+Hello etkinleştirdikten hemen hello kampanya başlar deyişle bölüm ulaşmak ve üzerinde hello durdurulacak zaman son bölümü ulaşabileceği.
 
 > [!NOTE]
-> Bitiş tarihi oluşturulan Kampanyalar itme cihazda yerel olarak depolamak ve kampanya el ile sona erdi olsa bile uygulama sonraki açılışında gösterir.
+> Bitiş tarihi oluşturulan Kampanyalar hello itme hello cihazda yerel olarak depolamak ve hello kampanya el ile sona erdi olsa bile hello uygulama açıldığında hello göster.
 
 ## <a name="enhance-a-push-notification-with-a-text-view"></a>Metin görünümü ile anında iletme bildirimi geliştirin
 ### <a name="what-is-a-text-view"></a>Metin Görünümü nedir?
 ![TextView1][21]
 
-Metni metin içeriği içeren bir açılır pencere görülmektedir. Son kullanıcı anında iletme bildirimine tıklamıştır sonra bu açılır pencere görünür.
-Metin görünümü, son kullanıcı için daha fazla içerik sunmanızı sağlar. Bu da bir coğrafi olarak yerelleştirilmiş arama başlayarak bir e-posta gönderilirken bir web sayfası açılıyor bir mağazaya, yeniden yönlendirme, uygulamanızın bir sayfa atlama gibi bir işlem için bir çağrı sunmak için fırsattır vb....
+Metni metin içeriği içeren bir açılır pencere görülmektedir. Merhaba son kullanıcı hello anında iletme bildirimine tıklamıştır sonra bu açılır pencere görünür.
+Metin görünümü toopresent sağlar. daha fazla içerik tooyour son kullanıcı. Bu aynı zamanda hello fırsat toopresent tooa bir web sayfasını açarak deposu başlatma, coğrafi olarak yerelleştirilmiş arama, vb. bir e-posta gönderme, yeniden yönlendirme, uygulamanızın tooa sayfa atlama gibi bir çağrı tooaction olup...
 
 ### <a name="example-text-view"></a>Örnek: Metin görünümü
-* "Reach" bölümünde anında iletme bildirimi kampanyanızı oluşturmak ve kampanyanızı adlandırın
+* Merhaba "Ulaşmak" bölümünde anında iletme bildirimi kampanyanızı oluşturmak ve kampanyanızı adlandırın
 
 ![TextView2][22]
 
-* Görüntülenecek ileti bildirimi yazma.
-* "Metin" Duyuru içerik türünü seçin
+* Görünür selamlama iletisine hello bildirim yazma.
+* Merhaba duyuru "metin" içerik türü seçin
 
 ![TextView3][23]
 
 > [!NOTE]
 > Metin görünümü bastığınızda, her zaman içeren bir bildirim önce gelir. 
 
-* Metin (metin duyuru içeriği alt bölümünün görünür, görüntülenmesini istediğiniz metin tanımlamanıza olanak sağlayan seçtikten sonra.) tanımlayın
+* Merhaba metni (Merhaba metin duyuru içeriği hello alt bölümünün görünür, görüntülenen toobe toodefine hello metin izin vererek seçtikten sonra.) tanımlayın
 
 ![TextView4][24]
 
-* İleti üstünde görünür başlık yazın.
-* Metin görünümü ana içeriğini yazma.
-* (Bir uygulama mağazasının veya herhangi bir tür, sağlayabilirsiniz kaynakları yönlendirme uygulama sayfasını açarak gibi belirli bir eylemi yapmak uygulama eylem düğmesi sağlar) eylem düğmesine görünür içerik yazma.
-* Çıkış düğmesi görünür içerik yazma (çıkış düğmeyi tıklatarak, metin görünümü kaybolur.)
-* Anında iletme bildirimi kampanyanızı oluşturmak ve kampanya listede görüntülenir.
+* Merhaba selamlama iletisine üstünde görünür hello başlık yazın.
+* Merhaba ana hello metin görünümü içeriğini yazma.
+* Merhaba eylem düğmesine (eylem düğmesi hello uygulama toomake tooan App store veya herhangi bir tür, sağlayabilirsiniz kaynakları yönlendirme hello uygulama sayfasını açarak gibi belirli bir eylemi sağlar) görünür hello içerik yazma.
+* Merhaba çıkış düğmesinde görünür yazma hello içeriği (Merhaba çıkış düğmesini tıklatarak hello metin görünümü kaybolur.)
+* Anında iletme bildirimi kampanyanızı oluşturmak ve hello kampanya listede görüntülenir.
 
 ![TextView5][25]
 
-* Metin görünümü, kullanıcılara göndermek için anında iletme bildirimi kampanyanızı etkinleştirin.
+* Anında iletme bildirimi kampanya toosend hello metin görünümü tooyour kullanıcılarınızın etkinleştirin.
 
 ![TextView6][26]
 
@@ -196,51 +196,51 @@ Metin görünümü, son kullanıcı için daha fazla içerik sunmanızı sağlar
 
 ![TextView7][27]
 
-* Kullanıcı onu tıklayın ve bildirim alır.
-* Metin görünümü ile etkileşim arkasından bir açılır pencere görünür.
+* Merhaba kullanıcı hello bildirim ve onu tıklatıldığında alır.
+* Merhaba metin görünümü, bir açılır izin hello kullanıcı toointeract onunla olarak görünür.
 
 ## <a name="enhance-a-push-notification-with-a-web-view"></a>Bir Web görünümü ile anında iletme bildirimi geliştirin
 ### <a name="what-is-a-web-view"></a>Bir Web Görünümü nedir?
 ![WebView1][28]
 
-Bir web görünümü web içeriği içeren bir açılır pencere ' dir. Bu açılır pencere, son kullanıcı anında iletme bildirimine tıkladığında açılır.
-Web görünümü son kullanıcı ile daha fazla etkileşime girmenizi sağlar.
-Bu aynı zamanda App Store için yeniden yönlendirme gibi eylem çağrısı sunmak için fırsattır bir web sayfasını açarak, bir e-posta gönderme, coğrafi olarak yerelleştirilmiş bir arama başlayarak, vb....
+Bir web görünümü web içeriği içeren bir açılır pencere ' dir. Merhaba son kullanıcı hello anında iletme bildirimine tıkladığında bu açılır pencere görünür.
+Web görünümü toohave sağlar hello son kullanıcı ile daha fazla etkileşimi.
+Bu aynı zamanda hello fırsat toopresent çağrısı tooaction yeniden yönlendirme tooApp bir web sayfasını açarak başlatma, coğrafi olarak yerelleştirilmiş arama, vb. bir e-posta gönderme deposu gibi olup...
 
 ### <a name="example-web-view"></a>Örnek: Web görünümü
-* "Reach" bölümünde anında iletme kampanyanızı oluşturmak ve kampanyanızı adlandırın.
+* Merhaba "Ulaşmak" bölümünde anında iletme kampanyanızı oluşturmak ve kampanyanızı adlandırın.
 
 ![WebView2][29]
 
-* Görüntülenecek ileti bildirimi yazma.
-* "Web" Duyuru içerik türünü seçin
+* Görünür selamlama iletisine hello bildirim yazma.
+* "Web" Merhaba duyuru içerik türü seçin
 
 ![WebView3][30]
 
 ### <a name="about-announcement-types"></a>Duyuru türleri hakkında:
-* Yalnızca bildirim: Basit standart bir bildirim değil. Bu kullanıcı üzerinde tıklatır, ek görünüm yok görünür, ancak yalnızca kendisine ilişkili eylemin oluşacağını anlamına gelir.
-* Metin duyuru: metin görünümü bakın kullanıcıya prosese bir bildirimidir.
-* Web duyuru: kullanıcının bir web görünümü göz prosese bir bildirimidir.
-  "Web duyuru" içeriğini seçin.
+* Yalnızca bildirim: Basit standart bir bildirim değil. Kullanıcı üzerinde tıklatır, ek görünüm yok görünür, ancak yalnızca hello eylem ilişkili tooit ortaya çıkar anlamına gelir.
+* Metin duyuru: hello kullanıcı toohave metin görünümü göz prosese bir bildirimidir.
+* Web duyuru: hello kullanıcı toohave bir web görünümü göz prosese bir bildirimidir.
+  Merhaba "Web duyuru" içerik seçin.
 
 > [!NOTE]
 > Bir web görünümü bastığınızda, her zaman içeren bir bildirim önce gelir.
 
-* (Web duyuru içeriği alt bölümde görünür, görüntülenmesini istediğiniz web görünümü içeriğini tanımlamanıza olanak sağlayan seçtikten sonra.) web içeriğini tanımlayın
+* (Merhaba duyuru, web içeriği hello alt bölümde görünür, görüntülenen toobe istediğiniz toodefine hello web görünümü içeriğini izin vererek seçtikten sonra.) Hello web içeriğini tanımlayın
 
 ![WebView4][31]
 
-* (İsteğe bağlı) iletinin üstünde görünür başlık yazın.
+* (İsteğe bağlı) selamlama iletisine hello üstünde görünür hello başlık yazın.
 * HTML kodunuzu buraya yazın.
-* Kaynak düzenleme modu düğmesini edition geçmek ve nasıl nasıl göründüğünü görmek için tıklayın.
-* (Bir mağazaya veya herhangi bir tür, sağlayabilirsiniz kaynakları yönlendirme uygulama sayfasını açarak gibi belirli bir eylemi yapmak uygulama eylem düğmesi sağlar) eylem düğmesine görünür içerik yazma.
-* Çıkış düğmesi görünür içerik yazma (çıkış düğmeyi tıklatarak, web görünümü kaybolur).
+* Hello kaynağında düzenleme modu düğmesi tooswitch edition'ı tıklatın ve nasıl gibi göründüğünü görebilirsiniz.
+* Merhaba eylem düğmesine (eylem düğmesi hello uygulama toomake tooa deposu veya herhangi bir tür, sağlayabilirsiniz kaynakları yönlendirme hello uygulama sayfasını açarak gibi belirli bir eylemi sağlar) görünür hello içerik yazma.
+* Merhaba çıkış düğmesinde görünür yazma hello içeriği (Merhaba çıkış düğmesini tıklatarak hello web görünümü kaybolur).
 * Sonuç
 
 ![WebView5][32]
 
-* Kullanıcı bildirimi ve tıklayın.
-* Metin görünümü ile etkileşim arkasından bir açılır pencere görünür.
+* Merhaba kullanıcı hello bildirim almak ve tıklayın.
+* Merhaba metin görünümü, bir açılır izin hello kullanıcı toointeract onunla olarak görünür.
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-how-tos/First1.png

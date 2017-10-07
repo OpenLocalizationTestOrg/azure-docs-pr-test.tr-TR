@@ -6,7 +6,7 @@
 ## [Sistem Durumunu İzleme](application-gateway-probe-overview.md)
 ## [URL yönlendirme](application-gateway-url-route-overview.md)
 ## [Çok Siteli](application-gateway-multi-site-overview.md)
-## [Uçtan Uca SSL’ye genel bakış](application-gateway-backend-ssl.md)
+## [Son tooend SSL](application-gateway-backend-ssl.md)
 ## [SSL ilkesi](application-gateway-ssl-policy-overview.md)
 ## [Yönlendirme](application-gateway-redirect-overview.md)
 ## [Birden çok kiracı desteği](application-gateway-web-app-overview.md)
@@ -37,7 +37,7 @@
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (Klasik)](application-gateway-ssl.md)
 ### [Azure CLI 2.0](application-gateway-ssl.md)
-### [Uçtan uca](application-gateway-end-to-end-ssl-powershell.md)
+### [Son tooend](application-gateway-end-to-end-ssl-powershell.md)
 ### [SSL ilkesi](application-gateway-configure-ssl-policy-powershell.md)
 ## URL yol tabanlı yönlendirmeyi yapılandırma
 ### [Portal](application-gateway-create-url-route-portal.md)

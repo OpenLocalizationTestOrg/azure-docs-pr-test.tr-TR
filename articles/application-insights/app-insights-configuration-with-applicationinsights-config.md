@@ -1,5 +1,5 @@
 ---
-title: "Applicationınsights.config başvuru - Azure | Microsoft Docs"
+title: "aaaApplicationInsights.config başvuru - Azure | Microsoft Docs"
 description: "Etkinleştirmek veya veri toplama modülleri devre dışı bırakın ve performans sayaçları ve diğer parametreleri ekleyin."
 services: application-insights
 documentationcenter: 
@@ -14,54 +14,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/3/2017
 ms.author: bwren
-ms.openlocfilehash: 7737f47d4181b5e920434f3a5372991efb58f63e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 76cb11349d87dfc508ec8b1c454259a0b079c48a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config veya .xml ile Application Insights SDK yapılandırma
-Application Insights .NET SDK'sı bir NuGet paketlerini oluşur. [Çekirdek paket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights telemetri göndermek için API sağlar. [Ek paket](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcıları* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bazıları için parametreleri ayarlayın.
+# <a name="configuring-hello-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Merhaba Application Insights SDK'sı Applicationınsights.config veya .xml yapılandırma
+Merhaba Application Insights .NET SDK'sı bir NuGet paketlerini oluşur. [Çekirdek paket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) hello API hello Application Insights telemetri göndermesini sağlar. [Ek paket](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcıları* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Hello yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunların bazıları için parametreleri ayarlayın.
 
-Yapılandırma dosyası adlı `ApplicationInsights.config` veya `ApplicationInsights.xml`, uygulamanın türüne bağlı olarak. Projenize otomatik olarak eklenen olduğunda, [SDK çoğu sürümlerini yüklemek][start]. Ayrıca bir web uygulamasına tarafından eklenir [Durum İzleyicisi bir IIS sunucusundaki][redfield], veya Appplication Öngörüler seçtiğinizde [bir Azure Web sitesine veya VM uzantısı](app-insights-azure-web-apps.md).
+Merhaba yapılandırma dosyası adlı `ApplicationInsights.config` veya `ApplicationInsights.xml`bağlı olarak, uygulamanızın hello türü. Tooyour otomatik olarak eklenen ne zaman proje, [hello SDK çoğu sürümlerini yüklemek][start]. Tooa web uygulaması tarafından eklenir [Durum İzleyicisi bir IIS sunucusundaki][redfield], veya hello Appplication Öngörüler seçtiğinizde [bir Azure Web sitesine veya VM uzantısı](app-insights-azure-web-apps.md).
 
-Denetim eşdeğer bir dosyaya hiç [SDK, bir web sayfasındaki][client].
+Bir eşdeğer dosya toocontrol hello hiç [SDK, bir web sayfasındaki][client].
 
-Bu belgede, dosya, bunlar bileşenleri SDK ' nın nasıl kontrol ve bu bileşenleri hangi NuGet paketlerini yükleme yapılandırmada bkz bölümlerde açıklanmaktadır.
+Bu belgede, dosya, bunlar hello SDK ' hello bileşenlerinin nasıl kontrol ve bu bileşenleri hangi NuGet paketlerini yükleme hello yapılandırmasında bkz hello bölümleri açıklanmaktadır.
 
 ## <a name="telemetry-modules-aspnet"></a>Telemetri modülleri (ASP.NET)
-Her bir telemetri modülü, belirli bir veri türü toplar ve veri göndermek için çekirdek API kullanır. Modüller, ayrıca gerekli satırları .config dosyasına ekleyin farklı NuGet paketleri tarafından yüklenir.
+Her bir telemetri modülü, belirli bir veri türü toplar ve hello çekirdek API toosend hello veri kullanır. Merhaba modülleri, ayrıca hello gerekli satırları toohello .config dosyası ekleyin farklı NuGet paketlerini tarafından yüklenir.
 
-Yapılandırma dosyasındaki her modül için bir düğüm yok. Bir modül devre dışı bırakmak için düğüm silin veya açıklamadan çıkarın.
+Merhaba yapılandırma dosyasındaki her modül için bir düğüm yok. toodisable bir modül hello düğümü silin veya açıklama çıkarın.
 
 ### <a name="dependency-tracking"></a>Bağımlılık izleme
-[Bağımlılık izleme](app-insights-asp-net-dependencies.md) uygulamanızı yapar veritabanları ve dış hizmetler ve veritabanları için çağrıları hakkında telemetri toplar. Bir IIS Server'da çalışmak için bu modülü izin vermek için gereken [Durum İzleyicisi yükleme][redfield]. Azure web uygulamaları veya sanal makineleri, kullanılacak [Application Insights uzantısını seçin](app-insights-azure-web-apps.md).
+[Bağımlılık izleme](app-insights-asp-net-dependencies.md) uygulamanızı yapar toodatabases ve dış hizmetler ve veritabanları çağrıları hakkında telemetri toplar. tooallow bu modülü toowork IIS Server çok ihtiyacınız[Durum İzleyicisi yükleme][redfield]. toouse bunu Azure web uygulamaları ya da sanal makineleri, [seçin hello Application Insights uzantısını](app-insights-azure-web-apps.md).
 
-Kod kullanarak izleme kendi bağımlılık de yazabilirsiniz [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+İzleme kodu hello kullanarak kendi bağımlılık de yazabilirsiniz [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet paketi.
 
 ### <a name="performance-collector"></a>Performans Toplayıcı
-[Sistem performans sayaçlarını toplar](app-insights-performance-counters.md) gibi CPU, bellek ve ağ IIS yüklemelerinden yükleyin. Performans sayaçları, kendiniz ayarladığınız dahil olmak üzere toplamak için hangi sayaçları belirtebilirsiniz.
+[Sistem performans sayaçlarını toplar](app-insights-performance-counters.md) gibi CPU, bellek ve ağ IIS yüklemelerinden yükleyin. Performans sayaçları, kendiniz ayarladığınız dahil olmak üzere hangi sayaçları toocollect belirtebilirsiniz.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
 * [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet paketi.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Application Insights tanılama Telemetrisi
-`DiagnosticsTelemetryModule` Application Insights araçları kod kendisini hataları bildirir. Örneğin, kod performans sayaçları erişemiyorsanız veya bir `ITelemetryInitializer` bir özel durum oluşturur. Bu modülü tarafından izlenen izleme telemetri görünür [tanılama arama][diagnostic]. Tanılama verileri için dc.services.vsallin.net gönderir.
+Merhaba `DiagnosticsTelemetryModule` hello Application Insights araçları kod kendisini hataları bildirir. Örneğin, performans sayaçları hello kod erişemiyorsanız veya bir `ITelemetryInitializer` bir özel durum oluşturur. Bu modülü tarafından izlenen izleme telemetri görünür hello [tanılama arama][diagnostic]. Tanılama veri toodc.services.vsallin.net gönderir.
 
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet paketi. Yalnızca bu paketi yüklerseniz, Applicationınsights.config dosyası otomatik olarak oluşturulmaz.
+* [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet paketi. Yalnızca bu paketi yüklerseniz, hello Applicationınsights.config dosyası otomatik olarak oluşturulmaz.
 
 ### <a name="developer-mode"></a>Geliştirici modu
-`DeveloperModeWithDebuggerAttachedTelemetryModule`Application Insights zorlar `TelemetryChannel` veri hemen bir hata ayıklayıcı uygulama işlemi için bağlı olduğunda, bir seferde bir telemetri öğesi göndermek için. Uygulamanızı telemetri izler ve Application Insights portalında görüntülendiğinde bu anda arasındaki süreyi azaltır. Önemli yükünü CPU ve ağ bant genişliği neden olur.
+`DeveloperModeWithDebuggerAttachedTelemetryModule`zorlar hello Application Insights `TelemetryChannel` hemen toosend veri bir telemetri öğesi, her seferinde bir hata ayıklayıcısı olduğunda bağlı toohello uygulama işlemi. Bu, uygulamanızın telemetri izler ve hello Application Insights portalında görüntülendiğinde hello şu anda arasındaki süre hello miktarını azaltır. Önemli yükünü CPU ve ağ bant genişliği neden olur.
 
 * `Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule`
 * [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet paketi
 
 ### <a name="web-request-tracking"></a>Web isteği izleme
-Raporları [yanıt süresi ve sonuç kodu](app-insights-asp-net.md) HTTP isteklerinin sayısıdır.
+Raporları hello [yanıt süresi ve sonuç kodu](app-insights-asp-net.md) HTTP isteklerinin sayısıdır.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * [Microsoft.applicationınsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet paketi
@@ -76,64 +76,64 @@ Raporları [yanıt süresi ve sonuç kodu](app-insights-asp-net.md) HTTP istekle
 * [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet paketi.
 
 ### <a name="eventsource-tracking"></a>EventSource izleme
-`EventSourceTelemetryModule`EventSource olaylarını Application Insights izlemeleri olarak gönderilmesini yapılandırmanızı sağlar. EventSource olaylarını izleme hakkında daha fazla bilgi için bkz: [kullanarak EventSource olaylarını](app-insights-asp-net-trace-logs.md#using-eventsource-events).
+`EventSourceTelemetryModule`tooconfigure tooApplication Öngörüler izlemeleri gönderilen EventSource olaylarını toobe sağlar. EventSource olaylarını izleme hakkında daha fazla bilgi için bkz: [kullanarak EventSource olaylarını](app-insights-asp-net-trace-logs.md#using-eventsource-events).
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
 * [Microsoft.ApplicationInsights.EventSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
 
 ### <a name="etw-event-tracking"></a>ETW olay izleme
-`EtwCollectorTelemetryModule`Application Insights izlemeleri olarak gönderilmesini ETW sağlayıcılar olaylarından yapılandırmanıza olanak sağlar. ETW olayları izleme hakkında daha fazla bilgi için bkz: [kullanarak ETW olayları](app-insights-asp-net-trace-logs.md#using-etw-events).
+`EtwCollectorTelemetryModule`ETW sağlayıcılar toobe tooApplication Öngörüler izlemeleri gönderilen tooconfigure olayları sağlar. ETW olayları izleme hakkında daha fazla bilgi için bkz: [kullanarak ETW olayları](app-insights-asp-net-trace-logs.md#using-etw-events).
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
 * [Microsoft.ApplicationInsights.EtwCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
-Microsoft.ApplicationInsights paket sağlar [API çekirdek](https://msdn.microsoft.com/library/mt420197.aspx) SDK'sının. Bu diğer telemetri modüllerini kullanmanız ve ayrıca [kendi telemetrinizi tanımlamak için kullanmak](app-insights-api-custom-events-metrics.md).
+Merhaba Microsoft.ApplicationInsights paket sağlar hello [API çekirdek](https://msdn.microsoft.com/library/mt420197.aspx) hello SDK. Merhaba diğer telemetri modüller bunu kullanın ve ayrıca [toodefine kullanmak kendi telemetrinizi](app-insights-api-custom-events-metrics.md).
 
 * Applicationınsights.config giriş yok.
 * [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet paketi. Yalnızca bu NuGet yüklerseniz, hiçbir .config dosyası oluşturulur.
 
 ## <a name="telemetry-channel"></a>Telemetri kanal
-Telemetri kanal arabelleğe alma ve telemetri Application Insights hizmetine aktarımını yönetir.
+Merhaba telemetri kanal arabelleğe alma ve telemetri toohello Application Insights hizmeti aktarımını yönetir.
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`Hizmetler için varsayılan kanalıdır. Bu veri arabelleğe alır.
-* `Microsoft.ApplicationInsights.PersistenceChannel`konsol uygulamaları için bir alternatiftir. Uygulamanızı kapatır ve uygulama yeniden başlatıldığında Gönder unflushed tüm verileri kalıcı depolama birimine kaydedebilirsiniz.
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`Hizmetler için Hello varsayılan kanalıdır. Bu veri arabelleğe alır.
+* `Microsoft.ApplicationInsights.PersistenceChannel`konsol uygulamaları için bir alternatiftir. Uygulamanızı kapatır ve hello uygulama yeniden başlatıldığında Gönder herhangi unflushed veri toopersistent depolama kaydedebilirsiniz.
 
 ## <a name="telemetry-initializers-aspnet"></a>Telemetri başlatıcıları (ASP.NET)
 Telemetri başlatıcıları telemetrinin her öğesiyle birlikte gönderilir bağlam özellikleri ayarlayın.
 
-Yapabilecekleriniz [kendi başlatıcıları yazma](app-insights-api-filtering-sampling.md#add-properties) bağlamı özelliklerini ayarlamak için.
+Yapabilecekleriniz [kendi başlatıcıları yazma](app-insights-api-filtering-sampling.md#add-properties) tooset bağlam özellikleri.
 
-Standart başlatıcıları tüm Web veya Windows Server NuGet paketleri tarafından ayarlanır:
+Merhaba standart başlatıcıları tüm hello Web veya Windows Server NuGet paketleri tarafından ayarlanır:
 
-* `AccountIdTelemetryInitializer`Hesap Kimliği özelliğini ayarlar.
-* `AuthenticatedUserIdTelemetryInitializer`JavaScript SDK'sı tarafından belirlenen AuthenticatedUserId özelliğini ayarlar.
-* `AzureRoleEnvironmentTelemetryInitializer`güncelleştirmeleri `RoleName` ve `RoleInstance` özelliklerini `Device` Azure çalışma zamanı ortamından ayıklanan bilgilerle tüm telemetri öğeleri için bağlamı.
-* `BuildInfoConfigComponentVersionTelemetryInitializer`güncelleştirmeleri `Version` özelliği `Component` tüm telemetri öğeleri ayıklanan değerle bağlamının `BuildInfo.config` dosya MS Build tarafından üretilen.
-* `ClientIpHeaderTelemetryInitializer`güncelleştirmeleri `Ip` özelliği `Location` tüm telemetri öğeleri bağlamında temel alarak `X-Forwarded-For` isteğin HTTP üstbilgisi.
-* `DeviceTelemetryInitializer`Aşağıdaki özellikleri güncelleştirmeleri `Device` tüm telemetri öğeleri için bağlamı.
-  * `Type`"Bilgisayar" ayarlayın
-  * `Id`web uygulamasının çalıştığı bilgisayarın etki alanı adına ayarlanır.
-  * `OemName`Ayıklanan değerine ayarlanır `Win32_ComputerSystem.Manufacturer` WMI kullanarak alan.
-  * `Model`Ayıklanan değerine ayarlanır `Win32_ComputerSystem.Model` WMI kullanarak alan.
-  * `NetworkType`Ayıklanan değerine ayarlanır `NetworkInterface`.
-  * `Language`adına ayarlayın `CurrentCulture`.
-* `DomainNameRoleInstanceTelemetryInitializer`güncelleştirmeleri `RoleInstance` özelliği `Device` web uygulamasının çalıştığı bilgisayarın etki alanı adı ile tüm telemetri öğelerini bağlamı.
-* `OperationNameTelemetryInitializer`güncelleştirmeleri `Name` özelliği `RequestTelemetry` ve `Name` özelliği `Operation` tüm telemetri öğeleri bağlamında temel HTTP yöntemini yanı sıra üzerinde adlarını, ASP.NET MVC denetleyicisi ve eylem isteği işlemek üzere çağrılır.
-* `OperationIdTelemetryInitializer`veya `OperationCorrelationTelemetryInitializer` güncelleştirmeleri `Operation.Id` içerik özelliği tüm telemetri öğelerin izlenen otomatik olarak oluşturulan bir isteği işlerken `RequestTelemetry.Id`.
-* `SessionTelemetryInitializer`güncelleştirmeleri `Id` özelliği `Session` tüm telemetri öğeleri ayıklanan değerle bağlamının `ai_session` kullanıcının tarayıcısında çalışan Applicationınsights JavaScript araçları kodu tarafından oluşturulan tanımlama bilgisi.
-* `SyntheticTelemetryInitializer`veya `SyntheticUserAgentTelemetryInitializer` güncelleştirmeleri `User`, `Session` ve `Operation` kullanılabilirlik test veya arama motoru bot gibi yapay bir kaynaktan bir isteği işlerken tüm telemetri öğelerinin bağlamları özellikleri izlenir. Varsayılan olarak, [ölçüm Gezgini](app-insights-metrics-explorer.md) yapay telemetri görüntülemez.
+* `AccountIdTelemetryInitializer`Merhaba AccountID özelliğini ayarlar.
+* `AuthenticatedUserIdTelemetryInitializer`Merhaba AuthenticatedUserId özelliği hello JavaScript SDK'sı tarafından kümesi olarak ayarlar.
+* `AzureRoleEnvironmentTelemetryInitializer`güncelleştirmeleri hello `RoleName` ve `RoleInstance` hello özelliklerini `Device` hello Azure çalışma zamanı ortamından ayıklanan bilgilerle tüm telemetri öğeleri için bağlamı.
+* `BuildInfoConfigComponentVersionTelemetryInitializer`güncelleştirmeleri hello `Version` hello özelliğinin `Component` hello ayıklanan hello değere sahip tüm telemetri öğeleri bağlamının `BuildInfo.config` dosya MS Build tarafından üretilen.
+* `ClientIpHeaderTelemetryInitializer`güncelleştirmeleri `Ip` hello özelliğinin `Location` tüm telemetri öğeleri bağlamında dayalı hello üzerinde `X-Forwarded-For` hello isteğin HTTP üstbilgisi.
+* `DeviceTelemetryInitializer`Merhaba özelliklerini aşağıdaki güncelleştirmeleri hello `Device` tüm telemetri öğeleri için bağlamı.
+  * `Type`çok Ayarla "PC"
+  * `Id`Merhaba bilgisayarın etki alanı adını toohello Merhaba web uygulaması çalıştığı ayarlanır.
+  * `OemName`Hello ayıklanan toohello değerini ayarlayın `Win32_ComputerSystem.Manufacturer` WMI kullanarak alan.
+  * `Model`Hello ayıklanan toohello değerini ayarlayın `Win32_ComputerSystem.Model` WMI kullanarak alan.
+  * `NetworkType`Hello ayıklanan toohello değerini ayarlayın `NetworkInterface`.
+  * `Language`Merhaba toohello adına ayarlanır `CurrentCulture`.
+* `DomainNameRoleInstanceTelemetryInitializer`güncelleştirmeleri hello `RoleInstance` hello özelliğinin `Device` hello etki alanı adına sahip tüm telemetri öğelerin hello bilgisayar Merhaba web uygulaması çalıştığı bağlam.
+* `OperationNameTelemetryInitializer`güncelleştirmeleri hello `Name` hello özelliğinin `RequestTelemetry` ve hello `Name` hello özelliğinin `Operation` tüm telemetri öğeleri bağlamında dayalı hello HTTP yöntemi, yanı sıra üzerinde ASP.NET MVC denetleyicisi ve eylem çağrılan tooprocess hello adları İstek.
+* `OperationIdTelemetryInitializer`veya `OperationCorrelationTelemetryInitializer` güncelleştirmeleri hello `Operation.Id` içerik özelliği tüm telemetri öğelerin izlenen hello ile otomatik olarak oluşturulan bir isteği işlerken `RequestTelemetry.Id`.
+* `SessionTelemetryInitializer`güncelleştirmeleri hello `Id` hello özelliğinin `Session` tüm telemetri öğeleri hello ayıklanan değerle bağlamının `ai_session` tanımlama bilgisi hello kullanıcının tarayıcısında çalışan Applicationınsights JavaScript araçları kodu hello tarafından oluşturulan.
+* `SyntheticTelemetryInitializer`veya `SyntheticUserAgentTelemetryInitializer` güncelleştirmeleri hello `User`, `Session` ve `Operation` kullanılabilirlik test veya arama motoru bot gibi yapay bir kaynaktan bir isteği işlerken tüm telemetri öğelerinin bağlamları özellikleri izlenir. Varsayılan olarak, [ölçüm Gezgini](app-insights-metrics-explorer.md) yapay telemetri görüntülemez.
 
-    `<Filters>` İsteklerinin özelliklerini tanımlayan ayarlayın.
-* `UserAgentTelemetryInitializer`güncelleştirmeleri `UserAgent` özelliği `User` tüm telemetri öğeleri bağlamında temel alarak `User-Agent` isteğin HTTP üstbilgisi.
-* `UserTelemetryInitializer`güncelleştirmeleri `Id` ve `AcquisitionDate` özelliklerini `User` ayıklanan değerlere sahip tüm telemetri öğeleri bağlamının `ai_user` tanımlama bilgisi kullanıcının içinde çalışan uygulama Insights JavaScript araçları kodu tarafından oluşturulan Tarayıcı.
-* `WebTestTelemetryInitializer`Bu geliyor HTTP istekleri için kullanıcı kimliği ve oturum kimliği yapay kaynağı özellikleri ayarlar [kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md).
-  `<Filters>` İsteklerinin özelliklerini tanımlayan ayarlayın.
+    Merhaba `<Filters>` hello isteklerinin özelliklerini tanımlayan ayarlayın.
+* `UserAgentTelemetryInitializer`güncelleştirmeleri hello `UserAgent` hello özelliğinin `User` tüm telemetri öğeleri bağlamında dayalı hello üzerinde `User-Agent` hello isteğin HTTP üstbilgisi.
+* `UserTelemetryInitializer`güncelleştirmeleri hello `Id` ve `AcquisitionDate` özelliklerini `User` hello ayıklanan değerlere sahip tüm telemetri öğeleri bağlamının `ai_user` hello çalışan hello uygulama Insights JavaScript araçları kodu tarafından oluşturulan tanımlama bilgisi Kullanıcının tarayıcısının.
+* `WebTestTelemetryInitializer`ayarlar, kullanıcı kimliği, oturum kimliği ve yapay kaynak özelliklerini bu geliyor HTTP istekleri için hello [kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md).
+  Merhaba `<Filters>` hello isteklerinin özelliklerini tanımlayan ayarlayın.
 
-Service Fabric çalışan .NET uygulamaları için eklediğiniz `Microsoft.ApplicationInsights.ServiceFabric` NuGet paketi. Bu paketi içeren bir `FabricTelemetryInitializer`, telemetri öğelerine Service Fabric özellikler ekler. Daha fazla bilgi için bkz: [GitHub sayfası](https://go.microsoft.com/fwlink/?linkid=848457) bu NuGet paketi tarafından eklenen özellikler hakkında.
+Service Fabric çalışan .NET uygulamaları için hello içerebilir `Microsoft.ApplicationInsights.ServiceFabric` NuGet paketi. Bu paketi içeren bir `FabricTelemetryInitializer`, Service Fabric özellikleri tootelemetry öğeleri ekler. Daha fazla bilgi için bkz: Merhaba [GitHub sayfası](https://go.microsoft.com/fwlink/?linkid=848457) bu NuGet paketi tarafından eklenen hello özellikleri hakkında.
 
 ## <a name="telemetry-processors-aspnet"></a>Telemetri işlemci (ASP.NET)
-Telemetri işlemciler filtre ve yalnızca SDK portala göndermeden önce her bir telemetri öğeyi değiştirin.
+Telemetri işlemciler filtre ve hello SDK toohello portalından gönderilmeden önce her bir telemetri öğeyi değiştirin.
 
 Yapabilecekleriniz [kendi telemetri işlemciler yazma](app-insights-api-filtering-sampling.md#filtering).
 
@@ -150,7 +150,7 @@ Bu, varsayılan olarak etkindir. Uygulamanız çok sayıda telemetri gönderirse
 
 ```
 
-Parametre elde etmek için algoritma çalışır hedef sağlar. Sunucunuz birden fazla makine bir küme ise, telemetri gerçek hacmi uygun şekilde çarpılır şekilde SDK her örneği bağımsız olarak çalışır.
+Merhaba parametresi tooachieve algoritması hello hello hedef çalışır sağlar. Sunucunuz birden fazla makine bir küme ise, telemetri gerçek hacmi hello uygun şekilde çarpılır şekilde hello her örneği SDK bağımsız olarak çalışır.
 
 [Örnekleme hakkında daha fazla bilgi](app-insights-sampling.md).
 
@@ -162,7 +162,7 @@ Ayrıca bir standart olan [telemetri işlemci örnekleme](app-insights-api-filte
     <TelemetryProcessors>
      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- Set a percentage close too100/N where N is an integer. -->
      <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
      <SamplingPercentage>10</SamplingPercentage>
      </Add>
@@ -173,10 +173,10 @@ Ayrıca bir standart olan [telemetri işlemci örnekleme](app-insights-api-filte
 
 
 ## <a name="channel-parameters-java"></a>Kanal parametreleri (Java)
-Bu parametreler Java SDK'sı nasıl ve depolamak topladığı telemetri verilerini temizleme etkiler.
+Bu parametreler hello Java SDK'sı nasıl ve depolamak topladığı hello telemetri verilerini temizleme etkiler.
 
 #### <a name="maxtelemetrybuffercapacity"></a>MaxTelemetryBufferCapacity
-SDK'ın bellek içi depolamada depolanan telemetri öğe sayısı. Bu sayıya ulaşıldığında, telemetri arabellek Temizlenen - diğer bir deyişle, telemetri öğeleri Application Insights sunucusuna gönderilir.
+Merhaba hello SDK'ın bellek içi depolamada depolanan telemetri öğe sayısı. Bu sayıya ulaşıldığında, hello telemetri arabellek Temizlenen - hello telemetri öğeleri toohello Application Insights sunucusunun diğer bir deyişle, gönderilir.
 
 * Min: 1
 * En fazla: 1000
@@ -194,7 +194,7 @@ SDK'ın bellek içi depolamada depolanan telemetri öğe sayısı. Bu sayıya ul
 ```
 
 #### <a name="flushintervalinseconds"></a>FlushIntervalInSeconds
-Ne sıklıkla bellekte depolamada depolanan veri (Application Insights gönderilen) kopyalanması belirler.
+Ne sıklıkta hello hello bellek içi depolamada depolanan verileri temizlendi (gönderilen tooApplication Öngörüler) olmayacağını belirler.
 
 * Min: 1
 * En fazla: 300
@@ -212,7 +212,7 @@ Ne sıklıkla bellekte depolamada depolanan veri (Application Insights gönderil
 ```
 
 #### <a name="maxtransmissionstoragecapacityinmb"></a>MaxTransmissionStorageCapacityInMB
-Yerel diskteki kalıcı depolama birimine ayrılan MB cinsinden maksimum boyutu belirler. Bu depolama Application Insights uç noktasına aktarılacak başarısız kalıcı telemetri öğeleri için kullanılır. Depolama boyutu sağlandığında yeni telemetri öğeleri atılacak.
+Hello yerel diskteki toohello kalıcı depolama ayrılan MB cinsinden maksimum boyutu Hello belirler. Bu depolama aktarılan toobe toohello Application Insights endpoint başarısız kalıcı telemetri öğeleri için kullanılır. Merhaba depolama boyutu sağlandığında yeni telemetri öğeleri atılacak.
 
 * Min: 1
 * En fazla: 100
@@ -232,11 +232,11 @@ Yerel diskteki kalıcı depolama birimine ayrılan MB cinsinden maksimum boyutu 
 
 
 ## <a name="instrumentationkey"></a>InstrumentationKey
-Bu, verilerinizi göründüğü Application Insights kaynağı belirler. Genellikle, ayrı bir kaynak ayrı bir anahtarla her uygulamalarınız için oluşturun.
+Bu, verilerinizi göründüğü hello Application Insights kaynağı belirler. Genellikle, ayrı bir kaynak ayrı bir anahtarla her uygulamalarınız için oluşturun.
 
-Farklı kaynaklara - uygulamanızdan sonuçları göndermek istiyorsanız, dinamik olarak - örneğin anahtar ayarlamak istiyorsanız, yapılandırma dosyasından anahtarı atlayın ve bunun yerine kodda ayarlayın.
+Uygulama toodifferent kaynaklarınızdan - toosend sonuçları istiyorsanız tooset hello anahtar dinamik olarak - örneğin istiyorsanız hello anahtar hello yapılandırma dosyasından atlayın ve bunun yerine kodda ayarlayın.
 
-Anahtar TelemetryClient tüm örnekler için ayarlamak için standart telemetri modüller de dahil olmak üzere ayarlayın anahtar TelemetryConfiguration.Active içinde. Bu, bir ASP.NET hizmetinde global.aspx.cs gibi başlatma yöntemini yapın:
+tooset hello anahtarını TelemetryClient, standart telemetri modüller de dahil olmak üzere tüm örnekleri için başlangıç anahtarı TelemetryConfiguration.Active ayarlayın. Bu, bir ASP.NET hizmetinde global.aspx.cs gibi başlatma yöntemini yapın:
 
 ```C#
 
@@ -249,7 +249,7 @@ Anahtar TelemetryClient tüm örnekler için ayarlamak için standart telemetri 
       //...
 ```
 
-Yalnızca olayları belirli bir dizi farklı bir kaynağa göndermek istiyorsanız, bu anahtar için belirli bir TelemetryClient ayarlayabilirsiniz:
+Toosend yalnızca istiyorsanız olayları tooa farklı kaynak belirli bir ayarla, belirli bir TelemetryClient için başlangıç anahtarı ayarlayabilirsiniz:
 
 ```C#
 
@@ -260,10 +260,10 @@ Yalnızca olayları belirli bir dizi farklı bir kaynağa göndermek istiyorsan�
 
 ```
 
-Yeni bir anahtar almak için [Application Insights portalında yeni bir kaynak oluşturmak][new].
+Yeni bir anahtar tooget [hello Application Insights portalında yeni bir kaynak oluşturmak][new].
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[API hakkında daha fazla bilgi][api].
+[Merhaba API'si hakkında daha fazla bilgi][api].
 
 <!--Link references-->
 

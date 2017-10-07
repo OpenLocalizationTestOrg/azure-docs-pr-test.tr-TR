@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu’nda kimlik doğrulamasına giriş | Microsoft Docs"
-description: "Bu makalede, Azure Otomasyonu’nda Otomasyon Hesapları için uygun Otomasyon güvenliği ve farklı kumluk doğrulasa yöntemlerine genel bakış verilmektedir."
+title: Azure automation'da aaaIntro tooauthentication | Microsoft Docs
+description: "Bu makalede Azure automation'da Automation hesapları Automation güvenliği ve hello farklı kimlik doğrulama yöntemleri kullanılabilir genel bakış sağlar."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -16,39 +16,39 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
 ROBOTS: NOINDEX
-ms.openlocfilehash: 91c98f8dda6f24c2db2730a5e0df5ea43e151c61
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b4409b5be010c16f7bf00a9a0f617e3617d4663
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-authentication-in-azure-automation"></a>Azure Otomasyonu’nda kimlik doğrulamaya giriş  
-Azure Automation, Azure’deki, şirket içindeki kaynaklara karşı ve Amazon Web Hizmetleri (AWS) gibi diğer bulut sağlayıcılarıyla görevleri otomatikleştirmenizi sağlar.  Runbook'un gerekli işlemlerini gerçekleştirebilmesi için, abonelikte gereken en düşük haklara sahip kaynaklara güvenli erişim izinlerinin olması gerekir.
+# <a name="introduction-tooauthentication-in-azure-automation"></a>Azure Automation giriş tooauthentication  
+Azure Otomasyonu, Azure, şirket içi ve diğer bulut sağlayıcılarıyla Amazon Web Hizmetleri (AWS) gibi kaynaklara karşı tooautomate görevleri sağlar.  Bir runbook tooperform için gerekli işlemleri, onu hello kaynaklarına erişim izinleri toosecurely hello abonelikte gereken hello en düşük haklara sahip olması gerekir.
 
-Bu makale, Azure Automation’ın desteklediği çeşitli kimlik doğrulaması senaryolarını kapsamakta ve yönetmeniz gereken ortam veya ortamlar temelinde nasıl başlayacağınızı göstermektedir.  
+Bu makalede Azure Automation tarafından desteklenen çeşitli kimlik doğrulama senaryoları hello kapsar ve tooget nasıl başlamanıza hello ortam veya ortamlar, göre Göster toomanage gerekir.  
 
 ## <a name="automation-account-overview"></a>Otomasyon Hesabına genel bakış
-Azure Automation’ı ilk kez başlattığınızda, en az bir Automation hesabı oluşturmanız gerekir. Automation hesapları Automation kaynaklarınızı (runbook'lar, varlıklar, yapılandırmalar) diğer Automation hesaplarında yer alan kaynaklarından yalıtmanızı sağlar. Kaynaklarını ayrı mantıksal ortamlara ayırmak için Automation hesaplarını kullanabilirsiniz. Örneğin, geliştirme için bir hesap, üretim için başka bir hesap ve şirket içi ortamınız için de başka bir hesap kullanabilirsiniz.  Azure Automation hesabı, Azure aboneliğinizde oluşturduğunuz Microsoft hesabı veya hesaplarından farklıdır.
+Azure Otomasyonu hello için ilk kez başlattığınızda, en az bir Automation hesabı oluşturmanız gerekir. Automation hesapları Automation kaynaklarınızı (runbook'lar, varlıklar, yapılandırmalar) gelen diğer Automation hesaplarında yer alan kaynakları hello tooisolate izin verin. Automation hesapları tooseparate kaynaklarını ayrı mantıksal ortamlara kullanabilirsiniz. Örneğin, geliştirme için bir hesap, üretim için başka bir hesap ve şirket içi ortamınız için de başka bir hesap kullanabilirsiniz.  Azure Automation hesabı, Azure aboneliğinizde oluşturduğunuz Microsoft hesabı veya hesaplarından farklıdır.
 
-Her Otomasyon hesabı için Otomasyon kaynakları tek bir Azure bölgesiyle ilişkilendirilir, ancak Otomasyon hesapları aboneliğinizdeki tüm kaynakları yönetebilir. Farklı bölgelerde Automation hesapları oluşturmanın temel nedeni, veri ve kaynakların belirli bir bölgede yalıtılmasını gerektiren ilkelere sahip olmanız olabilir.
+Merhaba her Automation hesabı için Automation kaynakları tek bir Azure bölgesiyle ilişkilendirilir, ancak Automation hesapları tüm hello kaynakları yönetebilir. Merhaba ana nedeni toocreate Automation hesapları farklı bölgelerdeki verilerine ve kaynaklarına toobe yalıtılmış tooa belirli bölge gerektiren ilkelere sahip olmanız olabilir.
 
 > [!NOTE]
-> Azure portalında oluşturulan Automation hesapları ve içerdikleri kaynaklara Klasik Azure portalında erişilemez. Bu hesapları veya kaynaklarını Windows PowerShell’le yönetmek istiyorsanız, Azure Resource Manager modüllerini kullanmanız gerekir.
+> Automation hesapları ve içerdikleri hello kaynakları hello Azure portalında oluşturulur, hello Klasik Azure portalında erişilemez. Bu hesapları veya kaynaklarını Windows PowerShell ile toomanage istiyorsanız hello Azure Resource Manager modüllerini kullanmanız gerekir.
 >
 
-Azure Resource Manager ve Azure Otomasyonu’ndaki Azure cmdlet'lerini kullanan kaynaklara karşı gerçekleştirdiğiniz görevlerin tümü, Azure Active Directory kuruluş kimliğini kullanarak Azure’de kimlik bilgileri tabanlı kimlik doğrulamasını doğrulamalıdır.  Sertifika tabanlı kimlik doğrulaması Azure Hizmet Yönetimi moduyla asıl kimlik doğrulaması yöntemi olsa da, bunun kurulması karmaşıktır.  Azure AD kullanıcısının bulunduğu Azure’de kimlik doğrulaması, 2014’te yalnızca Kimlik Doğrulaması hesabını sadeleştirmek amacıyla değil, hem Azure Resource Manager hem de klasik kaynaklarla çalışan tek kullanıcı hesabıyla Azure’de etkileşimsiz kimlik doğrulamasını becerisini de destekler.   
+Tüm Azure Otomasyonu'nda Azure Resource Manager ve hello Azure cmdlet'lerini kullanan kaynaklara karşı gerçekleştirdiğiniz hello görevleri tooAzure kullanarak Azure Active Directory kuruluş kimlik bilgileri tabanlı kimlik doğrulaması gerekir.  Sertifika tabanlı kimlik doğrulaması için Azure hizmet yönetimi modu hello özgün kimlik doğrulama yöntemi olsa da, karmaşık toosetup oluştu.  TooAzure ile Azure AD kullanıcısının kimlik doğrulaması oluştu 2014 toonot sunulan arkada yalnızca basitleştirmek hello işlem tooconfigure toonon etkileşimli bir kimlik doğrulama hesabı, aynı zamanda destek hello özelliği tooAzure çalışan tek bir kullanıcı hesabı ile kimlik doğrulaması hem Azure Resource Manager hem de klasik kaynakları ile.   
 
-Şu anda Azure portalında yeni bir Otomasyon hesabı oluşturduğunuzda otomatik olarak şunlar oluşturulur:
+Şu anda hello Azure portalında yeni bir Otomasyon hesabı oluşturduğunuzda, otomatik olarak oluşturur:
 
-* Azure Active Directory’de yeni bir hizmet sorumlusu ve bir sertifika oluşturan ve Katkı Yapana runbook’lar kullanılarak Resource Manager kaynaklarını yönetmek için kullanılacak rol tabanlı erişim denetimi (RBAC) atayan Farklı Çalıştır hesabı.
-* Azure Service Management’ı ya da runbook kullanan klasik kaynakları yönetmek için kullanılacak bir yönetim sertifikasını karşıya yükleyen Klasik Farklı Çalıştır hesabı.  
+* Yeni bir hizmet sorumlusu Azure Active Directory'de, bir sertifika oluşturur ve olacağı hello katkıda bulunan rolü tabanlı erişim denetimi (RBAC) atayan farklı çalıştır hesabı runbook'ları kullanarak toomanage Resource Manager kaynakları kullanılır.
+* Tarafından kullanılan toomanage Azure Hizmet Yönetimi olması ya da runbook kullanan Klasik kaynakları görüntüler yönetim sertifikasını karşıya yükleyen Klasik farklı çalıştır hesabı.  
 
-Rol tabanlı erişim denetimi, Azure AD kullanıcı hesabı ve Farklı Çalıştır hesabına izin verilen eylemleri vermek, ve bu hizmet sorumlusunun kimliğini doğrulamak için Azure Resource Manager ile kullanılabilir.  Automation izinlerinin yönetilmesi için modelinizin geliştirilmesine yardımcı olma hakkında daha fazla bilgi için lütfen [Azure Automation’da rol tabanlı erişim denetimi](automation-role-based-access-control.md) makalesini okuyun.  
+Rol tabanlı erişim denetimi ile Azure Resource Manager toogrant Eylemler tooan Azure AD kullanıcı hesabı ve farklı çalıştır hesabı izin kullanılabilir ve bu hizmet sorumlusunun kimliğini.  Lütfen okuyun [Azure automation'da rol tabanlı erişim denetimi](automation-role-based-access-control.md) daha fazla bilgi için toohelp Automation izinlerinin yönetilmesi için modelinizin geliştirin.  
 
-Veri merkezindeki Karma Runbook Çalışanı’nda veya AWS’deki bilgi işlem hizmetlerine karşı çalışan runbook'lar, genel olarak Azure kaynaklarında kimlik doğrulayan runbook’lar için kullanılan yöntemin aynısını kullanamaz.  Bunun nedeni, bu kaynakların Azure dışında çalışmasıdır; sonuç olarak da, yerel olarak erişecekleri kaynakların kimliğini doğrulamak için Automation’da tanımlanan kendi güvenlik kimlik bilgileri gerekecektir.  
+Bir karma Runbook çalışanı, veri merkezinizdeki veya AWS'deki bilgi işlem hizmetlerine karşı çalışan runbook'ları kullanmak aynı hello olamaz genelde tooAzure kaynakları kimlik doğrulayan runbook'lar için kullanılan yöntem.  Bu kaynakların Azure dışında çalışmasıdır ve bu nedenle, yerel olarak erişecekleri Otomasyon tooauthenticate tooresources içinde tanımlanan kendi güvenlik kimlik bilgileri gerektirecektir olmasıdır.  
 
 ## <a name="authentication-methods"></a>Kimlik doğrulama yöntemleri
-Aşağıdaki tabloda, Azure Automation tarafından desteklenen her ortamla ilgili farklı kimlik doğrulaması yöntemleri ve runbook’larınızın nasıl ayarlanacağını anlatan makaledeki bilgiler özetlenmiştir.
+Merhaba aşağıdaki tabloda özetlenmiştir hello farklı kimlik doğrulama yöntemleri Azure Automation ve makale hello açıklayan tarafından desteklenen her ortam için nasıl toosetup kimlik doğrulaması runbook'larınızın.
 
 | Yöntem | Ortam | Makale |
 | --- | --- | --- |

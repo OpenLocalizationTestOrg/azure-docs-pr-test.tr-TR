@@ -1,6 +1,6 @@
 ---
-title: "StorSimple Yöneticisi Hizmeti'ni dağıtma | Microsoft Docs"
-description: "Oluşturma ve Azure Klasik portalında StorSimple Yöneticisi hizmetini silmek açıklar ve hizmet kayıt anahtarını yönetme açıklar."
+title: "aaaDeploy hello StorSimple Yöneticisi hizmeti | Microsoft Docs"
+description: "Merhaba Klasik Azure portalı, StorSimple Yöneticisi hizmeti toocreate ve delete nasıl hello açıklar ve nasıl toomanage hello hizmet kayıt anahtarını açıklar."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -15,89 +15,89 @@ ms.workload: na
 ms.date: 07/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba3637a3a8b15b45c16bf5a00c1f4225bcfc5af8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f49b647d91b03bb89ebd0e5cce196e50e3c00296
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Klasik Azure portalındaki StorSimple Yöneticisi hizmetini dağıtma
+# <a name="deploy-hello-storsimple-manager-service-in-hello-azure-classic-portal"></a>Merhaba Klasik Azure portalı Hello StorSimple Yöneticisi hizmeti dağıtma
 
 ## <a name="overview"></a>Genel Bakış
-StorSimple Yöneticisi hizmeti Microsoft Azure üzerinde çalışır ve birden çok StorSimple cihazını bağlanır. Hizmeti oluşturduktan sonra tarayıcıda çalışan Microsoft Azure Klasik Portalı'ndan cihazları yönetmek için kullanabilirsiniz. Böylece yönetim yükünü en aza bir tek, merkezi konumdan, StorSimple Yöneticisi hizmetine bağlanan tüm cihazlar izlemenize olanak tanır.
+Merhaba StorSimple Yöneticisi hizmeti Microsoft Azure üzerinde çalışır ve toomultiple StorSimple cihazları bağlanır. Merhaba hizmeti oluşturduktan sonra hello Microsoft Azure Klasik portalı bir tarayıcıda çalışan toomanage hello cihazların kullanabilirsiniz. Bu, böylece yönetici yükünü en aza bir tek, merkezi konumdan bağlı toohello StorSimple Yöneticisi tüm hello cihazlar hizmet toomonitor sağlar.
 
-StorSimple Yöneticisi giriş sayfası, StorSimple depolama cihazlarını yönetmek için kullanabileceğiniz tüm StorSimple Yöneticisi hizmetleri listeler. Her StorSimple Yöneticisi hizmeti için StorSimple Yöneticisi sayfasında aşağıdaki bilgileri sunulur:
+Merhaba StorSimple Yöneticisi giriş sayfası, StorSimple depolama aygıtları toomanage kullanabileceğiniz tüm hello StorSimple Yöneticisi hizmetleri listeler. Her bir StorSimple Yöneticisi hizmeti için aşağıdaki bilgilerle hello hello StorSimple Yöneticisi sayfasında sunulur:
 
-* **Ad** – oluşturulduğunda, StorSimple Yöneticisi hizmetinize atanmış adı. **Hizmet adı, hizmet oluşturulduktan sonra değiştirilemez. Bu, aynı zamanda cihazları, birimler, birim kapsayıcıları ve klasik Azure portalında yeniden adlandırılamaz yedekleme ilkeleri gibi diğer varlıklar için de geçerlidir.**
-* **Durum** – olabilir hizmetinin durumunu **etkin**, **oluşturma**, veya **çevrimiçi**.
-* **Konum** –, StorSimple cihazı dağıtılacak coğrafi konum.
-* **Abonelik** – hizmetiniz ile ilişkili fatura abonelik.
+* **Ad** – oluşturulduğunda tooyour StorSimple Yöneticisi hizmeti atandı hello adı. **Merhaba hizmet adı Hello hizmeti oluşturulduktan sonra değiştirilemez. Bu, aynı zamanda cihazları, birimler, birim kapsayıcıları ve hello Klasik Azure portalında yeniden adlandırılamaz yedekleme ilkeleri gibi diğer varlıklar için de geçerlidir.**
+* **Durum** – hello olabilir hello hizmetinin durumunu **etkin**, **oluşturma**, veya **çevrimiçi**.
+* **Konum** – hello hello StorSimple cihaz dağıtılacak coğrafi konum.
+* **Abonelik** – hello hizmetiniz ile ilişkili abonelik faturalama.
 
-StorSimple Yöneticisi sayfadan gerçekleştirilen ortak görevleri şunlardır:
+Merhaba StorSimple Yöneticisi sayfası gerçekleştirilebilir hello ortak görevler şunlardır:
 
 * Hizmet oluşturma
 * Bir hizmeti silin
-* Hizmet kayıt anahtarı alma
-* Hizmet kayıt anahtarını yeniden oluşturma
+* Merhaba hizmet kayıt anahtarını alın
+* Merhaba hizmet kayıt anahtarını yeniden oluşturma
 
-Bu öğretici, bu görevleri gerçekleştirmek açıklar.
+Bu öğretici açıklar nasıl tooperform her bu görevlerin.
 
 ## <a name="create-a-service"></a>Hizmet oluşturma
-Kullanım **hızlı Oluştur** StorSimple Cihazınızı dağıtmak istiyorsanız, StorSimple Yöneticisi hizmeti oluşturmak için seçeneği. Bir hizmet oluşturmak için sahip olmanız gerekir:
+Kullanım hello **hızlı Oluştur** StorSimple Cihazınızı toodeploy istiyorsanız toocreate bir StorSimple Yöneticisi hizmeti seçeneği. bir hizmet toocreate, toohave gerekir:
 
 * Bir aboneliği bir kurumsal anlaşma ile
 * Etkin bir Microsoft Azure depolama hesabı
-* Erişim yönetimi için kullanılan faturalama bilgileri
+* Merhaba, erişim yönetimi için kullanılan bilgileri faturalama
 
-Hizmet oluşturduğunuzda, varsayılan depolama hesabı oluşturmak seçebilirsiniz.
+Merhaba hizmeti oluşturduğunuzda, toogenerate varsayılan depolama hesabı seçebilirsiniz.
 
-Tek bir hizmet birden çok cihazları yönetebilirsiniz. Ancak, bir aygıt birden fazla hizmet yayılamaz. Büyük bir kuruluş farklı Aboneliklerde, kuruluşlar veya bile Dağıtım konumları ile çalışmak için birden fazla hizmet örneği olabilir. StorSimple 8000 serisi cihazlar ve StorSimple sanal dizileri yönetmek için StorSimple Yöneticisi hizmeti örneğini ayırmak unutmayın.
+Tek bir hizmet birden çok cihazları yönetebilirsiniz. Ancak, bir aygıt birden fazla hizmet yayılamaz. Büyük bir kuruluş birden çok hizmet örnekleri toowork farklı Aboneliklerde, kuruluşlar veya bile dağıtım konumlarında olabilir. StorSimple Yöneticisi hizmet toomanage StorSimple 8000 serisi cihazlar ve StorSimple sanal diziler örnekleri ayrı unutmayın.
 
 > [!IMPORTANT] 
-> Ağustos 2016 önce oluşturulan kullanılmayan hizmete (aygıt gerçekleştirilen işlemler bu kaynakta) varsa, Azure portalından veya Klasik Azure portalı yönetilemez. Azure portalında yeni bir hizmet oluşturmanızı öneririz.
+> Oluşturulan kullanılmayan hizmete (aygıt gerçekleştirilen Bu kaynakta işlemler) varsa, önceki tooAugust 2016, Azure portalından veya Klasik Azure portalı yönetilemez. Hello Azure portalında yeni bir hizmet oluşturmanızı öneririz.
 
-Bir hizmet oluşturmak için aşağıdaki adımları gerçekleştirin.
+Aşağıdaki adımları toocreate hizmet hello gerçekleştirin.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
 ## <a name="delete-a-service"></a>Bir hizmeti silin
-Bir hizmet silmeden önce hiçbir bağlı aygıtlar, kullandığınızdan emin olun. Hizmet kullanımdaysa bağlı aygıtları devre dışı bırakın. Devre dışı bırakma işlemi cihaz ile hizmet arasında bağlantı sever ancak bulutta cihaz verileri koruma.
+Bir hizmet silmeden önce hiçbir bağlı aygıtlar, kullandığınızdan emin olun. Merhaba hizmet kullanımdaysa hello bağlı aygıtları devre dışı bırakın. Merhaba, işlemi devre dışı bırakma hello bağlantı hello hizmeti ile Merhaba aygıt arasında sever ancak hello bulutta hello aygıt verilerini korumak.
 
 > [!IMPORTANT] 
-> Hizmet silindikten sonra işlemi geri alınamaz. Hizmet tarafından kullanılan herhangi bir aygıtı Fabrika başka bir hizmetle kullanılabilmesi için önce olması gerekir. Bu senaryoda, cihaz olarak yapılandırma üzerinde yerel veriler kaybolacak.
+> Hizmet silindikten sonra hello işlem geri alınamaz. Merhaba hizmeti tarafından kullanılan herhangi bir aygıt toobe ihtiyacınız olacak başka bir hizmetle kullanılabilmesi için önce Fabrika. Bu senaryoda, hello yapılandırma yanı sıra hello aygıt hello yerel veriler kaybolacak.
 
-Bir hizmeti silmek için aşağıdaki adımları gerçekleştirin.
+Aşağıdaki adımları toodelete hizmet hello gerçekleştirin.
 
-### <a name="to-delete-a-service"></a>Bir hizmeti silmek için
-1. Üzerinde **StorSimple Yöneticisi hizmeti** sayfasında, silmek istediğiniz hizmeti seçin.
-2. Tıklatın **silmek** sayfanın sonundaki.
-3. Tıklatın **Evet** onay bildirim. Hizmetin silinmesi birkaç dakika sürebilir.
+### <a name="toodelete-a-service"></a>toodelete bir hizmeti
+1. Merhaba üzerinde **StorSimple Yöneticisi hizmeti** sayfası, select hello hizmet toodelete istiyor.
+2. Tıklatın **silmek** hello sayfanın hello sonundaki.
+3. Tıklatın **Evet** hello onay bildirim. Silinen hello hizmet toobe birkaç dakika sürebilir.
 
-## <a name="get-the-service-registration-key"></a>Hizmet kayıt anahtarı alma
-Bir hizmeti başarıyla oluşturduktan sonra StorSimple Cihazınızı hizmete kaydolmak gerekir. İlk StorSimple Cihazınızı kaydetmek için hizmet kayıt anahtarı gerekir. Mevcut bir StorSimple hizmetiyle ek cihazlar kaydetmek için kayıt anahtarını ve (ilk cihazda kayıt sırasında oluşturulan) hizmeti veri şifreleme anahtarı gerekir. Hizmet verileri şifreleme anahtarı hakkında daha fazla bilgi için bkz: [StorSimple güvenlik](storsimple-security.md). Kayıt anahtarını erişerek alabileceğiniz **kayıt anahtarı** üzerinde **Hizmetleri** sayfası.
+## <a name="get-hello-service-registration-key"></a>Merhaba hizmet kayıt anahtarını alın
+Bir hizmeti başarıyla oluşturduktan sonra StorSimple cihazınızla hello hizmet tooregister gerekir. tooregister ilk StorSimple Cihazınızı hizmet kayıt anahtarını hello. tooregister ek cihazların mevcut bir StorSimple hizmeti ile Merhaba kayıt anahtarını ve (Merhaba ilk cihazda kayıt sırasında oluşturulan) hello hizmet verileri şifreleme anahtarı gerekir. Merhaba hizmet verileri şifreleme anahtarı hakkında daha fazla bilgi için bkz: [StorSimple güvenlik](storsimple-security.md). Erişerek hello kayıt anahtarını elde edebilirsiniz **kayıt anahtarı** hello üzerinde **Hizmetleri** sayfası.
 
-Hizmet kayıt anahtarını almak için aşağıdaki adımları gerçekleştirin.
+Aşağıdaki adımları tooget hello hizmet kayıt anahtarını hello gerçekleştirin.
 
 [!INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
-Hizmet kayıt anahtarını güvenli bir yerde tutun. Bu hizmetiyle ek cihazlar kaydetmek için hizmet verileri şifreleme anahtarı, yanı sıra, bu anahtar gerekir. Hizmet kayıt anahtarı aldıktan sonra Windows PowerShell aracılığıyla cihazınızın StorSimple arabirimi için yapılandırmanız gerekir.
+Merhaba hizmet kayıt anahtarı güvenli bir yerde tutun. Bu anahtar, yanı sıra hello hizmet verileri şifreleme anahtarı, bu hizmetiyle ek cihazlar tooregister gerekir. Merhaba hizmet kayıt anahtarı aldıktan sonra StorSimple arabirimi hello Windows PowerShell aracılığıyla cihazınızın tooconfigure gerekir.
 
-Bu kayıt anahtarı kullanma hakkında daha fazla bilgi için bkz: [adım 3: yapılandırmak ve storsimple için Windows PowerShell üzerinden cihazı](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Ayrıntılar için toouse bu kayıt anahtarı, bkz: [adım 3: yapılandırmak ve storsimple için Windows PowerShell üzerinden hello cihazı](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-## <a name="regenerate-the-service-registration-key"></a>Hizmet kayıt anahtarını yeniden oluşturma
-Hizmet kayıt anahtarını anahtar döndürmeyi gerçekleştirmek için gerekli olduğunu veya hizmet yöneticilerinin listesini değiştirilmişse yeniden oluşturulması gerekir. Anahtarı yeniden oluşturmak, yeni anahtar yalnızca sonraki cihazları kaydetmek için kullanılır. Bu işlem tarafından zaten kayıtlı olan cihazları etkilenmez.
+## <a name="regenerate-hello-service-registration-key"></a>Merhaba hizmet kayıt anahtarını yeniden oluşturma
+Gerekli tooperform anahtar döndürme veya hizmet yöneticilerinin listesini hello değişip değişmediğini varsa tooregenerate hizmet kayıt anahtarı gerekir. Başlangıç anahtarı yeniden oluşturmak zaman hello yeni anahtar yalnızca sonraki cihazları kaydetmek için kullanılır. Bu işlem tarafından zaten kayıtlı olan hello aygıtları etkilenmez.
 
-Hizmet kayıt anahtarını yeniden oluşturmak için aşağıdaki adımları gerçekleştirin.
+Aşağıdaki adımları tooregenerate hizmet kayıt anahtarını hello gerçekleştirin.
 
-### <a name="to-regenerate-the-service-registration-key"></a>Hizmet kayıt anahtarını yeniden oluşturmak için
-1. Üzerinde **StorSimple Yöneticisi hizmeti** sayfasında, **kayıt anahtarı**.
-2. İçinde **hizmet kayıt anahtarını** iletişim kutusu, tıklatın **yeniden**.
-3. Bir onay iletisi görürsünüz. Tıklatın **Tamam** yeniden üretme işlemi ile devam etmek için.
+### <a name="tooregenerate-hello-service-registration-key"></a>tooregenerate hello hizmet kayıt anahtarı
+1. Merhaba üzerinde **StorSimple Yöneticisi hizmeti** sayfasında, **kayıt anahtarı**.
+2. Merhaba, **hizmet kayıt anahtarını** iletişim kutusu, tıklatın **yeniden**.
+3. Bir onay iletisi görürsünüz. Tıklatın **Tamam** toocontinue ile Merhaba yeniden oluşturma.
 4. Yeni bir hizmet kayıt anahtarı görüntülenir.
 5. Bu anahtarı kopyalayın ve bu hizmeti ile yeni aygıtları kaydetme için kaydedin.
-6. Onay simgesine tıklayarak ![Onay simgesi](./media/storsimple-manage-service/HCS_CheckIcon.png) Bu iletişim kutusunu kapatmak için.
+6. Merhaba onay simgesine tıklayın ![Onay simgesi](./media/storsimple-manage-service/HCS_CheckIcon.png) tooclose bu iletişim kutusu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinmek [StorSimple dağıtım işlemi](storsimple-deployment-walkthrough-u2.md).
+* Merhaba hakkında daha fazla bilgi [StorSimple dağıtım işlemi](storsimple-deployment-walkthrough-u2.md).
 * Daha fazla bilgi edinmek [StorSimple depolama hesabınızı yönetme](storsimple-manage-storage-accounts.md).
-* Nasıl yapılır hakkında daha fazla bilgi [StorSimple Cihazınızı yönetmek için StorSimple Yöneticisi hizmetini kullanma](storsimple-manager-service-administration.md).
+* Hakkında daha fazla çok bilgi[kullanım StorSimple Cihazınızı StorSimple Yöneticisi hizmet tooadminister hello](storsimple-manager-service-administration.md).

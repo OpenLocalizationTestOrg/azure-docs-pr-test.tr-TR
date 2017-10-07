@@ -1,6 +1,6 @@
 ---
-title: "Hdınsight - Azure ile MapReduce işleri akış Python geliştirme | Microsoft Docs"
-description: "Akış MapReduce işlerinin Python kullanmayı öğrenin. Hadoop, Java dışındaki dillerde yazmak için MapReduce için akış bir API sağlar."
+title: "aaaDevelop MapReduce akış Python işleri Hdınsight - Azure | Microsoft Docs"
+description: "Bilgi nasıl MapReduce işleri akış Python toouse. Hadoop, Java dışındaki dillerde yazmak için MapReduce için akış bir API sağlar."
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
 documentationcenter: 
@@ -17,56 +17,56 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.openlocfilehash: b86605c49291a99f49c4b2841d46324cfd0db56d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a6ae3ba650b665ecc5839a4ddf5282f8ccfb6bd6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>MapReduce programları Hdınsight için akış Python geliştirme
 
-Python MapReduce işlemleri akışında kullanmayı öğrenin. Hadoop harita yazma ve Java dışındaki dillerde işlevleri azaltmak sağlar MapReduce akış bir API sağlar. Bu belgede yer alan adımlar eşleme uygulamak ve Python bileşenlerinde azaltın.
+Bilgi nasıl MapReduce işlemleri akış Python toouse. Hadoop, toowrite harita sağlayan ve Java dışındaki dillerde işlevleri azaltmak MapReduce akış bir API sağlar. Merhaba bu belgedeki adımları hello eşleme uygulamak ve Python bileşenlerinde azaltır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 * Bir Hdınsight kümesinde Linux tabanlı Hadoop
 
   > [!IMPORTANT]
-  > Bu belgede yer alan adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Bu belgedeki Hello adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Bir metin düzenleyicisi
 
   > [!IMPORTANT]
-  > Metin Düzenleyicisi LF olarak satırı bitiş kullanmanız gerekir. CRLF satır sonu kullanarak hataları MapReduce işi Linux tabanlı Hdınsight kümelerinde çalıştırırken neden olur.
+  > Merhaba metin düzenleyicisi LF hello satır bitiş olarak kullanmanız gerekir. CRLF satır sonu kullanarak hataları hello MapReduce işi Linux tabanlı Hdınsight kümelerinde çalıştırırken neden olur.
 
-* `ssh` Ve `scp` komutları veya [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
+* Merhaba `ssh` ve `scp` komutları veya [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
 
 ## <a name="word-count"></a>Sözcük Sayımı
 
-Bu temel sözcük sayımı bir python Eşleyici ve reducer uygulanan bir örnektir. Eşleyici cümleleri tek tek sözcüklere böler ve reducer sözcükleri toplar ve bir çıktı oluşturmak için sayar.
+Bu temel sözcük sayımı bir python Eşleyici ve reducer uygulanan bir örnektir. Merhaba Eşleyici cümleleri tek tek sözcüklere böler ve hello reducer hello sözcükler toplar ve tooproduce hello çıkış sayar.
 
-Aşağıdaki akış çizelgesi ne sırasında harita olur ve aşamaları azaltmak gösterilmektedir.
+Aşağıdaki akış çizelgesi hello ne hello eşleme sırasında olur ve aşamaları azaltmak gösterilmektedir.
 
-![mapreduce işlem çizimi](./media/hdinsight-hadoop-streaming-python/HDI.WordCountDiagram.png)
+![Merhaba mapreduce işlem çizimi](./media/hdinsight-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
 ## <a name="streaming-mapreduce"></a>Akış MapReduce
 
-Hadoop, eşleme içeren bir dosya belirtin ve bir iş tarafından kullanılan mantığı azaltmak sağlar. Eşleme için özel gereksinimleri ve mantığı azaltmak şunlardır:
+Hadoop toospecify hello eşlemesini içerir ve bir iş tarafından kullanılan mantığı azaltmak bir dosyayı sağlar. hello için belirli gereksinimler Hello harita ve mantığı azaltmak şunlardır:
 
-* **Giriş**: eşleme ve azaltma bileşenleri STDIN giriş verilerinin okuma gerekir.
-* **Çıktı**: eşleme ve azaltma bileşenleri STDOUT çıkış veri yazma gerekir.
-* **Veri biçimi**: tüketilen ve üretilen veriler bir sekme karakteriyle ayrılmış bir anahtar/değer çifti olmalıdır.
+* **Giriş**: Merhaba eşleme ve azaltma bileşenleri STDIN giriş verilerinin okuma gerekir.
+* **Çıktı**: Merhaba eşleme ve azaltma bileşenleri çıkış veri tooSTDOUT yazmanız gerekir.
+* **Veri biçimi**: tüketilen ve üretilen hello veri sekmesi karakteriyle ayrılmış bir anahtar/değer çifti olmalıdır.
 
-Python kolayca işleyebilir bu gereksinimleri kullanarak `sys` STDIN ve kullanarak okumak için Modülü `print` STDOUT yazdırmak için. Kalan görev yalnızca bir sekme verilerle biçimlendirme (`\t`) anahtar ve değer arasında karakter.
+Python kolayca işleyebilir bu gereksinimleri hello kullanarak `sys` STDIN ve kullanarak modülü tooread `print` tooprint tooSTDOUT. Merhaba kalan görev yalnızca bir sekme hello verilerle biçimlendirme (`\t`) hello anahtar ve değer arasında karakter.
 
-## <a name="create-the-mapper-and-reducer"></a>Eşleyici ve reducer oluşturma
+## <a name="create-hello-mapper-and-reducer"></a>Merhaba Eşleyici ve reducer oluşturma
 
-1. Adlı bir dosya oluşturun `mapper.py` ve içeriği olarak aşağıdaki kodu kullanabilirsiniz:
+1. Adlı bir dosya oluşturun `mapper.py` ve kullanım hello aşağıdaki kodu hello içerik olarak:
 
    ```python
    #!/usr/bin/env python
 
-   # Use the sys module
+   # Use hello sys module
    import sys
 
    # 'file' in this case is STDIN
@@ -76,20 +76,20 @@ Python kolayca işleyebilir bu gereksinimleri kullanarak `sys` STDIN ve kullanar
            yield line.split()
 
    def main(separator='\t'):
-       # Read the data using read_input
+       # Read hello data using read_input
        data = read_input(sys.stdin)
        # Process each word returned from read_input
        for words in data:
            # Process each word
            for word in words:
-               # Write to STDOUT
+               # Write tooSTDOUT
                print '%s%s%d' % (word, separator, 1)
 
    if __name__ == "__main__":
        main()
    ```
 
-2. Adlı bir dosya oluşturun **reducer.py** ve içeriği olarak aşağıdaki kodu kullanabilirsiniz:
+2. Adlı bir dosya oluşturun **reducer.py** ve kullanım hello aşağıdaki kodu hello içerik olarak:
 
    ```python
    #!/usr/bin/env python
@@ -103,22 +103,22 @@ Python kolayca işleyebilir bu gereksinimleri kullanarak `sys` STDIN ve kullanar
    def read_mapper_output(file, separator='\t'):
        # Go through each line
        for line in file:
-           # Strip out the separator character
+           # Strip out hello separator character
            yield line.rstrip().split(separator, 1)
 
    def main(separator='\t'):
-       # Read the data using read_mapper_output
+       # Read hello data using read_mapper_output
        data = read_mapper_output(sys.stdin, separator=separator)
        # Group words and counts into 'group'
        #   Since MapReduce is a distributed process, each word
        #   may have multiple counts. 'group' will have all counts
-       #   which can be retrieved using the word as the key.
+       #   which can be retrieved using hello word as hello key.
        for current_word, group in groupby(data, itemgetter(0)):
            try:
-               # For each word, pull the count(s) for the word
+               # For each word, pull hello count(s) for hello word
                #   from 'group' and create a total count
                total_count = sum(int(count) for current_word, count in group)
-               # Write to stdout
+               # Write toostdout
                print "%s%s%d" % (current_word, separator, total_count)
            except ValueError:
                # Count was not a number, so do nothing
@@ -130,30 +130,30 @@ Python kolayca işleyebilir bu gereksinimleri kullanarak `sys` STDIN ve kullanar
 
 ## <a name="run-using-powershell"></a>PowerShell kullanarak çalıştırma
 
-Dosyalarınızın doğru satır sonları olmasını sağlamak için aşağıdaki PowerShell betiğini kullanın:
+PowerShell Betiği aşağıdaki kullanım hello dosyalarınızı hello sağ satır sonları sahip tooensure:
 
-[!code-powershell[Ana](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
 
-Dosyaları karşıya yükleme, işini çalıştırın ve çıktıyı görüntülemek için aşağıdaki PowerShell betiğini kullanın:
+Aşağıdaki PowerShell komut dosyası tooupload hello dosyaları hello kullanın, hello işini çalıştırın ve hello çıktısını görüntüleyin:
 
-[!code-powershell[Ana](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
 
 ## <a name="run-from-an-ssh-session"></a>Bir SSH oturumunda
 
-1. Aynı dizinde, geliştirme ortamınızdan `mapper.py` ve `reducer.py` dosyaları, aşağıdaki komutu kullanın:
+1. Aynı içinde geliştirme ortamınızdan hello olarak dizin `mapper.py` ve `reducer.py` dosyaları, komut aşağıdaki hello kullanın:
 
     ```bash
     scp mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:
     ```
 
-    Değiştir `username` , kümeniz için SSH kullanıcı adı ve `clustername` , küme adı.
+    Değiştir `username` hello SSH kullanıcı adı, kümeniz için ve `clustername` kümenizin hello ada sahip.
 
-    Bu komut dosyaları, yerel sistemden baş düğüme kopyalar.
+    Bu komut hello yerel sistem toohello baş düğümünden hello dosyalarını kopyalar.
 
     > [!NOTE]
-    > SSH hesabınızı korumak için parola kullandıysanız, parola istenir. Bir SSH anahtarı kullandıysanız, kullanmak zorunda kalabilirsiniz `-i` parametre ve özel anahtar yolu. Örneğin, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
+    > SSH hesabınızın parolası toosecure kullandıysanız, hello parolası istenir. Bir SSH anahtarı kullandıysanız, toouse hello olabilir `-i` parametre ve hello yolu toohello özel anahtarı. Örneğin, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
-2. SSH kullanarak kümeye bağlanın:
+2. SSH kullanarak toohello kümesine bağlanın:
 
     ```bash
     ssh username@clustername-ssh.azurehdinsight.net`
@@ -161,49 +161,49 @@ Dosyaları karşıya yükleme, işini çalıştırın ve çıktıyı görüntül
 
     Daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Mapper.py ve reducer.py doğru satır sonları sahip emin olmak için aşağıdaki komutları kullanın:
+3. satır sonları düzeltin, komutları aşağıdaki hello kullan hello tooensure hello mapper.py ve reducer.py vardır:
 
     ```bash
     perl -pi -e 's/\r\n/\n/g' mapper.py
     perl -pi -e 's/\r\n/\n/g' reducer.py
     ```
 
-4. MapReduce işi başlatmak için aşağıdaki komutu kullanın.
+4. Komut toostart hello MapReduce işi aşağıdaki hello kullanın.
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
     ```
 
-    Bu komut, aşağıdaki bölümleri içerir:
+    Bu komut hello aşağıdaki bölümleri içerir:
 
-   * **hadoop streaming.jar**: akış MapReduce işlemleri yaparken kullanılır. Bu Hadoop MapReduce harici kod sağladığınız arabirimleri.
+   * **hadoop streaming.jar**: akış MapReduce işlemleri yaparken kullanılır. Bu Hadoop sağladığınız hello dış MapReduce koduyla arabirimleri.
 
-   * **-dosyaları**: MapReduce işi belirtilen dosyaları ekler.
+   * **-dosyaları**: Belirtilen hello ekler dosyaları toohello MapReduce işi.
 
-   * **-Eşleyici**: Hadoop Eşleyici kullanmak için hangi dosya söyler.
+   * **-Eşleyici**: söyler, toouse Eşleyici hello gibi dosya Hadoop.
 
-   * **-reducer**: Hadoop reducer kullanmak için hangi dosya söyler.
+   * **-reducer**: söyler, toouse reducer hello gibi dosya Hadoop.
 
-   * **-Giriş**: gelen güvenmemeniz gerekir giriş dosyası sözcükleri.
+   * **-Giriş**: güvenmemeniz gerekir hello giriş dosyası sözcükleri.
 
-   * **-Çıktı**: çıktı yazılır dizin.
+   * **-Çıktı**: çıktı hello hello dizin yazılır.
 
-    MapReduce işi çalıştığından, işlem yüzde olarak görüntülenir.
+    Merhaba MapReduce işi çalışıyor gibi hello işlem yüzde olarak görüntülenir.
 
         02/15/05 19:01:04 bilgisi mapreduce. İş: eşleme %0 azaltmak %0 02/15/05 19:01:16 bilgisi mapreduce. İş: % 0 harita % 100 azaltmak 02/15/05 19:01:27 bilgisi mapreduce. İş: eşleme % %100 100 azaltın.
 
 
-5. Çıktı görüntülemek için aşağıdaki komutu kullanın:
+5. tooview hello çıkışı, komutu aşağıdaki hello kullan:
 
     ```bash
     hdfs dfs -text /example/wordcountout/part-00000
     ```
 
-    Bu komut oluştu sözcükleri ve word kaç kez listesini görüntüler.
+    Bu komut oluştu sözcükleri ve hello word kaç kez listesini görüntüler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hdınsight ile akış MapRedcue işi kullanmayı öğrendiniz, Azure Hdınsight ile çalışmak için diğer yollarını keşfetmek için aşağıdaki bağlantıları kullanın.
+Hdınsight ile nasıl MapRedcue akış toouse işleri öğrendiniz, bağlantılar tooexplore aşağıdaki hello Azure Hdınsight ile diğer yolları toowork kullanın.
 
 * [HDInsight ile Hive kullanma](hdinsight-use-hive.md)
 * [HDInsight ile Pig kullanma](hdinsight-use-pig.md)

@@ -1,6 +1,6 @@
 ---
-title: "Azure Logic Apps içinde Yammer bağlayıcısını ekleyin | Microsoft Docs"
-description: "REST API parametreleri Yammer bağlayıcısıyla genel bakış"
+title: aaaAdd hello Azure Logic Apps Yammer Connector'daki | Microsoft Docs
+description: "REST API parametrelerle hello Yammer bağlayıcı genel bakış"
 services: logic-apps
 documentationcenter: 
 author: MandiOhlinger
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c7a213343b4fb2b5a89a5052a459061b404a431c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: be75df770a8062d839926dff8c0195d2647f78d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-yammer-connector"></a>Yammer Bağlayıcısı ile çalışmaya başlama
-Erişim görüşmeleri Kurumsal ağınızda Yammer'a bağlanır. Yammer ile şunları yapabilirsiniz:
+# <a name="get-started-with-hello-yammer-connector"></a>Merhaba Yammer Bağlayıcısı ile çalışmaya başlama
+TooYammer tooaccess görüşmeleri, Kurumsal ağınıza bağlayın. Yammer ile şunları yapabilirsiniz:
 
-* İş akışınız Yammer alma verileri temel alan oluşturun. 
+* İş akışınız hello verileri Yammer Al esas oluşturun. 
 * Aşağıdaki Grup ya da bir akışı yeni bir ileti olduğunda kullanmak için tetikler.
-* Eylemler bir ileti gönderme, tüm iletileri ve daha fazla bilgi almak için kullanın. Bu eylemler bir yanıt ve çıkış diğer eylemler için kullanılabilir yapın. Örneğin, yeni bir ileti görüntülendiğinde, Office 365 kullanılarak bir e-posta gönderebilirsiniz.
+* Eylemler toopost bir ileti kullanın, tüm iletileri ve daha fazla bilgi edinin. Bu eylemler bir yanıt ve hello çıkış diğer eylemler için kullanılabilir yapın. Örneğin, yeni bir ileti görüntülendiğinde, Office 365 kullanılarak bir e-posta gönderebilirsiniz.
 
 Bir mantıksal uygulama artık oluşturarak başlama; bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="create-a-connection-to-yammer"></a>Yammer bağlantı oluşturun.
-Yammer Bağlayıcısı'nı kullanmak için önce oluşturduğunuz bir **bağlantı** ardından ayrıntılar için bu özellikleri sağlar: 
+## <a name="create-a-connection-tooyammer"></a>Bir bağlantı tooYammer oluşturma
+ilk toouse hello Yammer Bağlayıcısı oluşturmanız bir **bağlantı** sonra hello Ayrıntılar için bu özellikleri sağlar: 
 
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
 | Belirteç |Evet |Yammer kimlik bilgilerini sağlayın |
 
-> [!INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
+> [!INCLUDE [Steps toocreate a connection tooYammer](../../includes/connectors-create-api-yammer.md)]
 > 
 
 ## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/yammer/).
+Tüm tetikleyiciler ve Eylemler hello swagger içinde tanımlanan görüntüleyebilir ve ayrıca hello herhangi bir sınır bkz. [Bağlayıcısı ayrıntıları](/connectors/yammer/).
 
 ## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+Toohello dönün [API'leri listesi](apis-list.md).

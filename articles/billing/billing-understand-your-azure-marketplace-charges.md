@@ -1,5 +1,5 @@
 ---
-title: "Azure, dış hizmet ücretlerini anlama | Microsoft Docs"
+title: "aaaUnderstand Azure dış hizmet ücretlerinizi | Microsoft Docs"
 description: "Önceden Market bilinen dış hizmetler, Azure ücretlere faturalama hakkında bilgi edinin."
 services: 
 documentationcenter: 
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: adpick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11701ce0162113ef6c8e056d3a30fe1d8f702f92
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1d2cb28319e2ab4eff753177220993cbf94c96ac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Azure fatura dış servis ücretleri anlamak
-Dış hizmetler Azure Marketi çağrılması için kullanılır. Genellikle, Azure için üçüncü taraflar tarafından kullanılabilen yayımlanan hizmetleri olduğunuz ancak Azure içinde tamamen tümleşiktir. Örneğin, ClearDB ve SendGrid Azure'da satın alabilir, ancak Microsoft tarafından yayımlanmayan dış hizmetleridir.
+Dış hizmetler Azure Marketi adlı toobe kullanılır. Genellikle, Azure için üçüncü taraflar tarafından kullanılabilen yayımlanan hizmetleri olduğunuz ancak Azure içinde tamamen tümleşiktir. Örneğin, ClearDB ve SendGrid Azure'da satın alabilir, ancak Microsoft tarafından yayımlanmayan dış hizmetleridir.
 
 Yeni bir dış hizmet veya kaynak sağladığınızda, bir uyarı gösterilir:
 
@@ -35,57 +35,57 @@ Yeni bir dış hizmet veya kaynak sağladığınızda, bir uyarı gösterilir:
 > 
 
 ## <a name="how-external-services-are-billed"></a>Dış hizmetler faturalandırılır nasıl
-- Dış hizmetler ayrı ayrı faturalandırılır. Bunlar, Azure aboneliğinizin içinde tek tek siparişleri olarak kabul edilir. Hizmeti satın aldığınız her hizmet için fatura döneminde ayarlanır. Altında aldığınız abonelik faturalama dönemi ile karıştırılmamalıdır için. Ayrıca ayrı faturaları aldığınız ve kredi kartınızdan ayrı olarak ücretlendirilir.
+- Dış hizmetler ayrı ayrı faturalandırılır. Bunlar, Azure aboneliğinizin içinde tek tek siparişleri olarak kabul edilir. Merhaba hizmeti satın aldığınız her hizmet için fatura döneminde hello ayarlanır. Değil toobe hello fatura hello abonelik altında aldığınız noktayla kafası. Ayrıca ayrı faturaları aldığınız ve kredi kartınızdan ayrı olarak ücretlendirilir.
 - Dış her hizmetin farklı bir fatura modeli vardır. Diğer bir aylık tabanlı ödeme modeli kullanırken bazı hizmetler Kullandıkça Öde biçimde faturalandırılır. Azure dış hizmetler için bir kredi kartı gerekir, fatura ödeme ile dış hizmetler satın alın.
-- Dış Hizmetleri için aylık ücretsiz krediler kullanamazsınız. İçeren bir Azure aboneliği kullanıyorsanız [ücretsiz krediler](https://azure.microsoft.com/pricing/spending-limits/), dış hizmet faturaları uygulanamaz. Dış hizmetler satın almak için bir kredi kartı kullanın.
+- Dış Hizmetleri için aylık ücretsiz krediler kullanamazsınız. İçeren bir Azure aboneliği kullanıyorsanız [ücretsiz krediler](https://azure.microsoft.com/pricing/spending-limits/), uygulanan tooexternal hizmet faturaları olamaz. Bir kredi kartı toopurchase dış hizmetler kullanın.
 
 
-## <a name="view-external-service-spending-and-history-in-the-azure-portal"></a>Görünüm dış hizmet harcama ve Azure portalında geçmişi
-Her abonelik içinde bulunan dış hizmetlerin bir listesini görüntüleyebileceğiniz [Azure portal](https://portal.azure.com/): 
+## <a name="view-external-service-spending-and-history-in-hello-azure-portal"></a>Görünüm dış hizmet harcama ve hello Azure portal geçmişi
+Her abonelik hello içinde bulunan hello dış hizmetlerin bir listesini görüntüleyebileceğiniz [Azure portal](https://portal.azure.com/): 
 
-1. Oturum [Azure portal](https://portal.azure.com/) hesabı yönetici olarak.
-2. Hub menüsünde seçin **abonelikleri**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/) hello hesabı yönetici olarak.
+2. Merhaba Hub menüsünde seçin **abonelikleri**.
    
-    ![Hub menüsünde aboneliklerini seçin](./media/billing-understand-your-azure-marketplace-charges/sub-button.png) 
-3. İçinde **abonelikleri** dikey penceresinde, görüntülemek istediğiniz aboneliği seçin ve ardından **dış Hizmetler**.
+    ![Merhaba Hub menüsünde aboneliklerini seçin](./media/billing-understand-your-azure-marketplace-charges/sub-button.png) 
+3. Merhaba, **abonelikleri** dikey penceresinde, tooview istediğiniz ve ardından select hello abonelik **dış Hizmetler**.
    
-    ![Faturalama dikey penceresinde bir abonelik seçin](./media/billing-understand-your-azure-marketplace-charges/select-sub-external-services.png)
-4. Her bir dış hizmet siparişler, yayımcı adını, satın aldığınız hizmet katmanı, kaynak ve geçerli sıra durumu verdiğiniz adı görmeniz gerekir. Faturaları görmek için bir dış hizmet seçin.
+    ![Merhaba faturalama dikey penceresinde bir abonelik seçin](./media/billing-understand-your-azure-marketplace-charges/select-sub-external-services.png)
+4. Her bir dış hizmet siparişleri, hello Yayımcı adı, satın aldığınız hizmet katmanı, hello kaynak ve hello geçerli sıra durumu verdiği ad görmeniz gerekir. toosee bir dış hizmet faturaları ' i seçin.
    
     ![Bir dış hizmet seçin](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
-5. Buradan, vergi dökümünü dahil olmak üzere fatura miktarda görüntüleyebilirsiniz.
+5. Buradan, hello vergi dökümünü dahil olmak üzere fatura miktarda görüntüleyebilirsiniz.
    
     ![Dış Hizmetleri fatura geçmişini görüntüle](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
 
 ## <a name="view-external-service-spending-for-enterprise-agreement-ea-customers"></a>Kurumsal Anlaşma (Kurumsal Sözleşme) müşteriler için harcama dış Service'i Görüntüle
-EA müşteriler dış hizmet harcama bakın ve EA portalında raporları indirin. Bkz: [EA müşteriler için Azure Marketi](https://ea.azure.com/helpdocs/azureMarketplace) başlamak için.
+EA müşteriler dış hizmet harcama bakın ve hello EA portalında raporları indirin. Bkz: [EA müşteriler için Azure Marketi](https://ea.azure.com/helpdocs/azureMarketplace) tooget başlatıldı.
 
 ## <a name="manage-payment-methods-for-external-service-orders"></a>Dış servis siparişleri için ödeme yöntemleri yönetme
-Dış servis siparişleri için Ödeme yöntemleriniz güncelleştirme [hesap Merkezi'nde](https://account.windowsazure.com/).
+Merhaba dış servis siparişleri için Ödeme yöntemleriniz güncelleştirme [hesap Merkezi'nde](https://account.windowsazure.com/).
 
 > [!NOTE]
-> Bir iş veya Okul hesabı aboneliğinizle satın aldıysanız [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ödeme yönteminizi değişiklik yapma.
+> Bir iş veya Okul hesabı aboneliğinizle satın aldıysanız [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) toomake tooyour ödeme yöntemini değiştirir.
 > 
 > 
 
-1. Oturum [hesap Merkezi'nde](https://account.windowsazure.com/) ve [gidin **Market** sekmesi](https://account.windowsazure.com/Store)
+1. İçinde toohello oturum [hesap Merkezi'nde](https://account.windowsazure.com/) ve [toohello gidin **Market** sekmesi](https://account.windowsazure.com/Store)
    
-    ![Market hesap Merkezi'nde seçin](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
-2. Yönetmek istediğiniz dış hizmeti seçin
+    ![Market hello hesap Merkezi'nde seçin](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
+2. Toomanage istediğiniz hello dış hizmeti seçin
    
-    ![Yönetmek istediğiniz dış hizmeti seçin](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
-3. Tıklatın **ödeme yöntemini değiştirme** sayfasının sağ tarafında. Bu bağlantıyı ödeme yönteminizi yönetmek için farklı bir portal getirir.
+    ![Toomanage istediğiniz hello dış hizmeti seçin](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
+3. Tıklatın **ödeme yöntemini değiştirme** hello hello sayfasının sağ tarafında. Bu bağlantı, tooa farklı portal toomanage ödeme yönteminizi getirir.
    
     ![Sipariş Özeti](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
-4. Tıklatın **Düzenle bilgisi** ve Ödeme bilgilerinizi güncellemek için yönergeleri izleyin.
+4. Tıklatın **Düzenle bilgisi** ve ödeme bilgilerinizin tooupdate yönergeleri izleyin.
    
     ![Bilgi Düzenle](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
 
 ## <a name="cancel-an-external-service-order"></a>Bir dış hizmet siparişi iptal etme
-Dış hizmet siparişinizi iptal etmek istiyorsanız, kaynak silin [Azure portal](https://portal.azure.com).
+Dış hizmet siparişinizi toocancel istiyorsanız, hello hello kaynağında silin [Azure portal](https://portal.azure.com).
 
 ![Kaynağı silme](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
-Hala sorularınız varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala sorularınız varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorunu Çözümlendi hızla tooget.
 

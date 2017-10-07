@@ -1,6 +1,6 @@
 ---
-title: "Visual Studio bulut Hizmetleri uygulamalarında hata ayıklama için öykünücüsü hızlı kurulumu | Microsoft Docs"
-description: "Visual Studio öykünücüsü Express'te etkinleştirmek için C++ yeniden dağıtılabilir yükleme açıklanmaktadır"
+title: "aaaSetup öykünücüsü toodebug bulut Hizmetleri uygulamalarında Visual Studio express | Microsoft Docs"
+description: "Nasıl tooinstall hello C++ yeniden dağıtılabilir tooenable Visual Studio öykünücüsü Express'te açıklar"
 services: cloud-services
 documentationcenter: 
 author: cawa
@@ -14,31 +14,31 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/02/2016
 ms.author: cawa
-ms.openlocfilehash: 05d672dcb1335c617bb8d8cae43947bcd5e9ab3d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6fb506f0b1384f2e52310799eb5ae2a102d777bb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-emulator-express-to-debug-cloud-services-application-in-vs-2017"></a>Bulut Hizmetleri VS 2017 uygulamada hata ayıklamak için emulator Express kullanma
-Bu makalede Emulator Express VS 2017 bulut Hizmetleri uygulamalarında hata ayıklama için nasıl kullanılacağı açıklanmaktadır.
+# <a name="use-emulator-express-toodebug-cloud-services-application-in-vs-2017"></a>VS 2017 toodebug bulut Hizmetleri uygulama emulator Express kullanın
+Bu makalede açıklanır nasıl toouse Emulator Express toodebug bulut Hizmetleri uygulamalarında VS 2017.
 
 ## <a name="background-context"></a>Arka plan bağlamı
-Öykünücü Express varsayılan olarak, bulut Hizmetleri Web ve çalışan rolleri Visual Studio'da hata ayıklama için kullanılır. Bu ayar, bulut Hizmetleri proje özellikleri sayfasında belirtilir.
+Öykünücü Express varsayılan olarak, bulut Hizmetleri Web ve çalışan rolleri Visual Studio'da hata ayıklama için kullanılır. Bu ayar hello bulut Hizmetleri proje özellikleri sayfasında belirtilir.
 
 ![Açık proje özellikleri][0]
 
 ![Öykünücü express varsayılan olarak seçilir][1]
 
-[Visual C++ yeniden dağıtılabilir] [ Visual C++ Redistributable] express Visual Studio öykünücüsü tarafından gereklidir. Şu anda Azure yüküyle yüklenmedi. Bulut Hizmetleri uygulamalarında hata ayıklamak için F5 hareketi bu bileşeni yüklemek ve hata ayıklama ile devam etmek için Visual Studio sorar.
+Merhaba [Visual C++ yeniden dağıtılabilir] [ Visual C++ Redistributable] express Visual Studio öykünücüsü tarafından gereklidir. Şu anda Azure iş yükü hello ile yüklenmedi. F5'e bir bulut Hizmetleri uygulamaları toodebug hareket, Visual Studio ve bu bileşen tooinstall sor hata ayıklamaya devam edin.
 
 ![C++ yeniden dağıtılabilir yükleme sor][2]
 
-C++ yeniden dağıtılabilir yüklemek için Evet'i tıklatın.
+Evet tooinstall C++ yeniden dağıtılabilir'i tıklatın.
 
 ![C++ yeniden dağıtılabilir yükleme][3]
 
-Hata ayıklama oturumları yeniden başlatmak için F5 tuşuna basın.
+Yeniden toolaunch hata ayıklama oturumları F5'e basın.
 
 ![Hata ayıklama başlatılamıyor][4]
 
@@ -49,19 +49,19 @@ Hata ayıklama oturumları yeniden başlatmak için F5 tuşuna basın.
 > 
 
 ## <a name="manual-workaround"></a>El ile geçici çözüm
-Ayrıca yükleyebilirsiniz [Visual C++ yeniden dağıtılabilir] [ Visual C++ Redistributable] el ile ve aynı etkiye nasıl sisteminizde yüklü Visual Studio gibi uygulanır.
+Merhaba de yükleyebilirsiniz [Visual C++ yeniden dağıtılabilir] [ Visual C++ Redistributable] el ile ve aynı etkiye nasıl sisteminizde yüklü Visual Studio gibi uygulanır.
 
 [VCRedist_x86.exe][vcredist_x86.exe]
 
 [VCRedist_x64.exe][vcredist_x64.exe]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Visual Studio bulut Hizmetleri uygulamalarınızda hata ayıklamak için Azure bilgisayar öykünücüsü kullanma hakkında daha fazla bilgi edinin: [kullanarak çalıştırın ve bir bulut hizmeti yerel makinede hata ayıklamak için Emulator Express][Using Emulator Express to run and debug a cloud service on a local machine]
+Visual Studio bulut Hizmetleri uygulamalarınızda Azure bilgisayar öykünücüsü toodebug kullanma hakkında daha fazla bilgi edinin: [Emulator Express kullanarak toorun ve bir bulut hizmeti yerel makinede hata ayıklama][Using Emulator Express toorun and debug a cloud service on a local machine]
 
 [Visual C++ Redistributable]:https://www.microsoft.com/en-us/download/details.aspx?id=30679
 [vcredist_x86.exe]:https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x86.exe
 [vcredist_x64.exe]:https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe
-[Using Emulator Express to run and debug a cloud service on a local machine]:https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-emulator-express-debug-run/
+[Using Emulator Express toorun and debug a cloud service on a local machine]:https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-emulator-express-debug-run/
 
 [0]: ./media/cloud-services-emulator-express-fix/vs-05.png
 [1]: ./media/cloud-services-emulator-express-fix/vs-06.png

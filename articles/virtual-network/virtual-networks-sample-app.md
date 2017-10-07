@@ -1,6 +1,6 @@
 ---
-title: "DMZ'ler ile kullanmak için örnek uygulama | Microsoft Docs"
-description: "Trafik akışı senaryolarını sınamak için DMZ oluşturduktan sonra bu basit web uygulaması dağıtma"
+title: "aaaAzure örnek uygulama DMZ'ler ile kullanılmak üzere | Microsoft Docs"
+description: "Trafik akışı senaryoları DMZ tootest oluşturduktan sonra bu basit bir web uygulaması dağıtma"
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 8506238e41c5d9dac8d76d729d4919b30a0528b9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e0d9cf14590f75b50c64b677efce2c5425b83ec6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Örnek bir uygulama DMZ'ler ile kullanmak için
-[Güvenlik sınırı en iyi yöntemler sayfasına dön][HOME]
+[Dönüş toohello güvenlik sınırı en iyi uygulamalar sayfası][HOME]
 
-Bu PowerShell komut dosyalarını yerel olarak yükleyin ve arka uç AppVM01 sunucusundan içerik ile ön uç IIS01 sunucusundan html sayfalarını görüntüleyen basit bir web uygulaması için IIS01 ve AppVM01 sunucularda çalıştırabilirsiniz.
+Bu PowerShell komut dosyalarını hello IIS01 ve AppVM01 sunucuları tooinstall üzerinde yerel olarak çalıştırın ve bir html sayfasıyla hello ön uç IIS01 sunucusundan hello arka uç AppVM01 sunucusundan içerik görüntüleyen basit bir web uygulaması ayarlayın.
 
-Bu uygulama basit bir sınama ortamında pek çok DMZ örnekler sağlar ve nasıl değişiklikleri uç noktaları, Nsg'ler, UDR ve güvenlik duvarı kuralları trafik akışına etkileyebilir.
+Bu uygulama basit bir sınama ortamı birçok hello DMZ örnekler ve değişiklikleri nasıl hello uç noktaları, Nsg'ler, UDR sağlar ve güvenlik duvarı kuralları trafik akışına etkileyebilir.
 
-## <a name="firewall-rule-to-allow-icmp"></a>ICMP izin veren güvenlik duvarı kuralı
-Bu basit bir PowerShell ifadesi ICMP (Ping) trafiğine izin vermek için bir Windows VM üzerinde çalıştırılabilir. Windows güvenlik duvarı (çoğu Linux distro'lar ICMP varsayılan olarak etkindir) üzerinden iletmek için daha kolay test ve ping Protokolü vererek sorun giderme için bu Güvenlik Duvarı'nı güncelleştirme sağlar.
+## <a name="firewall-rule-tooallow-icmp"></a>Güvenlik duvarı kuralı tooallow ICMP
+Bu basit bir PowerShell ifadesi herhangi bir Windows VM tooallow ICMP (Ping) trafiği çalıştırabilirsiniz. Bu Güvenlik Duvarı'nı güncelleştirme daha kolay sınama ve hello ping Protokolü toopass (için ICMP varsayılan olarak açık çoğu Linux distro'lar) hello windows güvenlik duvarı aracılığıyla izin vererek sorun giderme sağlar.
 
 ```PowerShell
 # Turn On ICMPv4
@@ -36,25 +36,25 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
 ```
 
-Aşağıdaki komut dosyaları kullanırsanız, bu güvenlik duvarı kuralı ilk ifade ektir.
+Komut dosyaları aşağıdaki hello kullanırsanız, bu güvenlik duvarı kuralı hello ilk ifade ektir.
 
 ## <a name="iis01---web-application-installation-script"></a>IIS01 - Web uygulama yükleme betiği
 Bu komut dosyası aşağıdakileri yapar:
 
-1. Açık IMCPv4 (Ping) daha kolay test etmek için yerel sunucunun windows güvenlik duvarı
-2. IIS ve .net yükleme Framework v4.5
+1. Açık IMCPv4 (Ping) daha kolay test hello yerel sunucunun windows güvenlik duvarı
+2. IIS'yi yükleyip hello .net Framework v4.5
 3. Bir ASP.NET web sayfası ve Web.config dosyası oluşturma
-4. Dosya erişimi kolaylaştırmak için varsayılan uygulama havuzunu Değiştir
-5. Yönetici hesabınız ve parolanız için anonim kullanıcı Ayarla
+4. Merhaba varsayılan uygulama havuzunu toomake dosya erişimini daha kolay değiştirme
+5. Merhaba anonim kullanıcı tooyour yönetici hesabı ve parolası ayarlayın
 
 RDP IIS01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırmanız gerekir.
 
 ```PowerShell
 # IIS Server Post Build Config Script
 # Get Admin Account and Password
-    Write-Host "Please enter the admin account information used to create this VM:" -ForegroundColor Cyan
-    $theAdmin = Read-Host -Prompt "The Admin Account Name (no domain or machine name)"
-    $thePassword = Read-Host -Prompt "The Admin Password"
+    Write-Host "Please enter hello admin account information used toocreate this VM:" -ForegroundColor Cyan
+    $theAdmin = Read-Host -Prompt "hello Admin Account Name (no domain or machine name)"
+    $thePassword = Read-Host -Prompt "hello Admin Password"
 
 # Turn On ICMPv4
     Write-Host "Creating ICMP Rule in Windows Firewall" -ForegroundColor Cyan
@@ -89,21 +89,21 @@ RDP IIS01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırman�
       <form id="frmMain" runat="server">
         <div>
           <h1>Looks like you made it!</h1>
-          This is a page from the inside (a web server on a private network),<br />
-          and it is making its way to the outside! (If you are viewing this from the internet)<br />
+          This is a page from hello inside (a web server on a private network),<br />
+          and it is making its way toohello outside! (If you are viewing this from hello internet)<br />
           <br />
-          The following sections show:
+          hello following sections show:
           <ul style="margin-top: 0px;">
             <li> Local Server Time - Shows if this page is or isnt cached anywhere</li>
-            <li> File Output - Shows that the web server is reaching AppVM01 on the backend subnet and successfully returning content</li>
-            <li> Image from the Internet - Doesnt really show anything, but it made me happy to see this when the app worked</li>
+            <li> File Output - Shows that hello web server is reaching AppVM01 on hello backend subnet and successfully returning content</li>
+            <li> Image from hello Internet - Doesnt really show anything, but it made me happy toosee this when hello app worked</li>
           </ul>
           <div style="border: 2px solid #8AC007; border-radius: 25px; padding: 20px; margin: 10px; width: 650px;">
             <b>Local Web Server Time</b>: <asp:Label runat="server" ID="lblTime" /></div>
           <div style="border: 2px solid #8AC007; border-radius: 25px; padding: 20px; margin: 10px; width: 650px;">
             <b>File Output from AppVM01</b>: <asp:Label runat="server" ID="lblOutput" /></div>
           <div style="border: 2px solid #8AC007; border-radius: 25px; padding: 20px; margin: 10px; width: 650px;">
-            <b>Image File Linked from the Internet</b>:<br />
+            <b>Image File Linked from hello Internet</b>:<br />
             <br />
             <img src="http://sd.keepcalm-o-matic.co.uk/i/keep-calm-you-made-it-7.png" alt="You made it!" width="150" length="175"/></div>
         </div>
@@ -131,13 +131,13 @@ RDP IIS01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırman�
     $MainPage | Out-File -FilePath "C:\inetpub\wwwroot\Home.aspx" -Encoding ascii
     $WebConfig | Out-File -FilePath "C:\inetpub\wwwroot\Web.config" -Encoding ascii
 
-# Set App Pool to Clasic Pipeline to remote file access will work easier
+# Set App Pool tooClasic Pipeline tooremote file access will work easier
     Write-Host "Updaing IIS Settings" -ForegroundColor Cyan
     c:\windows\system32\inetsrv\appcmd.exe set app "Default Web Site/" /applicationPool:".NET v4.5 Classic"
     c:\windows\system32\inetsrv\appcmd.exe set config "Default Web Site/" /section:system.webServer/security/authentication/anonymousAuthentication /userName:$theAdmin /password:$thePassword /commit:apphost
 
-# Make sure the IIS settings take
-    Write-Host "Restarting the W3SVC" -ForegroundColor Cyan
+# Make sure hello IIS settings take
+    Write-Host "Restarting hello W3SVC" -ForegroundColor Cyan
     Restart-Service -Name W3SVC
 
     Write-Host
@@ -146,24 +146,24 @@ RDP IIS01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırman�
 ```
 
 ## <a name="appvm01---file-server-installation-script"></a>AppVM01 - dosya sunucusu yükleme betiği
-Bu komut dosyası basit bu uygulama için arka uç ayarlar. Bu komut dosyası aşağıdakileri yapar:
+Bu komut dosyası hello arka uç basit bu uygulama için ayarlar. Bu komut dosyası aşağıdakileri yapar:
 
-1. Açık IMCPv4 (Ping) daha kolay test etmek için Güvenlik Duvarı'nda
-2. Web sitesi için bir dizin oluşturun
-3. Uzaktan Erişim tarafından web sayfasını olması için bir metin dosyası oluşturun
-4. Anonim erişime izin vermek için dosya ve dizin izinlerini ayarlayın
-5. IE Artırılmış Güvenlik bu sunucudan daha kolay gezinme izin vermek için devre dışı bırakma 
+1. Açık IMCPv4 (Ping) daha kolay test etmek için Güvenlik Duvarı'nda hello
+2. Merhaba web sitesi için bir dizin oluşturun
+3. Bir metin dosyası toobe uzaktan oluşturmak erişim tarafından hello web sayfası
+4. Merhaba dizin ve dosya tooAnonymous tooallow erişim izinlerini ayarlayın
+5. IE Artırılmış Güvenlik tooallow bu sunucudan gözatma daha kolay Aç 
 
 > [!IMPORTANT]
-> **En iyi uygulaması**: hiçbir zaman bir üretim sunucuda IE Artırılmış Güvenlik devre dışı kapatın, artı, genellikle bir üretim sunucusundan Web'de gezinmek için kötü bir fikirdir. Ayrıca, dosya paylaşımları anonim erişim için açma tamamlandı ancak kötü bir fikir burada kolaylık sağlamak için geçerlidir.
+> **En iyi uygulaması**: hiçbir zaman bir üretim sunucuda IE Artırılmış Güvenlik devre dışı kapatın, artı genellikle bir üretim sunucusu kötü bir fikir toosurf hello Web'den içindir. Ayrıca, dosya paylaşımları anonim erişim için açma tamamlandı ancak kötü bir fikir burada kolaylık sağlamak için geçerlidir.
 > 
 > 
 
-RDP AppVM01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırmanız gerekir. PowerShell aktarılmadığı sağlamak için yönetici olarak çalıştırmak için gereklidir.
+RDP AppVM01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırmanız gerekir. Yönetici tooensure başarılı yürütülmesi gereken toobe powershell'dir.
 
 ```PowerShell
 # AppVM01 Server Post Build Config Script
-# PowerShell must be run as Administrator for Net Share commands to work
+# PowerShell must be run as Administrator for Net Share commands toowork
 
 # Turn On ICMPv4
     New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
@@ -172,7 +172,7 @@ RDP AppVM01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırma
     New-Item "C:\WebShare" -ItemType Directory
 
 # Write out Rand.txt
-    $FileContent = "Hello, I'm the contents of a remote file on AppVM01."
+    $FileContent = "Hello, I'm hello contents of a remote file on AppVM01."
     $FileContent | Out-File -FilePath "C:\WebShare\Rand.txt" -Encoding ascii
 
 # Set Permissions on share
@@ -193,12 +193,12 @@ RDP AppVM01 alırken bu PowerShell komut dosyasını yerel olarak çalıştırma
 ```
 
 ## <a name="dns01---dns-server-installation-script"></a>DNS01 - DNS sunucusu yükleme betiği
-DNS sunucusu kurmak için bu örnek uygulama dahil betik yok. Güvenlik duvarı kuralları, NSG veya UDR sınama DNS trafiğinin eklenmesi gerekiyorsa, DNS01 sunucusunun elle ayarlanması gerekir. Ağ yapılandırma xml dosyasını ve Resource Manager şablonu hem örnekleri için birincil DNS sunucusu ve düzeyi 3'ü yedekleme DNS sunucusu tarafından barındırılan ortak DNS sunucusu olarak DNS01 içerir. Düzey 3 DNS sunucusu yerel olmayan trafik için kullanılan gerçek bir DNS sunucusunun ve DNS01 ile ayarlanmadı, DNS oluşacak yerel ağ.
+Bu örnek uygulama tooset hello DNS sunucusu dahil betik yok. Merhaba güvenlik duvarı kuralları, NSG veya UDR sınama tooinclude DNS trafiğinin gerekirse, hello DNS01 server toobe gerekir el ile ayarlayın. Merhaba ağ yapılandırma xml dosyasını ve örneklerin her ikisi de Resource Manager şablonu hello birincil DNS sunucusu ve Düzey 3 hello yedekleme DNS sunucusu tarafından barındırılan hello ortak DNS sunucusu olarak DNS01 içerir. Merhaba düzeyi 3 DNS sunucusu yerel olmayan trafik için kullanılan hello gerçek bir DNS sunucusunun ve DNS01 ile ayarlanmadı, DNS oluşacak yerel ağ.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir IIS sunucusunda IIS01 komut dosyasını çalıştır
+* Bir IIS sunucusunda Hello IIS01 betiği çalıştırın
 * AppVM01 üzerinde dosya sunucusu komut dosyasını çalıştır
-* IIS01 yapınızın doğrulamak için ortak IP göz atın
+* Toohello genel IP IIS01 toovalidate üzerinde yapınızın Gözat
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md

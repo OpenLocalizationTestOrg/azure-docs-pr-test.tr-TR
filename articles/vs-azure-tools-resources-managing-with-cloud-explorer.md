@@ -1,6 +1,6 @@
 ---
-title: "Bulut Gezgini ile Azure kaynaklarını yönetme | Microsoft Docs"
-description: "Cloud Explorer göz atın ve Visual Studio içinde Azure kaynaklarınızı yönetmek için nasıl kullanılacağını öğrenin."
+title: aaaManaging Azure Cloud Explorer kaynaklarla | Microsoft Docs
+description: "Bilgi nasıl toouse Cloud Explorer toobrowse ve Visual Studio içinde Azure kaynaklarını yönetin."
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/25/2017
 ms.author: kraigb
-ms.openlocfilehash: 6e6d8d559f0251b71bfa6d529ead82a246cb3235
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8a81660074d5d04be063df9e25076b7a97586514
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Visual Studio Cloud Explorer'da, Azure hesaplarıyla ilişkili kaynakları yönetme
-Cloud Explorer Azure kaynakları ve kaynak gruplarını görüntülemek özelliklerini inceleyin ve Visual Studio içinde anahtar Geliştirici tanılama eylemleri gerçekleştirmek sağlar. 
+# <a name="manage-hello-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Visual Studio Cloud Explorer'da, Azure hesaplarıyla ilişkili hello kaynaklarını yönetme
+Cloud Explorer, tooview Azure kaynaklarınızı etkinleştirir ve kaynak grupları, bunların özelliklerini inceleyebilir ve Visual Studio içinde anahtar Geliştirici tanılama eylemleri gerçekleştirin. 
 
-Gibi [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer Azure Kaynak Yöneticisi yığınında oluşturulur. Bu nedenle, Cloud Explorer anlar Azure kaynak gruplarını gibi kaynakları ve Logic apps ve API uygulamaları gibi Azure Hizmetleri ve destekliyorsa [rol tabanlı erişim denetimi](active-directory/role-based-access-control-configure.md) (RBAC). 
+Hello gibi [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer hello Azure Kaynak Yöneticisi yığınında oluşturulur. Bu nedenle, Cloud Explorer anlar Azure kaynak gruplarını gibi kaynakları ve Logic apps ve API uygulamaları gibi Azure Hizmetleri ve destekliyorsa [rol tabanlı erişim denetimi](active-directory/role-based-access-control-configure.md) (RBAC). 
 
 ## <a name="prerequisites"></a>Ön koşullar
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) ile **Azure iş yükü** seçili, ya da Visual Studio ile önceki bir sürümünü [.NET 2.9 için Microsoft Azure SDK'sı](https://www.microsoft.com/en-us/download/details.aspx?id=51657).
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) hello ile **Azure iş yükü** seçili veya önceki bir sürümünü Visual Studio ile Merhaba [.NET 2.9 için Microsoft Azure SDK'sı](https://www.microsoft.com/en-us/download/details.aspx?id=51657).
 - Microsoft Azure hesabı - bir hesabınız yoksa, şunları yapabilirsiniz [ücretsiz deneme için kaydolun](http://go.microsoft.com/fwlink/?LinkId=623901) veya [Visual Studio abone Avantajlarınızı etkinleştirebilir](http://go.microsoft.com/fwlink/?LinkId=623901).
 
 > [!NOTE]
-> Cloud Explorer görüntülemek için seçin **Görünüm** > **Cloud Explorer** menü çubuğunda.   
+> tooview Cloud Explorer seçin **Görünüm** > **Cloud Explorer** hello menü çubuğunda.   
 > 
 > 
 
-## <a name="add-an-azure-account-to-cloud-explorer"></a>Bir Azure eklemek hesabı bulut Gezgini
-Bir Azure hesabı ile ilişkili kaynakları görüntülemek için hesabı bulut Gezgini'ne eklemeniz gerekir. 
+## <a name="add-an-azure-account-toocloud-explorer"></a>Bir Azure hesabı tooCloud Explorer ekleme
+bir Azure hesabı ile ilişkili tooview hello kaynakları hello hesap tooCloud Explorer ilk eklemeniz gerekir. 
 
 1. İçinde **Cloud Explorer**seçin **Azure hesap ayarlarını**.
 
@@ -45,13 +45,13 @@ Bir Azure hesabı ile ilişkili kaynakları görüntülemek için hesabı bulut 
 
     ![Cloud Explorer hesabı Ekle bağlantı](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
 
-1. Gözatmak istediğiniz kaynakları Azure hesabı için oturum açın. 
+1. Toohello kaynakları istediğiniz Azure hesabı oturum toobrowse. 
 
-1. Bir Azure hesabına oturum sonra bu hesapla ilişkili abonelikleri görüntüler. Göz atın ve ardından istediğiniz hesap aboneliklerinin onay kutularını işaretleyin **Uygula**. 
+1. Tooan Azure hesabı oturum sonra bu hesapla ilişkili hello abonelikleri görüntüler. Merhaba toobrowse istediğiniz ve ardından hello hesap aboneliklerinin onay kutularını seçin **Uygula**. 
  
-    ![Cloud Explorer: görüntülemek için Azure aboneliklerini seçin](media/vs-azure-tools-resources-managing-with-cloud-explorer/select-subscriptions.png)
+    ![Cloud Explorer: Azure abonelikleri toodisplay seçin](media/vs-azure-tools-resources-managing-with-cloud-explorer/select-subscriptions.png)
 
-1. Kaynakları gözatmak istediğiniz abonelikleri seçtikten sonra bu abonelikleri ve kaynakları bulut Gezgini'nde görüntüler.
+1. Kaynakları istediğiniz hello abonelikleri seçtikten sonra toobrowse, bu abonelikleri ve kaynakları hello Cloud Explorer görüntüler.
 
     ![Cloud Explorer kaynak bir Azure hesabı için listeleme](media/vs-azure-tools-resources-managing-with-cloud-explorer/resources-listed.png)
 
@@ -61,44 +61,44 @@ Bir Azure hesabı ile ilişkili kaynakları görüntülemek için hesabı bulut 
 
     ![Cloud Explorer Azure hesabı ayarları simgesi](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. Kaldırmak istediğiniz hesabı yanındaki seçin **kaldırmak**.
+1. Sonraki toohello hesabı tooremove, istediğiniz **kaldırmak**.
 
     ![Cloud Explorer Azure hesabı ayarları simgesi](media/vs-azure-tools-resources-managing-with-cloud-explorer/remove-account.png)
 
 ## <a name="view-resource-types-or-resource-groups"></a>Kaynak türleri veya kaynak gruplarını görüntüleme
-Azure kaynaklarınızı görüntülemeyi ya da seçebilir **kaynak türleri** veya **kaynak grupları** görünümü.
+tooview ya da seçin, Azure kaynaklarınıza **kaynak türleri** veya **kaynak grupları** görünümü.
 
-1. İçinde **Cloud Explorer**, kaynak görünümü açılır seçin.
+1. İçinde **Cloud Explorer**, select hello kaynak görünümü açılır.
 
-    ![İstenen kaynakları görünüm seçmek için bulut Explorer açılır listesi](media/vs-azure-tools-resources-managing-with-cloud-explorer/resources-view-dropdown.png)
+    ![Cloud Explorer açılır liste tooselect istenen hello kaynakları görünümü](media/vs-azure-tools-resources-managing-with-cloud-explorer/resources-view-dropdown.png)
 
-1. Bağlam menüsünden istediğiniz görünümü seçin: 
+1. Merhaba bağlam menüsünden istenen hello görünümü seçin: 
 
-    - **Kaynak türleri** view - üzerinde kullanılan genel görünüm [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), web uygulamaları, depolama hesapları ve sanal makineler gibi kendi türüne göre kategorize Azure kaynaklarınızı gösterir. 
-    - **Kaynak grupları** view - kategorilere ayıran Azure kaynakları ile bunların ilişkili Azure kaynak grubu tarafından. Bir kaynak grubu genellikle belirli bir uygulama tarafından kullanılan Azure kaynaklarını paketidir. Azure kaynak grupları hakkında daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış](./azure-resource-manager/resource-group-overview.md).
+    - **Kaynak türleri** görünümü - hello üzerinde kullanılan hello ortak [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), web uygulamaları, depolama hesapları ve sanal makineler gibi kendi türüne göre kategorize Azure kaynaklarınızı gösterir. 
+    - **Kaynak grupları** view - kategorilere ayıran Azure kaynakları ile bunların ilişkili hello Azure kaynak grubu tarafından. Bir kaynak grubu genellikle belirli bir uygulama tarafından kullanılan Azure kaynaklarını paketidir. Azure kaynak grupları hakkında daha fazla toolearn bkz [Azure Resource Manager'a genel bakış](./azure-resource-manager/resource-group-overview.md).
 
-    Aşağıdaki görüntü iki kaynak görünümleri karşılaştırması göstermektedir:
+    Merhaba aşağıdaki resimde hello karşılaştırması iki kaynak görünümleri gösterilmektedir:
 
     ![Cloud Explorer kaynak görünümleri karşılaştırma](media/vs-azure-tools-resources-managing-with-cloud-explorer/resource-views-comparison.png)
 
 ## <a name="view-and-navigate-resources-in-cloud-explorer"></a>Görüntülemek ve bulut Explorer'da kaynaklara gidin
-Bir Azure kaynağı gidin ve Cloud Explorer'da bilgilerini görüntülemek için öğenin türü veya ilişkili kaynak grubunu genişletin ve ardından kaynak seçin. Bir kaynak seçtiğinizde, bilgiler iki sekmeleri - görünür **Eylemler** ve **özellikleri** - Cloud Explorer'ın altındaki. 
+Azure kaynak toonavigate tooan ve Cloud Explorer'da bilgilerini görüntülemek, hello öğenin türü veya ilişkili kaynak grubunu genişletin ve ardından hello kaynak seçin. Bir kaynak seçtiğinizde, bilgi hello iki sekmeleri - görünür **Eylemler** ve **özellikleri** - Cloud Explorer hello sonundaki. 
 
-- **Eylemler** sekmesi - Cloud Explorer'da seçilen kaynak için gerçekleştirebileceğiniz eylemleri listeler. Bu seçenekler, bağlam menüsü görüntülemek için kaynak sağ tıklayarak da görüntüleyebilirsiniz.
+- **Eylemler** sekmesi - listeleri hello eylemler için seçili hello kaynak Cloud Explorer'da alabilir. Ayrıca bu seçenekler hello kaynak tooview sağ tıklayarak bağlam menüsünü görüntüleyebilirsiniz.
 
-- **Özellikler** sekmesi - olduğu ilişkili türü, yerel ayar ve kaynak grubu gibi kaynak özelliklerini gösterir.
+- **Özellikler** sekmesi - olduğu ilişkili türü, yerel ayar ve kaynak grubu gibi hello kaynak hello özelliklerini gösterir.
 
-Aşağıdaki resimde, her bir sekmede bir uygulama hizmeti için gördüğünüz bir örnek karşılaştırması gösterilmektedir:
+Merhaba aşağıdaki resimde, her bir sekmede bir uygulama hizmeti için gördüğünüz bir örnek karşılaştırması gösterilmektedir:
 
 ![](./media/vs-azure-tools-resources-managing-with-cloud-explorer/actions-and-properties.png)
 
-Her kaynak eyleme sahip **portalında açık**. Bu eylem seçtiğinizde, seçilen kaynak Cloud Explorer görüntüler [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). **Portalında açık** özelliktir iç içe kaynaklarına gezinmek için kullanışlı.
+Her kaynak hello eyleminin **portalında açık**. Bu eylem seçtiğinizde, bulut Explorer seçili hello kaynak hello görüntüler. [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). Merhaba **portalında açık** özelliktir iç içe geçmiş toodeeply kaynakları gezinmek için kullanışlı.
 
-Ek eylemleri ve özellik değerlerini de Azure kaynak tabanlı görünebilir. Örneğin, web uygulamaları ve mantıksal uygulamalar eylemleri de **tarayıcıda aç** ve **hata ayıklayıcısını** ek olarak **portalında açık**. Depolama hesabı blob, kuyruk veya tablo seçtiğinizde, düzenleyiciler açmak için Eylemler görüntülenir. Azure uygulamaları **URL** ve **durum** depolama kaynaklarını anahtar ve bağlantı dizesi özellikleri varken özellikleri.
+Ek eylemleri ve özellik değerlerini de hello Azure kaynak üzerinde tabanlı görünebilir. Örneğin, web uygulamaları ve logic apps hello eylemleri de **tarayıcıda aç** ve **hata ayıklayıcısını** ayrıca çok**portalında açık**. Depolama hesabı blob, kuyruk veya tablo seçtiğinizde Eylemler tooopen düzenleyicileri görünür. Azure uygulamaları **URL** ve **durum** depolama kaynaklarını anahtar ve bağlantı dizesi özellikleri varken özellikleri.
 
 ## <a name="find-resources-in-cloud-explorer"></a>Cloud Explorer'da kaynakları bulun
-Azure hesabı aboneliklerinizi belirli bir ada sahip kaynaklarını bulmak için ad girin **arama** Cloud Explorer'da kutusu.
+Azure hesabı aboneliklerinizi belirli bir adla toolocate kaynaklarla hello hello adı girin **arama** Cloud Explorer'da kutusu.
 
 ![Cloud Explorer'da kaynakları bulma](./media/vs-azure-tools-resources-managing-with-cloud-explorer/search-for-resources.png)
 
-Karakter girerken **arama** kutusu, bu karakterler karşılayan kaynakları kaynak ağacında görünür.
+Hello karakter girerken **arama** kutusu, bu karakterler karşılayan kaynakları hello kaynak ağacında görünür.

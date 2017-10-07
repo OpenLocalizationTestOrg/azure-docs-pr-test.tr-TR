@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: .NET ve MongoDB API'si ile bir web uygulaması derleme | Microsoft Docs"
-description: "Azure Cosmos DB MongoDB API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir .NET kodu örneği sunar"
+title: "Azure Cosmos DB: .NET ile bir web uygulaması oluşturma ve API MongoDB hello | Microsoft Docs"
+description: "Tooconnect tooand sorgu kullanabileceğiniz bir .NET kod örneği hello Azure Cosmos DB MongoDB API sunar"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,21 +15,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 2d30bec75d701b1fd55355d1e139350b6d828c9a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c85cc47f772a19aaa7181611b75a8acaedbc4c42
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: .NET ve Azure portalı ile bir MongoDB API'si web uygulaması derleme
+# <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-hello-azure-portal"></a>Azure Cosmos DB: .NET ile MongoDB API web uygulaması oluşturma ve Azure portal hello
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Hızlı bir şekilde oluşturmak ve belge, anahtar/değer ve grafik veritabanları, her biri hello genel dağıtım ve yatay ölçek özelliklerini Azure Cosmos DB'nin hello çekirdek yararlı sorgulayabilirsiniz. 
 
-Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB hesabını, belge veritabanını ve koleksiyonunu nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından [MongoDB .NET sürücüsü](https://docs.mongodb.com/ecosystem/drivers/csharp/) üzerinde oluşturulan görev listesi web uygulaması derleyip dağıtacaksınız. 
+Bu hızlı başlangıç nasıl toocreate Azure Cosmos DB hesabınız, belge veritabanı ve koleksiyonu kullanarak Azure portalında hello gösterir. Daha sonra yapı ve hello üzerinde oluşturulmuş bir görevler listesi web uygulaması dağıtma [MongoDB .NET sürücü](https://docs.mongodb.com/ecosystem/drivers/csharp/). 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+Visual Studio yüklü 2017 zaten sahip değilseniz, indirin ve hello kullan **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Etkinleştirdiğinizden emin olun **Azure geliştirme** hello Visual Studio Kurulumu sırasında.
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 <a id="create-account"></a>
@@ -37,25 +37,25 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
+## <a name="clone-hello-sample-application"></a>Merhaba örnek uygulaması kopyalama
 
-Şimdi GitHub'dan bir MongoDB API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Artık şimdi github, kopya bir MongoDB API uygulamasını hello bağlantı dizesini ayarlamak ve çalıştırın. Ne kadar kolay toowork verilerle program aracılığıyla olduğunu görürsünüz. 
 
-1. Git bash gibi bir git terminal penceresi açın ve `cd` ile çalışma dizinine gidin.  
+1. Git bash gibi bir git terminal penceresi açın ve `cd` tooa çalışma dizini.  
 
-2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. 
+2. Çalışma hello aşağıdaki tooclone hello örnek depo komutu. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
     ```
 
-3. Ardından çözüm dosyasını Visual Studio'da açın. 
+3. Ardından Visual Studio'da hello çözüm dosyasını açın. 
 
-## <a name="review-the-code"></a>Kodu gözden geçirin
+## <a name="review-hello-code"></a>Merhaba kod gözden geçirme
 
-Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. **DAL** dizini altındaki **Dal.cs** dosyasını açtığınızda Azure Cosmos DB kaynaklarını bu kod satırlarının oluşturduğunu göreceksiniz. 
+Neler olduğuna dair hello uygulamada hızlı bir gözden geçirme olalım. Açık hello **Dal.cs** dosyasını hello altında **DAL** dizin ve bulabileceğiniz bu kod satırları hello Azure Cosmos DB kaynakları oluşturun. 
 
-* Mongo İstemcisini başlatın.
+* Merhaba Mongo istemci başlatır.
 
     ```cs
         MongoClientSettings settings = new MongoClientSettings();
@@ -75,7 +75,7 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. **DAL** dizini
         MongoClient client = new MongoClient(settings);
     ```
 
-* Veritabanı ve koleksiyonu alın.
+* Merhaba veritabanı ve hello koleksiyonu alır.
 
     ```cs
     private string dbName = "Tasks";
@@ -93,47 +93,47 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. **DAL** dizini
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
-Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
+Şimdi Azure portal tooget toohello bağlantı dizesi bilgilerinizi geri dönün ve hello uygulamaya kopyalayın.
 
-1. [Azure portalında](http://portal.azure.com/), Azure Cosmos DB hesabınızın sol taraftaki gezinti menüsünden **Bağlantı Dizesi**'ne ve ardından **Okuma-Yazma Anahtarları**'na tıklayın. Sonraki adımda ekranın sağ tarafındaki kopyalama düğmelerini kullanarak Kullanıcı Adı, Parola ve Ana Bilgisayar değerlerini Dal.cs dosyasına kopyalayacaksınız.
+1. Merhaba, [Azure portal](http://portal.azure.com/), Azure Cosmos DB hesap, sol gezinti hello tıklatın **bağlantı dizesi**ve ardından **okuma-yazma anahtarları**. Merhaba sonraki adımda hello Dal.cs dosyasına hello Kopyala düğmesi hello sağ tarafında Merhaba ekranında toocopy hello kullanıcı adı, parola ve ana bilgisayar kullanacaksınız.
 
-2. **DAL** dizinindeki **Dal.cs** dosyasını açın. 
+2. Açık hello **Dal.cs** hello dosyasında **DAL** dizin. 
 
-3. **userename** değerini portaldan kopyalayın (kopyalama düğmesini kullanarak) ve **Dal.cs** dosyasına **username** değeri olarak yapıştırın. 
+3. Kopyalama, **kullanıcıadı** değeri (Merhaba Kopyala düğmesini kullanarak) hello portalından ve hale hello hello değerini **kullanıcı adı** içinde **Dal.cs** dosya. 
 
-4. Ardından **host** değerini portaldan kopyalayın ve **Dal.cs** dosyanıza **host** değeri olarak yapıştırın. 
+4. Daha sonra kopyalayın, **konak** değer hello portalından ve yapmak hello hello değerini **konak** içinde **Dal.cs** dosya. 
 
-5. Son olarak, **password** değerini portaldan kopyalayın ve **Dal.cs** dosyanıza **password** değeri olarak yapıştırın. 
+5. Son olarak kopyalamak, **parola** değer hello portalından ve hale hello hello değerini **parola** içinde **Dal.cs** dosya. 
 
-Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
+Uygulamanızı şimdi güncelleştirdikten toocommunicate Azure Cosmos DB ile gerekli tüm hello bilgilerine sahip. 
     
-## <a name="run-the-web-app"></a>Web uygulamasını çalıştırma
+## <a name="run-hello-web-app"></a>Merhaba web uygulaması çalıştırın
 
-1. Visual Studio'nun **Çözüm Gezgini** bölümünde projeye sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın. 
+1. Visual Studio'da hello projeye sağ tıklayın **Çözüm Gezgini** ve ardından **NuGet paketlerini Yönet**. 
 
-2. NuGet **Gözat** kutusuna *MongoDB* yazın.
+2. Merhaba NuGet içinde **Gözat** kutusuna *MongoDB.Driver*.
 
-3. Sonuçlardan **MongoDB.Driver** kitaplığını yükleyin. Bunu yaptığınızda MongoDB.Driver paketi ve tüm bağımlılıklar yüklenir.
+3. Merhaba sonuçlarından hello yüklemek **MongoDB.Driver** kitaplığı. Bu, tüm bağımlılıkları yanı sıra hello MongoDB.Driver paketi yükler.
 
-4. Uygulamayı çalıştırmak için CTRL+F5 tuşlarına basın. Uygulamanız tarayıcınızda görüntülenir. 
+4. CTRL + F5'e tıklayın toorun Merhaba uygulaması. Uygulamanız tarayıcınızda görüntülenir. 
 
-5. Tarayıcıda **Yeni** düğmesine tıklayın ve görev listesi uygulamanızda birkaç yeni görev oluşturun.
+5. Tıklatın **oluşturma** hello tarayıcı ve görev listesi uygulamanızda birkaç yeni görevler oluşturabilir.
 
-## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
+## <a name="review-slas-in-hello-azure-portal"></a>Gözden geçirme SLA'hello Azure portalı
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak Azure portalında bu hızlı başlangıç tarafından oluşturulan tüm kaynakları silin:
+Toocontinue toouse bu uygulamayı değil kullanacaksanız, bu hızlı başlangıç tarafından hello Azure portalında aşağıdaki adımları hello ile oluşturulan tüm kaynakları silin:
 
-1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
-2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
+1. Merhaba sol taraftaki menüden hello Azure portal'ın, **kaynak grupları** ve ardından oluşturduğunuz hello kaynak hello adına tıklayın. 
+2. Kaynak grubu sayfanızda tıklatın **silmek**hello metin kutusuna hello kaynak toodelete hello adını yazın ve ardından **silmek**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı ve MongoDB kullanarak bir web uygulamasını çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
+Bu hızlı başlangıç nasıl toocreate bir Azure Cosmos DB hesap ve bir web uygulamasını kullanarak çalışma MongoDB için API hello öğrendiniz. Artık ek verileri tooyour Cosmos DB hesap içeri aktarabilirsiniz. 
 
 > [!div class="nextstepaction"]
-> [MongoDB API'si için Azure Cosmos DB’ye veri aktarma](mongodb-migrate.md)
+> [Merhaba MongoDB API Azure Cosmos Veritabanına veri alma](mongodb-migrate.md)
 

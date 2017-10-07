@@ -1,6 +1,6 @@
 ---
-title: "Azure yönetilen uygulama PublicIpAddressCombo UI öğesi | Microsoft Docs"
-description: "Azure yönetilen uygulamalar için Microsoft.Network.PublicIpAddressCombo kullanıcı Arabirimi öğesi açıklar"
+title: "aaaAzure yönetilen uygulama PublicIpAddressCombo UI öğesi | Microsoft Docs"
+description: "Azure yönetilen uygulamalar için Hello Microsoft.Network.PublicIpAddressCombo UI öğesi açıklar"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 2eb773f5f0cf389fc39bc3a0f5fbf9ac726d1949
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8ba689005c0eccda0a57bf628de4b5197886a950
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI öğesi
 Yeni veya var olan ortak IP adresi seçme denetimlerini grubudur. Bu öğe kullandığınız zaman [yönetilen bir Azure uygulama oluşturmaya](managed-application-publishing.md).
@@ -25,9 +25,9 @@ Yeni veya var olan ortak IP adresi seçme denetimlerini grubudur. Bu öğe kulla
 ## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
 
-- Kullanıcının ortak IP adresi için ' None' seçerse, etki alanı adı etiketi metin kutusu gizlenir.
-- Kullanıcı var olan bir ortak IP adresi seçer, etki alanı adı etiketi metin kutusu devre dışı bırakılır. Seçili IP adresinin etki alanı adı etiketi değeri olduğu.
-- Otomatik olarak seçilen konum temelinde etki alanı adı soneki (örneğin, westus.cloudapp.azure.com) güncelleştirmeler.
+- Genel IP adresi için ' None' Hello kullanıcı seçerse, hello etki alanı adı etiketi metin kutusu gizlenir.
+- Mevcut bir ortak IP adresini Hello kullanıcının seçtiği hello etki alanı adı etiketi metin kutusu devre dışı bırakılır. Değerini hello etki alanı adı etiketi hello seçili IP adresi belirtin.
+- etki alanı adı soneki (örneğin, westus.cloudapp.azure.com) güncelleştirmeleri otomatik olarak seçilen hello konum temelinde hello.
 
 ## <a name="schema"></a>Şema
 ```json
@@ -61,20 +61,20 @@ Yeni veya var olan ortak IP adresi seçme denetimlerini grubudur. Bu öğe kulla
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- Varsa `constraints.required.domainNameLabel` ayarlanır **doğru**, kullanıcı, yeni bir ortak IP adresi oluştururken, bir etki alanı adı etiketi sağlamanız gerekir. Bir etiketi olmayan olmadan seçime uygun varolan ortak IP adresleri.
-- Varsa `options.hideNone` ayarlanır **true**, ardından belirleme seçeneği **hiçbiri** için genel IP adresi gizlenir. Varsayılan değer **false**.
-- Varsa `options.hideDomainNameLabel` ayarlanır **doğru**, etki alanı adı etiketi için metin kutusu gizli sonra. Varsayılan değer **false**.
-- Varsa `options.hideExisting` kullanıcı mevcut bir ortak IP adresini seçebilir değil sonra true olur. Varsayılan değer **false**.
+- Varsa `constraints.required.domainNameLabel` çok ayarlanır**doğru**, yeni bir ortak IP adresi oluştururken hello kullanıcı bir etki alanı adı etiketi sağlamalıdır. Bir etiketi olmayan olmadan seçime uygun varolan ortak IP adresleri.
+- Varsa `options.hideNone` çok ayarlanır**true**, seçeneği tooselect hello **hiçbiri** hello için genel IP adresi gizlenir. Merhaba varsayılan değer **false**.
+- Varsa `options.hideDomainNameLabel` çok ayarlanır**doğru**, etki alanı adı etiketi hello metin kutusu gizli sonra. Merhaba varsayılan değer **false**.
+- Varsa `options.hideExisting` hello kullanıcı mümkün toochoose mevcut bir ortak IP adresini değil sonra true olur. Merhaba varsayılan değer **false**.
 
 ## <a name="sample-output"></a>Örnek çıktı
-Kullanıcının ortak IP adresi seçerse, aşağıdaki çıkış bekleniyor:
+Merhaba kullanıcı ortak IP adresi seçerse, hello aşağıdaki çıkış bekleniyor:
 ```json
 {
   "newOrExistingOrNone": "none"
 }
 ```
 
-Kullanıcı yeni veya var olan bir IP adresi seçerse, aşağıdaki çıkış bekleniyor:
+Merhaba kullanıcı yeni veya var olan bir IP adresi seçer, hello aşağıdaki çıkış bekleniyor:
 ```json
 {
   "name": "ip01",
@@ -87,6 +87,6 @@ Kullanıcı yeni veya var olan bir IP adresi seçerse, aşağıdaki çıkış be
 - Zaman `options.hideDomainNameLabel` belirtilirse, `domainNameLabel` bildirilmedi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yönetilen uygulamaların giriş için bkz: [Azure yönetilen uygulama genel bakış](managed-application-overview.md).
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](managed-application-createuidefinition-overview.md).
+* Bir giriş toomanaged uygulamalar için bkz [Azure yönetilen uygulama genel bakış](managed-application-overview.md).
+* Bir giriş toocreating UI tanımları için bkz: [CreateUiDefinition ile çalışmaya başlama](managed-application-createuidefinition-overview.md).
 * Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](managed-application-createuidefinition-elements.md).

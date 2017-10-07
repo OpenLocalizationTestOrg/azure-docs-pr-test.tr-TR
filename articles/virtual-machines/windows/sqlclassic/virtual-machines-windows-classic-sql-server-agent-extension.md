@@ -1,6 +1,6 @@
 ---
-title: "SQL vm'lerde (Klasik) yönetim görevlerini otomatikleştiren | Microsoft Docs"
-description: "Bu konuda, belirli SQL Server yönetim görevlerini otomatikleştirir SQL Server Aracısı uzantısı yönetmek açıklar. Bunlar otomatik yedekleme, otomatik düzeltme eki uygulama ve Azure anahtar kasası tümleştirmeyi içerir. Bu konu, Klasik dağıtım modunu kullanır."
+title: "SQL VM'ler (Klasik) aaaAutomate yönetim görevleri | Microsoft Docs"
+description: "Bu konuda nasıl toomanage hello belirli SQL Server yönetim görevlerini otomatikleştirir SQL Server Aracısı uzantısı açıklanmaktadır. Bunlar otomatik yedekleme, otomatik düzeltme eki uygulama ve Azure anahtar kasası tümleştirmeyi içerir. Bu konuda hello Klasik dağıtım modunu kullanır."
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
@@ -16,35 +16,35 @@ ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30fa9128cd51a7498449c991b58500ad9acdd3d4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a1dc011e0526845701eaf0c365007938f9ee32ad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>SQL Server Aracısı uzantısı (Klasik) ile Azure sanal makineler üzerinde yönetim görevlerini otomatik hale getirme
+# <a name="automate-management-tasks-on-azure-virtual-machines-with-hello-sql-server-agent-extension-classic"></a>Merhaba SQL Server Aracısı uzantısı (Klasik) ile Azure sanal makineler üzerinde yönetim görevleri otomatik hale getirme
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md)
 > * [Klasik](../classic/sql-server-agent-extension.md)
 > 
 >
  
-SQL Server Iaas Aracısı uzantısı (Sqlıaasagent) Azure yönetim görevlerini otomatikleştirmek için sanal makinelerde çalışır. Bu konu, yükleme, durum ve kaldırma yönergeleri yanı sıra uzantısı tarafından desteklenen hizmetlerine genel bakış sağlar.
+SQL Server Iaas Aracısı uzantısı (Sqlıaasagent) Hello Azure sanal makineleri tooautomate yönetim görevlerini üzerinde çalışır. Bu konu, yükleme, durum ve kaldırma yönergeleri yanı sıra hello uzantısı tarafından desteklenen hello hizmetlerine genel bakış sağlar.
 
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Bu makalede Resource Manager sürümünü görüntülemek için bkz: [SQL Server Aracısı uzantısı için SQL Server VM'ler Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md).
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. Bu makalenin tooview hello Resource Manager sürümü bkz [SQL Server Aracısı uzantısı için SQL Server VM'ler Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="supported-services"></a>Desteklenen hizmetler
-SQL Server Iaas Aracısı uzantısı aşağıdaki yönetim görevlerini destekler:
+SQL Server Iaas Aracısı uzantısı Hello hello aşağıdaki yönetim görevlerini destekler:
 
 | Yönetim özelliği | Açıklama |
 | --- | --- |
-| **SQL otomatik yedekleme** |Tüm veritabanları için yedekleme VM'de SQL Server'ın varsayılan örneğinin zamanlama otomatikleştirir. Daha fazla bilgi için bkz: [Azure Virtual Machines'de (Klasik) SQL Server için otomatik yedeklemeyi](../classic/sql-automated-backup.md). |
-| **SQL otomatik düzeltme eki uygulama** |Güncelleştirmeleri, iş yükü için yoğun saatlerde kaçınmak için güncelleştirme, VM, gerçekleştirilebildiği bir bakım penceresi yapılandırır. Daha fazla bilgi için bkz: [otomatik Azure Virtual Machines'de (Klasik) SQL Server için düzeltme eki uygulama](../classic/sql-automated-patching.md). |
-| **Azure Anahtar Kasası Tümleştirmesi** |Otomatik olarak yüklemek ve SQL Server VM'nize üzerinde Azure anahtar kasası yapılandırmanıza olanak sağlar. Daha fazla bilgi için bkz: [(Klasik) Azure vm'lerinde SQL Server için Azure anahtar kasası tümleştirmeyi yapılandırmak](../classic/ps-sql-keyvault.md). |
+| **SQL otomatik yedekleme** |Merhaba hello varsayılan SQL Server'ın örneğinde hello VM tüm veritabanları için yedekleme zamanlaması otomatikleştirir. Daha fazla bilgi için bkz: [Azure Virtual Machines'de (Klasik) SQL Server için otomatik yedeklemeyi](../classic/sql-automated-backup.md). |
+| **SQL otomatik düzeltme eki uygulama** |Güncelleştirmeleri, iş yükü için yoğun saatlerde kaçınmak için bir bakım penceresi sırasında hangi güncelleştirmelerin VM sürebilir tooyour yerleştirin, yapılandırır. Daha fazla bilgi için bkz: [otomatik Azure Virtual Machines'de (Klasik) SQL Server için düzeltme eki uygulama](../classic/sql-automated-patching.md). |
+| **Azure Anahtar Kasası Tümleştirmesi** |Tooautomatically yükleme ve SQL Server VM'nize üzerinde Azure anahtar kasası yapılandırma sağlar. Daha fazla bilgi için bkz: [(Klasik) Azure vm'lerinde SQL Server için Azure anahtar kasası tümleştirmeyi yapılandırmak](../classic/ps-sql-keyvault.md). |
 
 ## <a name="prerequisites"></a>Ön koşullar
-VM üzerinde SQL Server Iaas Aracısı uzantısı kullanmak için gereksinimler:
+SQL Server Iaas Aracısı uzantısını VM toouse hello gereksinimleri:
 
 ### <a name="operating-system"></a>İşletim Sistemi:
 * Windows Server 2012
@@ -57,52 +57,52 @@ VM üzerinde SQL Server Iaas Aracısı uzantısı kullanmak için gereksinimler:
 * SQL Server 2016
 
 ### <a name="azure-powershell"></a>Azure PowerShell:
-[İndirme ve en son Azure PowerShell komutlarının yapılandırma](/powershell/azure/overview).
+[İndirme ve hello en son Azure PowerShell komutlarının yapılandırma](/powershell/azure/overview).
 
-Windows PowerShell'i başlatın ve Azure aboneliğinizle bağlanmak **Add-AzureAccount** komutu.
+Windows PowerShell'i başlatın ve tooyour Azure aboneliği ile Merhaba bağlamak **Add-AzureAccount** komutu.
 
     Add-AzureAccount
 
-Birden çok aboneliğiniz varsa, kullanmak **Select-AzureSubscription** hedef içeren aboneliği seçmek için Klasik VM.
+Birden çok aboneliğiniz varsa, kullanmak **Select-AzureSubscription** hedef içeren tooselect hello abonelik Klasik VM.
 
     Select-AzureSubscription -SubscriptionName <subscriptionname>
 
-Bu noktada, Klasik sanal makineleri ve ilişkili hizmet adlarını listesini almak **Get-AzureVM** komutu.
+Bu noktada, hello Klasik sanal makineleri ve ilişkili hizmet adlarını hello listesini almak **Get-AzureVM** komutu.
 
     Get-AzureVM
 
 ## <a name="installation"></a>Yükleme
-Klasik VM'ler için SQL Server Iaas Aracısı uzantısını yükleyin ve ilişkili hizmetlerini yapılandırmak için PowerShell kullanmanız gerekir. Kullanım **kümesi AzureVMSqlServerExtension** uzantıyı yüklemek için PowerShell cmdlet. Örneğin, aşağıdaki komutu bir Windows Server VM'ye (Klasik) uzantıyı yükleyen ve "SQLIaaSExtension" adları.
+Klasik VM'ler için PowerShell tooinstall hello SQL Server Iaas Aracısı uzantısı kullanın ve ilişkili hizmetlerini yapılandırmanız gerekir. Kullanım hello **kümesi AzureVMSqlServerExtension** PowerShell cmdlet tooinstall hello uzantısı. Örneğin, komutu aşağıdaki hello hello uzantısı bir Windows Server VM'ye (Klasik) yükler ve bunu "SQLIaaSExtension" adları.
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM
 
-SQL Iaas Aracısı uzantısı'nın en son sürüm güncelleştirirseniz, uzantı güncelleştirdikten sonra sanal makinenizi yeniden başlatmanız gerekir.
+Merhaba SQL Iaas Aracısı uzantısı en son sürümünü toohello güncelleştirirseniz, hello uzantısı güncelleştirdikten sonra sanal makinenizi yeniden başlatmanız gerekir.
 
 > [!NOTE]
-> Klasik sanal makineleri yükleme ve portal üzerinden SQL Iaas Aracısı uzantısı yapılandırma seçeneği yok.
+> Klasik sanal makineleri olmayan bir seçenek tooinstall sahip ve hello SQL Iaas Aracısı uzantısı hello portal üzerinden yapılandırın.
 > 
 > 
 
 ## <a name="status"></a>Durum
-Uzantı'nin yüklü olduğunu doğrulamak için bir Azure Portalı'nda aracı durumunu görüntülemek için yoludur. Sanal makine dikey penceresinde listelenen bir sanal makineyi seçin ve ardından tıklatın **uzantıları**. Görmeniz gerekir **Sqlıaasagent** listelenen uzantısı.
+Tek yönlü tooverify Hello uzantısı yüklenir tooview hello aracı durumunu hello Azure Portal ' dir. Merhaba sanal makine dikey penceresinde listelenen bir sanal makineyi seçin ve ardından tıklatın **uzantıları**. Merhaba görmelisiniz **Sqlıaasagent** listelenen uzantısı.
 
 ![SQL Server Iaas Aracısı uzantısı Azure portalında](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)
 
-Aynı zamanda **Get-AzureVMSqlServerExtension** Azure Powershell cmdlet'i.
+Merhaba de kullanabilirsiniz **Get-AzureVMSqlServerExtension** Azure Powershell cmdlet'i.
 
     Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
 
 ## <a name="removal"></a>Temizleme
-Azure Portalı'nda üç nokta işaretine tıklayarak uzantısını kaldırabilirsiniz **uzantıları** dikey penceresinde, sanal makine özellikleri. Ardından **kaldırma**.
+Hello Azure Portal, hello üzerindeki hello üç nokta düğmesine tıklayarak hello uzantısını kaldırabilirsiniz **uzantıları** dikey penceresinde, sanal makine özellikleri. Ardından **kaldırma**.
 
-![Azure Portal'ın SQL Server Iaas Aracısı uzantısını Kaldır](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-uninstall.png)
+![Hello Azure Portalı'nda SQL Server Iaas Aracısı uzantısı kaldırma](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-uninstall.png)
 
-Aynı zamanda **Kaldır AzureVMSqlServerExtension** Powershell cmdlet'i.
+Merhaba de kullanabilirsiniz **Kaldır AzureVMSqlServerExtension** Powershell cmdlet'i.
 
     Get-AzureVM –ServiceName "service" –Name "vmname" | Remove-AzureVMSqlServerExtension | Update-AzureVM
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Genişletme tarafından desteklenen hizmetlerinden birini kullanarak başlayın. Daha fazla ayrıntı için bkz: başvuru konular [desteklenen Hizmetleri](#supported-services) bu makalenin.
+Merhaba uzantısı tarafından desteklenen hello hizmetlerini birini kullanarak başlayın. Daha fazla ayrıntı için bkz: hello başvurulan hello konular [desteklenen Hizmetleri](#supported-services) bu makalenin.
 
 SQL Server Azure sanal makinelerde çalıştırma hakkında daha fazla bilgi için bkz: [Azure sanal makinelere genel bakış SQL Server'da](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 

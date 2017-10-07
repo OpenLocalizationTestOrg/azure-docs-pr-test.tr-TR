@@ -1,6 +1,6 @@
 ---
-title: Hudson Blob storage ile kullanma | Microsoft Docs
-description: "Hudson ile Azure Blob storage depo olarak derleme yapıları için nasıl kullanılacağını açıklar."
+title: Blob storage ile aaaHow toouse Hudson | Microsoft Docs
+description: "Açıklar nasıl toouse Hudson derleme yapıları için depo olarak Azure Blob storage ile."
 services: storage
 documentationcenter: java
 author: seguler
@@ -14,25 +14,25 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-ms.openlocfilehash: e54bedff5f744004288e132efbed8c3e7981f8a6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 196b5d014b0318c5972a052f7822b568cfcc23df
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Hudson Sürekli Tümleştirme çözümüyle Azure Depolama'yı kullanma
 ## <a name="overview"></a>Genel Bakış
-Aşağıdaki bilgiler Blob Depolama Hudson sürekli tümleştirme (CI) çözümü tarafından oluşturulan yapı yapılarının deposu olarak ya da indirilebilir dosyalarını kaynağı olarak bir yapı işleminde kullanılacak nasıl kullanılacağını gösterir. (Java veya diğer dilleri kullanarak) Çevik Geliştirme ortamında kodlama bu yararlı bulabileceğiniz senaryolardan biri, olduğunda, üzerinde sürekli tümleştirme derlemeleri çalıştırıyorsanız ve böylece, örneğin, bunları müşterilerinizin diğer kuruluş üyeleriyle paylaşmak veya bir arşiv tutmak derleme yapıtları için bir depo gerekir.  Derleme işi diğer dosyaları, örneğin, giriş derleme bir parçası olarak indirmek için bağımlılıkları gerektirdiğinde başka bir senaryodur.
+Merhaba aşağıdaki bilgileri nasıl toouse Blob Depolama Hudson sürekli tümleştirme (CI) çözümü tarafından oluşturulan yapı yapılarının deposu olarak ya da indirilebilir dosyaları toobe kaynağı olarak bir yapı işleminde kullanılan gösterir. Olabilir, bu yararlı bulabileceğiniz hello senaryolardan biri, (Java veya diğer dilleri kullanarak) Çevik Geliştirme ortamında kodlama, üzerinde sürekli tümleştirme derlemeleri çalıştırıyorsanız ve derleme yapıtları için bir depo gerekir, böylelikle , örneğin, müşterilerinizin diğer kuruluş üyeleriyle paylaşmak ya da bir arşiv tutmak.  Yapı hello bir parçası olarak giriş, yapı işinizi diğer dosyaları, örneğin, bağımlılıkları toodownload gerektirdiğinde, başka bir senaryodur.
 
-Bu öğreticide, Azure depolama eklentisi Hudson Microsoft tarafından kullanılabilir hale CI için kullanır.
+Bu öğreticide, hello Azure depolama eklentisi Hudson Microsoft tarafından kullanılabilir hale CI için kullanır.
 
-## <a name="introduction-to-hudson"></a>Hudson giriş
-Derlemeleri otomatik olarak ve sık, böylece geliştiriciler verimliliğini artırma ürettiğini ve kendi kod değişiklikleri kolayca tümleştirmek geliştiricilerine vererek yazılım projenin sürekli tümleştirme Hudson sağlar. Derlemeleri sürümlü ve derleme yapıları için çeşitli depoları karşıya yüklenebilir. Bu makalede, Azure Blob Depolama derleme yapıları deposu kullanmak nasıl yapacağınızı gösterir. Ayrıca Azure Blob depolama alanından bağımlılıkları indirmek nasıl yapacağınızı gösterir.
+## <a name="introduction-toohudson"></a>Giriş tooHudson
+Hudson etkinleştirir sürekli tümleştirme tooeasily kod değişikliklerini tümleştirmek ve sahip geliştiriciler sağlayarak yazılım projenin üretilen otomatik olarak ve sık, böylece hello verimliliğini hello geliştiricilerin oluşturur. Derlemeleri sürümlü ve derleme yapıları karşıya yüklenen toovarious depoları olabilir. Bu makale gösterir nasıl toouse hello hello deposu olarak Azure Blob Depolama derleme yapıları. Ayrıca gösterecektir nasıl toodownload bağımlılıklar Azure Blob depolama biriminden.
 
 Hudson hakkında daha fazla bilgi bulunabilir [karşılamak Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
-## <a name="benefits-of-using-the-blob-service"></a>Blob hizmeti kullanmanın yararları
-Çevik Geliştirme derleme yapıtları barındırmak için Blob hizmeti kullanmanın avantajları şunlardır:
+## <a name="benefits-of-using-hello-blob-service"></a>Merhaba Blob hizmeti kullanmanın yararları
+Çevik Geliştirme derleme yapıtları hello Blob hizmeti toohost kullanmanın avantajları şunlardır:
 
 * Yüksek kullanılabilirlik derleme yapıları ve/veya indirilebilir bağımlılıkları.
 * Hudson CI çözümünüzü derleme yapıtları yüklediğinde performans.
@@ -40,62 +40,62 @@ Hudson hakkında daha fazla bilgi bulunabilir [karşılamak Hudson](http://wiki.
 * Kullanıcı erişim ilkeleri, anonim erişim, sona erme tabanlı paylaşılan erişim imzası erişim, özel arasında bir seçim ile üzerinden erişim, vb. denetler.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Blob hizmeti Hudson CI çözümünüzle birlikte kullanmak için aşağıdaki gerekir:
+Toouse hello Blob hizmeti Hudson CI çözümünüzle birlikte hello:
 
 * Bir Hudson sürekli tümleştirme çözümü.
   
-    Şu anda Hudson CI çözüm yoksa, aşağıdaki yöntemi kullanarak bir Hudson CI çözüm çalıştırabilirsiniz:
+    Şu anda Hudson CI çözüm yoksa, yöntem aşağıdaki hello kullanarak bir Hudson CI çözüm çalıştırabilirsiniz:
   
-  1. Java etkin bir makinede gelen Hudson WAR karşıdan <http://hudson-ci.org/>.
-  2. Hudson WAR çalıştırmak Hudson WAR içeren klasöre açılmış bir komut isteminde. Örneğin, sürüm 3.1.2 yüklediyseniz:
+  1. Java etkin bir makinede indirme hello Hudson WAR gelen <http://hudson-ci.org/>.
+  2. Bir komut isteminde, hello Hudson WAR çalıştırmak hello Hudson WAR içeren açılan toohello klasörüdür. Örneğin, sürüm 3.1.2 yüklediyseniz:
      
       `java -jar hudson-3.1.2.war`
 
-  3. Tarayıcınızda açın `http://localhost:8080/`. Bu Hudson Pano açar.
-  4. İlk kurulum sırasında Hudson ilk kullanımı sonucunda tamamlamak `http://localhost:8080/`.
-  5. İlk kurulumu tamamlamak Hudson WAR çalışan örneği iptal, Hudson WAR yeniden başlatmadan sonra ve Hudson Panoyu yeniden açmak `http://localhost:8080/`, yüklemek ve Azure Storage eklentisini yapılandırmak için kullanacağınız.
+  3. Tarayıcınızda açın `http://localhost:8080/`. Bu hello Hudson Pano açar.
+  4. Merhaba ilk kurulum sırasında Hudson ilk kullanımı sonucunda tamamlamak `http://localhost:8080/`.
+  5. Merhaba ilk Kurulum tamamlandıktan sonra hello Hudson WAR örneğini çalıştıran hello iptal, başlangıç yeniden Merhaba Hudson WAR ve hello Hudson Pano yeniden açın `http://localhost:8080/`, hangi, tooinstall kullanabilir ve hello Azure depolama eklentisi yapılandırın.
      
-      Tipik bir Hudson CI çözüm komut satırında Hudson war çalışan bir hizmet olarak çalışacak şekilde ayarlanması ancak bu öğretici için yeterli olacaktır.
+      Tipik bir Hudson CI çözüm yukarı toorun bir hizmet olarak ayarlanır, ancak hello Hudson war hello komut satırında çalıştıran Bu öğretici için yeterli olacaktır.
 * Bir Azure hesabı. Azure hesabı için kaydolabilirsiniz <http://www.azure.com>.
-* Bir Azure depolama hesabı. Bir depolama hesabı zaten sahip değilseniz, verilen adımları kullanarak bir tane oluşturabilirsiniz [depolama hesabı oluşturma](../common/storage-create-storage-account.md#create-a-storage-account).
-* Hudson CI çözüm aşina önerilir, ancak aşağıdaki içeriğe derleme yapıları Blob hizmeti Hudson CI için depo olarak kullanırken gerekli adımları göstermek için temel bir örnek kullanacağını gibi gerekli değildir.
+* Bir Azure depolama hesabı. Bir depolama hesabı zaten sahip değilseniz, birini oluşturabilirsiniz hello adımları kullanarak [depolama hesabı oluşturma](../common/storage-create-storage-account.md#create-a-storage-account).
+* Merhaba Hudson CI çözüm aşina önerilir ancak gerekli değildir, hello aşağıdaki içeriği kullanacak şekilde hello Blob hizmeti Hudson CI için depo olarak kullanırken gerekli adımları hello temel örnek tooshow yapı yapıları.
 
-## <a name="how-to-use-the-blob-service-with-hudson-ci"></a>Blob hizmeti Hudson CI ile kullanma
-Blob hizmeti Hudson ile kullanmak için Azure Storage eklentisini yükleme, depolama hesabınızı kullanmak için eklentiyi yapılandırmak ve ardından depolama hesabınıza derleme yapıtları yükleyen oluşturma sonrası eylem oluşturmak gerekir. Bu adımlar aşağıdaki bölümlerde açıklanmaktadır.
+## <a name="how-toouse-hello-blob-service-with-hudson-ci"></a>Nasıl toouse hello Hudson CI Blob hizmetiyle
+toouse hello Blob hizmeti Hudson ile tooinstall gerekir Azure depolama eklentisi Merhaba, depolama hesabınız hello eklentisi toouse yapılandırmak ve derleme yapıları tooyour depolama hesabınız yükleyen oluşturma sonrası eylem oluşturun. Aşağıdaki bölümlerde hello adımları açıklanmaktadır.
 
-## <a name="how-to-install-the-azure-storage-plugin"></a>Azure Storage eklentisini yükleme
-1. Hudson Pano içinde tıklatın **yönetmek Hudson**.
-2. Üzerinde **yönetmek Hudson** sayfasında, **eklentileri yönetme**.
-3. Tıklatın **kullanılabilir** sekmesi.
+## <a name="how-tooinstall-hello-azure-storage-plugin"></a>Nasıl tooinstall hello Azure depolama eklentisi
+1. Merhaba Hudson Pano içinde tıklatın **yönetmek Hudson**.
+2. Merhaba üzerinde **yönetmek Hudson** sayfasında, **eklentileri yönetme**.
+3. Merhaba tıklatın **kullanılabilir** sekmesi.
 4. Tıklatın **diğerleri**.
-5. İçinde **yapı Uploaders** bölümünde, select **Microsoft Azure depolama eklentisi**.
+5. Merhaba, **yapı Uploaders** bölümünde, select **Microsoft Azure depolama eklentisi**.
 6. **Yükle**'ye tıklayın.
-7. Yükleme tamamlandıktan sonra Hudson yeniden başlatın.
+7. Merhaba yüklemesi tamamlandıktan sonra Hudson yeniden başlatın.
 
-## <a name="how-to-configure-the-azure-storage-plugin-to-use-your-storage-account"></a>Depolama hesabınızı kullanmak için Azure Storage eklentisi yapılandırma
-1. Hudson Pano içinde tıklatın **yönetmek Hudson**.
-2. Üzerinde **yönetmek Hudson** sayfasında, **yapılandırma sistem**.
-3. İçinde **Microsoft Azure depolama hesabı Yapılandırması** bölümü:
+## <a name="how-tooconfigure-hello-azure-storage-plugin-toouse-your-storage-account"></a>Nasıl tooconfigure hello Azure depolama eklentisi toouse depolama hesabınız
+1. Merhaba Hudson Pano içinde tıklatın **yönetmek Hudson**.
+2. Merhaba üzerinde **yönetmek Hudson** sayfasında, **yapılandırma sistem**.
+3. Merhaba, **Microsoft Azure depolama hesabı Yapılandırması** bölümü:
    
-    a. Elde edebilirsiniz, depolama hesabı adı girin [Azure Portal](https://portal.azure.com).
+    a. Merhaba elde edebilirsiniz, depolama hesabı adı girin [Azure Portal](https://portal.azure.com).
    
-    b. Depolama hesabı anahtarınızı, gelen da elde edilebilir girin [Azure Portal](https://portal.azure.com).
+    b. Depolama hesabı anahtarınızı, hello da elde edilebilir girin [Azure Portal](https://portal.azure.com).
    
-    c. Varsayılan değer **Blob Hizmeti uç noktası URL'si** genel Azure bulut kullanıyorsanız. Farklı bir Azure bulut kullanıyorsanız, uç nokta belirtildiği gibi kullanın [Azure Portal](https://portal.azure.com) depolama hesabınız için.
+    c. Merhaba varsayılan değeri kullanın **Blob Hizmeti uç noktası URL'si** hello genel Azure bulut kullanıyorsanız. Farklı bir Azure bulut kullanıyorsanız, hello uç noktası belirtilen hello kullan [Azure Portal](https://portal.azure.com) depolama hesabınız için.
    
-    d. Tıklatın **depolama kimlik bilgilerini doğrulama** depolama hesabınızı doğrulamak için.
+    d. Tıklatın **depolama kimlik bilgilerini doğrulama** toovalidate depolama hesabınız.
    
-    e. [İsteğe bağlı] Ek varsa, kullanmak istediğiniz depolama hesapları, Hudson CI kullanılabilir hale, tıklatın **daha fazla depolama hesapları ekleme**.
+    e. [İsteğe bağlı] Yapılan kullanılabilir tooyour Hudson CI istediğiniz ek depolama hesapları varsa, tıklatın **daha fazla depolama hesapları ekleme**.
    
-    f. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
+    f. Tıklatın **kaydetmek** toosave ayarlarınızı.
 
-## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>Depolama hesabınıza derleme yapıtları yükleyen oluşturma sonrası eylem oluşturma
-Yönerge amacıyla ilk biz birkaç dosyalarını oluşturmak ve sonra depolama hesabınıza dosyaları karşıya oluşturma sonrası eylem eklemek bir iş oluşturmanız gerekir.
+## <a name="how-toocreate-a-post-build-action-that-uploads-your-build-artifacts-tooyour-storage-account"></a>Nasıl toocreate derleme yapıları tooyour depolama hesabınız yükleyen oluşturma sonrası eylem
+Yönerge amaçlar için önce kimliğinizi toocreate birkaç dosyalarını oluşturmak ve hello oluşturma sonrası eylem tooupload hello dosyaları tooyour depolama hesabı ekleme bir iş gerekir.
 
-1. Hudson Pano içinde tıklatın **yeni iş**.
-2. İş adı **MyJob**, tıklatın **serbest stili yazılım işi yapı**ve ardından **Tamam**.
-3. İçinde **yapı** bölüm iş yapılandırılmasını tıklatın **Ekle derleme adımı** ve seçin **yürütme Windows toplu iş komutu**.
-4. İçinde **komutu**, aşağıdaki komutları kullanın:
+1. Merhaba Hudson Pano içinde tıklatın **yeni iş**.
+2. Adı hello iş **MyJob**, tıklatın **serbest stili yazılım işi yapı**ve ardından **Tamam**.
+3. Merhaba, **yapı** bölüm hello iş yapılandırmasına, tıklatın **Ekle derleme adımı** ve seçin **yürütme Windows toplu iş komutu**.
+4. İçinde **komutu**, hello aşağıdaki komutları kullanın:
 
     ```   
         md text
@@ -105,59 +105,59 @@ Yönerge amacıyla ilk biz birkaç dosyalarını oluşturmak ve sonra depolama h
         time /t >> date.txt
     ```
 
-5. İçinde **oluşturma sonrası eylemleri** bölüm iş yapılandırılmasını tıklatın **yapıları Microsoft Azure Blob depolama alanına karşıya**.
-6. İçin **depolama hesabı adı**, kullanılacak depolama hesabını seçin.
-7. İçin **kapsayıcı adı**, kapsayıcı adı belirtin. (Derleme yapıları yüklenirken zaten yoksa, kapsayıcı oluşturulacak.) Ortam değişkenlerini kullanma, bu nedenle bu örnek için girin **${JOB_NAME}** kapsayıcı adı.
+5. Merhaba, **oluşturma sonrası eylemleri** bölüm hello iş yapılandırılmasını tıklatın **karşıya yapıları tooMicrosoft Azure Blob Depolama**.
+6. İçin **depolama hesabı adı**, depolama hesabı toouse hello seçin.
+7. İçin **kapsayıcı adı**, hello kapsayıcı adı belirtin. (Merhaba derleme yapıları yüklenirken zaten yoksa, hello kapsayıcı oluşturulacak.) Ortam değişkenlerini kullanma, bu nedenle bu örnek için girin **${JOB_NAME}** hello kapsayıcı adı olarak.
    
     **İpucu**
    
-    Aşağıda **komutu** bölüm için bir komut dosyası girmiş **yürütme Windows toplu iş komutu** Hudson tarafından tanınan ortam değişkenleri bir bağlantıdır. Ortam değişkeni adları ve açıklamaları öğrenmek için bu bağlantıyı tıklatın. Özel içeren ortam değişkenleri karakter olduğunu, gibi Not **BUILD_URL** ortam değişkeni, bir kapsayıcı adı veya ortak sanal yol olarak izin verilmez.
-8. Tıklatın **olun yeni kapsayıcı Ortak varsayılan olarak** Bu örnek için. (Özel bir kapsayıcı kullanmak istiyorsanız, erişime izin vermek için bir paylaşılan erişim imzası oluşturmanız gerekir. Bu makalenin kapsamı dışındadır olmasıdır. Paylaşılan erişim imzaları hakkında daha fazla bilgiyi [kullanarak paylaşılan erişim imzaları (SAS)](../storage-dotnet-shared-access-signature-part-1.md).)
-9. [İsteğe bağlı] Tıklatın **karşıya yüklemeden önce temiz kapsayıcı** derleme yapıları karşıya önce içeriği temizlenecek kapsayıcı istiyorsanız (kapsayıcı içeriğini temizlemek istemiyorsanız bu işaretli bırakın).
-10. İçin **karşıya yüklemek için yapıları listesi**, girin  **metin /*.txt**.
+    Merhaba aşağıda **komutu** bölüm için bir komut dosyası girmiş **yürütme Windows toplu iş komutu** toohello ortam değişkenleri Hudson tarafından tanınan bir bağlantıdır. Toolearn hello ortam değişkeni adları ve açıklamaları bağlantısını tıklatın. Bu ortam Not hello gibi özel karakterleri içeren değişkenler **BUILD_URL** ortam değişkeni, bir kapsayıcı adı veya ortak sanal yol olarak izin verilmez.
+8. Tıklatın **olun yeni kapsayıcı Ortak varsayılan olarak** Bu örnek için. (Toouse özel bir kapsayıcı istiyorsanız, toocreate bir paylaşılan erişim imzası tooallow erişimi gerekir. Bu makalenin kapsamı dışındadır hello olmasıdır. Paylaşılan erişim imzaları hakkında daha fazla bilgiyi [kullanarak paylaşılan erişim imzaları (SAS)](../storage-dotnet-shared-access-signature-part-1.md).)
+9. [İsteğe bağlı] Tıklatın **karşıya yüklemeden önce temiz kapsayıcı** hello kapsayıcı toobe temizlenmiş içeriğini derleme yapıları karşıya önce istiyorsanız (Merhaba kapsayıcı tooclean Merhaba içeriğine istemiyorsanız bu işaretli bırakın).
+10. İçin **listesi, yapıları tooupload**, girin  **metin /*.txt**.
 11. İçin **karşıya yüklenen yapıları için ortak sanal yol**, girin **${yapı\_kimliği} / ${yapı\_numarası}**.
-12. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
-13. Hudson panosunda tıklatın **şimdi yapı** çalıştırmak için **MyJob**. Durum için konsol çıkışı inceleyin. Derleme yapıları karşıya yüklemek oluşturma sonrası eylem başladığında, durum iletileri için Azure Storage konsol çıktısı dahil edilir.
-14. İş başarıyla tamamlandıktan sonra ortak blob açarak derleme yapıları inceleyebilirsiniz.
+12. Tıklatın **kaydetmek** toosave ayarlarınızı.
+13. Hello Hudson Pano, tıklatın **şimdi yapı** toorun **MyJob**. Durum için Hello konsol çıktıyı inceleyin. Merhaba oluşturma sonrası eylem tooupload derleme yapıları başladığında Azure Storage için bildirilen durum iletileri hello konsol çıkışı dahil edilir.
+14. Merhaba iş başarılı tamamlandığında hello ortak blob açarak hello derleme yapıları inceleyebilirsiniz.
     
-    a. [Azure Portal](https://portal.azure.com)'da oturum açın.
+    a. İçinde toohello oturum [Azure Portal](https://portal.azure.com).
     
     b. Tıklatın **depolama**.
     
-    c. Hudson için kullanılan depolama hesabının adına tıklayın.
+    c. Hudson için kullanılan hello depolama hesabının adına tıklayın.
     
     d. Tıklatın **kapsayıcıları**.
     
-    e. Adlı kapsayıcıyı tıklatın **myjob**, küçük harfli sürümünü Hudson proje oluşturduğunuzda, size atanan iş adı olduğu. Kapsayıcı adları ve blob adları küçük harf (ve büyük küçük harfe duyarlı) Azure depolama. BLOB'ları adlı kapsayıcının listesi içinde **myjob** görmeniz gerekir **hello.txt** ve **date.txt**. URL bu öğelerden birini kopyalayın ve tarayıcınızda açın. Karşıya yüklenen metin dosyası yapı yapı görürsünüz.
+    e. Adlı hello kapsayıcısını tıklatın **myjob**, hello Hudson proje oluşturduğunuzda, size atanan hello iş adı küçük harfli sürümünü hello olduğu. Kapsayıcı adları ve blob adları küçük harf (ve büyük küçük harfe duyarlı) Azure depolama. Adlı hello kapsayıcısı için BLOB hello listesindeki **myjob** görmeniz gerekir **hello.txt** ve **date.txt**. Merhaba URL bu öğelerden birini kopyalayın ve tarayıcınızda açın. Karşıya yüklenen hello metin dosyası yapı yapı görürsünüz.
 
-Yapıları Azure Blob depolama alanına yükler yalnızca bir oluşturma sonrası eylem iş başına oluşturulabilir. Yapıları Azure Blob depolama alanına yüklemek için tek oluşturma sonrası eylemi (joker karakterleri dahil olmak üzere) farklı dosyaları ve yolları içindeki dosyalara belirtebilirsiniz Not **karşıya yüklemek için yapıları listesi** ayırıcı olarak noktalı virgül kullanıyor. Örneğin, sizin Hudson yapı JAR dosyaları ve TXT dosyaları alanınızdaki 's üretir **yapı** klasörü ve istediğiniz hem de Azure Blob Depolama karşıya yüklemek için aşağıdakileri kullanın **karşıya yüklemek için yapıları listesi** değer: **yapı /\*.jar; derleme /\*.txt**. Ayrıca, bir yolu blob adını belirtmek için çift iki nokta üst üste sözdizimini kullanabilirsiniz. Kavanoz kullanarak karşıya istiyorsanız, örneğin, **ikili dosyaları** blob yolu ve kullanarak karşıya için TXT dosyaları **bildirimler** blob yolunda için aşağıdakileri kullanın **karşıya yüklemek için yapıları listesi** değeri: **yapı /\*. jar::binaries; derleme /\*. txt::notices**.
+Yapıları tooAzure Blob depolama alanına yükler yalnızca bir oluşturma sonrası eylem iş başına oluşturulabilir. Merhaba tek oluşturma sonrası eylem tooupload yapıları tooAzure Blob storage (joker karakterleri dahil olmak üzere) farklı dosyaları ve yolları toofiles içinde belirtebilirsiniz Not **listesi, yapıları tooupload** ayırıcı olarak noktalı virgül kullanıyor. Örneğin, sizin Hudson yapı JAR dosyaları ve TXT dosyaları alanınızdaki 's üretir **yapı** klasörü ve her iki tooAzure Blob Depolama tooupload istediğiniz, hello aşağıdaki Merhaba kullanın **listesi, yapıları tooupload** değeri: **yapı /\*.jar; derleme /\*.txt**. Çift iki nokta üst üste sözdizimi toospecify yolu toouse hello blob adı içinde de kullanabilirsiniz. Merhaba Kavanoz tooget kullanarak karşıya isterseniz, örneğin, **ikili dosyaları** hello blob yolu ve hello TXT dosyaları tooget karşıya kullanarak **bildirimler** hello blob yolunda hello aşağıdaki Merhaba kullanın  **Yapıları tooupload listesi** değeri: **yapı /\*. jar::binaries; derleme /\*. txt::notices**.
 
-## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>Azure Blob Storage'dan indirilen bir derleme adımı oluşturma
-Aşağıdaki adımlar, Azure Blob depolama alanından öğeleri indirmek için bir derleme adımı yapılandırma gösterir. Bu yapılandırma, örneğin, Azure Blob depolama alanına tutmak Kavanoz öğeleri dahil etmek istediğiniz durumlarda yararlı olacaktır.
+## <a name="how-toocreate-a-build-step-that-downloads-from-azure-blob-storage"></a>Nasıl Azure Blob Storage'dan indirilen toocreate bir derleme adımı
+Aşağıdaki adımları hello nasıl tooconfigure bir derleme adımı toodownload öğeleri Azure Blob depolama alanından gösterir. Bu yapılandırma, örneğin, Azure Blob depolama alanına tutmak Kavanoz tooinclude öğe istiyorsanız yararlı olacaktır.
 
-1. İçinde **yapı** bölüm iş yapılandırmasına, tıklatın **Ekle derleme adımı** ve seçin **Azure Blob depolama alanından karşıdan**.
-2. İçin **depolama hesabı adı**, kullanılacak depolama hesabını seçin.
-3. İçin **kapsayıcı adı**, yüklemek istediğiniz BLOB'ları olan kapsayıcının adını belirtin. Ortam değişkenleri kullanabilirsiniz.
-4. İçin **Blob adı**, blob adı belirtin. Ortam değişkenleri kullanabilirsiniz. Ayrıca, blob adının ilk letter(s) belirttikten sonra bir joker karakter olarak bir yıldız işareti kullanabilirsiniz. Örneğin, **proje\***  adları ile başlayan tüm BLOB'lar belirtirsiniz **proje**.
-5. [İsteğe bağlı] İçin **indirme yolunu**, Azure Blob depolama alanından dosyalarını indirmek istediğiniz Hudson makinede yolunu belirtin. Ortam değişkenleri de kullanılabilir. (İçin bir değer belirtmezseniz, **indirme yolunu**, Azure Blob depolama biriminden dosyaları işin çalışma alanına yüklenir.)
+1. Merhaba, **yapı** bölüm hello iş yapılandırmasına, tıklatın **Ekle derleme adımı** ve seçin **Azure Blob depolama alanından karşıdan**.
+2. İçin **depolama hesabı adı**, depolama hesabı toouse hello seçin.
+3. İçin **kapsayıcı adı**, toodownload istediğiniz hello BLOB'ları sahip hello kapsayıcı hello adını belirtin. Ortam değişkenleri kullanabilirsiniz.
+4. İçin **Blob adı**, hello blob adı belirtin. Ortam değişkenleri kullanabilirsiniz. Ayrıca, hello ilk letter(s) hello blob adını belirttikten sonra bir joker karakter olarak bir yıldız işareti kullanabilirsiniz. Örneğin, **proje\***  adları ile başlayan tüm BLOB'lar belirtirsiniz **proje**.
+5. [İsteğe bağlı] İçin **indirme yolunu**, hello Azure Blob depolama biriminden toodownload dosyaları istediğiniz Hudson makine hello yolu belirtin. Ortam değişkenleri de kullanılabilir. (İçin bir değer belirtmezseniz, **indirme yolunu**, Azure Blob depolama biriminden hello dosyaları indirilen toohello işin çalışma olacaktır.)
 
-Azure Blob depolama alanından indirmek istediğiniz başka öğeler varsa, ek yapılandırma adımları oluşturabilirsiniz.
+Azure Blob depolama biriminden toodownload istediğiniz başka öğeler varsa, ek yapılandırma adımları oluşturabilirsiniz.
 
-Bir yapı çalıştırdıktan sonra yapı geçmiş konsol çıktısı denetleyin veya beklediğiniz BLOB'ları başarıyla yüklenmiş olup olmadığını görmek için indirme konumunda, bakın.
+Bir yapı çalıştırdıktan sonra hello yapı geçmiş konsol çıktısı ya da yükleme konumunuzu toosee bakma olup hello başarıyla indirildi beklenen BLOB'ları kontrol edebilirsiniz.
 
-## <a name="components-used-by-the-blob-service"></a>Blob hizmeti tarafından kullanılan bileşenler
-Blob hizmeti bileşenlerini genel bir bakış sağlar.
+## <a name="components-used-by-hello-blob-service"></a>Merhaba Blob hizmeti tarafından kullanılan bileşenler
+Merhaba aşağıdaki hello Blob hizmeti bileşenlerini genel bir bakış sağlar.
 
-* **Depolama hesabı**: tüm Azure Storage erişimi bir depolama hesabıyla yapılır. BLOB'ları erişmek için ad alanı en yüksek düzeyde budur. Altında 100 TB toplam kendi boyuttur sürece bir hesapta sınırsız sayıda kapsayıcı, olabilir.
+* **Depolama hesabı**: üzerinden depolama hesabı tüm erişim tooAzure depolama yapılır. BLOB'ları erişmek için hello ad alanı en yüksek düzeyde hello budur. Altında 100 TB toplam kendi boyuttur sürece bir hesapta sınırsız sayıda kapsayıcı, olabilir.
 * **Kapsayıcı**: BLOB'lar kümesinin bir gruplandırma bir kapsayıcı sağlar. Tüm bloblar bir kapsayıcıda olmalıdır. Bir hesapta sınırsız sayıda kapsayıcı olabilir. Kapsayıcıda sınırsız sayıda blob depolanabilir.
-* **BLOB**: bir dosya türü ve boyutu. Azure Storage'da depolanan BLOB'ları iki tür vardır: blok ve sayfa blobları. Blok blobları çoğu dosyalarıdır. Tek bir blok blobu 200 GB boyutunda olabilir. Bu öğretici blok blobları kullanır. Bir dosyada bayt aralıkları sık değiştirildiğinde sayfa blobları, başka bir blob türü, boyut ve daha verimli olan 1 TB'ye kadar olabilir. BLOB'ları hakkında daha fazla bilgi için bkz: [anlama blok Blobları, ekleme Blobları ve sayfa Bloblarını](http://msdn.microsoft.com/library/azure/ee691964.aspx).
-* **URL biçimi**: BLOB'lar şu URL biçimi kullanılarak adreslenebilir:
+* **BLOB**: bir dosya türü ve boyutu. Azure Storage'da depolanan BLOB'ları iki tür vardır: blok ve sayfa blobları. Blok blobları çoğu dosyalarıdır. Tek bir blok blobu yukarı too200 GB boyutunda olabilir. Bu öğretici blok blobları kullanır. Bir dosyada bayt aralıkları sık değişiklik yapıldığında, başka bir blob türü, sayfa BLOB'ları too1 TB boyut ve daha verimli olan yukarı olabilir. BLOB'ları hakkında daha fazla bilgi için bkz: [anlama blok Blobları, ekleme Blobları ve sayfa Bloblarını](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **URL biçimi**: BLOB'lar hello şu URL biçimi kullanılarak adreslenebilir:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    (Yukarıdaki biçimi için ortak Azure bulut uygular. Farklı bir Azure bulut kullanıyorsanız, uç noktalar kullanın [Azure Portal](https://portal.azure.com) URL uç noktanızı belirlemek için.)
+    (yukarıdaki hello biçimini toohello genel Azure bulut uygular. Farklı bir Azure bulut kullanıyorsanız, hello içinde hello uç noktası kullan [Azure Portal](https://portal.azure.com) toodetermine URL uç noktanızı.)
   
-    Yukarıdaki biçiminde `storageaccount` depolama hesabınızın adını temsil eden `container_name` , kapsayıcının adını temsil eder ve `blob_name` , blob adı sırasıyla temsil eder. Kapsayıcı adı içinde birden fazla yol eğik tarafından ayrılmış, olabilir  **/** . Bu öğreticideki örnek kapsayıcı adı **MyJob**, ve **${yapı\_kimliği} / ${yapı\_numarası}** URL'si aşağıdaki biçime sahip blob kaynaklanan ortak sanal yol için kullanıldı:
+    Yukarıdaki hello biçiminde `storageaccount` temsil hello depolama hesabınızın adını `container_name` Merhaba, kapsayıcının adını temsil eder ve `blob_name` Merhaba, blob adı sırasıyla temsil eder. Merhaba kapsayıcı adı içinde birden fazla yol eğik tarafından ayrılmış, olabilir  **/** . Bu öğreticide Hello örnek kapsayıcı adı **MyJob**, ve **${yapı\_kimliği} / ${yapı\_numarası}** hello blob elde etmeyle kaynaklanan hello ortak sanal yolu için kullanılan bir Form aşağıdaki hello URL'si:
   
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 

@@ -1,6 +1,6 @@
 ---
-title: "Linux veri bilimi sanal makine sağlama | Microsoft Docs"
-description: "Yapılandırın ve analizi yapabilir ve makine Azure'da bir Linux veri bilimi sanal makine oluşturun."
+title: aaaProvision hello Linux veri bilimi sanal makine | Microsoft Docs
+description: "Yapılandırma ve Azure toodo analizleri Linux veri bilimi sanal makine oluşturun ve makine."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
-ms.openlocfilehash: bc6f293db0d537990d7fb1238fe4a19c704f57a1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 81dfa90f6cd4b4f33535a20fb97442bf9152d829
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="provision-the-linux-data-science-virtual-machine"></a>Linux Veri Bilimi Sanal Makinesini sağlama
-Linux veri bilimi sanal makine bir CentOS tabanlı Azure sanal önceden yüklenmiş bir araç koleksiyonu ile birlikte gelen makinedir. Bu araçlar, veri analizi yapmak için yaygın olarak kullanılır ve makine öğrenme. Dahil önemli yazılım bileşenleri şunlardır:
+# <a name="provision-hello-linux-data-science-virtual-machine"></a>Merhaba Linux veri bilimi sanal makine sağlama
+Merhaba Linux veri bilimi sanal makine bir CentOS tabanlı Azure sanal önceden yüklenmiş bir araç koleksiyonu ile birlikte gelen makinedir. Bu araçlar, veri analizi yapmak için yaygın olarak kullanılır ve makine öğrenme. dahil edilen hello anahtar yazılım bileşenleri şunlardır:
 
 * İşletim sistemi: Linux CentOS dağıtım.
 * Microsoft R Server Geliştirici sürümü
@@ -36,7 +36,7 @@ Linux veri bilimi sanal makine bir CentOS tabanlı Azure sanal önceden yüklenm
   * [Hesaplama ağ Araç Seti (CNTK)](https://github.com/Microsoft/CNTK): Microsoft Research yazılım araç Seti'nin öğrenme derin.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): çevrimiçi, karma, allreduce, düşürülmesi, learning2search, etkin, gibi teknikler destekleme sistem öğrenme hızlı bir makine ve etkileşimli öğrenme.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): hızlı ve doğru boosted ağaç uygulama sağlayan bir araç.
-  * [Rattle](http://rattle.togaware.com/) (R analitik aracı için bilgi kolayca): veri analizi ve R ile GUI tabanlı veri keşfi kolay öğrenme ve otomatik R kod oluşturma ile modelleme makine ile çalışmaya başlama sağlayan bir araç.
+  * [Rattle](http://rattle.togaware.com/) (R analitik aracı tooLearn kolayca hello): veri analizi ve R ile GUI tabanlı veri keşfi kolay öğrenme ve otomatik R kod oluşturma ile modelleme makine ile çalışmaya başlama sağlayan bir araç.
 * Azure SDK Java, Python, node.js, Ruby, PHP
 * Azure Machine Learning ve diğer Azure hizmetleriyle R ve Python için kitaplıkları kullanma
 * Geliştirme araçları ve Düzenleyicileri (Rstudio'dan, PyCharm, Intellij, Emacs, gedit, VI)
@@ -46,48 +46,48 @@ Veri Bilimi bulunurken bir dizi görev yineleme içerir:
 
 1. Bulma, yükleme ve verilerin önceden işlenmesi
 2. Derleme ve modelleri test etme
-3. Akıllı uygulamaları tüketimini modellerini dağıtma
+3. Merhaba modelleri akıllı uygulamalarında tüketimi için dağıtma
 
-Veri bilimcilerine, bu görevleri tamamlamak için çeşitli araçları kullanın. Bu oldukça zaman yazılım uygun sürümlerini bulmak ve yüklemek için derleme için alabilir ve bu sürümleri yükleyin.
+Veri bilimcilerine çeşitli araçlar toocomplete bu görevleri kullanın. Oldukça uzun süren toofind hello uygun sürümlerini hello yazılım olabilir ve daha sonra toodownload, derleme ve bu sürümleri yükleyin.
 
-Linux veri bilimi sanal makine bu yük önemli ölçüde kolaylaştırabilir. Analytics projenizi hızla başlatmak için bunu kullanın. R, Python, SQL, Java ve C++ dahil olmak üzere çeşitli dillerde görevler üzerinde çalışmanıza olanak tanır. Eclipse geliştirmek ve kullanımı kolay kodunuzu test etmek için bir IDE sağlar. Azure VM'yi dahil SDK'sı, çeşitli hizmetlere Linux'ta Microsoft bulut platformu kullanarak uygulamalarınızı oluşturmanıza olanak verir. Ayrıca, aynı zamanda önceden yüklü olan diğer dillere Ruby, Perl, PHP ve node.js gibi erişebilirsiniz.
+Merhaba Linux veri bilimi sanal makine bu yük önemli ölçüde kolaylaştırabilir. Toojump başlangıç kullanma analizi projenizi. R, Python, SQL, Java ve C++ dahil olmak üzere çeşitli dillerde görevlerde toowork sağlar. Eclipse IDE toodevelop sağlar ve kolay toouse olan kodunuzu test etmek. Hello Azure SDK'sını hello VM dahil toobuild verir hello Microsoft bulut platformu için çeşitli hizmetlere Linux'ta kullanarak uygulamalarınızı. Ayrıca, aynı zamanda önceden yüklenmiş Ruby, Perl, PHP ve node.js gibi erişim tooother diller sahip.
 
-Bu veri bilimi VM görüntüsü için yazılım harcamanız yok. VM görüntüsü ile sağlamak sanal makine boyutuna göre uygunluk Azure donanım kullanım ücretleri ödersiniz. İşlem ücretleri hakkında daha fazla ayrıntı bulunabilir [VM listeleme Azure Marketi sayfasında ](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+Bu veri bilimi VM görüntüsü için yazılım harcamanız yok. Yalnızca hello Azure donanım kullanımı ile Merhaba VM görüntüsü sağlamak hello sanal makine hello boyutunu uygunluk ücretleri temel ücret ödersiniz. Ücretler hello üzerinde bulunabilir hello hakkında daha ayrıntılı bilgi işlem [VM listeleme hello Azure Marketi sayfasında ](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
-## <a name="other-versions-of-the-data-science-virtual-machine"></a>Veri bilimi sanal makinenin diğer sürümleri
-Bir [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) görüntüdür de aynı araçları CentOS görüntü artı çerçeveleri öğrenme ayrıntılı olarak birçoğu ile kullanılabilir. A [Windows](machine-learning-data-science-provision-vm.md) görüntü kullanılabilir de.
+## <a name="other-versions-of-hello-data-science-virtual-machine"></a>Merhaba veri bilimi sanal makine diğer sürümleri
+Bir [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) görüntü kullanılabilir Ayrıca, birçok hello aynı CentOS görüntü artı derin öğrenme çerçeveleri hello gibi araçları. A [Windows](machine-learning-data-science-provision-vm.md) görüntü kullanılabilir de.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Linux veri bilimi sanal makine oluşturmadan önce aşağıdakilere sahip olmanız gerekir:
+Linux veri bilimi sanal makine oluşturmadan önce hello şunlara sahip olmanız gerekir:
 
-* **Bir Azure aboneliği**: bir tane almak için bkz: [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/).
-* **Bir Azure depolama hesabı**: oluşturmak için bkz: [bir Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatif olarak, var olan bir hesabı kullanacak şekilde istemiyorsanız depolama hesabı VM oluşturma işleminin bir parçası olarak oluşturulabilir.
+* **Bir Azure aboneliği**: tooobtain bir, bkz: [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/).
+* **Bir Azure depolama hesabı**: toocreate bir, bkz: [bir Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatif olarak, hello depolama hesabı toouse hesabınız istemiyorsanız hello VM oluşturma hello işleminin bir parçası olarak oluşturulabilir.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Linux veri bilimi sanal makine oluşturma
-Örnek, Linux veri bilimi sanal makine oluşturmak için adımlar şunlardır:
+Merhaba Linux veri bilimi sanal makine örneği hello adımları toocreate şunlardır:
 
-1. Sanal makine üzerinde listeleme gidin [Azure portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-2. Tıklatın **oluşturma** (en altta) Kurma Sihirbazı getirilecek.![ yapılandırma verileri-Bilim-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
-3. Aşağıdaki bölümler Microsoft Veri bilimi sanal makine oluşturmak için kullanılan girişleri her (önceki şekil sağ tarafta numaralandırılan) Sihirbazı'ndaki adımları sağlar. Bu adımların her biri yapılandırmak için gereken girdiler şunlardır:
+1. Toohello sanal makine üzerinde hello listeleme gidin [Azure portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
+2. Tıklatın **oluşturma** (Merhaba altındaki) hello Sihirbazı yukarı toobring.![ yapılandırma verileri-Bilim-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
+3. Aşağıdaki bölümlerde hello toocreate hello Microsoft Veri bilimi sanal makine hello girişleri (sağ şekil önceki hello hello üzerinde numaralandırılan) hello Sihirbazı'nda hello adımların her biri için kullanılan sağlar. Merhaba gerekli girişleri tooconfigure her bu adımları şunlardır:
    
    a. **Temel kavramları**:
    
    * **Ad**: oluşturduğunuz veri bilimi sunucunuzun adını yazın.
    * **Kullanıcı adı**: ilk hesap oturum açma kimliği.
    * **Parola**: ilk hesap parolası (kullanabilirsiniz SSH ortak anahtarı parola yerine).
-   * **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu oluşturulur ve fatura için seçin. Bu abonelik için kaynak oluşturma ayrıcalıkları olmalıdır.
+   * **Abonelik**: birden fazla aboneliğiniz varsa, select hello biri üzerinde hangi hello makine oluşturulur ve fatura toobe. Bu abonelik için kaynak oluşturma ayrıcalıkları olmalıdır.
    * **Kaynak grubu**: yeni bir tane oluşturun veya varolan bir grubu kullanın.
-   * **Konum**: en uygun olan veri merkezi seçin. Genellikle verilerinizden en iyi olan ya da fiziksel konumunuza en hızlı ağ erişimi için en yakın veri merkezinin olur.
+   * **Konum**: en uygun seçim hello veri merkezi. Genellikle, verilerinizden en iyi olduğundan, veya en yakın tooyour fiziksel konumu en hızlı ağ erişimi için hello veri merkezi olur.
    
    b. **Boyutu**:
    
-   * İşlev gereksinimi ve maliyet kısıtlamaları karşılayan sunucu türlerinden birini seçin. Seçin **tümünü görüntüle** VM boyutları, daha fazla seçenek görmek için.
+   * İşlev gereksinimi ve maliyet kısıtlamaları karşılayan hello sunucusu türlerinden birini seçin. Seçin **tümünü görüntüle** toosee daha fazla seçenek VM boyutları.
    
    c. **Ayarları**:
    
    * **Disk türü**: seçin **Premium** katı hal sürücüsü (SSD) tercih ederseniz. Aksi takdirde seçin **standart**.
-   * **Depolama hesabı**: aboneliğinizde yeni bir Azure depolama hesabı oluşturun veya mevcut bir üzerinde seçildi aynı konumda kullanın **Temelleri** sihirbazın.
-   * **Diğer parametreler**: Çoğu durumda, yalnızca varsayılan değerleri kullanırsınız. Varsayılan olmayan değerleri dikkate alınması gereken belirli alanlar hakkında Yardım için bilgi bağlantı üzerine gelerek.
+   * **Depolama hesabı**: aboneliğinizde yeni bir Azure depolama hesabı oluşturma veya mevcut bir hello kullanma üzerinde hello seçildi aynı konuma **Temelleri** hello Sihirbazı.
+   * **Diğer parametreler**: Çoğu durumda, yalnızca hello varsayılan değerleri kullanırsınız. tooconsider varsayılan olmayan değerleri, hello bilgilendirme bağlantısını üzerine getirin hello belirli alanları yardımcı olur.
    
    d. **Özet**:
    
@@ -95,94 +95,94 @@ Linux veri bilimi sanal makine oluşturmadan önce aşağıdakilere sahip olman�
    
    e. **Satın**:
    
-   * Sağlama başlatmak için tıklatın **satın**. Bağlantı işlem koşullarını sağlanır. VM, seçtiğiniz sunucu boyutu işlem ötesinde herhangi bir ek ücret yok **boyutu** adım.
+   * toostart sağlama Merhaba, tıklatın **satın**. Bir bağlantı hello işlem toohello koşullarını sağlanır. Merhaba VM hello Seçtiğiniz hello sunucu boyutu hello işlem ötesinde herhangi bir ek ücret yok **boyutu** adım.
 
-Sağlama yaklaşık 10-20 dakika sürer. Sağlama durumu Azure portalda görüntülenir.
+Merhaba sağlama yaklaşık 10-20 dakika sürer. Merhaba sağlama hello durumu hello Azure portalı üzerinde görüntülenir.
 
-## <a name="how-to-access-the-linux-data-science-virtual-machine"></a>Linux veri bilimi sanal makine erişme
-VM oluşturulduktan sonra kendisine SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesap kimlik bilgilerini kullanan **Temelleri** adım 3 metin kabuk arabirimi için bölüm. Windows, bir SSH istemcisi aracı gibi indirebilirsiniz [Putty](http://www.putty.org). Grafik Masaüstü (X Windows sistemi) tercih ederseniz, Putty iletme X11 kullanın veya X2Go istemcisi yükleyin.
+## <a name="how-tooaccess-hello-linux-data-science-virtual-machine"></a>Linux veri bilimi sanal makine tooaccess nasıl hello
+Hello VM oluşturulduktan sonra SSH kullanarak tooit kaydolabilirsiniz. Hello oluşturulan hello hesap kimlik bilgilerini kullanan **Temelleri** bölüm hello metin kabuk arabirimi için adım 3. Windows, bir SSH istemcisi aracı gibi indirebilirsiniz [Putty](http://www.putty.org). Grafik Masaüstü (X Windows sistemi) tercih ederseniz, Putty iletme X11 kullanın veya hello X2Go istemcisi yükleyin.
 
 > [!NOTE]
-> X2Go istemci gerçekleştirilen önemli ölçüde testinde iletme X11 daha iyi. X2Go istemci için bir grafik Masaüstü arabirimi kullanmanızı öneririz.
+> Merhaba X2Go istemci gerçekleştirilen önemli ölçüde testinde iletme X11 daha iyi. Merhaba X2Go istemci için bir grafik Masaüstü arabirimi kullanmanızı öneririz.
 > 
 > 
 
 ## <a name="installing-and-configuring-x2go-client"></a>Yükleme ve X2Go istemci yapılandırma
-Linux VM X2Go sunucusu ile sağlanan ve istemci bağlantılarını kabul etmeye hazır zaten var. Linux VM grafik masaüstüne bağlanmak için istemci üzerinde aşağıdakileri yapın:
+Merhaba Linux VM zaten X2Go sunucu ve hazır tooaccept istemci bağlantıları ile sağlanır. tooconnect toohello Linux VM grafik Masaüstü Merhaba, istemcide aşağıdaki:
 
-1. İstemci platformunuzu X2Go istemci yükleyip [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. X2Go istemci çalıştırmak ve seçmek **yeni oturum**. İle birden çok sekme yapılandırma penceresi açar. Aşağıdaki yapılandırma parametrelerini girin:
+1. İstemci platformunuza hello X2Go istemci yükleyip [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+2. Merhaba X2Go istemci çalıştırmak ve seçmek **yeni oturum**. İle birden çok sekme yapılandırma penceresi açar. Yapılandırma parametreleri aşağıdaki hello girin:
    * **Oturum sekmesini**:
-     * **Ana bilgisayar**: ana bilgisayar adı veya IP adresini, Linux veri bilimi VM.
-     * **Oturum açma**: Linux VM kullanıcı adı.
-     * **SSH bağlantı noktası**: 22, varsayılan değeri bırakın.
-     * **Oturum türü**: XFCE için değeri değiştirin. Şu anda Linux VM yalnızca XFCE Masaüstü destekler.
-   * **Ortam sekmesini**: ses desteği ve bunları kullanmaya ihtiyaç duymuyorsanız Yazdırma İstemcisi devre dışı bırakabilir.
-   * **Paylaşılan Klasörler**: Linux VM'de bağlı istemci makinelerden dizinleri istiyorsanız bu sekmedeki VM paylaşmak istediğiniz istemci makine dizinleri ekleyin.
+     * **Ana bilgisayar**: hello ana bilgisayar adı veya IP adresini, Linux veri bilimi VM.
+     * **Oturum açma**: hello Linux VM kullanıcı adı.
+     * **SSH bağlantı noktası**: 22 hello varsayılan değerinde bırakın.
+     * **Oturum türü**: değişiklik hello değeri tooXFCE. Şu anda hello Linux VM yalnızca XFCE Masaüstü destekler.
+   * **Ortam sekmesini**: ses desteği ve toouse gerekmiyorsa, Yazdırma İstemcisi devre dışı bırakma bunları.
+   * **Paylaşılan Klasörler**: hello Linux VM üzerinde bağlı istemci makinelerden dizinleri istiyorsanız bu sekmedeki hello VM ile tooshare istediğiniz hello istemci makine dizinleri ekleyin.
 
-VM SSH istemcisi veya XFCE grafik Masaüstü X2Go istemcisinden kullanarak oturum açtıktan sonra yüklenmiş ve yapılandırılmış VM Araçları'nı kullanmaya başlamak hazırsınız. XFCE üzerinde uygulamaları menüsü kısayolları ve masaüstü simgelerini araçları çoğunu görebilirsiniz.
+Merhaba SSH istemcisi veya XFCE grafik Masaüstü hello X2Go istemcisi aracılığıyla kullanarak toohello VM oturum sonra yüklü olan ve hello VM üzerinde yapılandırılmış hello araçlarını kullanarak hazır toostart demektir. XFCE üzerinde uygulamaları menüsü kısayolları ve masaüstü simgelerini hello araçları çoğunu görebilirsiniz.
 
-## <a name="tools-installed-on-the-linux-data-science-virtual-machine"></a>Linux veri bilimi sanal makinede yüklü araçları
+## <a name="tools-installed-on-hello-linux-data-science-virtual-machine"></a>Merhaba Linux veri bilimi sanal makine üzerinde yüklü araçları
 ### <a name="microsoft-r-server"></a>Microsoft R Server
-R en popüler diller veri analizi ve makine öğrenme için biridir. R analizi için kullanmak istiyorsanız, VM matematik çekirdek kitaplığı (MKL) ve Microsoft R Aç (MRO) ile Microsoft R Server (MRS) sahiptir. MKL matematik işlemleri analitik algoritmaları ortak en iyi duruma getirir. MRO yüzde 100 CRAN R ile uyumlu olan ve içinde CRAN yayımlanan R kitaplıkları hiçbirini MRO yüklenebilir. MRS ölçekleme ve web hizmetlerine R modellerin operationalization sağlar. R programlarınızı Rstudio'dan VI, Emacs veya gedit gibi varsayılan düzenleyicileri birinde düzenleyebilirsiniz. Emacs Düzenleyicisi'ni kullanıyorsanız, Emacs basitleştirir (Emacs istatistikleri) konuşur, v paketini Not önceden yüklenmiş Emacs Düzenleyicisi'ni içinde R dosyalarıyla çalışma olmuştur.
+R veri analizi ve makine öğrenme en popüler diller hello biridir. Analizi için toouse R istiyorsanız hello VM hello Microsoft R Aç (MRO) ile Microsoft R Server (MRS) ve matematik çekirdek kitaplığı (MKL) sahiptir. Merhaba MKL matematik işlemleri analitik algoritmaları ortak en iyi duruma getirir. MRO yüzde 100 CRAN R ile uyumlu olan ve içinde CRAN yayımlanan hello R kitaplıkları hiçbirini MRO hello üzerinde yüklenebilir. MRS ölçekleme ve web hizmetlerine R modellerin operationalization sağlar. R programlarınızı Rstudio'dan VI, Emacs veya gedit gibi hello varsayılan düzenleyicileri birinde düzenleyebilirsiniz. Merhaba Emacs Düzenleyicisi'ni kullanıyorsanız, bu hello Emacs paket hello Emacs Düzenleyicisi içinde R dosyalarıyla çalışma basitleştirir, önceden yüklenmiş v (Emacs konuşur istatistiklerini) unutmayın.
 
-Başlatma R konsolu, yalnızca yazın **R** Kabuğu'nda. Bu sizi, etkileşimli bir ortama götürür. R programınızı geliştirmek için genellikle Emacs veya VI veya gedit gibi bir düzenleyiciyi kullanın ve ardından R'ye içinde komut çalıştırın Rstudio'dan ile R programınızı geliştirmek için tam grafik IDE ortamına sahip.
+toolaunch R konsolu, yalnızca yazdığınız **R** hello Kabuğu'nda. Bu tooan etkileşimli ortamını alır. toodevelop R programınızı genellikle Emacs veya VI veya gedit gibi bir düzenleyici kullanın ve ardından R'ye içinde hello komut dosyalarını çalıştır Rstudio'dan ile bir tam grafik IDE ortam toodevelop R programınızı sahip.
 
-Ayrıca bir R betiği yüklemeniz için olan [üst 20 R paketleri](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) istiyorsanız. (Belirtildiği gibi) yazarak girilebilir R etkileşimli arabiriminde olduktan sonra bu komut dosyasının çalıştırılması **R** Kabuğu'nda.  
+Ayrıca, tooinstall hello için bir R betiği olan [üst 20 R paketleri](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) istiyorsanız. (Belirtildiği gibi) yazarak girilebilir hello R etkileşimli arabiriminde olduktan sonra bu komut dosyasının çalıştırılması **R** hello Kabuğu'nda.  
 
 ### <a name="python"></a>Python
-Python kullanarak geliştirme için Anaconda Python 2.7 ve 3.5 dağıtım yüklendi. Bu dağıtım yaklaşık 300 en popüler matematik, mühendislik ve veri analizi paketlerinin yanı sıra temel Python içerir. Varsayılan metin düzenleyicisi kullanabilirsiniz. Ayrıca, Spyder, Anaconda Python dağıtımları ile birlikte bir Python IDE kullanabilirsiniz. Spyder gereken bir grafik Masaüstü veya X11 iletme. Spyder kısayol grafik Desktop'ta sağlanır.
+Python kullanarak geliştirme için Anaconda Python 2.7 ve 3.5 dağıtım yüklendi. Bu dağıtım hello içeren Python yaklaşık 300 hello en popüler matematik, mühendislik ve veri analizi paketlerinin yanı sıra temel. Merhaba varsayılan metin düzenleyicisi kullanabilirsiniz. Ayrıca, Spyder, Anaconda Python dağıtımları ile birlikte bir Python IDE kullanabilirsiniz. Spyder gereken bir grafik Masaüstü veya X11 iletme. Kısayol tooSpyder hello grafik Desktop'ta sağlanır.
 
-Biz, Python 2.7 ve 3.5 sahip olduğundan, özellikle geçerli oturumdaki çalışmak istediğiniz istediğiniz Python sürümü (conda ortamı) etkinleştirmeniz gerekir. Etkinleştirme işlemi, Python'un istenen sürümüyle yolu değişkenini ayarlar.
+Biz, Python 2.7 ve 3.5 sahip olduğundan, toospecifically gereken istediğiniz üzerinde toowork hello içinde geçerli oturumu istenen hello Python sürümü (conda ortamı) etkinleştirin. Merhaba etkinleştirme işlemini hello yolu değişken toohello Python'un istenen sürümüyle ayarlar.
 
-Python 2.7 conda ortamı etkinleştirmek için Kabuğu'ndan aşağıdaki komutu çalıştırın:
+Merhaba aşağıdaki hello Kabuğu'ndan tooactivate hello Python 2.7 conda ortamı:
 
     source /anaconda/bin/activate root
 
 Python 2.7 adresindeki yüklü */anaconda/bin*.
 
-Python 3.5 conda ortamı etkinleştirmek için Kabuğu'ndan aşağıdaki komutu çalıştırın:
+Merhaba aşağıdaki hello Kabuğu'ndan tooactivate hello Python 3.5 conda ortamı:
 
     source /anaconda/bin/activate py35
 
 
 Python 3.5 yüklü adresindeki */anaconda/envs/py35/bin*.
 
-Yalnızca bir Python etkileşimli oturum başlatmak için şunu yazın **python** Kabuğu'nda. Bir grafik arabiriminde olan veya yedekleme kümesi iletme X11 varsa, yazabilirsiniz **pycharm** PyCharm Python IDE başlatmak için.
+Python etkileşimli oturumu tooinvoke yalnızca yazın **python** hello Kabuğu'nda. Bir grafik arabiriminde olan veya yedekleme kümesi iletme X11 varsa, yazabilirsiniz **pycharm** toolaunch hello PyCharm Python IDE.
 
-Ek Python kitaplıkları yükleme için çalıştırmanız gerekir ```conda``` veya ````pip```` komut sudo altında ve Python Paket Yöneticisi (conda veya PIP) doğru Python ortamı yüklemek için tam yolunu girin. Örneğin:
+tooinstall ek Python kitaplıklar, gereksinim duyduğunuz toorun ```conda``` veya ````pip```` komut altında sudo ve (conda veya PIP) tooinstall toohello doğru Python ortamı hello Python Paket Yöneticisi'nin tam yolunu girin. Örneğin:
 
     sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
     sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Jupyter not defteri
-Anaconda dağıtım ayrıca bir Jupyter not defteri ile kod ve analiz paylaşmak için bir ortamı bulunur. Jupyter not defteri JupyterHub erişilir. Yerel Linux kullanıcı adı ve parola kullanarak oturum açın.
+Merhaba Anaconda dağıtım Ayrıca, bir ortam tooshare kodu ve analiz Jupyter not defteri ile birlikte gelir. Merhaba Jupyter not defteri JupyterHub erişilir. Yerel Linux kullanıcı adı ve parola kullanarak oturum açın.
 
-Jupyter not defteri sunucunun Python 2, Python 3 ve R tekrar önceden yapılandırıldı. "Jupyter not defteri sunucusuna erişmek için tarayıcı başlatmak için Not Defteri" adlı bir masaüstü simgesi yoktur. SSH veya X2Go istemcisi VM kullanıyorsanız, de ziyaret edebilirsiniz [https://localhost:8000 /](https://localhost:8000/) Jupyter not defteri sunucusuna erişmek için.
+Merhaba Jupyter not defteri sunucu Python 2, Python 3 ve R tekrar önceden yapılandırıldı. "Jupyter Not Defteri" toolaunch hello tarayıcı tooaccess hello not defteri sunucu adlı bir masaüstü simgesi yoktur. Merhaba VM SSH veya X2Go istemcisi kullanıyorsanız, de ziyaret edebilirsiniz [https://localhost:8000 /](https://localhost:8000/) tooaccess hello Jupyter not defteri sunucu.
 
 > [!NOTE]
 > Hiçbir sertifika uyarısı alırsanız devam edin.
 > 
 > 
 
-Herhangi bir ana bilgisayardan Jupyter not defteri sunucusuna erişebilir. Yalnızca yazın *https://\<VM DNS adı veya IP adresi\>: 8000 /*
+Herhangi bir ana bilgisayardan hello Jupyter not defteri sunucusuna erişebilir. Yalnızca yazın *https://\<VM DNS adı veya IP adresi\>: 8000 /*
 
 > [!NOTE]
-> VM sağlandığında bağlantı noktası 8000 Güvenlik Duvarı'nda varsayılan olarak açılır.
+> Merhaba VM sağlandığında bağlantı noktası 8000 hello Güvenlik Duvarı'nda varsayılan olarak açılır.
 > 
 > 
 
-Biz örnek not defterlerini--bir söz Python ve r birinde paketlenmiş Yerel Linux kullanıcı adı ve parola kullanarak Jupyter not defteri için kimlik doğrulaması sonra not defteri giriş sayfasında örnekler bağlantısını görebilirsiniz. Seçerek yeni bir not defteri oluşturabilirsiniz **yeni**ve ardından uygun dil çekirdek. Görmüyorsanız, **yeni** düğmesini tıklatın, **Jupyter** not defteri sunucunun giriş sayfasına gitmek için sol üst simgesi.
+Biz örnek not defterlerini--bir söz Python ve r birinde paketlenmiş Yerel Linux kullanıcı adı ve parola kullanarak toohello Jupyter not defteri kimlik doğrulaması sonra hello not defteri giriş sayfasında hello bağlantı toohello örneklerini görebilirsiniz. Seçerek yeni bir not defteri oluşturabilirsiniz **yeni**ve ardından hello uygun dil çekirdek. Merhaba görmüyorsanız, **yeni** düğmesini hello tıklatın, **Jupyter** hello üst sol toogo toohello giriş sayfasında hello not defteri sunucusunun simgesi.
 
 ### <a name="apache-spark-standalone"></a>Tek başına Apache Spark 
-Apache Spark tek başına örneğini Spark uygulamalarında yerel olarak test etme ve büyük kümelerinde dağıtmadan önce ilk geliştirmenize yardımcı olması için bu Linux DSVM önceden yüklenir. PySpark programları Jupyter çekirdek çalıştırabilirsiniz. Jupyter açın ve "Yeni" düğmesini tıklatın, kullanılabilir tekrar listesini görmelisiniz. "Spark – Python" Spark Python dilini kullanarak uygulamalar oluşturmanıza olanak sağlayan PySpark Çekirdeği ' dir. Ayrıca, Spark programı oluşturmak için de bir Python IDE PyCharm veya Spyder gibi kullanabilirsiniz. Bu yana, bu tek başına bir örneğini, Spark yığını çağıran istemci programında çalışır. Bu daha hızlı ve Spark kümesinde geliştirme ile karşılaştırıldığında sorunlarını gidermek daha kolay hale getirir. 
+Apache Spark tek başına örneğini hello Spark uygulamalarında yerel olarak ilk önce test ve büyük kümelerinde dağıtma geliştirme Linux DSVM toohelp önceden yüklenir. Merhaba Jupyter çekirdek PySpark programları çalıştırabilir. Jupyter açın ve hello "Yeni" düğmesini tıklatın, kullanılabilir tekrar listesini görmelisiniz. Merhaba "Spark – Python" Spark Python dilini kullanarak uygulamalar oluşturmanıza olanak tanır hello PySpark Çekirdeği ' dir. Ayrıca, Spark PyCharm veya Spyder toobuild gibi bir Python IDE kullanabilirsiniz program. Bu yana, bu tek başına bir örneğini, hello Spark yığını istemci programı çağırma hello içinde çalışır. Bu daha hızlı hale getirir ve daha kolay tootroubleshoot sorunları toodeveloping bir Spark kümesinde karşılaştırılır. 
 
-Bir örnek PySpark not defteri Jupyter ($ giriş/not defterlerini/SparkML/pySpark) giriş dizininin altındaki "SparkML" dizininde bulabilirsiniz Jupyter üzerinde sağlanır. 
+Bir örnek PySpark not defteri hello "SparkML" dizini Jupyter ($ giriş/not defterlerini/SparkML/pySpark) hello giriş dizininin altında bulabilirsiniz Jupyter üzerinde sağlanır. 
 
 R için Spark programlama yapıyorsanız Microsoft R Server, SparkR veya sparklyr kullanabilirsiniz. 
 
-Microsoft R Server Spark bağlamda çalıştırmadan önce kurulum adım yerel tek bir düğüm Hadoop HDFS ve Yarn örneğini etkinleştirmek için bir kez yapmanız gerekir. Varsayılan olarak, Hadoop Hizmetleri yüklü ancak DSVM üzerinde devre dışı. Bunu etkinleştirmek için aşağıdaki komutları kök olarak ilk kez çalıştırmanız gereken:
+Microsoft R Server Spark bağlamda çalıştırmadan önce toodo bir saat Kurulum adım tooenable yerel tek bir düğüm Hadoop HDFS ve Yarn örneği gerekir. Varsayılan olarak, Hadoop Hizmetleri yüklü ancak DSVM hello üzerinde devre dışı. Sipariş tooenable, komutları kök hello ilk kez aşağıdaki toorun hello gerekenler:
 
     echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
     cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
@@ -192,126 +192,126 @@ Microsoft R Server Spark bağlamda çalıştırmadan önce kurulum adım yerel t
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Hadoop durdurabilirsiniz, bunları çalıştırarak gerekmediğinde Hizmetleri ilgili ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` sağlanan ve kullanılabilir geliştirmek ve (DSVM tek başına Spark örneğinde olan) uzaktan Spark bağlamında MRS sınamak nasıl gösteren bir örnek `/dsvm/samples/MRS` dizin. 
+Durdurabilirsiniz hello Hadoop ilgili hizmetleri, bunları çalıştırarak gerekmediğinde ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` nasıl toodevelop ve test MRS (Merhaba DSVM hello tek başına Spark örneğinde olan) uzaktan Spark bağlamında sağlanan ve hello kullanılabilirolduğunugösterenbirörnek`/dsvm/samples/MRS` dizini. 
 
 ### <a name="ides-and-editors"></a>IDE ve düzenleyiciler
-Birkaç kod Düzenleyicileri'nin seçeneğiniz vardır. Bu VI/VIM, Emacs, içerir gEdit, PyCharm, Rstudio'dan, Eclipse ve Intellij. gEdit, Eclipse, Intellij, Rstudio'dan ve PyCharm grafik düzenleyicilerden olan ve bunları kullanmak için bir grafik masaüstü oturum açmanız gerekir. Masaüstü ve uygulama bu düzenleyicilerin sahip menüsü kısayolları bunları başlatın.
+Birkaç kod Düzenleyicileri'nin seçeneğiniz vardır. Bu VI/VIM, Emacs, içerir gEdit, PyCharm, Rstudio'dan, Eclipse ve Intellij. gEdit, Eclipse, Intellij, Rstudio'dan ve PyCharm grafik düzenleyicilerden olan ve ihtiyacınız toobe imzalı tooa grafik Masaüstü toouse bunları. Masaüstü ve uygulama bu düzenleyicilerin sahip menü kısayolları toolaunch bunları.
 
-**VIM** ve **Emacs** metin tabanlı düzenleyiciler şunlardır. Emacs üzerinde biz Emacs konuşur istatistikleri (, R ile çalışma Emacs Düzenleyicisi'ni kolaylaştırır v) adlı bir eklenti paketi yüklediniz. Daha fazla bilgi bulunabilir [v](http://ess.r-project.org/).
+**VIM** ve **Emacs** metin tabanlı düzenleyiciler şunlardır. Emacs üzerinde biz Emacs konuşur istatistikleri (Merhaba Emacs Düzenleyicisi içinde R ile çalışmayı kolaylaştırır, v) adlı bir eklenti paketi yüklediniz. Daha fazla bilgi bulunabilir [v](http://ess.r-project.org/).
 
-**Eclipse** açık kaynak, birden çok dili destekleyen Genişletilebilir IDE değil. Java geliştiricilerinin edition VM'de yüklü örneğidir. Eklenti ortamda genişletmek için yüklenebilen birkaç popüler diller için kullanılabilir. Ayrıca adlı Eclipse'te yüklü bir eklenti sahibiz **Eclipse için Azure Araç Seti**. Oluştur, geliştirmek, test ve Java gibi dilleri destekler Eclipse geliştirme ortamı kullanarak Azure uygulamalarını dağıtmak sağlar. Ayrıca bir **Java için Azure SDK** farklı Azure hizmetlerinden Java ortamında erişim sağlar. Eclipse için Azure araç hakkında daha fazla bilgi bulunabilir [Eclipse için Azure Araç Seti](../azure-toolkit-for-eclipse.md).
+**Eclipse** açık kaynak, birden çok dili destekleyen Genişletilebilir IDE değil. Merhaba Java geliştiricilerinin edition hello VM üzerinde yüklü hello örneğidir. Eklenti yüklü tooextend hello ortamı olabilir çeşitli popüler diller için kullanılabilir. Ayrıca adlı Eclipse'te yüklü bir eklenti sahibiz **Eclipse için Azure Araç Seti**. Toocreate izin verir, geliştirmek, test ve Java gibi dilleri destekler hello Eclipse geliştirme ortamı kullanarak Azure uygulamaları dağıtın. Ayrıca bir **Java için Azure SDK** erişim toodifferent Java ortamında Azure hizmetlerinden izin verir. Eclipse için Azure araç hakkında daha fazla bilgi bulunabilir [Eclipse için Azure Araç Seti](../azure-toolkit-for-eclipse.md).
 
-**LaTex** Emacs eklenti birlikte texlive paket aracılığıyla yüklenen [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) LaTex belgelerinizi Emacs içinde yazma basitleştirir paket.  
+**LaTex** hello texlive paket Emacs eklenti birlikte aracılığıyla yüklenen [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) LaTex belgelerinizi Emacs içinde yazma basitleştirir paket.  
 
 ### <a name="databases"></a>Veritabanları
 #### <a name="postgres"></a>Postgres
-Açık kaynak veritabanı **Postgres** VM üzerinde zaten tamamlanmış initdb ve çalışan hizmetler ile kullanılabilir. Hala veritabanları ve kullanıcılar oluşturmanız gerekir. Daha fazla bilgi için bkz: [Postgres belgelerine](https://www.postgresql.org/docs/).  
+Merhaba açık kaynak veritabanı **Postgres** hello VM hello Hizmetleri çalıştıran ve zaten tamamlanmış initdb ile kullanılabilir. Yine toocreate veritabanları ve kullanıcılar gerekir. Daha fazla bilgi için bkz: Merhaba [Postgres belgelerine](https://www.postgresql.org/docs/).  
 
 #### <a name="graphical-sql-client"></a>Grafik SQL istemcisi
-**SQuirrel SQL**, (örneğin, Microsoft SQL Server, Postgres ve MySQL) farklı veritabanlarına bağlanmak için ve SQL sorguları çalıştırmak için bir grafik SQL istemci'nin sağlamış. Bu (örneğin X2Go istemci kullanarak) bir grafik Masaüstü oturumundan çalıştırabilirsiniz. SQuirrel SQL çağırmak için masaüstünde simgesinden başlatın veya Kabuğu aşağıdaki komutu çalıştırın.
+**SQuirrel SQL**, tooconnect toodifferent veritabanları (örneğin, Microsoft SQL Server, Postgres ve MySQL) ve toorun SQL sorguları grafik SQL istemci'nin sağlamış. Bu (Merhaba X2Go istemci, örneğin kullanarak) bir grafik Masaüstü oturumundan çalıştırabilirsiniz. tooinvoke SQuirrel SQL, hello masaüstünde hello simgesinden başlatın veya hello Kabuğu komut aşağıdaki hello çalıştırın.
 
     /usr/local/squirrel-sql-3.7/squirrel-sql.sh
 
-İlk kullanılmadan önce sürücüler ve veritabanı diğer adlar ayarlayın. JDBC sürücüleri şu adreste bulunabilir:
+Merhaba ilk kullanmadan önce sürücüler ve veritabanı diğer adlar ayarlayın. Merhaba JDBC sürücüleri şu adreste bulunabilir:
 
 */usr/Share/Java/jdbcdrivers*
 
 Daha fazla bilgi için bkz: [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
 #### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Microsoft SQL Server erişmek için komut satırı araçları
-SQL Server için ODBC sürücü paketi de iki komut satırı araçlarıyla birlikte gelir:
+Merhaba ODBC sürücü paketi SQL Server için de iki komut satırı araçlarıyla birlikte gelir:
 
-**BCP**: bcp yardımcı programı toplu bir kullanıcı tarafından belirtilen biçimde Microsoft SQL Server örneğini ve bir veri dosyası arasında veri kopyalar. Çok sayıda yeni satırı SQL Server tablolarına aktarmak ya da veri tabloları dışında veri dosyalarına veri aktarmak için bcp yardımcı programı kullanılabilir. Bir tabloya veri almak için bu tablo için oluşturulan bir biçim dosyası kullanmak, veya yapısını tablo ve sütunlarını için geçerli veri türlerini anlama.
+**BCP**: hello bcp yardımcı programı toplu bir kullanıcı tarafından belirtilen biçimde Microsoft SQL Server örneğini ve bir veri dosyası arasında veri kopyalar. Merhaba bcp yardımcı programı kullanılan tooimport çok sayıda yeni satırı SQL Server tablolarını ya da veri dosyalarını tablolara tooexport verileri olabilir. tooimport veri bir tabloya Bu tablo için oluşturulan bir biçim dosyası kullanmak, veya hello yapısını hello tablo ve hello sütunlarını için geçerli veri türlerini anlama.
 
 Daha fazla bilgi için bkz: [bcp ile bağlanma](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**SQLCMD**: Transact-SQL deyimleri sqlcmd yardımcı programını yanı sıra ile sistem yordamları girin ve komut dosyaları komut isteminde. Bu yardımcı program ODBC Transact-SQL toplu işlemleri yürütmek için kullanır.
+**SQLCMD**: hello sqlcmd yardımcı programını, yanı sıra sistem yordamları Transact-SQL deyimi girin ve komut dosyaları hello komut isteminde. Bu yardımcı program ODBC tooexecute Transact-SQL toplu kullanır.
 
 Daha fazla bilgi için bkz: [sqlcmd ile bağlanma](https://msdn.microsoft.com/library/hh568447.aspx).
 
 > [!NOTE]
-> Bu yardımcı programı, Linux ve Windows platformları arasında bazı farklar vardır. Ayrıntılar için belgelere bakın.
+> Bu yardımcı programı, Linux ve Windows platformları arasında bazı farklar vardır. Ayrıntılar için Hello belgelerine bakın.
 > 
 > 
 
 #### <a name="database-access-libraries"></a>Veritabanı erişimi kitaplıkları
-Access veritabanları R ve Python kullanılabilir kitaplık yok.
+Kitaplıkları R ve Python tooaccess veritabanlarında kullanılabilir.
 
-* R içinde **RODBC** paket veya **dplyr** paket sorgulamak ya da veritabanı sunucusunda SQL deyimlerini yürütmek olanak tanır.
-* Python içinde **pyodbc** kitaplığı, temel alınan katmanı olarak ODBC ile veritabanı erişimi sağlar.  
+* R içinde hello **RODBC** paket veya **dplyr** paket hello veritabanı sunucusunda SQL deyimlerini yürütmek veya tooquery sağlar.
+* Python içinde hello **pyodbc** kitaplığı, temel alınan katman hello gibi ODBC ile veritabanı erişimi sağlar.  
 
-Erişim için **Postgres**:
+tooaccess **Postgres**:
 
-* R: paketi kullanan **RPostgreSQL**.
-* Python: Kullanma **psycopg2** kitaplığı.
+* R: gelen hello paketini kullanın **RPostgreSQL**.
+* Python'dan: Kullanım hello **psycopg2** kitaplığı.
 
 ### <a name="azure-tools"></a>Azure Araçları
-Aşağıdaki Azure Araçları VM'de yüklü:
+Azure Araçları aşağıdaki hello hello VM üzerinde yüklenir:
 
-* **Azure komut satırı arabirimi**: Azure CLI oluşturup Kabuk komutları aracılığıyla Azure kaynaklarını yönetmek olanak tanır. Azure Araçları çağırmak için yalnızca yazın **azure Yardım**. Daha fazla bilgi için bkz: [Azure CLI belge sayfasının](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Microsoft Azure Storage Gezgini**: Microsoft Azure Storage Gezgini, Azure depolama hesabınızın depoladığınız nesnelerin göz atın ve karşıya yükleme ve Azure BLOB'ları gelen ve giden veri indirmek için kullanılan bir araçtır grafik. Depolama Gezgini Masaüstü kısayol simgesinden erişebilirsiniz. Yazarak, bir kabuk isteminde çağırabilirsiniz **StorageExplorer**. Yedekleme kümesi iletme X11 olması veya bir X2Go istemciden imzalanması gerekir.
-* **Azure kitaplıkları**: önceden yüklenmiş kitaplıkları bazıları aşağıda verilmiştir.
+* **Azure komut satırı arabirimi**: hello Azure CLI Kabuk komutları aracılığıyla Azure kaynaklarınızı yönetmek ve toocreate sağlar. tooinvoke Azure Araçları Merhaba, yalnızca yazın **azure Yardım**. Daha fazla bilgi için bkz: Merhaba [Azure CLI belge sayfasının](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Microsoft Azure Storage Gezgini**: Microsoft Azure Storage Gezgini araçtır, Azure depolama hesabı ve Azure blob'lara ait tooupload ve indirme veri tooand depoladığınız hello nesneleri aracılığıyla kullanılan toobrowse olan bir grafik. Depolama Gezgini hello masaüstü kısayolu simgesinden erişebilirsiniz. Yazarak, bir kabuk isteminde çağırabilirsiniz **StorageExplorer**. Bir X2Go istemciden oturum toobe gerekir veya yedekleme kümesi iletme X11 sahip.
+* **Azure kitaplıkları**: hello aşağıdaki hello önceden yüklenmiş kitaplıkları bazıları verilmiştir.
   
-  * **Python**: yüklü olan Python kitaplıkları Azure ile ilgili olan **azure**, **azureml**, **pydocumentdb**, ve **pyodbc**. İlk üç kitaplıklarıyla Azure depolama hizmetleri, Azure Machine Learning ve Azure Cosmos DB (Azure üzerinde bir NoSQL veritabanı) erişebilir. Dördüncü kitaplığı (yanı sıra Microsoft ODBC sürücüsü için SQL Server) pyodbc erişimi etkinleştirir SQL Server, Azure SQL Database ve Azure SQL Data Warehouse python'dan bir ODBC arabirimini kullanarak. Girin **PIP listesi** listelenen tüm kitaplıkları görmek için. Bu komutu hem Python 2.7 hem de 3.5 ortamlarında çalıştırdığınızdan emin olun.
-  * **R**: yüklü olan Azure ile ilgili kitaplıklarında R olan **AzureML** ve **RODBC**.
-  * **Java**: Azure Java kitaplıkları listesi dizininde bulunabilir **/dsvm/sdk/AzureSDKJava** VM üzerinde. Anahtar kitaplıkları SQL Server için Azure depolama ve Yönetimi API'leri, Azure Cosmos DB ve JDBC sürücüleri alır.  
+  * **Python**: hello Azure ile ilgili kitaplıklar yüklenen python'da **azure**, **azureml**, **pydocumentdb**, ve **pyodbc** . İlk üç kitaplıkları ile Merhaba, Azure depolama hizmetleri, Azure Machine Learning ve Azure Cosmos DB (Azure üzerinde bir NoSQL veritabanı) erişebilir. Merhaba dördüncü kitaplığı, pyodbc (birlikte hello için Microsoft ODBC sürücüsü SQL Server), bir ODBC arabirimini kullanarak erişim tooSQL sunucu, Azure SQL Database ve Azure SQL Data Warehouse python'dan sağlar. Girin **PIP listesi** tüm hello toosee listelenen kitaplıkları. Her iki hello Python 2.7 Bu komutta ve 3.5 ortamları emin toorun olması.
+  * **R**: yüklenen hello Azure ile ilgili kitaplıklarında R olan **AzureML** ve **RODBC**.
+  * **Java**: Azure Java kitaplıkları hello listesi hello dizininde bulunabilir **/dsvm/sdk/AzureSDKJava** hello VM üzerinde. SQL Server için Azure depolama ve Yönetimi API'leri, Azure Cosmos DB ve JDBC sürücüleri Hello anahtar kitaplıkları alır.  
 
-Erişebileceğiniz [Azure portal](https://portal.azure.com) önceden yüklenmiş Firefox tarayıcısından. Azure Portal'da oluşturmak, yönetmek ve Azure kaynakları izle.
+Merhaba erişebilirsiniz [Azure portal](https://portal.azure.com) hello önceden yüklenmiş Firefox tarayıcısından. Hello Azure portal, oluşturmak, yönetmek ve Azure kaynaklarını izleyin.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-Azure Machine Learning oluşturun, dağıtın ve Tahmine dayalı analiz çözümlerini paylaşmak olanak tanıyan bir tam olarak yönetilen bir bulut hizmetidir. Azure Machine Learning Studio'dan denemeler ve modelleri oluşturun. Ziyaret ederek veri bilimi sanal makinede bir web tarayıcısından erişilebileceğini [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning toobuild sağlayan bir tam olarak yönetilen bir bulut hizmetidir, dağıtmak ve Tahmine dayalı analiz çözümlerini paylaşın. Azure Machine Learning Studio'dan denemeler ve modelleri oluşturun. Ziyaret ederek hello veri bilimi sanal makine üzerinde bir web tarayıcısından erişilebileceğini [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Azure Machine Learning Studio'da oturum açtıktan sonra bir deney tuvale makine öğrenimi algoritmaları için mantıksal bir akış burada yapı erişebilirsiniz. Ayrıca Azure Machine Learning üzerinde barındırılan bir Jupyter not defteri erişiminiz ve Machine Learning Studio'da denemeleri sorunsuz bir şekilde çalışabilirsiniz. Machine learning web hizmeti arabiriminde kaydırma tarafından oluşturulan modelleri faaliyete. Bu modeller öğrenme makineden tahminleri çağırmak herhangi bir dilde yazılan istemcileri sağlar. Daha fazla bilgi için bkz: [Machine Learning belge](https://azure.microsoft.com/documentation/services/machine-learning/).
+TooAzure Machine Learning Studio oturumu sonra erişim tooan deneme hello machine learning algoritmaları için mantıksal bir akış burada yapı tuvale sahip. Ayrıca erişim tooa Jupyter not defteri Azure Machine Learning üzerinde barındırılan sahip ve Machine Learning Studio'da hello denemeler sorunsuz bir şekilde çalışabilirsiniz. Merhaba machine learning web hizmeti arabiriminde kaydırma tarafından oluşturulan modelleri faaliyete. Bu, istemcilerin tüm dil tooinvoke tahminleri hello makine öğrenimi modellerinin oluşturulmasına yazılmış sağlar. Daha fazla bilgi için bkz: Merhaba [Machine Learning belge](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-Ayrıca VM Modellerinizi R veya Python derleme ve Azure Machine learning'de üretimde dağıtın. Biz kitaplıkları R yüklü (**AzureML**) ve Python (**azureml**) bu işlevselliği etkinleştirmek için.
+Ayrıca Modellerinizi R veya Python hello VM üzerinde derleme ve Azure Machine learning'de üretimde dağıtın. Biz kitaplıkları R yüklü (**AzureML**) ve Python (**azureml**) tooenable bu işlev.
 
-Azure Machine Learning R ve Python modellerinde dağıtma hakkında daha fazla bilgi için bkz: [veri bilimi sanal makine yapabilir on nokta](machine-learning-data-science-vm-do-ten-things.md) (özellikle, bölüm "R veya Python kullanarak modelleri oluşturmak ve bunları faaliyete Azure Machine Learning kullanarak").
+Nasıl toodeploy Azure Machine Learning R ve Python modelleri hakkında daha fazla bilgi için bkz: [hello veri bilimi sanal makine üzerinde yapabilir on nokta](machine-learning-data-science-vm-do-ten-things.md) (özellikle, hello bölüm "R veya Python kullanarak modelleri oluşturmak ve bunları faaliyete "Azure Machine Learning kullanarak").
 
 > [!NOTE]
-> Bu yönergeler, veri bilimi VM Windows sürümü için yazılmıştır. Ancak Azure Machine Learning modellerini dağıtmayı yoktur Linux VM'ye ilgili bilgiler sağlanmıştır.
+> Bu yönergeleri hello Windows sürümü hello veri bilimi VM için yazılmıştır. Ancak var. modelleri tooAzure Machine Learning dağıtmayı sağlanan hello bilgileri uygulanabilir toohello Linux VM.
 > 
 > 
 
 ### <a name="machine-learning-tools"></a>Machine learning araçları
-VM araçları ve önceden derlenmiş ve yerel olarak yüklenmiş algoritmaları öğrenme birkaç makineyle birlikte gelir. Bunlar:
+Merhaba VM araçları ve önceden derlenmiş ve yerel olarak yüklenmiş algoritmaları öğrenme birkaç makineyle birlikte gelir. Bunlar:
 
 * **CNTK** (hesaplama ağ araç setinin Microsoft Research): kapsamlı bir araç seti öğrenme.
 * **Vowpal Wabbit**: hızlı çevrimiçi öğrenme algoritması.
 * **xgboost**: en iyi duruma getirilmiş, boosted ağaç algoritmaları sağlayan bir araç.
-* **Python**: Anaconda Python ile birlikte gelen machine learning algoritmaları Scikit öğrenin gibi kitaplıklarla birlikte gelir. Diğer kitaplıklarını kullanarak yükleyebileceğiniz `pip install` komutu.
-* **R**: machine learning işlevleri içeren zengin bir kitaplık r için kullanılabilir Önceden yüklenen kitaplıklar bazıları lm, glm, randomForest, rpart. Diğer kitaplıkları çalıştırarak yüklenebilir:
+* **Python**: Anaconda Python ile birlikte gelen machine learning algoritmaları Scikit öğrenin gibi kitaplıklarla birlikte gelir. Hello kullanarak diğer kitaplıkları yükleyebilirsiniz `pip install` komutu.
+* **R**: machine learning işlevleri içeren zengin bir kitaplık r için kullanılabilir Önceden yüklenmiş hello kitaplıkları bazıları lm, glm, randomForest, rpart. Diğer kitaplıkları çalıştırarak yüklenebilir:
   
         install.packages(<lib name>)
 
-Burada, listedeki ilk üç machine learning Araçlar ile ilgili bazı ek bilgiler verilmiştir.
+İşte bazı ek bilgiler hello hakkında ilk üç machine learning araçları hello listesinde.
 
 #### <a name="cntk"></a>CNTK
-Bir açık kaynaklı, araç seti öğrenme derin budur. Bir komut satırı aracı (cntk) ve yolunda zaten.
+Bir açık kaynaklı, araç seti öğrenme derin budur. Bir komut satırı aracı (cntk) ve hello yolu zaten.
 
-Temel bir örneği çalıştırmak için Kabuğu'nda aşağıdaki komutları çalıştırın:
+toorun temel bir örnek hello Kabuk komutları aşağıdaki hello yürütün:
 
     cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
     cntk configFile=lr_bs.cntk makeMode=false command=Train
 
-Daha fazla bilgi için bkz: CNTK bölümünü [GitHub](https://github.com/Microsoft/CNTK)ve [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
+Daha fazla bilgi için bkz: Merhaba CNTK bölümünü [GitHub](https://github.com/Microsoft/CNTK)ve hello [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
 
 #### <a name="vowpal-wabbit"></a>Vowpal Wabbit
 Vowpal Wabbit olan machine learning çevrimiçi, karma, allreduce, düşürülmesi, learning2search, etkin, gibi teknikler kullanır sistem ve etkileşimli öğrenme.
 
-Aracı üzerinde çok temel bir örneği çalıştırmak için aşağıdakileri yapın:
+çok basit bir örnek toorun hello aracı hello aşağıdaki:
 
     cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
     cd vwdemo
     vw house_dataset
 
-Bu dizinde diğer, daha büyük gösterileri vardır. VW hakkında daha fazla bilgi için bkz: [GitHub'un bu bölümünde](https://github.com/JohnLangford/vowpal_wabbit)ve [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
+Bu dizinde diğer, daha büyük gösterileri vardır. VW hakkında daha fazla bilgi için bkz: [GitHub'un bu bölümünde](https://github.com/JohnLangford/vowpal_wabbit)ve hello [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
 #### <a name="xgboost"></a>xgboost
-Bu, tasarlanmış ve boosted (ağacı) algoritmaları için en iyi hale getirilmiş bir kitaplıktır. Bu kitaplık amacı, artırmanın büyük ölçekli ağaç sağlamak için gereken uç makineler hesaplama sınırları göndermek için ölçeklenebilir, taşınabilir ve doğru olmasıdır.
+Bu, tasarlanmış ve boosted (ağacı) algoritmaları için en iyi hale getirilmiş bir kitaplıktır. Bu kitaplık Hello amacı tooprovide büyük ölçekli ağaç ölçeklenebilir, taşınabilir ve doğru olan artırmanın makineler toohello uç toopush hello hesaplama sınırları gerekli ' dir.
 
 Bir R kitaplığı yanı sıra bir komut satırı sağlanır.
 
-Bu kitaplıkta R kullanmak için etkileşimli bir R oturum başlatabilirsiniz (yazarak yalnızca **R** Kabuğu'nda) ve kitaplığı yüklenemiyor.
+toouse R Bu kitaplık, etkileşimli bir R oturumu başlatmak için (yazarak yalnızca **R** hello Kabuğu'nda) ve yük hello kitaplığı.
 
 R isteminde çalıştırarak basit bir örnek aşağıda verilmiştir:
 
@@ -325,51 +325,51 @@ R isteminde çalıştırarak basit bir örnek aşağıda verilmiştir:
                     eta = 1, nthread = 2, nround = 2, objective = "binary:logistic")
     pred <- predict(bst, test$data)
 
-Xgboost komut satırını çalıştırmak için Kabuğu'nda yürütmek için komutlar şunlardır:
+toorun hello xgboost komut satırı hello Kabuğu'nda hello komutları tooexecute şunlardır:
 
     cp -r /dsvm/tools/xgboost/demo/binary_classification/ xgboostdemo
     cd xgboostdemo
     xgboost mushroom.conf
 
 
-.Model dosyası belirtilen dizin yazılır. Bu demo örnek hakkında bilgi bulunabilir [github'da](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
+.Model dosyası belirtilen toohello dizinine yazılır. Bu demo örnek hakkında bilgi bulunabilir [github'da](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
 
-Xgboost hakkında daha fazla bilgi için bkz: [xgboost belge sayfasının](https://xgboost.readthedocs.org/en/latest/)ve kendi [GitHub deposunu](https://github.com/dmlc/xgboost).
+Merhaba xgboost hakkında daha fazla bilgi için bkz: [xgboost belge sayfasının](https://xgboost.readthedocs.org/en/latest/)ve kendi [GitHub deposunu](https://github.com/dmlc/xgboost).
 
 #### <a name="rattle"></a>Çıngırağı
-Rattle ( **R** **A**nalytical **T**aracı **T**o **L**kazanmak **E**asily) GUI tabanlı veri keşfi ve modelleme kullanır. Veri, taşımalarına modellenebilir, verileri Denetimsiz hem de denetimli modellerinden oluşturur, modelleri performansını grafik gösterir dönüşümler veri istatistiksel ve görsel özetini sunar ve puanları yeni verilerini ayarlar. Ayrıca, doğrudan R çalıştırmak veya daha fazla çözümleme için bir başlangıç noktası olarak kullanılan işlemler kullanıcı arabiriminde çoğaltma R kodu oluşturur.
+Rattle (Merhaba **R** **A**nalytical **T**aracı **T**o **L**kazanmak **E** GUI tabanlı veri keşfi ve modelleme asily) kullanır. İstatistiksel gösterir ve veri, kolayca modellenir dönüşümler veri visual özetlerini hello veri Denetimsiz hem de denetimli modellerinden oluşturur, sunar modelleri performansını grafik hello ve puanları yeni verileri ayarlar. Ayrıca, doğrudan R çalıştırın ya da daha fazla çözümleme için bir başlangıç noktası olarak kullanılan hello işlemlerinde hello UI çoğaltma R kodu oluşturur.
 
-Çıngırağı çalıştırmak için bir grafik Masaüstü Oturum açma oturumunda olmanız gerekir. Terminal üzerinde yazın ```R``` R ortam girmek için. R isteminde aşağıdaki komutları girin:
+toorun Çıngırağı, bir grafik Masaüstü Oturum açma oturumunda toobe gerekir. Merhaba terminalde yazın ```R``` tooenter hello R ortamı. Merhaba R isteminde aşağıdaki komutları hello girin:
 
     library(rattle)
     rattle()
 
-Sekmeleri bir dizi artık bir grafik arabirim açılır. Bir örnek hava veri kümesi kullanın ve bir model oluşturmak için gereken Çıngırağı içinde hızlı başlangıç adımlar şunlardır. Bazı adımları otomatik olarak yüklemek ve sistem üzerinde olmayan bazı gerekli R paketlerini yükleme istenir.
+Sekmeleri bir dizi artık bir grafik arabirim açılır. Hızlı Başlangıç bir model oluşturmak ve gerekli Çıngırağı toouse bir örnek hava veri kümesi adımlarını hello şunlardır. Bazı hello adımları, istendiğinde tooautomatically yükleme olan ve hello sistemde olmayan bazı gerekli R paketlerini yükleyin.
 
 > [!NOTE]
-> Sistem dizininde (varsayılan) paketini yüklemek için erişimi yoksa, kişisel kitaplığınıza paketleri yüklemek için R konsol penceresinde bir ileti görebilirsiniz. Yanıt *y* bu komut istemlerini görürseniz.
+> Access tooinstall hello paketi hello sistem dizininde (Merhaba varsayılan) yoksa, R konsol penceresi tooinstall paketleri tooyour kişisel kitaplığınızı bir ileti görebilirsiniz. Yanıt *y* bu komut istemlerini görürseniz.
 > 
 > 
 
 1. **Yürüt**’e tıklayın.
-2. Örnek hava veri kümesi kullanmayı tercih soran bir iletişim kutusu açılır. Tıklatın **Evet** örnek yüklenemiyor.
-3. Tıklatın **modeli** sekmesi.
-4. Tıklatın **yürütme** karar ağacı oluşturmak için.
-5. Tıklatın **çizin** karar ağacı görüntülemek için.
-6. ' I tıklatın **orman** tıklayın ve radyo düğmesinin **yürütme** rastgele bir orman oluşturmak için.
-7. Tıklatın **değerlendir** sekmesi.
-8. ' I tıklatın **Risk** radyo düğmesinin öğesini tıklatıp **yürütme** iki Risk (kümülatif) performans çizimleri görüntülemek için.
-9. Tıklatın **günlük** önceki işlemleri Oluştur R kodunu göstermek için sekmesi.
-   (Eklemek için gerek Çıngırağı geçerli sürümünde bir hata nedeniyle, bir  *#*  önüne karakter *... Bu günlüğünü Dışarı Aktar*  günlük metninde.)
-10. Tıklatın **verme** adlı R betiği kaydetmek için düğmesini *weather_script. R* giriş klasörü için.
+2. Yukarı toouse hello örnek hava veri kümesi isteyip soran bir iletişim kutusu açılır. Tıklatın **Evet** tooload Merhaba örneği.
+3. Merhaba tıklatın **modeli** sekmesi.
+4. Tıklatın **yürütme** toobuild karar ağacı.
+5. Tıklatın **çizin** toodisplay hello karar ağacı.
+6. Hello tıklatın **orman** radyo düğmesinin ve tıklayın **yürütme** toobuild rastgele bir orman.
+7. Merhaba tıklatın **değerlendir** sekmesi.
+8. Hello tıklatın **Risk** radyo düğmesinin ve tıklayın **yürütme** toodisplay iki Risk (kümülatif) performans çizimleri.
+9. Merhaba tıklatın **günlük** sekmesini tooshow hello işlemleri önceki hello R kodu oluştur.
+   (Tooinsert ihtiyacınız Çıngırağı geçerli sürümünde hello tooa hata, bir  *#*  önüne karakter *... Bu günlüğünü Dışarı Aktar*  hello günlük hello metninde.)
+10. Merhaba tıklatın **verme** adlı düğmesi toosave hello R betiği *weather_script. R* toohello giriş klasörü.
 
-Çıngırağı ve r çıkabilirsiniz Şimdi oluşturulan R betiği değiştirmek veya çalıştırmak için her zaman içinde Rattle UI yapıldığı her şeyi yinelemek için olduğu gibi kullanın. Özellikle yeni başlayanlar için R içinde bu hızlı bir şekilde analiz yapın ve basit bir grafik arabirim öğrenmede R değiştirmek ve/veya öğrenmek için otomatik kod oluşturma sırasında makine için kolay bir yoludur.
+Çıngırağı ve r çıkabilirsiniz Oluşturulan hello R betiği değiştirebilir veya toorun olduğu gibi kullanın artık, dilediğiniz zaman toorepeat her şeyi içeren Rattle UI hello içinde yapılmadı. Özellikle yeni başlayanlar için R içinde bu tooquickly analiz yapın ve basit bir grafik arabiriminde otomatik olarak R toomodify kod oluşturma sırasında makine ve/veya öğrenin kolay bir yoludur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 İşte öğrenme ve araştırması nasıl devam edebilirsiniz:
 
-* [Veri bilimi üzerinde Linux veri bilimi sanal makine](machine-learning-data-science-linux-dsvm-walkthrough.md) izlenecek Linux veri bilimi burada sağlanan VM ile birçok ortak veri bilimi görevleri gerçekleştirmek nasıl gösterir. 
-* Çeşitli veri bilimi araçları, bu makalede açıklanan araçları deneyerek veri bilimi VM keşfedin. De çalıştırabilirsiniz *dsvm daha fazla bilgi* temel bir giriş ve işaretçiler VM'de yüklü araçları hakkında daha fazla bilgi için sanal makinedeki Kabuk.  
-* Kullanarak uçtan uca analitik çözümler sistematik olarak oluşturmayı öğrenin [takım veri bilimi işlemi](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Ziyaret [Cortana Analytics Galerisi](http://gallery.cortanaanalytics.com) Cortana Analytics Suite kullanan machine learning ve veri analizi örnekleri için.
+* Merhaba [hello Linux veri bilimi sanal makine üzerinde veri bilimi](machine-learning-data-science-linux-dsvm-walkthrough.md) anlatım gösterir, tooperform birçok ortak veri bilimi hello Linux veri bilimi burada sağlanan VM ile nasıl görevler. 
+* Bu makalede açıklanan hello araçları deneyerek veri bilimi VM üzerinde çeşitli veri bilimi araçları hello hello keşfedin. De çalıştırabilirsiniz *dsvm daha fazla bilgi* hello Kabuk hello VM üzerinde yüklü hello araçlarla ilgili temel bir giriş ve işaretçiler toomore bilgi hello sanal makine içinde üzerinde.  
+* Toobuild uçtan uca analitik çözümler kullanarak sistematik olarak nasıl hello öğrenin [takım veri bilimi işlemi](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Merhaba ziyaret [Cortana Analytics Galerisi](http://gallery.cortanaanalytics.com) machine learning ve veri analizi, kullanım hello Cortana Analytics Suite örnekleri için.
 

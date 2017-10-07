@@ -1,5 +1,5 @@
 ---
-title: "Azure Application Insights web uygulaması performans değişikliklerin tanılama akıllı | Microsoft Docs"
+title: "Azure Application Insights web uygulaması performans değişikliklerin aaaSmart tanılama | Microsoft Docs"
 description: "Otomatik tanılama ani veya performans telemetrisini adımlarda web uygulamanızdan."
 services: application-insights
 documentationcenter: 
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: cfreeman
-ms.openlocfilehash: 5e53bc714d89bf6204681349e7890e0b8fbc7046
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8891762c4a4bfdb08b647fe3b702349eb30ec9c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="diagnose-sudden-changes-in-your-app-telemetry"></a>Uygulama telemetrinizi ani değişiklikler tanılama
 
 *Bu özelliğin önizlemede değil.*
 
-Web uygulamanızın performansı veya tek bir tıklatmayla kullanımı ani değişiklikler tanılamak! Her zaman grafik oluşturduğunuzda akıllı tanılama özelliği kullanılabilir [Analytics](app-insights-analytics.md) içinde [Application Insights](app-insights-overview.md). Bir depo veya bir DIP gibi sonuçlarınızı eğilimi olağan dışı bir değişiklik olduğunda akıllı tanılama bir desen boyutları ve değişiklik açıklayabilir ilgili değerleri tanımlar. Bu sorunu hızlı tanılamanıza yardımcı olur. 
+Web uygulamanızın performansı veya tek bir tıklatmayla kullanımı ani değişiklikler tanılamak! Merhaba akıllı Tanılama özelliğini, her zaman grafik oluşturduğunuzda kullanılabilir [Analytics](app-insights-analytics.md) içinde [Application Insights](app-insights-overview.md). Bir depo veya bir DIP gibi sonuçlarınızı hello eğilimini olağan dışı bir değişiklik olduğunda akıllı tanılama bir desen boyutları ve hello değişiklik açıklayabilir ilgili değerleri tanımlar. Bu, hızlı bir şekilde hello sorunu tanılamak yardımcı olur. 
 
-Bu örnekte, akıllı tanılama değişiklikle ilişkili özellik değerlerinin bir desen belirledi ve sonuçları ile ve bu deseni olmadan arasındaki farkı vurgular:
+Bu örnekte, akıllı tanılama hello değişiklikle ilişkili özellik değerlerinin bir desen belirledi ve sonuçları ile ve bu deseni olmadan hello birbirinden vurgular:
 
 ![Örnek analytics Tanılama sonucu](./media/app-insights-analytics-diagnostics/analytics-result.png)
  
@@ -36,47 +36,47 @@ Bu örnekte, akıllı tanılama değişiklikle ilişkili özellik değerlerinin 
  
     ![yoğun noktası](./media/app-insights-analytics-diagnostics/peak.png)
 
-    Tanılama bir desen keşfetmek için birkaç saniye sürer.
+    Tanılama birkaç saniye sürer toodiscover bir desen.
 
-3. Tanılama sonuçları sekmesi, veri süreksizlik açıklayabilir bir desen gösterir.
+3. Merhaba Tanılama sonuçları sekmesi, veri süreksizlik açıklayabilir bir desen gösterir.
 
     ![Sonuç](./media/app-insights-analytics-diagnostics/result.png)
  
-    Metin kaydırma ile ilişkilendirmek için görüntülenen boyut değerleri gösterir. Bu örnekte, belirli bir istek ve belirli tarayıcı sürümü ile ilişkili.
+    Merhaba metni hello shift ile toocorrelate görünür hello boyut değerleri gösterir. Bu örnekte, belirli bir istek ve belirli tarayıcı sürümü ile ilişkili.
 
-    Filtre true ve false grafik de iki bileşenden dikkat edin. False bileşen değişmeden eğilimi gösterir. Diğer bir deyişle, biz tanılama belirledi sorunlu birleşimlerini bıraksanız telemetri sonuçlarında değişiklik yoktur. Bunun aksine, sonuçları bu bileşimi içinde çarpıcı bir değişiklik araştırma vurgulanmış alanı içinde gösterir. Bu tanılama değişikliği açıklayan özellikleri bileşimini buldu gösterir.
+    Ayrıca hello grafikle hello filtre true ve false hello iki bileşenlerinin dikkat edin. Merhaba false bileşen değişmeden eğilimi gösterir. Diğer bir deyişle, biz hello sorunlu birleşimlerini tanılama tanımladığı bıraksanız hello telemetri sonuçlarında değişiklik yoktur. Bunun aksine, bu bileşimi içinde hello sonuçları çarpıcı değişiklik gösterir ve bu da araştırma vurgulanmış hello alanı içinde. Bu tanılama hello değişiklik açıklayan özellikleri bileşimini buldu gösterir.
 
-4.  Desen karmaşıksa üzerine gelerek gerek **Tümünü Göster** boyutları görmek için.
+4.  Merhaba düzeni karmaşıksa toohover üzerinden ihtiyacınız **Tümünü Göster** toosee hello boyutları.
 
     ![tümünü göster](./media/app-insights-analytics-diagnostics/show-all.png)
  
-5.  Tanılama hakkında bilgilendirmek için önemli hiçbir desen bulur durumda ' yok ' sunulduğunu sunulur. Bu noktada, sorgunuzu değişebilir. Örneğin, zaman aralığı ve daha fazla çözümleme için Analytics sorgu binning daraltmak ve olası sonuçları daha iyi.
+5.  Hiçbir önemli düzeni toonotify 'sonuç' sayfa sunulur hello hakkında tanılama bulur durumda. Bu noktada, sorgunuzu değişebilir. Örneğin, hello zaman aralığı ve daha fazla çözümleme ve potansiyel olarak daha iyi sonuçlar için Analytics sorgu binning daraltabilirsiniz.
 
-Web sitenizin belirli bir sayfa üzerinde belirli bir tarayıcı bir sorun olduğunu bilen sayesinde artık doğrudan sorun sayfasına gidin ve en son değişiklikler araştırın.
+Web sitenizin belirli bir sayfa üzerinde belirli bir tarayıcı bir sorun olduğunu hello bilen sayesinde artık düz toohello sorun sayfasına gidin ve en son değişiklikler araştırın.
 
-## <a name="try-the-demo"></a>Demoyu deneyin
+## <a name="try-hello-demo"></a>Merhaba Tanıtımı deneyin
 
-[Bir örnek görmek için burayı tıklatın](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA3VSTY%2FTQAy991dYPXWlLf0QIO2KIiGWA3duiMPsxEnMzhe2p6WIH48nVUsuGylRNPOe3%2FOzN5vFZgPfRhL4VZHPIGM%2BCdgHdESgpMjOKx0RnsgNKYuSF%2BjRaWUE7xKMGIoBgTpMSv2Z0jBxOWc1QBWEPjM4EMUCP2uc0A3x8E5HKMi%2BEQNC7oHRbIgKdJWdUk5vmr9PvdkArildit%2Fcrk0lBDjnyhBzk%2FKVxdTy0QhNY6RhDPYqdlCy9XMV96NjBZc68IH8y6Tzuf01iZxeIZ%2FI5DqMOYmaQQRXNUdz6qGb5WOdSKEXnOozHtEFK%2Bh0qnq5YQzGF9DcoinoqbcigkO0NOZRNGOZaaBkMuat5xznFOtULKhG%2BdrGlVDhy%2B8SMlsETV8dD6gTd0YrbsBrFq6U1v%2Filv4C%2FsJpRJuwUrQTZ0P7eIDOHLeD1X67e7%2Fe7dbbB9htH%2Ffbu4vQDfvhFez%2B8a1h%2F1f3VSy%2BJ4Ol1oN8X4qN0qMZWv44HJanzKFLeJIltKcRpcbomP7gbHNkdV2Xe1uqO3g%2BwzOl1c3PvbmMlC7KjKlry2GX0w4s%2FgFoo5%2BhBAMAAA%3D%3D&timespan=PT24H) örnek verileri.
+[Toosee Tanıtımı burayı](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA3VSTY%2FTQAy991dYPXWlLf0QIO2KIiGWA3duiMPsxEnMzhe2p6WIH48nVUsuGylRNPOe3%2FOzN5vFZgPfRhL4VZHPIGM%2BCdgHdESgpMjOKx0RnsgNKYuSF%2BjRaWUE7xKMGIoBgTpMSv2Z0jBxOWc1QBWEPjM4EMUCP2uc0A3x8E5HKMi%2BEQNC7oHRbIgKdJWdUk5vmr9PvdkArildit%2Fcrk0lBDjnyhBzk%2FKVxdTy0QhNY6RhDPYqdlCy9XMV96NjBZc68IH8y6Tzuf01iZxeIZ%2FI5DqMOYmaQQRXNUdz6qGb5WOdSKEXnOozHtEFK%2Bh0qnq5YQzGF9DcoinoqbcigkO0NOZRNGOZaaBkMuat5xznFOtULKhG%2BdrGlVDhy%2B8SMlsETV8dD6gTd0YrbsBrFq6U1v%2Filv4C%2FsJpRJuwUrQTZ0P7eIDOHLeD1X67e7%2Fe7dbbB9htH%2Ffbu4vQDfvhFez%2B8a1h%2F1f3VSy%2BJ4Ol1oN8X4qN0qMZWv44HJanzKFLeJIltKcRpcbomP7gbHNkdV2Xe1uqO3g%2BwzOl1c3PvbmMlC7KjKlry2GX0w4s%2FgFoo5%2BhBAMAAA%3D%3D&timespan=PT24H) örnek verileri.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Akıllı tanılama dayalı bir Gelişmiş Denetimsiz makine öğrenme algoritmasını kullanan [DiffPatterns](app-insights-analytics-reference.md) işlemi. Veri değişikliği açıklayabilir için aday desenleri görünüyor. Her adayı ölçüm üzerindeki etkisini analizleri yaparken ve en iyi değişikliğe karşılık gelen deseni gösterir.
+Akıllı tanılama üzerinde hello dayalı bir Gelişmiş Denetimsiz machine learning algoritmasını kullanan [DiffPatterns](app-insights-analytics-reference.md) işlemi. Merhaba veri değişikliği açıklayabilir için aday desenleri görünüyor. Her adayı hello ölçüm üzerindeki etkisini hello analizleri yaparken ve en iyi hello değişiklikle karşılık gelen hello deseni gösterir.
 
 ## <a name="no-diagnostic-points"></a>Tanılama noktası yok?
 
-Aşağıdaki ölçütler sağlandığında akıllı tanılama yalnızca çalışır:
+Ölçüt aşağıdaki hello sağlandığında akıllı tanılama yalnızca çalışır:
 
- * Akıllı tanılama ayarını açık. Analytics'te ayarlar simgesinin altında arayın.
- * Analytics ayarlarında akıllı tanılama seçenek seçilidir. 
- * Zaman ekseni: grafiğin x ekseni türde olmalıdır `datetime`.
- * Çizgi veya alan grafiği: Tanılama yalnızca bu tür grafik çalışır. Kullanım `| render timechart` veya `| render areachart` sorgunuzu; sonunda veya satır ya da alan grafiği açılan seçicisini seçin.
- * Süreksizlik: Verileri önemli süreksizlik koyulmalıdır.
- * Analiz etmek için yeterli noktaları.
- * Birden fazla sorgu yan tümcesinde özetler.
- * Özetleme yan tümcesi önce adı tanımını içeren hiçbir proje yan tümcesi.
+ * Akıllı tanılama ayarını açık. Merhaba ayarlar simgesine analytics'te kısmına bakın.
+ * Merhaba analizi ayarları akıllı tanılama seçeneğinde seçilir. 
+ * Zaman ekseni: hello hello grafiğin x ekseni türde olmalıdır `datetime`.
+ * Çizgi veya alan grafiği: Tanılama yalnızca bu tür grafik çalışır. Kullanım `| render timechart` veya `| render areachart` ; sorgunuzu hello sonunda veya satır ya da alan grafiği hello açılan seçicisini seçin.
+ * Süreksizlik: Hello verilerde önemli süreksizlik koyulmalıdır.
+ * Yeterli noktaları tooanalyze.
+ * Birden fazla hello sorgu yan tümcesinde özetler.
+ * Merhaba önce adı tanımını içeren hiçbir proje yan tümcesi özetler.
 
  
  ## <a name="related-articles"></a>İlgili makaleler
 
  * [Analytics Öğreticisi](app-insights-analytics-tour.md)
- * [Akıllı algılama](app-insights-proactive-diagnostics.md) performans sorunları otomatik olarak sizi uyarır.
+ * [Akıllı algılama](app-insights-proactive-diagnostics.md) tooperformance sorunları otomatik olarak sizi uyarır.

@@ -1,6 +1,6 @@
 ---
-title: "Azure Notification Hubs kullanıcılara bildirme .NET arka ucu ile Android için"
-description: "Azure kullanıcılara anında iletme bildirimleri göndermek öğrenin. Android için Java dilinde yazılan kod örnekleri"
+title: ".NET arka ucu ile aaaAzure Notification Hubs kullanıcılara bildirme Android için"
+description: "Nasıl toosend anında iletme bildirimleri toousers Azure'da öğrenin. Android için Java dilinde yazılan kod örnekleri"
 documentationcenter: android
 services: notification-hubs
 author: ysxu
@@ -14,17 +14,17 @@ ms.devlang: java
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: 418a4b638dfaa3fee33a7a7242433699205c79f7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b042d2e6fb7f7c861c378526a8a0d59ab75beef9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-notification-hubs-notify-users-for-android-with-net-backend"></a>Azure Notification Hubs kullanıcılara bildirme .NET arka ucu ile Android için
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve mobil platformlar için tüketici ve kurumsal uygulama için anında iletme bildirimleri uyarlamasını büyük ölçüde basitleştirir ölçeklendirilmiş gönderim altyapısı erişmenize olanak tanır. Bu öğreticide, belirli bir cihazdaki belirli bir uygulama kullanıcısına anında iletme bildirimleri göndermek için Azure Bildirim Hub'larını nasıl kullanacağınız gösterilir. Bir ASP.NET Webapı arka istemcilerin kimliğini doğrulamak ve bildirimleri oluşturmak için Kılavuzu konusundaki gösterildiği gibi kullanılır [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Bu öğreticide oluşturduğunuz bildirim hub'ındaki derlemeler [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md) Öğreticisi.
+Azure'da anında iletme bildirimi destek tooaccess kullanımı kolay, multiplatform ve Mobile Tüketiciler, kurumsal uygulamalar için anında iletme bildirimleri hello uyarlamasını büyük ölçüde basitleştirir ölçeklendirilmiş gönderim altyapısı sağlar Platform. Bu öğretici nasıl toouse Azure Notification Hubs toosend anında iletme bildirimleri tooa belirli uygulama kullanıcısı belirli bir cihazda gösterir. Bir ASP.NET Webapı arka kullanılan tooauthenticate istemcileri ve toogenerate bildirimleri hello Kılavuzu konusundaki gösterildiği gibidir [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Hello oluşturulan hello bildirim hub'ında Bu öğretici derlemeler [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md) Öğreticisi.
 
 > [!NOTE]
 > Bu öğreticide oluşturduğunuz ve bildirim hub'ınızı açıklandığı şekilde yapılandırılmış varsayar [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md).
@@ -33,11 +33,11 @@ Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve 
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="create-the-android-project"></a>Android projesi oluşturma
-Sonraki adım, Android uygulaması oluşturmaktır.
+## <a name="create-hello-android-project"></a>Merhaba Android projesi oluşturma
+Merhaba sonraki toocreate Merhaba Android uygulaması adımdır.
 
-1. İzleyin [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md) oluşturup GCM'den anında iletme bildirimleri almak için uygulamanızı yapılandırmak için öğretici.
-2. Açık, **res/layout/activity_main.xml** dosya, yerine aşağıdaki içerik tanımlarla.
+1. Merhaba izleyin [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md) öğretici toocreate ve GCM, uygulama tooreceive anında iletme bildirimleri yapılandırabilirsiniz.
+2. Açık, **res/layout/activity_main.xml** dosya, hello içerik tanımları aşağıdaki hello ile değiştirin.
    
     Bu, bir kullanıcı olarak oturum açmayı yeni EDITTEXT denetimlerini ekler. Ayrıca bir alan için gönderdiğiniz bildirimleri parçası olacak bir kullanıcı adı etiketi eklenir:
    
@@ -122,7 +122,7 @@ Sonraki adım, Android uygulaması oluşturmaktır.
             android:layout_below="@+id/editTextNotificationMessage"
             android:layout_centerHorizontal="true" />
         </RelativeLayout>
-3. Açık, **res/values/strings.xml** dosya ve değiştirme `send_button` dizesi yeniden tanımlamanız aşağıdaki satırları tanımıyla `send_button` ve diğer denetimler için dizeleri ekleyin:
+3. Açık, **res/values/strings.xml** dosya ve hello yerine `send_button` hello aşağıdaki tanımıyla satırları hello için bu yeniden tanımla hello dizesi `send_button` ve diğer denetimlerin hello için dizeleri ekleyin:
    
         <string name="usernameHint">Username</string>
         <string name="passwordHint">Password</string>
@@ -135,7 +135,7 @@ Sonraki adım, Android uygulaması oluşturmaktır.
     Main_activity.xml grafik düzeninizi gibi görünmelidir:
    
     ![][A1]
-4. Adlı yeni bir sınıf oluşturun **RegisterClient** aynı pakette, `MainActivity` sınıfı. Aşağıdaki kodu için yeni sınıf dosyası kullanın.
+4. Adlı yeni bir sınıf oluşturun **RegisterClient** hello aynı olarak paketini, `MainActivity` sınıfı. Merhaba kodunu aşağıda hello yeni sınıf dosyası için kullanın.
    
         import java.io.IOException;
         import java.io.UnsupportedEncodingException;
@@ -240,15 +240,15 @@ Sonraki adım, Android uygulaması oluşturmaktır.
             }
         }
    
-    Bu bileşen için anında iletme bildirimleri kaydetmek için uygulama arka ucu başvurmak için gereken REST çağrılarını uygular. Ayrıca yerel olarak depoladığı *registrationIds* bildirim hub'ı içinde ayrıntılı olarak tarafından oluşturulan [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Tıkladığınızda yerel depolamada depolanan bir yetki belirteci kullandığına dikkat edin **oturum** düğmesi.
-5. İçinde `MainActivity` sınıfı kaldırın veya yorum yapmak için özel alan çıkışı `NotificationHub`, ve bir alan ekleyin `RegisterClient` sınıfı ve ASP.NET ucun uç noktası için bir dize. Değiştirdiğinizden emin olun `<Enter Your Backend Endpoint>` ile gerçek arka uç noktanızı elde daha önce. Örneğin, `http://mybackend.azurewebsites.net`.
+    Bu bileşen hello REST çağrılarını gerekli toocontact hello uygulama arka ucu, anında iletme bildirimleri için sipariş tooregister içinde uygular. Merhaba da yerel olarak depoladığı *registrationIds* bildirim hub'ı ayrıntılı biçimde açıklandığı gibi hello tarafından oluşturulan [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Merhaba tıklattığınızda yerel depolamada depolanan bir yetki belirteci kullandığına dikkat edin **oturum** düğmesi.
+5. İçinde `MainActivity` sınıfı kaldırın veya yorum yapmak için özel alan çıkışı `NotificationHub`, ve hello için bir alan ekleyin `RegisterClient` sınıfı ve ASP.NET ucun uç noktası için bir dize. Emin tooreplace olması `<Enter Your Backend Endpoint>` hello ile gerçek arka uç noktanızı elde daha önce. Örneğin, `http://mybackend.azurewebsites.net`.
 
         //private NotificationHub hub;
         private RegisterClient registerClient;
         private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
 
 
-1. İçinde `MainActivity` sınıfı, buna `onCreate` yöntemi, kaldırmak veya açıklama başlatılması `hub` alan ve çağrısı `registerWithNotificationHubs` yöntemi. Örneği başlatmak için kod ekleme `RegisterClient` sınıfı. Yöntemi, aşağıdaki satırları içermelidir:
+1. İçinde `MainActivity` sınıfında hello `onCreate` yöntemi, kaldırmak veya açıklama hello hello başlatma `hub` alan ve hello çağrısı toohello `registerWithNotificationHubs` yöntemi. Kod tooinitialize hello örneği eklemek `RegisterClient` sınıfı. Merhaba yöntemi izleyerek hello içermelidir:
    
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -265,8 +265,8 @@ Sonraki adım, Android uygulaması oluşturmaktır.
    
             setContentView(R.layout.activity_main);
         }
-2. İçinde `MainActivity` sınıfı, silmek veya yorum tüm `registerWithNotificationHubs` yöntemi. Bu öğreticide kullanılmayacak.
-3. Aşağıdakileri ekleyin `import` deyimleri için **MainActivity.java** dosya.
+2. İçinde `MainActivity` sınıfı, silmek veya yorum hello tüm `registerWithNotificationHubs` yöntemi. Bu öğreticide kullanılmayacak.
+3. Merhaba aşağıdakileri ekleyin `import` deyimleri tooyour **MainActivity.java** dosya.
    
         import android.widget.Button;
         import java.io.UnsupportedEncodingException;
@@ -276,7 +276,7 @@ Sonraki adım, Android uygulaması oluşturmaktır.
         import org.apache.http.client.ClientProtocolException;
         import java.io.IOException;
         import org.apache.http.HttpStatus;
-4. Daha sonra işlemek için aşağıdaki yöntemleri ekleyin **oturum** olay ve anında iletme bildirimleri gönderme düğmesini tıklatın.
+4. Ardından, aşağıdaki yöntemleri toohandle hello hello ekleyin **oturum** olay ve anında iletme bildirimleri gönderme düğmesini tıklatın.
    
         @Override
         protected void onStart() {
@@ -296,7 +296,7 @@ Sonraki adım, Android uygulaması oluşturmaktır.
                         String regid = gcm.register(SENDER_ID);
                         registerClient.register(regid, new HashSet<String>());
                     } catch (Exception e) {
-                        DialogNotify("MainActivity - Failed to register", e.getMessage());
+                        DialogNotify("MainActivity - Failed tooregister", e.getMessage());
                         return e;
                     }
                     return null;
@@ -320,15 +320,15 @@ Sonraki adım, Android uygulaması oluşturmaktır.
         }
    
         /**
-         * This method calls the ASP.NET WebAPI backend to send the notification message
-         * to the platform notification service based on the pns parameter.
+         * This method calls hello ASP.NET WebAPI backend toosend hello notification message
+         * toohello platform notification service based on hello pns parameter.
          *
-         * @param pns     The platform notification service to send the notification message to. Must
-         *                be one of the following ("wns", "gcm", "apns").
-         * @param userTag The tag for the user who will receive the notification message. This string
+         * @param pns     hello platform notification service toosend hello notification message to. Must
+         *                be one of hello following ("wns", "gcm", "apns").
+         * @param userTag hello tag for hello user who will receive hello notification message. This string
          *                must not contain spaces or special characters.
-         * @param message The notification message string. This string must include the double quotes
-         *                to be used as JSON content.
+         * @param message hello notification message string. This string must include hello double quotes
+         *                toobe used as JSON content.
          */
         public void sendPush(final String pns, final String userTag, final String message)
                 throws ClientProtocolException, IOException {
@@ -354,7 +354,7 @@ Sonraki adım, Android uygulaması oluşturmaktır.
                             throw new RuntimeException("Error sending notification");
                         }
                     } catch (Exception e) {
-                        DialogNotify("MainActivity - Failed to send " + pns + " notification ", e.getMessage());
+                        DialogNotify("MainActivity - Failed toosend " + pns + " notification ", e.getMessage());
                         return e;
                     }
    
@@ -363,17 +363,17 @@ Sonraki adım, Android uygulaması oluşturmaktır.
             }.execute(null, null, null);
         }
 
-    `login` İşleyicisi **oturum** düğmesi temel kimlik doğrulaması oluşturur giriş kullanıcı adı ve parola (Bu, kimlik doğrulama şemasını kullanan herhangi bir belirteci temsil ettiğini unutmayın) kullanarak belirteci sonra kullanır `RegisterClient` için arka uç kaydı için çağırın.
+    Merhaba `login` hello için işleyici **oturum** düğmesi oluşturur temel kimlik doğrulaması belirteci hello giriş kullanıcı adı ve parolasına (Bu, kimlik doğrulama şemasını kullanan herhangi bir belirteci temsil ettiğini unutmayın) kullanarak bir sonra kullanan`RegisterClient`toocall hello arka uç kaydı için.
 
-    `sendPush` Güvenli bir bildirim kullanıcı etiketinde dayanarak kullanıcıya tetiklemek için arka uç yöntemini çağırır. Platform bildirim hizmeti `sendPush` hedefleri bağımlı `pns` dizesi geçirilen.
+    Merhaba `sendPush` yöntemi güvenli bildirim toohello kullanıcı hello kullanıcı etiketinde tabanlı hello arka uç tootrigger çağırır. Merhaba platform bildirim hizmetinin `sendPush` hedeflediği bağlıdır hello üzerinde `pns` dizesi geçirilen.
 
-1. İçinde `MainActivity` sınıfı, güncelleştirme `sendNotificationButtonOnClick` çağrılacak yöntem `sendPush` kullanıcının yöntemiyle seçili platform Bildirim Hizmetleri gibi.
+1. İçinde `MainActivity` sınıfı, güncelleştirme hello `sendNotificationButtonOnClick` yöntemi toocall hello `sendPush` hello kullanıcının yöntemiyle seçili platform Bildirim Hizmetleri gibi.
    
        /**
-        * Send Notification button click handler. This method sends the push notification
-        * message to each platform selected.
+        * Send Notification button click handler. This method sends hello push notification
+        * message tooeach platform selected.
         *
-        * @param v The view
+        * @param v hello view
         */
        public void sendNotificationButtonOnClick(View v)
                throws ClientProtocolException, IOException {
@@ -400,16 +400,16 @@ Sonraki adım, Android uygulaması oluşturmaktır.
            }
        }
 
-## <a name="run-the-application"></a>Uygulamayı çalıştırın
-1. Uygulama bir aygıt veya Android Studio kullanarak bir öykünücü çalıştırın.
-2. Android uygulamada bir kullanıcı adı ve parola girin. Her ikisi de aynı dize değeri olması gerekir ve boşluk veya özel karakterler içermemelidir.
-3. Android uygulamanın tıklayın **oturum**. Bildiren bir bildirim iletisi için bekleyin **günlüğe giriş ve kayıtlı**. Bu etkinleştirecek **bildirim gönder** düğmesi.
+## <a name="run-hello-application"></a>Merhaba uygulama çalıştırın
+1. Merhaba uygulaması bir aygıt veya Android Studio kullanarak bir öykünücü çalıştırın.
+2. Merhaba Android uygulamada bir kullanıcı adı ve parola girin. Hem de hello olmalıdır aynı dize değeri ve bunlar içermemelidir boşluk veya özel karakter.
+3. Merhaba Android uygulamada tıklatın **oturum**. Bildiren bir bildirim iletisi için bekleyin **günlüğe giriş ve kayıtlı**. Bu hello etkinleştirecek **bildirim gönder** düğmesi.
    
     ![][A2]
-4. Uygula'yı sahip olduğu tüm platformlar etkinleştirmek için düğmeler uygulaması çalıştıran ve bir kullanıcının kayıtlı.
-5. Bildirim iletisi alırsınız kullanıcının adını girin. Bu kullanıcı bildirimleri hedef cihazlarda kayıtlı olması gerekir.
-6. Anında iletme bildirimi iletisi almak kullanıcı için bir ileti girin.
-7. Tıklatın **bildirim gönder**.  Eşleşen bir kullanıcı adı etiketi ile bir kaydı var her bir cihaz anında iletme bildirimi alırsınız.
+4. Merhaba iki durumlu düğmeler tooenable tıklatın sahip olduğu tüm platformlar hello uygulaması çalıştıran ve bir kullanıcının kayıtlı.
+5. Merhaba bildirim iletisi alırsınız hello kullanıcının adını girin. Bu kullanıcı bildirimleri hello hedef cihazlarda kayıtlı olması gerekir.
+6. Bir ileti için hello kullanıcı tooreceive anında bildirim iletisi girin.
+7. Tıklatın **bildirim gönder**.  Merhaba eşleşen bir kullanıcı adı etiketi ile bir kaydı var her bir cihaz hello anında iletme bildirimi alırsınız.
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png

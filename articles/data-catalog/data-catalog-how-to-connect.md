@@ -1,6 +1,6 @@
 ---
-title: "Veri kaynaklarına bağlanma | Microsoft Docs"
-description: "Nasıl yapılır makalesi Azure veri Kataloğu ile bulunan veri kaynaklarına bağlanmak nasıl vurgulama."
+title: "aaaHow tooconnect toodata kaynakları | Microsoft Docs"
+description: "Azure veri Kataloğu ile nasıl tooconnect toodata kaynakları bulunan vurgulama nasıl-tooarticle."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -15,57 +15,57 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: fd687bb74a22b0483225c509171edaa67f1c49d4
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 01d659510c8e67c1238ed488f4eebf511aab7217
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-connect-to-data-sources"></a>Veri kaynaklarına bağlanma
+# <a name="how-tooconnect-toodata-sources"></a>Nasıl tooconnect toodata kaynakları
 ## <a name="introduction"></a>Giriş
-**Microsoft Azure veri Kataloğu** bir kayıt ve sistemi kurumsal veri kaynakları için bulma görevi gören bir tam olarak yönetilen bir bulut hizmetidir. Diğer bir deyişle, **Azure veri Kataloğu** tüm bulmak, anlamak ve veri kaynaklarını kullanan kişilerin ve bunların var olan verilerden daha fazla değer almak için kuruluşlar hakkındadır. Temel bir yönü bu senaryo, veri – kullanarak bir kullanıcı bir veri kaynağı bulur ve amacı anlar sonra kullanmak için verileri yerleştirmek için veri kaynağına bağlanmak için sonraki adım içerir.
+**Microsoft Azure veri Kataloğu** bir kayıt ve sistemi kurumsal veri kaynakları için bulma görevi gören bir tam olarak yönetilen bir bulut hizmetidir. Diğer bir deyişle, **Azure veri Kataloğu** tüm yardımcı kişilerle ilgili bulmak, anlamak ve veri kaynaklarını kullanmak ve kuruluşların tooget yardımcı olacak daha fazla kendi varolan veriler değeri. Temel bir yönü bu senaryo, bir kullanıcı bir veri bulur sonra veri – kaynağı ve amacı anlar hello kullanarak, hello sonraki adım, veri toouse tooput tooconnect toohello veri kaynağı.
 
 ## <a name="data-source-locations"></a>Veri kaynağı konumları
-Veri kaynağı kaydı sırasında **Azure veri Kataloğu** veri kaynağı ile ilgili meta verileri alır. Bu meta veriler veri kaynağının konumu ayrıntılarını içerir. Konumun ayrıntılarını veri kaynağından veri kaynağına farklılık gösterir, ancak bu her zaman bağlanmak için gereken bilgileri içerir. Örneğin, sunucu adını ve yolunu rapora bir SQL Server Reporting Services raporunun konumunu içerir ancak bir SQL Server tablosu için konum sunucu adı, veritabanı adı, şema adı ve tablo adı içerir. Diğer veri kaynağı türleri yapısı ve kaynak sistemi özelliklerini yansıtan konumları sahip olur.
+Veri kaynağı kaydı sırasında **Azure veri Kataloğu** hello veri kaynağı ile ilgili meta verileri alır. Bu meta veriler hello veri kaynağının konumu hello ayrıntılarını içerir. Başlangıç konumu Hello ayrıntılarını veri kaynağı toodata kaynağından farklılık gösterir ancak her zaman hello gerekli bilgileri tooconnect içerecektir. Örneğin, hello sunucu adını ve hello yolu toohello rapor bir SQL Server Reporting Services rapor için başlangıç konumu içerir ancak hello konumunu bir SQL Server tablo için hello sunucu adı, veritabanı adı, şema adı ve tablo adı içerir. Diğer veri kaynağı türleri hello yapısı ve hello kaynak sistemi özelliklerini yansıtan konumları sahip olur.
 
 ## <a name="integrated-client-tools"></a>Tümleşik istemci araçlarında
-Bir veri kaynağına bağlanmak için en basit yolu kullanmaktır "içinde Aç..." menüde **Azure veri Kataloğu** portal. Bu menüsü seçili veri varlığına bağlanma seçeneklerin bir listesini görüntüler.
-Varsayılan döşeme görünümünü kullanırken, bu menü her bölme üzerinde kullanılabilir.
+Merhaba en basit yolu tooconnect tooa veri kaynağıdır toouse hello "içinde Aç..." Merhaba menüde **Azure veri Kataloğu** portal. Bu menü toohello seçili veri varlığına bağlanma seçeneklerin bir listesini görüntüler.
+Merhaba varsayılan döşeme görünümünü kullanırken, bu menüsünde kullanılabilir her bölme'üzerinde hello.
 
- ![Bir SQL Server tablo Excel'de veri varlık kutucuğunda açma](./media/data-catalog-how-to-connect/data-catalog-how-to-connect1.png)
+ ![Bir SQL Server tablo Excel'de hello veri varlık kutucuğunda açma](./media/data-catalog-how-to-connect/data-catalog-how-to-connect1.png)
 
-Liste görünümünü kullanırken arama çubuğunda portal pencerenin üstündeki menü kullanılabilir.
+Merhaba liste görünümünü kullanırken hello menü hello portal penceresinin hello üstünde hello arama çubuğunda kullanılabilir.
 
- ![SQL Server Reporting Services raporunun Rapor Yöneticisi'nde arama çubuğunda açma](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![SQL Server Reporting Services raporunun Rapor Yöneticisi'nde hello Arama çubuğundan açma](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>Desteklenen istemci uygulamaları
-Kullanırken, "içinde Aç..." Menü veri kaynakları Azure veri Kataloğu portalında doğru istemci uygulaması için istemci bilgisayara yüklenmesi gerekir.
+Merhaba kullanılırken "içinde Aç..." hello Azure veri Kataloğu portalında menü veri kaynakları, Merhaba doğru istemci uygulaması hello istemci bilgisayarda yüklü olmalıdır.
 
 | Uygulama Aç | Dosya uzantısı / Protokolü | Desteklenen uygulama sürümleri |
 | --- | --- | --- |
 | Excel |.odc |Excel 2010 veya üzeri |
 | Excel (ilk 1000) |.odc |Excel 2010 veya üzeri |
-| Power Query |.xlsx |Excel 2016 veya Excel 2010 veya Excel eklentisi için Power Query ile Excel 2013 yüklü |
+| Power Query |.xlsx |Excel 2016 veya Excel 2010 veya Excel 2013 için Excel eklentisi hello Power Query ile yüklü |
 | Power BI Desktop |.pbix |Power BI Desktop Temmuz 2016 veya sonraki |
 | SQL Server Veri Araçları |vsweb: / / |Visual Studio 2013 güncelleştirme 4 veya üstü yüklü SQL Server araçları ile |
 | Rapor Yöneticisi |http:// |Bkz: [SQL Server Reporting Services için tarayıcı gereksinimleri](https://technet.microsoft.com/en-us/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Araçlarınızı verilerinizi
-Menüsünde kullanılabilir seçenekleri şu anda seçili veri varlık türüne bağlıdır. Tüm olası araçları dahil edilecek doğal olarak, "içinde Aç..." Menü, ancak herhangi bir istemci araç kullanarak veri kaynağına bağlanmak hala kolay. İçinde bir veri varlığına seçildiğinde **Azure veri Kataloğu** portal, tam konum Özellikler bölmesinde da görüntülenir.
+Merhaba hello menüsünde kullanılabilir seçenekleri hello şu anda seçili veri varlık türüne bağlıdır. Elbette, tüm olası araçları hello eklenecektir "içinde Aç..." Menü, ancak herhangi bir istemci araç kullanarak hala kolay tooconnect toohello veri kaynağına olur. Bir veri varlığına hello seçili olduğunda **Azure veri Kataloğu** portal, hello tam konum hello Özellikler bölmesinde da görüntülenir.
 
  ![Bağlantı bilgilerini bir SQL Server tablosu](./media/data-catalog-how-to-connect/data-catalog-how-to-connect3.png)
 
-Veri kaynağı türü için bağlantı bilgileri ayrıntıları veri kaynağı türünden farklılık gösterir, ancak portalda eklenen bilgileri size herhangi bir istemci aracında veri kaynağına bağlanmak için gereken her şeyi sağlar. Kullanıcılar, kullanılarak bulunan veri kaynakları için bağlantı ayrıntıları kopyalayabilir **Azure veri Kataloğu**, bunları kendi aracıyla ilgili verilerle çalışmak etkinleştirme.
+Ayrıntılar veri kaynağı türü toodata kaynak türü, ancak hello Portalı'nda eklenen hello bilgileri farklılık gösterecektir hello bağlantı bilgilerini tooconnect toohello veri kaynağı herhangi bir istemci aracında ihtiyaç duyduğunuz her şeyi verir. Kullanıcılar, hello bağlantı ayrıntıları kullanılarak bulunan hello veri kaynakları için kopyalayabilir **Azure veri Kataloğu**, kendi aracında tercih hello verilerle toowork etkinleştirme.
 
 ## <a name="connecting-and-data-source-permissions"></a>Bağlanma ve veri kaynağı izinleri
-Rağmen **Azure veri Kataloğu** bulunabilir, access veri kaynaklarını yapar veriler için kendi veri kaynağına sahip veya yönetici denetimi altında kalır. Bir veri kaynağı bulma **Azure veri Kataloğu** bir kullanıcının veri kaynağına erişmek için tüm izinleri vermez.
+Ancak **Azure veri Kataloğu** bulunabilir, access veri kaynaklarını yapar toohello verilerin kendisini hello veri kaynağına sahip veya yönetici hello denetiminde kalır. Bir veri kaynağı bulma **Azure veri Kataloğu** bir kullanıcı tüm izinleri tooaccess hello veri kaynağı kendisini sağlamaz.
 
-Bir veri kaynağını Bul ancak kendi verilerine erişim izni yoksa kullanıcılar için kolaylaştırmak için kullanıcılar istek erişimi özelliği bir veri kaynağına açıklama durumlarda sağlayabilir. – Dahil olmak üzere işlem ya da veri kaynağına erişim kazanmak için iletişim noktası bağlantılar – burada sağlanan bilgiler, Portalı'nda veri kaynağı konumu bilgileri yanında sunulur.
+toomake kolaylaştırır veri Bul kullanıcılar kaynak ancak izni tooaccess kendi verileriniz yoksa, kullanıcılar hello istek erişimi özellik bilgileri bir veri kaynağına açıklama durumlarda sağlayabilir. Merhaba veri kaynağı konumu bilgileri hello portalında yanında – dahil, bağlantılar toohello işlem veya veri kaynağına erişim kazanmak için iletişim noktası – burada sağlanan bilgiler sunulur.
 
  ![Sağlanan istek erişim yönergeleri ile bağlantı bilgileri](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
 
 ## <a name="summary"></a>Özet
-Veri kaynağı ile kaydetme **Azure veri Kataloğu** yapısal ve açıklayıcı meta veri kaynağından Kataloğu hizmetine kopyalayarak verileri bulunabilir hale getirir. Bir veri kaynağı kaydedildi, bulunan ve sonra kullanıcılar veri kaynağından bağlanabilir **Azure veri Kataloğu** portalı "içinde Aç..." " menü veya tercih ettiğiniz kendi veri Araçları'nı kullanarak.
+Veri kaynağı ile kaydetme **Azure veri Kataloğu** katalog hizmeti hello hello veri kaynağından yapısal ve açıklayıcı meta verileri kopyalayarak verileri bulunabilir hale getirir. Bir veri kaynağı kaydedildi, bulunan ve sonra kullanıcılar hello toohello veri kaynağına bağlanabilir **Azure veri Kataloğu** portalı "içinde Aç..." " menü veya tercih ettiğiniz kendi veri Araçları'nı kullanarak.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Azure veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md) veri kaynaklarına bağlanma hakkında adım adım ayrıntılar için Öğreticisi.
+* [Azure veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md) hakkında adım adım ayrıntılar için öğretici tooconnect toodata kaynakları.

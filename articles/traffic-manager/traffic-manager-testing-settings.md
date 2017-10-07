@@ -1,5 +1,5 @@
 ---
-title: "Azure Traffic Manager ayarlarını doğrulayın | Microsoft Docs"
+title: "aaaVerify Azure Traffic Manager ayarları | Microsoft Docs"
 description: "Bu makalede, trafik Yöneticisi ayarlarınızı doğrulamanıza yardımcı olur"
 services: traffic-manager
 documentationcenter: 
@@ -14,60 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c670be6cf55e140c7ab63d5d526de08e14774d2a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="verify-traffic-manager-settings"></a>Trafik Yöneticisi ayarlarını doğrulayın
 
-Trafik Yöneticisi ayarlarınızı sınamak için birden çok, çeşitli yerlerde testleri çalıştırma istemciniz gerekir. Ardından, bir kerede aşağı Traffic Manager profilinize uç noktaları getirin.
+tootest trafik Yöneticisi ayarlarınızı içinden çalıştırabilirsiniz testlerinizi çeşitli konumlarda birden çok istemci toohave gerekir. Ardından, bir kerede aşağı Traffic Manager profilinize hello uç noktaları getirin.
 
-* Hızlı bir şekilde (örneğin, 30 saniye) değişiklikleri yaymak şekilde DNS TTL değeri düşük ayarlayın.
-* Azure bulut hizmetlerinizi ve Web siteleri test ettiğiniz profilinde IP adreslerini bilirsiniz.
-* Bir IP adresi için DNS adını çözümlemek ve bu adresi görüntülemek olanak sağlayan araçları kullanın.
+* Hızlı bir şekilde (örneğin, 30 saniye) değişiklikleri yaymak şekilde hello DNS TTL değeri düşük ayarlayın.
+* Hello Azure bulut hizmetlerine ve hello profilinde test ettiğiniz Web sitelerine IP adreslerini bilirsiniz.
+* Bir DNS adı tooan IP adresi çözmek ve bu adresi görüntülemek olanak sağlayan araçları kullanın.
 
-DNS adlarını IP adreslerine profilinizde uç noktaları çözmek görmek için denetleniyor. Adları trafik Yöneticisi profilinde tanımlanmış trafik yönlendirme yöntemini ile tutarlı şekilde çözümlenmelidir. Gibi araçları kullanabilirsiniz **nslookup** veya **derinliklerine** DNS adlarını çözümlemek için.
+Merhaba DNS adlarını hello uç noktaları profilinizde tooIP adresleri çözümleyecek toosee denetleniyor. Merhaba adları hello trafik yönlendirme yöntemini hello trafik Yöneticisi profili tanımlanan ile tutarlı şekilde çözümlenmelidir. Merhaba araçları gibi kullanabilirsiniz **nslookup** veya **derinliklerine** tooresolve DNS adları.
 
-Aşağıdaki örnekler, Traffic Manager profilinizin test yardımcı olur.
+Merhaba aşağıdaki örneklerde, Traffic Manager profilinizin test yardımcı olur.
 
 ### <a name="check-traffic-manager-profile-using-nslookup-and-ipconfig-in-windows"></a>Trafik Yöneticisi profili nslookup ve ipconfig Windows'da kullanma denetleyin
 
 1. Bir komut veya Windows PowerShell komut istemini yönetici olarak açın.
-2. Tür `ipconfig /flushdns` DNS çözümleyicisi önbelleğini temizlemek için.
-3. `nslookup <your Traffic Manager domain name>` yazın. Örneğin, aşağıdaki komutu ön ek etki alanı adıyla denetler *myapp.contoso*
+2. Tür `ipconfig /flushdns` tooflush hello DNS çözümleyicisi önbelleği.
+3. `nslookup <your Traffic Manager domain name>` yazın. Örneğin, denetimleri hello hello önek etki alanı adıyla komutu aşağıdaki hello *myapp.contoso*
 
         nslookup myapp.contoso.trafficmanager.net
 
-    Normal sonuç, aşağıdaki bilgileri gösterir:
+    Tipik bir sonuç bilgisinden hello gösterir:
 
-    + Bu trafik yöneticisi etki alanı adı çözümlemek için erişilen DNS sunucusunun IP adresini ve DNS adı.
-    + Trafik yöneticisi etki alanı adı komut satırında, trafik yöneticisi etki alanı çözümler IP adresi ve "nslookup" sonra yazdığınız. İkinci IP adresi denetlemek için önemli olabilir. Bulut Hizmetleri veya test ettiğiniz trafik Yöneticisi profili Web sitelerinde biri için bir genel sanal IP (VIP) adresi eşleşmelidir.
+    + Merhaba DNS adı ve IP adresi hello DNS sunucusu olma tooresolve Bu trafik yöneticisi etki alanı adı erişilir.
+    + Merhaba trafik yöneticisi etki alanı adı "nslookup sonra" Merhaba komut satırında yazılan ve başlangıç IP adresi toowhich hello trafik yöneticisi etki alanı giderir. Merhaba önemli bir toocheck Hello ikinci IP adresi değil. Merhaba bulut Hizmetleri veya hello trafik Yöneticisi profili test ettiğiniz Web sitelerinde biri için bir genel sanal IP (VIP) adresi eşleşmelidir.
 
-## <a name="how-to-test-the-failover-traffic-routing-method"></a>Yük devretme trafik yönlendirme yöntemini test etme
-
-1. Yukarı tüm uç noktaları bırakın.
-2. Tek bir istemci kullanarak, DNS çözümlemesi nslookup veya benzer bir yardımcı programını kullanarak, şirketinizin etki alanı adı isteyin.
-3. Çözümlenen IP adresini birincil endpoint eşleştiğinden emin olun.
-4. Bu trafik Yöneticisi uygulama kapalı olduğunu düşündüğü izleme dosyayı kaldırın veya birincil uç noktanızı getirin.
-5. DNS zaman yaşam için (TTL) trafik Yöneticisi profili ve iki dakika bekleyin. Örneğin, DNS TTL 300 saniye (5 dakika) ise, yedi dakika beklemeniz gerekir.
-6. Nslookup kullanarak DNS istemci önbelleği ve istek DNS çözümlemenizin temizlenir. Windows'da ipconfig/flushdns komutuyla, DNS önbelleğini boşaltabilirsiniz.
-7. Çözümlenen IP adresini ikincil uç noktanız eşleştiğinden emin olun.
-8. Her uç noktası sırayla hale getirme işlemi yineleyin. DNS sonraki uç noktası IP adresi listesinde döndürdüğünden emin olun. Tüm uç noktaları kapalı olduğunda, birincil uç noktası IP adresi yeniden edinmelidir.
-
-## <a name="how-to-test-the-weighted-traffic-routing-method"></a>Ağırlıklı trafik yönlendirme yöntemini test etme
+## <a name="how-tootest-hello-failover-traffic-routing-method"></a>Nasıl tootest hello yük devretme trafik yönlendirme yöntemi
 
 1. Yukarı tüm uç noktaları bırakın.
 2. Tek bir istemci kullanarak, DNS çözümlemesi nslookup veya benzer bir yardımcı programını kullanarak, şirketinizin etki alanı adı isteyin.
-3. Çözümlenen IP adresini noktalarınızı birini eşleştiğinden emin olun.
+3. IP adresi hello birincil uç noktayla eşleşen bu hello çözülmüş emin olun.
+4. Kapalı olduğu, uygulama Merhaba trafik Yöneticisi düşündüğü böylece dosya izleme hello kaldırın veya birincil uç noktanızı getirin.
+5. Merhaba DNS için-yaşam süresi (TTL) hello trafik Yöneticisi profilinin artı iki dakika bekleyin. Örneğin, DNS TTL 300 saniye (5 dakika) ise, yedi dakika beklemeniz gerekir.
+6. Nslookup kullanarak DNS istemci önbelleği ve istek DNS çözümlemenizin temizlenir. Windows hello ipconfig/flushdns komutuyla, DNS önbelleğini boşaltabilirsiniz.
+7. IP adresi, ikincil uç noktayla eşleşen bu hello çözülmüş emin olun.
+8. Her uç noktası sırayla getiren hello işlemi yineleyin. Bu hello DNS hello IP adresi hello sonraki uç noktasının hello listesinde döndürür doğrulayın. Tüm uç noktaları kapalı olduğunda, başlangıç IP adresi hello birincil uç noktasının yeniden edinmelidir.
+
+## <a name="how-tootest-hello-weighted-traffic-routing-method"></a>Trafik yönlendirme yöntemini nasıl tootest hello ağırlıklı
+
+1. Yukarı tüm uç noktaları bırakın.
+2. Tek bir istemci kullanarak, DNS çözümlemesi nslookup veya benzer bir yardımcı programını kullanarak, şirketinizin etki alanı adı isteyin.
+3. IP adresi noktalarınızı biriyle eşleşen bu hello çözülmüş emin olun.
 4. DNS istemci önbelleğini temizlemek ve her uç noktası için 2 ve 3. adımları yineleyin. Her uç noktalarınızı için döndürülen farklı IP adreslerini görmeniz gerekir.
 
-## <a name="how-to-test-the-performance-traffic-routing-method"></a>Performans trafik yönlendirme yöntemini test etme
+## <a name="how-tootest-hello-performance-traffic-routing-method"></a>Nasıl tootest hello performans trafik yönlendirme yöntemi
 
-Etkili bir şekilde performans trafik yönlendirme yöntemini sınamak için dünyanın farklı bölümlerinde bulunan istemciler olması gerekir. İstemcileri hizmetlerinizi test etmek için kullanılan farklı Azure bölgelerinde oluşturabilirsiniz. Genel bir ağ varsa, uzaktan dünya diğer bölümlerinde istemciler için oturum açın ve buradan testleri çalıştırın.
+tooeffectively test performans trafik yönlendirme yöntemini, hello world farklı bölümlerinde bulunan istemciler olması gerekir. İstemcileri hizmetlerinizi kullanılan tootest olabilir farklı Azure bölgelerinde oluşturabilirsiniz. Genel bir ağ varsa, uzaktan oturum açma tooclients Merhaba Dünya diğer bölümlerinde ve buradan testleri çalıştırın.
 
-Alternatif olarak, ücretsiz web tabanlı DNS araması ve vardır kullanılabilir hizmetler derinliklerine. Bu araçlardan bazıları dünyanın çeşitli konumlardan DNS adı çözümlemesini denetleyin olanağı verir. Örnekler "DNS aramalarında" araması yapın. Gomez veya açılış konuşması gibi üçüncü taraf hizmetleri profillerinizi trafiği beklendiği gibi dağıtıyorsanız onaylamak için kullanılabilir.
+Alternatif olarak, ücretsiz web tabanlı DNS araması ve vardır kullanılabilir hizmetler derinliklerine. Bunlardan bazıları özelliği toocheck DNS ad çözümlemesi Merhaba Dünya çeşitli konumlardan hello verin araçları. Örnekler "DNS aramalarında" araması yapın. Gomez veya açılış konuşması gibi üçüncü taraf hizmetleri profillerinizi trafiği beklendiği gibi dağıtıyorsanız kullanılan tooconfirm olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

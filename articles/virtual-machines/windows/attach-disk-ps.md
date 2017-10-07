@@ -1,6 +1,6 @@
 ---
-title: "PowerShell kullanarak Azure Windows VM için bir veri diski ekleme | Microsoft Docs"
-description: "Windows PowerShell ile Resource Manager dağıtım modeli kullanarak bir VM yeni veya var olan veri diski ekleme yapma."
+title: bir veri diski tooa PowerShell kullanarak Azure Windows VM aaaAttach | Microsoft Docs
+description: "Nasıl tooattach yeni veya var olan veri tooa Windows VM disk PowerShell ile Merhaba Resource Manager dağıtım modeli kullanarak."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
-ms.openlocfilehash: 486e6a27fa28ec63001d824fe9f59c03a7aea5a7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 12ffdd4ced791ba0948047d3af24ad73e36c7ad6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Bir Windows PowerShell kullanarak bir VM için bir veri diski Ekle
+# <a name="attach-a-data-disk-tooa-windows-vm-using-powershell"></a>Bir veri diski tooa Windows VM ekleme PowerShell'i kullanma
 
-Bu makalede bir Windows PowerShell kullanarak sanal makine için yeni ve mevcut diskleri ekleme gösterilmiştir. VM yönetilen diskleri kullanıyorsa, ek yönetilen veri disklerinin ekleyebilirsiniz. Bir depolama hesabında yönetilmeyen diskleri kullanan bir VM'yi yönetilmeyen veri diskleri ekleyebilirsiniz.
+Bu makalede nasıl tooattach hem yeni hem de mevcut PowerShell kullanarak tooa Windows sanal makine disklerini gösterilmektedir. VM yönetilen diskleri kullanıyorsa, ek yönetilen veri disklerinin ekleyebilirsiniz. Yönetilmeyen veri diskleri tooa yönetilmeyen diskler bir depolama hesabını kullanan VM da ekleyebilirsiniz.
 
 Bunu önce bu ipuçlarını gözden geçirin:
-* Sanal makinenin boyutunu, iliştirebilirsiniz kaç tane veri diskleri denetler. Ayrıntılar için bkz [sanal makineler için Boyutlar](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Premium depolama kullanmak için bir Premium depolama ihtiyaç duyarsınız DS serisi veya GS serisi sanal makine gibi VM boyutu etkin. Bu sanal makinelerle Premium ve standart depolama hesapları arasından diskleri kullanabilirsiniz. Premium depolama belirli bölgelerde kullanılabilir. Ayrıntılar için bkz [Premium Storage: Azure sanal makine iş yükleri için yüksek performanslı depolama](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Merhaba boyutunu hello sanal makine, iliştirebilirsiniz kaç tane veri diskleri denetler. Ayrıntılar için bkz [sanal makineler için Boyutlar](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Premium depolama toouse, Premium depolama gerekir DS serisi veya GS serisi sanal makine hello gibi VM boyutu etkin. Bu sanal makinelerle Premium ve standart depolama hesapları arasından diskleri kullanabilirsiniz. Premium depolama belirli bölgelerde kullanılabilir. Ayrıntılar için bkz [Premium Storage: Azure sanal makine iş yükleri için yüksek performanslı depolama](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-PowerShell'i kullanırsanız, AzureRM.Compute PowerShell modülü en son sürümüne sahip olduğunuzdan emin olun. Yüklemek için aşağıdaki komutu çalıştırın.
+PowerShell'i kullanırsanız, hello hello AzureRM.Compute PowerShell modülü en son sürümüne sahip olduğunuzdan emin olun. Çalıştırma hello komut tooinstall onu.
 
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -38,9 +38,9 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 Daha fazla bilgi için bkz: [Azure PowerShell sürüm](/powershell/azure/overview).
 
 
-## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Bir sanal makineye bir boş veri diski Ekle
+## <a name="add-an-empty-data-disk-tooa-virtual-machine"></a>Bir boş veri diski tooa sanal makine ekleyin
 
-Bu örnek, varolan bir sanal makineye bir boş veri diski Ekle gösterilmektedir.
+Bu örnek nasıl tooadd boş bir veri diski tooan varolan sanal makine gösterir.
 
 ### <a name="using-managed-disks"></a>Yönetilen diskleri kullanma
 
@@ -71,9 +71,9 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
 
 
-### <a name="initialize-the-disk"></a>Diski başlatın
+### <a name="initialize-hello-disk"></a>Başlangıç diski başlatın
 
-Boş disk ekledikten sonra bunu başlatmak için gerekir. Diskini başlatmak için bir VM için oturum açın ve disk Yönetimi'ni kullanın. WinRM ve VM sertifikadaki etkinleştirilirse, oluşturduğunuz sırada diskini başlatmak için uzaktan PowerShell kullanabilirsiniz. Bir özel betik uzantısı de kullanabilirsiniz: 
+Boş disk ekledikten sonra tooinitialize gerekir. tooinitialize hello disk tooa VM ve kullanım disk Yönetimi'nde oturum açabilir. WinRM ve hello VM sertifikadaki etkinleştirilirse, oluşturduğunuz sırada uzak PowerShell tooinitialize hello disk kullanabilirsiniz. Bir özel betik uzantısı de kullanabilirsiniz: 
 
 ```powershell
     $location = "location-name"
@@ -82,7 +82,7 @@ Boş disk ekledikten sonra bunu başlatmak için gerekir. Diskini başlatmak iç
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
         
-Komut dosyası gibi bir diskleri başlatmak için bu kodu içerebilir:
+Merhaba komut dosyası gibi bir bu kodu tooinitialize hello diskleri içerebilir:
 
 ```powershell
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
@@ -102,9 +102,9 @@ Komut dosyası gibi bir diskleri başlatmak için bu kodu içerebilir:
 ```
 
 
-## <a name="attach-an-existing-data-disk-to-a-vm"></a>Varolan bir veri diski bir VM'e ekleyin
+## <a name="attach-an-existing-data-disk-tooa-vm"></a>Varolan bir veri diski tooa VM ekleme
 
-Ayrıca, varolan bir VHD'yi yönetilen veri diski olarak bir sanal makineye ekleyebilirsiniz. 
+Varolan bir VHD'yi yönetilen veri diski tooa sanal makine olarak da ekleyebilirsiniz. 
 
 ### <a name="using-managed-disks"></a>Yönetilen diskleri kullanma
 

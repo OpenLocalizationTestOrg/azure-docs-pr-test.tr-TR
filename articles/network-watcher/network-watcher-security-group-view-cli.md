@@ -1,6 +1,6 @@
 ---
-title: "Azure Ağ İzleyicisi güvenlik grubu görünümü - Azure CLI 2.0 ile ağ güvenliği çözümleme | Microsoft Docs"
-description: "Bu makalede, Azure CLI 2.0 güvenlik grubu görünümü ile sanal makineleri güvenliği çözümlemek için nasıl kullanılacağını anlatmaktadır."
+title: "Azure Ağ İzleyicisi güvenlik grubu görünümü - Azure CLI 2.0 ile aaaAnalyze ağ güvenliği | Microsoft Docs"
+description: "Bu makalede, Azure CLI 2.0 toouse tooanalyze sanal bir güvenlik grubu görünümü ile güvenliği nasıl makineleri anlatmaktadır."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 1756e14819e3b7c79361c193413a1fcd7f24a4e6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 31a4cd628f54d7548f495251fd275f099e79a060
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>Güvenlik grubu Azure CLI 2.0 kullanarak görünümü ile sanal makine güvenliğinizi Çözümle
 
@@ -28,30 +28,30 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
-Güvenlik grubu görünümü bir sanal makineye uygulanan yapılandırılmış ve etkili ağ güvenlik kuralları döndürür. Bu denetim ve ağ güvenlik grupları ve trafik yükleniyor emin olmak için bir VM üzerinde yapılandırılmış kurallarını tanılamak yararlı bir yetenektir doğru şekilde izin verilen veya reddedilen. Bu makalede, Azure CLI kullanarak bir sanal makine için yapılandırılmış ve etkili güvenlik kuralları almak nasıl gösteriyoruz
+Güvenlik grubu görünümü uygulanan tooa sanal makine yapılandırılmış ve etkili ağ güvenlik kuralları döndürür. Bu özellik kullanışlı tooaudit ve ağ güvenlik grupları tanılama ve bir VM tooensure trafiğinde yapılandırılmış kuralları yükleniyor doğru şekilde izin verilen veya reddedilen. Bu makalede, tooretrieve hello nasıl yapılandırılacağı ve Azure CLI kullanarak etkin güvenlik kuralları tooa sanal makine gösteriyoruz
 
 
-Bu makalede, Windows, Mac ve Linux için kullanılabilir olduğu, kaynak yönetimi için dağıtım modelini, Azure CLI 2.0 bizim nesil CLI kullanılmaktadır.
+Bu makalede bizim nesil CLI hello kaynak yönetimi dağıtım modeli için Azure CLI 2.0, Windows, Mac ve Linux için kullanılabilir olduğu kullanır.
 
-Bu makaledeki adımları gerçekleştirmek için gerek [Mac, Linux ve Windows (Azure CLI) için Azure komut satırı arabirimini yükleyin](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Bu makaledeki adımları tooperform Merhaba, çok ihtiyacınız[hello Azure komut satırı arabirimi Mac, Linux ve Windows (Azure CLI) için yükleme](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için.
+Bu senaryo zaten izlediğiniz hello adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) toocreate bir Ağ İzleyicisi.
 
 ## <a name="scenario"></a>Senaryo
 
-Bu makalede ele alınan senaryo, belirli bir sanal makine için yapılandırılmış ve etkili güvenlik kurallarını alır.
+Bu makalede ele alınan hello senaryo yapılandırılmış hello ve belirli bir sanal makine için etkili güvenlik kurallarını alır.
 
 ## <a name="get-a-vm"></a>VM Al
 
-Bir sanal makineyi çalıştırmak için gerekli `vm list` cmdlet'i. Aşağıdaki komut bir kaynak grubunda sanal makineleri listeler:
+Gerekli toorun hello bir sanal makinedir `vm list` cmdlet'i. Merhaba aşağıdaki komut bir kaynak grubunda hello sanal makineleri listeler:
 
 ```azurecli
 az vm list -resource-group resourceGroupName
 ```
 
-Sanal makine öğrendikten sonra kullanabileceğiniz `vm show` kendi kaynak kimliği almak için cmdlet:
+Merhaba sanal makine öğrendikten sonra hello kullanabilirsiniz `vm show` cmdlet tooget kendi kaynak kimliği:
 
 ```azurecli
 az vm show -resource-group resourceGroupName -name virtualMachineName
@@ -59,15 +59,15 @@ az vm show -resource-group resourceGroupName -name virtualMachineName
 
 ## <a name="retrieve-security-group-view"></a>Güvenlik grubu görünümü alma
 
-Güvenlik grubu Görünüm sonucu almak için sonraki adımdır bakın.
+Merhaba sonraki tooretrieve hello güvenlik grubu Görünüm sonucu adımdır.
 
 ```azurecli
 az network watcher show-security-group-view --resource-group resourceGroupName --vm vmName
 ```
 
-## <a name="viewing-the-results"></a>Sonuçları görüntüleme
+## <a name="viewing-hello-results"></a>Merhaba sonuçları görüntüleme
 
-Döndürülen sonuçlar kısaltılmış yanıtın örnektir. Gruplar halinde ayrılmış sanal makine üzerinde etkili ve uygulanan güvenlik kuralları sonuçları göster **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, ve **EffectiveSecurityRules**.
+Merhaba aşağıdaki kısaltılmış bir yanıt döndürdü hello sonuçlarının bir örnektir. Merhaba sonuçları tüm hello etkili ve uygulanan güvenlik kuralları hello sanal makineye gruplar halinde ayrıntılarıyla Göster **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, ve  **EffectiveSecurityRules**.
 
 ```json
 {
@@ -159,6 +159,6 @@ Döndürülen sonuçlar kısaltılmış yanıtın örnektir. Gruplar halinde ayr
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ziyaret [denetim ağ güvenlik grupları (NSG) Ağ İzleyicisi ile](network-watcher-nsg-auditing-powershell.md) ağ güvenlik grupları doğrulanması otomatikleştirmek öğrenmek için.
+Ziyaret [denetim ağ güvenlik grupları (NSG) Ağ İzleyicisi ile](network-watcher-nsg-auditing-powershell.md) toolearn nasıl tooautomate doğrulama ağ güvenlik grupları.
 
-Ağ kaynaklarınıza ziyaret ederek uygulanan güvenlik kuralları hakkında daha fazla bilgi [güvenlik grubu Görünümü'ne genel bakış](network-watcher-security-group-view-overview.md)
+Şu adresi ziyaret ederek uygulanan tooyour ağ kaynaklarına olan hello güvenlik kuralları hakkında daha fazla bilgi [güvenlik grubu Görünümü'ne genel bakış](network-watcher-security-group-view-overview.md)

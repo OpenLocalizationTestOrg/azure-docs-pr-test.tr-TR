@@ -1,6 +1,6 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - hesabım"
-description: "Azure Mobile Engagement hesabı profili ve test cihazlarınızı yönetmeyi öğrenin"
+title: "aaaAzure Mobile Engagement kullanıcı arabirimi - hesabım"
+description: "Bilgi nasıl toomanage Azure Mobile Engagement hesabı profili ve test cihazlarınızı"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1d85f0e87c43605f59f6536ae42a7fb6a99ee36b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-manage-your-account-profile-and-test-devices"></a>Hesap profili ve test cihazları yönetme
-Bu makalede **giriş** sayfasında **Mobile Engagement** portal. Kullandığınız **Mobile Engagement** izlemek ve mobil uygulamalarınızı yönetmek için portal. 
+# <a name="how-toomanage-your-account-profile-and-test-devices"></a>Nasıl toomanage hesap profili ve test cihazları
+Bu makalede hello **giriş** hello sayfasının **Mobile Engagement** portal. Merhaba kullandığınız **Mobile Engagement** portal toomonitor ve mobil uygulamalarınızı yönetin. 
 
-Almak için **Hesabımı** sayfasında, sayfanın üst kısmında, hesabınızı tıklayın.
+tooget toohello **Hesabımı** sayfasında, hesabınızı hello sayfasının hello üstte tıklayın.
 
-Hesabımı UI nerede görüntüleyebilir ve profil ayarlarınızı dahil olmak üzere hesabınızla ilişkili ayarlarını değiştirin ve cihaz kimlikleri test bölümüdür. Bu ayarları da aygıt API üzerinden erişilebilen öğeleri içerir.
+Merhaba UI nerede görüntüleyebilir ve profil ayarlarınızı dahil olmak üzere hesabınızla ilişkili hello ayarlarını değiştirin ve cihaz kimlikleri test olan hello hesabım bölümü. Bu ayarları hello aygıt API da erişilebilir öğeleri içerir.
 
 ![MyAccount1][7]  
 
 ## <a name="profile"></a>Profili:
-Görüntüleyin veya aşağıda gösterilen hesap ayarlarınızı değiştirin. Ayrıca kendi e-posta adresinden göre uygulamanızın kullanmak üzere başka bir kullanıcı izni verebilirsiniz [giriş](mobile-engagement-user-interface-home.md).
+Görüntüleyin veya aşağıda gösterilen hesap ayarlarınızı değiştirin. Başka bir kullanıcı izni toouse hello kendi e-posta adresinden göre uygulamanızın verebilirsiniz [giriş](mobile-engagement-user-interface-home.md).
 
 ![MyAccount2][8]  
 
 ## <a name="devices"></a>Aygıtlar:
-Görüntülemek, ekleyebileceğiniz, kaldırmak veya test etmek için kullanabileceğiniz test cihazların cihaz ID test, **ulaşmak** veya **itme** kampanyalar. Her platform için cihazları cihaz Kimliğini bulmak nasıl bağlamsal yönergeler (iOS, Android, Windows Phone, vb.), "Yeni aygıt" tıklattığınızda görüntülenir. 
+Görüntülemek, ekleyebileceğiniz, kaldırmak veya aygıt ID tootest kullanabileceğiniz hello test aygıtların test, **ulaşmak** veya **itme** kampanyalar. Toofind hello cihaz kimliği her platform için aygıtların nasıl bağlamsal yönergeleri (iOS, Android, Windows Phone, vb.), "Yeni aygıt" tıklattığınızda görüntülenir. 
 
 ![MyAccount3][9]  
 
-Anında iletme API'si veya Device API'sini kullanmak için kullanıcılarınızın benzersiz cihaz tanımlayıcısı (DeviceID parametre) bilmeniz gerekir. Bunu almak için birkaç yolu vardır:
+toouse anında API veya aygıt API tooknow kullanıcılarınızın benzersiz cihaz tanımlayıcısı (Merhaba DeviceID parametre) gerekir. Çeşitli yolları tooretrieve vardır:
 
-1. Arka ucunuzdan, cihaz tanımlayıcılarını tam listesini almak için cihaz API "Get" özelliğini kullanabilirsiniz.
-2. Uygulamanızdan almak için SDK'yı kullanabilirsiniz. (Android, aracı sınıfının ve iOS, getDeviceID() işlevini çağırın Aracısı sınıfın DeviceID özelliği okuyun.)
-3. Duyuru ile ilişkili eylem URL'si {DeviceID} desenini içeriyorsa ulaşma duyurudan, otomatik olarak eylemi tetikleyen cihazın tanımlayıcısı ile değiştirilecek.
+1. Arka ucunuzdan, hello aygıt API tooget hello tam listesini cihaz tanımlayıcılarını hello "Get" özelliğini kullanabilirsiniz.
+2. Uygulamanızdan hello SDK tooget kullanabilirsiniz. (Android, hello Aracısı sınıfı hello getDeviceID() işlevini çağırın ve hello Aracısı sınıfı hello DeviceID özelliği iOS üzerinde oku.)
+3. Merhaba duyuru ile ilişkili hello eylem URL'si hello {DeviceID} düzeni içeriyorsa ulaşma duyurudan onu otomatik olarak hello cihazın tanımlayıcısı ile Merhaba eylemi tetikleyen hello tarafından değiştirilecek.
    http://<example>.com/registeruser? DeviceID {DeviceID} = & otherparam = myparamdata tarafından değiştirilecek: http://<example>.com/registeruser? DeviceID XXXXXXXXXXXXXXXX & otherparam = myparamdata = 
-4. Duyurunun HTML kodu {DeviceID} desenini içeriyorsa ulaşma web duyurudan onu otomatik olarak web duyuruyu görüntüleyen cihazın tanımlayıcısı ile değiştirilecek.
+4. Merhaba hello duyuru HTML kodunun hello {DeviceID} düzeni içeriyorsa ulaşma web duyurudan onu otomatik olarak hello cihazın tanımlayıcısı ile Merhaba web duyuru görüntüleme hello tarafından değiştirilecek.
    My cihaz tanımlayıcısı şöyledir: {DeviceID} tarafından değiştirilecek: my cihaz tanımlayıcısı şöyledir: XXXXXXXXXXXXXXXX
 5. Uygulamanız, Cihazınızda açın ve bir olay hangi etiketlendiği uygulamanızda gerçekleştirin.
-   "UI - app - İzleyicisi - olaylarınızı - Ayrıntılar" listesinde gerçekleştirilen olayı bulun.
-   Bu olay İzleyicisi'nde için tıklatın.
-   Bu olay gerçekleştirmiş aygıtlar listesinde cihaz Kimliğinizi bulmanız gerekir.
-   Ardından, bu cihaz Kimliğini kopyalayın ve "- yeni cihaz - kullanıcı Arabirimi - Hesabımı - cihazları seçin, cihaz platformu" kaydedin.
-   >(IDFA iOS için devre dışı bırakıldığında, uygulamanızı kaldırıp, cihaz kimliği zaman içinde değişebilir olduğunu unutmayın.)
+   "UI - app - İzleyicisi - olaylarınızı - bilgilerinden" hello hello listesinde gerçekleştirilen olay bulur.
+   Merhaba İzleyici toothis olay'ı tıklatın.
+   Cihaz Kimliğinizi hello bu olay gerçekleştirmiş hello aygıtlar listesinde bulmanız gerekir.
+   Ardından, bu cihaz Kimliğini kopyalayın ve "- yeni cihaz - kullanıcı Arabirimi - Hesabımı - cihazları cihaz platformu seçin" hello kaydedin.
+   >(IDFA iOS için devre dışı bırakıldığında, kaldırın ve uygulamanızı yeniden yüklerseniz hello cihaz kimliği hello zaman içinde değişebilir olduğunu unutmayın.)
 
 ## <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 * [Sorun giderme kılavuzu - hizmet][Link 24]

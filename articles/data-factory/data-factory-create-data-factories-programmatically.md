@@ -1,6 +1,6 @@
 ---
-title: "Azure .NET SDK kullanarak veri ardışık düzen oluşturun | Microsoft Docs"
-description: "Program aracılığıyla oluşturmak, izlemek ve Data Factory SDK'yı kullanarak Azure data factory'leri yönetme hakkında bilgi edinin."
+title: "Azure .NET SDK kullanarak aaaCreate veri ardışık | Microsoft Docs"
+description: "Nasıl tooprogrammatically oluşturmak, izlemek ve Data Factory SDK'yı kullanarak Azure data factory'leri yönetmek öğrenin."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,109 +14,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 9d9dac75321c5d4e079f49320d9b7c6f56e48754
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 190b5f99edbb3c27e1e8efb8990b9e601b22458f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Oluşturma, izlemek ve Azure Data Factory .NET SDK kullanarak Azure data factory'leri yönetme
 ## <a name="overview"></a>Genel Bakış
-Oluşturun, izlemek ve program aracılığıyla Data Factory .NET SDK kullanarak Azure data factory'leri yönetin. Bu makalede, oluşturur ve bir veri fabrikası izler örnek bir .NET konsol uygulaması oluşturmak için izleyebileceğiniz bir kılavuz içerir. 
+Oluşturun, izlemek ve program aracılığıyla Data Factory .NET SDK kullanarak Azure data factory'leri yönetin. Bu makalede toocreate oluşturan ve veri fabrikası izler örnek bir .NET konsol uygulaması izleyebileceğiniz bir kılavuz içerir. 
 
 > [!NOTE]
-> Bu makale, Data Factory .NET API’nin tamamını kapsamaz. Bkz: [Data Factory .NET API Başvurusu](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) hakkında kapsamlı bilgi için .NET API veri fabrikası için. 
+> Bu makalede, tüm hello veri fabrikası .NET API kapsamaz. Bkz: [Data Factory .NET API Başvurusu](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) hakkında kapsamlı bilgi için .NET API veri fabrikası için. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 * Visual Studio 2012 veya 2013 veya 2015
 * İndirme ve yükleme [Azure .NET SDK'sı](http://azure.microsoft.com/downloads/).
-* Azure PowerShell. Bilgisayarınıza Azure PowerShell’i yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview) makalesindeki yönergeleri izleyin. Azure PowerShell’i kullanarak bir Azure Active Directory uygulaması oluşturursunuz.
+* Azure PowerShell. ' Ndaki yönergeleri izleyin [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview) tooinstall Azure PowerShell, bilgisayarınızda makalesi. Azure PowerShell toocreate bir Azure Active Directory uygulamasını kullanın.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory’de uygulama oluşturma
-Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sorumlusu oluşturun ve bunu **Data Factory Katılımcısı** rolüne atayın.
+Bir Azure Active Directory uygulaması oluşturmak, Merhaba uygulaması için bir hizmet sorumlusu oluşturmak ve toohello atamak **veri fabrikası katkıda bulunan** rol.
 
 1. **PowerShell**’i başlatın.
-2. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
+2. Merhaba aşağıdaki komutu çalıştırın ve hello kullanıcı adı ve parola toosign toohello Azure portal kullanın girin.
 
     ```PowerShell
     Login-AzureRmAccount
     ```
-3. Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.
+3. Bu hesap için tüm hello abonelikleri komutu tooview aşağıdaki hello çalıştırın.
 
     ```PowerShell
     Get-AzureRmSubscription
     ```
-4. Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **&lt;NameOfAzureSubscription**&gt; değerini Azure aboneliğinizin adıyla değiştirin.
+4. Çalışma hello aşağıdaki toowork ile istediğiniz tooselect hello abonelik komutu. Değiştir  **&lt;NameOfAzureSubscription** &gt; , Azure aboneliğinizin hello adı.
 
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
     ```
 
    > [!IMPORTANT]
-   > Bu komutun çıktısından **SubscriptionId** ve **TenantId** değerlerin not alın.
+   > Aşağı Not **Subscriptionıd** ve **Tenantıd** bu komutun hello çıktısından.
 
-5. PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun.
+5. Adlı bir Azure kaynak grubu oluşturma **ADFTutorialResourceGroup** hello PowerShell komutunda aşağıdaki hello çalıştırarak.
 
     ```PowerShell
     New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
-    Kaynak grubu zaten varsa bunun güncelleştirileceğini mi (Y) yoksa (N) olarak tutulacağını mı belirtirsiniz.
+    Belirttiğiniz Hello kaynak grubu zaten varsa, olup olmadığını tooupdate bunu (Y) veya (N) tutun.
 
-    Farklı bir kaynak grubu kullanıyorsanız, bu öğreticide kullanılan ADFTutorialResourceGroup yerine kaynak grubunuzun adını kullanmanız gerekir.
+    Farklı bir kaynak grubu kullanıyorsanız, bu öğreticide ADFTutorialResourceGroup yerine, kaynak grubunun toouse hello adı gerekir.
 6. Bir Azure Active Directory uygulaması oluşturun.
 
     ```PowerShell
     $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
     ```
 
-    Aşağıdaki hatayı alırsanız farklı bir URL belirtip komutu yeniden çalıştırın.
+    Merhaba aşağıdaki hata alırsanız, farklı bir URL belirtin ve hello komutunu yeniden çalıştırın.
     
     ```PowerShell
-    Another object with the same value for property identifierUris already exists.
+    Another object with hello same value for property identifierUris already exists.
     ```
-7. AD hizmet sorumlusunu oluşturun.
+7. Merhaba AD hizmet sorumlusu oluşturun.
 
     ```PowerShell
     New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
-8. Hizmet sorumlusunu **Data Factory Katılımcısı** rolüne ekleyin.
+8. Hizmet asıl toohello ekleme **veri fabrikası katkıda bulunan** rol.
 
     ```PowerShell
     New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
-9. Uygulama kimliğini alın.
+9. Merhaba uygulama kimliği alma
 
     ```PowerShell
     $azureAdApplication 
     ```
-    Çıktıdaki uygulama kimliğini (applicationID) not alın.
+    Merhaba çıktısından hello uygulama kimliği (ApplicationId) aşağı unutmayın.
 
 Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
 
 * Kiracı Kimliği
 * Abonelik Kimliği
 * Uygulama Kimliği
-* Parola (ik komutta belirtilir)
+* Parola (Merhaba ilk komutunda belirtilen)
 
 ## <a name="walkthrough"></a>Kılavuz
-Kılavuzda data factory kopyalama etkinliği içeren sahip işlem hattı oluşturun. Kopyalama etkinliği verileri Azure blob depolama alanınızın bir klasörde aynı blob depolama başka bir klasöre kopyalar. 
+Merhaba kılavuzda data factory kopyalama etkinliği içeren sahip işlem hattı oluşturun. Merhaba kopyalama etkinliği verileri kopyalar aynı blob depolama Merhaba, Azure blob depolama tooanother klasöründe bir klasörden. 
 
-Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın.
+Merhaba kopya etkinliği Azure Data Factory'de hello veri taşımayı gerçekleştirir. Merhaba etkinlik verileri güvenli, güvenilir ve ölçeklenebilir bir şekilde çeşitli veri depolamaları arasında kopyalayabilirsiniz genel olarak kullanılabilir bir hizmet tarafından desteklenir. Bkz: [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale hello kopyalama etkinliği hakkında ayrıntılı bilgi için.
 
 1. Visual Studio 2012/2013/2015'i kullanarak bir C# .NET konsol uygulaması oluşturun.
    1. **Visual Studio** 2012/2013/2015’i başlatın.
-   2. **Dosya**’ya tıklayın, **Yeni**’nin üzerine gelin ve **Proje**’ye tıklayın.
+   2. Tıklatın **dosya**, çok noktası**yeni**, tıklatıp **proje**.
    3. **Şablonlar**’ı genişletin ve **Visual C#** seçeneğini belirleyin. Bu kılavuzda C# kullanıyor olsanız da dilediğiniz .NET dilini kullanabilirsiniz.
-   4. Sağ taraftaki proje türleri listesinden **Konsol Uygulaması**’nı seçin.
-   5. Ad için **DataFactoryAPITestApp** değerini girin.
-   6. Konum için **C:\ADFGetStarted** yolunu seçin.
-   7. Projeyi oluşturmak için **Tamam**'a tıklayın.
-2. **Araçlar**'a tıklayın, **NuGet Paket Yöneticisi**'nin üzerine gelin ve ardından **Paket Yöneticisi Konsolu**'na tıklayın.
-3. **Paket Yöneticisi Konsolu**'nda şu adımları uygulayın:
-   1. Data Factory paketini yüklemek için şu komutu çalıştırın: `Install-Package Microsoft.Azure.Management.DataFactories`
-   2. Azure Active Directory paketini yüklemek için şu komutu çalıştırın (kodda Active Directory API'sini kullanırsınız): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
-4. Değiştir **App.config** aşağıdaki içeriğe sahip proje dosyasında: 
+   4. Seçin **konsol uygulaması** hello sağ proje türlerinde hello listesinden.
+   5. Girin **DataFactoryAPITestApp** hello adı için.
+   6. Seçin **C:\ADFGetStarted** için başlangıç konumu.
+   7. Tıklatın **Tamam** toocreate hello projesi.
+2. Tıklatın **Araçları**, çok noktası**NuGet Paket Yöneticisi**, tıklatıp **Paket Yöneticisi Konsolu**.
+3. Merhaba, **Paket Yöneticisi Konsolu**, adımları hello:
+   1. Komut tooinstall Data Factory paketi aşağıdaki hello çalıştırın:`Install-Package Microsoft.Azure.Management.DataFactories`
+   2. (Active Directory API hello kodda kullandığınız) komutu tooinstall Azure Active Directory paketi aşağıdaki hello çalıştırın:`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
+4. Merhaba Değiştir **App.config** içeriği aşağıdaki hello hello projeyle dosyasında: 
     
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -127,14 +127,14 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
             <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
             <add key="ApplicationId" value="your application ID" />
-            <add key="Password" value="Password you used while creating the AAD application" />
+            <add key="Password" value="Password you used while creating hello AAD application" />
             <add key="SubscriptionId" value= "Subscription ID" />
             <add key="ActiveDirectoryTenantId" value="Tenant ID" />
         </appSettings>
     </configuration>
     ```
-5. App.Config dosyasında değerlerini güncelleştirin  **&lt;uygulama kimliği&gt;**,  **&lt;parola&gt;**,  **&lt;abonelik kimliği&gt;**, ve  **&lt;kimliği Kiracı&gt;**  kendi değerlere sahip.
-6. Aşağıdakileri ekleyin **kullanarak** deyimlerini **Program.cs** proje dosyasında.
+5. Merhaba App.Config dosyasında değerlerini güncelleştirin  **&lt;uygulama kimliği&gt;**,  **&lt;parola&gt;**,  **&lt; Abonelik kimliği&gt;**, ve  **&lt;kimliği Kiracı&gt;**  kendi değerlere sahip.
+6. Merhaba aşağıdakileri ekleyin **kullanarak** deyimleri toohello **Program.cs** hello proje dosyasında.
 
     ```csharp
     using System.Configuration;
@@ -150,15 +150,15 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
     ```
-6. **DataPipelineManagementClient** sınıfının bir örneğini oluşturan aşağıdaki kodu **Main** yöntemine ekleyin. Bir veri fabrikası, bağlı hizmet, girdi ve çıktı veri kümeleri ve işlem hattı oluşturmak için bu nesneyi kullanırsınız. Çalışma zamanında bir veri kümesinin dilimlerini izlemek için de bu nesneyi kullanırsınız.
+6. Bir örneği oluşturan kodu aşağıdaki hello eklemek **DataPipelineManagementClient** sınıfı toohello **ana** yöntemi. Bu nesne toocreate data factory, bağlı hizmet, girdi ve çıktı veri kümelerini ve işlem hattı kullanın. Bu nesne toomonitor dilimler bir veri kümesinin ayrıca çalışma zamanında kullanın.
 
     ```csharp
     // create data factory management client
 
-    //IMPORTANT: specify the name of Azure resource group here
+    //IMPORTANT: specify hello name of Azure resource group here
     string resourceGroupName = "ADFTutorialResourceGroup";
 
-    //IMPORTANT: the name of the data factory must be globally unique.
+    //IMPORTANT: hello name of hello data factory must be globally unique.
     // Therefore, update this value. For example:APITutorialFactory05122017
     string dataFactoryName = "APITutorialFactory";
 
@@ -172,10 +172,10 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
     ```
 
    > [!IMPORTANT]
-   > **resourceGroupName** değerini Azure kaynak grubunuzun adıyla değiştirin. Kullanarak bir kaynak grubu oluşturabilirsiniz [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet'i.
+   > Merhaba değerini **resourceGroupName** hello Azure kaynak grubu adı. Hello kullanarak bir kaynak grubu oluşturabilirsiniz [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet'i.
    >
-   > Veri fabrikasının adını (dataFactoryName) benzersiz olacak şekilde güncelleştirin. Veri fabrikasının adı genel olarak benzersiz olmalıdır. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
-7. Bir **veri fabrikası** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.
+   > Merhaba veri fabrikası (dataFactoryName) toobe benzersiz adını güncelleştirin. Merhaba veri fabrikasının adı genel olarak benzersiz olması gerekir. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
+7. Oluşturan kod aşağıdaki hello eklemek bir **veri fabrikası** toohello **ana** yöntemi.
 
     ```csharp
     // create a data factory
@@ -192,7 +192,7 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
         }
     );
     ```
-8. Bir **Azure Depolama bağlı hizmeti** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.
+8. Oluşturan kod aşağıdaki hello eklemek bir **Azure depolama bağlantılı hizmeti** toohello **ana** yöntemi.
 
    > [!IMPORTANT]
    > **storageaccountname** ve **accountkey** sözcüklerini Azure Depolama hesabınızın adı ve anahtarıyla değiştirin.
@@ -214,11 +214,11 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
         }
     );
     ```
-9. **Girdi ve çıktı veri kümeleri** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.
+9. Oluşturan kod aşağıdaki hello eklemek **giriş ve çıkış veri kümeleri** toohello **ana** yöntemi.
 
-    **FolderPath** giriş blob ayarlanmıştır **adftutorial /** nerede **adftutorial** blob depolama alanınızın kapsayıcısında adıdır. Bu kapsayıcı, Azure blob depolamada mevcut değilse, bu ada sahip bir kapsayıcı oluşturmak: **adftutorial** ve kapsayıcıya bir metin dosyasını karşıya yükleyin.
+    Merhaba **FolderPath** hello giriş blob çok ayarlamak için**adftutorial /** nerede **adftutorial** hello kapsayıcıda blob depolama alanınızın hello adıdır. Bu kapsayıcı, Azure blob depolamada mevcut değilse, bu ada sahip bir kapsayıcı oluşturmak: **adftutorial** ve bir metin dosyası toohello kapsayıcı yükleyin.
 
-    Çıktı blob FolderPath ayarlamak: **adftutorial/apifactoryoutput / {dilim}** nerede **dilim** dinamik olarak değeri temel alınarak hesaplanır **SliceStart** (tarih-saat her dilimin başlatın.)
+    Merhaba FolderPath hello için çıktı blob ayarlanır: **adftutorial/apifactoryoutput / {dilim}** nerede **dilim** dinamik olarak hesaplanan göre hello değeri **SliceStart**(tarih-saat her dilimin başlatın.)
 
     ```csharp
     // create input and output datasets
@@ -294,9 +294,9 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
         }
     });
     ```
-10. **Bir işlem hattı oluşturan ve işlem hattını etkinleştiren** aşağıdaki kodu **Main** yöntemine ekleyin. Bu işlem hattının **BlobSource**’u bir kaynak olarak, **BlobSink**’i ise bir havuz olarak alan bir **CopyActivity** etkinliği vardır.
+10. Merhaba aşağıdaki kod ekleme **oluşturur ve bir ardışık düzen etkinleştirir** toohello **ana** yöntemi. Bu işlem hattının **BlobSource**’u bir kaynak olarak, **BlobSink**’i ise bir havuz olarak alan bir **CopyActivity** etkinliği vardır.
 
-    Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın.
+    Merhaba kopya etkinliği Azure Data Factory'de hello veri taşımayı gerçekleştirir. Merhaba etkinlik verileri güvenli, güvenilir ve ölçeklenebilir bir şekilde çeşitli veri depolamaları arasında kopyalayabilirsiniz genel olarak kullanılabilir bir hizmet tarafından desteklenir. Bkz: [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale hello kopyalama etkinliği hakkında ayrıntılı bilgi için.
 
     ```csharp
     // create a pipeline
@@ -315,7 +315,7 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
             {
                 Description = "Demo Pipeline for data transfer between blobs",
     
-                // Initial value for pipeline's active period. With this, you won't need to set slice status
+                // Initial value for pipeline's active period. With this, you won't need tooset slice status
                 Start = PipelineActivePeriodStartTime,
                 End = PipelineActivePeriodEndTime,
     
@@ -354,7 +354,7 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
         }
     });
     ```
-12. Çıktı veri kümesinin veri diliminin durumunu almak için aşağıdaki kodu **Main** yöntemine ekleyin. Bu örnekte beklenen yalnızca bir dilim yoktur.
+12. Aşağıdaki kodu toohello hello eklemek **ana** yöntemi tooget hello hello bir veri dilimin durumunu çıkış veri kümesi. Bu örnekte beklenen yalnızca bir dilim yoktur.
 
     ```csharp
     // Pulling status within a timeout threshold
@@ -363,8 +363,8 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
     
     while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
     {
-        Console.WriteLine("Pulling the slice status");
-        // wait before the next status check
+        Console.WriteLine("Pulling hello slice status");
+        // wait before hello next status check
         Thread.Sleep(1000 * 12);
     
         var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
@@ -389,13 +389,13 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
         }
     }
     ```
-13. **(isteğe bağlı)**  Bir veri dilimi ayrıntılarını çalıştırmak için aşağıdaki kodu ekleyin **ana** yöntemi.
+13. **(isteğe bağlı)**  Ekle hello aşağıdaki kod bir veri dilimi toohello çalıştırmak tooget ayrıntılarını **ana** yöntemi.
 
     ```csharp
     Console.WriteLine("Getting run details of a data slice");
     
-    // give it a few minutes for the output slice to be ready
-    Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
+    // give it a few minutes for hello output slice toobe ready
+    Console.WriteLine("\nGive it a few minutes for hello output slice toobe ready and press any key.");
     Console.ReadKey();
     
     var datasliceRunListResponse = client.DataSliceRuns.List(
@@ -418,10 +418,10 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
         Console.WriteLine("ErrorMessage: \t{0}", run.ErrorMessage);
     }
     
-    Console.WriteLine("\nPress any key to exit.");
+    Console.WriteLine("\nPress any key tooexit.");
     Console.ReadKey();
     ```
-14. **Main** yöntemi tarafından kullanılan aşağıdaki yardımcı yöntemini **Program** sınıfına ekleyin. Bu yöntem sağlamanıza olanak tanıyan bir iletişim kutusu açılır **kullanıcı adı** ve **parola** , Azure portalında oturum açmak için kullanın.
+14. Merhaba tarafından kullanılan yardımcı yöntemini aşağıdaki hello eklemek **ana** yöntemi toohello **Program** sınıfı. Bu yöntem sağlamanıza olanak tanıyan bir iletişim kutusu açılır **kullanıcı adı** ve **parola** tooAzure Portalı'nda toolog kullanın.
 
     ```csharp
     public static async Task<string> GetAuthorizationHeader()
@@ -437,29 +437,29 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
         if (result != null)
             return result.AccessToken;
 
-        throw new InvalidOperationException("Failed to acquire token");
+        throw new InvalidOperationException("Failed tooacquire token");
     }
     ```
 
-15. Çözüm Gezgini'nde projenizi genişletin: **DataFactoryAPITestApp**, sağ **başvuruları**, tıklatıp **Başvuru Ekle**. İçin bu onay kutusunu işaretleyin `System.Configuration` derleme ve tıklatın **Tamam**.
-15. Konsol uygulamasını derleyin. Menüde **Derle**’ye tıklayın ve **Çözümü Derle**’ye tıklayın.
-16. Olduğunu en az bir dosya adftutorial kapsayıcısında Azure blob depolama alanınızın onaylayın. Aksi durumda, Emp.txt dosyasını Not Defteri'nde aşağıdaki içerik ile oluşturun ve adftutorial kapsayıcıya yükleyin.
+15. Merhaba projeyi Hello Çözüm Gezgini, genişletin: **DataFactoryAPITestApp**, sağ **başvuruları**, tıklatıp **Başvuru Ekle**. İçin bu onay kutusunu işaretleyin `System.Configuration` derleme ve tıklatın **Tamam**.
+15. Merhaba konsol uygulaması oluşturun. Tıklatın **yapı** hello menüsüne ve ardından üzerinde **yapı çözümü**.
+16. Olduğunu en az bir dosya hello adftutorial kapsayıcısında Azure blob depolama alanınızın onaylayın. Aksi durumda, Emp.txt dosyasını Not Defteri'nde aşağıdaki hello ile içerik oluşturun ve toohello adftutorial kapsayıcı yükleyin.
 
     ```
     John, Doe
     Jane, Doe
     ```
-17. Menüden **Hata Ayıkla** -> **Hata Ayıklamayı Başlat**’a tıklayarak örneği çalıştırın. **Getting run details of a data slice** iletisini gördüğünüzde birkaç dakika bekleyin ve **ENTER** tuşuna basın.
-18. Azure portalı kullanarak **APITutorialFactory** veri fabrikasının aşağıdaki yapıtlarla birlikte oluşturulduğunu doğrulayın:
+17. Tıklayarak Hello örneği çalıştırmak **hata ayıklama** -> **hata ayıklamayı Başlat** başlangıç menüsünde. Merhaba gördüğünüzde **veri dilimi ayrıntılarını çalıştırmak**, birkaç dakika basın için bekleyin ve **ENTER**.
+18. Kullanım hello Azure portal tooverify bu hello veri fabrikası **APITutorialFactory** yapıları aşağıdaki hello ile oluşturulur:
     * Bağlantılı hizmeti: **AzureStorageLinkedService**
     * Veri kümesi: **DatasetBlobSource** ve **DatasetBlobDestination**.
     * İşlem hattı: **PipelineBlobSample**
-19. Bir çıkış dosyası oluşturulur doğrulayın **apifactoryoutput** klasöründe **adftutorial** kapsayıcı.
+19. Bir çıkış dosyası hello oluşturulduğunu doğrulayın **apifactoryoutput** hello klasöründe **adftutorial** kapsayıcı.
 
 ## <a name="get-a-list-of-failed-data-slices"></a>Başarısız olan veri dilimlerinin listesini al 
 
 ```csharp
-// Parse the resource path
+// Parse hello resource path
 var ResourceGroupName = "ADFTutorialResourceGroup";
 var DataFactoryName = "DataFactoryAPITestApp";
 
@@ -496,6 +496,6 @@ while (response != null);
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Verileri Azure blob depolama alanından Azure SQL veritabanına kopyalar .NET SDK kullanarak bir işlem hattı oluşturmak için aşağıdaki örneğe bakın: 
+Örnek verileri Azure blob depolama tooan Azure SQL veritabanından kopyalar .NET SDK kullanarak bir işlem hattı oluşturmak için aşağıdaki hello bakın: 
 
-- [Blob depolama alanından SQL veritabanına veri kopyalamak için bir işlem hattı oluşturma](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Blob Storage tooSQL veritabanı ' bir ardışık düzen toocopy verileri oluşturma](data-factory-copy-activity-tutorial-using-dotnet-api.md)

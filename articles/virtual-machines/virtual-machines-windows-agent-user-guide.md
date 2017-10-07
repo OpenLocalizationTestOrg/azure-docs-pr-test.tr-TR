@@ -1,5 +1,5 @@
 ---
-title: "Azure sanal makine Aracısı genel bakış | Microsoft Docs"
+title: "aaaAzure sanal makine Aracısı genel bakış | Microsoft Docs"
 description: "Azure sanal makine Aracısı genel bakış"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,45 +15,45 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: nepeters
-ms.openlocfilehash: accfd5f0fec69175e584528ff9f6db66402cb89e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 178766925673419cd661dbb460b8427bbfaf54e7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure sanal makine aracısını genel bakış
 
-Microsoft Azure sanal makine Aracısı (VM Aracısı) Azure yapı denetleyicisi VM etkileşim yöneten güvenli ve basit bir işlemdir. VM Aracısı'nı etkinleştirme ve Azure sanal makine uzantıları yürütme birincil bir rolü var. VM uzantıları etkinleştirme, yükleme ve yazılım yapılandırma gibi sanal makine dağıtım yapılandırması gönderin. Sanal makine uzantıları gibi bir sanal makine yönetici parolasını sıfırlama kurtarma özellikleri de sağlar. Azure VM Aracısı sanal makine uzantıları çalıştırılamaz.
+Merhaba Microsoft Azure sanal makine Aracısı (VM Aracısı) hello Azure yapı denetleyicisi VM etkileşim yöneten güvenli ve basit bir işlemdir. Merhaba VM Aracısı etkinleştirme ve Azure sanal makine uzantıları yürütme birincil bir rolü var. VM uzantıları etkinleştirme, yükleme ve yazılım yapılandırma gibi sanal makine dağıtım yapılandırması gönderin. Sanal makine uzantıları gibi bir sanal makinenin hello yönetici parolasını sıfırlama kurtarma özellikleri de sağlar. Azure VM Aracısı Hello, sanal makine uzantıları çalıştırılamaz.
 
-Bu belge yükleme, algılama ve kaldırma Azure sanal makine Aracısı'nın ayrıntıları.
+Bu belge yükleme, algılama ve hello Azure sanal makine Aracısı kaldırılmasını ayrıntıları.
 
-## <a name="install-the-vm-agent"></a>VM Aracısı yükleme
+## <a name="install-hello-vm-agent"></a>Merhaba VM Aracısı yükleme
 
 ### <a name="azure-gallery-image"></a>Azure galeri görüntüsü
 
-Azure VM Aracısı, Azure Galerisi görüntüden dağıtılmış tüm Windows sanal makine üzerinde varsayılan olarak yüklenir. Azure galerisinde görüntüden Portal, PowerShell, komut satırı arabirimini veya bir Azure Resource Manager şablonu dağıtırken Azure VM aracısı olan de yüklü olmalıdır. 
+Hello Azure VM Aracısı, Azure Galerisi görüntüden dağıtılmış tüm Windows sanal makine üzerinde varsayılan olarak yüklenir. Azure galerisinde görüntüden hello Portal, PowerShell, komut satırı arabirimini veya bir Azure Resource Manager şablonu dağıtırken de Azure VM Aracısı olduğunu hello yüklenmesi. 
 
 ### <a name="manual-installation"></a>El ile yükleme
 
-Windows VM Aracısı'nı el ile bir Windows Installer paketi kullanılarak yüklenebilir. Bir özel sanal makine görüntüsü oluşturma Azure'da dağıtılacak zaman el ile yükleme gerekli olabilir. Windows VM Aracısı'nı el ile yüklemek için bu konumdan VM aracı yükleyicisini indirin [Windows Azure VM Aracısı indirme](http://go.microsoft.com/fwlink/?LinkID=394789). 
+Merhaba Windows VM Aracısı el ile bir Windows Installer paketi kullanılarak yüklenebilir. Bir özel sanal makine görüntüsü oluşturma Azure'da dağıtılacak zaman el ile yükleme gerekli olabilir. toomanually yükleme hello Windows VM Aracısı, bu konumdan hello VM Aracısı yükleyicisi karşıdan [Windows Azure VM Aracısı indirme](http://go.microsoft.com/fwlink/?LinkID=394789). 
 
-VM Aracısı, windows Installer dosyasını çift tıklatarak yüklenebilir. Bir otomatik olarak veya katılımsız yükleme VM Aracısı'nın için aşağıdaki komutu çalıştırın.
+Merhaba VM Aracısı hello windows Installer dosyasını çift tıklatarak yüklenebilir. Bir otomatik olarak veya katılımsız yükleme hello VM Aracısı'nın için komutu aşağıdaki hello çalıştırın.
 
 ```cmd
 msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
 ```
 
-## <a name="detect-the-vm-agent"></a>VM Aracısı Algıla
+## <a name="detect-hello-vm-agent"></a>Merhaba VM Aracısı Algıla
 
 ### <a name="powershell"></a>PowerShell
 
-Azure Resource Manager PowerShell modülü, Azure sanal makineler hakkında bilgi almak için kullanılabilir. Çalışan `Get-AzureRmVM` oldukça biraz Azure VM aracısı için sağlama durumu bilgilerini döndürür.
+Hello Azure Resource Manager PowerShell modülü kullanılan tooretrieve bilgiler hakkında Azure sanal makineler olabilir. Çalışan `Get-AzureRmVM` oldukça biraz sağlama durumu hello Azure VM aracısı için hello bilgilerini döndürür.
 
 ```PowerShell
 Get-AzureRmVM
 ```
 
-Yalnızca bir alt kümesini aşağıdadır `Get-AzureRmVM` çıktı. Bildirim `ProvisionVMAgent` içe özelliği içinde `OSProfile`, bu özellik, VM Aracısı sanal makineye dağıtılıp dağıtılmadığını belirlemek için kullanılabilir.
+Merhaba yalnızca bir alt kümesini hello aşağıdadır `Get-AzureRmVM` çıktı. Bildirim hello `ProvisionVMAgent` içe özelliği içinde `OSProfile`, bu özellik, dağıtılan toohello sanal makine hello VM Aracısı yüklediyse kullanılan toodetermine olabilir.
 
 ```PowerShell
 OSProfile                  :
@@ -64,7 +64,7 @@ OSProfile                  :
     EnableAutomaticUpdates : True
 ```
 
-Aşağıdaki komut dosyası, sanal makine adları ve VM aracısının durumunu kısa listesini almak için kullanılabilir.
+komut dosyası izleyen hello kullanılan tooreturn sanal makine adları ve hello VM Aracısı hello durumunu kısa listesini olabilir.
 
 ```PowerShell
 $vms = Get-AzureRmVM
@@ -77,8 +77,8 @@ foreach ($vm in $vms) {
 
 ### <a name="manual-detection"></a>El ile algılama
 
-Bir Windows Azure VM oturum açıldığında, Görev Yöneticisi'ni çalışan işlemler incelemek için kullanılabilir. Azure VM aracısı için denetlemek için Görev Yöneticisi'ni açın > Ayrıntılar sekmesini tıklatın ve bir işlem adı arayın `WindowsAzureGuestAgent.exe`. VM aracısının yüklü olduğundan bu işlem varlığını gösterir.
+Tooa Windows Azure VM oturum açıldığında, Görev Yöneticisi'ni çalışan işlemlerin kullanılan tooexamine olabilir. toocheck hello Azure VM aracısı için Görev Yöneticisi'ni açın > merhaba Ayrıntılar sekmesini tıklatın ve bir işlem adı arayın `WindowsAzureGuestAgent.exe`. Bu işlemin Hello varlığı bu hello VM aracısının yüklü olduğunu gösterir.
 
-## <a name="upgrade-the-vm-agent"></a>VM Aracısı yükseltme
+## <a name="upgrade-hello-vm-agent"></a>Yükseltme hello VM Aracısı
 
-Windows için Azure VM Aracısı otomatik olarak yükseltilir. Yeni sanal makineleri Azure'da dağıtılan gibi en son VM Aracısı alırlar. Özel VM görüntüleri el ile yeni VM Aracısı içerecek şekilde güncelleştirilmelidir.
+Hello Azure VM Aracısı Windows'için otomatik olarak yükseltilir. Yeni sanal makineler dağıtılan tooAzure olduğu gibi hello son VM Aracısı alırlar. Özel VM görüntüleri manuel olarak güncelleştirilen tooinclude hello yeni VM Aracısı olmalıdır.

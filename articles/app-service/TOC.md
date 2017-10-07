@@ -43,20 +43,20 @@
 ## Geliştirme
 
 ### Web Jobs
-#### [Azure Web İşleri SDK’sı nedir?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Hello Azure WebJobs SDK nedir](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Azure Uygulama Hizmeti’nde .NET Web İşi oluşturma](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web İşleri SDK’sı ile Azure blob depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web İşleri SDK’sı ile Azure kuyruk depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web İşleri SDK’sı ile Azure Service Bus kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web İşleri SDK’sı ile Azure tablo depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Nasıl toouse Azure blob depolama hello WebJobs SDK ile](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Nasıl toouse Azure kuyruk depolama hello WebJobs SDK ile](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Web işleri SDK'si toouse Azure Service Bus ile nasıl hello](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Nasıl toouse Azure tablo depolama hello WebJobs SDK ile](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### App Service Ortamı
 #### [App Service Ortamında bir web uygulaması oluşturma](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Azure Resource Manager Şablonlarını Kullanarak ILB ASE Oluşturma](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Nasıl tooCreate bir ILB ana kullanarak Azure Resource Manager şablonları](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [İç Yük Dengeleyici kullanma](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Dağıtma](app-service-deployment-readme.md)
-### [App Service’e dağıtma](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [TooApp hizmet dağıtma](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Bulut eşitleme dağıtımı](../app-service-web/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Sürekli dağıtım](../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Hazırlık ortamları](../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -89,7 +89,7 @@
 ### [App Service Ortamı](app-service-app-service-environments-readme.md)
 #### [Yapılandırma](../app-service-web/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Özel yapılandırma ayarları](../app-service-web/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Gelen trafiği denetleme](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Nasıl toocontrol gelen trafik](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Ağ mimarisine genel bakış](../app-service-web/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [ExpressRoute ile ağ yapılandırma ayrıntıları](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
@@ -112,12 +112,12 @@
 ### App Service Ortamının güvenliğini sağlama
 #### [Web uygulaması güvenlik duvarı yapılandırma](../app-service-web/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Katmanlı güvenlik mimarisi uygulama](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Arka Uç Kaynaklarına Güvenli Bağlanma](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Güvenli bir şekilde tooBackend kaynaklarına bağlanma](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## Backup
 ### [Uygulamanızı Azure’a yedekleme](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Uygulamanızı Azure’a geri yükleme](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [App Service uygulamalarını yedeklemek ve geri yüklemek için REST kullanma](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [REST tooback kullanır ve App Service uygulamalarının geri yükleme](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [İzleme](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Tanılama günlüğünü etkinleştirme ](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -139,11 +139,11 @@
 ## Tümleştirme
 ### [Karma bağlantıları kullanarak şirket içi kaynaklara erişme](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Azure ile SendGrid kullanarak e-posta gönderme](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [PowerApps ve Microsoft Flow’a dışarı aktarma](app-service-export-api-to-powerapps-and-flow.md)
+### [TooPowerApps ve Microsoft Flow dışarı aktarma](app-service-export-api-to-powerapps-and-flow.md)
 
 ## Sorun giderme
 ### [Tanılama günlüğünü etkinleştirme](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Akış günlükleri ve konsol](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Akış günlükleri ve hello Konsolu](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Visual Studio kullanarak sorun giderme](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 # Başvuru

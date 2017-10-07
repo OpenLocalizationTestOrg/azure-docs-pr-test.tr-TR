@@ -1,6 +1,6 @@
 ---
-title: "PowerShell kullanarak bir Azure Analysis Services sunucusu oluşturma | Microsoft Docs"
-description: "PowerShell kullanarak bir Azure Analysis Services sunucusu oluşturma hakkında bilgi edinin."
+title: PowerShell kullanarak bir Azure Analysis Services sunucusuna aaaCreate | Microsoft Docs
+description: "Toocreate Azure Analiz Hizmetleri nasıl öğrenin PowerShell kullanarak sunucu"
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,37 +15,37 @@ ms.topic: hero-article
 ms.date: 08/01/2017
 ms.author: owend
 ms.custom: mvc
-ms.openlocfilehash: cb42fd3ed51364cf478848cc51ebbb2f175e96d2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 269b78983410f773d47c4cea34d6d353b19f9e91
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>PowerShell kullanarak bir Azure Analysis Services sunucusu oluşturma
 
-Bu hızlı başlangıç, Azure aboneliğinizde bir [Azure kaynak grubunda](../azure-resource-manager/resource-group-overview.md) Azure Analysis Services sunucusu oluşturmak için komut satırından PowerShell kullanmayı anlatmaktadır.
+Bir Azure Analysis Services sunucusuna hello komut satırı toocreate PowerShell kullanarak bu hızlı başlangıç açıklar bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) Azure aboneliğinizde.
 
-Bu görev için Azure PowerShell modülünün 4.0 veya daha sonraki bir sürümü gerekir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemek veya yükseltmek için bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps). 
+Bu görev için Azure PowerShell modülünün 4.0 veya daha sonraki bir sürümü gerekir. çalıştırma toofind hello sürüm ` Get-Module -ListAvailable AzureRM`. bkz: tooinstall veya yükseltme, [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps). 
 
 > [!NOTE]
-> Sunucu oluşturulması ek hizmet ücretlerine neden olabilir. Daha fazla bilgi için bkz. [Analysis Services fiyatlandırması](https://azure.microsoft.com/pricing/details/analysis-services/).
+> Sunucu oluşturulması ek hizmet ücretlerine neden olabilir. toolearn daha, fazla [Analysis Services fiyatlandırma](https://azure.microsoft.com/pricing/details/analysis-services/).
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
+toocomplete Bu Hızlı Başlangıç, gerekir:
 
-* **Azure aboneliği**: Hesap oluşturmak için [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/offers/ms-azr-0044p/)’nü ziyaret edin.
-* **Azure Active Directory**: Aboneliğinizin bir Azure Active Directory Kiracısı ile ilişkilendirilmiş olması ve ilgili dizinde bir hesabınızın olması gerekir. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
+* **Azure aboneliği**: ziyaret [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/offers/ms-azr-0044p/) toocreate bir hesap.
+* **Azure Active Directory**: Aboneliğinizin bir Azure Active Directory Kiracısı ile ilişkilendirilmiş olması ve ilgili dizinde bir hesabınızın olması gerekir. toolearn daha, fazla [kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
 
 ## <a name="import-azurermanalysisservices-module"></a>AzureRm.AnalysisServices modülünü içeri aktarın
-Aboneliğinizde bir sunucu oluşturmak için [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) bileşen modülünü kullanırsınız. AzureRm.AnalysisServices modülünü PowerShell oturumunuza yükleyin.
+toocreate aboneliğinizde bir sunucu, kullandığınız hello [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) Bileşen Modülü. Merhaba AzureRm.AnalysisServices modülü PowerShell oturumunuza yükleyin.
 
 ```powershell
 Import-Module AzureRM.AnalysisServices
 ```
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-tooazure"></a>İçinde tooAzure oturum
 
-[Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) komutunu kullanarak Azure aboneliğinizde oturum açın. Ekrandaki yönergeleri izleyin.
+Tooyour Azure aboneliği hello kullanarak oturum [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) komutu. Merhaba ekrandaki yönergeleri izleyin.
 
 ```powershell
 Add-AzureRmAccount
@@ -53,7 +53,7 @@ Add-AzureRmAccount
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
  
-[Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md), Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Sunucunuzu oluşturduğunuzda, aboneliğinizde bir kaynak grubu belirtmeniz gerekir. Zaten bir kaynak grubunuz yoksa [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu çalıştırarak bir kaynak grubu oluşturabilirsiniz. Aşağıdaki örnekte Batı ABD bölgesinde `myResourceGroup` adında bir kaynak grubu oluşturulmaktadır.
+[Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md), Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Sunucunuzu oluşturduğunuzda, aboneliğinizde bir kaynak grubu belirtmeniz gerekir. Bir kaynak grubu zaten yoksa, hello kullanarak yeni bir tane oluşturabilirsiniz [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutu. Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu `myResourceGroup` hello Batı ABD bölgesindeki.
 
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
 
 ## <a name="create-a-server"></a>Sunucu oluşturma
 
-[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) komutunu kullanarak yeni bir sunucu oluşturun. Aşağıdaki örnek, Batı ABD bölgesinde D1 katmanında myResourceGroup’ta myServer adlı bir sunucu oluşturur ve sunucu yöneticisi olarak philipc@adventureworks.com adresini belirtir.
+Hello kullanarak yeni bir sunucu oluşturmak [yeni AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) komutu. Merhaba aşağıdaki örnek hello D1 katmanı adresindeki hello Batı ABD bölgesindeki myResourceGroup myServer adlı bir sunucu oluşturur ve belirtir philipc@adventureworks.com sunucu yöneticisi olarak.
 
 ```powershell
 New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location West US -Sku D1 -Administrator "philipc@adventure-works.com"
@@ -69,7 +69,7 @@ New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "my
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) komutunu kullanarak sunucuyu aboneliğinizden kaldırabilirsiniz. Bu koleksiyondaki diğer hızlı başlangıçları ve öğreticileri kullanacaksanız sunucunuzu kaldırmayın. Aşağıdaki örnekte önceki adımda oluşturduğunuz sunucu kaldırılır.
+Hello kullanarak aboneliğinizden hello sunucu kaldırabilirsiniz [Kaldır AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) komutu. Bu koleksiyondaki diğer hızlı başlangıçları ve öğreticileri kullanacaksanız sunucunuzu kaldırmayın. Merhaba aşağıdaki örnek hello önceki adımda oluşturduğunuz hello sunucusunu kaldırır.
 
 
 ```powershell

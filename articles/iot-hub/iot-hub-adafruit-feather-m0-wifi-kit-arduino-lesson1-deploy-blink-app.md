@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT - Ders 1 Arduino bağlanın: uygulama dağıtma | Microsoft Docs"
-description: "GitHub örnek Arduino uygulamadan kopyalama ve Adafruit yumuşatma M0 WiFi bu uygulamayı dağıtmak için gulp çalıştırın. Bu örnek uygulama GPIO'yu yanıp"
+title: "Arduino tooAzure IOT - Ders 1 bağlanın: uygulama dağıtma | Microsoft Docs"
+description: "Merhaba örnek Arduino uygulaması github'dan kopyalayın ve bu uygulama tooyour Adafruit yumuşatma M0 WiFi gulp toodeploy çalıştırın. Bu örnek uygulama hello GPIO'yu yanıp"
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,36 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 4431808ac6182d194e841c087c8f89f1a12b1911
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5bf8e4ae88e070aeacf34bfc43b8d2daeeb1a2fa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Blink uygulaması oluşturma ve dağıtma
+# <a name="create-and-deploy-hello-blink-application"></a>Merhaba blink uygulama oluşturun ve dağıtın
 ## <a name="what-you-will-do"></a>Ne yapacağını
-GitHub örnek Arduino uygulamadan kopyalama ve Adafruit yumuşatma M0 WiFi Arduino panonuzu örnek uygulamayı dağıtmak için gulp aracını kullanın. Örnek uygulama yanıp sönme GPIO'yu #13 üzerinde-barod her iki saniye GEREKTİRİYORDU.
+Merhaba örnek Arduino uygulaması github'dan kopyalama ve hello gulp aracı toodeploy hello örnek uygulama tooyour Adafruit yumuşatma M0 WiFi Arduino Panosu kullanın. Merhaba örnek uygulama yanıp sönme hello barod GPIO'yu #13 her iki saniye GEREKTİRİYORDU.
 
-Herhangi bir sorun varsa, çözümleri için Ara [sorun giderme sayfası][troubleshooting-page].
+Herhangi bir sorun varsa, hello çözümlerini arayın [sorun giderme sayfası][troubleshooting-page].
 
 ## <a name="what-you-will-learn"></a>Bilgi edineceksiniz
-* Nasıl dağıtmak ve Arduino Panonuzda örnek uygulamayı çalıştırın.
+* Nasıl toodeploy ve çalışma hello Arduino panonuzu üzerinde örnek uygulama.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
-Aşağıdaki işlemleri başarıyla tamamlandı gerekir:
+Başarıyla işlemleri aşağıdaki hello tamamlamış olmanız gerekir:
 
 * [Cihazınızı yapılandırın][configure-your-device]
-* [Araçları edinin][get-the-tools]
+* [Merhaba araçları edinin][get-the-tools]
 
-## <a name="open-the-sample-application"></a>Örnek uygulamayı Aç
-Örnek uygulamayı açmak için şu adımları izleyin:
+## <a name="open-hello-sample-application"></a>Açık Merhaba örnek uygulaması
+tooopen hello örnek uygulama, aşağıdaki adımları izleyin:
 
-1. Aşağıdaki komutu çalıştırarak github'dan örnek depoyu kopyalayın:
+1. Merhaba örnek depoyu github'dan hello aşağıdaki komutu çalıştırarak kopyalayın:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-c-feather-m0-getting-started.git
    ```
-2. Örnek uygulama, aşağıdaki komutları çalıştırarak Visual Studio kodda açın:
+2. Merhaba aşağıdaki komutları çalıştırarak örnek uygulama Visual Studio Code açık hello:
 
    ```bash
    cd iot-hub-c-feather-m0-getting-started
@@ -56,27 +56,27 @@ Aşağıdaki işlemleri başarıyla tamamlandı gerekir:
 
    ![Depodaki yapısı][repo-structure]
 
-`app.ino` Dosyasını `app` alt denetim LED koda içeren anahtar kaynak dosyası klasörüdür.
+Merhaba `app.ino` hello dosyasında `app` alt hello kod toocontrol hello LED içeren hello anahtar kaynak dosyası klasörüdür.
 
 ### <a name="install-application-dependencies"></a>Uygulama bağımlılıkları yükler
-Kitaplıklar ve örnek uygulama için aşağıdaki komutu çalıştırarak gereken diğer modüller yükleyin:
+Merhaba kitaplıkları ve hello aşağıdaki komutu çalıştırarak hello örnek bir uygulama için gereken diğer modüller yükleyin:
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Aygıt bağlantısını yapılandırın
-Aygıt bağlantısını yapılandırmak için aşağıdaki adımları izleyin:
+## <a name="configure-hello-device-connection"></a>Merhaba aygıt bağlantısını yapılandırın
+tooconfigure Merhaba cihaz bağlantısı, şu adımları izleyin:
 
-1. Aygıtın aygıt bulma CLI ile seri bağlantı noktası alın:
+1. Merhaba seri bağlantı noktası hello aygıt bulma CLI hello cihazının alın:
 
    ```bash
    devdisco list --usb
    ```
 
-   Usb Arduino panonuzu COM bağlantı noktasını bulun ve aşağıdakine benzer bir çıktı görmeniz gerekir: ![aygıt bulma][device-discovery]
+   Toohello aşağıdadır benzer bir çıktı görmeniz ve hello usb Arduino panonuzu COM bağlantı noktasını Bul: ![aygıt bulma][device-discovery]
 
-2. Dosyayı açmak `config.json` Ders klasöründe bulunan COM bağlantı noktası numarası değerini ekleyin:
+2. Açık hello dosya `config.json` hello Ders klasörü ve COM bağlantı noktası numarası bulunan hello hello değerini ekleyin:
 
    ```json
    {
@@ -85,45 +85,45 @@ Aygıt bağlantısını yapılandırmak için aşağıdaki adımları izleyin:
    ```
    ![Config.JSON][config-json]
    > [!NOTE]
-   > COM bağlantı noktası, Windows platformunda için biçimi olan `COM1, COM2, ...`. MacOS veya Ubuntu, ile başlayan `/dev/`.
+   > Windows platformunda hello COM bağlantı noktası için hello biçimi olan `COM1, COM2, ...`. MacOS veya Ubuntu, ile başlayan `/dev/`.
 
-## <a name="deploy-and-run-the-sample-application"></a>Dağıtma ve örnek uygulamayı çalıştırma
-### <a name="install-the-required-tools-for-your-arduino-board"></a>Arduino panonuz için gerekli Araçları'nı yükleme
+## <a name="deploy-and-run-hello-sample-application"></a>Dağıtma ve hello örnek uygulamayı çalıştırma
+### <a name="install-hello-required-tools-for-your-arduino-board"></a>Arduino panonuz için gerekli hello araçlarını yükleme
 
-Aşağıdaki komutu çalıştırarak Arduino panonuz için Azure IOT Hub SDK'sını yükleyin:
+Hello Azure IOT Hub SDK'sı Arduino panonuz için komutu aşağıdaki hello çalıştırarak yükleyin:
 
 ```bash
 gulp install-tools
 ```
 
-Bu görev, ağ bağlantınızın bağlı olarak tamamlanması uzun zaman alabilir.
+Bu görev, ağ bağlantınızın bağlı olarak bir uzun süre toocomplete alabilir.
 
 > [!NOTE]
-> Lütfen çalışan Arduino IDE örneği gulp görevleri çalıştırılırken çıkın: `install-tools`, `run`.
+> Lütfen gulp görevler çalışırken Arduino IDE örneği hello çıkın: `install-tools`, `run`.
 
-### <a name="deploy-and-run-the-sample-app"></a>Dağıtma ve örnek uygulamayı çalıştırma
-Dağıtma ve aşağıdaki komutu çalıştırarak örnek uygulamayı çalıştırın:
+### <a name="deploy-and-run-hello-sample-app"></a>Dağıtma ve hello örnek uygulamayı çalıştırma
+Dağıtma ve hello aşağıdaki komutu çalıştırarak hello örnek uygulamayı çalıştırın:
 
 ```bash
 gulp run
 
-# You can monitor the serial port by running listen task:
+# You can monitor hello serial port by running listen task:
 gulp listen
 
 # Or you can combine above two gulp tasks into one:
 gulp run --listen
 ```
 
-### <a name="verify-the-app-works"></a>Uygulama çalıştığını doğrulama
-IŞIĞI yanıp sönen görmüyorsanız bkz [sorun giderme kılavuzu] [ troubleshooting-page] yaygın sorunların çözümleri için.
+### <a name="verify-hello-app-works"></a>Merhaba uygulama çalıştığını doğrulama
+Merhaba hello ışığı yanıp sönen görmüyorsanız bkz [sorun giderme kılavuzu] [ troubleshooting-page] çözümleri toocommon sorunları.
 
 ![IŞIĞI yanıp sönen][led-blinking]
 
 ## <a name="summary"></a>Özet
-Arduino panonuzu ile çalışmak için gerekli araçları yüklü ve ışığı yanıp sönen bir örnek uygulamanın Arduino panonuz için dağıtılır. Şimdi oluşturmanıza, dağıtmanıza ve Arduino panonuzu ileti gönderme ve alma için Azure IOT hub'a bağlanan başka bir örnek uygulamayı çalıştırın.
+Gerekli hello araçları toowork Arduino panonuzu yüklü ve bir örnek uygulama tooyour Arduino Panosu tooblink hello LED dağıtılır. Artık oluşturmak, dağıtmak ve Arduino Panosu tooAzure IOT hub'ı toosend bağlayan başka bir örnek uygulamayı çalıştırın ve iletileri alacak.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure Araçları edinin][get-the-azure-tools]
+[Hello Azure Araçları edinin][get-the-azure-tools]
 
 <!-- Images and links -->
 

@@ -34,7 +34,7 @@
 ### [Runbook ayarlarını değiştirme](automation-runbook-settings.md)
 ### [Azure Otomasyonu verilerini yönetme](automation-managing-data.md)
 ### [Log Analytics uyarısından Azure Otomasyonu Runbook’u çağırma](automation-invoke-runbook-from-omsla-alert.md)
-### [Azure Otomasyonu runbook’una bir JSON nesnesi geçirme](automation-pass-json-string.md)
+### [Bir JSON nesnesi tooan Azure Otomasyon runbook'u geçirin](automation-pass-json-string.md)
 ## Karma Runbook Çalışanı
 ### [Karma Runbook Çalışanı dağıtma](automation-hybrid-runbook-worker.md)
 ### [Çalışan üzerinde runbook çalıştırma](automation-hrw-run-runbooks.md)
@@ -44,7 +44,7 @@
 ### [Makineleri yönetim için hazırlama](automation-dsc-onboarding.md)
 ### [DSC yapılandırmaları derleme](automation-dsc-compile.md)
 ### [Chocolatey kullanarak sürekli dağıtım](automation-dsc-cd-chocolatey.md)
-### [Azure Automation DSC raporlama verilerini OMS Log Analytics’e iletme](automation-dsc-diagnostics.md)
+### [Azure Otomasyonu DSC veri tooOMS günlük analizi raporlama ilet](automation-dsc-diagnostics.md)
 ## Varlıkları yönetme
 ### [Sertifikalar](automation-certificates.md)
 ### [Bağlantılar](automation-connections.md)
@@ -68,7 +68,7 @@
 ### [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md)
 ### [Hizmetin kapalı olduğu saatlerde Sanal Makineleri Başlatma/Durdurma](automation-solution-vm-management.md)
 ## İzleme
-### [Azure Otomasyonu iş verilerini Log Analytics’e iletme](automation-manage-send-joblogs-log-analytics.md)
+### [Azure Otomasyonu işi veri tooLog Analytics ilet](automation-manage-send-joblogs-log-analytics.md)
 ### [Azure Otomasyonu hesabı ile Log Analytics arasındaki bağlantıyı kaldırma](automation-unlink-from-log-analytics.md)
 ## Geçiş
 ### [Orchestrator'dan geçiş](automation-orchestrator-migration.md)

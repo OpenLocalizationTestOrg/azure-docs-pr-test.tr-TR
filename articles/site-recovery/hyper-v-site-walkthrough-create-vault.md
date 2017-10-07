@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery kullanarak Hyper-V çoğaltma (System Center VMM olmadan) için bir kasa ayarlama | Microsoft Docs"
-description: "Azure Site Recovery kullanarak Hyper-V çoğaltma için bir kasa ayarlamak için gereken adımları özetler"
+title: "Azure Site Recovery kullanarak Hyper-V (System Center VMM olmadan) çoğaltma tooAzure için bir kasa yukarı aaaSet | Microsoft Docs"
+description: "Azure Site Recovery kullanarak Hyper-V çoğaltma tooAzure için bir kasa yukarı tooset gereken hello adımları özetler"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.openlocfilehash: 8212ff011633c3a89d3310e828b6d5f1cda6ce3f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e3ef8758faab36d19d0968d98a23105bed7830f6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="step-7-set-up-a-vault-for-hyper-v-replication"></a>7. adım: Hyper-V çoğaltma için bir kasa ayarlayın
 
-Bu makalede bir kasasını oluşturup ve Azure kullanarak, şirket içi konumdan çoğaltmak istediğiniz belirtmek nasıl [Azure Site Recovery](site-recovery-overview.md) Azure portalında hizmet.
+Bu makalede nasıl tooset yukarı bir kasa ve istediğinizi belirtin, şirket içi konumdan hello kullanarak tooAzure tooreplicate [Azure Site Recovery](site-recovery-overview.md) hello Azure portal hizmeti.
 
 
-POST açıklamaları ve soruları alt bu makalenin veya üzerinde [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+POST açıklamaları ve soruları hello altındaki bu makalenin veya hello [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
@@ -35,11 +35,11 @@ POST açıklamaları ve soruları alt bu makalenin veya üzerinde [Azure kurtarm
 
 ## <a name="select-a-protection-goal"></a>Koruma hedefi seçin
 
-Neleri çoğaltmak istediğinizi ve bunları nereye çoğaltacağınızı seçin.
+İstediğinizi seçin, tooreplicate ve tooreplicate için istediğiniz.
 
 1. Tıklatın **kurtarma Hizmetleri kasaları** > kasası.
-2. Kaynak menüye tıklayın **Site Recovery** > **altyapıyı hazırlama** > **koruma hedefi**.
-3. İçinde **koruma hedefi**seçin **için Azure** > **Evet, Hyper-V ile**. Seçin **Hayır** değil VMM kullandığınızı doğrulamak için. 
+2. Hello kaynak menüsü, tıklatın **Site Recovery** > **altyapıyı hazırlama** > **koruma hedefi**.
+3. İçinde **koruma hedefi**seçin **tooAzure** > **Evet, Hyper-V ile**. Seçin **Hayır** VMM kullanmadığınız tooconfirm. 
 
     ![Hedefleri seçme](./media/hyper-v-site-walkthrough-create-vault/choose-goals2.png)
 
@@ -47,4 +47,4 @@ Neleri çoğaltmak istediğinizi ve bunları nereye çoğaltacağınızı seçin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Git [adım 8: kaynak ve hedef ayarlama](hyper-v-site-walkthrough-source-target.md)
+Çok Git[adım 8: kaynak ve hedef ayarlama](hyper-v-site-walkthrough-source-target.md)

@@ -1,6 +1,6 @@
 ---
-title: "Azure Anahtar Kasası Günlüğe Kaydetme | Microsoft Belgeleri"
-description: "Azure Anahtar Kasası günlüğü ile çalışmaya başlamada yardım almak için bu öğreticiyi kullanın."
+title: "aaaAzure anahtar kasası günlüğü | Microsoft Docs"
+description: "Azure anahtar kasası kullanmaya başlama Öğreticisi bu toohelp kullanmak günlüğü."
 services: key-vault
 documentationcenter: 
 author: cabailey
@@ -14,88 +14,88 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: cabailey
-ms.openlocfilehash: e9a4f16f048833dab49f7db79892fe47a5aeff37
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 38a173297948748bef45e3d857c06b50b3e21e74
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-key-vault-logging"></a>Azure Anahtar Kasası Günlüğü
-Azure Anahtar Kasası çoğu bölgede kullanılabilir. Daha fazla bilgi için bkz. [Anahtar Kasası fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/key-vault/).
+Azure Anahtar Kasası çoğu bölgede kullanılabilir. Daha fazla bilgi için bkz: Merhaba [anahtar kasası fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="introduction"></a>Giriş
-Bir veya daha çok anahtar kasası oluşturduktan sonra, anahtar kasalarınıza nasıl, ne zaman ve kim tarafından erişildiğini büyük olasılıkla izlemek istersiniz. Anahtar Kasası için günlüğe kaydetmeyi etkinleştirerek bunu yapabilirsiniz; böylece sağladığınız Azure depolama hesabında bilgiler kaydedilir. Belirttiğiniz depolama hesabı için **insights-logs-auditevent** adlı yeni bir kapsayıcı oluşturulur ve birden çok anahtar kasasının günlüklerini toplamak için bu depolama hesabını kullanabilirsiniz.
+Bir veya daha fazla anahtar kasası oluşturduktan sonra büyük olasılıkla erişilen ve kim tarafından ne zaman ve nasıl anahtarınızı kasaları toomonitor isteyeceksiniz. Anahtar Kasası için günlüğe kaydetmeyi etkinleştirerek bunu yapabilirsiniz; böylece sağladığınız Azure depolama hesabında bilgiler kaydedilir. Belirttiğiniz depolama hesabı için **insights-logs-auditevent** adlı yeni bir kapsayıcı oluşturulur ve birden çok anahtar kasasının günlüklerini toplamak için bu depolama hesabını kullanabilirsiniz.
 
-Günlük bilgilerinize anahtar kasası işleminden en fazla 10 dakika sonra erişebilirsiniz. Çoğu durumda, bundan daha hızlı olacaktır.  Depolama hesabınızdaki günlüklerinizi yönetmek size bağlıdır:
+En fazla günlük bilgilerinize erişebilir, 10 dakika sonra hello anahtar kasası işleminden. Çoğu durumda, bundan daha hızlı olacaktır.  Depolama hesabınızdaki günlüklerinizi tooyou toomanage öyledir:
 
-* Günlüklerinize erişebilecek kişileri kısıtlayarak güvenliklerini sağlamak için standart Azure erişim denetimi yöntemlerini kullanın.
-* Artık depolama hesabınızda tutmak istemediğiniz günlükleri silin.
+* Standart Azure erişim denetimi yöntemlerini toosecure günlüklerinize erişebilecek kişileri kısıtlayarak kullanın.
+* Artık depolama hesabınız tookeep, istediğiniz günlükleri silin.
 
-Azure Anahtar Kasası günlüğü ile çalışmaya başlamada yardım almak, depolama hesabınızı oluşturmak, günlüğü etkinleştirmek ve toplanan günlük bilgilerini yorumlamak için bu öğreticiyi kullanın.  
+Azure anahtar, kasası günlüğü ile toocreate Başlarken Bu öğretici toohelp kullanmak depolama hesabınızın günlüğe yazılmasını etkinleştirmek ve toplanan hello günlük bilgilerini yorumlamak.  
 
 > [!NOTE]
-> Bu öğretici anahtar kasalarının, anahtarların veya gizli anahtarların nasıl oluşturulacağı hakkında yönergeler içermez. Bu bilgi için bkz. [Azure Anahtar Kasası ile çalışmaya başlama](key-vault-get-started.md). Alternatif olarak, Platformlar Arası Komut Satırı Arabirimi yönergeleri için [bu eşdeğer öğreticiye](key-vault-manage-with-cli2.md) bakın.
+> Bu öğretici toocreate nasıl anahtar kasalarının, anahtarların veya gizli için yönergeler içermez. Bu bilgi için bkz. [Azure Anahtar Kasası ile çalışmaya başlama](key-vault-get-started.md). Alternatif olarak, Platformlar Arası Komut Satırı Arabirimi yönergeleri için [bu eşdeğer öğreticiye](key-vault-manage-with-cli2.md) bakın.
 >
-> Şu anda Azure portalında Azure Anahtar Kasası'nı yapılandıramazsınız. Bunun yerine, bu Azure PowerShell yönergelerini kullanın.
+> Şu anda hello Azure portalında Azure anahtar kasası yapılandıramazsınız. Bunun yerine, bu Azure PowerShell yönergelerini kullanın.
 >
 >
 
 Azure Anahtar Kasası genel bakış bilgileri için bkz. [Azure Anahtar Kasası nedir?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Önkoşullar
-Bu öğreticiyi tamamlamak için aşağıdakilere sahip olmanız gerekir:
+## <a name="prerequisites"></a>Ön koşullar
+toocomplete Bu öğreticiyi izleyerek hello olması gerekir:
 
 * Kullanmakta olduğunuz var olan bir anahtar kasası.  
-* Azure PowerShell'in, **en az 1.0.1 sürümü**. Azure PowerShell'i yüklemek ve Azure aboneliğinizle ilişkilendirmek için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview). Azure PowerShell'i zaten yüklediyseniz ve sürümünü bilmiyorsanız Azure PowerShell konsolunda `(Get-Module azure -ListAvailable).Version` yazın.  
+* Azure PowerShell'in, **en az 1.0.1 sürümü**. tooinstall Azure PowerShell ve Azure aboneliğinizle ilişkilendirmek için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview). Azure PowerShell'i zaten yüklediyseniz ve hello sürüm hello Azure PowerShell konsolundan bilmiyorsanız, çalışamazsa `(Get-Module azure -ListAvailable).Version`.  
 * Anahtar Kasası günlükleriniz için Azure'da yeterli depolama.
 
-## <a id="connect"></a>Aboneliklerinize bağlanma
-Bir Azure PowerShell oturumu başlatın ve aşağıdaki komutla Azure hesabınızda oturum açın:  
+## <a id="connect"></a>Tooyour abonelikleri Bağlan
+Bir Azure PowerShell oturumu Başlat ve tooyour Azure hesabı komutu aşağıdaki hello ile oturum açın:  
 
     Login-AzureRmAccount
 
-Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. Azure PowerShell bu hesapla ilişkili tüm abonelikleri alır ve varsayılan olarak birinciyi kullanır.
+Merhaba açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. Azure PowerShell varsayılan olarak bu hesap ile ilişkilendirilmiş tüm hello abonelikleri alır, birinci kullanır hello.
 
-Birden çok aboneliğiniz varsa Azure Anahtar Kasanızı oluşturmak için kullanılan belirli bir tanesini belirtmeniz gerekebilir. Hesabınız için abonelikleri görmek üzere aşağıdakini yazın:
+Birden çok aboneliğiniz varsa, kullanılan toocreate olan belirli bir toospecify olabilir, Azure anahtar kasası. Merhaba toosee hello abonelikleri hesabınız için aşağıdaki komutu yazın:
 
     Get-AzureRmSubscription
 
-Ardından, günlüğünü tutacağınız anahtar kasasıyla ilişkili aboneliği belirtmek için şunu yazın:
+Günlüğünü tutacağınız, anahtar kasasıyla türü ilişkili ardından toospecify hello abonelik:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
 > [!NOTE]
-> Bu önemli bir adımdır ve hesabınızla ilişkili birden çok abonelik varsa özellikle yararlıdır. Bu adım atlanırsa Microsoft.Insights’ı kaydetme hatası alabilirsiniz.
+> Bu önemli bir adımdır ve hesabınızla ilişkili birden çok abonelik varsa özellikle yararlıdır. Bu adım atlanır içeriyorsa bir hata tooregister Microsoft.ınsights alabilirsiniz.
 >   
 >
 
-Azure Power Shell'i yapılandırma hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
+Azure PowerShell yapılandırma hakkında daha fazla bilgi için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview).
 
 ## <a id="storage"></a>Günlükleriniz için yeni bir depolama hesabı oluşturma
-Günlükleriniz için var olan depolama hesabını kullanabiliyor olsanız da, Anahtar Kasası günlüklerine özgü yeni bir depolama hesabı oluşturacağız. Bunu daha sonra belirtmemiz gerektiğinde kolaylık sağlamak için ayrıntıları **sa** adlı bir değişkende depolayacağız.
+Günlükleriniz için var olan depolama hesabını kullanabilmenize karşın, ayrılmış tooKey kasası günlükleri olacak yeni bir depolama hesabı oluşturacağız. Ne zaman toospecify bu sahibiz kolaylık sağlamak için daha sonra biz adlı bir değişkende hello ayrıntıları depolayacağınız **sa**.
 
-Ayrıca, ek yönetim kolaylığı için anahtar kasamızı içeren kaynak grubunu kullanacağız. [Başlangıç öğreticisi](key-vault-get-started.md)'nde bu kaynak grubu **ContosoResourceGroup** adına sahiptir ve Doğu Asya konumunu kullanmaya devam edeceğiz. Bunları uygun şekilde kendi değerlerinizle değiştirin:
+Ek yönetim kolaylığı için aynı zamanda kullanacağız anahtar kasamızı içeren bir hello gibi hello aynı kaynak grubu. Merhaba gelen [başlama Öğreticisi](key-vault-get-started.md), bu kaynak grubu adında **ContosoResourceGroup** ve toouse hello Doğu Asya konumunu devam edeceğiz. Bunları uygun şekilde kendi değerlerinizle değiştirin:
 
     $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 
 
 > [!NOTE]
-> Var olan bir depolama hesabını kullanmaya karar verirseniz anahtar kasanızla aynı aboneliği kullanmanız gerekir ve bunun da Klasik dağıtım modeli yerine Resource Manager dağıtım modelini kullanması gerekir.
+> Toouse mevcut bir depolama hesabını karar verirseniz, kullanmanız gereken anahtar kasanızı ve hello Klasik dağıtım modeli yerine hello Resource Manager dağıtım modeli kullanmanız gerektiği gibi aynı abonelik hello.
 >
 >
 
-## <a id="identify"></a>Günlükleriniz için anahtar kasasını tanımlama
-Başlama öğreticimizde anahtar kasamızın adı **ContosoKeyVault**'tu; bu nedenle bu adı kullanmaya ve ayrıntıları **kv** adlı bir değişkende depolamaya devam edeceğiz:
+## <a id="identify"></a>Merhaba anahtar kasası günlükleriniz için tanımlayın
+Bizim alma başlatılan öğreticide öğreticimizde anahtar kasamızın adı olan **ContosoKeyVault**, ad ve hello ayrıntıları adlı bir değişkende depolamaya toouse devam edeceğiz **kv**:
 
     $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 
 ## <a id="enable"></a>Günlüğe kaydetmeyi etkinleştirme
-Anahtar Kasası için günlüğü etkinleştirmek üzere, yeni depolama hesabımız ve anahtar kasamız için oluşturduğumuz değişkenlerle birlikte Set-AzureRmDiagnosticSetting cmdlet'ini kullanacağız. Ayrıca, **-Enabled** bayrağını **$true** olarak ve kategoriyi de AuditEvent (Anahtar Kasası günlüğü için tek kategori budur) olarak ayarlayacağız:
+tooenable anahtar kasası için günlüğe kaydetme, hello Set-AzureRmDiagnosticSetting cmdlet'ini kullanacağız, hello değişkenleri ile birlikte yeni depolama hesabımız ve anahtar kasamız için oluşturduğumuz. Merhaba ayrıca yaparız **-etkin** çok bayrak**$true** ve hello kategori tooAuditEvent (Merhaba yalnızca kategori anahtar kasası günlüğü için) olarak ayarlayın:
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 
-Bunun için çıkış şunları içerir:
+Bunun için Hello çıkış şunları içerir:
 
     StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
     ServiceBusRuleId   :
@@ -108,30 +108,30 @@ Bunun için çıkış şunları içerir:
         Days    : 0
 
 
-Böylece anahtar kasanız için günlüğün artık etkinleştirilmiş ve depolama hesabınıza bilgileri kaydediyor olduğu doğrulanır.
+Bu günlük kaydı bilgileri tooyour depolama hesabı kaydedilirken anahtar kasanız için şimdi etkin olduğunu doğrular.
 
-İsteğe bağlı olarak günlükleriniz için eski günlüklerin otomatik olarak silinmesi gibi bir bekletme ilkesi de ayarlayabilirsiniz. Örneğin, **-RetentionEnabled** bayrağını kullanarak bekletme ilkesini **$true** olarak ayarlayın ve **-RetentionInDays** parametresini **90**’a ayarlayarak 90 günden eski günlüklerin otomatik olarak silinmesini sağlayın.
+İsteğe bağlı olarak günlükleriniz için eski günlüklerin otomatik olarak silinmesi gibi bir bekletme ilkesi de ayarlayabilirsiniz. Örneğin, bekletme ilkesi kullanılarak ayarlanan **- RetentionEnabled** çok bayrak**$true** ve **- RetentionInDays** parametresi çok**90** şekilde 90 günden daha eski günlükleri otomatik olarak silinir.
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
 
 Günlüğe kaydedilenler:
 
 * Erişim izinleri, sistem hataları veya hatalı istekler sonucunda başarısız olan istekleri içeren tüm kimliği doğrulanmış REST API istekleri günlüğe kaydedilir.
-* Oluşturma, silme, anahtar kasası erişim ilkelerini ayarlama ve etiketler gibi anahtar kasası özniteliklerini güncelleştirmeyi kapsayan anahtar kasasının kendisine ait işlemler.
-* Anahtar kasasındaki anahtarlar ve gizli dizelere yönelik oluşturma, değiştirme veya silmeyi, anahtarları imzalama, doğrulama, şifreleme, şifrelerini çözme, sarmalama ve kaydırmayı, gizli dizeleri almayı ve anahtarları, gizli dizeleri ve bunların sürümlerini listelemeyi kapsayan işlemler.
+* Operations hello anahtarı oluşturma, silme, ayarı anahtar kasası erişim ilkelerini içeren, kendi, kasa ve etiketler gibi anahtar kasası öznitelikler güncelleştiriliyor.
+* Anahtarları ve gizli anahtarları oluşturma, değiştirme veya bu bir anahtar veya gizli anahtarları silme içerir hello anahtar kasasında işlemleri; oturum gibi işlemleri doğrulayın, şifrelemek, şifresini, sarmalama ve anahtarları kaydırma, gizli, anahtarları ve gizli anahtarları ve sürümlerine Al.
 * Bir 401 yanıtına neden olan kimliği doğrulanmamış istekler. Örneğin, bir taşıyıcı belirtecine sahip olmayan veya hatalı biçimlendirilmiş ya da süresi dolmuş veya geçersiz bir belirtece sahip olan istekler.  
 
 ## <a id="access"></a>Günlüklerinize erişme
-Anahtar kasası günlükleri, sağladığınız depolama hesabındaki **insights-logs-auditevent** kapsayıcısında depolanır. Bu kapsayıcıdaki tüm blobları listelemek için şunu yazın:
+Anahtar kasası günlükleri hello depolanan **insights-logs-auditevent** hello depolama hesabı sağladığınız kapsayıcısında. toolist bu kapsayıcıdaki tüm hello BLOB'lar yazın:
 
-İlk olarak, kapsayıcı adı için bir değişken oluşturun. Bu, öğreticinin ilerleyen bölümlerinde kullanılır.
+İlk olarak hello kapsayıcı adı için bir değişken oluşturun. Merhaba ilerlemesi hello kalanı boyunca kullanılır.
 
     $container = 'insights-logs-auditevent'
 
-Bu kapsayıcıdaki tüm blobları listelemek için şunu yazın:
+toolist bu kapsayıcıdaki tüm hello BLOB'lar yazın:
 
     Get-AzureStorageBlob -Container $container -Context $sa.Context
-Çıkış buna benzer şekilde görünür:
+Merhaba çıkış benzeri toothis görünür:
 
 **Kapsayıcı Uri'si: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
@@ -144,13 +144,13 @@ Bu kapsayıcıdaki tüm blobları listelemek için şunu yazın:
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
 
-Bu çıkışta gördüğünüz üzere, bloblar bir adlandırma kuralını izler: **resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/dosya adı.json**
+Bu Çıkışta gördüğünüz gibi hello bloblar bir adlandırma kuralını izler: **ResourceId =<ARM resource ID>/y =<year>/m =<month>/d =<day of month>/h =<hour>/m = <minute> /dosya adı.JSON**
 
-Tarih ve saat değerleri UTC'yi kullanır.
+Merhaba tarih ve saat değerleri UTC'yi kullanır.
 
-Aynı depolama hesabı birden çok kaynak için günlük toplamak amacıyla kullanılabileceğinden, blob adındaki tam kaynak kimliğine erişmek veya yalnızca gereksinim duyduğunuz blobları indirmek çok kullanışlıdır. Ancak bunu yapmadan önce tüm blobların nasıl indirileceğini ele alacağız.
+Merhaba aynı depolama hesabı birden fazla kaynak için kullanılan toocollect günlükleri olabileceğinden, hello hello blob adındaki tam kaynak kimliği çok kullanışlı tooaccess veya gereksinim duyduğunuz indirme yalnızca hello BLOB'lar değil. Ancak bunu yapmadan önce biz değineceğiz nasıl toodownload tüm BLOB'ları hello.
 
-İlk olarak, blobları yüklemek için bir klasör oluşturun. Örnek:
+İlk olarak, bir klasör toodownload hello BLOB'lar oluşturun. Örneğin:
 
     New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 
@@ -158,28 +158,28 @@ Ardından tüm blobların listesini alın:
 
     $blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
 
-Blobları hedef klasörümüze indirmek için bu listeye 'Get-AzureStorageBlobContent' aracılığıyla kanal oluşturun:
+Bu liste 'Get-AzureStorageBlobContent' toodownload hello BLOB'ları aracılığıyla bizim hedef klasöre kanal:
 
     $blobs | Get-AzureStorageBlobContent -Destination 'C:\Users\username\ContosoKeyVaultLogs'
 
-Bu ikinci komutu çalıştırdığınızda blob adlarındaki **/** sınırlayıcısı hedef klasörün altında tam bir klasör yapısı oluşturur ve blobları dosya olarak indirmek ve depolamak için bu yapı kullanılır.
+Bu ikinci komutu çalıştırdığınızda, hello  **/**  hello blob adlarındaki sınırlayıcı hello hedef klasörün altında tam klasör yapısı oluşturun ve bu yapı dosyaları olarak kullanılan toodownload ve deposu hello BLOB'lar olacaktır.
 
-Blobları seçmeli olarak indirmek için jokerleri kullanın. Örnek:
+tooselectively blobları indirmek, joker karakter kullanın. Örneğin:
 
-* Birden çok anahtar kasanız varsa ve yalnızca CONTOSOKEYVAULT3 adlı bir anahtar kasası için günlük indirmek isterseniz:
+* Birden çok anahtar kasanız varsa ve yalnızca bir anahtar kasası için toodownload günlükleri istiyorsanız CONTOSOKEYVAULT3 adlı:
 
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
-* Birden çok kaynak grubunuz varsa ve yalnızca bir kaynak grubu için günlük indirmek isterseniz `-Blob '*/RESOURCEGROUPS/<resource group name>/*'` kullanın:
+* Birden çok kaynak gruplarınız ve yalnızca bir kaynak grubu için toodownload günlükleri istiyorsanız kullanın `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
-* Ocak 2016 ayı için tüm günlükleri indirmek isterseniz `-Blob '*/year=2016/m=01/*'` kullanın:
+* Merhaba Ocak 2016 ayı için tüm hello günlüklerini toodownload istiyorsanız, kullanmak `-Blob '*/year=2016/m=01/*'`:
 
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 
-Artık günlüklerin içinde neler olduğuna bakmaya başlamak için hazırsınız. Ancak buna geçmeden önce Get-AzureRmDiagnosticSetting için bilmeniz gereken iki parametre daha var:
+Hello neler olduğuna bakmaya hazır toostart oturum artık olduğunuz. Ancak, Get-AzureRmDiagnosticSetting tooknow gerekebilecek için iki parametre daha üzerine geçmeden önce:
 
-* Anahtar kasası kaynağınızın tanılama ayarlarının durumunu sorgulamak için: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
-* Anahtar kasası kaynağınızın günlüğe kaydetmesini devre dışı bırakmak için: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
+* anahtar kasası kaynağınızın tanılama ayarlarının tooquery hello durumu:`Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
+* anahtar kasası kaynağınızın için toodisable günlüğü:`Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 ## <a id="interpret"></a>Anahtar Kasası günlüklerinizi yorumlama
 Tek tek bloblar JSON blobu olarak biçimlendirilip metin olarak depolanır. Bu `Get-AzureRmKeyVault -VaultName 'contosokeyvault'` çalıştırılarak oluşturulmuş bir günlük girişi örneğidir:
@@ -206,31 +206,31 @@ Tek tek bloblar JSON blobu olarak biçimlendirilip metin olarak depolanır. Bu `
     }
 
 
-Aşağıdaki tabloda alan adları ve açıklamaları listelenmektedir.
+Merhaba aşağıdaki tabloda hello alan adları ve açıklamaları listelenmektedir.
 
 | Alan adı | Açıklama |
 | --- | --- |
 | time |Tarih ve saat (UTC). |
-| resourceId |Azure Resource Manager Kaynak Kimliği. Anahtar Kasası günlükleri için bu her zaman Anahtar Kasası kaynak kimliğidir. |
-| operationName |Sonraki tabloda belirtildiği gibi işlemin adı. |
-| operationVersion |Bu, istemci tarafından istenen REST API'si sürümüdür. |
-| category |Anahtar Kasası günlükleri için AuditEvent kullanılabilen tek değerdir. |
+| resourceId |Azure Resource Manager Kaynak Kimliği. Anahtar kasası günlükleri için bu her zaman hello anahtar kasası kaynak kimliğidir. |
+| operationName |Merhaba sonraki tabloda belirtildiği gibi hello işlemin adı. |
+| operationVersion |Bu hello istemci tarafından istenilen hello REST API'si sürümüdür. |
+| category |Anahtar kasası günlükleri için AuditEvent hello tek ve kullanılabilir bir değerdir. |
 | resultType |REST API'si isteğinin sonucu. |
 | resultSignature |HTTP durumu. |
-| resultDescription |Kullanılabilir olduğunda sonuç hakkında ek açıklama. |
-| durationMs |Milisaniye cinsinden REST API'si isteğini sunmak için geçen süre. Buna ağ gecikme süresi dahil değildir; bu nedenle istemci tarafında ölçtüğünüz süre bu süreyle eşleşmeyebilir. |
-| callerIpAddress |İsteği yapan istemcinin IP adresi. |
-| correlationId |İstemci tarafı günlüklerini hizmet tarafı (Anahtar Kasası) günlükleriyle ilişkilendirmek için istemcinin geçirebileceği isteğe bağlı bir GUID. |
-| identity |REST API'si isteği yapılırken sunulan belirteçten gelen kimlik. Bu genellikle bir "kullanıcı", "hizmet sorumlusu" veya bir Azure PowerShell cmdlet'inden kaynaklanan bir istekte olduğu gibi "kullanıcı+uygulama kimliği" birleşimidir. |
-| properties |Bu alan işleme (operationName) bağlı olarak farklı bilgiler içerir. Çoğu durumda, istemci bilgilerini (istemci tarafından geçirilen useragent dizesi), REST API'sinin tam istek URI'sini ve HTTP durum kodunu içerir. Buna ek olarak, bir nesne bir istek (örneğin, KeyCreate veya VaultGet) nedeniyle döndürüldüğünde, Anahtar URI'sini ("id" olarak), Kasa URI'sini veya Gizli Anahtar URI'sini de içerir. |
+| resultDescription |Kullanılabilir olduğunda hello sonuç hakkında ek açıklama. |
+| durationMs |Milisaniye cinsinden tooservice hello REST API isteği, geçen süre. Hello istemci tarafında ölçmek hello süre bu süreyle eşleşmeyebilir şekilde bu hello ağ gecikmesini içermez. |
+| callerIpAddress |Merhaba isteği yapan hello istemci IP adresi. |
+| correlationId |İstemci hello isteğe bağlı bir GUID toocorrelate istemci-tarafı günlüklerini Hizmet tarafı (anahtar kasası) günlükleriyle geçirebilirsiniz. |
+| identity |Merhaba REST API'si isteği yapılırken sunulan hello belirteç kimlik. Bu genellikle bir "kullanıcı", "hizmet sorumlusu" veya bir Azure PowerShell cmdlet'inden kaynaklanan bir istekte olduğu gibi "kullanıcı+uygulama kimliği" birleşimidir. |
+| properties |Bu alan hello işleme (operationName) bağlı olarak farklı bilgiler içerir. Çoğu durumda, istemci bilgilerini (Merhaba istemci tarafından geçirilen hello useragent dizesi) içeren REST API'SİNİN tam istek URI'sini ve HTTP durum kodu hello. Ayrıca, bir nesne bir istek (örneğin, KeyCreate veya VaultGet) nedeniyle döndürüldüğünde anahtar URI'sini ("id") olarak, kasa URI'sini veya gizli anahtar URI'sini hello içerecektir. |
 
-**operationName** alanının değerleri ObjectVerb biçimindedir. Örnek:
+Merhaba **operationName** alan değerleri ObjectVerb biçimindedir. Örneğin:
 
-* Tüm anahtar kasası işlemleri `VaultGet` ve `VaultCreate` gibi 'Vault`<action>`' biçimine sahiptir.
-* Tüm anahtar işlemleri `KeySign` ve `KeyList` gibi 'Key`<action>`' biçimine sahiptir.
-* Tüm gizli anahtar işlemleri `SecretGet` ve `SecretListVersions` gibi 'Secret`<action>`' biçimine sahiptir.
+* Tüm anahtar kasası işlemleri hello sahip ' kasası`<action>`' gibi biçimde `VaultGet` ve `VaultCreate`.
+* Tüm anahtar işlemleri hello sahip ' anahtar`<action>`' gibi biçimde `KeySign` ve `KeyList`.
+* Tüm gizli anahtar işlemleri hello sahip ' gizli`<action>`' gibi biçimde `SecretGet` ve `SecretListVersions`.
 
-Aşağıdaki tabloda operationName ve karşılık gelen REST API'si komutu listelenmektedir.
+Aşağıdaki tablonun hello hello operationName ve karşılık gelen REST API'si komutu listelenmektedir.
 
 | operationName | REST API'si Komutu |
 | --- | --- |
@@ -253,8 +253,8 @@ Aşağıdaki tabloda operationName ve karşılık gelen REST API'si komutu liste
 | KeyEncrypt |[Bir anahtar ile şifreleme](https://msdn.microsoft.com/en-us/library/azure/dn878060.aspx) |
 | KeyDecrypt |[Bir anahtar ile şifre çözme](https://msdn.microsoft.com/en-us/library/azure/dn878097.aspx) |
 | KeyUpdate |[Bir anahtarı güncelleştirme](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
-| KeyList |[Bir kasadaki anahtarları listeleme](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
-| KeyListVersions |[Bir anahtarın sürümlerini listeleme](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
+| KeyList |[Bir kasadaki listesi hello anahtarları](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
+| KeyListVersions |[Bir anahtar hello sürümlerini listeleme](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
 | SecretSet |[Gizli anahtar oluşturma](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
 | SecretGet |[Gizli anahtar alma](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
 | SecretUpdate |[Gizli anahtarı güncelleştirme](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
@@ -264,13 +264,13 @@ Aşağıdaki tabloda operationName ve karşılık gelen REST API'si komutu liste
 
 ## <a id="loganalytics"></a>Log Analytics'i kullanma
 
-Azure Key Vault AuditEvent günlüklerini incelemek için Log Analytics içindeki Azure Key Vault çözümünü kullanabilirsiniz. Kurulum adımları ve daha fazla bilgi için bkz. [Log Analytics'te Azure Key Vault çözümü](../log-analytics/log-analytics-azure-key-vault.md). Bu makalede ayrıca Log Analytics önizlemesinde sunulan ve günlüklerinizi önce bir Azure Depolama hesabına yönlendirip Log Analytics'i bu konumdan okuyacak şekilde yapılandırdığınız eski Key Vault çözümünden geçiş yapmak için kullanabileceğiniz talimatlara da yer verilmektedir.
+Azure anahtar kasası AuditEvent günlüklerini günlük analizi tooreview içinde hello Azure anahtar kasası çözüm kullanabilirsiniz. Daha fazla bilgi için bu, nasıl tooset bakın dahil olmak üzere [günlük analizi Azure anahtar kasası çözümde](../log-analytics/log-analytics-azure-key-vault.md). Çözümden burada ilk, günlükleri tooan Azure depolama hesabı yönlendirilir ve buradan günlük analizi tooread yapılandırılmış hello günlük analizi Önizleme sırasında sunulan hello eski anahtar kasası toomigrate gerekiyorsa bu makale yönergeleri de içerir.
 
 ## <a id="next"></a>Sonraki adımlar
 Azure Anahtar Kasası'nın bir web uygulamasında kullanıldığı bir öğretici için bkz. [Azure Anahtar Kasası'nı bir Web Uygulamasından Kullanma](key-vault-use-from-web-application.md).
 
-Programlama başvuruları için bkz. [Azure Anahtar Kasası geliştirici kılavuzu](key-vault-developers-guide.md).
+Programlama başvuruları için bkz: [Azure anahtar kasası Geliştirici Kılavuzu hello](key-vault-developers-guide.md).
 
 Azure Anahtar Kasası'na yönelik Azure PowerShell 1.0 cmdlet'leri listesi için bkz. [Azure Anahtar Kasası Cmdlet'leri](/powershell/module/azurerm.keyvault/#key_vault).
 
-Azure Anahtar Kasası ile anahtar döndürme ve günlük denetimine ilişkin bir öğretici için bkz. [Uçtan uca anahtar döndürme ve denetim ile Anahtar Kasası ayarlama](key-vault-key-rotation-log-monitoring.md).
+Anahtar döndürme ve Azure anahtar kasası ile günlük denetim bir öğretici için bkz: [toosetup anahtar kasası son tooend ile nasıl anahtar döndürme ve Denetim](key-vault-key-rotation-log-monitoring.md).

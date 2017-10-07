@@ -1,6 +1,6 @@
 ---
-title: "Yerel ağ geçidi IP adresi öneklerini ve VPN ağ geçidi IP adresini değiştirme | Azure | CLI | Microsoft Docs"
-description: "Bu makalede Azure CLI kullanarak yerel ağ geçidinizin IP adresi ön eklerini değiştirme aracılığıyla anlatılmaktadır."
+title: "Merhaba VPN ağ geçidi IP adresi ve Hello yerel ağ geçidi IP adresi öneklerini değiştirme | Azure | CLI | Microsoft Docs"
+description: "Bu makalede hello Azure CLI kullanarak yerel ağ geçidinizin IP adresi ön eklerini değiştirme aracılığıyla anlatılmaktadır."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: 7db1ad970ebb93d46d5a861f9a9b27bf121531a3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 4b8bbf3e9d3d42ac2d12f87360fa0a4134c57a21
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Azure CLI kullanarak yerel ağ geçidi ayarlarını değiştirme
+# <a name="modify-local-network-gateway-settings-using-hello-azure-cli"></a>Hello Azure CLI kullanarak yerel ağ geçidi ayarlarını değiştirme
 
-Bazen yerel ağ geçidi adres ön eki veya ağ geçidi IP adresi ayarlarını değiştirin. Bu makalede, yerel ağ geçidi ayarlarınızı değiştirmek nasıl gösterir. Aşağıdaki listeden farklı bir seçeneği seçerek farklı bir yöntem kullanarak bu ayarları değiştirebilirsiniz:
+Bazen yerel ağ geçidi adres ön eki veya ağ geçidi IP adresi hello ayarlarını değiştirin. Bu makale size nasıl gösterir toomodify yerel ağ geçidi ayarlarınızı. Liste aşağıdaki hello farklı bir seçeneği seçerek farklı bir yöntem kullanarak bu ayarları değiştirebilirsiniz:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
@@ -34,7 +34,7 @@ Bazen yerel ağ geçidi adres ön eki veya ağ geçidi IP adresi ayarlarını de
 
 ## <a name="before"></a>Başlamadan önce
 
-CLI komutları (2.0 veya üstü) en son sürümünü yükleyin. CLI komutlarını yükleme hakkında bilgi için bkz. [Azure CLI 2.0’ı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Merhaba hello CLI komutları (2.0 veya üstü) en son sürümünü yükleyin. Merhaba CLI komutları yükleme hakkında daha fazla bilgi için bkz: [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 [!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
 
@@ -42,7 +42,7 @@ CLI komutları (2.0 veya üstü) en son sürümünü yükleyin. CLI komutların�
 
 [!INCLUDE [modify-prefix](../../includes/vpn-gateway-modify-ip-prefix-cli-include.md)]
 
-## <a name="gwip"></a>Ağ geçidi IP adresini değiştirme
+## <a name="gwip"></a>Merhaba ağ geçidi IP adresini değiştirme
 
 [!INCLUDE [modify-gateway-IP](../../includes/vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
 

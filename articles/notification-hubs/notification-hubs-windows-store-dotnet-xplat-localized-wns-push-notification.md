@@ -1,6 +1,6 @@
 ---
-title: "Notification Hubs son dakika haberleri öğretici yerelleştirilmiş"
-description: "Yerelleştirilmiş son dakika haberi bildirimleri göndermek için Azure Notification Hubs kullanmayı öğrenin."
+title: "aaaNotification Hubs yerelleştirilmiş çiğnemekten haber Öğreticisi"
+description: "Son dakika haberi bildirimleri toouse Azure Notification Hubs toosend nasıl yerelleştirilmiş öğrenin."
 services: notification-hubs
 documentationcenter: windows
 author: ysxu
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: e864e832b4c50644bf4062dee29d34ff9fe2774e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d273a6b384df311dea7b76ca83ccd94d9a989c4e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-notification-hubs-to-send-localized-breaking-news"></a>Yerelleştirilmiş son dakika haberleri göndermek için Notification Hubs kullanma
+# <a name="use-notification-hubs-toosend-localized-breaking-news"></a>Bildirim hub'ları yerelleştirilmiş toosend son dakika haberleri kullanın
 > [!div class="op_single_selector"]
 > * [Windows mağazası C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
@@ -28,26 +28,26 @@ ms.lasthandoff: 07/11/2017
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Bu konuda nasıl kullanılacağını gösterir **şablonu** dil ve cihaz tarafından yerelleştirilmiş son dakika haberi bildirimleri yayınlamak için Azure Notification Hubs özelliğidir. Bu öğreticide oluşturduğunuz Windows mağazası uygulaması ile başlayın [son dakika haberleri göndermek için Notification Hubs kullanma]. Tamamlandığında, ilgilendiğiniz kategorileri için kaydetme, hangi bildirimleri almak ve o dilde yalnızca seçili kategorileri için anında iletme bildirimleri almak bir dil belirtin mümkün olacaktır.
+Bu konu, nasıl gösterir toouse hello **şablonu** dil ve cihaz tarafından yerelleştirilmiş haberi bildirimleri çiğnemekten Azure Notification Hubs toobroadcast özelliğidir. Bu öğreticide oluşturduğunuz hello Windows mağazası uygulaması ile başlamanız [son dakika haberleri Notification Hubs kullanma toosend]. Tamamlandığında, ilgilendiğiniz kategorileri için mümkün tooregister olacaktır, hangi tooreceive hello bildirimleri bir dil belirtin ve yalnızca anında iletme bildirimlerini seçili hello kategorileri için o dilde alırsınız.
 
-Bu senaryo iki bölümü vardır:
+İki bölümden toothis senaryo vardır:
 
-* Windows mağazası uygulaması istemci aygıtlar bir dil belirtin ve farklı son dakika haberleri kategorilere abone olmak için sağlar;
-* arka uç kullanarak bildirimleri yayınlar **etiketi** ve **şablonu** Azure bildirim hub'larını feautres.
+* Merhaba Windows mağazası uygulaması istemci cihazları toospecify bir dil ve haber kategorileri çiğnemekten toosubscribe toodifferent sağlar;
+* Merhaba arka uç yayınlar hello kullanarak hello bildirimleri **etiketi** ve **şablonu** Azure bildirim hub'larını feautres.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Önceden tamamlamış olmalıdır [son dakika haberleri göndermek için Notification Hubs kullanma] öğretici ve bu öğreticinin bu kodu doğrudan derlemeler için kullanılabilir, koda sahip.
+Önceden hello tamamlamış olmalıdır [son dakika haberleri Notification Hubs kullanma toosend] öğretici ve bu öğreticinin bu kodu doğrudan derlemeler için kullanılabilir, hello koduna sahip.
 
 Ayrıca Visual Studio 2012 veya üzeri gerekir.
 
 ## <a name="template-concepts"></a>Şablon kavramları
-İçinde [son dakika haberleri göndermek için Notification Hubs kullanma] kullanılan bir uygulama yerleşik **etiketleri** farklı haber kategorileri için Bildirimlere abone olma.
-Birçok uygulama, ancak, birden çok pazarda hedef ve yerelleştirme gerektirir. Bildirimler içeriğe sahip yerelleştirilmiş ve aygıtların doğru kümesine teslim anlamına gelir.
-Bu konudaki nasıl kullanılacağını göstereceğiz **şablonu** kolayca yerelleştirilmiş son dakika haberi bildirimleri göndermek için Notification Hubs özelliğidir.
+İçinde [son dakika haberleri Notification Hubs kullanma toosend] kullanılan bir uygulama yerleşik **etiketleri** toosubscribe toonotifications farklı haber kategorileri için.
+Birçok uygulama, ancak, birden çok pazarda hedef ve yerelleştirme gerektirir. Bunun anlamı hello bildirimleri kendilerini Merhaba içeriğine sahip yerelleştirilmiş toobe ve teslim toohello cihaz kümesini düzeltin.
+Bu konudaki göstereceğiz nasıl toouse hello **şablonu** özellik bildirim hub'larını tooeasily teslim yerelleştirilmiş son dakika haberi bildirimleri.
 
-Not: yerelleştirilmiş bildirimleri göndermek için bir yol her etiket birden fazla sürümünü oluşturmaktır. Örneğin, İngilizce, Fransızca ve Mandarin desteklemek için üç farklı etiketler world haberler için ihtiyacımız: "world_en", "world_fr" ve "world_ch". Biz sonra world haber yerelleştirilmiş bir sürümünde bu etiketlerin her biri için göndermesi gerekir. Bu konudaki etiketleri artışı ve birden fazla ileti gönderme gereksinimi önlemek için şablonlar kullanın.
+Not: tek yönlü toosend yerelleştirilmiş bildirimleri toocreate her etiket birden çok sürümünün olduğu. Örneğin, toosupport İngilizce, Fransızca ve Mandarin, üç farklı etiketler world haberler için ihtiyacımız: "world_en", "world_fr" ve "world_ch". Toosend sonra hello world haber tooeach bu etiketlerin yerelleştirilmiş bir sürümü gerekir. Bu konudaki şablonları tooavoid hello artışı etiketleri ve birden fazla ileti gönderme hello gereksinimi kullanın.
 
-Yüksek bir düzeyde şablonları belirli bir aygıt bir bildirim nasıl alacağını belirtmek için bir yoldur. Şablon, uygulama arka ucu tarafından gönderilen ileti parçası olan özellikler için bakarak tam yük biçimi belirtir. Örneğimizde, biz tüm desteklenen diller içeren bir yerel ayar belirsiz ileti gönderir:
+Yüksek bir düzeyde bir şekilde toospecify şablonlarıdır nasıl belirli bir aygıt bir bildirim almanız gerekir. Merhaba şablon, uygulama arka ucu tarafından gönderilen Merhaba ileti parçası olan tooproperties bakarak hello tam yük biçimi belirtir. Örneğimizde, biz tüm desteklenen diller içeren bir yerel ayar belirsiz ileti gönderir:
 
     {
         "News_English": "...",
@@ -55,7 +55,7 @@ Yüksek bir düzeyde şablonları belirli bir aygıt bir bildirim nasıl alacağ
         "News_Mandarin": "..."
     }
 
-Ardından aygıtları doğru özelliğine başvuran bir şablon ile kaydetmeye sağlayacaktır. Örneği için bir basit bildirim iletisi almak istediği bir Windows mağazası uygulaması, aşağıdaki şablonu ile ilgili herhangi bir etiket için kaydeder:
+Ardından cihazlarını toohello doğru özellik başvuran bir şablonla kaydetmek sağlayacaktır. Örneği için tooreceive isteyen bir Windows mağazası uygulaması şablonu ile ilgili tüm etiketleri aşağıdaki hello için basit bir bildirim iletisi kaydeder:
 
     <toast>
       <visual>
@@ -69,12 +69,12 @@ Ardından aygıtları doğru özelliğine başvuran bir şablon ile kaydetmeye s
 
 Şablonlar, daha fazla bilgi bulabilir hakkında içinde çok güçlü bir özellik olan bizim [şablonları](notification-hubs-templates-cross-platform-push-messages.md) makalesi. 
 
-## <a name="the-app-user-interface"></a>Uygulama kullanıcı arabirimi
-Biz şimdi konu başlığı altında oluşturulan yeni haber uygulama değiştirecek [son dakika haberleri göndermek için Notification Hubs kullanma] son dakika haberleri şablonları kullanarak göndermek için yerelleştirilmiş.
+## <a name="hello-app-user-interface"></a>Merhaba uygulama kullanıcı arabirimi
+Biz şimdi hello konuda oluşturulan hello çiğnemekten haber uygulama değiştirecek [son dakika haberleri Notification Hubs kullanma toosend] toosend yerelleştirilmiş şablonları kullanarak son dakika haberleri.
 
 Windows mağazası uygulamanızı:
 
-Yerel ayar combobox dahil etmek için MainPage.xaml değiştirin:
+MainPage.xaml tooinclude yerel ayar combobox değiştirin:
 
     <Grid Margin="120, 58, 120, 80"  
             Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
@@ -105,8 +105,8 @@ Yerel ayar combobox dahil etmek için MainPage.xaml değiştirin:
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
     </Grid>
 
-## <a name="building-the-windows-store-client-app"></a>Windows mağazası istemci uygulaması oluşturma
-1. Yerel ayar parametresi bildirimleri sınıfınıza ekleyin, *StoreCategoriesAndSubscribe* ve *SubscribeToCateories* yöntemleri.
+## <a name="building-hello-windows-store-client-app"></a>Merhaba Windows mağazası istemci uygulaması oluşturma
+1. Yerel ayar parametresi tooyour bildirimleri sınıfınıza ekleyin *StoreCategoriesAndSubscribe* ve *SubscribeToCateories* yöntemleri.
    
         public async Task<Registration> StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
         {
@@ -125,23 +125,23 @@ Yerel ayar combobox dahil etmek için MainPage.xaml değiştirin:
             }
    
             // Using a template registration. This makes supporting notifications across other platforms much easier.
-            // Using the localized tags based on locale selected.
+            // Using hello localized tags based on locale selected.
             string templateBodyWNS = String.Format("<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(News_{0})</text></binding></visual></toast>", locale);
    
             return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "localizedWNSTemplateExample", categories);
         }
    
-    Arama yerine unutmayın *RegisterNativeAsync* diyoruz yöntemi *RegisterTemplateAsync*: biz şablon bölgesel ayarına bağlıdır belirli bildirim biçimi kaydediliyor. Ayrıca ("localizedWNSTemplateExample"), şablon için bir ad (örneğin bir bildirimleri için) ve biri döşeme için birden fazla şablon kaydetmek istiyoruz ve bunları güncelleştirmek veya bunları silmek için ad ihtiyacımız çünkü sunuyoruz.
+    Arama hello yerine unutmayın *RegisterNativeAsync* diyoruz yöntemi *RegisterTemplateAsync*: biz hangi hello şablon hello bölgesel ayarına bağlıdır belirli bildirim biçimi kaydediliyor. Biz de hello şablonu ("localizedWNSTemplateExample") için bir ad sağlayın, çünkü tooregister (örneğin biri bildirimleri) ve biri kutucuklar için birden fazla şablon istiyoruz ve tooname ihtiyacımız bunları toobe mümkün tooupdate sipariş veya silin.
    
-    Bir aygıt ile aynı etiketi birden fazla şablon kaydederse, bir gelen ileti etiketi içinde birden fazla bildirim sonuçlanacak hedefleme aygıt (her şablon için bir tane) teslim olduğunu unutmayın. Bu davranış, aynı mantıksal ileti örneği için bir Windows mağazası uygulamasında bir gösterge ve bildirim gösteren birden çok görsel bildirimler neden olduğunda yararlıdır.
-2. Depolanan yerel almak için aşağıdaki yöntemi ekleyin:
+    Bir aygıt hello aynı etiketi sonuçlanır hedefleme gelen ileti etiketi ile birden fazla şablon kaydederse birden fazla bildirim toohello aygıt (her şablon için bir tane) teslim unutmayın. Bu davranış, Hello aynı mantıksal ileti tooresult örneği için bir Windows mağazası uygulamasında bir gösterge ve bildirim gösteren birden çok görsel bildirimler sahip yararlıdır.
+2. Yöntem tooretrieve hello depolanan yerel aşağıdaki hello ekleyin:
    
         public string RetrieveLocale()
         {
             var locale = (string) ApplicationData.Current.LocalSettings.Values["locale"];
             return locale != null ? locale : "English";
         }
-3. MainPage.xaml.cs dosyasında Güncelleştir, düğmesi gösterildiği gibi yerel açılan kutu geçerli değerini almak ve bildirimleri sınıfı çağrısına sağlayarak işleyici tıklayın:
+3. MainPage.xaml.cs dosyasında, düğme güncelleştirme işleyicisi hello geçerli hello yerel açılan kutu değerini almak ve gösterildiği gibi toohello çağrısı toohello bildirimleri sınıfı, sağlayarak'ı tıklatın:
    
         private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -163,13 +163,13 @@ Yerel ayar combobox dahil etmek için MainPage.xaml değiştirin:
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
-4. Son olarak, App.xaml.cs dosyasında güncelleştirdiğinizden emin olun, `InitNotificationsAsync` yöntemi yerel almak ve abone olurken kullanın:
+4. Son olarak, App.xaml.cs dosyasında emin tooupdate olun, `InitNotificationsAsync` yöntemi tooretrieve hello yerel ayar ve abone olurken kullanın:
    
         private async void InitNotificationsAsync()
         {
             var result = await notifications.SubscribeToCategories(notifications.RetrieveLocale());
    
-            // Displays the registration ID so you know it was successful
+            // Displays hello registration ID so you know it was successful
             if (result.RegistrationId != null)
             {
                 var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
@@ -183,8 +183,8 @@ Yerel ayar combobox dahil etmek için MainPage.xaml değiştirin:
 
 <!-- Anchors. -->
 [Template concepts]: #concepts
-[The app user interface]: #ui
-[Building the Windows Store client app]: #building-client
+[hello app user interface]: #ui
+[Building hello Windows Store client app]: #building-client
 [Send notifications from your back-end]: #send
 [Next Steps]:#next-steps
 
@@ -194,7 +194,7 @@ Yerel ayar combobox dahil etmek için MainPage.xaml değiştirin:
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
-[son dakika haberleri göndermek için Notification Hubs kullanma]: /manage/services/notification-hubs/breaking-news-dotnet
+[son dakika haberleri Notification Hubs kullanma toosend]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -203,11 +203,11 @@ Yerel ayar combobox dahil etmek için MainPage.xaml değiştirin:
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet
-[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
+[Push notifications tooapp users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs How-toofor iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs How-toofor Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx

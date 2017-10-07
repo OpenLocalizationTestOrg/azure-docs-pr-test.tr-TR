@@ -1,6 +1,6 @@
 ---
-title: "HLS Microsoft PlayReady veya Apple FairPlay - Azure ile içerik koruma | Microsoft Docs"
-description: "Bu konu genel bir bakış sağlar ve Azure Media Services dinamik olarak HTTP canlı akışı (HLS) içeriğinizi Apple FairPlay ile şifrelemek için nasıl kullanılacağını gösterir. Ayrıca, Media Services lisans teslimat hizmetinin istemcilere FairPlay lisansları teslim etmek için nasıl kullanılacağını gösterir."
+title: "aaaProtect HLS içerik Microsoft PlayReady veya Apple FairPlay - Azure ile | Microsoft Docs"
+description: "Bu konu genel bir bakış sağlar ve nasıl toouse Azure Media Services toodynamically şifrelemek Apple FairPlay, HTTP canlı akışı (HLS) içeriğinizle gösterir. Aynı zamanda, nasıl toouse hello Media Services lisans teslimat hizmeti toodeliver FairPlay lisansları tooclients gösterir."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,152 +14,152 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 91ca451e3e7bf0da1d74dac4c99180f08f39e4ff
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Apple FairPlay veya Microsoft PlayReady ile içerik, HLS koruma
-Azure Media Services, dinamik olarak HTTP canlı akışı (HLS) içeriğinizi aşağıdaki biçimlerini kullanarak şifrelemenizi sağlar:  
+Toodynamically şifrelemek HTTP canlı akışı (HLS) içeriğinizi biçimleri aşağıdaki hello kullanarak azure Media Services etkinleştirir:  
 
 * **AES-128 Zarf şifresiz anahtar**
 
-    Tüm öbek kullanılarak şifrelenir **AES-128 CBC** modu. Şifre çözme akışın iOS ve OS X oyuncu tarafından yerel olarak desteklenir. Daha fazla bilgi için bkz: [AES-128 kullanarak dinamik şifreleme ve anahtar teslim hizmeti](media-services-protect-with-aes128.md).
+    Merhaba tüm öbek hello kullanılarak şifrelenir **AES-128 CBC** modu. Merhaba akış Hello şifrelerinin iOS ve OS X oyuncu tarafından yerel olarak desteklenir. Daha fazla bilgi için bkz: [AES-128 kullanarak dinamik şifreleme ve anahtar teslim hizmeti](media-services-protect-with-aes128.md).
 * **Apple FairPlay**
 
-    Tek tek video ve ses örnekleri kullanılarak şifrelenmiş **AES-128 CBC** modu. **FairPlay akış** (FPS), cihaz işletim sistemlerinin yerel destek iOS ve Apple TV ile bütünleştirilmiştir. OS X üzerinde Safari şifrelenmiş medya Uzantıları (EME) arabirimi desteği kullanarak FPS sağlar.
+    hello tek tek video ve ses örnekleri hello kullanarak şifrelenir **AES-128 CBC** modu. **FairPlay akış** (FPS), iOS ve Apple TV yerel desteğiyle hello cihaz işletim sistemlerinin bütünleştirilmiştir. OS X üzerinde Safari hello şifrelenmiş medya Uzantıları (EME) arabirimi desteği kullanarak FPS sağlar.
 * **Microsoft PlayReady**
 
-Aşağıdaki resimde gösterildiği **HLS + FairPlay veya PlayReady dinamik şifreleme** iş akışı.
+Merhaba aşağıdaki resimde gösterilmiştir hello **HLS + FairPlay veya PlayReady dinamik şifreleme** iş akışı.
 
 ![Dinamik şifreleme iş akışı diyagramı](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
-Bu konuda, Media Services dinamik olarak HLS içeriğinizi Apple FairPlay ile şifrelemek için nasıl kullanılacağı gösterilir. Ayrıca, Media Services lisans teslimat hizmetinin istemcilere FairPlay lisansları teslim etmek için nasıl kullanılacağını gösterir.
+Bu konuda nasıl toouse Media Services toodynamically şifrelemek HLS içeriğinizi Apple FairPlay ile gösterilir. Aynı zamanda, nasıl toouse hello Media Services lisans teslimat hizmeti toodeliver FairPlay lisansları tooclients gösterir.
 
 > [!NOTE]
-> Ayrıca, PlayReady HLS içeriğinizle şifrelemek isterseniz, ortak bir içerik anahtarı oluşturup, varlıkla ilişkilendirme gerekir. İçerik anahtarının yetkilendirme ilkesini yapılandırma bölümünde açıklandığı gibi etmeniz [dinamik ortak şifreleme kullanarak PlayReady](media-services-protect-with-drm.md).
+> Ayrıca tooencrypt, HLS PlayReady ile içerik isterseniz, toocreate ortak bir içerik anahtarı gerekir ve Varlığınızı ile ilişkilendirin. Ayrıca tooconfigure hello içerik anahtarının yetkilendirme ilkesini açıklandığı gibi gerekir [dinamik ortak şifreleme kullanarak PlayReady](media-services-protect-with-drm.md).
 >
 >
 
 ## <a name="requirements-and-considerations"></a>Gereksinimleri ve konular
 
-Media Services FairPlay ile şifrelenmiş HLS teslim etmek ve FairPlay lisansları teslim etmeyi kullanırken gerekli şunlardır:
+Merhaba HLS şifrelenmiş Media Services toodeliver FairPlay ve toodeliver FairPlay lisansları ile kullanırken gerekli şunlardır:
 
   * Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
-  * Bir Media Services hesabı. Oluşturmak için bkz: [Azure portalını kullanarak Azure Media Services hesabı oluşturma](media-services-portal-create-account.md).
+  * Bir Media Services hesabı. toocreate biri bkz [hello Azure portal kullanarak bir Azure Media Services hesabı oluşturma](media-services-portal-create-account.md).
   * İle kaydolmak [Apple geliştirme programı](https://developer.apple.com/).
-  * Apple gerektirir almak içerik sahibi [dağıtım paketi](https://developer.apple.com/contact/fps/). Media Services ile anahtar güvenlik modülü (KSM) zaten uygulanan ve son FPS paket isteyen durumu. Sertifika oluşturma ve uygulama gizli anahtarı (İSTEYİN) elde etmek için son FPS paketinde yönergeler de vardır. ASK FairPlay yapılandırmak için kullanın.
+  * Apple gerektirir hello içerik sahibi tooobtain hello [dağıtım paketi](https://developer.apple.com/contact/fps/). Media Services ile anahtar güvenlik modülü (KSM) zaten uygulanan ve hello son FPS paket isteyen durumu. Son FPS toogenerate sertifika paketini ve elde hello'ndaki yönergeleri hello uygulama gizli anahtarı (İSTEYİN) vardır. ASK tooconfigure FairPlay kullanın.
   * Azure Media Services .NET SDK sürümü **3.6.0** veya sonraki bir sürümü.
 
-Media Services anahtar teslim tarafında aşağıdakiler ayarlanmalıdır:
+Media Services anahtar teslim tarafında şeyler aşağıdaki hello ayarlamanız gerekir:
 
-  * **Uygulama sertifika (AC)**: özel anahtarı içeren bir .pfx dosyası budur. Bu dosyayı oluşturmak ve bir parolayla şifreleyin.
+  * **Uygulama sertifika (AC)**: hello özel anahtarı içeren bir .pfx dosyası budur. Bu dosyayı oluşturmak ve bir parolayla şifreleyin.
 
-       Bir anahtar teslim İlkesi yapılandırdığınızda, bu parolayı ve Base64 biçiminde .pfx dosyası sağlamanız gerekir.
+       Bir anahtar teslim İlkesi yapılandırdığınızda, o parola ve hello .pfx dosyasını Base64 biçiminde sağlamanız gerekir.
 
-      Aşağıdaki adımlar, bir .pfx sertifika dosyası oluşturmak için FairPlay açıklanmaktadır:
+      Aşağıdaki adımları hello nasıl toogenerate bir .pfx sertifika dosyası için FairPlay açıklar:
 
     1. OpenSSL https://slproweb.com/products/Win32OpenSSL.html yükleyin.
 
-        FairPlay sertifika ve Apple tarafından sunulan diğer dosyaların nerede klasörüne gidin.
-    2. Komut satırından aşağıdaki komutu çalıştırın. Bu .cer dosyasını bir .pem dosyasına dönüştürür.
+        Merhaba FairPlay sertifika ve Apple tarafından sunulan diğer dosyaların nerede toohello klasörüne gidin.
+    2. Komut hello komut satırından aşağıdaki hello çalıştırın. Merhaba .cer dosyasını tooa .pem dosyasını dönüştürür.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" x509-der bildirmek-fairplay.cer içinde-fairplay out.pem çıkışı
-    3. Komut satırından aşağıdaki komutu çalıştırın. Bu .pem dosyasını özel anahtarla bir .pfx dosyasına dönüştürür. .Pfx dosyası için parolayı sonra OpenSSL tarafından istendi.
+    3. Komut hello komut satırından aşağıdaki hello çalıştırın. Bu hello .pem tooa .pfx dosyası hello özel anahtarla dönüştürür. Merhaba .pfx dosyası için Hello parolayı sonra OpenSSL tarafından istendi.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-- out fairplay out.pfx export-inkey privatekey.pem-fairplay out.pem - passin file:privatekey-pem-pass.txt içinde
-  * **Uygulama sertifika parola**: .pfx dosyasını oluşturmak için parola.
-  * **Uygulama sertifika parolası kimliği**: parola, bunlar diğer Media Services anahtarları nasıl yüklemek için benzer yüklemeniz gerekir. Kullanım **ContentKeyType.FairPlayPfxPassword** enum değeri Media Services Kimliği almak için Anahtar teslim İlkesi seçeneği kullanmak istedikleri budur.
-  * **IV**: 16 bayt rastgele bir değeri budur. Varlık teslim İlkesi'nde IV eşleşmelidir. IV oluşturmak ve her iki yerde de yerleştirin: Varlık teslim ilkesini ve anahtar teslim İlkesi seçeneği.
-  * **SORUN**: Apple Geliştirici Portalı'nı kullanarak sertifika oluşturduğunuzda bu anahtar aldı. Her geliştirme ekibi benzersiz ASK alır. SOR bir kopyasını kaydedin ve güvenli bir yerde saklayın. Daha sonra Media Services'e FairPlayAsk olarak ASK yapılandırmanız gerekir.
-  * **SORUN kimliği**: Media Services'e ASK karşıya yüklediğinizde bu kimliği elde edilir. Kullanarak ASK yüklemelisiniz **ContentKeyType.FairPlayAsk** enum değeri. Sonuç olarak, Media Services ID döndürülür ve ne anahtar teslim İlkesi seçeneği ayarlarken kullanılması gereken budur.
+  * **Uygulama sertifika parola**: hello .pfx dosyasını oluşturmak için başlangıç parolası.
+  * **Uygulama sertifika parolası kimliği**: hello parola, benzer toohow diğer Media Services anahtarları bunlar karşıya yüklemeniz gerekir. Kullanım hello **ContentKeyType.FairPlayPfxPassword** enum değeri tooget hello Media Services kimliği Bu gereksinim duydukları ne olduğunu toouse hello anahtar teslim İlkesi seçeneği içinde.
+  * **IV**: 16 bayt rastgele bir değeri budur. Bu eşleşmelidir IV hello varlık teslim İlkesi'nde hello. Oluşturduğunuz IV hello ve her iki yerde de yerleştirin: hello varlık teslim ilkesini ve hello anahtar teslim İlkesi seçeneği.
+  * **SORUN**: hello Apple Geliştirici Portalı kullanarak hello sertifika oluşturduğunuzda bu anahtar aldı. Her geliştirme ekibi benzersiz ASK alır. Merhaba ASK bir kopyasını kaydedin ve güvenli bir yerde saklayın. Daha sonra FairPlayAsk tooMedia Hizmetleri olarak tooconfigure ASK ihtiyacınız olacak.
+  * **SORUN kimliği**: Media Services'e ASK karşıya yüklediğinizde bu kimliği elde edilir. Hello kullanarak ASK yüklemelisiniz **ContentKeyType.FairPlayAsk** enum değeri. Merhaba sonucunda hello Media Services ID döndürülür ve ne hello anahtar teslim İlkesi seçeneği ayarlarken kullanılması gereken budur.
 
-Şunları FPS istemci tarafından ayarlamanız gerekir:
+Merhaba şunları FPS istemci tarafı hello tarafından ayarlanması gerekir:
 
-  * **Uygulama sertifika (AC)**: Bu işletim sisteminin bazı yükü şifrelemek için kullandığı ortak anahtarı içeren bir.cer/.der dosyasıdır. Media Services player tarafından gerekli olduğu hakkında bilmek ister. Anahtar teslim hizmeti kullanarak ilgili özel anahtarın şifresini çözer.
+  * **Uygulama sertifika (AC)**: Bu, bazı yükü hangi hello işletim sisteminin kullandığı tooencrypt hello ortak anahtarı içeren bir.cer/.der dosyasıdır. Merhaba oynatıcısının gerektirdiğinden Media Services tooknow ilgili gerekir. Merhaba anahtar teslim hizmeti hello karşılık gelen özel anahtarı kullanarak şifresini çözer.
 
-FairPlay şifrelenmiş akışı kayıttan için gerçek ASK ilk alın ve ardından gerçek bir sertifika oluşturun. Bu işlem, tüm üç bölümden oluşturur:
+tooplay FairPlay şifrelenmiş akış geri, gerçek ASK ilk ulaşmak ve gerçek bir sertifika oluşturur. Bu işlem, tüm üç bölümden oluşturur:
 
   * .DER dosya
   * .pfx dosyası
-  * .pfx için parolayı
+  * Merhaba .pfx için parolayı
 
-Aşağıdaki istemciler ile HLS Destek **AES-128 CBC** şifreleme: OS X, Apple TV iOS Safari.
+Merhaba aşağıdaki istemcileri desteklemek ile HLS **AES-128 CBC** şifreleme: OS X, Apple TV iOS Safari.
 
 ## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>FairPlay dinamik şifreleme ve lisans teslimat hizmetlerini yapılandırma
-FairPlay ile varlıklarınızı kullanarak Media Services lisans teslimat hizmeti ve dinamik şifreleme kullanarak koruma için genel adımlar verilmiştir.
+Merhaba, FairPlay ile varlıklarınızı hello Media Services lisans teslimat hizmeti kullanarak ve dinamik şifreleme kullanarak koruma için genel adımlar verilmiştir.
 
-1. Bir varlık oluşturun ve dosyaları varlığa yükleyin.
-2. Varlığı, dosyada Uyarlamalı bit hızı MP4 kümesine kodlayın.
-3. Bir içerik anahtarı oluşturup kodlanmış varlıkla ilişkilendirin.  
-4. İçerik anahtarının yetkilendirme ilkesini yapılandırın. Aşağıdakileri belirtin:
+1. Bir varlık oluşturun ve dosyaları hello varlığa yükleyin.
+2. Merhaba dosya toohello Uyarlamalı bit hızı MP4 kümesine içeren hello varlık kodlayın.
+3. Bir içerik anahtarı oluşturup kodlanmış hello varlıkla ilişkilendirin.  
+4. Merhaba içerik anahtarının yetkilendirme ilkesini yapılandırın. Merhaba aşağıdakileri belirtin:
 
-   * Teslim yöntemi (Bu durumda, FairPlay).
-   * FairPlay ilkesi seçenekleri yapılandırma. FairPlay yapılandırma hakkında daha fazla bilgi için bkz **ConfigureFairPlayPolicyOptions()** örnek yöntemi.
+   * Merhaba teslim yöntemini (Bu durumda, FairPlay).
+   * FairPlay ilkesi seçenekleri yapılandırma. Ayrıntılar için tooconfigure FairPlay, bkz: Merhaba **ConfigureFairPlayPolicyOptions()** aşağıdaki hello örneği yöntemi.
 
      > [!NOTE]
-     > Genellikle, yalnızca bir sertifika ve ASK kümesi olacağı için yalnızca bir kez FairPlay ilkesi seçeneklerini yapılandırmak istersiniz.
+     > Genellikle, yalnızca bir sertifika ve ASK kümesi olacağı için yalnızca bir kez tooconfigure FairPlay ilkesi seçenekleri istersiniz.
      >
      >
    * Kısıtlamalar (açık veya belirteç).
-   * Anahtarın istemciye nasıl teslim edildiğini tanımlayan anahtar teslim türüne özgü bilgiler.
-5. Varlık teslim ilkesini yapılandırın. Teslim ilkesi yapılandırması şunları içerir:
+   * Başlangıç anahtarı toohello istemci nasıl teslim edildiğini tanımlayan bilgileri belirli toohello anahtar teslim türüne.
+5. Merhaba varlık teslim ilkesini yapılandırın. Merhaba teslim ilkesi yapılandırması şunları içerir:
 
-   * Teslim Protokolü (HLS).
-   * Dinamik şifreleme (ortak CBC şifreleme) türü.
-   * Lisans edinme URL'si.
+   * Merhaba teslim Protokolü (HLS).
+   * dinamik şifreleme (ortak CBC şifreleme) Hello türü.
+   * Merhaba lisans edinme URL'si.
 
      > [!NOTE]
-     > FairPlay ve başka bir dijital hak yönetimi (DRM) sistemiyle şifrelenmiş bir akış teslim etmek istiyorsanız, ayrı teslim ilkeleri yapılandırmanız gerekir:
+     > Toodeliver FairPlay ve başka bir dijital hak yönetimi (DRM) sistemiyle şifrelenmiş bir akış istiyorsanız, tooconfigure ayrı teslim ilkeleri vardır:
      >
-     > * HTTP (DASH) ile ortak şifreleme (CENC) (PlayReady + Widevine) ve kesintisiz PlayReady ile üzerinden dinamik Uyarlamalı akış yapılandırmak için bir IAssetDeliveryPolicy
-     > * FairPlay HLS için yapılandırmak için başka bir IAssetDeliveryPolicy
+     > * Bir IAssetDeliveryPolicy tooconfigure dinamik Uyarlamalı akış HTTP (DASH) ile ortak şifreleme (CENC) (PlayReady + Widevine) ve kesintisiz PlayReady ile üzerinden
+     > * Başka bir IAssetDeliveryPolicy tooconfigure FairPlay HLS için
      >
      >
-6. Akış URL'si almak için bir OnDemand Bulucu oluşturun.
+6. Bir OnDemand Bulucu tooget bir akış URL'si oluşturun.
 
 ## <a name="use-fairplay-key-delivery-by-player-apps"></a>FairPlay anahtar teslim tarafından oynatıcı uygulamaları kullanma
-İOS SDK kullanarak oynatıcı uygulamaları geliştirme yapabilirsiniz. FairPlay içeriği yürütmek lisans exchange protokolünü uygulayan gerekir. Bu protokol, Apple tarafından belirtilmemiş. Anahtar teslim istekleri göndermek nasıl kadar her bir uygulama olmasından. Medya Hizmetleri FairPlay anahtar teslim hizmeti olarak aşağıdaki biçimde bir www-form-url kodlanmış posta iletisi gelmesini SPC bekler:
+Merhaba iOS SDK'sını kullanarak oynatıcı uygulamaları geliştirme yapabilirsiniz. toobe mümkün tooplay FairPlay içeriği, tooimplement hello lisans değişimi Protokolü sahip. Bu protokol, Apple tarafından belirtilmemiş. Bu, tooeach uygulamasını nasıl toosend anahtar teslim istekleri olur. Merhaba Media Services FairPlay anahtar teslim hizmeti hello SPC toocome www-form-url kodlanmış post ileti, form aşağıdaki hello olarak bekler:
 
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player, kutunun dışında FairPlay oynatmayı desteklemiyor. MAC OS X üzerinde FairPlay kayıttan yürütme almak için Apple Geliştirici hesabından örnek oynatıcı edinin.
+> Azure Media Player hello kutusu dışında FairPlay oynatmayı desteklemiyor. MAC OS X, tooget FairPlay kayıttan yürütme, Apple developer hesabı hello hello örnek oynatıcı edinin.
 >
 >
 
 ## <a name="streaming-urls"></a>Akış URL'leri
-Varlığınızı birden çok DRM ile şifrelenmiş bir şifreleme etiketi akış URL'SİNDE kullanmalısınız: (biçimi 'm3u8-aapl' = şifreleme = 'xxx').
+Varlığınızı birden çok DRM ile şifrelenmiş bir şifreleme etiketi akış URL'si hello kullanmalısınız: (biçimi 'm3u8-aapl' = şifreleme = 'xxx').
 
-Aşağıdaki maddeler geçerlidir:
+ilgili önemli noktalar aşağıdaki hello Uygula:
 
 * Yalnızca sıfır veya bir şifreleme türü belirtilebilir.
-* Şifreleme türü bir şifreleme varlık için uygulanan yalnızca URL'de belirtilmesi gerekmez.
-* Şifreleme türü büyük küçük harfe duyarlı değil.
-* Aşağıdaki şifreleme türlerini belirtilebilir:  
+* Merhaba şifreleme türü bir şifreleme uygulanan toohello varlık ise yalnızca hello URL'SİNDE belirtilen toobe sahip değil.
+* Merhaba şifreleme türü büyük küçük harfe duyarlı değil.
+* şu şifreleme türlerini hello belirtilebilir:  
   * **cenc**: ortak şifreleme (PlayReady veya Widevine)
   * **cbcs-aapl**: FairPlay
   * **CBC**: AES zarfı şifreleme
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-1. Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
-2. App.config dosyanızda tanımlanan **appSettings**’e aşağıdaki öğeleri ekleyin:
+1. Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
+2. Öğeleri çok aşağıdaki hello eklemek**appSettings** app.config dosyasında tanımlanan:
 
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
 
 ## <a name="example"></a>Örnek
 
-Aşağıdaki örnek Media Services ile FairPlay şifrelenmiş içeriğinizi teslim etmek için kullanma yeteneğini gösterir. Bu işlev Azure Media Services SDK'sı sürüm 3.6.0 .NET için sunulmuştur. 
+örnek aşağıdaki hello hello özelliği toouse Media Services toodeliver FairPlay ile şifrelenmiş içeriğinizi gösterir. Bu işlevsellik için .NET sürüm 3.6.0 hello Azure Media Services SDK'sı sunulmuştur. 
 
-Bu bölümde gösterilen kodu Program.cs dosyanızdaki kodun üzerine yazın.
+Bu bölümde gösterilen hello koduyla Hello kodu Program.cs dosyanızdaki üzerine.
 
 >[!NOTE]
->Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
+>Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Merhaba kullanması gereken her zaman kullanıyorsanız, aynı ilke kimliği hello aynı gün / erişim izinlerini, örneğin, uzun bir süre (karşıya yükleme olmayan ilkeleri) yerinde hedeflenen tooremain olan bulucular ilkeleri. Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
 
-Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek şekilde güncelleştirdiğinizden emin olun.
+Emin tooupdate değişkenleri, giriş dosyalarınızın bulunduğu toopoint toofolders olun.
 
     using System;
     using System.Collections.Generic;
@@ -178,7 +178,7 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
     {
         class Program
         {
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -215,7 +215,7 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
             Console.WriteLine("Encoded asset: {0}", encodedAsset.Id);
 
             IContentKey key = CreateCommonCBCTypeContentKey(encodedAsset);
-            Console.WriteLine("Created key {0} for the asset {1} ", key.Id, encodedAsset.Id);
+            Console.WriteLine("Created key {0} for hello asset {1} ", key.Id, encodedAsset.Id);
             Console.WriteLine("FairPlay License Key delivery URL: {0}", key.GetKeyDeliveryUrl(ContentKeyDeliveryType.FairPlay));
             Console.WriteLine();
 
@@ -238,13 +238,13 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
             TokenRestrictionTemplate tokenTemplate =
                 TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-            // Generate a test token based on the the data in the given TokenRestrictionTemplate.
-            // Note, you need to pass the key id Guid because we specified
-            // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
+            // Generate a test token based on hello hello data in hello given TokenRestrictionTemplate.
+            // Note, you need toopass hello key id Guid because we specified
+            // TokenClaim.ContentKeyIdentifierClaim in during hello creation of TokenRestrictionTemplate.
             Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
             string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
                                         DateTime.UtcNow.AddDays(365));
-            Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+            Console.WriteLine("hello authorization token is:\nBearer {0}", testToken);
             Console.WriteLine();
             }
 
@@ -312,7 +312,7 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
                         "ContentKey",
                         ContentKeyType.CommonEncryptionCbcs);
 
-            // Associate the key with the asset.
+            // Associate hello key with hello asset.
             asset.ContentKeys.Add(key);
 
             return key;
@@ -352,7 +352,7 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
 
             contentKeyAuthorizationPolicy.Options.Add(FairPlayPolicy);
 
-            // Associate the content key authorization policy with the content key.
+            // Associate hello content key authorization policy with hello content key.
             contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
             contentKey = contentKey.UpdateAsync().Result;
         }
@@ -388,7 +388,7 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
 
             contentKeyAuthorizationPolicy.Options.Add(FairPlayPolicy);
 
-            // Associate the content key authorization policy with the content key
+            // Associate hello content key authorization policy with hello content key
             contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
             contentKey = contentKey.UpdateAsync().Result;
 
@@ -397,20 +397,20 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
 
         private static string ConfigureFairPlayPolicyOptions()
         {
-            // For testing you can provide all zeroes for ASK bytes together with the cert from Apple FPS SDK.
-            // However, for production you must use a real ASK from Apple bound to a real prod certificate.
+            // For testing you can provide all zeroes for ASK bytes together with hello cert from Apple FPS SDK.
+            // However, for production you must use a real ASK from Apple bound tooa real prod certificate.
             byte[] askBytes = Guid.NewGuid().ToByteArray();
             var askId = Guid.NewGuid();
-            // Key delivery retrieves askKey by askId and uses this key to generate the response.
+            // Key delivery retrieves askKey by askId and uses this key toogenerate hello response.
             IContentKey askKey = _context.ContentKeys.Create(
                         askId,
                         askBytes,
                         "askKey",
                         ContentKeyType.FairPlayASk);
 
-            //Customer password for creating the .pfx file.
-            string pfxPassword = "<customer password for creating the .pfx file>";
-            // Key delivery retrieves pfxPasswordKey by pfxPasswordId and uses this key to generate the response.
+            //Customer password for creating hello .pfx file.
+            string pfxPassword = "<customer password for creating hello .pfx file>";
+            // Key delivery retrieves pfxPasswordKey by pfxPasswordId and uses this key toogenerate hello response.
             var pfxPasswordId = Guid.NewGuid();
             byte[] pfxPasswordBytes = System.Text.Encoding.UTF8.GetBytes(pfxPassword);
             IContentKey pfxPasswordKey = _context.ContentKeys.Create(
@@ -419,11 +419,11 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
                         "pfxPasswordKey",
                         ContentKeyType.FairPlayPfxPassword);
 
-            // iv - 16 bytes random value, must match the iv in the asset delivery policy.
+            // iv - 16 bytes random value, must match hello iv in hello asset delivery policy.
             byte[] iv = Guid.NewGuid().ToByteArray();
 
-            //Specify the .pfx file created by the customer.
-            var appCert = new X509Certificate2("path to the .pfx file created by the customer", pfxPassword, X509KeyStorageFlags.Exportable);
+            //Specify hello .pfx file created by hello customer.
+            var appCert = new X509Certificate2("path toohello .pfx file created by hello customer", pfxPassword, X509KeyStorageFlags.Exportable);
 
             string FairPlayConfiguration =
             Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
@@ -457,12 +457,12 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
 
             FairPlayConfiguration configFP = JsonConvert.DeserializeObject<FairPlayConfiguration>(kdOption.KeyDeliveryConfiguration);
 
-            // Get the FairPlay license service URL.
+            // Get hello FairPlay license service URL.
             Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.FairPlay);
 
-            // The reason the below code replaces "https://" with "skd://" is because
-            // in the IOS player sample code which you obtained in Apple developer account,
-            // the player only recognizes a Key URL that starts with skd://.
+            // hello reason hello below code replaces "https://" with "skd://" is because
+            // in hello IOS player sample code which you obtained in Apple developer account,
+            // hello player only recognizes a Key URL that starts with skd://.
             // However, if you are using a customized player,
             // you can choose whatever protocol you want.
             // For example, "https".
@@ -480,22 +480,22 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
             AssetDeliveryProtocol.HLS,
             assetDeliveryPolicyConfiguration);
 
-            // Add AssetDelivery Policy to the asset
+            // Add AssetDelivery Policy toohello asset
             asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
         }
 
 
         /// <summary>
-        /// Gets the streaming origin locator.
+        /// Gets hello streaming origin locator.
         /// </summary>
         /// <param name="assets"></param>
         /// <returns></returns>
         static public string GetStreamingOriginLocator(IAsset asset)
         {
 
-            // Get a reference to the streaming manifest file from the  
-            // collection of files in the asset.
+            // Get a reference toohello streaming manifest file from hello  
+            // collection of files in hello asset.
 
             var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                          EndsWith(".ism")).
@@ -506,12 +506,12 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
             TimeSpan.FromDays(30),
             AccessPermissions.Read);
 
-            // Create a locator to the streaming content on an origin.
+            // Create a locator toohello streaming content on an origin.
             ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
             policy,
             DateTime.UtcNow.AddMinutes(-5));
 
-            // Create a URL to the manifest file.
+            // Create a URL toohello manifest file.
             return originLocator.Path + assetFile.Name;
         }
 

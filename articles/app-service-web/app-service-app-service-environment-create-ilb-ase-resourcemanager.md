@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager şablonları kullanarak bir ILB ana oluşturma | Microsoft Docs"
-description: "Azure Resource Manager şablonları kullanarak bir iç yük dengeleyici ana oluşturmayı öğrenin."
+title: "aaaHow tooCreate bir ILB ana kullanarak Azure Resource Manager şablonları | Microsoft Docs"
+description: "Nasıl toocreate bir iç yük dengeleyici ana Azure Resource Manager şablonları kullanarak öğrenin."
 services: app-service
 documentationcenter: 
 author: stefsch
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
-ms.openlocfilehash: 147ab76d38c8bbbf34d35ed6c2a194d97fe711ab
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 16db20eccc232ccc73107fcc8291de180fb2a323
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Azure Resource Manager Şablonlarını kullanarak ILB ASE oluşturma
+# <a name="how-toocreate-an-ilb-ase-using-azure-resource-manager-templates"></a>Nasıl tooCreate bir ILB ana kullanarak Azure Resource Manager şablonları
 
 > [!NOTE] 
-> Bu makale hakkında uygulama hizmeti ortamı v1 yazılmıştır. Uygulama hizmeti ortamı kullanmak daha kolay ve daha güçlü altyapısı üzerinde çalışan daha yeni bir sürümü var. Yeni sürüm Başlarken hakkında daha fazla bilgi edinmek için [uygulama hizmeti ortamı giriş](../app-service/app-service-environment/intro.md).
+> Uygulama hizmeti ortamı v1 hello hakkında makaledir. Merhaba, daha kolay toouse ve daha güçlü altyapısı üzerinde çalışan uygulama hizmeti ortamı'nın daha yeni bir sürümü var. Merhaba yeni sürümü hakkında daha fazla ile Merhaba Başlat toolearn [giriş toohello uygulama hizmeti ortamı](../app-service/app-service-environment/intro.md).
 >
 
 ## <a name="overview"></a>Genel Bakış
-Uygulama hizmeti ortamları, genel VIP yerine bir sanal ağ iç adresiyle oluşturulabilir.  Bu iç adresi iç yük dengeleyiciye (ILB) adlı bir Azure bir bileşen tarafından sağlanır.  Azure Portalı'nı kullanarak bir ILB ana oluşturulabilir.  Bu, Azure Resource Manager şablonları yapmamanız otomasyonu kullanarak da oluşturulabilir.  Bu makalede Azure Resource Manager şablonları ile bir ILB ana oluşturmak için gereken sözdizimi ve adımları anlatılmaktadır.
+Uygulama hizmeti ortamları, genel VIP yerine bir sanal ağ iç adresiyle oluşturulabilir.  Bu iç adresi hello iç yük dengeleyiciye (ILB) adlı bir Azure bir bileşen tarafından sağlanır.  Bir ILB ana hello Azure portal kullanarak oluşturulabilir.  Bu, Azure Resource Manager şablonları yapmamanız otomasyonu kullanarak da oluşturulabilir.  Bu makalede hello adımlarda size yol gösterir ve sözdizimi toocreate ILB ana Azure Resource Manager şablonları ile gerekli.
 
 Bir ILB ana oluşturulmasını otomatik hale getirmede ilgili üç adım vardır:
 
-1. İlk temel ana, genel VIP yerine bir iç yük dengeleyici adresi kullanarak bir sanal ağ içinde oluşturulur.  Bu adım bir parçası olarak, bir kök etki alanı adı ILB ana atanır.
-2. ILB ana oluşturulduktan sonra bir SSL sertifikası yüklenir.  
-3. Karşıya yüklenen SSL sertifikası açıkça ILB ana "varsayılan" SSL sertifikasını atanmış.  SSL trafiği ILB ana uygulamaları için (örneğin https://someapp.mycustomrootcomain.com) ana için atanan ortak kök etki alanını kullanan uygulamalar ele olduğunda bu SSL sertifikasını kullanılacak
+1. İlk hello temel ana ortak bir VIP yerine bir iç yük dengeleyici adresi kullanarak bir sanal ağ içinde oluşturulur.  Bu adım bir parçası olarak, bir kök etki alanı adı toohello ILB ana atanır.
+2. ILB ana oluşturulan hello bir SSL sertifikası yüklendikten sonra.  
+3. Merhaba karşıya yüklenen SSL sertifikası açıkça toohello ILB ana "varsayılan" SSL sertifikasını atanır.  Merhaba ortak kök etki alanına atanan toohello ana (örneğin https://someapp.mycustomrootcomain.com) kullanarak Hello uygulamaları ele olduğunda bu SSL sertifikasını SSL trafiği tooapps hello ILB ana üzerinde kullanılır
 
-## <a name="creating-the-base-ilb-ase"></a>ILB ana temel oluşturma
+## <a name="creating-hello-base-ilb-ase"></a>Merhaba temel ILB ana oluşturma
 Bir örnek Azure Resource Manager şablonunu ve ilişkili parametreler dosyası, Github'da bulunan [burada][quickstartilbasecreate].
 
-İçindeki parametrelerden biri çoğu *azuredeploy.parameters.json* dosya hem ILB ASEs yanı sıra genel bir VIP bağlı ASEs oluşturmaya ortak.  Out Parametreleri özel notunun çağrıları aşağıdaki liste veya bir ILB ana oluştururken benzersiz şunlardır:
+Merhaba hello parametrelerinde çoğu *azuredeploy.parameters.json* dosya ortak toocreating hem ILB ASEs yanı sıra tooa genel VIP ASEs bağlı olan.  out Parametreleri özel notunun çağrıları aşağıdaki Hello liste veya bir ILB ana oluştururken benzersiz şunlardır:
 
-* *interalLoadBalancingMode*: Çoğu durumda bu kanal bağlantı noktası 80/443 numaralı bağlantı noktasındaki HTTP/HTTPS trafiğini hem denetim/verileri anlamına gelir 3 kulak için ana FTP hizmeti tarafından kümesi bağlı sanal ağ iç adresi ayrılmış bir ILB.  Bu özellik yerine 2 olarak ayarlanırsa, FTP hizmeti bir ILB adresine bağlantı noktaları (Denetim ve veri kanalı) HTTP/HTTPS trafiğini ortak VIP kalacak ancak bağlanacak ilgili.
-* *Dnssuffıx*: Bu parametre için ana atanacak varsayılan kök etki alanını tanımlar.  Tüm web uygulamaları için Azure App Service ortak çeşitlemesi varsayılan kök etki alanıdır *azurewebsites.net*.  Ancak bir ILB Ana Müşteri'nin sanal ağa iç olduğundan, ortak hizmetin varsayılan kök etki alanını kullanmak için doesn't make Sense.  Bunun yerine, bir ILB ana şirketin iç sanal ağ içinde kullanmak için anlamlı bir varsayılan kök etki alanı olmalıdır.  Örneğin, bir varsayılan kök etki alanı kuramsal Contoso Corporation kullanabilirsiniz *contoso.com iç* uygulamalar için yalnızca çözümlenebilir ve Contoso sanal ağ içinde erişilebilir olacak şekilde tasarlanmıştır. 
-* *ipSslAddressCount*: Bu parametre için 0 değerini otomatik olarak alınır *azuredeploy.json* ILB ASEs yalnızca tek bir ILB adresine sahip olmadığından dosya.  Hiçbir açık bir ILB ana IP SSL adresleri vardır ve bu nedenle bir ILB ana için IP SSL adres havuzu sıfır olarak ayarlanması gerekir, aksi takdirde sağlama hatası oluşur. 
+* *interalLoadBalancingMode*: 80/443 numaralı bağlantı noktalarında her iki HTTP/HTTPS trafiğini anlamına gelir, bu too3 çoğu durumda ayarlamak ve hello denetim/veri kanalı bağlantı noktası kulak hello ana tooby hello FTP hizmeti, ilişkili tooan ILB sanal ağ ayrılır iç adresi.  Bağlantı noktaları (Denetim ve veri kanalı) bağlı yalnızca hello FTP hizmeti ile ilgili daha sonra bu özellik too2, bunun yerine ayarlanırsa tooan ILB adres, hello HTTP/HTTPS trafiğini hello ortak VIP kalırken.
+* *Dnssuffıx*: Bu parametre toohello ana atanacak hello varsayılan kök etki alanını tanımlar.  Merhaba ortak Azure App Service içinde hello varsayılan kök etki alanı tüm web uygulamaları için çeşididir *azurewebsites.net*.  Ancak bir ILB ana iç tooa Müşteri'nin sanal ağ olduğundan, algılama toouse hello ortak hizmetin varsayılan kök etki yapmaz.  Bunun yerine, bir ILB ana şirketin iç sanal ağ içinde kullanmak için anlamlı bir varsayılan kök etki alanı olmalıdır.  Örneğin, bir varsayılan kök etki alanı kuramsal Contoso Corporation kullanabilirsiniz *contoso.com iç* çözümlenebilir ve Contoso sanal ağ içinde erişilebilir hedeflenen tooonly uygulamalar için. 
+* *ipSslAddressCount*: Bu parametre otomatik olarak 0'hello tooa değerini varsayılan *azuredeploy.json* ILB ASEs yalnızca tek bir ILB adresine sahip olmadığından dosya.  Hiçbir açık bir ILB ana IP SSL adresleri vardır ve bu nedenle hello IP SSL adres havuzu için bir ILB ana toozero, aksi takdirde bir sağlama hatası ortaya çıkar ayarlanması gerekir. 
 
-Bir kez *azuredeploy.parameters.json* dosya doldurulmuş bir ILB ana için ILB ana sonra aşağıdaki Powershell kod parçacığını kullanılarak oluşturulabilir.  Dosya yolları Azure Resource Manager şablonu dosyaları makinenizde bulunduğu eşleşecek şekilde değiştirin.  Azure Resource Manager dağıtım adını ve kaynak grubu adı için kendi değerlerini sağlamak de unutmayın.
+Bir kez hello *azuredeploy.parameters.json* dosya doldurulmuş bir ILB ana için hello ILB ana sonra Powershell kod parçacığını aşağıdaki hello kullanılarak oluşturulabilir.  Hello Azure Resource Manager şablonu dosyalarını makinenizde bulunduğu hello dosya yolları toomatch değiştirin.  Ayrıca toosupply hello Azure Resource Manager dağıtım adını ve kaynak grubu adı için kendi değerlerinizi unutmayın.
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-Sonra Azure Resource Manager şablonu oluşturulacak ILB ana için birkaç saat sürecek gönderilir.  Oluşturma işlemi tamamlandıktan sonra ILB ana portalında UX dağıtım tetiklenen abonelik için uygulama hizmeti ortamları listesinde görünecektir.
+Merhaba sonra Azure Resource Manager Şablonu oluşturulan hello ILB ana toobe için birkaç saat sürecek gönderilir.  Hello oluşturma tamamlandıktan sonra uygulama hizmeti ortamları hello listesinde hello dağıtım tetiklenen hello abonelik için UX hello portalında hello ILB ana görünecektir.
 
-## <a name="uploading-and-configuring-the-default-ssl-certificate"></a>Karşıya yükleme ve "Varsayılan" SSL sertifikası yapılandırma
-ILB ana oluşturulduktan sonra uygulamalar için SSL bağlantısı kurmak için "varsayılan" SSL sertifikası kullanmak bir SSL sertifikası ana ile ilişkilendirilmiş olması gerekir.  DNS ana bilgisayarın varsayılan kuramsal Contoso Corporation örnekle devam edersek sonekidir *contoso.com iç*, ardından bağlantı *https://some-random-app.internal-contoso.com* için geçerli bir SSL sertifikası gerektirir **.internal contoso.com*. 
+## <a name="uploading-and-configuring-hello-default-ssl-certificate"></a>Karşıya yükleme ve hello "Varsayılan" SSL sertifikası yapılandırma
+Bir kez hello, ILB ana oluşturulmuş bir SSL sertifikası SSL bağlantılarını tooapps kurmak için SSL sertifika kullanımı hello "varsayılan" olarak hello ana ile ilişkili olmalıdır.  DNS Hello ana'nın varsayılan hello kuramsal Contoso Corporation örnekle devam edersek sonekidir *contoso.com iç*, ardından bağlantı çok*https://some-random-app.internal-contoso.com*için geçerli bir SSL sertifikası gerektirir **.internal contoso.com*. 
 
-Bir iç CA'lar da dahil olmak üzere, bir dış veren bir sertifika satın alma ve kendinden imzalı bir sertifika kullanarak geçerli bir SSL sertifikası elde etmek için çeşitli yollar vardır.  SSL sertifikası kaynak bağımsız olarak, aşağıdaki sertifika öznitelikleri doğru şekilde yapılandırılmış olması gerekir:
+İç CA'lar da dahil olmak üzere, bir dış veren bir sertifika satın alma ve kendinden imzalı bir sertifika kullanarak geçerli bir SSL sertifikası yolları tooobtain çeşitli vardır.  Bağımsız olarak Hello kaynak hello SSL sertifikasının hello aşağıdaki sertifika öznitelikleri düzgün yapılandırılmış toobe gerekir:
 
-* *Konu*: Bu öznitelik ayarlamak **kök etki alanı here.com .your*
-* *Konu alternatif adı*: Bu öznitelik her ikisini de içermelidir **kök etki alanı here.com .your*, ve **.scm.your-kök-etki-here.com*.  SSL bağlantıları her uygulamayla ilişkili SCM/Kudu siteye biçiminde bir adresi kullanarak yapılacak ikinci giriş sebebi *your-app-name.scm.your-root-domain-here.com*.
+* *Konu*: Bu özniteliği çok ayarlanmalıdır **kök etki alanı here.com .your*
+* *Konu alternatif adı*: Bu öznitelik her ikisini de içermelidir **kök etki alanı here.com .your*, ve **.scm.your-kök-etki-here.com*.  Merhaba hello ikinci giriş hello formunun bir adresi kullanarak her uygulamayla ilişkili SCM/Kudu site oluşturulacak bu SSL bağlantılarını toohello nedeni *your-app-name.scm.your-root-domain-here.com*.
 
-Elle içinde geçerli bir SSL sertifikası ile iki ek hazırlık adımları gereklidir.  SSL sertifikası bir .pfx dosyası olarak dönüştürülen/kaydedilmiş olması gerekir.  .Pfx dosyasını tüm ara içerir ve sertifikaları kök gerekir ve ayrıca bir parola ile korunması gerekir unutmayın.
+Elle içinde geçerli bir SSL sertifikası ile iki ek hazırlık adımları gereklidir.  bir .pfx dosyası olarak dönüştürülen/kaydedilen toobe Hello SSL sertifikası gerekir.  Bu hello .pfx dosyasını tooinclude tüm ara ve kök sertifikaları gerekir ve ayrıca bir parolayla korunan toobe gerekir unutmayın.
 
-Ardından sonuç .pfx dosyasını SSL sertifikası bir Azure Resource Manager şablonu kullanarak karşıya yüklenecek çünkü bir base64 dizeye dönüştürülmesi gerekiyor.  Azure Resource Manager şablonları metin dosyaları olduğundan, .pfx dosyasını bir şablon parametresi olarak dahil edilebilir şekilde bir base64 dizeye dönüştürülmesi gerekir.
+Ardından hello sonuç .pfx dosyasını hello SSL sertifikası bir Azure Resource Manager şablonu kullanarak karşıya yüklenecek çünkü bir base64 dizeye dönüştürülen toobe gerekir.  Azure Resource Manager şablonları metin dosyaları olduğundan, hello .pfx dosyasını hello şablon parametresi olarak dahil edilebilir şekilde bir base64 dizeye dönüştürülen toobe gerekir.
 
-Aşağıdaki Powershell kod parçacığı otomatik olarak imzalanan sertifika oluşturma örneği gösterir, sertifika verme bir .pfx dosyası olarak dize kodlanmış .pfx dosyası bir base64 dönüştürme ve kodlanmış dize ayrı bir dosyaya base64 kaydetme.  Base64 kodlaması için Powershell kodu gelen uyarlanmıştır [Powershell komut dosyaları Blog][examplebase64encoding].
+otomatik olarak imzalanan sertifika oluşturma örneği Hello Powershell kod parçacığı aşağıda gösterilmiştir, hello sertifika verme bir .pfx dosyası olarak dize kodlanmış bir base64 hello .pfx dosyasını dönüştürme ve kodlanmış dize tooa ayrı bir dosya hello base64 kaydetme.  Base64 kodlaması hello uyarlanmıştır için Powershell kodu hello [Powershell komut dosyaları Blog][examplebase64encoding].
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
@@ -79,16 +79,16 @@ Aşağıdaki Powershell kod parçacığı otomatik olarak imzalanan sertifika ol
     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $fileContentEncoded | set-content ($fileName + ".b64")
 
-SSL sertifikası başarıyla üretildi ve kodlanmış bir base64 dönüştürülen sonra dize, örneğin Azure Resource Manager şablonu için github'da [varsayılan SSL sertifikası yapılandırma] [ configuringDefaultSSLCertificate] kullanılabilir.
+Merhaba SSL sertifikası başarıyla oluşturuldu ve dönüştürülen tooa Base64 ile kodlanmış dize sonra örnek Azure Resource Manager şablonu için github'da hello [hello varsayılan SSL sertifikası yapılandırma] [ configuringDefaultSSLCertificate] kullanılabilir.
 
-Parametrelerde *azuredeploy.parameters.json* dosya aşağıda listelenmiştir:
+Merhaba hello parametrelerinde *azuredeploy.parameters.json* dosya aşağıda listelenmiştir:
 
-* *appServiceEnvironmentName*: ILB yapılandırılan ana adı.
-* *existingAseLocation*: ILB ana burada dağıtılan Azure bölgesi içeren metin dizesi.  Örneğin: "Orta Güney ABD".
-* *pfxBlobString*: based64 kodlanmış .pfx dosyası dize gösterimi.  Daha önce gösterilen kod parçacığını kullanarak "exportedcert.pfx.b64" içinde yer alan dizesini kopyalayın ve değeri olarak yapıştırmak *pfxBlobString* özniteliği.
-* *Parola*: .pfx dosyasını güvenliğini sağlamak için kullanılan parola.
-* *certificateThumbprint*: sertifikanın parmak izi.  Bu değer Powershell'den alırsanız (örneğin *$certificate. Parmak izi* önceki kod parçacığını gelen), değeri olarak kullanabileceğiniz-olduğu.  Windows sertifika iletişim kutusundan değeri kopyalarsanız, gereksiz boşluklar Şerit ancak unutmayın.  *CertificateThumbprint* gibi görünmelidir: AF3143EB61D43F6727842115BB7F17BBCECAECAE
-* *certificateName*: kendi seçme kolay dize tanımlayıcı kimliği için kullanılan sertifikanın.  Azure Resource Manager tanımlayıcısı için bir parçası olarak kullanılan adı *Microsoft.Web/certificates* SSL sertifikası temsil eden varlık.  Adı **gerekir** aşağıdaki sonekiyle sona: \_yourASENameHere_InternalLoadBalancingASE.  Bu soneki portal tarafından sertifika ILB özellikli ana güvenliğini sağlamak için kullanılan bir göstergesi olarak kullanılır.
+* *appServiceEnvironmentName*: Merhaba ILB yapılandırılan ana hello adı.
+* *existingAseLocation*: metin dizesini içeren hello burada hello ILB ana dağıtılan Azure bölgesi.  Örneğin: "Orta Güney ABD".
+* *pfxBlobString*: Merhaba based64 kodlanmış hello .pfx dosyasını dize gösterimi.  Daha önce gösterilen hello kod parçacığını kullanarak kopyalayın hello dizesi "exportedcert.pfx.b64" içinde yer alan ve hello hello değeri olarak yapıştırmak *pfxBlobString* özniteliği.
+* *Parola*: hello kullanılan parola toosecure hello .pfx dosyası.
+* *certificateThumbprint*: sertifikanın parmak izi hello.  Bu değer Powershell'den alırsanız (örneğin *$certificate. Parmak izi* hello öğesinden önceki kod parçacığını), başlangıç değeri olarak kullanabilirsiniz-olduğu.  Merhaba Windows sertifika iletişim kutusundan hello değeri kopyalarsanız, ancak hello gereksiz boşluklar çıkışı toostrip unutmayın.  Merhaba *certificateThumbprint* gibi görünmelidir: AF3143EB61D43F6727842115BB7F17BBCECAECAE
+* *certificateName*: kendi seçme kolay dize tanımlayıcı tooidentity hello sertifika kullanılır.  Merhaba adı Merhaba hello benzersiz Azure Resource Manager tanımlayıcı bir parçası olarak kullanılan *Microsoft.Web/certificates* hello SSL sertifikası temsil eden varlık.  Merhaba adı **gerekir** soneki aşağıdaki hello ile bitmelidir: \_yourASENameHere_InternalLoadBalancingASE.  Sertifika hello bir gösterge bir ILB özellikli ana güvenliğini sağlamak için kullanılan bu sonek hello portal tarafından kullanılır.
 
 Kısaltılmış örneği *azuredeploy.parameters.json* aşağıda gösterilmiştir:
 
@@ -117,23 +117,23 @@ Kısaltılmış örneği *azuredeploy.parameters.json* aşağıda gösterilmişt
          }
     }
 
-Bir kez *azuredeploy.parameters.json* dosya doldurulmuş, varsayılan SSL sertifikasının aşağıdaki Powershell kod parçacığını kullanılarak yapılandırılabilir.  Dosya yolları Azure Resource Manager şablonu dosyaları makinenizde bulunduğu eşleşecek şekilde değiştirin.  Azure Resource Manager dağıtım adını ve kaynak grubu adı için kendi değerlerini sağlamak de unutmayın.
+Bir kez hello *azuredeploy.parameters.json* dosya doldurulmuş, hello varsayılan SSL sertifikasını Powershell kod parçacığını aşağıdaki hello kullanılarak yapılandırılabilir.  Hello Azure Resource Manager şablonu dosyalarını makinenizde bulunduğu hello dosya yolları toomatch değiştirin.  Ayrıca toosupply hello Azure Resource Manager dağıtım adını ve kaynak grubu adı için kendi değerlerinizi unutmayın.
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-Azure Resource Manager şablonu, kabaca kırk dakika dakika başına ana ön uç değişikliği uygulamak için sürer gönderildikten sonra.  Örneğin, tamamlamak için iki ön uç kullanarak bir boyutta varsayılan ana ile şablonu yaklaşık bir saat ve yirmi dakika sürer.  Şablon çalışırken ana ölçeklendirilmiş mümkün olmaz.  
+Merhaba sonra Azure Resource Manager şablonu kabaca ana ön uç tooapply hello değişiklik başına kırk dakika dakika sürer gönderilir.  Örneğin, varsayılan olarak iki ön uç kullanarak boyutlu ana hello şablonu bir saat ve dakika toocomplete yirmi etrafında olur.  Merhaba şablon çalışırken hello ana mümkün tooscaled olmaz.  
 
-Şablon işlemi tamamlandıktan sonra ILB ana uygulamaları HTTPS üzerinden erişilebilir ve bağlantıları güvenli varsayılan SSL sertifikası.  Uygulama adı artı varsayılan konak adını kullanan ILB ana uygulamaları ele olduğunda varsayılan SSL sertifikası kullanılır.  Örneğin *https://mycustomapp.internal-contoso.com* varsayılan SSL sertifikası için kullanacağınız **.internal contoso.com*.
+Merhaba şablon işlemi tamamlandıktan sonra hello ILB ana uygulamaları HTTPS üzerinden erişilebilir ve hello bağlantıları güvenli hello varsayılan SSL sertifikası.  Merhaba uygulama adına ve hello varsayılan konak adını kullanan uygulamaların hello ILB ana ele zaman hello varsayılan SSL sertifikası kullanılır.  Örneğin *https://mycustomapp.internal-contoso.com* hello varsayılan SSL sertifikası için kullanacağınız **.internal contoso.com*.
 
-Ancak, ortak çok kiracılı hizmeti üzerinde çalışan yalnızca gibi uygulamalar, geliştiriciler özel ana bilgisayar adları tek tek uygulamalar için de yapılandırmanız ve benzersiz SNI SSL sertifikası bağlamaları tek tek uygulamalar için yapılandırın.  
+Ancak, hello ortak çok kiracılı hizmetinde çalışan yalnızca gibi uygulamalar, geliştiriciler özel ana bilgisayar adları tek tek uygulamalar için de yapılandırmanız ve benzersiz SNI SSL sertifikası bağlamaları tek tek uygulamalar için yapılandırın.  
 
 ## <a name="getting-started"></a>Başlarken
-Uygulama hizmeti ortamları ile çalışmaya başlamak için bkz: [uygulama hizmeti ortamı giriş](app-service-app-service-environment-intro.md)
+Uygulama hizmeti ortamları ile çalışmaya tooget bakın [giriş tooApp hizmeti ortamı](app-service-app-service-environment-intro.md)
 
-Tüm makaleler ve nasıl-için uygulama hizmeti ortamları kullanılabilir için kullanıcının [uygulama hizmeti ortamları için Benioku](../app-service/app-service-app-service-environments-readme.md).
+Tüm makaleler ve nasıl-için uygulama hizmeti ortamları hello kullanılabilir için kullanıcının [uygulama hizmeti ortamları için Benioku](../app-service/app-service-app-service-environments-readme.md).
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

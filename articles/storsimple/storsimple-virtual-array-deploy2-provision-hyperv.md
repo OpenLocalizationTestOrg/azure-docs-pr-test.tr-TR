@@ -1,5 +1,5 @@
 ---
-title: "Hyper-V sanal dizisinde StorSimple sağlama | Microsoft Docs"
+title: Hyper-V sanal dizisinde StorSimple aaaProvision | Microsoft Docs
 description: "StorSimple sanal dizinin dağıtım ikinci Bu öğreticide, Hyper-V sanal bir dizide sağlama içerir."
 services: storsimple
 documentationcenter: NA
@@ -15,202 +15,202 @@ ms.workload: NA
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bad431c8958f7d381bb9c0410caa3a57c6e75c19
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f47d642f740827ae1440b819e07067c6a183527f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>StorSimple sanal dizinin - sağlama Hyper-v dağıtma
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici, bir StorSimple sanal dizisi Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2 üzerinde Hyper-V çalıştıran bir konak sisteminde sağlayacak açıklar. Bu makale, Azure portalı ve Microsoft Azure kamu bulut StorSimple sanal diziler dağıtımda için geçerlidir.
+Bu öğretici, StorSimple sanal nasıl tooprovision dizisi Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2 üzerinde Hyper-V çalıştıran bir konak sisteminde açıklar. Bu makale, Azure portalında ve Microsoft Azure kamu bulut toohello dağıtım StorSimple sanal dizi geçerlidir.
 
-Sanal bir dizi yapılandırmak ve sağlamak için yönetici ayrıcalıkları gerekir. Sağlama ve ilk kurulumu tamamlamak için yaklaşık 10 dakika sürebilir.
+Sanal bir dizi yapılandırma ve yönetici ayrıcalıkları tooprovision gerekir. Merhaba sağlama ve ilk kurulum yaklaşık 10 dakika toocomplete alabilir.
 
 ## <a name="provisioning-prerequisites"></a>Sağlama önkoşulları
-Burada, Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2 üzerinde Hyper-V çalıştıran bir konak sisteminde sanal bir dizi sağlamak için gereken önkoşullar bulacaksınız.
+Burada Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2 üzerinde Hyper-V çalıştıran bir konak sisteminde, sanal bir dizi hello Önkoşullar tooprovision bulacaksınız.
 
-### <a name="for-the-storsimple-device-manager-service"></a>StorSimple Cihaz Yöneticisi hizmeti için
+### <a name="for-hello-storsimple-device-manager-service"></a>Merhaba StorSimple cihaz Yöneticisi hizmeti
 Başlamadan önce aşağıdakilerden emin olun:
 
-* Tüm adımları tamamladınız [StorSimple sanal dizisi için portal hazırlama](storsimple-virtual-array-deploy1-portal-prep.md).
-* Hyper-V için sanal dizinin görüntüyü Azure portalından yüklediniz. Daha fazla bilgi için bkz: **3. adım: sanal dizinin görüntüyü indirmeyi** , [StorSimple sanal dizinin kılavuzu için portal hazırlamak](storsimple-virtual-array-deploy1-portal-prep.md).
+* Tüm hello adımları tamamlamış [hazırlama hello portal StorSimple sanal dizini](storsimple-virtual-array-deploy1-portal-prep.md).
+* Hyper-V için Azure portal hello hello sanal dizinin görüntü yüklediniz. Daha fazla bilgi için bkz: **adım 3: indirme hello sanal dizinin resmi** , [StorSimple sanal dizinin kılavuzu için hazırlama hello portalı](storsimple-virtual-array-deploy1-portal-prep.md).
 
   > [!IMPORTANT]
-  > StorSimple sanal dizi çalışan yazılımın yalnızca StorSimple cihaz Yöneticisi hizmeti ile kullanılabilir.
+  > StorSimple sanal dizinin Hello üzerinde çalışan hello yazılımı yalnızca StorSimple cihaz Yöneticisi hizmeti hello ile kullanılabilir.
   >
   >
 
-### <a name="for-the-storsimple-virtual-array"></a>StorSimple sanal dizi için
+### <a name="for-hello-storsimple-virtual-array"></a>StorSimple sanal dizinin Hello için
 Sanal bir dizi dağıtmadan önce emin olun:
 
-* Hyper-olabilecek V Windows Server 2008 R2 veya üstü çalıştıran bir ana bilgisayar sistemine erişimi sağlamak için kullanılan bir cihaz.
-* Ana bilgisayar sistemi sanal dizinizi sağlamak için aşağıdaki kaynaklara ayrılması yapabiliyor:
+* Olması kullanılan tooa hazırlayabilirsiniz, bir cihaz Hyper-V Windows Server 2008 R2 veya sonraki sürümlerde çalışan erişim tooa ana bilgisayar sistemine sahiptir.
+* Merhaba ana bilgisayar sistemidir mümkün toodedicate kaynakları tooprovision sanal dizinizi hello:
 
   * 4 çekirdek en az.
-  * En az 8 GB RAM. Dosya sunucusu olarak sanal dizinin yapılandırmayı planlıyorsanız, 8 GB 2 milyondan az dosyalarını destekler. 16 GB RAM, 2-4 milyon dosyaları desteklemek için gerekir.
+  * En az 8 GB RAM. Dosya sunucusu olarak tooconfigure hello sanal dizinin planlıyorsanız, 8 GB 2 milyondan az dosyalarını destekler. 16 GB RAM toosupport 2-4 milyon dosyaları gerekir.
   * Bir ağ arabirimi.
   * Veri için 500 GB sanal disk.
 
-### <a name="for-the-network-in-the-datacenter"></a>Veri merkezindeki ağ için
-Başlamadan önce StorSimple sanal dizinin dağıtmak ve veri merkezi ağ uygun şekilde yapılandırmak için ağ gereksinimlerini gözden geçirin. Daha fazla bilgi için bkz: [StorSimple sanal ağ gereksinimleri dizi](storsimple-ova-system-requirements.md#networking-requirements).
+### <a name="for-hello-network-in-hello-datacenter"></a>Merhaba veri merkezinde Hello ağ için
+Başlamadan önce gereksinimleri toodeploy bir StorSimple sanal dizi ağ hello gözden geçirin ve hello veri merkezi ağ uygun şekilde yapılandırın. Daha fazla bilgi için bkz: [StorSimple sanal ağ gereksinimleri dizi](storsimple-ova-system-requirements.md#networking-requirements).
 
 ## <a name="step-by-step-provisioning"></a>Adım adım sağlama
-Sağlamak ve sanal bir dizi bağlanmak için aşağıdaki adımları gerçekleştirmeniz gerekir:
+tooprovision ve tooa sanal dizinin bağlanmak, aşağıdaki adımları tooperform hello gerekir:
 
-1. Ana bilgisayar sistemi minimum sanal dizinin gereksinimlerini karşılamak için yeterli kaynaklara sahip olduğundan emin olun.
+1. Merhaba ana bilgisayar sistemi yeterli kaynakları toomeet hello minimum sanal dizinin gereksinimleri olduğundan emin olun.
 2. Hiper yönetici sanal bir dizide sağlayın.
-3. Sanal dizinin başlatın ve IP adresi alın.
+3. Merhaba sanal dizinin başlatın ve başlangıç IP adresi alın.
 
-Bu adımların her biri aşağıdaki bölümlerde açıklanmıştır.
+Bu adımların her biri aşağıdaki bölümlerde hello açıklanmıştır.
 
-## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements"></a>1. adım: ana bilgisayar sistemi minimum sanal dizinin gereksinimleri karşıladığından emin olun
-Sanal bir dizi oluşturmak için gerekir:
+## <a name="step-1-ensure-that-hello-host-system-meets-minimum-virtual-array-requirements"></a>1. adım: hello ana bilgisayar sistemi minimum sanal dizinin gereksinimleri karşıladığından emin olun
+sanal bir dizi toocreate, şunlar gerekir:
 
-* Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2 SP1 yüklü Hyper-V rolü.
-* Microsoft Windows İstemcisi üzerindeki Microsoft Hyper-V Yöneticisi ana bilgisayara bağlı.
+* Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2 SP1 yüklü hello Hyper-V rolü.
+* Bir Microsoft Windows İstemcisi üzerindeki Microsoft Hyper-V Yöneticisi'ni toohello ana bağlı.
 
-Sanal dizinin oluşturmakta olduğunuz temel alınan donanım (ana bilgisayar sistemi) aşağıdaki kaynaklar sanal dizinizi ayrılması mümkün olduğundan emin olun:
+Merhaba sanal dizinin oluşturmakta olduğunuz donanım (ana bilgisayar sistemi) temel bu hello kaynakları tooyour sanal dizinin aşağıdaki mümkün toodedicate hello olduğundan emin olun:
 
 * 4 çekirdek en az.
-* En az 8 GB RAM. Dosya sunucusu olarak sanal dizinin yapılandırmayı planlıyorsanız, 8 GB 2 milyondan az dosyalarını destekler. 16 GB RAM, 2-4 milyon dosyaları desteklemek için gerekir.
+* En az 8 GB RAM. Dosya sunucusu olarak tooconfigure hello sanal dizinin planlıyorsanız, 8 GB 2 milyondan az dosyalarını destekler. 16 GB RAM toosupport 2-4 milyon dosyaları gerekir.
 * Bir ağ arabirimi.
 * Sistem verileri için 500 GB sanal disk.
 
 ## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>2. adım: hiper yönetici sanal bir dizide sağlama
-Bir aygıt, hiper yönetici sağlamak için aşağıdaki adımları gerçekleştirin.
+Aşağıdaki adımları tooprovision bir aygıt, hiper yönetici hello gerçekleştirin.
 
-#### <a name="to-provision-a-virtual-array"></a>Sanal bir dizi sağlamak için
-1. Windows Server ana bilgisayarında sanal dizinin görüntüyü bir yerel sürücüye kopyalayın. Bu görüntü (VHD veya VHDX) Azure portalı üzerinden yüklenen. Sonraki yordamda bu görüntüyü kullanma gibi görüntü kopyaladığınız konumunu not edin.
-2. Açık **Sunucu Yöneticisi'ni**. Sağ alt köşesinde üst tıklatın **Araçları** seçip **Hyper-V Yöneticisi'ni**.
+#### <a name="tooprovision-a-virtual-array"></a>sanal bir dizi tooprovision
+1. Windows Server ana bilgisayarında hello sanal dizinin görüntü tooa yerel sürücüye kopyalayın. Bu görüntü (VHD veya VHDX) hello Azure portal indirilir. Merhaba yordamda daha sonra bu görüntüyü kullanma gibi hello görüntü kopyaladığınız hello konumunu not edin.
+2. Açık **Sunucu Yöneticisi'ni**. Merhaba sağ üst köşeden, tıklatın **Araçları** seçip **Hyper-V Yöneticisi'ni**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 
-   Windows Server 2008 R2 çalıştırıyorsanız, Hyper-V Yöneticisi'ni açın. Sunucu Yöneticisi'nde **rolleri > Hyper-V > Hyper-V Yöneticisi'ni**.
-3. İçinde **Hyper-V Yöneticisi'ni**, kapsam bölmesinde bağlam menüsünü açmak için sistem düğümünü sağ tıklatın ve ardından **yeni** > **sanal makine**.
+   Windows Server 2008 R2 çalıştırıyorsanız, hello Hyper-V Yöneticisi'ni açın. Sunucu Yöneticisi'nde **rolleri > Hyper-V > Hyper-V Yöneticisi'ni**.
+3. İçinde **Hyper-V Yöneticisi'ni**hello kapsam bölmesinde sistem düğümü tooopen hello bağlam menüsü sağ tıklayın ve ardından **yeni** > **sanal makine**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
-4. Üzerinde **başlamadan önce** sayfasında yeni sanal makine Sihirbazı'nın, tıklatın **sonraki**.
-5. Üzerinde **ad ve konum belirtin** sayfasında, sağlayan bir **adı** sanal dizini. **İleri**’ye tıklayın.
+4. Merhaba üzerinde **başlamadan önce** hello yeni sanal makine Sihirbazı sayfasını tıklatın **sonraki**.
+5. Hello üzerinde **ad ve konum belirtin** sayfasında, sağlayan bir **adı** sanal dizini. **İleri**’ye tıklayın.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
-6. Üzerinde **nesil** sayfasında, cihaz resim türünü seçin ve ardından **sonraki**. Windows Server 2008 R2 kullanıyorsanız, bu sayfa görünmez.
+6. Merhaba üzerinde **nesil** sayfasında, hello aygıt resim türünü seçin ve ardından **sonraki**. Windows Server 2008 R2 kullanıyorsanız, bu sayfa görünmez.
 
    * Seçin **2. nesil** Windows Server 2012 veya sonraki bir .vhdx görüntüsü yüklediyseniz.
    * Seçin **1. nesil** Windows Server 2008 R2 veya sonraki bir .vhd görüntüsü yüklediyseniz.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image5.png)
-7. Üzerinde **atamak bellek** sayfasında, belirtin bir **başlangıç belleği** , en az **8192 MB**olmayan dinamik belleği etkinleştirme ve ardından **sonraki**.
+7. Merhaba üzerinde **atamak bellek** sayfasında, belirtin bir **başlangıç belleği** , en az **8192 MB**olmayan dinamik belleği etkinleştirme ve ardından **sonraki**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image6.png)  
-8. Üzerinde **ağ yapılandırma** sayfasında, Internet'e bağlı bir sanal anahtar belirtin ve ardından **sonraki**.
+8. Merhaba üzerinde **ağ yapılandırma** sayfasında, bağlı toohello Internet olan hello sanal anahtar belirtin ve ardından **sonraki**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image7.png)
-9. Üzerinde **sanal sabit diski bağlayın** sayfasında, **varolan bir sanal sabit diski kullanmak**(.vhdx veya .vhd) sanal dizinin görüntü konumunu belirtin ve ardından **sonraki**.
+9. Merhaba üzerinde **sanal sabit diski bağlayın** sayfasında, **varolan bir sanal sabit diski kullanmak**hello sanal dizinin görüntü (.vhdx veya .vhd) hello konumunu belirtin ve ardından **sonraki**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image8m.png)
-10. Gözden geçirme **Özet** ve ardından **son** sanal makine oluşturulamıyor.
+10. Gözden geçirme hello **Özet** ve ardından **son** toocreate hello sanal makine.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image9.png)
-11. En düşük gereksinimleri karşılamak için 4 çekirdek gerekir. 4 sanal işlemci eklemek için ana bilgisayar sisteminizin seçin **Hyper-V Yöneticisi'ni** penceresi. Listesini bölümündeki sağ bölmede **sanal makineleri**, az önce oluşturduğunuz sanal makine bulun. Seçin ve makine adını sağ tıklatın ve seçin **ayarları**.
+11. toomeet hello en düşük gereksinimler, 4 çekirdek gerekir. tooadd 4 sanal işlemci, ana bilgisayar sisteminizin hello seçin **Hyper-V Yöneticisi'ni** penceresi. Merhaba hello listesi bölümündeki sağ bölmede **sanal makineleri**, az önce oluşturduğunuz hello sanal makine bulun. Seçin ve hello makine adını sağ tıklatın ve seçin **ayarları**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image10.png)
-12. Üzerinde **ayarları** sol bölmedeki sayfasını tıklatın **İşlemci**. Sağ bölmede, ayarlayın **sanal işlemcilerin sayısı** 4 (veya daha fazla). **Uygula**'ya tıklayın.
+12. Merhaba üzerinde **ayarları** sayfasında hello sol bölmede, tıklatın **İşlemci**. Merhaba sağ bölmede, ayarlamak **sanal işlemcilerin sayısı** too4 (veya daha fazla). **Uygula**'ya tıklayın.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image11.png)
-13. En düşük gereksinimleri karşılamak için de bir 500 GB sanal veri diski eklemeniz gerekir. İçinde **ayarları** sayfa:
+13. toomeet hello en düşük gereksinimler, tooadd 500 GB sanal veri diski de gerekir. Merhaba, **ayarları** sayfa:
 
-    1. Sol bölmede seçin **SCSI denetleyicisi**.
-    2. Sağ bölmede seçin **sabit sürücü** tıklatıp **Ekle**.
+    1. Merhaba sol bölmesinde seçin **SCSI denetleyicisi**.
+    2. Merhaba sağ bölmede seçin **sabit sürücü** tıklatıp **Ekle**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image12.png)
-14. Üzerinde **sabit sürücü** sayfasında, **sanal sabit disk** seçeneğini ve tıklayın **yeni**. **Yeni Sanal Sabit Disk Sihirbazı** başlatır.
+14. Merhaba üzerinde **sabit sürücü** sayfası, select hello **sanal sabit disk** seçeneğini ve tıklayın **yeni**. Merhaba **Yeni Sanal Sabit Disk Sihirbazı** başlatır.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image13.png)
-15. Üzerinde **başlamadan önce** sayfasında yeni sanal sabit Disk Sihirbazı'nın tıklatın **sonraki**.
-16. Üzerinde **Disk biçimi seçin sayfasında**, varsayılan seçeneği kabul **VHDX** biçimi. **İleri**’ye tıklayın. Bu ekran, Windows Server 2008 R2 çalıştıran, sunulan değil.
+15. Merhaba üzerinde **başlamadan önce** hello Yeni Sanal Sabit Disk Sihirbazı, sayfasını tıklatın **sonraki**.
+16. Merhaba üzerinde **Disk biçimi seçin sayfasında**, hello varsayılan seçeneği kabul **VHDX** biçimi. **İleri**’ye tıklayın. Bu ekran, Windows Server 2008 R2 çalıştıran, sunulan değil.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image15.png)
-17. Üzerinde **Disk türünü seçin sayfasında**, sanal sabit disk türü olarak ayarlamak **dinamik olarak genişletilen** (önerilen). **Boyutu sabit** disk çalışır ancak uzun bir süre beklemeniz gerekebilir. Değil kullanmanız önerilir **Differencing** seçeneği. **İleri**’ye tıklayın. Windows Server 2012 R2 ve Windows Server 2012'de, **dinamik olarak genişletilen** Windows Server 2008 R2'de varsayılan iken varsayılan seçenektir **boyutu sabit**.
+17. Merhaba üzerinde **Disk türünü seçin sayfasında**, sanal sabit disk türü olarak ayarlamak **dinamik olarak genişletilen** (önerilen). **Boyutu sabit** disk çalışır ancak toowait uzun bir süre gerekebilir. Merhaba kullanmamanızı öneririz **Differencing** seçeneği. **İleri**’ye tıklayın. Windows Server 2012 R2 ve Windows Server 2012'de, **dinamik olarak genişletilen** Windows Server 2008 R2'de hello varsayılan iken hello varsayılan seçenektir **boyutu sabit**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image16.png)
-18. Üzerinde **ad ve konum belirtin** sayfasında, sağlayan bir **adı** yanı **konumu** (birine gözatabilirsiniz) veri diski için. **İleri**’ye tıklayın.
+18. Merhaba üzerinde **ad ve konum belirtin** sayfasında, sağlayan bir **adı** yanı **konumu** (tooone göz atabilirsiniz) hello veri diski için. **İleri**’ye tıklayın.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. Üzerinde **Disk yapılandırma** sayfasında, seçeneğini **bir yeni boş sanal sabit disk Oluştur** ve boyutu olarak belirtin **500 GB** (veya daha fazla). 500 GB en düşük gereksinim olsa da, her zaman daha büyük bir disk sağlayabilirsiniz. Olamaz genişletmek veya bir kez sağlanan diski küçültmeye unutmayın. Sağlamak için disk boyutu hakkında daha fazla bilgi için boyutlandırma bölümünde gözden [en iyi yöntemler belge](storsimple-ova-best-practices.md). **İleri**’ye tıklayın.
+19. Merhaba üzerinde **Disk yapılandırma** sayfası, select hello seçeneği **bir yeni boş sanal sabit disk Oluştur** ve hello boyutu olarak belirtin **500 GB** (veya daha fazla). 500 GB hello minimum gereksinim olsa da, her zaman daha büyük bir disk sağlayabilirsiniz. Olamaz genişletmek veya bir kez sağlanan hello diski küçültmeye unutmayın. Disk tooprovision hello boyutu hakkında daha fazla bilgi için hello hello boyutlandırma bölümünde gözden [en iyi yöntemler belge](storsimple-ova-best-practices.md). **İleri**’ye tıklayın.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
-20. Üzerinde **Özet** sayfasında, sanal veri diskinizi ayrıntılarını gözden geçirin ve memnun tıklatmak **son** disk oluşturmak için. Sihirbaz kapanır ve bir sanal sabit disk makinenize eklenir.
+20. Merhaba üzerinde **Özet** sayfasında, sanal veri diskinizi hello ayrıntılarını gözden geçirin ve memnun tıklatmak **son** toocreate hello disk. Merhaba sihirbaz kapanır ve bir sanal sabit disk tooyour makine eklenir.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image19.png)
-21. Geri dönüp **ayarları** sayfası. Tıklatın **Tamam** kapatmak için **ayarları** sayfasında ve Hyper-V Yöneticisi'ni penceresine dönün.
+21. Toohello iade **ayarları** sayfası. Tıklatın **Tamam** tooclose hello **ayarları** sayfasında ve tooHyper-V Yöneticisi'ni penceresine dönün.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image20.png)
 
-## <a name="step-3-start-the-virtual-array-and-get-the-ip"></a>3. adım: sanal dizinin başlatın ve IP Al
-Sanal dizinizi başlatmak ve buna bağlanmak için aşağıdaki adımları gerçekleştirin.
+## <a name="step-3-start-hello-virtual-array-and-get-hello-ip"></a>3. adım: hello sanal dizinin başlatın ve hello IP Al
+Aşağıdaki adımları toostart hello sanal dizinizi gerçekleştirmek ve tooit bağlanın.
 
-#### <a name="to-start-the-virtual-array"></a>Sanal dizinin başlatmak için
-1. Sanal dizinin başlatın.
+#### <a name="toostart-hello-virtual-array"></a>toostart hello sanal dizinin
+1. Merhaba sanal dizinin başlatın.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image21.png)
-2. Cihaz çalıştırdıktan sonra cihazı seçin, sağ tıklatın ve seçin **Bağlan**.
+2. Hello aygıt çalıştırdıktan sonra hello cihaz seçin, sağ tıklayın ve seçin **Bağlan**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image22.png)
-3. Cihazın hazır olması 5-10 dakika beklemeniz gerekebilir. Bir durum iletisi ilerlemeyi göstermek için konsolda görüntülenir. Cihaz hazır olduktan sonra Git **eylem**. Tuşuna `Ctrl + Alt + Delete` sanal diziye oturum açmak için. Varsayılan kullanıcı *StorSimpleAdmin* ve varsayılan parola *Parola1*.
+3. Merhaba aygıt toobe hazır 5-10 dakika toowait olabilir. Bir durum iletisi hello konsol tooindicate hello ilerleme görüntülenir. Merhaba cihaz hazır olduktan sonra çok Git**eylem**. Tuşuna `Ctrl + Alt + Delete` toohello sanal dizinin toolog. Merhaba varsayılan kullanıcı *StorSimpleAdmin* ve hello varsayılan parola *Parola1*.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
-4. Güvenlik nedenleriyle ilk oturum açmada cihaz Yönetici parolasının süresi dolar. Parolayı değiştirmek için istenir.
+4. Güvenlik nedenleriyle hello ilk oturum açmada hello cihaz Yönetici parolasının süresi dolar. İstendiğinde toochange hello parola olur.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
 
-   En az 8 karakter içeren bir parola girin. Parola en az 3 dışında aşağıdaki 4 gereksinimleri karşılaması gerekir: büyük harf, küçük harfler, sayısal ve özel karakter. Onaylamak için parolayı yeniden girin. Parolanın değiştirilmesi bildirilir.
+   En az 8 karakter içeren bir parola girin. Merhaba parola en az 3 4 gereksinimlerine hello dışında karşılaması gerekir: büyük harf, küçük harfler, sayısal ve özel karakter. Merhaba parola tooconfirm yeniden girin. Bu hello parolanın değiştirilmesi bildirilir.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
-5. Parola başarıyla değiştirildikten sonra sanal dizinin yeniden başlatılabilir. Cihazın başlatmak için bekleyin.
+5. Merhaba parola başarıyla değiştirildikten sonra hello sanal dizinin yeniden başlatılabilir. Merhaba aygıt toostart bekleyin.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image26.png)
 
-    Cihazın Windows PowerShell konsolu ile birlikte bir ilerleme çubuğu görüntülenir.
+    Merhaba cihazın Hello Windows PowerShell konsolu ile birlikte bir ilerleme çubuğu görüntülenir.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image27.png)
-6. Adım 6-8 yalnızca yukarı DHCP olmayan ortamda önyüklemesi sırasında uygulanır. Bir DHCP ortamında varsa, bu adımları atlayın ve 9. adıma gidin. Cihazınızı DHCP olmayan ortamda yukarı önyüklendiğinde aşağıdaki ekranı görürsünüz.
+6. Adım 6-8 yalnızca yukarı DHCP olmayan ortamda önyüklemesi sırasında uygulanır. Bir DHCP ortamında varsa, bu adımları atlayın ve toostep 9 gidin. Cihazınızı DHCP olmayan ortamda yukarı önyüklendiğinde ekran aşağıdaki hello görürsünüz.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image28m.png)
 
-    Ardından, ağ yapılandırın.
-7. Kullanım `Get-HcsIpAddress` sanal dizinizi etkin ağ arabirimleri listelemek için komutu. Cihazınızı etkin tek bir ağ arabirimi varsa, bu arabirime atanmış varsayılan addır `Ethernet`.
+    Ardından, hello ağ yapılandırın.
+7. Kullanım hello `Get-HcsIpAddress` sanal dizinizi etkin toolist hello ağ arabirimleri komutu. Cihazınızı etkin tek bir ağ arabirimi varsa, hello varsayılan atanan ad toothis arabirimidir `Ethernet`.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
-8. Kullanım `Set-HcsIpAddress` ağı yapılandırmak için cmdlet. Aşağıdaki örneğe bakın:
+8. Kullanım hello `Set-HcsIpAddress` cmdlet tooconfigure hello ağ. Aşağıdaki örnek hello bakın:
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
-9. İlk kurulumu tamamlandıktan ve cihaz yukarı önyüklendikten sonra aygıt başlık metni görürsünüz. IP adresi ve cihaz yönetmek için başlık metni görüntülenen URL not edin. Web kullanıcı Arabirimine sanal dizinin bağlanmak ve yerel kurulumunu ve kaydını tamamlamak için bu IP adresi kullanın.
+9. Merhaba ilk Kurulum tamamlandıktan ve hello aygıt yukarı önyüklendikten sonra hello aygıt başlık metni görürsünüz. Başlangıç IP adresi ve hello başlık metni toomanage hello aygıtı görüntülenen hello URL'sini not edin. Bu IP adresi tooconnect toohello web sanal dizinin ve tam hello yerel kurulumu ve kayıt kullanıcı arabirimini kullanın.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image31m.png)
-10. (İsteğe bağlı) Yalnızca Cihazınızı kamu bulutta dağıtıyorsanız bu adımı gerçekleştirin. Şimdi Cihazınızda Amerika Birleşik Devletleri Federal Bilgi İşleme Standardı (FIPS) mod olanak sağlar. FIPS 140 standardı, önemli verilerin korunması için BİZE Federal hükümeti bilgisayar sistemleri tarafından kullanım için onaylanan şifreleme algoritmalarını tanımlar.
+10. (İsteğe bağlı) Yalnızca Cihazınızı hello Bulutu dağıtıyorsanız bu adımı gerçekleştirin. Şimdi Cihazınızda hello Amerika Birleşik Devletleri Federal Bilgi İşleme Standardı (FIPS) mod olanak sağlar. Merhaba FIPS 140 standardı, gizli verilerin hello koruma için BİZE Federal hükümeti bilgisayar sistemleri tarafından kullanım için onaylanan şifreleme algoritmalarını tanımlar.
 
-    1. FIPS modunda etkinleştirmek için aşağıdaki cmdlet'i çalıştırın:
+    1. cmdlet aşağıdaki hello çalıştırmak tooenable hello FIPS modunda:
 
         `Enable-HcsFIPSMode`
-    2. Böylece şifreleme doğrulama etkili FIPS modunda etkinleştirdikten sonra Cihazınızı yeniden başlatın.
+    2. Böylece Hello şifreleme doğrulama etkili hello FIPS modunda etkinleştirdikten sonra Cihazınızı yeniden başlatın.
 
        > [!NOTE]
-       > Etkinleştirmek veya FIPS modundayken, Cihazınızda devre dışı. Cihaz FIPS ve FIPS olmayan mod arasında geçiş yapma desteklenmiyor.
+       > Etkinleştirmek veya FIPS modundayken, Cihazınızda devre dışı. FIPS ve FIPS olmayan mod arasında değişen hello aygıt desteklenmiyor.
        >
        >
 
-Cihazınızı minimum yapılandırma gereksinimlerini karşılamıyorsa, (aşağıda gösterilen) başlık metni aşağıdaki hatayı görürsünüz. Böylece makine en düşük gereksinimleri karşılamak için yeterli kaynaklara sahip aygıt yapılandırmasını değiştirin. Ardından, yeniden başlatın ve cihaza bağlanın. Minimum yapılandırma gereksinimlerini başvurmak [1. adım: ana bilgisayar sistemi minimum sanal dizinin gereksinimlerini karşıladığından emin olmak](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+Cihazınızı hello en düşük yapılandırma gereksinimlerini karşılamıyorsa, aşağıdaki hata hello Başlık metin (aşağıda gösterilen) hello bakın. Merhaba makine sahip en düşük gereksinimler hello yeterli kaynakları toomeet olması hello aygıt yapılandırmasını değiştirin. Ardından, yeniden başlatın ve toohello aygıtı bağlayın. Toohello en düşük yapılandırma gereksinimlerini başvuran [1. adım: hello ana bilgisayar sistemi minimum sanal dizinin gereksinimlerini karşıladığından emin olmak](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 
-Yerel web kullanıcı Arabirimi kullanılarak yapılan başlangıç yapılandırması sırasında başka bir hata yüz, aşağıdaki iş akışları için başvurun:
+Başka bir hata hello yerel web kullanıcı Arabirimi kullanılarak hello başlangıç yapılandırması sırasında yüz, iş akışları şu toohello başvurun:
 
-* Tanılama testleri [web kullanıcı Arabirimi Kurulumu sorunlarını giderme](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
+* Tanılama çok testler[web kullanıcı Arabirimi Kurulumu sorunlarını giderme](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 * [Günlük paketi oluşturmak ve günlük dosyalarını görüntülemek](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
 ## <a name="next-steps"></a>Sonraki adımlar

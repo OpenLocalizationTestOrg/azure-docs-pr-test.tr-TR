@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Lake Analytics U-SQL Bilişsel özelliklerini kullanarak | Microsoft Docs"
-description: "U-SQL Bilişsel yetenekleri Intelligence kullanmayı öğrenin"
+title: "Azure Data Lake Analytics U-SQL Bilişsel özellikleri aaaUsing | Microsoft Docs"
+description: "Nasıl toouse hello U-SQL Bilişsel özelliklerinden Intelligence öğrenin"
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c9ac71f490e929070fa0e72b93c3ffdb1ab243b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Öğretici: U-SQL Bilişsel yetenekleri ile çalışmaya başlama
+# <a name="tutorial-get-started-with-hello-cognitive-capabilities-of-u-sql"></a>Öğretici: Merhaba Bilişsel özelliklerini U-SQL ile çalışmaya başlama
 
-U-SQL için bilişsel özellikleri geliştiricilerin kendi büyük veri programlarda put Intelligence kullanmak etkinleştirin. Basit genel işleminde:
+U-SQL için bilişsel özellikleri geliştiricilerin toouse büyük veri programlarını Intelligence put sağlar. Basit genel işleminde hello:
 
-* U-SQL komut dosyası için bilişsel özelliklerini etkinleştirmek için referans DERLEMESİNİ deyimi kullanın
-* Bilişsel özellikleri kullanmak için işlem işlemini çağırın 
+* U-SQL betiği hello için Hello referans DERLEMESİNİ deyimi tooenable hello bilişsel özelliklerini kullanma
+* Merhaba işlemin toouse hello Bilişsel yetenekleri çağırın 
 
 ## <a name="imaging-scenarios"></a>Görüntü oluşturma senaryoları
 
 ### <a name="example-image-tagging"></a>Örnek: Görüntü etiketleme
 
-Aşağıdaki örnek nesneleri görüntülerinde algılamak için görüntüleme yetenekleri uçtan uca kullanımını gösterir.
+Aşağıdaki örneğine hello yetenekleri toodetect nesneleri görüntülerinde Imaging hello uçtan uca kullanımını gösterir.
 
     REFERENCE ASSEMBLY ImageCommon;
     REFERENCE ASSEMBLY FaceSdk;
@@ -44,7 +44,7 @@ Aşağıdaki örnek nesneleri görüntülerinde algılamak için görüntüleme 
         FROM @"/images/{FileName:*}.jpg"
         USING new Cognition.Vision.ImageExtractor();
 
-    // Extract the number of objects on each image and tag them 
+    // Extract hello number of objects on each image and tag them 
     @objects =
         PROCESS @imgs 
         PRODUCE FileName,
@@ -120,7 +120,7 @@ Leo Tolstoy tarafından biz "War ve rahatlık" oluşan bir giriş olduğunu vars
                 Text
         USING new Cognition.Text.KeyPhraseExtractor();
 
-    // Tokenize the key phrases.
+    // Tokenize hello key phrases.
     @kpsplits =
         SELECT No,
             Year,

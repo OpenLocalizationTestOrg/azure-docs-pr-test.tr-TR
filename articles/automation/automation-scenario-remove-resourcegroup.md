@@ -1,6 +1,6 @@
 ---
-title: "Kaynak gruplarını otomatik kaldırma | Microsoft Belgeleri"
-description: "Bir Azure Otomasyonu senaryosunun, aboneliğinizdeki tüm kaynak gruplarını kaldırmaya yönelik runbook’lar içeren PowerShell İş Akışı sürümü."
+title: "Kaynak grupları aaaAutomate kaldırılmasını | Microsoft Docs"
+description: "PowerShell iş akışı runbook'ları tooremove dahil olmak üzere bir Azure otomasyonu senaryosu sürümü aboneliğinizde tüm kaynak grupları."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -14,56 +14,56 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d7ff8064842385d57b0eebdf7b263150c958255f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure Otomasyonu senaryosu - kaynak gruplarının kaldırılmasını otomatik hale getirme
-Birçok müşteri birden fazla kaynak grubu oluşturur. Bazıları üretim uygulamalarını yönetmek için, bazıları ise geliştirme, test ve hazırlık ortamları olarak kullanılabilir. Bu kaynakların dağıtımının otomatik hale getirilmesi bir özelliktir, ancak bir kaynak grubunun tek bir düğme tıklanarak kullanımdan kaldırılması da başka bir özelliktir. Bu ortak yönetim görevini Azure Otomasyonu'nu kullanarak basit hale getirebilirsiniz. Bu özellik, örneğin MSDN veya Microsoft İş Ortağı Ağı Bulut Temel Bileşenleri programı gibi bir üye teklifi üzerinden harcama limitine sahip bir Azure aboneliği ile çalışıyorsanız yararlı olur.
+Birçok müşteri birden fazla kaynak grubu oluşturur. Bazıları üretim uygulamalarını yönetmek için, bazıları ise geliştirme, test ve hazırlık ortamları olarak kullanılabilir. Bu kaynaklar Hello dağıtımını otomatik hale getirme tek şey, ancak mümkün toodecommission bir düğmeyi tıklatarak, hello sahip bir kaynak grubu olan başka bir. Bu ortak yönetim görevini Azure Otomasyonu'nu kullanarak basit hale getirebilirsiniz. Bu üye teklifi MSDN veya hello Microsoft iş ortağı ağı Bulut Temel programı gibi aracılığıyla bir harcama sınırına sahip bir Azure aboneliği ile çalışıyorsanız yararlıdır.
 
-Bu senaryo bir PowerShell runbook'u temel alır ve aboneliğinizden belirttiğiniz bir veya daha fazla kaynak grubunu kaldırmak için tasarlanmıştır. Runbook’un varsayılan ayarı, devam etmeden önce test etmektir. Bu ayar, kaynak grubunu bu yordamı tamamlamak için hazır olmadan yanlışlıkla silmenizi önler.   
+Bu senaryo, bir PowerShell runbook temel alır ve tasarlanmış tooremove aboneliğinizden belirttiğiniz bir veya daha fazla kaynak grupları değil. Merhaba varsayılan hello runbook devam etmeden önce tootest ayarıdır. Bu, hazır toocomplete olmadan önce yanlışlıkla hello kaynak grubu bu yordamı silmeyin olmasını sağlar.   
 
-## <a name="getting-the-scenario"></a>Senaryoyu alma
-Bu senaryo, [PowerShell Galerisi](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript)’nden indirebileceğiniz PowerShell runbook’u içerir. Doğrudan Azure portal’daki [Runbook Galerisi](automation-runbook-gallery.md)’nden de indirebilirsiniz.<br><br>
+## <a name="getting-hello-scenario"></a>Merhaba senaryo alma
+Bu senaryo hello indirebilirsiniz bir PowerShell runbook oluşur [PowerShell Galerisi](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript). Ayrıca, doğrudan hello da içeri aktarabilirsiniz [Runbook Galerisi](automation-runbook-gallery.md) hello Azure Portalı'nda.<br><br>
 
 | Runbook | Açıklama |
 | --- | --- |
-| Remove-ResourceGroup |Bir veya daha fazla Azure kaynak grubunu ve ilişkili kaynakları abonelikten kaldırır. |
+| Remove-ResourceGroup |Bir veya daha fazla Azure kaynak gruplarını ve ilişkili kaynakları hello abonelikten kaldırır. |
 
 <br>
-Bu runbook için aşağıdaki giriş parametreleri tanımlanmıştır:
+Giriş parametreleri aşağıdaki hello bu runbook için tanımlanmıştır:
 
 | Parametre | Açıklama |
 | --- | --- |
-| NameFilter (Gerekli) |Silmeyi amaçladığınız kaynak gruplarını sınırlandırmak için bir ad filtresi belirtir. Virgülle ayrılmış bir liste kullanarak birden çok değer geçirebilirsiniz.<br>Filtre büyük küçük harfe duyarlı değildir ve dizeyi içeren herhangi bir kaynak grubunu eşleştirir. |
-| PreviewMode (İsteğe bağlı) |Hangi kaynak gruplarının silineceğini görmek için runbook’u yürütür, ancak herhangi bir işlem yapmaz.<br>Varsayılan değer, runbook’a geçirilen bir veya daha fazla kaynak grubunun yanlışlıkla silinmesini önlemeye yardımcı olmak üzere **true** olarak ayarlanmıştır. |
+| NameFilter (Gerekli) |Düşündüğünüz bir adı filtre toolimit hello kaynak gruplarını silmeye ilişkin belirtir. Virgülle ayrılmış bir liste kullanarak birden çok değer geçirebilirsiniz.<br>Merhaba filtre büyük küçük harfe duyarlı değildir ve hello dizeyi içeren herhangi bir kaynak grubu ile eşleşir. |
+| PreviewMode (İsteğe bağlı) |Kaynak grupları silinecek, ancak hiçbir eylemde hello runbook toosee yürütür.<br>Merhaba varsayılandır **true** toohelp birini yanlışlıkla silinmesini önlemek veya daha fazla kaynak grupları toohello runbook geçirildi. |
 
 ## <a name="install-and-configure-this-scenario"></a>Bu senaryoyu yükleme ve yapılandırma
 ### <a name="prerequisites"></a>Ön koşullar
-Bu runbook [Azure Farklı Çalıştır hesabı](automation-sec-configure-azure-runas-account.md) kullanarak kimlik doğrulaması yapar.    
+Bu runbook hello kullanarak kimlik doğrulaması [Azure farklı çalıştır hesabı](automation-sec-configure-azure-runas-account.md).    
 
-### <a name="install-and-publish-the-runbooks"></a>Runbook yükleme ve yayımlama
-Runbook’u indirdikten sonra [Runbook’ları içeri aktarma yordamları](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation) içindeki yordamı kullanarak içeri aktarabilirsiniz. Runbook’u Otomasyon hesabınıza başarıyla içeri aktarıldıktan sonra yayımlayın.
+### <a name="install-and-publish-hello-runbooks"></a>Yükleme ve yayımlama hello runbook'ları
+Merhaba runbook indirdikten sonra onu hello yordamı kullanarak içeri aktarabilirsiniz [runbook yordamlar alınıyor](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Otomasyon hesabınızda başarıyla alındıktan sonra hello runbook yayımlayın.
 
-## <a name="using-the-runbook"></a>Runbook’u kullanma
-Aşağıdaki adımlar bu runbook’un yürütülmesinde size yol gösterir ve nasıl çalıştığını anlamanıza yardımcı olur. Bu örnekte yalnızca runbook’u test edeceksiniz, kaynak grubunu gerçekten silmeyeceksiniz.  
+## <a name="using-hello-runbook"></a>Merhaba runbook kullanma
+Merhaba aşağıdaki adımları, bu runbook ve nasıl çalıştığı ile aşina Yardım hello yürütülmesini rehberlik yapar. Yalnızca hello runbook Bu örnekte, aslında hello kaynak grubunun silinmesi test.  
 
-1. Azure portal’da Otomasyon hesabınızı açın ve **Runbook'lar** seçeneğine tıklayın.
-2. **Remove-ResourceGroup** runbook’unu seçin ve **Başlat**’a tıklayın.
-3. Runbook’u başlattığınızda **Runbook’u Başlat** dikey penceresi açılır ve parametreleri yapılandırabilirsiniz. Aboneliğinizde test için kullanabileceğiniz ve yanlışlıkla silinirse zararı olmayacak kaynak gruplarının adlarını girin.<br> ![Remove-ResouceGroup parametreleri](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+1. Hello Azure portal, Automation hesabınızı açın ve'ı tıklatın **Runbook'lar**.
+2. Select hello **Kaldır ResourceGroup** runbook tıklatıp **Başlat**.
+3. Merhaba runbook'u başlattığınızda hello **Runbook'u Başlat** dikey penceresi açılır ve hello parametrelerini yapılandırabilirsiniz. Kaynak grupları Hello adlarını test kullanabilirsiniz ve hiçbir zarar yanlışlıkla sildiyseniz neden olur, aboneliğinizde girin.<br> ![Remove-ResouceGroup parametreleri](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
 
    > [!NOTE]
-   > Seçili kaynak gruplarının yanlışlıkla silinmesini önlemek için **Previewmode**’un **true** olarak ayarlandığından emin olun.  Bu runbook’un, kendisini çalıştıran Otomasyon hesabını içeren kaynak grubunu kaldırmayacağını **unutmayın**.  
+   > Emin olun **Previewmode** çok ayarlanır**true** hello silme tooavoid seçilen kaynak grupları.  **Not** bu runbook bu runbook'un çalıştığı hello Otomasyon hesabını içeren hello kaynak grubu kaldırmaz.  
    >
    >
-4. Tüm parametre değerlerini yapılandırdıktan sonra **Tamam**’a tıklarsanız runbook yürütme kuyruğuna alınır.  
+4. Tüm hello parametre değerleri yapılandırdıktan sonra tıklatın **Tamam**, ve hello runbook yürütme için sıraya.  
 
-**Remove-ResourceGroup** runbook işinin ayrıntılarını Azure portal’da görüntülemek için runbook’ta **İşler**’i seçin. İş özetinde, giriş parametreleri ve çıkış akışına ek olarak işe ilişkin genel bilgiler ve gerçekleşen özel durumlar gösterilir.<br> ![Remove-ResourceGroup runbook iş durumu](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
+Merhaba tooview hello ayrıntılarını **Kaldır ResourceGroup** hello Azure portal, select runbook işi **işleri** hello runbook'taki. Ayrıca Hello hello giriş parametreleri iş özeti görüntüler ve hello çıktı hello işle ilgili toogeneral bilgileri ve oluşan tüm özel durumları akış.<br> ![Remove-ResourceGroup runbook iş durumu](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
 
-**İş Özeti** bölümünde çıkış, uyarı ve hata akışlarından iletiler bulunur. Runbook yürütmeyle ilgili ayrıntılı sonuçları görüntülemek için **Çıkış**’ı seçin.<br> ![Remove-ResourceGroup runbook çıkış sonuçları](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
+Merhaba **iş özeti** hello çıktı, uyarı ve hata akışları gelen iletileri içerir. Seçin **çıkış** tooview ayrıntılı hello runbook yürütme sonuçları.<br> ![Remove-ResourceGroup runbook çıkış sonuçları](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kendi runbook’unuzu oluşturmaya başlamak için bkz. [Azure Otomasyonu’nda runbook oluşturma veya içeri aktarma](automation-creating-importing-runbook.md).
-* PowerShell İş Akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell İş Akışı runbook uygulamam](automation-first-runbook-textual.md).
+* kendi runbook oluşturmaya başlamanızı tooget bkz [oluşturma veya bir Azure Otomasyonu runbook'u içeri aktarma](automation-creating-importing-runbook.md).
+* PowerShell iş akışı runbook'ları ile çalışmaya tooget bkz [ilk PowerShell iş akışı runbook Uygulamam](automation-first-runbook-textual.md).

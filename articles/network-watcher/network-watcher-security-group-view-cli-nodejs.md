@@ -1,6 +1,6 @@
 ---
-title: "Azure Ağ İzleyicisi güvenlik grubu görünümü - Azure CLI 1.0 ile ağ güvenliği çözümleme | Microsoft Docs"
-description: "Bu makalede, Azure CLI 1.0 güvenlik grubu görünümü ile sanal makineleri güvenliği çözümlemek için nasıl kullanılacağını anlatmaktadır."
+title: "Azure Ağ İzleyicisi güvenlik grubu görünümü - Azure CLI 1.0 ile aaaAnalyze ağ güvenliği | Microsoft Docs"
+description: "Bu makalede, Azure CLI 1.0 toouse tooanalyze sanal bir güvenlik grubu görünümü ile güvenliği nasıl makineleri anlatmaktadır."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 2c4c494dcc4fe1a85c5feb29506c35fb03066479
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 96383a734b94d215d5b0f3d47339e46940d700b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-10"></a>Güvenlik grubu Azure CLI 1.0 kullanarak görünümü ile sanal makine güvenliğinizi Çözümle
 
@@ -28,27 +28,27 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
-Güvenlik grubu görünümü bir sanal makineye uygulanan yapılandırılmış ve etkili ağ güvenlik kuralları döndürür. Bu denetim ve ağ güvenlik grupları ve trafik yükleniyor emin olmak için bir VM üzerinde yapılandırılmış kurallarını tanılamak yararlı bir yetenektir doğru şekilde izin verilen veya reddedilen. Bu makalede, Azure CLI kullanarak bir sanal makine için yapılandırılmış ve etkili güvenlik kuralları almak nasıl gösteriyoruz
+Güvenlik grubu görünümü uygulanan tooa sanal makine yapılandırılmış ve etkili ağ güvenlik kuralları döndürür. Bu özellik kullanışlı tooaudit ve ağ güvenlik grupları tanılama ve bir VM tooensure trafiğinde yapılandırılmış kuralları yükleniyor doğru şekilde izin verilen veya reddedilen. Bu makalede, tooretrieve hello nasıl yapılandırılacağı ve Azure CLI kullanarak etkin güvenlik kuralları tooa sanal makine gösteriyoruz
 
 Bu makalede, platformlar arası Azure CLI 1.0, Windows, Mac ve Linux için kullanılabilir olduğu kullanır. Ağ İzleyicisi, CLI desteği şu anda Azure CLI 1.0 kullanır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için.
+Bu senaryo zaten izlediğiniz hello adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) toocreate bir Ağ İzleyicisi.
 
 ## <a name="scenario"></a>Senaryo
 
-Bu makalede ele alınan senaryo, belirli bir sanal makine için yapılandırılmış ve etkili güvenlik kurallarını alır.
+Bu makalede ele alınan hello senaryo yapılandırılmış hello ve belirli bir sanal makine için etkili güvenlik kurallarını alır.
 
 ## <a name="get-a-vm"></a>VM Al
 
-Bir sanal makineyi çalıştırmak için gerekli `vm list` cmdlet'i. Aşağıdaki komut bir kaynak grubunda sanal machinese listeler:
+Gerekli toorun hello bir sanal makinedir `vm list` cmdlet'i. Merhaba aşağıdaki komut bir kaynak grubunda hello sanal machinese listeler:
 
 ```azurecli
 azure vm list -g resourceGroupName
 ```
 
-Sanal makine öğrendikten sonra kullanabileceğiniz `vm show` kendi kaynak kimliği almak için cmdlet:
+Merhaba sanal makine öğrendikten sonra hello kullanabilirsiniz `vm show` cmdlet tooget kendi kaynak kimliği:
 
 ```azurecli
 azure vm show -g resourceGroupName -n virtualMachineName
@@ -56,15 +56,15 @@ azure vm show -g resourceGroupName -n virtualMachineName
 
 ## <a name="retrieve-security-group-view"></a>Güvenlik grubu görünümü alma
 
-Güvenlik grubu Görünüm sonucu almak için sonraki adımdır bakın. Ekleme "--json" json sonuçları bayrağı biçimlendirecek.
+Merhaba sonraki tooretrieve hello güvenlik grubu Görünüm sonucu adımdır. Ekleme hello "--json" bayrağı json hello sonuçlarında biçimlendirecek.
 
 ```azurecli
 azure network watcher security-group-view -g resourceGroupName -n networkWatcherName -t targetResourceId --json
 ```
 
-## <a name="viewing-the-results"></a>Sonuçları görüntüleme
+## <a name="viewing-hello-results"></a>Merhaba sonuçları görüntüleme
 
-Döndürülen sonuçlar kısaltılmış yanıtın örnektir. Gruplar halinde ayrılmış sanal makine üzerinde etkili ve uygulanan güvenlik kuralları sonuçları göster **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, ve **EffectiveSecurityRules**.
+Merhaba aşağıdaki kısaltılmış bir yanıt döndürdü hello sonuçlarının bir örnektir. Merhaba sonuçları tüm hello etkili ve uygulanan güvenlik kuralları hello sanal makineye gruplar halinde ayrıntılarıyla Göster **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, ve  **EffectiveSecurityRules**.
 
 ```json
 {
@@ -115,6 +115,6 @@ Döndürülen sonuçlar kısaltılmış yanıtın örnektir. Gruplar halinde ayr
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ziyaret [denetim ağ güvenlik grupları (NSG) Ağ İzleyicisi ile](network-watcher-nsg-auditing-powershell.md) ağ güvenlik grupları doğrulanması otomatikleştirmek öğrenmek için.
+Ziyaret [denetim ağ güvenlik grupları (NSG) Ağ İzleyicisi ile](network-watcher-nsg-auditing-powershell.md) toolearn nasıl tooautomate doğrulama ağ güvenlik grupları.
 
-Ağ kaynaklarınıza ziyaret ederek uygulanan güvenlik kuralları hakkında daha fazla bilgi [güvenlik grubu Görünümü'ne genel bakış](network-watcher-security-group-view-overview.md)
+Şu adresi ziyaret ederek uygulanan tooyour ağ kaynaklarına olan hello güvenlik kuralları hakkında daha fazla bilgi [güvenlik grubu Görünümü'ne genel bakış](network-watcher-security-group-view-overview.md)

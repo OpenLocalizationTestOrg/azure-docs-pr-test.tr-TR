@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage ile çalışmak için Araçlar | Microsoft Docs"
-description: "Görünüm/Azure Storage verilerinizle etkileşim olanak sağlayan araçlar listesi."
+title: "Azure Storage ile çalışmak için aaaTools | Microsoft Docs"
+description: "Tooview/etkileşimde Azure Storage verilerinizin izin araçları listesi."
 services: storage
 documentationcenter: 
 author: dineshmurthy
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: dineshmurthy
-ms.openlocfilehash: 620efda06d8225b21b6bb9b104b79061ebb6515c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3308de2153099a05a676ab1d76426bd932e8a96c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage İstemci Araçları
-Azure Storage kullanıcılarının sık bir Azure Storage istemci araç kullanarak kullanıcıların verileriyle görünüm/etkileşim kurmak kullanabilmek ister. Aşağıdaki tablolarda, bunu yapmak izin araçları sayısını listeler. Ya da numaralandırır ve/veya veri soyutlama erişim olanağı sağlar, biz "X" her blok yerleştirin. Tablo ayrıca araçları olup olmadığını boş olmadığını gösterir. "Deneme" ücretsiz deneme yoktur, ancak tam ürün boş değil gösterir. "Y/N" farklı bir sürümünü satın almak için uygun olsa da bir sürümünün ücretsiz olarak kullanılabilir olduğunu gösterir.
+Azure Storage kullanıcılarının sık toobe mümkün tooview/etkileşim bir Azure Storage istemci araç kullanarak kullanıcıların verileriyle istiyorsunuz. Merhaba aşağıdaki tablolarda, biz toodo izin araçları sayısı bu listeleyin. Merhaba yeteneği sağlar, biz "X" her blok yerleştirme tooeither numaralandırır ve/veya erişim hello veri Özet. Merhaba tablo da hello araçları olup olmadığını boş olmadığını gösterir. "Deneme" ücretsiz deneme yoktur, ancak hello tam ürün boş değil gösterir. "Y/N" farklı bir sürümünü satın almak için uygun olsa da bir sürümünün ücretsiz olarak kullanılabilir olduğunu gösterir.
 
-Bir anlık görüntü kullanılabilir Azure Storage istemci Araçları'nın yalnızca sağladık. Bu araçları gelişmesi ve işlevselliğinde büyümesine devam edebilir. Düzeltmeler veya güncelleştirmeler varsa, lütfen bize bildirin bir yorum bırakın. Aynı burada - gelmelidir araçlarının biliyorsanız, biz eklemediğiniz mutluluk olacaktır geçerlidir.
+Bir anlık görüntü hello kullanılabilir Azure Storage istemci Araçları'nın yalnızca sağladık. Bu araçlar tooevolve devam ve işlevindeki büyümesine. Düzeltmeler veya güncelleştirmeler varsa, lütfen bize bir yorum toolet bırakın. Merhaba aynı doğruysa, burada toobe gelmelidir araçlarının bildiğiniz - biz mutluluk tooadd olacaktır bunları.
 
 **Microsoft Azure Storage istemci araçları**
 
@@ -91,7 +91,7 @@ Bir anlık görüntü kullanılabilir Azure Storage istemci Araçları'nın yaln
 
 **Üçüncü taraf Azure Storage istemci araçları**
 
-Biz işlev veya aşağıdaki üçüncü taraf araçları tarafından talep kalite doğrulamadınız demektir ve bunların listeleme Microsoft tarafından bir onay anlamına gelmez.
+Biz hello işlev veya üçüncü taraf araçları ve bunların listeleme aşağıdaki hello tarafından talep kalite Microsoft tarafından bir onay göstermez doğrulamadınız demektir.
 
 <table>
   <tr>

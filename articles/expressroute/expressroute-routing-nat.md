@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: osamam
-ms.openlocfilehash: 5c039a80b24feda61da0793fa64b48cb4783c3f1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7a8b760df90b545b5fbde2f614aef62dd3985bb6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="nat-for-expressroute"></a>ExpressRoute için NAT
 
-Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız. 
+ExpressRoute kullanarak, tooconnect tooMicrosoft bulut hizmetlerine yukarı tooset gerekir ve yönlendirme yönetin. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup varsa, bağlantı sağlayıcısı toosee ile denetleyin. Yoksa, toohello gereksinimlerine uymalıdır. 
 
-Bağlantıyı kolaylaştırmak üzere ayarlanması gereken yönlendirme oturumlarının bir açıklaması için [Devreler ve yönlendirme etki alanları](expressroute-circuit-peerings.md) makalesine bakın.
+Toohello başvuran [devreler ve Yönlendirme etki alanları](expressroute-circuit-peerings.md) hello yönlendirme açıklaması için makalenin toobe gereksinim oturumları toofacilitate Bağlantısı'nda ayarlayın.
 
 > [!NOTE]
 > Microsoft, yüksek kullanılabilirlik yapılandırmaları için yönlendirici artıklık protokollerini (örn. HSRP, VRRP) desteklemez. Yüksek kullanılabilirlik için eşlik başına yedek bir BGP oturumları çifti kullanılır.
@@ -33,56 +33,56 @@ Bağlantıyı kolaylaştırmak üzere ayarlanması gereken yönlendirme oturumla
 
 ## <a name="ip-addresses-used-for-peerings"></a>Eşlemeler için kullanılan IP adresleri
 
-Ağınız ile Microsoft'un Enterprise edge (MSEE) yönlendiricileri arasındaki yönlendirmeyi yapılandırmak için birkaç IP adresi bloğu ayırmanız gerekir. Bu bölümde gereksinimlerin bir listesi verilmekte ve bu IP adreslerinin nasıl elde edilip kullanılacağı hakkında kurallar açıklanmaktadır.
+Tooreserve IP birkaç bloklarını gereken adresleri tooconfigure ağınız ile Microsoft'un Enterprise edge (Msee) yönlendiricileri yönlendirmeyi. Bu bölümde gereksinimlerin listesi sağlar ve bu IP adreslerini nasıl alınan ve kullanılan ilgili hello kurallar açıklanmaktadır.
 
 ### <a name="ip-addresses-used-for-azure-private-peering"></a>Azure özel eşleme için kullanılan IP adresleri
 
-Eşlikleri yapılandırmak için özel IP adresleri veya ortak IP adresleri kullanabilirsiniz. Yolları yapılandırmak için kullanılan adres aralığı, Azure’da sanal ağlar oluşturmak için kullanılan adres aralıkları ile üst üste gelmemelidir. 
+Özel IP adresleri veya ortak IP adresleri tooconfigure hello eşlemeleri kullanabilirsiniz. Başlangıç adresi aralığı yolları yapılandırmak için kullanılan adres aralıkları kullanılan toocreate azure'da sanal ağlar ile çakışmaması gerekir. 
 
 * Arabirimleri yönlendirmek için bir /29 alt ağı veya iki /30 alt ağı ayırmanız gerekir.
-* Yönlendirme için kullanılan alt ağlar özel IP adresleri veya ortak IP adresleri olabilir.
-* Alt ağlar Microsoft bulutunda kullanılmak üzere müşteri tarafından ayrılan aralıkla çakışmamalıdır.
+* Yönlendirme için kullanılan hello alt ağlar özel IP adresleri veya ortak IP adresleri olabilir.
+* Merhaba alt hello Microsoft bulutunda kullanılmak hello müşteri tarafından ayrılan hello aralığı ile çakışmaması gerekir.
 * Bir /29 alt ağı kullanıldığında iki /30 alt ağına bölünür. 
-  * Birinci /30 alt ağı birincil bağlantı ve ikinci /30 alt ağı ikincil bağlantı için kullanılır.
-  * /30 alt ağın her biri için yönlendiriciniz üzerindeki /30 al ağının birinci IP adresini kullanmanız gerekir. Microsoft bir BGP oturumu ayarlamak için /30 alt ağının ikinci IP adresini kullanır.
-  * [Kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/)’sının geçerli olması için her iki BGP oturumunu da ayarlamanız gerekir.  
+  * ilk hello/30 alt ağı hello birincil bağlantı için kullanılacak ve ikinci /30 hello alt hello ikincil bağlantı için kullanılır.
+  * Her hello /30 alt ağlar için Yönlendiricinizde hello ilk IP adresi hello /30 alt kullanmalısınız. Microsoft bir BGP oturumu yukarı hello /30 alt tooset hello ikinci IP adresini kullanır.
+  * Her iki BGP oturumunu da ayarlamanız gerekir bizim [kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/) toobe geçerli.  
 
 #### <a name="example-for-private-peering"></a>Özel eşleme örneği
 
-Eşlik oluşturmak için a.b.c.d/29 kullanmayı seçerseniz iki /30 alt ağına bölünür. Aşağıdaki örnekte, a.b.c.d/29 alt ağının nasıl kullanıldığına bakılacaktır. 
+Toouse a.b.c.d/29 tooset eşliği hello yukarı seçerseniz iki/30 alt bölünür. Merhaba aşağıdaki örnekte, hello a.b.c.d/29 alt ağının nasıl kullanıldığına bakılacaktır. 
 
-a.b.c.d/29; a.b.c.d/30 ve a.b.c.d+4/30 olarak ayrılır ve sağlama API’leri yoluyla Microsoft’a geçirilir. a.b.c.d+1’i Birincil PE’nin VRF IP’si olarak kullanırsınız ve Microsoft birincil MSEE’nin VRF IP’si olarak a.b.c.d+2 kullanır. a.b.c.d+5’i ikincil PE’nin VRF IP’si olarak kullanırsınız ve Microsoft ikincil MSEE’nin VRF IP’si olarak a.b.c.d+6 kullanır.
+a.b.c.d/29 bölünmüş tooa.b.c.d/30 ve a.b.c.d+4/30 olacaktır ve API'leri sağlama hello aracılığıyla tooMicrosoft aşağı geçirildi. Merhaba VRF IP'si hello birincil PE'nin ve Microsoft hello VRF IP'si olarak a.b.c.d+2 tüketir için hello gibi birincil MSEE'nin a.b.c.d+1 kullanır. Merhaba VRF IP'si hello ikincil PE'nin ve Microsoft hello VRF IP'si olarak a.b.c.d+6 kullanacağı hello gibi ikincil a.b.c.d+5 kullanır.
 
-Özel eşleme oluşturmak için 192.168.100.128/29’u seçtiğiniz bir durum düşünün. 192.168.100.128/29 adresi 192.168.100.128 ile 192.168.100.135 arasındaki adresleri içerir, bunlar arasında:
+Özel eşleme yukarı 192.168.100.128/29 tooset burada seçtiğiniz bir durum düşünün. 192.168.100.128/29 adresi 192.168.100.128 içerir, arasında too192.168.100.135:
 
-* 192.168.100.128/30 adresi bağlantı 1’e atanır, sağlayıcı 192.168.100.129 ve Microsoft 192.168.100.130 kullanır.
-* 192.168.100.132/30 adresi bağlantı 2’ye atanır, sağlayıcı 192.168.100.133 ve Microsoft 192.168.100.134 kullanır.
+* 192.168.100.128/30 toolink1, sağlayıcı 192.168.100.129 ve Microsoft 192.168.100.130 kullanarak ile atanır.
+* 192.168.100.132/30 toolink2, sağlayıcı 192.168.100.133 ve Microsoft 192.168.100.134 kullanarak ile atanır.
 
 ### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>Azure genel ve Microsoft eşlemesi için kullanılan IP adresleri
 
-BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanmanız gerekir. Microsoft, IP adreslerinin sahipliğini Routing Internet Registries ve Internet Routing Registries ile doğrulayabilmelidir. 
+Merhaba BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanmanız gerekir. Microsoft, mümkün tooverify hello sahipliğini Routing Internet Registries ve Internet Routing Registries aracılığıyla hello IP adresleri olmalıdır. 
 
-* Bir ExpressRoute devresindeki her eşleme (birden fazla varsa) için BGP eşliği oluşturmak üzere benzersiz bir /29 alt ağı veya iki /30 alt ağı kullanmanız gerekir. 
+* Benzersiz bir kullanmalısınız/29 alt ağı veya iki/30 alt tooset yukarı hello BGP eşliği (birden fazla varsa) her expressroute bağlantı hattı eşliği için. 
 * Bir /29 alt ağı kullanıldığında iki /30 alt ağına bölünür. 
-  * Birinci /30 alt ağı birincil bağlantı ve ikinci /30 alt ağı ikincil bağlantı için kullanılır.
-  * /30 alt ağın her biri için yönlendiriciniz üzerindeki /30 al ağının birinci IP adresini kullanmanız gerekir. Microsoft bir BGP oturumu ayarlamak için /30 alt ağının ikinci IP adresini kullanır.
-  * [Kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/)’sının geçerli olması için her iki BGP oturumunu da ayarlamanız gerekir.
+  * ilk hello/30 alt ağı hello birincil bağlantı için kullanılacak ve ikinci /30 hello alt hello ikincil bağlantı için kullanılır.
+  * Her hello /30 alt ağlar için Yönlendiricinizde hello ilk IP adresi hello /30 alt kullanmalısınız. Microsoft bir BGP oturumu yukarı hello /30 alt tooset hello ikinci IP adresini kullanır.
+  * Her iki BGP oturumunu da ayarlamanız gerekir bizim [kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/) toobe geçerli.
 
 ## <a name="public-ip-address-requirement"></a>Genel IP adresi gereksinimi
 
 ### <a name="private-peering"></a>Özel Eşleme
 
-Özel eşleme için genel veya özel IPv4 adresleri kullanmayı tercih edebilirsiniz. Özel eşleme sırasında adreslerin diğer müşterilerle çakışmasını önlemek için trafiğinizin uçtan uca yalıtılmasını sağlarız. Bu adresler İnternet’e tanıtılmaz. 
+Özel eşleme için ortak veya özel IPv4 adreslerini toouse seçebilirsiniz. Özel eşleme sırasında adreslerin diğer müşterilerle çakışmasını önlemek için trafiğinizin uçtan uca yalıtılmasını sağlarız. Bu adresler tanıtılan tooInternet değildir. 
 
 ### <a name="public-peering"></a>Ortak Eşleme
 
-Azure ortak eşleme yolu, Azure’da barındırılan tüm hizmetlere ortak IP adresleri üzerinden bağlanmanıza olanak sağlar. Bunlar [ExpessRoute hakkında SSS](expressroute-faqs.md)’de listelenen tüm hizmetleri ve ISV’ler tarafından Microsoft Azure üzerinde barındırılan hizmetleri içerir. Ortak eşleme üzerinden Microsoft Azure hizmetlerine bağlama, her zaman sizin ağınızdan Microsoft ağına doğru başlatılır. Microsoft ağını hedefleyen trafik için Genel IP adreslerini kullanmanız gerekir.
+Hello Azure ortak eşleme yolu ortak IP adresleri Azure'da barındırılan, tooconnect tooall hizmetleri sağlar. Hello listelenen hizmetleri bunlar [ExpessRoute hakkında SSS](expressroute-faqs.md) ve Microsoft Azure üzerinde ISV'ler tarafından barındırılan tüm hizmetleri. Bağlantı tooMicrosoft Azure hizmetleri genel eşliği her zaman başlatıldığında ağınızdan hello Microsoft ağına doğru. Merhaba trafik hedefleyen tooMicrosoft ağ için genel IP adresleri kullanmanız gerekir.
 
 ### <a name="microsoft-peering"></a>Microsoft Eşlemesi
 
-Microsoft eşleme yolu, Azure ortak eşleme yolu üzerinden desteklenmeyen Microsoft bulut hizmetlerine bağlanmanızı sağlar. Bunlara Exchange Online, SharePoint Online, Skype Kurumsal ve Dynamics 365 gibi Office 365 hizmetleri dahildir. Microsoft, Microsoft eşlemesi üzerinde çift yönlü bağlantıyı destekler. Microsoft bulut hizmetlerini hedefleyen trafik, Microsoft ağına girmeden önce geçerli genel IPv4 adresleri kullanmalıdır.
+Merhaba Microsoft eşleme yolu hello Azure ortak eşleme yolu desteklenmeyen tooMicrosoft bulut Hizmetleri bağlanmanıza olanak sağlar. Exchange Online, SharePoint Online, Skype Kurumsal ve Dynamics 365 gibi Office 365 Hizmetleri Hello hizmetleri içerir. Microsoft, hello Microsoft eşlemesi üzerinde çift yönlü bağlantıyı destekler. Giden trafiğe tooMicrosoft bulut Hizmetleri, hello Microsoft ağına girmeden önce geçerli bir ortak IPv4 adresi kullanmanız gerekir.
 
-IP adresi ve AS numarasının aşağıda listelenen kayıt defterlerinden birinde size kayıtlı olduğundan emin olun.
+IP adresi ve AS numarasının emin olun aşağıda listelenen hello kayıt defterleri birinde kayıtlı tooyou şunlardır.
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -93,57 +93,57 @@ IP adresi ve AS numarasının aşağıda listelenen kayıt defterlerinden birind
 * [ALTDB](http://altdb.net/)
 
 > [!IMPORTANT]
-> ExpressRoute üzerinden Microsoft'a tanıtılan genel IP adreslerinin İnternet’e tanıtılması gerekmez. Bu, diğer Microsoft hizmetlerine bağlantıyı kesebilir. Ancak ağınızda Microsoft içindeki O365 uç noktalarıyla iletişim kuran sunucular tarafından kullanılan Genel IP adresleri, ExpressRoute üzerinden tanıtılabilir. 
+> Genel IP adresleri tanıtılan tooMicrosoft ExpressRoute üzerinden tanıtılan toohello Internet olmamalıdır. Bu bağlantı tooother Microsoft Hizmetleri kesilebilir. Ancak ağınızda Microsoft içindeki O365 uç noktalarıyla iletişim kuran sunucular tarafından kullanılan Genel IP adresleri, ExpressRoute üzerinden tanıtılabilir. 
 > 
 > 
 
 ## <a name="dynamic-route-exchange"></a>Dinamik yönlendirme değişimi
 
-Yönlendirme değişimi bir eBGP protokolü üzerinden olacaktır. EBGP oturumları MSEE’ler ile yönlendiricileriniz arasında oluşturulur. BGP oturumlarının kimlik doğrulaması zorunlu değildir. Gerekirse bir MD5 karması yapılandırılabilir. BGP oturumlarını yapılandırma hakkında bilgi için [Yönlendirmeyi yapılandırma](expressroute-howto-routing-classic.md) ve [Devre sağlama iş akışları ve devre durumları](expressroute-workflows.md) bölümlerine bakın.
+Yönlendirme değişimi bir eBGP protokolü üzerinden olacaktır. EBGP oturumları hello Msee'ler ile yönlendiricileriniz arasında oluşturulur. BGP oturumlarının kimlik doğrulaması zorunlu değildir. Gerekirse bir MD5 karması yapılandırılabilir. Merhaba bkz [yönlendirmeyi yapılandırma](expressroute-howto-routing-classic.md) ve [hattı sağlama iş akışları ve devre durumları](expressroute-workflows.md) BGP oturumlarını yapılandırma hakkında bilgi.
 
 ## <a name="autonomous-system-numbers"></a>Otonom Sistem numaraları
 
-Microsoft Azure genel, Azure özel ve Microsoft eşlemesi için AS 12076 kullanır. 65515 ile 65520 arasındaki ASN’ler şirket içi kullanım için ayrılmıştır. Hem 16 hem de 32 bit AS numaraları desteklenir.
+Microsoft Azure genel, Azure özel ve Microsoft eşlemesi için AS 12076 kullanır. Asn'ler biz gelen 65515 too65520 iç kullanım için ayrılmıştır. Hem 16 hem de 32 bit AS numaraları desteklenir.
 
-Veri aktarımı simetrisi etrafında bir gereksinim yoktur. İleri ve geri dönüş yolları farklı yönlendirici çiftlerinden geçiş yapabilir. Aynı yollar size ait birden fazla devre çiftinin her iki tarafından tanıtılmalıdır. Yol ölçümlerinin aynı olması gerekmez.
+Veri aktarımı simetrisi etrafında bir gereksinim yoktur. Merhaba İleri ve geri dönüş yolları farklı yönlendirici çiftlerinden geçiş yapabilir. Aynı yollar size ait birden fazla devre çiftinin her iki tarafından tanıtılmalıdır. Yol ölçümlerinin gerekli toobe aynı değildir.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Yol toplama ve ön ek sınırları
 
-Azure özel eşleme aracılığıyla bize tanıtılan 4000’e kadar ön eki destekliyoruz. ExpressRoute premium eklentisi etkinse bu sayı en fazla 10.000 ön eke kadar artırılabilir. Azure genel ve Microsoft eşlemesi için BGP oturumu başına en fazla 200 ön ek kabul edilmektedir. 
+Too4000 destekliyoruz toous hello Azure özel eşleme aracılığıyla tanıtılan ön ekler. Bu too10, hello ExpressRoute premium eklentisi etkinse 000 önekleri artırılabilir. Biz too200 önekleri Azure genel için BGP oturumu başına ve Microsoft eşlemesi kabul eder. 
 
-Ön ek sayısı bu sınırı aşarsa BGP oturumu düşürülür. Yalnızca özel eşleme bağlantısında varsayılan yollar kabul edilir. Sağlayıcının Azure genel ve Microsoft eşlemesi yollarından varsayılan yolu ve özel IP adreslerini (RFC 1918) filtrelemesi gerekir. 
+Hello öneklerini sayısı hello sınırını aşarsa hello BGP oturumu düşürülür. Biz hello özel eşleme bağlantısı yalnızca varsayılan yolların kabul eder. Sağlayıcısı varsayılan rota ve hello Azure genel özel IP adreslerini (RFC 1918) ve Microsoft eşleme yollarındaki filtre gerekir. 
 
 ## <a name="transit-routing-and-cross-region-routing"></a>Geçiş yönlendirme ve çapraz bölge yönlendirme
 
-ExpressRoute geçiş yönlendirici olarak yapılandırılamaz. Geçiş yönlendirme hizmetleri için bağlantı sağlayıcınızı kullanmanız gerekir.
+ExpressRoute geçiş yönlendirici olarak yapılandırılamaz. Geçiş yönlendirme hizmetleri için bağlantı sağlayıcınızı toorely sahip olur.
 
 ## <a name="advertising-default-routes"></a>Varsayılan yolları tanıtma
 
-Varsayılan yollar yalnızca Azure özel eşleme oturumlarında kullanılabilir. Böyle bir durumda, ilişkili sanal ağlardaki tüm trafik ağınıza yönlendirilecektir. Varsayılan yolların özel eşlemede tanıtılması Azure’daki Internet yolunun engellenmesiyle sonuçlanır. Azure içinde barındırılan hizmetler için internetten gelen ve giden trafiği yönlendirmek üzere kurumsal edge kullanmanız gerekir. 
+Varsayılan yollar yalnızca Azure özel eşleme oturumlarında kullanılabilir. Böyle bir durumda, biz hello ilişkili sanal ağlar tooyour ağdan gelen tüm trafiğin yönlendirir. Varsayılan yolların özel eşlemede tanıtılması engellenme Azure hello Internet yolunun neden olur. Kurumsal edge tooroute trafiğinden Bel gerekir ve toohello Internet Hizmetleri için Azure üzerinde barındırılan. 
 
- Diğer Azure hizmetleri ve altyapı hizmetleri ile bağlantıyı etkinleştirmek üzere aşağıdaki öğelerden birinin yerinde olduğundan emin olmanız gerekir:
+ tooenable bağlantı tooother Azure Hizmetleri ve altyapı hizmetleri, aşağıdaki öğelerindeki hello biri yerinde emin olmalısınız:
 
-* Trafiği ortak uç noktalara yönlendirmek için Azure ortak eşleme etkindir
-* İnternet bağlantısı gerektiren her alt ağ için İnternet bağlantısına izin vermek üzere kullanıcı tanımlı yönlendirmeyi kullanırsınız.
+* Etkin tooroute trafiği toopublic uç noktaları olan Azure ortak eşleme
+* Her alt ağ gerektiren Internet bağlantısı için kullanıcı tanımlı yönlendirme tooallow internet bağlantısı kullanın.
 
 > [!NOTE]
-> Varsayılan yolların tanıtılması, Windows ve diğer VM lisans etkinleştirmelerini bozar. Bu sorunu çözmek için [buradaki](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) yönergeleri izleyin.
+> Varsayılan yolların tanıtılması, Windows ve diğer VM lisans etkinleştirmelerini bozar. Yönergeleri izleyerek [burada](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) bu geçici toowork.
 > 
 > 
 
 ## <a name="support-for-bgp-communities-preview"></a>BGP toplulukları desteği (Önizleme)
 
-Bu bölüm BGP toplulukların ExpressRoute ile nasıl kullanıldığına genel bir bakış sağlar. Microsoft genel ve Microsoft eşleme yollarındaki rotaları uygun topluluk değerleriyle etiketleyerek tanıtır. Bunu yapmanın gerekçesi ve topluluk değerlerine ilişkin ayrıntılar aşağıda açıklanmıştır. Ancak, Microsoft kendisine tanıtılan rotalara etiketlenmiş hiçbir topluluk değerini kabul etmez.
+Bu bölüm BGP toplulukların ExpressRoute ile nasıl kullanıldığına genel bir bakış sağlar. Microsoft yollar hello ortak ve Microsoft eşleme yollarındaki rotaları uygun topluluk değerleriyle etiketleyerek tanıtır. Bunu yapmak için stratejinin hello ve topluluk değerlerini aşağıda açıklanan ilgili ayrıntılar hello. Microsoft, ancak dikkate almayabilir hiçbir topluluk değerlerini etiketli tooroutes tanıtılan tooMicrosoft.
 
-Microsoft’a ExpressRoute aracılığıyla jeopolitik bir bölgedeki herhangi bir eşleme konumundan bağlanıyorsanız jeopolitik sınır dahilindeki tüm bölgelerde bütün Microsoft bulut hizmetlerine erişiminiz olacaktır. 
+Coğrafi bölge içindeki herhangi bir eşleme konumundan ExpressRoute aracılığıyla tooMicrosoft bağlanıyorsanız hello jeopolitik sınır dahilindeki tüm bölgelerde erişim tooall Microsoft bulut Hizmetleri gerekir. 
 
-Örneğin, Microsoft’a Amsterdam’da ExpressRoute aracılığıyla bağlandıysanız Kuzey Avrupa ve Batı Avrupa’da barındırılan tüm Microsoft bulut hizmetlerine erişiminiz olur. 
+Örneğin, tooMicrosoft amsterdam'da ExpressRoute aracılığıyla bağlandıysanız Kuzey Avrupa ve Batı Avrupa'da barındırılan erişim tooall Microsoft bulut hizmetlerine olacaktır. 
 
-Jeopolitik bölgeler, ilişkili Azure bölgeleri ve karşılık gelen ExpressRoute eşleme konumlarını içeren ayrıntılı liste için [ExpressRoute iş ortakları ve eşleme konumları](expressroute-locations.md) sayfasına bakın.
+Toohello başvuran [ExpressRoute ortakları ve eşleme konumları](expressroute-locations.md) jeopolitik bölgeler, ilişkili Azure bölgeleri ve karşılık gelen ExpressRoute eşleme konumlarını ayrıntılı bir listesi için sayfa.
 
-Bir jeopolitik bölge için birden fazla ExpressRoute devresi satın alabilirsiniz. Birden fazla bağlantıya sahip olmanız coğrafi artıklık nedeniyle yüksek kullanılabilirliğe ilişkin önemli avantajlar sunar. Birden fazla ExpressRoute devrenizin olduğu durumlarda ortak eşleme ve Microsoft eşleme yollarında Microsoft’tan tanıtılan aynı ön eklerini alırsınız. Bu durum ağınız ile Microsoft arasında birden fazla yol olacağı anlamına gelir. Bu durum ağınızın içinde en iyi olmayan yönlendirme kararlarına neden olabilir. Sonuç olarak, farklı hizmetlerde en iyi düzeyin altında bağlantı deneyimleri yaşayabilirsiniz. 
+Bir jeopolitik bölge için birden fazla ExpressRoute devresi satın alabilirsiniz. Birden fazla bağlantıya sahip sunar, yüksek kullanılabilirliğe ilişkin önemli avantajlar son toogeo artıklık. Birden fazla ExpressRoute devrenizin olduğu durumlarda Microsoft hello ortak eşleme ve Microsoft eşleme yollarında hello öneklerini aynı kümesini tanıtılan alırsınız. Bu durum ağınız ile Microsoft arasında birden fazla yol olacağı anlamına gelir. Bu, büyük olasılıkla ağınızın içinde en iyi olmayan yönlendirme kararlarına toobe neden olabilir. Sonuç olarak, iyinin altında bağlantı deneyimleri toodifferent Hizmetleri karşılaşabilirsiniz. 
 
-Microsoft ortak eşleme ve Microsoft eşlemesi aracılığıyla tanıtılan ön eklere, ön eklerin barındırıldığı bölgeyi belirten uygun BGP topluluk değerlerini etiketler. [Müşteriler için en iyi yönlendirmeyi](expressroute-optimize-routing.md) sunmak üzere uygun yönlendirme kararlarını almak için topluluk değerlerini kullanabilirsiniz.
+Microsoft ortak eşleme aracılığıyla tanıtılan ön eklere ve hello bölge hello öneklerini belirten uygun BGP topluluk değerlerini Microsoft içinde barındırılır. Merhaba topluluk değerlerini toomake uygun yönlendirme kararlarını toooffer üzerinde güvenebilirsiniz [en iyi yönlendirme toocustomers](expressroute-optimize-routing.md).
 
 | **Jeopolitik Bölge** | **Microsoft Azure bölgesi** | **BGP topluluk değeri** |
 | --- | --- | --- |
@@ -177,14 +177,14 @@ Microsoft ortak eşleme ve Microsoft eşlemesi aracılığıyla tanıtılan ön 
 | Hindistan Batı |12076:51018 | |
 | Hindistan Orta |12076:51017 | |
 
-Microsoft tarafından tanıtılan tüm yollar uygun topluluk değeriyle etiketlenecektir. 
+Microsoft tarafından tanıtılan tüm yollar hello uygun topluluk değeriyle etiketlenecektir. 
 
 > [!IMPORTANT]
 > Genel ön ekler uygun bir topluluk değeri ile etiketlenecek ve yalnızca ExpressRoute premium eklentisi etkinleştirildiğinde tanıtılacaktır.
 > 
 > 
 
-Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre etiketleyecektir. Bu durum yalnızca Microsoft eşlemesi için geçerlidir. Aşağıdaki tabloda hizmetin BGP topluluk değeri ile eşleşmesi gösterilmektedir.
+Ayrıca toohello yukarıdaki, Microsoft de ait hello hizmet göre ön eklere. Bu, yalnızca toohello Microsoft eşlemesi geçerlidir. Merhaba tabloda hizmet tooBGP topluluk değeri eşlenmesini sağlar.
 
 | **Hizmet** | **BGP topluluk değeri** |
 | --- | --- |
@@ -195,7 +195,7 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 | **Diğer Office 365 Hizmetleri** |12076:5100 |
 
 > [!NOTE]
-> Microsoft, Microsoft'a tanıtılan yollar üzerinde ayarladığınız hiçbir BGP topluluk değerini dikkate almaz.
+> Microsoft hello yollar tanıtılan tooMicrosoft ayarladığınız hiçbir BGP topluluk değerini dikkate almaz.
 > 
 > 
 
@@ -203,7 +203,7 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 
 * ExpressRoute bağlantınızı yapılandırın.
   
-  * [Klasik dağıtım modeli için ExpressRoute devresi oluşturma](expressroute-howto-circuit-classic.md) veya [Azure Resource Manager kullanarak ExpressRoute devresi oluşturma ya da değiştirme](expressroute-howto-circuit-arm.md)
-  * [Klasik dağıtım modeli için yönlendirmeyi yapılandırma](expressroute-howto-routing-classic.md) veya [Resource Manager dağıtım modeli için yönlendirmeyi yapılandırma](expressroute-howto-routing-arm.md)
-  * [Klasik VNet’i ExpressRoute devresine bağlama](expressroute-howto-linkvnet-classic.md) veya [Resource Manager VNet’i ExpressRoute devresine bağlama](expressroute-howto-linkvnet-arm.md)
+  * [Merhaba Klasik dağıtım modeli için ExpressRoute devresi oluşturma](expressroute-howto-circuit-classic.md) veya [oluşturma ve Azure Resource Manager kullanarak ExpressRoute devresi değiştirme](expressroute-howto-circuit-arm.md)
+  * [Yapılandırma hello Klasik dağıtım modeli için yönlendirmeyi](expressroute-howto-routing-classic.md) veya [hello Resource Manager dağıtım modeli için yönlendirmeyi yapılandırma](expressroute-howto-routing-arm.md)
+  * [Klasik bir VNet tooan expressroute bağlantı hattı bağlantı](expressroute-howto-linkvnet-classic.md) veya [Resource Manager Vnet'i tooan expressroute bağlantı hattı bağlantı](expressroute-howto-linkvnet-arm.md)
 

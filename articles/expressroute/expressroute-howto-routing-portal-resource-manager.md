@@ -1,6 +1,6 @@
 ---
-title: "Yönlendirme (bir ExpressRoute için eşliği) hattı yapılandırma: Resource Manager: Azure | Microsoft Docs"
-description: "Bu makalede, bir ExpressRoute bağlantı hattı için özel, ortak ve Microsoft eşlemesinin nasıl oluşturulduğu ve sağlandığı adım adım anlatılmaktadır. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır."
+title: "Nasıl tooconfigure (eşleme) bir expressroute bağlantı hattı için yönlendirmeyi: Resource Manager: Azure | Microsoft Docs"
+description: "Bu makalede, oluşturma ve sağlama hello özel, genel ve Microsoft bir expressroute bağlantı hattı eşlemesi hello adım adım anlatılmaktadır. Bu makalede ayrıca nasıl toocheck hello durumu, güncelleştirme veya bağlantı hattınız için eşlemeleri silme gösterilmektedir."
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,186 +15,186 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: cherylmc
-ms.openlocfilehash: 55ccadfea55b8098ee58dcaef942f6ba54093665
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a8ca25f488dde728cb3b06cd2c91873f3069feaf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Oluşturma ve bir ExpressRoute bağlantı hattı için eşlemesini değiştirme
 
-Bu makalede, Azure portalını kullanarak Resource Manager dağıtım modelinde bir expressroute bağlantı hattı için yönlendirme yapılandırması oluşturma ve yönetme yardımcı olur. Ayrıca, durumu, güncelleştirme veya silme denetleyin ve bir expressroute bağlantı hattı için eşlemeler sağlamayı sonlandırın. Bağlantı hattınız ile çalışmak için farklı bir yöntem kullanmak istiyorsanız, bir makale aşağıdaki listeden seçin:
+Bu makalede, bir expressroute bağlantı hattı hello Azure portal kullanarak hello Resource Manager dağıtım modelinde için yönlendirme yapılandırması oluşturma ve yönetme yardımcı olur. Ayrıca, hello durumu, güncelleştirme veya silme denetleyin ve bir expressroute bağlantı hattı için eşlemeler sağlamayı sonlandırın. Bağlantı hattınız ile toouse farklı yöntem toowork istiyorsanız, bir makale listesi aşağıdaki hello seçin:
 
 
 ## <a name="configuration-prerequisites"></a>Yapılandırma önkoşulları
 
-* Yapılandırmaya başlamadan önce [önkoşullar](expressroute-prerequisites.md) sayfasını, [yönlendirme gereksinimleri](expressroute-routing.md) sayfasını ve [iş akışları](expressroute-workflows.md) sayfasını gözden geçirdiğinizden emin olun.
-* Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. Devam etmeden önce [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-portal-resource-manager.md) yönergelerini izleyin ve bağlantı sağlayıcınızın bağlantı hattını etkinleştirmesini isteyin. Expressroute bağlantı hattı, sonraki bölümlerde cmdlet'leri çalıştırılabilmesi sağlanmış ve etkin durumda olması gerekir.
-* Paylaşılan bir anahtar/MD5 karma değeri kullanmayı planlıyorsanız, bu tünel her iki tarafında kullanın ve en fazla 25 karakter sayısını sınırlamak emin olun.
+* Merhaba gözden geçirdiğinizden emin olun [Önkoşullar](expressroute-prerequisites.md) hello sayfasında [yönlendirme gereksinimleri](expressroute-routing.md) sayfası ve hello [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce sayfasında.
+* Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. Çok olarak Hello yönergeleri[bir expressroute bağlantı hattı oluşturma](expressroute-howto-circuit-portal-resource-manager.md) ve devam etmeden önce bağlantı sağlayıcınız tarafından etkinleştirilen hello hattı sahip. Merhaba expressroute bağlantı hattı, toobe mümkün toorun hello cmdlet'leri hello sonraki bölümlerde için sağlanmış ve etkin durumda olması gerekir.
+* Paylaşılan bir anahtar/MD5 karma değeri toouse düşünüyorsanız emin toouse bu hello sayısı tünel ve sınırı hello karakter tooa en fazla 25 her iki tarafında olması.
 
-Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan bağlantı hatları için geçerlidir. Yönetilen sunan bir hizmet sağlayıcısı kullanıyorsanız, Katman 3 Hizmetleri (genellikle gibi bir IPVPN MPLS), bağlantı sağlayıcınız yönlendirmeyi sizin için yönetir ve yapılandırır. 
+Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan toocircuits geçerlidir. Yönetilen sunan bir hizmet sağlayıcısı kullanıyorsanız, Katman 3 Hizmetleri (genellikle gibi bir IPVPN MPLS), bağlantı sağlayıcınız yönlendirmeyi sizin için yönetir ve yapılandırır. 
 
 > [!IMPORTANT]
-> Şu anda hizmet yönetim portalı aracılığıyla hizmet sağlayıcılar tarafından yapılandırılan eşlemeleri tanıtmıyoruz. Bu özelliği yakında etkinleştirmek için çalışıyoruz. BGP eşlemelerini yapılandırmadan önce hizmet sağlayıcınıza başvurun.
+> Biz hello Hizmet Yönetimi Portalı aracılığıyla hizmet sağlayıcılar tarafından yapılandırılan eşlemeleri şu anda tanıtmıyoruz. Bu özelliği yakında etkinleştirmek için çalışıyoruz. BGP eşlemelerini yapılandırmadan önce hizmet sağlayıcınıza başvurun.
 > 
 > 
 
-Bir ExpressRoute bağlantı hattı için bir, iki veya üç eşlemenin tamamını (Azure özel, Azure ortak ve Microsoft) yapılandırabilirsiniz. Eşlemeleri seçtiğiniz herhangi bir sırayla yapılandırabilirsiniz. Ancak, her eşlemenin yapılandırmasını birer birer tamamladığınızdan emin olmanız gerekir.
+Bir ExpressRoute bağlantı hattı için bir, iki veya üç eşlemenin tamamını (Azure özel, Azure ortak ve Microsoft) yapılandırabilirsiniz. Eşlemeleri seçtiğiniz herhangi bir sırayla yapılandırabilirsiniz. Bununla birlikte, her eşleme birer birer başlangıç yapılandırmasını tamamlayın emin olmanız gerekir.
 
 ## <a name="azure-private-peering"></a>Azure özel eşlemesi
 
-Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı hattı için Azure özel eşleme yapılandırmasını silme yardımcı olur.
+Bu bölümde, oluşturma, alma, güncelleştirme ve hello bir expressroute bağlantı hattı için Azure özel eşleme yapılandırmasını silme yardımcı olur.
 
-### <a name="to-create-azure-private-peering"></a>Azure özel eşlemesi oluşturmak için
+### <a name="toocreate-azure-private-peering"></a>Azure özel eşleme toocreate
 
-1. ExpressRoute bağlantı hattını yapılandırın. Devam etmeden önce bağlantı sağlayıcı tarafından bağlantı hattının tam olarak sağlandığından emin olun.
+1. Merhaba expressroute bağlantı hattını yapılandırın. Merhaba hattı tam olarak hello bağlantı sağlayıcı tarafından devam etmeden önce sağlandığından emin olun.
 
   ![Liste](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. Bağlantı hattı için Azure özel eşlemesini yapılandırın. Sonraki adımlara devam etmeden önce aşağıdaki öğelerin bulunduğundan emin olun:
+2. Merhaba bağlantı hattı için Azure özel eşlemesini yapılandırın. Merhaba sonraki adımlara devam etmeden önce aşağıdaki öğelerindeki hello sahip olduğunuzdan emin olun:
 
-  * Birincil bağlantı için bir /30 alt ağı. Alt ağ, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
-  * İkincil bağlantı için bir /30 alt ağı. Alt ağ, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
-  * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
+  * Bir/30 alt ağı hello birincil bağlantı için. Merhaba alt ağ, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
+  * Bir/30 alt ağı hello ikincil bağlantı için. Merhaba alt ağ, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
+  * Geçerli bir VLAN kimliği tooestablish bu eşlemenin. Hiçbir diğer eşliği emin hello devredeki aynı VLAN kimliğini kullanan hello
   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz. Bu eşleme için özel bir AS numarası kullanabilirsiniz. 65515’i kullanmadığınızdan emin olun.
-  * **İsteğe bağlı -** kullanmayı seçerseniz bir MD5 karma değeri.
-3. Aşağıdaki örnekte gösterildiği gibi Azure Private eşleme satırını seçin:
+  * **İsteğe bağlı -** toouse birini seçerseniz bir MD5 karma değeri.
+3. Hello aşağıdaki örnekte gösterildiği gibi Hello Azure özel eşleme satırını seçin:
 
   ![Özel](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
-4. Özel eşleme oluşturun. Aşağıdaki resimde bir yapılandırma örneği gösterilir:
+4. Özel eşleme oluşturun. Görüntü aşağıdaki hello bir yapılandırma örneği gösterilir:
 
   ![Özel eşleme oluşturun](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
-5. Tüm parametreleri belirledikten sonra yapılandırmayı kaydedin. Yapılandırma başarıyla kabul edildikten sonra aşağıdaki örneğe benzer bir şey görürsünüz:
+5. Tüm parametreleri belirledikten sonra hello yapılandırmayı kaydedin. Merhaba yapılandırma başarıyla kabul edildikten sonra aşağıdaki örneğine benzeri toohello bakın:
 
   ![Özel eşleme Kaydet](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### <a name="to-view-azure-private-peering-details"></a>Azure özel eşleme ayrıntılarını görüntülemek için
+### <a name="tooview-azure-private-peering-details"></a>tooview Azure özel eşleme ayrıntıları
 
-Eşlemeyi seçerek Azure özel eşleme özelliklerini görüntüleyebilirsiniz.
+Merhaba eşlemeyi seçerek Azure özel eşleme özelliklerini hello görüntüleyebilirsiniz.
 
 ![Özel eşleme görüntüleyin](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### <a name="to-update-azure-private-peering-configuration"></a>Azure özel eşleme yapılandırmasını güncelleştirmek için
+### <a name="tooupdate-azure-private-peering-configuration"></a>Azure özel eşleme yapılandırmasını tooupdate
 
-Eşleme için satırı seçebilir ve eşleme özelliklerini değiştirebilirsiniz.
+Eşleme için başlangıç satırı seçin ve hello eşleme özelliklerini değiştirebilirsiniz.
 
 ![Özel eşleme güncelleştir](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 
-### <a name="to-delete-azure-private-peering"></a>Azure özel eşlemeyi silmek için
+### <a name="toodelete-azure-private-peering"></a>Azure özel eşleme toodelete
 
-Aşağıdaki görüntüde gösterildiği gibi silme simgesini seçerek eşleme yapılandırmanızı kaldırabilirsiniz:
+Görüntü aşağıdaki hello gösterildiği gibi hello Sil simgesini seçerek eşleme yapılandırmanızı kaldırabilirsiniz:
 
 ![Özel eşleme Sil](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
 
 ## <a name="azure-public-peering"></a>Azure ortak eşleme
 
-Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı hattı için Azure ortak eşleme yapılandırmasını silme yardımcı olur.
+Bu bölümde, oluşturma, alma, güncelleştirme ve hello bir expressroute bağlantı hattı için Azure ortak eşleme yapılandırmasını silme yardımcı olur.
 
-### <a name="to-create-azure-public-peering"></a>Azure ortak eşlemesi oluşturmak için
+### <a name="toocreate-azure-public-peering"></a>Azure ortak eşleme toocreate
 
-1. ExpressRoute bağlantı hattını yapılandırın. Daha ileriye devam etmeden önce bağlantı sağlayıcı tarafından bağlantı hattının tam olarak sağlandığından emin olun.
+1. ExpressRoute bağlantı hattını yapılandırın. Merhaba hattı tam olarak hello bağlantı sağlayıcı tarafından daha fazla devam etmeden önce sağlandığından emin olun.
 
   ![Ortak eşleme listesi](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. Bağlantı hattı için Azure ortak eşlemesini yapılandırın. Sonraki adımlara devam etmeden önce aşağıdaki öğelerin bulunduğundan emin olun:
+2. Merhaba bağlantı hattı için Azure ortak eşlemesini yapılandırın. Merhaba sonraki adımlara devam etmeden önce aşağıdaki öğelerindeki hello sahip olduğunuzdan emin olun:
 
-  * Birincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
-  * İkincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
-  * Bu eşlemenin kurulacak geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
+  * Bir/30 alt ağı hello birincil bağlantı için. Bu geçerli bir ortak IPv4 öneki olmalıdır.
+  * Bir/30 alt ağı hello ikincil bağlantı için. Bu geçerli bir ortak IPv4 öneki olmalıdır.
+  * Geçerli bir VLAN kimliği tooestablish bu eşlemenin. Hiçbir diğer eşliği emin hello devredeki aynı VLAN kimliğini kullanan hello
   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
-  * **İsteğe bağlı -** kullanmayı seçerseniz bir MD5 karma değeri.
-3. Aşağıdaki görüntüde gösterildiği gibi Azure public eşleme satırını seçin:
+  * **İsteğe bağlı -** toouse birini seçerseniz bir MD5 karma değeri.
+3. Görüntü aşağıdaki hello gösterildiği gibi Hello Azure ortak eşleme satırını seçin:
 
   ![Ortak eşleme satırını seçin](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
-4. Ortak eşlemeyi yapılandırın. Aşağıdaki resimde bir yapılandırma örneği gösterilir:
+4. Ortak eşlemeyi yapılandırın. Görüntü aşağıdaki hello bir yapılandırma örneği gösterilir:
 
   ![Ortak eşlemeyi yapılandırın](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
-5. Tüm parametreleri belirledikten sonra yapılandırmayı kaydedin. Yapılandırma başarıyla kabul edildikten sonra aşağıdaki örneğe benzer bir şey görürsünüz:
+5. Tüm parametreleri belirledikten sonra hello yapılandırmayı kaydedin. Merhaba yapılandırma başarıyla kabul edildikten sonra aşağıdaki örneğine benzeri toohello bakın:
 
   ![Ortak eşleme yapılandırmasını kaydedin](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### <a name="to-view-azure-public-peering-details"></a>Azure ortak eşleme ayrıntılarını görüntülemek için
+### <a name="tooview-azure-public-peering-details"></a>tooview Azure genel eşliği ayrıntıları
 
-Eşlemeyi seçerek Azure ortak eşleme özelliklerini görüntüleyebilirsiniz.
+Merhaba eşlemeyi seçerek Azure ortak eşleme özelliklerini hello görüntüleyebilirsiniz.
 
 ![Ortak eşleme özelliklerini görüntüle](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### <a name="to-update-azure-public-peering-configuration"></a>Azure ortak eşleme yapılandırmasını güncelleştirmek için
+### <a name="tooupdate-azure-public-peering-configuration"></a>Azure ortak eşleme yapılandırmasını tooupdate
 
-Eşleme için satırı seçebilir ve eşleme özelliklerini değiştirebilirsiniz.
+Eşleme için başlangıç satırı seçin ve hello eşleme özelliklerini değiştirebilirsiniz.
 
 ![Ortak eşleme satırını seçin](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
 
-### <a name="to-delete-azure-public-peering"></a>Azure ortak eşlemesini silmek için
+### <a name="toodelete-azure-public-peering"></a>Azure ortak eşleme toodelete
 
-Aşağıdaki örnekte gösterildiği gibi silme simgesini seçerek eşleme yapılandırmanızı kaldırabilirsiniz:
+Hello aşağıdaki örnekte gösterildiği gibi hello Sil simgesini seçerek eşleme yapılandırmanızı kaldırabilirsiniz:
 
 ![Ortak eşleme Sil](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
 
 ## <a name="microsoft-peering"></a>Microsoft eşlemesi
 
-Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı hattı için Microsoft eşleme yapılandırmasını silme yardımcı olur.
+Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı hattı için Microsoft eşleme yapılandırmasını hello silme yardımcı olur.
 
 > [!IMPORTANT]
-> 1 Ağustos 2017 önce yapılandırılmış olan ExpressRoute bağlantı hatları, Microsoft eşlemesi yol filtreleri tanımlanmamış olsa bile eşleme, Microsoft tarafından tanıtılan tüm hizmet ön eklerin sahip olur. Ve 1 Ağustos 2017 sonrasında yapılandırılmış ExpressRoute bağlantı hatları, Microsoft eşlemesi sahip olmaz tüm ön eklerin rota filtre devresine bağlanana kadar tanıtılan. Daha fazla bilgi için bkz: [Microsoft eşliği için rota filtresini Yapılandır](how-to-routefilter-powershell.md).
+> Önceki tooAugust 1 yapılandırılmış olan ExpressRoute bağlantı hatları Microsoft eşliği, yol filtreleri tanımlanmamış olsa bile 2017 hello Microsoft eşleme aracılığıyla tanıtılan tüm hizmet ön eklerin sahip olur. Ve 1 Ağustos 2017 sonrasında yapılandırılmış ExpressRoute bağlantı hatları, Microsoft eşlemesi sahip olmaz tüm ön eklerin rota filtre bağlanana kadar tanıtılan toohello hattı. Daha fazla bilgi için bkz: [Microsoft eşliği için rota filtresini Yapılandır](how-to-routefilter-powershell.md).
 > 
 > 
 
-### <a name="to-create-microsoft-peering"></a>Microsoft eşlemesi oluşturmak için
+### <a name="toocreate-microsoft-peering"></a>toocreate Microsoft eşlemesi
 
-1. ExpressRoute bağlantı hattını yapılandırın. Daha ileriye devam etmeden önce bağlantı sağlayıcı tarafından bağlantı hattının tam olarak sağlandığından emin olun.
+1. ExpressRoute bağlantı hattını yapılandırın. Merhaba hattı tam olarak hello bağlantı sağlayıcı tarafından daha fazla devam etmeden önce sağlandığından emin olun.
 
   ![Microsoft eşlemesi listesi](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. Bağlantı hattı için Microsoft eşlemesini yapılandırın. Devam etmeden önce aşağıdaki bilgilere sahip olduğunuzdan emin olun.
+2. Microsoft Hello bağlantı hattı için eşlemesini yapılandırın. Devam etmeden önce bilgilerini aşağıdaki hello sahip olduğunuzdan emin olun.
 
-  * Birincil bağlantı için bir /30 alt ağı. Bu size ait ve bir RIR / IRR içinde kayıtlı bir geçerli ortak IPv4 ön eki olmalıdır.
-  * İkincil bağlantı için bir /30 alt ağı. Bu size ait ve bir RIR / IRR içinde kayıtlı bir geçerli ortak IPv4 ön eki olmalıdır.
-  * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
+  * Bir/30 alt ağı hello birincil bağlantı için. Bu size ait ve bir RIR / IRR içinde kayıtlı bir geçerli ortak IPv4 ön eki olmalıdır.
+  * Bir/30 alt ağı hello ikincil bağlantı için. Bu size ait ve bir RIR / IRR içinde kayıtlı bir geçerli ortak IPv4 ön eki olmalıdır.
+  * Geçerli bir VLAN kimliği tooestablish bu eşlemenin. Hiçbir diğer eşliği emin hello devredeki aynı VLAN kimliğini kullanan hello
   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
-  * Tanıtılan önekler: BGP oturumunda tanıtmayı planladığınız tüm öneklerin bir listesini sağlamanız gerekir. Yalnızca ortak IP adresi ön ekleri kabul edilir. Bir ön ek kümesi göndermeyi planlıyorsanız, virgülle ayrılmış bir liste gönderebilirsiniz. Bu ön ekler size bir RIR / IRR içinde kaydedilmiş olmalıdır.
-  * **İsteğe bağlı -** müşteri ASN'si: eşleme AS numarasına kayıtlı olmayan önekler Tanıtıyorsanız, kayıtlı oldukları AS numarasını belirtebilirsiniz.
-  * Yönlendirme Kayıt Defteri Adı: AS numarası ve öneklerinin kaydedildiği RIR / IRR’yi belirtebilirsiniz.
-  * **İsteğe bağlı -** kullanmayı seçerseniz bir MD5 karma değeri.
-3. Aşağıdaki örnekte gösterildiği gibi yapılandırmak için istediğiniz eşlemeyi seçebilirsiniz. Microsoft eşleme satırını seçin.
+  * Tanıtılan önekler: listesini sağlamanız gerekir tüm ön eklerin hello BGP oturumu üzerinden tooadvertise planlayın. Yalnızca ortak IP adresi ön ekleri kabul edilir. Toosend ön ek kümesi planlıyorsanız, virgülle ayrılmış bir liste gönderebilirsiniz. Bu ön eklerin bir RIR içinde kayıtlı tooyou olmalıdır / IRR.
+  * **İsteğe bağlı -** müşteri ASN'si: eşleme AS numarasına kayıtlı toohello olmayan önekler Tanıtıyorsanız, kayıtlı oldukları numara toowhich hello belirtebilirsiniz.
+  * Yönlendirme kayıt defteri adı: Merhaba RIR belirtebilirsiniz / hangi hello karşı AS numarası ve önekleri IRR kayıtlı.
+  * **İsteğe bağlı -** toouse birini seçerseniz bir MD5 karma değeri.
+3. Merhaba tooconfigure, istediğiniz hello aşağıdaki gösterildiği gibi eşliği seçebilirsiniz örnek. Merhaba Microsoft eşleme satırını seçin.
 
   ![Microsoft eşleme satırını seçin](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
-4. Microsoft eşlemesini yapılandırın. Aşağıdaki resimde bir yapılandırma örneği gösterilir:
+4. Microsoft eşlemesini yapılandırın. Görüntü aşağıdaki hello bir yapılandırma örneği gösterilir:
 
   ![Microsoft eşlemesini yapılandırın](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
-5. Tüm parametreleri belirledikten sonra yapılandırmayı kaydedin.
+5. Tüm parametreleri belirledikten sonra hello yapılandırmayı kaydedin.
 
-  Bağlantı hattınız 'gerekli bir doğrulama' alır, (görüntüde gösterildiği gibi) durumunda, kanıtı destek ekibimize önekleri sahipliğini göstermek için bir destek bileti açmanız gerekir.
+  Bağlantı hattınız 'doğrulama gerekli' tooa alırsa (Merhaba görüntüde gösterildiği gibi) durumunda, bir destek bileti tooshow hello öneklerini tooour destek ekibi sahipliğini kanıtını açmanız gerekir.
 
   ![Microsoft eşleme yapılandırmasını kaydedin](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-  Aşağıdaki örnekte gösterildiği gibi bir destek bileti doğrudan portalından açabilirsiniz:
+  Hello aşağıdaki örnekte gösterildiği gibi bir destek bileti doğrudan hello portalından açabilirsiniz:
 
   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
 
-1. Yapılandırma başarıyla kabul edildikten sonra aşağıdaki görüntüye benzer bir şey görürsünüz:
+1. Merhaba yapılandırma başarıyla kabul edildikten sonra görüntü aşağıdaki benzeri toohello bakın:
 
   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### <a name="to-view-microsoft-peering-details"></a>Microsoft eşleme ayrıntılarını görüntülemek için
+### <a name="tooview-microsoft-peering-details"></a>tooview Microsoft eşleme ayrıntıları
 
-Eşlemeyi seçerek Azure ortak eşleme özelliklerini görüntüleyebilirsiniz.
+Merhaba eşlemeyi seçerek Azure ortak eşleme özelliklerini hello görüntüleyebilirsiniz.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
-### <a name="to-update-microsoft-peering-configuration"></a>Microsoft eşlemesi yapılandırmasını güncelleştirmek için
+### <a name="tooupdate-microsoft-peering-configuration"></a>tooupdate Microsoft eşleme yapılandırması
 
-Eşleme için satırı seçebilir ve eşleme özelliklerini değiştirebilirsiniz.
+Eşleme için başlangıç satırı seçin ve hello eşleme özelliklerini değiştirebilirsiniz.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### <a name="to-delete-microsoft-peering"></a>Microsoft eşlemesini silmek için
+### <a name="toodelete-microsoft-peering"></a>toodelete Microsoft eşlemesi
 
-Aşağıdaki görüntüde gösterildiği gibi silme simgesini seçerek eşleme yapılandırmanızı kaldırabilirsiniz:
+Görüntü aşağıdaki hello gösterildiği gibi hello Sil simgesini seçerek eşleme yapılandırmanızı kaldırabilirsiniz:
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sonraki adım, [expressroute bağlantı hattına bir VNet bağlama](expressroute-howto-linkvnet-portal-resource-manager.md)
+Sonraki adım, [VNet tooan expressroute bağlantı hattı bağlantı](expressroute-howto-linkvnet-portal-resource-manager.md)
 * ExpressRoute iş akışları hakkında daha fazla bilgi için bkz. [ExpressRoute iş akışları](expressroute-workflows.md).
 * Bağlantı hattı eşlemesi hakkında daha fazla bilgi için bkz. [ExpressRoute bağlantı hattı ve yönlendirme etki alanları](expressroute-circuit-peerings.md).
 * Sanal ağlarla çalışma hakkında daha fazla bilgi için bkz. [Sanal ağa genel bakış](../virtual-network/virtual-networks-overview.md).

@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Factory - JSON betik oluşturma başvurusu | Microsoft Docs"
+title: "aaaAzure Data Factory - JSON betik oluşturma başvurusu | Microsoft Docs"
 description: "Data Factory varlıkları için JSON şemaları sağlar."
 services: data-factory
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 805106c0a5cdbff1f143f22a2ae59f6d2a0bf126
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 813fd752bb0ecb1b513d022b9f302325105dac31
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON betik oluşturma başvurusu
 Bu makalede, Azure Data Factory varlıkları (ardışık düzen, etkinlik, veri kümesi ve bağlantılı hizmet) tanımlamak için JSON şemaları ve örnekler sağlar.  
 
 ## <a name="pipeline"></a>İşlem hattı 
-Ardışık düzen tanımı için üst düzey yapısı aşağıdaki gibidir: 
+Ardışık düzen tanımı için üst düzey yapısı Hello aşağıdaki gibidir: 
 
 ```json
 {
@@ -38,22 +38,22 @@ Ardışık düzen tanımı için üst düzey yapısı aşağıdaki gibidir:
 } 
 ```
 
-Aşağıdaki tabloda özellikleri JSON tanımını ardışık düzen içinde açıklanmaktadır:
+Aşağıdaki tabloda hello özellikleri hello ardışık düzen JSON tanımı içinde açıklanmaktadır:
 
 | Özellik | Açıklama | Gerekli
 -------- | ----------- | --------
-| ad | Ardışık Düzen adı. Eylemi temsil eden bir ad belirtin etkinlik veya ardışık düzen yapmak için yapılandırılır<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
-| Açıklama |Hangi etkinlik veya ardışık düzen açıklayan metin için kullanılır | Hayır |
-| Etkinlikler | Etkinliklerin listesini içerir. | Evet |
-| start |Ardışık düzeni için başlangıç tarihi / saati. Olmalıdır [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41. <br/><br/>Yerel saat örneğin tahmini süre belirlemek mümkündür. Örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6'da tahmini olduğu<br/><br/>Başlangıç ve bitiş özellikleri birlikte ardışık düzen etkin süresini belirtin. Çıktı dilimler yalnızca ile etkin bu dönemde üretilir. |Hayır<br/><br/>End özelliği için bir değer belirtirseniz, başlangıç özelliği için değer belirtmeniz gerekir.<br/><br/>Başlangıç ve bitiş zamanlarını hem de bir işlem hattı oluşturmak için boş olabilir. Çalıştırmak ardışık düzeni için etkin bir süre ayarlamak için her iki değer belirtmeniz gerekir. Başlangıç ve bitiş zamanlarını belirtmezseniz, bir işlem hattı oluştururken, bunları daha sonra Set-AzureRmDataFactoryPipelineActivePeriod cmdlet'ini kullanarak ayarlayabilirsiniz. |
-| Bitiş |Ardışık düzeni için bitiş tarihi / saati. Belirtilen ISO biçiminde olmalıdır. Örneğin: 2014-10-14T17:32:41 <br/><br/>Yerel saat örneğin tahmini süre belirlemek mümkündür. Örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6'da tahmini olduğu<br/><br/>İşlem hattını süresiz olarak çalışacak şekilde 9999-09-09 end özelliği için değer olarak belirtin. |Hayır <br/><br/>Başlangıç özellik için bir değer belirtirseniz, son özelliği için değer belirtmeniz gerekir.<br/><br/>İçin notlarına bakın **Başlat** özelliği. |
-| isPaused |Ardışık Düzen true olarak ayarlandığında çalışmazsa. Varsayılan değer = false. Bu özelliği etkinleştirmek veya devre dışı bırakmak için kullanabilirsiniz. |Hayır |
-| pipelineMode |Zamanlama için yöntem ardışık düzeni için çalışır. İzin verilen değerler: (varsayılan), zamanlanmış kez.<br/><br/>'Zamanlanmış' ardışık düzen belirtilen süre aralığında etkin süresinin (başlangıç ve bitiş saati) göre çalıştırıldığını gösterir. 'Kez' ardışık düzen yalnızca bir kez çalıştırıldığını gösterir. Oluşturulduktan sonra kez ardışık düzen şu anda değiştiren/güncelleştirilemiyor. Bkz: [Onetime ardışık düzen](data-factory-create-pipelines.md#onetime-pipeline) kez ayar hakkındaki ayrıntılar için. |Hayır |
-| expirationTime |Kendisi için ardışık düzeni geçerli olduğunu ve sağlanan kalacağı oluşturulduktan sonra süre. Tüm etkin başarısız oldu, yok veya sona erme zamanı ulaştığında çalıştığında, ardışık düzen otomatik olarak silinmesi durumunda. |Hayır |
+| ad | Merhaba ardışık düzen adı. Etkinlik hello hello eylemi temsil eden bir ad belirtin veya yapılandırılmış toodo ardışık düzen değil<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
+| açıklama |Hangi hello etkinlik veya ardışık düzen açıklayan metin için kullanılır | Hayır |
+| etkinlikler | Etkinliklerin listesini içerir. | Evet |
+| start |Merhaba ardışık düzeni için başlangıç tarihi / saati. Olmalıdır [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41. <br/><br/>Olası toospecify yerel saat örneğin bir EST zamanı. Örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6'da tahmini olduğu<br/><br/>Merhaba başlangıç ve bitiş özellikleri birlikte hello ardışık düzen etkin süresini belirtin. Çıktı dilimler yalnızca ile etkin bu dönemde üretilir. |Hayır<br/><br/>Merhaba end özelliği için bir değer belirtirseniz, hello başlangıç özelliği için değer belirtmeniz gerekir.<br/><br/>Merhaba başlangıç ve bitiş zamanlarını hem de boş toocreate işlem hattı olabilir. Her iki değeri de belirtilmelisiniz tooset etkin dönem hello ardışık düzen toorun için bir. Başlangıç ve bitiş zamanlarını belirtmezseniz, bir işlem hattı oluştururken, bunları ayarlayabilirsiniz daha sonra hello kümesi AzureRmDataFactoryPipelineActivePeriod cmdlet'ini kullanarak. |
+| Bitiş |Merhaba ardışık düzeni için bitiş tarihi / saati. Belirtilen ISO biçiminde olmalıdır. Örneğin: 2014-10-14T17:32:41 <br/><br/>Olası toospecify yerel saat örneğin bir EST zamanı. Örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6'da tahmini olduğu<br/><br/>toorun hello ardışık kalıcı olarak belirtin 9999-09-09 hello end özelliği hello değeri olarak. |Hayır <br/><br/>Merhaba başlangıç özelliği için bir değer belirtirseniz, hello end özelliği için değer belirtmeniz gerekir.<br/><br/>Hello için notlarına bakın **Başlat** özelliği. |
+| isPaused |Set tootrue hello ardışık çalışmazsa. Varsayılan değer = false. Bu özellik tooenable kullanın veya devre dışı bırakabilirsiniz. |Hayır |
+| pipelineMode |zamanlama için başlangıç yöntemi hello ardışık düzeni için çalışır. İzin verilen değerler: (varsayılan), zamanlanmış kez.<br/><br/>'Zamanlanmış' Bu hello ardışık düzen tooits etkin dönemi (başlangıç ve bitiş saati) göre belirli bir zaman aralığında çalışır gösterir. 'Kez' Bu hello ardışık düzen yalnızca bir kez çalışır gösterir. Oluşturulduktan sonra kez ardışık düzen şu anda değiştiren/güncelleştirilemiyor. Bkz: [Onetime ardışık düzen](data-factory-create-pipelines.md#onetime-pipeline) kez ayar hakkındaki ayrıntılar için. |Hayır |
+| expirationTime |Hangi hello ardışık düzeni geçerli değil ve sağlanan kalacağı oluşturulduktan sonra süre. Tüm etkin başarısız oldu, yok veya hello süre Dolum zamanına ulaştığında çalıştırır hello ardışık düzen otomatik olarak silinmesi durumunda. |Hayır |
 
 
 ## <a name="activity"></a>Etkinlik 
-Ardışık düzen tanımı (etkinlikleri öğesi) içinde bir etkinlik için üst düzey yapısı aşağıdaki gibidir:
+Ardışık düzen tanımı (etkinlikleri öğesi) içinde bir etkinlik için üst düzey yapısı Hello aşağıdaki gibidir:
 
 ```json
 {
@@ -76,46 +76,46 @@ Ardışık düzen tanımı (etkinlikleri öğesi) içinde bir etkinlik için üs
 }
 ```
 
-Tablo Özellikleri JSON tanımını etkinlik içinde açıklanmıştır:
+Tablo hello etkinlik JSON tanımını hello özellikleri açıklar:
 
 | Etiket | Açıklama | Gerekli |
 | --- | --- | --- |
-| ad |Etkinlik adı. Eylemi temsil eden bir ad belirtin, etkinlik yapılandırılması<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
-| Açıklama |Etkinlik hangi amaçla kullanıldığına açıklayan metin. |Evet |
-| type |Etkinlik türünü belirtir. Bkz: [veri DEPOLARINA](#data-stores) ve [veri dönüştürme etkinlikleri](#data-transformation-activities) bölümleri etkinlikler farklı türde. |Evet |
-| Girişleri |Etkinlik tarafından kullanılan giriş tabloları<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Evet |
-| Çıkışları |Etkinlik tarafından kullanılan çıkış tabloları.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Evet |
-| linkedServiceName |Etkinlik tarafından kullanılan bağlı hizmetin adı. <br/><br/>Bir etkinlik için gerekli hesaplama ortamı bağlantılar bağlantılı hizmeti belirtin gerektirebilir. |Hdınsight etkinlikleri, Azure Machine Learning etkinlikleri ve saklı yordam etkinliği için Evet. <br/><br/>Diğer tüm kullanıcılar için Hayır'ı |
-| typeProperties |Özellikler typeProperties bölümünde etkinlik türüne bağlıdır. |Hayır |
-| İlke |Etkinlik çalışma zamanı davranışını etkileyen ilkeleri. Belirtilmezse, varsayılan ilkeler kullanılır. |Hayır |
-| Zamanlayıcı |"Zamanlayıcı" özelliği, istenen etkinliği için zamanlama tanımlamak için kullanılır. Onun alt Listedekilerin aynıdır [dataset kullanılabilirliği özelliğinde](data-factory-create-datasets.md#dataset-availability). |Hayır |
+| ad |Merhaba etkinlik adı. Merhaba etkinlik hello eylemi temsil eden adını toodo yapılandırılmış belirtin<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
+| açıklama |Hangi hello etkinliği açıklayan bir metin için kullanılır. |Evet |
+| type |Merhaba etkinlik Hello türünü belirtir. Merhaba bkz [veri DEPOLARINA](#data-stores) ve [veri dönüştürme etkinlikleri](#data-transformation-activities) bölümleri etkinlikler farklı türde. |Evet |
+| Girişleri |Merhaba etkinlik tarafından kullanılan giriş tabloları<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Evet |
+| Çıkışları |Merhaba etkinlik tarafından kullanılan çıkış tabloları.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Evet |
+| linkedServiceName |Merhaba etkinlik tarafından kullanılan hello bağlı hizmetin adı. <br/><br/>Bir etkinlik toohello gerekli hesaplama ortamı bağlantılar hello bağlantılı hizmeti belirtin gerektirebilir. |Hdınsight etkinlikleri, Azure Machine Learning etkinlikleri ve saklı yordam etkinliği için Evet. <br/><br/>Diğer tümü için hayır |
+| typeProperties |Merhaba typeProperties bölümündeki özellikler hello etkinlik türüne bağlıdır. |Hayır |
+| ilke |Merhaba etkinlik hello çalışma zamanı davranışını etkileyen ilkeleri. Belirtilmezse, varsayılan ilkeler kullanılır. |Hayır |
+| Zamanlayıcı |"Zamanlayıcı" Merhaba etkinliği için zamanlama kullanılan toodefine istenen özelliğidir. Onun alt olanları hello içinde hello aynı hello olan [dataset kullanılabilirliği özelliğinde](data-factory-create-datasets.md#dataset-availability). |Hayır |
 
 ### <a name="policies"></a>İlkeler
-İlkeler, özellikle bir tablonun dilim işlendiğinde bir etkinlik çalışma zamanı davranışını etkiler. Aşağıdaki tabloda ayrıntılar sağlar.
+İlkeler, özellikle bir tablonun hello dilim işlendiğinde bir etkinlik hello çalışma zamanı davranışını etkiler. Aşağıdaki tablonun hello hello ayrıntılar sağlar.
 
 | Özellik | İzin verilen değerler | Varsayılan değer | Açıklama |
 | --- | --- | --- | --- |
-| Eşzamanlılık |Tamsayı <br/><br/>En yüksek değeri: 10 |1 |Etkinliğin eşzamanlı yürütmeleri sayısı.<br/><br/>Üzerinde farklı dilimler oluşabilir paralel etkinlik yürütmeleri sayısını belirler. Örneğin, bir etkinlik geçtikleri gerekiyorsa bir büyük daha büyük bir eşzamanlılık değer sahip kullanılabilir veri kümesi, veri işleme hızı artar. |
-| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |İşlenen veri dilimleri sıralama belirler.<br/><br/>Örneğin, varsa (bir oluşmasını 4 pm adresindeki ve 17: 00 saatleri sırasında başka bir) 2 böler ve hem de yürütme olması. ExecutionPriorityOrder NewestFirst olacak şekilde ayarlarsanız, 17: 00 saatleri sırasında dilim önce işlenir. ExecutionPriorityORder OldestFIrst olacak şekilde ayarlarsanız, benzer şekilde ardından 4 PM adresindeki dilim işlenir. |
-| Yeniden deneyin |Tamsayı<br/><br/>En büyük değer 10 olabilir |0 |Veri işleme ve dilim için hata olarak işaretlenmiş önce yeniden deneme sayısı. Etkinlik yürütme veri dilimi için belirtilen yeniden deneme sayısı kadar yeniden denenir. Yeniden deneme mümkün olan en kısa sürede hatasından sonra yapılır. |
-| Zaman aşımı |TimeSpan |00:00:00 |Etkinlik için zaman aşımı. Örnek: 00:10: (zaman aşımı 10 dakika anlamına gelir) 00<br/><br/>Bir değer belirtilmemiş ya da 0'dır, zaman aşımını sonsuz olur.<br/><br/>Dilim üzerinde veri işleme süresi zaman aşımı değerini aşarsa, iptal edilir ve sistem işlemeyi yeniden dener. Yeniden deneme sayısı yeniden deneme özelliğe bağlıdır. Zaman aşımı oluştuğunda durumu süresi sona erdi için ayarlanır. |
-| gecikme |TimeSpan |00:00:00 |Veri işleme dilim başlatır gecikme belirtin.<br/><br/>Beklenen yürütme süresi gecikme tamamlandıktan sonra bir veri dilimi için etkinlik yürütülmesini başlatılır.<br/><br/>Örnek: 00:10: (10 dakika gecikme anlamına gelir) 00 |
-| longRetry |Tamsayı<br/><br/>En yüksek değeri: 10 |1 |Dilim yürütme başarısız olmadan önce uzun yeniden deneme sayısı.<br/><br/>longRetry girişimleri tarafından longRetryInterval aralarına aralık eklenir. Yeniden deneme girişimleri arasındaki süre belirtmeniz gerekiyorsa, bu nedenle longRetry kullanın. Yeniden deneme ve longRetry belirtilirse, her bir longRetry denemesi denemeleri içerir ve en fazla deneme sayısını yeniden deneme * longRetry.<br/><br/>Örneğin, biz etkinlik ilkesinde aşağıdaki ayarları varsa:<br/>Yeniden deneme: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Yürütmek için yalnızca bir dilim olduğu varsayılır (Durum Bekliyor) ve Etkinlik yürütme her zaman başarısız olur. Başlangıçta 3 ardışık yürütme deneme olacaktır. Her girişiminden sonra Yeniden Dene'yi dilim durum olacaktır. İlk 3 deneme üzerinden sonra dilim durum LongRetry olur.<br/><br/>Bir saat sonra (diğer bir deyişle, longRetryInteval'ın değeri), 3 ardışık yürütme deneme başka bir dizi olacaktır. Bundan sonra dilim durumu başarısız ve daha fazla yeniden deneme yok denenmesi. Bu nedenle genel 6 deneme yapıldı.<br/><br/>Hiçbir yürütme başarılı olursa, dilim durum hazır olur ve daha fazla yeniden deneme yok çalıştı.<br/><br/>longRetry, belirleyici olmayan zamanlarda bağımlı veri ulaştığında veya genel ortamında hangi veri işleme gerçekleşir altında anormal olduğu durumlarda kullanılabilir. Böyle durumlarda, yeniden deneme birbiri ardından yardımcı yapmak ve sonra bir aralık böylece istenen çıkış sonuçlarında zaman.<br/><br/>Uyarı: longRetry veya longRetryInterval yüksek değerleri ayarlı değil. Genellikle, daha yüksek değerleri sistemle ilgili diğer sorunlar kapsıyor. |
-| longRetryInterval |TimeSpan |00:00:00 |Uzun yeniden deneme girişimleri arasında gecikme |
+| Eşzamanlılık |Tamsayı <br/><br/>En yüksek değeri: 10 |1 |Eşzamanlı yürütmeleri hello etkinlik sayısı.<br/><br/>Üzerinde farklı dilimler oluşabilir paralel etkinlik yürütmeleri hello sayısını belirler. Örneğin, bir etkinlik toogo aracılığıyla gerekiyorsa kullanılabilir veri, daha büyük bir eşzamanlılık değer sahip büyük bir dizi hello veri işleme hızı artar. |
+| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |İşlenen veri dilimleri Hello sıralama belirler.<br/><br/>Örneğin, varsa (bir oluşmasını 4 pm adresindeki ve 17: 00 saatleri sırasında başka bir) 2 böler ve hem de yürütme olması. Merhaba executionPriorityOrder toobe NewestFirst ayarlarsanız, 17: 00 saatleri sırasında hello dilim önce işlenir. Merhaba executionPriorityORder toobe OldestFIrst ayarlarsanız, benzer şekilde ardından 4 PM adresindeki hello dilim işlenir. |
+| retry |Tamsayı<br/><br/>En büyük değer 10 olabilir |0 |Hata olarak işaretlenmiş hello veri işleme hello dilim için önce yeniden deneme sayısı. Etkinlik yürütme veri dilimi için belirtilen toohello denenen yeniden deneme sayısı. mümkün olan en kısa sürede hello hatasından sonra Hello yeniden deneme yapılır. |
+| timeout |TimeSpan |00:00:00 |Merhaba etkinlik için zaman aşımı. Örnek: 00:10: (zaman aşımı 10 dakika anlamına gelir) 00<br/><br/>Bir değer belirtilmemiş ya da 0 hello zaman aşımı sonsuzdur.<br/><br/>Merhaba veri işleme saat dilimi hello zaman aşımı değerini aşarsa, iptal edilir ve tooretry hello işleme hello sistem dener. yeniden deneme sayısı Hello hello yeniden deneme özelliğe bağlıdır. Zaman aşımı oluştuğunda hello durumu tooTimedOut ayarlanır. |
+| gecikme |TimeSpan |00:00:00 |Veri işleme hello dilim başlatır önce Hello gecikme belirtin.<br/><br/>Merhaba gecikme hello beklenen yürütme zamanı geçmişte sonra veri dilimi için etkinliğin hello yürütme başlatılır.<br/><br/>Örnek: 00:10: (10 dakika gecikme anlamına gelir) 00 |
+| longRetry |Tamsayı<br/><br/>En yüksek değeri: 10 |1 |Dilim yürütülemedi Hello hello uzun yeniden deneme girişimi sayısı.<br/><br/>longRetry girişimleri tarafından longRetryInterval aralarına aralık eklenir. Yeniden deneme girişimleri arasındaki süre toospecify gerekiyorsa, bu nedenle longRetry kullanın. Yeniden deneme ve longRetry belirtilirse, her bir longRetry denemesi denemeleri içerir ve hello en fazla deneme sayısı yeniden deneme * longRetry.<br/><br/>Örneğin, biz hello etkinlik İlkesi ayarlarında aşağıdaki hello varsa:<br/>Yeniden deneme: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Yalnızca bir dilim tooexecute olduğu varsayılır (Durum Bekliyor) ve hello Etkinlik yürütme her zaman başarısız olur. Başlangıçta 3 ardışık yürütme deneme olacaktır. Her girişiminden sonra Yeniden Dene'yi hello dilim durum olacaktır. İlk 3 deneme üzerinden sonra hello dilim durumunu LongRetry olacaktır.<br/><br/>Bir saat sonra (diğer bir deyişle, longRetryInteval'ın değeri), 3 ardışık yürütme deneme başka bir dizi olacaktır. Bundan sonra hello dilim durumu başarısız ve daha fazla yeniden deneme yok denenmesi. Bu nedenle genel 6 deneme yapıldı.<br/><br/>Hiçbir yürütme başarılı olursa, hello dilim durum hazır olur ve daha fazla yeniden deneme yok çalıştı.<br/><br/>longRetry, belirleyici olmayan zamanlarda bağımlı veri ulaştığında veya hello genel ortamında hangi veri işleme gerçekleşir altında anormal olduğu durumlarda kullanılabilir. Böyle durumlarda, yeniden deneme birbiri ardından yapılması yardımcı ve bunun hello sonuçlarında zaman aralığını sonra yapılması istenen çıkış.<br/><br/>Uyarı: longRetry veya longRetryInterval yüksek değerleri ayarlı değil. Genellikle, daha yüksek değerleri sistemle ilgili diğer sorunlar kapsıyor. |
+| longRetryInterval |TimeSpan |00:00:00 |uzun yeniden deneme girişimleri arasında gecikme Hello |
 
 ### <a name="typeproperties-section"></a>typeProperties bölümü
-Her etkinlik için farklı typeProperties bölümüdür. Dönüştürme etkinlikleri yalnızca türü özellikleri vardır. Bkz: [veri dönüştürme etkinlikleri](#data-transformation-activities) ardışık düzeninde dönüştürme etkinlikleri tanımlayan JSON örnekleri için bu makalenin bölümünde. 
+Merhaba typeProperties bölümü, her etkinlik için farklıdır. Dönüştürme etkinlikleri yalnızca hello türü özellikleri vardır. Bkz: [veri dönüştürme etkinlikleri](#data-transformation-activities) ardışık düzeninde dönüştürme etkinlikleri tanımlayan JSON örnekleri için bu makalenin bölümünde. 
 
-**Kopya etkinliği** typeProperties bölümünde iki alt bölümleri vardır: **kaynak** ve **havuz**. Bkz: [veri DEPOLARINA](#data-stores) veri kullanmayı gösteren JSON örnekleri bir kaynak ve/veya havuz depolamak için bu makaledeki bölüm. 
+**Kopya etkinliği** hello typeProperties bölümünde iki alt bölümleri vardır: **kaynak** ve **havuz**. Bkz: [veri DEPOLARINA](#data-stores) nasıl toouse veri depolayan bir kaynak ve/veya havuz gösteren JSON örnekleri için bu makaledeki bölüm. 
 
 ### <a name="sample-copy-pipeline"></a>Örnek kopyalama işlem hattı
-Aşağıdaki örnek ardışık düzeninde türünde bir etkinlik olduğundan **kopya** içinde **etkinlikleri** bölümü. Bu örnekte [kopyalama etkinliğini](data-factory-data-movement-activities.md) verileri Azure Blob depolama alanından Azure SQL veritabanına kopyalar. 
+Aşağıdaki örnek ardışık düzen hello türünde bir etkinlik yok **kopyalama** hello içinde **etkinlikleri** bölüm. Bu örnekte, hello [kopyalama etkinliğini](data-factory-data-movement-activities.md) Azure Blob Depolama tooan Azure SQL veritabanından veri kopyalar. 
 
 ```json
 {
   "name": "CopyPipeline",
   "properties": {
-    "description": "Copy data from a blob to Azure SQL table",
+    "description": "Copy data from a blob tooAzure SQL table",
     "activities": [
       {
         "name": "CopyFromBlobToSQL",
@@ -154,18 +154,18 @@ Aşağıdaki örnek ardışık düzeninde türünde bir etkinlik olduğundan **k
 } 
 ```
 
-Aşağıdaki noktalara dikkat edin:
+Hello aşağıdaki noktaları göz önünde bulundurun:
 
-* Etkinlikler bölümünde, **türü** **Copy** olarak ayarlanmış yalnızca bir etkinlik vardır.
-* Etkinlik girdisi **InputDataset** olarak, etkinlik çıktısı ise **OutputDataset** olarak ayarlanmıştır.
-* **typeProperties** bölümünde **BlobSource** kaynak türü, **SqlSink** de havuz türü olarak belirtilir.
+* Merhaba etkinlikler bölümünde, yalnızca bir etkinlik olduğundan, **türü** çok ayarlanır**kopya**.
+* Merhaba etkinlik çok kümesi için giriş**InputDataset** ve hello etkinlik çok kümesi için çıkış**OutputDataset**.
+* Merhaba, **typeProperties** bölümünde **BlobSource** hello kaynak türü olarak belirtilir ve **SqlSink** hello Havuz türü olarak belirtilir.
 
-Bkz: [veri DEPOLARINA](#data-stores) veri kullanmayı gösteren JSON örnekleri bir kaynak ve/veya havuz depolamak için bu makaledeki bölüm.    
+Bkz: [veri DEPOLARINA](#data-stores) nasıl toouse veri depolayan bir kaynak ve/veya havuz gösteren JSON örnekleri için bu makaledeki bölüm.    
 
-Bu ardışık düzen oluşturma izlenecek tam yol için bkz: [Öğreticisi: veri kopyalama Blob depolama alanından SQL veritabanına](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Bu ardışık düzen oluşturma izlenecek tam yol için bkz: [Öğreticisi: Blob Storage tooSQL veritabanı ' veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
-### <a name="sample-transformation-pipeline"></a>Örnek dönüşüm işlem hattı
-Aşağıdaki örnek ardışık düzeninde türünde bir etkinlik olduğundan **Hdınsighthive** içinde **etkinlikleri** bölümü. Bu örnekte [Hdınsight Hive etkinliği](data-factory-hive-activity.md) Azure Hdınsight Hadoop kümesindeki Hive betiği çalıştırılarak verileri Azure Blob depolama biriminden dönüştürür. 
+### <a name="sample-transformation-pipeline"></a>Örnek dönüştürme işlem hattı
+Aşağıdaki örnek ardışık düzen hello türünde bir etkinlik yok **Hdınsighthive** hello içinde **etkinlikleri** bölümü. Bu örnekte, hello [Hdınsight Hive etkinliği](data-factory-hive-activity.md) Azure Hdınsight Hadoop kümesindeki Hive betiği çalıştırılarak verileri Azure Blob depolama biriminden dönüştürür. 
 
 ```json
 {
@@ -212,37 +212,37 @@ Aşağıdaki örnek ardışık düzeninde türünde bir etkinlik olduğundan **H
 }
 ```
 
-Aşağıdaki noktalara dikkat edin: 
+Hello aşağıdaki noktaları göz önünde bulundurun: 
 
-* Etkinlikler bölümünde, yalnızca bir etkinlik olduğundan, **türü** ayarlanır **Hdınsighthive**.
-* **partitionweblogs.hql** Hive betik dosyası Azure depolama hesabında (scriptLinkedService tarafından belirtilen **AzureStorageLinkedService** adıyla) ve **adfgetstarted** kapsayıcısındaki **betik** klasöründe depolanır.
-* **Tanımlar** bölümü hive betiğine Hive yapılandırma değerleri olarak geçirilir çalışma zamanı ayarlarını belirtmek için kullanılır (örneğin `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
+* Merhaba etkinlikler bölümünde, yalnızca bir etkinlik olduğundan, **türü** çok ayarlanır**Hdınsighthive**.
+* Merhaba Hive betik dosyası **partitionweblogs.hql**, hello Azure depolama hesabı depolanır (adlı hello scriptLinkedService tarafından belirtilen **AzureStorageLinkedService**) ve  **komut dosyası** hello kapsayıcı klasöründe **adfgetstarted**.
+* Merhaba **tanımlar** bölümdür toohello hive betiğini Hive yapılandırma değerleri olarak geçirilir kullanılan toospecify hello çalışma zamanı ayarları (örneğin `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 Bkz: [veri dönüştürme etkinlikleri](#data-transformation-activities) ardışık düzeninde dönüştürme etkinlikleri tanımlayan JSON örnekleri için bu makalenin bölümünde.
 
-Bu ardışık düzen oluşturma izlenecek tam yol için bkz: [Öğreticisi: Hadoop kümesi kullanarak verileri işlemek için ilk işlem hattınızı oluşturma](data-factory-build-your-first-pipeline.md). 
+Bu ardışık düzen oluşturma izlenecek tam yol için bkz: [Öğreticisi: Hadoop kümesi kullanarak ilk ardışık düzen tooprocess verilerinizi yapı](data-factory-build-your-first-pipeline.md). 
 
 ## <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmet tanımı için üst düzey yapısı aşağıdaki gibidir:
+bağlantılı hizmet tanımı için üst düzey yapısı Hello aşağıdaki gibidir:
 
 ```json
 {
-    "name": "<name of the linked service>",
+    "name": "<name of hello linked service>",
     "properties": {
-        "type": "<type of the linked service>",
+        "type": "<type of hello linked service>",
         "typeProperties": {
         }
     }
 }
 ```
 
-Tablo Özellikleri JSON tanımını etkinlik içinde açıklanmıştır:
+Tablo hello etkinlik JSON tanımını hello özellikleri açıklar:
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- | 
-| ad | Bağlı hizmetin adı. | Evet | 
-| özellikleri - türü | Bağlantılı hizmet türü. Örneğin: Azure Storage, Azure SQL veritabanı. |
-| typeProperties | TypeProperties bölüm için her bir veri deposu farklı veya ortam işlem öğesine sahip. Bkz: [veri depoları](#datastores) bağlı hizmetler tüm verileri depolamak için bölüm ve [ortamları işlem](#compute-environments) için tüm işlem bağlı Hizmetleri |   
+| ad | Merhaba bağlı hizmetin adı. | Evet | 
+| özellikleri - türü | Merhaba bağlantılı hizmet türü. Örneğin: Azure Storage, Azure SQL veritabanı. |
+| typeProperties | Merhaba typeProperties bölüm için her bir veri deposu farklı veya ortam işlem öğesine sahip. Bkz: [veri depolarına](#datastores) bağlı hizmetler tüm hello verilerini depolamak için bölüm ve [ortamları işlem](#compute-environments) tüm Merhaba işlem bağlı Hizmetleri |   
 
 ## <a name="dataset"></a>Veri kümesi 
 Azure Data Factory kümesinde aşağıdaki gibi tanımlanır:
@@ -252,12 +252,12 @@ Azure Data Factory kümesinde aşağıdaki gibi tanımlanır:
     "name": "<name of dataset>",
     "properties": {
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "external": <boolean flag to indicate external data. only for input datasets>,
-        "linkedServiceName": "<Name of the linked service that refers to a data store.>",
+        "external": <boolean flag tooindicate external data. only for input datasets>,
+        "linkedServiceName": "<Name of hello linked service that refers tooa data store.>",
         "structure": [
             {
-                "name": "<Name of the column>",
-                "type": "<Name of the type>"
+                "name": "<Name of hello column>",
+                "type": "<Name of hello type>"
             }
         ],
         "typeProperties": {
@@ -265,8 +265,8 @@ Azure Data Factory kümesinde aşağıdaki gibi tanımlanır:
             "<type specific property 2>": "<value 2>",
         },
         "availability": {
-            "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
-            "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
+            "frequency": "<Specifies hello time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
+            "interval": "<Specifies hello interval within hello defined frequency. For example, frequency set too'Hour' and interval set too1 indicates that new data slices should be produced hourly>"
         },
        "policy":
         {      
@@ -275,28 +275,28 @@ Azure Data Factory kümesinde aşağıdaki gibi tanımlanır:
 }
 ```
 
-Aşağıdaki tabloda yukarıdaki JSON özelliklerinde açıklanmaktadır:   
+Aşağıdaki tablonun hello JSON yukarıda hello özelliklerinde açıklanmaktadır:   
 
 | Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
-| ad | Veri kümesi adı. Bkz: [Azure Data Factory - adlandırma kuralları](data-factory-naming-rules.md) adlandırma kuralları. |Evet |NA |
-| type | Veri kümesi türü. Azure Data Factory ile desteklenen türlerden biri belirtin (örneğin: AzureBlob, AzureSqlTable). Bkz: [veri DEPOLARINA](#data-stores) tüm veri depoları ve veri fabrikası tarafından desteklenen veri türleri için bölüm. | 
-| yapısı | Veri kümesi şemasını. Bu sütun, türleri, vb. içerir. | Hayır |NA |
-| typeProperties | Seçili türüne karşılık gelen özellikler. Bkz: [veri DEPOLARINA](#data-stores) desteklenen türlerini ve bunların özelliklerini bölümü. |Evet |NA |
-| external | Bir veri kümesi açıkça data factory işlem hattı tarafından veya üretilen olup olmadığını belirlemek için mantıksal bayrak. |Hayır |False |
-| availability | İşleme penceresi veya veri kümesi üretim dilimleme modelini tanımlar. Model dilimleme veri kümesi hakkında daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makalesi. |Evet |NA |
-| İlke |Ölçüt ya da veri kümesi dilimler karşılamanız gerekmektedir koşulu tanımlar. <br/><br/>Ayrıntılar için bkz [Dataset İlkesi](#Policy) bölümü. |Hayır |NA |
+| ad | Merhaba DataSet'in adı. Bkz: [Azure Data Factory - adlandırma kuralları](data-factory-naming-rules.md) adlandırma kuralları. |Evet |NA |
+| type | Merhaba veri kümesi türü. Azure Data Factory ile desteklenen hello türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). Bkz: [veri DEPOLARINA](#data-stores) tüm veri depoları ve veri fabrikası tarafından desteklenen veri türleri hello için bölüm. | 
+| yapısı | Merhaba dataset şema. Bu sütun, türleri, vb. içerir. | Hayır |NA |
+| typeProperties | Özellikler toohello karşılık gelen seçili türü. Bkz: [veri DEPOLARINA](#data-stores) desteklenen türlerini ve bunların özelliklerini bölümü. |Evet |NA |
+| external | Boole veya bir veri kümesi açıkça data factory işlem hattı tarafından üretilir olup olmadığını toospecify bayrağı. |Hayır |False |
+| availability | Pencere veya model hello dataset üretim için dilimleme hello işleme hello tanımlar. Model dilimleme hello veri kümesi hakkında daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makalesi. |Evet |NA |
+| ilke |Merhaba ölçütleri veya hello dataset dilimler karşılamanız gerekmektedir hello koşulu tanımlar. <br/><br/>Ayrıntılar için bkz [Dataset İlkesi](#Policy) bölümü. |Hayır |NA |
 
-Her sütunda **yapısı** bölüm, aşağıdaki özellikleri içerir:
+Her sütunda hello **yapısı** bölüm, aşağıdaki özelliklere hello içerir:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| ad |Sütunun adı. |Evet |
-| type |Sütunun veri türü.  |Hayır |
-| Kültür |.NET tabanlı türü belirtilir ve .NET türü olduğunda kullanılacak kültürü `Datetime` veya `Datetimeoffset`. Varsayılan değer `en-us`. |Hayır |
-| Biçimi |Biçim türü belirtilir ve .NET türü olduğunda kullanılacak dize `Datetime` veya `Datetimeoffset`. |Hayır |
+| ad |Merhaba sütunun adı. |Evet |
+| type |Merhaba sütununun veri türü.  |Hayır |
+| Kültür |.NET tabanlı türü belirtilir ve .NET türü olduğunda kullanılan kültür toobe `Datetime` veya `Datetimeoffset`. Varsayılan değer `en-us`. |Hayır |
+| Biçimi |Biçim türü belirtilir ve .NET türü olduğunda kullanılan dize toobe `Datetime` veya `Datetimeoffset`. |Hayır |
 
-Aşağıdaki örnekte, üç sütun kümesi sahip `slicetimestamp`, `projectname`, ve `pageviews` ve bunlar türü: dize, dize ve ondalık sırasıyla.
+Aşağıdaki örneğine hello hello dataset üç sütun sahip `slicetimestamp`, `projectname`, ve `pageviews` ve bunlar türü: dize, dize ve ondalık sırasıyla.
 
 ```json
 structure:  
@@ -307,17 +307,17 @@ structure:
 ]
 ```
 
-Aşağıdaki tabloda, kullanabileceğiniz özellikleri açıklanmaktadır **kullanılabilirlik** bölümü:
+Merhaba aşağıdaki tabloda açıklanmaktadır hello kullanabileceğiniz özellikleri **kullanılabilirlik** bölümü:
 
 | Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
-| Sıklık |Veri kümesi dilim üretim için zaman birimini belirtir.<br/><br/><b>Sıklık desteklenen</b>: dakika, saat, gün, hafta, ay |Evet |NA |
-| aralığı |Sıklığı çarpanı belirtir<br/><br/>"X sıklığı aralığını" ne sıklıkta dilim üretilen belirler.<br/><br/>Saatlik olarak başka bir dilimlenebilir dataset gerekiyorsa, ayarladığınız <b>sıklığı</b> için <b>saat</b>, ve <b>aralığı</b> için <b>1</b>.<br/><br/><b>Not</b>: sıklığını dakika belirtirseniz, aralık en az 15'e ayarlayın öneririz |Evet |NA |
-| stili |Dilim aralığı başlangıç/bitiş üretilen olup olmadığını belirtir.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Sıklık aya ayarlanır ve stil EndOfInterval için dilim ayın son gününde üretilmez. Stil StartOfInterval için ayarlarsanız, dilim ayın ilk günü oluşturulur.<br/><br/>Sıklığı gün olarak ayarlanır ve stili için EndOfInterval dilim günün son bir saatte üretilmez.<br/><br/>Sıklık saate ayarlanır ve stil EndOfInterval için dilim saat sonunda üretilmez. Örneğin, 13'te – 2 PM dönem için bir dilim için 2 saat dilimi oluşturulur. |Hayır |EndOfInterval |
-| anchorDateTime |Veri kümesi dilim sınırlarını işlem için Zamanlayıcı tarafından kullanılan zaman içinde mutlak konum tanımlar. <br/><br/><b>Not</b>: AnchorDateTime sıklığından daha ayrıntılı tarih bölümden oluşur sonra daha ayrıntılı bölümleri göz ardı edilir. <br/><br/>Örneğin, varsa <b>aralığı</b> olan <b>saatlik</b> (sıklığı: saat ve aralığı: 1) ve <b>AnchorDateTime</b> içeren <b>dakika ve saniyeleri</b> sonra <b>dakika ve saniyeleri</b> AnchorDateTime bölümlerini yok sayılır. |Hayır |01/01/0001 |
-| uzaklık |Tarafından başlangıç ve bitiş tüm veri kümesi dilim gölgeye Timespan. <br/><br/><b>Not</b>: anchorDateTime ve uzaklık belirtilirse, birleştirilmiş shift sonucudur. |Hayır |NA |
+| frequency |Veri kümesi dilim üretim Hello zaman birimini belirtir.<br/><br/><b>Sıklık desteklenen</b>: dakika, saat, gün, hafta, ay |Evet |NA |
+| interval |Sıklığı çarpanı belirtir<br/><br/>"X sıklığı aralığını" ne sıklıkta hello dilim üretilen belirler.<br/><br/>Saatlik olarak başka bir dilimlenebilir dataset toobe hello varsa, ayarladığınız <b>sıklığı</b> çok<b>saat</b>, ve <b>aralığı</b> çok<b>1</b>.<br/><br/><b>Not</b>: sıklığını dakika belirtirseniz, 15'den küçük hello aralığı toono ayarlamanızı öneririz |Evet |NA |
+| stili |Merhaba dilim hello başlangıç/bitiş hello aralığının üretilen olup olmadığını belirtir.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Sıklık tooMonth ayarlanır ve stil tooEndOfInterval hello dilim ayın son günü hello üzerinde üretilmez. Merhaba stili tooStartOfInterval ayarlarsanız hello dilim ayın ilk günü hello üzerinde oluşturulur.<br/><br/>Sıklık tooDay ayarlanır ve stil tooEndOfInterval hello dilim hello hello günün son bir saat üretilmez.<br/><br/>Sıklık tooHour ayarlanır ve stil tooEndOfInterval hello dilim hello hello saat sonunda üretilmez. Örneğin, 13'te – 2 PM dönem için bir dilim için 2 saat hello dilim oluşturulur. |Hayır |EndOfInterval |
+| anchorDateTime |Zamanlayıcı toocompute dataset dilim sınırları tarafından kullanılan süre içinde mutlak konum Hello tanımlar. <br/><br/><b>Not</b>: Merhaba AnchorDateTime sahip hello sıklığından daha ayrıntılı tarih kısımlarını sonra hello daha ayrıntılı bölümleri göz ardı edilir. <br/><br/>Örneğin, hello <b>aralığı</b> olan <b>saatlik</b> (sıklığı: saat ve aralığı: 1) ve hello <b>AnchorDateTime</b> içeren <b>dakika ve saniyeleri</b>sonra hello <b>dakika ve saniyeleri</b> hello AnchorDateTime bölümlerini yok sayılır. |Hayır |01/01/0001 |
+| uzaklık |Tarafından hangi hello başlangıç ve bitiş tüm veri kümesi dilim gölgeye Timespan. <br/><br/><b>Not</b>: anchorDateTime ve uzaklık belirtilirse, hello birleştirilmiş hello shift sonucudur. |Hayır |NA |
 
-Aşağıdaki kullanılabilirlik bölümü çıktı veri kümesi üretilen saatlik (veya) giriş olduğunu belirtir dataset kullanılabilir saatlik:
+Kullanılabilirlik bölümden hello belirtir, hello çıktı veri kümesi olan üretilen saatlik (veya) giriş veri kümesi kullanılabilir saatlik:
 
 ```json
 "availability":    
@@ -327,12 +327,12 @@ Aşağıdaki kullanılabilirlik bölümü çıktı veri kümesi üretilen saatli
 }
 ```
 
-**İlkesi** veri kümesi tanımı bölümünde ölçütleri veya veri kümesi dilimler karşılamanız gerekmektedir koşulu tanımlar.
+Merhaba **İlkesi** gerekir dataset dilimler hello hello koşulu karşılayan veya veri kümesi tanımı bölümünde hello ölçütleri tanımlar.
 
-| İlke adı | Açıklama | Uygulanan | Gerekli | Varsayılan |
+| İlke adı | Açıklama | Çok uygulanan| Gerekli | Varsayılan |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Doğrular verilerde bir **Azure blob** (megabayt cinsinden) en düşük boyut gereksinimlerini karşılıyor. |Azure Blob |Hayır |NA |
-| minimumRows |Doğrular verilerde bir **Azure SQL veritabanı** veya bir **Azure tablo** en az satır sayısını içerir. |<ul><li>Azure SQL Database</li><li>Azure tablo</li></ul> |Hayır |NA |
+| minimumSizeMB |Merhaba verilerin doğrulayan bir **Azure blob** karşılıyor hello minimum boyut gereksinimlerini (megabayt cinsinden). |Azure Blob |Hayır |NA |
+| minimumRows |Merhaba verilerin doğrulayan bir **Azure SQL veritabanı** veya bir **Azure tablo** hello en az satır sayısını içerir. |<ul><li>Azure SQL Database</li><li>Azure tablo</li></ul> |Hayır |NA |
 
 **Örnek:**
 
@@ -347,24 +347,24 @@ Aşağıdaki kullanılabilirlik bölümü çıktı veri kümesi üretilen saatli
 }
 ```
 
-Azure Data Factory tarafından üretilen bir veri kümesi sürece bunu olarak işaretlenmelidir **dış**. Etkinlik veya ardışık düzen zincirleme kullanılmadığı sürece bu ayar genellikle bir ardışık düzendeki ilk etkinlik girişleri için geçerlidir.
+Azure Data Factory tarafından üretilen bir veri kümesi sürece bunu olarak işaretlenmelidir **dış**. Etkinlik veya ardışık düzen zincirleme kullanılmadığı sürece bu ayar genellikle bir ardışık düzendeki ilk etkinliğin toohello girişleri uygulanır.
 
 | Ad | Açıklama | Gerekli | Varsayılan değer |
 | --- | --- | --- | --- |
-| dataDelay |Verilen dilim için dış veri kullanılabilirliğini onay gecikme süresi. Verilerin saatlik varsa, örneğin, dış veri kullanılabilir ve karşılık gelen dilimi hazır denetleyin dataDelay kullanılarak ertelenebilir.<br/><br/>Yalnızca mevcut süre için geçerlidir.  Örneğin, 1:00 PM şimdi ise ve bu değer 10 dakikadır doğrulama 13: 10'te başlatır.<br/><br/>Bu ayar, geçmişte dilimler etkilemez (dilimler dilim bitiş saati + dataDelay < şimdi) herhangi bir gecikme işlenir.<br/><br/>Saat 23:59 saatleri gereken kullanarak belirtilen büyük `day.hours:minutes:seconds` biçimi. Örneğin, 24 saat belirtmek için 24:00:00 kullanmayın; Bunun yerine, 1.00:00:00 kullanın. 24:00:00 kullanırsanız, 24 gün (24.00:00:00) kabul edilir. 1 gün ve 4 saat için 1:04:00:00 belirtin. |Hayır |0 |
-| Retryınterval |Bir hata ile sonraki arasındaki bekleme süresini girişimi yeniden deneyin. Bir deneme başarısız olursa, sonraki deneyin sonra Retryınterval olur. <br/><br/>1:00 PM şimdi ise, ilk denemede başlamadan. İlk doğrulama denetimi tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 1 dak (süresi) + 1 dak (yeniden deneme aralığı) = 1:02 PM. <br/><br/>Geçmişte dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 dakika) |
-| retryTimeout |Yeniden deneme girişimleri için zaman aşımı.<br/><br/>Bu özellik 10 dakika olarak ayarlanırsa, doğrulama 10 dakika içinde tamamlanması gerekir. Yeniden deneme doğrulamayı gerçekleştirmek için 10 dakikadan uzun sürüyorsa, zaman aşımına uğradı.<br/><br/>Tüm denemeleri doğrulama için zaman aşımına uğrarsa, dilim süresi sona erdi işaretlenir. |Hayır |00:10:00 (10 dakika) |
-| maximumRetry |Dış veri kullanılabilirliğini denetleyin sayısı. İzin verilen en büyük değer 10'dur. |Hayır |3 |
+| dataDelay |Dilim verilen hello için dış veri hello hello kullanılabilirliğine zaman toodelay hello denetleyin. Örneğin, hello veri saatlik varsa, hello onay toosee hello dış veriler kullanılabilir ve hello karşılık gelen dilim hazır dataDelay kullanılarak ertelenebilir.<br/><br/>Yalnızca toohello şimdiki zaman geçerlidir.  Örneğin, 1:00 PM şimdi ise ve bu değer 10 dakikadır hello doğrulama 13: 10'te başlatır.<br/><br/>Bu ayar hello geçmiş dilimleri etkilemez (dilimler dilim bitiş saati + dataDelay < şimdi) herhangi bir gecikme işlenir.<br/><br/>Saat 23: saat gereksinim hello kullanarak toospecified 59'dan büyük `day.hours:minutes:seconds` biçimi. Örneğin, toospecify 24 saat 24:00:00 kullanmayın; Bunun yerine, 1.00:00:00 kullanın. 24:00:00 kullanırsanız, 24 gün (24.00:00:00) kabul edilir. 1 gün ve 4 saat için 1:04:00:00 belirtin. |Hayır |0 |
+| Retryınterval |Merhaba hatası ve hello sonraki yeniden deneme girişimi arasındaki süre bekleyin. Bir deneme başarısız olursa hello sonraki deneyin sonra Retryınterval olur. <br/><br/>1:00 PM şimdi ise, biz hello ilk denemede başlayın. Merhaba süresi toocomplete hello ilk doğrulama denetimi hello işlemi başarısız oldu ve 1 dakikalık hello sonraki yeniden deneme ise, 1:00 1 dak (süresi) + 1 dak (yeniden deneme aralığı) = 1:02 PM. <br/><br/>Merhaba son dilim için gecikme yoktur. Merhaba yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 dakika) |
+| retryTimeout |yeniden deneme girişimleri için Hello zaman aşımı.<br/><br/>Bu özellik ayarlanırsa too10 dakika hello doğrulama gereksinimlerini toobe 10 dakika içinde tamamlandı. 10 dakika tooperform hello doğrulama uzun sürerse hello zaman aşımına yeniden deneyin.<br/><br/>Tüm denemeleri hello doğrulama için zaman aşımına uğrarsa, hello dilim süresi sona erdi işaretlenir. |Hayır |00:10:00 (10 dakika) |
+| maximumRetry |Sayısı toocheck hello dış veri hello kullanılabilirlik için zaman. Merhaba izin verilen en büyük değer 10'dur. |Hayır |3 |
 
 
 ## <a name="data-stores"></a>VERİ DEPOLARI
-[Bağlantılı hizmeti](#linked-service) tüm türleri bağlı hizmetler için ortak olan JSON öğeleri için sağlanan bölüm açıklamalar. Bu bölümde her veri deposuna belirli JSON öğeleri hakkında ayrıntılar sağlar.
+Merhaba [bağlantılı hizmeti](#linked-service) bağlı hizmetler ortak tooall türleri JSON öğeleri için sağlanan bölüm açıklamalar. Bu bölümde, belirli tooeach veri deposu JSON öğelerini hakkında ayrıntılar sağlar.
 
-[Dataset](#dataset) veri kümeleri tüm türleri için ortak olan JSON öğeleri için sağlanan bölüm açıklamalar. Bu bölümde her veri deposuna belirli JSON öğeleri hakkında ayrıntılar sağlar.
+Merhaba [Dataset](#dataset) veri kümeleri ortak tooall türleri JSON öğeleri için sağlanan bölüm açıklamalar. Bu bölümde, belirli tooeach veri deposu JSON öğelerini hakkında ayrıntılar sağlar.
 
-[Etkinlik](#activity) tüm türleri etkinlikler için ortak olan JSON öğeleri için sağlanan bölüm açıklamalar. Bu bölümde bir kopyalama etkinliği kaynak/havuz olarak kullanıldığında, her veri deposuna özel JSON öğeleri hakkında ayrıntılar sağlar.  
+Merhaba [etkinlik](#activity) etkinlik ortak tooall türlerini JSON öğeleri için sağlanan bölüm açıklamalar. Bu bölümde bir kopyalama etkinliği kaynak/havuz olarak kullanıldığında, belirli tooeach veri deposu JSON öğelerini hakkında ayrıntılar sağlar.  
 
-Bağlantılı hizmeti, veri kümesi ve kaynak/havuz kopyalama etkinliği için JSON şemaları görmek ilgilendiğiniz deposu için bağlantıya tıklayın.
+Şemalardaki toosee hello JSON bağlantılı hizmeti, veri kümesi, ilgilendiğiniz ve kaynak/havuz hello kopyalama etkinliği için hello hello deposu Hello bağlantısına tıklayın.
 
 | Kategori | Veri deposu 
 |:--- |:--- |
@@ -404,11 +404,11 @@ Bağlantılı hizmeti, veri kümesi ve kaynak/havuz kopyalama etkinliği için J
 Bağlı hizmetler iki tür vardır: Azure depolama bağlantılı hizmeti ve Azure depolama SAS bağlantılı hizmeti.
 
 #### <a name="azure-storage-linked-service"></a>Azure Storage Bağlı Hizmeti
-Azure storage hesabınızı kullanarak bir data factory'ye bağlamak için **hesap anahtarı**, bir Azure Storage bağlı hizmeti oluşturma. Bağlantılı hizmeti bir Azure depolama alanını tanımlayın, Ayarla **türü** bağlantılı hizmetinin **AzureStorage**. Ardından, aşağıdaki özellikleri belirtebilirsiniz **typeProperties** bölümü:  
+toolink hello kullanarak Azure depolama hesabı tooa veri fabrikası **hesap anahtarı**, bir Azure Storage bağlı hizmeti oluşturma. toodefine bir Azure depolama bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**AzureStorage**. Ardından hello özelliklerinde aşağıdaki belirtebilirsiniz **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| connectionString |ConnectionString özelliği için Azure depolama alanına bağlanmak için gereken bilgileri belirtin. |Evet |
+| connectionString |Tooconnect tooAzure depolama hello connectionString özelliği için gerekli bilgiler belirtin. |Evet |
 
 ##### <a name="example"></a>Örnek  
 
@@ -425,11 +425,11 @@ Azure storage hesabınızı kullanarak bir data factory'ye bağlamak için **hes
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS bağlı hizmeti
-Azure depolama bağlı SAS hizmeti bir paylaşılan erişim imzası (SAS) kullanarak Azure data factory için bir Azure depolama hesabı bağlantı sağlar. Veri Fabrikası depolama alanındaki tüm/özel kaynakları (blob/kapsayıcısı) kısıtlanmış/zaman sınırlı erişim sağlar. Paylaşılan erişim imzası kullanarak bir veri fabrikası Azure depolama hesabınıza bağlamak için bir Azure depolama bağlı SAS hizmeti oluşturun. Bağlantılı hizmeti bir Azure depolama SAS tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureStorageSas**. Ardından, aşağıdaki özellikleri belirtebilirsiniz **typeProperties** bölümü:   
+Hello Azure depolama bağlı SAS hizmeti bir paylaşılan erişim imzası (SAS) kullanarak toolink bir Azure depolama hesabı tooan Azure data factory sağlar. Kısıtlanmış/zaman sınırlı erişimi hello veri fabrikası hello depolama tooall/özel kaynakları (blob/kapsayıcısı) sağlar. bir Azure depolama bağlı SAS hizmeti toolink paylaşılan erişim imzası kullanarak Azure depolama hesabı tooa veri fabrikası oluşturun. toodefine bir Azure depolama SAS bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**AzureStorageSas**. Ardından hello özelliklerinde aşağıdaki belirtebilirsiniz **typeProperties** bölümü:   
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| sasUri |Blob, kapsayıcı ya da tablo gibi Azure Storage kaynakları için paylaşılan erişim imzası URI belirtin. |Evet |
+| sasUri |Blob, kapsayıcı ya da tablo gibi paylaşılan erişim imzası URI toohello Azure Storage kaynakları belirtin. |Evet |
 
 ##### <a name="example"></a>Örnek
 
@@ -448,15 +448,15 @@ Azure depolama bağlı SAS hizmeti bir paylaşılan erişim imzası (SAS) kullan
 Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz: [Azure Blob Storage bağlayıcı](data-factory-azure-blob-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure Blob veri kümesini tanımlamak için **türü** için veri kümesinin **AzureBlob**. Ardından aşağıdaki Azure Blob belirli özelliklerinde belirtin **typeProperties** bölümü: 
+toodefine bir Azure Blob dataset kümesi hello **türü** hello kümesinin çok**AzureBlob**. Ardından, Azure Blob belirli hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Kapsayıcı ve klasöre blob depolamada yolu. Örnek: myblobcontainer\myblobfolder\ |Evet |
-| fileName |Blob adı. isteğe bağlıdır ve büyük küçük harfe duyarlı dosya adıdır.<br/><br/>Bir dosya adı belirtirseniz, (kopyalama dahil) etkinlik belirli Blob üzerinde çalışır.<br/><br/>Dosya adı belirtilmediğinde kopyalama tüm BLOB'lar girdi veri kümesi için folderPath içerir.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır Bu biçim: veri. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| partitionedBy |partitionedBy isteğe bağlı bir özelliktir. Bir dinamik folderPath ve zaman serisi verileri için dosya adı belirtmek için kullanabilirsiniz. Örneğin, folderPath için verileri saatte parametreli olabilir. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| folderPath |Yol toohello kapsayıcı ve klasöre hello blob depolama. Örnek: myblobcontainer\myblobfolder\ |Evet |
+| fileName |Merhaba blob adı. isteğe bağlıdır ve büyük küçük harfe duyarlı dosya adıdır.<br/><br/>Üzerinde bir dosya adı, hello (kopyalama dahil) etkinlik works belirtirseniz, belirli Blob hello.<br/><br/>FileName belirtilmediğinde kopyalama tüm BLOB'lar girdi veri kümesi için hello folderPath içerir.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan hello dosyasının hello adı Bu biçim aşağıdaki hello olacaktır: veri. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| partitionedBy |partitionedBy isteğe bağlı bir özelliktir. Bunu toospecify dinamik folderPath ve dosya adı için zaman serisi veri kullanabilirsiniz. Örneğin, folderPath için verileri saatte parametreli olabilir. |Hayır |
+| Biçimi | şu biçimi türlerini hello desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Set hello **türü** biçimi tooone şu değerlerden biri altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Çok istiyorsanız**olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında hello Biçim bölümü atlayın. |Hayır |
+| Sıkıştırma | Merhaba türünü ve hello veri sıkıştırma düzeyini belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -488,11 +488,11 @@ Bir Azure Blob veri kümesini tanımlamak için **türü** için veri kümesinin
 Daha fazla bilgi için bkz: [Azure Blob bağlayıcı](data-factory-azure-blob-connector.md#dataset-properties) makalesi.
 
 ### <a name="blobsource-in-copy-activity"></a>Kopyalama etkinliğinde BlobSource
-Bir Azure Blob depolama alanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **BlobSource**ve aşağıdaki özellikleri belirtin ** kaynak ** bölümü:
+Bir Azure Blob depolama alanından veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**BlobSource**ve hello özelliklerinde aşağıdaki belirtin ** kaynak ** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| Özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |(Varsayılan değer) false değerini true |Hayır |
+| Özyinelemeli |Merhaba alt klasörler veya yalnızca hello belirtilen klasör Hello veri yinelemeli olarak okunur olup olmadığını gösterir. |(Varsayılan değer) false değerini true |Hayır |
 
 #### <a name="example-blobsource"></a>Örnek: BlobSource **
 ```json
@@ -531,11 +531,11 @@ Bir Azure Blob depolama alanından veri kopyalıyorsanız ayarlamak **kaynak tü
 }
 ```
 ### <a name="blobsink-in-copy-activity"></a>Kopyalama etkinliğinde BlobSink
-Bir Azure Blob depolama alanına veri kopyalıyorsanız ayarlamak **Havuz türü** kopyalama etkinliği **BlobSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+Veri tooan Azure Blob Storage kopyalıyorsanız hello ayarlamak **Havuz türü** Merhaba kopya etkinliği çok**BlobSink**ve hello özelliklerinde aşağıdaki belirtin **havuz** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| copyBehavior |Kaynak BlobSource veya dosya sistemi olduğunda kopyalama davranışını tanımlar. |<b>PreserveHierarchy</b>: Dosya hiyerarşisi hedef klasördeki korur. Kaynak dosyanın kaynak klasöre göreli yol, hedef dosya hedef klasöre göreli yolunu aynıdır.<br/><br/><b>FlattenHierarchy</b>: tüm kaynak klasörü hedef klasör ilk düzeyi dosyalarıdır. Hedef dosyalar otomatik adına sahip. <br/><br/><b>MergeFiles (varsayılan):</b> bir dosya için kaynak klasöründeki tüm dosyaları birleştirir. Birleştirilmiş Dosya adı, dosya/Blob adı belirtilirse, belirtilen ad olur; Aksi takdirde otomatik olarak oluşturulan dosya adı olacaktır. |Hayır |
+| copyBehavior |Merhaba kaynağı BlobSource veya dosya sistemi olduğunda hello kopyalama davranışını tanımlar. |<b>PreserveHierarchy</b>: korur hello hello hedef klasörü içinde dosya hiyerarşisi. Kaynak dosya toosource klasörünün göreli yolu Hello aynı toohello göreli hedef dosya tootarget klasör yoludur.<br/><br/><b>FlattenHierarchy</b>: hello kaynak klasördeki tüm dosyaları hello ilk hedef klasörü düzeyi. Merhaba hedef dosyalara otomatik adına sahip. <br/><br/><b>MergeFiles (varsayılan):</b> hello kaynak klasör tooone dosyasından tüm dosyaları birleştirir. Merhaba dosya/Blob adı belirtilirse, hello birleştirilmiş dosya adı hello belirtilen adı olur; Aksi takdirde otomatik olarak oluşturulan dosya adı olacaktır. |Hayır |
 
 #### <a name="example-blobsink"></a>Örnek: BlobSink
 
@@ -581,19 +581,19 @@ Daha fazla bilgi için bkz: [Azure Blob bağlayıcı](data-factory-azure-blob-co
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmeti bir Azure Data Lake Store tanımlamak için bağlantılı hizmet türüne ayarlayın **AzureDataLakeStore**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+bir Azure Data Lake Store bağlantılı hizmeti toodefine, kümesi hello tür hello bağlı hizmeti çok**AzureDataLakeStore**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **AzureDataLakeStore** | Evet |
-| dataLakeStoreUri | Azure Data Lake Store hesabı bilgilerini belirtin. Aşağıdaki biçimdedir: `https://[accountname].azuredatalakestore.net/webhdfs/v1` veya `adl://[accountname].azuredatalakestore.net/`. | Evet |
-| subscriptionId | Data Lake Store ait olduğu azure abonelik kimliği. | Havuz için gerekli |
-| resourceGroupName | Data Lake Store ait olduğu azure kaynak grubu adı. | Havuz için gerekli |
-| servicePrincipalId | Uygulamanın istemci kimliği belirtin. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
-| servicePrincipalKey | Uygulamanın anahtarını belirtin. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
-| Kiracı | Uygulamanızın bulunduğu altında Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Azure portalının sağ üst köşedeki fare gelerek alabilir. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
-| Yetkilendirme | Tıklatın **Authorize** düğmesini **Data Factory düzenleyici** ve bu özelliği otomatik olarak oluşturulan yetkilendirme URL'si atar kimlik bilgilerinizi girin. | Evet (kullanıcı kimlik bilgileri doğrulaması için)|
-| SessionID | OAuth yetkilendirme oturumundan OAuth oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Data Factory Düzenleyici kullandığınızda bu ayarı otomatik olarak oluşturulur. | Evet (kullanıcı kimlik bilgileri doğrulaması için) |
+| type | Merhaba type özelliği ayarlanmalıdır: **AzureDataLakeStore** | Evet |
+| dataLakeStoreUri | Hello Azure Data Lake Store hesabı bilgilerini belirtin. Biçim aşağıdaki hello olduğu: `https://[accountname].azuredatalakestore.net/webhdfs/v1` veya `adl://[accountname].azuredatalakestore.net/`. | Evet |
+| subscriptionId | Azure abonelik kimliği toowhich Data Lake Store aittir. | Havuz için gerekli |
+| resourceGroupName | Azure kaynak grubu adı toowhich Data Lake Store aittir. | Havuz için gerekli |
+| servicePrincipalId | Merhaba uygulamanın istemci kimliği belirtin. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
+| servicePrincipalKey | Merhaba uygulamanın anahtarını belirtin. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
+| Kiracı | Uygulamanızın bulunduğu altında Hello Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Vurgulama hello fare hello sağ üst köşesindeki hello Azure portal tarafından alabilir. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
+| Yetkilendirme | Tıklatın **Authorize** hello düğmesini **Data Factory düzenleyici** ve hello otomatik olarak oluşturulan yetkilendirme URL'si toothis özelliği atar kimlik bilgilerinizi girin. | Evet (kullanıcı kimlik bilgileri doğrulaması için)|
+| SessionID | Merhaba OAuth yetkilendirme oturumundan OAuth oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Data Factory Düzenleyici kullandığınızda bu ayarı otomatik olarak oluşturulur. | Evet (kullanıcı kimlik bilgileri doğrulaması için) |
 
 #### <a name="example-using-service-principal-authentication"></a>Örnek: hizmet asıl kimlik doğrulaması kullanma
 ```json
@@ -631,15 +631,15 @@ Bağlantılı hizmeti bir Azure Data Lake Store tanımlamak için bağlantılı 
 Daha fazla bilgi için bkz: [Azure Data Lake Store bağlayıcı](data-factory-azure-datalake-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure Data Lake Store veri kümesini tanımlamak için **türü** için veri kümesinin **AzureDataLakeStore**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Azure Data Lake Store dataset kümesi hello **türü** hello kümesinin çok**AzureDataLakeStore**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties**bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| folderPath |Kapsayıcı ve Azure Data Lake klasörü yoluna depolar. |Evet |
-| fileName |Azure Data Lake Store'da dosyasının adı. isteğe bağlıdır ve büyük küçük harfe duyarlı dosya adıdır. <br/><br/>Bir dosya adı belirtirseniz, (kopyalama dahil) etkinlik belirli bir dosya üzerinde çalışır.<br/><br/>FileName belirtilmediğinde kopyalama folderPath girdi veri kümesi için tüm dosyaları içerir.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır Bu biçim: veri. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| partitionedBy |partitionedBy isteğe bağlı bir özelliktir. Bir dinamik folderPath ve zaman serisi verileri için dosya adı belirtmek için kullanabilirsiniz. Örneğin, folderPath için verileri saatte parametreli olabilir. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| folderPath |Yol toohello kapsayıcı ve hello Azure Data Lake klasöründe depolayın. |Evet |
+| fileName |Hello Azure Data Lake Store'da hello dosyasının adı. isteğe bağlıdır ve büyük küçük harfe duyarlı dosya adıdır. <br/><br/>Bir dosya adı belirtirseniz, (kopyalama dahil) hello etkinlik hello belirli dosya üzerinde çalışır.<br/><br/>FileName belirtilmediğinde kopyalama hello folderPath girdi veri kümesi için tüm dosyaları içerir.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan hello dosyasının hello adı Bu biçim aşağıdaki hello olacaktır: veri. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| partitionedBy |partitionedBy isteğe bağlı bir özelliktir. Bunu toospecify dinamik folderPath ve dosya adı için zaman serisi veri kullanabilirsiniz. Örneğin, folderPath için verileri saatte parametreli olabilir. |Hayır |
+| Biçimi | şu biçimi türlerini hello desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Set hello **türü** biçimi tooone şu değerlerden biri altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Çok istiyorsanız**olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında hello Biçim bölümü atlayın. |Hayır |
+| Sıkıştırma | Merhaba türünü ve hello veri sıkıştırma düzeyini belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -676,13 +676,13 @@ Bir Azure Data Lake Store veri kümesini tanımlamak için **türü** için veri
 Daha fazla bilgi için bkz: [Azure Data Lake Store bağlayıcı](data-factory-azure-datalake-connector.md#dataset-properties) makalesi. 
 
 ### <a name="azure-data-lake-store-source-in-copy-activity"></a>Kopya etkinliği Azure Data Lake Store kaynağında
-Bir Azure Data Lake Deposu'ndan veri veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **AzureDataLakeStoreSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir Azure Data Lake Deposu'ndan veri veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**AzureDataLakeStoreSource**ve hello özelliklerinde aşağıdaki belirtin **kaynağı**  bölümü:
 
-**AzureDataLakeStoreSource** aşağıdaki özellikleri destekler **typeProperties** bölümü:
+**AzureDataLakeStoreSource** aşağıdaki özelliklere hello destekleyen **typeProperties** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| Özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |(Varsayılan değer) false değerini true |Hayır |
+| Özyinelemeli |Merhaba alt klasörler veya yalnızca hello belirtilen klasör Hello veri yinelemeli olarak okunur olup olmadığını gösterir. |(Varsayılan değer) false değerini true |Hayır |
 
 #### <a name="example-azuredatalakestoresource"></a>Örnek: AzureDataLakeStoreSource
 
@@ -725,11 +725,11 @@ Bir Azure Data Lake Deposu'ndan veri veri kopyalıyorsanız ayarlamak **kaynak t
 Daha fazla bilgi için bkz: [Azure Data Lake Store bağlayıcı](data-factory-azure-datalake-connector.md#copy-activity-properties) makalesi.
 
 ### <a name="azure-data-lake-store-sink-in-copy-activity"></a>Kopya etkinliği Azure Data Lake Store havuzunda
-Bir Azure Data Lake Store'a veri kopyalamak istiyorsanız, ayarlayın **Havuz türü** kopyalama etkinliği **AzureDataLakeStoreSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+Veri tooan Azure Data Lake Store kopyalıyorsanız hello ayarlamak **Havuz türü** Merhaba kopya etkinliği çok**AzureDataLakeStoreSink**ve hello özelliklerinde aşağıdaki belirtin **havuz**bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| copyBehavior |Kopyalama davranışını belirtir. |<b>PreserveHierarchy</b>: Dosya hiyerarşisi hedef klasördeki korur. Kaynak dosyanın kaynak klasöre göreli yol, hedef dosya hedef klasöre göreli yolunu aynıdır.<br/><br/><b>FlattenHierarchy</b>: tüm dosyaları kaynak klasörden hedef klasöre ilk düzeyi oluşturulur. Hedef dosyalar otomatik adıyla oluşturulur.<br/><br/><b>MergeFiles</b>: bir dosya için kaynak klasöründeki tüm dosyaları birleştirir. Birleştirilmiş Dosya adı, dosya/Blob adı belirtilirse, belirtilen ad olur; Aksi takdirde otomatik olarak oluşturulan dosya adı olacaktır. |Hayır |
+| copyBehavior |Merhaba kopyalama davranışını belirtir. |<b>PreserveHierarchy</b>: korur hello hello hedef klasörü içinde dosya hiyerarşisi. Kaynak dosya toosource klasörünün göreli yolu Hello aynı toohello göreli hedef dosya tootarget klasör yoludur.<br/><br/><b>FlattenHierarchy</b>: hello kaynak klasördeki tüm dosyaları hedef klasörün hello ilk düzeyi oluşturulur. Merhaba hedef dosyaları otomatik adıyla oluşturulur.<br/><br/><b>MergeFiles</b>: hello kaynak klasör tooone dosyasından tüm dosyaları birleştirir. Merhaba dosya/Blob adı belirtilirse, hello birleştirilmiş dosya adı hello belirtilen adı olur; Aksi takdirde otomatik olarak oluşturulan dosya adı olacaktır. |Hayır |
 
 #### <a name="example-azuredatalakestoresink"></a>Örnek: AzureDataLakeStoreSink
 ```json
@@ -777,11 +777,11 @@ Daha fazla bilgi için bkz: [Azure Data Lake Store bağlayıcı](data-factory-az
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB  
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmeti bir Azure Cosmos DB tanımlamak için Ayarla **türü** bağlantılı hizmetinin **DocumentDb**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+bir Azure Cosmos DB toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**DocumentDb**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** Bölüm:  
 
 | **Özellik** | **Açıklama** | **Gerekli** |
 | --- | --- | --- |
-| connectionString |Azure Cosmos DB veritabanına bağlanmak için gereken bilgileri belirtin. |Evet |
+| connectionString |Gerekli bilgiler tooconnect tooAzure Cosmos DB veritabanı belirtin. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -799,11 +799,11 @@ Bağlantılı hizmeti bir Azure Cosmos DB tanımlamak için Ayarla **türü** ba
 Daha fazla bilgi için bkz: [Azure Cosmos DB bağlayıcı](data-factory-azure-documentdb-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure Cosmos DB veri kümesini tanımlamak için **türü** için veri kümesinin **DocumentDbCollection**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Azure Cosmos DB dataset kümesi hello **türü** hello kümesinin çok**DocumentDbCollection**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** Bölüm: 
 
 | **Özellik** | **Açıklama** | **Gerekli** |
 | --- | --- | --- |
-| collectionName |Azure Cosmos DB koleksiyonunun adı. |Evet |
+| collectionName |Hello Azure Cosmos DB koleksiyon adı. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -827,13 +827,13 @@ Bir Azure Cosmos DB veri kümesini tanımlamak için **türü** için veri küme
 Daha fazla bilgi için bkz: [Azure Cosmos DB bağlayıcı](data-factory-azure-documentdb-connector.md#dataset-properties) makalesi.
 
 ### <a name="azure-cosmos-db-collection-source-in-copy-activity"></a>Kopya etkinliği Azure Cosmos DB koleksiyon kaynağında
-Bir Azure Cosmos Veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **DocumentDbCollectionSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir Azure Cosmos Veritabanından veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**DocumentDbCollectionSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** bölümü:
 
 
 | **Özellik** | **Açıklama** | **İzin verilen değerler** | **Gerekli** |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için sorgu belirtin. |Sorgu dizesindeki Azure Cosmos DB tarafından desteklenir. <br/><br/>Örnek:`SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Hayır <br/><br/>Belirtilmezse, yürütülen SQL deyimi:`select <columns defined in structure> from mycollection` |
-| nestingSeparator |Belge iç içe geçmiş belirtmek için özel karakter |Herhangi bir karakter. <br/><br/>Azure Cosmos DB iç içe geçmiş yapılar burada izin verilen bir NoSQL JSON belgeleri için deposudur. Azure Data Factory sağlar hiyerarşisi olan nestingSeparator aracılığıyla belirtmek kullanıcı "." Yukarıdaki örneklerde. Ayırıcı olmadan kopyalama etkinliği üç alt öğeleri "Ad" nesnesiyle ilk olarak, oluşturacak Orta ve son "Name.First", "Name.Middle" ve "Name.Last" Tablo tanımında göre. |Hayır |
+| sorgu |Merhaba sorgu tooread verileri belirtin. |Sorgu dizesindeki Azure Cosmos DB tarafından desteklenir. <br/><br/>Örnek:`SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Hayır <br/><br/>Belirtilmezse, yürütülen SQL deyimini hello:`select <columns defined in structure> from mycollection` |
+| nestingSeparator |Belge hello özel karakter tooindicate iç içe geçmiş |Herhangi bir karakter. <br/><br/>Azure Cosmos DB iç içe geçmiş yapılar burada izin verilen bir NoSQL JSON belgeleri için deposudur. Azure Data Factory sağlayan kullanıcı toodenote hiyerarşisi olan nestingSeparator aracılığıyla "." Yukarıdaki örneklerde Hello. Merhaba ayırıcı ile üç alt öğeleri olan hello "Ad" nesne hello kopyalama etkinliği oluşturacaktır ilk, Orta ve son, according too"Name.First", "Name.Middle" ve "Name.Last" hello, tablo tanımı. |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -874,13 +874,13 @@ Bir Azure Cosmos Veritabanından veri kopyalıyorsanız ayarlamak **kaynak tür�
 ```
 
 ### <a name="azure-cosmos-db-collection-sink-in-copy-activity"></a>Kopya etkinliği Azure Cosmos DB koleksiyonu havuzunda
-Azure Cosmos Veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz türü** kopyalama etkinliği **DocumentDbCollectionSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+Veri tooAzure Cosmos DB kopyalıyorsanız hello ayarlamak **Havuz türü** Merhaba kopya etkinliği çok**DocumentDbCollectionSink**ve hello özelliklerinde aşağıdaki belirtin **havuz**bölümü:
 
 | **Özellik** | **Açıklama** | **İzin verilen değerler** | **Gerekli** |
 | --- | --- | --- | --- |
-| nestingSeparator |Bir özel karakter iç içe geçmiş belge belirtmek için kaynak sütun adı gereklidir. <br/><br/>Örneğin yukarıdaki: `Name.First` çıktıda tablo Cosmos DB belgede aşağıdaki JSON yapısını oluşturur:<br/><br/>"Name": {<br/>    "İlk": "John"<br/>}, |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir.<br/><br/>Varsayılan değer `.` (nokta). |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir. <br/><br/>Varsayılan değer `.` (nokta). |
-| writeBatchSize |Azure Cosmos DB hizmeti belgeleri oluşturmak için paralel isteklerin sayısı.<br/><br/>Bu özelliği kullanarak Azure Cosmos DB öğesine/öğesinden veri kopyalama işlemi sırasında performans ince ayar yapabilirsiniz. Daha fazla paralel istekler için Azure Cosmos DB'ye gönderildiğinden writeBatchSize artırdığınızda daha iyi bir performans düşüklüğü görebilir. Ancak, azaltma önlemek gerekir, hata iletisi atabilirsiniz: "oranıdır büyük istek".<br/><br/>Azaltmayı bir dizi etkene, belgeler, belgeleri koşullarını sayısı boyutunu dahil olmak üzere, hedef koleksiyon, vb. İlkesi dizin tarafından belirlenir. Kopyalama işlemleri için en çok kullanılabilir verimlilik sağlamak için daha iyi bir koleksiyonunu (örneğin, S3) kullanabilirsiniz (2.500 istek birimleri/saniye). |Tamsayı |Hayır (varsayılan: 5) |
-| writeBatchTimeout |İşlemin zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
+| nestingSeparator |Bir özel karakter belge iç içe geçmiş hello kaynak sütun adı tooindicate gereklidir. <br/><br/>Örneğin yukarıdaki: `Name.First` hello çıktısında JSON yapısındaki hello Cosmos DB belgede aşağıdaki hello tablo oluşturur:<br/><br/>"Name": {<br/>    "İlk": "John"<br/>}, |Kullanılan tooseparate iç içe geçme düzeyi karakter.<br/><br/>Varsayılan değer `.` (nokta). |Kullanılan tooseparate iç içe geçme düzeyi karakter. <br/><br/>Varsayılan değer `.` (nokta). |
+| writeBatchSize |TooAzure Cosmos DB hizmet toocreate belgeleri istekleri paralel sayısı.<br/><br/>Bu özelliği kullanarak Azure Cosmos DB öğesine/öğesinden veri kopyalama işlemi sırasında hello performans ince ayar yapabilirsiniz. Daha fazla paralel istekler tooAzure Cosmos DB gönderilir çünkü writeBatchSize artırdığınızda daha iyi bir performans düşüklüğü görebilir. Ancak, azaltma tooavoid gerekir hello hata iletisi atabilirsiniz: "oranıdır büyük istek".<br/><br/>Azaltmayı bir dizi etkene, belgeler, belgeleri koşullarını sayısı boyutunu dahil olmak üzere, hedef koleksiyon, vb. İlkesi dizin tarafından belirlenir. Kopyalama işlemleri için daha iyi bir koleksiyonu (örneğin, S3) toohave hello çoğu üretilen iş kullanabilirsiniz (2.500 istek birimleri/saniye). |Tamsayı |Hayır (varsayılan: 5) |
+| writeBatchTimeout |Zaman aşımına uğramadan önce hello işlemi toocomplete bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -902,7 +902,7 @@ Azure Cosmos Veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz tü
                 },
                 "translator": {
                     "type": "TabularTranslator",
-                    "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix"
+                    "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, title: aaaTitle, Suffix: Suffix"
                 }
             },
             "inputs": [{
@@ -927,11 +927,11 @@ Daha fazla bilgi için bkz: [Azure Cosmos DB bağlayıcı](data-factory-azure-do
 ## <a name="azure-sql-database"></a>Azure SQL Database
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmeti bir Azure SQL veritabanı tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureSqlDatabase**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+bir Azure SQL veritabanı toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**AzureSqlDatabase**ve hello özelliklerinde aşağıdaki belirtin **typeProperties**bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| connectionString |ConnectionString özelliği için Azure SQL veritabanı örneğine bağlanmak için gereken bilgileri belirtin. |Evet |
+| connectionString |Tooconnect toohello Azure SQL veritabanı örneğinde hello connectionString özelliği için gerekli bilgiler belirtin. |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -949,11 +949,11 @@ Bağlantılı hizmeti bir Azure SQL veritabanı tanımlamak için Ayarla **tür�
 Daha fazla bilgi için bkz: [Azure SQL bağlayıcı](data-factory-azure-sql-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure SQL veritabanı veri kümesini tanımlamak için **türü** için veri kümesinin **AzureSqlTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Azure SQL veritabanı veri kümesini kümesi hello **türü** hello kümesinin çok**AzureSqlTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** Bölüm: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Tablo veya Görünüm bağlantılı hizmetinin Azure SQL veritabanı örneğinde başvurduğu adı. |Evet |
+| tableName |Merhaba tablo veya Görünüm hizmeti bağlı hello Azure SQL veritabanı örneğinde başvurduğu adı. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -984,14 +984,14 @@ Bir Azure SQL veritabanı veri kümesini tanımlamak için **türü** için veri
 Daha fazla bilgi için bkz: [Azure SQL bağlayıcı](data-factory-azure-sql-connector.md#dataset-properties) makalesi. 
 
 ### <a name="sql-source-in-copy-activity"></a>Kopyalama etkinliğinde SQL kaynağı
-Bir Azure SQL veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **SqlSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir Azure SQL veritabanından veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**SqlSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** Bölüm:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örnek: `select * from MyTable`. |Hayır |
-| sqlReaderStoredProcedureName |Kaynak tablodan veri okuyan saklı yordamın adı. |Saklı yordam adı. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
+| sqlReaderQuery |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örnek: `select * from MyTable`. |Hayır |
+| sqlReaderStoredProcedureName |Merhaba adını hello kaynak tablodan veri okuyan yordamı depolanır. |Saklı yordam hello adı. |Hayır |
+| storedProcedureParameters |Saklı yordam hello için parametreler. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin hello adları ve büyük küçük harf kullanımını hello saklı yordam parametreleri eşleşmelidir. |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -1038,17 +1038,17 @@ Bir Azure SQL veritabanından veri kopyalıyorsanız ayarlamak **kaynak türün�
 Daha fazla bilgi için bkz: [Azure SQL bağlayıcı](data-factory-azure-sql-connector.md#copy-activity-properties) makalesi. 
 
 ### <a name="sql-sink-in-copy-activity"></a>Kopyalama etkinliği SQL havuzunda
-Azure SQL veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz türü** kopyalama etkinliği **SqlSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+Veri tooAzure SQL veritabanı kopyalıyorsanız hello ayarlamak **Havuz türü** Merhaba kopya etkinliği çok**SqlSink**ve hello özelliklerinde aşağıdaki belirtin **havuz** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
-| writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
-| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Sorgu bildirimi. |Hayır |
-| Sliceıdentifiercolumnname |Ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak kopyalama etkinliği için bir sütun adı belirtin. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
-| sqlWriterStoredProcedureName |Saklı yordam adı hedef tabloda bu upserts (güncelleştirmeler/ekler) verileri. |Saklı yordam adı. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
-| sqlWriterTableType |Saklı yordam, kullanılacak bir tablo türü adı belirtin. Kopyalama etkinliği taşınan veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu ardından var olan verilerle kopyalanan verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
+| writeBatchTimeout |Zaman aşımına uğramadan önce hello toplu ekleme işlemi toocomplete bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
+| writeBatchSize |Merhaba arabellek boyutu writeBatchSize ulaştığında veri hello SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
+| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini gibi bir sorgu için kopyalama etkinliği tooexecute belirtin. |Sorgu bildirimi. |Hayır |
+| Sliceıdentifiercolumnname |Kopyalama etkinliği toofill bir sütun adı, ne zaman yeniden çalıştırılacağını belirli bir dilim verilerini kullanılan tooclean olduğu otomatik dilim tanımlayıcı ile belirtin. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
+| sqlWriterStoredProcedureName |Merhaba adını upserts (güncelleştirmeler/ekler) verileri hello hedef tabloya saklı yordamı. |Saklı yordam hello adı. |Hayır |
+| storedProcedureParameters |Saklı yordam hello için parametreler. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin hello adları ve büyük küçük harf kullanımını hello saklı yordam parametreleri eşleşmelidir. |Hayır |
+| sqlWriterTableType |Merhaba saklı yordamda kullanılan bir tablo türü adı toobe belirtin. Kopyalama etkinliği taşınan hello veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu sonra varolan verilerin kopyalanmasını hello verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -1098,11 +1098,11 @@ Daha fazla bilgi için bkz: [Azure SQL bağlayıcı](data-factory-azure-sql-conn
 ## <a name="azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin Azure SQL Data Warehouse tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureSqlDW**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Azure SQL Data Warehouse toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**AzureSqlDW**ve hello özelliklerinde aşağıdaki belirtin **typeProperties**bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| connectionString |ConnectionString özelliği için Azure SQL Data Warehouse örneğine bağlanmak için gereken bilgileri belirtin. |Evet |
+| connectionString |Tooconnect toohello Azure SQL Data Warehouse örneğine hello connectionString özelliği için gerekli bilgiler belirtin. |Evet |
 
 
 
@@ -1123,11 +1123,11 @@ Bağlantılı hizmetinin Azure SQL Data Warehouse tanımlamak için Ayarla **tü
 Daha fazla bilgi için bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure SQL Data Warehouse veri kümesini tanımlamak için **türü** için veri kümesinin **AzureSqlDWTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Azure SQL veri ambarı veri kümesi kümesi hello **türü** hello kümesinin çok**AzureSqlDWTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties**bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Tablo veya Görünüm başvuran bağlı hizmetin Azure SQL veri ambarı veritabanındaki adı. |Evet |
+| tableName |Merhaba tablonun veya bağlantılı hizmet hello hello Azure SQL Data Warehouse Veritabanı görünümünde adı ifade eder. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -1159,14 +1159,14 @@ Bir Azure SQL Data Warehouse veri kümesini tanımlamak için **türü** için v
 Daha fazla bilgi için bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties) makalesi. 
 
 ### <a name="sql-dw-source-in-copy-activity"></a>Kopyalama etkinliğinde SQL DW kaynağı
-Azure SQL veri ambarından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **SqlDWSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Azure SQL veri ambarından veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**SqlDWSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak**bölümü:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır |
-| sqlReaderStoredProcedureName |Kaynak tablodan veri okuyan saklı yordamın adı. |Saklı yordam adı. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
+| sqlReaderQuery |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır |
+| sqlReaderStoredProcedureName |Merhaba adını hello kaynak tablodan veri okuyan yordamı depolanır. |Saklı yordam hello adı. |Hayır |
+| storedProcedureParameters |Saklı yordam hello için parametreler. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin hello adları ve büyük küçük harf kullanımını hello saklı yordam parametreleri eşleşmelidir. |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -1214,19 +1214,19 @@ Azure SQL veri ambarından veri kopyalıyorsanız ayarlamak **kaynak türünü**
 Daha fazla bilgi için bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) makalesi. 
 
 ### <a name="sql-dw-sink-in-copy-activity"></a>SQL DW havuz kopyalama etkinliğinde
-Azure SQL Data Warehouse'a veri kopyalıyorsanız ayarlamak **Havuz türü** kopyalama etkinliği **SqlDWSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+SQL veri ambarı veri tooAzure kopyalıyorsanız hello ayarlamak **Havuz türü** Merhaba kopya etkinliği çok**SqlDWSink**ve hello özelliklerinde aşağıdaki belirtin **havuz** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Sorgu bildirimi. |Hayır |
-| Bulunan'allowpolybase |BULKINSERT mekanizması yerine PolyBase (varsa) kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** |True <br/>False (varsayılan) |Hayır |
-| polyBaseSettings |Bir grup olabilir özellik belirtilen **Bulunan'allowpolybase** özelliği ayarlanmış **doğru**. |&nbsp; |Hayır |
-| rejectValue |Sayı veya yüzde değeri sorgu başarısız önce reddedilemiyor satır belirtir. <br/><br/>PolyBase'nın reddetme seçenekleri hakkında daha fazla bilgi **bağımsız değişkenleri** bölümünü [CREATE dış TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) konu. |0 (varsayılan), 1, 2... |Hayır |
-| rejectType |RejectValue seçeneği bir hazır değer veya bir yüzde belirtilen belirtir. |Değer (varsayılan), yüzde |Hayır |
-| Havuzu'na ilişkin |PolyBase reddedilen satırları yüzdesini yeniden hesaplar önce almak için satır sayısını belirler. |1, 2, … |Evet, varsa **rejectType** olan **yüzdesi** |
-| useTypeDefault |PolyBase metin dosyasından veri aldığında sınırlandırılmış metin dosyaları eksik değerleri nasıl ele alınacağını belirtir.<br/><br/>Bağımsız değişkenler bölümünde bu özelliği hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |TRUE, False (varsayılan) |Hayır |
-| writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
+| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini gibi bir sorgu için kopyalama etkinliği tooexecute belirtin. |Sorgu bildirimi. |Hayır |
+| Bulunan'allowpolybase |Gösterir olup olmadığını BULKINSERT mekanizması yerine toouse PolyBase (varsa). <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yolu tooload veri önerilen hello değildir.** |True <br/>False (varsayılan) |Hayır |
+| polyBaseSettings |Bir grup hello belirtilebilir özellik **Bulunan'allowpolybase** özelliği çok ayarlanmış**doğru**. |&nbsp; |Hayır |
+| rejectValue |Merhaba numarası veya hello sorgu başarısız olmadan önce reddedilemiyor satırları yüzdesini belirtir. <br/><br/>Merhaba seçeneklerinde Reddet hello PolyBase'nın hakkında daha fazla bilgi edinin **bağımsız değişkenleri** bölümünü [CREATE dış TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) konu. |0 (varsayılan), 1, 2... |Hayır |
+| rejectType |Merhaba rejectValue seçeneği bir hazır değer veya bir yüzde belirtilen belirtir. |Değer (varsayılan), yüzde |Hayır |
+| Havuzu'na ilişkin |Merhaba PolyBase reddedilen satırları hello yüzdesini yeniden hesaplar önce satırları tooretrieve hello sayısını belirler. |1, 2, … |Evet, varsa **rejectType** olan **yüzdesi** |
+| useTypeDefault |PolyBase hello metin dosyasından veri aldığında değerlerde eksik toohandle metin dosyaları nasıl ayrılmış belirtir.<br/><br/>Merhaba bağımsız değişkenler bölümünde bu özelliği hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |TRUE, False (varsayılan) |Hayır |
+| writeBatchSize |Merhaba arabellek boyutu writeBatchSize ulaştığında veri hello SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
+| writeBatchTimeout |Zaman aşımına uğramadan önce hello toplu ekleme işlemi toocomplete bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -1277,12 +1277,12 @@ Daha fazla bilgi için bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-fact
 ## <a name="azure-search"></a>Azure Search
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmeti bir Azure Search tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureSearch**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Azure Search toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**AzureSearch**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** Bölüm:  
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
-| URL | Azure Search hizmeti için URL. | Evet |
-| anahtar | Azure Search hizmeti için yönetici anahtarı. | Evet |
+| URL | Hello Azure Search hizmeti için URL. | Evet |
+| anahtar | Hello Azure Search hizmeti için yönetici anahtarı. | Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -1302,12 +1302,12 @@ Bağlantılı hizmeti bir Azure Search tanımlamak için Ayarla **türü** bağl
 Daha fazla bilgi için bkz: [Azure Search Bağlayıcısı](data-factory-azure-search-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure Search veri kümesini tanımlamak için **türü** için veri kümesinin **AzureSearchIndex**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Azure Search dataset kümesi hello **türü** hello kümesinin çok**AzureSearchIndex**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü : 
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
-| type | Type özelliği ayarlamak **AzureSearchIndex**.| Evet |
-| indexName | Azure Search dizini adı. Veri Fabrikası dizinini oluşturmaz. Azure Search'te dizin mevcut olması gerekir. | Evet |
+| type | Merhaba type özelliği çok ayarlanmalıdır**AzureSearchIndex**.| Evet |
+| indexName | Hello Azure Search dizini adı. Veri Fabrikası hello dizin oluşturmaz. Başlangıç dizini, Azure Search'te mevcut olması gerekir. | Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -1331,12 +1331,12 @@ Bir Azure Search veri kümesini tanımlamak için **türü** için veri kümesin
 Daha fazla bilgi için bkz: [Azure Search Bağlayıcısı](data-factory-azure-search-connector.md#dataset-properties) makalesi.
 
 ### <a name="azure-search-index-sink-in-copy-activity"></a>Kopya etkinliği Azure arama dizini havuzunda
-Bir Azure Search dizinine veri kopyalıyorsanız ayarlamak **Havuz türü** kopyalama etkinliği **AzureSearchIndexSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+Veri tooan Azure Search dizini kopyalıyorsanız hello ayarlamak **Havuz türü** Merhaba kopya etkinliği çok**AzureSearchIndexSink**ve hello özelliklerinde aşağıdaki belirtin **havuz**bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Birleştir veya bir belge dizinde zaten mevcut olduğunda Değiştir belirtir. | Merge (varsayılan)<br/>Karşıya Yükle| Hayır |
-| writeBatchSize | Arabellek boyutu writeBatchSize ulaştığında Azure Search dizinine veri yükler. | 1 için 1.000. Varsayılan değer 1000'dir. | Hayır |
+| WriteBehavior | Toomerge veya Değiştir bir belgeyi açtığında hello dizinde zaten olup olmadığını belirtir. | Merge (varsayılan)<br/>Karşıya Yükle| Hayır |
+| writeBatchSize | Hello arabellek boyutu writeBatchSize ulaştığında hello Azure Search dizinine veri yükler. | 1 too1, 000. Varsayılan değer 1000'dir. | Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -1389,12 +1389,12 @@ Daha fazla bilgi için bkz: [Azure Search Bağlayıcısı](data-factory-azure-se
 Bağlı hizmetler iki tür vardır: Azure depolama bağlantılı hizmeti ve Azure depolama SAS bağlantılı hizmeti.
 
 #### <a name="azure-storage-linked-service"></a>Azure Storage Bağlı Hizmeti
-Azure storage hesabınızı kullanarak bir data factory'ye bağlamak için **hesap anahtarı**, bir Azure Storage bağlı hizmeti oluşturma. Bağlantılı hizmeti bir Azure depolama alanını tanımlayın, Ayarla **türü** bağlantılı hizmetinin **AzureStorage**. Ardından, aşağıdaki özellikleri belirtebilirsiniz **typeProperties** bölümü:  
+toolink hello kullanarak Azure depolama hesabı tooa veri fabrikası **hesap anahtarı**, bir Azure Storage bağlı hizmeti oluşturma. toodefine bir Azure depolama bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**AzureStorage**. Ardından hello özelliklerinde aşağıdaki belirtebilirsiniz **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type |Type özelliği ayarlanmalıdır: **AzureStorage** |Evet |
-| connectionString |ConnectionString özelliği için Azure depolama alanına bağlanmak için gereken bilgileri belirtin. |Evet |
+| type |Merhaba type özelliği ayarlanmalıdır: **AzureStorage** |Evet |
+| connectionString |Tooconnect tooAzure depolama hello connectionString özelliği için gerekli bilgiler belirtin. |Evet |
 
 **Örnek:**  
 
@@ -1411,12 +1411,12 @@ Azure storage hesabınızı kullanarak bir data factory'ye bağlamak için **hes
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS bağlı hizmeti
-Azure depolama bağlı SAS hizmeti bir paylaşılan erişim imzası (SAS) kullanarak Azure data factory için bir Azure depolama hesabı bağlantı sağlar. Veri Fabrikası depolama alanındaki tüm/özel kaynakları (blob/kapsayıcısı) kısıtlanmış/zaman sınırlı erişim sağlar. Paylaşılan erişim imzası kullanarak bir veri fabrikası Azure depolama hesabınıza bağlamak için bir Azure depolama bağlı SAS hizmeti oluşturun. Bağlantılı hizmeti bir Azure depolama SAS tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureStorageSas**. Ardından, aşağıdaki özellikleri belirtebilirsiniz **typeProperties** bölümü:   
+Hello Azure depolama bağlı SAS hizmeti bir paylaşılan erişim imzası (SAS) kullanarak toolink bir Azure depolama hesabı tooan Azure data factory sağlar. Kısıtlanmış/zaman sınırlı erişimi hello veri fabrikası hello depolama tooall/özel kaynakları (blob/kapsayıcısı) sağlar. bir Azure depolama bağlı SAS hizmeti toolink paylaşılan erişim imzası kullanarak Azure depolama hesabı tooa veri fabrikası oluşturun. toodefine bir Azure depolama SAS bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**AzureStorageSas**. Ardından hello özelliklerinde aşağıdaki belirtebilirsiniz **typeProperties** bölümü:   
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type |Type özelliği ayarlanmalıdır: **AzureStorageSas** |Evet |
-| sasUri |Blob, kapsayıcı ya da tablo gibi Azure Storage kaynakları için paylaşılan erişim imzası URI belirtin. |Evet |
+| type |Merhaba type özelliği ayarlanmalıdır: **AzureStorageSas** |Evet |
+| sasUri |Blob, kapsayıcı ya da tablo gibi paylaşılan erişim imzası URI toohello Azure Storage kaynakları belirtin. |Evet |
 
 **Örnek:**
 
@@ -1435,11 +1435,11 @@ Azure depolama bağlı SAS hizmeti bir paylaşılan erişim imzası (SAS) kullan
 Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz: [Azure Table Storage bağlayıcı](data-factory-azure-table-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure Table veri kümesini tanımlamak için **türü** için veri kümesinin **AzureTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Azure tablosu veri kümesi kümesi hello **türü** hello kümesinin çok**AzureTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Bağlantılı hizmet başvurduğu Azure tablo veritabanı örneğinde tablonun adı. |Evet. Bir tableName bir azureTableSourceQuery belirtildiğinde, tablodaki tüm kayıtları hedefe kopyalanır. Bir azureTableSourceQuery de belirtilirse, sorgu karşılayan tablodaki kayıtları hedefe kopyalanır. |
+| tableName |Bağlantılı hizmetinin hello Azure tablo veritabanı örneğinde Merhaba tablonun adını gösterir. |Evet. Bir tableName bir azureTableSourceQuery belirtildiğinde, tüm hello tablosundan kopyalanan toohello hedef kayıtlarıdır. Bir azureTableSourceQuery de belirtilirse hello sorguyu karşılayan hello tablosundan kopyalanan toohello hedef kayıtlarıdır. |
 
 #### <a name="example"></a>Örnek
 
@@ -1471,12 +1471,12 @@ Bir Azure Table veri kümesini tanımlamak için **türü** için veri kümesini
 Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz: [Azure Table Storage bağlayıcı](data-factory-azure-table-connector.md#dataset-properties) makalesi. 
 
 ### <a name="azure-table-source-in-copy-activity"></a>Kopya etkinliği Azure tablo kaynağında
-Azure tablo depolamasından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **AzureTableSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Azure tablo depolamasından veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**AzureTableSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak**bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| azureTableSourceQuery |Verileri okumak için özel sorgu kullanın. |Azure tablo sorgu dizesi. Sonraki bölümdeki örneklere bakın. |Hayır. Bir tableName bir azureTableSourceQuery belirtildiğinde, tablodaki tüm kayıtları hedefe kopyalanır. Bir azureTableSourceQuery de belirtilirse, sorgu karşılayan tablodaki kayıtları hedefe kopyalanır. |
-| azureTableSourceIgnoreTableNotFound |Swallow tablosunun özel durum var olup olmadığını gösterir. |TRUE<br/>FALSE |Hayır |
+| azureTableSourceQuery |Merhaba özel sorgu tooread verileri kullanın. |Azure tablo sorgu dizesi. Merhaba sonraki bölümdeki örneklere bakın. |Hayır. Bir tableName bir azureTableSourceQuery belirtildiğinde, tüm hello tablosundan kopyalanan toohello hedef kayıtlarıdır. Bir azureTableSourceQuery de belirtilirse hello sorguyu karşılayan hello tablosundan kopyalanan toohello hedef kayıtlarıdır. |
+| azureTableSourceIgnoreTableNotFound |Tablonun swallow hello özel durum var olup olmadığını gösterir. |TRUE<br/>FALSE |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -1524,16 +1524,16 @@ Azure tablo depolamasından veri kopyalıyorsanız ayarlamak **kaynak türünü*
 Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz: [Azure Table Storage bağlayıcı](data-factory-azure-table-connector.md#copy-activity-properties) makalesi. 
 
 ### <a name="azure-table-sink-in-copy-activity"></a>Kopya etkinliği Azure tablo havuzunda
-Azure Table depolama alanına veri kopyalıyorsanız ayarlamak **Havuz türü** kopyalama etkinliği **AzureTableSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+Veri tooAzure Table Storage kopyalıyorsanız hello ayarlamak **Havuz türü** Merhaba kopya etkinliği çok**AzureTableSink**ve hello özelliklerinde aşağıdaki belirtin **havuz** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| azureTableDefaultPartitionKeyValue |Havuzu tarafından kullanılan varsayılan bölüm anahtar değeri. |Bir dize değeri. |Hayır |
-| azureTablePartitionKeyName |Değerleri bölüm anahtarları olarak kullanılan sütun adını belirtin. Belirtilmezse, AzureTableDefaultPartitionKeyValue bölüm anahtarı olarak kullanılır. |Sütun adı. |Hayır |
-| azureTableRowKeyName |Sütun değerleri satır anahtarı olarak kullanılan sütun adını belirtin. Belirtilmezse, her satır için bir GUID kullanın. |Sütun adı. |Hayır |
-| azureTableInsertType |Azure tabloya veri ekleme modu.<br/><br/>Bu özellik, var olan satırları eşleşen bölüm ve satır anahtarlarla çıkış tablosuna birleştirilmiş veya değiştirilmesi değerlerine sahip olup olmadığını denetler. <br/><br/>Bu ayarları (birleştirme ve Değiştir) nasıl çalıştığı hakkında bilgi edinmek için [ekleme veya birleştirme varlık](https://msdn.microsoft.com/library/azure/hh452241.aspx) ve [ekleme veya değiştirme varlık](https://msdn.microsoft.com/library/azure/hh452242.aspx) Konular. <br/><br> Bu ayar, tablo düzeyinde değil satır düzeyinde uygulanır ve girdide var olmayan satır çıkış tablosuna hiçbiri seçeneği siler. |Merge (varsayılan)<br/>Değiştir |Hayır |
-| writeBatchSize |WriteBatchSize veya writeBatchTimeout gelindiğinde veri Azure tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
-| writeBatchTimeout |WriteBatchSize veya writeBatchTimeout gelindiğinde veri Azure tablosuna ekler. |TimeSpan<br/><br/>Örnek: "00: 20:00" (20 dakika) |Hayır (depolama İstemcisi varsayılan zaman aşımı için varsayılan değer 90 saniye) |
+| azureTableDefaultPartitionKeyValue |Merhaba havuzu tarafından kullanılan varsayılan bölüm anahtar değeri. |Bir dize değeri. |Hayır |
+| azureTablePartitionKeyName |Değerleri bölüm anahtarları olarak kullanılan hello sütunun adını belirtin. Belirtilmezse, AzureTableDefaultPartitionKeyValue hello bölüm anahtarı olarak kullanılır. |Sütun adı. |Hayır |
+| azureTableRowKeyName |Sütun değerleri satır anahtarı olarak kullanılan hello sütunun adını belirtin. Belirtilmezse, her satır için bir GUID kullanın. |Sütun adı. |Hayır |
+| azureTableInsertType |başlangıç modu tooinsert verileri Azure tablosuna.<br/><br/>Bu özellik, varolan satırlardan eşleşen bölüm ve satır anahtarlarla hello çıkış tablodaki birleştirilmiş veya değiştirilmesi değerlerine sahip olup olmadığını denetler. <br/><br/>Bu ayarların (birleştirme ve değiştirme) nasıl çalıştığını, ilgili toolearn bkz [ekleme veya birleştirme varlık](https://msdn.microsoft.com/library/azure/hh452241.aspx) ve [ekleme veya değiştirme varlık](https://msdn.microsoft.com/library/azure/hh452242.aspx) konuları. <br/><br> Hello satır düzeyinde, hello tablo düzeyinde değil, bu ayar uygulanır ve her iki seçenek hello giriş yok hello çıkış tablosundaki satırları siler. |Merge (varsayılan)<br/>Değiştir |Hayır |
+| writeBatchSize |Merhaba writeBatchSize veya writeBatchTimeout gelindiğinde veri hello Azure tablo ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
+| writeBatchTimeout |Merhaba writeBatchSize veya writeBatchTimeout gelindiğinde veri hello Azure tablo ekler. |TimeSpan<br/><br/>Örnek: "00: 20:00" (20 dakika) |Hayır (varsayılan toostorage istemci varsayılan zaman aşımı değeri 90 saniye) |
 
 #### <a name="example"></a>Örnek
 
@@ -1583,15 +1583,15 @@ Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz: [Azure Table St
 ## <a name="amazon-redshift"></a>Amazon RedShift
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir Amazon Redshift tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AmazonRedshift**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+toodefine bir Amazon Redshift bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**AmazonRedshift**ve hello özelliklerinde aşağıdaki belirtin **typeProperties**bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |IP adresi veya ana bilgisayar Amazon Redshift sunucunun adıdır. |Evet |
-| port |İstemci bağlantılarını dinlemek için Amazon Redshift sunucunun kullandığı TCP bağlantı noktası numarası. |Hayır, varsayılan değer: 5439 |
-| Veritabanı |Amazon Redshift veritabanının adı. |Evet |
-| kullanıcı adı |Veritabanına erişimi olan kullanıcı adı. |Evet |
-| password |Kullanıcı hesabının parolası. |Evet |
+| sunucu |IP adresi veya ana bilgisayar hello Amazon Redshift sunucunun adıdır. |Evet |
+| port |Amazon Redshift sunucu hello hello TCP bağlantı noktası sayısı Hello toolisten istemci bağlantıları için kullanır. |Hayır, varsayılan değer: 5439 |
+| Veritabanı |Merhaba Amazon Redshift veritabanının adı. |Evet |
+| kullanıcı adı |Erişim toohello veritabanı olan kullanıcı adı. |Evet |
+| password |Merhaba kullanıcı hesabının parolası. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -1614,11 +1614,11 @@ Bağlantılı hizmetinin bir Amazon Redshift tanımlamak için Ayarla **türü**
 Daha fazla bilgi için bkz: [Amazon Redshift bağlayıcı](#data-factory-amazon-redshift-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Amazon Redshift veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Amazon Redshift dataset kümesi hello **türü** hello kümesinin çok**RelationalTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** Bölüm: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Amazon Redshift veritabanında bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
+| tableName |Bağlantılı hizmetinin hello Amazon Redshift veritabanında Merhaba tablonun adını gösterir. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
 
 #### <a name="example"></a>Örnek
@@ -1643,11 +1643,11 @@ Bir Amazon Redshift veri kümesini tanımlamak için **türü** için veri küme
 Daha fazla bilgi için bkz: [Amazon Redshift bağlayıcı](#data-factory-amazon-redshift-connector.md#dataset-properties) makalesi.
 
 ### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında 
-Amazon Redshift veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Amazon Redshift veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**RelationalSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| sorgu |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -1695,17 +1695,17 @@ Daha fazla bilgi için bkz: [Amazon Redshift bağlayıcı](#data-factory-amazon-
 ## <a name="ibm-db2"></a>IBM DB2
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir IBM DB2 tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OnPremisesDB2**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+toodefine bir IBM DB2 bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**OnPremisesDB2**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |DB2 sunucunun adıdır. |Evet |
-| Veritabanı |DB2 veritabanının adı. |Evet |
-| Şema |Veritabanı şemasında adı. Şema adı büyük/küçük harf duyarlıdır. |Hayır |
-| authenticationType |DB2 veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
+| sunucu |Merhaba DB2 sunucunun adıdır. |Evet |
+| Veritabanı |Merhaba DB2 veritabanının adı. |Evet |
+| Şema |Merhaba veritabanındaki hello şema adı. Merhaba şema adı büyük/küçük harf duyarlıdır. |Hayır |
+| authenticationType |Kimlik doğrulama türü tooconnect toohello DB2 veritabanına kullanılır. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
-| password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
-| gatewayName |Data Factory hizmetinin şirket içi DB2 veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| password |Merhaba username için belirtilen hello kullanıcı hesabı için parola belirtin. |Hayır |
+| gatewayName |Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello şirket içi DB2 veritabanına kullanmanız gerekir. |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -1728,11 +1728,11 @@ Bağlantılı hizmetinin bir IBM DB2 tanımlamak için Ayarla **türü** bağlan
 Daha fazla bilgi için bkz: [IBM DB2 Bağlayıcısı](#data-factory-onprem-db2-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir DB2 veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:
+toodefine bir DB2 veri kümesi, kümesi hello **türü** hello kümesinin çok**RelationalTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |DB2 veritabanına örneğinde bağlantılı hizmet başvurduğu tablonun adı. TableName büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) 
+| tableName |Bağlantılı hizmetinin hello DB2 veritabanı örneğinde Merhaba tablonun adını gösterir. Merhaba tableName büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) 
 
 #### <a name="example"></a>Örnek
 ```json
@@ -1761,12 +1761,12 @@ Bir DB2 veri kümesini tanımlamak için **türü** için veri kümesinin **Rela
 Daha fazla bilgi için bkz: [IBM DB2 Bağlayıcısı](#data-factory-onprem-db2-connector.md#dataset-properties) makalesi.
 
 ### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-IBM DB2'den veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+IBM DB2'den veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**RelationalSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** bölümü:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `"query": "select * from "MySchema"."MyTable""`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| sorgu |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örneğin: `"query": "select * from "MySchema"."MyTable""`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -1811,17 +1811,17 @@ Daha fazla bilgi için bkz: [IBM DB2 Bağlayıcısı](#data-factory-onprem-db2-c
 ## <a name="mysql"></a>MySQL
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir MySQL tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OnPremisesMySql**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+bir MySQL toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**OnPremisesMySql**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |MySQL sunucu adı. |Evet |
-| Veritabanı |MySQL veritabanının adı. |Evet |
-| Şema |Veritabanı şemasında adı. |Hayır |
-| authenticationType |MySQL veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: `Basic`. |Evet |
-| kullanıcı adı |MySQL veritabanına bağlanmak için kullanıcı adını belirtin. |Evet |
-| password |Belirttiğiniz kullanıcı hesabı için parola belirtin. |Evet |
-| gatewayName |Data Factory hizmetinin şirket içi MySQL veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| sunucu |Merhaba MySQL sunucunun adıdır. |Evet |
+| Veritabanı |Merhaba MySQL veritabanının adı. |Evet |
+| Şema |Merhaba veritabanındaki hello şema adı. |Hayır |
+| authenticationType |Kimlik doğrulama türü tooconnect toohello MySQL veritabanı kullanılır. Olası değerler şunlardır: `Basic`. |Evet |
+| kullanıcı adı |Kullanıcı adı tooconnect toohello MySQL veritabanı belirtin. |Evet |
+| password |Belirttiğiniz hello kullanıcı hesabı için parola belirtin. |Evet |
+| gatewayName |Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello şirket içi MySQL veritabanına kullanmanız gerekir. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -1846,11 +1846,11 @@ Bağlantılı hizmetinin bir MySQL tanımlamak için Ayarla **türü** bağlant�
 Daha fazla bilgi için bkz: [MySQL bağlayıcı](data-factory-onprem-mysql-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir MySQL veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir MySQL veri kümesi hello **türü** hello kümesinin çok**RelationalTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |MySQL veritabanı örneğinde bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
+| tableName |Merhaba bağlı MySQL veritabanı örneğinde Merhaba tablonun adını gösterir. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -1879,12 +1879,12 @@ Bir MySQL veri kümesini tanımlamak için **türü** için veri kümesinin **Re
 Daha fazla bilgi için bkz: [MySQL bağlayıcı](data-factory-onprem-mysql-connector.md#dataset-properties) makalesi. 
 
 ### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Bir MySQL veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir MySQL veritabanından veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**RelationalSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** Bölüm:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| sorgu |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
 
 
 #### <a name="example"></a>Örnek
@@ -1933,13 +1933,13 @@ Daha fazla bilgi için bkz: [MySQL bağlayıcı](data-factory-onprem-mysql-conne
 ## <a name="oracle"></a>Oracle 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir Oracle tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OnPremisesOracle**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+bir Oracle toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**OnPremisesOracle**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** Bölüm:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| driverType | Hangi sürücünün/Oracle veritabanına veri kopyalamak için kullanılacağını belirtin. İzin verilen değerler **Microsoft** veya **ODP** (varsayılan). Bkz: [desteklenen sürümü ve yükleme](#supported-versions-and-installation) sürücü ayrıntıları bölümü. | Hayır |
-| connectionString | ConnectionString özelliği için Oracle veritabanı örneğine bağlanmak için gereken bilgileri belirtin. | Evet |
-| gatewayName | Ağ geçidinin adı, şirket içi Oracle sunucusuna bağlanmak için kullanılır |Evet |
+| driverType | Hangi sürücü toouse toocopy verilerden belirtin / tooOracle veritabanı. İzin verilen değerler **Microsoft** veya **ODP** (varsayılan). Bkz: [desteklenen sürümü ve yükleme](#supported-versions-and-installation) sürücü ayrıntıları bölümü. | Hayır |
+| connectionString | Tooconnect toohello Oracle veritabanı örneği hello connectionString özelliği için gerekli bilgiler belirtin. | Evet |
+| gatewayName | Kullanılan tooconnect toohello olan şirket içi Oracle Sunucusu hello ağ geçidi adı |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -1959,11 +1959,11 @@ Bağlantılı hizmetinin bir Oracle tanımlamak için Ayarla **türü** bağlant
 Daha fazla bilgi için bkz: [Oracle bağlayıcı](data-factory-onprem-oracle-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Oracle veri kümesini tanımlamak için **türü** için veri kümesinin **OracleTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Oracle veri kümesini kümesi hello **türü** hello kümesinin çok**OracleTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Oracle veritabanında bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **oracleReaderQuery** , **OracleSource** belirtilir) |
+| tableName |Merhaba bağlantılı hizmet hello Oracle veritabanı Merhaba tablonun adını gösterir. |Hayır (varsa **oracleReaderQuery** , **OracleSource** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -1996,11 +1996,11 @@ Bir Oracle veri kümesini tanımlamak için **türü** için veri kümesinin **O
 Daha fazla bilgi için bkz: [Oracle bağlayıcı](data-factory-onprem-oracle-connector.md#dataset-properties) makalesi.
 
 ### <a name="oracle-source-in-copy-activity"></a>Kopyalama etkinliği Oracle kaynağında
-Bir Oracle veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **OracleSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir Oracle veritabanından veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**OracleSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin, `select * from MyTable` <br/><br/>Belirtilmezse, yürütülen SQL deyimi:`select * from MyTable` |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| oracleReaderQuery |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örneğin, `select * from MyTable` <br/><br/>Belirtilmezse, yürütülen SQL deyimini hello:`select * from MyTable` |Hayır (varsa **tableName** , **dataset** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -2048,14 +2048,14 @@ Bir Oracle veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü**
 Daha fazla bilgi için bkz: [Oracle bağlayıcı](data-factory-onprem-oracle-connector.md#copy-activity-properties) makalesi.
 
 ### <a name="oracle-sink-in-copy-activity"></a>Kopyalama etkinliği Oracle havuzunda
-Am Oracle veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz türü** kopyalama etkinliği **OracleSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+Veri tooam Oracle veritabanı kopyalıyorsanız hello ayarlamak **Havuz türü** Merhaba kopya etkinliği çok**OracleSink**ve hello özelliklerinde aşağıdaki belirtin **havuz** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: 00:30:00 (30 dakika). |Hayır |
-| writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 100) |
-| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Sorgu bildirimi. |Hayır |
-| Sliceıdentifiercolumnname |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak için sütun adı belirtin. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
+| writeBatchTimeout |Zaman aşımına uğramadan önce hello toplu ekleme işlemi toocomplete bir süre bekleyin. |TimeSpan<br/><br/> Örnek: 00:30:00 (30 dakika). |Hayır |
+| writeBatchSize |Merhaba arabellek boyutu writeBatchSize ulaştığında veri hello SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 100) |
+| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini gibi bir sorgu için kopyalama etkinliği tooexecute belirtin. |Sorgu bildirimi. |Hayır |
+| Sliceıdentifiercolumnname |Kopyalama etkinliği toofill sütun adı, ne zaman yeniden çalıştırılacağını belirli bir dilim verilerini kullanılan tooclean olduğu otomatik dilim tanımlayıcı ile belirtin. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2102,17 +2102,17 @@ Daha fazla bilgi için bkz: [Oracle bağlayıcı](data-factory-onprem-oracle-con
 ## <a name="postgresql"></a>PostgreSQL
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir PostgreSQL tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OnPremisesPostgreSql**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+bir PostgreSQL toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**OnPremisesPostgreSql**ve hello özelliklerinde aşağıdaki belirtin **typeProperties**bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |PostgreSQL sunucunun adıdır. |Evet |
-| Veritabanı |PostgreSQL veritabanının adı. |Evet |
-| Şema |Veritabanı şemasında adı. Şema adı büyük/küçük harf duyarlıdır. |Hayır |
-| authenticationType |PostgreSQL veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
+| sunucu |Merhaba PostgreSQL sunucunun adıdır. |Evet |
+| Veritabanı |Merhaba PostgreSQL veritabanının adı. |Evet |
+| Şema |Merhaba veritabanındaki hello şema adı. Merhaba şema adı büyük/küçük harf duyarlıdır. |Hayır |
+| authenticationType |Kimlik doğrulama türü tooconnect toohello PostgreSQL veritabanına kullanılır. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
-| password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
-| gatewayName |Data Factory hizmetinin şirket içi PostgreSQL veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| password |Merhaba username için belirtilen hello kullanıcı hesabı için parola belirtin. |Hayır |
+| gatewayName |Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello şirket içi PostgreSQL veritabanına kullanmanız gerekir. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -2136,11 +2136,11 @@ Bağlantılı hizmetinin bir PostgreSQL tanımlamak için Ayarla **türü** bağ
 Daha fazla bilgi için bkz: [PostgreSQL bağlayıcı](data-factory-onprem-postgresql-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir PostgreSQL veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir PostgreSQL veri kümesi hello **türü** hello kümesinin çok**RelationalTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Bağlantılı hizmet başvurduğu PostgreSQL veritabanı örneğinde tablonun adı. TableName büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
+| tableName |Merhaba bağlı PostgreSQL veritabanı örneğinde Merhaba tablonun adını gösterir. Merhaba tableName büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2168,12 +2168,12 @@ Bir PostgreSQL veri kümesini tanımlamak için **türü** için veri kümesinin
 Daha fazla bilgi için bkz: [PostgreSQL bağlayıcı](data-factory-onprem-postgresql-connector.md#dataset-properties) makalesi.
 
 ### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Bir PostgreSQL veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir PostgreSQL veritabanından veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**RelationalSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak**bölümü:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: "sorgu": "seçin * gelen \"MySchema\".\" MyTable\"". |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| sorgu |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örneğin: "sorgu": "seçin * gelen \"MySchema\".\" MyTable\"". |Hayır (varsa **tableName** , **dataset** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -2221,17 +2221,17 @@ Daha fazla bilgi için bkz: [PostgreSQL bağlayıcı](data-factory-onprem-postgr
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin SAP Business Warehouse (BW) tanımlamak için Ayarla **türü** bağlantılı hizmetinin **SapBw**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+toodefine SAP Business Warehouse (BW) bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**SapBw**ve hello özelliklerinde aşağıdaki belirtin **typeProperties**bölümü:  
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP BW örneği bulunduğu sunucunun adıdır. | Dize | Evet
-systemNumber | SAP BW sisteminin sistem numarası. | Bir dize olarak gösterilen iki basamaklı ondalık sayı. | Evet
-istemci kimliği | SAP W sistem istemcisinde istemci kimliği. | Bir dize olarak gösterilen üç basamaklı ondalık sayı. | Evet
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | Dize | Evet
-password | Kullanıcının parolası. | Dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | Dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | Dize | Hayır
+sunucu | Hangi hello SAP BW örneği bulunduğu hello sunucusunun adı. | Dize | Evet
+systemNumber | SAP BW sistem hello sistem sayısı. | Bir dize olarak gösterilen iki basamaklı ondalık sayı. | Evet
+istemci kimliği | Merhaba SAP W sistem hello istemcisinde istemci kimliği. | Bir dize olarak gösterilen üç basamaklı ondalık sayı. | Evet
+kullanıcı adı | Erişim toohello SAP sunucusuna sahip hello kullanıcı adı | Dize | Evet
+password | Merhaba kullanıcının parolası. | Dize | Evet
+gatewayName | Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello şirket içi SAP BW örneğini kullanmanız gerekir. | Dize | Evet
+encryptedCredential | şifrelenmiş hello kimlik dizesi. | Dize | Hayır
 
 #### <a name="example"></a>Örnek
 
@@ -2255,7 +2255,7 @@ encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | Dize | Hayır
 Daha fazla bilgi için bkz: [SAP Business Warehouse Bağlayıcısı](data-factory-sap-business-warehouse-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-SAP BW veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**. SAP BW veri kümesi türü için desteklenen türüne özgü özellikler yok **RelationalTable**.  
+toodefine bir SAP BW veri kümesi hello **türü** hello kümesinin çok**RelationalTable**. Merhaba SAP BW veri kümesi türü için desteklenen türüne özgü özellikler yok **RelationalTable**.  
 
 #### <a name="example"></a>Örnek
 
@@ -2277,12 +2277,12 @@ SAP BW veri kümesini tanımlamak için **türü** için veri kümesinin **Relat
 Daha fazla bilgi için bkz: [SAP Business Warehouse Bağlayıcısı](data-factory-sap-business-warehouse-connector.md#dataset-properties) makalesi. 
 
 ### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-SAP Business Warehouse veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+SAP Business Warehouse veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**RelationalSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak**bölümü:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu | SAP BW örneğinden verileri okumak için MDX Sorgusu belirtir. | MDX Sorgusu. | Evet |
+| sorgu | Merhaba MDX Sorgusu tooread veri hello SAP BW örneğinden belirtir. | MDX Sorgusu. | Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -2331,16 +2331,16 @@ Daha fazla bilgi için bkz: [SAP Business Warehouse Bağlayıcısı](data-factor
 ## <a name="sap-hana"></a>SAP HANA
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin SAP HANA tanımlamak için Ayarla **türü** bağlantılı hizmetinin **SapHana**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+SAP HANA toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**SapHana**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü:  
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP HANA örneği bulunduğu sunucunun adıdır. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | Dize | Evet
+sunucu | Hangi hello SAP HANA örneği bulunduğu hello sunucusunun adı. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | Dize | Evet
 authenticationType | Kimlik doğrulama türü. | Dize. "Temel" veya "Windows" | Evet 
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | Dize | Evet
-password | Kullanıcının parolası. | Dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | Dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | Dize | Hayır
+kullanıcı adı | Erişim toohello SAP sunucusuna sahip hello kullanıcı adı | Dize | Evet
+password | Merhaba kullanıcının parolası. | Dize | Evet
+gatewayName | Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello şirket içi SAP HANA örneğini kullanmanız gerekir. | Dize | Evet
+encryptedCredential | şifrelenmiş hello kimlik dizesi. | Dize | Hayır
 
 #### <a name="example"></a>Örnek
 
@@ -2363,7 +2363,7 @@ encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | Dize | Hayır
 Daha fazla bilgi için bkz: [SAP HANA bağlayıcı](data-factory-sap-hana-connector.md#linked-service-properties) makalesi.
  
 ### <a name="dataset"></a>Veri kümesi
-SAP HANA veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**. SAP HANA veri kümesi türü için desteklenen türüne özgü özellikler yok **RelationalTable**. 
+toodefine bir SAP HANA veri kümesi hello **türü** hello kümesinin çok**RelationalTable**. Merhaba SAP HANA dataset türü için desteklenen türüne özgü özellikler yok **RelationalTable**. 
 
 #### <a name="example"></a>Örnek
 
@@ -2385,11 +2385,11 @@ SAP HANA veri kümesini tanımlamak için **türü** için veri kümesinin **Rel
 Daha fazla bilgi için bkz: [SAP HANA bağlayıcı](data-factory-sap-hana-connector.md#dataset-properties) makalesi. 
 
 ### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-SAP HANA veri deposundan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+SAP HANA veri deposundan veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**RelationalSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak**bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu | SAP HANA örneğinden verileri okumak için SQL sorgusu belirtir. | SQL sorgusu. | Evet |
+| sorgu | Merhaba SQL sorgu tooread veri hello SAP HANA örneğinden belirtir. | SQL sorgusu. | Evet |
 
 
 #### <a name="example"></a>Örnek
@@ -2441,19 +2441,19 @@ Daha fazla bilgi için bkz: [SAP HANA bağlayıcı](data-factory-sap-hana-connec
 ## <a name="sql-server"></a>SQL Server
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlı hizmet türü oluşturma **OnPremisesSqlServer** bir şirket içi SQL Server veritabanını data factory'ye bağlamak için. Aşağıdaki tabloda şirket içi SQL Server bağlantılı hizmete özgü JSON öğeleri açıklamasını sağlar.
+Bağlı hizmet türü oluşturma **OnPremisesSqlServer** toolink bir şirket içi SQL Server veritabanı tooa data factory. Aşağıdaki tablonun hello JSON öğeleri belirli tooon şirket içi SQL Server bağlantılı hizmet açıklamasını sağlar.
 
-Aşağıdaki tabloda, SQL Server bağlantılı hizmete özgü JSON öğeleri açıklamasını sağlar.
+Aşağıdaki tablonun hello JSON öğeleri belirli tooSQL Server bağlantılı hizmeti için bir açıklama sağlar.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalıdır: **OnPremisesSqlServer**. |Evet |
-| connectionString |SQL kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak şirket içi SQL Server veritabanına bağlanmak için gereken connectionString bilgilerini belirtin. |Evet |
-| gatewayName |Data Factory hizmetinin şirket içi SQL Server veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| type |Merhaba type özelliği ayarlanmalıdır: **OnPremisesSqlServer**. |Evet |
+| connectionString |SQL kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak tooconnect toohello şirket içi SQL Server veritabanı gerekli connectionString bilgiler belirtin. |Evet |
+| gatewayName |Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello şirket içi SQL Server veritabanını kullanmanız gerekir. |Evet |
 | kullanıcı adı |Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. Örnek: **domainname\\kullanıcıadı**. |Hayır |
-| password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
+| password |Merhaba username için belirtilen hello kullanıcı hesabı için parola belirtin. |Hayır |
 
-Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncryptValue** cmdlet'i ve bunları aşağıdaki örnekte gösterildiği gibi bağlantı dizesini kullanın (**EncryptedCredential** özellik):  
+Hello kullanarak kimlik bilgilerini şifrelemek **yeni AzureRmDataFactoryEncryptValue** cmdlet'i ve bunları hello aşağıdaki örnekte gösterildiği gibi hello bağlantı dizesinde kullanabilirsiniz (**EncryptedCredential** özellik):  
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -2476,7 +2476,7 @@ Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncr
 ```
 #### <a name="example-json-for-using-windows-authentication"></a>Örnek: JSON'ı Windows kimlik doğrulaması kullanma
 
-Kullanıcı adı ve parolası belirtilmişse, ağ geçidi bunları şirket içi SQL Server veritabanına bağlanmak için belirtilen kullanıcı hesabının kimliğine bürün kullanır. Aksi takdirde, ağ geçidi SQL Server Ağ Geçidi (kendi başlangıç hesabı) güvenlik bağlamı ile doğrudan bağlanır.
+Kullanıcı adı ve parolası belirtilmişse, ağ geçidi bunları tooimpersonate hello kullanır belirtilen kullanıcı hesabı tooconnect toohello şirket içi SQL Server veritabanı. Aksi takdirde, ağ geçidi toohello SQL Server doğrudan hello güvenlik bağlamında ağ geçidi (kendi başlangıç hesabı) ile bağlanır.
 
 ```json
 {
@@ -2496,11 +2496,11 @@ Kullanıcı adı ve parolası belirtilmişse, ağ geçidi bunları şirket içi 
 Daha fazla bilgi için bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir SQL Server veri kümesini tanımlamak için **türü** için veri kümesinin **SqlServerTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir SQL Server veri kümesi hello **türü** hello kümesinin çok**SqlServerTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Tablo veya Görünüm hizmeti bağlı SQL Server veritabanı örneğinde başvurduğu adı. |Evet |
+| tableName |Merhaba tablo veya Görünüm hizmeti bağlı hello SQL Server veritabanı örneğinde başvurduğu adı. |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2531,23 +2531,23 @@ Bir SQL Server veri kümesini tanımlamak için **türü** için veri kümesinin
 Daha fazla bilgi için bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#dataset-properties) makalesi. 
 
 ### <a name="sql-source-in-copy-activity"></a>Kopyalama etkinliğinde SQL kaynağı
-Bir SQL Server veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **SqlSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir SQL Server veritabanından veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**SqlSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** Bölüm:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. Birden çok tablo girdi veri kümesi tarafından başvurulan veritabanından başvurabilir. Belirtilmezse, yürütülen SQL deyimi: MyTable arasından seçin. |Hayır |
-| sqlReaderStoredProcedureName |Kaynak tablodan veri okuyan saklı yordamın adı. |Saklı yordam adı. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
+| sqlReaderQuery |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. Birden çok tablo hello girdi veri kümesi tarafından başvurulan hello veritabanından başvurabilir. Belirtilmezse, yürütülen SQL deyimini hello: MyTable arasından seçin. |Hayır |
+| sqlReaderStoredProcedureName |Merhaba adını hello kaynak tablodan veri okuyan yordamı depolanır. |Saklı yordam hello adı. |Hayır |
+| storedProcedureParameters |Saklı yordam hello için parametreler. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin hello adları ve büyük küçük harf kullanımını hello saklı yordam parametreleri eşleşmelidir. |Hayır |
 
-Varsa **sqlReaderQuery** belirtilen SqlSource için kopyalama etkinliği veri almak için SQL Server veritabanı kaynağında bu sorguyu çalıştırır.
+Merhaba, **sqlReaderQuery** Merhaba SqlSource, hello kopyalama etkinliği çalıştıran bu sorguyu hello SQL Server veritabanı kaynak tooget hello verileri karşı belirtilir.
 
-Alternatif olarak, bir saklı yordam belirterek belirleyebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordam parametreleri alıyorsa).
+Alternatif olarak, bir saklı yordam hello belirterek belirleyebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (Merhaba saklı yordam parametreleri alır).
 
-SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz yapısı bölümünde tanımlanan sütunları SQL Server veritabanına karşı çalıştırmak için seçme sorgusu oluşturmak için kullanılır. Veri kümesi tanımı yapısına sahip değilse, tüm sütunları tablodan seçilir.
+SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz hello yapısı bölümünde tanımlanan hello sütunlar kullanılan toobuild seçme sorgusu toorun hello SQL Server veritabanına karşı'dır. Merhaba veri kümesi tanımı hello yapısına sahip değil, tüm sütunlar hello tablosundan seçilir.
 
 > [!NOTE]
-> Kullandığınızda **sqlReaderStoredProcedureName**, yine de için bir değer belirtmeniz gerekiyorsa **tableName** JSON veri kümesi bir özellik. Yine de bu tabloya karşı gerçekleştirilen başka doğrulama vardır.
+> Kullandığınızda, **sqlReaderStoredProcedureName**, hala toospecify bir değer hello için gereksinim duyduğunuz **tableName** JSON hello kümesindeki özelliği. Yine de bu tabloya karşı gerçekleştirilen başka doğrulama vardır.
 
 
 #### <a name="example"></a>Örnek
@@ -2592,27 +2592,27 @@ SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz yapısı bölüm
 }
 ```
 
-Bu örnekte, **sqlReaderQuery** SqlSource için belirtilir. Kopyalama etkinliği bu sorguyu veri almak için SQL Server veritabanı kaynağına karşı çalışır. Alternatif olarak, bir saklı yordam belirterek belirleyebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordam parametreleri alıyorsa). SqlReaderQuery girdi veri kümesi tarafından başvurulan veritabanına birden çok tablolarına başvuruda bulunabilir. Yalnızca veri kümesi'nin tableName typeProperty ayarlamak tabloya sınırlı değildir.
+Bu örnekte, **sqlReaderQuery** SqlSource hello için belirtilir. Merhaba kopyalama etkinliği bu sorguyu SQL Server veritabanı kaynak tooget hello verileri hello karşı çalışır. Alternatif olarak, bir saklı yordam hello belirterek belirleyebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (Merhaba saklı yordam parametreleri alır). Merhaba sqlReaderQuery hello girdi veri kümesi tarafından başvurulan hello veritabanı içinde birden çok tablo başvuruda bulunabilir. Bu veri kümesi'nin tableName typeProperty hello olarak ayarlanmış sınırlı tooonly hello tablosu değil.
 
-SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz yapısı bölümünde tanımlanan sütunları SQL Server veritabanına karşı çalıştırmak için seçme sorgusu oluşturmak için kullanılır. Veri kümesi tanımı yapısına sahip değilse, tüm sütunları tablodan seçilir.
+SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz hello yapısı bölümünde tanımlanan hello sütunlar kullanılan toobuild seçme sorgusu toorun hello SQL Server veritabanına karşı'dır. Merhaba veri kümesi tanımı hello yapısına sahip değil, tüm sütunlar hello tablosundan seçilir.
 
 Daha fazla bilgi için bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#copy-activity-properties) makalesi. 
 
 ### <a name="sql-sink-in-copy-activity"></a>Kopyalama etkinliği SQL havuzunda
-Bir SQL Server veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz türü** kopyalama etkinliği **SqlSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+Veri tooa SQL Server veritabanı kopyalıyorsanız hello ayarlamak **Havuz türü** Merhaba kopya etkinliği çok**SqlSink**ve hello özelliklerinde aşağıdaki belirtin **havuz** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
-| writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
-| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği sorgusunu belirtin. Daha fazla bilgi için bkz: [Yinelenebilirlik](#repeatability-during-copy) bölümü. |Sorgu bildirimi. |Hayır |
-| Sliceıdentifiercolumnname |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak için sütun adı belirtin. Daha fazla bilgi için bkz: [Yinelenebilirlik](#repeatability-during-copy) bölümü. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
-| sqlWriterStoredProcedureName |Saklı yordam adı hedef tabloda bu upserts (güncelleştirmeler/ekler) verileri. |Saklı yordam adı. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
-| sqlWriterTableType |Saklı yordam, kullanılacak tablo türü adı belirtin. Kopyalama etkinliği taşınan veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu ardından var olan verilerle kopyalanan verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
+| writeBatchTimeout |Zaman aşımına uğramadan önce hello toplu ekleme işlemi toocomplete bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
+| writeBatchSize |Merhaba arabellek boyutu writeBatchSize ulaştığında veri hello SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
+| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini gibi kopyalama etkinliği tooexecute için sorgu belirtin. Daha fazla bilgi için bkz: [Yinelenebilirlik](#repeatability-during-copy) bölümü. |Sorgu bildirimi. |Hayır |
+| Sliceıdentifiercolumnname |Kopyalama etkinliği toofill sütun adı, ne zaman yeniden çalıştırılacağını belirli bir dilim verilerini kullanılan tooclean olduğu otomatik dilim tanımlayıcı ile belirtin. Daha fazla bilgi için bkz: [Yinelenebilirlik](#repeatability-during-copy) bölümü. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
+| sqlWriterStoredProcedureName |Merhaba adını upserts (güncelleştirmeler/ekler) verileri hello hedef tabloya saklı yordamı. |Saklı yordam hello adı. |Hayır |
+| storedProcedureParameters |Saklı yordam hello için parametreler. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin hello adları ve büyük küçük harf kullanımını hello saklı yordam parametreleri eşleşmelidir. |Hayır |
+| sqlWriterTableType |Merhaba saklı yordamda kullanılan tablo türü adı toobe belirtin. Kopyalama etkinliği taşınan hello veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu sonra varolan verilerin kopyalanmasını hello verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
 
 #### <a name="example"></a>Örnek
-Ardışık Düzen bu girdi ve çıktı veri kümeleri kullanmak üzere yapılandırıldığı ve saatte çalışacak şekilde zamanlanır kopyalama etkinliği içerir. JSON tanımını düzenindeki **kaynak** türü ayarlanmış **BlobSource** ve **havuz** türü ayarlanmış **SqlSink**.
+Merhaba ardışık düzen içeren bir kopyalama etkinliği, yapılandırılmış toouse bu girdi ve çıktı veri kümeleri ve zamanlanmış toorun her saatte birdir. JSON tanımını Hello ardışık düzeninde, hello **kaynak** türü olarak ayarlanmış çok**BlobSource** ve **havuz** türü olarak ayarlanmış çok**SqlSink**.
 
 ```json
 {
@@ -2660,17 +2660,17 @@ Daha fazla bilgi için bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-
 ## <a name="sybase"></a>Sybase
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bir Sybase tanımlamak için hizmeti bağlı, Ayarla **türü** bağlantılı hizmetinin **OnPremisesSybase**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+bir Sybase toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**OnPremisesSybase**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** Bölüm:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |Sybase sunucunun adıdır. |Evet |
-| Veritabanı |Sybase veritabanının adı. |Evet |
-| Şema |Veritabanı şemasında adı. |Hayır |
-| authenticationType |Sybase veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
+| sunucu |Merhaba Sybase sunucunun adıdır. |Evet |
+| Veritabanı |Merhaba Sybase veritabanının adı. |Evet |
+| Şema |Merhaba veritabanındaki hello şema adı. |Hayır |
+| authenticationType |Kimlik doğrulama türü tooconnect toohello Sybase veritabanına kullanılır. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
-| password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
-| gatewayName |Data Factory hizmetinin şirket içi Sybase veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| password |Merhaba username için belirtilen hello kullanıcı hesabı için parola belirtin. |Hayır |
+| gatewayName |Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello şirket içi Sybase veritabanına kullanmanız gerekir. |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2694,11 +2694,11 @@ Bir Sybase tanımlamak için hizmeti bağlı, Ayarla **türü** bağlantılı hi
 Daha fazla bilgi için bkz: [Sybase bağlayıcı](data-factory-onprem-sybase-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Sybase veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Sybase veri kümesi hello **türü** hello kümesinin çok**RelationalTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Sybase veritabanı örneğinde bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
+| tableName |Merhaba bağlı Sybase veritabanı örneğinde Merhaba tablonun adını gösterir. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -2728,12 +2728,12 @@ Bir Sybase veri kümesini tanımlamak için **türü** için veri kümesinin **R
 Daha fazla bilgi için bkz: [Sybase bağlayıcı](data-factory-onprem-sybase-connector.md#dataset-properties) makalesi. 
 
 ### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Bir Sybase veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir Sybase veritabanından veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**RelationalSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** Bölüm:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| sorgu |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -2780,15 +2780,15 @@ Daha fazla bilgi için bkz: [Sybase bağlayıcı](data-factory-onprem-sybase-con
 ## <a name="teradata"></a>Teradata
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bir Teradata tanımlamak için hizmeti bağlı, Ayarla **türü** bağlantılı hizmetinin **OnPremisesTeradata**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+bir Teradata toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**OnPremisesTeradata**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** Bölüm:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |Teradata sunucunun adıdır. |Evet |
-| authenticationType |Teradata veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
+| sunucu |Merhaba Teradata sunucunun adıdır. |Evet |
+| authenticationType |Kimlik doğrulama türü tooconnect toohello Teradata veritabanına kullanılır. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
-| password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
-| gatewayName |Data Factory hizmetinin şirket içi Teradata veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| password |Merhaba username için belirtilen hello kullanıcı hesabı için parola belirtin. |Hayır |
+| gatewayName |Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello şirket içi Teradata veritabanına kullanmanız gerekir. |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2810,7 +2810,7 @@ Bir Teradata tanımlamak için hizmeti bağlı, Ayarla **türü** bağlantılı 
 Daha fazla bilgi için bkz: [Teradata bağlayıcı](data-factory-onprem-teradata-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Teradata Blob veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**. Şu anda Teradata veri kümesi için desteklenen tür özellik yok. 
+toodefine bir Teradata Blob veri kümesi hello **türü** hello kümesinin çok**RelationalTable**. Şu anda hello Teradata veri kümesi için desteklenen tür özellik yok. 
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2839,11 +2839,11 @@ Bir Teradata Blob veri kümesini tanımlamak için **türü** için veri kümesi
 Daha fazla bilgi için bkz: [Teradata bağlayıcı](data-factory-onprem-teradata-connector.md#dataset-properties) makalesi.
 
 ### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Bir Teradata veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir Teradata veritabanından veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**RelationalSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak**bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Evet |
+| sorgu |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -2894,17 +2894,17 @@ Daha fazla bilgi için bkz: [Teradata bağlayıcı](data-factory-onprem-teradata
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bir bağlı Cassandra hizmet tanımlamak için **türü** bağlantılı hizmetinin **OnPremisesCassandra**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+toodefine bir Cassandra bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**OnPremisesCassandra**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** Bölüm:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| ana bilgisayar |Bir veya daha fazla IP adresleri veya ana bilgisayar adlarını Cassandra sunucuları.<br/><br/>IP adreslerini veya aynı anda tüm sunucularına bağlanmak için ana bilgisayar adlarını virgülle ayrılmış listesini belirtin. |Evet |
-| port |İstemci bağlantılarını dinlemek için Cassandra sunucusunun kullandığı TCP bağlantı noktası. |Hayır, varsayılan değer: 9042 |
+| ana bilgisayar |Bir veya daha fazla IP adresleri veya ana bilgisayar adlarını Cassandra sunucuları.<br/><br/>IP adresi veya ana bilgisayar adları tooconnect tooall sunucuları virgülle ayrılmış listesini eşzamanlı olarak belirtin. |Evet |
+| port |Merhaba Cassandra sunucu hello TCP bağlantı noktası toolisten istemci bağlantıları için kullanır. |Hayır, varsayılan değer: 9042 |
 | authenticationType |Basic veya Anonymous |Evet |
-| kullanıcı adı |Kullanıcı hesabının kullanıcı adını belirtin. |Evet, authenticationType temel olarak ayarlanmışsa. |
-| password |Kullanıcı hesabı için parola belirtin. |Evet, authenticationType temel olarak ayarlanmışsa. |
-| gatewayName |Şirket içi Cassandra veritabanına bağlanmak için kullanılan ağ geçidi adı. |Evet |
-| encryptedCredential |Ağ Geçidi tarafından şifrelenmiş kimlik bilgileri. |Hayır |
+| kullanıcı adı |Merhaba kullanıcı hesabının kullanıcı adını belirtin. |Evet, authenticationType tooBasic ayarlarsanız. |
+| password |Merhaba kullanıcı hesabı için parola belirtin. |Evet, authenticationType tooBasic ayarlarsanız. |
+| gatewayName |kullanılan tooconnect toohello şirket içi Cassandra veritabanı hello ağ geçidi Hello adı. |Evet |
+| encryptedCredential |Merhaba ağ geçidi tarafından şifrelenmiş kimlik bilgileri. |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -2928,12 +2928,12 @@ Bir bağlı Cassandra hizmet tanımlamak için **türü** bağlantılı hizmetin
 Daha fazla bilgi için bkz: [Cassandra bağlayıcı](data-factory-onprem-cassandra-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Cassandra veri kümesini tanımlamak için **türü** için veri kümesinin **CassandraTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Cassandra veri kümesi hello **türü** hello kümesinin çok**CassandraTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| keyspace |Keyspace veya Cassandra veritabanındaki şema adı. |Evet (varsa **sorgu** için **CassandraSource** tanımlı değil). |
-| tableName |Cassandra veritabanı tablosunun adı. |Evet (varsa **sorgu** için **CassandraSource** tanımlı değil). |
+| keyspace |Merhaba keyspace veya Cassandra veritabanındaki şema adı. |Evet (varsa **sorgu** için **CassandraSource** tanımlı değil). |
+| tableName |Cassandra veritabanındaki Merhaba tablonun adı. |Evet (varsa **sorgu** için **CassandraSource** tanımlı değil). |
 
 #### <a name="example"></a>Örnek
 
@@ -2966,12 +2966,12 @@ Cassandra veri kümesini tanımlamak için **türü** için veri kümesinin **Ca
 Daha fazla bilgi için bkz: [Cassandra bağlayıcı](data-factory-onprem-cassandra-connector.md#dataset-properties) makalesi. 
 
 ### <a name="cassandra-source-in-copy-activity"></a>Kopyalama etkinliği Cassandra kaynağında
-Cassandra veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **CassandraSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Cassandra veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**CassandraSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** bölümü :
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL-92 sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgusu kullanırken belirtin **keyspace name.table adı** sorgulamak istediğiniz tabloyu temsil etmek için. |Hayır (tableName ve veri kümesi üzerinde keyspace tanımlanmışsa). |
-| consistencyLevel |Tutarlılık düzeyi kaç çoğaltmaları Okuma isteği için veri istemci uygulamasına geri dönmeden önce yanıt vermesi gereken belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. |BİR, İKİ, ÜÇ, ÇEKİRDEK, TÜMÜ, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Bkz: [veri tutarlılığını yapılandırma](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için. |Hayır. Varsayılan değer biridir. |
+| sorgu |Merhaba özel sorgu tooread verileri kullanın. |SQL-92 sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgusu kullanırken belirtin **keyspace name.table adı** tooquery istediğiniz toorepresent hello tablo. |Hayır (tableName ve veri kümesi üzerinde keyspace tanımlanmışsa). |
+| consistencyLevel |kaç tane çoğaltmaları veri toohello istemci uygulaması döndürmeden önce tooa Okuma isteği yanıtlamalısınız Hello tutarlılık düzeyi belirtir. İstek veri toosatisfy hello okumak için Cassandra denetimleri çoğaltmaları belirtilen sayıda hello. |BİR, İKİ, ÜÇ, ÇEKİRDEK, TÜMÜ, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Bkz: [veri tutarlılığını yapılandırma](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için. |Hayır. Varsayılan değer biridir. |
 
 #### <a name="example"></a>Örnek
   
@@ -2984,7 +2984,7 @@ Cassandra veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinl
         "description": "pipeline with copy activity",
         "activities": [{
             "name": "CassandraToAzureBlob",
-            "description": "Copy from Cassandra to an Azure blob",
+            "description": "Copy from Cassandra tooan Azure blob",
             "type": "Copy",
             "inputs": [{
                 "name": "CassandraInput"
@@ -3021,18 +3021,18 @@ Daha fazla bilgi için bkz: [Cassandra bağlayıcı](data-factory-onprem-cassand
 ## <a name="mongodb"></a>MongoDB
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir MongoDB tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OnPremisesMongoDB**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+toodefine bir MongoDB bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**OnPremisesMongoDB**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** Bölüm:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |IP adresi veya ana bilgisayar MongoDB sunucunun adıdır. |Evet |
-| port |İstemci bağlantılarını dinlemek için MongoDB sunucusunun kullandığı TCP bağlantı noktası. |İsteğe bağlı, varsayılan değer: 27017 |
+| sunucu |IP adresi veya ana bilgisayar hello MongoDB sunucunun adıdır. |Evet |
+| port |MongoDB sunucusuna hello TCP bağlantı noktası toolisten istemci bağlantıları için kullanır. |İsteğe bağlı, varsayılan değer: 27017 |
 | authenticationType |Basic veya Anonymous. |Evet |
-| kullanıcı adı |MongoDB erişmek için kullanıcı hesabı. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
-| password |Kullanıcının parolası. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
-| authSource |Kimlik doğrulaması için kimlik bilgilerinizi denetlemek için kullanmak istediğiniz MongoDB veritabanı adı. |(Temel kimlik doğrulaması kullanılıyorsa) isteğe bağlı. Varsayılan: yönetici hesabı ve databaseName özelliği kullanılarak belirtilen veritabanı kullanır. |
-| databaseName |Erişmek istediğiniz MongoDB veritabanı adı. |Evet |
-| gatewayName |Veri deposu erişen ağ geçidi adı. |Evet |
+| kullanıcı adı |Kullanıcı hesabı tooaccess MongoDB. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
+| password |Merhaba kullanıcının parolası. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
+| authSource |Kimlik doğrulaması için kimlik bilgilerinizi toouse toocheck istediğiniz hello MongoDB veritabanı adı. |(Temel kimlik doğrulaması kullanılıyorsa) isteğe bağlı. Varsayılan: Merhaba yönetici hesabı ve databaseName özelliği kullanılarak belirtilen hello veritabanı kullanır. |
+| databaseName |Tooaccess istediğiniz hello MongoDB veritabanı adı. |Evet |
+| gatewayName |Merhaba veri deposu erişen hello ağ geçidi adı. |Evet |
 | encryptedCredential |Ağ Geçidi tarafından şifrelenmiş kimlik bilgileri. |İsteğe bağlı |
 
 #### <a name="example"></a>Örnek
@@ -3044,11 +3044,11 @@ Bağlantılı hizmetinin bir MongoDB tanımlamak için Ayarla **türü** bağlan
         "type": "OnPremisesMongoDb",
         "typeProperties": {
             "authenticationType": "<Basic or Anonymous>",
-            "server": "< The IP address or host name of the MongoDB server >",
-            "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
+            "server": "< hello IP address or host name of hello MongoDB server >",
+            "port": "<hello number of hello TCP port that hello MongoDB server uses toolisten for client connections.>",
             "username": "<username>",
             "password": "<password>",
-            "authSource": "< The database that you want to use to check your credentials for authentication. >",
+            "authSource": "< hello database that you want toouse toocheck your credentials for authentication. >",
             "databaseName": "<database name>",
             "gatewayName": "<onpremgateway>"
         }
@@ -3059,11 +3059,11 @@ Bağlantılı hizmetinin bir MongoDB tanımlamak için Ayarla **türü** bağlan
 Daha fazla bilgi için bkz: [MongoDB bağlayıcı makale](data-factory-on-premises-mongodb-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Veri kümesi
-MongoDB veri kümesini tanımlamak için **türü** için veri kümesinin **MongoDbCollection**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir MongoDB veri kümesi hello **türü** hello kümesinin çok**MongoDbCollection**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| collectionName |MongoDB veritabanı koleksiyonunda adı. |Evet |
+| collectionName |MongoDB veritabanı hello koleksiyonunda adı. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -3088,11 +3088,11 @@ MongoDB veri kümesini tanımlamak için **türü** için veri kümesinin **Mong
 Daha fazla bilgi için bkz: [MongoDB bağlayıcı makale](data-factory-on-premises-mongodb-connector.md#dataset-properties)
 
 #### <a name="mongodb-source-in-copy-activity"></a>Kopyalama etkinliği MongoDB kaynağında
-Veri adresinden kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **MongoDbSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Veri adresinden kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**MongoDbSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL-92 sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **collectionName** , **dataset** belirtilir) |
+| sorgu |Merhaba özel sorgu tooread verileri kullanın. |SQL-92 sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **collectionName** , **dataset** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -3142,12 +3142,12 @@ Daha fazla bilgi için bkz: [MongoDB bağlayıcı makale](data-factory-on-premis
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir Amazon S3 tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AwsAccessKey**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+toodefine bir Amazon S3 bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**AwsAccessKey**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü :  
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| accessKeyID |Gizli erişim anahtarı kimliği. |Dize |Evet |
-| secretAccessKey |Gizli erişim anahtar kendisi. |Şifrelenmiş gizli dize |Evet |
+| accessKeyID |Merhaba gizli erişim anahtarı kimliği. |Dize |Evet |
+| secretAccessKey |Merhaba gizli erişim anahtarı kendisi. |Şifrelenmiş gizli dize |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -3166,20 +3166,20 @@ Bağlantılı hizmetinin bir Amazon S3 tanımlamak için Ayarla **türü** bağl
 Daha fazla bilgi için bkz: [Amazon S3 bağlayıcı makale](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Amazon S3 dataset tanımlamak için **türü** için veri kümesinin **AmazonS3**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Amazon S3 dataset, kümesi hello **türü** hello kümesinin çok**AmazonS3**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| bucketName |S3 demetini adı. |Dize |Evet |
-| anahtar |S3 nesne anahtarı. |Dize |Hayır |
-| önek |S3 nesne anahtarı için önek. Seçilen nesneler, anahtarları Bu önek ile başlatın. Yalnızca anahtar boş olduğunda geçerlidir. |Dize |Hayır |
-| Sürüm |S3 sürüm etkinleştirilirse S3 nesne sürümü. |Dize |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır | |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır | |
+| bucketName |Merhaba S3 demetini adı. |Dize |Evet |
+| anahtar |Merhaba S3 nesne anahtarı. |Dize |Hayır |
+| önek |Merhaba S3 nesne anahtarı için önek. Seçilen nesneler, anahtarları Bu önek ile başlatın. Yalnızca anahtar boş olduğunda geçerlidir. |Dize |Hayır |
+| Sürüm |S3 sürüm etkinleştirilirse S3 nesne Hello sürümü. |Dize |Hayır |
+| Biçimi | şu biçimi türlerini hello desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Set hello **türü** biçimi tooone şu değerlerden biri altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Çok istiyorsanız**olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında hello Biçim bölümü atlayın. |Hayır | |
+| Sıkıştırma | Merhaba türünü ve hello veri sıkıştırma düzeyini belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. desteklenen hello düzeyleri şunlardır: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır | |
 
 
 > [!NOTE]
-> bucketName + anahtarı burada demet S3 nesneleri için kök kapsayıcı ve anahtar S3 nesnenin tam yolunun S3 nesnenin konumunu belirtir.
+> bucketName + anahtarı burada demet hello S3 nesneleri için kök kapsayıcı ve anahtar hello tam yol tooS3 nesnesini hello S3 nesnesinin hello konumunu belirtir.
 
 #### <a name="example-sample-dataset-with-prefix"></a>Örnek: Örnek veri kümesi önekiyle
 
@@ -3230,31 +3230,31 @@ Bir Amazon S3 dataset tanımlamak için **türü** için veri kümesinin **Amazo
 ```
 
 #### <a name="example-dynamic-paths-for-s3"></a>Örnek: S3 dinamik yollar
-Örnekte, Amazon S3 dataset içindeki anahtar ve bucketName özellikler için sabit değerleri kullanın.
+Merhaba örnek hello Amazon S3 dataset içindeki anahtar ve bucketName özellikler için sabit değerleri kullanın.
 
 ```json
 "key": "testFolder/test.orc",
 "bucketName": "<S3 bucket name>",
 ```
 
-Veri Fabrikası sistem değişkenleri SliceStart gibi kullanarak anahtar ve çalışma zamanında dinamik olarak bucketName hesaplama olabilir.
+Veri Fabrikası hello anahtar ve çalışma zamanında dinamik olarak bucketName SliceStart gibi sistem değişkenleri kullanarak hesaplar olabilir.
 
 ```json
 "key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
 "bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
 ```
 
-Bir Amazon S3 dataset önek özelliği için aynı yapabilirsiniz. Bkz: [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md) desteklenen işlevleri ve değişkenler listesi.
+Yapabileceğiniz aynı hello önek özelliği bir Amazon S3 dataset için hello. Bkz: [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md) desteklenen işlevleri ve değişkenler listesi.
 
 Daha fazla bilgi için bkz: [Amazon S3 bağlayıcı makale](data-factory-amazon-simple-storage-service-connector.md#dataset-properties).
 
 ### <a name="file-system-source-in-copy-activity"></a>Dosya sistem kaynağını kopyalama etkinliği
-Verileri Amazon S3'ten kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **FileSystemSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Verileri Amazon S3'ten kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**FileSystemSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** bölümü :
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| Özyinelemeli |Özyinelemeli S3 listesinde olup olmadığını belirtir dizini altındaki nesneleri. |true/false |Hayır |
+| Özyinelemeli |Toorecursively listesi S3 hello dizini altında nesneleri olup olmadığını belirtir. |true/false |Hayır |
 
 
 #### <a name="example"></a>Örnek
@@ -3306,16 +3306,16 @@ Daha fazla bilgi için bkz: [Amazon S3 bağlayıcı makale](data-factory-amazon-
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bir Azure data factory ile bir şirket içi dosya sistemi bağlayabilirsiniz **şirket içi dosya sunucusu** bağlı hizmeti. Aşağıdaki tabloda şirket içi dosya sunucusu bağlantılı hizmete özgü JSON öğeleri için açıklamalar sağlanır.
+Bir şirket içi dosya sistemi tooan Azure data factory hello ile bağlayabilirsiniz **şirket içi dosya sunucusu** bağlı hizmeti. Aşağıdaki tablonun hello belirli toohello şirket içi dosya sunucusuna bağlı hizmeti olan JSON öğeleri için açıklamalar sağlanır.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlandığından emin olun **OnPremisesFileServer**. |Evet |
-| ana bilgisayar |Kopyalamak istediğiniz klasörün kök yolunu belirtir. Kaçış karakteri kullanmak ' \ ' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için. |Evet |
-| Kullanıcı Kimliği |Sunucusuna erişimi olan kullanıcı Kimliğini belirtin. |Hayır (encryptedCredential seçerseniz) |
-| password |(UserID) kullanıcının parolasını belirtin. |Hayır (encryptedCredential seçerseniz |
-| encryptedCredential |Yeni AzureRmDataFactoryEncryptValue cmdlet'ini çalıştırarak alabilirsiniz şifreli kimlik bilgilerini belirtin. |Hayır (kullanıcı kimliği ve parola düz metin olarak belirtmek isterseniz) |
-| gatewayName |Veri Fabrikası şirket içi dosya sunucusuna bağlanmak için kullanması gereken ağ geçidi adını belirtir. |Evet |
+| type |Merhaba type özelliği çok ayarlandığından emin olun**OnPremisesFileServer**. |Evet |
+| ana bilgisayar |Toocopy istediğiniz hello klasörü Hello kök yolunu belirtir. Merhaba kaçış karakteri kullanmak ' \ ' hello dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için. |Evet |
+| Kullanıcı Kimliği |Merhaba erişim toohello sunucusuna sahip hello kullanıcı Kimliğini belirtin. |Hayır (encryptedCredential seçerseniz) |
+| password |Merhaba kullanıcı (UserID) Hello parolasını belirtin. |Hayır (encryptedCredential seçerseniz |
+| encryptedCredential |Merhaba yeni AzureRmDataFactoryEncryptValue cmdlet'ini çalıştırarak alabilirsiniz hello şifreli kimlik bilgilerini belirtin. |Hayır (toospecify kullanıcı kimliği ve parola düz metin olarak seçerseniz) |
+| gatewayName |Veri Fabrikası tooconnect toohello şirket içi dosya sunucusu kullanmalısınız hello ağ geçidi Hello adını belirtir. |Evet |
 
 #### <a name="sample-folder-path-definitions"></a>Örnek klasör yolu tanımları 
 | Senaryo | Bağlantılı hizmet tanımında ana bilgisayar | veri kümesi tanımında folderPath |
@@ -3360,16 +3360,16 @@ Bir Azure data factory ile bir şirket içi dosya sistemi bağlayabilirsiniz **�
 Daha fazla bilgi için bkz: [dosya sistemi bağlayıcı makale](data-factory-onprem-file-system-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Veri kümesi
-Bir dosya sistemi veri kümesini tanımlamak için **türü** için veri kümesinin **FileShare**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir dosya sistemi veri kümesi hello **türü** hello kümesinin çok**FileShare**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Alt klasöre belirtir. Kaçış karakteri kullanmak ' \' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
-| fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı şu biçimdedir: <br/><br/>`Data.<Guid>.txt`(Örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Hayır |
-| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin. <br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: "fileFilter": "* .log"<br/>Örnek 2: "fileFilter": 2016 - 1-? txt"<br/><br/>Bu fileFilter bir giriş FileShare veri kümesi için geçerli olduğunu unutmayın. |Hayır |
-| partitionedBy |PartitionedBy dinamik folderPath/için bir dosya adı time series verilerini belirtmek için kullanabilirsiniz. İçin verileri saatte parametreli folderPath örneğidir. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**; ve desteklenen düzeyler: **Optimal** ve **en hızlı**. bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| folderPath |Merhaba alt toohello klasörü belirtir. Merhaba kaçış karakteri kullanmak ' \' hello dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** toohave klasör yolları dilimine göre başlangıç/bitiş tarih saatleri. |Evet |
+| fileName |Hello Hello hello dosyasının adını belirtin **folderPath** hello tablo toorefer tooa belirli dosya hello klasöründeki istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, hello tablo hello klasöründeki tooall dosyaları işaret eder.<br/><br/>Dosya adı bir çıkış veri kümesi için belirtilmediğinde hello oluşturulan hello dosya biçimini izleyen hello adıdır: <br/><br/>`Data.<Guid>.txt`(Örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Hayır |
+| fileFilter |Tüm dosyalar yerine hello folderPath dosyaları kümesini filtre toobe tooselect kullanılan belirtin. <br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: "fileFilter": "* .log"<br/>Örnek 2: "fileFilter": 2016 - 1-? txt"<br/><br/>Bu fileFilter bir giriş FileShare veri kümesi için geçerli olduğunu unutmayın. |Hayır |
+| partitionedBy |Zaman serisi veri partitionedBy toospecify dinamik folderPath/fileName kullanabilirsiniz. İçin verileri saatte parametreli folderPath örneğidir. |Hayır |
+| Biçimi | şu biçimi türlerini hello desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Set hello **türü** biçimi tooone şu değerlerden biri altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Çok istiyorsanız**olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında hello Biçim bölümü atlayın. |Hayır |
+| Sıkıştırma | Merhaba türünü ve hello veri sıkıştırma düzeyini belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**; ve desteklenen düzeyler: **Optimal** ve **en hızlı**. bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
 > [!NOTE]
 > Dosya adı ve fileFilter aynı anda kullanamazsınız.
@@ -3434,11 +3434,11 @@ Bir dosya sistemi veri kümesini tanımlamak için **türü** için veri kümesi
 Daha fazla bilgi için bkz: [dosya sistemi bağlayıcı makale](data-factory-onprem-file-system-connector.md#dataset-properties).
 
 ### <a name="file-system-source-in-copy-activity"></a>Dosya sistem kaynağını kopyalama etkinliği
-Dosya sisteminden veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **FileSystemSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Dosya sisteminden veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**FileSystemSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| Özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
+| Özyinelemeli |Merhaba klasörlerdeki veya yalnızca klasörden hello belirtilen Hello veri yinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -3484,11 +3484,11 @@ Dosya sisteminden veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalam
 Daha fazla bilgi için bkz: [dosya sistemi bağlayıcı makale](data-factory-onprem-file-system-connector.md#copy-activity-properties).
 
 ### <a name="file-system-sink-in-copy-activity"></a>Dosya sistemi havuzu kopyalama etkinliği
-Dosya sistemi veri kopyalıyorsanız ayarlamak **Havuz türü** kopyalama etkinliği **FileSystemSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+Veri tooFile sistem kopyalıyorsanız hello ayarlamak **Havuz türü** Merhaba kopya etkinliği çok**FileSystemSink**ve hello özelliklerinde aşağıdaki belirtin **havuz** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| copyBehavior |Kaynak BlobSource veya dosya sistemi olduğunda kopyalama davranışını tanımlar. |**PreserveHierarchy:** dosya hiyerarşisi hedef klasördeki korur. Diğer bir deyişle, kaynak dosyanın kaynak klasöre göreli yol hedef dosya hedef klasöre göreli yol aynıdır.<br/><br/>**FlattenHierarchy:** tüm dosyaları kaynak klasörden hedef klasöre ilk düzeyi oluşturulur. Hedef dosyalar otomatik olarak oluşturulur adıyla oluşturulur.<br/><br/>**MergeFiles:** bir dosya için kaynak klasöründeki tüm dosyaları birleştirir. Dosya adı/blob adı belirtilirse, birleştirilmiş dosya adı belirtilen addır. Aksi halde, bir otomatik olarak oluşturulan dosya adı değil. |Hayır |
+| copyBehavior |Merhaba kaynağı BlobSource veya dosya sistemi olduğunda hello kopyalama davranışını tanımlar. |**PreserveHierarchy:** hello dosya hiyerarşisi hello hedef klasörde korur. Diğer bir deyişle, hello kaynak dosya toohello kaynak klasörün hello göreli yol olduğundan hello hello hedef dosya toohello hedef klasörü hello göreli yolu ile aynı.<br/><br/>**FlattenHierarchy:** hello kaynak klasördeki tüm dosyaları hedef klasörün hello ilk düzeyi oluşturulur. Merhaba hedef dosyaları otomatik olarak oluşturulur adıyla oluşturulur.<br/><br/>**MergeFiles:** hello kaynak klasör tooone dosyasından tüm dosyaları birleştirir. Merhaba dosya adı/blob adı belirtilirse, hello belirtilen ad hello birleştirilmiş dosya adı değil. Aksi halde, bir otomatik olarak oluşturulan dosya adı değil. |Hayır |
 otomatik-
 
 #### <a name="example"></a>Örnek
@@ -3539,19 +3539,19 @@ Daha fazla bilgi için bkz: [dosya sistemi bağlayıcı makale](data-factory-onp
 ## <a name="ftp"></a>FTP
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin FTP tanımlamak için Ayarla **türü** bağlantılı hizmetinin **Ftp_sunucusu**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+toodefine FTP bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**Ftp_sunucusu**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
-| ana bilgisayar |FTP sunucusunun adı veya IP adresi |Evet |&nbsp; |
+| ana bilgisayar |Hello FTP sunucusu adı veya IP adresi |Evet |&nbsp; |
 | authenticationType |Kimlik doğrulama türünü belirtin |Evet |Temel, anonim |
-| kullanıcı adı |FTP sunucusuna erişimi olan kullanıcı |Hayır |&nbsp; |
-| password |(Kullanıcı adı) kullanıcı parolası |Hayır |&nbsp; |
-| encryptedCredential |FTP sunucusuna erişmek için şifrelenmiş kimlik bilgileri |Hayır |&nbsp; |
-| gatewayName |Şirket içi FTP sunucusuna bağlanmak için veri yönetimi ağ geçidi ağ geçidinin adı |Hayır |&nbsp; |
-| port |FTP sunucusunun dinlediği bağlantı noktası |Hayır |21 |
-| enableSsl |FTP SSL/TLS kanalı üzerinden kullanıp kullanmayacağınızı belirtin |Hayır |TRUE |
-| enableServerCertificateValidation |Sunucu SSL sertifika doğrulamasını FTP SSL/TLS kanalı üzerinden kullanırken etkinleştirilip etkinleştirilmeyeceğini belirtin |Hayır |TRUE |
+| kullanıcı adı |Erişim toohello FTP sunucusu olan kullanıcı |Hayır |&nbsp; |
+| password |Parola hello kullanıcının (kullanıcı adı) |Hayır |&nbsp; |
+| encryptedCredential |Şifrelenmiş kimlik bilgileri tooaccess hello FTP sunucusu |Hayır |&nbsp; |
+| gatewayName |Merhaba veri yönetimi ağ geçidi ağ geçidi tooconnect tooan adını içi FTP sunucusu |Hayır |&nbsp; |
+| port |Hangi hello FTP sunucusunun dinleme yaptığı bağlantı noktası |Hayır |21 |
+| enableSsl |Toouse SSL/TLS kanalı üzerinden FTP olup olmadığını belirtin |Hayır |TRUE |
+| enableServerCertificateValidation |Tooenable sunucu SSL FTP SSL/TLS kanalı üzerinden kullanırken doğrulama sertifikası olup olmadığını belirtin |Hayır |TRUE |
 
 #### <a name="example-using-anonymous-authentication"></a>Örnek: Anonim kimlik doğrulamasını kullanma
 
@@ -3625,16 +3625,16 @@ Bağlantılı hizmetinin FTP tanımlamak için Ayarla **türü** bağlantılı h
 Daha fazla bilgi için bkz: [FTP Bağlayıcısı](data-factory-ftp-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir FTP veri kümesini tanımlamak için **türü** için veri kümesinin **FileShare**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine FTP veri kümesi, kümesi hello **türü** hello kümesinin çok**FileShare**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Klasörün alt yolu. Kaçış karakteri kullanmak ' \ ' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet 
-| fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1:`"fileFilter": "*.log"`<br/>Örnek 2:`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter bir giriş FileShare veri kümesi için geçerlidir. Bu özellik ile HDFS desteklenmiyor. |Hayır |
-| partitionedBy |partitionedBy filename zaman serisi veri için dinamik bir folderPath belirtmek için kullanılabilir. Örneğin, her veri saat için parametreli folderPath. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**; ve desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| folderPath |Alt yolu toohello klasörü. Kaçış karakteri kullanmak ' \ ' hello dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** toohave klasör yolları dilimine göre başlangıç/bitiş tarih saatleri. |Evet 
+| fileName |Hello Hello hello dosyasının adını belirtin **folderPath** hello tablo toorefer tooa belirli dosya hello klasöründeki istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, hello tablo hello klasöründeki tooall dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan hello dosyasının hello adı Bu biçim aşağıdaki hello olacaktır: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| fileFilter |Tüm dosyalar yerine hello folderPath dosyaları kümesini filtre toobe tooselect kullanılan belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1:`"fileFilter": "*.log"`<br/>Örnek 2:`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter bir giriş FileShare veri kümesi için geçerlidir. Bu özellik ile HDFS desteklenmiyor. |Hayır |
+| partitionedBy |partitionedBy kullanılan toospecify dinamik folderPath zaman serisi veri için dosya adı olabilir. Örneğin, her veri saat için parametreli folderPath. |Hayır |
+| Biçimi | şu biçimi türlerini hello desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Set hello **türü** biçimi tooone şu değerlerden biri altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Çok istiyorsanız**olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında hello Biçim bölümü atlayın. |Hayır |
+| Sıkıştırma | Merhaba türünü ve hello veri sıkıştırma düzeyini belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**; ve desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 | useBinaryTransfer |Belirtin olup ikili aktarım modunu kullanın. İkili mod ve false ASCII için true. Varsayılan değer: True. İlişkili bağlantılı hizmet türü türü olduğunda bu özellik yalnızca kullanılabilir: Ftp_sunucusu. |Hayır |
 
 > [!NOTE]
@@ -3649,7 +3649,7 @@ Bir FTP veri kümesini tanımlamak için **türü** için veri kümesinin **File
         "type": "FileShare",
         "linkedServiceName": "FTPLinkedService",
         "typeProperties": {
-            "folderPath": "<path to shared folder>",
+            "folderPath": "<path tooshared folder>",
             "fileName": "test.csv",
             "useBinaryTransfer": true
         },
@@ -3665,11 +3665,11 @@ Bir FTP veri kümesini tanımlamak için **türü** için veri kümesinin **File
 Daha fazla bilgi için bkz: [FTP Bağlayıcısı](data-factory-ftp-connector.md#dataset-properties) makalesi.
 
 ### <a name="file-system-source-in-copy-activity"></a>Dosya sistem kaynağını kopyalama etkinliği
-Bir FTP sunucusundan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **FileSystemSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir FTP sunucusundan veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**FileSystemSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| Özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
+| Özyinelemeli |Merhaba alt klasörler veya yalnızca hello belirtilen klasör Hello veri yinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -3717,17 +3717,17 @@ Daha fazla bilgi için bkz: [FTP Bağlayıcısı](data-factory-ftp-connector.md#
 ## <a name="hdfs"></a>HDFS
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir HDFS tanımlamak için Ayarla **türü** bağlantılı hizmetinin **Hdfs**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+toodefine bir HDFS bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**Hdfs**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalıdır: **Hdfs** |Evet |
-| Url |HDFS URL'si |Evet |
-| authenticationType |Anonim veya Windows. <br><br> Kullanılacak **Kerberos kimlik doğrulaması** HDFS bağlayıcı için başvurmak [Bu bölümde](#use-kerberos-authentication-for-hdfs-connector) şirket içi ortamınıza uygun şekilde ayarlamak için. |Evet |
+| type |Merhaba type özelliği ayarlanmalıdır: **Hdfs** |Evet |
+| Url |URL toohello HDFS |Evet |
+| authenticationType |Anonim veya Windows. <br><br> toouse **Kerberos kimlik doğrulaması** HDFS bağlayıcı için çok başvuran[Bu bölümde](#use-kerberos-authentication-for-hdfs-connector) tooset şirket içi ortamınızı uygun şekilde. |Evet |
 | Kullanıcı adı |Kullanıcı adı için Windows kimlik doğrulaması. |Evet (Windows kimlik doğrulaması için) |
 | password |Windows kimlik doğrulaması için parola. |Evet (Windows kimlik doğrulaması için) |
-| gatewayName |Data Factory hizmetinin HDFS bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
-| encryptedCredential |[AzureRMDataFactoryEncryptValue yeni](https://msdn.microsoft.com/library/mt603802.aspx) erişim kimlik bilgisi çıktısı. |Hayır |
+| gatewayName |Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello HDFS kullanmanız gerekir. |Evet |
+| encryptedCredential |[AzureRMDataFactoryEncryptValue yeni](https://msdn.microsoft.com/library/mt603802.aspx) hello erişim kimlik bilgisi çıktısı. |Hayır |
 
 #### <a name="example-using-anonymous-authentication"></a>Örnek: Anonim kimlik doğrulamasını kullanma
 
@@ -3767,15 +3767,15 @@ Bağlantılı hizmetinin bir HDFS tanımlamak için Ayarla **türü** bağlantı
 Daha fazla bilgi için bkz: [HDFS bağlayıcı](#data-factory-hdfs-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-HDFS veri kümesini tanımlamak için **türü** için veri kümesinin **FileShare**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir HDFS veri kümesi hello **türü** hello kümesinin çok**FileShare**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Klasör yolu. Örnek:`myfolder`<br/><br/>Kaçış karakteri kullanmak ' \ ' dize özel karakter. Örneğin: folder\subfolder için klasör belirtin\\\\alt ve d:\samplefolder için d: belirtin\\\\ÖrnekKlasör.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
-| fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| partitionedBy |partitionedBy filename zaman serisi veri için dinamik bir folderPath belirtmek için kullanılabilir. Örnek: veri her saat için parametreli folderPath. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| folderPath |Yol toohello klasör. Örnek:`myfolder`<br/><br/>Kaçış karakteri kullanmak ' \ ' hello dize özel karakter. Örneğin: folder\subfolder için klasör belirtin\\\\alt ve d:\samplefolder için d: belirtin\\\\ÖrnekKlasör.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** toohave klasör yolları dilimine göre başlangıç/bitiş tarih saatleri. |Evet |
+| fileName |Hello Hello hello dosyasının adını belirtin **folderPath** hello tablo toorefer tooa belirli dosya hello klasöründeki istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, hello tablo hello klasöründeki tooall dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan hello dosyasının hello adı Bu biçim aşağıdaki hello olacaktır: <br/><br/>Veriler. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| partitionedBy |partitionedBy kullanılan toospecify dinamik folderPath zaman serisi veri için dosya adı olabilir. Örnek: veri her saat için parametreli folderPath. |Hayır |
+| Biçimi | şu biçimi türlerini hello desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Set hello **türü** biçimi tooone şu değerlerden biri altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Çok istiyorsanız**olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında hello Biçim bölümü atlayın. |Hayır |
+| Sıkıştırma | Merhaba türünü ve hello veri sıkıştırma düzeyini belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
 > [!NOTE]
 > Dosya adı ve fileFilter aynı anda kullanılamaz.
@@ -3803,13 +3803,13 @@ HDFS veri kümesini tanımlamak için **türü** için veri kümesinin **FileSha
 Daha fazla bilgi için bkz: [HDFS bağlayıcı](#data-factory-hdfs-connector.md#dataset-properties) makalesi. 
 
 ### <a name="file-system-source-in-copy-activity"></a>Dosya sistem kaynağını kopyalama etkinliği
-HDFS veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **FileSystemSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+HDFS veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**FileSystemSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** bölümü:
 
-**FileSystemSource** aşağıdaki özellikleri destekler:
+**FileSystemSource** aşağıdaki özelliklere hello destekler:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| Özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
+| Özyinelemeli |Merhaba alt klasörler veya yalnızca hello belirtilen klasör Hello veri yinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -3853,26 +3853,26 @@ Daha fazla bilgi için bkz: [HDFS bağlayıcı](#data-factory-hdfs-connector.md#
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir SFTP tanımlamak için Ayarla **türü** bağlantılı hizmetinin **Sftp**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+toodefine bir SFTP bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**Sftp**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- | --- |
-| ana bilgisayar | SFTP sunucunun adı veya IP adresi. |Evet |
-| port |SFTP sunucunun dinlediği bağlantı noktası. Varsayılan değer: 21 |Hayır |
-| authenticationType |Kimlik doğrulama türü belirtin. İzin verilen değerler: **temel**, **SshPublicKey**. <br><br> Başvurmak [kullanarak temel kimlik doğrulaması](#using-basic-authentication) ve [kullanarak SSH ortak anahtar kimlik doğrulaması](#using-ssh-public-key-authentication) daha fazla özellikleri ve JSON örnekleri sırasıyla bölümler. |Evet |
-| skipHostKeyValidation | Ana anahtar doğrulama atlamak bu seçeneği belirtin. | Hayır. Varsayılan değeri: false |
-| hostKeyFingerprint | Ana makine anahtarı, parmak izi belirtin. | Yanıt Evet ise `skipHostKeyValidation` false olarak ayarlayın.  |
-| gatewayName |Bir şirket içi SFTP sunucusuna bağlanmak için veri yönetimi ağ geçidi adı. | Bir şirket içi SFTP sunucusundan veri kopyalama, Evet. |
-| encryptedCredential | SFTP sunucuya erişmek için şifrelenmiş kimlik bilgileri'ı seçin. Otomatik olarak oluşturulan Kopyalama Sihirbazı'nı veya ClickOnce açılan iletişim temel kimlik doğrulaması (kullanıcı adı + parola) veya SshPublicKey kimlik (kullanıcı adı + özel anahtar yolu veya içerik) belirttiğinizde. | Hayır. Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
+| ana bilgisayar | Merhaba SFTP sunucu adı veya IP adresi. |Evet |
+| port |Hangi hello SFTP sunucusunun dinleme yaptığı bağlantı noktası. Merhaba varsayılan değer: 21 |Hayır |
+| authenticationType |Kimlik doğrulama türü belirtin. İzin verilen değerler: **temel**, **SshPublicKey**. <br><br> Çok başvuran[kullanarak temel kimlik doğrulaması](#using-basic-authentication) ve [kullanarak SSH ortak anahtar kimlik doğrulaması](#using-ssh-public-key-authentication) daha fazla özellikleri ve JSON örnekleri sırasıyla bölümler. |Evet |
+| skipHostKeyValidation | Tooskip anahtar doğrulama konak olup olmadığını belirtin. | Hayır. Merhaba varsayılan değeri: false |
+| hostKeyFingerprint | Merhaba parmak izi hello ana bilgisayar anahtarı belirtin. | Merhaba, Evet `skipHostKeyValidation` toofalse ayarlanır.  |
+| gatewayName |Merhaba veri yönetimi ağ geçidi tooconnect tooan adını SFTP sunucu şirket içi. | Bir şirket içi SFTP sunucusundan veri kopyalama, Evet. |
+| encryptedCredential | Şifrelenmiş kimlik bilgileri tooaccess hello SFTP sunucusu. Otomatik olarak oluşturulan, temel kimlik doğrulaması (kullanıcı adı + parola) veya SshPublicKey kimlik (kullanıcı adı + özel anahtar yolu veya içerik) Kopyalama Sihirbazı'nı veya hello ClickOnce açılan iletişim kutusunda belirttiğiniz zaman. | Hayır. Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
 
 #### <a name="example-using-basic-authentication"></a>Örnek: temel kimlik doğrulaması kullanma
 
-Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` olarak `Basic`ve SFTP bağlayıcı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
+toouse temel kimlik doğrulamasını ayarlamak `authenticationType` olarak `Basic`ve bunun yanında, SFTP bağlayıcı hello son bölümde sunulan genel olanları hello aşağıdaki özelliklere hello belirtin:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- | --- |
-| kullanıcı adı | SFTP sunucusuna erişimi olan kullanıcı. |Evet |
-| password | (Kullanıcı adı) kullanıcının parolası. | Evet |
+| kullanıcı adı | Erişim toohello SFTP sunucusu olan kullanıcı. |Evet |
+| password | Merhaba kullanıcının (kullanıcı adı) parolası. | Evet |
 
 ```json
 {
@@ -3916,14 +3916,14 @@ Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` ol
 
 #### <a name="using-ssh-public-key-authentication"></a>SSH ortak anahtar kimlik doğrulaması kullanarak: **
 
-Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` olarak `SshPublicKey`ve SFTP bağlayıcı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
+toouse temel kimlik doğrulamasını ayarlamak `authenticationType` olarak `SshPublicKey`ve bunun yanında, SFTP bağlayıcı hello son bölümde sunulan genel olanları hello aşağıdaki özelliklere hello belirtin:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- | --- |
-| kullanıcı adı |SFTP sunucusuna erişimi olan kullanıcı |Evet |
-| privateKeyPath | Belirtin özel anahtar dosyasının mutlak yolu, ağ geçidi erişebilir. | Belirtin `privateKeyPath` veya `privateKeyContent`. <br><br> Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
-| privateKeyContent | Özel anahtar içeriğinin seri hale getirilmiş bir dize. Kopyalama Sihirbazı'nı, özel anahtar dosyası okumak ve özel anahtar içeriği otomatik olarak ayıklayın. Tüm diğer aracı/SDK kullanıyorsanız, bunun yerine privateKeyPath özelliğini kullanın. | Belirtin `privateKeyPath` veya `privateKeyContent`. |
-| Parola | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. | Evet, özel anahtar dosyası bir parola deyimi tarafından korunuyorsa. |
+| kullanıcı adı |Erişim toohello SFTP sunucusu olan kullanıcı |Evet |
+| privateKeyPath | Mutlak yol toohello belirtin özel anahtar dosyası bu ağ geçidi erişebilir. | Her iki hello belirtin `privateKeyPath` veya `privateKeyContent`. <br><br> Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
+| privateKeyContent | Merhaba özel anahtar içeriğinin seri hale getirilmiş bir dize. Merhaba Kopyalama Sihirbazı'nı hello özel anahtar dosyası okuma ve hello özel anahtar içeriği otomatik olarak ayıklar. Tüm diğer aracı/SDK kullanıyorsanız, bunun yerine hello privateKeyPath özelliğini kullanın. | Her iki hello belirtin `privateKeyPath` veya `privateKeyContent`. |
+| Parola | Merhaba anahtar dosyası bir parola deyimi tarafından korunuyorsa hello geçişi tümcecik/parola toodecrypt hello özel anahtarı belirtin. | Merhaba özel anahtar dosyası bir parola deyimi tarafından korunuyorsa, Evet. |
 
 ```json
 {
@@ -3956,7 +3956,7 @@ Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` ol
             "port": 22,
             "authenticationType": "SshPublicKey",
             "username": "xxx",
-            "privateKeyContent": "<base64 string of the private key content>",
+            "privateKeyContent": "<base64 string of hello private key content>",
             "passPhrase": "xxx",
             "skipHostKeyValidation": true
         }
@@ -3967,16 +3967,16 @@ Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` ol
 Daha fazla bilgi için bkz: [SFTP bağlayıcı](data-factory-sftp-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-SFTP veri kümesini tanımlamak için **türü** için veri kümesinin **FileShare**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine SFTP dataset kümesi hello **türü** hello kümesinin çok**FileShare**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Klasörün alt yolu. Kaçış karakteri kullanmak ' \ ' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
-| fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1:`"fileFilter": "*.log"`<br/>Örnek 2:`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter bir giriş FileShare veri kümesi için geçerlidir. Bu özellik ile HDFS desteklenmiyor. |Hayır |
-| partitionedBy |partitionedBy filename zaman serisi veri için dinamik bir folderPath belirtmek için kullanılabilir. Örneğin, her veri saat için parametreli folderPath. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| folderPath |Alt yolu toohello klasörü. Kaçış karakteri kullanmak ' \ ' hello dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** toohave klasör yolları dilimine göre başlangıç/bitiş tarih saatleri. |Evet |
+| fileName |Hello Hello hello dosyasının adını belirtin **folderPath** hello tablo toorefer tooa belirli dosya hello klasöründeki istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, hello tablo hello klasöründeki tooall dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan hello dosyasının hello adı Bu biçim aşağıdaki hello olacaktır: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| fileFilter |Tüm dosyalar yerine hello folderPath dosyaları kümesini filtre toobe tooselect kullanılan belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1:`"fileFilter": "*.log"`<br/>Örnek 2:`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter bir giriş FileShare veri kümesi için geçerlidir. Bu özellik ile HDFS desteklenmiyor. |Hayır |
+| partitionedBy |partitionedBy kullanılan toospecify dinamik folderPath zaman serisi veri için dosya adı olabilir. Örneğin, her veri saat için parametreli folderPath. |Hayır |
+| Biçimi | şu biçimi türlerini hello desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Set hello **türü** biçimi tooone şu değerlerden biri altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Çok istiyorsanız**olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında hello Biçim bölümü atlayın. |Hayır |
+| Sıkıştırma | Merhaba türünü ve hello veri sıkıştırma düzeyini belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 | useBinaryTransfer |Belirtin olup ikili aktarım modunu kullanın. İkili mod ve false ASCII için true. Varsayılan değer: True. İlişkili bağlantılı hizmet türü türü olduğunda bu özellik yalnızca kullanılabilir: Ftp_sunucusu. |Hayır |
 
 > [!NOTE]
@@ -3991,7 +3991,7 @@ SFTP veri kümesini tanımlamak için **türü** için veri kümesinin **FileSha
         "type": "FileShare",
         "linkedServiceName": "SftpLinkedService",
         "typeProperties": {
-            "folderPath": "<path to shared folder>",
+            "folderPath": "<path tooshared folder>",
             "fileName": "test.csv"
         },
         "external": true,
@@ -4006,11 +4006,11 @@ SFTP veri kümesini tanımlamak için **türü** için veri kümesinin **FileSha
 Daha fazla bilgi için bkz: [SFTP bağlayıcı](data-factory-sftp-connector.md#dataset-properties) makalesi. 
 
 ### <a name="file-system-source-in-copy-activity"></a>Dosya sistem kaynağını kopyalama etkinliği
-SFTP kaynaktan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **FileSystemSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+SFTP kaynaktan veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**FileSystemSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| Özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
+| Özyinelemeli |Merhaba alt klasörler veya yalnızca hello belirtilen klasör Hello veri yinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
 
 
 
@@ -4060,23 +4060,23 @@ Daha fazla bilgi için bkz: [SFTP bağlayıcı](data-factory-sftp-connector.md#c
 ## <a name="http"></a>HTTP
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmeti bir HTTP tanımlama, Ayarla **türü** bağlantılı hizmetinin **Http**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+bir HTTP toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**Http**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| URL | Web sunucusu için temel URL | Evet |
-| authenticationType | Kimlik doğrulama türünü belirtir. İzin verilen değerler: **anonim**, **temel**, **Özet**, **Windows**, **ClientCertificate**. <br><br> Daha fazla özellikleri ve bu kimlik doğrulama türleri için JSON örnekleri bu tabloda aşağıdaki bölümlerde sırasıyla bakın. | Evet |
-| enableServerCertificateValidation | Sunucu SSL sertifika doğrulamasını kaynak HTTPS Web sunucusu ise etkinleştirilip etkinleştirilmeyeceğini belirtin | Hayır, varsayılan değer true şeklindedir |
-| gatewayName | Bir şirket içi HTTP kaynağına bağlanmak için veri yönetimi ağ geçidi adı. | Bir şirket içi HTTP kaynaktan veri kopyalama, Evet. |
-| encryptedCredential | HTTP uç noktasına erişmek için şifrelenmiş kimlik bilgileri'ı seçin. Otomatik olarak oluşturulan Kopyalama Sihirbazı'nı veya ClickOnce açılan iletişim kimlik doğrulama bilgilerini yapılandırın. | Hayır. Yalnızca bir şirket içi HTTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
+| URL | Temel URL toohello Web sunucusu | Evet |
+| authenticationType | Merhaba kimlik doğrulama türünü belirtir. İzin verilen değerler: **anonim**, **temel**, **Özet**, **Windows**, **ClientCertificate**. <br><br> Daha fazla özellikleri ve JSON örnekleri bu tablonun altındaki toosections bu kimlik doğrulama türleri için sırasıyla bakın. | Evet |
+| enableServerCertificateValidation | Kaynak HTTPS Web sunucusu ise tooenable sunucu SSL sertifikası doğrulaması olup olmadığını belirtin | Hayır, varsayılan değer true şeklindedir |
+| gatewayName | Merhaba veri yönetimi ağ geçidi tooconnect tooan adını HTTP kaynağı şirket içi. | Bir şirket içi HTTP kaynaktan veri kopyalama, Evet. |
+| encryptedCredential | Şifrelenmiş kimlik bilgileri tooaccess hello HTTP uç noktası. Otomatik olarak oluşturulan Kopyalama Sihirbazı'nı veya hello ClickOnce açılan iletişim kutusunda hello kimlik doğrulama bilgilerini yapılandırın. | Hayır. Yalnızca bir şirket içi HTTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
 
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>Örnek: Temel, Özet veya Windows kimlik doğrulaması kullanma
-Ayarlama `authenticationType` olarak `Basic`, `Digest`, veya `Windows`ve HTTP Bağlayıcısı yukarıda sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
+Ayarlama `authenticationType` olarak `Basic`, `Digest`, veya `Windows`ve bunun yanında, HTTP Bağlayıcısı genel olanları sunulan yukarıda hello aşağıdaki özelliklere hello belirtin:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| kullanıcı adı | HTTP uç noktasına erişmek için kullanıcı adı. | Evet |
-| password | (Kullanıcı adı) kullanıcının parolası. | Evet |
+| kullanıcı adı | Kullanıcı adı tooaccess hello HTTP uç noktası. | Evet |
+| password | Merhaba kullanıcının (kullanıcı adı) parolası. | Evet |
 
 ```json
 {
@@ -4095,22 +4095,22 @@ Ayarlama `authenticationType` olarak `Basic`, `Digest`, veya `Windows`ve HTTP Ba
 
 #### <a name="example-using-clientcertificate-authentication"></a>Örnek: ClientCertificate kimlik doğrulaması kullanma
 
-Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` olarak `ClientCertificate`ve HTTP Bağlayıcısı yukarıda sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
+toouse temel kimlik doğrulamasını ayarlamak `authenticationType` olarak `ClientCertificate`ve bunun yanında, HTTP Bağlayıcısı genel olanları sunulan yukarıda hello aşağıdaki özelliklere hello belirtin:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| embeddedCertData | İkili veriler kişisel bilgi değişimi (PFX) dosyası Base64 ile kodlanmış içeriği. | Belirtin `embeddedCertData` veya `certThumbprint`. |
-| Certthumbprınt | Ağ geçidi makinenizin sertifika deposunda yüklü sertifika parmak izi. Yalnızca bir şirket içi HTTP kaynaktan veri kopyalama işlemi sırasında uygulanır. | Belirtin `embeddedCertData` veya `certThumbprint`. |
-| password | Sertifikayla ilişkili parola. | Hayır |
+| embeddedCertData | Merhaba Base64 ile kodlanmış içeriğini ikili veri hello kişisel bilgi değişimi (PFX) dosyası. | Her iki hello belirtin `embeddedCertData` veya `certThumbprint`. |
+| Certthumbprınt | ağ geçidi makinenizin sertifika deposunda yüklü hello sertifikanın parmak izini hello. Yalnızca bir şirket içi HTTP kaynaktan veri kopyalama işlemi sırasında uygulanır. | Her iki hello belirtin `embeddedCertData` veya `certThumbprint`. |
+| password | Merhaba sertifikayla ilişkili parola. | Hayır |
 
-Kullanırsanız `certThumbprint` kimlik doğrulaması ve sertifika yüklü için yerel bilgisayarın kişisel deposunda, ağ geçidi hizmeti okuma izni vermesi gerekir:
+Kullanırsanız `certThumbprint` kimlik doğrulaması ve hello sertifika hello kişisel hello yerel bilgisayar deposunda yüklü için toogrant hello okuma izni toohello ağ geçidi hizmeti gerekir:
 
-1. Microsoft Yönetim Konsolu (MMC) başlatın. Ekleme **sertifikaları** hedefleyen eklentisi **yerel bilgisayar**.
+1. Microsoft Yönetim Konsolu (MMC) başlatın. Merhaba eklemek **sertifikaları** bu hedefleri hello eklentisi **yerel bilgisayar**.
 2. Genişletme **sertifikaları**, **kişisel**, tıklatıp **Sertifikalar**.
-3. Kişisel deposundaki sertifikayı sağ tıklatın ve seçin **tüm görevler**->**özel anahtarları Yönet...**
-3. Üzerinde **güvenlik** sekmesinde, altında veri yönetimi ağ geçidi ana bilgisayar hizmeti çalıştığı okuma erişimi sertifikayı kullanıcı hesabını ekleyin.  
+3. Merhaba kişisel deposundan Hello sertifikayı sağ tıklatın ve seçin **tüm görevler**->**özel anahtarları Yönet...**
+3. Merhaba üzerinde **güvenlik** sekmesinde, altında veri yönetimi ağ geçidi ana bilgisayar hizmeti çalıştığı hello okuma erişimi toohello sertifikasıyla hello kullanıcı hesabını ekleyin.  
 
-**Örnek: istemci sertifikası kullanarak:** bu hizmeti, veri fabrikası bir şirket içi HTTP web sunucusuna bağlı. Veri Yönetimi ağ ile geçidi yüklü olduğu makinede yüklü bir istemci sertifikası kullanır.
+**Örnek: istemci sertifikası kullanarak:** bu hizmeti, veri fabrikası tooan şirket içi HTTP web sunucunuzun bağlı. Veri Yönetimi yüklü ağ geçidi ile Merhaba makinede yüklü bir istemci sertifikası kullanır.
 
 ```json
 {
@@ -4128,7 +4128,7 @@ Kullanırsanız `certThumbprint` kimlik doğrulaması ve sertifika yüklü için
 ```
 
 #### <a name="example-using-client-certificate-in-a-file"></a>Örnek: istemci sertifikası bir dosyada kullanma
-Bu hizmet bağlantılar, veri fabrikası bir şirket içi HTTP web sunucusuna bağlı. Veri Yönetimi ağ ile geçidi yüklü olduğu makinedeki bir istemci sertifikası dosyası kullanır.
+Bu hizmet bağlantılar, veri fabrikası tooan şirket içi HTTP web sunucunuzun bağlı. Veri Yönetimi yüklü ağ geçidi ile bir istemci sertifika dosyası hello makinede kullanır.
 
 ```json
 {
@@ -4148,18 +4148,18 @@ Bu hizmet bağlantılar, veri fabrikası bir şirket içi HTTP web sunucusuna ba
 Daha fazla bilgi için bkz: [HTTP Bağlayıcısı](data-factory-http-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir HTTP veri kümesini tanımlamak için **türü** için veri kümesinin **Http**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+bir HTTP toodefine veri kümesi, kümesi hello **türü** hello kümesinin çok**Http**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| relativeUrl | Verileri içeren kaynak için göreli bir URL. Bağlantılı hizmet tanımında belirtilen URL yolu belirtilmediğinde kullanılır. <br><br> Dinamik URL oluşturmak için kullanabileceğiniz [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md), örneğin: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Hayır |
+| relativeUrl | Merhaba verileri içeren bir göreli URL toohello kaynağıdır. Yol belirtilmediğinde hello bağlantılı hizmet tanımında belirtilen yalnızca hello URL'si kullanılır. <br><br> kullanabileceğiniz tooconstruct dinamik URL [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md), örneğin: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Hayır |
 | requestMethod | HTTP yöntemi. İzin verilen değerler **almak** veya **POST**. | Hayır. Varsayılan değer `GET`. |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
 | RequestBody | HTTP istek gövdesi. | Hayır |
-| Biçimi | Yalnızca istiyorsanız, **HTTP uç noktası olarak veri almak-olduğu** ayrıştırma olmadan, bu biçim ayarlarını atla. <br><br> HTTP yanıt içeriği kopyalama sırasında ayrıştırma istiyorsanız, aşağıdaki biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| Biçimi | Toosimply istiyorsanız **HTTP uç noktası olarak hello veri almak-olduğu** ayrıştırma olmadan, bu biçim ayarlarını atla. <br><br> Kopyalama sırasında tooparse hello HTTP yanıt içerik isterseniz şu biçimi türlerini hello desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. |Hayır |
+| Sıkıştırma | Merhaba türünü ve hello veri sıkıştırma düzeyini belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
-#### <a name="example-using-the-get-default-method"></a>Örnek: (varsayılan) GET yöntemini kullanma
+#### <a name="example-using-hello-get-default-method"></a>Örnek: hello (varsayılan) GET yöntemini kullanma
 
 ```json
 {
@@ -4180,7 +4180,7 @@ Bir HTTP veri kümesini tanımlamak için **türü** için veri kümesinin **Htt
 }
 ```
 
-#### <a name="example-using-the-post-method"></a>Örnek: POST yöntemini kullanma
+#### <a name="example-using-hello-post-method"></a>Örnek: Merhaba POST yöntemini kullanma
 
 ```json
 {
@@ -4204,11 +4204,11 @@ Bir HTTP veri kümesini tanımlamak için **türü** için veri kümesinin **Htt
 Daha fazla bilgi için bkz: [HTTP Bağlayıcısı](data-factory-http-connector.md#dataset-properties) makalesi.
 
 ### <a name="http-source-in-copy-activity"></a>Kopyalama etkinliğinde HTTP kaynağı
-Bir HTTP kaynaktan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **HttpSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir HTTP kaynaktan veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**HttpSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | Zaman aşımı (TimeSpan) için bir yanıt almak HTTP isteği. Bu zaman aşımı yanıt verileri okumak için zaman aşımına bir yanıt elde etmektir. | Hayır. Varsayılan değer: 00:01:40 |
+| httpRequestTimeout | Merhaba HTTP isteği tooget yanıt için zaman aşımı (TimeSpan) hello. Merhaba zaman aşımı tooget bir yanıt hello zaman aşımı tooread yanıt verileri değil olur. | Hayır. Varsayılan değer: 00:01:40 |
 
 
 #### <a name="example"></a>Örnek
@@ -4222,7 +4222,7 @@ Bir HTTP kaynaktan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyala
         "description": "pipeline with copy activity",
         "activities": [{
             "name": "HttpSourceToAzureBlob",
-            "description": "Copy from an HTTP source to an Azure blob",
+            "description": "Copy from an HTTP source tooan Azure blob",
             "type": "Copy",
             "inputs": [{
                 "name": "HttpSourceDataInput"
@@ -4258,16 +4258,16 @@ Daha fazla bilgi için bkz: [HTTP Bağlayıcısı](data-factory-http-connector.m
 ## <a name="odata"></a>OData
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir OData tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OData**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+bir OData toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**OData**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| URL |OData hizmeti URL'si. |Evet |
-| authenticationType |OData kaynağına bağlanmak için kullanılan kimlik doğrulama türü. <br/><br/> OData bulut için olası değerler şunlardır anonim, temel ve OAuth (Not OAuth Azure Active Directory tabanlı şu anda yalnızca Azure Data Factory destek). <br/><br/> Anonim, temel ve Windows, şirket içi OData için olası değerler şunlardır. |Evet |
+| URL |Merhaba OData hizmeti URL'si. |Evet |
+| authenticationType |Kimlik doğrulama türü tooconnect toohello OData kaynağı kullanılır. <br/><br/> OData bulut için olası değerler şunlardır anonim, temel ve OAuth (Not OAuth Azure Active Directory tabanlı şu anda yalnızca Azure Data Factory destek). <br/><br/> Anonim, temel ve Windows, şirket içi OData için olası değerler şunlardır. |Evet |
 | kullanıcı adı |Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
-| password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
-| authorizedCredential |OAuth kullanıyorsanız **Authorize** veri fabrikası Kopyalama Sihirbazı'nı veya düzenleyicide düğmesine tıklayın ve sonra da bu özelliğin değeri otomatik olarak oluşturulan kimlik bilgilerinizi girin. |Evet (yalnızca OAuth kimlik doğrulaması kullanıyorsanız) |
-| gatewayName |Data Factory hizmetinin şirket içi OData hizmetine bağlanmak için kullanması gereken ağ geçidinin adı. Yalnızca şirket içi OData kaynak sunucudan kopyaladığınız verileri belirtin. |Hayır |
+| password |Merhaba username için belirtilen hello kullanıcı hesabı için parola belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
+| authorizedCredential |OAuth kullanıyorsanız **Authorize** hello Data Factory Kopyalama Sihirbazı veya Düzenleyicisi'nde düğmesine tıklayın ve sonra bu özellik başlangıç değeri otomatik olarak oluşturulan kimlik bilgilerinizi girin. |Evet (yalnızca OAuth kimlik doğrulaması kullanıyorsanız) |
+| gatewayName |Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello şirket içi OData hizmeti kullanmanız gerekir. Yalnızca şirket içi OData kaynak sunucudan kopyaladığınız verileri belirtin. |Hayır |
 
 #### <a name="example---using-basic-authentication"></a>Temel kimlik doğrulaması kullanan örnek-
 ```json
@@ -4329,7 +4329,7 @@ Bağlantılı hizmetinin bir OData tanımlamak için Ayarla **türü** bağlant�
         {
             "url": "<endpoint of cloud OData source, for example, https://<tenant>.crm.dynamics.com/XRMServices/2011/OrganizationData.svc>",
             "authenticationType": "OAuth",
-            "authorizedCredential": "<auto generated by clicking the Authorize button on UI>"
+            "authorizedCredential": "<auto generated by clicking hello Authorize button on UI>"
         }
     }
 }
@@ -4338,11 +4338,11 @@ Bağlantılı hizmetinin bir OData tanımlamak için Ayarla **türü** bağlant�
 Daha fazla bilgi için bkz: [OData bağlayıcı](data-factory-odata-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir OData veri kümesini tanımlamak için **türü** için veri kümesinin **ODataResource**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir OData veri kümesini kümesi hello **türü** hello kümesinin çok**ODataResource**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| Yol |OData kaynak yolu |Hayır |
+| Yol |Yol toohello OData kaynak |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -4373,11 +4373,11 @@ Bir OData veri kümesini tanımlamak için **türü** için veri kümesinin **OD
 Daha fazla bilgi için bkz: [OData bağlayıcı](data-factory-odata-connector.md#dataset-properties) makalesi.
 
 ### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Bir OData kaynaktan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir OData kaynaktan veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**RelationalSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** Bölüm:
 
 | Özellik | Açıklama | Örnek | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |"? $select adı, açıklama ve $top = 5 =" |Hayır |
+| sorgu |Merhaba özel sorgu tooread verileri kullanın. |"? $select adı, açıklama ve $top = 5 =" |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -4428,16 +4428,16 @@ Daha fazla bilgi için bkz: [OData bağlayıcı](data-factory-odata-connector.md
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir ODBC tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OnPremisesOdbc**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+toodefine bir ODBC bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**OnPremisesOdbc**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| connectionString |Bağlantı dizesi ve isteğe bağlı şifrelenmiş kimlik bilgileri olmayan erişim kimlik bilgileri bölümü. Aşağıdaki bölümlerde örneklere bakın. |Evet |
-| kimlik bilgisi |Sürücü özgü özellik değer biçiminde belirtilen bağlantı dizesi erişim kimlik bilgisi bölümü. Örnek: "Uid =<user ID>; PWD =<password>; RefreshToken =<secret refresh token>; ". |Hayır |
-| authenticationType |ODBC veri deposuna bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: anonim ve temel. |Evet |
+| connectionString |Merhaba olmayan erişim kimlik bilgisi kısmı hello bağlantı dizesini ve isteğe bağlı bir kimlik bilgisi şifrelenir. Aşağıdaki bölümlerde hello örneklere bakın. |Evet |
+| kimlik bilgisi |Merhaba erişim kimlik bilgisi bölümü sürücüye özgü özellik değer biçiminde belirtilen hello bağlantı dizesi. Örnek: "Uid =<user ID>; PWD =<password>; RefreshToken =<secret refresh token>; ". |Hayır |
+| authenticationType |Kimlik doğrulama türü tooconnect toohello ODBC veri deposu kullanılır. Olası değerler şunlardır: anonim ve temel. |Evet |
 | kullanıcı adı |Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
-| password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
-| gatewayName |Data Factory hizmetinin ODBC veri deposuna bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| password |Merhaba username için belirtilen hello kullanıcı hesabı için parola belirtin. |Hayır |
+| gatewayName |Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello ODBC veri deposu kullanmanız gerekir. |Evet |
 
 #### <a name="example---using-basic-authentication"></a>Temel kimlik doğrulaması kullanan örnek-
 
@@ -4457,7 +4457,7 @@ Bağlantılı hizmetinin bir ODBC tanımlamak için Ayarla **türü** bağlantı
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Temel kimlik doğrulaması ile şifrelenmiş kimlik bilgileri kullanılarak örnek-
-Kullanarak kimlik bilgilerini şifrelemek [yeni AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (Azure PowerShell 1.0 sürümü) cmdlet'ini veya [yeni AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (Azure PowerShell 0,9 veya önceki sürüm).  
+Merhaba kimlik hello kullanarak şifreleyebilirsiniz [yeni AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (Azure PowerShell 1.0 sürümü) cmdlet'ini veya [yeni AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 veya önceki bir sürümü hello Azure PowerShell).  
 
 ```json
 {
@@ -4493,11 +4493,11 @@ Kullanarak kimlik bilgilerini şifrelemek [yeni AzureRMDataFactoryEncryptValue](
 Daha fazla bilgi için bkz: [ODBC bağlayıcı](data-factory-odbc-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir ODBC veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir ODBC veri kümesini kümesi hello **türü** hello kümesinin çok**RelationalTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |ODBC veri deposundaki tablonun adı. |Evet |
+| tableName |Merhaba ODBC veri deposundaki Merhaba tablonun adı. |Evet |
 
 
 #### <a name="example"></a>Örnek
@@ -4528,11 +4528,11 @@ Bir ODBC veri kümesini tanımlamak için **türü** için veri kümesinin **Rel
 Daha fazla bilgi için bkz: [ODBC bağlayıcı](data-factory-odbc-connector.md#dataset-properties) makalesi. 
 
 ### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Bir ODBC veri deposundan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Bir ODBC veri deposundan veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**RelationalSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Evet |
+| sorgu |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -4582,14 +4582,14 @@ Daha fazla bilgi için bkz: [ODBC bağlayıcı](data-factory-odbc-connector.md#c
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir Salesforce tanımlamak için Ayarla **türü** bağlantılı hizmetinin **Salesforce**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+bir Salesforce toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**Salesforce**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| environmentUrl | URL, Salesforce örneği belirtin. <br><br> -Varsayılan değer "https://login.salesforce.com" dir. <br> Korumalı alan veri kopyalamak için "https://test.salesforce.com" belirtin. <br> Özel etki alanından veri kopyalamak için örneğin, "https://[domain].my.salesforce.com" belirtin. |Hayır |
-| kullanıcı adı |Kullanıcı hesabı için bir kullanıcı adı belirtin. |Evet |
-| password |Kullanıcı hesabı için bir parola belirtin. |Evet |
-| securityToken |Kullanıcı hesabı için bir güvenlik belirteci belirtin. Bkz: [güvenlik belirteci alma getirin](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) bir güvenlik belirteci sıfırlama/get ilgili yönergeler için. Güvenlik belirteçleri hakkında genel bilgi edinmek için [güvenlik ve API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Evet |
+| environmentUrl | Merhaba, URL Salesforce örneği belirtin. <br><br> -Varsayılan değer "https://login.salesforce.com" dir. <br> -Korumalı alan, toocopy verileri "https://test.salesforce.com" belirtin. <br> -toocopy verileri özel bir etki alanından belirtin, örneğin, "https://[domain].my.salesforce.com". |Hayır |
+| kullanıcı adı |Merhaba kullanıcı hesabı için bir kullanıcı adı belirtin. |Evet |
+| password |Merhaba kullanıcı hesabı için bir parola belirtin. |Evet |
+| securityToken |Merhaba kullanıcı hesabı için bir güvenlik belirteci belirtin. Bkz: [güvenlik belirteci alma getirin](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) yönelik yönergeler tooreset/get bir güvenlik belirteci. Genel olarak, toolearn güvenlik belirteçleri hakkında bkz [güvenlik ve hello API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -4610,11 +4610,11 @@ Bağlantılı hizmetinin bir Salesforce tanımlamak için Ayarla **türü** bağ
 Daha fazla bilgi için bkz: [Salesforce bağlayıcı](data-factory-salesforce-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Salesforce veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Salesforce veri kümesi hello **türü** hello kümesinin çok**RelationalTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Salesforce tablo adı. |Hayır (varsa bir **sorgu** , **RelationalSource** belirtilir) |
+| tableName |Salesforce Merhaba tablonun adı. |Hayır (varsa bir **sorgu** , **RelationalSource** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -4646,11 +4646,11 @@ Salesforce veri kümesini tanımlamak için **türü** için veri kümesinin **R
 Daha fazla bilgi için bkz: [Salesforce bağlayıcı](data-factory-salesforce-connector.md#dataset-properties) makalesi. 
 
 ### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Salesforce veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+Salesforce veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**RelationalSource**ve hello özelliklerinde aşağıdaki belirtin **kaynak** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |Bir SQL-92 sorgu veya [Salesforce nesnesi sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgu. Örneğin:  `select * from MyTable__c`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| sorgu |Merhaba özel sorgu tooread verileri kullanın. |Bir SQL-92 sorgu veya [Salesforce nesnesi sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgu. Örneğin:  `select * from MyTable__c`. |Hayır (Merhaba, **tableName** Merhaba, **dataset** belirtilir) |
 
 #### <a name="example"></a>Örnek  
 
@@ -4665,7 +4665,7 @@ Salesforce veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkin
         "description": "pipeline with copy activity",
         "activities": [{
             "name": "SalesforceToAzureBlob",
-            "description": "Copy from Salesforce to an Azure blob",
+            "description": "Copy from Salesforce tooan Azure blob",
             "type": "Copy",
             "inputs": [{
                 "name": "SalesforceInput"
@@ -4698,18 +4698,18 @@ Salesforce veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkin
 ```
 
 > [!IMPORTANT]
-> API adı "__c" bölümü için herhangi bir özel nesne gereklidir.
+> Merhaba "__c" Merhaba API adı parçası herhangi bir özel nesnesi için gereklidir.
 
 Daha fazla bilgi için bkz: [Salesforce bağlayıcı](data-factory-salesforce-connector.md#copy-activity-properties) makalesi. 
 
 ## <a name="web-data"></a>Web verileri 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin Web tanımlamak için Ayarla **türü** bağlantılı hizmetinin **Web**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+toodefine Web bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**Web**ve hello özelliklerinde aşağıdaki belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| Url |Web kaynağı URL'si |Evet |
+| Url |URL toohello Web kaynağı |Evet |
 | authenticationType |Anonim. |Evet |
  
 
@@ -4732,13 +4732,13 @@ Bağlantılı hizmetinin Web tanımlamak için Ayarla **türü** bağlantılı h
 Daha fazla bilgi için bkz: [Web tablo bağlayıcı](data-factory-web-table-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Web veri kümesini tanımlamak için **türü** için veri kümesinin **WebTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+toodefine bir Web veri kümesi hello **türü** hello kümesinin çok**WebTable**ve hello özelliklerinde aşağıdaki hello belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type |Veri kümesi türü. ayarlanmalıdır **WebTable** |Evet |
-| Yol |Tabloyu içeren kaynak için göreli bir URL. |Hayır. Bağlantılı hizmet tanımında belirtilen URL yolu belirtilmediğinde kullanılır. |
-| Dizin |Tablo kaynak dizini. Bkz: [bir HTML sayfasında tablosunun Get dizini](#get-index-of-a-table-in-an-html-page) bir HTML sayfasında bir tablo dizininin alma adımları için bölüm. |Evet |
+| type |Merhaba veri kümesi türü. çok ayarlanmalıdır**WebTable** |Evet |
+| Yol |Merhaba tablo içeren bir göreli URL toohello kaynağıdır. |Hayır. Yol belirtilmediğinde hello bağlantılı hizmet tanımında belirtilen yalnızca hello URL'si kullanılır. |
+| Dizin |hello kaynak hello tabloda başlangıç dizini. Bkz: [bir HTML sayfasında tablosunun Get dizini](#get-index-of-a-table-in-an-html-page) HTML sayfası bir tablodaki adımları toogetting dizini için bölüm. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -4764,7 +4764,7 @@ Bir Web veri kümesini tanımlamak için **türü** için veri kümesinin **WebT
 Daha fazla bilgi için bkz: [Web tablo bağlayıcı](data-factory-web-table-connector.md#dataset-properties) makalesi. 
 
 ### <a name="web-source-in-copy-activity"></a>Kopyalama etkinliğinde Web kaynağı
-Bir web tablodan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **WebSource**. Şu anda kopyalama etkinliği kaynağında olduğunda türü **WebSource**, hiçbir ek özellikler desteklenir.
+Bir web tablodan veri kopyalıyorsanız hello ayarlamak **kaynak türünü** Merhaba kopya etkinliği çok**WebSource**. Şu anda kopyalama etkinliği hello kaynağında olduğunda türü **WebSource**, hiçbir ek özellikler desteklenir.
 
 #### <a name="example"></a>Örnek
 
@@ -4777,7 +4777,7 @@ Bir web tablodan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama
         "description": "pipeline with copy activity",
         "activities": [{
             "name": "WebTableToAzureBlob",
-            "description": "Copy from a Web table to an Azure blob",
+            "description": "Copy from a Web table tooan Azure blob",
             "type": "Copy",
             "inputs": [{
                 "name": "WebTableInput"
@@ -4811,7 +4811,7 @@ Bir web tablodan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama
 Daha fazla bilgi için bkz: [Web tablo bağlayıcı](data-factory-web-table-connector.md#copy-activity-properties) makalesi. 
 
 ## <a name="compute-environments"></a>ORTAMLAR İŞLEM
-Aşağıdaki tablo, veri fabrikası ve bunlar üzerinde çalışan dönüştürme etkinlikleri tarafından desteklenen bilgi işlem ortamları listeler. Bir data factory'ye bağlamak bağlı hizmet JSON şemaları görmek ilgilendiğiniz işlem bağlantısına tıklayın. 
+Merhaba aşağıdaki tabloda, bunlar üzerinde çalışan Data Factory ve hello dönüştürme etkinlikleri tarafından desteklenen hello işlem ortamları listeler. Merhaba işlem olduğunuz Hello bağlantısına tıklayın toosee hello JSON şemalarında bağlantılı hizmet toolink için tooa veri fabrikası ilgileniyor. 
 
 | İşlem ortamı | Etkinlikler |
 | --- | --- |
@@ -4822,24 +4822,24 @@ Aşağıdaki tablo, veri fabrikası ve bunlar üzerinde çalışan dönüştürm
 | [Azure SQL veritabanı](#azure-sql-database-1), [Azure SQL veri ambarı](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[Saklı Yordam](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>İsteğe bağlı Azure Hdınsight kümesi
-Azure Data Factory hizmetinin otomatik olarak bir Windows/Linux tabanlı isteğe bağlı Hdınsight kümesi verileri işlemek için oluşturabilirsiniz. Küme kümeyle ilişkili depolama hesabı (JSON özelliğinde linkedServiceName) ile aynı bölgede oluşturulur. Bu bağlı hizmete aşağıdaki dönüştürme etkinlikleri çalıştırabilirsiniz: [.NET özel etkinlik](#net-custom-activity), [Hive etkinliğini](#hdinsight-hive-activity), [Pig etkinlik] (#hdinsight-pig-etkinliği [MapReduce etkinliği](#hdinsight-mapreduce-activity), [Hadoop etkinlik akış](#hdinsight-streaming-activityd), [Spark etkinlik](#hdinsight-spark-activity). 
+Hello Azure Data Factory hizmetine otomatik olarak bir Windows/Linux tabanlı isteğe bağlı Hdınsight küme tooprocess veriler oluşturabilir. Merhaba küme hello depolama hesabı (Merhaba JSON özelliğinde linkedServiceName) ile aynı bölgeye hello kümesi ile ilişkili hello oluşturulur. Bu bağlı hizmete dönüştürme etkinlikleri izleyerek hello çalıştırabilirsiniz: [.NET özel etkinlik](#net-custom-activity), [Hive etkinliğini](#hdinsight-hive-activity), [Pig etkinlik] (#hdinsight-pig-etkinliği [MapReduce etkinliği ](#hdinsight-mapreduce-activity), [Hadoop etkinlik akış](#hdinsight-streaming-activityd), [Spark etkinlik](#hdinsight-spark-activity). 
 
 ### <a name="linked-service"></a>Bağlı hizmet 
-Aşağıdaki tabloda bir isteğe bağlı Hdınsight bağlı hizmeti Azure JSON tanımında kullanılan özellikleri için açıklamalar sağlanır.
+Aşağıdaki tablonun hello hello Azure JSON tanımında bir isteğe bağlı Hdınsight bağlı hizmeti kullanılan hello özellikleri için açıklamalar sağlanır.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalı **HDInsightOnDemand**. |Evet |
-| ClusterSize |Kümedeki çalışan/veri düğüm sayısı. Hdınsight kümesi için bu özelliği belirtmeniz çalışan düğüm sayısı ile birlikte 2 baş düğümler ile oluşturulur. Düğüm boyutu 4 çalışan düğümlü bir küme 24 çekirdek alır, böylece 4 çekirdeğe sahip Standard_D3 olduğundan (4\*4 = 16 çekirdek çalışan düğümleri artı 2\*4 = 8 çekirdek baş düğümler için). Bkz: [Hdınsight oluşturma Linux tabanlı Hadoop kümeleri](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) Standard_D3 katmanı hakkında ayrıntılı bilgi için. |Evet |
-| TimeToLive |İsteğe bağlı Hdınsight kümesi için izin verilen boşta kalma süresi. Ne kadar süreyle isteğe bağlı Hdınsight kümesi kümedeki diğer etkin iş yok varsa bir etkinlik tamamlandıktan sonra canlı kalır belirtir.<br/><br/>Örneğin, bir etkinlik Çalıştır 6 dakika sürer ve timetolive 5 dakika olarak ayarlanmıştır, küme 6 etkinlik işleme dakika çalıştırdıktan sonra 5 dakika boyunca etkin kalır. Başka bir etkinlik 6 dakika penceresiyle yürütülürse, aynı küme tarafından işlenir.<br/><br/>İsteğe bağlı Hdınsight kümesi oluşturma bir pahalı işlemi (işlem zaman alabilir), bunu kullanımı isteğe bağlı Hdınsight kümesi yeniden kullanarak bir veri fabrikası performansını artırmak için bu ayarı olarak gerekli olur.<br/><br/>Timetolive değeri 0 olarak ayarlarsanız, etkinliği çalıştırmak hemen işlenen küme silinir. Diğer taraftan, yüksek bir değer ayarlarsanız, kümenin yüksek maliyetlerini gereksiz yere kaynaklanan boşta kalır. Bu nedenle, gereksinimlerinize göre uygun değere ayarlamak önemlidir.<br/><br/>Timetolive özellik değerini uygun şekilde ayarlanmışsa, birden çok ardışık düzen isteğe bağlı Hdınsight kümesi aynı kopyasını paylaştığında |Evet |
-| Sürüm |Hdınsight küme sürümü. Ayrıntılar için bkz [desteklenen Azure Data Factory'de Hdınsight sürümleri](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Hayır |
-| linkedServiceName |Depolamak ve veri işleme için isteğe bağlı küme tarafından kullanılacak azure depolama bağlı hizmeti. <p>Şu anda bir Azure Data Lake Store depolama alanı olarak kullanan bir isteğe bağlı Hdınsight kümesi oluşturulamıyor. Bir Azure Data Lake Store'da işleme Hdınsight sonuç verileri depolamak istiyorsanız, Azure Blob depolama alanından Azure Data Lake Store'a veri kopyalamak için kopyalama etkinliği kullanın.</p>  | Evet |
-| additionalLinkedServiceNames |Data Factory hizmetinin bunları sizin adınıza kaydedebilirsiniz böylece Hdınsight için ek depolama hesapları hizmeti bağlı belirtir. |Hayır |
+| type |Merhaba type özelliği çok ayarlanmalıdır**HDInsightOnDemand**. |Evet |
+| ClusterSize |Merhaba kümede çalışan/veri düğüm sayısı. Merhaba Hdınsight kümesi hello için bu özelliği belirtmeniz çalışan düğüm sayısı ile birlikte 2 baş düğümler ile oluşturulur. Merhaba düğümleri olan 24 çekirdek 4 çalışan düğümlü bir küme alır, böylece 4 çekirdeğe sahip Standard_D3 boyutunu (4\*4 = 16 çekirdek çalışan düğümleri artı 2\*4 = 8 çekirdek baş düğümler için). Bkz: [Hdınsight oluşturma Linux tabanlı Hadoop kümeleri](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) hello Standard_D3 katmanı hakkında ayrıntılı bilgi için. |Evet |
+| TimeToLive |Merhaba boşta kalma süresi hello isteğe bağlı Hdınsight kümesi için izin verilen. Ne kadar süreyle hello isteğe bağlı Hdınsight kümesi hello kümedeki diğer etkin iş yok varsa bir etkinlik tamamlandıktan sonra canlı kalır belirtir.<br/><br/>Bir etkinlik 6 dakika ve timetolive sürerse Örneğin, too5 dakika, 5 dakika sonra hello için Canlı hello küme kalır hello etkinlik işleme 6 dakika ayarlandı. Başka bir etkinlik hello 6 dakika penceresiyle yürütülürse, hello tarafından işlenir aynı küme.<br/><br/>İsteğe bağlı Hdınsight kümesi oluşturma (biraz sürebilir), pahalı bir işlem olduğundan bu ayar isteğe bağlı Hdınsight kümesi yeniden kullanarak bir veri fabrikası gerekli tooimprove performansını kullanın.<br/><br/>Timetolive değeri too0 ayarlarsanız, hello etkinliği çalıştırmak hemen işlenen hello küme silinir. Yüksek bir değer ayarlarsanız hello diğer yandan hello küme gereksiz yere yüksek maliyetlerini kaynaklanan boşta kalır. Bu nedenle, gereksinimlerinize göre hello uygun değere ayarlamak önemlidir.<br/><br/>Birden çok ardışık düzen paylaşabilirsiniz hello timetolive özellik değerini uygun şekilde ayarlanmışsa, hello hello isteğe bağlı Hdınsight kümesinin aynı örneği |Evet |
+| Sürüm |Merhaba Hdınsight küme sürümü. Ayrıntılar için bkz [desteklenen Azure Data Factory'de Hdınsight sürümleri](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Hayır |
+| linkedServiceName |Azure depolama bağlı hizmeti toobe depolamak ve veri işleme için Hello isteğe bağlı küme tarafından kullanılan. <p>Şu anda bir Azure Data Lake Store hello depolama alanı olarak kullanan bir isteğe bağlı Hdınsight kümesi oluşturulamıyor. Bir Azure Data Lake Store'da işleme Hdınsight toostore hello sonuç verileri istiyorsanız hello Azure Blob Storage toohello Azure Data Lake Store kopyalama etkinliği toocopy hello verilerden kullanın.</p>  | Evet |
+| additionalLinkedServiceNames |Böylece Hello Data Factory hizmetinin bunları sizin adınıza kaydedebilirsiniz hello Hdınsight için ek depolama hesapları hizmeti bağlı belirtir. |Hayır |
 | osType |İşletim sistemi türü. İzin verilen değerler: (varsayılan) Windows ve Linux |Hayır |
-| hcatalogLinkedServiceName |Azure SQL adını HCatalog veritabanına işaret hizmeti bağlı. İsteğe bağlı Hdınsight kümesi meta depo Azure SQL veritabanı kullanılarak oluşturulur. |Hayır |
+| hcatalogLinkedServiceName |Azure SQL bağlı Hello adını noktası toohello HCatalog veritabanı hizmeti. Merhaba isteğe bağlı Hdınsight kümesi hello meta depo hello Azure SQL veritabanı kullanılarak oluşturulur. |Hayır |
 
 ### <a name="json-example"></a>JSON örneği
-Aşağıdaki JSON Linux tabanlı isteğe bağlı Hdınsight bağlı hizmeti tanımlar. Data Factory hizmetinin otomatik olarak oluşturur bir **Linux tabanlı** veri dilimi işlerken Hdınsight kümesi. 
+JSON aşağıdaki hello Linux tabanlı isteğe bağlı Hdınsight bağlı hizmeti tanımlar. Merhaba Data Factory hizmetinin otomatik olarak oluşturur bir **Linux tabanlı** veri dilimi işlerken Hdınsight kümesi. 
 
 ```json
 {
@@ -4860,18 +4860,18 @@ Aşağıdaki JSON Linux tabanlı isteğe bağlı Hdınsight bağlı hizmeti tan�
 Daha fazla bilgi için bkz: [işlem bağlı Hizmetleri](data-factory-compute-linked-services.md) makalesi. 
 
 ## <a name="existing-azure-hdinsight-cluster"></a>Var olan Azure Hdınsight kümesi
-Kendi Hdınsight kümenizi Data Factory ile kaydetmek için bir Azure Hdınsight bağlı hizmeti oluşturabilirsiniz. Bu bağlı hizmete aşağıdaki veri dönüştürme etkinlikleri çalıştırabilirsiniz: [.NET özel etkinlik](#net-custom-activity), [Hive etkinliğini](#hdinsight-hive-activity), [Pig etkinlik] (#hdinsight-pig-etkinliği [MapReduce etkinliği](#hdinsight-mapreduce-activity), [Hadoop etkinlik akış](#hdinsight-streaming-activityd), [Spark etkinlik](#hdinsight-spark-activity). 
+Data Factory ile kendi Hdınsight kümenizi Azure Hdınsight bağlı hizmeti tooregister oluşturabilirsiniz. Bu bağlı hizmete veri dönüştürme etkinlikleri izleyerek hello çalıştırabilirsiniz: [.NET özel etkinlik](#net-custom-activity), [Hive etkinliğini](#hdinsight-hive-activity), [Pig etkinlik] (#hdinsight-pig-etkinliği [MapReduce Etkinlik](#hdinsight-mapreduce-activity), [Hadoop etkinlik akış](#hdinsight-streaming-activityd), [Spark etkinlik](#hdinsight-spark-activity). 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Aşağıdaki tabloda Azure Hdınsight bağlı hizmeti Azure JSON tanımında kullanılan özellikleri için açıklamalar sağlanır.
+Aşağıdaki tablonun hello hello Azure JSON tanımında Azure Hdınsight bağlı hizmeti kullanılan hello özellikleri için açıklamalar sağlanır.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalı **Hdınsight**. |Evet |
-| clusterUri |Hdınsight küme URI'si. |Evet |
-| kullanıcı adı |Var olan bir Hdınsight kümesine bağlanmak için kullanılacak kullanıcı adını belirtin. |Evet |
-| password |Kullanıcı hesabı için parola belirtin. |Evet |
-| linkedServiceName | Hdınsight küme tarafından kullanılan Azure blob depolama başvurduğu Azure Storage bağlı hizmetin adı. <p>Şu anda bu özellik için bir Azure Data Lake Store bağlı belirtemezsiniz. Hdınsight kümesi için Data Lake Store erişimi varsa Azure Data Lake Store'da verileri Hive/Pig komut dosyalarından erişebilir. </p>  |Evet |
+| type |Merhaba type özelliği çok ayarlanmalıdır**Hdınsight**. |Evet |
+| clusterUri |Merhaba hello Hdınsight kümesinin URI. |Evet |
+| kullanıcı adı |Tooconnect tooan olan bir Hdınsight kümesine kullanılan hello kullanıcı toobe Hello adı belirtin. |Evet |
+| password |Merhaba kullanıcı hesabı için parola belirtin. |Evet |
+| linkedServiceName | Hdınsight kümesi hello tarafından kullanılan hello toohello Azure blob depolama başvuruyor Azure Storage bağlı hizmeti adı. <p>Şu anda bu özellik için bir Azure Data Lake Store bağlı belirtemezsiniz. Merhaba Hdınsight kümesine erişim toohello Data Lake Store varsa Hive/Pig komut dosyalarından hello Azure Data Lake Store verilerde erişebilir. </p>  |Evet |
 
 Hdınsight kümeleri desteklenen sürümleri için bkz: [desteklenen Hdınsight sürümleri](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). 
 
@@ -4893,18 +4893,18 @@ Hdınsight kümeleri desteklenen sürümleri için bkz: [desteklenen Hdınsight 
 ```
 
 ## <a name="azure-batch"></a>Azure Batch
-Batch havuzundaki sanal makineler (VM'ler) kaydetmek için bir Azure Batch bağlantılı hizmeti bir data factory ile oluşturabilirsiniz. .NET özel etkinlikler Azure Batch ya da Azure Hdınsight kullanarak çalıştırabilirsiniz. Çalıştırabilirsiniz bir [.NET özel etkinlik](#net-custom-activity) bu hizmeti bağlı. 
+Bir Azure Batch bağlantılı hizmet tooregister data factory ile sanal makineleri (VM'ler) Batch havuzu oluşturabilirsiniz. .NET özel etkinlikler Azure Batch ya da Azure Hdınsight kullanarak çalıştırabilirsiniz. Çalıştırabilirsiniz bir [.NET özel etkinlik](#net-custom-activity) bu hizmeti bağlı. 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Aşağıdaki tabloda bir Azure Batch bağlı hizmeti Azure JSON tanımında kullanılan özellikleri için açıklamalar sağlanır.
+Aşağıdaki tablonun hello hello Azure JSON tanımında bağlı Azure Batch hizmetinin kullanılan hello özellikleri için açıklamalar sağlanır.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalı **AzureBatch**. |Evet |
-| accountName |Azure toplu işlem hesabının adı. |Evet |
-| accessKey |Azure Batch hesabı için erişim anahtarı. |Evet |
-| poolName |Sanal makinelerin havuzunun adı. |Evet |
-| linkedServiceName |Azure depolama adı hizmeti bağlı Azure Batch hizmeti ile ilişkili bağlı. Bu bağlı hizmetin etkinlik ve Etkinlik yürütme günlüklerini depolamak çalıştırmak için gerekli hazırlama dosyaları için kullanılır. |Evet |
+| type |Merhaba type özelliği çok ayarlanmalıdır**AzureBatch**. |Evet |
+| accountName |Hello Azure Batch hesabı adı. |Evet |
+| accessKey |Hello Azure Batch hesabı için erişim anahtarı. |Evet |
+| poolName |Sanal makinelerin hello havuzunun adı. |Evet |
+| linkedServiceName |Hello Azure Storage bağlı hizmeti Azure bağlı Batch hizmeti ile ilişkili adı. Bu bağlı hizmetin dosyaları hazırlama için kullanılan toorun hello etkinliği ve hello Etkinlik yürütme günlüklerini depolamak gerekli. |Evet |
 
 
 #### <a name="json-example"></a>JSON örneği
@@ -4925,16 +4925,16 @@ Aşağıdaki tabloda bir Azure Batch bağlı hizmeti Azure JSON tanımında kull
 ```
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
-Bir Machine Learning toplu Puanlama uç noktası data factory ile kaydetmek için bir Azure Machine Learning bağlantılı hizmeti oluşturun. Bu bilgisayarda çalıştırabilir iki veri dönüştürme etkinlikleri bağlantılı hizmeti: [Machine Learning toplu iş yürütme etkinliği](#machine-learning-batch-execution-activity), [Machine Learning kaynak güncelleştirme etkinliği](#machine-learning-update-resource-activity). 
+Bir Machine Learning toplu Puanlama uç noktası data factory ile bir Azure Machine Learning bağlantılı hizmet tooregister oluşturun. Bu bilgisayarda çalıştırabilir iki veri dönüştürme etkinlikleri bağlantılı hizmeti: [Machine Learning toplu iş yürütme etkinliği](#machine-learning-batch-execution-activity), [Machine Learning kaynak güncelleştirme etkinliği](#machine-learning-update-resource-activity). 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Aşağıdaki tabloda bir Azure Machine Learning bağlı hizmeti Azure JSON tanımında kullanılan özellikleri için açıklamalar sağlanır.
+Aşağıdaki tablonun hello hello Azure JSON tanımında bağlı Azure Machine Learning hizmetinin kullanılan hello özellikleri için açıklamalar sağlanır.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| Tür |Type özelliği ayarlanmalıdır: **AzureML**. |Evet |
-| mlEndpoint |Toplu Puanlama URL. |Evet |
-| apikey ile yapılan |Yayımlanan çalışma alanı modelinin API. |Evet |
+| Tür |Merhaba type özelliği ayarlanmalıdır: **AzureML**. |Evet |
+| mlEndpoint |Merhaba toplu işlem Puanlama URL'sini. |Evet |
+| apikey ile yapılan |Merhaba, çalışma alanı modelinin API yayımladı. |Evet |
 
 #### <a name="json-example"></a>JSON örneği
 
@@ -4952,25 +4952,25 @@ Aşağıdaki tabloda bir Azure Machine Learning bağlı hizmeti Azure JSON tanı
 ```
 
 ## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
-Oluşturduğunuz bir **Azure Data Lake Analytics** bir Azure Data Lake Analytics bağlamak için bağlı hizmet kullanmadan önce bir Azure data factory hizmetine işlem [Data Lake Analytics U-SQL etkinliği](data-factory-usql-activity.md) ardışık düzeninde.
+Oluşturduğunuz bir **Azure Data Lake Analytics** bağlantılı hizmet toolink bir Azure Data Lake Analytics işlem hizmeti tooan Azure data factory hello kullanmadan önce [Data Lake Analytics U-SQL etkinliği](data-factory-usql-activity.md) ardışık düzeninde .
 
 ### <a name="linked-service"></a>Bağlı hizmet
 
-Aşağıdaki tabloda bir Azure Data Lake Analytics bağlantılı hizmeti JSON tanımında kullanılan özellikleri için açıklamalar sağlanır. 
+Aşağıdaki tablonun hello hello JSON tanımında bir Azure Data Lake Analytics bağlantılı hizmetinin kullanılan hello özellikleri için açıklamalar sağlanır. 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| Tür |Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. |Evet |
+| Tür |Merhaba type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. |Evet |
 | accountName |Azure Data Lake Analytics hesap adı. |Evet |
 | dataLakeAnalyticsUri |Azure Data Lake Analytics URI. |Hayır |
-| Yetkilendirme |Yetkilendirme kodu, tıkladıktan sonra otomatik olarak alınır **Authorize** Data Factory Düzenleyici'düğmesine tıklayın ve OAuth oturum açma tamamlanıyor. |Evet |
-| subscriptionId |Azure abonelik kimliği |Hayır (belirtilmezse, data Factory abonelik kullanılır). |
-| resourceGroupName |Azure kaynak grubu adı |Hayır (belirtilmezse, kaynak grubu data Factory kullanılır). |
-| SessionID |OAuth yetkilendirme oturumundan oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Data Factory Düzenleyici kullandığınızda, bu otomatik olarak oluşturulan kimliğidir. |Evet |
+| Yetkilendirme |Yetkilendirme kodu, tıkladıktan sonra otomatik olarak alınır **Authorize** hello Data Factory düzenleyici ve Tamamlanıyor hello OAuth oturum açma düğmesi. |Evet |
+| subscriptionId |Azure abonelik kimliği |Hayır (belirtilmezse, veri fabrikası kullanılan hello abonelik). |
+| resourceGroupName |Azure kaynak grubu adı |Hayır (belirtilmezse, veri fabrikası kullanılan hello kaynak grubu). |
+| SessionID |Merhaba OAuth yetkilendirme oturumundan oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Merhaba Data Factory Düzenleyici kullandığınızda, bu otomatik olarak oluşturulan kimliğidir. |Evet |
 
 
 #### <a name="json-example"></a>JSON örneği
-Aşağıdaki örnek bir Azure Data Lake Analytics bağlantılı hizmeti için JSON tanımını sağlar.
+Aşağıdaki örneğine hello JSON tanımı için bir Azure Data Lake Analytics bağlı hizmet sağlar.
 
 ```json
 {
@@ -4990,14 +4990,14 @@ Aşağıdaki örnek bir Azure Data Lake Analytics bağlantılı hizmeti için JS
 ```
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL bağlı hizmeti oluşturma ve onunla kullanma [saklı yordam etkinliği](#stored-procedure-activity) Data Factory işlem hattı bir saklı yordam çağırmak için. 
+Azure SQL bağlı hizmeti oluşturma ve hello ile kullanma [saklı yordam etkinliği](#stored-procedure-activity) tooinvoke Data Factory işlem hattı bir saklı yordam. 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmeti bir Azure SQL veritabanı tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureSqlDatabase**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+bir Azure SQL veritabanı toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**AzureSqlDatabase**ve hello özelliklerinde aşağıdaki belirtin **typeProperties**bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| connectionString |ConnectionString özelliği için Azure SQL veritabanı örneğine bağlanmak için gereken bilgileri belirtin. |Evet |
+| connectionString |Tooconnect toohello Azure SQL veritabanı örneğinde hello connectionString özelliği için gerekli bilgiler belirtin. |Evet |
 
 #### <a name="json-example"></a>JSON örneği
 
@@ -5016,14 +5016,14 @@ Bağlantılı hizmeti bir Azure SQL veritabanı tanımlamak için Ayarla **tür�
 Bkz: [Azure SQL Bağlayıcısı](data-factory-azure-sql-connector.md#linked-service-properties) makale bu bağlı hizmetin hakkında ayrıntılı bilgi için.
 
 ## <a name="azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı
-Bir Azure SQL Data Warehouse bağlı hizmet oluşturma ve onunla kullanma [saklı yordam etkinliği](data-factory-stored-proc-activity.md) Data Factory işlem hattı bir saklı yordam çağırmak için. 
+Bir Azure SQL Data Warehouse bağlı hizmet oluşturma ve hello ile kullanma [saklı yordam etkinliği](data-factory-stored-proc-activity.md) tooinvoke Data Factory işlem hattı bir saklı yordam. 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin Azure SQL Data Warehouse tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureSqlDW**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Azure SQL Data Warehouse toodefine bağlantılı hizmeti, kümesi hello **türü** Merhaba bağlantılı hizmetinin çok**AzureSqlDW**ve hello özelliklerinde aşağıdaki belirtin **typeProperties**bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| connectionString |ConnectionString özelliği için Azure SQL Data Warehouse örneğine bağlanmak için gereken bilgileri belirtin. |Evet |
+| connectionString |Tooconnect toohello Azure SQL Data Warehouse örneğine hello connectionString özelliği için gerekli bilgiler belirtin. |Evet |
 
 #### <a name="json-example"></a>JSON örneği
 
@@ -5042,22 +5042,22 @@ Bağlantılı hizmetinin Azure SQL Data Warehouse tanımlamak için Ayarla **tü
 Daha fazla bilgi için bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) makalesi. 
 
 ## <a name="sql-server"></a>SQL Server 
-Bir SQL Server bağlantılı hizmet oluşturma ve onunla kullanma [saklı yordam etkinliği](data-factory-stored-proc-activity.md) Data Factory işlem hattı bir saklı yordam çağırmak için. 
+Bir SQL Server bağlantılı hizmet oluşturma ve hello ile kullanma [saklı yordam etkinliği](data-factory-stored-proc-activity.md) tooinvoke Data Factory işlem hattı bir saklı yordam. 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlı hizmet türü oluşturma **OnPremisesSqlServer** bir şirket içi SQL Server veritabanını data factory'ye bağlamak için. Aşağıdaki tabloda şirket içi SQL Server bağlantılı hizmete özgü JSON öğeleri açıklamasını sağlar.
+Bağlı hizmet türü oluşturma **OnPremisesSqlServer** toolink bir şirket içi SQL Server veritabanı tooa data factory. Aşağıdaki tablonun hello JSON öğeleri belirli tooon şirket içi SQL Server bağlantılı hizmet açıklamasını sağlar.
 
-Aşağıdaki tabloda, SQL Server bağlantılı hizmete özgü JSON öğeleri açıklamasını sağlar.
+Aşağıdaki tablonun hello JSON öğeleri belirli tooSQL Server bağlantılı hizmeti için bir açıklama sağlar.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalıdır: **OnPremisesSqlServer**. |Evet |
-| connectionString |SQL kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak şirket içi SQL Server veritabanına bağlanmak için gereken connectionString bilgilerini belirtin. |Evet |
-| gatewayName |Data Factory hizmetinin şirket içi SQL Server veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| type |Merhaba type özelliği ayarlanmalıdır: **OnPremisesSqlServer**. |Evet |
+| connectionString |SQL kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak tooconnect toohello şirket içi SQL Server veritabanı gerekli connectionString bilgiler belirtin. |Evet |
+| gatewayName |Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello şirket içi SQL Server veritabanını kullanmanız gerekir. |Evet |
 | kullanıcı adı |Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. Örnek: **domainname\\kullanıcıadı**. |Hayır |
-| password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
+| password |Merhaba username için belirtilen hello kullanıcı hesabı için parola belirtin. |Hayır |
 
-Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncryptValue** cmdlet'i ve bunları aşağıdaki örnekte gösterildiği gibi bağlantı dizesini kullanın (**EncryptedCredential** özellik):  
+Hello kullanarak kimlik bilgilerini şifrelemek **yeni AzureRmDataFactoryEncryptValue** cmdlet'i ve bunları hello aşağıdaki örnekte gösterildiği gibi hello bağlantı dizesinde kullanabilirsiniz (**EncryptedCredential** özellik):  
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5080,7 +5080,7 @@ Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncr
 ```
 #### <a name="example-json-for-using-windows-authentication"></a>Örnek: JSON'ı Windows kimlik doğrulaması kullanma
 
-Kullanıcı adı ve parolası belirtilmişse, ağ geçidi bunları şirket içi SQL Server veritabanına bağlanmak için belirtilen kullanıcı hesabının kimliğine bürün kullanır. Aksi takdirde, ağ geçidi SQL Server Ağ Geçidi (kendi başlangıç hesabı) güvenlik bağlamı ile doğrudan bağlanır.
+Kullanıcı adı ve parolası belirtilmişse, ağ geçidi bunları tooimpersonate hello kullanır belirtilen kullanıcı hesabı tooconnect toohello şirket içi SQL Server veritabanı. Aksi takdirde, ağ geçidi toohello SQL Server doğrudan hello güvenlik bağlamında ağ geçidi (kendi başlangıç hesabı) ile bağlanır.
 
 ```json
 {
@@ -5103,31 +5103,31 @@ Daha fazla bilgi için bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-
 
 Etkinlik | Açıklama
 -------- | -----------
-[Hdınsight Hive etkinliği](#hdinsight-hive-activity) | Data Factory işlem hattı Hdınsight Hive etkinliğinde, Hive sorguları kendi veya isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür. 
-[Hdınsight Pig etkinliği](#hdinsight-pig-activity) | Data Factory işlem hattı Hdınsight Pig etkinliğinde kendi Pig sorgular veya isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür.
-[HDInsight MapReduce Etkinliği](#hdinsight-mapreduce-activity) | Data Factory işlem hattı Hdınsight MapReduce etkinliğinde kendi MapReduce programları veya isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür.
-[HDInsight Akış Etkinliği](#hdinsight-streaming-activity) | Hdınsight akış etkinliğinde Data Factory işlem hattı Hadoop akış programlar kendi veya isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür.
-[HDInsight Spark Etkinliği](#hdinsight-spark-activity) | Data Factory işlem hattı Hdınsight Spark etkinliğinde Spark programlar kendi Hdınsight kümesinde yürütür. 
-[Machine Learning Batch Yürütme Etkinliği](#machine-learning-batch-execution-activity) | Azure Data Factory, Tahmine dayalı analiz için yayımlanan bir Azure Machine Learning web hizmetini kullan ardışık düzen kolayca oluşturmanıza olanak sağlar. Toplu iş yürütme etkinliği Azure Data Factory ardışık düzeninde kullanarak, bir Machine Learning web hizmeti toplu veriler üzerinde tahminlerde çağırabilirsiniz. 
-[Machine Learning Kaynak Güncelleştirme Etkinliği](#machine-learning-update-resource-activity) | Zaman içinde denemeler Puanlama Machine Learning Tahmine dayalı modelleri yeni giriş veri kümeleri kullanarak retrained gerekir. Yeniden eğitme ile tamamladıktan sonra ile retrained Machine Learning modeli Puanlama web hizmetini güncelleştirmek istiyor. Web hizmeti ile yeni eğitilen modeli güncelleştirmek için güncelleştirme kaynağı etkinliğini kullanabilirsiniz.
-[Saklı Yordam Etkinliği](#stored-procedure-activity) | Aşağıdaki veri depolarına birinde bir saklı yordam çağrılacak bir Data Factory işlem hattı saklı yordam etkinliği kullanabilirsiniz: Azure SQL Database, Azure SQL Data Warehouse, SQL Server veritabanı kuruluşunuzdaki veya bir Azure VM. 
+[Hdınsight Hive etkinliği](#hdinsight-hive-activity) | Merhaba Data Factory işlem hattı Hdınsight Hive etkinliğiyle kendi Hive sorguları ya da isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür. 
+[Hdınsight Pig etkinliği](#hdinsight-pig-activity) | Merhaba Data Factory işlem hattı Hdınsight Pig etkinlik kendi Pig sorgular veya isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür.
+[HDInsight MapReduce Etkinliği](#hdinsight-mapreduce-activity) | Merhaba Data Factory işlem hattı Hdınsight MapReduce etkinlik kendi MapReduce programları veya isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür.
+[HDInsight Akış Etkinliği](#hdinsight-streaming-activity) | Data Factory işlem hattı Hello Hdınsight akış etkinliği Hadoop akış programlar kendi veya isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür.
+[HDInsight Spark Etkinliği](#hdinsight-spark-activity) | Merhaba Data Factory işlem hattı Hdınsight Spark etkinliğinde Spark programlar kendi Hdınsight kümesinde yürütür. 
+[Machine Learning Batch Yürütme Etkinliği](#machine-learning-batch-execution-activity) | Web hizmeti Tahmine dayalı analiz için azure Data Factory etkinleştirir, tooeasily yayımlanan bir Azure Machine Learning kullanan komut zincirleri oluşturun. Bir Azure Data Factory işlem hattı toplu iş yürütme etkinliği Hello kullanarak, Machine Learning web hizmeti toomake tahminleri toplu hello veriler üzerinde çağırabilirsiniz. 
+[Machine Learning Kaynak Güncelleştirme Etkinliği](#machine-learning-update-resource-activity) | Zaman içinde veri kümeleri hello Machine Learning Puanlama denemeler retrained toobe yeni kullanarak gereken Tahmine dayalı modelleri hello girin. Yeniden eğitme ile tamamladıktan sonra web hizmeti ile Merhaba Puanlama tooupdate hello Machine Learning modelini retrained istiyor. Merhaba kaynak güncelleştirme etkinliği tooupdate hello web hizmeti ile Merhaba yeni eğitilmiş model kullanabilirsiniz.
+[Saklı Yordam Etkinliği](#stored-procedure-activity) | Data Factory işlem hattı tooinvoke bir saklı yordam veri depolarına aşağıdaki hello birinde hello saklı yordam etkinliği kullanabilirsiniz: Azure SQL Database, Azure SQL Data Warehouse, SQL Server veritabanı kuruluşunuzdaki veya bir Azure VM. 
 [Data Lake Analytics U-SQL etkinliği](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL etkinliği Azure Data Lake Analytics kümede bir U-SQL komut dosyasını çalıştırır.  
-[.NET özel etkinliği](#net-custom-activity) | Veri fabrikası tarafından desteklenmeyen bir şekilde veri dönüştürme ihtiyacınız varsa, kendi veri işleme mantığı ile özel bir etkinlik oluşturmak ve ardışık düzeninde etkinlik kullanın. Bir Azure Batch hizmeti ya da Azure Hdınsight kümesi kullanarak çalıştırmak için özel .NET etkinliği yapılandırabilirsiniz. 
+[.NET özel etkinliği](#net-custom-activity) | Tootransform verileri Data Factory tarafından desteklenmeyen bir şekilde ihtiyacınız varsa, kendi veri işleme mantığı ile özel bir etkinlik oluşturmak ve hello ardışık düzeninde hello etkinliği kullanın. Bir Azure Batch hizmeti ya da Azure Hdınsight kümesi kullanarak hello özel .NET etkinliği toorun yapılandırabilirsiniz. 
 
      
 ## <a name="hdinsight-hive-activity"></a>HDInsight Hive Etkinliği
-Bir Hive etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **Hdınsighthive**. Hdınsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölüm için Hdınsighthive etkinliği türünü ayarladığınızda:
+Aşağıdaki özelliklere Hive etkinliği JSON tanımında hello belirtebilirsiniz. Merhaba type özelliği hello etkinliğinin olmalıdır: **Hdınsighthive**. Hdınsight bağlı hizmeti ilk oluşturun ve hello için bir değer olarak hello adını belirtmeniz gerekir **linkedServiceName** özelliği. Merhaba aşağıdaki özellikleri hello desteklenir **typeProperties** bölümünde etkinlik tooHDInsightHive hello türü ayarladığınızda:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| Komut dosyası |Hive betiği satır içi belirtin |Hayır |
-| komut dosyası yolu |Hive betiği bir Azure blob storage'da depolamak ve dosyanın yolunu belirtin. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Dosya adı büyük/küçük harf duyarlıdır. |Hayır |
-| tanımlar |'Hiveconf' kullanarak Hive betiğini içinde başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
+| Komut dosyası |Merhaba Hive betiği satır içi belirtin |Hayır |
+| komut dosyası yolu |Mağaza hello Hive betiği bir Azure blob depolama alanındaki ve hello yol toohello dosyası sağlayın. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Merhaba dosya adı büyük/küçük harf duyarlıdır. |Hayır |
+| tanımlar |İçinde hello Hive betiği 'hiveconf' kullanarak başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
 
-Bu tür özellikleri için Hive etkinliği özgüdür. Diğer özellikler (dışında typeProperties bölüm) tüm etkinlikler için desteklenir.   
+Bu tür belirli toohello Hive etkinliği özellikleridir. Diğer özellikleri (Merhaba typeProperties bölüm dışında) tüm etkinlikler için desteklenir.   
 
 ### <a name="json-example"></a>JSON örneği
-Aşağıdaki JSON ardışık düzeninde Hdınsight Hive etkinliği tanımlar.  
+JSON aşağıdaki hello Hdınsight Hive etkinliği ardışık düzeninde tanımlar.  
 
 ```json
 {
@@ -5162,15 +5162,15 @@ Aşağıdaki JSON ardışık düzeninde Hdınsight Hive etkinliği tanımlar.
 Daha fazla bilgi için bkz: [Hive etkinliği](data-factory-hive-activity.md) makalesi. 
 
 ## <a name="hdinsight-pig-activity"></a>HDInsight Pig Etkinliği
-Pig etkinlik JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **HDInsightPig**. Hdınsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için HDInsightPig ayarladığınızda: 
+Aşağıdaki özelliklere Pig etkinlik JSON tanımında hello belirtebilirsiniz. Merhaba type özelliği hello etkinliğinin olmalıdır: **HDInsightPig**. Hdınsight bağlı hizmeti ilk oluşturun ve hello için bir değer olarak hello adını belirtmeniz gerekir **linkedServiceName** özelliği. Merhaba aşağıdaki özellikleri hello desteklenir **typeProperties** bölümünde etkinlik tooHDInsightPig hello türü ayarladığınızda: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| Komut dosyası |Pig betiği satır içi belirtin |Hayır |
-| komut dosyası yolu |Pig betiği bir Azure blob storage'da depolamak ve dosyanın yolunu belirtin. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Dosya adı büyük/küçük harf duyarlıdır. |Hayır |
-| tanımlar |Pig betiği içinde başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
+| Komut dosyası |Merhaba Pig betiği satır içi belirtin |Hayır |
+| komut dosyası yolu |Bir Azure blob depolama alanına Hello Pig betiği depolar ve hello yol toohello dosyası sağlayın. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Merhaba dosya adı büyük/küçük harf duyarlıdır. |Hayır |
+| tanımlar |Pig betiği hello içinde başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
 
-Bu tür özellikleri, Pig etkinlik özgüdür. Diğer özellikler (dışında typeProperties bölüm) tüm etkinlikler için desteklenir.   
+Bu tür belirli toohello Pig etkinlik özellikleridir. Diğer özellikleri (Merhaba typeProperties bölüm dışında) tüm etkinlikler için desteklenir.   
 
 ### <a name="json-example"></a>JSON örneği
 
@@ -5214,14 +5214,14 @@ Bu tür özellikleri, Pig etkinlik özgüdür. Diğer özellikler (dışında ty
 Daha fazla bilgi için bkz: [Pig etkinlik](#data-factory-pig-activity.md) makalesi. 
 
 ## <a name="hdinsight-mapreduce-activity"></a>HDInsight MapReduce Etkinliği
-Bir MapReduce etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **HDInsightMapReduce**. Hdınsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için HDInsightMapReduce ayarladığınızda: 
+Aşağıdaki özelliklere MapReduce etkinliği JSON tanımında hello belirtebilirsiniz. Merhaba type özelliği hello etkinliğinin olmalıdır: **HDInsightMapReduce**. Hdınsight bağlı hizmeti ilk oluşturun ve hello için bir değer olarak hello adını belirtmeniz gerekir **linkedServiceName** özelliği. Merhaba aşağıdaki özellikleri hello desteklenir **typeProperties** bölümünde etkinlik tooHDInsightMapReduce hello türü ayarladığınızda: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| jarLinkedService | JAR dosyasını içeren Azure depolama bağlı hizmetin adı. | Evet |
-| jarFilePath | Azure storage'da JAR dosyasının yolu. | Evet | 
-| className | JAR dosyasını ana sınıfının adı. | Evet | 
-| Bağımsız değişkenler | Bağımsız değişkenleri MapReduce program virgülle ayrılmış listesi. Çalışma zamanında gördüğünüz birkaç ek bağımsız değişkenler (örneğin: mapreduce.job.tags) MapReduce çerçeveden. MapReduce bağımsız değişkenleriyle ayırt etmek için seçeneği ve değer bağımsız değişken olarak aşağıdaki örnekte gösterildiği gibi kullanmayı düşünün (- s,--giriş,--çıkış vb. olan göre bunların değerleri hemen ardından seçenekleri) | Hayır | 
+| jarLinkedService | Merhaba adını hizmeti hello hello JAR dosyasını içeren Azure Storage için bağlı. | Evet |
+| jarFilePath | Yol toohello JAR dosyasını hello Azure depolama. | Evet | 
+| className | Merhaba JAR dosyasına hello Ana sınıfın adı. | Evet | 
+| Bağımsız değişkenler | Bağımsız değişkenleri hello MapReduce program virgülle ayrılmış listesi. Çalışma zamanında gördüğünüz birkaç ek bağımsız değişkenler (örneğin: mapreduce.job.tags) hello MapReduce çerçeveden. toodifferentiate, hello MapReduce bağımsız değişkenleriyle seçeneği ve değer bağımsız değişken olarak hello aşağıdaki örnekte gösterildiği gibi kullanmayı düşünün (- s,--giriş,--çıkış vb. olan göre bunların değerleri hemen ardından seçenekleri) | Hayır | 
 
 ### <a name="json-example"></a>JSON örneği
 
@@ -5229,7 +5229,7 @@ Bir MapReduce etkinliği JSON tanımında aşağıdaki özellikleri belirtebilir
 {
     "name": "MahoutMapReduceSamplePipeline",
     "properties": {
-        "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calculates an Item Similarity Matrix to determine the similarity between two items",
+        "description": "Sample Pipeline tooRun a Mahout Custom Map Reduce Jar. This job calculates an Item Similarity Matrix toodetermine hello similarity between two items",
         "activities": [
             {
                 "type": "HDInsightMapReduce",
@@ -5259,7 +5259,7 @@ Bir MapReduce etkinliği JSON tanımında aşağıdaki özellikleri belirtebilir
                     "interval": 1
                 },
                 "name": "MahoutActivity",
-                "description": "Custom Map Reduce to generate Mahout result",
+                "description": "Custom Map Reduce toogenerate Mahout result",
                 "linkedServiceName": "HDInsightLinkedService"
             }
         ],
@@ -5272,21 +5272,21 @@ Bir MapReduce etkinliği JSON tanımında aşağıdaki özellikleri belirtebilir
 Daha fazla bilgi için bkz: [MapReduce etkinliği](data-factory-map-reduce.md) makalesi. 
 
 ## <a name="hdinsight-streaming-activity"></a>HDInsight Akış Etkinliği
-Bir Hadoop akış etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **HDInsightStreaming**. Hdınsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için HDInsightStreaming ayarladığınızda: 
+Aşağıdaki özelliklere Hadoop akış etkinliği JSON tanımında hello belirtebilirsiniz. Merhaba type özelliği hello etkinliğinin olmalıdır: **HDInsightStreaming**. Hdınsight bağlı hizmeti ilk oluşturun ve hello için bir değer olarak hello adını belirtmeniz gerekir **linkedServiceName** özelliği. Merhaba aşağıdaki özellikleri hello desteklenir **typeProperties** bölümünde etkinlik tooHDInsightStreaming hello türü ayarladığınızda: 
 
 | Özellik | Açıklama | 
 | --- | --- |
-| Eşleyici | Yürütülebilir Eşleyici adı. Örnekte, cat.exe yürütülebilir Eşleyici ' dir.| 
-| reducer | Yürütülebilir reducer adı. Örnekte, wc.exe yürütülebilir reducer ' dir. | 
-| Giriş | Eşleyici için girdi dosyası (konum dahil). Örnekte: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample blob kapsayıcısı, veri/örnek/Gutenberg klasördür ve davinci.txt blob. |
-| Çıktı | Çıktı dosyası (konum dahil) reducer için. Hadoop akış işi çıkışı, bu özellik için belirtilen konuma yazılır. |
-| filePaths | Eşleyici ve reducer yürütülebilir dosyalar için yollar. Örnekte: "adfsample/example/apps/wc.exe" adfsample blob kapsayıcısı, örnek/uygulamaları klasördür ve wc.exe çalıştırılabilir. | 
-| fileLinkedService | FilePaths bölümünde belirtilen dosyaları içeren Azure depolama temsil eden azure depolama bağlı hizmeti. | 
-| Bağımsız değişkenler | Bağımsız değişkenleri MapReduce program virgülle ayrılmış listesi. Çalışma zamanında gördüğünüz birkaç ek bağımsız değişkenler (örneğin: mapreduce.job.tags) MapReduce çerçeveden. MapReduce bağımsız değişkenleriyle ayırt etmek için seçeneği ve değer bağımsız değişken olarak aşağıdaki örnekte gösterildiği gibi kullanmayı düşünün (- s,--giriş,--çıkış vb. olan göre bunların değerleri hemen ardından seçenekleri) | 
-| Getdebugınfo | İsteğe bağlı bir öğe. Hata için ayarlandığında, günlükleri yalnızca hatada indirilir. Tüm ayarlandığında, günlükleri yürütme durumu bağımsız olarak daima yüklenir. | 
+| Eşleyici | Merhaba Eşleyici yürütülebilir adı. Merhaba örnekte cat.exe hello Eşleyici yürütülebilir ' dir.| 
+| reducer | Merhaba reducer yürütülebilir adı. Merhaba örnekte wc.exe hello reducer yürütülebilir ' dir. | 
+| Giriş | Merhaba Eşleyici için giriş dosyası (konum dahil). Merhaba örnekte: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample hello blob kapsayıcısı, veri/örnek/Gutenberg hello klasördür ve davinci.txt hello blob. |
+| Çıktı | Merhaba reducer için (konum dahil) çıktı dosyası. Merhaba çıktısı hello Hadoop akış işi, bu özelliği için belirtilen toohello konumu yazılır. |
+| filePaths | Merhaba Eşleyici ve reducer yürütülebilir dosyalar için yollar. Merhaba örnekte: "adfsample/example/apps/wc.exe" adfsample hello blob kapsayıcısı, örnek/uygulamaları hello klasördür ve wc.exe hello çalıştırılabilir. | 
+| fileLinkedService | Merhaba hello filePaths bölümünde belirtilen hello dosyaları içeren Azure depolama temsil eden azure depolama bağlı hizmeti. | 
+| Bağımsız değişkenler | Bağımsız değişkenleri hello MapReduce program virgülle ayrılmış listesi. Çalışma zamanında gördüğünüz birkaç ek bağımsız değişkenler (örneğin: mapreduce.job.tags) hello MapReduce çerçeveden. toodifferentiate, hello MapReduce bağımsız değişkenleriyle seçeneği ve değer bağımsız değişken olarak hello aşağıdaki örnekte gösterildiği gibi kullanmayı düşünün (- s,--giriş,--çıkış vb. olan göre bunların değerleri hemen ardından seçenekleri) | 
+| Getdebugınfo | İsteğe bağlı bir öğe. TooFailure ayarlandığında hello günlükleri yalnızca hatada indirilir. TooAll ayarlandığında, günlükleri hello yürütme durumu bağımsız olarak daima yüklenir. | 
 
 > [!NOTE]
-> Hadoop akış etkinliği için bir çıkış veri kümesi belirtmelisiniz **çıkarır** özelliği. Bu veri kümesi yalnızca ardışık düzen zamanlama (saatlik, günlük, vs.) sürücü için gereken bir kukla dataset olabilir. Etkinliği bir girdi almazsa, etkinliği için bir giriş veri kümesi belirtme atlayabilirsiniz **girişleri** özelliği.  
+> Bir çıkış veri kümesi için Hadoop akış etkinliği Merhaba hello belirtmelisiniz **çıkarır** özelliği. Bu veri kümesi yalnızca gerekli toodrive hello ardışık düzen zamanlaması (saatlik, günlük, vs.) bir kukla dataset olabilir. Merhaba etkinliği bir girdi almazsa hello hello etkinliği bir girdi veri kümesi belirtme atlayabilirsiniz **girişleri** özelliği.  
 
 ## <a name="json-example"></a>JSON örneği
 
@@ -5336,18 +5336,18 @@ Bir Hadoop akış etkinliği JSON tanımında aşağıdaki özellikleri belirteb
 Daha fazla bilgi için bkz: [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md) makalesi. 
 
 ## <a name="hdinsight-spark-activity"></a>HDInsight Spark Etkinliği
-Bir Spark etkinlik JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **HDInsightSpark**. Hdınsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için HDInsightSpark ayarladığınızda: 
+Aşağıdaki özelliklere Spark etkinlik JSON tanımında hello belirtebilirsiniz. Merhaba type özelliği hello etkinliğinin olmalıdır: **HDInsightSpark**. Hdınsight bağlı hizmeti ilk oluşturun ve hello için bir değer olarak hello adını belirtmeniz gerekir **linkedServiceName** özelliği. Merhaba aşağıdaki özellikleri hello desteklenir **typeProperties** bölümünde etkinlik tooHDInsightSpark hello türü ayarladığınızda: 
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
-| rootPath | Azure Blob kapsayıcısı ve Spark dosyasını içeren klasör. Dosya adı büyük/küçük harf duyarlıdır. | Evet |
-| entryFilePath | Spark kod/paketi kök klasörüne göreli yolu. | Evet |
+| rootPath | Hello Azure Blob kapsayıcısı ve hello Spark dosyasını içeren klasör. Merhaba dosya adı büyük/küçük harf duyarlıdır. | Evet |
+| entryFilePath | Göreli yol toohello kök klasöründe hello Spark kod/paketi. | Evet |
 | className | Uygulamanın Java/Spark ana sınıfı | Hayır | 
-| Bağımsız değişkenler | Spark programın komut satırı bağımsız değişkenleri listesi. | Hayır | 
-| proxyUser | Spark program yürütülmeye kimliğine bürünmek için kullanıcı hesabı | Hayır | 
+| Bağımsız değişkenler | Komut satırı bağımsız değişkenleri toohello Spark program listesi. | Hayır | 
+| proxyUser | Merhaba kullanıcı hesabı tooimpersonate tooexecute hello Spark programı | Hayır | 
 | sparkConfig | Spark yapılandırma özellikleri. | Hayır | 
-| Getdebugınfo | Hdınsight küme tarafından kullanılan Azure depolama Spark günlük dosyalarının ne zaman kopyalanır belirtir (veya) sparkJobLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: yok. | Hayır | 
-| sparkJobLinkedService | Azure Storage bağlı Spark iş dosyası, bağımlılıklar ve günlükleri tutan hizmeti.  Bu özellik için bir değer belirtmezseniz, Hdınsight kümesi ile ilişkili depolama kullanılır. | Hayır |
+| Getdebugınfo | Merhaba Spark günlük dosyalarını kopyalanan toohello Hdınsight küme tarafından kullanılan Azure depolama olduğunda belirtir (veya) sparkJobLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: yok. | Hayır | 
+| sparkJobLinkedService | Merhaba hello Spark iş dosyası, bağımlılıklar ve günlükleri tutan Azure Storage bağlı hizmeti.  Bu özellik için bir değer belirtmezseniz, Hdınsight kümesi ile ilişkili hello depolama kullanılır. | Hayır |
 
 ### <a name="json-example"></a>JSON örneği
 
@@ -5377,31 +5377,31 @@ Bir Spark etkinlik JSON tanımında aşağıdaki özellikleri belirtebilirsiniz.
     }
 }
 ```
-Aşağıdaki noktalara dikkat edin: 
+Hello aşağıdaki noktaları göz önünde bulundurun: 
 
-- **Türü** özelliği ayarlanmış **HDInsightSpark**.
-- **RootPath** ayarlanır **adfspark\\pyFiles** burada adfspark, Azure Blob kapsayıcısında ve pyFiles kapsayıcıdaki ince klasördür. Bu örnekte, Azure Blob Storage Spark kümesi ile ilişkili adrestir. Farklı bir Azure depolama dosyayı karşıya yükleyebilirsiniz. Bunu yaparsanız, bu depolama hesabı data factory'ye bağlamak için bir Azure depolama bağlantılı hizmeti oluşturun. Ardından, bağlı hizmetin adı için bir değer olarak belirtin **sparkJobLinkedService** özelliği. Bkz: [Spark etkinlik özellikleri](#spark-activity-properties) bu özellik ve Spark etkinlik tarafından desteklenen diğer özellikleri hakkında ayrıntılı bilgi için.
-- **EntryFilePath** ayarlanır **test.py**, python dosyası değil. 
-- **Getdebugınfo** özelliği ayarlanmış **her zaman**, günlük dosyaları her zaman anlamına gelir (başarılı veya başarısız) oluşturulur.  
+- Merhaba **türü** özelliği çok ayarlanmış**HDInsightSpark**.
+- Merhaba **rootPath** çok ayarlanır**adfspark\\pyFiles** adfspark hello Azure Blob kapsayıcısı ve pyFiles olduğu ince kapsayıcıdaki klasörüdür. Bu örnekte, hello Azure Blob Storage hello hello Spark kümesi ile ilişkili olan bir ' dir. Merhaba dosya tooa yükleyebilirsiniz farklı Azure depolama. Bunu yaparsanız, bir Azure Storage bağlı hizmeti toolink bu depolama hesabı toohello veri fabrikası oluşturun. Ardından, hello için bir değer olarak hello hello bağlı hizmetin adını belirtin **sparkJobLinkedService** özelliği. Bkz: [Spark etkinlik özellikleri](#spark-activity-properties) bu özellik ve Spark etkinlik hello tarafından desteklenen diğer özellikleri hakkında ayrıntılı bilgi için.
+- Merhaba **entryFilePath** toohello ayarlamak **test.py**, hello python dosyası değil. 
+- Merhaba **Getdebugınfo** özelliği çok ayarlanmış**her zaman**, yani hello günlük dosyaları her zaman oluşturulan (başarılı veya başarısız).  
 
     > [!IMPORTANT]
-    > Bir sorunu gidermeye çalışıyor değilseniz, bu özellik her zaman bir üretim ortamında ayarlamak değil kullanmanızı öneririz. 
-- **Çıkarır** bölümü bir çıkış veri kümesi yok. Spark program herhangi bir çıktı üretmez olsa bile bir çıkış veri kümesi belirtmeniz gerekir. Çıktı veri kümesi, ardışık düzen (saatlik, günlük, vs.) için zamanlamayı sürücüleri.
+    > Bir sorun giderme amacıyla sürece bu özellik tooAlways'ı bir üretim ortamında ayarlamayın öneririz. 
+- Merhaba **çıkarır** bölümü bir çıkış veri kümesi yok. Merhaba spark program herhangi bir çıktı üretmez olsa bile bir çıkış veri kümesi belirtmeniz gerekir. Merhaba çıkış veri kümesi sürücüleri hello zamanlama hello ardışık düzen (saatlik, günlük, vs.).
 
-Etkinliği hakkında daha fazla bilgi için bkz: [Spark etkinlik](data-factory-spark.md) makalesi.  
+Merhaba etkinliği hakkında daha fazla bilgi için bkz: [Spark etkinlik](data-factory-spark.md) makalesi.  
 
 ## <a name="machine-learning-batch-execution-activity"></a>Machine Learning Batch Yürütme Etkinliği
-Azure ML toplu iş yürütme etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **AzureMLBatchExecution**. Bağlantılı hizmet ilk öğrenme Azure bir makine oluşturma ve için bir değer olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için AzureMLBatchExecution ayarladığınızda:
+Aşağıdaki özelliklere Azure ML toplu iş yürütme etkinliği JSON tanımında hello belirtebilirsiniz. Merhaba type özelliği hello etkinliğinin olmalıdır: **AzureMLBatchExecution**. Bağlantılı hizmet ilk öğrenme Azure bir makine oluşturma ve hello için bir değer olarak hello adını belirtmeniz gerekir **linkedServiceName** özelliği. Merhaba aşağıdaki özellikleri hello desteklenir **typeProperties** bölümünde etkinlik tooAzureMLBatchExecution hello türü ayarladığınızda:
 
 Özellik | Açıklama | Gerekli 
 -------- | ----------- | --------
-WebServiceInput etkinliğine | Azure ML web hizmeti için bir giriş olarak geçirilecek veri kümesi. Bu veri kümesi de etkinliğinin girdi bulunması gerekir. |WebServiceInput etkinliğine veya webServiceInputs kullanın. | 
-webServiceInputs | Azure ML web hizmeti girişleri olarak geçirilecek veri kümeleri belirtin. Web hizmeti birden fazla girdi aldığı durumlarda WebServiceInput etkinliğine özelliğini kullanmak yerine webServiceInputs özelliğini kullanın. Tarafından başvurulan veri kümeleri **webServiceInputs** de dahil etkinliğin **girişleri**. | WebServiceInput etkinliğine veya webServiceInputs kullanın. | 
-webServiceOutputs | Çıktı Azure ML web hizmeti olarak atanan veri kümesi. Web hizmeti, bu veri kümesini çıktı verilerini döndürür. | Evet | 
-globalParameters | Bu bölümde web hizmeti parametreleri için değerleri belirtin. | Hayır | 
+WebServiceInput etkinliğine | hello Azure ML web hizmeti için bir giriş olarak Hello dataset toobe geçirildi. Bu veri kümesi de hello girişleri hello etkinliğinin bulunması gerekir. |WebServiceInput etkinliğine veya webServiceInputs kullanın. | 
+webServiceInputs | Veri kümeleri toobe hello Azure ML web hizmeti için girdi olarak geçirilen belirtin. Merhaba web hizmeti birden fazla girdi aldığı durumlarda hello WebServiceInput etkinliğine özelliğini kullanmak yerine hello webServiceInputs özelliğini kullanın. Merhaba tarafından başvurulan veri kümeleri **webServiceInputs** hello etkinliği de dahil edilmesi **girişleri**. | WebServiceInput etkinliğine veya webServiceInputs kullanın. | 
+webServiceOutputs | Çıktı hello Azure ML web hizmeti olarak atanan hello veri kümesi. Hello web hizmeti, bu veri kümesini çıktı verilerini döndürür. | Evet | 
+globalParameters | Bu bölümde hello web hizmeti parametreleri için değerleri belirtin. | Hayır | 
 
 ### <a name="json-example"></a>JSON örneği
-Bu örnekte, etkinlik bir veri kümesine sahiptir **MLSqlInput** giriş olarak ve **MLSqlOutput** çıktı olarak. **MLSqlInput** kullanarak geçirilen web hizmeti tarafından bir girdi olarak **WebServiceInput etkinliğine** JSON özelliği. **MLSqlOutput** çıkış olarak Web hizmeti tarafından kullanılarak geçirilir **webServiceOutputs** JSON özelliği. 
+Bu örnekte, hello etkinlik hello dataset sahip **MLSqlInput** giriş olarak ve **MLSqlOutput** hello çıktı olarak. Merhaba **MLSqlInput** hello kullanılarak geçirilen bir giriş toohello web hizmeti tarafından olarak **WebServiceInput etkinliğine** JSON özelliği. Merhaba **MLSqlOutput** hello kullanılarak geçirilen bir çıktı toohello Web hizmeti tarafından olarak **webServiceOutputs** JSON özelliği. 
 
 ```json
 {
@@ -5441,21 +5441,21 @@ Bu örnekte, etkinlik bir veri kümesine sahiptir **MLSqlInput** giriş olarak v
 }
 ```
 
-JSON örnekte dağıtılan Azure Machine Learning Web hizmeti, başlangıç/bitiş bir Azure SQL veritabanı veri okuma/yazma için bir okuyucu ve yazıcı modülü kullanır. Aşağıdaki dört parametre bu Web hizmetini sunar: veritabanı sunucu adı, veritabanı adı, sunucu kullanıcı hesabı adı ve sunucu kullanıcı hesabı parolası.
+Merhaba JSON örnekte hello Azure Machine Learning hizmetinin kullandığı bir okuyucu ve yazıcı modülü tooread/yazma verilerden Web dağıtılan / tooan Azure SQL veritabanı. Bu Web hizmetini şu dört parametreler hello sunar: veritabanı sunucu adı, veritabanı adı, sunucu kullanıcı hesabı adı ve sunucu kullanıcı hesabı parolası.
 
 > [!NOTE]
-> Yalnızca girişleri ve çıkışları AzureMLBatchExecution etkinliğin Web hizmeti parametreleri olarak geçirilebilir. Örneğin, yukarıdaki JSON parçacığında, bir giriş WebServiceInput etkinliğine parametresi Web hizmeti için bir girdi olarak geçirilen AzureMLBatchExecution etkinliğine MLSqlInput olabilir.
+> Yalnızca girişleri ve çıkışları hello AzureMLBatchExecution etkinlik parametreleri toohello Web hizmeti geçirilebilir. Örneğin, yukarıdaki JSON parçacığı hello MLSqlInput bir giriş toohello WebServiceInput etkinliğine parametresi ile bir giriş toohello Web hizmeti geçirilen AzureMLBatchExecution etkinlik ' dir.
 
 ## <a name="machine-learning-update-resource-activity"></a>Machine Learning Kaynak Güncelleştirme Etkinliği
-Azure ML güncelleştirme kaynak etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **AzureMLUpdateResource**. Bağlantılı hizmet ilk öğrenme Azure bir makine oluşturma ve için bir değer olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölüm için AzureMLUpdateResource etkinliği türünü ayarladığınızda:
+Aşağıdaki özelliklere Azure ML güncelleştirme kaynak etkinliği JSON tanımında hello belirtebilirsiniz. Merhaba type özelliği hello etkinliğinin olmalıdır: **AzureMLUpdateResource**. Bağlantılı hizmet ilk öğrenme Azure bir makine oluşturma ve hello için bir değer olarak hello adını belirtmeniz gerekir **linkedServiceName** özelliği. Merhaba aşağıdaki özellikleri hello desteklenir **typeProperties** bölümünde etkinlik tooAzureMLUpdateResource hello türü ayarladığınızda:
 
 Özellik | Açıklama | Gerekli 
 -------- | ----------- | --------
-trainedModelName | Retrained modelin adı. | Evet |  
-trainedModelDatasetName | Yeniden eğitme işlem tarafından döndürülen iLearner dosyasını işaret eden bir veri kümesi. | Evet | 
+trainedModelName | Merhaba adını modeli retrained. | Evet |  
+trainedModelDatasetName | İşlemi yeniden eğitme hello tarafından döndürülen veri kümesi işaret toohello iLearner dosya. | Evet | 
 
 ### <a name="json-example"></a>JSON örneği
-Ardışık düzen iki etkinlik vardır: **AzureMLBatchExecution** ve **AzureMLUpdateResource**. Azure ML toplu iş yürütme etkinliği giriş olarak eğitim verileri alır ve bir iLearner dosya bir çıktı olarak üretir. Etkinlik giriş eğitim verilerle eğitim web hizmeti (web hizmeti olarak sunulan eğitim denemenizi) çağırır ve ilearner dosya webservice alır. PlaceholderBlob Azure Data Factory hizmeti tarafından ardışık çalıştırmak için gerekli olan yalnızca bir kukla çıktı veri kümesi ' dir.
+Merhaba işlem hattına sahip iki etkinlik: **AzureMLBatchExecution** ve **AzureMLUpdateResource**. Hello Azure ML toplu iş yürütme etkinliği hello eğitim veri giriş olarak alır ve bir iLearner dosya bir çıktı olarak üretir. Merhaba etkinlik verileri eğitim hello girişle hello eğitim web hizmeti (web hizmeti olarak sunulan eğitim denemenizi) çağırır ve hello webservice hello ilearner dosya alır. Merhaba placeholderBlob hello Azure Data Factory hizmeti toorun hello ardışık düzen tarafından gerekli olan yalnızca bir kukla çıktı veri kümesi ' dir.
 
 
 ```json
@@ -5514,16 +5514,16 @@ Ardışık düzen iki etkinlik vardır: **AzureMLBatchExecution** ve **AzureMLUp
 ```
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL Etkinliği
-U-SQL etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **DataLakeAnalyticsU SQL**. Bir Azure Data Lake Analytics bağlı hizmeti oluşturma ve için bir değer olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** DataLakeAnalyticsU-SQL etkinliği türünü ayarladığınızda, bölüm: 
+Aşağıdaki U-SQL etkinliği JSON tanımında özelliklere hello belirtebilirsiniz. Merhaba type özelliği hello etkinliğinin olmalıdır: **DataLakeAnalyticsU SQL**. Bir Azure Data Lake Analytics bağlı hizmeti oluşturma ve hello için bir değer olarak hello adını belirtmeniz gerekir **linkedServiceName** özelliği. Merhaba aşağıdaki özellikleri hello desteklenir **typeProperties** bölümünde etkinlik tooDataLakeAnalyticsU-SQL hello türü ayarladığınızda: 
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| scriptPath |U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harf duyarlıdır. |Hayır (komut dosyası kullanırsanız) |
-| scriptLinkedService |Veri Fabrikası için komut dosyasını içeren depolamayı bağlı hizmet |Hayır (komut dosyası kullanırsanız) |
+| scriptPath |Merhaba U-SQL betiğini içeren yolu toofolder. Merhaba dosyasının adı büyük/küçük harf duyarlıdır. |Hayır (komut dosyası kullanırsanız) |
+| scriptLinkedService |Merhaba betik toohello veri fabrikası içeren hello depolamayı bağlı hizmet |Hayır (komut dosyası kullanırsanız) |
 | Komut dosyası |ScriptPath ve scriptLinkedService belirtme yerine satır içi betiği belirtin. Örneğin: "komut dosyası": "Veritabanı oluştur test". |Hayır (scriptPath ve scriptLinkedService kullanıyorsanız) |
-| degreeOfParallelism |Aynı anda işi çalıştırmak için kullanılan düğümlerin sayısı. |Hayır |
-| Öncelik |İlk çalıştırmak için sıraya alınan tüm işlerden seçili belirler. Alt sayısı, öncelik o kadar yüksektir. |Hayır |
-| Parametreleri |U-SQL betiği için parametreler |Hayır |
+| degreeOfParallelism |Merhaba en fazla düğüm sayısını toorun hello işi aynı anda kullanılır. |Hayır |
+| Öncelik |Sıraya alınan tüm işlerden seçili toorun olması gereken ilk belirler. Merhaba alt hello numarası hello yüksek hello önceliği. |Hayır |
+| parametreler |Merhaba U-SQL komut dosyası için parametreler |Hayır |
 
 ### <a name="json-example"></a>JSON örneği
 
@@ -5581,22 +5581,22 @@ U-SQL etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. E
 Daha fazla bilgi için bkz: [Data Lake Analytics U-SQL etkinliği](data-factory-usql-activity.md). 
 
 ## <a name="stored-procedure-activity"></a>Saklı Yordam Etkinliği
-Bir saklı yordam etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **SqlServerStoredProcedure**. Aşağıdaki bağlı hizmetler, bir tane oluşturun ve değeri olarak bağlı hizmetin adı belirtmeniz gerekir **linkedServiceName** özelliği:
+Aşağıdaki özelliklere saklı yordam etkinliği JSON tanımında hello belirtebilirsiniz. Merhaba type özelliği hello etkinliğinin olmalıdır: **SqlServerStoredProcedure**. Bir bağlı hizmetler aşağıdaki hello birini oluşturun ve hello için bir değer olarak hello hello bağlı hizmet adını belirtmeniz gerekir **linkedServiceName** özelliği:
 
 - SQL Server 
 - Azure SQL Database
 - Azure SQL Veri Ambarı
 
-Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için SqlServerStoredProcedure ayarladığınızda:
+Merhaba aşağıdaki özellikleri hello desteklenir **typeProperties** bölümünde etkinlik tooSqlServerStoredProcedure hello türü ayarladığınızda:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| storedProcedureName |Azure SQL veritabanı ya da çıktı tablosu kullanır bağlantılı hizmet tarafından temsil edilen Azure SQL Data Warehouse saklı yordamın adını belirtin. |Evet |
-| storedProcedureParameters |Saklı yordam parametreleri için değerleri belirtin. Bir parametre için null geçmesi gerekiyorsa, söz dizimini kullanın: "param1": null (tüm küçük harf). Bu özellik kullanma hakkında bilgi edinmek için aşağıdaki örnek bakın. |Hayır |
+| storedProcedureName |Hello Azure SQL veritabanı veya çıktı tablosu kullanır hello hello bağlantılı hizmeti tarafından temsil edilen Azure SQL Data Warehouse hello saklı yordamı Hello adını belirtin. |Evet |
+| storedProcedureParameters |Saklı yordam parametreleri için değerleri belirtin. Toopass parametresi için null ihtiyacınız varsa, hello sözdizimini kullanın: "param1": null (tüm küçük harf). Bu özellik kullanma hakkında örnek toolearn aşağıdaki hello bakın. |Hayır |
 
-Bir giriş veri kümesi belirtirseniz, ('Hazır' durumunda) kullanılabilir olmalıdır çalıştırmak saklı yordam etkinliği. Girdi veri kümesi saklı yordam, bir parametre olarak kullanılamaz. Yalnızca saklı yordam etkinliği başlatmadan önce bağımlılık denetlemek için kullanılır. Bir çıkış veri kümesi için bir saklı yordam etkinliği belirtmeniz gerekir. 
+Bir giriş veri kümesi belirtirseniz, ('Hazır' durumunda) kullanılabilir olmalıdır Merhaba depolanan yordam etkinliği toorun. Merhaba girdi veri kümesi hello saklı yordama parametre olarak kullanılamaz. Başlangıç hello saklı yordam etkinliği önce yalnızca kullanılan toocheck hello bağımlılık vardır. Bir çıkış veri kümesi için bir saklı yordam etkinliği belirtmeniz gerekir. 
 
-Çıktı veri kümesi belirtir **zamanlama** saklı yordam etkinliği (saatlik, haftalık, aylık, vb.). Çıktı veri kümesi kullanmalısınız bir **bağlantılı hizmeti** bir Azure SQL Database veya bir Azure SQL Data Warehouse veya çalıştırmak için saklı yordam istediğiniz SQL Server veritabanı başvuruyor. Çıktı veri kümesi için saklı yordam sonucunu başka bir etkinlik tarafından işleme sonraki geçirmek için bir yol olarak hizmet verebilir ([etkinlikleri zincirleme](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) ardışık düzeninde. Ancak, veri fabrikası otomatik olarak bir saklı yordam çıktısını bu veri kümesine yazmaz. Çıktı veri kümesi işaret eden bir SQL tablosuna Yazar saklı yordam değil. Bazı durumlarda, çıktı veri kümesi olabilir bir **kukla dataset**, yalnızca saklı yordam etkinliği çalıştırmak için zamanlama belirtmek için kullanılır.  
+Çıktı veri kümesi belirtir hello **zamanlama** hello için saklı yordam etkinliği (saatlik, haftalık, aylık, vb.). Merhaba çıktı veri kümesi kullanmalısınız bir **bağlantılı hizmeti** tooan Azure SQL Database veya bir Azure SQL Data Warehouse veya SQL Server veritabanı istediğiniz saklı yordam toorun hello başvuruyor. Merhaba çıktı veri kümesi hello saklı yordamın sonraki işleme biçimini toopass hello sonuç olarak başka bir etkinlik tarafından kullanılabileceği ([etkinlikleri zincirleme](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) hello ardışık düzeninde. Ancak, veri fabrikası otomatik olarak bir saklı yordam toothis dataset hello çıktısını yazmaz. Bu, çıktı veri kümesi noktalarına hello o yazma tooa SQL tablosu hello saklı yordamı olur. Bazı durumlarda, hello çıktı veri kümesi olabilir bir **kukla dataset**, toospecify hello zamanlama hello çalıştırmak için depolanan yordam etkinliği yalnızca kullanılır.  
 
 ### <a name="json-example"></a>JSON örneği
 
@@ -5627,15 +5627,15 @@ Bir giriş veri kümesi belirtirseniz, ('Hazır' durumunda) kullanılabilir olma
 Daha fazla bilgi için bkz: [saklı yordam etkinliği](data-factory-stored-proc-activity.md) makalesi. 
 
 ## <a name="net-custom-activity"></a>.NET özel etkinliği
-.NET özel etkinliğinde JSON tanımını aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **DotNetActivity**. Azure Hdınsight bağlı hizmeti oluşturmak veya bağlı bir Azure Batch hizmeti ve bağlı hizmetin adı için bir değer olarak belirtin **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için DotNetActivity ayarladığınızda:
+.NET özel etkinlik JSON tanımını özelliklerinde aşağıdaki hello belirtebilirsiniz. Merhaba type özelliği hello etkinliğinin olmalıdır: **DotNetActivity**. Azure Hdınsight bağlı hizmeti oluşturmak veya bağlı bir Azure Batch hizmeti ve hello için bir değer olarak hello hello bağlı hizmet adını belirtin **linkedServiceName** özelliği. Merhaba aşağıdaki özellikleri hello desteklenir **typeProperties** bölümünde etkinlik tooDotNetActivity hello türü ayarladığınızda:
  
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| AssemblyName | Derleme adı. Örnek,: **MyDotnetActivity.dll**. | Evet |
-| EntryPoint |IDotNetActivity arabirimini uygulayan sınıfı adı. Örnek,: **MyDotNetActivityNS.MyDotNetActivity** burada MyDotNetActivityNS ad alanı ve MyDotNetActivity sınıfı.  | Evet | 
-| PackageLinkedService | Özel Etkinlik zip dosyasını içeren blob depolama alanına işaret Azure Storage bağlı hizmetin adı. Örnek,: **AzureStorageLinkedService**.| Evet |
-| PackageFile | ZIP dosyasının adı. Örnek,: **customactivitycontainer/MyDotNetActivity.zip**. | Evet |
-| extendedProperties | Tanımlayın ve .NET kodu için geçirin genişletilmiş özellikler. Bu örnekte, **SliceStart** değişkeni SliceStart sistem değişkeni göre bir değere ayarlanır. | Hayır | 
+| AssemblyName | Merhaba derlemesinin adı. Merhaba örnek,: **MyDotnetActivity.dll**. | Evet |
+| EntryPoint |Merhaba IDotNetActivity arabirimini uygulayan hello sınıfının adı. Merhaba örnek,: **MyDotNetActivityNS.MyDotNetActivity** burada MyDotNetActivityNS hello ad alanı ve MyDotNetActivity hello sınıfı.  | Evet | 
+| PackageLinkedService | Merhaba hello özel etkinlik zip dosyasını içeren toohello blob depolama işaret Azure Storage bağlı hizmeti adı. Merhaba örnek,: **AzureStorageLinkedService**.| Evet |
+| PackageFile | Merhaba ZIP dosyasının adı. Merhaba örnek,: **customactivitycontainer/MyDotNetActivity.zip**. | Evet |
+| extendedProperties | Tanımlayın ve toohello .NET kodu geçirin genişletilmiş özellikler. Bu örnekte, hello **SliceStart** değişkeni hello SliceStart system değişkenine göre tooa değere ayarlanır. | Hayır | 
 
 ### <a name="json-example"></a>JSON örneği
 
@@ -5687,7 +5687,7 @@ Daha fazla bilgi için bkz: [saklı yordam etkinliği](data-factory-stored-proc-
 Ayrıntılı bilgi için bkz: [veri fabrikasında özel etkinlikleri kullanmak](data-factory-use-custom-activities.md) makalesi. 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Aşağıdaki öğreticiler bakın: 
+Eğitim aşağıdaki hello bakın: 
 
 - [Öğretici: kopyalama etkinliği ile işlem hattı oluşturma](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Öğretici: hive etkinliği ile işlem hattı oluşturma](data-factory-build-your-first-pipeline-using-editor.md)

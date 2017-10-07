@@ -1,6 +1,6 @@
 ---
 title: 'Machine Learning API: Metin analizi | Microsoft Docs'
-description: "Microsoft'un Machine Learning metin Analytics API'leri düşünceleri analiz, anahtar tümcecik ayıklama, dil algılama ve konu algılama için yapılandırılmamış metin analiz etmek için kullanılabilir."
+description: "Microsoft'un Machine Learning metin Analytics API'leri kullanılan tooanalyze olabilir düşünceleri analiz, anahtar tümcecik ayıklama, dil algılama ve konu algılama için yapılandırılmamış metin."
 services: machine-learning
 documentationcenter: 
 author: onewth
@@ -16,50 +16,50 @@ ms.date: 04/04/2017
 ms.author: onewth
 ROBOTS: NOINDEX
 redirect_url: ../cognitive-services/cognitive-services-text-analytics-quick-start
-redirect_document_id: TRUE
-ms.openlocfilehash: 10eae2ff5624dcb57de1cf72b326147f35bc2a0b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 49380c83849c5d5fdd8dce4f3899ebcb3d6870f7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="machine-learning-apis-text-analytics-for-sentiment-key-phrase-extraction-language-detection-and-topic-detection"></a>Machine Learning API’leri: Yaklaşım, Anahtar İfade Ayıklama, Dil Algılama ve Konu Algılama için Metin Analizi
 > [!NOTE]
-> Bu kılavuz, API için 1 sürümüdür. Sürüm 2 için [ **bu belgesine bakın**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). Sürüm 2 artık tercih edilen bu API sürümüdür.
+> Bu kılavuz hello API için 1 sürümüdür. Sürüm 2 için [ **toothis belge başvuran**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). Sürüm 2 şimdi hello tercih edilen bu API sürümüdür.
 > 
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Metin analizi API metin analizi paketidir [web Hizmetleri](https://datamarket.azure.com/dataset/amla/text-analytics) Azure Machine Learning ile oluşturulmuş. API düşünceleri analiz, anahtar tümcecik ayıklama, dil algılama ve konu algılama gibi görevler için yapılandırılmamış metin analiz etmek için kullanılabilir. Bu API kullanmak için hiçbir eğitim verisi gereklidir: yalnızca metin verilerinizi getirin. Bu API Gelişmiş doğal dil teknikleri işleme sınıfı tahminleri en iyi teslim etmek için kullanır.
+Merhaba metin Analytics API olan metin analizi dizisi [web Hizmetleri](https://datamarket.azure.com/dataset/amla/text-analytics) Azure Machine Learning ile oluşturulmuş. Merhaba API kullanılan tooanalyze olabilir düşünceleri analiz, anahtar tümcecik ayıklama, dil algılama ve konu algılama gibi görevler için yapılandırılmamış metin. Bu API toouse veriler hiçbir eğitim gerekli: yalnızca metin verilerinizi getirin. Bu API, Gelişmiş doğal dil teknikleri toodeliver en iyi sınıf tahminleri işleme kullanır.
 
-Eylem metin analizleri görebileceğinizi bizim [gösteri sitesi](https://text-analytics-demo.azurewebsites.net/), ayrıca bulabileceğiniz [örnekleri](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) C# ve Python metin analizi uygulamak nasıl.
+Eylem metin analizleri görebileceğinizi bizim [gösteri sitesi](https://text-analytics-demo.azurewebsites.net/), ayrıca bulabileceğiniz [örnekleri](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) nasıl tooimplement metin analizi C# ve Python.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 - - -
 ## <a name="sentiment-analysis"></a>Duygu analizi
-API, 0 ve 1 arasında sayısal bir puan döndürür. Puanları 0 yakın negatif düşünceleri belirtmek sırada 1 yakın puanları pozitif düşünceleri gösterir. Yaklaşım puanı, sınıflandırma teknikleri kullanılarak oluşturulur. Giriş özellikleri sınıflandırıcı n-gram, konuşma bölümü etiketleri ve word eklerinin oluşturulan özellikler içerir. Şu anda, İngilizce yalnızca desteklenen dilidir.
+Merhaba API 0 ve 1 arasında sayısal bir puan döndürür. Puanları Kapat too1 puanları Kapat too0 belirtmek sırada negatif düşünceleri pozitif düşünceleri gösterir. Yaklaşım puanı, sınıflandırma teknikleri kullanılarak oluşturulur. Merhaba giriş özellikleri toohello sınıflandırıcı n-gram, konuşma bölümü etiketleri ve word eklerinin oluşturulan özellikler içerir. Şu anda, İngilizce dil hello yalnızca desteklenen değil.
 
 ## <a name="key-phrase-extraction"></a>Anahtar tümcecik ayıklama
-API, giriş metnindeki başlıca konuşma noktalarını gösteren bir dize listesi döndürür. Microsoft Office’in kapsamlı Doğal Dil İşleme araç setinden alınan teknikleri kullanırız. Şu anda, İngilizce yalnızca desteklenen dilidir.
+Merhaba API hello anahtar Konuşmayı noktaları hello giriş metin belirten dizelerinin listesini döndürür. Microsoft Office’in kapsamlı Doğal Dil İşleme araç setinden alınan teknikleri kullanırız. Şu anda, İngilizce dil hello yalnızca desteklenen değil.
 
 ## <a name="language-detection"></a>Dil algılama
-API, 0 ve 1 arasında algılanan dil ve sayısal bir puan döndürür. Puanın 1’e yakın olması, tanımlanan dilin %100 olasılıkla doğru olduğunu gösterir. Toplamda 120 dil desteklenir.
+Merhaba API hello algıladı dil ve 0 ve 1 arasında sayısal bir puan döndürür. Puanları Kapat too1% 100 çalışılarak tanımlanan hello dil doğru olduğunu gösterir. Toplamda 120 dil desteklenir.
 
 ## <a name="topic-detection"></a>Konu algılama
-Bu konular listesini görmek için üst algılanan döndüren metin kayıtları gönderilen yeni yayımlanmış bir API'dir. Konular, bir veya daha fazla ilgili sözcükten oluşan bir anahtar ifade ile tanımlanır. Bu API en az 100 metin kaydının gönderilmesini gerektirir, ancak yüzlerce veya binlerce kayıt içindeki konuları algılayacak şekilde tasarlanmıştır. Bu API’de gönderilen metin kaydı başına 1 işlem ücreti uygulandığını unutmayın. API incelemeler ve kullanıcı geri bildirim gibi kısa, İnsan yazılı metin için iyi çalışmak üzere tasarlanmıştır.
+Bu üst algılanan konuları gönderilen metin kayıtların listesini hello döndüren yeni yayımlanmış bir API'dir. Konular, bir veya daha fazla ilgili sözcükten oluşan bir anahtar ifade ile tanımlanır. Bu API en az 100 metin gönderilen toobe kaydeder, ancak tasarlanmış toodetect konuları yüzlerce arasında olduğu gerektiriyor kayıtların toothousands. Bu API’de gönderilen metin kaydı başına 1 işlem ücreti uygulandığını unutmayın. Merhaba API iyi incelemeler ve kullanıcı geri bildirim gibi metin yazılmış kısa, İnsan için tasarlanmış toowork ' dir.
 
 - - -
 ## <a name="api-definition"></a>API tanımı
 ### <a name="headers"></a>Üstbilgileri
-Şu şekilde olmalıdır isteğinizin içinde doğru üstbilgileri eklediğinizden emin olun:
+Şu şekilde olmalıdır isteğinizin içinde hello doğru üstbilgileri eklediğinizden emin olun:
 
     Authorization: Basic <creds>
     Accept: application/json
 
     Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-Hesabınızdaki hesap anahtarınızı bulabilirsiniz [Azure veri Pazar](https://datamarket.azure.com/account/keys). Şu anda yalnızca JSON için girdi ve çıktı biçimleri kabul edildiğini not edin. XML desteklenmiyor.
+Hesap anahtarınızı hesabınızdan hello bulabilirsiniz [Azure veri Pazar](https://datamarket.azure.com/account/keys). Şu anda yalnızca JSON için girdi ve çıktı biçimleri kabul edildiğini not edin. XML desteklenmiyor.
 
 - - -
 ## <a name="single-response-apis"></a>Tek bir yanıt API'leri
@@ -70,7 +70,7 @@ Hesabınızdaki hesap anahtarınızı bulabilirsiniz [Azure veri Pazar](https://
 
 **Örnek istek**
 
-Çağrısında biz "Hello World" ifadesi düşünceleri analize isteyen:
+Merhaba çağrısında aşağıdaki biz düşünceleri analiz hello deyimi "Hello World" istekte:
 
     GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
 
@@ -89,7 +89,7 @@ Bu gibi bir yanıt döndürür:
 
 **Örnek istek**
 
-Şu çağrısında biz anahtar sözcükler metinde "Bu, benzersiz dekorasyonu ve kolay personeli ile kalmak için harika bir otel" bulundu isteyen:
+Merhaba çağrısında aşağıdaki biz hello anahtar tümcecikleri hello metinde "Bu harika bir otel toostay adresindeki, benzersiz dekorasyonu ve kolay personeli ile" bulundu isteyen:
 
     GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
     Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
@@ -113,7 +113,7 @@ Bu gibi bir yanıt döndürür:
 
 **Örnek istek**
 
-Aşağıdaki GET çağrısında biz metindeki anahtar sözcükler düşünceleri için istekte *Hello World*
+Merhaba GET çağrı aşağıdaki biz hello anahtar tümcecikleri hello metin hello düşünceleri için istekte *Hello World*
 
     GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguages?
     Text=Hello+World
@@ -131,13 +131,13 @@ Bu gibi bir yanıt döndürür:
 
 **İsteğe bağlı parametreler**
 
-`NumberOfLanguagesToDetect`İsteğe bağlı bir parametredir. Varsayılan değer 1'dir.
+`NumberOfLanguagesToDetect`İsteğe bağlı bir parametredir. Merhaba, 1 varsayılandır.
 
 - - -
 ## <a name="batch-apis"></a>Batch API'leri
-Metin analizi hizmeti düşünceleri ve anahtar tümcecik ayıklamaları toplu iş modunda yapmanıza olanak sağlar. Kayıtların her birinde bir işlem olarak sayıları skoru unutmayın. Tek bir çağrı 1000 kayıtlarında düşünceleri isterse bir örnek olarak, 1000 işlemleri düşülür.
+Merhaba metin Analytics hizmeti, toodo düşünceleri ve anahtar tümcecik ayıklamaları toplu iş modunda sağlar. Merhaba kayıtların her birinde bir işlem olarak sayıları skoru unutmayın. Tek bir çağrı 1000 kayıtlarında düşünceleri isterse bir örnek olarak, 1000 işlemleri düşülür.
 
-Sisteme girildiğinde kimlikleri sistem tarafından döndürülen kimlikleri olduğunu unutmayın. Web hizmeti, bu kimlikleri benzersiz denetlemez. Benzersizlik doğrulamak için arayan sorumluluğundadır. 
+Merhaba kimlikleri hello sisteme girildiğinde Not hello sistem tarafından döndürülen hello kimlikleri aynıdır. Merhaba web hizmeti, bu kimlikleri benzersiz denetlemez. Bunu hello hello arayan tooverify benzersizlik sorumluluğundadır. 
 
 ### <a name="getsentimentbatch"></a>GetSentimentBatch
 **URL**    
@@ -146,7 +146,7 @@ Sisteme girildiğinde kimlikleri sistem tarafından döndürülen kimlikleri old
 
 **Örnek istek**
 
-POST çağrısına biz "Hello World", "Merhaba Foo World" ve "Merhaba My World" istek gövdesinde tümcecikleri düşüncelerin için istekte:
+Biz hello düşüncelerin hello tümce "Hello World", "Hello World Foo" ve "Merhaba My World" Merhaba hello istek gövdesi için istekte aşağıda Hello POST arayın:
 
     POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch 
 
@@ -159,7 +159,7 @@ POST çağrısına biz "Hello World", "Merhaba Foo World" ve "Merhaba My World" 
         {"Id":"3","Text":"hello my world"},
     ]}
 
-Yanıtta metin kimlikleri ile ilişkilendirilmiş puanları listesini alın:
+Aşağıdaki Hello yanıt olarak metin kimlikleri ile ilişkilendirilmiş puanları hello listesini alın:
 
     {
       "odata.metadata":"<url>", 
@@ -181,13 +181,13 @@ Yanıtta metin kimlikleri ile ilişkilendirilmiş puanları listesini alın:
 
 **Örnek istek**
 
-Bu örnekte, biz aşağıdaki metinleri anahtar tümcecikleri düşüncelerin listesi için istekte: 
+Bu örnekte, biz metinleri aşağıdaki hello hello anahtar tümcecikleri düşüncelerin hello listesi için istekte: 
 
-* ", Benzersiz dekorasyonu ve kolay personeli ile kalmak için harika bir otel oluştu"
+* "Konumunda, benzersiz dekorasyonu ve kolay personeli ile harika bir otel toostay oluştu"
 * "Çok ilginç konuşmaları ile harika bir yapı konferans oluştu"
-* "Trafiği korkunç, üç havaalanı giderek saat harcanan"
+* "hello trafiği korkunç, üç toohello havaalanı giderek saat harcanan"
 
-Bu istekte bir uç nokta POST çağrısına olarak:
+Bu istek bir POST çağrısı toohello uç noktası olarak yapılır:
 
     POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
 
@@ -195,12 +195,12 @@ Bu istekte bir uç nokta POST çağrısına olarak:
 
     {"Inputs":
     [
-        {"Id":"1","Text":"It was a wonderful hotel to stay at, with unique decor and friendly staff"},
+        {"Id":"1","Text":"It was a wonderful hotel toostay at, with unique decor and friendly staff"},
         {"Id":"2","Text":"It was an amazing build conference, with very interesting talks"},
-        {"Id":"3","Text":"The traffic was terrible, I spent three hours going to the airport"}
+        {"Id":"3","Text":"hello traffic was terrible, I spent three hours going toohello airport"}
     ]}
 
-Yanıtta metninizi kimlikleri ile ilişkili anahtar tümcecikleri listesini alın:
+Aşağıdaki Hello yanıt olarak metninizi kimlikleri ile ilişkili anahtar tümcecikleri hello listesini alın:
 
     { "odata.metadata":"<url>",
          "KeyPhrasesBatch":
@@ -215,7 +215,7 @@ Yanıtta metninizi kimlikleri ile ilişkili anahtar tümcecikleri listesini alı
 - - -
 ### <a name="getlanguagebatch"></a>GetLanguageBatch
 
-İki metin girdi için dil algılama POST çağrısına biz isteyen:
+Merhaba POST çağrısında aşağıdaki biz iki metin girdi için dil algılama isteyen:
 
     POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguageBatch
 
@@ -228,7 +228,7 @@ Yanıtta metninizi kimlikleri ile ilişkili anahtar tümcecikleri listesini alı
       ]
     }
 
-Bu, aşağıdaki yanıtı burada İngilizce ilk giriş ve Fransızca'nın ikinci girişinde algılandığında döndürür:
+Bu yanıt, burada İngilizce ilk giriş hello ve Fransızca hello ikinci giriş algılandığında aşağıdaki hello döndürür:
 
     {
        "LanguageBatch": [{
@@ -254,9 +254,9 @@ Bu, aşağıdaki yanıtı burada İngilizce ilk giriş ve Fransızca'nın ikinci
 
 - - -
 ## <a name="topic-detection-apis"></a>Konu algılama API'leri
-Bu konular listesini görmek için üst algılanan döndüren metin kayıtları gönderilen yeni yayımlanmış bir API'dir. Konular, bir veya daha fazla ilgili sözcükten oluşan bir anahtar ifade ile tanımlanır. Bu API’de gönderilen metin kaydı başına 1 işlem ücreti uygulandığını unutmayın.
+Bu üst algılanan konuları gönderilen metin kayıtların listesini hello döndüren yeni yayımlanmış bir API'dir. Konular, bir veya daha fazla ilgili sözcükten oluşan bir anahtar ifade ile tanımlanır. Bu API’de gönderilen metin kaydı başına 1 işlem ücreti uygulandığını unutmayın.
 
-Bu API en az 100 metin kaydının gönderilmesini gerektirir, ancak yüzlerce veya binlerce kayıt içindeki konuları algılayacak şekilde tasarlanmıştır.
+Bu API en az 100 metin gönderilen toobe kaydeder, ancak tasarlanmış toodetect konuları yüzlerce arasında olduğu gerektiriyor kayıtların toothousands.
 
 ### <a name="topics--submit-job"></a>Konular – gönderme iş
 **URL**
@@ -265,29 +265,29 @@ Bu API en az 100 metin kaydının gönderilmesini gerektirir, ancak yüzlerce ve
 
 **Örnek istek**
 
-Aşağıdaki POST çağrısında biz 100 makaleler, burada ilk ve son giriş makaleleri gösterilir ve iki StopPhrases dahil edilen bir dizi konuları istiyor.
+Merhaba POST çağrısında aşağıdaki biz burada hello ilk ve son makaleleri gösterilir ve iki StopPhrases dahil edilen giriş 100 makaleleri bir dizi konuları istiyor.
 
     POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection HTTP/1.1
 
 İstek gövdesi:
 
     {"Inputs":[
-        {"Id":"1","Text":"I loved the food at this restaurant"},
+        {"Id":"1","Text":"I loved hello food at this restaurant"},
         ...,
-        {"Id":"100","Text":"I hated the decor"}
+        {"Id":"100","Text":"I hated hello decor"}
     ],
     "StopPhrases":[
         "restaurant", “visitor"
     ]}
 
-Yanıtta gönderilen iş için JobId alın:
+Aşağıdaki Hello yanıt olarak hello gönderilen iş için hello JobId alın:
 
     {
         "odata.metadata":"<url>",
         "JobId":"<JobId>"
     }
 
-Tek sözcük veya konuları döndürülmemesi gereken birden çok word tümcecikleri listesi. Çok genel konular filtrelemek için kullanılabilir. Örneğin, otel incelemeleri hakkında bir veri kümesinde duyarlı stop deyimleri "otel" ve "hostel" olabilir.  
+Tek sözcük veya konuları döndürülmemesi gereken birden çok word tümcecikleri listesi. Çok genel konular çıkışı kullanılan toofilter olabilir. Örneğin, otel incelemeleri hakkında bir veri kümesinde duyarlı stop deyimleri "otel" ve "hostel" olabilir.  
 
 ### <a name="topics--poll-for-job-results"></a>Konular – iş sonuçları için yoklama
 **URL**
@@ -296,12 +296,12 @@ Tek sözcük veya konuları döndürülmemesi gereken birden çok word tümcecik
 
 **Örnek istek**
 
-Sonuçları getirmek için 'Gönderme iş' adımdan döndürülen JobId geçirin. Durum kadar dakikada Bu uç noktasını çağırmak öneririz 'Tamamlandı' yanıtta =. Tam ya da binlerce kayıtları işleriyle için uzun bir iş için yaklaşık 10 dakika sürer.
+JobId hello 'Gönderme iş' adım toofetch hello sonuçlarından döndürülen hello geçirin. Durum kadar dakikada Bu uç noktasını çağırmak öneririz 'Tamamlandı' hello yanıtta =. İş toocomplete veya uzun süre binlerce kayıtları işleriyle yaklaşık 10 dakika sürer.
 
     GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult?JobId=<JobId>
 
 
-Bunu işlerken yanıt şu şekilde olacaktır:
+Bunu işlerken hello yanıt şu şekilde olacaktır:
 
     {
         "odata.metadata":"<url>",
@@ -312,7 +312,7 @@ Bunu işlerken yanıt şu şekilde olacaktır:
     }
 
 
-API çıktı şu biçimde JSON biçiminde döndürür:
+Merhaba API çıktı biçimi aşağıdaki hello JSON biçiminde döndürür:
 
     {
         "odata.metadata":"<url>",
@@ -346,21 +346,21 @@ API çıktı şu biçimde JSON biçiminde döndürür:
         "Errors":[]
 
 
-Tüm yanıt için özellikler aşağıdaki gibidir:
+Merhaba özellikleri hello yanıt her kısmı için aşağıdaki gibidir:
 
 **TopicInfo özellikleri**
 
 | Anahtar | Açıklama |
 |:--- |:--- |
 | TopicId |Her konu için benzersiz bir tanımlayıcı. |
-| Puan |Konuya atanan kayıt sayısı. |
-| Anahtar cümlesi |Bir summarizing sözcük veya tümcecik konu için. 1 veya birden çok sözcük olabilir. |
+| Puan |Kayıt sayısı tootopic atanır. |
+| Anahtar cümlesi |Bir summarizing sözcük veya tümcecik hello konu için. 1 veya birden çok sözcük olabilir. |
 
 **TopicAssignment özellikleri**
 
 | Anahtar | Açıklama |
 |:--- |:--- |
-| Kimlik |Kaydı için tanımlayıcı. Girdide bulunan kimliği karşılık gelir. |
-| TopicId |Kayıt atandı konu kimliği. |
-| uzaklık |GÜVENİRLİK kaydı konuya ait. Sıfıra yakın uzaklığı daha yüksek güvenilirlik gösterir. |
+| Kimlik |Merhaba kaydı için tanımlayıcı. Merhaba girişinde dahil toohello kimliği karşılık gelir. |
+| TopicId |Kayıt hello hello konu kimliği atandı. |
+| uzaklık |Kayıt hello güvenirlik toohello konu aittir. Uzaklık daha yakından toozero daha yüksek güvenilirlik gösterir. |
 

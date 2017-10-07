@@ -1,5 +1,5 @@
 ---
-title: "Oluşturma ve bir iç yük dengeleyici bir uygulama hizmeti ortamı ile kullanma | Microsoft Docs"
+title: "aaaCreating ve bir iç yük dengeleyici bir uygulama hizmeti ortamı ile kullanma | Microsoft Docs"
 description: "Oluşturma ve bir ana bir ILB ile kullanma"
 services: app-service
 documentationcenter: 
@@ -14,126 +14,126 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 9e5a40f18eb9eaf60579af21afc6f05c2d87f4c1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 20799f260993d6e81499408e5b547a2e21430174
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Bir iç yük dengeleyici ile uygulama hizmeti ortamı kullanma
 
 > [!NOTE] 
-> Bu makale hakkında uygulama hizmeti ortamı v1 yazılmıştır. Uygulama hizmeti ortamı kullanmak daha kolay ve daha güçlü altyapısı üzerinde çalışan daha yeni bir sürümü var. Yeni sürüm Başlarken hakkında daha fazla bilgi edinmek için [uygulama hizmeti ortamı giriş](../app-service/app-service-environment/intro.md).
+> Uygulama hizmeti ortamı v1 hello hakkında makaledir. Merhaba, daha kolay toouse ve daha güçlü altyapısı üzerinde çalışan uygulama hizmeti ortamı'nın daha yeni bir sürümü var. Merhaba yeni sürümü hakkında daha fazla ile Merhaba Başlat toolearn [giriş toohello uygulama hizmeti ortamı](../app-service/app-service-environment/intro.md).
 >
 
-Uygulama hizmeti ortamı (ana) özelliği, çok kiracılı Damgalar kullanılamaz bir Gelişmiş Yapılandırma özelliği sunan Azure App Service'in Premium hizmet seçeneğidir. ANA özelliği, Azure sanal Network(VNet) Azure App Service'te temelde dağıtır. Okuma App Service ortamları tarafından sunulan yetenekleri büyük anlamak için [bir uygulama hizmeti ortamı nedir] [ WhatisASE] belgeleri. VNet okunur işletim avantajlarını bilmiyorsanız, [Azure Virtual Network SSS][virtualnetwork]. 
+Merhaba uygulama hizmeti ortamı (ana) özelliği, hello çok Kiracı damga olarak kullanılabilir bir Gelişmiş Yapılandırma özelliği sunan Azure App Service'in Premium hizmet seçeneğidir. Merhaba ana özellik temelde hello Azure App Service, Azure sanal Network(VNet) içinde dağıtır. App Service ortamları tarafından hello yeteneklerini daha iyi bir anlayışa sunulan toogain okuma hello [bir uygulama hizmeti ortamı nedir] [ WhatisASE] belgeleri. Sanal ağ içinde işletim hello faydası hello bilmiyorsanız [Azure Virtual Network SSS][virtualnetwork]. 
 
 ## <a name="overview"></a>Genel Bakış
-Bir ana sanal ağınızı bir IP adresi veya bir internet erişilebilir uç nokta ile dağıtılabilir. IP adresi için bir sanal ağ adresi ayarlamak için bir iç yük Balancer(ILB) ile ana dağıtmanız gerekir. Ana bir ILB ile yapılandırıldığında, sağlar:
+Bir ana sanal ağınızı bir IP adresi veya bir internet erişilebilir uç nokta ile dağıtılabilir. Sipariş tooset başlangıç IP adresi tooa VNet adres, ana bir iç yük Balancer(ILB) ile toodeploy gerekir. Ana bir ILB ile yapılandırıldığında, sağlar:
 
-* kendi etki alanı veya alt etki alanı. Bu belge kolaylaştırmak için alt etki alanı olduğunu varsayar ancak her iki durumda da yapılandırabilirsiniz. 
-* HTTPS için kullanılan sertifika
+* kendi etki alanı veya alt etki alanı. toomake kolay, alt etki alanı, ancak bu belgenin varsayar, her iki durumda da yapılandırabilirsiniz. 
+* HTTPS için kullanılan hello sertifikası
 * Alt etki alanı için DNS yönetimi. 
 
 Buna karşılık, sizin gibi şeyler yapabilir:
 
-* İş kolu uygulamaları, bulutta bir siteye Site veya ExpressRoute VPN üzerinden erişebileceğiniz güvenli bir şekilde gibi ana bilgisayar intranet uygulamaları
-* Genel DNS sunucuları listelenmeyen ana bilgisayar uygulamalarını bulutta
+* İş kolu uygulamaları, güvenli bir şekilde hello içinde gibi ana bilgisayar intranet uygulamalarını hangi erişim Site tooSite veya ExpressRoute VPN aracılığıyla bulut
+* ana bilgisayar genel DNS sunucuları listelenmeyen hello bulut uygulamalarında
 * ön uç uygulamalarınızı güvenli bir şekilde ile tümleştirebilirsiniz yalıtılmış Internet arka uç uygulamaları oluşturma
 
 #### <a name="disabled-functionality"></a>Devre dışı bırakılan işlevsellik
 Bir ILB ana kullanırken yapamayacağınız bazı şeyler vardır. Bu konuları içerir:
 
 * IPSSL kullanma
-* belirli uygulamalar için IP adresleri atama
-* satın alma ve portal üzerinden bir uygulama ile bir sertifika kullanıyor. Elbette yine bir sertifika yetkilisi ile doğrudan sertifikaları almak ve uygulamalarınızda Azure portalı üzerinden yalnızca değil kullanın.
+* IP toospecific uygulamaları adresleri atama
+* satın alma ve hello portal aracılığıyla bir uygulama ile bir sertifika kullanıyor. Elbette yine bir sertifika yetkilisi ile doğrudan sertifikaları almak ve uygulamalarınızda hello Azure portalı üzerinden yalnızca değil kullanın.
 
 ## <a name="creating-an-ilb-ase"></a>Bir ILB ana oluşturma
-Bir ILB ana oluşturma bir ana normalde oluşturma çok farklı değildir. Bir ana oluşturma hakkında daha ayrıntılı bir tartışma için okuma [bir uygulama hizmeti ortamı oluşturmak nasıl][HowtoCreateASE]. Bir ILB ana oluşturma işlemi ana oluşturma sırasında bir VNet oluşturma veya varolan bir sanal ağ seçme arasında aynıdır. Bir ILB ana oluşturmak için: 
+Bir ILB ana oluşturma bir ana normalde oluşturma çok farklı değildir. Bir ana oluşturma hakkında daha ayrıntılı bir tartışma için okuma [nasıl tooCreate bir uygulama hizmeti ortamı][HowtoCreateASE]. bir ILB ana olduğu hello işlem toocreate hello ana oluşturma sırasında bir VNet oluşturma veya varolan bir sanal ağ seçme arasında aynı. bir ILB ana toocreate: 
 
-1. Azure portal Seç **yeni -> Web + mobil -> uygulama hizmeti ortamı**
+1. Hello Azure portal seçin, **yeni -> Web + mobil -> uygulama hizmeti ortamı**
 2. Aboneliğinizi seçin
 3. Bir kaynak grubu seçin veya oluşturun
 4. Bir VNet oluşturun veya seçin
 5. Bir sanal ağı seçerek bir alt ağ oluşturun
-6. Seçin **sanal ağ konumu sanal ağ yapılandırması ->** ve VIP türü için dahili olarak ayarlayın
-7. (Bu ana içinde oluşturulan uygulamaları için kullanılan alt etki alanı olacaktır) alt etki alanı adı sağlayın
+6. Seçin **sanal ağ konumu sanal ağ yapılandırması ->** ve kümesi hello VIP türü tooInternal
+7. (Bu ana içinde oluşturulan uygulamaları için kullanılan hello alt etki alanı olacaktır) alt etki alanı adı sağlayın
 8. Tamam'ı seçin ve ardından oluşturun
 
 ![][1]
 
-Sanal ağ Dikey içinde bir sanal ağ yapılandırma seçeneği yoktur. Bir dış VIP veya iç VIP arasında bu sağlar. Dış varsayılandır. Dış ayarlanmalıdır varsa, ana Internet erişilebilir VIP kullanır. Dahili seçerseniz, ana sanal ağınızın içinde bir IP adresinde bir ILB ile yapılandırılır. 
+Merhaba sanal ağ Dikey içinde bir sanal ağ yapılandırma seçeneği yoktur. Bir dış VIP veya iç VIP arasında bu sağlar. Merhaba, dış varsayılandır. TooExternal ayarlanmalıdır varsa, ana Internet erişilebilir VIP kullanır. Dahili seçerseniz, ana sanal ağınızın içinde bir IP adresinde bir ILB ile yapılandırılır. 
 
-Dahili seçtikten sonra ana daha fazla IP adresleri ekleme yeteneği kaldırılır ve bunun yerine ana alt sağlamanız gerekir. Bir dış VIP ile bir ana ana adını alt etki alanı içinde bu ana oluşturulan uygulamalar için kullanılır. Ana çağrıldıklarında ***contosotest*** ve o ana uygulamanızda çağrıldı ***mytest*** alt etki alanı biçimi şu şekilde olacaktır ***contosotest.p.azurewebsites.net*** ve URL Bu uygulama olacaktır için ***mytest.contosotest.p.azurewebsites.net***. Ana adınızı Internal VIP türü ayarlarsanız, alt etki alanı içinde ana için kullanılmaz. Alt etki alanı açıkça belirtin. Alt etki alanı varsa ***contoso.corp.net*** ve ana adlı içeren bir uygulama tarafından ***timereporting*** bu uygulama için URL şu şekilde olacaktır ***timereporting.contoso.corp.net***.
+Dahili seçtikten sonra ana kaldırılır tooyour daha fazla IP adres özelliği tooadd hello ve bunun yerine hello ana tooprovide hello alt etki gerekir. Bir dış VIP hello ile bir ana hello ana adını hello alt etki alanı içinde bu ana oluşturulan uygulamalar için kullanılır. Ana çağrıldıklarında ***contosotest*** ve o ana uygulamanızda çağrıldı ***mytest*** hello alt etki alanı hello biçimi şu şekilde olacaktır ***contosotest.p.azurewebsites.net*** ve Merhaba bu uygulama için URL olacaktır ***mytest.contosotest.p.azurewebsites.net***. Merhaba VIP türü tooInternal ayarlarsanız, ana adınızı hello alt etki alanı içinde ana hello için kullanılmaz. Merhaba alt etki alanı açıkça belirtin. Alt etki alanı varsa ***contoso.corp.net*** ve ana adlı içeren bir uygulama tarafından ***timereporting*** bu uygulama olacaktır için URL hello ***timereporting.contoso.corp.net***.
 
 ## <a name="apps-in-an-ilb-ase"></a>Bir ILB ana uygulamalar
-ILB ASE'de bir uygulama oluşturma ASE'de normalde bir uygulama oluşturma aynıdır. 
+ILB ASE'de bir uygulama oluşturma olduğu hello ASE'de normalde bir uygulama oluşturma aynıdır. 
 
-1. Azure portal Seç **yeni -> Web + mobil -> Web** veya **mobil** veya **API uygulaması**
+1. Hello Azure portal seçin, **yeni -> Web + mobil -> Web** veya **mobil** veya **API uygulaması**
 2. Uygulama adını girin
 3. Abonelik seçme
 4. Kaynak grubu seçin veya oluşturun
-5. Uygulama hizmeti Plan(ASP) oluşturun veya seçin. Yeni bir ASP oluşturma sonra ana konum olarak seçin ve çalışan havuzunda seçerseniz, ASP oluşturulması istiyorsunuz. ASP oluşturduğunuzda, konum ve çalışan havuzu, ana seçin. Uygulama adı belirttiğinizde, uygulama adı altında bir alt etki alanı için ana alt etki alanına değiştirilir görürsünüz. 
-6. Bu seçeneği belirleyin. Seçmeniz gerekir **panoya Sabitle** Panonuzda göstermeyi uygulama istiyorsanız onay kutusunu. 
+5. Uygulama hizmeti Plan(ASP) oluşturun veya seçin. Yeni bir ASP ardından oluşturarak, ana hello konumu ve select hello çalışan havuzunda belirlerseniz, oluşturulan, ASP toobe istiyorsunuz. Merhaba ASP oluşturduğunuzda hello konumu ve hello çalışan havuzu, ana seçin. Bu hello alt etki alanı altında görürsünüz hello uygulamasının hello adı belirttiğinizde, uygulama adı, ana için hello alt etki alanına değiştirilir. 
+6. Bu seçeneği belirleyin. Merhaba seçmelisiniz **PIN toodashboard** hello uygulama tooshow yukarı Panonuzda istiyorsanız onay kutusunu. 
 
 ![][2]
 
-Uygulama adı altında alt etki alanı adı, ana etki alanının alt yansıtacak şekilde güncelleştirilir. 
+Merhaba uygulama altında hello alt etki alanı adı, ana güncelleştirilmiş tooreflect hello alt etki alır. 
 
 ## <a name="post-ilb-ase-creation-validation"></a>POST ILB ana oluşturma doğrulama
-Bir ILB ana olmayan - ILB ana değerinden biraz farklıdır. Zaten kendi DNS yönetmeniz gerekmez ve aynı zamanda HTTPS bağlantıları için kendi sertifikanızı sağlamak zorunda not almıştınız. 
+Bir ILB ana hello olmayan - ILB ana değerinden biraz farklıdır. Zaten kendi DNS toomanage gerekir ve tooprovide kullanarak kendi sertifikanızı HTTPS bağlantıları için de not almıştınız. 
 
-Ana oluşturduktan sonra belirttiğiniz ve yeni bir öğe yok ve alt etki alanının alt etki alanı gösterir fark edeceksiniz **ayarı** adlı menüsü **ILB sertifika**. Ana HTTPS test kolay hale getiren otomatik olarak imzalanan bir sertifika ile oluşturulur. Portalı kullanarak kendi sertifikanızı HTTPS için sağlamanız gereken size söyleyecektir ancak bu, alt etki alanı ile giden bir sertifika sağlamak için sürücü yüklemektir. 
+Ana oluşturduktan sonra bu hello alt etki alanı gösterir hello alt etki alanı belirttiğiniz ve hello yeni bir öğe olduğu fark edeceksiniz **ayarı** adlı menüsü **ILB sertifika**. Merhaba ana daha kolay tootest HTTPS kolaylaştırır otomatik olarak imzalanan bir sertifika ile oluşturulur. Merhaba portalı kullanarak kendi sertifikanızı tooprovide HTTPS için gerekir, ancak toodrive budur size bildirir, alt etki alanı ile giden bir sertifika toohave. 
 
 ![][3]
 
-Öğeleri yalnızca çalıştığınız ve bir sertifika oluşturmak nasıl bilmiyorsanız, otomatik olarak imzalanan sertifika oluşturmak için IIS MMC konsol uygulamasını kullanabilirsiniz. Bir kez oluşturulduktan sonra bir .pfx dosyası olarak dışarı aktarma ve ILB sertifika Arabiriminde yükleyin. Tarayıcınız otomatik olarak imzalanan sertifikası ile güvenli bir siteye eriştiğinizde, erişmeye çalıştığınız site sertifikayı doğrulamak için sorunları nedeniyle güvenli olmadığını bildiren bir uyarı verir. Bu uyarıyı önlemek istiyorsanız, alt etki alanı ile eşleşen ve bir tarayıcınız tarafından kabul edilen güven zinciri olan doğru imzalı bir sertifika gerekir.
+IIS MMC şeyler yalnızca çalıştığınız ve nasıl toocreate bir sertifika, kullanabileceğiniz bilmiyorsanız hello self bir konsol uygulaması toocreate imzalı sertifika. Bir kez oluşturulduktan sonra bir .pfx dosyası olarak dışarı aktarma ve hello ILB sertifika UI yükleyin. Ne zaman otomatik olarak imzalanan bir sertifika, tarayıcınızı güvenli bir site eriştiğiniz site hello bir uyarı verir erişim toohello bağlanamama toovalidate hello sertifika güvenli değildir. Bu uyarı tooavoid istiyorsanız, alt etki alanı ile eşleşen ve bir tarayıcınız tarafından kabul edilen güven zinciri olan doğru imzalı bir sertifika gerekir.
 
 ![][6]
 
-Kendi sertifikaları ile akışını deneyin ve, ana hem HTTP hem de HTTPS erişimi test etmek istiyorsanız:
+İsterseniz tootry hello kendi sertifikalarla akış ve HTTP ve HTTPS erişim tooyour ana test:
 
-1. Ana ana oluşturulduktan sonra UI gidin **ana ayarları -> ILB sertifikalar ->**
-2. Sertifika pfx dosyasını seçerek ILB sertifika ayarlayın ve parola belirtin. Bu adım işlemek için işlem biraz zaman alır ve bir ölçeklendirme işlemi devam ediyor iletisi gösterilir.
-3. ILB adresi almak için ana (**ana -> Özellikler sanal IP adresi ->**)
+1. Ana oluşturulduktan sonra tooASE UI Git **ana ayarları -> ILB sertifikalar ->**
+2. Sertifika pfx dosyasını seçerek ILB sertifika ayarlayın ve parola belirtin. Bu adım sırasında tooprocess biraz alır ve bir ölçeklendirme işlemi devam ediyor hello iletisi gösterilir.
+3. Merhaba ILB adresini almak için ana (**ana -> Özellikler sanal IP adresi ->**)
 4. İçinde ana oluşturulduktan sonra bir web uygulaması oluşturma 
-5. Bu VNET birinde (değil, aynı alt ağda ana veya şeyler sonu) yoksa, bir VM oluşturma
-6. DNS alt etki alanı için ayarlayın. Joker karakter ile alt etki alanı DNS sunucunuzun kullanın veya bazı basit testler yapmak istiyorsanız VIP IP adresi için web uygulaması adı ayarlamak için VM üzerinde hosts dosyasını düzenleyin. Alt etki alanı adı, ana olsaydı. ilbase.com ve böylece mytestapp.ilbase.com ele ardından hosts dosyasında kümesi web uygulama mytestapp yapılan. (Windows hosts dosyasını C:\Windows\System32\drivers\etc\ olduğu)
-7. Http://mytestapp.ilbase.com (veya web uygulaması adı, alt etki alanı ile ne olursa olsun) gidin ve bu VM'e bir tarayıcı kullanın
-8. Bu VM üzerinde bir tarayıcı kullanın ve kendinden imzalı bir sertifika kullanıyorsanız, güvenlik eksikliği kabul etmek zorunda olacaktır https://mytestapp.ilbase.com gidin. 
+5. Bu VNET içinde yoksa, bir VM oluşturma (de hello aynı alt ağda hello ana veya şeyler sonu)
+6. DNS alt etki alanı için ayarlayın. Joker karakter ile alt etki alanı DNS sunucunuzun kullanın veya bazı basit testler toodo istiyorsanız VM tooset web uygulaması adı tooVIP IP adresinizi hello hosts dosyasını düzenleyin. Merhaba alt etki alanı adı, ana olsaydı. ilbase.com ve yapılan mytestapp.ilbase.com ele ardından hosts dosyasında kümesi böylece web uygulama mytestapp hello. (Windows hello hosts C:\Windows\System32\drivers\etc\ dosyasıdır)
+7. Bu VM üzerinde bir tarayıcı kullanın ve toohttp://mytestapp.ilbase.com (veya web uygulaması adı, alt etki alanı ile ne olursa olsun) gidin
+8. Bu VM üzerinde bir tarayıcı kullanın ve kendinden imzalı bir sertifika kullanıyorsanız tooaccept hello güvenlik olmaması gerekir toohttps://mytestapp.ilbase.com gidin. 
 
-ILB için IP adresi sanal IP adresi olarak özelliklerinizi listelenir
+Başlangıç IP adresi, ILB için özelliklerinizi hello sanal IP adresi listelenir
 
 ![][4]
 
 ## <a name="using-an-ilb-ase"></a>Bir ILB ana kullanma
 #### <a name="network-security-groups"></a>Ağ Güvenlik Grupları
-Uygulamaları erişilebilir veya internet tarafından bilinen bile olup olmadığı gibi bir ILB ana uygulamalarınız için ağ yalıtımı sağlar. İş kolu uygulamaları gibi intranet siteleri barındırmak için mükemmel budur. Daha fazla bile erişimi kısıtlamak gerektiğinde ağ güvenlik Groups(NSGs) ağ düzeyinde erişimi denetlemek için hala kullanabilirsiniz. 
+Bir ILB ana etkinleştirir ağ yalıtımı, uygulamalarınız için hello uygulamaları erişilebilir veya olarak da bilinen olmayan gibi internet hello. İş kolu uygulamaları gibi intranet siteleri barındırmak için mükemmel budur. Toorestrict erişim bile gerektiğinde daha fazla ağ güvenlik Groups(NSGs) toocontrol erişim hello ağ düzeyinde kullanmaya devam edebilirsiniz. 
 
-Daha fazla erişimi kısıtlamak için Nsg'ler kullanmak istiyorsanız, ana çalışması için gereken iletişim bozmadığını emin olmanız gerekir. HTTP/HTTPS erişim yalnızca ana tarafından kullanılan ILB aracılığıyla olsa da ana sanal ağ dışında kaynak hala bağlıdır. Hangi ağ erişimi hala gerekli arama belge üzerinde içindeki bilgileri görmek için [bir uygulama hizmeti ortamına gelen trafiği denetleme] [ ControlInbound] ve belge üzerinde [ExpressRoute ile App Service ortamları için ağ yapılandırma ayrıntılarını][ExpressRoute]. 
+Toouse Nsg'ler toofurther erişimi kısıtlayın sonra toomake hello iletişimi bozmadığını emin ihtiyacınız istiyorsanız bu hello ana sipariş toooperate gerekir. Hello HTTP/HTTPS erişim olsa bile yalnızca hello ILB ana hala kaynak hello VNet dışında bağlıdır ana hello hello tarafından kullanılır. hangi ağ erişimi toosee hala gerekli hello belgedeki hello bilgiler göz [gelen trafiği denetleme tooan uygulama hizmeti ortamı] [ ControlInbound] ve hello belgeyi [ağ ExpressRoute ile uygulama hizmeti ortamları için yapılandırma ayrıntılarını][ExpressRoute]. 
 
-Nsg'lerinizi yapılandırmak için Azure tarafından ana yönetmek için kullanılan IP adresini bilmeniz gerekir. Internet istekleri yapıyorsa bu IP adresi, ana giden IP adresinden de değil. Ana giden IP adresini, ana süresince statik kalır. Ana silip yeni bir IP adresi alırsınız. Bu IP adresi bulmak için Git **ayarlar -> Özellikler** ve Bul **giden IP adresi**. 
+Nsg'lerinizi tooknow hello IP ihtiyacınız olan adres tooconfigure, ana Azure toomanage tarafından kullanılır. Internet istekleri yapıyorsa bu IP adresi hello giden IP adresinden, ana de değil. Merhaba, ana giden IP adresini, ana hello yaşam süreleri boyunca statik kalır. Ana silip yeni bir IP adresi alırsınız. Bu IP adresi Git çok toofind**ayarlar -> Özellikler** ve hello bulur **giden IP adresi**. 
 
 ![][5]
 
 #### <a name="general-ilb-ase-management"></a>Genel ILB ana Yönetimi
-Bir ILB ana yönetme büyük ölçüde bir ana normalde yönetme ile aynıdır. Daha fazla ASP Örnekleri barındırmak ve ön uç sunucularınız daha yüksek miktarlarda HTTP/HTTPS trafiğini işlemek için ölçeklendirmek için çalışan havuzlarınızı ölçeklendirin gerekir. Bir ana yapılandırma yönetme hakkında genel bilgi okumak için belge [uygulama hizmeti ortamını yapılandırma][ASEConfig]. 
+Bir ILB ana yönetme olan büyük ölçüde hello bir ana normalde yönetme aynıdır. Ön uç sunucuları artan toohandle miktarda HTTP/HTTPS trafiğini ölçeklendirme ve daha fazla ASP örnekleri, çalışan havuzları toohost tooscale gerekir. Bir ana hello yapılandırmasını yönetme ile ilgili genel bilgiler için hello belgeyi okumaya devam [uygulama hizmeti ortamını yapılandırma][ASEConfig]. 
 
-Ek yönetim sertifikası ve DNS Yönetimi öğelerdir. Elde edilir ve ILB ana oluşturulduktan sonra HTTPS için kullanılan sertifikayı karşıya yüklemek ve süresi dolmadan önce bunun yerine gerekir. Azure temel etki alanına sahip olduğundan biz ASEs bir dış VIP ile sertifikalar sağlayabilir. Bir ILB ana tarafından kullanılan alt etki alanı herhangi bir şey olabileceği için HTTPS için kendi sertifikanızı sağlamanız gerekir. 
+Merhaba ek yönetim sertifikası ve DNS Yönetimi öğelerdir. ILB ana oluşturulduktan sonra HTTPS için kullanılan hello sertifikasını karşıya yükle tooobtain gerekir ve süresi dolmadan önce değiştirin. Azure hello temel etki alanına sahip olduğundan biz ASEs bir dış VIP ile sertifikalar sağlayabilir. Merhaba alt etki alanı bir ILB ana tarafından kullanılan herhangi bir şey olamayacağından tooprovide HTTPS için kendi sertifika gerekir. 
 
 #### <a name="dns-configuration"></a>DNS yapılandırması
-Bir dış VIP kullanırken DNS Azure tarafından yönetilir. Ana oluşturulan herhangi bir uygulama, Genel DNS olan Azure DNS'ye otomatik olarak eklenir. ILB ASE'de kendi DNS yönetmeniz gerekir. Contoso.corp.net gibi belirli bir alt etki alanı için DNS A ILB adresinizi işaret kayıtları oluşturmanız gerekir:
+Ne zaman bir dış VIP hello DNS kullanılarak Azure tarafından yönetilir. Ana oluşturulan herhangi bir uygulama tooAzure ortak bir DNS olan DNS otomatik olarak eklenir. ILB ASE'de kendi DNS toomanage sahip. Belirli bir alt etki alanı contoso.corp.net gibi bu noktası tooyour ILB adres için DNS A kayıtlarını toocreate gerekir:
 
     * 
     *.SCM ftp yayımlama 
 
 
 ## <a name="getting-started"></a>Başlarken
-Tüm makaleler ve nasıl-için uygulama hizmeti ortamları kullanılabilir için kullanıcının [uygulama hizmeti ortamları için Benioku](../app-service/app-service-app-service-environments-readme.md).
+Tüm makaleler ve nasıl-için uygulama hizmeti ortamları hello kullanılabilir için kullanıcının [uygulama hizmeti ortamları için Benioku](../app-service/app-service-app-service-environments-readme.md).
 
-Uygulama hizmeti ortamları ile çalışmaya başlamak için bkz: [App Service ortamları giriş][WhatisASE]
+Uygulama hizmeti ortamları ile çalışmaya tooget bakın [giriş tooApp Service ortamları][WhatisASE]
 
-Azure App Service platformu hakkında daha fazla bilgi için bkz: [Azure App Service][AzureAppService].
+Hello Azure App Service platformu hakkında daha fazla bilgi için bkz: [Azure App Service][AzureAppService].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

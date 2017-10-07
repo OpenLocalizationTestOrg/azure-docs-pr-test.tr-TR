@@ -1,6 +1,6 @@
 ---
-title: "PowerShell ile klasik portalda Hyper-V Vm'lerini Azure'a çoğaltma | Microsoft Docs"
-description: "Klasik portalda Site Recovery ve PowerShell kullanarak VMM bulutlarındaki Hyper-V sanal makinelerini çoğaltma otomatikleştirme"
+title: "PowerShell ile Merhaba Klasik portalında aaaReplicate Hyper-V sanal makineleri tooAzure | Microsoft Docs"
+description: "Merhaba çoğaltma hello Klasik portalında Site Recovery ve PowerShell kullanarak VMM bulutlarındaki Hyper-V sanal makinelerin otomatik hale getirme"
 services: site-recovery
 documentationcenter: 
 author: bsiva
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: bsiva
-ms.openlocfilehash: 581daaaa5cc0cf8be782f834c6bdb3f27ee413fb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d6847b46ac227209e6890de4ab603b23f827360f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="replicate-hyper-v-vms-to-azure-with-powershell-in-the-classic-portal"></a>Klasik portalda Azure PowerShell ile Hyper-V Vm'lerini çoğaltma
+# <a name="replicate-hyper-v-vms-tooazure-with-powershell-in-hello-classic-portal"></a>PowerShell ile Hyper-V sanal makineleri tooAzure hello Klasik Portalı'nda çoğaltma
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
@@ -30,16 +30,16 @@ ms.lasthandoff: 08/29/2017
 >
 
 ## <a name="overview"></a>Genel Bakış
-Azure Site Recovery, çoğaltma, yük devretme ve kurtarma çeşitli dağıtım senaryolarında sanal makinelerin düzenleyerek iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı sağlar. Dağıtım tam listesi için bkz: senaryoları [Azure Site Recovery genel bakış](site-recovery-overview.md).
+Azure Site Recovery, çoğaltma, yük devretme ve kurtarma çeşitli dağıtım senaryolarında sanal makinelerin düzenleyerek tooyour iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı sağlar. Dağıtım tam listesi için bkz: hello senaryoları [Azure Site Recovery genel bakış](site-recovery-overview.md).
 
-Bu makalede Azure depolama alanına System Center VMM bulutlarındaki Hyper-V sanal makineleri çoğaltmak için Azure Site Recovery ayarladığınızda, yapmanız gereken ortak görevleri otomatik hale getirmek için PowerShell kullanmayı gösterir.
+Bu makalede, Azure Site Recovery tooreplicate Hyper-V sanal makineleri System Center VMM Bulutları tooAzure depolama ayarlarken nasıl toouse PowerShell tooautomate ortak görevleri tooperform ihtiyacınız gösterir.
 
-Makaleyi senaryonun önkoşulları içerir ve Site Recovery kasasını oluşturup, kaynak VMM sunucusunda Azure Site kurtarma Sağlayıcısı'nı yükleme, sunucuyu kasaya kaydetmek, bir Azure depolama hesabı ekleme hakkında yükleme Azure kurtarma gösterir Hizmetleri aracısını Hyper-V konak sunucuları üzerindeki tüm korumalı sanal makineler için uygulanır ve bu sanal makineler için korumayı etkinleştir VMM Bulutları için koruma ayarlarını yapılandırın. Her şeyin istendiği gibi çalıştığından emin olmak için yük devretmeyi test ederek işlemi sonlandırın.
+Merhaba makale hello senaryo ve Site Recovery kasası yukarı tooset nasıl yüklemenize hello kaynak VMM sunucusunda Azure Site Recovery sağlayıcısı hello gösterir önkoşulları içerir, hello sunucu hello kasaya kaydetmek, bir Azure depolama hesabı ekleme, hello Azure yükleyin Kurtarma Hizmetleri aracısını Hyper-V konak sunucuları, uygulanan tooall korumalı sanal makineler olabilir ve bu sanal makineler için korumayı etkinleştir VMM Bulutları için koruma ayarlarını yapılandırın. Sınama hello yük devretme toomake tarafından her şeyin beklendiği gibi çalıştığından emin sonlandırın.
 
-Bu senaryoyu oluşturan ayarlama sorunlarını alıyorsanız, üzerinde sorularınızı [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Bu senaryoyu oluşturan ayarlama sorunlarını alıyorsanız, üzerinde hello sorularınızı [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 > [!NOTE]
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır.
 >
 >
 
@@ -48,39 +48,39 @@ Bu Önkoşullar sağladığınızdan emin olun:
 
 ### <a name="azure-prerequisites"></a>Azure önkoşulları
 * Bir [Microsoft Azure](https://azure.microsoft.com/) hesabınızın olması gerekir. [Ücretsiz deneme sürümüyle](https://azure.microsoft.com/pricing/free-trial/) başlayabilirsiniz.
-* Çoğaltılan verileri depolamak için bir Azure depolama hesabınızın olması gerekir. Hesap coğrafi çoğaltmanın etkinleştirilmiş olmalıdır. Bu Azure Site Recovery kasasıyla aynı bölgede olması ve aynı abonelikle ilişkilendirilmiş olması gerekir. [Azure storage hakkında daha fazla bilgi](../storage/common/storage-introduction.md).
-* Korumak istediğiniz sanal makineleri ile uyumlu olduğundan emin olmak gerekir [Azure sanal makine önkoşulları](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+* Bir Azure depolama hesabı toostore çoğaltılmış verileri gerekir. Merhaba hesabının coğrafi çoğaltmanın etkinleştirilmiş olması gerekir. Merhaba hello Azure Site kurtarma kasasıyla aynı bölgede ve ile ilişkili olmalıdır hello aynı abonelik. [Azure storage hakkında daha fazla bilgi](../storage/common/storage-introduction.md).
+* Toomake tooprotect istediğiniz sanal makineleri ile uyumlu olduğundan emin olmanız gerekir [Azure sanal makine önkoşulları](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ### <a name="vmm-prerequisites"></a>VMM önkoşulları
 * System Center 2012 R2 üzerinde çalışan VMM sunucusu gerekir.
-* Korumak istediğiniz VMM sunucusunda en az bir bulut gerekir. Bulut içermelidir:
+* Merhaba tooprotect istediğiniz VMM sunucusu üzerinde en az bir bulut gerekir. Merhaba bulut içermelidir:
   * Bir veya birden çok VMM ana bilgisayar grubu.
   * Bir veya daha fazla Hyper-V ana bilgisayar sunucuları veya kümeleri her konak grubundaki.
-  * Kaynak Hyper-V sunucu üzerindeki bir veya daha fazla sanal makineler.
+  * Merhaba kaynak Hyper-V sunucu üzerindeki bir veya daha fazla sanal makineler.
 
 ### <a name="hyper-v-prerequisites"></a>Hyper-V önkoşulları
-* Hyper-V ana bilgisayar sunucuları en az çalıştırmalıdır **Windows Server 2012** Hyper-V rolüne sahip veya **Microsoft Hyper-V Server 2012** ve en son güncelleştirmelerin yüklü olması.
-* Hyper-V'yi bir kümede çalıştırıyorsanız statik IP adresi temelli bir kümeye sahip olmanız durumunda küme aracısının otomatik olarak oluşturulamayacağını unutmayın. Küme aracısını sizin yapılandırmanız gerekir. Bu, Sunucu Yöneticisi'nde yapmak için > Yük Devretme Kümesi Yöneticisi ' ni kümeye bağlanın, tıklatın **rolü Yapılandır** seçip **Hyper-V çoğaltma aracısı** içinde **rolü Seç** Yüksek Kullanılabilirlik Sihirbazı'nın ekranı.
-* Herhangi bir Hyper-V konak sunucusu veya küme koruma yönetmek istediğiniz bir VMM bulutunda eklenmesi gerekir.
+* Merhaba Hyper-V ana bilgisayar sunucuları en az çalıştırmalıdır **Windows Server 2012** Hyper-V rolüne sahip veya **Microsoft Hyper-V Server 2012** ve hello son güncelleştirmelerin yüklü olması.
+* Hyper-V'yi bir kümede çalıştırıyorsanız statik IP adresi temelli bir kümeye sahip olmanız durumunda küme aracısının otomatik olarak oluşturulamayacağını unutmayın. El ile tooconfigure hello küme Aracısı gerekir. toodo Bu, Sunucu Yöneticisi'nde > Yük Devretme Kümesi Yöneticisi ' ni toohello kümesine bağlanın, tıklatın **rolü Yapılandır** seçip **Hyper-V çoğaltma aracısı** hello içinde **Select Role**hello Yüksek Kullanılabilirlik Sihirbazı'nın ekranı.
+* Herhangi bir Hyper-V konak sunucusu veya küme toomanage koruma istediğiniz VMM Bulutu eklenmesi gerekir.
 
 ### <a name="network-mapping-prerequisites"></a>Ağ eşlemesi önkoşulları
-Azure'da sanal makineleri koruduğunuzda, ağ eşlemesi kaynak VMM sunucusundaki VM ağlarını hedef Azure ağları ile eşleyerek şu işlemlere olanak sağlar:
+Azure ağı eşlemesinde sanal makineleri korumaya zaman hello kaynak VMM sunucusunda VM ağları ve hedef Azure ağları tooenable hello aşağıdaki arasında eşler:
 
-* Aynı ağda yük devri tüm makineler birbirine, hangi kurtarma planında yer aldıklarına bulundukları bağlanabilir.
-* Bir ağ geçidi hedef Azure ağında ayarlanırsa sanal makineler diğer şirket içi sanal makinelere bağlanabilir.
-* Ağ eşlemesini yapılandırmazsanız yalnızca aynı kurtarma planında yük devreden sanal makineler, Azure'a yük devretme işleminin ardından birbirleriyle bağlantı kurabilir.
+* Merhaba üzerinde aynı yük devri tüm makineler ağ tooeach bulundukları hangi kurtarma planı yedeklemiş diğer bağlanabilir.
+* Bir ağ geçidi Kurulum hello hedef Azure ağını üzerinde ise, sanal makineleri tooother şirket içi sanal makinelere bağlanabilir.
+* Hello aynı yük devri yalnızca sanal makineler eşleme, yapılandırmazsanız ağ kurtarma planı yük devretme tooAzure sonra diğer mümkün tooconnect tooeach olacaktır.
 
-Ağ eşlemesi dağıtmak isterseniz şunlara ihtiyaç duyarsınız:
+Toodeploy ağ eşlemesi istiyorsanız hello aşağıdakiler gerekir:
 
-* Kaynak VMM sunucusunda korumak istediğinizde sanal makinelerin bir VM ağına bağlanması gerekir. Bu ağın, bulutla ilişkilendirilen mantıksal bir ağ ile bağlantılı olması gerekir.
-* Yük devretme işleminin ardından çoğaltılan sanal makinelerin bağlanabileceği bir Azure ağı. Bu ağı yük devretme sırasında seçersiniz. Ağın Azure Site Recovery aboneliğinizle aynı bölgede olması gerekir.
+* Merhaba kaynak VMM sunucusunda tooprotect istediğiniz Hello sanal makineleri bağlı tooa VM ağı olmalıdır. Bu ağ hello Bulutu ile ilişkili mantıksal ağ bağlantılı tooa olmalıdır.
+* Bir Azure ağı toowhich çoğaltılan sanal makineler, yük devretme sonrasında bağlanabilir. Bu ağ hello yük devretme sırasında seçersiniz. Merhaba ağ hello olmalıdır, Azure Site Recovery abonelik aynı bölgede.
 
 ### <a name="powershell-prerequisites"></a>PowerShell önkoşulları
-Azure PowerShell davranmaya hazır olduğundan emin olun. PowerShell zaten kullanıyorsanız, 0.8.10 sürümüne yükseltme veya üstü gerekir. PowerShell ayarlama hakkında daha fazla bilgi için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azureps-cmdlets-docs). Ayarlama ve PowerShell yapılandırılmış sonra tüm kullanılabilir cmdlet'leri hizmeti görüntüleyebilirsiniz [burada](/powershell/azure/overview).
+Azure PowerShell hazır toogo olduğundan emin olun. PowerShell zaten kullanıyorsanız, tooupgrade tooversion 0.8.10 gerekir ya da daha sonra. PowerShell ayarlama hakkında daha fazla bilgi için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azureps-cmdlets-docs). Ayarlama ve PowerShell yapılandırılmış sonra tüm hello hizmeti için kullanılabilir cmdlet'leri hello görüntüleyebilirsiniz [burada](/powershell/azure/overview).
 
-Parametre değerleri, girişleri ve çıkışları genellikle Azure PowerShell'de işlenme gibi cmdlet'leri kullanın yardımcı olabilecek ipuçları hakkında bilgi edinmek için bkz [Azure cmdlet'leri ile çalışmaya başlama](/powershell/azure/get-started-azureps).
+parametre değerleri, girişleri ve çıkışları genellikle Azure PowerShell'de işlenme gibi hello cmdlet'leri kullanmanıza yardımcı olabilecek ipuçları hakkında toolearn bkz [Azure cmdlet'leri ile çalışmaya başlama](/powershell/azure/get-started-azureps).
 
-## <a name="step-1-set-the-subscription"></a>1. adım: Abonelik ayarlama
+## <a name="step-1-set-hello-subscription"></a>1. adım: hello abonelik ayarlama
 PowerShell'de bu cmdlet'leri çalıştırın:
 
 ```
@@ -95,10 +95,10 @@ $AzureSubscription = Select-AzureSubscription -SubscriptionName $AzureSubscripti
 
 ```
 
-"< >" İçinde öğelerin size özgü bilgileri ile değiştirin.
+Merhaba "< >" Merhaba öğelerin size özgü bilgileri ile değiştirin.
 
 ## <a name="step-2-create-a-site-recovery-vault"></a>2. adım: Site Recovery kasası oluşturma
-PowerShell, "< >" içinde öğelerin belirli bilgilerinizle değiştirin ve bu komutları çalıştırın:
+PowerShell, belirli bilgilerinizle hello "< >" Merhaba öğeleri değiştirin ve bu komutları çalıştırın:
 
 ```
 
@@ -116,9 +116,9 @@ $vault = Get-AzureSiteRecoveryVault -Name $VaultName;
 ```
 
 ## <a name="step-3-generate-a-vault-registration-key"></a>3. adım: kasa kayıt anahtarı oluşturma
-Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı indirdikten sonra VMM sunucusuna yükleyin, oluşturduğunuz anahtarı kasadaki VMM sunucusuna kaydolmak için kullanacaksınız.
+Merhaba kasada bir kayıt anahtarı oluşturun. Hello Azure Site Recovery Sağlayıcısı'nı indirin ve hello VMM sunucusuna yükledikten sonra bu anahtar tooregister hello VMM sunucusu hello kasasına kullanacaksınız.
 
-1. Kasa ayar dosyasını alın ve bağlamını ayarlayın:
+1. Merhaba kasası ayar dosyasını alın ve hello bağlamını ayarlayın:
 
    ```
 
@@ -129,7 +129,7 @@ Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı 
    $VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 
    ```
-2. Aşağıdaki komutları çalıştırarak kasası bağlamını ayarlayın:
+2. Merhaba aşağıdaki komutları çalıştırarak Hello kasası bağlamını ayarlayın:
 
    ```
 
@@ -138,22 +138,22 @@ Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı 
 
    ```
 
-## <a name="step-4-install-the-azure-site-recovery-provider"></a>4. adım: Azure Site kurtarma Sağlayıcısı'nı yükleme
-1. VMM makinesinde aşağıdaki komutu çalıştırarak bir dizin oluşturun:
+## <a name="step-4-install-hello-azure-site-recovery-provider"></a>Adım 4: hello Azure Site Recovery sağlayıcısı yükleme
+1. Merhaba VMM makinede hello aşağıdaki komutu çalıştırarak bir dizin oluşturun:
 
    ```
 
    pushd C:\ASR\
 
    ```
-2. Aşağıdaki komutu çalıştırarak indirilen sağlayıcısını kullanarak dosyaları ayıklayın
+2. Merhaba aşağıdaki komutu çalıştırarak indirilen hello sağlayıcısını kullanarak hello dosyaları ayıklayın
 
    ```
 
    AzureSiteRecoveryProvider.exe /x:. /q
 
    ```
-3. Aşağıdaki komutları kullanarak sağlayıcısını yükleyin:
+3. Merhaba Sağlayıcı komutları aşağıdaki hello kullanarak yükleyin:
 
    ```
 
@@ -175,8 +175,8 @@ Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı 
 
    ```
 
-   Yüklemesinin tamamlanması için bekleyin.
-4. Sunucu aşağıdaki komutu kullanarak kasaya kaydedin:
+   Merhaba yükleme toofinish bekleyin.
+4. Hello sunucu komutu aşağıdaki hello kullanarak hello kasasına kaydedin:
 
    ```
 
@@ -188,7 +188,7 @@ Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı 
    ```
 
 ## <a name="step-5-create-an-azure-storage-account"></a>5. adım: Azure storage hesabı oluşturma
-Bir Azure depolama hesabınız yoksa, aşağıdaki komutu çalıştırarak bir coğrafi çoğaltmanın etkinleştirilmiş hesabı oluşturun:
+Bir Azure depolama hesabınız yoksa, hello aşağıdaki komutu çalıştırarak bir coğrafi çoğaltmanın etkinleştirilmiş hesabı oluşturun:
 
 ```
 
@@ -199,12 +199,12 @@ New-AzureStorageAccount -StorageAccountName $StorageAccountName -Label $StorageA
 
 ```
 
-Depolama hesabı gerekir Azure Site Recovery hizmeti ile aynı bölgede olması ve aynı abonelikle ilişkilendirilmiş olduğunu unutmayın.
+Merhaba depolama hesabı olması gerektiğini unutmayın hello hello Azure Site Recovery hizmeti ile aynı bölgeye ve ilişkilendirilmesi hello aynı abonelik.
 
-## <a name="step-6-install-the-azure-recovery-services-agent"></a>6. adım: Azure kurtarma Hizmetleri Aracısı yükleme
-Azure portalından, korumak istediğiniz VMM bulutlarında yer alan her Hyper-V ana bilgisayar sunucusunda Azure kurtarma Hizmetleri Aracısı'nı yükleyin.
+## <a name="step-6-install-hello-azure-recovery-services-agent"></a>6. adım: hello Azure kurtarma Hizmetleri Aracısı yükleme
+Hello Azure portal hello VMM bulutlarında yer alan her Hyper-V ana bilgisayar sunucusunda yükleme hello Azure kurtarma Hizmetleri Aracısı'ndan tooprotect istiyor.
 
-Tüm VMM ana bilgisayarlarda aşağıdaki komutu çalıştırın:
+Tüm VMM konaklarda komutu aşağıdaki hello çalıştırın:
 
 ```
 
@@ -214,7 +214,7 @@ marsagentinstaller.exe /q /nu
 
 
 ## <a name="step-7-configure-cloud-protection-settings"></a>7. adım: Bulut yapılandırma koruma ayarları
-1. Azure bulut koruması profil, aşağıdaki komutu çalıştırarak oluşturun:
+1. Bulut koruma profili tooAzure hello aşağıdaki komutu çalıştırarak oluşturun:
 
    ```
 
@@ -222,7 +222,7 @@ marsagentinstaller.exe /q /nu
    $ProfileResult = New-AzureSiteRecoveryProtectionProfileObject -ReplicationProvider HyperVReplica -RecoveryAzureSubscription $AzureSubscriptionName -RecoveryAzureStorageAccount $StorageAccountName -ReplicationFrequencyInSeconds     $ReplicationFrequencyInSeconds;
 
    ```
-2. Koruma kapsayıcısı aşağıdaki komutları çalıştırarak alın:
+2. Koruma kapsayıcısı hello aşağıdaki komutları çalıştırarak alın:
 
    ```
 
@@ -230,14 +230,14 @@ marsagentinstaller.exe /q /nu
    $protectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $PrimaryCloud;
 
    ```
-3. Koruma kapsayıcısı ilişkisini bulutla başlatın:
+3. Merhaba ilişkilendirme hello koruma kapsayıcısı ile Merhaba bulut Başlat:
 
    ```
 
    $associationJob = Start-AzureSiteRecoveryProtectionProfileAssociationJob -ProtectionProfile $profileResult -PrimaryProtectionContainer $protectionContainer;        
 
    ```
-4. İş tamamlandıktan sonra aşağıdaki komutu çalıştırın:
+4. Merhaba işi tamamlandıktan sonra hello aşağıdaki komutu çalıştırın:
 
         $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
         if($job -eq $null -or $job.StateDescription -ne "Completed")
@@ -246,7 +246,7 @@ marsagentinstaller.exe /q /nu
         }
 
 
-1. İş işlemeyi bitirdikten sonra aşağıdaki komutu çalıştırın:
+1. Hello iş işlemeyi bitirdikten sonra hello aşağıdaki komutu çalıştırın:
 
         Do
         {
@@ -265,73 +265,73 @@ marsagentinstaller.exe /q /nu
 
 
 
-İşlemin tamamlanması denetlemek için adımları [etkinliğini izleme](#monitor).
+Merhaba işleminin toocheck hello tamamlanması izleyin hello adımlarda [etkinliğini izleme](#monitor).
 
 ## <a name="step-8-configure-network-mapping"></a>8. adım: ağ eşlemesini yapılandırma
-Ağ eşlemesine başlamadan önce kaynak VMM sunucusundaki sanal makinelerin bir VM ağına bağlı olduğunu doğrulayın. Ayrıca, bir veya daha fazla Azure sanal ağı oluşturun. Birden çok VM ağının tek bir Azure ağına eşlenebileceğini unutmayın.
+Başlamadan önce Ağ eşlemesi hello kaynak VMM sunucusundaki sanal makineleri bağlı tooa VM ağı olduğunu doğrulayın. Ayrıca, bir veya daha fazla Azure sanal ağı oluşturun. Birden fazla VM ağı eşlenen tooa tek Azure ağ olabileceğini unutmayın.
 
-Hedef ağın birden çok alt ağı varsa ve bu alt ağlardan biri kaynak sanal makinenin bulunduğu alt ağ ile aynı adı taşıyorsa çoğaltılan sanal makinenin, yük devretme işleminin ardından hedef alt ağa bağlandığını unutmayın. Eşleşen bir ada sahip bir hedef alt ağa değilse, sanal makine ağdaki ilk alt ağa bağlanır.
+Hello hedef ağın birden çok alt ağı varsa ve bu alt ağlardan biri olan hello adıyla aynı alt ağda hangi hello kaynak sanal makinenin bulunduğu sonra hello çoğaltma sanal makinesi yük devretme sonrasında bağlı toothat hedef alt olacaktır unutmayın. Eşleşen bir ada sahip bir hedef alt ağa değilse hello sanal makineye bağlı toohello hello ağdaki ilk alt ağ olacaktır.
 
-İlk komut sunucuları için geçerli Azure Site Recovery kasası alır. Komut Microsoft Azure Site Recovery sunucuları $Servers dizi değişkeninde depolar.
+Merhaba ilk komut sunucuları için geçerli Azure Site Recovery kasası hello alır. Merhaba komut hello Microsoft Azure Site Recovery sunucuları hello $Servers dizi değişkeninde depolar.
 
     $Servers = Get-AzureSiteRecoveryServer
 
 
-İkinci komut site kurtarma ağ $Servers dizinin ilk sunucusunu alır. Komut ağları $Networks değişkeninde depolar.
+Merhaba ikinci komut hello site kurtarma ağ hello ilk sunucu için hello $Servers dizisini alır. Merhaba komut hello ağları hello $Networks değişkeninde depolar.
 
     $Networks = Get-AzureSiteRecoveryNetwork -Server $Servers[0]
 
-Üçüncü komut Get-AzureSubscription cmdlet'ini kullanarak, Azure aboneliklerinize alır ve ardından bu değer $Subscriptions değişkeninde depolar.
+Merhaba üçüncü komut hello Get-AzureSubscription cmdlet'ini kullanarak, Azure aboneliklerinize alır ve ardından bu değer hello $Subscriptions değişkeninde depolar.
 
     $Subscriptions = Get-AzureSubscription
 
 
 
-Dördüncü komut $AzureVmNetworks değişkeninde Get-AzureVNetSite cmdlet'i ve bu değer'ı kullanarak Azure sanal ağlar alır.
+Merhaba dördüncü komut hello $AzureVmNetworks değişkeninde hello Get-AzureVNetSite cmdlet'i ve bu değer'ı kullanarak Azure sanal ağlar alır.
 
     $AzureVmNetworks = Get-AzureVNetSite
 
 
 
-Son cmdlet birincil ağ ve Azure sanal makine ağı arasında bir eşleme oluşturur. Cmdlet $Networks ilk öğe birincil ağı belirtir. Cmdlet'in kendi kimliğini kullanarak bir sanal makine ağ $AzureVmNetworks ilk öğe belirtir Bu komut Azure abonelik kimliğinizi içerir
+Merhaba son cmdlet'i hello birincil ağ ve hello Azure sanal makine ağı arasında bir eşleme oluşturur. Merhaba cmdlet hello birincil ağ hello ilk öğesi $Networks belirtir. Merhaba cmdlet kimliğini kullanarak bir sanal makine ağına hello ilk öğesi $AzureVmNetworks belirtir Azure abonelik kimliğinizi Hello komut içerir
 
     New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
 
 
 ## <a name="step-9-enable-protection-for-virtual-machines"></a>9. adım: sanal makineler için korumayı etkinleştir
-Sunucular, bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra buluttaki sanal makineler için korumayı etkinleştirebilirsiniz. Şunlara dikkat edin:
+Sunucular, Bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra hello bulutta sanal makineler için korumayı etkinleştirebilirsiniz. Merhaba aşağıdakileri göz önünde bulundurun:
 
 Sanal makineler karşılamalıdır [Azure sanal makine önkoşulları](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-Korumayı etkinleştirmek için işletim sisteminin ve işletim sistemi diski özelliklerinin sanal makineye göre ayarlanmış olması gerekir. Sana makine şablonu kullanarak VMM'de bir sanal makine oluşturduğunuzda özelliği de ayarlayabilirsiniz. Ayrıca var olan sanal makineler için bu özellikleri, sanal makinenin **Genel** ve **Donanım Yapılandırması** sekmelerinde de ayarlayabilirsiniz. Özellikleri VMM'de ayarlamazsanız Azure Site Recovery portalından da yapılandırabilirsiniz.
+tooenable koruma hello işletim sistemi ve işletim sistemi disk özellikleri hello sanal makine için ayarlamanız gerekir. Bir sanal makine şablonu kullanarak VMM'de bir sanal makine oluşturduğunuzda hello özelliğini ayarlayabilirsiniz. Bu özellikleri mevcut sanal makineler üzerinde hello ayarlayabilirsiniz **genel** ve **donanım yapılandırması** sekmeleri hello sanal makine özellikleri. Bu özellikleri VMM'de ayarlamazsanız mümkün tooconfigure olacak hello Azure Site Recovery portalında bunları.
 
-1. Korumayı etkinleştirmek için koruma kapsayıcısı almak için aşağıdaki komutu çalıştırın:
+1. tooenable koruma, çalıştırma hello aşağıdaki tooget hello koruma kapsayıcısı komutu:
 
      $ProtectionContainer = get-AzureSiteRecoveryProtectionContainer-ad $CloudName
-2. Korunan varlık (VM), aşağıdaki komutu çalıştırarak alın:
+2. Merhaba koruma varlık (VM) hello aşağıdaki komutu çalıştırarak alın:
 
         $protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 
 
 
-1. DR VM için aşağıdaki komutu çalıştırarak etkinleştirin:
+1. Merhaba DR hello VM için komutu aşağıdaki hello çalıştırarak etkinleştirin:
 
         $jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity     -Protection Enable -Force
 
 
 
 ## <a name="test-your-deployment"></a>Dağıtımınızı test edin
-Dağıtımınızı test etmek için bir yük devretme sınaması için tek bir sanal makine çalıştırmak veya birden çok sanal makine içeren bir kurtarma planı oluşturmak ve bir yük devretme sınaması için plan çalıştırın. Yük devretme testi, yük devretme işleminizi ve kurtarma mekanizmanızı yalıtılmış bir ortamda benzetimli olarak gerçekleştirir. Şunlara dikkat edin:
+tootest bir yük devretme sınaması için tek bir sanal makine çalıştırmak veya birden çok sanal makine içeren ve bir yük devretme testi hello için bir kurtarma planı oluşturun, dağıtımınızı planlayın. Yük devretme testi, yük devretme işleminizi ve kurtarma mekanizmanızı yalıtılmış bir ortamda benzetimli olarak gerçekleştirir. Şunlara dikkat edin:
 
-* Yük devretmenin ardından Azure'daki sanal makineye Uzak Masaüstü kullanarak bağlanmak isterseniz yük devretme testini çalıştırmadan önceden sanal makinenizde Uzak Masaüstü Bağlantısı'nı etkinleştirin.
-* Yük devretme sonrasında, Uzak Masaüstü'nü kullanarak azure'daki sanal makineye bağlanmak için bir ortak IP adresini kullanacaksınız. Bu işlemi gerçekleştirmek isterseniz genel bir adres kullanarak sanal makineye bağlanmanızı engelleyecek etki alanı ilkelerine sahip olmadığınızdan emin olun.
+* Hello yük devretme sonrasında Uzak Masaüstü'nü kullanarak azure'daki tooconnect toohello sanal makine istiyorsanız, Uzak Masaüstü Bağlantısı hello test yük devretmesi çalıştırmadan önce hello sanal makinesinde etkinleştirin.
+* Yük devretme sonrasında, Uzak Masaüstü kullanarak Azure'da bir ortak IP adresi tooconnect toohello sanal makine kullanacaksınız. Bu toodo istiyorsanız, bağlanan tooa sanal genel bir adres kullanarak makineden engelleyecek etki alanı ilkelerine sahip olmadığınızdan emin olun.
 
-İşlemin tamamlanması denetlemek için adımları [etkinliğini izleme](#monitor).
+Merhaba işleminin toocheck hello tamamlanması izleyin hello adımlarda [etkinliğini izleme](#monitor).
 
 ### <a name="create-a-recovery-plan"></a>Kurtarma planı oluşturma
-1. Verileri kullanarak kurtarma planınız için bir şablon olarak bir .xml dosyası oluşturun ve ardından "C:\RPTemplatePath.xml" kaydedin.
-2. RecoveryPlan düğüm kimliği, ad, PrimaryServerId ve SecondaryServerId değiştirin.
-3. ProtectionEntity düğüm PrimaryProtectionEntityId (vmm'den vmıd) değiştirin.
+1. Merhaba veri aşağıdaki kullanarak kurtarma planınız için bir şablon olarak bir .xml dosyası oluşturun ve sonra "C:\RPTemplatePath.xml" kaydedin.
+2. Merhaba RecoveryPlan düğüm kimliği, ad, PrimaryServerId ve SecondaryServerId değiştirin.
+3. Merhaba ProtectionEntity düğümü PrimaryProtectionEntityId (vmm'den vmıd) değiştirin.
 4. Daha fazla VM'ler daha fazla ProtectionEntity düğüm ekleyerek ekleyebilirsiniz.
 
         <#
@@ -363,27 +363,27 @@ Dağıtımınızı test etmek için bir yük devretme sınaması için tek bir s
 
 
 
-1. Şablondaki veri doldurun:
+1. Merhaba veri hello şablonunda doldurun:
 
         $TemplatePath = "C:\RPTemplatePath.xml";
 
 
 
-1. RecoveryPlan oluşturun:
+1. Merhaba RecoveryPlan oluşturun:
 
         $RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
 
 ### <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
-1. Aşağıdaki komutu çalıştırarak RecoveryPlan nesnesini alın:
+1. Merhaba aşağıdaki komutu çalıştırarak Hello RecoveryPlan nesnesini alın:
 
      $RPObject = get-AzureSiteRecoveryRecoveryPlan-ad $RPName;
-2. Aşağıdaki komutu çalıştırarak test yük devretme başlatın:
+2. Merhaba aşağıdaki komutu çalıştırarak Hello test yük devretme başlatın:
 
         $jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
 
 
 ## <a name=monitor></a>Etkinliğini izleme
-Etkinliğini izlemek için aşağıdaki komutları kullanın. Bitirmek işleme işleri arasında beklemek zorunda unutmayın.
+Aşağıdaki komutları toomonitor hello etkinlik hello kullanın. Merhaba işleme toofinish işleri arasında toowait gerektiğini unutmayın.
 
     Do
     {

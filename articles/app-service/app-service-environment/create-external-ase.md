@@ -1,6 +1,6 @@
 ---
-title: "Dış Azure uygulama hizmeti ortamı oluşturma"
-description: "Bir uygulama ya da tek başına oluştururken bir uygulama hizmeti ortamının nasıl oluşturulacağı açıklanmaktadır"
+title: "aaaCreate dış Azure uygulama hizmeti ortamı"
+description: "Açıklar toocreate çalışırken bir uygulama hizmeti ortamını nasıl oluşturacağınızı bir uygulama ya da tek başına"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 2dfe531facbe84aac65c5f787851c015de719fee
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f8619534ddd889ea65063733ac6ec11b206e799c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-external-app-service-environment"></a>Bir dış uygulama hizmeti ortamı oluşturun #
 
-Azure uygulama hizmeti ortamı bir Azure uygulama hizmeti dağıtımı bir Azure sanal ağındaki (VNet) bir alt ağ ile değil. Uygulama hizmeti ortamı (ana) dağıtmak için iki yol vardır:
+Azure uygulama hizmeti ortamı bir Azure uygulama hizmeti dağıtımı bir Azure sanal ağındaki (VNet) bir alt ağ ile değil. Uygulama hizmeti ortamı (ana) iki yolu toodeploy vardır:
 
 - Dış IP adresi üzerinde bir VIP ile genellikle bir dış ana çağrılır.
-- Bir iç yük dengeleyici (ILB) iç uç nokta olduğu için VIP iç IP adresi, genellikle bir ILB ana olarak adlandırılır.
+- Hello dahili uç noktayı bir iç yük dengeleyici (ILB) olduğundan hello ile VIP iç IP adresi üzerinde genellikle bir ILB ana olarak adlandırılır.
 
-Bu makalede bir dış ana oluşturulacağını gösterir. Ana genel bakış için bkz: [uygulama hizmeti ortamı giriş][Intro]. Bir ILB ana oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve kullanma bir ILB ana][MakeILBASE].
+Bu makale size nasıl gösterir toocreate bir dış ana. Merhaba ana genel bakış için bkz: [giriş toohello uygulama hizmeti ortamı][Intro]. Nasıl toocreate bir ILB ana, bkz. bilgi [oluşturma ve kullanma bir ILB ana][MakeILBASE].
 
 ## <a name="before-you-create-your-ase"></a>Ana oluşturmadan önce ##
 
-Ana oluşturduktan sonra aşağıdaki değiştiremezsiniz:
+Ana oluşturduktan sonra hello aşağıdaki değiştiremezsiniz:
 
 - Konum
 - Abonelik
@@ -40,90 +40,90 @@ Ana oluşturduktan sonra aşağıdaki değiştiremezsiniz:
 - Alt ağ boyutu
 
 > [!NOTE]
-> Bir sanal ağı seçin ve bir alt ağ belirtip karşılık Gelecekteki büyümeyi barındırmak için yeterince büyük olduğundan emin olun. Dosya boyutu öneririz `/25` 128 adreslerine sahip.
+> Bir sanal ağı seçin ve bir alt ağ belirttiğinizde, büyüklükte tooaccommodate Gelecekteki büyümeyi olduğundan emin olun. Dosya boyutu öneririz `/25` 128 adreslerine sahip.
 >
 
-## <a name="three-ways-to-create-an-ase"></a>Bir ana oluşturmak için üç yol ##
+## <a name="three-ways-toocreate-an-ase"></a>Üç şekilde toocreate bir ana ##
 
-Bir ana oluşturmanın üç yolu vardır:
+Üç şekilde toocreate bir ana vardır:
 
-- **Bir uygulama hizmeti planı oluşturma sırasında**. Bu yöntem, tek bir adımda ana ve uygulama hizmeti planı oluşturur.
-- **Bir tek başına eylem olarak**. Bu yöntem boş bir ana olduğu tek başına ana, oluşturur. Bu yöntem, bir ana oluşturmak için daha gelişmiş bir işlemdir. Bir ILB ile bir ana oluşturmak için kullanın.
+- **Bir uygulama hizmeti planı oluşturma sırasında**. Bu yöntem, tek bir adımda hello ana ve hello uygulama hizmeti planı oluşturur.
+- **Bir tek başına eylem olarak**. Bu yöntem boş bir ana olduğu tek başına ana, oluşturur. Bu yöntem daha gelişmiş bir işlem toocreate bir ana kullanılır. Bir ana toocreate bir ILB ile kullanırsınız.
 - **Bir Azure Resource Manager şablondan**. Bu yöntem İleri düzey kullanıcılar için kullanılır. Daha fazla bilgi için bkz: [bir ana şablondan oluşturma][MakeASEfromTemplate].
 
-Bir dış ana ana uygulamalarında tüm HTTP/HTTPS trafiğini internet'ten erişilebilen bir IP adresi isabetler anlamına gelen genel bir VIP sahiptir. Bir ILB ile bir ana ana tarafından kullanılan alt ağdan bir IP adresi vardır. ILB ASE'de barındırılan uygulamalar, doğrudan Internet'e açık değildir.
+Bir dış ana hello ana tüm HTTP/HTTPS trafiğini toohello uygulamaları internet'ten erişilebilen bir IP adresi isabetler anlamına gelen genel bir VIP sahiptir. Bir ILB ile bir ana ana hello tarafından kullanılan hello alt ağdan bir IP adresi vardır. Merhaba ILB ASE'de barındırılan uygulamalar kullanıma sunulan olmayan doğrudan toohello Internet.
 
 ## <a name="create-an-ase-and-an-app-service-plan-together"></a>Bir ana ve bir uygulama hizmeti planı birlikte oluşturma ##
 
-Uygulama hizmeti planı, uygulamaların bir kapsayıcıdır. App Service içinde bir uygulama oluşturduğunuzda, seçin veya bir uygulama hizmeti planı oluşturun. Uygulama hizmeti planları kapsayıcı modeli ortamları tutun ve uygulama hizmeti planları uygulamaları basılı tutun.
+Merhaba uygulama hizmeti planı, uygulamaların bir kapsayıcıdır. App Service içinde bir uygulama oluşturduğunuzda, seçin veya bir uygulama hizmeti planı oluşturun. Uygulama hizmeti planları Hello kapsayıcı modeli ortamları tutun ve uygulama hizmeti planları uygulamaları basılı tutun.
 
-Bir uygulama hizmeti planı oluştururken bir ana oluşturmak için:
+bir uygulama hizmeti planı oluştururken bir ana toocreate:
 
-1. İçinde [Azure portal](https://portal.azure.com/)seçin **yeni** > **Web + mobil** > **Web uygulaması**.
+1. Merhaba, [Azure portal](https://portal.azure.com/)seçin **yeni** > **Web + mobil** > **Web uygulaması**.
 
     ![Web uygulaması oluşturma][1]
 
-2. Aboneliğinizi seçin. Uygulama ve ana aynı Aboneliklerde oluşturulur.
+2. Aboneliğinizi seçin. Merhaba uygulama hello ana oluşturulur hello aynı abonelik.
 
-3. Kaynak grubunu seçin veya oluşturun. Kaynak gruplarıyla ilgili Azure kaynaklarını bir birim olarak yönetebilirsiniz. Kaynak grupları, aynı zamanda, uygulamalarınız için rol tabanlı erişim denetimi kuralları oluşturmak olduğunda yararlıdır. Daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış][ARMOverview].
+3. Kaynak grubunu seçin veya oluşturun. Kaynak gruplarıyla ilgili Azure kaynaklarını bir birim olarak yönetebilirsiniz. Kaynak grupları, aynı zamanda, uygulamalarınız için rol tabanlı erişim denetimi kuralları oluşturmak olduğunda yararlıdır. Daha fazla bilgi için bkz: Merhaba [Azure Resource Manager'a genel bakış][ARMOverview].
 
-4. Uygulama hizmeti planı seçin ve ardından **Yeni Oluştur**.
+4. Merhaba uygulama hizmeti planı seçin ve ardından **Yeni Oluştur**.
 
     ![Yeni uygulama hizmeti planı][2]
 
-5. İçinde **konumu** aşağı açılan listesinde, istediğiniz bölgeyi seçin ana oluşturun. Varolan bir ana seçerseniz, yeni bir ana oluşturulmaz. Uygulama hizmeti planı, seçili ana içinde oluşturulur. 
+5. Merhaba, **konumu** aşağı açılan listesinden, toocreate hello ana select hello bölgesini. Varolan bir ana seçerseniz, yeni bir ana oluşturulmaz. Uygulama hizmeti planı Hello hello Seçtiğiniz ana oluşturulur. 
 
-6. Seçin **fiyatlandırma katmanı**ve aşağıdakilerden birini seçin **Isolated** SKU'ları fiyatlandırması. İsterseniz bir **Isolated** SKU kartı ve bir ana değil bir konum, yeni bir ana oluşturuldu. konumda. Bir ana oluşturma işlemini başlatmak için **seçin**. **Isolated** SKU yalnızca bir ana ile birlikte kullanılabilir. Ayrıca diğer fiyatlandırma SKU ASE'de dışında kullanamazsınız **Isolated**.
+6. Seçin **fiyatlandırma katmanı**ve hello birini **Isolated** SKU'ları fiyatlandırması. İsterseniz bir **Isolated** SKU kartı ve bir ana değil bir konum, yeni bir ana oluşturuldu. konumda. toostart hello işlem toocreate bir ana seçin **seçin**. Merhaba **Isolated** SKU yalnızca bir ana ile birlikte kullanılabilir. Ayrıca diğer fiyatlandırma SKU ASE'de dışında kullanamazsınız **Isolated**.
 
     ![Fiyatlandırma katmanı seçimi][3]
 
-7. ANA adını girin. Bu ad adreslenebilir ad uygulamalarınız için kullanılır. ANA adı ise _appsvcenvdemo_, etki alanı adı *. appsvcenvdemo.p.azurewebsites.net*. Adlı bir uygulama oluşturursanız, *mytestapp*, mytestapp.appsvcenvdemo.p.azurewebsites.net adreslenebilir. Adında boşluk kullanamazsınız. Büyük harf karakterler kullanırsanız, etki alanı adı toplam küçük harfli sürümünü adıdır.
+7. Merhaba, ana için ad girin. Bu ad, hello adreslenebilir ad uygulamalarınız için kullanılır. Merhaba ana Hello adı ise _appsvcenvdemo_, hello etki alanı adı *. appsvcenvdemo.p.azurewebsites.net*. Adlı bir uygulama oluşturursanız, *mytestapp*, mytestapp.appsvcenvdemo.p.azurewebsites.net adreslenebilir. Merhaba adında boşluk kullanamazsınız. Büyük harf karakterler kullanırsanız, hello etki alanı adı hello toplam küçük, bu adı sürümüdür.
 
     ![Yeni uygulama hizmeti planının adı][4]
 
-8. Azure, sanal ağ ayrıntıları belirtin. Şunlardan birini seçin **Yeni Oluştur** veya **Varolanı seç**. Var olan bir VNet seçmek için seçenek yalnızca seçili bölgede bir VNet varsa kullanılabilir. Seçerseniz **Yeni Oluştur**, sanal ağ için bir ad girin. Bu ada sahip yeni bir Resource Manager Vnet'i oluşturulur. Adres alanı kullanan `192.168.250.0/23` seçili bölgede. Seçerseniz **var olanı Seç**, gerekir:
+8. Azure, sanal ağ ayrıntıları belirtin. Şunlardan birini seçin **Yeni Oluştur** veya **Varolanı seç**. Merhaba seçeneği tooselect olan bir VNet hello seçili bölgede bir VNet varsa kullanılabilir. Seçerseniz **Yeni Oluştur**, hello VNet için bir ad girin. Bu ada sahip yeni bir Resource Manager Vnet'i oluşturulur. Merhaba adres alanı kullanan `192.168.250.0/23` hello seçili bölgede. Seçerseniz **var olanı Seç**, gerekir:
 
-    a. Birden fazla varsa VNet adres bloğu seçin.
+    a. Birden fazla varsa hello VNet adres bloğu, seçin.
 
     b. Yeni bir alt ağ adı girin.
 
-    c. Alt ağ boyutunu seçin. *ANA, Gelecekteki büyümeyi barındırmak için büyük bir boyutu seçmek unutmayın.* Öneririz `/25`, 128 adresi olduğunu ve en büyük ölçekli bir ana işleyebilir. Öneririz yok `/28`, örneğin, çünkü yalnızca 16 adresleri kullanılabilir durumdadır. Altyapı en az beş adreslerini kullanır. İçinde bir `/28` alt sol en fazla bir ölçeklendirme 11 örnekleri.
+    c. Merhaba hello alt ağ boyutunu seçin. *Bir boyut büyüklükte tooaccommodate gelecekteki büyümesini, ana tooselect unutmayın.* Öneririz `/25`, 128 adresi olduğunu ve en büyük ölçekli bir ana işleyebilir. Öneririz yok `/28`, örneğin, çünkü yalnızca 16 adresleri kullanılabilir durumdadır. Altyapı en az beş adreslerini kullanır. İçinde bir `/28` alt sol en fazla bir ölçeklendirme 11 örnekleri.
 
-    d. Alt ağ IP aralığını seçin.
+    d. Merhaba alt ağ IP aralığını seçin.
 
-9. Seçin **oluşturma** ana oluşturmak için. Bu işlem, uygulama hizmeti planı ve uygulamayı da oluşturur. ANA uygulama hizmeti planı ve uygulama olduğundan tüm aynı abonelik altında ve ayrıca aynı kaynak grubunda. Ayrı kaynak grubu, ana alması gerekiyorsa veya bir ILB ana ihtiyacınız varsa, tek başına bir ana oluşturmak için aşağıdaki adımları izleyin.
+9. Seçin **oluşturma** toocreate hello ana. Bu işlem ayrıca hello uygulama hizmeti planı ve hello uygulama oluşturur. Merhaba ana, uygulama hizmeti planı ve uygulama olan tüm altında hello aynı abonelik ve ayrıca, aynı hello kaynak grubu. Farklı bir kaynak grubu, ana alması gerekiyorsa ya da bir ILB ana gerekiyorsa hello adımları toocreate bir ana tek başına izleyin.
 
 ## <a name="create-an-ase-by-itself"></a>Tek başına bir ana oluşturma ##
 
-Bir ana tek başına oluşturursanız, hiçbir şey var. Boş bir ana hala altyapısı için aylık bir ücret doğurur. Bir ILB ile bir ana oluşturmak veya bir ana kendi kaynak grubu oluşturmak için aşağıdaki adımları izleyin. Ana oluşturduktan sonra uygulama içinde normal işlemi kullanarak oluşturabilirsiniz. Yeni ana konum olarak seçin.
+Bir ana tek başına oluşturursanız, hiçbir şey var. Boş bir ana hala hello altyapısı için aylık bir ücret doğurur. Bu adımları toocreate bir ILB ile bir ana ya da kendi kaynak grubundaki bir ana toocreate izleyin. Ana oluşturduktan sonra uygulama içinde hello normal işlemi kullanarak oluşturabilirsiniz. Yeni ana hello konumu olarak seçin.
 
-1. Azure Market arama **uygulama hizmeti ortamı**, ya da seçin **yeni** > **Web mobil** > **uygulama hizmeti Ortam**. 
+1. Arama için Azure Marketi hello **uygulama hizmeti ortamı**, ya da seçin **yeni** > **Web mobil** > **uygulama hizmeti Ortam**. 
 
-2. ANA adını girin. Bu ad, ana oluşturulan uygulamalar için kullanılır. Adı ise *mynewdemoase*, alt etki alanı adı *. mynewdemoase.p.azurewebsites.net*. Adlı bir uygulama oluşturursanız, *mytestapp*, mytestapp.mynewdemoase.p.azurewebsites.net adreslenebilir. Adında boşluk kullanamazsınız. Büyük harf karakterler kullanırsanız, etki alanı adı toplam küçük harfli sürümünü adıdır. Bir ILB kullanırsanız, ana adınızı alt etki alanı içinde kullanılmaz, ancak bunun yerine ana oluşturma sırasında açıkça belirtilmiştir.
+2. Merhaba, ana adını girin. Bu ad, hello ana oluşturulan hello uygulamalar için kullanılır. Merhaba adı ise *mynewdemoase*, hello alt etki alanı adı *. mynewdemoase.p.azurewebsites.net*. Adlı bir uygulama oluşturursanız, *mytestapp*, mytestapp.mynewdemoase.p.azurewebsites.net adreslenebilir. Merhaba adında boşluk kullanamazsınız. Büyük harf karakterler kullanırsanız, hello etki alanı adı hello toplam küçük hello adı sürümüdür. Bir ILB kullanırsanız, ana adınızı alt etki alanı içinde kullanılmaz, ancak bunun yerine ana oluşturma sırasında açıkça belirtilmiştir.
 
     ![Ana adlandırma][5]
 
-3. Aboneliğinizi seçin. Bu abonelik ayrıca ana tüm uygulamaları kullanan biridir. Başka bir abonelikte bir VNet, ana koymak olamaz.
+3. Aboneliğinizi seçin. Bu abonelik ayrıca hello hello ana tüm uygulamaları kullanan bir yerdir. Başka bir abonelikte bir VNet, ana koymak olamaz.
 
-4. Seçin veya yeni bir kaynak grubu belirtin. Ana için kullanılan kaynak grubunun ağınız için kullanılan adla aynı olması gerekir. Varolan bir sanal ağ seçerseniz, ana için kaynak grubu seçimi, sanal ağınızı yansıtacak şekilde güncelleştirilir. *Resource Manager şablonunu kullanırsanız, VNet kaynak grubundan farklı bir kaynak grubu ile bir ana oluşturabilirsiniz.* Bir şablondan bir ana oluşturmak için bkz: [bir şablondan bir uygulama hizmeti ortamı oluşturma][MakeASEfromTemplate].
+4. Seçin veya yeni bir kaynak grubu belirtin. Merhaba kaynak grubu için ana kullanılan hello ağınız için kullanılan aynı olması gerekir. Varolan bir sanal ağ seçerseniz, hello kaynak grubu, ana için güncelleştirilmiş tooreflect seçimdir, sanal ağınızı. *Resource Manager şablonunu kullanırsanız, hello VNet kaynak grubundan farklı bir kaynak grubu ile bir ana oluşturabilirsiniz.* bir şablondan bir ana toocreate bkz [bir şablondan bir uygulama hizmeti ortamı oluşturma][MakeASEfromTemplate].
 
     ![Kaynak grubu seçimi][6]
 
 5. VNet ve konumunu seçin. Yeni bir VNet oluşturun veya varolan bir sanal ağ seçin: 
 
-    * Yeni bir VNet seçerseniz, bir ad ve konum belirtebilirsiniz. Yeni sanal ağ adres aralığı 192.168.250.0/23 ve varsayılan adlı bir alt ağ vardır. Alt ağ 192.168.250.0/24 tanımlanır. Yalnızca Resource Manager Vnet'i seçebilirsiniz. **VIP türü** seçimi, ana doğrudan (harici) Internet üzerinden erişilebiliyorsa veya bir ILB kullanıyorsa belirler. Bu seçenekler hakkında daha fazla bilgi için bkz: [oluşturma ve kullanma uygulama hizmeti ortamı olan bir iç yük dengeleyici][MakeILBASE]. 
+    * Yeni bir VNet seçerseniz, bir ad ve konum belirtebilirsiniz. Merhaba yeni VNet hello adres aralığı 192.168.250.0/23 ve varsayılan adlı bir alt ağ vardır. Merhaba alt 192.168.250.0/24 tanımlanır. Yalnızca Resource Manager Vnet'i seçebilirsiniz. Merhaba **VIP türü** seçim belirler, ana doğrudan erişilebilir değilse hello Internet (harici) veya bir ILB kullanıyorsa. Bu seçenekler hakkında daha fazla toolearn bkz [oluşturma ve kullanma uygulama hizmeti ortamı olan bir iç yük dengeleyici][MakeILBASE]. 
 
-      * Seçerseniz **dış** için **VIP türü**, sistem oluşturulur ile IP tabanlı SSL amaçlar için kaç tane dış IP adreslerini seçebilirsiniz. 
+      * Seçerseniz **dış** hello için **VIP türü**, kaç tane dış IP adresleri hello sistem IP tabanlı SSL amacıyla oluşturulur seçebilirsiniz. 
     
-      * Seçerseniz **dahili** için **VIP türü**, ana kullanan bir etki alanına belirtmeniz gerekir. Bir ana ortak veya özel adres aralıkları kullanan bir sanal ağ dağıtabilirsiniz. Bir VNet ortak adres aralığı ile kullanmak için sanal ağ önceden oluşturmanız gerekir. 
+      * Seçerseniz **dahili** hello için **VIP türü**, ana kullanan hello etki alanına belirtmeniz gerekir. Bir ana ortak veya özel adres aralıkları kullanan bir sanal ağ dağıtabilirsiniz. bir ortak adres aralığına sahip bir VNet toouse, önceden toocreate hello VNet gerekir. 
     
-    * Varolan bir sanal ağ seçerseniz, ana oluşturulduğunda, yeni bir alt ağ oluşturulur. *Portalda önceden oluşturulmuş bir alt ağ kullanılamıyor. Resource Manager şablonunu kullanırsanız, var olan bir alt ağ ile bir ana oluşturabilirsiniz.* Bir şablondan bir ana oluşturmak için bkz: [bir şablondan bir uygulama hizmeti ortamı oluşturma][MakeASEfromTemplate].
+    * Varolan bir sanal ağ seçerseniz, hello ana oluşturulduğunda, yeni bir alt ağ oluşturulur. *Merhaba Portalı'nda önceden oluşturulmuş bir alt ağ kullanılamıyor. Resource Manager şablonunu kullanırsanız, var olan bir alt ağ ile bir ana oluşturabilirsiniz.* bir şablondan bir ana toocreate bkz [bir şablondan bir uygulama hizmeti ortamı oluşturma][MakeASEfromTemplate].
 
 ## <a name="app-service-environment-v1"></a>App Service Ortamı v1 ##
 
-Uygulama hizmeti ortamı'nı (ASEv1) ilk sürümü örneklerini oluşturabilirsiniz. Bu işlemi başlatmak için Market arama **uygulama hizmeti ortamı v1**. Tek başına ana oluşturduğunuz aynı şekilde ana oluşturun. Sona erdiğinde, ASEv1 iki ön uçlar ve iki çalışanları vardır. ASEv1 ile ön uç ve çalışanları yönetmeniz gerekir. Uygulama hizmeti planları oluşturduğunuzda otomatik olarak eklenir. Ön Uçları HTTP/HTTPS uç noktalar olarak davranmasına ve trafik çalışanlarına gönderin. Uygulamalarınızı barındırmak rolleri çalışanlardır. Ana oluşturduktan sonra ön uç ve çalışanları miktarını ayarlayabilirsiniz. 
+Uygulama hizmeti ortamı'nı (ASEv1) ilk sürümü hello örneklerini oluşturabilirsiniz. işlem, arama hello Market toostart için **uygulama hizmeti ortamı v1**. Hello hello ana oluşturduğunuz aynı şekilde hello tek başına ana oluşturun. Sona erdiğinde, ASEv1 iki ön uçlar ve iki çalışanları vardır. ASEv1 ile Merhaba ön uçlar ve çalışanları yönetmeniz gerekir. Uygulama hizmeti planları oluşturduğunuzda otomatik olarak eklenir. Merhaba ön uçlar hello HTTP/HTTPS uç noktalar olarak davranmasına ve trafik toohello çalışanları gönderin. Merhaba, uygulamalarınızı barındırmak hello rolleri çalışanlardır. Ana oluşturduktan sonra ön uç ve çalışanları hello miktarını ayarlayabilirsiniz. 
 
-ASEv1 hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı v1 giriş][ASEv1Intro]. Ölçeklendirme ile ilgili daha fazla bilgi için bkz: yönetme ve ASEv1, izleme [bir uygulama hizmeti ortamını yapılandırma][ConfigureASEv1].
+toolearn ASEv1, hakkında daha fazla bilgi görmek [giriş toohello uygulama hizmeti ortamı v1][ASEv1Intro]. Ölçeklendirme ile ilgili daha fazla bilgi için bkz: yönetme ve ASEv1, izleme [nasıl tooconfigure bir uygulama hizmeti ortamı][ConfigureASEv1].
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

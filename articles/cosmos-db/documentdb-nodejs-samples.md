@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB node.js Örnekleri | Microsoft Docs"
+title: "Azure Cosmos DB aaaNode.js Örnekleri | Microsoft Docs"
 description: "Node.js örnekler github'da Azure Cosmos veritabanı CRUD işlemleri dahil olmak üzere, ortak görevler için bulun."
 keywords: "node.js Örnekleri"
 services: cosmos-db
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: moderakh
-ms.openlocfilehash: 602615c2434b7ab11ec55f2427c76cf1730b1379
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 55c8ebb9ff425aeeaa49fd0738649d33556a1635
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js Örnekleri
 > [!div class="op_single_selector"]
@@ -30,25 +30,25 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-CRUD işlemleri ve Azure Cosmos DB kaynaklardaki ortak diğer işlemleri gerçekleştirmek örnek çözümleri dahil edilmiştir [azure documentdb nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub depo. Bu makalede aşağıdakiler sunulmaktadır:
+CRUD işlemleri ve Azure Cosmos DB kaynaklardaki ortak diğer işlemleri gerçekleştirmek örnek çözümleri hello dahil [azure documentdb nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub depo. Bu makalede aşağıdakiler sunulmaktadır:
 
-* Her Node.js örnek proje dosyalarının görevlere bağlantılar.
-* Bağlantılar ilgili API'ye içerik başvuru.
+* Proje dosyaları bağlantılar toohello görevleri her Merhaba Node.js örneği.
+* Bağlantılar toohello API başvuru içeriği ilgili.
 
 **Önkoşullar**
 
-1. Bu Node.js örnekleri kullanmak için bir Azure hesabı gerekir:
-   * [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/): Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alabilir ve hatta kullanıldıktan sonra bile hesabı tutabilir ve Web siteleri gibi ücretsiz Azure hizmetlerini kullanabilirsiniz. Açıkça ayarlarınızı değiştirip ücretlendirme istemediğiniz sürece kredi kartınız asla ücretlendirilmeyecektir.
+1. Bu Node.js Örnekleri bir Azure hesabı toouse gerekir:
+   * Yapabilecekleriniz [ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/): krediler alırsınız tootry çıkışı Ücretli Azure hizmetlerini kullanabilirsiniz ve hatta kullanıldıktan sonra en fazla hello hesabı tutabilir ve ücretsiz Web siteleri gibi Azure hizmetlerini kullanabilirsiniz. Açıkça ayarlarınızı değiştirip ücret toobe isteyin sürece kredi kartınız asla ücretlendirilir.
      * Yapabilecekleriniz [Visual Studio abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): bilgisayarınızı Visual Studio abonelik size kredi verir Ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
-2. Ayrıca gerekir [Node.js SDK'sı](documentdb-sdk-node.md).
+2. Merhaba etmeniz [Node.js SDK'sı](documentdb-sdk-node.md).
    
    > [!NOTE]
-   > Her örnek kendi içinde bulunan, kendisini ayarlayan ve kendisini sonra temizler. Bu nedenle, örnekler için birden fazla çağrı sorun [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection). Bu, aboneliğinizin yapılır her zaman 1 saat performans katmanı oluşturulan koleksiyonunun başına kullanım için faturalandırılır.
+   > Her örnek kendi içinde bulunan, kendisini ayarlayan ve kendisini sonra temizler. Bu nedenle, hello örnekleri birden fazla çağrı çok sorun[DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection). Bu, aboneliğinizin yapılır her zaman 1 saat hello performans katmanı oluşturulmakta hello koleksiyonunun başına kullanım için faturalandırılır.
    > 
    > 
 
 ## <a name="database-examples"></a>Veritabanı örnekleri
-[App.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DatabaseManagement/app.js) dosyasının [DatabaseManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/DatabaseManagement) proje, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir.
+Merhaba [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DatabaseManagement/app.js) hello dosyasının [DatabaseManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/DatabaseManagement) proje, nasıl tooperform hello aşağıdaki görevleri gösterir.
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -59,7 +59,7 @@ CRUD işlemleri ve Azure Cosmos DB kaynaklardaki ortak diğer işlemleri gerçek
 | [Veritabanı silme](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DatabaseManagement/app.js#L133-L144) |[DocumentClient.deleteDatabase](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteDatabase) |
 
 ## <a name="collection-examples"></a>Koleksiyon örnekleri
-[App.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/CollectionManagement/app.js) dosyasının [CollectionManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/CollectionManagement) proje, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir.
+Merhaba [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/CollectionManagement/app.js) hello dosyasının [CollectionManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/CollectionManagement) proje, nasıl tooperform hello aşağıdaki görevleri gösterir.
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -72,12 +72,12 @@ CRUD işlemleri ve Azure Cosmos DB kaynaklardaki ortak diğer işlemleri gerçek
 | [Bir koleksiyonu silin](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L204-L215) |[DocumentClient.deleteCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteCollection) |
 
 ## <a name="document-examples"></a>Belge örnekleri
-[App.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DocumentManagement/app.js) dosyasının [DocumentManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/DocumentManagement) proje, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir.
+Merhaba [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DocumentManagement/app.js) hello dosyasının [DocumentManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/DocumentManagement) proje, nasıl tooperform hello aşağıdaki görevleri gösterir.
 
 | Görev | API başvurusu |
 | --- | --- |
 | [Belgeleri oluşturma](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L153-L177) |[DocumentClient.createDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createDocument) |
-| [Bir koleksiyon için akış belgeyi okuma](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L179-L189) |[DocumentClient.readDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readDocument) |
+| [Bir koleksiyon için akış hello belgeyi okuma](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L179-L189) |[DocumentClient.readDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readDocument) |
 | [Kimliğe göre bir belgeyi okuma](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L191-L201) |[DocumentClient.readDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readDocument) |
 | [Yalnızca belge değiştiyse belgeyi okuma](https://github.com/Azure/azure-documentdb-node/blob/0778eadea7abb2af41e8c22a239dc872c584f421/samples/DocumentManagement/app.js#L79-L107) |[DocumentClient.readDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readDocument)<br/>[RequestOptions.accessCondition](http://azure.github.io/azure-documentdb-node/global.html#RequestOptions) |
 | [Belgeler için sorgu](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L82-L110) |[DocumentClient.queryDocuments](http://azure.github.io/azure-documentdb-node/DocumentClient.html#queryDocuments) |
@@ -86,13 +86,13 @@ CRUD işlemleri ve Azure Cosmos DB kaynaklardaki ortak diğer işlemleri gerçek
 | [Bir belgeyi silme](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L122-L133) |[DocumentClient.deleteDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteDocument) |
 
 ## <a name="indexing-examples"></a>Dizin oluşturma örnekleri
-[App.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/IndexManagement/app.js) dosyasının [IndexManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/IndexManagement) proje, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir.
+Merhaba [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/IndexManagement/app.js) hello dosyasının [IndexManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/IndexManagement) proje, nasıl tooperform hello aşağıdaki görevleri gösterir.
 
 | Görev | API başvurusu |
 | --- | --- |
 | [Varsayılan dizin ile bir koleksiyon oluşturma](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L657-L701) |[DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection) |
 | [El ile belirli bir belge dizini](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L185-L238) |[RequestOptions.indexingDirective: 'include'](http://azure.github.io/azure-documentdb-node/global.html#RequestOptions) |
-| [El ile belirli bir belgeyi dizinden dışlayın](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L120-L183) |[RequestOptions.indexingDirective: 'Dışla'](http://azure.github.io/azure-documentdb-node/global.html#RequestOptions) |
+| [El ile belirli bir belge hello dizinden dışlayın](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L120-L183) |[RequestOptions.indexingDirective: 'Dışla'](http://azure.github.io/azure-documentdb-node/global.html#RequestOptions) |
 | [Yavaş toplu alma için dizin oluşturma kullanır veya ağır koleksiyonları okuma](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L240-L269) |[IndexingMode.Lazy](http://azure.github.io/azure-documentdb-node/global.html#IndexingMode) |
 | [Dizin oluşturma bir belgenin belirli yollar içerir](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L433-L444) |[IndexingPolicy.IncludedPaths](http://azure.github.io/azure-documentdb-node/global.html#IndexingPolicy) |
 | [Dizin oluşturma gelen belirli yollar Dışla](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L427-L450) |[IndexingPolicy.ExcludedPath](http://azure.github.io/azure-documentdb-node/global.html#IndexingPolicy) |
@@ -103,7 +103,7 @@ CRUD işlemleri ve Azure Cosmos DB kaynaklardaki ortak diğer işlemleri gerçek
 Dizin oluşturma hakkında daha fazla bilgi için bkz: [Azure Cosmos ilkeleri dizin DB](indexing-policies.md).
 
 ## <a name="server-side-programming-examples"></a>Sunucu tarafı programlama örnekleri
-[App.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/ServerSideScripts/app.js) dosyasının [ServerSideScripts](https://github.com/Azure/azure-documentdb-node/tree/master/samples/ServerSideScripts) proje, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir.
+Merhaba [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/ServerSideScripts/app.js) hello dosyasının [ServerSideScripts](https://github.com/Azure/azure-documentdb-node/tree/master/samples/ServerSideScripts) proje, nasıl tooperform hello aşağıdaki görevleri gösterir.
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -113,7 +113,7 @@ Dizin oluşturma hakkında daha fazla bilgi için bkz: [Azure Cosmos ilkeleri di
 Sunucu tarafı programlama hakkında daha fazla bilgi için bkz: [Azure Cosmos DB sunucu tarafı programlama: saklı yordamlar, veritabanı tetikleyiciler ve UDF'lerin](programming.md).
 
 ## <a name="partitioning-examples"></a>Bölümleme örnekleri
-[App.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) dosyasının [bölümleme](https://github.com/Azure/azure-documentdb-node/tree/master/samples/Partitioning) proje, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir.
+Merhaba [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) hello dosyasının [bölümleme](https://github.com/Azure/azure-documentdb-node/tree/master/samples/Partitioning) proje, nasıl tooperform hello aşağıdaki görevleri gösterir.
 
 | Görev | API başvurusu |
 | --- | --- |

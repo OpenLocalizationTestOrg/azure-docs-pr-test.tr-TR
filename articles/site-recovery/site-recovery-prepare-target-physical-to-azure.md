@@ -1,6 +1,6 @@
 ---
-title: "Hedef (fiziksel Azure) hazırlama | Microsoft Docs"
-description: "Bu makalede, Azure için Windows veya Linux çalıştıran fiziksel sunucuları çoğaltıyor başlatmak üzere Azure ortamınızı hazırlamak açıklar."
+title: "Hedef (fiziksel tooAzure) hazırlama | Microsoft Docs"
+description: "Bu makalede nasıl tooprepare tooAzure Windows veya Linux çalıştıran fiziksel sunucuları çoğaltıyor, Azure ortamı toostart."
 services: site-recovery
 documentationcenter: 
 author: bsiva
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 5/31/2017
 ms.author: bsiva
-ms.openlocfilehash: aa7a32ace8354f615a8b8cc137f6bdf48fbadf48
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 126fb86133e1a00f5669410943565c4cd78e4369
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="prepare-target-vmware-to-azure"></a>Hedef (VMware Azure için) hazırlama
+# <a name="prepare-target-vmware-tooazure"></a>Hedef (VMware tooAzure) hazırlama
 > [!div class="op_single_selector"]
-> * [Vmware’den Azure’a](./site-recovery-prepare-target-vmware-to-azure.md)
-> * [Azure için fiziksel](./site-recovery-prepare-target-physical-to-azure.md)
+> * [VMware tooAzure](./site-recovery-prepare-target-vmware-to-azure.md)
+> * [Fiziksel tooAzure](./site-recovery-prepare-target-physical-to-azure.md)
 
-Bu makalede, Azure'da Windows veya Linux çalıştıran fiziksel sunucuları (x 64) çoğaltılması başlatmak üzere Azure ortamınızı hazırlamak açıklar.
+Bu makalede nasıl tooprepare Azure'da Windows veya Linux çalıştıran fiziksel sunucuları (x 64) çoğaltılması, Azure ortamı toostart.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Makalede aşağıdaki varsayılmaktadır:
-- Fiziksel sunucuyu korumak için bir kurtarma Hizmetleri kasası oluşturdunuz. Kurtarma Hizmetleri Kasası'nı oluşturabilirsiniz [Azure portal](http://portal.azure.com "Azure portal").
-- Sahip olduğunuz [, şirket içi ortamınızın Kurulumu](./site-recovery-set-up-physical-to-azure.md) fiziksel sunucuları Azure'a çoğaltma için.
+Merhaba makale hello aşağıdakileri varsayar:
+- Fiziksel sunucuları kurtarma Hizmetleri kasası tooprotect oluşturdunuz. Bir kurtarma Hizmetleri kasası hello oluşturabilirsiniz [Azure portal](http://portal.azure.com "Azure portal").
+- Sahip olduğunuz [, şirket içi ortamınızın Kurulumu](./site-recovery-set-up-physical-to-azure.md) tooreplicate fiziksel sunucuları tooAzure.
 
 ## <a name="prepare-target"></a>Hedef hazırlama
 
-Tamamladıktan sonra **adım 1:Select koruma hedefi** ve **2. adım: kaynak hazırlama**, gittiğiniz **adım 3: hedef**
+Merhaba tamamladıktan sonra **adım 1:Select koruma hedefi** ve **2. adım: kaynak hazırlama**, çok alınır**adım 3: hedef**
 
 ![Hedef hazırlama](./media/site-recovery-prepare-target-physical-to-azure/prepare-target-physical-to-azure.png)
 
-1. **Abonelik:** açılan menüsünde, fiziksel sunucularınızı çoğaltmak istediğiniz aboneliği seçin.
-2. **Dağıtım modeli:** (Klasik veya Resource Manager) dağıtım modeli seçin
+1. **Abonelik:** fiziksel sunucularınızı hello açılır menü, select hello tooreplicate istediğiniz abonelik.
+2. **Dağıtım modeli:** Select hello dağıtım modeli (Klasik veya Resource Manager)
 
-Seçilen dağıtım modelini temel alan bir doğrulama fiziksel sunucularınızın en az bir uyumlu depolama hesabı ve sanal ağ çoğaltmak için hedef abonelik ve yük devretme olmasını sağlamak için çalıştırılır.
+Dağıtım modeli seçilen hello üzerinde bağlı olarak, bir doğrulama fiziksel sunucularınızın en az bir uyumlu depolama hesabı ve sanal ağ hello hedef abonelik tooreplicate ve yük devretme sahip tooensure çalıştırılır.
 
-Doğrulamaları başarıyla tamamlandığında, sonraki adıma dönmek için Tamam'ı tıklatın.
+Merhaba doğrulamaları başarıyla tamamlandığında, Tamam toogo toohello sonraki adım'ı tıklatın.
 
-Uyumlu Resource Manager depolama hesabı veya sanal ağ yok ya da daha fazla eklemek istediğiniz, tıklayarak bunu yapabilirsiniz **+ depolama hesabı** veya **+ ağ** düğmelerini dikey pencerenin üst kısmında.
+Uyumlu Resource Manager depolama hesabı veya sanal ağ yok ya da daha fazla tooadd istersiniz, hello tıklayarak bunu yapabilirsiniz **+ depolama hesabı** veya **+ ağ** hello hello üstündeki düğmeleri Dikey.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Çoğaltma ayarlarını yapılandırın](./site-recovery-setup-replication-settings-vmware.md).

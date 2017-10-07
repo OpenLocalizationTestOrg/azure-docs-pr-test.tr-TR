@@ -1,6 +1,6 @@
 ---
-title: "Azure portalı kullanarak Data Lake Store ile çalışmaya başlama| Microsoft Docs"
-description: "Bir Data Lake Store hesabı oluşturmak ve Data Lake Store'da temel işlemleri gerçekleştirmek için Azure portalı kullanma"
+title: "Azure portal tooget aaaUse Data Lake Store ile çalışmaya | Microsoft Docs"
+description: "Merhaba Data Lake Store temel işlemleri gerçekleştirmek ve Hello Azure portal toocreate bir Data Lake Store hesabı kullanın"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/06/2017
 ms.author: nitinme
-ms.openlocfilehash: fa13266993017374ba49709f8e22fbe6b03a28c7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6bb3413f00bfa4393f08aed18bc1d5f8a2f28fc5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Azure portalı kullanarak Azure Data Lake Store ile çalışmaya başlama
+# <a name="get-started-with-azure-data-lake-store-using-hello-azure-portal"></a>Azure Data Lake hello Azure portal kullanarak Store ile çalışmaya başlama
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -33,43 +33,43 @@ ms.lasthandoff: 08/18/2017
 >
 > 
 
-Azure Data Lake Store hesabı oluşturmak ve klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure Portal'ın nasıl kullanılacağını öğrenin. Daha fazla bilgi için bkz. [Azure Data Lake Store’a Genel Bakış](data-lake-store-overview.md).
+Nasıl toouse Azure portal toocreate bir Azure Data Lake Store hesabı hello ve gibi klasör oluşturma karşıya yükleyin ve veri dosyalarını indirme temel işlemleri gerçekleştirmek öğrenin, vb., hesabınızı silme. Daha fazla bilgi için bkz. [Azure Data Lake Store’a Genel Bakış](data-lake-store-overview.md).
 
-Aşağıdaki iki video, bu makalede anlatılan bilgileri içerir:
+iki videoları izleyerek hello içeren bu makalede anlatıldığı gibi aynı bilgileri hello:
 
 * [Data Lake Store hesabı oluşturma](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Veri Gezgini'ni kullanarak Data Lake Store'da verileri yönetme](https://mix.office.com/watch/icletrxrh6pc)
+* [Merhaba Veri Gezgini'ni kullanarak Data Lake Store verileri yönetmek](https://mix.office.com/watch/icletrxrh6pc)
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
+Bu öğreticiye başlamadan önce aşağıdaki öğelerindeki hello sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Azure Data Lake Store hesabı oluşturma
 
-1. Yeni [Azure Portal](https://portal.azure.com)'da oturum açın.
-2. **YENİ**'ye, **Veri + Depolama**'ya ve ardından **Azure Data Lake Store**'a tıklayın. **Azure Data Lake Store** dikey penceresindeki bilgileri okuyun ve ardından dikey pencerenin sol alt köşesindeki **Oluştur** seçeneğine tıklayın.
-3. **Yeni Data Lake Store** dikey penceresinde, aşağıdaki ekran görüntüsünde gösterilen değerleri sağlayın:
+1. Yeni toohello oturum [Azure portal](https://portal.azure.com).
+2. **YENİ**'ye, **Veri + Depolama**'ya ve ardından **Azure Data Lake Store**'a tıklayın. Merhaba Hello bilgileri okuyun **Azure Data Lake Store** dikey ve ardından **oluşturma** hello sol alt köşesindeki hello dikey olarak.
+3. Merhaba, **yeni Data Lake Store** dikey penceresinde hello ekran aşağıdaki gösterildiği gibi hello değerleri girin:
    
     ![Yeni bir Azure Data Lake Store hesabı oluşturma](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
    
-   * **Ad**. Data Lake Store hesabı için benzersiz bir ad girin.
-   * **Abonelik**. Altında yeni bir Data Lake Store hesabı oluşturmak istediğiniz aboneliği seçin.
-   * **Kaynak Grubu**. Mevcut bir kaynak grubunu seçin veya yeni grup oluşturmak için **Yeni oluştur** seçeneğini belirleyin. Kaynak grubu, bir uygulama için ilgili kaynakları bir arada tutan bir kapsayıcıdır. Daha fazla bilgi için bkz. [Azure'da Kaynak Grupları](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   * **Konum**: Data Lake Store hesabını oluşturmak istediğiniz konumu seçin.
+   * **Ad**. Merhaba Data Lake Store hesabı için benzersiz bir ad girin.
+   * **Abonelik**. Toocreate yeni bir Data Lake Store hesabı altında istediğiniz hello aboneliği seçin.
+   * **Kaynak Grubu**. Varolan bir kaynak grubu seçin ya da seçin hello **Yeni Oluştur** seçeneği toocreate biri. Kaynak grubu, bir uygulama için ilgili kaynakları bir arada tutan bir kapsayıcıdır. Daha fazla bilgi için bkz. [Azure'da Kaynak Grupları](../azure-resource-manager/resource-group-overview.md#resource-groups).
+   * **Konum**: toocreate hello Data Lake Store hesabı istediğiniz bir konum seçin.
    * **Şifreleme Ayarları**. Üç seçenek vardır:
      
      * **Şifrelemeyi etkinleştirme**.
-     * **Azure Data Lake tarafından yönetilen anahtarları kullanma**.  Şifreleme anahtarlarınızı yönetmek için Azure Data Lake Store kullanmak istiyorsanız.
-     * **Azure Key Vault'tan anahtarları seçin**. Mevcut bir Azure Key Vault’u seçin veya yeni bir Key Vault oluşturun. Azure Key Vault’taki anahtarları kullanmak için Azure Data Lake Store hesabının Azure Key Vault’a erişmesini sağlayacak izinleri atamanız gerekir. Yönergeler için bkz. [Azure Key Vault'a izinleri atama](#assign-permissions-to-azure-key-vault).
+     * **Azure Data Lake tarafından yönetilen anahtarları kullanma**.  Azure Data Lake Store toomanage şifreleme anahtarlarınızı istiyorsanız.
+     * **Azure Key Vault'tan anahtarları seçin**. Mevcut bir Azure Key Vault’u seçin veya yeni bir Key Vault oluşturun. bir anahtar kasası toouse hello anahtarları, hello tooaccess Azure anahtar Kasası'hello Azure Data Lake Store hesabı izinlerini atamanız gerekir. Merhaba yönergeler için bkz: [izinleri tooAzure anahtar kasası atamak](#assign-permissions-to-azure-key-vault).
        
         ![Data Lake Store şifrelemesi](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store encryption")
        
-        **Şifreleme Ayarları** dikey penceresinde **Tamam**’a tıklayın.
+        Tıklatın **Tamam** hello içinde **şifreleme ayarları** dikey.
 
         Daha fazla bilgi için bkz. [Azure Data Lake Store'da verileri şifreleme](./data-lake-store-encryption.md).
 
-4. **Oluştur**’a tıklayın. Hesabı panoya sabitlemeyi tercih ediyorsanız tekrar panoya yönlendirilirsiniz ve Data Lake Store hesap hazırlama işleminizin ilerleme durumunu görebilirsiniz. Data Lake Store hesabı sağlandıktan sonra, hesap dikey penceresi görünür.
+4. **Oluştur**'a tıklayın. Toopin hello hesap toohello Panosu seçerseniz, toohello Pano geri alınır ve Data Lake Store hesabı sağlama hello ilerleme durumunu görebilirsiniz. Bir kez hello hesap dikey penceresi görünür hello Data Lake Store hesabı sağlanır.
 
 İsterseniz Azure Resource Manager şablonlarını kullanarak bir Data Lake Store hesabı da oluşturabilirsiniz. Bu şablonlara [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/resources/templates/?term=data+lake+store)’ndan erişebilirsiniz:
 
@@ -77,56 +77,56 @@ Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 - Data Lake Store kullanarak veri şifrelemesi ile: [Şifreleme (Data Lake) ile Data Lake Store hesabı dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
 - Azure Key Vault kullanarak veri şifrelemesi ile: [Şifreleme (Key Vault) ile Data Lake Store hesabı dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 
-### <a name="assign-permissions-to-azure-key-vault"></a>Azure Key Vault’a izin atama
-Data Lake Store hesabında şifreleme yapılandırmak için bir Azure Anahtar Kasası’ndaki anahtarları kullandıysanız Data Lake Store hesabı ile Azure Anahtar Kasası hesabı arasında erişim yapılandırmalısınız. Bunu yapmak için aşağıdaki adımları gerçekleştirin.
+### <a name="assign-permissions-to-azure-key-vault"></a>İzinleri tooAzure anahtar kasası atayın
+Data Lake Store hesabı hello üzerinde bir Azure anahtar kasası tooconfigure şifreleme anahtarları kullandıysanız, hello Data Lake Store hesabı ve hello Azure anahtar kasası arasında erişim yapılandırmanız gerekir. Adımları toodo şekilde aşağıdaki hello gerçekleştirin.
 
-1. Azure Anahtar Kasası’ndaki anahtarları kullandıysanız Data Lake Store hesabına ait dikey pencerenin üstünde bir uyarı görüntülenir. Uyarıya tıklayarak **Anahtar Kasası İzinlerini Yapılandır** dikey penceresini açın.
+1. Hello Azure anahtar kasası anahtarlarından kullandıysanız, hello Data Lake Store hesabı dikey penceresinde hello hello üstünde bir uyarı görüntüler. Merhaba uyarı tooopen hello tıklatın **anahtar kasası izinleri yapılandırma** dikey.
    
     ![Data Lake Store şifrelemesi](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Store encryption")
-2. Bu dikey pencere, erişimi yapılandırmak için iki seçenek gösterir.
+2. Merhaba dikey iki seçenekleri tooconfigure erişim gösterir.
    
-   * Erişim yapılandırmak için ilk seçenekte **İzin Ver**’e tıklayın. İlk seçenek yalnızca Data Lake Store hesabını oluşturan kullanıcı aynı zamanda Azure Anahtar Kasası’nın bir yöneticisiyse çalışır.
-   * Diğer seçenek, dikey pencerede görüntülenen PowerShell cmdlet’ini çalıştırmak içindir. Azure Anahtar Kasası’nın sahibi olmanız ya da Azure Anahtar Kasası’nda izin verme yetkisine sahip olmanız gerekir. Cmdlet’i çalıştırdıktan sonra, erişimi yapılandırmak için dikey pencereye dönün ve **Etkinleştir**’e tıklayın.
+   * Merhaba ilk seçeneğinde tıklatın **izni** tooconfigure erişim. hello ilk seçenek, yalnızca hello Data Lake Store hesabı oluşturulan hello kullanıcı hello Azure anahtar kasası için bir yönetici ayrıca olduğunda etkindir.
+   * Merhaba diğer hello dikey penceresinde görüntülenen toorun hello PowerShell cmdlet'ini bir seçenektir. Azure anahtar kasası hello üzerinde hello özelliği toogrant izinlere sahip veya hello Azure anahtar kasası toobe hello sahibi gerekir. Merhaba cmdlet'ini çalıştırdıktan sonra toohello dikey penceresine geri dönün ve tıklayın **etkinleştirmek** tooconfigure erişim.
 
 ## <a name="createfolder"></a>Azure Data Lake Store hesabında klasör oluşturma
-Veri depolamak ve yönetmek için Data Lake Store hesabınızın altında klasör oluşturabilirsiniz.
+Data Lake Store hesabı toomanage altında klasörleri oluşturun ve veri depolayın.
 
-1. Oluşturduğunuz Data Lake Store hesabını açın. Sol bölmeden **Gözat**'a tıklayın, **Data Lake Store**'a tıklayın ve Data Lake Store dikey penceresinden, altında klasör oluşturmak istediğiniz hesabın adına tıklayın. Hesabı başlangıç panosuna sabitlediyseniz bu hesap kutucuğuna tıklayın.
+1. Oluşturduğunuz hello Data Lake Store hesabını açın. Hello sol bölmeden tıklatın **Gözat**, tıklatın **Data Lake Store**ve hello hesap adı altında istediğiniz toocreate klasörleri hello Data Lake Store dikey penceresinden'ı tıklatın. Merhaba hesap toohello Sabitle sabitlenmiş varsa, bu hesap kutucuğuna tıklayın.
 2. Data Lake Store hesabı dikey pencerenizde, **Veri Gezgini**'ne tıklayın.
    
     ![Data Lake Store hesabında klasör oluşturma](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
-3. Data Lake Store hesabı dikey pencerenizde, **Yeni Klasör**'e tıklayın, yeni klasör için bir ad girin ve ardından **Tamam**'a tıklayın.
+3. Data Lake Store hesabı dikey penceresinde tıklayın **yeni klasör**hello yeni klasör için bir ad girin ve ardından **Tamam**.
    
     ![Data Lake Store hesabında klasör oluşturma](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in Data Lake Store account")
    
-    Yeni oluşturulan klasör, **Veri Gezgini** dikey penceresinde listelenir. Herhangi bir düzeye kadar iç içe geçmiş klasörler oluşturabilirsiniz.
+    Yeni oluşturulan hello klasörü hello listelenen **Veri Gezgini** dikey. Herhangi bir düzeye kadar iç içe geçmiş klasörler oluşturabilirsiniz.
    
     ![Data Lake hesabında klasör oluşturma](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
 
-## <a name="uploaddata"></a>Azure Data Lake Store hesabına veri yükleme
-Verilerinizi Azure Data Lake Store hesabınıza doğrudan kök düzeyinde veya hesap içinde oluşturduğunuz bir klasöre yüklenecek şekilde yükleyebilirsiniz. Aşağıdaki ekran görüntüsünü kullanarak, **Veri Gezgini** dikey penceresinden bir dosyayı bir alt klasöre yüklemek için aşağıdaki adımları izleyin. Bu ekran görüntüsünde, dosya içerik haritalarında gösterilen bir alt klasöre yüklenmektedir (kırmızı kutu içinde işaretlenmiştir).
+## <a name="uploaddata"></a>Veri tooAzure Data Lake Store hesabı karşıya yükle
+Veri tooan Azure Data Lake Store hesabı hello hesap içinde oluşturduğunuz doğrudan hello kök düzeyinde veya tooa klasöründe karşıya yükleyebilirsiniz. Hello hello hello adımları tooupload dosya tooa alt izleyin ekran, aşağıdaki **Veri Gezgini** dikey. Bu ekran görüntüsünde hello (kırmızı kutu içinde işaretlenmiştir) hello içerik haritalarında gösterilen karşıya yüklenen tooa alt dosyasıdır.
 
-Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz.
+Bazı örnek veri tooupload için arıyorsanız, hello alabilirsiniz **Ambulance Data** hello klasöründen [Azure Data Lake Git deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ![Veri yükleme](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
 
-## <a name="properties"></a>Depolanan verilerde kullanılabilen özellikler ve eylemler
-**Özellikler** dikey penceresini açmak için yeni eklenen dosyaya tıklayın. Dosyayla ilişkili özellikler ve dosya üzerinde gerçekleştirebileceğiniz eylemler bu dikey pencerede sunulur. Ayrıca tam yolu, aşağıdaki ekran görüntüsünde vurgulanmış olan Azure Data Lake Store hesabınızdaki dosyaya kopyalayabilirsiniz.
+## <a name="properties"></a>Özellikler ve Eylemler hello üzerinde kullanılabilir veriler
+Merhaba yeni eklenen dosya tooopen hello tıklatın **özellikleri** dikey. Bu dikey penceresinde hello dosya ve hello dosya üzerinde gerçekleştirebileceğiniz hello Eylemler ile ilişkili hello özellikler kullanılabilir. Ekran aşağıdaki hello hello kırmızı kutusunda vurgulanan Azure Data Lake Store hesabınızda hello tam yolu toofile de kopyalayabilirsiniz:
 
-![Verilere yönelik özellikler](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data")
+![Merhaba veri özellikleri](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "hello veri özellikleri")
 
-* Dosyanın önizlemesini görmek için, doğrudan tarayıcıdan **Önizleme**'ye tıklayın. Önizleme biçimini de belirtebilirsiniz. **Önizleme**'ye tıklayın,**Dosya Önizleme** dikey penceresinde **Biçim**'e tıklayın ve **Dosya Önizleme Biçimi** dikey penceresinde, görüntülenecek satırların sayısı, kullanılacak kodlama, kullanılacak sınırlayıcı gibi seçenekleri belirtin.
+* Tıklatın **Önizleme** toosee hello tarayıcısından doğrudan hello dosya önizlemesini. Merhaba Önizleme hello biçimi belirtebilirsiniz. Tıklatın **Önizleme**, tıklatın **biçimi** hello içinde **Dosya Önizleme** dikey penceresinde ve hello **dosya önizleme biçimi** dikey penceresinde hello gibi seçenekleri belirtin Satır toodisplay sayı olarak toouse, sınırlayıcı toouse vb. kodlama.
   
   ![Dosya önizleme biçimi](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "File preview format")
-* Dosyayı bilgisayarınıza indirmek için **İndir**'e tıklayın.
-* Dosyayı yeniden adlandırmak için **Dosyayı yeniden adlandır**'a tıklayın.
-* Dosyayı silmek için **Dosyayı sil**'e tıklayın.
+* Tıklatın **karşıdan** toodownload hello dosya tooyour bilgisayar.
+* Tıklatın **dosyayı yeniden adlandır** toorename hello dosya.
+* Tıklatın **dosyasını** toodelete hello dosya.
 
 ## <a name="secure-your-data"></a>Verilerinizin güvenliğini sağlama
-Azure Active Directory'yi ve erişim denetimini (ACL'ler) kullanarak Azure Data Lake Store hesabınızda depolanan verilerin güvenliğini sağlayabilirsiniz. Bunun nasıl yapılacağına ilişkin yönergeler için bkz. [Azure Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md).
+Azure Active Directory ve erişim denetimini (ACL'ler) kullanarak Azure Data Lake Store hesabınızda depolanan hello verilerin güvenliğini sağlayabilirsiniz. Yönergeler için bkz: toodo [Azure Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md).
 
 ## <a name="delete-azure-data-lake-store-account"></a>Azure Data Lake Store hesabını silme
-Bir Azure Data Lake Store hesabını silmek için, Data Lake Store dikey pencerenizden **Sil**'e tıklayın. Eylemi onaylamak için silmek istediğiniz hesabın adını girmeniz istenir. Hesabın adını girin ve ardından **Sil**'e tıklayın.
+bir Azure Data Lake Store hesabından, Data Lake Store dikey toodelete tıklatın **silmek**. tooconfirm hello eylem toodelete istediğiniz hello hesabı istendiğinde tooenter hello adı olması. Merhaba hello hesabının adını girin ve ardından **silmek**.
 
 ![Data Lake hesabını silme](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Delete Data Lake account")
 

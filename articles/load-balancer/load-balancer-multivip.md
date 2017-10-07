@@ -1,6 +1,6 @@
 ---
-title: "Bir bulut hizmeti için birden çok VIP'ler"
-description: "MultiVIP ve bir bulut hizmetinde birden çok Vip ayarlama genel bakış"
+title: "bir bulut hizmeti için aaaMutiple VIP'ler"
+description: "MultiVIP genel bakış ve nasıl tooset bir bulut hizmeti üzerinde birden çok Vip"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -13,74 +13,74 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: f40e0501eed8d5f296e7c79d8a35705a695ae6fd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b3e0f2b24968cb75a7064484a09ffe94505bb70b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Birden çok Vip bir bulut hizmeti için yapılandırma
 
-Azure tarafından sağlanan bir IP adresi kullanarak genel Internet üzerinden Azure bulut hizmetlerine erişebilir. Bu genel IP adresi VIP (sanal IP) adlandırılır Azure yük dengeleyiciye bağlı ve sanal makine (VM) bulut hizmetinde örnekleri. Bir bulut hizmeti içinde herhangi bir VM örneğine tek bir VIP kullanarak erişebilirsiniz.
+Hello Azure tarafından sağlanan bir IP adresi kullanarak genel Internet üzerinden Azure bulut hizmetlerine erişebilir. Bu genel IP adresi başvurulan tooas VIP (sanal IP) olan bağlı olduğu bu yana toohello Azure yük dengeleyici ve hello bulut hizmeti içindeki sanal makine (VM) örnekleri hello değil. Bir bulut hizmeti içinde herhangi bir VM örneğine tek bir VIP kullanarak erişebilirsiniz.
 
-Ancak, bir veya daha çok VIP olarak bir giriş noktası aynı bulut hizmetine gerekebilir senaryo vardır. Örneğin, bulut hizmetinizin her site için farklı bir müşteri barındırılan olarak varsayılan bağlantı noktası 443'ü kullanarak SSL bağlantısı gerektiren veya Kiracı birden çok Web sitesi barındırabilir. Bu senaryoda, farklı genel kullanıma yönelik bir IP adresi her Web sitesi için olması gerekir. Aşağıdaki diyagram tipik bir çok kiracılı web birden çok SSL sertifikaları aynı ortak bağlantı noktasına sahip barındırma gösterir.
+Ancak, hangi ihtiyacınız olabilecek birden çok VIP senaryolar vardır bir giriş noktası toohello aynı bulut hizmeti. Örneğin, bulut hizmetinizin her site için farklı bir müşteri barındırılan olarak hello varsayılan bağlantı noktası 443'ü kullanarak SSL bağlantısı gerektiren veya Kiracı birden çok Web sitesi barındırabilir. Bu senaryoda, her Web sitesi için toohave farklı genel kullanıma yönelik bir IP adresi gerekir. Merhaba diyagramda hello üzerinde aynı birden çok SSL sertifikaları için bir tipik çok kiracılı web ile gerek duyduğu barındırma gösterilmiştir genel bağlantı noktası.
 
 ![Çoklu VIP SSL senaryosu](./media/load-balancer-multivip/Figure1.png)
 
-Yukarıdaki örnekte, tüm VIP'ler aynı genel bağlantı noktası (443) kullanın ve trafik birine yönlendirilir veya daha fazla yük dengeli sanal makinelerin tüm Web siteleri barındırma bulut hizmetinin iç IP adresi için bir benzersiz özel bağlantı noktası.
+Yukarıdaki tüm VIP'ler kullanım hello hello örnekte aynı genel bağlantı noktası (443) ve trafiği yeniden yönlendirilen tooone ya da daha fazla yük dengeli sanal makinelerin hello iç IP adresi hello bulut hizmetinin tüm hello Web siteleri barındırmak için bir benzersiz özel bağlantı noktası.
 
 > [!NOTE]
-> Birden çok Vip kullanımı gerektiren başka bir durum aynı sanal makineler kümesi üzerinde birden çok SQL AlwaysOn Kullanılabilirlik grubu dinleyicileri barındırıyor.
+> Başka bir durum gerektiren hello kullan hello birden çok Vip barındırma hello aynı sanal makinelerin kümesi üzerinde birden çok SQL AlwaysOn Kullanılabilirlik grubu dinleyicileri.
 
-VIP'ler dinamik varsayılan olarak bulut hizmetine atanan gerçek IP adresi zaman içinde değişebilir anlamına gelir. Oluşmasını önlemek için hizmetiniz için bir VIP ayırabilirsiniz. Ayrılmış VIP'ler hakkında daha fazla bilgi için bkz: [ayrılmış genel IP](../virtual-network/virtual-networks-reserved-public-ip.md).
+VIP'ler dinamik varsayılan toohello bulut hizmeti atanan hello gerçek IP adresi zaman içinde değişebilir anlamına gelir. oluşmasını, bir VIP hizmetiniz için ayırabilirsiniz olduğunu tooprevent. toolearn ayrılmış VIP'ler hakkında daha fazla bilgi görmek [ayrılmış genel IP](../virtual-network/virtual-networks-reserved-public-ip.md).
 
 > [!NOTE]
 > Lütfen bakın [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses/) üzerinde VIP'ler fiyatlandırma ve ayrılmış IP hakkında bilgi.
 
-Bulut hizmetlerinizi tarafından kullanılan VIP'ler doğrulamak için PowerShell kullanın yanı sıra ekleyin ve VIP'ler kaldırmak, bir uç nokta için bir VIP ilişkilendirmek ve Yük Dengeleme özgü bir VIP yapılandırın.
+PowerShell tooverify Merhaba, bulut Hizmetleri tarafından kullanılan VIP'ler kullanın yanı sıra ekleyin ve VIP'ler kaldırmak, bir VIP tooan uç noktası ilişkilendirmek ve Yük Dengeleme özgü bir VIP yapılandırın.
 
 ## <a name="limitations"></a>Sınırlamalar
 
-Şu anda aşağıdaki senaryolar için çoklu VIP işlevselliği sınırlıdır:
+Şu anda çoklu VIP senaryoları aşağıdaki sınırlı toohello işlevdir:
 
 * **Iaas yalnızca**. Bu gibi durumlarda, çoklu VIP yalnızca VM içermesi için bulut hizmetlerini etkinleştirebilirsiniz. Çoklu VIP PaaS rol örnekleri senaryolarla kullanamazsınız.
 * **Yalnızca PowerShell**. PowerShell kullanarak yalnızca çoklu VIP yönetebilirsiniz.
 
-Bu sınırlamaların geçicidir ve herhangi bir zamanda değişebilir. Gelecekteki değişiklikleri doğrulamak için bu sayfayı yeniden ziyaret etmeniz emin olun.
+Bu sınırlamaların geçicidir ve herhangi bir zamanda değişebilir. Emin toorevisit bu sayfa tooverify gelecekteki değişiklikler yapın.
 
-## <a name="how-to-add-a-vip-to-a-cloud-service"></a>Bir bulut hizmeti için bir VIP ekleme
-Bir VIP hizmetinize eklemek için aşağıdaki PowerShell komutunu çalıştırın:
+## <a name="how-tooadd-a-vip-tooa-cloud-service"></a>Nasıl tooadd bir VIP tooa bulut hizmeti
+tooadd bir VIP tooyour hizmeti, hello aşağıdaki PowerShell komutunu çalıştırın:
 
 ```powershell
 Add-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 ```
 
-Bu komut, aşağıdaki örneğe benzer bir sonuç görüntüler:
+Bu komut, aşağıdaki örnek bir sonuç benzer toohello görüntüler:
 
     OperationDescription OperationId                          OperationStatus
     -------------------- -----------                          ---------------
     Add-AzureVirtualIP   4bd7b638-d2e7-216f-ba38-5221233d70ce Succeeded
 
-## <a name="how-to-remove-a-vip-from-a-cloud-service"></a>Bir bulut hizmetinden bir VIP kaldırma
-Yukarıdaki örnekte hizmetinizi eklenen VIP kaldırmak için aşağıdaki PowerShell komutunu çalıştırın:
+## <a name="how-tooremove-a-vip-from-a-cloud-service"></a>Nasıl bir bulut hizmetinden bir VIP tooremove
+tooremove hello VIP tooyour hizmeti üzerinde aşağıdaki PowerShell komutunu çalıştırma hello hello örnekte ekledi:
 
 ```powershell
 Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 ```
 
 > [!IMPORTANT]
-> Kendisine ilişkili hiçbir uç noktası varsa, yalnızca bir VIP kaldırabilirsiniz.
+> Hiçbir ilişkili uç noktaları tooit varsa, yalnızca bir VIP kaldırabilirsiniz.
 
 
-## <a name="how-to-retrieve-vip-information-from-a-cloud-service"></a>Bir bulut hizmetinden VIP bilgi alma
-Bir bulut hizmetiyle ilişkili VIP'ler almak için aşağıdaki PowerShell betiğini çalıştırın:
+## <a name="how-tooretrieve-vip-information-from-a-cloud-service"></a>Nasıl bir bulut hizmeti tooretrieve VIP bilgileri
+tooretrieve hello VIP'ler PowerShell Betiği aşağıdaki hello çalıştırmak bir bulut hizmetiyle ilişkili:
 
 ```powershell
 $deployment = Get-AzureDeployment -ServiceName myService
 $deployment.VirtualIPs
 ```
 
-Komut dosyasını aşağıdaki örneğe benzer bir sonuç görüntüler:
+Aşağıdaki örnek bir sonuç benzer toohello Hello betik görüntüler:
 
     Address         : 191.238.74.148
     IsDnsProgrammed : True
@@ -100,17 +100,17 @@ Komut dosyasını aşağıdaki örneğe benzer bir sonuç görüntüler:
     ReservedIPName  :
     ExtensionData   :
 
-Bu örnekte, bulut hizmeti 3 olan VIP'ler:
+Bu örnekte, 3 hello bulut hizmeti olan VIP'ler:
 
-* **Vıp1** varsayılan VIP olup, bildiğiniz IsDnsProgrammedName değeri ayarlanamıyor çünkü true.
-* **Vıp2** ve **Vip3** herhangi bir IP adresi yok olarak kullanılmaz. VIP için bir uç nokta ilişkilendirirseniz yalnızca kullanılır.
+* **Vıp1** olan varsayılan VIP Merhaba, IsDnsProgrammedName hello değeri tootrue ayarlandığından, biliyor.
+* **Vıp2** ve **Vip3** herhangi bir IP adresi yok olarak kullanılmaz. Bir uç nokta toohello VIP ilişkilendirirseniz yalnızca kullanılır.
 
 > [!NOTE]
 > Bir uç nokta ile ilişkili olduğunda, aboneliğiniz için ek VIP'ler yalnızca ücretlendirilir. Fiyatlandırma hakkında daha fazla bilgi için bkz: [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
-## <a name="how-to-associate-a-vip-to-an-endpoint"></a>Bir uç nokta için bir VIP ilişkilendirme
+## <a name="how-tooassociate-a-vip-tooan-endpoint"></a>Nasıl tooassociate bir VIP tooan uç noktası
 
-Bir bulut hizmeti için bir bitiş noktasına bir VIP ilişkilendirmek için aşağıdaki PowerShell komutunu çalıştırın:
+PowerShell komutunu aşağıdaki hello çalıştırmak bir bulut hizmeti tooan uç noktasında bir VIP tooassociate:
 
 ```powershell
 Get-AzureVM -ServiceName myService -Name myVM1 |
@@ -118,16 +118,16 @@ Get-AzureVM -ServiceName myService -Name myVM1 |
     Update-AzureVM
 ```
 
-Komutu adlı VIP bağlı bir uç nokta oluşturuyor *vıp2* bağlantı noktasında *80*ve adlı VM'ye bağlantılar *myVM1* bir bulut hizmetinde adlı *myService* kullanarak *TCP* bağlantı noktasında *8080*.
+Merhaba komut oluşturur bağlantılı toohello VIP adlı bir uç nokta *vıp2* bağlantı noktasında *80*ve toohello adlı VM bağlantılar *myVM1* bir bulut hizmetinde adlı  *myService* kullanarak *TCP* bağlantı noktasında *8080*.
 
-Yapılandırmayı doğrulamak için aşağıdaki PowerShell komutunu çalıştırın:
+tooverify hello yapılandırması, hello aşağıdaki PowerShell komutunu çalıştırın:
 
 ```powershell
 $deployment = Get-AzureDeployment -ServiceName myService
 $deployment.VirtualIPs
 ```
 
-Çıktı aşağıdaki örneğe benzer:
+Hello çıkış benzer toohello örnek aşağıdaki gibidir:
 
     Address         : 191.238.74.148
     IsDnsProgrammed : True
@@ -147,9 +147,9 @@ $deployment.VirtualIPs
     ReservedIPName  :
     ExtensionData   :
 
-## <a name="how-to-enable-load-balancing-on-a-specific-vip"></a>Yük Dengeleme özgü bir VIP etkinleştirme
+## <a name="how-tooenable-load-balancing-on-a-specific-vip"></a>Tooenable nasıl Yük Dengeleme özgü bir VIP
 
-Yük Dengeleyici amaçları için birden çok sanal makine tek bir VIP ilişkilendirebilirsiniz. Örneğin, adlandırılmış bir bulut hizmetine sahip *myService*ve adlı iki sanal makine *myVM1* ve *myVM2*. Ve bunların adlı birden çok Vip bulut hizmetiniz sahip *vıp2*. Tüm bağlantı noktasına trafiği emin olmak istiyorsanız *81* üzerinde *vıp2* arasında dengeli *myVM1* ve *myVM2* bağlantı noktasında *8181* , aşağıdaki PowerShell betiğini çalıştırın:
+Yük Dengeleyici amaçları için birden çok sanal makine tek bir VIP ilişkilendirebilirsiniz. Örneğin, adlandırılmış bir bulut hizmetine sahip *myService*ve adlı iki sanal makine *myVM1* ve *myVM2*. Ve bunların adlı birden çok Vip bulut hizmetiniz sahip *vıp2*. Tüm tooport trafiği tooensure istiyorsanız *81* üzerinde *vıp2* arasında dengeli *myVM1* ve *myVM2* bağlantı noktasında *8181* çalıştırın hello aşağıdaki PowerShell komut dosyası:
 
 ```powershell
 Get-AzureVM -ServiceName myService -Name myVM1 |
@@ -161,7 +161,7 @@ Get-AzureVM -ServiceName myService -Name myVM2 |
     Update-AzureVM
 ```
 
-Ayrıca, farklı bir VIP kullanmak için yük dengeleyici güncelleştirebilirsiniz. Örneğin, aşağıdaki PowerShell komutu çalıştırırsanız, Yük Dengeleme vıp1 adlı bir VIP kullanılacak kümesi değişir:
+Ayrıca, yük dengeleyici toouse farklı bir VIP güncelleştirebilirsiniz. Örneğin, hello aşağıdaki PowerShell komutu çalıştırırsanız, hello Yük Dengeleme kümesi toouse vıp1 adlı bir VIP değişir:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -VirtualIPName Vip1

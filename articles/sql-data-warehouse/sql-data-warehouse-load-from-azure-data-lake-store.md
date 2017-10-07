@@ -1,6 +1,6 @@
 ---
-title: "Yük - SQL veri ambarı için Azure Data Lake Store | Microsoft Docs"
-description: "Azure Data Lake Deposu'ndan veri Azure SQL Data Warehouse'a veri yüklemek için PolyBase dış tablolara kullanmayı öğrenin."
+title: "aaaLoad - Azure Data Lake Store tooSQL veri ambarı | Microsoft Docs"
+description: "Toouse PolyBase dış Azure Data Lake Store tooload verileri Azure SQL Data Warehouse'a nasıl tabloları hakkında bilgi edinin."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,60 +15,60 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: ab951c30aae0d4afdd931e245f25d4645bba1681
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 50ef23b3eba5f58bc9974095f84140dc5c11fa4b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Azure Data Lake Deposu'ndan veri SQL Data Warehouse'a veri yükleme
-Bu belge Polybase'i kullanarak kendi verilerinizi Azure veri Gölü deposu (ADLS) SQL Data Warehouse'a veri yüklemek için gereken tüm adımları sağlar.
-Geçici sorguları dış tablolara kullanarak ADLS içinde depolanan veriler üzerinde çalıştırmak mümkün olmakla birlikte, en iyi uygulama olarak SQL Data Warehouse'a veri aktarma öneririz.
-Tahmini süre: 10 ön koşullara sahip olduğu varsayılarak dakika tamamlamanız gerekir.
+Bu belge PolyBase kullanarak SQL Data Warehouse'a kendi verilerinizi Azure veri Gölü deposu (ADLS) gelen tooload gereken tüm adımları sağlar.
+Merhaba dış tablolara kullanarak ADLS içinde depolanan hello veriler üzerinde mümkün toorun geçici sorguları olmakla birlikte, en iyi uygulama olarak hello verileri SQL Data Warehouse hello alma öneririz.
+Tahmini süre: 10 dakika hello önkoşullara sahip olduğu varsayılarak toocomplete gerekir.
 Bu öğreticide şunları öğreneceksiniz nasıl yapılır:
 
-1. Azure Data Lake Deposu'ndan veri yüklemek için dış veritabanı nesneleri oluşturma.
-2. Bir Azure Data Lake Store dizinine bağlanır.
+1. Dış veritabanı nesneleri tooload Azure Data Lake Deposu'ndan veri oluşturun.
+2. Azure Data Lake deposu dizinini tooan bağlayın.
 3. Azure SQL Data Warehouse'a veri yükleme.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-Bu öğretici çalıştırmak için gerekir:
+toorun Bu öğretici, gerekir:
 
-* Azure Active Directory Hizmeti için kimlik doğrulaması için kullanılacak uygulama. Oluşturmak için izlemeniz [Active directory kimlik doğrulaması](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)
+* Hizmetten hizmete kimlik doğrulaması için Azure Active Directory Uygulama toouse. toocreate, izleyin [Active directory kimlik doğrulaması](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)
 
 >[!NOTE] 
-> İstemci kimliği, anahtar ve OAuth2.0 belirteç uç noktası değeri, uygulamanızın Active Directory, Azure Data Lake SQL veri ambarından bağlanmak için gerekir. Bu değerleri alma ayrıntılarını yukarıdaki bağlantıyı ' dir.
->Not Azure Active Directory Uygulama kaydı için istemci kimliği olarak 'Uygulama kimliği' kullanın
+> Merhaba istemci kimliği, anahtar ve Active Directory Uygulama tooconnect tooyour Azure Data Lake SQL veri ambarından OAuth2.0 belirteç uç noktası değeri gerekiyor. Nasıl tooget bu bağlantıyı hello yukarıdaki değerler için Ayrıntılar'ı tıklatın.
+>Azure Active Directory Uygulama kaydı için Not hello 'Uygulama kimliği' hello istemci kimliği kullanın
 
-* SQL Server Management Studio veya SQL Server veri araçları, SSMS karşıdan yüklemek ve bağlamak için bkz: [sorgu SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
+* SQL Server Management Studio veya SQL Server veri araçları, toodownload SSMS ve bakın bağlanmak [sorgu SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* Bir Azure SQL veri oluşturmak için bir izleyin deposu: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
+* Bir Azure SQL Data Warehouse toocreate birini izleyin: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
-* Bir Azure Data Lake Store, ile veya olmadan şifreleme etkin. Bir izleme oluşturmak için: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
-
-
+* Bir Azure Data Lake Store, ile veya olmadan şifreleme etkin. toocreate bir izleyin: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
-## <a name="configure-the-data-source"></a>Veri kaynağını yapılandırma
-PolyBase, dış veri özniteliklerini ve konumunu tanımlamak için T-SQL dış nesneleri kullanır. Dış nesneleri SQL veri ambarı'nda depolanır ve th harici olarak depolanan veriler başvuru.
+
+
+## <a name="configure-hello-data-source"></a>Merhaba veri kaynağını yapılandırma
+PolyBase T-SQL dış nesneleri toodefine hello konumu ve hello dış veri özniteliklerini kullanır. Merhaba dış nesneleri th harici olarak depolanan SQL veri ambarı ve başvuru hello verilerinde depolanır.
 
 
 ###  <a name="create-a-credential"></a>Bir kimlik bilgisi oluşturma
-Azure Data Lake Store erişmek için sonraki adımda kullanılan kimlik bilgileri gizli anahtarı şifrelemek için bir veritabanı ana anahtarı oluşturmanız gerekir.
-AAD'de ayarlanmış hizmet asıl kimlik bilgilerini depolayan bir veritabanı kapsamlı kimlik bilgisi oluşturursunuz. Bu Windows Azure depolama BLOB'larını bağlamak için PolyBase kullanmış olduğunuz CREDENTIAL sözdizimi farklı olduğuna dikkat edin.
-Azure Data Lake Store'a bağlanmak için yapmanız gerekir **ilk** Azure Active Directory uygulama oluşturmak, bir erişim anahtarı oluşturun ve Azure Data Lake kaynak uygulama erişimi verin. Bu adımları gerçekleştirmek için Instrucitons konumlandırıldığını [burada](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+Azure Data Lake tooaccess deposuna, toocreate bir veritabanı ana anahtarı tooencrypt hello sonraki adımda kullanılan kimlik bilgileri gizli anahtarı gerekir.
+AAD'de ayarlanan hello hizmet asıl kimlik bilgilerini depolayan bir veritabanı kapsamlı kimlik bilgisi oluşturursunuz. PolyBase tooconnect tooWindows Azure Storage Bloblarında kullanmış, o hello kimlik bilgisi unutmayın, içeriğiyle için sözdizimi farklıdır.
+tooconnect tooAzure Data Lake Store, şunları yapmalısınız **ilk** Azure Active Directory uygulama oluşturmak, bir erişim anahtarı oluşturun ve hello uygulama erişim toohello Azure Data Lake kaynağı verin. Instrucitons tooperform adımları konumlandırıldığını [burada](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.
 -- Only necessary if one does not already exist.
--- Required to encrypt the credential secret in the next step.
+-- Required tooencrypt hello credential secret in hello next step.
 -- For more information on Master Key: https://msdn.microsoft.com/en-us/library/ms174382.aspx?f=255&MSPPError=-2147217396
 
 CREATE MASTER KEY;
 
 
 -- B: Create a database scoped credential
--- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
+-- IDENTITY: Pass hello client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/en-us/library/mt270260.aspx
 
@@ -87,15 +87,15 @@ WITH
 ```
 
 
-### <a name="create-the-external-data-source"></a>Dış veri kaynağı oluşturun
-Bu [dış veri kaynağı oluştur] [ CREATE EXTERNAL DATA SOURCE] veri ve veri türü konumunu depolamak için komutu.
-Azure portalı ve www.portal.azure.com ADL URI bulabilirsiniz.
+### <a name="create-hello-external-data-source"></a>Merhaba dış veri kaynağı oluşturun
+Bu [dış veri kaynağı oluştur] [ CREATE EXTERNAL DATA SOURCE] komut toostore hello konumunu hello veri ve veri hello türü.
+Merhaba ADL URI hello Azure portal ve www.portal.azure.com bölümünde bulabilirsiniz.
 
 ```sql
 -- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Store.
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs tooaccess data in Azure Data Lake Store.
 -- LOCATION: Provide Azure Data Lake accountname and URI
--- CREDENTIAL: Provide the credential created in the previous step.
+-- CREDENTIAL: Provide hello credential created in hello previous step.
 
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH (
@@ -108,14 +108,14 @@ WITH (
 
 
 ## <a name="configure-data-format"></a>Veri biçimini yapılandırın
-ADLS veri almak için dış dosya biçimini belirtmeniz gerekir. Bu komut, verilerinizi tanımlamak için biçim özgü seçenek vardır.
+ADLS tooimport hello verileri, toospecify hello dış dosya biçimini gerekir. Bu komut, verilerinizi formata özgü seçenekleri toodescribe sahiptir.
 Bir kanal sınırlandırılmış metin dosyası bir sık kullanılan bir dosya biçimi örneği aşağıdadır.
 Tam bir listesi için T-SQL belgelerimize bakın [oluşturmak dış dosya biçimi][CREATE EXTERNAL FILE FORMAT]
 
 ```sql
 -- D: Create an external file format
--- FIELD_TERMINATOR: Marks the end of each field (column) in a delimited text file
--- STRING_DELIMITER: Specifies the field terminator for data of type string in the text-delimited file.
+-- FIELD_TERMINATOR: Marks hello end of each field (column) in a delimited text file
+-- STRING_DELIMITER: Specifies hello field terminator for data of type string in hello text-delimited file.
 -- DATE_FORMAT: Specifies a custom format for all date and time data that might appear in a delimited text file.
 -- Use_Type_Default: Store all Missing values as NULL
 
@@ -130,16 +130,16 @@ WITH
 );
 ```
 
-## <a name="create-the-external-tables"></a>Dış tabloları oluşturma
-Veri kaynağı ve dosya biçimi belirttiğiniz, dış tablo oluşturmak hazır olursunuz. Dış tablolar dış veri ile nasıl etkileşim değildir. PolyBase özyinelemeli dizin geçişi konumu parametresinde belirtilen dizinin tüm alt dizinler tüm dosyaları okumak için kullanır. Ayrıca, aşağıdaki örnekte nesnesinin nasıl oluşturulacağını gösterir. Sahip olduğunuz ADLS içinde verilerle çalışmak için bildirimini özelleştirerek gerekir.
+## <a name="create-hello-external-tables"></a>Merhaba dış tabloları oluşturma
+Şimdi hello veri kaynağı ve dosya biçimi belirttiğiniz hazır toocreate hello dış tablolara demektir. Dış tablolar dış veri ile nasıl etkileşim değildir. PolyBase özyinelemeli dizin geçişi tooread hello konumu parametresinde belirtilen hello dizinin tüm alt dizinler tüm dosyaları kullanır. Ayrıca, aşağıdaki örneğine hello nasıl toocreate hello nesne gösterir. Sahip olduğunuz ADLS içinde hello verilerle toocustomize hello deyimi toowork gerekir.
 
 ```sql
 -- D: Create an External Table
--- LOCATION: Folder under the ADLS root folder.
--- DATA_SOURCE: Specifies which Data Source Object to use.
--- FILE_FORMAT: Specifies which File Format Object to use
--- REJECT_TYPE: Specifies how you want to deal with rejected rows. Either Value or percentage of the total
--- REJECT_VALUE: Sets the Reject value based on the reject type.
+-- LOCATION: Folder under hello ADLS root folder.
+-- DATA_SOURCE: Specifies which Data Source Object toouse.
+-- FILE_FORMAT: Specifies which File Format Object toouse
+-- REJECT_TYPE: Specifies how you want toodeal with rejected rows. Either Value or percentage of hello total
+-- REJECT_VALUE: Sets hello Reject value based on hello reject type.
 
 -- DimProduct
 CREATE EXTERNAL TABLE [dbo].[DimProduct_external] (
@@ -160,22 +160,22 @@ WITH
 ```
 
 ## <a name="external-table-considerations"></a>Dış tablo konuları
-Bir dış tablo oluşturmak kolaydır, ancak ele alınması gereken bazı küçük farklar vardır.
+Bir dış tablo oluşturmak kolaydır, ancak ele alınan toobe gereken bazı küçük farklar vardır.
 
-PolyBase ile veri yükleme kesin türü belirtilmiş. Başka bir deyişle, her alınan veri satırının tablo şeması tanımı karşılaması gerekir.
-Belirli bir satır şema tanımı eşleşmiyorsa, satır yüklerinin reddedilir.
+PolyBase ile veri yükleme kesin türü belirtilmiş. Başka bir deyişle, her alınan hello veri satırının hello tablo şeması tanımı karşılaması gerekir.
+Belirli bir satır hello şema tanımı eşleşmiyorsa hello satır hello yük reddedilir.
 
-REJECT_TYPE ve REJECT_VALUE seçenekleri, satır sayısını veya veri yüzdesini son tablosunda bulunmalıdır tanımlamanıza olanak sağlar.
-Reddetme değerine ulaşılana yüklenmesi sırasında yükleme başarısız olur. Reddedilen satır en yaygın nedeni bir şema tanımı eşleşmemesidir.
-Örneğin, veri dosyasındaki bir dize olduğunda bir sütunu int şeması yanlış verilirse, her satıra yüklemek başarısız olur.
+Merhaba REJECT_TYPE ve REJECT_VALUE seçeneklerini toodefine izin kaç satırları veya hello veri yüzdesini hello son tabloda mevcut olması gerekir.
+Merhaba Reddet değerine ulaşılana yüklenmesi sırasında hello yükleme başarısız olur. Reddedilen satır Hello en yaygın nedeni bir şema tanımı uyumsuzluğu oluşturur.
+Örneğin, Hello veri hello dosyasındaki bir dize olduğunda bir sütunu yanlış hello şema int verilen her satıra tooload başarısız olur.
 
-Konum verileri okumak istediğiniz en üstteki dizini belirtir.
-Bu durumda, varsa /DimProduct/ PolyBase alt dizinler alt dizinleri içindeki tüm veri alın.
+Başlangıç konumu tooread verileri istediğiniz hello en üstteki dizini belirtir.
+Bu durumda, varsa /DimProduct/ PolyBase alt dizinler hello alt dizinleri içindeki tüm hello veri alın.
 
-## <a name="load-the-data"></a>Verileri yükleme
-Azure Data Lake Store kullanımdan veri yüklemek için [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] deyimi. Yükleme CTAS ile oluşturduğunuz kesin türü belirtilmiş dış tablo kullanır.
+## <a name="load-hello-data"></a>Merhaba veri yükleme
+Azure Data Lake Store tooload verileri hello kullan [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] deyimi. İle CTAS yüklenirken kullanır hello oluşturduğunuz dış tablo kesin türü belirtilmiş.
 
-CTAS yeni bir tablo oluşturur ve bir select deyimi sonuçları ile doldurur. CTAS select deyimi sonuçları olarak aynı sütunları ve veri türleri için yeni tabloyu tanımlar. Dış bir tablodaki tüm sütunları seçin, yeni bir tablo sütunları ve dış tablosunda veri türlerini çoğaltmasını olur.
+CTAS yeni bir tablo oluşturur ve bir select deyimi hello sonuçlarını ile doldurur. CTAS tanımlar hello yeni tablo toohave hello hello sonuçlarını select deyimi gibi hello aynı sütun ve veri türleri. Bir dış tablodan tüm hello sütunları seçerseniz, hello yeni tablo hello sütunları ve veri türleri çoğaltmasını hello dış tablosunda vardır.
 
 Bu örnekte, dış tablo DimProduct_external DimProduct adlı karma bir dağıtılmış tablo oluşturuyoruz.
 
@@ -190,9 +190,9 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>Columnstore sıkıştırma en iyi duruma getirme
-Varsayılan olarak, SQL Data Warehouse kümelenmiş columnstore dizini tablo depolar. Yükleme tamamlandıktan sonra bazı veriler satır columnstore sıkıştırılır değil.  Çeşitli nedenlerle oluşabilir neden yoktur. Daha fazla bilgi için bkz: [columnstore dizinleri yönetmek][manage columnstore indexes].
+Varsayılan olarak, SQL Data Warehouse kümelenmiş columnstore dizini hello tablo depolar. Yükleme tamamlandıktan sonra bazı hello veri satır hello columnstore sıkıştırılır değil.  Çeşitli nedenlerle oluşabilir neden yoktur. toolearn daha, fazla [columnstore dizinleri yönetmek][manage columnstore indexes].
 
-Sorgu performansı ve yük sonra columnstore sıkıştırma iyileştirmek için tüm satırların sıkıştırılacak columnstore dizinini zorlamak için tabloyu yeniden oluşturun.
+toooptimize sorgu performansını ve columnstore sıkıştırma bir yükleme sonrasında, tüm hello satırları hello tablo tooforce hello columnstore dizini toocompress yeniden.
 
 ```sql
 
@@ -200,21 +200,21 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 ```
 
-Columnstore dizinleri koruma ile ilgili daha fazla bilgi için bkz: [columnstore dizinleri yönetmek] [ manage columnstore indexes] makalesi.
+Merhaba columnstore dizinleri koruma ile ilgili daha fazla bilgi için bkz: [columnstore dizinleri yönetmek] [ manage columnstore indexes] makalesi.
 
 ## <a name="optimize-statistics"></a>İstatistikleri en iyi duruma getirme
-Bir yük hemen sonra tek sütunlu istatistikler oluşturmak en iyisidir. İstatistikleri için bazı seçeneğiniz vardır. Örneğin, her sütunda tek sütunlu İstatistikler oluşturursanız, tüm istatistikleri yeniden oluşturmak için uzun zaman alabilir. Belirli sütunları sorgu koşullarında yapmayacağınız biliyorsanız, bu sütunlarda oluşturma istatistikleri atlayabilirsiniz.
+Bu, bir yük hemen sonra en iyi toocreate tek sütunlu İstatistikler olur. İstatistikleri için bazı seçeneğiniz vardır. Örneğin, her sütunda tek sütunlu İstatistikler oluşturursanız, uzun süre toorebuild tüm hello istatistikleri alabilir. Belirli sütunları toobe sorgu koşullarda yapmayacağınız biliyorsanız, bu sütunlarda oluşturma istatistikleri atlayabilirsiniz.
 
-Tek sütunlu istatistikler her tablonun her sütunu üzerinde oluşturmaya karar verirseniz, saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` içinde [istatistikleri] [ statistics] makalesi.
+Her tablonun her sütunu toocreate tek sütunlu İstatistikler karar verirseniz, hello saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` hello içinde [istatistikleri] [ statistics] makalesi.
 
-Aşağıdaki istatistikler oluşturmak için iyi bir başlangıç noktası örnektir. Her sütunun Boyut tablosuna ve olgu tabloları katılan her sütunda tek sütunlu İstatistikler oluşturur. Her zaman tek veya birden çok sütun istatistikleri diğer olgu tablo sütunları daha sonra ekleyebilirsiniz.
+Aşağıdaki örnek hello istatistikleri oluşturmak için iyi bir başlangıç noktası ' dir. Her sütunda hello Boyut tablosuna ve hello olgu tabloları katılan her sütunda tek sütunlu İstatistikler oluşturur. Daha sonra onları tek veya birden çok sütun istatistikleri tooother Olgu Tablosu sütunlarını ekleyebilirsiniz.
 
 
 ## <a name="achievement-unlocked"></a>Kilidi başarı!
 Azure SQL Data Warehouse'a veri başarıyla yüklemiş olduğunuz. Harika iş!
 
 ##<a name="next-steps"></a>Sonraki Adımlar
-Veri yükleme SQL Data Warehouse kullanarak bir veri ambarı çözüm geliştirmek için ilk adımdır. Geliştirme KAYNAKLARIMIZI kontrol [tabloları](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) ve [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
+Veri yükleme hello ilk adım toodeveloping SQL Data Warehouse kullanarak bir veri ambarı çözüm olur. Geliştirme KAYNAKLARIMIZI kontrol [tabloları](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) ve [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
 
 <!--Image references-->
@@ -237,4 +237,4 @@ Veri yükleme SQL Data Warehouse kullanarak bir veri ambarı çözüm geliştirm
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
-[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+[Load hello full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md

@@ -1,6 +1,6 @@
 ---
-title: "Azure anahtar kasası erişmek için birçok uygulamalara iznini | Microsoft Docs"
-description: "Bir anahtar kasası erişmek için birçok uygulama izni öğrenin"
+title: "aaaGrant izin toomany uygulamaları tooaccess Azure anahtar kasası | Microsoft Docs"
+description: "Nasıl toogrant izin toomany uygulamaları tooaccess bir anahtar kasası öğrenin"
 services: key-vault
 documentationcenter: 
 author: amitbapat
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-ms.openlocfilehash: f58b633de2e4b5702ff2df9b3722662b09510200
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5258149f939856f91b3848fc50399e58e5894f0d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Bir anahtar kasası erişmek için birçok uygulama izni verin
+# <a name="grant-permission-toomany-applications-tooaccess-a-key-vault"></a>Bir anahtar kasası izni toomany uygulamaları tooaccess verin
 
-## <a name="q-i-have-several-over-16-applications-that-need-to-access-a-key-vault-since-key-vault-only-allows-16-access-control-entries-how-can-i-achieve-that"></a>S: birkaç sahip bir anahtar kasası erişmesi gerekir (üzerinde 16) uygulamaları. Anahtar kasası yalnızca 16 erişim denetimi girdileri olanak tanıdığından nasıl t, elde edebilirsiniz?
+## <a name="q-i-have-several-over-16-applications-that-need-tooaccess-a-key-vault-since-key-vault-only-allows-16-access-control-entries-how-can-i-achieve-that"></a>S: birkaç sahibim tooaccess bir anahtar kasası gerekir (üzerinde 16) uygulamaları. Anahtar kasası yalnızca 16 erişim denetimi girdileri olanak tanıdığından nasıl t, elde edebilirsiniz?
 
-Anahtar kasası erişim denetimi ilkesini yalnızca 16 girişleri destekler. Ancak, bir Azure Active Directory güvenlik grubu oluşturabilirsiniz. Tüm ilişkili hizmet asıl adı bu güvenlik grubuna ekleyin ve bu anahtar kasası güvenlik grubuna erişim hakkı.
+Anahtar kasası erişim denetimi ilkesini yalnızca 16 girişleri destekler. Ancak, bir Azure Active Directory güvenlik grubu oluşturabilirsiniz. Tüm hello ilişkilendirilmiş hizmet sorumluları toothis güvenlik grubu ve ardından erişim toothis güvenlik grubu tooKey kasası verin ekleyin.
 
-Ön koşullar şunlardır:
+Merhaba ön koşullar şunlardır:
 * [Azure Active Directory V2 PowerShell modülünü yüklemek](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
 * [Azure PowerShell'i yükleme](/powershell/azure/overview).
-* Aşağıdaki komutları çalıştırmak için Azure Active Directory Kiracı gruplarında Oluştur/Düzenle izinlerine sahip olmanız gerekir. İzinleri yoksa, Azure Active Directory yöneticinize başvurmanız gerekebilir.
+* toorun hello aşağıdaki komutları kullanarak, hello Azure Active Directory Kiracı toocreate/Düzenle gruplarda izinler gerekir. İzinleri yoksa, Azure Active Directory yöneticiniz toocontact gerekebilir.
 
-Şimdi PowerShell'de aşağıdaki komutları çalıştırın.
+Şimdi hello aşağıdaki PowerShell komutlarını çalıştırın.
 
 ```powershell
-# Connect to Azure AD 
+# Connect tooAzure AD 
 Connect-AzureAD 
  
 # Create Azure Active Directory Security Group 
 $aadGroup = New-AzureADGroup -Description "Contoso App Group" -DisplayName "ContosoAppGroup" -MailEnabled 0 -MailNickName none -SecurityEnabled 1 
  
-# Find and add your applications (ServicePrincipal ObjectID) as members to this group 
+# Find and add your applications (ServicePrincipal ObjectID) as members toothis group 
 $spn = Get-AzureADServicePrincipal –SearchString "ContosoApp1" 
 Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId 
  
-# You can add several members to this group, in this fashion. 
+# You can add several members toothis group, in this fashion. 
  
-# Set the Key Vault ACLs 
+# Set hello Key Vault ACLs 
 Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId -PermissionToKeys all –PermissionToSecrets all –PermissionToCertificates all 
  
-# Of course you can adjust the permissions as required 
+# Of course you can adjust hello permissions as required 
 ```
 
-Farklı bir uygulama grubu için izinler kümesini vermeniz gerekiyorsa, bu tür uygulamalar için ayrı bir Azure Active Directory güvenlik grubu oluşturun.
+Uygulama izinleri tooa grubu farklı bir dizi toogrant gerekiyorsa, bu tür uygulamalar için ayrı bir Azure Active Directory güvenlik grubu oluşturun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Nasıl yapılır hakkında daha fazla bilgi [anahtar kasanızı güvenli](key-vault-secure-your-key-vault.md).
+Hakkında daha fazla çok bilgi[anahtar kasanızı güvenli](key-vault-secure-your-key-vault.md).

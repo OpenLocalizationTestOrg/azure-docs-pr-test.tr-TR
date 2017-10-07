@@ -1,6 +1,6 @@
 ---
-title: "Uyarılar ve Azure işlevleri öngörülü ağ izleme yapmak için paket yakalama kullanın | Microsoft Docs"
-description: "Bu makalede Azure Ağ İzleyicisi ile bir uyarı tetiklenen paket yakalama oluşturma"
+title: "aaaUse paket yakalama toodo öngörülü ağ uyarılar ve Azure işlevleri izleme | Microsoft Docs"
+description: "Paket yakalama Azure Ağ İzleyicisi ile nasıl toocreate bir uyarı tetikleyen bu makalede"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,100 +14,100 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: b813172fc1fc1cc683f463f05370c95bfec10f8d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4722a831f3a9d5537c0e6f53daba4dfc35d0cf24
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Paket yakalama öngörülü ağ izleme için uyarıları ve Azure işlevleri kullanın
 
-Ağ İzleyicisi paket yakalama trafiği sanal makineler ve izlemek için yakalama oturumları oluşturur. Yakalama dosyası, izlemek istediğiniz trafiği izlemek için tanımlanmış bir filtre olabilir. Bu veriler, ardından bir depolama blob veya yerel olarak Konuk makinedeki depolanır.
+Ağ İzleyicisi paket yakalama yakalama oturumları tootrack trafiği sanal makineleri filtrelemek oluşturur. Merhaba yakalama dosyası tanımlı bir filtre olabilir tootrack yalnızca hello trafiği toomonitor istiyor. Bu veriler, ardından bir depolama blob veya yerel olarak hello Konuk makineye depolanır.
 
-Bu özellik, Azure işlevleri gibi diğer Otomasyon senaryolardan uzaktan başlatılabilir. Paket yakalama üzerinde tanımlı ağ anormallikleri dayalı öngörülü yakalamaları çalıştırmak için yeteneği verir. Diğer kullanımlar ağ yetkisiz erişim, hata ayıklama istemci-sunucu iletişimleri ve daha fazlasını hakkında bilgi alma ağ istatistikleri toplama içerir.
+Bu özellik, Azure işlevleri gibi diğer Otomasyon senaryolardan uzaktan başlatılabilir. Paket yakalama verir yetenek toorun öngörülü yakalamaları göre hello ağ anormallikleri tanımlanır. Diğer kullanımlar ağ yetkisiz erişim, hata ayıklama istemci-sunucu iletişimleri ve daha fazlasını hakkında bilgi alma ağ istatistikleri toplama içerir.
 
-Azure'da dağıtılan kaynakları 7/24 çalıştırın. Sizin ve ekibinizin 7/24 tüm kaynakların durum etkin olarak izleyemez. Örneğin, 2'de bir sorun oluşursa ne olur?
+Azure'da dağıtılan kaynakları 7/24 çalıştırın. Sizin ve ekibinizin tüm kaynakları 7/24 hello durumu etkin olarak izleyemez. Örneğin, 2'de bir sorun oluşursa ne olur?
 
-Ağ İzleyicisi'ni kullanarak, uyarı ve işlevlerden Azure ekosistemi içinde veri ve ağınızdaki sorunları çözmek için araçları ile önceden yanıt verebilir.
+Ağ İzleyicisi'ni kullanarak, uyarı ve işlevlerden hello Azure ekosistemi içinde ağınızda önceden hello veri ve araçları toosolve sorunlara yanıt verebilir.
 
 ![Senaryo][scenario]
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* En son sürümünü [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* Merhaba en son sürümünü [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * Ağ İzleyicisi var olan bir örneği. Zaten yoksa, [Ağ İzleyicisi örneği oluşturun](network-watcher-create.md).
-* Ağ İzleyicisi ile aynı bölgede var olan bir sanal makine [Windows uzantısı](../virtual-machines/windows/extensions-nwa.md) veya [Linux sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
+* Merhaba, mevcut bir sanal makine Ağ İzleyicisi Merhaba ile aynı bölgede [Windows uzantısı](../virtual-machines/windows/extensions-nwa.md) veya [Linux sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="scenario"></a>Senaryo
 
-Bu örnekte, VM normalden daha çok TCP kesimini gönderme ve uyarı almak istediğiniz. TCP kesimini burada bir örnek olarak kullanılır, ancak hiçbir uyarı koşulu kullanabilirsiniz.
+Bu örnekte, VM normalden daha çok TCP kesimini gönderme ve uyarı toobe istiyor. TCP kesimini burada bir örnek olarak kullanılır, ancak hiçbir uyarı koşulu kullanabilirsiniz.
 
-Uyarı aldığınızda iletişimi neden artırmıştır anlamak için paket düzeyinde verileri almak istediğiniz. Daha sonra sanal makineyi normal iletişimi döndürmek için adımları alabilir.
+Uyarı aldığınızda iletişimi neden artırmıştır tooreceive paket düzeyinde veri toounderstand istiyor. Ardından tooreturn hello sanal makine tooregular iletişimi adımları uygulayabilirsiniz.
 
 Bu senaryo, Ağ İzleyicisi'ni ve geçerli bir sanal makine ile bir kaynak grubu mevcut bir örneği olduğunu varsayar.
 
-Liste aşağıda gerçekleşir iş akışına genel bir bakış verilmiştir:
+liste aşağıdaki hello gerçekleşir hello iş akışına genel bir bakış verilmiştir:
 
 1. Bir uyarı, VM tetiklenir.
-1. Uyarı Azure işlevinizi aracılığıyla bir Web kancası çağırır.
-1. Azure işlevinizi uyarı işler ve bir Ağ İzleyicisi paket yakalama oturumu başlatır.
-1. Paket yakalama VM üzerinde çalışır ve trafik toplar.
-1. Paket yakalama dosyasını gözden geçirin ve tanılama için bir depolama hesabı için yüklenir.
+1. Merhaba uyarı Azure işlevinizi aracılığıyla bir Web kancası çağırır.
+1. Azure işlevinizi hello uyarı işler ve bir Ağ İzleyicisi paket yakalama oturumu başlatır.
+1. Merhaba paket yakalama hello VM üzerinde çalışır ve trafik toplar.
+1. Merhaba paket yakalama dosyasını karşıya tooa inceleme ve tanılama depolama hesabı.
 
-Bu işlemi otomatikleştirmek için oluşturun ve bir uyarı olayı meydana geldiğinde tetiklemek için bizim VM bağlanın. Biz de Ağ İzleyicisi çağırmak için bir işlev oluşturun.
+tooautomate bu işlem, biz oluşturabilir ve hello olay gerçekleştiğinde bir uyarı bizim VM tootrigger bağlayabilirsiniz. Ayrıca bir işlev toocall Ağ İzleyicisi oluşturuyoruz.
 
-Bu senaryo şunları yapar:
+Bu senaryo aşağıdaki hello:
 
 * Paket yakalama başlatır Azure bir işlev oluşturur.
-* Bir sanal makinede bir uyarı kuralı oluşturur ve Azure işlevi çağırmak için uyarı kuralı yapılandırır.
+* Bir sanal makinede bir uyarı kuralı oluşturur ve hello uyarı kuralı toocall hello Azure işlevi yapılandırır.
 
 ## <a name="create-an-azure-function"></a>Bir Azure işlevi oluşturma
 
-İlk adımı, uyarıyı işlemek ve paket yakalama oluşturmak için bir Azure işlevi oluşturmaktır.
+Merhaba ilk adımı toocreate bir Azure işlevi tooprocess hello uyarı ve paket yakalama oluşturma.
 
-1. İçinde [Azure portal](https://portal.azure.com)seçin **yeni** > **işlem** > **işlev uygulaması**.
+1. Merhaba, [Azure portal](https://portal.azure.com)seçin **yeni** > **işlem** > **işlev uygulaması**.
 
     ![Bir işlev uygulaması oluşturma][1-1]
 
-2. Üzerinde **işlev uygulaması** dikey penceresinde, aşağıdaki değerleri girin ve ardından **Tamam** uygulama oluşturmak için:
+2. Merhaba üzerinde **işlev uygulaması** dikey penceresinde hello aşağıdaki değerleri girin ve ardından **Tamam** toocreate hello uygulama:
 
     |**Ayar** | **Değer** | **Ayrıntılar** |
     |---|---|---|
-    |**Uygulama adı**|PacketCaptureExample|İşlev uygulaması adı.|
-    |**Abonelik**|[Aboneliğinizi] Abonelik için işlev uygulaması oluşturmak için.||
-    |**Kaynak Grubu**|PacketCaptureRG|İşlev uygulaması içeren kaynak grubu.|
-    |**Barındırma planı**|Tüketim planı| Türü, işlev uygulaması kullanır planlayın. Seçenekler şunlardır tüketimi veya Azure uygulama hizmeti planı. |
-    |**Konum**|Orta ABD| Bölge, işlev uygulaması oluşturmak kullanın.|
-    |**Depolama hesabı**|{otomatik olarak oluşturulur}| Azure işlevleri için genel amaçlı depolama alanı ihtiyaçlarınızı depolama hesabı.|
+    |**Uygulama adı**|PacketCaptureExample|Merhaba işlev uygulaması Hello adı.|
+    |**Abonelik**|[Aboneliğinizi] hello hangi toocreate hello işlev uygulaması için aboneliği.||
+    |**Kaynak Grubu**|PacketCaptureRG|Merhaba kaynak grubu toocontain hello işlev uygulaması.|
+    |**Barındırma planı**|Tüketim planı| Merhaba türü, işlev uygulaması kullanır planlayın. Seçenekler şunlardır tüketimi veya Azure uygulama hizmeti planı. |
+    |**Konum**|Orta ABD| hangi toocreate hello işlev uygulaması bölgede Hello.|
+    |**Depolama hesabı**|{otomatik olarak oluşturulur}| Azure işlevleri için genel amaçlı depolama alanı ihtiyaçlarınızı hello depolama hesabı.|
 
-3. Üzerinde **PacketCaptureExample işlev uygulamalarının** dikey penceresinde, select **işlevleri** > **özel işlevi**  >  **+**.
+3. Merhaba üzerinde **PacketCaptureExample işlev uygulamalarının** dikey penceresinde, select **işlevleri** > **özel işlevi**  >  **+**.
 
-4. Seçin **HttpTrigger Powershell**ve ardından kalan bilgileri girin. Son olarak, işlev oluşturmak için seçin **oluşturma**.
+4. Seçin **HttpTrigger Powershell**ve ardından bilgi kalan hello girin. Son olarak, toocreate hello işlevi, select **oluşturma**.
 
     |**Ayar** | **Değer** | **Ayrıntılar** |
     |---|---|---|
     |**Senaryo**|Deneysel|Tür senaryosu|
-    |**İşlevinizi adlandırın**|AlertPacketCapturePowerShell|İşlevin adı|
-    |**Yetkilendirme düzeyi**|İşlevi|Yetki düzeyini işlevi|
+    |**İşlevinizi adlandırın**|AlertPacketCapturePowerShell|Merhaba işlevin adı|
+    |**Yetkilendirme düzeyi**|İşlevi|Merhaba işlevi için yetkilendirme düzeyi|
 
 ![İşlevleri örneği][functions1]
 
 > [!NOTE]
-> PowerShell şablon Deneysel ve tam desteğine sahip değil.
+> Merhaba PowerShell şablon Deneysel ve tam desteğine sahip değil.
 
-Özelleştirmeleri bu örnek için gereklidir ve aşağıdaki adımlarda açıklanmaktadır.
+Özelleştirmeleri bu örnek için gereklidir ve aşağıdaki adımları hello açıklanmıştır.
 
 ### <a name="add-modules"></a>Modüller ekleme
 
-Ağ İzleyicisi PowerShell cmdlet'lerini kullanmak için işlev uygulaması son PowerShell modülünü yükleyin.
+toouse Ağ İzleyicisi PowerShell cmdlet'leri hello en yeni PowerShell modülü toohello işlevi uygulamasını karşıya yükleyin.
 
-1. Yerel makinenizde yüklü en son Azure PowerShell modülleri ile aşağıdaki PowerShell komutunu çalıştırın:
+1. Yerel makinenizde hello yüklü en son Azure PowerShell modülleri, hello aşağıdaki PowerShell komutunu çalıştırın:
 
     ```powershell
     (Get-Module AzureRM.Network).Path
     ```
 
-    Bu örnek, Azure PowerShell modüllerinizi yerel yolunu sağlar. Bu klasörler, bir sonraki adımda kullanılır. Bu senaryoda kullanılan modülleri şunlardır:
+    Bu örnek, Azure PowerShell modülü yerel yol hello olanağı sağlar. Bu klasörler, bir sonraki adımda kullanılır. Bu senaryoda kullanılan hello modülleri şunlardır:
 
     * AzureRM.Network
 
@@ -117,11 +117,11 @@ Ağ İzleyicisi PowerShell cmdlet'lerini kullanmak için işlev uygulaması son 
 
     ![PowerShell klasörleri][functions5]
 
-1. Seçin **işlev uygulaması ayarları** > **App Service Düzenleyici'ye gidin**.
+1. Seçin **işlev uygulaması ayarları** > **tooApp Hizmet Düzenleyicisi Git**.
 
     ![İşlev uygulama ayarları][functions2]
 
-1. Sağ **AlertPacketCapturePowershell** klasörünü ve ardından adlı bir klasör oluşturun **azuremodules**. 
+1. Sağ hello **AlertPacketCapturePowershell** klasörünü ve ardından adlı bir klasör oluşturun **azuremodules**. 
 
 4. Gereksinim duyduğunuz her modül için bir alt klasör oluşturun.
 
@@ -133,28 +133,28 @@ Ağ İzleyicisi PowerShell cmdlet'lerini kullanmak için işlev uygulaması son 
 
     * AzureRM.Resources
 
-1. Sağ **AzureRM.Network** alt ve ardından **dosya yükleme**. 
+1. Sağ hello **AzureRM.Network** alt ve ardından **dosya yükleme**. 
 
-6. Azure modüllerinizi gidin. Yerel **AzureRM.Network** klasörü, klasördeki tüm dosyaları seçin. Ardından **Tamam**. 
+6. Tooyour Azure Git modüller. Merhaba yerel **AzureRM.Network** klasörü, tüm hello dosyaları hello klasörü seçin. Ardından **Tamam**. 
 
 7. İçin bu adımları yineleyin **AzureRM.Profile** ve **AzureRM.Resources**.
 
     ![Dosyaları karşıya yükleme][functions6]
 
-1. Tamamlandı sonra her klasör, yerel makinenize PowerShell modülü dosyalarından olmalıdır.
+1. Tamamlandı sonra her klasör hello PowerShell modülü yerel makinenize dosyalarından sahip olmalıdır.
 
     ![PowerShell dosyaları][functions7]
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 
-PowerShell cmdlet'lerini kullanmak için kimlik doğrulaması gerekir. İşlev uygulamasında kimlik doğrulamasını yapılandırın. Kimlik doğrulamasını yapılandırmak için ortam değişkenleri yapılandırmanız ve şifreli bir anahtar dosyası işlevi uygulamaya karşıya gerekir.
+toouse hello PowerShell cmdlet'leri, kimlik doğrulaması gerekir. Merhaba işlevi uygulamasında kimlik doğrulamasını yapılandırın. tooconfigure kimlik doğrulaması, ortam değişkenleri yapılandırmanız ve şifrelenmiş anahtar dosyası toohello işlevi uygulama yüklemeniz gerekir.
 
 > [!NOTE]
-> Bu senaryo, nasıl Azure işlevleri ile kimlik doğrulaması uygulamak yalnızca bir örnek sağlar. Bunu yapmak için başka yolları vardır.
+> Bu senaryoyu nasıl sadece bir örnek sağlar Azure işlevleri ile tooimplement kimlik doğrulaması. Vardır diğer yolları toodo bu.
 
 #### <a name="encrypted-credentials"></a>Şifrelenmiş kimlik bilgileri
 
-Aşağıdaki PowerShell betiğini adlı bir anahtar dosyası oluşturur **PassEncryptKey.key**. Sağlanan parola şifreli sürümünü de sağlar. Bu parola kimlik doğrulaması için kullanılan Azure Active Directory uygulaması için tanımlanan aynı paroladır.
+PowerShell Betiği aşağıdaki hello adlı bir anahtar dosyası oluşturur **PassEncryptKey.key**. Ayrıca, sağlanan hello parola şifreli sürümünü sağlar. Merhaba bu paroladır hello Azure Active Directory kimlik doğrulaması için kullanılan bir uygulama için tanımlanmış aynı parola.
 
 ```powershell
 #Variables
@@ -173,13 +173,13 @@ $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
 $Encryptedpassword
 ```
 
-Uygulama hizmeti Düzenleyicisi'nde işlevi uygulamanın adlı bir klasör oluşturun **anahtarları** altında **AlertPacketCapturePowerShell**. Ardından karşıya **PassEncryptKey.key** önceki PowerShell örneğinde oluşturulan dosyası.
+Hello hello işlev uygulaması App Service Düzenleyicisi, adlı bir klasör oluşturun **anahtarları** altında **AlertPacketCapturePowerShell**. Merhaba karşıya yükleme **PassEncryptKey.key** hello önceki PowerShell örneğinde oluşturulan dosyası.
 
 ![İşlevler anahtarı][functions8]
 
 ### <a name="retrieve-values-for-environment-variables"></a>Ortam değişkenleri için değerleri alma
 
-Son kimlik doğrulaması için değerlerine erişmek için gerekli olan ortam değişkenleri ayarlamak için gereksinimdir. Aşağıdaki liste, oluşturulan ortam değişkenleri gösterir:
+Merhaba son tooset kimlik doğrulaması için gerekli tooaccess hello değerler hello ortam değişkenlerini ayarlama gereksinimdir. Merhaba aşağıdaki listede oluşturulan hello ortam değişkenleri gösterilmektedir:
 
 * AzureClientID
 
@@ -190,9 +190,9 @@ Son kimlik doğrulaması için değerlerine erişmek için gerekli olan ortam de
 
 #### <a name="azureclientid"></a>AzureClientID
 
-İstemci kimliği Azure Active Directory'de bir uygulamanın uygulama Kimliğini gösterir.
+Merhaba istemci hello Azure Active Directory'de bir uygulamanın uygulama Kimliğini kimliğidir.
 
-1. Kullanmak için bir uygulama zaten yoksa, bir uygulama oluşturmak için aşağıdaki örneği çalıştırın.
+1. Bir uygulama toouse zaten sahip değilseniz, örnek toocreate aşağıdaki hello bir uygulamayı çalıştırın.
 
     ```powershell
     $app = New-AzureRmADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
@@ -202,19 +202,19 @@ Son kimlik doğrulaması için değerlerine erişmek için gerekli olan ortam de
     ```
 
    > [!NOTE]
-   > Uygulama oluştururken kullandığınız parolayı anahtar dosyası kaydedilirken daha önce oluşturduğunuz aynı parola olmalıdır.
+   > Merhaba uygulaması oluşturma hello olmalıdır kullandığınız hello parola hello anahtar dosyası kaydedilirken daha önce oluşturduğunuz aynı parola.
 
-1. Azure portalında seçin **abonelikleri**. Abonelik kullanın ve ardından seçmek için Seç **erişim denetimi (IAM)**.
+1. Hello Azure portal, seçin **abonelikleri**. Merhaba abonelik toouse seçin ve ardından **erişim denetimi (IAM)**.
 
     ![İşlevler IAM][functions9]
 
-1. Kullanın ve ardından için hesabı seçin **özellikleri**. Uygulama Kimliği kopyalayın.
+1. Merhaba hesap toouse seçin ve ardından **özellikleri**. Kopya hello uygulama kimliği
 
     ![İşlevleri uygulama kimliği][functions10]
 
 #### <a name="azuretenant"></a>AzureTenant
 
-Aşağıdaki PowerShell örnek çalıştırarak Kiracı kimliği alın:
+PowerShell örnek aşağıdaki hello çalıştırarak Hello Kiracı kimliği alın:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "<subscriptionName>").TenantId
@@ -222,7 +222,7 @@ Aşağıdaki PowerShell örnek çalıştırarak Kiracı kimliği alın:
 
 #### <a name="azurecredpassword"></a>AzureCredPassword
 
-AzureCredPassword ortam değişkeni aşağıdaki PowerShell örneğini çalıştıran alma değer değeridir. Bu örnek bir önceki gösterilen aynıdır **şifrelenmiş kimlik bilgileri** bölümü. Gerekli olan çıktısını değerdir `$Encryptedpassword` değişkeni.  PowerShell Betiği kullanılarak şifrelenmiş hizmet asıl parolası budur.
+Merhaba hello AzureCredPassword ortam değişkeninin değerini PowerShell örnek aşağıdaki hello çalışmasını alma hello değerdir. Bu örnek aynı hello önceki gösterilen hello olan **şifrelenmiş kimlik bilgileri** bölümü. Merhaba gerekli olan değer hello hello çıkışıdır `$Encryptedpassword` değişkeni.  Bu hello PowerShell Betiği kullanılarak şifrelenmiş hello hizmet asıl paroladır.
 
 ```powershell
 #Variables
@@ -241,30 +241,30 @@ $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
 $Encryptedpassword
 ```
 
-### <a name="store-the-environment-variables"></a>Ortam değişkenleri depolama
+### <a name="store-hello-environment-variables"></a>Depolama hello ortam değişkenleri
 
-1. İşlev uygulamasına gidin. Ardından **işlev uygulaması ayarları** > **uygulaması ayarlarını yapılandır**.
+1. Toohello işlev uygulaması gidin. Ardından **işlev uygulaması ayarları** > **uygulaması ayarlarını yapılandır**.
 
     ![Uygulama ayarlarını yapılandırma][functions11]
 
-1. Ortam değişkenlerini ve değerleri için uygulama ayarları ekleyin ve ardından **kaydetmek**.
+1. Merhaba ortam değişkenlerini ve değerleri toohello uygulama ayarlarına ekleyin ve ardından **kaydetmek**.
 
     ![Uygulama ayarları][functions12]
 
-### <a name="add-powershell-to-the-function"></a>PowerShell işlevine ekleyin
+### <a name="add-powershell-toohello-function"></a>Add PowerShell toohello işlevi
 
-Bu Ağ İzleyicisi ' çağrılarını Azure işlevi içinde olmak üzere sunulmuştur. Bu işlev uygulaması gereksinimlerine bağlı olarak değişebilir. Ancak, genel akış kod aşağıdaki gibidir:
+Ağ İzleyicisi ' içine hello Azure işlevi içinde zaman toomake çağırır artık olur. Merhaba gereksinimlerine bağlı olarak, bu işlevin hello uygulama farklılık gösterebilir. Ancak, hello genel akış hello kod aşağıdaki gibidir:
 
 1. İşlem giriş parametreleri.
-2. Sınırlarını doğrulayın ve ad çakışmalarını çözmek için sorgu varolan paket yakalar.
+2. Sorgu varolan paket tooverify sınırları yakalar ve adı çakışmalarını.
 3. Paket yakalama uygun parametrelerle oluşturun.
 4. Yoklama paket düzenli aralıklarla tamamlanana kadar yakalayın.
-5. Paket yakalama oturumu tamamlandıktan kullanıcıya bildir.
+5. Merhaba paket yakalama oturumu tamamlandıktan Hello kullanıcıyı bilgilendirir.
 
-Aşağıdaki örnek, işlevde kullanılabilmesi için PowerShell koddur. İçin değiştirilmesi gereken değerler **Subscriptionıd**, **resourceGroupName**, ve **storageAccountName**.
+Merhaba aşağıdaki örnek, hello işlevinde kullanılabilir PowerShell kodu bulunur. İçin yerini toobe gereken değerler **Subscriptionıd**, **resourceGroupName**, ve **storageAccountName**.
 
 ```powershell
-            #Import Azure PowerShell modules required to make calls to Network Watcher
+            #Import Azure PowerShell modules required toomake calls tooNetwork Watcher
             Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
             Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
             Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
@@ -272,7 +272,7 @@ Aşağıdaki örnek, işlevde kullanılabilmesi için PowerShell koddur. İçin 
             #Process alert request body
             $requestBody = Get-Content $req -Raw | ConvertFrom-Json
 
-            #Storage account ID to save captures in
+            #Storage account ID toosave captures in
             $storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
 
             #Packet capture vars
@@ -292,7 +292,7 @@ Aşağıdaki örnek, işlevde kullanılabilmesi için PowerShell koddur. İçin 
             Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 
-            #Get the VM that fired the alert
+            #Get hello VM that fired hello alert
             if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
             {
                 Write-Output ("Subscription ID: {0}" -f $requestBody.context.subscriptionId)
@@ -300,20 +300,20 @@ Aşağıdaki örnek, işlevde kullanılabilmesi için PowerShell koddur. İçin 
                 Write-Output ("Resource Name:  {0}" -f $requestBody.context.resourceName)
                 Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
-                #Get the Network Watcher in the VM's region
+                #Get hello Network Watcher in hello VM's region
                 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
                 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
                 #Get existing packetCaptures
                 $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
 
-                #Remove existing packet capture created by the function (if it exists)
+                #Remove existing packet capture created by hello function (if it exists)
                 $packetCaptures | %{if($_.Name -eq $packetCaptureName)
                 { 
                     Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
                 }}
 
-                #Initiate packet capture on the VM that fired the alert
+                #Initiate packet capture on hello VM that fired hello alert
                 if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
                     echo "Initiating Packet Capture"
                     New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
@@ -321,56 +321,56 @@ Aşağıdaki örnek, işlevde kullanılabilmesi için PowerShell koddur. İçin 
                 }
             } 
  ``` 
-#### <a name="retrieve-the-function-url"></a>İşlev URL'sini alın 
-1. İşlevinizi oluşturduktan sonra işlev ile ilişkili URL çağırmak için uyarıyı yapılandırın. Bu değer almak için işlevi uygulamanızdan işlevi URL'sini kopyalayın.
+#### <a name="retrieve-hello-function-url"></a>Merhaba işlevi URL'sini alın 
+1. İşlevinizi oluşturduktan sonra hello işlev ile ilişkili uyarı toocall hello URL'nizi yapılandırın. tooget bu değer, kopyalama hello işlevi işlevi uygulamanızı URL'den.
 
-    ![İşlev URL bulma][functions13]
+    ![Merhaba işlevi URL bulma][functions13]
 
-2. İşlev uygulamanız için işlevi URL'sini kopyalayın.
+2. İşlev uygulamanız için Hello işlevi URL'sini kopyalayın.
 
-    ![İşlev URL kopyalanması][2]
+    ![Merhaba işlevi URL kopyalanması][2]
 
-Web kancası POST isteği yükte özel özellikler gerektiriyorsa, başvurmak [bir Web kancası Azure ölçüm uyarıyı yapılandırmak](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Özel özellikler hello Web kancası POST isteğinin hello yükte gerektiriyorsa, çok başvurmak[bir Web kancası Azure ölçüm uyarıyı yapılandırmak](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
 ## <a name="configure-an-alert-on-a-vm"></a>Bir VM üzerinde bir uyarı yapılandırmak
 
-Uyarıları, belirli bir ölçüyü kendisine atanmış bir eşik kestiği kişilere bildirmek için yapılandırılabilir. Bu örnekte, gönderilen TCP kesimlerinde uyarısıdır, ancak uyarı için birçok diğer ölçümleri tetiklenebilir. Bu örnekte, bir uyarı işlevi çağırmak için bir Web kancası çağırmak için yapılandırılır.
+Uyarılar, yapılandırılmış toonotify kişiler olabilir, belirli bir ölçüyü atanmış bir eşik kestiği zaman tooit. Bu örnekte, hello üzerinde hello gönderilen TCP kesimini uyarısıdır, ancak diğer birçok ölçümlerini hello uyarı tetiklenebilir. Bu örnekte, bir uyarı yapılandırılmış toocall bir Web kancası toocall hello işlevi ' dir.
 
-### <a name="create-the-alert-rule"></a>Uyarı kuralı oluştur
+### <a name="create-hello-alert-rule"></a>Merhaba uyarı kuralı oluştur
 
-Varolan bir sanal makineye gidin ve ardından bir uyarı kuralı ekleyin. Uyarıları yapılandırma hakkında daha ayrıntılı belgeler bulunabilir [oluşturma uyarıları Azure İzleyicisi'nde için Azure services - Azure portalında](../monitoring-and-diagnostics/insights-alerts-portal.md). Aşağıdaki değerleri girin **uyarı kuralı** dikey ve ardından **Tamam**.
+Tooan varolan sanal makine gidin ve ardından bir uyarı kuralı ekleyin. Uyarıları yapılandırma hakkında daha ayrıntılı belgeler bulunabilir [oluşturma uyarıları Azure İzleyicisi'nde için Azure services - Azure portalında](../monitoring-and-diagnostics/insights-alerts-portal.md). Merhaba değerleri aşağıdaki hello girin **uyarı kuralı** dikey ve ardından **Tamam**.
 
   |**Ayar** | **Değer** | **Ayrıntılar** |
   |---|---|---|
-  |**Ad**|TCP_Segments_Sent_Exceeded|Uyarı kuralı adı.|
-  |**Açıklama**|TCP kesimini aşıldı eşik gönderilen|Uyarı kuralı açıklaması.||
-  |**Ölçüm**|Gönderilen TCP kesimleri| Uyarı tetiklemek için kullanılacak ölçüm. |
-  |**Koşul**|Şu değerden fazla:| Ölçüm hesaplanırken kullanılacak koşulu.|
-  |**Eşik**|100| Uyarıyı tetikleyen ölçüm değeri. Bu değer, ortamınız için geçerli bir değere ayarlanmalıdır.|
-  |**Süresi**|Son beş dakika boyunca| Ölçüm eşiğine arayın olduğu süreyi belirler.|
-  |**Web kancası**|[işlev uygulaması URL'SİNDEN Web kancası]| Önceki adımlarda oluşturulan işlevi uygulamasından Web kancası URL'si.|
+  |**Ad**|TCP_Segments_Sent_Exceeded|Merhaba uyarı kuralının adı.|
+  |**Açıklama**|TCP kesimini aşıldı eşik gönderilen|Merhaba uyarı kuralı Hello açıklaması.||
+  |**Ölçüm**|Gönderilen TCP kesimleri| Merhaba ölçüm toouse tootrigger hello uyarı. |
+  |**Koşul**|Şu değerden fazla:| Koşul toouse hello ölçüm değerlendirirken hello.|
+  |**Eşik**|100| Merhaba uyarıyı tetikleyen hello ölçüm Hello değeri. Bu değer, ortamınız için geçerli değer tooa ayarlamanız gerekir.|
+  |**Süresi**|Merhaba son beş dakika içinde| Hangi toolook Hello dönemde hello ölçüm hello eşiğine için belirler.|
+  |**Web kancası**|[işlev uygulaması URL'SİNDEN Web kancası]| Merhaba önceki adımlarda oluşturduğunuz hello işlevi uygulamadan Hello Web kancası URL'si.|
 
 > [!NOTE]
-> TCP kesimleri ölçümü varsayılan olarak etkin değildir. Ek ölçümler ziyaret ederek etkinleştirme hakkında daha fazla bilgi edinin [izleme ve tanılama](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> Merhaba TCP kesimleri ölçümü varsayılan olarak etkin değildir. Hakkında daha fazla bilgi şu adresi ziyaret ederek tooenable ek ölçümler [izleme ve tanılama](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
 
-## <a name="review-the-results"></a>Sonuçları gözden geçirin
+## <a name="review-hello-results"></a>Merhaba sonuçlarını gözden geçirin
 
-Uyarı Tetikleyicileri ölçütlerine sonra bir paket yakalama oluşturulur. Ağ İzleyicisi gidin ve ardından **paket yakalama**. Bu sayfada, paket yakalama indirmek için paket yakalama dosyası bağlantısı seçebilirsiniz.
+Merhaba ölçütlerine sonra hello uyarı tetikleyiciler, bir paket yakalama oluşturulur. TooNetwork İzleyici gidin ve ardından **paket yakalama**. Bu sayfada hello paket yakalama dosyası bağlantı toodownload hello paket yakalama seçebilirsiniz.
 
 ![Görünüm paket yakalama][functions14]
 
-Yakalama dosyası yerel olarak depolanıyorsa, sanal makineye oturum açarak alabilirsiniz.
+Merhaba yakalama dosyasını yerel olarak depolanıyorsa, toohello sanal makinede oturum açarak alabilirsiniz.
 
 Azure depolama hesaplarından dosyalarını yükleme hakkında yönergeler için bkz: [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kullanabileceğiniz başka bir araçtır [Depolama Gezgini](http://storageexplorer.com/).
 
-Yakalama yüklendikten sonra okuyabilir herhangi bir aracı kullanarak görüntüleyebilirsiniz bir **.cap** dosya. Aşağıdaki iki bu araçların bağlantıları verilmiştir:
+Yakalama yüklendikten sonra okuyabilir herhangi bir aracı kullanarak görüntüleyebilirsiniz bir **.cap** dosya. Bu araçların bağlantılar tootwo şunlardır:
 
 - [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
 - [WireShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Paket yakalama ziyaret ederek görüntülemeyi öğrenin [paket yakalama çözümlemesini Wireshark ile](network-watcher-deep-packet-inspection.md).
+Nasıl tooview ziyaret ederek, paket yakalar öğrenin [paket yakalama çözümlemesini Wireshark ile](network-watcher-deep-packet-inspection.md).
 
 
 [1]: ./media/network-watcher-alert-triggered-packet-capture/figure1.png

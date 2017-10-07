@@ -1,6 +1,6 @@
 ---
-title: "Azure Ağ İzleyicisi topolojisi - PowerShell görüntülemek | Microsoft Docs"
-description: "Bu makalede PowerShell ağ topolojinizi sorgulamak için nasıl kullanılacağını anlatmaktadır."
+title: "aaaView Azure Ağ İzleyicisi topolojisi - PowerShell | Microsoft Docs"
+description: "Bu makalede anlatmaktadır nasıl toouse PowerShell tooquery ağ topolojinizi."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 40e01a7a6a2ea6127ab725f04649cec47b9d9422
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2bc0ecf5baa81a68be53f55c74f362a7bc97116f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="view-network-watcher-topology-with-powershell"></a>PowerShell ile Ağ İzleyicisi topolojisini görüntülemek
 
@@ -28,37 +28,37 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-topology-cli.md)
 > - [REST API](network-watcher-topology-rest.md)
 
-Ağ İzleyicisi'nin topoloji özelliği görsel bir abonelik ağ kaynaklarında sağlar. Portalda, bu görselleştirme için otomatik olarak sunulur. Portal topoloji görünümünde ardındaki bilgiler PowerShell aracılığıyla alınabilir.
-Bu özelliği olan topoloji bilgisi veri görselleştirmesi oluşturmak için diğer araçları tarafından kullanılabilecek daha verimli hale getirir.
+Ağ İzleyicisi Merhaba topoloji özelliği görsel bir abonelik hello ağ kaynaklarını sağlar. Merhaba Portalı'nda bu görselleştirme tooyou otomatik olarak sunulur. Merhaba topoloji görünümü hello portalında ardındaki Hello bilgileri PowerShell aracılığıyla alınabilir.
+Bu özellik hello topoloji bilgilerini hello veri diğer araçları toobuild hello görselleştirme çıkışı tarafından kullanılabilecek daha verimli hale getirir.
 
-Bağlantısı altında iki ilişki modellenir.
+Merhaba bağlantısı altında iki ilişki modellenir.
 
 - **Kapsama** -örnek: VNet bir alt ağ içeren bir NIC içerir
 - **İlişkili** -örnek: NIC VM ile ilişkili
 
-Topoloji REST API'si sorgulanırken döndürülen özellikler listelenmiştir.
+Merhaba aşağıdaki hello topoloji REST API'si sorgulanırken döndürülen özellikler listelenmiştir.
 
-* **ad** -kaynağın adı
-* **Kimliği** -kaynak URI'si.
-* **Konum** -kaynağın bulunduğu konum.
-* **ilişkileri** -başvurulan nesne ilişkilerini listesi.
-    * **ad** -başvurulan kaynağın adı.
-    * **ResourceId** -ResourceId association'ında başvurulan kaynak URI'si değil.
-    * **associationType** -bu değer alt nesne ve üst arasındaki ilişkiyi başvuruyor. Geçerli değerler **içerir** veya **ilişkilendirilmiş**.
+* **ad** - hello hello kaynak adı
+* **Kimliği** -hello kaynak URI'si hello.
+* **Konum** -hello hello kaynak bulunduğu konumu.
+* **ilişkileri** -ilişkilendirmeleri toohello listesini başvurulan nesne.
+    * **ad** -hello hello adını başvurulan kaynak.
+    * **ResourceId** -hello ResourceId olduğu hello association'ında başvurulan hello kaynağının hello URI.
+    * **associationType** -bu değer hello ilişkisi hello alt nesne hello üst başvuruyor. Geçerli değerler **içerir** veya **ilişkilendirilmiş**.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu senaryoda, kullandığınız `Get-AzureRmNetworkWatcherTopology` topoloji bilgilerini almak üzere. Olduğundan ayrıca bir makale nasıl [ağ topolojisi REST API ile almak](network-watcher-topology-rest.md).
+Bu senaryoda, kullandığınız hello `Get-AzureRmNetworkWatcherTopology` cmdlet tooretrieve hello topoloji bilgilerini. Ayrıca bir makalesi vardır hakkında çok[ağ topolojisi REST API ile almak](network-watcher-topology-rest.md).
 
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için.
+Bu senaryo zaten izlediğiniz hello adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) toocreate bir Ağ İzleyicisi.
 
 ## <a name="scenario"></a>Senaryo
 
-Bu makalede ele alınan senaryo belirtilen kaynak grubu için topoloji yanıtı alır.
+Bu makalede ele alınan hello senaryo belirtilen kaynak grubu için hello topoloji yanıtını alır.
 
 ## <a name="retrieve-network-watcher"></a>Ağ İzleyicisi alma
 
-Ağ İzleyicisi örneği almak için ilk adımdır bakın. `$networkWatcher` Değişkeni iletilir `Get-AzureRmNetworkWatcherTopology` cmdlet'i.
+Merhaba ilk adımı tooretrieve hello Ağ İzleyicisi örneğidir. Merhaba `$networkWatcher` değişkeni toohello geçirilen `Get-AzureRmNetworkWatcherTopology` cmdlet'i.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
@@ -67,7 +67,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 
 ## <a name="retrieve-topology"></a>Topoloji alma
 
-`Get-AzureRmNetworkWatcherTopology` Cmdlet'i, belirtilen kaynak grubu için topoloji alır.
+Merhaba `Get-AzureRmNetworkWatcherTopology` cmdlet'i belirtilen kaynak grubu için hello topolojisini alır.
 
 ```powershell
 Get-AzureRmNetworkWatcherTopology -NetworkWatcher $networkWatcher -TargetResourceGroupName testrg
@@ -75,7 +75,7 @@ Get-AzureRmNetworkWatcherTopology -NetworkWatcher $networkWatcher -TargetResourc
 
 ## <a name="results"></a>Sonuçlar
 
-Döndürülen sonuçların bir özellik "json yanıt gövdesi için içeren adı" kaynaklarınız `Get-AzureRmNetworkWatcherTopology` cmdlet'i.  Yanıt ağ güvenlik grubu ve ilişkilendirmelerinin (diğer bir deyişle, içerir, ilişkilendirilmiş) kaynakları içerir.
+Merhaba döndürülen sonuçları bir özellik "Merhaba json yanıt gövdesine hello için içeren adı" kaynaklarınız `Get-AzureRmNetworkWatcherTopology` cmdlet'i.  Merhaba yanıt hello kaynaklarında hello ağ güvenlik grubu ve ilişkilendirmelerinin (diğer bir deyişle, içerir, ilişkilendirilmiş) içerir.
 
 ```json
 Id              : 00000000-0000-0000-0000-000000000000
@@ -135,6 +135,6 @@ Resources       : [
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ziyaret ederek NSG akış günlüklerinizi Power BI ile görselleştirme öğrenin [görselleştirmek NSG akar Power BI ile günlükleri](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Toovisualize NSG akışınız Power BI ile ziyaret ederek nasıl oturum öğrenin [görselleştirmek NSG akar Power BI ile günlükleri](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 

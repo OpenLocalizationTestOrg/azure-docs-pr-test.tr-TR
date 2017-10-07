@@ -1,6 +1,6 @@
 ---
-title: "Java ile Azure Cosmos DB grafik veritabanı oluşturma | Microsoft Docs | Microsoft Docs'"
-description: "Gremlin kullanarak Azure Cosmos DB'ye bağlanmak ve içindeki grafik verilerini sorgulamak için kullanabileceğiniz bir Java kodu örneği sunar."
+title: "aaaCreate bir Java Azure Cosmos DB grafik veritabanıyla | Microsoft Docs"
+description: "Java kod tooconnect tooand sorgu grafik verileri Azure Cosmos Gremlin kullanarak DB'de kullanabileceğiniz örnek sayısını gösterir."
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -15,72 +15,72 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/24/2017
 ms.author: denlee
-ms.openlocfilehash: 0273072c7c10e219ab8d6c85eb252badafc17147
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 595c0fb108f3dbe8c83674f0c9c4b0cdd3ab4c95
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalını kullanarak bir grafik veritabanı oluşturma
+# <a name="azure-cosmos-db-create-a-graph-database-using-java-and-hello-azure-portal"></a>Azure Cosmos DB: Java kullanarak bir grafik veritabanı oluşturmak ve Azure portal hello
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Hızlı bir şekilde oluşturmak ve belge, anahtar/değer ve grafik veritabanları, her biri hello genel dağıtım ve yatay ölçek özelliklerini Azure Cosmos DB'nin hello çekirdek yararlı sorgulayabilirsiniz. 
 
-Bu hızlı başlangıç Azure Cosmos DB için Azure portal araçlarını kullanarak bir grafik veritabanı oluşturur. Bu hızlı başlangıçta ayrıca bir Java konsol uygulamasını [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) sürücüsü kullanan bir grafik veritabanını kullanarak nasıl hızlı bir şekilde oluşturabileceğiniz gösterilmektedir. Bu hızlı başlangıçtaki yönergeler Java çalıştırabilen tüm işletim sistemlerinde izlenebilir. Bu hızlı başlangıcı tamamladığınızda tercihinize bağlı olarak Kullanıcı Arabiriminde veya programlama arabiriminde grafik kaynaklarını oluşturma ve değiştirme hakkında bilgi sahibi olacaksınız. 
+Bu hızlı başlangıç bir grafik oluşturur Azure Cosmos DB hello Azure portal araçları veritabanını kullanma. Bu hızlı başlangıç ayrıca tooquickly hello OSS kullanarak bir grafik veritabanını kullanarak bir Java konsol uygulaması oluşturma nasıl gösterilmektedir [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) sürücü. Bu hızlı başlangıç içinde Hello yönergeler Java çalıştırabilen tüm işletim sisteminde izlenebilir. Bu hızlı başlangıç oluşturma ve grafik kaynaklarında hello UI veya program aracılığıyla, tercihinize hangisi değiştirme ile familiarizes. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-    * Ubuntu’da JDK’yi yüklemek için `apt-get install default-jdk` komutunu çalıştırın.
-    * JAVA_HOME ortam değişkenini JDK’nin yüklü olduğu klasöre işaret edecek şekilde ayarladığınızdan emin olun.
+    * Ubuntu üzerinde çalıştırmak `apt-get install default-jdk` tooinstall hello JDK.
+    * Emin tooset hello JAVA_HOME ortam değişkeni toopoint toohello klasörü hello JDK'ın yüklendiği olabilir.
 * Bir [Maven](http://maven.apache.org/) ikili arşivi [indirin](http://maven.apache.org/download.cgi) ve [yükleyin](http://maven.apache.org/install.html)
-    * Ubuntu’da Maven’i yüklemek için `apt-get install maven` komutunu çalıştırabilirsiniz.
+    * Ubuntu üzerinde çalıştırdığınız `apt-get install maven` tooinstall Maven.
 * [Git](https://www.git-scm.com/)
-    * Ubuntu’da Git’i yüklemek için `sudo apt-get install git` komutunu çalıştırabilirsiniz.
+    * Ubuntu üzerinde çalıştırdığınız `sudo apt-get install git` tooinstall Git.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
-Bir grafik veritabanı oluşturmadan önce Azure Cosmos DB ile bir Gremlin (Graf) veritabanı hesabı oluşturmanız gerekir.
+Bir grafik veritabanı oluşturabilmeniz için önce toocreate Azure Cosmos DB ile Gremlin (grafiği) veritabanı hesabı gerekir.
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a name="add-a-graph"></a>Grafik ekleme
 
-Şimdi bir grafik veritabanı oluşturmak için Azure portalında Veri Gezgini aracını kullanabilirsiniz. 
+Artık hello Azure portal toocreate bir grafik veritabanı hello Veri Gezgini aracını kullanabilirsiniz. 
 
-1. Azure portalının solundaki gezinti menüsünde **Veri Gezgini (Önizleme)** seçeneğine tıklayın. 
-2. **Veri Gezgini (Önizleme)** dikey penceresinde **Yeni Grafik**'e tıklayın ve aşağıdaki bilgileri kullanarak sayfayı doldurun:
+1. Merhaba hello sol gezinti menüsünde, Azure portal'ı tıklatın **Veri Gezgini (Önizleme)**. 
+2. Merhaba, **Veri Gezgini (Önizleme)** dikey penceresinde tıklatın **yeni bir grafik**, aşağıdaki bilgilerle hello kullanarak hello sayfasında doldurun:
 
-    ![Azure portalında Veri Gezgini](./media/create-graph-java/azure-cosmosdb-data-explorer.png)
+    ![Hello Azure portal'ın Veri Gezgini](./media/create-graph-java/azure-cosmosdb-data-explorer.png)
 
     Ayar|Önerilen değer|Açıklama
     ---|---|---
-    Veritabanı Kimliği|sample-database|Yeni veritabanınızın kimliği. Veritabanı adı 1 ile 255 karakter arasında olmalı, `/ \ # ?` içermemeli ve boşlukla bitmemelidir.
-    Grafik Kimliği|sample-graph|Yeni grafiğinizin kimliği. Grafik adı karakter gereksinimleri, veritabanı kimliklerine ilişkin karakter gereksinimleri ile aynıdır.
-    Depolama Kapasitesi| 10 GB|Varsayılan değeri değiştirmeyin. Bu, veritabanının depolama kapasitesidir.
-    Aktarım hızı|400 RU|Varsayılan değeri değiştirmeyin. Daha sonra gecikme süresini azaltmak isterseniz, aktarım hızının ölçeğini artırabilirsiniz.
-    Bölüm anahtarı|Boş bırakın|Bu hızlı başlangıç için bölüm anahtarını boş bırakın.
+    Veritabanı Kimliği|sample-database|Yeni veritabanı Hello kimliği. Veritabanı adı 1 ile 255 karakter arasında olmalı, `/ \ # ?` içermemeli ve boşlukla bitmemelidir.
+    Grafik Kimliği|sample-graph|Merhaba kimliği, yeni bir grafik. Grafik adlara sahip hello veritabanı kimlikleri aynı karakter gereksinimleri.
+    Depolama Kapasitesi| 10 GB|Merhaba varsayılan değeri bırakın. Merhaba depolama kapasitesi hello veritabanının budur.
+    Aktarım hızı|400 RU|Merhaba varsayılan değeri bırakın. Tooreduce gecikme istiyorsanız hello verimlilik daha sonra ölçeklendirebilirsiniz.
+    Bölüm anahtarı|Boş bırakın|Bu hızlı başlangıç Hello amaçla hello bölüm anahtarı boş bırakın.
 
-3. Formu doldurduktan sonra **Tamam**'a tıklayın.
+3. Merhaba form doldurulur sonra tıklayın **Tamam**.
 
-## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
+## <a name="clone-hello-sample-application"></a>Merhaba örnek uygulaması kopyalama
 
-Şimdi github'dan bir grafik uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu görüyorsunuz. 
+Şimdi şimdi kopyalama bir grafik uygulaması github'dan hello bağlantı dizesini ayarlamak ve çalıştırın. Ne kadar kolay toowork verilerle program aracılığıyla olduğunu görürsünüz. 
 
-1. Git bash gibi bir git terminal penceresi açın ve `cd` ile çalışma dizinine gidin.  
+1. Git bash gibi bir git terminal penceresi açın ve `cd` tooa çalışma dizini.  
 
-2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. 
+2. Çalışma hello aşağıdaki tooclone hello örnek depo komutu. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
     ```
 
-## <a name="review-the-code"></a>Kodu gözden geçirin
+## <a name="review-hello-code"></a>Merhaba kod gözden geçirme
 
-Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. \src\GetStarted klasöründen `Program.java` dosyasını açın ve bu kod satırlarını bulun. 
+Neler olduğuna dair hello uygulamada hızlı bir gözden geçirme olalım. Açık hello `Program.java` dosya hello \src\GetStarted klasöründen ve bu kod satırları bulur. 
 
-* Gremlin `Client`, `src/remote.yaml` içinde bulunan yapılandırmadan başlatılır.
+* Merhaba Gremlin `Client` hello yapılandırmadan başlatılmış `src/remote.yaml`.
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -88,7 +88,7 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. \src\GetStarte
     client = cluster.connect();
     ```
 
-* Bir dizi Gremlin adımı `client.submit` yöntemi kullanılarak çalıştırılır.
+* Bir dizi Gremlin adımı hello kullanarak yürütülme `client.submit` yöntemi.
 
     ```java
     ResultSet results = client.submit(gremlin);
@@ -103,103 +103,103 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. \src\GetStarte
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
-1. src/remote.yaml dosyasını açın. 
+1. Açık hello src/remote.yaml dosyası. 
 
-3. src/remote.yaml dosyasında *hosts*, *username* ve *password* değerlerini doldurun. Ayarların geri kalanının değiştirilmesi gerekmez.
+3. Doldurun, *ana*, *kullanıcıadı*, ve *parola* hello src/remote.yaml dosyasındaki değerleri. Merhaba rest hello ayarlarının değiştirilen toobe gerek yoktur.
 
     Ayar|Önerilen değer|Açıklama
     ---|---|---
-    Ana bilgisayarlar|[***.graphs.azure.com]|Bu tablodan sonraki ekran görüntüsüne bakın. Bu değer, Azure portalının Genel Bakış sayfasında bulunan, köşeli ayraç içindeki, sonundan :443/ bölümü çıkartılmış Gremlin URI değeridir.<br><br>Bu değer, Anahtarlar sekmesinde bulunan URI değeri kullanılıp https:// bölümü çıkarılarak ve belgeleri grafiklere dönüştürüp sondaki :443/ bölümü çıkarılarak alınabilir.
-    Kullanıcı adı|/dbs/sample-database/colls/sample-graph|`/dbs/<db>/colls/<coll>` formunun kaynağı; burada `<db>` mevcut veritabanı adınız ve `<coll>` mevcut koleksiyon adınızdır.
-    Parola|*Birincil ana anahtarınız*|Bu tablodan sonraki ikinci ekran görüntüsüne bakın. Bu değer sizin birincil anahtarınızdır, bu anahtarı Azure portalının Anahtarlar sayfasındaki Birincil Anahtar kutusunda bulabilirsiniz. Değeri kopyalamak için kutunun sağındaki kopyala düğmesini kullanın.
+    Ana bilgisayarlar|[***.graphs.azure.com]|Bu tablodan sonraki hello ekran görüntüsüne bakın. Bu değer hello Gremlin URI hello hello sondaki ile köşeli ayraçlar içinde Azure Portalı'nın hello genel bakış sayfasında değerdir: 443 / kaldırıldı.<br><br>Bu değer ayrıca hello anahtarları sekmesinden, https:// kaldırma belgeleri toographs değiştirme ve hello sondaki kaldırma hello URI değeri kullanılarak alınabilir: 443 /.
+    Kullanıcı adı|/dbs/sample-database/colls/sample-graph|Merhaba hello formunun kaynak `/dbs/<db>/colls/<coll>` nerede `<db>` varolan veritabanı adınız ve `<coll>` varolan koleksiyon adı.
+    Parola|*Birincil ana anahtarınız*|Bu tablodan sonraki hello ikinci ekran görüntüsüne bakın. Bu değer, hello hello birincil anahtar kutusunda Azure portal hello anahtarları sayfasından alabilirsiniz, birincil anahtar olur. Merhaba kutusunun sağ tarafında üzerinde hello Hello Kopyala düğmesini kullanarak hello değerini kopyalayın.
 
-    Hosts değeri için **Genel Bakış** sayfasındaki **Gremlin URI** değerini kopyalayın. Boşsa, anahtarlar dikey penceresinden Gremlin URI’si oluşturma hakkındaki önceki tablonun Hosts satırındaki yönergelere bakın.
-![Azure Portalı'ndaki Genel Bakış sayfasında Gremlin URI değerini görüntüleme ve kopyalama](./media/create-graph-java/gremlin-uri.png)
+    Merhaba Hello konakları değerini kopyalayın **Gremlin URI** başlangıç değerinden **genel bakış** sayfası. Boşsa, hello yönergeler hello konakları hello anahtarlar dikey penceresinden hello Gremlin URI oluşturma hakkında daha fazla tablo önceki hello satırda bakın.
+![Hello Azure portal'hello genel bakış sayfasında hello Gremlin URI değeri görüntüleme ve kopyalama](./media/create-graph-java/gremlin-uri.png)
 
-    Parola değeri için, **Anahtarlar** dikey penceresindeki **Birincil Anahtar**’ı kopyalayın: ![Azure portalındaki Anahtarlar sayfasında bulunan birincil anahtarı görüntüleme ve kopyalama](./media/create-graph-java/keys.png)
+    Merhaba Hello parola değerini kopyalayın **birincil anahtar** hello gelen **anahtarları** dikey: ![görüntüleme ve kopyalama birincil anahtarınızı hello Azure portal, anahtarları sayfası](./media/create-graph-java/keys.png)
 
-## <a name="run-the-console-app"></a>Konsol uygulamasını çalıştırma
+## <a name="run-hello-console-app"></a>Merhaba konsol uygulamasını çalıştırın
 
-1. Git terminal penceresinde `cd` komutuyla azure-cosmos-db-graph-java-getting-started klasörüne ulaşın.
+1. Penceresinde hello git terminal `cd` toohello azure-cosmos-db-graph-java-getting-started klasör.
 
-2. Git terminal penceresinde `mvn package` yazarak gerekli Java paketlerini yükleyin.
+2. Merhaba git terminal penceresinde yazın `mvn package` tooinstall hello Java paketleri gereklidir.
 
-3. Git terminal penceresinde Java uygulamanızı başlatmak için terminal penceresinde `mvn exec:java -D exec.mainClass=GetStarted.Program` komutunu çalıştırın.
+3. Merhaba git terminal penceresinde çalıştırın `mvn exec:java -D exec.mainClass=GetStarted.Program` içinde Java uygulamanız terminal penceresi toostart hello.
 
-Terminal penceresinde grafiğe eklenmekte olan köşeler gösterilir. Program tamamlandıktan sonra geri İnternet tarayıcınızdaki Azure Portalı'na geçin. 
+Merhaba terminal penceresi toohello grafik eklenmekte olan hello Köşeleri görüntüler. Merhaba program işlemi tamamlandıktan sonra geri toohello Azure portal, Internet tarayıcınızda geçin. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Örnek verileri inceleme ve ekleme
 
-Şimdi Veri Gezgini’ne dönüp grafiğe eklenen köşeleri görebilir ve ek veri noktaları ekleyebilirsiniz.
+Şimdi tooData Explorer geri dönün ve hello köşeleri toohello grafik eklenir ve ek veri noktaları ekleme bakın.
 
-1. Veri Gezgini'nde **sample-database**/**sample-graph** seçeneğini genişletin, **Graf** ve ardından **Filtre Uygula**’ya tıklayın. 
+1. Veri Gezgini'nde hello genişletin **örnek veritabanı**/**örnek grafik**, tıklatın **grafik**ve ardından **Filtre Uygula**. 
 
-   ![Azure portalındaki Veri Gezgini'nde yeni belge oluşturma](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
+   ![Yeni belgeler veri Gezgini'nde hello Azure portal oluşturun.](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
-2. **Sonuç listesinde**, grafiğe yeni kullanıcıların eklendiğini görürsünüz. **Ben**’i seçin, robin ile bağlantılı olduğunu görürsünüz. Grafik gezgininde köşeleri taşıyabilir, yakınlaştırma ve uzaklaştırma yapabilir, grafik gezgininin yüzey boyutunu genişletebilirsiniz. 
+2. Merhaba, **sonuçları** listesinde, hello yeni kullanıcılar eklenen toohello grafik dikkat edin. Seçin **ben** ve kendisine toorobin bağlandı dikkat edin. Merhaba köşeleri hello graph Explorer'a üzerinde hareket ettirin, yakınlaştırma ve uzaklaştırma ve hello grafik explorer yüzeyine hello boyutunu genişletin. 
 
-   ![Azure portalında Veri Gezgini'ndeki grafikte yeni köşeler](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
+   ![Merhaba grafikte veri Explorer'da hello Azure portalında yeni tepe](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. Veri Gezgini'ni kullanarak grafiğe birkaç yeni kullanıcı ekleyelim. Grafiğe veri eklemek için **yeni köşe** düğmesine tıklayın.
+3. Merhaba Veri Gezgini'ni kullanarak, birkaç, yeni kullanıcılar toohello grafik ekleyelim. Merhaba tıklatın **yeni köşe** düğmesini tooadd veri tooyour grafiği.
 
-   ![Azure portalındaki Veri Gezgini'nde yeni belge oluşturma](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
+   ![Yeni belgeler veri Gezgini'nde hello Azure portal oluşturun.](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
-4. *kişi* etiketini girin ve ardından grafikte ilk köşeyi oluşturmak için aşağıdaki anahtarları ve değerleri girin. Grafikteki her kişi için benzersiz özellikler oluşturabileceğinizi görürsünüz. Yalnızca kimliği anahtarı gereklidir.
+4. Bir etiketi girin *kişi* aşağıdaki anahtarları ve toocreate hello ilk köşe hello grafikteki değerleri hello girin. Grafikteki her kişi için benzersiz özellikler oluşturabileceğinizi görürsünüz. Yalnızca hello kimliği anahtar gereklidir.
 
     anahtar|değer|Notlar
     ----|----|----
-    id|ashley|Köşe için benzersiz tanımlayıcı. Kimlik belirtmezseniz, bir kimlik otomatik olarak oluşturulur.
+    id|ashley|Merhaba hello köşe için benzersiz tanımlayıcı. Kimlik belirtmezseniz, bir kimlik otomatik olarak oluşturulur.
     cinsiyet|kadın| 
     teknoloji | java | 
 
     > [!NOTE]
-    > Bu hızlı başlangıçta bölümlenmemiş bir koleksiyon oluşturacağız. Ancak koleksiyon oluşturma sırasında bir bölüm anahtarı belirterek bölümlendirilmiş bir koleksiyon oluşturursanız, daha sonra bölüm anahtarını her yeni köşede anahtar olarak eklemeniz gerekir. 
+    > Bu hızlı başlangıçta bölümlenmemiş bir koleksiyon oluşturacağız. Merhaba koleksiyonu oluşturma sırasında bir bölüm anahtarı belirterek bölümlendirilmiş bir koleksiyon oluşturursanız, ancak, ardından tooinclude hello bölüm anahtarı bir anahtar olarak her yeni köşe gerekir. 
 
-5. **Tamam** düğmesine tıklayın. Ekranın en altındaki **Tamam** seçeneğini görmek için ekranınızı genişletmeniz gerekebilir.
+5. **Tamam** düğmesine tıklayın. Ekran toosee tooexpand gerekebilir **Tamam** hello ekranın hello üzerinde.
 
-6. Tekrar **Yeni Köşe**’ye tıklayın ve ek yeni kullanıcıyı ekleyin. *Kişi* etiketini ve ardından aşağıdaki anahtarları ve değerleri girin:
+6. Tekrar **Yeni Köşe**’ye tıklayın ve ek yeni kullanıcıyı ekleyin. Bir etiketi girin *kişi* hello aşağıdaki enter anahtarları ve değerleri:
 
     anahtar|değer|Notlar
     ----|----|----
-    id|rakesh|Köşe için benzersiz tanımlayıcı. Kimlik belirtmezseniz, bir kimlik otomatik olarak oluşturulur.
+    id|rakesh|Merhaba hello köşe için benzersiz tanımlayıcı. Kimlik belirtmezseniz, bir kimlik otomatik olarak oluşturulur.
     cinsiyet|erkek| 
     okul|MIT| 
 
 7. **Tamam** düğmesine tıklayın. 
 
-8. Varsayılan `g.V()` filtresiyle **Filtre Uygula**’ya tıklayın. Tüm kullanıcılar **Sonuç listesinde** gösterilir. Daha fazla veri ekledikçe sonuçlarınızı sınırlamak için filtreleri kullanabilirsiniz. Varsayılan olarak, Veri Gezgini bir grafikteki tüm köşeleri almak için `g.V()` kullanır, ancak grafikteki tüm köşelerin sayısını JSON biçiminde döndürmek isterseniz bunu `g.V().count()` gibi farklı bir [grafik sorgusuyla](tutorial-query-graph.md) değiştirebilirsiniz.
+8. Tıklatın **Filtre Uygula** hello varsayılan ile `g.V()` Filtresi. Tüm hello kullanıcıların artık Göster hello **sonuçları** listesi. Daha fazla veri ekleme gibi filtreler toolimit sonuçlarınızı kullanabilirsiniz. Varsayılan olarak, Veri Gezgini kullanır `g.V()` tooretrieve bu tooa farklı bir grafik, ancak tüm tepe değiştirebilirsiniz [grafik sorgu](tutorial-query-graph.md), gibi `g.V().count()`, tooreturn JSON biçiminde hello grafik tüm hello tepe sayısı.
 
-9. Artık rakesh ve ashley arasında bağlantı kurabiliriz. **Sonuç listesinde** **ashley**’in seçili olduğundan emin olun ve ardından sağ alttaki **Hedefler**’in yanında bulunan Düzenle düğmesine tıklayın. **Özellikler** alanını görmek için pencerenizi genişletmeniz gerekebilir.
+9. Artık rakesh ve ashley arasında bağlantı kurabiliriz. Olun **ashley** hello seçili **sonuçları** listesinde, İleri'yi hello Düzenle düğmesi çok tıklatın**hedefleri** alt sağ tarafında. Pencere toosee hello toowiden gerekebilir **özellikleri** alanı.
 
-   ![Hedef grafikteki bir köşeyi değiştirme](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+   ![Merhaba hedef grafikteki bir köşesinin değiştirme](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-10. **Hedef** kutusunda *rakesh* yazın, **Kenar etiketi** kutusunda *tanıyor* yazın ve ardından onay kutusuna tıklayın.
+10. Merhaba, **hedef** kutusuna yazın *rakesh*ve hello **kenar etiket** kutusuna yazın *bilir*ve ardından hello onay kutusuna tıklayın.
 
    ![Veri Gezgininde ashley ve rakesh arasında bir bağlantı ekleyin](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
-11. Sonuç listesinden **rakesh**’i seçin, ashley ve rakesh’in bağlantılı olduğunu görürsünüz. 
+11. Şimdi seçin **rakesh** hello sonuçları listesi ve ashley ve rakesh bağlı olup olmadığını bakın. 
 
    ![Veri Gezgini'nde bağlı iki köşe](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
-    Veri Gezgini'ni kullanarak ayrıca saklı yordamlar, UDF'ler ve tetikleyiciler oluşturabilir, bu sayede sunucu tarafı iş mantığını gerçekleştirebilir ve aktarım hızını ölçeklendirebilirsiniz. Veri Gezgini, API'lerdeki tüm yerleşik programlı veri erişimini açığa çıkarır ancak Azure portalındaki verilerinize kolayca erişmenizi sağlar.
+    Ayrıca Veri Gezgini toocreate saklı yordamlar, UDF'ler ve Tetikleyicileri tooperform sunucu tarafı iş mantığı da kullanabilirsiniz ölçek işleme olarak. Veri Gezgini tüm hello yerleşik programlı veri erişim hello API'leri kullanılabilir gösterir, ancak tooyour verileri hello Azure portalında kolay erişim sağlar.
 
 
 
-## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
+## <a name="review-slas-in-hello-azure-portal"></a>Gözden geçirme SLA'hello Azure portalı
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak Azure portalında bu hızlı başlangıç tarafından oluşturulan tüm kaynakları silin: 
+Toocontinue toouse bu uygulamayı değil kullanacaksanız, bu hızlı başlangıç tarafından hello Azure portalında aşağıdaki adımları hello ile oluşturulan tüm kaynakları silin: 
 
-1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
-2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
+1. Merhaba sol taraftaki menüden hello Azure portal'ın, **kaynak grupları** ve ardından oluşturduğunuz hello kaynak hello adına tıklayın. 
+2. Kaynak grubu sayfanızda tıklatın **silmek**hello metin kutusuna hello kaynak toodelete hello adını yazın ve ardından **silmek**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak grafik oluşturmayı ve bir uygulamayı çalıştırmayı öğrendiniz. Artık daha karmaşık sorgular oluşturabilir ve Gremlin kullanarak güçlü grafik geçişi mantığını kullanabilirsiniz. 
+Bu hızlı başlangıç toocreate bir Azure Cosmos DB hesap hello Veri Gezgini'ni kullanarak bir grafik oluşturma ve bir uygulama çalıştırmasına öğrendiniz. Artık daha karmaşık sorgular oluşturabilir ve Gremlin kullanarak güçlü grafik geçişi mantığını kullanabilirsiniz. 
 
 > [!div class="nextstepaction"]
 > [Gremlin kullanarak sorgulama](tutorial-query-graph.md)

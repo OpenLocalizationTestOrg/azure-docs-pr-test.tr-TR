@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric uygulama yükseltme Öğreticisi | Microsoft Docs"
-description: "Bu makalede bir Service Fabric uygulaması dağıtma, kodunu değiştirme ve Visual Studio kullanarak bir yükseltmesinde deneyimi anlatılmaktadır."
+title: "aaaService Fabric uygulama yükseltme Öğreticisi | Microsoft Docs"
+description: "Bu makalede bir Service Fabric uygulaması dağıtma, hello kodunu değiştirme ve Visual Studio kullanarak bir yükseltmesinde hello deneyimi anlatılmaktadır."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 940440688ec770a4aeb932b574bd6be173f494d4
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d069ff0b291018dbac846e65cddff1e9d73d156c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Visual Studio kullanarak Service Fabric uygulaması yükseltme Öğreticisi
 > [!div class="op_single_selector"]
@@ -29,59 +29,59 @@ ms.lasthandoff: 08/18/2017
 
 <br/>
 
-Azure Service Fabric yalnızca değiştirilen Hizmetleri yükseltilir ve uygulama sağlığını yükseltme işlemi boyunca izlenir sağlayarak bulut uygulamaları yükseltme işlemini basitleştirir. Bu da otomatik olarak geri sorunları karşılaşıldığında önceki sürümü için uygulama yapar. Service Fabric uygulaması yükseltmelerin *sıfır kapalı kalma süresi*, bu yana uygulama kapalı kalma süresi ile yükseltilebilir. Bu öğreticide, Visual Studio'dan çalışırken yükseltmeyi tamamlamak alınmaktadır.
+Azure Service Fabric yalnızca değiştirilen Hizmetleri yükseltilir ve uygulama sağlığını hello yükseltme işlemi boyunca izlenir sağlayarak bulut uygulamaları yükseltme hello işlemini basitleştirir. Bu da otomatik olarak geri sorunları karşılaşıldığında hello uygulama toohello önceki sürümü yapar. Service Fabric uygulaması yükseltmelerin *sıfır kapalı kalma süresi*, kapalı kalma süresi ile Merhaba uygulaması yükseltilebilir beri. Bu öğretici kapsayan nasıl toocomplete yükseltme Visual Studio'dan.
 
-## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>1. adım: Yapı ve görsel nesneler örnek yayımlama
-İlk olarak, indirme [görsel nesneler](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) github'dan uygulama. Ardından, yapı ve uygulama projesine sağ tıklayarak uygulamayı yayımlamak **VisualObjects**, seçerek **Yayımla** Service Fabric menü öğesi komutu.
+## <a name="step-1-build-and-publish-hello-visual-objects-sample"></a>1. adım: Oluşturma ve yayımlama hello görsel nesneler örnek
+İlk olarak, hello karşıdan [görsel nesneler](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) github'dan uygulama. Ardından, yapı ve hello uygulama yayımlama hello uygulama projesine sağ tıklayarak **VisualObjects**, hello seçerek **Yayımla** hello Service Fabric menü öğesi komutunu.
 
 ![Service Fabric uygulaması bağlam menüsü][image1]
 
-Seçme **Yayımla** açılan bir pencere ortaya getirir ve ayarlayabilirsiniz **hedef profil** için **PublishProfiles\Local.xml**. Tıklamadan önce pencereyi aşağıdaki gibi görünmelidir **Yayımla**.
+Seçme **Yayımla** açılan bir pencere ortaya getirir ve hello ayarlayabilirsiniz **hedef profil** çok**PublishProfiles\Local.xml**. Merhaba penceresinde hello tıklamadan önce aşağıdaki gibi görünmelidir **Yayımla**.
 
 ![Service Fabric uygulaması yayımlama][image2]
 
-Tıklayabilirsiniz artık **Yayımla** iletişim kutusunda. Kullanabileceğiniz [küme ve uygulamayı görüntülemek için Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). Görsel nesneler uygulama yazarak gidebilirsiniz bir web hizmeti olan [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) tarayıcınızın adres çubuğundaki.  Ekranda Dolaşma, 10, kayan görsel nesneler görmeniz gerekir.
+Tıklayabilirsiniz artık **Yayımla** hello iletişim kutusunda. Kullanabileceğiniz [Service Fabric Explorer, tooview Merhaba küme ve hello uygulaması](service-fabric-visualizing-your-cluster.md). Merhaba görsel nesneler uygulama sahip tooby yazarak gidebilirsiniz bir web hizmeti [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) hello tarayıcınızın adres çubuğuna.  Merhaba ekranında hareket etmek, 10, kayan görsel nesneler görmeniz gerekir.
 
-**Not:** dağıtılması durumunda `Cloud.xml` profil (Azure Service Fabric) uygulama sonra kullanılabilir olmalıdır **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/**. Sahip olduğunuzdan emin olun `8081/TCP` yük dengeleyici (Bul Service Fabric örneği ile aynı kaynak grubunda yük dengeleyici) yapılandırılmış.
+**Not:** çok dağıtmayı`Cloud.xml` profil (Azure Service Fabric) Merhaba uygulaması kullanılabilir olmalıdır **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/**. Sahip olduğunuzdan emin olun `8081/TCP` hello yük dengeleyici yapılandırılmış (Merhaba yük dengeleyici hello Bul hello Service Fabric örneği ile aynı kaynak grubunda).
 
-## <a name="step-2-update-the-visual-objects-sample"></a>2. adım: görsel nesneler örnek güncelleştir
-1. adımda dağıtılan sürümüyle görsel nesneler değil döndürme fark edebilirsiniz. Şimdi bir burada görsel nesneler de döndürmek için bu uygulamayı yükseltin.
+## <a name="step-2-update-hello-visual-objects-sample"></a>2. adım: Güncelleştirme hello görsel nesneler örnek
+1. adımda dağıtılan hello sürümüyle hello visual nesneleri değil döndürme fark edebilirsiniz. Şimdi burada hello görsel nesneler de döndürme bu uygulama tooone yükseltin.
 
-VisualObjects çözümünde VisualObjects.ActorService projesini seçin ve açmak **VisualObjectActor.cs** dosya. Bu dosyanın içindeki yöntem geçin `MoveObject`, çıkışı açıklama `visualObject.Move(false)`ve açıklama durumundan çıkarmanız `visualObject.Move(true)`. Hizmet yükseltildikten sonra bu kodu değişikliği nesnesini döndürür.  **(Yeniden oluşturmaz) çözümü derleme artık**, değiştirilmiş projeleri oluşturur. Seçerseniz *tüm yeniden*, tüm projeleri için sürümleri güncelleştirmeniz gerekir.
+Merhaba VisualObjects.ActorService projesi hello VisualObjects çözüm içinde seçin ve açın hello **VisualObjectActor.cs** dosya. Bu dosyanın içindeki toohello yöntemi Git `MoveObject`, çıkışı açıklama `visualObject.Move(false)`ve açıklama durumundan çıkarmanız `visualObject.Move(true)`. Merhaba hizmet yükseltildikten sonra bu kodu değişikliği hello nesnesini döndürür.  **(Yeniden oluşturmaz) yapı artık hello çözüm**, hangi hello yapıların projeleri değiştirdi. Seçerseniz *tüm yeniden*, tüm projeleri hello için tooupdate hello sürümlere sahip.
 
-Biz de sürüme uygulamamız gerekir. Üzerinde sağ sonra sürüm değişiklik yapmak için **VisualObjects** projesini Visual Studio'yu kullanabilirsiniz **bildirim sürümleri Düzenle** seçeneği. Bu seçeneğin belirlenmesi edition sürümleri için iletişim kutusunda aşağıdaki gibi getirir:
+Biz de tooversion uygulamamız gerekir. değişiklikler hello üzerinde sağ sonra toomake hello sürümü **VisualObjects** projesi hello Visual Studio kullanabilirsiniz **bildirim sürümleri Düzenle** seçeneği. Bu seçeneğin belirlenmesi hello iletişim kutusunda edition sürümleri için şu şekilde getirir:
 
 ![Sürüm oluşturma iletişim kutusu][image3]
 
-Değiştirilen projeleri ve sürüm 2.0.0 uygulamaya yanı sıra bunların kod paketler için sürümler güncelleştirin. Değişiklikler yapıldıktan sonra bildirimi aşağıdaki gibi görünmelidir (kalın bölümleri göster değişiklikleri):
+Güncelleştirme hello sürümleri hello için projeleri ve hello uygulama tooversion 2.0.0 yanı sıra bunların kod paketleri değiştirdi. Merhaba değişiklikler yapıldıktan sonra hello bildirimi hello aşağıdaki gibi görünmelidir (kalın bölümleri göster hello değişiklikleri):
 
 ![Güncelleştirme sürümleri][image4]
 
-Visual Studio Araçları seçtikten sonra sürümlerinin otomatik toplamaları yapabilirsiniz **otomatik olarak uygulama ve hizmet sürümleri güncelleştirme**. Kullanırsanız [SemVer](http://www.semver.org), kod güncelleştirmeniz gerekir ve/veya yapılandırma paketi sürümü bu, tek başına seçeneği işaretlidir.
+Merhaba Visual Studio Araçları seçtikten sonra sürümlerinin otomatik toplamaları yapabilir **otomatik olarak uygulama ve hizmet sürümleri güncelleştirme**. Kullanırsanız [SemVer](http://www.semver.org), tooupdate hello kodu gerekli ve/veya yapılandırma paketi sürümü bu, tek başına seçeneği işaretlidir.
 
-Değişiklikleri kaydetmek ve şimdi denetle **uygulama yükseltme** kutusu.
+Merhaba değişiklikleri kaydetmek ve şimdi hello denetle **yükseltme hello uygulama** kutusu.
 
 ## <a name="step-3--upgrade-your-application"></a>3. adım: uygulamanızı yükseltin
-İle öğrenmeniz [uygulama yükseltme parametreleri](service-fabric-application-upgrade-parameters.md) ve [yükseltme işlemi](service-fabric-application-upgrade.md) çeşitli yükseltme parametreleri, zaman aşımları ve olabilir sistem durumu ölçüt iyi anlamış almak için uygulanır. Bu kılavuz için hizmet sistem durumu değerlendirme ölçüt (izlenmeyen modu) varsayılan olarak ayarlanır. Seçerek bu ayarları yapılandırabilirsiniz **yükseltme ayarlarını yapılandır** ve istediğiniz gibi parametreleri değiştirme.
+Merhaba ile öğrenmeniz [uygulama yükseltme parametreleri](service-fabric-application-upgrade-parameters.md) ve hello [yükseltme işlemi](service-fabric-application-upgrade.md) tooget çeşitli yükseltme parametreleri, zaman aşımları ve için sistem durumu ölçüt hello iyi anlamış uygulanması. Bu kılavuzda hello hizmet sistem durumu değerlendirme ölçüt toohello varsayılan (izlenmeyen modu) ayarlanır. Seçerek bu ayarları yapılandırabilirsiniz **yükseltme ayarlarını yapılandır** ve istediğiniz gibi hello parametrelerini değiştirme.
 
-Biz seçerek uygulama yükseltme işlemini başlatmak için tüm kümesi artık **Yayımla**. Bu seçenek uygulamanızın hangi nesneleri döndürme 2.0.0, sürümüne yükseltir. Service Fabric (bazı nesneler ilk olarak, başkaları tarafından ve ardından güncelleştirilir) bir defada tek bir güncelleştirme etki alanı yükseltme ve yükseltme sırasında hizmet erişilebilir kalır. Hizmete erişim, istemci (tarayıcı) denetlenebilir.  
+Biz tüm kümesi toostart hello uygulama artık seçerek yükseltme **Yayımla**. Bu seçenek, uygulama tooversion içinde hello nesneleri döndürme 2.0.0 yükseltir. Service Fabric (bazı nesneler ilk olarak, başkaları tarafından ve ardından güncelleştirilir) bir defada tek bir güncelleştirme etki alanı yükseltme ve hello hizmeti hello yükseltme sırasında erişilebilir olarak kalır. Erişim toohello hizmeti istemci (tarayıcı) denetlenebilir.  
 
-Artık uygulama yükseltme devam eder, olarak, Service Fabric Explorer ile kullanarak izleyebileceğiniz **yükseltme devam eden** uygulamalar sekmesinde.
+Şimdi, uygulama yükseltme devam eder hello gibi bu Service Fabric Explorer ile hello kullanarak izleyebilirsiniz **yükseltme devam eden** hello uygulama sekmesinde.
 
-Birkaç dakika içinde (tamamlandı) tüm güncelleme etki alanına yükseltilmesi ve Visual Studio çıkış penceresi de yükseltme tamamlandıktan durumlarında. Ve, bulmalıdır *tüm* Tarayıcı pencerenizde görsel nesneler artık döndürme!
+Birkaç dakika içinde (tamamlandı) tüm güncelleme etki alanına yükseltilmesi ve hello Visual Studio çıkış penceresi de o hello yükseltme tamamlandıktan durumlarında. Ve, bulmalıdır *tüm* hello visual nesneleri Tarayıcı pencerenizde şimdi döndürme!
 
-Sürümleri değiştirme denemek isteyebilirsiniz ve 2.0.0 sürümünden bir alıştırma olarak 3.0.0 sürümüne veya hatta sürümünden 2.0.0 geri sürümüne 1.0.0 taşıma. Zaman aşımları ve kendiniz bunlarla bilgi sahibi olmak için sistem durumu ilkeleri ile yürütün. Yerel küme aksine Azure bir küme dağıtımı sırasında kullanılan parametreleri farklı gerekebilir. Zaman aşımları ölçülü ayarlamanızı öneririz.
+Merhaba sürümleri değiştirme ve bir alıştırma olarak sürüm 2.0.0 tooversion 3.0.0 taşıma tootry istediğiniz ya da tooversion 1.0.0 bile 2.0.0 sürümünden geri. Zaman aşımları ve sistem durumu ilkeleri toomake kendiniz bunları aşina yürütün. Azure küme olarak tooan dağıtma tooa yerel küme değil, kullanılan hello parametreler toodiffer olabilir. Merhaba zaman aşımlarını ölçülü ayarlamanızı öneririz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [PowerShell kullanarak uygulamanızı yükseltme](service-fabric-application-upgrade-tutorial-powershell.md) PowerShell kullanarak bir uygulama yükseltme yol gösterir.
 
 Kullanarak uygulamanızı nasıl yükseltilir kontrol [yükseltme parametreleri](service-fabric-application-upgrade-parameters.md).
 
-Uygulama yükseltme nasıl kullanılacağını öğrenerek uyumlu hale getirmek [veri seri hale getirme](service-fabric-application-upgrade-data-serialization.md).
+Uygulama yükseltme öğrenme tarafından uyumlu hale getirmek nasıl toouse [veri seri hale getirme](service-fabric-application-upgrade-data-serialization.md).
 
-Gelişmiş işlevselliği başvurarak uygulamanızı yükseltirken kullanmayı öğrenin [konuları Gelişmiş](service-fabric-application-upgrade-advanced.md).
+Uygulamanız çok başvurarak yükseltirken toouse işlevselliği nasıl Gelişmiş öğrenin[konuları Gelişmiş](service-fabric-application-upgrade-advanced.md).
 
-Adımlarına bakarak uygulama yükseltmeleri sık karşılaşılan sorunları düzeltmek [uygulama yükseltme sorunlarını giderme](service-fabric-application-upgrade-troubleshooting.md).
+Toohello adımlarda başvurarak uygulama yükseltmeleri sık karşılaşılan sorunları düzeltmek [uygulama yükseltme sorunlarını giderme](service-fabric-application-upgrade-troubleshooting.md).
 
 [image1]: media/service-fabric-application-upgrade-tutorial/upgrade7.png
 [image2]: media/service-fabric-application-upgrade-tutorial/upgrade1.png

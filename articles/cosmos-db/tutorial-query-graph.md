@@ -1,6 +1,6 @@
 ---
-title: "Grafik verileri Azure Cosmos veritabanı nasıl? | Microsoft Belgeleri"
-description: "Sorgu grafik verileri Azure Cosmos veritabanı hakkında bilgi edinin"
+title: "aaaHow tooquery grafik verileri Azure Cosmos veritabanı? | Microsoft Belgeleri"
+description: "Tooquery grafik verileri Azure Cosmos veritabanı öğrenin"
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -15,28 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: denlee
-ms.openlocfilehash: 81713c72da037f127e81239d214d7a877247dca1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fdde881edd6c488e2fea51e5c9665e1d736009fa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: grafik API'si (Önizleme) ile nasıl?
+# <a name="azure-cosmos-db-how-tooquery-with-hello-graph-api-preview"></a>Azure Cosmos DB: Nasıl tooquery ile Merhaba grafik API'si (Önizleme)?
 
-Azure Cosmos DB [grafik API'si](graph-introduction.md) (Önizleme) destekleyen [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/) sorgular. Bu makalede örnek belgelerdeki ve sorgulardaki başlamanıza yardımcı olmak için sunulmaktadır. A ayrıntılı başvuru sağlanır Gremlin [Gremlin Destek](gremlin-support.md) makalesi.
+Hello Azure Cosmos DB [grafik API'si](graph-introduction.md) (Önizleme) destekleyen [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/) sorgular. Bu makalede örnek belgeler sağlar ve başlattığınız tooget sorgular. Ayrıntılı Gremlin başvuru hello sağlanan [Gremlin Destek](gremlin-support.md) makalesi.
 
-Bu makalede aşağıdaki görevleri içerir: 
+Bu makalede görevleri aşağıdaki hello yer almaktadır: 
 
 > [!div class="checklist"]
 > * Gremlin verilerle sorgulama
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu sorguları çalışmak bir Azure Cosmos DB hesabınız varsa ve grafik verileri kapsayıcısında sahip. Bu yok? Tamamlamak [5 dakikalık quickstart](create-graph-dotnet.md) veya [Geliştirici öğretici](tutorial-query-graph.md) bir hesap oluşturun ve veritabanınızı doldurmak için. Kullanarak aşağıdaki sorguları çalıştırabilirsiniz [Azure Cosmos DB .NET grafik Kitaplığı](graph-sdk-dotnet.md), [Gremlin konsol](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), veya sık kullanılan Gremlin sürücünüzü.
+Bu sorguları toowork için bir Azure Cosmos DB hesabınız varsa ve grafik verileri hello kapsayıcısında sahip. Bu yok? Tam hello [5 dakikalık quickstart](create-graph-dotnet.md) veya hello [Geliştirici öğretici](tutorial-query-graph.md) toocreate bir hesap ve veritabanınızı doldurmak. Hello kullanarak sorguları aşağıdaki hello çalıştırabilirsiniz [Azure Cosmos DB .NET grafik Kitaplığı](graph-sdk-dotnet.md), [Gremlin konsol](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), veya sık kullanılan Gremlin sürücünüzü.
 
-## <a name="count-vertices-in-the-graph"></a>Grafik tepe sayısı
+## <a name="count-vertices-in-hello-graph"></a>Merhaba grafik tepe sayısı
 
-Aşağıdaki kod parçacığında, grafik tepe sayısı gösterilmektedir:
+Aşağıdaki kod parçacığında hello nasıl toocount hello hello grafik tepe sayısı gösterir:
 
 ```
 g.V().count()
@@ -44,7 +44,7 @@ g.V().count()
 
 ## <a name="filters"></a>Filtreler
 
-Gremlin'ın kullanarak filtreler gerçekleştirebilirsiniz `has` ve `hasLabel` adımları ve bunları birleştirmek kullanarak `and`, `or`, ve `not` daha karmaşık filtreler oluşturmak için. Azure Cosmos DB köşeleri ve derece hızlı sorgular için içindeki tüm özelliklerinin şema belirsiz dizin oluşturma sağlar:
+Gremlin'ın kullanarak filtreler gerçekleştirebilirsiniz `has` ve `hasLabel` adımları ve bunları birleştirmek kullanarak `and`, `or`, ve `not` toobuild daha karmaşık filtreler. Azure Cosmos DB köşeleri ve derece hızlı sorgular için içindeki tüm özelliklerinin şema belirsiz dizin oluşturma sağlar:
 
 ```
 g.V().hasLabel('person').has('age', gt(40))
@@ -52,7 +52,7 @@ g.V().hasLabel('person').has('age', gt(40))
 
 ## <a name="projection"></a>Yansıtma
 
-Belirli özellikleri kullanarak sorgu sonuçlarındaki proje `values` . adım:
+Belirli özellikler hello sorgu sonuçlarındaki hello kullanarak proje `values` . adım:
 
 ```
 g.V().hasLabel('person').values('firstName')
@@ -60,28 +60,28 @@ g.V().hasLabel('person').values('firstName')
 
 ## <a name="find-related-edges-and-vertices"></a>İlgili kenarları ve köşeleri Bul
 
-Şu ana kadar yalnızca tüm veritabanındaki iş sorgu işleçleri gördük. İlgili kenarları ve köşeleri gitmek gerektiğinde grafikleri hızlı ve verimli çapraz geçiş işlemleri için. Şimdi tüm arkadaşların Thomas bulun. Biz Gremlin'ın kullanarak bunu `outE` tüm bulmak için adım Thomas silip Gremlin'ın kullanarak bu kenarlarından içinde-köşeleri için çapraz geçiş yapan dışarı kenarları `inV` . adım:
+Şu ana kadar yalnızca tüm veritabanındaki iş sorgu işleçleri gördük. Toonavigate toorelated kenarları ve köşeleri gerektiğinde grafikleri hızlı ve verimli çapraz geçiş işlemleri için. Şimdi tüm arkadaşların Thomas bulun. Biz Gremlin'ın kullanarak bunu `outE` tüm hello dışarı Thomas kenarları toofind adım sonra içinde köşe için toohello Gremlin'ın kullanarak bu kenarlarından çapraz geçiş yapan `inV` . adım:
 
 ```cs
 g.V('thomas').outE('knows').inV().hasLabel('person')
 ```
 
-Tüm Thomas' "arkadaş arkadaş", çağırarak bulmak için iki atlama sonraki sorgu gerçekleştirir `outE` ve `inV` iki kez. 
+Merhaba sonraki sorgu gerçekleştirir iki atlama toofind tüm "çağırarak Thomas arkadaş arkadaş", `outE` ve `inV` iki kez. 
 
 ```cs
 g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 
-Daha karmaşık sorgular derlemek ve döngü kullanarak gerçekleştirmeden, filtre ifadeleri karıştırma dahil olmak üzere Gremlin kullanan güçlü grafik geçişi mantığı uygulamanıza `loop` adım ve uygulama koşullu Gezinti kullanarak `choose` adım. İle yapabilecekleriniz hakkında daha fazla bilgi [Gremlin Destek](gremlin-support.md)!
+Daha karmaşık sorgular derlemek ve Gremlin, kullanarak döngü gerçekleştirme ifadeleri hello dahil olmak üzere karıştırma filtre kullanan güçlü grafik geçişi mantığı uygulamanıza `loop` adım ve hello kullanarak uygulama koşullu Gezinti `choose` adım. İle yapabilecekleriniz hakkında daha fazla bilgi [Gremlin Destek](gremlin-support.md)!
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan:
+Bu öğreticide, hello aşağıdakileri yaptığınızdan:
 
 > [!div class="checklist"]
-> * Grafik kullanarak sorgu öğrendiniz 
+> * Nasıl öğrenilen grafiğini kullanarak tooquery 
 
-Verilerinizi Genel dağıtma konusunda bilgi almak için sonraki öğretici şimdi devam edebilirsiniz.
+Toohello sonraki öğretici toolearn nasıl şimdi devam toodistribute verilerinizi genel.
 
 > [!div class="nextstepaction"]
 > [Verilerinizi genel Dağıt](tutorial-global-distribution-documentdb.md)

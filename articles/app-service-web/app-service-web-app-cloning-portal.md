@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal kullanarak Web uygulaması kopyalama"
-description: "Web uygulamalarınızı Azure Portal kullanarak yeni Web uygulamaları için kopyalama öğrenin."
+title: aaaWeb Azure Portal kullanarak uygulama kopyalama
+description: "Bilgi nasıl tooclone, Web uygulamaları toonew Azure Portal kullanarak Web uygulamaları."
 services: app-service\web
 documentationcenter: 
 author: ahmedelnably
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2016
 ms.author: aelnably
-ms.openlocfilehash: 9ebfa91c7972ab3c264032ead8376c23c1197a4b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 605c4879f34d568e9981c34109f9496731c9ed18
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-app-cloning-using-azure-portal"></a>Azure App Service uygulaması kullanarak Azure portalında kopyalama
-Kopyalama özelliği [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) kolayca kopyalama varolan sağlar web uygulamaları için farklı bir bölgede ya da aynı bölgede yeni oluşturulan bir uygulama. Bu uygulama sayısı farklı bölgeler arasında hızlı ve kolay bir şekilde dağıtmasını sağlar.
+özelliği kopyalama hello [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) hello aynı bölgede varolan web uygulamaları yeni oluşturulan tooa uygulamasını farklı bir bölgede ya da de kolayca kopyalama sağlar. Bu müşteriler toodeploy uygulamaları birkaç farklı bölgelerdeki hızla ve kolayca olanak tanır.
 
-Uygulama kopyalama şu anda yalnızca premium katmanı uygulama hizmeti planları için desteklenir. Yeni özellik aynı sınırlamalar Web Apps yedekleme özelliği kullanan, bkz: [Azure App Service'te bir web uygulaması yedekleme](web-sites-backup.md).
+Uygulama kopyalama şu anda yalnızca premium katmanı uygulama hizmeti planları için desteklenir. Merhaba yeni özellik kullandığı aynı hello Web Apps yedekleme özelliği olarak sınırlamalar bakın [Azure App Service'te bir web uygulaması yedekleme](web-sites-backup.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="cloning-an-existing-app"></a>Mevcut bir uygulamayı kopyalama
-Web uygulamasının çalışır durumda **Premium** web uygulaması için bir kopya oluşturmak için sırayla modu.
+hello Hello web uygulaması çalıştıran **Premium** hello web uygulaması için bir kopya toocreate sırada modu.
 
-1. İçinde [Azure Portal](https://portal.azure.com/), web uygulamanızın dikey penceresini açın.
-2. Tıklatın **Araçları**. Ardından **Araçları** dikey penceresinde tıklatın **kopya uygulama**.
+1. Merhaba, [Azure Portal](https://portal.azure.com/), web uygulamanızın dikey penceresini açın.
+2. Tıklatın **Araçları**. Ardından hello **Araçları** dikey penceresinde tıklatın **kopya uygulama**.
    
     ![][1]
    
    > [!NOTE]
-   > Web uygulaması zaten değilse **Premium** modu, uygulama kopyalama desteklenen modları belirten bir ileti alırsınız. Bu noktada, seçmek için seçeneğiniz **yükseltme**.
+   > Merhaba web uygulaması zaten hello değilse **Premium** modu, uygulama kopyalama hello desteklenen modları belirten bir ileti alırsınız. Bu noktada, hello seçeneği tooselect sahip **yükseltme**.
    > 
    > 
-3. İçinde **kopya uygulama** dikey penceresinde yeni web uygulaması, kaynak grubu ve uygulama hizmeti planı adını belirtin. Ayrıca kullanıcı kaynak web uygulaması ayarları sayısı kopyalamak isteyip istemediğinizi seçin kuramaz veya değil.
+3. Merhaba, **kopya uygulama** dikey penceresinde hello yeni web uygulaması, kaynak grubu ve uygulama hizmeti planı adını belirtin. Aynı zamanda hello kullanıcı mümkün toochoose olup olacaktır tooclone kaynak web uygulaması ayarları sayısı veya değil.
    
     ![][2]
-4. ' I tıklattıktan sonra **oluşturma** platform kaynak web uygulamasının bir kopyasını oluşturma üzerinde çalışmaya başlar.
+4. ' I tıklattıktan sonra **oluşturma** hello platform hello kaynak web uygulamasının bir kopyasını oluşturma üzerinde çalışmaya başlayacak.
 
-## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Bir uygulama hizmeti ortamı var olan bir uygulamaya kopyalama
-İçinde **kopya uygulama** dikey müşteri var olan uygulama hizmeti ortamı'nda bir uygulama havuzu seçmek için seçeneği vardır.
+## <a name="cloning-an-existing-app-tooan-app-service-environment"></a>Var olan bir uygulama tooan uygulama hizmeti ortamı kopyalama
+Merhaba, **kopya uygulama** dikey penceresinde hello müşteri, bir uygulama havuzu var olan uygulama hizmeti ortamı'nda hello seçeneği toochoose olacaktır.
 
 ## <a name="current-restrictions"></a>Geçerli kısıtlamaları
-Bu özellik şu anda önizlemede değil, zaman içinde yeni özellikler eklemek için çalışıyoruz, aşağıdaki listede olan uygulama Azure Portalı'nda kopyalama bilinen kısıtlamalar geçerli desteği:
+Bu özellik şu anda önizlemede değil, zaman içinde tooadd yeni özellikler çalışıyoruz, liste aşağıdaki hello Azure portalında uygulama kopyalama bilinen sınırlamalar hello geçerli desteği hello:
 
 * Azure Traffic Manager ayarları klonlanmış değil
 * Otomatik ölçek ayarları klonlanmış değil
 * Yedekleme zamanlaması ayarları klonlanmış değil
 * VNET ayarlarını klonlanmış değil
-* App Insights otomatik olarak hedef web uygulamasında belirlenmedi
+* App Insights otomatik olarak hello hedef web uygulamasında belirlenmedi
 * Kolay kimlik doğrulama ayarları klonlanmış değil
 * Kudu uzantısı değil kopyalanamıyor
 * İpucu kuralları klonlanmış değil
@@ -63,9 +63,9 @@ Bu özellik şu anda önizlemede değil, zaman içinde yeni özellikler eklemek 
 ### <a name="references"></a>Başvurular
 * [Web uygulaması PowerShell kullanarak kopyalama](app-service-web-app-cloning.md)
 * [Azure App Service'in web uygulamasında yedekleyin](web-sites-backup.md)
-* [App Service Ortamı Oluşturma](app-service-web-how-to-create-an-app-service-environment.md)
+* [Nasıl tooCreate bir uygulama hizmeti ortamı](app-service-web-how-to-create-an-app-service-environment.md)
 * [App Service Ortamında bir web uygulaması oluşturma](app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [App Service Ortamı’na giriş](app-service-app-service-environment-intro.md)
+* [Giriş tooApp hizmeti ortamı](app-service-app-service-environment-intro.md)
 
 <!--Image references-->
 [1]: ./media/app-service-web-app-cloning-portal/CloningBlade.png

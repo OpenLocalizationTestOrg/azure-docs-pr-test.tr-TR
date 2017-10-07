@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Lake Store’da uygulama geliştirmek için Java SDK'sını kullanma | Microsoft Docs"
-description: "Bir Data Lake Store hesabı oluşturmak ve Data Lake Store'da temel işlemleri gerçekleştirmek için Azure Data Lake Store Java SDK’sını kullanma"
+title: "aaaUse hello Azure Data Lake Store Java SDK'sı toodevelop uygulamaları | Microsoft Docs"
+description: "Azure Data Lake Store Java SDK toocreate bir Data Lake Store hesabı kullanıp hello Data Lake Store temel işlemleri"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 91128b53a2f1cd3ddcbee5b07da0d67668944fb4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d3bcee449c2a2a4bd2f7b241af46ecc010b6b62e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-java"></a>Java'yı kullanarak Azure Data Lake Store ile çalışmaya başlama
 > [!div class="op_single_selector"]
@@ -33,32 +33,32 @@ ms.lasthandoff: 07/11/2017
 >
 > 
 
-Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel işlemleri gerçekleştirmek için Azure Data Lake Store Java SDK’sını kullanma hakkında bilgi edinin. Data Lake hakkında daha fazla bilgi için bkz. [Azure Data Lake Store](data-lake-store-overview.md).
+Toouse hello Azure Data Lake Store Java SDK tooperform temel işlemleri gibi klasörleri oluşturmak nasıl öğrenin, karşıya yükleme ve indirme vb. veri dosyaları. Data Lake hakkında daha fazla bilgi için bkz. [Azure Data Lake Store](data-lake-store-overview.md).
 
-Azure Data Lake Store için Java SDK API belgelerine, [Azure Data Lake Store Java API belgelerinden](https://azure.github.io/azure-data-lake-store-java/javadoc/) erişebilirsiniz.
+Hello Azure Data Lake Store için Java SDK API belgeleri erişebilirsiniz [Azure Data Lake Store Java API belgeleri](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 * Java Development Kit (Java sürüm 1.7 veya üzerini kullanan JDK 7 ya da üzeri)
-* Azure Data Lake Store hesabı. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md) bölümündeki yönergeleri uygulayın.
-* [Maven](https://maven.apache.org/install.html). Bu eğiticide, yapı ve proje bağımlılıkları için Maven kullanılır. Maven veya Gradle gibi bir yapı sistemi olmadan derleme yapmak mümkün olsa da bu sistemler bağımlılıkların yönetilmesini çok daha kolay hale getirir.
+* Azure Data Lake Store hesabı. Merhaba yönergeleri izleyin [Azure Data Lake hello Azure Portal kullanarak Store ile çalışmaya başlama](data-lake-store-get-started-portal.md).
+* [Maven](https://maven.apache.org/install.html). Bu eğiticide, yapı ve proje bağımlılıkları için Maven kullanılır. Derleme Sistemi Maven veya Gradle gibi kullanmadan olası toobuild olmasına karşın, çok daha kolay toomanage bağımlılıkları olduğundan bu sistemler olun.
 * (İsteğe bağlı) [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), [Eclipse](https://www.eclipse.org/downloads/) vb. bir IDE.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak nasıl kimlik doğrulaması gerçekleştiririm?
-Bu eğiticide, Azure Active Directory belirteci (hizmetten hizmete kimlik doğrulama) almak için Azure AD uygulamasının istemci gizli anahtarını kullanırız. Bu belirteci kullanarak işlem dosyasını ve dizin işlemlerini gerçekleştirmek için Data Lake Store istemci nesnesi oluştururuz. İstemci gizli anahtarı kullanarak Azure Data Lake Store’da kimlik doğrulamaya ilişkin yönergeler için aşağıdaki üst düzey adımları gerçekleştiririz:
+Bu öğreticide bir Azure AD uygulama istemci gizli tooretrieve bir Azure Active Directory token (hizmet kimlik doğrulaması) kullanın. Bu belirteç toocreate bir Data Lake Store istemcisi nesnesi tooperform işlemleri dosya ve dizin işlemlerini kullanırız. Nasıl kullanarak Azure Data Lake Store ile tooauthenticate hello istemci parolası ile ilgili yönergeler için aşağıdaki üst düzey adımları hello gerçekleştirin:
 
 1. Azure AD web uygulaması oluşturma
-2. Azure AD web uygulaması için istemci kimliğini, istemci gizli anahtarını ve belirteç uç noktasını alın.
-3. Oluşturduğunuz Java uygulamasından erişmek istediğiniz Data Lake Store dosyasında/klasöründe Azure AD web uygulaması için erişimi yapılandırın.
+2. Merhaba istemci kimliği, gizli ve hello Azure AD web uygulaması için belirteç uç noktası alamadı.
+3. Merhaba tooaccess hello oluşturmakta olduğunuz Java uygulaması'ndan istediğiniz Data Lake Store dosya/klasör hello Azure AD web uygulamasına erişimi yapılandırın.
 
-Bu adımların nasıl gerçekleştirileceğine ilişkin yönergeler için bkz. [Active Directory uygulaması oluşturma](data-lake-store-authenticate-using-active-directory.md).
+Yönergeler için nasıl tooperform bu adımları görmek [Active Directory Uygulama oluşturma](data-lake-store-authenticate-using-active-directory.md).
 
-Azure Active Directory, belirteç almak için başka seçenekler de sunar. Tarayıcınızda çalışan bir uygulama, masaüstü uygulaması olarak dağıtılan bir uygulama ya da şirket içinde veya Azure sanal makinesinde çalışan sunucu uygulaması gibi farklı kimlik doğrulama mekanizmaları arasından senaryonuza en uygun olanını seçebilirsiniz. Parolalar, sertifikalar, 2 öğeli kimlik doğrulaması vb. farklı kimlik bilgileri arasından da seçim yapabilirsiniz. Ayrıca Azure Active Directory, şirket içi Active Directory kullanıcılarınızı bulutla eşitlemenize olanak tanır. Ayrıntılar için bkz. [Azure Active Directory için Kimlik Doğrulama Senaryoları](../active-directory/active-directory-authentication-scenarios.md). 
+Azure Active Directory, diğer de tooretrieve bir belirteç seçenekleri sağlar. Farklı kimlik doğrulama mekanizmaları toosuit arasında bir sayı senaryonuz, örneğin, bir tarayıcı, bir masaüstü uygulaması olarak dağıtılmış bir uygulama ya da şirket içi çalıştıran bir sunucu uygulaması veya bir Azure sanal çalışan bir uygulama seçin Makine. Parolalar, sertifikalar, 2 öğeli kimlik doğrulaması vb. farklı kimlik bilgileri arasından da seçim yapabilirsiniz. Ayrıca, Azure Active Directory toosynchronize sayesinde şirket içi Active Directory kullanıcılarınıza hello bulut. Ayrıntılar için bkz. [Azure Active Directory için Kimlik Doğrulama Senaryoları](../active-directory/active-directory-authentication-scenarios.md). 
 
 ## <a name="create-a-java-application"></a>Java uygulaması oluşturma
-[GitHub’da](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/) bulunan kod örneği, depoda dosya oluşturma, dosyaları birleştirme, dosya indirme ve depodaki bazı dosyaları silme işlemlerinde size yol gösterir. Makalenin bu bölümü, kodun ana bölümlerinde sizi yönlendirir.
+Merhaba kod örneği [github'da](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/) hello depoda dosya oluşturma, dosyaları birleştirme, dosya indirme ve hello deposundaki bazı dosyaları silin hello işleminde size yol göstermektedir. Bu bölümde hello makalenin hello ana hello kod parçalarını size yol gösterir.
 
-1. Komut satırından [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) veya bir IDE kullanarak Maven projesi oluşturun. IntelliJ kullanarak Java projesi oluşturma yönergeleri için [buraya](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html) bakın. Eclipse kullanarak proje oluşturma yönergeleri için [buraya](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm) bakın. 
-2. Maven **pom.xml** dosyanıza aşağıdaki bağımlılıkları ekleyin. Metnin şu kod parçacığını **\</version>** etiketi ile **\</project>** etiketi arasına ekleyin:
+1. Kullanarak bir Maven projesi oluşturun [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) gelen hello komut satırı veya bir IDE kullanma. Nasıl toocreate bir Java projesi Intellij kullanma ile ilgili yönergeler için bkz: [burada](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Yönergeler için Eclipse, kullanarak proje a toocreate bkz [burada](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm). 
+2. Bağımlılıklar tooyour Maven aşağıdaki hello eklemek **pom.xml** dosya. Merhaba arasında metin parçacığını aşağıdaki hello eklemek  **\</VERSION >** etiketini ve hello  **\</project >** etiketi:
    
         <dependencies>
           <dependency>
@@ -73,21 +73,21 @@ Azure Active Directory, belirteç almak için başka seçenekler de sunar. Taray
           </dependency>
         </dependencies>
    
-    İlk bağımlılık, maven deposundan Data Lake Store SDK’sını (`azure-data-lake-store-sdk`) kullanmaktır. İkinci bağımlılık (`slf4j-nop`), bu uygulama için hangi günlük altyapısının kullanılacağını belirtmektir. Data Lake Store SDK’sı; log4j, Java günlük kaydı, logback gibi birçok popüler günlük altyapısından birini seçmenizi veya günlük kaydı seçmemenizi sağlayan [slf4j](http://www.slf4j.org/) günlük cephesini kullanır. Bu örnekte, günlük kaydını devre dışı bırakacak ve dolayısıyla **slf4j-nop** bağlamasını kullanacağız. Uygulamanızda diğer günlük seçeneklerini kullanmak için [buraya](http://www.slf4j.org/manual.html#projectDep) bakın.
+    Merhaba ilk bağımlılık olan toouse hello Data Lake Store SDK (`azure-data-lake-store-sdk`) hello maven depodan. İkinci bağımlılık hello (`slf4j-nop`) bu uygulama için hangi günlük framework toouse toospecify olduğu. Merhaba Data Lake Store SDK kullanan [slf4j](http://www.slf4j.org/) log4j gibi popüler günlük çerçevelerinden sayısından günlüğü, logback, vb. Java seçmenize olanak tanır günlük cephesi veya günlük yok. Bu örneğin biz günlüğü devre dışı bırakır, bu nedenle hello kullanırız **slf4j nop** bağlama. toouse, uygulamanızda diğer günlüğe kaydetme seçeneklerini görmek [burada](http://www.slf4j.org/manual.html#projectDep).
 
-### <a name="add-the-application-code"></a>Uygulama kodunu ekleme
-Kodun üç ana bölümü vardır.
+### <a name="add-hello-application-code"></a>Merhaba uygulama kodu ekleyin
+Toohello kod üç ana bölümü vardır.
 
-1. Azure Active Directory belirtecini edinme
-2. Data Lake Store istemcisi oluşturmak için belirteci kullanın.
-3. İşlemleri gerçekleştirmek için Data Lake Store istemcisini kullanın.
+1. Hello Azure Active Directory belirteç edinme
+2. Merhaba belirteci toocreate bir Data Lake Store istemcisi kullanın.
+3. Merhaba Data Lake Store istemcisi tooperform işlemleri kullanın.
 
 #### <a name="step-1-obtain-an-azure-active-directory-token"></a>1. Adım: Azure Active Directory belirteci edinin.
-Data Lake Store SDK’sı, Data Lake Store hesabıyla iletişim kurmak için gereken güvenlik belirteçlerini yönetmenizi sağlayacak kullanışlı yöntemler sunar. Bununla birlikte, SDK yalnızca bu yöntemlerin kullanılmasını zorunlu kılmaz. [Azure Active Directory SDK’sını](https://github.com/AzureAD/azure-activedirectory-library-for-java) veya kendi özel kodunuzu kullanma gibi diğer belirteç edinme yöntemlerinden yararlanabilirsiniz.
+Merhaba Data Lake Store SDK hello güvenlik belirteçleri yönetmenize olanak sağlayan kullanışlı yöntemler tootalk toohello Data Lake Store hesabı gerekli sağlar. Ancak, hello SDK yalnızca bu yöntemleri kullanılmasını zorunlu kılabilir değil. Belirteç de hello kullanarak gibi almanın başka bir yöntemle kullanabilirsiniz [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java), ya da kendi özel kod.
 
-Daha önce oluşturduğunuz Active Directory Web uygulaması için belirteci edinmek üzere Data Lake Store SDK’sını kullanmak için `AccessTokenProvider` alt sınıflarından birini kullanın (aşağıdaki örnekte `ClientCredsTokenProvider` kullanılmaktadır). Belirteç sağlayıcısı, bellekteki belirteci almak için kullanılan kimlik bilgilerini önbelleğe alır ve süre sonu yaklaştığında belirteci otomatik olarak yeniler. Kendi `AccessTokenProvider` alt sınıflarınızı oluşturabilir, böylece belirteçlerin müşteri kodunuza göre alınmasını sağlayabilirsiniz; ancak şimdilik yalnızca SDK’da verileni kullanalım.
+toouse hello daha önce oluşturduğunuz Merhaba Active Directory Web uygulaması için Data Lake Store SDK tooobtain belirteci hello alt sınıflarının birini kullanın `AccessTokenProvider` (Merhaba örneği kullanır `ClientCredsTokenProvider`). Merhaba belirteç sağlayıcısı önbellekleri hello kimlik bilgileri tooobtain hello belirteci kullanılan bellek ve tooexpire hakkında ise hello belirteci otomatik olarak yeniler. Kendi alt sınıflarının olası toocreate olan `AccessTokenProvider` belirteçleri müşteri kodunuz tarafından elde edilir, ancak şu an için şimdi yalnızca kullanım hello bir hello SDK sağlanan şekilde.
 
-**BURAYI DOLDURUN** alanını, Azure Active Directory Web uygulaması için gerçek değerlerle değiştirin.
+Değiştir **burada doldurma** hello Azure Active Directory Web uygulaması için hello gerçek değerlerle.
 
     private static String clientId = "FILL-IN-HERE";
     private static String authTokenEndpoint = "FILL-IN-HERE";
@@ -96,15 +96,15 @@ Daha önce oluşturduğunuz Active Directory Web uygulaması için belirteci edi
     AccessTokenProvider provider = new ClientCredsTokenProvider(authTokenEndpoint, clientId, clientKey);
 
 #### <a name="step-2-create-an-azure-data-lake-store-client-adlstoreclient-object"></a>2. Adım: Azure Data Lake Store istemci (ADLStoreClient) nesnesi oluşturma
-[ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) nesnesi oluşturmak için Data Lake Store hesap adını ve son adımda oluşturduğunuz belirteç sağlayıcısını belirtmeniz gerekir. Data Lake Store hesap adının tam etki alanı adı olması gerektiğini unutmayın. Örneğin, **BURAYI DOLDURUN** alanını **mydatalakestore.azuredatalakestore.net** gibi bir etki alanı adı değiştirin.
+Oluşturma bir [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) nesnesi hello son adımda oluşturulan toospecify hello Data Lake Store hesabı adı ve hello belirteç sağlayıcısı gerektirir. Bu hello Data Lake Store hesabı adı toobe bir tam etki alanı adı gerekiyor unutmayın. Örneğin, **BURAYI DOLDURUN** alanını **mydatalakestore.azuredatalakestore.net** gibi bir etki alanı adı değiştirin.
 
-    private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
+    private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just hello account name
     ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
-### <a name="step-3-use-the-adlstoreclient-to-perform-file-and-directory-operations"></a>3. Adım: Dosya ve dizin işlemlerini gerçekleştirmek için ADLStoreClient’ı kullanın
-Aşağıdaki kod, bazı yaygın işlemlerin kod parçacıklarını içerir. Diğer işlemleri görmek için **ADLStoreClient** nesnesinin tüm [Data Lake Store Java SDK API belgelerine](https://azure.github.io/azure-data-lake-store-java/javadoc/) bakabilirsiniz.
+### <a name="step-3-use-hello-adlstoreclient-tooperform-file-and-directory-operations"></a>3. adım: Merhaba, ADLStoreClient tooperform dosya ve dizin işlemleri kullanın
+Merhaba kodunu aşağıdaki örnek kod parçacıkları bazı ortak işlemlerinin içerir. Merhaba tam bakabilirsiniz [veri Gölü deposu Java SDK API belgeleri](https://azure.github.io/azure-data-lake-store-java/javadoc/) Merhaba, **ADLStoreClient** toosee diğer işlemleri nesne.
 
-Dosyalar, standart Java akışları kullanılarak okunur ve yazılır. Bu, standart Java işlevlerinden (ör. biçimlendirilmiş çıkış için Yazdırma akışları ya da en üstteki ek işlevler için herhangi bir sıkıştırma veya şifreleme akışı vb.) yararlanmak için Java akışlarından herhangi birini Data Lake Store akışlarının üzerine katmanlayabilirsiniz.
+Dosyalar, standart Java akışları kullanılarak okunur ve yazılır. Bu standart Java işlevleri (örneğin, yazdırma akışları biçimlendirilmiş çıkışı ya da herhangi bir üzerinde ek işlevsellik için hello sıkıştırma veya şifreleme akışlar için gelen toobenefit Data Lake Store akışları hello Java akışları hello üstünde hiçbirini katman anlamına gelir. Top, vs.).
 
      // create file and write some content
      String filename = "/a/b/c.txt";
@@ -112,14 +112,14 @@ Dosyalar, standart Java akışları kullanılarak okunur ve yazılır. Bu, stand
      PrintStream out = new PrintStream(stream);
      for (int i = 1; i <= 10; i++) {
          out.println("This is line #" + i);
-         out.format("This is the same line (%d), but using formatted output. %n", i);
+         out.format("This is hello same line (%d), but using formatted output. %n", i);
      }
      out.close();
     
     // set file permission
     client.setPermission(filename, "744");
 
-    // append to file
+    // append toofile
     stream = client.getAppendStream(filename);
     stream.write(getSampleContent());
     stream.close();
@@ -132,11 +132,11 @@ Dosyalar, standart Java akışları kullanılarak okunur ve yazılır. Bu, stand
     }
     in.close();
 
-    // concatenate the two files into one
+    // concatenate hello two files into one
     List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
     client.concatenateFiles("/a/b/f.txt", fileList);
 
-    //rename the file
+    //rename hello file
     client.rename("/a/b/f.txt", "/a/b/g.txt");
 
     // list directory contents
@@ -146,15 +146,15 @@ Dosyalar, standart Java akışları kullanılarak okunur ve yazılır. Bu, stand
         printDirectoryInfo(entry);
     }
 
-    // delete directory along with all the subdirectories and files in it
+    // delete directory along with all hello subdirectories and files in it
     client.deleteRecursive("/a");
 
-#### <a name="step-4-build-and-run-the-application"></a>4. Adım: Uygulamayı derleme ve çalıştırma
-1. Bir IDE içinden çalıştırmak için **Çalıştır** düğmesini bulup basın. Maven’den çalıştırmak [exec: exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html)’i kullanın.
-2. Komut satırından çalıştırabileceğiniz tek başına bir jar oluşturmak için jar’ı [Maven derleme eklentisini](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html) kullanarak dahil edilen tüm bağımlılıklarla birlikte derleyin. [Github’daki örnek kaynak kodda](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) bulunan pom.xml, bunun nasıl yapılacağını gösteren bir örnek içerir.
+#### <a name="step-4-build-and-run-hello-application"></a>4. adım: Derleme ve Merhaba uygulaması çalıştırma
+1. gelen toorun bir IDE içinde bulun ve basın hello **çalıştırmak** düğmesi. Maven, kullanım gelen toorun [exec: exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
+2. tooproduce hello kullanarak komut satırı derleme hello jar dahil, tüm bağımlılıklarıyla çalıştırabileceğiniz bir tek başına jar [Maven derlemesi eklenti](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Merhaba pom.XML hello [örnek kaynak kodu github'da](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) nasıl bir örneği olan toodo bu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Java SDK için JavaDoc’u keşfedin](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+* [Merhaba Java SDK'sı JavaDoc keşfedin](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: "Azure blob depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama | Microsoft Docs"
-description: "Visual Studio bağlantılı hizmetler kullanarak bir depolama hesabı bağlandıktan sonra Visual Studio'da ASP.NET projesinde Azure blob storage kullanarak nereden başlayacaksınız"
+title: "aaaGet başlatılan Azure blob depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) | Microsoft Docs"
+description: "Visual Studio bağlantılı hizmetler kullanarak tooa depolama hesabı bağlandıktan sonra Visual Studio'da ASP.NET projesinde Azure blob storage kullanarak tooget nasıl başlatılacağını"
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraig
-ms.openlocfilehash: e953c7978705379a28581213e8f1c665473ddd60
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7b3e160da5bb95967ca4650b124afb8e867c03d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Azure blob depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure blob depolama bulutta nesne/BLOB olarak yapılandırılmamış veri depolayan bir hizmettir. Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir. Blob Storage aynı zamanda nesne depolama olarak adlandırılır.
+Azure blob depolama hello bulutta nesne/BLOB olarak yapılandırılmamış veri depolayan bir hizmettir. Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir. BLOB Depolama başvurulan tooas nesne depolama de olabilir.
 
-Bu öğretici, Azure blob storage kullanarak bazı genel senaryolar için ASP.NET kodunun nasıl yazılacağını gösterir. Bir blob kapsayıcısını oluşturma ve karşıya yükleme, listeleme, indirme ve BLOB'ları silme senaryolar içerir.
+Bu öğretici, Azure blob storage kullanarak bazı genel senaryolar için toowrite ASP.NET kodu nasıl gösterir. Bir blob kapsayıcısını oluşturma ve karşıya yükleme, listeleme, indirme ve BLOB'ları silme senaryolar içerir.
 
 ##<a name="prerequisites"></a>Ön koşullar
 
@@ -42,19 +42,19 @@ Bu öğretici, Azure blob storage kullanarak bazı genel senaryolar için ASP.NE
 
 ### <a name="create-an-mvc-controller"></a>Bir MVC denetleyicisi oluşturun. 
 
-1. İçinde **Çözüm Gezgini**, sağ **denetleyicileri**ve bağlam menüsünden seçin **Ekle -> denetleyicisi**.
+1. Merhaba, **Çözüm Gezgini**, sağ **denetleyicileri**ve hello bağlam menüsünden seçin **Ekle -> denetleyicisi**.
 
-    ![Bir ASP.NET MVC uygulamasına denetleyici ekleme](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
+    ![Bir ASP.NET MVC uygulama denetleyicisi tooan Ekle](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
 
-1. Üzerinde **İskele Ekle** iletişim kutusunda **MVC 5 denetleyici - boş**seçip **Ekle**.
+1. Merhaba üzerinde **İskele Ekle** iletişim kutusunda **MVC 5 denetleyici - boş**seçip **Ekle**.
 
     ![MVC denetleyicisi türünü belirtin](./media/vs-storage-aspnet-getting-started-blobs/add-controller.png)
 
-1. Üzerinde **denetleyici Ekle** iletişim kutusunda, denetleyici adı *BlobsController*seçip **Ekle**.
+1. Merhaba üzerinde **denetleyici Ekle** iletişim, ad hello denetleyicisi *BlobsController*seçip **Ekle**.
 
-    ![MVC Denetleyici adı](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
+    ![Ad hello MVC denetleyicisi](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
 
-1. Aşağıdakileri ekleyin *kullanarak* yönergeleri `BlobsController.cs` dosyası:
+1. Merhaba aşağıdakileri ekleyin *kullanarak* yönergeleri toohello `BlobsController.cs` dosyası:
 
     ```csharp
     using Microsoft.Azure;
@@ -65,26 +65,26 @@ Bu öğretici, Azure blob storage kullanarak bazı genel senaryolar için ASP.NE
 
 ## <a name="create-a-blob-container"></a>Bir blob kapsayıcı oluşturun
 
-Bir blob kapsayıcı, BLOB'ları ve klasörleri iç içe geçmiş bir hiyerarşisidir. Aşağıdaki adımları bir blob kapsayıcı oluşturulacağını gösterir:
+Bir blob kapsayıcı, BLOB'ları ve klasörleri iç içe geçmiş bir hiyerarşisidir. Merhaba aşağıdaki adımları göstermek nasıl toocreate bir blob kapsayıcı:
 
 > [!NOTE]
 > 
-> Bu bölümdeki kod bölümündeki adımları tamamladınız varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment). 
+> Merhaba kod bu bölümdeki hello bölümdeki hello adımları tamamladınız varsayar [hello geliştirme ortamını ayarlama](#set-up-the-development-environment). 
 
-1. `BlobsController.cs` dosyasını açın.
+1. Açık hello `BlobsController.cs` dosya.
 
 1. Adlı bir yöntem ekleyin **CreateBlobContainer** döndüren bir **ActionResult**.
 
     ```csharp
     public ActionResult CreateBlobContainer()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. İçinde **CreateBlobContainer** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın. (Değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)
+1. Merhaba içinde **CreateBlobContainer** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgilerini hello Azure hizmet yapılandırmasından aşağıdaki hello kullanın. (Değişiklik  *&lt;depolama hesabı adı >* hello erişme Azure depolama hesabı adını toohello.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -97,29 +97,29 @@ Bir blob kapsayıcı, BLOB'ları ve klasörleri iç içe geçmiş bir hiyerarşi
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
     ```
 
-1. Alma bir **CloudBlobContainer** istenen blob kapsayıcı adı için başvuru temsil eden nesne. **CloudBlobClient.GetContainerReference** yöntemi blob Storage'a karşı istek yapmaz. Blob kapsayıcısı mevcut olup olmadığına bakılmaksızın başvuru döndürülür. 
+1. Alma bir **CloudBlobContainer** bir başvuru toohello istenen blob kapsayıcı adı temsil eden nesne. Merhaba **CloudBlobClient.GetContainerReference** yöntemi blob Storage'a karşı istek yapmaz. Merhaba blob kapsayıcısı mevcut olup olmadığına bakılmaksızın hello başvuru döndürülür. 
    
     ```csharp
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. Çağrı **CloudBlobContainer.CreateIfNotExists** yöntemi henüz yoksa kapsayıcıyı oluşturun. **CloudBlobContainer.CreateIfNotExists** yöntemi döndürür **true** kapsayıcı yok ve başarıyla oluşturuldu. Aksi takdirde, **false** döndürülür.    
+1. Merhaba çağrısı **CloudBlobContainer.CreateIfNotExists** henüz yoksa, yöntem toocreate hello kapsayıcı. Merhaba **CloudBlobContainer.CreateIfNotExists** yöntemi döndürür **true** hello kapsayıcısı yok ve başarıyla oluşturuldu. Aksi takdirde, **false** döndürülür.    
 
     ```csharp
     ViewBag.Success = container.CreateIfNotExists();
     ```
 
-1. Güncelleştirme **ViewBag** blob kapsayıcı adı.
+1. Güncelleştirme hello **ViewBag** hello blob kapsayıcısının hello ada sahip.
 
     ```csharp
     ViewBag.BlobContainerName = container.Name;
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **BLOB'lar**ve bağlam menüsünden seçin **Ekle -> Görünüm**.
+1. Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri** klasörünü sağ tıklatın **BLOB'lar**ve hello bağlam menüsünden seçin **Ekle -> Görünüm**.
 
-1. Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **CreateBlobContainer** Görünüm adı ' nı seçip için **Ekle**.
+1. Merhaba üzerinde **Görünüm Ekle** iletişim kutusunda, girin **CreateBlobContainer** hello Görünüm adı ' nı seçip için **Ekle**.
 
-1. Açık `CreateBlobContainer.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:
+1. Açık `CreateBlobContainer.cshtml`ve kod parçacığını aşağıdaki hello gibi görünüyor şekilde değiştirin:
 
     ```csharp
     @{
@@ -131,42 +131,42 @@ Bir blob kapsayıcı, BLOB'ları ve klasörleri iç içe geçmiş bir hiyerarşi
     Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
+1. Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
 
-1. Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:
+1. Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Create blob container", "CreateBlobContainer", "Blobs")</li>
     ```
 
-1. Uygulamayı çalıştırmak ve seçmek **Blob kapsayıcısı oluşturmak** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:
+1. Merhaba uygulamayı çalıştırın ve seçin **Blob kapsayıcısı oluşturmak** toosee benzer toohello ekran görüntüsü aşağıdaki sonuçları:
   
     ![BLOB kapsayıcı oluşturun](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
 
-    Daha önce belirtildiği gibi **CloudBlobContainer.CreateIfNotExists** yöntemi döndürür **doğru** yalnızca kapsayıcı yok ve oluşturulur. Bu nedenle, kapsayıcı mevcut olduğunda uygulama çalıştırırsanız, yöntem **false**. Birden çok kez uygulamayı çalıştırmak için uygulamayı yeniden çalıştırmadan önce kapsayıcı silmeniz gerekir. Aracılığıyla kapsayıcı silme yapılabilir **CloudBlobContainer.Delete** yöntemi. Bir kapsayıcı kullanılarak silebilirsiniz [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Daha önce belirtildiği gibi hello **CloudBlobContainer.CreateIfNotExists** yöntemi döndürür **doğru** yalnızca hello kapsayıcısı yok ve oluşturulur. Bu nedenle, hello kapsayıcı mevcut olduğunda hello uygulama çalıştırırsanız, hello yöntemi döndürür **false**. toorun hello uygulama birden çok kez, hello kapsayıcı hello uygulama yeniden çalıştırmadan önce silmeniz gerekir. Silme hello kapsayıcı hello yapılabilir **CloudBlobContainer.Delete** yöntemi. Merhaba kapsayıcı hello kullanarak silebilirsiniz [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) veya hello [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="upload-a-blob-into-a-blob-container"></a>Bir blob kapsayıcıya bir blob karşıya yükleme
 
-Seçtiğiniz sonra [bir blob kapsayıcısını oluşturulan](#create-a-blob-container), bu kapsayıcıya dosyaları karşıya yükleyebilir. Bu bölümde, bir blob kapsayıcısına bir yerel dosya karşıya yükleme aracılığıyla açıklanmaktadır. Adlı bir blob kapsayıcı oluşturduğunuz adımlarda varsayılır *test blob kapsayıcısı*. 
+Seçtiğiniz sonra [bir blob kapsayıcısını oluşturulan](#create-a-blob-container), bu kapsayıcıya dosyaları karşıya yükleyebilir. Bu bölümde, bir yerel dosya tooa blob kapsayıcısı karşıya aracılığıyla açıklanmaktadır. Merhaba adımlar varsayar adlı bir blob kapsayıcı oluşturduğunuz *test blob kapsayıcısı*. 
 
 > [!NOTE]
 > 
-> Bu bölümdeki kod bölümündeki adımları tamamladınız varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment). 
+> Merhaba kod bu bölümdeki hello bölümdeki hello adımları tamamladınız varsayar [hello geliştirme ortamını ayarlama](#set-up-the-development-environment). 
 
-1. `BlobsController.cs` dosyasını açın.
+1. Açık hello `BlobsController.cs` dosya.
 
 1. Adlı bir yöntem ekleyin **UploadBlob** döndüren bir **EmptyResult**.
 
     ```csharp
     public EmptyResult UploadBlob()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return new EmptyResult();
     }
     ```
  
-1. İçinde **UploadBlob** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)
+1. Merhaba içinde **UploadBlob** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -179,19 +179,19 @@ Seçtiğiniz sonra [bir blob kapsayıcısını oluşturulan](#create-a-blob-cont
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
     ```
 
-1. Alma bir **CloudBlobContainer** blob kapsayıcı adı için başvuru temsil eden nesne. 
+1. Alma bir **CloudBlobContainer** bir başvuru toohello blob kapsayıcı adı temsil eden nesne. 
    
     ```csharp
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. Daha önce açıklandığı gibi Azure depolama farklı blob türlerini destekler. Bir sayfa blob'u için bir başvuru almak için arama **CloudBlobContainer.GetPageBlobReference** yöntemi. Bir blok blob başvurusu almak için arama **CloudBlobContainer.GetBlockBlobReference** yöntemi. Genellikle, blok blobu kullanmak için önerilen türüdür. (Değiştir < blob-adı > * kez karşıya blob vermek istediğiniz ad.)
+1. Daha önce açıklandığı gibi Azure depolama farklı blob türlerini destekler. tooretrieve bir başvuru tooa sayfa blob'u çağrısı hello **CloudBlobContainer.GetPageBlobReference** yöntemi. tooretrieve bir başvuru tooa blok blobu çağrısı hello **CloudBlobContainer.GetBlockBlobReference** yöntemi. Genellikle, blok blob türü toouse önerilen hello olur. (Değiştir < blob-adı > * kez karşıya toogive hello blob istediğiniz toohello ad.)
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference(<blob-name>);
     ```
 
-1. Bir blob başvurusu edindiğinizde, tüm veri akışı için blob başvurusu nesnenin çağırarak karşıya yükleyebilirsiniz **UploadFromStream** yöntemi. **UploadFromStream** yöntemi, mevcut değil veya mevcut değilse bu raporun üzerine blob oluşturur. (Değişiklik  *&lt;dosya karşıya yükleme >* karşıya yüklemek istediğiniz dosyasının tam yolunu için.)
+1. Bir blob başvurusu edindiğinizde hello blob başvurusu nesnenin çağırarak tüm veri akışı tooit yükleyebilirsiniz **UploadFromStream** yöntemi. Merhaba **UploadFromStream** yöntemi, mevcut değil veya mevcut değilse bu raporun üzerine hello blob oluşturur. (Değişiklik  *&lt;dosya karşıya yükleme >* tooa tooupload istediğiniz yolun toohello dosyasını tam.)
 
     ```csharp
     using (var fileStream = System.IO.File.OpenRead(<file-to-upload>))
@@ -200,42 +200,42 @@ Seçtiğiniz sonra [bir blob kapsayıcısını oluşturulan](#create-a-blob-cont
     }
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **BLOB'lar**ve bağlam menüsünden seçin **Ekle -> Görünüm**.
+1. Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri** klasörünü sağ tıklatın **BLOB'lar**ve hello bağlam menüsünden seçin **Ekle -> Görünüm**.
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
+1. Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
 
-1. Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:
+1. Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Upload blob", "UploadBlob", "Blobs")</li>
     ```
 
-1. Uygulamayı çalıştırmak ve seçmek **karşıya yükleme blob**.  
+1. Merhaba uygulamayı çalıştırın ve seçin **karşıya yükleme blob**.  
   
-Bölüm - [blob kapsayıcısı içinde BLOB'ları listesi](#list-the-blobs-in-a-blob-container) -blob kapsayıcısı içinde BLOB'ları listesi verilmektedir.    
+Merhaba bölüm - [listesinde bir blob kapsayıcısında hello BLOB'lar](#list-the-blobs-in-a-blob-container) -toolist hello bir blob kapsayıcısında nasıl BLOB'gösterilmektedir.  
 
-## <a name="list-the-blobs-in-a-blob-container"></a>Blob kapsayıcısı içinde BLOB'ları Listele
+## <a name="list-hello-blobs-in-a-blob-container"></a>Bir blob kapsayıcısında listesi hello BLOB'ları
 
-Bu bölümde, bir blob kapsayıcısı içinde BLOB'ları listesi göstermektedir. Örnek kod başvurularını *test blob kapsayıcısı* bölümünde oluşturduğunuz [bir blob kapsayıcı oluşturun](#create-a-blob-container).
+Bu bölümde, nasıl bir blob kapsayıcısında toolist hello BLOB gösterilmektedir. Merhaba örnek kod başvuran hello *test blob kapsayıcısı* hello bölümünde oluşturduğunuz [bir blob kapsayıcı oluşturun](#create-a-blob-container).
 
 > [!NOTE]
 > 
-> Bu bölümdeki kod bölümündeki adımları tamamladınız varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment). 
+> Merhaba kod bu bölümdeki hello bölümdeki hello adımları tamamladınız varsayar [hello geliştirme ortamını ayarlama](#set-up-the-development-environment). 
 
-1. `BlobsController.cs` dosyasını açın.
+1. Açık hello `BlobsController.cs` dosya.
 
 1. Adlı bir yöntem ekleyin **ListBlobs** döndüren bir **ActionResult**.
 
     ```csharp
     public ActionResult ListBlobs()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. İçinde **ListBlobs** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)
+1. Merhaba içinde **ListBlobs** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -248,13 +248,13 @@ Bu bölümde, bir blob kapsayıcısı içinde BLOB'ları listesi göstermektedir
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
     ```
 
-1. Alma bir **CloudBlobContainer** blob kapsayıcı adı için başvuru temsil eden nesne. 
+1. Alma bir **CloudBlobContainer** bir başvuru toohello blob kapsayıcı adı temsil eden nesne. 
    
     ```csharp
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. Blob kapsayıcısı içinde BLOB'ları listelemek için kullanın **CloudBlobContainer.ListBlobs** yöntemi. **CloudBlobContainer.ListBlobs** yöntemi döndürür bir **Ilistblobıtem** için cast nesnesi bir **CloudBlockBlob**, **CloudPageBlob**, veya **CloudBlobDirectory** nesnesi. Aşağıdaki kod parçacığını bir blob kapsayıcıdaki tüm blob'lara numaralandırır. Her bir blob türü ve onun adına göre uygun nesnesine cast (veya URI durumunda bir **CloudBlobDirectory**) bir listesine eklenir.
+1. bir blob kapsayıcısında toolist hello BLOB'ları kullanmak hello **CloudBlobContainer.ListBlobs** yöntemi. Merhaba **CloudBlobContainer.ListBlobs** yöntemi döndürür bir **Ilistblobıtem** tooa cast nesne **CloudBlockBlob**, **CloudPageBlob**, veya **CloudBlobDirectory** nesnesi. Merhaba aşağıdaki kod parçacığını bir blob kapsayıcısında tüm hello BLOB'lar numaralandırır. Cast toohello uygun nesne türünü ve onun adına göre her bir blob olduğunu (veya URI hello durumda bir **CloudBlobDirectory**) tooa listesine eklenir.
 
     ```csharp
     List<string> blobs = new List<string>();
@@ -281,19 +281,19 @@ Bu bölümde, bir blob kapsayıcısı içinde BLOB'ları listesi göstermektedir
     return View(blobs);
     ```
 
-    BLOB'ları yanı sıra blob kapsayıcıları dizinleri içerebilir. Şimdi adlı bir blob kapsayıcıya sahip varsayalım *test blob kapsayıcısı* aşağıdaki hiyerarşi ile:
+    Toplama tooblobs içinde blob kapsayıcıları dizinleri içerebilir. Şimdi adlı bir blob kapsayıcıya sahip varsayalım *test blob kapsayıcısı* hiyerarşi aşağıdaki hello ile:
 
         foo.png
         dir1/bar.png
         dir2/baz.png
 
-    Önceki kod örneğinde kullanarak **BLOB'lar** dize listesi aşağıdakine benzer değerleri içerir:
+    Önceki kod örneğinde hello kullanarak hello **BLOB'lar** dize liste değerleri benzer toohello aşağıdakileri içerir:
 
         foo.png
         <storage-account-url>/test-blob-container/dir1
         <storage-account-url>/test-blob-container/dir2
 
-    Gördüğünüz gibi yalnızca üst düzey varlıklar listesi içerir; iç içe geçmiş olanlar (*bar.png* ve *baz.png*). Bir blob kapsayıcı içindeki tüm varlıkları listelemek için çağırmalısınız **CloudBlobContainer.ListBlobs** yöntemi ve geçişi **true** için **Listblobs** parametresi.    
+    Gördüğünüz gibi hello listesi yalnızca hello en üst düzey varlıkları içerir; değil hello olanları iç içe (*bar.png* ve *baz.png*). toolist tüm varlıkları bir blob kapsayıcı içindeki Merhaba, hello çağırmalısınız **CloudBlobContainer.ListBlobs** yöntemi ve geçişi **true** hello için **Listblobs** parametre.    
 
     ```csharp
     ...
@@ -301,17 +301,17 @@ Bu bölümde, bir blob kapsayıcısı içinde BLOB'ları listesi göstermektedir
     ...
     ```
 
-    Ayarı **Listblobs** parametresi **true** blob kapsayıcısında tüm varlıkların düz bir liste döndürür ve aşağıdaki sonuçları verir:
+    Ayar hello **Listblobs** parametresi çok**true** hello blob kapsayıcısında tüm varlıkların düz bir liste döndürür ve sonuçları aşağıdaki hello verir:
 
         foo.png
         dir1/bar.png
         dir2/baz.png
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **BLOB'lar**ve bağlam menüsünden seçin **Ekle -> Görünüm**.
+1. Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri** klasörünü sağ tıklatın **BLOB'lar**ve hello bağlam menüsünden seçin **Ekle -> Görünüm**.
 
-1. Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **ListBlobs** Görünüm adı ' nı seçip için **Ekle**.
+1. Merhaba üzerinde **Görünüm Ekle** iletişim kutusunda, girin **ListBlobs** hello Görünüm adı ' nı seçip için **Ekle**.
 
-1. Açık `ListBlobs.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:
+1. Açık `ListBlobs.cshtml`ve kod parçacığını aşağıdaki hello gibi görünüyor şekilde değiştirin:
 
     ```html
     @model List<string>
@@ -329,36 +329,36 @@ Bu bölümde, bir blob kapsayıcısı içinde BLOB'ları listesi göstermektedir
     </ul>
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
+1. Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
 
-1. Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:
+1. Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("List blobs", "ListBlobs", "Blobs")</li>
     ```
 
-1. Uygulamayı çalıştırmak ve seçmek **listesinde BLOB'lar** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:
+1. Merhaba uygulamayı çalıştırın ve seçin **listesinde BLOB'lar** toosee benzer toohello ekran görüntüsü aşağıdaki sonuçları:
   
     ![BLOB listeleme](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
 
 ## <a name="download-blobs"></a>Blob’ları indirme
 
-Bu bölümde bir blob indirmek nasıl gösterir ve yerel depolama alanına ya da kalıcı olması veya bir dizeye içeriği okuyun. Örnek kod başvurularını *test blob kapsayıcısı* bölümünde oluşturduğunuz [bir blob kapsayıcı oluşturun](#create-a-blob-container).
+Bu bölümde, nasıl toodownload blob ve ya da onu toolocal depolama veya okuma hello içeriği bir dizeye kalıcı olmasını gösterilmektedir. Merhaba örnek kod başvuran hello *test blob kapsayıcısı* hello bölümünde oluşturduğunuz [bir blob kapsayıcı oluşturun](#create-a-blob-container).
 
-1. `BlobsController.cs` dosyasını açın.
+1. Açık hello `BlobsController.cs` dosya.
 
 1. Adlı bir yöntem ekleyin **DownloadBlob** döndüren bir **ActionResult**.
 
     ```csharp
     public EmptyResult DownloadBlob()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return new EmptyResult();
     }
     ```
  
-1. İçinde **DownloadBlob** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)
+1. Merhaba içinde **DownloadBlob** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -371,19 +371,19 @@ Bu bölümde bir blob indirmek nasıl gösterir ve yerel depolama alanına ya da
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
     ```
 
-1. Alma bir **CloudBlobContainer** blob kapsayıcı adı için başvuru temsil eden nesne. 
+1. Alma bir **CloudBlobContainer** bir başvuru toohello blob kapsayıcı adı temsil eden nesne. 
    
     ```csharp
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. Bir blob başvurusu nesnesi çağırarak alma **CloudBlobContainer.GetBlockBlobReference** veya **CloudBlobContainer.GetPageBlobReference** yöntemi. (Değişiklik  *&lt;blob adı >* blob adını karşıdan yükleniyor.)
+1. Bir blob başvurusu nesnesi çağırarak alma **CloudBlobContainer.GetBlockBlobReference** veya **CloudBlobContainer.GetPageBlobReference** yöntemi. (Değişiklik  *&lt;blob adı >* indirme hello blob adını toohello.)
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference(<blob-name>);
     ```
 
-1. Bir blob indirmek için kullanacağınız **CloudBlockBlob.DownloadToStream** veya **CloudPageBlob.DownloadToStream** blob türüne bağlı olarak yöntemi. Aşağıdaki kod parçacığını kullanır **CloudBlockBlob.DownloadToStream** yöntemi bir blob'un içeriği sonra yerel bir dosyaya kalıcı bir akış nesnesine aktarmak için: (değişiklik  *&lt;yerel dosya adı >* tam dosya adı blob istediğiniz temsil eden indirilen.) 
+1. toodownload bir blob kullanmak hello **CloudBlockBlob.DownloadToStream** veya **CloudPageBlob.DownloadToStream** hello blob türüne bağlı olarak yöntemi. Merhaba aşağıdaki kod parçacığını kullanan hello **CloudBlockBlob.DownloadToStream** yöntemi tootransfer bir blob'un içeriği tooa akış nesnesi başka bir deyişle, ardından tooa yerel dosya kalıcı: (değişiklik  *&lt;yerel dosya adı >* toohello tam indirilen hello blob istediğiniz dosya adını temsil eden.) 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -392,38 +392,38 @@ Bu bölümde bir blob indirmek nasıl gösterir ve yerel depolama alanına ya da
     }
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
+1. Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
 
-1. Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:
+1. Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Download blob", "DownloadBlob", "Blobs")</li>
     ```
 
-1. Uygulamayı çalıştırmak ve seçmek **indirme blob** blob indirmek için. Belirtilen blob **CloudBlobContainer.GetBlockBlobReference** yöntem çağrısı indirir, belirttiğiniz konuma **File.OpenWrite** yöntem çağrısı. 
+1. Merhaba uygulamayı çalıştırın ve seçin **indirme blob** toodownload hello blob. Hello belirtilen hello blob **CloudBlobContainer.GetBlockBlobReference** yöntem çağrısı indirmeleri hello belirttiğiniz toohello konumu **File.OpenWrite** yöntem çağrısı. 
 
 ## <a name="delete-blobs"></a>Blob’ları silme
 
-Aşağıdaki adımlar bir blobu silmek nasıl gösterilmektedir:
+Merhaba aşağıdaki adımları göstermek nasıl toodelete blob:
 
 > [!NOTE]
 > 
-> Bu bölümdeki kod bölümündeki adımları tamamladınız varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment). 
+> Merhaba kod bu bölümdeki hello bölümdeki hello adımları tamamladınız varsayar [hello geliştirme ortamını ayarlama](#set-up-the-development-environment). 
 
-1. `BlobsController.cs` dosyasını açın.
+1. Açık hello `BlobsController.cs` dosya.
 
 1. Adlı bir yöntem ekleyin **DeleteBlob** döndüren bir **ActionResult**.
 
     ```csharp
     public EmptyResult DeleteBlob()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return new EmptyResult();
     }
     ```
 
-1. Alma bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)
+1. Alma bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -436,36 +436,36 @@ Aşağıdaki adımlar bir blobu silmek nasıl gösterilmektedir:
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
     ```
 
-1. Alma bir **CloudBlobContainer** blob kapsayıcı adı için başvuru temsil eden nesne. 
+1. Alma bir **CloudBlobContainer** bir başvuru toohello blob kapsayıcı adı temsil eden nesne. 
    
     ```csharp
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. Bir blob başvurusu nesnesi çağırarak alma **CloudBlobContainer.GetBlockBlobReference** veya **CloudBlobContainer.GetPageBlobReference** yöntemi. (Değişiklik  *&lt;blob adı >* blob adını silmekte olduğunuz.)
+1. Bir blob başvurusu nesnesi çağırarak alma **CloudBlobContainer.GetBlockBlobReference** veya **CloudBlobContainer.GetPageBlobReference** yöntemi. (Değişiklik  *&lt;blob adı >* silmekte hello blob adını toohello.)
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference(<blob-name>);
         ```
 
-1. To delete a blob, use the **Delete** method.
+1. toodelete a blob, use hello **Delete** method.
 
     ```csharp
     blob.Delete();
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
+1. Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
 
-1. Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:
+1. Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Delete blob", "DeleteBlob", "Blobs")</li>
     ```
 
-1. Uygulamayı çalıştırmak ve seçmek **Delete blob** belirtilen blobu silmek için **CloudBlobContainer.GetBlockBlobReference** yöntem çağrısı. 
+1. Merhaba uygulamayı çalıştırın ve seçin **Delete blob** toodelete hello blob hello belirtilen **CloudBlobContainer.GetBlockBlobReference** yöntem çağrısı. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure’da veri depolama ile ilgili ek seçenekler hakkında daha fazla bilgi edinmek için daha fazla özellik kılavuzu görüntüleyin.
+Veri depolama için ek seçenekleri hakkında daha fazla özellik kılavuzları toolearn görüntüleyin.
 
   * [Azure tablo depolaması ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama](vs-storage-aspnet-getting-started-tables.md)
   * [Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama](vs-storage-aspnet-getting-started-queues.md)

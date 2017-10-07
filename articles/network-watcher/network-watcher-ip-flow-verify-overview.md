@@ -1,6 +1,6 @@
 ---
-title: "IP akış giriş doğrulayın Azure Ağ İzleyicisi | Microsoft Docs"
-description: "Bu sayfada bir genel bakış sunulmaktadır Ağ İzleyicisi IP'si akış özelliği doğrulayın"
+title: "aaaIntroduction tooIP akış doğrulayın Azure Ağ İzleyicisi | Microsoft Docs"
+description: "Bu sayfada bir genel bakış sunulmaktadır Ağ İzleyicisi IP Merhaba akış özelliği doğrulayın"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 9c0dfc449b3d93d8aa4551ce16476c8313d731fc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b648a4816a7ffdc6ca54462944b574e2395e8298
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>IP akış giriş Azure Ağ İzleyicisi doğrulayın
+# <a name="introduction-tooip-flow-verify-in-azure-network-watcher"></a>Giriş tooIP akış Azure Ağ İzleyicisi doğrulayın
 
-IP akışı, bir paket izin verilen veya için veya 5-tanımlama bilgilerine dayalı bir sanal makineden reddedildi denetimleri doğrulayın. Bu bilgiler yönü, protokol, yerel IP, uzak IP, yerel bağlantı noktası ve uzak bağlantı noktası oluşur. Paket bir güvenlik grubu tarafından engellenirse Paket reddedildi kuralının adı döndürülür. Kaynak veya hedef IP seçilebilir olsa da, bu özellik hızla gelen veya Internet ve gelen veya şirket içi ortamına bağlantı sorunları tanılamak yöneticilerin yardımcı olur.
+IP akışı, bir paket izin verilen ya da 5-tanımlama bilgilerine dayalı bir sanal makineden tooor reddedildi denetimleri doğrulayın. Bu bilgiler yönü, protokol, yerel IP, uzak IP, yerel bağlantı noktası ve uzak bağlantı noktası oluşur. Başlangıç paketi bir güvenlik grubu tarafından engellenirse hello Paket reddedildi hello kuralının hello adı döndürülür. Bu özellik, kaynak veya hedef IP seçilebilir durumdayken, yöneticilerin gelen bağlantı sorunları veya toohello bulmanıza yardımcı olur Internet ve veya toohello şirket içi ortamda.
 
-IP akış doğrulayın hedefleyen bir sanal makinenin ağ arabirimi. Trafik akışı için ya da bu ağ arabirimini yapılandırılan ayarlara göre doğrulanır. Bu özellik, bir ağ güvenlik grubu kural giriş ve çıkış trafiği için veya bir sanal makineden durumunda engelliyor onaylayan yararlıdır.
+IP akış doğrulayın hedefleyen bir sanal makinenin ağ arabirimi. Trafik akışı yapılandırılmış hello ayarları tooor bu ağ arabiriminden göre doğrulanır. Bu özellik, bir ağ güvenlik grubu kural bir sanal makineden giriş ve çıkış trafiği tooor durumunda engelliyor onaylayan yararlıdır.
 
-Ağ İzleyicisi IP akış çalıştırmayı planladığınız tüm bölgelerde oluşturulması gerekiyor örneği doğrulayın. Ağ İzleyicisi bölgesel bir hizmettir ve yalnızca olması çalıştırılmıştır aynı bölgede kaynaklara karşı. Bu mu NIC ile ilişkili yol hala döndürülen IP akış sonuçlarını doğrulamak etkiler.
+Ağ İzleyicisi gereksinimlerini toobe toorun IP akış planladığınız tüm bölgelerde oluşturulan örneği doğrulayın. Ağ İzleyicisi bölgesel bir hizmettir ve yalnızca olması çalıştırılmıştır hello kaynaklara karşı aynı bölgede. Bu hello rota NIC hala döndürülecek hello ile ilişkili olarak IP akış sonuçlarını doğrulama hello etkilemez.
 
 ![1][1]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir paket izin verilen veya portal aracılığıyla belirli bir sanal makine için reddedildi, yapacağınızı öğrenmek için aşağıdaki makaleyi ziyaret edin. [Trafik akışı IP doğrulayın'yle bir VM'yi Portalı'nı kullanarak izin verilip verilmediğini denetleme](network-watcher-check-ip-flow-verify-portal.md)
+Bir paket izin verilen ya da hello Portalı aracılığıyla belirli bir sanal makine için reddedildi makale toolearn aşağıdaki hello ziyaret edin. [Trafik akışı IP doğrulayın'yle bir VM'yi hello portal kullanarak izin verilip verilmediğini denetleme](network-watcher-check-ip-flow-verify-portal.md)
 
 [1]: ./media/network-watcher-ip-flow-verify-overview/figure1.png
 

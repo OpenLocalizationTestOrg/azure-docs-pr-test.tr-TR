@@ -1,5 +1,5 @@
 ---
-title: "Azure kapsayıcı kayıt defteri kancalarını | Microsoft Docs"
+title: "aaaAzure kapsayıcı kayıt defteri kancalarını | Microsoft Docs"
 description: "Azure kapsayıcı kayıt defteri Web kancaları"
 services: container-registry
 documentationcenter: 
@@ -16,41 +16,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2017
 ms.author: nepeters
-ms.openlocfilehash: d0190f5725671c320d92b897f0dcef7a526a86e3
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: adc2afec486007e2d54cd689e6f7ef8b1098db06
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-azure-container-registry-webhooks---azure-portal"></a>Azure kapsayıcı kayıt defteri kancalarını - Azure portalını kullanma
 
-Azure kapsayıcı kayıt defteri depolar ve özel Docker kapsayıcısı görüntüleri, benzer Docker hub'a genel Docker görüntüleri depolayan şekilde yönetir. Web kancalarını belirli eylemleri, kayıt defteri depoları biri gerçekleştiğinde tetikleyici olaylar için kullanın. Web kancası kayıt defteri düzeyinde olaylara yanıt verebilir veya belirli depo etiketi kadar kapsamlı. 
+Azure kapsayıcı kayıt defteri depolar ve özel Docker kapsayıcısı görüntüleri, Docker hub'a genel Docker görüntüleri depolayan benzer toohello şekilde yönetir. Bazı Eylemler, kayıt defteri depoları biri gerçekleştiğinde Web kancalarını tootrigger olayları kullanın. Web kancası tooevents hello kayıt defteri düzeyinde yanıt verebilir veya tooa belirli depo etiketi kapsamlı. 
 
-Daha fazla arka plan ve kavramları için bkz: [genel bakış](./container-registry-intro.md).
+Daha fazla arka plan ve kavramları hello bkz [genel bakış](./container-registry-intro.md).
 
 ## <a name="prerequisites"></a>Ön koşullar 
 
-- Azure kapsayıcı kayıt defteri - yönetilen Azure aboneliğinizde bir yönetilen kapsayıcı kayıt oluşturun. Örneğin, Azure portalında veya Azure CLI 2.0 kullanın. 
-- Docker CLI - yerel bilgisayarınıza Docker ana bilgisayar olarak ayarlayabilir ve Docker CLI komutlara erişmek için Docker altyapısına yükleyin. 
+- Azure kapsayıcı kayıt defteri - yönetilen Azure aboneliğinizde bir yönetilen kapsayıcı kayıt oluşturun. Örneğin, hello Azure portal kullanın veya Azure CLI 2.0 hello. 
+- Docker CLI - yerel bilgisayarınızı bir Docker ana bilgisayar ve erişim hello Docker CLI komutları olarak tooset Docker altyapısına yükleyin. 
 
 ## <a name="create-webhook-azure-portal"></a>Azure portal Web kancası oluşturma
 
-1. Azure portalında oturum açın ve Web kancalarını oluşturmak istediğiniz kayıt defteri gidin. 
+1. Toohello Azure portalında oturum açın ve toocreate kancalarını istediğiniz toohello kayıt defteri gidin. 
 
-2. Kapsayıcı dikey penceresinde "Kancalarını" sekmesini seçin. 
+2. Merhaba kapsayıcı dikey penceresinde hello "Kancalarını" sekmesini seçin. 
 
-3. "Ekle" Web kancası dikey araç çubuğundan seçin. 
+3. "Ekle" Merhaba Web kancası dikey araç çubuğundan seçin. 
 
-4. Tamamlamak *Web kancası oluşturma* form aşağıdaki bilgilerle:
+4. Tam hello *Web kancası oluşturma* bilgisinden hello formla:
 
 | Değer | Açıklama |
 |---|---|
-| Ad | Web kancası için vermek istediğiniz adı. Ad yalnızca küçük harfler ve sayılar içerebilir ve 5-50 karakter arasında. |
-| Hizmet URI'si | Web kancası POST bildirimleri burada göndermesi gereken URI. |
-| Özel Üstbilgileri | Üstbilgiler POST istekle birlikte geçirmek isteyebilirsiniz. İçinde olmalıdır "anahtar: değer" biçimi. |
-| Tetikleyici eylemleri | Web kancası tetiklemek eylemler. Şu anda Web kancalarını itme tarafından tetiklenen ve/veya görüntüye eylemlerini silme. |
-| Durum | Web kancası oluşturulduktan sonra durumu. Varsayılan olarak etkindir. |
-| Kapsam | Web kancası çalıştığı kapsamı. Varsayılan olarak tüm olayları kayıt defterinde kapsamı içindir. Bu depo veya bir etiket için şu biçimi kullanarak belirtilebilir "deposu: Etiket". |
+| Ad | toogive toohello Web kancası istediğiniz hello adı. Ad yalnızca küçük harfler ve sayılar içerebilir ve 5-50 karakter arasında. |
+| Hizmet URI'si | Merhaba URI burada hello Web kancası POST bildirimlerini göndermesi gerekir. |
+| Özel Üstbilgileri | Merhaba POST isteği birlikte toopass istediğiniz üstbilgileri. İçinde olmalıdır "anahtar: değer" biçimi. |
+| Tetikleyici eylemleri | Merhaba Web kancası tetiklemek eylemler. Şu anda Web kancalarını itme tarafından tetiklenen ve/veya Eylemler tooan resmini silin. |
+| Durum | Merhaba Web kancası oluşturulduktan sonra başlangıç durumu. Varsayılan olarak etkindir. |
+| Kapsam | hangi hello Web kancası works kapsamda Hello. Varsayılan olarak tüm olayları hello kayıt defterinde hello kapsam içindir. Bu depo veya bir etiket için hello biçimi kullanılarak belirtilebilir "deposu: Etiket". |
 
 Örnek Web kancası form:
 
@@ -58,7 +58,7 @@ Daha fazla arka plan ve kavramları için bkz: [genel bakış](./container-regis
 
 ## <a name="create-webhook-azure-cli"></a>Web kancası Azure CLI oluşturma
 
-Azure CLI kullanarak bir Web kancası oluşturmak üzere kullanmanız [az acr Web kancası oluşturma](/cli/azure/acr/webhook#create) komutu.
+kullanarak bir Web kancası toocreate hello Azure CLI, kullanım hello [az acr Web kancası oluşturma](/cli/azure/acr/webhook#create) komutu.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -68,21 +68,21 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-portal"></a>Azure portalına
 
-Kullanarak önceki kapsayıcısı üzerinde Web kancası görüntü gönderme ve silme eylemlerini, kullanılarak sınanabilir **Ping** düğmesi. Kullanıldığında, ping işlemi için belirtilen uç nokta bir genel post isteği gönderir ve yanıt günlüğe kaydeder. Bu, Web kancası doğru şekilde ayarlanmış olması gerektiğini doğrulamak yararlıdır.
+Önceki toousing hello Web kancası kapsayıcısı üzerinde görüntü gönderme ve silme eylemlerini, hello kullanılarak sınanabilir **Ping** düğmesi. Kullanıldığında, uç nokta ve günlükleri yanıt hello genel post isteği toohello belirtilen hello Ping gönderir. Bu yararlı olur Web kancası hello tooverify doğru şekilde ayarlanmış.
 
-1. Test etmek istediğiniz Web kancası seçin. 
-2. Üst araç çubuğunda, "Ping" eylemini seçin. 
-3. İstek ve yanıt denetleyin.
+1. Merhaba Web kancası tootest istediğinizi seçin. 
+2. Merhaba üst araç çubuğunda hello "Ping" eylemini seçin. 
+3. Merhaba istek ve yanıt denetleyin.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI ile bir ACR Web kancası sınamak için kullanın [az acr Web kancası ping](/cli/azure/acr/webhook#ping) komutu.
+tootest bir ACR Web kancası hello Azure CLI ile kullanmak hello [az acr Web kancası ping](/cli/azure/acr/webhook#ping) komutu.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-Sonuçları görmek için [az acr Web kancası listesi-olayları](/cli/azure/acr/webhook#list-events) komutu. 
+toosee hello sonuçları kullanmak hello [az acr Web kancası listesi-olayları](/cli/azure/acr/webhook#list-events) komutu. 
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01
@@ -92,7 +92,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 
 ### <a name="azure-portal"></a>Azure portalına
 
-Her Web kancası Web kancası ve Azure Portal'da Sil düğmesini seçerek silinebilir.
+Her Web kancası hello Web kancası ve hello Azure portal hello Sil düğmesini seçerek silinebilir.
 
 ### <a name="azure-cli"></a>Azure CLI
 

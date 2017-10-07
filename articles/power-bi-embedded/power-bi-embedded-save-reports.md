@@ -1,6 +1,6 @@
 ---
-title: "Raporları Azure Power BI Embedded kaydetmek | Microsoft Docs"
-description: "Power BI embedded içinde raporları kaydetmek öğrenin. Bu, başarılı bir şekilde çalışması için uygun izinleri gerektirir."
+title: Azure Power BI Embedded aaaSave raporlarda | Microsoft Docs
+description: "Power BI içinde toosave raporları nasıl katıştırılmış öğrenin. Bu sipariş toowork uygun izinleri başarıyla gerektirir."
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,36 +15,36 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: asaxton
-ms.openlocfilehash: ad895004cc2972f2ded81566186325a16d401151
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 984537ce1ce1afc787d6c6c9f61ae8d6226d1171
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="save-reports-in-power-bi-embedded"></a>Raporlar Power BI Embedded Kaydet
 
-Power BI embedded içinde raporları kaydetmek öğrenin. Bu, başarılı bir şekilde çalışması için uygun izinleri gerektirir.
+Power BI içinde toosave raporları nasıl katıştırılmış öğrenin. Bu sipariş toowork uygun izinleri başarıyla gerektirir.
 
-Power BI Embedded içinde varolan raporları düzenleyebilir ve kaydedebilirsiniz. Ayrıca, yeni bir rapor oluşturmak ve oluşturmak için yeni bir rapor olarak kaydedin.
+Power BI Embedded içinde varolan raporları düzenleyebilir ve kaydedebilirsiniz. Ayrıca, yeni bir rapor oluşturmak ve bir yeni raporu toocreate bir kaydedin.
 
-Bir raporu kaydetmek için önce belirli bir rapor için bir belirteç sağ kapsamlarla oluşturmanız gerekir:
+Sipariş toosave bir rapor önce toocreate bir belirteç hello sağ kapsamlarla hello belirli rapor için gerekir:
 
-* Report.ReadWrite etkinleştirmek için kapsam gereklidir
-* Kaydetme etkinleştirmek için Report.Read ve Workspace.Report.Copy kapsamları gereklidir
-* Report.ReadWrite ve Workspace.Report.Copy gerekli olduğu gibi kaydetme ve kaydetme etkinleştirmek için
+* tooenable Report.ReadWrite kapsam kaydetme gereklidir
+* olarak tooenable kaydetme Report.Read ve Workspace.Report.Copy kapsamları gereklidir
+* tooenable kaydedin ve kaydetme, Report.ReadWrite ve Workspace.Report.Copy gerekli
 
-Sırasıyla sağ etkinleştirmek için raporun katıştırma Embed yapılandırmasında doğru iznin sağlamanız gereken dosya menüsü düğmeleri farklı kaydet/Kaydet:
+Embed rapor hello zaman sırasıyla sipariş tooenable hello kaydetme/Kaydet doğru dosya menüsünden düğmeleri gibi tooprovide hello hello Embed yapılandırma izni hemen:
 
 * modeller. Permissions.ReadWrite
 * modeller. Permissions.Copy
 * modeller. Permissions.All
 
 > [!NOTE]
-> Erişim belirteci uygun kapsamları da gerekir. Daha fazla bilgi için bkz: [kapsamları](power-bi-embedded-app-token-flow.md#scopes).
+> Erişim belirteci hello uygun kapsamları da gerekir. Daha fazla bilgi için bkz: [kapsamları](power-bi-embedded-app-token-flow.md#scopes).
 
 ## <a name="embed-report-in-edit-mode"></a>Rapor düzenleme modunda ekleme
 
-Bu nedenle yalnızca Embed yapılandırmasında hakkı özellikleri geçirmek ve powerbi.embed() çağırmak için uygulamanızın içinde düzenleme modunda bir rapor eklemek istediğiniz varsayalım. İzinler ve bir viewMode kaydetme görmeniz için sağlamanız gerekir ve gibi durumlarda düğmeleri Kaydet düzenleme modunda. Daha fazla bilgi için bkz: [yapılandırma ayrıntılarını katıştırmak](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
+Şimdi tooEmbed bir rapor düzenleme modunda uygulamanızı içinde deyin istediğiniz, toodo böylece yalnızca Embed yapılandırmasında hello hakkı özellikleri geçirmek ve powerbi.embed() çağırın. Düğmeleri düzenleme modunda olarak toosupply izinleri ve viewMode sipariş toosee hello kaydetmek ve kaydetme de gerekir. Daha fazla bilgi için bkz: [yapılandırma ayrıntılarını katıştırmak](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
 
 JavaScript'te örneğin:
 
@@ -54,7 +54,7 @@ JavaScript'te örneğin:
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
-    // Embed configuration used to describe the what and how to embed.
+    // Embed configuration used toodescribe hello what and how tooembed.
     // This object is used when calling powerbi.embed.
     // This also includes settings and options such as filters.
     // You can find more information at https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details.
@@ -71,10 +71,10 @@ JavaScript'te örneğin:
         }
     };
 
-    // Get a reference to the embedded report HTML element
+    // Get a reference toohello embedded report HTML element
     var reportContainer = $('#reportContainer')[0];
 
-    // Embed the report and display it within the div container.
+    // Embed hello report and display it within hello div container.
     var report = powerbi.embed(reportContainer, config);
 ```
 
@@ -82,10 +82,10 @@ JavaScript'te örneğin:
 
 ## <a name="save-report"></a>Raporu kaydetme
 
-Raporda Embbeding sonra Dosya menüsünden veya javascript rapor kaydedebilirsiniz izinleri ve doğru belirteci moduyla düzenleyin:
+Embbeding hello raporda düzenledikten sonra hello sağ belirteci ve izinleri moduyla hello Dosya menüsünden veya javascript hello rapor kaydedebilirsiniz:
 
 ```
- // Get a reference to the embedded report.
+ // Get a reference toohello embedded report.
     report = powerbi.get(reportContainer);
 
  // Save report
@@ -95,7 +95,7 @@ Raporda Embbeding sonra Dosya menüsünden veya javascript rapor kaydedebilirsin
 ## <a name="save-as"></a>Farklı kaydet
 
 ```
-// Get a reference to the embedded report.
+// Get a reference toohello embedded report.
     report = powerbi.get(reportContainer);
     
     var saveAsParameters = {
@@ -107,9 +107,9 @@ Raporda Embbeding sonra Dosya menüsünden veya javascript rapor kaydedebilirsin
 ```
 
 > [!IMPORTANT]
-> Yalnızca sonra *Farklı Kaydet* oluşturulan yeni bir rapor. Kaydetme sonra tuvale hala eski rapor düzenleme modunu ve yeni rapor göstermez. Oluşturulan yeni rapor eklemek gerekir. Bu, rapor oluşturuldukça yeni bir erişim belirteci gerektirir.
+> Yalnızca sonra *Farklı Kaydet* oluşturulan yeni bir rapor. Merhaba kaydettikten sonra hello tuvale hala hello eski rapor düzenleme modu ve değil hello yeni raporu gösteriliyor. Oluşturulan tooembed hello yeni rapor gerekir. Bu, rapor oluşturuldukça yeni bir erişim belirteci gerektirir.
 
-Ardından yeni raporun sonra Yük gerekir bir *Farklı Kaydet*. Bu, herhangi bir raporu katıştırmak için benzer.
+Ardından tooload hello sonra yeni bir rapor gerekir bir *Farklı Kaydet*. Bu benzer tooembedding bir rapordur.
 
 ```
 <div id="reportContainer"></div>
@@ -120,7 +120,7 @@ var embedConfiguration = {
         reportId: '5dac7a4a-4452-46b3-99f6-a25915e0fe54',
     };
     
-    // Grab the reference to the div HTML element that will host the report
+    // Grab hello reference toohello div HTML element that will host hello report
     var reportContainer = $('#reportContainer')[0];
 
     // Embed report
@@ -135,5 +135,5 @@ var embedConfiguration = {
 [Power BI Embedded ile kimlik doğrulaması ve yetkilendirme](power-bi-embedded-app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Örnek Ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)
+Başka sorunuz mu var? [Merhaba Power BI topluluk deneyin](http://community.powerbi.com/)
 

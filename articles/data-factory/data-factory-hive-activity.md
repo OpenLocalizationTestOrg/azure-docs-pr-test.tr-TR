@@ -1,6 +1,6 @@
 ---
-title: "Hive etkinliği - Azure kullanarak veri dönüştürme | Microsoft Docs"
-description: "Hive etkinliği bir Azure data factory'de bir üzerinde-isteğe bağlı/bilgisayarınızı kendi Hdınsight kümesinde Hive sorguları çalıştırmak için nasıl kullanabileceğinizi öğrenin."
+title: "Hive etkinliği - Azure kullanarak aaaTransform veri | Microsoft Docs"
+description: "Bir Azure data factory toorun Hive sorguları hello Hive etkinliği bir üzerinde-isteğe bağlı/bilgisayarınızı kendi Hdınsight kümesinde nasıl kullanabileceğiniz hakkında bilgi edinin."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
-ms.openlocfilehash: a3e9b2d0a8c851939acd228d8086ddfc9f38a4c1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 032400cdb8e8f9873f85b811b4ad7380f4410edf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Hive etkinliği Azure Data Factory kullanarak veri dönüştürme 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,10 +33,10 @@ ms.lasthandoff: 07/11/2017
 > * [Data Lake Analytics U-SQL Etkinliği](data-factory-usql-activity.md)
 > * [.NET özel etkinlik](data-factory-use-custom-activities.md)
 
-Veri Fabrikası Hdınsight Hive etkinliğiyle [ardışık düzen](data-factory-create-pipelines.md) üzerinde Hive sorguları yürüten [kendi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) veya [isteğe bağlı](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux tabanlı Hdınsight kümesi. Bu makalede derlemeler [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
+Merhaba Data Factory Hdınsight Hive etkinliğiyle [ardışık düzen](data-factory-create-pipelines.md) üzerinde Hive sorguları yürüten [kendi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) veya [isteğe bağlı](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux tabanlı Hdınsight kümesi. Bu makale üzerinde hello derlemeler [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) makalesi, veri dönüştürme ve desteklenen hello dönüştürme etkinliklerinin genel bir bakış sunar.
 
 > [!NOTE] 
-> Azure Data Factory yeniyseniz okuyun [Azure Data Factory'ye giriş](data-factory-introduction.md) ve öğretici: [ilk veri hattınızı yapı](data-factory-build-your-first-pipeline.md) bu makaleyi okumadan önce. 
+> Yeni tooAzure Data Factory varsa okuyun [giriş tooAzure Data Factory](data-factory-introduction.md) ve öğretici hello: [ilk veri hattınızı yapı](data-factory-build-your-first-pipeline.md) bu makaleyi okumadan önce. 
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -72,20 +72,20 @@ Veri Fabrikası Hdınsight Hive etkinliğiyle [ardışık düzen](data-factory-c
 ## <a name="syntax-details"></a>Sözdizimi ayrıntıları
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| ad |Etkinlik adı |Evet |
-| Açıklama |Etkinlik hangi amaçla kullanıldığına açıklayan metin |Hayır |
+| ad |Merhaba etkinlik adı |Evet |
+| açıklama |Hangi hello etkinliği için kullanılan açıklayan metin |Hayır |
 | type |Hdınsighthive |Evet |
-| Girişleri |Hive etkinlik tarafından kullanılan girişleri |Hayır |
-| Çıkışları |Hive etkinliği tarafından üretilen çıkış |Evet |
-| linkedServiceName |Veri fabrikasında bağlı hizmet olarak kayıtlı bir Hdınsight kümesine başvuru |Evet |
-| Komut dosyası |Hive betiği satır içi belirtin |Hayır |
-| komut dosyası yolu |Hive betiği bir Azure blob storage'da depolamak ve dosyanın yolunu belirtin. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Dosya adı büyük/küçük harf duyarlıdır. |Hayır |
-| tanımlar |'Hiveconf' kullanarak Hive betiğini içinde başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
+| Girişleri |Merhaba Hive etkinlik tarafından kullanılan girişleri |Hayır |
+| Çıkışları |Merhaba Hive etkinliği tarafından üretilen çıkış |Evet |
+| linkedServiceName |Veri fabrikasında bağlı hizmet olarak kayıtlı toohello Hdınsight kümesi başvurusu |Evet |
+| Komut dosyası |Merhaba Hive betiği satır içi belirtin |Hayır |
+| komut dosyası yolu |Mağaza hello Hive betiği bir Azure blob depolama alanındaki ve hello yol toohello dosyası sağlayın. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Merhaba dosya adı büyük/küçük harf duyarlıdır. |Hayır |
+| tanımlar |İçinde hello Hive betiği 'hiveconf' kullanarak başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
 
 ## <a name="example"></a>Örnek
-Şimdi, şirketiniz tarafından başlatılan oyunlar oynamak kullanıcılar tarafından harcanan süre istediğiniz analytics tanımlamak oyun günlükleri örneği göz önünde bulundurun. 
+Şimdi göz önünde bulundurun oyun örneği, şirketiniz tarafından başlatılan oyunlar oynamak kullanıcılar tarafından tooidentify hello zamanın istediğiniz analytics günlüğe kaydeder. 
 
-Aşağıdaki günlük virgül bir örnek oyun günlük olduğu (`,`) ayrılmış ve aşağıdaki alanları – Profileıd, SessionStart, süre, Srcıpaddress ve GameType içerir.
+Merhaba aşağıdaki virgül bir örnek oyun günlük günlüktür (`,`) ayrılmış ve alanlar – Profileıd, SessionStart, süre, Srcıpaddress ve GameType aşağıdaki hello içerir.
 
 ```
 1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
@@ -95,7 +95,7 @@ Aşağıdaki günlük virgül bir örnek oyun günlük olduğu (`,`) ayrılmış
 .....
 ```
 
-**Hive betiği** bu verileri işlemek için:
+Merhaba **Hive betiği** tooprocess bu veriler:
 
 ```
 DROP TABLE IF EXISTS HiveSampleIn; 
@@ -122,18 +122,18 @@ Select
 FROM HiveSampleIn Group by ProfileID
 ```
 
-Bir Data Factory işlem hattı bu Hive betiğini çalıştırmak için aşağıdakileri yapmanız gerekir
+Bu kovana komut dosyası, bir Data Factory işlem hattı tooexecute toodo hello aşağıdaki gerekir
 
-1. Kaydetmek için bağlı hizmet oluşturma [kendi Hdınsight işlem kümesi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) veya yapılandırma [isteğe bağlı Hdınsight işlem kümesi](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Şimdi bu bağlı hizmetin "HDInsightLinkedService" çağırın.
-2. Oluşturma bir [bağlantılı hizmeti](data-factory-azure-blob-connector.md) verileri barındıran Azure Blob Depolama bağlantısını yapılandırmak için. Şimdi bu bağlı hizmetin "StorageLinkedService" çağırın
-3. Oluşturma [veri kümeleri](data-factory-create-datasets.md) girdi ve çıktı verilerini işaret ediyor. Girdi veri kümesi "HiveSampleIn" şimdi arayın ve çıkış veri kümesi "HiveSampleOut"
-4. Kopya Azure Blob Depolama dosyası olarak Hive sorgusu #2. adımda yapılandırılmış. verileri barındırmak için depolama alanı bu sorgu dosyası barındırma farklı ise, ayrı bir Azure depolama bağlantılı hizmet oluşturun ve ona etkinliğin bakın. Kullanım ** scriptPath ** sorgu dosyası yığın yolunu belirtmek için ve **scriptLinkedService** komut dosyasını içeren Azure depolama belirtmek için. 
+1. Bağlantılı hizmet tooregister oluşturma [kendi Hdınsight işlem kümesi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) veya yapılandırma [isteğe bağlı Hdınsight işlem kümesi](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Şimdi bu bağlı hizmetin "HDInsightLinkedService" çağırın.
+2. Oluşturma bir [bağlantılı hizmeti](data-factory-azure-blob-connector.md) hello verileri barındıran tooconfigure hello bağlantı tooAzure Blob Depolama. Şimdi bu bağlı hizmetin "StorageLinkedService" çağırın
+3. Oluşturma [veri kümeleri](data-factory-create-datasets.md) toohello giriş ve hello işaret eden çıkış verileri. Şimdi hello girdi veri kümesi "HiveSampleIn" arayın ve çıkış veri kümesi "HiveSampleOut" Merhaba
+4. Dosya tooAzure Blob Storage'nın #2. adımda yapılandırılmış olarak Hello Hive sorgusu kopyalayın. Merhaba depolama hello verileri barındırmak için bir bu sorgu dosyası barındırma hello farklı ise, ayrı bir Azure Storage bağlı hizmeti oluşturma ve hello etkinliğinde tooit bakın. Kullanım ** scriptPath ** toospecify hello yolu toohive sorgu dosyası ve **scriptLinkedService** toospecify hello hello komut dosyasını içeren Azure depolama. 
    
    > [!NOTE]
-   > Kullanarak Hive betiği satır etkinlik tanımı içinde sağlayabilirsiniz **betik** özelliği. Biz bu yaklaşım, komut dosyası JSON belgesi gereksinimlerini kaçış içinde bulunan tüm özel karakterleri olarak önerilmez ve hata ayıklama sorunlara neden olabilir. En iyi uygulama #4. adım izlemektir.
+   > Hello kullanarak hello Hive betiği satır hello etkinlik tanımı içinde sağlayabilir **betik** özelliği. Hello komut dosyası hello JSON belgesi içinde bulunan tüm özel karakterleri kaçışlı toobe ihtiyaç duyar ve neden hata ayıklama sorunlar gibi bu yaklaşım önerilmez. Merhaba en iyi uygulama toofollow #4 adımdır.
    > 
    > 
-5. Hdınsighthive etkinliği ile işlem hattı oluşturun. Etkinlik işlemler / veri dönüşümler.
+5. Merhaba Hdınsighthive etkinliği ile işlem hattı oluşturacaksınız. Merhaba etkinlik işlemler/hello veri dönüşümler.
 
     ```JSON   
     {   
@@ -167,15 +167,15 @@ Bir Data Factory işlem hattı bu Hive betiğini çalıştırmak için aşağıd
         }
     }
     ```
-6. Ardışık Düzen dağıtın. Bkz: [ardışık düzen oluşturma](data-factory-create-pipelines.md) Ayrıntılar için makale. 
-7. Veri Fabrikası izleme ve yönetim görünümlerini kullanarak işlem hattını izleme. Bkz: [izleme ve Data Factory işlem hatlarını yönetmek](data-factory-monitor-manage-pipelines.md) Ayrıntılar için makale. 
+6. Merhaba ardışık düzen dağıtın. Bkz: [ardışık düzen oluşturma](data-factory-create-pipelines.md) Ayrıntılar için makale. 
+7. Fabrika Hello izleme verilerini kullanarak hello ardışık düzen ve Yönetimi görünümlerini izleyin. Bkz: [izleme ve Data Factory işlem hatlarını yönetmek](data-factory-monitor-manage-pipelines.md) Ayrıntılar için makale. 
 
 ## <a name="specifying-parameters-for-a-hive-script"></a>Bir Hive betiği parametrelerini belirtme
-Bu örnekte, oyun günlükleri Azure Blob depolama alanına günlük alınan ve tarih ve saat ile bölümlenmiş bir klasörde depolanır. Hive betiğini Parametreleştirme ve giriş klasörü konumunu çalışma zamanı sırasında dinamik olarak geçirmek ve ayrıca tarih ve saat ile bölümlenmiş bir çıktı oluşturmak istediğiniz.
+Bu örnekte, oyun günlükleri Azure Blob depolama alanına günlük alınan ve tarih ve saat ile bölümlenmiş bir klasörde depolanır. Merhaba giriş klasörü konumunu çalışma zamanı sırasında dinamik olarak geçirmek tooparameterize hello Hive betiğini istediğiniz ve ayrıca hello çıkış tarihi ve saati ile bölümlenmiş oluşturabilir.
 
-Parametreli Hive betiğini kullanmak için aşağıdakileri yapın
+Hive betiğini toouse parametreli, aşağıdaki hello yapın
 
-* Parametre tanımlayın **tanımlar**.
+* Merhaba parametrelerinde tanımlamak **tanımlar**.
 
     ```JSON  
     {
@@ -213,7 +213,7 @@ Parametreli Hive betiğini kullanmak için aşağıdakileri yapın
       }
     }
     ```
-* Parametresini kullanarak Hive betiği başvuran **${hiveconf:parameterName}**. 
+* Hello Hive betiği'da, toohello parametresini kullanarak başvurmak **${hiveconf:parameterName}**. 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 

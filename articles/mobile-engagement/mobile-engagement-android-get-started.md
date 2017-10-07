@@ -1,6 +1,6 @@
 ---
-title: "Android Uygulamaları Azure Mobile Engagement kullanmaya başlama"
-description: "Android uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
+title: "Android uygulamaları Azure Mobile Engagement ile aaaGet başlatıldı"
+description: "Bilgi nasıl Android uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement toouse."
 services: mobile-engagement
 documentationcenter: android
 author: piyushjo
@@ -14,44 +14,44 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e8c92607691104750cdf1c4f7639a041d8a7bcd5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Android uygulamaları için Azure Mobile Engagement kullanmaya başlama
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Bu konuda, uygulama kullanımınızı anlamak için nasıl Azure Mobile Engagement kullanılacağı ve bir Android uygulamasının segmentli kullanıcılarına nasıl anında iletme bildirimleri gönderileceği gösterilmektedir.
-Bu öğretici, Mobile Engagement kullanarak basit bir yayın senaryosunu gösterir. Öğreticide, temel bilgiler toplayan ve Google Cloud Messaging (GCM) kullanarak anında iletme bildirimleri alan, boş bir Android uygulaması oluşturursunuz.
+Bu konu, nasıl gösterir toouse Azure Mobile Engagement toounderstand, uygulama kullanımınızı ve toosend bir Android uygulamasının bildirimleri toosegmented kullanıcılarına nasıl anında iletme.
+Bu öğretici, Mobile Engagement kullanarak hello basit yayın senaryosunu gösterir. Öğreticide, temel bilgiler toplayan ve Google Cloud Messaging (GCM) kullanarak anında iletme bildirimleri alan, boş bir Android uygulaması oluşturursunuz.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu öğreticiyi tamamlamak için Android Studio tümleşik geliştirme ortamını ve en son Android platformunu içeren [Android Geliştirici Araçları](https://developer.android.com/sdk/index.html) gerekir.
+Bu öğreticiyi tamamlamak gerektirir hello [Android Geliştirici Araçları](https://developer.android.com/sdk/index.html), hello Android Studio tümleşik geliştirme ortamını ve en son Android platformunu hello içerir.
 
-Ayrıca [Mobile Engagement Android SDK](https://aka.ms/vq9mfn) gereklidir.
+Ayrıca hello gerektirir [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
 
 > [!IMPORTANT]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
+> toocomplete Bu öğretici, etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
 >
 >
 
 ## <a name="set-up-mobile-engagement-for-your-android-app"></a>Android uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="connect-your-app-to-the-mobile-engagement-backend"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
-Bu öğreticide, veri toplamak ve anında iletme bildirimi göndermek için gerekli en küçük grup olan bir "temel tümleştirme" gösterilmektedir. Tümleştirmeyi göstermek için Android Studio ile temel bir uygulama oluşturursunuz.
+## <a name="connect-your-app-toohello-mobile-engagement-backend"></a>Uygulamanızın toohello Mobile Engagement arka ucuna bağlanmak
+Bu öğreticide "Merhaba en az gerekli toocollect veri kümesi ve bir anında iletme bildirimi gönderme bir"temel tümleştirme"gösterilmektedir. Android Studio toodemonstrate hello Tümleştirmesi ile temel bir uygulama oluşturun.
 
-Tümleştirme belgelerinin tamamı [Mobile Engagement Android SDK tümleştirmesi](mobile-engagement-android-sdk-overview.md)’nde bulunabilir.
+Merhaba tümleştirme belgelerinin tamamı hello bulunabilir [Mobile Engagement Android SDK tümleştirmesi](mobile-engagement-android-sdk-overview.md).
 
 ### <a name="create-an-android-project"></a>Android projesi oluşturma
-1. **Android Studio**’yu başlatın ve açılır menüde **Yeni bir Android Studio projesi başlat**’ı seçin.
+1. Başlat **Android Studio**, hello açılır pencerede seçip **yeni bir Android Studio projesi Başlat**.
 
     ![][1]
 2. Uygulama adı ve şirket etki alanı belirtin. Girdiğiniz bilgileri daha sonra kullanmanız gerekeceğinden bunları not edin. **İleri**’ye tıklayın.
 
     ![][2]
-3. Hedef form faktörünü ve API düzeyini seçip **İleri**'ye tıklayın.
+3. Merhaba hedef form faktörünü ve API düzeyini seçin ve tıklayın **sonraki**.
 
    > [!NOTE]
    > Mobile Engagement, en az API düzey 10 (Android 2.3.3) gerektirir.
@@ -59,47 +59,47 @@ Tümleştirme belgelerinin tamamı [Mobile Engagement Android SDK tümleştirmes
    >
 
     ![][3]
-4. Burada, bu uygulama için tek ekran olan **Boş Etkinlik**’i seçip **İleri**'ye tıklayın.
+4. Seçin **boş etkinlik** hello yalnızca ekran bu uygulama ve tıklatın burada **sonraki**.
 
     ![][4]
-5. Son olarak, varsayılan değerleri olduğu gibi bırakıp **Son**'a tıklayın.
+5. Son olarak, olan ve'ı tıklatın hello Varsayılanları bırakabilir **son**.
 
     ![][5]
 
-Şimdi Android Studio, Mobile Engagement’ı tümleştirdiğimiz tanıtım uygulamasını oluşturur.
+Android Studio şimdi içine biz Mobile Engagement tümleştirmek hello tanıtım uygulamasını oluşturur.
 
-### <a name="include-the-sdk-library-in-your-project"></a>SDK kitaplığını projenize ekleme
-1. [Mobile Engagement Android SDK](https://aka.ms/vq9mfn)’yı indirin.
-2. Arşiv dosyasını bilgisayarınızdaki bir klasöre ayıklayın.
-3. Bu SDK'nın geçerli sürümüne ait .jar kitaplığını belirleyin ve Pano’ya kopyalayın.
+### <a name="include-hello-sdk-library-in-your-project"></a>Merhaba SDK kitaplığını projenize ekleme
+1. Merhaba karşıdan [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
+2. Bilgisayarınızdaki Hello arşiv dosyasını tooa klasöre ayıklayın.
+3. Bu SDK'ın geçerli sürümü hello Hello .jar kitaplığını belirleyin ve toohello panoya kopyalayın.
 
       ![][6]
-4. **Proje** bölümüne gidin (1) ve .jar kitaplığını libs klasörüne yapıştırın (2).
+4. Toohello gidin **proje** bölümünde (1) ve hello .jar (2) hello libs klasörüne yapıştırın.
 
       ![][7]
-5. Kitaplığı yüklemek için projeyi eşitleyin.
+5. tooload hello kitaplığı, Merhaba projeyi Eşitle.
 
       ![][8]
 
-### <a name="connect-your-app-to-mobile-engagement-backend-with-the-connection-string"></a>Uygulamanızı Bağlantı Dizesi ile Mobile Engagement arka ucuna bağlama
-1. Aşağıdaki kod satırlarını etkinlik oluşturmaya kopyalayın (uygulamanızın tek bir noktasında yapılmalıdır, bu nokta genellikle ana etkinliktir). Bu örnek uygulama için, src -> main -> java klasörü altında MainActivity dosyasını açın ve aşağıdakileri ekleyin:
+### <a name="connect-your-app-toomobile-engagement-backend-with-hello-connection-string"></a>Bağlantı dizesi hello ile uygulamanızın tooMobile Engagement arka ucuna bağlanmak
+1. (Yalnızca tek bir yerde genellikle hello Ana faaliyet, uygulamanızın yapılmalıdır) hello etkinlik oluşturma içine kod satırı aşağıdaki hello kopyalayın. Bu örnek uygulama için src altında MainActivity hello açın main -> java klasörü ve hello aşağıdakileri ekleyin:
 
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
         engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
         EngagementAgent.getInstance(this).init(engagementConfiguration);
-2. Alt + Enter tuşlarına basarak veya aşağıdaki içeri aktarma deyimlerini ekleyerek başvuruları çözümleyin:
+2. Alt + Enter tuşuna basarak veya içeri aktarma deyimlerini aşağıdaki hello ekleyerek Hello başvuruları çözümlenemedi:
 
         import com.microsoft.azure.engagement.EngagementAgent;
         import com.microsoft.azure.engagement.EngagementConfiguration;
-3. Uygulamanızın**Bağlantı Bilgileri** sayfasında Klasik Azure Portalı’na geri gidin ve **Bağlantı Dizesi**’ni kopyalayın.
+3. Toohello Azure Klasik Portalı'nda, uygulamanızın dön **bağlantı bilgisi** sayfası ve kopyalama hello **bağlantı dizesi**.
 
       ![][9]
-4. `setConnectionString` parametresine yapıştırarak aşağıdaki kodda gösterilen dizenin tamamını değiştirin:
+4. Merhaba yapıştırma `setConnectionString` hello tüm dizeyi koddan hello gösterilen değiştirme parametresi:
 
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
 ### <a name="add-permissions-and-a-service-declaration"></a>İzinler ve bir hizmet bildirimi ekleme
-1. Bu izinleri, projenizin Manifest.xml dosyasında `<application>` etiketinin hemen önüne ya da arkasına ekleyin:
+1. Bu izinleri toohello projenizin manifest.xml dosyasında hemen önce veya sonra hello eklemek `<application>` etiketi:
 
         <uses-permission android:name="android.permission.INTERNET"/>
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -107,45 +107,45 @@ Tümleştirme belgelerinin tamamı [Mobile Engagement Android SDK tümleştirmes
         <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
         <uses-permission android:name="android.permission.VIBRATE" />
         <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
-2. Aracı hizmetini bildirmek için `<application>` ve `</application>` etiketleri arasına şu kodu ekleyin:
+2. toodeclare Merhaba Aracısı hizmeti, bu kod hello arasında eklemek `<application>` ve `</application>` etiketler:
 
         <service
              android:name="com.microsoft.azure.engagement.service.EngagementService"
              android:exported="false"
              android:label="<Your application name>"
              android:process=":Engagement"/>
-3. Yapıştırdığınız kodda, cihazda çalışmakta olan hizmetleri görebileceğiniz **Ayarlar** menüsünde görüntülenen etiketteki `"<Your application name>"` değerini değiştirin. Örneğin bu etikete "Hizmet" sözcüğünü ekleyebilirsiniz.
+3. Yapıştırdığınız hello kodla `"<Your application name>"` hello etiketinde görüntülendiği hello **ayarları** burada görebilirsiniz hello cihazda çalışan hizmetleri menüsü. Örneğin bu etikete "Hizmet" Merhaba sözcüğünü ekleyebilirsiniz.
 
-### <a name="send-a-screen-to-mobile-engagement"></a>Bir ekranı Mobile Engagement’a gönderme
-Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir ekran (Etkinlik) göndermelisiniz.
+### <a name="send-a-screen-toomobile-engagement"></a>Ekran tooMobile katılım Gönder
+verileri gönderme toostart ve olun hello kullanıcıların etkin olduğundan, en az bir ekran (etkinlik) toohello Mobile Engagement arka göndermeniz gerekir.
 
-**MainActivity.java** dosyasına gidip aşağıdakileri ekleyerek **MainActivity** temel sınıfını **EngagementActivity** olarak değiştirin:
+Çok Git**MainActivity.java** ve tooreplace hello temel sınıfını aşağıdaki hello ekleyin **MainActivity** çok**EngagementActivity**:
 
     public class MainActivity extends EngagementActivity {
 
 > [!NOTE]
-> Temel sınıfınız *Etkinlik* değilse farklı sınıflardan nasıl devralınacağı konusunda [Gelişmiş Android Raporlama](mobile-engagement-android-advanced-reporting.md)’ya başvurun.
+> Temel sınıfınız değilse *etkinlik*, başvurun [Gelişmiş Android raporlama](mobile-engagement-android-advanced-reporting.md) nasıl tooinherit farklı sınıflardan.
 >
 >
 
-Bu basit örnek senaryo için aşağıdaki satırı açıklama satırı yapın:
+Bu basit Örnek senaryo için satır aşağıdaki hello çıkışı Açıklama:
 
     // setSupportActionBar(toolbar);
 
-Uygulamanızda `ActionBar` öğesini tutmak istiyorsanız [Gelişmiş Android Raporlama](mobile-engagement-android-advanced-reporting.md) konusuna bakın.
+Tookeep hello istiyorsanız `ActionBar` , uygulamanızda bkz [Gelişmiş Android raporlama](mobile-engagement-android-advanced-reporting.md).
 
 ## <a name="connect-app-with-real-time-monitoring"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a name="enable-push-notifications-and-in-app-messaging"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
-Mobile Engagement, bir kampanya sırasında anında iletme bildirimleri ve uygulama içi mesajlaşma ile kullanıcılarınızla etkileşim kurmanızı ve REACH ile kullanıcılarınıza ulaşmanızı sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
-Aşağıdaki bölüm, uygulamanızı bu bildirim ve mesajları alacak şekilde ayarlar.
+Mobile Engagement, bir kampanya sırasında anında iletme bildirimleri ve uygulama içi mesajlaşma ile kullanıcılarınızla etkileşim kurmanızı ve REACH ile kullanıcılarınıza ulaşmanızı sağlar. Bu modül hello Mobile Engagement portalında REACH adı verilir.
+bölümden Merhaba, uygulama tooreceive bunları ayarlar.
 
 ### <a name="copy-sdk-resources-in-your-project"></a>SDK kaynaklarını projenize kopyalama
-1. İndirilen SDK içeriğinize geri gidip **res** klasörünü kopyalayın.
+1. İçerik ve kopyalama geri tooyour SDK yükleme hello gidin **res** klasör.
 
     ![][10]
-2. Android Studio’ya geri gidip proje dosyalarınıza ait **ana** dizini seçin ve kopyaladığınız klasörü buraya yapıştırarak kaynakları projenize ekleyin.
+2. TooAndroid Studio, select hello dön **ana** proje dosyalarınıza dizin ve tooadd hello kaynakları tooyour proje yapıştırın.
 
     ![][11]
 
@@ -156,7 +156,7 @@ Aşağıdaki bölüm, uygulamanızı bu bildirim ve mesajları alacak şekilde a
 [!INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SDK tümleştirmesi hakkında ayrıntılı bilgi edinmek için [Android SDK](mobile-engagement-android-sdk-overview.md) sayfasına gidin.
+Çok Git[Android SDK](mobile-engagement-android-sdk-overview.md) tooget ayrıntılı hello SDK tümleştirmesi hakkında bilgi.
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png

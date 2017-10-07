@@ -1,6 +1,6 @@
 ---
-title: "Oturum açma bir .NET MVC web API kullanarak Azure AD v2.0 uç ekleme | Microsoft Docs"
-description: "Hem kişisel Microsoft Account belirteçleri kabul eder .NET MVC Web API'si oluşturma ve iş veya Okul hesapları."
+title: "aaaAdd oturum açma tooa .NET MVC web API kullanarak Azure AD v2.0 uç hello | Microsoft Docs"
+description: "Nasıl toobuild hem kişisel Microsoft Account gelen belirteçleri ve iş veya Okul hesapları kabul eden bir .NET MVC Web API."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,30 +15,30 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b2d7bbfcd9218698f71e9dfdb1ad5d9ff8740f5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4e517145422bb6e9368e82a7eef4a5c57cce530a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="secure-an-mvc-web-api"></a>Bir MVC web API güvenliğini sağlama
-Azure Active Directory ile v2.0 uç noktası, bir Web API kullanarak koruyabilirsiniz [OAuth 2.0](active-directory-v2-protocols.md) erişim belirteçleri, kullanıcıların hem kişisel Microsoft hesabı ile etkinleştirme ve iş veya Okul güvenli erişim sağlamak, Web API hesaplar.
+Azure Active Directory hello v2.0 uç ile Web API kullanarak koruyabilirsiniz [OAuth 2.0](active-directory-v2-protocols.md) erişim belirteçleri, hem kişisel Microsoft hesabı olan kullanıcılar ve iş veya Okul hesapları toosecurely Web API erişimi etkinleştirme.
 
 > [!NOTE]
-> Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası tarafından desteklenir.  V2.0 uç kullanmanızın gerekli olup olmadığını belirlemek için okuyun [v2.0 sınırlamaları](active-directory-v2-limitations.md).
+> Tüm Azure Active Directory senaryolarını ve özelliklerini hello v2.0 uç noktası tarafından desteklenir.  Merhaba v2.0 uç noktası, kullanmanız gereken varsa toodetermine okuyun hakkında [v2.0 sınırlamaları](active-directory-v2-limitations.md).
 >
 >
 
-ASP.NET web API'da, bunu .NET Framework 4. 5 ' dahil Microsoft'un OWIN ara yazılımı kullanarak gerçekleştirebilirsiniz.  OWIN oluşturmak ve bir kullanıcının yapılacaklar listesinden görevleri okumak istemcilerin bir "Yapılacaklar listesi" MVC Web API oluşturmak için buraya kullanacağız.  Web API gelen istekleri geçerli erişim belirteci içeren ve doğrulama korumalı bir rotaya geçmeyin istekleri reddedecek doğrular.  Bu örnek, Visual Studio 2015 kullanılarak oluşturuldu.
+ASP.NET web API'da, bunu .NET Framework 4. 5 ' dahil Microsoft'un OWIN ara yazılımı kullanarak gerçekleştirebilirsiniz.  OWIN toobuild kullanıcının yapılacaklar listesi toocreate ve okuma görevlerden istemcilerinin veren "tooDo listesi" MVC Web API burada kullanacağız.  Merhaba web API gelen istekleri geçerli erişim belirteci içeren ve doğrulama korumalı bir rotaya geçmeyin istekleri reddedecek doğrular.  Bu örnek, Visual Studio 2015 kullanılarak oluşturuldu.
 
 ## <a name="download"></a>İndir
-Bu öğretici için kod [GitHub'da](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet) korunur.  İzlemek için [uygulamanın çatısını bir .zip karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) veya çatıyı kopyalayın:
+Bu öğretici için kod Hello korunduğu [github'da](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet).  yapabilecekleriniz toofollow boyunca [hello uygulamanın çatısını bir .zip karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) veya kopya hello çatıyı:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
-İskelet uygulama için basit bir API tüm Demirbaş kod içerir, ancak kimlikle ilgili şey eksik. Takip istemiyorsanız, bunun yerine, kopyalayabilir veya [tamamlanan örnek indirme](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip).
+Merhaba iskelet uygulama için basit bir API tüm hello Demirbaş kod içerir, ancak tüm hello kimlikle ilgili parçaları eksik. Toofollow boyunca istemiyorsanız, bunun yerine, kopyalayabilir veya [tamamlandı hello örnek indirme](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip).
 
 ```
 git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -47,16 +47,16 @@ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ## <a name="register-an-app"></a>Bir uygulamayı kaydetme
 En yeni bir uygulama oluşturma [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya adımları izleyin: [ayrıntılı adımları](active-directory-v2-app-registration.md).  Emin olun:
 
-* Aşağı kopyalama **uygulama kimliği** uygulamanıza atanan, bunu en kısa sürede ihtiyacınız vardır.
+* Merhaba basılı kopya **uygulama kimliği** tooyour uygulama atanan, bunu en kısa sürede ihtiyacınız vardır.
 
-Bu visual studio çözümü "basit bir WPF uygulaması olan bir TodoListClient", de içerir.  TodoListClient nasıl bir kullanıcı oturum açtığında ve bir istemci isteklerini Web API'nizi nasıl verebilir göstermek için kullanılır.  Bu durumda, TodoListClient ve TodoListService aynı uygulama tarafından temsil edilir.  TodoListClient yapılandırmak için de yapmalısınız:
+Bu visual studio çözümü "basit bir WPF uygulaması olan bir TodoListClient", de içerir.  Merhaba TodoListClient nasıl bir kullanıcı oturum açtığında kullanılan toodemonstrate olduğundan ve bir istemci nasıl verebilir tooyour Web API ister.  Merhaba TodoListClient ve hello TodoListService hello tarafından bu durumda, gösterilen aynı uygulama.  tooconfigure TodoListClient Merhaba, ayrıca gerekir:
 
-* Ekleme **mobil** uygulamanız için platform.
+* Merhaba eklemek **mobil** uygulamanız için platform.
 
 ## <a name="install-owin"></a>OWIN yükleme
-Bir uygulama kaydınız, gelen istekleri & belirteçleri doğrulamak için v2.0 uç noktası ile iletişim kurmak için uygulamanızı ayarlamanız gerekir.
+Bir uygulama kaydınız, sipariş toovalidate gelen istekleri & belirteçleri hello v2.0 uç noktası ile uygulama toocommunicate yukarı tooset gerekir.
 
-* Başlamak için çözümü açın ve OWIN ara yazılımı NuGet paketleri Paket Yöneticisi konsolu kullanılarak TodoListService projeye ekleyin.
+* toobegin, hello çözümü açın ve hello Paket Yöneticisi konsolu kullanarak hello OWIN ara yazılımı NuGet paketleri toohello TodoListService proje ekleyin.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
@@ -66,8 +66,8 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 ```
 
 ## <a name="configure-oauth-authentication"></a>OAuth kimlik doğrulamasını yapılandırma
-* Adlı TodoListService projesine OWIN başlangıç sınıfı ekleyin `Startup.cs`.  Projeye sağ tıklatma--> **Ekle** --> **yeni öğe** "OWIN" arayın.  OWIN ara yazılımı, uygulamanız başlatıldığında `Configuration(…)` yöntemini çağırır.
-* Sınıf bildirimi değiştirme `public partial class Startup` -zaten bu sınıfın parçası sizin için başka bir dosyaya uyguladık.  İçinde `Configuration(…)` yöntemi, bir web uygulamanız için kimlik doğrulaması ayarlamak için ConfgureAuth(...) çağrısı yapın.
+* Adlı bir OWIN başlangıç sınıfı toohello TodoListService projesi eklemek `Startup.cs`.  Merhaba projeyi sağ tıklayarak--> **Ekle** --> **yeni öğe** "OWIN" arayın.  Merhaba OWIN ara yazılımı hello çağırılır `Configuration(…)` uygulamanız başladığında yöntemi.
+* Merhaba sınıf bildirimi çok değiştirmek`public partial class Startup` -zaten bu sınıfın parçası sizin için başka bir dosyaya uyguladık.  Merhaba, `Configuration(…)` yöntemi çağrısı tooConfgureAuth(...) tooset web uygulamanız için kimlik doğrulaması kurma olun.
 
 ```C#
 public partial class Startup
@@ -79,34 +79,34 @@ public partial class Startup
 }
 ```
 
-* Dosyayı açmak `App_Start\Startup.Auth.cs` ve uygulamanıza `ConfigureAuth(…)` Web API v2.0 uç noktasından belirteçleri kabul ayarlar yöntemi.
+* Açık hello dosya `App_Start\Startup.Auth.cs` ve hello uygulamak `ConfigureAuth(…)` hello Web API tooaccept belirteçleri hello v2.0 uç noktasından ayarlayacaktır yöntemi.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
 {
         var tvps = new TokenValidationParameters
         {
-                // In this app, the TodoListClient and TodoListService
-                // are represented using the same Application Id - we use
-                // the Application Id to represent the audience, or the
+                // In this app, hello TodoListClient and TodoListService
+                // are represented using hello same Application Id - we use
+                // hello Application Id toorepresent hello audience, or the
                 // intended recipient of tokens.
 
                 ValidAudience = clientId,
 
                 // In a real applicaiton, you might use issuer validation to
-                // verify that the user's organization (if applicable) has
-                // signed up for the app.  Here, we'll just turn it off.
+                // verify that hello user's organization (if applicable) has
+                // signed up for hello app.  Here, we'll just turn it off.
 
                 ValidateIssuer = false,
         };
 
-        // Set up the OWIN pipeline to use OAuth 2.0 Bearer authentication.
-        // The options provided here tell the middleware about the type of tokens
-        // that will be recieved, which are JWTs for the v2.0 endpoint.
+        // Set up hello OWIN pipeline toouse OAuth 2.0 Bearer authentication.
+        // hello options provided here tell hello middleware about hello type of tokens
+        // that will be recieved, which are JWTs for hello v2.0 endpoint.
 
-        // NOTE: The usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
-        // metadata endpoint which is not supported by the v2.0 endpoint.  Instead, this
-        // OpenIdConenctCachingSecurityTokenProvider can be used to fetch & use the OpenIdConnect
+        // NOTE: hello usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
+        // metadata endpoint which is not supported by hello v2.0 endpoint.  Instead, this
+        // OpenIdConenctCachingSecurityTokenProvider can be used toofetch & use hello OpenIdConnect
         // metadata document.
 
         app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -116,7 +116,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
-* Kullanabileceğiniz artık `[Authorize]` denetleyicileri ve eylemleri OAuth 2.0 taşıyıcı kimlik doğrulaması ile korumak için öznitelikler.  İşaretleme `Controllers\TodoListController.cs` bir authorize etiketiyle sınıfı.  Bu sayfayı erişmeden önce oturum açmak için kullanıcının zorlar.
+* Kullanabileceğiniz artık `[Authorize]` denetleyicileri ve eylemleri OAuth 2.0 taşıyıcı kimlik doğrulaması ile tooprotect öznitelikleri.  Merhaba tasarlamanız `Controllers\TodoListController.cs` bir authorize etiketiyle sınıfı.  Bu sayfaya erişmeden önce bu hello kullanıcı toosign zorlar.
 
 ```C#
 [Authorize]
@@ -124,14 +124,14 @@ public class TodoListController : ApiController
 {
 ```
 
-* Ne zaman bir yetkili çağıran başarıyla çağırır birini `TodoListController` API'leri, eylem çağıran hakkında bilgilere erişimi gerekebilir.  OWIN taşıyıcı belirteci içinde talep erişim sağlar `ClaimsPrincpal` nesnesi.  
+* Ne zaman bir yetkili çağıran başarıyla çağırır hello birini `TodoListController` API'leri, hello eylem erişim tooinformation hello çağıran hakkında.  OWIN sağlar erişim toohello talep hello taşıyıcı belirteci hello aracılığıyla içinde `ClaimsPrincpal` nesnesi.  
 
 ```C#
 public IEnumerable<TodoItem> Get()
 {
-    // You can use the ClaimsPrincipal to access information about the
-    // user making the call.  In this case, we use the 'sub' or
-    // NameIdentifier claim to serve as a key for the tasks in the data store.
+    // You can use hello ClaimsPrincipal tooaccess information about the
+    // user making hello call.  In this case, we use hello 'sub' or
+    // NameIdentifier claim tooserve as a key for hello tasks in hello data store.
 
     Claim subject = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier);
 
@@ -141,30 +141,30 @@ public IEnumerable<TodoItem> Get()
 }
 ```
 
-* Son olarak, açık `web.config` dosya TodoListService proje kök dizininde ve yapılandırma değerlerinizi girin `<appSettings>` bölümü.
-  * `ida:Audience` Olan **uygulama kimliği** portalda girdiğiniz uygulamanın.
+* Son olarak, hello açmak `web.config` hello TodoListService proje hello kökünde bulunan dosya ve hello yapılandırma değerlerini girin `<appSettings>` bölümü.
+  * `ida:Audience` Hello olan **uygulama kimliği** hello portalda girdiğiniz hello uygulamasının.
 
-## <a name="configure-the-client-app"></a>İstemci uygulamasını yapılandırma
-Eylem Yapılacaklar listesi hizmetinde görebilmek v2.0 uç noktasından belirteç almak ve hizmet çağrı yapmak için yapılacaklar listesi istemci yapılandırmanız gerekir.
+## <a name="configure-hello-client-app"></a>Merhaba istemci uygulamasını yapılandırma
+Eylemin hello Yapılacaklar listesi hizmeti görebilmek hello v2.0 uç noktasından belirteç almak ve çağrıları toohello hizmeti hale tooconfigure hello Yapılacaklar listesi istemci gerekir.
 
-* TodoListClient projeyi açın `App.config` ve yapılandırma değerlerinizi girin `<appSettings>` bölümü.
-  * `ida:ClientId` Uygulama portaldan kopyaladığınız kimliği.
+* Merhaba TodoListClient projeyi açın `App.config` ve hello yapılandırma değerlerini girin `<appSettings>` bölümü.
+  * `ida:ClientId` Uygulama hello portalından kopyaladığınız kimliği.
 
-Son olarak, temiz, yapı ve her proje çalıştırın!  Artık hem kişisel Microsoft hesaplarını gelen belirteçleri ve iş veya Okul hesapları kabul eden bir .NET MVC Web API vardır.  Oturum TodoListClient ve web çağrı görevler kullanıcının yapılacaklar listesine eklemek için API.
+Son olarak, temiz, yapı ve her proje çalıştırın!  Artık hem kişisel Microsoft hesaplarını gelen belirteçleri ve iş veya Okul hesapları kabul eden bir .NET MVC Web API vardır.  Merhaba TodoListClient oturum ve arama, web API tooadd görevleri toohello kullanıcının yapılacaklar listesi.
 
-(Yapılandırma değerleriniz olmadan) tamamlanan örnek, başvuru için [burada bir .zip sağlanan](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip), veya Github'dan kopyalayabilirsiniz:
+Başvuru için hello tamamlandı (yapılandırma değerleriniz olmadan) örnek [burada bir .zip sağlanan](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip), veya Github'dan kopyalayabilirsiniz:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık ek konu başlıklarına geçebilirsiniz.  Denemek isteyebilirsiniz:
+Artık ek konu başlıklarına geçebilirsiniz.  Tootry isteyebilirsiniz:
 
 [Bir Web uygulamasından Web API'si çağırma >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
 Ek kaynaklar için gözden geçirin:
 
-* [V2.0 Geliştirici Kılavuzu >>](active-directory-appmodel-v2-overview.md)
+* [Merhaba v2.0 Geliştirici Kılavuzu >>](active-directory-appmodel-v2-overview.md)
 * [StackOverflow "azure-active-directory" etiketi >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Ürünlerimiz için güvenlik güncelleştirmelerini alma
-[Bu sayfayı](https://technet.microsoft.com/security/dd252948) ziyaret ederek ve Güvenlik Önerisi Uyarılarına abone olarak güvenlik olaylarının ne zaman ortaya çıkacağı hakkında bildirimleri almanızı öneririz.
+Güvenlik olayları ziyaret ederek ortaya çıktığında, tooget bildirimleri öneririz [bu sayfayı](https://technet.microsoft.com/security/dd252948) ve tooSecurity önerisi uyarılarına abone olma.

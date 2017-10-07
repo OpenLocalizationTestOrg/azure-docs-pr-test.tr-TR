@@ -1,6 +1,6 @@
 ---
-title: "Azure Uygulama Hizmetinde Mobile Apps Hakkında"
-description: "App Service’in kurumsal mobil uygulamalarınıza sağladığı avantajları öğrenin."
+title: aaaAbout Azure App Service'de Mobile Apps
+description: "App Service mobile apps tooyour Kurumsal getirir Hello avantajları hakkında bilgi edinin."
 services: app-service\mobile
 documentationcenter: 
 author: ggailey777
@@ -14,50 +14,50 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: ac35ff9fe1c5f315c4de08de951f505627ec412b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ab96af11c3df196acfb9ecec1339e7f6093c7066
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started"> </a>Azure Uygulama Hizmetinde Mobile Apps Hakkında
-Azure Uygulama Hizmeti, profesyonel geliştiricilere yönelik tam olarak yönetilen bir [hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) teklifidir. Bu hizmet, web, mobil ve tümleştirme senaryoları için zengin bir özellik kümesi sağlar. 
+Azure Uygulama Hizmeti, profesyonel geliştiricilere yönelik tam olarak yönetilen bir [hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) teklifidir. Merhaba hizmet tooweb, mobil ve tümleştirme senaryoları zengin bir özellikler kümesi getirir. 
 
-Azure Uygulama Hizmeti’ndeki Mobile Apps özelliği, kurumsal geliştiriciler ve sistem entegratörleri için yüksek düzeyde ölçeklenebilir ve küresel olarak kullanılabilir bir platformdur.
+Azure App Service Mobile Apps özelliğini Merhaba, Kurumsal geliştiriciler ve yüksek düzeyde ölçeklenebilir ve genel olarak kullanılabilir sistem tümleştiricileri mobil uygulama geliştirme platformu sunar.
 
 ![Mobile Apps özelliklerine görsel bir genel bakış](./media/app-service-mobile-value-prop/overview.png)
 
 ## <a name="why-mobile-apps"></a>Neden Mobile Apps?
-Mobile Apps özelliği ile şunları yapabilirsiniz:
+Merhaba Mobile Apps özelliği ile şunları yapabilirsiniz:
 
 * **Yerel ve platformlar arası uygulamaları oluşturma**: Hem yerel iOS, Android ve Windows uygulamaları hem de platformlar arası Xamarin veya Cordova (Phonegap) uygulamaları oluştururken yerel SDK'ları kullanarak App Service’in avantajlarından faydalanabilirsiniz.
-* **Kuruluş sistemlerinizi bağlama**: Mobile Apps ile dakikalar için kurumsal oturum ekleyebilir ve kuruluşunuzu şirket içi ya da bulut kaynaklarına bağlayabilirsiniz.
-* **Veri eşitleme ile çevrimdışı kullanılmaya hazır uygulamalar oluşturma**: Kurumsal veri kaynaklarınız ya da hizmet olarak yazılım (SaaS) API’leriniz ile bağlantı bulunduğunda arka planda verileri eşitlemek amacıyla çevrimdışı çalışan ve Mobile Apps kullanan uygulamalar oluşturarak mobil iş gücünüzü verimli kılın.
-* **Milyonlarca kişiye Anında İletme Bildirimleri**: her cihazda, kendi ihtiyaçlarına özel ve doğru zamanda gönderilen anında iletme bildirimleriyle müşterilerinizle etkileşim kurun.
+* **Tooyour Kurumsal sistemler bağlanmak**: hello Mobile Apps özelliğini ile Kurumsal oturum açma dakika cinsinden ekleyebilir ve tooyour Kurumsal şirket içi bağlanmak veya Bulut kaynaklarına.
+* **Veri Eşitleme ile çevrimdışı kullanılmaya hazır uygulamalar oluşturma**: Çevrimdışı Çalış uygulamalar oluşturarak, mobil iş gücünüzü üretken olun ve bağlantı tüm kurumsal veri kaynaklarınız varsa Mobile Apps toosync veri hello arka planda kullanın veya yazılım (SaaS) API'leri hizmet olarak.
+* **Anında iletme bildirimleri toomillions saniye cinsinden**: herhangi bir cihazda anında iletme bildirimleriyle müşterilerinizle kişiselleştirilmiş tootheir gereksinimlerini ve başlangıç saati doğru olduğunda gönderilen göster.
 
 ## <a name="mobile-apps-features"></a>Mobile Apps özellikleri
-Aşağıdaki özellikler, bulut etkin mobil geliştirme için önemlidir:
+özellikler aşağıdaki hello önemli toocloud etkin mobil geliştirme şunlardır:
 
-* **Kimlik doğrulama ve yetkilendirme**: Azure Active Directory dahil, sürekli büyüyen bir kurumsal kimlik sağlayıcısı listesinden ve Facebook, Google, Twitter ve Microsoft Hesabı gibi sosyal sağlayıcılardan seçim yapın. Mobile Apps tüm sağlayıcılar için bir OAuth 2.0 hizmeti sunar. Ayrıca sağlayıcıya özel işlev için kimlik sağlayıcısına SDK tümleştirebilirsiniz.
+* **Kimlik doğrulama ve yetkilendirme**: Azure Active Directory dahil, sürekli büyüyen bir kurumsal kimlik sağlayıcısı listesinden ve Facebook, Google, Twitter ve Microsoft Hesabı gibi sosyal sağlayıcılardan seçim yapın. Mobile Apps tüm sağlayıcılar için bir OAuth 2.0 hizmeti sunar. Ayrıca, sağlayıcıya özgü işlevselliği hello kimlik sağlayıcısı için SDK hello tümleştirebilirsiniz.
 
     [Kimlik doğrulama özelliklerimiz] hakkında daha fazlasını keşfedin.
 
-* **Veri erişimi**: Azure Mobile Apps, Azure SQL Veritabanı’na ya da şirket içi bir SQL Sunucusu’na bağlı, mobil kullanıma uygun bir OData v3 veri kaynağı sağlar. Bu hizmet, [Azure Tablo depolama], MongoDB ve [Azure Cosmos DB]’nin yanı sıra Office 365 ve Salesforce.com gibi SaaS API’si sağlayıcıları dahil, diğer NoSQL ve SQL veri sağlayıcılarıyla kolayca tümleştirmenizi sağlayarak Entity Framework’ü temel alabilir.
+* **Veri erişimi**: mobil uygulamaları tooAzure SQL veritabanı veya bir şirket içi SQL server bağlantılı içeren bir mobil kullanımı kolay OData v3 veri kaynağı sağlar. Bu hizmet, [Azure Tablo depolama], MongoDB ve [Azure Cosmos DB]’nin yanı sıra Office 365 ve Salesforce.com gibi SaaS API’si sağlayıcıları dahil, diğer NoSQL ve SQL veri sağlayıcılarıyla kolayca tümleştirmenizi sağlayarak Entity Framework’ü temel alabilir.
 
-* **Çevrimdışı eşitleme**: İstemci SDK’miz çevrimdışı bir veri kümesi ile çalışan sağlam ve esnek mobil uygulamalar oluşturmanızı kolaylaştırır. Bu veri kümesini, çakışma çözümü desteği de dahil olmak üzere arka uç verileriyle otomatik olarak eşitleyebilirsiniz.
+* **Çevrimdışı eşitleme**: İstemci SDK ile çevrimdışı bir veri kümesini çalışması kolay toobuild sağlam ve esnek mobil uygulamalar kolaylaştırır. Bu veri kümesini verilerle çakışma çözümü desteği dahil olmak üzere otomatik olarak hello arka uç, eşitleyebilirsiniz.
 
   [veri özellikleri] hakkında daha fazlasını keşfedin.
 
-* **Anında İletme Bildirimleri**: İstemci SDK'mız, aynı anda milyonlarca kullanıcıya anında iletme bildirimleri göndermenizi sağlayarak, Azure Notification Hubs'ın kayıt özellikleriyle sorunsuz şekilde tümleşir.
+* **Anında iletme bildirimleri**: İstemci SDK tümleştirmenize sorunsuz bir şekilde hello kayıt özelliklerini Azure Notification Hubs ile anında iletme bildirimleri toomillions kullanıcı aynı anda gönderebilmek için.
 
   [anında iletme bildirimi özellikleri] hakkında daha fazlasını keşfedin.
 
 * **İstemci SDK'ları**: Yerel geliştirmeyi ([iOS], [Android] ve [Windows]), platformlar arası geliştirmeyi ([Xamarin.iOS ve Xamarin.Android], [Xamarin.Forms]) ve karma uygulama geliştirmeyi ([Apache Cordova]) kapsayan SDK'ların eksiksiz bir kümesini sunuyoruz  Her istemci SDK’sı ile bir MIT lisansı ile birlikte sunulur ve açık kaynaklıdır.
 
 ## <a name="azure-app-service-features"></a>Azure Uygulama Hizmeti özellikleri
-Aşağıdaki platform özellikleri mobil üretim siteleri için yararlıdır:
+Platform özellikleri aşağıdaki hello mobil üretim siteleri için yararlıdır:
 
-* **Otomatik ölçeklendirme**: App Service’i kullanarak gelen müşteri yükünü işlemek için hızlı şekilde ölçeği artırabilir ya da genişletebilirsiniz. Yük ya da zamanlama temelinden mobil uygulamanızın arka ucunu ölçeklendirmek için VM’nin sayısını ya da boyutunu el ile seçin ya da otomatik ölçeklendirmeyi ayarlayın.
+* **Otomatik ölçeklendirmeyi**: uygulama hizmeti ile kolaylıkla ölçeği veya toohandle, gelen müşteri yükünü ölçeklendirin. El ile Merhaba sayısını ve boyutunu VM'ler seçin veya yükleme ya da zamanlama temelinden, mobil uygulama arka ucu otomatik ölçeklendirmeyi tooscale ayarlayın.
 
   [Otomatik ölçeklendirme] hakkında daha fazlasını keşfedin.
 
@@ -65,11 +65,11 @@ Aşağıdaki platform özellikleri mobil üretim siteleri için yararlıdır:
 
   [hazırlık ortamları] hakkında daha fazlasını keşfedin.
 
-* **Sürekli dağıtım**: App Service, SCM sisteminizin bir dalına ileterek arka ucunuzun yeni bir sürümü otomatik olarak oluşturmanızı sağlayarak, ortak tedarik zinciri yönetimi (SCM) sistemleriyle tümleştirilebilir.
+* **Sürekli dağıtım**: App Service, SCM sisteminizin tooa dalı ileterek arka uç yeni bir sürümü otomatik olarak dağıtabilmek için ortak tedarik zinciri yönetimi (SCM) sistemleri ile tümleştirebilir.
 
   [dağıtım seçenekleri] hakkında daha fazlasını keşfedin.
 
-* **Sanal Ağ**: App Service; sanal ağ, Azure ExpressRoute ya da karma bağlantılar kullanarak şirket içi kaynaklara bağlanabilir.
+* **Sanal ağ**: App Service, sanal ağ, Azure ExpressRoute ya da karma bağlantılar kullanarak tooon içi kaynaklara bağlanabilir.
 
   [karma bağlantılar], [sanal ağlar], ve [ExpressRoute] hakkında daha fazlasını keşfedin.
 
@@ -79,15 +79,15 @@ Aşağıdaki platform özellikleri mobil üretim siteleri için yararlıdır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Uygulama Hizmeti'nde Mobile Apps kullanmaya başlamak için [başlarken] öğreticisini tamamlayın. Bu öğretici, tercih ettiğiniz mobil arka ucu ve istemciyi oluşturma konusunda temel kavramları kapsar. Ayrıca kimlik doğrulama, çevrimdışı eşitleme ve anında iletme bildirimlerini tümleştirme konularını ele alır. Öğreticiyi her istemci uygulaması için birden çok kez tamamlayabilirsiniz.
+Azure uygulama hizmetinde tam hello mobil uygulamaları ile çalışmaya tooget [Başlarken] Öğreticisi. Başlangıç Öğreticisi hello temelleri mobil geri bitiş oluşturan ve istemci tercih ettiğiniz kapsar. Ayrıca kimlik doğrulama, çevrimdışı eşitleme ve anında iletme bildirimlerini tümleştirme konularını ele alır. Başlangıç Öğreticisi birden çok kez kez her istemci uygulaması için tamamlayabilirsiniz.
 
 Mobile Apps hakkında daha fazla bilgi için [öğrenme haritamızı] gözden geçirin.
-Azure Uygulama Hizmeti platformu hakkında daha fazla bilgi için bkz. [Azure App Service].
+Hello Azure App Service platformu hakkında daha fazla bilgi için bkz: [Azure App Service].
 
 <!-- URLs. -->
-[Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your mobile service tooApp Service]: app-service-mobile-migrating-from-mobile-services.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[başlarken]: app-service-mobile-ios-get-started.md
+[Başlarken]: app-service-mobile-ios-get-started.md
 [Azure Tablo depolama]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
 [Kimlik doğrulama özelliklerimiz]: ./app-service-mobile-auth.md

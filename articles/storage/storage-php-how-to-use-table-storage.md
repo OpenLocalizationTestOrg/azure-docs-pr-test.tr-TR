@@ -1,6 +1,6 @@
 ---
-title: Php'den Table storage kullanma | Microsoft Docs
-description: "PHP tablo hizmetinden oluşturmak ve bir tablo silmek için nasıl kullanılacağını öğrenin ve ekleme, silme ve tablo sorgu."
+title: aaaHow toouse PHP'den table storage ' | Microsoft Docs
+description: "Nasıl toouse PHP toocreate tablo hizmetinden hello ve tablo ve ekleme, silme ve sorgu hello tablosu silmek öğrenin."
 services: storage
 documentationcenter: php
 author: mmacy
@@ -14,41 +14,41 @@ ms.devlang: php
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.openlocfilehash: 15d3216ef5bb1d7ff312bd886837a3a7b0335afd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1e1036118e208280b4c205da7d7eea61e79359c1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-table-storage-from-php"></a>Php'den Table storage kullanma
+# <a name="how-toouse-table-storage-from-php"></a>Nasıl toouse tablo php'den depolama
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz Azure Table hizmetini kullanarak yaygın senaryolar gerçekleştirme gösterir. PHP ve kullanım örnekleri yazılır [PHP için Azure SDK][download]. Kapsamdaki senaryolar dahil **oluşturma ve bir tablo silme ve ekleme, silme ve bir tablo varlıkları sorgulama**. Azure tablo hizmeti hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
+Bu kılavuz size nasıl tooperform yaygın senaryolar kullanarak Azure Table hizmet hello gösterir. Merhaba örnekler PHP ile yazılmıştır ve hello kullan [PHP için Azure SDK][download]. Merhaba kapsanan senaryolar dahil **oluşturma ve bir tablo silme ve ekleme, silme ve bir tablo varlıkları sorgulama**. Merhaba hello Azure tablo hizmeti hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>PHP uygulaması oluşturma
-Azure Table hizmete erişen bir PHP uygulaması oluşturmak için yalnızca Azure SDK'sındaki sınıfların PHP'nin için kodunuzu içinde başvuran gereksinimdir. Not Defteri dahil olmak üzere uygulamanızı oluşturmak için tüm geliştirme araçlarını kullanabilirsiniz.
+Merhaba hello Azure Table hizmete erişen bir PHP uygulaması oluşturmaya yönelik gereksinim, yalnızca hello hello Azure SDK sınıfları, PHP'nin için kodunuzu içinde başvuruyor. Uygulamanızın, Not Defteri dahil olmak üzere tüm geliştirme araçları toocreate kullanabilirsiniz.
 
 Bu kılavuzda, bir PHP uygulamanızda yerel olarak veya bir Azure web rolü, çalışan rolü veya Web sitesi içinde çalışan kodu çağrılabilir tablo hizmet özelliklerini kullanın.
 
-## <a name="get-the-azure-client-libraries"></a>Azure istemci kitaplıkları Al
+## <a name="get-hello-azure-client-libraries"></a>Hello Azure istemci kitaplıkları Al
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-access-the-table-service"></a>Tablo hizmete erişmek için uygulamanızı yapılandırın
-Azure tablo hizmeti API'ları kullanmak için aktarmanız gerekir:
+## <a name="configure-your-application-tooaccess-hello-table-service"></a>Uygulama tooaccess hello tablo hizmetini yapılandırma
+toouse hello Azure tablo hizmeti API'leri, şunları yapmanız gerekir:
 
-1. Otomatik Yükleyiciden kullanarak dosya başvuru [require_once] [ require_once] deyimi, ve
+1. Hello kullanarak başvuru hello otomatik yükleyici dosyasını [require_once] [ require_once] deyimi, ve
 2. Kullanabileceğinize sınıfları başvuru.
 
-Aşağıdaki örnek otomatik Yükleyiciden dosya ve başvuru dahil gösterilmektedir **ServicesBuilder** sınıfı.
+Merhaba aşağıdaki örnekte nasıl tooinclude hello otomatik Yükleyiciden dosya ve başvuru hello gösterir **ServicesBuilder** sınıfı.
 
 > [!NOTE]
-> Bu makaledeki örneklerde oluşturucu aracılığıyla Azure için PHP istemci kitaplıkları yüklü olduğunu varsayalım. Başvuruda bulunmanız kitaplıklarını el ile yüklediyseniz, <code>WindowsAzure.php</code> otomatik yükleyici dosyası.
+> Bu makalede Hello örnekler hello oluşturucu aracılığıyla Azure için PHP istemci kitaplıkları yüklü olduğunu varsayar. Merhaba kitaplıklarını el ile yüklediyseniz tooreference hello gerekir <code>WindowsAzure.php</code> otomatik yükleyici dosyası.
 >
 >
 
@@ -57,10 +57,10 @@ require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
-Aşağıdaki örneklerde `require_once` deyimi her zaman gösterilir, ancak yalnızca örnek yürütmek gerekli sınıfları başvurulur.
+Merhaba aşağıdaki örnekte, hello `require_once` deyimi her zaman gösterilir, ancak yalnızca hello sınıfları hello örnek tooexecute için gereken başvuru.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Bir Azure depolama bağlantı kurma
-Azure tablo hizmeti istemcisi örneği oluşturmak için öncelikle geçerli bir bağlantı dizesi olması gerekir. Tablo hizmeti bağlantı dizesini biçimdedir:
+tooinstantiate Azure tablo hizmeti istemcisi, öncelikle geçerli bir bağlantı dizesi olması gerekir. Merhaba tablo hizmeti bağlantı dizesini Hello biçimdedir:
 
 Canlı hizmetine erişmek için:
 
@@ -68,20 +68,20 @@ Canlı hizmetine erişmek için:
 DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 ```
 
-Öykünücü depolama erişmek için:
+Merhaba öykünücüsü depolama erişmek için:
 
 ```php
 UseDevelopmentStorage=true
 ```
 
-Herhangi bir Azure hizmeti istemcisi oluşturmak için kullanmanız gerekir **ServicesBuilder** sınıfı. Şunları yapabilirsiniz:
+toocreate herhangi bir Azure hizmeti istemci toouse hello gereksinim **ServicesBuilder** sınıfı. Şunları yapabilirsiniz:
 
-* doğrudan bağlantı dizesi geçirin veya
-* kullanmak **CloudConfigurationManager (CCM)** bağlantı dizesi için dış kaynaklardan denetlemek için:
+* Merhaba bağlantı geçirmek doğrudan tooit dize veya
+* Kullanım hello **CloudConfigurationManager (CCM)** toocheck birden çok dış kaynaklardan hello bağlantı dizesi:
   * bir dış kaynak - ortam değişkenleri için destek ile birlikte varsayılan olarak,
-  * genişleterek yeni kaynakları ekleyebilirsiniz **ConnectionStringSource** sınıfı
+  * Merhaba genişleterek yeni kaynakları ekleyebilirsiniz **ConnectionStringSource** sınıfı
 
-Burada özetlenen örnekler için bağlantı dizesi doğrudan geçirilir.
+Burada özetlenen hello örnekler için başlangıç bağlantı dizesi doğrudan geçirilir.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -92,7 +92,7 @@ $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connection
 ```
 
 ## <a name="create-a-table"></a>Bir tablo oluşturma
-A **TableRestProxy** nesne içeren bir tablo oluşturma olanak tanır **createTable** yöntemi. Bir tablo oluştururken, tablo hizmeti zaman aşımı ayarlayabilirsiniz. (Tablo hizmeti zaman aşımı hakkında daha fazla bilgi için bkz: [ayarı zaman aşımları tablo hizmeti işlemleri için][table-service-timeouts].)
+A **TableRestProxy** nesnesi ile Merhaba tablosu oluşturma olanak tanır **createTable** yöntemi. Bir tablo oluştururken hello tablo hizmeti zaman aşımı ayarlayabilirsiniz. (Merhaba tablo hizmeti zaman aşımı hakkında daha fazla bilgi için bkz: [ayarı zaman aşımları tablo hizmeti işlemleri için][table-service-timeouts].)
 
 ```php
 require_once 'vendor\autoload.php';
@@ -116,10 +116,10 @@ catch(ServiceException $e){
 }
 ```
 
-Tablo adları kısıtlamaları hakkında bilgi için bkz: [tablo hizmeti veri modelini anlama][table-data-model].
+Tablo adları kısıtlamaları hakkında bilgi için bkz: [anlama hello tablo hizmeti veri modelini][table-data-model].
 
-## <a name="add-an-entity-to-a-table"></a>Tabloya bir varlık ekleme
-Bir tabloya bir varlık eklemek için yeni bir oluşturma **varlık** nesne ve ona geçirin **TableRestProxy -> insertEntity**. Bir varlık oluşturduğunuzda, belirtmeniz gerektiğini unutmayın bir `PartitionKey` ve `RowKey`. Bunlar bir varlık için benzersiz tanımlayıcı ve çok diğer varlık özellikleri daha hızlı sorgulanabilir değerlerdir. Sistem kullanır `PartitionKey` tablonun varlıklar birçok depolama düğümleri üzerinde otomatik olarak dağıtmak için. Aynı varlıkla `PartitionKey` aynı düğümde depolanır. (Birden çok varlık aynı düğümde depolanan işlemleri farklı düğümlere saklanan varlıkları üzerinde daha iyi.) `RowKey` Bir varlığın bölüm içinde benzersiz kimliğidir.
+## <a name="add-an-entity-tooa-table"></a>Bir varlık tooa tablo ekleme
+tooadd bir varlık tooa tablo oluşturma yeni bir **varlık** nesne ve çok geçirin**TableRestProxy -> insertEntity**. Bir varlık oluşturduğunuzda, belirtmeniz gerektiğini unutmayın bir `PartitionKey` ve `RowKey`. Bunlar hello bir varlık için benzersiz tanımlayıcı ve çok diğer varlık özellikleri daha hızlı sorgulanabilir değerlerdir. Merhaba sistemini kullanan `PartitionKey` tooautomatically çok sayıda depolama düğümleri Merhaba tablonun varlıklar dağıtın. Varlıklarla aynı hello `PartitionKey` hello üzerinde depolanan aynı düğüm. (Birden çok varlık aynı düğüm gerçekleştirmek hello üzerinde depolanan işlemleri farklı düğümlere saklanan varlıkları üzerinde daha iyi.) Merhaba `RowKey` bölüm içindeki bir varlığın hello benzersiz kimliğidir.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -135,7 +135,7 @@ $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connection
 $entity = new Entity();
 $entity->setPartitionKey("tasksSeattle");
 $entity->setRowKey("1");
-$entity->addProperty("Description", null, "Take out the trash.");
+$entity->addProperty("Description", null, "Take out hello trash.");
 $entity->addProperty("DueDate",
                         EdmType::DATETIME,
                         new DateTime("2012-11-05T08:15:00-08:00"));
@@ -153,9 +153,9 @@ catch(ServiceException $e){
 }
 ```
 
-Tablo özellikleri ve türleri hakkında daha fazla bilgi için bkz: [tablo hizmeti veri modelini anlama][table-data-model].
+Tablo özellikleri ve türleri hakkında daha fazla bilgi için bkz: [anlama hello tablo hizmeti veri modelini][table-data-model].
 
-**TableRestProxy** sınıfı varlıkları eklemek için iki alternatif yöntem sunar: **insertOrMergeEntity** ve **insertOrReplaceEntity**. Bu yöntemleri kullanmak için yeni bir oluşturma **varlık** ve her iki yöntem için parametre olarak geçirin. Henüz yoksa her yöntem varlık ekler. Varlık zaten varsa, **insertOrMergeEntity** özellikleri zaten mevcutsa özellik değerlerini güncelleştirir ve yeni özellikleri ekler Bunlar yoksa while **insertOrReplaceEntity** tamamen var olan bir varlığı değiştirir. Aşağıdaki örnekte nasıl kullanılacağını gösterir **insertOrMergeEntity**. Varsa varlıkla `PartitionKey` "tasksSeattle" ve `RowKey` "1" zaten mevcut değil, bu eklenir. Ancak, (yukarıdaki örnekte gösterildiği gibi) daha önce eklenmiş, `DueDate` özelliği güncelleştirilir ve `Status` özellik eklenir. `Description` Ve `Location` özellikleri de güncelleştirilmiş değerlerle, etkili bir şekilde bırakmak ancak bunları değişmeden. Bu ikinci iki özellik olmayan eklenen örnekte gösterildiği gibi ancak hedef varlık üzerinde var, mevcut değerlerine değişmeden kalır.
+Merhaba **TableRestProxy** sınıfı varlıkları eklemek için iki alternatif yöntem sunar: **insertOrMergeEntity** ve **insertOrReplaceEntity**. toouse bu yöntemleri oluşturma yeni bir **varlık** ve parametre tooeither yöntemi olarak geçirin. Henüz yoksa her yöntem hello varlık ekler. Merhaba varlık zaten varsa, **insertOrMergeEntity** hello özellikleri zaten mevcutsa özellik değerlerini güncelleştirir ve yeni özellikleri ekler Bunlar yoksa while **insertOrReplaceEntity** tamamen var olan bir varlığı değiştirir. örnekte gösterildiği nasıl aşağıdaki hello toouse **insertOrMergeEntity**. Varsa hello varlıkla `PartitionKey` "tasksSeattle" ve `RowKey` "1" zaten mevcut değil, bu eklenir. (Merhaba yukarıdaki örnekte gösterildiği gibi) daha önce eklendiği, ancak hello `DueDate` özelliği güncelleştirilir ve hello `Status` özellik eklenir. Merhaba `Description` ve `Location` özellikleri de güncelleştirilmiş değerlerle, etkili bir şekilde bırakmak ancak bunları değişmeden. İkinci bu iki özellik olmayan eklenen hello örnekte gösterildiği gibi ancak hello hedef varlık üzerinde var, mevcut değerlerine değişmeden kalır.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -177,14 +177,14 @@ $entity->setRowKey("1");
 
 // If entity exists, existing properties are updated with new values and
 // new properties are added. Missing properties are unchanged.
-$entity->addProperty("Description", null, "Take out the trash.");
-$entity->addProperty("DueDate", EdmType::DATETIME, new DateTime()); // Modified the DueDate field.
+$entity->addProperty("Description", null, "Take out hello trash.");
+$entity->addProperty("DueDate", EdmType::DATETIME, new DateTime()); // Modified hello DueDate field.
 $entity->addProperty("Location", EdmType::STRING, "Home");
 $entity->addProperty("Status", EdmType::STRING, "Complete"); // Added Status field.
 
 try    {
     // Calling insertOrReplaceEntity, instead of insertOrMergeEntity as shown,
-    // would simply replace the entity with PartitionKey "tasksSeattle" and RowKey "1".
+    // would simply replace hello entity with PartitionKey "tasksSeattle" and RowKey "1".
     $tableRestProxy->insertOrMergeEntity("mytable", $entity);
 }
 catch(ServiceException $e){
@@ -198,7 +198,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="retrieve-a-single-entity"></a>Tek bir varlık alma
-**TableRestProxy -> getEntity** yöntemi tek bir varlık için sorgulayarak almanıza olanak tanır, `PartitionKey` ve `RowKey`. Bölüm anahtarı aşağıdaki örnekte `tasksSeattle` ve satır anahtarını `1` geçirilen **getEntity** yöntemi.
+Merhaba **TableRestProxy -> getEntity** yöntemi tooretrieve verir sorgulanırken tarafından tek bir varlık kendi `PartitionKey` ve `RowKey`. Bölüm anahtarı Hello aşağıdaki örnekte, hello `tasksSeattle` ve satır anahtarını `1` toohello geçirilen **getEntity** yöntemi.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -227,7 +227,7 @@ echo $entity->getPartitionKey().":".$entity->getRowKey();
 ```
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Tüm varlıkları bir bölüme alma
-Varlık sorguları filtreleri kullanarak oluşturulur (daha fazla bilgi için bkz: [sorgulama tabloları ve varlıkları][filters]). Bölümdeki tüm varlıkları almak için filtre kullanma "PartitionKey eq *bölüm_adı*". Aşağıdaki örnek, tüm varlıkları almak gösterilmiştir `tasksSeattle` filtre geçirerek bölüm **queryEntities** yöntemi.
+Varlık sorguları filtreleri kullanarak oluşturulur (daha fazla bilgi için bkz: [sorgulama tabloları ve varlıkları][filters]). tooretrieve, bölümdeki tüm varlıklar kullanmak hello filtre "PartitionKey eq *bölüm_adı*". örnekte gösterildiği nasıl aşağıdaki hello tooretrieve hello alanındaki tüm varlıklara `tasksSeattle` filtre toohello geçirerek bölüm **queryEntities** yöntemi.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -260,7 +260,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entities-in-a-partition"></a>Bir alt kümesini varlıkları bir bölüme alma
-Önceki örnekte kullanılan aynı düzeni, bunların bir alt kümesini varlıkları bir bölüme almak için kullanılabilir. Aldığınız varlıkların alt kullandığınız Filtresi tarafından belirlenir (daha fazla bilgi için bkz: [sorgulama tabloları ve varlıkları][filters]). Aşağıdaki örnekte belirli bir ile tüm varlıkları almak için bir filtre kullanmayı gösterir `Location` ve `DueDate` belirtilen bir tarih küçüktür.
+Merhaba hello önceki örnekte kullanılan aynı düzeni kullanılan tooretrieve tüm varlıkları bir bölüme kısmı olabilir. Merhaba alt aldığınız varlıkların kullandığınız hello Filtresi tarafından belirlenir (daha fazla bilgi için bkz: [sorgulama tabloları ve varlıkları][filters]) örnekteki nasıl aşağıdaki .hello toouse filtre tooretrieve belirli bir sahip tüm varlık `Location` ve `DueDate` belirtilen bir tarih küçüktür.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -293,7 +293,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entity-properties"></a>Varlık özellikleri kümesini Al
-Varlık özelliklerinin bir alt sorgu alabilirsiniz. Adlı bu teknik *projeksiyon*, bant genişliğini azaltır ve özellikle büyük varlıklar için sorgu performansını iyileştirebilir. Alınacak bir özelliği belirtmek için özelliğin adını geçirmek **sorgu addSelectField ->** yöntemi. Daha fazla özellik eklemek için birden çok kez bu yöntemi çağırın. Yürütme sonrasında **TableRestProxy -> queryEntities**, döndürülen varlıkları yalnızca seçilen özellikleri sahip olur. (Bir alt tablo varlıkların dönmek istiyorsanız, bir filtre sorguları yukarıda gösterildiği gibi kullanın.)
+Varlık özelliklerinin bir alt sorgu alabilirsiniz. Adlı bu teknik *projeksiyon*, bant genişliğini azaltır ve özellikle büyük varlıklar için sorgu performansını iyileştirebilir. bir özellik toobe toospecify alınan, hello özelliği toohello hello adını geçirmek **sorgu addSelectField ->** yöntemi. Bu yöntem birden çok kez tooadd daha fazla özellik çağırabilirsiniz. Yürütme sonrasında **TableRestProxy -> queryEntities**, hello döndürülen varlıkları yalnızca seçili hello özellikleri vardır. (Tooreturn bir alt tablo varlıkların istiyorsanız, bir filtre sorguları hello yukarıda gösterildiği gibi kullanın.)
 
 ```php
 require_once 'vendor/autoload.php';
@@ -320,9 +320,9 @@ catch(ServiceException $e){
     echo $code.": ".$error_message."<br />";
 }
 
-// All entities in the table are returned, regardless of whether
-// they have the Description field.
-// To limit the results returned, use a filter.
+// All entities in hello table are returned, regardless of whether
+// they have hello Description field.
+// toolimit hello results returned, use a filter.
 $entities = $result->getEntities();
 
 foreach($entities as $entity){
@@ -332,7 +332,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="update-an-entity"></a>Bir varlığı güncelleştirir
-Var olan bir varlığı kullanarak güncelleştirilebilir **varlık setProperty ->** ve **varlık addProperty ->** varlık ve ardından arama yöntemleri **TableRestProxy -> updateEntity**. Aşağıdaki örnekte bir varlığı alır, bir özelliğini değiştirir, başka bir özellik kaldırır ve yeni bir özellik ekler. Bir özelliğin değerini ayarlayarak kaldırabileceğini unutmayın **null**.
+Var olan bir varlığı hello kullanarak güncelleştirilebilir **varlık setProperty ->** ve **varlık addProperty ->** hello varlık ve ardından arama yöntemlere **TableRestProxy updateEntity ->** . Merhaba aşağıdaki örnekte bir varlığı alır, bir özellik değiştirir, başka bir özellik kaldırır ve yeni bir özellik ekler. Bir özellik değeri çok ayarlayarak kaldırabilirsiniz Not**null**.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -369,7 +369,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="delete-an-entity"></a>Bir varlığı silme
-Bir varlığı silmek için tablo adı ve varlığın geçmesi `PartitionKey` ve `RowKey` için **TableRestProxy -> deleteEntity** yöntemi.
+bir varlık toodelete geçirmek hello tablo adı ve hello varlığın `PartitionKey` ve `RowKey` toohello **TableRestProxy -> deleteEntity** yöntemi.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -394,10 +394,10 @@ catch(ServiceException $e){
 }
 ```
 
-Not eşzamanlılık denetleyeceğini kullanarak silinecek bir varlık için Etag ayarlayabilirsiniz **DeleteEntityOptions -> setEtag** yöntemi ve geçirerek **DeleteEntityOptions** nesnesini **deleteEntity** dördüncü bir parametre olarak.
+Not eşzamanlılık denetleyeceğini hello kullanarak silinmiş bir varlık toobe Merhaba Etag ayarlayabilirsiniz **DeleteEntityOptions -> setEtag** yöntemi ve geçirerek hello **DeleteEntityOptions** çok nesne**deleteEntity** dördüncü bir parametre olarak.
 
 ## <a name="batch-table-operations"></a>Toplu tablo işlemleri
-**TableRestProxy -> Toplu** yöntemi birden çok işlem tek bir istekte yürütmesine olanak tanır. Ekleme işlemleri için desen burada içerir **BatchRequest** nesnesi ve ardından geçirme **BatchRequest** nesnesini **TableRestProxy -> Toplu** yöntemi. Bir işlem eklemek için bir **BatchRequest** nesne çağırabilirsiniz aşağıdaki yöntemlerden herhangi birini birden çok kez:
+Merhaba **TableRestProxy -> Toplu** yöntemi tooexecute sağlayan birden çok işlem tek bir istek. Merhaba burada desen işlemleri çok ekleme içerir**BatchRequest** nesne ve hello geçirme **BatchRequest** toohello nesne **TableRestProxy -> Toplu** yöntemi. tooadd işlemi tooa **BatchRequest** nesnesi, birden çok kez yöntemler aşağıdaki hello hiçbirini çağırabilirsiniz:
 
 * **addInsertEntity** (bir insertEntity işlem ekler)
 * **addUpdateEntity** (bir updateEntity işlem ekler)
@@ -406,7 +406,7 @@ Not eşzamanlılık denetleyeceğini kullanarak silinecek bir varlık için Etag
 * **addInsertOrMergeEntity** (bir insertOrMergeEntity işlem ekler)
 * **addDeleteEntity** (deleteEntity işlemi ekler)
 
-Aşağıdaki örnekte nasıl yürütüleceği gösterilmektedir **insertEntity** ve **deleteEntity** tek bir istek işlemleri:
+örnekte gösterildiği nasıl aşağıdaki hello tooexecute **insertEntity** ve **deleteEntity** tek bir istek işlemleri:
 
 ```php
 require_once 'vendor/autoload.php';
@@ -432,10 +432,10 @@ $entity1->addProperty("DueDate",
                         new DateTime("2012-11-05T08:15:00-08:00"));
 $entity1->addProperty("Location", EdmType::STRING, "Home");
 
-// Add operation to list of batch operations.
+// Add operation toolist of batch operations.
 $operations->addInsertEntity("mytable", $entity1);
 
-// Add operation to list of batch operations.
+// Add operation toolist of batch operations.
 $operations->addDeleteEntity("mytable", "tasksSeattle", "1");
 
 try    {
@@ -454,7 +454,7 @@ catch(ServiceException $e){
 Toplu tablo işlemleri hakkında daha fazla bilgi için bkz: [varlık Grup işlemleri gerçekleştirme][entity-group-transactions].
 
 ## <a name="delete-a-table"></a>Bir tablo silme
-Son olarak, bir tabloyu silmek için tablo adını geçirmek **TableRestProxy -> deleteTable** yöntemi.
+Son olarak, bir tablo toodelete geçirmek hello tablo adı toohello **TableRestProxy -> deleteTable** yöntemi.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -480,9 +480,9 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure tablo hizmetinin öğrendiğinize göre daha karmaşık depolama görevleri hakkında bilgi edinmek için aşağıdaki bağlantıları izleyin.
+Hello Azure tablo hizmeti hello temellerini öğrendiğinize göre bu bağlantıları toolearn daha karmaşık depolama görevleri hakkında izleyin.
 
-* [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
+* [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux Azure Storage verilerle görsel olarak toowork sağlayan Microsoft boş bir tek başına uygulamadır.
 
 * [PHP Geliştirici Merkezi](/develop/php/).
 

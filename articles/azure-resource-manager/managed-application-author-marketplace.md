@@ -1,6 +1,6 @@
 ---
-title: "Azure Market uygulamalarda yönetilen | Microsoft Docs"
-description: "Azure açıklar yönetilen Market üzerinden kullanılabilir uygulamalar."
+title: "aaaAzure yönetilen hello Market uygulamalarda | Microsoft Docs"
+description: "Azure açıklar yönetilen Market hello kullanılabilir olan uygulamalar."
 services: azure-resource-manager
 author: ravbhatnagar
 manager: rjmax
@@ -10,69 +10,69 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
-ms.openlocfilehash: 58ac7665abf7e75a43bb0b92bdf6f41005c3efe8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: b3cdf3f1fccdd47db699e4892ae8bce35118bfd8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-managed-applications-in-the-marketplace"></a>Market'te Azure yönetilen uygulamalar
+# <a name="azure-managed-applications-in-hello-marketplace"></a>Azure Market hello uygulamalarda yönetilen
 
- MSP'ler, ISV ve sistem tümleştiricileri (SIS) Azure kullanabileceğiniz yönetilen tüm Azure Marketi müşterilere çözümleri sunmak için uygulamalar. Bu tür çözümler, Bakım ve müşteriler için ek yükü bakım azaltın. Yayımcılar, altyapı ve yazılım Market üzerinden satmak. Yönetilen uygulamaların bunlar Hizmetleri ve işletimsel destek ekleyebilirsiniz. Daha fazla bilgi için bkz: [yönetilen uygulama genel bakış](managed-application-overview.md).
+ MSP'ler, ISV ve sistem tümleştiricileri (SIS) kullanabilir Azure yönetilen uygulamaları toooffer çözümleri tooall Azure Marketi müşterilerine. Bu tür çözümler hello Bakım ve müşteriler için ek yükü bakım azaltın. Yayımcılar, altyapı ve yazılım hello Market aracılığıyla satın. Bunlar, hizmetler ve işletimsel destek toomanaged uygulamalar ekleyebilirsiniz. Daha fazla bilgi için bkz: [yönetilen uygulama genel bakış](managed-application-overview.md).
 
-Bu makalede, nasıl bir MSP, ISV veya SI Marketi'nde uygulama yayımlama ve müşterilere geniş çapta kullanılabilir hale açıklanmaktadır.
+Bu makalede, nasıl bir MSP, ISV veya SI uygulama toohello Market yayımlayabilir ve geniş çapta kullanılabilir toocustomers olun açıklanmaktadır.
 
 ## <a name="prerequisites-for-publishing-a-managed-application"></a>Yönetilen bir uygulamayı yayımlamak için Önkoşullar
 
-Market listesindeki için Önkoşullar:
+Önkoşullar toolisting hello Market içinde:
 
 * Teknik
 
-    *  Temel yapısını ve Azure Resource Manager şablonları sözdizimi hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları](resource-group-authoring-templates.md).
-    *  Tam veri şablonunun çözümleri görüntülemek için bkz: [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/en-us/documentation/templates/) veya [Hızlı Başlangıç şablonu deposu](https://github.com/azure/azure-quickstart-templates).
-    *  Market üzerinden uygulamanızı dağıtmak müşteriler arabirimi oluşturma hakkında daha fazla bilgi için bkz: [bir kullanıcı arabirimi tanımı dosyası oluşturma](managed-application-createuidefinition-overview.md).
+    *  Merhaba temel yapısını ve Azure Resource Manager şablonları sözdizimi hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları](resource-group-authoring-templates.md).
+    *  tooview tam şablon çözümleri, bakın [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/en-us/documentation/templates/) veya hello [Hızlı Başlangıç şablonu deposu](https://github.com/azure/azure-quickstart-templates).
+    *  Nasıl toocreate hello arabirimi hello Market üzerinden uygulamanızı dağıtmak müşteriler hakkında daha fazla bilgi için bkz: [bir kullanıcı arabirimi tanımı dosyası oluşturma](managed-application-createuidefinition-overview.md).
 
 * Yedeğin (iş gereksinimlerini)
 
-    *   Şirketiniz veya onun yan burada satış Marketi tarafından desteklenen bir ülkede bulunmalıdır.
-    *   Ürünü Marketi tarafından desteklenen faturalama modelleri ile uyumlu şekilde lisansına sahip olması gerekir.
-    *   Teknik Destek kullanılabilir müşterilere bir ticari koşulların elverdiği oranda makul şekilde yapmaktan sorumlu. Destek Ücretli, boş veya topluluk desteklemez.
+    *   Şirketiniz veya onun yan burada satış Market hello tarafından desteklenen bir ülkede bulunmalıdır.
+    *   Ürünü Market hello tarafından desteklenen faturalama modelleri ile uyumlu şekilde lisansına sahip olması gerekir.
+    *   Teknik Destek kullanılabilir toocustomers ticari koşulların elverdiği oranda makul bir biçimde yapmaktan sorumlu. Merhaba destek Ücretli, boş veya topluluk desteklemez.
     *   Yazılım ve üçüncü taraf yazılım bağımlılıkları lisansı sağlamaktan sorumlu.
-    *   Teklifinizle Market ve Azure portalını listelenmiş ölçütlerini karşılayan içerik sağlamanız gerekir.
-    *   Azure Market katılım ilkeleri ve yayımcı Sözleşmesi koşullarını kabul etmeniz gerekir.
-    *   Kullanım koşulları, Microsoft gizlilik bildirimi ve Microsoft Azure sertifikalı Program sözleşmesi uymak kabul etmeniz gerekir.
+    *   Azure portal teklifi toobe ölçütlerini karşılayan içerik hello Market ve hello listelenen sağlamanız gerekir.
+    *   Toohello hello Azure Market katılım ilkeleri ve yayımcı Sözleşmesi koşullarını kabul etmeniz gerekir.
+    *   Merhaba kullanım koşulları, Microsoft gizlilik bildirimi ve Microsoft Azure sertifikalı Program Sözleşmesi ile toocomply kabul etmeniz gerekir.
 
 ## <a name="create-a-new-azure-application-offer"></a>Yeni bir Azure uygulama teklifi oluşturma
 
-Önkoşulları karşılaması sonra yönetilen uygulamayı teklifiniz oluşturmaya hazırsınız. Bir teklif ve bir SKU hızlı bir genel bakış atalım.
+Merhaba önkoşulları karşılaması sonra hazır toocreate olduğunuz yönetilen uygulamayı teklifiniz. Bir teklif ve bir SKU hızlı bir genel bakış atalım.
 
 ### <a name="offer"></a>Sunduğu
 
-Teklif yönetilen bir uygulama için bir sınıf bir yayımcıdan sunumu ürünün karşılık gelir. Market kullanılabilir hale getirmek istediğiniz çözüm/uygulama yeni bir tür varsa, bunu yeni bir teklif ayarlayabilirsiniz. Bir teklif, SKU'ları koleksiyonudur. Her teklif Market'te kendi varlık olarak görünür.
+yönetilen bir uygulama için Hello teklifi tooa sınıf bir yayımcıdan sunumu ürünün karşılık gelir. Yeni bir çözüm/uygulama toomake hello Market kullanılabilir istediğiniz türü varsa, bunu yeni bir teklif ayarlayabilirsiniz. Bir teklif, SKU'ları koleksiyonudur. Her teklif hello Market kendi varlık gibi görünür.
 
 ### <a name="sku"></a>SKU
 
-Bir SKU en küçük purchasable bir teklif birimidir. Aynı ürün sınıfı (teklif) içinde bir SKU arasında ayırt etmek için kullanabilirsiniz:
+Bir SKU hello en küçük purchasable bir teklif birimidir. Merhaba içinde bir SKU kullanabilirsiniz arasında aynı ürün sınıfı (teklif) toodifferentiate:
 
 * Desteklenen farklı özellikleri.
-* Teklif yönetilen yönetilmeyen mı.
+* Merhaba teklif yönetilen yönetilmeyen mı.
 * Desteklenen faturalama modelleri.
 
-Bir SKU Market'te üst teklif altında görüntülenir. Azure portalında purchasable kendi varlık olarak görünür.
+Bir SKU hello Market hello üst teklif altında görüntülenir. Hello Azure portal purchasable kendi varlık gibi görünür.
 
 ### <a name="set-up-an-offer"></a>Bir teklif ayarlayın
 
-1. Oturum [bulut iş ortağı portalına](https://cloudpartner.azure.com/).
+1. İçinde toohello oturum [bulut iş ortağı portalına](https://cloudpartner.azure.com/).
 
-2. Sol gezinti bölmesinde seçin **+ yeni teklif** > **Azure uygulamaları**.
+2. Merhaba soldaki Hello Gezinti Bölmesi'nde seçin **+ yeni teklif** > **Azure uygulamaları**.
 
     ![Yeni teklif](./media/managed-application-author-marketplace/newOffer.png)
 
-3. Sol tarafta görünür form doldurmak **Düzenleyicisi** görünümü. Gerekli alanları ile kırmızı yıldız işareti (*) işaretlenir.
+3. Hello sol hello görünür hello form doldurmak **Düzenleyicisi** görünümü. Gerekli alanları ile kırmızı yıldız işareti (*) işaretlenir.
 
     ![Teklif ayarları](./media/managed-application-author-marketplace/newOffer_OfferSettings.png)
 
-    Dört ana formlar, yönetilen bir uygulama oluşturmak için kullanılır:
+    Dört ana forms kullanılan toocreate bir yönetilen uygulamayı şunlardır:
 
     a. Teklif ayarları
 
@@ -82,74 +82,74 @@ Bir SKU Market'te üst teklif altında görüntülenir. Azure portalında purcha
 
     d. Destek
 
-Bu form, aşağıdaki bölümlerde daha ayrıntılı açıklanmıştır.
+Bu form bölümleri aşağıdaki hello içinde daha ayrıntılı açıklanmıştır.
 
 ## <a name="offer-settings-form"></a>Teklif ayarları formu
-Teklif ayarlarını belirtmek için temel bu formu kullanın.
+Bu temel form toospecify hello teklif ayarları kullanın.
 
-1. Doldurmak **teklif ayarları** formu. Farklı alanları şunlardır:
+1. Hello dolgu **teklif ayarları** formu. Merhaba farklı alanları şunlardır:
 
-    a. **Teklif kodu**: Yayımcı profilindeki teklif bu benzersiz tanımlayıcı tanımlar. Bu kimliği ürün URL'ler, Resource Manager şablonları görünür ve faturalama raporlar. Yalnızca küçük harf alfasayısal karakterler veya tire (-) birleştirilebilir. Kimliği, bir tire bitemez. Buna ait sınırlı en çok 50 karakter. Bu alan, bir teklif Canlı göründükten sonra kilitlendi.
+    a. **Teklif kodu**: Yayımcı profilindeki hello teklif bu benzersiz tanımlayıcı tanımlar. Bu kimliği ürün URL'ler, Resource Manager şablonları görünür ve faturalama raporlar. Yalnızca küçük harf alfasayısal karakterler veya tire (-) birleştirilebilir. Merhaba kimliği, bir tire bitemez. Sınırlı tooa en çok 50 karakter var. Bu alan, bir teklif Canlı göründükten sonra kilitlendi.
 
-    b. **Yayımcı kimliği**: Bu teklif altında yayımlamak istediğiniz yayımcı profilini seçmek için bu açılan listeyi kullanın. Bu alan, bir teklif Canlı göründükten sonra kilitlendi.
+    b. **Yayımcı kimliği**: Bu teklif altında toopublish istediğiniz bu açılan liste toochoose hello yayımcı profili kullanın. Bu alan, bir teklif Canlı göründükten sonra kilitlendi.
 
-    c. **Ad**: teklifiniz için bu görünen ad Market ve Portalı'nda görünür. En çok 50 karakter olabilir. Ürününüzün tanınabilir bir marka adını ekleyin. Nasıl pazarlama olmadığı sürece, şirketinizin adını buraya dahil etmeyin. Kendi Web sitesinde bu teklif pazarlama, adı tam olarak, Web sitenizde şu şekilde görünür durumda olduğundan emin olun.
+    c. **Ad**: hello Market ve hello portal teklifiniz için bu görünen ad görüntülenir. En çok 50 karakter olabilir. Ürününüzün tanınabilir bir marka adını ekleyin. Nasıl pazarlama olmadığı sürece, şirketinizin adını buraya dahil etmeyin. Kendi Web sitesinde bu teklif pazarlama varsa, bu hello adı tam olarak, Web sitenizde görünme olduğundan emin olun.
 
-2. Seçin **kaydetmek** ilerleme durumunuzu kaydetmek için. 
+2. Seçin **kaydetmek** toosave ilerleme durumunuzu. 
 
 ## <a name="skus-form"></a>SKU'ları formu
-Sonraki adım, teklifiniz için SKU'ları eklemektir.
+Merhaba sonraki teklifiniz için tooadd SKU'ları adımdır.
 
 1. Seçin **SKU'ları** > **yeni SKU**. 
 
     ![Yeni SKU seçin](./media/managed-application-author-marketplace/newOffer_skus.png)
 
-2. Girin bir **SKU kimliği**. Bir teklif içinde SKU için benzersiz bir tanımlayıcı SKU kimliğidir. Bu kimliği ürün URL'ler, Resource Manager şablonları görünür ve faturalama raporlar. Yalnızca küçük harf alfasayısal karakterler veya tire (-) birleştirilebilir. Kimliği, tire ve buna ait en çok 50 karakter sınırlı bitemez. Bu alan, bir teklif Canlı göründükten sonra kilitlendi. Bir teklif içinde birden çok SKU olabilir. Bir SKU yayımlamayı düşündüğünüz her görüntü için gerekir.
+2. Girin bir **SKU kimliği**. SKU kimliği hello SKU bir teklif içinde benzersiz tanımlayıcısıdır. Bu kimliği ürün URL'ler, Resource Manager şablonları görünür ve faturalama raporlar. Yalnızca küçük harf alfasayısal karakterler veya tire (-) birleştirilebilir. Hello kimliği bir tire bitemez ve sınırlı tooa en çok 50 karakter değil. Bu alan, bir teklif Canlı göründükten sonra kilitlendi. Bir teklif içinde birden çok SKU olabilir. Bir SKU gereksinim duyduğunuz her görüntü için toopublish planlayın.
 
-3. Doldurmak **SKU ayrıntıları** aşağıdaki formda bölümü:
+3. Merhaba dolgu **SKU ayrıntıları** form aşağıdaki hello bölümünde:
 
     ![Yeni SKU sağlayın](./media/managed-application-author-marketplace/newOffer_newsku.png)
 
-    Aşağıdaki alanları doldurun:
+    Alanları aşağıdaki hello doldurun:
     
-    a. **Başlık**: Bu SKU için bir başlık girin. Bu öğe için galerisinde bu başlığı görüntülenir.
+    a. **Başlık**: Bu SKU için bir başlık girin. Bu öğe için hello galerisinde bu başlığı görüntülenir.
 
-    b. **Özet**: kısa bir özeti için bu SKU girin. Bu metin başlığı altında görüntülenir.
+    b. **Özet**: kısa bir özeti için bu SKU girin. Bu metin hello başlığı altında görüntülenir.
 
-    c. **Açıklama**: SKU hakkında ayrıntılı bir açıklama girin.
+    c. **Açıklama**: hello SKU hakkında ayrıntılı bir açıklama girin.
 
-    d. **SKU tür**: izin verilen değerler: **yönetilen uygulamayı** ve **çözüm şablonları**. Bu durumda, seçin **yönetilen uygulamayı**.
+    d. **SKU tür**: hello izin verilen değerler: **yönetilen uygulamayı** ve **çözüm şablonları**. Bu durumda, seçin **yönetilen uygulamayı**.
 
-4. Doldurmak **Paket ayrıntılarını** aşağıdaki formda bölümü:
+4. Merhaba dolgu **Paket ayrıntılarını** form aşağıdaki hello bölümünde:
 
     ![Paket](./media/managed-application-author-marketplace/newOffer_newsku_package.png)
 
-    Aşağıdaki alanları doldurun:
+    Alanları aşağıdaki hello doldurun:
 
-    a. **Geçerli sürüm**: karşıya yüklediğiniz paket için bir sürümü girin. Şu biçimde olmalıdır `{number}.{number}.{number}{number}`.
+    a. **Geçerli sürüm**: bir sürümü için karşıya yüklediğiniz hello paketi girin. Merhaba biçiminde olmalıdır `{number}.{number}.{number}{number}`.
 
-    b. **Bir paket dosyası seçmek**: Bu paket bir .zip dosyasına sıkıştırılmış aşağıdaki dosyaları içerir:
-    * **applianceMainTemplate.json**: Çözüm/uygulama dağıtmak için kullanılan dağıtım şablon dosyası. Dağıtım şablonu dosyaları oluşturma hakkında daha fazla bilgi için bkz: [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).
-    * **appliancecreateUIDefinition.json**: Bu dosya bu çözümü/uygulama sağlamak için kullanılan kullanıcı arabirimi oluşturmak için Azure portal tarafından kullanılır. Daha fazla bilgi için bkz: [CreateUiDefinition ile çalışmaya başlama](managed-application-createuidefinition-overview.md).
-    * **mainTemplate.json**: Bu şablon dosyası, yalnızca Microsoft.Solution/appliances kaynak içeriyor. MainTemplate dosyası, aşağıdaki özellikleri içerir:
+    b. **Bir paket dosyası seçmek**: Bu paket, sıkıştırılmış dosyalar bir .zip dosyasına aşağıdaki hello içerir:
+    * **applianceMainTemplate.json**: toodeploy hello çözüm/uygulama kullandı hello dağıtım şablon dosyası. Hakkında bilgi için bkz toocreate dağıtım şablonu dosyalarını [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).
+    * **appliancecreateUIDefinition.json**: Bu dosya bu çözümü/uygulama tooprovision kullandığı hello Azure portal toogenerate hello kullanıcı arabirimi tarafından kullanılır. Daha fazla bilgi için bkz: [CreateUiDefinition ile çalışmaya başlama](managed-application-createuidefinition-overview.md).
+    * **mainTemplate.json**: Bu şablon dosyası, yalnızca hello Microsoft.Solution/appliances kaynak içeriyor. Merhaba mainTemplate dosyası, aşağıdaki özelliklere hello içerir:
 
-        *  **tür**: kullanım **Market** Market'te yönetilen uygulamalar için.
-        *  **ManagedResourceGroupId**: applianceMainTemplate.json içinde tanımlanan tüm kaynaklara dağıtıldığı müşterinin aboneliğini bu kaynak grubunda bulunuyor.
-        *  **PublisherPackageId**: Bu dize paketi benzersiz olarak tanımlar. Değer biçiminde sağlayın `{publisherId}.{OfferId}.{SKUID}.{PackageVersion}`.
+        *  **tür**: kullanım **Market** hello Market yönetilen uygulamalar için.
+        *  **ManagedResourceGroupId**: applianceMainTemplate.json içinde tanımlanan tüm hello kaynaklara dağıtıldığı hello müşterinin aboneliğini bu kaynak grubunda bulunuyor.
+        *  **PublisherPackageId**: Bu dize hello paketi benzersiz olarak tanımlar. Merhaba biçiminde Hello değer sağlamanız `{publisherId}.{OfferId}.{SKUID}.{PackageVersion}`.
 
-Elde **Teklif kimliği** ve **yayımcı kimliği** Yayımlama Portalı, aşağıdaki resimde gösterildiği gibi:
+Merhaba elde **Teklif kimliği** ve **yayımcı kimliği** hello görüntü aşağıdaki gösterildiği gibi portal, yayımlama hello gelen:
 
 ![Teklif kimliği](./media/managed-application-author-marketplace/UniqueString_pubid_offerid.png)
         
-Elde **SKU kimliği**aşağıdaki görüntüde gösterildiği gibi:
+Merhaba elde **SKU kimliği**hello görüntü aşağıdaki gösterildiği gibi:
 
 ![SKU KİMLİĞİ](./media/managed-application-author-marketplace/UniqueString_skuid.png)
         
-Paket elde **sürüm**aşağıdaki görüntüde gösterildiği gibi:
+Merhaba paketi almasını **sürüm**hello görüntü aşağıdaki gösterildiği gibi:
 
 ![Paket sürümü](./media/managed-application-author-marketplace/UniqueString_packageversion.png)
     
-  Değerini önceki örneklerde dayalı **PublisherPackageId** olan `azureappliance-test.ravmanagedapptest.ravpreviewmanagedsku.1.0.0`.
+  Örnekler önceki hello üzerinde bağlı olarak, hello değerini **PublisherPackageId** olan `azureappliance-test.ravmanagedapptest.ravpreviewmanagedsku.1.0.0`.
 
   Örnek mainTemplate.json:
 
@@ -161,7 +161,7 @@ Paket elde **sürüm**aşağıdaki görüntüde gösterildiği gibi:
       "storageAccountNamePrefix": {
         "type": "string",
         "metadata": {
-          "description": "Specify the name of the storage account"
+          "description": "Specify hello name of hello storage account"
         }
       },
       "storageAccountType": {
@@ -196,84 +196,84 @@ Paket elde **sürüm**aşağıdaki görüntüde gösterildiği gibi:
   }
   ```
 
-Bu paket, herhangi bir iç içe geçmiş şablonları veya bu uygulama başarıyla hazırlamak için gereken komut dosyaları içermelidir. MainTemplate.json applianceMainTemplate.json applianceCreateUIDefinition.json dosyaları ve kök klasörde mevcut olması gerekir.
+Bu paketin diğer iç içe geçmiş şablonları içermesi veya bu uygulamayı gerekli toosuccessfully olan komutlar sağlamak. Merhaba mainTemplate.json, applianceMainTemplate.json ve applianceCreateUIDefinition.json dosyaları hello Kök klasörde mevcut olması gerekir.
 
-* **Yetkilerini**: Bu özellik müşterilerin Aboneliklerde kimlerin erişimi ve kaynaklara erişim düzeyini alır tanımlar. Yayımcı, uygulama müşteri adına yönetmek için kullanabilirsiniz.
-* **Principalıd**: Bu özellik bir kullanıcının, kullanıcı grubu veya Müşteri'nin aboneliğindeki kaynaklar belirli izinleri verildi uygulama Azure Active Directory (Azure AD) tanımlayıcısıdır. Rol tanımı izinleri açıklar. 
-* **Rol tanımı**: Bu özellik Azure AD tarafından sağlanan tüm yerleşik rol tabanlı erişim denetimi (RBAC) rollerini listesidir. Kaynakları müşteri adına yönetmek üzere kullanmak en uygun olan rolü seçebilirsiniz.
+* **Yetkilerini**: Bu özellik müşterilerin abonelikleri toohello kaynaklarında kimin erişim ve hello erişim düzeyini alır tanımlar. Merhaba yayımcı toomanage hello uygulama hello müşteri adına kullanabilirsiniz.
+* **Principalıd**: Bu özellik hello Azure Active Directory (Azure AD) kullanıcı, kullanıcı grubu veya hello müşterinin aboneliğini hello kaynaklarında belirli izinleri verildi uygulama tanımlayıcısıdır. Merhaba rol tanımı hello izinleri açıklar. 
+* **Rol tanımı**: Bu özellik Azure AD tarafından sağlanan tüm hello yerleşik rol tabanlı erişim denetimi (RBAC) rolleri listesini içerir. En uygun toouse toomanage hello kaynakları hello müşteri adına hello rolü seçebilirsiniz.
 
-Birden çok yetkilerini ekleyebilirsiniz. Bir AD kullanıcı grubu oluşturun ve kendi Kimliğini belirtin öneririz **Principalıd**. Bu şekilde, kullanıcı grubu SKU güncelleştirmeye gerek olmadan daha fazla kullanıcı ekleyebilirsiniz.
+Birden çok yetkilerini ekleyebilirsiniz. Bir AD kullanıcı grubu oluşturun ve kendi Kimliğini belirtin öneririz **Principalıd**. Bu şekilde hello gerek tooupdate hello SKU olmadan daha fazla kullanıcı toohello kullanıcı grubu ekleyebilirsiniz.
 
-RBAC hakkında daha fazla bilgi için bkz: [Azure portalında RBAC ile çalışmaya başlama](../active-directory/role-based-access-control-what-is.md).
+RBAC hakkında daha fazla bilgi için bkz: [hello Azure portalında RBAC ile çalışmaya başlama](../active-directory/role-based-access-control-what-is.md).
 
 ## <a name="marketplace-form"></a>Market formu
 
-Market form üzerinde göster alanların ister [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portal](https://portal.azure.com/).
+Merhaba Market form ister hello üzerinde görünmesini alanlar için [Azure Marketi](https://azuremarketplace.microsoft.com) ve hello [Azure portal](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>Önizleme abonelik kimlikleri
 
-Azure aboneliği yayımlandıktan sonra teklif erişebileceği kimlikleri listesini girin. Bunu yapmadan önce önizleme uygulanan teklif test etmek için bu beyaz listelenen abonelikleri kullanabileceğiniz Canlı. İş ortağı portalında en fazla 100 abonelikleri beyaz listesi derleyebilirsiniz.
+Azure aboneliği yayımlandıktan sonra hello teklif erişebilirsiniz kimlikleri listesini girin. Bunu yapmadan önce bu abonelikleri beyaz listelenen tootest önizlemesi hello teklif kullanabilirsiniz Canlı. Merhaba iş ortağı portalında too100 abonelikleri yukarı beyaz listesi derleyebilirsiniz.
 
 ### <a name="suggested-categories"></a>Önerilen kategorileri
 
-Teklifiniz en iyi ile ilişkilendirilebilir listesinden en fazla beş kategorilerini seçin. Bu kategoriler kullanılabilir olan ürün kategorilerini teklifiniz eşlemek için kullanılır [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portal](https://portal.azure.com/).
+Toofive kategorileri teklifiniz en iyi ilişkilendirilebilir hello listeden seçin. Bu kategoriler kullanılan toomap hello kullanılabilir, teklif toohello ürün kategorileri şunlardır [Azure Marketi](https://azuremarketplace.microsoft.com) ve hello [Azure portal](https://portal.azure.com/).
 
 #### <a name="azure-marketplace"></a>Azure Market
 
-Aşağıdaki alanları, yönetilen uygulamanızın özetini görüntüler:
+Merhaba, yönetilen uygulamanızın özetini alanları izleyen hello görüntüler:
 
 ![Market özeti](./media/managed-application-author-marketplace/publishvm10.png)
 
-**Genel bakış** aşağıdaki alanları, yönetilen uygulamanızın görüntüler sekmesi:
+Merhaba **genel bakış** sekmesi, yönetilen uygulamanızın alanları izleyen hello görüntüler:
 
 ![Market’e genel bakış](./media/managed-application-author-marketplace/publishvm11.png)
 
-**Planları + fiyatlandırma** aşağıdaki alanları, yönetilen uygulamanızın görüntüler sekmesi:
+Merhaba **planları + fiyatlandırma** sekmesi, yönetilen uygulamanızın alanları izleyen hello görüntüler:
 
 ![Market planları](./media/managed-application-author-marketplace/publishvm15.png)
 
 #### <a name="azure-portal"></a>Azure portalına
 
-Aşağıdaki alanları, yönetilen uygulamanızın özetini görüntüler:
+Merhaba, yönetilen uygulamanızın özetini alanları izleyen hello görüntüler:
 
 ![Portal özeti](./media/managed-application-author-marketplace/publishvm12.png)
 
-Genel bakış, yönetilen uygulamanızın için aşağıdaki alanları görüntüler:
+Merhaba genel bakış için yönetilen uygulamanızın alanları izleyen hello görüntüler:
 
 ![Portal genel bakış](./media/managed-application-author-marketplace/publishvm13.png)
 
 #### <a name="logo-guidelines"></a>Logo yönergeleri
 
-Bulut iş ortağı Portalı'nda karşıya logo aşağıdaki yönergeleri izleyin:
+Merhaba bulut iş ortağı Portalı'nda karşıya logo aşağıdaki yönergeleri izleyin:
 
-*   Azure tasarım basit renk paletini sahiptir. Logonuzun ikincil renkleri ve birincil sayısını sınırlayın.
-*   Tema renkleri portalı beyaz ve siyah. Bu renkler arka plan rengi olarak logonuzun için kullanmayın. Logonuzun portalında belirgin hale getirir bir renk kullanın. Basit birincil renkleri öneririz. *Saydam arka plan kullanırsanız, logo ve metin beyaz, olduğundan emin olun siyah veya mavi.*
-*   Gradyan arka planı logosunu kullanmayın.
-*   Metin, logo, bile, şirket veya marka adı yerleştirmeyin. Logonuzun Görünüm ve yapısını düz ve gradyan olmaması gerekir.
-*   Logo uzatılmış olmadığından emin olun.
+*   Hello Azure tasarım basit renk paleti vardır. Merhaba sayısı birincil ve ikincil renkleri logonuzun sınırlandırın.
+*   Merhaba Tema renkleri hello portalı beyaz ve siyah. Bu renkleri hello arka plan rengi olarak logonuzun için kullanmayın. Logonuzun hello portalında belirgin hale getirir bir renk kullanın. Basit birincil renkleri öneririz. *Saydam arka plan kullanırsanız, hello logo ve metin beyaz, olduğundan emin olun siyah veya mavi.*
+*   Gradyan arka planı hello logosu kullanmayın.
+*   Metin hello logosu, bile, şirket veya marka adı yerleştirmeyin. logonuzun Hello Görünüm ve yapısını, düz ve gradyan kaçının.
+*   Hello logosu uzatılmış olmadığından emin olun.
 
 #### <a name="hero-logo"></a>Kahramanı logosu
 
-Kahramanı logosu isteğe bağlıdır. Yayımcı kahramanı logosu yüklemek değil seçebilirsiniz. Kahramanı simgesi yüklendikten sonra silinemez. O anda iş ortağı kahramanı simgeler Market yönergeleri izlemeniz gerekir.
+Merhaba kahramanı logosu isteğe bağlıdır. Merhaba yayımcı değil tooupload kahramanı logosu seçebilirsiniz. Merhaba kahramanı simgesi yüklendikten sonra silinemez. O anda hello ortağı kahramanı simgeler için hello Market yönergelere uyması gerekir.
 
-Kahramanı logo simgesini için aşağıdaki yönergeleri izleyin:
+Merhaba kahramanı logo simgesini için aşağıdaki yönergeleri izleyin:
 
-*   Yayımcı görünen adı, planı başlık ve uzun Özet teklif beyaz görüntülenir. Bu nedenle, açık bir renk kahramanı simgesi arka plan için kullanmayın. Siyah, beyaz veya saydam arka plan kahramanı simgelerini izin verilmiyor.
-*   Teklif listelenen sonra yayımcı görüntüleme adı, planı başlık, uzun Özet teklif ve **oluşturma** düğmesi program aracılığıyla kahramanı logosunun içinde katıştırılmış. Sonuç olarak, kahramanı logosu tasarlarken herhangi bir metin girmeyin. Metni program aracılığıyla bu alana dahil olduğundan boş alanı sağ tarafta bırakın. Metin için boş alan sağdaki 415 x 100 piksel olmalıdır. Soldan 370 piksel uzakta bulunur.
+*   Merhaba yayımcı görünen adı, hello planı başlık ve hello teklif uzun Özet beyaz görüntülenir. Bu nedenle, açık bir renk hello kahramanı simgesi hello arka planı için kullanmayın. Siyah, beyaz veya saydam arka plan kahramanı simgelerini izin verilmiyor.
+*   Merhaba teklif listelenen sonra hello publisher görüntüler adı, hello planı başlık, hello teklif uzun Özet ve hello **oluşturma** düğmesi program aracılığıyla hello kahramanı logosunun içinde katıştırılmış. Sonuç olarak, hello kahramanı logosu tasarlarken herhangi bir metin girmeyin. Merhaba metni program aracılığıyla bu alana dahil olduğundan boş alanı hello üzerinde sağ bırakın. Merhaba boş alan hello metin hello sağ üzerinde 415 x 100 piksel olmalıdır. Merhaba soldan 370 piksel uzakta bulunur.
 
     ![Kahramanı logosu örneği](./media/managed-application-author-marketplace/publishvm14.png)
 
 ## <a name="support-form"></a>Form desteği
 
-Doldurmak **Destek** kişiler şirketinizden desteğiyle formu. Bu bilgileri, kişiler ve müşteri destek ilgili kişisi mühendislik.
+Merhaba doldurun **Destek** kişiler şirketinizden desteğiyle formu. Bu bilgileri, kişiler ve müşteri destek ilgili kişisi mühendislik.
 
 ## <a name="publish-an-offer"></a>Bir teklifi yayımlama
 
-Tüm bölümleri doldurduktan sonra seçin **Yayımla** teklifiniz müşteriler için kullanılabilir hale getirir işlemini başlatmak üzere.
+Tüm hello bölümleri doldurduktan sonra seçin **Yayımla** , teklif kullanılabilir toocustomers yapar toostart hello işlemi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yönetilen uygulamaların giriş için bkz: [yönetilen uygulama genel bakış](managed-application-overview.md).
-* Marketten bir yönetilen uygulamayı kullanma hakkında daha fazla bilgi için bkz: [tüketen Azure Market uygulamalarda yönetilen](managed-application-consume-marketplace.md).
+* Bir giriş toomanaged uygulamalar için bkz [yönetilen uygulama genel bakış](managed-application-overview.md).
+* Merhaba Market yönetilen bir uygulamadan kullanma hakkında daha fazla bilgi için bkz: [tüketen Azure hello Market uygulamalarda yönetilen](managed-application-consume-marketplace.md).
 * Hizmet Kataloğu yönetilen uygulama yayımlama hakkında daha fazla bilgi için bkz: [oluşturma ve bir hizmet Kataloğu yönetilen uygulamayı yayımlayın](managed-application-publishing.md).
 * Hizmet Kataloğu yönetilen uygulama kullanma hakkında daha fazla bilgi için bkz: [bir hizmet Kataloğu yönetilen uygulama tüketen](managed-application-consumption.md).

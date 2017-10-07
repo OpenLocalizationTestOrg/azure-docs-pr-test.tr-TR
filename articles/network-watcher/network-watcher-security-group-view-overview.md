@@ -1,6 +1,6 @@
 ---
-title: "Güvenlik grubu Azure Ağ İzleyicisi görünümünde giriş | Microsoft Docs"
-description: "Bu sayfa Ağ İzleyicisi güvenlik görünüm yetenek genel bir bakış sağlar"
+title: "Azure Ağ İzleyicisi aaaIntroduction toosecurity Grup görünümünde | Microsoft Docs"
+description: "Bu sayfa hello Ağ İzleyicisi güvenlik görünüm yetenek genel bir bakış sağlar"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: gwallace
-ms.openlocfilehash: 2c581a2d152a6d3f16de8f249e27a426aa9f844f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c2f6dbbffd0aedbb9db4b69d1758f2e66dd7abb8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Ağ güvenlik grubu Azure Ağ İzleyicisi görünümünde giriş
+# <a name="introduction-toonetwork-security-group-view-in-azure-network-watcher"></a>Giriş toonetwork güvenlik grubu Azure Ağ İzleyicisi görünümünde
 
-Ağ güvenlik grupları, bir alt ağ düzeyinde veya bir NIC düzeyi ilişkilendirilir. Bir alt düzeyde ilişkili olduğunda, alt ağdaki tüm VM örnekleri için geçerlidir. Ağ güvenlik grubu görünümü yapılandırılan Nsg'ler ve yapılandırma hakkında bilgi sağlayan bir sanal makine için bir NIC ve alt ağ düzeyinde ilişkili kurallarını döndürür. Ayrıca, her bir VM NIC'ler için etkili güvenlik kuralları döndürülür. Ağ güvenlik grubu kullanarak görünüm açık bağlantı noktaları gibi ağ güvenlik açıkları için bir VM değerlendirebilirsiniz. De doğrulamak, ağ güvenlik grubu temel alarak beklendiği gibi çalışıp çalışmadığını bir [yapılandırılmış ve etkin güvenlik kuralları arasında karşılaştırma](network-watcher-nsg-auditing-powershell.md).
+Ağ güvenlik grupları, bir alt ağ düzeyinde veya bir NIC düzeyi ilişkilendirilir. Bir alt düzeyde ilişkili hello alt ağdaki tooall hello VM örnekleri uygulanır. Ağ güvenlik grubu görünümü tüm yapılandırılmış hello Nsg'ler ve hello yapılandırma hakkında bilgi sağlayan bir sanal makine için bir NIC ve alt ağ düzeyinde ilişkili kurallar döndürür. Ayrıca, her bir VM hello NIC hello etkin güvenlik kuralları döndürülür. Ağ güvenlik grubu kullanarak görünüm açık bağlantı noktaları gibi ağ güvenlik açıkları için bir VM değerlendirebilirsiniz. De doğrulamak, ağ güvenlik grubu temel alarak beklendiği gibi çalışıp çalışmadığını bir [hello karşılaştırması yapılandırılmış ve etkin güvenlik kuralları hello](network-watcher-nsg-auditing-powershell.md).
 
-Daha uzun bir kullanım örneği, güvenlik uyumluluğunu ve denetim gerçekleştirilir. Kuruluşunuzdaki güvenlik idare modeli olarak güvenlik kuralları Düzenleyici kümesi tanımlayabilirsiniz. Bir dönemsel uyumluluk denetimi için ağınızda VM'lerin her birinde etkili kurallarla düzenleyici kuralları karşılaştırarak programlı bir şekilde uygulanabilir.
+Daha uzun bir kullanım örneği, güvenlik uyumluluğunu ve denetim gerçekleştirilir. Kuruluşunuzdaki güvenlik idare modeli olarak güvenlik kuralları Düzenleyici kümesi tanımlayabilirsiniz. Bir dönemsel uyumluluk denetimi hello VM'ler, ağınızdaki her hello düzenleyici kuralları hello etkili kuralları ile karşılaştırarak programlı bir şekilde uygulanabilir.
 
-Portalda kuralları etkili, alt ağ, ağ arabirimi ve varsayılan ayrılır. Bu kuralı bir sanal makineye uygulanan basit bir görünüm sağlar. Karşıdan Yükle düğmesi kolayca sekmesini olursa olsun tüm güvenlik kuralları bir CSV dosyasına indirmek için sağlanır.
+Hello portal kuralları etkili, alt ağ, ağ arabirimi ve varsayılan ayrılır. Bu basit bir hello uygulanan kurallar tooa sanal makine görünüme sağlar. Tooeasily karşıdan hello sekmesini olursa olsun tüm hello güvenlik kuralları bir CSV dosyasına karşıdan yükle düğmesi bulunur.
 
 ![Güvenlik grubu görünümü][1]
 
-Kuralları seçilebilir ve ağ güvenlik grubu ve kaynak ve hedef öneklerinin göstermek için yeni bir dikey pencere açılır. Bu dikey pencereden doğrudan ağ güvenlik grubu kaynak gidebilirsiniz.
+Kuralları seçilebilir ve tooshow hello ağ güvenlik grubu ve kaynak ve hedef öneklerinin yeni bir dikey pencere açılır. Bu dikey pencereden toohello ağ güvenlik grubu kaynak doğrudan gidebilirsiniz.
 
 ![ayrıntıya gitme][2]
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
-Ağ güvenlik grubu ayarlarınızı ziyaret ederek denetim öğrenin [PowerShell ile ağ güvenlik grubu denetim ayarları](network-watcher-nsg-auditing-powershell.md)
+Tooaudit ağınızda güvenlik Grup nasıl öğrenin ayarları şu adresi ziyaret ederek [PowerShell ile denetim ağ güvenlik grubu ayarları](network-watcher-nsg-auditing-powershell.md)
 
 [1]: ./media/network-watcher-security-group-view-overview/securitygroupview.png
 [2]: ./media/network-watcher-security-group-view-overview/figure1.png

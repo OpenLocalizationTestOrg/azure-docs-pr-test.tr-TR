@@ -1,5 +1,5 @@
 ---
-title: "Web sitelerinin kullanılabilirlik ve yanıt hızını izleme | Microsoft Docs"
+title: "aaaMonitor kullanılabilirlik ve yanıt hızını herhangi bir web sitesini | Microsoft Docs"
 description: "Application Insights’ta web testleri ayarlayın. Web sitesi kullanılamaz duruma gelirse veya yavaş yanıt verirse uyarı alın."
 services: application-insights
 documentationcenter: 
@@ -13,85 +13,85 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/25/2017
 ms.author: bwren
-ms.openlocfilehash: 6c7f52fc3998b0b29301206ffbc6a5a0c4134f6a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 4c5425c948770cc57a648ca50e217c75ac75fbd7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
-Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
+Web uygulaması veya web sitesi tooany sunucu dağıtıldıktan sonra kullanılabilirlik ve yanıt hızını testleri toomonitor ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md) Merhaba Dünya noktalarından düzenli aralıklarla web istekleri tooyour uygulama gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
 
-Genel İnternet'ten erişilebilen herhangi bir HTTP veya HTTPS uç noktası için kullanılabilirlik testleri ayarlayabilirsiniz. Test ettiğiniz web sitesine eklemeniz gereken bir şey yoktur. Kendi siteniz olması bile gerekmez. Kullandığınız bir REST API hizmetini test edebilirsiniz.
+Erişilebilir HTTPS uç noktası hello genel internet veya tüm HTTP için kullanılabilirlik testleri ayarlayabilirsiniz. Tooadd toohello web test etmekte site herhangi bir şey yok. Hatta, sitenizi toobe yok: üzerinde bağımlı bir REST API hizmeti test edebilirsiniz.
 
 İki tür kullanılabilirlik testi vardır:
 
-* [URL ping testi](#create): Azure portalında oluşturabileceğiniz basit bir test.
-* [Çok adımlı web testi](#multi-step-web-tests): Visual Studio Enterprise’da oluşturup portala yüklediğiniz test.
+* [URL ping testi](#create): hello Azure portalında oluşturabileceğiniz basit bir sınama.
+* [Çok adımlı web testi](#multi-step-web-tests): Visual Studio Enterprise ve karşıya yükleme toohello portal oluşturan.
 
-Her uygulama kaynağı için 25’e kadar kullanılabilirlik testi oluşturabilirsiniz.
+Her uygulama kaynağı too25 kullanılabilirlik testleri oluşturabilirsiniz.
 
 ## <a name="create"></a>1. Kullanılabilirlik testi raporlarınız için kaynak açma
 
-Web uygulamanız için **Application Insights’ı zaten yapılandırdıysanız**, Application Insights kaynağını [Azure portalında](https://portal.azure.com) açın.
+**Application Insights zaten yapılandırdıysanız** web uygulamanız için Application Insights kaynağı hello açmak [Azure portal](https://portal.azure.com).
 
-**Veya raporlarınızı yeni bir kaynakta görmek istiyorsanız,** [Microsoft Azure](http://azure.com)’a kaydolun, [Azure portalı](https://portal.azure.com)’na gidin ve bir Application Insights kaynağı oluşturun.
+**Veya yeni bir kaynak raporlarınızda toosee istiyorsanız** çok kaydolun[Microsoft Azure](http://azure.com), Git toohello [Azure portal](https://portal.azure.com)ve Application Insights kaynağı oluşturun.
 
 ![Yeni > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Yeni kaynağa ait Genel Bakış dikey penceresini açmak için **Tüm kaynaklar**’a tıklayın.
+Tıklatın **tüm kaynakları** tooopen hello genel bakış dikey penceresinde hello yeni kaynak için.
 
 ## <a name="setup"></a>2. URL ping testi oluşturma
-Kullanılabilirlik dikey penceresini açın ve bir kullanılabilirlik testi ekleyin.
+Merhaba kullanılabilirlik dikey penceresini açın ve bir test ekleyin.
 
-![En azından web sitenizin URL'sini doldurma](./media/app-insights-monitor-web-app-availability/13-availability.png)
+![En az hello Web sitenizin URL'sini doldurma](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **URL**, test etmek istediğiniz herhangi bir web sayfası olabilir, ancak ortak İnternet’te görünür olmalıdır. URL bir sorgu dizesi içerebilir. Bu nedenle, örneğin, veritabanınızla biraz alıştırma yapabilirsiniz. URL yeniden yönlendirme adresine çözümlenirse, en fazla 10 yeniden yönlendirmeyi izleriz.
-* **Bağımlı istekleri ayrıştır**: Bu seçenek işaretlenirse test, test kapsamındaki web sitesine ait görüntü, betik, stil dosyaları ve diğer dosyaları ister. Kayıtlı yanıt süresi, bu dosyaları almak için geçen süreyi içerir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse, test başarısız olur. 
+* **Merhaba URL** herhangi bir web sayfası olabilir tootest istiyor, ancak gelen görünür olmalıdır genel internet hello. Merhaba URL sorgu dizesi içerebilir. Bu nedenle, örneğin, veritabanınızla biraz alıştırma yapabilirsiniz. Merhaba URL tooa yeniden yönlendirme çözümlenirse, biz bunu too10 yeniden yönlendirmeleri izleyin.
+* **Bağımlı istekleri Ayrıştır**: Bu seçenek işaretlenirse, görüntüler, betikler, Stil dosyaları ve test altındaki hello web sayfasının parçası olan diğer dosyaları hello test ister. Merhaba kaydedilen yanıt süresi hello geçen süre tooget bu dosyaları içerir. Tüm bu kaynaklar hello tüm test için hello zaman aşımı süresi içinde başarıyla indirilemiyor hello sınama başarısız olur. 
 
-    Seçenek işaretlenmezse, test yalnızca belirttiğiniz URL’deki dosyayı ister.
-* **Yeniden denemeyi etkinleştir**: Bu seçenek işaretlenirse, test başarısız olduğunda kısa bir süre sonra yeniden denenir. Art arda üç deneme başarısız olursa bir hata bildirilir. Sonraki testler bundan sonra her zamanki test sıklığında gerçekleştirilir. Bir sonraki başarılı olana kadar yeniden deneme geçici olarak askıya alınır. Bu kural her test konuma bağımsız olarak uygulanır. Bu ayar önerilir. Ortalama olarak hataların yaklaşık %80’i yeniden deneme sırasında kaybolur.
-* **Test sıklığı**: Her test konumdan testin ne sıklıkta çalıştırılacağını ayarlar. Beş dakikalık sıklığında ve beş test konumuyla, siteniz ortalama olarak dakikada bir test edilir.
-* **Test konumları**, sunucularımızın URL’nize web istekleri gönderdiği yerlerdir. Bir konumdan fazla seçin; böylece, web sitenizdeki ağ sorunlarını ayırt edebilirsiniz. En fazla 16 konum seçebilirsiniz.
+    Merhaba seçeneği işaretli değilse hello test yalnızca belirttiğiniz hello URL'sindeki hello dosya ister.
+* **Yeniden denemeyi etkinleştir**: Bu seçenek işaretlenirse hello test başarısız olduğunda, kısa bir süre sonra denenir. Art arda üç deneme başarısız olursa bir hata bildirilir. Sonraki testler ardından hello her zamanki test sıklığında gerçekleştirilir. Merhaba sonraki başarılı olana kadar yeniden deneme geçici olarak askıya alındı. Bu kural her test konuma bağımsız olarak uygulanır. Bu ayar önerilir. Ortalama olarak hataların yaklaşık %80’i yeniden deneme sırasında kaybolur.
+* **Test sıklığı**: ne sıklıkta hello test her test konumdan çalıştırılacağını ayarlar. Beş dakikalık sıklığında ve beş test konumuyla, siteniz ortalama olarak dakikada bir test edilir.
+* **Test konumları** hello yerleştirir nerede sunucularımızda web istekleri tooyour URL'si den gönderdiğiniz şunlardır. Bir konumdan fazla seçin; böylece, web sitenizdeki ağ sorunlarını ayırt edebilirsiniz. Too16 konumları seçebilirsiniz.
 * **Başarı ölçütleri**:
 
-    **Test zaman aşımı**: Yavaş yanıtlar hakkında uyarı almak için bu değeri azaltın. Yanıtlar sitenizden bu süre içinde alınmadıysa test başarısız sayılır. **Bağımlı istekleri ayrıştır**’ı seçtiyseniz; tüm görüntüler, stil dosyaları, betikler ve diğer bağımlı kaynaklar bu süre içinde alınmış olmalıdır.
+    **Test zaman aşımı**: yavaş yanıtlar hakkında uyarı bu değeri toobe azaltın. Merhaba yanıtlar sitenizden bu süre içinde henüz alınmamıştır varsa hello test hata olarak kabul edilir. Seçtiyseniz **bağımlı istekleri Ayrıştır**, ardından tüm hello görüntüler, Stil dosyaları, betikler ve diğer bağımlı kaynaklar bu süre içinde alınmalıdır.
 
-    **HTTP yanıtı**: Başarılı sayılan döndürüldü durum kodu. 200, normal web sayfası döndürüldüğünü belirten koddur.
+    **HTTP yanıtı**: hello başarılı sayılan durum kodunu döndürdü. 200, normal web sayfası döndürüldüğünü belirten hello koddur.
 
-    **İçerik eşleşmesi**: "Hoş geldiniz!" gibi bir dize. Her yanıtta büyük küçük harfe duyarlı bir tam eşleşme oluştuğunu test edebiliriz. Joker karakter bulunmayan düz bir dize olmalıdır. Sayfanızın içeriği değişirse bunu güncelleştirmeniz gerektiğini unutmayın.
-* **Uyarılar**, varsayılan olarak, beş dakikayı geçen bir sürede üç konumda hata varsa size gönderilir. Tek konumdaki hata daha çok bir ağ sorunudur, sitenizle ilgili değildir. Ancak, eşiği daha fazla veya daha az hassas olarak değiştirebilirsiniz; size kimlerin e-posta göndermesi gerektiğini de değiştirebilirsiniz.
+    **İçerik eşleşmesi**: "Hoş geldiniz!" gibi bir dize. Her yanıtta büyük küçük harfe duyarlı bir tam eşleşme oluştuğunu test edebiliriz. Joker karakter bulunmayan düz bir dize olmalıdır. Olması durumunda tooupdate olabilir sayfanızın içeriği değişirse unutmayın.
+* **Uyarıları** beş dakikayı üç konumda hata varsa varsayılan olarak, tooyou gönderilir. Tek bir konumda büyük olasılıkla toobe bir ağ sorunu ve sitenizi olmayan bir sorun hatasıdır. Ancak hello eşik toobe daha fazla değiştirebilir veya duyarlı ve daha az de e-postaları hello değişiklik gönderilebilir.
 
     Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../monitoring-and-diagnostics/insights-webhooks-alerts.md) ayarlayabilirsiniz. (Ancak şu anda sorgu parametreleri Özellikler aracılığıyla geçirilmez.)
 
 ### <a name="test-more-urls"></a>Daha fazla URL test etme
-Daha fazla test ekleyin. Örneğin, giriş sayfanızın test edilmesine ek olarak arama URL’sini de test ederek veritabanınızın çalıştığından emin olursunuz.
+Daha fazla test ekleyin. Örneğin, ek tootesting giriş sayfanız, arama hello URL'sini test ederek veritabanınızın çalıştığından emin olabilir.
 
 
 ## <a name="monitor"></a>3. Kullanılabilirlik testi sonuçlarınızı görme
 
-Birkaç dakika sonra, test sonuçlarını görmek için **Yenile**’ye tıklayın. 
+Birkaç dakika sonra'ı **yenileme** toosee test sonuçları. 
 
-![Giriş dikey penceresinde özet sonuçları](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
+![Merhaba giriş dikey penceresinde Özet Sonuçları](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
 
-Dağılım grafiği, tanılama testi adım ayrıntılarını içeren örnek test sonuçlarını gösterir. Test altyapısı, hata içeren testler için tanılama ayrıntılarını depolar. Başarılı testlerde, yürütmelerin bir alt kümesi için tanılama ayrıntıları depolanır. Test zaman damgası, test süresi, konum ve test adını görmek için yeşil/kırmızı noktalardan herhangi birinin üzerine gelin. Test sonucunun ayrıntılarını görmek için dağılım grafiğinde noktalara tıklayarak gezinin.  
+Merhaba scatterplot hello örnekleri tanılama testi adım ayrıntı olması test sonuçlarını gösterir. Merhaba test altyapısı hataları olan testleri için tanılama ayrıntı depolar. Başarılı testleri için tanılama ayrıntıları hello yürütmeleri bir kısmı için depolanır. Tüm hello yeşil/kırmızı nokta toosee hello test zaman damgası, test süresi, konum ve test adı gelin. Merhaba dağılım çizim toosee hello ayrıntılarını hello test sonucu herhangi bir nokta üzerinden'ı tıklatın.  
 
-Belirli bir testi veya konumu seçin ya da ilgilendiğiniz dönemle ilgili daha fazla sonuç görmek için zaman dilimini küçültün. Arama Gezgini’ni kullanarak tüm yürütmelerden alınan sonuçları görün veya Analytics sorgularını kullanarak bu veriler üzerinde özel raporlar çalıştırın.
+Konum, belirli bir testi seçin veya dönem toosee hello süre ilgi daha fazla sonuç hello süresini azaltabilir. Arama Gezgini toosee tüm yürütmeleri sonuçlarından veya bu veriler üzerinde analiz sorguları toorun özel raporlar kullanın.
 
-Ölçüm Gezgini’nde ham sonuçlara ek olarak iki Kullanılabilirlik ölçümü vardır: 
+Toplama toohello ham sonuçlarında ölçümleri Explorer'da iki kullanılabilirlik ölçümleri vardır: 
 
-1. Kullanılabilirlik: Tüm test yürütmelerinde başarılı olan testlerin yüzdelik oranı. 
+1. Kullanılabilirlik: Tüm test yürütmeleri arasında başarılı hello testleri yüzdesi. 
 2. Test Süresi: Tüm test yürütmelerinde ortalama test süresi.
 
-Belirli bir testin ve/veya konumun eğilimlerini analiz etmek için test adına ve konumuna göre filtre uygulayabilirsiniz.
+Filtreler hello test adı, konumu tooanalyze eğilimleri belirli test ve/veya konum uygulayabilirsiniz.
 
 ## <a name="edit"></a> Testleri inceleme ve düzenleme
 
-Özet sayfasından belirli bir test seçin. Burada özel sonuçları görebilir ve düzenleyebilir ya da geçici olarak devre dışı bırakabilirsiniz.
+Merhaba Özet sayfası, belirli bir test seçin. Burada özel sonuçları görebilir ve düzenleyebilir ya da geçici olarak devre dışı bırakabilirsiniz.
 
 ![Web testini düzenleme veya devre dışı bırakma](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
 
-Hizmetinizde bakım gerçekleştirdiğiniz sırada kullanılabilirlik testlerini veya bunlarla ilişkili uyarıları devre dışı bırakmak isteyebilirsiniz. 
+Toodisable kullanılabilirlik testleri veya hizmetinizde Bakımı gerçekleştirirken kuralları ilişkili hello uyarı isteyebilirsiniz. 
 
 ## <a name="failures"></a>Hata görürseniz
 Kırmızı noktaya tıklayın.
@@ -101,118 +101,118 @@ Kırmızı noktaya tıklayın.
 
 Bir kullanılabilirlik testi sonucundan şunları yapabilirsiniz:
 
-* Sunucunuzdan alınan yanıtı denetleme.
-* Başarısız istek örneği işlenirken sunucu uygulamanız tarafından gönderilen telemetriyi açma.
-* Sorunu izlemek için bir sorunu veya iş öğesini Git’te ya da VSTS’de günlüğe kaydetme. Hata, bu olayın bir bağlantısını içerir.
-* Web testi sonucunu Visual Studio’da açın.
+* Sunucudan alınan hello yanıtı inceleyin.
+* Merhaba başarısız istek örneği işlenirken sunucu uygulamanız tarafından gönderilen hello telemetriyi açın.
+* Bir sorun oturum veya Git veya VSTS tootrack hello sorun iş öğesi. Merhaba hata bağlantı toothis olayı içerir.
+* Merhaba web test sonucu Visual Studio'da açın.
 
 
-*Sorunsuz görünüyor ancak hata olarak mı bildiriliyor?* Tüm görüntüleri, betikleri, stil sayfalarını ve sayfa tarafından yüklenen diğer dosyaları denetleyin. Herhangi biri başarısızsa, ana html sayfası Tamam olarak yüklense bile test başarısız olarak raporlanır.
+*Sorunsuz görünüyor ancak hata olarak mı bildiriliyor?* Tüm hello görüntüleri, betikler, stil sayfaları ve hello sayfa tarafından yüklenen diğer dosyaları denetleyin. Herhangi biri başarısız olursa, hello ana html sayfası Tamam olarak yüklense bile hello test başarısız olarak raporlanır.
 
 *İlgili öğe yok mu?* Sunucu tarafı uygulamanız için Application Insights ayarlanmışsa, bunun nedeni [örnekleme](app-insights-sampling.md) işleminin devam ediyor olması olabilir. 
 
 ## <a name="multi-step-web-tests"></a>Çok adımlı web testleri
-Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satış web sitesi izliyorsanız, öğelerin alışveriş sepetine doğru eklendiğini test edebilirsiniz.
+Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satış Web sitesi izliyorsanız, öğeleri toohello ekleme alışveriş sepeti düzgün çalıştığını test edebilirsiniz.
 
 > [!NOTE] 
 > Çok adımlı web testleri ücrete tabidir. [Fiyatlandırma düzeni](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-Çok adımlı bir test oluşturmak için Visual Studio Enterprise kullanarak senaryoyu kaydedin ve kaydı Application Insights'a yükleyin. Application Insights, senaryoyu aralıklarla yeniden yürütür ve yanıtları doğrular.
+çok adımlı bir test toocreate, Visual Studio Enterprise kullanarak hello senaryo kaydetmek ve tooApplication Öngörüler kaydı hello yükleyin. Application Insights hello senaryoyu aralıklarla başlayarak yeniden oynatılır ve hello yanıtları doğrular.
 
 > [!NOTE]
-> Testlerinizde kodlanmış işlevler veya döngüler kullanamazsınız. Test tamamen .webtest betiğinde yer almalıdır. Ancak, standart eklentiler kullanabilirsiniz.
+> Testlerinizde kodlanmış işlevler veya döngüler kullanamazsınız. Merhaba test tamamen hello .webtest komut dosyasında yer almalıdır. Ancak, standart eklentiler kullanabilirsiniz.
 >
 
 #### <a name="1-record-a-scenario"></a>1. Senaryo kaydetme
-Web oturumu kaydetmek için Visual Studio Enterprise kullanın.
+Visual Studio Enterprise kullanan bir web oturumu toorecord.
 
 1. Web performans testi projesi oluşturun.
 
-    ![Visual Studio Enterprise sürümünde, Web Performansı ve Yük Testi şablonundan bir proje oluşturun.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![Visual Studio Enterprise Edition'da hello Web performansı ve yük testi şablonundan bir proje oluşturun.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *Web Performansı ve Yük Testi şablonunu görmüyor musunuz?* - Visual Studio Enterprise’ı kapatın. **Visual Studio Yükleyicisi**’ni açarak Visual Studio Enterprise yüklemesini değiştirin. **Tek Bileşenler** altında **Web Performansı ve yük testi araçları**’nı seçin.
+ * *Merhaba Web performansı ve yük testi şablon görmüyorum?* - Visual Studio Enterprise’ı kapatın. Açık **Visual Studio yükleyicisi** toomodify, Visual Studio Enterprise yükleme. **Tek Bileşenler** altında **Web Performansı ve yük testi araçları**’nı seçin.
 
-2. .webtest dosyasını açın ve kaydı başlatın.
+2. Merhaba .webtest dosyasını açın ve kaydı başlatın.
 
-    ![.webtest dosyasını açın ve Kaydet’e tıklayın.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
-3. Testinizde benzetimini yapmak istediğiniz kullanıcı işlemlerini yapın: web sitenizi açın, sepete ürün ekleyin ve bunlara devam edin. Sonra testinizi durdurun.
+    ![Merhaba .webtest dosyasını açın ve Kaydet'e tıklayın.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
+3. Testinizde toosimulate istediğiniz kullanıcı eylemleri hello: Web sitenizi açın, bir ürün toohello Sepeti ekleyin ve benzeri. Sonra testinizi durdurun.
 
-    ![Internet Explorer'da web testi kaydedicisi çalışır.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-record.png)
+    ![Internet Explorer'da Hello web Testi Kaydedicisi çalışır.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-record.png)
 
     Uzun bir senaryo oluşturmayın. 100 adımlık ve 2 dakikalık bir sınır vardır.
-4. Testi düzenleme nedenleri:
+4. Merhaba testine düzenleyin:
 
-   * Alınan metin ve yanıt kodlarını denetlemek için doğrulama ekleme.
-   * Gereksiz tüm etkileşimleri kaldırma. Ayrıca, resim veya reklam için ya da sitelerin izlenmesi için bağımlı istekleri kaldırabilirsiniz.
+   * Doğrulama, toocheck hello alınan metin ve yanıt kodlarını ekleyin.
+   * Gereksiz tüm etkileşimleri kaldırma. Ayrıca, resim veya tooad ya da sitelerin izlenmesi için bağımlı istekleri kaldırabilirsiniz.
 
-     Yalnızca test betiğini düzenleyebildiğinizi, özel kod veya başka web testlerinden çağrı ekleyemediğinizi unutmayın. Testlere döngü eklemeyin. Standart web testi eklentileri kullanabilirsiniz.
-5. Çalıştığından emin olmak için testi Visual Studio’da çalıştırın.
+     Yalnızca hello test betiğini düzenleyebildiğinizi - özel kod ekleme veya başka web testlerinden çağrı unutmayın. Döngüler hello eklemeyin. Standart web testi eklentileri kullanabilirsiniz.
+5. Merhaba test çalıştığından emin Visual Studio toomake çalıştırın.
 
-    Web test çalıştırıcısı bir web tarayıcısı açar ve kaydettiğiniz eylemleri yineler. Beklediğiniz gibi çalıştığından emin olun.
+    Merhaba web test Çalıştırıcısı bir web tarayıcısı açar ve kaydettiğiniz eylemleri yineler hello. Beklediğiniz gibi çalıştığından emin olun.
 
-    ![Visual Studio’da .webtest dosyasını açın ve Çalıştır’a tıklayın.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
+    ![Visual Studio'da hello .webtest dosyasını açın ve Çalıştır'ı tıklatın.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-#### <a name="2-upload-the-web-test-to-application-insights"></a>2. Web testi Application Insights'a yükleme
-1. Application Insights portalında bir web testi oluşturun.
+#### <a name="2-upload-hello-web-test-tooapplication-insights"></a>2. Merhaba web testi tooApplication Öngörüler karşıya yükle
+1. Merhaba Application Insights portalında bir web testi oluşturun.
 
-    ![Web testleri dikey penceresinde Ekle'yi seçin.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
-2. Çok adımlı testi seçip .webtest dosyasını yükleyin.
+    ![Merhaba web testleri dikey penceresinde Ekle'yi seçin.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
+2. Çok adımlı testi seçin ve hello .webtest dosyasını yükleyin.
 
     ![Çok adımlı web testini seçin.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-    Test konumları, sıklığı ve uyarı parametrelerini aynı ping testlerinde olduğu gibi aynı şekilde ayarlayın.
+    Kümesi hello test konumları, sıklığı ve uyarı parametrelerinde hello aynı şekilde ping gibi sınar.
 
-#### <a name="3-see-the-results"></a>3. Sonuçları görme
+#### <a name="3-see-hello-results"></a>3. Merhaba sonuçları bakın
 
-Tek url testlerinde olduğu gibi test sonuçlarını ve hatalarını görüntüleyin.
+Test görüntülemek sonuçlarını ve hatalarını içinde hello aynı şekilde olarak tek url sınamaları.
 
-Ayrıca, test sonuçlarını indirerek Visual Studio’da görüntüleyebilirsiniz.
+Ayrıca, hello test sonuçları tooview indirebilirsiniz Visual Studio bunları.
 
 #### <a name="too-many-failures"></a>Çok fazla hata mı var?
 
-* Yaygın bir başarısızlık nedeni testin çok uzun çalışmasıdır. İki dakikadan uzun çalıştırılmamalıdır.
+* Yaygın bir başarısızlık nedeni hello testin çok uzun çalıştığı yerdir. İki dakikadan uzun çalıştırılmamalıdır.
 
-* Betikler, stil sayfaları, görüntüler ve diğerleri de dahil olmak üzere, testin başarılı olması için sayfanın tüm kaynaklarının doğru yüklenmiş olması gerektiğini unutmayın.
+* Bir sayfanın tüm hello kaynakları betikler, stil sayfaları, görüntüler ve diğerleri de dahil olmak üzere hello test toosucceed için doğru yüklemelisiniz unutmayın.
 
-* Web testi tamamen .webtest dosyasında olmalıdır: Testte kodlanmış işlevleri kullanamazsınız.
+* Hello web testinin tamamen hello .webtest komut dosyasında yer almalıdır: hello testte kodlanmış işlevleri kullanamazsınız.
 
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Çok adımlı testinizde bağlı kalma süresi ve rasgele rakamlar
-Dış bir kaynağa ait stoklar gibi zamana bağımlı veriler alan bir aracı test ettiğinizi varsayalım. Web testinizi kaydettiğinizde, belirli zamanları kullanmanız gerekse de, bunları testin parametreleri (StartTime ve EndTime) olarak ayarlarsınız.
+Dış bir kaynağa ait stoklar gibi zamana bağımlı veriler alan bir aracı test ettiğinizi varsayalım. Web testinizi kaydettiğinizde, toouse belirli saatler sahip, ancak gibi hello parametrelerinin test, StartTime ve EndTime ayarlayın.
 
 ![Parametrelere sahip web testi.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
 
-Testi çalıştırdığınızda, EndTime her zaman geçerli zaman, StartTime da 15 dakika öncesi olmalıdır.
+Merhaba testi çalıştırdığınızda, EndTime her zaman zaman toobe hello sunmak istediğiniz ve başlangıç saati, 15 dakika olmalıdır önce.
 
-Web Testi Eklentileri, zamanları parametreleme yolunu sağlar.
+Web testi eklentileri toodo Parametreleştirme kez hello yolunu sağlar.
 
-1. İstediğiniz her değişken parametre değeri için bir web testi eklentisi ekleyin. Web testi araç çubuğunda, **Web Testi Eklentisi Ekle**’yi seçin.
+1. İstediğiniz her değişken parametre değeri için bir web testi eklentisi ekleyin. Merhaba web testi araç çubuğunda seçin **Web Testi Eklentisi Ekle**.
 
     ![Web Testi Eklentisi Ekle’yi, sonra da bir türü seçin.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    Bu örnekte, Tarih Saat Eklentisinin iki örneğini kullanacağız. Bir örnek "15 dakika önce" için, bir örnek de "şimdi" için.
-2. Her eklentinin özelliklerini açın. Buna bir ad verip geçerli saat olarak kullanılmak üzere ayarlayın. Bunlardan birini Dakika Ekle = 15 olarak ayarlayın.
+    Bu örnekte, hello tarih saat eklentisinin iki örneğini kullanın. Bir örnek "15 dakika önce" için, bir örnek de "şimdi" için.
+2. Her eklentinin Hello özelliklerini açın. Bir ad verin ve geçerli saati toouse hello ayarlayın. Bunlardan birini Dakika Ekle = 15 olarak ayarlayın.
 
     ![Adı, Geçerli Saati Kullan’ı ve Dakika Ekle’yi ayarlayın.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)
-3. Web testi parametrelerinde, eklenti adına başvurmak için {{plug-in name}} kullanın.
+3. Merhaba web testi parametrelerinde, eklenti adına {{plug-in name}} tooreference kullanın.
 
-    ![Test parametresinde {{plug-in name}} kullanın.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
+    ![Merhaba test parametresinde {{plug-in name}} kullanın.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
-Artık testi portala yükleyin. Testin her çalıştırılışında dinamik değerler kullanılır.
+Şimdi, test toohello portalınızı karşıya yükleyin. Her hello testi Çalıştır'hello dinamik değerler kullanır.
 
 ## <a name="dealing-with-sign-in"></a>Oturum açmayla ilgilenme
-Kullanıcılarınız uygulamanızda oturum açarsa, oturum açma benzetimi için bir dizi seçeneğiniz vardır; böylece, oturum açmanın ötesinde sayfaları test edebilirsiniz. Kullandığınız yaklaşım, uygulamanın sağladığı güvenlik türüne bağlıdır.
+Kullanıcılarınızın tooyour uygulamada oturum açarsanız hello oturum açma ötesinde sayfaları test edebilirsiniz bir oturum açma benzetimi için çeşitli seçenekleriniz vardır. kullandığınız hello yaklaşım hello hello uygulamanın sağladığı güvenlik türüne bağlıdır.
 
-Her durumda, uygulamanızda yalnızca test amacıyla bir hesap oluşturmalısınız. Mümkünse, web testlerinin gerçek kullanıcıları etkileme olasılığını önlemek için test hesabının izinlerini kısıtlayın.
+Her durumda, uygulamanızı test etme yalnızca hello amacı için bir hesap oluşturmanız gerekir. Gerçek kullanıcıları etkileyen hello web testleri hiçbir olasılığını olmasını sağlamak Mümkünse, bu test hesabın hello izinleri kısıtlayın.
 
 ### <a name="simple-username-and-password"></a>Basit kullanıcı adı ve parola
-Web testini normal şekilde kaydedin. Önce tanımlama bilgilerini silin.
+Hello web testini kaydetme her zamanki gibi. Önce tanımlama bilgilerini silin.
 
 ### <a name="saml-authentication"></a>SAML kimlik doğrulaması
-Web testlerinde kullanıma uygun SAML eklentisini kullanın.
+Web testleri için kullanılabilir hello SAML eklentisini kullanın.
 
 ### <a name="client-secret"></a>Gizli anahtar
-Uygulamanızda gizli anahtar içeren bir oturum açma yolu varsa bu yolu kullanın. Azure Active Directory (AAD), gizli anahtarla oturum açmayı sağlayan bir hizmet örneğidir. AAD’de gizli anahtar, Uygulama Anahtarı’dır.
+Uygulamanızda gizli anahtar içeren bir oturum açma yolu varsa bu yolu kullanın. Azure Active Directory (AAD), gizli anahtarla oturum açmayı sağlayan bir hizmet örneğidir. AAD'de, hello gizli hello uygulama anahtarı ' dir.
 
 Aşağıda uygulama anahtarı kullanan bir Azure web uygulaması için web testi örneği verilmiştir:
 
@@ -220,71 +220,71 @@ Aşağıda uygulama anahtarı kullanan bir Azure web uygulaması için web testi
 
 1. Gizli anahtar (AppKey) kullanarak AAD’den belirteç alın.
 2. Yanıttan taşıyıcı belirteci ayıklayın.
-3. Yetkilendirme üst bilgisinde taşıyıcı belirteç kullanarak API çağırın.
+3. Merhaba yetkilendirme üstbilgisinde taşıyıcı belirteci kullanarak API çağrısı.
 
-Web testinin gerçek bir istemci olduğundan, yani AAD’de kendi uygulamasına sahip olduğundan emin olun ve bu istemcinin clientId’si ile appkey’ini kullanın. Test edilen hizmetiniz, AAD içinde kendi uygulamasına sahiptir: bu uygulamanın appID URI’si, web testinin “kaynak” alanında yansıtılır.
+Merhaba web testi gerçek bir istemcidir - diğer bir deyişle, kendi uygulama - AAD'de var olduğundan emin olun ve kendi ClientID + appkey kullanın. Hizmetinizi test altında kendi uygulama AAD'de de vardır.: hello AppID bu uygulamanın URI hello web testi hello "kaynak" alanında yansıtılır.
 
 ### <a name="open-authentication"></a>Açık Kimlik Doğrulaması
-Microsoft veya Google hesabınızla oturum açma, bir açık kimlik doğrulaması örneğidir. OAuth kullanan çok sayıda uygulama, alternatif gizli anahtar da sağlar; bu nedenle ilk taktiğiniz bu olasılığın incelenmesi olmalıdır.
+Microsoft veya Google hesabınızla oturum açma, bir açık kimlik doğrulaması örneğidir. Birçok uygulama tooinvestigate, ilk Taktik bunun nedenle OAuth sağladıkları kullanım istemci gizli alternatif, o olasılığı hello olduğunu.
 
-Testinizde OAuth kullanılarak oturum açılması gerekiyorsa, genel yaklaşım şöyledir:
+Testinizde OAuth kullanılarak oturum gerekir, hello genel yaklaşım şöyledir:
 
-* Web tarayıcınız, kimlik doğrulama sitesi ve uygulamanız arasındaki trafiği incelemek için Fiddler gibi bir araç kullanın.
-* Farklı makineler veya tarayıcılar kullanarak veya uzun aralıklarla (süresi dolacak şekilde belirteçleri izin vermek için) iki veya daha fazla oturum açın.
-* Farklı oturumları karşılaştırarak, kimlik doğrulama sitesinden geri geçirilen belirteci tanımlayın; başka bir deyişle oturum açıldıktan sonra uygulama sunucunuza geçirilen belirteç.
+* Web tarayıcınız, hello kimlik doğrulama sitesi ve uygulamanız arasındaki Fiddler tooexamine hello trafiği gibi bir araç kullanın.
+* İki veya daha fazla oturum farklı makineler veya tarayıcılar kullanarak bileşenlere gerçekleştirmek veya uzun aralıklarla (tooallow belirteçleri tooexpire).
+* Farklı oturumları karşılaştırarak hello tooyour uygulama sunucusuna oturum açma işleminden sonra sonra geçirilen site, kimlik doğrulaması'ndan geçirildi hello belirteci tanımlayın.
 * Visual Studio’yu kullanarak web testini kaydetme
-* Belirteçleri parametreleyin; belirteç kimlik doğrulayıcıdan döndürüldüğünde ve sitede sorgu sırasında kullanıldığında parametre ayarı.
-  (Visual Studio testi parametrelemeyi dener, ancak belirteçleri doğru parametrelemez.)
+* Merhaba belirteci hello doğrulayıcıdan döndürüldüğünde hello parametre ayarlama ve hello sorgu toohello sitede kullanılarak hello belirteçleri parametreleyin.
+  (Visual Studio tooparameterize hello test çalışır, ancak doğru hello belirteçleri Parametreleştirme değil.)
 
 
 ## <a name="performance-tests"></a>Performans testleri
-Web sitenizde bir yük testi çalıştırabilirsiniz. Kullanılabilirlik testinde olduğu gibi dünyanın dört bir yanındaki noktalarımızdan basit istekler ya da çok adımlı istekler gönderebilirsiniz. Kullanılabilirlik testinden farklı olarak eşzamanlı birden fazla kullanıcıyı benzeten çok sayıda istek gönderilir.
+Web sitenizde bir yük testi çalıştırabilirsiniz. Merhaba kullanılabilirlik test gibi Merhaba Dünya bizim noktalarından basit istekleri veya çok adımlı istekleri gönderebilirsiniz. Kullanılabilirlik testinden farklı olarak eşzamanlı birden fazla kullanıcıyı benzeten çok sayıda istek gönderilir.
 
-Genel Bakış dikey penceresinde **Ayarlar**, **Performans Testleri**’ni açın. Bir test oluşturduğunuzda Visual Studio Team Services hesabı oluşturmaya davet edilirsiniz.
+Merhaba genel bakış dikey penceresinden açmak **ayarları**, **performans testleri**. Bir test oluşturduğunuzda, davet tooconnect tooor bir Visual Studio Team Services hesabı oluşturun.
 
-Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
+Merhaba test tamamlandığında yanıt sürelerini ve başarı oranları gösterilir.
 
 
 ![Performans testi](./media/app-insights-monitor-web-app-availability/perf-test.png)
 
 > [!TIP]
-> Performans testi etkilerini gözlemlemek için [Canlı Akış](app-insights-live-stream.md)'ı ve [Profil Oluşturucu](app-insights-profiler.md)'yu kullanmanız gerekir.
+> bir performans testi tooobserve hello etkilerini kullanmak [canlı akış](app-insights-live-stream.md) ve [profil oluşturucu](app-insights-profiler.md).
 >
 
 ## <a name="automation"></a>Otomasyon
-* Otomatik olarak [kullanılabilirlik testi ayarlamak için PowerShell betiklerini kullanın](app-insights-powershell.md#add-an-availability-test).
+* [PowerShell komut dosyaları tooset bir kullanılabilirlik test yukarı kullanmak](app-insights-powershell.md#add-an-availability-test) otomatik olarak.
 * Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../monitoring-and-diagnostics/insights-webhooks-alerts.md) ayarlayın.
 
 ## <a name="qna"></a>Sorularınız mı var? Sorunlarınız mı var?
 * *Web testimden kod çağırabilir miyim?*
 
-    Hayır. Test adımları .webtest dosyasında olmalıdır. Bu nedenle, başka web testlerini çağıramaz, döngüleri kullanamazsınız. Ancak yararlı bulabileceğiniz bir dizi eklenti vardır.
+    Hayır. Merhaba adımları hello test hello .webtest dosyasında olmalıdır. Bu nedenle, başka web testlerini çağıramaz, döngüleri kullanamazsınız. Ancak yararlı bulabileceğiniz bir dizi eklenti vardır.
 * *HTTPS destekleniyor mu?*
 
     TLS 1.1 ve TLS 1.2 desteklenir.
 * *"Web testleri" ve "kullanılabilirlik testleri" arasında bir fark var mı?*
 
-    Bu iki terim birbirlerinin yerine kullanılabilir. Kullanılabilirlik testleri, çok adımlı web testlerine ek olarak tek URL ping testlerini de içeren daha genel bir terimdir.
-* *Kullanılabilirlik testlerini, güvenlik duvarının arkasında çalışan kendi iç sunucumuzda kullanmak istiyorum.*
+    Merhaba iki terimi birbirlerinin yerine başvurulabilir. Kullanılabilirlik testleri olduğu hello tek URL PING daha genel bir terim ayrıca toohello çok adımlı web testleri test eder.
+* *Toouse kullanılabilirlik testleri üzerinde bir güvenlik duvarının arkasında çalışan kendi dahili sunucumuzda ister.*
 
     İki olası çözümü vardır:
     
-    * Güvenlik duvarınızı, [Web testi aracılarımızın IP adreslerinden](app-insights-ip-addresses.md) gelen isteklere izin verecek şekilde yapılandırın.
-    * İç sunucunuzu düzenli olarak test etmek için kendi kodunuzu yazın. Kodu, güvenlik duvarınızın arkasındaki bir test sunucusunda arka plan işlemi olarak çalıştırın. Test işleminiz, temel SDK paketindeki [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API’sini kullanarak sonuçları Application Insights’a gönderebilir. Bunun için test sunucunuzun Application Insights alım uç noktası ile giden bağlantısının olması gerekir, ancak bu, gelen isteklere izin vermeye göre çok daha küçük bir güvenlik riski oluşturur. Sonuçlar kullanılabilirlik web testi dikey pencerelerinde görünür, ancak Analytics, Search ve Ölçüm Gezgini’nde kullanılabilirlik sonuçları olarak görüntülenir.
+    * Güvenlik Duvarı, toopermit gelen istekleri hello gelen yapılandırma [web hizmetlerimizi IP adreslerini test aracılarını](app-insights-ip-addresses.md).
+    * Kendi kod tooperiodically test iç sunucunuz yazma. Merhaba kodu arka plan işlemi olarak, güvenlik duvarının arkasındaki bir test sunucusunda çalıştırın. Test işleminizi sonuçlarını tooApplication Öngörüler kullanarak gönderebilirsiniz [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) hello çekirdek SDK paketi API. Bu, test sunucu toohave giden erişim toohello Application Insights alım uç nokta gerektiriyor, ancak çok daha küçük güvenlik riski gelen istekleri izin veren, hello alternatif daha. Merhaba sonuçları hello kullanılabilirlik web testleri dikey görünmez, ancak Analytics, arama ve ölçüm Gezgini kullanılabilirlik sonuç olarak görünür.
 * *Çok adımlı web testi karşıya yüklenemiyor*
 
     300 K boyut sınırı vardır.
 
     Döngüler desteklenmez.
 
-    Başka web testlerine başvurular desteklenmez.
+    Başvuruları tooother web testleri desteklenmez.
 
     Veri kaynakları desteklenmez.
 * *Çok adımlı testim tamamlanmıyor*
 
     Test başına 100 istek sınırı var.
 
-    Test, iki dakikadan uzun çalışırsa durdurulur.
+    iki dakikadan uzun çalışırsa hello test durdurulur.
 * *İstemci sertifikalarıyla testi nasıl çalıştırırım?*
 
     Üzgünüz, bunu desteklemiyoruz.

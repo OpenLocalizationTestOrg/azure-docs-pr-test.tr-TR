@@ -1,5 +1,5 @@
 ---
-title: "Verimli listesi sorguları - Azure Batch tasarlama | Microsoft Docs"
+title: "aaaDesign verimli listesi sorguları - Azure Batch | Microsoft Docs"
 description: "Havuzlar, işler, görevler gibi Batch kaynaklarını hakkında bilgi isterken sorgularınızı filtreleyerek performansını artırmak ve işlem düğümleri."
 services: batch
 documentationcenter: .net
@@ -15,88 +15,88 @@ ms.workload: big-compute
 ms.date: 08/02/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a80b207f591bd888d4749287527013c5e554fb6e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: b7e554119ec9d0e9e8007ccfb1ca80fe142a5e27
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-queries-to-list-batch-resources-efficiently"></a>Sorguları listesi Batch kaynaklarını verimli bir şekilde oluşturun
+# <a name="create-queries-toolist-batch-resources-efficiently"></a>Sorgular toolist Batch kaynaklarını verimli bir şekilde oluşturun
 
-Burada, sorgu işler, görevler ve işlem düğümleri ile hizmet tarafından döndürülen veri miktarını azaltarak Azure Batch uygulamanızın performansını artırmak öğreneceksiniz [Batch .NET] [ api_net]kitaplığı.
+Burada tooincrease hello işleri sorguladığınızda hello hizmet tarafından döndürülen veri miktarını azaltarak Azure Batch uygulamanızın performansını nasıl görevler ve işlem düğümlerini hello ile öğreneceksiniz [Batch .NET] [ api_net] kitaplığı.
 
-Neredeyse tüm Batch uygulamaları bazı türden bir Batch hizmeti düzenli aralıklarla genellikle sorgular izleme ya da başka işlem yapmanız gerekebilir. Örneğin, bir işin kalan tüm kuyruğa alınmış görevlerin olup olmadığını belirlemek için işteki her görevde veri almalısınız. Havuzunuzdaki düğümler durumunu belirlemek için verileri havuzdaki her düğümde edinmeniz gerekir. Bu makale, en verimli şekilde sorgularını yürütmek açıklanmaktadır.
+Neredeyse tüm Batch uygulamaları tooperform hello Batch hizmeti düzenli aralıklarla genellikle sorgular izleme ya da başka işlem bazı türü gerekir. Örneğin, toodetermine bir işi kalan tüm kuyruğa alınmış görevlerin olsanız da, hello işteki her görevde veri almanız gerekir. havuzunuzdaki düğümler toodetermine hello durumu, hello havuzdaki her düğümde veri almanız gerekir. Bu makalede, nasıl tooexecute gibi hello sorgular açıklanmaktadır en verimli şekilde.
 
 > [!NOTE]
-> Toplu işlem hizmetinin işteki görevler sayım yaygın bir senaryo için özel API desteği sağlar. Bir liste sorgusu için kullanmak yerine, çağırabilirsiniz [alma görev sayar] [ rest_get_task_counts] işlemi. Get görev sayıları kaç görevleri bekleyen, çalışan veya tamamlamak ve kaç tane görevlerin başarılı veya başarısız olduğunu gösterir. Görev Get sayar, liste sorgusu daha etkilidir. Daha fazla bilgi için bkz: [saymak durumuna (Önizleme) göre bir iş için görevleri](batch-get-task-counts.md). 
+> Merhaba toplu işlem hizmetinin işteki görevler sayım hello yaygın bir senaryo için özel API desteği sağlar. Bir liste sorgusu için kullanmak yerine, hello çağırabilirsiniz [alma görev sayar] [ rest_get_task_counts] işlemi. Get görev sayıları kaç görevleri bekleyen, çalışan veya tamamlamak ve kaç tane görevlerin başarılı veya başarısız olduğunu gösterir. Görev Get sayar, liste sorgusu daha etkilidir. Daha fazla bilgi için bkz: [saymak durumuna (Önizleme) göre bir iş için görevleri](batch-get-task-counts.md). 
 >
-> Görev sayar alma işlemi 2017 06 01.5.1'den önceki toplu işlem hizmeti sürümlerinde kullanılamaz. Hizmeti daha eski bir sürümü kullanıyorsanız, bir liste sorgusu işteki görevler yerine saymak için kullanın.
+> Merhaba görev sayar alma işlemi 2017 06 01.5.1'den önceki toplu işlem hizmeti sürümlerinde kullanılabilir değildir. Merhaba hizmeti daha eski bir sürümü kullanıyorsanız, ardından bir liste sorgu toocount görevleri bir işi kullanın.
 >
 > 
 
-## <a name="meet-the-detaillevel"></a>DetailLevel karşılayan
-Bir üretimde toplu uygulama varlıkları işler, görevler ve işlem düğümü gibi binlerce sayı. Bu kaynaklar hakkında bilgi istediklerinde, potansiyel olarak büyük miktarda veri "kablo toplu hizmetinden uygulamanıza her sorguda geçmelidir". Öğe sayısı ve türü bir sorgu tarafından döndürülen bilgilerin kısıtlayarak, sorgularınızı hızına ve bu nedenle, uygulamanızın performansını artırabilir.
+## <a name="meet-hello-detaillevel"></a>Karşılayan hello DetailLevel
+Bir üretim toplu uygulama, işler, görevler ve işlem düğümü gibi varlıkları hello binlerce sayı. Bu kaynaklar hakkında bilgi istediklerinde, potansiyel olarak büyük miktarda veri "Merhaba kablo hello Batch hizmeti tooyour uygulamadan her sorguda geçmelidir". Öğe Hello sayısı ve türü bir sorgu tarafından döndürülen bilgilerin kısıtlayarak, sorgularınızı hello hızını artırmak ve bu nedenle, uygulamanızın performansını hello.
 
-Bu [Batch .NET] [ api_net] API kod parçacığını listeleri *her* ile birlikte bir işlemle ilişkili görev *tüm* her görev özellikleri:
+Bu [Batch .NET] [ api_net] API kod parçacığını listeleri *her* ile birlikte bir işlemle ilişkili görev *tüm* her hello özellikleri Görev:
 
 ```csharp
-// Get a collection of all of the tasks and all of their properties for job-001
+// Get a collection of all of hello tasks and all of their properties for job-001
 IPagedEnumerable<CloudTask> allTasks =
     batchClient.JobOperations.ListTasks("job-001");
 ```
 
-Ancak, sorgunuza "ayrıntı düzeyi" uygulayarak çok daha verimli bir liste sorgusu gerçekleştirebilirsiniz. Sağlayarak bunu bir [ODATADetailLevel] [ odata] nesnesini [JobOperations.ListTasks] [ net_list_tasks] yöntemi. Bu kod parçacığında, yalnızca kimliği, komut satırı ve işlem düğümü bilgi tamamlanan görevler özelliklerini döndürür:
+Ancak, bir "ayrıntı düzeyi" tooyour sorgu uygulayarak çok daha verimli bir liste sorgusu gerçekleştirebilirsiniz. Sağlayarak bunu bir [ODATADetailLevel] [ odata] toohello nesne [JobOperations.ListTasks] [ net_list_tasks] yöntemi. Bu kod parçacığında, yalnızca hello kimliği, komut satırı ve işlem düğümü bilgi tamamlanan görevler özelliklerini döndürür:
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and
-// their properties to return
+// their properties tooreturn
 ODATADetailLevel detailLevel = new ODATADetailLevel();
 detailLevel.FilterClause = "state eq 'completed'";
 detailLevel.SelectClause = "id,commandLine,nodeInfo";
 
-// Supply the ODATADetailLevel to the ListTasks method
+// Supply hello ODATADetailLevel toohello ListTasks method
 IPagedEnumerable<CloudTask> completedTasks =
     batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
-İşteki görevler binlerce varsa bu örnek senaryoda, ikinci sorgusundan gelen sonuçları genellikle çok döndürülecek ilk hızlıdır. Batch .NET API'si öğeleriyle listelediğinizde ODATADetailLevel kullanma hakkında daha fazla bilgi bulunmaktadır [aşağıda](#efficient-querying-in-batch-net).
+Bu örnek senaryoda hello işteki görevleri binlerce varsa hello ikinci sorgudan hello sonuçlar genellikle olacaktır hello çok hızlı ilk döndürdü. Merhaba Batch .NET API'si öğeleriyle listelediğinizde ODATADetailLevel kullanma hakkında daha fazla bilgi bulunmaktadır [aşağıda](#efficient-querying-in-batch-net).
 
 > [!IMPORTANT]
-> Yüksek oranda öneririz, *her zaman* ODATADetailLevel nesneye en yüksek verimlilik ve uygulamanızın performansını sağlamak için .NET API listesi çağrılarınızı sağlayın. Ayrıntı düzeyi belirterek, Batch hizmeti yanıt sürelerini alt ağ kullanımı iyileştirirsiniz ve istemci uygulamaları tarafından bellek kullanımını en aza indirmek için yardımcı olabilir.
+> Yüksek oranda öneririz, *her zaman* bir ODATADetailLevel nesne tooyour .NET API listesi çağırır tooensure en yüksek verimlilik ve uygulamanızın performansını sağlar. Ayrıntı düzeyi belirterek, hizmet yanıt sürelerini toplu işlem, ağ kullanımı iyileştirirsiniz ve istemci uygulamaları tarafından bellek kullanımını en aza indirmek toolower yardımcı olabilir.
 > 
 > 
 
 ## <a name="filter-select-and-expand"></a>Filtre, seçin ve genişletin
-[Batch .NET] [ api_net] ve [Batch REST] [ api_rest] API'leri hem bir listede, döndürülen öğe sayısını düşürmek için olanağı sağlar yanı her biri için döndürülen bilgi tutarını. Belirterek bunu **filtre**, **seçin**, ve **dizeleri genişletin** listesi sorguları gerçekleştirirken.
+Merhaba [Batch .NET] [ api_net] ve [Batch REST] [ api_rest] API'leri hem bir listede, döndürülen öğe hello sayısı hello özelliği tooreduce sağlayın aynı zamanda her biri için döndürülen bilgi tutarını hello. Belirterek bunu **filtre**, **seçin**, ve **dizeleri genişletin** listesi sorguları gerçekleştirirken.
 
 ### <a name="filter"></a>Filtre
-Filtre dizesi döndürülen öğe sayısını azaltan bir ifadedir. Örneğin, bir iş için yalnızca çalışan görevleri listesinde ya da görevleri çalıştırmak hazır olan işlem düğümleri listeleyin.
+Merhaba filtre dizesi hello döndürülen öğe sayısını azaltan bir ifadedir. Çalışan görevlerin bir iş ya da hazır toorun görevler listesi tek işlem düğümleri için örneğin, liste yalnızca hello.
 
-* Filtre dizesi olan bir veya daha fazla ifade, bir özellik adı, işleç ve değer oluşan bir ifade oluşur. Her bir özellik için desteklenen işleçleri olarak belirtilebilir özellikler, sorgu, her bir varlık türü özgüdür.
-* Mantıksal işleçler kullanarak birden çok ifadeleri birleştirilebilir `and` ve `or`.
-* Bu örnek filtre dizesi listelerini çalışmasını "işleme yalnızca" görevler: `(state eq 'running') and startswith(id, 'renderTask')`.
+* Merhaba filtre dizesi olan bir veya daha fazla ifade, bir özellik adı, işleç ve değer oluşan bir ifade oluşur. Her bir özellik için desteklenen hello işleçleri olarak belirtilebilecek Merhaba, sorgu, belirli tooeach varlık türü özelliklerdir.
+* Merhaba mantıksal işleçler kullanarak birden çok ifadeleri birleştirilebilir `and` ve `or`.
+* Bu örnek filtre dizesi listelerini görevleri çalıştıran hello "işleme yalnızca": `(state eq 'running') and startswith(id, 'renderTask')`.
 
 ### <a name="select"></a>Şunu seçin:
-Select dize her öğe için döndürülen özellik değerlerini sınırlar. Özellik adlarının bir listesini belirtin ve yalnızca bu özellik değerlerini sorgu sonuçlarında öğeleri için döndürülür.
+Merhaba select dize her öğe için döndürülen hello özellik değerlerini sınırlar. Özellik adlarının bir listesini belirtin ve yalnızca bu özellik değerlerini hello sorgu sonuçlarındaki hello öğeleri için döndürülür.
 
-* Select dize virgülle ayrılmış listesini özellik adlarının oluşur. Sorgulama varlık türü için özelliklerinden herhangi birini belirtebilirsiniz.
+* Merhaba select dize virgülle ayrılmış listesini özellik adlarının oluşur. Merhaba varlık türü, sorgulama için hello özelliklerinden herhangi birini belirtebilirsiniz.
 * Bu örnek Seç dize her görev için yalnızca üç özellik değerlerini döndürülmelidir belirtir: `id, state, stateTransitionTime`.
 
 ### <a name="expand"></a>Genişlet
-Genişletilecek dize belirli bilgileri elde etmek için gereken API çağrılarının sayısını azaltır. Genişletme dizisi kullandığınızda, her öğe hakkında daha fazla bilgi alınabilir tek bir API çağrısı ile. İlk listesinde, her bir öğe için bilgi isteyen varlıkların listesi alma yerine bir genişletme dize tek bir API çağrısı aynı bilgileri almak için kullanın. Daha az API çağrıları daha iyi performans anlamına gelir.
+Merhaba genişletin dize belirli bilgileri hello gerekli tooobtain olan API çağrıları azaltır. Genişletme dizisi kullandığınızda, her öğe hakkında daha fazla bilgi alınabilir tek bir API çağrısı ile. İlk alma hello listesi varlıklar sonra hello listesindeki her bir öğe için bilgi isteyen yerine, genişletilecek dize kullanın tooobtain hello tek bir API çağrısı aynı bilgileri. Daha az API çağrıları daha iyi performans anlamına gelir.
 
-* Select dizeye benzer, genişletilecek dize, bazı verileri listesi sorgu sonuçlarında dahil edilip edilmeyeceğini denetler.
-* İşlerini, iş zamanlamalarını, görevler ve havuzları liste kullanıldığında genişletme dize yalnızca desteklenir. Şu anda, istatistik bilgileri yalnızca destekler.
-* Tüm özellikleri gereklidir ve select dize belirtilirse, genişletilecek dize *gerekir* istatistik bilgileri almak için kullanılır. Select dize özelliklerinin bir alt ardından elde etmek için kullanılır, `stats` select dizesinde belirtilen ve Genişletilecek dize belirtilmesi gerekmez.
-* Bu örnek genişletin dize istatistik bilgileri, listedeki her bir öğe için döndürülmelidir belirtir: `stats`.
+* Benzer toohello select dize, hello genişletin dize denetimleri belirli veri listesi sorgu sonuçlarında dahil olup olmayacağını.
+* Merhaba genişletin dize işleri, iş zamanlamalarını, görevler ve havuzları liste kullanıldığında, yalnızca desteklenir. Şu anda, istatistik bilgileri yalnızca destekler.
+* Tüm özellikleri gereklidir ve belirtilen bir select dize, dize genişletin hello *gerekir* kullanılan tooget istatistik bilgileri olabilir. Select dize kullanılan tooobtain özelliklerinin bir alt sonra olup olmadığını `stats` hello select dizesinde belirtilen ve hello genişletin dize belirtilen toobe gerekli değildir.
+* Bu örnek genişletin dize istatistik bilgileri hello listesindeki her bir öğe için döndürülmelidir belirtir: `stats`.
 
 > [!NOTE]
-> Üç sorgu dizesi türlerinden herhangi birini oluşturulurken (filtre, seçin ve genişletin), özellik adları ve çalışması, REST API öğesi dekiler eşleştiğinden emin olun. Örneğin, .NET ile çalışırken [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) sınıfı belirtmeniz gerekir **durumu** yerine **durumu**, .NET özelliğini olsa bile [ CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). .NET ve REST API'leri arasında özellik eşlemeleri için aşağıdaki tablolara bakın.
+> Merhaba hiçbirini oluşturulurken üç sorgu dize türleri (filtre, seçin ve genişletin) hello özellik adları ve çalışması, REST API öğesi dekiler eşleştiğinden emin olun. Örneğin, .NET ile çalışırken hello [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) sınıfı, belirtmelisiniz **durumu** yerine **durumu**, hello .NET özelliği olsa bile [ CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Merhaba .NET ve REST API'lerinin arasında özellik eşlemeleri için aşağıdaki Hello tablolara bakın.
 > 
 > 
 
 ### <a name="rules-for-filter-select-and-expand-strings"></a>Filtre için kuralları seçin ve dizeleri genişletin
-* Filtre, Özellikler adlarında seçin ve dizeleri genişletin yaptıkları gibi görünmelidir [Batch REST] [ api_rest] kullandığınızda da API-- [Batch .NET] [ api_net]veya diğer toplu Sdk'lardan birini.
+* Filtre, Özellikler adlarında seçin ve dizeleri genişletin hello yaptıkları gibi görünmelidir [Batch REST] [ api_rest] kullandığınızda da API-- [Batch .NET] [ api_net] veya diğer toplu SDK hello biri.
 * Tüm özellik adları büyük/küçük harfe duyarlıdır, ancak özellik değerleri büyük küçük harfe duyarlı.
 * Tarih/saat dizeleri iki biçimlerden birinde olabilir ve ile gelmelidir `DateTime`.
   
@@ -106,68 +106,68 @@ Genişletilecek dize belirli bilgileri elde etmek için gereken API çağrılar�
 * Bir geçersiz özellik ya da operatör belirtilirse, bir `400 (Bad Request)` hata neden olur.
 
 ## <a name="efficient-querying-in-batch-net"></a>Verimli Batch .NET içinde sorgulama
-İçinde [Batch .NET] [ api_net] API, [ODATADetailLevel] [ odata] sınıfı, filtre sağlama için kullanılır, seçin ve listeye dizeleri genişletin işlemler. ODataDetailLevel sınıfı oluşturucuda belirtilen veya doğrudan nesnesinde ayarlanan üç genel dize özellikleri vardır. Ardından ODataDetailLevel nesnesini parametre olarak çeşitli listeleme işlemleri gibi geçirdiğiniz [ListPools][net_list_pools], [ListJobs][net_list_jobs], ve [ListTasks][net_list_tasks].
+Merhaba içinde [Batch .NET] [ api_net] API, hello [ODATADetailLevel] [ odata] sınıfı, filtre sağlama için kullanılır, seçin ve dizeleri genişletin toolist işlemleri. Merhaba ODataDetailLevel sınıfı hello oluşturucuda belirtilen veya doğrudan hello nesnesinde ayarlanan üç genel dize özellikleri vardır. Ardından hello ODataDetailLevel nesnesi parametresi toohello çeşitli listeleme işlemleri gibi geçirdiğiniz [ListPools][net_list_pools], [ListJobs][net_list_jobs], ve [ListTasks][net_list_tasks].
 
-* [ODATADetailLevel][odata].[ FilterClause][odata_filter]: döndürülen öğe sayısını sınırla.
+* [ODATADetailLevel][odata].[ FilterClause][odata_filter]: hello döndürülen öğe sayısını sınırla.
 * [ODATADetailLevel][odata].[ SelectClause][odata_select]: hangi özellik değerlerini her bir öğeyle döndürülür belirtin.
 * [ODATADetailLevel][odata].[ ExpandClause][odata_expand]: tek bir API tüm öğeleri için verileri almak yerine ayrı çağrıları her öğe için çağırın.
 
-Aşağıdaki kod parçacığını Batch .NET API'si havuzları belirli bir dizi istatistiklerini Batch hizmeti verimli bir şekilde sorgulamak için kullanır. Bu senaryoda, test ve Üretim havuzları toplu kullanıcı sahiptir. Test havuzu kimlikleri "ile bir test" öneki ve üretim havuzu kimlikleri "ile üretim" öneki. Parçacığında bulunan *myBatchClient* düzgün başlatılmadı örneğidir [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) sınıfı.
+Merhaba aşağıdaki kod parçacığını hello Batch .NET API'si tooefficiently sorgu hello Batch hizmeti havuzları belirli bir dizi hello istatistiklerini için kullanır. Bu senaryoda, test ve Üretim havuzları hello toplu kullanıcı sahiptir. Merhaba test havuzu kimlikleri "ile bir test" öneki ve hello üretim havuzu kimlikleri "ile üretim" öneki. Merhaba parçacığında bulunan *myBatchClient* hello düzgün başlatılmadı örneğidir [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) sınıfı.
 
 ```csharp
-// First we need an ODATADetailLevel instance on which to set the filter, select,
+// First we need an ODATADetailLevel instance on which tooset hello filter, select,
 // and expand clause strings
 ODATADetailLevel detailLevel = new ODATADetailLevel();
 
-// We want to pull only the "test" pools, so we limit the number of items returned
-// by using a FilterClause and specifying that the pool IDs must start with "test"
+// We want toopull only hello "test" pools, so we limit hello number of items returned
+// by using a FilterClause and specifying that hello pool IDs must start with "test"
 detailLevel.FilterClause = "startswith(id, 'test')";
 
-// To further limit the data that crosses the wire, configure the SelectClause to
-// limit the properties that are returned on each CloudPool object to only
+// toofurther limit hello data that crosses hello wire, configure hello SelectClause to
+// limit hello properties that are returned on each CloudPool object tooonly
 // CloudPool.Id and CloudPool.Statistics
 detailLevel.SelectClause = "id, stats";
 
-// Specify the ExpandClause so that the .NET API pulls the statistics for the
-// CloudPools in a single underlying REST API call. Note that we use the pool's
-// REST API element name "stats" here as opposed to "Statistics" as it appears in
-// the .NET API (CloudPool.Statistics)
+// Specify hello ExpandClause so that hello .NET API pulls hello statistics for the
+// CloudPools in a single underlying REST API call. Note that we use hello pool's
+// REST API element name "stats" here as opposed too"Statistics" as it appears in
+// hello .NET API (CloudPool.Statistics)
 detailLevel.ExpandClause = "stats";
 
-// Now get our collection of pools, minimizing the amount of data that is returned
-// by specifying the detail level that we configured above
+// Now get our collection of pools, minimizing hello amount of data that is returned
+// by specifying hello detail level that we configured above
 List<CloudPool> testPools =
     await myBatchClient.PoolOperations.ListPools(detailLevel).ToListAsync();
 ```
 
 > [!TIP]
-> Örneği [ODATADetailLevel] [ odata] seçin ile yapılandırılmış ve genişletme yan tümceleri de geçirilebilir uygun Get yöntemleri gibi [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx), döndürülen veri miktarını sınırlamak için.
+> Örneği [ODATADetailLevel] [ odata] seçin ile yapılandırılmış ve genişletme yan tümceleri de geçirilebilir tooappropriate Get yöntemleri gibi [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx) , toolimit hello döndürülen veri miktarı.
 > 
 > 
 
-## <a name="batch-rest-to-net-api-mappings"></a>Batch REST .NET API eşlemeleri
-Filtre, özellik adlarını seçin ve dizeleri genişletin *gerekir* REST API'dekiler, hem adı ve durum yansıtır. Aşağıdaki tablolarda, .NET ve REST API ortaklarınıza arasındaki eşlemeleri sağlar.
+## <a name="batch-rest-toonet-api-mappings"></a>Toplu işlem REST too.NET API eşlemeleri
+Filtre, özellik adlarını seçin ve dizeleri genişletin *gerekir* REST API'dekiler, hem adı ve durum yansıtır. Merhaba tablolar aşağıdaki hello .NET ve REST API ortaklarınıza arasındaki eşlemeleri sağlar.
 
 ### <a name="mappings-for-filter-strings"></a>Filtre dizeleri eşlemeleri
-* **.NET listesi yöntemleri**: Bu sütunda .NET API yöntemlerin her biri kabul eden bir [ODATADetailLevel] [ odata] nesnesini parametre olarak.
-* **REST listesi istekleri**: Bu sütuna bağlı her REST API sayfa izin işlemleri ve özellikleri belirten bir tablo içeriyor *filtre* dizeleri. Oluşturmak, bu özellik adları ve işlemleri için kullanacağı bir [ODATADetailLevel.FilterClause] [ odata_filter] dize.
+* **.NET listesi yöntemleri**: Bu sütunda hello .NET API yöntemlerin her biri kabul eden bir [ODATADetailLevel] [ odata] nesnesini parametre olarak.
+* **REST listesi istekleri**: her REST API sayfasında izin bu sütunu içeren hello özelliklerini ve işlemlerini belirten bir tablo bağlantılı tooin *filtre* dizeleri. Oluşturmak, bu özellik adları ve işlemleri için kullanacağı bir [ODATADetailLevel.FilterClause] [ odata_filter] dize.
 
 | .NET listesi yöntemleri | REST listesi istekleri |
 | --- | --- |
-| [CertificateOperations.ListCertificates][net_list_certs] |[Bir hesap sertifikaları listesi][rest_list_certs] |
-| [CloudTask.ListNodeFiles][net_list_task_files] |[Bir görev ile ilişkili dosyaları listesi][rest_list_task_files] |
-| [JobOperations.ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] |[İş hazırlama ve iş sürüm görevleri bir iş için durumu listesi][rest_list_jobprep_status] |
-| [JobOperations.ListJobs][net_list_jobs] |[Bir hesap işleri listesi][rest_list_jobs] |
-| [JobOperations.ListNodeFiles][net_list_nodefiles] |[Bir düğümdeki dosya listesi][rest_list_nodefiles] |
-| [JobOperations.ListTasks][net_list_tasks] |[Bir işi ile ilişkili görevleri listeler][rest_list_tasks] |
-| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[Bir hesaptaki iş zamanlamalarını listesi][rest_list_job_schedules] |
-| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[Bir iş zamanlaması ile ilişkili işleri listesi][rest_list_schedule_jobs] |
-| [PoolOperations.ListComputeNodes][net_list_compute_nodes] |[Bir havuzdaki işlem düğümleri listesi][rest_list_compute_nodes] |
-| [PoolOperations.ListPools][net_list_pools] |[Bir hesap havuzlarını Listele][rest_list_pools] |
+| [CertificateOperations.ListCertificates][net_list_certs] |[Bir hesap hello sertifikalarını listele][rest_list_certs] |
+| [CloudTask.ListNodeFiles][net_list_task_files] |[Bir görev ile ilişkili hello dosyaları listeleme][rest_list_task_files] |
+| [JobOperations.ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] |[Merhaba iş hazırlama ve iş sürüm görevleri bir iş için Hello durumu listesi][rest_list_jobprep_status] |
+| [JobOperations.ListJobs][net_list_jobs] |[Bir hesap listesi hello işleri][rest_list_jobs] |
+| [JobOperations.ListNodeFiles][net_list_nodefiles] |[Bir düğümde hello dosyaları listeleme][rest_list_nodefiles] |
+| [JobOperations.ListTasks][net_list_tasks] |[Bir işle ilişkili listesi hello görevleri][rest_list_tasks] |
+| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[Bir hesap listesi hello iş zamanlamaları][rest_list_job_schedules] |
+| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[Bir iş zamanlaması ile ilişkili listesi hello işleri][rest_list_schedule_jobs] |
+| [PoolOperations.ListComputeNodes][net_list_compute_nodes] |[Liste hello işlem düğümleri havuzunda][rest_list_compute_nodes] |
+| [PoolOperations.ListPools][net_list_pools] |[Bir hesap listesi hello havuzları][rest_list_pools] |
 
 ### <a name="mappings-for-select-strings"></a>Select dizeleri eşlemeleri
 * **Batch .NET türleri**: Batch .NET API'si türleri.
-* **REST API varlıklar**: Bu sütundaki her bir sayfa türü için REST API özellik adları listesinde bir veya daha fazla tablo içeriyor. Bu özellik adları, yapısı oluştururken kullanılan *seçin* dizeleri. Oluşturmak, bu aynı özellik adları için kullanacağı bir [ODATADetailLevel.SelectClause] [ odata_select] dize.
+* **REST API varlıklar**: hello REST API özellik adları hello türünün listesinde bir veya daha fazla tablo bu sütundaki her bir sayfa içerir. Bu özellik adları, yapısı oluştururken kullanılan *seçin* dizeleri. Oluşturmak, bu aynı özellik adları için kullanacağı bir [ODATADetailLevel.SelectClause] [ odata_select] dize.
 
 | Batch .NET türleri | REST API varlıklar |
 | --- | --- |
@@ -179,35 +179,35 @@ Filtre, özellik adlarını seçin ve dizeleri genişletin *gerekir* REST API'de
 | [CloudTask][net_task] |[Bir görev hakkında bilgi edinin][rest_get_task] |
 
 ## <a name="example-construct-a-filter-string"></a>Örnek: bir filtre dizesi oluşturun
-Bir filtre dizesi oluşturmak zaman [ODATADetailLevel.FilterClause][odata_filter], yukarıdaki tabloda "Eşlemeleri filtre dizeleri için" altında karşılık gelen Bul REST API belgelerine sayfasına bakın gerçekleştirmek istediğiniz işlem listesi. Bu sayfada ilk çok satırlı tablodaki filtrelenebilir özellikleri ve bunların desteklenen işleçleri bulacaksınız. Çıkış kodu sıfır olmayan tüm görevler almak isterseniz, örneğin, bu satırın üzerinde [bir işlemle ilişkili görevleri listesinde] [ rest_list_tasks] geçerli özellik dizesi ve izin verilen işleçleri belirtir:
+Bir filtre dizesi oluşturmak zaman [ODATADetailLevel.FilterClause][odata_filter], karşılık gelen "Eşlemeleri filtre dizeleri için" toofind hello REST API belge sayfasının altında Merhaba tablonun üzerinde başvurun toohello liste işlemi tooperform istiyor. Merhaba ilk tablodaki çok satırlı o sayfadaki hello filtrelenebilir özellikleri ve bunların desteklenen işleçleri bulacaksınız. Çıkış kodu sıfır olmayan tüm görevler tooretrieve isterseniz, örneğin, bu satırın üzerinde [listesinde bir işlemle ilişkili hello görevleri] [ rest_list_tasks] hello geçerli özellik dizesi ve izin verilen işleçleri belirtir:
 
 | Özellik | İzin verilen işlemler | Tür |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
-Bu nedenle, sıfır olmayan çıkış kodu ile tüm görevleri listeleme için filtre dizesini olacaktır:
+Bu nedenle, sıfır olmayan çıkış kodu ile tüm görevleri listeleme için filtre dizesini hello olacaktır:
 
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
 ## <a name="example-construct-a-select-string"></a>Örnek: select dizesi oluşturun
-Oluşturmak için [ODATADetailLevel.SelectClause][odata_select], yukarıdaki tabloda "Select dizeleri eşlemeleri" altında başvurun ve listeleme varlık türüne karşılık gelen REST API sayfasına gidin. Bu sayfada ilk çok satırlı tablodaki seçilebilir özellikleri ve bunların desteklenen işleçleri bulacaksınız. Yalnızca kimliği ve listedeki her görev için komut satırı almak isterseniz, örneğin, bu satırlar geçerli tabloda üzerinde bulacaksınız [bir görev hakkında bilgi alma][rest_get_task]:
+tooconstruct [ODATADetailLevel.SelectClause][odata_select], "Select dizeleri eşlemeleri" altında Merhaba tablonun üzerinde başvurun ve karşılık gelen varlık toohello türü toohello REST API sayfasına gidin, listeliyorsanız. Merhaba ilk tablodaki çok satırlı o sayfadaki hello seçilebilir özellikleri ve bunların desteklenen işleçleri bulacaksınız. Bir listede tooretrieve yalnızca hello kimliği ve her görev için komut satırı isterseniz, örneğin, bu satırı hello geçerli tabloda üzerinde bulacaksınız [bir görev hakkında bilgi alma][rest_get_task]:
 
 | Özellik | Tür | Notlar |
 |:--- |:--- |:--- |
-| `id` |`String` |`The ID of the task.` |
-| `commandLine` |`String` |`The command line of the task.` |
+| `id` |`String` |`hello ID of hello task.` |
+| `commandLine` |`String` |`hello command line of hello task.` |
 
-Yalnızca kimliği ve listelenen her görev komut satırıyla dahil etmek için seçim dizesi sonra aşağıdaki gibi olmalıdır:
+yalnızca hello kimliği ve listelenen her görev komut satırıyla dahil etmek için hello select dizesi sonra aşağıdaki gibi olmalıdır:
 
 `id, commandLine`
 
 ## <a name="code-samples"></a>Kod örnekleri
 ### <a name="efficient-list-queries-code-sample"></a>Verimli listesi sorguları kod örneği
-Kullanıma [EfficientListQueries] [ efficient_query_sample] örnek proje nasıl verimli sorgulama listesini görmek için GitHub üzerindeki bir uygulama performansını etkileyebilir. Bu C# konsol uygulaması oluşturur ve çok sayıda görevler bir projeye ekler. Ardından, birden çok çağrıları yapan [JobOperations.ListTasks] [ net_list_tasks] yöntemi ve geçişleri [ODATADetailLevel] [ odata] nesneleri döndürülecek veri miktarı değiştirmek için farklı özellik değerleri ile yapılandırılır. Aşağıdakine benzer bir çıktı üretir:
+Merhaba denetleyin [EfficientListQueries] [ efficient_query_sample] GitHub toosee nasıl verimli üzerinde örnek proje listesi sorgulama uygulama performansını etkileyebilir. Bu C# konsol uygulaması oluşturur ve çok sayıda görevleri tooa iş ekler. Sonra birden çok çağrıları toohello yapar [JobOperations.ListTasks] [ net_list_tasks] yöntemi ve geçişleri [ODATADetailLevel] [ odata] nesneleri farklı özellik değerleri toovary hello miktarını döndürülen veri toobe ile yapılandırılmış. Toohello aşağıdaki benzer bir çıktı üretir:
 
 ```
-Adding 5000 tasks to job jobEffQuery...
-5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
+Adding 5000 tasks toojob jobEffQuery...
+5000 tasks added in 00:00:47.3467587, hit ENTER tooquery tasks...
 
 4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
 0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
@@ -216,22 +216,22 @@ Adding 5000 tasks to job jobEffQuery...
 5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
 5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
 
-Sample complete, hit ENTER to continue...
+Sample complete, hit ENTER toocontinue...
 ```
 
-Geçen kez gösterildiği gibi özellikleri ve döndürülen öğe sayısını sınırlayarak sorgusu yanıt sürelerini önemli ölçüde düşürebilirsiniz. Bu ve diğer örnek projelerinde bulabilirsiniz [azure-batch-samples] [ github_samples] github'daki.
+Merhaba geçen kez gösterildiği gibi hello özellikleri ve hello döndürülen öğe sayısını sınırlayarak sorgusu yanıt sürelerini önemli ölçüde düşürebilirsiniz. Bu ve diğer örnek projelerine hello bulabilirsiniz [azure-batch-samples] [ github_samples] github'daki.
 
 ### <a name="batchmetrics-library-and-code-sample"></a>BatchMetrics kitaplığı ve kod örneği
-EfficientListQueries kod örneği yanı sıra yukarıdaki, bulduğunuz [BatchMetrics] [ batch_metrics] proje [azure-batch-samples] [ github_samples]GitHub depo. BatchMetrics örnek proje verimli bir şekilde Batch API'sini kullanarak Azure Batch iş ilerleme durumunu izlemek nasıl gösterir.
+Ayrıca toohello EfficientListQueries kod örneği yukarıdaki, hello bulabileceğiniz [BatchMetrics] [ batch_metrics] hello bir projede [azure-batch-samples] [ github_samples] GitHub depo. Merhaba BatchMetrics örnek proje nasıl tooefficiently izlemek hello Batch API'sini kullanarak Azure Batch iş ilerleme durumunu gösterir.
 
-[BatchMetrics] [ batch_metrics] örnek, kendi projeleri ve çalışma ve kitaplık kullanımı tanıtmak için basit bir komut satırı program dahil edebilirsiniz .NET sınıf kitaplığı proje içerir.
+Merhaba [BatchMetrics] [ batch_metrics] örnek içeren, kendi projeleri ve basit bir komut satırı dahil edebilirsiniz .NET sınıf kitaplığı proje program tooexercise ve hello hello kullanımını gösterir Kitaplığı.
 
-Proje içinde örnek uygulama aşağıdaki işlemleri gösterir:
+Merhaba örnek uygulaması hello proje içindeki operations aşağıdaki hello gösterir:
 
-1. Özel öznitelikler yalnızca gereksinim duyduğunuz özellikleri indirmek için seçme
-2. Değişiklikler yalnızca son sorgu itibaren indirmek için durum geçiş süreleri filtreleme
+1. Özel öznitelikler sipariş toodownload yalnızca hello özelliklerinde seçerek gerekir
+2. Durum geçişi kez sipariş toodownload süzme yalnızca bu yana hello son sorgu değiştirir
 
-Örneğin, aşağıdaki yöntemi BatchMetrics Kitaplığı'nda görünür. Yalnızca belirleyen bir ODATADetailLevel döndürür `id` ve `state` özellikleri için sorgulanır varlıklar elde. Ayrıca, belirtir, durumu belirtilen bu yana değişti varlıklar `DateTime` parametresi döndürülmesi.
+Örneğin, yöntem aşağıdaki hello hello BatchMetrics kitaplığı görüntülenir. Bu yalnızca hello belirten bir ODATADetailLevel döndürür `id` ve `state` özellikleri sorgulanır hello varlıklar için elde. Ayrıca, belirtir, durumu, belirtilen hello bu yana değişti yalnızca varlıklar `DateTime` parametresi döndürülmesi.
 
 ```csharp
 internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
@@ -245,10 +245,10 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 ### <a name="parallel-node-tasks"></a>Paralel düğüm görevleri
-[Eşzamanlı düğüm görevleri ile Azure toplu işlem kaynak kullanımını en üst düzeye](batch-parallel-node-tasks.md) başka bir makaleye toplu uygulama performansı ile ilgili. İş yüklerinin bazı türleri üzerinde Paralel Görevler yürütülürken yararlanabilir büyük--ancak daha az--işlem düğümlerini. Kullanıma [Örnek senaryo](batch-parallel-node-tasks.md#example-scenario) makalede böyle bir senaryo hakkında ayrıntılı bilgi için.
+[Eşzamanlı düğüm görevleri ile Azure toplu işlem kaynak kullanımını en üst düzeye](batch-parallel-node-tasks.md) başka bir makale ilgili tooBatch uygulama performansı. İş yüklerinin bazı türleri üzerinde Paralel Görevler yürütülürken yararlanabilir büyük--ancak daha az--işlem düğümlerini. Merhaba denetleyin [Örnek senaryo](batch-parallel-node-tasks.md#example-scenario) hello makalede böyle bir senaryo hakkında ayrıntılı bilgi için.
 
 ### <a name="batch-forum"></a>Toplu işlem Forumu
-[Azure toplu işlem Forumu] [ forum] MSDN'de toplu ele almaktadır ve hizmet hakkında sorular sormak için iyi bir yerdir. HEAD üzerinde üzerinden faydalı "Yapışkan" gönderiler için ve Batch çözümlerinizi derleme sırasında çıktıkları anda sorularınızı gönderin.
+Merhaba [Azure toplu işlem Forumu] [ forum] MSDN'de mükemmel toodiscuss toplu yerleştirin ve hello hizmeti hakkında soru sorun olduğunu. HEAD üzerinde üzerinden faydalı "Yapışkan" gönderiler için ve Batch çözümlerinizi derleme sırasında çıktıkları anda sorularınızı gönderin.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx

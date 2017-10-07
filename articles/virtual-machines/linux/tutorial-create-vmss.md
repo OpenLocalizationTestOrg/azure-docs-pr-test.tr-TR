@@ -1,5 +1,5 @@
 ---
-title: "Linux Azure için sanal makine ölçek kümeleri oluşturma | Microsoft Docs"
+title: "aaaCreate Linux Azure için sanal makine ölçek kümeleri | Microsoft Docs"
 description: "Bir sanal makine ölçek kümesini kullanarak Linux VM'ler üzerinde yüksek oranda kullanılabilir bir uygulama oluşturun ve dağıtın"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,41 +15,41 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 2b8d519e11f70eda164bd8f6e131a3989f242ab0
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 00dd81043f9be46ef2dc6dfe97eefdb20944ee13
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Bir sanal makine ölçek kümesi oluşturma ve Linux üzerinde yüksek oranda kullanılabilir bir uygulama dağıtma
-Bir sanal makine ölçek kümesini dağıtmak ve aynı, otomatik ölçeklendirme sanal makineler kümesi yönetmenize olanak sağlar. Ölçek kümesindeki VM'lerin sayısını elle ölçeklendirme ya da CPU kullanımı, bellek isteğe bağlı veya ağ trafiğini göre otomatik ölçeklendirme kurallarını tanımlayabilirsiniz. Bu öğreticide, Azure üzerinde ayarlanmış bir sanal makine ölçek dağıtın. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bir sanal makine ölçek kümesi toodeploy sağlar ve aynı, otomatik ölçeklendirme sanal makineler kümesi yönetin. Merhaba hello ölçek kümesindeki VM'lerin sayısını elle ölçeklendirme ya da CPU kullanımı, bellek isteğe bağlı veya ağ trafiğini dayalı kurallar tooautoscale tanımlayabilirsiniz. Bu öğreticide, Azure üzerinde ayarlanmış bir sanal makine ölçek dağıtın. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Bulut init ölçeklendirmek için bir uygulama oluşturmak için kullanın
+> * Bulut init toocreate bir uygulama tooscale kullanın
 > * Bir sanal makine ölçek kümesi oluşturma
-> * Artırma veya azaltma ölçek kümesindeki örnek sayısı
+> * Artırma veya azaltma hello ölçek kümesi örneği sayısı
 > * Ölçek kümesi örnekleri için bağlantı bilgileri görüntüle
 > * Veri diskleri bir ölçek kümesinde kullanın
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, Bu öğretici hello Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="scale-set-overview"></a>Ölçek kümesi'ne genel bakış
-Bir sanal makine ölçek kümesini dağıtmak ve aynı, otomatik ölçeklendirme sanal makineler kümesi yönetmenize olanak sağlar. Ölçek kümeleri kullanan aynı bileşenleri, ilgili önceki öğreticide öğrenilen [yüksek oranda kullanılabilir sanal makineleri oluşturmak](tutorial-availability-sets.md). VM ölçek kümesindeki bir kullanılabilirlik kümesi ve mantığı arıza ve güncelleştirme etki alanları arasında dağıtılan oluşturulur.
+Bir sanal makine ölçek kümesi toodeploy sağlar ve aynı, otomatik ölçeklendirme sanal makineler kümesi yönetin. Ölçek, hakkında hello önceki öğreticide çok öğrenilen bu kullanım hello aynı bileşenleri ayarlar[yüksek oranda kullanılabilir sanal makineleri oluşturmak](tutorial-availability-sets.md). VM ölçek kümesindeki bir kullanılabilirlik kümesi ve mantığı arıza ve güncelleştirme etki alanları arasında dağıtılan oluşturulur.
 
-VM ölçek kümesindeki gerektiği şekilde oluşturulur. Nasıl ve ne zaman VM'ler eklendiğinde veya kaldırıldığında ölçek kümesi denetlemek için otomatik ölçeklendirme kurallarını tanımlayın. Bu kurallar temel alınarak ölçümleri CPU yükünü, bellek kullanımı veya ağ trafiğini gibi tetikleyebilir.
+VM ölçek kümesindeki gerektiği şekilde oluşturulur. Otomatik ölçeklendirme kurallarını toocontrol tanımladığınız nasıl ve ne zaman VM'ler eklenir veya hello ölçek kümesinden kaldırılır. Bu kurallar temel alınarak ölçümleri CPU yükünü, bellek kullanımı veya ağ trafiğini gibi tetikleyebilir.
 
-Bir Azure platform görüntüsü kullandığınızda ölçek 1.000 VM'ler kadar destek ayarlar. Üretim iş yükleri için istediğiniz [özel bir VM görüntüsü oluşturma](tutorial-custom-images.md). Özel görüntü kullanırken ayarlayın bir ölçek en fazla 100 sanal makineleri oluşturabilirsiniz.
+Ölçek too1, Azure platform görüntüsü kullandığınızda 000 VM'ler desteği ayarlar. Üretim iş yükleri için çok isteyebilir[özel bir VM görüntüsü oluşturma](tutorial-custom-images.md). Özel görüntü kullanırken ayarlayın ölçeğinde too100 Vm'leri yedekleme oluşturabilirsiniz.
 
 
-## <a name="create-an-app-to-scale"></a>Ölçeklendirmek için uygulama oluşturma
-Üretim kullanımı için istediğiniz [özel bir VM görüntüsü oluşturma](tutorial-custom-images.md) uygulamanızın yüklenmiş ve yapılandırılmış içerir. Bu öğretici için hızlı şekilde ölçeği eylemini Ayarla görmek için sanal makinelerin ilk önyükleme özelleştirme sağlar.
+## <a name="create-an-app-tooscale"></a>Bir uygulama tooscale oluşturma
+Üretim kullanımı için çok isteyebilir[özel bir VM görüntüsü oluşturma](tutorial-custom-images.md) uygulamanızın yüklenmiş ve yapılandırılmış içerir. Bu öğretici için ilk önyükleme tooquickly Vm'lerinde ölçeği eylemini Ayarla bkz hello özelleştirme sağlar.
 
-Bir önceki öğreticide öğrenilen [Linux sanal bir makinede ilk önyükleme özelleştirmek nasıl](tutorial-automate-vm-deployment.md) bulut init ile. NGINX yüklemek ve basit bir 'Hello World' Node.js uygulaması çalıştırmak için aynı bulut init yapılandırma dosyası kullanabilirsiniz. 
+Bir önceki öğreticide öğrenilen [nasıl toocustomize Linux sanal bir makinede ilk önyükleme](tutorial-automate-vm-deployment.md) bulut init ile. Kullanabileceğiniz aynı bulut init yapılandırma dosyası tooinstall NGINX hello ve basit bir 'Hello World' Node.js uygulaması çalıştırın. 
 
-Geçerli kabuğunuzu adlı bir dosya oluşturun *bulut init.txt* ve aşağıdaki yapılandırma yapıştırın. Örneğin, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. Girin `sensible-editor cloud-init.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
+Geçerli kabuğunuzu adlı bir dosya oluşturun *bulut init.txt* Yapıştır hello izleyerek yapılandırma. Örneğin, yerel makinenizde değil hello bulut Kabuk hello dosya oluşturun. Girin `sensible-editor cloud-init.txt` toocreate hello dosya ve kullanılabilir düzenleyicileri listesini görebilirsiniz. Merhaba tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun, özellikle ilk satırı hello:
 
 ```yaml
 #cloud-config
@@ -95,13 +95,13 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>Bir ölçek kümesi oluşturma
-Ölçek kümesini oluşturmadan önce bir kaynak grubuyla oluşturmanız [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupScaleSet* içinde *eastus* konumu:
+Ölçek kümesini oluşturmadan önce bir kaynak grubuyla oluşturmanız [az grubu oluşturma](/cli/azure/group#create). Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myResourceGroupScaleSet* hello içinde *eastus* konumu:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-Şimdi bir sanal makine ölçek kümesi oluşturmak [az vmss oluşturma](/cli/azure/vmss#create). Aşağıdaki örnek, ölçeği adlandırılmış Ayarla oluşturur *myScaleSet*VM özelleştirmek için bulut init dosyasını kullanır ve bunlar yoksa SSH anahtarları oluşturur:
+Şimdi bir sanal makine ölçek kümesi oluşturmak [az vmss oluşturma](/cli/azure/vmss#create). Merhaba aşağıdaki örnekte oluşturur ölçeği adlandırılmış Ayarla *myScaleSet*hello bulut init dosya toocustomize hello VM kullanır ve mevcut SSH anahtarları oluşturur:
 
 ```azurecli-interactive 
 az vmss create \
@@ -114,13 +114,13 @@ az vmss create \
   --generate-ssh-keys      
 ```
 
-Oluşturun ve tüm sanal makineleri ve ölçek kümesi kaynakları yapılandırmak için birkaç dakika sürer. Azure CLI sorusu döndükten sonra çalışmaya devam arka plan görevleri vardır. Başka bir birkaç uygulamaya erişmek için dakika olabilir.
+Birkaç dakika toocreate alır ve tüm hello ölçek kümesi kaynakları ve VM'ler yapılandırın. Hello Azure CLI toohello istemi döndükten sonra toorun devam arka plan görevleri vardır. Başka bir birkaç hello uygulamaya erişmek için dakika olabilir.
 
 
 ## <a name="allow-web-traffic"></a>Web trafiği izin ver
-Bir yük dengeleyici sanal makine ölçek kümesinin bir parçası olarak otomatik olarak oluşturuldu. Yük Dengeleyici trafiği yük dengeleyici kuralları kullanarak tanımlanan VM'ler kümesi arasında dağıtır. Yük Dengeleyici kavramları ve sonraki öğreticide yapılandırma hakkında daha fazla bilgiyi [sanal makinelerin azure'da yük dengelemesini nasıl](tutorial-load-balancer.md).
+Bir yük dengeleyici hello sanal makine ölçek kümesinin bir parçası olarak otomatik olarak oluşturuldu. Merhaba yük dengeleyici trafiği yük dengeleyici kuralları kullanarak tanımlanan VM'ler kümesi arasında dağıtır. Yük Dengeleyici kavramları ve hello sonraki öğreticide yapılandırma hakkında daha fazla bilgiyi [nasıl tooload Bakiye azure'daki sanal makinelerde](tutorial-load-balancer.md).
 
-Web uygulamasına ulaşması trafiğine izin vermek için bir kural oluştururken [az ağ lb kuralını](/cli/azure/network/lb/rule#create). Aşağıdaki örnek, adında bir kural oluşturur *myLoadBalancerRuleWeb*:
+tooallow trafiği tooreach hello web uygulaması, bir kural oluştururken [az ağ lb kuralı oluşturma](/cli/azure/network/lb/rule#create). Merhaba aşağıdaki örnek adlı bir kural oluşturur *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -135,7 +135,7 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Uygulamanızı test etme
-Node.js uygulamanızı Web'de görmek için yük dengeleyici ile genel IP adresi elde [az ağ ortak IP Göster](/cli/azure/network/public-ip#show). Aşağıdaki örnek IP adresi alacağı *myScaleSetLBPublicIP* ölçek kümesinin bir parçası olarak oluşturulan:
+toosee Node.js uygulamanızı hello Web'de elde hello genel IP adresi, yük dengeleyici ile [az ağ ortak IP Göster](/cli/azure/network/public-ip#show). Merhaba aşağıdaki örnek alacağı için başlangıç IP adresi *myScaleSetLBPublicIP* hello ölçek kümesinin bir parçası olarak oluşturulan:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -145,18 +145,18 @@ az network public-ip show \
     --output tsv
 ```
 
-Ortak IP adresini bir web tarayıcısına girin. Ana bilgisayar trafiği için yük dengeleyici dağıtılmış VM adını dahil olmak üzere uygulama gösterilir:
+Tooa web tarayıcısında Hello genel IP adresi girin. VM bu hello yük dengeleyici dağıtılmış trafiği hello hello ana dahil olmak üzere Hello uygulama görüntülenir:
 
 ![Çalışan Node.js uygulaması](./media/tutorial-create-vmss/running-nodejs-app.png)
 
-Eylem kümesini görmek için zorla uygulamanızı çalıştıran tüm VM'ler arasında trafiği dağıtmak yük dengeleyici görmek için web tarayıcınızın yenileme.
+toosee hello ölçeği, eylemde ayarla, zorla yenileme web tarayıcısı toosee hello yük dengeleyici, uygulamanızı çalıştıran tüm hello VM'ler arasında trafiği dağıtın.
 
 
 ## <a name="management-tasks"></a>Yönetim görevleri
-Ölçek kümesini yaşam döngüsü boyunca, bir veya daha fazla yönetim görevleri çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevleri otomatikleştiren komut dosyaları oluşturmak isteyebilirsiniz. Azure CLI 2.0, bu görevleri gerçekleştirmek için hızlı bir yoludur. Birkaç ortak görevler şunlardır.
+Merhaba ölçek kümesini Hello yaşam döngüsü boyunca toorun gerekebilir bir veya daha fazla yönetim görevleri. Ayrıca, çeşitli yaşam döngüsü görevleri otomatikleştiren toocreate komut dosyaları isteyebilirsiniz. Hello Azure CLI 2.0 hızlı şekilde toodo bu görevleri sağlar. Birkaç ortak görevler şunlardır.
 
 ### <a name="view-vms-in-a-scale-set"></a>Görünüm VM ölçek kümesindeki
-Ölçek kümesinde çalışan sanal makineler listesini görüntülemek için kullanın [az vmss listesi-örneklerini](/cli/azure/vmss#list-instances) gibi:
+tooview, Ölçek çalışan sanal makineler listesi ayarlayabilir, kullanabilir [az vmss listesi-örneklerini](/cli/azure/vmss#list-instances) gibi:
 
 ```azurecli-interactive 
 az vmss list-instances \
@@ -165,7 +165,7 @@ az vmss list-instances \
   --output table
 ```
 
-Çıktı aşağıdaki örneğe benzer:
+Merhaba, benzer toohello aşağıdaki örneğine çıktı:
 
 ```azurecli-interactive 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
@@ -176,7 +176,7 @@ az vmss list-instances \
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>Artırma veya azaltma VM örnekleri
-Ölçek kümesindeki şu anda sahip örneklerinin sayısını görmek için [az vmss Göster](/cli/azure/vmss#show) ve sorgulayın *sku.capacity*:
+toosee hello örnek sayısı, şu anda bir ölçek kümesindeki, kullanın [az vmss Göster](/cli/azure/vmss#show) ve sorgulayın *sku.capacity*:
 
 ```azurecli-interactive 
 az vmss show \
@@ -186,7 +186,7 @@ az vmss show \
     --output table
 ```
 
-Daha sonra el ile artırabilir veya sanal makine ölçek kümesi sayısını azaltmak [az vmss ölçek](/cli/azure/vmss#scale). Aşağıdaki örnek VM'lerin sayısını ayarlamak, Ölçek ayarlar *5*:
+Daha sonra el ile artırabilir veya sanal makineler kümesi hello ölçeğinde hello sayısını azaltmak [az vmss ölçek](/cli/azure/vmss#scale). Merhaba aşağıdaki örnek hello sayısını VM'ler, ölçeği çok ayarla ayarlar*5*:
 
 ```azurecli-interactive 
 az vmss scale \
@@ -195,10 +195,10 @@ az vmss scale \
     --new-capacity 5
 ```
 
-Otomatik ölçeklendirme kurallarını, yukarı veya aşağı VM'lerin sayısını yanıt ağ trafiğini veya CPU kullanımı gibi isteğe bağlı olarak ayarlamak, Ölçek ölçeklendirme tanımlamanıza olanak sağlar. Şu anda, bu kurallar Azure CLI 2. 0'olarak ayarlanamaz. Kullanım [Azure portal](https://portal.azure.com) otomatik ölçeklendirme yapılandırmak için.
+Otomatik ölçeklendirme kurallarını, ağ trafiğini veya CPU kullanımı gibi yanıt toodemand nasıl tooscale yukarı veya aşağı hello sayısında VM'ler, Ölçek kümesindeki tanımlamanıza olanak sağlar. Şu anda, bu kurallar Azure CLI 2. 0'olarak ayarlanamaz. Kullanım hello [Azure portal](https://portal.azure.com) tooconfigure otomatik ölçeklendirme.
 
 ### <a name="get-connection-info"></a>Bağlantı bilgilerini al
-Ölçek kümesindeki sanal makineleri bağlantı bilgilerini almak için kullanın [az vmss listesi-örnek-bağlantı-bilgisi](/cli/azure/vmss#list-instance-connection-info). Bu komut, SSH ile bağlanmanıza olanak sağlayan her bir VM için genel IP adresi ve bağlantı noktası çıkarır:
+tooobtain bağlantı bilgilerini hakkında ölçek kümeleri VM'ler Merhaba, kullanın [az vmss listesi-örnek-bağlantı-bilgisi](/cli/azure/vmss#list-instance-connection-info). Bu komut, SSH ile tooconnect sağlayan her bir VM için hello ortak IP adresi ve bağlantı noktası çıkarır:
 
 ```azurecli-interactive 
 az vmss list-instance-connection-info \
@@ -208,10 +208,10 @@ az vmss list-instance-connection-info \
 
 
 ## <a name="use-data-disks-with-scale-sets"></a>Veri diskleri ölçek kümeleri ile kullanma
-Oluşturun ve veri diskleri ölçek kümeleri ile kullanın. Bir önceki öğreticide öğrenilen nasıl [yönetmek Azure diskleri](tutorial-manage-disks.md) en iyi uygulamalar ve işletim sistemi diski yerine veri diskleri uygulamaları oluşturmaya yönelik performans geliştirmeleri özetler.
+Oluşturun ve veri diskleri ölçek kümeleri ile kullanın. Önceki bir öğreticide, nasıl çok öğrenilen[yönetmek Azure diskleri](tutorial-manage-disks.md) anahatları en iyi yöntemler ve veri diskleri hello işletim sistemi disk yerine uygulamaları oluşturmak için performans iyileştirmeleri hello.
 
 ### <a name="create-scale-set-with-data-disks"></a>Veri diskleri ile ölçek kümesi oluşturma
-Ölçek kümesi oluşturmak ve veri diskleri eklemek için Ekle `--data-disk-sizes-gb` parametresi [az vmss oluşturma](/cli/azure/vmss#create) komutu. Aşağıdaki örnek, bir ölçek kümesi oluşturur *50*Gb veri disklerinin her örneğine eklenmiş:
+bir ölçek ayarlamak ve veri diskleri ekleme toocreate eklemek hello `--data-disk-sizes-gb` parametresi toohello [az vmss oluşturma](/cli/azure/vmss#create) komutu. Merhaba aşağıdaki örnekte oluşturur kümesiyle bir ölçek *50*Gb veri diskleri ekli tooeach örneği:
 
 ```azurecli-interactive 
 az vmss create \
@@ -228,7 +228,7 @@ az vmss create \
 Ölçek kümesindeki örnekleri kaldırıldığında, eklenen veri disklerini de kaldırılır.
 
 ### <a name="add-data-disks"></a>Veri diski Ekle
-Örnekler, Ölçek kümesindeki bir veri diski eklemek için kullanın [az vmss diskini](/cli/azure/vmss/disk#attach). Aşağıdaki örnek, bir *50*Gb disk her örneği için:
+bir veri diski tooinstances, Ölçek tooadd ayarlayabilir, kullanabilir [az vmss diskini](/cli/azure/vmss/disk#attach). Merhaba aşağıdaki örnek, bir *50*Gb disk tooeach örneği:
 
 ```azurecli-interactive 
 az vmss disk attach \
@@ -239,7 +239,7 @@ az vmss disk attach \
 ```
 
 ### <a name="detach-data-disks"></a>Veri diskleri ayırma
-Ölçek kümesindeki bir veri diski örneklerine kaldırmak için kullanın [az vmss disk ayırma](/cli/azure/vmss/disk#detach). Aşağıdaki örnek veri diski LUN değerine kaldırır *2* her örneğinden:
+bir veri diski tooinstances, Ölçek tooremove ayarlayabilir, kullanabilir [az vmss disk ayırma](/cli/azure/vmss/disk#detach). Merhaba aşağıdaki örnek kaldırır hello veri diski LUN değerine *2* her örneğinden:
 
 ```azurecli-interactive 
 az vmss disk detach \
@@ -250,16 +250,16 @@ az vmss disk detach \
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir sanal makine ölçek kümesi oluşturuldu. Size nasıl öğrenilen için:
+Bu öğreticide, bir sanal makine ölçek kümesi oluşturuldu. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Bulut init ölçeklendirmek için bir uygulama oluşturmak için kullanın
+> * Bulut init toocreate bir uygulama tooscale kullanın
 > * Bir sanal makine ölçek kümesi oluşturma
-> * Artırma veya azaltma ölçek kümesindeki örnek sayısı
+> * Artırma veya azaltma hello ölçek kümesi örneği sayısı
 > * Ölçek kümesi örnekleri için bağlantı bilgileri görüntüle
 > * Veri diskleri bir ölçek kümesinde kullanın
 
-Yük Dengeleme sanal makineler için kavramları hakkında daha fazla bilgi için sonraki öğretici ilerleyin.
+Toohello sonraki öğretici toolearn Yük Dengeleme sanal makineler için kavramları hakkında daha fazla ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Sanal makinelerin yük dengelemesini](tutorial-load-balancer.md)

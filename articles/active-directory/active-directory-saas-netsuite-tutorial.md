@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Netsuite | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Netsuite arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Netsuite arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,109 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 4a19ab310212b93a53495a6fc6c25c77dfb82e79
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7cf205d5bda5333872fb589e57f4779a8670b595
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Öğretici: Azure Active Directory Tümleştirme Netsuite ile
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Netsuite tümleştirmek öğrenin.
+Bu öğreticide, bilgi nasıl toointegrate Netsuite Azure Active Directory'ye (Azure AD).
 
-Netsuite Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Netsuite Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
 
-- Netsuite erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için Netsuite (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Erişim tooNetsuite sahip Azure AD'de kontrol edebilirsiniz
+- Kullanıcıların tooautomatically get açan tooNetsuite (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure AD tümleştirme Netsuite ile yapılandırmak için aşağıdaki öğeleri gerekir:
+tooconfigure Netsuite ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Netsuite çoklu oturum açma etkin abonelik
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden Netsuite ekleme
+1. Merhaba Galerisi'nden Netsuite ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-netsuite-from-the-gallery"></a>Galeriden Netsuite ekleme
-Azure AD Netsuite tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Netsuite eklemeniz gerekir.
+## <a name="adding-netsuite-from-hello-gallery"></a>Merhaba Galerisi'nden Netsuite ekleme
+Azure AD'ye tooconfigure hello tümleştirme Netsuite, tooadd Netsuite hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
 
-**Galeriden Netsuite eklemek için aşağıdaki adımları gerçekleştirin:**
+**tooadd Netsuite hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Tıklatın **yeni uygulama** iletişim kutusunun üst kısmında düğmesi.
+3. Tıklatın **yeni uygulama** hello iletişim hello üstte düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Netsuite**.
+4. Merhaba arama kutusuna yazın **Netsuite**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_search.png)
 
-5. Sonuçlar panelinde seçin **Netsuite**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Merhaba Sonuçlar panelinde seçin **Netsuite**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Netsuite ile test etme
 
-Tekli çalışmaya oturum için Azure AD Netsuite karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Netsuite ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek toowork'ın oturum açma hangi hello karşılık gelen Netsuite içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Netsuite hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
 
-Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** Netsuite içinde.
+Bu bağlantı ilişkisi hello hello değerini atayarak kurulur **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** Netsuite içinde.
 
-Yapılandırma ve Azure AD çoklu oturum açma Netsuite ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+tooconfigure ve Netsuite ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Netsuite test kullanıcısı oluşturma](#creating-a-netsuite-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Netsuite sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
+3. **[Netsuite test kullanıcısı oluşturma](#creating-a-netsuite-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Netsuite içinde karşılık gelen.
+4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Netsuite uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Netsuite uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma ile Netsuite yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**tooconfigure Azure AD çoklu oturum açma ile Netsuite, hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Netsuite** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Hello hello üzerinde Azure portal'ın **Netsuite** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_samlbase.png)
 
-3. Üzerinde **Netsuite etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **Netsuite etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_url.png)
 
-    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs``https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
+    Merhaba, **yanıt URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs``https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
     > [!NOTE] 
-    > Bu değer gerçek değeri değil. Değerin gerçek yanıt URL'si ile güncelleştirin. Kişi [Netsuite destek ekibi](http://www.netsuite.com/portal/services/support.shtml) bu değeri alınamıyor.
+    > Bu değer gerçek değeri değil. Güncelleştirme hello değerle hello gerçek yanıt URL'si. Kişi [Netsuite destek ekibi](http://www.netsuite.com/portal/services/support.shtml) tooget bu değer.
  
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve XML dosyayı bilgisayarınıza kaydedin.
+4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello XML dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_certificate.png) 
 
@@ -123,33 +123,33 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-netsuite-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Netsuite yapılandırma** 'yi tıklatın **yapılandırma Netsuite** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Merhaba üzerinde **Netsuite yapılandırma** 'yi tıklatın **yapılandırma Netsuite** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_configure.png) 
 
 7. Tarayıcınızda yeni bir sekme açın ve Netsuite şirket sitenizin yönetici olarak oturum açın.
 
-8. Sayfanın üstündeki araç çubuğunda **Kurulum**, ardından **Kurulum Yöneticisi**.
+8. Merhaba sayfanın üst kısmındaki hello Hello araç çubuğunda **Kurulum**, ardından **Kurulum Yöneticisi**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
-9. Gelen **kurulum görevlerini** listesinde **tümleştirme**.
+9. Merhaba gelen **kurulum görevlerini** listesinde **tümleştirme**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-integration.png)
 
-10. İçinde **yönetmek kimlik doğrulama** 'yi tıklatın **SAML çoklu oturum açma**.
+10. Merhaba, **yönetmek kimlik doğrulama** 'yi tıklatın **SAML çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-saml.png)
 
-11. Üzerinde **SAML Kurulumu** sayfasında, aşağıdaki adımları gerçekleştirin:
+11. Merhaba üzerinde **SAML Kurulumu** sayfasında, hello aşağıdaki adımları gerçekleştirin:
    
-    a. Kopya **SAML çoklu oturum açma hizmet URL'si** değeri **hızlı başvuru** bölümünü **yapılandırma oturum açma** ve yapıştırın **kimlik sağlayıcısı oturum açma sayfası** Netsuite alanındaki.
+    a. Kopya hello **SAML çoklu oturum açma hizmet URL'si** değeri **hızlı başvuru** bölümünü **yapılandırma oturum açma** ve hello yapıştırma **kimlik sağlayıcısı Oturum açma sayfasına** Netsuite alanındaki.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-netsuite-tutorial/ns-saml-setup.png)
   
     b. Netsuite içinde seçin **birincil kimlik doğrulama yöntemini**.
 
-    c. Etiketli alan için **SAMLV2 kimlik sağlayıcısı meta verileri**seçin **IDP meta veri dosyasını karşıya yükle**. Ardından **Gözat** Azure portalından indirdiğiniz meta veri dosyasını karşıya yükleyin.
+    c. Etiketli hello alan için **SAMLV2 kimlik sağlayıcısı meta verileri**seçin **IDP meta veri dosyasını karşıya yükle**. Ardından **Gözat** Azure portalından indirdiğiniz tooupload hello meta veri dosyası.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-netsuite-tutorial/ns-sso-setup.png)
 
@@ -159,37 +159,37 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-attributes.png)
 
-13. İçin **öznitelik adı** alan, yazın `account`. İçin **öznitelik değeri** alanında, Netsuite hesabı kimliğinizi yazın Bu, sabit ve hesap değişiklikle değerdir. Hesabı Kimliğiniz bulmak yönergeler aşağıda verilmiştir:
+13. Hello için **öznitelik adı** alan, yazın `account`. Hello için **öznitelik değeri** alanında, Netsuite hesabı kimliğinizi yazın Bu, sabit ve hesap değişiklikle değerdir. Yönergeler toofind hesabı Kimliğiniz aşağıda bulunmaktadır:
 
       ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-add-attribute.png)
 
-    a. Netsuite içinde tıklatın **Kurulum** üst gezinti menüsünde.
+    a. Netsuite içinde tıklatın **Kurulum** hello üst gezinti menüsünde.
 
-    b. Altında tıklatın **kurulum görevlerini** seçin sol gezinti menüsünün bölümünde **tümleştirme** bölümünde ve tıklatın **Web Hizmetleri tercihleri**.
+    b. Hello altında ardından **kurulum görevlerini** hello sol gezinti menüsünde, select hello bölümünü **tümleştirme** bölüm ve'ı tıklatın **Web Hizmetleri tercihleri**.
 
-    c. Netsuite hesabı Kimliğinizi kopyalayın ve yapıştırın **öznitelik değeri** Azure AD alanındaki.
+    c. Netsuite hesabı Kimliğinizi kopyalayın ve hello yapıştırın **öznitelik değeri** Azure AD alanındaki.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-account-id.png)
 
-14. Kullanıcıların çoklu oturum açma Netsuite gerçekleştirmeden önce ilk Netsuite için uygun izinler atanmaları gerekir. Bu izinleri atamak için aşağıdaki yönergeleri izleyin.
+14. Kullanıcıların çoklu oturum açma Netsuite gerçekleştirmeden önce ilk hello Netsuite için uygun izinler atanmaları gerekir. Bu izinleri tooassign aşağıdaki Hello yönergeleri izleyin.
 
-    a. Üst gezinti menüsünde **Kurulum**, ardından **Kurulum Yöneticisi**.
+    a. Merhaba üst gezinti menüsünde **Kurulum**, ardından **Kurulum Yöneticisi**.
       
       ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
-    b. Sol gezinti menüsünde seçin **kullanıcıları/rolleri**, ardından **Rolleri Yönet**.
+    b. Merhaba sol gezinti menüsünde seçin **kullanıcıları/rolleri**, ardından **Rolleri Yönet**.
       
       ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-manage-roles.png)
 
     c. Tıklatın **yeni rol**.
 
-    d. Yazın bir **adı** yeni rol ve select **tek oturum açma yalnızca** onay kutusu.
+    d. Yazın bir **adı** yeni rol ve select hello **tek oturum açma yalnızca** onay kutusu.
       
       ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
 
     e. **Kaydet** düğmesine tıklayın.
 
-    f. Üstteki menüde tıklatın **izinleri**. Ardından **Kurulum**.
+    f. Hello içinde hello üst menüsünde **izinleri**. Ardından **Kurulum**.
       
        ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
@@ -197,11 +197,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     h. **Kaydet** düğmesine tıklayın.
 
-    ı. Üst gezinti menüsünde **Kurulum**, ardından **Kurulum Yöneticisi**.
+    ı. Merhaba üst gezinti menüsünde **Kurulum**, ardından **Kurulum Yöneticisi**.
       
        ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
-    j. Sol gezinti menüsünde seçin **kullanıcıları/rolleri**, ardından **kullanıcıları yönetme**.
+    j. Merhaba sol gezinti menüsünde seçin **kullanıcıları/rolleri**, ardından **kullanıcıları yönetme**.
       
        ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-manage-users.png)
 
@@ -209,70 +209,70 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
       
        ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-edit-user.png)
 
-    l. Rolleri iletişim kutusunda, oluşturduğunuz ve'ı tıklatın rolü seçin **Ekle**.
+    l. Hello rolleri iletişim kutusunda, oluşturduğunuz ve'ı tıklatın hello rolü seçin **Ekle**.
       
        ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-add-role.png)
 
     m. **Kaydet** düğmesine tıklayın.
     
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-netsuite-tutorial/create_aaduser_01.png) 
 
-2.  Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2.  Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-netsuite-tutorial/create_aaduser_02.png) 
 
-3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
+3. Merhaba iletişim Hello üstünde tıklatın **Ekle** tooopen hello **kullanıcı** iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-netsuite-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-netsuite-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın. 
 
 ### <a name="creating-a-netsuite-test-user"></a>Netsuite test kullanıcısı oluşturma
 
 Bu bölümde, Britta Simon adlı bir kullanıcı Netsuite içinde oluşturulur. Netsuite yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler.
-Bu bölümde, eylem öğe yok. Bir kullanıcı Netsuite zaten yoksa, Netsuite erişmeyi denediğinde yeni bir tane oluşturulur.
+Bu bölümde, eylem öğe yok. Bir kullanıcı Netsuite zaten yoksa, tooaccess Netsuite çalıştığında yeni bir tane oluşturulur.
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
 
-Bu bölümde, Britta Netsuite için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, erişim tooNetsuite vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**Netsuite için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**tooassign Britta Simon tooNetsuite hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **Netsuite**.
+2. Merhaba uygulamalar listesinde **Netsuite**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -280,7 +280,7 @@ Bu bölümde, Britta Netsuite için erişim vererek, Azure çoklu oturum açma k
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -288,13 +288,13 @@ Bu bölümde, Britta Netsuite için erişim vererek, Azure çoklu oturum açma k
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Çoklu oturum açma ayarlarınızı sınamak için adresinden erişim Paneli'nde açın [https://myapps.microsoft.com](https://myapps.microsoft.com/), oturum test dikkate ve tıklatın **Netsuite**.
+tootest, çoklu oturum açma ayarları, açık hello adresinden erişim Paneli'nde [https://myapps.microsoft.com](https://myapps.microsoft.com/), oturum hello test dikkate ve tıklatın **Netsuite**.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 * [Kullanıcı sağlamayı Yapılandır](active-directory-saas-netsuite-provisioning-tutorial.md)
 

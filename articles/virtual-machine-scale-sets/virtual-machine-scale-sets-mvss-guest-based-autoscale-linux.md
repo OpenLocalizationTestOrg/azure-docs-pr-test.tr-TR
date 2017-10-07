@@ -1,6 +1,6 @@
 ---
 title: "Bir Linux ölçek kümesi şablonunda Konuk ölçümlerle Azure otomatik ölçeklendirme kullanın | Microsoft Docs"
-description: "Bilgi Linux sanal makine ölçek kümesi bir şablonda Konuk ölçümleri kullanarak otomatik ölçeklendirme yapma"
+description: "Bilgi nasıl Linux sanal makine ölçek kümesi bir şablonda Konuk ölçümleri kullanarak tooautoscale"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
-ms.openlocfilehash: ac0bbb4dbfccca3f3fc31526aeff11afe55d44be
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7afbef943a5f15c7a72dcf7114f46d521c504424
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Bir Linux ölçek kümesi şablonunda Konuk ölçümleri kullanarak otomatik ölçeklendirme
 
-Azure VM'lerin toplanır ve ölçek kümeleri ölçümlerini iki tür vardır: bazı VM ana bilgisayardan gelen ve diğer Konuk sanal gelir. Ana ölçümleri gerektirmez ek Kurulum VM, ana bilgisayar tarafından toplanan çünkü Konuk ölçümleri bize yüklemek gerektirdiğinde [Windows Azure tanılama uzantısını](../virtual-machines/windows/extensions-diagnostics-template.md) veya [Linux Azure tanılama uzantısını](../virtual-machines/linux/diagnostic-extension.md) VM konuk. Konuk ölçümleri yerine ana ölçümleri kullanmak için bir ortak neden Konuk ölçümleri ölçümleri ana ölçümleri daha büyük seçimi sağlamaktır. Böyle bir yalnızca konuk ölçümleri kullanılabilir bellek tüketimi ölçümlerini örnektir. Desteklenen ana ölçümleri listelenen [burada](../monitoring-and-diagnostics/monitoring-supported-metrics.md), ve yaygın olarak kullanılan Konuk ölçümleri listelenen [burada](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Bu makalede nasıl değiştirileceğini gösterir [minimum uygun ölçek kümesi şablonu](./virtual-machine-scale-sets-mvss-start.md) Linux ölçek kümeleri için konuk ölçümleri göre otomatik ölçeklendirme kurallarını kullanmak için.
+Azure VM'lerin toplanır ve ölçek kümeleri ölçümlerini iki tür vardır: bazı gelen hello VM ana bilgisayar ve diğerleri hello Konuk sanal gelir. Ana ölçümleri gerektirmez ek kurulum hello ana bilgisayar VM tarafından toplanan çünkü Konuk ölçümleri bize tooinstall hello gerektirdiğinde [Windows Azure tanılama uzantısını](../virtual-machines/windows/extensions-diagnostics-template.md) veya hello [Linux Azure tanılama Uzantı](../virtual-machines/linux/diagnostic-extension.md) hello VM konuk. Bir ortak neden toouse Konuk ölçümleri ana ölçümleri yerine Konuk ölçümleri ölçümleri ana ölçümleri daha büyük seçimi sağlamaktır. Böyle bir yalnızca konuk ölçümleri kullanılabilir bellek tüketimi ölçümlerini örnektir. desteklenen hello ana ölçümleri listelenen [burada](../monitoring-and-diagnostics/monitoring-supported-metrics.md), ve yaygın olarak kullanılan Konuk ölçümleri listelenen [burada](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Bu makalede gösterilmektedir nasıl toomodify hello [minimum uygun ölçek kümesi şablonu](./virtual-machine-scale-sets-mvss-start.md) toouse otomatik ölçeklendirme kurallarını temel alarak Linux ölçek kümeleri için konuk ölçümleri.
 
-## <a name="change-the-template-definition"></a>Şablon tanımını değiştirin
+## <a name="change-hello-template-definition"></a>Merhaba şablon tanımını değiştirin
 
-Bizim minimum uygun ölçek kümesi şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve Linux ölçek dağıtma ile konuk tabanlı otomatik ölçeklendirme kümesi için bizim şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set existing-vnet`) tarafından parça parça:
+Bizim minimum uygun ölçek kümesi şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve hello Linux ölçeği konuk tabanlı otomatik ölçeklendirme ile Ayarla dağıtmak için bizim şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Merhaba kullanılan fark toocreate bu şablonu inceleyelim (`git diff minimum-viable-scale-set existing-vnet`) tarafından parça parça:
 
-Parametreler için ilk olarak, eklediğimiz `storageAccountName` ve `storageAccountSasToken`. Tanılama Aracı ölçüm verileri depolayacak bir [tablo](../cosmos-db/table-storage-how-to-use-dotnet.md) bu depolama hesabında. Linux Tanılama Aracı sürüm 3.0 sürümünden itibaren bir depolama erişim tuşunu kullanarak artık desteklenmemektedir. Biz kullanmalısınız bir [SAS belirteci](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Parametreler için ilk olarak, eklediğimiz `storageAccountName` ve `storageAccountSasToken`. Merhaba Tanılama Aracı ölçüm verileri depolar bir [tablo](../cosmos-db/table-storage-how-to-use-dotnet.md) bu depolama hesabında. Hello Linux Tanılama Aracı sürüm 3.0 sürümünden itibaren bir depolama erişim tuşunu kullanarak artık desteklenmemektedir. Biz kullanmalısınız bir [SAS belirteci](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },
@@ -45,7 +45,7 @@ Parametreler için ilk olarak, eklediğimiz `storageAccountName` ve `storageAcco
    },
 ```
 
-Ardından, biz ölçek kümesini değiştirme `extensionProfile` tanılama uzantısını eklenecek. Bu yapılandırmada, ölçümleri depolamak için kullanmak üzere, ölçümleri yanı sıra depolama hesabı ve SAS belirteci toplamak için ölçek kaynak Kimliğini belirtin. Biz de ölçümleri (Bu durumda dakikada) ne sıklıkta toplanır ve (Bu örnek yüzde kullanılan bellek) izlemek için hangi ölçümleri belirtin. Bu yapılandırma hakkında daha ayrıntılı bilgi ve ölçümleri yüzde dışında kullanılan bellek için bkz: [bu belgeleri](../virtual-machines/linux/diagnostic-extension.md).
+Ardından, biz hello ölçek kümesini değiştirme `extensionProfile` tooinclude hello tanılama uzantısını. Bu yapılandırmada, biz toocollect ölçümleri kimliği hello ölçek kümesi hello kaynağı belirtin, aynı zamanda depolama hesabı ve SAS belirteci toouse toostore hello ölçümleri hello. Biz de hello ölçümleri (Bu durumda dakikada) ne sıklıkta toplanır ve hangi ölçümleri tootrack (bellekte bu servis talebi yüzde kullanılan) belirtin. Bu yapılandırma hakkında daha ayrıntılı bilgi ve ölçümleri yüzde dışında kullanılan bellek için bkz: [bu belgeleri](../virtual-machines/linux/diagnostic-extension.md).
 
 ```diff
                  }
@@ -108,7 +108,7 @@ Ardından, biz ölçek kümesini değiştirme `extensionProfile` tanılama uzant
        }
 ```
 
-Son olarak, eklediğimiz bir `autoscaleSettings` otomatik ölçeklendirme yapılandırmak için kaynak tabanlı bu ölçümleri. Bu kaynak bir `dependsOn` ölçek başvuran yan tümcesi ayarlanmış ölçek kümesi için otomatik ölçeklendirme, denemeden önce mevcut olduğundan emin olun. Biz otomatik ölçeklendirme için farklı bir ölçümü tercih ederseniz, biz kullanırsınız `counterSpecifier` tanılama uzantısını yapılandırmasından `metricName` otomatik ölçeklendirme yapılandırması. Otomatik ölçeklendirme yapılandırma hakkında daha fazla bilgi için bkz: [otomatik ölçeklendirme en iyi yöntemler](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) ve [Azure İzleyici REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn931928.aspx).
+Son olarak, eklediğimiz bir `autoscaleSettings` kaynak tooconfigure otomatik ölçeklendirme dayalı bu ölçümleri. Bu kaynak bir `dependsOn` hello ölçek başvuran yan tümcesi hello ölçek kümesini tooautoscale denemeden önce mevcut tooensure ayarlamak. Biz üzerinde farklı ölçüm tooautoscale seçerseniz, hello kullanmanız `counterSpecifier` hello tanılama uzantısını yapılandırmadan hello olarak `metricName` hello otomatik ölçeklendirme yapılandırması. Merhaba otomatik ölçeklendirme yapılandırma hakkında daha fazla bilgi için bkz: [otomatik ölçeklendirme en iyi yöntemler](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) ve hello [Azure İzleyici REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn931928.aspx).
 
 ```diff
 +    },

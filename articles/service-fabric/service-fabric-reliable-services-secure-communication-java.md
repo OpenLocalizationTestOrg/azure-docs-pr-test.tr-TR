@@ -1,6 +1,6 @@
 ---
-title: "Güvenli iletişim için Azure Service Fabric Hizmetleri'nde Yardım | Microsoft Docs"
-description: "Güvenilir hizmetler için iletişimi güvenli hale getirmek nasıl genel bakış çalıştıran bir Azure Service Fabric kümesi."
+title: "Azure Service Fabric hizmetler için güvenli iletişim aaaHelp | Microsoft Docs"
+description: "Toohelp güvenliğini nasıl iletişim güvenilir hizmetler için genel bakış çalıştıran bir Azure Service Fabric kümesi."
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: c4634e3d8efb1745fffcfe3e647e43d867038716
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 14db54d50c35478c1f2c156de0dba36f1427c8cb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Güvenli iletişim Azure Service Fabric hizmetler için Yardım
 > [!div class="op_single_selector"]
@@ -27,9 +27,9 @@ ms.lasthandoff: 07/11/2017
 >
 
 ## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Hizmet remoting kullanırken hizmet korunmasına yardımcı olma
-Biz varolan kullanmaya başlayacağınız [örnek](service-fabric-reliable-services-communication-remoting-java.md) nasıl uzaktan iletişim için güvenilir hizmetler ayarlanacağı açıklanmaktadır. Hizmet remoting kullanırken bir hizmeti güvenli hale getirmek için aşağıdaki adımları izleyin:
+Biz varolan kullanmaya başlayacağınız [örnek](service-fabric-reliable-services-communication-remoting-java.md) , açıklar nasıl tooset uzaktan iletişim güvenilir hizmetler için ayarlama. toohelp hizmet remoting kullanırken bir hizmeti güvenli hale getirme, aşağıdaki adımları izleyin:
 
-1. Bir arabirim oluşturmak `HelloWorldStateless`, hizmetiniz üzerinde uzaktan yordam çağrısı için kullanılabilecek yöntemleri tanımlar. Hizmetinizi kullanacak `FabricTransportServiceRemotingListener`, içinde bildirilen `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` paket. Bu bir `CommunicationListener` remoting özellikleri sağlayan uygulama.
+1. Bir arabirim oluşturmak `HelloWorldStateless`, hizmetiniz üzerinde uzaktan yordam çağrısı için kullanılabilecek hello yöntemleri tanımlar. Hizmetinizi kullanacak `FabricTransportServiceRemotingListener`, hello bildirilen `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` paket. Bu bir `CommunicationListener` remoting özellikleri sağlayan uygulama.
 
     ```java
     public interface HelloWorldStateless extends Service {
@@ -53,11 +53,11 @@ Biz varolan kullanmaya başlayacağınız [örnek](service-fabric-reliable-servi
     ```
 2. Dinleyici ayarları ve güvenlik kimlik bilgileri ekleyin.
 
-    Hizmet iletişimi güvenli hale getirmek için kullanmak istediğiniz sertifikayı kümedeki tüm düğümlerde yüklü olduğundan emin olun. Dinleyici ayarları ve güvenlik kimlik bilgileri sağlayabilir iki yolu vardır:
+    Güvenli, hizmet iletişimi hello kümedeki tüm hello düğümlerde yüklü toouse toohelp istediğiniz hello sertifikanın emin olun. Dinleyici ayarları ve güvenlik kimlik bilgileri sağlayabilir iki yolu vardır:
 
    1. Kullanarak sağlama bir [yapılandırma paketi](service-fabric-application-model.md):
 
-       Ekleme bir `TransportSettings` settings.xml dosyasındaki bölümü.
+       Ekleme bir `TransportSettings` hello settings.xml dosyasındaki bölümü.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->
@@ -72,7 +72,7 @@ Biz varolan kullanmaya başlayacağınız [örnek](service-fabric-reliable-servi
 
        ```
 
-       Bu durumda, `createServiceInstanceListeners` yöntemi şöyle görünür:
+       Bu durumda, hello `createServiceInstanceListeners` yöntemi şöyle görünür:
 
        ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -84,7 +84,7 @@ Biz varolan kullanmaya başlayacağınız [örnek](service-fabric-reliable-servi
         }
        ```
 
-        Eklerseniz bir `TransportSettings` herhangi öneki olmadan settings.xml dosyasındaki bölümünü `FabricTransportListenerSettings` tüm ayarları varsayılan olarak bu bölümünden yüklenir.
+        Eklerseniz bir `TransportSettings` hello settings.xml dosyasındaki tüm öneki olmadan bölümünde `FabricTransportListenerSettings` tüm hello Ayarları sayfasından Bu bölüm varsayılan olarak yüklenecektir.
 
         ```xml
         <!--"TransportSettings" section without any prefix.-->
@@ -92,7 +92,7 @@ Biz varolan kullanmaya başlayacağınız [örnek](service-fabric-reliable-servi
             ...
         </Section>
         ```
-        Bu durumda, `CreateServiceInstanceListeners` yöntemi şöyle görünür:
+        Bu durumda, hello `CreateServiceInstanceListeners` yöntemi şöyle görünür:
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -103,9 +103,9 @@ Biz varolan kullanmaya başlayacağınız [örnek](service-fabric-reliable-servi
             return listeners;
         }
        ```
-3. Çağırdığınızda yöntemler güvenli bir hizmette kullanmak yerine uzaktan iletişim yığını kullanarak `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` hizmeti proxy'si oluşturmak, kullanmak için sınıf `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.
+3. Çağırdığınızda yöntemler güvenli bir hizmette hello kullanmak yerine hello remoting yığını kullanarak `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` sınıfı toocreate kullanımı bir hizmeti proxy'si `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.
 
-    İstemci kodu bir hizmetin bir parçası çalışıyorsa, yükleyebilir `FabricTransportSettings` settings.xml dosyasından. Daha önce gösterildiği gibi hizmet koduna benzer TransportSettings bir bölüm oluşturun. İstemci kodu aşağıdaki değişiklikleri yapın:
+    Merhaba istemci kodu bir hizmetin bir parçası çalışıyorsa, yükleyebilir `FabricTransportSettings` hello settings.xml dosyasından. Benzer toohello hizmeti kodu TransportSettings bölümünde daha önce gösterildiği gibi oluşturun. Değişiklikleri toohello istemci kodu aşağıdaki hello olun:
 
     ```java
 

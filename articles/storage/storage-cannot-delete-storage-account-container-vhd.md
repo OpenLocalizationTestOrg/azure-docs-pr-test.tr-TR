@@ -1,5 +1,5 @@
 ---
-title: "Azure depolama hesapları, kapsayıcıları veya VHD'leri klasik bir dağıtımda silme sorunlarını giderme | Microsoft Docs"
+title: "Azure depolama hesapları, kapsayıcıları veya VHD'leri klasik bir dağıtımda silme aaaTroubleshoot | Microsoft Docs"
 description: "Azure depolama hesapları, kapsayıcıları veya VHD'leri klasik bir dağıtımda silme sorunlarını giderme"
 services: storage
 documentationcenter: 
@@ -15,114 +15,114 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
-ms.openlocfilehash: 9f3e824414ad6c1a0aba98a3d549ee63ddc7272f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6bbfa032e1968718c623227bb426d553e2951075
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-deleting-azure-storage-accounts-containers-or-vhds-in-a-classic-deployment"></a>Azure depolama hesapları, kapsayıcıları veya VHD'leri klasik bir dağıtımda silme sorunlarını giderme
 [!INCLUDE [storage-selector-cannot-delete-storage-account-container-vhd](../../includes/storage-selector-cannot-delete-storage-account-container-vhd.md)]
 
-Azure depolama hesabı, kapsayıcı ya da VHD silmeye çalıştığınızda hata alabilirsiniz [Azure portal](https://portal.azure.com/) veya [Klasik Azure portalı](https://manage.windowsazure.com/). Bu sorunlar aşağıdaki durumlarda oluşabilir:
+Hello toodelete hello Azure depolama hesabı, kapsayıcısı veya VHD çalıştığınızda hata alabilirsiniz [Azure portal](https://portal.azure.com/) veya hello [Klasik Azure portalı](https://manage.windowsazure.com/). Merhaba sorunları koşullar aşağıdaki hello tarafından kaynaklanabilir:
 
-* Bir VM’yi sildiğinizde disk ve VHD otomatik olarak silinmez. Depolama hesabını silmede başarısızlık bundan kaynaklanıyor olabilir. Başka bir VM bağlamak için disk kullanabilmeleri biz disk silmeyin.
-* Disk veya diskle ilişkili blob üzerinde kiralama hala devam ediyor.
+* Bir VM sildiğinizde, hello disk ve VHD otomatik olarak silinmez. Bu depolama hesabı silme hatası hello neden olabilir. Başka bir VM hello disk toomount kullanabilmesi biz hello disk silmeyin.
+* Olduğundan hala bir kira hello diskle ilişkili bir disk veya hello blob.
 * Hala bir blob, kapsayıcısı veya depolama hesabı kullanarak bir VM görüntüsü yok.
 
-Bu makalede Azure sorunu ele alınmamışsa Azure forumları ziyaret [MSDN ve yığın taşması](https://azure.microsoft.com/support/forums/). Bu forumları veya çok sorununuzu nakledebilirsiniz @AzureSupport Twitter'da. Ayrıca, size bir Azure destek isteği seçerek dosya **alma desteği** üzerinde [Azure Destek](https://azure.microsoft.com/support/options/) site.
+Bu makalede Azure sorunu ele alınmamışsa ziyaret üzerinde Azure forumları hello [MSDN ve yığın taşması hello](https://azure.microsoft.com/support/forums/). Bu forumlar sorununuzu nakledebilirsiniz veya too@AzureSupport Twitter'da. Ayrıca, size bir Azure destek isteği seçerek dosya **alma desteği** hello üzerinde [Azure Destek](https://azure.microsoft.com/support/options/) site.
 
 ## <a name="symptoms"></a>Belirtiler
-Aşağıdaki bölümde Azure depolama hesapları, kapsayıcıları veya VHD'leri silmeye çalıştığınızda alabileceğiniz yaygın hataları listeler.
+bölümden hello toodelete hello Azure depolama hesapları, kapsayıcıları veya VHD'leri çalıştığınızda alabileceğiniz yaygın hataları listeler.
 
-### <a name="scenario-1-unable-to-delete-a-storage-account"></a>Senaryo 1: Depolama hesabı silinemedi
-Klasik depolama hesabına gidin zaman [Azure portal](https://portal.azure.com/) seçip **silmek**, depolama hesabı silinmesini engelliyor nesnelerin bir listesini sunulan:
+### <a name="scenario-1-unable-toodelete-a-storage-account"></a>Senaryo 1: Oluşturulamıyor toodelete bir depolama hesabı
+Merhaba toohello Klasik depolama hesabında gidin zaman [Azure portal](https://portal.azure.com/) seçip **silmek**, hello depolama hesabı silinmesini engelliyor nesnelerin bir listesini sunulan:
 
-  ![Hata görüntüsü zaman depolama hesabını silme](./media/storage-cannot-delete-storage-account-container-vhd/newerror.png)
+  ![Hata görüntüsü zaman hello depolama hesabını silme](./media/storage-cannot-delete-storage-account-container-vhd/newerror.png)
 
-Depolama hesabına gidin zaman [Klasik Azure portalı](https://manage.windowsazure.com/) seçip **silmek**, aşağıdaki hatalardan birini görebilirsiniz:
+Merhaba toohello depolama hesabında gidin zaman [Klasik Azure portalı](https://manage.windowsazure.com/) seçip **silmek**, aşağıdaki hatalar hello birini görebilirsiniz:
 
 - *Depolama hesabı StorageAccountName VM görüntüleri içeriyor. Bu depolama hesabını silmeden önce bu VM görüntülerinin kaldırıldığından emin olun.*
 
-- *Depolama hesabı < vm-storage-account-name > silinemedi. Depolama hesabı < vm-storage-account-name > silinemiyor: ' < vm-storage-account-name > depolama hesabı bazı etkin görüntülere ve/veya disklerin sahiptir. Bu görüntülerin ve/veya diskleri bu depolama hesabını silmeden önce kaldırıldığından emin olun.'.*
+- *Toodelete depolama hesabı < vm-storage-account-name > başarısız oldu. %S toodelete depolama hesabı < vm-storage-hesap-adı >: ' < vm-storage-account-name > depolama hesabı bazı etkin görüntülere ve/veya disklerin sahiptir. Bu görüntülerin ve/veya diskleri bu depolama hesabını silmeden önce kaldırıldığından emin olun.'.*
 
 - *Depolama hesabı < vm-storage-account-name > bazı etkin görüntülere ve/veya disklerin, örneğin xxxxxxxxx-xxxxxxxxx-O-209490240936090599 sahiptir. Bu görüntülerin ve/veya diskleri bu depolama hesabını silmeden önce kaldırıldığından emin olun.*
 
-- *Depolama hesabı < vm-storage-account-name > etkin bir görüntü ve/veya disk yapıları olan 1 kaldırıldığından sahiptir. Bu depolama hesabını silmeden önce bu yapıların görüntü deposundan kaldırıldığından emin olmak*.
+- *Depolama hesabı < vm-storage-account-name > etkin bir görüntü ve/veya disk yapıları olan 1 kaldırıldığından sahiptir. Bu depolama hesabını silmeden önce bu yapıların hello görüntü deposundan kaldırıldığından emin olmak*.
 
-- *Etkin bir görüntü ve/veya disk yapıları olan 1 kaldırıldığından başarısız depolama hesabının < vm-storage-account-name > sahip gönderin. Bu depolama hesabını silmeden önce bu yapıların görüntü deposundan kaldırıldığından emin olun. Bir depolama hesabı silme girişimi ve onunla ilişkili hala etkin disk olduğunda silinmesi gereken etkin disk söyleyen bir ileti görürsünüz*.
+- *Etkin bir görüntü ve/veya disk yapıları olan 1 kaldırıldığından başarısız depolama hesabının < vm-storage-account-name > sahip gönderin. Bu depolama hesabını silmeden önce yapıların hello görüntü deposundan kaldırıldığından emin olun. Toodelete bir depolama hesabı dener ve onunla ilişkili hala etkin disk olduğunda silinmiş toobe gereken etkin disk söyleyen bir ileti görürsünüz*.
 
-### <a name="scenario-2-unable-to-delete-a-container"></a>2. Senaryo: Bir kapsayıcı silinemedi
-Depolama kapsayıcısı silmeye çalıştığınızda, aşağıdaki hatayı görebilirsiniz:
+### <a name="scenario-2-unable-toodelete-a-container"></a>Senaryo 2: Oluşturulamıyor toodelete bir kapsayıcı
+Toodelete hello depolama kapsayıcısı denediğinizde aşağıdaki hata hello görebilirsiniz:
 
-*Depolama kapsayıcısı silinemedi <container name>. Hata: ' kapsayıcısı üzerinde şu anda bir kira yoktur ve hiçbir kiralama kimliği istekte belirtilen*.
-
-Veya
-
-*Kapsayıcı silinemez aşağıdaki sanal makine disklerini BLOB'ları bu kapsayıcıda kullanın: VirtualMachineDiskName1, VirtualMachineDiskName2,...*
-
-### <a name="scenario-3-unable-to-delete-a-vhd"></a>Senaryo 3: Bir VHD silinemiyor
-Bir VM silin ve ardından BLOB'lar için ilişkili VHD'leri silmeyi deneyin sonra aşağıdaki iletiyi alabilirsiniz:
-
-*BLOB silinemedi ' yolu/XXXXXX-XXXXXX-os-1447379084699.vhd'. Hata: ' blob üzerindeki şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.*
+*Başarısız toodelete depolama kapsayıcısı <container name>. Hata: ' hello kapsayıcısı üzerinde şu anda bir kira yoktur ve hiçbir kiralama kimliği hello istekte belirtilen*.
 
 Veya
 
-*Blob silinemez blob 'BlobName.vhd' sanal makine diski 'VirtualMachineDiskName' olarak kullanılıyor.*
+*sanal makine disklerini aşağıdaki hello hello kapsayıcı silinemez bu kapsayıcıdaki blobları kullanın: VirtualMachineDiskName1, VirtualMachineDiskName2,...*
+
+### <a name="scenario-3-unable-toodelete-a-vhd"></a>Senaryo 3: Oluşturulamıyor toodelete VHD
+Bir VM silin ve ardından VHD try toodelete hello BLOB'lar hello için ilişkilendirilmiş sonra iletiden hello alabilirsiniz:
+
+*Başarısız toodelete blob ' yolu/XXXXXX-XXXXXX-os-1447379084699.vhd'. Hata: ' hello blob üzerinde şu anda bir kira yoktur ve hiçbir kiralama kimliği hello istekte belirtildi.*
+
+Veya
+
+*Merhaba blob silinemez blob 'BlobName.vhd' sanal makine diski 'VirtualMachineDiskName' olarak kullanılıyor.*
 
 ## <a name="solution"></a>Çözüm
-En sık karşılaşılan sorunları gidermek için aşağıdaki yöntemi deneyin:
+tooresolve hello en sık karşılaşılan sorunları, yöntem aşağıdaki hello deneyin:
 
-### <a name="step-1-delete-any-disks-that-are-preventing-deletion-of-the-storage-account-container-or-vhd"></a>1. adım: depolama hesabı, kapsayıcısı veya VHD silinmesini engelliyor diskler Sil
-1. Geçiş [Klasik Azure portalı](https://manage.windowsazure.com/).
+### <a name="step-1-delete-any-disks-that-are-preventing-deletion-of-hello-storage-account-container-or-vhd"></a>1. adım: hello depolama hesabı, kapsayıcısı veya VHD silinmesini engelliyor diskler Sil
+1. Geçiş toohello [Klasik Azure portalı](https://manage.windowsazure.com/).
 2. Seçin **sanal makine** > **DİSKLERİ**.
 
     ![Klasik Azure portalı sanal makinelerde disklerde görüntüsü.](./media/storage-cannot-delete-storage-account-container-vhd/VMUI.png)
-3. Silmek istediğiniz depolama hesabı, kapsayıcı ya da VHD ile ilişkilendirilmiş diskleri bulun. Disklerin konumunu denetlediğinizde, ilişkili olduğu depolama hesabı, kapsayıcı veya VHD’yi bulacaksınız.
+3. Merhaba depolama hesabı, kapsayıcısı veya toodelete istediğiniz VHD ile ilişkilendirilmiş hello diskleri bulun. Merhaba disk hello konumunu işaretlediğinizde, depolama hesabı, kapsayıcısı veya VHD hello ilişkili bulacaksınız.
 
     ![Konum bilgileri diskler için Azure Klasik portalında gösteren resim](./media/storage-cannot-delete-storage-account-container-vhd/DiskLocation.png)
-4. Aşağıdaki yöntemlerden birini kullanarak diskleri silin:
+4. Merhaba diskleri yöntemler aşağıdaki hello birini kullanarak silin:
 
-  - Hiçbir VM varsa listelenen **bağlı** alan diskin, disk doğrudan silebilirsiniz.
+  - Varsa hiçbir VM üzerinde hello listelenen **bağlı** alan hello disk, hello disk doğrudan silebilirsiniz.
 
-  - Disk bir veri diski ise, şu adımları izleyin:
+  - Başlangıç diski bir veri diski ise, şu adımları izleyin:
 
-    1. Diski bağlı VM adını kontrol edin.
-    2. Git **sanal makineleri** > **örnekleri**ve ardından VM bulun.
-    3. Hiçbir şey etkin olarak disk kullandığından emin olun.
-    4. Seçin **diski Ayır** diski kullanımdan çıkarmak için portalın altındaki.
-    5. Git **sanal makineleri** > **diskleri**ve bekleyin **bağlı** boş açmak için alan. Bu diski sanal makineden başarıyla ayrıldı olduğunu gösterir.
-    6. Seçin **silmek** alt kısmındaki **sanal makineleri** > **diskleri** disk silmek için.
+    1. Disk hello VM iliştirildiği hello Hello adını kontrol edin.
+    2. Çok Git**sanal makineleri** > **örnekleri**ve hello VM bulun.
+    3. Hiçbir şey etkin şekilde hello disk kullandığından emin olun.
+    4. Seçin **diski Ayır** hello portal toodetach hello disk hello sonundaki.
+    5. Çok Git**sanal makineleri** > **diskleri**ve Merhaba bekleyin **bağlı** alan tooturn boş. Bu hello disk hello VM ' başarıyla ayrıldı olduğunu gösterir.
+    6. Seçin **silmek** hello altındaki **sanal makineleri** > **diskleri** toodelete hello disk.
 
-  - Disk bir işletim sistemi diski ise ( **içeren işletim sistemi** alanı, Windows gibi bir değer içeriyor) ve bir VM'ye bağlı, VM silmek için aşağıdaki adımları izleyin. İşletim sistemi diski ayrılamıyor, bu nedenle biz kira serbest bırakmak için VM silmeniz gerekir.
+  - Merhaba disk işletim sistemi diski ise (Merhaba **içeren işletim sistemi** alanı, Windows gibi bir değer içeriyor) ve ekli tooa VM, şu adımları izleyin toodelete hello VM. toodelete hello VM toorelease hello kira sahibiz şekilde hello işletim sistemi diski ayrılamıyor.
 
-    1. Veri diski bağlı sanal makine adını denetleyin.  
-    2. Git **sanal makineleri** > **örnekleri**ve ardından diski bağlı VM seçin.
-    3. Hiçbir şey etkin olarak sanal makinenin kullandığından emin olun ve sanal makine artık gerekir.
-    4. Disk VM eklendiği, ardından seçin **silmek** > **ekli disklerini silmeyi**.
-    5. Git **sanal makineleri** > **diskleri**ve disk kayboluyor bekleyin.  Bunun gerçekleşmesi birkaç dakika sürebilir ve sayfayı yenilemeniz gerekebilir.
-    6. Disk kayboluyor değil, bekleyin **bağlı** boş açmak için alan. Bu diski sanal makineden tam olarak ayrılmış gösterir.  Sonra disk seçin ve Seç **silmek** disk silmek için sayfanın altındaki.
+    1. Veri diski bağlı hello sanal makine hello Hello adını kontrol edin.  
+    2. Çok Git**sanal makineleri** > **örnekleri**, ve ardından select hello disk hello VM bağlı.
+    3. Hiçbir şey etkin şekilde hello sanal makine ve sanal makine artık hello kullandığından emin olun.
+    4. Select hello VM hello disk eklendiği, ardından **silmek** > **Delete hello bağlı diskler**.
+    5. Çok Git**sanal makineleri** > **diskleri**ve hello disk toodisappear için bekleyin.  Bu toooccur birkaç dakika sürebilir ve toorefresh hello sayfa gerekebilir.
+    6. Merhaba disk kayboluyor değil, hello için bekleyin. **bağlı** alan tooturn boş. Bu hello disk tam olarak VM hello ayrıldı olduğunu gösterir.  Sonra hello disk seçin ve Seç **silmek** hello sayfa toodelete hello disk hello sonundaki.
 
 
    > [!NOTE]
-   > Bir VM'ye bir disk bağlıysa silmek mümkün olmaz. Diskleri silinmiş bir VM'den zaman uyumsuz olarak ayrılır. VM temizlemek Bu alan için silindikten sonra birkaç dakika sürebilir.
+   > Bir disk ekli tooa VM ise mümkün toodelete olmaz. Diskleri silinmiş bir VM'den zaman uyumsuz olarak ayrılır. Bu alan tooclear için hello VM silindikten sonra birkaç dakika sürebilir.
    >
    >
 
 
-### <a name="step-2-delete-any-vm-images-that-are-preventing-deletion-of-the-storage-account-or-container"></a>2. adım: depolama hesabı veya kapsayıcı silinmesine engelleyen tüm VM görüntüleri silin
-1. Geçiş [Klasik Azure portalı](https://manage.windowsazure.com/).
-2. Seçin **sanal makine** > **GÖRÜNTÜLERİ**ve ardından depolama hesabı, kapsayıcısı veya VHD ile ilişkilendirilmiş görüntüleri silin.
+### <a name="step-2-delete-any-vm-images-that-are-preventing-deletion-of-hello-storage-account-or-container"></a>2. adım: hello depolama hesabı veya kapsayıcı silinmesine engelleyen tüm VM görüntüleri silin
+1. Geçiş toohello [Klasik Azure portalı](https://manage.windowsazure.com/).
+2. Seçin **sanal makine** > **GÖRÜNTÜLERİ**ve ardından hello depolama hesabı, kapsayıcısı veya VHD ile ilişkilendirilmiş hello görüntüleri silin.
 
-    Bundan sonra depolama hesabı, kapsayıcısı veya VHD silmeyi tekrar deneyin.
+    Bundan sonra toodelete hello depolama hesabı, kapsayıcısı veya VHD yeniden deneyin.
 
 > [!WARNING]
-> Hesabı silmeden önce kaydetmek istediğiniz şeyleri yedeklediğinizden emin olun. VHD, blob, tablo, kuyruk veya dosya sildiğinizde, kalıcı olarak silinir. Kaynak kullanımda olmadığından emin olun.
+> Merhaba hesabı silmeden önce emin tooback herhangi bir şey olması toosave istiyor. VHD, blob, tablo, kuyruk veya dosya sildiğinizde, kalıcı olarak silinir. Merhaba kaynak kullanımda olmadığından emin olun.
 >
 >
 
-## <a name="about-the-stopped-deallocated-status"></a>Durduruldu (serbest bırakıldı) durumu hakkında
-Klasik dağıtım modelinde oluşturulmuş ve, korundu VM'ler olacaktır **durduruldu (serbest bırakıldı)** ya da durum [Azure portal](https://portal.azure.com/) veya [Klasik Azure portalı](https://manage.windowsazure.com/).
+## <a name="about-hello-stopped-deallocated-status"></a>Merhaba durduruldu (serbest bırakıldı) durumu hakkında
+Merhaba Klasik dağıtım modelinde oluşturulmuş ve, korundu VM'ler hello olacaktır **durduruldu (serbest bırakıldı)** ya da hello durumuna [Azure portal](https://portal.azure.com/) veya [Klasik Azure portalı ](https://manage.windowsazure.com/).
 
 **Klasik Azure portalı**:
 
@@ -132,7 +132,7 @@ Klasik dağıtım modelinde oluşturulmuş ve, korundu VM'ler olacaktır **durdu
 
 ![Durduruldu (serbest bırakıldığında) durum VM'ler için Klasik Azure portalı.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo1.png)
 
-"Durduruldu (serbest bırakıldı)" durumu CPU, bellek ve ağ gibi bilgisayar kaynaklarını serbest bırakır. Böylece, hızlı bir şekilde VM gerekirse yeniden oluşturabilirsiniz diskleri ancak hala korunur. Bu diskleri Azure Depolama tarafından yedeklenen VHD'ler üzerinde oluşturulur. Depolama hesabı bu VHD ve diskleri kiraları bu VHD'lerde sahip.
+"Durduruldu (serbest bırakıldı)" durumu hello CPU, bellek ve ağ gibi hello bilgisayar kaynakları serbest bırakır. Böylece, hızlı bir şekilde hello VM gerekirse yeniden oluşturabilirsiniz hello diskler, ancak hala korunur. Bu diskleri Azure Depolama tarafından yedeklenen VHD'ler üzerinde oluşturulur. Merhaba depolama hesabı bu VHD ve hello diskleri kiraları bu VHD'lerde sahip.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bir depolama hesabını silme](storage-create-storage-account.md#delete-a-storage-account)

@@ -1,5 +1,5 @@
 ---
-title: "Azure Mobile Engagement Android SDK tümleştirmesi"
+title: "aaaAzure Mobile Engagement Android SDK tümleştirmesi"
 description: "En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,23 +14,23 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 1f047f93fa8bc852b28c86e91d0c007a94fb4299
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: df5c82812fe0a242eaa5df8c906030237215b7eb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="upgrade-procedures"></a>Yükseltme yordamları
-Uygulamanıza bizim SDK daha eski bir sürümü zaten bütünleştirdiyseniz, SDK'yı yükseltirken aşağıdaki noktaları dikkate almanız gerekir.
+Uygulamanıza bizim SDK daha eski bir sürümü zaten bütünleştirdiyseniz noktaları hello SDK yükseltirken aşağıdaki tooconsider hello sahip.
 
-SDK çeşitli sürümleri eksik, birçok yordamı uygulamanız gerekebilir. Örneğin, 1.4.0 önce "Kimden 1.4.0 1.5.0 için" yordamını takip etmek için sahip 1.6.0 sonra "Kimden 1.5.0 1.6.0 için" yordamı geçiş ise.
+Merhaba SDK çeşitli sürümleri eksik birkaç yordamları toofollow olabilir. 1.4.0 geçirirseniz örneğin hello izleyin toofirst sahip too1.6.0 "1.4.0 gelen too1.5.0" yordamı sonra hello "1.5.0 gelen too1.6.0" yordamı.
 
-Yükseltme, seçtiğiniz sürüm değiştirmek zorunda `mobile-engagement-VERSION.jar` yeni bir.
+Yükseltme, seçtiğiniz hello sürüm tooreplace hello sahip `mobile-engagement-VERSION.jar` hello yeni bir tane ile.
 
-## <a name="from-420-to-421"></a>4.2.0 4.2.1 için
-Bu adım SDK'ın herhangi bir sürümü üzerinde gerçekte yapılabilir, ulaşma etkinlikleri tümleştirdiğinizde güvenlik geliştirme olur.
+## <a name="from-420-too421"></a>4.2.0 gelen too4.2.1
+Bu adım gerçekte herhangi bir hello SDK sürümünde yapılabilir, ulaşma etkinlikleri tümleştirdiğinizde güvenlik geliştirme olur.
 
-Şimdi eklemelisiniz `exported="false"` tüm ulaşma etkinliklere.
+Şimdi eklemelisiniz `exported="false"` tooall ulaşma etkinlikler.
 
 Reach etkinlikleri şimdi şöyle görünmelidir, `AndroidManifest.xml`:
 
@@ -61,13 +61,13 @@ Reach etkinlikleri şimdi şöyle görünmelidir, `AndroidManifest.xml`:
               </intent-filter>
             </activity>
 
-## <a name="from-400-to-410"></a>4.0.0 4.1.0'da için
-SDK şimdi tanıtıcı yeni izni modelden Android M.
+## <a name="from-400-too410"></a>4.0.0 gelen too4.1.0
+Merhaba SDK şimdi tanıtıcı yeni izni modelden Android M.
 
 Konum özelliklerini kullanmak veya büyük resmi bildirimleri okuyun [Bu bölümde](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
 
-Yeni izni model ek olarak, çalışma zamanında yapılandırma konumu özellikleri artık desteklenmektedir.
-Biz yine bildirimi parametreleri konumu için uyumludur, ancak artık kullanılmıyor. Çalışma zamanı yapılandırmasını kullanmak için aşağıdaki bölümlerden kaldırın, ``AndroidManifest.xml``:
+Ayrıca toohello yeni izni modeli şimdi konum özelliklerini çalışma zamanında yapılandırma destekliyoruz.
+Biz yine hello bildirimi parametreleri konumu için uyumludur, ancak artık kullanılmıyor. Kaldır hello aşağıdaki toouse çalışma zamanı yapılandırması, bölümler, ``AndroidManifest.xml``:
 
     <meta-data
       android:name="engagement:locationReport:lazyArea"
@@ -82,11 +82,11 @@ Biz yine bildirimi parametreleri konumu için uyumludur, ancak artık kullanılm
       android:name="engagement:locationReport:realTime:fine"
       android:value="true"/>
 
-okuyup [bu güncelleştirilmiş yordamı](mobile-engagement-android-integrate-engagement.md#location-reporting) çalışma zamanı yapılandırma kullanmayı.
+okuyup [bu güncelleştirilmiş yordamı](mobile-engagement-android-integrate-engagement.md#location-reporting) toouse çalışma zamanı yapılandırma yerine.
 
-## <a name="from-300-to-400"></a>3.0.0 4.0.0 için
+## <a name="from-300-too400"></a>3.0.0 gelen too4.0.0
 ### <a name="native-push"></a>Yerel gönderim
-İtme kampanya herhangi bir türde yerel gönderim kimlik bilgilerini yapılandırmak için yerel gönderim (GCM/ADM) şimdi de için uygulama içi Bildirimlerde kullanılır.
+İtme kampanya herhangi bir türde hello yerel gönderim kimlik bilgilerini yapılandırmak için yerel gönderim (GCM/ADM) şimdi de için uygulama içi Bildirimlerde kullanılır.
 
 Aksi halde zaten Lütfen izleyin [bu yordamı](mobile-engagement-android-integrate-engagement-reach.md#native-push).
 
@@ -130,7 +130,7 @@ Tarafından
     </receiver>
 
 Yapıldığında büyük olasılıkla yükleme ekran şimdi duyuru (metin/web içerik ile) ya da bir yoklama tıklatın.
-Bu 4.0.0 içinde çalışmak bu kampanyalar için eklemeniz gerekir:
+Tooadd bu bu Kampanyalar toowork 4.0.0 içinde olan:
 
     <activity
       android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
@@ -142,13 +142,13 @@ Bu 4.0.0 içinde çalışmak bu kampanyalar için eklemeniz gerekir:
     </activity>
 
 ### <a name="resources"></a>Kaynaklar
-Yeni katıştırmak `res/layout/engagement_loading.xml` projenize dosya.
+Merhaba yeni katıştırmak `res/layout/engagement_loading.xml` projenize dosya.
 
-## <a name="from-240-to-300"></a>2.4.0 3.0.0 için
-Aşağıdaki nasıl Azure Mobile Engagement tarafından desteklenen bir uygulamaya Capptain SAS tarafından sunulan Capptain hizmetinden bir SDK tümleştirmesi geçirileceğini açıklar. Önceki bir sürümünden geçiş yapıyorsanız, lütfen 2.4.0 için ilk geçirmek için Capptain web sitesine başvurun ve sonra aşağıdaki yordamı uygulayın.
+## <a name="from-240-too300"></a>2.4.0 gelen too3.0.0
+Merhaba toomigrate'nın Azure Mobile Engagement tarafından desteklenen bir uygulamaya bir SDK tümleştirmesi hello Capptain hizmet gelen Capptain SAS tarafından nasıl sunulan açıklanmıştır. Önceki bir sürümünden geçiş yapıyorsanız, lütfen hello Capptain web sitesi toomigrate too2.4.0 ilk bakın ve hello aşağıdaki yordamı uygulayın.
 
 > [!IMPORTANT]
-> Capptain ve Mobile Engagement aynı Hizmetleri değildir ve aşağıda verilen yordamı yalnızca istemci uygulaması geçirmek nasıl vurgular. Uygulama SDK'yı geçirme verilerinizi Capptain sunucularından Mobile Engagement sunucuya geçişi YAPILMAZ.
+> Capptain ve Mobile Engagement değil hello aynı hizmetler ve nasıl toomigrate hello istemci uygulamasını yalnızca vurgular verilen yordamı hello. Geçirme hello SDK hello uygulama verilerinizi hello Capptain sunucuları toohello Mobile Engagement sunucularından geçişi YAPILMAZ.
 > 
 > 
 
@@ -156,42 +156,42 @@ Aşağıdaki nasıl Azure Mobile Engagement tarafından desteklenen bir uygulama
 Değiştir `capptain.jar` tarafından `mobile-engagement-VERSION.jar` içinde `libs` klasörü.
 
 ### <a name="resource-files"></a>Kaynak dosyaları
-Bizim sağladığımız her kaynak dosyası (önüne `capptain_`) yenilerini tarafından değiştirilmesi gereken (önekine sahip `engagement_`).
+Bizim sağladığımız her kaynak dosyası (önüne `capptain_`) sahip toobe yerine yenilerini hello tarafından (önekine sahip `engagement_`).
 
-Bu dosyaları özelleştirdiyseniz, özelleştirme yeni dosyalarda yeniden uygulamak sahip **kaynak dosyalarında tüm tanımlayıcıları da yeniden adlandırıldığı**.
+Bu dosyaları özelleştirdiyseniz, toore sahip-özelleştirme hello yeni dosyalarda uygulamak **hello kaynak dosyalarında tüm hello tanımlayıcıları da yeniden adlandırıldığı**.
 
 ### <a name="application-id"></a>Uygulama Kimliği
-Şimdi Engagement SDK'sı tanımlayıcıları uygulama tanımlayıcısı gibi yapılandırmak için bir bağlantı dizesi kullanır.
+Şimdi katılım bir bağlantı dizesi tooconfigure hello SDK tanımlayıcıları hello uygulama tanımlayıcısı gibi kullanır.
 
-Kullanmak zorunda `EngagementAgent.init` Başlatıcısı etkinliklerinizi şöyle yöntemi:
+Toouse sahip `EngagementAgent.init` Başlatıcısı etkinliklerinizi şöyle yöntemi:
 
             EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
             engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
             EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-Bağlantı dizesi, uygulamanız için Azure portalında görüntülenir.
+Merhaba bağlantı dizesi, uygulamanız için Azure portalında görüntülenir.
 
-Lütfen herhangi çağrısına kaldırın `CapptainAgent.configure` olarak `EngagementAgent.init` o yöntemi değiştirir.
+Lütfen herhangi bir çağrısına çok kaldırın`CapptainAgent.configure` olarak `EngagementAgent.init` o yöntemi değiştirir.
 
-`appId` Artık kullanılarak yapılandırılabilir `AndroidManifest.xml`.
+Merhaba `appId` artık kullanılarak yapılandırılabilir `AndroidManifest.xml`.
 
 Lütfen bu bölümünden kaldırın, `AndroidManifest.xml` , varsa:
 
             <meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
 ### <a name="java-api"></a>Java API’si
-Yeniden adlandırılacak her çağrı için herhangi bir Java sınıf bizim SDK'sının sahiptir; Örneğin, `CapptainAgent.getInstance(this)` kaydedilmelidir `EngagementAgent.getInstance(this)`, `extends CapptainActivity` kaydedilmelidir `extends EngagementActivity` vb....
+Her çağrı tooany Java sınıfı bizim SDK'sının yeniden adlandırılmış toobe; yine de sahip istiyor musunuz? Örneğin, `CapptainAgent.getInstance(this)` kaydedilmelidir `EngagementAgent.getInstance(this)`, `extends CapptainActivity` kaydedilmelidir `extends EngagementActivity` vb....
 
-Varsayılan aracı tercih dosyalarını ile tümleşik varsayılan dosya adı şimdi varsa, `engagement.agent` ve anahtar `engagement:agent`.
+Varsayılan aracı tercih dosyalarını ile tümleşik hello varsayılan dosya adı şimdi varsa, `engagement.agent` ve başlangıç anahtarı `engagement:agent`.
 
-Web duyuruları oluştururken, Javascript bağlayıcı sunulmuştur `engagementReachContent`.
+Web duyuruları oluştururken hello Javascript bağlayıcı sunulmuştur `engagementReachContent`.
 
 ### <a name="androidmanifestxml"></a>AndroidManifest.xml
-Çok sayıda değişiklik vardır oldu, hizmet artık paylaşılmayan ve alıcıları çok değildir verilebilir artık.
+Çok sayıda değişiklik vardır oldu, hello hizmeti artık paylaşılmayan ve alıcıları çok değildir verilebilir artık.
 
-Hizmet bildirimi artık daha kolaydır; hedefi filtre ve içindeki tüm meta veri kaldırıp eklemek `exportable=false`.
+Merhaba hizmet bildirimi artık daha kolaydır; Merhaba hedefi filtre ve içindeki tüm meta veri kaldırıp eklemek `exportable=false`.
 
-Ayrıca her şeyi engagement kullanılacağı adlandırılır.
+Ayrıca, yeniden adlandırılmış toouse katılım gereken her şey vardır.
 
 Şimdi gibi görünüyor:
 
@@ -201,7 +201,7 @@ Ayrıca her şeyi engagement kullanılacağı adlandırılır.
               android:label="<Your application name>Service"
               android:process=":Engagement"/>
 
-Test günlüklerinin sağlamak istiyorsanız, meta verileri artık uygulama etiketi taşındı ve yeniden adlandırıldı:
+Tooenable test günlüklerinin istediğinizde hello meta verileri artık bırakıldı toohello uygulama etiketi taşınır ve yeniden adlandırıldı:
 
             <application>
 
@@ -211,7 +211,7 @@ Test günlüklerinin sağlamak istiyorsanız, meta verileri artık uygulama etik
 
             </application>
 
-Tüm diğer meta verileri yalnızca yeniden adlandırıldığı, tam listesini (indirmelere rename yalnızca kullandığınız olanlar) aşağıdadır:
+Tüm diğer meta verileri yalnızca yeniden adlandırıldığı, hello tam listesi (kullandığınız Elbette yeniden adlandırma yalnızca hello olanlar) aşağıdadır:
 
             <meta-data
               android:name="engagement:reportCrash"
@@ -259,7 +259,7 @@ Tüm diğer meta verileri yalnızca yeniden adlandırıldığı, tam listesini (
                 android:value="false"/>
             </activity>
 
-Bu değişikliği kaldırmak zorunda SDK Google Play ve izleme SmartAd kaldırıldı:
+Google Play ve SmartAd izleme kaldırıldı SDK'dan yalnızca tooremove bu değişikliği gerekir:
 
             <meta-data 
                 android:name="capptain:track:installReferrerForwardList"
@@ -268,7 +268,7 @@ Bu değişikliği kaldırmak zorunda SDK Google Play ve izleme SmartAd kaldırı
                 android:name="capptain:track:adservers"
                 android:value="smartad" />
 
-Reach etkinlikleri şöyle bildirilir:
+Merhaba ulaşma etkinlikleri şöyle bildirilir:
 
             <activity
               android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"
@@ -297,9 +297,9 @@ Reach etkinlikleri şöyle bildirilir:
               </intent-filter>
             </activity>
 
-Özel erişim etkinlikler varsa, ya da eşleşecek şekilde hedefi eylemleri yalnızca değiştirmeye ihtiyaç `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` veya `com.microsoft.azure.engagement.reach.intent.action.POLL`.
+Özel erişim etkinlikler varsa, yalnızca toochange hello hedefi Eylemler toomatch ya da ihtiyacınız `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` veya `com.microsoft.azure.engagement.reach.intent.action.POLL`.
 
-Yayın alıcıları yeniden adlandırıldığı artı şimdi eklediğimiz `exported=false`. Yeni belirtimi, (indirmelere rename yalnızca kullandığınız olanlar) alıcılarla tam listesi aşağıdadır:
+Merhaba yayın alıcıları yeniden adlandırıldığı artı şimdi eklediğimiz `exported=false`. Merhaba yeni belirtimi (kullandığınız Elbette yeniden adlandırma yalnızca hello olanlar) hello alıcılarla hello tam listesi aşağıdadır:
 
             <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
               android:exported="false">
@@ -378,7 +378,7 @@ Yayın alıcıları yeniden adlandırıldığı artı şimdi eklediğimiz `expor
               </intent-filter>
             </receiver>
 
-Bu bölümde kaldırmanız gerekir böylece alıcı izleme kaldırıldı:
+Bu bölümde tooremove alacak şekilde alıcı izleme kaldırıldı:
 
           <receiver android:name="com.ubikod.capptain.android.sdk.track.CapptainTrackReceiver">
             <intent-filter>
@@ -387,7 +387,7 @@ Bu bölümde kaldırmanız gerekir böylece alıcı izleme kaldırıldı:
             </intent-filter>
           </receiver>
 
-Unutmayın yayın alıcı uygulanmasını bildirimi **EngagementMessageReceiver** deki `AndroidManifest.xml`. Göndermek ve rasgele XMPP iletileri rasgele XMPP varlıklardan kaldırmak için API ve cihazlar arasında ileti gönderme ve alma için API kaldırılmış olmasıdır. Böylece, aşağıdaki geri çağırmaları gelen silmek de, **EngagementMessageReceiver** uygulama:
+Uygulamanıza hello Hello bildirimi alıcı yayın Not **EngagementMessageReceiver** hello değişti `AndroidManifest.xml`. Bu hello API toosend ekleme ve kaldırma rasgele XMPP rasgele XMPP varlıklardan iletileri olduğundan ve API toosend hello ve cihazlar arasında iletilerini kaldırıldı. Ayrıca bu nedenle, gelen geri aramalar aşağıdaki toodelete hello vardır, **EngagementMessageReceiver** uygulama:
 
             protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
 
@@ -404,7 +404,7 @@ ve
             sendXMPPMessage(android.os.Bundle msg)
 
 ### <a name="proguard"></a>Proguard
-Proguard yapılandırma rebranding tarafından etkilenebilir, kuralları şimdi gibi arıyorsunuz:
+Proguard yapılandırma rebranding, kuralları şimdi gibi aradığınız hello tarafından etkilenebilir:
 
             -dontwarn android.**
             -keep class android.support.v4.** { *; }

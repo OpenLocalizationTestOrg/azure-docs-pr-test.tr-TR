@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Factory kullanarak Tahmine dayalı veri ardışık düzen oluşturun | Microsoft Docs"
-description: "Nasıl oluşturulacağını açıklar Azure Data Factory ve Azure Machine Learning kullanarak Tahmine dayalı ardışık düzen oluşturun"
+title: "Azure Data Factory kullanarak aaaCreate Tahmine dayalı veri ardışık | Microsoft Docs"
+description: "Azure Data Factory ve Azure Machine Learning kullanarak Tahmine dayalı ardışık düzen toocreate oluşturma nasıl açıklar"
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
-ms.openlocfilehash: d8e2c9583fc909e4e015e2d40473d2754529d8ac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 943210c28b1696e299ff9b7cc96369b95f182354
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning ve Azure Data Factory kullanarak Tahmine dayalı ardışık düzen oluşturun
 
@@ -37,51 +37,51 @@ ms.lasthandoff: 07/11/2017
 ## <a name="introduction"></a>Giriş
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) derleme, test ve Tahmine dayalı analiz çözümlerini dağıtma olanak tanır. Bir üst düzey açısından bakıldığında, üç adımda gerçekleştirilir:
+[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) , toobuild sınamak ve Tahmine dayalı analiz çözümlerini dağıtmak etkinleştirir. Bir üst düzey açısından bakıldığında, üç adımda gerçekleştirilir:
 
-1. **Eğitim denemenizi oluşturma**. Azure ML Studio kullanarak bu adımı uygulayın. ML studio eğitmek ve eğitim verileri kullanarak bir Tahmine dayalı bir analiz modeli test etmek için kullandığınız bir görsel işbirlikçi geliştirme ortamıdır.
-2. **Tahmine dayalı bir deneme Dönüştür**. Modelinizi var olan verilerle eğitilmiş ve yeni verilerinizi puanlamada için kullanıma hazır sonra hazırlamak ve puanlama için denemenizi kolaylaştırır.
-3. **Web hizmeti olarak dağıtabilir**. Puanlama denemenizi bir Azure web hizmeti olarak yayımlayabilirsiniz. Bu web hizmeti uç noktası aracılığıyla modelde veri gönderebilir ve sonuç tahminleri model Excel'den alabilirsiniz.  
+1. **Eğitim denemenizi oluşturma**. Bu adımı hello Azure ML Studio kullanarak yapın. Merhaba ML studio tootrain kullanın ve eğitim verileri kullanarak bir Tahmine dayalı bir analiz modeli test bir görsel işbirlikçi geliştirme ortamıdır.
+2. **Tooa Tahmine dayalı denemeye Dönüştür**. Modelinizi var olan verilerle eğitilmiş ve hazır toouse olduğunuz sonra onu tooscore yeni verileri hazırlamak ve puanlama için denemenizi kolaylaştırmak.
+3. **Web hizmeti olarak dağıtabilir**. Puanlama denemenizi bir Azure web hizmeti olarak yayımlayabilirsiniz. Bu web hizmeti uç noktası aracılığıyla veri tooyour modeli gönderebilir ve sonuç tahminleri hello model Excel'den alabilirsiniz.  
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
-Data Factory, verilerin **taşınmasını** ve **dönüştürülmesini** düzenleyen ve otomatikleştiren bulut tabanlı bir veri tümleştirme hizmetidir. Çeşitli veri depolarına verilerden alma, veri dönüştürme/işlemi ve sonuç verileri veri depoları yayımlama Azure Data Factory kullanarak veri tümleştirme çözümleri oluşturabilirsiniz.
+Veri fabrikası, düzenleyen ve hello otomatikleştiren bir bulut tabanlı veri tümleştirme hizmetidir **taşıma** ve **dönüştürme** veri. Çeşitli veri depolarına verilerden alma, hello veri dönüştürme/işlemi ve yayımlama hello sonuç veri toohello veri depolarına Azure Data Factory kullanarak veri tümleştirme çözümleri oluşturabilirsiniz.
 
-Data Factory hizmeti verileri taşıyıp dönüştüren ve ardından işlem hattını belirli bir zamanlamaya (saatlik, günlük, haftalık, vb.) göre çalıştıran veri işlem hatları oluşturmanıza imkan tanır. Ayrıca, veri işlem hatlarınız arasındaki çizgileri ve bağımlılıkları gösteren ve sorunları kolayca saptamak ve izleme uyarılarını ayarlamak üzere tek bir birleşik görünümden tüm veri işlem hatlarınızı izleyen zengin görsel öğeler sağlar.
+Data Factory Hizmeti'ne taşıyın ve veri dönüştürme toocreate veri ardışık sağlar ve belirtilen bir zamanlamayla (saatlik, günlük, haftalık, vb.) hello ardışık düzen çalıştırın. Ayrıca zengin Görselleştirmelerini toodisplay hello çizgileri ve veri işlem hatlarınızı, arasındaki bağımlılıkları sağlar ve tüm veri işlem hatlarınızı tek bir birleşik görünüm tooeasily tam olarak belirlemenizde sorunlardan izlemek ve izleme uyarıları ayarlayın.
 
-Bkz: [Azure Data Factory'ye giriş](data-factory-introduction.md) ve [ilk işlem hattınızı oluşturma](data-factory-build-your-first-pipeline.md) makaleler Azure Data Factory hizmetiyle hızlıca başlamak için.
+Bkz: [giriş tooAzure Data Factory](data-factory-introduction.md) ve [ilk işlem hattınızı oluşturma](data-factory-build-your-first-pipeline.md) makaleleri tooquickly hello Azure Data Factory hizmeti ile başlayın.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Veri Fabrikası ve Machine Learning birlikte
-Azure Data Factory bir yayımlanan kullanmak ardışık düzen kolayca oluşturmanıza olanak sağlar [Azure Machine Learning] [ azure-machine-learning] web hizmeti Tahmine dayalı analiz için. Kullanarak **toplu iş yürütme etkinliği** bir Azure Data Factory işlem hattı verileri toplu tahminleri yapmak için bir Azure ML web hizmeti çağırabilirsiniz. Bkz: [toplu iş yürütme etkinliği kullanarak bir Azure ML web Hizmeti'ni çağırmadan](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) ayrıntıları bölümü.
+Azure Data Factory etkinleştirir, tooeasily bir yayımlanan kullanmak ardışık düzen oluşturma [Azure Machine Learning] [ azure-machine-learning] web hizmeti Tahmine dayalı analiz için. Hello kullanarak **toplu iş yürütme etkinliği** bir Azure Data Factory işlem hattı bir Azure ML web hizmeti toomake tahminleri toplu hello veriler üzerinde çağırabilirsiniz. Bkz: [çağırma Azure ML toplu iş yürütme etkinliği hello web hizmetini kullanarak](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) ayrıntıları bölümü.
 
-Zaman içinde denemeler Puanlama Azure ML Tahmine dayalı modelleri yeni giriş veri kümeleri kullanarak retrained gerekir. Aşağıdakileri yaparak bir Data Factory işlem hattı Azure ML modelden yeniden eğitme:
+Zaman içinde yeni giriş veri kümeleri kullanarak retrained toobe hello Tahmine dayalı modelleri hello Azure ML Puanlama denemeleri gerekir. Aşağıdaki adımları hello yaparak Data Factory işlem hattı Azure ML modelden yeniden eğitme:
 
-1. Eğitim denemenizi (değil Tahmine dayalı denemeye) bir web hizmeti olarak yayımlayın. Tahmine dayalı denemeye önceki senaryoda bir web hizmeti olarak kullanıma sunmak için yaptığınız gibi Azure ML Studio'da bu adımı uygulayın.
-2. Eğitim denemenizi web hizmetini çağırmak için Azure ML toplu iş yürütme etkinliği kullanın. Temel olarak, eğitim web hizmeti ve puanlama web hizmetini çağırmak için Azure ML toplu iş yürütme etkinliği kullanın.
+1. Merhaba eğitim denemenizi (değil Tahmine dayalı denemeye) bir web hizmeti olarak yayımlayın. Merhaba önceki senaryoda bir web hizmeti olarak tooexpose tahmini deneme yaptığınız gibi hello Azure ML Studio bu adımda yapın.
+2. Hello Azure ML toplu iş yürütme etkinliği tooinvoke hello web hizmetini hello eğitim denemenizi için kullanın. Temel olarak, web hizmeti eğitim hem web hizmeti Puanlama hello Azure ML toplu iş yürütme etkinliği tooinvoke kullanabilirsiniz.
 
-Yeniden eğitme ile tamamladıktan sonra Puanlama web hizmeti (web hizmeti olarak sunulan Tahmine dayalı denemeye) ile yeni eğitilen modelini kullanarak güncelleştirme **Azure ML güncelleştirme kaynak etkinliği**. Bkz: [kaynak güncelleştirme etkinliği kullanarak modelleri güncelleştirme](data-factory-azure-ml-update-resource-activity.md) Ayrıntılar için makale.
+Yeniden eğitme ile tamamladıktan sonra web hizmeti (web hizmeti olarak sunulan Tahmine dayalı denemeye) hello kullanarak hello yeni eğitilen modeli Puanlama hello güncelleştirme **Azure ML güncelleştirme kaynak etkinliği**. Bkz: [kaynak güncelleştirme etkinliği kullanarak modelleri güncelleştirme](data-factory-azure-ml-update-resource-activity.md) Ayrıntılar için makale.
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Toplu iş yürütme etkinliği kullanarak bir web hizmeti çağırma
-Azure Data Factory veri hareketlerini ve işleme düzenlemek için kullanın ve sonra da toplu iş yürütme Azure Machine Learning kullanarak gerçekleştirin. Üst düzey adımlar şunlardır:
+Azure Data Factory tooorchestrate veri hareketlerini ve işleme kullanın ve sonra da toplu iş yürütme Azure Machine Learning kullanarak gerçekleştirin. Merhaba en üst düzey adımlar şunlardır:
 
-1. Bir Azure Machine Learning bağlantılı hizmeti oluşturun. Aşağıdaki değerleri gerekir:
+1. Bir Azure Machine Learning bağlantılı hizmeti oluşturun. Değerleri aşağıdaki hello gerekir:
 
-   1. **İstek URI'si** toplu iş yürütme API. İstek URI'Sİ'i tıklatarak bulabilirsiniz **toplu iş yürütme** web Hizmetleri sayfasında bağlantı.
-   2. **API anahtarı** için yayımlanan Azure Machine Learning web hizmeti. API anahtarını yayımladığınız web hizmeti tıklatarak bulabilirsiniz.
-   3. Kullanım **AzureMLBatchExecution** etkinlik.
+   1. **İstek URI'si** hello toplu iş yürütme API için. Merhaba tıklatarak hello istek URI'si bulabilirsiniz **toplu iş yürütme** hello web Hizmetleri sayfasında bağlantı.
+   2. **API anahtarı** hello Azure Machine Learning web hizmeti yayımlanmış. Yayımladığınız hello web hizmeti tıklatarak hello API anahtarı bulabilirsiniz.
+   3. Kullanım hello **AzureMLBatchExecution** etkinlik.
 
       ![Machine Learning Panosu](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
 
       ![Toplu URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
-### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Senaryo: Web hizmeti girişleri/verileri Azure Blob Depolama başvuran çıkışları kullanarak denemelerini
-Bu senaryoda, Azure Machine Learning Web hizmeti bir Azure blob depolama alanındaki bir dosyadan veri kullanarak tahminleri yapar ve tahmin sonuçlarını blob depolama alanında depolar. Aşağıdaki JSON Data Factory işlem hattı AzureMLBatchExecution etkinliği ile tanımlar. Veri kümesini etkinlik sahip **DecisionTreeInputBlob** giriş olarak ve **DecisionTreeResultBlob** çıktı olarak. **DecisionTreeInputBlob** kullanarak geçirilen web hizmeti tarafından bir girdi olarak **WebServiceInput etkinliğine** JSON özelliği. **DecisionTreeResultBlob** çıkış olarak Web hizmeti tarafından kullanılarak geçirilir **webServiceOutputs** JSON özelliği.  
+### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-toodata-in-azure-blob-storage"></a>Senaryo: Web hizmeti girişleri/Azure Blob Depolama toodata başvuran çıkışları kullanarak denemelerini
+Bu senaryoda, hello Azure Machine Learning Web hizmeti bir Azure blob depolama alanındaki bir dosyadan veri kullanarak tahminleri yapar ve hello tahmin sonuçlarını hello blob depolama alanında depolar. Merhaba aşağıdaki JSON Data Factory işlem hattı AzureMLBatchExecution etkinliği ile tanımlar. Merhaba etkinlik sahip hello dataset **DecisionTreeInputBlob** giriş olarak ve **DecisionTreeResultBlob** hello çıktı olarak. Merhaba **DecisionTreeInputBlob** hello kullanılarak geçirilen bir giriş toohello web hizmeti tarafından olarak **WebServiceInput etkinliğine** JSON özelliği. Merhaba **DecisionTreeResultBlob** hello kullanılarak geçirilen bir çıktı toohello Web hizmeti tarafından olarak **webServiceOutputs** JSON özelliği.  
 
 > [!IMPORTANT]
-> Web hizmeti birden fazla girdi aldığı durumlarda kullanmak **webServiceInputs** kullanmak yerine özelliği **WebServiceInput etkinliğine**. Bkz: [Web hizmeti birden çok girişi gerektiren](#web-service-requires-multiple-inputs) webServiceInputs özelliğini kullanarak bir örnek için bölüm.
+> Merhaba web hizmeti birden fazla girdi aldığı durumlarda hello kullan **webServiceInputs** kullanmak yerine özelliği **WebServiceInput etkinliğine**. Merhaba bkz [Web hizmeti birden çok girişi gerektiren](#web-service-requires-multiple-inputs) hello webServiceInputs özelliğini kullanarak bir örnek için bölüm.
 >
-> Tarafından başvurulan veri kümeleri **WebServiceInput etkinliğine**/**webServiceInputs** ve **webServiceOutputs** özellikleri (içinde  **typeProperties**) de dahil etkinliğin **girişleri** ve **çıkarır**.
+> Merhaba tarafından başvurulan veri kümeleri **WebServiceInput etkinliğine**/**webServiceInputs** ve **webServiceOutputs** özellikleri (içinde  **typeProperties**) de dahil hello etkinlik **girişleri** ve **çıkarır**.
 >
-> Azure ML denemenizde web hizmeti giriş ve çıkış bağlantı noktaları ve genel parametreleri özelleştirebileceğiniz varsayılan adları ("input1", "input2") sahip. WebServiceInputs, webServiceOutputs ve globalParameters ayarları için kullandığınız adlarının denemeler adlarında tam olarak eşleşmelidir. Örnek istek yükü, beklenen eşleme doğrulamak Azure ML uç noktanız için toplu iş yürütme Yardım sayfasında görüntüleyebilirsiniz.
+> Azure ML denemenizde web hizmeti giriş ve çıkış bağlantı noktaları ve genel parametreleri özelleştirebileceğiniz varsayılan adları ("input1", "input2") sahip. webServiceInputs, webServiceOutputs ve globalParameters ayarları için kullandığınız hello adlarının hello denemeler hello adlarında tam olarak eşleşmelidir. Azure ML uç nokta tooverify beklenen hello eşleme için hello örnek isteği yükü hello toplu iş yürütme Yardım sayfasında görüntüleyebilirsiniz.
 >
 >
 
@@ -127,16 +127,16 @@ Bu senaryoda, Azure Machine Learning Web hizmeti bir Azure blob depolama alanın
 }
 ```
 > [!NOTE]
-> Yalnızca girişleri ve çıkışları AzureMLBatchExecution etkinliğin Web hizmeti parametreleri olarak geçirilebilir. Örneğin, yukarıdaki JSON parçacığında, bir giriş WebServiceInput etkinliğine parametresi Web hizmeti için bir girdi olarak geçirilen AzureMLBatchExecution etkinliğine DecisionTreeInputBlob olabilir.   
+> Yalnızca girişleri ve çıkışları hello AzureMLBatchExecution etkinlik parametreleri toohello Web hizmeti geçirilebilir. Örneğin, yukarıdaki JSON parçacığı hello DecisionTreeInputBlob bir giriş toohello WebServiceInput etkinliğine parametresi ile bir giriş toohello Web hizmeti geçirilen AzureMLBatchExecution etkinlik ' dir.   
 >
 >
 
 ### <a name="example"></a>Örnek
-Bu örnek, girdi ve çıktı verilerini saklamak için Azure Storage kullanır.
+Bu örnek kullanan Azure depolama toohold her ikisi de hello girdi ve çıktı verilerini.
 
-Gitmenizi öneririz [Data Factory ile ilk işlem hattınızı oluşturma] [ adf-build-1st-pipeline] Bu örnek geçmeden önce Öğreticisi. Bu örnekte, veri fabrikası yapıları (bağlı hizmetler, veri kümelerini, ardışık düzen) oluşturmak için Data Factory düzenleyici kullanın.   
+Merhaba Git öneririz [Data Factory ile ilk işlem hattınızı oluşturma] [ adf-build-1st-pipeline] Bu örnek geçmeden önce Öğreticisi. Bu örnekte Hello Data Factory Düzenleyici toocreate Data Factory yapıtlarının (bağlı hizmetler, veri kümelerini, ardışık düzen) kullanın.   
 
-1. Oluşturma bir **bağlantılı hizmeti** için **Azure Storage**. Girdi ve çıktı dosyası farklı depolama hesapları yoksa, iki bağlı hizmet gerekir. Bir JSON örneği aşağıdadır:
+1. Oluşturma bir **bağlantılı hizmeti** için **Azure Storage**. Merhaba girdi ve çıktı dosyası farklı depolama hesapları yoksa, iki bağlı hizmet gerekir. Bir JSON örneği aşağıdadır:
 
     ```JSON
     {
@@ -149,7 +149,7 @@ Gitmenizi öneririz [Data Factory ile ilk işlem hattınızı oluşturma] [ adf-
       }
     }
     ```
-2. Oluşturma **giriş** Azure Data Factory **dataset**. Bazı diğer Data Factory veri kümeleri farklı olarak, bu veri kümeleri her ikisini de içermelidir **folderPath** ve **fileName** değerleri. İşlem veya benzersiz giriş ve çıkış dosyaları her toplu iş yürütme (her veri dilimi) için bölümlendirme kullanabilirsiniz. Giriş CSV dosya biçimine dönüştürmek ve her dilim için depolama hesabındaki yerleştirmek için bazı Yukarı Akış etkinliği eklemeniz gerekebilir. Bu durumda, dahil **dış** ve **externalData** aşağıdaki örnekte ve, DecisionTreeInputBlob gösterilen ayarları çıkış veri kümesi farklı bir etkinliğe olacaktır.
+2. Merhaba oluşturma **giriş** Azure Data Factory **dataset**. Bazı diğer Data Factory veri kümeleri farklı olarak, bu veri kümeleri her ikisini de içermelidir **folderPath** ve **fileName** değerleri. Her toplu iş yürütme (her veri dilimi) tooprocess bölümleme toocause kullanın veya benzersiz giriş ve çıkış dosyaları. Bazı Yukarı Akış etkinliği tootransform hello hello CSV dosya biçiminde giriş ve her dilim için hello depolama hesabındaki yerleştirin tooinclude gerekebilir. Bu durumda, hello içermeyen **dış** ve **externalData** örnek ve, DecisionTreeInputBlob hello çıkış veri kümesi farklı bir etkinliğe olacaktır aşağıdaki hello gösterilen ayarları.
 
     ```JSON
     {
@@ -181,7 +181,7 @@ Gitmenizi öneririz [Data Factory ile ilk işlem hattınızı oluşturma] [ adf-
     }
     ```
 
-    Giriş csv dosyanızda sütun başlık satırı olmalıdır. Kullanıyorsanız **kopyalama etkinliği** csv blob depolama alanına oluşturun/taşıma için havuz özelliğini ayarlamalıdır **blobWriterAddHeader** için **doğru**. Örneğin:
+    Giriş csv dosyanızda hello sütun başlık satırı olmalıdır. Merhaba kullanıyorsanız **kopyalama etkinliği** toocreate/taşıma hello csv hello blob depolama alanına hello havuz özelliği ayarlanmış olmalıdır **blobWriterAddHeader** çok**doğru**. Örneğin:
 
     ```JSON
     sink:
@@ -191,8 +191,8 @@ Gitmenizi öneririz [Data Factory ile ilk işlem hattınızı oluşturma] [ adf-
     }
     ```
 
-    Csv dosyası üstbilgi satırındaki yoksa, aşağıdaki hatayı görebilirsiniz: **etkinliğinde hata: dize okunurken hata oluştu. Beklenmeyen bir belirteç: StartObject. Yol '', satır 1, 1, konum**.
-3. Oluşturma **çıkış** Azure Data Factory **dataset**. Bu örnekte, her dilim yürütme için bir benzersiz çıkış yolu oluşturmak için bölümleme kullanır. Bölümleme olmadan, etkinliği dosyanın üzerine.
+    Merhaba csv dosyası hello başlık satırı yoksa, aşağıdaki hata hello görebilirsiniz: **etkinliğinde hata: dize okunurken hata oluştu. Beklenmeyen bir belirteç: StartObject. Yol '', satır 1, 1, konum**.
+3. Merhaba oluşturma **çıkış** Azure Data Factory **dataset**. Bu örnek için her bir dilim yürütme bölümleme toocreate benzersiz çıkış yolu kullanır. Merhaba bölümleme olmadan hello etkinlik hello dosyanın üzerine.
 
     ```JSON
     {
@@ -233,7 +233,7 @@ Gitmenizi öneririz [Data Factory ile ilk işlem hattınızı oluşturma] [ adf-
       }
     }
     ```
-4. Oluşturma bir **bağlantılı hizmeti** türü: **AzureMLLinkedService**, API anahtarı sağlayarak ve toplu yürütme URL'si model.
+4. Oluşturma bir **bağlantılı hizmeti** türü: **AzureMLLinkedService**, hello API anahtarı sağlayarak ve toplu yürütme URL'si model.
 
     ```JSON
     {
@@ -247,11 +247,11 @@ Gitmenizi öneririz [Data Factory ile ilk işlem hattınızı oluşturma] [ adf-
       }
     }
     ```
-5. Son olarak, içeren bir ardışık düzen Yazar bir **AzureMLBatchExecution** etkinlik. Çalışma zamanında, ardışık düzen aşağıdaki adımları gerçekleştirir:
+5. Son olarak, içeren bir ardışık düzen Yazar bir **AzureMLBatchExecution** etkinlik. Çalışma zamanında, ardışık düzen hello aşağıdaki adımları gerçekleştirir:
 
-   1. Giriş dosyası konumunu giriş kümeleriniz alır.
-   2. Azure Machine Learning toplu iş yürütme API çağırır
-   3. Toplu iş yürütme çıktısını çıkış veri kümesinde bulunan verilen blob kopyalar.
+   1. Giriş kümeleriniz Hello hello giriş dosyasının konumunu alır.
+   2. Hello Azure Machine Learning toplu iş yürütme API çağırır
+   3. Kopya, çıkış veri kümesinde bulunan verilen toplu iş yürütme çıktı toohello blob hello.
 
       > [!NOTE]
       > AzureMLBatchExecution etkinlik sıfır veya daha fazla girişleri ve çıkışları bir veya daha fazla olabilir.
@@ -300,24 +300,24 @@ Gitmenizi öneririz [Data Factory ile ilk işlem hattınızı oluşturma] [ adf-
     }
     ```
 
-      Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. **Son** zaman isteğe bağlı. İçin değer belirtmezseniz, **son** özelliği olarak hesaplanır "**start + 48 hours.**" İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
+      Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. Merhaba **son** zaman isteğe bağlı. Hello için değer belirtmezseniz, **son** özelliği olarak hesaplanır "**start + 48 hours.**" toorun hello ardışık kalıcı olarak belirtmek **9999-09-09** hello hello değeri olarak **son** özelliği. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
 
       > [!NOTE]
-      > AzureMLBatchExecution için giriş belirtme etkinliği isteğe bağlıdır.
+      > Merhaba AzureMLBatchExecution etkinlik için giriş belirten isteğe bağlıdır.
       >
       >
 
-### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Senaryo: Denemelerini çeşitli depolarını verilerde başvurmak için Okuyucu/Yazıcı modüllerini kullanma
-Azure ML denemeler oluştururken, başka bir yaygın bir senaryo, okuyucu ve yazıcı modülleri kullanmaktır. Okuyucu modülü bir deneme veri yüklemek için kullanılır ve yazıcı modülü denemelerinizden verileri kaydetmek için. Okuyucu ve yazıcı modüller hakkında daha fazla ayrıntı için bkz: [okuyucu](https://msdn.microsoft.com/library/azure/dn905997.aspx) ve [yazan](https://msdn.microsoft.com/library/azure/dn905984.aspx) MSDN Kitaplığı konularda.     
+### <a name="scenario-experiments-using-readerwriter-modules-toorefer-toodata-in-various-storages"></a>Senaryo: Okuyucu/Yazıcı modülleri toorefer toodata içinde çeşitli depolarını kullanarak denemelerini
+Azure ML denemeler oluştururken, başka bir ortak toouse okuyucu ve yazıcı modülleri senaryodur. Merhaba okuyucu modülü bir denemeyi kullanılan tooload verilerini ve hello yazıcı modülü denemelerinizi toosave verileri. Okuyucu ve yazıcı modüller hakkında daha fazla ayrıntı için bkz: [okuyucu](https://msdn.microsoft.com/library/azure/dn905997.aspx) ve [yazan](https://msdn.microsoft.com/library/azure/dn905984.aspx) MSDN Kitaplığı konularda.     
 
-Okuyucu ve yazıcı modülleri kullanırken, bu Okuyucu/Yazıcı modülleri her bir özellik için bir Web hizmeti parametresi kullanmak iyi bir uygulamadır. Bu web parametreleri değerlerini çalışma zamanı sırasında yapılandırmanıza olanak sağlar. Örneğin, bir Azure SQL veritabanı kullanan bir okuyucu modülü ile bir deneme oluşturabilirsiniz: XXX.database.windows.net. Web hizmeti dağıtıldıktan sonra YYY.database.windows.net adlı başka bir Azure SQL Server belirtmek web hizmeti sağlamak istiyorsunuz. Yapılandırılması için bu değeri izin vermek için Web hizmeti parametresini kullanabilirsiniz.
+Merhaba okuyucu ve yazıcı modülleri kullanırken, iyi bir uygulama toouse bu Okuyucu/Yazıcı modüllerin her bir özellik için bir Web hizmeti parametresi var. Bu web parametreleri çalışma zamanı sırasında tooconfigure hello değerlerini etkinleştirin. Örneğin, bir Azure SQL veritabanı kullanan bir okuyucu modülü ile bir deneme oluşturabilirsiniz: XXX.database.windows.net. Merhaba web hizmeti dağıtıldıktan sonra YYY.database.windows.net adlı başka bir Azure SQL Server hello web hizmeti toospecify tooenable hello tüketicileri istiyor. Bu değer toobe yapılandırılmış bir Web hizmeti parametresi tooallow kullanabilirsiniz.
 
 > [!NOTE]
-> Web hizmeti giriş ve çıkış Web hizmeti parametrelerinden farklıdır. İlk senaryoda, bir giriş ve çıkış için bir Azure ML Web hizmeti nasıl belirtilebilir gördünüz. Bu senaryoda, Okuyucu/Yazıcı modülleri özelliklerine karşılık gelen bir Web hizmeti parametreleri geçirin.
+> Web hizmeti giriş ve çıkış Web hizmeti parametrelerinden farklıdır. Merhaba ilk senaryoda, bir giriş ve çıkış için bir Azure ML Web hizmeti nasıl belirtilebilir gördünüz. Bu senaryoda, Okuyucu/Yazıcı modüllerin tooproperties karşılık gelen bir Web hizmeti parametreleri geçirin.
 >
 >
 
-Web hizmeti parametreleri kullanarak bir senaryo bakalım. Verileri Azure Machine Learning tarafından desteklenen veri kaynaklarından biri okunacak okuyucu modülü kullanan bir dağıtılan Azure Machine Learning web hizmetine sahip (örneğin: Azure SQL veritabanı). Toplu yürütme işlemi yapıldıktan sonra sonuçları yazıcı Modülü (Azure SQL veritabanı) kullanılarak yazılır.  Hiçbir web hizmeti girişleri ve çıkışları denemeler tanımlanır. Bu durumda, okuyucu ve yazıcı modülleri için ilgili web hizmeti parametreleri yapılandırmanızı öneririz. Bu yapılandırma Okuyucu/Yazıcı AzureMLBatchExecution etkinlik kullanırken yapılandırılması için modül sağlar. Web hizmeti parametreleri belirtin **globalParameters** JSON etkinliğinde gibi bölüm.
+Web hizmeti parametreleri kullanarak bir senaryo bakalım. Azure Machine Learning tarafından desteklenen hello veri kaynakları birinden bir okuyucu modülü tooread veri kullanan bir dağıtılan Azure Machine Learning web hizmetine sahip (örneğin: Azure SQL veritabanı). Merhaba toplu yürütme işlemi yapıldıktan sonra hello sonuçları yazıcı Modülü (Azure SQL veritabanı) kullanılarak yazılır.  Hiçbir web hizmeti girişleri ve çıkışları hello denemeler tanımlanır. Bu durumda, ilgili web hizmeti parametreleri hello okuyucu ve yazıcı modüller yapılandırmanızı öneririz. Bu yapılandırma hello Okuyucu/Yazıcı hello AzureMLBatchExecution etkinlik kullanılırken modülleri toobe sağlar. Web hizmeti parametreleri hello belirttiğiniz **globalParameters** hello etkinlik JSON gibi bölüm.
 
 ```JSON
 "typeProperties": {
@@ -328,7 +328,7 @@ Web hizmeti parametreleri kullanarak bir senaryo bakalım. Verileri Azure Machin
 }
 ```
 
-Aynı zamanda [veri fabrikası işlevleri](data-factory-functions-variables.md) Web değerleri geçirme içinde parametreleri aşağıdaki örnekte gösterildiği gibi hizmet:
+Aynı zamanda [veri fabrikası işlevleri](data-factory-functions-variables.md) hello değerlerini hello aşağıdaki örnekte gösterildiği gibi Web hizmeti parametreleri geçirme içinde:
 
 ```JSON
 "typeProperties": {
@@ -339,14 +339,14 @@ Aynı zamanda [veri fabrikası işlevleri](data-factory-functions-variables.md) 
 ```
 
 > [!NOTE]
-> Web hizmeti parametreleri büyük/küçük harfe duyarlıdır, bu nedenle etkinliğin belirttiğiniz adları JSON Web hizmeti tarafından sunulan olanları eşleşmesini.
+> Merhaba Web hizmeti parametreleri büyük/küçük harfe duyarlıdır, bu nedenle hello etkinliğinde belirttiğiniz hello adlarıyla JSON eşleşmesini hello hello Web hizmeti tarafından sunulan olanları olun.
 >
 >
 
-### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Verileri Azure Blob içinde birden çok dosya okuma için bir okuyucu modülü kullanma
-Pig gibi etkinlikleri ile büyük veri ardışık düzenleri ve Hive bir oluşturabilir veya hiçbir uzantı ile daha fazla çıkış dosyaları. Örneğin, bir dış Hive tablo belirttiğinizde, dış Hive tablosu için veri aşağıdaki adı 000000_0 ile Azure blob storage depolanabilir. Birden çok dosya okumak için bir deneme okuyucu modülü kullanın ve bunları tahminleri için kullanın.
+### <a name="using-a-reader-module-tooread-data-from-multiple-files-in-azure-blob"></a>Azure Blob içinde birden çok dosyadan bir okuyucu modülü tooread veri kullanma
+Pig gibi etkinlikleri ile büyük veri ardışık düzenleri ve Hive bir oluşturabilir veya hiçbir uzantı ile daha fazla çıkış dosyaları. Dış bir Hive tablosu belirttiğinizde, örneğin, hello veri hello dış Hive tablosu için adı 000000_0 aşağıdaki hello ile Azure blob depolama alanında depolanabilir. Birden çok dosya hello okuyucu modülünde deneme tooread kullanın ve bunları tahminleri için kullanın.
 
-Okuyucu modülü bir Azure Machine Learning deneme kullanırken, Azure Blob girdi olarak belirtebilirsiniz. Azure blob depolama alanındaki dosyalar çıktı dosyaları olabilir (örnek: 000000_0) Hdınsight üzerinde çalışan bir Pig ve Hive komut dosyası tarafından üretilen. Okuyucu modülü yapılandırarak (hiçbir uzantılı) dosyaları okumasına izin verir **kapsayıcısına yol dizin/blob**. **Kapsayıcı yoluna** işaret kapsayıcıya ve **dizin/blob** aşağıdaki görüntüde gösterildiği gibi dosyaları içeren klasör işaret eder. Yıldız işareti diğer bir deyişle, \*) **belirtir kapsayıcı/klasöründeki tüm dosyalar (diğer bir deyişle, aggregateddata/data/yıl ay/2014-6 = /\*)** deneme bir parçası olarak okuyun.
+Merhaba okuyucu modülü bir Azure Machine Learning deneme kullanırken, Azure Blob girdi olarak belirtebilirsiniz. hello Azure blob depolama Hello dosyalarında hello çıktı dosyaları olabilir (örnek: 000000_0) Hdınsight üzerinde çalışan bir Pig ve Hive komut dosyası tarafından üretilen. Merhaba okuyucu Modülü (hiçbir uzantılı) tooread dosyaları hello yapılandırarak sağlar **yolu toocontainer, dizin/blob**. Merhaba **yolu toocontainer** noktaları toohello kapsayıcı ve **dizin/blob** hello görüntü aşağıdaki gösterildiği gibi hello dosyalarını içeren toofolder işaret eder. Merhaba diğer bir deyişle, yıldız işareti \*) **tüm hello kapsayıcı/klasöründeki dosyaları hello belirtir (diğer bir deyişle, aggregateddata/data/yıl ay/2014-6 = /\*)** hello deneme bir parçası olarak okuyun.
 
 ![Azure Blob özellikleri](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -401,16 +401,16 @@ Okuyucu modülü bir Azure Machine Learning deneme kullanırken, Azure Blob gird
 }
 ```
 
-Yukarıdaki JSON örnekte:
+Yukarıdaki JSON örnek Hello:
 
-* Dağıtılan Azure Machine Learning Web hizmeti, başlangıç/bitiş bir Azure SQL veritabanı veri okuma/yazma için bir okuyucu ve yazıcı modülü kullanır. Aşağıdaki dört parametre bu Web hizmetini sunar: veritabanı sunucu adı, veritabanı adı, sunucu kullanıcı hesabı adı ve sunucu kullanıcı hesabı parolası.  
-* Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. **Son** zaman isteğe bağlı. İçin değer belirtmezseniz, **son** özelliği olarak hesaplanır "**start + 48 hours.**" İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
+* Merhaba dağıtılan Azure Machine Learning hizmetinin kullandığı bir okuyucu ve yazıcı modülü tooread/yazma verilerden Web / tooan Azure SQL veritabanı. Bu Web hizmetini şu dört parametreler hello sunar: veritabanı sunucu adı, veritabanı adı, sunucu kullanıcı hesabı adı ve sunucu kullanıcı hesabı parolası.  
+* Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. Merhaba **son** zaman isteğe bağlı. Hello için değer belirtmezseniz, **son** özelliği olarak hesaplanır "**start + 48 hours.**" toorun hello ardışık kalıcı olarak belirtmek **9999-09-09** hello hello değeri olarak **son** özelliği. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
 
 ### <a name="other-scenarios"></a>Diğer senaryolar
 #### <a name="web-service-requires-multiple-inputs"></a>Web hizmeti birden çok giriş gerektiriyor
-Web hizmeti birden fazla girdi aldığı durumlarda kullanmak **webServiceInputs** kullanmak yerine özelliği **WebServiceInput etkinliğine**. Tarafından başvurulan veri kümeleri **webServiceInputs** de dahil etkinliğin **girişleri**.
+Merhaba web hizmeti birden fazla girdi aldığı durumlarda hello kullan **webServiceInputs** kullanmak yerine özelliği **WebServiceInput etkinliğine**. Merhaba tarafından başvurulan veri kümeleri **webServiceInputs** hello etkinliği de dahil edilmesi **girişleri**.
 
-Azure ML denemenizde web hizmeti giriş ve çıkış bağlantı noktaları ve genel parametreleri özelleştirebileceğiniz varsayılan adları ("input1", "input2") sahip. WebServiceInputs, webServiceOutputs ve globalParameters ayarları için kullandığınız adlarının denemeler adlarında tam olarak eşleşmelidir. Örnek istek yükü, beklenen eşleme doğrulamak Azure ML uç noktanız için toplu iş yürütme Yardım sayfasında görüntüleyebilirsiniz.
+Azure ML denemenizde web hizmeti giriş ve çıkış bağlantı noktaları ve genel parametreleri özelleştirebileceğiniz varsayılan adları ("input1", "input2") sahip. webServiceInputs, webServiceOutputs ve globalParameters ayarları için kullandığınız hello adlarının hello denemeler hello adlarında tam olarak eşleşmelidir. Azure ML uç nokta tooverify beklenen hello eşleme için hello örnek isteği yükü hello toplu iş yürütme Yardım sayfasında görüntüleyebilirsiniz.
 
 ```JSON
 {
@@ -453,7 +453,7 @@ Azure ML denemenizde web hizmeti giriş ve çıkış bağlantı noktaları ve ge
 ```
 
 #### <a name="web-service-does-not-require-an-input"></a>Web hizmeti bir giriş gerektirmez
-Azure ML toplu iş yürütme web Hizmetleri, tüm girişleri gerektirmeyebilir örnek R veya Python komut dosyası için tüm iş akışlarını çalıştırmak için kullanılabilir. Ya da deneme herhangi GlobalParameters kullanıma sunmuyor okuyucu modülü ile yapılandırılabilir. Bu durumda, AzureMLBatchExecution etkinlik şu şekilde yapılandırılması:
+Azure ML toplu iş yürütme web Hizmetleri, örnek R veya Python komut dosyaları için değil gerektirebilecek tüm girişleri kullanılan toorun herhangi bir iş akışını olabilir. Ya da hello deneme herhangi GlobalParameters kullanıma sunmuyor okuyucu modülü ile yapılandırılabilir. Bu durumda, hello AzureMLBatchExecution etkinlik şu şekilde yapılandırılması:
 
 ```JSON
 {
@@ -480,7 +480,7 @@ Azure ML toplu iş yürütme web Hizmetleri, tüm girişleri gerektirmeyebilir �
 ```
 
 #### <a name="web-service-does-not-require-an-inputoutput"></a>Web hizmeti bir giriş/çıkış gerektirmez
-Azure ML toplu iş yürütme web hizmeti yapılandırılmış herhangi bir Web hizmeti çıktı sahip olmayabilir. Bu örnekte, Web hizmeti girişi veya çıkışı yok veya tüm GlobalParameters yapılandırılır. Hala faaliyete yapılandırılmış bir çıktı yoktur, ancak bir webServiceOutput verilmedi.
+Hello Azure ML toplu iş yürütme web hizmeti yapılandırılmış herhangi bir Web hizmeti çıktı sahip olmayabilir. Bu örnekte, Web hizmeti girişi veya çıkışı yok veya tüm GlobalParameters yapılandırılır. Hala hello faaliyete kendisini yapılandırılmış bir çıktı yoktur, ancak bir webServiceOutput verilmedi.
 
 ```JSON
 {
@@ -503,8 +503,8 @@ Azure ML toplu iş yürütme web hizmeti yapılandırılmış herhangi bir Web h
 },
 ```
 
-#### <a name="web-service-uses-readers-and-writers-and-the-activity-runs-only-when-other-activities-have-succeeded"></a>Web hizmeti kullanan okuyucular ve yazarlar ve diğer etkinlikler yalnızca başarılı olduğunda etkinlik çalışması
-Azure ML web hizmeti okuyucu ve yazıcı modülleri ile veya olmadan herhangi GlobalParameters çalıştırmak için yapılandırılabilir. Ancak, yalnızca bir Yukarı Akış işlem tamamlandığında hizmetini çağırmak için veri kümesi bağımlılıkları kullanan bir ardışık düzen hizmeti çağrıları katıştırmak isteyebilirsiniz. Bu yaklaşımı kullanarak toplu iş yürütme tamamlandıktan sonra başka bir eylemi de tetikleyebilirsiniz. Bu durumda, etkinlik girişleri ve çıkışları, bunlardan herhangi birinin Web hizmeti girişleri veya çıkışları adlandırma olmadan kullanarak bağımlılıkları hızlı.
+#### <a name="web-service-uses-readers-and-writers-and-hello-activity-runs-only-when-other-activities-have-succeeded"></a>Web hizmeti kullanan okuyucular ve yazarlar ve diğer etkinlikler yalnızca başarılı olduğunda hello etkinlik çalışması
+Okuyucu ve yazıcı Hello Azure ML web hizmeti modülleri yapılandırılmış toorun ile veya olmadan herhangi GlobalParameters olabilir. Ancak, yalnızca bir Yukarı Akış işlem tamamlandığında, veri kümesi bağımlılıkları tooinvoke hello hizmetinin kullandığı bir ardışık düzende tooembed hizmetini çağırır isteyebilirsiniz. Bu yaklaşımı kullanarak Hello toplu iş yürütme tamamlandıktan sonra başka bir eylemi de tetikleyebilirsiniz. Bu durumda, etkinlik girişleri ve çıkışları, bunlardan herhangi birinin Web hizmeti girişleri veya çıkışları adlandırma olmadan kullanarak hello bağımlılıkları hızlı.
 
 ```JSON
 {
@@ -535,33 +535,33 @@ Azure ML web hizmeti okuyucu ve yazıcı modülleri ile veya olmadan herhangi Gl
 },
 ```
 
-**Paketler** şunlardır:
+Merhaba **paketler** şunlardır:
 
-* Deneme uç noktanızı bir WebServiceInput etkinliğine kullanıyorsa: blob veri kümesi temsil edilir ve etkinlik girişlerinde ve WebServiceInput etkinliğine özelliği dahil edilmiştir. Aksi takdirde WebServiceInput etkinliğine özelliği atlanmıştır.
-* Deneme uç noktanızı webServiceOutput(s) kullanıyorsa: blob veri kümeleri ile temsil edilir ve etkinlik çıkışları ve webServiceOutputs özelliğinde dahil edilir. Etkinlik çıkarır ve webServiceOutputs her çıktı denemede ada göre eşleştirilir. Aksi takdirde, webServiceOutputs özelliği atlanmıştır.
-* GlobalParameter(s), deneme uç noktasını kullanıma sunar, bunlar etkinlik globalParameters özelliğinde anahtar, değer çiftleri olarak verilir. Aksi takdirde, globalParameters özelliği atlanmıştır. Anahtarlar büyük/küçük harfe duyarlıdır. [Azure Data Factory işlevleri](data-factory-functions-variables.md) değerleri kullanılabilir.
-* Ek veri kümeleri içinde etkinlik typeProperties başvurulan olmadan etkinlik girişleri ve çıkışları özelliklerinde eklenebilir. Bu veri kümeleri dilim bağımlılıkları kullanılarak yürütme yöneten ancak aksi AzureMLBatchExecution etkinlik tarafından göz ardı edilir.
+* Deneme uç noktanızı bir WebServiceInput etkinliğine kullanıyorsa: blob veri kümesi tarafından temsil edilen ve hello etkinlik girişlerinde ve hello WebServiceInput etkinliğine özelliği dahil edilmiştir. Aksi takdirde hello WebServiceInput etkinliğine özelliği atlanmıştır.
+* Deneme uç noktanızı webServiceOutput(s) kullanıyorsa: blob veri kümeleri tarafından temsil edilen ve hello etkinlik çıkışları ve hello webServiceOutputs özelliğinde dahil edilir. Merhaba etkinlik çıkarır ve webServiceOutputs hello deneme her bir çıkış hello adıyla eşleştirilir. Aksi takdirde hello webServiceOutputs özelliği atlanmıştır.
+* GlobalParameter(s), deneme uç noktasını kullanıma sunar, bunlar hello etkinlik globalParameters özelliğinde anahtar, değer çiftleri olarak verilir. Aksi takdirde hello globalParameters özelliği atlanmıştır. Merhaba anahtarlar büyük/küçük harfe duyarlıdır. [Azure Data Factory işlevleri](data-factory-functions-variables.md) hello değerleri kullanılabilir.
+* Ek veri kümeleri hello etkinlik girişleri ve çıkışları Özellikleri'nde hello etkinlik typeProperties başvurulan olmadan eklenebilir. Bu veri kümeleri dilim bağımlılıkları kullanılarak yürütme yöneten ancak hello AzureMLBatchExecution etkinlik tarafından aksi halde yoksayılır.
 
 
 ## <a name="updating-models-using-update-resource-activity"></a>Kaynak güncelleştirme etkinliği kullanarak modelleri güncelleştiriliyor
-Yeniden eğitme ile tamamladıktan sonra Puanlama web hizmeti (web hizmeti olarak sunulan Tahmine dayalı denemeye) ile yeni eğitilen modelini kullanarak güncelleştirme **Azure ML güncelleştirme kaynak etkinliği**. Bkz: [kaynak güncelleştirme etkinliği kullanarak modelleri güncelleştirme](data-factory-azure-ml-update-resource-activity.md) Ayrıntılar için makale.
+Yeniden eğitme ile tamamladıktan sonra web hizmeti (web hizmeti olarak sunulan Tahmine dayalı denemeye) hello kullanarak hello yeni eğitilen modeli Puanlama hello güncelleştirme **Azure ML güncelleştirme kaynak etkinliği**. Bkz: [kaynak güncelleştirme etkinliği kullanarak modelleri güncelleştirme](data-factory-azure-ml-update-resource-activity.md) Ayrıntılar için makale.
 
 ### <a name="reader-and-writer-modules"></a>Okuyucu ve yazıcı modülleri
-Web hizmeti parametreleri kullanarak için yaygın bir senaryo Azure SQL okuyucuları ve yazıcıları kullanılmasıdır. Okuyucu modülü bir denemeyi Azure Machine Learning Studio dışında veri management hizmetlerinden veri yüklemek için kullanılır. Veri Yönetimi Hizmetleri Azure Machine Learning Studio dışında içine denemelerinizden verileri kaydetmek için yazıcı modülüdür.  
+Web hizmeti parametreleri kullanarak için yaygın bir senaryo hello Azure SQL okuyucuları ve yazıcıları kullanılır. Merhaba okuyucu modülü, veri yönetimi hizmetlerinden Azure Machine Learning Studio dışında bir deneme içine kullanılan tooload verilerdir. Merhaba yazıcı modülü denemelerinizi veri Yönetim hizmetlerine Azure Machine Learning Studio dışında toosave verilerdir.  
 
-Azure Blob/Azure SQL Okuyucu/Yazıcı hakkında daha fazla ayrıntı için bkz: [okuyucu](https://msdn.microsoft.com/library/azure/dn905997.aspx) ve [yazan](https://msdn.microsoft.com/library/azure/dn905984.aspx) MSDN Kitaplığı konularda. Önceki bölümdeki örnek, Azure Blob okuyucu ve Azure Blob yazıcı kullanılır. Bu bölümde, Azure SQL okuyucu ve Azure SQL yazıcı kullanarak anlatılmaktadır.
+Azure Blob/Azure SQL Okuyucu/Yazıcı hakkında daha fazla ayrıntı için bkz: [okuyucu](https://msdn.microsoft.com/library/azure/dn905997.aspx) ve [yazan](https://msdn.microsoft.com/library/azure/dn905984.aspx) MSDN Kitaplığı konularda. Merhaba önceki bölümdeki Hello örnek hello Azure Blob okuyucu ve Azure Blob yazıcı kullanılır. Bu bölümde, Azure SQL okuyucu ve Azure SQL yazıcı kullanarak anlatılmaktadır.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
-**S:** my büyük veri ardışık düzen tarafından üretilen birden çok dosya vardır. Tüm dosyalar üzerinde çalışmak için AzureMLBatchExecution etkinliği kullanabilir miyim?
+**S:** my büyük veri ardışık düzen tarafından üretilen birden çok dosya vardır. Tüm hello dosyalarda hello AzureMLBatchExecution etkinlik toowork kullanabilir miyim?
 
-**Y:** Evet. Bkz: **verileri Azure Blob içinde birden çok dosya okuma için bir okuyucu modülü kullanılarak** ayrıntıları bölümü.
+**Y:** Evet. Merhaba bkz **bir okuyucu modülü tooread verileri Azure Blob içinde birden çok dosyadan kullanarak** ayrıntıları bölümü.
 
 ## <a name="azure-ml-batch-scoring-activity"></a>Azure ML toplu iş Puanlama etkinliği
-Kullanıyorsanız **AzureMLBatchScoring** Azure Machine Learning ile tümleştirmek için etkinlik en son kullanmanızı öneririz **AzureMLBatchExecution** etkinlik.
+Merhaba kullanıyorsanız **AzureMLBatchScoring** etkinlik toointegrate Azure Machine Learning ile öneririz hello son kullanma **AzureMLBatchExecution** etkinlik.
 
-AzureMLBatchExecution etkinlik sunulan Azure PowerShell ve Azure SDK'sını Ağustos 2015 sürümünde.
+Merhaba AzureMLBatchExecution etkinlik hello Ağustos 2015 sürümünde Azure PowerShell ve Azure SDK'sını sunulmuştur.
 
-AzureMLBatchScoring etkinlik kullanmaya devam etmek istiyorsanız, bu bölümde okuma devam edin.  
+Merhaba AzureMLBatchScoring etkinliğini kullanarak toocontinue istiyorsanız, bu bölümde okuma devam edin.  
 
 ### <a name="azure-ml-batch-scoring-activity-using-azure-storage-for-inputoutput"></a>Giriş/çıkış için Azure Storage kullanarak azure ML toplu Puanlama etkinliği
 
@@ -601,7 +601,7 @@ AzureMLBatchScoring etkinlik kullanmaya devam etmek istiyorsanız, bu bölümde 
 ```
 
 ### <a name="web-service-parameters"></a>Web hizmeti parametreleri
-Web hizmeti parametreleri için değerleri belirlemek için ekleyin bir **typeProperties** için bölüm **AzureMLBatchScoringActivty** aşağıdaki örnekte gösterildiği gibi JSON ardışık düzeninde bölümünde:
+Web hizmeti parametreleri için değerleri toospecify ekleme bir **typeProperties** bölüm toohello **AzureMLBatchScoringActivty** hello ardışık düzen hello aşağıdaki örnekte gösterildiği gibi JSON bölümünde:
 
 ```JSON
 "typeProperties": {
@@ -611,7 +611,7 @@ Web hizmeti parametreleri için değerleri belirlemek için ekleyin bir **typePr
     }
 }
 ```
-Aynı zamanda [veri fabrikası işlevleri](data-factory-functions-variables.md) Web değerleri geçirme içinde parametreleri aşağıdaki örnekte gösterildiği gibi hizmet:
+Aynı zamanda [veri fabrikası işlevleri](data-factory-functions-variables.md) hello değerlerini hello aşağıdaki örnekte gösterildiği gibi Web hizmeti parametreleri geçirme içinde:
 
 ```JSON
 "typeProperties": {
@@ -622,7 +622,7 @@ Aynı zamanda [veri fabrikası işlevleri](data-factory-functions-variables.md) 
 ```
 
 > [!NOTE]
-> Web hizmeti parametreleri büyük/küçük harfe duyarlıdır, bu nedenle etkinliğin belirttiğiniz adları JSON Web hizmeti tarafından sunulan olanları eşleşmesini.
+> Merhaba Web hizmeti parametreleri büyük/küçük harfe duyarlıdır, bu nedenle hello etkinliğinde belirttiğiniz hello adlarıyla JSON eşleşmesini hello hello Web hizmeti tarafından sunulan olanları olun.
 >
 >
 

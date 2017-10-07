@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery kullanarak geçiş sonrasında Azure bölgeler arasında olağanüstü durum kurtarma ayarlamak için makineler hazırlama | Microsoft Docs"
-description: "Bu makalede, Azure Site Recovery kullanarak Azure geçişten sonra Azure bölgeler arasında olağanüstü durum kurtarma ayarlamak için makineler hazırlama açıklar."
+title: "Site Recovery kullanarak geçiş tooAzure sonra Azure bölgeler arasında olağanüstü durum kurtarma yukarı aaaPrepare makineler tooset | Microsoft Docs"
+description: "Bu makalede, Azure Site Recovery kullanarak geçiş tooAzure sonra Azure bölgeler arasında olağanüstü durum kurtarma yukarı tooset nasıl tooprepare makineleri açıklanmaktadır."
 services: site-recovery
 documentationcenter: 
 author: ponatara
@@ -14,92 +14,92 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
-ms.openlocfilehash: 2aee0fb8d1ba1ff1584bee91b4d1cc34b654d97f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b6274e3df210c1d8a7b8289cc85868ee6414e523
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Azure Vm'lerini başka bir bölgeye Azure geçişten sonra Azure Site Recovery kullanarak çoğaltma
+# <a name="replicate-azure-vms-tooanother-region-after-migration-tooazure-by-using-azure-site-recovery"></a>Azure Site Recovery kullanarak geçiş tooAzure sonra Azure Vm'lerinin tooanother bölge çoğaltma
 
 >[!NOTE]
 > Azure sanal makineleri (VM'ler) için Azure Site Recovery çoğaltma şu anda önizlemede değil.
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu makalede, Azure sanal makineleri bu makinelere şirket içi ortamından Azure için Azure Site Recovery kullanarak geçirildikten sonra iki Azure bölgeler arasında çoğaltma hazırlamanıza yardımcı olur.
+Bu makalede, Azure sanal makineleri Azure Site Recovery kullanarak bir şirket içi ortamına tooAzure bu makineler geçirildikten sonra iki Azure bölgeler arasında çoğaltma hazırlamanıza yardımcı olur.
 
 ## <a name="disaster-recovery-and-compliance"></a>Olağanüstü durum kurtarma ve uyumluluk
-Bugün, daha da fazla kuruluşlar, iş yüklerini Azure'a taşıyor. Kuruluşlara kritik taşıma üretim içi iş yüklerini azure'a, uyumluluk ve bir Azure bölgesindeki kesintileri karşı koruma için bu iş yükleri için olağanüstü durum kurtarma kurma zorunludur.
+Bugün, daha da fazla kuruluşların kendi iş yükleri tooAzure taşıyor. Kritik şirket içi üretim taşıma kuruluşlara iş yükleri tooAzure, bu iş yükleri için olağanüstü durum kurtarma ayarlama uyumluluk ve bir Azure bölgesindeki kesintileri karşı toosafeguard için zorunludur.
 
 ## <a name="steps-for-preparing-migrated-machines-for-replication"></a>Geçirilen makineleri çoğaltma için hazırlama adımları
-Hazırlamak için başka bir Azure bölgesine çoğaltma ayarlama makineler geçişi:
+tooprepare çoğaltma tooanother Azure bölgesini ayarlamak için makineler geçişi:
 
 1. Geçişi tamamlayın.
-2. Gerekirse Azure aracısını yükleyin.
-3. Mobility hizmeti kaldırın.  
-4. VM'yi yeniden başlatın.
+2. Merhaba gerekirse Azure aracısını yükleyin.
+3. Merhaba Mobility hizmeti kaldırın.  
+4. Merhaba VM yeniden başlatın.
 
-Bu adımları aşağıdaki bölümlerde daha ayrıntılı olarak açıklanmıştır.
+Aşağıdaki bölümlerde hello bölümlerinde daha ayrıntılı adımları açıklanmaktadır.
 
-### <a name="step-1-migrate-workloads-running-on-hyper-v-vms-vmware-vms-and-physical-servers-to-run-on-azure-vms"></a>Adım 1: Hyper-V sanal makineleri, VMware sanal makinelerini ve Azure Vm'lerinde çalıştırmak için fiziksel sunucularda çalışan iş yüklerini geçirme
+### <a name="step-1-migrate-workloads-running-on-hyper-v-vms-vmware-vms-and-physical-servers-toorun-on-azure-vms"></a>Adım 1: Hyper-V sanal makineleri, VMware Vm'lerini ve fiziksel sunucuları toorun Azure vm'lerinde çalışan iş yüklerini geçirme
 
-Çoğaltmayı ayarlama ve şirket içi geçirmek için Hyper-V, VMware ve fiziksel iş yüklerini azure'a, adımları [Azure Site Recovery ile Azure bölgeler arasında geçirmek Azure Iaas sanal makineleri](site-recovery-migrate-to-azure.md) makalesi. 
+tooset ayarlama çoğaltma ve, şirket içi Hyper-V, VMware ve fiziksel iş yükleri tooAzure hello adımları hello içinde geçirmek [Azure Site Recovery ile Azure bölgeler arasında geçirmek Azure Iaas sanal makineleri](site-recovery-migrate-to-azure.md) makalesi. 
 
-Geçişten sonra yürütün veya bir yük devretme silme gerekmez. Bunun yerine, seçin **tam geçiş** seçeneği geçiş yapmak istediğiniz her makine için:
-1. **Çoğaltılan Öğeler**’de VM’ye sağ tıklayıp **Geçişi Tamamla**’ya tıklayın. Tıklatın **Tamam** adımı tamamlamak için. Tam geçiş işine izleyerek VM Özellikleri'nde ilerleme durumunu izleyebilirsiniz **Site Recovery işleri**.
-2. **Tam geçiş** eylem geçiş işlemi tamamlandığında, makine için çoğaltmayı kaldırır ve makine için Site Recovery Faturalaması durdurulur.
+Geçişten sonra toocommit gerek yok veya bir yük devretme silin. Bunun yerine, hello seçin **tam geçiş** seçeneği toomigrate istediğiniz her makine için:
+1. İçinde **çoğaltılan öğeler**, hello VM sağ tıklayın ve **tam geçiş**. Tıklatın **Tamam** toocomplete hello adım. Merhaba tam geçiş işine izleyerek hello VM Özellikleri'nde ilerleme durumunu izleyebilirsiniz **Site Recovery işleri**.
+2. Merhaba **tam geçiş** eylem hello geçiş işlemi tamamlanır, hello makinesi için çoğaltma kaldırır ve hello makine için Site Recovery Faturalaması durdurulur.
 
    ![tamgeçiş](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
-### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>2. adım: Azure VM Aracısı sanal makineye yükleme
-Azure [VM Aracısı](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) çözmek ve VM korunmasına yardımcı olmak için Site Recovery uzantı sanal makineye yüklenmesi gerekir.
+### <a name="step-2-install-hello-azure-vm-agent-on-hello-virtual-machine"></a>2. adım: hello Azure VM Aracısı hello sanal makineye yükleyin.
+Hello Azure [VM Aracısı](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) hello Site Recovery uzantısı toowork ve toohelp hello VM korumak için hello sanal makineye yüklenmesi gerekir.
 
 >[!IMPORTANT]
->Sürüm 9.7.0.0, Windows sanal makinelerde itibaren Mobility hizmeti yükleyicisinin en son kullanılabilir Azure VM Aracısı de yükler. Geçiş, sanal makine Site Recovery uzantısına dahil, herhangi bir VM uzantısı kullanılarak için önkoşul aracı yüklemesi karşılar. Azure VM Aracısı yalnızca geçirilen makinede Mobility hizmeti 9.6 veya önceki bir sürümü ise el ile yüklenmesi gerekir.
+>Sürüm 9.7.0.0, Windows sanal makinelerde itibaren hello Mobility hizmeti yükleyicisinin hello en son kullanılabilir Azure VM Aracısı de yükler. Geçiş üzerinde aracı yüklemesi hello Site Recovery uzantısı dahil olmak üzere, herhangi bir VM uzantısı kullanılarak için önkoşul hello sanal makine karşılar. yalnızca hello Mobility hizmeti hello üzerinde yüklü makine geçirdiyseniz el ile yüklenen hello Azure VM Aracısı gereksinimlerini toobe 9.6 veya önceki bir sürümü var.
 
-Aşağıdaki tabloda, yüklü olduğu VM Aracısı'nı yükleme ve doğrulama hakkında ek bilgi sağlar:
+Merhaba aşağıdaki tabloda hello VM Aracısı yükleme ve yüklü olduğu doğrulanıyor hakkında ek bilgi sağlar:
 
 | **İşlem** | **Windows** | **Linux** |
 | --- | --- | --- |
-| VM Aracısı yükleme |[Aracı MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) dosyasını indirip yükleyin. Yüklemeyi tamamlamak için yönetici ayrıcalıkları gerekir. |En son yükleme [Linux Aracısı](../virtual-machines/linux/agent-user-guide.md). Yüklemeyi tamamlamak için yönetici ayrıcalıkları gerekir. Aracı dağıtım depodan yüklemenizi öneririz. Biz *değil önerilir* doğrudan Github'dan Linux VM Aracısı yükleme.  |
-| VM Aracısı yüklemesini doğrulama |1. Azure VM'de C:\WindowsAzure\Packages klasöre göz atın. WaAppAgent.exe dosyasını görmeniz gerekir. <br>2. Dosyaya sağ tıklayın, **Özellikler**'e gidin ve ardından **Ayrıntılar** sekmesini seçin. **Ürün sürümü** alanı 2.6.1198.718 olmalıdır ya da daha yüksek. |Yok |
+| Merhaba VM Aracısı yükleniyor |Merhaba yükleyip [aracı MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yönetici ayrıcalıkları toocomplete hello yüklemesi gerekir. |Merhaba son yükleme [Linux Aracısı](../virtual-machines/linux/agent-user-guide.md). Yönetici ayrıcalıkları toocomplete hello yüklemesi gerekir. Dağıtım depodan hello aracı yüklemenizi öneririz. Biz *değil önerilir* doğrudan Github'dan hello Linux VM Aracısı yükleme.  |
+| Merhaba VM Aracısı yüklemesini doğrulama |1. Hello Azure VM toohello C:\WindowsAzure\Packages klasörüne göz atın. Görmeniz gerekir hello WaAppAgent.exe dosyasını. <br>2. Merhaba dosyaya sağ tıklayın, çok Git**özellikleri**seçip hello **ayrıntıları** sekmesini hello **ürün sürümü** alanı 2.6.1198.718 olmalıdır ya da daha yüksek. |Yok |
 
 
-### <a name="step-3-remove-the-mobility-service-from-the-migrated-virtual-machine"></a>3. adım: Mobility hizmeti geçirilen sanal makineden kaldırın.
+### <a name="step-3-remove-hello-mobility-service-from-hello-migrated-virtual-machine"></a>3. adım: Sanal makine Kaldır hello hello Mobility hizmetinden geçişi
 
-Şirket içi VMware makineleri veya fiziksel Windows/Linux sunucularda geçirdiyseniz, el ile Kaldır/geçirilen sanal makine Mobility hizmetinden kaldırmanız gerekir.
+Şirket içi VMware makineleri veya fiziksel Windows/Linux sunucularda geçirdiyseniz, toomanually kaldırmak/hello Mobility hizmetinden hello geçirilen sanal makine gerekir.
 
 >[!IMPORTANT]
->Hyper-V Vm'lerini Azure'a geçişi için bu adım gerekli değildir.
+>Bu adım için Hyper-V sanal makineleri geçirilen tooAzure gerekli değildir.
 
-#### <a name="uninstall-the-mobility-service-on-a-windows-server-vm"></a>Windows Server VM Mobility hizmeti Kaldır
-Windows Server bilgisayarındaki Mobility hizmeti kaldırmak için aşağıdaki yöntemlerden birini kullanın.
+#### <a name="uninstall-hello-mobility-service-on-a-windows-server-vm"></a>Windows Server VM üzerinde Hello Mobility hizmetini kaldırma
+Bir Windows Server bilgisayarında yöntemleri toouninstall hello Mobility hizmeti aşağıdaki hello birini kullanın.
 
-##### <a name="uninstall-by-using-the-windows-ui"></a>Windows kullanıcı arabirimini kullanarak kaldırma
-1. Denetim Masası'nda seçin **programlar**.
+##### <a name="uninstall-by-using-hello-windows-ui"></a>Merhaba Windows kullanıcı arabirimini kullanarak kaldırma
+1. Hello Denetim Masası'da, seçin **programlar**.
 2. Seçin **Microsoft Azure Site Recovery Mobility hizmeti/ana hedef sunucu**ve ardından **kaldırma**.
 
 ##### <a name="uninstall-at-a-command-prompt"></a>Bir komut isteminde kaldırma
 1. Yönetici olarak bir komut istemi penceresi açın.
-2. Mobility hizmetini kaldırmak için aşağıdaki komutu çalıştırın:
+2. toouninstall Mobility hizmeti Merhaba, hello aşağıdaki komutu çalıştırın:
 
    ```
    MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
    ```
 
-#### <a name="uninstall-the-mobility-service-on-a-linux-computer"></a>Bir Linux bilgisayar üzerindeki mobilite hizmetini kaldırın
+#### <a name="uninstall-hello-mobility-service-on-a-linux-computer"></a>Bir Linux bilgisayarda Hello Mobility hizmetini kaldırma
 1. Linux sunucunuzda olarak oturum açın bir **kök** kullanıcı.
-2. Bir terminale için /user/local/ASR gidin.
-3. Mobility hizmetini kaldırmak için aşağıdaki komutu çalıştırın:
+2. Bir terminale çok/kullanıcı/yerel/ASR gidin.
+3. toouninstall Mobility hizmeti Merhaba, hello aşağıdaki komutu çalıştırın:
 
    ```
    uninstall.sh -Y
    ```
 
-### <a name="step-4-restart-the-vm"></a>4. adım: VM yeniden başlatma
+### <a name="step-4-restart-hello-vm"></a>4. adım: hello VM yeniden başlatma
 
-Mobility hizmetinin kaldırdıktan sonra başka bir Azure bölgesine çoğaltma ayarlama önce VM'yi yeniden başlatın.
+Merhaba Mobility hizmeti kaldırdıktan sonra önce yeniden başlatma hello VM çoğaltma tooanother Azure bölgesi ayarlayın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

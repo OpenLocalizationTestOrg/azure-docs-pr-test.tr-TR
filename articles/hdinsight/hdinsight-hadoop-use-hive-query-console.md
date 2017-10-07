@@ -1,6 +1,6 @@
 ---
-title: "Sorgu konsolunda hdınsight'ta - Azure Hadoop Hive kullanma | Microsoft Docs"
-description: "Web tabanlı sorgu konsol tarayıcınızdan bir Hdınsight Hadoop kümesindeki Hive sorguları çalıştırmak için nasıl kullanılacağını öğrenin."
+title: "Merhaba sorgu konsol hdınsight'ta - Azure üzerinde Hadoop Hive aaaUse | Microsoft Docs"
+description: "Nasıl toouse hello web tabanlı sorgu konsol toorun Hive sorguları bir Hdınsight Hadoop üzerinde tarayıcınızdan küme öğrenin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,35 +16,35 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9ccac43ae365d79bfd6ac1edf4d9a799c11356a1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 621882082c9a07655d34b8dc980b8e47dd04b745
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-hive-queries-using-the-query-console"></a>Sorgu konsolunu kullanarak Hive sorguları çalıştırma
+# <a name="run-hive-queries-using-hello-query-console"></a>Merhaba sorgu Konsolu kullanarak Hive sorguları çalıştırma
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Bu makalede, Hdınsight sorgu konsol tarayıcınızdan bir Hdınsight Hadoop kümesindeki Hive sorguları çalıştırmak için nasıl kullanılacağını öğreneceksiniz.
+Bu makalede, nasıl toouse hello Hdınsight sorgu konsol toorun Hive sorguları bir Hdınsight Hadoop üzerinde tarayıcınızdan küme öğreneceksiniz.
 
 > [!IMPORTANT]
-> Hdınsight sorgu konsolu yalnızca Windows tabanlı Hdınsight kümelerinde kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Merhaba Hdınsight sorgu konsolu yalnızca Windows tabanlı Hdınsight kümelerinde kullanılabilir. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Hdınsight 3.4 veya büyük, bkz [Hive sorgularını çalıştırma Ambari Hive görünümünde](hdinsight-hadoop-use-hive-ambari-view.md) bir web tarayıcısından Hive sorguları çalıştırma hakkında bilgi.
 
 ## <a id="prereq"></a>Önkoşullar
-Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir.
+Bu makaledeki toocomplete hello adımları, hello aşağıdaki gerekir.
 
 * Windows tabanlı Hdınsight Hadoop kümesi
 * Modern bir web tarayıcısı
 
-## <a id="run"></a>Sorgu konsolunu kullanarak Hive sorguları çalıştırma
-1. Bir web tarayıcısı açın ve gidin **https://CLUSTERNAME.azurehdinsight.net**, burada **CLUSTERNAME** Hdınsight kümenizin adıdır. İstenirse, kullanıcı adını ve küme oluştururken kullandığınız parolayı girin.
-2. Sayfanın üstündeki bağlantılardan birini seçin **Hive Düzenleyicisi**. Bu, Hdınsight kümesinde çalıştırmak istediğiniz HiveQL ifadelerini girmek için kullanılan bir form görüntüler.
+## <a id="run"></a>Merhaba sorgu Konsolu kullanarak Hive sorguları çalıştırma
+1. Bir web tarayıcısı açın ve çok gidin**https://CLUSTERNAME.azurehdinsight.net**, burada **CLUSTERNAME** Hdınsight kümenize hello adıdır. İstenirse, hello kullanıcı adı ve hello küme oluştururken kullandığınız parolayı girin.
+2. Merhaba sayfanın üst kısmındaki hello Hello bağlantılardan birini seçin **Hive Düzenleyicisi**. Bu, kullanılan tooenter hello HiveQL ifadelerini toorun hello Hdınsight kümesinde istediğiniz olabilir bir form görüntüler.
 
-    ![hive düzenleyicisinin](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
+    ![Merhaba hive Düzenleyicisi](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
 
-    Metnin yerine `Select * from hivesampletable` aşağıdaki HiveQL ifadelerini ile:
+    Merhaba metnin yerine `Select * from hivesampletable` aşağıdaki HiveQL ifadelerini hello ile:
 
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
@@ -53,28 +53,28 @@ Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir.
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
+    Bu deyimler hello aşağıdaki eylemleri gerçekleştirin:
 
-   * **DROP TABLE**: Tablo zaten varsa, tablo ve veri dosyasını siler.
-   * **Dış tablo oluştur**: kovanında yeni bir 'external' tablo oluşturur. Dış tablolara yalnızca tablo tanımı kovanında depolamak; veriler özgün konumda kalır.
+   * **DROP TABLE**: siler hello tablo ve hello veri dosyası hello tablo zaten varsa.
+   * **Dış tablo oluştur**: kovanında yeni bir 'external' tablo oluşturur. Dış tablolara yalnızca hello tablo tanımı kovanında depolamak; Merhaba veri hello özgün konumda kalır.
 
      > [!NOTE]
-     > Bir dış kaynağa (örneğin, bir otomatik veri karşıya yükleme işlemi) veya başka bir MapReduce işlemi tarafından güncelleştirilecek temel alınan veri beklediğiniz dış tablolara kullanılması gereken, ancak her zaman en son verileri kullanmak üzere Hive sorguları istiyor.
+     > Dış tablolar, bir dış kaynağa (örneğin, bir otomatik veri karşıya yükleme işlemi) veya başka bir MapReduce işlemi tarafından güncelleştirilen veri toobe temel hello beklediğiniz ancak her zaman toouse hello en son verileri Hive sorguları istediğiniz zaman kullanılmalıdır.
      >
-     > Bir dış tablo bırakma mu **değil** verileri, yalnızca tablo tanımını silin.
+     > Bir dış tablo bırakma mu **değil** hello verileri, yalnızca hello tablo tanımını silin.
      >
      >
-   * **SATIR biçimi**: verileri nasıl biçimlendirildiğini Hive söyler. Bu durumda, her günlüğün içinde alanlar boşlukla ayrılır.
-   * **AS TEXTFILE konumu DEPOLANAN**: (örneğin/veri dizini) depolanan verileri nerede Hive bildirir ve metin olarak depolanır
-   * **SEÇİN**: tüm satırların sayımını seçin burada sütun **t4** değerini içeren **[Hata]**. Bu değeri döndürmelidir **3** çünkü bu değer içeren üç satır vardır.
-   * **INPUT__FILE__NAME gibi '%.log'** -biz yalnızca veri biten dosyalarından döndürmelidir Hive söyler. günlük. Bu arama verileri içeren ve verileri diğer örnekten tanımladığımız şema eşleşmiyor veri dosyalarını döndürmesini tutar sample.log dosyasına kısıtlar.
-3. Tıklatın **gönderme**. **Proje oturumunu** sayfasının en altında işe yönelik ayrıntıları görüntülenmelidir.
-4. Zaman **durum** alan değişiklikleri **tamamlandı**seçin **ayrıntıları görüntüle** iş için. Ayrıntıları sayfasında **iş çıktısı** içeren `[ERROR]    3`. Kullanabileceğiniz **karşıdan** düğmesi iş çıkışını içeren bir dosyayı indirmek için bu alanı altında.
+   * **SATIR biçimi**: hello veri biçimlendirilmiş nasıl Hive söyler. Bu durumda, her günlüğün içinde hello alanlar boşlukla ayrılır.
+   * **AS TEXTFILE konumu DEPOLANAN**: söyler hello veri nerede Hive depolanan (Merhaba örnek/veri dizini) ve metin olarak depolanır
+   * **SEÇİN**: tüm satırların sayımını seçin burada sütun **t4** hello değeri içeren **[Hata]**. Bu değeri döndürmelidir **3** çünkü bu değer içeren üç satır vardır.
+   * **INPUT__FILE__NAME gibi '%.log'** -biz yalnızca veri biten dosyalarından döndürmelidir Hive söyler. günlük. Merhaba verileri içeren ve verileri diğer örnekten tanımladığımız hello şema eşleşmiyor veri dosyalarını döndürmesini tutar hello arama toohello sample.log dosyası kısıtlar.
+3. Tıklatın **gönderme**. Merhaba **proje oturumunu** hello hello sayfanın hello işe yönelik ayrıntıları görüntülenmelidir.
+4. Ne zaman hello **durum** değişiklikleri alan çok**tamamlandı**seçin **ayrıntıları görüntüle** hello işi için. Merhaba Ayrıntıları sayfasında hello **iş çıktısı** içeren `[ERROR]    3`. Merhaba kullanabilirsiniz **karşıdan** hello çıktısını hello içeren bir dosyayı bu alan toodownload altında düğmesi.
 
 ## <a id="summary"></a>Özet
-Gördüğünüz gibi sorgu konsolu bir Hdınsight kümesi Hive sorgularını çalıştırma, iş durumunu izleyebilir ve çıkış almak için kolay bir yol sağlar.
+Gördüğünüz gibi kolay bir yolu toorun sorgu Konsolu sağlar hello Hdınsight kümesinde bir Hive sorguları hello iş durumunu izlemek ve hello çıkış almak.
 
-Hive işlerini çalıştırmak için Hive sorgusu konsolunu kullanma hakkında daha fazla bilgi için seçin **Başlarken** sorgu konsol üst kısmında, ardından sağlanan örnekleri kullanır. Her örnek örnekte kullanılan HiveQL ifadelerini hakkında açıklamalar dahil verileri analiz etmek için Hive kullanma sürecinde size yol göstermektedir.
+Hive sorgusu konsol toorun Hive işlerini kullanma hakkında daha fazla toolearn seçin **Başlarken** hello sorgu konsol hello üst kısmında, ardından sağlanan hello örnekleri kullanır. Her örnek Hive tooanalyze verileri hello örnekte kullanılan hello HiveQL ifadelerini hakkında açıklamalar dahil olmak üzere, kullanarak hello işlemi anlatılmaktadır.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 Hdınsight'ta Hive hakkında genel bilgi için:
@@ -86,10 +86,10 @@ Diğer yolları hakkında bilgi için hdınsight'ta Hadoop ile çalışabilirsin
 * [Hdınsight'ta Hadoop ile pig kullanma](hdinsight-use-pig.md)
 * [Hdınsight'ta Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
-Tez Hive ile kullanıyorsanız, hata ayıklama bilgileri için aşağıdaki belgelere bakın:
+Tez Hive ile kullanıyorsanız, belgeleri hata ayıklama bilgileri için aşağıdaki hello bakın:
 
-* [Windows tabanlı Hdınsight üzerinde Tez kullanıcı arabirimini kullanma](hdinsight-debug-tez-ui.md)
-* [Linux tabanlı Hdınsight üzerinde Ambari Tez görünümünü kullanın](hdinsight-debug-ambari-tez-view.md)
+* [Windows tabanlı Hdınsight üzerinde Hello Tez UI kullanın](hdinsight-debug-tez-ui.md)
+* [Merhaba Linux tabanlı Hdınsight Ambari Tez görünümünde kullanın](hdinsight-debug-ambari-tez-view.md)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 

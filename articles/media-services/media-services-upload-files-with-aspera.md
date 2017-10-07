@@ -1,6 +1,6 @@
 ---
-title: "Aspera kullanarak Azure Media Services hesabına dosya yükleme | Microsoft Docs"
-description: "Bu öğreticide, bir Media Services hesabı kullanarak ilişkili bir depolama hesabı içine dosya karşıya yükleme adımları açıklanmaktadır ** Aspera sunucu üzerinde isteğe bağlı ** Azure hizmeti."
+title: "Aspera kullanarak Azure Media Services hesabı aaaUpload dosyalarıyla | Microsoft Docs"
+description: "Bu öğretici, hello kullanarak Media Services hesabı ile ilişkili bir depolama hesabı içine dosyaları karşıya hello adım adım anlatılmaktadır ** Aspera sunucu üzerinde isteğe bağlı ** Azure hizmeti."
 services: media-services
 documentationcenter: 
 author: johndeu
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7213f016cc1b7f262b14db7b39b478a03970d1c3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Azure üzerinde Aspera Server On Demand hizmetini kullanan bir Media Services hesabına dosya yükleme
+# <a name="upload-files-into-a-media-services-account-using-hello-aspera-server-on-demand-service-on-azure"></a>Azure'da hello Aspera sunucu isteğe bağlı hizmet kullanarak bir Media Services hesabı içine dosyaları karşıya yükleme
 
 ## <a name="overview"></a>Genel Bakış
 
-**Aspera** çok yüksek hızlı bir dosya aktarım yazılımıdır. Azure için **Aspera Server On Demand**, büyük dosyaların doğrudan Azure Blob nesne depolama alanına yüksek hızda yüklenmesini ve indirilmesini sağlar. **İsteğe Bağlı Aspera** hakkında bilgi için [Aspera Bulut](http://cloud.asperasoft.com/) sitesine bakın. 
+**Aspera** çok yüksek hızlı bir dosya aktarım yazılımıdır. Azure için **Aspera Server On Demand**, büyük dosyaların doğrudan Azure Blob nesne depolama alanına yüksek hızda yüklenmesini ve indirilmesini sağlar. Hakkında bilgi için **isteğe bağlı Aspera**, hello bkz [Aspera bulut](http://cloud.asperasoft.com/) site. 
   
-Azure için **Aspera Server On Demand**, [Azure Market](https://azure.microsoft.com/en-us/marketplace/)’ten satın alınabilir. **Aspera Server On Demand** satın alma işlemini tamamlamak için lütfen Azure Market’te Windows Live ID’nizle oturum açın.
+**İsteğe bağlı Aspera sunucu** hello satınalma için Azure kullanılabilir [Azure Market](https://azure.microsoft.com/en-us/marketplace/). İçinde bir satın toocomplete sipariş **Aspera sunucu isteğe bağlı** Azure için lütfen Azure Marketi Windows Live ID'niz ile oturum açın
 
-Bu öğreticide, Azure üzerinde **Aspera Server On Demand** hizmetini kullanarak bir Media Services hesabıyla ilişkili depolama hesabına dosya yükleme adımları gösterilmektedir. 
+Bu öğretici, hello kullanarak Media Services hesabı ile ilişkili bir depolama hesabı içine dosyaları karşıya hello adım adım anlatılmaktadır **Aspera sunucu isteğe bağlı** Azure üzerinde hizmet. 
 
-Azure işlevlerinin Aspera ve Media Services ile kullanımını gösteren bir örneği [burada](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest) bulabilirsiniz.
+Toouse Azure Aspera ve Media Services ile nasıl çalıştığını gösteren bir örnek bulabilirsiniz [burada](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
->Azure Media Services medya işlemcileri (MP’ler) ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. Dosya boyutu sınırlaması hakkında ayrıntılı bilgi için lütfen [bu konu başlığını](media-services-quotas-and-limitations.md) inceleyin.
+>Azure Media Services ile medya işlemcileri (Mp'leri) işlemek için desteklenen bir toohello en büyük dosya boyutu sınırı yoktur. Lütfen bakın [bu](media-services-quotas-and-limitations.md) hello dosya boyutu sınırlaması hakkında ayrıntılı bilgi için konu.
 >
 
 ## <a name="prerequisites"></a>Ön koşullar 
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+toocomplete Bu öğretici, gerekir:
 
 * Windows Live ID
 * Bir [Azure hesabı](https://azure.microsoft.com). Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/). 
@@ -46,81 +46,81 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 ## <a name="purchase-aspera-on-demand-for-azure"></a>Azure için İsteğe Bağlı Aspera yazılımını satın alın
 
-Azure için İsteğe Bağlı Azure satın alma işlemini tamamlamak için Azure Market’te oturum açtıktan sonra aşağıdaki basit adımları izleyin.
+Azure Market oturum açtıktan sonra bu temel adımları toocomplete Aspera istendiğinde Azure satın alma işleminiz izleyin.
 
 1. Aspera ifadesini arayın ve 'Server On Demand' öğesini seçin.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera001.png)
 
-2. Abonelik planlarını gözden geçirin ve 'Kaydol' öğesine tıklayın
+2. Merhaba abonelik planları gözden geçirin ve ' oturum üzerinde ' düğmesini tıklatın
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera002.png)
 
-3. İsteğe Bağlı Sunucu aboneliğinize ilişkin ayrıntıları doldurun.
+3. İsteğe bağlı abonelik sunucunuzda hello ayrıntıları doldurun.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera003.png)
 
-4. **Fiyatlandırma Katmanı**’na tıklayın ve alt panelden istediğiniz aylık hacmi seçin. **Plan ayrıntıları** panelinde **Tamam**’ı seçin. Ardından **Fiyatlandırma Katmanınızı seçin** panelinde **Seç**’e tıklayın.
+4. Tıklatın hello üzerinde **fiyatlandırma katmanı** ve istenen aylık biriminiz hello alt panelinde seçin. Merhaba, **planlama ayrıntıları** paneli, select **Tamam**. Ardından hello **fiyatlandırma Katmanınızı seçin** öğesine tıklayın **seçin**.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera004.png)
 
-5. Alt panelde yasal koşulları görüntüleyip kabul etmek için **Yasal koşullar** öğesine tıklayın. Yasal koşulları gözden geçirdikten sonra **Satın al**’a tıklayın.
+5. Tıklayın **yasal koşulları** tooview ve hello alt panelinde hello yasal koşulları kabul edin. Merhaba yasal koşulları gözden geçirdikten sonra tıklayın **satın alma**.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera005.png)
 
-6. **Oluştur**’a tıklayarak satın alma işlemini tamamlayın.
+6. Tamamlamak hello satın alma tıklayarak **oluşturma**.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera006.png)
 
-7. Azure panosu bu hizmeti sağladığını duyurur.  Sağlama ile işlem tamamlandıktan sonra kaynaklarınızda hizmetin adını arayarak yeni aboneliği bulabilirsiniz. Hizmeti bulduktan sonra çift tıklayarak hizmet yönetim portalını başlatın.
+7. Hello Azure Pano hello hizmet sağlama, Duyurusu.  Sağlamada tamamlandıktan sonra hello yeni abonelik kaynaklarınız hello hizmetin hello adı için arayarak bulabilirsiniz. Merhaba hizmeti, çift tıklayarak toolaunch hello Hizmet Yönetim Portalı bulduktan sonra.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera007.png)
 
-8. Aspera yönetim portalını başlatın. Yeni Aspera hizmetinizi bulduktan sonra hizmete tıklayarak yönetim portalına erişim elde edebilirsiniz.  Yeni bir panel başlatılır. Bu yeni panelden yeni hizmetinizin **Kaynak Adı** seçeneğine tıklamanız gerekir.  Aşağıdaki ekran görüntüsünde kaynak adı 'AsperaTransferDemo' şeklindedir. Kaynak adına tıkladığınızda başka bir panel başlatılır. Yeni başlatılan bu panelde bir 'Yönet' bağlantısı görürsünüz. Aspera yönetim portalını başlatmak için 'Yönet' bağlantısına tıklayın.
+8. Merhaba Aspera Yönetim Portalı'nı başlatın. Yeni Aspera hizmetinizi bulduktan sonra hello hizmette tıklayarak erişim toohello Yönetim Portalı, kaynaklara erişebilir.  Yeni bir panel başlatılır. Bu yeni paneli, hello üzerinde tooclick gereken **kaynak adı** yeni hizmetinizin.  Aşağıdaki ekran görüntüsü hello 'AsperaTransferDemo' hello kaynak adıdır. Merhaba kaynak adına tıkladığınızda, başka bir panel başlatılır. Yeni başlatılan bu panelde bir 'Yönet' bağlantısı görürsünüz. Merhaba üzerinde 'Yönet' bağlantı toolaunch hello Aspera Yönetim Portalı'ı tıklatın.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera008.png)
 
-9. Yönet bağlantısına tıkladığınızda, hizmete erişmek için gerekli olan kayıt sayfasına ulaşırsınız.
+9. Merhaba üzerinde tıklatarak bağlantı yönetmek için gerekli toohello kayıt sayfası alırsınız tooaccess hello hizmet.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera009.png)
 
-10. Bu noktada, erişim anahtarları oluşturabileceğiniz, Aspera istemci ve lisanslarını indirebileceğiniz, kullanımı görüntüleyebileceğiniz ve API’ler hakkında bilgi alabileceğiniz Aspera hizmet yönetim portalına erişebilirsiniz.
+10. Bu noktada, burada erişim tuşları oluşturma, Aspera istemcileri ve lisansları yükleyin, kullanım görüntüleyebilir ve API hello hakkında bilgi edinin erişim toohello Aspera Hizmet Yönetim Portalı, olması gerekir.
 
-    Aşağıdaki ekran görüntüsünde erişim oluşturma işlemi gösterilmektedir. 
+    Merhaba aşağıdaki ekran görüntüsü hello erişim oluşturmayı gösterir. 
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
 
-    Aşağıdaki ekran görüntüsünde, portaldaki kullanım raporlama arabirimleri gösterilmektedir. 
+    Merhaba aşağıdaki ekran görüntüsünde hello portal arabirimlerde raporlama hello kullanımını gösterir. 
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
 
 ## <a name="upload-files-with-aspera"></a>Aspera ile dosyaları karşıya yükleme
 
-1. Aspera istemci yazılımını indirip yükleyin:
+1. Karşıdan yükle ve hello Aspera istemci yazılımı yükleyin:
     
     * [Tarayıcı eklentisi](http://downloads.asperasoft.com/connect2/)
     * [Zengin istemci](http://downloads.asperasoft.com/en/downloads/2)
 
-2. İlk aktarımınızı yapın. Aspera istemcisini kullanarak Aspera aktarım hizmetiyle aktarım yapmak için aşağıdaki işlemleri tamamlamanız gerekir: 
+2. İlk aktarımınızı yapın. Merhaba Aspera Aktarım Hizmeti ile sipariş toouse hello Aspera istemci tootransfer içinde toocomplete hello aşağıdaki gerekir: 
 
-    1. Aspera portalını kullanarak bir erişim anahtarı oluşturun.  
-    2. Aspera istemcisini indirin, yükleyin ve lisans ekleyin (yazılım Aspera portalında bulunabilir).  
+    1. Merhaba Aspera portalı kullanarak bir erişim anahtarı oluşturun.  
+    2. İndirme, yükleme ve lisans hello Aspera istemci (yazılım hello Aspera Portalı'nda bulunabilir).  
 
     >[!NOTE]
-    >Yapılandırma bilgileri için lütfen Aspera istemci kılavuzunu okuyun.
+    >Merhaba Aspera istemci Kılavuzu yapılandırma bilgileri okuyun.
     
-    3. [Azure portalı](https://portal.azure.com/) kullanarak Azure Medya Hesabınız ile ilişkili depolama hesabınızın bazı bilgilerini alın. Almanız gereken bilgiler şunlardır: ad, anahtar ve içeriğinizi yerleştirmek istediğiniz depolama blobu kapsayıcısının adı. 
+    3. Azure Media hello kullanarak hesabınızla ilişkilendirilen depolama hesabınızın bazı bilgiler almak [Azure portal](https://portal.azure.com/). Özellikle, adı ve anahtar ve hello depolama blob kapsayıcı adı toowhich içinde içeriğinizi tooplace istiyor. 
 
-        * Portaldan depolama bilgilerini almak için: Depolama hesabınızı bulun, Erişim anahtarları’na tıklayın ve hesabınızın adı ile anahtarını kopyalayın.
-        * Kapsayıcı adını almak için: Depolama hesabınızı bulun, **Bloblar**’ı ve sonra da içerik bilgisini yüklemek istediğiniz kapsayıcının adını seçin. 
+        * tooget hello depolama bilgisi hello portalından: depolama hesabınız, hello erişim tuşları ve hesabınızın kopyalama hello adı ve hello anahtar'ı tıklatın.
+        * tooget hello kapsayıcı adı: seçin, depolama hesabını bulmak **BLOB'lar**seçin hello kapsayıcısının içine tooupload hello içerik istediğiniz hello adı. 
 
-    Aşağıdaki ekran görüntüsünde, 'Azure' depolama türünü, kimlik bilgilerini ve blob kapsayıcısını belirtmeniz gereken Aspera istemcisi **Bağlantı Yöneticisi** gösterilmektedir.
+    Merhaba ekran görüntüsü hello Aspera istemci aşağıdadır **Bağlantı Yöneticisi** burada belirtmelisiniz hello blob kapsayıcısı yanı sıra hello 'Azure' depolama türünü ve kimlik bilgileri.
 
     ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
 ## <a name="resources"></a>Kaynaklar
 
-Bu makalede aşağıdaki kaynaklardan bahsedilmiştir. 
+Merhaba kaynakları izleyerek, bu makalede bahsedilen. 
 
 * [Connect Tarayıcı Eklentisi](http://downloads.asperasoft.com/connect2/)
 * [Connect Kılavuzu](http://downloads.asperasoft.com/en/documentation/8)

@@ -1,6 +1,6 @@
 ---
-title: Birimleri iste & verimlilik - Azure Cosmos DB tahmin etme | Microsoft Docs
-description: "Anlamak, belirtin ve Azure Cosmos veritabanı istek birimi gereksinimlerini tahmin etme hakkında bilgi edinin."
+title: "aaaRequest birimler ve üretilen işi tahmin etme - Azure Cosmos DB | Microsoft Docs"
+description: "Toounderstand, belirtin ve Azure Cosmos veritabanı istek birimi gereksinimlerini tahmin etme hakkında bilgi edinin."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 7a4efc0fb9b3855b9dbbe445768ceb2a9940d0b2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 13c4e7aeb6222fa14ef982e238716e15a0159fd5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB birimlerinde isteği
 Artık kullanılabilir: Azure Cosmos DB [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner). Daha fazla bilgi edinin [, üretilen iş gerektiğini tahmin etme](request-units.md#estimating-throughput-needs).
@@ -26,41 +26,41 @@ Artık kullanılabilir: Azure Cosmos DB [istek birimi hesaplayıcı](https://www
 ![Üretilen iş hesaplayıcısı][5]
 
 ## <a name="introduction"></a>Giriş
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Microsoft'un Genel dağıtılmış birden çok model veritabanıdır. Azure Cosmos DB ile sanal makineleri kiralamak, yazılım dağıtma veya veritabanlarını izleme gerekmez. Azure Cosmos DB işletilen ve sürekli olarak world sınıfı kullanılabilirliği, performansı ve veri koruma sağlamak üzere Microsoft üst mühendisleri tarafından izlenir. Tercih ettiğiniz API'lerini kullanarak verilerinize erişebilir [DocumentDB SQL](documentdb-sql-query.md) (belge), MongoDB (belge) [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (anahtar-değer) ve [Gremlin](https://tinkerpop.apache.org/gremlin.html) (tüm grafik) yerel olarak desteklenir. Azure Cosmos DB para istek birimi (RU) birimidir. RUs ile okuma/yazma kapasiteleri veya sağlama CPU, bellek ve IOPS ayırmak gerekmez.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Microsoft'un Genel dağıtılmış birden çok model veritabanıdır. Azure Cosmos DB ile toorent sanal makineye sahip olmayan, yazılım dağıtma veya veritabanlarını izleyin. Azure Cosmos DB işletilen ve sürekli olarak Microsoft üst mühendisleri toodeliver world sınıfı kullanılabilirliği, performansı ve veri koruma tarafından izlenir. Tercih ettiğiniz API'lerini kullanarak verilerinize erişebilir [DocumentDB SQL](documentdb-sql-query.md) (belge), MongoDB (belge) [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (anahtar-değer) ve [Gremlin](https://tinkerpop.apache.org/gremlin.html) (tüm grafik) yerel olarak desteklenir. Azure Cosmos DB Hello para hello istek birimi (RU) birimidir. RUs ile tooreserve okuma/yazma kapasiteleri veya sağlama CPU, bellek ve IOPS gerekmez.
 
-Azure Cosmos DB Basit okuma arasında değişen farklı işlemlerle API'lerini destekler ve karmaşık grafik sorguları yazar. Tüm istekleri eşit olduğundan, normalleştirilmiş bir miktar atanan **istek birimleri** isteğe hizmet vermek için gerekli hesaplama miktarına göre. Bir işlem için istek birim sayısı belirleyici ve bir yanıt üstbilgisi aracılığıyla Azure Cosmos veritabanı herhangi bir işlem tarafından kullanılan istek birim sayısını izleyebilirsiniz. 
+Azure Cosmos DB Basit okuma arasında değişen farklı işlemlerle API'lerini destekler ve grafik sorguları toocomplex yazar. Tüm istekleri eşit olduğundan, normalleştirilmiş bir miktar atanan **istek birimleri** hello hesaplama gerekli tooserve hello isteği miktarına göre. bir işlem için istek birim Hello Sayısı belirleyici ve bir yanıt üstbilgisi aracılığıyla Azure Cosmos veritabanı herhangi bir işlem tarafından kullanılan istek birimlerinin sayısı hello izleyebilirsiniz. 
 
-Tahmin edilebilir performans sağlamak için işleme birimi 100 RU/saniye yedek gerekir. 
+tooprovide tahmin edilebilir performans, tooreserve işleme birimi 100 RU/saniye gerekir. 
 
-Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacaktır:  
+Bu makaleyi okuduktan sonra aşağıdaki soruları mümkün tooanswer hello olması:  
 
 * Hangi birimleri istemek ve ücretleri isteği?
 * Bir koleksiyon için istek birim kapasitesi nasıl belirteceğinizi?
 * My uygulamanın istek birimi gereken nasıl tahmin?
 * Bir koleksiyon için istek birim kapasitesi aşmanız durumunda ne olur?
 
-Azure Cosmos DB çok model veritabanı olduğundan, biz koleksiyonu/belge belge API, grafik API'si için bir grafik/düğümü ve tablo/varlık tablo API için başvurur dikkate almak önemlidir. Üretilen iş bu belge size kapsayıcı/öğe kavramlarını generalize.
+Azure Cosmos DB çok model bir veritabanıdır, biz tooa koleksiyonu/belge belge API, grafik API'si için bir grafik/düğümü ve tablo API için bir tablo/varlık başvurur önemli toonote olur. Üretilen iş bu belge size kapsayıcı/öğe toohello kavramlarını generalize.
 
 ## <a name="request-units-and-request-charges"></a>İstek birimleri ve istek ücretleri
-Azure Cosmos DB tarafından hızlı ve tahmin edilebilir performans sunar *ayırma* uygulamanızın verimlilik gereken karşılamak için kaynakları.  Uygulama yüklemek ve zaman içinde desenleri değişiklik erişmek için Azure Cosmos DB kolayca artırın veya uygulamanız için kullanılabilir ayrılmış işleme miktarını azaltmak sağlar.
+Azure Cosmos DB tarafından hızlı ve tahmin edilebilir performans sunar *ayırma* kaynakları toosatisfy uygulamanızın işleme gerekir.  Uygulama yüklemek ve zaman içinde desenleri değişiklik erişmek için Azure Cosmos DB tooeasily artış izin verir veya ayrılmış işleme kullanılabilir tooyour uygulama hello miktarını azaltın.
 
-Azure Cosmos DB ile ayrılmış işleme saniyede işlediği istek birimler cinsinden belirtilir. İstek birimleri yapabildiği verimlilik para birimi olarak düşünebilirsiniz, *yedek* garantili istek birimleri uygulamanıza kullanılabilir miktardaki saniye başına temelinde.  Azure Cosmos - bir belge yazma, bir belge güncelleştirme bir sorgu gerçekleştirme - DB her bir işlemin CPU, bellek ve IOPS tüketir.  Diğer bir deyişle, her işlemi uygulanan bir *isteği ücret*, içinde ifade *istek birimleri*.  İstek birimi ücretleri, uygulamanızın işleme gereksinimleri etkileyen faktörler anlama, uygulamanızı maliyeti etkili bir şekilde olabildiğince olarak çalıştırmanızı sağlar. Sorgu Gezgini ayrıca bir sorgu çekirdek test etmek için bir harika aracıdır.
+Azure Cosmos DB ile ayrılmış işleme saniyede işlediği istek birimler cinsinden belirtilir. İstek birimleri yapabildiği verimlilik para birimi olarak düşünebilirsiniz, *yedek* miktardaki kullanılabilir tooyour uygulama başına saniye başına istek birimleri garanti.  Azure Cosmos - bir belge yazma, bir belge güncelleştirme bir sorgu gerçekleştirme - DB her bir işlemin CPU, bellek ve IOPS tüketir.  Diğer bir deyişle, her işlemi uygulanan bir *isteği ücret*, içinde ifade *istek birimleri*.  İstek birimi ücretleri, uygulamanızın işleme gereksinimleri etkiler hello Etkenler anlama, toorun uygulamanızın maliyet etkili bir şekilde mümkün olduğunca sağlar. Merhaba sorgu Gezgini de, bir sorgu harika aracı tootest hello çekirdek olur.
 
-İstek birimleri ve Azure Cosmos DB tahmin edilebilir performansla Aravind Ramachandran burada açıklanmaktadır aşağıdaki videoyu izleyerek çalışmaya başlamanızı öneririz.
+İstek birimleri ve Azure Cosmos DB tahmin edilebilir performansla Aravind Ramachandran burada açıklanmaktadır video, aşağıdaki hello izleyerek çalışmaya başlamanızı öneririz.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
 > 
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>İstek birimi kapasite Azure Cosmos DB'de belirtme
-Yeni koleksiyon, tablo veya grafik başlatırken numarası belirtin (RU saniye başına) saniyede istek birimlerinin ayrılmış istiyor. Üzerinde sağlanan işleme bağlı olarak, Azure Cosmos DB koleksiyonunuzu barındırmak için fiziksel bölümleri ayırır ve bölmelerini/veri bölümler, büyüdükçe rebalances.
+Yeni koleksiyon, tablo veya grafik başlatırken hello numarası belirtin (RU saniye başına) saniyede istek birimlerinin ayrılmış istiyor. Hello üzerinde sağlanan işleme bağlı olarak, Azure Cosmos DB fiziksel bölümleri toohost koleksiyonunuzu ayırır ve bölmelerini/veri bölümler, büyüdükçe rebalances.
 
-Azure Cosmos DB koleksiyonu 2.500 istek birimleri ile sağlanan ya da daha yüksek olduğunda belirtilmesi için bir bölüm anahtarı gerektirir. Bölüm anahtarı koleksiyonunuzun işleme 2.500 istek birimleri ötesinde gelecekte ölçeklendirmek için de gereklidir. Bu nedenle, yüksek oranda yapılandırmak için önerilir bir [bölüm anahtarı](partition-data.md) ilk işleme bakılmaksızın bir kapsayıcı oluştururken. Verilerinizin birden çok bölüm arasında bölünmesi gerekebilir olduğundan, yüksek kardinalite (100 farklı değerleri milyonlarca) vardır ve böylece tablo/koleksiyonu/grafik ve istekleri Azure Cosmos DB tarafından hep genişletilebilir bir bölüm anahtarı almak gereklidir. 
+Bir koleksiyon 2.500 istek birimleri ile sağlanan ya da daha yüksek olduğunda bir bölüm anahtarı toobe belirtilen Azure Cosmos DB gerektirir. Bölüm anahtarı da gerekli tooscale koleksiyonunuzun işleme hello gelecekteki 2.500 istek birimleri ötesinde olan. Bu nedenle, tooconfigure önerilir bir [bölüm anahtarı](partition-data.md) ilk işleme bakılmaksızın bir kapsayıcı oluştururken. Verilerinizin birden çok bölüm arasında bölme toobe olabilir olduğundan, gerekli toopick yüksek kardinalite (100 toomillions farklı değerlerin) vardır ve böylece tablo/koleksiyonu/grafik ve istekleri Azure Cosmos DB tarafından hep genişletilebilir bir bölüm anahtarı kalır. 
 
 > [!NOTE]
-> Bölüm anahtarı mantıksal bir sınır ve fiziksel bir tane ' dir. Bu nedenle, farklı bölüm anahtar değerlerin sayısını sınırlamak gerekmez. Aslında, daha fazla yük dengeleme seçeneklerini Azure Cosmos DB sahip daha farklı bölüm anahtarı değerden daha az olması iyidir.
+> Bölüm anahtarı mantıksal bir sınır ve fiziksel bir tane ' dir. Bu nedenle, toolimit hello farklı bölüm anahtar değerlerinin sayısı gerekmez. Aslında daha iyi toohave daha farklı olduğundan daha fazla yük dengeleme seçeneklerini Azure Cosmos DB olduğu gibi daha az anahtar değerden bölüm.
 
-.NET SDK kullanarak saniye başına istek birimleri 3000 ile bir koleksiyon oluşturmak için bir kod parçacığı aşağıda verilmiştir:
+3, 000'ile bir koleksiyon oluşturmak için bir kod parçacığı aşağıda verilmiştir .NET SDK kullanarak saniye başına birim hello isteği:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -73,46 +73,46 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-Azure Cosmos DB akışındaki bir ayırma modeli çalıştırır. Diğer bir deyişle, işleme miktarı faturalandırılır *ayrılmış*ne olursa olsun, üretilen işi ne kadarının etkin olduğundan, *kullanılan*. Uygulamanızı olarak kullanıcının, kolayca ölçeklendirilebilir miktarını yukarı ve aşağı yük, veri ve kullanım desenlerini değişiklik ayrılmış RUs üzerinden SDK'ları veya kullanarak [Azure Portal](https://portal.azure.com).
+Azure Cosmos DB akışındaki bir ayırma modeli çalıştırır. Diğer bir deyişle, üretilen iş hello miktarı için faturalandırılır *ayrılmış*ne olursa olsun, üretilen işi ne kadarının etkin olduğundan, *kullanılan*. SDK'ları ile ayrılmış RUs miktarı, kolayca ölçeklendirilebilir yukarı ve aşağı uygulamanızın yük, veri ve kullanım desenlerini değiştikçe hello veya hello kullanarak [Azure Portal](https://portal.azure.com).
 
-Her koleksiyon/tablo/grafik eşleştirilmiş bir `Offer` kaynak, sağlanan işleme hakkındaki meta verileri olan Azure Cosmos veritabanı. Kapsayıcı için ilgili teklif kaynak bakarak, ardından yeni işleme değeri ile güncelleştirme ayrılmış işleme değiştirebilirsiniz. .NET SDK kullanarak saniye başına 5.000 istek birimi için bir koleksiyon verimini değiştirmek için bir kod parçacığı aşağıda verilmiştir:
+Her koleksiyon/tablo/grafik eşlendi tooan `Offer` kaynak hello sağlanan işleme hakkındaki meta verileri olan Azure Cosmos veritabanı. Kapsayıcı için ilgili teklif kaynak hello bakarak sonra hello yeni işleme değeri ile güncelleştirme tarafından ayrılan hello verimlilik değiştirebilirsiniz. Bir koleksiyon too5 hello verimini değiştirmek için bir kod parçacığı aşağıda verilmiştir, .NET SDK kullanarak saniye başına istek birimleri 000 hello:
 
 ```csharp
-// Fetch the resource to be updated
+// Fetch hello resource toobe updated
 Offer offer = client.CreateOfferQuery()
                 .Where(r => r.ResourceLink == collection.SelfLink)    
                 .AsEnumerable()
                 .SingleOrDefault();
 
-// Set the throughput to 5000 request units per second
+// Set hello throughput too5000 request units per second
 offer = new OfferV2(offer, 5000);
 
-// Now persist these changes to the database by replacing the original resource
+// Now persist these changes toohello database by replacing hello original resource
 await client.ReplaceOfferAsync(offer);
 ```
 
-Üretilen iş değiştirdiğinizde, kapsayıcı kullanılabilirliğine hiçbir etkisi yoktur. Genellikle yeni ayrılmış işleme yeni işleme, uygulama üzerinde saniye içinde etkili olur.
+Merhaba verimlilik değiştirdiğinizde, kapsayıcının etkisi toohello kullanılabilirliği yok. Genellikle hello yeni ayrılmış işleme hello yeni işleme, uygulama üzerinde saniye içinde etkili olur.
 
 ## <a name="request-unit-considerations"></a>İstek birimi konuları
-Azure Cosmos DB kapsayıcısı için ayrılacak isteği birim sayısını tahmin yaparken, aşağıdaki değişkenleri dikkate önemlidir:
+İstek birimleri tooreserve Azure Cosmos DB kapsayıcısı için Hello sayısını tahmin etme dikkate değişkenleri aşağıdaki önemli tootake hello olur:
 
-* **Öğe boyutunu**. Boyutu okumak veya verileri de artıracaktır yazmak için kullanılan birimleri arttıkça.
-* **Madde özellik sayısı**. Tüm özellikleri, bir belge/düğümü/ntity yazmak için kullanılan birimleri olduğunu varsayarak varsayılan dizin özellik sayısı arttıkça artmasına neden olur.
-* **Veri tutarlılığı**. Veri tutarlılık düzeylerini güçlü veya sınırlanmış eskime durumu kullanırken, ek birimler öğeleri okumak için kullanılır.
-* **Dizin oluşturulmuş özellikleri**. Bir dizin İlkesi her kapsayıcısı üzerinde varsayılan olarak hangi özellikleri dizinlenir belirler. Dizinli Özellikler sayısını sınırlayarak veya yavaş dizin etkinleştirerek, istek birimi tüketimini azaltabilirsiniz.
-* **Belge dizine**. Bazı öğelerinizi dizin kullanılamıyor seçerseniz, her bir öğeyi otomatik olarak dizine varsayılan olarak, daha az istek birimleri tüketir.
-* **Sorgu desenleri**. Kaç tane istek birimlerine bir işlem için kullanılan bir sorgu karmaşıklığını etkiler. Koşulları sayısı, koşulları, projeksiyonları, UDF'ler sayısı ve tüm kaynak veri kümesi boyutunu yapısını sorgu işlemlerinin maliyetini etkiler.
-* **Komut dosyası kullanımı**.  Sorguları olarak gerçekleştirilen işlemler kapsamına bağlı istek birimleri saklı yordamları ve Tetikleyicileri tüketir. Uygulamanızı geliştirirken, her işlem isteği birim kapasitesi nasıl tüketen daha iyi anlamak için istek ücret üstbilgisi inceleyin.
+* **Öğe boyutunu**. Boyutu artar hello birimleri tooread tüketilen veya hello veri yazma da artacaktır.
+* **Madde özellik sayısı**. Tüm özelliklerin, bir belge/düğümü/ntity hello özellik sayısı arttıkça artıracaktır hello tüketilen birim toowrite varsayılan dizin varsayılır.
+* **Veri tutarlılığı**. Veri tutarlılık düzeylerini güçlü veya sınırlanmış eskime durumu kullanırken, ek birimler tüketilen tooread öğeleri olacaktır.
+* **Dizin oluşturulmuş özellikleri**. Bir dizin İlkesi her kapsayıcısı üzerinde varsayılan olarak hangi özellikleri dizinlenir belirler. Dizinli Özellikler hello sayısını sınırlayarak veya yavaş dizin etkinleştirerek, istek birimi tüketimini azaltabilirsiniz.
+* **Belge dizine**. Bazı öğelerinizi değil tooindex seçerseniz, her bir öğeyi otomatik olarak dizine varsayılan olarak, daha az istek birimleri tüketir.
+* **Sorgu desenleri**. bir sorgu Hello karmaşıklığını kaç tane istek birimleri için bir işlem tüketilen etkiler. koşulları Hello sayısı, hello koşulları projeksiyonları, UDF'ler sayısı ve tüm hello maliyetini etkilemek hello kaynak veri kümesinin hello boyutu yapısını işlemleri sorgu.
+* **Komut dosyası kullanımı**.  Sorguları olarak gerçekleştirilen hello işlemler hello kapsamına bağlı istek birimleri saklı yordamları ve Tetikleyicileri tüketir. Uygulamanızı geliştirirken hello isteği ücret incelemek üstbilgi toobetter anlamak her işlemi isteği birim kapasitesi nasıl tüketilmesine neden olabilir.
 
 ## <a name="estimating-throughput-needs"></a>Üretilen iş gereksinimlerini tahmin etme
-Bir istek birimi istek maliyet işleme normalleştirilmiş ölçüsüdür. Bir tek istek birimi (kendi bağlantısını veya kimliği) öğesi 10 benzersiz özellik değerlerini (Sistem özellikleri dışında) oluşan tek 1 bb okumak için gereken işlem kapasitesi temsil eder. Daha fazla hizmet ve böylece işleme daha fazla istek birimi (Ekle) oluşturmak, değiştirmek veya aynı öğeyi silmek için bir istek tüketir.   
+Bir istek birimi istek maliyet işleme normalleştirilmiş ölçüsüdür. Bir tek istek birimi öğesi 10 benzersiz özellik değerlerini (Sistem özellikleri dışında) oluşan tek 1 bb hello işleme gerekli kapasite tooread (aracılığıyla kendi bağlantısını veya kimliği) temsil eder. İstek toocreate (Ekle) değiştirmek veya aynı öğesi daha hello hizmetinden işleme tüketir hello silin ve böylece daha fazla birim isteyin.   
 
 > [!NOTE]
-> 1 istek birimi bir 1KB için temel kendi bağlantısını veya öğenin kimliği için basit bir GET öğesi karşılık gelir.
+> 1 isteği biriminin Hello temel öğesi karşılık gelen tooa basit bir 1 KB için kendi bağlantısını veya hello öğenin kimliği alın.
 > 
 > 
 
-Örneğin, üç farklı öğe boyut (1 KB, 4 KB ve 64 KB) ve iki farklı performans düzeyleri sağlamak için kaç tane istek birimleri gösteren bir tablo İşte (500 Okuma/saniye 100 yazma/saniye ve 500 Okuma/saniye + 500 yazma/saniye). Veri tutarlılığı oturumunda yapılandırılmış ve dizin oluşturma ilkesi None olarak ayarlanmış.
+Örneğin, kaç tane isteği gösteren bir tablo İşte birimleri tooprovision boyutlarında üç farklı öğe (1KB, 4KB ve 64KB) ve iki farklı performans düzeyleri (500 Okuma/saniye 100 yazma/saniye ve 500 Okuma/saniye + 500 yazma/saniye). Merhaba veri tutarlılığını oturumunda yapılandırılmış ve dizin oluşturma ilkesi hello tooNone ayarlayın.
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -161,64 +161,64 @@ Bir istek birimi istek maliyet işleme normalleştirilmiş ölçüsüdür. Bir t
     </tbody>
 </table>
 
-### <a name="use-the-request-unit-calculator"></a>İstek birimi hesaplayıcı kullanın
-İnce müşterilere yardımcı olmak için kendi verimlilik tahminler ince ayar, bir web tabanlı [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner) genel işlemler de dahil olmak üzere, istek birimi gereksinimlerini tahmin etmeye yardımcı olması için:
+### <a name="use-hello-request-unit-calculator"></a>Merhaba istek birimi hesaplayıcı kullanın
+İnce toohelp müşteriler kendi verimlilik tahminler ince ayar, bir web tabanlı [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner) toohelp tahmin hello isteği birim gereksinimleri dahil olmak üzere, normal işlemleri için:
 
 * (Yazar) öğesi oluşturur
 * Öğe okur
 * Öğeyi siler
 * Öğesi güncelleştirmeleri
 
-Aracı, sağladığınız örnek öğeleri temel alan veri depolama gereksinimlerini tahmin etmek için destek de içerir.
+Merhaba aracı sağladığınız hello örnek öğeleri temel alan veri depolama gereksinimlerini tahmin etmek için destek de içerir.
 
-Aracını kullanarak basit bir işlemdir:
+Merhaba aracını kullanarak basit bir işlemdir:
 
 1. Bir veya daha fazla temsilcisi öğeleri karşıya yükleyin.
    
-    ![İstek birimi makinesine öğeleri karşıya yükle][2]
-2. Veri depolama gereksinimlerini tahmin etmek için toplam depolamayı beklediğiniz öğe sayısını girin.
-3. Girin öğe sayısı oluşturma, okuma, güncelleştirme ve silme işlemleri (bir saniye başına temelinde) gerektirir. İstek birimi ücretleri öğesi güncelleştirme işlemlerinin tahmin etmek için 1. adımdaki tipik alan güncelleştirmeleri içeren Yukarıdaki örnek öğenin bir kopyasını yükleyin.  Örneğin, öğesi güncelleştirmeler genellikle lastLogin ve userVisits adlı iki özellik değiştirirseniz, ardından yalnızca örnek öğesi kopyalayın, bu iki özellik için değerleri güncelleştirmek ve kopyalanan öğeyi karşıya yükleyin.
+    ![Öğeleri toohello istek birimi hesaplayıcı karşıya yükle][2]
+2. tooestimate veri depolama gereksinimleri hello toplam sayısını girin öğelerinin toostore bekler.
+3. Girin hello öğe sayısı oluşturma, okuma, güncelleştirme ve silme işlemleri (bir saniye başına temelinde) gerektirir. tooestimate hello istek birimi ücretleri öğesi güncelleştirme işlemlerinin tipik alan güncelleştirmeleri içeren yukarıdaki adım 1'den hello örnek öğenin bir kopyasını yükleyin.  Örneğin, öğesi güncelleştirmeler genellikle lastLogin ve userVisits adlı iki özellikleri değiştirin ve ardından sadece hello örnek öğesi kopyalayın, bu iki özellik için hello değerleri güncelleştirmek ve kopyalanan hello öğesi yükleyin.
    
-    ![Üretilen iş gereksinimleri istek birimi hesaplayıcı girin][3]
-4. Tıklatın hesaplamak ve sonuçları inceleyin.
+    ![Üretilen iş gereksinimleri hello istek birimi hesaplayıcı girin][3]
+4. Tıklatın hesaplamak ve hello sonuçlarını inceleyin.
    
     ![Birim hesaplayıcı sonuçları isteği][4]
 
 > [!NOTE]
-> Boyutu ve Dizinli Özellikler sayısı bakımından önemli ölçüde farklılık gösterecektir öğesi türleri varsa, her bir örnek karşıya yükleme *türü* tipik öğesi için araç ve sonuçları hesaplayın.
+> Dizinli Özellikler boyutu ve hello sayısı bakımından önemli ölçüde farklılık gösterecektir öğesi türleri varsa, her bir örnek karşıya *türü* tipik öğesi toohello, hello sonuçları hesaplamak ve aracı.
 > 
 > 
 
-### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Azure Cosmos DB istek ücret yanıt üstbilgisi kullanın
-Her yanıt Azure Cosmos DB hizmetinden bir özel üst bilgi içeriyor (`x-ms-request-charge`) istek için kullanılan istek birimleri içerir. Bu üst ayrıca Azure Cosmos DB SDK erişilebilir. .NET SDK'ın RequestCharge ResourceResponse nesnesinin bir özelliğidir.  Sorgular için Azure portalında Azure Cosmos DB sorgu Gezgini yürütülen sorgular için istek ücret bilgileri sağlar.
+### <a name="use-hello-azure-cosmos-db-request-charge-response-header"></a>Hello Azure Cosmos DB istek ücret yanıt üstbilgisi kullanın
+Bir özel üst bilgi hello Azure Cosmos DB hizmet gelen her yanıtı içerir (`x-ms-request-charge`) hello istek için harcanan hello istek birimleri içerir. Bu üst ayrıca Azure Cosmos DB SDK'ları hello erişilebilir. Hello .NET SDK'sı, RequestCharge hello ResourceResponse nesnesinin bir özelliğidir.  Sorgular için hello Azure portalında Azure Cosmos DB sorgu Gezgini hello yürütülen sorgular için istek ücret bilgileri sağlar.
 
-![Sorgu Gezgini RU ücretlere inceleniyor][1]
+![Merhaba sorgu Gezgini RU ücretlere inceleniyor][1]
 
-Bu durum dikkate alınarak, uygulamanızın gerektirdiği ayrılmış işleme miktarı tahmin etmek için bir yöntem, uygulamanız tarafından kullanılan ve ardından tahmin etme temsili bir öğe karşı çalışan tipik işlemlerle ilişkili istek birimi ücret kaydetmektir saniyede gerçekleştirme düşündüğünüz işlemlerinin sayısı.  Ölçmek ve tipik sorgular ve Azure Cosmos DB komut dosyası kullanımı da dahil emin olun.
+Bu aklınızda uygulamanızın gerektirdiği ayrılmış işleme hello miktarı tahmin etmek için bir yöntem toorecord hello istek birimi ücret uygulamanız tarafından kullanılan bir temsili öğesi karşı normal işlemleri çalıştırılması ile ilişkili olan ve ardından işlem Hello sayısını tahmin etme saniyede gerçekleştirme beklenir.  Emin toomeasure olması ve tipik sorgular ve Azure Cosmos DB komut dosyası kullanımı da içerir.
 
 > [!NOTE]
-> Hangi boyutu ve Dizinli Özellikler sayısı bakımından önemli ölçüde farklılık gösterecektir öğesi türleriniz varsa, her ilişkilendirilmiş geçerli işlem istek birimi ücret kayıt *türü* tipik öğesi.
+> Dizinli Özellikler boyutu ve hello sayısı bakımından önemli ölçüde farklılık gösterecektir öğesi türleri varsa, her ilişkilendirilmiş hello geçerli işlemi istek birimi ücret kayıt *türü* tipik öğesi.
 > 
 > 
 
 Örneğin:
 
-1. (Ekleme) oluşturma isteği birim ücret kayıt tipik bir öğe. 
-2. Tipik bir öğe Okuma isteği birim ücret kaydedin.
-3. Tipik bir öğesi güncelleştirme isteği birim ücret kaydedin.
-4. Tipik, ortak öğesi sorgularını istek birimi olarak kaydedin.
-5. Uygulama tarafından işlevden istek birimi ücret tüm özel komut dosyalarını (saklı yordamlar, Tetikleyiciler, kullanıcı tanımlı işlevler), kayıt
-6. Saniyede çalıştırmayı düşündüğünüz operations tahmini sayısını verilen gerekli istek birimleri hesaplayın.
+1. Kayıt (ekleme) oluşturma hello istek birimi ücret tipik bir öğe. 
+2. Tipik bir öğe okuma kayıt hello istek birimi gider.
+3. Tipik bir öğesi güncelleştirme kayıt hello istek birimi gider.
+4. Kayıt hello istek birimi gider tipik, ortak öğesi sorgular.
+5. Tüm özel komut dosyalarını (saklı yordamlar, Tetikleyiciler, kullanıcı tanımlı işlevler), kayıt hello istek birimi ücret Hello uygulama tarafından kullanılabilir
+6. Tahmini hello işlemlerinin sayısı verilen birimleri saniyede toorun düşündüğünüz hello gerekli isteği hesaplayın.
 
 ### <a id="GetLastRequestStatistics"></a>API MongoDB'ın GetLastRequestStatistics komutu için kullanın
-API MongoDB için özel bir komut destekler *getLastRequestStatistics*, belirtilen işlem için istek ücret alma.
+API MongoDB için özel bir komut destekler *getLastRequestStatistics*, belirtilen işlemleri için hello isteği ücret alma.
 
-Örneğin, istek ücreti doğrulamak istediğiniz işlem Mongo kabuğunu yürütün.
+Örneğin, hello Mongo kabuğunu, tooverify hello isteği Ücret için istediğiniz hello işlemi yürütün.
 ```
 > db.sample.find()
 ```
 
-Ardından, komutu yürütün *getLastRequestStatistics*.
+Ardından, hello bağlamını *getLastRequestStatistics*.
 ```
 > db.runCommand({getLastRequestStatistics: 1})
 {
@@ -230,20 +230,20 @@ Ardından, komutu yürütün *getLastRequestStatistics*.
 }
 ```
 
-Bu durum dikkate alınarak, uygulamanızın gerektirdiği ayrılmış işleme miktarı tahmin etmek için bir yöntem, uygulamanız tarafından kullanılan ve ardından tahmin etme temsili bir öğe karşı çalışan tipik işlemlerle ilişkili istek birimi ücret kaydetmektir saniyede gerçekleştirme düşündüğünüz işlemlerinin sayısı.
+Bu aklınızda uygulamanızın gerektirdiği ayrılmış işleme hello miktarı tahmin etmek için bir yöntem toorecord hello istek birimi ücret uygulamanız tarafından kullanılan bir temsili öğesi karşı normal işlemleri çalıştırılması ile ilişkili olan ve ardından işlem Hello sayısını tahmin etme saniyede gerçekleştirme beklenir.
 
 > [!NOTE]
-> Hangi boyutu ve Dizinli Özellikler sayısı bakımından önemli ölçüde farklılık gösterecektir öğesi türleriniz varsa, her ilişkilendirilmiş geçerli işlem istek birimi ücret kayıt *türü* tipik öğesi.
+> Dizinli Özellikler boyutu ve hello sayısı bakımından önemli ölçüde farklılık gösterecektir öğesi türleri varsa, her ilişkilendirilmiş hello geçerli işlemi istek birimi ücret kayıt *türü* tipik öğesi.
 > 
 > 
 
 ## <a name="use-api-for-mongodbs-portal-metrics"></a>API MongoDB'ın portal ölçümleri kullanın
-MongoDB veritabanı kullanmak için iyi tahmini isteğinin birim ücretleri API için almanın en basit yolu [Azure portal](https://portal.azure.com) ölçümleri. İle *istek sayısı* ve *isteği ücret* grafikler, kaç tane isteği birimlerin her işlem harcayan ve kaç tane istek birimleri bunlar tüketen birbirine göre bir tahmin alabilirsiniz.
+İstek birimi iyi tahmini ücretlendirilen API'nize MongoDB veritabanı toouse hello için en basit yolu tooget hello [Azure portal](https://portal.azure.com) ölçümleri. Merhaba ile *istek sayısı* ve *isteği ücret* grafikler, alabilirsiniz her işlem kaç tane istek birimlerinin tahmin harcayan ve kaç tane istek birimleri göreli tooone tüketen başka bir.
 
 ![API MongoDB portal ölçümleri için][6]
 
 ## <a name="a-request-unit-estimation-example"></a>Bir istek birimi tahmin örneği
-Aşağıdaki ~ 1 KB belge göz önünde bulundurun:
+~ 1 KB belge aşağıdaki hello göz önünde bulundurun:
 
 ```json
 {
@@ -296,11 +296,11 @@ Aşağıdaki ~ 1 KB belge göz önünde bulundurun:
 ```
 
 > [!NOTE]
-> Sistem yukarıdaki belgenin boyutu 1 KB biraz değerinden hesaplanır şekilde belgeler Azure Cosmos DB'de küçültülmüş.
+> Hello sistem yukarıdaki hello belgenin boyutu 1 KB biraz değerinden hesaplanır şekilde belgeler Azure Cosmos DB'de küçültülmüş.
 > 
 > 
 
-Aşağıdaki tabloda yaklaşık istek birimi giderleri (yaklaşık istek birimi ücret hesabı tutarlılık düzeyi "Oturumuna" olarak ayarlandığından ve tüm öğeler otomatik olarak dizine varsayar) öğenin normal işlemleri için gösterilir:
+Merhaba aşağıdaki tabloda yaklaşık istek birimi ücretleri bu öğeyi genel işlemler için gösterilir (Merhaba yaklaşık istek birimi ücret varsayar hello hesap tutarlılık düzeyi çok ayarlanır "Oturum" ve tüm öğeler otomatik olarak dizine):
 
 | İşlem | İstek birimi ücret |
 | --- | --- |
@@ -308,7 +308,7 @@ Aşağıdaki tabloda yaklaşık istek birimi giderleri (yaklaşık istek birimi 
 | Öğe Okuma |~ 1 RU |
 | Sorgu öğesi kimliği |~2.5 RU |
 
-Ayrıca, bu tabloda yaklaşık istek birimi ücretleri uygulamada kullanılan tipik sorguları için gösterilir:
+Ayrıca, bu tabloda yaklaşık istek birimi ücretleri hello uygulamada kullanılan tipik sorguları için gösterilir:
 
 | Sorgu | İstek birimi ücret | Döndürülen öğe sayısı |
 | --- | --- | --- |
@@ -318,11 +318,11 @@ Ayrıca, bu tabloda yaklaşık istek birimi ücretleri uygulamada kullanılan ti
 | Üst 10 foods yemek grubunda seçin |~ 10 RU |10 |
 
 > [!NOTE]
-> RU ücretleri döndürülen öğe sayısını göre farklılık gösterir.
+> RU ücretleri hello döndürülen öğe sayısını göre farklılık gösterir.
 > 
 > 
 
-Bu bilgi ile biz işlemler ve saniye başına bekliyoruz sorguları sayısı verilen bu uygulama için RU gereksinimlerini tahmin edebilirsiniz:
+Bu bilgi ile biz hello RU gereksinimleri işlemler ve saniye başına bekliyoruz sorgular, bu verilen uygulama hello sayısını tahmin edebilirsiniz:
 
 | İşlem/sorgu | Saniye başına tahmini sayısı | Gerekli RUs |
 | --- | --- | --- |
@@ -332,31 +332,31 @@ Bu bilgi ile biz işlemler ve saniye başına bekliyoruz sorguları sayısı ver
 | Yemek gruplandırma ölçütü seçin |10 |700 |
 | İlk 10 seçin |15 |150 toplam |
 
-Bu durumda, bir ortalama verimi gereksinimi 1,275 RU/s bekliyoruz.  Yuvarlama kadar yakın 100, biz bu uygulamanın koleksiyon için 1300 RU/s sağlamak.
+Bu durumda, bir ortalama verimi gereksinimi 1,275 RU/s bekliyoruz.  100 en yakın toohello Yukarı yuvarlama, biz 1300 RU/s Bu uygulamanın koleksiyon için hazırlamanız.
 
 ## <a id="RequestRateTooLarge"></a>Azure Cosmos DB aşan ayrılmış işleme sınırları
-İstek birimi tüketim bütçe boşsa, saniye başına oranı olarak değerlendirilir, geri çağırma. Hızı ayrılmış düzeyin altına düşene kadar kapsayıcı için sağlanan istek birimi hızı aşan uygulamalar için o koleksiyona istekleri kısıtlanacak. Bir kısıtlama oluştuğunda sunucusu erken önlem isteği RequestRateTooLargeException (HTTP durum kodu 429) ile bitmelidir ve kullanıcı reattempting önce beklemesi gereken milisaniye cinsinden süreyi belirten x-ms-yeniden deneme-sonra-ms üstbilgisi döndürme İstek.
+İstek birimi tüketim Hello bütçe boşsa, saniye başına oranı olarak değerlendirilir, geri çağırma. Hello aşan uygulamalar için bir kapsayıcı için sağlanan istek birimi hızı istekleri hello oranı ayrılmış hello düzeyin altına düşene kadar toothat koleksiyonu kısıtlanacak. Bir kısıtlama oluştuğunda hello sunucu erken önlem hello istekle RequestRateTooLargeException (HTTP durum kodu 429) ve kullanıcı hello milisaniye cinsinden süre hello miktarını önce beklemesi gereken x-ms-yeniden deneme-sonra-ms üstbilgi dönüş hello belirten sona erer reattempting hello isteği.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
     x-ms-retry-after-ms :100
 
-.NET İstemci SDK'sını ve LINQ sorgularını sonra hiçbir zaman sahip geçerli sürümü .NET İstemci SDK'sı, bu yanıt örtük olarak yakalar gibi bu özel durumu ile mücadele etmek için çoğunlukla kullanıyorsanız, sunucu tarafından belirtilen yeniden deneme sonrasında üstbilgi dikkate alır ve yeniden deneme sayısı İstek. Hesabınızı eşzamanlı olarak birden çok istemci tarafından erişilen sürece, sonraki yeniden deneme işlemi başarılı olur.
+Merhaba .NET İstemci SDK'sını ve LINQ sorgularını sonra hiçbir zaman gereken bu özel durumla toodeal hello geçerli sürümü hello .NET İstemci SDK'sı, bu yanıt örtük olarak yakalar gibi hello zamanı çoğu kullanıyorsanız, sunucu tarafından belirtilen yeniden deneme sonrasında, üst gizliliğinize hello ve yeniden deneme hello isteği. Hesabınızı eşzamanlı olarak birden çok istemci tarafından erişilen sürece hello sonraki yeniden deneme işlemi başarılı olur.
 
-İstek hızı işletim üst üste birden fazla istemciniz varsa varsayılan yeniden deneme davranışı değil yeterli olacaktır ve istemci uygulamaya 429 durum koduyla bir DocumentClientException atar. Bu gibi durumlarda, yeniden deneme davranışı ve yordamları işleme veya kapsayıcı için ayrılmış verimliliği artırma uygulamanızın hata mantığının işleme düşünebilirsiniz.
+Merhaba istek hızı işletim üst üste birden fazla istemciniz varsa hello varsayılan yeniden deneme davranışı değil yeterli ve hello istemci durum kodu 429 toohello uygulama ile bir DocumentClientException atar. Bu gibi durumlarda, yeniden deneme davranışı ve yordamları işleme veya hello kapsayıcısı için hello ayrılmış verim artar, uygulamanızın hata mantığının işleme düşünebilirsiniz.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a>API MongoDB için aşan ayrılmış işleme sınırları
-Bir koleksiyon için sağlanan istek birimleri aşan uygulamaları oranı ayrılmış düzeyin altına düşene kadar kısıtlanacak. Bir azaltma ortaya çıktığında, arka uç istekle erken önlem sona erer bir *16500* hata kodu - *çok fazla istek*. Varsayılan olarak, API MongoDB için otomatik olarak en fazla 10 kez döndürmeden önce yeniden deneyecek bir *çok fazla istek* hata kodu. Birçok alıyorsanız *çok fazla istek* hata kodları, uygulamanızın hata yordamları işlemedeki ekleme ya da yeniden deneme davranışı dikkate veya [koleksiyoniçinayrılmışverimliliğiartırma](set-throughput.md).
+Merhaba oranı ayrılmış hello düzeyin altına düşene kadar bir koleksiyon için sağlanan hello istek birimleri aşan uygulamaları kısıtlanacak. Bir azaltma oluştuğunda hello arka uç hello istekle erken önlem sona erer bir *16500* hata kodu - *çok fazla istek*. Varsayılan olarak, API MongoDB için otomatik olarak dönmeden önce too10 kez yukarı yeniden deneyecek bir *çok fazla istek* hata kodu. Birçok alıyorsanız *çok fazla istek* hata kodları, uygulamanızın hata yordamları işlemedeki ekleme ya da yeniden deneme davranışı dikkate veya [hello ayrılmış işleme hello koleksiyonuartırma](set-throughput.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Ayrılmış işleme ile Azure Cosmos DB veritabanları hakkında daha fazla bilgi edinmek için şu kaynakları araştırın:
+ayrılmış işleme ile Azure Cosmos DB veritabanları hakkında daha fazla toolearn bu kaynakları araştırın:
 
 * [Cosmos DB Azure fiyatlandırması](https://azure.microsoft.com/pricing/details/cosmos-db/)
 * [Azure Cosmos veritabanı veri bölümlendirme](partition-data.md)
 
-Azure Cosmos DB hakkında daha fazla bilgi için Azure Cosmos DB bkz [belgelerine](https://azure.microsoft.com/documentation/services/cosmos-db/). 
+toolearn Azure Cosmos DB hakkında daha fazla bilgi görmek hello Azure Cosmos DB [belgelerine](https://azure.microsoft.com/documentation/services/cosmos-db/). 
 
-Ölçek ve performans testi Azure Cosmos DB ile kullanmaya başlamak için bkz: [performans ve ölçek testi Azure Cosmos DB ile](performance-testing.md).
+Ölçek ve performans testi Azure Cosmos DB ile kullanmaya tooget bkz [performans ve ölçek testi Azure Cosmos DB ile](performance-testing.md).
 
 [1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png

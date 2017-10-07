@@ -2,7 +2,7 @@
 ## [Azure Analysis Services nedir?](analysis-services-overview.md)
 ## [Desteklenen veri kaynakları](analysis-services-datasource.md)
 ## [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md)
-## [Şirket içi veri kaynaklarına bağlanma](analysis-services-gateway.md)
+## [Tooon içi veri kaynaklarına bağlanma](analysis-services-gateway.md)
 ## [Uyumluluk düzeyi](analysis-services-compat-level.md)
 ## [Yüksek kullanılabilirlik](analysis-services-bcdr.md)
 
@@ -12,7 +12,7 @@
 ## [Visual Studio üzerinden model dağıtma](analysis-services-deploy.md)
 ## [Azure portalında bir model oluşturma (önizleme)](analysis-services-create-model-portal.md)
 
-# Nasıl yapılır 
+# Nasıl çok
 ## [Sunucu yönetme](analysis-services-manage.md)
 ## [Veritabanı kullanıcılarını yönetme](analysis-services-database-users.md)
 ## [Sunucu yöneticilerini yönetme](analysis-services-server-admins.md)

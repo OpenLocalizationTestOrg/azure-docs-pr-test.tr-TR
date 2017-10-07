@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Data warehouse'da (PowerShell) işlem güç yönetimi | Microsoft Docs"
-description: "İşlem gücüne yönetmek için PowerShell görevleri. Dwu ayarlayarak işlem kaynaklarını ölçeklendirme. Veya, duraklatma ve sürdürme işlem kaynaklarını maliyet tasarrufu sağlamak."
+title: "aaaManage işlem güç Azure SQL Data warehouse'da (PowerShell) | Microsoft Docs"
+description: "PowerShell görevleri toomanage güç işlem. Dwu ayarlayarak işlem kaynaklarını ölçeklendirme. Veya, duraklatma ve sürdürme kaynakları toosave maliyetlerini işlem."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 6a185d96447c2e1b0b463439dd062081e783da5f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8b379d4cf89570649767f6896d2c630d4f1111d7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-powershell"></a>Azure SQL Data warehouse'da (PowerShell) işlem güç yönetimi
 > [!div class="op_single_selector"]
@@ -32,17 +32,17 @@ ms.lasthandoff: 07/11/2017
 >
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-### <a name="install-the-latest-version-of-azure-powershell"></a>Azure PowerShell'in en son sürümünü yükleyin
+### <a name="install-hello-latest-version-of-azure-powershell"></a>Hello Azure PowerShell'in en son sürümünü yükleyin
 > [!NOTE]
-> SQL Data Warehouse ile Azure PowerShell kullanmak için Azure PowerShell 1.0.3 sürümü gerekir veya daha büyük.  Komutu çalıştırın geçerli sürümünüzü doğrulamak için **Get-Module - listavailable birlikte-Name Azure**. En son sürümü yükleyebilirsiniz [Microsoft Web Platformu yükleyicisi][Microsoft Web Platform Installer].  Daha fazla bilgi için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl][How to install and configure Azure PowerShell].
+> toouse Azure PowerShell ile SQL Data Warehouse, ihtiyacınız Azure PowerShell 1.0.3 sürümü veya daha büyük.  tooverify geçerli sürümünüzü hello komutu çalıştırın **Get-Module - listavailable birlikte-Name Azure**. Merhaba en son sürümü yükleyebilirsiniz [Microsoft Web Platformu yükleyicisi][Microsoft Web Platform Installer].  Daha fazla bilgi için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma][How tooinstall and configure Azure PowerShell].
 >
 > 
 
 ### <a name="get-started-with-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet'leri kullanmaya başlama
-Başlamak için:
+tooget başlatıldı:
 
 1. Azure PowerShell'i açın.
-2. PowerShell komut isteminde, Azure Resource Manager için oturum açın ve aboneliğinizi seçmek için şu komutları çalıştırın.
+2. PowerShell komut isteminde hello bu komutları toosign toohello Azure Kaynak Yöneticisi'ni çalıştırın ve aboneliğinizi seçin.
 
     ```PowerShell
     Login-AzureRmAccount
@@ -56,7 +56,7 @@ Başlamak için:
 ## <a name="scale-compute-power"></a>Ölçek işlem gücü
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Dwu değiştirmek için kullanın [Set-AzureRmSqlDatabase] [ Set-AzureRmSqlDatabase] PowerShell cmdlet'i. Aşağıdaki örnek, MyServer sunucusunda barındırılan MySQLDW veritabanı için DW1000 için hizmet düzeyi hedefi ayarlar.
+toochange hello Dwu, hello kullan [Set-AzureRmSqlDatabase] [ Set-AzureRmSqlDatabase] PowerShell cmdlet'i. Merhaba aşağıdaki örnek hello hizmet düzeyi hedefi tooDW1000 hello veritabanı barındırılan MySQLDW MyServer sunucusuna ayarlar.
 
 ```Powershell
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
@@ -67,10 +67,10 @@ Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -Requested
 ## <a name="pause-compute"></a>Duraklatma işlem
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-Bir veritabanı duraklatmak için kullanmak [Suspend-AzureRmSqlDatabase] [ Suspend-AzureRmSqlDatabase] cmdlet'i. Aşağıdaki örnek Server01 adlı bir sunucuda barındırılan Database02 adlı bir veritabanı duraklatır. Sunucu ResourceGroup1 adlı bir Azure kaynak grubunda yer alıyor.
+toopause bir veritabanını kullanın hello [Suspend-AzureRmSqlDatabase] [ Suspend-AzureRmSqlDatabase] cmdlet'i. Merhaba aşağıdaki örnek Server01 adlı bir sunucuda barındırılan Database02 adlı bir veritabanı duraklatır. Merhaba sunucu bir Azure kaynak grubu ResourceGroup1 olarak adlandırılır.
 
 > [!NOTE]
-> Sunucunuz foo.database.windows.net, ise "foo" PowerShell cmdlet'leri - ServerName kullanmak unutmayın.
+> Sunucunuz foo.database.windows.net, ise "foo" Merhaba PowerShell cmdlet'leri - ServerName hello olarak kullanmak unutmayın.
 >
 > 
 
@@ -78,7 +78,7 @@ Bir veritabanı duraklatmak için kullanmak [Suspend-AzureRmSqlDatabase] [ Suspe
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
 ```
-Bir değişim bu sonraki örnek veritabanı $database nesnesine alır. Sonra nesneyi kanallar [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]. Sonuçlar nesne resultDatabase içinde depolanır. Son komutun sonuçlarını gösterir.
+Bir değişim bu sonraki örnek hello veritabanı hello $database nesnesine alır. Bunun ardından hello nesne çok kanallar[Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]. Merhaba sonuçları hello nesne resultDatabase içinde depolanır. Merhaba son komut hello sonuçları gösterir.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -92,14 +92,14 @@ $resultDatabase
 ## <a name="resume-compute"></a>Resume işlem
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-Bir veritabanı başlatmak için kullanmak [Resume-AzureRmSqlDatabase] [ Resume-AzureRmSqlDatabase] cmdlet'i. Aşağıdaki örnek Server01 adlı bir sunucuda barındırılan Database02 adlı bir veritabanı başlatır. Sunucu ResourceGroup1 adlı bir Azure kaynak grubunda yer alıyor.
+toostart bir veritabanını kullanın hello [Resume-AzureRmSqlDatabase] [ Resume-AzureRmSqlDatabase] cmdlet'i. Merhaba aşağıdaki örnek Server01 adlı bir sunucuda barındırılan Database02 adlı bir veritabanı başlatır. Merhaba sunucu bir Azure kaynak grubu ResourceGroup1 olarak adlandırılır.
 
 ```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-Bir değişim bu sonraki örnek veritabanı $database nesnesine alır. Sonra nesneyi kanallar [Resume-AzureRmSqlDatabase] [ Resume-AzureRmSqlDatabase] ve sonuçları $resultDatabase içinde depolar. Son komutun sonuçlarını gösterir.
+Bir değişim bu sonraki örnek hello veritabanı hello $database nesnesine alır. Bunun ardından hello nesne çok kanallar[Resume-AzureRmSqlDatabase] [ Resume-AzureRmSqlDatabase] ve hello sonuçları $resultDatabase içinde depolar. Merhaba son komut hello sonuçları gösterir.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -112,7 +112,7 @@ $resultDatabase
 
 ## <a name="check-database-state"></a>Veritabanı durumunu kontrol edin
 
-Yukarıdaki örneklerde gösterildiği gibi kullanabilirsiniz [Get-AzureRmSqlDatabase] [ Get-AzureRmSqlDatabase] cmdlet böylece durumunu denetleme, bir veritabanı hakkında bilgi almak için aynı zamanda bir bağımsız değişken olarak kullanılacak. 
+Merhaba örnekleri yukarıda gösterildiği gibi kullanabilirsiniz [Get-AzureRmSqlDatabase] [ Get-AzureRmSqlDatabase] cmdlet tooget bilgi böylece hello durum, aynı zamanda bir bağımsız değişken olarak toouse denetimi, bir veritabanı. 
 
 ```powershell
 Get-AzureRmSqlDatabase [-ResourceGroupName] <String> [-ServerName] <String> [[-DatabaseName] <String>]
@@ -142,7 +142,7 @@ ElasticPoolName               :
 EarliestRestoreDate           : 1/1/0001 12:00:00 AM
 ```
 
-Burada sonra kontrol edebilirsiniz görmek için *durum* veritabanı. Bu durumda, bu veritabanının çevrimiçi olduğunu görebilirsiniz. 
+Burada sonra kontrol edebilirsiniz toosee hello *durum* hello veritabanı. Bu durumda, bu veritabanının çevrimiçi olduğunu görebilirsiniz. 
 
 Bu komutu çalıştırdığınızda, durum değeri ya da çevrimiçi, duraklatma, devam ettirmek, ölçeklendirme ve duraklatıldı almanız gerekir.
 
@@ -156,7 +156,7 @@ Diğer yönetim görevleri için bkz: [yönetimine genel bakış][Management ove
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Management overview]: ./sql-data-warehouse-overview-manage.md
-[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[How tooinstall and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->

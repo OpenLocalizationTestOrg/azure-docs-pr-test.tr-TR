@@ -1,6 +1,6 @@
 ---
-title: "264 Çoklu bit hızı 4K ses 5.1 | Microsoft Docs"
-description: "Konuyu genel bir fikir veren ** 264 Çoklu bit hızı 4K ses 5.1* * görev hazır."
+title: "aaa264 Çoklu bit hızı 4K ses 5.1 | Microsoft Docs"
+description: "Merhaba konu hello genel bir bakış sunar ** 264 Çoklu bit hızı 4K ses 5.1* * görev hazır."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 10e5c41be42b73e3e1458adac9642547c182530b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ea0169a86b132002233488ba748a6583fe08d51b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 Çoklu bit hızı 4K ses 5.1
-`Media Encoder Standard`kodlama işler oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine medya dosyanızın kodlamak istediğiniz belirtmek için. Veya, kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından kodlayıcıya önceden özel geçirirsiniz. Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` encoder bkz [Medya Kodlayıcısı standart için görev hazır](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`kodlama işler oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine gibi tooencode toospecify medya dosyanızın. Veya, kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından hello özel hazır toohello Kodlayıcı geçirirsiniz. Tüm hello Hello listesi için bu tarafından desteklenen adları önceden `Media Encoder Standard` encoder bkz [Medya Kodlayıcısı standart için görev hazır](media-services-mes-presets-overview.md).  
   
- Bu konuda gösterilmektedir `H264 Multiple Bitrate 4K Audio 5.1` XML ve JSON biçiminde hazır.  
+ Bu konu, hello gösterir `H264 Multiple Bitrate 4K Audio 5.1` XML ve JSON biçiminde hazır.  
   
- Bu hazır 20000 kbps ila 1000 KB/sn ve AAC 5.1 ses arasında değişen 12 GOP hizalı MP4 dosyaları kümesi üretir. Profili hakkında ayrıntılı bilgi için örnekleme hızını bu vb. bit hızı, önceden, XML veya JSON aşağıda tanımlanan inceleyin. Hangi her öğe anlamına gelir ve geçerli değerlerin her öğe için açıklamalar için bkz [Medya Kodlayıcısı standart şema](media-services-mes-schema.md).  
-  
-> [!NOTE]
->  Premium ayrılmış birim alması gereken 4K türüyle kodlar. Daha fazla bilgi için bkz: [ölçek kodlama nasıl](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
+ Bu hazır 20000 kbps too1000 kbps ve AAC 5.1 ses 12 GOP hizalı MP4 dosyaları kümesi üretir. Profili hakkında ayrıntılı bilgi için örnekleme hızını bu vb. bit hızı, önceden, XML veya JSON aşağıda tanımlanan hello inceleyin. Hello her öğe için hangi her öğe anlamına gelir ve hello geçerli değerlerin açıklamaları görmek için [Medya Kodlayıcısı standart şema](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Değiştirirken `Width` ve `Height` katmanları arasında değerleri en boy oranını tutarlı olmaya devam ettiğinden emin olun. Örneğin: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360. En boy oranlarına karışımını gibi kullanmamalısınız: 1280 x 720, 720 x 480, 640 x 360.  
+>  Merhaba ayrılmış Premium alması gereken birimi türü 4K ile kodlar. Daha fazla bilgi için bkz: [nasıl tooScale kodlama](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
+  
+> [!NOTE]
+>  Merhaba değiştirirken `Width` ve `Height` katmanları arasında değerleri bu hello en boy oranını tutarlı kalabilmesi emin olun. Örneğin: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360. En boy oranlarına karışımını gibi kullanmamalısınız: 1280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   

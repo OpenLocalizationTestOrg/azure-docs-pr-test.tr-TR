@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT Hub ile cihaz yönetimi | Microsoft Belgeleri"
+title: "Azure IOT Hub ile aaaDevice Yönetimi | Microsoft Docs"
 description: "Azure IoT Hub'daki cihaz yönetimine genel bakış: kurumsal cihaz yaşam döngüsü ve yeniden başlatma, fabrika sıfırlaması, üretici yazılımı güncelleştirmesi, yapılandırma, cihaz çiftleri, sorgular, işler gibi cihaz yönetim düzenleri."
 services: iot-hub
 documentationcenter: 
@@ -14,83 +14,83 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7e22fb6eb3c541a513b16a047c7c3ef557255532
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT Hub ile cihaz yönetimine genel bakış
 ## <a name="introduction"></a>Giriş
-Azure IoT Hub, cihaz ve arka uç geliştiricilerinin güçlü cihaz yönetimi çözümleri oluşturmasını sağlayan özellikler ve bir genişletilebilirlik modeli sunar. Cihazlar, kısıtlı algılayıcılardan tek amaçlı mikro denetleyicilere ve cihaz grupları için iletişimi yönlendiren güçlü ağ geçitlerine varan çeşitler barındırır.  Ayrıca, kullanım örnekleri ve IoT operatörlerinin gereksinimleri sektörler arasında farklılık gösterir.  Bu farklılığa rağmen, IoT Hub ile cihaz yönetimi çok çeşitli cihaz ve son kullanıcılara uygun özellikler, desenler ve kod kitaplıkları sağlar.
+Azure IOT Hub hello özellikleri ve cihaz ve arka uç geliştiriciler toobuild sağlam cihaz yönetim çözümlerini etkinleştiren genişletilebilirlik modeli sağlar. Kısıtlanmış algılayıcılar ve tek amaçlı mikrodenetleyici, cihaz gruplarını iletişimlerde rota toopowerful ağ geçitleri aralığından aygıtlar.  Ayrıca, hello kullanım durumları ve IOT işleçleri gereksinimlerini önemli ölçüde endüstriler arasında farklılık gösterir.  Bu değişim rağmen hello özellikleri, desenleri ve kod kitaplıkları toocater tooa farklı aygıt kümesini ve son kullanıcıların IOT hub'ı ile cihaz yönetimi sağlar.
 
-Başarılı bir kurumsal IoT çözümü oluşturmanın önemli bir kısmı, operatörlerin cihaz koleksiyonu için devam eden yönetimi nasıl gerçekleştirdiğine ilişkin bir strateji sağlanmasıdır. IoT operatörleri, işlerinin daha stratejik yönlerine odaklanmalarını sağlayan basit ve güvenilir araç ve uygulamalar gerektirir. Bu makalede aşağıdakiler sunulmaktadır:
+Kendi cihaz koleksiyonu devam eden Yönetimi hello işleçleri nasıl işleneceğini yönelik bir strateji tooprovide başarılı Kurumsal IOT çözümü oluşturma önemli bir parçasıdır. IOT işleçleri basit ve güvenilir araçları ve bunları toofocus hello hakkında daha fazla stratejik yönlerini işlerini etkinleştirmek uygulamaları gerektirir. Bu makalede aşağıdakiler sunulmaktadır:
 
-* Azure IoT Hub cihaz yönetimi yaklaşımına kısa bir genel bakış.
+* Azure IOT Hub yaklaşım toodevice yönetimi, kısa bir özeti.
 * Genel cihaz yönetimi ilkelerinin açıklaması.
-* Cihaz yaşam döngüsü açıklaması.
+* Merhaba cihaz yaşam döngüsü açıklaması.
 * Genel cihaz yönetimi desenlerine genel bakış.
 
 ## <a name="device-management-principles"></a>Cihaz yönetimi ilkeleri
-IoT bir dizi benzersiz cihaz yönetimi zorluğunu beraberinde getirir ve kurumsal sınıftaki her çözüm aşağıdaki ilkeleri hesaba katmalıdır:
+IOT ile cihaz Yönetimi zorluklar benzersiz bir dizi özelliği sunar ve her kurumsal sınıf çözüm ilkeler aşağıdaki hello adres gerekir:
 
 ![Cihaz yönetimi ilkeleri grafiği][img-dm_principles]
 
-* **Ölçek ve otomasyon**: IoT çözümleri, rutin görevleri otomatik hale getirebilen ve oldukça küçük bir operasyon ekibinin milyonlarca cihazı yönetmesine olanak tanıyabilen basit araçlar gerektirir. Operatörler toplu cihaz işlemlerini günlük olarak uzaktan gerçekleştirmeyi ve yalnızca doğrudan dikkat gerektiren sorunlar oluştuğunda uyarılmayı beklemektedir.
-* **Açıklık ve uyumluluk**: Cihaz ekosistemi olağanüstü çeşitliliğe sahiptir. Yönetim araçları çok sayıda cihaz sınıfına, platforma ve protokole uyum sağlayacak şekilde uyarlanmalıdır. Operatörler en kısıtlı katıştırılmış tek işlemli yongalardan güçlü ve tam işlevsel bilgisayarlara kadar çok sayıda cihaz türünü destekleyebilmelidir.
-* **Bağlam tanıma**: IoT ortamları dinamik ve sürekli değişen yapıdadır. Hizmet güvenilirliği üst düzey öneme sahiptir. Cihaz yönetimi işlemleri bakım kapalı kalma süresinin kritik iş işlemlerini etkilemediğinden veya tehlikeli koşullar oluşturmadığından emin olmak için aşağıdaki faktörleri göz önünde bulundurmalıdır:
+* **Ölçek ve Otomasyon**: IOT çözümleri gerektirir rutin görevleri otomatik hale getirmek ve görece küçük işlemleri etkinleştirmek basit araçları personel toomanage milyonlarca cihaz. Günlük, işleçler toohandle aygıt işlemleri uzaktan toplu olarak beklediğiniz ve tooonly doğrudan dikkatini gerektiren sorunlar çıkması olduğunda uyarılmak.
+* **Açıklık ve Uyumluluk**: hello aygıt ekosistemi alıyoruz farklı. Yönetim Araçları uyarlanmış tooaccommodate aygıt sınıfları, platformlar ve protokolleri çok sayıda olmalıdır. İşleçler sağlayabilmelidir çeşitli aygıtlardan hello en kısıtlı toosupport katıştırılmış tek işlem yongaları, toopowerful ve tam olarak işlevsel bilgisayarlar.
+* **Bağlam tanıma**: IoT ortamları dinamik ve sürekli değişen yapıdadır. Hizmet güvenilirliği üst düzey öneme sahiptir. Aygıt yönetimi işlemleri bu bakım Etkenler tooensure aşağıdaki hesap hello gerçekleştirmeniz gereken kapalı kalma süresi değil veya önemli iş işlemlerini etkileyen tehlikeli koşullar oluşturun:
     * SLA bakım pencereleri
     * Ağ ve güç durumları
     * Kullanım koşulları
     * Cihaz coğrafi konumu
-* **Çok sayıda servis rolü**: Benzersiz iş akışları ve IoT işlemleri için destek çok önemlidir. Operasyon personeli, şirket içi BT bölümlerinin belirtilen kısıtlamalarıyla uyumlu bir şekilde çalışmalıdır.  Ayrıca, denetçilere ve diğer iş yönetimi rollerine gerçek zamanlı cihaz çalışma bilgilerini sunmanın uygun yollarını bulmalıdır.
+* **Birçok rol hizmeti**: hello benzersiz iş akışları ve IOT işlem rolü işlemleri için destek önemlidir. Merhaba personelinin harmoniously iç BT departmanları kısıtlamalara hello ile çalışması gerekir.  Sürdürülebilir yolları toosurface gerçek zamanlı cihaz operations bilgi toosupervisors ve diğer iş yönetim rolleri bulmak de gerekir.
 
 ## <a name="device-lifecycle"></a>Cihaz yaşam döngüsü
-Tüm kurumsal IoT projelerinde ortak olan genel cihaz yönetimi aşamaları vardır. Azure IoT içinde, cihaz yaşam döngüsünün beş aşaması vardır:
+Bir dizi ortak tooall Kurumsal IOT projeler genel aygıt yönetimi aşamaları yoktur. Azure IOT hello cihaz yaşam döngüsü içinde beş aşama vardır:
 
-![Beş Azure IoT cihaz yaşam döngüsü aşaması şunlardır: planlama, sağlama, yapılandırma, izleme, devre dışı bırakma][img-device_lifecycle]
+![beş Azure IOT cihaz yaşam döngüsü aşamaları hello: planlama, sağlama, yapılandırmak, izlemek, devre dışı bırakma][img-device_lifecycle]
 
-Bu beş aşamanın her birinde, tam bir çözüm sağlamak için yerine getirilmesi gereken birkaç cihaz operatörü gereksinimi vardır:
+Her beş Bu aşamalar içinde karşılanan tooprovide eksiksiz bir çözüm olması gereken birkaç aygıt işleci gereksinimleri vardır:
 
-* **Plan**: Operatörlerin toplu yönetim işlemleri için bir cihaz grubunu kolayca ve doğru bir şekilde sorgulamasına ve hedeflemesine olanak tanıyan cihaz meta verileri düzeni oluşturmasını sağlar. Bu cihaz meta verilerini etiketler ve özellikler halinde depolamak için cihaz ikizlerini kullanabilirsiniz.
+* **Plan**: etkinleştirme işleçleri toocreate tooeasily ve doğru bir şekilde sorgu için sağlayan cihaz meta veri şeması ve cihazların toplu yönetim işlemleri için bir grubu hedeflemek. Bu cihaz meta verilerini etiketleri ve özellikleri hello biçiminde hello cihaz çifti toostore kullanabilirsiniz.
   
-    *Daha fazla makale*: [Cihaz ikizlerini kullanmaya başlama][lnk-twins-getstarted], [Cihaz ikizlerini anlama][lnk-twins-devguide], [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties].
-* **Sağlama**: IoT Hub’ına yeni cihazları güvenli bir şekilde sağlar ve operatörlerin cihaz özelliklerini hemen bulmasına olanak tanır.  Esnek cihaz kimlikleri ve kimlik bilgileri oluşturmanın yanı sıra bu işlemi bir iş kullanarak toplu halde gerçekleştirmek için IoT Hub kimlik kayıt defterini kullanın. Cihaz ikizindeki cihaz özellikleri aracılığıyla kapasite ve koşullarını raporlamak için cihazlar oluşturun.
+    *Daha fazla okuma*: [cihaz çiftlerini ile çalışmaya başlama][lnk-twins-getstarted], [cihaz çiftlerini anlamak][lnk-twins-devguide], [nasıl toouse cihaz çifti özellikleri][lnk-twin-properties].
+* **Sağlama**: güvenli bir şekilde yeni aygıtları tooIoT Hub ve etkinleştir işleçleri tooimmediately Bul cihaz özellikleri sağlama.  Merhaba IOT Hub kimlik kayıt defteri toocreate esnek cihaz kimliklerini ve kimlik bilgilerini kullanın ve bir işi kullanarak toplu olarak bu işlem gerçekleştirin. Aygıtları tooreport kendi yetenekleri ve cihaz özellikleri hello cihaz çiftine aracılığıyla koşullar oluşturun.
   
-    *Daha fazla makale*: [Cihaz kimliklerini yönetme][lnk-identity-registry], [Cihaz kimliklerinin toplu yönetimi][lnk-bulk-identity], [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties].
-* **Yapılandırma**: Cihazların hem sistem durumunu hem de güvenliğini korurken toplu yapılandırma değişikliklerini ve üretici yazılımı güncelleştirmelerini kolaylaştırır. İstediğiniz özellikleri kullanarak ve doğrudan yöntemler ve yayın işleri ile bu cihaz yönetimi işlemlerini toplu olarak gerçekleştirin.
+    *Daha fazla okuma*: [aygıt kimlikleri yönetmek][lnk-identity-registry], [toplu yönetim cihaz kimlikleri][lnk-bulk-identity], [Nasıl toouse cihaz çifti özellikleri][lnk-twin-properties].
+* **Yapılandırma**: Toplu kolaylaştırmak yapılandırma değişiklikleri ve bellenim güncelleştirmeleri toodevices sistem durumu ve güvenlik korurken. İstediğiniz özellikleri kullanarak ve doğrudan yöntemler ve yayın işleri ile bu cihaz yönetimi işlemlerini toplu olarak gerçekleştirin.
   
-    *Daha fazla makale*:  [Doğrudan yöntemler kullanma][lnk-c2d-methods], [Bir cihazda doğrudan yöntem çağırma][lnk-methods-devguide], [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [İşleri zamanlama ve yayınlama][lnk-jobs], [İşleri birden fazla cihazda zamanlama][lnk-jobs-devguide].
-* **İzleme**: Operatörleri dikkat gerektirebilecek sorunlar konusunda uyarmak için genel cihaz koleksiyonu durumunu ve devam eden işlemlerin durumunu izler.  Cihazların gerçek zamanlı çalışma koşullarını ve güncelleştirme işlemlerinin durumunu raporlamasına olanak tanımak üzere cihaz ikisi uygulayın. Cihaz ikizi sorgularını kullanarak en acil sorunları ortaya çıkaran güçlü pano raporları oluşturun.
+    *Daha fazla okuma*: [doğrudan yöntemleri kullanın][lnk-c2d-methods], [bir cihazda doğrudan bir yöntem çağırma][lnk-methods-devguide], [nasıl toouse cihaz çifti özellikleri][lnk-twin-properties], [zamanlama ve yayın işleri][lnk-jobs], [zamanlama işlerini birden çok aygıta] [lnk-jobs-devguide].
+* **İzleyici**: Genel cihaz toplama sistem durumu, devam eden işlemler ve dikkatini gerektirebilir uyarı işleçleri tooissues hello durumunu izleyin.  Hello cihaz çifti tooallow aygıtları tooreport gerçek zamanlı kullanım koşullarına ve güncelleştirme işlemlerinin durumunu uygulanır. Cihaz çifti sorguları kullanarak yapı bu yüzey hello en yakın sorunlar güçlü panoyu raporlar.
   
-    *Daha fazla makale*: [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [Cihaz ikizleri, işler ve ileti yönlendirme için IoT Hub sorgu dili][lnk-query-language].
-* **Devre dışı bırakma**: Bir hata ya da yükseltme döngüsü sonrasında veya hizmet ömrünün sonunda cihazları değiştirin ya da kullanımdan kaldırın.  Fiziksel cihaz değiştiriliyorsa cihaz bilgilerini korumak veya kullanım dışı bırakılıyorsa cihaz bilgilerini arşivlemek için cihaz ikizini kullanın. Cihaz kimliklerini ve kimlik bilgilerini güvenli bir şekilde iptal etmek için IoT Hub kimlik kayıt defterini kullanın.
+    *Daha fazla okuma*: [nasıl toouse cihaz çifti özellikleri][lnk-twin-properties], [IOT Hub cihaz çiftlerini, işler ve ileti yönlendirme için sorgu dili] [ lnk-query-language].
+* **Devre dışı bırakma**: değiştirin veya cihazları bir hatadan sonra yetkisini, döngü, yükseltme veya hello hizmet ömrü hello sonunda.  Merhaba fiziksel aygıt yaşanıyorsa hello cihaz çifti toomaintain aygıt bilgileri kullanmak yerine ya da devre dışı bırakıldığını, arşivlenen. Merhaba IOT Hub kimlik kayıt defteri cihaz kimliklerini ve kimlik bilgilerini güvenli bir şekilde iptal kullanın.
   
-    *Daha fazla makale*: [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [Cihaz kimliklerini yönetme][lnk-identity-registry].
+    *Daha fazla okuma*: [nasıl toouse cihaz çifti özellikleri][lnk-twin-properties], [aygıt kimlikleri yönetmek][lnk-identity-registry].
 
 ## <a name="device-management-patterns"></a>Cihaz yönetimi modelleri
-IoT Hub aşağıdaki cihaz yönetim modellerini sağlar.  [Cihaz yönetimi öğreticileri][lnk-get-started], bu desenleri gerçek senaryonuza uygun hale getirme ve bu çekirdek şablonları temel alan yeni desenler tasarlama konularını daha ayrıntılı olarak gösterir.
+IOT Hub cihaz Yönetimi desenleri aşağıdaki hello sağlar.  Merhaba [aygıt yönetimi öğreticileri] [ lnk-get-started] daha ayrıntılı olarak nasıl yapacağınızı tooextend bu desenleri toofit şablonları çekirdek, tam senaryo ve nasıl toodesign yeni desenler bunlar üzerinde temel.
 
-* **Yeniden başlatma** - Arka uç uygulaması, yeniden başlatma işleminin başlatıldığını bir doğrudan yöntem aracılığıyla cihaza bildirir.  Cihaz, bildirilen özellikleri kullanarak cihazın yeniden başlatma durumunu güncelleştirir.
+* **Yeniden başlatma** -hello arka uç uygulama bildirir hello cihaz doğrudan bir yöntem yeniden başlattı.  Merhaba aygıt kullanır hello hello cihaz özellikleri tooupdate hello yeniden başlatma durumu bildirdi.
   
     ![Cihaz yönetimi yeniden başlatma deseninin grafiği][img-reboot_pattern]
-* **Fabrika Sıfırlaması** - Arka uç uygulaması, fabrika sıfırlamasının başlatıldığını bir doğrudan yöntem aracılığıyla cihaza bildirir.  Cihaz, bildirilen özellikleri kullanarak cihazın fabrika sıfırlaması durumunu güncelleştirir.
+* **Fabrika sıfırlaması** -hello arka uç uygulama bildirir hello cihaz doğrudan bir yöntem bir Fabrika sıfırlaması başlattı.  Merhaba aygıt kullanır hello özellikleri tooupdate hello Fabrika hello cihaz durumunu sıfırlamak bildirdi.
   
     ![Cihaz yönetimi fabrika sıfırlama deseninin grafiği][img-facreset_pattern]
-* **Yapılandırma** - Arka uç uygulaması, istenen özellikleri kullanarak cihaz üzerinde çalışan yazılımı yapılandırır.  Cihaz, bildirilen özellikleri kullanarak cihazın yapılandırma durumunu güncelleştirir.
+* **Yapılandırma** -hello arka uç uygulama hello cihazda çalışan istenen hello özellikleri tooconfigure yazılım kullanır.  Merhaba aygıt kullanır hello hello cihaz özellikleri tooupdate yapılandırma durumu bildirdi.
   
     ![Cihaz yönetimi yapılandırma deseninin grafiği][img-config_pattern]
-* **Üretici Yazılımı Güncelleştirmesi** - Arka uç uygulaması, üretici yazılımı güncelleştirme işleminin başlatıldığını bir doğrudan yöntem aracılığıyla cihaza bildirir.  Cihaz; üretici yazılımı görüntüsünü indirmek, uygulamak ve son olarak IoT Hub hizmetine yeniden bağlanmak için çok adımlı bir işlem başlatır.  Çok adımlı işlem boyunca cihaz, bildirilen özellikleri kullanarak cihazın ilerlemesini ve durumunu güncelleştirir.
+* **Bellenim güncelleştirme** -hello arka uç uygulama bildirir hello cihaz doğrudan bir yöntem bir ürün yazılımı güncelleştirmesi başlattı.  çok adımlı bir işlemi toodownload hello bellenim görüntü Hello aygıt başlatır, hello bellenim görüntüsünü uygulamak ve son toohello IOT Hub hizmetine yeniden bağlanın.  Hello çok adımlı işlemi boyunca hello aygıt kullanır hello özellikleri tooupdate hello ilerleme ve hello cihazın durumu bildirdi.
   
     ![Cihaz yönetimi üretici yazılımı güncelleştirme deseninin grafiği][img-fwupdate_pattern]
-* **İlerleme ve durumu raporlama** - Çözüm arka ucu, cihaz üzerinde çalışan eylemlerin durum ve ilerlemesini bildirmek üzere bir dizi cihazda cihaz çifti sorguları çalıştırır.
+* **İlerleme durumu ve durumu raporlama** -hello çözüm arka ucu cihazları, tooreport hello durumu ile ilgili bir dizi ve ilerleme hello cihazlarda çalışan işlemlerin arasında cihaz çifti sorguları çalıştırır.
   
     ![Cihaz yönetimi raporlama ilerleme ve durum deseninin grafiği][img-report_progress_pattern]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-IoT Hub’ın cihaz yönetimi için sağladığı özellik, desen ve kod kitaplıkları, her cihaz yaşam döngüsü aşamasında kurumsal IoT operatörünün gereksinimlerini yerine getiren IoT uygulamaları oluşturmanıza olanak sağlar.
+Merhaba özellikleri, desenleri ve IOT Hub cihaz yönetimi için sağlar kodu kitaplıkları Kurumsal IOT işleci her cihaz yaşam döngüsü aşaması içinde gerekliliklerini toocreate IOT uygulamaları etkinleştirir.
 
-IoT Hub’ında cihaz yönetimi özellikleri hakkında daha fazla bilgi almak için [Cihaz yönetimini kullanmaya başlama][lnk-get-started] eğitmenine bakın.
+Merhaba cihaz yönetimi özellikleri IOT hub'ı öğrenmeye toocontinue bkz hello [aygıt Management'i kullanmaya başlama] [ lnk-get-started] Öğreticisi.
 
 <!-- Images and links -->
 [img-dm_principles]: media/iot-hub-device-management-overview/image4.png

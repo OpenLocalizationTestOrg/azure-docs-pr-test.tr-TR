@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT - Ders 4 Intel Edison'u (düğüm) bağlanma: iletileri alacak | Microsoft Docs"
-description: "Örnek bir uygulama Edison'u üzerinde çalışır ve IOT hub'ınızı gelen iletilere izler. Yeni bir gulp görev iletileri için Edison'u LED blink için IOT hub'gönderir."
+title: "Intel Edison'u (düğüm) tooAzure IOT - Ders 4 bağlanın: iletileri alacak | Microsoft Docs"
+description: "Örnek bir uygulama Edison'u üzerinde çalışır ve IOT hub'ınızı gelen iletilere izler. Yeni bir gulp görev iletileri tooEdison, IOT hub tooblink hello LED gönderir."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,75 +17,75 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 76ea59acd848f60663a0c821bff42166aac5823a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: aab0ced4810dd3d4f5ba636940b06563f1db9241
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>Bulut cihaz iletileri almak için bir örnek uygulamayı çalıştırın
-Bu makalede, Intel Edison'u üzerinde örnek bir uygulamayı dağıtın. Örnek uygulama IOT hub'ınızı gelen iletilere izler. Ayrıca Edison'u için IOT hub'ından iletileri göndermek için bilgisayarınızda gulp görevini çalıştırın. Örnek uygulama iletileri aldığında ışığı yanıp. Herhangi bir sorun varsa, çözümleri için Ara [sorun giderme sayfası][troubleshooting].
+# <a name="run-a-sample-application-tooreceive-cloud-to-device-messages"></a>Örnek uygulama tooreceive bulut-cihaz iletilerini çalıştırın
+Bu makalede, Intel Edison'u üzerinde örnek bir uygulamayı dağıtın. Merhaba örnek uygulaması IOT hub'ınızı gelen iletilere izler. Ayrıca bir gulp görev, bilgisayar toosend iletileri tooEdison IOT hub'ından çalıştırın. Merhaba örnek uygulaması Merhaba iletileri aldığında, hello ışığı yanıp. Herhangi bir sorun varsa, hello çözümlerini arayın [sorun giderme sayfası][troubleshooting].
 
 ## <a name="what-you-will-do"></a>Ne yapacağını
-* Örnek uygulama IOT hub'ınıza bağlanın.
-* Dağıtma ve örnek uygulamayı çalıştırın.
-* İletileri LED blink Edison'u için IOT hub'ından gönderin.
+* Merhaba örnek uygulama tooyour IOT hub bağlayın.
+* Dağıtma ve hello örnek uygulamayı çalıştırın.
+* İletiler, IOT hub tooEdison tooblink hello LED gönderin.
 
 ## <a name="what-you-will-learn"></a>Bilgi edineceksiniz
 Bu makalede, şunları öğreneceksiniz:
-* IOT hub'ınızı gelen iletilere izlemek nasıl.
-* Edison'u için IOT hub'ından bulut-cihaz iletilerini göndermek nasıl.
+* Nasıl IOT hub'ından toomonitor gelen iletileri.
+* Nasıl toosend bulut-cihaz, IOT hub tooEdison iletileri.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
-* Intel Edison'u ayarlamak için kullanın. Edison'u ayarlama hakkında bilgi edinmek için bkz: [Cihazınızı yapılandırmak][configure-your-device].
-* Azure aboneliğinizde oluşturduğunuz IOT hub'ı. IOT hub'ınızı oluşturmayı öğrenmek için bkz: [Azure IOT Hub'ınızı oluşturması][create-your-azure-iot-hub].
+* Intel Edison'u ayarlamak için kullanın. tooset Edison'u, Yukarı nasıl görürüm toolearn [Cihazınızı yapılandırmak][configure-your-device].
+* Azure aboneliğinizde oluşturduğunuz IOT hub'ı. toolearn nasıl toocreate IOT hub'ınızı bkz [Azure IOT Hub'ınızı oluşturması][create-your-azure-iot-hub].
 
-## <a name="connect-the-sample-application-to-your-iot-hub"></a>Örnek uygulama IOT hub'ınıza bağlanın
-1. Depodaki klasöründe olduğunuzdan emin olun `iot-hub-node-edison-getting-started`. Örnek uygulama, aşağıdaki komutları çalıştırarak Visual Studio kodda açın:
+## <a name="connect-hello-sample-application-tooyour-iot-hub"></a>Merhaba örnek uygulama tooyour IOT hub'ı Bağlan
+1. Merhaba depodaki klasöründe olduğunuzdan emin olun `iot-hub-node-edison-getting-started`. Merhaba aşağıdaki komutları çalıştırarak örnek uygulama Visual Studio Code açık hello:
 
    ```bash
    cd Lesson4
    code .
    ```
 
-   Dosyada `app` alt IOT hub'ından gelen iletileri izlemek için kod içeren anahtar kaynak dosyası klasörüdür. `blinkLED` İşlevi yanıp LED.
+   Merhaba Hello dosyasında `app` alt hello kod toomonitor gelen iletilere hello IOT hub'ı içeren hello anahtar kaynak dosyası klasörüdür. Merhaba `blinkLED` işlevi yanıp hello LED.
 
-   ![Depodaki yapısında örnek uygulama][repo-structure]
-2. Yapılandırma dosyası, aşağıdaki komutları çalıştırarak başlatın:
+   ![Depodaki yapısında Merhaba örnek uygulaması][repo-structure]
+2. Merhaba yapılandırma dosyası hello aşağıdaki komutları çalıştırarak başlatın:
 
    ```bash
    npm install
    gulp init
    ```
 
-   ' Ndaki adımları tamamladıysanız [bir Azure işlevi uygulama ve depolama hesabı oluşturmayı] [ create-an-azure-function-app-and-storage-account] dağıtma ve örnek uygulama çalıştırılıyor görev adımı atlayabilirsiniz bu bilgisayarda tüm yapılandırmaları, devralınır. ' Ndaki adımları tamamladıysanız [bir Azure işlevi uygulama ve depolama hesabı oluşturmayı] [ create-an-azure-function-app-and-storage-account] yer tutucuları değiştirmek gereken başka bir bilgisayara `config-edison.json` dosya. `config-edison.json` Giriş klasörü alt klasöründe bir dosyadır.
+   Merhaba adımları tamamladıysanız [bir Azure işlevi uygulama ve depolama hesabı oluşturmayı] [ create-an-azure-function-app-and-storage-account] dağıtma hello adım toohello görev atlayabilirsiniz bu bilgisayarda tüm hello yapılandırmaları, devralınan ve Merhaba örnek uygulama çalıştırılıyor. Merhaba adımları tamamladıysanız [bir Azure işlevi uygulama ve depolama hesabı oluşturmayı] [ create-an-azure-function-app-and-storage-account] başka bir bilgisayara ihtiyacınız hello tooreplace hello yer tutucuları `config-edison.json` dosya. Merhaba `config-edison.json` giriş klasörü hello alt klasöründe bir dosyadır.
 
-   ![Config edison.json dosyasının içeriği](media/iot-hub-intel-edison-lessons/lesson4/config-edison.png)
+   ![Merhaba config edison.json dosyasının içeriği](media/iot-hub-intel-edison-lessons/lesson4/config-edison.png)
 
-   * Değiştir **[aygıt ana bilgisayar adı veya IP adresi]** , düşürüleceği Cihazınızı yapılandırıldığında aygıt IP adresine sahip.
-   * Değiştir **[IOT cihaz bağlantı dizesi]** çalıştırarak aldığınız cihaz bağlantı dizesiyle `az iot device show-connection-string --hub-name {my hub name} --device-id {device id}` komutu.
-   * Değiştir **[IOT hub bağlantı dizesine]** çalıştırarak aldığınız IOT hub bağlantı dizesine sahip `az iot hub show-connection-string --name {my hub name}` komutu.
+   * Değiştir **[aygıt ana bilgisayar adı veya IP adresi]** , düşürüleceği Cihazınızı yapılandırıldığında hello cihaz IP adresine sahip.
+   * Değiştir **[IOT cihaz bağlantı dizesi]** hello cihaz bağlantı dizesiyle hello çalıştırarak aldığınız `az iot device show-connection-string --hub-name {my hub name} --device-id {device id}` komutu.
+   * Değiştir **[IOT hub bağlantı dizesine]** hello hello çalıştırarak aldığınız IOT hub bağlantı dizesine sahip `az iot hub show-connection-string --name {my hub name}` komutu.
 
-## <a name="deploy-and-run-the-sample-application"></a>Dağıtma ve örnek uygulamayı çalıştırma
-Dağıtma ve aşağıdaki komutları çalıştırarak Edison'u üzerinde örnek uygulamayı çalıştırın:
+## <a name="deploy-and-run-hello-sample-application"></a>Dağıtma ve hello örnek uygulamayı çalıştırma
+Dağıtma ve hello aşağıdaki komutları çalıştırarak Edison'u üzerinde hello örnek uygulamayı çalıştırın:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-Gulp komutu Edison'u örnek uygulamayı dağıtır. Ardından, IOT hub'ından Edison'u için 20 blink iletileri göndermek için Edison'u ve ana bilgisayarınızda ayrı bir görev uygulama çalışır.
+Merhaba gulp komutu hello örnek uygulama tooEdison dağıtır. Ardından, onu Merhaba uygulaması Edison'u ve ana bilgisayarınızda ayrı bir görev bilgisayar toosend 20 blink iletileri tooEdison IOT hub'ından çalışır.
 
-Örnek uygulama çalıştıktan sonra IOT hub'ından iletileri dinlemeyi başlatır. Bu sırada, gulp görev Edison'u için IOT hub'ından birkaç "blink" iletileri gönderir. Örnek uygulama Edison'u alan her blink ileti için çağırır `blinkLED` LED blink işlevi.
+Merhaba örnek uygulaması çalıştıktan sonra IOT hub'dan toomessages dinlemeyi başlatır. Bu sırada, hello gulp görev, IOT hub tooEdison birkaç "blink" iletileri gönderir. Edison'u alan her blink ileti için hello örnek uygulama çağırır hello `blinkLED` işlevi tooblink hello LED.
 
-Gulp görev 20 iletileri IOT hub'ından için Edison'u gönderir, her iki saniye LED blink görmeniz gerekir. Bir uygulamanın çalışmasını durduran bir "Durdur" bir iletidir.
+Görev gönderir 20 iletilerden IOT hub tooEdison gulp hello LED blink her iki saniye hello olarak görmeniz gerekir. Merhaba son hello uygulamanın çalışmasını durdurur "Durdur" bir ileti biridir.
 
 ![Örnek uygulama ile komut gulp ve iletileri blink][gulp-command-and-blink-messages]
 
 ## <a name="summary"></a>Özet
-IOT hub'ından LED blink Edison'u için başarıyla iletileri gönderdik. Sonraki görev isteğe bağlıdır: açık ve kapalı LED davranışını değiştirin.
+İleti, IOT hub tooEdison tooblink hello LED başarıyla gönderdik. Merhaba sonraki görev, isteğe bağlı: hello açma ve kapatma hello LED davranışını değiştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Açık ve kapalı LED davranışını değiştirme][change-the-on-and-off-behavior-of-the-led]
+[Merhaba açma ve kapatma hello LED davranışını değiştirme][change-the-on-and-off-behavior-of-the-led]
 
 <!-- Images and links -->
 

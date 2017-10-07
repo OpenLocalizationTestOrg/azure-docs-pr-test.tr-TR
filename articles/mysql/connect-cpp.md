@@ -1,6 +1,6 @@
 ---
-title: "C++'tan MySQL için Azure Veritabanı'na bağlanma | Microsoft Docs"
-description: "Bu hızlı başlangıçta, MySQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz bir C++ kod örneği sağlanmıştır."
+title: "C++ içinden MySQL için tooAzure veritabanına bağlanma | Microsoft Docs"
+description: "Bu hızlı başlangıç MySQL için Azure veritabanındaki verileri sorgulamak ve tooconnect için kullanabileceğiniz bir C++ kod örneğini sağlar."
 services: mysql
 author: seanli1988
 ms.author: seal
@@ -11,17 +11,17 @@ ms.custom: mvc
 ms.devlang: C++
 ms.topic: hero-article
 ms.date: 08/03/2017
-ms.openlocfilehash: 63388b83b913d95136140fa4c56af0dbebbdad81
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d027597bf02b1eacab9b8808957399f6e54e63cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: Connector/C++ kullanarak bağlanma ve veri sorgulama
-Bu hızlı başlangıçta C++ uygulaması kullanarak MySQL için Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. Ayrıca veritabanında veri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini nasıl kullanacağınız da gösterilmiştir. Bu makaledeki adımlarda, C++ kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+# <a name="azure-database-for-mysql-use-connectorc-tooconnect-and-query-data"></a>Azure veritabanı için MySQL: kullanım bağlayıcı/C++ tooconnect ve sorgu verileri
+Bu hızlı başlangıç gösteren Azure tooconnect tooan veritabanı nasıl bir C++ uygulaması kullanarak MySQL için. Nasıl toouse SQL deyimleri tooquery, Ekle, Güncelleştir ve hello veritabanında bulunan verileri silme gösterir. Merhaba bu makaledeki adımları C++ kullanarak geliştirme ile tanıdık olduğunuz ve Azure veritabanı için MySQL ile yeni tooworking olduğunu varsayalım.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
+Bu hızlı başlangıç Bu kılavuzlara birini başlangıç noktası olarak oluşturulan hello kaynakları kullanır:
 - [Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Azure CLI kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -32,35 +32,35 @@ Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birin
 - [Boost](http://www.boost.org/)’u yükleyin
 
 ## <a name="install-visual-studio-and-net"></a>Visual Studio'yu ve .NET'i yükleme
-Bu bölümdeki adımlarda .NET kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz varsayılır.
+Bu bölümdeki Hello adımları geliştirme .NET kullanma hakkında bilgi sahibi olduğunu varsayar.
 
 ### <a name="windows"></a>**Windows**
-1. Android, iOS ve Windows’un yanı sıra web ve veritabanı uygulamaları ile bulut hizmetleri için modern uygulamalar oluşturmaya yönelik tam özellikli, genişletilebilir, ücretsiz bir IDE olan Visual Studio 2017 Community’yi yükleyin. .NET Framework’ün tamamını ya da yalnızca .NET Core’u yükleyebilirsiniz. Hızlı başlangıçtaki kod parçacıkları her ikisiyle de çalışır. Makinenizde Visual Studio zaten yüklüyse, sonraki iki adımı atlayın.
-   - [Visual Studio 2017 yükleyicisi](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)ni indirin. 
-   - Yükleyiciyi çalıştırın ve yükleme istemlerini izleyerek yüklemeyi tamamlayın.
+1. Android, iOS ve Windows’un yanı sıra web ve veritabanı uygulamaları ile bulut hizmetleri için modern uygulamalar oluşturmaya yönelik tam özellikli, genişletilebilir, ücretsiz bir IDE olan Visual Studio 2017 Community’yi yükleyin. Merhaba tam .NET Framework veya .NET Core yükleyebilirsiniz. kod parçacıkları hello hızlı başlangıç çalışma ya da ile Merhaba. Visual Studio yüklüyse, makinenizde zaten varsa, hello sonraki iki adımı atlayın.
+   - Merhaba karşıdan [Visual Studio 2017 yükleyici](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
+   - Merhaba yükleyiciyi çalıştırın ve hello yükleme istemleri toocomplete hello yükleme izleyin.
 
 ### <a name="configure-visual-studio"></a>**Visual Studio'yu yapılandırma**
-1. Visual Studio’dan, proje özelliği > yapılandırma özellikleri > C/C++ > bağlayıcı > genel > ek kitaplık dizinleri’ne gidip c++ bağlayıcısının lib\opt dizinini (ör. C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) ekleyin. 
+1. Visual Studio'dan özellik Proje > yapılandırma özellikleri > C/C++ > bağlayıcı > Genel > ek kitaplık dizinleri hello lib\opt dizin ekleyin (ör: C:\Program Files (x86) \MySQL\MySQL bağlayıcı C++ 1.1.9\lib\opt), hello c ++ Bağlayıcı.
 2. Visual Studio'da proje özelliği > yapılandırma özellikleri > C/C++ > genel’e gidip ek dahil edilecek dizinler
    - c++ bağlayıcısının include/ dizin bilgisini ekleyin (ör. C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)
    - Boost kitaplığının kök dizinini ekleyin (ör. C:\boost_1_64_0\)
-3. Visual Studio'dan proje özelliği > yapılandırma özellikleri > C/C++ > bağlayıcı > Giriş > Ek Bağımlılıklar’a gidip metin alanına mysqlcppconn.lib değerini ekleyin
-4. Adım 3'teki C ++ bağlayıcı kitaplık klasöründen mysqlcppconn.dll dosyasını uygulama yürütülebilir dosyasıyla aynı dizine kopyalayın ya da uygulamanızın dosyayı bulması için ortam değişkenine ekleyin.
+3. Visual Studio'dan özellik Proje > yapılandırma özellikleri > C/C++ > bağlayıcı > giriş > ek bağımlılıklar mysqlcppconn.lib hello metin alanına ekleyin
+4. Her iki kopya mysqlcppconn.dll hello c ++ Bağlayıcısı Kitaplığı'ndaki klasöründen 3. adım toohello yürütülebilir Merhaba uygulaması ile aynı dizinde veya uygulamanızın bulabilmesi toohello ortam değişkeni ekleyin.
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
-MySQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
+Merhaba bağlantı gerekli bilgileri tooconnect toohello Azure veritabanı için MySQL alın. Tam sunucu adını ve oturum açma kimlik bilgileri hello gerekir.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **myserver4demo**) arayın.
-3. Sunucunun adına tıklayın.
-4. Sunucunun **Özellikler** sayfasını seçin. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Merhaba sol taraftaki menüden Azure portalında, **tüm kaynakları** ve oluşturduğunuz, gibi hello sunucu araması **myserver4demo**.
+3. Merhaba sunucu adına tıklayın.
+4. Select hello sunucunun **özellikleri** sayfası. Merhaba Not **sunucu adı** ve **sunucu yönetici oturum açma adı**.
  ![MySQL için Azure Veritabanı sunucu adı](./media/connect-cpp/1_server-properties-name-login.png)
-5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+5. Sunucu oturum açma bilgilerinizi unutursanız, toohello gidin **genel bakış** tooview hello sunucu yönetici oturum açma adı sayfasında ve gerekirse sıfırlamak hello parola.
 
 ## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
-Bağlanıp **CREATE TABLE** ve **INSERT INTO** SQL deyimlerini kullanarak verileri yüklemek için aşağıdaki kodu kullanın. Kod MySQL ile bağlantı kurmak için connect() yöntemiyle sql::Driver sınıfını kullanır. Ardından kod veritabanı komutlarını çalıştırmak için createStatement() ve execute() yöntemlerini kullanır. 
+Kullanım hello aşağıdakileri tooconnect kod ve verileri hello kullanarak yük **CREATE TABLE** ve **INSERT INTO** SQL deyimlerini. Merhaba kod hello connect() yöntemi tooestablish bağlantı tooMySQL sql::Driver sınıfını kullanır. Daha sonra hello kod yöntemi createStatement() ve execute() toorun hello veritabanı komutlarını kullanır. 
 
-Host, DBName, User ve Password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
+Merhaba konak, DBName, kullanıcı ve parola parametrelerini hello sunucu ve veritabanı oluşturduğunuzda belirttiğiniz hello değerlerle değiştirin. 
 
 ```c++
 #include <stdlib.h>
@@ -83,12 +83,12 @@ int main()
     try
     {
         driver = get_driver_instance();
-        //for demonstration only. never save password in the code!
+        //for demonstration only. never save password in hello code!
         con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        cout << "Could not connect toodatabase. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
     }
@@ -125,9 +125,9 @@ int main()
 
 ## <a name="read-data"></a>Verileri okuma
 
-Bağlanmak ve **SELECT** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. Kod MySQL ile bağlantı kurmak için connect() yöntemiyle sql::Driver sınıfını kullanır. Ardından kod, seçme komutlarını çalıştırmak için prepareStatement() ve executeQuery() yöntemlerini kullanır. Son olarak kod next() yöntemini kullanarak sonuçlardaki kayıtlara gider. Ardından kod getInt() ve getString() yöntemini kullanarak kayıttaki değerleri ayrıştırır.
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak verileri okuyun bir **seçin** SQL deyimi. Merhaba kod hello connect() yöntemi tooestablish bağlantı tooMySQL sql::Driver sınıfını kullanır. Ardından hello kod yöntemi prepareStatement() kullanır ve executeQuery() toorun hello komutları seçin. Son olarak hello kodu next() tooadvance toohello kayıtları hello sonuçlarında kullanır. Daha sonra hello kod hello kaydında getInt() ve getString() tooparse hello değerleri kullanır.
 
-Host, DBName, User ve Password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
+Merhaba konak, DBName, kullanıcı ve parola parametrelerini hello sunucu ve veritabanı oluşturduğunuzda belirttiğiniz hello değerlerle değiştirin. 
 
 ```csharp
 #include <stdlib.h>
@@ -151,12 +151,12 @@ int main()
     try
     {
         driver = get_driver_instance();
-        //for demonstration only. never save password in the code!
+        //for demonstration only. never save password in hello code!
         con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        cout << "Could not connect toodatabase. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
     }   
@@ -177,9 +177,9 @@ int main()
 ```
 
 ## <a name="update-data"></a>Verileri güncelleştirme
-Bağlanmak ve **UPDATE** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. Kod MySQL ile bağlantı kurmak için connect() yöntemiyle sql::Driver sınıfını kullanır. Ardından kod, güncelleme komutlarını çalıştırmak için prepareStatement() ve executeQuery() yöntemlerini kullanır. 
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak verileri okuyun bir **güncelleştirme** SQL deyimi. Merhaba kod hello connect() yöntemi tooestablish bağlantı tooMySQL sql::Driver sınıfını kullanır. Daha sonra hello kod yöntemi prepareStatement() ve executeQuery() toorun hello güncelleştirme komutları kullanır. 
 
-Host, DBName, User ve Password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
+Merhaba konak, DBName, kullanıcı ve parola parametrelerini hello sunucu ve veritabanı oluşturduğunuzda belirttiğiniz hello değerlerle değiştirin. 
 
 ```csharp
 #include <stdlib.h>
@@ -201,12 +201,12 @@ int main()
     try
     {
         driver = get_driver_instance();
-        //for demonstration only. never save password in the code!
+        //for demonstration only. never save password in hello code!
         con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        cout << "Could not connect toodatabase. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
     }   
@@ -227,9 +227,9 @@ int main()
 
 
 ## <a name="delete-data"></a>Verileri silme
-Bağlanmak ve **DELETE** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. Kod MySQL ile bağlantı kurmak için connect() yöntemiyle sql::Driver sınıfını kullanır. Ardından kod, silme komutlarını çalıştırmak için prepareStatement() ve executeQuery() yöntemlerini kullanır.
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak verileri okuyun bir **silmek** SQL deyimi. Merhaba kod hello connect() yöntemi tooestablish bağlantı tooMySQL sql::Driver sınıfını kullanır. Daha sonra hello kod yöntemi prepareStatement() kullanır ve executeQuery() toorun hello komutları silin.
 
-Host, DBName, User ve Password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
+Merhaba konak, DBName, kullanıcı ve parola parametrelerini hello sunucu ve veritabanı oluşturduğunuzda belirttiğiniz hello değerlerle değiştirin. 
 
 ```csharp
 #include <stdlib.h>
@@ -253,12 +253,12 @@ int main()
     try
     {
         driver = get_driver_instance();
-        //for demonstration only. never save password in the code!
+        //for demonstration only. never save password in hello code!
         con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        cout << "Could not connect toodatabase. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
     }
@@ -279,4 +279,4 @@ int main()
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
-> [Döküm alma ve geri yükleme işlemlerini kullanarak MySQL veritabanınızı MySQL için Azure Veritabanı'na geçirme](concepts-migrate-dump-restore.md)
+> [MySQL veritabanı tooAzure veritabanı için MySQL döküm ve geri yükleme kullanarak geçirme](concepts-migrate-dump-restore.md)

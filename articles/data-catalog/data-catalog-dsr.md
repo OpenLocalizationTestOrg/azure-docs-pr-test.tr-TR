@@ -1,6 +1,6 @@
 ---
-title: "Veri kaynakları Azure veri Kataloğu'nda desteklenen | Microsoft Docs"
-description: "Bu makalede belirtimleri şu anda desteklenen veri kaynakları listeler."
+title: "Azure veri Kataloğu'ndaki aaaSupported veri kaynaklarında | Microsoft Docs"
+description: "Bu makalede belirtimleri hello şu anda desteklenen veri kaynakları listeler."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: d6867c73bc6ea3c238cceef8a68466d451f3365c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 4bfcabf31bf9fd781c939a5026abc42a5407df32
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure veri Kataloğu desteklenen veri kaynakları
 
-Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-kez kayıt aracı veya bilgileri el ile doğrudan Azure veri Kataloğu'na girerek web portalı. Aşağıdaki tabloda katalog Bugün ve yayımlama özellikleri tarafından her biri için desteklenen tüm veri kaynakları özetler. Ayrıca her veri kaynağı bizim "birlikte açma" portal deneyimlerden başlatabilirsiniz dış veri araçları listelenmiştir. İkinci tablonun her veri kaynağı bağlantı özelliği daha fazla teknik belirtimini içerir.
+Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-kez kayıt aracını veya toohello Azure veri Kataloğu web doğrudan portal el ile girerek bilgi. Merhaba aşağıdaki tabloda hello Kataloğu tarafından bugün desteklenir ve her biri için yayımlama özellikleri hello tüm veri kaynakları özetlenmektedir. Ayrıca hello her veri kaynağı bizim "birlikte açma" portal deneyimlerden başlatabilirsiniz dış veri araçları listelenmiştir. Hello ikinci tablonun her veri kaynağı bağlantı özelliği daha fazla teknik belirtimini içerir.
 
 
 ## <a name="list-of-supported-data-sources"></a>Desteklenen veri kaynaklarının listesi
@@ -443,12 +443,12 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
     </tr>
 </table>
 
-Ek kaynaklar için destek gerekiyorsa, bir özellik isteği gönderin [Azure veri Kataloğu Forumu](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Ek kaynaklar için destek gerekiyorsa, bir özellik isteği toohello gönderme [Azure veri Kataloğu Forumu](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 
 ## <a name="data-source-reference-specification"></a>Veri kaynağı başvurusu belirtimi
 > [!NOTE]
-> **DSL yapısı** sütunu aşağıdaki tabloda, Azure veri Kataloğu tarafından kullanılan bağlantı özellikleri "Adres" özellik paketi için listeler. Diğer bir deyişle, "Adres" özellik paketi diğer Azure veri Kataloğu devam ederse, ancak kullanmayan veri kaynağının bağlantı özelliklerini içerebilir.
+> Merhaba **DSL yapısı** aşağıdaki tablonun hello sütununda Azure veri Kataloğu tarafından kullanılan hello bağlantı özellikleri "Adres" özellik paketi için listeler. Diğer bir deyişle, "Adres" özellik paketi diğer Azure veri Kataloğu devam ederse, ancak kullanmayan hello veri kaynağının bağlantı özelliklerini içerebilir.
 
 <table>
     <tr>
@@ -970,7 +970,7 @@ Ek kaynaklar için destek gerekiyorsa, bir özellik isteği gönderin [Azure ver
       </td>
     </tr>
     <tr>
-      <td>Diğer (Yukarıdakilerin hiçbiri)</td>
+      <td>Diğer (yukarıdaki hello hiçbiri)</td>
       <td>\*</td>
       <td>\*</td>
       <td>

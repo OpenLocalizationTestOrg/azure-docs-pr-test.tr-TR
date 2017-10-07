@@ -1,6 +1,6 @@
 ---
-title: "Yazılım RAID Linux çalıştıran bir sanal makinede yapılandırmak | Microsoft Docs"
-description: "Mdadm Azure'da RAID Linux'ta yapılandırmak için nasıl kullanılacağını öğrenin."
+title: "aaaConfigure yazılım RAID Linux çalıştıran bir sanal makinede | Microsoft Docs"
+description: "Nasıl toouse mdadm tooconfigure RAID Linux Azure üzerinde öğrenin."
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: 12f540a700fbf85e579e8aadc9f6def039299ff7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f06e2679d953faf88ffee9991226cdb3cc1cbdb0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-software-raid-on-linux"></a>Linux’ta Yazılım RAID yapılandırma
-Yazılım RAID Linux sanal makinelerde tek bir RAID aygıt olarak birden çok eklenen veri disklerini sunmak için Azure içinde kullanmak için ortak bir senaryodur. Genellikle bu performansı artırmak ve yalnızca tek bir disk kullanmaya kıyasla geliştirilmiş işleme için izin vermek için kullanılabilir.
+Yaygın bir senaryo toouse yazılım RAID Linux sanal makinelerde tek bir RAID aygıt olarak birden çok ekli veri diskleri Azure toopresent ayarlanır. Genellikle bu kullanılan tooimprove performans ve işleme toousing yalnızca tek bir disk karşılaştırıldığında geliştirilmiş için izin verebilirsiniz.
 
 ## <a name="attaching-data-disks"></a>Veri diskleri ekleme
-İki veya daha fazla boş veri diskler, RAID aygıtı yapılandırmak için gereklidir.  Disk GÇ performansı artırmak için bir RAID aygıtı oluşturmak için birincil nedeni olmasıdır.  G/ç gereksinimlerinize bağlı olarak, en fazla 500 GÇ/ps disk veya bizim Premium storage başına disk başına en fazla 5000 GÇ/ps ile bizim standart depolamada depolanan diskleri ekleme seçebilirsiniz. Bu makalede, sağlamak ve veri diskleri için Linux sanal makine ekleme konusunda ayrıntıya geçmez.  Microsoft Azure makalesine bakın [bir diski kullanıma açın](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Azure Linux sanal makinede boş veri diski ekleme konusunda ayrıntılı yönergeler için.
+İki veya daha fazla boş veri diskleri gerekli tooconfigure RAID aygıtı içindir.  RAID aygıtı oluşturmak için hello birincil tooimprove, disk g/ç performansını nedenidir.  G/ç gereksinimlerinize bağlı olarak, standart bizim depolama biriminde, too500 GÇ/ps disk veya too5000 GÇ/ps disk başına yukarı bizim Premium storage ile başına yukarı ile depolanan tooattach diskleri seçebilirsiniz. Bu makalede nasıl ayrıntıya geçmez tooprovision ve veri diskleri tooa Linux sanal makine ekleyin.  Bkz: hello Microsoft Azure makale [bir diski kullanıma açın](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nasıl tooattach boş bir veri diski tooa Linux sanal makine Azure ile ilgili ayrıntılı yönergeler için.
 
-## <a name="install-the-mdadm-utility"></a>Mdadm yardımcı programını yükleyin
+## <a name="install-hello-mdadm-utility"></a>Merhaba mdadm yardımcı programını yükleyin
 * **Ubuntu**
 ```bash
 sudo apt-get update
@@ -44,30 +44,30 @@ sudo yum install mdadm
 zypper install mdadm
 ```
 
-## <a name="create-the-disk-partitions"></a>Disk bölümleri oluşturma
-Bu örnekte, /dev/sdc üzerinde tek disk bölümü oluşturuyoruz. Yeni disk bölümü /dev/sdc1 çağrılır.
+## <a name="create-hello-disk-partitions"></a>Merhaba disk bölümleri oluşturma
+Bu örnekte, /dev/sdc üzerinde tek disk bölümü oluşturuyoruz. Merhaba yeni disk bölümü /dev/sdc1 çağrılır.
 
-1. Başlat `fdisk` bölümleri oluşturmaya başlamak için
+1. Başlat `fdisk` toobegin bölümleri oluşturma
 
     ```bash
     sudo fdisk /dev/sdc
     Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
     Building a new DOS disklabel with disk identifier 0xa34cb70c.
-    Changes will remain in memory only, until you decide to write them.
-    After that, of course, the previous content won't be recoverable.
+    Changes will remain in memory only, until you decide toowrite them.
+    After that, of course, hello previous content won't be recoverable.
 
     WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
-                    switch off the mode (command 'c') and change display units to
+                    switch off hello mode (command 'c') and change display units to
                     sectors (command 'u').
     ```
 
-2. Tuşuna 'n' oluşturmak için komut istemine bir  **n** eni bölüm:
+2. Tuşuna 'n' hello komut istemi toocreate konumunda bir  **n** eni bölüm:
 
     ```bash
     Command (m for help): n
     ```
 
-3. Ardından, oluşturmak için ' p' tuşuna basın. bir **p**birincil bölüm:
+3. Ardından, 'p' toocreate'e basın bir **p**birincil bölüm:
 
     ```bash 
     Command action
@@ -75,50 +75,50 @@ Bu örnekte, /dev/sdc üzerinde tek disk bölümü oluşturuyoruz. Yeni disk bö
             p   primary partition (1-4)
     ```
 
-4. Bölüm numarası 1 seçmek için '1' tuşuna basın:
+4. '1' tooselect bölüm numarası 1 tuşuna basın:
 
     ```bash
     Partition number (1-4): 1
     ```
 
-5. Yeni bölüm veya tuşuna başlangıç noktasını seçin `<enter>` sürücüdeki boş alan başına bölüm yerleştirmek için Varsayılanı kabul etmek için:
+5. Select hello hello yeni bölüm basın veya başlangıç noktası `<enter>` tooaccept hello varsayılan tooplace hello bölüm hello başında hello hello sürücüdeki boş disk alanı:
 
     ```bash   
     First cylinder (1-1305, default 1):
     Using default value 1
     ```
 
-6. Bölümün boyutunu seçin, örneğin bir 10 gigabayt bölüm oluşturmak için ' +10G' yazın. Veya basın `<enter>` sürücünün tamamını kapsayan tek bir bölüm oluşturun:
+6. Merhaba bölümü, örneğin türü '+10G' toocreate 10 gigabayt bölüm Hello boyutunu seçin. Veya basın `<enter>` hello sürücünün tamamını kapsayan tek bir bölüm oluşturun:
 
     ```bash   
     Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
     Using default value 1305
     ```
 
-7. Ardından, Tanıtıcıyı değiştirin ve **t**türü bölümün varsayılan Kimliği '83' nden (Linux) kimliği 'fd' (Linux RAID otomatik):
+7. Ardından, hello Kimliğini değiştirin ve **t**türü hello varsayılan hello bölümünün Kimliği '83' (Linux) tooID 'fd' (Linux RAID otomatik):
 
     ```bash  
     Command (m for help): t
     Selected partition 1
-    Hex code (type L to list codes): fd
+    Hex code (type L toolist codes): fd
     ```
 
-8. Son olarak, bölümleme tablosu diske yazma ve fdisk Çık:
+8. Son olarak, hello bölüm tablo toohello sürücüsü yazmak ve fdisk Çık:
 
     ```bash   
     Command (m for help): w
-    The partition table has been altered!
+    hello partition table has been altered!
     ```
 
-## <a name="create-the-raid-array"></a>RAID dizisi oluşturma
-1. Aşağıdaki örnek "stripe üç bölüm üç ayrı veri disk üzerinde (sdc1, sdd1, sde1) bulunan" (RAID Düzey 0).  Adlı yeni bir RAID cihaz bu komutu çalıştırdıktan sonra **/dev/md127** oluşturulur. Ayrıca bu veri diskleri, biz daha önce başka bir geçersiz RAID dizisi parçası onu eklemek için gereken olabileceğine dikkat edin `--force` parametresi `mdadm` komutu:
+## <a name="create-hello-raid-array"></a>Merhaba RAID dizisi oluşturma
+1. Aşağıdaki örnek "stripe üç bölüm üç ayrı veri disk üzerinde (sdc1, sdd1, sde1) bulunan" (RAID Düzey 0) hello.  Adlı yeni bir RAID cihaz bu komutu çalıştırdıktan sonra **/dev/md127** oluşturulur. Ayrıca bu veri diskleri, biz daha önce başka bir geçersiz RAID dizisi parçası, gerekli tooadd hello olabileceğine dikkat edin `--force` parametresi toohello `mdadm` komutu:
 
     ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
         /dev/sdc1 /dev/sdd1 /dev/sde1
     ```
 
-2. Dosya sistemi yeni RAID cihazda oluştur
+2. Merhaba yeni RAID aygıtta Hello dosya sistemi oluşturma
    
     a. **CentOS, Oracle Linux SLES 12, openSUSE ve Ubuntu**
 
@@ -144,16 +144,16 @@ Bu örnekte, /dev/sdc üzerinde tek disk bölümü oluşturuyoruz. Yeni disk bö
    > 
    > 
 
-## <a name="add-the-new-file-system-to-etcfstab"></a>Yeni dosya sistemi için /etc/fstab Ekle
+## <a name="add-hello-new-file-system-tooetcfstab"></a>Merhaba yeni dosya sistemi çok/etc/fstab Ekle
 > [!IMPORTANT]
-> Yanlış /etc/fstab dosyasını düzenleyerek önyüklenemez bir sisteme neden olabilir. Emin değilseniz, düzgün şekilde bu dosyayı düzenlemek hakkında bilgi için dağıtım 's belgelerine bakın. Ayrıca, düzenlemeye başlamadan önce /etc/fstab dosyanızın bir yedeğini oluşturduğunuz önerilir.
+> Yanlış hello /etc/fstab dosyasını düzenleyerek önyüklenemez bir sisteme neden olabilir. Emin değilseniz, bu dosyayı tooproperly düzenleme nasıl bilgi toohello dağıtım'ın belgelerine başvurun. Ayrıca, düzenlemeye başlamadan önce hello /etc/fstab dosyanızın bir yedeğini oluşturduğunuz önerilir.
 
-1. Örneğin, yeni bir dosya sistemi için istenen bağlama noktası oluşturun:
+1. Örneğin, yeni bir dosya sistemi için istenen hello bağlama noktası oluşturun:
 
     ```bash
     sudo mkdir /data
     ```
-2. /Etc/fstab, düzenlerken **UUID** aygıt adı yerine dosya sistemine başvurmak için kullanılmalıdır.  Kullanım `blkid` yeni dosya sistemi için UUID belirlemeye yardımcı programı:
+2. /Etc/fstab düzenlerken hello **UUID** kullanılan tooreference hello dosya hello yerine sistem aygıt adı olmalıdır.  Kullanım hello `blkid` yardımcı programı toodetermine hello UUID hello yeni dosya sistemi için:
 
     ```bash   
     sudo /sbin/blkid
@@ -161,7 +161,7 @@ Bu örnekte, /dev/sdc üzerinde tek disk bölümü oluşturuyoruz. Yeni disk bö
     /dev/md127: UUID="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" TYPE="ext4"
     ```
 
-3. /Etc/fstab bir metin düzenleyicisinde açın ve yeni dosya sistemi için bir giriş örneğin ekleyin:
+3. /Etc/fstab bir metin düzenleyicisinde açın ve örneğin hello yeni dosya sistemi için bir giriş ekleyin:
 
     ```bash   
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
@@ -175,15 +175,15 @@ Bu örnekte, /dev/sdc üzerinde tek disk bölümü oluşturuyoruz. Yeni disk bö
    
     Ardından, kaydedin ve /etc/fstab kapatın.
 
-4. / Etc/fstab girişin doğru olduğunu sınayın:
+4. Bu hello/etc test/fstab girişi doğrudur:
 
     ```bash  
     sudo mount -a
     ```
 
-    Bu komutu bir hata iletisi sonuçlanırsa, lütfen /etc/fstab dosyasında sözdizimini denetleyin.
+    Lütfen bu komutu bir hata iletisi sonuçlanırsa hello /etc/fstab dosyasında hello sözdizimini denetleyin.
    
-    Sonraki çalıştırma `mount` komutu dosya sistemi takılı emin olun:
+    Merhaba sonraki çalıştırma `mount` komutu tooensure hello dosya sistemi takılı:
 
     ```bash   
     mount
@@ -195,7 +195,7 @@ Bu örnekte, /dev/sdc üzerinde tek disk bölümü oluşturuyoruz. Yeni disk bö
    
     **fstab yapılandırma**
    
-    Çoğu dağıtımda ya da dahil `nobootwait` veya `nofail` bağlama/etc/fstab dosyasına eklenen parametreleri. Bu parametreler belirli dosya sistemi bağlanması gerektiğinde hataları için izin ve Linux sistemin düzgün RAID dosya sistemi bağlama alamıyor olsa bile önyüklemeye devam etmesini izin ver. Bu parametreler hakkında daha fazla bilgi için dağıtım 's belgelerine bakın.
+    Çoğu dağıtımda ya da hello dahil `nobootwait` veya `nofail` fstab toohello/etc/dosya eklenebilir parametreleri bağlayın. Bu parametreleri oluşturulamıyor tooproperly bağlama hello RAID dosya sistemi olsa bile hello Linux sistem toocontinue tooboot izin ve hataları için belirli dosya sistemi bağlarken izin verin. Bu parametreler hakkında daha fazla bilgi için tooyour dağıtım'ın belgelerine başvurun.
    
     Örnek (Ubuntu):
 
@@ -205,26 +205,26 @@ Bu örnekte, /dev/sdc üzerinde tek disk bölümü oluşturuyoruz. Yeni disk bö
 
     **Linux önyükleme parametreleri**
    
-    Yukarıdaki parametreler, çekirdek parametresi ek olarak "`bootdegraded=true`" sanal makineden bir veri sürücüsünü yanlışlıkla kaldırdıysanız RAID zarar görmüş veya düşürülmüş için örnek olarak algılanan olsa bile önyükleme sisteme izin verebilirsiniz. Varsayılan olarak bu önyüklenebilir olmayan bir sistemi sonuçlanabilir.
+    Çekirdek parametresi parametreleri yukarıda toplama toohello içinde hello "`bootdegraded=true`" Merhaba RAID olarak algılanır zarar görmesi veya hello sanal makineden bir veri sürücüsünü yanlışlıkla kaldırdıysanız örneğin düşürülmüş olsa bile hello sistem tooboot izin verebilirsiniz. Varsayılan olarak bu önyüklenebilir olmayan bir sistemi sonuçlanabilir.
    
-    Lütfen düzgün çekirdek parametrelerini düzenlemek nasıl dağıtım 's belgelerine bakın. Örneğin, çoğu dağıtımda (CentOS, Oracle Linux, SLES 11) Bu parametreleri el ile çok eklenebilir "`/boot/grub/menu.lst`" dosya.  Ubuntu üzerinde bu parametreyi eklenebilir `GRUB_CMDLINE_LINUX_DEFAULT` değişkeninin "/ etc/varsayılan/kaz".
+    Lütfen tooproperly düzenleme çekirdek parametreleri nasıl üzerinde tooyour dağıtım'ın belgelerine bakın. Örneğin, çoğu dağıtımda (CentOS, Oracle Linux, SLES 11) Bu parametreleri el ile toohello eklenebilir "`/boot/grub/menu.lst`" dosya.  Bu parametre toohello üzerinde ubuntu eklenebilir `GRUB_CMDLINE_LINUX_DEFAULT` değişkeninin "/ etc/varsayılan/kaz".
 
 
 ## <a name="trimunmap-support"></a>KIRPMA/UNMAP desteği
-Bazı Linux tekrar disk üzerindeki kullanılmayan blokları atmak için KIRPMA/UNMAP işlemleri desteklemez. Bu işlemler sayfaları silinmiş Azure artık geçerli değil ve iptal edilecek bildirmek için standart depolama öncelikle faydalıdır. Büyük dosyaları oluşturmak ve bunları silerseniz sayfaları atılıyor maliyet kaydedebilirsiniz.
+Bazı Linux tekrar KIRPMA/UNMAP işlemleri toodiscard destek hello diskte kullanılmayan engeller. Bu işlemler sayfaları silinmiş Azure artık geçerli değil ve iptal edilecek standart depolama tooinform öncelikle faydalıdır. Büyük dosyaları oluşturmak ve bunları silerseniz sayfaları atılıyor maliyet kaydedebilirsiniz.
 
 > [!NOTE]
-> Dizi öbek boyutu (512 KB) varsayılan değerinden ayarlanırsa RAID atma komutları verin değil. Ana bilgisayarda unmap ayrıntı düzeyi de 512 KB olmasıdır. Dizinin öbek boyutu mdadm'ın aracılığıyla değiştirilmiş varsa `--chunk=` parametresi sonra KIRPMA ve eşlemesini istekleri çekirdekten dikkate.
+> Merhaba öbek boyutunu hello dizisi için tooless hello varsayılan (512 KB) daha ayarlarsanız RAID atma komutları verin değil. Merhaba eşlemesini olmasıdır ayrıntı düzeyi hello ana bilgisayar üzerinde değil de 512KB. Merhaba dizinin öbek boyutu mdadm'ın aracılığıyla değiştirilmiş varsa `--chunk=` parametresi sonra KIRPMA ve eşlemesini istekleri hello çekirdekten dikkate.
 
-KIRPMA etkinleştirmenin iki yolu desteği, Linux VM'NİZDE vardır. Her zamanki gibi dağıtımınız için önerilen yaklaşım bakın:
+Tooenable KIRPMA desteği, Linux VM'NİZDE iki yolu vardır. Her zamanki gibi dağıtımınız için önerilen yaklaşımı hello bakın:
 
-- Kullanım `discard` bağlama seçeneği `/etc/fstab`, örneğin:
+- Kullanım hello `discard` bağlama seçeneği `/etc/fstab`, örneğin:
 
     ```bash
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
     ```
 
-- Bazı durumlarda `discard` seçeneği performans etkileri olabilir. Alternatif olarak, çalıştırabilirsiniz `fstrim` komutunu el ile komut satırından veya düzenli olarak çalışacak şekilde crontab için ekleyin:
+- Bazı durumlarda hello içinde `discard` seçeneği performans etkileri olabilir. Alternatif olarak, hello çalıştırabilirsiniz `fstrim` komutunu el ile Merhaba komut satırından veya tooyour crontab toorun düzenli olarak ekleyin:
 
     **Ubuntu**
 

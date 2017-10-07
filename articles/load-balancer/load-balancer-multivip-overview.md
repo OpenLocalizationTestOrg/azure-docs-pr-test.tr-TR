@@ -1,5 +1,5 @@
 ---
-title: "Azure için birden çok Vip yük dengeleyici | Microsoft Docs"
+title: "Azure yük dengeleyici VIP'ler aaaMultiple | Microsoft Docs"
 description: "Azure yük dengeleyici üzerinde birden çok Vip genel bakış"
 services: load-balancer
 documentationcenter: na
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
-ms.openlocfilehash: d9e88b859020be2a96a57a01e5624052ed134b64
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e186e1248e7d187e7efd0668dc3244465ce3e156
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="multiple-vips-for-azure-load-balancer"></a>Azure Load Balancer için birden çok VIP
 
-Azure yük dengeleyici, birden çok bağlantı noktası, birden çok IP adresi veya her ikisi de Hizmetleri yüklemenizi sağlar. Genel ve iç yük dengeleyici tanımları Bakiye akışları VM'ler kümesi boyunca yüklemek için kullanabilirsiniz.
+Azure yük dengeleyici tooload Hizmetleri birden çok bağlantı noktası, birden çok IP adresi veya her ikisi de sağlar. Sanal makineleri bir dizi arasında ortak ve iç yük dengeleyici tanımları tooload Bakiye akışları kullanabilirsiniz.
 
-Bu makalede, bu özelliği, önemli kavramlar ve kısıtlamaları temelleri açıklanır. Yalnızca bir IP adresi hizmetlerinde kullanıma sunmak istiyorsanız, için Basitleştirilmiş yönergelerini bulabilirsiniz [ortak](load-balancer-get-started-internet-portal.md) veya [iç](load-balancer-get-started-ilb-arm-portal.md) yük dengeleyici yapılandırmalarının. Birden çok Vip eklemek için tek bir VIP yapılandırması artımlı olur. Bu makalede kavramları kullanarak herhangi bir zamanda Basitleştirilmiş bir yapılandırma genişletebilirsiniz.
+Bu makalede, bu özelliği, önemli kavramlar ve kısıtlamaları hello temelleri açıklanır. Bir IP adresi yalnızca tooexpose Hizmetleri düşünüyorsanız için Basitleştirilmiş yönergelerini bulabilirsiniz [ortak](load-balancer-get-started-internet-portal.md) veya [iç](load-balancer-get-started-ilb-arm-portal.md) yük dengeleyici yapılandırmalarının. Birden çok Vip ekleme artımlı tooa tek VIP yapılandırmadır. Bu makalede Hello kavramları kullanarak herhangi bir zamanda Basitleştirilmiş bir yapılandırma genişletebilirsiniz.
 
-Bir Azure yük dengeleyici tanımladığınızda, bir ön uç ve arka uç yapılandırması kuralları ile bağlanır. Kuralı tarafından başvurulan durumu araştırması nasıl yeni akışları belirlemek için kullanılan bir düğüme arka uç havuzundaki gönderilir. Ön uç sanal IP (bir IP adresi (ortak veya dahili), Aktarım Protokolü (UDP veya TCP) ve bir bağlantı noktası numarası oluşan 3-tanımlama grubu olan bir VIP tarafından), tanımlanır. Bir DIP, arka uç havuzundaki bir VM'ye bağlı bir Azure sanal NIC üzerinde bir IP adresidir.
+Bir Azure yük dengeleyici tanımladığınızda, bir ön uç ve arka uç yapılandırması kuralları ile bağlanır. Merhaba hello kuralı tarafından başvurulan durumu araştırması olduğu kullanılan toodetermine nasıl yeni akışları hello arka uç havuzundaki tooa düğümü gönderilir. Merhaba ön uç sanal IP (bir IP adresi (ortak veya dahili), Aktarım Protokolü (UDP veya TCP) ve bir bağlantı noktası numarası oluşan 3-tanımlama grubu olan bir VIP tarafından), tanımlanır. Bir DIP tooa VM hello arka uç havuzundaki bir Azure sanal NIC üzerinde bir IP adresine bağlı olur.
 
-Aşağıdaki tabloda bazı örnek ön uç yapılandırmaları içerir:
+Aşağıdaki tablonun hello bazı örnek ön uç yapılandırmaları içerir:
 
 | VIP | IP adresi | Protokolü | port |
 | --- | --- | --- | --- |
@@ -37,72 +37,72 @@ Aşağıdaki tabloda bazı örnek ön uç yapılandırmaları içerir:
 | 3 |65.52.0.1 |*UDP* |80 |
 | 4 |*65.52.0.2* |TCP |80 |
 
-Tablo dört farklı ön uçlar gösterir. Ön Uçlar #1, #2 ve #3 birden çok kural ile tek bir VIP değerlerdir. Aynı IP adresi kullanılır ancak protokolü ve bağlantı noktası her ön uç için farklıdır. Ön Uçlar #1 ve #4 aynı ön uç protokolü ve bağlantı noktası birden çok Vip burada yeniden birden çok Vip bir örnektir.
+Merhaba tablo dört farklı ön uçlar gösterir. Ön Uçlar #1, #2 ve #3 birden çok kural ile tek bir VIP değerlerdir. Merhaba aynı IP adresi kullanılır ancak başlangıç bağlantı noktası veya protokolü her ön uç için farklıdır. Ön Uçlar #1 ve #4 burada hello aynı ön uç protokolü ve bağlantı noktası birden çok Vip tekrar birden çok Vip bir örnektir.
 
-Azure yük dengeleyici Yük Dengeleme kuralları tanımlama esneklik sağlar. Nasıl bir adresi ve bağlantı noktası ön uç üzerinde eşlendiği arka uç bağlantı noktası ve hedef adresi için bir kural bildirir. Arka uç bağlantı noktaları kuralları yeniden kural türüne bağlıdır. Her kural türünün, ana bilgisayar yapılandırması ve araştırma tasarım etkileyebilir belirli gereksinimleri vardır. İki kural türü vardır:
+Azure yük dengeleyici hello Yük Dengeleme kuralları tanımlama esneklik sağlar. Bir kuralın nasıl bir adresi ve bağlantı noktası hello ön uçta olduğu eşlenen toohello hedef adresi ve bağlantı hello arka uç noktasına bildirir. Arka uç bağlantı noktaları kuralları yeniden hello kural hello türüne bağlıdır. Her kural türünün, ana bilgisayar yapılandırması ve araştırma tasarım etkileyebilir belirli gereksinimleri vardır. İki kural türü vardır:
 
-1. Hiçbir arka uç bağlantı noktasını yeniden varsayılan kural
-2. Arka uç bağlantı noktaları nerede tekrar kayan IP kuralı
+1. Merhaba varsayılan kuralı arka uç bağlantı noktasıyla yeniden
+2. arka uç bağlantı noktaları nerede tekrar hello kayan IP kuralı
 
-Azure yük dengeleyici aynı yük dengeleyici yapılandırmasında her iki kural türlerini karma olarak sağlar. Kural kısıtlamalar tarafından uymanız sürece yük dengeleyici bunları aynı anda belirli bir VM veya herhangi bir birleşimini kullanabilirsiniz. Seçtiğiniz hangi kural türü, uygulamanızın gereksinimlerine ve bu yapılandırmayı destekleyen karmaşıklığına bağlıdır. Hangi kural türlerinin senaryonuz için en iyi olduğunu değerlendirmelidir.
+Azure yük dengeleyici sağlar, her ikisi de kural türleri üzerinde toomix hello aynı yük dengeleyici yapılandırması. Merhaba kural hello kısıtlamalar tarafından uymanız sürece hello yük dengeleyici bunları aynı anda belirli bir VM veya herhangi bir birleşimini kullanabilirsiniz. Seçtiğiniz hangi kural türü bu yapılandırmayı destekleyen, uygulama ve hello karmaşıklığını hello gereksinimlerine bağlıdır. Hangi kural türlerinin senaryonuz için en iyi olduğunu değerlendirmelidir.
 
-Biz bu senaryolar daha fazla varsayılan davranışı ile başlatarak keşfedin.
+Biz bu senaryolar daha fazla hello varsayılan davranışı ile başlatarak keşfedin.
 
 ## <a name="rule-type-1-no-backend-port-reuse"></a>Kural türü #1: hiçbir arka uç bağlantı noktasını yeniden kullanma
 
 ![MultiVIP çizim](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
-Bu senaryoda, ön uç VIP'ler aşağıdaki gibi yapılandırılır:
+Bu senaryoda, hello ön uç VIP'ler yapılandırılmış olan aşağıdaki gibi:
 
 | VIP | IP adresi | Protokolü | port |
 | --- | --- | --- | --- |
 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
 
-DIP gelen akışının hedefi değil. Arka uç havuzundaki her VM benzersiz bir bağlantı noktası bir DIP üzerinde istenen hizmeti kullanıma sunar. Bu hizmet, bir kural tanımı aracılığıyla ön uç ile ilişkilidir.
+Merhaba DIP hello hello hedefi olan gelen akış. Merhaba arka uç havuzundaki her VM benzersiz bir bağlantı noktası bir DIP üzerinde istenen hello hizmeti kullanıma sunar. Bu hizmet, bir kural tanımı aracılığıyla hello ön uç ile ilişkilidir.
 
 Şu iki kural tanımlayın:
 
-| Kural | Ön uç eşleme | Arka uç havuzuna |
+| Kural | Ön uç eşleme | toobackend havuzu |
 | --- | --- | --- |
 | 1 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 |![arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
 | 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 |![arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
-Azure yük dengeleyici tam eşlemesindeki şimdi aşağıdaki gibidir:
+Azure yük dengeleyici tam eşlemesindeki Hello şimdi aşağıdaki gibidir:
 
 | Kural | VIP IP adresi | Protokolü | port | Hedef | port |
 | --- | --- | --- | --- | --- | --- |
 | ![Kural](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |DIP IP adresi |80 |
 | ![Kural](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |DIP IP adresi |81 |
 
-Her kural benzersiz bir hedef IP adresi ve hedef bağlantı noktası birleşimi ile akışını üretmek gerekir. Hedef bağlantı noktası akışının değiştirerek, birden çok kural akışları farklı bağlantı noktalarını aynı DIP ulaştırabilirsiniz.
+Her kural benzersiz bir hedef IP adresi ve hedef bağlantı noktası birleşimi ile akışını üretmek gerekir. Değişen hello hedef bağlantı noktası hello akış tarafından birden çok kural farklı bağlantı noktalarını aynı DIP akışları toohello sunabilir.
 
-Sistem durumu araştırmalarının her zaman bir VM DIP için yönlendirilirsiniz. Sağlamanız gerekir, araştırma VM durumunu yansıtır.
+Sistem durumu araştırmalarının her zaman yönlendirilmiş toohello VM DIP olur. Sağlamanız gerekir, araştırma hello VM hello durumunu yansıtır.
 
 ## <a name="rule-type-2-backend-port-reuse-by-using-floating-ip"></a>Kural türü #2: kayan IP kullanarak arka uç bağlantı noktasını yeniden kullanma
 
-Azure yük dengeleyici ön uç bağlantı noktası üzerinden birden çok Vip kullanılan kural türü ne olursa olsun yeniden kullanma esnekliği sağlar. Ayrıca, bazı uygulama senaryoları tercih veya arka uç havuzundaki tek bir VM üzerindeki birden çok uygulama örneği tarafından kullanılmak üzere aynı bağlantı noktası gerektirir. Bağlantı noktası yeniden ortak örnekleri için yüksek kullanılabilirliği kümeleme içerir, ağ sanal Gereçleri ve birden çok TLS uç noktaları yeniden şifreleme olmadan gösterme.
+Azure yük dengeleyici kullanılan hello kural türü ne olursa olsun birden çok VIP'ler arasında tooreuse hello ön uç bağlantı noktası hello esneklik sağlar. Ayrıca, bazı uygulama senaryoları tercih veya hello aynı toobe hello arka uç havuzundaki tek bir VM üzerindeki birden çok uygulama örneği tarafından kullanılan bağlantı noktası gerektirir. Bağlantı noktası yeniden ortak örnekleri için yüksek kullanılabilirliği kümeleme içerir, ağ sanal Gereçleri ve birden çok TLS uç noktaları yeniden şifreleme olmadan gösterme.
 
-Arka uç bağlantı noktası birden çok kural yeniden kullanmak istiyorsanız, kural tanımı kayan IP etkinleştirmeniz gerekir.
+Tooreuse hello arka uç bağlantı noktası birden çok kural istiyorsanız hello kural tanımı kayan IP etkinleştirmeniz gerekir.
 
-Kayan IP, doğrudan sunucu Döndür (DSR olarak) bilinen bir bölümüdür. DSR iki bölümden oluşur: Eşleme Şeması bir akış topolojisi ve bir IP adresi. Bir platform düzeyde Azure yük dengeleyici DSR akış topolojisinde kayan IP etkin olup olmadığı bağımsız olarak her zaman çalışır. Bu, doğrudan kaynağa geri akışı için bir akış giden parçası her zaman doğru yeniden anlamına gelir.
+Kayan IP, doğrudan sunucu Döndür (DSR olarak) bilinen bir bölümüdür. DSR iki bölümden oluşur: Eşleme Şeması bir akış topolojisi ve bir IP adresi. Bir platform düzeyde Azure yük dengeleyici DSR akış topolojisinde kayan IP etkin olup olmadığı bağımsız olarak her zaman çalışır. Bu hello giden akış parçası her zaman doğru bir şekilde yeniden tooflow doğrudan arka toohello kaynak anlamına gelir.
 
-Varsayılan kural türüyle Azure geleneksel Yük Dengeleme kullanım kolaylığı için IP adresi eşleme şeması kullanıma sunar. Kayan IP etkinleştirme aşağıda açıklandığı gibi ek esneklik sağlamak amacıyla IP adresi eşleme şeması değiştirir.
+Merhaba varsayılan kural türüyle Azure geleneksel Yük Dengeleme kullanım kolaylığı için IP adresi eşleme şeması kullanıma sunar. Başlangıç IP adresi eşleme şeması tooallow aşağıda anlatıldığı gibi ek esneklik için etkinleştirme kayan IP değiştirir.
 
-Aşağıdaki diyagramda bu yapılandırma gösterilmektedir:
+Aşağıdaki diyagramda hello bu yapılandırma gösterilmektedir:
 
 ![MultiVIP çizim](./media/load-balancer-multivip-overview/load-balancer-multivip-dsr.png)
 
-Bu senaryo için arka uç havuzundaki her VM üç ağ arabirimi bulunur:
+Bu senaryo için her VM hello arka uç havuzundaki üç ağ arabirimi bulunur:
 
-* DIP: sanal (Azure'un NIC kaynak IP yapılandırması) VM ile ilişkili NIC
+* DIP: sanal hello VM (Azure'un NIC kaynak IP yapılandırması) ile ilişkili NIC
 * Vıp1: bir geri döngü arabirimde Konuk vıp1 IP adresiyle yapılandırılmış işletim sistemi
 * Vıp2: bir geri döngü arabirimde Konuk vıp2 IP adresiyle yapılandırılmış işletim sistemi
 
 > [!IMPORTANT]
-> Mantıksal birimleri yapılandırma konuk işletim sistemi içinde gerçekleştirilir. Bu yapılandırma değil gerçekleştirilen veya Azure tarafından yönetiliyor. Bu yapılandırma olmazsa, kurallar çalışmayacaktır. Sistem durumu araştırma tanımları mantıksal VIP yerine VM DIP kullanın. Bu nedenle, hizmetiniz mantıksal VIP sunulan hizmetinin durumunu yansıtacak bir DIP bağlantı noktasında araştırma yanıtları sağlamanız gerekir.
+> Merhaba mantıksal arabirimlerinin Hello yapılandırmasını hello konuk işletim sistemi içinde gerçekleştirilir. Bu yapılandırma değil gerçekleştirilen veya Azure tarafından yönetiliyor. Bu yapılandırma olmazsa, hello kuralları çalışmayacaktır. Sistem durumu araştırma tanımları hello hello VM DIP kullanmak yerine mantıksal VIP hello. Bu nedenle, hizmetiniz hello mantıksal VIP hello sunulan hello hizmetinin durumunu yansıtacak bir DIP bağlantı noktasında araştırma yanıtları sağlamanız gerekir.
 
-Önceki senaryoda olduğu gibi aynı ön uç yapılandırma varsayalım:
+Merhaba varsayalım hello önceki senaryoda olduğu gibi aynı ön uç yapılandırma:
 
 | VIP | IP adresi | Protokolü | port |
 | --- | --- | --- | --- |
@@ -111,27 +111,27 @@ Bu senaryo için arka uç havuzundaki her VM üç ağ arabirimi bulunur:
 
 Şu iki kural tanımlayın:
 
-| Kural | Ön uç eşleme | Arka uç havuzuna |
+| Kural | Ön uç eşleme | toobackend havuzu |
 | --- | --- | --- |
 | 1 |![Kural](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 |![arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 (içinde VM1 ve VM2) |
 | 2 |![Kural](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 |![arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 (içinde VM1 ve VM2) |
 
-Aşağıdaki tabloda yük dengeleyicide tam eşleme gösterilmektedir:
+Aşağıdaki tablonun hello hello tam eşleme hello yük dengeleyicisi gösterir:
 
 | Kural | VIP IP adresi | Protokolü | port | Hedef | port |
 | --- | --- | --- | --- | --- | --- |
 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |VIP (65.52.0.1) ile aynı |VIP (80) aynı |
 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |VIP (65.52.0.2) ile aynı |VIP (80) aynı |
 
-Gelen akış hedef VM'deki geri döngü arabirimde VIP adresi değil. Her kural benzersiz bir hedef IP adresi ve hedef bağlantı noktası birleşimi ile akışını üretmek gerekir. Akış hedef IP adresini değiştirerek, bağlantı noktası yeniden aynı VM'de mümkündür. Hizmetiniz için yük dengeleyici VIP'ın IP adresi ve bağlantı noktası ilgili geri döngü arabiriminin bağlayarak açıktır.
+Merhaba hedef Merhaba gelen akış hello VIP hello VM hello geri döngü arabirimindeki adresidir. Her kural benzersiz bir hedef IP adresi ve hedef bağlantı noktası birleşimi ile akışını üretmek gerekir. Değişen hello hedef IP adresi hello akış tarafından bağlantı noktası yeniden üzerinde mümkündür aynı VM hello. Sunulan toohello yük dengeleyici toohello VIP'ın IP adresi ve bağlantı noktası hello ilgili geri döngü arabiriminin bağlayarak hizmetidir.
 
-Bu örnek hedef bağlantı noktası değiştirmez dikkat edin. Bu bir kayan IP senaryo olsa da, Azure yük dengeleyici arka uç hedef bağlantı noktası yeniden yazma ve ön uç hedef bağlantı noktası farklı sağlamak için kural tanımlama de destekler.
+Bu örnek hello hedef bağlantı noktası değiştirmez dikkat edin. Bu bir kayan IP senaryo olsa da, bir kural toorewrite hello arka uç hedef bağlantı noktası ve toomake tanımlama Azure yük dengeleyici de destekler, hello ön uç hedef bağlantı noktasından farklı.
 
-Kayan IP kural türü birden fazla yük dengeleyici yapılandırması desenlerini oluşturmaktadır. Şu anda kullanılabilir bir örnektir [SQL AlwaysOn ile birden çok dinleyici](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) yapılandırma. Zamanla, biz bu senaryoların birkaçı belge.
+Merhaba kayan IP kural türü hello birden fazla yük dengeleyici yapılandırması desenlerini temelini oluşturur. Şu anda kullanılabilir olan bir örnektir hello [SQL AlwaysOn ile birden çok dinleyici](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) yapılandırma. Zamanla, biz bu senaryoların birkaçı belge.
 
 ## <a name="limitations"></a>Sınırlamalar
 
 * Birden çok VIP yapılandırmaları yalnızca Iaas VM'ler ile desteklenir.
-* Kayan IP kuralla uygulamanız için giden trafik akışları DIP kullanmanız gerekir. Uygulamanız için konuk işletim sistemi geri döngü arabiriminde yapılandırılan VIP adresine bağlanır, ardından SNAT giden akış yeniden kullanılabilir değil ve akış başarısız olur.
+* Hello kayan IP kuralıyla uygulamanız için giden trafik akışları hello DIP kullanmanız gerekir. Uygulamanızı hello geri döngü hello konuk işletim sistemi arabiriminde yapılandırılan toohello VIP adresi bağlar, ardından SNAT kullanılabilir toorewrite hello giden akış değildir ve hello akış başarısız olur.
 * Genel IP adresleri faturalama üzerinde bir etkisi yoktur. Daha fazla bilgi için bkz: [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Abonelik sınırları uygulayın. Daha fazla bilgi için bkz: [hizmet sınırları](../azure-subscription-service-limits.md#networking-limits) Ayrıntılar için.

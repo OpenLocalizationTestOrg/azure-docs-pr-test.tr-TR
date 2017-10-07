@@ -1,6 +1,6 @@
 ---
-title: "Komut satırı-Azure Hdınsight kullanarak Hadoop kümeleri oluşturma | Microsoft Docs"
-description: "Platformlar arası Azure CLI 1.0 kullanarak Hdınsight kümelerini oluşturmayı öğrenin."
+title: "Merhaba komut satırı - Azure Hdınsight kullanarak aaaCreate Hadoop kümelerini | Microsoft Docs"
+description: "Platformlar arası Azure CLI 1.0 kullanarak toocreate Hdınsight kümelerini nasıl hello öğrenin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,20 +16,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/26/2017
 ms.author: larryfr
-ms.openlocfilehash: 8f2fcb46789d000cd66164508f1159338dcae5f9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5295b01054b8c23df0e3b75a3e0e8c933ac48b3c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI kullanarak Hdınsight kümeleri oluşturma
+# <a name="create-hdinsight-clusters-using-hello-azure-cli"></a>Hello Azure CLI kullanarak Hdınsight kümeleri oluşturma
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Azure CLI 1.0 kullanarak Hdınsight 3.5 küme oluşturma bu belgeyi gözden geçirme adımları.
+Merhaba, bu belge kılavuz hello Azure CLI 1.0 kullanarak bir Hdınsight 3.5 kümesi oluşturma adımları.
 
 > [!IMPORTANT]
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -38,90 +38,90 @@ Azure CLI 1.0 kullanarak Hdınsight 3.5 küme oluşturma bu belgeyi gözden geç
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Azure CLI**. Bu belgede yer alan adımlar, en son Azure CLI Sürüm 0.10.14 test edilmiş.
+* **Azure CLI**. Bu belgedeki Hello adımlar en son Azure CLI Sürüm 0.10.14 sınanmıştır.
 
     > [!IMPORTANT]
-    > Bu belgede yer alan adımlar, Azure CLI 2.0 ile çalışmaz. Azure CLI 2.0 Hdınsight kümesi oluşturmayı desteklemez.
+    > Merhaba adımları bu belgede, Azure CLI 2.0 ile çalışmaz. Azure CLI 2.0 Hdınsight kümesi oluşturmayı desteklemez.
 
-## <a name="log-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
+## <a name="log-in-tooyour-azure-subscription"></a>Azure aboneliği tooyour oturum
 
-[Azure Komut Satırı Arabirimi'nden (Azure CLI) bir Azure aboneliğine bağlanma](../xplat-cli-connect.md) konusunda belgelenen adımları izleyin ve **oturum açma** yöntemini kullanarak aboneliğinze bağlanın.
+İçinde belirtilen başlangıç adımları [hello Azure komut satırı arabirimi (Azure CLI) tooan Azure aboneliğine bağlanma](../xplat-cli-connect.md) ve tooyour abonelik hello kullanarak bağlanmak **oturum açma** yöntemi.
 
 ## <a name="create-a-cluster"></a>Küme oluşturma
 
-Aşağıdaki adımlar, PowerShell veya Bash gibi bir komut satırından gerçekleştirilmelidir.
+Aşağıdaki adımları Merhaba, PowerShell veya Bash gibi bir komut satırından gerçekleştirilmelidir.
 
-1. Azure aboneliğinize kimliğini doğrulamak için aşağıdaki komutu kullanın:
+1. Komut tooauthenticate tooyour Azure aboneliği aşağıdaki hello kullan:
 
         azure login
 
-    Adınızı ve parolanızı girmeniz istenir. Birden çok Azure aboneliğiniz varsa, kullanmak `azure account set <subscriptionname>` Azure CLI komutları kullanın aboneliği ayarlamak için.
+    Adı ve parola istendiğinde tooprovide şunlardır. Birden çok Azure aboneliğiniz varsa, kullanmak `azure account set <subscriptionname>` Azure CLI hello tooset hello abonelik komutları kullanın.
 
-2. Şu komutu kullanarak Azure Resource Manager moduna geçin:
+2. Komutu aşağıdaki hello kullanarak tooAzure Resource Manager moduna geçin:
 
         azure config mode arm
 
-3. Bir kaynak grubu oluşturun. Bu kaynak grubu ve depolama hesabı ilişkili Hdınsight kümesi içerir.
+3. Bir kaynak grubu oluşturun. Bu kaynak grubu ve depolama hesabı ilişkili hello Hdınsight kümesi içerir.
 
         azure group create groupname location
 
-    * Değiştir `groupname` grubu için benzersiz bir ada sahip.
+    * Değiştir `groupname` hello grubu için benzersiz bir ada sahip.
 
-    * Değiştir `location` grubunda oluşturmak istediğiniz coğrafi bölge ile.
+    * Değiştir `location` toocreate hello Grup istediğiniz hello coğrafi bölge ile.
 
-       Geçerli konumların bir listesini için kullanmak `azure location list` komut ve konumlardan birini kullanın `Name` sütun.
+       Geçerli konumların bir listesini için hello kullan `azure location list` komut ve hello hello konumlardan birini kullanın `Name` sütun.
 
-4. Bir depolama hesabı oluşturun. Bu depolama hesabı Hdınsight kümesi için varsayılan depolama alanı olarak kullanılır.
+4. Bir depolama hesabı oluşturun. Bu depolama hesabı hello varsayılan depolama alanı olarak hello Hdınsight kümesi için kullanılır.
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
 
-    * Değiştir `groupname` önceki adımda oluşturulan grup adı.
+    * Değiştir `groupname` hello önceki adımda oluşturduğunuz hello grubunun hello ada sahip.
 
-    * Değiştir `location` önceki adımda kullanılan aynı konum.
+    * Değiştir `location` aynı konuma hello önceki adımda kullanılan hello ile.
 
-    * Değiştir `storagename` depolama hesabı için benzersiz bir ada sahip.
+    * Değiştir `storagename` hello depolama hesabı için benzersiz bir ad ile.
 
         > [!NOTE]
-        > Bu komutta kullanılan parametreler hakkında daha fazla bilgi için kullanmak `azure storage account create -h` bu komut için Yardım görüntülemek için.
+        > Bu komutta kullanılan hello parametreler hakkında daha fazla bilgi için kullanmak `azure storage account create -h` tooview Yardım için bu komutu.
 
-5. Depolama hesabına erişmek için kullanılan anahtarı alır.
+5. Alma hello anahtar tooaccess hello depolama hesabı kullanılır.
 
         azure storage account keys list -g groupname storagename
 
-    * Değiştir `groupname` kaynak grubu adı.
-    * Değiştir `storagename` depolama hesabı adı.
+    * Değiştir `groupname` hello kaynak grubu adı ile.
+    * Değiştir `storagename` hello depolama hesabı hello adı.
 
-     Döndürülen verilerin Kaydet `key` değerini `key1`.
+     Döndürülen hello verilerde hello Kaydet `key` değerini `key1`.
 
 6. Hdınsight kümesi oluşturun.
 
         azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 3 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    * Değiştir `groupname` kaynak grubu adı.
+    * Değiştir `groupname` hello kaynak grubu adı ile.
 
-    * Değiştir `Hadoop` oluşturmak istediğiniz küme türüne sahip. Örneğin, `Hadoop`, `HBase`, `Kafka`, `Spark`, veya `Storm`.
+    * Değiştir `Hadoop` hello küme türüyle toocreate istiyor. Örneğin, `Hadoop`, `HBase`, `Kafka`, `Spark`, veya `Storm`.
 
      > [!IMPORTANT]
-     > Hdınsight kümeleri gelen iş yükü veya küme için ayarlanmış teknoloji karşılık çeşitli türlerde. Bir küme üzerinde Storm ve HBase gibi birden çok tür birleştiren bir küme oluşturmak için desteklenen yöntem yoktur.
+     > Hdınsight kümeleri gelen toohello iş yükü karşılık gelen, çeşitli türlerinde veya için küme hello teknolojisi ayarlanmış. Bir küme üzerinde Storm ve HBase gibi birden çok tür birleştiren bir küme için desteklenen yöntem toocreate yoktur.
 
-    * Değiştir `location` önceki adımlarda kullanılan aynı konum.
+    * Değiştir `location` aynı konuma kullanılan önceki adımlarda hello ile.
 
-    * Değiştir `storagename` depolama hesabı adı ile.
+    * Değiştir `storagename` hello depolama hesabı adı ile.
 
-    * Değiştir `storagekey` önceki adımda elde anahtara sahip.
+    * Değiştir `storagekey` hello önceki adımda elde hello anahtara sahip.
 
-    * İçin `--defaultStorageContainer` parametresi, kullanım, aynı adı küme için kullanma.
+    * Hello için `--defaultStorageContainer` parametresi, kullanım hello hello küme için kullandığınız gibi aynı adı.
 
-    * Değiştir `admin` ve `httppassword` adı ve parolayla istediğiniz küme HTTPS erişirken kullanılacak.
+    * Değiştir `admin` ve `httppassword` hello adı ve parola ile toouse hello küme HTTPS erişirken istiyor.
 
-    * Değiştir `sshuser` ve `sshuserpassword` kullanıcı adı ve SSH kullanarak kümeye erişirken kullanmak istediğiniz parolayı
+    * Değiştir `sshuser` ve `sshuserpassword` hello kullanıcı adı ve parola ile toouse SSH kullanarak hello küme erişirken istediğiniz
 
     > [!IMPORTANT]
-    > Bu örnek iki alt notes ile bir küme oluşturur. Çalışan düğüm sayısı ayrıca Küme oluşturulduktan sonra ölçeklendirme işlemleri gerçekleştirerek de değiştirebilirsiniz. 32'den fazla çalışan düğümleri kullanmayı planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB RAM ile seçmeniz gerekir. Baş düğüm boyutu kullanarak ayarlayabilirsiniz `--headNodeSize` küme oluşturma sırasında parametre.
+    > Bu örnek iki alt notes ile bir küme oluşturur. Çalışan düğüm sayısı hello Küme oluşturulduktan sonra ölçeklendirme işlemleri gerçekleştirerek de değiştirebilirsiniz. 32'den fazla çalışan düğümleri kullanmayı planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB RAM ile seçmeniz gerekir. Hello kullanarak hello baş düğüm boyutu ayarlayabilirsiniz `--headNodeSize` küme oluşturma sırasında parametre.
     >
     > Düğümü boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-    Küme oluşturma işleminin tamamlanması birkaç dakika sürebilir. Genellikle yaklaşık 15.
+    Merhaba küme oluşturma işlemi toofinish için birkaç dakika sürebilir. Genellikle yaklaşık 15.
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
@@ -129,7 +129,7 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI kullanarak bir Hdınsight kümesi başarıyla oluşturuldu, kümenizi ile çalışmayı öğrenmek için aşağıdakileri kullanın:
+Hello Azure CLI kullanarak bir Hdınsight kümesi başarıyla oluşturuldu, toolearn nasıl aşağıdaki hello kullan toowork kümenizi ile:
 
 ### <a name="hadoop-clusters"></a>Hadoop kümeleri
 

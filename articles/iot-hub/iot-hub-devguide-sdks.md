@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT SDK'ları anlama | Microsoft Docs"
-description: "Geliştirici Kılavuzu - ve cihaz uygulamaları ve arka uç uygulamaları oluşturmak için kullanabileceğiniz çeşitli Azure IOT cihaz ve hizmet SDK'lar bağlantılar hakkında bilgi."
+title: "aaaUnderstand hello Azure IOT SDK'ları | Microsoft Docs"
+description: "Geliştirici Kılavuzu - hakkında bilgi ve bağlantılar toohello toobuild aygıt uygulamalar ve arka uç uygulamalar kullanabilirsiniz çeşitli Azure IOT cihaz ve hizmet SDK'ları."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -15,50 +15,50 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bcbf4b9633f58293edb19aeb33dec6602ac4ec8f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e319451ca97876666e1c011ee0e1a73d0a0f1ed1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>Anlamak ve Azure IOT SDK'ları kullanın
 
 IOT Hub ile çalışmaya yönelik SDK'ın üç kategoriye ayrılır:
 
-* **Cihaz SDK'ları** IOT cihazlarınızı üzerinde çalışan uygulamalar geliştirme olanak sağlar. Bu uygulamaları IOT hub'ınıza telemetri göndermek ve isteğe bağlı olarak, IOT hub'ından iletileri alacak.
+* **Cihaz SDK'ları** IOT cihazlarınızı üzerinde çalışan toobuild uygulamalar etkinleştirin. Bu uygulamaları tooyour IOT hub'ı telemetri gönderebilir ve isteğe bağlı olarak, IOT hub'ından iletileri alacak.
 
-* **Hizmet SDK'ları** IOT hub'ınızı yönetmenize olanak tanıyan ve isteğe bağlı olarak IOT cihazlarınızı ileti gönderin.
+* **Hizmet SDK'ları** , toomanage IOT hub'ınızı etkinleştir ve isteğe bağlı olarak tooyour IOT cihazları iletileri gönder.
 
-* **Azure IOT kenar** , kullanmama desteklenen protokollerden birini ya da kenar iletileri işlemek gerektiğinde aygıtları etkinleştirmek için ağ geçitleri oluşturmanıza olanak sağlar.
+* **Azure IOT kenar** , kullanmama desteklenen hello protokollerden birini ya da hello kenar tooprocess iletileri gerektiğinde toobuild ağ geçitleri tooenable aygıtları etkinleştirir.
 
-SDK'ları, birden fazla programlama dili desteklemek için sağlanır.
+SDK'ları olan birden fazla programlama dili toosupport sağlanan.
 
 ## <a name="azure-iot-device-sdks"></a>Azure IOT cihaz SDK'ları
 
-Microsoft Azure IOT cihaz SDK'ları oluşturma aygıtlar ve bağlanmak ve Azure IOT Hub Hizmetleri tarafından yönetilen uygulamalar kolaylaştıran kodu içerir.
+Merhaba Microsoft Azure IOT cihaz SDK'ları içeren yapı aygıtları kolaylaştıran kod ve tooand bağlanan uygulamaları Azure IOT Hub Hizmetleri tarafından yönetilir.
 
-Aşağıdaki Azure IOT cihaz SDK'ları Github'dan indirilebilir:
+Merhaba aşağıdaki Azure IOT cihaz SDK'ları github'dan kullanılabilir toodownload şunlardır:
 
-* [C için Azure IOT cihaz SDK'sı] [ lnk-c-device-sdk] taşınabilirlik ve geniş platform uyumluluğu için ANSI C (C99) yazılır. C, alt düzey için iki cihaz istemci Kitaplığı **iothub_client** ve **seri hale getirici**.
+* [C için Azure IOT cihaz SDK'sı] [ lnk-c-device-sdk] taşınabilirlik ve geniş platform uyumluluğu için ANSI C (C99) yazılır. İki aygıt istemci kitaplığı yok c hello alt düzey **iothub_client** ve hello **seri hale getirici**.
 * [.NET için Azure IOT cihaz SDK'sı][lnk-dotnet-device-sdk]
 * [Java için Azure IOT cihaz SDK'sı][lnk-java-device-sdk]
 * [Node.js için Azure IOT cihaz SDK'sı][lnk-node-device-sdk]
 * [Python için Azure IOT cihaz SDK'sı][lnk-python-device-sdk]
 
 > [!NOTE]
-> GitHub depolarının readme dosyalarında ikili dosyaları ve bağımlılıkları geliştirme makinenizde yüklemek için dil ve platforma özgü paket yöneticileri kullanma hakkında bilgi için bkz.
+> Merhaba readme dosyalarında hello GitHub depolarının dili ve platforma özgü paket yöneticileri tooinstall ikili dosyaları ve bağımlılıkları geliştirme makinenizde kullanma hakkında bilgi için bkz.
 > 
 > 
 
 ### <a name="os-platform-and-hardware-compatibility"></a>İşletim sistemi platformu ve donanım uyumluluğu
 
-Belirli donanım aygıtları ile SDK uyumluluğu hakkında daha fazla bilgi için bkz: [Azure IOT cihaz katalog için onaylanmıştır][lnk-certified].
+Merhaba belirli donanım aygıtları ile SDK uyumluluğu hakkında daha fazla bilgi için bkz: [Azure IOT cihaz katalog için onaylanmıştır][lnk-certified].
 
 ## <a name="azure-iot-service-sdks"></a>Azure IOT hizmeti SDK'ları
 
-Azure IOT hizmeti SDK'ları cihazları ve güvenliği yönetmek için etkileşime uygulamaları oluşturma IOT Hub ile doğrudan kolaylaştırmak için kod içerir.
+Hello Azure IOT hizmeti SDK'ları doğrudan IOT Hub toomanage cihazları ve güvenlik etkileşime uygulamaları derleme kodu toofacilitate içerir.
 
-Aşağıdaki Azure IOT hizmeti SDK'ları Github'dan indirilebilir:
+Merhaba aşağıdaki Azure IOT hizmeti SDK'ları github'dan kullanılabilir toodownload şunlardır:
 
 * [.NET için Azure IOT hizmeti SDK'sı][lnk-dotnet-service-sdk]
 * [Node.js için Azure IOT hizmeti SDK'sı][lnk-node-service-sdk]
@@ -67,17 +67,17 @@ Aşağıdaki Azure IOT hizmeti SDK'ları Github'dan indirilebilir:
 * [C için Azure IOT hizmeti SDK'sı][lnk-c-service-sdk]
 
 > [!NOTE]
-> GitHub depolarının readme dosyalarında ikili dosyaları ve bağımlılıkları geliştirme makinenizde yüklemek için dil ve platforma özgü paket yöneticileri kullanma hakkında bilgi için bkz.
+> Merhaba readme dosyalarında hello GitHub depolarının dili ve platforma özgü paket yöneticileri tooinstall ikili dosyaları ve bağımlılıkları geliştirme makinenizde kullanma hakkında bilgi için bkz.
 
 ## <a name="azure-iot-edge"></a>Azure IoT Edge
 
-Azure IOT kenar altyapısı ve IOT ağ geçidi çözümler oluşturmak için modüller içerir. IOT bir uçtan uca senaryonuz için özel olarak hazırlanmış ağ geçitleri oluşturmak için kenar genişletebilirsiniz.
+Azure IOT kenar hello altyapı ve modülleri toocreate IOT ağ geçidi çözümleri içerir. IOT kenar toocreate ağ geçitleri uyarlanmış tooany uçtan uca senaryoyu da genişletebilirsiniz.
 
 İndirebilirsiniz [Azure IOT kenar] [ lnk-iot-edge] github'dan.
 
 ## <a name="online-api-reference-documentation"></a>Çevrimiçi API başvuru belgeleri
 
-Aşağıdaki liste, Azure IOT cihaz, hizmet ve ağ geçidi kitaplıkları için çevrimiçi API başvuru belgeleri bağlantılarını içerir:
+Merhaba aşağıdaki listede bağlantılar tooonline API başvuru belgeleri Azure IOT cihaz, hizmet ve ağ geçidi kitaplıkları içerir:
 
 * [Nesnelerin interneti (IOT) .NET][lnk-dotnet-ref]
 * [IOT hub'ı REST][lnk-rest-ref]

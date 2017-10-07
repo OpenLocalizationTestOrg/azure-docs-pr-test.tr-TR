@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Factory dosya ve sıkıştırma biçimlerde | Microsoft Docs"
-description: "Azure Data Factory ile desteklenen dosya biçimleri hakkında bilgi edinin."
+title: "Azure Data Factory aaaFile ve sıkıştırma biçimlerde | Microsoft Docs"
+description: "Azure Data Factory ile desteklenen hello dosya biçimleri hakkında bilgi edinin."
 keywords: BLOB verilerini, azure blob kopyalama
 services: data-factory
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.openlocfilehash: f4746e0dd249e417b8077a9bc733d2886daafdf2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9d40517b059fc533776bcc088db8c531ee5b003d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen dosya ve sıkıştırma biçimleri
-*Bu konu, aşağıdaki bağlayıcılar için geçerlidir: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [dosya sistemi](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), ve [SFTP](data-factory-sftp-connector.md).*
+*Bu konu, bağlayıcıları aşağıdaki toohello geçerlidir: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [dosya sistemi](data-factory-onprem-file-system-connector.md), [ FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), ve [SFTP](data-factory-sftp-connector.md).*
 
-Azure Data Factory aşağıdaki dosya biçimi türlerini destekler:
+Azure Data Factory hello şu dosya biçimi türlerini destekler:
 
 * [Metin biçimi](#text-format)
 * [JSON biçimi](#json-format)
@@ -32,22 +32,22 @@ Azure Data Factory aşağıdaki dosya biçimi türlerini destekler:
 * [Parquet biçimi](#parquet-format)
 
 ## <a name="text-format"></a>Metin biçimi
-Bir metin dosyasından okuma veya bir metin dosyasına yazma istiyorsanız, `type` özelliğinde `format` kümesine bölümünü **TextFormat**. İsterseniz `format` bölümünde aşağıdaki **isteğe bağlı** özellikleri de belirtebilirsiniz. Yapılandırma adımları için [TextFormat örneği](#textformat-example) bölümünü inceleyin.
+Bir metin dosyasından tooread istediğiniz veya tooa metin dosyasına yazma, hello ayarlayın `type` hello özelliğinde `format` hello dataset bölümü çok**TextFormat**. Merhaba aşağıdakileri de belirtebilirsiniz **isteğe bağlı** hello özelliklerinde `format` bölümü. Bkz: [TextFormat örnek](#textformat-example) nasıl bölüm tooconfigure.
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| columnDelimiter |Bir dosyadaki sütunları ayırmak için kullanılan karakterdir. Verilerinizde büyük olasılıkla yok nadir bir yazdırılamayan char kullanmayı düşünebilirsiniz. Örneğin, Başlat, başlık (SOH) temsil eder "\u0001" belirtin. |Yalnızca bir karaktere izin verilir. **Varsayılan** değer **virgül (",")** olarak belirlenmiştir. <br/><br/>Bir Unicode karakteri kullanmak için başvurmak [Unicode karakterler](https://en.wikipedia.org/wiki/List_of_Unicode_characters) ilgili kod elde edin. |Hayır |
-| rowDelimiter |Bir dosyadaki satırları ayırmak için kullanılan karakterdir. |Yalnızca bir karaktere izin verilir. **Varsayılan** değer, okuma sırasında **["\r\n", "\r", "\n"]** değerlerinden biri, yazma sırasında ise **"\r\n"** olarak belirlenmiştir. |Hayır |
-| escapeChar |Giriş dosyasının içeriğindeki bir sütun ayırıcısına kaçış karakteri eklemek için kullanılan özel karakterdir. <br/><br/>Bir tablo için hem escapeChar hem de quoteChar parametrelerini aynı anda belirtemezsiniz. |Yalnızca bir karaktere izin verilir. Varsayılan değer yoktur. <br/><br/>Örnek: Sütun sınırlayıcınız virgül (",") karakteriyse ancak metin içinde virgül karakteri kullanılıyorsa (örneğin: "Merhaba, dünya"), "$" karakterini kaçış karakteri olarak tanımlayabilir ve kaynakta "Merhaba$, dünya" dizesini kullanabilirsiniz. |Hayır |
-| quoteChar |Bir dize değerini tırnak içine almak için kullanılan karakterdir. Tırnak işareti içindeki sütun ve satır sınırlayıcıları, dize değerinin bir parçası olarak kabul edilir. Bu özellik hem giriş hem de çıkış veri kümelerine uygulanabilir.<br/><br/>Bir tablo için hem escapeChar hem de quoteChar parametrelerini aynı anda belirtemezsiniz. |Yalnızca bir karaktere izin verilir. Varsayılan değer yoktur. <br/><br/>Örneğin, sütun sınırlayıcınız virgül (",") karakteriyse ancak metin içinde virgül karakteri kullanılıyorsa (örneğin: <Merhaba, dünya>), " (çift tırnak) karakterini tırnak karakteri olarak tanımlayabilir ve kaynakta "Merhaba, dünya" dizesini kullanabilirsiniz. |Hayır |
-| nullValue |Bir null değeri temsil etmek için kullanılan bir veya daha fazla karakterdir. |Bir veya daha fazla karakter olabilir. **Varsayılan** değerler okuma sırasında **"\N" ve "NULL"**, yazma sırasında ise **"\N"** olarak belirlenmiştir. |Hayır |
-| encodingName |Kodlama adını belirtir. |Geçerli bir kodlama adı. Bkz. [Encoding.EncodingName Özelliği](https://msdn.microsoft.com/library/system.text.encoding.aspx). Örnek: windows-1250 veya shift_jis. **Varsayılan** değer **UTF-8** olarak belirlenmiştir. |Hayır |
-| firstRowAsHeader |İlk satırın üst bilgi olarak kabul edilip edilmeyeceğini belirtir. Giriş veri kümesinde Data Factory ilk satırı üst bilgi olarak okur. Çıkış veri kümesinde Data Factory ilk satırı üst bilgi olarak yazar. <br/><br/>Örnek senaryolar için bkz. [`firstRowAsHeader` ve `skipLineCount` kullanım senaryoları](#scenarios-for-using-firstrowasheader-and-skiplinecount). |True<br/><b>False (varsayılan)</b> |Hayır |
-| skipLineCount |Giriş dosyalarından okuma sırasında atlanacak satır sayısını belirtir. Hem skipLineCount hem de firstRowAsHeader parametresi belirtilirse önce satırlar atlanır, ardından giriş dosyasındaki üst bilgi bilgileri okunur. <br/><br/>Örnek senaryolar için bkz. [`firstRowAsHeader` ve `skipLineCount` kullanım senaryoları](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Tamsayı |Hayır |
-| treatEmptyAsNull |Bir giriş dosyasından veri okuma sırasında null veya boş dizenin null değer olarak kabul edilip edilmeyeceğini belirtir. |**True (varsayılan)**<br/>False |Hayır |
+| columnDelimiter |Merhaba karakter tooseparate sütunları bir dosyada kullanılır. Verilerinizi değil olasılıkla olabilir nadir bir yazdırılamayan karakter var. toouse düşünebilirsiniz. Örneğin, Başlat, başlık (SOH) temsil eder "\u0001" belirtin. |Yalnızca bir karaktere izin verilir. Merhaba **varsayılan** değer **virgül (',')**. <br/><br/>toouse bir Unicode karakter başvurmak çok[Unicode karakterler](https://en.wikipedia.org/wiki/List_of_Unicode_characters) tooget hello ilgili kod için. |Hayır |
+| rowDelimiter |Merhaba karakter tooseparate satır bir dosyada kullanılır. |Yalnızca bir karaktere izin verilir. Merhaba **varsayılan** değerdir herhangi biri üzerinde okuma değerleri aşağıdaki hello: **["\r\n", "\r", "\n"]** ve **"\r\n"** yazma üzerinde. |Hayır |
+| escapeChar |Merhaba özel karakter tooescape bir sütun ayırıcısı giriş dosyası hello içeriğinde kullanılır. <br/><br/>Bir tablo için hem escapeChar hem de quoteChar parametrelerini aynı anda belirtemezsiniz. |Yalnızca bir karaktere izin verilir. Varsayılan değer yoktur. <br/><br/>Örnek: virgül varsa (', ') hello sütun sınırlayıcı ancak toohave hello virgül karakteri hello metin istediğiniz şekilde (örnek: "Hello, world"), '$' hello kaçış karakteri olarak tanımlamak ve dizesi kullanın "$Hello, world" Merhaba kaynağındaki. |Hayır |
+| quoteChar |Merhaba karakter tooquote bir dize değeri kullanılır. Hello sütun ve satır sınırlayıcıları hello tırnak karakterleri içine hello dize değeri bir parçası olarak değerlendirilmesi. Bu özellik geçerli tooboth girdidir ve çıkış veri kümeleri.<br/><br/>Bir tablo için hem escapeChar hem de quoteChar parametrelerini aynı anda belirtemezsiniz. |Yalnızca bir karaktere izin verilir. Varsayılan değer yoktur. <br/><br/>Virgül varsa, örneğin, (', ') hello sütun sınırlayıcı ancak toohave virgül karakteri hello metin istediğiniz gibi (örnek: < Hello, world >), tanımlayabileceğiniz "(tırnak) tırnak işareti karakteri hello ve hello dizesini kullanın"Hello, world"Merhaba kaynağındaki. |Hayır |
+| nullValue |Bir veya daha fazla karakter toorepresent bir null değer kullanılır. |Bir veya daha fazla karakter olabilir. Merhaba **varsayılan** değerler **"\N" ve "NULL"** okunur ve **"\N"** yazma üzerinde. |Hayır |
+| encodingName |Merhaba kodlama adı belirtin. |Geçerli bir kodlama adı. Bkz. [Encoding.EncodingName Özelliği](https://msdn.microsoft.com/library/system.text.encoding.aspx). Örnek: windows-1250 veya shift_jis. Merhaba **varsayılan** değer **UTF-8**. |Hayır |
+| firstRowAsHeader |Tooconsider ilk satır bir başlık olarak hello olup olmadığını belirtir. Giriş veri kümesinde Data Factory ilk satırı üst bilgi olarak okur. Çıkış veri kümesinde Data Factory ilk satırı üst bilgi olarak yazar. <br/><br/>Örnek senaryolar için bkz. [`firstRowAsHeader` ve `skipLineCount` kullanım senaryoları](#scenarios-for-using-firstrowasheader-and-skiplinecount). |True<br/><b>False (varsayılan)</b> |Hayır |
+| skipLineCount |Giriş dosyaları veri okuma satırları tooskip Hello sayısını gösterir. SkipLineCount ve firstRowAsHeader belirtilirse, hello satırlar ilk atlanır ve hello üst bilgileri hello giriş dosyasından sonra okuyun. <br/><br/>Örnek senaryolar için bkz. [`firstRowAsHeader` ve `skipLineCount` kullanım senaryoları](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Tamsayı |Hayır |
+| treatEmptyAsNull |Bir null olarak tootreat null veya boş dize değeri olup olmadığını belirten bir giriş dosyasından veri okuma. |**True (varsayılan)**<br/>False |Hayır |
 
 ### <a name="textformat-example"></a>TextFormat örneği
-Bir veri kümesi için aşağıdaki JSON tanımında bazı isteğe bağlı özellikler belirtilmiş.
+Bir veri kümesi için JSON tanımını izleyen hello hello isteğe bağlı özelliklerin bazıları belirtilir.
 
 ```json
 "typeProperties":
@@ -68,33 +68,33 @@ Bir veri kümesi için aşağıdaki JSON tanımında bazı isteğe bağlı özel
 },
 ```
 
-`quoteChar` yerine `escapeChar` kullanmak için `quoteChar` yazan satırı şu escapeChar ile değiştirin:
+toouse bir `escapeChar` yerine `quoteChar`, hello satırla değiştirin `quoteChar` escapeChar aşağıdaki hello ile:
 
 ```json
 "escapeChar": "$",
 ```
 
 ### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>firstRowAsHeader ve skipLineCount kullanım senaryoları
-* Dosya olmayan bir kaynaktan bir metin dosyasına kopyalama yapıyorsunuz ve şema meta verilerini (örneğin, SQL şeması) içeren bir üst bilgi satırı eklemek istiyorsunuz. Bu senaryo için çıkış veri kümesinde `firstRowAsHeader` parametresini true olarak belirleyin.
-* Üst bilgi satırı içeren bir metin dosyasından dosya olmayan bir havuza kopyalama yapıyorsunuz ve üst bilgi satırını almak istemiyorsunuz. Giriş veri kümesinde `firstRowAsHeader` parametresini true olarak belirleyin.
-* Bir metin dosyasından kopyalama yapıyorsunuz ve dosyanın başındaki veri içermeyen veya üst bilgi bilgilerini içeren birkaç satırı atlamak istiyorsunuz. Atlanacak satır sayısını belirtmek için `skipLineCount` değerini belirtin. Dosyanın geri kalan kısmında üst bilgi satırı varsa `firstRowAsHeader` değerini de belirtebilirsiniz. Hem `skipLineCount` hem de `firstRowAsHeader` parametresi belirtilirse önce satırlar atlanır, ardından giriş dosyasındaki üst bilgi bilgileri okunur.
+* Dosya olmayan kaynak tooa metin dosyasından kopyalama ve tooadd hello şema meta verileri içeren bir başlık satırı istiyor musunuz (örneğin: SQL Şeması). Belirtin `firstRowAsHeader` hello çıkış DataSet Bu senaryo için true.
+* Bir üst bilgi satırı tooa dosya olmayan havuz içeren bir metin dosyasından kopyalama ve satır toodrop istersiniz. Belirtin `firstRowAsHeader` hello girdi veri kümesi olarak true.
+* Bir metin dosyasından kopyalama ve hiçbir veri veya üstbilgi bilgileri içeren birkaç satır hello başında tooskip istiyor. Belirtin `skipLineCount` tooindicate hello satırları toobe sayısı atlandı. Merhaba rest hello dosyasının bir başlık satırı içeriyorsa, ayrıca belirtebilirsiniz `firstRowAsHeader`. Her iki `skipLineCount` ve `firstRowAsHeader` belirtilirse, hello satırları ilk atlanır ve hello üstbilgi bilgileri hello giriş dosyasından sonra okuyun
 
 ## <a name="json-format"></a>JSON biçimi
-İçin **bir JSON dosyası olarak içeri/dışarı aktarma-olduğu içine/Azure Cosmos DB'den**, bkz: [içeri/dışarı aktarma JSON belgeleri](data-factory-azure-documentdb-connector.md#importexport-json-documents) bölümüne [/Azure Cosmos DB'den veri taşıma](data-factory-azure-documentdb-connector.md) makalesi.
+çok**bir JSON dosyası olarak içeri/dışarı aktarma-olduğu içine/Azure Cosmos DB'den**, hello bakın [içeri/dışarı aktarma JSON belgeleri](data-factory-azure-documentdb-connector.md#importexport-json-documents) bölümüne [/Azure Cosmos DB'den veri taşıma](data-factory-azure-documentdb-connector.md) makalesi.
 
-JSON dosyaları ayrıştırma veya JSON biçiminde veri yazmak istiyorsanız, Ayarla `type` özelliğinde `format` için bölüm **JsonFormat**. İsterseniz `format` bölümünde aşağıdaki **isteğe bağlı** özellikleri de belirtebilirsiniz. Yapılandırma adımları için [JsonFormat örneği](#jsonformat-example) bölümünü inceleyin.
+Merhaba, tooparse hello JSON dosyaları veya JSON biçiminde hello veri yazmak istiyorsanız ayarlayın `type` hello özelliğinde `format` çok bölümünde**JsonFormat**. Merhaba aşağıdakileri de belirtebilirsiniz **isteğe bağlı** hello özelliklerinde `format` bölümü. Bkz: [JsonFormat örnek](#jsonformat-example) nasıl bölüm tooconfigure.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| filePattern |Her bir JSON dosyasında depolanan verilerin desenini belirtir. İzin verilen değerler: **setOfObjects** ve **arrayOfObjects**. **Varsayılan** değer **setOfObjects** olarak belirlenmiştir. Bu desenler hakkında ayrıntılı bilgi için bkz. [JSON dosyası desenleri](#json-file-patterns). |Hayır |
-| jsonNodeReference | Bir dizi alanındaki aynı desene sahip verileri yinelemek ve ayıklamak istiyorsanız o dizinin JSON yolunu belirtin. Bu özellik yalnızca JSON dosyalarından veri kopyalarken desteklenir. | Hayır |
-| jsonPathDefinition | Her sütun için JSON yolu ifadesini belirtin ve özel bir sütun adıyla eşleyin (küçük harfle başlatın). Bu özellik yalnızca JSON dosyalarından veri kopyalarken desteklenir. Verileri nesne veya diziden ayıklayabilirsiniz. <br/><br/> Kök nesne altındaki alanlar için root $ ile, `jsonNodeReference` özelliği tarafından seçilen dizinin içindeki alanlar için ise dizi öğesiyle başlayın. Yapılandırma adımları için [JsonFormat örneği](#jsonformat-example) bölümünü inceleyin. | Hayır |
-| encodingName |Kodlama adını belirtir. Geçerli kodlama adlarının listesi için bkz. [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Özelliği. Örneğin: windows-1250 veya shift_jis. **Varsayılan** değer **UTF-8** olarak belirlenmiştir. |Hayır |
-| nestingSeparator |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir. Varsayılan değer "." (nokta) olarak belirlenmiştir. |Hayır |
+| filePattern |Her JSON dosyasında depolanan verilerin Hello desen belirtin. İzin verilen değerler: **setOfObjects** ve **arrayOfObjects**. Merhaba **varsayılan** değer **setOfObjects**. Bu desenler hakkında ayrıntılı bilgi için bkz. [JSON dosyası desenleri](#json-file-patterns). |Hayır |
+| jsonNodeReference | Bir dizinin içindeki hello nesnelerinden verileri ayıklamak ve tooiterate isterseniz hello ile aynı alan desen, bu dizinin hello JSON yolu belirtin. Bu özellik yalnızca JSON dosyalarından veri kopyalarken desteklenir. | Hayır |
+| jsonPathDefinition | Merhaba JSON yol ifadesi her sütun eşlemesi için özelleştirilmiş sütun adıyla (küçük başlayın) belirtin. Bu özellik yalnızca JSON dosyalarından veri kopyalarken desteklenir. Verileri nesne veya diziden ayıklayabilirsiniz. <br/><br/> Kök nesnede altında alanlar için kök $ ile Başlat; tarafından seçilen hello dizinin içindeki alanlar için `jsonNodeReference` özelliği, hello dizi öğesinin başından. Bkz: [JsonFormat örnek](#jsonformat-example) nasıl bölüm tooconfigure. | Hayır |
+| encodingName |Merhaba kodlama adı belirtin. Geçerli kodlama adlar Hello listesi için bkz: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) özelliği. Örneğin: windows-1250 veya shift_jis. Merhaba **varsayılan** değer: **UTF-8**. |Hayır |
+| nestingSeparator |Kullanılan tooseparate iç içe geçme düzeyi karakter. Merhaba varsayılan değer '.' (nokta). |Hayır |
 
 ### <a name="json-file-patterns"></a>JSON dosyası desenleri
 
-Kopyalama etkinliği, JSON dosyalarınızın aşağıdaki desenleri ayrıştırma yapabilir:
+Kopyalama etkinliği, JSON dosyalarınızın desenler izleyen hello ayrıştırma yapabilir:
 
 - **1. Tür: setOfObjects**
 
@@ -187,11 +187,11 @@ Kopyalama etkinliği, JSON dosyalarınızın aşağıdaki desenleri ayrıştırm
 
 **Örnek Durum 1: JSON dosyalarından veri kopyalama**
 
-Aşağıdaki iki örnek verileri JSON dosyaları kopyalarken bakın. Dikkat edilecek genel noktalar:
+İki örnek verileri JSON dosyaları kopyalarken aşağıdaki hello bakın. Merhaba genel toonote noktaları:
 
 **Örnek 1: nesne ve diziden veri ayıklama**
 
-Bu örnekte, bir kök JSON nesnesinin tablosal sonuçtaki tek bir kayıtla eşleşmesi beklenir. Aşağıdaki içeriğe sahip bir JSON dosyanız varsa:  
+Bu örnekte, bir kök JSON nesnesi toosingle kaydı tablo sonuç eşler bekler. İçeriği aşağıdaki hello ile bir JSON dosyası varsa:  
 
 ```json
 {
@@ -216,16 +216,16 @@ Bu örnekte, bir kök JSON nesnesinin tablosal sonuçtaki tek bir kayıtla eşle
     }
 }
 ```
-ve hem nesne hem de diziden veri ayıklayarak bir Azure SQL tablosuna aşağıdaki biçimde kopyalamak istersiniz:
+ve bunu bir Azure SQL tablosuna hello aşağıdaki biçimi, veri nesneleri hem dizi çıkartarak toocopy istiyor:
 
 | id | deviceType | targetResourceType | resourceManagmentProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
-**JsonFormat** türüne sahip giriş veri kümesi şu şekilde tanımlanır: (yalnızca ilgili bölümlerin gösterildiği kısmi tanım). Daha ayrıntılı belirtmek gerekirse:
+Merhaba girdi veri kümesi ile **JsonFormat** türü şu şekilde tanımlanır: (yalnızca hello ilgili bölümleri kısmi tanımıyla). Daha ayrıntılı belirtmek gerekirse:
 
-- `structure` bölümü, tablo verilerine dönüştürme sırasında kullanılan özelleştirilmiş sütun adlarını ve karşılık gelen veri türünü tanımlar. Bu bölüm **isteğe bağlıdır** ve yalnızca sütun eşleme için kullanmanız gerekir. Bkz: [kaynak veri kümesi sütunları hedef veri kümesi sütun eşleme](data-factory-map-columns.md) daha fazla ayrıntı için bölüm.
-- `jsonPathDefinition`, her sütun için verilerin ayıklanacağı JSON yolunu belirtir. Verileri diziden kopyalamak için **array[x].property** öğesini kullanarak söz konusu özelliğin değerini xth nesnesinden ayıklayabilir veya **array[*].property** öğesini kullanarak bu özelliği içeren herhangi bir nesneden değeri bulabilirsiniz.
+- `structure`Bölüm tootabular veri dönüştürülürken özelleştirilmiş hello sütun adları ve hello karşılık gelen veri türünü tanımlar. Bu bölüm **isteğe bağlı** toodo sütun eşlemesi gerekmedikçe. Bkz: [kaynak veri kümesi sütunları toodestination dataset sütunlara](data-factory-map-columns.md) daha fazla ayrıntı için bölüm.
+- `jsonPathDefinition`Burada tooextract hello verilerden belirten her sütun için Hello JSON yolu belirtir. kullanabileceğiniz toocopy veri dizisinden **array [x] .property** özelliği hello un x. nesne veya size verilen hello tooextract değerini kullanabilir  **dizisi [*] .property** toofind Böyle bir özellik içeren herhangi bir nesneden Hello değeri.
 
 ```json
 "properties": {
@@ -262,9 +262,9 @@ ve hem nesne hem de diziden veri ayıklayarak bir Azure SQL tablosuna aşağıda
 }
 ```
 
-**Örnek 2: diziden aynı desene sahip birden fazla nesneyi çapraz uygulama**
+**Örnek 2: çapraz hello aynı diziden desen ile birden çok nesne uygulayın.**
 
-Bu örnekte, bir kök JSON nesnesinin tablosal sonuçtaki birden fazla kayda dönüştürülmesi beklenir. Aşağıdaki içeriğe sahip bir JSON dosyanız varsa:  
+Bu örnekte, tablo sonuç içinde birden çok kayıt içine tootransform bir kök JSON nesnesi bekler. İçeriği aşağıdaki hello ile bir JSON dosyası varsa:  
 
 ```json
 {
@@ -287,7 +287,7 @@ Bu örnekte, bir kök JSON nesnesinin tablosal sonuçtaki birden fazla kayda dö
     "city": [ { "sanmateo": "No 1" } ]
 }
 ```
-ve bunu bir Azure SQL tablosuna aşağıdaki biçimde, dizi içindeki verileri düzleştirerek ve ortak kök bilgileriyle çapraz birleşim yaparak kopyalamak istiyorsanız:
+ve bunu bir Azure SQL tablosuna hello aşağıdaki biçiminde hello veri hello dizinin içindeki düzleştirme tarafından toocopy istediğiniz ve çapraz birleştirme hello ortak kök bilgileri ile:
 
 | ordernumber | orderdate | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
@@ -295,11 +295,11 @@ ve bunu bir Azure SQL tablosuna aşağıdaki biçimde, dizi içindeki verileri d
 | 01 | 20170122 | P2 | 13 | [{"sanmateo":"No 1"}] |
 | 01 | 20170122 | P3 | 231 | [{"sanmateo":"No 1"}] |
 
-**JsonFormat** türüne sahip giriş veri kümesi şu şekilde tanımlanır: (yalnızca ilgili bölümlerin gösterildiği kısmi tanım). Daha ayrıntılı belirtmek gerekirse:
+Merhaba girdi veri kümesi ile **JsonFormat** türü şu şekilde tanımlanır: (yalnızca hello ilgili bölümleri kısmi tanımıyla). Daha ayrıntılı belirtmek gerekirse:
 
-- `structure` bölümü, tablo verilerine dönüştürme sırasında kullanılan özelleştirilmiş sütun adlarını ve karşılık gelen veri türünü tanımlar. Bu bölüm **isteğe bağlıdır** ve yalnızca sütun eşleme için kullanmanız gerekir. Bkz: [kaynak veri kümesi sütunları hedef veri kümesi sütun eşleme](data-factory-map-columns.md) daha fazla ayrıntı için bölüm.
-- `jsonNodeReference`, **dizi** sipariş satırlarının altında aynı desene sahip nesnelerdeki verilerin yineleneceğini ve ayıklanacağını belirtir.
-- `jsonPathDefinition`, her sütun için verilerin ayıklanacağı JSON yolunu belirtir. Bu örnekte "ordernumber", "orderdate" ve "city", kök nesnenin altında ve "$." ile başlayan JSON yolundayken, "order_pd" ve "order_price", "$." olmadan dizi öğesinden türetilen yol kullanılarak tanımlanmıştır.
+- `structure`Bölüm tootabular veri dönüştürülürken özelleştirilmiş hello sütun adları ve hello karşılık gelen veri türünü tanımlar. Bu bölüm **isteğe bağlı** toodo sütun eşlemesi gerekmedikçe. Bkz: [kaynak veri kümesi sütunları toodestination dataset sütunlara](data-factory-map-columns.md) daha fazla ayrıntı için bölüm.
+- `jsonNodeReference`aynı desen altında hello hello nesneleriyle tooiterate ve ayıklama verilerini gösteren **dizi** orderlines.
+- `jsonPathDefinition`Burada tooextract hello verilerden belirten her sütun için Hello JSON yolu belirtir. Bu örnekte "$.", "order_pd" ve "order_price" "$" olmadan hello array öğesinden türetilen yoluyla tanımlı başlangıç JSON yolu ile kök nesnesi altında "ordernumber", "orderdate" ve "Şehir" olur.
 
 ```json
 "properties": {
@@ -337,16 +337,16 @@ ve bunu bir Azure SQL tablosuna aşağıdaki biçimde, dizi içindeki verileri d
 }
 ```
 
-**Aşağıdaki noktalara dikkat edin:**
+**Hello aşağıdaki noktaları göz önünde bulundurun:**
 
-* `structure` ve `jsonPathDefinition`, Data Factory veri kümesinde tanımlanmamışsa, Copy Activity şemayı ilk nesneden algılar ve nesnenin tamamını düzleştirir.
-* JSON girişi bir diziye sahipse, Copy Activity dizi değerinin tamamını varsayılan olarak bir dizeye dönüştürür. Verileri `jsonNodeReference` ve/veya `jsonPathDefinition` kullanarak ayıklayabilir ya da `jsonPathDefinition` içinde belirtmeden atlayabilirsiniz.
-* Aynı düzeyde birden fazla ad varsa Copy Activity sonuncusunu alır.
+* Merhaba, `structure` ve `jsonPathDefinition` hello Data Factory veri kümesi içinde hello tanımlanmayan kopyalama etkinliği hello hello ilk nesne şemadan ve nesnenin tamamı hello düzleştirmek algılar.
+* Merhaba JSON girişi bir dizi varsa, varsayılan olarak hello kopyalama etkinliği hello tüm dizi değeri bir dizeye dönüştürür. Tooextract verileri kullanarak ondan seçebilirsiniz `jsonNodeReference` ve/veya `jsonPathDefinition`, veya içinde belirterek değil atlayabilirsiniz `jsonPathDefinition`.
+* Varsa yinelenen adları, aynı düzeydeki Merhaba, hello kopyalama etkinliği hello sonuncu seçer.
 * Özellik adları büyük/küçük harfe duyarlıdır. Aynı ada ancak farklı büyük/küçük harf düzenine sahip iki özellik, iki ayrı özellik olarak kabul edilir.
 
-**Durum 2: JSON dosyasına veri yazma**
+**Durum 2: veri tooJSON dosyası yazılıyor**
 
-Aşağıdaki tabloda SQL veritabanında varsa:
+SQL veritabanı tablosunda aşağıdaki hello varsa:
 
 | id | order_date | order_price | order_by |
 | --- | --- | --- | --- |
@@ -354,7 +354,7 @@ Aşağıdaki tabloda SQL veritabanında varsa:
 | 2 | 20170120 | 3500 | Patrick |
 | 3 | 20170121 | 4000 | Jason |
 
-ve aşağıdaki biçimde bir JSON nesnesi yazmak beklediğiniz her kayıt için:
+ve her bir kaydı toowrite tooa JSON nesnesi biçimini izleyen hello beklediğiniz:
 ```json
 {
     "id": "1",
@@ -366,7 +366,7 @@ ve aşağıdaki biçimde bir JSON nesnesi yazmak beklediğiniz her kayıt için:
 }
 ```
 
-**JsonFormat** türüne sahip çıkış veri kümesi şu şekilde tanımlanır: (yalnızca ilgili bölümlerin gösterildiği kısmi tanım). Daha belirgin olarak `structure` bölüm hedef dosyasında özelleştirilmiş özellik adlarını tanımlar `nestingSeparator` (varsayılan değer ".") adı iç içe katmandan tanımlamak için kullanılır. Bu bölüm **isteğe bağlıdır** ve kaynak sütunu adıyla karşılaştırarak özellik adını değiştirmek veya özelliklerin bazılarını iç içe yerleştirmek için kullanmanız gerekir.
+Merhaba çıkış veri kümesi ile **JsonFormat** türü şu şekilde tanımlanır: (yalnızca hello ilgili bölümleri kısmi tanımıyla). Daha belirgin olarak `structure` bölüm hedef dosyasında özelleştirilmiş hello özellik adlarını tanımlar `nestingSeparator` (varsayılan değer ".") hello adından kullanılan tooidentify hello iç içe katmandır. Bu bölüm **isteğe bağlı** toochange hello özellik adı kaynak sütun adı ile karşılaştırmak istediğiniz ya da hello özelliklerden bazıları iç içe sürece.
 
 ```json
 "properties": {
@@ -398,7 +398,7 @@ ve aşağıdaki biçimde bir JSON nesnesi yazmak beklediğiniz her kayıt için:
 ```
 
 ## <a name="avro-format"></a>AVRO biçimi
-Avro dosyalarını ayrıştırmak veya verileri Avro biçiminde yazmak istiyorsanız `format` `type` özelliğini **AvroFormat** olarak ayarlayın. typeProperties bölümünün içindeki Format bölümünde herhangi bir özellik belirtmenize gerek yoktur. Örnek:
+Tooparse hello Avro dosyalarının istediğiniz veya Avro biçiminde hello veri yazmak istiyorsanız, hello ayarlayın `format` `type` özelliği çok**AvroFormat**. Merhaba typeProperties bölüm içindeki hello biçimi bölümünde herhangi bir özellik toospecify gerekmez. Örnek:
 
 ```json
 "format":
@@ -407,14 +407,14 @@ Avro dosyalarını ayrıştırmak veya verileri Avro biçiminde yazmak istiyorsa
 }
 ```
 
-Avro biçimini bir Hive tablosunda kullanmak için [Apache Hive öğreticisini](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe) inceleyebilirsiniz.
+bir Hive tablosu toouse Avro biçimi, başvurabilirsiniz çok[Apache Hive'nın Öğreticisi](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
-Aşağıdaki noktalara dikkat edin:  
+Hello aşağıdaki noktaları göz önünde bulundurun:  
 
 * [Karmaşık veri türlerini](http://avro.apache.org/docs/current/spec.html#schema_complex) desteklenmez (kaydeder, numaralandırmalar, dizileri, haritalar, birleşimler ve sabit).
 
 ## <a name="orc-format"></a>ORC biçimi
-ORC dosyalarını ayrıştırmak veya verileri ORC biçiminde yazmak istiyorsanız `format` `type` özelliğini **OrcFormat** olarak ayarlayın. typeProperties bölümünün içindeki Format bölümünde herhangi bir özellik belirtmenize gerek yoktur. Örnek:
+Merhaba, tooparse hello ORC dosyaları veya ORC biçiminde hello veri yazmak istiyorsanız ayarlayın `format` `type` özelliği çok**OrcFormat**. Merhaba typeProperties bölüm içindeki hello biçimi bölümünde herhangi bir özellik toospecify gerekmez. Örnek:
 
 ```json
 "format":
@@ -424,17 +424,17 @@ ORC dosyalarını ayrıştırmak veya verileri ORC biçiminde yazmak istiyorsan�
 ```
 
 > [!IMPORTANT]
-> Şirket içi ve bulut veri depoları arasında ORC dosyalarını **olduğu gibi** kopyalamıyorsanız, ağ geçidi cihazınıza JRE 8 (Java Çalışma Zamanı Ortamı) yüklemeniz gerekir. 64 bit ağ geçidi için 64 bit JRE, 32 bit ağ geçidi için de 32 bit JRE gerekir. İki sürüme de [buradan](http://go.microsoft.com/fwlink/?LinkId=808605) ulaşabilirsiniz. Cihazınıza uygun olanı seçin.
+> ORC dosyaları kopyalıyorsanız değil, **olarak-olduğu** şirket içi ve bulut arasında veri depolarına, ağ geçidi makinenizde tooinstall hello JRE 8 (Java Çalışma zamanı ortamı) gerekir. 64 bit ağ geçidi için 64 bit JRE, 32 bit ağ geçidi için de 32 bit JRE gerekir. İki sürüme de [buradan](http://go.microsoft.com/fwlink/?LinkId=808605) ulaşabilirsiniz. Merhaba uygun olanı seçin.
 >
 >
 
-Aşağıdaki noktalara dikkat edin:
+Hello aşağıdaki noktaları göz önünde bulundurun:
 
 * Karmaşık veri türleri desteklenmez (STRUCT, MAP, LIST, UNION)
-* ORC dosyası [sıkıştırmayla ilgili üç seçeneğe sahiptir](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory, bu sıkıştırma biçimlerinin herhangi birine sahip ORC dosyalarını okuyabilir. Verileri okumak için meta verilerdeki sıkıştırma kodlayıcısı/kod çözücüsünü kullanır. Ancak Data Factory bir ORC dosyasına yazarken varsayılan ORC değeri olan ZLIB seçeneğini kullanır. Şu anda bu davranışı geçersiz kılma seçeneği yoktur.
+* ORC dosyası [sıkıştırmayla ilgili üç seçeneğe sahiptir](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory, bu sıkıştırma biçimlerinin herhangi birine sahip ORC dosyalarını okuyabilir. Merhaba sıkıştırma kullanır codec olduğu hello meta veri tooread hello verileri. Ancak, tooan ORC dosyasına yazarken, veri fabrikası ZLIB, ORC için hello varsayılan olduğu seçer. Şu anda bu davranış hiçbir seçeneği toooverride yoktur.
 
 ## <a name="parquet-format"></a>Parquet biçimi
-Parquet dosyalarını ayrıştırmak veya verileri Parquet biçiminde yazmak istiyorsanız `format` `type` özelliğini **ParquetFormat** olarak ayarlayın. typeProperties bölümünün içindeki Format bölümünde herhangi bir özellik belirtmenize gerek yoktur. Örnek:
+Tooparse hello Parquet dosyalarının istediğiniz veya Parquet biçiminde hello veri yazmak istiyorsanız, hello ayarlayın `format` `type` özelliği çok**ParquetFormat**. Merhaba typeProperties bölüm içindeki hello biçimi bölümünde herhangi bir özellik toospecify gerekmez. Örnek:
 
 ```json
 "format":
@@ -443,19 +443,19 @@ Parquet dosyalarını ayrıştırmak veya verileri Parquet biçiminde yazmak ist
 }
 ```
 > [!IMPORTANT]
-> Şirket içi ve bulut veri depoları arasında Parquet dosyalarını **olduğu gibi** kopyalamıyorsanız, ağ geçidi cihazınıza JRE 8 (Java Çalışma Zamanı Ortamı) yüklemeniz gerekir. 64 bit ağ geçidi için 64 bit JRE, 32 bit ağ geçidi için de 32 bit JRE gerekir. İki sürüme de [buradan](http://go.microsoft.com/fwlink/?LinkId=808605) ulaşabilirsiniz. Cihazınıza uygun olanı seçin.
+> Parquet dosyaları kopyalıyorsanız değil, **olarak-olduğu** şirket içi ve bulut arasında veri depolarına, ağ geçidi makinenizde tooinstall hello JRE 8 (Java Çalışma zamanı ortamı) gerekir. 64 bit ağ geçidi için 64 bit JRE, 32 bit ağ geçidi için de 32 bit JRE gerekir. İki sürüme de [buradan](http://go.microsoft.com/fwlink/?LinkId=808605) ulaşabilirsiniz. Merhaba uygun olanı seçin.
 >
 >
 
-Aşağıdaki noktalara dikkat edin:
+Hello aşağıdaki noktaları göz önünde bulundurun:
 
 * Karmaşık veri türleri desteklenmez (MAP, LIST)
-* Parquet dosyası sıkıştırmayla ilgili şu seçeneklere sahiptir: NONE, SNAPPY, GZIP ve LZO. Data Factory, bu sıkıştırma biçimlerinin herhangi birine sahip ORC dosyalarını okuyabilir. Verileri okumak için meta verilerdeki sıkıştırma kodlayıcısı/kod çözücüsünü kullanır. Ancak Data Factory bir Parquet dosyasına yazarken varsayılan Parquet biçimi SNAPPY seçeneğini kullanır. Şu anda bu davranışı geçersiz kılma seçeneği yoktur.
+* Parquet dosya sıkıştırma ilgili seçenekleri aşağıdaki hello vardır: NONE, SNAPPY, GZIP ve LZO. Data Factory, bu sıkıştırma biçimlerinin herhangi birine sahip ORC dosyalarını okuyabilir. Merhaba sıkıştırma codec hello meta veri tooread hello verileri kullanır. Ancak, tooa Parquet dosyasına yazarken, veri fabrikası SNAPPY, Parquet biçiminde hello varsayılan olduğu seçer. Şu anda bu davranış hiçbir seçeneği toooverride yoktur.
 
 ## <a name="compression-support"></a>Sıkıştırma desteği
-Büyük veri kümeleri işleme g/ç ve ağ performans sorunlarına neden. Bu nedenle, sıkıştırılmış veri depolarında yalnızca ağ üzerinden veri aktarımı hızlandırmak ve disk alanından tasarruf, ancak ayrıca büyük veri işlerken önemli performans geliştirmeleri getirin. Şu anda sıkıştırma, Azure Blob veya şirket içi dosya sistemi gibi dosya tabanlı veri depoları için desteklenir.  
+Büyük veri kümeleri işleme g/ç ve ağ performans sorunlarına neden. Bu nedenle, sıkıştırılmış veri depolarında yazabilir yalnızca hello ağ üzerinden veri aktarımı hızı ve disk alanından tasarruf, ancak ayrıca büyük veri işlerken önemli performans geliştirmeleri getirin. Şu anda sıkıştırma, Azure Blob veya şirket içi dosya sistemi gibi dosya tabanlı veri depoları için desteklenir.  
 
-Bir veri kümesi sıkıştırma belirtmek için kullanın **sıkıştırma** aşağıdaki örnekteki gibi JSON veri kümesi özelliğinde:   
+bir veri kümesi, kullanım hello toospecify sıkıştırma **sıkıştırma** aşağıdaki örneğine hello olduğu gibi JSON hello kümesindeki özelliği:   
 
 ```json
 {  
@@ -479,31 +479,31 @@ Bir veri kümesi sıkıştırma belirtmek için kullanın **sıkıştırma** aş
 }  
 ```
 
-Örnek veri kümesi kopyalama etkinliği çıkış olarak kullanılan varsayalım kopyalama etkinliği ile en iyi oranını kullanarak GZIP codec çıktı verilerini sıkıştırır ve Azure Blob Depolama pagecounts.csv.gz adlı bir dosyaya sıkıştırılmış veri yazma.
+Merhaba örnek veri kümesi kopyalama etkinliği hello çıkış olarak kullanılan varsayalım hello kopyalama etkinliği sıkıştırır hello GZIP codec ile en iyi oranını kullanarak çıktı verilerini ve hello Azure Blob Storage pagecounts.csv.gz adlı bir dosyaya sıkıştırılmış hello veri yazma.
 
 > [!NOTE]
-> Veri sıkıştırma ayarları desteklenmez **AvroFormat**, **OrcFormat**, veya **ParquetFormat**. Bu biçimler dosyalarında okurken, veri fabrikası algılar ve sıkıştırma codec meta verilerde kullanır. Bu biçimler dosyalarında yazarken, veri fabrikası bu biçimi için varsayılan sıkıştırma codec seçer. Örneğin, ZLIB OrcFormat ve ParquetFormat SNAPPY.   
+> Merhaba veri sıkıştırma ayarları desteklenmez **AvroFormat**, **OrcFormat**, veya **ParquetFormat**. Bu biçimler dosyalarında okurken, veri fabrikası algılar ve hello sıkıştırma codec hello meta verilerde kullanır. Toofiles aşağıdaki biçimlerde yazarken, veri fabrikası hello varsayılan sıkıştırma codec Bu biçim seçer. Örneğin, ZLIB OrcFormat ve ParquetFormat SNAPPY.   
 
-**Sıkıştırma** bölüm iki özellik vardır:  
+Merhaba **sıkıştırma** bölüm iki özellik vardır:  
 
-* **Tür:** olabilir sıkıştırma codec **GZIP**, **Deflate**, **bzıp2**, veya **ZipDeflate**.  
-* **Düzeyi:** olabilir sıkıştırma oranı **Optimal** veya **en hızlı**.
+* **Tür:** olabilir hello sıkıştırma codec **GZIP**, **Deflate**, **bzıp2**, veya **ZipDeflate**.  
+* **Düzeyi:** olabilir hello sıkıştırma oranı **Optimal** veya **en hızlı**.
 
-  * **Hızlı:** sonuç dosyası en iyi şekilde sıkıştırılmaz olsa bile sıkıştırma işlemi mümkün olan en kısa sürede tamamlamanız gerekir.
-  * **En iyi**: işlemin tamamlanması çok uzun sürüyor olsa bile sıkıştırma işlemi en iyi şekilde, sıkıştırılmış.
+  * **Hızlı:** hello sıkıştırma işlemini tamamlamanız gereken mümkün olan en kısa sürede hello elde edilen dosyası en iyi şekilde sıkıştırılmaz olsa bile.
+  * **En iyi**: hello sıkıştırma işlemi en iyi şekilde sıkıştırılmış, dahi hello işlemi daha uzun bir süre toocomplete alır.
 
     Daha fazla bilgi için bkz: [sıkıştırma düzeyi](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) konu.
 
-Belirttiğinizde `compression` bir girdi veri kümesi JSON özelliğinde, ardışık düzen sıkıştırılmış veri kaynağından; okuyabilir ve bir çıkış dataset JSON özelliğini belirttiğinizde kopyalama etkinliği hedefe sıkıştırılmış veri yazabilirsiniz. Bazı örnek senaryolar verilmiştir:
+Belirttiğinizde `compression` bir girdi veri kümesi JSON özelliğinde hello ardışık düzen hello kaynağından; sıkıştırılmış verileri okuyabilir ve bir çıkış dataset JSON hello özelliğini belirttiğinizde hello kopyalama etkinliği sıkıştırılmış veri toohello hedef yazabilirsiniz. Bazı örnek senaryolar verilmiştir:
 
-* Bir Azure blob okuma GZIP sıkıştırılmış verileri iptal ve sonuçta elde edilen veri bir Azure SQL veritabanına yazma. Giriş Azure Blob kümesiyle tanımladığınız `compression` `type` JSON özellik GZIP olarak.
-* Şirket içi dosya sistemi düz metin dosyasından veri okunamıyor, GZip biçimi kullanarak Sıkıştır ve sıkıştırılmış verileri bir Azure blob yazma. Bir çıktı Azure Blob kümesiyle tanımladığınız `compression` `type` JSON özellik GZip olarak.
-* FTP sunucusundan .zip dosyasını oku içindeki dosyaları alın ve bu dosyaların Azure Data Lake Store güden açın. Bir giriş FTP kümesiyle tanımladığınız `compression` `type` JSON özelliği ZipDeflate olarak.
-* GZIP sıkıştırılmış verileri Azure blob'tan okuyun, iptal, bzıp2 kullanarak Sıkıştır ve bir Azure blob sonuç verileri yazma. Giriş Azure Blob kümesiyle tanımladığınız `compression` `type` GZIP ve çıktı veri kümesi ile ayarlanan `compression` `type` bzıp2 için bu durumda ayarlayın.   
+* GZIP sıkıştırılmış verileri Azure blob'tan okuma, iptal ve sonuç verileri tooan Azure SQL veritabanı yazma. Merhaba giriş Azure Blob kümesiyle hello tanımladığınız `compression` `type` JSON özellik GZIP olarak.
+* Şirket içi dosya sistemi düz metin dosyasından veri okunamıyor, GZip biçimi kullanarak Sıkıştır ve sıkıştırılmış hello veri tooan Azure blob yazma. Merhaba çıktı Azure Blob kümesiyle tanımladığınız `compression` `type` JSON özellik GZip olarak.
+* FTP sunucusu, .zip dosyasından okuma içindeki tooget hello dosyaları sıkıştırılmış ve bu dosyaların Azure Data Lake Store güden. Girdi bir FTP veri kümesi'hello ile tanımladığınız `compression` `type` JSON özelliği ZipDeflate olarak.
+* GZIP sıkıştırılmış verileri Azure blob'tan okuma, iptal, bzıp2 kullanarak Sıkıştır ve sonuç verileri tooan Azure blob yazma. Merhaba giriş Azure Blob kümesiyle tanımladığınız `compression` `type` tooGZIP ayarlayın ve çıktı veri kümesi ile Merhaba `compression` `type` tooBZIP2 bu durumda ayarlayın.   
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Data Factory ile desteklenen dosya tabanlı veri depoları için aşağıdaki makalelere bakın:
+Aşağıdaki makaleler Azure Data Factory ile desteklenen dosya tabanlı veri depoları için hello bakın:
 
 - [Azure Blob Depolama](data-factory-azure-blob-connector.md)
 - [Azure Data Lake Store](data-factory-azure-datalake-connector.md)

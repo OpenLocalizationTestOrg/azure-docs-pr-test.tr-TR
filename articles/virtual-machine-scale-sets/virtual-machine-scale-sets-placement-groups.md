@@ -1,6 +1,6 @@
 ---
-title: "Büyük Azure Sanal Makine Ölçek Kümeleri ile çalışma | Microsoft Docs"
-description: "Büyük Azure sanal makine ölçek kümelerini kullanmak için bilmeniz gerekenler"
+title: "büyük Azure sanal makine ölçek kümeleri ile aaaWorking | Microsoft Docs"
+description: "Gerekenler tooknow toouse büyük Azure sanal makine ölçekleme kümeleri"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gbowerman
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/7/2017
 ms.author: guybo
-ms.openlocfilehash: 9e9eae1623e55c1c05e97aa0b836819ce5dc16f9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a39aab25925d7fc50763f0a20148b1f2213b492f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Büyük sanal makine ölçek kümeleri ile çalışma
-Artık, 1000 adede kadar VM kapasiteli Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/) oluşturabilirsiniz. Bu belgede _büyük bir sanal makine ölçek kümesi_, 100’den fazla VM'yi ölçeklendirme kapasitesine sahip bir ölçek kümesi olarak tanımlanır. Bu özellik bir ölçek kümesi özelliği ile ayarlanır (_singlePlacementGroup=False_). 
+Artık Azure oluşturabilirsiniz [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/) too1, 000 VM'ler yukarı kapasitesine sahip. Bu belgede, bir _büyük sanal makine ölçek kümesini_ ölçeği 100 VM'ler daha toogreater ölçeklendirme özellikli Ayarla olarak tanımlanır. Bu özellik bir ölçek kümesi özelliği ile ayarlanır (_singlePlacementGroup=False_). 
 
-Büyük ölçek kümelerinin yük dengeleme ve hata etki alanları gibi bazı özellikleri, standart bir ölçek kümesinden farklı davranır. Bu belgede büyük ölçek kümelerinin özellikleri ve bunları uygulamalarınızda başarıyla kullanabilmeniz için bilmeniz gerekenler açıklanmaktadır. 
+Yük Dengeleme ve hata etki alanları farklı tooa standart ölçek kümesini davranır gibi büyük ölçekli belirli özelliklerini ayarlar. Bu belge büyük ölçekli kümelerinin hello özelliklerini açıklar ve hangi tooknow toosuccessfully bunları uygulamalarınızda kullanmanız açıklar. 
 
-Büyük ölçekte bulut altyapısı dağıtmaya yönelik genel bir yaklaşım, _ölçek birimleri_ kümesi oluşturmayı içerir (örneğin, birden fazla sanal ağ ve depolama hesabında birden fazla VM oluşturarak). Bu yaklaşım, tek VM'lerle karşılaştırıldığında daha kolay yönetim sağlar. Ayrıca, birden fazla ölçek birimi, yığınlanabilen bileşenler (birden çok sanal ağ ve uç nokta gibi) gerektiren uygulamalar başta olmak üzere çoğu uygulama için yararlıdır. Ancak, uygulamanız tek bir büyük küme gerektiriyorsa, 1.000 adede kadar VM içerebilen tek bir ölçek kümesinin dağıtılması daha kolay olabilir. Örnek senaryolar arasında merkezi büyük veri dağıtımları veya büyük bir çalışan düğümü havuzunun basit yönetimini gerektiren işlem kılavuzları sayılabilir. VM ölçek kümesi [bağlı veri diskleri](virtual-machine-scale-sets-attached-disks.md) ile bir araya geldiğinde, büyük ölçek kümeleri, tek bir işlem olarak binlerce çekirdek ve petabaytlarca depolama alanından oluşan ölçeklenebilir bir altyapı dağıtmanızı sağlar.
+Büyük ölçekli bulut altyapısını dağıtmak için ortak bir yaklaşım toocreate kümesidir _ölçek birimleri_, örneğin birden çok VM oluşturarak kümeleri birden çok sanal ağlara ve depolama hesapları arasında ölçeklendirin. Bu yaklaşım daha kolay yönetim karşılaştırıldığında toosingle VM'ler sağlar ve özellikle birden çok sanal ağlar ve uç noktaları gibi diğer yığınlanabilir bileşenleri gerektiren birçok uygulama için birden fazla ölçek birimi yararlıdır. Uygulamanızın tek bir büyük küme ancak gerektiriyorsa, tek bir ölçek too1, 000 VM'ler kümesi daha kolay toodeploy olabilir. Örnek senaryolar arasında merkezi büyük veri dağıtımları veya büyük bir çalışan düğümü havuzunun basit yönetimini gerektiren işlem kılavuzları sayılabilir. VM ölçek kümesi ile birlikte [veri diskleri ekli](virtual-machine-scale-sets-attached-disks.md), büyük ölçekli kümeleri etkinleştirmek, toodeploy binlerce çekirdek ve tek bir işlem olarak depolama petabaytlarca oluşan ölçeklenebilir bir altyapı.
 
 ## <a name="placement-groups"></a>Yerleştirme grupları 
-_Büyük_ bir ölçek kümesini özel kılan özellik VM sayısı değil, içerdiği _yerleştirme grubu_ sayısıdır. Yerleştirme grubu, kendi hata etki alanları ve yükseltme etki alanları ile Azure kullanılabilirlik kümesine benzer bir yapıdır. Varsayılan olarak, bir ölçek kümesi en fazla 100 VM boyutuna sahip tek bir yerleştirme grubundan oluşur. _singlePlacementGroup_ adlı ölçek kümesi özelliği _false_ olarak ayarlanırsa, ölçek kümesi birden fazla yerleştirme grubundan oluşabilir ve 0-1.000 aralığında VM içerebilir. Varsayılan _true_ değerine ayarlandığında ise ölçek kümesi tek bir yerleştirme grubundan oluşur ve 0-100 aralığında VM içerir.
+Kılan bir _büyük_ ölçeği özel Ayarla VM hello sayısı, ancak hello sayısı değil _yerleştirme grupları_ içeriyor. Bir yapı benzer tooan Azure kullanılabilirlik kümesi, kendi hata etki alanları ve yükseltme etki alanları ile bir yerleştirme grubudur. Varsayılan olarak, bir ölçek kümesi en fazla 100 VM boyutuna sahip tek bir yerleştirme grubundan oluşur. Bir ölçek adlı özellik ayarlarsanız _singlePlacementGroup_ too_false_, ayarlanır hello ölçek kümesini birden çok yerleştirme grupları oluşturulabilir ve 0-1000 aralığındadır VM'ler. Toohello varsayılan değer olarak ayarlandığında _doğru_, Ölçek kümesini tek yerleştirme grubu oluşur ve 0-100 aralığındadır VM'ler.
 
 ## <a name="checklist-for-using-large-scale-sets"></a>Büyük ölçek kümelerini kullanmaya ilişkin denetim listesi
-Uygulamanızın büyük ölçek kümelerini etkili bir şekilde kullanıp kullanmadığına karar vermek için aşağıdaki gereksinimleri göz önünde bulundurun:
+toodecide etkili kullanımını büyük ölçekli kümeleri, uygulamanızın yapabilirsiniz olup olmadığını hello aşağıdaki gereksinimleri göz önünde bulundurun:
 
-- Büyük ölçek kümeleri Azure Yönetilen Diskleri gerektirir. Yönetilen Diskler ile oluşturulmayan ölçek kümeleri birden fazla depolama hesabı (her 20 VM için bir tane) gerektirir. Büyük ölçek kümeleri, depolama yönetimi yükünüzü azaltmak ve depolama hesaplarının abonelik sınırlarını aşma riskini önlemek üzere yalnızca Yönetilen Disklerle çalışacak şekilde tasarlanmıştır. Yönetilen Diskleri kullanmazsanız, ölçek kümeniz 100 VM ile sınırlı olur.
-- Azure Market’te oluşturulan ölçek kümeleri 1.000 VM’ye kadar ölçeklendirilebilir.
-- Özel görüntülerden oluşturulan ölçek kümeleri (kendi oluşturduğunuz ve yüklediğiniz VM görüntüleri) şu anda en fazla 100 VM’ye kadar ölçeklendirilebilir.
-- Azure Load Balancer ile 4. katman yük dengeleme, birden fazla yerleştirme grubundan oluşan ölçek kümeleri için henüz desteklenmemektedir. Azure Load Balancer’ı kullanmanız gerekirse, ölçek kümesinin tek bir yerleştirme grubu kullanacak şekilde (varsayılan ayar) yapılandırıldığından emin olun.
-- Azure Application Gateway ile 7. katman yük dengeleme tüm ölçek kümeleri için desteklenir.
-- Ölçek kümesi tek bir alt ağ ile tanımlanır; alt ağınızın gereken tüm VM’ler için yeterince geniş bir adres alanına sahip olduğundan emin olun. Varsayılan olarak, dağıtım güvenilirliğini ve performansını artırmak için ölçek kümesi fazla sağlama yapar (dağıtım sırasında veya ölçeklendirme sırasında fazladan VM oluşturur, bunlar için ücret alınmaz). Ölçeklendirmeyi planladığınız VM sayısından %20 daha fazla adres alanı ayırın.
-- Çok sayıda VM dağıtmayı planlıyorsanız, İşlem çekirdek kotası sınırlarınızın artırılması gerekebilir.
-- Hata etki alanları ve yükseltme etki alanları yalnızca bir yerleştirme grubu içinde tutarlıdır. VM’ler ayrı bir fiziksel donanım üzerinde dağıtıldığı için bu mimari bir ölçek kümesinin genel kullanılabilirliğini değiştirmez, ancak farklı bir donanım üzerinde iki VM’yi garanti etmeniz gerekiyorsa, bunların aynı yerleştirme grubundaki farklı hata etki alanlarında olduğundan emin olmanız gerektiği anlamına gelir. Hata etki alanı ve yerleştirme grubu kimliği, bir ölçek kümesi sanal makinesinin _örnek görünümünde_ gösterilir. Bir ölçek kümesi sanal makinesinin örnek görünümünü [Azure Kaynak Gezgini](https://resources.azure.com/)’nde görüntüleyebilirsiniz.
+- Büyük ölçek kümeleri Azure Yönetilen Diskleri gerektirir. Yönetilen Diskler ile oluşturulmayan ölçek kümeleri birden fazla depolama hesabı (her 20 VM için bir tane) gerektirir. Büyük ölçekli, özel olarak aboneliğinize çalıştıran depolama yönetim ek yükü ve tooavoid hello riskini depolama hesapları için sınırlar yönetilen diskleri tooreduce ile tasarlanmış toowork kümeleridir. Yönetilen diskleri kullanmazsanız, Ölçek sınırlı too100 VM'ler kümesidir.
+- Azure Market görüntülerden oluşturulan ölçek kümeleri too1, 000 VM'ler ölçeklendirebilirsiniz.
+- Özel resimler (oluşturmak ve kendiniz yüklemek VM görüntüleri) oluşturulan ölçek kümeleri şu anda too100 Vm'leri ölçeklendirebilirsiniz.
+- Katman 4 Yük Dengeleme Hello Azure yük dengeleyici ile birden çok yerleştirme gruplardan oluşan ölçek kümeleri için henüz desteklenmiyor. Azure yük dengeleyici olmak emin hello Ölçeği Ayarla toouse hello gerekiyorsa yapılandırılmış toouse hello varsayılan ayar olan bir tek yerleştirme, grubudur.
+- Katman 7 Yük Dengeleme Hello Azure uygulama ağ geçidi ile tüm ölçek kümeleri için desteklenir.
+- Ölçek kümesini tek bir alt ağ ile tanımlanan - gereksinim duyduğunuz tüm hello VM'ler için yeterince büyük bir adres alanı alt ağınızı sahip olduğundan emin olun. Varsayılan olarak bir ölçek overprovisions kümesi (hangi sizin için sizden ücret istenmese fazladan VM'ler dağıtım zamanında veya çıkışı, ölçekleme sırasında oluşturur) tooimprove dağıtım güvenilirlik ve performans. Bir adres alanı % 20 tooscale için planlama VM'ler hello sayısından daha izin verir.
+- Birçok VM toodeploy planlıyorsanız, işlem çekirdek kotası artan toobe gerekebilir.
+- Hata etki alanları ve yükseltme etki alanları yalnızca bir yerleştirme grubu içinde tutarlıdır. Bu mimari hello değiştirmez genel kullanılabilirlik bir ölçek kümesi, sanal makineleri farklı fiziksel donanım üzerinde dağılımla, ancak iki VM olan farklı donanım üzerinde tooguarantee ihtiyacınız varsa, farklı hatası olduklarından emin olmak anlamına gelir mu etki alanlarında aynı yerleştirme Grup hello. Hata etki alanı ve yerleştirme Grup Kimliği hello gösterilen _örnek görünümü_ VM ölçeğini ayarlayın. VM ölçek kümesi örnek görünümünü hello hello görüntüleyebilirsiniz [Azure kaynak Gezgini](https://resources.azure.com/).
 
 
 ## <a name="creating-a-large-scale-set"></a>Büyük ölçek kümesi oluşturma
-Azure portalında bir ölçek kümesi oluştururken, _Temel Özellikler_ dikey penceresinde _Tek bir yerleştirme grubuyla sınırla_ seçeneğini _False_ olarak ayarlayarak ölçek kümesinin birden fazla yerleştirme grubuna ölçeklendirilmesine izin verebilirsiniz. Bu seçenek _False_ olarak ayarlandığında, _Örnek sayısı_ değerini 1.000’e kadar belirtebilirsiniz.
+Ölçeği hello Azure portal Ayarla oluşturduğunuzda, onu tooscale toomultiple yerleştirme grupları ayarlama hello tarafından izin verebilirsiniz _sınırı tooa tek yerleştirme grup_ seçeneği too_False_ hello içinde _Temelleri_ dikey. Bu seçenek kümesi too_False_ belirttiğiniz bir _örnek sayısını_ değerini too1, 000 ayarlama.
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-[Azure CLI](https://github.com/Azure/azure-cli) _az vmss create_ komutunu kullanarak büyük bir VM ölçek kümesi oluşturabilirsiniz. Bu komut, alt ağ boyutu gibi akıllı varsayılan değerleri _instance-count_ bağımsız değişkenine göre ayarlar:
+Merhaba kullanılarak ayarlanan büyük bir VM ölçek oluşturabilirsiniz [Azure CLI](https://github.com/Azure/azure-cli) _az vmss oluşturma_ komutu. Bu komut hello bağlı alt ağ boyutu gibi akıllı varsayılan ayarlar _örnek sayısı_ bağımsız değişkeni:
 
 ```bash
 az group create -l southcentralus -n biginfra
 az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
 ```
-Belirtmemeniz durumunda, _vmss create_ komutu bazı yapılandırma değerlerini varsayılan olarak kullanır. Geçersiz kılabileceğiniz seçenekleri görmek için şunları deneyin:
+Bu hello Not _vmss oluşturma_ bunları belirtmezseniz, komut Varsayılanları bazı yapılandırma değerleri. geçersiz kılabilirsiniz toosee hello kullanılabilir seçenekleri deneyin:
 ```bash
 az vmss create --help
 ```
 
-Bir Azure Resource Manager şablonu oluşturarak büyük bir ölçek kümesi oluşturuyorsanız, şablonun Azure Yönetilen Diskleri temel alan bir ölçek kümesi oluşturduğundan emin olun. _Microsoft.Compute/virtualMAchineScaleSets_ kaynağının _özellikler_ bölümünde _singlePlacementGroup_ özelliğini _false_ olarak ayarlayabilirsiniz. Aşağıdaki JSON parçası, 1.000 VM kapasite ve _"singlePlacementGroup" : false_ ayarına sahip bir ölçek kümesi şablonunun başlangıcını gösterir:
+Bir Azure Resource Manager şablonu oluşturma tarafından ayarlanmış büyük bir ölçekte oluşturuyorsanız, yönetilen Azure disklerde dayalı bir ölçek kümesini hello şablon oluşturur emin olun. Merhaba ayarlayabilirsiniz _singlePlacementGroup_ özelliği too_false_ hello içinde _özellikleri_ hello bölümünü _Microsoft.Compute/virtualMAchineScaleSets_ kaynak. Merhaba aşağıdaki JSON parça gösterir hello 1.000 VM kapasitesi ve hello gibi bir ölçek kümesi şablonu hello başlangıcını _"singlePlacementGroup": yanlış_ ayarı:
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -77,12 +77,12 @@ Bir Azure Resource Manager şablonu oluşturarak büyük bir ölçek kümesi olu
       "mode": "Automatic"
     }
 ```
-Büyük bir ölçek kümesi şablonunun tam örneği için bkz. [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+Büyük ölçekli tam bir örnek için şablon ayarlama, çok bakın[https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
-## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Mevcut bir ölçek kümesini birden fazla yerleştirme grubuna yayılacak şekilde dönüştürme
-Mevcut bir VM ölçek kümesini 100’den fazla VM ölçeklendirebilecek kapasiteye getirmek için, ölçek kümesi modelinde _singplePlacementGroup_ özelliğini _false_ olarak ayarlamanız gerekir. Bu özelliğin değiştirilmesini [Azure Kaynak Gezgini](https://resources.azure.com/) ile test edebilirsiniz. Mevcut bir ölçek kümesini bulun, _Düzenle_’yi seçin ve _singlePlacementGroup_ özelliğini değiştirin. Bu özelliği görmüyorsanız, ölçek kümesini Microsoft.Compute API’sinin daha eski bir sürümüyle görüntülüyor olabilirsiniz.
+## <a name="converting-an-existing-scale-set-toospan-multiple-placement-groups"></a>Varolan bir ölçek dönüştürme toospan birden çok yerleştirme grupları
+var olan bir VM ölçek kümesi 100 VM'ler daha toomore ölçeklendirme özellikli toomake toochange hello ihtiyacınız _singplePlacementGroup_ özelliği too_false_ hello ölçeğinde modeli ayarlayın. Bu özelliğin hello ile değiştirilmesi test [Azure kaynak Gezgini](https://resources.azure.com/). Mevcut bir ölçek kümesini, select Bul _Düzenle_ hello değiştirip _singlePlacementGroup_ özelliği. Bu özellik görmüyorsanız hello ölçeği hello Microsoft.Compute API daha eski bir sürümü Ayarla görüntüleme.
 
 >[!NOTE] 
-Tek bir yerleştirme grubunu destekleyen bir ölçek kümesini (varsayılan davranış), birden fazla yerleştirme grubunu destekleyecek şekilde değiştirebilirsiniz, ancak zıt yönde değiştiremezsiniz. Bu nedenle, dönüştürmeden önce büyük ölçek kümelerinin özelliklerini anladığınızdan emin olun. Özellikle, Azure Load Balancer ile 4. katman yük dengelemenin gerekli olmadığından emin olun.
+Birden çok yerleştirme gruplarını destekleyen bir tek yerleştirme grubu yalnızca (Merhaba, varsayılan davranıştır) tooa destekleyen ayarlamak ölçek değiştirebilirsiniz, ancak hello şekilde dönüştürülemiyor. Bu nedenle dönüştürmeden önce büyük ölçekli kümeleri hello özelliklerini anladığınızdan emin olun. Özellikle, katman 4 Yük Dengeleme hello Azure yük dengeleyici ile gerekmez emin olun.
 
 

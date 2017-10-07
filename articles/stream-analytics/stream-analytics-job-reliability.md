@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.openlocfilehash: 8dc19e1b37082c87d2990ad910d1af786f8b9280
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3ac65c93ecb47e93e963dd9869a7af70f73b19c7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Akış analizi işi güvenilirlik hizmet güncelleştirmeleri sırasında garanti
 
-Tam olarak yönetilen bir hizmet olma yeteneği yeni hizmet işlevselliği ve hızlı bir hızda geliştirmeleri tanıtır bir parçasıdır. Sonuç olarak, Stream Analytics haftalık (veya daha sık) temelinde dağıtmak bir hizmet güncelleştirmesi olabilir. Ne kadar test bitti olsun hala, var olan, çalışan bir iş bir hata giriş nedeniyle kesilebilir bir riski yoktur. Kritik akış işleme işleri çalıştırma müşteriler için bu riskleri kaçınılması gerekir. Müşteriler bu riskini azaltmak için kullanabileceğiniz bir Azure'nın mekanizmadır  **[eşleştirilmiş bölge](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)**  modeli. 
+Tam olarak yönetilen bir hizmet olan hello yetenek toointroduce yeni hizmeti işlevselliği ve hızlı bir hızda iyileştirmeleri parçasıdır. Sonuç olarak, Stream Analytics haftalık (veya daha sık) temelinde dağıtmak bir hizmet güncelleştirmesi olabilir. Ne kadar test bitti olsun hala, var olan, çalışan bir iş hatanın toohello giriş kesilebilir bir riski yoktur. Kritik akış işleme işleri çalıştırma müşteriler için bu riskleri kaçınılması toobe gerekir. Bir mekanizma müşterileri tooreduce kullanabilir Azure'un bu riskidir  **[eşleştirilmiş bölge](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)**  modeli. 
 
 ## <a name="how-do-azure-paired-regions-address-this-concern"></a>Azure eşleştirilmiş bölgeleri bu sorunu nasıl ele?
 
-Akış analizi işleri eşleştirilmiş bölgelerde ayrı toplu olarak güncelleştirilir güvence altına alır. Sonuç olarak olası sonu hataları belirlemek ve düzeltmek için güncelleştirmeleri arasında yeterli zaman aralığı yok.
+Akış analizi işleri eşleştirilmiş bölgelerde ayrı toplu olarak güncelleştirilir güvence altına alır. Sonuç olarak tooidentify olası sonu hataları ve bunları düzeltmek hello güncelleştirmeleri arasında yeterli zaman aralığı yok.
 
-_Orta Hindistan dışında_ (eşleştirilmiş, bölge, Güney Hindistan ve akış analizi varlığı yok), Stream Analytics için bir güncelleştirme dağıtımının eşleştirilmiş bölgeler kümesinde aynı zamanda oluşacak değil. Birden çok bölgeye dağıtımlarda **aynı gruptaki** oluşabilir **aynı anda**.
+_Orta Hindistan hello özel_ (eşleştirilmiş, bölge, Güney Hindistan ve akış analizi varlığı yok), Analytics hello değil gerçekleşecek bir güncelleştirme tooStream hello dağıtımını aynı zaman eşleştirilmiş bölgeler kümesinde. Birden çok bölgeye dağıtımlarda **hello içinde aynı grubu** oluşabilir **Merhaba, aynı anda**.
 
-Makale  **[kullanılabilirlik ve eşleştirilmiş bölgeleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)**  üzerinde bölgeler eşleştirilmiş en güncel bilgileri içeriyor.
+Merhaba makale üzerinde  **[kullanılabilirlik ve eşleştirilmiş bölgeleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)**  hello en güncel bilgileri üzerinde bölgeler eşleştirilmiş sahiptir.
 
-Müşteriler, aynı işleri hem eşleştirilmiş bölgelere dağıtmak için önerilir. İzleme kapasiteleri iç Stream Analytics yanı sıra müşterileri de işleri izlemek için önerilir gibi **her ikisi de** üretim işler. Stream Analytics Hizmet güncelleştirmesi sonucu olarak bir sonu tanımladıysanız, uygun şekilde İlerlet ve herhangi bir aşağı akış tüketiciye sağlıklı iş çıktısı için yük. Yükseltme desteklemek için yeni dağıtım tarafından etkilenen eşleştirilmiş bölge önlemek ve eşleştirilmiş işleri bütünlüğünü.
+Müşterilerin tavsiye edilir toodeploy aynı işleri eşleştirilmiş tooboth bölgeler önerilir. Ayrıca Analytics izleme kapasiteleri, müşterilerin iç olan de tooStream toomonitor hello işleri tavsiye gibi **her ikisi de** üretim işler. Bir sonu tanımlanan toobe hello Stream Analytics Hizmet güncelleştirmesi sonucu ise, uygun şekilde İlerlet ve herhangi bir aşağı akış tüketicileri toohello sağlıklı proje çıktı başarısız. Yükseltme toosupport hello yeni dağıtım tarafından etkilenen hello eşleştirilmiş bölge önlemek ve eşleştirilmiş hello işleri hello bütünlüğünü.

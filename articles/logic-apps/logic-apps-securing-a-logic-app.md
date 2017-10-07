@@ -1,6 +1,6 @@
 ---
-title: "Güvenli erişim Azure Logic Apps | Microsoft Docs"
-description: "Tetikleyiciler, girişleri ve çıkışları, eylem parametrelerini ve Azure mantıksal uygulamaları'nda iş akışları ile kullanılan hizmetler erişimi korumaya yönelik güvenlik ekleyin."
+title: "aaaSecure erişim tooAzure Logic Apps | Microsoft Docs"
+description: "Erişim tootriggers, girişleri ve çıkışları, eylem parametrelerini ve iş akışlarıyla Azure Logic Apps içinde kullanılan hizmetler korumaya yönelik güvenlik ekleyin."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -14,80 +14,80 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0528d660f590e106f61729f10f8f68da3fe58cb7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: abda2179e4cc2d2295cd8332ec017c848a456264
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="secure-access-to-your-logic-apps"></a>Mantıksal uygulamalarınızı güvenli erişim
+# <a name="secure-access-tooyour-logic-apps"></a>Tooyour logic apps güvenli erişim
 
-Mantıksal uygulamanızı güvenliğini sağlamanıza yardımcı olabilecek birçok araç vardır.
+Mantıksal uygulamanızı güvenli birçok Araçlar kullanılabilir toohelp vardır.
 
-* Bir mantıksal uygulama (HTTP isteği tetikleyici) tetiklemek için erişim güvenliğini sağlama
-* Yönetme, düzenleme veya bir mantıksal uygulama okuma erişimi güvenli hale getirme
-* Bir çalıştırma için girişleri ve çıkışları içeriğini erişimi güvenli hale getirme
+* Bir mantıksal uygulama (HTTP isteği tetikleyici) erişim tootrigger güvenli hale getirme
+* Erişim toomanage güvenli hale getirme, düzenleme veya bir mantıksal uygulama okuma
+* Erişim toocontents girişleri ve çıkışları bir çalışması için güvenli hale getirme
 * Parametreleri ya da bir iş akışında Eylemler içinde girişleri güvenliğini sağlama
-* Bir iş akışından isteklerini alacak hizmetlerine erişim güvenliğini sağlama
+* Bir iş akışından isteklerini alacak erişim tooservices güvenliğini sağlama
 
-## <a name="secure-access-to-trigger"></a>Tetiklemek için güvenli erişim
+## <a name="secure-access-tootrigger"></a>Güvenli erişim tootrigger
 
-Bir HTTP isteğiyle tetiklenen bir mantıksal uygulama ile çalışırken ([isteği](../connectors/connectors-native-reqres.md) veya [Web kancası](../connectors/connectors-native-webhook.md)), böylece yalnızca yetkili istemcilerin mantıksal uygulama tetikleyebilir erişimi kısıtlayabilirsiniz. Bir mantıksal uygulama içinde tüm istekleri şifrelenir ve SSL güvenli.
+Bir HTTP isteğiyle tetiklenen bir mantıksal uygulama ile çalışırken ([isteği](../connectors/connectors-native-reqres.md) veya [Web kancası](../connectors/connectors-native-webhook.md)), böylece yalnızca yetkili istemcilerin hello mantıksal uygulama tetikleyebilir erişimi kısıtlayabilirsiniz. Bir mantıksal uygulama içinde tüm istekleri şifrelenir ve SSL güvenli.
 
 ### <a name="shared-access-signature"></a>Paylaşılan erişim imzası
 
-Her istek uç noktası için bir mantıksal uygulama içeren bir [paylaşılan erişim imzası (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) URL'SİNİN bir parçası olarak. Her URL içeren bir `sp`, `sv`, ve `sig` sorgu parametresi. İzinleri tarafından belirtilen `sp`ve izin verilen, HTTP yöntemleri karşılık `sv` oluşturmak için kullanılan sürümü ve `sig` tetiklemek için erişimde kimlik doğrulaması için kullanılır. İmza, tüm özellikler ve URL yollarını gizli bir anahtar ile SHA256 algoritmasını kullanılarak oluşturulur. Gizli anahtar hiçbir zaman kullanıma sunulan ve yayımlanan ve şifrelenmiş ve mantığı uygulamanın parçası olarak depolanan tutulur. Mantıksal uygulama gizli anahtarı ile oluşturulan geçerli bir imzası içeren Tetikleyicileri yalnızca yetkilendirir.
+Her istek uç noktası için bir mantıksal uygulama içeren bir [paylaşılan erişim imzası (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) hello URL'SİNİN bir parçası olarak. Her URL içeren bir `sp`, `sv`, ve `sig` sorgu parametresi. İzinleri tarafından belirtilen `sp`, ve izin verilen, tooHTTP yöntemleri karşılık `sv` hello kullanılan sürümü toogenerate olan ve `sig` kullanılan tooauthenticate erişim tootrigger değil. Merhaba imza, gizli bir anahtar tüm hello URL yollarını ve özellikleri ile Merhaba SHA256 algoritması kullanılarak oluşturulur. Merhaba gizli anahtar hiçbir zaman kullanıma sunulan ve yayımlanan ve şifrelenmiş ve hello mantığı uygulamanın parçası olarak depolanan tutulur. Mantıksal uygulamanızı yalnızca hello gizli anahtarı ile oluşturulan geçerli bir imzası içeren Tetikleyicileri yetkilendirir.
 
 #### <a name="regenerate-access-keys"></a>Erişim anahtarlarını yeniden oluştur
 
-Yeni güvenli bir anahtar, REST API veya Azure Portal'dan dilediğiniz zaman yeniden oluşturabilirsiniz. Eski anahtarı kullanarak önceden oluşturulan tüm geçerli URL'ler geçersiz ve artık mantıksal uygulama yangın yetkisine.
+Yeni güvenli bir anahtar adresindeki hello REST API veya Azure portalı üzerinden dilediğiniz zaman yeniden oluşturabilirsiniz. Merhaba eski anahtarı kullanarak önceden oluşturulan tüm geçerli URL'ler geçersiz ve artık yetkili toofire hello mantıksal uygulama ' dir.
 
-1. Azure portalında bir anahtarı yeniden oluşturmak istediğiniz mantıksal uygulama açın
-1. Tıklatın **erişim tuşları** menü öğesi altında **ayarları**
-1. Yeniden oluşturun ve işlemi tamamlamak için anahtarı seçin
+1. Hello Azure portal, tooregenerate bir anahtar istediğiniz hello mantıksal uygulama açın
+1. Merhaba tıklatın **erişim tuşları** menü öğesi altında **ayarları**
+1. Merhaba anahtar tooregenerate ve tam hello işlemi seçin
 
-Yeniden oluşturma tamamlandıktan sonra alma URL'leri yeni erişim anahtarı ile imzalanmış.
+Yeniden oluşturma tamamlandıktan sonra alma URL'leri hello yeni erişim anahtarı ile imzalanmış.
 
 #### <a name="creating-callback-urls-with-an-expiration-date"></a>Geri çağırma URL'leri bir sona erme tarihi ile oluşturma
 
-Diğer kuruluşlarla URL paylaşıyorsanız, özel anahtarları ve gerektiği gibi sona erme tarihleri ile URL'leri oluşturabilir. Sonra sorunsuzca anahtarları alma, veya bir uygulama yangın erişimi belirli bir timespan sınırlı olduğundan emin olun. Bir URL yolu için bir sona erme tarihi belirtebilirsiniz [logic apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers):
+Diğer kuruluşlarla hello URL paylaşıyorsanız, özel anahtarları ve gerektiği gibi sona erme tarihleri ile URL'leri oluşturabilir. Daha sonra sorunsuzca anahtarları alma, veya bir uygulamaya erişim toofire sağlamak belirli timespan kısıtlı tooa değil. Merhaba aracılığıyla bir URL'ye ilişkin bir sona erme tarihi belirtebilirsiniz [logic apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers):
 
 ``` http
 POST 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
 ```
 
-Özellik gövdesinde dahil `NotAfter` bir JSON tarih dizesi döndüren yalnızca geçerliliğinin bir geri çağırma URL'si `NotAfter` tarih ve saat.
+Merhaba gövdesinde hello özelliğini içeren `NotAfter` bir JSON tarih dizesi döndüren hello kadar yalnızca geçerli bir geri çağırma URL'si `NotAfter` tarih ve saat.
 
 #### <a name="creating-urls-with-primary-or-secondary-secret-key"></a>Birincil veya ikincil gizli anahtarla URL'ler oluşturma
 
-Oluşturmak ya da istek tabanlı tetikleyiciler için geri çağırma URL'leri listesinde URL imzalamak için kullanılan hangi anahtar da belirtebilirsiniz.  Belirli bir anahtarı tarafından imzalanan bir URL oluşturabileceğiniz [logic apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers) gibi:
+Oluşturmak veya istek tabanlı tetikleyiciler için geri çağırma URL'lerin listesi, hangi anahtar toouse toosign hello URL de belirtebilirsiniz.  Merhaba aracılığıyla belirli bir anahtarı tarafından imzalanan bir URL oluşturabileceğiniz [logic apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers) gibi:
 
 ``` http
 POST 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
 ```
 
-Özellik gövdesinde dahil `KeyType` olarak `Primary` veya `Secondary`.  Bu, belirtilen güvenli anahtar tarafından imzalanmış bir URL döndürür.
+Merhaba gövdesinde hello özelliğini içeren `KeyType` olarak `Primary` veya `Secondary`.  Merhaba güvenli anahtar belirtilen tarafından imzalanmış bir URL döndürür.
 
 ### <a name="restrict-incoming-ip-addresses"></a>Gelen IP adreslerini kısıtlamak
 
-Paylaşılan erişim imzası yanı sıra, yalnızca belirli istemcilerinden bir mantıksal uygulama çağırma sınırlamak isteyebilirsiniz.  Örneğin, uç noktanızı Azure API Management üzerinden yönetiyorsanız, yalnızca isteği API Management örneği IP adresinden geldiğinde isteğini kabul etmek için mantıksal uygulama kısıtlayabilirsiniz.
+Ayrıca toohello paylaşılan erişim imzası, yalnızca belirli istemcilerinden bir mantıksal uygulama çağırma toorestrict isteyebilir.  Örneğin, uç noktanızı Azure API Management üzerinden yönetiyorsanız, hello mantığı kısıtlayabilirsiniz uygulama tooonly hello isteği hello API Management örneği IP adres geldiğinde hello isteğini kabul.
 
-Bu ayar mantığını uygulaması ayarları içinde yapılandırılabilir:
+Bu ayar hello mantığını uygulaması ayarları içinde yapılandırılabilir:
 
-1. Azure Portal'da, IP adresi sınırlamaları eklemek istediğiniz mantıksal uygulama açın
-1. Tıklatın **erişim denetimini yapılandırma** menü öğesi altında **ayarları**
-1. Tetik tarafından kabul edilmesi için IP adres aralıklarına listesini belirtin
+1. Hello Azure portal, tooadd IP adresi sınırlamaları istediğiniz hello mantıksal uygulama açın
+1. Merhaba tıklatın **erişim denetimini yapılandırma** menü öğesi altında **ayarları**
+1. IP adresi aralıkları toobe hello tetik tarafından kabul Hello listesini belirtin
 
-Geçerli bir IP aralığı biçimini alır `192.168.1.1/255`. Yalnızca bir iç içe geçmiş mantıksal uygulama tetiklenecek mantıksal uygulama istiyorsanız seçin **yalnızca diğer logic apps** seçeneği. Bu seçenek, anlamı yalnızca çağırır hizmetin kendisini (üst mantıksal uygulamalar) kaynak için boş bir dizi Yazar başarıyla tetiklenecek.
+Geçerli bir IP aralığı hello biçimini alır `192.168.1.1/255`. Merhaba mantığı uygulama tooonly yangın iç içe geçmiş mantıksal uygulama olarak istiyorsanız hello seçin **yalnızca diğer logic apps** seçeneği. Bu seçenek yalnızca çağrılarından hello kendisini (üst mantıksal uygulamalar) yangın başarıyla hizmet anlamına boş dizi toohello kaynak yazar.
 
 > [!NOTE]
-> Hala bir mantıksal uygulama isteği tetikleyici ile REST API aracılığıyla çalıştırabilirsiniz / Yönetim `/triggers/{triggerName}/run` IP ne olursa olsun. Bu senaryo Azure REST API'sine karşı kimlik doğrulaması gerektirir ve tüm olayları Azure denetim günlüğünde görünür. Set erişim ilkelerini uygun şekilde denetler.
+> Hala bir mantıksal uygulama isteği tetikleyici ile Merhaba REST API çalıştırabilirsiniz / Yönetim `/triggers/{triggerName}/run` IP ne olursa olsun. Bu senaryo hello Azure REST API'sine karşı kimlik doğrulamasını gerektirir ve tüm olayları hello Azure denetim günlüğünü görünür. Set erişim ilkelerini uygun şekilde denetler.
 
-#### <a name="setting-ip-ranges-on-the-resource-definition"></a>Kaynak tanımı'nda IP aralıklarını ayarlama
+#### <a name="setting-ip-ranges-on-hello-resource-definition"></a>IP aralıklarını hello kaynak tanımı'nda ayarlama
 
-Kullanıyorsanız bir [dağıtım şablonu](logic-apps-create-deploy-template.md) dağıtımlarınızı otomatikleştirmek için IP aralığı ayarlarını kaynak şablonu yapılandırılabilir.  
+Kullanıyorsanız bir [dağıtım şablonu](logic-apps-create-deploy-template.md) tooautomate hello IP aralığı ayarlarını dağıtımlarınızı hello kaynak şablonuna yapılandırılabilir.  
 
 ``` json
 {
@@ -115,32 +115,32 @@ Kullanıyorsanız bir [dağıtım şablonu](logic-apps-create-deploy-template.md
 
 ### <a name="adding-azure-active-directory-oauth-or-other-security"></a>Azure Active Directory, OAuth veya diğer güvenlik ekleme
 
-Bir mantıksal uygulama üzerinde daha fazla yetkilendirme protokolleri eklemek için [Azure API Management](https://azure.microsoft.com/services/api-management/) zengin izleme, güvenlik, İlkesi ve bir mantıksal uygulama bir API olarak kullanıma sunmak için özelliğine sahip herhangi bir uç nokta için belgeler sağlar. Azure API Management genel veya özel uç noktası için Azure Active Directory, sertifika, OAuth veya diğer güvenlik standartları kullanabilirsiniz mantıksal uygulama getirebilir. Bir istek alındığında, Azure API Management (herhangi bir gerekli dönüşümleri veya kısıtlamaları yürütülen gerçekleştirerek) mantıksal uygulama isteği iletir. Mantıksal uygulama gelen IP aralığı ayarları yalnızca API Yönetimi'nden tetiklenmesi mantıksal uygulama izin vermek için kullanabilirsiniz.
+Daha fazla yetkilendirme protokolleri bir mantıksal uygulama üstünde tooadd [Azure API Management](https://azure.microsoft.com/services/api-management/) zengin izleme, güvenlik, ilke ve belgeleri hello yetenek tooexpose ile herhangi bir uç nokta için bir mantıksal uygulama olarak bir API sunar. Azure API Management genel veya özel uç noktası için Azure Active Directory, sertifika, OAuth veya diğer güvenlik standartları kullanabilirsiniz hello mantıksal uygulama getirebilir. Bir istek alındığında, Azure API Management hello isteği toohello mantıksal uygulama (herhangi bir gerekli dönüşümleri veya kısıtlamaları yürütülen gerçekleştirerek) iletir. Merhaba mantığı uygulama tooonly ayarlarını hello mantığı uygulama toobe tetiklenen API Yönetimi'nden izin hello gelen IP aralığı kullanabilirsiniz.
 
-## <a name="secure-access-to-manage-or-edit-logic-apps"></a>Güvenli erişim yönetmek veya logic apps düzenlemek için
+## <a name="secure-access-toomanage-or-edit-logic-apps"></a>Toomanage veya düzenleme logic apps güvenli erişim
 
-Böylece yalnızca belirli kullanıcılara veya gruplara kaynak üzerinde işlem gerçekleştirmek için bir mantıksal uygulama yönetimi işlemleri için erişimi kısıtlayabilirsiniz. Logic apps kullanan Azure [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md) özellik ve aynı araçları ile özelleştirilebilir.  Aboneliğinize üyeleri de atayabilirsiniz birkaç yerleşik roller vardır:
+Yalnızca belirli kullanıcılara veya gruplara hello kaynak mümkün tooperform işlemleri; böylece bir mantıksal uygulama erişim toomanagement işlemlerine kısıtlayabilirsiniz. Logic apps kullanmak hello Azure [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md) özellik ve hello ile özelleştirilebilir aynı araçları.  Abonelik tooas üyeleri de atayabilirsiniz birkaç yerleşik roller vardır:
 
-* **Mantığı uygulamasını katkıda bulunan** -görüntüleme, düzenleme ve bir mantıksal uygulama güncelleştirmek için erişim sağlar.  Kaynak kaldıramaz veya yönetim işlemleri.
-* **Mantıksal uygulama işleci** - mantıksal uygulama görüntüleyebilir ve çalıştırma geçmişi ve etkinleştir/devre dışı bırak.  Düzenleyemez veya tanımını güncelleştirin.
+* **Mantığı uygulamasını katkıda bulunan** -erişim tooview, düzenleme ve güncelleştirme bir mantıksal uygulama sağlar.  Merhaba kaynak kaldıramaz veya yönetim işlemleri.
+* **Mantıksal uygulama işleci** - görüntüleyebilir hello mantıksal uygulama ve çalıştırma geçmişi ve etkinleştir/devre dışı bırak.  Düzenleyemez veya hello tanımını güncelleştirin.
 
-Aynı zamanda [Azure kaynak kilidi](../azure-resource-manager/resource-group-lock-resources.md) değiştirme veya silme logic apps önlemek için. Bu özellik, üretim kaynaklardan değişiklikleri ya da silme işlemleri engellemek için faydalıdır.
+Aynı zamanda [Azure kaynak kilidi](../azure-resource-manager/resource-group-lock-resources.md) değiştirme veya silme logic apps tooprevent. Bu özellik değerli tooprevent üretim kaynaklardan değişiklikleri ya da silme işlemleri olur.
 
-## <a name="secure-access-to-contents-of-the-run-history"></a>Çalıştırma geçmişi içeriğini güvenli erişim
+## <a name="secure-access-toocontents-of-hello-run-history"></a>Güvenli erişim toocontents çalıştırma geçmişi Merhaba
 
-Belirli IP adresi aralıkları önceki çalışır gelen girişleri veya çıkışları in içeriğine erişimi kısıtlayabilirsiniz.  
+Önceki çalışır toospecific IP adres aralıklarının erişim toocontents girişleri veya çıkışları kısıtlayabilirsiniz.  
 
-Yoldaki ve bekleyen iş akışı çalışması içinde tüm veriler şifrelenir. Geçmiş çalıştırmak için bir çağrı yapıldığında, hizmet isteğin kimliğini doğrular ve isteği ve yanıt girişleri ve çıkışları bağlantılar sağlar. Belirtilen IP adresi aralığından içeriği görüntülemek için yalnızca istekler içeriği döndürür şekilde bu bağlantıyı korunabilir. Ek erişim denetimi için bu özelliği kullanabilirsiniz. Bir IP adresi gibi bile belirtebilirsiniz `0.0.0.0` hiç bir girdi/çıktı erişebilecek şekilde. İş akışı içeriği 'just-in-time' erişimi için olasılığını sağlayan yalnızca yönetici izinlerine sahip olan kişi bu kısıtlama kaldırabilirsiniz.
+Yoldaki ve bekleyen iş akışı çalışması içinde tüm veriler şifrelenir. Bir arama toorun geçmişini yapıldığında, hello hizmet hello isteğin kimliğini doğrular ve bağlantıları toohello istek ve yanıt girişleri ve çıkışları sağlar. Bu bağlantı, atanan IP adres aralığından gelen tooview içeriği döndürmesi hello içeriği korumalı böylece yalnızca istekleri olabilir. Ek erişim denetimi için bu özelliği kullanabilirsiniz. Bir IP adresi gibi bile belirtebilirsiniz `0.0.0.0` hiç bir girdi/çıktı erişebilecek şekilde. Merhaba olasılığı için 'just-in-time' erişim tooworkflow içerik sağlama yalnızca yönetici izinlerine sahip olan kişi bu kısıtlama kaldırabilirsiniz.
 
-Bu ayar, Azure portalında kaynak ayarları içinde yapılandırılabilir:
+Bu ayar hello kaynak ayarlarını hello Azure portalı içinde yapılandırılabilir:
 
-1. Azure Portal'da, IP adresi sınırlamaları eklemek istediğiniz mantıksal uygulama açın
-1. Tıklatın **erişim denetimini yapılandırma** menü öğesi altında **ayarları**
-1. IP adresi aralıkları için içeriğe erişimi için bir liste belirtin
+1. Hello Azure portal, tooadd IP adresi sınırlamaları istediğiniz hello mantıksal uygulama açın
+1. Merhaba tıklatın **erişim denetimini yapılandırma** menü öğesi altında **ayarları**
+1. IP adresi aralıkları için erişim toocontent Hello listesini belirtin
 
-#### <a name="setting-ip-ranges-on-the-resource-definition"></a>Kaynak tanımı'nda IP aralıklarını ayarlama
+#### <a name="setting-ip-ranges-on-hello-resource-definition"></a>IP aralıklarını hello kaynak tanımı'nda ayarlama
 
-Kullanıyorsanız bir [dağıtım şablonu](logic-apps-create-deploy-template.md) dağıtımlarınızı otomatikleştirmek için IP aralığı ayarlarını kaynak şablonu yapılandırılabilir.  
+Kullanıyorsanız bir [dağıtım şablonu](logic-apps-create-deploy-template.md) tooautomate hello IP aralığı ayarlarını dağıtımlarınızı hello kaynak şablonuna yapılandırılabilir.  
 
 ``` json
 {
@@ -167,19 +167,19 @@ Kullanıyorsanız bir [dağıtım şablonu](logic-apps-create-deploy-template.md
 
 ## <a name="secure-parameters-and-inputs-within-a-workflow"></a>Güvenli parametreleri ve iş akışı içinde girişleri
 
-Dağıtım için bir iş akışı tanımı bazı yönlerini ortamlar genelinde Parametreleştirme isteyebilirsiniz. Ayrıca, bazı parametreler gibi bir istemci kimliği ve istemci parolası için bir iş akışı düzenlerken görüntülenmesini istemediğiniz güvenli parametreler olabilir [Azure Active Directory kimlik doğrulaması](../connectors/connectors-native-http.md#authentication) bir HTTP eylem.
+Dağıtım için bir iş akışı tanımı bazı yönlerini tooparameterize ortamlar genelinde isteyebilirsiniz. Ayrıca, bazı parametreler gibi bir istemci kimliği ve istemci parolası için bir iş akışı düzenlerken tooappear istemiyorsanız güvenli parametreler olabilir [Azure Active Directory kimlik doğrulaması](../connectors/connectors-native-http.md#authentication) bir HTTP eylem.
 
 ### <a name="using-parameters-and-secure-parameters"></a>Parametreleri ve güvenli parametrelerini kullanma
 
-Çalışma zamanında kaynak parametresinin değeri erişmek için [iş akışı tanımlama dili](http://aka.ms/logicappsdocs) sağlayan bir `@parameters()` işlemi. Ayrıca, [kaynak dağıtım şablonu parametrelerini belirtin](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Ancak parametre türü olarak belirtirseniz, `securestring`, parametre kaynak tanımı geri kalanı ile döndürülen olmaz ve dağıtımdan sonra kaynak görüntüleyerek erişilebilir olmayacaktır.
+tooaccess hello çalışma zamanında kaynak parametresinin değeri hello [iş akışı tanımlama dili](http://aka.ms/logicappsdocs) sağlayan bir `@parameters()` işlemi. Ayrıca, [hello kaynak dağıtım şablonu parametrelerini belirtin](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Ancak başlangıç parametresi türü olarak belirtirseniz, `securestring`, hello parametresi hello hello kaynak tanımı kalanıyla döndürülen olmaz ve dağıtımdan sonra hello kaynak görüntüleyerek erişilebilir olmayacaktır.
 
 > [!NOTE]
-> Parametreniz üstbilgileri ya da bir istek gövdesi kullanılırsa, parametre görünür çalıştırma geçmişi ve giden HTTP istek erişerek olabilir. İçerik erişim ilkelerinizi uygun şekilde ayarladığınızdan emin olun.
-> Yetkilendirme üstbilgileri hiçbir zaman girişleri veya çıkışları görünür. Bu nedenle gizli var. kullanılıyorsa, gizli alınabilir değil.
+> Parametreniz hello üstbilgilerinde veya bir istek gövdesi kullanılırsa, hello parametre görünür hello çalıştırma geçmişi ve giden HTTP istek erişerek olabilir. Emin tooset içerik erişim ilkelerinizi buna göre yapın.
+> Yetkilendirme üstbilgileri hiçbir zaman girişleri veya çıkışları görünür. Bu nedenle Hello gizli var. kullanılıyorsa hello gizli alınabilir değil.
 
 #### <a name="resource-deployment-template-with-secrets"></a>Gizli anahtarlarla kaynak dağıtım şablonu
 
-Aşağıdaki örnek, bir secure parametresi başvuruda bulunan bir dağıtım gösterir `secret` çalışma zamanında. Ayrı Parametreler dosyasında ortamı değerini belirtebilirsiniz `secret`, veya kullanmak [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) almak için zaman adresindeki gizlilik dağıtın.
+Merhaba aşağıdaki örnekte güvenli parametresinin başvuruda bulunan bir dağıtım gösterir `secret` çalışma zamanında. Ayrı Parametreler dosyasında hello hello ortamı değerini belirtebilirsiniz `secret`, veya [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) adresindeki tooretrieve gizli dağıtmak zaman.
 
 ``` json
 {
@@ -210,7 +210,7 @@ Aşağıdaki örnek, bir secure parametresi başvuruda bulunan bir dağıtım g�
                 "headers": {
                   "Authorization": "@parameters('secret')"
                 },
-                "body": "This is the request"
+                "body": "This is hello request"
               },
               "runAfter": {}
             }
@@ -244,33 +244,33 @@ Aşağıdaki örnek, bir secure parametresi başvuruda bulunan bir dağıtım g�
 }
 ```
 
-## <a name="secure-access-to-services-receiving-requests-from-a-workflow"></a>Bir iş akışından isteklerini almak hizmetlerine güvenli erişim
+## <a name="secure-access-tooservices-receiving-requests-from-a-workflow"></a>Bir iş akışı alma isteklerini tooservices güvenli erişim
 
-Mantıksal uygulama erişmesi gereken herhangi bir uç nokta güvenliğini sağlamak için birçok yolu vardır.
+Herhangi bir uç nokta hello mantığı uygulama tooaccess gereken güvenli birçok yolu toohelp vardır.
 
 ### <a name="using-authentication-on-outbound-requests"></a>Giden isteklerinde kimlik doğrulaması kullanma
 
-Bir HTTP, HTTP + Swagger (açık API) veya Web kancası eylemi ile çalışırken, gönderilen isteği kimlik doğrulaması ekleyebilirsiniz. Temel kimlik doğrulaması, sertifika kimlik doğrulaması veya Azure Active Directory kimlik doğrulaması dahil olabilir. Bu kimlik doğrulaması yapılandırma hakkında ayrıntılar bulunabilir [bu makalede](../connectors/connectors-native-http.md#authentication).
+Bir HTTP, HTTP + Swagger (açık API) veya Web kancası eylemi ile çalışırken, kimlik doğrulama toohello isteği gönderilen ekleyebilirsiniz. Temel kimlik doğrulaması, sertifika kimlik doğrulaması veya Azure Active Directory kimlik doğrulaması dahil olabilir. Bu kimlik doğrulama tooconfigure nasıl bulunabilir Ayrıntılar [bu makalede](../connectors/connectors-native-http.md#authentication).
 
-### <a name="restricting-access-to-logic-app-ip-addresses"></a>Mantıksal uygulama IP adreslerine erişimi kısıtlama
+### <a name="restricting-access-toologic-app-ip-addresses"></a>Erişim toologic uygulama IP adreslerine kısıtlama
 
-Logic apps gelen tüm çağrıları belirli bir IP adresleri her bölge kümesini gelmektedir. Yalnızca bu atanan IP adreslerinden gelen istekleri kabul edecek şekilde filtreleme ek ekleyebilirsiniz. Bu IP adresleri listesi için bkz: [mantığı uygulama sınırlarını ve yapılandırmasını](logic-apps-limits-and-config.md#configuration).
+Logic apps gelen tüm çağrıları belirli bir IP adresleri her bölge kümesini gelmektedir. Ek filtreleme ekleyebilirsiniz tooonly bu IP adreslerini belirlenmiş gelen istekleri kabul edin. Bu IP adresleri listesi için bkz: [mantığı uygulama sınırlarını ve yapılandırmasını](logic-apps-limits-and-config.md#configuration).
 
 ### <a name="on-premises-connectivity"></a>Şirket içi bağlantı
 
-Logic apps güvenli ve güvenilir sağlamak üzere birkaç hizmetleriyle tümleştirme içi iletişim sağlar.
+Logic apps birkaç Hizmetleri tooprovide güvenli ve güvenilir ile tümleştirme içi iletişim sağlar.
 
 #### <a name="on-premises-data-gateway"></a>Şirket içi veri ağ geçidi
 
-Birçok yönetilen bağlayıcılar mantıksal uygulamalar için şirket içi sistemlere dosya sistemi, SQL, SharePoint, DB2 ve daha fazlası da dahil olmak üzere, güvenli bağlantı sağlar. Ağ geçidi şifrelenmiş kanalda Azure Service Bus aracılığıyla şirket içi kaynaklardan veri aktarır. Ağ geçidi aracısından güvenli giden trafik olarak tüm trafiğin kaynaklandığı. Daha fazla bilgi edinmek [veri ağ geçidinin nasıl çalıştığını](logic-apps-gateway-install.md#gateway-cloud-service).
+Birçok yönetilen bağlayıcılar mantıksal uygulamalar için güvenli bağlantı tooon içi sistemleri, dosya sistemi, SQL, SharePoint, DB2 ve daha fazlası da dahil olmak üzere sağlar. Merhaba ağ geçidi şifrelenmiş kanalda hello Azure Service Bus aracılığıyla şirket içi kaynaklardan veri aktarır. Güvenli giden trafiği hello ağ geçidi aracısından olarak tüm trafiğin kaynaklandığı. Daha fazla bilgi edinmek [hello veri ağ geçidi nasıl çalıştığını](logic-apps-gateway-install.md#gateway-cloud-service).
 
 #### <a name="azure-api-management"></a>Azure API Management
 
-[Azure API Management](https://azure.microsoft.com/services/api-management/) güvenli proxy'si için siteden siteye VPN ve ExpressRoute tümleştirme ve şirket içi sistemleriyle iletişim dahil olmak üzere şirket içi bağlantı seçenekleri vardır. Mantıksal Uygulama Tasarımcısı'nda, hızlı bir şekilde şirket içi sistemlere hızlı erişim sağlayan Azure API Yönetimi'nden bir iş akışı içinde kullanıma sunulan bir API seçebilirsiniz.
+[Azure API Management](https://azure.microsoft.com/services/api-management/) güvenli proxy ve iletişim tooon içi sistemler için siteden siteye VPN ve ExpressRoute tümleştirme de dahil olmak üzere şirket içi bağlantı seçenekleri vardır. Hello mantığı Uygulama Tasarımcısı'de, hızlı bir şekilde tooon içi sistemleri hızlı erişim sağlayan Azure API Yönetimi'nden bir iş akışı içinde kullanıma sunulan bir API'yi seçebilirsiniz.
 
 #### <a name="hybrid-connections-from-azure-app-service"></a>Karma bağlantılar Azure uygulama hizmeti
 
-Şirket içi iletişim kurmak için şirket içi karma bağlantı özelliği Azure API ve Web uygulamaları için kullanabilirsiniz.  Karma bağlantılar ve nasıl yapılandırılacağı hakkında ayrıntılı bulunabilir [bu makalede](../app-service-web/web-sites-hybrid-connection-get-started.md).
+Azure API ve Web uygulamaları toocommunicate şirket içi hello şirket içi karma bağlantı özelliğini kullanabilirsiniz.  Karma bağlantılar ve tooconfigure nasıl bulunabilir hakkında ayrıntılar [bu makalede](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Bir dağıtım şablonu oluşturma](logic-apps-create-deploy-template.md)  

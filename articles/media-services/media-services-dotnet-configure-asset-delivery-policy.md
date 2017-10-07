@@ -1,6 +1,6 @@
 ---
-title: ".NET SDK'sı ile varlık teslim ilkeleri yapılandırma | Microsoft Docs"
-description: "Bu konu Azure Media Services .NET SDK ile farklı varlık teslim ilkeleri yapılandırmak nasıl gösterir."
+title: ".NET SDK'sı aaaConfigure varlık teslim ilkeleri | Microsoft Docs"
+description: "Bu konuda gösterilmektedir nasıl Azure Media Services .NET SDK'sı ile tooconfigure farklı varlık teslim ilkeleri."
 services: media-services
 documentationcenter: 
 author: Mingfeiy
@@ -14,33 +14,33 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 282fd9e24dc147e31613469926128894d48366f4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a6f2644d639cd36d4cdc269b6f01fd4acdf7160b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>.NET SDK'sı ile varlık teslim ilkeleri yapılandırma
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Teslim şifrelenen varlıklarına planlıyorsanız, Media Services içerik teslim iş akışı'ndaki adımları birini varlıklar için teslim ilkeleri yapılandırıyor. Media Services, varlık teslim edilmesini istediğiniz varlık teslim ilkesini bildirir: hangi Akış Protokolü varlığınız dinamik olarak paketlenir (örneğin, MPEG DASH, HLS, kesintisiz akış veya tümü için), dinamik olarak Varlığınızı şifrelemek isteyip istemediğinizi ve nasıl içine (Zarf veya ortak şifreleme).
+Şifrelenmiş toodelivery varlıklar planlıyorsanız, hello birini hello medya Hizmetleri içerik teslim iş akışı varlıklar için teslim ilkelerini yapılandırma adımları. Merhaba varlık teslim ilkesini Media Services nasıl teslim, varlık toobe için istediğinizi söyler: toodynamically istediğiniz olup olmadığına bakılmaksızın hangi akış protokolüne Varlığınızı dinamik olarak (örneğin, MPEG DASH, HLS, kesintisiz akış veya tümü için), paketlenmiş Varlığınızı şifrelemek ve nasıl (Zarf veya ortak şifreleme).
 
-Bu konuda ele alınmıştır neden ve nasıl oluşturulacağı ve varlık teslim ilkeleri yapılandırın.
+Bu konuda neden ve nasıl anlatılmaktadır toocreate ve varlık teslim ilkeleri yapılandırın.
 
 >[!NOTE]
->AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
+>AMS hesabınızı oluşturulduğunda bir **varsayılan** akış uç noktası ekleniyor tooyour hesabı hello **durduruldu** durumu. İçerik ve Al avantajı dinamik paketleme ve dinamik şifreleme akış toostart hello istediğiniz toostream içeriğe sahip toobe hello akış uç **çalıştıran** durumu. 
 >
->Ayrıca, dinamik paketleme ve dinamik şifreleme kullanabilmek için varlığınız Uyarlamalı bit hızlı MP4s ya da Uyarlamalı bit hızlı kesintisiz akış dosyaları içermelidir.
+>Ayrıca, toobe mümkün toouse dinamik paketleme ve dinamik şifreleme Varlığınızı içermelidir Uyarlamalı bit hızlı MP4s veya uyarlamalı bit hızlı kesintisiz akış dosyaları kümesidir.
 
 
-Aynı varlık için farklı ilkeler uygulayabilirsiniz. Örneğin, MPEG DASH ve HLS için AES zarfı kesintisiz akış ve şifreleme için PlayReady şifreleme uygulayabilirsiniz. Herhangi bir teslim ilkesinde tanımlanmayan tüm protokollerin (örneğin, protokol olarak yalnızca HLS‘yi belirten tek bir ilke ekliyorsunuz) akışla aktarılması engellenir. Bunun tek istisnası, hiçbir varlık teslim ilkesinin tanımlanmadığı durumdur. Bu halde tüm protokollere açık bir şekilde izin verilir.
+Farklı ilkeleri toohello uygulayabilir aynı varlık. Örneğin, PlayReady şifreleme tooSmooth akış ve AES zarfı şifreleme tooMPEG uygulayabilir DASH ve HLS. Bir teslim ilkesinde tanımlanmayan tüm protokollerin (örneğin, yalnızca hello protokol olarak HLS belirten tek bir ilke ekliyorsunuz) akışla aktarılması engellenir. Merhaba özel durum toothis hiç tanımlanmış hiçbir varlık teslim ilkesini varsa ' dir. Ardından, tüm protokoller hello Temizle izin verilir.
 
-Bir depolama şifrelenmiş varlık teslim etmek istiyorsanız, varlığın teslim ilkesini yapılandırmanız gerekir. Varlığınızı akışı önce akış sunucusu depolama şifreleme kaldırır ve belirtilen teslim ilkesini kullanarak içeriğinizi akışlarını. Örneğin, Gelişmiş Şifreleme Standardı (AES) Zarf şifreleme anahtarıyla şifrelenir, varlık teslim etmek için ilke türünü ayarlamak **DynamicEnvelopeEncryption**. Depolama şifrelemesi kaldırmak ve varlık temiz akışını ilke türünü ayarlayın **NoDynamicEncryption**. Bu ilke türünü yapılandırmanız nasıl gösteren örnekler izleyin.
+Toodeliver depolama şifrelenmiş varlık isterseniz hello varlığın teslim ilkesini yapılandırmanız gerekir. Varlığınızı akışı önce sunucu kaldırır hello depolama şifrelemesi ve akışlar hello kullanarak içeriğinizi akış hello teslim ilkesini belirtilen. Örneğin, toodeliver Varlığınızı Gelişmiş Şifreleme Standardı (AES) Zarf şifreleme anahtarıyla şifrelenir, çok hello ilke türünü ayarlayın**DynamicEnvelopeEncryption**. tooremove depolama şifreleme ve hello Temizle, akış hello varlığı ayarlamak hello ilke türü çok**NoDynamicEncryption**. Bu ilke türleri tooconfigure nasıl izleyin Göster örnekleri.
 
-Varlık teslim ilkesini nasıl yapılandırdığınıza bağlı olarak, dinamik olarak paketini, dinamik olarak şifrelemek ve aşağıdaki akış protokolleri akışını gerçekleştirebilir: kesintisiz akış, HLS ve MPEG DASH akışları.
+Hello varlık teslim ilkesini nasıl yapılandırdığınıza bağlı mümkün toodynamically paketi, dinamik olarak şifrelemek ve akış akış protokolleri aşağıdaki hello: kesintisiz akış, HLS ve MPEG DASH akışları.
 
-Aşağıdaki liste, kesintisiz, HLS ve tire akış için kullandığınız biçimleri gösterir.
+Merhaba aşağıdaki liste hello biçimleri toostream kesintisiz, HLS ve tire kullanın gösterir.
 
 Kesintisiz akış:
 
@@ -56,16 +56,16 @@ MPEG DASH
 
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
-* Bu varlık için bir (akış) OnDemand Bulucu bulunmakla birlikte bir varlıkla ilişkilendirilen AssetDeliveryPolicy silemezsiniz. İlke silmeden önce varlığından ilkesini kaldırmak için önerilir.
-* Hiçbir varlık teslim ilkesini ayarlandığında akış Bulucusu bir depolama şifrelenmiş varlık oluşturulamıyor.  Varlık şifrelenmiş depolama yoksa, sistem, bir Bulucu oluşturmanız ve varlık bir varlık teslim ilkesini olmadan temiz akışını olanak tanır.
-* Tek bir varlık ile ilişkili birden çok varlık teslim ilkeleri olabilir, ancak yalnızca belirli bir AssetDeliveryProtocol işlemek için bir yol belirtebilirsiniz.  Sistem hangisinin, bir istemci bir kesintisiz akış bir istekte bulunduğunda uygulanacak bilmediğinden, bir hatayla sonuçlanır AssetDeliveryProtocol.SmoothStreaming protokolü belirtmek iki teslim ilkeleri bağlamaya çalışır anlamına gelir.
-* Bir varlığı ile var olan bir akış Bulucu varsa varlık için yeni bir ilke bağlayamazsınız (, var olan bir varlık ilkesinden bağlantısını veya varlık ile ilişkili bir teslim ilkesini güncelleştirin).  İlk bu akış Bulucusu kaldırmak, ilkeleri ayarlamak ve akış Bulucusu yeniden oluşturmanız gerekmez.  Akış Bulucusu yeniden oluşturur ancak içerik kaynağı veya bir aşağı akış CDN tarafından önbelleğe beri sorunları istemciler için neden olmaz emin olmalısınız aynı locatorId kullanabilirsiniz.
+* Bu varlık için bir (akış) OnDemand Bulucu bulunmakla birlikte bir varlıkla ilişkilendirilen AssetDeliveryPolicy silemezsiniz. Merhaba tooremove hello hello varlık ilkesinden hello İlkesi silmeden önce önerilir.
+* Hiçbir varlık teslim ilkesini ayarlandığında akış Bulucusu bir depolama şifrelenmiş varlık oluşturulamıyor.  Merhaba varlık şifrelenmiş depolama değilse, hello sistem, bir varlık teslim ilkesini olmadan temizleyin hello Bulucu ve akış hello varlık oluşturmak olanak tanır.
+* Tek bir varlık ile ilişkili birden çok varlık teslim ilkeleri olabilir ancak yalnızca tek yönlü toohandle verilen AssetDeliveryProtocol belirtebilirsiniz.  Bir istemci bir kesintisiz akış bir istekte bulunduğunda hello sistem hangisinin bilmediğinden, bir hatayla sonuçlanır hello AssetDeliveryProtocol.SmoothStreaming protokolü belirtmek toolink iki teslim İlkesi çalışırsanız anlamına tooapply istediğiniz.
+* Bir varlığı ile var olan bir akış Bulucu varsa (Merhaba varlık varolan bir ilkeden bağlantısını, veya hello varlık ile ilişkili bir teslim ilkesini güncelleştirmek) yeni bir ilke toohello varlık bağlayamazsınız.  İlk tooremove hello akış Bulucusu sahip hello ilkeleri ayarlamak ve akış Bulucu hello yeniden oluşturun.  İçerik hello Menşe veya bir aşağı akış CDN tarafından önbelleğe bu yana, istemciler için sorunlara neden olmaz Bulucu ancak Akış hello yeniden oluşturduğunuzda aynı locatorId emin olmalısınız hello kullanabilirsiniz.
 
 ## <a name="clear-asset-delivery-policy"></a>Clear varlık teslim ilkesini
 
-Aşağıdaki **ConfigureClearAssetDeliveryPolicy** dinamik şifreleme geçerli değil ve aşağıdaki protokollerden birini akışta teslim etmeyi yöntemini belirtir: MPEG DASH, HLS ve kesintisiz akış protokollerini. Bu ilke şifrelenmiş depolama varlıklarınızı uygulamak isteyebilirsiniz.
+Merhaba aşağıdaki **ConfigureClearAssetDeliveryPolicy** toonot dinamik şifreleme uygulanır ve aşağıdaki hello hiçbirinde toodeliver hello akış protokolleri yöntemini belirtir: MPEG DASH, HLS ve kesintisiz akış protokollerini. Bu ilke tooyour şifrelenmiş depolama varlıklar tooapply isteyebilirsiniz.
 
-Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bilgi için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.
+Merhaba, değerleri bilgi bir AssetDeliveryPolicy oluştururken belirtebilirsiniz için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.
 
     static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
     {
@@ -79,9 +79,9 @@ Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bil
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption varlık teslim ilkesini
 
-Aşağıdaki **CreateAssetDeliveryPolicy** yöntemi oluşturur **AssetDeliveryPolicy** dinamik ortak şifreleme uygulamak için yapılandırılmış (**DynamicCommonEncryption**) bir kesintisiz akış protokolüne (diğer protokoller engellenir akışla aktarılması). Yöntemi iki parametre alır: **varlık** (varlık teslim ilkesini uygulamak istediğiniz) ve **IContentKey** (içerik anahtarı **CommonEncryption** türü için Daha fazla bilgi için bkz: [bir içerik anahtarı oluşturma](media-services-dotnet-create-contentkey.md#common_contentkey)).
+Merhaba aşağıdaki **CreateAssetDeliveryPolicy** yöntemi oluşturur hello **AssetDeliveryPolicy** diğer bir deyişle yapılandırılmış tooapply dinamik ortak şifreleme (**DynamicCommonEncryption**) tooa kesintisiz akış protokolüne (diğer protokoller akışla aktarılması engellenir). Merhaba yöntemi iki parametre alır: **varlık** (tooapply hello teslim ilkesini istediğiniz varlık toowhich hello) ve **IContentKey** (Merhaba hello içerik anahtarı **CommonEncryption**türü, daha fazla bilgi için bkz: [bir içerik anahtarı oluşturma](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
-Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bilgi için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.
+Merhaba, değerleri bilgi bir AssetDeliveryPolicy oluştururken belirtebilirsiniz için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.
 
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
@@ -99,7 +99,7 @@ Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bil
                 AssetDeliveryProtocol.SmoothStreaming,
                 assetDeliveryPolicyConfiguration);
     
-            // Add AssetDelivery Policy to the asset
+            // Add AssetDelivery Policy toohello asset
             asset.DeliveryPolicies.Add(assetDeliveryPolicy);
     
             Console.WriteLine();
@@ -107,20 +107,20 @@ Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bil
                 assetDeliveryPolicy.AssetDeliveryPolicyType);
      }
 
-Azure Media Services Widevine şifreleme eklemenize olanak sağlar. Aşağıdaki örnek, PlayReady ve Widevine için varlık teslim ilkesini eklenmekte olan gösterir.
+Azure Media Services de tooadd Widevine şifrelemeyi etkinleştirir. Merhaba aşağıdaki örnek PlayReady ve Widevine toohello varlık teslim ilkesini eklenmekte olan gösterir.
 
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
-        // Get the PlayReady license service URL.
+        // Get hello PlayReady license service URL.
         Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 
 
-        // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
+        // GetKeyDeliveryUrl for Widevine attaches hello KID toohello URL.
         // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
-        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
-        // to append /? KID =< keyId > to the end of the url when creating the manifest.
+        // hello WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
+        // tooappend /? KID =< keyId > toohello end of hello url when creating hello manifest.
         // As a result Widevine license acquisition URL will have KID appended twice, 
-        // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
+        // so we need tooremove hello KID that in hello URL when we call GetKeyDeliveryUrl.
 
         Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
         UriBuilder uriBuilder = new UriBuilder(widevineUrl);
@@ -142,38 +142,38 @@ Azure Media Services Widevine şifreleme eklemenize olanak sağlar. Aşağıdaki
             assetDeliveryPolicyConfiguration);
 
 
-        // Add AssetDelivery Policy to the asset
+        // Add AssetDelivery Policy toohello asset
         asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
     }
 
 > [!NOTE]
-> Widevine ile şifrelerken yalnızca tire kullanarak teslim etmek mümkün olacaktır. Varlık teslim Protokolü tire belirttiğinizden emin olun.
+> Widevine ile şifrelerken tire kullanarak mümkün toodeliver yalnızca olacaktır. Emin toospecify tire hello varlık teslim Protokolü olun.
 > 
 > 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption varlık teslim ilkesini
-Aşağıdaki **CreateAssetDeliveryPolicy** yöntemi oluşturur **AssetDeliveryPolicy** dinamik Zarf şifreleme uygulamak için yapılandırılmış (**DynamicEnvelopeEncryption**) Kesintisiz akış, HLS ve tire protokollere (bazı protokoller belirtmeyin karar verirseniz, bunlar akışla aktarılması engellenir). Yöntemi iki parametre alır: **varlık** (varlık teslim ilkesini uygulamak istediğiniz) ve **IContentKey** (içerik anahtarı **EnvelopeEncryption** türü Daha fazla bilgi için bkz: [bir içerik anahtarı oluşturma](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
+Merhaba aşağıdaki **CreateAssetDeliveryPolicy** yöntemi oluşturur hello **AssetDeliveryPolicy** diğer bir deyişle yapılandırılmış tooapply dinamik Zarf şifreleme (**DynamicEnvelopeEncryption** ) tooSmooth akış, HLS ve tire protokollerini (siz karar verirseniz, toonot belirtin bazı protokoller, akışla aktarılması engellenir). Merhaba yöntemi iki parametre alır: **varlık** (tooapply hello teslim ilkesini istediğiniz varlık toowhich hello) ve **IContentKey** (Merhaba hello içerik anahtarı **EnvelopeEncryption**türü, daha fazla bilgi için bkz: [bir içerik anahtarı oluşturma](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
-Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bilgi için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.   
+Merhaba, değerleri bilgi bir AssetDeliveryPolicy oluştururken belirtebilirsiniz için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.   
 
     private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
 
-        //  Get the Key Delivery Base Url by removing the Query parameter.  The Dynamic Encryption service will
-        //  automatically add the correct key identifier to the url when it generates the Envelope encrypted content
-        //  manifest.  Omitting the IV will also cause the Dynamice Encryption service to generate a deterministic
-        //  IV for the content automatically.  By using the EnvelopeBaseKeyAcquisitionUrl and omitting the IV, this
-        //  allows the AssetDelivery policy to be reused by more than one asset.
+        //  Get hello Key Delivery Base Url by removing hello Query parameter.  hello Dynamic Encryption service will
+        //  automatically add hello correct key identifier toohello url when it generates hello Envelope encrypted content
+        //  manifest.  Omitting hello IV will also cause hello Dynamice Encryption service toogenerate a deterministic
+        //  IV for hello content automatically.  By using hello EnvelopeBaseKeyAcquisitionUrl and omitting hello IV, this
+        //  allows hello AssetDelivery policy toobe reused by more than one asset.
         //
         Uri keyAcquisitionUri = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.BaselineHttp);
         UriBuilder uriBuilder = new UriBuilder(keyAcquisitionUri);
         uriBuilder.Query = String.Empty;
         keyAcquisitionUri = uriBuilder.Uri;
 
-        // The following policy configuration specifies: 
-        //   key url that will have KID=<Guid> appended to the envelope and
-        //   the Initialization Vector (IV) to use for the envelope encryption.
+        // hello following policy configuration specifies: 
+        //   key url that will have KID=<Guid> appended toohello envelope and
+        //   hello Initialization Vector (IV) toouse for hello envelope encryption.
         Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
             new Dictionary<AssetDeliveryPolicyConfigurationKey, string> 
         {
@@ -187,7 +187,7 @@ Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bil
                         AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
                         assetDeliveryPolicyConfiguration);
 
-        // Add AssetDelivery Policy to the asset
+        // Add AssetDelivery Policy toohello asset
         asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
         Console.WriteLine();
@@ -199,7 +199,7 @@ Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bil
 
 ### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol
 
-Aşağıdaki liste, varlık teslim protokolü için ayarlayabileceğiniz değerler açıklar.
+Merhaba aşağıdaki enum hello varlık teslim protokolü için ayarlayabileceğiniz değerler açıklar.
 
     [Flags]
     public enum AssetDeliveryProtocol
@@ -234,7 +234,7 @@ Aşağıdaki liste, varlık teslim protokolü için ayarlayabileceğiniz değerl
 
 ### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
-Aşağıdaki liste varlık teslim İlkesi türü için ayarlayabileceğiniz değerler açıklar.  
+Merhaba aşağıdaki enum hello varlık teslim İlkesi türü için ayarlayabileceğiniz değerler açıklar.  
 
     public enum AssetDeliveryPolicyType
     {
@@ -244,12 +244,12 @@ Aşağıdaki liste varlık teslim İlkesi türü için ayarlayabileceğiniz değ
         None,
 
         /// <summary>
-        /// The Asset should not be delivered via this AssetDeliveryProtocol. 
+        /// hello Asset should not be delivered via this AssetDeliveryProtocol. 
         /// </summary>
         Blocked, 
 
         /// <summary>
-        /// Do not apply dynamic encryption to the asset.
+        /// Do not apply dynamic encryption toohello asset.
         /// </summary>
         /// 
         NoDynamicEncryption,  
@@ -267,7 +267,7 @@ Aşağıdaki liste varlık teslim İlkesi türü için ayarlayabileceğiniz değ
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
-Aşağıdaki liste, içerik anahtarının istemciye teslim yöntemini yapılandırmak için kullanabileceğiniz değerleri açıklanmaktadır.
+Merhaba aşağıdaki enum değerleri hello içerik anahtar toohello istemci tooconfigure hello teslim yöntemini kullanabilirsiniz açıklanmaktadır.
     
     public enum ContentKeyDeliveryType
     {
@@ -299,7 +299,7 @@ Aşağıdaki liste, içerik anahtarının istemciye teslim yöntemini yapıland�
 
 ### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
-Aşağıdaki liste, belirli bir yapılandırma için bir varlık teslim ilkesini almak için kullanılan anahtarları yapılandırmak için ayarlayabilirsiniz değerleri açıklanmaktadır.
+Enum aşağıdaki hello tooconfigure kullanılan anahtarları tooget belirli yapılandırma için bir varlık teslim ilkesini ayarlayabilirsiniz değerleri açıklanmaktadır.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -319,22 +319,22 @@ Aşağıdaki liste, belirli bir yapılandırma için bir varlık teslim ilkesini
         EnvelopeBaseKeyAcquisitionUrl,
 
         /// <summary>
-        /// The initialization vector to use for envelope encryption in Base64 format.
+        /// hello initialization vector toouse for envelope encryption in Base64 format.
         /// </summary>
         EnvelopeEncryptionIVAsBase64,
 
         /// <summary>
-        /// The PlayReady License Acquisition Url to use for common encryption.
+        /// hello PlayReady License Acquisition Url toouse for common encryption.
         /// </summary>
         PlayReadyLicenseAcquisitionUrl,
 
         /// <summary>
-        /// The PlayReady Custom Attributes to add to the PlayReady Content Header
+        /// hello PlayReady Custom Attributes tooadd toohello PlayReady Content Header
         /// </summary>
         PlayReadyCustomAttributes,
 
         /// <summary>
-        /// The initialization vector to use for envelope encryption.
+        /// hello initialization vector toouse for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
 

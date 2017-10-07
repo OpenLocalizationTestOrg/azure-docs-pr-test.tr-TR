@@ -1,5 +1,5 @@
 ---
-title: ".NET’te Azure Geçiş Karma Bağlantıları ile çalışmaya başlama | Microsoft Docs"
+title: ".NET içinde Azure geçişi karma bağlantılar aaaGet Başlarken | Microsoft Docs"
 description: "Azure Geçişi Karma Bağlantıları için bir C# konsol uygulaması yazın."
 services: service-bus-relay
 documentationcenter: .net
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 07/07/2017
 ms.author: sethm
-ms.openlocfilehash: 1af23bfd46dd7d3781505473f7c1d86e65ea9bc7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1e4af28e7cd4393c8ca965a149a0b83ebcc44f22
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Geçiş Karma Bağlantıları ile çalışmaya başlama
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Bu öğretici [Azure Geçişi Karma Bağlantıları](relay-what-is-it.md#hybrid-connections)’nı tanıtır ve .NET kullanarak, karşılık gelen dinleyici uygulamasına ileti gönderen bir istemci uygulaması oluşturma işlemini gösterir. 
+Bu öğretici çok tanıtılmaktadır[Azure geçişi karma bağlantılar](relay-what-is-it.md#hybrid-connections)ve nasıl toouse .NET toocreate gönderir bir istemci uygulaması tooa karşılık gelen dinleyicisi uygulama iletileri gösterir. 
 
 ## <a name="what-will-be-accomplished"></a>Ne elde edilecek
-Karma Bağlantılar hem istemci hem de sunucu bileşenini gerektirdiğinden bu öğreticide iki konsol uygulaması oluşturulur. Adımlar aşağıdaki gibidir:
+Karma bağlantılar, istemci ve sunucu bileşeni gerektirdiğinden, hello öğretici iki konsol uygulamaları oluşturur. Merhaba adımlar şunlardır:
 
-1. Azure portalı kullanılarak Geçiş ad alanı oluşturma.
-2. Azure portalını kullanarak o ad alanında karma bağlantı oluşturun.
-3. İleti almak için bir sunucu (dinleyici) konsol uygulaması yazma.
-4. İleti göndermek için bir istemci (gönderen) konsol uygulaması yazma.
+1. Hello Azure portal kullanarak bir geçiş ad alanı oluşturun.
+2. Karma bağlantı hello Azure portal kullanarak bu ad alanında oluşturun.
+3. Bir sunucu (dinleyici) konsol uygulama tooreceive iletileri yazma.
+4. Bir istemci (gönderen) konsol uygulama toosend iletileri yazma.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
+toocomplete Bu öğretici önkoşulları aşağıdaki hello gerekir:
 
-1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılmaktadır.
+1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticide Hello örnekler Visual Studio 2017 kullanın.
 2. Azure aboneliği.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure portalı kullanılarak ad alanı oluşturma
-Daha önce oluşturduğunuz bir Geçiş ad alanı varsa [Azure portalını kullanarak karma bağlantı oluşturma](#2-create-a-hybrid-connection-using-the-azure-portal) bölümüne atlayın.
+## <a name="1-create-a-namespace-using-hello-azure-portal"></a>1. Hello Azure portal kullanarak ad alanı oluşturma
+Bir geçiş ad alanı zaten oluşturduysanız, toohello atlama [hello Azure portal kullanarak karma bağlantı oluşturma](#2-create-a-hybrid-connection-using-the-azure-portal) bölümü.
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2. Azure portalını kullanarak karma bağlantı oluşturma
-Daha önce bir karma bağlantı oluşturduysanız [Sunucu uygulaması oluşturma](#3-create-a-server-application-listener) bölümüne atlayın.
+## <a name="2-create-a-hybrid-connection-using-hello-azure-portal"></a>2. Hello Azure portal kullanarak karma bağlantı oluşturma
+Karma bir bağlantı zaten oluşturduysanız, toohello atlama [bir sunucu uygulaması oluştur](#3-create-a-server-application-listener) bölümü.
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
 ## <a name="3-create-a-server-application-listener"></a>3. Sunucu uygulaması (dinleyici) oluşturma
-Geçiş hizmetinden ileti dinleyip almak için Visual Studio kullanılarak bir C# konsol uygulaması yazılacaktır.
+toolisten ileti alıp hello geçiş, biz Visual Studio kullanarak C# konsol uygulaması yazacaksınız.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-server](../../includes/relay-hybrid-connections-dotnet-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. İstemci uygulaması (gönderici) oluşturma
-Geçiş’e ileti göndermek için Visual Studio kullanılarak bir C# konsol uygulaması yazılacaktır.
+toosend iletileri toohello geçiş, Visual Studio kullanarak C# konsol uygulaması yazma.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-client](../../includes/relay-hybrid-connections-dotnet-get-started-client.md)]
 
-## <a name="5-run-the-applications"></a>5. Uygulamaları çalıştırma
-1. Sunucu uygulamasını çalıştırın.
-2. İstemci uygulamasını çalıştırın ve metin girin.
-3. Sunucu uygulama konsolunun istemci uygulamasına girilen metni çıkardığından emin olun.
+## <a name="5-run-hello-applications"></a>5. Merhaba uygulamaları çalıştırma
+1. Merhaba sunucu uygulamasını çalıştırın.
+2. Merhaba istemci uygulaması çalıştırın ve bazı metin girin.
+3. Merhaba sunucu hello istemci uygulamasında girilen uygulama Konsolu çıkışları hello metin emin olun.
 
 ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 

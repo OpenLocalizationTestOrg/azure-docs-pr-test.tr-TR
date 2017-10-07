@@ -1,6 +1,6 @@
 ---
-title: "Düşük maliyetli düşük öncelikli sanal makinelerin (Önizleme) Azure Batch iş yüklerini çalıştırmak | Microsoft Docs"
-description: "Düşük öncelikli sanal makineleri Azure Batch iş yükü maliyetini azaltmak için hazırlamayı öğrenin."
+title: "aaaRun Azure Batch iş yükleri uygun maliyetli düşük öncelikli vm'lerde (Önizleme) | Microsoft Docs"
+description: "Azure Batch iş yükünü nasıl tooprovision düşük öncelikli sanal makineleri tooreduce hello maliyet öğrenin."
 services: batch
 author: mscurrell
 manager: timlt
@@ -11,23 +11,23 @@ ms.topic: article
 ms.workload: na
 ms.date: 07/21/2017
 ms.author: markscu
-ms.openlocfilehash: 9bf0ac322020d8a8453011c3207c1930175db6d3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 91a5e89a819d05583e6b146932d925e217b4be4e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-low-priority-vms-with-batch-preview"></a>Düşük öncelikli sanal makineleri toplu (Önizleme) ile kullanma
 
-Azure Batch düşük versiyonda öncelik sanal makineleri (VM'ler) Batch iş yükü maliyetini azaltmak için sunar. Düşük öncelikli sanal makineleri de ekonomiktir işlem gücü, büyük bir miktarını sağlayarak, toplu iş yüklerinin yeni türleri mümkün kılar.
+Azure Batch Batch iş yükü düşük versiyonda öncelik sanal makineleri (VM'ler) tooreduce hello maliyeti sunar. Düşük öncelikli sanal makineleri de ekonomiktir işlem gücü, büyük bir miktarını sağlayarak, toplu iş yüklerinin yeni türleri mümkün kılar.
 
 Düşük öncelikli sanal makineleri Azure'da fazlalık kapasite yararlanın. Düşük öncelikli sanal makineleri, havuzlarınızı belirttiğinizde, Azure Batch bu fazlalık kullanılabilir olduğunda otomatik olarak kullanabilirsiniz.
 
-Düşük öncelikli sanal makineleri kullanma kolaylığını hiçbir fazlalık kapasite Azure içinde kullanılabilir olduğunda bu VM'lerin etkisiz ' dir. Bu nedenle, düşük öncelikli sanal makineleri belirli türde bir iş yükleri için en uygun. Düşük öncelikli sanal makineleri toplu ve burada iş tamamlanma zamanı esnek ve iş üzerinde birçok VM dağıtılmış zaman uyumsuz işleme iş yükleri için kullanın.
+düşük öncelikli sanal makineleri kullanma hello kolaylığını hiçbir fazlalık kapasite Azure içinde kullanılabilir olduğunda bu VM'lerin etkisiz ' dir. Bu nedenle, düşük öncelikli sanal makineleri belirli türde bir iş yükleri için en uygun. Düşük öncelikli sanal makineleri toplu ve burada hello iş tamamlanma zamanı esnek ve hello iş üzerinde birçok VM dağıtılmış zaman uyumsuz işleme iş yükleri için kullanın.
 
 Düşük öncelikli sanal makineleri özel VM'ler önemli ölçüde daha az pahalıdır. Fiyatlandırma ayrıntıları için bkz: [Batch fiyatlandırması](https://azure.microsoft.com/pricing/details/batch/).
 
-Düşük öncelikli sanal makineleri için bir ek tartışma blog yayını duyurusuna bakın: [toplu bir fiyat kesir bilgi işlem](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/).
+Düşük öncelikli sanal makineleri için bir ek tartışma hello blog yayını duyurusuna bakın: [toplu bir hello fiyat kesir bilgi işlem](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/).
 
 > [!IMPORTANT]
 > Düşük öncelikli sanal makineleri şu anda önizlemede ve yalnızca toplu işlemde çalışan iş yükleri için kullanılabilir. 
@@ -36,55 +36,55 @@ Düşük öncelikli sanal makineleri için bir ek tartışma blog yayını duyur
 
 ## <a name="use-cases-for-low-priority-vms"></a>Düşük öncelikli VM'ler için kullanım örnekleri
 
-Düşük öncelikli sanal makineleri, hangi iş yüklerini kullanabilir ve bunları kullanamazsınız özelliklerini verilen? Genel olarak, işleri birçok paralel görevlere bozuk veya çıkışı ölçeği ve üzerinde birçok VM dağıtılan birçok iş iyi bir tercihtir toplu işleme iş yüklerinin olduğunu.
+Düşük öncelikli sanal makineleri Hello özelliklerini göz önüne alındığında, hangi iş yüklerini kullanabilir ve bunları kullanamazsınız? Genel olarak, işleri birçok paralel görevlere bozuk veya çıkışı ölçeği ve üzerinde birçok VM dağıtılan birçok iş iyi bir tercihtir toplu işleme iş yüklerinin olduğunu.
 
--   Azure fazlalık kapasite kullanımını en üst düzeye çıkarmak için kullanıma uygun işleri ölçeklendirebilirsiniz.
+-   Azure, uygun işlerinde fazlalık kapasite kullanımını toomaximize çıkışı ölçeklendirebilirsiniz.
 
--   Bazen VM'ler kullanılabilir durumda olmayabilir veya, işleri için sınırlı kapasite neden olur ve görev kesinti ve tekrar bölümlerini etkisiz. Bu nedenle işlerini çalıştırmak için uygulayabileceğiniz zamanında esnek olmalıdır.
+-   Bazen VM'ler kullanılabilir durumda olmayabilir veya, işleri için sınırlı kapasite neden olur ve tootask kesinti ve tekrar bölümlerini etkisiz. İşlerini, bu nedenle toorun sürebilir hello zamanında esnek olmalıdır.
 
--   İşlerini uzun görevlerle kesintiye varsa daha etkilenmiş olabilir. Uzun süre çalışan görevlerini bunlar yürütmek olarak ilerleme durumunu kaydetmek için denetim noktası oluşturma uygulama ise, ardından kesinti etkisini çok daha az olabilir. Kısa yürütme süreleri görevlerle kesinti etkisini çok daha az olduğu gibi düşük öncelikli sanal makineleri ile en iyi şekilde çalışır eğilimindedir.
+-   İşlerini uzun görevlerle kesintiye varsa daha etkilenmiş olabilir. Uzun süre çalışan bunlar yürütme gibi görevleri denetim noktası oluşturma toosave ilerleme uygulamak ise, ardından kesinti etkisini çok daha az olabilir. Kesinti Hello etkisini çok daha az olduğu gibi kısa yürütme süreleri görevlerle toowork en iyi olan düşük öncelikli VM'ler eğilimi gösterir.
 
--   Uzun süre çalışan birden çok VM kullanan MPI işlerini uygun değildir düşük öncelikli sanal makineleri bir VM etkisiz olarak kullanmak için büyük olasılıkla yeniden çalıştırılması gerek kalmadan tüm iş götürür.
+-   Uzun süre çalışan birden çok VM kullanan MPI işlerini uygun toouse olmayan bir etkisiz VM düşük öncelikli VM'ler büyük olasılıkla sağlama toohello tüm işi yeniden çalıştırmak toobe sahip olur.
 
-Düşük öncelikli sanal makineleri kullanmak için uygun toplu işleme kullanım örnekleri iyi bazı örnekler şunlardır:
+Düşük öncelikli VM'ler durumlarda uygun toouse bazı toplu işlem örnekleri kullanın:
 
 -   **Geliştirme ve test**: özel olarak, büyük ölçekli çözümleri geliştirdiğinizde, önemli tasarrufları alırlar. Sınama tüm türleri yararlanabilirsiniz, ancak büyük ölçekli yük test etme ve gerileme sınaması harika kullanır.
 
--   **İsteğe bağlı kapasite ekleme**: düşük öncelikli sanal makineleri, normal özel VM'ler - tamamlamak için kullanılabilir kullanılabilir olduğunda, işleri ölçeklendirmek ve bu nedenle daha hızlı tamamlamak için daha düşük maliyetli; mevcut değil, özel VM'ler temel alındığında kullanılabilir.
+-   **İsteğe bağlı kapasite ekleme**: düşük öncelikli sanal makineleri, normal özel VM'ler - tamamlamak için kullanılabilir kullanılabilir olduğunda, işleri ölçeklendirmek ve bu nedenle daha hızlı tamamlamak için daha düşük maliyetli; VM'ler kullanılabilir hello taban ayrılmış seçtiğinizde kullanılabilir.
 
--   **Esnek iş yürütme süresi**: varsa zaman işler esnekliğe sahip tamamlamak daha sonra kapasite olası bırakmaları izin; ancak, düşük öncelikli sanal makineleri eklenmesiyle işleri sık daha hızlı ve daha düşük maliyetli bir çalışır.
+-   **Esnek iş yürütme süresi**: hello zaman işlerinde esneklik ise toocomplete, sahip sonra kapasite olası bırakmaları izin; Bununla birlikte, hello ile düşük öncelikli sanal makineleri işleri eklenmesi sık daha hızlı ve daha düşük maliyetli bir çalışır.
 
-Batch havuzları, iş yürütme süresi esneklik bağlı olarak birkaç şekilde düşük öncelikli sanal makineleri kullanmak üzere yapılandırılabilir:
+Batch havuzları, düşük öncelikli sanal makineleri hello esneklik bağlı olarak birkaç şekilde, iş yürütme süresi yapılandırılan toouse olabilir:
 
--   Düşük öncelikli sanal makineleri yalnızca bir havuzda kullanılabilir ve toplu herhangi preempted kapasite kullanılabilir olduğunda yalnızca kurtarır. Düşük öncelikli yalnızca VM'ler kullanılır işleri yürütmek üzere ucuz yoludur.
+-   Düşük öncelikli sanal makineleri yalnızca bir havuzda kullanılabilir ve toplu herhangi preempted kapasite kullanılabilir olduğunda yalnızca kurtarır. Düşük öncelikli yalnızca VM'ler kullanılır gibi hello ucuz yolu tooexecute işleri budur.
 
--   Düşük öncelikli sanal makineleri, sabit bir taban çizgisi özel VM'ler ile birlikte kullanılabilir. Ayrılmış sanal sabit sayıda her zaman bir iş İleri aşamalara tutmak için bazı kapasite olmasını sağlar.
+-   Düşük öncelikli sanal makineleri, sabit bir taban çizgisi özel VM'ler ile birlikte kullanılabilir. Merhaba ayrılmış sanal sabit sayıda iş İleri aşamalara her zaman bazı kapasite tookeep olan sağlar.
 
--   Böylece cheaper düşük öncelikli VM'ler kullanılabilir olduğunda yalnızca kullanılan ayrılmış ve düşük öncelikli sanal makineleri, dinamik karışımını olabilir, ancak tam fiyatlı özel VM'ler gerektiğinde İleri aşamalara işleri tutmak kullanılabilir kapasite en düşük düzeyde tutmak için ölçeklenir.
+-   Böylece ucuz düşük öncelikli sanal makineleri yalnızca kullanılabilir olduğunda kullanılır, ancak adanmış bir hello tam fiyatlı VM'ler gerektiğinde tookeep kapasite kullanılabilir tookeep hello işleri en düşük düzeyde yukarı ölçeklendirilemez ayrılmış ve düşük öncelikli sanal makineleri, dinamik karışımı olabilir İleri aşamalara.
 
 ## <a name="batch-support-for-low-priority-vms"></a>Düşük öncelikli VM'ler için toplu desteği
 
-Azure toplu işlem kullanmasına ve düşük öncelikli Vm'lerden yararlanmak kolaylaştıran çeşitli özellikleri sağlar:
+Azure Batch kolay tooconsume ve düşük öncelikli Vm'lerden fayda çeşitli özellikleri sağlar:
 
--   Batch havuzları özel VM'ler ve düşük öncelikli sanal makineleri içerebilir. Bir havuzu oluşturulduğunda veya açık yeniden boyutlandırma işlemi veya Otomatik ölçek kullanarak mevcut bir havuz için herhangi bir zamanda değiştirildi VM türlerinin sayısı belirtilebilir. İş ve görev gönderimi değişmeden kalır ve havuzdaki VM türleriyle endişelenmeniz gerekmez. Tamamen kapasite çalışan işleri korumak için en düşük eşiğin altına düşerse işlerini mümkün, ancak özel VM'ler yukarı döndürme olarak ailenin çalıştırmak için düşük öncelikli sanal makineleri kullanmak bir havuzu olması mümkündür.
+-   Batch havuzları özel VM'ler ve düşük öncelikli sanal makineleri içerebilir. bir havuzu oluşturulduğunda veya hello açık yeniden boyutlandırma işlemi veya Otomatik ölçek kullanarak mevcut bir havuz için herhangi bir zamanda değiştirildi VM her tür hello sayısı belirtilebilir. İş ve görev gönderimi değişmeden kalır ve hello havuzunda hello VM türleriyle endişelenmeniz gerekmez. Ayrıca, bir havuz tamamen kullanın düşük öncelikli sanal makineleri toorun işleri mümkün, ancak özel VM'ler yukarı döndürme olarak ailenin hello kapasite çalışan işleri korumak için en düşük eşiğin altına düşerse olası toohave unutulmamalıdır.
 
--   Batch havuzlarının otomatik olarak düşük öncelikli VM'ler hedef sayısını arama. Sanal makineleri etkisiz, toplu kayıp kapasite değiştirin ve hedef dönmek deneyecek.
+-   Batch havuzlarının otomatik olarak toohello hedef düşük öncelikli VM'lerin sayısını arama. VM'ler etkisiz, toplu işlem kapasitesi ve dönüş toohello hedef kayıp tooreplace hello deneyecek.
 
--   Kesintiye görevleri olması durumunda toplu algılar ve otomatik olarak yeniden çalıştırılacak görevleri disablecomputenodeschedulingoption.
+-   Kesintiye görevleri Hello durumda toplu algılar ve otomatik olarak disablecomputenodeschedulingoption görevleri toobe yeniden çalıştırın.
 
 -   Düşük öncelikli sanal makineleri özel VM'ler farklı bir çekirdek kotası var. 
-    Düşük öncelikli sanal makineleri daha az maliyet olduğundan düşük öncelikli sanal makineleri için bir teklif, özel VM'ler, yüksektir. Bkz: [Batch Hizmeti kotaları ve sınırlarına](batch-quota-limit.md#resource-quotas) daha fazla bilgi için.    
+    düşük öncelikli sanal makineleri daha az maliyet olduğundan hello teklif düşük öncelikli VM'ler için özel VM'ler, yüksektir. Bkz: [Batch Hizmeti kotaları ve sınırlarına](batch-quota-limit.md#resource-quotas) daha fazla bilgi için.    
 
 > [!NOTE]
-> Düşük öncelikli sanal makineleri şu anda desteklenmemektedir için havuzu ayırma modu ayarlandığı Batch hesaplarıyla ilgili [kullanıcı aboneliği](batch-account-create-portal.md#user-subscription-mode).
+> Düşük öncelikli sanal makineleri şu anda desteklenmemektedir hello havuzu ayırma modu ayarlandığı çok Batch hesapları için[kullanıcı aboneliği](batch-account-create-portal.md#user-subscription-mode).
 >
 >
 
 ## <a name="create-and-update-pools"></a>Oluşturma ve havuzları güncelleştirme
 
-Batch havuzundaki (işlem düğümleri olarak da bilinir) hem adanmış hem de düşük öncelikli sanal makineleri içerebilir. Hem özel hem de düşük öncelikli VM'ler için işlem düğümleri sayısını ayarlayabilirsiniz. Düğümlerin hedef sayısını havuzunda olmasını istediğiniz VM'lerin sayısını belirtir.
+Batch havuzundaki (Ayrıca başvurulan tooas işlem düğümleri) hem adanmış hem de düşük öncelikli sanal makineleri içerebilir. Hem özel hem de düşük öncelikli VM'ler için hello hedef işlem düğümü sayısını ayarlayabilirsiniz. Merhaba düğümlerin hedef sayısını belirtir hello numarası toohave hello havuzunda istediğiniz Vm'leri.
 
-Örneğin, bir havuzu oluşturmak için Azure bulut hizmeti VM'ler 5 hedefle kullanarak sanal makineleri ve 20 düşük öncelikli sanal makineleri ayrılmış:
+Örneğin, bir Azure bulut hizmeti VM'ler 5 hedefle kullanarak havuzu toocreate VM'ler ve 20 düşük öncelikli sanal makineleri ayrılmış:
 
 ```csharp
 CloudPool pool = batchClient.PoolOperations.CreatePool(
@@ -96,7 +96,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 );
 ```
 
-Bir havuzu oluşturmak için 5'in bir hedef Azure sanal makineleri (Bu durumda Linux VM'ler) kullanarak sanal makineleri ve 20 düşük öncelikli sanal makineleri ayrılmış:
+VM'ler ve 20 düşük öncelikli sanal makineleri toocreate 5 bir hedef Azure sanal makinelerini (Bu durumda Linux VM'ler) kullanarak havuzu bir adanmış:
 
 ```csharp
 ImageReference imageRef = new ImageReference(
@@ -105,7 +105,7 @@ ImageReference imageRef = new ImageReference(
     sku: "16.04.0-LTS",
     version: "latest");
 
-// Create the pool
+// Create hello pool
 VirtualMachineConfiguration virtualMachineConfiguration =
     new VirtualMachineConfiguration("batch.node.ubuntu 16.04", imageRef);
 
@@ -117,76 +117,76 @@ pool = batchClient.PoolOperations.CreatePool(
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 
-Geçerli düğüm sayısını hem adanmış hem de düşük öncelikli VM'ler için alabilirsiniz:
+Hem özel hem de düşük öncelikli VM'ler için hello geçerli düğüm sayısını alabilirsiniz:
 
 ```csharp
 int? numDedicated = pool1.CurrentDedicatedComputeNodes;
 int? numLowPri = pool1.CurrentLowPriorityComputeNodes;
 ```
 
-Havuz düğümleri düğüm adanmış veya düşük öncelikli bir VM olup olmadığını gösteren bir özelliği vardır:
+Merhaba düğümü adanmış veya düşük öncelikli bir VM ise havuz düğümleri özelliği tooindicate vardır:
 
 ```csharp
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
-Bir veya daha fazla düğüm havuzunda etkisiz, havuzu üzerinde bir liste düğümleri işlemi hala düğümleri döndürür, düşük öncelikli düğüm geçerli sayısını değişmeden kalır, ancak bu düğümler kümesine durumlarına sahip olur **geçersiz kılındı** durumu. Toplu değiştirme sanal makineleri Bul deneyecek ve düğümlerin Git başarılı olursa, **oluşturma** ve ardından **başlangıç** durumları görev yürütme için kullanılabilir hale gelmeden önce olduğu gibi yeni düğümler.
+Bir veya daha fazla düğüm havuzunda etkisiz, havuzu üzerinde bir liste düğümleri işlemi hala düğümleri döndürür, düşük öncelikli düğüm geçerli sayısını hello değişmeden kalır, ancak bu düğüm varsa durumlarına toothe ayarlamak **geçersiz kılındı**durumu. Toplu toofind değiştirme VM'ler deneyecek ve hello düğümleri Git başarılı olursa, **oluşturma** ve ardından **başlangıç** durumları görev yürütme için kullanılabilir hale gelmeden önce olduğu gibi yeni düğümler.
 
 ## <a name="scale-a-pool-containing-low-priority-vms"></a>Düşük öncelikli sanal makineleri içeren bir havuzu ölçeklendirme
 
-Yalnızca özel VM'ler oluşan havuzlarıyla gibi düşük öncelikli sanal makineleri otomatik ölçek kullanarak veya yeniden boyutlandırma yöntemini çağırarak içeren bir havuzu ölçeklendirmek mümkündür.
+Yalnızca özel VM'ler oluşan havuzlarıyla gibi hello boyutlandırma yöntemini çağırarak veya Otomatik ölçek kullanarak olası tooscale bir havuz içeren düşük öncelik VM'ler değil.
 
-Havuzu yeniden boyutlandırma işlemi değerini güncelleştirmeleri ikinci bir isteğe bağlı parametresi alan **targetLowPriorityNodes**:
+Merhaba havuzu yeniden boyutlandırma işlemi değerini güncelleştiren bir ikinci isteğe bağlı parametresi alan **targetLowPriorityNodes**:
 
 ```csharp
 pool.Resize(targetDedicatedComputeNodes: 0, targetLowPriorityComputeNodes: 25);
 ```
 
-Havuz otomatik ölçeklendirme formülü aşağıdaki gibi düşük öncelikli sanal makineleri destekler:
+Merhaba havuzu otomatik ölçeklendirme formülü aşağıdaki gibi düşük öncelikli sanal makineleri destekler:
 
--   Almak veya hizmet tanımlı değişkenin değerini ayarlamak **$TargetLowPriorityNodes**.
+-   Almak veya ayarlamak hello değişkenin değeri olarak hello hizmet tanımlı **$TargetLowPriorityNodes**.
 
--   Hizmet tanımlı değişkenin değerini alabilir **$CurrentLowPriorityNodes**.
+-   Merhaba hello hizmet tanımlı değişkenin değerini alabilir **$CurrentLowPriorityNodes**.
 
--   Hizmet tanımlı değişkenin değerini alabilir **$PreemptedNodeCount**. 
-    Bu değişken preempted durumda düğümlerin sayısını döndürür ve yukarı veya aşağı kullanılamaz etkisiz düğüm sayısına bağlı olarak ayrılmış düğüm sayısını ölçeklendirmenizi sağlar.
+-   Merhaba hello hizmet tanımlı değişkenin değerini alabilir **$PreemptedNodeCount**. 
+    Bu değişken döndürür. hello hello düğümlerin sayısı durumu etkisiz ve yukarı veya aşağı hello kullanılamaz etkisiz düğüm hello sayısını bağlı olarak ayrılmış düğüm sayısını ölçeklendirmenizi sağlar.
 
 ## <a name="jobs-and-tasks"></a>İşler ve görevler
 
-İşlerini ve görevleri düşük önceliğe düğümleri için çok az desteği gerektirir; yalnızca desteği aşağıdaki gibidir:
+İşlerini ve görevleri düşük önceliğe düğümleri için çok az desteği gerektirir; Merhaba yalnızca desteği aşağıdaki gibidir:
 
--   Yeni bir özellik JobManagerTask özelliğinin bir işin **AllowLowPriorityNode**. 
-    Bu özelliği true olduğunda, iş yöneticisi görevi ya da bir adanmış veya düşük öncelikli düğümünde zamanlanabilir. Bu özellik false ise, iş yöneticisi görevi yalnızca adanmış bir düğüme zamanlanacak.
+-   Merhaba JobManagerTask özelliği bir işin sahip yeni bir özellik **AllowLowPriorityNode**. 
+    Bu özelliği true olduğunda hello iş yöneticisi görevi ya da bir adanmış veya düşük öncelikli düğümünde zamanlanabilir. Bu özellik false ise, hello iş yöneticisi görevi yalnızca ayrılmış düğüm zamanlanmış tooa olacaktır.
 
--   Bir [ortam değişkeni](batch-compute-node-environment-variables.md) düşük öncelikli veya ayrılmış bir düğümde çalışan olup olmadığını belirleyebilmek görev uygulamaları için kullanılabilir. AZ_BATCH_NODE_IS_DEDICATED ortam değişkenidir.
+-   Bir [ortam değişkeni](batch-compute-node-environment-variables.md) düşük öncelikli veya ayrılmış bir düğümde çalışan olup olmadığını belirleyebilmek kullanılabilir tooa görev uygulamasıdır. AZ_BATCH_NODE_IS_DEDICATED Hello ortam değişkenidir.
 
 ## <a name="handling-preemption"></a>Önalım işleme
 
-Sanal makineleri bazen etkisiz; Bu gerçekleştiğinde, toplu şunları yapar:
+Sanal makineleri bazen etkisiz; Bu gerçekleştiğinde, toplu aşağıdaki hello:
 
--   Preempted VM'ler için güncelleştirilmiş durumlarına sahip **geçersiz kılındı**.
--   Görevler etkisiz düğümü Vm'lerde çalışıyordu, ardından bu görevleri yeniden kuyruğa ve yeniden çalıştırın.
--   VM etkili bir şekilde silindi kaybolmasına VM üzerinde yerel olarak depolanan tüm verileri önde gelen.
--   Havuz sürekli olarak kullanılabilir düşük öncelikli düğümlerin hedef sayısını ulaşmaya çalışır. Yedek kapasite bulunduğunda, düğümlerin kimlikleri tutmak ancak, oluşturulmak yeniden başlatılır **oluşturma** ve **başlangıç** görev zamanlama için kullanılabilir önce belirtir.
--   Önalım sayıları, Azure portalında bir ölçü olarak kullanılabilir.
+-   Merhaba etkisiz VM'ye sahip çok güncelleştirilmiş durumlarına**geçersiz kılındı**.
+-   Görevler çalışıyormuş bu görevleri yeniden kuyruğa ve yeniden çalıştırın. ardından hello düğümü VM'ler etkisiz.
+-   Merhaba VM etkili bir şekilde hello kaybolmasına VM üzerinde yerel olarak depolanan tooany veriler baştaki silinir.
+-   Merhaba havuzu tooreach hello düşük öncelikli düğüm sayısını kullanılabilir sürekli olarak çalışır. Yedek kapasite bulunduğunda, düğümlerin kimlikleri tutmak ancak, oluşturulmak yeniden başlatılır **oluşturma** ve **başlangıç** görev zamanlama için kullanılabilir önce belirtir.
+-   Önalım sayıları hello Azure portal'ın bir ölçü olarak kullanılabilir.
 
 ## <a name="metrics"></a>Ölçümler
 
-Yeni ölçümleri kullanılabilir [Azure portal](https://portal.azure.com) düşük öncelikli düğümleri için. Bu ölçümler şunlardır:
+Yeni ölçümleri hello kullanılabilir [Azure portal](https://portal.azure.com) düşük öncelikli düğümleri için. Bu ölçümler şunlardır:
 
 - Düşük öncelikli düğüm sayısı
 - Düşük öncelikli çekirdek sayısı 
 - Etkisiz düğüm sayısı
 
-Azure Portal'da ölçümleri görüntülemek için:
+hello Azure portal tooview ölçümlerini:
 
-1. Portalda Batch hesabınıza gidin ve toplu işlem hesabı için ayarları görüntüleyin.
-2. Seçin **ölçümleri** gelen **izleme** bölümü.
-3. İşlemleriniz ölçümleri seçin **kullanılabilir ölçümler** listesi.
+1. Tooyour hello portalda Batch hesabı gidin ve Batch hesabınızın hello ayarlarını görüntüleyin.
+2. Seçin **ölçümleri** hello gelen **izleme** bölümü.
+3. Hello istediğiniz hello ölçümleri seçin **kullanılabilir ölçümler** listesi.
 
 ![Düşük öncelikli düğümleri için ölçümleri](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Batch kullanmaya hazırlanan herkes için gerekli bilgileri içeren [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md) konusunu okuyun. Bu makalede havuzlar, düğümler, işler ve görevler gibi Batch hizmet kaynakları ve Batch uygulamanızı oluştururken kullanabileceğiniz birçok API özelliği hakkında daha ayrıntılı bilgi verilmektedir.
-* Batch çözümleri oluşturmak için kullanılabilen [Batch API’leri ve araçları](batch-apis-tools.md) hakkında bilgi alın.
+* Okuma hello [geliştiriciler için Batch özelliklerine genel bakış](batch-api-basics.md), önemli bilgiler herkesin toouse toplu hazırlanıyor. Merhaba makale Batch uygulamanızı oluştururken kullanabileceğiniz birçok API özellikleri Batch hizmeti kaynak havuzları, düğümleri, işler ve görevler ve hello gibi hakkında daha ayrıntılı bilgi içerir.
+* Merhaba hakkında bilgi edinin [Batch API'lerini ve araçları](batch-apis-tools.md) Batch çözümleri oluşturmak için kullanılabilir.

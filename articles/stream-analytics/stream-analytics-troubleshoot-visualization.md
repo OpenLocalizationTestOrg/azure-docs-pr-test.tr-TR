@@ -1,6 +1,6 @@
 ---
-title: "Görselleştirme ve akış analizi işleri sorunlarını giderme | Microsoft Docs"
-description: "Self Servis tanılama diyagramı özelliğini kullanarak sorun giderme akış analizi işi ardışık görselleştirmek öğrenin."
+title: "aaaVisualize ve akış analizi işleri sorunlarını giderme | Microsoft Docs"
+description: "Toovisualize akış analizi işi Self Servis hello tanılama diyagramı özelliğini kullanarak sorun giderme için nasıl potansiyel satış öğrenin."
 keywords: 
 documentationcenter: 
 services: stream-analytics
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.openlocfilehash: 18c39a025f750cf5a17c535ab40923b7cafe413d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8a6715be601fdc47b8d9caf4112da161dad22618
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>Görselleştirme ve akış analizi işleri sorun giderme
-Stream Analytics içinde diğer teknolojilerle bulut tabanlı gibi sorun giderme bazen neden bir işi beklenen çıktı (veya bu herhangi bir çıktı) üretmez içine aramak için gereklidir. Bu durum dikkate alınarak, Stream Analytics iş akışında görselleştirme için yeteneği sağlar. Bu da bir modelleme araç olarak kullanışlı ve işlerine gerektiren bu belgeleri yan avantajına sahiptir.
+Stream Analytics içinde diğer teknolojilerle bulut tabanlı gibi ilgili sorun giderme bazen neden bir işi hello beklenen çıktı (veya bu herhangi bir çıktı) üretmez içine gerekli toolook kullanılır. Bu durum dikkate alınarak, Stream Analytics iş akışında görselleştirme için hello yeteneği sağlar. Bu da bir modelleme araç olarak kullanışlı ve kişiler işlerine belgelerine gerektiren hello yan avantajına sahiptir.
 
-Görselleştirme panelinde girişleri yürütülmekte sorgu ve yapılandırılmış sonra tüm çıktıları yanı sıra görünür. Bağlantı veya yapılandırma sorunları daha belirgin hale gelebilir ve ayrıca yapılandırmanızı görsel gösterimi görmek yararlı olabilir.
+Merhaba görselleştirme paneli hello girişleri yürütülmekte hello sorgu yanı sıra görünür ve tüm hello çıkışları yapılandırılır. Bağlantı veya yapılandırma sorunları daha belirgin hale gelebilir ve yararlı toosee görsel bir yapılandırmanızı olabilir.
 
-## <a name="using-the-diagnosis-diagram-tool"></a>Tanılama diyagramı Aracı'nı kullanma
-Bu Görselleştirici erişmek için "Ayarlar" dikey penceresinde "Tanılama diyagramı" düğmesine tıklamanız yeterlidir akış analizi işinin.
+## <a name="using-hello-diagnosis-diagram-tool"></a>Merhaba tanılama diyagramı aracını kullanma
+yalnızca tıklayarak bu Görselleştirici hello "Tanılama diyagramı" düğmesini tooaccess hello hello Stream Analytics işi, "Ayarlar" dikey hello.
 
 ![Stream-Analytics-Troubleshoot-visualization-Diagnosis-Diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 
-Her giriş ve çıkış o bileşenin durumunu renk kodlanmış geçerli göstermek için aşağıda gösterildiği gibi ' dir.
+Her giriş ve çıkış renk kodlu tooindicate hello geçerli o bileşenin durumunu, aşağıda gösterildiği gibi ' dir.
 
 ![Stream-Analytics-Troubleshoot-visualization-input-Map](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-input-map.png)
 
-Kullanıcı bir iş içindeki veri akışı desenleri anlamak için Ara sorgu adımları bakmak istediğinde görselleştirme aracı bileşeni adımları ve akışı dizisi sorgu dökümünü bir görünümünü sağlar. Her sorgu adımını tıklatarak karşılık gelen gösterildiği gibi bölmesinde düzenleme sorguda gösterir. 
+Merhaba kullanıcı toolook Ara sorgu adımları toounderstand hello veri akışı desenleri bir işi içinde istediği zaman, hello görselleştirme aracı kendi bileşen adımları ve hello akışı dizisi hello sorgu hello dökümünü bir görünümünü sağlar. Her sorgu adımını tıklatarak hello karşılık gelen bölüm gösterildiği gibi bölmesinde düzenleme sorguda gösterir. 
 
 ![Stream-Analytics-Troubleshoot-visualization-intermediate-Steps](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-intermediate-steps.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Giriş tooAzure akış analizi](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)

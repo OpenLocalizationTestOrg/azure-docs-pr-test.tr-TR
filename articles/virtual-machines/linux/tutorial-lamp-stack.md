@@ -1,6 +1,6 @@
 ---
-title: "Azure'da bir Linux sanal makinede AMPUL dağıtma | Microsoft Docs"
-description: "Öğretici - yükleme azure'da bir Linux VM AMPUL yığında"
+title: azure'da bir Linux sanal makinede AMPUL aaaDeploy | Microsoft Docs
+description: "Öğretici - yükleme hello AMPUL azure'da bir Linux VM yığında"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -15,34 +15,34 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: danlep
-ms.openlocfilehash: 9148ac9646e4e1cfeff8f20c096e390499437e78
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a3d0ecb3277f15bd0a2fdc0d85b738a760e68865
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Azure VM temelinde bir AMPUL web sunucusunu yükleme
-Bu makalede bir Apache web sunucusu, MySQL ve azure'da bir Ubuntu VM üzerinde PHP (AMPUL yığını) dağıtma konusunda size yol göstermektedir. NGINX web sunucusu tercih ederseniz, bkz. [LEMP yığın](tutorial-lemp-stack.md) Öğreticisi. Eylem AMPUL Server'da görmek için isteğe bağlı olarak yükleyebilir ve bir WordPress sitesi yapılandırın. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Bu makalede toodeploy Apache nasıl web sunucusu, MySQL ve azure'da bir Ubuntu VM üzerinde PHP (Merhaba AMPUL yığını) aracılığıyla anlatılmaktadır. Merhaba NGINX web sunucusu tercih ederseniz, hello bkz [LEMP yığın](tutorial-lemp-stack.md) Öğreticisi. toosee hello AMPUL sunucu eyleminde, isteğe bağlı olarak yükleyebilir ve bir WordPress sitesi yapılandırın. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Bir Ubuntu VM (' L' AMPUL yığınında) oluşturma
+> * Bir Ubuntu VM (Merhaba 'L' hello AMPUL yığınında) oluşturma
 > * Web trafiği için 80 numaralı bağlantı noktasını açın
 > * Apache, MySQL ve PHP yükleme
 > * Yükleme ve yapılandırmasını doğrulayın
-> * AMPUL sunucu üzerinde WordPress yükleme
+> * WordPress hello AMPUL sunucusuna yükleyin
 
 
-AMPUL yığında öneriler bir üretim ortamı için de dahil olmak üzere daha fazla bilgi için bkz: [Ubuntu belgelerine](https://help.ubuntu.com/community/ApacheMySQLPHP).
+Merhaba AMPUL yığını, bir üretim ortamı için öneriler dahil olmak üzere daha fazla bilgi için bkz: Merhaba [Ubuntu belgelerine](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, Bu öğretici hello Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
 ## <a name="install-apache-mysql-and-php"></a>Apache, MySQL ve PHP yükleme
 
-Ubuntu paket kaynaklarını güncelleştirmek ve Apache, MySQL ve PHP yüklemek için aşağıdaki komutu çalıştırın. Komut sonunda şapka (^) unutmayın.
+Aşağıdaki komut tooupdate Ubuntu paket kaynaklar hello çalıştırın ve Apache, MySQL ve PHP yükleyin. Merhaba komutu hello sonunda Hello şapka (^) unutmayın.
 
 
 ```bash
@@ -51,7 +51,7 @@ sudo apt update && sudo apt install lamp-server^
 
 
 
-Paketler ve diğer bağımlılıklar yüklemeniz istenir. İstendiğinde, MySQL için bir kök parola ayarlayın ve ardından devam etmek için Enter. Kalan istemleri izleyin. Bu işlem, PHP, MySQL ile kullanmak için gerekli en düşük gerekli PHP uzantıları yükler. 
+İstendiğinde tooinstall hello paketler ve diğer bağımlılıklar var. İstendiğinde, MySQL, ardından [Enter] toocontinue için bir kök parola ayarlayın. Merhaba kalan istemleri izleyin. Bu işlem hello minimum gerekli PHP uzantıları gerekli toouse PHP MySQL ile yükler. 
 
 ![MySQL kök parola sayfası][1]
 
@@ -60,55 +60,55 @@ Paketler ve diğer bağımlılıklar yüklemeniz istenir. İstendiğinde, MySQL 
 
 ### <a name="apache"></a>Apache
 
-Aşağıdaki komutu Apache sürümüyle denetleyin:
+Onay hello sürümüyle Apache komutu aşağıdaki hello:
 ```bash
 apache2 -v
 ```
 
-Apache yüklü ve bağlantı noktası 80 VM'nize açık ile web sunucusu artık Internet üzerinden erişilebilir. Varsayılan Apache2 Ubuntu sayfasını görüntülemek için bir web tarayıcısı açın ve VM ortak IP adresini girin. SSH VM için kullanılan ortak IP adresini kullan:
+Apache tooyour VM yüklü ve bağlantı noktası 80'i açın, hello web sunucusu artık erişilebilir hello Internet. tooview hello Apache2 Ubuntu sayfasında, varsayılan bir web tarayıcısı açın ve hello VM hello ortak IP adresini girin. Merhaba tooSSH toohello VM kullanılan ortak IP adresini kullan:
 
 ![Apache varsayılan sayfa][3]
 
 
 ### <a name="mysql"></a>MySQL
 
-MySQL sürümü aşağıdaki komutla denetleyin (büyük harf Not `V` parametresi):
+Komutu aşağıdaki hello ile MySQL Hello sürümünü denetleme (Not hello sermaye `V` parametresi):
 
 ```bash
 msql -V
 ```
 
-MySQL yükleme güvenliğinin sağlanmasına yardımcı olmak için aşağıdaki betiği çalıştıran öneririz:
+Komut dosyası toohelp güvenli hello MySQL yüklenmesinden hello çalıştıran öneririz:
 
 ```bash
 mysql_secure_installation
 ```
 
-MySQL kök parolanızı girin ve ortamınız için güvenlik ayarlarını yapılandırın.
+MySQL kök parolanızı girin ve ortamınız için hello güvenlik ayarlarını yapılandırın.
 
-Bir MySQL veritabanı oluşturmak istiyorsanız, kullanıcı ekleme ya da yapılandırma ayarlarını, MySQL oturum açma değiştirin:
+Toocreate bir MySQL veritabanı istiyorsanız, kullanıcı ekleme ya da yapılandırma ayarlarını, oturum açma tooMySQL değiştirin:
 
 ```bash
 mysql -u root -p
 ```
 
-İşiniz bittiğinde, mysql istemi yazarak çıkmak `\q`.
+İşiniz bittiğinde, yazarak hello mysql isteminden çıkın `\q`.
 
 ### <a name="php"></a>PHP
 
-PHP sürümünü aşağıdaki komutla denetleyin:
+Onay hello sürümüyle PHP komut aşağıdaki hello:
 
 ```bash
 php -v
 ```
 
-Daha fazla test etmek isterseniz, bir tarayıcıda görüntülemek üzere hızlı bir PHP bilgileri sayfası oluşturun. Aşağıdaki komut, PHP bilgileri sayfası oluşturur:
+Daha fazla tootest istiyorsanız, hızlı bir PHP bilgi sayfası tooview bir tarayıcıda oluşturun. komutu aşağıdaki hello hello PHP bilgileri sayfası oluşturur:
 
 ```bash
 sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 ```
 
-Şimdi, oluşturduğunuz PHP bilgileri sayfasını kontrol edebilirsiniz. Bir tarayıcı açın ve gidin `http://yourPublicIPAddress/info.php`. VM ortak IP adresini değiştirin. Bu görüntüsüne benzer görünmelidir.
+Şimdi, oluşturduğunuz hello PHP bilgileri sayfasını kontrol edebilirsiniz. Bir tarayıcı açın ve çok`http://yourPublicIPAddress/info.php`. VM Hello genel IP adresini değiştirin. Benzer toothis görüntü görünmelidir.
 
 ![PHP bilgileri sayfası][2]
 
@@ -117,16 +117,16 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure AMPUL Server'da dağıtıldı. Size nasıl öğrenilen için:
+Bu öğreticide, Azure AMPUL Server'da dağıtıldı. Şunları öğrendiniz:
 
 > [!div class="checklist"]
 > * Bir Ubuntu VM oluşturma
 > * Web trafiği için 80 numaralı bağlantı noktasını açın
 > * Apache, MySQL ve PHP yükleme
 > * Yükleme ve yapılandırmasını doğrulayın
-> * AMPUL sunucu üzerinde WordPress yükleme
+> * WordPress hello AMPUL sunucusuna yükleyin
 
-SSL sertifikaları web sunucularıyla güvenli öğrenmek için sonraki öğretici ilerleyin.
+Toohello sonraki öğretici toolearn nasıl ilerlemek SSL sertifikaları web sunucularıyla toosecure.
 
 > [!div class="nextstepaction"]
 > [SSL ile güvenli web sunucusu](tutorial-secure-web-server.md)

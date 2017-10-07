@@ -1,6 +1,6 @@
 ---
-title: "Başlatma ve sanal makineler - grafik durdurma | Microsoft Docs"
-description: "Azure otomasyonu senaryosu Klasik sanal makineleri durdurmak ve başlatmak için runbook'ları da dahil olmak üzere bir PowerShell iş akışı sürümü."
+title: aaaStarting ve durdurma sanal makineleri - Graph | Microsoft Docs
+description: "PowerShell iş akışı runbook'ları toostart ve durdurma Klasik sanal makineler de dahil olmak üzere Azure otomasyonu senaryosu sürümü."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -15,20 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 07/06/2016
 ms.author: magoedte;bwren
 redirect_url: https://docs.microsoft.com/azure/automation/automation-solution-vm-management
-redirect_document_id: FALSE
-ms.openlocfilehash: 338d5712239356e13cbf480d9655ca3ca499701d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: False
+ms.openlocfilehash: 5add8d8cf35ea2e89a570744755ac7db0a6feb07
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-automation-scenario---starting-and-stopping-virtual-machines"></a>Başlatma ve durdurma sanal makineler, azure otomasyonu senaryosu-
-Bu Azure otomasyonu senaryosu Klasik sanal makineleri durdurmak ve başlatmak için runbook'ları içerir.  Bu senaryo herhangi birini kullanabilirsiniz:  
+Bu Azure otomasyonu senaryosu runbook'lar toostart ve durdurma Klasik sanal makineleri içerir.  Bu senaryo hello aşağıdakilerden birini kullanabilirsiniz:  
 
-* Değişiklik yapmadan runbook'ları, kendi ortamınızda kullanın.
-* Özelleştirilmiş işlevleri gerçekleştirmek için runbook'ları değiştirin.  
-* Runbook'ları çözümü genelinin bir parçası olarak başka bir runbook'tan çağırın.
-* Runbook'ları öğreticileri runbook kavramları yazma öğrenmek için kullanın.
+* Değişiklik yapmadan Hello runbook'ları, kendi ortamınızda kullanın.
+* Merhaba runbook'lar özelleştirilmiş tooperform işlevlerini değiştirin.  
+* Merhaba runbook çözümü genelinin bir parçası olarak başka bir runbook'tan çağırın.
+* Merhaba runbook'lar öğreticileri toolearn runbook kavramları yazma kullanın.
 
 > [!div class="op_single_selector"]
 > * [Grafik](automation-solution-startstopvm-graphical.md)
@@ -36,62 +36,62 @@ Bu Azure otomasyonu senaryosu Klasik sanal makineleri durdurmak ve başlatmak i�
 >
 >
 
-Bu senaryo grafik runbook sürümüdür. Ayrıca kullanılabilir kullanarak olan [PowerShell iş akışı runbook'ları](automation-solution-startstopvm-psworkflow.md).
+Bu hello grafik runbook bu senaryonun sürümüdür. Ayrıca kullanılabilir kullanarak olan [PowerShell iş akışı runbook'ları](automation-solution-startstopvm-psworkflow.md).
 
-## <a name="getting-the-scenario"></a>Senaryoyu alma
-Bu senaryo iki oluşur, aşağıdaki bağlantılardan birini yükleyebilirsiniz iki grafik runbook'lar.  Bkz: [PowerShell iş akışı sürümü](automation-solution-startstopvm-psworkflow.md) PowerShell iş akışı runbook'ları bağlantılar için bu senaryonun.
+## <a name="getting-hello-scenario"></a>Merhaba senaryo alma
+Bu senaryo iki oluşur indirebileceğiniz iki grafik runbook'lar hello bağlantılar.  Merhaba bkz [PowerShell iş akışı sürümü](automation-solution-startstopvm-psworkflow.md) bu senaryonun bağlantılar toohello PowerShell iş akışı runbook'ları için.
 
 | Runbook | Bağlantı | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
 | StartAzureClassicVM |[Azure Klasik VM grafik Runbook başlatın](https://gallery.technet.microsoft.com/scriptcenter/Start-Azure-Classic-VM-c6067b3d) |Grafik |Tüm Klasik sanal makineleri bir Azure aboneliği veya tüm sanal makinelerin belirli bir hizmet adı ile başlatır. |
 | StopAzureClassicVM |[Azure Klasik VM grafik Runbook'u durdurun](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-Classic-VM-397819bd) |Grafik |Tüm sanal makinelerin bir Otomasyon hesabı veya belirli bir hizmet adı ile tüm sanal makineleri durdurur. |
 
-## <a name="installing-and-configuring-the-scenario"></a>Yükleme ve yapılandırma senaryosu
-### <a name="1-install-the-runbooks"></a>1. Runbook'ları yükleyin
-Runbook'ları indirdikten sonra bunları yordamı kullanarak aktarabilirsiniz [grafik runbook yordamları](automation-graphical-authoring-intro.md#graphical-runbook-procedures).
+## <a name="installing-and-configuring-hello-scenario"></a>Yükleme ve yapılandırma hello senaryosu
+### <a name="1-install-hello-runbooks"></a>1. Merhaba runbook'ları yükleyin
+Merhaba runbook'ları indirdikten sonra bunları aktarabilirsiniz hello yordamda kullanarak [grafik runbook yordamları](automation-graphical-authoring-intro.md#graphical-runbook-procedures).
 
-### <a name="2-review-the-description-and-requirements"></a>2. Açıklama ve gereksinimleri gözden geçirin
-Adlı bir etkinliği runbook'ları dahil **beni oku** bir açıklama ve gerekli varlıkları içerir.  Bu bilgileri seçerek görüntüleyebilirsiniz **beni oku** etkinliği ve ardından **iş akışı betiği** parametresi.  Bu makalede aynı bilgiler de alabilirsiniz.
+### <a name="2-review-hello-description-and-requirements"></a>2. Gözden geçirme hello açıklama ve gereksinimleri
+Merhaba runbook'ları dahil olarak adlandırılan bir etkinlik **beni oku** bir açıklama ve gerekli varlıkları içerir.  Merhaba seçerek bu bilgiyi görüntüleyebilirsiniz **beni oku** etkinliği ve hello **iş akışı betiği** parametresi.  Ayrıca alabilirsiniz hello Bu makale aynı bilgileri.
 
 ### <a name="3-configure-assets"></a>3. Varlıklar yapılandırın
-Runbook'ları oluşturma ve uygun değerlerle doldurmak şu varlıkları gerektirir.  Varsayılan adlardır.  Bu adları belirtirseniz, farklı adlara sahip varlıklar kullanabilirsiniz [giriş parametreleri](#using-the-runbooks) runbook'u başlattığınızda.
+Merhaba runbook'lar oluşturmak ve uygun değerlerle doldurmak varlıklar aşağıdaki hello gerektirir.  Merhaba, varsayılan adlardır.  Bu adları hello belirtirseniz, farklı adlara sahip varlıklar kullanabilirsiniz [giriş parametreleri](#using-the-runbooks) hello runbook başlattığınızda.
 
 | Varlık türü | Varsayılan adı | Açıklama |
 |:--- |:--- |:--- |:--- |
-| [Kimlik bilgisi](automation-credentials.md) |AzureCredential |Azure Abonelikteki sanal makineleri durdurmak ve başlatmak için yetkili olan bir hesabın kimlik bilgilerini içerir. |
-| [Değişken](automation-variables.md) |Azuresubscriptionıd |Azure aboneliğiniz abonelik Kimliğini içerir. |
+| [Kimlik bilgisi](automation-credentials.md) |AzureCredential |Yetkilisi toostart ve durdurma sanal makineler hello Azure aboneliğine sahip bir hesabın kimlik bilgilerini içerir. |
+| [Değişken](automation-variables.md) |Azuresubscriptionıd |Merhaba abonelik kimliği, Azure aboneliğinizin yer alır. |
 
-## <a name="using-the-scenario"></a>Senaryo kullanma
+## <a name="using-hello-scenario"></a>Merhaba senaryo kullanma
 ### <a name="parameters"></a>Parametreler
-Her runbook aşağıdakilere sahip [giriş parametreleri](automation-starting-a-runbook.md#runbook-parameters).  Zorunlu parametreler için değer sağlamalısınız ve değerleri gereksinimlerinize bağlı olarak diğer parametreleri için isteğe bağlı olarak sağlayabilir.
+Merhaba runbook'lar her hello aşağıdakilere sahip [giriş parametreleri](automation-starting-a-runbook.md#runbook-parameters).  Zorunlu parametreler için değer sağlamalısınız ve değerleri gereksinimlerinize bağlı olarak diğer parametreleri için isteğe bağlı olarak sağlayabilir.
 
 | Parametre | Tür | Zorunlu | Açıklama |
 |:--- |:--- |:--- |:--- |
-| ServiceName |Dize |Hayır |Bir değer belirtilirse, hizmet adının tüm sanal makinelerle başlatıldığı veya durdurulduğu sonra.  Herhangi bir değer sağlanmazsa, ardından Azure Abonelikteki tüm Klasik sanal makineleri başlatıldığı veya durdurulduğu. |
-| AzureSubscriptionIdAssetName |Dize |Hayır |Adını içeren [değişken varlığı](#installing-and-configuring-the-scenario) , Azure aboneliğinizin abonelik Kimliğini içerir.  Bir değer belirtmezseniz *Azuresubscriptionıd* kullanılır. |
-| AzureCredentialAssetName |Dize |Hayır |Adını içeren [kimlik bilgisi varlığı](#installing-and-configuring-the-scenario) runbook'un kimlik bilgilerini içerir.  Bir değer belirtmezseniz *AzureCredential* kullanılır. |
+| ServiceName |Dize |Hayır |Bir değer belirtilirse, hizmet adının tüm sanal makinelerle başlatıldığı veya durdurulduğu sonra.  Herhangi bir değer sağlanmazsa, ardından hello Azure aboneliği tüm Klasik sanal makinelerin başlatıldığı veya durdurulduğu. |
+| AzureSubscriptionIdAssetName |Dize |Hayır |Merhaba Hello adını içeren [değişken varlığı](#installing-and-configuring-the-scenario) hello abonelik kimliği, Azure aboneliğinizin içerir.  Bir değer belirtmezseniz *Azuresubscriptionıd* kullanılır. |
+| AzureCredentialAssetName |Dize |Hayır |Merhaba Hello adını içeren [kimlik bilgisi varlığı](#installing-and-configuring-the-scenario) hello runbook toouse hello kimlik bilgilerini içerir.  Bir değer belirtmezseniz *AzureCredential* kullanılır. |
 
-### <a name="starting-the-runbooks"></a>Runbook'ları başlatma
-Yöntemlerden birini kullanabilirsiniz [Azure Otomasyonu runbook başlatma](automation-starting-a-runbook.md) runbook'ları ya da bu makalede başlatmak için.
+### <a name="starting-hello-runbooks"></a>Başlangıç hello runbook'ları
+Merhaba yöntemlerden herhangi birini kullanabilirsiniz [Azure Otomasyonu runbook başlatma](automation-starting-a-runbook.md) toostart ya da bu makalede hello runbook'lar.
 
-Aşağıdaki örnek komutlar çalıştırmak için Windows PowerShell kullanan **StartAzureClassicVM** tüm sanal makinelerin hizmet adı ile başlatmak için *MyVMService*.
+Aşağıdaki örnek komutlar hello kullanan Windows PowerShell toorun **StartAzureClassicVM** toostart hello hizmet adı ile tüm sanal makineleri *MyVMService*.
 
     $params = @{"ServiceName"="MyVMService"}
     Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "StartAzureClassicVM" –Parameters $params
 
 ### <a name="output"></a>Çıktı
-Runbook'ları olacak [bir çıktı mesajı](automation-runbook-output-and-messages.md) Başlat veya Durdur yönerge başarıyla gönderildi olup olmadığını belirten her sanal makine için.  Her runbook için sonucu belirlemek için çıktı belirli bir dizeyi arayabilirsiniz.  Olası çıktı dizeler aşağıdaki tabloda listelenmiştir.
+Merhaba runbook'ları olacak [bir çıktı mesajı](automation-runbook-output-and-messages.md) her sanal makine belirten desteklemediğini hello Başlat veya Durdur yönerge başarıyla gönderildiği.  Merhaba çıktı toodetermine hello sonuç her runbook için belirli bir dizeyi arayabilirsiniz.  Merhaba olası çıktı dizeleri aşağıdaki tablonun hello listelenir.
 
 | Runbook | Koşul | İleti |
 |:--- |:--- |:--- |
 | StartAzureClassicVM |Sanal makine zaten çalışıyor |MyVM zaten çalışıyor |
 | StartAzureClassicVM |Başlatma isteği başarıyla gönderildi bir sanal makine için |MyVM başlatıldı |
-| StartAzureClassicVM |Sanal makine başlatma isteği başarısız oldu |MyVM başlatılamadı |
+| StartAzureClassicVM |Sanal makine başlatma isteği başarısız oldu |MyVM toostart başarısız oldu |
 | StopAzureClassicVM |Sanal makine zaten çalışıyor |MyVM zaten durdurulmuş |
 | StopAzureClassicVM |Başlatma isteği başarıyla gönderildi bir sanal makine için |MyVM başlatıldı |
-| StopAzureClassicVM |Sanal makine başlatma isteği başarısız oldu |MyVM başlatılamadı |
+| StopAzureClassicVM |Sanal makine başlatma isteği başarısız oldu |MyVM toostart başarısız oldu |
 
-Aşağıdadır kullanmanın bir görüntü **StartAzureClassicVM** olarak bir [alt runbook](automation-child-runbooks.md) bir örnek grafik runbook'ta.  Bu aşağıdaki tabloda koşullu bağlantıları kullanır.
+Aşağıdadır hello kullanarak bir görüntü **StartAzureClassicVM** olarak bir [alt runbook](automation-child-runbooks.md) bir örnek grafik runbook'ta.  Bu, aşağıdaki tablonun hello hello koşullu bağlantıları kullanır.
 
 | Bağlantı | Ölçütler |
 |:--- |:--- |
@@ -101,40 +101,40 @@ Aşağıdadır kullanmanın bir görüntü **StartAzureClassicVM** olarak bir [a
 ![Alt runbook örneği](media/automation-solution-startstopvm/graphical-childrunbook-example.png)
 
 ## <a name="detailed-breakdown"></a>Ayrıntılı dökümü
-Bu senaryoda runbook'ları ayrıntılı bir dökümünü aşağıdadır.  Runbook'ları özelleştirme veya sadece kendi Otomasyon senaryoları yazmak için bunlardan öğrenmek için bu bilgileri kullanın.
+Bu senaryoda hello runbook'lar ayrıntılı bir dökümünü aşağıdadır.  Bu bilgileri kullanabilir tooeither özelleştirme hello runbook'ları veya bunlardan yalnızca toolearn kendi Otomasyon senaryoları yazma.
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 ![Kimlik Doğrulaması](media/automation-solution-startstopvm/graphical-authentication.png)
 
-Runbook ayarlamak için etkinlikleri ile başlayan [kimlik bilgileri](automation-credentials.md) ve runbook geri kalanı için kullanılacak Azure aboneliği.
+Merhaba runbook etkinlikleri tooset hello ile başlatır [kimlik bilgileri](automation-credentials.md) ve hello runbook hello kalanı için kullanılacak Azure aboneliği.
 
-İlk iki etkinlik **abonelik kimliği Al** ve **Azure kimlik bilgisi almak**, almak [varlıklar](#installing-the-runbook) sonraki iki etkinlikler tarafından kullanılır.  Bu etkinlikler doğrudan varlıklar belirtebilirsiniz, ancak bunlar varlık adları gerekir.  Biz bu adlarında belirtmesini izin vererek bu yana [giriş parametreleri](#using-the-runbooks), bir giriş parametresi tarafından belirtilen bir adla varlıkları almak için bu etkinlikler ihtiyacımız.
+ilk iki etkinlik hello **abonelik kimliği Al** ve **Azure kimlik bilgisi almak**, hello almak [varlıklar](#installing-the-runbook) hello sonraki iki etkinlikler tarafından kullanılır.  Bu etkinlikler doğrudan hello varlıklar belirtebilirsiniz, ancak bunlar hello varlık adları gerekir.  Biz hello kullanıcı toospecify hello adları izin beri [giriş parametreleri](#using-the-runbooks), bu etkinlikler tooretrieve hello varlıkları bir giriş parametresi tarafından belirtilen bir adla ihtiyacımız.
 
-**Add-AzureAccount** runbook geri kalanı için kullanılacak kimlik bilgilerini ayarlar.  Gelen alır. kimlik bilgisi varlığı **Azure kimlik bilgisi almak** Azure Abonelikteki sanal makineleri durdurmak ve başlatmak için erişimi olmalıdır.  Tarafından kullanılan abonelik seçili **Select-AzureSubscription** abonelik kimliği kullanan gelen **abonelik kimliği Al**.
+**Add-AzureAccount** hello hello runbook hello kalanı için kullanılacak kimlik bilgilerini ayarlar.  Bunu alır hello kimlik bilgisi varlığı **Azure kimlik bilgisi almak** erişim toostart ve durdurma sanal makineleri hello Azure aboneliğinizin olması gerekir.  Merhaba kullanılan abonelik tarafından seçilen **Select-AzureSubscription** hello abonelik kimliği kullanan gelen **abonelik kimliği Al**.
 
 ### <a name="get-virtual-machines"></a>Sanal makinelerini Al
 ![VM Al](media/automation-solution-startstopvm/graphical-getvms.png)
 
-Runbook ile çalışacaksınız hangi sanal makinelerin ve olup Bunlar zaten başlatıldığında veya (bağlı olarak runbook) durduruldu belirlemesi gerekir.   İki etkinliklerden birini VM'ler alır.  **Sanal makineleri hizmetinde almak** çalışacak *ServiceName* runbook giriş parametresi bir değer içeriyor.  **Tüm sanal makineleri almak** çalışacak *ServiceName* runbook giriş parametresi değeri içermiyor.  Bu mantık, her etkinlik önceki koşullu bağlantılar tarafından gerçekleştirilir.
+Merhaba runbook hangi sanal makinelerin bu ile çalışacaksınız toodetermine ve olup Bunlar zaten başlatıldığında veya (Merhaba runbook bağlı olarak) durduruldu gerekir.   İki etkinliklerden birini hello VM'ler alır.  **Hizmetinde VM'ler alma** hello çalışacak *ServiceName* giriş parametresi hello runbook için bir değer içeriyor.  **Tüm sanal makineleri almak** hello çalışacak *ServiceName* hello runbook giriş parametresi değeri içermiyor.  Bu mantık hello koşullu bağlantıları her etkinlik önceki tarafından gerçekleştirilir.
 
-Her iki etkinlikleri kullanmak **Get-AzureVM** cmdlet'i.  **Tüm sanal makineleri almak** kullanan **ListAllVMs** parametre tüm sanal makineleri dönün.  **Sanal makineleri hizmetinde almak** kullanan **GetVMByServiceAndVMName** parametre kümesi ve sağlayan **ServiceName** giriş parametresi için **ServiceName** parametre.  
+Her iki etkinlikleri hello kullanır **Get-AzureVM** cmdlet'i.  **Tüm sanal makineleri almak** kullanır hello **ListAllVMs** parametre tooreturn tüm sanal makineler.  **Hizmetinde VM'ler alma** kullanır hello **GetVMByServiceAndVMName** parametre kümesi ve hello sağlayan **ServiceName** hello için giriş parametresi **ServiceName**parametresi.  
 
 ### <a name="merge-vms"></a>Sanal makineleri birleştirme
 ![Sanal makineleri birleştirme](media/automation-solution-startstopvm/graphical-mergevms.png)
 
-**Birleştirme VM'ler** etkinliktir giriş sağlamak için gerekli **Start-AzureVM** hizmeti başlatmak için sanal makine adını ve adı gerekiyor.  Giriş herhangi birinden gelebilir **tüm sanal makineleri almak** veya **alma VM'ler hizmetindeki**, ancak **Start-AzureVM** yalnızca kendi giriş için bir etkinlik belirtebilirsiniz.   
+Merhaba **birleştirme VM'ler** etkinliktir çok giriş gerekli tooprovide**Start-AzureVM** hello adı ve hello sanal makine toostart hizmet adı gerekiyor.  Giriş herhangi birinden gelebilir **tüm sanal makineleri almak** veya **alma VM'ler hizmetindeki**, ancak **Start-AzureVM** yalnızca kendi giriş için bir etkinlik belirtebilirsiniz.   
 
-Senaryo oluşturmaktır **birleştirme VM'ler** çalıştığı **Write-Output** cmdlet'i.  **Inputobject** Bu cmdlet'i yönelik parametre, önceki iki etkinlik girişi birleştiren bir PowerShell ifadesi değil.  Bu etkinlikler yalnızca biri dolayısıyla yalnızca tek bir çıktı kümesini beklenen çalışır.  **Start-AzureVM** bu çıkışı giriş parametreleri için kullanabilirsiniz.
+Merhaba senaryodur toocreate **birleştirme VM'ler** hello çalıştığı **Write-Output** cmdlet'i.  Merhaba **Inputobject** Bu cmdlet parametresi hello giriş hello önceki iki etkinlik birleştiren bir PowerShell ifadesi olmalıdır.  Bu etkinlikler yalnızca biri dolayısıyla yalnızca tek bir çıktı kümesini beklenen çalışır.  **Start-AzureVM** bu çıkışı giriş parametreleri için kullanabilirsiniz.
 
 ### <a name="startstop-virtual-machines"></a>Sanal makineleri Başlatma/Durdurma
 ![Sanal makineleri Başlat](media/automation-solution-startstopvm/graphical-startvm.png) ![Sanal makineleri Durdur](media/automation-solution-startstopvm/graphical-stopvm.png)
 
-Runbook bağlı olarak sonraki etkinlikleri başlatmak veya runbook kullanmayı girişiminde **Start-AzureVM** veya **Stop-AzureVM**.  Etkinlik tarafından ardışık düzen bağlantısına öncesinde olduğundan, bu kez döndürülen her nesne için çalışır **birleştirme VM'ler**.  Etkinlik varsa yalnızca çalıştıracağı koşullu bağlantıdır *RunningState* sanal makinenin *durduruldu* için **Start-AzureVM** ve *başlatıldı*  için **Stop-AzureVM**. Bu durum, ardından uyulmazsa **zaten başlatıldığında bildir** veya **bildir zaten durdurulmuş** bir ileti göndermek için Çalıştır'ı kullanarak **Write-Output**.
+Merhaba runbook'a bağlı hello sonraki etkinlikleri toostart denemek veya runbook hello kullanmayı **Start-AzureVM** veya **Stop-AzureVM**.  Ardışık Düzen bağlantısına tarafından Hello etkinlik öncesinde olduğundan, bu kez döndürülen her nesne için çalışır **birleştirme VM'ler**.  Merhaba etkinliği yalnızca hello çalışacak hello bağlantı koşullu, böylelikle *RunningState* Merhaba bir sanal makinedir *durduruldu* için **Start-AzureVM** ve  *Başlatılan* için **Stop-AzureVM**. Bu durum, ardından uyulmazsa **zaten başlatıldığında bildir** veya **bildir zaten durdurulmuş** toosend bir iletiyi kullanarak çalıştırılan **Write-Output**.
 
 ### <a name="send-output"></a>Çıktı Gönder
 ![Başlangıç VM'ler bildir](media/automation-solution-startstopvm/graphical-notifystart.png) ![Stop VM'ler bildir](media/automation-solution-startstopvm/graphical-notifystop.png)
 
-Son adım runbook'taki her bir sanal makine için başlatma veya durdurma isteği başarıyla gönderildi olup olmadığını çıkış göndermektir. Ayrı bir yoktur **Write-Output** her biri için etkinlik ve hangisinin koşullu bağlantılarla çalıştırmak için belirleriz.  **VM başlatıldığında bildir** veya **bildir VM durduruldu** çalıştırılır *OperationStatus* olan *başarılı*.  Varsa *OperationStatus* diğer herhangi bir değer ise **bildir başarısız başlatmak** veya **Dur için başarısız olduğunda bildir** çalıştırılır.
+Merhaba son hello runbook toosend çıkış olup başlangıç hello veya her sanal makine durdurma isteği başarıyla gönderildi adımdır. Ayrı bir yoktur **Write-Output** her biri için etkinlik ve hangi bir toorun koşullu bağlantılarla belirleriz.  **VM başlatıldığında bildir** veya **bildir VM durduruldu** çalıştırılır *OperationStatus* olan *başarılı*.  Varsa *OperationStatus* diğer herhangi bir değer ise **başarısız olduğunda bildir tooStart** veya **başarısız olduğunda bildir tooStop** çalıştırılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Grafik Azure Otomasyonu'nda yazma](automation-graphical-authoring-intro.md)

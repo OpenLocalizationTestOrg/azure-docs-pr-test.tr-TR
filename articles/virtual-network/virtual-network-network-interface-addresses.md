@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure ağ arabirimi için IP adreslerini yapılandırın | Microsoft Docs"
-description: "Ekleme, değiştirme ve bir ağ arabirimi için özel ve genel IP adresleri kaldırma öğrenin."
+title: "bir Azure ağ arabirimi için IP adreslerini aaaConfigure | Microsoft Docs"
+description: "Nasıl tooadd, değiştirmek ve ağ arabirimi için özel ve genel IP adreslerini kaldırın öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,46 +15,46 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 1e5ea6c65d93be9b1fda5d807500a0823c94c89c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ekleme, değiştirme veya bir Azure ağ arabirimi için IP adreslerini kaldırın
 
-Ekleme, değiştirme ve bir ağ arabirimi için genel ve özel IP adresleri kaldırma öğrenin. Özel IP adresleri bir ağ arabirimine atanmış bir Azure sanal ağı ve bağlı ağların diğer kaynaklar ile iletişim kurmak bir sanal makine etkinleştirin. Özel bir IP adresi ayrıca öngörülemeyen bir IP adresi kullanarak Internet'e giden iletişim sağlar. A [genel IP adresi](virtual-network-public-ip-address.md) bir ağ arabirimi etkinleştirir gelen iletişimi bir sanal makine için Internet'ten atanmış. Adres de tahmin edilebilir bir IP adresi kullanarak Internet'e sanal makineden giden iletişim sağlar. Ayrıntılar için bkz [azure'da giden bağlantılar anlama](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+Nasıl tooadd, değiştirmek ve ağ arabirimi için genel ve özel IP adreslerini kaldırın öğrenin. Özel IP adresleri tooa ağ arabirimine atanmış bir Azure sanal ağı ve bağlı ağların diğer kaynaklara sahip bir sanal makine toocommunicate etkinleştirin. Özel bir IP adresi giden iletişim toohello Internet öngörülemeyen bir IP adresi kullanarak da sağlar. A [genel IP adresi](virtual-network-public-ip-address.md) tooa atanan hello Internet gelen iletişimi tooa sanal makineden ağ arabirimi sağlar. Başlangıç adresi ayrıca hello sanal makine toohello tahmin edilebilir bir IP adresi kullanarak Internet giden iletişimi sağlar. Ayrıntılar için bkz [azure'da giden bağlantılar anlama](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
-Gerektiğinde oluşturmak için değiştirmek veya bir ağ arabirimi silin, okuyun [bir ağ arabirimi yönetmek](virtual-network-network-interface.md) makalesi. Ağ arabirimlerine eklemek veya ağ arabirimleri sanal okuma bir makineden kaldırmak gerekiyorsa [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md) makalesi. 
+Toocreate gerekiyorsa, değiştirin ya da bir ağ arabirimini silmek okuma hello [bir ağ arabirimi yönetmek](virtual-network-network-interface.md) makalesi. Gerekirse tooadd ağ arabirimleri, bir sanal makineden tooor Kaldır ağ arabirimleri, hello okuma [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md) makalesi. 
 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalenin herhangi bölümündeki tüm adımları tamamlanmadan önce aşağıdaki görevleri tamamlayın:
+Görevler herhangi tamamlamadan önce aşağıdaki tam hello herhangi bir bölümünü bu makalede adımlar:
 
-- Gözden geçirme [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makale ortak ve özel IP adreslerini yönelik sınırlar hakkında bilgi edinin.
-- Azure oturum açma [portal](https://portal.azure.com), Azure komut satırı arabirimi (CLI) ya da Azure PowerShell ile bir Azure hesabı. Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
-- Bu makalede, görevleri tamamlamak için PowerShell komutlarını kullanarak, [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Yüklü Azure PowerShell cmdlet'leri'nın en son sürümüne sahip olun. PowerShell komutlarıyla örnekler, yardım almanın yazın `get-help <command> -full`.
-- Bu makalede, görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, [Azure CLI'yi yükleme ve yapılandırma](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Yüklü Azure CLI'ın en son sürümüne sahip olun. CLI komutları için Yardım almak için yazın `az <command> --help`. CLI ve ön koşullar yüklemek yerine, Azure bulut Kabuğu'nu kullanabilirsiniz. Azure Cloud Shell doğrudan Azure portalının içinde çalıştırabileceğiniz ücretsiz bir Bash kabuğudur. Azure CLI, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bulut Kabuğu'nu kullanmak için bulut Kabuğu'nu tıklatın. **> _** en üstündeki düğmesi [portal](https://portal.azure.com).
+- Gözden geçirme hello [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makale toolearn ortak ve özel IP adresleri için sınırları hakkında.
+- Toohello Azure oturum [portal](https://portal.azure.com), Azure komut satırı arabirimi (CLI) ya da Azure PowerShell ile bir Azure hesabı. Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
+- Bu makalede, toocomplete görevleri komutları PowerShell kullanarak, [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Hello en son sürümünü hello Azure PowerShell cmdlet'leri yüklü olduğundan emin olun. tooget Yardım için örneklerle PowerShell komutlarını yazın `get-help <command> -full`.
+- Bu makalede, toocomplete görevleri komutları Azure komut satırı arabirimi (CLI) kullanarak, [hello Azure CLI yükleyip](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Merhaba en son sürümünü hello Azure CLI yüklenmiş olduğundan emin olun. CLI komutları için tooget Yardım yazın `az <command> --help`. Yükleme hello CLI ve ön koşullar yerine hello Azure bulut Kabuk kullanabilirsiniz. Hello Azure bulut Kabuğu doğrudan hello Azure portal'içinde çalıştırabilirsiniz boş bir Bash kabuğunda ' dir. Azure CLI yüklenmiş ve toouse hesabınız ile yapılandırılan hello sahiptir. toouse hello bulut Kabuğu'nu tıklatın hello bulut Kabuk **> _** düğmesi hello hello üstündeki [portal](https://portal.azure.com).
 
 ## <a name="add-ip-addresses"></a>IP adreslerini ekleyin
 
-Kadar ekleyebilirsiniz [özel](#private) ve [ortak](#public) [IPv4](#ipv4) adresleri listelenen sınırları içinde bir ağ arabirimi için gereken [Azuresınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesi. Portal (portal ağ arabirimi oluşturduğunuzda, bir ağ arabirimi için özel bir IPv6 adresi eklemek için kullanabileceğiniz rağmen) var olan bir ağ arabirimine bir IPv6 adresi eklemek için kullanamazsınız. PowerShell veya CLI için özel bir IPv6 adresi eklemek için kullanabileceğiniz [ikincil IP yapılandırması](#secondary) (var olduğu sürece hiçbir var olan ikincil IP yapılandırmaları) bir sanal makineye bağlı olmayan mevcut bir ağ arabirimi için. Bir ağ arabirimi genel bir IPv6 adresi eklemek için herhangi bir aracı kullanamazsınız. Bkz: [IPv6](#ipv6) IPv6 adresleri kullanma hakkında ayrıntılı bilgi için. 
+Kadar ekleyebilirsiniz [özel](#private) ve [ortak](#public) [IPv4](#ipv4) adresleri hello sınırları içinde gerekli tooa ağ arabirimi olarak listelenen hello [Azure sınırları ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesi. (Merhaba ağ arabirimi oluşturduğunuzda, hello portal tooadd özel bir IPv6 adresi tooa ağ arabirim kullanabilmenize rağmen) hello portal tooadd bir IPv6 adresi tooan var olan ağ arabirimi kullanamazsınız. PowerShell veya CLI tooadd özel bir IPv6 adresi tooone hello kullanabilirsiniz [ikincil IP yapılandırması](#secondary) (var olduğu sürece hiçbir var olan ikincil IP yapılandırmaları) varolan bir ağ için değil arabirimi tooa sanal bağlı. Makine. Herhangi bir genel IPv6 adresi tooa ağ arabirimi aracı tooadd kullanamazsınız. Bkz: [IPv6](#ipv6) IPv6 adresleri kullanma hakkında ayrıntılı bilgi için. 
 
-1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
-2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür arama sonuçlarında tıklatın.
-3. İçinde **ağ arabirimleri** görünür, dikey penceresinde, bir IPv4 adresi için eklemek istediğiniz ağ arabirimi'ı tıklatın.
-4. Tıklatın **IP yapılandırmaları** içinde **ayarları** bölümü, seçtiğiniz ağ arabirimi için dikey pencerenin.
-5. Tıklatın **+ Ekle** açılan dikey penceresinde IP yapılandırmaları için.
-6. Aşağıdakileri belirtin ve ardından **Tamam** kapatmak için **eklemek IP yapılandırması** dikey penceresinde:
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) bir hesapla hello ağ katkıda bulunan rolü aboneliğiniz için diğer bir deyişle (en az) atanan izinlerini. Okuma hello [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) makale toolearn rolleri ve izinleri tooaccounts atama hakkında daha fazla bilgi.
+2. Merhaba metni içeren hello kutusunda *arama kaynakları* hello Azure portal hello üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür hello arama sonuçlarında tıklatın.
+3. Merhaba, **ağ arabirimleri** görünür, dikey penceresinde, tooadd bir IPv4 adresi için istediğiniz hello ağ arabirimi'ı tıklatın.
+4. Tıklatın **IP yapılandırmaları** hello içinde **ayarları** hello dikey seçtiğiniz hello ağ arabirimi için bölümü.
+5. Tıklatın **+ Ekle** açar hello dikey penceresinde IP yapılandırmaları için.
+6. Merhaba aşağıdakileri belirtin ve ardından **Tamam** tooclose hello **eklemek IP yapılandırması** dikey penceresinde:
 
-    |Ayar|Gerekli?|Ayrıntılar|
+    |Ayar|Gerekli mi?|Ayrıntılar|
     |---|---|---|
-    |Ad|Evet|Ağ arabirimi için benzersiz olmalıdır|
-    |Tür|Evet|Varolan bir ağ arabirimine bir IP yapılandırması ekleme ve her bir ağ arabirimine sahip olmalıdır bu yana bir [birincil](#primary) IP yapılandırması, tek seçenektir **ikincil**.|
-    |Özel IP adres ataması yöntemi|Evet|[**Dinamik** ](#dynamic) adresleri durduruldu (serbest bırakıldığında) durumda bırakıldı sonra sanal makineyi yeniden başlatılırsa değiştirebilirsiniz. Azure, gelen ağ arabiriminin bağlı olduğu alt ağ adres alanında kullanılabilir bir adresi atar. [**Statik** ](#static) ağ arabirimi silinene kadar adresleri serbest değil. Bir IP adresi şu anda başka bir IP yapılandırması tarafından kullanılmadığından alt ağ adres alanı aralığı belirtin.|
-    |Genel IP adresi|Hayır|**Devre dışı:** hiçbir ortak IP adresi kaynağı şu anda IP yapılandırmasıyla ilişkilendirilmiş. **Etkin:** var olan bir IPv4 ortak IP adresi seçin veya yeni bir tane oluşturun. Bir ortak IP adresi oluşturmayı öğrenmek için okuma [ortak IP adresleri](virtual-network-public-ip-address.md#create-a-public-ip-address) makalesi.|
-7. Yönergeleri izleyerek ikincil özel IP adresleri için sanal makine işletim sistemini el ile eklemeniz [sanal makine işletim sistemleri için birden çok IP adresi atamak](virtual-network-multiple-ip-addresses-portal.md#os-config) makalesi. Bkz: [özel](#private) el ile bir sanal makine işletim sistemine IP adreslerini eklemeden önce özel konular için IP adresi. Herhangi bir ortak IP adresi sanal makine işletim sistemine eklemeyin.
+    |Ad|Evet|Merhaba ağ arabirimi için benzersiz olmalıdır|
+    |Tür|Evet|IP yapılandırması tooan varolan ağ arabirimi eklediğiniz ve her bir ağ arabirimine sahip olmalıdır bu yana bir [birincil](#primary) IP yapılandırması, tek seçenektir **ikincil**.|
+    |Özel IP adres ataması yöntemi|Evet|[**Dinamik** ](#dynamic) adresleri hello edilmiş durduruldu (serbest bırakıldığında) durumu sonra hello sanal makine yeniden başlatılırsa değiştirebilirsiniz. Kullanılabilir bir adresi hello alt hello ağ arabiriminin hello adres alanından bağlı olduğu Azure atar. [**Statik** ](#static) hello ağ arabirimi silinene kadar adresleri serbest değil. Şu anda başka bir IP yapılandırması tarafından kullanılmadığından hello alt ağ adres alanı aralığından bir IP adresi belirtin.|
+    |Genel IP adresi|Hayır|**Devre dışı:** hiçbir ortak IP adresi kaynağı şu anda ilişkili toohello IP yapılandırmadır. **Etkin:** var olan bir IPv4 ortak IP adresi seçin veya yeni bir tane oluşturun. nasıl toocreate bir ortak IP adresi okuma toolearn hello [ortak IP adresleri](virtual-network-public-ip-address.md#create-a-public-ip-address) makalesi.|
+7. Merhaba hello yönergeleri izleyerek ikincil özel IP adresleri toohello sanal makine işletim sistemini el ile eklemeniz [toovirtual makine işletim sistemlerini birden çok IP adresi atamak](virtual-network-multiple-ip-addresses-portal.md#os-config) makalesi. Bkz: [özel](#private) el ile IP adresleri tooa sanal makine işletim sistemi eklemeden önce özel konular için IP adresi. Bir ortak IP adresleri toohello sanal makine işletim sistemi eklemeyin.
 
 **Komutları**
 
@@ -65,17 +65,17 @@ Kadar ekleyebilirsiniz [özel](#private) ve [ortak](#public) [IPv4](#ipv4) adres
 
 ## <a name="change-ip-address-settings"></a>IP adresi ayarlarını değiştirme
 
-Gerektiğinde bir IPv4 adresi atama yöntemini değiştirmek için statik IPv4 adresini değiştirin veya bir ağ arabirimine atanmış ortak IP adresini değiştirin. Özel bir IPv4 adresi, bir sanal makinede bir ikincil ağ arabirimi ile ilişkili bir ikincil IP yapılandırmasının değiştirirsiniz varsa (hakkında daha fazla bilgi [birincil ve ikincil ağ arabirimleri](virtual-network-network-interface-vm.md#about)), sanal makineyi yerleştirin Aşağıdaki adımları tamamlamadan önce durduruldu (serbest bırakıldığında) durumuna geçer: 
+Toochange hello atama yöntemi Değiştir hello statik IPv4 adresi, bir IPv4 adresi gerekebilir veya tooa ağ arabirimi değişiklik hello genel IP adresi atanır. Merhaba özel bir IPv4 adresi, bir sanal makinede bir ikincil ağ arabirimi ile ilişkili bir ikincil IP yapılandırmasının değiştirirsiniz varsa (hakkında daha fazla bilgi [birincil ve ikincil ağ arabirimleri](virtual-network-network-interface-vm.md#about)), yer hello sanal Merhaba makineye aşağıdaki adımları hello tamamlamadan önce (serbest bırakıldığında) durumu durduruldu: 
 
-1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
-2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür arama sonuçlarında tıklatın.
-3. İçinde **ağ arabirimleri** görünür, dikey, IP adresi ayarlarını görüntülemek veya değiştirmek istediğiniz ağ arabirimi'ı tıklatın.
-4. Tıklatın **IP yapılandırmaları** içinde **ayarları** bölümü, seçtiğiniz ağ arabirimi için dikey pencerenin.
-5. Açılan dikey IP yapılandırmaları için listesinden değiştirmek istediğiniz IP Yapılandırması'nı tıklatın.
-6. Ayarları hakkında bilgi yordamının 6. adımında ayarları kullanarak, istediğiniz değiştirme [bir IP Yapılandırması Ekle](#create-ip-config) bu makalenin. Tıklatın **kaydetmek** değiştirdiğiniz IP yapılandırması için dikey penceresini kapatın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) bir hesapla hello ağ katkıda bulunan rolü aboneliğiniz için diğer bir deyişle (en az) atanan izinlerini. Okuma hello [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) makale toolearn rolleri ve izinleri tooaccounts atama hakkında daha fazla bilgi.
+2. Merhaba metni içeren hello kutusunda *arama kaynakları* hello Azure portal hello üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür hello arama sonuçlarında tıklatın.
+3. Merhaba, **ağ arabirimleri** görünür, dikey penceresinde, tooview istediğiniz ya da IP adresi ayarlarını değiştirme hello ağ arabirimi'ı tıklatın.
+4. Tıklatın **IP yapılandırmaları** hello içinde **ayarları** hello dikey seçtiğiniz hello ağ arabirimi için bölümü.
+5. IP yapılandırması için açılır hello dikey hello listesinden toomodify istediğiniz hello IP Yapılandırması'nı tıklatın.
+6. Hello ayarları hello 6. adımında hello ayarları hakkında bilgi hello kullanarak, istediğiniz değiştirme [bir IP Yapılandırması Ekle](#create-ip-config) bu makalenin. Tıklatın **kaydetmek** tooclose hello dikey değiştirdiğiniz hello IP yapılandırması için.
 
 >[!NOTE]
->Birden fazla IP yapılandırması birincil ağ arabirimi varsa ve birincil IP yapılandırmasının özel IP adresini değiştirmek, birincil ve ikincil IP adresleri (Linux için gerekli değil) Windows içinde ağ arabirimi için el ile atamanız gerekir . El ile bir işletim sistemi içinde bir ağ arabirimi için IP adresleri atamak için okuma [birden çok IP adresi sanal makinelere atamak](virtual-network-multiple-ip-addresses-portal.md#os-config) makalesi. Bkz: [özel](#private) el ile bir sanal makine işletim sistemine IP adreslerini eklemeden önce özel konular için IP adresi. Herhangi bir ortak IP adresi sanal makine işletim sistemine eklemeyin.
+>Hello birincil ağ arabirimi birden çok IP yapılandırmaları olan ve hello birincil IP yapılandırmasının hello özel IP adresini değiştirmek, el ile hello birincil ve ikincil IP adreslerini toohello ağ arabirimi içinden Windows atamanız gerekir (değil Linux için gereklidir). Okuma hello toomanually atamak IP adreslerini tooa ağ arabirimi bir işletim sistemi içinde [toovirtual makineleri birden çok IP adresi atamak](virtual-network-multiple-ip-addresses-portal.md#os-config) makalesi. Bkz: [özel](#private) el ile IP adresleri tooa sanal makine işletim sistemi eklemeden önce özel konular için IP adresi. Bir ortak IP adresleri toohello sanal makine işletim sistemi eklemeyin.
 
 **Komutları**
 
@@ -86,14 +86,14 @@ Gerektiğinde bir IPv4 adresi atama yöntemini değiştirmek için statik IPv4 a
 
 ## <a name="remove-ip-addresses"></a>IP adreslerini kaldırın
 
-Kaldırabileceğiniz [özel](#private) ve [ortak](#public) IP adresleri bir ağ arabiriminden, ancak bir ağ arabirimi her zaman kendisine atanmış en az bir özel bir IPv4 adresi olmalıdır.
+Kaldırabileceğiniz [özel](#private) ve [ortak](#public) IP adresleri bir ağ arabiriminden, ancak bir ağ arabirimi her zaman en az bir özel IPv4 adresi atanmış tooit olması gerekir.
 
-1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
-2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür arama sonuçlarında tıklatın.
-3. İçinde **ağ arabirimleri** görünür dikey penceresinde, IP kaldırmak istediğiniz ağ arabirimi adresleri tıklatın.
-4. Tıklatın **IP yapılandırmaları** içinde **ayarları** bölümü, seçtiğiniz ağ arabirimi için dikey pencerenin.
-5. Sağ tıklatın bir [ikincil](#secondary) IP yapılandırması (silemezsiniz [birincil](#primary) yapılandırma) istediğiniz silmek için ' ı tıklatın **silmek**, ardından **Evet** silme işlemini onaylayın. Yapılandırma için ilişkili ortak bir IP adresi kaynağı varsa, kaynak IP yapılandırmasından ilkenin ilişkisi ancak kaynak silinmez.
-6. Kapat **IP yapılandırmaları** dikey.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) bir hesapla hello ağ katkıda bulunan rolü aboneliğiniz için diğer bir deyişle (en az) atanan izinlerini. Okuma hello [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) makale toolearn rolleri ve izinleri tooaccounts atama hakkında daha fazla bilgi.
+2. Merhaba metni içeren hello kutusunda *arama kaynakları* hello Azure portal hello üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür hello arama sonuçlarında tıklatın.
+3. Merhaba, **ağ arabirimleri** görünür, dikey penceresinde, tooremove IP adreslerinden istediğiniz hello ağ arabirimi'ı tıklatın.
+4. Tıklatın **IP yapılandırmaları** hello içinde **ayarları** hello dikey seçtiğiniz hello ağ arabirimi için bölümü.
+5. Sağ tıklayın bir [ikincil](#secondary) IP yapılandırması (Merhaba silemezsiniz [birincil](#primary) yapılandırma) toodelete istiyorsanız,'ı tıklatın **silmek**, ardından **Evet**  tooconfirm hello silme. Merhaba yapılandırma olsaydı genel bir IP adresi kaynağı tooit ilişkili, hello kaynak hello IP yapılandırmasından ilkenin ilişkisi ancak hello kaynak silinmez.
+6. Kapat hello **IP yapılandırmaları** dikey.
 
 **Komutları**
 
@@ -104,76 +104,76 @@ Kaldırabileceğiniz [özel](#private) ve [ortak](#public) IP adresleri bir ağ 
 
 ## <a name="ip-configurations"></a>IP yapılandırması
 
-[Özel](#private) ve (isteğe bağlı) [ortak](#public) IP adresleri, bir ağ arabirimine atanmış bir veya daha fazla IP yapılandırması atanır. İki tür IP yapılandırmaları vardır:
+[Özel](#private) ve (isteğe bağlı) [ortak](#public) IP adreslerini tooone atanan veya daha fazla IP yapılandırmaları tooa ağ arabirimine atanmış. İki tür IP yapılandırmaları vardır:
 
 ### <a name="primary"></a>Birincil
 
 Her bir ağ arabirimine bir birincil IP yapılandırmasına atanır. Birincil bir IP yapılandırması:
 
-- Sahip bir [özel](#private) [IPv4](#ipv4) kendisine atanmış adresi. Özel atayamazsınız [IPv6](#ipv6) birincil IP yapılandırmasının adresine.
-- Ayrıca bir [ortak](#public) kendisine atanmış bir IPv4 adresi. Bir birincil veya ikincil IP yapılandırması için genel bir IPv6 adresi atanamıyor. Ancak, trafiği dengelemek için bir sanal makinenin özel IPv6 adresi yükleyebilir ve Azure yük dengeleyici, genel bir IPv6 adresi atayın. Daha fazla bilgi için bkz: [ayrıntıları ve IPv6 için sınırlamalar](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations).
+- Sahip bir [özel](#private) [IPv4](#ipv4) atanan adresi tooit. Özel atayamazsınız [IPv6](#ipv6) adresi tooa birincil IP yapılandırması.
+- Ayrıca bir [ortak](#public) IPv4 adresi atanmış tooit. Bir genel IPv6 adresi tooa birincil veya ikincil IP yapılandırması atayamazsınız. Ancak, ortak bir IPv6 adresi yükleyebilir tooan Azure yük dengeleyici Ata Bakiye trafiği tooa sanal makinenin özel IPv6 adresi. Daha fazla bilgi için bkz: [ayrıntıları ve IPv6 için sınırlamalar](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations).
 
 ### <a name="secondary"></a>İkincil
 
-Birincil IP yapılandırmasına ek olarak, bir ağ arabirimine atanmış sıfır veya daha fazla ikincil IP yapılandırmasına sahip. İkincil bir IP yapılandırması:
+Ayrıca tooa birincil IP yapılandırması, bir ağ arabirimi tooit atanan sıfır veya daha fazla ikincil IP yapılandırmasına sahip. İkincil bir IP yapılandırması:
 
-- Özel bir IPv4 veya IPv6 adresi atanmış gerekir. Adresi IPv6 ise, ağ arabiriminin yalnızca bir ikincil IP yapılandırmasına sahip olabilir. Adresi IPv4 ise, ağ arabiriminin kendisine atanmış birden fazla ikincil IP yapılandırması olabilir. Kaç tane özel ve ortak IPv4 adresleri bir ağ arabirimine atanabilir hakkında daha fazla bilgi için bkz: [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesi.  
-- Özel IP adresi IPv4 ise da genel bir IPv4 adresi, atanmış. Özel IP adresi IPv6 ise, IP yapılandırması için genel bir IPv4 veya IPv6 adresi atanamıyor. Bir ağ arabirimine birden çok IP adresleri atama gibi senaryolarda kullanışlıdır:
+- Özel bir IPv4 veya IPv6 adresi atanmış tooit olması gerekir. Başlangıç adresi IPv6 ise, hello ağ arabirimi yalnızca bir ikincil IP yapılandırmasına sahip olabilir. Başlangıç adresi IPv4 ise hello ağ arabirimi tooit atanmış birden fazla ikincil IP yapılandırması olabilir. kaç tane özel ve ortak IPv4 adresleri tooa ağ arabirimi, atanabilir hakkında daha fazla toolearn bkz hello [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesi.  
+- Merhaba özel IP adresi IPv4 ise, genel bir IPv4 adresi atanmış tooit da sahip olabilirsiniz. Merhaba özel IP adresi IPv6 ise, bir ortak IPv4 veya IPv6 adresi toohello IP yapılandırması atayamazsınız. Birden çok IP adresleri tooa ağ arabirimi atama gibi senaryolarda kullanışlıdır:
     - Tek bir sunucuda farklı IP adreslerine ve SSL sertifikalarına sahip birden fazla web sitesi veya hizmetin barındırılması.
     - Bir Güvenlik Duvarı'nı veya yük dengeleyici gibi bir ağ sanal gereç olarak hizmet veren bir sanal makine.
-    - Özel IPv4 adreslerini herhangi bir ağ arabirimleri için herhangi bir Azure yük dengeleyici arka uç havuzuna ekleme yeteneği. Geçmişte, yalnızca birincil IPv4 adresi birincil ağ arabirimi için bir arka uç havuzuna eklenemiyor. Birden çok IPv4 yapılandırmaları Yük Dengeleme hakkında daha fazla bilgi için bkz: [Yük Dengeleme birden fazla IP yapılandırması](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. 
-    - Yükleme özelliğini bir ağ arabirimine atanmış bir IPv6 adresi dengeleyin. Özel bir IPv6 adresi dengelemek hakkında daha fazla bilgi için bkz: [Yük Dengelemesi IPv6 adresleri](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi.
+    - özelliği tooadd herhangi bir hello ağ arabirimleri tooan Azure yük dengeleyici arka uç havuzu için özel IPv4 adreslerini hello hiçbirini hello. Hello geçmiş, yalnızca hello birincil IPv4 adresi için hello birincil ağ arabirimi tooa arka uç havuzu eklenemedi. nasıl tooload Bakiye birden çok IPv4 yapılandırmaları hakkında daha fazla toolearn bkz hello [Yük Dengeleme birden fazla IP yapılandırması](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. 
+    - Merhaba özelliği tooload bir IPv6 adresi atanmış tooa ağ arabirimi dengeleyin. nasıl tooload Bakiye tooa özel IPv6 adresi hakkında daha fazla toolearn bkz hello [Yük Dengelemesi IPv6 adresleri](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi.
 
 
 ## <a name="address-types"></a>Adres türleri
 
-Aşağıdaki IP adreslerine türlerini atayabilirsiniz bir [IP yapılandırması](#ip-configurations):
+Şu IP adresleri tooan türlerini hello atayabilirsiniz [IP yapılandırması](#ip-configurations):
 
 ### <a name="private"></a>Özel
 
-Özel [IPv4](#ipv4) adresleri sanal ağ veya diğer bağlı ağlara diğer kaynakları ile iletişim kurmak bir sanal makine etkinleştirin. Bir sanal makine için gelen iletilen olamaz ya da sanal makineyi bir özel olan giden iletişim kurabilir [IPv6](#ipv6) adresiyle bir özel durum. Bir sanal makine, bir IPv6 adresi kullanarak Azure yük dengeleyici ile iletişim kurabilir. Daha fazla bilgi için bkz: [ayrıntıları ve IPv6 için sınırlamalar](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations). 
+Özel [IPv4](#ipv4) adresleri sanal ağ veya diğer bağlı ağlara diğer kaynaklara sahip bir sanal makine toocommunicate etkinleştirin. Bir sanal makine için gelen iletilen olamaz ya da hello sanal makine özel olan giden iletişim kurabilir [IPv6](#ipv6) adresiyle bir özel durum. Bir sanal makine, bir IPv6 adresi kullanarak hello Azure yük dengeleyici ile iletişim kurabilir. Daha fazla bilgi için bkz: [ayrıntıları ve IPv6 için sınırlamalar](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations). 
 
-Varsayılan olarak, Azure DHCP sunucuları için özel bir IPv4 adresi atamak [birincil IP yapılandırmasının](#primary) ağ arabiriminin ağ arabirimi sanal makine işletim sistemi içinde. Sürece gerekirse, hiçbir zaman el ile sanal makinenin işletim sistemi içinde bir ağ arabiriminin IP adresini ayarlamanız. 
+Varsayılan olarak, hello Azure DHCP sunucuları hello özel bir IPv4 adresi hello için Ata [birincil IP yapılandırmasının](#primary) hello ağ arabirimi toohello ağ arabiriminin hello sanal makine işletim sistemi içinde. Sürece gerekli, hiçbir zaman el ile başlangıç IP adresi ağ arabiriminin hello sanal makinenin işletim sistemi içinde ayarlamanız gerekir. 
 
 > [!WARNING]
-> IPv4 adresi birincil bir sanal makinenin işletim sistemi içinde bir ağ arabiriminin IP adresini olarak ayarlarsanız birincil ağ arabirimi birincil IP yapılandırmasının atanan özel bir IPv4 adresi herhangi bir zamanda farklı bir sanal makineye bağlı Azure içinde sanal makine bağlantısı kesilir.
+> Merhaba IPv4 adresi olarak ayarlarsanız bir ağ arabirimi bir sanal makinenin işletim sistemi içinde hello birincil IP adresi toohello hello birincil ağ arabirimi birincil IP yapılandırmasının atanan hello özel bir IPv4 adresi tooa bağlı herhangi bir zamanda farklı. sanal makine Azure içinde bağlantı toohello sanal makine kaybedersiniz.
 
-Sanal makinenin işletim sistemi içinde bir ağ arabiriminin IP adresini el ile ayarlamak gerekli olduğu senaryolar vardır. Örneğin, el ile bir Windows işletim sistemi birincil ve ikincil IP adreslerini bir Azure sanal makinesi birden çok IP adresi eklerken ayarlamanız gerekir. Bir Linux sanal makine için yalnızca ikincil IP adreslerini el ile ayarlamanız gerekebilir. Bkz: [eklemek IP adresleri bir VM işletim sistemine](virtual-network-multiple-ip-addresses-portal.md#os-config) Ayrıntılar için. İşletim sistemi içinde IP adresini el ile ayarladığınızda, her zaman adresler statik (yerine dinamik) atama yöntemi kullanarak bir ağ arabirimi için IP yapılandırması atamanız önerilir. Statik yöntemini kullanarak adresi atayarak adresi Azure içinde değiştirmez sağlar. Bir IP yapılandırması için atanan adresi değiştirmek gerekiyorsa, önermiştir:
+Gerekli toomanually kümesi hello IP adresini bir ağ arabirimi hello sanal makinenin işletim sistemi içinde olduğu senaryolar vardır. Örneğin, el ile bir Windows işletim sistemi hello birincil ve ikincil IP adreslerini birden çok IP adresleri tooan Azure sanal makinesi eklerken ayarlamanız gerekir. Bir Linux sanal makine için toomanually kümesi hello ikincil IP adresleri yalnızca gerekebilir. Bkz: [eklemek IP adresleri tooa VM işletim sistemi](virtual-network-multiple-ip-addresses-portal.md#os-config) Ayrıntılar için. El ile başlangıç IP adresi hello işletim sistemi içinde ayarladığınızda, hello adresleri toohello IP yapılandırması hello statik (yerine dinamik) atama yöntemi kullanarak bir ağ arabirimi için her zaman atamanız önerilir. Merhaba statik yöntemini kullanarak hello adresi atayarak hello adresi Azure içinde değiştirmez sağlar. Tooan IP yapılandırması atanmış toochange hello adresi gerekiyorsa, bu önermiştir:
 
-1. Sanal makine bir adresi Azure DHCP sunucularından alıyor emin olmak için işletim sisteminde DHCP dön IP adresinin atamasını değiştirmek ve sanal makineyi yeniden başlatın.
-2. Durdur (deallocate) sanal makine.
-3. Azure'daki IP yapılandırması için IP adresini değiştirin.
-4. Sanal makineyi başlatın.
-5. [El ile yapılandırmanız](virtual-network-multiple-ip-addresses-portal.md#os-config) işletim sistemi (ve ayrıca Windows içinde birincil IP adresi) Azure içinde Ayarla eşleşecek şekilde içindeki ikincil IP adresleri.
+1. tooensure hello sanal makine bir adresi hello Azure DHCP sunucularından alıyor, başlangıç IP adresi geri tooDHCP hello işletim sistemi ve yeniden başlatma hello sanal makine içinde hello atamasını değiştirin.
+2. Durdur (deallocate) hello sanal makine.
+3. Azure içinde hello IP yapılandırması için Hello IP adresini değiştirin.
+4. Merhaba sanal makineyi başlatın.
+5. [El ile yapılandırmanız](virtual-network-multiple-ip-addresses-portal.md#os-config) ikincil IP adresleri hello işletim sistemi (ve ayrıca Windows içindeki birincil IP adresi hello) içinde toomatch hello Azure içinde ayarlayın.
  
-İzleyerek önceki adımlar, Azure içinde ve bir sanal makinenin işletim sistemi içinde ağ arabirimine atanmış özel IP adresi aynı kalır. Hangi sanal makinelerin IP adresleri için bir işletim sistemi içinde el ile ayarladınız, abonelik içindeki izlemek için Azure eklemeyi düşünün [etiketi](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) sanal makinelere. Kullanabileceğinize "IP adresi ataması: statik", örneğin. Bu şekilde, işletim sistemi içinde IP adresini el ile ayarladınız, abonelik içindeki sanal makineleri kolayca bulabilirsiniz.
+Merhaba önceki adımları izleyerek Merhaba özel IP adresi atanmış toohello ağ arabirimi Azure içinde ve bir sanal makinenin işletim sistemi içinde kalan aynı hello. hangi Azure eklemeyi düşünün sanal makineler için bir işletim sistemi içindeki IP adresleri el ile ayarladınız, abonelik içindeki tookeep izleme [etiketi](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) toohello sanal makineler. Kullanabileceğinize "IP adresi ataması: statik", örneğin. Bu şekilde hello işletim sistemi içinde başlangıç IP adresi için el ile ayarladınız, abonelik içindeki hello sanal makineleri kolayca bulabilirsiniz.
 
-Diğer kaynaklar aynı ya da bağlı sanal ağlar ile iletişim kurmak bir sanal makine etkinleştirmeye ek olarak, özel IP adresini de Internet'e giden iletişim kurmak bir sanal makine sağlar. Giden bağlantılar, Azure tarafından beklenmeyen bir ortak IP adresi çevrilmiş kaynak ağ adresi gerçekleştirilir. Azure giden Internet bağlantısı hakkında daha fazla bilgi için okuma [Azure giden Internet bağlantısı](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. Gelen bir sanal makinenin özel IP adresi Internet üzerinden iletişim kuramıyor.
+Ayrıca bir sanal makine toocommunicate giden toohello Internet tooenabling de aynı ya da bağlı sanal ağlar, özel bir IP adresi hello içindeki diğer kaynaklara sahip bir sanal makine toocommunicate sağlar. Giden bağlantılar, Azure tooan öngörülemeyen ortak IP adresine göre çevrilmiş kaynak ağ adresi gerçekleştirilir. Merhaba okuyun, Azure giden Internet bağlantısı hakkında daha fazla toolearn [Azure giden Internet bağlantısı](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. Gelen tooa sanal makinenin özel IP adresinden hello Internet iletişim kuramıyor.
 
 ### <a name="public"></a>Genel
 
-Genel IP adresleri, Internet'ten bir sanal makineye gelen bağlantı etkinleştirin. İnternet giden bağlantılar tahmin edilebilir bir IP adresi kullanın. Bkz: [azure'da giden bağlantılar anlama](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Ayrıntılar için. Bir ortak IP adresi bir IP yapılandırmasına atayabilir, ancak gerekli değildir. Bir sanal makine için bir ortak IP adresi atamazsanız, bunu hala özel IP adresini kullanarak Internet'e giden iletişim kurabilir. Genel IP adresleri hakkında daha fazla bilgi için okuma [genel IP adresi](virtual-network-public-ip-address.md) makalesi.
+Genel IP adresleri hello Internet gelen bağlantı tooa sanal makineden etkinleştirin. Giden bağlantılar toohello Internet tahmin edilebilir bir IP adresi kullanın. Bkz: [azure'da giden bağlantılar anlama](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Ayrıntılar için. Bir ortak IP adresi tooan IP yapılandırması atayabilir, ancak gerekli değildir. Bir ortak IP adresi tooa sanal makine atamazsanız, hala giden toohello özel IP adresini kullanarak Internet iletişim kurabilir. Merhaba okuma genel IP adresleri hakkında daha fazla toolearn [genel IP adresi](virtual-network-public-ip-address.md) makalesi.
 
-Bir ağ arabirimine atayabilirsiniz özel ve genel IP adresi sayısı sınırı vardır. Ayrıntılar için [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesi.
+Ağ arabirimi tooa atayabilirsiniz ortak IP adreslerini ve özel toohello sayısı sınırları vardır. Ayrıntılar için hello okuma [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesi.
 
 > [!NOTE]
-> Azure genel bir IP adresi için bir sanal makinenin özel IP adresi çevirir. Sonuç olarak, işletim sistemi; böylece herhangi bir zamanda el ile işletim sistemi içinde genel bir IP adresi atamak için gerekli kendisine atanmış tüm ortak IP adresleri farkında değildir.
+> Azure sanal makineye ait özel IP adresi tooa ortak IP adresi çevirir. Sonuç olarak, hello işletim sistemi tooit atanan tüm ortak IP adresleri de farkında, bu yüzden hiçbir gerek tooever el ile Merhaba işletim sistemi içinde ortak bir IP adresi atayın.
 
 ## <a name="assignment-methods"></a>Atama yöntemleri
 
-Ortak ve özel IP adreslerini aşağıdaki atama yöntemler kullanılarak atanır:
+Ortak ve özel IP adresleri atama yöntemlerinin aşağıdaki hello kullanılarak atanır:
 
 ### <a name="dynamic"></a>Dinamik
 
-(İsteğe bağlı) dinamik özel IPv4 ve IPv6 adresleri varsayılan olarak atanır. Sanal makine durduruldu (serbest bırakıldığında) duruma yeniden başlatılan dinamik adresler değiştirebilirsiniz. Sanal makine süresince değiştirmek için IPv4 adresleri istemiyorsanız, statik yöntemini kullanarak adresleri atayın. Yalnızca dinamik atama yöntemini kullanarak özel bir IPv6 adresi atayabilirsiniz. Her iki yöntemi kullanarak bir IP yapılandırması için genel bir IPv6 adresi atanamıyor.
+(İsteğe bağlı) dinamik özel IPv4 ve IPv6 adresleri varsayılan olarak atanır. Dinamik adresler hello sanal makine hello yerleştirirseniz değiştirebilirsiniz (serbest bırakıldığında) durumu durduruldu sonra başlatıldı. Merhaba hello sanal makine süresince IPv4 adresleri toochange istemiyorsanız, hello statik yöntemini kullanarak hello adresleri atayın. Yalnızca hello dinamik atama yöntemini kullanarak özel bir IPv6 adresi atayabilirsiniz. Her iki yöntemi kullanarak bir genel IPv6 adresi tooan IP yapılandırması atayamazsınız.
 
 ### <a name="static"></a>Statik
 
-Bir sanal makine silinene kadar statik yöntemini kullanarak atanan adresler değiştirmeyin. El ile adres alanı alt ağ arabirimi için bir IP yapılandırması için adresinden bulunduğu statik özel bir IPv4 atanır. (İsteğe bağlı olarak), bir IP yapılandırması için genel veya özel statik bir IPv4 adresi atayabilirsiniz. Bir IP yapılandırması için bir statik genel veya özel bir IPv6 adresi atanamıyor. Azure statik genel IPv4 adresi nasıl atar hakkında daha fazla bilgi için bkz: [genel IP adresi](virtual-network-public-ip-address.md) makalesi.
+Bir sanal makine silinene kadar hello statik yöntemini kullanarak atanan adresler değiştirmeyin. İçinde Hello alt hello ağ arabirimi için el ile statik özel IPv4 adresi tooan IP yapılandırması hello adres alanından atayın. Genel veya özel statik IPv4 adresi tooan IP yapılandırması (isteğe bağlı) atayabilirsiniz. Bir statik genel veya özel IPv6 adresi tooan IP yapılandırması atayamazsınız. statik genel IPv4 adresi, Azure nasıl atar hakkında daha fazla toolearn hello bkz [genel IP adresi](virtual-network-public-ip-address.md) makalesi.
 
 ## <a name="ip-address-versions"></a>IP adresi sürümleri
 
-Adresleri atarken aşağıdaki sürümlerini belirtebilirsiniz:
+Sürümleri adresleri atarken aşağıdaki hello belirtebilirsiniz:
 
 ### <a name="ipv4"></a>IPv4
 
@@ -181,15 +181,15 @@ Her bir ağ arabirimine bir olmalıdır [birincil](#primary) atanmış bir IP ya
 
 ### <a name="ipv6"></a>IPv6
 
-Sıfır veya bir özel atayabilirsiniz [IPv6](#ipv6) adresine bir ağ arabirimi bir ikincil IP yapılandırması. Ağ arabirimi var olan tüm ikincil IP yapılandırmaları sahip olamaz. Portalı kullanarak bir IPv6 adresi ile bir IP yapılandırması ekleyemezsiniz. Varolan bir ağ arabirimine sahip özel bir IPv6 adresi bir IP yapılandırması eklemek için PowerShell veya CLI kullanın. Ağ arabirimi için mevcut bir VM'yi eklenemiyor.
+Sıfır veya bir özel atayabilirsiniz [IPv6](#ipv6) bir ağ arabirimi adresi tooone ikincil IP yapılandırması. Merhaba ağ arabirimi var olan tüm ikincil IP yapılandırmaları sahip olamaz. Bir IP yapılandırması hello portalı kullanarak bir IPv6 adresiyle ekleyemezsiniz. PowerShell veya CLI tooadd bir IP yapılandırması hello özel IPv6 adresi tooan var olan ağ arabirimi ile kullanın. Merhaba ağ arabirimi var olan VM ekli tooan olamaz.
 
 > [!NOTE]
-> Portalı kullanarak bir IPv6 adresiyle bir ağ arabirimi oluşturabilirsiniz ancak Portalı'nı kullanarak yeni veya var olan bir sanal makineye mevcut bir ağ arabirimini ekleyemezsiniz. Özel bir IPv6 adresiyle bir ağ arabirimi oluşturmak için PowerShell veya Azure CLI 2.0 kullanın, sonra bir sanal makine oluştururken, ağ arabirimi ekleyin. Varolan bir sanal makineye atanmış özel bir IPv6 adresine sahip bir ağ arabirimine eklenemiyor. Herhangi bir aracı (portal, CLI veya PowerShell) kullanarak bir sanal makineye bağlı herhangi bir ağ arabirimi için bir IP yapılandırmasına özel bir IPv6 adresi ekleyemezsiniz.
+> Merhaba portalı kullanarak bir IPv6 adresiyle bir ağ arabirimi oluşturabilirsiniz ancak hello portal kullanarak mevcut bir ağ arabirimi tooa yeni veya var olan sanal makine, ekleyemezsiniz. PowerShell veya Azure CLI 2.0 toocreate bir ağ arabirimi hello özel bir IPv6 adresiyle kullanın ve sonra bir sanal makine oluştururken hello ağ arabirimi ekleyin. Atanmış tooit tooan varolan sanal makine özel bir IPv6 adresi ile bir ağ arabirimine eklenemiyor. Bir özel IPv6 adresi tooan IP yapılandırması hiçbir ağ arabirimi bağlı tooa herhangi bir aracı (portal, CLI veya PowerShell) kullanarak sanal makine için eklenemiyor.
 
-Bir birincil veya ikincil IP yapılandırması için genel bir IPv6 adresi atanamıyor.
+Bir genel IPv6 adresi tooa birincil veya ikincil IP yapılandırması atayamazsınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Farklı IP yapılandırmaları ile bir sanal makine oluşturmak için aşağıdaki makaleyi okuyun:
+toocreate makaleler hello okuma farklı IP yapılandırmaları olan bir sanal makine:
 
 |Görev|Aracı|
 |---|---|

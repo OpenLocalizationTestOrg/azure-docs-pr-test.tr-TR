@@ -1,5 +1,5 @@
 ---
-title: "Azure depolama alanında tanılama veri deposu ve Görünüm | Microsoft Docs"
+title: "aaaStore ve görünüm tanılama verilerini Azure storage'da | Microsoft Docs"
 description: "Azure Tanılama verileri Azure depolama alanına almak ve görüntüleme"
 services: cloud-services
 documentationcenter: .net
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: robb
-ms.openlocfilehash: 374cc179e13c00e439415e3df16e0c6d5ccba5e3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dd47a2ef6d6488c80c102c72b2ebf6ca6d2e473f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Storage deposu ve görünüm Tanılama verileri
-Microsoft Azure storage öykünücüsü veya Azure depolama transfer sürece Tanılama verileri kalıcı olarak depolanmaz. Bir kez depolama biriminde, onu birkaç kullanılabilen araçlar biriyle görüntülenebilir.
+Toohello Microsoft Azure storage öykünücüsü veya tooAzure depolama aktarım sürece Tanılama verileri kalıcı olarak depolanmaz. Bir kez depolama biriminde, onu birkaç kullanılabilen araçlar biriyle görüntülenebilir.
 
 ## <a name="specify-a-storage-account"></a>Bir depolama hesabı belirtin
-ServiceConfiguration.cscfg dosyasında kullanmak istediğiniz depolama hesabı belirtin. Hesap bilgileri, bir bağlantı dizesi bir yapılandırma ayarı olarak tanımlanır. Aşağıdaki örnek, Visual Studio'da yeni bir bulut hizmeti projesi için oluşturulan varsayılan bağlantı dizesini gösterir:
+Merhaba ServiceConfiguration.cscfg dosyasında toouse istediğiniz hello depolama hesabı belirtin. Merhaba hesap bilgileri, bir bağlantı dizesi bir yapılandırma ayarı olarak tanımlanır. Merhaba aşağıdaki örnek Visual Studio'da yeni bir bulut hizmeti projesi için oluşturulan hello varsayılan bağlantı dizesini gösterir:
 
 ```
     <ConfigurationSettings>
@@ -32,9 +32,9 @@ ServiceConfiguration.cscfg dosyasında kullanmak istediğiniz depolama hesabı b
     </ConfigurationSettings>
 ```
 
-Bir Azure depolama hesabı için hesap bilgilerini sağlamak için bu bağlantı dizesi değiştirebilirsiniz.
+Bir Azure depolama hesabı için bu bağlantı dizesi tooprovide hesap bilgilerini değiştirebilirsiniz.
 
-Toplanacak tanılama veri türüne bağlı olarak, Azure tanılama Blob hizmeti veya tablo hizmeti kullanır. Aşağıdaki tabloda, kalıcı veri kaynaklarını ve bunların biçimi gösterir.
+Toplanacak tanılama veri Hello türüne bağlı olarak, Azure tanılama hello Blob hizmeti veya hello tablo hizmeti kullanır. Merhaba aşağıdaki tabloda kalıcı hello veri kaynaklarını ve bunların biçimi gösterir.
 
 | Veri kaynağı | Depolama biçimi |
 | --- | --- |
@@ -48,40 +48,40 @@ Toplanacak tanılama veri türüne bağlı olarak, Azure tanılama Blob hizmeti 
 | Özel hata günlükleri |Blob |
 
 ## <a name="transfer-diagnostic-data"></a>Tanılama veri aktarımı girişi
-Tanılama veri aktarım isteği, SDK 2.5 ve daha sonra yapılandırma dosyası aracılığıyla ortaya çıkabilir. Yapılandırmada belirtilen zamanlanan aralıklarla tanılama veri aktarın.
+SDK 2.5 ve sonrası hello istek tootransfer Tanılama verileri hello yapılandırma dosyası aracılığıyla ortaya çıkabilir. Merhaba yapılandırmasında belirtilen zamanlanan aralıklarla tanılama veri aktarın.
 
-SDK 2.4 ve önceki Tanılama verileri de yapılandırma dosyası aracılığıyla programlı olarak aktarmak isteyebilir. Programsal yaklaşım isteğe bağlı aktarımları yapmanıza olanak sağlar.
+SDK 2.4 ve önceki tootransfer hello tanılama verilerini de hello yapılandırma dosyası aracılığıyla programlı olarak isteyebilir. Merhaba programlı yaklaşım da toodo isteğe bağlı aktarımları sağlar.
 
 > [!IMPORTANT]
-> Bir Azure depolama hesabına tanılama veri aktarırken tanılama verilerini kullanan depolama alanı kaynakları için ücrete neden.
+> Tanılama veri tooan Azure depolama hesabı aktardığınızda, tanılama verilerini kullanan hello depolama alanı kaynakları için ücrete neden.
 > 
 > 
 
 ## <a name="store-diagnostic-data"></a>Tanılama verileri depola
-Günlük verileri Blob veya tablo depolama aşağıdaki adlarla depolanır:
+Günlük verileri adlarından hello ile Blob veya tablo depolama alanına depolanır:
 
 **Tabloları**
 
-* **WadLogsTable** - İzleme dinleyicisi kullanarak kod içinde yazılmış günlükleri.
+* **WadLogsTable** - hello İzleme dinleyicisi kullanarak kod içinde yazılmış günlükleri.
 * **WADDiagnosticInfrastructureLogsTable** -Tanılama izleme ve yapılandırma değişikliklerini.
-* **WADDirectoriesTable** – tanı İzleyicisi İzleme dizinleri.  Bu, IIS günlüklerini içerir, IIS istek günlüklerini ve özel dizinleri başarısız oldu.  Blob günlük dosyasının konumunu kapsayıcı alanında belirtilen ve blob adını RelativePath alanıdır.  Azure sanal makinede var gibi AbsolutePath alan dosyasının adını ve konumunu gösterir.
+* **WADDirectoriesTable** – izleme bu hello tanı İzleyicisi dizinleri.  Bu, IIS günlüklerini içerir, IIS istek günlüklerini ve özel dizinleri başarısız oldu.  Merhaba hello blob günlük dosyasının konumunu hello kapsayıcı alanında belirtilen ve hello hello blob hello RelativePath alanında adıdır.  hello Azure sanal makinesi üzerinde var gibi hello AbsolutePath alan hello konumunu ve hello dosya adını belirtir.
 * **WADPerformanceCountersTable** – performans sayaçları.
 * **WADWindowsEventLogsTable** – Windows olayı günlüğe kaydeder.
 
 **Bloblar**
 
-* **wad denetimi kapsayıcısı** – (yalnızca SDK 2.4 ve önceki) Azure tanılama denetimleri XML yapılandırma dosyalarını içerir.
+* **wad denetimi kapsayıcısı** – (yalnızca SDK 2.4 ve önceki) hello Azure tanılama denetimleri hello XML yapılandırma dosyalarını içerir.
 * **wad IIS failedreqlogfiles** – IIS isteği başarısız oldu günlüklerdeki bilgiler içerir.
 * **wad IIS logfiles** – IIS günlüklerini hakkında bilgiler içerir.
-* **"özel"** – özel bir kapsayıcı dayalı tanı İzleyicisi tarafından izlenen dizinleri yapılandırma.  Bu blob kapsayıcısının adı WADDirectoriesTable belirtilir.
+* **"özel"** – özel bir kapsayıcı dayalı hello tanı İzleyicisi tarafından izlenen dizinleri yapılandırma.  Bu blob kapsayıcısının Hello adı WADDirectoriesTable belirtilir.
 
-## <a name="tools-to-view-diagnostic-data"></a>Tanılama verileri görüntülemek için Araçlar
-Depolama birimine aktarıldıktan sonra verileri görüntülemek birkaç araç bulunmaktadır. Örneğin:
+## <a name="tools-tooview-diagnostic-data"></a>Araçlar tooview Tanılama verileri
+Aktarılan toostorage tamamlandıktan sonra birkaç kullanılabilir tooview hello veri araçlardır. Örneğin:
 
-* Microsoft Visual Studio için Azure araçlarını yüklediyseniz, Visual Studio - sunucu Gezgini'nde, Azure Depolama düğümü sunucu Gezgini'nde salt okunur blob ve tablo verileri Azure depolama hesaplarından görüntülemek için kullanabilirsiniz. Yerel depolama öykünücüsü hesabınızdan verileri görüntüleyebilir ve ayrıca depolama hesaplarından Azure için oluşturduğunuz. Daha fazla bilgi için bkz: [gözatma ve Sunucu Gezgini ile depolama kaynaklarını yönetme](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
-* [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md) , Windows, OSX ve Linux Azure Storage ile kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
-* [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) , görüntülemek, indirin ve Azure üzerinde çalışan uygulamalar tarafından toplanan tanılama verilerini yönetmenize olanak sağlayan Azure tanılama Manager içerir.
+* Visual Studio - server Explorer'da hello Azure Araçları için Microsoft Visual Studio, yüklü değilse, Azure depolama hesaplarından Sunucu Gezgini tooview salt okunur blob ve tablo verilerinizi hello Azure Storage düğümünü kullanabilirsiniz. Yerel depolama öykünücüsü hesabınızdan verileri görüntüleyebilir ve ayrıca depolama hesaplarından Azure için oluşturduğunuz. Daha fazla bilgi için bkz: [gözatma ve Sunucu Gezgini ile depolama kaynaklarını yönetme](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
+* [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, OSX ve Linux Azure Storage verilerle tooeasily çalışma sağlayan bir tek başına uygulamadır.
+* [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) tooview, sağlayan Azure tanılama Manager içerir indirmek ve Azure üzerinde çalışan hello uygulamalar tarafından toplanan hello Tanılama verileri yönetmek.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-[Bulut Hizmetleri uygulaması Azure Tanılama ile akışında izleme](cloud-services-dotnet-diagnostics-trace-flow.md)
+[Bulut Hizmetleri uygulaması Azure Tanılama ile Merhaba akışı izleme](cloud-services-dotnet-diagnostics-trace-flow.md)
 

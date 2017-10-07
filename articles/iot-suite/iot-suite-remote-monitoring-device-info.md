@@ -1,6 +1,6 @@
 ---
-title: "Uzaktan izleme çözümü cihaz bilgileri meta verilerde | Microsoft Docs"
-description: "Azure IOT önceden yapılandırılmış çözümü uzaktan izlemenin ve mimarisinin açıklaması."
+title: "meta verilerde hello Uzaktan izleme çözümü aaaDevice bilgi | Microsoft Docs"
+description: "Hello Azure IOT önceden yapılandırılmış çözümü uzaktan izlemenin ve mimarisinin açıklaması."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,50 +15,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: f8fd452806a0a0b98cf8e434c9bd55700083a6c5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8387b98b8b2ae4934b0c900bc4df37dc17337c60
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>Önceden yapılandırılmış Uzaktan izleme çözümü cihaz bilgileri meta veriler
+# <a name="device-information-metadata-in-hello-remote-monitoring-preconfigured-solution"></a>Cihaz bilgi meta verilerde hello Uzaktan izleme çözümü
 
-Azure IOT paketi Uzaktan izleme çözümü cihaz meta verilerini yönetmek için bir yaklaşım gösterir. Bu makalede, bu çözüm anlamak etkinleştirmeniz için gereken bir yaklaşım özetlenmektedir:
+Hello Azure IOT paketi Uzaktan izleme çözümü cihaz meta verilerini yönetmek için bir yaklaşım gösterir. Bu makalede hello yaklaşım özetlenmektedir Bu çözüm tooenable alır, toounderstand:
 
-* Çözüm hangi cihaz meta verilerini depolar.
-* Nasıl çözüm cihaz meta verilerini yönetir.
+* Hangi cihaz meta verilerini hello çözümü depolar.
+* Nasıl hello çözüm hello cihaz meta verilerini yönetir.
 
 ## <a name="context"></a>Bağlam
 
-Çözüm kullanan önceden yapılandırılmış Uzaktan izleme [Azure IOT Hub] [ lnk-iot-hub] aygıtlarınızı buluta veri göndermesini sağlamak için. Çözümü üç farklı konumlarda cihazlarla ilgili bilgileri depolar:
+Merhaba çözümü kullanan önceden yapılandırılmış Uzaktan izleme [Azure IOT Hub] [ lnk-iot-hub] tooenable aygıtları toosend veri toohello bulut. Merhaba çözümü üç farklı konumlarda cihazlarla ilgili bilgileri depolar:
 
 | Konum | Depolanan bilgileri | Uygulama |
 | -------- | ------------------ | -------------- |
-| Kimlik kayıt defteri | Cihaz kimliği, kimlik doğrulaması anahtarları, durumu etkin | IOT Hub'ına yerleşik |
-| Cihaz çiftlerini | Meta veriler: bildirilen özellikleri, istenen özellikleri, etiketler | IOT Hub'ına yerleşik |
+| Kimlik kayıt defteri | Cihaz kimliği, kimlik doğrulaması anahtarları, durumu etkin | Yerleşik tooIoT Hub |
+| Cihaz çiftlerini | Meta veriler: bildirilen özellikleri, istenen özellikleri, etiketler | Yerleşik tooIoT Hub |
 | Cosmos DB | Komut ve yöntemi geçmişi | Özel çözüm için |
 
-IOT hub'ında bir [cihaz kimlik kayıt defteri] [ lnk-identity-registry] IOT hub'ı ve kullanım erişimini yönetmek için [cihaz çiftlerini] [ lnk-device-twin] cihaz meta verilerini yönetmek için. Ayrıca bir uzaktan izleme çözümü özgü olan *cihaz kayıt defteri* komutu ve yöntemi geçmişini saklar. Uzaktan izleme çözümü kullanan bir [Cosmos DB] [ lnk-docdb] komut ve yöntemi geçmişi için özel bir depo uygulamak için veritabanı.
+IOT hub'ında bir [cihaz kimlik kayıt defteri] [ lnk-identity-registry] toomanage erişim tooan IOT hub ve kullandığı [cihaz çiftlerini] [ lnk-device-twin] toomanage cihaz meta veriler . Ayrıca bir uzaktan izleme çözümü özgü olan *cihaz kayıt defteri* komutu ve yöntemi geçmişini saklar. Merhaba Uzaktan izleme çözümü kullanan bir [Cosmos DB] [ lnk-docdb] veritabanı tooimplement komut ve yöntemi geçmişi için özel bir depo.
 
 > [!NOTE]
-> Önceden yapılandırılmış Uzaktan izleme çözümü cihaz kimlik kayıt defteri Cosmos DB veritabanında bilgilerle eşitlenmiş tutar. Her ikisi de aynı cihaz kimliği IOT hub'ına bağlı her cihazın benzersiz şekilde tanımlamak için kullanın.
+> Uzaktan izleme çözümü Hello hello cihaz kimlik kayıt defteri hello Cosmos DB veritabanında hello bilgilerle eşitlenmiş tutar. Her ikisi de aynı cihaz kimliği toouniquely tanımlamak hello kullan her aygıt bağlı tooyour IOT hub'ı.
 
 ## <a name="device-metadata"></a>Cihaz meta veriler
 
-IOT hub'ı tutan bir [cihaz çifti] [ lnk-device-twin] her sanal ve fiziksel cihaz için bir uzaktan izleme çözümüne bağlı. Çözüm, aygıtlar ile ilişkili meta verileri yönetmek için cihaz çiftlerini kullanır. Cihaz çifti IOT Hub tarafından korunan bir JSON belgesinin ve çözüm cihaz çiftlerini ile etkileşim kurmak için IOT Hub API kullanır.
+IOT hub'ı tutan bir [cihaz çifti] [ lnk-device-twin] tooa Uzaktan izleme çözümü her sanal ve fiziksel cihaz için bağlı. Merhaba çözüm cihazlarla ilişkilendirilmiş cihaz çiftlerini toomanage hello meta verilerini kullanır. Cihaz çifti IOT Hub tarafından korunan bir JSON belgesinin ve hello çözüm hello IOT Hub API toointeract ile cihaz çiftlerini kullanır.
 
 Cihaz çifti üç tür meta verileri depolar:
 
-- *Özellikler bildirilen* IOT hub'a bir cihaz tarafından gönderilir. Uzaktan izleme çözümünde başlatma ve yanıt olarak bildirilen özellikleri sanal cihazlar Gönder **cihaz durumunu değiştir** komutlar ve yöntemleri. Bildirilen özelliklerinde görüntüleyebilirsiniz **cihaz listesi** ve **cihaz ayrıntıları** çözüm Portalı'nda. Bildirilen özellikleri salt okunurdur.
-- *Özellikler istenen* IOT hub'ından cihazlar tarafından alınır. Tüm gerekli yapılandırma cihazda değişikliği yapmak için cihaz sorumluluğundadır. Bu ayrıca değişikliği geri hub'ı bildirilen bir özellik olarak rapor aygıta sorumluluğundadır. İstenen özellik değeri çözüm Portalı aracılığıyla ayarlayabilirsiniz.
-- *Etiketler* yalnızca cihaz çiftine mevcut ve hiçbir zaman bir aygıt ile eşitlenir. Çözüm portalında etiket değerleri ayarlamak ve cihaz listesini filtre bunları kullanın. Çözüm bir etiket çözüm portalında bir aygıt için görüntülemek için bu simgeyi tanımlamak için de kullanır.
+- *Özellikler bildirilen* tooan IOT hub cihaz tarafından gönderilir. Hello Uzaktan izleme çözümü, sanal cihazlar bildirilen özellikleri başlatma ve yanıt çok gönderme**cihaz durumunu değiştir** komutlar ve yöntemleri. Hello bildirilen özelliklerini görüntüleyebilirsiniz **cihaz listesi** ve **cihaz ayrıntıları** hello çözüm Portalı'nda. Bildirilen özellikleri salt okunurdur.
+- *Özellikler istenen* hello IOT hub'ından cihazlar tarafından alınır. Bunu hello tüm gerekli yapılandırma değiştirme hello aygıtta hello aygıt toomake sorumluluğundadır. Bu ayrıca hello hello aygıt tooreport hello değişikliği geri toohello hub'ı bildirilen bir özellik olarak sorumluluğundadır. İstenen özellik değeri hello çözüm portalı üzerinden ayarlayabilirsiniz.
+- *Etiketler* yalnızca hello cihaz çiftine mevcut ve hiçbir zaman bir aygıt ile eşitlenir. Merhaba çözüm portalında etiket değerleri ayarlayın ve cihazların Merhaba listesi filtre bunları kullanın. Merhaba çözüm bir etiket tooidentify hello simgesi toodisplay hello çözüm portalında bir aygıt için de kullanır.
 
-Sanal cihazlar özelliklerinden üreticisini, model numarası, enlem ve boylam dahil örnek bildirdi. Sanal cihazlar, ayrıca bildirilen bir özellik olarak desteklenen yöntemlerin listesi döndürür.
+Örnek özellikleri benzetimli hello aygıtlardan üreticisini, model numarası, enlem ve boylam dahil bildirdi. Sanal cihazlar, ayrıca bildirilen bir özellik olarak hello desteklenen yöntemlerin listesi döndürür.
 
 > [!NOTE]
-> Sanal cihaz kodu, IoT Hub’ına geri gönderilen bildirilen özellikleri güncelleştirmek üzere yalnızca istenen **Desired.Config.TemperatureMeanValue** ve **Desired.Config.TelemetryInterval** özelliklerini kullanır. Diğer tüm istenen özelliği değişiklik isteklerini göz ardı edilir.
+> Merhaba sanal cihaz kodu yalnızca hello kullanan **Desired.Config.TemperatureMeanValue** ve **Desired.Config.TelemetryInterval** istenen özellikleri tooupdate hello bildirilen geri gönderilen özellikleri tooIoT Hub. Diğer tüm istenen özelliği değişiklik isteklerini göz ardı edilir.
 
-Cihaz kayıt defteri Cosmos DB veritabanında depolanan bir aygıt bilgileri meta verileri JSON belgesi aşağıdaki yapıya sahiptir:
+Merhaba aygıt kayıt defteri Cosmos DB veritabanında depolanan bir aygıt bilgileri meta verileri JSON belgesi yapı izlenerek hello sahiptir:
 
 ```json
 {
@@ -80,42 +80,42 @@ Cihaz kayıt defteri Cosmos DB veritabanında depolanan bir aygıt bilgileri met
 ```
 
 > [!NOTE]
-> Aygıt bilgileri aygıt IOT Hub'ına gönderir telemetri açıklamak için meta verileri de içerir. Uzaktan izleme çözümü, Pano biçimini özelleştirmek için bu telemetri meta veri kullanan [dinamik telemetri][lnk-dynamic-telemetry].
+> Meta veri toodescribe hello telemetri hello aygıt gönderir tooIoT Hub aygıt bilgileri de içerir. Merhaba Uzaktan izleme çözümü kullanan nasıl hello Pano görüntüler bu telemetri meta veri toocustomize [dinamik telemetri][lnk-dynamic-telemetry].
 
 ## <a name="lifecycle"></a>Yaşam döngüsü
 
-Çözüm Portalı'nda bir cihaz ilk oluşturduğunuzda, çözüm komut ve yöntemi geçmişini depolamak için Cosmos DB veritabanında bir giriş oluşturur. Bu noktada, çözüm Ayrıca aygıtı için bir giriş aygıtın IOT Hub ile kimlik doğrulaması için kullandığı anahtarları oluşturur cihaz kimliği kayıt oluşturur. Ayrıca, bir cihaz çifti oluşturur.
+Merhaba çözüm portalında bir cihaz ilk oluşturduğunuzda, hello çözüm hello Cosmos DB veritabanı toostore komut girişi ve yöntemi Geçmişi oluşturur. Bu noktada, hello çözüm ayrıca hello aygıtı için bir giriş hello anahtarları hello aygıt kullanır tooauthenticate IOT Hub ile oluşturur hello cihaz kimlik kayıt oluşturur. Ayrıca, bir cihaz çifti oluşturur.
 
-Bir cihaz ilk çözüme bağlandığında, bildirilen özellikleri ve bir cihaz bilgi iletisi gönderir. Bildirilen özellik değerlerini otomatik olarak cihaz çiftine kaydedilir. Bildirilen özellikleri aygıt üreticisi, model numarası, seri numarası ve desteklenen yöntemlerin listesi içerir. Cihaz bilgi iletisi komut parametreleri hakkında bilgiler dahil olmak üzere cihaz destekler komutların listesini içerir. Bu iletiyi çözümünün aldığında, aygıt bilgileri Cosmos DB veritabanında güncelleştirir.
+Bir cihaz ilk toohello çözüm bağlandığında, bildirilen özellikleri ve bir cihaz bilgi iletisi gönderir. Başlangıç özellik değerlerini otomatik olarak hello cihaz çiftine kaydedilir bildirdi. Merhaba özellikleri hello aygıt üreticisi, model numarası, seri numarası ve desteklenen yöntemlerin listesi dahil bildirdi. Hello cihaz bilgi iletisi hello komut parametreleri hakkında bilgiler dahil olmak üzere hello aygıt destekler hello komutların listesini içerir. Merhaba çözümü bu ileti aldığında, hello Cosmos DB veritabanındaki hello cihaz bilgilerini güncelleştirir.
 
-### <a name="view-and-edit-device-information-in-the-solution-portal"></a>Çözüm portalında aygıt bilgileri görüntüleyin ve düzenleyin
+### <a name="view-and-edit-device-information-in-hello-solution-portal"></a>Aygıt bilgileri hello çözüm portalında görüntüleyin ve düzenleyin
 
-Çözüm portalı aygıt listesinde aşağıdaki cihaz özelliklerini sütunları olarak varsayılan olarak görüntüler: **durum**, **DeviceID**, **üretici**, **modeli Sayı**, **seri numarası**, **bellenim**, **Platform**, **İşlemci**, ve  **RAM yüklü**. Tıklayarak sütunları özelleştirebilirsiniz **sütun düzenleyicisini**. Cihaz özellikleri **enlem** ve **boylam** Bing harita konumda Panoda sürücü.
+Merhaba hello çözüm portalı aygıt listesinde görüntüler cihaz özellikleri sütunları olarak varsayılan olarak aşağıdaki hello: **durum**, **DeviceID**, **üretici**, **Model numarası**, **seri numarası**, **bellenim**, **Platform**, **İşlemci**ve  **RAM yüklü**. Tıklayarak hello sütunları özelleştirebilirsiniz **sütun düzenleyicisini**. cihaz özellikleri Hello **enlem** ve **boylam** hello Bing harita hello konumda hello Panoda sürücü.
 
 ![Aygıt listesinde sütun Düzenleyicisi][img-device-list]
 
-İçinde **cihaz ayrıntıları** bölmesi çözüm Portalı'nda, istenen özelliklerini ve etiketleri düzenleyebilirsiniz (özellikleri salt okunur bildirilen).
+Merhaba, **cihaz ayrıntıları** bölmesinde hello çözüm portalında, istenen özelliklerini ve etiketleri düzenleyebilirsiniz (özellikleri salt okunur bildirilen).
 
 ![Cihaz ayrıntıları bölmesi][img-device-edit]
 
-Bir aygıtı çözümünüzden kaldırmak için çözüm Portalı'nı kullanabilirsiniz. Bir aygıt kaldırdığınızda, çözüm aygıt girişi kimlik kayıt defterinden kaldırır ve cihaz çifti siler. Çözüm Cosmos DB veritabanından cihaza ilgili bilgileri de kaldırır. Bir aygıt kaldırabilmeniz için önce devre dışı bırakmalısınız.
+Merhaba çözüm portalı tooremove bir aygıtı çözümünüzden kullanabilirsiniz. Bir aygıt kaldırdığınızda, hello çözüm hello aygıt girişi kimlik kayıt defterinden kaldırır ve hello cihaz çifti siler. Merhaba çözümü, ayrıca bilgi ilgili toohello aygıt hello Cosmos DB veritabanından kaldırır. Bir aygıt kaldırabilmeniz için önce devre dışı bırakmalısınız.
 
 ![Aygıt kaldırma][img-device-remove]
 
 ## <a name="device-information-message-processing"></a>Cihaz bilgi iletisi işleme
 
-Bir aygıt tarafından gönderilen cihaz bilgileri iletilerini telemetri iletilerini farklıdır. Cihaz bilgileri iletilerini bir aygıtı yanıt verebileceği komutları ve komut geçmişini içerir. IOT Hub kendisini bir cihaz bilgi iletisi bulunan meta veriler olanağıyla sahiptir ve iletiyi herhangi bir cihaz bulut iletisini işler aynı şekilde işler. Uzaktan izleme çözümünde bir [Azure akış analizi] [ lnk-stream-analytics] (ASA) işini IOT Hub'ından iletileri okur. **Deviceınfo** stream analytics iş filtreleri içeren iletileri için **"ObjectType": "Deviceınfo"** ve bunlara iletir **EventProcessorHost** ana bilgisayar örneği bir web işi çalıştırır. Mantık **EventProcessorHost** örneği için belirli bir aygıtı Cosmos DB kayıt bulmak ve kaydı güncelleştirmek için cihaz kimliği kullanır.
+Bir aygıt tarafından gönderilen cihaz bilgileri iletilerini telemetri iletilerini farklıdır. Cihaz bilgileri iletilerini bir cihazın karşılık verebildiği hello komutları ve komut geçmişini içerir. IOT Hub kendisini sahip bir aygıt bilgileri iletideki hello meta verileri olanağıyla ve işlemler hello hello iletisinde aynı şekilde herhangi bir cihaz bulut iletisini işler. Merhaba Uzaktan izleme çözümü, içinde bir [Azure akış analizi] [ lnk-stream-analytics] (ASA) işini IOT Hub'ından karışılama iletileri okur. Merhaba **Deviceınfo** stream analytics iş filtreleri içeren iletileri için **"ObjectType": "Deviceınfo"** ve toohello iletir **EventProcessorHost** ana bilgisayar bir web işi çalıştıktan örneği. Merhaba mantığında **EventProcessorHost** örneği hello cihaz kimliği toofind hello Cosmos DB kayıt hello belirli cihaz ve güncelleştirme hello kayıt için kullanılır.
 
 > [!NOTE]
-> Cihaz bilgi iletisi, bir standart cihaz bulut iletisidir. Çözüm, ASA sorguları kullanarak cihaz bilgileri iletilerini ve telemetri iletilerini arasında ayırır.
+> Cihaz bilgi iletisi, bir standart cihaz bulut iletisidir. Merhaba çözüm ASA sorguları kullanarak cihaz bilgileri iletilerini ve telemetri iletilerini arasında ayırır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Önceden yapılandırılmış çözümler nasıl özelleştirebileceğiniz öğrenme bitirdikten sonra artık, bazı diğer özellikler ve yetenekler IOT paketi önceden yapılandırılmış çözümleri gözden geçirebilirsiniz:
+Merhaba önceden yapılandırılmış çözümleri nasıl özelleştirebileceğiniz öğrenme bitirdikten sonra artık hello bazıları diğer özellikleri ve yetenekleri hello IOT paketi önceden yapılandırılmış çözümleri gözden geçirebilirsiniz:
 
 * [Önceden yapılandırılmış Tahmine dayalı bakım çözümüne genel bakış][lnk-predictive-overview]
 * [IoT Paketi için sık sorulan sorular][lnk-faq]
-* [Baştan sona IoT güvenliği][lnk-security-groundup]
+* [Merhaba IOT güvenlikten plan][lnk-security-groundup]
 
 <!-- Images and links -->
 [img-device-list]: media/iot-suite-remote-monitoring-device-info/image1.png

@@ -1,6 +1,6 @@
 ---
-title: "Azure Ağ İzleyicisi güvenlik grubu görünümü - REST API'si ile ağ güvenliği çözümleme | Microsoft Docs"
-description: "Bu makalede PowerShell güvenlik grubu görünümü ile sanal makineleri güvenliği çözümlemek için nasıl kullanılacağını anlatmaktadır."
+title: "Azure Ağ İzleyicisi güvenlik grubu görünümü - REST API ile aaaAnalyze ağ güvenliği | Microsoft Docs"
+description: "Bu makalede, güvenlik grubu görünümü ile güvenliği nasıl toouse PowerShell tooanalyze sanal bir makine anlatmaktadır."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: afced52b3ae6f3b7f400364f5ec7d049aa166590
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0858a64a9454816e05f06dadb9536ad0c755e90e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Güvenlik grubu REST API kullanarak görünümü ile sanal makine güvenliğinizi Çözümle
 
@@ -28,17 +28,17 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
-Güvenlik grubu görünümü bir sanal makineye uygulanan yapılandırılmış ve etkili ağ güvenlik kuralları döndürür. Bu denetim ve ağ güvenlik grupları ve trafik yükleniyor emin olmak için bir VM üzerinde yapılandırılmış kurallarını tanılamak yararlı bir yetenektir doğru şekilde izin verilen veya reddedilen. Bu makalede, sizi, REST API kullanarak bir sanal makine için etkili ve uygulanan güvenlik kuralları nasıl alınacağını gösterir
+Güvenlik grubu görünümü uygulanan tooa sanal makine yapılandırılmış ve etkili ağ güvenlik kuralları döndürür. Bu özellik kullanışlı tooaudit ve ağ güvenlik grupları tanılama ve bir VM tooensure trafiğinde yapılandırılmış kuralları yükleniyor doğru şekilde izin verilen veya reddedilen. Bu makalede, REST API kullanarak tooa sanal makine nasıl tooretrieve hello etkili ve uygulanan güvenlik kuralları gösteriyoruz
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu senaryoda, bir sanal makine için güvenlik grubu görünümü almak için Ağ İzleyicisi Rest API çağrısı. ARMclient PowerShell kullanarak REST API'sini çağırmak için kullanılır. ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
+Bu senaryoda, bir sanal makine için hello Ağ İzleyicisi Rest API'si tooget hello güvenlik grubu görünümü çağırın. ARMclient PowerShell kullanarak kullanılan toocall hello REST API ' dir. ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
 
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için. Senaryo da geçerli bir sanal makine ile bir kaynak grubu kullanılacak var olduğunu varsayar.
+Bu senaryo zaten izlediğiniz hello adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) toocreate bir Ağ İzleyicisi. Merhaba senaryo da geçerli bir sanal makine ile bir kaynak grubu kullanılan toobe var olduğunu varsayar.
 
 ## <a name="scenario"></a>Senaryo
 
-Bu makalede ele alınan senaryo, belirli bir sanal makine için etkili ve uygulanan güvenlik kurallarını alır.
+Bu makalede ele alınan hello senaryo hello etkili ve uygulanan güvenlik kuralları belirli bir sanal makine için alır.
 
 ## <a name="log-in-with-armclient"></a>Oturum ARMClient oturum
 
@@ -48,10 +48,10 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Bir sanal makine alma
 
-Aşağıdaki kod, sanal machineThe döndürmek için aşağıdaki betiği çalıştırın değişkenleri gerekir:
+Komut dosyası tooreturn sanal machineThe aşağıdaki hello çalıştırmak kod aşağıdaki değişkenleri gerekir:
 
-- **Subscriptionıd** -abonelik kimliği ile aynı zamanda alınabilir **Get-AzureRMSubscription** cmdlet'i.
-- **resourceGroupName** -sanal makine içeren bir kaynak grubu adı.
+- **Subscriptionıd** -hello abonelik kimliği ile Merhaba da alınabilir **Get-AzureRMSubscription** cmdlet'i.
+- **resourceGroupName** - hello sanal makine içeren bir kaynak grubu adı.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -60,7 +60,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-Gerekli bilgileri **kimliği** türü'nün altında `Microsoft.Compute/virtualMachines` aşağıdaki örnekte görüldüğü gibi yanıt:
+Merhaba gerekli bilgileri olduğu hello **kimliği** hello türü altında `Microsoft.Compute/virtualMachines` hello aşağıdaki örnekte görüldüğü gibi yanıt:
 
 ```json
 ...,
@@ -92,7 +92,7 @@ pute/virtualMachines/{vmName}/extensions/CustomScriptExtension"
 
 ## <a name="get-security-group-view-for-virtual-machine"></a>Sanal makine için güvenlik grubu görünümü Al
 
-Aşağıdaki örnek, hedeflenen bir sanal makinenin güvenlik grubu görünümü ister. Bu örnek sonuçlarından kurallara ve yapılandırma değişikliklerini aramak için oluşturulma tarafından tanımlanan güvenlik karşılaştırmak için kullanılabilir.
+Aşağıdaki örnek hello hello güvenlik grubu görünümü hedeflenen bir sanal makinenin ister. Bu örnek Hello sonuçlarından kullanılan toocompare toohello kuralları ve yapılandırma değişikliklerini hello oluşturulma toolook tarafından tanımlanan güvenlik olabilir.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -109,9 +109,9 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/securityGroupView?api-version=2016-12-01" $requestBody -verbose
 ```
 
-## <a name="view-the-response"></a>Yanıtı görüntüleyin
+## <a name="view-hello-response"></a>Merhaba yanıtı görüntüle
 
-Aşağıdaki örnek, önceki komuttan döndürülen yanıt ' dir. Gruplar halinde ayrılmış sanal makine üzerinde etkili ve uygulanan güvenlik kuralları sonuçları göster **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, ve **EffectiveSecurityRules**.
+Aşağıdaki örnek hello komutu önceki hello döndürülen hello yanıt ' dir. Merhaba sonuçları tüm hello etkili ve uygulanan güvenlik kuralları hello sanal makineye gruplar halinde ayrıntılarıyla Göster **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, ve  **EffectiveSecurityRules**.
 
 ```json
 
@@ -181,6 +181,6 @@ Aşağıdaki örnek, önceki komuttan döndürülen yanıt ' dir. Gruplar halind
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ziyaret [denetim ağ güvenlik grupları (NSG) Ağ İzleyicisi ile](network-watcher-security-group-view-powershell.md) ağ güvenlik grupları doğrulanması otomatikleştirmek öğrenmek için.
+Ziyaret [denetim ağ güvenlik grupları (NSG) Ağ İzleyicisi ile](network-watcher-security-group-view-powershell.md) toolearn nasıl tooautomate doğrulama ağ güvenlik grupları.
 
 

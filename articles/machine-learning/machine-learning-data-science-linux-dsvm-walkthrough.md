@@ -1,6 +1,6 @@
 ---
-title: "Veri bilimi üzerinde Linux veri bilimi sanal makine | Microsoft Docs"
-description: "Linux veri bilimi VM ile birkaç genel veri bilimi görevleri gerçekleştirme."
+title: "Merhaba Linux veri bilimi sanal makine üzerinde aaaData Bilim | Microsoft Docs"
+description: "Nasıl tooperform birçok ortak veri bilimi hello Linux veri bilimi VM ile görevler."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,98 +14,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 6da9a8e3f9f8ac851c2a8deb861ac1d0b3ec5874
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 78764825f2e834fa4ddb7fdc2f59418dbe736e1d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="data-science-on-the-linux-data-science-virtual-machine"></a>Linux Veri Bilimi Sanal Makinesinde veri bilimi
-Bu kılavuzda, Linux veri bilimi VM ile birçok ortak veri bilimi görevlerinin nasıl gerçekleştirileceğini gösterir. Linux veri bilimi sanal makine (DSVM) veri analizi ve makine öğrenme için yaygın olarak kullanılan bir araç koleksiyonu ile önceden yüklenmiş olan Azure üzerinde kullanılabilir bir sanal makine görüntüdür. Anahtar yazılım bileşenleri içinde listelenen [Linux veri bilimi sanal makine sağlama](machine-learning-data-science-linux-dsvm-intro.md) konu. VM görüntüsü yüklemek ve araçların her biri ayrı ayrı yapılandırmak zorunda kalmadan dakika cinsinden veri bilimi yapılması başlamak kolaylaştırır. Kolayca VM gerekirse ölçeklendirmek ve kullanılmadığında durdurun. Bu nedenle bu kaynak, esnek ve ekonomik içindir.
+# <a name="data-science-on-hello-linux-data-science-virtual-machine"></a>Veri bilimi hello Linux veri bilimi sanal makine üzerinde
+Bu anlatımda tooperform birçok ortak veri bilimi hello Linux veri bilimi VM ile nasıl görevler gösterilir. Merhaba Linux veri bilimi sanal makine (DSVM) veri analizi ve makine öğrenme için yaygın olarak kullanılan bir araç koleksiyonu ile önceden yüklenmiş olan Azure üzerinde kullanılabilir bir sanal makine görüntüdür. Merhaba anahtar yazılım bileşenleri hello dökümü [sağlama hello Linux veri bilimi sanal makine](machine-learning-data-science-linux-dsvm-intro.md) konu. Merhaba VM görüntüsü kolay tooget kolaylaştırır tooinstall gerek kalmadan dakika cinsinden veri bilimi yapılması başlatıldı ve hello araçların her biri ayrı ayrı yapılandırın. Kolayca VM hello gerekirse ölçekleme ve uygulamayı kullanılmadığında durdurun. Bu nedenle bu kaynak, esnek ve ekonomik içindir.
 
-Bu kılavuzda gösterilen veri bilimi görevleri konusunda özetlenen adımları [takım veri bilimi işlemi](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). Bu işlem için etkili bir şekilde akıllı uygulamaları oluşturma yaşam döngüsü üzerinde işbirliği yapmak için veri bilimcilerine ekiplerin sağlayan veri bilimi sistematik bir yaklaşım sunar. Veri bilimi işlemi da bir kişi tarafından izlenebilir veri bilimi için yinelemeli bir çerçeve sağlar.
+Merhaba bu kılavuzda gösterilen veri bilimi görevleri hello özetlenen hello adımları [takım veri bilimi işlemi](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). Bu işlem, veri bilimcilerine tooeffectively işbirliği akıllı uygulamaları oluşturma hello ömrü ekiplerin sağlayan sistematik bir yaklaşım toodata bilimsel sunar. Merhaba veri bilimi işlemi da bir kişi tarafından izlenebilir veri bilimi için yinelemeli bir çerçeve sağlar.
 
-Biz analiz [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) bu kılavuzda veri kümesi. Bu e-postaların istenmeyen posta ya da (olmadıkları istenmeyen posta anlamına gelir) ham, olarak işaretlenmiş kümesidir ve ayrıca e-posta içeriğini bazı istatistiklerle içerir. Dahil edilen istatistikleri sonraki ancak bir bölüm içinde ele alınmıştır.
+Biz hello analiz [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) bu kılavuzda veri kümesi. Bu e-postaların istenmeyen posta ya da (olmadıkları istenmeyen posta anlamına gelir) ham, olarak işaretlenmiş kümesidir ve ayrıca bazı istatistiklerle hello e-postaları Merhaba içeriğine içerir. Merhaba istatistikleri dahil hello sonraki bir bölümü ele alınmıştır.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Linux veri bilimi sanal makine kullanmadan önce aşağıdakilere sahip olmanız gerekir:
+Linux veri bilimi sanal makine kullanmadan önce hello şunlara sahip olmanız gerekir:
 
 * Bir **Azure aboneliği**. Zaten bir yoksa, bkz: [ücretsiz Azure hesabınızı bugün oluşturmak](https://azure.microsoft.com/free/).
-* A [ **Linux veri bilimi VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Bu VM sağlama hakkında daha fazla bilgi için bkz: [Linux veri bilimi sanal makine sağlama](machine-learning-data-science-linux-dsvm-intro.md).
+* A [ **Linux veri bilimi VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Bu VM sağlama hakkında daha fazla bilgi için bkz: [sağlama hello Linux veri bilimi sanal makine](machine-learning-data-science-linux-dsvm-intro.md).
 * [X2Go](http://wiki.x2go.org/doku.php) bilgisayarınızda yüklü ve bir XFCE oturumu açılır. Yükleme ve yapılandırma hakkında bilgi için bir **X2Go istemci**, bkz: [yükleme ve yapılandırma X2Go istemci](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client). 
-* Bir **AzureML hesap**. Zaten, yeni bir kayıt yoksa, [AzureML giriş sayfası](https://studio.azureml.net/). Başlamanıza yardımcı olmak için ücretsiz kullanım katmanı yoktur.
+* Bir **AzureML hesap**. Bir hello en yeni bir kayıt zaten yoksa, [AzureML giriş sayfası](https://studio.azureml.net/). Kullanmaya başlama ücretsiz kullanım katmanı toohelp yoktur.
 
-## <a name="download-the-spambase-dataset"></a>Spambase dataset indirin
-[Spambase](https://archive.ics.uci.edu/ml/datasets/spambase) veri kümesi yalnızca 4601 örnekleri içeren veri görece küçük kümesidir. Bu, veri bilimi VM şekliyle anahtar özelliklerinden bazıları tutmasını kaynak gereksinimlerini uygun gösteren sırasında kullanmak için uygun bir boyutudur.
+## <a name="download-hello-spambase-dataset"></a>Merhaba spambase dataset indirin
+Merhaba [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) veri kümesi yalnızca 4601 örnekleri içeren veri görece küçük kümesidir. Bu kullanışlı boyutu toouse hello veri bilimi VM şekilde hello önemli özelliklerinden bazıları tutmasını hello kaynak gereksinimlerini uygun gösteren durumdur.
 
 > [!NOTE]
-> Bu kılavuz bir D2 v2 ölçekli Linux veri bilimi sanal makinede oluşturuldu. Bu boyut DSVM yordamları bu kılavuzda işleyebilir.
+> Bu kılavuz bir D2 v2 ölçekli Linux veri bilimi sanal makinede oluşturuldu. Bu boyut DSVM hello yordamları bu kılavuzda işleyebilir.
 >
 >
 
-Daha fazla depolama alanı gerekiyorsa, ek diskleri oluşturun ve sizin VM'e ekleyin. Bu diskleri kalıcı Azure depolama kullandığından, sunucu yeniden boyutlandırma nedeniyle sağlama veya kapatılmış olsa bile verilerini korunur. Bir disk ekleyin ve VM'nize eklemek için'ndaki yönergeleri izleyin [bir Linux VM için bir disk eklemek](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Azure komut satırı DSVM üzerinde önceden yüklenmiş arabirimi (Azure CLI), aşağıdaki adımları kullanın. Bu nedenle bu yordamları tamamen sanal makineden kendisini yapılabilir. Depolama artırmak için başka bir seçenek kullanmaktır [Azure dosyaları](../storage/files/storage-how-to-use-files-linux.md).
+Daha fazla depolama alanı gerekiyorsa, ek diskleri oluşturma ve bunları tooyour VM ekleyin. Hello sunucu bile sağlama verilerini son korunur şekilde bu diskleri kalıcı Azure depolama kullanan tooresizing veya kapatılır. tooadd bir disk ve tooyour VM ekleme, hello yönergeleri izleyin [disk tooa Linux VM eklemek](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Bu adımları hello DSVM hello üzerinde önceden yüklenmiş Azure komut satırı arabirimi (Azure CLI) kullanın. Bu nedenle bu yordamları tamamen hello VM kendisini ' yapılabilir. Başka bir seçenek tooincrease depolama toouse olan [Azure dosyaları](../storage/files/storage-how-to-use-files-linux.md).
 
-Veri yüklemek için bir terminal penceresi açın ve şu komutu çalıştırın:
+toodownload hello verileri, bir terminal penceresi açın ve şu komutu çalıştırın:
 
     wget http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
-İndirilen Dosya sağlandığından üstbilgi sahip başka bir dosya oluşturmak bir başlık satırı yok. Uygun üst bilgilerle bir dosya oluşturmak için şu komutu çalıştırın:
+Merhaba indirilen dosya bir başlık satırı yok, sağlandığından üstbilgi sahip başka bir dosya oluşturun. Bu komut toocreate hello uygun üst bilgilerle bir dosya çalıştırın:
 
     echo 'word_freq_make, word_freq_address, word_freq_all, word_freq_3d,word_freq_our, word_freq_over, word_freq_remove, word_freq_internet,word_freq_order, word_freq_mail, word_freq_receive, word_freq_will,word_freq_people, word_freq_report, word_freq_addresses, word_freq_free,word_freq_business, word_freq_email, word_freq_you, word_freq_credit,word_freq_your, word_freq_font, word_freq_000, word_freq_money,word_freq_hp, word_freq_hpl, word_freq_george, word_freq_650, word_freq_lab,word_freq_labs, word_freq_telnet, word_freq_857, word_freq_data,word_freq_415, word_freq_85, word_freq_technology, word_freq_1999,word_freq_parts, word_freq_pm, word_freq_direct, word_freq_cs, word_freq_meeting,word_freq_original, word_freq_project, word_freq_re, word_freq_edu,word_freq_table, word_freq_conference, char_freq_semicolon, char_freq_leftParen,char_freq_leftBracket, char_freq_exclamation, char_freq_dollar, char_freq_pound, capital_run_length_average,capital_run_length_longest, capital_run_length_total, spam' > headers
 
-Ardından komutu ile birlikte iki dosyaları birleştirme:
+Ardından hello komutu ile birlikte hello iki dosyaları birleştirme:
 
     cat spambase.data >> headers
     mv headers spambaseHeaders.data
 
-Veri kümesi istatistikleri çeşitli türlerde her e-postaya sahiptir:
+Hello dataset istatistikleri çeşitli türlerde her e-postaya sahiptir:
 
-* Sütunları ister ***word\_freq\_WORD*** eşleşen sözcükleri e-postadaki yüzdesini belirtmek *WORD*. Örneğin, varsa *word\_freq\_olun* %1 e-posta içindeki tüm sözcükleri bundan sonra 1 ' dir *olun*.
-* Sütunları ister ***char\_freq\_CHAR*** olan tüm e-posta karakter yüzdesini belirtmek *CHAR*.
-* ***büyük\_çalıştırmak\_uzunluğu\_uzun*** büyük harf bir dizi uzun uzunluğu.
-* ***büyük\_çalıştırmak\_uzunluğu\_ortalama*** büyük harf ve tüm dizilerini ortalama uzunluğu.
-* ***büyük\_çalıştırmak\_uzunluğu\_toplam*** büyük harf ve tüm dizilerini toplam uzunluğu.
-* ***istenmeyen posta*** veya e-posta istenmeyen posta kabul olup olmadığını gösterir (1 istenmeyen posta, 0 = değil istenmeyen posta =).
+* Sütunları ister ***word\_freq\_WORD*** eşleşen hello e-posta sözcükleri hello yüzdesini belirtmek *WORD*. Örneğin, varsa *word\_freq\_olun* %1 hello e-posta içindeki tüm sözcükleri bundan sonra 1 ' dir *olun*.
+* Sütunları ister ***char\_freq\_CHAR*** olan tüm hello e-posta karakter hello yüzdesini belirtmek *CHAR*.
+* ***büyük\_çalıştırmak\_uzunluğu\_uzun*** hello uzun büyük harf bir dizi uzunluğu.
+* ***büyük\_çalıştırmak\_uzunluğu\_ortalama*** büyük harfle tüm sıralarının hello ortalama uzunluğudur.
+* ***büyük\_çalıştırmak\_uzunluğu\_toplam*** büyük harfle tüm sıralarının hello toplam uzunluğu.
+* ***istenmeyen posta*** hello e-posta istenmeyen posta kabul olup olmadığını gösterir (1 istenmeyen posta, 0 = değil istenmeyen posta =).
 
-## <a name="explore-the-dataset-with-microsoft-r-open"></a>Microsoft R açık ile dataset keşfedin
-Şimdi verileri incelemek ve bazı temel makine r ile öğrenme yapın Veri bilimi VM ile birlikte gelen [Microsoft R açık](https://mran.revolutionanalytics.com/open/) önceden yüklenmiş. Birden çok iş parçacıklı matematik kitaplıkları R bu sürümündeki çeşitli tek iş parçacıklı sürümleri daha iyi performans sunar. Microsoft R açık de yeniden Üretilebilirlik CRAN Paket Deposu görüntüsünü kullanarak sağlar.
+## <a name="explore-hello-dataset-with-microsoft-r-open"></a>Microsoft R açık Hello kümesiyle keşfedin
+Şimdi hello verileri incelemek ve bazı temel machine learning ile veri bilimi VM ile birlikte gelen r hello yapın [Microsoft R açık](https://mran.revolutionanalytics.com/open/) önceden yüklenmiş. Merhaba birden çok iş parçacıklı matematik kitaplıkları R bu sürümündeki çeşitli tek iş parçacıklı sürümleri daha iyi performans sunar. Microsoft R açık de yeniden Üretilebilirlik hello CRAN Paket Deposu görüntüsünü kullanarak sağlar.
 
-Bu kılavuzda kullanılan kod örnekleri kopyalarını almak için kopyalama **Azure-Machine-Learning-Data-Bilim** git, VM önceden yüklenmiş olduğu kullanarak deposu. Git komut satırından çalıştırın:
+Merhaba tooget kopyalarını kod örnekleri bu kılavuzda, kopya hello kullanılan **Azure-Machine-Learning-Data-Bilim** hello VM üzerinde önceden yüklenmiş olduğu git, kullanarak deposu. Merhaba git komut satırından çalıştırın:
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Bir terminal penceresi açın ve yeni bir R oturumu R etkileşimli konsol ile başlatın.
+Bir terminal penceresi açın ve hello R etkileşimli konsolu ile yeni bir R oturumu başlatın.
 
 > [!NOTE]
-> Bu gibi durumlarda, Rstudio'dan da için aşağıdaki yordamları kullanabilirsiniz. Rstudio'dan yüklemek için bu bir terminal komutunu yürütün:`./Desktop/DSVM\ tools/installRStudio.sh`
+> Rstudio'dan yordamları izleyerek hello için de kullanabilirsiniz. tooinstall Rstudio'dan, bir terminal, bu komutu yürütün:`./Desktop/DSVM\ tools/installRStudio.sh`
 >
 >
 
-Veri içeri aktarın ve ortamını ayarlamak için çalıştırın:
+tooimport hello veri ve hello ortamı kurma çalıştırın:
 
     data <- read.csv("spambaseHeaders.data")
     set.seed(123)
 
-Her sütunun hakkındaki özet istatistikleri görmek için:
+Her sütunun hakkında özet istatistikleri toosee:
 
     summary(data)
 
-Verileri farklı bir görünüm için:
+Merhaba verileri farklı bir görünüm için:
 
     str(data)
 
-Bu, her bir değişken ve ilk birkaç değerleri türü veri kümesini gösterir.
+Bu, her bir değişken türü hello ve ilk birkaç değerleri hello kümesindeki hello gösterir.
 
-*İstenmeyen posta* sütun bir tamsayı olarak okundu, ancak gerçekte kategorik olan değişkeni (veya faktörü). Türünü ayarlamak için:
+Merhaba *istenmeyen posta* sütun bir tamsayı olarak okundu, ancak gerçekte kategorik olan değişkeni (veya faktörü). tooset türü:
 
     data$spam <- as.factor(data$spam)
 
-Keşif biraz analiz yapma kullanmak [ggplot2](http://ggplot2.org/) paketini, VM üzerinde zaten yüklü R için popüler bir grafik kitaplığı. , Daha önce görüntülenen özet verileri biz Özet istatistikleri ünlem işareti karakteri sıklığını sahip olduğunu unutmayın. Şimdi bu sıklıklarını burada aşağıdaki komutlarla çizimi:
+toodo bazı keşif analiz, kullanım hello [ggplot2](http://ggplot2.org/) paketini, hello VM üzerinde zaten yüklü R için popüler bir grafik kitaplığı. , Daha önce görüntülenen hello Özet verilerden biz Özet istatistikleri hello ünlem işareti karakteri hello sıklığını sahip olduğunu unutmayın. Şimdi bu sıklıklarını burada komutları aşağıdaki hello çizimi:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
 
-Şimdi sıfır çubuğu çizim eğriltme olduğundan, bunu kurtulun:
+Şimdi Hello sıfır çubuğu hello çizim eğriltme olduğundan, bunu kurtulun:
 
     email_with_exclamation = data[data$char_freq_exclamation > 0, ]
     ggplot(email_with_exclamation) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
@@ -123,48 +123,48 @@ Ardından istenmeyen posta vs ham tarafından böl:
     ggtitle("Distribution of spam \nby frequency of !") +
     labs(fill="spam", y="Density")
 
-Bu örnekler, içerdikleri verileri araştırmak için benzer çizimleri diğer sütunların yapmak etkinleştirmeniz gerekir.
+Bu örnekler, toomake benzer çizimleri Merhaba, diğer sütunları tooexplore etkinleştirmelisiniz hello içerdikleri veriler.
 
 ## <a name="train-and-test-an-ml-model"></a>Eğitme ve test ML modeli
-Şimdi şimdi birkaç span veya ham içeren olarak dataset postalarda sınıflandırmak için makine öğrenimi modellerini eğitmek. Biz karar ağacı modeli ve bu bölümdeki rastgele orman modeli eğitmek ve kendi tahminleri kendi doğruluğunu test edin.
+Şimdi tren birkaç machine learning tooclassify hello hello dataset postalarda modeller artık ya da içerecek şekilde span veya ham. Biz karar ağacı modeli ve bu bölümdeki rastgele orman modeli eğitmek ve kendi tahminleri kendi doğruluğunu test edin.
 
 > [!NOTE]
-> Aşağıdaki kod içinde kullanılan rpart (özyinelemeli bölümlendirme ve regresyon ağaçlarında) paketi veri bilimi VM üzerinde zaten yüklü.
+> koddan hello kullanılan hello rpart (özyinelemeli bölümlendirme ve regresyon ağaçlarında) paket hello veri bilimi VM üzerinde zaten yüklü.
 >
 >
 
-Öncelikle, şimdi dataset eğitim ve test ayarlar böl:
+İlk olarak, şimdi hello dataset eğitim ve test ayarlar böl:
 
     rnd <- runif(dim(data)[1])
     trainSet = subset(data, rnd <= 0.7)
     testSet = subset(data, rnd > 0.7)
 
-Ve e-postaları sınıflandırmak için karar ağacı oluşturun.
+Ve ardından e-postaları karar ağacı tooclassify hello oluşturun.
 
     require(rpart)
     model.rpart <- rpart(spam ~ ., method = "class", data = trainSet)
     plot(model.rpart)
     text(model.rpart)
 
-Sonuç şöyledir:
+Merhaba sonuç şöyledir:
 
 ![1](./media/machine-learning-data-science-linux-dsvm-walkthrough/decision-tree.png)
 
-Ne kadar iyi eğitim kümesinde gerçekleştirip belirlemek için aşağıdaki kodu kullanın:
+ne kadar iyi üzerinde hello eğitim gerçekleştirir toodetermine ayarlamak, koddan hello kullanın:
 
     trainSetPred <- predict(model.rpart, newdata = trainSet, type = "class")
     t <- table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-Ne kadar iyi belirlemek için test kümesinde gerçekleştirir:
+toodetermine ne kadar iyi hello test kümesinde gerçekleştirir:
 
     testSetPred <- predict(model.rpart, newdata = testSet, type = "class")
     t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-Ayrıca bir rastgele orman modeli deneyelim. Rastgele ormanları karar ağaçları çok sayıda eğitmek ve tüm ayrı ayrı karar ağaçları sınıflandırmaları modunun bir sınıf çıkış. Bir eğitim veri kümesi overfit işlemciler karar ağacı modeli için düzeltirken yaklaşım öğrenme daha güçlü bir makine sağlarlar.
+Ayrıca bir rastgele orman modeli deneyelim. Rastgele ormanları karar ağaçları çok sayıda eğitmek ve tüm hello ayrı ayrı karar ağaçları hello sınıflandırmaları hello modunun bir sınıf çıkış. Karar ağacı modeli toooverfit bir eğitim veri kümesi hello eğilimi için düzeltirken yaklaşım öğrenme daha güçlü bir makine sağlarlar.
 
     require(randomForest)
     trainVars <- setdiff(colnames(data), 'spam')
@@ -179,30 +179,30 @@ Ayrıca bir rastgele orman modeli deneyelim. Rastgele ormanları karar ağaçlar
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-ml"></a>Azure ML model dağıtma
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML), derleme ve Tahmine dayalı analiz modelleriniz dağıtma daha kolay hale getirir bir bulut hizmetidir. AzureML iyi özelliklerini bir web hizmeti olarak herhangi bir R işlev yayımlama yeteneğini biridir. AzureML R paketi dağıtım sağ DSVM bizim R oturum yapmak kolaylaştırır.
+## <a name="deploy-a-model-tooazure-ml"></a>Model tooAzure ML dağıtma
+[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML), kolay toobuild kolaylaştırır ve Tahmine dayalı analiz modelleriniz dağıtan bir bulut hizmetidir. AzureML iyi özelliklerini hello herhangi R işlev bir web hizmeti olarak kendi yeteneği toopublish biridir. Merhaba AzureML R paketi dağıtımı kolay toodo DSVM hello üzerinde bizim R oturumundan sağ hale getirir.
 
-Önceki bölümde karar ağacı koddan dağıtmak için Azure Machine Learning Studio'da oturum açmak gerekir. Çalışma alanı Kimliğinizi ve bir yetki belirteci oturum açmak için gerekir. Bu değerleri bulmak ve onlarla AzureML değişkenlerini başlatmak için:
+toodeploy hello karar ağacı kod hello önceki bölümdeki tooAzure Machine Learning Studio toosign gerekir. Çalışma alanı Kimliğinizi ve bir yetkilendirme belirteci toosign gerekir. toofind bu değerleri ve onlarla Initialize hello AzureML değişkenleri:
 
-Seçin **ayarları** sol menüdeki. Not, **çalışma alanı kimliği**. ![2](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
+Seçin **ayarları** hello sol menüdeki. Not, **çalışma alanı kimliği**. ![2](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
 
-Seçin **yetkilendirme belirteçleri** Not ve genel gider menüden, **birincil yetkilendirme belirteci**.![ 3](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
+Seçin **yetkilendirme belirteçleri** hello genel gider menüsünden ve Not, **birincil yetkilendirme belirteci**.![ 3](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
 
-Yük **AzureML** paketini ve belirteç ve çalışma alanı Kimliğiniz ile değişkenlerin değerleri üzerinde DSVM R oturumunuzda ayarlayın:
+Yük hello **AzureML** paketini ve belirteç ve çalışma alanı Kimliğiniz ile Merhaba değişkenlerin değerleri R oturumunuzda DSVM hello üzerinde ayarlayın:
 
     require(AzureML)
     wsAuth = "<authorization-token>"
     wsID = "<workspace-id>"
 
 
-Şimdi uygulamak bu tanıtımı kolaylaştırmak için model basitleştirin. Kök yakın karar ağacında üç değişkenleri seçin ve yalnızca bu üç değişkenin kullanarak yeni bir ağaç yapılandırın:
+Şimdi bu tanıtımı daha kolay tooimplement hello modeli toomake basitleştirin. Merhaba üç değişkenleri hello karar ağacı en yakın toohello kök dizininde seçin ve yalnızca bu üç değişkenin kullanarak yeni bir ağaç yapılandırın:
 
     colNames <- c("char_freq_dollar", "word_freq_remove", "word_freq_hp", "spam")
     smallTrainSet <- trainSet[, colNames]
     smallTestSet <- testSet[, colNames]
     model.rpart <- rpart(spam ~ ., method = "class", data = smallTrainSet)
 
-Özellikleri bir girdi olarak alır ve tahmin edilen değerler döndüren bir tahmin işlevinde ihtiyacımız var:
+Merhaba özellikleri bir girdi olarak alır tahmin işlevinde ihtiyacımız ve tahmin edilen değerler döndürür hello:
 
     predictSpam <- function(char_freq_dollar, word_freq_remove, word_freq_hp) {
         predictDF <- predict(model.rpart, data.frame("char_freq_dollar" = char_freq_dollar,
@@ -210,7 +210,7 @@ Yük **AzureML** paketini ve belirteç ve çalışma alanı Kimliğiniz ile değ
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
 
-AzureML kullanmaya predictSpam işlevi yayımlama **publishWebService** işlevi:
+Yayımlama Hello kullanarak hello predictSpam işlevi tooAzureML **publishWebService** işlevi:
 
     spamWebService <- publishWebService("predictSpam",
         "spamWebService",
@@ -218,19 +218,19 @@ AzureML kullanmaya predictSpam işlevi yayımlama **publishWebService** işlevi:
         list("spam"="int"),
         wsID, wsAuth)
 
-Bu işlev alır **predictSpam** işlev, adlı bir web hizmeti oluşturur **spamWebService** girişleri ve çıkışları ile tanımlanan ve yeni uç noktası hakkında bilgi verir.
+Bu işlev hello alır **predictSpam** işlev, adlı bir web hizmeti oluşturur **spamWebService** girişleri ve çıkışları ile tanımlanan ve hello yeni uç noktası hakkında bilgi verir.
 
-Yayımlanan web hizmetinde, kendi API uç noktası gibi ayrıntılarını görüntülemek ve erişim anahtarları komutuyla:
+Merhaba ayrıntılarını görüntüleme web hizmeti, kendi API uç noktası ve erişim anahtarları hello komutuyla dahil yayımlanan:
 
     spamWebService[[2]]
 
-İlk denemenin testinin 10 satır ayarlayın:
+tootry, çıkışı hello hello test kümesinin ilk 10 satır:
 
     consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
 
 
 ## <a name="use-other-tools-available"></a>Kullanılabilir diğer araçlarını kullanma
-Kalan bölümleri bazı Linux veri bilimi VM'de yüklü Araçları'nın nasıl kullanıldığını gösterir. Açıklanan araçları listesi aşağıdadır:
+Merhaba kalan bölümleri nasıl hello araçlardan bazıları yüklü toouse hello Linux veri bilimi VM gösterir. Açıklanan araçları hello listesi aşağıdadır:
 
 * XGBoost
 * Python
@@ -259,14 +259,14 @@ Kalan bölümleri bazı Linux veri bilimi VM'de yüklü Araçları'nın nasıl k
 XGBoost, python veya bir komut satırından da çağırabilirsiniz.
 
 ## <a name="python"></a>Python
-Python kullanarak geliştirme için Anaconda Python dağıtımları 2.7 ve 3.5 DSVM yüklenmiş.
+Python kullanarak geliştirme için hello Anaconda Python dağıtımları 2.7 ve 3.5 hello DSVM yüklenmiş.
 
 > [!NOTE]
-> Anaconda dağıtım içeren [Condas](http://conda.pydata.org/docs/index.html), farklı sürümlerini ve/veya bunları yüklü olan paketleri sahip Python için özel ortamlar oluşturmak için kullanılabilir.
+> Merhaba Anaconda dağıtım içeren [Condas](http://conda.pydata.org/docs/index.html), hangi kullanılan toocreate farklı sürümlerini ve/veya bunları yüklü olan paketleri sahip Python için özel ortamları olabilir.
 >
 >
 
-Şimdi spambase dataset bazıları okuyun ve Destek vektör scikit makinelerinizde ile e-postaları sınıflandırmak-öğrenin:
+Şimdi hello spambase dataset bazıları okuyun ve Destek vektör scikit makinelerinizde ile Merhaba e-postaları sınıflandırmak-öğrenin:
 
     import pandas
     from sklearn import svm    
@@ -276,20 +276,20 @@ Python kullanarak geliştirme için Anaconda Python dağıtımları 2.7 ve 3.5 D
     clf = svm.SVC()
     clf.fit(X, y)
 
-Tahminleri yapmak için:
+toomake tahminleri:
 
     clf.predict(X.ix[0:20, :])
 
-Biz R modeli önceden yayımlandığında yaptığımız gibi bir AzureML uç nokta yayımlama göstermek için daha basit bir model üç değişkenleri olalım.
+tooshow nasıl toopublish bir AzureML uç nokta, şimdi yapma daha basit bir model hello üç değişkenleri olarak biz hello R modeli önceden yayımlandığında yaptığımız.
 
     X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)
 
-Model için AzureML yayımlamak için:
+toopublish hello modeli tooAzureML:
 
-    # Publish the model.
+    # Publish hello model.
     workspace_id = "<workspace-id>"
     workspace_token = "<workspace-token>"
     from azureml import services
@@ -300,11 +300,11 @@ Model için AzureML yayımlamak için:
         inputArray = [char_freq_dollar, word_freq_remove, word_freq_hp]
         return clf.predict(inputArray)
 
-    # Get some info about the resulting model.
+    # Get some info about hello resulting model.
     predictSpam.service.url
     predictSpam.service.api_key
 
-    # Call the model
+    # Call hello model
     predictSpam.service(1, 1, 1)
 
 > [!NOTE]
@@ -313,67 +313,67 @@ Model için AzureML yayımlamak için:
 >
 
 ## <a name="jupyterhub"></a>Jupyterhub
-DSVM Anaconda dağıtımlarında Jupyter not defteri ile Python, R veya Jale kodunu ve analiz paylaşmak için platformlar arası ortamda gelir. Jupyter not defteri JupyterHub erişilir. Yerel Linux kullanıcı adı ve parola kullanarak oturum ***https://\<VM DNS adı veya IP adresi\>: 8000 /***. Tüm yapılandırma dosyalarını JupyterHub için dizinde bulunan **/etc/jupyterhub**.
+Merhaba Anaconda hello dağıtımlarında DSVM Jupyter Not Defteri, platformlar arası ortamda tooshare Python, R veya Jale kodunu ve analiz ile birlikte gelir. Merhaba Jupyter not defteri JupyterHub erişilir. Yerel Linux kullanıcı adı ve parola kullanarak oturum ***https://\<VM DNS adı veya IP adresi\>: 8000 /***. Tüm yapılandırma dosyalarını JupyterHub için dizinde bulunan **/etc/jupyterhub**.
 
-Birkaç örnek not defterlerini VM üzerinde zaten yüklenir:
+Birkaç örnek not defterlerini hello VM üzerinde zaten yüklenir:
 
-* Bkz: [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb) bir örnek Python not defteri için.
+* Merhaba bkz [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb) bir örnek Python not defteri için.
 * Bkz: [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) bir örnek için **R** dizüstü bilgisayar.
-* Bkz: [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb) başka bir örnek için **Python** dizüstü bilgisayar.
+* Merhaba bkz [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb) başka bir örnek için **Python** dizüstü bilgisayar.
 
 > [!NOTE]
-> Jale dil, Linux veri bilimi VM üzerinde komut satırından da mevcuttur.
+> Merhaba Jale dil hello Linux veri bilimi VM üzerinde hello komut satırından da mevcuttur.
 >
 >
 
 ## <a name="rattle"></a>Çıngırağı
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (R analitik aracı için bilgi kolayca) grafiksel bir R veri araştırma için aracıdır. Yük, keşfetme, veri dönüştürme ve yapı ve modelleri değerlendirmek daha kolay hale getirir sezgisel bir arabirim vardır.  Makaleyi [Rattle: bir veri madenciliği GUI r](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) özelliklerini gösteren bir kılavuz sağlar.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (R analitik aracı tooLearn kolayca hello) veri araştırma için grafiksel bir R aracıdır. Kolay tooload kolaylaştırır sezgisel bir arabirim sahip, keşfetmek, veri dönüştürme ve yapı ve modelleri değerlendirin.  Merhaba makale [Rattle: bir veri madenciliği GUI r](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) özelliklerini gösteren bir kılavuz sağlar.
 
-Yükleyin ve aşağıdaki komutlarla Çıngırağı başlatın:
+Yükleyin ve aşağıdaki komutları hello ile Çıngırağı başlatın:
 
     if(!require("rattle")) install.packages("rattle")
     require(rattle)
     rattle()
 
 > [!NOTE]
-> Yükleme DSVM üzerinde gerekli değildir. Ancak, yüklediğinde, ek paketleri yüklemek için Çıngırağı isteyebilir.
+> Yükleme DSVM hello üzerinde gerekli değildir. Ancak Çıngırağı onu yüklediğinde tooinstall ek paketler isteyebilir.
 >
 >
 
-Çıngırağı sekmesini tabanlı bir arabirim kullanır. Sekmeleri çoğunu karşılık adımlarda [veri bilimi işlemi](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)veri yükleme veya araştırma gibi. Veri bilimi işlemi soldan sağa sekmeler arasında akar. Ancak son sekmesi tarafından Çıngırağı çalıştırmak R komutların günlüğünü de içerir.
+Çıngırağı sekmesini tabanlı bir arabirim kullanır. Merhaba sekmeleri çoğunu karşılık hello toosteps [veri bilimi işlemi](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)veri yükleme veya araştırma gibi. Sol tooright hello sekmeleri üzerinden gelen Hello veri bilimi işlemi akar. Ancak hello R komutlarını tarafından Çıngırağı Çalıştır günlüğünü hello son sekme içerir.
 
-Yük ve veri kümesi yapılandırmak için:
+tooload ve hello dataset yapılandırın:
 
-* Dosyayı yüklemek için seçin **veri** sekmesinde, ardından
-* Seçici seçin **Filename** ve **spambaseHeaders.data**.
-* Dosya yüklenemedi. seçin **yürütme** düğmelerinin üst satırda. Bir giriş, bir hedef veya başka bir değişken türü ve benzersiz değerlerin sayısını olup olmadığını, belirtilen veri türü de dahil olmak üzere her bir sütunun özetini görmeniz gerekir.
-* Çıngırağı doğru tanımlanan **istenmeyen posta** sütunu hedef olarak. İstenmeyen posta sütunu seçin, ardından ayarlamak **hedef veri türü** için **Categoric**.
+* tooload hello dosya, select hello **veri** sekmesinde, ardından
+* Merhaba Seçici sonraki çok seçin**Filename** ve **spambaseHeaders.data**.
+* tooload hello dosyası. seçin **yürütme** düğmelerinin üst satırda hello. Bir giriş, bir hedef veya başka bir değişken türü ve benzersiz değerlerin sayısını hello olup olmadığını, belirtilen veri türü de dahil olmak üzere her bir sütunun özetini görmeniz gerekir.
+* Çıngırağı hello doğru tanımlanan **istenmeyen posta** hello hedefi olarak sütun. Select hello istenmeyen posta sütun sonra kümesi hello **hedef veri türü** çok**Categoric**.
 
-Verileri araştırmak için:
+tooexplore hello verileri:
 
-* Seçin **Araştır** sekmesi.
-* Tıklatın **Özet**, ardından **yürütme**, değişken türleri hakkında bazı bilgiler ve bazı Özet istatistikleri görmek için.
-* Her bir değişken hakkındaki istatistiklerdir diğer türlerini görüntülemek için diğer seçenekleri gibi seçin **açıklayın** veya **Temelleri**.
+* Select hello **Araştır** sekmesi.
+* Tıklatın **Özet**, ardından **yürütme**, toosee hello değişken türleri ve bazı Özet istatistikleri hakkında bazı bilgiler.
+* tooview her bir değişken hakkındaki istatistiklerdir diğer türleri gibi diğer seçenekleri seçin **açıklayın** veya **Temelleri**.
 
-**Araştır** sekmesi ayrıca birçok ayrıntılı çizimleri oluşturmak olanak tanır. Verilerin bir histogram çizmek için:
+Merhaba **Araştır** sekme ayrıca ayrıntılı birçok çizer toogenerate, sağlar. tooplot hello verilerin bir histogram oluşturur:
 
 * Seçin **dağıtımları**.
 * Denetleme **Histogram** için **word_freq_remove** ve **word_freq_you**.
-* Seçin **yürütme**. Word "," çok daha sık Kaldır"den" postalarda göründüğünü Temizle olduğu bir tek grafik penceresinde, her iki yoğunluğu çizimleri görmeniz gerekir.
+* Seçin **yürütme**. Her iki yoğunluğu Temizle olduğu bir tek grafik penceresinde "siz" Kaldır"den" e-postalarda çok daha sık görünür bu hello word çizer görmeniz gerekir.
 
-Bağıntı çizimler, ayrıca ilginç. Oluşturmak için:
+Merhaba bağıntı çizimler, ayrıca ilginç. toocreate biri:
 
-* Seçin **bağıntı** olarak **türü**, ardından
+* Seçin **bağıntı** hello olarak **türü**, ardından
 * Seçin **yürütme**.
-* Çıngırağı, en çok 40 değişkenleri önerir sizi uyarır. Seçin **Evet** çizim görüntülemek için.
+* Çıngırağı, en çok 40 değişkenleri önerir sizi uyarır. Seçin **Evet** tooview hello çizim.
 
-Gündeme bazı ilginç bağıntıları vardır: "teknolojisinin" kesinlikle bağıntılı "HP" ve "labs" Örneğin. Veri kümesi bağışta alan kodu 650 olduğundan "650" de kesinlikle ilişkilendirilir.
+Gündeme bazı ilginç bağıntıları vardır: "teknolojisinin" kesinlikle bağıntılı çok "HP" ve "labs" Örneğin. Ayrıca kesinlikle bağıntılı çok "650", hello alan kodu hello dataset bağışta 650 olduğundan.
 
-Sözcükler arasındaki bağıntıları sayısal değerleri Araştır penceresi için kullanılabilir. Örneğin, "teknolojisinin" olumsuz "sizin" bağıntılı olduğunu unutmayın ve "para" ilginç olacaktır.
+sözcükler arasındaki hello bağıntıları Hello sayısal değerleri hello Araştır penceresi için kullanılabilir. Bu ilginç "teknolojisinin" olumsuz "sizin" bağıntılı, örneğin toonote ve "para" olur.
 
-Çıngırağı bazı yaygın sorunlar işlemek için veri kümesi dönüştürebilirsiniz. Örneğin, bu özellikleri yeniden Ölçeklendir, eksik değerleri impute, aykırı değerlerini işlemek ve değişkenlerin ya da eksik verilerle gözlemleri kaldırmanızı sağlar. Çıngırağı gözlemleri ve/veya değişkenleri arasındaki ilişkilendirme kuralları da tanımlayabilirsiniz. Bu sekme, bu tanıtıcı kılavuz için kapsam dışına:.
+Çıngırağı hello dataset toohandle bazı yaygın sorunlar dönüştürebilirsiniz. Örneğin, toorescale özelliklerini tanır, eksik değerleri impute, aykırı değerlerini işlemek ve değişkenleri veya eksik verilerle gözlemleri kaldırın. Çıngırağı gözlemleri ve/veya değişkenleri arasındaki ilişkilendirme kuralları da tanımlayabilirsiniz. Bu sekme, bu tanıtıcı kılavuz için kapsam dışına:.
 
-Çıngırağı küme analiz de gerçekleştirebilirsiniz. Şimdi çıktının okunmasını kolaylaştırmak için bazı özellikler çıkar. Üzerinde **veri** sekmesinde, seçin **Yoksay** her bir değişken on bu öğeler dışında yanındaki:
+Çıngırağı küme analiz de gerçekleştirebilirsiniz. Şimdi bazı özellikleri toomake hello çıktı daha kolay tooread dışlayın. Merhaba üzerinde **veri** sekmesinde, seçin **Yoksay** on bu öğeler dışında hello değişkenlerin sonraki tooeach:
 
 * word_freq_hp
 * word_freq_technology
@@ -386,38 +386,38 @@ Sözcükler arasındaki bağıntıları sayısal değerleri Araştır penceresi 
 * word_freq_business
 * istenmeyen posta
 
-Daha sonra geri dönerek **küme** sekmesinde, seçin **KMeans**ve *küme sayısı* 4. Ardından **yürütme**. Sonuçlar çıktı penceresinde görüntülenir. Bir küme yüksek sıklığı "Hasan" ve "hp" vardır ve büyük olasılıkla yasal iş e-posta olur.
+Toohello geri dönün **küme** sekmesinde, seçin **KMeans**ve kümesi hello *küme sayısı* too4. Ardından **yürütme**. Merhaba sonuçlar hello çıktı penceresinde görüntülenir. Bir küme yüksek sıklığı "Hasan" ve "hp" vardır ve büyük olasılıkla yasal iş e-posta olur.
 
-Basit karar ağacı makine öğrenimi modeli oluşturmak için:
+toobuild basit karar ağacı machine learning modelini:
 
-* Seçin **modeli** sekmesi
-* Seçin **ağaç** olarak **türü**.
-* Seçin **yürütme** ağaç çıktı penceresinde metin biçiminde görüntülemek için.
-* Seçin **çizin** grafik sürümünü görüntülemek için düğmeye. Bunu elde daha önce kullanarak ağacına oldukça benzer *rpart*.
+* Select hello **modeli** sekmesi
+* Seçin **ağaç** hello olarak **türü**.
+* Seçin **yürütme** toodisplay hello metin biçiminde hello ağacında çıktı penceresi.
+* Select hello **çizin** düğmesini tooview grafik bir sürüm. Bu oldukça benzer toohello ağaç elde daha önce kullanarak arar *rpart*.
 
-İyi özelliklerinden Çıngırağı biri birkaç makine öğrenme yöntemlerini çalıştırma ve bunları hızlı bir şekilde değerlendirmek yeteneğidir. Yordam aşağıdaki gibidir:
+Biri hello iyi Çıngırağı özelliklerini kendi yeteneği toorun birkaç machine learning yöntemleri ve bunları hızlı bir şekilde değerlendirin. Merhaba yordamı şöyledir:
 
-* Seçin **tüm** için **türü**.
+* Seçin **tüm** hello için **türü**.
 * Seçin **yürütme**.
-* Sona erdikten sonra tüm tek tıklatabilirsiniz **türü**gibi **SVM**ve sonuçları görüntüleyin.
-* Kullanılarak ayarlanan doğrulama modellerinde performansını de karşılaştırabilirsiniz **değerlendir** sekmesi. Örneğin, **hata matris** seçimi gösterir, karışıklığı matrisi, genel hata ve ortalama sınıfı hata her model için doğrulama ayarlayın.
+* Sona erdikten sonra tüm tek tıklatabilirsiniz **türü**gibi **SVM**ve hello sonuçları görüntüleyin.
+* Merhaba kullanılarak ayarlanan hello doğrulama hello modellerinde hello performansını de karşılaştırabilirsiniz **değerlendir** sekmesi. Örneğin, hello **hata matris** seçimi gösterir, hello karışıklığı matrisi, genel hata ve her model için ortalama sınıfı hata hello doğrulama kümesinde.
 * Ayrıca ROC eğriler çizme, duyarlılık çözümlemesi ve diğer türleri modeli değerlendirmeleri yapın.
 
-Model oluşturmaya yaptıktan sonra seçeneğini **günlük** Çıngırağı tarafından oturumunuz sırasında çalışma R kodu görüntülemek için. Seçebileceğiniz **verme** kaydetmeyi düğmesi.
+Model oluşturmaya yaptıktan sonra hello seçeneğini **günlük** sekmesinde tooview hello R kodu tarafından Çıngırağı oturumunuz sırasında çalıştırın. Merhaba seçebilirsiniz **verme** düğmesini toosave onu.
 
 > [!NOTE]
-> Çıngırağı geçerli sürümde bir hata var. Komut dosyasını değiştirin veya daha sonra buluncaya için kullanmak için bir # karakteri önüne yerleştirin *... Bu günlüğünü Dışarı Aktar * günlük metin.
+> Çıngırağı geçerli sürümde bir hata var. toomodify hello komut dosyası veya toorepeat kullanın adımlarınızı daha sonra # karakterini önüne eklemeniz gerekir *... Bu günlüğünü Dışarı Aktar * hello günlüğünün hello metin.
 >
 >
 
 ## <a name="postgresql--squirrel-sql"></a>PostgreSQL & Squirrel SQL
-DSVM yüklü PostgreSQL ile birlikte gelir. PostgreSQL Gelişmiş, açık kaynak ilişkisel veritabanıdır. Bu bölümde, istenmeyen posta kümemize PostgreSQL yüklemek ve ardından sorgu gösterilmektedir.
+Merhaba DSVM yüklü PostgreSQL ile birlikte gelir. PostgreSQL Gelişmiş, açık kaynak ilişkisel veritabanıdır. Bu bölümde gösterilmiştir nasıl tooload bizim PostgreSQL dataset istenmeyen posta göndermek ve ardından sorgu.
 
-Verileri yüklemeden önce localhost parola kimlik doğrulamasını izin vermeniz gerekiyor. Bir komut isteminde:
+Merhaba veri yükleyebilir önce hello localhost tooallow parola kimlik doğrulamasını gerekir. Bir komut isteminde:
 
     sudo gedit /var/lib/pgsql/data/pg_hba.conf
 
-Yapılandırma dosyası altına izin verilen bağlantılar ayrıntı birden çok satıra şunlardır:
+Merhaba yapılandırma dosyası Hello altına bağlantılara izin hello ayrıntı birden çok satıra şunlardır:
 
     # "local" is for Unix domain socket connections only
     local   all             all                                     trust
@@ -426,31 +426,31 @@ Yapılandırma dosyası altına izin verilen bağlantılar ayrıntı birden çok
     # IPv6 local connections:
     host    all             all             ::1/128                 ident
 
-Biz bir kullanıcı adı ve parola kullanarak oturum için md5 plainname yerine kullanmak için "IPv4 yerel bağlantılar" satırı değiştirin:
+Biz bir kullanıcı adı ve parola kullanarak oturum şekilde hello "IPv4 yerel bağlantılar" satırı toouse md5 plainname, yerine değiştirin:
 
     # IPv4 local connections:
     host    all             all             127.0.0.1/32            md5
 
-Ve postgres hizmetini yeniden başlatın:
+Ve hello postgres hizmetini yeniden başlatın:
 
     sudo systemctl restart postgresql
 
-Etkileşimli terminal yerleşik postgres kullanıcı olarak, PostgreSQL için psql başlatmak için bir isteminden aşağıdaki komutu çalıştırın:
+toolaunch psql, etkileşimli terminal hello yerleşik postgres kullanıcı olarak, PostgreSQL için komutu bir isteminden aşağıdaki hello çalıştırın:
 
     sudo -u postgres psql
 
-Şu anda olarak oturum açtınız ve parola verin Linux hesabıyla aynı kullanıcı adı kullanarak yeni bir kullanıcı hesabı oluşturun:
+Yeni bir kullanıcı hesabı oluşturma, kullanarak aynı kullanıcı adı şu anda olarak oturum açtınız Linux hesabı hello gibi hello ve parola verin:
 
     CREATE USER <username> WITH CREATEDB;
     CREATE DATABASE <username>;
     ALTER USER <username> password '<password>';
     \quit
 
-Psql için kullanıcı olarak sonra oturum açın:
+Ardından toopsql, kullanıcı olarak oturum açın:
 
     psql
 
-Ve yeni bir veritabanına veri içeri aktarın:
+Ve yeni bir veritabanına hello veri içeri aktarın:
 
     CREATE DATABASE spam;
     \c spam
@@ -458,54 +458,54 @@ Ve yeni bir veritabanına veri içeri aktarın:
     \copy data FROM /home/<username>/spambase.data DELIMITER ',' CSV;
     \quit
 
-Şimdi, şimdi verileri araştırırken kullanarak bazı sorgular çalıştırmak **Squirrel SQL**, JDBC sürücüsü aracılığıyla veritabanlarıyla etkileşim olanak sağlayan bir grafik aracıdır.
+Şimdi, şimdi hello verileri araştırırken kullanarak bazı sorgular çalıştırmak **Squirrel SQL**, JDBC sürücüsü aracılığıyla veritabanlarıyla etkileşim olanak sağlayan bir grafik aracıdır.
 
-Başlamak için uygulamaları menüsünden Squirrel SQL başlatın. Sürücüsünü kurmak için:
+tooget başlatıldı, Squirrel SQL hello uygulamaları menüsünden başlatın. Merhaba sürücü yukarı tooset:
 
 * Seçin **Windows**, ardından **görüntülemek sürücüleri**.
 * Sağ **PostgreSQL** seçip **değiştirmek sürücü**.
 * Seçin **yolu'fazladan sınıf**, ardından **eklemek**.
-* Girin ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** için **dosya adı** ve
+* Girin ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** hello için **dosya adı** ve
 * Seçin **açık**.
 * Liste sürücüleri seçin ve ardından **org.postgresql.Driver** içinde **sınıf adı**seçip **Tamam**.
 
-Yerel sunucu bağlantısını ayarlamak için:
+tooset hello bağlantı toohello yerel sunucusu:
 
 * Seçin **Windows**, ardından **diğer adlar görüntüleyin.**
-* Seçin  **+**  düğmesi yeni bir diğer ad yapın.
-* Bu ad *istenmeyen posta veritabanı*, seçin **PostgreSQL** içinde **sürücü** açılır.
-* URL'sini ayarlamak *jdbc:postgresql://localhost/spam*.
+* Merhaba seçin  **+**  düğmesini toomake yeni bir diğer ad.
+* Adlandırın *istenmeyen posta veritabanı*, seçin **PostgreSQL** hello içinde **sürücü** açılır.
+* Merhaba URL çok ayarlanmış*jdbc:postgresql://localhost/spam*.
 * Girin, *kullanıcıadı* ve *parola*.
 * **Tamam** düğmesine tıklayın.
-* Açmak için **bağlantı** penceresinde çift ***istenmeyen posta veritabanı*** diğer adı.
+* tooopen hello **bağlantı** penceresinde hello çift ***istenmeyen posta veritabanı*** diğer adı.
 * **Bağlan**’ı seçin.
 
-Bazı sorgular çalıştırmak için:
+toorun bazı sorgular:
 
-* Seçin **SQL** sekmesi.
-* Basit bir sorgu girin `SELECT * from data;` sorgu metin kutusuna SQL sekmenin üstünde.
-* Tuşuna **Ctrl-Enter** çalıştırmak için. Varsayılan olarak Squirrel SQL sorgunuzdan ilk 100 satırı döndürür.
+* Select hello **SQL** sekmesi.
+* Basit bir sorgu girin `SELECT * from data;` hello sorgu metin kutusuna hello SQL sekmesi hello üstünde.
+* Tuşuna **Ctrl-Enter** toorun onu. Varsayılan olarak Squirrel SQL hello sorgunuzdan ilk 100 satırı döndürür.
 
-Bu verileri araştırmak için çalıştırabilir pek çok daha fazla sorguları vardır. Örneğin, word sıklığını nasıl mu *olun* istenmeyen ve ham arasında farklı?
+Bu veriler tooexplore çalıştırabilir pek çok daha fazla sorguları vardır. Örneğin, nasıl mu hello hello word sıklığını *olun* istenmeyen ve ham arasında farklı?
 
     SELECT avg(word_freq_make), spam from data group by spam;
 
-Veya sık içeren e-posta özelliklerini nelerdir *3B*?
+Veya sık içeren e-posta hello özellikleri nelerdir *3B*?
 
     SELECT * from data order by word_freq_3d desc;
 
-Yüksek bir oluşumunu sahip çoğu e-postaları *3B* olan görünüşe göre istenmeyen posta göndermek, e-postaları sınıflandırmak için Tahmine dayalı bir model oluşturmak için yararlı bir özellik olması.
+Yüksek bir oluşumunu sahip çoğu e-postaları *3B* olan görünüşe göre istenmeyen posta göndermek, e-postaları Tahmine dayalı bir model tooclassify hello oluşturmak için yararlı bir özellik olması.
 
-Bir PostgreSQL veritabanında depolanan verilerle machine learning gerçekleştirmek istiyorsanız, kullanmayı [MADlib](http://madlib.incubator.apache.org/).
+Bir PostgreSQL veritabanında depolanan verilerle tooperform machine learning istediyseniz, kullanmayı [MADlib](http://madlib.incubator.apache.org/).
 
 ## <a name="sql-server-data-warehouse"></a>SQL Server veri ambarı
 Azure SQL Veri Ambarı, hem ilişkisel hem de ilişkisel olmayan çok geniş hacimlerdeki verileri işleyebilen, bulut tabanlı bir genişletme veritabanıdır. Daha fazla bilgi için bkz: [Azure SQL Data Warehouse nedir?](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-Veri ambarına bağlanmak ve tablo oluşturmak için bir komut isteminden aşağıdaki komutu çalıştırın:
+tooconnect toohello veri ambarı ve hello tablo, bir komut isteminden çalıştırma hello şu komutu oluşturun:
 
     sqlcmd -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -I
 
-Ardından sqlcmd isteminde:
+Ardından hello sqlcmd isteminde:
 
     CREATE TABLE spam (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer) WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
     GO
@@ -515,7 +515,7 @@ Bcp ile veri kopyalayın:
     bcp spam in spambaseHeaders.data -q -c -t  ',' -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -F 1 -r "\r\n"
 
 > [!NOTE]
-> İndirilen Dosya, satır sonları Windows stili olsa da - r bayrağıyla söyleyin bcp ihtiyacımız şekilde bcp UNIX stilinde bekliyor.
+> Merhaba satır sonları hello indirilen dosyadaki Windows stili olsa da, - r bayrağı hello ile tootell bcp ihtiyacımız şekilde bcp UNIX stilinde bekliyor.
 >
 >
 
@@ -524,9 +524,9 @@ Ve sorgu sqlcmd ile:
     select top 10 spam, char_freq_dollar from spam;
     GO
 
-Ayrıca Squirrel SQL ile sorgulayabilir. İçinde bulunan Microsoft MSSQL Server JDBC sürücüsü kullanarak PostgreSQL için benzer adımları ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
+Ayrıca Squirrel SQL ile sorgulayabilir. Merhaba Microsoft MSSQL Server JDBC sürücüsü içinde bulunan kullanarak PostgreSQL için benzer adımları ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure veri bilimi işlemi oluşturan görevler size yol konuları genel bakış için bkz: [takım veri bilimi işlemi](http://aka.ms/datascienceprocess).
+Azure'da hello veri bilimi işlemi oluşturan hello görevleri rehberlik konuları genel bakış için bkz: [takım veri bilimi işlemi](http://aka.ms/datascienceprocess).
 
-Belirli senaryolar için takım veri bilimi işlemdeki adımlar gösteren diğer uçtan uca talimatlara açıklaması için bkz: [takım veri bilimi süreci gözden geçirmeleri](data-science-process-walkthroughs.md). İzlenecek yollar da Bulut ve şirket içi araçları ve Hizmetleri bir iş akışı veya akıllı bir uygulama oluşturmak için ardışık düzen birleştirmek nasıl gösterilmektedir.
+Merhaba takım veri bilimi işlemi belirli senaryoları için hello adımlarda gösteren diğer uçtan uca talimatlara açıklaması için bkz: [takım veri bilimi süreci gözden geçirmeleri](data-science-process-walkthroughs.md). Hello izlenecek yollar da nasıl toocombine bulut göstermek ve şirket içi araçları ve akıllı bir uygulama bir iş akışı veya ardışık düzen toocreate Hizmetleri.

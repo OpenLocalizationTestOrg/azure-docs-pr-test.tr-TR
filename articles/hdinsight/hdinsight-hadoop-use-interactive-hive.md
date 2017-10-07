@@ -1,6 +1,6 @@
 ---
-title: "Hdınsight'ta - Azure etkileşimli Hive kullanma | Microsoft Docs"
-description: "Etkileşimli Hive (Hive LLAP üzerinde) kullanmak Hdınsight'ta öğrenin."
+title: "aaaUse etkileşimli Hive hdınsight'ta - Azure | Microsoft Docs"
+description: "Bilgi nasıl toouse etkileşimli (Hive LLAP üzerinde) hdınsight'ta Hive."
 keywords: 
 services: hdinsight
 documentationcenter: 
@@ -17,20 +17,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: e7874b55fc72f14d8e2c801872359e823cb2ba34
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9e751a08091d18bc1b3d070468feef87f6828c61
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-interactive-hive-in-hdinsight-preview"></a>(Önizleme) hdınsight'ta etkileşimli Hive kullanma
-Etkileşimli (paketini yığını [Canlı uzun ve işlem](https://cwiki.apache.org/confluence/display/Hive/LLAP)) yeni bir Hdınsight olan [küme türü](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).  Etkileşimli Hive bellek çok daha etkileşimli ve daha hızlı Hive sorgularını yapan önbelleğe alma de sağlar. Bu yeni özellik dünyanın, Hdınsight (Hive ve Spark kullanarak) bellek içi önbellek ile çoğu kullanıcı, esnek ve açık büyük veri çözümlerini bulut sağlar ve Gelişmiş analitikler R hizmetleriyle derin tümleştirme aracılığıyla. 
+Etkileşimli (paketini yığını [Canlı uzun ve işlem](https://cwiki.apache.org/confluence/display/Hive/LLAP)) yeni bir Hdınsight olan [küme türü](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).  Etkileşimli Hive bellek çok daha etkileşimli ve daha hızlı Hive sorgularını yapan önbelleğe alma de sağlar. Bu yeni özellik Hdınsight hello birini dünyanın çoğu kullanıcı, esnek ve açık büyük veri çözümleri hello buluttaki (Hive ve Spark kullanarak) bellek içi önbellek ile yapar ve Gelişmiş analitikler R hizmetleriyle derin tümleştirme aracılığıyla. 
 
-Etkileşimli Hive küme Hadoop küme farklıdır. Yalnızca Hive hizmeti de içerir. 
+Merhaba etkileşimli Hive küme hello Hadoop kümeden farklıdır. Yalnızca hello Hive hizmeti de içerir. 
 
 > [!NOTE]
 > MapReduce, Pig, Sqoop, Oozie ve diğer hizmetler bu küme türü ile yakında kaldırılır.
-> Etkileşimli Hive küme Hive hizmetinde yalnızca Ambari Hive görünümü, Beeline ve Hive ODBC erişilebilir. Hive konsol, Templeton, Azure CLI ve Azure PowerShell erişilemiyor. 
+> Merhaba hello etkileşimli Hive küme Hive hizmetinde yalnızca hello Ambari Hive görünümünü, Beeline ve Hive ODBC erişilebilir. Hive konsol, Templeton, Azure CLI ve Azure PowerShell erişilemiyor. 
 > 
 > 
 
@@ -40,28 +40,28 @@ Etkileşimli Hive küme yalnızca Linux tabanlı kümelerde desteklenir. Hdınsi
 ## <a name="execute-hive-from-interactive-hive"></a>Etkileşimli kovanından Hive yürütme
 Vardır farklı Hive sorguları nasıl yürütebilir seçenekleri:
 
-* Ambari Hive görünümünü kullanarak Hive çalıştırın
+* Merhaba Ambari Hive görünümünü kullanarak Hive çalıştırın
   
-    Hive görünümünü kullanma hakkında bilgi için bkz: [hdınsight'ta Hadoop ile Hive görünümünü kullanın](hdinsight-hadoop-use-hive-ambari-view.md).
+    Merhaba bilgi hello Hive görünümü kullanma hakkında bkz [kullanım hello hdınsight'ta Hadoop ile Hive görünümü](hdinsight-hadoop-use-hive-ambari-view.md).
 * Hive Beeline kullanarak çalıştırma
   
-    Hdınsight üzerinde Beeline kullanma hakkında bilgi için bkz: [Beeline ile hdınsight'ta Hadoop ile Hive kullanma](hdinsight-hadoop-use-hive-beeline.md).
+    Beeline kullanarak hello hakkında bilgi için bkz: [Beeline ile hdınsight'ta Hadoop ile Hive kullanma](hdinsight-hadoop-use-hive-beeline.md).
   
-    Beeline headnode veya boş kenar düğümünü kullanın.  Bir boş kenar düğümden Beeline kullanılması önerilir.  Boş bir edgenode ile Hdınsight kümesi oluşturma hakkında daha fazla bilgi için bkz: [Hdınsight'ta boş kenar düğümünü kullanmak](hdinsight-apps-use-edge-node.md).
+    Beeline hello headnode veya boş kenar düğümünü kullanın.  Bir boş kenar düğümden Beeline kullanılması önerilir.  Boş bir edgenode ile Hdınsight kümesi oluşturma hakkında daha fazla bilgi için bkz: [Hdınsight'ta boş kenar düğümünü kullanmak](hdinsight-apps-use-edge-node.md).
 * Hive ODBC kullanarak Hive çalıştırın
   
-    Hive ODBC kullanma hakkında bilgi için bkz: [bağlanmak Excel için Microsoft Hive ODBC sürücüsü ile hadoop'a](hdinsight-connect-excel-hive-odbc-driver.md).
+    Hive ODBC kullanarak hello hakkında bilgi için bkz: [hello Microsoft Hive ODBC sürücüsü ile bağlanma Excel tooHadoop](hdinsight-connect-excel-hive-odbc-driver.md).
 
-**JDBC bağlantı dizesi bulmak için:**
+**toofind hello JDBC bağlantı dizesi:**
 
-1. Aşağıdaki URL'yi kullanarak ambarı'na oturum açma: https://<ClusterName>. AzureHDInsight.net.
-2. Tıklatın **Hive** sol menüden.
-3. URL'yi kopyalamak için vurgulanan simgesine tıklayın:
+1. Üzerinde tooAmbari URL aşağıdaki hello kullanarak oturum açın: https://<ClusterName>. AzureHDInsight.net.
+2. Tıklatın **Hive** hello sol menüden.
+3. Vurgulanan hello simgesi toocopy hello URL'yi tıklatın:
    
    ![Hdınsight Hadoop etkileşimli Hive LLAP JDBC](./media/hdinsight-hadoop-use-interactive-hive/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Hdınsight'ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md): Hdınsight'ta etkileşimli Hive kümeleri oluşturmayı öğrenin.
-* [Beeline ile hdınsight'ta Hadoop ile Hive kullanma](hdinsight-hadoop-use-hive-beeline.md): Beeline Hive sorguları göndermek için nasıl kullanılacağını öğrenin.
-* [Excel'i Microsoft Hive ODBC sürücüsü ile Hadoop için bağlama](hdinsight-connect-excel-hive-odbc-driver.md): Excel kovana bağlamayı öğrenin.
+* [Hdınsight'ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md): Hdınsight'ta nasıl toocreate etkileşimli Hive kümeleri öğrenin.
+* [Beeline ile hdınsight'ta Hadoop ile Hive kullanma](hdinsight-hadoop-use-hive-beeline.md): öğrenin nasıl toouse Beeline toosubmit Hive sorguları.
+* [Excel tooHadoop hello Microsoft Hive ODBC sürücüsü ile bağlantı](hdinsight-connect-excel-hive-odbc-driver.md): öğrenin nasıl tooconnect Excel tooHive.
 

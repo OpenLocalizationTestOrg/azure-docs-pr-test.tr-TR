@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB için C++ öğreticisi | Microsoft Docs"
+title: "aaaC ++ Azure Cosmos DB Öğreticisi | Microsoft Docs"
 description: "C++ için Azure Cosmos DB onaylı bir SDK’yı kullanarak bir C++ veritabanı ve konsol uygulaması oluşturan öğretici. Azure Cosmos DB, çok büyük ölçekli bir veritabanı hizmetidir."
 services: cosmos-db
 documentationcenter: cpp
@@ -14,13 +14,13 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
-ms.openlocfilehash: 7d8de973765830ccd7983182bc1bb19b1e01e505
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d5eeff349b7753e39936b7eb77557ad30c5830a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-documentdb-api"></a>Azure Cosmos DB: DocumentDB API’si için C++ konsol uygulaması öğreticisi
+# <a name="azure-cosmos-db-c-console-application-tutorial-for-hello-documentdb-api"></a>Azure Cosmos DB: Merhaba DocumentDB API C++ konsol uygulaması Öğreticisi
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,61 +32,61 @@ ms.lasthandoff: 07/11/2017
 > 
  
 
-C++ için Azure Cosmos DB DocumentDB API’si onaylı SDK için C++ öğreticisine hoş geldiniz! Bu öğreticiden yararlandıktan sonra, bir C++ veritabanı dahil olmak üzere Azure Cosmos DB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
+Hoş Geldiniz toohello C++ öğretici hello Azure Cosmos DB DocumentDB API için C++ için SDK Destekli! Bu öğreticiden yararlandıktan sonra, bir C++ veritabanı dahil olmak üzere Azure Cosmos DB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
 
 Şu konulara değineceğiz:
 
-* Azure Cosmos DB hesabı oluşturma ve hesaba bağlanma
+* Oluşturma ve tooan Azure Cosmos DB hesabına bağlanma
 * Uygulamanızı kurma
 * C++ Azure Cosmos DB veritabanı oluşturma
 * Koleksiyon oluşturma
 * JSON belgeleri oluşturma
-* Koleksiyonu sorgulama
+* Merhaba koleksiyonu sorgulama
 * Bir belgeyi değiştirme
 * Bir belgeyi silme
-* C++ Azure Cosmos DB veritabanını silme
+* Merhaba C++ Azure Cosmos DB veritabanı siliniyor
 
-Zamanınız yok mu? Endişelenmeyin! Eksiksiz çözümü [GitHub](https://github.com/stalker314314/DocumentDBCpp)'da bulabilirsiniz. Hızlı yönergeler için bkz. [Eksiksiz çözüm edinme](#GetSolution).
+Zamanınız yok mu? Endişelenmeyin! Merhaba eksiksiz bir çözüm edinilebilir [GitHub](https://github.com/stalker314314/DocumentDBCpp). Bkz: [alma hello eksiksiz bir çözüm](#GetSolution) hızlı yönergeler için.
 
-C++ öğreticisini tamamladıktan sonra, bize geri bildirim sağlamak için lütfen bu sayfanın alt kısmındaki oylama düğmelerini kullanın. 
+Merhaba C++ öğreticiyi tamamladıktan sonra lütfen hello kullan oylama hello bu sayfa toogive sonunda bize geri bildirim düğmeler. 
 
-Doğrudan sizinle iletişim kurmamızı isterseniz yorumlarınıza e-posta adresinizi ekleyin veya [buradan bize ulaşın](https://www.research.net/r/8BKRJ3Z). 
+Bize istiyorsanız toocontact doğrudan düşündüğünüz ücretsiz tooinclude e-posta adresi, yorumlarınızı veya [toous burada ulaşmak](https://www.research.net/r/8BKRJ3Z). 
 
 Şimdi başlayalım!
 
-## <a name="prerequisites-for-the-c-tutorial"></a>C++ öğreticisi için önkoşullar
-Lütfen aşağıdakilere sahip olduğunuzdan emin olun:
+## <a name="prerequisites-for-hello-c-tutorial"></a>Merhaba C++ öğreticisi için Önkoşullar
+Merhaba aşağıdaki sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [Ücretsiz Azure Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-* C++ dil bileşenleri yüklü [Visual Studio](https://www.visualstudio.com/downloads/).
+* [Visual Studio](https://www.visualstudio.com/downloads/), hello C++ dil bileşenlerinin yüklü ile.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
-Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [C++ uygulamanızı kurma](#SetupNode)'ya atlayabilirsiniz.
+Bir Azure Cosmos DB hesabı oluşturalım. Toouse istediğiniz bir hesap zaten varsa, şimdi çok atlayabilirsiniz[C++ uygulamanızı kurma](#SetupNode).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupC++"></a>2. Adım: C++ uygulamanızı ayarlama
-1. Visual Studio’yu açın ve **Dosya** menüsünde **Yeni**’ye, ardından **Proje**’ye tıklayın. 
-2. **Yeni Proje** penceresindeki **Yüklü** bölmesinde **Visual C++** seçeneğini genişletin, **Win32**’ye ve ardından **Win32 Konsol Uygulaması**’na tıklayın. Projeyi hellodocumentdb olarak adlandırıp **Tamam**’a tıklayın. 
+1. Visual Studio'yu açın ve ardından hello **dosya** menüsünde tıklatın **yeni**ve ardından **proje**. 
+2. Merhaba, **yeni proje** penceresinde hello **yüklü** bölmesinde genişletin **Visual C++**, tıklatın **Win32**ve ardından  **Win32 konsol uygulaması**. Merhaba proje hellodocumentdb olarak adlandırın ve ardından **Tamam**. 
    
-    ![Yeni proje sihirbazının ekran görüntüsü](media/documentdb-cpp-get-started/hello.png)
-3. Win32 Uygulama Sihirbazı başlatıldığında **Son**’a tıklayın.
-4. Proje oluşturulduktan sonra **Çözüm Gezgini**’nde **hellodocumentdb** projesine sağ tıklayıp **NuGet Paketlerini Yönet**’e tıklayarak NuGet paket yöneticisini açın. 
+    ![Merhaba Yeni Proje Sihirbazı ekran görüntüsü](media/documentdb-cpp-get-started/hello.png)
+3. Win32 Uygulama Sihirbazı'nı Hello başladığında tıklayın **son**.
+4. Merhaba Proje oluşturulduktan sonra hello NuGet Paket Yöneticisi hello sağ tıklayarak açın **hellodocumentdb** proje **Çözüm Gezgini** tıklatıp **NuGet paketlerini Yönet**. 
    
-    ![Proje menüsündeki NuGet Paketlerini Yönet seçeneğini gösteren ekran görüntüsü](media/documentdb-cpp-get-started/nuget.png)
-5. **NuGet: hellodocumentdb** sekmesinde **Gözat**’a tıklayın ve *documentdbcpp* öğesini aratın. Aşağıdaki ekran görüntüsünde gösterildiği gibi, sonuçlardan DocumentDbCPP’yi seçin. Bu paket, DocumentDbCPP için bir bağımlılık olan C++ REST SDK başvurularını yükler.  
+    ![NuGet paketini Yönet hello Proje menüsünde gösteren ekran görüntüsü](media/documentdb-cpp-get-started/nuget.png)
+5. Merhaba, **NuGet: hellodocumentdb** sekmesini tıklatın, **Gözat**, arayın ve sonra *documentdbcpp*. Merhaba sonuçlarında DocumentDbCPP, hello ekran aşağıdaki gösterildiği gibi seçin. Bu paketi başvuruları tooC ++ REST SDK hello DocumentDbCPP için bağımlılık olduğu yükler.  
    
-    ![DocumentDbCpp paketini vurgulanmış halde gösteren ekran görüntüsü](media/documentdb-cpp-get-started/cpp.png)
+    ![Vurgulanan gösteren ekran görüntüsü hello DocumentDbCpp paketi](media/documentdb-cpp-get-started/cpp.png)
    
-    Paketler projenize eklendikten sonra biraz kod yazmaya hazırız demektir.   
+    Merhaba paketleri tooyour proje eklendikten sonra tüm kümesi toostart biraz kod yazmaya duyuyoruz.   
 
 ## <a id="Config"></a>3. Adım: Azure Cosmos DB veritabanınıza yönelik bağlantı ayrıntılarını Azure portaldan kopyalama
-[Azure portalını](https://portal.azure.com) açın ve oluşturduğunuz Azure Cosmos DB veritabanı hesabına gidin. C++ kod parçacığımızdan bir bağlantı oluşturmak için bir sonraki adımda Azure portalından alınan URI ve birincil anahtara ihtiyacımız olacak. 
+Ortaya çıkarmak [Azure portal](https://portal.azure.com) ve çapraz oluşturduğunuz toohello Azure Cosmos DB veritabanı hesabı. Bizim C++ kod parçacığını biz hello URI ve hello sonraki adım tooestablish bağlantı Azure portalından hello birincil anahtar gerekir. 
 
-![Azure portalında Azure Cosmos DB URI’si ve anahtarlar](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
+![Azure Cosmos DB URI ve anahtarları'hello Azure portalı](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a id="Connect"></a>4. Adım: Azure Cosmos DB hesabına bağlanma
-1. Aşağıdaki üst bilgileri ve ad alanlarını kaynak kodunuza `#include "stdafx.h"` ifadesinden sonra gelecek şekilde ekleyin.
+## <a id="Connect"></a>4. adım: tooan Azure Cosmos DB hesap bağlanma
+1. Üstbilgiler ve ad alanlarını tooyour kaynak kodu, sonra aşağıdaki hello eklemek `#include "stdafx.h"`.
    
         #include <cpprest/json.h>
         #include <documentdbcpp\DocumentClient.h>
@@ -96,17 +96,17 @@ Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zate
         using namespace documentdb;
         using namespace std;
         using namespace web::json;
-2. Ardından, aşağıdaki kodu ana işlevinize ekleyin ve hesap yapılandırması ile birincil anahtarı 3. adımdaki Azure Cosmos DB ayarlarınızla eşleşecek şekilde değiştirin. 
+2. Sonraki hello aşağıdaki kod tooyour main işlevi ve hello hesabı yapılandırması birincil anahtar toomatch 3. adımındaki Azure Cosmos DB ayarlarınızı değiştirip ekleyin. 
    
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
    
-    Artık documentdb istemcisini başlatmaya yarayacak koda sahip olduğunuza göre, Azure Cosmos DB kaynaklarıyla çalışmaya bakalım.
+    Merhaba kod tooinitialize hello documentdb istemci sahip olduğunuza göre Azure Cosmos DB kaynaklarla çalışmak bir bakalım.
 
 ## <a id="CreateDBColl"></a>5. Adım: C++ veritabanı ve koleksiyonu oluşturma
-Bu adımı gerçekleştirmeden önce, Azure Cosmos DB konusunda acemi olanlar için veritabanı, koleksiyon ve belgelerin nasıl etkileşimde bulunduğundan bahsedelim. [Veritabanı](documentdb-resources.md#databases), koleksiyonlar genelinde bölümlenmiş belge depolama alanının mantıksal bir kapsayıcısıdır. [Koleksiyon](documentdb-resources.md#collections), JSON belgeleri ve ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır. [Azure Cosmos DB hiyerarşik kaynak modeli ve kavramları](documentdb-resources.md) konusundan Azure Cosmos DB hiyerarşik kaynak modeli ve kavramları hakkında daha fazla bilgi edinebilirsiniz.
+Biz bu adımı gerçekleştirmeden önce nasıl bir veritabanı, koleksiyon ve belgeler için olanlar da yeni tooAzure Cosmos DB olan etkileşim üzerinden edelim. [Veritabanı](documentdb-resources.md#databases), koleksiyonlar genelinde bölümlenmiş belge depolama alanının mantıksal bir kapsayıcısıdır. A [koleksiyonu](documentdb-resources.md#collections) hello ilişkili JavaScript uygulama mantığının ve JSON belgelerinin bir kapsayıcıdır. Hello Azure Cosmos DB hiyerarşik kaynak modeli ve konuları hakkında daha fazla bilgi edinmek [Azure Cosmos DB hiyerarşik kaynak modeli ve kavramları](documentdb-resources.md).
 
-Bir veritabanı ve ona karşılık gelen bir koleksiyon oluşturmak için aşağıdaki kodu ana işlevinizin sonuna ekleyin. Bunu yaptığınızda, önceki adımda belirttiğiniz istemci yapılandırması kullanılarak 'FamilyRegistry’ adlı bir veritabanı ve ‘FamilyCollection’ adlı bir koleksiyon oluşturulur.
+Veritabanı bir toocreate ve karşılık gelen koleksiyon kod toohello ana işlevinizi sonuna aşağıdaki hello ekleyin. Bu, 'FamilyRegistry' ve 'hello önceki adımda bildirilen hello İstemci Yapılandırması'nı kullanarak FamilyCollection' adlı bir koleksiyon adı verilen bir veritabanı oluşturur.
 
     try {
       shared_ptr<Database> db = client.CreateDatabase(L"FamilyRegistry");
@@ -117,7 +117,7 @@ Bir veritabanı ve ona karşılık gelen bir koleksiyon oluşturmak için aşağ
 
 
 ## <a id="CreateDoc"></a>6. Adım: Belge oluşturma
-[Belgeler](documentdb-resources.md#documents), kullanıcı tanımlı (rastgele) JSON içeriğidir. Artık Azure Cosmos DB'ye bir belge yerleştirebilirsiniz. Aşağıdaki kodu ana işlevin sonuna kopyalayarak bir belge oluşturabilirsiniz. 
+[Belgeler](documentdb-resources.md#documents), kullanıcı tanımlı (rastgele) JSON içeriğidir. Artık Azure Cosmos DB'ye bir belge yerleştirebilirsiniz. Bir belge hello main işlevi hello sonuna koddan hello kopyalayarak oluşturabilirsiniz. 
 
     try {
       value document_family;
@@ -134,14 +134,14 @@ Bir veritabanı ve ona karşılık gelen bir koleksiyon oluşturmak için aşağ
       wcout << ex.message();
     }
 
-Özetlemek gerekirse, bu kod bir Azure Cosmos DB veritabanı, koleksiyonu ve belgeleri oluşturur ve bunları Azure portalındaki Belge Gezgini’nde sorgulayabilirsiniz. 
+toosummarize, bu kod bir Azure Cosmos DB veritabanı, koleksiyon ve belge Gezgini Azure portalında sorgulayabilirsiniz belgeler oluşturur. 
 
-![C++ öğreticisi - Hesap, veritabanı, koleksiyon ve belgeler arasındaki hiyerarşik ilişkiyi gösteren diyagram](media/documentdb-cpp-get-started/docs.png)
+![C++ Öğreticisi - hello hello hesabı, hello veritabanı, hello koleksiyonu ve hello belgeler arasındaki hiyerarşik ilişkiyi gösteren diyagram](media/documentdb-cpp-get-started/docs.png)
 
 ## <a id="QueryDB"></a>7. Adım: Azure Cosmos DB kaynaklarını sorgulama
-Azure Cosmos DB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](documentdb-sql-query.md) gerçekleştirilmesini destekler. Aşağıdaki örnek kod, önceki adımda oluşturduğumuz belgelerde SQL söz dizimi kullanarak gerçekleştirebileceğimiz bir sorguyu gösterir.
+Azure Cosmos DB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](documentdb-sql-query.md) gerçekleştirilmesini destekler. Merhaba aşağıdaki örnek kod hello önceki adımda oluşturduğumuz hello belgeleri karşı çalıştırabilirsiniz SQL söz dizimi kullanılarak yapılan bir sorguyu gösterir.
 
-Bu işlev, veritabanı ve koleksiyonun yanı sıra belge istemcisinin benzersiz tanımlayıcısı ve kaynak kimliğini bağımsız değişkenler olarak alır. Bu kodu ana işlevden önce ekleyin.
+benzersiz tanımlayıcı veya kaynak kimliği hello veritabanı ve hello belge istemci birlikte hello koleksiyonu için bağımsız değişkenler hello gibi hello işlevi alır. Bu kodu ana işlevden önce ekleyin.
 
     void executesimplequery(const DocumentClient &client,
                             const wstring dbresourceid,
@@ -170,7 +170,7 @@ Bu işlev, veritabanı ve koleksiyonun yanı sıra belge istemcisinin benzersiz 
     }
 
 ## <a id="Replace"></a>8. Adım: Bir belgeyi değiştirme
-Azure Cosmos DB, aşağıdaki kodda gösterildiği gibi JSON belgelerinin değiştirilmesini destekler. Bu kodu executesimplequery işlevinden sonra ekleyin.
+Azure Cosmos DB hello kod aşağıdaki gösterildiği gibi JSON belgelerini değiştirmeyi destekler. Merhaba executesimplequery işlevi sonra bu kodu ekleyin.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
                          const wstring collresourceid,
@@ -190,7 +190,7 @@ Azure Cosmos DB, aşağıdaki kodda gösterildiği gibi JSON belgelerinin deği�
     }
 
 ## <a id="Delete"></a>9. Adım: Bir belgeyi silme
-Azure Cosmos DB JSON belgelerinin silinmesini destekler; aşağıdaki kodu kopyalayıp replacedocument işlevinden sonra yapıştırarak bunu gerçekleştirebilirsiniz. 
+JSON belgeleri silmeyi azure Cosmos DB destekler, kopyalama ve yapıştırma hello koddan sonra hello replacedocument işlevi tarafından bunu yapabilirsiniz. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
                         const wstring collresourceid, const wstring docresourceid) {
@@ -205,9 +205,9 @@ Azure Cosmos DB JSON belgelerinin silinmesini destekler; aşağıdaki kodu kopya
     }
 
 ## <a id="DeleteDB"></a>10. Adım: Bir veritabanını silme
-Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler vb.) kaldırılır.
+Oluşturulan hello veritabanı siliniyor hello veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler, vb.) kaldırır.
 
-Veritabanını ve tüm alt kaynaklarını kaldırmak için aşağıdaki kod parçacığını (cleanup işlevi) kopyalayıp deletedocument işlevinden sonra yapıştırın.
+Kod parçacığını (işlevi temizleme) hello deletedocument işlevi tooremove hello veritabanı ve tüm hello alt kaynakları sonra aşağıdaki hello kopyalayıp yeniden açın.
 
     void deletedb(const DocumentClient &client, const wstring dbresourceid) {
       try {
@@ -218,9 +218,9 @@ Veritabanını ve tüm alt kaynaklarını kaldırmak için aşağıdaki kod par�
     }
 
 ## <a id="Run"></a>11. Adım: C++ uygulamanızı hep birlikte çalıştırın!
-Farklı Azure Cosmos DB kaynaklarını oluşturmak, sorgulamak, değiştirmek ve silmek için kod ekledik.  Şimdi de bu farklı işlevlere hellodocumentdb.cpp’deki ana işlevimizden çağrıların yanı sıra bazı tanılama iletileri ekleyerek bağlantıları tamamlayalım.
+Biz kod toocreate artık eklemiş olduğunuz, sorgu, değiştirmek ve farklı Azure Cosmos DB kaynakları silin.  Bize şimdi bu yukarı bizim main işlevi hellodocumentdb.cpp bazı tanılama iletileri ile birlikte gelen çağrıları toothese farklı işlevler ekleyerek bağlayın.
 
-Bunu, uygulamanızın ana işlevini aşağıdaki kodla değiştirerek gerçekleştirebilirsiniz. Bu işlem 3. adımda koda kopyaladığınız account_configuration_uri ve primary_key değerlerinin üzerine yazacağından, bu satırı kaydedin veya değerleri yeniden portaldan kopyalayın. 
+Merhaba main işlevi, uygulamanızın koddan hello ile değiştirerek bunu yapabilirsiniz. Bu yazma hello account_configuration_uri ve 3. adımında, hello koda kopyaladığınız primary_key üzerinden şekilde kaydedin bu satırı ya da kopyalama hello değer yeniden hello portalından. 
 
     int main() {
         try {
@@ -269,24 +269,24 @@ Bunu, uygulamanızın ana işlevini aşağıdaki kodla değiştirerek gerçekle�
         cin.get();
     }
 
-Artık F5’e basarak veya alternatif olarak terminal penceresinden uygulamayı bulup yürütülebilir dosyayı çalıştırarak Visual Studio’da kendi kodunuzu derleyip çalıştırabilmeniz gerekiyor. 
+Artık mümkün toobuild olması ve F5 tuşuna basarak Visual Studio'da kodunuzu çalıştırmak veya gerekir alternatif olarak hello uygulama bulma ve çalıştırarak terminal penceresinde hello yürütülebilir hello. 
 
-Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıkışın aşağıdaki görüntüyle eşleşmesi gerekir.
+Merhaba Başlarken uygulamanızın çıktısını görmeniz gerekir. Merhaba çıkış ekran aşağıdaki hello eşleşmelidir.
 
 ![Azure Cosmos DB C++ uygulama çıktısı](media/documentdb-cpp-get-started/console.png)
 
-Tebrikler! C++ öğreticisini tamamladınız ve ilk Azure Cosmos DB konsol uygulamanızı oluşturdunuz!
+Tebrikler! Merhaba C++ öğreticisini tamamladınız ve İlk Azure Cosmos DB konsol uygulamanız sahip!
 
-## <a id="GetSolution"></a>Tam C++ öğreticisi çözümünü edinin
-Bu makaledeki tüm örnekleri içeren GetStarted çözümünü derlemek için aşağıdakilere ihtiyacınız vardır:
+## <a id="GetSolution"></a>Merhaba tam C++ Öğreticisi çözümünü edinme
+Bu makaledeki tüm hello örnekleri içeren toobuild hello GetStarted çözümünü hello aşağıdaki gerekir:
 
 * [Azure Cosmos DB hesabı][create-account].
-* GitHub'da bulunan [GetStarted](https://github.com/stalker314314/DocumentDBCpp) çözümü.
+* Merhaba [GetStarted](https://github.com/stalker314314/DocumentDBCpp) çözüm Github'da kullanılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Cosmos DB hesabını nasıl izleyebileceğinizi](monitor-accounts.md) öğrenin.
-* [Query Playground](https://www.documentdb.com/sql/demo)'daki örnek veri kümelerimizde sorgular çalıştırın.
-* [Azure Cosmos DB belgeleri sayfasının](https://azure.microsoft.com/documentation/services/documentdb/) Geliştirme bölümünde programlama modeli hakkında daha fazla bilgi edinin.
+* Nasıl çok öğrenin[Azure Cosmos DB hesabını izleme](monitor-accounts.md).
+* Merhaba, örnek veri kümelerimizde sorgular çalıştırın [Query Playground](https://www.documentdb.com/sql/demo).
+* Merhaba hello hello geliştirme bölümünde programlama modelleri hakkında daha fazla bilgi edinin [Azure Cosmos DB belge sayfasının](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [create-account]: create-documentdb-dotnet.md#create-account
 

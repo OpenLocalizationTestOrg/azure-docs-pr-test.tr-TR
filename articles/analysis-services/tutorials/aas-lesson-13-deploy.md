@@ -1,76 +1,59 @@
 ---
-title: "Azure Analysis Services öğreticisi 13. ders: Dağıtma | Microsoft Docs"
-description: "Azure Analysis Services’a öğretici projesinin nasıl dağıtılacağını açıklar."
-services: analysis-services
-documentationcenter: 
-author: minewiskan
-manager: erikre
-editor: 
-tags: 
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 07/17/2017
-ms.author: owend
-ms.openlocfilehash: 70dbf5786262f75199270aa8009e03b9b48b8559
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+Başlık: aaa "Azure Analysis Services öğretici Ders 13: dağıtma | Microsoft Docs"Açıklama: nasıl toodeploy hello öğretici proje tooAzure Analysis Services açıklar.
+Hizmetleri: analysis services documentationcenter: '' Yazar: minewiskan Yöneticisi: erikre Düzenleyicisi: '' etiketler: ''
+
+MS.assetid: ms.service: analysis services ms.devlang: NA ms.topic: get-makalesi ms.tgt_pltfrm: NA ms.workload: na ms.date: 07/17/2017 ms.author: owend
 ---
 # <a name="lesson-13-deploy"></a>13. Ders: Dağıtma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Bu derste, Azure Analysis Services sunucusunun model için bir ad belirtmesini sağlayarak dağıtım özelliklerini yapılandırırsınız. Daha sonra modeli bu örneğe dağıtırsınız. Modeliniz dağıtıldıktan sonra kullanıcılar bir raporlama istemci uygulaması kullanarak modele bağlanabilir. Daha fazla bilgi için bkz. [Azure Analysis Services’a Dağıtma](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
+Bu alıştırmanın ilerisinde dağıtım özelliklerini yapılandırın; bir Azure Analysis Services sunucusu toodeploy tooand hello modeli için bir ad belirtme. Merhaba model toothat örneğini dağıtırsınız. Model dağıtıldıktan sonra kullanıcılar bir raporlama istemci uygulaması kullanarak tooit bağlanabilir. toolearn daha, fazla [tooAzure Analysis Services dağıtma](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
-Bu dersin tahmini tamamlanma süresi: **5 dakika**  
+Bu ders zaman toocomplete tahmini: **5 dakika**  
   
 ## <a name="prerequisites"></a>Ön koşullar  
-Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [12. Ders: Excel’de çözümleme](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu ders Hello görevleri gerçekleştirmeden önce hello önceki Ders tamamlandı: [Ders 12: Excel'de Çözümle özelliğini](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
-> Uzak Analysis Services sunucusunu dağıtmak için sunucu üzerinde [Yönetici izinlerine](../analysis-services-server-admins.md) sahip olmanız gerekir.  
+> Bilmeniz gereken [yönetici izinleri](../analysis-services-server-admins.md) üzerinde hello uzak Analysis Services sunucusu sıralı toodeploy tooit.  
 
 > [!IMPORTANT]  
-> AdventureWorksDW2014 örnek veritabanını şirket içi bir SQL Server’a yüklediyseniz ve modelinizi bir Azure Analysis Services sunucusuna dağıtacaksanız [Şirket içi veri ağ geçidi](../analysis-services-gateway.md) gereklidir.
+> Bir şirket içi SQL sunucusunda hello AdventureWorksDW2014 örnek veritabanı yüklediyseniz ve model tooan Azure Analysis Services sunucusuna dağıtıyorsunuz bir [şirket içi veri ağ geçidi](../analysis-services-gateway.md) gereklidir.
   
-## <a name="deploy-the-model"></a>Modeli dağıtma  
+## <a name="deploy-hello-model"></a>Merhaba model dağıtma  
   
-#### <a name="to-configure-deployment-properties"></a>Dağıtım özelliklerini yapılandırmak için  
+#### <a name="tooconfigure-deployment-properties"></a>tooconfigure dağıtım özellikleri  
 
   
-1.  **Çözüm Gezgini**’nde **AW İnternet Satışları** projesine sağ tıklayıp **Özellikler**’e tıklayın.  
+1.  İçinde **Çözüm Gezgini**, sağ hello **AW Internet satış** proje ve ardından **özellikleri**.  
   
-2.  **AW İnternet Satışları Özellik Sayfaları** iletişim kutusundaki **Dağıtım Sunucusu** altında bulunan **Server** özelliğine tüm sunucuyu girin.  
+2.  Merhaba, **AW Internet satış özellik sayfaları** iletişim kutusunda **dağıtım sunucusu**, hello içinde **Server** özelliği, hello tam sunucu girin.  
 
     ![aas-lesson13-deploy-property](../tutorials/media/aas-lesson13-deploy-property.png)
   
-3.  **Database** özelliğine **Adventure Works İnternet Satışları** yazın.  
+3.  Merhaba, **veritabanı** özelliği, türü **Adventure Works Internet satış**.  
   
-4.  **Model Name** özelliğine **Adventure Works İnternet Satışları Modeli** yazın.  
+4.  Merhaba, **Model adı** özelliği, türü **Adventure Works Internet satış modeli**.  
   
 5.  Seçimlerinizi doğrulayıp **Tamam**’a tıklayın.  
   
-#### <a name="to-deploy-the-adventure-works-internet-sales"></a>Adventure Works İnternet Satışlarını dağıtmak için
+#### <a name="toodeploy-hello-adventure-works-internet-sales"></a>toodeploy hello Adventure Works Internet satış
   
-1.  **Çözüm Gezgini**’nde **AW İnternet Satışları** projesine sağ tıklayıp **Derleme**’ye tıklayın.  
+1.  İçinde **Çözüm Gezgini**, sağ hello **AW Internet satış** Proje > **yapı**.  
 
-2.  **AW İnternet Satışları** projesine sağ tıklayıp **Dağıt**’a tıklayın.
+2.  Sağ hello **AW Internet satış** Proje > **dağıtma**.
 
-    Azure Analysis Services'a dağıtım yaparken hesabınızı girmeniz istenebilir. Kuruluş hesabınızı ve parolanızı girin, örneğin nancy@adventureworks.com. Bu hesap, sunucudaki Yöneticiler grubuna üye olmalıdır.
+    TooAzure Analysis Services dağıtırken, olabilir istendiğinde tooenter hesabınızın olması. Kuruluş hesabınızı ve parolanızı girin, örneğin nancy@adventureworks.com. Bu hesap Admins hello sunucuda olmalıdır.
   
-    Dağıtım iletişim kutusu görünür ve burada meta veriler ile modele dahil edilen her tablonun dağıtım durumu gösterilir.  
+    Merhaba Dağıt iletişim kutusu görünür ve başlangıç dağıtım durumu hello meta verilerin ve hello modele dahil her bir tablo görüntüler.  
     
     ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
   
 3. Dağıtım başarıyla tamamlandığında devam edin ve **Kapat**’a tıklayın.  
   
 ## <a name="conclusion"></a>Sonuç  
-Tebrikler! İlk Analysis Services Tablo modelinizi yazma ve dağıtma işlemini tamamladınız. Bu öğretici, bir tablo modeli oluştururken en yaygın görevleri tamamlamanıza yardımcı olmuştur. Adventure Works İnternet Satışları modeliniz artık dağıtıldığına göre SQL Server Management Studio’yu kullanarak modeli yönetebilir, işlem betikleri ve bir yedek plan oluşturabilirsiniz. Kullanıcılar artık ayrıca Microsoft Excel veya Power BI gibi bir raporlama istemci uygulaması kullanarak modele bağlanabilir.  
+Tebrikler! İlk Analysis Services Tablo modelinizi yazma ve dağıtma işlemini tamamladınız. Bu öğretici, tablolu model oluşturma hello en yaygın görevleri tamamlama aracılığıyla Kılavuzu Yardım. Adventure Works Internet satış modelinizi dağıtılır, SQL Server Management Studio toomanage hello modelini kullanabilirsiniz; işlem komut dosyaları ve bir yedekleme planı oluşturun. Kullanıcılar artık Microsoft Excel veya Power BI gibi bir raporlama istemci uygulaması kullanarak toohello modeli bağlanabilir.  
 
 ![aas-lesson13-ssms](../tutorials/media/aas-lesson13-ssms.png)
   

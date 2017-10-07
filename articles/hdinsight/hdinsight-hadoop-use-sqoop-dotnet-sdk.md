@@ -1,6 +1,6 @@
 ---
-title: ".NET ve Hdınsight - Azure kullanarak Sqoop işleri çalıştırma | Microsoft Docs"
-description: "Hdınsight .NET SDK'sı Sqoop alma çalıştırın ve bir Hadoop kümesi ve bir Azure SQL veritabanı arasında dışa aktarmak için nasıl kullanılacağını öğrenin."
+title: ".NET ve Hdınsight - Azure kullanarak aaaRun Sqoop işleri | Microsoft Docs"
+description: "Nasıl toouse Hdınsight .NET SDK'sı toorun Sqoop içe ve dışa aktarma Hadoop kümesi ve bir Azure SQL veritabanı arasında bilgi edinin."
 keywords: "sqoop işi"
 editor: cgronlun
 manager: jhubbard
@@ -17,37 +17,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: c95641fc6d20e2911e007d1974b9e2c2398b3133
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: afa0a78ba5e5d89c04ba7be4b58dd24aea4f39ec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-sqoop-jobs-using-net-sdk-for-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop için .NET SDK kullanarak Sqoop işleri çalıştırma
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-İçeri ve dışarı aktarma Hdınsight kümesi ve Azure SQL veritabanı veya SQL Server veritabanı arasında hdınsight'ta Sqoop işlerini çalıştırmak için Hdınsight .NET SDK'sını kullanmayı öğrenin.
+Hdınsight kümesi ve Azure SQL veritabanı veya SQL Server veritabanı arasında dışarı aktarmak ve nasıl toouse Hdınsight .NET SDK'sı toorun Sqoop Hdınsight tooimport işleri öğrenin.
 
 > [!NOTE]
-> Bu makaledeki adımları ya da bir Windows veya Linux tabanlı Hdınsight kümesiyle kullanılabilir; Ancak, bu adımlar, yalnızca bir Windows istemcisinden çalışır. Bu makalenin üst kısmındaki sekme seçicisini diğer yöntemleri seçmek için kullanın.
+> Bu makaledeki adımları Hello ya da bir Windows veya Linux tabanlı Hdınsight kümesiyle kullanılabilir; Ancak, bu adımlar, yalnızca bir Windows istemcisinden çalışır. Merhaba sekme seçicisini Bu makale toochoose hello üstündeki diğer yöntemleri kullanın.
 > 
 > 
 
 ### <a name="prerequisites"></a>Ön koşullar
-Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
+Bu öğreticiye başlamadan önce aşağıdaki öğelerindeki hello sahip olmanız gerekir:
 
 * **Hdınsight'ta Hadoop kümesi**. Bkz: [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## <a name="use-sqoop-on-hdinsight-clusters-using-net-sdk"></a>.NET SDK kullanarak Hdınsight kümelerinde Sqoop kullanma
-Hdınsight .NET SDK'sı .NET istemci kitaplıkları, .NET Hdınsight kümeleriyle çalışmak kolaylaştırır sağlar. Bu bölümde, bu öğreticide daha önce oluşturduğunuz SQL veritabanı tablosu hivesampletable verilecek bir C# konsol uygulaması oluşturun.
+Merhaba Hdınsight .NET SDK'sı .NET istemci kitaplıkları, .NET gelen Hdınsight kümeleri ile daha kolay toowork olmasını sağlayan sağlar. Bu bölümde, bu öğreticide daha önce oluşturduğunuz bir C# konsol uygulaması tooexport hello hivesampletable toohello SQL veritabanı tablosu oluşturun.
 
 ## <a name="submit-a-sqoop-job"></a>Sqoop işi gönderin
 
 1. Visual Studio'da bir C# konsol uygulaması oluşturun.
-2. Visual Studio Paket Yöneticisi Konsolu'ndan paketini içeri aktarmak için aşağıdaki Nuget komutunu çalıştırın.
+2. Visual Studio Paket Yöneticisi konsolu Hello Nuget komutu tooimport hello paketi aşağıdaki hello çalıştırın.
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
-3. Aşağıdaki kodu Program.cs dosyasında kullanın:
+3. Merhaba Program.cs dosyasındaki kodu aşağıdaki hello kullan:
    
         using System.Collections.Generic;
         using Microsoft.Azure.Management.HDInsight.Job;
@@ -67,14 +67,14 @@ Hdınsight .NET SDK'sı .NET istemci kitaplıkları, .NET Hdınsight kümeleriyl
    
                 static void Main(string[] args)
                 {
-                    System.Console.WriteLine("The application is running ...");
+                    System.Console.WriteLine("hello application is running ...");
    
                     var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
                     _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
    
                     SubmitSqoopJob();
    
-                    System.Console.WriteLine("Press ENTER to continue ...");
+                    System.Console.WriteLine("Press ENTER toocontinue ...");
                     System.Console.ReadLine();
                 }
    
@@ -101,25 +101,25 @@ Hdınsight .NET SDK'sı .NET istemci kitaplıkları, .NET Hdınsight kümeleriyl
                         Command = "export --connect " + connectionString + " --table " + tableName + "_mobile --export-dir " + exportDir + "_mobile --fields-terminated-by \\t -m 1"
                     };
    
-                    System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
+                    System.Console.WriteLine("Submitting hello Sqoop job toohello cluster...");
                     var response = _hdiJobManagementClient.JobManagement.SubmitSqoopJob(parameters);
-                    System.Console.WriteLine("Validating that the response is as expected...");
+                    System.Console.WriteLine("Validating that hello response is as expected...");
                     System.Console.WriteLine("Response status code is " + response.StatusCode);
-                    System.Console.WriteLine("Validating the response object...");
+                    System.Console.WriteLine("Validating hello response object...");
                     System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
                 }
             }
         }
-4. Tuşuna **F5** programı çalıştırmak için. 
+4. Tuşuna **F5** toorun hello program. 
 
 ## <a name="limitations"></a>Sınırlamalar
-* Toplu export - ile Linux tabanlı Hdınsight, Microsoft SQL Server veya Azure SQL veritabanı için verileri dışa aktarmak için kullanılan Sqoop bağlayıcı toplu eklemeler şu anda desteklemiyor.
-* -Kullanırken, Linux tabanlı Hdınsight ile toplu işleme `-batch` eklemeleri gerçekleştirirken geçiş, Sqoop gerçekleştirir INSERT işlemlerine toplu işleme yerine birden çok ekler.
+* Toplu export - ile Linux tabanlı Hdınsight, hello Sqoop kullanılan bağlayıcı tooexport veri tooMicrosoft SQL Server ya da Azure SQL veritabanı toplu eklemeler şu anda desteklemiyor.
+* -Hello kullanırken, Linux tabanlı Hdınsight ile toplu işleme `-batch` eklemeleri gerçekleştirirken geçiş, Sqoop gerçekleştirir hello INSERT işlemlerine toplu işleme yerine birden çok ekler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi Sqoop kullanma öğrendiniz. Daha fazla bilgi için bkz:
+Öğrendiğiniz artık nasıl toouse Sqoop. toolearn daha bakın:
 
 * [Hdınsight ile Oozie kullanma](hdinsight-use-oozie.md): Oozie iş akışında kullanmak Sqoop eylem.
-* [Hdınsight kullanarak uçuş gecikme verileri analiz](hdinsight-analyze-flight-delay-data.md): uçuş çözümlemek için kullanmak Hive gecikme veri ve bir Azure SQL veritabanına veri vermek için Sqoop kullanın.
-* [Verileri Hdınsight'a yükleme](hdinsight-upload-data.md): Hdınsight/Azure Blob depolama alanına veri yüklemek için diğer yöntemler bulun.
+* [Hdınsight kullanarak uçuş gecikme verileri analiz](hdinsight-analyze-flight-delay-data.md): kullanmak Hive tooanalyze uçuş gecikme veri ve Sqoop tooexport veri tooan Azure SQL veritabanını kullanın.
+* [Veri tooHDInsight karşıya](hdinsight-upload-data.md): veri tooHDInsight/Azure Blob Depolama yüklemek için diğer yöntemler bulun.
 

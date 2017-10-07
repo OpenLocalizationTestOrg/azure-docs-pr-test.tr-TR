@@ -1,5 +1,5 @@
 ---
-title: "Hizmet veri yolu zaman uyumsuz Mesajlaşma | Microsoft Docs"
+title: "aaaService Bus zaman uyumsuz Mesajlaşma | Microsoft Docs"
 description: "Azure Service Bus zaman uyumsuz Mesajlaşma açıklaması."
 services: service-bus-messaging
 documentationcenter: na
@@ -14,88 +14,88 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: sethm
-ms.openlocfilehash: 95d6f295ba145a55fe4ed3fc7c6f627c9d419a3c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5ab6ddf052155a9dd975b413cfaf393119c1999d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Zaman uyumsuz mesajlaşma modelleri ve yüksek kullanılabilirlik
 
-Zaman uyumsuz Mesajlaşma çeşitli farklı şekillerde uygulanabilir. Kuyruklar, konular ve abonelikler ile Azure Service Bus deposu ve iletme mekanizması aracılığıyla asynchronism destekler. Normal (zaman uyumlu) işlemi, kuyrukları ve konularından iletiler göndermek ve kuyrukları ve aboneliklerinden iletiler alırsınız. Yazdığınız uygulamalar her zaman kullanılabilir olan varlıkları bağlıdır. Varlık durumu değiştiğinde durumlarda, çeşitli nedeniyle çoğu gereksinimlerini karşılayabilen bir azaltılmış yetenek varlık sağlamak için bir yönteme ihtiyacınız vardır.
+Zaman uyumsuz Mesajlaşma çeşitli farklı şekillerde uygulanabilir. Kuyruklar, konular ve abonelikler ile Azure Service Bus deposu ve iletme mekanizması aracılığıyla asynchronism destekler. Normal (zaman uyumlu) işleminde, iletileri tooqueues ve konuları gönderebilir ve kuyrukları ve aboneliklerinden iletiler alabilirsiniz. Yazdığınız uygulamalar her zaman kullanılabilir olan varlıkları bağlıdır. Merhaba varlık durumu değiştiğinde tooa çeşitli koşullar, yolu tooprovide çoğu gereksinimlerini karşılayabilen bir azaltılmış yetenek varlık gerekir.
 
-Uygulamaları, zaman uyumsuz Mesajlaşma desenleri genellikle çeşitli iletişim senaryoları etkinleştirmek için kullanın. Bile hizmet çalışmadığı zaman, istemciler iletileri hizmetlerine gönderebilir uygulamalar oluşturabilir. Uygulamalar için iletişim, bir sıra WINS'e yardımcı olabilir, deneyimi düzey yük arabellek iletişimler için bir yer sağlayarak. Son olarak, birden fazla makine arasında iletilerini dağıtmak için basit ancak etkili yük dengeleyici elde edebilirsiniz.
+Uygulamalar genellikle zaman uyumsuz Mesajlaşma desenleri tooenable çeşitli iletişim senaryoları kullanın. Hatta hello hizmeti çalışmadığı zaman, istemciler iletileri tooservices gönderebilir uygulamalar oluşturabilir. WINS'e iletişimin deneyimi uygulamalar için bir sıra yer toobuffer iletişim sağlayarak yük düzeyi hello yardımcı olabilir. Son olarak, birden fazla makine arasında basit ancak etkili bir yük dengeleyici toodistribute iletileri alabilirsiniz.
 
-Bu varlıkları kullanılabilirliğini sürdürmek için bu varlıklar için sağlam bir ileti sistemi kullanılamaz görünebilir farklı şekillerde sayısını göz önünde bulundurun. Genel olarak bakıldığında, biz aşağıdaki farklı yollarla yazma uygulamalara kullanılamaz hale varlık bakın:
+Sipariş toomaintain kullanılabilirliğini bu varlıkları içinde birkaç farklı yolla bu varlıklar için sağlam bir ileti sistemi kullanılamaz görünebilir göz önünde bulundurun. Genel olarak bakıldığında, biz farklı şekillerde aşağıdaki hello yazma kullanılamaz tooapplications hale hello varlık bakın:
 
-* İleti gönderilemiyor.
-* İletileri alınamadı.
-* Varlıkları Yönet kurulamıyor (oluşturma, alma, güncelleştirme veya varlıklarını silme).
-* Hizmetiyle iletişim kurulamıyor.
+* %S toosend iletileri.
+* %S tooreceive iletileri.
+* %S toomanage varlıkları (oluşturma, alma, güncelleştirme veya varlıklarını silme).
+* %S toocontact hello hizmeti.
 
-Bu başarısızlıkların her biri için farklı bir hata modları azaltılmış yeteneğinin düzeyinde işlerini yapmak devam etmek bir uygulama sağlayan mevcut. Örneğin, ileti gönderme ancak bunları almamayı bir sistem siparişleri müşterilerden hala alabilir ancak bu siparişleri işleyemiyor. Bu konu, oluşabilecek olası sorunları ele alır ve bu sorunların nasıl azalır. Service Bus içine opt Azaltıcı Etkenler sayısı sunulan ve bu konuda Ayrıca bu katılımı Azaltıcı Etkenler kullanımını yöneten kuralları anlatılmaktadır.
+Bu başarısızlıkların her biri için farklı bir hata modları azaltılmış yeteneğinin düzeyinde bir uygulama toocontinue tooperform iş sağlayan mevcut. Örneğin, ileti gönderme ancak bunları almamayı bir sistem siparişleri müşterilerden hala alabilir ancak bu siparişleri işleyemiyor. Bu konu, oluşabilecek olası sorunları ele alır ve bu sorunların nasıl azalır. Service Bus içine opt Azaltıcı Etkenler sayısı sunulan ve bu konuda Ayrıca bu katılımı Azaltıcı hello yöneten kuralları kullan hello anlatılmaktadır.
 
 ## <a name="reliability-in-service-bus"></a>Service Bus içinde güvenilirliği
-İleti ve varlık sorunlarını gidermek için birkaç yolu vardır ve bu Azaltıcı Etkenler uygun kullanımını yöneten yönergeler vardır. Yönergeleri anlamak için önce hizmet veri yolundaki yük devredebilir anlamanız gerekir. Azure sistemleri tasarım nedeniyle, bu sorunların tümü, kısa süreli olma eğilimindedir. Yüksek bir düzeyde kullanılamazlık farklı nedenleri şu şekilde görünür:
+Toohandle iletisi ve varlık sorunları birkaç yolu vardır ve bu Azaltıcı Etkenler hello uygun kullanımını yöneten yönergeler vardır. toounderstand hello yönergeleri, hizmet veri yolundaki yük devredebilir önce anlamanız gerekir. Azure sistemlerinin toohello tasarım nedeniyle bu sorunların tümü toobe kısa süreli eğilimindedir. Yüksek bir düzeyde kullanılamazlık farklı nedenleri hello şu şekilde görünür:
 
 * Hizmet veri yolu bağımlı olduğu bir dış sistemden azaltma. Depolama ve işlem kaynakları ile etkileşim gelen azaltma oluşur.
 * Hizmet veri yolu bağımlı olduğu bir sistem sorunu. Örneğin, belirli bir depolama parçası sorunlarla.
-* Tek alt sisteminde hata hizmet veri yolu. Bu durumda, bir işlem düğümünde tutarsız bir duruma alabilir ve kendisini diğer düğümlere dengelemek için sunduğu tüm varlıklar neden yeniden başlatmalısınız. Bu sırayla yavaş ileti işleme kısa bir süre neden olabilir.
-* Azure veri merkezi içinde hatası hizmet veri yolu. Bu "sırasında sistem birçok dakika ya da birkaç saat için ulaşılamaz olduğu yıkıcı bir hatadan" dir.
+* Tek alt sisteminde hata hizmet veri yolu. Bu durumda, bir işlem düğümünde tutarsız bir duruma alabilir ve kendisini yeniden başlatmanız gerekir; tüm varlıklar neden tooload Bakiye tooother düğümleri görev yapar. Bu sırayla yavaş ileti işleme kısa bir süre neden olabilir.
+* Azure veri merkezi içinde hatası hizmet veri yolu. "Hello sistem birçok dakika ya da birkaç saat için ulaşılamaz olduğu yıkıcı bir hatadan" budur.
 
 > [!NOTE]
-> Terim **depolama** Azure Storage ve SQL Azure anlamına gelebilir.
+> Merhaba terim **depolama** Azure Storage ve SQL Azure anlamına gelebilir.
 > 
 > 
 
-Service Bus bu sorunlar için Azaltıcı Etkenler sayısını içerir. Aşağıdaki bölümlerde her sorun ve bunların ilgili Azaltıcı açıklanmaktadır.
+Service Bus bu sorunlar için Azaltıcı Etkenler sayısını içerir. Aşağıdaki bölümlerde hello her sorun ve bunların ilgili Azaltıcı Etkenler tartışın.
 
 ### <a name="throttling"></a>Azaltma
-Service Bus ile azaltma işbirlikçi ileti oranı yönetimi sağlar. Tek tek her Service Bus düğüm birçok varlık barındırır. Bu varlıkların her CPU, bellek, depolama ve diğer yönleri açısından sistemde taleplerini yapar. Bu modellerle hiçbirini algıladığında, kullanım tanımlı eşiklerini aşan, hizmet veri yolu, belirtilen bir isteğin reddedebilirsiniz. Arayan alan bir [ServerBusyException] [ ServerBusyException] ve 10 saniye sonra yeniden deneme sayısı.
+Service Bus ile azaltma işbirlikçi ileti oranı yönetimi sağlar. Tek tek her Service Bus düğüm birçok varlık barındırır. Bu varlıkların her CPU, bellek, depolama ve diğer yönleri açısından hello sistemde taleplerini yapar. Bu modellerle hiçbirini algıladığında, kullanım tanımlı eşiklerini aşan, hizmet veri yolu, belirtilen bir isteğin reddedebilirsiniz. Merhaba arayan alan bir [ServerBusyException] [ ServerBusyException] ve 10 saniye sonra yeniden deneme sayısı.
 
-Bir azaltma kodu okuma hatası ve tüm yeniden denemeler iletisinin en az 10 saniye durdurmak gerekir. Hata müşteri uygulaması parçalarını arasında gerçekleşebilir olduğundan, her parça bağımsız olarak yeniden deneme mantığı yürütür beklenir. Kod bir kuyruk veya konu bölümleme etkinleştirerek karşılaşıldığı olasılığını azaltır.
+Azaltma, hello kodu okuma hello hatası ve en az 10 saniye boyunca tüm yeniden denemeler hello iletisinin durdurmak gerekir. Merhaba müşteri uygulaması parça Hello hata oluşabilir olduğundan, her parça hello yeniden deneme mantığını bağımsız olarak yürüten beklenir. Merhaba kod bir kuyruk veya konu bölümleme etkinleştirerek karşılaşıldığı hello olasılığını azaltır.
 
 ### <a name="issue-for-an-azure-dependency"></a>Bir Azure bağımlılığı sorunu
-Azure'daki diğer bileşenleri bazen hizmet sorunları olabilir. Örneğin, Service Bus kullanan bir sistemi yükseltme, sistemin geçici olarak azaltılmış yetenekleri yaşayabilirsiniz. Bu tür sorunların olarak çözmek için Service Bus düzenli olarak araştırır ve bunları azaltmanın yollarını uygular. Bu Azaltıcı Etkenler yan etkileri görünür. Örneğin, depolama ile geçici sorunlarını gidermek için tutarlı bir şekilde çalışması ileti gönderme işlemlere izin veren bir sistem hizmet veri yolu uygular. Azaltma yapısı nedeniyle, gönderilen iletiyi etkilenen sıra veya abonelik görünür ve bir alma işlemi için hazır olması için 15 dakika sürebilir. Genel olarak bakıldığında, bu sorun çoğu varlık karşılaşmazsınız. Ancak, Service Bus Azure içindeki varlıkların sayısı verilen, bu azaltma bazen Service Bus müşteriler küçük bir kısmı için gereklidir.
+Azure'daki diğer bileşenleri bazen hizmet sorunları olabilir. Örneğin, Service Bus kullanan bir sistemi yükseltme, sistemin geçici olarak azaltılmış yetenekleri yaşayabilirsiniz. Bu tür sorunlar, düzenli olarak Service Bus geçici toowork araştırır ve bunları azaltmanın yollarını uygular. Bu Azaltıcı Etkenler yan etkileri görünür. Örneğin, depolama ile toohandle geçici sorunlar, hizmet veri yolu ileti gönderme işlemleri toowork tutarlı bir şekilde sağlayan bir sistemi uygular. Gönderilen iletiyi hello azaltma toohello yapısı, etkilenen hello sıra veya abonelik too15 dakika tooappear kaplayan ve alma işlemi için hazır. Genel olarak bakıldığında, bu sorun çoğu varlık karşılaşmazsınız. Ancak, Azure içinde Service Bus içinde hello varlıkların sayısı verildiğinde, bu azaltma bazen Service Bus müşteriler küçük bir kısmı için gereklidir.
 
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Tek bir alt sistemi bağlı hizmet veri yolu hatası
-Herhangi bir uygulama ile durumlarda bir iç bileşeninin Service Bus'ın tutarsız hale gelmesine neden olabilir. Service Bus bu algıladığında, uygulamanın ne tanılamalarına yardımcı olmak için veri toplar. Veriler toplandıktan sonra uygulama için tutarlı bir duruma dönmek girişimi yeniden başlatılır. Bu işlem oldukça hızlı bir şekilde gerçekleşir ve normal olsa kapalı kaldıkları için birkaç dakika kadar kullanılamaz olacak şekilde görünen bir varlık sonuçlarında çok kısa.
+Herhangi bir uygulama ile durumlarda Service Bus toobecome tutarsız iç bir bileşeninin neden olabilir. Service Bus bu algıladığında ne tanılama içinde hello uygulama tooaid veri toplar. Merhaba veri toplandığında, hello uygulamasıdır bir girişim tooreturn tooa tutarlı bir duruma yeniden. Bu işlem oldukça hızlı bir şekilde gerçekleşir ve normal olsa kapalı kaldıkları birkaç dakika toobe tooa kullanılamaz görünen bir varlık sonuçlarında çok kısa.
 
-Bu durumda, istemci uygulaması oluşturan bir [System.TimeoutException] [ System.TimeoutException] veya [MessagingException] [ MessagingException] özel durum. Hizmet veri yolu azaltma bu sorunun otomatik istemci yeniden deneme mantığı biçiminde içerir. Yeniden deneme süresi dolana ve ileti teslim edilmedi sonra gibi diğer özellikleri kullanılarak keşfedebilirsiniz [eşleştirilmiş ad alanları][paired namespaces]. Eşleştirilmiş ad alanları bu makalede ele alınan diğer uyarılar var.
+Bu gibi durumlarda Merhaba istemci uygulaması oluşturan bir [System.TimeoutException] [ System.TimeoutException] veya [MessagingException] [ MessagingException] özel durum. Hizmet veri yolu azaltma bu sorunun otomatik istemci yeniden deneme mantığı hello biçiminde içerir. Merhaba yeniden deneme süresi tükendi ve hello ileti teslim edilmedi sonra gibi diğer özellikleri kullanılarak keşfedebilirsiniz [eşleştirilmiş ad alanları][paired namespaces]. Eşleştirilmiş ad alanları bu makalede ele alınan diğer uyarılar var.
 
 ### <a name="failure-of-service-bus-within-an-azure-datacenter"></a>Hizmet veri yolu hatası Azure veri merkezi içinde
-Azure veri merkezi içinde bir hata en olası nedeni bir hizmet veri yolu veya bağımlı sistem başarısız yükseltme dağıtımıdır. Platform olgunlaştığından gibi bu tür bir hata olasılığını yayınladıklarını. Bir veri merkezi hatası Ayrıca aşağıdakileri içeren nedenlerden kaynaklanabilir:
+Azure veri merkezi içinde bir hata Hello en olası nedeni hizmet veri yolu veya bağımlı sistemi başarısız yükseltme dağıtımı olmasıdır. Merhaba platform olgunlaştığından gibi bu hata türü hello olasılığını yayınladıklarını. Bir veri merkezi hatası de hello şunlar nedenlerle oluşabilir:
 
 * Elektrik kesintisi (güç kaynağı ve kayboluyor oluşturma güç).
 * Bağlantı (internet kesme istemcileri ve Azure arasında).
 
-Her iki durumda da doğal ya da man-made olağanüstü durum sorunu neden oldu. Bu sorunu çözmek ve iletileri göndermeye devam edebilir, kullanabileceğiniz emin olmak için [eşleştirilmiş ad alanları] [ paired namespaces] birincil konumda yeniden sağlıklı karşın ikinci bir konuma gönderilecek iletilerin etkinleştirmek için. Daha fazla bilgi için bkz: [en iyi uygulamalar için Service Bus kesintileri ve olağanüstü karşı uygulamalar insulating][Best practices for insulating applications against Service Bus outages and disasters].
+Her iki durumda da doğal ya da man-made olağanüstü durum hello sorunu neden oldu. Bu geçici toowork ve iletileri göndermeye devam edebilir, kullanabileceğiniz emin olun [eşleştirilmiş ad alanları] [ paired namespaces] hello birincil konumu yeniden sağlıklı yapılan sırada tooenable iletileri gönderilen toobe tooa ikinci konumu. Daha fazla bilgi için bkz: [en iyi uygulamalar için Service Bus kesintileri ve olağanüstü karşı uygulamalar insulating][Best practices for insulating applications against Service Bus outages and disasters].
 
 ## <a name="paired-namespaces"></a>Eşleştirilen ad alanları
-[Eşleştirilmiş ad alanları] [ paired namespaces] özelliğini destekleyen senaryoları, Service Bus varlık veya dağıtım bir veri merkezi içinde kullanılamaz. Bu olay sık gerçekleşirken hala dağıtılmış sistemlerin en kötü örneği senaryolarının işlemek için hazırlanması gerekir. Genellikle, Service Bus bağımlı olduğu bazı öğesi kısa süreli bir sorunla karşılaştığı için bu olay gerçekleşir. Kesinti sırasında uygulama kullanılabilirliği sürdürmek için Service Bus kullanıcılar iki ayrı ad alanları, tercihen ayrı veri merkezlerinde, Mesajlaşma varlıkları barındırmak için kullanabilirsiniz. Bu bölüm geri kalanı aşağıdaki terimleri kullanır:
+Merhaba [eşleştirilmiş ad alanları] [ paired namespaces] özelliğini destekleyen senaryoları, Service Bus varlık veya dağıtım bir veri merkezi içinde kullanılamaz. Bu olay sık gerçekleşirken dağıtılmış sistemlerin hala toohandle kötü örneği senaryolarının hazırlanması gerekir. Genellikle, Service Bus bağımlı olduğu bazı öğesi kısa süreli bir sorunla karşılaştığı için bu olay gerçekleşir. toomaintain uygulama kullanılabilirliği kesinti sırasında hizmet veri yolu kullanıcılar kendi Mesajlaşma varlıkları iki ayrı ad alanları, tercihen ayrı veri merkezleri, toohost kullanabilir. Bu bölümde Hello kalanı terminolojisi aşağıdaki hello kullanır:
 
-* Birincil ad alanı: hangi uygulamanız, etkileşim için gönderme ve alma işlemlerinin, ad alanı.
-* İkincil ad alanı: birincil ad alanı için bir yedekleme görevi gören ad alanı. Uygulama mantığını bu ad alanı ile etkileşime girmez.
-* Yük devretme aralığı: uygulama birincil ad alanından ikincil ad alanına geçiş yapmadan önce normal hataları kabul etmek için süre miktarı.
+* Birincil ad: ad alanı ile uygulamanızı etkileşim, gönderme için hello ve alma işlemleri.
+* İkincil ad alanı: yedekleme toohello birincil ad alanı olarak davranan ad alanı hello. Uygulama mantığını bu ad alanı ile etkileşime girmez.
+* Yük devretme aralığı: Merhaba uygulaması önce zaman tooaccept normal hataları hello miktarını hello birincil ad alanı toohello ikincil ad alanından geçer.
 
-Ad alanları destek eşleştirilmiş *kullanılabilirlik Gönder*. Kullanılabilirlik iletileri gönderme olanağı korur gönderin. Gönderme kullanılabilirlik kullanmak için uygulamanızı aşağıdaki gereksinimleri karşılaması gerekir:
+Ad alanları destek eşleştirilmiş *kullanılabilirlik Gönder*. Merhaba özelliği toosend iletileri kullanılabilirlik korur gönderin. toouse gönderme kullanılabilirlik, uygulamanızın gereksinimlerine hello karşılaması gerekir:
 
-1. İletileri yalnızca birincil ad alanından alınır.
-2. Belirli bir sıraya gönderilen iletileri veya konu bozuk ulaşır.
-3. Bir oturumu içinde iletiler bozuk geldiğinde. Oturumları normal işlevselliğini aradan budur. Bu, uygulamanızın mantıksal Grup iletileri oturumlarını kullandığı anlamına gelir.
-4. Oturum durumu yalnızca birincil ad korunur.
-5. Birincil kuyruk çevrimiçine ve ikincil sıra tüm iletileri birincil sıraya teslim önce iletileri kabul etmeye başlatın.
+1. İletileri yalnızca hello birincil ad alanından alınır.
+2. Verilen kuyruk veya konu gönderilen iletileri tooa bozuk ulaşır.
+3. Bir oturumu içinde iletiler bozuk geldiğinde. Oturumları normal işlevselliğini aradan budur. Bu, uygulamanızın oturumları toologically Grup iletileri kullandığı anlamına gelir.
+4. Oturum durumu yalnızca hello birincil ad korunur.
+5. Merhaba birincil kuyruk çevrimiçine ve hello ikincil sıra tüm iletileri hello birincil sıraya teslim önce iletileri kabul etmeye başlatın.
 
-Aşağıdaki bölümlerde API'ler açıklanmaktadır, nasıl API'leri uygulanır ve örnek kodunu gösterir özelliğini kullanır. Bu özellik ile ilişkili fatura etkileri olduğunu unutmayın.
+Aşağıdaki bölümlerde hello hello API'leri, hello API'leri nasıl uygulanır ve hello özelliğini kullanan gösterir örnek kod tartışın. Bu özellik ile ilişkili fatura etkileri olduğunu unutmayın.
 
-### <a name="the-messagingfactorypairnamespaceasync-api"></a>API MessagingFactory.PairNamespaceAsync
-Eşleştirilmiş ad alanları özelliği içerir [PairNamespaceAsync] [ PairNamespaceAsync] yöntemi [Microsoft.ServiceBus.Messaging.MessagingFactory] [ Microsoft.ServiceBus.Messaging.MessagingFactory] sınıfı:
+### <a name="hello-messagingfactorypairnamespaceasync-api"></a>Merhaba MessagingFactory.PairNamespaceAsync API
+Merhaba eşleştirilmiş ad alanları özelliği içerir hello [PairNamespaceAsync] [ PairNamespaceAsync] hello yöntemi [Microsoft.ServiceBus.Messaging.MessagingFactory] [ Microsoft.ServiceBus.Messaging.MessagingFactory] sınıfı:
 
 ```csharp
 public Task PairNamespaceAsync(PairedNamespaceOptions options);
 ```
 
-Görev tamamlandığında ad alanı eşleştirme ayrıca tam ve için görev için hazır [MessageReceiver][MessageReceiver], [QueueClient][QueueClient], veya [TopicClient] [ TopicClient] ile oluşturulan [Eventhubclient] [ MessagingFactory] örneği. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] [ Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] , çifti farklı uygulama türleri ile kullanılabilen için temel sınıfı olan bir [Eventhubclient] [ MessagingFactory] nesnesi. Şu anda yalnızca türetilmiş sınıf adlı biridir [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], gönderme kullanılabilirlik gereksinimlerini uygular. [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] birbirine yapı oluşturucuları kümesi vardır. Oluşturucusu çoğu parametrelerle baktığınızda, diğer oluşturucular davranışını anlayabilirsiniz.
+Merhaba görevi tamamlandığında hello ad alanı eşleştirme de üzerine tam ve hazır tooact herhangi olan [MessageReceiver][MessageReceiver], [QueueClient] [ QueueClient], veya [TopicClient] [ TopicClient] hello ile oluşturulan [Eventhubclient] [ MessagingFactory] örneği. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] [ Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] hello hello temel sınıfı ile kullanılabilen çifti farklı olan bir [Eventhubclient] [ MessagingFactory] nesnesi. Şu anda hello türetilmiş sınıf yalnızca adlı biridir [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], hello gönderme kullanılabilirlik gereksinimlerini uygular. [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] birbirine yapı oluşturucuları kümesi vardır. Hello Oluşturucusu ile Merhaba çoğu parametreleri baktığınızda, diğer oluşturucular hello hello davranışını anlayabilirsiniz.
 
 ```csharp
 public SendAvailabilityPairedNamespaceOptions(
@@ -106,22 +106,22 @@ public SendAvailabilityPairedNamespaceOptions(
     bool enableSyphon)
 ```
 
-Bu parametreleri şu anlama gelir:
+Bu parametreler anlamları aşağıdaki hello vardır:
 
-* *secondaryNamespaceManager*: başlatılan bir [NamespaceManager] [ NamespaceManager] örneği ikincil ad alanı için [PairNamespaceAsync] [ PairNamespaceAsync] yöntemi ikincil ad alanı ayarlama için kullanabilirsiniz. Ad alanı manager ad alanında sıraları listesini elde etmek için ve gerekli biriktirme listesi sıraları var olduğundan emin olmak için kullanılır. Sıraların yoksa, oluşturulur. [NamespaceManager] [ NamespaceManager] bir belirteci oluşturma olanağı gerektirir **Yönet** talep.
-* *Eventhubclient*: [Eventhubclient] [ MessagingFactory] ikincil ad alanı için örneği. [Eventhubclient] [ MessagingFactory] nesnesi göndermek için kullanılır ve [EnableSyphon] [ EnableSyphon] özelliği ayarlanmış **doğru**, biriktirme listesi sıralarından iletileri alacak.
-* *backlogQueueCount*: oluşturmak için biriktirme listesi sıraların sayısı. Bu değer, en az 1 olmalıdır. İletileri biriktirme listesine gönderirken bu sıraların birini rastgele seçilir. Değer 1 olarak ayarlarsanız, yalnızca bir sıra herhangi bir zamanda kullanılabilir. Böyle bir biriktirme listesi sıranın hataları oluşturur, istemci farklı biriktirme listesi sırası deneyemez değil ve iletinizi göndermek başarısız olabilir. Bu değer 10 değerine bazı büyük değer ve varsayılan ayarı öneririz. Bu, uygulamanızın günde gönderdiği ne kadar veri bağlı olarak daha yüksek veya düşük bir değere değiştirebilirsiniz. Her bir biriktirme listesi sırası 5 GB iletilerinin basılı tutabilirsiniz.
-* *failoverInterval*: süre boyunca, kabul edeceği hataları birincil ad alanı üzerinde tek bir varlık ikincil ad alanına geçmeden önce. Yük devretme, bir varlık tarafından varlık temelinde oluşur. Tek bir ad alanındaki varlıklara sık Service Bus içinde farklı düğümleri dinamik. Bir varlık içinde bir hata başka bir hata göstermez. Bu değer ayarlamak [System.TimeSpan.Zero] [ System.TimeSpan.Zero] ilk, geçici olmayan hata hemen sonra ikincil bir yük devretme için. Yük devretme Zamanlayıcı tetikleyen hatalarıdır herhangi [MessagingException] [ MessagingException] , [IsTransient] [ IsTransient] özelliği false veya [System.TimeoutException][System.TimeoutException]. Diğer özel durumlar gibi [UnauthorizedAccessException] [ UnauthorizedAccessException] yük devretme, istemci yanlış yapılandırılmış belirttiğinden neden olmaz. A [ServerBusyException] [ ServerBusyException] doğru deseni 10 saniye bekleyin olduğundan değil neden yük devretme sonra ileti yeniden göndermez.
-* *enableSyphon*: Bu belirli eşlemeyi iletileri ikincil ad alanından geri birincil ad alanı da syphon olduğunu gösterir. İleti gönderme uygulamalar genel olarak, bu değeri ayarlamak **false**; iletilerini uygulamalar bu değeri ayarlanmalıdır **doğru**. Bunun nedeni, sık sık olduğunu ileti gönderenler daha az ileti alıcıları ' dir. Alıcıları sayısına bağlı olarak, bir tek bir uygulama örneği Sifon görevlerini işlemek sahip olmayı seçebilirsiniz. Birçok alıcıları kullanarak her biriktirme listesi sırası için fatura etkilere sahiptir.
+* *secondaryNamespaceManager*: başlatılan bir [NamespaceManager] [ NamespaceManager] bu hello hello ikincil ad alanı için örnek [PairNamespaceAsync] [ PairNamespaceAsync] yöntemi hello ikincil ad alanı yukarı tooset kullanabilirsiniz. Hello ad alanı yöneticisi kullanılan tooobtain hello hello ad alanı ve gerekli hello biriktirme listesi sıraları var olduğundan emin toomake kuyruklarda listesidir. Sıraların yoksa, oluşturulur. [NamespaceManager] [ NamespaceManager] hello özelliği toocreate hello belirteciyle gerektirir **Yönet** talep.
+* *Eventhubclient*: Merhaba [Eventhubclient] [ MessagingFactory] hello ikincil ad alanı için örneği. Merhaba [Eventhubclient] [ MessagingFactory] nesnesidir kullanılan toosend ve hello [EnableSyphon] [ EnableSyphon] özelliği çok ayarlanmış**true** , hello biriktirme listesi sıralarından iletileri alacak.
+* *backlogQueueCount*: biriktirme listesi hello sayısı toocreate sıralar. Bu değer, en az 1 olmalıdır. İletileri toohello biriktirme listesi gönderirken bu sıraların birini rastgele seçilir. Merhaba değeri too1 ayarlarsanız, yalnızca bir sıra herhangi bir zamanda kullanılabilir. Bu gerçekleşir ve hataları hello bir biriktirme listesi kuyruk oluşturur, hello istemci mümkün tootry farklı biriktirme listesi sırası değil ve iletinizi toosend başarısız olabilir. Bu değer toosome büyük değer ve varsayılan hello değeri too10 ayarı öneririz. Bu tooa daha yüksek değiştirebilir veya daha düşük değer ne kadar veri bağlı olarak, uygulamanızın günde gönderir. Her bir biriktirme listesi sırası iletilerinin too5 GB basılı tutabilirsiniz.
+* *failoverInterval*: hello sırasında kabul edeceğiniz hataları hello birincil ad alanı üzerinde tek bir varlık toohello ikincil ad geçmeden önce süre miktarı. Yük devretme, bir varlık tarafından varlık temelinde oluşur. Tek bir ad alanındaki varlıklara sık Service Bus içinde farklı düğümleri dinamik. Bir varlık içinde bir hata başka bir hata göstermez. Bu değeri çok ayarlayabilirsiniz[System.TimeSpan.Zero] [ System.TimeSpan.Zero] toofailover toohello, ilk, geçici olmayan hatasından hemen sonra ikincil. Merhaba yük devretme Zamanlayıcı tetikleyen hatalarıdır herhangi [MessagingException] [ MessagingException] hangi hello içinde [IsTransient] [ IsTransient] özelliği false veya [System.TimeoutException][System.TimeoutException]. Diğer özel durumlar gibi [UnauthorizedAccessException] [ UnauthorizedAccessException] hello istemci yanlış yapılandırılmış belirttiğinden yük devretme, neden olmaz. A [ServerBusyException] [ ServerBusyException] hello doğru deseni 10 saniye toowait olduğundan değil neden yük devretme ardından Selamlama iletisine yeniden göndermez.
+* *enableSyphon*: Bu belirli eşlemeyi hello ikincil ad alanı geri toohello birincil ad alanından iletileri de syphon olduğunu gösterir. Genel olarak, ileti gönderme uygulamalar bu değeri çok ayarlamalısınız**false**; iletileri alacak uygulamaları ayarlamalıdır bu değeri çok**doğru**. Bunun nedeni Hello sık var. ileti gönderenler daha az ileti alıcıları olmasıdır. Alıcıları Hello sayısına bağlı olarak, bir tek bir uygulama örneği tanıtıcı hello Sifon görevlerini toohave seçebilirsiniz. Birçok alıcıları kullanarak her biriktirme listesi sırası için fatura etkilere sahiptir.
 
-Kodu kullanmak için birincil oluşturma [Eventhubclient] [ MessagingFactory] örneği, ikincil bir [Eventhubclient] [ MessagingFactory] örneği, ikincil bir [NamespaceManager] [ NamespaceManager] örneği ve [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] örneği. Çağrı aşağıdaki gibi basit olabilir:
+toouse Merhaba kod, birincil [Eventhubclient] [ MessagingFactory] örnek, bir ikincil [Eventhubclient] [ MessagingFactory] örnek, bir ikincil [NamespaceManager] [ NamespaceManager] örneği ve [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] örneği. Merhaba çağrısı hello aşağıdaki gibi basit olabilir:
 
 ```csharp
 SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions = new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
 primary.PairNamespaceAsync(sendAvailabilityOptions).Wait();
 ```
 
-Görev döndürdü tarafından [PairNamespaceAsync] [ PairNamespaceAsync] yöntemi tamamlayan, her şeyi yukarı ve kullanıma hazır ayarlanır. Görev döndürülmeden önce tüm doğru çalışması gerekli eşleştirme için arka plan iş tamamlanmamış olabilir. Sonuç olarak, görev dönene kadar ileti gönderme başlamamalıdır. Hatalı kimlik bilgileri veya biriktirme listesi sıraları oluşturma hatası gibi hatalar oluştuğunda görev tamamlandıktan sonra bu özel durum. Görev döndüğünde, kuyruklar bulunan inceleyerek oluşturulmuş olduğunu doğrulayın veya [BacklogQueueCount] [ BacklogQueueCount] özelliği, [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] örneği. Önceki kod için bu işlem aşağıdaki gibidir:
+Görev hello tarafından döndürülen'ne zaman hello [PairNamespaceAsync] [ PairNamespaceAsync] yöntemi tamamlayan, her şeyi ayarlanır ve toouse hazır. Merhaba görev döndürülmeden önce tüm hello arka plan iş toowork sağ eşleştirme hello için gerekli tamamlanmamış olabilir. Sonuç olarak, hello görev dönene kadar ileti gönderme başlamamalıdır. Hatalı kimlik bilgileri veya hata toocreate hello biriktirme listesi sıraları, gibi hatalar oluşursa hello görev tamamlandıktan sonra bu özel durum oluşturulur. Hello görev döndüğünde hello sıraları bulundu hello inceleyerek oluşturulmuş olduğunu doğrulayın veya [BacklogQueueCount] [ BacklogQueueCount] özelliği, [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] örneği. Kod önceki hello için bu işlem aşağıdaki gibidir:
 
 ```csharp
 if (sendAvailabilityOptions.BacklogQueueCount < 1)
@@ -131,7 +131,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Zaman uyumsuz Service Bus Mesajlaşma temel bilgileri öğrendiğinize göre hakkında daha fazla ayrıntı okuyun [eşleştirilmiş ad alanları][paired namespaces].
+Zaman uyumsuz Service Bus Mesajlaşma hello temellerini öğrendiğinize göre hakkında daha fazla ayrıntı okuyun [eşleştirilmiş ad alanları][paired namespaces].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx

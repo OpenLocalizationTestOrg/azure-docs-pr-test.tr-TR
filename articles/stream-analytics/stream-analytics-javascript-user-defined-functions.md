@@ -1,5 +1,5 @@
 ---
-title: "Azure Stream Analytics JavaScript kullanıcı tanımlı işlevler | Microsoft Docs"
+title: "aaaAzure Stream Analytics JavaScript kullanıcı tanımlı işlevler | Microsoft Docs"
 description: "JavaScript kullanıcı tanımlı işlevler ile Gelişmiş sorgu mekanizması gerçekleştirmek"
 keywords: "JavaScript, kullanıcı tanımlı işlevler, udf"
 services: stream-analytics
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.openlocfilehash: e4a9e6c7078031240c22a51378c0459426b7f626
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 28eeb8f6437c23989e8887687b950361fed4414c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Azure Stream Analytics JavaScript kullanıcı tanımlı işlevler
-Azure akış analizi, kullanıcı tanımlı işlevler JavaScript'te yazılmış destekler. İle zengin kümesi **dize**, **RegExp**, **matematik**, **dizi**, ve **tarih** yöntemleri, JavaScript sağlar, karmaşık veri dönüşümleri ile Stream Analytics işleri oluşturmak daha kolay hale gelir.
+Azure akış analizi, kullanıcı tanımlı işlevler JavaScript'te yazılmış destekler. Merhaba zengin kümesiyle **dize**, **RegExp**, **matematik**, **dizi**, ve **tarih** yöntemleri, JavaScript sağlar, karmaşık veri dönüşümleri akış analizi işleri ile daha kolay toocreate haline gelir.
 
 ## <a name="javascript-user-defined-functions"></a>JavaScript kullanıcı tanımlı işlevler
-JavaScript kullanıcı tanımlı işlevler harici bağlantı gerektirmeyen durum bilgisiz, yalnızca işlem skaler işlevler destekler. Bir işlevin dönüş değeri yalnızca skaler (tek) bir değer olabilir. Kullanıcı tanımlı bir JavaScript işlevi işe ekledikten sonra işlevi herhangi bir yere sorgusunda yerleşik bir skaler işlev gibi kullanabilirsiniz.
+JavaScript kullanıcı tanımlı işlevler harici bağlantı gerektirmeyen durum bilgisiz, yalnızca işlem skaler işlevler destekler. Merhaba dönüş değeri işlevinin yalnızca bir skaler (tek) olabilir. Bir JavaScript kullanıcı tanımlı işlev tooa işi ekledikten sonra hello işlevi herhangi bir yere yerleşik bir skaler işlev gibi hello sorgu kullanabilirsiniz.
 
 Burada JavaScript kullanıcı tanımlı işlevler kullanışlı bulabileceğiniz bazı senaryolar verilmiştir:
 * Ayrıştırma ve normal ifade İşlevler, örneğin, sahip dizeleri düzenleme **Regexp_Replace()** ve **Regexp_Extract()**
@@ -37,31 +37,31 @@ Stream Analytics içinde JavaScript kullanıcı tanımlı işlev ile yapamayaca�
 * Özel olay biçimi serileştirme gerçekleştirmek veya giriş/çıkış üzerinde seri durumundan çıkarma
 * Özel toplamaları oluşturun
 
-Gibi çalışır ancak **Date.GetDate()** veya **Math.random()** engellenmediğinden işlevleri tanımı'nda, bunları yapmaktan kaçınmalısınız. Bu işlevler **sağlamadığı** bunları arayın ve Azure akış analizi hizmetine işlev çağrılarını günlüğün korumaz her zaman aynı sonucu dönün ve sonuç döndürmedi. Bir işlev, farklı sonuç aynı olaylarına döndürürse, sizin tarafınızdan veya akış analizi hizmeti tarafından bir iş yeniden başlatıldığında Yinelenebilirlik garanti edilmez.
+Gibi çalışır ancak **Date.GetDate()** veya **Math.random()** engellenmediğinden hello işlevleri tanımında bunları yapmaktan kaçınmalısınız. Bu işlevler **sağlamadığı** dönüş hello aynı bunları arayın ve hello Azure Stream Analytics hizmeti, işlev çağrılarını günlüğü tutun değil her zaman ve neden sonuç döndürmedi. Bir işlev, farklı sonuç hello üzerinde aynı olayları döndürürse, sizin tarafınızdan veya hello Stream Analytics hizmeti tarafından bir iş yeniden başlatıldığında Yinelenebilirlik garanti edilmez.
 
-## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Azure portalında kullanıcı tanımlı bir JavaScript işlevi ekleme
-Basit JavaScript kullanıcı tanımlı bir işlev altında varolan bir Stream Analytics işi oluşturmak için bu adımları uygulayın:
+## <a name="add-a-javascript-user-defined-function-in-hello-azure-portal"></a>Kullanıcı tanımlı bir JavaScript işlevi hello Azure portal Ekle
+toocreate basit JavaScript kullanıcı tanımlı bir işlev var olan bir akış analizi işi altındaki adımları yapın:
 
-1.  Azure portalında, Stream Analytics işi bulun.
+1.  Hello Azure portal, Stream Analytics işi bulun.
 2.  Altında **iş TOPOLOJİ**, işlevinizi seçin. İşlevler boş bir listesi görüntülenir.
-3.  Yeni bir kullanıcı tanımlı işlev oluşturmak için seçin **Ekle**.
-4.  Üzerinde **yeni işlev** dikey penceresinde için **işlev türü**seçin **JavaScript**. Varsayılan işlev şablonu Düzenleyicisi'nde görüntülenir.
-5.  İçin **UDF diğer**, girin **hex2Int**ve işlev uygulama aşağıdaki gibi değiştirin:
+3.  Yeni bir kullanıcı tanımlı işlev, toocreate seçin **Ekle**.
+4.  Merhaba üzerinde **yeni işlev** dikey penceresinde için **işlev türü**seçin **JavaScript**. Varsayılan işlev şablonunun hello Düzenleyicisi'nde görüntülenir.
+5.  Hello için **UDF diğer**, girin **hex2Int**ve hello işlevi uygulamasını aşağıdaki gibi değiştirin:
 
     ```
-    // Convert Hex value to integer.
+    // Convert Hex value toointeger.
     function main(hexValue) {
         return parseInt(hexValue, 16);
     }
     ```
 
-6.  **Kaydet**’i seçin. İşlevinizi işlevleri listesinde görüntülenir.
-7.  Yeni **hex2Int** işlev ve işlev tanımı kontrol edin. Tüm İşlevler sahip bir **UDF** işlevi diğer eklenen önek. Yapmanız *önekini dahil* Stream Analytics sorgunuzda işlevi çağırdığınızda. Bu durumda, çağrı **UDF.hex2Int**.
+6.  **Kaydet**’i seçin. İşlevinizi hello işlevleri listesinde görüntülenir.
+7.  Select hello yeni **hex2Int** işlev ve hello işlevi tanımını denetleyin. Tüm İşlevler sahip bir **UDF** öneki eklenen toohello işlevi diğer adı. Çok ihtiyacınız*hello önekini ekleyin* Stream Analytics sorgunuzu hello işlevi çağırdığınızda. Bu durumda, çağrı **UDF.hex2Int**.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Sorguda kullanıcı tanımlı bir JavaScript işlevi çağırma
 
-1. Sorgu Düzenleyicisi'nde altında **iş TOPOLOJİ**seçin **sorgu**.
-2.  Sorgunuzu düzenleme ve bu gibi kullanıcı tanımlı işlev çağrısı:
+1. Hello Düzenleyicisi altında sorgu **iş TOPOLOJİ**seçin **sorgu**.
+2.  Sorgunuzu düzenleme ve hello kullanıcı tanımlı işlev, bu gibi çağırın:
 
     ```
     SELECT
@@ -73,8 +73,8 @@ Basit JavaScript kullanıcı tanımlı bir işlev altında varolan bir Stream An
         InputStream
     ```
 
-3.  Örnek veri dosyasını karşıya yüklemek için iş girişi sağ tıklatın.
-4.  Sorgunuz test etme seçeneğini belirleyin **Test**.
+3.  tooupload hello örnek veri dosyası, sağ hello iş girişi.
+4.  tootest sorgunuzu, select **Test**.
 
 
 ## <a name="supported-javascript-objects"></a>Desteklenen JavaScript nesneleri
@@ -82,11 +82,11 @@ Azure Stream Analytics JavaScript kullanıcı tanımlı işlevler, standart, yer
 
 ### <a name="stream-analytics-and-javascript-type-conversion"></a>Akış analizi ve JavaScript tür dönüştürmeleri
 
-Stream Analytics dil ve JavaScript desteği sorgu türleri farklılıklar vardır. Bu tabloda ikisi arasında dönüştürme eşlemeleri listelenmektedir:
+Merhaba Stream Analytics sorgu dilini ve JavaScript desteği hello türleri farklılıklar vardır. Bu tabloda hello iki arasındaki hello dönüştürme eşlemeleri listelenmektedir:
 
 Akış Analizi | JavaScript
 --- | ---
-bigint | Sayı (JavaScript yalnızca tam olarak 2 kadar tamsayılar temsil eden ^ 53)
+bigint | Sayı (JavaScript yalnızca tamsayı tooprecisely 2 Yukarı temsil eden ^ 53)
 Tarih saat | Tarih (JavaScript yalnızca destekler milisaniye)
 Çift | Sayı
 nvarchar(max) | Dize
@@ -100,7 +100,7 @@ JavaScript Stream Analytics dönüşümleri şunlardır:
 
 JavaScript | Akış Analizi
 --- | ---
-Sayı | Bigint (sayı yuvarlak ve uzun arasında ise. MinValue ve uzun süre. MaxValue; Aksi takdirde, çift)
+Sayı | Bigint (Merhaba numarası yuvarlak ve uzun arasında ise. MinValue ve uzun süre. MaxValue; Aksi takdirde, çift)
 Tarih | Tarih saat
 Dize | nvarchar(max)
 Nesne | Kayıt
@@ -109,13 +109,13 @@ Null, tanımlanmamış | NULL
 Herhangi bir türü (örneğin, bir işlev veya hata) | (Çalışma zamanı hatası sonuçlarında) desteklenmiyor
 
 ## <a name="troubleshooting"></a>Sorun giderme
-JavaScript çalışma zamanı hataları önemli kabul edilir ve etkinlik günlüğü ortaya çıkmış. Günlük almak için Azure portalında, iş'e gidin ve seçin **etkinlik günlüğü**.
+JavaScript çalışma zamanı hataları önemli kabul edilir ve hello etkinlik günlüğü ortaya çıkmış. hello Azure portal, Git tooyour işi seçip tooretrieve hello günlük **etkinlik günlüğü**.
 
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>Diğer JavaScript kullanıcı tanımlı işlev desenleri
 
-### <a name="write-nested-json-to-output"></a>İç içe geçmiş JSON çıktısını almak için yazma
-Çıkış akış analizi işi giriş olarak kullanan bir izleme işleme adımı vardır ve bir JSON biçimi gerektiriyorsa, çıkış için bir JSON dizesi yazabilirsiniz. Sonraki örnekte çağrıları **JSON.stringify()** tüm ad/değer çiftleri giriş paketi için işlev ve bunları tek bir dize değeri çıktı olarak yazar.
+### <a name="write-nested-json-toooutput"></a>İç içe geçmiş JSON toooutput yazma
+Çıkış akış analizi işi giriş olarak kullanan bir izleme işleme adımı vardır ve bir JSON biçimi gerektiriyorsa, JSON dizesi toooutput yazabilirsiniz. Merhaba sonraki örneği çağırır hello **JSON.stringify()** hello tüm ad/değer çiftlerini giriş ve çıkış tek bir dize değer olarak yazma toopack işlev.
 
 **JavaScript kullanıcı tanımlı işlev tanımı:**
 
@@ -142,7 +142,7 @@ FROM
 Ek Yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Giriş tooAzure akış analizi](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)

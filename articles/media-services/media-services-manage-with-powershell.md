@@ -1,6 +1,6 @@
 ---
-title: "PowerShell ile Azure Media Services hesaplarını yönetme"
-description: "Azure Media Services hesapları PowerShell cmdlet'leri ile yönetmeyi öğrenin."
+title: "aaaManage PowerShell ile Azure Media Services hesapları"
+description: "PowerShell cmdlet'leri ile nasıl toomanage Azure Media Services hesapları öğrenin."
 author: Juliako
 manager: erikre
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: juliako
-ms.openlocfilehash: 3d999d9e27844bc0164cc3572522b9ec022118a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e8f97bb2393343e45fabf9c437b4fc09f2525dc2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-azure-media-services-accounts-with-powershell"></a>PowerShell ile Azure Media Services hesaplarını yönetme
 > [!div class="op_single_selector"]
@@ -27,12 +27,12 @@ ms.lasthandoff: 07/11/2017
 > * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
-> Azure Media Services hesabı oluşturmak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Ücretsiz Deneme Sürümü</a>.
+> toobe mümkün toocreate Azure Media Services hesabı, bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Ücretsiz Deneme Sürümü</a>.
 > 
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Bu makale Azure PowerShell cmdlet'lerini Azure Resource Manager framework Azure Media Services (AMS) listeler. Cmdlet'leri mevcut **Microsoft.Azure.Commands.Media** ad alanı.
+Bu makalede, Azure Media Services (AMS) hello Azure Resource Manager framework hello Azure PowerShell cmdlet'leri listelenmektedir. Merhaba cmdlet'leri mevcut hello **Microsoft.Azure.Commands.Media** ad alanı.
 
 ## <a name="versions"></a>Sürümler
 **ApiVersion**: "2015-10-01"
@@ -52,11 +52,11 @@ Parametre kümesi: StorageAccountsParamSet
 ### <a name="parameters"></a>Parametreler
 **-ResourceGroupName &lt;dize&gt;**
 
-Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
+Bu medya hizmeti ait hello kaynak grubu toowhich Hello adını belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |0 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -64,11 +64,11 @@ Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
 
 **-AccountName &lt;dize&gt;**
 
-Medya hizmeti adını belirtir.
+Merhaba medya hizmeti Hello adını belirtir.
 
 | Diğer adlar | Ad |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |1 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |False |
@@ -76,11 +76,11 @@ Medya hizmeti adını belirtir.
 
 **-Location &lt;dize&gt;**
 
-Medya hizmeti kaynak konumunu belirtir.
+Merhaba medya hizmeti Hello kaynak konumunu belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |2 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -88,14 +88,14 @@ Medya hizmeti kaynak konumunu belirtir.
 
 **-StorageAccountId &lt;dize&gt;**
 
-Medya hizmeti ile ilişkili bir birincil depolama hesabını belirtir.
+Merhaba medya hizmeti ile ilişkili bir birincil depolama hesabını belirtir.
 
-* Yalnızca desteklenen (Resource Manager API ile) yeni depolama hesabı oluşturuldu.
-* Depolama hesabı bulunmalı ve medya hizmeti ile aynı konumda yok.
+* Yalnızca desteklenen (Merhaba Resource Manager API ile) yeni depolama hesabı oluşturuldu.
+* Merhaba depolama hesabının var olmalıdır ve hello hello medya hizmeti ile aynı konum.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |3 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -104,15 +104,15 @@ Medya hizmeti ile ilişkili bir birincil depolama hesabını belirtir.
 
 **-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
-Medya hizmeti ile ilişkilendirilmiş depolama hesaplarını belirtir.
+Merhaba medya hizmeti ile ilişkilendirilmiş depolama hesaplarını belirtir.
 
-* Yalnızca desteklenen (Resource Manager API ile) yeni depolama hesabı oluşturuldu.
-* Depolama hesabı bulunmalı ve medya hizmeti ile aynı konumda yok.
+* Yalnızca desteklenen (Merhaba Resource Manager API ile) yeni depolama hesabı oluşturuldu.
+* Merhaba depolama hesabının var olmalıdır ve hello hello medya hizmeti ile aynı konum.
 * Yalnızca bir depolama hesabı birincil olarak belirtilebilir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |3 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -121,13 +121,13 @@ Medya hizmeti ile ilişkilendirilmiş depolama hesaplarını belirtir.
 
 **-Etiketler &lt;Hashtable&gt;**
 
-Bir karma tablosu medya hizmeti ile ilişkilendirilmiş etiketleri belirtir.
+Bir karma tablosu hello medya hizmeti ile ilişkilendirilmiş hello etiketlerin belirtir.
 
 * Örnek: @{"tag1"="value1";" tag2 "=: value2"}
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |False |
+| Gerekli mi? |False |
 | Konum? |Adlı |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |False |
@@ -135,13 +135,13 @@ Bir karma tablosu medya hizmeti ile ilişkilendirilmiş etiketleri belirtir.
 
 **&lt;CommandParameters&gt;**
 
-Bu cmdlet şu genel parametreleri destekler: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction ve -WarningVariable.
+Bu cmdlet hello ortak parametreleri destekler:-Debug, - ErrorAction, - ErrorVariable, - Informationaction, - Informationvariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction ve - WarningVariable.
 
 ### <a name="inputs"></a>Girişleri
-Girdi türü cmdlet'e iletebildiğiniz nesnelerin türüdür.
+Merhaba giriş toohello cmdlet iletebildiğiniz hello hello türü nesneleri türüdür.
 
 ### <a name="outputs"></a>Çıkışları
-Çıkış türü cmdlet'in çıkardığı nesnelerin türüdür.
+Merhaba çıkış cmdlet hello hello nesnelerin hello türü yayar türüdür.
 
 ## <a name="set-azurermmediaservice"></a>Set-AzureRmMediaService
 Bir medya hizmeti güncelleştirir.
@@ -152,11 +152,11 @@ Bir medya hizmeti güncelleştirir.
 ### <a name="parameters"></a>Parametreler
 **-ResourceGroupName &lt;dize&gt;**
 
-Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
+Bu medya hizmeti ait hello kaynak grubu toowhich Hello adını belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |0 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -164,11 +164,11 @@ Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
 
 **-AccountName &lt;dize&gt;**
 
-Medya hizmeti adını belirtir.
+Merhaba medya hizmeti Hello adını belirtir.
 
 | Diğer adlar | Ad |
 | --- | --- |
-| Gerekli? |True |
+| Gerekli mi? |True |
 | Konum? |1 |
 | Varsayılan değer |None |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -176,15 +176,15 @@ Medya hizmeti adını belirtir.
 
 **-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
-Medya hizmeti ile ilişkilendirilmiş depolama hesaplarını belirtir.
+Merhaba medya hizmeti ile ilişkilendirilmiş depolama hesaplarını belirtir.
 
-* Yalnızca desteklenen (Resource Manager API ile) yeni depolama hesabı oluşturuldu.
-* Depolama hesabı bulunmalı ve medya hizmeti ile aynı konumda yok.
+* Yalnızca desteklenen (Merhaba Resource Manager API ile) yeni depolama hesabı oluşturuldu.
+* Merhaba depolama hesabının var olmalıdır ve hello hello medya hizmeti ile aynı konum.
 * Yalnızca bir depolama hesabı birincil olarak belirtilebilir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |False |
+| Gerekli mi? |False |
 | Konum? |Adlı |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -193,13 +193,13 @@ Medya hizmeti ile ilişkilendirilmiş depolama hesaplarını belirtir.
 
 **-Etiketler &lt;Hashtable&gt;**
 
-Bu medya hizmeti ile ilişkilendirilmiş etiketleri karma tablosu belirtir.
+Bu medya hizmeti ile ilişkilendirilmiş hello etiketleri karma tablosu belirtir.
 
-* Medya hizmeti ile ilişkilendirilmiş etiketleri, müşteri tarafından belirtilen değeri ile değiştirilir.
+* Merhaba medya hizmeti ile ilişkilendirilmiş hello etiketleri hello müşteri tarafından belirtilen değeri ile değiştirilir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |False |
+| Gerekli mi? |False |
 | Konum? |Adlı |
 | Varsayılan değer |None |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -207,13 +207,13 @@ Bu medya hizmeti ile ilişkilendirilmiş etiketleri karma tablosu belirtir.
 
 **&lt;CommandParameters&gt;**
 
-Bu cmdlet şu genel parametreleri destekler: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction ve -WarningVariable.
+Bu cmdlet hello ortak parametreleri destekler:-Debug, - ErrorAction, - ErrorVariable, - Informationaction, - Informationvariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction ve - WarningVariable.
 
 ### <a name="inputs"></a>Girişleri
-Girdi türü cmdlet'e iletebildiğiniz nesnelerin türüdür.
+Merhaba giriş toohello cmdlet iletebildiğiniz hello hello türü nesneleri türüdür.
 
 ### <a name="outputs"></a>Çıkışları
-Çıkış türü cmdlet'in çıkardığı nesnelerin türüdür.
+Merhaba çıkış cmdlet hello hello nesnelerin hello türü yayar türüdür.
 
 ## <a name="remove-azurermmediaservice"></a>Remove-AzureRmMediaService
 Medya hizmeti kaldırır.
@@ -224,11 +224,11 @@ Medya hizmeti kaldırır.
 ### <a name="parameters"></a>Parametreler
 **-ResourceGroupName &lt;dize&gt;**
 
-Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
+Bu medya hizmeti ait hello kaynak grubu toowhich Hello adını belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |0 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -236,11 +236,11 @@ Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
 
 **-AccountName &lt;dize&gt;**
 
-Medya hizmeti adını belirtir.
+Merhaba medya hizmeti Hello adını belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |2 |
 | Varsayılan değer |None |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -248,13 +248,13 @@ Medya hizmeti adını belirtir.
 
 **&lt;CommandParameters&gt;**
 
-Bu cmdlet şu genel parametreleri destekler: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction ve -WarningVariable.
+Bu cmdlet hello ortak parametreleri destekler:-Debug, - ErrorAction, - ErrorVariable, - Informationaction, - Informationvariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction ve - WarningVariable.
 
 ### <a name="inputs"></a>Girişleri
-Girdi türü cmdlet'e iletebildiğiniz nesnelerin türüdür.
+Merhaba giriş toohello cmdlet iletebildiğiniz hello hello türü nesneleri türüdür.
 
 ### <a name="outputs"></a>Çıkışları
-Çıkış türü cmdlet'in çıkardığı nesnelerin türüdür.
+Merhaba çıkış cmdlet hello hello nesnelerin hello türü yayar türüdür.
 
 ## <a name="get-azurermmediaservice"></a>Get-AzureRmMediaService
 Bir kaynak grubunda tüm medya Hizmetleri veya belirli bir ada sahip bir medya hizmeti alır.
@@ -271,11 +271,11 @@ ParameterSet: AccountNameParameterSet
 ### <a name="parameters"></a>Parametreler
 **-ResourceGroupName &lt;dize&gt;**
 
-Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
+Bu medya hizmeti ait hello kaynak grubu toowhich Hello adını belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |0 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -285,11 +285,11 @@ Joker karakterler kabul edilsin mi?   False
 
 **-AccountName &lt;dize&gt;**
 
-Medya hizmeti adını belirtir.
+Merhaba medya hizmeti Hello adını belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |1 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -298,13 +298,13 @@ Medya hizmeti adını belirtir.
 
 **&lt;CommandParameters&gt;**
 
-Bu cmdlet şu genel parametreleri destekler: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction ve -WarningVariable.
+Bu cmdlet hello ortak parametreleri destekler:-Debug, - ErrorAction, - ErrorVariable, - Informationaction, - Informationvariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction ve - WarningVariable.
 
 ### <a name="inputs"></a>Girişleri
-Girdi türü cmdlet'e iletebildiğiniz nesnelerin türüdür.
+Merhaba giriş toohello cmdlet iletebildiğiniz hello hello türü nesneleri türüdür.
 
 ### <a name="outputs"></a>Çıkışları
-Çıkış türü cmdlet'in çıkardığı nesnelerin türüdür.
+Merhaba çıkış cmdlet hello hello nesnelerin hello türü yayar türüdür.
 
 ## <a name="get-azurermmediaservicekeys"></a>Get-AzureRmMediaServiceKeys
 Medya hizmeti anahtarları alır.
@@ -315,11 +315,11 @@ Medya hizmeti anahtarları alır.
 ### <a name="parameters"></a>Parametreler
 **-ResourceGroupName &lt;dize&gt;**
 
-Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
+Bu medya hizmeti ait hello kaynak grubu toowhich Hello adını belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |0 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -327,11 +327,11 @@ Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
 
 **-AccountName &lt;dize&gt;**
 
-Medya hizmeti adını belirtir.
+Merhaba medya hizmeti Hello adını belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |1 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -339,13 +339,13 @@ Medya hizmeti adını belirtir.
 
 **&lt;CommandParameters&gt;**
 
-Bu cmdlet şu genel parametreleri destekler: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction ve -WarningVariable.
+Bu cmdlet hello ortak parametreleri destekler:-Debug, - ErrorAction, - ErrorVariable, - Informationaction, - Informationvariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction ve - WarningVariable.
 
 ### <a name="inputs"></a>Girişleri
-Girdi türü cmdlet'e iletebildiğiniz nesnelerin türüdür.
+Merhaba giriş toohello cmdlet iletebildiğiniz hello hello türü nesneleri türüdür.
 
 ### <a name="outputs"></a>Çıkışları
-Çıkış türü cmdlet'in çıkardığı nesnelerin türüdür.
+Merhaba çıkış cmdlet hello hello nesnelerin hello türü yayar türüdür.
 
 ## <a name="set-azurermmediaservicekey"></a>Set-AzureRmMediaServiceKey
 Medya hizmeti birincil veya ikincil anahtarı yeniden oluşturur.
@@ -356,11 +356,11 @@ Medya hizmeti birincil veya ikincil anahtarı yeniden oluşturur.
 ### <a name="parameters"></a>Parametreler
 **-ResourceGroupName &lt;dize&gt;**
 
-Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
+Bu medya hizmeti ait hello kaynak grubu toowhich Hello adını belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |0 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -368,11 +368,11 @@ Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
 
 **-AccountName &lt;dize&gt;**
 
-Medya hizmeti adını belirtir.
+Merhaba medya hizmeti Hello adını belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |1 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -380,13 +380,13 @@ Medya hizmeti adını belirtir.
 
 **-KeyType &lt;KeyType&gt;**
 
-Medya hizmeti anahtar türünü belirtir.
+Merhaba anahtar hello medya hizmeti türünü belirtir.
 
 * Birincil veya ikincil
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |2 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |False |
@@ -394,16 +394,16 @@ Medya hizmeti anahtar türünü belirtir.
 
 **&lt;CommandParameters&gt;**
 
-Bu cmdlet şu genel parametreleri destekler: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction ve -WarningVariable.
+Bu cmdlet hello ortak parametreleri destekler:-Debug, - ErrorAction, - ErrorVariable, - Informationaction, - Informationvariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction ve - WarningVariable.
 
 ### <a name="inputs"></a>Girişleri
-Girdi türü cmdlet'e iletebildiğiniz nesnelerin türüdür.
+Merhaba giriş toothe cmdlet iletebildiğiniz hello hello türü nesneleri türüdür.
 
 ### <a name="outputs"></a>Çıkışları
-Çıkış türü cmdlet'in çıkardığı nesnelerin türüdür.
+Merhaba çıkış cmdlet hello hello nesnelerin hello türü yayar türüdür.
 
 ## <a name="sync-azurermmediaservicestoragekeys"></a>Sync-AzureRmMediaServiceStorageKeys
-Medya hizmeti ile ilişkilendirilmiş bir depolama hesabı için depolama hesabı anahtarları eşitler.
+Merhaba medya hizmeti ile ilişkilendirilmiş bir depolama hesabı için depolama hesabı anahtarları eşitler.
 
 ### <a name="syntax"></a>Sözdizimi
     Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountId] <string>  [<CommonParameters>]
@@ -411,11 +411,11 @@ Medya hizmeti ile ilişkilendirilmiş bir depolama hesabı için depolama hesab�
 ### <a name="parameters"></a>Parametreler
 **-ResourceGroupName &lt;dize&gt;**
 
-Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
+Bu medya hizmeti ait hello kaynak grubu toowhich Hello adını belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |0 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -423,11 +423,11 @@ Bu medya hizmeti ait olduğu kaynak grubu adını belirtir.
 
 **-AccountName &lt;dize&gt;**
 
-Medya hizmeti adını belirtir.
+Merhaba medya hizmeti Hello adını belirtir.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |1 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -435,11 +435,11 @@ Medya hizmeti adını belirtir.
 
 **-StorageAccountId &lt;dize&gt;**
 
-Medya hizmeti ile ilişkilendirilmiş depolama hesabını belirtir.
+Merhaba medya hizmeti ile ilişkili hello depolama hesabını belirtir.
 
 | Diğer adlar | Kimlik |
 | --- | --- |
-| Gerekli? |TRUE |
+| Gerekli mi? |TRUE |
 | Konum? |2 |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |TRUE(ByPropertyName) |
@@ -447,13 +447,13 @@ Medya hizmeti ile ilişkilendirilmiş depolama hesabını belirtir.
 
 **&lt;CommandParameters&gt;**
 
-Bu cmdlet şu genel parametreleri destekler: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction ve -WarningVariable.
+Bu cmdlet hello ortak parametreleri destekler:-Debug, - ErrorAction, - ErrorVariable, - Informationaction, - Informationvariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction ve - WarningVariable.
 
 ### <a name="inputs"></a>Girişleri
-Girdi türü cmdlet'e iletebildiğiniz nesnelerin türüdür.
+Merhaba giriş toohello cmdlet iletebildiğiniz hello hello türü nesneleri türüdür.
 
 ### <a name="outputs"></a>Çıkışları
-Çıkış türü cmdlet'in çıkardığı nesnelerin türüdür.
+Merhaba çıkış cmdlet hello hello nesnelerin hello türü yayar türüdür.
 
 ## <a name="next-step"></a>Sonraki adım
 Media Services'i öğrenme yolları denetleyin.

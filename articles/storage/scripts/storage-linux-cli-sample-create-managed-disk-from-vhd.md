@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI betik örnek - yönetilen bir disk bir depolama hesabı aynı abonelikte VHD dosyasında oluşturun | Microsoft Docs"
-description: "Azure CLI betik örnek - yönetilen bir disk bir depolama hesabı aynı abonelikte VHD dosyasında oluşturun"
+title: "aaaAzure CLI komut dosyası örneği - hello depolama hesabında bir VHD dosyasından yönetilen bir disk oluşturmak aynı abonelik | Microsoft Docs"
+description: "Azure CLI betik örnek - hello depolama hesabında bir VHD dosyasından yönetilen bir disk oluşturma aynı abonelik"
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
-ms.openlocfilehash: 5022ca23ac2c2e515a9b80d44b1221f3c05fecb1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1e792fdbb7daea92bf6a6589a5d8aab5b9b5a670
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>CLI ile aynı abonelikte depolama hesabındaki bir VHD dosyasından yönetilen bir disk oluşturma
+# <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-hello-same-subscription-with-cli"></a>Bir VHD dosyasının hello depolama hesabında yönetilen bir disk oluşturmak CLI ile aynı abonelik
 
-Bu komut dosyası yönetilen bir disk bir depolama hesabı aynı abonelikte VHD dosyasında oluşturur. Özelleştirilmiş içeri aktarmak için bu betiği kullanın (değil genelleştirilmiş/Sysprep kullanılarak hazırlanmış) bir sanal makine oluşturmak için yönetilen işletim sistemi diski VHD'ye. Ya da yönetilen veri diski VHD veri aktarmak için kullanın. 
+Bu komut dosyasını bir VHD dosyasının hello depolama hesabında yönetilen bir disk oluşturur aynı abonelik. Bu komut dosyası tooimport bir özel (değil genelleştirilmiş/Sysprep kullanılarak hazırlanmış) VHD toomanaged işletim sistemi disk toocreate bir sanal makine kullanın. Veya tooimport veri VHD toomanaged veri diski kullanın. 
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -32,21 +32,21 @@ Bu komut dosyası yönetilen bir disk bir depolama hesabı aynı abonelikte VHD 
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
-[!code-azurecli[Ana](../../../cli_scripts/storage/create-managed-data-disks-from-vhd/create-managed-data-disks-from-vhd.sh "VHD'den yönetilen disk oluştur")]
+[!code-azurecli[main](../../../cli_scripts/storage/create-managed-data-disks-from-vhd/create-managed-data-disks-from-vhd.sh "Create managed disk from VHD")]
 
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyasını bir VHD'den yönetilen bir disk oluşturmak için komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu komut dosyasını komutları toocreate VHD yönetilen bir diskten kullanır. Her komut hello tablosundaki toocommand belirli belgeleri bağlar.
 
 | Komut | Notlar |
 |---|---|
-| [az disketi oluşturma](https://docs.microsoft.com/cli/azure/disk#create) | Bir depolama hesabı aynı abonelikte VHD URI kullanılarak yönetilen bir disk oluşturur |
+| [az disketi oluşturma](https://docs.microsoft.com/cli/azure/disk#create) | Merhaba depolama hesabında VHD URI kullanılarak yönetilen bir disk oluşturur aynı abonelik |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Yönetilen bir disk işletim sistemi diski olarak ekleyerek bir sanal makine oluşturun](./../../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Hello Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
 
-Ek bir sanal makine ve yönetilen diskleri CLI kod örnekleri bulunabilir [Azure Linux VM'de belgelerine](../../virtual-machines/linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ek bir sanal makine ve yönetilen diskleri CLI kod örnekleri hello bulunan [Azure Linux VM'de belgelerine](../../virtual-machines/linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

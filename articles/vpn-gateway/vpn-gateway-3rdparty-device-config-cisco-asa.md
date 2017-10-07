@@ -1,6 +1,6 @@
 ---
-title: "Örnek Yapılandırması - Cisco ASA cihaz için Azure VPN ağ geçitlerini bağlama | Microsoft Docs"
-description: "Bu makale Azure VPN ağ geçitleri için bağlanma Cisco ASA cihaz için örnek bir yapılandırma sağlar."
+title: "aaaSample yapılandırması - Cisco ASA aygıt tooAzure VPN ağ geçitlerini bağlama | Microsoft Docs"
+description: "Bu makale tooAzure VPN ağ geçitlerini bağlama Cisco ASA cihaz için örnek bir yapılandırma sağlar."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 10466b8928e2cd687f7961a2956b6d60823b82be
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dad13e02afe8dad2379db750eb09602e08e8ea99
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Örnek Yapılandırması: Cisco ASA aygıt (Ikev2/Hayır BGP)
-Bu makale Azure VPN ağ geçitleri için bağlanan Cisco ASA cihazları için örnek yapılandırmalarını sağlar.
+Bu makale tooAzure VPN ağ geçitlerini bağlama Cisco ASA cihazlar için örnek yapılandırmalarını sağlar.
 
 ## <a name="device-at-a-glance"></a>Bir bakışta cihaz
 
@@ -39,22 +39,22 @@ Bu makale Azure VPN ağ geçitleri için bağlanan Cisco ASA cihazları için ö
 |                        |                                   |
 
 > [!NOTE]
-> 1. Yapılandırma bir Azure için Cisco ASA bağlanmasındakiyle **rota tabanlı** açıklandığı gibi özel IPSec/IKE İlkesi "UserPolicyBasedTrafficSelectors" seçeneğiyle kullanarak VPN ağ geçidi [bu makalede](vpn-gateway-connect-multiple-policybased-rm-ps.md).
-> 2. ASA cihazlarının kullanmasını gerektirir **Ikev2** erişim listesi temel yapılandırmalarla VTI tabanlı değil.
-> 3. Lütfen ilke şirket içi VPN cihazlarınızı üzerinde desteklenen emin olmak için VPN cihaz Satıcı belirtimleri başvurun.
+> 1. Aşağıdaki başlangıç yapılandırmasına bağlandığında bir Cisco ASA aygıt tooan Azure **rota tabanlı** açıklandığı gibi özel IPSec/IKE İlkesi "UserPolicyBasedTrafficSelectors" seçeneğiyle kullanarak VPN ağ geçidi [bu makalede](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+> 2. ASA aygıtları toouse gerektirir **Ikev2** erişim listesi temel yapılandırmalarla VTI tabanlı değil.
+> 3. Şirket içi VPN cihazlarınızı tooensure hello İlkesi desteklenen VPN cihaz Satıcı belirtimleri başvurun.
 
 ## <a name="vpn-device-requirements"></a>VPN cihaz gereksinimleri
-Azure VPN ağ geçitleri standart IPSec/IKE protokolü paketleri S2S VPN tünelleri oluşturmak için kullanın. Başvurmak [VPN cihazları hakkında](vpn-gateway-about-vpn-devices.md) Azure VPN ağ geçitleri için varsayılan şifreleme algoritmaları ve ayrıntılı IPSec/IKE protokol parametreleri için. Bölümünde açıklandığı gibi isteğe bağlı olarak şifreleme algoritmaları ve anahtar gücü belirli bir bağlantı için tam birleşimini belirtebilirsiniz [şifreleme gereksinimleri hakkında](vpn-gateway-about-compliance-crypto.md). Lütfen şifreleme algoritmaları ve anahtar gücü belirli bir bileşimini seçerseniz, VPN aygıtlarınızda karşılık gelen belirtimleri kullandığınızdan emin olun.
+Azure VPN ağ geçitleri standart IPSec/IKE protokolü paketleri tooestablish S2S VPN tünelleri kullanın. Çok başvuran[VPN cihazları hakkında](vpn-gateway-about-vpn-devices.md) Merhaba IPSec/IKE protokolü parametreleri ve Azure VPN ağ geçitleri için varsayılan şifreleme algoritmalarının ayrıntılı. Bölümünde açıklandığı gibi hello tam birleşimini şifreleme algoritmaları ve anahtar gücü belirli bir bağlantı için isteğe bağlı olarak belirtebilirsiniz [şifreleme gereksinimleri hakkında](vpn-gateway-about-compliance-crypto.md). Lütfen şifreleme algoritmaları ve anahtar gücü belirli bir bileşimini seçerseniz, VPN aygıtlarınızda hello karşılık gelen belirtimleri kullandığınızdan emin olun.
 
 ## <a name="single-vpn-tunnel"></a>Tek VPN tüneli
-Bu topoloji bir Azure VPN ağ geçidi ve şirket içi VPN cihazınız arasındaki tek S2S VPN tüneli oluşur. İsteğe bağlı olarak VPN tüneli üzerinden BGP yapılandırabilirsiniz.
+Bu topoloji bir Azure VPN ağ geçidi ve şirket içi VPN cihazınız arasındaki tek S2S VPN tüneli oluşur. BGP hello VPN tüneli üzerinden isteğe bağlı olarak yapılandırabilirsiniz.
 
 ![tek tünel](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 
-Başvurmak [tek tünel Kurulum](vpn-gateway-3rdparty-device-config-overview.md#singletunnel) Azure yapılandırmalarını oluşturmak ayrıntılı, adım adım yönergeler için.
+Çok başvuran[tek tünel Kurulum](vpn-gateway-3rdparty-device-config-overview.md#singletunnel) ayrıntılı için adım adım yönergeler toobuild hello Azure yapılandırmaları.
 
 ### <a name="network-and-vpn-gateway-information"></a>Ağ ve VPN ağ geçidi bilgileri
-Bu bölümde listesinde parametreleri için bu örnek.
+Bu bölümde, bu örnek hello hello parametrelerini listeler.
 
 | **Parametre**                | **Değer**                    |
 | ---                          | ---                          |
@@ -72,7 +72,7 @@ Bu bölümde listesinde parametreleri için bu örnek.
 
 ### <a name="ipsecike-policy--parameters"></a>IPSec/IKE İlkesi & parametreleri
 
-Aşağıdaki tabloda IPSec/IKE algoritmaları ve örnekte kullanılan parametreler listelenmektedir. Lütfen yukarıda listelenen tüm algoritmalar, VPN aygıt modelleri ve bellenim sürümleri tarafından desteklendiğinden emin olmak için VPN aygıt belirtimlerine bakın.
+Merhaba tabloda hello IPSec/IKE algoritmaları ve hello örnekte kullanılan parametreleri listeler. Lütfen, VPN aygıt belirtimlerine toomake yukarıda listelenen tüm algoritmalar, VPN aygıt modelleri ve bellenim sürümleri tarafından desteklendiğinden emin bakın.
 
 | **IPsec/IKEv2**  | **Değer**                            |
 | ---              | ---                                  |
@@ -95,12 +95,12 @@ Aşağıdaki tabloda IPSec/IKE algoritmaları ve örnekte kullanılan parametrel
 >
 > 1. Ikev2 desteği, ASA sürüm 8.4 gerektirir ve üstü.
 > 2. (Ötesinde Grup 5) daha yüksek DH ve PFS grubu desteği ASA sürümünü gerektirir 9.x.
-> 3. AES-GCM ve IPSec bütünlüğüyle SHA-256, SHA-384, SHA-512 desteği ile IPSec şifrelemesini gerektiren ASA sürüm 9.x yeni ASA donanımda; ASA 5505, 5510, 5520, 5540, 5550, 5580 olan **değil** desteklenir. (Lütfen onaylamak için satıcı belirtimlerine bakın.)
+> 3. AES-GCM ve IPSec bütünlüğüyle SHA-256, SHA-384, SHA-512 desteği ile IPSec şifrelemesini gerektiren ASA sürüm 9.x yeni ASA donanımda; ASA 5505, 5510, 5520, 5540, 5550, 5580 olan **değil** desteklenir. (Merhaba Satıcı belirtimleri tooconfirm gözden geçirin.)
 >
 
 
 ### <a name="sample-device-configurations"></a>Örnek cihaz yapılandırması
-Aşağıdaki komut dosyası topoloji ve yukarıda listelenen parametreleri temel alarak örnek bir yapılandırma sağlar. S2S VPN tüneli yapılandırma aşağıdaki bölümlerden oluşur:
+Merhaba topolojisine bağlı örnek bir yapılandırma ve yukarıda listelenen parametreleri aşağıdaki Hello komut dosyası sağlar. Merhaba S2S VPN tüneli yapılandırma bölümü aşağıdaki Merhaba oluşur:
 
 1. Arabirimleri & yolları
 2. Erişim listeleri
@@ -109,13 +109,13 @@ Aşağıdaki komut dosyası topoloji ve yukarıda listelenen parametreleri temel
 5. Diğer parametreler (TCP MSS clamping, vb.)
 
 >[!IMPORTANT] 
->Lütfen aşağıda listelenen ek yapılandırmayı tamamlamak ve yer tutucular yerine gerçek değerler ile emin olun:
+>Lütfen aşağıda listelenen hello ek yapılandırmayı tamamlamak ve hello yer tutucuları hello gerçek değerlerle değiştirin emin olun:
 > 
 > - Arabirim yapılandırması için hem iç ve Dış arabirimler
 > - İç/özel ve dış/genel ağlar için yollar
-> - Tüm adlarını ve ilke numaralarını cihazda benzersiz olduğundan emin olun
-> - Şifreleme algoritmaları aygıtınızda desteklenen olduğundan emin olun
-> - Aşağıdaki yer tutucu gerçek değerlerle değiştirin
+> - Tüm adlarını ve ilke numaralarını hello aygıtta benzersiz olduğundan emin olun
+> - Merhaba şifreleme algoritmaları aygıtınızda desteklenen olduğundan emin olun
+> - Yer tutucu hello gerçek değerlerle aşağıdaki hello değiştirin
 >   - Arabirim adı dışında: "dış"
 >   - Azure_Gateway_Public_IP
 >   - OnPrem_Device_Public_IP
@@ -127,30 +127,30 @@ Aşağıdaki komut dosyası topoloji ve yukarıda listelenen parametreleri temel
 #### <a name="sample-configuration"></a>Örnek Yapılandırması
 
 ```
-! Sample ASA configuration for connecting to Azure VPN gateway
+! Sample ASA configuration for connecting tooAzure VPN gateway
 !
 ! Tested hardware: ASA 5505
 ! Tested version:  ASA version 9.2(4)
 !
-! Replace the following place holders with your actual values:
+! Replace hello following place holders with your actual values:
 !   - Interface names - default are "outside" and "inside"
 !   - <Azure_Gateway_Public_IP>
 !   - <OnPrem_Device_Public_IP>
 !   - <Pre_Shared_Key>
 !   - <VNetName>*
-!   - <LNGName>* ==> LocalNetworkGateway - the Azure resource that represents the
+!   - <LNGName>* ==> LocalNetworkGateway - hello Azure resource that represents the
 !     on-premises network, specifies network prefixes, device public IP, BGP info, etc.
 !   - <PrivateIPAddress> ==> Replace it with a private IP address if applicable
 !   - <Netmask> ==> Replace it with appropriate netmasks
-!   - <Nexthop> ==> Replace it with the actual nexthop IP address
+!   - <Nexthop> ==> Replace it with hello actual nexthop IP address
 !
-! (*) Must be unique names in the device configuration
+! (*) Must be unique names in hello device configuration
 !
 ! ==> Interface & route configurations
 !
-!     > <OnPrem_Device_Public_IP> address on the outside interface or vlan
-!     > <PrivateIPAddress> on the inside interface or vlan; e.g., 10.51.0.1/24
-!     > Route to connect to <Azure_Gateway_Public_IP> address
+!     > <OnPrem_Device_Public_IP> address on hello outside interface or vlan
+!     > <PrivateIPAddress> on hello inside interface or vlan; e.g., 10.51.0.1/24
+!     > Route tooconnect too<Azure_Gateway_Public_IP> address
 !
 !     > Example:
 !
@@ -175,7 +175,7 @@ Aşağıdaki komut dosyası topoloji ve yukarıda listelenen parametreleri temel
 ! ==> Access lists
 !
 !     > Most firewall devices deny all traffic by default. Create access lists to
-!       (1) Allow S2S VPN tunnels between the ASA and the Azure gateway public IP address
+!       (1) Allow S2S VPN tunnels between hello ASA and hello Azure gateway public IP address
 !       (2) Construct traffic selectors as part of IPsec policy or proposal
 !
 access-list outside_access_in extended permit ip host <Azure_Gateway_Public_IP> host <OnPrem_Device_Public_IP>
@@ -189,9 +189,9 @@ object-group network Azure-<VNetName>
  network-object 10.12.0.0 255.255.0.0
 exit
 !
-!     > Object group that corresponding to the <LNGName> prefixes.
+!     > Object group that corresponding toohello <LNGName> prefixes.
 !       E.g., 10.51.0.0/16 and 10.52.0.0/16. Note that LNG = "local network gateway".
-!       In Azure network resource, a local network gateway defines the on-premises
+!       In Azure network resource, a local network gateway defines hello on-premises
 !       network properties (address prefixes, VPN device IP, BGP ASN, etc.)
 !
 object-group network <LNGName>
@@ -200,12 +200,12 @@ object-group network <LNGName>
  network-object 10.52.0.0 255.255.0.0
 exit
 !
-!     > Specify the access-list between the Azure VNet and your on-premises network.
-!       This access list defines the IPsec SA traffic selectors.
+!     > Specify hello access-list between hello Azure VNet and your on-premises network.
+!       This access list defines hello IPsec SA traffic selectors.
 !
 access-list Azure-<VNetName>-acl extended permit ip object-group <LNGName> object-group Azure-<VNetName>
 !
-!     > No NAT required between the on-premises network and Azure VNet
+!     > No NAT required between hello on-premises network and Azure VNet
 !
 nat (inside,outside) source static <LNGName> <LNGName> destination static Azure-<VNetName> Azure-<VNetName>
 !
@@ -221,8 +221,8 @@ crypto isakmp identity address
 crypto ikev2 enable outside
 !
 !     > Define IKEv2 Phase 1/Main Mode policy
-!       - Make sure the policy number is not used
-!       - integrity and prf must be the same
+!       - Make sure hello policy number is not used
+!       - integrity and prf must be hello same
 !       - DH group 14 and above require ASA version 9.x.
 !
 crypto ikev2 policy 1
@@ -254,14 +254,14 @@ crypto ipsec ikev2 ipsec-proposal AES-256
 exit
 !
 !     > Set access list & traffic selectors, PFS, IPsec protposal, SA lifetime
-!       - This sample uses "Azure-<VNetName>-map" as the crypto map name
+!       - This sample uses "Azure-<VNetName>-map" as hello crypto map name
 !       - ASA supports only one crypto map per interface, if you already have
-!         an existing crypto map assigned to your outside interface, you must use
-!         the same crypto map name, but with a different sequence number for
+!         an existing crypto map assigned tooyour outside interface, you must use
+!         hello same crypto map name, but with a different sequence number for
 !         this policy
-!       - "match address" policy uses the access-list "Azure-<VNetName>-acl" defined 
+!       - "match address" policy uses hello access-list "Azure-<VNetName>-acl" defined 
 !         previously
-!       - "ipsec-proposal" uses the proposal "AES-256" defined previously 
+!       - "ipsec-proposal" uses hello proposal "AES-256" defined previously 
 !       - PFS groups 14 and beyond requires ASA version 9.x.
 !
 crypto map Azure-<VNetName>-map 1 match address Azure-<VNetName>-acl
@@ -271,7 +271,7 @@ crypto map Azure-<VNetName>-map 1 set ikev2 ipsec-proposal AES-256
 crypto map Azure-<VNetName>-map 1 set security-association lifetime seconds 7200
 crypto map Azure-<VNetName>-map interface outside
 !
-! ==> Set TCP MSS to 1350
+! ==> Set TCP MSS too1350
 !
 sysopt connection tcpmss 1350
 !
@@ -281,16 +281,16 @@ sysopt connection tcpmss 1350
 
 Hata ayıklama amacıyla bazı ASA komutlar şunlardır:
 
-1. IPSec ve IKE SA'ın Göster
+1. Göster IPSec ve IKE SA'ın hello
     - "şifre IPSec Göster sa"
     - "crypto Göster IKEv2 sa"
-2. Girme hata ayıklama modu - bu konsolda çok gürültülü alabilirsiniz
+2. Girme hata ayıklama modu - bu hello konsolda çok gürültülü alabilirsiniz
     - "hata ayıklama şifre IKEv2 platform <level>"
     - "hata ayıklama şifre IKEv2 Protokolü <level>"
 3. Liste geçerli yapılandırmaları
-    - "Göster" Çalıştır - cihazda geçerli yapılandırmaları gösterir; Liste belirli bölümlerine yapılandırmanın çeşitli alt komutlarını kullanabilirsiniz. Örn., "Çalıştır Göster crypto", "Çalıştır Göster erişim listesinde", "Çalıştır Göster tünel grubu", vb.
+    - "çalışma Göster" - gösterir geçerli yapılandırmaları hello aygıtta hello; kullanabileceğiniz çeşitli alt komutları toolist belirli kısımlarını hello yapılandırma hello. Örn., "Çalıştır Göster crypto", "Çalıştır Göster erişim listesinde", "Çalıştır Göster tünel grubu", vb.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Etkin-etkin şirket içi ve dışı ile Sanal Ağdan Sanal Ağa bağlantıları yapılandırma adımları için bkz. [Şirket İçi ve Dışı ile Sanal Ağdan Sanal Ağa Bağlantılar için Etkin-Etkin VPN Gateways Yapılandırma](vpn-gateway-activeactive-rm-powershell.md).
+Bkz: [yapılandırma etkin-etkin VPN ağ geçitleri için şirket içi ve VNet-VNet bağlantıları](vpn-gateway-activeactive-rm-powershell.md) adımları tooconfigure etkin-etkin şirket içi ve VNet-VNet bağlantıları için.
 

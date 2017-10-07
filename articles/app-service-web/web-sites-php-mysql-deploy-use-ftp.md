@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service’ta bir PHP-MySQL web uygulaması oluşturma ve uygulamayı FTP kullanarak dağıtma"
-description: "Azure için MySQL ve kullanım FTP dağıtımında verilerini depolayan bir PHP web uygulamasının nasıl oluşturulacağını gösteren bir öğretici."
+title: "aaaCreate PHP MySQL uygulamasını Azure App Service'te web ve FTP kullanarak dağıtın"
+description: "Nasıl toocreate bir PHP web, FTP dağıtım tooAzure MySQL ve kullanım verilerini depolayan gösteren bir öğretici."
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
@@ -14,66 +14,66 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: d428dffc6b810a692be0ec39a5f9cca05f5439e3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4d3b56a8ac63d0eba0dc0aec1b62e6d12f601bf1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>Azure App Service’ta bir PHP-MySQL web uygulaması oluşturma ve uygulamayı FTP kullanarak dağıtma
-Bu öğretici, bir PHP MySQL web uygulamasının nasıl oluşturulacağını ve FTP kullanarak dağıtma gösterir. Bu öğretici, varsayar [PHP][install-php], [MySQL][install-mysql], bir web sunucusu ve bilgisayarınızda yüklü bir FTP istemcisi. Bu öğreticideki yönergeler işletim Windows, Mac ve Linux dahil olmak üzere tüm sisteminizde izlenebilir. Bu kılavuzu tamamladıktan sonra Azure'da çalışan bir PHP/MySQL web uygulaması gerekir.
+Bu öğretici, toocreate PHP MySQL web nasıl uygulama ve nasıl gösterir toodeploy FTP kullanarak. Bu öğretici, varsayar [PHP][install-php], [MySQL][install-mysql], bir web sunucusu ve bilgisayarınızda yüklü bir FTP istemcisi. Bu öğreticideki yönergeler Hello işletim Windows, Mac ve Linux dahil olmak üzere tüm sisteminizde izlenebilir. Bu kılavuzu tamamladıktan sonra Azure'da çalışan bir PHP/MySQL web uygulaması gerekir.
 
 Şunları öğreneceksiniz:
 
-* Bir web uygulaması ve Azure Portalı'nı kullanarak bir MySQL veritabanı oluşturma PHP Web uygulamaları varsayılan olarak etkinleştirilmiş olduğundan, özel bir şey PHP kodunuzu çalıştırmak için gereklidir.
-* FTP kullanarak Azure uygulamanızı yayımlamak nasıl.
+* Nasıl toocreate bir web uygulaması ve bir MySQL hello Azure Portal kullanarak veritabanı. PHP Web uygulamaları varsayılan olarak etkindir, özel bir şey gerekli toorun çünkü PHP kodunuzu.
+* Nasıl toopublish kullanarak uygulamanızı tooAzure FTP.
 
-Bu öğreticiyi izleyerek, PHP bir basit kayıt web uygulaması oluşturacaksınız. Uygulama bir Web uygulamasını barındırılan. Tamamlanmış uygulamanın bir ekran görüntüsü aşağıda verilmiştir:
+Bu öğreticiyi izleyerek, PHP bir basit kayıt web uygulaması oluşturacaksınız. Merhaba uygulaması, bir Web uygulamasında barındırılan. Tamamlanan hello uygulamasının ekran görüntüsü aşağıda verilmiştir:
 
 ![Azure PHP Web sitesi][running-app]
 
 > [!NOTE]
-> Bir hesabı için kaydolmadan önce Azure App Service'i kullanmaya başlamak istiyorsanız, Git [App Service'i deneyin](https://azure.microsoft.com/try/app-service/), burada hemen bir kısa süreli başlangıç web uygulaması App Service'te oluşturabilirsiniz. Kredi kartı veya taahhüt gerekmez. 
+> Bir hesabı için kaydolmadan önce Azure App Service ile başlatılan tooget istiyorsanız, çok Git[App Service'i deneyin](https://azure.microsoft.com/try/app-service/), burada hemen bir kısa süreli başlangıç web uygulaması App Service'te oluşturabilirsiniz. Kredi kartı veya taahhüt gerekmez. 
 > 
 > 
 
 ## <a name="create-a-web-app-and-set-up-ftp-publishing"></a>Bir web uygulaması oluşturun ve FTP Yayımlama Ayarla
-Bir web uygulaması ve bir MySQL veritabanı oluşturmak için aşağıdaki adımları izleyin:
+Bu adımları toocreate bir web uygulaması ve bir MySQL veritabanı izleyin:
 
-1. Oturum açma [Azure Portal][management-portal].
-2. Tıklatın **+ yeni** üst simgesine sol Azure Portal'ın.
+1. Oturum açma toohello [Azure Portal][management-portal].
+2. Merhaba tıklatın **+ yeni** hello üst simgesine sol hello Azure Portal.
    
     ![Yeni Azure Web sitesi oluştur][new-website]
-3. Arama türündeki **Web uygulaması + MySQL** ve tıklayın **Web uygulaması + MySQL**.
+3. Merhaba arama türündeki **Web uygulaması + MySQL** ve tıklayın **Web uygulaması + MySQL**.
    
     ![Yeni Web sitesi özel oluştur][custom-create]
-4. **Oluştur**'a tıklayın. Benzersiz bir uygulama hizmeti adına, kaynak grubu ve yeni bir hizmet planı için geçerli bir ad girin.
+4. **Oluştur**'a tıklayın. Benzersiz bir uygulama hizmeti adına, hello kaynak grubu için geçerli bir ad ve yeni bir hizmet planı girin.
    
     ![Küme kaynak grubu adı][resource-group]
-5. Yasal koşulları kabul ettiğinizi belirten dahil olmak üzere, yeni bir veritabanı için değerler girin.
+5. Kabul ettiğinizi belirten dahil olmak üzere yeni veritabanınız için değerleri girin toohello yasal koşulları.
    
     ![Yeni MySQL veritabanı oluştur][new-mysql-db]
-6. Web uygulaması oluşturduğunuzda, yeni uygulama hizmeti dikey penceresini görürsünüz.
+6. Merhaba web uygulaması oluşturduğunuzda hello yeni uygulama hizmeti dikey görürsünüz.
 7. Tıklayın **ayarları** > **dağıtım kimlik bilgileri**. 
    
     ![Dağıtım kimlik bilgilerini ayarlama][set-deployment-credentials]
-8. FTP yayımlamayı etkinleştirmek için bir kullanıcı adı ve parolasını sağlamanız gerekir. Kimlik bilgileri kaydedin ve oluşturduğunuz parola ve kullanıcı adını not edin.
+8. tooenable FTP Yayımlama, bir kullanıcı adı ve parola sağlamalısınız. Merhaba kimlik bilgileri kaydedin ve hello kullanıcı adı ve parola oluşturduğunuz not edin.
    
     ![Yayımlama kimlik bilgileri oluşturma][portal-ftp-username-password]
 
 ## <a name="build-and-test-your-app-locally"></a>Derleme ve uygulamanızı yerel olarak test etme
-Kayıt uygulama kaydetmek bir olay için ad ve e-posta adresinizi sağlayarak sağlayan basit bir PHP uygulamasıdır. Önceki şahıslar hakkında bilgi bir tabloda görüntülenir. Kayıt bilgileri bir MySQL veritabanında depolanır. Uygulama iki dosyadan oluşur:
+Merhaba kayıt uygulama adı ve e-posta adresinizi sağlayarak bir olay için tooregister sağlayan basit bir PHP uygulamasıdır. Önceki şahıslar hakkında bilgi bir tabloda görüntülenir. Kayıt bilgileri bir MySQL veritabanında depolanır. Merhaba uygulama iki dosyadan oluşur:
 
 * **PHP için index.php'dir**: kaydı ve registrant bilgi içeren bir tablo için bir form görüntüler.
-* **CreateTable.php**: uygulama için MySQL tablosu oluşturur. Bu dosya yalnızca bir kez kullanılır.
+* **CreateTable.php**: Merhaba uygulaması için hello MySQL tablosu oluşturur. Bu dosya yalnızca bir kez kullanılır.
 
-Derleme ve uygulamayı yerel olarak çalıştırmak için aşağıdaki adımları izleyin. Bu adımları PHP, MySQL ve yerel makinenizde ayarlanan bir web sunucusu, olduğunu varsayın Not ve etkinleştirdiğiniz [PDO uzantısı MySQL için][pdo-mysql].
+toobuild ve yerel olarak çalıştırma hello uygulama hello adımları izleyin. PHP, MySQL ve yerel makinenizde ayarlanan bir web sunucusu varsa ve etkinleştirdiğinizden emin hello adımları varsayın Not [PDO uzantısı MySQL için][pdo-mysql].
 
-1. Adlı bir MySQL veritabanı oluşturma `registration`. Bu komutla MySQL komut isteminden bunu yapabilirsiniz:
+1. Adlı bir MySQL veritabanı oluşturma `registration`. Bu komutla hello MySQL komut satırından bunu yapabilirsiniz:
    
         mysql> create database registration;
 2. Web sunucunuzun kök dizininde adlı bir klasör oluşturun `registration` ve iki dosya içinde - adlı oluşturun `createtable.php` ve adlı `index.php`.
-3. Açık `createtable.php` dosyasını bir metin düzenleyicisi veya IDE ve aşağıdaki kodu ekleyin. Bu kodu oluşturmak için kullanılan `registration_tbl` tablosundaki `registration` veritabanı.
+3. Açık hello `createtable.php` dosyasını bir metin düzenleyicisi veya IDE ve hello aşağıdaki kodu ekleyin. Bu kod kullanılan toocreate hello olacaktır `registration_tbl` hello tabloda `registration` veritabanı.
    
         <?php
         // DB connection info
@@ -99,11 +99,11 @@ Derleme ve uygulamayı yerel olarak çalıştırmak için aşağıdaki adımlar�
         ?>
    
    > [!NOTE]
-   > Değerleri güncelleştirmeniz gerekecektir <code>$user</code> ve <code>$pwd</code> yerel MySQL kullanıcı adı ve parola.
+   > Tooupdate hello değerlerini gerekir <code>$user</code> ve <code>$pwd</code> yerel MySQL kullanıcı adı ve parola.
    > 
    > 
-4. Bir web tarayıcısı açın ve [http://localhost/registration/createtable.php][localhost-createtable]. Bu oluşturacak `registration_tbl` veritabanındaki tablo.
-5. Açık **php için index.php'dir** dosyasını bir metin düzenleyicisi veya IDE ve (PHP kodunun, sonraki adımlarda de eklenir) sayfanın temel HTML ve CSS kodunu ekleyin.
+4. Bir web tarayıcısı açın ve çok Gözat[http://localhost/registration/createtable.php][localhost-createtable]. Bu hello oluşturacak `registration_tbl` hello veritabanındaki tablo.
+5. Açık hello **php için index.php'dir** dosyasını bir metin düzenleyicisi veya IDE ve hello başlangıç sayfası için temel HTML ve CSS kodunu ekleyin (Merhaba PHP kodunun, sonraki adımlarda de eklenir).
    
         <html>
         <head>
@@ -124,7 +124,7 @@ Derleme ve uygulamayı yerel olarak çalıştırmak için aşağıdaki adımlar�
         </head>
         <body>
         <h1>Register here!</h1>
-        <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+        <p>Fill in your name and email address, then click <strong>Submit</strong> tooregister.</p>
         <form method="post" action="index.php" enctype="multipart/form-data" >
               Name  <input type="text" name="name" id="name"/></br>
               Email <input type="text" name="email" id="email"/></br>
@@ -135,14 +135,14 @@ Derleme ve uygulamayı yerel olarak çalıştırmak için aşağıdaki adımlar�
         ?>
         </body>
         </html>
-6. PHP etiketleri içinde veritabanına bağlanmak için PHP kodu ekleyin.
+6. Merhaba PHP etiketlere toohello veritabanına bağlanmak için PHP kodu ekleyin.
    
         // DB connection info
         $host = "localhost";
         $user = "user name";
         $pwd = "password";
         $db = "registration";
-        // Connect to database.
+        // Connect toodatabase.
         try {
             $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
             $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -152,10 +152,10 @@ Derleme ve uygulamayı yerel olarak çalıştırmak için aşağıdaki adımlar�
         }
    
    > [!NOTE]
-   > Yeniden değerleri güncelleştirmeniz gerekecektir <code>$user</code> ve <code>$pwd</code> yerel MySQL kullanıcı adı ve parola.
+   > Yeniden tooupdate hello değerlerini gerekir <code>$user</code> ve <code>$pwd</code> yerel MySQL kullanıcı adı ve parola.
    > 
    > 
-7. Veritabanı bağlantı kodu kayıt defteri bilgilerini veritabanına eklemek için kodu ekleyin.
+7. Merhaba veritabanı bağlantı kodu kayıt defteri bilgilerini hello veritabanına yerleştirilmesi için kodu ekleyin.
    
         if(!empty($_POST)) {
         try {
@@ -176,7 +176,7 @@ Derleme ve uygulamayı yerel olarak çalıştırmak için aşağıdaki adımlar�
         }
         echo "<h3>Your're registered!</h3>";
         }
-8. Son olarak, yukarıdaki kod veritabanından veri almak için kodu ekleyin.
+8. Son olarak, yukarıdaki hello kod hello veritabanından veri almak için kodu ekleyin.
    
         $sql_select = "SELECT * FROM registration_tbl";
         $stmt = $conn->query($sql_select);
@@ -197,37 +197,37 @@ Derleme ve uygulamayı yerel olarak çalıştırmak için aşağıdaki adımlar�
             echo "<h3>No one is currently registered.</h3>";
         }
 
-Şimdi gözatabilirsiniz [http://localhost/registration/index.php] [ localhost-index] uygulamayı test etmek için.
+Artık çok gözatabilirsiniz[http://localhost/registration/index.php] [ localhost-index] tootest hello uygulama.
 
 ## <a name="get-mysql-and-ftp-connection-information"></a>MySQL ve FTP bağlantı bilgileri alma
-Web uygulamaları, profilinizde çalıştıran MySQL veritabanına bağlanmak için bağlantı bilgilerini gerekir. MySQL bağlantı bilgilerini almak için şu adımları izleyin:
+Web uygulamaları, profilinizde çalıştıran tooconnect toohello MySQL veritabanı bağlantı bilgilerini hello. tooget MySQL bağlantı bilgilerini, şu adımları izleyin:
 
-1. Web uygulaması dikey uygulama hizmetinden kaynak grubu bağlantıyı tıklatın:
+1. Web uygulaması dikey Hello uygulama hizmetinden hello kaynak grubu bağlantıyı tıklatın:
    
     ![Kaynak Grup Seç][select-resourcegroup]
-2. Veritabanını, kaynak grubundan tıklatın:
+2. Kaynak grubundan hello veritabanı'nı tıklatın:
    
     ![Veritabanını seçin][select-database]
-3. Özet veritabanından seçin **ayarları** > **özellikleri**.
+3. Özet Hello veritabanının seçileceği **ayarları** > **özellikleri**.
    
     ![Özellikleri seçme][select-properties]
-4. Değerlerini Not `Database`, `Host`, `User Id`, ve `Password`.
+4. Merhaba değerlerini Not `Database`, `Host`, `User Id`, ve `Password`.
    
     ![Not özellikleri][note-properties]
-5. Web uygulamanızdan tıklatın **yayım profili indirin** sayfanın sağ alt köşesindeki bağlantıda:
+5. Web uygulamanızdan hello tıklatın **yayım profili indirin** hello hello sayfanın sağ alt köşesindeki bağlantıda:
    
     ![Yayım profili indirin][download-publish-profile]
-6. Açık `.publishsettings` dosyasını bir XML düzenleyicisinde. 
-7. Bul `<publishProfile >` öğeyle `publishMethod="FTP"` , aşağıdakine benzer görünür:
+6. Açık hello `.publishsettings` dosyasını bir XML düzenleyicisinde. 
+7. Hello bulur `<publishProfile >` öğeyle `publishMethod="FTP"` benzer toothis arar:
    
         <publishProfile publishMethod="FTP" publishUrl="ftp://[mysite].azurewebsites.net/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].antdf0.antares-test.windows-int.net" 
             ...
         </publishProfile>
 
-Not `publishUrl`, `userName`, ve `userPWD` öznitelikleri.
+Merhaba Not `publishUrl`, `userName`, ve `userPWD` öznitelikleri.
 
 ## <a name="publish-your-app"></a>Uygulamanızı yayımlama
-Uygulamanızı yerel olarak test ettikten sonra web uygulamanıza FTP kullanarak yayımlayabilirsiniz. Ancak, ilk uygulamasında veritabanı bağlantısı bilgilerini güncelleştirmek gerekir. Daha önce aldığınız veritabanı bağlantı bilgilerini kullanarak (içinde **MySQL almak ve FTP bağlantı bilgileri** bölüm), aşağıdaki bilgileri güncelleştirin **her ikisi de** `createdatabase.php` ve `index.php` uygun değerlerle dosyaları:
+Uygulamanızı yerel olarak test ettikten sonra FTP kullanarak tooyour web uygulaması yayımlayabilirsiniz. Ancak, ilk hello uygulamasında tooupdate hello veritabanı bağlantısı bilgilerini gerekir. Daha önce aldığınız hello veritabanı bağlantı bilgilerini kullanarak (Merhaba içinde **MySQL almak ve FTP bağlantı bilgileri** bölüm), bilgileri aşağıdaki güncelleştirme hello **her ikisi de** hello `createdatabase.php` ve `index.php` hello dosyalarıyla uygun değerler:
 
     // DB connection info
     $host = "value of Data Source";
@@ -235,19 +235,19 @@ Uygulamanızı yerel olarak test ettikten sonra web uygulamanıza FTP kullanarak
     $pwd = "value of Password";
     $db = "value of Database";
 
-Şimdi FTP kullanarak uygulamanızı yayımlamak hazırsınız.
+Artık toopublish FTP kullanarak uygulamanızı hazır.
 
 1. Tercih, FTP İstemcisi'ni açın.
-2. Girin *ana bilgisayar adı bölümü* gelen `publishUrl` ettiğiniz yukarıda FTP istemciniz özniteliği.
-3. Girin `userName` ve `userPWD` yukarıda belirtilen öznitelikler, FTP istemcisi değişmeden.
+2. Merhaba girin *ana bilgisayar adı bölümü* hello gelen `publishUrl` ettiğiniz yukarıda FTP istemciniz özniteliği.
+3. Merhaba girin `userName` ve `userPWD` yukarıda belirtilen öznitelikler, FTP istemcisi değişmeden.
 4. Bağlantı kurun.
 
-Bağlantıyı oluşturduktan sonra karşıya yükleme ve gerektiğinde dosyaları indirme mümkün olacaktır. Olduğu kök dizinine dosyaları karşıya mutlaka `/site/wwwroot`.
+Bağlantıyı oluşturduktan sonra mümkün tooupload olması ve gerektiğinde dosyalarını indirin. Olan dosyaları toohello kök dizini yüklediğinizden emin olun `/site/wwwroot`.
 
-Her ikisi de karşıya sonra `index.php` ve `createtable.php`, Gözat **http://[site name].azurewebsites.net/createtable.php** uygulama için MySQL tablo oluşturmak için göz **http://[site adı]. azurewebsites.NET/index.php** uygulamayı kullanmaya başlamak için.
+Her ikisi de karşıya sonra `index.php` ve `createtable.php`, çok Gözat**http://[site name].azurewebsites.net/createtable.php** toocreate hello MySQL tablo hello uygulama için sonra çok Gözat**http://[site adı ].azurewebsites.net/index.php** Merhaba uygulaması kullanarak toobegin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi için bkz: [PHP Geliştirici Merkezi](/develop/php/).
+Daha fazla bilgi için bkz: Merhaba [PHP Geliştirici Merkezi](/develop/php/).
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html

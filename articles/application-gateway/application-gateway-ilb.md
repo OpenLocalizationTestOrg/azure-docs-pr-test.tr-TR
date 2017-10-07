@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama ağ geçidi iç yük dengeleyici ile kullanma | Microsoft Docs"
-description: "Bu sayfa, Azure uygulama ağ geçidi ile iç yük dengeli uç nokta yapılandırmaya yönelik yönergeler sağlar"
+title: "Azure uygulama ağ geçidi iç yük dengeleyici ile aaaUsing | Microsoft Docs"
+description: "Bu sayfa, Azure uygulama ağ geçidi ile bir iç yük dengeli uç nokta yönergeleri tooconfigure sağlar"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 272ef84a02f92a8521c35aad6f1d9f9bf1675718
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>İç Load Balancer (ILB) aracılığıyla Application Gateway oluşturun
 
@@ -26,25 +26,25 @@ ms.lasthandoff: 07/11/2017
 > * [Azure Klasik PowerShell](application-gateway-ilb.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
 
-Uygulama ağ geçidi olarak da bilinen iç yük dengeleyici (ILB) uç nokta Internet'e açık olmayan bir iç uç nokta veya internet'e yönelik sanal IP ile yapılandırılabilir. Ağ geçidini bir ILB ile yapılandırma internet'e açık değil iç iş kolu satır uygulamaları için kullanışlıdır. İnternet'e açık olmayan bir güvenlik sınırı içinde bulunur, ancak hala hepsini bir kez deneme yük dağıtımı, oturum sürekliliği veya SSL sonlandırması gerektiren çok katmanlı uygulama içinde Hizmetleri/katmanları için de yararlıdır. Bu makale, ILB ile uygulama ağ geçidi yapılandırma adımlarında size yol gösterir.
+Bir iç uç nokta sunulmaz toohello veya internet'e yönelik sanal IP ile uygulama ağ geçidi yapılandırılabilir Internet, olarak da bilinen iç yük dengeleyici (ILB) uç noktası. Bir ILB ile yapılandırma hello ağ geçidi sunulmaz iç iş kolu satır uygulamaları toointernet için yararlıdır. Güvenlik sunulmaz sınır toointernet içinde bulunur, ancak hala hepsini bir kez deneme yük dağıtımı, oturum sürekliliği veya SSL sonlandırması gerektiren çok katmanlı uygulama içinde Hizmetleri/katmanları için de yararlıdır. Bu makalede, hello adımları tooconfigure bir uygulama ağ geçidini bir ILB ile adım adım anlatılmaktadır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-1. Web Platformu Yükleyicisi'ni kullanarak Azure PowerShell cmdlet'lerinin en yeni sürümünü yükleyin. En son sürümü yükleyip **Windows PowerShell** bölümünü [indirme sayfası](https://azure.microsoft.com/downloads/).
+1. Merhaba Web Platformu yükleyicisi kullanılarak hello Azure PowerShell cmdlet'lerinin en yeni sürümünü yükleyin. Karşıdan yükle ve hello hello en son sürümünü yüklemek **Windows PowerShell** hello bölümünü [indirme sayfası](https://azure.microsoft.com/downloads/).
 2. Geçerli bir alt ağ ile çalışan bir sanal ağa sahip olduğunuzu doğrulayın.
-3. Sanal ağda veya atanan genel IP/VIP'ye ile arka uç sunucularına sahip olduğunuzu doğrulayın.
+3. Merhaba sanal ağda veya atanan genel IP/VIP'ye ile arka uç sunucularına sahip olduğunuzu doğrulayın.
 
-Bir uygulama ağ geçidi oluşturmak için listelenen sırayla aşağıdaki adımları gerçekleştirin. 
+bir uygulama ağ geçidi toocreate hello sırayı adımlarını izleyerek hello gerçekleştirin. 
 
 1. [Bir uygulama ağ geçidi oluşturma](#create-a-new-application-gateway)
-2. [Ağ geçidini yapılandırma](#configure-the-gateway)
-3. [Ağ geçidi yapılandırmasını ayarlayın](#set-the-gateway-configuration)
-4. [Ağ geçidini başlatma](#start-the-gateway)
-5. [Ağ geçidi doğrulayın](#verify-the-gateway-status)
+2. [Merhaba ağ geçidini yapılandırma](#configure-the-gateway)
+3. [Kümesi hello ağ geçidi yapılandırması](#set-the-gateway-configuration)
+4. [Merhaba ağ geçidi Başlat](#start-the-gateway)
+5. [Merhaba ağ geçidini doğrulama](#verify-the-gateway-status)
 
 ## <a name="create-an-application-gateway"></a>Bir uygulama ağ geçidi oluşturun:
 
-**Ağ geçidi oluşturmak için**, kullanın `New-AzureApplicationGateway` cmdlet'ini değerleri kendi değerlerinizle değiştirerek. Ağ geçidinin faturalanmasının henüz bu aşamada başlamadığını hatırlatmak isteriz.  Daha sonra ağ geçidi başarıyla başlatıldığında faturalama da başlar. 
+**toocreate hello ağ geçidi**, hello kullan `New-AzureApplicationGateway` hello değerleri kendi değerlerinizle değiştirerek cmdlet'i. Merhaba ağ geçidi için fatura bu noktada başlamıyor unutmayın. Merhaba ağ geçidi başarıyla başlatıldığında faturalama bir sonraki adımda başlar.
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -58,9 +58,9 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 ```
 
-**Doğrulanacak** ağ geçidinin oluşturulduğunu, kullanabileceğiniz `Get-AzureApplicationGateway` cmdlet'i. 
+**toovalidate** hello ağ geçidi oluşturuldu, hello kullanabilirsiniz `Get-AzureApplicationGateway` cmdlet'i. 
 
-Örnekte, *açıklama*, *Instancecount*, ve *GatewaySize* isteğe bağlı parametrelerdir. *InstanceCount* için varsayılan değer 2 ile 10 arasıdır. *GatewaySize* için varsayılan değer Medium’dur. Küçük ve büyük diğer değerleri kullanılabilir. *VIP* ve *DnsName* ağ geçidi henüz başlatılmamış olduğundan boş olarak gösterilir. Bunlar ağ geçidi çalışma durumuna geçtiğinde oluşturulur. 
+Merhaba örneğinde, *açıklama*, *Instancecount*, ve *GatewaySize* isteğe bağlı parametrelerdir. Merhaba için varsayılan değer *Instancecount* 10 maksimum değerini 2'dir. Merhaba için varsayılan değer *GatewaySize* Orta'dır. Küçük ve büyük diğer değerleri kullanılabilir. *VIP* ve *DnsName* hello ağ geçidi henüz başlatılmamış olduğundan boş olarak gösterilir. Merhaba ağ geçidi çalışır durumda hello olduğunda bunlar oluşturulur. 
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -81,25 +81,25 @@ VirtualIPs:
 DnsName:
 ```
 
-## <a name="configure-the-gateway"></a>Ağ geçidini yapılandırma
-Bir uygulama ağ geçidi yapılandırması birden çok değerden oluşur. Değerleri bağlı yapılandırma birlikte oluşturulamadı.
+## <a name="configure-hello-gateway"></a>Merhaba ağ geçidini yapılandırma
+Bir uygulama ağ geçidi yapılandırması birden çok değerden oluşur. Merhaba değerleri bağlı birlikte tooconstruct hello yapılandırma.
 
-Değerler şunlardır:
+Merhaba değerler şunlardır:
 
-* **Arka uç sunucusu havuzu:** arka uç sunucularının IP adreslerinin listesi. Listede bulunan IP adresleri ya da sanal ağ alt ağına ait olması gerekir veya genel IP/VIP'ye olmalıdır. 
-* **Arka uç sunucu havuzu ayarları**: Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar bir havuza bağlıdır ve havuzdaki tüm sunuculara uygulanır.
-* **Ön uç bağlantı noktası:** Bu bağlantı noktası uygulama ağ geçidinde açılan genel bağlantı noktasıdır. Bu bağlantı noktasında trafik olursa arka uç sunuculardan birine yönlendirilir.
-* **Dinleyici:** dinleyicisinde bir ön uç bağlantı noktası, bir iletişim kuralı kullanılır (Http veya Https, bunlar büyük küçük harfe duyarlı) ve (SSL yük boşaltımı yapılandırılıyorsa) SSL sertifika adı. 
-* **Kural:** kural dinleyiciyi ve arka uç sunucusu havuzunu bağlar ve trafiği için belli bir Dinleyicide trafik olduğunda hangi arka uç sunucu havuzuna yönlendirileceğini belirler. Şu anda yalnızca *temel* kural desteklenmektedir. *Temel* kural hepsini bir kez deneme yöntemiyle yük dağıtımıdır.
+* **Arka uç sunucusu havuzu:** hello hello arka uç sunucularının IP adreslerinin listesi. listede hello IP adresleri ya da toohello sanal alt ait olması gerekir veya genel IP/VIP'ye olmalıdır. 
+* **Arka uç sunucu havuzu ayarları**: Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar bağlı tooa olan havuzu ve hello havuz içindeki uygulanan tooall sunucularıdır.
+* **Ön uç bağlantı noktası:** Bu bağlantı noktası hello uygulama ağ geçidinde açılan hello genel bağlantı noktasıdır. Trafiği, bu bağlantı noktasında trafik ve yeniden yönlendirilen tooone hello arka uç sunucularının alır.
+* **Dinleyici:** hello dinleyicisi sahip bir ön uç bağlantı noktası, bir protokol (Http veya Https, bunlar büyük küçük harfe duyarlı) ve hello SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa). 
+* **Kural:** hello kural hello dinleyici ve hello arka uç sunucusu havuzunu bağlar ve belli bir Dinleyicide trafik yönlendirilmiş toowhen hangi arka uç sunucu havuzu hello trafiğini olmalıdır belirler. Şu anda yalnızca hello *temel* kural desteklenmektedir. Merhaba *temel* hepsini bir kez deneme yük dağıtımı kuralıdır.
 
-Bir yapılandırma nesnesi oluşturarak veya bir XML yapılandırma dosyası kullanarak yapılandırmanızı oluşturabilirsiniz. Bir XML yapılandırma dosyası kullanarak yapılandırmanızı oluşturmak için aşağıdaki örneği kullanın.
+Bir yapılandırma nesnesi oluşturarak veya bir XML yapılandırma dosyası kullanarak yapılandırmanızı oluşturabilirsiniz. tooconstruct yapılandırma XML dosyası, kullanım hello kullanarak yapılandırmanızı Aşağıda örnek.
 
-Şunlara dikkat edin:
+Merhaba aşağıdakileri göz önünde bulundurun:
 
-* *Frontendıpconfigurations'a* öğesi bir ILB ile uygulama ağ geçidi yapılandırılmasıyla ilgili ILB ayrıntıları açıklar. 
-* Ön uç IP *türü* 'Özel' olarak ayarlanmalıdır.
-* *StaticIPAddress* ağ geçidi üzerinde trafiği alır istenen iç IP ayarlamanız gerekir. Unutmayın *StaticIPAddress* öğesidir isteğe bağlıdır. Aksi durumda kümesi, kullanılabilir bir iç IP dağıtılan alt ağdan seçilir. 
-* Değeri *adı* belirtilen öğesi *Frontendıpconfiguration* HTTPListener içinde 's kullanılmalıdır *FrontendIP* Frontendıpconfiguration başvurmak için öğesi.
+* Merhaba *Frontendıpconfigurations'a* öğesi hello ILB ayrıntıları uygulama ağ geçidini bir ILB ile yapılandırılmasıyla ilgili açıklar. 
+* Merhaba ön uç IP *türü* too'Private ayarlanmalıdır '
+* Merhaba *StaticIPAddress* istenen toohello iç IP hangi hello üzerinde ağ geçidi alır trafiği ayarlamanız gerekir. Bu hello Not *StaticIPAddress* öğesidir isteğe bağlıdır. Aksi durumda kümesi, kullanılabilir bir iç IP dağıtılan hello alt ağdan seçilir. 
+* Merhaba hello değerini *adı* belirtilen öğesi *Frontendıpconfiguration* hello HTTPListener's kullanılmalıdır *FrontendIP* öğesi toorefer toohello Frontendıpconfiguration.
   
   **Yapılandırma XML örneği**
 ```xml
@@ -156,8 +156,8 @@ Bir yapılandırma nesnesi oluşturarak veya bir XML yapılandırma dosyası kul
 ```
 
 
-## <a name="set-the-gateway-configuration"></a>Ağ geçidi yapılandırmasını ayarlayın
-Ardından, uygulama ağ geçidi ayarlarsınız. Kullanabileceğiniz `Set-AzureApplicationGatewayConfig` cmdlet'i bir yapılandırma nesnesi veya bir XML yapılandırma dosyası. 
+## <a name="set-hello-gateway-configuration"></a>Kümesi hello ağ geçidi yapılandırması
+Ardından, hello uygulama ağ geçidi ayarlarsınız. Merhaba kullanabilirsiniz `Set-AzureApplicationGatewayConfig` cmdlet'i bir yapılandırma nesnesi veya bir XML yapılandırma dosyası. 
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
@@ -171,12 +171,12 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 ```
 
-## <a name="start-the-gateway"></a>Ağ geçidini başlatma
+## <a name="start-hello-gateway"></a>Merhaba ağ geçidi Başlat
 
-Ağ geçidi yapılandırıldıktan sonra, ağ geçidini başlatmak için `Start-AzureApplicationGateway` cmdlet’ini kullanın. Uygulama ağ geçidinin faturalanması ağ geçidi başarıyla başlatıldıktan sonra başlar. 
+Hello ağ geçidi yapılandırıldıktan sonra hello kullanarak `Start-AzureApplicationGateway` cmdlet toostart hello ağ geçidi. Bir uygulama ağ geçidi için fatura Hello ağ geçidi başarıyla başlatıldıktan sonra başlar. 
 
 > [!NOTE]
-> `Start-AzureApplicationGateway` Cmdlet 15-20 tamamlamak için dakika kadar sürebilir. 
+> Merhaba `Start-AzureApplicationGateway` cmdlet too15-20 dakika toocomplete alabilir. 
 > 
 > 
 
@@ -192,12 +192,12 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 ```
 
-## <a name="verify-the-gateway-status"></a>Ağ geçidi durumunu doğrulama
+## <a name="verify-hello-gateway-status"></a>Merhaba ağ geçidi durumunu doğrulama
 
-Kullanım `Get-AzureApplicationGateway` cmdlet'ini ağ geçidi durumunu kontrol edin. Varsa `Start-AzureApplicationGateway` önceki adımda başarılı oldu, durum olmalıdır *çalıştıran*, ve VIP ve DnsName geçerli girdilere sahip olmalıdır. Bu örnek cmdlet ilk satırında gösterir çıktı tarafından takip. Bu örnek, ağ geçidi çalışıyor ve trafiği almaya hazır. 
+Kullanım hello `Get-AzureApplicationGateway` cmdlet toocheck hello ağ geçidi durumunu. Varsa `Start-AzureApplicationGateway` hello önceki adımda başarılı oldu, hello durumu olmalıdır *çalıştıran*, VIP hello ve DnsName geçerli girişi olmalıdır. Bu örnek hello cmdlet'i hello ilk satırında, gösterilmektedir hello çıktı tarafından izlenen. Bu örnek hello ağ geçidi çalışıyor ve hazır tootake trafiğidir. 
 
 > [!NOTE]
-> Uygulama ağ geçidi 10.0.0.10 Bu örnekte, yapılandırılmış ILB uç noktada trafiğini kabul edecek şekilde yapılandırılır.
+> Merhaba uygulama ağ geçidi yapılandırılmış hello tooaccept trafiğinin Bu örnekte 10.0.0.10 ILB uç noktasını yapılandırılmış.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest 

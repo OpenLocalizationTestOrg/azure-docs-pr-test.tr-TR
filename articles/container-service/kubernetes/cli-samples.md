@@ -1,5 +1,5 @@
 ---
-title: "Azure kapsayıcı hizmeti kod örnekleri | Microsoft Docs"
+title: "aaaAzure kapsayıcı hizmeti kod örnekleri | Microsoft Docs"
 description: "Azure kapsayıcı hizmeti kod örnekleri"
 services: container-service
 documentationcenter: 
@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b56c45fc711cc2831adde80617b14a82601b49e7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8c655a1c2a13c5636211ba8333c0e7a338b1e79a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cli-samples-for-azure-container-service"></a>Azure kapsayıcı hizmeti için Azure CLI örnekleri
 
-Aşağıdaki tabloda Azure CLI kullanarak oluşturulan komut dosyalarını bash bağlantılar içerir.
+Merhaba aşağıdaki tabloda bağlantıları toobash hello Azure CLI kullanarak oluşturulan komut dosyalarını içerir.
 
 | | |
 |---|---|

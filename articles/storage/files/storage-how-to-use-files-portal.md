@@ -1,6 +1,6 @@
 ---
-title: "Azure portalından Azure Dosya depolamayı yönetme | Microsoft Docs"
-description: "Azure portalından Azure Dosya depolamayı yönetmeyi öğrenin."
+title: aaaHow toomanage hello Azure portal'dan Azure File storage | Microsoft Docs
+description: "Toouse hello Azure portal toomanage Azure File storage öğrenin."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -14,62 +14,62 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
-ms.openlocfilehash: d5ffa7cff0a31e36f5a96aaa4b2d477fa39333fb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 6ad2fbbf9ee2f86748b1b175d0f63274144dc5eb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-file-storage-from-the-azure-portal"></a>Azure portalından Azure Dosya depolamayı yönetme
-[Azure portalı](https://portal.azure.com), Azure Dosya paylaşımlarını yönetmek için bir kullanıcı arabirimi sunar. Web tarayıcınızdan aşağıdaki eylemleri gerçekleştirebilirsiniz:
+# <a name="how-toouse-azure-file-storage-from-hello-azure-portal"></a>Nasıl toouse Azure dosya depolama biriminden hello Azure portalı
+Merhaba [Azure portal](https://portal.azure.com) Azure File storage yönetmek için bir kullanıcı arabirimi sağlar. Web tarayıcınızdan eylemleri aşağıdaki hello gerçekleştirebilirsiniz:
 
 * Dosya Paylaşımı oluşturma
-* Dosya paylaşımınızda dosyaları karşıya yükleme ve indirme.
-* Her dosya paylaşımının gerçek kullanımını izleme.
-* Dosya paylaşımının boyut kotasını ayarlama.
-* Windows veya Linux istemcisinden dosya paylaşımınızı bağlamak için bağlama komutlarını kopyalayın.
+* Karşıya yükleme ve dosyaları tooand dosya paylaşımından indirin.
+* Her dosya paylaşımına Hello gerçek kullanımını izleyin.
+* Merhaba dosya paylaşım boyutu kotasını ayarlama.
+* Merhaba bağlama komutları toouse toomount, dosya paylaşımı bir Windows veya Linux istemciden kopyalayın.
 
 ## <a name="create-file-share"></a>Dosya paylaşımı oluşturma
-1. Azure Portal’da oturum açın.
-2. Gezinti menüsünde, **Depolama hesapları** veya **Depolama hesapları (klasik)** seçeneğine tıklayın.
+1. Toohello Azure portalında oturum açın.
+2. Merhaba Gezinti menüsünde **depolama hesapları** veya **depolama hesapları (Klasik)**.
     
-    ![Portalda dosya paylaşımı oluşturmayı gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share1.png)
+    ![Nasıl toocreate dosya paylaşımı hello Portalı'nda gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share1.png)
 
 3. Depolama hesabınızı seçin.
 
-    ![Portalda dosya paylaşımı oluşturmayı gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share2.png)
+    ![Nasıl toocreate dosya paylaşımı hello Portalı'nda gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share2.png)
 
 4. "Dosyalar" hizmetini seçin.
 
-    ![Portalda dosya paylaşımı oluşturmayı gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share3.png)
+    ![Nasıl toocreate dosya paylaşımı hello Portalı'nda gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share3.png)
 
-5. "Dosya paylaşımları" seçeneğine tıklayın ve ilk dosya paylaşımınızı oluşturmak üzere bağlantıyı takip edin.
+5. "Dosya paylaşımları" seçeneğine tıklayın ve ilk dosya paylaşımı hello bağlantı toocreate izleyin.
 
-    ![Portalda dosya paylaşımı oluşturmayı gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share4.png)
+    ![Nasıl toocreate dosya paylaşımı hello Portalı'nda gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share4.png)
 
-6. İlk dosya paylaşımınızı oluşturmak üzere dosya paylaşımının adını ve boyutunu (en fazla 5120 GB) girin. Dosya paylaşımı oluşturulduktan sonra, SMB 2.1 veya SMB 3.0 destekleyen herhangi bir dosya sisteminden bağlayabilirsiniz. Dosya paylaşımında bulunan **Kota**’ya tıklayarak dosyanızın boyutunu en fazla 5120 GB’a kadar değiştirebilirsiniz. Azure Dosya depolama kullanıldığında depolamanın tahmini maliyetini hesaplamak lütfen [Azure Fiyatlandırma Hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/)’na bakın.
+6. Merhaba dosya paylaşımı adı ve hello dosya paylaşımı (yukarı too5120 GB) toocreate hello boyutunu ilk dosya paylaşımınızı doldurun. Merhaba dosya paylaşımı oluşturulduktan sonra SMB 2.1 veya SMB 3.0 destekleyen herhangi bir dosya sisteminden bağlayabilirsiniz. Tıklayarak **kota** hello dosya paylaşımı toochange hello boyutu hello dosyasını too5120 GB yedekleyin. Lütfen çok başvurun[Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/) tooestimate hello depolama maliyeti Azure File storage kullanma.
 
-    ![Portalda dosya paylaşımı oluşturmayı gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share5.png)
+    ![Nasıl toocreate dosya paylaşımı hello Portalı'nda gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share5.png)
 
 ## <a name="upload-and-download-files"></a>Dosyaları yükleme ve indirme
 1. Daha önce oluşturduğunuz bir dosya paylaşımını seçin.
 
-    ![Portaldan dosya yükleme ve indirmeyi gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-upload-file1.png)
+    ![Nasıl tooupload ve yükleme dosyalarından portal hello gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-upload-file1.png)
 
-2. Yüklenen dosyalar için kullanıcı arabirimini açmak üzere **Yükle**’ye tıklayın.
+2. Tıklatın **karşıya** hello kullanıcı arabirimi yüklenen dosyalar için açın.
 
-    ![Portaldan dosya yüklemeyi gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-upload-file2.png)
+    ![Tooupload hello Portalı'ndan nasıl dosyaları gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-upload-file2.png)
 
-## <a name="connect-to-file-share"></a>Dosya paylaşımına bağlanma
--  Dosya paylaşımını bağlamak üzere Windows ve Linux’tan komut satırı almak için **Bağlan**’a tıklayın. Linux kullanıcıları için, diğer Linux dağıtımlarına yönelik daha fazla bağlama yönergesini [Azure Dosya depolamayı Linux ile kullanma](../storage-how-to-use-files-linux.md) bölümünde bulabilirsiniz.
+## <a name="connect-toofile-share"></a>Toofile paylaşımına bağlanmak
+-  Tıklatın **Bağlan** Windows ve Linux bağlama hello dosya paylaşımı için hello komut satırı alınamadı. Linux kullanıcıları için aynı zamanda çok başvurabilirsiniz[nasıl toouse Linux Azure File storage](../storage-how-to-use-files-linux.md) diğer Linux dağıtımları için daha fazla bağlama yönergeler için.
 
-    ![Dosya paylaşımını bağlamayı gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
--  Windows veya Linux’ta dosya paylaşımı bağlama ve Azure VM veya şirket içi makinenizde çalıştırma için komutları kopyalayabilirsiniz.
+    ![Nasıl toomount hello dosya paylaşımını gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
+-  Dosya komutları Windows veya Linux'ta paylaşma ve çalıştırın, Azure VM veya şirket içi makinede hello kopyalayabilirsiniz.
 
-    ![Windows ve Linux için bağlama komutlarını gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
+    ![Windows ve Linux için hello bağlama komutları gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
 
 **İpucu:**  
-Bağlama için depolama hesabı erişim anahtarını, bağlan sayfasının en altındaki **Bu depolama hesabı için erişim anahtarlarını görüntüleyin** alanına tıklayarak bulabilirsiniz.
+toofind hello depolama hesabının erişim anahtarı bağlama, tıklayın **görünüm erişim için bu depolama hesabı anahtarları** hello hello altındaki sayfayı bağlayın.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.

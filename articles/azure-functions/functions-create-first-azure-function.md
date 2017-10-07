@@ -1,6 +1,6 @@
 ---
-title: "Azure portalında ilk işlevinizi oluşturma | Microsoft Docs"
-description: "Azure portalını kullanarak sunucusuz yürütme için ilk Azure İşlevinizi oluşturma hakkında bilgi edinin."
+title: "ilk işlev hello Azure Portalı ' aaaCreate | Microsoft Docs"
+description: "Bilgi nasıl ilk Azure işlev kullanılarak sunucusuz yürütme için toocreate hello Azure portalı."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,59 +16,59 @@ ms.workload: na
 ms.date: 08/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3ec1f278f21d89782137625aff200f07f15fd9fb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 84283d7d4bc6015061946af4589f9a70ae61f36b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-your-first-function-in-the-azure-portal"></a>Azure portalında ilk işlevinizi oluşturma
+# <a name="create-your-first-function-in-hello-azure-portal"></a>Hello Azure portalını ilk işlevinizi oluşturma
 
-Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu sunucusuz bir ortamda yürütmenize olanak tanır. Bu konu başlığında, Azure portalında İşlevler’i kullanarak bir "hello world" işlevi oluşturmayı öğrenebilirsiniz.
+Azure işlevleri sağlayan bir VM oluşturun veya bir web uygulaması yayımlama toofirst gerek kalmadan sunucusuz bir ortamda kodunuzu yürütün. Bu konuda, toouse toocreate hello Azure portalı "hello world" işlevinde nasıl çalıştığını öğrenin.
 
-![Azure portalında işlev uygulaması oluşturma](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
+![Hello Azure portal işlev uygulaması oluşturma](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="log-in-tooazure"></a>İçinde tooAzure oturum
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+İçinde toohello oturum [Azure portal](https://portal.azure.com/).
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
-İşlevlerinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, kaynakların daha kolay yönetilmesi, dağıtılması ve paylaşılması için işlevleri bir mantıksal birim olarak gruplandırmanıza olanak tanır. 
+Bir işlev uygulaması toohost hello işlevlerinizin yürütülmesini olması gerekir. İşlev uygulaması, kaynakların daha kolay yönetilmesi, dağıtılması ve paylaşılması için işlevleri bir mantıksal birim olarak gruplandırmanıza olanak tanır. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-Ardından, yeni işlev uygulamasında bir işlev oluşturun.
+Ardından, hello yeni işlev uygulamada bir işlev oluşturun.
 
 ## <a name="create-function"></a>HTTP ile tetiklenen bir işlev oluşturma
 
-1. Yeni işlev uygulamanızı genişletin, ardından **İşlevler**’in yanındaki **+** düğmesine tıklayın.
+1. Yeni işlev uygulamanız genişletin ve ardından hello  **+**  sonraki çok düğmesini**işlevler**.
 
-2.  **Hemen kullanmaya başlayın** sayfasında **Web Kancası + API**'ye tıklayın, **işleviniz için bir dil seçin** ve **Bu işlevi oluştur**'a tıklayın. 
+2.  Merhaba, **hızlı şekilde kullanmaya** sayfasında, **Web kancası + API**, **bir dil seçin** işlevi ve tıklatın **bu işlev oluşturma** . 
    
-    ![Azure portalındaki İşlevler hızlı başlangıcı.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+    ![Hello Azure portal işlevleri hızlı başlangıcı.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-HTTP ile tetiklenen işlevin şablonu kullanılarak, seçtiğiniz dilde bir işlev oluşturulur. Bir HTTP isteği göndererek yeni işlevi çalıştırabilirsiniz.
+Bir işlev hello şablonu için bir HTTP tetiklenen işlevi kullanarak seçmiş olduğunuz dili oluşturulur. Bir HTTP isteği göndererek hello yeni işlev çalıştırabilirsiniz.
 
-## <a name="test-the-function"></a>İşlevi test etme
+## <a name="test-hello-function"></a>Test hello işlevi
 
 1. Yeni işlevinizde **</> İşlev URL'sini al**'a tıklayın, **varsayılan (İşlev anahtarı)** seçeneğini belirleyin ve ardından **Kopyala**'ya tıklayın. 
 
-    ![Azure portalından işlev URL’sini kopyalama](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+    ![Azure portal hello Hello işlevi URL'sini Kopyala](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. İşlev URL'sini tarayıcınızın adres çubuğuna yapıştırın. Bu URL’ye `&name=<yourname>` sorgu dizesini ekleyin ve isteği yürütmek için klavyenizdeki `Enter` tuşuna basın. Aşağıda, isteğin Edge tarayıcısında döndürülen bir yanıt örneğini gösterilmiştir:
+2. Merhaba işlevi URL'sini tarayıcınızın adres çubuğuna yapıştırın. Merhaba sorgu dizesi eklemek `&name=<yourname>` toothis URL ve tuşuna hello `Enter` klavye tooexecute hello isteğiniz üzerinde anahtar. Merhaba, hello Edge tarayıcısında hello işlevi tarafından döndürülen hello yanıt örneği aşağıdadır:
 
-    ![Tarayıcıdaki işlev yanıtı.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+    ![Merhaba tarayıcıda işlev yanıtı.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    İstek URL’si, işlevinize HTTP üzerinden erişmek için varsayılan olarak gerekli olan bir anahtar içerir.   
+    Merhaba istek URL'sini içerir, varsayılan olarak, tooaccess gerekli bir anahtarı işlevinizi HTTP üzerinden.   
 
-3. İşleviniz çalıştığında, izleme bilgileri günlüklere yazılır. Önceki yürütme işleminden alınan izleme çıktısını görmek için, portalda işlevinize geri dönün ve ekranın altındaki yukarı okuna tıklayarak **Günlükler**’i genişletin. 
+3. İşlevinizi çalıştığında, izleme bilgilerini toohello günlüklerine yazılır. Merhaba önceki yürütme toosee hello izleme çıktısını hello Portalı'nda tooyour işlevi dönün ve yukarı ok Merhaba ekranında tooexpand hello sonundaki hello **günlükleri**. 
 
-   ![Azure portalında İşlevler günlük görüntüleyicisi.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![İşlevler Görüntüleyicisi hello Azure portalında oturum açın.](./media/functions-create-first-azure-function/function-view-logs.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

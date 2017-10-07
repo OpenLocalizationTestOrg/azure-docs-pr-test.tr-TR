@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Bus Mesajlaşma örnekleri genel bakış | Microsoft Docs"
-description: "Service Bus örnekleri her bağlantılarla Mesajlaşma açıklar"
+title: "aaaAzure Service Bus Mesajlaşma hizmeti örnekleri genel bakış | Microsoft Docs"
+description: "Hizmet veri yolu bağlantıları tooeach örnekleriyle ileti açıklar"
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: sethm
-ms.openlocfilehash: 0cf21ea9a820de0396b54dd26a625a046de39291
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6aa3ddca092de7f3ba462e142db7cd333a14d522
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-bus-messaging-samples"></a>Service Bus Mesajlaşma örnekleri
 
-Service Bus Mesajlaşma örnekleri anahtar özelliklerini göstermek [Service Bus Mesajlaşma](https://azure.microsoft.com/services/service-bus/). Şu anda iki yerde örnekleri bulabilirsiniz:
+Merhaba Service Bus Mesajlaşma örnekleri göstermek anahtar özellikleri [Service Bus Mesajlaşma](https://azure.microsoft.com/services/service-bus/). Şu anda iki yerde hello örnekleri bulabilirsiniz:
 
-- [Service Bus Mesajlaşma örnekler Github'da](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet): örnekler, GitHub üzerinde barındırılan yeni kümesi. Bkz: [Benioku dosyasını](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) bu .NET örnekleri açıklamaları için depodaki. Örnekler sürekli olarak güncelleştirilir, kontrol geri genellikle güncelleştirmeleri.
-- [MSDN örnekleri sayfasını](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5): MSDN kod Galerisi'nden Canlı eski örnekleri. Bu örnekler çalışmaya olsa da korunmaz ve göre geçerli önerilen programlama uygulamalarını güncel olmayabilir.
+- [Service Bus Mesajlaşma örnekler Github'da](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet): örnekler, GitHub üzerinde barındırılan yeni kümesi. Merhaba bkz [Benioku dosyasını](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) hello depodaki bu .NET örnekleri açıklamaları için. Merhaba örnekleri sürekli güncelleştirilen, kontrol geri genellikle güncelleştirmeleri.
+- [MSDN örnekleri sayfasını](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5): Kod Galerisi hello MSDN live eski örnekleri. Bu örnekler çalışmaya olsa da korunmaz ve yöntemler programlama önerilen saygı toocurrent ile güncel olmayabilir.
  
 ## <a name="service-bus-explorer"></a>Service Bus Explorer
 
-Ayrıca, [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBusExplorer) Service Bus hizmeti ad alanına bağlanmak ve mesajlaşma varlıkları kolayca yönetmenize olanak tanıyan GitHub üzerinde barındırılan bir örnek. Aracı içeri/dışarı aktarma işlevleri gibi gelişmiş özellikler ve test Mesajlaşma varlıkları ve geçiş hizmetleri olanağı sağlar. Üzerinde tam hizmet veri yolu Gezgini kaynak ve belgeleri bulabilirsiniz [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
+Ayrıca, hello [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBusExplorer) olan bir örnek tooconnect tooa Service Bus hizmeti ad alanı sağlayan GitHub üzerinde barındırılan ve mesajlaşma varlıkları kolayca yönetebilirsiniz. Merhaba aracı içeri/dışarı aktarma işlevleri ve hello özelliği tootest Mesajlaşma varlıkları ve geçiş hizmetleri gibi gelişmiş özellikler sağlar. Üzerinde hello tam hizmet veri yolu Gezgini kaynak ve belgeleri bulabilirsiniz [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -38,7 +38,7 @@ Ayrıca, [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBus
 - [GitHub örnekleri](https://github.com/Azure/azure-service-bus/tree/master/samples)
 - [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 
-Hizmet veri yolu kavramsal genel bakış için aşağıdaki konulara bakın.
+Merhaba aşağıdaki konularda Service Bus kavramsal genel bakış için bkz.
 
 * [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
 * [Service Bus mimarisi](service-bus-architecture.md)

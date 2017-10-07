@@ -1,6 +1,6 @@
 ---
-title: "Draft’ı Azure Container Service ve Azure Container Registry ile kullanma | Microsoft Docs"
-description: "Draft ile Azure’da ilk uygulamanızı oluşturmak için bir ACS Kubernetes kümesi ve bir Azure Container Registry oluşturun."
+title: "Azure kapsayıcı hizmeti ve Azure kapsayıcı kayıt defteri ile taslak aaaUse | Microsoft Docs"
+description: "Bir ACS Kubernetes kümesi ve bir Azure kapsayıcı kayıt defteri toocreate taslak ile azure'da ilk uygulamanızı oluşturun."
 services: container-service
 documentationcenter: 
 author: squillace
@@ -16,23 +16,23 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: e7e3ea461145571753a1a6d768b52118dcbfb507
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f5e21cda01e5e8452bf86a5c8fa458904d89f451
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Draft’ı Azure Container Service ve Azure Container Registry ile kullanarak bir uygulama oluşturma ve Kubernetes’e dağıtma
+# <a name="use-draft-with-azure-container-service-and-azure-container-registry-toobuild-and-deploy-an-application-tookubernetes"></a>Azure kapsayıcı hizmeti ve Azure kapsayıcı kayıt defteri toobuild ile taslak kullanın ve bir uygulama tooKubernetes dağıtma
 
-[Draft](https://aka.ms/draft), Docker ve Kubernetes hakkında pek fazla bilginiz olmadan, hatta bunları yüklemeden kapsayıcı tabanlı uygulamalar geliştirmeyi ve bu uygulamaları Kubernetes kümelerine dağıtmayı kolaylaştıran yeni bir açık kaynak araçtır. Draft gibi araçların kullanılması, sizin ve ekiplerinizin altyapıya eskisi kadar dikkat etmesine gerek kalmadan Kubernetes ile uygulama oluşturmaya odaklanmasına imkan sağlar.
+[Taslak](https://aka.ms/draft) kolay toodevelop kapsayıcı tabanlı uygulamalar kolaylaştıran yeni bir açık kaynak aracıdır ve bunları çok Docker ve Kubernetes--hakkında bilmek veya hatta bunları yükleme tooKubernetes kümeleri dağıtabilirsiniz. Taslak gibi araçları kullanarak ve takımlar odağınız olanak Kubernetes ile Merhaba uygulaması oluşturma, kadar dikkat tooinfrastructure ödeme değil.
 
-Draft’ı yerel kullanım dahil olmak üzere herhangi bir Docker görüntü kayıt defteri ve herhangi bir Kubernetes kümesiyle kullanabilirsiniz. Bu öğreticide, Draft’ı kullanarak canlı bir CI/CD geliştirici işlem hattı oluşturmak amacıyla ACS’nin Kubernetes, ACR ve Azure DNS ile birlikte nasıl kullanılacağı açıklanmaktadır.
+Draft’ı yerel kullanım dahil olmak üzere herhangi bir Docker görüntü kayıt defteri ve herhangi bir Kubernetes kümesiyle kullanabilirsiniz. Bu öğretici toouse ACS Kubernetes, ACR ve Azure DNS toocreate ile canlı CI/CD Geliştirici nasıl kanal taslak kullanarak gösterir.
 
 
 ## <a name="create-an-azure-container-registry"></a>Azure Container Registry oluşturma
-Kolayca [yeni Azure Container Registry](../../container-registry/container-registry-get-started-azure-cli.md) oluşturabilirsiniz, ancak adımlar aşağıdaki gibidir:
+Kolayca [yeni bir Azure kapsayıcı kayıt](../../container-registry/container-registry-get-started-azure-cli.md), ancak hello adımlar aşağıdaki gibidir:
 
-1. ACS’de ACR kayıt defterinizi ve Kubernetes kümenizi yönetmek için br Azure kaynak grubu oluşturun.
+1. Bir Azure kaynak grubu toomanage ACS ACR kayıt defteri ve hello Kubernetes kümenizi oluşturun.
       ```azurecli
       az group create --name draft --location eastus
       ```
@@ -45,18 +45,18 @@ Kolayca [yeni Azure Container Registry](../../container-registry/container-regis
 
 ## <a name="create-an-azure-container-service-with-kubernetes"></a>Kubernetes ile Azure Container Service oluşturma
 
-Artık [az acs create](/cli/azure/acs#create) komutu ile `--orchestrator-type` değeri olarak Kubernetes’i kullanarak bir ACS kümesi oluşturmaya hazırsınız.
+Yaptığınız artık hazır toouse [az acs oluşturma](/cli/azure/acs#create) Kubernetes hello kullanarak bir ACS toocreate küme `--orchestrator-type` değeri.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
 ```
 
 > [!NOTE]
-> Kubernetes varsayılan düzenleyici olmadığından, `--orchestrator-type kubernetes` anahtarını kullandığınızdan emin olun.
+> Kubernetes hello varsayılan orchestrator türü olmadığından hello kullandığınızdan emin olun `--orchestrator-type kubernetes` geçin.
 
-İşlem başarılı olursa çıktı aşağıdaki gibi görünür.
+Merhaba çıkış başarılı olduğunda benzer toohello aşağıdaki görünür.
 
 ```json
-waiting for AAD role to propagate.done
+waiting for AAD role toopropagate.done
 {
   "id": "/subscriptions/<guid>/resourceGroups/draft/providers/Microsoft.Resources/deployments/azurecli14904.93snip09",
   "name": "azurecli1496227204.9323909",
@@ -99,13 +99,13 @@ waiting for AAD role to propagate.done
 }
 ```
 
-Artık bir kümeniz olduğuna göre, [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) komutunu kullanarak kimlik bilgilerini içeri aktarabilirsiniz. Artık kümeniz için yerel bir yapılandırma dosyanız vardır ve Helm ile Draft’ın işlerini yapabilmesi için bu gerekir.
+Bir kümeye sahip olduğunuza göre hello kullanarak hello kimlik bilgileri içe aktarabilirsiniz [az acs kubernetes get-kimlik](/cli/azure/acs/kubernetes#get-credentials) komutu. Şimdi ne Helm ve taslak tooget işlerini gerekiyor kümeniz için yerel yapılandırma dosyasına sahip.
 
 ## <a name="install-and-configure-draft"></a>Draft’ı yükleme ve yapılandırma
-Draft için yükleme yönergeleri [Draft deposunda](https://github.com/Azure/draft/blob/master/docs/install.md) bulunabilir. Bu yönergeler görece basittir, ancak bir Helm oluşturup bunu Kubernetes kümesine dağıtmak için [Helm](https://aka.ms/helm)’e bağımlı olduğundan bazı yapılandırma işlemleri gerektirir.
+Merhaba yükleme yönergeleri için taslak olan hello [taslak depo](https://github.com/Azure/draft/blob/master/docs/install.md). Görece basit ancak bağımlı gibi bazı yapılandırmalar gerektirir [Helm](https://aka.ms/helm) toocreate ve Helm grafik hello Kubernetes kümesine dağıtabilirsiniz.
 
 1. [Helm’i indirip yükleyin](https://aka.ms/helm#install).
-2. `stable/traefik` aracını bulup yüklemek için Helm’i; derlemelerinize yönelik gelen istekleri etkinleştirmek için giriş denetleyicisini kullanın.
+2. Helm toosearch için kullanır ve yüklerseniz `stable/traefik`ve istekleri derlemeleriniz için gelen giriş denetleyicisi tooenable.
     ```bash
     $ helm search traefik
     NAME            VERSION DESCRIPTION
@@ -113,7 +113,7 @@ Draft için yükleme yönergeleri [Draft deposunda](https://github.com/Azure/dra
 
     $ helm install stable/traefik --name ingress
     ```
-    Şimdi, dış IP değeri dağıtıldığında bu değeri yakalaması için `ingress` denetleyicisinde bir izleme ayarlayın. Bu IP adresi, bir sonraki bölümde [dağıtım etki alanınızla eşleştirilecek](#wire-up-deployment-domain) adrestir.
+    Bir izleme üzerinde hello kümesini şimdi `ingress` dağıtıldığında denetleyicisi toocapture hello dış IP değeri. Bu IP adresinin bir hello olacak [tooyour dağıtım etki alanı eşlenen](#wire-up-deployment-domain) hello sonraki bölümde.
 
     ```bash
     kubectl get svc -w
@@ -122,13 +122,13 @@ Draft için yükleme yönergeleri [Draft deposunda](https://github.com/Azure/dra
     kubernetes                    10.0.0.1       <none>          443/TCP                      7h
     ```
 
-    Bu durumda, dağıtım etki alanının dış IP’si şudur: `13.64.108.240`. Artık etki alanınızı bu IP ile eşleyebilirsiniz.
+    Merhaba dağıtım etki alanı için bu durumda, dış IP hello `13.64.108.240`. Şimdi, etki alanı toothat IP eşleyebilirsiniz.
 
 ## <a name="wire-up-deployment-domain"></a>Dağıtım etki alanının bağlantılarını ayarlama
 
-Draft, oluşturduğu her Helm grafiği (üzerinde çalıştığınız her uygulama) için bir yayın oluşturur. Her biri için, sizin denetlediğiniz kök _dağıtım etki alanı_ üzerine bir _alt etki alanı_ olarak taslak tarafından kullanılan bir ad oluşturulur. (Bu örnekte, dağıtım etki alanı olarak `squillace.io`’yu kullanıyoruz.) Bu alt etki alanı davranışını etkinleştirmek istiyorsanız, oluşturulan her alt etki alanının Kubernetes kümesinin giriş denetleyicisine yönlendirilmesi için dağıtım etki alanınıza yönelik DNS girişlerinizde `'*'` için bir A kaydı oluşturun.
+Draft, oluşturduğu her Helm grafiği (üzerinde çalıştığınız her uygulama) için bir yayın oluşturur. Her biri taslak olarak tarafından kullanılan oluşturulan bir ad alır bir _alt etki alanı_ hello kök üstünde _dağıtım etki alanı_ , sizin denetlediğiniz. (Bu örnekte, kullandığımız `squillace.io` olarak hello dağıtım etki alanı) tooenable bu alt etki alanı davranışı için bir A kaydı oluşturmanız gerekir `'*'` dağıtım etki alanınız için DNS girdiler, alt etki alanı yönlendirilmiş toohello Kubernetes olarak, böylelikle her oluşturulan kümenin giriş denetleyicisi.
 
-Etki alanı sağlayıcınız, DNS sunucularını atamak için kendi yöntemini kullanır; [Azure DNS’yi etki alanı ad sunucularınızın temsilcisi olarak atamak için](../../dns/dns-delegate-domain-azure-dns.md) aşağıdaki adımları gerçekleştirirsiniz:
+Kendi etki alanı sağlayıcı kendi yolu tooassign DNS sunucularını; yine de sahip istiyor musunuz? çok[, etki alanı nameservers tooAzure DNS temsilci](../../dns/dns-delegate-domain-azure-dns.md), hello aşağıdaki adımları gerçekleştirin:
 
 1. Bölgeniz için bir kaynak grubu oluşturun.
     ```azurecli
@@ -146,7 +146,7 @@ Etki alanı sağlayıcınız, DNS sunucularını atamak için kendi yöntemini k
     ```
 
 2. Etki alanınız için bir DNS bölgesi oluşturun.
-Etki alanınız için Azure DNS’yi DNS denetimi temsilcisi olarak atamak istiyorsanız [az network dns zone create](/cli/azure/network/dns/zone#create) komutunu kullanarak ad sunucularını edinin.
+Kullanım hello [az ağ dns bölgesi oluşturma](/cli/azure/network/dns/zone#create) tooobtain hello nameservers toodelegate DNS etki alanınız için DNS tooAzure kontrol komutu.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
@@ -167,12 +167,12 @@ Etki alanınız için Azure DNS’yi DNS denetimi temsilcisi olarak atamak istiy
       "type": "Microsoft.Network/dnszones"
     }
     ```
-3. Size döndürülen DNS sunucularını, dağıtım etki alanınızın etki alanı sağlayıcısına ekleyin. Bunu yaptığınızda, Azure DNS’nizi kullanarak etki alanınızı istediğiniz yeri gösterecek şekilde ayarlayabilirsiniz.
-4. Önceki bölümün 2. adımında `ingress` IP’si ile eşlenen dağıtım etki alanınız için bir A kayıt kümesi girişi oluşturun.
+3. İstediğiniz etki alanınızın, toouse Azure DNS toorepoint sağlayan dağıtım etki alanınız için toohello etki alanı sağlayıcısı verilen hello DNS sunucularını ekleyin.
+4. Dağıtım etki alanı eşleme toohello için bir A kayıt kümesi girişi oluşturmak `ingress` IP hello önceki bölümde, adım 2.
     ```azurecli
     az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*' -g squillace.io -z squillace.io
     ```
-Çıktı şuna benzer:
+Merhaba çıktı şöyle görünür:
     ```json
     {
       "arecords": [
@@ -190,12 +190,12 @@ Etki alanınız için Azure DNS’yi DNS denetimi temsilcisi olarak atamak istiy
     }
     ```
 
-5. Draft’ı kayıt defterinizi kullanacak şekilde yapılandırın ve Draft’ın oluşturduğu her Helm grafiği için alt etki alanları oluşturun. Draft’ı yapılandırmak için şunlar gerekir:
+5. Taslak toouse, kayıt defterini yapılandırın ve oluşturduğu her Helm grafik alt etki alanları oluşturun. tooconfigure Taslak, şunlar gerekir:
   - Azure Container Registry adınız (bu örnekte `draft` kullanılmıştır)
   - `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"` dosyasından kayıt defteri anahtarınız veya parolanız.
-  - Kubernetes giriş dış IP adresi (burada `squillace.io` kullanılmıştır) ile eşlenecek şekilde yapılandırdığınız kök dağıtım etki alanı
+  - Merhaba kök dağıtım toomap toohello Kubernetes giriş dış IP adresi yapılandırılmış etki alanının (burada, `squillace.io`)
 
-  `draft init` çağrısı yaptığınızda, yapılandırma işlemi sizden yukarıdaki değerleri girmenizi ister. İşlem ilk çalıştırıldığında aşağıdaki gibi görünür.
+  Çağrı `draft init` ve hello yapılandırma işlemi için hello değerleri yukarıdaki ister. Merhaba aşağıdaki ilk defa çalıştırmadan hello hello işlem bir şey görülüyor.
  ```bash
     $ draft init
     Creating pack ruby...
@@ -208,7 +208,7 @@ Etki alanınız için Azure DNS’yi DNS denetimi temsilcisi olarak atamak istiy
     Creating pack golang...
     $DRAFT_HOME has been configured at /Users/ralphsquillace/.draft.
 
-    In order to install Draft, we need a bit more information...
+    In order tooinstall Draft, we need a bit more information...
 
     1. Enter your Docker registry URL (e.g. docker.io, quay.io, myregistry.azurecr.io): draft.azurecr.io
     2. Enter your username: draft
@@ -219,19 +219,19 @@ Etki alanınız için Azure DNS’yi DNS denetimi temsilcisi olarak atamak istiy
     Happy Sailing!
     ```
 
-Artık uygulama dağıtmaya hazırsınız.
+Şimdi hazır toodeploy uygulamanın demektir.
 
 
 ## <a name="build-and-deploy-an-application"></a>Uygulama oluşturma ve dağıtma
 
-Draft deposunda [altı basit örnek uygulama](https://github.com/Azure/draft/tree/master/examples) yer alır. Depoyu kopyalayalım ve [Python örneğini](https://github.com/Azure/draft/tree/master/examples/python) kullanalım. Bulunduğunuz dizini samples/Python olarak değiştirin ve uygulamayı oluşturmak için `draft create` yazın. Aşağıdaki örnekteki gibi görünmelidir.
+Merhaba taslak bağlantıların bulunması olan [altı basit bir örnek uygulamaları](https://github.com/Azure/draft/tree/master/examples). Merhaba depoyu kopyalama ve hello kullanalım [Python örnek](https://github.com/Azure/draft/tree/master/examples/python). Merhaba örnekler/Python dizin ve türünü değiştirme `draft create` toobuild Merhaba uygulaması. Merhaba örnek aşağıdaki gibi görünmelidir.
 ```bash
 $ draft create
 --> Python app detected
---> Ready to sail
+--> Ready toosail
 ```
 
-Çıktı bir Docker dosyası ve Helm grafiği içerir. Derlemek ve dağıtmak için `draft up` yazmanız yeterlidir. Çıktı kapsamlıdır, ancak başlangıcı aşağıdaki örnekteki gibi görünür.
+Merhaba çıktı, bir Dockerfile ve Helm grafik içerir. toobuild ve dağıtmak için yalnızca yazın `draft up`. Merhaba çıkış kapsamlıdır, ancak aşağıdaki örneğine hello gibi başlar.
 ```bash
 $ draft up
 --> Building Dockerfile
@@ -245,24 +245,24 @@ ea8a37f15161: Pulling fs layer
 <snip>
 ```
 
-Başarılı olduğunda ise aşağıdaki örneğe benzer bir şekilde biter.
+ne zaman ve benzeri toohello aşağıdaki örneğine başarılı biter.
 ```bash
 ab68189731eb: Pushed
 53c0ab0341bee12d01be3d3c192fbd63562af7f1: digest: sha256:bb0450ec37acf67ed461c1512ef21f58a500ff9326ce3ec623ce1e4427df9765 size: 2841
---> Deploying to Kubernetes
+--> Deploying tooKubernetes
 --> Status: DEPLOYED
 --> Notes:
 
-  http://gangly-bronco.squillace.io to access your application
+  http://gangly-bronco.squillace.io tooaccess your application
 
 Watching local files for changes...
 ```
 
-Grafiğinizin adından bağımsız olarak artık `curl http://gangly-bronco.squillace.io` işlemiyle `Hello World!` olan yanıtı alabilirsiniz.
+Grafiğin adı ne olursa olsun, artık `curl http://gangly-bronco.squillace.io` tooreceive hello yanıt `Hello World!`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Artık bir ACS Kubernetes kümeniz olduğuna göre, bu senaryonun daha fazla sayıda ve daha farklı dağıtımlarını oluşturmak için [Azure Container Registry](../../container-registry/container-registry-intro.md)’yi kullanarak araştırma yapabilirsiniz. Örneğin, belirli ACS dağıtımları için ayarları daha derin bir alt etki alanından denetleyen bir draft._basedomain.toplevel_ etki alanı DNS kayıt kümesi oluşturabilirsiniz.
+Bir ACS Kubernetes küme sahip olduğunuza göre kullanarak araştırabilirsiniz [Azure kapsayıcı kayıt defteri](../../container-registry/container-registry-intro.md) toocreate bu senaryo hakkında daha fazla ve farklı dağıtımları. Örneğin, belirli ACS dağıtımları için ayarları daha derin bir alt etki alanından denetleyen bir draft._basedomain.toplevel_ etki alanı DNS kayıt kümesi oluşturabilirsiniz.
 
 
 

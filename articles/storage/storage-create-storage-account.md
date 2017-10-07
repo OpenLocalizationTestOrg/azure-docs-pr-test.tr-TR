@@ -1,6 +1,6 @@
 ---
-title: "Azure portalda depolama hesabı oluşturma, yönetme veya silme | Microsoft Docs"
-description: "Azure portalda yeni bir depolama hesabı oluşturun, hesap erişim tuşlarınızı yönetin veya bir depolama hesabını silin. Standart ve premium depolama hesapları hakkında bilgi edinin."
+title: "aaaHow toocreate, yönetme veya hello Azure portalında bir depolama hesabını silme | Microsoft Docs"
+description: "Yeni bir depolama hesabı oluşturun, hesap erişim tuşlarınızı yönetin veya hello Azure portalında bir depolama hesabını silin. Standart ve premium depolama hesapları hakkında bilgi edinin."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 01/23/2017
 ms.author: robinsh
-ms.openlocfilehash: 0a59bc29581b870d8aee07ed4e77df2be576361a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c11c6509e192170db4812f47c389fc1009b94daf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Azure Storage hesapları hakkında
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/03/2017
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Azure Storage hesabı, Azure Storage veri nesnelerinizi depolamak ve bunlara erişmek için benzersiz ad alanı sağlar. Depolama hesabındaki tüm nesneler bir grup halinde faturalandırılır. Varsayılan olarak, hesabınızdaki veriler yalnızca siz, yani hesap sahibi tarafından kullanılabilir.
+Bir Azure depolama hesabı bir benzersiz ad alanı toostore sağlar ve Azure Storage veri nesnelerinizi erişebilirsiniz. Depolama hesabındaki tüm nesneler bir grup halinde faturalandırılır. Varsayılan olarak, hesabınızdaki hello veriler kullanılabilir yalnızca tooyou, hello hesap sahibi ' dir.
 
 [!INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
@@ -35,14 +35,14 @@ Azure Storage hesabı, Azure Storage veri nesnelerinizi depolamak ve bunlara eri
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
-> Bir Azure Virtual Machine oluşturduğunuzda, ilgili konumda bir depolama hesabınız yoksa, depolama konumunda otomatik olarak bir depolama hesabı oluşturulur. Bu nedenle, sanal makine diskleriniz için bir depolama hesabı oluşturmak üzere aşağıdaki adımları izlemeniz gerekli değildir. Depolama hesabı adı sanal makine adına dayalı olarak belirlenir. Daha fazla ayrıntı için bkz. [Azure Virtual Machines belgeleri](https://azure.microsoft.com/documentation/services/virtual-machines/).
+> Bir Azure sanal makine oluşturduğunuzda, bir depolama hesabı söz konusu konumda zaten yoksa bir depolama hesabı sizin için otomatik olarak hello dağıtım konumda oluşturulur. Bu nedenle gerekli toofollow hello adımları toocreate, sanal makine diskleriniz için depolama hesabı şu değil. Merhaba depolama hesabı adı hello sanal makine adına dayalı olarak belirlenir. Merhaba bkz [Azure Virtual Machines belgeleri](https://azure.microsoft.com/documentation/services/virtual-machines/) daha fazla ayrıntı için.
 > 
 > 
 
 ## <a name="storage-account-endpoints"></a>Depolama hesabı uç noktaları
-Azure Storage’da depoladığınız her nesnenin benzersiz bir URL adresi vardır. Depolama hesabı adı o adresin alt etki alanı adını oluşturur. Her hizmete özel alt etki alanı ve etki alanı birleşimi depolama hesabınız için bir *uç nokta* oluşturur.
+Azure Storage’da depoladığınız her nesnenin benzersiz bir URL adresi vardır. Merhaba depolama hesabı adı forms o adresin alt etki alanı hello. Merhaba belirli tooeach hizmeti olan alt etki alanı ve etki alanı adı birleşimi forms bir *endpoint* depolama hesabınız için.
 
-Örneğin depolama hesabınızın adı *mystorageaccount* ise, depolama hesabınız için varsayılan uç noktalar şunlardır:
+Örneğin, depolama hesabınızın adı *mystorageaccount*, depolama hesabınız için hello varsayılan uç nokta sonra:
 
 * Blob hizmeti: http://*mystorageaccount*.blob.core.windows.net
 * Tablo hizmeti: http://*mystorageaccount*.table.core.windows.net
@@ -50,114 +50,114 @@ Azure Storage’da depoladığınız her nesnenin benzersiz bir URL adresi vard�
 * Dosya hizmeti: http://*mystorageaccount*.file.core.windows.net
 
 > [!NOTE]
-> Blob Storage hizmeti yalnızca Blob hizmeti uç noktasını verir.
+> Blob storage hesabı yalnızca hello Blob Hizmeti uç noktası kullanıma sunar.
 > 
 > 
 
-Bir depolama hesabındaki bir nesneye erişmek için gerekli URL, nesnenin depolama hesabındaki konumunun uç noktaya eklenmesiyle oluşturulur. Örneğin bir blob adresi şu biçimde olabilir: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+Depolama hesabındaki bir nesneye erişilirken URL'si hello hello depolama hesabınızın toohello uç hello nesnenin konumda eklenerek oluşturulur. Örneğin bir blob adresi şu biçimde olabilir: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-Ayrıca depolama hesabınız ile birlikte kullanmak üzere özel bir etki alanı adı yapılandırabilirsiniz. Klasik depolama hesapları için ayrıntıları öğrenmek üzere [Blob Depolama Uç Noktanız için özel bir etki alanı Adı yapılandırma](storage-custom-domain-name.md) sayfasına bakın. Bu özellik, Resource Manager depolama hesapları için henüz [Azure portalına](https://portal.azure.com) eklenmemiştir, ancak bu özelliği PowerShell ile yapılandırabilirsiniz. Daha fazla bilgi için [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet’ine bakın.  
+Bu gibi durumlarda, özel etki alanı adı toouse ayrıca depolama hesabınız ile yapılandırabilirsiniz. Klasik depolama hesapları için ayrıntıları öğrenmek üzere [Blob Depolama Uç Noktanız için özel bir etki alanı Adı yapılandırma](storage-custom-domain-name.md) sayfasına bakın. Resource Manager depolama hesapları için bu özelliği toohello eklenmemiş [Azure portal](https://portal.azure.com) henüz, ancak PowerShell ile yapılandırabilirsiniz. Daha fazla bilgi için bkz: Merhaba [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet'i.  
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde, **Yeni** -> **Depolama** -> **Depolama hesabı**'nı seçin.
-3. Depolama hesabınız için bir ad girin. Depolama hesabınızın adının Azure Storage’da nesnelerinizin ele alınması için nasıl kullanılacağı hakkında ayrıntılar için bkz. [Depolama hesabı uç noktaları](#storage-account-endpoints).
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde seçin **yeni** -> **depolama** -> **depolama hesabı**.
+3. Depolama hesabınız için bir ad girin. Bkz: [depolama hesabı uç noktaları](#storage-account-endpoints) ayrıntıları hello depolama hesabı adı kullanılan tooaddress nasıl olacaktır hakkında Azure storage'da nesnelerinizin.
    
    > [!NOTE]
    > Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir.
    > 
-   > Depolama hesabınızın adının Azure içinde benzersiz olması gerekir. Seçtiğiniz depolama hesabı adı alınmışsa Azure portal bunun zaten kullanımda olduğunu bildirecektir.
+   > Depolama hesabınızın adının Azure içinde benzersiz olması gerekir. Hello Azure portal seçtiğiniz hello depolama hesabı adı zaten kullanımda olup olmadığını belirtir.
    > 
    > 
-4. Kullanılacak dağıtım modelini belirtin: **Resource Manager** veya **Klasik**. Önerilen dağıtım modeli **Resource Manager**’dır. Daha fazla bilgi için bkz. [Resource Manager dağıtımını ve klasik dağıtımı anlama](../azure-resource-manager/resource-manager-deployment-model.md).
+4. Kullanılan hello dağıtım modeli toobe belirtin: **Resource Manager** veya **Klasik**. **Resource Manager** hello dağıtım modeli önerilir. Daha fazla bilgi için bkz. [Resource Manager dağıtımını ve klasik dağıtımı anlama](../azure-resource-manager/resource-manager-deployment-model.md).
    
    > [!NOTE]
-   > Blob Storage hesapları yalnızca Resource Manager dağıtım modeli kullanılarak oluşturulabilir.
+   > BLOB storage hesapları yalnızca hello Resource Manager dağıtım modeli kullanılarak oluşturulabilir.
    > 
    > 
-5. Depolama hesabı türünü seçin: **Genel amaçlı** veya **Blob Storage**. Varsayılan seçenek **Genel amaçlı**’dır.
+5. Merhaba depolama hesabı türünü seçin: **genel amaçlı** veya **Blob storage**. **Genel amaçlı** hello varsayılandır.
    
-    **Genel amaçlı** seçeneği belirlenirse **Standart** veya **Premium** performans katmanlarından birini belirtin. Varsayılan seçenek **Standart**’tır. Standart ve premium depolama hesapları hakkında daha fazla bilgi için bkz. [Microsoft Azure Storage’a Giriş](storage-introduction.md) ve [Premium Storage: Azure Virtual Machineİş Yükleri için Yüksek Performanslı Depolama](storage-premium-storage.md).
+    Varsa **genel amaçlı** seçilmedi sonra hello performans katmanını belirtin: **standart** veya **Premium**. Merhaba varsayılandır **standart**. Standart ve premium depolama hesapları hakkında daha fazla bilgi için bkz: [giriş tooMicrosoft Azure Storage](storage-introduction.md) ve [Premium Storage: Azure sanal makine iş yükleri için yüksek performanslı depolama](storage-premium-storage.md).
    
-    **Blob Storage** seçeneği belirlendiyse, erişim katmanını belirtin: **Sık Erişimli** veya **Seyrek Erişimli**. Varsayılan seçenek **Sık Erişimli**’dir. Daha fazla ayrıntı için bkz. [Azure Blob Storage: Seyrek erişimli ve Sık erişimli katmanlar](storage-blob-storage-tiers.md).
-6. Depolama hesabı için çoğaltma seçeneğini seçin: **LRS**, **GRS**, **RA-GRS** veya **ZRS**. Varsayılan seçenek **RA-GRS**’dir. Azure Storage çoğaltma seçenekleri ile ilgili ayrıntılar için bkz. [Azure Storage çoğaltma](storage-redundancy.md).
-7. Yeni depolama hesabını oluşturmak istediğiniz aboneliği seçin.
+    Varsa **Blob Storage** seçilmedi sonra hello erişim katmanını belirtin: **etkin** veya **Cool**. Merhaba varsayılandır **etkin**. Daha fazla ayrıntı için bkz. [Azure Blob Storage: Seyrek erişimli ve Sık erişimli katmanlar](storage-blob-storage-tiers.md).
+6. Merhaba hello depolama hesabı için çoğaltma seçeneğini seçin: **LRS**, **GRS**, **RA-GRS**, veya **ZRS**. Merhaba varsayılandır **RA-GRS**. Azure Storage çoğaltma seçenekleri ile ilgili ayrıntılar için bkz. [Azure Storage çoğaltma](storage-redundancy.md).
+7. Toocreate hello yeni depolama hesabı istediğiniz hello aboneliği seçin.
 8. Yeni bir kaynak grubu belirtin veya varolan bir kaynak grubunu seçin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md).
-9. Depolama hesabınız için coğrafi konumu seçin. Hangi bölgede hangi hizmetin sağlandığına dair daha fazla bilgi için bkz.[Azure Bölgeleri](https://azure.microsoft.com/regions/#services).
-10. Depolama hesabını oluşturmak için **Oluştur**’a tıklayın.
+9. Depolama hesabınız için Hello coğrafi konumu seçin. Hangi bölgede hangi hizmetin sağlandığına dair daha fazla bilgi için bkz.[Azure Bölgeleri](https://azure.microsoft.com/regions/#services).
+10. Tıklatın **oluşturma** toocreate hello depolama hesabı.
 
 ## <a name="manage-your-storage-account"></a>Depolama hesabınızı yönetme
 ### <a name="change-your-account-configuration"></a>Hesap yapılandırmanızı değiştirme
-Depolama hesabınızı oluşturduktan sonra hesap için kullanılan çoğaltma seçeneğini veya Blob Storage hesabının erişim katmanını değiştirme gibi hesabın yapılandırmasını değiştirebilirsiniz. Hesap yapılandırmanızı görüntülemek ve/veya değiştirmek için [Azure portalında](https://portal.azure.com) depolama hesabınıza gidin ve **AYARLAR** altında yer alan **Yapılandırma** seçeneğine tıklayın.
+Depolama hesabınızı oluşturduktan sonra hello hesabı veya bir Blob Depolama hesabı için değişen hello erişim katmanı için kullanılan hello çoğaltma seçeneğinin değiştirilmesi gibi kendi yapılandırmasını değiştirebilirsiniz. Merhaba, [Azure portal](https://portal.azure.com), tooyour depolama hesabını bulun ve tıklatın gidin **yapılandırma** altında **ayarları** tooview ve/veya değişiklik hello hesabı yapılandırması.
 
 > [!NOTE]
-> Depolama hesabı oluştururken seçtiğiniz performans katmanına bağlı olarak bazı çoğaltma seçenekleri kullanılamayabilir.
+> Merhaba depolama hesabı oluştururken seçtiğiniz hello performans katmanına bağlı olarak bazı çoğaltma seçenekleri kullanılamayabilir.
 > 
 > 
 
-Çoğaltma seçeneğinin değiştirilmesi, fiyatlandırmanızı da değiştirir. Daha fazla ayrıntı için [Azure Storage Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) sayfasına bakın.
+Merhaba çoğaltma seçeneğinin değiştirilmesi, fiyatlandırmanızı da değiştirir. Daha fazla ayrıntı için [Azure Storage Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) sayfasına bakın.
 
-Blob Storage hesapları için erişim katmanını değiştirdiğinizde, fiyatlandırmanızın değiştirilmesinin yanı sıra bu değişim için ücret alınabilir. Daha fazla ayrıntı için lütfen [Blob Storage hesapları - Fiyatlandırma ve Faturalama](storage-blob-storage-tiers.md#pricing-and-billing) sayfasına bakın.
+İçin Blob Depolama hesapları, Hello erişim katmanını değiştirme maruz kalabilirsiniz ücretleri hello için ayrıca toochanging fiyatlandırma değiştirin. Lütfen hello bakın [Blob storage hesapları - fiyatlandırma ve faturalama](storage-blob-storage-tiers.md#pricing-and-billing) daha fazla ayrıntı için.
 
 ### <a name="manage-your-storage-access-keys"></a>Depolama erişim tuşlarınızı yönetme
-Bir depolama hesabı oluşturduğunuzda Azure, depolama hesabına erişim sağlandığında kimlik doğrulama için kullanılan iki adet 512 bit depolama erişim tuşu oluşturur. İki depolama erişim tuşu sağlayarak AAzure Storage izmetinizde herhangi bir kesinti olmadan veya ilgili hizmete erişim sağlamaya gerek kalmadan anahtarları yeniden oluşturmanızı sağlar.
+Bir depolama hesabı oluşturduğunuzda Azure hello depolama hesabına erişim sağlandığında kimlik doğrulaması için kullanılan iki 512 bit depolama erişim tuşu oluşturur. İki depolama erişim tuşu sağlayarak Azure tooregenerate hello anahtarlarla herhangi kesinti tooyour depolama hizmeti veya erişim toothat hizmeti sağlar.
 
 > [!NOTE]
-> Depolama erişim tuşlarınızı başkalarıyla paylaşmaktan kaçınmanızı öneririz. Erişim tuşlarınızı vermeden depolama kaynaklarına erişim izni vermek için bir *paylaşılan erişim imzası* kullanabilirsiniz. Paylaşılan erişim imzası, hesabınızdaki bir kaynağa belirlediğiniz zaman diliminde belirlediğiniz izinlerle erişilmesini sağlar. Daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
+> Depolama erişim tuşlarınızı başkalarıyla paylaşmaktan kaçınmanızı öneririz. erişim tuşlarınızı vermeden olmadan toopermit toostorage erişimine, kullanabileceğiniz bir *paylaşılan erişim imzası*. Paylaşılan erişim imzası erişim tooa kaynak hesabınızda tanımladığınız bir zaman aralığı için ve belirttiğiniz hello izinleri sağlar. Daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
 > 
 > 
 <a id="view-and-copy-storage-access-keys"/></a>
 #### <a name="view-and-copy-storage-access-keys"></a>Depolama erişim tuşlarını görüntüleme ve kopyalama
-[Azure portal](https://portal.azure.com)’da depolama hesabınıza gidin, **Tüm ayarlar**’a tıklayın ve ardından hesap erişim tuşlarınızı görüntülemek, kopyalamak ve yeniden oluşturmak için **Erişim tuşları**’na tıklayın. **Erişim Tuşları** dikey penceresi, uygulamanızda kullanmak üzere kopyalayabileceğiniz birincil ve ikincil anahtarları kullanan önceden yapılandırılmış bağlantı dizeleri içerir.
+Merhaba, [Azure portal](https://portal.azure.com), tooyour depolama hesabına gidin,'ı tıklatın **tüm ayarları** ve ardından **erişim anahtarları** tooview, kopyalamak ve hesap erişim tuşlarınızı yeniden. Merhaba **erişim tuşları** dikey penceresinde de uygulamalarınızda toouse kopyalayabilirsiniz, birincil ve ikincil anahtarları kullanan önceden yapılandırılmış bağlantı dizeleri içerir.
 
 #### <a name="regenerate-storage-access-keys"></a>Depolama erişim tuşlarını yeniden oluşturma
-Depolama bağlantılarınızı güvenli tutmaya yardımcı olmak üzere depolama hesabınıza erişim tuşlarını düzenli aralıklarla değiştirmenizi öneririz. Bir erişim tuşunu kullanarak depolama hesabına bağlantıları sağlamak ve diğer anahtarı yeniden oluşturmak üzere kullanmanız için iki erişim tuşu atanır.
+Merhaba erişim tuşları tooyour depolama hesabı düzenli aralıklarla depolama bağlantılarınızı güvenli toohelp Koru değiştirmenizi öneririz. Böylece bağlantıları toohello depolama hesabı hello yeniden oluşturmak, bir erişim tuşunu kullanarak diğer erişim tuşu bulundurabilirsiniz iki erişim tuşu atanır.
 
 > [!WARNING]
-> Erişim tuşlarınızı yeniden oluşturmak Azure’daki hizmetleri ve depolama hesabına bağlı kendi uygulamalarınızı etkileyebilir. Depolama hesabına erişmek için erişim tuşunu kullanan tüm istemciler yeni anahtarı kullanmak üzere güncelleştirilmelidir.
+> Erişim anahtarlarını yeniden Hizmetleri Azure yanı sıra hello depolama hesabına bağlı kendi uygulamalarınızı etkileyebilir. Hello erişim anahtar tooaccess hello depolama hesabını kullanan tüm istemciler güncelleştirilmiş toouse hello yeni anahtarı olması gerekir.
 > 
 > 
 
-**Media Services** - Depolama hesabınıza bağlı medya hizmetleri varsa, anahtarları yeniden oluşturduktan sonra erişim tuşlarını medya hizmetlerinizle yeniden eşitlemeniz gerekir.
+**Medya Hizmetleri** -depolama hesabınıza bağlı medya Hizmetleri varsa hello anahtarları yeniden oluşturduktan sonra hello erişim tuşlarını medya hizmetlerinizle yeniden eşitlemeniz gerekir.
 
-**Uygulamalar** - Depolama hesabını kullanan web uygulamalarınız veya bulut hizmetleriniz varsa, yeniden anahtar oluşturmanız durumunda, anahtarları toplamazsanız bağlantıları kaybedeceksiniz.
+**Uygulamaları** - web uygulamanız veya Bulut Hizmetleri, kullanım hello depolama hesabı, anahtarları, yeniden yüklerseniz, anahtarları toplamazsanız hello bağlantıları kaybedeceksiniz.
 
-**Depolama Gezginleri** - Herhangi bir [depolama gezgin uygulaması](storage-explorers.md) kullanıyorsanız büyük olasılıkla söz konusu uygulamaların kullandığı depolama anahtarını güncelleştirmeniz gerekir.
+**Depolama gezginleri** - herhangi bir kullanıyorsanız [depolama Gezgin uygulaması](storage-explorers.md), büyük olasılıkla bu uygulamaları tarafından kullanılan tooupdate hello depolama anahtarı gerekir.
 
-Depolama erişim tuşlarınızı şu şekilde döndürebilirsiniz:
+Depolama erişim tuşlarınızı döndürme hello işlemi şöyledir:
 
-1. Depolama hesabının ikinci erişim tuşunu referans olarak göstermek için uygulama kodunuzdaki bağlantı dizinlerini güncelleştirin.
-2. Depolama hesabınız için birincil erişim tuşunu yeniden oluşturun. **Erişim Tuşları** dikey penceresinde **Anahtarı Yeniden Oluştur1**’u seçin ve yeni bir anahtar oluşturmak istediğinizi onaylamak için **Evet**’e tıklayın.
-3. Yeni birincil erişim tuşunu referans olarak kullanmak için bağlantı dizelerini güncelleştirin.
-4. İkincil erişim tuşunu da aynı şekilde yeniden oluşturun.
+1. Uygulama kodu tooreference hello ikincil erişim anahtarınızı hello depolama hesabının Hello bağlantı dizelerini güncelleştirin.
+2. Merhaba depolama hesabınız için birincil erişim tuşunu yeniden oluşturun. Hello üzerinde **erişim tuşları** dikey penceresinde tıklatın **anahtarı yeniden oluştur1**ve ardından **Evet** tooconfirm toogenerate yeni bir anahtar istiyor.
+3. Kod tooreference hello yeni birincil erişim anahtarınızı Hello bağlantı dizelerini güncelleştirin.
+4. Regenerate hello ikincil erişim anahtarını hello aynı şekilde.
 
 ## <a name="delete-a-storage-account"></a>Bir depolama hesabını silme
-Artık kullanmadığınız bir depolama hesabını kaldırmak için [Azure portal](https://portal.azure.com)’da depolama hesabına gidin ve **Sil**’e tıklayın. Depolama hesabı silindiğinde, hesaptaki tüm veriler dahil olmak üzere tüm hesap silinir.
+tooremove artık kullanıyorsanız, bir depolama hesabı gidin hello toohello depolama hesabında [Azure portal](https://portal.azure.com), tıklatıp **silmek**. Bir depolama hesabını silme hello hesaptaki tüm veriler dahil olmak üzere hello tüm hesap silinir.
 
 > [!WARNING]
-> Silinen depolama hesabını geri yüklemek veya silme işlemi öncesinde içinde yer alan içerikleri almak mümkün değildir. Hesabı silmeden önce kaydetmek istediğiniz şeyleri yedeklediğinizden emin olun. Bu ayrıca hesaptaki tüm kaynaklar için geçerlidir; bir blob, tablo, kuyruk veya dosya sildiğinizde bu işlem kalıcı olarak gerçekleştirilir.
+> Olası toorestore silinen depolama hesabıdır veya herhangi bir silme işleminden önce yer alan hello içeriği almak. Merhaba hesabı silmeden önce emin tooback herhangi bir şey olması toosave istiyor. Bu ayrıca hello hesaptaki tüm kaynaklar için geçerlidir; blob, tablo, kuyruk veya dosya sildiğinizde, kalıcı olarak silinir.
 > 
 > 
 
-Bir Azure Virtual Machine ile ilişkili bir depolama hesabını silmek için, ilk olarak tüm sanal makine disklerinin silindiğinden emin olmanız gerekir. Öncelikle sanal makine disklerini silmezseniz, depolama hesabını silmeye çalıştığınızda şuna benzer bir hata iletisi ile karşılaşırsınız:
+toodelete bir Azure sanal makineyle ilişkili bir depolama hesabı, önce tüm sanal makine disklerinin silindiğinden emin olmalısınız. İlk sanal makine disklerini silmezseniz, depolama hesabınız toodelete çalıştığınızda benzer bir hata iletisi görürsünüz:
 
-    Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
+    Failed toodelete storage account <vm-storage-account-name>. Unable toodelete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-Depolama hesabınızda Klasik dağıtım modeli kullanılıyorsa, [Azure portal](https://manage.windowsazure.com)’da şu adımları uygulayarak sanal makineyi kaldırabilirsiniz:
+Merhaba depolama hesabı hello Klasik dağıtım modeli kullanıyorsa, hello'nda aşağıdaki adımları izleyerek hello sanal makine diski kaldırabilirsiniz [Azure portal](https://manage.windowsazure.com):
 
-1. [Klasik Azure portalı](https://manage.windowsazure.com)’na gidin.
-2. Virtual Machines sekmesine gidin.
-3. Diskler sekmesine tıklayın.
+1. Toohello gidin [Klasik Azure portalı](https://manage.windowsazure.com).
+2. Toohello Virtual Machines sekmesine gidin.
+3. Merhaba diskler sekmesine tıklayın.
 4. Veri diskinizi seçin ve Diski Sil’e tıklayın.
-5. Disk görüntülerini silmek için Görüntüler sekmesine gidin ve hesapta yer alan tüm görüntüleri silin.
+5. toodelete disk görüntülerini toohello görüntüler sekmesine gidin ve hello hesapta yer alan tüm görüntüleri silin.
 
-Daha fazla bilgi edinmek için bkz. [Azure Virtual Machines belgeleri](http://azure.microsoft.com/documentation/services/virtual-machines/).
+Daha fazla bilgi için bkz: Merhaba [Azure Virtual Machines belgeleri](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
+* [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux Azure Storage verilerle görsel olarak toowork sağlayan Microsoft boş bir tek başına uygulamadır.
 * [Azure Blob Depolama: Seyrek Erişimli ve Sık Erişimli katmanlar](storage-blob-storage-tiers.md)
 * [Azure Depolama çoğaltması](storage-redundancy.md)
 * [Azure Depolama Bağlantı Dizelerini yapılandırma](storage-configure-connection-string.md)
-* [AzCopy Komut Satırı Yardımcı Programı ile veri aktarımı](storage-use-azcopy.md)
-* [Azure Storage ekip blogunu](http://blogs.msdn.com/b/windowsazurestorage/) ziyaret edin.
+* [Merhaba AzCopy komut satırı yardımcı programı ile veri aktarımı](storage-use-azcopy.md)
+* Merhaba ziyaret [Azure depolama ekibi blogu](http://blogs.msdn.com/b/windowsazurestorage/).
 

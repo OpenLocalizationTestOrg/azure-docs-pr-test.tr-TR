@@ -1,7 +1,7 @@
 ---
-title: "Bir bulut hizmeti yerel olarak işlem öykünücüsü'nde profil oluşturma | Microsoft Docs"
+title: "bir bulut hizmeti yerel olarak hello işlem öykünücüsü içinde aaaProfiling | Microsoft Docs"
 services: cloud-services
-description: "Visual Studio Profil Oluşturucu ile bulut Hizmetleri performans sorunları araştırmak"
+description: "Merhaba Visual Studio Profil Oluşturucu ile bulut Hizmetleri performans sorunları araştırmak"
 documentationcenter: 
 author: kraigb
 manager: ghogen
@@ -15,34 +15,34 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.openlocfilehash: 51c8192d8312dc5cf546b4c357aeecf6f19d56b8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fc37c85dad4db4cc0310f73afad56fc0fe5f3963
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Bir bulut Hizmeti performansını Visual Studio profil oluşturucu kullanılarak Azure işlem öykünücüsü yerel olarak test etme
-Çeşitli araçları ve teknikleri, bulut Hizmetleri performansını test etmek için kullanılabilir.
-Azure için bulut hizmeti yayımladığınızda, Visual Studio profil oluşturma verileri toplamak ve ardından analiz olabilir açıklandığı gibi yerel olarak [bir Azure uygulama profili oluşturma][1].
-Ayrıca Tanılama performans sayaçları, çeşitli izlemek için açıklandığı gibi kullanabileceğiniz [Azure'da performans sayaçlarını kullanarak][2].
-Buluta dağıtmadan önce uygulamanızda yerel olarak işlem öykünücüsü profil isteyebilirsiniz.
+# <a name="testing-hello-performance-of-a-cloud-service-locally-in-hello-azure-compute-emulator-using-hello-visual-studio-profiler"></a>Hello Azure işlem öykünücüsü kullanarak hello Visual Studio profil oluşturucu Hello performansını bir bulut hizmeti yerel olarak test etme
+Çeşitli araçları ve teknikleri, bulut Hizmetleri hello performansını test etmek için kullanılabilir.
+Bir bulut hizmeti tooAzure yayımladığınızda, Visual Studio profil oluşturma verileri toplamak ve ardından analiz olabilir açıklandığı gibi yerel olarak [bir Azure uygulama profili oluşturma][1].
+De açıklandığı gibi çeşitli performans sayaçları, tanılama tootrack kullanabilirsiniz [Azure'da performans sayaçlarını kullanarak][2].
+Tooprofile toohello bulut dağıtmadan önce uygulamanızda yerel olarak hello işlem öykünücüsü isteyebilirsiniz.
 
-Bu makale, öykünücüde yer olarak uygulanabilen, profil oluşturma için CPU Örnekleme yöntemini kapsar. CPU örnekleme, profil oluşturma yöntemi çok zorlayıcı değildir. Belirlenen örnekleme aralığı sırasında profil oluşturucu çağrı yığınının bir anlık görüntüsünü alır. Veriler, bir süre boyunca toplanan ve bir raporda. Profil oluşturma yöntemi, burada bir pkı'ya yoğun uygulamasında CPU işlerin çoğunu yapılır belirtmek eğilimindedir.  Bu, uygulamanızın en uzun süre burada harcama "etkin yolunuzda" odak fırsatı verir.
+Bu makalede, yerel olarak hello öykünücüsünde yapılabilir profil hello CPU örnekleme yöntemi kapsar. CPU örnekleme, profil oluşturma yöntemi çok zorlayıcı değildir. Belirlenen örnekleme aralığı sırasında hello profil oluşturucu hello çağrı yığınının bir anlık görüntüsünü alır. Merhaba veriler, bir süre boyunca toplanan ve bir raporda. Profil oluşturma yöntemi, burada bir pkı'ya yoğun uygulamasında hello CPU çalışmanın çoğu yapılır tooindicate eğilimi gösterir.  Bu, uygulamanızın çoğu zaman hello yeri harcıyorsa fırsat toofocus yolunda hello"etkin" Merhaba olanağı sağlar.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: profil oluşturma için Visual Studio'yu yapılandırma
-İlk olarak, profil oluşturma zaman yararlı olabilecek birkaç Visual Studio yapılandırma seçenekleri mevcuttur. Profil oluşturma raporları anlamlı için uygulama ve ayrıca sistem kitaplıkları simgelerini simge (.pdb dosyaları) gerekir. Kullanılabilir simge sunucuları başvuru emin olmak istersiniz. Bunu yapmak için **Araçları** Visual Studio'da menüsünü seçin **seçenekleri**, ardından **hata ayıklama**, ardından **simgeleri**. Microsoft simge sunucuları altında listelendiğini doğrulayın **simge (.pdb) dosya konumları**.  Ayrıca ek simge dosyaları olabilir http://referencesource.microsoft.com/symbols başvuruda bulunabilir.
+İlk olarak, profil oluşturma zaman yararlı olabilecek birkaç Visual Studio yapılandırma seçenekleri mevcuttur. toomake duygusu hello profil oluşturma raporları, uygulama ve ayrıca sistem kitaplıkları simgelerini simge (.pdb dosyaları) gerekir. Toomake hello kullanılabilir simge sunucuları başvuru emin isteyeceksiniz. toodo hello üzerinde bu **Araçları** Visual Studio'da menüsünü seçin **seçenekleri**, ardından **hata ayıklama**, sonra **simgeleri**. Microsoft simge sunucuları altında listelendiğini doğrulayın **simge (.pdb) dosya konumları**.  Ayrıca ek simge dosyaları olabilir http://referencesource.microsoft.com/symbols başvuruda bulunabilir.
 
 ![Sembol Seçenekleri][4]
 
-İsterseniz, sadece kendi kodumu ayarlayarak profil oluşturucu oluşturur raporları basitleştirebilirsiniz. Böylece çağrıları kitaplıkları ve .NET Framework tamamen iç raporlarını gizli yalnızca My etkin kodla işlevi çağrı yığınları basitleştirilmiştir. Üzerinde **Araçları** menüsünde seçin **seçenekleri**. Ardından **performans araçları** düğümü seçin **genel**. Onay kutusunu seçip **sadece kendi kodumu etkinleştir profil oluşturucu raporlar için**.
+İsterseniz, basitleştirebilir hello raporları sadece kendi kodumu ayarlayarak bu hello profil oluşturucu oluşturur. Yalnızca My etkin kodla işlevi çağrı yığınları tamamen iç toolibraries çağırır ve .NET Framework hello hello raporlardan gizli basitleştirilmiştir. Merhaba üzerinde **Araçları** menüsünde seçin **seçenekleri**. Merhaba genişletin **performans araçları** düğümünü ve **genel**. Merhaba onay kutusunu seçip **sadece kendi kodumu etkinleştir profil oluşturucu raporlar için**.
 
 ![Yalnızca kendi kodum seçenekleri][17]
 
-Bu yönergeler, var olan bir proje veya yeni bir proje ile kullanabilirsiniz.  Aşağıda açıklanan teknikleri denemek için yeni bir proje oluşturursanız, C# seçin **Azure bulut hizmeti** proje ve seçin bir **Web rolü** ve **çalışan rolü**.
+Bu yönergeler, var olan bir proje veya yeni bir proje ile kullanabilirsiniz.  Aşağıda açıklanan teknikleri yeni bir proje tootry hello oluşturursanız, C# seçin **Azure bulut hizmeti** proje ve seçin bir **Web rolü** ve **çalışan rolü**.
 
 ![Azure bulut hizmeti projesi rolleri][5]
 
-Örneğin amaçları ekleyin biraz kod projenize çok zaman alır ve bazı bariz performans sorununu gösterir. Örneğin, bir çalışan rolü projesi için aşağıdaki kodu ekleyin:
+Örneğin, amaçları için çok zaman alır ve bazı bariz performans sorununu gösterir bazı kod tooyour projesi ekleyin. Örneğin, kod tooa çalışan rolü projesi aşağıdaki hello ekleyin:
 
     public class Concatenator
     {
@@ -58,11 +58,11 @@ Bu yönergeler, var olan bir proje veya yeni bir proje ile kullanabilirsiniz.  A
         }
     }
 
-Bu kod çalışan rolün RoleEntryPoint türetilmiş sınıf RunAsync yönteminde çağırmanıza. (Zaman uyumlu olarak çalışan yöntemi hakkında uyarıyı yok sayın.)
+Bu kod hello hello çalışan rolün RoleEntryPoint türetilmiş sınıf RunAsync yönteminde çağırmanıza. (Zaman uyumlu olarak çalışan hello yöntemi hakkında hello uyarıyı yok sayın.)
 
         private async Task RunAsync(CancellationToken cancellationToken)
         {
-            // TODO: Replace the following with your own logic.
+            // TODO: Replace hello following with your own logic.
             while (!cancellationToken.IsCancellationRequested)
             {
                 Trace.TraceInformation("Working");
@@ -70,61 +70,61 @@ Bu kod çalışan rolün RoleEntryPoint türetilmiş sınıf RunAsync yöntemind
             }
         }
 
-Derleme ve bulut hizmetinizi yerel olarak (Ctrl + F5) hata ayıklama olmadan kümesine çözüm yapılandırması ile çalıştırma **sürüm**. Bu, tüm dosya ve klasörlerin uygulama yerel olarak çalıştırmak için oluşturulur ve tüm Öykünücüler başlatıldığını sağlar sağlar. İşlem öykünücüsü kullanıcı Arabiriminde çalışan rolünüzün çalıştığını doğrulamak için görev çubuğundan başlatın.
+Derleme ve bulut hizmetinizi yerel olarak (Ctrl + F5) hata ayıklama olmadan hello çözüm yapılandırma çok kümesi çalıştırma**sürüm**. Bu, tüm dosya ve klasörlerin hello uygulama yerel olarak çalıştırmak için oluşturulur ve tüm hello Öykünücüler başlatıldığını sağlar sağlar. Merhaba işlem öykünücüsü kullanıcı Arabiriminde, çalışan rolü çalıştıran hello görev tooverify başlatın.
 
-## <a name="2-attach-to-a-process"></a>2: bir işlem ekleme
-Visual Studio 2010 IDE'den başlatarak uygulama profil yerine, bir çalışan işlemi için profil oluşturucu ekleme gerekir. 
+## <a name="2-attach-tooa-process"></a>2: tooa işlem ekleme
+Visual Studio 2010 IDE hello başlatarak Merhaba uygulaması profil yerine, işlem çalışan hello profil oluşturucu tooa ilişkilendirmeniz gerekir. 
 
-Üzerinde bir işlemi için profil oluşturucu ekleme için **Çözümle** menüsünde seçin **profil oluşturucu** ve **Attach/Detach**.
+tooattach hello profil oluşturucu tooa işlemi, hello **Çözümle** menüsünde seçin **profil oluşturucu** ve **Attach/Detach**.
 
 ![Profil seçeneği ekleme][6]
 
-Çalışan rolü için WaWorkerHost.exe işlem bulunamadı.
+Çalışan rolü için hello WaWorkerHost.exe işlem bulunamadı.
 
 ![WaWorkerHost işlemi][7]
 
-Proje klasörünüzdeki bir ağ sürücüsündeyse profil oluşturucu profil oluşturma raporları kaydetmek için başka bir konum sağlamak üzere istenir.
+Hello profil oluşturucu proje klasörünüzdeki bir ağ sürücüsündeyse, başka bir konum toosave hello profil oluşturma raporları tooprovide sorar.
 
- Bir web rolü için WaIISHost.exe ekleyerek de ekleyebilirsiniz.
-Uygulamanızda birden çok rol işçi varsa, ProcessId bunları ayırt etmek için kullanmanız gerekebilir. İşlem nesnesi erişerek ProcessId program aracılığıyla sorgulayabilirsiniz. Örneğin, bir roldeki RoleEntryPoint türetilmiş sınıf Run yöntemi için bu kodu eklerseniz, bağlanmak için hangi işlemin bilmeniz işlem öykünücüsü UI günlüğüne bakabilirsiniz.
+ Tooa web rolü tooWaIISHost.exe ekleyerek de ekleyebilirsiniz.
+Toouse hello ProcessId toodistinguish ihtiyacınız uygulamanızda birden çok rol işçi varsa, bunları. Merhaba işlem nesnesi erişerek hello ProcessId program aracılığıyla sorgulayabilirsiniz. Örneğin, bir rolde bu kodu toohello Çalıştır yöntemi hello RoleEntryPoint türetilmiş sınıf eklerseniz, hello işlem öykünücüsü kullanıcı Arabiriminde tooknow hangi işlem tooconnect günlüğüne bakabilirsiniz.
 
     var process = System.Diagnostics.Process.GetCurrentProcess();
     var message = String.Format("Process ID: {0}", process.Id);
     Trace.WriteLine(message, "Information");
 
-Günlüğünü görüntülemek için işlem öykünücüsü kullanıcı arabirimini Başlat.
+tooview hello günlüğü, başlangıç hello işlem öykünücüsü kullanıcı Arabiriminde.
 
-![İşlem öykünücüsü kullanıcı arabirimini Başlat][8]
+![Merhaba işlem öykünücüsü kullanıcı arabirimini Başlat][8]
 
-Çalışan rolü günlük konsol penceresi işlem öykünücüsü kullanıcı Arabiriminde, konsol penceresinin başlık çubuğunda tıklatarak açın. İşlem kimliği günlüğünde görebilirsiniz.
+Merhaba çalışan rolü günlük konsol penceresinde hello konsol penceresinin başlık çubuğunda tıklayarak hello işlem öykünücüsü kullanıcı arabirimini açın. Merhaba işlem kimliği hello günlüğünde görebilirsiniz.
 
 ![Görünüm işlem kimliği][9]
 
-Bir bağlı adımları gerçekleştirir, uygulamanın kullanıcı Arabiriminde (gerekirse) senaryoyu yeniden oluşturma.
+Bir bağlı uygulamanızın (gerekirse) UI tooreproduce hello senaryoda hello adımları gerçekleştirin.
 
-Profil oluşturmayı durdurmak istediğinizde, belirleyin **durdurmak profil** bağlantı.
+Toostop profil istediğinizde hello seçin **durdurmak profil** bağlantı.
 
 ![Seçeneği profil oluşturmayı durdurmak][10]
 
 ## <a name="3-view-performance-reports"></a>3: performans raporları görüntüleyin
-Uygulamanız için performans raporu görüntülenir.
+Merhaba performans raporu, uygulamanız için görüntülenir.
 
-Bu noktada, profil oluşturucu yürütülürken durdurur, veri .vsp dosyası olarak kaydeder ve bu verilerin analizini gösteren bir rapor görüntüler.
+Bu noktada, hello profil oluşturucu yürütülürken durdurur, veri .vsp dosyası olarak kaydeder ve bu verilerin analizini gösteren bir rapor görüntüler.
 
 ![Profil Oluşturucu raporu][11]
 
-Sık kullanılan yolundaki String.wstrcpy görürseniz, sadece kendi kullanıcı kodu yalnızca göstermek için görünümü değiştirmek için kodumu üzerinde'ı tıklatın.  String.Concat görürseniz, tüm kod Göster düğmesine basarak deneyin.
+Hello String.wstrcpy görürseniz etkin yolunuzda, sadece kendi kodumu toochange hello tıklatıldığında yalnızca tooshow kullanıcı kodu görüntüleyin.  String.Concat görürseniz, hello Göster tüm kod düğmesine basarak deneyin.
 
-Birleştir yöntemi ve yürütme süresi büyük bir kısmı alma String.Concat görmeniz gerekir.
+Merhaba Birleştir yöntemi ve büyük bölümünü hello yürütme süresi alma String.Concat görmeniz gerekir.
 
 ![Analiz raporu][12]
 
-Bu makalede dize birleştirme kod eklediyseniz, bunun için bir uyarı görev listesinde görmeniz gerekir. Oluşturulan ve atıldı dizeleri sayısı nedeniyle çöp toplama aşırı miktarda olduğunu belirten bir uyarı da görebilirsiniz.
+Bu makalede hello dize birleştirme kod eklediyseniz, bu uyarı hello görev listesi olarak görmeniz gerekir. Oluşturulan ve atıldı dizeleri toohello sayısı çöp toplama aşırı miktarda olduğunu belirten bir uyarı da görebilirsiniz.
 
 ![Performans uyarıları][14]
 
 ## <a name="4-make-changes-and-compare-performance"></a>4: değişiklikleri yapın ve performans karşılaştırma
-Önce ve sonra bir kod değişikliği performans de karşılaştırabilirsiniz.  Çalışan işlemi durdurmak ve dize birleştirme işlemi StringBuilder kullanımı ile değiştirmek için kod düzenleyin:
+Merhaba performans önce ve sonra bir kod değişikliği de karşılaştırabilirsiniz.  İşlem çalışan hello durdurmak ve hello kodu tooreplace hello dize birleştirme işlemi hello kullanımıyla StringBuilder'ın düzenleyin:
 
     public static string Concatenate(int number)
     {
@@ -137,26 +137,26 @@ Bu makalede dize birleştirme kod eklediyseniz, bunun için bir uyarı görev li
         return builder.ToString();
     }
 
-Başka bir performans çalışma yapın ve ardından performans karşılaştırın. Performans Explorer'ın çalıştığı aynı oturumda varsa, yalnızca her iki raporu seçebilir, kısayol menüsünü açın ve seçin **karşılaştırmak performans raporları**. Başka bir performans oturumda çalıştırılan karşılaştırma yapmak isterseniz, açmak **Çözümle** menüsünde ve **karşılaştırmak performans raporları**. Görüntülenen iletişim kutusunda her iki dosya belirtin.
+Başka bir performans çalışma yapın ve ardından hello performans karşılaştırın. Hello performans Gezgini, hello çalıştırır hello demektir aynı oturum, yalnızca her iki raporu seçebilir, hello kısayol menüsünü açın ve seçin **karşılaştırmak performans raporları**. Başka bir performans oturumda çalıştırılan toocompare istiyorsanız hello açın **Çözümle** menüsünde ve **karşılaştırmak performans raporları**. Her iki dosya görüntülenen hello iletişim kutusunda belirtin.
 
 ![Performans raporları seçeneği Karşılaştır][15]
 
-Raporları iki çalışması arasındaki farklar vurgulayın.
+Merhaba raporları hello iki çalışması arasındaki farklar vurgulayın.
 
 ![Karşılaştırma raporu][16]
 
-Tebrikler! Profil Oluşturucu ile başladıktan.
+Tebrikler! Hello Profil Oluşturucu ile başladıktan.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 * Yayın derlemesi profil ve hata ayıklama olmadan Başlat emin olun.
-* Profil Oluşturucu menüsünde Attach/Detach seçeneği etkin değilse, performans Sihirbazı'nı çalıştırın.
-* Uygulamanızın durumunu görüntülemek için işlem öykünücüsü kullanıcı arabirimini kullanın. 
-* Öykünücüde uygulamaları başlatma ile ilgili sorunlar varsa veya profil oluşturucu ekleme Kapat işlem öykünücüsü aşağı ve yeniden başlatın. Bu sorunu çözmezse, yeniden başlatmayı deneyin. Askıya alma ve çalışan dağıtımları kaldırmak için işlem öykünücüsü kullanıyorsanız bu sorun oluşabilir.
-* Özellikle genel ayarları, komut satırından profil oluşturma komutlardan herhangi birini kullandıysanız, VSPerfClrEnv /globaloff çağrıldı ve VsPerfMon.exe kapatıldı emin olun.
-* Örnekleme yaparken iletisini görürseniz, "PRF0025: Toplanan hiçbir veriler,", ekli işlem CPU etkinliği olup olmadığını denetleyin. Herhangi bir hesaplama iş yapmamanın uygulamaları herhangi bir örnekleme veri oluşturamayabilir.  Tüm örnekleme yapıldığı önce işlem çıktı mümkündür. Run yöntemi profil bir rol için değil sonlandırmak denetleyin.
+* Hello profil oluşturucu menüsünde Hello Attach/Detach seçeneği etkin değilse hello performans Sihirbazı'nı çalıştırın.
+* Merhaba işlem öykünücüsü kullanıcı Arabiriminde tooview hello uygulamanızın durumunu kullanın. 
+* Uygulamaları hello öykünücüsünde başlatma ile ilgili sorunlar varsa veya hello profil oluşturucu ekleme hello işlem öykünücüsü kapatın ve yeniden başlatın. Bu hello sorunu çözmezse, yeniden başlatmayı deneyin. Merhaba işlem öykünücüsü toosuspend kullanın ve çalışan dağıtımları kaldırırsanız bu sorun oluşabilir.
+* Komutları komut satırından profil oluşturma hello birini kullandıysanız, özellikle genel ayarları Merhaba, VSPerfClrEnv /globaloff çağrıldı ve VsPerfMon.exe kapatıldı emin olun.
+* Örnekleme yaparken hello iletiyi görürseniz "PRF0025: Toplanan hiçbir veriler," toohas CPU etkinlik bağlı işlem hello denetleyin. Herhangi bir hesaplama iş yapmamanın uygulamaları herhangi bir örnekleme veri oluşturamayabilir.  Tüm örnekleme yapıldığı önce hello işlem çıktı mümkündür. Run yöntemi profil bir rol için hello onay toosee Sonlandır değil.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Azure ikili öykünücü dosyalarda düzenleme Visual Studio Profil Oluşturucusu'nda desteklenmez, ancak bellek ayırma test etmek isterseniz, profil olduğunda bu seçeneği seçebilirsiniz. Ayrıca eşzamanlılık profili oluşturma, iş parçacıkları performans sorunlarının en sık veri katmanı ve çalışan rolü arasındaki bir uygulama katmanları arasında kullanılırken izlemenize yardımcı olan kilitleri veya katman etkileşim profil, rekabet zaman olup olmadığını belirlemenize yardımcı olan tercih edebilirsiniz.  Uygulamanızı oluşturur veritabanı sorgularını görüntüleyin ve veritabanı kullanımınızı iyileştirmek için profil oluşturma verileri kullanın. Katman etkileşimli profil oluşturma hakkında daha fazla bilgi için blog gönderisine bakın [izlenecek yol: Visual Studio Team System 2010'katman etkileşim Profiler kullanarak][3].
+Azure ikili hello öykünücüsü dosyalarda düzenleme hello Visual Studio profil oluşturucu içinde desteklenmez, ancak tootest bellek ayırma istiyorsanız, profil olduğunda bu seçeneği seçebilirsiniz. Ayrıca eşzamanlılık profili oluşturma, iş parçacığı için kilit zaman rekabet israfı olup olmadığını belirlemek ya da katman etkileşim profil, bir uygulama katmanları arasında kullanılırken performans sorunları izlemenize yardımcı olan en yardımcı olan seçebilirsiniz sık sık hello veri katmanı ve çalışan rolü arasında.  Uygulamanızı oluşturur hello veritabanı sorgularını görüntüleyin ve veri tooimprove hello veritabanı kullanımınız profil hello kullanın. Merhaba blog gönderisi katman etkileşim profil hakkında daha fazla bilgi için bkz [izlenecek yol: Visual Studio Team System 2010 katman etkileşim profil oluşturucu hello kullanarak][3].
 
 [1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
 [2]: http://msdn.microsoft.com/library/azure/hh411542.aspx

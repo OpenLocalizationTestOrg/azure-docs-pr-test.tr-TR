@@ -1,6 +1,6 @@
 ---
-title: "Hızlı Başlangıç - Linux için Azure Kubernetes kümesi | Microsoft Docs"
-description: "Azure CLI ile Azure Container Service'de Linux kapsayıcıları için Kubernetes kümesi oluşturmayı hızlı bir şekilde öğrenin."
+title: "aaaQuickstart - Linux Azure Kubernetes küme | Microsoft Docs"
+description: "Hızlı bir şekilde toocreate Kubernetes küme hello Azure CLI ile Azure kapsayıcı Hizmeti'nde Linux kapsayıcıları için öğrenin."
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -17,33 +17,33 @@ ms.workload: na
 ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 5a2131659903e79b28f4d1b795d25a31d8d4ce8d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8b0d7a803148c1cbf329f4b76f2e99b4b7e14983
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Linux kapsayıcıları için Kubernetes kümesi dağıtma
 
-Bu hızlı başlangıçta, Azure CLI kullanılarak Kubernetes kümesi dağıtılır. Ardından web ön ucu ve bir Redis örneğinden oluşan çok kapsayıcılı bir uygulama dağıtılıp küme üzerinde çalıştırılır. Tamamlandığında, uygulamaya İnternet üzerinden erişilebilir. 
+Bu Hızlı Başlangıç, Kubernetes küme hello Azure CLI kullanarak dağıtılır. Web ön uç ve bir Redis örneği oluşan çok kapsayıcı uygulama sonra dağıtılan ve hello kümede çalıştırın. Tamamlandığında, Merhaba uygulaması üzerinden erişilebilen Internet hello. 
 
-Bu belgede kullanılan örnek uygulama Python’da yazılmıştır. Kavramlar ve burada ayrıntıları verilen adımlar herhangi bir kapsayıcı görüntüsünü Kubernetes kümesine dağıtmak için kullanılabilir. Kod, Dockerfile ve bu projeyle ilgili önceden oluşturulmuş Kubernetes bildirim dosyaları [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git)’da vardır.
+Bu belgede kullanılan Merhaba örnek uygulaması Python içinde yazılmış olmalıdır. Merhaba kavramlar ve burada ayrıntılı adımlar herhangi bir kapsayıcısına görüntü Kubernetes kümesine kullanılan toodeploy olabilir. Merhaba kodu, Dockerfile ve önceden oluşturulmuş Kubernetes bildirim dosyaları ilgili toothis proje kullanılabilir [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
 
-![Azure Vote’a göz atma görüntüsü](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![TooAzure oy göz atma görüntüsü](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-Bu hızlı başlangıçta temel Kubernetes kavramlarını bildiğiniz varsayılmıştır. Kubernetes hakkında ayrıntılı bilgi için bkz. [Kubernetes belgeleri]( https://kubernetes.io/docs/home/).
+Bu hızlı başlangıç Kubernetes kavramları temel bir anlayış varsayar, hello Kubernetes hakkında ayrıntılı bilgi için bkz: [Kubernetes belgelerine]( https://kubernetes.io/docs/home/).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu hızlı başlangıç hello Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur. 
+Bir kaynak grubu ile Merhaba oluşturmak [az grubu oluşturma](/cli/azure/group#create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur. 
 
-Aşağıdaki örnek *westeurope* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myResourceGroup* hello içinde *westeurope* konumu.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location westeurope
@@ -66,27 +66,27 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-kubernetes-cluster"></a>Kubernetes kümesi oluşturma
 
-Azure Container Service'te [az acs create](/cli/azure/acs#create) komutuyla Kubernetes kümesi oluşturun. Aşağıdaki örnekte, bir Linux ana düğümü ve üç Linux aracı düğümüyle *myK8sCluster* adlı bir küme oluşturulmuştur.
+Kubernetes küme Azure kapsayıcı hizmeti ile Merhaba oluşturmak [az acs oluşturmak](/cli/azure/acs#create) komutu. Merhaba aşağıdaki örnek adlı bir küme oluşturur *myK8sCluster* ile bir Linux ana düğümü ve üç Linux Aracısı düğümleri.
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
 ```
 
-Birkaç dakika sonra komut tamamlanır ve küme hakkında json tarafından biçimlendirilmiş bilgiler gösterilir. 
+Birkaç dakika sonra hello komut tamamlandıktan ve biçimlendirilmiş json hello kümesi hakkında bilgi verir. 
 
-## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
+## <a name="connect-toohello-cluster"></a>Toohello kümesine bağlanın
 
-Bir Kubernetes kümesini yönetmek için Kubernetes komut satırı istemcisi [kubectl](https://kubernetes.io/docs/user-guide/kubectl/)’i kullanın. 
+toomanage Kubernetes küme kullanmak [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), hello Kubernetes komut satırı istemcisi. 
 
-Azure CloudShell kullanıyorsanız kubectl zaten yüklüdür. Yerel olarak yüklemek istiyorsanız [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) komutunu kullanabilirsiniz.
+Azure CloudShell kullanıyorsanız kubectl zaten yüklüdür. Tooinstall isterseniz, yerel olarak kullanabileceğiniz hello [az acs kubernetes yükleme-CLI](/cli/azure/acs/kubernetes#install-cli) komutu.
 
-kubectl’i Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) komutunu çalıştırın. Bu adım kimlik bilgilerini indirir ve Kubernetes CLI’yi bunları kullanacak şekilde yapılandırır.
+Merhaba çalıştırmak tooconfigure kubectl tooconnect tooyour Kubernetes küme, [az acs kubernetes get-kimlik](/cli/azure/acs/kubernetes#get-credentials) komutu. Bu adım kimlik bilgileri indirmeleri ve hello Kubernetes CLI toouse yapılandırır bunları.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Kümenize bağlantıyı doğrulamak için [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutunu kullanarak küme düğümleri listesini alın.
+tooverify hello bağlantı tooyour küme, kullanım hello [kubectl almak](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu tooreturn hello küme düğümlerinin bir listesi.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -102,11 +102,11 @@ k8s-agent-14ad53a1-2    Ready                      10m       v1.6.6
 k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 ```
 
-## <a name="run-the-application"></a>Uygulamayı çalıştırma
+## <a name="run-hello-application"></a>Merhaba uygulamayı çalıştırın
 
-Kubernetes bildirim dosyası, hangi kapsayıcı görüntülerinin çalıştırılması gerektiği de dahil olmak üzere, küme için istenen durumu tanımlar. Bu örnekte, Azure Vote uygulamasını çalıştırmak için gerekli tüm nesneleri oluşturmak için bir bildirim kullanılır. 
+Kubernetes bildirim dosyası kapsayıcı görüntüleri çalıştırma dahil hello küme için istenen bir durum tanımlar. Bu örnekte, bir bildirim tüm nesneleri toorun Azure oy uygulama hello kullanılan toocreate ' dir. 
 
-`azure-vote.yml` adlı bir dosya oluşturun ve dosyayı aşağıdaki YAML’ye kopyalayın. Azure Cloud Shell'de çalışıyorsanız, bu dosya bir sanal veya fiziksel sistemde olduğu gibi vi veya Nano kullanılarak oluşturulabilir.
+Adlı bir dosya oluşturun `azure-vote.yml` kopyalayıp içine hello YAML. Azure Cloud Shell'de çalışıyorsanız, bu dosya bir sanal veya fiziksel sistemde olduğu gibi vi veya Nano kullanılarak oluşturulabilir.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -169,7 +169,7 @@ spec:
     app: azure-vote-front
 ```
 
-Uygulamayı çalıştırmak için [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) komutunu kullanın.
+Kullanım hello [kubectl oluşturma](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) toorun Merhaba uygulaması komutu.
 
 ```azurecli-interactive
 kubectl create -f azure-vote.yml
@@ -184,45 +184,45 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>Uygulamayı test etme
+## <a name="test-hello-application"></a>Merhaba uygulamayı test etme
 
-Uygulama çalıştırıldığında, uygulama ön ucunu İnternet üzerinden kullanıma sunan bir [Kubernetes hizmeti](https://kubernetes.io/docs/concepts/services-networking/service/) oluşturulur. Bu işlemin tamamlanması birkaç dakika sürebilir. 
+Merhaba uygulaması çalıştırılırken bir [Kubernetes hizmet](https://kubernetes.io/docs/concepts/services-networking/service/) düzenlemenizi sağlayan uygulama ön uç toohello hello oluşturulan Internet. Bu işlem birkaç dakika toocomplete alabilir. 
 
-İlerleme durumunu izlemek için [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutunu `--watch` bağımsız değişkeniyle birlikte kullanın.
+toomonitor ilerleme, kullanım hello [kubectl alma hizmeti](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) hello komutunu `--watch` bağımsız değişkeni.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
 ```
 
-Başlangıçta *azure-vote-front* için **EXTERNAL-IP** durumu *pending* olarak görünür. EXTERNAL-IP adresi *pending* durumundan *IP address* değerine değiştiğinde kubectl izleme işlemini durdurmak için `CTRL-C` komutunu kullanın. 
+Başlangıçta hello **dış IP** hello için *azure oy ön* hizmeti görünür olarak *bekleyen*. Merhaba dış IP adresi değiştiğinden sonra *bekleyen* tooan *IP adresi*, kullanın `CTRL-C` toostop hello kubectl izleme işlemi. 
   
 ```bash
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 
-Artık Azure Vote Uygulamasını görmek için dış IP adresine göz atabilirsiniz.
+Toohello dış IP adresi toosee hello Azure oylama uygulaması gözatabilirsiniz.
 
-![Azure Vote’a göz atma görüntüsü](media/container-service-kubernetes-walkthrough/azure-vote.png)  
+![TooAzure oy göz atma görüntüsü](media/container-service-kubernetes-walkthrough/azure-vote.png)  
 
 ## <a name="delete-cluster"></a>Kümeyi silme
-Kümeye artık ihtiyacınız yoksa [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırabilirsiniz.
+Merhaba küme artık gerekli olmadığında hello kullanabilirsiniz [az grubu Sil](/cli/azure/group#delete) tooremove hello kaynak grubu, kapsayıcı hizmeti ve ilgili tüm kaynakları komutu.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="get-the-code"></a>Kodu alma
+## <a name="get-hello-code"></a>Merhaba kod alın
 
-Bu hızlı başlangıçta, Kubernetes dağıtımı oluşturmak için önceden oluşturulmuş kapsayıcı görüntüleri kullanılır. İlgili uygulama kodu, Dockerfile ve Kubernetes bildirim dosyası GitHub'da bulunur.
+Bu Hızlı Başlangıç, önceden oluşturulmuş kapsayıcı görüntüleri kullanılan toocreate Kubernetes dağıtım silinmiş. uygulama kodu, Dockerfile, Hello ilgili ve Kubernetes bildirim dosyası Github'da bulunmaktadır.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, bir Kubernetes kümesi dağıtıp ve bu kümeye çok kapsayıcılı bir uygulama dağıttınız. 
+Bu hızlı başlangıç Kubernetes küme dağıtılan ve çok kapsayıcı uygulama tooit dağıtılır. 
 
-Azure Container Service hakkında daha fazla bilgi ve dağıtım örneği için tam kod açıklaması için Kubernetes küme öğreticisine geçin.
+Azure kapsayıcı hizmeti ve tam bir kod toodeployment örnek aracılığıyla ilerlemesi hakkında daha fazla toolearn toohello Kubernetes küme öğretici devam edin.
 
 > [!div class="nextstepaction"]
 > [ACS Kubernetes kümesini yönetme](./container-service-tutorial-kubernetes-prepare-app.md)

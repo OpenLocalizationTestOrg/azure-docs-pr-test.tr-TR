@@ -1,6 +1,6 @@
 ---
-title: "Bir Windows VM özel betik uzantısı | Microsoft Docs"
-description: "Uzak bir Windows VM PowerShell betikleri çalıştırmak için özel betik uzantısı kullanarak Azure VM yapılandırma görevleri otomatikleştirme"
+title: "aaaCustom Windows VM betik uzantısı | Microsoft Docs"
+description: "Uzak bir Windows VM hello özel betik uzantısı toorun PowerShell komut dosyalarını kullanarak Azure VM yapılandırma görevleri otomatikleştirme"
 services: virtual-machines-windows
 documentationcenter: 
 author: neilpeterson
@@ -15,38 +15,38 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: nepeters
-ms.openlocfilehash: 986ab1025dc188cd7fa1cf8b131a9d4b859be8f3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cf7bb895dd211f07fd010dc03b68cd77df1127b2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>Özel betik uzantısı Klasik dağıtım modeli kullanılarak Windows için
+# <a name="custom-script-extension-for-windows-using-hello-classic-deployment-model"></a>Özel betik uzantısı hello Klasik dağıtım modeli kullanılarak Windows için
 
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. [Bu adımları Resource Manager modeli kullanarak gerçekleştirmeyi](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) öğrenin.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. Nasıl çok öğrenin[hello Resource Manager modelini kullanarak bu adımları uygulamadan](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Özel betik uzantısının indirir ve Azure sanal makinelerde komut dosyaları çalıştırılır. Bu dağıtım yapılandırmaları, yazılım yükleme veya başka bir yapılandırma için yararlı bir uzantısıdır / yönetim görevi. Komut dosyaları Azure depolama veya GitHub indirilen veya çalışma zamanı uzantısı Azure portalında sağlanmaktadır. Özel betik uzantısı, Azure Resource Manager şablonları ile tümleşir ve Azure CLI, PowerShell, Azure portalında veya Azure sanal makine REST API'sini kullanarak da çalıştırılabilir.
+Merhaba özel betik uzantısının indirir ve Azure sanal makinelerde komut dosyalarını çalıştırır. Bu dağıtım yapılandırmaları, yazılım yükleme veya başka bir yapılandırma için yararlı bir uzantısıdır / yönetim görevi. Komut dosyaları Azure depolama veya GitHub indirilen veya toohello çalışma zamanı uzantısı Azure portalında sağlanan. Merhaba özel betik uzantısı Azure Resource Manager şablonları ile tümleşir ve hello Azure CLI, PowerShell, Azure portal veya hello Azure sanal makine REST API'sini kullanarak da çalıştırılabilir.
 
-Bu belge Azure PowerShell modülü, Azure Resource Manager şablonları ve sorun giderme adımları Windows sistemlerinde ayrıntıları kullanarak özel betik uzantısı kullanma ayrıntılarını verir.
+Bu belge nasıl toouse hello özel betik uzantısı kullanılarak hello Azure PowerShell modülü, Azure Resource Manager şablonları ve sorun giderme adımları Windows sistemlerinde ayrıntıları ayrıntıları verilmektedir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 ### <a name="operating-system"></a>İşletim Sistemi
 
-Windows, Windows Server 2008 R2 karşı çalıştırılabilir için özel betik uzantısının 2012, 2012 R2 ve 2016 serbest bırakır.
+Windows, Windows Server 2008 R2 karşı çalıştırılabilir için hello özel betik uzantısının 2012, 2012 R2 ve 2016 serbest bırakır.
 
 ### <a name="script-location"></a>Komut dosyası konumu
 
-Komut dosyası Azure depolama veya başka bir konuma geçerli bir URL ile erişilebilir depolanması gerekir.
+Merhaba komut dosyası Azure depolama veya başka bir konuma geçerli bir URL ile erişilebilir depolanan toobe gerekir.
 
 ### <a name="internet-connectivity"></a>Internet bağlantısı
 
-Windows için özel betik uzantısı hedef sanal makine internet'e bağlı olduğunu gerektirir. 
+Merhaba özel betik uzantısı için Windows hello hedef sanal makinenin bağlı toohello gerektirir Internet. 
 
 ## <a name="extension-schema"></a>Uzantı Şeması
 
-Aşağıdaki JSON şeması özel betik uzantısı gösterir. Uzantısı için bir komut dosyası konumuna (Azure Storage veya başka bir konuma geçerli bir URL ile) ve bir komutun yürütülmesi için gerekiyor. Azure Storage komut dosyası kaynağı olarak kullanıyorsanız, bir Azure depolama hesabı adı ve hesap anahtarı gereklidir. Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı yapılandırmasında belirtilen. Azure VM uzantısının korumalı ayarı veri şifrelenir ve yalnızca hedef sanal makineye şifresi.
+Merhaba aşağıdaki JSON hello özel betik uzantısının hello şemasını gösterir. Merhaba uzantısı, bir komut dosyası konumuna (Azure Storage veya başka bir konuma geçerli bir URL ile) ve komut tooexecute gerektirir. Azure Storage hello komut dosyası kaynağı olarak kullanıyorsanız, bir Azure depolama hesabı adı ve hesap anahtarı gereklidir. Bu öğeler hassas verisi olarak kabul edilir ve hello uzantıları korumalı ayarını yapılandırma dosyasında belirtilen. Azure VM uzantısının korumalı ayarı veri şifrelenir ve yalnızca hello hedef sanal makineye şifresi.
 
 ```json
 {
@@ -83,11 +83,11 @@ Aşağıdaki JSON şeması özel betik uzantısı gösterir. Uzantısı için bi
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde ayrıntılı JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında özel betik uzantısının çalıştırmak için kullanılabilir. Özel betik uzantısı içeren bir örnek şablonu burada bulunabilir [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Merhaba JSON şeması Hello önceki bölümde ayrıntılı bir Azure Resource Manager şablon dağıtımı sırasında bir Azure Resource Manager şablonu toorun hello özel betik uzantısı kullanılabilir. Özel betik uzantısının burada bulunabilir hello içeren bir örnek şablonunu [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ## <a name="powershell-deployment"></a>PowerShell dağıtım
 
-`Set-AzureVMCustomScriptExtension` Komutu, varolan bir sanal makineye özel betik uzantısı eklemek için kullanılabilir. Daha fazla bilgi için bkz: [kümesi AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
+Merhaba `Set-AzureVMCustomScriptExtension` komutu kullanılan tooadd hello özel betik uzantısı tooan varolan sanal makine olabilir. Daha fazla bilgi için bkz: [kümesi AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
 
 ```powershell
 # create vm object
@@ -104,19 +104,19 @@ $vm | Update-AzureVM
 
 ### <a name="troubleshoot"></a>Sorun giderme
 
-Veri uzantısı dağıtımları durumuyla ilgili Azure portalından ve Azure PowerShell modülü kullanılarak alınabilir. İçin belirli bir VM uzantıları dağıtım durumunu görmek için aşağıdaki komutu çalıştırın.
+Veri uzantısı dağıtımları hello durumuyla ilgili hello Azure portal ve hello Azure PowerShell modülü kullanılarak alınabilir. toosee hello dağıtım durumu hello aşağıdaki komutu çalıştırın, belirli bir VM için uzantıları.
 
 ```powershell
 Get-AzureVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-Uzantı yürütme bize hedef sanal makinede aşağıdaki dizinde bulunan dosyaları oturum çıktı.
+Uzantı yürütme bize dizin hello hedef sanal makinede aşağıdaki hello bulunan oturum toofiles çıktı.
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
 ```
 
-Betik hedef sanal makinedeki şu dizine yüklenir.
+Merhaba komut dosyasının kendisini dizin hello hedef sanal makinede aşağıdaki hello içine yüklenir.
 
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
@@ -124,4 +124,4 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
 
 ### <a name="support"></a>Destek
 
-Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, üzerinde Azure uzmanlar başvurabilirsiniz [MSDN Azure ve yığın taşması forumları](https://azure.microsoft.com/en-us/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/en-us/support/options/) ve Get destek seçin. Azure desteği hakkında daha fazla bilgi için okuma [Microsoft Azure desteği ile ilgili SSS](https://azure.microsoft.com/en-us/support/faq/).
+Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, başvurabilirsiniz hello Azure uzmanlarıyla hello [MSDN Azure ve yığın taşması forumları](https://azure.microsoft.com/en-us/support/forums/). Alternatif olarak, Azure destek olay dosya. Toohello Git [Azure Destek sitesi](https://azure.microsoft.com/en-us/support/options/) ve Get destek seçin. Hello Azure destek kullanma hakkında daha fazla bilgi için okuma [Microsoft Azure desteği ile ilgili SSS](https://azure.microsoft.com/en-us/support/faq/).

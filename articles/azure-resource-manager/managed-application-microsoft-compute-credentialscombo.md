@@ -1,6 +1,6 @@
 ---
-title: "Azure yönetilen uygulama CredentialsCombo UI öğesi | Microsoft Docs"
-description: "Azure yönetilen uygulamalar için Microsoft.Compute.CredentialsCombo kullanıcı Arabirimi öğesi açıklar"
+title: "aaaAzure yönetilen uygulama CredentialsCombo UI öğesi | Microsoft Docs"
+description: "Azure yönetilen uygulamalar için Hello Microsoft.Compute.CredentialsCombo UI öğesi açıklar"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 254f383ee6f7cb9f7051fa135d85319a22c3c369
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d44a3929ebb7a5ff78b72f9eaeb6e52b098e266f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI öğesi
 Windows ve Linux parolalar ve SSH ortak anahtarları için yerleşik doğrulama denetimleriyle grubudur. Bu öğe kullandığınız zaman [yönetilen bir Azure uygulama oluşturmaya](managed-application-publishing.md).
@@ -26,7 +26,7 @@ Windows ve Linux parolalar ve SSH ortak anahtarları için yerleşik doğrulama 
 ![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
 
 ## <a name="schema"></a>Şema
-Varsa `osPlatform` olan **Windows**, aşağıdaki şema kullanılır:
+Varsa `osPlatform` olan **Windows**, hello aşağıdaki şema kullanılır:
 ```json
 {
   "name": "element1",
@@ -41,7 +41,7 @@ Varsa `osPlatform` olan **Windows**, aşağıdaki şema kullanılır:
   "constraints": {
     "required": true,
     "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
-    "customValidationMessage": "The password must contain at least 8 characters, with at least 1 letter and 1 number."
+    "customValidationMessage": "hello password must contain at least 8 characters, with at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false
@@ -51,7 +51,7 @@ Varsa `osPlatform` olan **Windows**, aşağıdaki şema kullanılır:
 }
 ```
 
-Varsa `osPlatform` olan **Linux**, aşağıdaki şema kullanılır:
+Varsa `osPlatform` olan **Linux**, hello aşağıdaki şema kullanılır:
 ```json
 {
   "name": "element1",
@@ -70,7 +70,7 @@ Varsa `osPlatform` olan **Linux**, aşağıdaki şema kullanılır:
   "constraints": {
     "required": true,
     "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
-    "customValidationMessage": "The password must contain at least 8 characters, with at least 1 letter and 1 number."
+    "customValidationMessage": "hello password must contain at least 8 characters, with at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false,
@@ -83,13 +83,13 @@ Varsa `osPlatform` olan **Linux**, aşağıdaki şema kullanılır:
 
 ## <a name="remarks"></a>Açıklamalar
 - `osPlatform`belirtilmeli ve birini kullanabilir **Windows** veya **Linux**.
-- Varsa `constraints.required` ayarlanır **doğru**, parola veya SSH ortak anahtarı metin kutuları başarıyla doğrulamak için değerleri içermesi gerekir. Varsayılan değer **doğru**.
-- Varsa `options.hideConfirmation` ayarlanır **doğru**, sonra da kullanıcının parolasını onayladığınız için ikinci metin kutusu gizli. Varsayılan değer **false**.
-- Varsa `options.hidePassword` ayarlanır **doğru**, parola kimlik doğrulaması kullanma seçeneğini gizli sonra. Kullanılabilmesi için yalnızca `osPlatform` olan **Linux**. Varsayılan değer **false**.
-- İzin verilen parolalar ek kısıtlamalar kullanarak uygulanabilir `customPasswordRegex` özelliği. Dizede `customValidationMessage` parola özel doğrulama başarısız olduğunda görüntülenir. Her iki özellik için varsayılan değer **null**.
+- Varsa `constraints.required` çok ayarlanır**doğru**, parola hello veya SSH ortak anahtarı metin kutuları içermelidir değerleri toovalidate başarıyla. Merhaba varsayılan değer **doğru**.
+- Varsa `options.hideConfirmation` çok ayarlanır**doğru**, hello kullanıcının parolasını onayladığınız için hello ikinci metin kutusu gizli sonra. Merhaba varsayılan değer **false**.
+- Varsa `options.hidePassword` çok ayarlanır**doğru**, hello seçeneği toouse parola kimlik doğrulaması gizli sonra. Kullanılabilmesi için yalnızca `osPlatform` olan **Linux**. Varsayılan değer **false**.
+- Merhaba ek kısıtlamalar izin hello kullanarak parolaları uygulanabilir `customPasswordRegex` özelliği. Merhaba dizesinde `customValidationMessage` parola özel doğrulama başarısız olduğunda görüntülenir. Merhaba her iki özellik için varsayılan değer olan **null**.
 
 ## <a name="sample-output"></a>Örnek çıktı
-Varsa `osPlatform` olan **Windows**, veya kullanıcı parola yerine bir SSH ortak anahtarı sağlanan sonra aşağıdaki çıkış bekleniyor:
+Varsa `osPlatform` olan **Windows**, veya hello kullanıcı sağlanan parola yerine bir SSH ortak anahtarı ardından hello aşağıdaki çıkış bekleniyor:
 
 ```json
 {
@@ -98,7 +98,7 @@ Varsa `osPlatform` olan **Windows**, veya kullanıcı parola yerine bir SSH orta
 }
 ```
 
-Kullanıcı SSH ortak anahtarı sağladıysanız, aşağıdaki çıkış bekleniyor:
+Merhaba kullanıcı SSH ortak anahtarı sağladıysanız, ardından hello aşağıdaki çıkış bekleniyor:
 ```json
 {
   "authenticationType": "sshPublicKey",
@@ -107,6 +107,6 @@ Kullanıcı SSH ortak anahtarı sağladıysanız, aşağıdaki çıkış bekleni
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yönetilen uygulamaların giriş için bkz: [Azure yönetilen uygulama genel bakış](managed-application-overview.md).
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](managed-application-createuidefinition-overview.md).
+* Bir giriş toomanaged uygulamalar için bkz [Azure yönetilen uygulama genel bakış](managed-application-overview.md).
+* Bir giriş toocreating UI tanımları için bkz: [CreateUiDefinition ile çalışmaya başlama](managed-application-createuidefinition-overview.md).
 * Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](managed-application-createuidefinition-elements.md).

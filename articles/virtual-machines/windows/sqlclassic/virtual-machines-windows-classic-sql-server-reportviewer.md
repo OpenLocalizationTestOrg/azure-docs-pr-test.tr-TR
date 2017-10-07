@@ -1,6 +1,6 @@
 ---
-title: ReportViewer Web sitesi kullanma | Microsoft Docs
-description: "Bu konuda, bir Microsoft Azure sanal makinesinde depolanan bir rapor görüntüler Visual Studio ReportViewer denetimi ile Microsoft Azure Web sitesi oluşturma açıklar."
+title: ReportViewer Web sitesindeki aaaUse | Microsoft Docs
+description: "Bu konuda nasıl toobuild bir Microsoft Azure sanal makinesinde Microsoft Azure Web sitesi ile bir rapor görüntüler hello Visual Studio ReportViewer Denetimi'ni depolanan açıklanmaktadır."
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -15,74 +15,74 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.openlocfilehash: e54c3bc484b0b3b81cc495e54c17e8ef448abe91
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8e0729d6657f96c32a9ac7dffdff7745ff92b48d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Azure’da Barındırılan bir Web Sitesinde ReportViewer Kullanma
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir.
 
-Bir Microsoft Azure sanal makinesinde depolanan bir rapor görüntüler Visual Studio ReportViewer denetimi ile Microsoft Azure Web sitesi oluşturabilirsiniz. ReportViewer Web uygulamasında ASP.NET Web uygulaması şablonu kullanılarak yapı denetimdir.
+Bir Microsoft Azure Web sitesi hello bir Microsoft Azure sanal makinesinde depolanan bir rapor görüntüler Visual Studio ReportViewer Denetimi'ni kullanarak oluşturabilirsiniz. Merhaba ASP.NET Web uygulaması şablonu kullanarak oluşturduğunuz bir Web uygulamasında Hello ReportViewer Denetimi'ni var.
 
 > [!IMPORTANT]
-> ASP.NET MVC Web uygulaması şablonları ReportViewer Denetimi'ni desteklemez.
+> Merhaba ASP.NET MVC Web uygulaması şablonları hello ReportViewer Denetimi'ni desteklemez.
 
-Microsoft Azure Web sitenize ReportViewer eklemek için aşağıdaki görevleri tamamlamanız gerekir.
+ReportViewer tooincorporate Microsoft Azure Web sitenizi içine görevleri aşağıdaki toocomplete hello gerekir.
 
-* **Ekleme** Dağıtım paketine derlemeler
+* **Ekleme** derlemeleri toohello dağıtım paketi
 * **Yapılandırma** kimlik doğrulama ve yetkilendirme
-* **Yayımlama** Azure ASP.NET Web uygulaması
+* **Yayımlama** ASP.NET Web uygulaması tooAzure hello
 
 ## <a name="prerequisites"></a>Ön koşullar
-"Genel öneri ve en iyi uygulamalar" bölümünde gözden [SQL Server Business Intelligence Azure Virtual Machines'de](../classic/ps-sql-bi.md).
+Gözden hello "genel öneri ve en iyi uygulamalar" bölümünde [SQL Server Business Intelligence Azure Virtual Machines'de](../classic/ps-sql-bi.md).
 
 > [!NOTE]
-> ReportViewer denetimleri, Visual Studio, Standard Edition veya üzeri aktarılır. Web Developer Express Edition kullanıyorsanız, yüklemelisiniz [MICROSOFT Rapor Görüntüleyicisi 2012 çalışma zamanı](https://www.microsoft.com/download/details.aspx?id=35747) ReportViewer çalışma zamanı özellikleri kullanmak için.
+> ReportViewer denetimleri, Visual Studio, Standard Edition veya üzeri aktarılır. Merhaba Web Developer Express Edition kullanıyorsanız, hello yüklemelisiniz [MICROSOFT Rapor Görüntüleyicisi 2012 çalışma zamanı](https://www.microsoft.com/download/details.aspx?id=35747) toouse hello ReportViewer çalışma zamanı özellikleri.
 > 
 > Yapılandırılan yerel işleme modunda ReportViewer Microsoft Azure'da desteklenmiyor.
 
-## <a name="adding-assemblies-to-the-deployment-package"></a>Dağıtım paketi derlemeler ekleme
-ASP.NET uygulama şirket içi barındırdığınızda ReportViewer derlemeler genellikle doğrudan genel derleme önbelleğinde IIS sunucusunun (GAC) Visual Studio yükleme sırasında yüklenir ve uygulama tarafından doğrudan erişilebilir. ASP.NET uygulamanızı bulutta barındırdığınızda, ancak Microsoft Azure ReportViewer derlemelerin yerel olarak uygulamanız için kullanılabilir olduğundan emin olmanız gerekir böylece GAC içine yüklenecek bir şey izin vermiyor. Projenizde bunları başvurular ekleyerek bunu ve bunları yerel olarak kopyalanacak yapılandırabilirsiniz.
+## <a name="adding-assemblies-toohello-deployment-package"></a>Derlemeleri toohello dağıtım paketi ekleme
+ASP.NET uygulama şirket içi barındırdığınızda hello ReportViewer derlemeler genellikle doğrudan hello genel derleme önbelleğinde hello IIS sunucusunun (GAC) Visual Studio yükleme sırasında yüklenir ve doğrudan hello uygulama tarafından erişilebilir. ASP.NET uygulamanızı hello bulutta Microsoft Azure içine toobe yüklü herhangi bir şey izin verme konak hello GAC, emin olmanız gerekir böylece ancak hello ReportViewer derlemeleri uygulamanızı yerel olarak kullanılabilir. Projenizde başvuruları toothem ekleyerek bunu ve bunları yapılandırma toobe yerel olarak kopyalanır.
 
-Uzaktan işleme modunda ReportViewer Denetimi'ni şu derlemeleri kullanır:
+Uzaktan işleme modunda ReportViewer Denetimi'ni hello derlemeleri aşağıdaki hello kullanır:
 
-* **Microsoft.ReportViewer.WebForms.dll**: ReportViewer sayfanızda kullanmanıza gerek ReportViewer kodunu içerir. Projenizde ASP.NET sayfaya ReportViewer Denetimi'ni bıraktığınızda projenize bu derleme için bir başvuru eklenir.
-* **Microsoft.ReportViewer.Common.dll**: çalışma zamanında ReportViewer denetimi tarafından kullanılan sınıfları içerir. Projenize otomatik olarak eklenmez.
+* **Microsoft.ReportViewer.WebForms.dll**: ihtiyacınız hello ReportViewer kodunu içerir toouse ReportViewer sayfanıza. Projenizde ASP.NET sayfaya ReportViewer Denetimi'ni bıraktığınızda tooyour projesi bu derleme için bir başvuru eklenir.
+* **Microsoft.ReportViewer.Common.dll**: çalışma zamanında hello ReportViewer denetimi tarafından kullanılan sınıfları içerir. Tooyour proje otomatik olarak eklenmez.
 
-### <a name="to-add-a-reference-to-microsoftreportviewercommon"></a>Microsoft.ReportViewer.Common başvuru eklemek için
-* Projenizin sağ **başvuruları** düğümü ve seçin **Başvuru Ekle**derleme .NET sekmesini seçin ve'ı tıklatın **Tamam**.
+### <a name="tooadd-a-reference-toomicrosoftreportviewercommon"></a>tooadd başvuru tooMicrosoft.ReportViewer.Common
+* Projenizin sağ **başvuruları** düğümü ve Seç **Başvuru Ekle**hello derleme hello .NET sekmesini seçin ve'ı tıklatın **Tamam**.
 
-### <a name="to-make-the-assemblies-locally-accessible-by-your-aspnet-application"></a>Derlemeler, ASP.NET uygulaması tarafından yerel olarak erişilebilir yapma
-1. İçinde **başvuruları** klasörü, böylece özelliklerini Özellikler bölmesinde görünür Microsoft.ReportViewer.Common derleme'yi tıklayın.
-2. Özellikler bölmesinde ayarlayın **kopya yerel** true.
+### <a name="toomake-hello-assemblies-locally-accessible-by-your-aspnet-application"></a>ASP.NET uygulaması tarafından yerel olarak erişilebilir toomake hello derlemeler
+1. Merhaba, **başvuruları** klasör özelliklerini hello Özellikler bölmesinde görünmesini sağlayacak şekilde hello Microsoft.ReportViewer.Common derleme'yi tıklayın.
+2. Merhaba Özellikler bölmesinde ayarlayın **kopya yerel** tooTrue.
 3. Adım 1 ve 2 Microsoft.ReportViewer.WebForms için yineleyin.
 
-### <a name="to-get-reportviewer-language-pack"></a>ReportViewer dil paketi
-1. Uygun Microsoft Rapor Görüntüleyicisi 2012 çalışma zamanı yeniden dağıtılabilir paketi yükleme [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=317386).
-2. Açılır listeden dili seçin ve sayfanın karşılık gelen İndirme Merkezi sayfasına yönlendirilir.
-3. Tıklatın **karşıdan** ReportViewerLP.exe yüklemeyi başlatmak için.
-4. ReportViewerLP.exe indirdikten sonra tıklatın **çalıştırmak** tıklayın veya yükledikten hemen **kaydetmek** bilgisayarınıza kaydetmek için. Tıklatırsanız **kaydetmek**, dosyayı kaydetmek klasörün adını unutmayın.
-5. Dosyayı kaydettiğiniz klasörü bulun. ReportViewerLP.exe sağ tıklayın, **yönetici olarak çalıştır**ve ardından **Evet**.
-6. ReportViewerLP.exe çalıştırdıktan sonra c:\windows\assembly sahip kaynak dosyaları görürsünüz **Microsoft.ReportViewer.Webforms.Resources** ve **Microsoft.ReportViewer.Common.Resources**.
+### <a name="tooget-reportviewer-language-pack"></a>tooget ReportViewer dil paketi
+1. Merhaba uygun Microsoft Rapor Görüntüleyicisi 2012 çalışma zamanı yeniden dağıtılabilir paketi yükleme [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=317386).
+2. Select hello dilden hello açılır liste ve hello sayfa yeniden yönlendirilen toohello karşılık gelen İndirme Merkezi sayfayı alır.
+3. Tıklatın **karşıdan** ReportViewerLP.exe toostart hello indirilmesi.
+4. ReportViewerLP.exe indirdikten sonra tıklatın **çalıştırmak** tooinstall hemen veya tıklatın **kaydetmek** toosave, tooyour bilgisayar. Tıklatırsanız **kaydetmek**, hello dosyasını kaydettiğiniz hello klasörünün hello adı unutmayın.
+5. Merhaba dosyasını kaydettiğiniz hello klasörünü bulun. ReportViewerLP.exe sağ tıklayın, **yönetici olarak çalıştır**ve ardından **Evet**.
+6. ReportViewerLP.exe çalıştırdıktan sonra hello c:\windows\assembly sahip hello kaynak dosyaları görürsünüz **Microsoft.ReportViewer.Webforms.Resources** ve **Microsoft.ReportViewer.Common.Resources** .
 
-### <a name="to-configure-for-localized-reportviewer-control"></a>Yerelleştirilmiş ReportViewer denetiminin yapılandırmak için
-1. Karşıdan yükle ve yukarıda belirtilen yönergeleri izleyerek Microsoft Rapor Görüntüleyicisi 2012 çalışma zamanı yeniden dağıtılabilir paketini yükleyin.
-2. Oluşturma <language> kopyalama ve proje klasöründe bir ilişkili kaynak assembly dosyaları vardır. Kopyalanacak kaynak assembly dosyalar: **Microsoft.ReportViewer.Webforms.Resources.dll** ve **Microsoft.ReportViewer.Common.Resources.dll**. Kaynak assembly dosyaları seçin ve Özellikler bölmesinde ayarlayın **çıktı dizinine Kopyala** için "**her zaman Kopyala**".
-3. Kültür & UICulture web projesi için Ayarla. UI kültürü ve kültür bir ASP.NET Web sayfası için ayarlama hakkında daha fazla bilgi için bkz: [nasıl yapılır: ASP.NET Web sayfası Genelleştirme için UI kültürü ve kültür ayarlayın](http://go.microsoft.com/fwlink/?LinkId=237461).
+### <a name="tooconfigure-for-localized-reportviewer-control"></a>yerelleştirilmiş ReportViewer denetimin tooconfigure
+1. Karşıdan yükle ve yukarıda belirtilen yönergeleri aşağıdaki hello tarafından hello Microsoft Rapor Görüntüleyicisi 2012 çalışma zamanı yeniden dağıtılabilir paketini yükleyin.
+2. Oluşturma <language> hello proje ve kopyalama hello klasöründe ilişkili kaynak derleme dosyaları. Merhaba kopyalanan kaynak assembly dosyaları toobe şunlardır: **Microsoft.ReportViewer.Webforms.Resources.dll** ve **Microsoft.ReportViewer.Common.Resources.dll**. Merhaba kaynak assembly dosyaları seçin ve hello Özellikler bölmesinde ayarlayın **tooOutput dizin kopyalama** çok "**her zaman Kopyala**".
+3. Ayarlama kültür & UICulture hello web projesi için hello. Tooset hello kültür ve bir ASP.NET Web sayfası için UI kültürü nasıl görürüm hakkında daha fazla bilgi için [nasıl yapılır: kümesi için ASP.NET Web sayfası Genelleştirme kültür ve UI kültürü hello](http://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## <a name="configuring-authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme yapılandırma
-ReportViewer rapor sunucusu ile kimlik doğrulaması için uygun kimlik bilgilerini kullanması gerekir ve kimlik bilgileri rapor sunucusu tarafından istediğiniz raporlara erişim yetkisi olması gerekir. Kimlik doğrulama hakkında daha fazla bilgi için teknik incelemesine bakın [Reporting Services Rapor Görüntüleyicisi denetimi ve Microsoft Azure sanal makine tabanlı rapor sunucuları](https://msdn.microsoft.com/library/azure/dn753698.aspx).
+Merhaba ReportViewer toouse uygun kimlik bilgilerine tooauthenticate hello rapor sunucusu ile gerektiriyor ve hello kimlik bilgilerini istediğiniz hello report server tooaccess hello raporları tarafından yetkilendirilmelidir. Kimlik doğrulama hakkında daha fazla bilgi için hello teknik incelemesine bakın [Reporting Services Rapor Görüntüleyicisi denetimi ve Microsoft Azure sanal makine tabanlı rapor sunucuları](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
-## <a name="publish-the-aspnet-web-application-to-azure"></a>Azure için ASP.NET Web uygulaması yayımlama
-Bir ASP.NET Web uygulaması için Azure yayımlama ile ilgili yönergeler için bkz: [nasıl yapılır: geçirmek ve Azure Visual Studio'dan bir Web uygulamasına yayımlamak](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) ve [Web uygulamaları ve ASP.NET kullanmaya başlama](../../../app-service-web/app-service-web-get-started-dotnet.md).
+## <a name="publish-hello-aspnet-web-application-tooazure"></a>Yayımlama Hello ASP.NET Web uygulaması tooAzure
+Bir ASP.NET Web uygulaması tooAzure yayımlama ile ilgili yönergeler için bkz: [nasıl yapılır: geçirmek ve bir Web uygulaması tooAzure Visual Studio'dan yayımlamak](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) ve [Web uygulamaları ve ASP.NET kullanmaya başlama](../../../app-service-web/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
-> Azure dağıtım projesi eklemek veya Azure bulut hizmeti projesi Ekle komutu Çözüm Gezgini'nde kısayol menüsünde görünmüyorsa, projenin hedef çerçevesini .NET Framework 4'e değiştirmeniz gerekebilir.
+> Çözüm Gezgini'nde hello kısayol menüsünde Hello Azure dağıtım projesi eklemek veya Azure bulut hizmeti projesi Ekle komutu görünmüyorsa, hello proje too.NET Framework 4 toochange hello hedef Framework'ü gerekebilir.
 > 
-> İki komutları temelde aynı işlevselliği sağlar. Bir ya da diğer komutu kısayol menüsünde yüklediğiniz Microsoft Azure SDK'sı sürümüne bağlı olarak görünür.
+> Merhaba iki komutları sağlayan temelde hello aynı işlevselliği. Bir ya da hello diğer komutu hello Microsoft Azure SDK'sı sürümüne bağlı olarak yüklediğiniz hello kısayol menüsünde görüntülenir.
 > 
 > 
 
@@ -91,5 +91,5 @@ Bir ASP.NET Web uygulaması için Azure yayımlama ile ilgili yönergeler için 
 
 [Azure Sanal Makinelerde SQL Server İş Zekası](../classic/ps-sql-bi.md)
 
-[Yerel Mod Rapor Sunucusu ile Azure VM Oluşturmak için PowerShell Kullanma](../classic/ps-sql-report.md)
+[Bir Azure VM ile bir yerel moddaki bir rapor sunucusunda PowerShell tooCreate kullanın](../classic/ps-sql-report.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Factory kullanarak SAP HANA veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kullanarak SAP HANA veri taşıma hakkında bilgi edinin."
+title: Azure Data Factory kullanarak SAP HANA aaaMove verilerden | Microsoft Docs
+description: "Hakkında bilgi edinin Azure Data Factory kullanarak SAP HANA toomove verileri."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,76 +13,76 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
-ms.openlocfilehash: 2ab488d82d24999a6231e40cb719715463c51d64
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5cefe4c8ed01ea4e86e02496b2f8a9083d0b949c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Veri gelen SAP, HANA Azure Data Factory kullanarak Taşı
-Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi SAP HANA verileri taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi.
+Bu makalede nasıl toouse hello kopya etkinliği Azure Data Factory toomove verileri bir şirket içi SAP HANA de açıklanmaktadır. Üzerinde hello derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalenin hello kopyalama etkinliği ile veri taşıma için genel bir bakış sunar.
 
-Bir şirket içi SAP HANA veri deposundan verileri herhangi bir desteklenen havuz veri deposuna kopyalayabilirsiniz. Veri depoları havuzlarını kopyalama etkinliği tarafından desteklenen bir listesi için bkz: [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Veri Fabrikası şu anda yalnızca taşıma verilerden bir SAP HANA diğer veri depolarına, ancak verileri diğer veri depolarına bir SAP HANA taşıma değil destekler.
+Bir şirket içi SAP HANA veri deposu desteklenen tooany havuz veri deposundan verileri kopyalayabilirsiniz. Verileri bir listesi için desteklenen depoları hello kopyalama etkinliği tarafından havuzlarını hello görür [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Veri Fabrikası şu anda destekleyen bir SAP HANA tooother verilerden veri depolar, ancak taşıma yalnızca verileri diğer veriler taşıma tooan SAP HANA depolar için.
 
 ## <a name="supported-versions-and-installation"></a>Desteklenen sürümleri ve yükleme
 Bu bağlayıcı SAP HANA veritabanına herhangi bir sürümünü destekler. HANA bilgi modeli (gibi Analitik ve hesaplama görünümleri) ve SQL sorgularını kullanarak satır/sütun tablolarından veri kopyalamayı destekler.
 
-SAP HANA örneği bağlantıyı etkinleştirmek için aşağıdaki bileşenleri yükleyin:
-- **Veri Yönetimi ağ geçidi**: Data Factory hizmeti desteklediği şirket içi verilere bağlanma (SAP HANA dahil) depoları bir bileşeni kullanılarak veri yönetimi ağ geçidi çağrılır. Veri Yönetimi ağ geçidi ve adım adım yönergeler için ağ geçidi ayarlama hakkında bilgi edinmek için [şirket içi veri arasında taşıma verilerini depolamak veri deposu buluta](data-factory-move-data-between-onprem-and-cloud.md) makalesi. SAP HANA bir Azure Iaas sanal makine (VM) barındırılan olsa bile ağ geçidi gereklidir. Ağ geçidi veritabanına bağlanıp sürece veri deposu olarak aynı VM veya farklı bir VM ağ geçidi yükleyebilirsiniz.
-- **SAP HANA ODBC sürücüsü** ağ geçidi bilgisayarında. SAP HANA ODBC sürücüsünü yükleyebilirsiniz [SAP yazılım İndirme Merkezi](https://support.sap.com/swdc). Arama anahtar sözcüğü ile **Windows için SAP HANA İSTEMCİSİ**. 
+tooenable hello bağlantı toohello SAP HANA örneği bileşenleri aşağıdaki hello yükleyin:
+- **Veri Yönetimi ağ geçidi**: Data Factory hizmeti destekler tooon içi verilere bağlanma (SAP HANA dahil) depoları bir bileşeni kullanılarak veri yönetimi ağ geçidi çağrılır. Veri Yönetimi ağ geçidi ve hello ağ geçidi, kurmak için adım adım yönergeler hakkında toolearn bkz [şirket içi veri arasında taşıma verilerini depolamak toocloud veri deposu](data-factory-move-data-between-onprem-and-cloud.md) makalesi. SAP HANA Hello bir Azure Iaas sanal makine (VM) barındırılan olsa bile ağ geçidi gereklidir. Merhaba ağ geçidi üzerinde aynı VM hello veri olarak depolamak veya hello ağ geçidi olarak aynı uzunlukta farklı bir VM üzerinde toohello veritabanı bağlanabilir hello yükleyebilirsiniz.
+- **SAP HANA ODBC sürücüsü** hello gateway makinesinde. Hello hello SAP HANA ODBC sürücüsü indirebilirsiniz [SAP yazılım İndirme Merkezi](https://support.sap.com/swdc). Arama hello anahtar sözcüğü ile **Windows için SAP HANA İSTEMCİSİ**. 
 
 ## <a name="getting-started"></a>Başlarken
 Farklı araçlar/API'lerini kullanarak bir şirket içi Cassandra veri deposundan verileri taşır kopyalama etkinliği ile işlem hattı oluşturun. 
 
-- Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz. 
-- Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+- Merhaba en kolay yolu toocreate bir ardışık düzen olduğu toouse hello **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) hello kopya veri Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz. 
+- Aşağıdaki araçlar toocreate bir ardışık düzen hello de kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) adım adım yönergeler toocreate kopyalama etkinliği ile işlem hattı için. 
 
-Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin:
+Merhaba araçları veya API'lerle de kullansanız adımları toocreate veri kaynağına veri dosyaları tooa havuz veri deposunu taşır ardışık aşağıdaki hello gerçekleştirin:
 
-1. Oluşturma **bağlantılı Hizmetleri** girdi ve çıktı verilerini bağlamak için veri fabrikanıza depolar.
-2. Oluşturma **veri kümeleri** kopyalama işlemi için girdi ve çıktı verilerini temsil etmek için. 
+1. Oluşturma **bağlantılı Hizmetleri** toolink girdi ve çıktı veri depoları tooyour veri fabrikası.
+2. Oluşturma **veri kümeleri** giriş ve çıkış toorepresent hello için veri kopyalama işlemi. 
 3. Oluşturma bir **ardışık düzen** bir giriş olarak bir veri kümesi ve bir veri kümesini çıktı olarak alan kopyalama etkinliği ile. 
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, JSON biçimini kullanarak bu Data Factory varlıklarını tanımlayın.  Bir şirket içi SAP HANA veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları içeren bir örnek için bkz: [JSON örnek: veri kopyalama SAP HANA Azure Blob](#json-example-copy-data-from-sap-hana-to-azure-blob) bu makalenin. 
+Başlangıç Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları (bağlı hizmetler, veri kümeleri ve hello ardışık düzeni) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıklarını hello JSON biçimini kullanarak tanımlayın.  Bir şirket içi SAP HANA kullanılan toocopy veri Data Factory varlıkları için JSON tanımları içeren bir örnek için bkz: [JSON örnek: Blob SAP HANA tooAzure veri kopyalama](#json-example-copy-data-from-sap-hana-to-azure-blob) bu makalenin. 
 
-Aşağıdaki bölümler, Data Factory varlıklarını belirli bir SAP HANA veri deposuna tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar:
+Aşağıdaki bölümlerde hello kullanılan toodefine Data Factory varlıkları belirli tooan SAP HANA veri deposu olan JSON özellikleri hakkında ayrıntılı bilgi sağlar:
 
 ## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
-Aşağıdaki tabloda, JSON öğeleri SAP HANA bağlantılı hizmete özgü açıklamasını sağlar.
+Aşağıdaki tablonun hello bağlantılı hizmetinin JSON öğeleri belirli tooSAP HANA açıklamasını sağlar.
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP HANA örneği bulunduğu sunucunun adıdır. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | Dize | Evet
+sunucu | Hangi hello SAP HANA örneği bulunduğu hello sunucusunun adı. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | Dize | Evet
 authenticationType | Kimlik doğrulama türü. | Dize. "Temel" veya "Windows" | Evet 
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | Dize | Evet
-password | Kullanıcının parolası. | Dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | Dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | Dize | Hayır
+kullanıcı adı | Erişim toohello SAP sunucusuna sahip hello kullanıcı adı | Dize | Evet
+password | Merhaba kullanıcının parolası. | Dize | Evet
+gatewayName | Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello şirket içi SAP HANA örneğini kullanmanız gerekir. | Dize | Evet
+encryptedCredential | şifrelenmiş hello kimlik dizesi. | Dize | Hayır
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
-Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.
+Merhaba bölümleri & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.
 
-**TypeProperties** bölüm veri kümesi her tür için farklıdır ve verilerin veri deposunda konumu hakkında bilgi sağlar. SAP HANA veri kümesi türü için desteklenen türüne özgü özellikler yok **RelationalTable**. 
+Merhaba **typeProperties** bölüm veri kümesi her tür için farklıdır ve hello veri deposundaki hello veri hello konumu hakkında bilgi sağlar. Merhaba SAP HANA dataset türü için desteklenen türüne özgü özellikler yok **RelationalTable**. 
 
 
 ## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
-Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları gibi özellikleri olan ilkeleri etkinlikleri tüm türleri için kullanılabilir.
+Merhaba bölümleri & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları gibi özellikleri olan ilkeleri etkinlikleri tüm türleri için kullanılabilir.
 
-Bulunan özellikler **typeProperties** etkinlik bölümünü her etkinlik türü ile değişir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
+Oysa hello kullanılabilen özellikleri **typeProperties** hello etkinlik bölümünü her etkinlik türü ile değişir. Kopya etkinliği için bunlar hello türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
 
-Kopyalama etkinliği kaynağında türü olduğunda **RelationalSource** (içeren SAP HANA), aşağıdaki özellikler typeProperties bölümünde kullanılabilir:
+Kopyalama etkinliği kaynağında türü olduğunda **RelationalSource** (içeren SAP HANA), aşağıdaki özelliklere hello typeProperties bölümünde bulunur:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu | SAP HANA örneğinden verileri okumak için SQL sorgusu belirtir. | SQL sorgusu. | Evet |
+| sorgu | Merhaba SQL sorgu tooread veri hello SAP HANA örneğinden belirtir. | SQL sorgusu. | Evet |
 
-## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>JSON örnek: veri kopyalama SAP HANA Azure Blob
-Aşağıdaki örneği kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bu örnek, bir şirket içi SAP HANA bir Azure Blob depolama alanına veri kopyalama gösterilmektedir. Ancak, veriler kopyalanabilir **doğrudan** listelenen herhangi havuzlarını [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopya etkinliği Azure Data Factory kullanarak.  
+## <a name="json-example-copy-data-from-sap-hana-tooazure-blob"></a>JSON örnek: Blob SAP HANA tooAzure veri kopyalama
+Merhaba aşağıdaki örnek örnek JSON tanımları sağlar, toocreate bir ardışık düzen kullanarak kullanabilirsiniz [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bu örnek göstermektedir nasıl bir şirket içi SAP HANA tooan Azure Blob Storage toocopy verileri. Ancak, veriler kopyalanabilir **doğrudan** listelenen hello havuzlarını tooany [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kullanarak Azure Data Factory kopyalama etkinliği hello.  
 
 > [!IMPORTANT]
-> Bu örnek, JSON parçacıklarını sağlar. Data factory oluşturmak için adım adım yönergeler içermez. Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale adım adım yönergeler için.
+> Bu örnek, JSON parçacıklarını sağlar. Merhaba veri fabrikası oluşturma için yönergeler içermez. Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale adım adım yönergeler için.
 
-Örnek aşağıdaki data factory varlıklarını sahiptir:
+Merhaba örnek data factory varlıklarını aşağıdaki hello sahiptir:
 
 1. Bağlı hizmet türü [SapHana](#linked-service-properties).
 2. Bağlı hizmet türü [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -90,12 +90,12 @@ Aşağıdaki örneği kullanarak bir işlem hattı oluşturmak için kullanabile
 4. Bir çıkış [dataset](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 5. A [ardışık düzen](data-factory-create-pipelines.md) kullanan kopyalama etkinliği ile [RelationalSource](#copy-activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Örnek verileri bir SAP HANA örnekten bir Azure blob saatlik kopyalar. Bu örnekler kullanılan JSON özellikleri örnekleri aşağıdaki bölümlerde açıklanmıştır.
+Merhaba örnek verileri saatte bir SAP HANA örneği tooan Azure blob kopyalar. Bu örnekler kullanılan hello JSON özellikleri hello örnekleri aşağıdaki bölümlerde açıklanmıştır.
 
-İlk adım olarak, veri yönetimi ağ geçidi ayarlayın. Yönergeler bulunan [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makalesi.
+İlk adım olarak, hello veri yönetimi ağ geçidi ayarlayın. Merhaba yönergelerdir hello [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makalesi.
 
 ### <a name="sap-hana-linked-service"></a>SAP HANA bağlı hizmet
-Bu hizmet bağlantılar, SAP HANA data factory bağlı örneği. Type özelliği ayarlamak **SapHana**. TypeProperties bölüm SAP HANA örneği için bağlantı bilgilerini sağlar.
+Bu hizmet bağlantıları SAP HANA örneği toohello data factory'nizi bağlı. Merhaba type özelliği çok ayarlamak**SapHana**. Merhaba typeProperties bölüm hello SAP HANA örneği için bağlantı bilgilerini sağlar.
 
 ```json
 {
@@ -117,7 +117,7 @@ Bu hizmet bağlantılar, SAP HANA data factory bağlı örneği. Type özelliği
 ```
 
 ### <a name="azure-storage-linked-service"></a>Azure Storage bağlı hizmeti
-Bu hizmeti Azure Storage hesabınızı data factory bağlantılı. Type özelliği ayarlamak **AzureStorage**. TypeProperties bölümünde Azure depolama hesabı için bağlantı bilgilerini sağlar.
+Bu hizmeti Azure Storage hesabı toohello data factory'nizi bağlı. Merhaba type özelliği çok ayarlamak**AzureStorage**. Merhaba typeProperties bölüm hello Azure depolama hesabı bağlantı bilgilerini sağlar.
 
 ```json
 {
@@ -133,11 +133,11 @@ Bu hizmeti Azure Storage hesabınızı data factory bağlantılı. Type özelli�
 
 ### <a name="sap-hana-input-dataset"></a>SAP HANA giriş veri kümesi
 
-Bu veri kümesi SAP HANA veri kümesini tanımlamaktadır. Data Factory veri kümesi için türünü ayarlayın **RelationalTable**. Şu anda, SAP HANA veri kümesi için herhangi bir türe özgü özelliği belirtmeyin. Kopyalama etkinliği tanımı sorguda SAP HANA örneğinden okumak için hangi verilerin belirtir. 
+Bu veri kümesi hello SAP HANA veri kümesini tanımlamaktadır. Merhaba Data Factory veri kümesi hello türü çok ayarlamak**RelationalTable**. Şu anda, SAP HANA veri kümesi için herhangi bir türe özgü özelliği belirtmeyin. Merhaba kopyalama etkinliği tanımı Hello sorguda hangi veri tooread hello SAP HANA örneğinden belirtir. 
 
-Dış özelliği true olarak ayarlanmasını Data Factory hizmetinin tablo data factory dış ve veri fabrikasında bir etkinlik tarafından üretilen değil bildirir.
+Dış özellik tootrue ayarı hello Data Factory hizmetinin bu hello tablosu dış toohello veri fabrikası ve hello veri fabrikasında bir etkinlik tarafından üretilen değil bildirir.
 
-Sıklık ve aralığı özelliklerini zamanlamayı tanımlar. Bu durumda, veriler SAP HANA örnekten saatlik okunur. 
+Sıklık ve aralığı özelliklerini hello zamanlama tanımlar. Bu durumda, hello veri hello SAP HANA örneğinden saatlik okunur. 
 
 ```json
 {
@@ -156,7 +156,7 @@ Sıklık ve aralığı özelliklerini zamanlamayı tanımlar. Bu durumda, verile
 ```
 
 ### <a name="azure-blob-output-dataset"></a>Azure Blob çıktı veri kümesi
-Bu veri kümesini çıktı Azure Blob dataset tanımlar. Type özelliği AzureBlob olarak ayarlanmıştır. SAP HANA örneğinden kopyalanan verilerin depolandığı typeProperties bölüm sağlar. Veriler her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1). Blob klasör yolu dinamik işlenmekte olan dilim başlangıç zamanı temel alınarak değerlendirilir. Klasör yolu yıl, ay, gün ve saat bölümleri başlangıç saatini kullanır.
+Bu veri kümesi hello çıktı Azure Blob dataset tanımlar. Merhaba type özelliği tooAzureBlob ayarlanır. Merhaba typeProperties bölüm hello SAP HANA örneğinden kopyalanan hello verilerinin depolandığı sağlar. Merhaba veri saatte tooa yeni blob yazılır (sıklığı: saat, aralığı: 1). hello blob Hello klasör yolu dinamik işlenmekte olan hello dilimin hello başlangıç zamanı temel alınarak değerlendirilir. Merhaba klasör yolu hello başlangıç zamanı yıl, ay, gün ve saat bölümlerini kullanır.
 
 ```json
 {
@@ -217,7 +217,7 @@ Bu veri kümesini çıktı Azure Blob dataset tanımlar. Type özelliği AzureBl
 
 ### <a name="pipeline-with-copy-activity"></a>Kopyalama etkinliği ile kanalı
 
-Ardışık Düzen giriş ve çıkış veri kümeleri kullanmak üzere yapılandırıldığı ve saatte çalışacak şekilde zamanlanır kopyalama etkinliği içerir. JSON tanımını düzenindeki **kaynak** türü ayarlanmış **RelationalSource** (SAP HANA kaynağı için) ve **havuz** türü ayarlanmış **BlobSink**. SQL sorgusu için belirtilen **sorgu** özelliği veri kopyalamak için son bir saat içindeki seçer.
+Merhaba ardışık düzen içeren yapılandırılmış toouse olan kopyalama etkinliği girdi ve çıktı veri kümeleri hello ve zamanlanmış toorun her saatte birdir. JSON tanımını Hello ardışık düzeninde, hello **kaynak** türü olarak ayarlanmış çok**RelationalSource** (SAP HANA kaynağı için) ve **havuz** türü olarak ayarlanmış çok**BlobSink**. Merhaba belirtilen hello SQL sorgusu **sorgu** özelliği saat toocopy geçmiş hello hello veri seçer.
 
 ```json
 {
@@ -267,12 +267,12 @@ Ardışık Düzen giriş ve çıkış veri kümeleri kullanmak üzere yapıland�
 
 
 ### <a name="type-mapping-for-sap-hana"></a>SAP HANA türü eşlemesi
-Bölümünde belirtildiği gibi [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale, kopyalama etkinliği, aşağıdaki iki aşamalı yaklaşımı türleriyle havuz için kaynak türünden otomatik tür dönüşümleri gerçekleştirir:
+Hello belirtildiği gibi [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale, kopyalama etkinliği gerçekleştiren kaynak türleri toosink türlerinden otomatik tür dönüşümleri iki aşamalı bir yaklaşım aşağıdaki hello ile:
 
-1. Yerel kaynak türlerinden .NET türüne dönüştürün
-2. .NET türünden yerel havuz türüne dönüştürün
+1. Yerel kaynak türleri too.NET türünden Dönüştür
+2. .NET türü toonative havuz türünden Dönüştür
 
-SAP HANA verilerin taşınması, aşağıdaki eşlemelerini SAP HANA türlerinden .NET türleri için kullanılır.
+SAP HANA verilerin taşınması, eşlemeleri aşağıdaki hello SAP HANA türleri too.NET türlerinden kullanılır.
 
 SAP HANA türü | .NET türü temelinde
 ------------- | ---------------
@@ -297,16 +297,16 @@ SECONDDATE | Tarih saat
 ## <a name="known-limitations"></a>Bilinen sınırlamaları
 SAP HANA veri kopyalama işlemi sırasında birkaç bilinen sınırlamalar vardır:
 
-- En fazla 4000 Unicode karakter uzunluğunu NVARCHAR dizeleri kesiliyor
+- NVARCHAR dizeler kesilmiş toomaximum uzunluğu 4000 Unicode karakterler şunlardır:
 - SMALLDECIMAL desteklenmiyor
 - VARBINARY desteklenmiyor
 - Geçerli bir tarih olan 12/1899/30 arasında ile 9999/12/31
 
-## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme
-Havuz dataset sütunlara kaynak kümesindeki eşleme sütunları hakkında bilgi edinmek için [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
+## <a name="map-source-toosink-columns"></a>Kaynak toosink sütunları eşleme
+Kaynak veri kümesi toocolumns havuz kümesindeki eşleme sütunlarında hakkında toolearn bkz [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>İlişkisel kaynaklardan yinelenebilir okuma
-İlişkisel veri kopyalama verileri depoladığında, Yinelenebilirlik istenmeyen sonuçları önlemek için göz önünde bulundurun. Azure Data Factory'de bir dilim el ile çalıştırabilirsiniz. Bir hata oluştuğunda bir dilimi yeniden çalıştırmak için bir veri kümesi için yeniden deneme ilkesi de yapılandırabilirsiniz. Bir dilim iki yolla yeniden çalıştırıldığında, aynı veri dilimi çalıştırmak kaç kez geçtiğinden bağımsız okuduğunuzdan emin olmanız gerekir. Bkz: [ilişkisel kaynaktan okumak Repeatable](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)
+İlişkisel veri depoları veri kopyalama işlemi sırasında Yinelenebilirlik göz tooavoid tutmak istenmeyen sonuçları. Azure Data Factory'de bir dilim el ile çalıştırabilirsiniz. Bir hata oluştuğunda bir dilimi yeniden çalıştırmak için bir veri kümesi için yeniden deneme ilkesi de yapılandırabilirsiniz. Bir dilim iki yolla yeniden zaman, aynı veri hello emin toomake nasıl geçtiğinden bağımsız okuma gerekir dilim birçok kez çalıştırın. Bkz: [ilişkisel kaynaktan okumak Repeatable](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)
 
 ## <a name="performance-and-tuning"></a>Performans ve ayarlama
-Bkz: [kopya etkinliği performansının & ayarlama Kılavuzu](data-factory-copy-activity-performance.md) bu veri taşıma (kopyalama etkinliği) Azure Data Factory ve onu en iyi duruma getirmek için çeşitli yollar etkisi performansını anahtar Etkenler hakkında bilgi edinmek için.
+Bkz: [kopya etkinliği performansının & ayarlama Kılavuzu](data-factory-copy-activity-performance.md) toolearn anahtarı hakkında Etkenler bu veri taşıma (kopyalama etkinliği) Azure Data Factory ve çeşitli yolları toooptimize etkisi performansını da.

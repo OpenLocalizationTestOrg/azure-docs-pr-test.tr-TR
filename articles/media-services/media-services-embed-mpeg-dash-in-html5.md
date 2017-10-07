@@ -1,6 +1,6 @@
 ---
-title: "DASH.js ile HTML5 uygulamada MPEG-DASH Uyarlamalı Akış Video katıştırma | Microsoft Docs"
-description: "Bu konu, HTML5 uygulamayla DASH.js MPEG-DASH Uyarlamalı Akış Video ekleme gösterilmiştir."
+title: "aaaEmbedding MPEG-DASH Uyarlamalı Akış Video DASH.js bir HTML5 uygulaması | Microsoft Docs"
+description: "Bu konuda gösterilir nasıl tooembed bir MPEG-DASH Uyarlamalı akış videoda HTML5 uygulamayla DASH.js."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 27ce6325773ba1f9fd9cd9ab9e07ea9f5e2488ac
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a73713d20f95262654532b94576ae9669d829354
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>DASH.js ile HTML5 uygulamada MPEG-DASH Uyarlamalı Akış Video katıştırma
 ## <a name="overview"></a>Genel Bakış
-MPEG-DASH, çıkış akış yüksek kaliteli, Uyarlamalı video teslim etmek istediğiniz olanlar için önemli avantajlar sunar video içeriği Uyarlamalı akış için bir ISO standardıdır. Ağ yoğun hale geldiğinde MPEG-DASH ile video akışına otomatik olarak bir alt tanımına bırakılmasına neden olacak. Bu, "Duraklatıldı" bir video oynatıcı (diğer adıyla arabelleğe alma) yürütmek için sonraki birkaç saniye indirirken görmesini Görüntüleyicisi olasılığını azaltır. Ağ Tıkanıklığı azaltır gibi video oynatıcı sırayla daha yüksek bir kalite akışına döndürür. İstenen bant genişliği uyarlama olanağı da video için daha hızlı bir başlangıç saati sonuçlanır. İlk birkaç saniye içinde hızlı yükleme alt kalite kesimi çalınabilir ve daha yüksek kaliteli bir kez yeterli içerik kadar adım bir sonra arabelleğe anlamına gelir.
+MPEG-DASH bir hello toodeliver yüksek kaliteli, Uyarlamalı video çıkış akışı istediğiniz olanlar için önemli avantajlar sunar video içeriği akışını Uyarlamalı ISO standardıdır. Merhaba ağ yoğun hale geldiğinde MPEG-DASH ile Merhaba video akışına otomatik olarak tooa alt tanımı bırakılmasına neden olacak. Bu hello player hello sonraki birkaç saniye tooplay (diğer adıyla arabelleğe alma) indirirken "Duraklatıldı" video görmesini hello Görüntüleyicisi hello olasılığını azaltır. Ağ Tıkanıklığı azaltır gibi hello video oynatıcı sırayla tooa daha yüksek kaliteli akışı döndürür. Gerekli bu yeteneği tooadapt hello bant genişliği de video için daha hızlı bir başlangıç saati ile sonuçlanır. İlk birkaç saniye hello anlamına gelir hızlı yükleme alt kalite Segmentte çalınabilir ve yeterli içerik arabelleğe sonra tooa daha yüksek kaliteli adım olduğunu.
 
-Dash.js JavaScript'te yazılmış bir açık kaynak MPEG-DASH video bir oyuncu bulunur. Amacı serbestçe video oynatmayı gerektiren uygulamalar içinde yeniden kullanılabilir bir güçlü, platformlar arası oynatıcı sağlamaktır. MPEG-DASH kayıttan yürütme, Chrome, Microsoft Edge ve (diğer tarayıcılarda MSE desteklemek için kendi hedefi belirttiyseniz) IE11 W3C medya kaynağı Uzantıları (MSE) Bugün destekleyen herhangi bir tarayıcıda sağlar. DASH.js hakkında daha fazla bilgi için GitHub dash.js depo js bakın.
+Dash.js JavaScript'te yazılmış bir açık kaynak MPEG-DASH video bir oyuncu bulunur. Kendi tooprovide video oynatmayı gerektiren uygulamalar ücretsiz olarak yeniden kullanılabilir bir güçlü, platformlar arası oynatıcı belirtilir. MPEG-DASH kayıttan hello W3C medya kaynağı Uzantıları (MSE) Bugün bu Chrome, Microsoft Edge ve IE11 (diğer tarayıcılarda kendi hedefi toosupport MSE belirttiyseniz) destekleyen herhangi bir tarayıcıda sağlar. DASH.js hakkında daha fazla bilgi için js hello GitHub dash.js deposuna bakın.
 
 ## <a name="creating-a-browser-based-streaming-video-player"></a>Bir tarayıcı tabanlı akış video oynatıcı oluşturma
-Bir video oynatıcı beklenen ile görüntüleyen basit bir web sayfası oluşturmak için bu tür bir yürütme, duraklatma, Geri Sar vb. denetimleri, yapmanız gerekir:
+Bu tür bir yürütme, duraklatma, Geri Sar vb. toocreate beklenen hello ile bir video oynatıcı görüntüleyen basit bir web sayfası denetimleri, yapmanız gerekir:
 
 1. Bir HTML sayfası oluşturun
-2. Video etiket ekleme
-3. Dash.js player ekleme
-4. Player başlatma
+2. Merhaba video etiket ekleme
+3. Merhaba dash.js player ekleme
+4. Merhaba player başlatma
 5. Bazı CSS stil ekleme
-6. MSE uygulayan bir tarayıcıda sonuçları görüntüleme
+6. MSE uygulayan bir tarayıcıda hello sonuçlarını görüntüleme
 
-Player başlatma yalnızca JavaScript kod satırlarını sayıda içinde tamamlanabilir. Dash.js kullanarak gerçekten tarayıcı tabanlı uygulamalarınızda MPEG-DASH video ekleme, basit değildir.
+Başlatılırken hello player yalnızca JavaScript kod satırlarını sayıda içinde tamamlanabilir. Dash.js'ni kullanarak bu basit tooembed MPEG-DASH video tarayıcı tabanlı uygulamalar gerçekten değildir.
 
-## <a name="creating-the-html-page"></a>HTML sayfası oluşturma
-Standart bir HTML sayfası içeren oluşturmak için ilk adımdır **video** bu dosyayı aşağıdaki örnekteki gibi basicPlayer.html Farklı Kaydet öğesini gösterir:
+## <a name="creating-hello-html-page"></a>Merhaba HTML sayfası oluşturma
+Merhaba ilk adımdır hello içeren toocreate standart HTML sayfası **video** bu dosyayı aşağıdaki örneğine hello olarak basicPlayer.html Farklı Kaydet öğesini gösterir:
 
     <!DOCTYPE html>
     <html>
@@ -50,19 +50,19 @@ Standart bir HTML sayfası içeren oluşturmak için ilk adımdır **video** bu 
       </body>
     </html>
 
-## <a name="adding-the-dashjs-player"></a>DASH.js Player ekleme
-Uygulama dash.js başvuru uygulaması eklemek için dash.js proje 1.0 sürümü dash.all.js dosyasından alın gerekir. Bu, uygulamanızın JavaScript klasöründe kaydedilmelidir. Bu dosya birlikte tek bir dosyaya tüm gerekli dash.js kodu çeken bir kolaylık dosyasıdır. Dash.js depo bir görünüm varsa, tek tek dosyaları bulmak, kod ve çok daha fazlasını test ancak tüm yapmak istiyorsanız kullanım dash.js olan sonra gerekenler dash.all.js dosyasıdır.
+## <a name="adding-hello-dashjs-player"></a>Ekleme hello DASH.js Player
+tooadd Merhaba dash.js başvuru uygulaması toohello uygulaması, toograb hello dash.all.js hello 1.0 sürümü dash.js proje dosyasından gerekir. Bu, uygulamanızın JavaScript klasörüne hello kaydedilmelidir. Bu dosya birlikte tek bir dosyaya tüm hello gerekli dash.js kodu çeken bir kolaylık dosyasıdır. Hello dash.js depo bir görünüm varsa, tek tek dosyaların hello bulur, kod ve çok daha fazlasını test ancak tüm toodo istiyorsanız kullanım dash.js olan sonra hello dash.all.js gerekenleri dosyasıdır.
 
-Dash.js player uygulamalarınıza eklemek için bir komut dosyası etiketinin basicPlayer.html baş bölümüne ekleyin:
+tooadd hello dash.js player tooyour uygulamalar, bir komut dosyası etiketi toohello baş bölümünü basicPlayer.html ekleyin:
 
     <!-- DASH-AVC/265 reference implementation -->
     < script src="js/dash.all.js"></script>
 
 
-Ardından, sayfa yüklendiğinde player başlatmak için bir işlev oluşturun. Aşağıdaki komut dosyası dash.all.js yük satırından sonra ekleyin:
+Ardından, Hello sayfa yüklendiğinde işlevi tooinitialize hello player oluşturun. Komut dosyası dash.all.js yük hello satırından sonra aşağıdaki hello ekleyin:
 
     <script>
-    // setup the video element and attach it to the Dash player
+    // setup hello video element and attach it toohello Dash player
     function setupVideo() {
       var url = "http://wams.edgesuite.net/media/MPTExpressionData02/BigBuckBunny_1080p24_IYUV_2ch.ism/manifest(format=mpd-time-csf)";
       var context = new Dash.di.DashContext();
@@ -73,17 +73,17 @@ Ardından, sayfa yüklendiğinde player başlatmak için bir işlev oluşturun. 
     }
     </script>
 
-Bu işlev bir DashContext ilk oluşturur. Bu uygulama için belirli çalışma zamanı ortamı yapılandırmak için kullanılır. Bir teknik açısından bakıldığında, bağımlılık ekleme framework uygulama oluştururken kullanması gereken sınıfları tanımlar. Çoğu durumda, Dash.di.DashContext kullanır.
+Bu işlev bir DashContext ilk oluşturur. Belirli bir çalışma zamanı ortamı için kullanılan tooconfigure Merhaba uygulaması budur. Bir teknik açısından bakıldığında, bağımlılık ekleme framework hello sınıfları Merhaba uygulaması oluştururken kullanması gereken hello tanımlar. Çoğu durumda, Dash.di.DashContext kullanır.
 
-Ardından, MediaPlayer dash.js framework'ün birincil sınıfının örneği. Bu sınıf gibi gerekli yöntemleri Yürüt ve duraklatmak, video öğesi olan yönetir ve ayrıca çalınacak video tanımlayan medya sunu açıklaması (MPD) dosya yorumu yönetir çekirdek içerir.
+Ardından, hello dash.js çerçevenin MediaPlayer hello birincil sınıfının örneği. Bu sınıf gibi gerekli yöntemleri Yürüt ve duraklatmak, hello video öğesi ile Merhaba ilişkisi yönetir ve hello yorumu hello video toobe oynanan tanımlayan hello medya sunu açıklaması (MPD) dosyası da yönetir hello çekirdek içerir.
 
-MediaPlayer sınıfının startup() işlev player video yürütmek hazır olduğundan emin olmak için çağrılır. Diğer işlemlerin arasında gerekli tüm sınıflar (bağlam tarafından tanımlandığı gibi) olarak yüklenmiş olan bu işlev sağlar. Player hazır olduktan sonra attachView() işlevi ile video öğesi ekleyebilirsiniz. Bu öğeye video akışına ekleme ve ayrıca gerektiği gibi kayıttan yürütme denetlemek MediaPlayer sağlar.
+Merhaba startup() hello MediaPlayer sınıfı işlevinin tooensure adlı hello oyuncu hazır tooplay video değil. Diğer işlemlerin arasında tüm hello gerekli sınıfları (Merhaba bağlam tarafından tanımlandığı gibi) olarak yüklenmiş olan bu işlev sağlar. Merhaba player hazır olduktan sonra hello video öğesi tooit hello attachView() işlevini kullanarak ekleyebilirsiniz. Bu hello MediaPlayer tooinject hello video akışına hello öğesine sağlar ve ayrıca kayıttan yürütme gerektiği gibi denetleyebilirsiniz.
 
-Böylece yürütmek için beklenen ilgili video bilir MPD dosyanın URL'sini MediaPlayer geçirin. Yeni oluşturduğunuz setupVideo() işlevi, sayfa tam olarak yüklendikten sonra yürütülecek gerekir. Gövde öğesinin yüklendiğinde olayı kullanarak bunu. Değişiklik, <body> öğesine:
+Böylece olması beklenen hello video hakkında bilir hello MPD dosya toohello MediaPlayer hello URL'sini geçirmek yeni oluşturduğunuz tooplay.hello setupVideo() işlevi hello sayfa tam olarak yüklendikten sonra yürütülen toobe gerekir. Merhaba yüklendiğinde olayı hello gövde öğesinin kullanarak bunu. Değişiklik, <body> öğesine:
 
     <body onload="setupVideo()">
 
-Son olarak, CSS kullanarak video öğesi boyutunu ayarlayın. Uyarlamalı akış ortamında, değişen ağ koşullarını kayıttan yürütme uyum olarak yürütülen video boyutunu değiştirme çünkü bu özellikle önemlidir. Bu basit tanıtım sayfası merkez bölümüne aşağıdaki CSS ekleyerek kullanılabilir tarayıcı penceresinin % 80 olarak video öğesi yalnızca zorla:
+Son olarak, CSS kullanarak hello video öğesi hello boyutunu ayarlayın. Bir Uyarlamalı akış ortamında kayıttan yürütme toochanging ağ koşulları uyum gibi hello çalınan video hello boyutunu değiştirme çünkü bu özellikle önemlidir. % 80'hello kullanılabilir tarayıcı penceresinin yalnızca zorla hello video öğesi toobe hello sayfasının CSS toohello baş bölümünde aşağıdaki hello ekleyerek bu basit demo:
 
     <style>
     video {
@@ -93,7 +93,7 @@ Son olarak, CSS kullanarak video öğesi boyutunu ayarlayın. Uyarlamalı akış
     </style>
 
 ## <a name="playing-a-video"></a>Bir Video oynatma
-Bir videoyu yürütmek için tarayıcınızı basicPlayback.html dosyasına işaret ve görüntülenen video oynatıcı çalmayı'ı tıklatın.
+tooplay bir video tarayıcınız hello basicPlayback.html dosyasına gelin ve görüntülenen hello video oynatıcı çalmayı tıklatın.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

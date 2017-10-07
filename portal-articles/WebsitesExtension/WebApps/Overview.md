@@ -1,5 +1,5 @@
 ---
-title: "Web Apps’e Genel Bakış | Microsoft Belgeleri"
+title: "aaaWeb uygulamalarına genel bakış | Microsoft Docs"
 description: "Yardım içeriği Azure portalındaki Web Apps genel bakış"
 services: app-service
 author: sewatson
@@ -8,19 +8,19 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: e48c591b94d7f132c49d4cda805bcf4cbd2e7d98
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 57d194a3013c7ad14a75691f3e6a366c218e8367
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="web-apps-documentation"></a>Web Apps Belgeleri
 
-Azure Web Apps, altyapı yönetimine gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Visual Studio Team Services veya herhangi bir Git deposundan otomatik dağıtım olanağı sağlar. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Web Apps’i kullanmayı öğrenin.
+Azure Web Apps altyapı yönetmek zorunda kalmadan programlama dili tercih ettiğiniz hello toobuild ve ana bilgisayar web uygulamalarında sağlar. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Visual Studio Team Services veya herhangi bir Git deposundan otomatik dağıtım olanağı sağlar. Bilgi nasıl toouse Azure Web Apps bizim quickstarts, öğreticilerine ve örneklerine sahip.
 
 ## <a name="5-minute-quickstarts"></a>5 Dakikalık Hızlı Başlangıçlar
 
-Web Apps kullanarak ilk uygulamanızı buluta dağıtmayı öğrenin:
+Toodeploy ilk uygulama toohello nasıl bulut Web uygulamalarını kullanarak öğrenin:
 
 - [.NET](/azure/app-service-web/app-service-web-get-started-dotnet)
 - [Node.js](/azure/app-service-web/app-service-web-get-started-nodejs)
@@ -31,11 +31,11 @@ Web Apps kullanarak ilk uygulamanızı buluta dağıtmayı öğrenin:
 
 ## <a name="step-by-step-tutorials"></a>Adım Adım Öğreticiler
 
-Dağıtmak, yönetmek ve Azure üzerinde güvenli web uygulamaları izlemek öğrenin.
+Nasıl toodeploy, yönetmek ve güvenli web uygulamaları Azure ile ilgili izleme öğrenin.
 
 - [Azure SQL DB ile .NET](/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase) veya [MongoDB ile Node.js](/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app) kullanarak uygulama oluşturma
-- [Var olan bir özel etki uygulamanıza eşleme](/azure/app-service-web/app-service-web-tutorial-custom-domain)
-- [Mevcut bir SSL sertifikasını uygulamanıza bağlama](/azure/app-service-web/app-service-web-tutorial-custom-SSL)
+- [Var olan bir özel etki alanı tooyour uygulamasını eşleme](/azure/app-service-web/app-service-web-tutorial-custom-domain)
+- [Var olan bir SSL sertifikası tooyour uygulamasını bağlama](/azure/app-service-web/app-service-web-tutorial-custom-SSL)
 
 ## <a name="free-pluralsight-video-training"></a>Ücretsiz Pluralsight Video Eğitimi
 
@@ -44,12 +44,12 @@ Dağıtmak, yönetmek ve Azure üzerinde güvenli web uygulamaları izlemek öğ
 
 ## <a name="samples"></a>Örnekler
 
-Genel görevleri yönetmeye yönelik betikleri bulun.
+Komut dosyaları toomanage ortak görevleri öğrenin.
 
 - [Azure CLI](/azure/app-service-web/app-service-cli-sample)
 - [Azure PowerShell](/azure/app-service-web/app-service-powershell-samples)
 
 ## <a name="more"></a>Diğer tüm bulut sağlayıcılarından
 
-- [Daha fazla bilgi için belgeleri ziyaret edin](/azure/app-service-web/index)
+- [Daha fazla belge toolearn ziyaret edin](/azure/app-service-web/index)
 - [Tüm Azure hizmetleri hakkında bilgi edinin](https://aka.ms/j3wr7y)

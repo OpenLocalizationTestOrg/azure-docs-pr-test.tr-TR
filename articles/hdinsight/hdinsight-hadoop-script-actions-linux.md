@@ -1,6 +1,6 @@
 ---
-title: "Linux tabanlı Hdınsight - Azure ile betik eylemi geliştirme | Microsoft Docs"
-description: "Linux tabanlı Hdınsight kümelerini özelleştirme için Bash betiklerini kullanmayı öğrenin. Hdınsight betik eylemi özelliğidir sırasında veya Küme oluşturulduktan sonra komut dosyaları çalıştırmanıza olanak sağlar. Komut dosyaları, küme yapılandırma ayarlarını değiştirmek veya ek yazılım yüklemek için kullanılabilir."
+title: "Linux tabanlı Hdınsight - Azure ile aaaScript eylem geliştirme | Microsoft Docs"
+description: "Nasıl toocustomize Linux tabanlı Hdınsight kümeleri toouse Bash betiklerini öğrenin. Merhaba betik eylemi özelliği hdınsight sırasında veya Küme oluşturulduktan sonra toorun komut dosyaları sağlar. Komut dosyaları, küme yapılandırma ayarlarının kullanılan toochange olması veya ek yazılım yüklemesi."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,26 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1f504b00365df5f4cfb3ae19ad55ff7630342650
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="script-action-development-with-hdinsight"></a>Hdınsight ile betik eylemi geliştirme
 
-Bash betiklerini kullanarak Hdınsight kümenize özelleştirmeyi öğrenin. Betik eylemleri, sırasında veya Küme oluşturulduktan sonra Hdınsight özelleştirmek için bir yoldur.
+Bilgi toocustomize Hdınsight küme kullanarak nasıl Bash betikleri. Betik yolu toocustomize Hdınsight sırasında veya Küme oluşturulduktan sonra eylemlerdir.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgedeki Hello adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Betik eylemleri nelerdir
 
-Betik eylemleri Azure yapılandırma değişiklikler yapabilir veya yazılım yükleme küme düğümlerinde çalışır Bash betikleridir. Betik eylemi kök olarak yürütülen ve küme düğümleri için tam erişim hakları sağlar.
+Betik eylemleri hello küme düğümleri toomake yapılandırma değişiklikleri Azure çalışır Bash betikleridir veya yazılımı yükleyin. Betik eylemi kök olarak yürütülür ve tam erişim hakları toohello küme düğümleri sağlar.
 
-Betik eylemleri aşağıdaki yöntemleri kullanarak uygulanabilir:
+Betik eylemleri yöntemler aşağıdaki hello uygulanabilir:
 
-| Bir komut dosyası uygulamak için bu yöntemi kullanın... | Sırasında oluşturma küme... | Çalıştıran bir kümede... |
+| Bu yöntem tooapply bir komut dosyası kullan... | Sırasında oluşturma küme... | Çalıştıran bir kümede... |
 | --- |:---:|:---:|
 | Azure portalına |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
@@ -42,37 +42,37 @@ Betik eylemleri aşağıdaki yöntemleri kullanarak uygulanabilir:
 | HDInsight .NET SDK'sı |✓ |✓ |
 | Azure Resource Manager şablonu |✓ |&nbsp; |
 
-Betik eylemleri uygulamak için bu yöntemleri kullanma hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemleri kullanılarak](hdinsight-hadoop-customize-cluster-linux.md).
+Bu yöntemleri tooapply betik eylemleri kullanma hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemleri kullanılarak](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="bestPracticeScripting"></a>Komut dosyası geliştirme için en iyi yöntemler
 
-Hdınsight kümesi için özel bir komut dosyası geliştirirken dikkate alınması gereken birkaç en iyi yöntemler vardır:
+Hdınsight kümesi için özel bir komut dosyası geliştirirken göz önünde birkaç en iyi yöntemler tookeep vardır:
 
-* [Hedef Hadoop sürümü](#bPS1)
-* [Hedef işletim sistemi sürümü](#bps10)
-* [Komut dosyası kaynaklara kararlı bağlantılar sağlar](#bPS2)
+* [Hedef hello Hadoop sürümü](#bPS1)
+* [Hedef hello işletim sistemi sürümü](#bps10)
+* [Kararlı tooscript kaynaklara bağlantılar sağlar](#bPS2)
 * [Önceden derlenmiş kaynakları kullanın](#bPS4)
-* [Küme özelleştirme betik ıdempotent olduğundan emin olun](#bPS3)
-* [Küme mimari yüksek kullanılabilirliğini sağlamak](#bPS5)
-* [Azure Blob storage kullanma özel bileşenlerini yapılandırma](#bPS6)
-* [STDOUT ve STDERR bilgi yazma](#bPS7)
+* [Komut dosyasını Hello kümede özelleştirme ıdempotent olduğundan emin olun](#bPS3)
+* [Yüksek kullanılabilirlik hello küme mimarisinin emin olun](#bPS5)
+* [Merhaba özel bileşenler toouse Azure Blob depolama alanını yapılandırma](#bPS6)
+* [Bilgi tooSTDOUT ve STDERR yazma](#bPS7)
 * [Dosyaları ASCII olarak LF satır sonları ile kaydedin.](#bps8)
-* [Geçici hataları kurtarmak için yeniden deneme mantığı kullanın](#bps9)
+* [Geçici hataları yeniden deneme mantığı toorecover kullanın](#bps9)
 
 > [!IMPORTANT]
-> Betik eylemleri 60 dakika içinde tamamlamanız gerekir veya işlemi başarısız olur. Düğüm sağlama işlemi sırasında diğer Kurulum ve yapılandırma işlemleri eşzamanlı olarak komut dosyasını çalıştırır. CPU süresi veya ağ bant genişliği gibi kaynakları için rekabet geliştirme ortamınızı makinelerinden tamamlanması daha uzun sürmesine betik neden olabilir.
+> Betik eylemleri 60 dakika içinde tamamlamanız gerekir veya hello işlemi başarısız olur. Düğüm sağlama işlemi sırasında diğer Kurulum ve yapılandırma işlemleri eşzamanlı olarak hello komut dosyasını çalıştırır. CPU süresi veya ağ bant genişliği gibi kaynakları için rekabet geliştirme ortamınızı makinelerinden hello betik tootake uzun toofinish neden olabilir.
 
-### <a name="bPS1"></a>Hedef Hadoop sürümü
+### <a name="bPS1"></a>Hedef hello Hadoop sürümü
 
-Farklı sürümlerini Hdınsight Hadoop Hizmetleri ve bileşenleri yüklü farklı sürümlerine sahip. Komut bir hizmet veya bileşenin belirli bir sürümünü görüyorsa yalnızca komut dosyasını gerekli bileşenleri içerir Hdınsight sürümü ile kullanmanız gerekir. Hdınsight kullanma ile dahil bileşen sürümleri hakkında bilgi bulabilirsiniz [Hdınsight bileşen sürümü oluşturma](hdinsight-component-versioning.md) belge.
+Farklı sürümlerini Hdınsight Hadoop Hizmetleri ve bileşenleri yüklü farklı sürümlerine sahip. Komut bir hizmet veya bileşenin belirli bir sürümünü görüyorsa yalnızca hello betik hello gerekli bileşenleri içerir Hdınsight hello sürümü ile kullanmanız gerekir. Hello kullanarak Hdınsight ile dahil bileşen sürümleri hakkında bilgi bulabilirsiniz [Hdınsight bileşen sürümü oluşturma](hdinsight-component-versioning.md) belge.
 
-### <a name="bps10"></a>Hedef işletim sistemi sürümü
+### <a name="bps10"></a>Hedef hello işletim sistemi sürümü
 
-Linux tabanlı Hdınsight Ubuntu Linux dağıtım temel alır. Hdınsight farklı sürümlerini farklı sürümlerine ilişkin kodunuzu nasıl davranacağını değişebilir Ubuntu kullanır. Örneğin, Hdınsight 3.4 ve önceki Upstart kullanmak Ubuntu sürümlerinde dayalı. Sürüm 3.5 Systemd kullanan Ubuntu 16.04 üzerinde temel alır. İkisi ile çalışmak için komut dosyanızı yazılması gereken şekilde Systemd ve Upstart farklı komutlarını kullanır.
+Linux tabanlı Hdınsight Ubuntu Linux dağıtım hello üzerinde temel alır. Hdınsight farklı sürümlerini farklı sürümlerine ilişkin kodunuzu nasıl davranacağını değişebilir Ubuntu kullanır. Örneğin, Hdınsight 3.4 ve önceki Upstart kullanmak Ubuntu sürümlerinde dayalı. Sürüm 3.5 Systemd kullanan Ubuntu 16.04 üzerinde temel alır. Kodunuzu toowork hem yazılması gereken şekilde Systemd ve Upstart farklı komutlarını kullanır.
 
-Başka bir önemli fark Hdınsight 3.4 3.5 arasındaki `JAVA_HOME` şimdi Java 8 işaret eder.
+Başka bir önemli fark Hdınsight 3.4 3.5 arasındaki `JAVA_HOME` şimdi tooJava 8 işaret eder.
 
-Kullanarak işletim sistemi sürümü denetleyebilirsiniz `lsb_release`. Aşağıdaki kod, komut dosyası Ubuntu 14 veya 16 üzerinde çalışıp çalışmadığı belirlenemedi gösterilmiştir:
+Merhaba işletim sistemi sürümünü kullanarak denetleyebilirsiniz `lsb_release`. Merhaba aşağıdaki kodu toodetermine Merhaba, nasıl bir komut dosyası gösterilmektedir Ubuntu 14 ya da 16 çalıştırıyor:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -103,89 +103,89 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-Bu parçacıkları https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh adresindeki içeren tam komut dosyası bulabilirsiniz.
+Bu parçacıkları https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh adresindeki içeren hello tam komut dosyası bulabilirsiniz.
 
-Hdınsight tarafından kullanılan Ubuntu sürümü için bkz: [Hdınsight bileşen sürümü](hdinsight-component-versioning.md) belge.
+Merhaba Hdınsight tarafından kullanılan Ubuntu Hello sürümü için bkz: [Hdınsight bileşen sürümü](hdinsight-component-versioning.md) belge.
 
-Systemd ve Upstart arasındaki farkları anlamak için bkz: [Systemd Upstart kullanıcılar için](https://wiki.ubuntu.com/SystemdForUpstartUsers).
+toounderstand hello farklarını Systemd ve Upstart, bkz: [Systemd Upstart kullanıcılar için](https://wiki.ubuntu.com/SystemdForUpstartUsers).
 
-### <a name="bPS2"></a>Komut dosyası kaynaklara kararlı bağlantılar sağlar
+### <a name="bPS2"></a>Kararlı tooscript kaynaklara bağlantılar sağlar
 
-Komut dosyası ve ilişkili kaynakları kümenin kullanım ömrü kullanılabilir kalmalıdır. Yeni düğümler için küme ölçeklendirme işlemleri sırasında eklenirse, bu kaynakları gereklidir.
+Merhaba komut dosyası ve ilişkili kaynakları hello küme hello ömrü kullanılabilir kalmalıdır. Yeni düğümler toohello küme ölçeklendirme işlemleri sırasında eklenirse, bu kaynakları gereklidir.
 
-Karşıdan yükle ve her şeyi aboneliğinizi Azure depolama hesabında arşivlemek için en iyi uygulamadır bakın.
+Merhaba en iyi uygulama toodownload olduğunu ve her şeyi aboneliğinizi Azure depolama hesabında arşivleyin.
 
 > [!IMPORTANT]
-> Kullanılan depolama hesabı başka bir depolama hesabı üzerinde Küme ya da bir ortak, salt okunur kapsayıcı için varsayılan depolama hesabı olması gerekir.
+> Itanium tabanlı sistemler için hello varsayılan depolama hesabı hello küme ya da bir ortak, salt okunur kapsayıcı için başka bir depolama hesabı üzerinde kullanılan hello depolama hesabı olmalıdır.
 
-Örneğin, Microsoft tarafından sağlanan örnekleri depolanmış [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) depolama hesabı. Bu Hdınsight ekibi tarafından korunan bir ortak, salt okunur kapsayıcıdır.
+Örneğin, Microsoft tarafından sağlanan hello örnekleri hello depolanan [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) depolama hesabı. Bu hello Hdınsight ekibi tarafından korunan bir ortak, salt okunur kapsayıcıdır.
 
 ### <a name="bPS4"></a>Önceden derlenmiş kaynakları kullanın
 
-Komut dosyasını çalıştırmak için gereken süreyi azaltmak için kaynak kodu kaynaklardan derleme işlemleri kaçının. Örneğin, önceden derleme kaynakları ve Hdınsight aynı veri merkezindeki bir Azure depolama hesabı blob depolayın.
+tooreduce hello alır toorun hello betik süresi, kaynak kodu kaynaklardan derleme işlemlerden kaçının. Örneğin, önceden derleme kaynakları ve bunları bir Azure depolama hesabı blob hello depolamak Hdınsight olarak aynı veri merkezinde.
 
-### <a name="bPS3"></a>Küme özelleştirme betik ıdempotent olduğundan emin olun
+### <a name="bPS3"></a>Komut dosyasını Hello kümede özelleştirme ıdempotent olduğundan emin olun
 
-Komut dosyaları ıdempotent olması gerekir. Komut dosyası birden çok kez çalıştırıyorsa, bu her zaman aynı duruma küme döndürmelidir.
+Komut dosyaları ıdempotent olması gerekir. Merhaba betik birden çok kez çalıştırılıp çalıştırılmadığını döndürme zorunluluğu her zaman aynı durumu kümeyi toohello hello.
 
 Örneğin, yapılandırma dosyalarını değiştiren bir komut dosyası yinelenen giriş varsa eklememelisiniz birden çok kez çalıştı.
 
-### <a name="bPS5"></a>Küme mimari yüksek kullanılabilirliğini sağlamak
+### <a name="bPS5"></a>Yüksek kullanılabilirlik hello küme mimarisinin emin olun
 
-Linux tabanlı Hdınsight kümeleri küme içinde etkin olan iki baş düğümler sağlar ve her iki düğümde betik eylemleri çalıştırın. Yüklediğiniz bileşenlerin tek bir baş düğüm bekliyorsanız, bileşenleri her iki baş düğümler üzerinde yüklemeyin.
+Linux tabanlı Hdınsight kümeleri hello küme içinde etkin olan iki baş düğümler sağlar ve her iki düğümde betik eylemleri çalıştırın. Yüklediğiniz hello bileşenleri tek bir baş düğüm bekliyorsanız, hello bileşenleri her iki baş düğümler üzerinde yüklemeyin.
 
 > [!IMPORTANT]
-> Hdınsight bir parçası olarak sağlanan hizmetlerin iki baş düğümler arasında gerektiğinde yük devredecek biçimde tasarlanmıştır. Bu işlevsellik, betik eylemleri yüklü özel bileşenlerine genişletilmedi. Özel bileşenler için yüksek kullanılabilirlik gerekiyorsa, kendi yük devretme mekanizması uygulamalıdır.
+> Hdınsight bir parçası olarak sağlanan tasarlanmış toofail üzerinden hello iki baş düğümler arasında gerektiği gibi hizmetlerdir. Bu işlev toocustom bileşenleri betik eylemleri ile genişletilmedi. Özel bileşenler için yüksek kullanılabilirlik gerekiyorsa, kendi yük devretme mekanizması uygulamalıdır.
 
-### <a name="bPS6"></a>Azure Blob storage kullanma özel bileşenlerini yapılandırma
+### <a name="bPS6"></a>Merhaba özel bileşenler toouse Azure Blob depolama alanını yapılandırma
 
-Kümede yüklemeniz bileşenleri Hadoop dağıtılmış dosya sistemi (HDFS) depolama kullanan bir varsayılan yapılandırmaya sahip olabilir. Hdınsight, varsayılan depolama alanı olarak Azure Storage veya Data Lake Store kullanır. Her iki küme silinse bile veri devam ederse bir HDFS uyumlu bir dosya sistemi sağlar. WASB veya ADL HDFS yerine kullanmak için yüklediğiniz bileşenler yapılandırmanız gerekebilir.
+Merhaba kümede yüklemek bileşenleri Hadoop dağıtılmış dosya sistemi (HDFS) depolama kullanan bir varsayılan yapılandırmaya sahip olabilir. Hdınsight Azure Storage veya Data Lake Store hello varsayılan depolama alanı olarak kullanır. Her iki hello küme silinse bile veri devam ederse bir HDFS uyumlu bir dosya sistemi sağlar. Tooconfigure bileşenleri toouse WASB veya HDFS yerine ADL yüklemeniz gerekebilir.
 
-İşlemlerinin çoğu için dosya sistemi belirtmeniz gerekmez. Örneğin, aşağıdaki giraph examples.jar dosyanın yerel dosya sisteminden küme depolama birimine kopyalar:
+İşlemlerinin çoğu için toospecify hello dosya sistemi gerekmez. Örneğin, hello aşağıdaki hello giraph examples.jar dosya hello yerel dosya sistemi toocluster depolama biriminden kopyalar:
 
 ```bash
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-Bu örnekte, `hdfs` komut varsayılan küme depolama saydam olarak kullanır. Bazı işlemler için URI belirtmeniz gerekebilir. Örneğin, `adl:///example/jars` Data Lake Store için veya `wasb:///example/jars` Azure depolama.
+Bu örnekte, hello `hdfs` komutu hello varsayılan küme depolama saydam olarak kullanır. Bazı işlemler için toospecify hello URI gerekebilir. Örneğin, `adl:///example/jars` Data Lake Store için veya `wasb:///example/jars` Azure depolama.
 
-### <a name="bPS7"></a>STDOUT ve STDERR bilgi yazma
+### <a name="bPS7"></a>Bilgi tooSTDOUT ve STDERR yazma
 
-Hdınsight STDOUT ve STDERR yazılan komut dosyası çıkışını günlüğe kaydeder. Ambari web kullanıcı arabirimini kullanarak bu bilgileri görüntüleyebilirsiniz.
+Hdınsight yazılı tooSTDOUT ve STDERR komut çıktısının günlüğe kaydeder. Merhaba Ambari web kullanıcı arabirimini kullanarak bu bilgileri görüntüleyebilirsiniz.
 
 > [!NOTE]
-> Ambari, yalnızca küme başarıyla oluşturulduysa kullanılabilir. Küme oluşturma ve oluşturma başarısız sırasında bir betik eylemi kullanın, sorun giderme bölümüne bakın. [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) günlüğe kaydedilen bilgileri erişme diğer yolları için.
+> Ambari, yalnızca hello küme başarıyla oluşturulduysa kullanılabilir. Küme oluşturma ve oluşturma başarısız sırasında bir betik eylemi kullanın, hello sorun giderme bölümüne bakın. [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) günlüğe kaydedilen bilgileri erişme diğer yolları için.
 
-Ek günlük eklemek isteyebilirsiniz ancak çoğu yardımcı programları ve yükleme paketleri zaten bilgi STDOUT ve STDERR, yazma. Metin STDOUT göndermek için kullanmak `echo`. Örneğin:
+Tooadd ek günlük isteyebilirsiniz ancak çoğu yardımcı programları ve yükleme paketleri zaten bilgi tooSTDOUT ve STDERR, yazma. toosend metin tooSTDOUT, kullanım `echo`. Örneğin:
 
 ```bash
-echo "Getting ready to install Foo"
+echo "Getting ready tooinstall Foo"
 ```
 
-Varsayılan olarak, `echo` STDOUT dizesi gönderir. STDERR yönlendirmek için ekleme `>&2` önce `echo`. Örneğin:
+Varsayılan olarak, `echo` hello dize tooSTDOUT gönderir. toodirect, tooSTDERR, ekleme `>&2` önce `echo`. Örneğin:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
 ```
 
-STDOUT STDERR (2) için bunun yerine yazılan bilgilerin yönlendirir. G/ç yeniden yönlendirme hakkında daha fazla bilgi için bkz: [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Bunun yerine tooSTDOUT tooSTDERR (2) yazılan bilgilerin yönlendirir. G/ç yeniden yönlendirme hakkında daha fazla bilgi için bkz: [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Betik eylemleri tarafından günlüğe kaydedilen bilgi görüntüleme hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
 ### <a name="bps8"></a>Dosyaları ASCII olarak LF satır sonları ile kaydedin.
 
-Bash betiklerini ASCII biçiminde LF tarafından sonlandırıldı çizgili depolanması gerekir. UTF-8 olarak depolanır veya satır sonu olarak CRLF kullanan dosyalar, şu hata ile başarısız:
+Bash betiklerini ASCII biçiminde LF tarafından sonlandırıldı çizgili depolanması gerekir. UTF-8 olarak depolanır veya CRLF hello satır bitiş olarak kullanan dosyalar hello aşağıdaki hata ile başarısız:
 
 ```
 $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="bps9"></a>Geçici hataları kurtarmak için yeniden deneme mantığı kullanın
+### <a name="bps9"></a>Geçici hataları yeniden deneme mantığı toorecover kullanın
 
-Get apt veya Internet üzerinden veri aktaran diğer eylemler kullanarak paketleri yükleme dosyaları indirilirken eylemi geçici ağ hataları nedeniyle başarısız olabilir. Örneğin, bir yedekleme düğüme yapabilmesini sürecinde ile iletişim kuran uzak kaynak olabilir.
+Dosyaları indirilirken alma apt ya da üzerinden veri aktaran diğer eylemler kullanarak paketleri yükleme Internet Merhaba, hello eylem tootransient ağ hataları başarısız olabilir. Örneğin, hello uzak kaynak ile iletişim kuran tooa yedekleme düğüm üzerinde başarısız hello işleminde olabilir.
 
-Kodunuzu geçici hataları esnek hale getirmek için yeniden deneme mantığı uygulayabilirsiniz. Aşağıdaki işlevi, yeniden deneme mantığını uygulaması gösterilmiştir. Bu, üç kez başarısız olmadan önce işlemi yeniden dener.
+toomake, komut dosyası dayanıklı tootransient hataları yeniden deneme mantığı uygulayabilirsiniz. tooimplement mantığı nasıl yeniden deneme işlevi aşağıdaki hello gösterir. Bu, üç kez başarısız olmadan önce hello işlemini yeniden dener.
 
 ```bash
 #retry
@@ -211,7 +211,7 @@ retry() {
 }
 ```
 
-Aşağıdaki örnekler, bu işlevi kullanmak nasıl ekleyebileceğiniz gösterilmektedir.
+Merhaba aşağıdaki örneklerde görüldüğü nasıl toouse bu işlev.
 
 ```bash
 retry ls -ltr foo
@@ -221,85 +221,85 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helpermethods"></a>Özel komut dosyaları için yardımcı yöntemleri
 
-Betik eylem Yardımcısı yöntemleri özel komut dosyaları yazılırken kullanabileceğiniz yardımcı programları ' dir. Bu yöntemler bulunan[https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) komut dosyası. Karşıdan yüklemek ve komut dosyanızı bir parçası olarak kullanmak için aşağıdakileri kullanın:
+Betik eylem Yardımcısı yöntemleri özel komut dosyaları yazılırken kullanabileceğiniz yardımcı programları ' dir. Bu yöntemler bulunan[https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) komut dosyası. Toodownload aşağıdaki hello ve komut dosyanızı bir parçası olarak kullanın:
 
 ```bash
-# Import the helper method module.
+# Import hello helper method module.
 wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
 ```
 
-Aşağıdaki Yardımcıları komut dosyanız için kullanılabilir:
+komut dosyanız için kullanılabilir Yardımcıları aşağıdaki hello:
 
 | Yardımcı kullanımı | Açıklama |
 | --- | --- |
-| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Bir dosya için belirtilen dosya yolu Kaynak URI'sı yükler. Varsayılan olarak, varolan bir dosyanın üzerine yazmaz. |
-| `untar_file TARFILE DESTDIR` |Tar dosyasını ayıklar (kullanarak `-xf`) hedef dizin. |
+| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Bir dosya hello Kaynak URI toohello belirtilen dosya yolundan indirir. Varsayılan olarak, varolan bir dosyanın üzerine yazmaz. |
+| `untar_file TARFILE DESTDIR` |Tar dosyasını ayıklar (kullanarak `-xf`) toohello hedef dizini. |
 | `test_is_headnode` |Bir küme baş düğümünde, dönüş 1; çalışan Aksi takdirde, 0. |
-| `test_is_datanode` |Geçerli düğüm (çalışan) veri düğümü ise 1 döner; Aksi takdirde, 0. |
-| `test_is_first_datanode` |Geçerli düğüm (çalışan) ilk veri ise düğümü (adlandırılmış workernode0) 1 döner; Aksi takdirde, 0. |
-| `get_headnodes` |Kümede headnodes tam etki alanı adını döndürür. Virgülle ayrılmış adlardır. Boş bir dize hatası döndürülür. |
-| `get_primary_headnode` |Birincil headnode tam etki alanı adını alır. Boş bir dize hatası döndürülür. |
-| `get_secondary_headnode` |İkincil headnode tam etki alanı adını alır. Boş bir dize hatası döndürülür. |
-| `get_primary_headnode_number` |Birincil headnode sayısal sonekini alır. Boş bir dize hatası döndürülür. |
-| `get_secondary_headnode_number` |İkincil headnode sayısal sonekini alır. Boş bir dize hatası döndürülür. |
+| `test_is_datanode` |Merhaba geçerli düğüm (çalışan) veri düğümü ise 1 döner; Aksi takdirde, 0. |
+| `test_is_first_datanode` |Merhaba geçerli düğüm hello ilk veri (çalışan) ise düğümü (adlandırılmış workernode0) 1 döner; Aksi takdirde, 0. |
+| `get_headnodes` |Merhaba headnodes hello kümedeki dönüş hello tam etki alanı adı. Virgülle ayrılmış adlardır. Boş bir dize hatası döndürülür. |
+| `get_primary_headnode` |Merhaba birincil headnode Hello tam etki alanı adını alır. Boş bir dize hatası döndürülür. |
+| `get_secondary_headnode` |Merhaba ikincil headnode Hello tam etki alanı adını alır. Boş bir dize hatası döndürülür. |
+| `get_primary_headnode_number` |Merhaba birincil headnode Hello sayısal sonekini alır. Boş bir dize hatası döndürülür. |
+| `get_secondary_headnode_number` |Merhaba ikincil headnode Hello sayısal sonekini alır. Boş bir dize hatası döndürülür. |
 
 ## <a name="commonusage"></a>Genel kullanım desenleri
 
-Bu bölümde, kendi özel bir komut dosyası yazılırken içine çalışabilir ortak kullanım desenlerini bazıları uygulama yönergeler sağlanmaktadır.
+Bu bölümde, kendi özel bir komut dosyası yazılırken içine çalışabilecek hello ortak kullanım desenlerini bazıları uygulama yönergeler sağlanmaktadır.
 
-### <a name="passing-parameters-to-a-script"></a>Bir komut dosyası parametreleri geçirme
+### <a name="passing-parameters-tooa-script"></a>Tooa komut parametreleri geçirme
 
-Bazı durumlarda, komut parametreleri gerektirebilir. Örneğin, Ambari REST API kullanırken küme için yönetici parolasını gerekebilir.
+Bazı durumlarda, komut parametreleri gerektirebilir. Örneğin, hello Ambari REST API kullanırken hello küme için hello yönetici parolası gerekebilir.
 
-Komut dosyasına iletilen parametreler olarak bilinen *konumsal parametreler*ve atanan `$1` ilk parametresi için `$2` ikinci için ve böylece açma. `$0`komut dosyasının kendisini adını içerir.
+Toohello betik geçirilen parametre olarak bilinen *konumsal parametreler*ve çok atanan`$1` hello ilk parametresi, `$2` hello ikinci ve böylece açma için. `$0`Merhaba komut dosyasının kendisini Hello adını içerir.
 
-Parametreler (') tek tırnak içine alınması gibi değerler komut dosyasına iletilen. Geçirilen değeri sabit değer olarak davranılır sağlar.
+Toohello betik parametre olarak geçirilen değerleri (') tek tırnak içine. Geçirilen değer bu hello sabit değer olarak kabul edilir sağlar.
 
 ### <a name="setting-environment-variables"></a>Ortam değişkenlerini ayarlama
 
-Bir ortam değişkeni ayarı aşağıdaki deyimi tarafından gerçekleştirilir:
+Bir ortam değişkeni ayarı deyiminden hello tarafından gerçekleştirilir:
 
     VARIABLENAME=value
 
-Burada VARIABLENAME değişkenin adıdır. Değişkeni erişmek için `$VARIABLENAME`. Örneğin, parola adlı bir ortam değişkeni bir konumsal parametre tarafından sağlanan bir değer atamak için şu deyimi kullanın:
+Burada VARIABLENAME hello hello değişkenin adıdır. tooaccess hello değişken, kullanım `$VARIABLENAME`. Örneğin, parola tooassign adlı konumsal parametre olarak bir ortam değişkeni tarafından sağlanan bir değer, aşağıdaki ifadeyi hello kullanırsınız:
 
     PASSWORD=$1
 
-Sonraki bilgilere erişimi daha sonra kullanabilir `$PASSWORD`.
+Sonraki erişim toohello bilgileri daha sonra kullanabilir `$PASSWORD`.
 
-Komut dosyası içinde ayarlamak ortam değişkenleri yalnızca betik kapsamında mevcut. Bazı durumlarda, komut dosyası tamamlandıktan sonra korunur sistem geneli ortam değişkenleri eklemeniz gerekebilir. Sistem geneli ortam değişkenleri eklemek için değişkeni eklemek `/etc/environment`. Örneğin, aşağıdaki ifadeyi ekler `HADOOP_CONF_DIR`:
+Ortam değişkenleri Hello betik Ayarla yalnızca hello hello betik kapsamında mevcut. Bazı durumlarda, hello betik tamamlandıktan sonra korunur tooadd sistem geneli ortam değişkenleri gerekebilir. tooadd sistem geneli ortam değişkenleri eklemek hello değişkeni çok`/etc/environment`. Örneğin, aşağıdaki ifadeyi hello ekler `HADOOP_CONF_DIR`:
 
 ```bash
 echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 ```
 
-### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Özel komut dosyaları depolandığı konumuna erişim
+### <a name="access-toolocations-where-hello-custom-scripts-are-stored"></a>Merhaba özel komut dosyalarının depolandığı toolocations erişim
 
-Bir küme özelleştirmek için kullanılan komut aşağıdaki konumlardan birinde depolanması gerekir:
+Kullanılan komut toocustomize bir küme hello aşağıdaki konumlardan birinde depolanan toobe gerekir:
 
-* Bir __Azure depolama hesabı__ kümeyle ilişkili.
+* Bir __Azure depolama hesabı__ hello kümeyle ilişkili.
 
-* Bir __ek depolama alanı hesabı__ kümesi ile ilişkili.
+* Bir __ek depolama alanı hesabı__ hello kümesi ile ilişkili.
 
-* A __herkese açık şekilde okunabilir URI__. Örneğin, OneDrive, Dropbox veya barındırma hizmeti başka bir dosyaya depolanan verileri URL'sine.
+* A __herkese açık şekilde okunabilir URI__. Örneğin, bir URL toodata OneDrive, Dropbox veya barındırma hizmeti başka bir dosyaya depolanan.
 
-* Bir __Azure Data Lake Store hesabı__ Hdınsight kümesi ile ilişkili. Hdınsight ile Azure Data Lake Store kullanma hakkında daha fazla bilgi için bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Bir __Azure Data Lake Store hesabı__ hello Hdınsight kümesi ile ilişkili. Hdınsight ile Azure Data Lake Store kullanma hakkında daha fazla bilgi için bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
     > [!NOTE]
-    > Hdınsight Data Lake Store erişmek için kullandığı hizmet sorumlusu komut dosyasını okuma erişimi olması gerekir.
+    > Merhaba hizmet asıl Hdınsight kullandığı tooaccess Data Lake Store okuma erişimi toohello komut dosyası olması gerekir.
 
-Komut dosyası tarafından kullanılan kaynakları da genel kullanıma açık olması gerekir.
+Merhaba komut dosyası tarafından kullanılan kaynakları da genel kullanıma açık olması gerekir.
 
-Bir Azure depolama hesabı ya da Azure Data Lake Store dosyaların depolanması Azure ağından her ikisi olarak hızlı erişim sağlar.
+Bir Azure depolama hesabı ya da Azure Data Lake Store Hello dosyaların depolanması hello Azure ağı içinde her ikisi olarak hızlı erişim sağlar.
 
 > [!NOTE]
-> Komut dosyası başvurmak için kullanılan URI biçimi kullanılan hizmete bağlı olarak farklılık gösterir. Hdınsight kümesi ile ilişkili depolama hesapları için `wasb://` veya `wasbs://`. Genel olarak okunabilir URI'ler için kullanmak `http://` veya `https://`. Data Lake Store için kullanma `adl://`.
+> Merhaba URI kullanılan biçimi tooreference hello betik kullanılan hello hizmete bağlı olarak farklılık gösterir. Merhaba Hdınsight kümesiyle ilişkili depolama hesapları için `wasb://` veya `wasbs://`. Genel olarak okunabilir URI'ler için kullanmak `http://` veya `https://`. Data Lake Store için kullanma `adl://`.
 
-### <a name="checking-the-operating-system-version"></a>İşletim sistemi sürümü denetimi
+### <a name="checking-hello-operating-system-version"></a>Merhaba işletim sistemi sürüm denetimi
 
-Hdınsight farklı sürümlerini Ubuntu belirli sürümlerini kullanır. Komut dosyanız için denetlemelisiniz işletim sistemi sürümleri arasındaki farklar olabilir. Örneğin, Ubuntu sürümüne bağlı bir ikili yüklemeniz gerekebilir.
+Hdınsight farklı sürümlerini Ubuntu belirli sürümlerini kullanır. Komut dosyanız için denetlemelisiniz işletim sistemi sürümleri arasındaki farklar olabilir. Örneğin, tooinstall Ubuntu bağlı toohello sürümü bir ikili gerekebilir.
 
-İşletim sistemi sürümü denetlemek için kullanmak `lsb_release`. Örneğin, aşağıdaki komut dosyası işletim sistemi sürümüne bağlı olarak belirli tar dosyasına başvurmak gösterilmiştir:
+toocheck hello işletim sistemi sürümü, kullanım `lsb_release`. Örneğin, komut dosyası izleyen hello nasıl işletim sistemi sürümü hello bağlı olarak dosya tooreference belirli tar gösterir:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -314,27 +314,27 @@ fi
 
 ## <a name="deployScript"></a>Betik eylemi dağıtma denetim listesi
 
-Biz bu komut dosyaları dağıtmak hazırlarken sürdü adımlar şunlardır:
+Biz toodeploy bu komut dosyalarını hazırlanırken sürdü hello adımlar şunlardır:
 
-* Dağıtım sırasında küme düğümleri tarafından erişilebilen bir yerde özel komut dosyaları içeren dosyaları yerleştirin. Örneğin, kümenin varsayılan depolama. Dosyaları herkese açık şekilde okunabilir barındırma hizmetleri de depolanabilir.
-* Komut dosyası impotent olduğunu doğrulayın. Bunun yapılması, birden çok kez aynı düğümde yürütülmek üzere betik sağlar.
-* Komut dosyaları tarafından kullanılan indirilen dosyaları korumak ve komut dosyaları çalıştırdıktan sonra sonra bunları temizlemek için bir geçici dosya dizin tmp kullanın.
-* İşletim sistemi düzeyinde ayarlarını veya Hadoop hizmeti yapılandırma dosyalarını değiştirdiyseniz, Hdınsight hizmetlerini yeniden başlatmak istediğinizi düşünelim.
+* Merhaba, dağıtım sırasında hello küme düğümleri tarafından erişilebilen bir yerde özel komut dosyaları içeren hello dosyaları yerleştirin. Örneğin, varsayılan depolama hello küme için hello. Dosyaları herkese açık şekilde okunabilir barındırma hizmetleri de depolanabilir.
+* Merhaba betik impotent olduğunu doğrulayın. Bunun yapılması verir hello betik toobe yürütülen birden çok kez hello üzerinde aynı düğüm.
+* Bir geçici dosya dizin tmp tookeep hello kullan hello komut dosyaları tarafından kullanılan dosyaları indirilir ve komut dosyaları çalıştırdıktan sonra sonra bunları Temizle.
+* İşletim sistemi düzeyinde ayarlarını veya Hadoop hizmeti yapılandırma dosyalarını değiştirdiyseniz, toorestart Hdınsight Hizmetleri isteyebilirsiniz.
 
-## <a name="runScriptAction"></a>Betik eylemi gerçekleştirme
+## <a name="runScriptAction"></a>Nasıl toorun betik eylemi
 
-Aşağıdaki yöntemleri kullanarak Hdınsight kümelerini özelleştirme için betik eylemleri kullanın:
+Yöntemler aşağıdaki hello kullanarak betik eylemleri toocustomize Hdınsight kümelerini kullanabilirsiniz:
 
 * Azure portalına
 * Azure PowerShell
 * Azure Resource Manager şablonları
-* Hdınsight .NET SDK'sı.
+* Merhaba Hdınsight .NET SDK'sı.
 
-Her yöntemi kullanma hakkında daha fazla bilgi için bkz: [betik eyleminin nasıl kullanılacağını](hdinsight-hadoop-customize-cluster-linux.md).
+Her yöntemi kullanma hakkında daha fazla bilgi için bkz: [nasıl toouse betik eylemi](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="sampleScripts"></a>Özel kod örnekleri
 
-Microsoft, bir Hdınsight kümesine bileşenleri yüklemek için örnek komut dosyaları sağlar. Daha fazla örnek betik eylemleri için aşağıdaki bağlantılara bakın.
+Microsoft, bir Hdınsight kümesine tooinstall bileşenleri örnek komut dosyaları sağlar. Daha fazla örnek betik eylemleri için bağlantıları aşağıdaki hello bakın.
 
 * [Yükleme ve Hdınsight kümelerinde ton kullanın](hdinsight-hadoop-hue-linux.md)
 * [Yükleme ve Hdınsight kümelerinde Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
@@ -343,38 +343,38 @@ Microsoft, bir Hdınsight kümesine bileşenleri yüklemek için örnek komut do
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Geliştirilmiş komut dosyaları kullanırken karşılaşabileceğiniz hatalar şunlardır:
+Merhaba, geliştirilmiş komut dosyaları kullanırken karşılaşabileceğiniz hatalar şunlardır:
 
 **Hata**: `$'\r': command not found`. Bazen arkasından `syntax error: unexpected end of file`.
 
-*Neden*: bir komut satırları ile CRLF sonlandırdığınızda, bu hataya neden olur. UNIX sistemleri yalnızca LF satır bitiş olarak bekler.
+*Neden*: CRLF ile bir betik hello satırlarında sonlandırdığınızda, bu hataya neden olur. UNIX sistemleri yalnızca LF hello satır bitiş olarak bekler.
 
-Komut dosyası bir Windows ortamı yazılan CRLF birçok metin düzenleyicileri Windows'da için bitiş ortak bir çizgi olarak çoğunlukla oluşur.
+Merhaba komut dosyası bir Windows ortamı yazılan CRLF birçok metin düzenleyicileri Windows'da için bitiş ortak bir çizgi olarak çoğunlukla oluşur.
 
-*Çözümleme*: metin düzenleyicinizde bir seçenek ise, UNIX biçimini veya LF için satır sonu seçin. Bir LF CRLF değiştirmek için bir Unix sistem üzerinde aşağıdaki komutları de kullanabilirsiniz:
+*Çözümleme*: metin düzenleyicinizde bir seçenek ise, UNIX biçimini veya LF hello satır bitiş için seçin. Ayrıca UNIX sistem toochange hello CRLF tooan LF komutları aşağıdaki hello kullanabilirsiniz:
 
 > [!NOTE]
-> Aşağıdaki komutlar için LF CRLF satır sonları değiştirmeniz gerekir, kabaca eşdeğerdir. Sisteminizde yardımcı programları göre seçin.
+> Merhaba CRLF satır sonları tooLF değiştirmeniz gerekir, hello aşağıdaki komutlar kabaca eşdeğerdir. Merhaba yardımcı programları sisteminizdeki kullanılabilir göre seçin.
 
 | Komut | Notlar |
 | --- | --- |
-| `unix2dos -b INFILE` |Özgün dosya ile yedeklenir bir. BAK uzantısı |
+| `unix2dos -b INFILE` |Merhaba özgün dosya yedeklenir ile bir. BAK uzantısı |
 | `tr -d '\r' < INFILE > OUTFILE` |Yalnızca LF sonları sürümüyle ÇIKIŞDOSYASI içerir |
-| `perl -pi -e 's/\r\n/\n/g' INFILE` | Dosyayı doğrudan değiştirir |
+| `perl -pi -e 's/\r\n/\n/g' INFILE` | Merhaba dosyasını doğrudan değiştirir |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |ÇIKIŞDOSYASI yalnızca LF sonları ile bir sürüm içeriyor. |
 
 **Hata**: `line 1: #!/usr/bin/env: No such file or directory`.
 
-*Neden*: UTF-8 bir bayt sırası işareti (BOM) ile olarak komut dosyası kaydedildiğinde bu hata oluşur.
+*Neden*: Bu hata hello betik UTF-8 bir bayt sırası işareti (BOM) ile olarak kaydedildi oluşur.
 
-*Çözümleme*: dosyayı olarak ASCII veya UTF-8 bir ürün reçetesi olmadan olarak kaydedin. Bir dosya AĞACI olmadan oluşturmak için bir Linux veya UNIX sistemde aşağıdaki komutu de kullanabilirsiniz:
+*Çözümleme*: Kaydet hello dosya olarak ASCII veya UTF-8 bir ürün reçetesi olmadan olarak. Ayrıca, bir Linux veya UNIX sistem toocreate hello AĞACI olmadan bir dosya üzerinde komutu aşağıdaki hello kullanabilirsiniz:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
-Değiştir `INFILE` AĞACI içeren dosya ile. `OUTFILE`Ürün reçetesi olmadan komut dosyasını içeren yeni bir dosya adı olmalıdır.
+Değiştir `INFILE` hello dosyasıyla AĞACI hello içeren. `OUTFILE`Merhaba AĞACI kullanmadan hello komut içeren yeni bir dosya adı olmalıdır.
 
 ## <a name="seeAlso"></a>Sonraki adımlar
 
-* Bilgi edinmek için nasıl [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md)
-* Kullanım [Hdınsight .NET SDK'sı başvurusu](https://msdn.microsoft.com/library/mt271028.aspx) Hdınsight yönetmek .NET uygulamaları oluşturma hakkında daha fazla bilgi edinmek için
-* Kullanmak [Hdınsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) REST Hdınsight kümelerinde yönetim eylemleri gerçekleştirmek için nasıl kullanılacağını öğrenin.
+* Nasıl çok öğrenin[özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md)
+* Kullanım hello [Hdınsight .NET SDK'sı başvurusu](https://msdn.microsoft.com/library/mt271028.aspx) toolearn Hdınsight yönetmek .NET uygulamaları oluşturma hakkında daha fazla bilgi
+* Kullanım hello [Hdınsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) toolearn nasıl toouse REST tooperform yönetim eylemleri hdınsight kümeleri.

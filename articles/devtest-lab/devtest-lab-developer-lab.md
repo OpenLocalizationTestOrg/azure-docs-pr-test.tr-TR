@@ -1,6 +1,6 @@
 ---
-title: "Geliştiriciler için Azure DevTest Labs kullanın | Microsoft Docs"
-description: "Azure DevTest Labs Geliştirici senaryoları için kullanmayı öğrenin."
+title: "Geliştiriciler için Azure DevTest Labs aaaUse | Microsoft Docs"
+description: "Bilgi nasıl toouse Azure DevTest Labs Geliştirici senaryoları için."
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: tarcher
-ms.openlocfilehash: c187819e9392908c8979556f80e8c94739eb14d5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 16a3ef47c9fcbca3050dd50db5b472a9a1e3c62c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Geliştiriciler için Azure DevTest Labs kullanın
-Azure DevTest Labs pek çok temel senaryolar uygulamak için kullanılabilir, ancak birincil senaryolardan biri, geliştiriciler için geliştirme makineleri barındıracak şekilde DevTest Labs kullanarak içerir. Bu senaryoda, DevTest Labs şu avantajları sağlar:
+Azure DevTest Labs birçok senaryoları ancak hello birincil senaryoları birini içerir geliştiriciler için DevTest Labs toohost geliştirme makineleri kullanarak kullanılan tooimplement olabilir. Bu senaryoda, DevTest Labs şu avantajları sağlar:
 
 - Geliştiriciler, geliştirme makinelerinin isteğe bağlı olarak hızlı bir şekilde sağlayabilirsiniz.
 - Geliştiriciler, geliştirme makinelerinin gerektiğinde kolayca özelleştirebilirsiniz.
@@ -31,103 +31,103 @@ Azure DevTest Labs pek çok temel senaryolar uygulamak için kullanılabilir, an
 
 ![DevTest Labs için eğitim kullanın](./media/devtest-lab-developer-lab/devtest-lab-developer-lab.png)
 
-Bu makalede, geliştirici gereksinimlerini karşılamak için kullanılabilecek çeşitli Azure DevTest Labs özellikleri ve bir laboratuvarı ayarlamanız için izleyebileceğiniz ayrıntılı adımlar hakkında bilgi edinin.
+Bu makalede kullanılan toomeet geliştirici gereksinimleri ve bir laboratuvar yukarı tooset izleyebileceğiniz ayrıntılı adımlar hello çeşitli Azure DevTest Labs özellikleri hakkında bilgi edinin.
 
 ## <a name="implementing-developer-environments-with-azure-devtest-labs"></a>Azure DevTest Labs Geliştirici ortamlarıyla uygulama
-1. **Laboratuvar oluşturma** 
+1. **Merhaba Laboratuvar oluşturma** 
    
-    Labs Azure DevTest Labs başlangıç noktasıdır. Bir laboratuvar oluşturduktan sonra hızlı bir şekilde, oluşturabilirsiniz VM görüntülerini tanımlama maliyetleri ve daha fazlasını denetlemek için ilkeler ayarlama Laboratuvar için kullanıcı (geliştiriciler) ekleme gibi görevleri gerçekleştirebilir.  
+    Labs hello Azure DevTest Labs'de başlangıç noktası var. Bir laboratuvar oluşturduktan sonra kullanıcılar (geliştiriciler) toohello Laboratuvar, hızlı bir şekilde, oluşturabilirsiniz VM görüntülerini tanımlama, ayar ilkeleri toocontrol maliyetleri ve daha fazlasını ekleme gibi görevleri gerçekleştirebilirsiniz.  
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tablonun hello hello bağlantıları tıklayarak daha fazla bilgi edinin:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Azure DevTest Labs'de Laboratuvar oluşturma](devtest-lab-create-lab.md) |Azure portalında Azure DevTest Labs'de Laboratuvar oluşturma öğrenin. |
+   | [Azure DevTest Labs'de Laboratuvar oluşturma](devtest-lab-create-lab.md) |Azure DevTest Labs'de Laboratuvar bir toocreate hello Azure portalına nasıl öğrenin. |
 2. **Sanal makineleri hazır Market görüntülerini ve özel görüntüleri kullanarak dakikalar içinde oluşturma** 
    
-    Azure Marketi'nde görüntüler çok geniş bir yelpazedeki hazır görüntülerden seçer ve laboratuvara kullanılabilmesini. Hazır görüntüleri gereksinimlerinizi karşılamıyorsa, Laboratuvar hazır resim Laboratuvar özel görüntü olarak Azure marketi, ihtiyacınız olan tüm yazılım yükleme ve kaydetme VM kullanarak VM oluşturarak özel bir görüntü oluşturabilirsiniz.
+    Görüntüler çok geniş bir yelpazedeki hazır görüntülerden hello Azure Marketi seçer ve hello laboratuarda kullanılabilmesini. Merhaba hazır görüntüleri gereksinimlerinizi karşılamıyorsa, Laboratuvar hello Laboratuvar özel görüntü olarak Azure marketi, gereksinim duyduğunuz tüm hello yazılım yükleme ve kaydetme hello VM hazır bir görüntüden kullanarak VM oluşturarak özel bir görüntü oluşturabilirsiniz.
 
-    Özel resimler kullanacaksa, oluşturmak ve görüntüleri dağıtmak için bir resim Fabrika kullanmayı düşünün. Bir görüntü Fabrika düzenli olarak oluşturur ve yapılandırılmış görüntülerinizin otomatik olarak dağıtan bir yapılandırma olarak kodu çözümüdür. Bu, temel işletim sistemiyle bir VM oluşturulduktan sonra sistem el ile yapılandırmak için gereken süreyi kaydeder.
+    Özel resimler kullanacaksanız, bir görüntü Fabrika toocreate kullanmayı düşünün ve resimlerinizi dağıtın. Bir görüntü Fabrika düzenli olarak oluşturur ve yapılandırılmış görüntülerinizin otomatik olarak dağıtan bir yapılandırma olarak kodu çözümüdür. Bir VM ile Merhaba oluşturulduktan sonra bu kaydeder hello gereken süre toomanually yapılandırma hello sistem işletim sistemi temel.
   
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tablonun hello hello bağlantıları tıklayarak daha fazla bilgi edinin:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Azure Market görüntülerini yapılandırın](devtest-lab-configure-marketplace-images.md) |Beyaz liste Azure Market görüntülerini, yalnızca geliştiriciler için istediğiniz görüntüleri seçim için kullanılabilir hale getirme öğrenin.|
-   | [Özel bir görüntü oluşturun](devtest-lab-create-template.md) |Böylece geliştiriciler, hızlı bir şekilde özel görüntü kullanarak bir VM oluşturabilir, gereken yazılımı yüklenerek özel bir görüntü oluşturun.|
-   | [Görüntü Fabrika hakkında bilgi edinin](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Bir görüntü Fabrika ayarlamak ve nasıl kullanılacağını açıklayan bir videoyu izleyin.|
+   | [Azure Market görüntülerini yapılandırın](devtest-lab-configure-marketplace-images.md) |Beyaz liste Azure Market görüntülerini hello geliştiriciler için istediğiniz seçimi yalnızca hello görüntüleri için kullanılabilir hale getirme öğrenin.|
+   | [Özel bir görüntü oluşturun](devtest-lab-create-template.md) |Böylece geliştiriciler, hızlı bir şekilde hello özel görüntü kullanarak bir VM oluşturabilir, gereken hello yazılımı yüklenerek özel bir görüntü oluşturun.|
+   | [Görüntü Fabrika hakkında bilgi edinin](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Açıklayan bir video izlemek nasıl tooset ayarlama ve bir görüntü Fabrika kullanın.|
 
 3. **Geliştirici makinelerinde için yeniden kullanılabilir şablonlar oluşturma** 
    
-    Azure DevTest Labs formülde bir VM oluşturmak için kullanılan varsayılan özellik değerleri listesidir. Görüntü, VM boyutu (CPU ve RAM birleşimi) ve bir sanal ağı seçerek laboratuvarda bir formül oluşturabilirsiniz. Her geliştirici Laboratuvar formülde görebilir ve bir VM oluşturmak için kullanın. 
+    Azure DevTest Labs formülde varsayılan özellik değerleri listesine toocreate VM kullanılır. Görüntü, VM boyutu (CPU ve RAM birleşimi) ve bir sanal ağı seçerek hello laboratuarda bir formül oluşturabilirsiniz. Her geliştirici hello Laboratuvar hello formülde görebilir ve toocreate VM kullanın. 
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tablonun hello hello bağlantıları tıklayarak daha fazla bilgi edinin:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Sanal makineleri oluşturmak için DevTest Labs formüller yönetme](devtest-lab-manage-formulas.md) |Görüntü, VM boyutu (CPU ve RAM birleşimi) ve bir sanal ağ seçerek bir formül nasıl oluşturabileceğinizi öğrenin.|
+   | [DevTest Labs formüller toocreate sanal makineleri yönetme](devtest-lab-manage-formulas.md) |Görüntü, VM boyutu (CPU ve RAM birleşimi) ve bir sanal ağ seçerek bir formül nasıl oluşturabileceğinizi öğrenin.|
 
-4. **Esnek VM özelleştirmeyi etkinleştirmek için yapıları oluşturma**
+4. **Yapıları tooenable esnek VM özelleştirme oluşturma**
 
-   Yapılar, dağıtmak ve bir VM sağlandıktan sonra Uygulamanızı yapılandırmak için kullanılır. Yapıtlar şunlar olabilir:
+   Yapıları kullanılan toodeploy olan ve bir VM sağlandıktan sonra uygulamanızı yapılandırın. Yapıtlar şunlar olabilir:
 
-   - Aracılar, Fiddler ve Visual Studio gibi VM - yüklemek istediğiniz araçları.
-   - Bir depoyu kopyalama gibi VM üzerinde-çalıştırmak istediğiniz eylemleri.
-   - Test etmek istediğiniz uygulamalar.
+   - Aracılar, Fiddler ve Visual Studio gibi hello VM - üzerinde tooinstall istediğiniz araçları.
+   - Bir depoyu kopyalama gibi hello VM - üzerinde toorun istediğiniz eylemleri.
+   - Tootest istediğiniz uygulamalar.
 
    Birçok zaten kullanılabilir out-of--box ürünleridir. Özel ihtiyaçlarınız için daha fazla özelleştirme isterseniz kendi özel yapılar oluşturabilirsiniz.
 
-   Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+   Aşağıdaki tablonun hello hello bağlantıları tıklayarak daha fazla bilgi edinin:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [DevTest Labs VM için özel yapılar oluşturma](devtest-lab-artifact-author.md) |Sanal makineler için kendi özel yapılar laboratuvarınızda oluşturun.|
-   | [Özel yapılar ve kullanmak için Azure Resource Manager şablonları Azure DevTest Labs'de depolamak için bir Git deposu ekleme](devtest-lab-add-artifact-repo.md) |Özel yapıtları kendi özel Git deposuna depolamayı öğrenin.|
+   | [DevTest Labs VM için özel yapılar oluşturma](devtest-lab-artifact-author.md) |Merhaba sanal makineler için kendi özel yapılar laboratuvarınızda oluşturun.|
+   | [Bir Git deposu toostore özel yapılar ve kullanmak için Azure Resource Manager şablonları Azure DevTest Labs'de ekleme](devtest-lab-add-artifact-repo.md) |Bilgi nasıl toostore kendi özel Git depodaki özel yapıtları.|
 
 5. **Denetim maliyetleri**
    
-    Azure DevTest Labs laboratuvarda bir geliştirici tarafından oluşturulan VM'ler en büyük sayısını belirtmek için laboratuvarda bir ilke ayarlamanıza olanak sağlar. 
+    Azure DevTest Labs hello Laboratuvar toospecify hello en fazla sayıda hello laboratuarda bir geliştirici tarafından oluşturulan sanal makineleri tooset bir ilke sağlar. 
    
-    Çalışma kümesi, geliştirici ekibiniz varsa, zamanlama ve günün belirli bir zamanda tüm sanal makineleri durdurmak ve ardından bunları sonraki gün otomatik olarak yeniden istiyorsanız, laboratuar ortamında otomatik kapatma ve otomatik başlatma ilkeleri ayarlayarak, kolayca gerçekleştirebilirsiniz. 
+    İş Çizelgesi kümesi Geliştirici ekibiniz varsa ve toostop tüm hello VM'ler hello günün belirli bir zamanda istediğiniz ve ardından bunları günü izleyen hello otomatik olarak yeniden bunu kolayca, ayarı otomatik kapatma ve otomatik başlatma ilkeleri hello laboratuarda tarafından gerçekleştirebilirsiniz. 
    
-    Uygulama geliştirme tamamlandığında, son olarak, tüm sanal makineleri aynı anda tek bir PowerShell Betiği çalıştırarak silebilirsiniz. 
+    Uygulama geliştirme tamamlandığında, son olarak, tüm hello sanal makineleri aynı anda tek bir PowerShell Betiği çalıştırarak silebilirsiniz. 
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
-   
-   | Görev | Öğrenecekleriniz |
-   | --- | --- |
-   | [Laboratuvar ilkelerini tanımlama](devtest-lab-set-lab-policy.md) |Laboratuar ortamında ilkeleri ayarlayarak maliyetleri denetler. |
-   | [Tüm Laboratuvar bir PowerShell komut dosyası kullanarak sanal makineleri silin](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Geliştirme tamamlandığında, tek bir işlemde tüm labs silin.|
-
-1. **Bir VM sanal ağ ekleme** 
-   
-    Her bir laboratuvar oluşturulduğunda DevTest Labs yeni bir sanal ağ (VNET) oluşturur. Kendi VNET-Örneğin, ExpressRoute veya siteden siteye VPN kullanarak – yapılandırdıysanız, sanal makineleri oluşturulurken kullanılabilir olmasını sağlamak için Laboratuvarınızı ait sanal ağ ayarları bu VNET ekleyebilirsiniz.
-
-    Ayrıca, bir Azure Active Directory etki alanı katılma yapı VM oluşturulduğunda, bir VM bir etki alanına katılacak kullanılabilir yoktur. 
-   
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tablonun hello hello bağlantıları tıklayarak daha fazla bilgi edinin:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Azure DevTest Labs'de sanal ağ yapılandırma](devtest-lab-configure-vnet.md) |Azure portalını kullanarak Azure DevTest Labs içinde bir sanal ağ yapılandırma konusunda bilgi edinin.|
+   | [Laboratuvar ilkelerini tanımlama](devtest-lab-set-lab-policy.md) |Maliyetleri hello laboratuvarda ilkeleri ayarlayarak denetleyebilirsiniz. |
+   | [Tüm hello Laboratuvar bir PowerShell komut dosyası kullanarak sanal makineleri silin](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Geliştirme tamamlandığında, tek bir işlemde tüm hello labs silin.|
 
-6. **Laboratuvar her developer ile paylaşma**
+1. **Sanal ağ tooa VM ekleme** 
    
-    Labs, geliştiricilere paylaşan bir bağlantıyı kullanarak doğrudan erişilebilir. Sahip oldukları sürece bile bir Azure hesabına sahip sahip olmayan bir [Microsoft hesabı](devtest-lab-faq.md#what-is-a-microsoft-account). Geliştiriciler, diğer geliştiriciler tarafından oluşturulan VM'ler göremezsiniz.  
+    Her bir laboratuvar oluşturulduğunda DevTest Labs yeni bir sanal ağ (VNET) oluşturur. Kendi VNET-Örneğin, ExpressRoute veya siteden siteye VPN kullanarak – yapılandırdıysanız, Vm'leri oluştururken, böylece kullanılabilir VNET tooyour Laboratuvar kullanıcının bu sanal ağ ayarları ekleyebilirsiniz.
+
+    Ayrıca, bir Azure Active Directory etki alanı katılma yapı hello VM oluşturulduğunda, bir VM tooa etki alanına katılacak kullanılabilir yoktur. 
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tablonun hello hello bağlantıları tıklayarak daha fazla bilgi edinin:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Azure DevTest Labs laboratuarda bir geliştirici ekleyin](devtest-lab-add-devtest-user.md) |Geliştiriciler için Laboratuvarınızı eklemek için Azure Portalı'nı kullanın.|
-   | [Geliştiriciler bir PowerShell Betiği kullanılarak laboratuvara ekleme](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Laboratuvarınızı ekleme geliştiricilerine otomatikleştirmek için PowerShell kullanın. |
-   | [Laboratuvar bağlantısını Al](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Nasıl geliştiriciler Laboratuvar köprü üzerinden doğrudan erişebileceğiniz öğrenin.|
+   | [Azure DevTest Labs'de sanal ağ yapılandırma](devtest-lab-configure-vnet.md) |Nasıl tooconfigure Azure DevTest Labs kullanarak bir sanal ağ hello Azure portal hakkında bilgi edinin.|
+
+6. **Her geliştirici paylaşımı hello laboratuvarla**
+   
+    Labs, geliştiricilere paylaşan bir bağlantıyı kullanarak doğrudan erişilebilir. Sahip oldukları sürece bile toohave bir Azure hesabı sahip olmayan bir [Microsoft hesabı](devtest-lab-faq.md#what-is-a-microsoft-account). Geliştiriciler, diğer geliştiriciler tarafından oluşturulan VM'ler göremezsiniz.  
+   
+    Aşağıdaki tablonun hello hello bağlantıları tıklayarak daha fazla bilgi edinin:
+   
+   | Görev | Öğrenecekleriniz |
+   | --- | --- |
+   | [Azure DevTest Labs'de Geliştirici tooa Laboratuvar ekleme](devtest-lab-add-devtest-user.md) |Hello Azure portal tooadd geliştiriciler tooyour Laboratuvar kullanın.|
+   | [Bir PowerShell Betiği kullanılarak geliştiriciler toohello Laboratuvar ekleme](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Geliştiriciler tooyour Laboratuvar ekleme PowerShell tooautomate kullanın. |
+   | [Bir bağlantı toohello Laboratuvar Al](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Nasıl geliştiriciler Laboratuvar köprü üzerinden doğrudan erişebileceğiniz öğrenin.|
 
 7. **Daha fazla takımlar için laboratuvar oluşturmayı otomatikleştirmek** 
    
-    Laboratuvar oluşturma, özel ayarlar bir Resource Manager şablonu oluşturma ve aynı labs yeniden oluşturmak için kullanma dahil olmak üzere otomatik hale getirebilirsiniz. 
+    Laboratuvar oluşturma, Resource Manager şablonu oluşturma ve toocreate aynı labs tekrar tekrar kullanarak özel ayarları da dahil olmak üzere otomatik hale getirebilirsiniz. 
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tablonun hello hello bağlantıları tıklayarak daha fazla bilgi edinin:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |

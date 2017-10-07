@@ -1,5 +1,5 @@
 ---
-title: "Spark Azure Hdınsight'ta veri görselleştirme araçları kullanarak BI | Microsoft Docs"
+title: "aaaSpark BI Azure Hdınsight'ta veri görselleştirme araçları kullanarak | Microsoft Docs"
 description: "Hdınsight kümelerinde Apache Spark BI'ı kullanarak analiz için verileri görselleştirme araçlarını kullanın"
 keywords: "Apache spark BI, spark BI, spark veri görselleştirme, spark iş zekası"
 services: hdinsight
@@ -17,21 +17,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: nitinme
-ms.openlocfilehash: 49dd161049ac442081fe6d26cf8bd3a56a2e0687
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ba4bfff737ce80ffca5c24f1c2c82a1447f467fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark Azure Hdınsight ile verileri görselleştirme araçlarını kullanarak BI
 
-Hdınsight kümelerinde Apache Spark BI'ı kullanarak bir ham örnek veri kümesi analiz etmek için Power BI ve Tableau gibi veri görselleştirme araçlarını kullanmayı öğrenin.
+Nasıl toouse veri görselleştirme gibi Power BI ve Tableau tooanalyze Hdınsight kümelerinde Apache Spark BI'ı kullanarak bir ham örnek veri kümesi araçları hakkında bilgi edinin.
 
 > [!NOTE]
 > Bu makalede açıklanan BI araçları ile bağlantı Spark 2.1 Azure Hdınsight 3.6 Önizleme üzerinde desteklenmiyor. Yalnızca Spark sürüm 1.6 ve 2.0 (Hdınsight 3.4, 3.5 sırasıyla) desteklenir.
 >
 
-Bu öğretici, bir Hdınsight Spark kümesinde Jupyter not defteri olarak da kullanılabilir. Not Defteri deneyimi Python parçacıkları dizüstü çalıştırmadan olanak sağlar. Gelen öğretici bir not defteri içinde gerçekleştirmek için bir Spark kümesi oluşturma, Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), ve ardından not defteri çalıştırın **HDInsight.ipynb Apache Spark kullanım BI araçlarıyla** altında **Python** klasör.
+Bu öğretici, bir Hdınsight Spark kümesinde Jupyter not defteri olarak da kullanılabilir. Merhaba not defteri deneyimi hello Python parçacıkları hello dizüstü bilgisayarınızı kendisini çalıştırmadan olanak sağlar. bir not defteri içinde tooperform hello öğretici bir Spark kümesi oluşturma, Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), ve ardından hello dizüstü çalıştırın **HDInsight.ipynb Apache Spark kullanım BI araçlarıyla** hello altında **Python**  klasörü.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -40,18 +40,18 @@ Bu öğretici, bir Hdınsight Spark kümesinde Jupyter not defteri olarak da kul
 
 ## <a name="hivetable"></a>Spark veri görselleştirme için verileri hazırlama
 
-Bu bölümde, kullanırız [Jupyter](https://jupyter.org) ham örnek verileri işlemek ve bir tablo olarak kaydetmek işlerini çalıştırmak için Hdınsight Spark kümesinde dizüstü bilgisayarınızı. Örnek, bir .csv dosyası (hvac.csv) kullanılabilir varsayılan olarak tüm kümelerde verilerdir. Verilerinizi bir tablo olarak kaydedildikten sonra sonraki bölümde BI araçları tabloya bağlanmak ve veri görselleştirmeleri gerçekleştirmek için kullanırız.
+Bu bölümde, hello kullanırız [Jupyter](https://jupyter.org) ham örnek verileri işlemek ve bir tablo olarak kaydetmek bir Hdınsight Spark küme toorun işleri dizüstü bilgisayarınızı. bir .csv dosyası (hvac.csv) kullanılabilir varsayılan olarak tüm kümelerde Hello örnek verilerdir. Verilerinizi bir tablo olarak kaydedildikten sonra sonraki bölümde hello biz BI araçları tooconnect toohello tabloyu kullanın ve veri görselleştirmeleri gerçekleştirin.
 
 > [!NOTE]
-> Adımları bu makaledeki yönergeleri tamamladıktan sonra gerçekleştirdiğiniz varsa [bir Hdınsight Spark kümesinde etkileşimli sorgular gerçekleştirme](hdinsight-apache-spark-load-data-run-query.md), aşağıdaki adım 8'e atlayabilirsiniz.
+> Gerçekleştiriyorsanız hello bu makalede hello yönergeleri tamamladıktan sonra adımları [bir Hdınsight Spark kümesinde etkileşimli sorgular gerçekleştirme](hdinsight-apache-spark-load-data-run-query.md), tooStep 8 aşağıdaki atlayabilirsiniz.
 >
 
-1. [Azure portalındaki](https://portal.azure.com/) başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.   
+1. Merhaba gelen [Azure portal](https://portal.azure.com/), (, onu toohello Sabitle) hello Panosu'ndan hello kutucuğuna Spark kümenizin tıklayın. Tooyour küme altında da gidebilirsiniz **tümüne Gözat** > **Hdınsight kümeleri**.   
 
-2. Spark kümesi dikey penceresinden **Küme Panosu**’na ve ardından **Jupyter Notebook**’a tıklayın. İstenirse, küme için yönetici kimlik bilgilerini girin.
+2. Merhaba Spark kümesi dikey penceresinden tıklatın **küme Panosu**ve ardından **Jupyter not defteri**. İstenirse, hello küme için hello yönetici kimlik bilgilerini girin.
 
    > [!NOTE]
-   > Aşağıdaki URL’yi tarayıcınızda açarak da Jupyter Notebook’a ulaşabilirsiniz. **CLUSTERNAME** değerini kümenizin adıyla değiştirin:
+   > Kümenizin açma hello tarayıcınızda URL aşağıdaki tarafından hello Jupyter Not Defteri de ulaşabilir. Değiştir **CLUSTERNAME** kümenizi hello adı:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
@@ -61,17 +61,17 @@ Bu bölümde, kullanırız [Jupyter](https://jupyter.org) ham örnek verileri i�
 
     ![Apache Spark BI için bir Jupyter not defteri oluşturma](./media/hdinsight-apache-spark-use-bi-tools/create-jupyter-notebook-for-spark-bi.png "için Apache Spark BI Jupyter not defteri oluşturma")
 
-4. Yeni bir not defteri oluşturulur ve Untitled.pynb adı ile açılır. Üstteki not defteri adına tıklayın ve kolay bir ad girin.
+4. Yeni bir not defteri oluşturulur ve Untitled.pynb hello adı ile. Merhaba üstünde Hello dizüstü bilgisayar adına tıklayın ve kolay bir ad girin.
 
-    ![Apache Spark BI için not defteri için ad](./media/hdinsight-apache-spark-use-bi-tools/jupyter-notebook-name-for-spark-bi.png "için Apache Spark BI dizüstü bilgisayar için bir ad sağlayın")
+    ![Apache Spark BI hello dizüstü bilgisayar için ad](./media/hdinsight-apache-spark-use-bi-tools/jupyter-notebook-name-for-spark-bi.png "için Apache Spark BI hello dizüstü bilgisayar için bir ad sağlayın")
 
-5. PySpark çekirdeği kullanarak bir not defteri oluşturduğunuz için açıkça bir bağlam oluşturmanız gerekmez. Birinci kod hücresini çalıştırdığınızda Spark ve Hive bağlamları sizin için otomatik olarak oluşturulur. Bu senaryo için gereken türleri içeri aktararak işleme başlayabilirsiniz. Bunu yapmak için imleci hücre ve tuşuna koyun **SHIFT + ENTER**.
+5. Merhaba PySpark çekirdeği kullanarak bir not defteri oluşturduğunuz için siz toocreate bir bağlam açıkça gerekmez. hello birinci kod hücresini çalıştırdığınızda hello Spark ve Hive bağlamları sizin için otomatik olarak oluşturulur. Bu senaryo için gerekli hello türleri içeri aktararak işleme başlayabilirsiniz. toodo hello hücre ve tuşuna hello imleç, yerleştirin **SHIFT + ENTER**.
 
         from pyspark.sql import *
 
-6. Örnek verilerini geçici bir tabloya yükleyin. HDInsight’ta bir Spark kümesi oluşturduğunuzda **hvac.csv** örnek veri dosyası, **\HdiSamples\HdiSamples\SensorSampleData\hvac** altındaki ilişkili depolama hesabına kopyalanır.
+6. Örnek verilerini geçici bir tabloya yükleyin. Merhaba örnek veri dosyası, Hdınsight'ta Spark kümesi oluşturduğunuzda, **hvac.csv**, kopyalanan toohello ilişkili depolama hesabı altında **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
 
-    Aşağıdaki kod parçacığında ve tuşuna boş bir hücreye yapıştırın **SHIFT + ENTER**. Bu kod parçacığında veriler adı verilen bir tabloya kaydeder **hvac**.
+    Boş bir hücreye yapıştırın hello aşağıdaki kod parçacığında ve ENTER tuşuna **SHIFT + ENTER**. Bu kod parçacığında hello veri olarak adlandırılan bir tabloya kaydeder **hvac**.
 
         # Create an RDD from sample data
         hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -79,17 +79,17 @@ Bu bölümde, kullanırız [Jupyter](https://jupyter.org) ham örnek verileri i�
         # Create a schema for our data
         Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
 
-        # Parse the data and create a schema
+        # Parse hello data and create a schema
         hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
         hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
 
-        # Infer the schema and create a table       
+        # Infer hello schema and create a table       
         hvacTable = sqlContext.createDataFrame(hvac)
         hvacTable.registerTempTable('hvactemptable')
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-7. Tablo başarıyla oluşturulduğunu doğrulayın. Kullanabileceğiniz `%%sql` Hive çalıştırmak için Sihirli sorgular doğrudan. `%%sql` sihrinin yanı sıra PySpark çekirdeği kullanılabilen diğer sihirler hakkında daha fazla bilgi için bkz. [Spark HDInsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+7. Merhaba tablosunun başarıyla oluşturulduğundan emin olun. Merhaba kullanabilirsiniz `%%sql` toorun Hive sorguları doğrudan Sihirli. Merhaba hakkında daha fazla bilgi için `%%sql` Sihirli ve hello PySpark çekirdeği kullanılabilen diğer sihirler bkz [Spark Hdınsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
         %%sql
         SHOW TABLES
@@ -104,14 +104,14 @@ Bu bölümde, kullanırız [Jupyter](https://jupyter.org) ham örnek verileri i�
         |hvac           |false        |
         +---------------+-------------+
 
-    False altında olan tabloları **isTemporary** sütun olacak şekilde meta depo içinde saklanan ve BI Araçları'ndan erişilebilen hive tablosu. Bu öğreticide, biz bağlanmak **hvac** oluşturduğumuz tablo.
+    Yalnızca false hello altında sahip tablolar hello **isTemporary** sütun olacak şekilde hello meta depo içinde saklanan ve hello BI Araçları'ndan erişilebilen hive tablosu. Bu öğreticide, biz toohello bağlanmak **hvac** oluşturduğumuz tablo.
 
-8. Tablo hedeflenen verileri içerdiğini doğrulayın. Not defterindeki boş hücreye aşağıdaki kod parçacığında ve tuşuna kopyalama **SHIFT + ENTER**.
+8. Merhaba tablosunun hello hedeflenen verileri içerdiğini doğrulayın. Boş bir hücreye hello Not, hello aşağıdakileri kopyalayın parçacığını ve tuşuna **SHIFT + ENTER**.
 
         %%sql
         SELECT * FROM hvac LIMIT 10
 
-9. Kaynakları serbest bırakmak için Not Defteri kapatın. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın.
+9. Merhaba not defteri toorelease hello kaynakları kapatın. toodo çok hello **dosya** hello dizüstü menüsünde **Kapat ve Durdur**.
 
 ## <a name="powerbi"></a>Power BI için Spark veri görselleştirme kullanın
 
@@ -120,46 +120,46 @@ Bu bölümde, kullanırız [Jupyter](https://jupyter.org) ham örnek verileri i�
 >
 >
 
-Verileri tablo olarak kaydettikten sonra veri bağlanmak ve raporlar, panolar vb. oluşturmak üzere görselleştirmek için Power BI'ı kullanabilirsiniz.
+Merhaba verileri tablo olarak kaydettikten sonra Power BI tooconnect toohello verilerini kullanır ve toocreate raporları, görselleştirme vb. panoları.
 
-1. Power BI erişebildiğinizden emin olun. Power BI'dan, ücretsiz önizlemeye aboneliği alabilirsiniz [http://www.powerbi.com/](http://www.powerbi.com/).
+1. Erişim tooPower BI olduğundan emin olun. Power BI'dan, ücretsiz önizlemeye aboneliği alabilirsiniz [http://www.powerbi.com/](http://www.powerbi.com/).
 
-2. Oturum [Power BI](http://www.powerbi.com/).
+2. Çok oturum[Power BI](http://www.powerbi.com/).
 
-3. Sol bölmede aşağıdan tıklatın **Veri Al**.
+3. Merhaba sol bölmesinde Hello aşağıdan tıklatın **Veri Al**.
 
-4. Üzerinde **Veri Al** sayfasında **alma veya verilere bağlanın**, için **veritabanları**, tıklatın **almak**.
+4. Merhaba üzerinde **Veri Al** sayfasında **alma veya tooData bağlanmak**, için **veritabanları**, tıklatın **almak**.
 
     ![Apache Spark BI için Power BI Veri Al](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "veri alma Power BI için Apache Spark BI")
 
-5. Sonraki ekranda, tıklatın **Azure hdınsight'ta Spark** ve ardından **Bağlan**. İstendiğinde, kümesi URL'sini girin (`mysparkcluster.azurehdinsight.net`) ve kümeye bağlanmak için kimlik bilgileri.
+5. Merhaba sonraki ekranda, tıklatın **Azure hdınsight'ta Spark** ve ardından **Bağlan**. İstendiğinde, hello kümesi URL'sini girin (`mysparkcluster.azurehdinsight.net`) ve hello kimlik bilgilerini tooconnect toohello küme.
 
-    ![Apache Spark BI bağlanmak](./media/hdinsight-apache-spark-use-bi-tools/connect-to-apache-spark-bi.png "Apache Spark BI Bağlan")
+    ![TooApache Spark BI bağlanmak](./media/hdinsight-apache-spark-use-bi-tools/connect-to-apache-spark-bi.png "tooApache Spark BI Bağlan")
 
-    Bağlantı kurulduktan sonra Power BI veri hdınsight'ta Spark kümesinde alma başlatır.
+    Merhaba bağlantı kurulduktan sonra Power BI hello Spark Hdınsight kümesinde veri alma başlatır.
 
-6. Power BI verileri alır ve ekler bir **Spark** veri kümesi altında **veri kümeleri** başlığı. Verileri görselleştirmek için yeni bir çalışma sayfasını açmak için bu veri kümesi'ı tıklatın. Bu gibi durumlarda, çalışma sayfası aynı zamanda bir rapor olarak kaydedebilirsiniz. Bir çalışma alanından kaydetmek için **dosya** menüsünde tıklatın **kaydetmek**.
+6. Power BI hello verileri alır ve ekler bir **Spark** dataset hello altında **veri kümeleri** başlığı. Merhaba veri kümesi tooopen yeni çalışma sayfası toovisualize hello veri'ı tıklatın. Bir rapor olarak hello çalışma da kaydedebilirsiniz. toosave bir çalışma hello sayfasından **dosya** menüsünde tıklatın **kaydetmek**.
 
     ![Power BI panosundaki Apache Spark BI bölümünden](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-tile-dashboard.png "Power BI panosuna Apache Spark BI kutucuğu")
-7. Dikkat **alanları** sağ listeleri listesinde **hvac** daha önce oluşturduğunuz tablo. Not defterinde daha önce tanımlanan tablo alanları görmek için tabloyu genişletin.
+7. Bu hello fark **alanları** hello Sağdaki liste listeler hello **hvac** daha önce oluşturduğunuz tablo. Not defterinde daha önce tanımlanan hello tablo toosee hello alanları hello tablosundaki genişletin.
 
       ![Apache Spark BI Panoda Tabloları Listele](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "Apache Spark BI Panoda Tabloları Listele")
 
-8. Hedef sıcaklık ve her derleme için gerçek sıcaklık arasındaki fark göstermek için bir görsel öğe oluşturun. Yoru verileri görselleştirmek için seçin **alan grafiği** (kırmızı kutu içinde gösterilmiştir). Sürükle ve bırak ekseni tanımlamak için **BuildingID** altında **eksen**, ve **ActualTemp**/**TargetTemp** alanları altında **değeri**.
+8. Hedef sıcaklık ve her derleme için gerçek sıcaklık arasındaki görselleştirme tooshow hello fark oluşturun. toovisualize yoru verileri seçin **alan grafiği** (kırmızı kutu içinde gösterilmiştir). toodefine hello eksen, sürükle ve bırak hello **BuildingID** altında **eksen**, ve **ActualTemp**/**TargetTemp** altında alanları **değeri**.
 
     ![Apache Spark BI kullanarak veri görselleştirmeleri Spark oluşturma](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "oluşturma Spark veri görselleştirmeleri Apache Spark BI kullanma")
 
-9. Varsayılan olarak görselleştirme için toplam gösterir **ActualTemp** ve **TargetTemp**. Her iki alanlardan, açılan seçin **ortalama** gerçek ortalama ve hedef etme için iki bina almak için.
+9. Varsayılan olarak hello görselleştirme için hello toplam gösterir **ActualTemp** ve **TargetTemp**. Her ikisi de alanlardan hello aşağı açılan hello seçin **ortalama** tooget gerçek ortalama ve her iki binalar için hedef etme.
 
     ![Apache Spark BI kullanarak veri görselleştirmeleri Spark oluşturma](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "oluşturma Spark veri görselleştirmeleri Apache Spark BI kullanma")
 
-10. Veri görselleştirme benzer ekran görüntüsü olması gerekir. Araç ipuçları ile ilgili verileri almak için görselleştirme üzerinden imlecinizi taşıyın.
+10. Veri görselleştirme benzer toohello bir hello ekran görüntüsü olması gerekir. İmlecinizi hello görselleştirme tooget araç ipuçları ilgili verilerle üzerine getirin.
 
     ![Apache Spark BI kullanarak veri görselleştirmeleri Spark oluşturma](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "oluşturma Spark veri görselleştirmeleri Apache Spark BI kullanma")
 
-11. Tıklatın **kaydetmek** üstteki menüden ve bir rapor adı sağlayın. Ayrıca visual sabitleyebilirsiniz. Bir görsel öğe PIN, böylece bir bakışta son değer izleyebilirsiniz Panonuzda depolanır.
+11. Tıklatın **kaydetmek** hello gelen üst menüsünde ve bir rapor adı sağlayın. Merhaba visual de sabitleyebilirsiniz. Bir görsel öğe PIN, böylece bir bakışta hello son değer izleyebilirsiniz Panonuzda depolanır.
 
-   Aynı veri kümesi için istediğiniz ve bunları, verilerin bir anlık görüntüsünü panoya Sabitle sayıda görsel öğeleri ekleyebilirsiniz. Ayrıca, hdınsight'ta Spark kümeleri için Power BI ile doğrudan bağlı bağlanın. Bu veri kümesi için yenileme zamanlamanız gerekmez için Power BI her zaman en güncel verileri kümenizi sahip olmasını sağlar.
+   İstediğiniz sayıda görsel öğeleri ekleyebilirsiniz hello aynı veri kümesi ve verilerinizin anlık görüntü için toohello Pano sabitleyin. Ayrıca, hdınsight'ta Spark kümeleri BI ile doğrudan bağlantı bağlı tooPower değildir. Bu hello veri kümesi için tooschedule yenilemeleri gerek yoktur Power BI her zaman hello kümenizi en güncel verileri sahip olmasını sağlar.
 
 ## <a name="tableau"></a>Spark veri görselleştirme için Tableau Masaüstü'nü kullanın
 
@@ -168,45 +168,45 @@ Verileri tablo olarak kaydettikten sonra veri bağlanmak ve raporlar, panolar vb
 >
 >
 
-1. Yükleme [Tableau Masaüstü](http://www.tableau.com/products/desktop) bu Apache Spark BI öğretici çalıştırdığınız bilgisayarda.
+1. Yükleme [Tableau Masaüstü](http://www.tableau.com/products/desktop) bu Apache Spark BI öğretici çalıştırdığınız hello bilgisayarda.
 
-2. Bu bilgisayarda ayrıca Microsoft Spark ODBC sürücüsü yüklü olduğundan emin olun. Sürücüsünden yükleyebilirsiniz [burada](http://go.microsoft.com/fwlink/?LinkId=616229).
+2. Bu bilgisayarda ayrıca Microsoft Spark ODBC sürücüsü yüklü olduğundan emin olun. Merhaba sürücüsünden yükleyebilirsiniz [burada](http://go.microsoft.com/fwlink/?LinkId=616229).
 
-1. Tableau Masaüstü başlatın. Sol bölmede, bağlanmak üzere sunucu listesinden tıklatın **Spark SQL**. Sol bölmede varsayılan Spark SQL listelenmemişse tıklatın bulabilirsiniz **daha sunucuları**.
-2. Spark SQL Bağlantısı iletişim kutusunda aşağıdaki ekran görüntüsünde gösterildiği gibi değerler sağlayın ve ardından **Tamam**.
+1. Tableau Masaüstü başlatın. Merhaba sol bölmesinde, sunucu tooconnect için hello listesinden tıklatın **Spark SQL**. Spark SQL hello sol bölmesinde varsayılan olarak listelenmemişse tıklatın bulabilirsiniz **daha sunucuları**.
+2. Merhaba ekran görüntüsünde gösterildiği gibi Hello Spark SQL Bağlantısı iletişim kutusunda, hello değerler sağlayın ve ardından **Tamam**.
 
-    ![Apache Spark BI için bir kümeye Bağlan](./media/hdinsight-apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Apache Spark BI için bir kümeye Bağlan")
+    ![Apache Spark BI için Bağlan tooa küme](./media/hdinsight-apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Bağlan tooa küme Apache Spark BI için")
 
-    Kimlik doğrulama açılan listeleri **Microsoft Azure Hdınsight hizmeti** yalnızca yüklediyseniz bir seçenek olarak [Microsoft Spark ODBC sürücüsü](http://go.microsoft.com/fwlink/?LinkId=616229) bilgisayarda.
-3. Sonraki ekranda, gelen **şema** açılır menüsünde tıklatın **Bul** simgesine ve ardından **varsayılan**.
+    kimlik doğrulama açılan listeleri hello **Microsoft Azure Hdınsight hizmeti** yalnızca hello yüklediyseniz bir seçenek olarak [Microsoft Spark ODBC sürücüsü](http://go.microsoft.com/fwlink/?LinkId=616229) hello bilgisayarda.
+3. Merhaba gelen hello sonraki ekranında **şema** açılan listesinde, hello tıklatın **Bul** simgesine ve ardından **varsayılan**.
 
     ![Şema bulmak için Apache Spark BI](./media/hdinsight-apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Apache Spark BI Bul şeması")
-4. İçin **tablo** alan, tıklatın **Bul** yeniden kümedeki kullanılabilir tüm Hive tablolarını listelemek için simge. Görmeniz gerekir **hvac** daha önce Not Defteri kullanarak oluşturduğunuz tablo.
+4. Hello için **tablo** hello'ı tıklatın **Bul** simge tekrar tüm hello toolist Hive tabloları hello kümede kullanılabilir. Merhaba görmelisiniz **hvac** önceki hello Not Defteri kullanarak oluşturduğunuz tablo.
 
     ![Tablo için Apache Spark BI Bul](./media/hdinsight-apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "Apache Spark BI Bul tablosu")
-5. Sürükleyin ve üst kutusuna sağ taraftaki tablo bırakın. Tableau verileri alır ve şema kırmızı kutu ile vurgulanan görüntüler.
+5. Merhaba tablo toohello üst kutusunda sağ hello sürükleyip yeniden açın. Tableau hello verileri alır ve hello şemasını hello kırmızı kutu ile vurgulanan görüntüler.
 
-    ![Ekleme tablolar için Tableau için Apache Spark BI](./media/hdinsight-apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "eklemek tablolar için Tableau için Apache Spark BI")
-6. Tıklatın **Sheet1** sekmesi altındaki sol. Tüm binalar için gerçek etme ve ortalama hedef her tarihini gösteren bir görsel öğe olun. Sürükleme **tarih** ve **kimliği oluşturma** için **sütunları** ve **gerçek Temp**/**hedef Temp** için **satırları**. Altında **işaretleri**seçin **alanı** bir alan eşlemesini Spark veri görselleştirme için kullanabilirsiniz.
+    ![Tablolar tooTableau eklemek için Apache Spark BI](./media/hdinsight-apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "için Apache Spark BI tabloları tooTableau Ekle")
+6. Merhaba tıklatın **Sheet1** hello altındaki sol sekmesi. Merhaba ortalama hedef ve tüm binalar için gerçek etme her tarihini gösteren bir görsel öğe olun. Sürükleme **tarih** ve **bina kimliği** çok**sütunları** ve **gerçek Temp**/**hedef Temp**çok**satırları**. Altında **işaretleri**seçin **alanı** toouse Spark veri görselleştirme için alan eşleme.
 
      ![Spark veri görselleştirme için alanlar ekleyin](./media/hdinsight-apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Spark veri görselleştirme için alanlar ekleyin")
-7. Varsayılan olarak, gösterilen sıcaklık alanlar toplama olarak. Bunun yerine ortalama etme göstermek istiyorsanız, açılan listeden, aşağıda gösterildiği gibi bunu yapabilirsiniz.
+7. Varsayılan olarak, gösterilen hello sıcaklık alanlar toplama olarak. Bunun yerine tooshow hello ortalama etme istiyorsanız hello açılan listeden, aşağıda gösterildiği gibi bunu yapabilirsiniz.
 
     ![Sıcaklık Spark veri görselleştirme için ortalama ele](./media/hdinsight-apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "sıcaklık Spark veri görselleştirme için ortalama alın")
 
-8. Ayrıca Süper-bir ısı Haritası hedef gerçek etme arasındaki farkı daha iyi bir fikir almak için diğer üzerinden uygulayabilir. Kırmızı bir daire vurgulanmış tanıtıcı şekli gördüğünüz kadar fareyi alt alan eşleme köşesine getirin. Harita diğer eşlemeye üstte sürükleyin ve kırmızı dikdörtgende vurgulanan şekli gördüğünüzde fare düğmesini bırakın.
+8. Ayrıca Süper-bir ısı Haritası uygulayabilir üzerinde diğer tooget hedef gerçek etme arasındaki farkı daha iyi bir fikir hello. Kırmızı bir daire vurgulanmış hello tanıtıcı şekli gördüğünüz kadar hello fare toohello köşe hello alt alan eşleme taşıyın. Kırmızı dikdörtgende vurgulanmış hello şekli gördüğünüzde hello harita toohello diğer harita üzerinde hello üst ve yayın hello fareyi sürükleyin.
 
     ![MAPS Spark veri görselleştirme için birleştirme](./media/hdinsight-apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "birleştirme eşler için Spark veri Görselleştirme")
 
-     Veri görselleştirme ekran görüntüsünde gösterildiği gibi değiştirmeniz gerekir:
+     Veri görselleştirme hello ekran görüntüsünde gösterildiği gibi değiştirmeniz gerekir:
 
     ![Spark veri görselleştirme için tableau çıkış](./media/hdinsight-apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau çıktı için Spark veri Görselleştirme")
-9. Tıklatın **kaydetmek** çalışma kaydetmek için. Panolar oluşturun ve bir veya daha fazla sayfa ekleyin.
+9. Tıklatın **kaydetmek** toosave hello çalışma. Panolar oluşturun ve bir veya daha fazla sayfaları tooit ekleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Şu ana kadar bir küme oluşturmak, veri çerçevelerini sorgu verileri için Spark oluşturun ve sonra BI Araçları'ndan bu verilere erişmek nasıl öğrendiniz. Şimdi, küme kaynaklarını yönetmek ve bir Hdınsight Spark kümesinde çalışan işlerin hata ayıklamak yönergeler da bakabilirsiniz.
+Şu ana kadar toocreate bir küme Spark veri çerçeveleri tooquery verileri oluşturma ve ardından bu BI Araçları'ndan verilere öğrendiniz. Şimdi nasıl toomanage küme kaynaklarını hello ve bir Hdınsight Spark kümesinde çalışan işlerin hata ayıklama yönergeleri bakabilirsiniz.
 
-* [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](hdinsight-apache-spark-resource-manager.md)
+* [Hello Azure hdınsight'ta Apache Spark küme kaynaklarını yönetme](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](hdinsight-apache-spark-job-debugging.md)
 

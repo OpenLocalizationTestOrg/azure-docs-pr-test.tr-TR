@@ -1,6 +1,6 @@
 ---
-title: "İzleme, tanılama ve depolama sorunlarını giderme | Microsoft Docs"
-description: "Storage analytics, istemci-tarafı günlüğe kaydetme ve tanımlamak için diğer üçüncü taraf araçları tanılamak ve Azure Storage ile ilgili sorunları giderme gibi özellikleri kullanır."
+title: "aaaMonitor, tanılama ve depolama sorunlarını giderme | Microsoft Docs"
+description: "Storage analytics, istemci-tarafı günlüğe kaydetme ve diğer üçüncü taraf araçları tooidentify tanılamak ve Azure Storage ile ilgili sorunları giderme gibi özellikleri kullanır."
 services: storage
 documentationcenter: 
 author: fhryo-msft
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: fhryo-msft
-ms.openlocfilehash: 0ce739e1b62c908a469a5c37331915f17809018b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 294a0bd27bd03913e01a719c0175cab827d58225
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage izleme, tanılama ve sorun giderme
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Tanılama ve bulut ortamında bulunan bir dağıtılmış uygulama sorunlarını giderme geleneksel ortamlarda daha karmaşık olabilir. Uygulamalar şirket içinde bir mobil cihazda veya bileşiminden bir PaaS veya Iaas altyapısında dağıtılabilir. Genellikle, uygulamanızın ağ trafiği ortak ve özel ağlar geçiş yapabilir ve uygulamanızı Microsoft Azure depolama tabloları, Bloblar, kuyruklar gibi birden çok depolama teknolojileri kullanabilir veya diğer veri ek dosyaları gibi saklar olarak ilişkisel ve belge veritabanları.
+Tanılama ve bulut ortamında bulunan bir dağıtılmış uygulama sorunlarını giderme geleneksel ortamlarda daha karmaşık olabilir. Uygulamalar şirket içinde bir mobil cihazda veya bileşiminden bir PaaS veya Iaas altyapısında dağıtılabilir. Genellikle, uygulamanızın ağ trafiği ortak ve özel ağlar geçiş yapabilir ve uygulamanızı Microsoft Azure depolama tabloları, Bloblar, kuyruklar gibi birden çok depolama teknolojileri kullanabilir veya toplama tooother veri dosyalarını depolayan gibi olarak ilişkisel ve belge veritabanları.
 
-Bu tür uygulamalar başarılı bir şekilde yönetmek için proaktif olarak izlemek ve tanılamak ve bunları ve bunların bağımlı teknolojiler tüm yönlerini sorunlarını gidermek nasıl anlamanız gerekir. Bir Azure Depolama Hizmetleri kullanıcı olarak sürekli beklenmeyen değişiklikler (örneğin, normal yanıt süreleri daha yavaş) davranışı, uygulamanızın kullandığı depolama hizmetleri izlemek ve günlük daha ayrıntılı verileri toplamak ve kapsamlı bir sorunu çözümlemek için kullanmanız gerekir. İzleme hem günlük elde tanılama bilgileri uygulamanızı karşılaşılan sorun kök nedenini belirlemenize yardımcı olur. Ardından sorunu gidermek ve düzeltmek için atabileceğiniz uygun adımları belirleyin. Azure depolama çekirdeği Azure hizmeti ve müşteriler için Azure altyapıyı çözümlerinin çoğu önemli bir parçasını oluşturur. Azure depolama izleme, tanılama ve depolama sorunlarını bulut tabanlı uygulamalar kolaylaştıran özellikler içerir.
+toomanage bu tür uygulamalar başarıyla, proaktif olarak izlemek ve anlamak nasıl toodiagnose ve bunları ve bunların bağımlı teknolojiler tüm yönlerini sorun giderme. Bir Azure Depolama Hizmetleri kullanıcı olarak, sürekli olarak, uygulamanızın kullandığı beklenmeyen değişiklikler (örneğin, normal yanıt süreleri daha yavaş) davranış hello depolama hizmetleri izlemek ve günlüğe kaydetme toocollect kullanmanız gerekir daha ayrıntılı veri ve tooanalyze bir derinlemesine sorun. hem izleme hem de günlük elde hello tanılama bilgileri karşılaştı, uygulamanızın vermek, toodetermine hello kök nedenini hello yardımcı olur. Merhaba sorunu gidermek ve hello uygun adımları atmanız tooremediate belirlemek. Azure depolama çekirdeği Azure hizmeti ve müşteriler toohello Azure altyapı dağıtma çözümleri hello çoğunluğu önemli bir parçasını oluşturur. Azure depolama özellikleri toosimplify izleme, tanılama ve depolama sorunlarını bulut tabanlı uygulamalar içerir.
 
 > [!NOTE]
-> Çoğaltma türü, bölge olarak yedekli depolama (ZRS) depolama hesaplarıyla ölçümleri veya şu anda etkin günlüğe kaydetme özelliğine sahip değilsiniz. 
+> Çoğaltma türü, bölge olarak yedekli depolama (ZRS) depolama hesaplarıyla hello ölçümleri veya şu anda etkin günlüğe kaydetme özelliğine sahip değilsiniz. 
 > 
 > 
 
-Uçtan uca Azure Storage uygulamalarda sorun giderme uygulamalı kılavuzu için bkz: [uçtan uca Azure Storage ölçümleri ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi'ni kullanarak sorun giderme](storage-e2e-troubleshooting.md).
+Bir uygulamalı Kılavuzu tooend Azure Storage uygulamalarda sorun giderme uca için bkz: [uçtan uca Azure Storage ölçümleri ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi'ni kullanarak sorun giderme](storage-e2e-troubleshooting.md).
 
 * [Giriş]
   * [Bu kılavuz nasıl düzenlenir]
@@ -56,152 +56,152 @@ Uçtan uca Azure Storage uygulamalarda sorun giderme uygulamalı kılavuzu için
   * [Zaman damgaları]
 * [sorun giderme kılavuzluğu]
   * [ölçümleri Göster yüksek AverageE2ELatency ve düşük AverageServerLatency]
-  * [Ölçümler yüksek AverageE2ELatency ve düşük AverageServerLatency gösteriyor, ancak istemci yüksek gecikme durumu yaşıyor]
+  * [Düşük AverageE2ELatency ve düşük AverageServerLatency ölçümleri göster ancak hello istemci yüksek gecikme yaşanıyor]
   * [Ölçümler yüksek AverageServerLatency gösteriyor]
   * [Kuyrukta ileti tesliminde beklenmeyen gecikmeler yaşıyorsunuz]
   * [ölçümleri Göster artışı içinde PercentThrottlingError]
   * [ölçümleri Göster artışı içinde PercentTimeoutError]
   * [Ölçümler PercentNetworkError’da artış gösteriyor]
-  * [İstemci HTTP 403 (Yasak) iletileri alma]
-  * [İstemci HTTP 404 (bulunamadı) iletileri alma]
-  * [İstemci HTTP 409 (Çakışma) iletileri alma]
-  * [ölçümleri Göster düşük PercentSuccess veya analytics günlük girişlerini sahip hareket durumu işlemler ClientOtherErrors,]
+  * [Merhaba istemci HTTP 403 (Yasak) iletileri alma]
+  * [Merhaba istemci HTTP 404 (bulunamadı) iletileri alma]
+  * [Merhaba istemci HTTP 409 (Çakışma) iletileri alma]
+  * [ölçümleri Göster düşük PercentSuccess veya analytics günlük girişlerini sahip işlemler işlem durumu ClientOtherErrors]
   * [Kapasite ölçümlerini beklenmeyen artışı depolama kapasitesi kullanımı Göster]
   * [Çok sayıda ekli VHD'ler sahip sanal makinelerin beklenmeyen yeniden başlatmalar yaşıyor]
-  * [Sorununuzu geliştirme veya test için depolama öykünücüsünü kullanarak ortaya çıkar.]
-  * [.NET için Azure SDK'sını yükleme sorunlarla]
+  * [Sorununuzu geliştirme veya test için hello storage öykünücüsü kullanarak ortaya çıkar.]
+  * [.NET için Azure SDK'sı hello yüklerken sorunlarla karşılaşıyoruz]
   * [Bir depolama hizmetindeki farklı bir sorun olması]
 * [ekler]
-  * [ek 1: kullanarak HTTP ve HTTPS trafiğini yakalamak için fiddler'ı]
-  * [ek 2: ağ trafiğini yakalamak için Wireshark kullanarak]
-  * [ek 3: ağ trafiğini yakalamak için Microsoft Message Analyzer kullanarak]
-  * [Ek 4: Ölçümleri görüntülemek ve verileri günlüğe kaydetmek için Excel kullanma]
+  * [ek 1: fiddler'ı kullanarak toocapture HTTP ve HTTPS trafiğini]
+  * [ek 2: kullanarak Wireshark toocapture ağ trafiğini]
+  * [ek 3: Microsoft Message Analyzer'ı kullanarak toocapture ağ trafiğini]
+  * [Ek 4: Excel kullanarak tooview ölçümleri ve günlük verileri]
   * [ek 5: Visual Studio Team Services için Application Insights ile izleme]
 
 ## <a name="introduction"></a>Giriş
-Bu kılavuz, Azure depolama çözümlemeleri gibi özelliklerinin nasıl kullanılacağını göstermektedir istemci-tarafı Azure Storage istemci kitaplığı ve diğer üçüncü taraf araçları tanımlamak, tanılama ve Azure Storage sorun giderme için günlük kaydı ile ilgili sorunlar.
+İlgili sorunlar, Azure Storage Analytics, istemci tarafı günlüğüne hello Azure Storage istemci kitaplığı ve diğer üçüncü taraf araçları tooidentify gibi toouse özelliklerini tanılamak ve Azure Storage sorunlarını giderme bu kılavuzu gösterir.
 
 ![][1]
 
 *Şekil 1 ', tanılama, izleme ve sorun giderme*
 
-Bu kılavuz, Azure Storage Hizmetleri ve BT uzmanlarının gibi çevrimiçi hizmetlere yönetmekten sorumlu kullandığınız çevrimiçi hizmetlere geliştiricileri öncelikle tarafından okunacak yöneliktir. Bu kılavuzun hedefi şunlardır:
+Bu kılavuz öncelikli olarak Azure Storage Hizmetleri ve BT uzmanlarının gibi çevrimiçi hizmetlere yönetmekten sorumlu kullandığınız çevrimiçi hizmetlere geliştiriciler tarafından okunur hedeflenen toobe ' dir. Bu kılavuzun Hello hedefleri şunlardır:
 
-* Sistem durumunu ve performansını Azure Storage hesaplarınızı sürdürmenize yardımcı olmak için.
-* Bir sorunu veya bir uygulamadaki sorun Azure depolama birimine ilişkili değilse karar vermenize yardımcı olacak araçlar ve gerekli işlemleri ile sağlamak için.
-* Azure depolama birimine ilgili sorunları çözmek için işlem yapılabilir yönlendirme ile sağlamak için.
+* Merhaba sistem durumunu ve Azure Storage hesaplarınızı performansını korumak toohelp.
+* tooprovide hello gerekli işlemleri ve araçları toohelp karar bir sorunu veya bir uygulamadaki sorun tooAzure depolama ilişkili değilse sizinle.
+* tooAzure depolama sorunları çözmek için işlem yapılabilir rehberlik sizinle ilgili tooprovide.
 
 ### <a name="how-this-guide-is-organized"></a>Bu kılavuz nasıl düzenlenir
-Bölüm "[, depolama hizmet izlemesini]" sistem durumu ve Azure Storage Analytics ölçümleri (Storage ölçümleri) kullanarak, Azure depolama hizmetleri performansını izleme açıklar.
+Merhaba bölüm "[, depolama hizmet izlemesini]" toomonitor nasıl hello sistem durumunu ve performansını Azure Storage Analytics ölçümleri (Storage ölçümleri) kullanarak, Azure depolama hizmetleri açıklar.
 
-Bölüm "[depolama sorunları tanılama]" Azure Storage Analytics günlüğü (depolama oturum açma) kullanarak sorunları tanılamak açıklar. Ayrıca, istemci kitaplıklarından birini tesislerde .NET veya Java için Azure SDK'sı için depolama istemci kitaplığı gibi kullanarak istemci tarafı günlük kaydını etkinleştirmek nasıl açıklanır.
+Merhaba bölüm "[depolama sorunları tanılama]" nasıl toodiagnose sorunları açıklar Azure Storage Analytics günlüğü (depolama oturum açma) kullanarak. Ayrıca nasıl tooenable kullanarak istemci tarafı günlük kaydı veya .NET için hello depolama istemci kitaplığı gibi hello istemci kitaplıklarından birini tesislerde hello Java için Azure SDK hello açıklar.
 
-Bölüm "[uçtan uca izleme]" çeşitli günlük dosyalarını ve ölçüm verilerini yer alan bilgilerin nasıl ilişkilendirebilirsiniz açıklar.
+Merhaba bölüm "[uçtan uca izleme]" Merhaba bilgiler çeşitli günlük dosyalarını ve ölçüm verilerini nasıl ilişkilendirebilirsiniz açıklar.
 
-Bölüm "[sorun giderme kılavuzluğu]" karşılaşabileceğiniz bazı yaygın depolama ile ilgili sorunlar için sorun giderme kılavuzu sağlar.
+Merhaba bölüm "[sorun giderme kılavuzluğu]" bazı, karşılaşabileceğiniz hello ortak depolama ile ilgili sorunları için sorun giderme kılavuzu sağlar.
 
-"[ekler]" Çözümleme ağ paket verileri, HTTP/HTTPS iletileri, çözümleme için fiddler'ı ve Microsoft Message Analyzer'ı ilişkilendirme için günlük verileri için Wireshark ve Netmon gibi diğer araçları kullanma hakkında bilgi içerir.
+Merhaba "[ekler]" Çözümleme ağ paket verileri, HTTP/HTTPS iletileri, çözümleme için fiddler'ı ve Microsoft Message Analyzer'ı ilişkilendirme için günlük verileri için Wireshark ve Netmon gibi diğer araçları kullanma hakkında bilgi içerir.
 
 ## <a name="monitoring-your-storage-service"></a>Depolama hizmet izleme
-Windows performans izleme ile hakkında bilginiz varsa, depolama ölçümlerini Windows Performans İzleyicisi sayaçları Azure Storage denk olarak düşünebilirsiniz. Depolama ölçümleri hizmet kullanılabilirliği, hizmet isteklerinin toplam sayısı veya hizmetine başarılı istek yüzdesi gibi ölçümleri (Windows Performans İzleyicisi terminolojisi sayaçları) kapsamlı bir kümesini bulabilirsiniz (tam listesini görmek için kullanılabilir ölçümler görmek <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics Ölçüm tablosu şeması</a> MSDN'de). Her saat veya dakikada ölçümleri toplama için depolama birimi hizmeti isteyip istemediğinizi belirtebilirsiniz. Ölçümleri etkinleştirmek ve depolama hesaplarınızı izlemek hakkında daha fazla bilgi için bkz: <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">depolama ölçümlerini etkinleştirme</a> konusuna bakın.
+Windows performans izleme ile hakkında bilginiz varsa, depolama ölçümlerini Windows Performans İzleyicisi sayaçları Azure Storage denk olarak düşünebilirsiniz. Depolama ölçümleri (tam listesi hello için ölçümleri (Windows Performans İzleyicisi terminolojisi sayaçları) hizmet kullanılabilirliği, istekleri tooservice toplam sayısı veya başarılı istekler tooservice yüzdesi gibi kapsamlı bir kümesini bulabilirsiniz kullanılabilir ölçümler görmek <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics Ölçüm tablosu şeması</a> MSDN'de). Merhaba depolama hizmeti toocollect ve birleşik ölçümleri her saat veya dakikada isteyip istemediğinizi belirtebilirsiniz. Depolama hesaplarınızı tooenable ölçümleri ve İzleyici nasıl görürüm hakkında daha fazla bilgi için <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">depolama ölçümlerini etkinleştirme</a> konusuna bakın.
 
-İstediğiniz Azure Klasik Portalı'nda görüntülemek ve yöneticiler tarafından bildirim kurallarını yapılandırmak için hangi saatlik ölçümleri, saatlik bir ölçüm belirli bir eşiği aştığında, e-posta seçebilirsiniz (sayfanın daha fazla bilgi için bkz <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">nasıl yapılır: alma Uyarı bildirimleri ve Azure uyarı kurallarını yönet</a>). Depolama hizmetinin en iyi çaba kullanarak ölçümleri toplar, ancak her depolama işlemi kayıt.
+İstediğiniz toodisplay hangi saatlik ölçümleri Klasik Azure portalı hello ve bir saatlik ölçümü belirli bir eşiği aştığında, yöneticilerin e-posta ile bildirim kurallarını yapılandırma seçebilirsiniz (daha fazla bilgi için başlangıç sayfasını görmek <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">nasıl yapılır: Uyarı Bildirimleri Alma ve Azure uyarı kurallarını yönet</a>). Merhaba depolama hizmeti en iyi çaba kullanarak ölçümleri toplar, ancak her depolama işlemi kayıt.
 
-Şekil 2'in altında Azure Klasik portalında kullanılabilirlik, toplam istek sayısı ve bir depolama hesabı için ortalama gecikme süresi numaraları gibi ölçümleri görüntüleyebileceğiniz izleme sayfası gösterir. Bir bildirim kuralı da kullanılabilirlik belirli bir düzeyin altına düşerse bir yönetici sizi uyarmak için ayarlanmış olan. Bu verileri görüntülemelerini, bir olası araştırma için % 100 olan tablo hizmeti başarı oranı alanıdır (daha fazla bilgi için bkz "[ölçümleri Göster düşük PercentSuccess veya analytics günlük girişlerini sahip hareket durumu işlemler ClientOtherErrors,]").
+Şekil 2'in altında hello Azure Klasik portalı kullanılabilirlik, toplam istek sayısı ve bir depolama hesabı için ortalama gecikme süresi numaraları gibi ölçümleri görüntüleyebileceğiniz hello izleme sayfası gösterilir. Kullanılabilirlik belirli bir düzeyin altına düşerse bir bildirim kuralı da tooalert yönetici ayarlandı. Bu verileri görüntülemelerini, bir olası araştırma için hello tablo hizmeti başarı Oranı % 100 olan alanıdır (daha fazla bilgi için hello bölümüne bakın "[ölçümleri Göster düşük PercentSuccess veya analytics günlük girişlerini sahip işlemler işlem durumu ClientOtherErrors]").
 
 ![][2]
 
-*Şekil 2'de depolama ölçümleri Azure Klasik Portalı'nda görüntüleme*
+*Şekil 2'hello Azure Klasik portalı storage ölçümleri görüntüleme*
 
-Sürekli olarak sağlıklı ve tarafından beklendiği gibi gerçekleştirme olduklarından emin olmak için Azure uygulamalarınızı izlemeniz gerekir:
+Sürekli olarak sağlıklı ve tarafından beklendiği gibi gerçekleştirirken, Azure uygulamalarını tooensure izlemeniz gerekir:
 
-* Bazı temel ölçümleri geçerli verileri karşılaştırmak ve Azure depolama ve uygulamanızın davranışını önemli değişiklikler belirlemenize olanak tanır uygulaması oluşturma. Taban çizgisi ölçümlerinizi değerlerini çoğu durumda, uygulamaya özel olacaktır ve uygulamanızı test etme performans olduğunda bunları oluşturmanız gerekir.
-* Dakika ölçümleri kaydetme ve bunları beklenmeyen hatalar ve hata ani gibi daha fazla bilgi için etkin olarak izlemek için kullanarak sayar veya oranları isteyin.
-* Saatlik ölçümleri kaydetme ve ortalama değerler gibi izlemek üzere onları kullanmasına hata sayıları ortalama ve oranları isteyin.
-* Sonraki bölümde açıklandığı gibi tanılama araçlarını kullanarak olası sorunları Araştırıyor "[depolama sorunları tanılama]."
+* Toocompare geçerli verileri etkinleştirir ve önemli değişiklikler davranışlarındaki hello Azure depolama ve uygulamanızı tanımlamak bazı temel ölçümleri uygulaması oluşturma. taban çizgisi ölçümlerinizi Hello değerlerini çoğu durumda, uygulamaya özel olacaktır ve uygulamanızı test etme performans olduğunda bunları oluşturmanız gerekir.
+* Dakika ölçümleri kaydetme ve bunları toomonitor etkin olarak beklenmeyen hatalar ve hata sayısı veya istek hızları ani gibi daha fazla bilgi için kullanma.
+* Saatlik ölçümleri kaydı gibi toomonitor ortalama değerleri kullanarak hata sayıları ortalama ve istek hızları.
+* Daha sonra hello bölümünde açıklandığı gibi tanılama araçlarını kullanarak olası sorunları Araştırıyor "[depolama sorunları tanılama]."
 
-Şekil 3'te aşağıdaki grafiklerde nasıl saatlik ölçümlerini oluşur ortalaması ani etkinliğinde gizleyebilirsiniz gösterilmektedir. Bir hızda isteklerinin gerçekleşmekte olan gerçekten dalgalanmaları ölçümleri ortaya dakika sırasında göstermek için saatlik ölçümleri görünür.
+Aşağıdaki şekil 3 Hello grafiklerde nasıl hello için saatlik ölçümleri oluşan ortalama ani etkinliğinde gizleyebilirsiniz gösterilmektedir. Merhaba saatlik ölçümleri tooshow bir hızda isteklerinin gerçekleşmekte olan gerçekten hello dalgalanmaları ölçümleri ortaya hello dakika görünür.
 
 ![][3]
 
-Bu bölüm geri kalanı izlemek hangi ölçümleri açıklar ve neden.
+Merhaba Bu bölüm geri kalanı açıklar izlemek hangi ölçümleri ve neden.
 
 ### <a name="monitoring-service-health"></a>Hizmet durumu izleme
-Kullanabileceğiniz [Klasik Azure portalı](https://manage.windowsazure.com) dünyanın tüm Azure bölgeleri Depolama Birimi Hizmeti (ve diğer Azure hizmetleriyle) durumunu görüntülemek için. Bu, uygulamanız için kullandığınız bölgede depolama hizmeti denetiminiz dışında bir sorun söz konusu hemen görmenizi sağlar.
+Merhaba kullanabilirsiniz [Klasik Azure portalı](https://manage.windowsazure.com) tooview hello durumunu tüm hello Depolama Birimi Hizmeti (ve diğer Azure hizmetleriyle) hello Merhaba Dünya Azure bölgeleri. Merhaba, uygulamanız için kullandığınız hello bölgede depolama hizmeti denetiminiz dışında bir sorun söz konusu ise bu toosee hemen sağlar.
 
-Klasik Azure portalı ile çeşitli Azure hizmetlerine etkileyen olayların bildirimleri de sağlayabilirsiniz.
-Not: Bu bilgiler Azure hizmet Panosu'nu hakkında geçmiş verileri birlikte önceden kullanılabilir <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
+Merhaba Klasik Azure portalı, çeşitli Azure hizmetlerine ile Merhaba etkileyen olayların bildirimleri de sağlayabilirsiniz.
+Not: Bu bilgiler geçmiş verilerinin yanı sıra, daha önce kullanılabilir, üzerinde Azure hizmet Panosu'nu adresindeki hello <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
 
-Azure Klasik Portalı'nı (Inside out izleme) Azure veri merkezleri içinde durumu bilgisi toplarken, ayrıca düzenli aralıklarla Azure barındırılan web erişim yapay işlemler oluşturmak için bir dış bileşenini yaklaşım benimsenmesi deneyebilirsiniz Uygulama konumlardan. Tarafından sunulan hizmetler <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">açılış konuşması</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a>, ve Visual Studio Team Services için Application Insights bu dışında yaklaşımın örnekler verilmiştir. Ek Visual Studio Team Services için Application Insights hakkında daha fazla bilgi için bkz: "[ek 5: Visual Studio Team Services için Application Insights ile izleme]."
+Merhaba Klasik Azure portalı sistem durumu bilgisi toplarken gelen hello (Inside out izleme), Azure veri merkezleri içinde ayrıca düzenli aralıklarla Azure tarafından barındırılan erişim bir yaklaşım dışında bileşenini toogenerate yapay işlemler benimsenmesi deneyebilirsiniz Web uygulaması konumlardan. Merhaba tarafından sunulan hizmetlerin <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">açılış konuşması</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a>, ve Visual Studio Team Services için Application Insights bu dışında yaklaşımın örnekler verilmiştir. Visual Studio Team Services için Application Insights hakkında daha fazla bilgi için bkz: hello ek "[ek 5: Visual Studio Team Services için Application Insights ile izleme]."
 
 ### <a name="monitoring-capacity"></a>Kapasite izleme
-Depolama ölçümleri BLOB'ları tipik olarak depolanan veriler büyük oranda için hesap için blob hizmeti için kapasite ölçümlerini yalnızca depolar (yazıldığı sırada, tablolar ve Kuyruklar kapasitesini izlemek için depolama ölçümleri kullanmak mümkün değildir). Bu verilerde bulabilirsiniz **$MetricsCapacityBlob** Blob hizmeti için izleme etkinleştirilirse tablo. Depolama ölçümleri günde bir kez bu verileri kaydeder ve değerini kullanabilir **RowKey** satır kullanıcı verilerini ilişkili bir varlık içerip içermediğini belirlemek için (değer **veri**) ya da analiz verileri (değer **analytics**). Saklı her varlık kullanılan depolama alanı miktarı hakkında bilgi içerir (**kapasite** bayt cinsinden ölçülür) ve kapsayıcılar geçerli sayısı (**ContainerCount**) ve blobları (**ObjectCount**) depolama hesabı kullanımda. Depolanan kapasite ölçümleri hakkında daha fazla bilgi için **$MetricsCapacityBlob** tablo için bkz: <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics Ölçüm tablosu şeması</a> konusuna bakın.
+Depolama ölçümleri BLOB'lar için hello en büyük oranda depolanan verilerin genellikle hesap çünkü hello blob hizmeti için kapasite ölçümlerini yalnızca depolar (Merhaba yazıldığı sırada, olası toouse Storage ölçümleri toomonitor hello kapasitesini tablolar ve Kuyruklar olmadığı) . Bu veriler hello bulabilirsiniz **$MetricsCapacityBlob** hello Blob hizmeti için izleme etkinleştirilirse tablo. Depolama ölçümleri günde bir kez bu verileri kaydeder ve hello hello değerini kullanabilirsiniz **RowKey** toodetermine hello satır toouser veri ilişkili bir varlık içerip içermediğini (değer **veri**) veya analytics veri ( değer **analytics**). Saklı her varlık hello kullanılan depolama alanı miktarı hakkında bilgi içerir (**kapasite** bayt cinsinden ölçülür) ve Merhaba kapsayıcılara geçerli sayısı (**ContainerCount**) ve blobları ( **ObjectCount**) hello depolama hesabı kullanımda. Hello depolanan hello kapasite ölçümleri hakkında daha fazla bilgi için **$MetricsCapacityBlob** tablo için bkz: <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics Ölçüm tablosu şeması</a> konusuna bakın.
 
 > [!NOTE]
-> Bu değerler, depolama hesabının kapasite limitlerini yaklaştığı erken bir uyarı için izlemeniz gerekir. Azure Klasik portalında üzerinde **İzleyici** sayfa depolama hesabınız için birleşik depolama kullanımı aşıyor veya belirttiğiniz eşiklerin altına düştüğünde size bildirmek için uyarı kuralı ekleyebilirsiniz.
+> Depolama hesabınızın hello kapasite limitlerini yaklaştığı erken bir uyarı için bu değerleri izlemeniz gerekir. Merhaba Klasik Azure portalı, hello üzerinde içinde **İzleyici** sayfa depolama hesabınız için size birleşik depolama kullanımı aşarsa veya belirttiğiniz eşiklerin altına düştüğünde uyarı kuralları toonotify ekleyebilirsiniz.
 > 
 > 
 
-Yardım almak için blog gönderisine bakın BLOB'lar gibi çeşitli depolama nesneleri boyutunu tahmin etme <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx" target="_blank">anlama Azure depolama faturalama – bant genişliği, işlemleri ve kapasite</a>.
+Merhaba blog gönderisi BLOB'ları gibi çeşitli depolama nesnelerinin Hello boyutunu tahmin etme Yardım için bkz <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx" target="_blank">anlama Azure depolama faturalama – bant genişliği, işlemleri ve kapasite</a>.
 
 ### <a name="monitoring-availability"></a>Kullanılabilirlik izlemesi
-Depolama hizmetlerinin kullanılabilirliğini değeri izleyerek depolama hesabınızdaki izlemeniz gerekir **kullanılabilirlik** saat veya dakika ölçümleri tablo sütununda — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. **Kullanılabilirlik** sütunu içeriyor hizmeti veya satırın tarafından temsil edilen API işlemi kullanılabilirliğini gösteren bir yüzde değeri ( **RowKey** satır ölçümleri bir bütün olarak hizmet veya belirli bir API işlemi için bulunup bulunmadığını gösterir).
+Merhaba depolama hizmetleri hello kullanılabilirliğini hello hello değerinde izleyerek depolama hesabınızdaki izlemeniz gerekir **kullanılabilirlik** sütununda hello saat veya dakika ölçümleri tablolar — **$ MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$ MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$ MetricsCapacityBlob**. Merhaba **kullanılabilirlik** sütun hello kullanılabilirliğini hello hizmet veya hello satır tarafından temsil edilen hello API işlemi gösteren bir yüzde değeri içeriyor (Merhaba **RowKey** hello satır içerip içermediğini gösterir Ölçümler bir bütün olarak hello hizmet veya belirli bir API işlemi).
 
-% 100'değerinden küçük bir değer gösterir bazı depolama istekleri başarısız oluyor. Bunlar farklı hata türleri ile isteklerinin sayısı gibi göster ölçüm verilerini diğer sütunlardaki inceleyerek neden çözümleyemiyor görebilirsiniz **ServerTimeoutError**. Görmeyi beklemelisiniz **kullanılabilirlik** sonbaharda geçici olarak hizmet sırasında geçici sunucu zaman aşımı gibi nedenlerle % 100 aşağıda taşır bölümleri daha iyi yük dengelemesi isteğine; yeniden deneme mantığı, istemci uygulamanızda aralıklı gibi koşullar işlemelidir. Sayfa <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"> </a> depolama ölçümlerini içerir işlem türlerini listeler kendi **kullanılabilirlik** hesaplama.
+% 100'değerinden küçük bir değer gösterir bazı depolama istekleri başarısız oluyor. Bunlar inceleyerek neden çözümleyemiyor görebilirsiniz hello sayıda farklı hata türleri ile isteği gibi göster hello ölçüm verilerini diğer sütunlardaki hello **ServerTimeoutError**. Toosee beklemelisiniz **kullanılabilirlik** gibi hello hizmet bölümleri toobetter Yük Dengeleme isteği hareket ederken geçici sunucu zaman aşımı nedeniyle geçici olarak % 100 aşağıda sonbaharda; hello istemci uygulamanızı mantığı yeniden dene Bu tür aralıklı koşullar işlemelidir. Merhaba sayfa <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"> </a> listeleri hello depolama ölçümlerini içerir işlem türleri kendi **kullanılabilirlik** hesaplama.
 
-Azure Klasik portalında üzerinde **İzleyici** sayfa depolama hesabınız için olmadığını bildirmek için uyarı kuralı ekleyebilirsiniz **kullanılabilirlik** hizmet belirttiğiniz bir eşiğin altına düşmesi için.
+Merhaba Klasik Azure portalı, hello üzerinde içinde **İzleyici** sayfa depolama hesabınız için uyarı kuralları toonotify ekleyebilirsiniz, varsa **kullanılabilirlik** hizmet belirttiğiniz bir eşiğin altına düşmesi için.
 
-"[sorun giderme kılavuzluğu]" başlığına bakın kullanılabilirliğini ilgili bazı yaygın depolama hizmeti sorunlar anlatılmaktadır.
+Merhaba "[sorun giderme kılavuzluğu]" bölümünde bu kılavuzun bazı ortak depolama hizmeti sorunları ilgili tooavailability açıklar.
 
 ### <a name="monitoring-performance"></a>Performans izleme
-Depolama Hizmetleri performansını izlemek için aşağıdaki ölçümleri saat ve dakika ölçümleri tablolardaki kullanabilirsiniz.
+hello performansını hello depolama hizmetleri toomonitor, kullanabileceğiniz hello ölçümleri hello saatlik izleyerek ve ölçümleri tabloları dakika.
 
-* Değerler **AverageE2ELatency** ve **AverageServerLatency** ortalama süre depolama hizmeti göster veya API işlem türü için işlem istekleri sürüyor. **AverageE2ELatency** isteği okumak ve yanıt isteğini işlemek için harcanan süre ek olarak göndermek için geçen süre dahildir uçtan uca gecikme ölçüsüdür (Depolama Birimi hizmeti istek ulaştığında bu nedenle ağ gecikmesi içerir); **AverageServerLatency** bir ölçüdür yalnızca işlem süresi ve bu nedenle istemcinin iletişim kurmasına ilgili tüm ağ gecikmesi dışlar. Bölümüne bakın "[ölçümleri Göster yüksek AverageE2ELatency ve düşük AverageServerLatency]" neden Tartışması için bu kılavuzda daha sonra bu iki değer arasında önemli bir fark olabilir.
-* Değerler **Totalıngress** ve **TotalEgress** gelen ve depolama hizmeti dışında veya belirli bir API işlemi türü üzerinden giderek sütunlar veri, toplam miktarını bayt cinsinden gösterir.
-* Değerler **TotalRequests** Sütun Göster API işlemi depolama hizmetini alma isteklerinin toplam sayısı. **TotalRequests** depolama hizmetinin aldığı isteklerinin toplam sayısı.
+* Merhaba hello değerleri **AverageE2ELatency** ve **AverageServerLatency** hello ortalama süre hello depolama hizmeti veya API işlem türü tooprocess istekleri sürüyor göster. **AverageE2ELatency** tooread hello isteği geçen hello süre içeren uçtan uca gecikme ölçüsüdür ve ayrıca toohello geçen süre tooprocess hello istekte hello yanıt gönderme (Merhaba isteği sonra bu nedenle ağ gecikmesi içerir Merhaba depolama hizmeti ulaştığında); **AverageServerLatency** bir ölçüdür yalnızca hello işlem süresi ve bu nedenle ilgili herhangi bir ağ gecikmesi dışlar hello istemcisi ile toocommunicating. Merhaba bölümüne bakın "[ölçümleri Göster yüksek AverageE2ELatency ve düşük AverageServerLatency]" neden Tartışması için bu kılavuzda daha sonra bu iki değer arasında önemli bir fark olabilir.
+* Merhaba hello değerleri **Totalıngress** ve **TotalEgress** depolama hizmetinizi dışında veya belirli bir API işlemi türü üzerinden giderek tooand içinde gelen sütunlar hello toplam veri miktarını bayt cinsinden gösterir.
+* Merhaba hello değerleri **TotalRequests** Sütun Göster hello isteklerinin toplam sayısı, depolama birimi hizmeti API işleminin hello alma. **TotalRequests** hello hello depolama hizmeti aldığı isteklerinin toplam sayısı.
 
 Genellikle, bu değerleri beklenmeyen değişiklikleri araştırma gerektiren bir sorun olduğunu bir göstergesi olarak izlenir.
 
-Azure Klasik portalında üzerinde **İzleyici** sayfa depolama hesabınız için bu hizmet için performans ölçümleri hiçbirini altına düşmesine ya da belirttiğiniz bir eşiği aşması durumunda sizi bilgilendirmesi için uyarı kuralı ekleyebilirsiniz.
+Merhaba Klasik Azure portalı, hello üzerinde içinde **İzleyici** sayfa depolama hesabınız için toonotify, bu hizmet için hello performans ölçümlerini varsa altına düşmesine veya belirttiğiniz bir eşiği aşması uyarı kuralı ekleyebilirsiniz.
 
-"[sorun giderme kılavuzluğu]" başlığına bakın performansı ile ilgili bazı yaygın depolama hizmeti sorunlar anlatılmaktadır.
+Merhaba "[sorun giderme kılavuzluğu]" bölümünde bu kılavuzun bazı ortak depolama hizmeti sorunları ilgili tooperformance açıklar.
 
 ## <a name="diagnosing-storage-issues"></a>Depolama sorunları tanılama
 Uygulamanızda bir sorun veya sorun uyumlu hale gelebilir çeşitli yollarla vardır, bunlar:
 
-* Uygulamanın kilitlenmesine veya çalışmayı durdurmasına neden önemli bir hata.
-* Önceki bölümde açıklandığı gibi izlemekte ölçümleri temel değerlerinden önemli değişiklikler "[, depolama hizmet izlemesini]."
+* Merhaba uygulama toocrash veya toostop çalışma neden önemli bir hata.
+* İzlediğiniz hello önceki bölümde açıklandığı gibi hello ölçümleri temel değerlerinden önemli değişiklikler "[, depolama hizmet izlemesini]."
 * Raporlar, uygulamanızın belirli bazı işleminin beklendiği gibi tamamlanmadığını kullanıcılardan veya bazı özelliği çalışmıyor.
 * Uygulama içinde oluşturulan hatalar, günlük dosyalarında veya başka bir bildirim yöntem aracılığıyla görünür.
 
-Genellikle, Azure depolama hizmetleri ile ilgili sorunları geniş dört kategoriden ayrılır:
+Genellikle, sorunları ilgili tooAzure depolama hizmetleri geniş dört kategoriden ayrılır:
 
-* Uygulamanız, kullanıcılar tarafından bildirilen ya da performans ölçümleri değişikliklerinden ortaya bir performans sorunu var.
-* Bir veya daha fazla bölgelerdeki Azure Storage altyapı ile ilgili bir sorun yoktur.
-* Uygulamanızı kullanıcılarınız tarafından bildirilen veya izlemenizi hata sayısı ölçümleri bir artış tarafından açığa hatayla karşılaşıyor.
-* Geliştirme ve test sırasında yerel depolama öykünücüsünü kullanarak; Depolama öykünücüsü sahip kullanım için özellikle ilgili bazı sorunlarla karşılaşabilirsiniz.
+* Uygulamanız, kullanıcılar tarafından bildirilen veya hello performans ölçümleri değişikliklerinden ortaya bir performans sorunu var.
+* Bir veya daha fazla bölgelerde hello Azure Storage altyapı ile ilgili bir sorun yoktur.
+* Uygulamanızı kullanıcılarınız tarafından bildirilen veya izlemenizi hello hata sayısı ölçümleri bir artış tarafından açığa hatayla karşılaşıyor.
+* Geliştirme ve test sırasında hello yerel depolama öykünücüsü kullanarak; özellikle toousage hello depolama öykünücüsünü ile ilgili bazı sorunlarla karşılaşabilirsiniz.
 
-Aşağıdaki bölümlerde izleyeceğiniz adımlar verilmiştir tanılamak ve her şu dört kategoriden sorunlarını gidermek için. Bölüm "[sorun giderme kılavuzluğu]" Bu kılavuzda daha sonra karşılaşabileceğiniz bazı yaygın sorunlar için daha fazla ayrıntı sağlar.
+Merhaba aşağıdaki bölümlerde toodiagnose izleyin ve her şu dört kategoriden sorunlarını giderme hello adımları verilmiştir. Merhaba bölüm "[sorun giderme kılavuzluğu]" Bu kılavuzda daha sonra karşılaşabileceğiniz bazı yaygın sorunlar için daha fazla ayrıntı sağlar.
 
 ### <a name="service-health-issues"></a>Hizmet sistem durumu sorunları
-Hizmet durumu genellikle denetimi dışında sorunlardır. Klasik Azure portalı depolama hizmetleri de dahil olmak üzere Azure Hizmetleri ile devam eden sorunları hakkında bilgi sağlar. Depolama hesabınızı oluştururken okuma erişimli coğrafi olarak yedekli depolama için ettiyseniz, ardından verilerinizi birincil konumda kullanılamıyor olması durumunda, uygulamanızın geçici olarak ikincil konumdaki salt okunur kopyaya geçiş. Bunu yapmak için uygulamanızın birincil ve ikincil depolama konumları kullanarak arasında geçiş yapabilir ve azaltılmış işlevsellik modunda salt okunur verileri ile çalışabilmek için gerekir. Azure Storage istemci kitaplıkları, birincil depolama biriminden okuma başarısız olursa, ikincil depolama biriminden okuyabilen bir yeniden deneme ilkesi tanımlamanıza olanak sağlar. Uygulamanız, ayrıca ikincil konumdaki verileri sonuçta tutarlı olduğundan emin olması gerekir. Daha fazla bilgi için blog gönderisine bakın <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Azure Depolama artıklık seçenekleri ve okuma erişimli coğrafi olarak yedekli depolama</a>.
+Hizmet durumu genellikle denetimi dışında sorunlardır. Merhaba Klasik Azure portalı depolama hizmetleri de dahil olmak üzere Azure Hizmetleri ile devam eden sorunları hakkında bilgi sağlar. Depolama hesabınızı oluştururken okuma erişimli coğrafi olarak yedekli depolama için ettiyseniz, ardından hello olay hello birincil konumda kullanılabilir olan, verilerinizin uygulamanızı geçici olarak toohello salt okunur kopyasını hello ikincil konumdaki geçiş. toodo Bu, uygulamanızın mümkün tooswitch hello birincil ve ikincil depolama konumları kullanarak arasında olmalı ve salt okunur verilerle azaltılmış işlevsellik modunda mümkün toowork olması gerekir. Hello Azure Storage istemcisi kitaplıklarını toodefine birincil depolama biriminden okuma başarısız olursa, ikincil depolama biriminden okuyabilen bir yeniden deneme ilkesi izin verin. Uygulamanız da toobe hello veri hello ikincil konumdaki sonuçta tutarlı olduğunu kullanan gerekir. Daha fazla bilgi için bkz: hello blog gönderisi <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Azure Depolama artıklık seçenekleri ve okuma erişimli coğrafi olarak yedekli depolama</a>.
 
 ### <a name="performance-issues"></a>Performans sorunları
-Bir uygulamanın performansı, özellikle kullanıcının bakış açısıyla, öznel olabilir. Bu nedenle, bir performans sorunu olabilecek yerleri belirlemek için temel ölçümlere sahip olmak önemlidir. Birçok faktöre bir Azure depolama hizmeti istemci uygulaması perspektifinden performansını etkileyebilir. Bu etkenler depolama birimi hizmeti, istemci veya ağ altyapısı çalışabilir; Bu nedenle performans sorunu kaynağını tanımlamak için bir strateji olması önemlidir.
+bir uygulamanın performansını Hello özellikle kullanıcı açısından öznel olabilir. Bu nedenle, önemli toohave temel ölçümleri kullanılabilir toohelp tanımlarsınız olduğu olabilir burada bir performans sorunu. Birçok faktöre bir Azure depolama hizmeti hello istemci uygulama açısından hello performansını etkileyebilir. Bu etkenler hello depolama birimi hizmeti, hello istemci veya hello ağ altyapısı çalışabilir; Bu nedenle önemli toohave hello performans sorunu hello kaynağını tanımlamak için bir strateji olur.
 
-Büyük olasılıkla konumunu ölçümleri performans sorundan neden tanımladıktan sonra tanılama ve daha ayrıntılı sorun giderme için ayrıntılı bilgi için günlük dosyalarını kullanabilirsiniz.
+Hello ölçümleri hello performans sorunu hello nedeni büyük olasılıkla konumunu hello tanımladıktan sonra kullanım hello günlük dosyaları toofind hello daha fazla sorun giderme ve bilgi toodiagnose ayrıntılı sonra kullanabilirsiniz.
 
-Bölüm "[sorun giderme kılavuzluğu]" ilgili bazı yaygın performans hakkında daha fazla bilgi sorunları daha sonra bu kılavuzdaki sağlar karşılaşabilirsiniz.
+Merhaba bölüm "[sorun giderme kılavuzluğu]" ilgili bazı yaygın performans hakkında daha fazla bilgi sorunları daha sonra bu kılavuzdaki sağlar karşılaşabilirsiniz.
 
 ### <a name="diagnosing-errors"></a>Hatalarını tanılama
-Uygulamanızın kullanıcılarının, istemci uygulaması tarafından bildirilen hataların bilgilendirebilirsiniz. Depolama ölçümleri de kaydeder, depolama hizmetleri farklı hata türlerinden sayısı gibi **NetworkError**, **ClientTimeoutError**, veya **AuthorizationError**. Depolama ölçümleri farklı hata türlerinin sayısı yalnızca kayıtları olsa da, sunucu tarafı, istemci tarafı ve ağ günlüklerini inceleyerek istekleri ayrı ayrı hakkında daha fazla ayrıntı elde edebilirsiniz. Genellikle, depolama hizmet tarafından döndürülen HTTP durum kodunu neden isteği başarısız göstergesidir verecektir.
+Uygulamanızın kullanıcılarının, hello istemci uygulaması tarafından bildirilen hataların bilgilendirebilirsiniz. Depolama ölçümleri de kaydeder, depolama hizmetleri farklı hata türlerinden sayısı gibi **NetworkError**, **ClientTimeoutError**, veya **AuthorizationError**. Depolama ölçümleri farklı hata türlerinin sayısı yalnızca kayıtları olsa da, sunucu tarafı, istemci tarafı ve ağ günlüklerini inceleyerek istekleri ayrı ayrı hakkında daha fazla ayrıntı elde edebilirsiniz. Genellikle, hello depolama hizmet tarafından döndürülen hello HTTP durum kodunu neden hello isteği başarısız göstergesidir verecektir.
 
 > [!NOTE]
-> Bazı aralıklı hatalar görmeyi beklediğiniz unutmayın: Örneğin, geçici ağ koşulları nedeniyle hatalar veya uygulama hataları.
+> Bazı aralıklı hatalar toosee beklemelisiniz unutmayın: Örneğin, tootransient ağ koşulları nedeniyle hatalar veya uygulama hataları.
 > 
 > 
 
-MSDN'de aşağıdaki kaynaklar, depolama ile ilgili durum ve hata kodları anlamak için kullanışlıdır:
+Merhaba MSDN'de aşağıdaki kaynaklara depolama ilgili durum ve hata kodları anlamak için kullanışlıdır:
 
 * <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Ortak REST API hata kodları</a>
 * <a href="http://msdn.microsoft.com/library/azure/dd179439.aspx" target="_blank">BLOB hizmeti hata kodları</a>
@@ -209,71 +209,71 @@ MSDN'de aşağıdaki kaynaklar, depolama ile ilgili durum ve hata kodları anlam
 * <a href="http://msdn.microsoft.com/library/azure/dd179438.aspx" target="_blank">Tablo hizmeti hata kodları</a>
 
 ### <a name="storage-emulator-issues"></a>Depolama öykünücüsü sorunları
-Azure SDK'sı bir geliştirme iş istasyonunda çalıştırabilirsiniz bir depolama öykünücüsü içerir. Bu öykünücüsü çoğu Azure storage Hizmetleri davranışını taklit eder ve geliştirme ve test etme sırasında bir Azure aboneliği ve Azure storage hesabı gerek kalmadan Azure storage hizmetleri kullanan uygulamaları çalıştırmak etkinleştirme kullanışlıdır.
+Hello Azure SDK'sı bir geliştirme iş istasyonunda çalıştırabilirsiniz bir depolama öykünücüsü içerir. Bu öykünücüsü çoğu hello Azure storage Hizmetleri hello davranışını taklit eder ve geliştirme ve sınama sırasında faydalı olur, toorun etkinleştirme hello olmadan Azure storage hizmetleri kullanan uygulamaları bir Azure aboneliği ve Azure depolama hesabı için gerekir.
 
-"[sorun giderme kılavuzluğu]" bölümünde bu kılavuzun storage öykünücüsü kullanarak karşılaşılan bazı yaygın sorunları açıklar.
+Merhaba "[sorun giderme kılavuzluğu]" bölümünde bu kılavuzun hello storage öykünücüsü kullanarak karşılaşılan bazı yaygın sorunları açıklar.
 
 ### <a name="storage-logging-tools"></a>Depolama günlük araçları
-Depolama günlük depolama istekleri Azure depolama hesabınızdaki sunucu tarafı günlüğe kaydedilmesini sağlar. Sunucu tarafı günlüğünü etkinleştirin ve günlük veri erişimi hakkında daha fazla bilgi için bkz: <a href="http://go.microsoft.com/fwlink/?LinkId=510867" target="_blank">kullanarak sunucu tarafı günlük kaydı</a> konusuna bakın.
+Depolama günlük depolama istekleri Azure depolama hesabınızdaki sunucu tarafı günlüğe kaydedilmesini sağlar. Tooenable sunucu tarafı günlüğe kaydetme ve erişim hello verileri nasıl oturum hakkında daha fazla bilgi için bkz: <a href="http://go.microsoft.com/fwlink/?LinkId=510867" target="_blank">kullanarak sunucu tarafı günlük kaydı</a> MSDN'de.
 
-.NET için depolama istemci kitaplığı, uygulamanız tarafından gerçekleştirilen depolama işlemleri ilişkili istemci tarafı günlük verilerini toplamanıza olanak sağlar. İstemci-tarafı günlüğünü etkinleştirin ve günlük veri erişimi hakkında daha fazla bilgi için bkz: <a href="http://go.microsoft.com/fwlink/?LinkId=510868" target="_blank">istemci-tarafı için depolama istemci kitaplığı kullanılarak oturum</a> konusuna bakın.
+Merhaba .NET için depolama istemci kitaplığı, uygulamanız tarafından gerçekleştirilen toostorage işlemleri ilişkili toocollect istemci-tarafı günlük verilerini sağlar. Tooenable istemci-tarafı günlüğe kaydetme ve erişim hello verileri nasıl oturum hakkında daha fazla bilgi için bkz: <a href="http://go.microsoft.com/fwlink/?LinkId=510868" target="_blank">istemci-tarafı kullanarak günlük kaydı depolama istemci kitaplığı hello</a> MSDN'de.
 
 > [!NOTE]
-> Bazı durumlarda (örneğin, SAS yetkilendirme hataları), bir kullanıcı sunucu tarafı depolama günlüklerinde hiçbir istek verileri bulabilirsiniz hata bildirebilir. Sorunun nedenini istemcide ise araştırmak için depolama istemci kitaplığı günlüğe kaydetme özelliklerini kullanın ya da ağ araştırmak için ağ izleme araçları kullanın.
+> Bazı durumlarda (örneğin, SAS yetkilendirme hataları), bir kullanıcı için hiçbir istek verileri hello sunucu tarafı depolama günlüklerine bulabileceğiniz bir hata bildirebilir. Merhaba hello sorunun nedenini hello istemcide ise hello depolama istemci kitaplığı tooinvestigate hello günlüğe kaydetme özelliklerini kullanın veya ağ araçları tooinvestigate hello ağ izleme kullanın.
 > 
 > 
 
 ### <a name="using-network-logging-tools"></a>Ağ günlük araçlarını kullanarak
-İstemci ve sunucu değişimi verileri ve temel ağ koşulları hakkında ayrıntılı bilgi sağlamak için istemci ve sunucu arasındaki trafiği yakalayabilirsiniz. Yararlı ağ günlük araçlarını içerir:
+Ayrıntılı hello istemci ve sunucu tooprovide arasında hello trafiği yakalayabilir değişimi ve ağ koşulları altındaki hello hello veri hello istemci ve sunucu hakkında bilgi verilmiştir. Yararlı ağ günlük araçlarını içerir:
 
-* Fiddler (<a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>) üst bilgileri ve HTTP ve HTTPS istek ve yanıt iletileri yükü verilerini incelemek sağlayan proxy hata ayıklama ücretsiz bir Web. Daha fazla bilgi için "[ek 1: kullanarak HTTP ve HTTPS trafiğini yakalamak için fiddler'ı]".
-* Microsoft Ağ İzleyicisi'nin (Netmon) (<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/download/details.aspx?id=4865</a>) ve Wireshark (<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>) boş ağ etkinleştirmek protokol Çözümleyicileri için çok çeşitli ağ protokolleri ayrıntılı paket bilgilerini görüntülemek için. Wireshark hakkında daha fazla bilgi için bkz: "[ek 2: ağ trafiğini yakalamak için Wireshark kullanarak]".
-* Microsoft Message Analyzer, Netmon ve, ağ paket verilerini yakalama yanı sıra yerini alır, görüntülemek ve diğer Araçları'ndan yakalanan günlük verileri çözümlemek için yardımcı olan Microsoft için kullanılan bir araçtır. Daha fazla bilgi için "[ek 3: ağ trafiğini yakalamak için Microsoft Message Analyzer kullanarak]".
-* İstemci makinenizde ağ üzerinden Azure depolama hizmetine bağlanabileceğini denetlemek için bir temel bağlantı testi yapmak istiyorsanız, bu standart kullanarak bunu yapamazsınız **ping** istemcide aracı. Ancak, kullanabileceğiniz **tcping** aracı bağlantısını denetleyin. **Tcping** adresten edinilebilir <a href="http://www.elifulkerson.com/projects/tcping.php" target="_blank">http://www.elifulkerson.com/projects/tcping.php</a>.
+* Fiddler (<a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>) tooexamine hello üstbilgileri ve HTTP ve HTTPS istek ve yanıt iletileri yükü verilerini sağlayan proxy hata ayıklama ücretsiz bir Web. Daha fazla bilgi için "[ek 1: fiddler'ı kullanarak toocapture HTTP ve HTTPS trafiğini]".
+* Microsoft Ağ İzleyicisi'nin (Netmon) (<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/download/details.aspx?id=4865</a>) ve Wireshark (<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>) boş ağ etkinleştirmek protokol Çözümleyicileri için tooview paket için çok çeşitli ağ protokolleri ayrıntılı bilgileri. Wireshark hakkında daha fazla bilgi için bkz: "[ek 2: kullanarak Wireshark toocapture ağ trafiğini]".
+* Microsoft Message Analyzer Netmon ve ayrıca toocapturing paket verilerini ağ yerine geçen Microsoft aracından tooview yardımcı olur ve diğer Araçları'ndan yakalanan hello günlük verileri analiz ' dir. Daha fazla bilgi için "[ek 3: Microsoft Message Analyzer'ı kullanarak toocapture ağ trafiğini]".
+* Tooperform İstemci makinenizde hello ağ üzerinden toohello Azure depolama hizmeti bağlanabilir temel bağlantıyı test toocheck istiyorsanız, bu hello standardını kullanarak bunu yapamazsınız **ping** hello istemcide aracı. Ancak, hello kullanabilirsiniz **tcping** aracı toocheck bağlantısı. **Tcping** adresten edinilebilir <a href="http://www.elifulkerson.com/projects/tcping.php" target="_blank">http://www.elifulkerson.com/projects/tcping.php</a>.
 
-Çoğu durumda, depolama günlüğe kaydetme ve depolama istemci kitaplığı günlük verilerini bir sorunu tanılamak için yeterli olacaktır, ancak bazı senaryolarda, bu ağ günlük araçları sağlayabilir daha ayrıntılı bilgi gerekebilir. Örneğin, HTTP ve HTTPS iletilerini görüntülemek için Fiddler kullanarak, gönderilen ve bir istemci uygulaması depolama işlemleri nasıl yeniden deneme incelemek sağlayacağı depolama hizmetlerinden üst bilgisi ve yük verileri görüntülemenize olanak tanır. Protokol Çözümleyicileri Wireshark gibi kayıp paketlerin ve bağlantı sorunları gidermenize olanak TCP verileri görüntülemek etkinleştirme paket düzeyinde çalışır. İleti Çözümleyicisi hem HTTP hem de TCP katmanına çalışabilir.
+Çoğu durumda, depolama günlüğe kaydetme ve hello depolama istemci kitaplığı hello günlük verilerini yeterli toodiagnose bir sorun olacaktır, ancak bazı senaryolarda, ayrıntılı bu ağ günlük araçları sağlayan bilgi hello gerekebilir. Örneğin, Fiddler tooview kullanarak tooview üst bilgisi ve yük verileri tooand hello bir istemci uygulaması nasıl tooexamine sağlayacağı depolama hizmetleri gönderilen HTTP ve HTTPS iletileri etkinleştirir yeniden deneme depolama işlemleri. Protokol Çözümleyicileri Wireshark gibi paketleri ve bağlantı sorunları kayıp tootroubleshoot sağlayacağı tooview TCP veri etkinleştirme hello paket düzeyinde çalışır. İleti Çözümleyicisi hem HTTP hem de TCP katmanına çalışabilir.
 
 ## <a name="end-to-end-tracing"></a>Uçtan uca izleme
-Uçtan uca izleme çeşitli günlük dosyalarını kullanarak olası sorunları Araştırıyor için kullanışlı bir tekniktir. Burada sorunu gidermenize yardımcı olacak ayrıntılı bilgi için günlük dosyalarında aramaya başlamak bir göstergesi olarak ölçümleri verilerinizden tarih/saat bilgileri kullanabilirsiniz.
+Uçtan uca izleme çeşitli günlük dosyalarını kullanarak olası sorunları Araştırıyor için kullanışlı bir tekniktir. Burada hello hello günlük dosyalarında arayan toostart hello sorunu gidermenize yardımcı olacak bilgiler ayrıntılı bir göstergesi olarak ölçümleri verilerinizden hello tarih/saat bilgileri kullanabilirsiniz.
 
 ### <a name="correlating-log-data"></a>Günlük verileri ilişkilendirme
-İstemci uygulamaları günlüklerinden görüntülerken, ağ izler ve sunucu tarafı depolama günlük ilişkilendirmek için kritik arasında farklı günlük dosyaları ister. Günlük dosyaları bağıntı tanımlayıcıları yararlı farklı alan sayısını içerir. İstemci istek kimliği, farklı günlüklerine girişleri ilişkilendirmek için kullanılacak en kullanışlı bir alandır. Ancak bazı durumlarda, sunucu istek kimliği ya da zaman damgaları kullanmak yararlı olabilir. Aşağıdaki bölümler bu seçenekler hakkında daha fazla ayrıntı sağlar.
+İstemci uygulamaları günlüklerinden görüntülerken, ağ izler, ve bu günlüğü sunucu tarafı depolama birimi kritik toobe mümkün toocorrelate istekleri hello farklı günlük dosyaları. Merhaba günlük dosyalarını bağıntı tanımlayıcıları yararlı farklı alan sayısını içerir. Merhaba istemci istek kimliği hello en yararlı alan toouse toocorrelate girişlerini hello farklı günlüklerine ' dir. Ancak bazı durumlarda bu kullanışlı toouse olabilir hello sunucu istek kimliği veya zaman damgası. Merhaba aşağıdaki bölümler bu seçenekler hakkında daha fazla ayrıntı sağlar.
 
 ### <a name="client-request-id"></a>İstemci istek kimliği
-Depolama istemcisi kitaplığı otomatik olarak her istek için bir benzersiz istemci istek kimliği oluşturur.
+Merhaba depolama istemci kitaplığı, benzersiz istemci istek kimliği her istek için otomatik olarak oluşturur.
 
-* İstemci istek kimliği için depolama istemci kitaplığı oluşturur istemci tarafı günlüğüne görünür **istemci istek kimliği** istekle ilgili her günlük girişinin alanı.
-* Bir Fiddler tarafından yakalanan gibi bir ağ izlemesi istemci istek kimliği istek iletilerindeki görünür **x-ms-istemci-request-id** HTTP üstbilgisi değeri.
-* Sunucu tarafı depolama günlük, istemci istek kimliği istemci istek kimliği sütununda görünür.
+* Hello depolama istemci kitaplığı hello istemci-tarafı günlük, hello istemci istek kimliği hello görünür oluşturur **istemci istek kimliği** toohello isteği ile ilgili her günlük girişinin alanı.
+* İçinde ağ izleme bir Fiddler tarafından yakalanan gibi hello istemci istek kimliği hello içindeki istek iletileri görülebilir **x-ms-istemci-request-id** HTTP üstbilgisi değeri.
+* Merhaba sunucu tarafı günlüğünde depolama günlüğü hello istemci istek kimliği hello istemci istek kimliği sütununda görüntülenir.
 
 > [!NOTE]
-> Birden çok isteği aynı istemci istek kimliği (depolama istemci kitaplığı yeni bir değer otomatik olarak atar rağmen) istemci bu değer atanabilir olduğundan paylaşmak mümkündür. İstemci yeniden deneme olması durumunda tüm girişimler aynı istemci istek kimliği paylaşır. İstemciden gönderilen bir toplu işlem söz konusu olduğunda, toplu bir tek istemci istek kimliği vardır.
+> Birden çok istek tooshare hello için aynı istemci istek kimliği (Merhaba depolama istemci kitaplığı yeni bir değer otomatik olarak atar rağmen) hello istemci bu değer atanabilir olduğundan mümkündür. Yeniden deneme hello istemciden Hello durumda da, tüm girişimler hello paylaşmak aynı istemci istek kimliği. Merhaba istemciden gönderilen bir toplu Hello durumda hello toplu bir tek istemci istek kimliği vardır.
 > 
 > 
 
 ### <a name="server-request-id"></a>Sunucu istek kimliği
-Depolama hizmeti sunucusu isteği kimlikleri otomatik olarak oluşturur.
+Merhaba depolama hizmeti sunucusu isteği kimlikleri otomatik olarak oluşturur.
 
-* Sunucu tarafı depolama günlüğü, sunucu istek kimliği görünür **istek kimliği üst bilgisi** sütun.
-* Bir Fiddler tarafından yakalanan gibi bir ağ izlemesi sunucu istek kimliği yanıt iletilerini görünür **x-ms-request-id** HTTP üstbilgisi değeri.
-* Depolama istemcisi kitaplığı oluşturur istemci tarafı günlüğüne, sunucu istek kimliği görünür **işlemi metin** sunucu yanıtı ayrıntılarını gösteren günlük girişi için sütun.
+* Merhaba sunucu tarafı günlüğüne depolama günlüğü hello sunucu istek kimliği hello görünür **istek kimliği üst bilgisi** sütun.
+* İçinde ağ izleme bir Fiddler tarafından yakalanan gibi hello sunucu istek kimliği Yanıtı iletilerinde hello görünür **x-ms-request-id** HTTP üstbilgisi değeri.
+* Hello depolama istemci kitaplığı hello istemci-tarafı günlük, hello sunucu istek kimliği hello görünür oluşturur **işlemi metin** hello sunucu yanıtı ayrıntılarını gösteren hello günlük girişi için sütun.
 
 > [!NOTE]
-> Her yeniden deneme girişimi istemci ve toplu işe dahil her işlem benzersiz sunucu istek kimliği sahiptir depolama hizmeti her zaman bir benzersiz sunucu istek kimliği aldığı, her istek için atar.
+> Her yeniden deneme girişimi hello istemciden ve bir toplu işlemde dahil her işlem benzersiz sunucu istek kimliği nedenle hello depolama hizmeti benzersiz bir sunucuyu aldığı, isteği kimlik tooevery isteği her zaman atar.
 > 
 > 
 
-Depolama istemcisi kitaplığı oluşturursa bir **StorageException** istemci **RequestInformation** özelliği içeren bir **RequestResult** içeren nesnesinin bir **ServiceRequestID** özelliği. Aynı zamanda erişebilirsiniz bir **RequestResult** nesnesinin bir **OperationContext** örneği.
+Merhaba depolama istemci kitaplığı döndürürse bir **StorageException** hello istemcisinde hello **RequestInformation** özelliği içeren bir **RequestResult** içeren nesnesinin bir **ServiceRequestID** özelliği. Aynı zamanda erişebilirsiniz bir **RequestResult** nesnesinin bir **OperationContext** örneği.
 
-Aşağıdaki kod örneği, özel bir ayarlanacağı gösterilmiştir **ClientRequestId** ekleyerek değeri bir **OperationContext** depolama hizmetine istek nesnesi. Ayrıca nasıl alınacağını gösterir **ServerRequestId** değeri yanıt iletisi.
+Aşağıdaki kod örneği Hello gösterir nasıl tooset özel bir **ClientRequestId** ekleyerek değeri bir **OperationContext** nesne hello isteği toohello depolama birimi hizmeti. Ayrıca gösterir nasıl tooretrieve hello **ServerRequestId** değeri hello yanıt iletisi.
 
 ```csharp
-//Parse the connection string for the storage account.
+//Parse hello connection string for hello storage account.
 const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
+// Create an Operation Context that includes custom ClientRequestId string based on constants defined within hello application along with a Guid.
 OperationContext oc = new OperationContext();
 oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
 
@@ -285,13 +285,13 @@ try
     using (var fs = File.OpenWrite(downloadToPath))
     {
         blob.DownloadToStream(fs, null, null, oc);
-        Console.WriteLine("\t Blob downloaded to file: {0}", downloadToPath);
+        Console.WriteLine("\t Blob downloaded toofile: {0}", downloadToPath);
     }
 }
 catch (StorageException storageException)
 {
     Console.WriteLine("Storage exception {0} occurred", storageException.Message);
-    // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
+    // Multiple results may exist due tooclient side retry logic - each retried operation will have a unique ServiceRequestId
     foreach (var result in oc.RequestResults)
     {
             Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
@@ -300,23 +300,23 @@ catch (StorageException storageException)
 ```
 
 ### <a name="timestamps"></a>Zaman damgaları
-Zaman damgaları, ilgili günlük girişlerini bulun, ancak her saat eğriltme bulunabilecek sunucu ve istemci arasında dikkatli olun için de kullanabilirsiniz. Artı veya eksi istemci zaman damgasını temel sunucu tarafı girdileri eşleştirme için 15 dakika arama. Ölçümleri içeren BLOB'ları için blob meta verileri blob içinde depolanan ölçümleri için zaman aralığını gösteren unutmayın; Bu aynı dakika veya saat için birçok ölçümleri BLOB'ları varsa yararlı olur.
+Zaman damgaları de kullanabilirsiniz toolocate ilgili günlük girişleri, ancak tüm saatinin hello istemciyle bulunabilecek sunucu arasında eğme dikkatli olun. Artı veya eksi hello istemci hello zaman damgasını temel sunucu tarafı girdileri eşleştirme için 15 dakika arama. Hello'hello blob içinde depolanan hello ölçümleri hello zaman aralığını kapsayan ölçümleri gösterir hello BLOB'lar için meta verileri blob unutmayın; Bu hello aynı saat veya dakika için birçok ölçümleri BLOB'lar varsa yararlı olur.
 
 ## <a name="troubleshooting-guidance"></a>Sorun giderme kılavuzu
-Bu bölümde tanı koymaya yardımcı olur ve bazı yaygın sorunların çoğunu uygulamanızı sorun giderme Azure storage hizmetleri kullanırken karşılaşabileceğiniz. Belirli sorununuzu ilgili bilgileri bulmak için aşağıdaki listeyi kullanın.
+Bu bölümde hello tanı koymaya yardımcı olur ve bazı hello yaygın sorunların çoğunu uygulamanızı sorun giderme hello Azure storage hizmetleri kullanırken karşılaşabileceğiniz. Toolocate hello bilgi ilgili tooyour belirli sorun aşağıda Hello listesini kullanın.
 
 **Sorun giderme karar ağacı**
 
 - - -
-Sorununuzu depolama hizmetlerden biri performansını ilişkilidir?
+Sorununuzu hello depolama hizmetlerden biri toohello performansını ilişkilidir?
 
 * [ölçümleri Göster yüksek AverageE2ELatency ve düşük AverageServerLatency]
-* [Ölçümler yüksek AverageE2ELatency ve düşük AverageServerLatency gösteriyor, ancak istemci yüksek gecikme durumu yaşıyor]
+* [Düşük AverageE2ELatency ve düşük AverageServerLatency ölçümleri göster ancak hello istemci yüksek gecikme yaşanıyor]
 * [Ölçümler yüksek AverageServerLatency gösteriyor]
 * [Kuyrukta ileti tesliminde beklenmeyen gecikmeler yaşıyorsunuz]
 
 - - -
-Sorununuzu depolama hizmetlerden biri kullanılabilirliğini ilişkilidir?
+Sorununuzu hello depolama hizmetlerden biri toohello kullanılabilirliğini ilişkilidir?
 
 * [ölçümleri Göster artışı içinde PercentThrottlingError]
 * [ölçümleri Göster artışı içinde PercentTimeoutError]
@@ -325,12 +325,12 @@ Sorununuzu depolama hizmetlerden biri kullanılabilirliğini ilişkilidir?
 - - -
 İstemci uygulamanız bir HTTP 4XX (örneğin, 404) yanıt Depolama hizmetinden alıyor?
 
-* [İstemci HTTP 403 (Yasak) iletileri alma]
-* [İstemci HTTP 404 (bulunamadı) iletileri alma]
-* [İstemci HTTP 409 (Çakışma) iletileri alma]
+* [Merhaba istemci HTTP 403 (Yasak) iletileri alma]
+* [Merhaba istemci HTTP 404 (bulunamadı) iletileri alma]
+* [Merhaba istemci HTTP 409 (Çakışma) iletileri alma]
 
 - - -
-[ölçümleri Göster düşük PercentSuccess veya analytics günlük girişlerini sahip hareket durumu işlemler ClientOtherErrors,]
+[ölçümleri Göster düşük PercentSuccess veya analytics günlük girişlerini sahip işlemler işlem durumu ClientOtherErrors]
 
 - - -
 [Kapasite ölçümlerini beklenmeyen artışı depolama kapasitesi kullanımı Göster]
@@ -339,31 +339,31 @@ Sorununuzu depolama hizmetlerden biri kullanılabilirliğini ilişkilidir?
 [Çok sayıda ekli VHD'ler sahip sanal makinelerin beklenmeyen yeniden başlatmalar yaşıyor]
 
 - - -
-[Sorununuzu geliştirme veya test için depolama öykünücüsünü kullanarak ortaya çıkar.]
+[Sorununuzu geliştirme veya test için hello storage öykünücüsü kullanarak ortaya çıkar.]
 
 - - -
-[.NET için Azure SDK'sını yükleme sorunlarla]
+[.NET için Azure SDK'sı hello yüklerken sorunlarla karşılaşıyoruz]
 
 - - -
 [Bir depolama hizmetindeki farklı bir sorun olması]
 
 - - -
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Yüksek AverageE2ELatency ve düşük AverageServerLatency ölçümleri Göster
-Klasik Azure portalı izleme aracından çizim bDüşük bir örneği gösterir nerede **AverageE2ELatency** önemli ölçüde daha yüksek olan **AverageServerLatency**.
+Merhaba çizim bDüşük hello Klasik Azure portalı izleme aracından örnek hello burada gösterir **AverageE2ELatency** hello önemli ölçüde daha yüksek **AverageServerLatency**.
 
 ![][4]
 
-Depolama hizmetinin yalnızca ölçüm hesaplar Not **AverageE2ELatency** başarılı istekler için ve aksine **AverageServerLatency**, istemcinin veri göndermek ve storage hizmetinden onay almak için süresini içerir. Bu nedenle, birbirinden **AverageE2ELatency** ve **AverageServerLatency** yavaş yanıt olan istemci uygulaması nedeniyle veya ağdaki koşulları nedeniyle olabilir.
+Merhaba depolama hizmeti yalnızca hello ölçüm hesaplar Not **AverageE2ELatency** başarılı istekler için ve aksine **AverageServerLatency**, hello istemci toosend hello hello süresini içerir veri ve hello Depolama hizmetinden bildirim alırsınız. Bu nedenle, birbirinden **AverageE2ELatency** ve **AverageServerLatency** olabilir ya da toohello istemci uygulaması olması nedeniyle toorespond ya da son tooconditions hello ağdaki yavaş.
 
 > [!NOTE]
-> Ayrıca görüntüleyebilirsiniz **E2ELatency** ve **ServerLatency** tek depolama işlemleri günlük depolama için oturum verileri.
+> Ayrıca görüntüleyebilirsiniz **E2ELatency** ve **ServerLatency** hello depolama günlüğü tek depolama işlemleri için veri oturum.
 > 
 > 
 
 #### <a name="investigating-client-performance-issues"></a>İstemci performans sorunlarını
-Kullanılabilir bağlantılar veya iş parçacığının sınırlı sayıda sahip yavaş yanıt istemcisi için olası nedenler şunlardır. (Örneğin depolama hizmeti için zaman uyumsuz çağrılar kullanarak) daha etkili olması için istemci kodu değiştirerek ya da daha büyük bir sanal makine (daha fazla sayıda çekirdek ve daha fazla bellek ile) kullanarak bu sorunu çözmek mümkün olabilir.
+Kullanılabilir bağlantılar veya iş parçacığının sınırlı sayıda sahip hello istemci yavaş yanıt için olası nedenler şunlardır. Merhaba istemci kodu toobe (örneğin zaman uyumsuz çağrılar toohello Depolama Birimi hizmetini kullanarak) daha verimli bir şekilde değiştirme veya daha büyük bir sanal makine (daha fazla sayıda çekirdek ve daha fazla bellek ile) kullanarak mümkün tooresolve hello sorun olabilir.
 
-Tablo ve kuyruk Hizmetleri için Nagle algoritması de yüksek neden olabilir **AverageE2ELatency** kıyasla **AverageServerLatency**: post daha fazla bilgi için bkz: <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle'nın algoritması Küçük isteklerini doğru değil kolay olan</a> Microsoft Azure depolama ekibi blogu üzerinde. Kullanarak kod Nagle algoritmasını devre dışı bırakabilirsiniz **ServicePointManager** sınıfını **System.Net** ad alanı. Bu tablonun herhangi çağrı yapmak veya sıra Hizmetleri bu zaten bağlantıları etkilemez beri uygulamanızda açmak önce yapmanız gerekir. Aşağıdaki örnek geldiği **Application_Start** çalışan rolü yöntemi.
+Merhaba tablo ve kuyruk Hizmetleri için hello Nagle algoritması de yüksek neden olabilir **AverageE2ELatency** çok karşılaştırıldığında gibi**AverageServerLatency**: sonrası hello daha fazla bilgi için bkz: <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle'nın Algoritmasıdır küçük isteklerini doğru değil kolay</a> hello Microsoft Azure depolama ekibi blogu üzerinde. Hello kullanarak hello Nagle algoritması kod devre dışı bırakabilirsiniz **ServicePointManager** hello sınıfında **System.Net** ad alanı. Bu, tüm çağrıları toohello tablo oluşturun veya zaten bağlantı etkilemez beri uygulamanızda sıra Hizmetleri'ni açmak önce yapmalısınız. Merhaba aşağıdaki örnek gelen hello **Application_Start** çalışan rolü yöntemi.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -373,32 +373,32 @@ ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAcc
 queueServicePoint.UseNagleAlgorithm = false;
 ```
 
-İstemci uygulamanızı gönderilirken kaç isteklerini görmek için istemci tarafı günlüklerini ve onay genel .NET için CPU, .NET atık toplama, ağ kullanımı veya bellek (bir başlangıç noktası olarak gibi istemci performans sorunları ilgili denetlemeniz gerekir .NET istemci uygulamaları sorun giderme için bkz: <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">hata ayıklama, izleme ve profil oluşturma</a> MSDN'de).
+Merhaba istemci tarafı günlüklerini toosee kaç istemci uygulamanızı gönderme istekleri ve onay genel .NET için CPU, .NET atık toplama, ağ kullanımı veya (olarak başlangıç bellek gibi istemci performans sorunları ilgili denetlemeniz gerekir noktası .NET istemci uygulamaları sorun giderme için bkz: <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">hata ayıklama, izleme ve profil oluşturma</a> MSDN'de).
 
 #### <a name="investigating-network-latency-issues"></a>Ağ gecikmesi sorunları araştırma
-Genellikle, ağdan kaynaklanan yüksek uçtan uca gecikme geçici durumları yüzünde olur. Atılan paketlerin gibi her iki geçici ve kalıcı ağ sorunları Wireshark veya Microsoft Message Analyzer gibi araçları kullanarak araştırabilirsiniz.
+Genellikle tootransient koşullar nedeni hello ağ tarafından yüksek uçtan uca gecikme olur. Atılan paketlerin gibi her iki geçici ve kalıcı ağ sorunları Wireshark veya Microsoft Message Analyzer gibi araçları kullanarak araştırabilirsiniz.
 
-Ağ sorununu gidermek için Wireshark kullanma hakkında daha fazla bilgi için bkz: "[ek 2: ağ trafiğini yakalamak için Wireshark kullanarak]."
+Wireshark tootroubleshoot ağ sorunları kullanma hakkında daha fazla bilgi için bkz: "[ek 2: kullanarak Wireshark toocapture ağ trafiğini]."
 
-Ağ sorununu gidermek üzere Microsoft Message Analyzer kullanma hakkında daha fazla bilgi için bkz: "[ek 3: ağ trafiğini yakalamak için Microsoft Message Analyzer kullanarak]."
+Microsoft Message Analyzer tootroubleshoot ağ sorunları kullanma hakkında daha fazla bilgi için bkz: "[ek 3: Microsoft Message Analyzer'ı kullanarak toocapture ağ trafiğini]."
 
-### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>Düşük AverageE2ELatency ve düşük AverageServerLatency ölçümleri gösterir, ancak istemci yüksek gecikme yaşanıyor
-Bu senaryoda, en olası nedeni depolama hizmetine erişirken depolama istekleri gecikmeden ' dir. Neden istemciden istekleri üzerinden blob hizmeti kuran değil araştırmanız gerekir.
+### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>Düşük AverageE2ELatency ve düşük AverageServerLatency ölçümleri göster ancak hello istemci yüksek gecikme yaşanıyor
+Bu senaryoda, hello en olası nedeni hello depolama hizmetine erişirken hello depolama istekleri gecikmeden oluşturur. Neden hello istemci gelen istekleri toohello blob hizmeti aracılığıyla kolaylaştırarak değil araştırmanız gerekir.
 
-Kullanılabilir bağlantılar veya iş parçacığının sınırlı sayıda sahip istekleri gönderirken geciktirme istemcisi için olası nedenler şunlardır. Ayrıca istemci birden çok deneme çalışıyorsa denetleyin ve bu durumda, nedenini araştırın gerekir. Bunu programlı olarak bakarak yapabilirsiniz **OperationContext** istek ile ilişkili nesne ve alma **ServerRequestId** değeri. Kod örneği bölümünde daha fazla bilgi için bkz "[sunucu istek kimliği]."
+Kullanılabilir bağlantılar veya iş parçacığının sınırlı sayıda sahip hello istemci istekleri gönderirken geciktirme için olası nedenler şunlardır. Ayrıca birden çok deneme hello istemci çalışıyorsa denetleyin ve bu hello durumda hello nedeni araştırın gerekir. Bunu programlı olarak hello bakarak yapabilirsiniz **OperationContext** alınırken hello hello isteği ile ilişkili nesne **ServerRequestId** değeri. Hello bölümdeki hello kod örneği daha fazla bilgi için bkz: "[sunucu istek kimliği]."
 
-İstemcinin herhangi bir sorun varsa, paket kaybı gibi olası ağ sorunları araştırmanız gerekir. Ağ sorunları araştırmak için Wireshark veya Microsoft Message Analyzer gibi araçlar kullanın.
+Merhaba istemcisinde herhangi bir sorun varsa, paket kaybı gibi olası ağ sorunları araştırmanız gerekir. Wireshark veya Microsoft Message Analyzer tooinvestigate ağ sorunları gibi araçları kullanabilirsiniz.
 
-Ağ sorununu gidermek için Wireshark kullanma hakkında daha fazla bilgi için bkz: "[ek 2: ağ trafiğini yakalamak için Wireshark kullanarak]."
+Wireshark tootroubleshoot ağ sorunları kullanma hakkında daha fazla bilgi için bkz: "[ek 2: kullanarak Wireshark toocapture ağ trafiğini]."
 
-Ağ sorununu gidermek üzere Microsoft Message Analyzer kullanma hakkında daha fazla bilgi için bkz: "[ek 3: ağ trafiğini yakalamak için Microsoft Message Analyzer kullanarak]."
+Microsoft Message Analyzer tootroubleshoot ağ sorunları kullanma hakkında daha fazla bilgi için bkz: "[ek 3: Microsoft Message Analyzer'ı kullanarak toocapture ağ trafiğini]."
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>Yüksek AverageServerLatency ölçümleri Göster
-Yüksek olması durumunda **AverageServerLatency** blob indirme isteği için aynı blob (veya BLOB kümesi) için yinelenen istekleri olup olmadığını görmek için depolama günlüğü günlükleri kullanmanız gerekir. İçin BLOB karşıya yükleme isteklerini, hangi blok boyutu istemci kullanarak araştırmanız gereken (örneğin, daha az okuma öbekleri ayrıca değerinden 64 K olmadıkça boyutu 64 K içinde ek yüklerini sonuçlanabilir engeller), ve birden çok istemci aynı blob paralel için blokları yüklüyorsanız. Aşan içinde neden istekleri sayısında ani için dakika başına ölçümleri de denetlemelisiniz ikinci ölçeklenebilirlik hedefleri başına: Ayrıca bkz. "[ölçümleri Göster artışı içinde PercentTimeoutError]."
+Merhaba durumda yüksek **AverageServerLatency** blob indirme isteği için depolama günlüğü günlükleri toosee aynı blob (veya ayarlamak BLOB'ları) hello için yinelenen isteği yoksa hello kullanmanız gerekir. İçin BLOB karşıya yükleme isteklerini, hangi blok boyutu hello istemcisini kullanarak araştırmanız gereken (örneğin, hello okur sürece boyutu 64 K içinde ek yüklerini sonuçlanabilir daha az olan de buna blokları değerinden 64K öbekleri), ve birden çok istemciye karşıya yüklediğiniz engeller toohello aynı paralel olarak blob. İkinci ölçeklenebilirlik hedefleri başına hello aşan neden istekleri hello sayısında ani hello dakika başına ölçümlerini denetlemeniz gerekir: Ayrıca bkz. "[ölçümleri Göster artışı içinde PercentTimeoutError]."
 
-Yüksek görüyorsanız **AverageServerLatency** blob karşıdan var. Yinelenen olduğunda istekleri aynı blob veya BLOB kümesi sonra Azure önbelleği veya Azure içerik teslim ağı (CDN) kullanarak bu Blob önbelleği göz önünde bulundurmanız gerekir. Karşıya yükleme istekleri için daha büyük bir blok boyutu kullanarak üretilen işi artırabilir. Tablolara sorgular için de aynı sorgu işlemleri gerçekleştirmek ve burada veri sık değiştirmez istemcilerde istemci tarafı önbelleğe alma uygulamak mümkündür.
+Yüksek görüyorsanız **AverageServerLatency** blob yükleme istekleri için istekleri hello aynı blob veya BLOB'ları, bir dizi var. yinelenir, sonra Azure önbelleği kullanarak bu blob'lara önbelleğe almayı düşünün veya gerekir Azure içerik teslim hello Ağı (CDN). Karşıya yükleme istekleri için daha büyük bir blok boyutu kullanarak hello üretilen işi artırabilir. Sorguları tootables için de olası tooimplement istemci tarafı önbelleğe alma olduğu aynı sorgu işlemleri ve burada hello hello gerçekleştirmek istemcilerde verileri sık değiştirmez.
 
-Yüksek **AverageServerLatency** değerleri hatalı tasarlanmış tablolar veya tarama işlemleri sonucunda ya da, ekleme ve başına koruma deseni takip sorguları belirtisi de olabilir. Bkz: "[ölçümleri Göster artışı içinde PercentThrottlingError]" daha fazla bilgi için.
+Yüksek **AverageServerLatency** değerleri hatalı tasarlanmış tabloları belirtisi de olabilir veya tarama işlemleri sonucunda ya da hello izleyin sorgular ekleme/başına koruma düzeni. Bkz: "[ölçümleri Göster artışı içinde PercentThrottlingError]" daha fazla bilgi için.
 
 > [!NOTE]
 > Kapsamlı denetim listesi Performans Denetim burada bulabilirsiniz: [Microsoft Azure depolama performans ve ölçeklenebilirlik Yapılacaklar listesi](storage-performance-checklist.md).
@@ -406,38 +406,38 @@ Yüksek **AverageServerLatency** değerleri hatalı tasarlanmış tablolar veya 
 > 
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Bir kuyruk iletisi Teslimde beklenmeyen gecikme yaşıyor
-Bir uygulama bir sıraya bir ileti ekler zaman kuyruktan okunmak üzere kullanılabilir hale geldiği tarih arasında bir gecikme karşılaşıyorsanız, sorunu tanılamak için aşağıdaki adımları uygulayın:
+Hello saat arasında bir gecikme karşılaşıyorsanız bir ileti tooa kuyruk ve hello saati hello sırasından kullanılabilir tooread hale bir uygulama ekler ve ardından aşağıdaki adımları toodiagnose hello sorunu hello almanız gereken:
 
-* Uygulama başarıyla iletileri kuyruğa ekleme doğrulayın. Uygulama değil yeniden deneniyor onay **AddMessage** birkaç kez önce başarılı yöntemi. Depolama istemci kitaplığı günlükleri gerçekleştirdi tüm depolama işlemlerini gösterir.
-* Saat eğriltme kuyruğuna ileti ekler çalışan rolü arasında ve ileti kolaylaştırır kuyruktaki iletileri okur çalışan rolü görünür işlemde bir gecikme olur gibi doğrulayın.
-* Kuyruktan iletileri okur çalışan rolü başarısız olup olmadığını denetleyin. Bir kuyruk istemci çağırırsa **GetMessage** yöntem, ancak onay ile yanıt başarısız, ileti kalacak sırasına kadar görünmez **invisibilityTimeout** süresi sona erene. Bu noktada, ileti yeniden işlemek için kullanılabilir hale gelir.
-* Kuyruk uzunluğu zaman içinde büyüyen olmadığını denetleyin. Diğer çalışanlar sıra üzerinde yerleştirme tüm iletileri işlemek kullanılabilir yeterli çalışan yoksa bu durum oluşabilir. Delete başarısız olan ve gösterebilir iletileri dequeue sayısı yinelenen istekleri olmadığını görmek için ölçümleri başarısız girişimleri iletiyi silmek için de denetlemeniz gerekir.
-* Beklenenden daha yüksek olan sıra işlemleri için depolama günlüğü günlüklerini inceleyin **E2ELatency** ve **ServerLatency** normalden daha uzun bir zaman aralığında üzerinden değerleri.
+* Merhaba uygulaması başarıyla hello iletileri toohello sırası ekleme doğrulayın. Merhaba uygulaması hello denemeden değil kontrol edin **AddMessage** birkaç kez önce başarılı yöntemi. Merhaba depolama istemci kitaplığı günlükleri gerçekleştirdi tüm depolama işlemlerini gösterir.
+* Saat eğriltme işlemde bir gecikme olur gibi hello ileti toohello sırası ve selamlama iletisine kolaylaştırır hello kuyruktaki iletileri okur hello çalışan rolü görünür ekler hello çalışan rolü arasında doğrulayın.
+* Merhaba iletileri hello kuyruktaki iletileri okur hello çalışan rolü başarısız olup olmadığını denetleyin. Bir kuyruk istemci hello çağırırsa **GetMessage** yöntemi ancak bir bildirimle toorespond başarısız olursa, selamlama iletisine kalacak hello sırasına görünmez hello kadar **invisibilityTimeout** süresi sona erene. Bu noktada, selamlama iletisine yeniden işlemek için kullanılabilir hale gelir.
+* Merhaba sırası uzunluğu bir zaman içinde artıyor denetleyin. Tüm hello iletileri diğer çalışanlarına hello sırasına yerleştirdiğinizi yeterli çalışanları kullanılabilir tooprocess yoksa bu durum oluşabilir. Silme isteklerinin başarısız olma ve hello gösterebilir iletileri sayısına dequeue, başarısız girişim toodelete selamlama iletisine hello ölçümleri toosee yinelenen de denetlemeniz gerekir.
+* Beklenenden daha yüksek olan sıra işlemleri için Hello depolama günlüğü günlüklerini inceleyin **E2ELatency** ve **ServerLatency** normalden daha uzun bir zaman aralığında üzerinden değerleri.
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Ölçümleri artışı içinde PercentThrottlingError Göster
-Bir depolama birimi hizmeti ölçeklenebilirlik hedeflerini aşan azaltma hataları oluşur. Depolama hizmetinin tek bir istemci ya da Kiracı başkalarının ödün verme pahasına hizmeti kullandığınızdan emin olmak için bunu yapar. Daha fazla bilgi için bkz: <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure Storage ölçeklenebilirlik ve performans hedefleri</a> depolama hesapları için ölçeklenebilirlik hedefleri ve depolama hesapları içindeki bölümler için performans hedefleri hakkında ayrıntılar için.
+Bir depolama birimi hizmeti hello ölçeklenebilirlik hedefleri aşan azaltma hataları oluşur. Merhaba depolama hizmeti yapar bu tooensure, tek bir istemci ya da Kiracı hello hizmeti diğer hello gider kullanabilir. Daha fazla bilgi için bkz: <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure Storage ölçeklenebilirlik ve performans hedefleri</a> depolama hesapları için ölçeklenebilirlik hedefleri ve depolama hesapları içindeki bölümler için performans hedefleri hakkında ayrıntılar için.
 
-Varsa **PercentThrottlingError** ölçüm azaltma bir hata ile başarısız olan istek yüzdesi cinsinden artışı Göster, iki senaryodan biri araştırmanız gereken:
+Merhaba, **PercentThrottlingError** ölçüm azaltma bir hata ile başarısız olan istek hello yüzdesi cinsinden artışı Göster, tooinvestigate iki senaryodan biri gerekir:
 
 * [PercentThrottlingError geçici artış]
 * [PercentThrottlingError hata kalıcı artış]
 
-Bir artış **PercentThrottlingError** genellikle bir artış depolama istek sayısı ile aynı zamanda oluşur veya uygulamanızı test etme başlangıçta olduğunda yük. Bu ayrıca kendi istemci "503 Sunucu meşgul" veya "500 işlem zaman aşımı" HTTP durum iletileri depolama işlemleri olarak bildiriminde.
+Bir artış **PercentThrottlingError** genellikle aynı zaman depolama istek hello sayısı artan olarak veya uygulamanızı test etme başlangıçta olduğunda yük hello sırasında oluşur. Bu ayrıca kendisini hello istemci "503 Sunucu meşgul" veya "500 işlem zaman aşımı" HTTP durum iletileri depolama işlemleri olarak bildiriminde.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>PercentThrottlingError geçici artış
-Ani değerinde görüyorsanız **PercentThrottlingError** uygulama yüksek etkinlik dönemleri ile çakıştığı, bir üstel (doğrusal değil) geri alma yeniden deneme stratejisini, istemci uygulamanız gerekir: Bu bölümde hemen yükü azaltmak ve ani trafiğinin çıkışı kesintisiz uygulamanıza yardımcı. Yeniden deneme ilkelerini için depolama istemci kitaplığı kullanılarak uygulama hakkında daha fazla bilgi için bkz: <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies Namespace</a> konusuna bakın.
+Merhaba değeri ani görüyorsanız **PercentThrottlingError** Merhaba uygulaması yüksek etkinlik dönemleri ile çakıştığı, bir üstel (doğrusal değil) geri alma yeniden deneme stratejisini, istemci uygulamanız gerekir: Bu Merhaba hemen hello bölüm azaltmak ve ani trafiğinin çıkışı, uygulama toosmooth Yardım başlar. Nasıl tooimplement yeniden deneme ilkelerini kullanarak depolama istemci kitaplığı hello hakkında daha fazla bilgi için bkz: <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies Namespace</a> konusuna bakın.
 
 > [!NOTE]
-> Ani değeri de görebilirsiniz **PercentThrottlingError** , değil çakıştığı uygulama için yüksek etkinlik nokta: Burada en olası nedeni yük dengelemeyi iyileştirmek için bölümleri taşıma depolama hizmetidir.
+> Ani hello değeri de görebilirsiniz **PercentThrottlingError** , değil çakıştığı Merhaba uygulaması yüksek etkinlik dönemleri ile: Burada en olası nedeni hello bölümleri tooimprove yük taşıma hello depolama hizmeti nedir Dengeleme.
 > 
 > 
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>PercentThrottlingError hata kalıcı artış
-Tutarlı bir şekilde yüksek bir değer için görüyorsanız **PercentThrottlingError** kalıcı bir artış işlem birimlerinizi veya ilk yükleme yaparken aşağıdaki sınamaları, uygulamanızda sonra uygulamanızın depolama bölümleri nasıl kullandığını ve olup bir depolama hesabı ölçeklenebilirlik hedefleri yaklaştığını değerlendirmeniz gerekiyor. (Tek bir bölümü olarak sayılır) bir sıranın hatalarda azaltma görüyorsanız, örneğin, daha sonra ek sıraları arasında birden çok bölüm işlemleri yaymak için kullanmayı düşünmelisiniz. Bir tabloda hatalar azaltma görüyorsanız, geniş bir bölüm anahtarı değerlerini kullanarak, işlemler arasında birden çok bölüm yaymak için farklı bir bölümleme şeması kullanarak dikkate almanız gerekir. Bir ortak bu sorunun nedeni burada bölüm anahtarı olarak tarihi seçin ve ardından belirli bir tarihte tüm veriler yazılır tek bir bölüm prepend ve append koruma Desen: yük altında bu yazma tıkanıklığa neden olabilir. Farklı bir bölümleme tasarım düşünün veya blob storage kullanarak daha iyi bir çözüm olabilir olup olmadığını değerlendirmek. Ayrıca azaltma trafiğinizin ani bir sonucu olarak ortaya çıktığını denetleyin ve desen isteklerinin düzgünleştirme yolları araştırmak gerekir.
+Tutarlı bir şekilde yüksek bir değer için görüyorsanız **PercentThrottlingError** kalıcı bir artış işlem birimlerinizi veya ilk yükleme yaparken aşağıdaki sınamaları, uygulamanızda sonra tooevaluate gerekir Uygulamanızı depolama bölümleri nasıl kullandığını ve olup bir depolama hesabı için hello ölçeklenebilirlik hedefleri yaklaşıyor. (Tek bir bölümü olarak sayılır) bir sıranın hatalarda azaltma görüyorsanız, örneğin, daha sonra ek sıraları toospread hello işlemleri arasında birden çok bölüm kullanmayı düşünmelisiniz. Bir tabloda hatalar azaltma görüyorsanız, farklı bir bölümleme şeması toospread kullanarak tooconsider işlemlerinizi arasında birden çok bölüm geniş bir bölüm anahtarı değerlerini kullanarak gerekir. Bir ortak bu sorunun nedeni burada hello bölüm anahtarı olarak başlangıç tarihi seçin ve ardından belirli bir tarihte tüm veriler yazılır tooone bölüm hello başına/append koruma Desen: yük altında bu yazma tıkanıklığa neden olabilir. Farklı bir bölümleme tasarım düşünün veya blob storage kullanarak daha iyi bir çözüm olabilir olup olmadığını değerlendirmek. Merhaba azaltma trafiğinizi ani sonucunda oluşan ve istekleri desen düzgünleştirme yolları araştırmak de denetlemeniz gerekir.
 
-Arasında birden çok bölüm işlemlerinizi dağıtırsanız, hala için depolama hesabı ölçeklenebilirlik sınırları farkında olmanız gerekir. Örneğin, her işleme 2.000 1 KB iletileri saniye başına en fazla on sıraları kullandıysanız, depolama hesabı için saniye başına 20.000 ileti genel sınırını konumunda bulunur. Saniye başına birden fazla 20.000 varlıkları işlemek gereken birden çok depolama hesabı kullanmayı düşünmelisiniz. İstekleri ve varlıkları boyutunu depolama hizmeti istemcileriniz olduğunda kısıtlar üzerinde bir etkisi olduğunu aklınızda bulundurmanız gerekir: büyük istekleri ve varlıkları varsa, daha erken kısıtlanan.
+Arasında birden çok bölüm işlemlerinizi dağıtırsanız, yine de hello depolama hesabı için ayarlanan hello ölçeklenebilirlik sınırları farkında olmalıdır. Örneğin, her işleme hello maksimum saniye başına 2.000 1 KB iletilerinin on sıraları kullandıysanız, hello olacaktır hello depolama hesabı için saniye başına 20.000 iletilerinin genel sınırı. Saniye başına birden fazla 20.000 varlıklar tooprocess ihtiyacınız varsa, birden çok depolama hesabı kullanmayı düşünmeniz gerekir. Ayrıca bu hello boyut, istekleri göz önünde bulundurmanız gerekir ve varlıkları hello depolama hizmeti istemcileriniz olduğunda kısıtlar üzerinde bir etkisi vardır: büyük istekleri ve varlıkları varsa, daha erken kısıtlanan.
 
-Verimli sorgu tasarımı tablo bölümleri için ölçeklenebilirlik sınırları isabet yapmanıza da neden olabilir. Örneğin, her bir varlık erişmek bir sorgu, yalnızca bir yüzde varlıkların bir bölümünde seçer, ancak bir bölümdeki tüm varlıklar tarar bir filtre ile gerekir. Bu bölümdeki işlemleri toplam sayısı doğru okuma her varlık sayar; Bu nedenle, ölçeklenebilirlik hedefleri kolayca erişebilir.
+Verimli sorgu tasarımı de toohit hello ölçeklenebilirlik sınırları tablo bölümleri için neden olabilir. Örneğin, bir sorgu, yalnızca bir yüzde hello varlıkların bir bölümünde seçer, ancak tüm hello varlıkları bir bölüme tarar bir filtre ile her varlık tooaccess gerekir. Bu bölümdeki işlemleri toplam sayısı hello doğru okuma her varlık sayar; Bu nedenle, hello ölçeklenebilirlik hedefleri kolayca erişebilir.
 
 > [!NOTE]
 > Performans testi herhangi verimsiz sorgu tasarımı, uygulamanızda ortaya çıkarır.
@@ -445,120 +445,120 @@ Verimli sorgu tasarımı tablo bölümleri için ölçeklenebilirlik sınırlar�
 > 
 
 ### <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>Ölçümleri artışı içinde PercentTimeoutError Göster
-Bir artış ölçümlerinizi Göster **PercentTimeoutError** depolama hizmetlerinizi biri için. Aynı anda istemci "500 işlem zaman aşımı" HTTP durum iletilerini yüksek miktarda depolama işlemlerinden alır.
+Bir artış ölçümlerinizi Göster **PercentTimeoutError** depolama hizmetlerinizi biri için. Merhaba aynı zaman hello istemci depolama işlemlerinden yüksek hacimli "500 işlem zaman aşımı" HTTP durum iletilerini alır.
 
 > [!NOTE]
-> Yeni bir sunucuya bir bölüm taşıyarak yük bakiyelerini isteklerini zaman aşımı hataları depolama hizmeti geçici olarak görebilirsiniz.
+> Bölüm tooa yeni bir sunucu taşıyarak yük bakiyelerini isteklerini zaman aşımı hataları hello depolama hizmeti geçici olarak görebilirsiniz.
 > 
 > 
 
-**PercentTimeoutError** ölçümüdür aşağıdaki ölçümleri toplamı: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError**, ve **SASServerTimeoutError**.
+Merhaba **PercentTimeoutError** ölçümüdür ölçümleri aşağıdaki hello toplamı: **ClientTimeoutError**, **AnonymousClientTimeoutError**,  **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError**, ve **SASServerTimeoutError**.
 
-Sunucu zaman aşımı, sunucuda bir hata nedeniyle oluşur. Sunucu üzerinde bir işlemi istemci tarafından belirtilen zaman aşımı süresi aşıldığından istemci zaman aşımları gerçekleşir; Örneğin, depolama istemci kitaplığı kullanılarak bir istemci bir işlem için bir zaman aşımı kullanarak ayarlayabilirsiniz **ServerTimeout** özelliği **QueueRequestOptions** sınıfı.
+Merhaba sunucu zaman aşımı, hello sunucuda bir hata nedeniyle oluşur. Merhaba sunucu üzerinde bir işlemi hello istemci tarafından belirtilen hello zaman aşımı değeri aştığından hello istemci zaman aşımları gerçekleşir; Örneğin, hello depolama istemci kitaplığı kullanan bir istemci bir işlem için bir zaman aşımı hello kullanarak ayarlayabilirsiniz **ServerTimeout** hello özelliğinin **QueueRequestOptions** sınıfı.
 
-Sunucu zaman aşımı daha fazla araştırma gerektiren depolama birimi hizmeti bir sorun olduğunu gösteriyor. Ölçümleri hizmeti için ölçeklenebilirlik sınırları basarsa olmadığını görmek için ve bu soruna neden trafiğinin herhangi bir ani belirlemek için kullanabilirsiniz. Zaman zaman ortaya çıkan bir sorundur, yük dengeleyici nedeniyle olabilir hizmet etkinliği. Sorun kalıcı ise ve ölçeklenebilirlik sınırları hizmetinin basarsa, uygulamanız tarafından neden değil, bir destek sorununu tetiklemelidir. İstemci zaman aşımları için zaman aşımı istemci ve istemci zaman aşımı değeri ayarlayın ya da değişiklik uygun bir değere ayarlayın veya nasıl performansı depolama hizmetindeki işlemlerinin örneğin tablo sorguları en iyi duruma getirme veya iletilerinizi boyutunu azaltma artırabilirsiniz araştırmak karar vermeniz gerekir.
+Sunucu zaman aşımı daha fazla araştırma gerektiren hello depolama birimi hizmeti bir sorun olduğunu gösteriyor. Bu soruna neden trafiğinin herhangi bir ani hello ölçeklenebilirlik sınırları hello hizmeti ve tooidentify devreyi ölçümleri toosee kullanabilirsiniz. Merhaba zaman zaman ortaya çıkan bir sorundur, son olabilir hello hizmet tooload Dengeleme etkinliğinde. Merhaba sorun kalıcı ise ve hello ölçeklenebilirlik sınırları hello hizmetinin basarsa, uygulamanız tarafından neden değil, bir destek sorununu tetiklemelidir. İstemci zaman aşımları için hello zaman aşımı hello istemcisinde tooan uygun değere ayarlanır ve ya da değişiklik hello zaman aşımı değeri hello istemcisinde ayarlamak veya nasıl için hello depolama hizmetindeki hello işlemlerinin hello performansını geliştirebilir araştırmak karar vermeniz gerekir Tablo sorguları en iyi duruma getirme veya iletilerinizi hello boyutunun azaltılması örnek.
 
 ### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>Ölçümleri artışı içinde PercentNetworkError Göster
-Bir artış ölçümlerinizi Göster **PercentNetworkError** depolama hizmetlerinizi biri için. **PercentNetworkError** ölçümüdür aşağıdaki ölçümleri toplamı: **NetworkError**, **AnonymousNetworkError**, ve **SASNetworkError**. İstemci bir depolama isteği yaptığında, depolama birimi hizmeti bir ağ hatası algıladığında, bu oluşur.
+Bir artış ölçümlerinizi Göster **PercentNetworkError** depolama hizmetlerinizi biri için. Merhaba **PercentNetworkError** ölçümüdür ölçümleri aşağıdaki hello toplamı: **NetworkError**, **AnonymousNetworkError**, ve  **SASNetworkError**. Merhaba istemci depolama istekte bulunduğunda hello depolama birimi hizmeti bir ağ hatası algıladığında, bu oluşur.
 
-Bu hatanın en yaygın nedeni bir istemcidir depolama hizmetinde bir zaman aşımı süresi dolmadan önce bağlantısı kesiliyor. Neden ve ne zaman istemci ve storage hizmetinden kesilene anlamak için istemci kodu araştırmanız gerekir. İstemciden gelen ağ bağlantısı sorunları araştırmak için Wireshark, Microsoft Message Analyzer veya Tcping de kullanabilirsiniz. Bu araçları açıklanan [ekler].
+Merhaba bu hatanın en yaygın neden olan bir istemci hello depolama hizmetinde bir zaman aşımı süresi dolmadan önce bağlantısı kesiliyor. Neden ve ne zaman hello istemci hello depolama hizmet bağlantısını keser, istemci toounderstand içinde hello kod araştırmanız gerekir. Wireshark, Microsoft Message Analyzer veya Tcping tooinvestigate ağ bağlantısı sorunları hello istemciden de kullanabilirsiniz. Bu araçları hello açıklanan [ekler].
 
-### <a name="the-client-is-receiving-403-messages"></a>İstemci HTTP 403 (Yasak) iletileri alma
-İstemci uygulamanızın HTTP 403 (Yasak) hataları atma, olası bir nedeni istemci (diğer olası nedenleri saat eğriltme, geçersiz anahtarlar ve boş üstbilgileri içerse) depolama isteği gönderdiğinde, süresi dolmuş bir paylaşılan erişim imzası (SAS) kullanıyor demektir. Süresi dolmuş bir SAS anahtarı neden olduğunda, sunucu tarafı depolama günlüğü günlük verileri herhangi bir giriş görürsünüz değil. Aşağıdaki tabloda bu sorunun oluşmasını gösterilmektedir depolama istemci kitaplığı tarafından oluşturulan istemci-tarafı günlüğünden bir örnek gösterilmektedir:
+### <a name="the-client-is-receiving-403-messages"></a>Merhaba istemci HTTP 403 (Yasak) iletileri alma
+İstemci uygulamanızın HTTP 403 (Yasak) hataları atma, olası bir nedeni (diğer olası nedenleri saat eğriltme, geçersiz anahtarları dahil ve boş olmasına karşın bir depolama istek gönderdiğinde hello istemci süresi dolmuş bir paylaşılan erişim imzası (SAS) kullanarak ise üst bilgiler). Süresi dolmuş bir SAS anahtarı hello neden olduğunda hello sunucu tarafı depolama günlüğü günlük verileri herhangi bir giriş görürsünüz değil. Merhaba aşağıdaki tabloda hello istemci-tarafı günlüğündeki depolama istemci Kitaplığı'de, bu sorunun oluşmasını gösterilmektedir hello tarafından oluşturulan bir örnek gösterilmektedir:
 
 | Kaynak | Ayrıntı | Ayrıntı | İstemci istek kimliği | İşlemi metin |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Konum modu PrimaryOnly başına birincil konumla işlemi başlatılıyor. |
-| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Eşzamanlı istek https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14 için başlangıç&amp;sr c =&amp;si mypolicy =&amp;SIG = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3B&amp;API sürümü 2014-02-14 =. |
+| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Zaman uyumlu başlatma isteği toohttps://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr c =&amp;si mypolicy =&amp;SIG OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % = 2FyhNYZEmJNQ % 3B&amp;API sürümü 2014-02-14 =. |
 | Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Yanıtı bekleniyor. |
-| Microsoft.WindowsAzure.Storage |Uyarı |2 |85d077ab-... |Yanıt bekleme sırasında özel durum oluştu: Uzak sunucu bir hata döndürdü: (403) Yasak... |
+| Microsoft.WindowsAzure.Storage |Uyarı |2 |85d077ab-... |Yanıt bekleme sırasında özel durum oluştu: hello uzak sunucu bir hata döndürdü: (403) Yasak... |
 | Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Yanıtı alındı. Durum kodu 403, istek kimliği = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = =, ETag =. |
-| Microsoft.WindowsAzure.Storage |Uyarı |2 |85d077ab-... |İşlem sırasında özel durum oluştu: Uzak sunucu bir hata döndürdü: (403) Yasak... |
-| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |İşlem yeniden denetleniyor. Yeniden deneme sayısı = 0, HTTP durum kodu 403, özel durum = = uzak sunucusu bir hata döndürdü: (403) Yasak... |
-| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Sonraki konumu, birincil, konum Modu'na bağlı ayarlandı. |
-| Microsoft.WindowsAzure.Storage |Hata |1 |85d077ab-... |Yeniden deneme ilkesi için bir yeniden deneme izin vermedi. Uzak sunucu ile başarısız olan bir hata döndürdü: (403) Yasak. |
+| Microsoft.WindowsAzure.Storage |Uyarı |2 |85d077ab-... |Merhaba işlemi sırasında özel durum oluştu: hello uzak sunucu bir hata döndürdü: (403) Yasak... |
+| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Merhaba işlem yeniden denetleniyor. Yeniden deneme sayısı = 0, HTTP durum kodu 403, özel durum = = hello uzak sunucusu bir hata döndürdü: (403) Yasak... |
+| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Merhaba sonraki konumu hello konumu Modu'na bağlı tooPrimary ayarlandı. |
+| Microsoft.WindowsAzure.Storage |Hata |1 |85d077ab-... |Yeniden deneme ilkesi için bir yeniden deneme izin vermedi. Başarısız olan hello uzak sunucusu ile bir hata döndürdü: (403) Yasak. |
 
-Bu senaryoda, istemcinin sunucuya belirteç göndermeden önce SAS belirteci neden doluyor araştırmanız gerekir:
+Bu senaryoda, hello istemci hello belirteci toohello sunucu göndermeden önce hello SAS belirteci neden doluyor araştırmanız gerekir:
 
-* Genellikle, hemen kullanmak bir istemci için bir SAS oluşturduğunuzda bir başlangıç saati ayarlanmadı. Depolama hizmetinin henüz geçerli olmayan bir SAS alma mümkündür sonra geçerli saati ve depolama hizmeti kullanılarak SAS oluşturma ana bilgisayar arasında küçük saat fark olduğunda.
-* Çok kısa süre sonu zamanı SAS ayarlamalısınız değil. Yeniden SAS ve depolama hizmeti oluşturma konak küçük saat farklılıkları görünüşe göre beklenenden daha önce süresi dolacak bir SAS yol açabilir.
-* SAS anahtarını sürüm parametresinde mu (örneğin **sv 2012-02-12 =**) kullandığınız depolama istemci kitaplığı sürümü aynı. Depolama istemcisi Kitaplığı'nın en son sürümü her zaman kullanmalısınız. SAS belirteci sürüm oluşturma hakkında daha fazla bilgi için bkz: [için Microsoft Azure depolama yenilikler](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
-* * Depolama erişim tuşlarınızı yeniden oluşturursanız (tıklatın **erişim anahtarlarını Yönet** depolama hesabınızda Klasik Azure portalındaki herhangi bir sayfasında) bu var olan tüm SAS belirteci geçersiz kılabilir. Önbellek istemci uygulamalar için uzun süre sonu zamanı ile SAS belirteci oluşturursanız bu bir sorun olabilir.
+* Genellikle, istemci toouse için bir SAS hemen oluştururken bir başlangıç saati ayarlanmadı. Varsa küçük hello SAS oluşturarak hello ana bilgisayar arasındaki saat farklılıkları geçerli saati ve hello depolama hizmeti Merhaba, hello depolama hizmeti tooreceive henüz geçerli olmayan bir SAS mümkündür.
+* Çok kısa süre sonu zamanı SAS ayarlamalısınız değil. Yeniden oluşturma hello konak küçük saat farklılıkları hello SAS ve hello depolama hizmeti tooa SAS açabilir görünüşe göre beklenenden daha önce süresi doluyor.
+* Sürüm parametresi hello SAS anahtarı hello (örneğin **sv 2012-02-12 =**) eşleşme hello hello kullandığınız depolama istemci kitaplığı sürümü. Her zaman hello hello depolama istemci kitaplığı en son sürümünü kullanmanız gerekir. SAS belirteci sürüm oluşturma hakkında daha fazla bilgi için bkz: [için Microsoft Azure depolama yenilikler](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
+* * Depolama erişim tuşlarınızı yeniden oluşturursanız (tıklatın **erişim anahtarlarını Yönet** herhangi bir sayfasında depolama hesabınızdaki hello Klasik Azure portalı) bu var olan tüm SAS belirteci geçersiz kılabilir. İstemci uygulamaları toocache için uzun süre sonu zamanı ile SAS belirteci oluşturursanız bu bir sorun olabilir.
 
-Ardından SAS belirteçleri oluşturmak için depolama istemci kitaplığı kullanıyorsanız, geçerli bir belirteci oluşturmak kolaydır. Ancak, Storage REST API'sini kullanıyorsanız ve el ile SAS oluşturma belirteçler dikkatle konu okumanız gereken <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">paylaşılan erişim imzası için temsilci seçme erişimle</a> MSDN'de.
+Ardından hello depolama istemci kitaplığı toogenerate SAS belirteci kullanıyorsanız, kolay toobuild geçerli bir belirteci hale gelir. Ancak, hello Storage REST API'sini kullanarak ve el ile Merhaba SAS belirteci oluşturma hello konu dikkatle okumalısınız <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">paylaşılan erişim imzası için temsilci seçme erişimle</a> MSDN'de.
 
-### <a name="the-client-is-receiving-404-messages"></a>İstemci HTTP 404 (bulunamadı) iletileri alma
-İstemci uygulaması sunucudan bir HTTP 404 (bulunamadı) iletisi alırsa, bu istemci (bir varlık, tablo, blob, kapsayıcısı veya sıra gibi) kullanmak için çalışıyordu nesne depolama hizmetinde yok anlamına gelir. Gibi bir dizi Bu, olası nedenleri vardır:
+### <a name="the-client-is-receiving-404-messages"></a>Merhaba istemci HTTP 404 (bulunamadı) iletileri alma
+Merhaba istemci uygulaması hello sunucusundan bir HTTP 404 (bulunamadı) iletisi alırsa, bu hello nesne hello istemci çalışırken gösterir (örneğin, bir varlık, tablo, blob, kapsayıcısı veya sıra) toouse hello depolama hizmetinde yok. Gibi bir dizi Bu, olası nedenleri vardır:
 
-* [İstemci veya başka bir işlem nesne daha önce silinmiş]
+* [Merhaba istemci veya başka bir işlem daha önce silinmiş hello nesnesi]
 * [Bir paylaşılan erişim imzası (SAS) yetkilendirme sorunu]
-* [İstemci tarafı JavaScript kodu nesneye erişim izni yok]
+* [İstemci tarafı JavaScript kodu izin tooaccess hello nesnesi yok]
 * [Ağ hatası]
 
-#### <a name="client-previously-deleted-the-object"></a>İstemci veya başka bir işlem nesne daha önce silinmiş
-Okuma, güncelleştirme veya bir depolama hizmetindeki veri silmek için istemci nerede çalışıyor senaryolarda sunucu tarafı günlüklerinde ve storage hizmetinden söz konusu Nesne silindi önceki bir işlemi tanımlamak genellikle kolaydır. Sıklıkla, günlük verilerini başka bir kullanıcı veya işlem nesne silinip silinmediğini gösterir. Sunucu tarafı depolama oturum günlüğüne, ne zaman bir istemci bir nesne silindi işlem türü ve istenen nesnesi-anahtar sütun gösterir.
+#### <a name="client-previously-deleted-the-object"></a>Merhaba istemci veya başka bir işlem daha önce silinmiş hello nesnesi
+Merhaba istemci tooread, update veya delete veri çoğunlukla bir depolama hizmetindeki nerede çalışıyor senaryolarda hello Depolama hizmetinden hello söz konusu Nesne silindi önceki bir işlemi hello sunucu tarafı kolay tooidentify günlüğe kaydeder. Çok sık hello günlük verileri, başka bir kullanıcı veya işlem silinen hello nesne gösterir. Merhaba sunucu tarafı günlüğüne depolama günlüğü hello işlem türü ve istenen nesnesi-anahtar sütun ne zaman bir istemci bir nesne silindi gösterir.
 
-İstemci yeni bir nesne oluşturma koşuluyla, bu bir HTTP 404 (bulunamadı) yanıt olarak sonuçları neden bir nesne eklemek için bir istemci nerede çalışıyor senaryoda, hemen belirgin olmayabilir. Ancak, istemci istemcinin bir sıra bulamıyor olmalıdır bir ileti oluşturuyorsanız blob kapsayıcısını bulamadı olmalıdır blob oluşturuyorsanız ve istemci bir satır ekleme, bu tabloyu bulamadı olmalıdır.
+Hello istemci yeni bir nesne oluşturuyor koşuluyla, bu bir HTTP 404 (bulunamadı) yanıt olarak sonuçları neden bir istemci tooinsert bir nesne nerede çalışıyor hello senaryosunda, bunu hemen belirgin olmayabilir. Ancak, Hello istemci hello istemci mümkün toofind bir sıra olmalıdır bir ileti oluşturuyorsanız mümkün toofind hello blob kapsayıcısı, olmalıdır ve hello istemci satır ekleme, gereken bir blob oluşturuyorsanız mümkün toofind hello tablo olması gerekir.
 
-İstemci depolama hizmetine belirli isteklere gönderdiğinde bir ayrıntılı anlaşılması için depolama istemci Kitaplığı'ndan istemci-tarafı günlüğünü kullanabilirsiniz.
+Merhaba istemci-tarafı hello istemci toohello depolama birimi hizmeti belirli istekleri gönderirken bir anlayış ayrıntılıysa hello depolama istemci kitaplığı toogain günlüğünden kullanabilirsiniz.
 
-İstemci için bunu oluşturmayı blob kapsayıcı bulamadığında depolama istemci kitaplığı tarafından oluşturulan aşağıdaki istemci-tarafı günlüğü sorun gösterilmektedir. Bu günlük dosyası şu depolama işlemleri ayrıntılarını içerir:
+Merhaba istemci için bunu oluşturmayı hello blob hello kapsayıcı bulamadığında hello hello depolama istemcisi kitaplığı tarafından oluşturulan aşağıdaki istemci-tarafı günlüğü hello sorun gösterilmektedir. Bu günlük depolama işlemleri aşağıdaki hello ayrıntılarını içerir:
 
 | İstek Kimliği | İşlem |
 | --- | --- |
-| 07b26a5d-... |**DeleteIfExists** blob kapsayıcısını silmek için yöntem. Bu işlem içeren Not bir **HEAD** kapsayıcı varlığını denetlemek için istek. |
-| e2d06d78... |**CreateIfNotExists** yöntemi blob kapsayıcı oluşturun. Bu işlem içeren Not bir **HEAD** kapsayıcı varlığını denetleyen istek. **HEAD** 404 bir ileti döndürür ancak devam eder. |
-| de8b1c3c-... |**UploadFromStream** blob oluşturmak için yöntemi. **PUT** istek 404 iletisiyle başarısız olur |
+| 07b26a5d-... |**DeleteIfExists** yöntemi toodelete hello blob kapsayıcısı. Bu işlem içeren Not bir **HEAD** hello kapsayıcı hello varlığı toocheck isteği. |
+| e2d06d78... |**CreateIfNotExists** yöntemi toocreate hello blob kapsayıcısı. Bu işlem içeren Not bir **HEAD** hello hello kapsayıcı varlığını denetleyen istek. Merhaba **HEAD** 404 bir ileti döndürür ancak devam eder. |
+| de8b1c3c-... |**UploadFromStream** yöntemi toocreate hello blob. Merhaba **PUT** istek 404 iletisiyle başarısız olur |
 
 Günlük girişleri:
 
 | İstek Kimliği | İşlemi metin |
 | --- | --- |
-| 07b26a5d-... |Https://domemaildist.blob.core.windows.net/azuremmblobcontainer eşzamanlı isteği başlatılıyor. |
+| 07b26a5d-... |Eşzamanlı istek toohttps://domemaildist.blob.core.windows.net/azuremmblobcontainer başlatılıyor. |
 | 07b26a5d-... |StringToSign HEAD...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, 03 Haz 2014 = 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Yanıtı bekleniyor. |
 | 07b26a5d-... |Yanıtı alındı. Durum kodu 200, istek kimliği = eeead849... = Content-MD5 =, ETag = &quot;0x8D14D2DC63D059B&quot;. |
-| 07b26a5d-... |Yanıt Üstbilgileri işlemi geri kalanı ile devam etmeden başarıyla işlendi. |
+| 07b26a5d-... |Yanıt Üstbilgileri hello hello işlemi kalanıyla etmeden başarıyla işlendi. |
 | 07b26a5d-... |Yanıt gövdesi yükleniyor. |
 | 07b26a5d-... |İşlem başarıyla tamamlandı. |
-| 07b26a5d-... |Https://domemaildist.blob.core.windows.net/azuremmblobcontainer eşzamanlı isteği başlatılıyor. |
+| 07b26a5d-... |Eşzamanlı istek toohttps://domemaildist.blob.core.windows.net/azuremmblobcontainer başlatılıyor. |
 | 07b26a5d-... |StringToSign DELETE...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, 03 Haz 2014 = 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Yanıtı bekleniyor. |
 | 07b26a5d-... |Yanıtı alındı. Durum kodu 202, istek kimliği = 6ab2a4cf-..., Content-MD5 = =, ETag =. |
-| 07b26a5d-... |Yanıt Üstbilgileri işlemi geri kalanı ile devam etmeden başarıyla işlendi. |
+| 07b26a5d-... |Yanıt Üstbilgileri hello hello işlemi kalanıyla etmeden başarıyla işlendi. |
 | 07b26a5d-... |Yanıt gövdesi yükleniyor. |
 | 07b26a5d-... |İşlem başarıyla tamamlandı. |
-| e2d06d78-... |Zaman uyumsuz isteği https://domemaildist.blob.core.windows.net/azuremmblobcontainer başlatılıyor.</td> |
+| e2d06d78-... |Zaman uyumsuz istek toohttps://domemaildist.blob.core.windows.net/azuremmblobcontainer başlatılıyor.</td> |
 | e2d06d78-... |StringToSign HEAD...x-ms-client-request-id:e2d06d78-...x-ms-date:Tue, 03 Haz 2014 = 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Yanıtı bekleniyor. |
-| de8b1c3c-... |Https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt eşzamanlı isteği başlatılıyor. |
+| de8b1c3c-... |Eşzamanlı istek toohttps://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt başlatılıyor. |
 | de8b1c3c-... |StringToSign PUT =... 64.qCmF+TQLPhq/YYK50mP9ZQ==...x-MS-BLOB-Type:BlockBlob.x-MS-Client-Request-id:de8b1c3c-...x-MS-Date:TUE, 03 Haz 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
-| de8b1c3c-... |İstek veri yazmak hazırlanıyor. |
-| e2d06d78-... |Yanıt bekleme sırasında özel durum oluştu: Uzak sunucu bir hata döndürdü: (404) bulunamadı... |
+| de8b1c3c-... |Toowrite istek verileri hazırlanıyor. |
+| e2d06d78-... |Yanıt bekleme sırasında özel durum oluştu: hello uzak sunucu bir hata döndürdü: (404) bulunamadı... |
 | e2d06d78-... |Yanıtı alındı. Durum kodu 404, istek kimliği = 353ae3bc-..., Content-MD5 = =, ETag =. |
-| e2d06d78-... |Yanıt Üstbilgileri işlemi geri kalanı ile devam etmeden başarıyla işlendi. |
+| e2d06d78-... |Yanıt Üstbilgileri hello hello işlemi kalanıyla etmeden başarıyla işlendi. |
 | e2d06d78-... |Yanıt gövdesi yükleniyor. |
 | e2d06d78-... |İşlem başarıyla tamamlandı. |
-| e2d06d78-... |Zaman uyumsuz isteği https://domemaildist.blob.core.windows.net/azuremmblobcontainer başlatılıyor. |
+| e2d06d78-... |Zaman uyumsuz istek toohttps://domemaildist.blob.core.windows.net/azuremmblobcontainer başlatılıyor. |
 | e2d06d78-... |StringToSign PUT =... 0...x-MS-Client-Request-id:e2d06d78-...x-MS-Date:TUE, 03 Haz 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Yanıtı bekleniyor. |
 | de8b1c3c-... |Yazma isteği verileri. |
 | de8b1c3c-... |Yanıtı bekleniyor. |
-| e2d06d78-... |Yanıt bekleme sırasında özel durum oluştu: Uzak sunucu bir hata döndürdü: (409) çakışma... |
+| e2d06d78-... |Yanıt bekleme sırasında özel durum oluştu: hello uzak sunucu bir hata döndürdü: (409) çakışma... |
 | e2d06d78-... |Yanıtı alındı. Durum kodu 409, istek kimliği = c27da20e-..., Content-MD5 = =, ETag =. |
 | e2d06d78-... |Hata yanıt gövdesi yükleniyor. |
-| de8b1c3c-... |Yanıt bekleme sırasında özel durum oluştu: Uzak sunucu bir hata döndürdü: (404) bulunamadı... |
+| de8b1c3c-... |Yanıt bekleme sırasında özel durum oluştu: hello uzak sunucu bir hata döndürdü: (404) bulunamadı... |
 | de8b1c3c-... |Yanıtı alındı. Durum kodu 404, istek kimliği = 0eaeab3e-..., Content-MD5 = =, ETag =. |
-| de8b1c3c-... |İşlem sırasında özel durum oluştu: Uzak sunucu bir hata döndürdü: (404) bulunamadı... |
-| de8b1c3c-... |Yeniden deneme ilkesi için bir yeniden deneme izin vermedi. Uzak sunucu ile başarısız olan bir hata döndürdü: (404) bulunamadı... |
-| e2d06d78-... |Yeniden deneme ilkesi için bir yeniden deneme izin vermedi. Uzak sunucu ile başarısız olan bir hata döndürdü: (409) çakışma... |
+| de8b1c3c-... |Merhaba işlemi sırasında özel durum oluştu: hello uzak sunucu bir hata döndürdü: (404) bulunamadı... |
+| de8b1c3c-... |Yeniden deneme ilkesi için bir yeniden deneme izin vermedi. Başarısız olan hello uzak sunucusu ile bir hata döndürdü: (404) bulunamadı... |
+| e2d06d78-... |Yeniden deneme ilkesi için bir yeniden deneme izin vermedi. Başarısız olan hello uzak sunucusu ile bir hata döndürdü: (409) çakışma... |
 
-Bu örnekte, istemci gelen istekleri araya ekleme günlüğünü gösterir **CreateIfNotExists** yöntemi (istek kimliği e2d06d78...) gelen istekleri ile **UploadFromStream** yöntemi (de8b1c3c-...); istemci uygulaması bu yöntemleri zaman uyumsuz olarak çağırma çünkü bu olmuyor. Bu kapsayıcıda blob herhangi bir veriyi karşıya yüklemeye çalışmadan önce bu kapsayıcı oluşturduğundan emin olmak için istemci zaman uyumsuz kodu değiştirmeniz gerekir. İdeal olarak, tüm kapsayıcıları önceden oluşturmanız gerekir.
+Bu örnekte, hello istemci hello gelen istekleri Interleaving hello günlüğü gösterir, **CreateIfNotExists** hello hello isteklerinden (istek kimliği e2d06d78...) yöntemiyle **UploadFromStream** yöntemi ( de8b1c3c-...); Merhaba istemci uygulaması bu yöntemleri zaman uyumsuz olarak çağırma çünkü bu gerçekleştirilmektedir. Merhaba zaman uyumsuz hello istemci tooensure hello kapsayıcı tooupload denemeden önce tüm veri tooa blob bu kapsayıcıda oluşturur, kodda değiştirmeniz gerekir. İdeal olarak, tüm kapsayıcıları önceden oluşturmanız gerekir.
 
 #### <a name="SAS-authorization-issue"></a>Bir paylaşılan erişim imzası (SAS) yetkilendirme sorunu
-İstemci uygulaması işlemi için gerekli izinleri içermez bir SAS anahtarı kullanmayı denerse, depolama birimi hizmeti istemcisi için bir HTTP 404 (bulunamadı) iletisi döndürür. Aynı anda için sıfır olmayan bir değer de görürsünüz **SASAuthorizationError** ölçümleri içinde.
+Merhaba istemci uygulaması toouse hello hello işlemi için gerekli izinleri içermez bir SAS anahtarı çalışırsa hello depolama hizmeti bir HTTP 404 (bulunamadı) ileti toohello istemci döndürür. Merhaba aynı zaman da görürsünüz için sıfır olmayan bir değer **SASAuthorizationError** hello ölçümleri içinde.
 
-Aşağıdaki tabloda bir örnek sunucu tarafı günlük iletisi depolama günlüğü günlük dosyasından gösterilmektedir:
+Aşağıdaki tablonun hello hello depolama günlüğü günlük dosyasından alınan örnek bir sunucu tarafı günlüğüne ileti gösterilir:
 
 | Ad | Değer |
 | --- | --- |
@@ -573,10 +573,10 @@ Aşağıdaki tabloda bir örnek sunucu tarafı günlük iletisi depolama günlü
 | İstek Kimliği üst bilgisi  | a1f348d5-8032-4912-93EF-b393e5252a3b |
 | İstemci istek kimliği  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
-İstemci uygulamanız için izinleri verilmemiş bir işlemi gerçekleştirmek neden deniyor araştırmanız gerekir.
+İstemci uygulamanızı tooperform izinleri verilmemiş bir işlem neden deniyor araştırmanız gerekir.
 
-#### <a name="JavaScript-code-does-not-have-permission"></a>İstemci tarafı JavaScript kodu nesneye erişim izni yok
-JavaScript istemci kullanıyorsanız ve depolama hizmeti HTTP 404 iletileri döndürüyor, tarayıcıda aşağıdaki JavaScript hataları kontrol edin:
+#### <a name="JavaScript-code-does-not-have-permission"></a>İstemci tarafı JavaScript kodu izin tooaccess hello nesnesi yok
+JavaScript istemci kullanıyorsanız ve hello depolama hizmeti HTTP 404 iletileri döndürüyor, aşağıdaki JavaScript hatalar hello tarayıcıda hello için denetleyin:
 
 ```
 SEC7120: Origin http://localhost:56309 not found in Access-Control-Allow-Origin header.
@@ -584,19 +584,19 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 ```
 
 > [!NOTE]
-> İstemci tarafı JavaScript sorunlarını giderirken, tarayıcı ve depolama hizmeti arasında alınıp iletileri izlemek için Internet Explorer'da F12 geliştirici araçlarını kullanabilirsiniz.
+> İstemci tarafı JavaScript sorunlarını giderirken hello tarayıcı ve hello depolama hizmeti arasında alınıp Internet Explorer tootrace hello iletileri hello F12 geliştirici araçlarını kullanabilirsiniz.
 > 
 > 
 
-Web tarayıcısı uyguladığından bu hatalar ortaya <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">kaynak aynı ilke</a> bir web sayfası bir API farklı bir etki alanında etki alanından sayfa çağırmasını engelleyen güvenlik kısıtlaması gelir.
+Merhaba web tarayıcısı hello uyguladığından bu hatalar ortaya <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">kaynak aynı ilke</a> hello etki alanı hello sayfasından farklı bir etki alanındaki bir API'yi çağıran bir web sayfası engelleyen güvenlik kısıtlaması gelir.
 
-JavaScript sorunu çözmek için istemci erişimi için depolama hizmeti arası kaynak kaynak paylaşımı (CORS) yapılandırabilirsiniz. Daha fazla bilgi için bkz: <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Azure Storage Hizmetleri için çıkış noktaları arası kaynak paylaşımı (CORS) desteği</a> konusuna bakın.
+toowork hello JavaScript sorunu çözmek Hello depolama hizmeti hello istemci erişimi için çapraz kaynak kaynak paylaşımı (CORS) yapılandırabilirsiniz. Daha fazla bilgi için bkz: <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Azure Storage Hizmetleri için çıkış noktaları arası kaynak paylaşımı (CORS) desteği</a> konusuna bakın.
 
-Aşağıdaki kod örneği, blob depolama hizmetinin bir blob'a erişmek JavaScript Contoso etki alanında çalışan izin vermek için blob hizmetinin nasıl yapılandırılacağı gösterilmektedir:
+Aşağıdaki kod örneği hello nasıl tooconfigure, blob hizmeti tooallow blob depolama hizmetinin bir blob'a hello Contoso etki alanı tooaccess çalıştıran JavaScript gösterir:
 
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
-// Set the service properties.
+// Set hello service properties.
 ServiceProperties sp = client.GetServiceProperties();
 sp.DefaultServiceVersion = "2013-08-15";
 CorsRule cr = new CorsRule();
@@ -611,18 +611,18 @@ client.SetServiceProperties(sp);
 ```
 
 #### <a name="network-failure"></a>Ağ hatası
-Bazı durumlarda, kayıp ağ paketlerini istemciye HTTP 404 iletilerini döndürmek depolama hizmeti neden olabilir. Örneğin, istemci uygulamanız tablo hizmetinden bir varlık silinirken bir depolama özel durumu raporlama throw istemci bkz bir "HTTP 404 (bulunamadı)" Tablo hizmetinden durum iletisi. Tablo depolama hizmeti tabloda incelediğinizde, istendiği gibi hizmet varlığı silmek olduğunu görürsünüz.
+Bazı durumlarda, kayıp ağ paketlerini HTTP 404 iletileri toohello istemci döndürme toohello depolama birimi hizmeti yol açabilir. Örneğin, istemci uygulamanız hello tablo hizmetinden bir varlık silinirken bir depolama özel durumu raporlama throw hello istemci bkz bir "HTTP 404 (bulunamadı)" Merhaba tablo hizmetinden gelen durum iletisi. Merhaba tablo depolama hizmeti hello tabloda incelediğinizde hello hizmet istendiği gibi hello varlık sildi bakın.
 
-İstek için tablo hizmeti tarafından atanan istek kimliği (7e84f12d...) istemci özel durum ayrıntıları içerir: arama tarafından sunucu tarafı depolama günlüklerinde İstek Ayrıntıları bulmak için bu bilgileri kullanabilirsiniz **istek kimliği üstbilgisi** günlük dosyasında sütun. Ölçümler, bu gibi hataları oluşur ve bu hata ölçümleri kayıtlı saate göre günlük dosyalarını aramak belirlemek için de kullanabilirsiniz. Bu günlük girişi silme bir "HTTP (404) istemci başka bir hata" durum iletisiyle başarısız olduğunu gösterir. Aynı günlük girişi istemci tarafından oluşturulan istek kimliğini de içerir **istemci istek kimliği** sütun (813ea74f...).
+Merhaba İstemcisi'nde Hello özel durum ayrıntıları dahil hello isteği için hello tablo hizmeti tarafından atanan hello istek kimliği (7e84f12d...): hello arayarak bu bilgileri toolocate hello İstek Ayrıntıları hello sunucu tarafı depolama günlüklerindeki kullanabilir  **istek kimliği üstbilgisi** hello günlük dosyasında sütun. Bu hata gibi bu oluşur ve hello zaman hello ölçümleri temel hello günlük dosyalarını aramak hataları kaydedilirken hello ölçümleri tooidentify de kullanabilirsiniz. Delete hello bu günlük girişi gösterir bir "HTTP (404) istemci başka bir hata" durum iletisi ile başarısız oldu. Merhaba aynı günlük girişi da hello hello istemci tarafından oluşturulan hello istek kimliğini içerir **istemci istek kimliği** sütun (813ea74f...).
 
-Sunucu tarafı günlük da aynı olan başka bir giriş içerir **istemci istek kimliği** değeri (813ea74f...) başarılı bir silme işlemi aynı varlık için ve aynı istemciden. Başarısız istek silmeden önce bu başarılı silme işlemi çok kısa bir süre içinde gerçekleşen.
+Hello sunucu tarafı günlük da hello ile başka bir giriş içerir aynı **istemci istek kimliği** değeri (813ea74f...) başarılı bir silme işlemi için hello aynı varlık ve gelen aynı hello istemci. Bu başarılı silme işlemi hello başarısız silme isteği çok kısa bir süre önce yapıldı.
 
-Bu senaryonun en olası nedeni, istemci başarılı oldu, ancak onay (belki de bir geçici ağ sorunu nedeniyle) sunucusundan almadı tablo hizmeti için bir silme isteği varlık için gönderilen ' dir. İstemci ardından otomatik olarak işlem yeniden (aynı kullanarak **istemci istek kimliği**), bu yeniden deneme varlık zaten silinmiş olduğundan başarısız oldu.
+Merhaba en olası nedeni, bu senaryo, başarılı oldu, ancak onay (belki de son tooa geçici ağ sorunu) hello sunucusundan almadı hello varlık toohello tablo hizmeti için bir silme isteği gönderilen bu hello istemcidir. Merhaba istemci ardından hello işlemi otomatik olarak yeniden (kullanarak, hello aynı **istemci istek kimliği**), bu yeniden deneme hello varlık zaten silinmiş olduğundan başarısız oldu.
 
-Bu sorun sık sık olursa, tablo hizmetinden bildirimleri almak istemci neden başarısız araştırmanız gerekir. Zaman zaman ortaya çıkan bir sorundur, "HTTP (404) bulunamadı" hatasını yakalamak ve istemcide oturum ancak devam etmek istemcinin izin.
+Bu sorun sık sık olursa hello istemci tooreceive onayları hello tablo hizmetinden neden başarısız araştırmanız gerekir. Merhaba zaman zaman ortaya çıkan bir sorundur, hello "HTTP (404) bulunamadı" hatasını yakalamak ve hello istemcisinde oturum ancak hello istemci toocontinue izin.
 
-### <a name="the-client-is-receiving-409-messages"></a>İstemci HTTP 409 (Çakışma) iletileri alma
-Aşağıdaki tabloda, iki istemci işlemleri için sunucu tarafı günlüğünden bir ayıklama gösterilmektedir: **DeleteIfExists** göre hemen ardından **CreateIfNotExists** aynı blob kapsayıcı adı kullanarak. Her istemci işlemi sunucuya ilk gönderilen iki isteklerinde sonuçları Not bir **GetContainerProperties** kapsayıcı, arkasından var olup olmadığını denetlemek için istek **DeleteContainer** veya **CreateContainer** isteği.
+### <a name="the-client-is-receiving-409-messages"></a>Merhaba istemci HTTP 409 (Çakışma) iletileri alma
+Merhaba aşağıdaki tabloda gösterilmektedir iki istemci işlemleri hello sunucu tarafı günlüğünden bir Ayıkla: **DeleteIfExists** göre hemen ardından **CreateIfNotExists** kullanarak hello aynı blob kapsayıcı adı. Her istemci işlemi gönderilen iki istekleri toohello Server'da ilk sonuçları Not bir **GetContainerProperties** isteği toocheck hello kapsayıcının var olduğunun hello tarafından izlenen **DeleteContainer** veya  **CreateContainer** isteği.
 
 | zaman damgası | İşlem | Sonuç | Kapsayıcı adı | İstemci istek kimliği |
 | --- | --- | --- | --- | --- |
@@ -631,61 +631,61 @@ Aşağıdaki tabloda, iki istemci işlemleri için sunucu tarafı günlüğünde
 | 05:10:13.8987407 |GetContainerProperties |404 |mmcont |bc881924-... |
 | 05:10:14.2147723 |CreateContainer |409 |mmcont |bc881924-... |
 
-İstemci uygulaması kodu siler ve aynı adı kullanarak bir blob kapsayıcısını hemen yeniden oluşturur: **CreateIfNotExists** yöntemi (istemci istek kimliği bc881924-...) sonunda HTTP 409 (Çakışma) hatasıyla başarısız oluyor. Ne zaman bir istemci blob kapsayıcılar, tablolar veya adından önce kısa bir süre yoktur sıraları siler yeniden kullanılabilir hale gelir.
+Merhaba hello istemci uygulamasındaki kod siler ve sonra hemen hello kullanarak bir blob kapsayıcısını yeniden oluşturur aynı adı: Merhaba **CreateIfNotExists** yöntemi (istemci istek kimliği bc881924-...) sonunda hello HTTP 409 (Çakışma) ile başarısız oluyor bir hata oluştu. Bir istemci blob kapsayıcılar, tablolar veya kısa bir süre önce yoktur sıraları sildiğinde hello adı yeniden kullanılabilir hale gelir.
 
-Silme/yeniden oluşturun düzeni ortak ise yeni kapsayıcılar oluşturduğunda istemci uygulaması benzersiz kapsayıcı adları kullanmanız gerekir.
+Merhaba silme/yeniden oluşturun düzeni ortak ise yeni kapsayıcılar oluşturduğunda Merhaba istemci uygulaması benzersiz kapsayıcı adları kullanmanız gerekir.
 
 ### <a name="metrics-show-low-percent-success"></a>Düşük PercentSuccess ölçümleri göster veya ClientOtherErrors işlem durumundaki işlemlerini analytics günlük girdilerine sahip
-**PercentSuccess** ölçüm başarılı oldu, HTTP durum kodu göre işlemlerinin yüzde yakalar. 2XX durum kodları ile işlemlerini saymak durum kodları 3XX, 4XX ve 5XX aralıklardaki işlemleriyle başarısız ve daha düşük olarak sayılır ancak olarak başarılı **PercentSucess** ölçüm değeri. Sunucu tarafı depolama günlük dosyalarında bir işlem durumuyla işlemlerini kaydedilir **ClientOtherErrors**.
+Merhaba **PercentSuccess** ölçüm hello yüzde başarılı oldu, HTTP durum kodu göre işlemlerinin yakalar. Durum kodları işlemleriyle 2XX, durum kodları 3XX, 4XX ve 5XX aralıklardaki işlemleriyle başarısız ve alt hello sayılır ancak olarak başarılı Say **PercentSucess** ölçüm değeri. Merhaba sunucu tarafı depolama günlük dosyalarında bir işlem durumuyla işlemlerini kaydedilir **ClientOtherErrors**.
 
-Bu işlemleri tamamladınız ve bu nedenle kullanılabilirliği gibi diğer ölçümleri etkilemez dikkate almak önemlidir. Başarıyla yürütülen ancak başarısız HTTP durum kodları sonuçlanabilir işlemlerinin bazı örnekler şunlardır:
+Bu işlemleri tamamladınız ve bu nedenle kullanılabilirliği gibi diğer ölçümleri etkilemez önemli toonote olur. Başarıyla yürütülen ancak başarısız HTTP durum kodları sonuçlanabilir işlemlerinin bazı örnekler şunlardır:
 
-* **ResourceNotFound** (değil bulunan 404), örneğin bir istekten GET var olmayan bir blob için.
-* **ResouceAlreadyExists** (409 çakışma), örneğin bir **CreateIfNotExist** kaynağın zaten bulunduğu işlem.
-* **ConditionNotMet** (değil değiştiren 304), bir istemci gönderdiğinde gibi örneğin bir koşullu işlem bir **ETag** değeri ve bir HTTP **If-None-Match** yalnızca son işlem güncelleştirildi, görüntüyü istemek için üstbilgi.
+* **ResourceNotFound** (değil bulunan 404), örneğin bir GET isteği tooa blob yok.
+* **ResouceAlreadyExists** (409 çakışma), örneğin bir **CreateIfNotExist** burada hello kaynak zaten var. işlemi.
+* **ConditionNotMet** (değil değiştiren 304), bir istemci gönderdiğinde gibi örneğin bir koşullu işlem bir **ETag** değeri ve bir HTTP **If-None-Match** üstbilgi toorequest bir görüntü yalnızca if Merhaba son işlem güncelleştirildi.
 
-Depolama Hizmetleri sayfasına dönmek ortak REST API hata kodları listesini bulabilirsiniz <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">ortak REST API hata kodları</a>.
+Merhaba depolama hizmetleri hello sayfasına dönmek ortak REST API hata kodları listesini bulabilirsiniz <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">ortak REST API hata kodları</a>.
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Kapasite ölçümlerini beklenmeyen artışı depolama kapasitesi kullanımı Göster
-Kapasite kullanımı depolama hesabınızdaki beklenmeyen değişiklikleri ani görürseniz, kullanılabilirlik ölçümlerinizi bakarak nedenlerini araştırabilirsiniz; Örneğin, bir artış sayısı, başarısız silme istekleri uygulama belirli temizleme işlemleri, serbest bırakma olması için alan boşaltın beklenen sahip (örneğin, alan boşaltıp için kullanılan SAS belirteci süresi dolduğundan) beklendiği gibi çalışmıyor olabilir olarak kullanarak blob storage miktarında artış neden.
+Kapasite kullanımı depolama hesabınızdaki beklenmeyen değişiklikleri ani görürseniz, kullanılabilirlik ölçümlerinizi bakarak hello nedenleri araştırabilirsiniz; Örneğin, bir artış hello başarısız silme isteklerinin sayısı tooan artış uygulama belirli temizleme işlemleri toobe alan boşaltıp (için beklendiği gibi çalışmıyor olabilir beklenen olarak kullandığınız blob storage'nın hello tutardaki neden olabilir örnek, alan boşaltıp için kullanılan hello SAS belirteci süresi dolduğundan).
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>Beklenmeyen yeniden başlatmalar çok sayıda ekli VHD'ler sahip Azure sanal makineleri yaşıyor
-Bir Azure sanal makine (VM) çok sayıda aynı depolama hesabında olan ekli VHD'ler varsa, VM başarısız olmasına neden olan bir depolama hesabı ölçeklenebilirlik hedefleri aşabilir. Depolama hesabı için dakika ölçümleri denetlemeniz gerekir (**TotalRequests**/**Totalıngress**/**TotalEgress**) için bir depolama hesabı ölçeklenebilirlik hedefleri aşan ani. Bölümüne bakın "[ölçümleri Göster artışı içinde PercentThrottlingError]" azaltma belirlenmesinde yardım depolama hesabınıza oluştu için.
+Bir Azure sanal makine (VM) çok sayıda hello olan ekli VHD'ler varsa aynı depolama hesabını hello ölçeklenebilirlik hedefleri hello VM toofail neden bir depolama hesabı için aşan. Merhaba dakika ölçümleri hello depolama hesabı için denetlemeniz gerekir (**TotalRequests**/**Totalıngress**/**TotalEgress**) ani için bir depolama hesabı için hello ölçeklenebilirlik hedefleri aşıyor. Merhaba bölümüne bakın "[ölçümleri Göster artışı içinde PercentThrottlingError]" azaltma belirlenmesinde yardım depolama hesabınıza oluştu için.
 
-Genel olarak, her tek tek giriş veya çıkış işlemi bir sanal makineden bir VHD çevrilir **Al sayfasında** veya **Put sayfa** temel sayfa blobu işlemleri. Bu nedenle, belirli bir davranışı, uygulamanızın üzerinde tek bir depolama hesabında dayalı kaç VHD'ler ayarlamak için ortamınız için tahmini IOPS kullanabilirsiniz. Tek bir depolama hesabında birden fazla 40 disklere sahip önermiyoruz. Bkz: <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure Storage ölçeklenebilirlik ve performans hedefleri</a> depolama hesapları için geçerli ölçeklenebilirlik hedefleri Ayrıntılar için özellikle toplam istek oranı ve toplam bant genişliğini depolama hesabı türü için kullanmakta olduğunuz.
-Depolama hesabınız için ölçeklenebilirlik hedefleri aşan gerekirse, etkinliğin ayrı ayrı her hesap azaltmak için birden çok farklı depolama hesaplarındaki Vhd'lerinizi yerleştirmeniz.
+Genel olarak, her tek tek giriş veya çıkış işlemi bir sanal makineden bir VHD çok çevirir**Al sayfasında** veya **Put sayfa** sayfa blobu temel hello işlemleri. Bu nedenle, kullanabileceğiniz hello tahmini IOPS, ortam tootune için kaç tane VHD'ler, tek bir depolama hesabında dayalı hello belirli bir davranışı, uygulamanızın üzerinde. Tek bir depolama hesabında birden fazla 40 disklere sahip önermiyoruz. Bkz: <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure Storage ölçeklenebilirlik ve performans hedefleri</a> depolama hesapları için geçerli ölçeklenebilirlik hedefleri hello Ayrıntılar için özellikle hello toplam istek oranı ve toplam bant genişliği hello türde depolama hesabı için kullandığınız .
+Depolama hesabınız için hello ölçeklenebilirlik hedefleri aşan gerekirse, birden çok farklı depolama hesapları tooreduce hello etkinliğinde ayrı ayrı her hesap Vhd'lerinizi yerleştirmeniz.
 
-### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Sorununuzu geliştirme veya test için depolama öykünücüsünü kullanarak ortaya çıkar.
-Genellikle depolama öykünücüsünü geliştirme sırasında kullanmak ve Azure storage hesabı gereksinimini ortadan kaldırmak için sınayın. Depolama öykünücüsü kullanırken oluşabilecek yaygın sorunlar verilmiştir:
+### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Sorununuzu geliştirme veya test için hello storage öykünücüsü kullanarak ortaya çıkar.
+Genellikle geliştirme sırasında hello storage öykünücüsünü kullanma ve bir Azure depolama hesabı için tooavoid hello gereksinimi sınayın. Merhaba depolama öykünücüsü kullanırken oluşabilecek hello sık karşılaşılan sorunları şunlardır:
 
-* [Özellik "X" depolama öykünücüsünde çalışmıyor]
-* [Hata "HTTP üst bilgilerinden biri için değer doğru biçimde değil" depolama öykünücüsünü kullanırken]
-* [Depolama öykünücüsü çalıştıran yönetici ayrıcalıkları gerektirir]
+* [Özellik "X" Merhaba depolama öykünücüsünde çalışmıyor]
+* [Hata "Merhaba HTTP üst bilgilerinden biri için hello değer hello doğru biçimde değil" ne zaman kullanarak izin ver hello depolama öykünücüsü]
+* [Çalışan hello depolama öykünücüsü yönetici ayrıcalıkları gerektirir]
 
-#### <a name="feature-X-is-not-working"></a>Özellik "X" depolama öykünücüsünde çalışmıyor
-Depolama öykünücüsü tüm dosya hizmeti gibi Azure depolama hizmetleri özelliklerini desteklemez. Daha fazla bilgi için bkz: <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">farklar arasında depolama öykünücüsü ve Azure Storage Hizmetleri</a> konusuna bakın.
+#### <a name="feature-X-is-not-working"></a>Özellik "X" Merhaba depolama öykünücüsünde çalışmıyor
+Merhaba depolama öykünücüsü tüm hello dosya hizmeti gibi hello Azure depolama hizmetleri hello özelliklerini desteklemez. Daha fazla bilgi için bkz: <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">arasındaki farklar depolama öykünücüsü hello ve Azure depolama hizmetleri</a> konusuna bakın.
 
-Depolama öykünücüsü desteklemediği özellikler için Azure depolama hizmeti bulutta kullanın.
+Depolama hello bu özellikleri için öykünücüsü yok desteği, hello Azure depolama hizmeti hello bulutta kullanın.
 
-#### <a name="error-HTTP-header-not-correct-format"></a>Hata "HTTP üst bilgilerinden biri için değer doğru biçimde değil" depolama öykünücüsünü kullanırken
-Yerel depolama öykünücüsü ve yöntem çağrıları karşı depolama istemci kitaplığı gibi kullanarak uygulamanızı test **CreateIfNotExists** "HTTP üst bilgilerinden biri için değer doğru biçimde değil." hata iletisiyle başarısız Bu, kullanmakta olduğunuz depolama öykünücüsü sürümüne kullandığınız depolama istemci kitaplığı sürümü desteklemiyor gösterir. Depolama istemcisi kitaplığı üstbilgisi ekler **x-ms-version** kolaylaştırır tüm istekler için. Depolama öykünücüsü değeri tanımıyor varsa **x-ms-version** üstbilgisi, isteği reddeder.
+#### <a name="error-HTTP-header-not-correct-format"></a>Hata "Merhaba HTTP üst bilgilerinden biri için hello değer hello doğru biçimde değil" ne zaman kullanarak izin ver hello depolama öykünücüsü
+Merhaba yerel depolama öykünücüsü ve yöntem çağrıları karşı hello depolama istemci kitaplığı gibi kullanan uygulamanızı test **CreateIfNotExists** hello hatasıyla başarısız iletisi "Merhaba değeri hello HTTP üst bilgilerinden biri içinde değil Merhaba doğru biçimi." Bu, hello gösterir kullanmakta olduğunuz hello depolama öykünücüsü sürümüne kullanmakta olduğunuz hello depolama istemci kitaplığı hello sürümünü desteklemiyor. Merhaba depolama istemci kitaplığı hello üstbilgisi ekler **x-ms-version** tooall hello istekleri kolaylaştırır. Merhaba depolama öykünücüsü hello hello değerinde tanımıyor varsa **x-ms-version** başlık hello isteği reddeder.
 
-Depolama kitaplık istemci günlükleri değerini görmek için kullanabileceğiniz **x-ms-version üstbilgi** onu gönderiyor. Değerini de görebilirsiniz **x-ms-version üstbilgi** istekleri, istemci uygulamasından izlemek için fiddler'ı kullanıyorsanız.
+Merhaba depolama kitaplık istemcisi günlükleri toosee hello değeri hello kullanabilirsiniz **x-ms-version üstbilgi** onu gönderiyor. Merhaba hello değerini de görebilirsiniz **x-ms-version üstbilgi** Fiddler tootrace hello istekleri, istemci uygulamasından kullanıyorsanız.
 
-Bu senaryo genellikle yükleyin ve depolama öykünücüsü güncelleştirmeden depolama istemci kitaplığı en son sürümünü kullanmanız halinde oluşur. , Depolama öykünücüsünün en son sürümünü yükleyin veya Bulut depolama öykünücüsü yerine geliştirme ve test için kullanmak.
+Bu senaryo genellikle yüklemek ve hello depolama öykünücüsü güncelleştirmeden hello hello depolama istemci kitaplığı en son sürümünü kullanmanız halinde oluşur. , Hello hello depolama öykünücüsü en son sürümünü yükleyin veya Bulut depolama hello öykünücüsü yerine geliştirme ve test için kullanmak.
 
-#### <a name="storage-emulator-requires-administrative-privileges"></a>Depolama öykünücüsü çalıştıran yönetici ayrıcalıkları gerektirir
-Depolama öykünücüsü çalıştırdığınızda, yönetici kimlik bilgileri istenir. Bu, yalnızca ilk kez depolama öykünücüsünü başlatırken oluşur. Depolama öykünücüsü ayarladıktan sonra tekrar çalıştırmak için yönetici ayrıcalıkları gerekmez.
+#### <a name="storage-emulator-requires-administrative-privileges"></a>Çalışan hello depolama öykünücüsü yönetici ayrıcalıkları gerektirir
+Merhaba depolama öykünücüsü çalıştırdığınızda, yönetici kimlik bilgileri istenir. Bu, yalnızca ilk kez hello için hello depolama öykünücüsü başlatırken oluşur. Merhaba depolama öykünücüsü ayarladıktan sonra yönetici ayrıcalıkları toorun gerekmez tekrar.
 
-Daha fazla bilgi için bkz: <a href="http://msdn.microsoft.com/library/azure/gg433132.aspx" target="_blank">komut satırı aracını kullanarak depolama öykünücüsünü başlatma</a> (de başlatır depolama öykünücüsü de yönetici ayrıcalıkları gerektirir Visual Studio) MSDN'de.
+Daha fazla bilgi için bkz: <a href="http://msdn.microsoft.com/library/azure/gg433132.aspx" target="_blank">Initialize hello Storage öykünücüsü kullanarak hello komut satırı aracı tarafından</a> MSDN (de başlatır hello depolama öykünücüsü de yönetici ayrıcalıkları gerektirir Visual Studio).
 
-### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>.NET için Azure SDK'sını yükleme sorunlarla
-SDK'yı yüklemeye çalıştığınızda, yerel makinenizde depolama öykünücüsünü yüklenmeye çalışılırken başarısız olur. Yükleme günlüğü şu iletilerden birini içerir:
+### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>.NET için Azure SDK'sı hello yüklerken sorunlarla karşılaşıyoruz
+Tooinstall hello SDK çalıştığınızda, yerel makinenizde çalışırken tooinstall hello depolama öykünücüsü başarısız olur. Merhaba yükleme günlüğü iletileri aşağıdaki hello birini içerir:
 
-* CAQuietExec: Hata: SQL örneği erişilemiyor
-* CAQuietExec: Hata: veritabanı oluşturulamadı
+* CAQuietExec: Hata: oluşturulamıyor tooaccess SQL örneği
+* CAQuietExec: Hata: oluşturulamıyor toocreate veritabanı
 
-Var olan LocalDB yükleme ile ilgili bir sorunu nedenidir. Varsayılan olarak, depolama öykünücüsü Azure storage Hizmetleri benzetimini yapar, veri kalıcı hale getirmek için yerel veritabanı kullanır. SDK'yı yüklemeyi denemeden önce bir komut istemi penceresinde aşağıdaki komutları çalıştırarak LocalDB örneğinizi sıfırlayabilirsiniz.
+Merhaba, var olan LocalDB yükleme ile ilgili bir sorunu nedenidir. Hello Azure storage Hizmetleri benzetim varsayılan olarak, yerel veritabanı toopersist veri hello depolama öykünücüsü kullanır. Bir komut istemi penceresindeki komutları tooinstall hello SDK denemeden önce aşağıdaki hello çalıştırarak LocalDB örneğinizi sıfırlayabilirsiniz.
 
 ```
 sqllocaldb stop v11.0
@@ -694,123 +694,123 @@ delete %USERPROFILE%\WAStorageEmulatorDb3*.*
 sqllocaldb create v11.0
 ```
 
-**Silmek** komutu, önceki depolama öykünücüsünü yüklemelerinden eski tüm veritabanı dosyaları kaldırır.
+Merhaba **silmek** komutu, önceki hello depolama öykünücüsü yüklemelerinden eski tüm veritabanı dosyaları kaldırır.
 
 ### <a name="you-have-a-different-issue-with-a-storage-service"></a>Bir depolama hizmetindeki farklı bir sorun olması
-Önceki sorun giderme bölümleri bir depolama hizmetle ilgili sorun içermiyorsa, tanılama ve sorunu gidermek için aşağıdaki yaklaşımı benimsemeye.
+Merhaba önceki sorun giderme bölümleri olan bir depolama hizmeti yaşıyor hello sorunu eklemezseniz yaklaşım toodiagnosing izleyerek ve sorununuzu gidermeye hello benimsemeyi.
 
-* Beklenen taban çizgisinin davranış gelen herhangi bir değişiklik olduğunu görmek için ölçümlerinizi denetleyin. Ölçümleri, geçici veya kalıcı bir sorundur ve hangi depolama işlemleri sorunu etkileyen olup olmadığını belirlemek mümkün olabilir.
-* Ölçüm bilgileri oluşan hatalar hakkında daha ayrıntılı bilgi için sunucu tarafı günlük verileri aramanıza yardımcı olması için kullanabilirsiniz. Bu bilgiler sorunu gidermenize ve sorunu çözmek yardımcı olabilir.
-* Sunucu tarafı günlüklerdeki bilgiler başarıyla sorunu gidermek için yeterli değilse, istemci uygulaması ve Fiddler, Wireshark ve Microsoft Message Analyzer ağınız araştırmaya gibi araçları davranışını araştırmak için depolama istemci kitaplığı istemci-tarafı günlükleri'ni kullanabilirsiniz.
+* Beklenen taban çizgisinin davranış gelen herhangi bir değişiklik varsa, ölçümleri toosee denetleyin. Merhaba ölçümleri, geçici veya kalıcı hello sorundur ve sorunun hangi depolama işlemleri hello etkileyen olup olmadığını mümkün toodetermine olabilir.
+* Toohelp oluşan hatalar hakkında daha ayrıntılı bilgi için sunucu tarafı günlük verileri arama hello ölçümleri bilgileri kullanabilirsiniz. Bu bilgiler, sorun giderme ve hello sorunu çözmenize yardımcı olabilir.
+* Merhaba sunucu tarafı günlüklerindeki Hello bilgi yeterli tootroubleshoot hello sorunu başarılı olmazsa, hello depolama istemci kitaplığı istemci tarafı günlüklerini tooinvestigate hello davranışını istemci uygulaması ve Fiddler, Wireshark gibi araçları kullanabilirsiniz, ve Microsoft Message Analyzer tooinvestigate ağınıza.
 
-Fiddler'ı kullanma hakkında daha fazla bilgi için bkz: "[ek 1: kullanarak HTTP ve HTTPS trafiğini yakalamak için fiddler'ı]."
+Fiddler'ı kullanma hakkında daha fazla bilgi için bkz: "[ek 1: fiddler'ı kullanarak toocapture HTTP ve HTTPS trafiğini]."
 
-Wireshark kullanma hakkında daha fazla bilgi için bkz: "[ek 2: ağ trafiğini yakalamak için Wireshark kullanarak]."
+Wireshark kullanma hakkında daha fazla bilgi için bkz: "[ek 2: kullanarak Wireshark toocapture ağ trafiğini]."
 
-Microsoft Message Analyzer kullanma hakkında daha fazla bilgi için bkz: "[ek 3: ağ trafiğini yakalamak için Microsoft Message Analyzer kullanarak]."
+Microsoft Message Analyzer kullanma hakkında daha fazla bilgi için bkz: "[ek 3: Microsoft Message Analyzer'ı kullanarak toocapture ağ trafiğini]."
 
 ## <a name="appendices"></a>Ekler
-Ekler, tanılama ve Azure Storage (ve diğer hizmetleri) ile ilgili sorunları giderme zaman yararlı bulabilirsiniz çeşitli araçlar açıklanmaktadır. Bu araçları Azure Storage parçası olmayan ve üçüncü taraf ürünleri bazılarıdır. Bu nedenle, bu eklerin açıklanan araçları tarafından Microsoft Azure veya Azure Storage yaptığınız herhangi bir destek sözleşmesi kapsamında değildir ve lisans ve destek seçenekleri sağlayıcılardan bu araçların değerlendirme işleminizin bir parçası olarak bu nedenle incelemeniz gerekir.
+Merhaba ekler, tanılama ve Azure Storage (ve diğer hizmetleri) ile ilgili sorunları giderme zaman yararlı bulabilirsiniz çeşitli araçlar açıklanmaktadır. Bu araçları Azure Storage parçası olmayan ve üçüncü taraf ürünleri bazılarıdır. Bu nedenle, bu eklerin ele alınan hello araçları tarafından Microsoft Azure veya Azure Storage yaptığınız herhangi bir destek sözleşmesi kapsamında değildir ve değerlendirme işleminizin bir parçası olarak bu nedenle hello lisans ve Destek seçeneklerini kullanılabilir incelemeniz gerekir Bu araçların Hello sağlayıcıları.
 
-### <a name="appendix-1"></a>Ek 1: HTTP ve HTTPS trafiğini yakalamak için fiddler'ı kullanma
-Fiddler istemci uygulamanız ve kullandığınız Azure depolama hizmeti arasındaki HTTP ve HTTPS trafiği çözümleme için yararlı bir araçtır. Fiddler'nden indirebilirsiniz <a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>.
+### <a name="appendix-1"></a>Ek 1: Fiddler toocapture HTTP ve HTTPS trafiğini kullanma
+Fiddler, istemci uygulaması ve hello kullanmakta olduğunuz Azure depolama hizmeti arasındaki hello HTTP ve HTTPS trafiği çözümleme için yararlı bir araçtır. Fiddler'nden indirebilirsiniz <a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>.
 
 > [!NOTE]
-> Fiddler HTTPS trafiği kod çözme; dikkatli bir şekilde nasıl bunu yapar anlamak ve güvenlik etkilerini anlama için Fiddler belgelerine okumanız gerekir.
+> Fiddler HTTPS trafiği kod çözme; Merhaba Fiddler belgelerini dikkatle okumalıdır toounderstand nasıl bunu yapar ve toounderstand hello güvenlik kapsamı.
 > 
 > 
 
-Bu ekte fiddler'ı yüklediğiniz yerel makine ve Azure storage Hizmetleri arasındaki trafiği yakalamak için fiddler'ı yapılandırmak nasıl kısa bir kılavuz sağlar.
+Bu ekte nasıl tooconfigure Fiddler toocapture trafiği arasında hello yerel makine nerede fiddler'ı yüklemiş ve Azure storage Hizmetleri hello izlenecek ile ilgili kısa bir yol sağlar.
 
-Fiddler başlatıldıktan sonra HTTP ve HTTPS trafiği yerel makinenizde yakalama başlar. Fiddler'ı denetleme için yararlı bazı komutlar şunlardır:
+Fiddler başlatıldıktan sonra HTTP ve HTTPS trafiği yerel makinenizde yakalama başlar. Merhaba, Fiddler denetlemek için bazı yararlı komutlar şunlardır:
 
-* Durdurun ve trafiği yakalama başlatın. Ana menüde Git **dosya** ve ardından **trafiği Yakala** üzerinde ve yakalamak değiştirin.
-* Yakalanan trafik verileri kaydedin. Ana menüde Git **dosya**, tıklatın **kaydetmek**ve ardından **tüm oturumları**: Bu trafiğin oturum arşiv dosyasında kaydetmenize olanak sağlar. Bir oturum arşiv çözümleme için daha sonra yeniden yükleyin veya Microsoft Desteği'ne istediyseniz gönderin.
+* Durdurun ve trafiği yakalama başlatın. Merhaba ana menüde çok Git**dosya** ve ardından **trafiği Yakala** tootoggle açma ve kapatma yakalama.
+* Yakalanan trafik verileri kaydedin. Merhaba ana menüde çok Git**dosya**, tıklatın **kaydetmek**ve ardından **tüm oturumları**: Bu oturumu arşiv dosyasında toosave hello trafiğini etkinleştirir. Bir oturum arşiv çözümleme için daha sonra yeniden yükleyin veya tooMicrosoft destek istediyseniz gönderin.
 
-Fiddler yakalar trafik miktarını sınırlamak için yapılandırdığınız filtreleri kullanabilirsiniz **filtreleri** sekmesi. Aşağıdaki ekran görüntüsü yalnızca gönderilen trafiğini yakalar bir filtre gösterir **contosoemaildist.table.core.windows.net** depolama uç noktası:
+Fiddler yakalar trafik toolimit hello miktarı, hello yapılandırma filtreleri kullanabilir **filtreleri** ekran aşağıdaki sekmesini hello gösterir yalnızca gönderilen trafiğin toohello yakalayan bir filtre  **contosoemaildist.Table.Core.Windows.NET** depolama uç noktası:
 
 ![][5]
 
-### <a name="appendix-2"></a>Ek 2: Ağ trafiğini yakalamak için Wireshark kullanma
-Wireshark çok çeşitli ağ protokolleri ayrıntılı paket bilgilerini görüntülemek sağlayan bir ağ protokolü Çözümleyicisi ' dir. Gelen Wireshark indirebilirsiniz <a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>.
+### <a name="appendix-2"></a>Ek 2: Wireshark toocapture ağ trafiğini kullanma
+Wireshark tooview sağlayan bir ağ protokolü Çözümleyicisi olan paket için ayrıntılı bilginin çok çeşitli ağ protokolleri. Gelen Wireshark indirebilirsiniz <a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>.
 
-Aşağıdaki yordam Wireshark tablo hizmetine Azure depolama hesabınızdaki yüklendiği yerel makineden trafiği için ayrıntılı paket bilgilerini yakalama gösterir.
+Merhaba aşağıdaki yordamda nasıl toocapture paket için hello yerel makine trafiğinden ayrıntılı bilgileri Azure depolama hesabınızdaki Wireshark toohello tablo hizmeti yüklü olduğu gösterilmektedir.
 
 1. Wireshark yerel makinenizde başlatın.
-2. İçinde **Başlat** bölümünde, yerel ağ arabirim veya internet'e bağlı arabirimler seçin.
+2. Merhaba, **Başlat** bölümü, select hello yerel ağ arabirim veya bağlı toohello olan arabirimler Internet.
 3. Tıklatın **yakalama seçenekleri**.
-4. Filtre ekleme **yakalama filtresi** metin kutusu. Örneğin, **contosoemaildist.table.core.windows.net konak** yalnızca tablo Hizmeti uç bilgisayardan veya gönderilen paketleri yakalamak için Wireshark yapılandıracak **contosoemaildist** depolama hesabı. Yakalama filtreleri tam bir listesi için bkz: <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>.
+4. Bir filtre toohello ekleme **yakalama filtresi** metin kutusu. Örneğin, **contosoemaildist.table.core.windows.net konak** paketleri hello tablo Hizmeti uç noktası hello içinde tooor gönderildiği yalnızca Wireshark toocapture yapılandıracak **contosoemaildist** depolama hesabı. Yakalama filtreleri tam bir listesi için bkz: <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>.
    
    ![][6]
-5. Tıklatın **Başlat**. Wireshark tüm istemci uygulamanızı yerel makinenizde kullanın veya tablo Hizmeti uç noktasından paketleri göndermek yakalar.
-6. Tamamladığınızda, ana menü tıklatıldığında **yakalama** ve ardından **durdurmak**.
-7. Yakalanan verileri bir Wireshark yakalama dosyasında kaydetmek için ana menüde'ı **dosya** ve ardından **kaydetmek**.
+5. Tıklatın **Başlat**. İstemci uygulamanızı yerel makinenizde kullandıkça Wireshark şimdi tüm hello paketleri gönderme tooor hello tablo Hizmeti uç noktasından yakalar.
+6. Tamamladığınızda, hello ana menü çubuğunda **yakalama** ve ardından **durdurmak**.
+7. toosave hello yakalanan veri dosyasındaki Wireshark yakalama üzerinde hello ana menü öğesini **dosya** ve ardından **kaydetmek**.
 
-WireShark mevcut herhangi bir hata vurgulayın **packetlist** penceresi. De kullanabilirsiniz **uzman bilgisi** penceresi (tıklatın **Çözümle**, ardından **uzman bilgisi**) hataların ve uyarıların özetini görüntülemek için.
+WireShark hello mevcut herhangi bir hata vurgulayın **packetlist** penceresi. Merhaba de kullanabilirsiniz **Uzman bilgilerini** penceresi (tıklatın **Çözümle**, ardından **Uzman bilgilerini**) tooview hataların ve uyarıların özetini.
 
 ![][7]
 
-Ayrıca seçebilirsiniz TCP verileri sağ tıklayıp seçerek uygulama katmanı tarafından görülen şekilde TCP verileri görüntülemek **izleyin TCP akışı**. Yakalama Filtresi olmadan, döküm yakalanmış durumunda bu özellikle yararlıdır. Bkz: <a href="http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html" target="_blank">burada</a> daha fazla bilgi için.
+Ayrıca seçebilirsiniz tooview hello TCP veri TCP veri hello üzerinde sağ tıklayıp seçerek hello uygulama katmanı tarafından görülen şekilde **izleyin TCP akışı**. Yakalama Filtresi olmadan, döküm yakalanmış durumunda bu özellikle yararlıdır. Bkz: <a href="http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html" target="_blank">burada</a> daha fazla bilgi için.
 
 ![][8]
 
 > [!NOTE]
-> Wireshark kullanma hakkında daha fazla bilgi için bkz: <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Wireshark Kullanıcı Kılavuzu</a>.
+> Merhaba Wireshark kullanma hakkında daha fazla bilgi için bkz: <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Wireshark Kullanıcı Kılavuzu</a>.
 > 
 > 
 
-### <a name="appendix-3"></a>Ek 3: Ağ trafiğini yakalamak Microsoft Message Analyzer kullanma
-Wireshark benzer şekilde ağ trafiğini yakalamak ve Microsoft Message Analyzer Fiddler benzer şekilde HTTP ve HTTPS trafiğini yakalamak için kullanın.
+### <a name="appendix-3"></a>Ek 3: Microsoft Message Analyzer toocapture ağ trafiğini kullanma
+Microsoft Message Analyzer toocapture HTTP ve HTTPS trafiğinin bir benzer şekilde tooFiddler kullanın ve benzer bir şekilde tooWireshark'nde ağ trafiği yakalayın.
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Microsoft Message Analyzer kullanarak bir web izleme oturumu yapılandırın
-Microsoft Message Analyzer, Microsoft Message Analyzer uygulamayı çalıştırın kullanarak HTTP ve HTTPS trafiği için ve ardından web izleme oturumu yapılandırmak için **dosya** menüsünde tıklatın **yakalama/izleme**. Kullanılabilir izleme senaryoları listesinde seçin **Web Proxy**. Ardından **izleme senaryo Yapılandırması** paneli, buna **HostnameFilter** metin kutusuna, depolama noktalarınızı (sizin aramak Azure Klasik Portalı'nda bu adları) adlarını ekleyin. Örneğin, Azure depolama hesabınızın adını ise **contosodata**, aşağıdaki eklemelisiniz **HostnameFilter** textbox:
+bir web izleme oturumu hello Microsoft Message Analyzer uygulamayı çalıştırın, Microsoft Message Analyzer kullanarak HTTP ve HTTPS trafiği için ve ardından hello tooconfigure **dosya** menüsünde tıklatın **yakalama/izleme**. Kullanılabilir izleme senaryoları Hello listesinde seçin **Web Proxy**. Merhaba sonra **izleme senaryo Yapılandırması** panelinde hello **HostnameFilter** metin kutusuna, depolama noktalarınızı (siz aramak hello Klasik Azure Portalı'nda bu adları) hello adlarını ekleyin. Örneğin, hello Azure depolama hesabınızın adını ise **contosodata**, toohello aşağıdaki hello eklemelisiniz **HostnameFilter** textbox:
 
 ```
 contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
 ```
 
 > [!NOTE]
-> Ana bilgisayar adı bir boşluk karakteri ayırır.
+> Bir boşluk karakteri hello ana bilgisayar adları ayırır.
 > 
 > 
 
-İzleme verilerini toplamaya başlamak hazır olduğunuzda **Başlat ile** düğmesi.
+İzleme verilerini toplama hazır toostart olduğunda hello tıklatın **Başlat ile** düğmesi.
 
-Microsoft Message Analyzer hakkında daha fazla bilgi için **Web Proxy** izlemek için bkz: <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">PEF WebProxy sağlayıcısı</a> TechNet'te.
+Merhaba Microsoft Message Analyzer hakkında daha fazla bilgi için **Web Proxy** izlemek için bkz: <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">PEF WebProxy sağlayıcısı</a> TechNet'te.
 
-Yerleşik **Web Proxy** Microsoft Message Analyzer içinde izleme Fiddler üzerinde temel; istemci-tarafı HTTPS trafiği yakalayabilir ve şifrelenmemiş HTTPS iletileri görüntüler. **Web Proxy** izleme works şifrelenmemiş iletileri erişim sağlayan tüm HTTP ve HTTPS trafiği için yerel bir ara yapılandırarak.
+Merhaba yerleşik **Web Proxy** Microsoft Message Analyzer içinde izleme Fiddler üzerinde temel; istemci-tarafı HTTPS trafiği yakalayabilir ve şifrelenmemiş HTTPS iletileri görüntüler. Merhaba **Web Proxy** izleme works erişim toounencrypted iletileri verir tüm HTTP ve HTTPS trafiği için yerel bir ara yapılandırarak.
 
 #### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Microsoft Message Analyzer kullanarak ağ sorunlarını tanılama
-Microsoft Message Analyzer'ı kullanmanın yanı sıra **Web Proxy** istemci uygulaması ve depolama hizmeti arasında HTTP/HTTPs trafiğini ayrıntılarını yakalamak için izleme, yerleşik de kullanabilirsiniz **yerel bağlantı katmanı** ağ paket bilgileri yakalamak için izleme. Bırakılan paketleri ile Wireshark yakalamak ve tanılama benzer verilerini yakalamak için sorunları gibi ağ bu etkinleştirir.
+Ayrıca toousing hello Microsoft Message Analyzer **Web Proxy** izleme toocapture ayrıntılarını Merhaba istemci uygulaması ve hello depolama hizmeti arasında HTTP/HTTPs trafiğini Merhaba, hello yerleşik de kullanabilirsiniz  **Yerel bağlantı katmanı** izleme toocapture ağ paket bilgileri. Bırakılan paketleri ile Wireshark yakalamak ve Tanılama, toocapture veri benzer toothat ağ sorunları gibi bu etkinleştirir.
 
-Aşağıdaki ekran görüntüsünde bir örneği gösterir **yerel bağlantı katmanı** bazı izleme **bilgilendirme** içinde iletileri **DiagnosisTypes** sütun. Bir simgeyi tıklatarak **DiagnosisTypes** sütun iletisinin ayrıntılarını gösterir. Bu örnekte, sunucu ileti #305 yeniden aktarılan, bu onay istemciden almadığı için:
+Merhaba aşağıdaki ekran görüntüsünde gösteren bir örnek **yerel bağlantı katmanı** bazı izleme **bilgilendirme** hello iletilerinde **DiagnosisTypes** sütun. Merhaba bir simgeyi tıklatarak **DiagnosisTypes** sütun selamlama iletisine hello ayrıntılarını gösterir. Bu örnekte, hello sunucu ileti #305 yeniden aktarılan, bu onay hello istemciden almadığı için:
 
 ![][9]
 
-Microsoft Message Analyzer izleme oturumu oluşturduğunuzda, izleme gürültü miktarını azaltmak için filtreler belirtebilirsiniz. Üzerinde **yakalama / izleme** izleme tanımladığınız yerlerde sayfasını tıklatın **yapılandırma** bağlantısına **Microsoft-Windows-NDIS-PacketCapture**. Aşağıdaki ekran görüntüsünde TCP trafiği için üç depolama hizmetleri IP adreslerini filtreler bir yapılandırması gösterilmektedir:
+Microsoft Message Analyzer hello izleme oturumu oluşturduğunuzda hello izlemede filtreleri tooreduce hello parazit miktarını belirtebilirsiniz. Merhaba üzerinde **yakalama / izleme** hello izleme tanımladığınız yerlerde sayfasını tıklatın hello üzerinde **yapılandırma** sonraki çok bağlantı**Microsoft-Windows-NDIS-PacketCapture**. Ekran aşağıdaki hello TCP trafiği hello IP adreslerini üç depolama hizmetleri için filtreler bir yapılandırması gösterilmektedir:
 
 ![][10]
 
-Microsoft Message Analyzer yerel bağlantı katmanı izleme hakkında daha fazla bilgi için bkz: <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF NDIS PacketCapture sağlayıcı</a> TechNet'te.
+Merhaba Microsoft Message Analyzer yerel bağlantı katmanı izleme hakkında daha fazla bilgi için bkz: <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF NDIS PacketCapture sağlayıcı</a> TechNet'te.
 
-### <a name="appendix-4"></a>Ek 4: Ölçümleri görüntülemek ve verileri günlüğe kaydetmek için Excel kullanma
-Birçok aracı depolama ölçüm verilerini görüntüleme ve analiz için verileri Excel'e yükleme kolaylaştırır sınırlandırılmış biçimde Azure tablo depolaması indirmesine olanak sağlar. Excel'e yükleyebilir sınırlandırılmış biçimde depolama günlük verileri Azure blob depolama biriminden zaten var. Ancak, uygun sütun başlıkları bilgilerini temel eklemeniz gerekecektir <a href="http://msdn.microsoft.com/library/azure/hh343259.aspx" target="_blank">depolama Analytics günlük biçimi</a> ve <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics Ölçüm tablosu şeması</a>.
+### <a name="appendix-4"></a>Ek 4: Excel kullanarak tooview ölçümleri ve günlük verileri
+Birçok araçları kolay tooload hello veri için Excel'e görüntüleme kolaylaştırır sınırlandırılmış biçimi ve analiz Azure tablo depolama biriminden toodownload hello Storage ölçümleri verileri sağlar. Excel'e yükleyebilir sınırlandırılmış biçimde depolama günlük verileri Azure blob depolama biriminden zaten var. Ancak, hello bilgilerine dayalı tooadd uygun sütun başlıkları gerekir <a href="http://msdn.microsoft.com/library/azure/hh343259.aspx" target="_blank">depolama Analytics günlük biçimi</a> ve <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics Ölçüm tablosu şeması</a>.
 
-Blob depolama alanından indirdikten sonra depolama günlüğü verileri Excel'e aktarmak için:
+tooimport blob depolama alanından, depolama günlüğü verileri Excel'e çalıştırdıktan sonra yükleyin:
 
-* Üzerinde **veri** menüsünde tıklatın **metindeki**.
-* Önce görüntülemek istediğiniz günlük dosyasına gözatın **alma**.
-* Adım 1 / **Metin Alma Sihirbazı**seçin **sınırlandırılmış**.
+* Merhaba üzerinde **veri** menüsünde tıklatın **metindeki**.
+* Tooview istediğiniz Gözat toohello günlük dosyası **alma**.
+* Üzerinde hello 1. adımda **Metin Alma Sihirbazı**seçin **sınırlandırılmış**.
 
-Adım 1 / **Metin Alma Sihirbazı**seçin **noktalı** yalnızca ayırıcı olarak ve çift tırnak işareti olarak seçin **Metin niteleyicisi**. Ardından **son** ve çalışma kitabınızı verileri nereye'i seçin.
+Üzerinde hello 1. adımda **Metin Alma Sihirbazı**seçin **noktalı** olarak yalnızca sınırlayıcı hello ve çift tırnaklı hello olarak seçin **Metin niteleyicisi**. Ardından **son** ve burada tooplace hello kitabınızdaki verilere'i seçin.
 
 ### <a name="appendix-5"></a>Ek 5: Visual Studio Team Services için Application Insights ile izleme
-Ayrıca, Visual Studio Team Services için performans ve kullanılabilirlik izlemesi parçası olarak Application Insights özelliğini kullanabilirsiniz. Bu araç şunları yapabilir:
+Ayrıca, Visual Studio Team Services için performans ve kullanılabilirlik izlemesi parçası olarak hello Application Insights özelliğini kullanabilirsiniz. Bu araç şunları yapabilir:
 
-* Web hizmetiniz kullanılabilir ve yanıt verebilir durumda olduğundan emin olun. Uygulamanızı bir web sitesi veya web hizmeti kullanan bir cihaz uygulaması olup, dünyanın konumlardan birkaç dakikada URL'nizi test ve bir sorun olup olmadığını bilmek olanak verir.
-* Hızlı bir şekilde herhangi bir performans sorunları veya web hizmetiniz durumlar tanılayın. CPU veya diğer kaynakları uzatılır değilse, özel durumlar Yığın izlemeleri edinin öğrenmek ve günlük izlemelerini kolayca arayın. Uygulamanın performansı kabul edilebilir sınırlar düşerse, bir e-posta gönderebiliriz. .NET ve Java web Hizmetleri'ni izleyebilirsiniz.
+* Web hizmetiniz kullanılabilir ve yanıt verebilir durumda olduğundan emin olun. Uygulamanızı bir web sitesi veya web hizmeti kullanan bir cihaz uygulaması olsun, bu Merhaba Dünya konumlardan birkaç dakikada URL'nizi sınamak ve bir sorun olup olmadığını size bildirmek.
+* Hızlı bir şekilde herhangi bir performans sorunları veya web hizmetiniz durumlar tanılayın. CPU veya diğer kaynakları uzatılır değilse, özel durumlar Yığın izlemeleri edinin öğrenmek ve günlük izlemelerini kolayca arayın. Merhaba, uygulamanın performansını yaşanması kabul edilebilir sınırlar aşağıda size gönderebilir, bir e-posta. .NET ve Java web Hizmetleri'ni izleyebilirsiniz.
 
-AT Application Insights yazma zaman önizlemede değil. Daha fazla bilgi bulabilirsiniz <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">MSDN'deki Visual Studio Team Services için Application Insights</a>.
+Merhaba Application Insights yazma süresi önizlemede değil. Daha fazla bilgi bulabilirsiniz <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">MSDN'deki Visual Studio Team Services için Application Insights</a>.
 
 <!--Anchors-->
 [Giriş]: #introduction
@@ -838,7 +838,7 @@ AT Application Insights yazma zaman önizlemede değil. Daha fazla bilgi bulabil
 
 [sorun giderme kılavuzluğu]: #troubleshooting-guidance
 [ölçümleri Göster yüksek AverageE2ELatency ve düşük AverageServerLatency]: #metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency
-[Ölçümler yüksek AverageE2ELatency ve düşük AverageServerLatency gösteriyor, ancak istemci yüksek gecikme durumu yaşıyor]: #metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency
+[Düşük AverageE2ELatency ve düşük AverageServerLatency ölçümleri göster ancak hello istemci yüksek gecikme yaşanıyor]: #metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency
 [Ölçümler yüksek AverageServerLatency gösteriyor]: #metrics-show-high-AverageServerLatency
 [Kuyrukta ileti tesliminde beklenmeyen gecikmeler yaşıyorsunuz]: #you-are-experiencing-unexpected-delays-in-message-delivery
 
@@ -848,29 +848,29 @@ AT Application Insights yazma zaman önizlemede değil. Daha fazla bilgi bulabil
 [ölçümleri Göster artışı içinde PercentTimeoutError]: #metrics-show-an-increase-in-PercentTimeoutError
 [Ölçümler PercentNetworkError’da artış gösteriyor]: #metrics-show-an-increase-in-PercentNetworkError
 
-[İstemci HTTP 403 (Yasak) iletileri alma]: #the-client-is-receiving-403-messages
-[İstemci HTTP 404 (bulunamadı) iletileri alma]: #the-client-is-receiving-404-messages
-[İstemci veya başka bir işlem nesne daha önce silinmiş]: #client-previously-deleted-the-object
+[Merhaba istemci HTTP 403 (Yasak) iletileri alma]: #the-client-is-receiving-403-messages
+[Merhaba istemci HTTP 404 (bulunamadı) iletileri alma]: #the-client-is-receiving-404-messages
+[Merhaba istemci veya başka bir işlem daha önce silinmiş hello nesnesi]: #client-previously-deleted-the-object
 [Bir paylaşılan erişim imzası (SAS) yetkilendirme sorunu]: #SAS-authorization-issue
-[İstemci tarafı JavaScript kodu nesneye erişim izni yok]: #JavaScript-code-does-not-have-permission
+[İstemci tarafı JavaScript kodu izin tooaccess hello nesnesi yok]: #JavaScript-code-does-not-have-permission
 [Ağ hatası]: #network-failure
-[İstemci HTTP 409 (Çakışma) iletileri alma]: #the-client-is-receiving-409-messages
+[Merhaba istemci HTTP 409 (Çakışma) iletileri alma]: #the-client-is-receiving-409-messages
 
-[ölçümleri Göster düşük PercentSuccess veya analytics günlük girişlerini sahip hareket durumu işlemler ClientOtherErrors,]: #metrics-show-low-percent-success
+[ölçümleri Göster düşük PercentSuccess veya analytics günlük girişlerini sahip işlemler işlem durumu ClientOtherErrors]: #metrics-show-low-percent-success
 [Kapasite ölçümlerini beklenmeyen artışı depolama kapasitesi kullanımı Göster]: #capacity-metrics-show-an-unexpected-increase
 [Çok sayıda ekli VHD'ler sahip sanal makinelerin beklenmeyen yeniden başlatmalar yaşıyor]: #you-are-experiencing-unexpected-reboots
-[Sorununuzu geliştirme veya test için depolama öykünücüsünü kullanarak ortaya çıkar.]: #your-issue-arises-from-using-the-storage-emulator
-[Özellik "X" depolama öykünücüsünde çalışmıyor]: #feature-X-is-not-working
-[Hata "HTTP üst bilgilerinden biri için değer doğru biçimde değil" depolama öykünücüsünü kullanırken]: #error-HTTP-header-not-correct-format
-[Depolama öykünücüsü çalıştıran yönetici ayrıcalıkları gerektirir]: #storage-emulator-requires-administrative-privileges
-[.NET için Azure SDK'sını yükleme sorunlarla]: #you-are-encountering-problems-installing-the-Windows-Azure-SDK
+[Sorununuzu geliştirme veya test için hello storage öykünücüsü kullanarak ortaya çıkar.]: #your-issue-arises-from-using-the-storage-emulator
+[Özellik "X" Merhaba depolama öykünücüsünde çalışmıyor]: #feature-X-is-not-working
+[Hata "Merhaba HTTP üst bilgilerinden biri için hello değer hello doğru biçimde değil" ne zaman kullanarak izin ver hello depolama öykünücüsü]: #error-HTTP-header-not-correct-format
+[Çalışan hello depolama öykünücüsü yönetici ayrıcalıkları gerektirir]: #storage-emulator-requires-administrative-privileges
+[.NET için Azure SDK'sı hello yüklerken sorunlarla karşılaşıyoruz]: #you-are-encountering-problems-installing-the-Windows-Azure-SDK
 [Bir depolama hizmetindeki farklı bir sorun olması]: #you-have-a-different-issue-with-a-storage-service
 
 [ekler]: #appendices
-[ek 1: kullanarak HTTP ve HTTPS trafiğini yakalamak için fiddler'ı]: #appendix-1
-[ek 2: ağ trafiğini yakalamak için Wireshark kullanarak]: #appendix-2
-[ek 3: ağ trafiğini yakalamak için Microsoft Message Analyzer kullanarak]: #appendix-3
-[Ek 4: Ölçümleri görüntülemek ve verileri günlüğe kaydetmek için Excel kullanma]: #appendix-4
+[ek 1: fiddler'ı kullanarak toocapture HTTP ve HTTPS trafiğini]: #appendix-1
+[ek 2: kullanarak Wireshark toocapture ağ trafiğini]: #appendix-2
+[ek 3: Microsoft Message Analyzer'ı kullanarak toocapture ağ trafiğini]: #appendix-3
+[Ek 4: Excel kullanarak tooview ölçümleri ve günlük verileri]: #appendix-4
 [ek 5: Visual Studio Team Services için Application Insights ile izleme]: #appendix-5
 
 <!--Image references-->
