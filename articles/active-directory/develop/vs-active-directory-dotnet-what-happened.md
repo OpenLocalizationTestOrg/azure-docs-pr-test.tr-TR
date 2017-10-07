@@ -1,6 +1,6 @@
 ---
-title: "Azure AD ile bağlandığınızda bir MVC projede yapılan değişiklikleri | Microsoft Docs"
-description: "Visual Studio bağlı hizmetleri kullanarak Azure AD'ye bağlanma ne olur MVC projenize açıklar"
+title: "yapılan aaaChanges tooa MVC proje tooAzure AD bağlandığınızda | Microsoft Docs"
+description: "Visual Studio bağlı hizmetleri kullanarak tooAzure AD connect ne olur tooyour MVC proje açıklar"
 services: active-directory
 documentationcenter: na
 author: kraigb
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 095411a7fc854f4dce11921adb0f57c5389a8e13
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5e6d4ce5331eacca5fc83429017ae454fadcc8e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>MVC proje için ne (Visual Studio Azure Active Directory bağlı hizmet)?
+# <a name="what-happened-toomy-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Ne oldu toomy MVC proje (Visual Studio Azure Active Directory bağlı hizmet)?
 > [!div class="op_single_selector"]
 > * [Başlarken](vs-active-directory-dotnet-getting-started.md)
 > * [Ne oldu](vs-active-directory-dotnet-what-happened.md)
@@ -52,28 +52,28 @@ ms.lasthandoff: 08/29/2017
 * **System.Runtime.Serialization**
 
 ## <a name="code-has-been-added"></a>Kod eklendi
-### <a name="code-files-were-added-to-your-project"></a>Kod dosyaları projenize eklendi
-Bir kimlik doğrulaması başlangıç sınıfı **App_Start/Startup.Auth.cs** Azure AD kimlik doğrulaması için başlangıç mantığı içeren projenize eklendi. Ayrıca, denetleyici sınıfını, Controllers/AccountController.cs içeren eklendi **SignIn()** ve **SignOut()** yöntemleri. Son olarak, kısmi Görünüm **Views/Shared/_LoginPartial.cshtml** Signın/SignOut için bir eylem bağlantısı içeren eklendi.
+### <a name="code-files-were-added-tooyour-project"></a>Kod dosyaları tooyour projesine eklendi
+Bir kimlik doğrulaması başlangıç sınıfı **App_Start/Startup.Auth.cs** Azure AD kimlik doğrulaması için başlangıç mantığı içeren tooyour projesine eklendi. Ayrıca, denetleyici sınıfını, Controllers/AccountController.cs içeren eklendi **SignIn()** ve **SignOut()** yöntemleri. Son olarak, kısmi Görünüm **Views/Shared/_LoginPartial.cshtml** Signın/SignOut için bir eylem bağlantısı içeren eklendi.
 
-### <a name="startup-code-was-added-to-your-project"></a>Başlangıç kodu projenize eklendi
-Başlangıç sınıfı projenizde, zaten sahipse **yapılandırma** yöntemi çağrısı içerecek şekilde güncelleştirildi **ConfigureAuth(app)**. Aksi takdirde, başlangıç sınıfı projenize eklendi.
+### <a name="startup-code-was-added-tooyour-project"></a>Başlangıç kodu tooyour projesine eklendi
+Projenizde zaten bir başlangıç sınıfı sahipse hello **yapılandırma** yöntemi olan güncelleştirilmiş tooinclude bir çağrı çok**ConfigureAuth(app)**. Aksi takdirde, başlangıç sınıfı tooyour proje eklendi.
 
 ### <a name="your-appconfig-or-webconfig-has-new-configuration-values"></a>App.config veya web.config yeni yapılandırma değeri var.
-Aşağıdaki yapılandırma girdileri eklenmiştir.
+Yapılandırma girdileri aşağıdaki hello eklenmiştir.
 
     <appSettings>
-        <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
+        <add key="ida:ClientId" value="ClientId from hello new Azure AD App" />
         <add key="ida:AADInstance" value="https://login.microsoftonline.com/" />
-        <add key="ida:Domain" value="The selected Azure AD Domain" />
-        <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
+        <add key="ida:Domain" value="hello selected Azure AD Domain" />
+        <add key="ida:TenantId" value="hello Id of your selected Azure AD Tenant" />
         <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
     </appSettings>
 
 ### <a name="an-azure-active-directory-ad-app-was-created"></a>Bir Azure Active Directory (AD) uygulama oluşturuldu
-Azure AD uygulaması sihirbazda seçtiğiniz dizin oluşturuldu.
+Azure AD uygulaması hello Sihirbazı'nda seçtiğiniz hello dizin oluşturuldu.
 
-## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-to-my-project"></a>I işaretlediyseniz *bireysel kullanıcı hesapları kimlik doğrulamasını devre dışı*, proje için ek değişiklikler yapıldı?
-NuGet paket referanslarını kaldırıldı ve dosyaları kaldırıldı ve yedeklendi. Projenizi durumuna bağlı olarak, el ile ek başvurular veya dosyaları kaldırın veya uygun şekilde kodu değiştirmeniz gerekebilir.
+## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-toomy-project"></a>I işaretlediyseniz *bireysel kullanıcı hesapları kimlik doğrulamasını devre dışı*, toomy proje ek değişiklikler yapıldı?
+NuGet paket referanslarını kaldırıldı ve dosyaları kaldırıldı ve yedeklendi. Projenizi Hello durumuna bağlı olarak, ek başvurular veya dosyaları kaldırın veya uygun şekilde kodu değiştirmeniz toomanually olabilir.
 
 ### <a name="nuget-package-references-removed-for-those-present"></a>NuGet paket referanslarını (olanlar için mevcut) kaldırıldı
 * **Microsoft.ASPNET.Identity.Core**
@@ -81,7 +81,7 @@ NuGet paket referanslarını kaldırıldı ve dosyaları kaldırıldı ve yedekl
 * **Microsoft.ASPNET.Identity.owin**
 
 ### <a name="code-files-backed-up-and-removed-for-those-present"></a>Kod dosyaları yedeklenebilir ve (olanlar için mevcut) kaldırıldı
-Aşağıdaki dosyaların her birini yedeklendi ve projesinden kaldırılmıştır. Yedekleme dosyaları, projenin dizin kökündeki 'Yedekleme' klasöründe bulunur.
+Aşağıdaki dosyaların her birini yedeklendi ve hello projesinden kaldırılmıştır. Yedekleme dosyaları hello kökündeki hello projenin dizininin 'Yedekleme' klasöründe bulunur.
 
 * **App_Start\IdentityConfig.cs**
 * **Controllers\ManageController.cs**
@@ -89,14 +89,14 @@ Aşağıdaki dosyaların her birini yedeklendi ve projesinden kaldırılmıştı
 * **Models\ManageViewModels.cs**
 
 ### <a name="code-files-backed-up-for-those-present"></a>(Olanlar için mevcut) yedeklenen kod dosyaları
-Aşağıdaki dosyaların her birini önce değiştirilen yedeklendi. Yedekleme dosyaları, projenin dizin kökündeki 'Yedekleme' klasöründe bulunur.
+Aşağıdaki dosyaların her birini önce değiştirilen yedeklendi. Yedekleme dosyaları hello kökündeki hello projenin dizininin 'Yedekleme' klasöründe bulunur.
 
 * **Haline**
 * **App_Start\Startup.auth.cs**
 * **Controllers\AccountController.cs**
 * **Görünümler/paylaşılan\_LoginPartial.cshtml**
 
-## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-to-my-project"></a>I işaretlediyseniz *dizin verilerini okuma*, proje için ek değişiklikler yapıldı?
+## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-toomy-project"></a>I işaretlediyseniz *dizin verilerini okuma*, toomy proje ek değişiklikler yapıldı?
 Ek başvurular eklenmiştir.
 
 ### <a name="additional-nuget-package-references"></a>Ek NuGet paketi başvurular
@@ -119,20 +119,20 @@ Ek başvurular eklenmiştir.
 * **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms**
 * **System.Spatial**
 
-### <a name="additional-code-files-were-added-to-your-project"></a>Ek kod dosyaları projenize eklendi
-Belirteç önbelleğe alma desteklemek için iki dosya eklendi: **Models\ADALTokenCache.cs** ve **Models\ApplicationDbContext.cs**.  Bir ek denetleyici ve görünüm Azure grafik API'leri kullanarak erişen kullanıcı profili bilgilerini göstermek için eklenmiştir.  Bu dosyalar **Controllers\UserProfileController.cs** ve **Views\UserProfile\Index.cshtml**.
+### <a name="additional-code-files-were-added-tooyour-project"></a>Ek kod dosyaları tooyour projesine eklendi
+İki dosya toosupport eklendi belirteç önbelleğe alma: **Models\ADALTokenCache.cs** ve **Models\ApplicationDbContext.cs**.  Bir ek denetleyici ve görünüm Azure grafik API'leri kullanarak kullanıcı profil bilgilerine erişme tooillustrate eklendi.  Bu dosyalar **Controllers\UserProfileController.cs** ve **Views\UserProfile\Index.cshtml**.
 
-### <a name="additional-startup-code-was-added-to-your-project"></a>Ek başlatma kod projenize eklendi
-İçinde **startup.auth.cs** dosya, yeni bir **OpenIdConnectAuthenticationNotifications** nesne eklenmiş **bildirimleri** üyesi  **OpenIdConnectAuthenticationOptions**.  Bu OAuth kod alırken ve için bir erişim belirteci değişimi etkinleştirmek için yapılır.
+### <a name="additional-startup-code-was-added-tooyour-project"></a>Ek başlatma kodunu tooyour projesine eklendi
+Merhaba, **startup.auth.cs** dosya, yeni bir **OpenIdConnectAuthenticationNotifications** nesne toohello eklenen **bildirimleri** hello üyesi  **OpenIdConnectAuthenticationOptions**.  Merhaba OAuth kod alırken ve için bir erişim belirteci değişimi tooenable budur.
 
-### <a name="additional-changes-were-made-to-your-appconfig-or-webconfig"></a>App.config veya web.config için ek değişiklikler yapıldı
-Aşağıdaki ek yapılandırma girdileri eklenmiştir.
+### <a name="additional-changes-were-made-tooyour-appconfig-or-webconfig"></a>Ek değişiklikler tooyour app.config veya web.config yapıldı
+Merhaba aşağıdaki ek yapılandırma girdileri eklenmiştir.
 
     <appSettings>
         <add key="ida:ClientSecret" value="Your Azure AD App's new client secret" />
     </appSettings>
 
-Aşağıdaki yapılandırma bölümlerini ve bağlantı dizesi eklenmiştir.
+Merhaba aşağıdaki yapılandırma bölümlerini ve bağlantı dizesi eklenmiştir.
 
     <configSections>
         <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
@@ -154,7 +154,7 @@ Aşağıdaki yapılandırma bölümlerini ve bağlantı dizesi eklenmiştir.
 
 
 ### <a name="your-azure-active-directory-app-was-updated"></a>Azure Active Directory uygulamanızı güncelleştirildi
-Azure Active Directory uygulamanızı içerecek şekilde güncelleştirildi *dizin verilerini okuma* izni ilave bir anahtar oluşturulduğu ve hangi ardından olarak kullanılan *IDA: ClientSecret* içinde  **Web.config** dosya.
+Azure Active Directory uygulamanızı güncelleştirilmiş tooinclude hello edildi *dizin verilerini okuma* izni ilave bir anahtar oluşturulduğu ve hangi sonra hello kullanılan *IDA: ClientSecret* hello içinde  **Web.config** dosya.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Azure Active Directory hakkında daha fazla bilgi edinin](https://azure.microsoft.com/services/active-directory/)

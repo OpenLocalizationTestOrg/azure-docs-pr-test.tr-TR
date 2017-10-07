@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory'ye yeni kullanıcı ekleme | Microsoft Belgeleri"
-description: "Azure Active Directory'de yeni kullanıcıların eklenmesini veya kullanıcı bilgilerinin değiştirilmesini açıklar."
+title: "aaaAdd yeni kullanıcılar tooAzure Active Directory | Microsoft Docs"
+description: "Açıklar nasıl tooadd yeni kullanıcılar veya Azure Active Directory'de kullanıcı bilgilerini değiştirebilirsiniz."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -17,67 +17,67 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: ff4b742e772a6062885313e9bb49e55907fe125a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 72f67ad41022fd19fd94c8e1301943b0db1e57bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Yeni kullanıcılar ya da Microsoft hesabı olan kullanıcıların Azure Active Directory'ye ekleme
-Dizininizi doldurmak için kullanıcılar ekleyin. Bu makalede kuruluşunuzdaki yeni kullanıcıların ve Microsoft hesabına sahip kullanıcıların nasıl ekleneceği açıklanmaktadır. Azure Active Directory'de diğer dizinlerden kullanıcı ekleme veya iş ortağı şirketlerden kullanıcı ekleme hakkında daha fazla bilgi için bkz. [Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketlerden kullanıcılar ekleme](active-directory-create-users-external.md). Eklenen kullanıcılar varsayılan olarak yönetici izinlerine sahip olmaz ancak bu kullanıcılara herhangi bir zamanda roller atayabilirsiniz.
+# <a name="add-new-users-or-users-with-microsoft-accounts-tooazure-active-directory"></a>Yeni kullanıcı veya kullanıcıların Microsoft hesaplarını tooAzure Active Directory ile ekleme
+Kullanıcıların toopopulate dizininize ekleyin. Bu makalede açıklanır nasıl tooadd yeni kullanıcılar, kuruluşunuzda nasıl ve ne Microsoft hesabına sahip tooadd kullanıcılar. Azure Active Directory'de diğer dizinlerden kullanıcı ekleme veya iş ortağı şirketlerden kullanıcı ekleme hakkında daha fazla bilgi için bkz. [Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketlerden kullanıcılar ekleme](active-directory-create-users-external.md). Eklenen kullanıcılar varsayılan olarak yönetici izinlerine sahip olmayan, ancak herhangi bir zamanda roller toothem atayabilirsiniz.
 
 > [!IMPORTANT]
-> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor. Azure AD Yönetim Merkezi'nde bir kullanıcı eklemek için bkz: nasıl [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-users-create-azure-portal.md).
+> Microsoft önerir hello kullanarak Azure AD'yi yönetme [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) hello yerine Azure portal hello bu makalede başvurulan Klasik Azure portalı. Nasıl tooadd hello Azure AD Yönetim Merkezi'nden bir kullanıcı görmek için [yeni kullanıcılar tooAzure Active Directory eklemek](active-directory-users-create-azure-portal.md).
 
 ## <a name="add-a-user"></a>Kullanıcı ekleme
-1. Dizin için genel yönetici olan bir hesapla [klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
-2. **Active Directory**'yi seçin ve ardından kuruluş dizininizin adını seçin.
-3. **Users (Kullanıcılar)** sekmesini seçin ve ardından komut çubuğunda **Add User (Kullanıcı Ekle)** seçeneğini belirleyin.
-4. **Tell us about this user (Bu kullanıcı hakkındaki görüşlerinizi bize bildirin)** sayfasında, **Type of user (Kullanıcı türü)** kısmında aşağıdaki seçeneklerden birini belirleyin:
+1. İçinde toohello oturum [Klasik Azure portalı](https://manage.windowsazure.com) hello dizin için genel yönetici olan bir hesapla.
+2. Seçin **Active Directory**ve ardından kuruluş dizininizin hello adını seçin.
+3. Select hello **kullanıcılar** sekmesini tıklatın ve ardından hello komut çubuğunda seçin **Kullanıcı Ekle**.
+4. Merhaba üzerinde **bu kullanıcı hakkında bize** sayfasında **kullanıcı türünü**, şunlardan birini seçin:
 
    * **New user in your organization (Kuruluşunuzdaki yeni kullanıcı)** - dizininize yeni bir kullanıcı hesabı ekler.
-   * **User with an existing Microsoft account (Var olan bir Microsoft hesabı olan kullanıcı)** - Var olan bir Microsoft tüketici hesabını dizininize ekler (örneğin, bir Outlook hesabı)
+   * **Var olan bir Microsoft hesabı olan kullanıcı** – mevcut bir Microsoft tüketici hesabını tooyour dizin (örneğin, bir Outlook hesabı) ekler
 5. **Type of User (Kullanıcı Türü)** seçeneğine bağlı olarak, bir kullanıcı adı (yeni kullanıcı için) veya bir e-posta adresi (Microsoft hesabı olan bir kullanıcı için) girin.
-6. **Profile (Profil)** sayfasında bir ad ve soyad, kolay ad ve **Roles (Roller)** listesinden bir kullanıcı rolü sağlayın. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles.md). Kullanıcı için **Enable Multi-Factor Authentication (Multi-Factor Authentication'ı Etkinleştir)** seçeneğinin belirlenip belirlenmeyeceğini belirtin.
-7. **Get temporary password (Geçici parola alma)** sayfasında, **Create (Oluştur)** seçeneğini belirleyin.
+6. Merhaba kullanıcı **profil** sayfasında, adı ve Soyadı, kullanıcı dostu bir ad ve bir kullanıcı rolüyle hello sağlayın **rolleri** listesi. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles.md). Belirtin çok olup olmadığını**çok faktörlü kimlik doğrulamasını etkinleştir** hello kullanıcı için.
+7. Merhaba üzerinde **Get geçici parola** sayfasında, **oluşturma**.
 
 > [!IMPORTANT]
-> Kuruluşunuz birden fazla etki alanı kullanıyorsa bir kullanıcı hesabını eklerken aşağıdakileri bilmeniz gerekir:
+> Kuruluşunuz birden fazla etki alanı kullanıyorsa bir kullanıcı hesabı eklediğinizde, sorunları aşağıdaki hello hakkında bilmeniz gerekenler:
 >
-> * Etki alanlarında aynı kullanıcı asıl adına (UPN) sahip kullanıcı hesaplarını eklemek için, örneğin, **önce** geoffgrisso@contoso.onmicrosoft.com hesabını ve **ardından** geoffgrisso@contoso.com hesabını ekleyin.
-> * geoffgrisso@contoso.onmicrosoft.com eklemeden önce geoffgrisso@contoso.com **eklemeyin**. Bu sıra önemlidir, sıralamanın geri alınması ise çok uğraşmayı gerektirebilir.
+> * tooadd kullanıcı hesapları ile etki alanları arasında aynı kullanıcı asıl adı (UPN) hello **ilk** ekleme, örneğin, geoffgrisso@contoso.onmicrosoft.com, **arkasından** geoffgrisso@contoso.com.
+> * geoffgrisso@contoso.onmicrosoft.com eklemeden önce geoffgrisso@contoso.com **eklemeyin**. Bu sıra önemlidir ve sıkıcı tooundo olabilir.
 >
 >
 
 ## <a name="change-user-information"></a>Kullanıcı bilgilerini değiştirme
-Nesne kimliği dışındaki tüm kullanıcı özniteliklerini değiştirebilirsiniz.
+Merhaba nesne kimliği dışındaki tüm kullanıcı özniteliklerini değiştirebilirsiniz
 
 1. Dizininizi açın.
-2. **Users (Kullanıcılar)** sekmesini ve ardından değiştirmek istediğiniz kullanıcının görünen adını seçin.
+2. Select hello **kullanıcılar** sekmesini ve ardından hello görünen adını hello toochange istediğiniz kullanıcı.
 3. Değişikliklerinizi tamamlayın ve ardından **Save (Kaydet)** düğmesine tıklayın.
 
-Değiştirdiğiniz kullanıcı şirket içi Active Directory hizmetinizle eşitlenmişse bu yordamı kullanarak kullanıcı bilgilerini değiştiremezsiniz. Kullanıcıyı değiştirmek için şirket içi Active Directory yönetim araçlarınızı kullanın.
+Değiştirdiğiniz hello kullanıcı şirket içi Active Directory hizmetinizle eşitlenmişse bu yordamı kullanarak hello kullanıcı bilgilerini değiştiremezsiniz. toochange hello kullanıcı, şirket içi Active Directory Yönetim araçlarınızı kullanın.
 
 ## <a name="guest-user-management-and-limitations"></a>Konuk kullanıcı yönetimi ve sınırlamalar
-Konuk hesapları; SharePoint belgeleri, uygulamaları veya diğer Azure kaynaklarına erişmek için dizininize davet edilen, diğer dizinlerdeki kullanıcılardır. Dizininizdeki bir kullanıcı hesabının temel alınan UserType özniteliği "Konuk" olarak ayarlanmıştır. Normal kullanıcıların (özellikle de dizininizin üyelerinin) temel alınan UserType özniteliği "Üye"dir.
+Konuk, davet edilen tooyour directory tooaccess SharePoint belgeleri, uygulamaları ya da diğer Azure kaynaklarına diğer dizinlerden kullanıcı hesaplarıdır. Bir Konuk hesabı dizininizde çok "konuk." ayarlamak temel alınan UserType özniteliği var Normal kullanıcıların (özellikle de dizininizin üyelerinin) hello UserType özniteliği "Üye" sahip
 
-Konuklar, dizinde sınırlı bir haklar kümesine sahiptir. Bu haklar, Konukların dizindeki diğer kullanıcılara ait bilgileri keşfetme becerisini sınırlandırır. Ancak konuk kullanıcılar çalışmakta oldukları kaynaklarla ilişkili olan kullanıcılarla ve gruplarla etkileşim kurmaya devam edebilir. Konuk kullanıcılar şunları yapabilir:
+Konuklar hello dizinde sınırlı bir haklar kümesine sahip. Bu haklar hello özelliği konuklar toodiscover hello dizin diğer kullanıcılar hakkında bilgi edinmek için sınırlar. Ancak, Konuk kullanıcılar hello kullanıcılar ve gruplar üzerinde çalıştığınız hello kaynaklarla ilişkili ile etkileşebilirsiniz. Konuk kullanıcılar şunları yapabilir:
 
-* Atanmış oldukları bir Azure aboneliği ile ilişkili diğer kullanıcıları ve grupları görme
-* Ait oldukları grupların üyelerini görme
-* Dizinde bulunan tam e-posta adresini bildikleri diğer kullanıcıları arama
-* Aradıkları kullanıcılara ait yalnızca sınırlı bir öznitelik kümesini görme; bu öznitelikler görünen ad, e-posta adresi, kullanıcı asıl adı (UPN) ve küçük resim fotoğrafı ile sınırlıdır
-* Dizinde doğrulanan etki alanlarının bir listesini alma
-* Uygulamalara onay verme, bu uygulamalara dizininizdeki Üyelerin sahip olduklarıyla aynı erişimi sağlama
+* Diğer kullanıcılar ve gruplar atanmış oldukları bir Azure aboneliği toowhich ile ilişkili bakın
+* Ait oldukları gruplar toowhich Hello üyeleri bakın
+* Başlangıç dizini, diğer kullanıcıları hello kullanıcı hello tam e-posta adresini biliyorsanız arayın
+* Yalnızca sınırlı sayıda sınırlı toodisplay adı, e-posta adresi, kullanıcı asıl adı (UPN) ve küçük resim fotoğrafı yukarı--göründükleri hello kullanıcılar özniteliklerini bakın
+* Merhaba dizinde doğrulanan etki alanlarının bir listesini alma
+* Dizininizde üyelere sahip aynı erişim izni tooapplications, bunları verme hello
 
 ## <a name="set-guest-user-access-policies"></a>Konuk kullanıcı erişim ilkeleri ayarlama
-Bir dizinin **Configure (Yapılandır)** sekmesinde, konuk kullanıcıların erişimini denetlemeyi sağlayan seçenekler bulunur. Bu seçenekler yalnızca klasik Azure portalında bir dizin genel yöneticisi tarafından değiştirilebilir. Şu anda bir PowerShell veya API yöntemi bulunmamaktadır.
+Merhaba **yapılandırma** bir dizinin sekmesi seçenekleri toocontrol konuk kullanıcıların erişimini içerir. Bu seçenekler yalnızca klasik Azure portalında bir dizin genel yöneticisi tarafından değiştirilebilir. Şu anda bir PowerShell veya API yöntemi bulunmamaktadır.
 
-Klasik Azure portalında **Configure (Yapılandır)** sekmesini açmak için **Active Directory**'yi seçin ve ardından dizinin adını seçin.
+tooopen hello **yapılandırma** hello Azure Klasik portalı, select sekmesinde **Active Directory**ve ardından hello hello dizin adını seçin.
 
 ![Azure Active Directory'deki Configure (Yapılandır) sekmesi][1]
 
-Ardından konuk kullanıcıların erişimini denetleme seçeneklerini düzenleyebilirsiniz.
+Ardından konuk kullanıcıların erişimini hello seçenekleri toocontrol düzenleyebilirsiniz.
 
 ![konuk kullanıcılara yönelik erişim denetimi seçenekleri][2]
 

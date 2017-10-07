@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Factory MapReduce programdan çağırma"
-description: "MapReduce programlar bir Azure Hdınsight kümesinde bir Azure veri fabrikası'ndan çalıştırılarak verileri işlemek öğrenin."
+title: "aaaInvoke Azure Data Factory MapReduce programı"
+description: "Azure Hdınsight üzerinde çalışan MapReduce programlar tarafından tooprocess veri bir Azure veri fabrikası'ndan nasıl küme öğrenin."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
-ms.openlocfilehash: 55fc2196cb4ba50eced4a463914ae188217d0fed
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 448ef93a10bd97e7ecd4be4f04f88f8a05decc1d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Veri Fabrikası MapReduce programlardan çağırma
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,30 +33,30 @@ ms.lasthandoff: 08/18/2017
 > * [Data Lake Analytics U-SQL Etkinliği](data-factory-usql-activity.md)
 > * [.NET özel etkinlik](data-factory-use-custom-activities.md)
 
-Veri Fabrikası'nda Hdınsight MapReduce etkinliği [ardışık düzen](data-factory-create-pipelines.md) üzerinde MapReduce programları yürütür [kendi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) veya [isteğe bağlı](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux tabanlı Hdınsight kümesi. Bu makalede derlemeler [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
+Merhaba Hdınsight MapReduce etkinliği bir veri fabrikasında [ardışık düzen](data-factory-create-pipelines.md) üzerinde MapReduce programları yürütür [kendi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) veya [isteğe bağlı](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux tabanlı Hdınsight kümesi. Bu makale üzerinde hello derlemeler [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) makalesi, veri dönüştürme ve desteklenen hello dönüştürme etkinliklerinin genel bir bakış sunar.
 
 > [!NOTE] 
-> Azure Data Factory yeniyseniz okuyun [Azure Data Factory'ye giriş](data-factory-introduction.md) ve öğretici: [ilk veri hattınızı yapı](data-factory-build-your-first-pipeline.md) bu makaleyi okumadan önce.  
+> Yeni tooAzure Data Factory varsa okuyun [giriş tooAzure Data Factory](data-factory-introduction.md) ve öğretici hello: [ilk veri hattınızı yapı](data-factory-build-your-first-pipeline.md) bu makaleyi okumadan önce.  
 
 ## <a name="introduction"></a>Giriş
-Bir Azure data factory işlem hattı bağlantılı işlem hizmetlerini kullanarak bağlantılı depolama Hizmetleri'nde verilerini işler. Burada her etkinlik özel işleme işlemi gerçekleştiren etkinlikler dizisini içerir. Bu makalede, Hdınsight MapReduce etkinliği kullanmayı açıklar.
+Bir Azure data factory işlem hattı bağlantılı işlem hizmetlerini kullanarak bağlantılı depolama Hizmetleri'nde verilerini işler. Burada her etkinlik özel işleme işlemi gerçekleştiren etkinlikler dizisini içerir. Bu makalede, Hdınsight MapReduce etkinliği hello kullanmayı açıklar.
 
 Bkz: [Pig](data-factory-pig-activity.md) ve [Hive](data-factory-hive-activity.md) Pig/Hive çalıştırma hakkında ayrıntılı bilgi için komut dosyaları Windows/Linux tabanlı Hdınsight üzerinde bir ardışık düzen tarafından Hdınsight Pig ve Hive etkinlikleri kullanarak küme. 
 
 ## <a name="json-for-hdinsight-mapreduce-activity"></a>Hdınsight MapReduce etkinliği için JSON
-Hdınsight etkinliği JSON tanımında: 
+Merhaba hello Hdınsight etkinliği için JSON tanımı: 
 
-1. Ayarlama **türü** , **etkinlik** için **Hdınsight**.
-2. Sınıfı için adını belirtin **className** özelliği.
-3. Dosya adı dahil olmak üzere JAR dosyasının yolunu belirtin **jarFilePath** özelliği.
-4. Azure Blob Storage için JAR dosyasını içeren başvurduğu bağlantılı hizmet belirtin **jarLinkedService** özelliği.   
-5. MapReduce program için herhangi bir bağımsız değişken belirtin **bağımsız değişkenleri** bölümü. Çalışma zamanında gördüğünüz birkaç ek bağımsız değişkenler (örneğin: mapreduce.job.tags) MapReduce çerçeveden. MapReduce bağımsız değişkenleriyle ayırt etmek için seçeneği ve değer bağımsız değişken olarak aşağıdaki örnekte gösterildiği gibi kullanmayı düşünün (- s,--giriş,--çıkış vb. göre bunların değerleri hemen ardından Seçenekler belirtilmiştir).
+1. Set hello **türü** Merhaba, **etkinlik** çok**Hdınsight**.
+2. Merhaba sınıfı için Hello adını belirtin **className** özelliği.
+3. Merhaba dosya adı dahil olmak üzere hello yolu toohello JAR dosyasını belirtin **jarFilePath** özelliği.
+4. Toohello hello JAR dosyasını içerir Azure Blob Storage başvuruyor hello bağlantılı hizmeti belirtin **jarLinkedService** özelliği.   
+5. Merhaba MapReduce program için herhangi bir bağımsız değişken hello belirtin **bağımsız değişkenleri** bölümü. Çalışma zamanında gördüğünüz birkaç ek bağımsız değişkenler (örneğin: mapreduce.job.tags) hello MapReduce çerçeveden. toodifferentiate, hello MapReduce bağımsız değişkenleriyle seçeneği ve değer bağımsız değişken olarak hello aşağıdaki örnekte gösterildiği gibi kullanmayı düşünün (- s,--giriş,--çıkış vb. göre bunların değerleri hemen ardından Seçenekler belirtilmiştir).
 
     ```JSON   
     {
         "name": "MahoutMapReduceSamplePipeline",
         "properties": {
-            "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix to determine the similarity between 2 items",
+            "description": "Sample Pipeline tooRun a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix toodetermine hello similarity between 2 items",
             "activities": [
                 {
                     "type": "HDInsightMapReduce",
@@ -97,7 +97,7 @@ Hdınsight etkinliği JSON tanımında:
                         "interval": 1
                     },
                     "name": "MahoutActivity",
-                    "description": "Custom Map Reduce to generate Mahout result",
+                    "description": "Custom Map Reduce toogenerate Mahout result",
                     "linkedServiceName": "HDInsightLinkedService"
                 }
             ],
@@ -106,16 +106,16 @@ Hdınsight etkinliği JSON tanımında:
         }
     }
     ```
-Hdınsight MapReduce etkinliği Hdınsight kümesinde herhangi MapReduce jar dosyasını çalıştırmak için kullanabilirsiniz. Aşağıdaki örnek JSON tanımında bir ardışık düzen, Hdınsight etkinliği Mahout JAR dosyasını çalıştırmak için yapılandırılır.
+Merhaba Hdınsight MapReduce etkinliği toorun herhangi bir Hdınsight kümesi MapReduce jar dosyasını kullanabilirsiniz. Hello toorun Mahout JAR dosyasını aşağıdaki örnek JSON tanımını ardışık, Hdınsight etkinliği hello yapılandırılmış.
 
 ## <a name="sample-on-github"></a>Github'da örnek
-Hdınsight MapReduce etkinliğinden kullanmak için bir örnek indirebilirsiniz: [veri fabrikası örneği github'daki](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
+Merhaba Hdınsight MapReduce etkinliği kullanmak için bir örnek indirebilirsiniz gelen: [veri fabrikası örneği github'daki](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
 
-## <a name="running-the-word-count-program"></a>Sözcük sayısını programı çalıştırma
-Ardışık Düzen Bu örnekte, Azure Hdınsight kümesinde sözcük sayımı harita/azaltın programı çalıştırır.   
+## <a name="running-hello-word-count-program"></a>Merhaba sözcük sayımı programı çalıştırma
+Bu örnekte Hello ardışık hello sözcük sayımı harita/azaltın program Azure Hdınsight kümesinde çalışır.   
 
 ### <a name="linked-services"></a>Bağlı hizmetler
-İlk olarak, Azure data factory Azure Hdınsight küme tarafından kullanılan Azure Storage bağlamak için bağlı hizmet oluşturun. Kopyala/yapıştır aşağıdaki kod, değiştirmek unutmadığınızdan **hesap adı** ve **hesap anahtarı** adı ile Azure depolama alanınızı anahtarı. 
+İlk olarak, bağlantılı hizmet toolink hello hello Azure Hdınsight küme toohello Azure veri fabrikası tarafından kullanılan Azure Storage oluşturun. Kopyala/yapıştır koddan Merhaba, tooreplace unutmadığınızdan **hesap adı** ve **hesap anahtarı** hello adı ve Azure depolama alanınızı anahtarı. 
 
 #### <a name="azure-storage-linked-service"></a>Azure Storage bağlı hizmeti
 
@@ -132,7 +132,7 @@ Ardışık Düzen Bu örnekte, Azure Hdınsight kümesinde sözcük sayımı har
 ```
 
 #### <a name="azure-hdinsight-linked-service"></a>Azure Hdınsight bağlı hizmeti
-Ardından, Azure Hdınsight kümenizi Azure data factory'ye bağlamak için bağlı hizmet oluşturun. Kopyala/yapıştır aşağıdaki kod, yerini **Hdınsight küme adı** Hdınsight kümesi ve kullanıcı adı ve parola değerleri değiştirme ada sahip.   
+Ardından, Azure Hdınsight küme toohello Azure data factory'nizi bağlantılı hizmet toolink oluşturun. Değiştir, kopyala/yapıştır koddan hello durumunda, **Hdınsight küme adı** Hdınsight kümesi ve değişiklik kullanıcı adı ve parola değerlerini hello adı.   
 
 ```JSON
 {
@@ -151,7 +151,7 @@ Ardından, Azure Hdınsight kümenizi Azure data factory'ye bağlamak için bağ
 
 ### <a name="datasets"></a>Veri kümeleri
 #### <a name="output-dataset"></a>Çıktı veri kümesi
-Ardışık Düzen Bu örnekte, tüm girişleri almaz. Hdınsight MapReduce etkinliği için bir çıkış veri kümesi belirtin. Bu veri kümesi yalnızca ardışık düzen zamanlama sürücü için gereken bir kukla dataset ' dir.  
+Bu örnekte Hello ardışık tüm girişleri almaz. Merhaba Hdınsight MapReduce etkinliği için bir çıkış veri kümesi belirtin. Bu veri kümesi yalnızca gerekli toodrive hello ardışık düzen zamanlaması bir kukla dataset ' dir.  
 
 ```JSON
 {
@@ -176,23 +176,23 @@ Ardışık Düzen Bu örnekte, tüm girişleri almaz. Hdınsight MapReduce etkin
 ```
 
 ### <a name="pipeline"></a>İşlem hattı
-Bu örnekte ardışık türünde yalnızca bir etkinlik vardır: HDInsightMapReduce. JSON önemli özelliklerin bazıları şunlardır: 
+Bu örnekte Hello ardışık türünde yalnızca bir etkinlik vardır: HDInsightMapReduce. Merhaba JSON içinde hello önemli özelliklerinden bazıları şunlardır: 
 
 | Özellik | Notlar |
 |:--- |:--- |
-| type |Türü ayarlamak **HDInsightMapReduce**. |
-| className |Sınıf adıdır: **wordcount** |
-| jarFilePath |Sınıf içeren jar dosyasının yolu. Kopyala/yapıştır aşağıdaki kod, kümenin adını değiştirmeyi unutmayın. |
-| jarLinkedService |Jar dosyasını içeren azure depolama bağlı hizmeti. Bu bağlı hizmetin Hdınsight kümesi ile ilişkili depolama ifade eder. |
-| Bağımsız değişkenler |Wordcount program iki bağımsız değişken, bir giriş ve çıkış alır. Giriş dosyası davinci.txt dosyasıdır. |
-| frequency/interval |Bu özelliklerin değerlerini çıktı veri kümesi eşleşmesi. |
-| linkedServiceName |daha önce oluşturmuştunuz Hdınsight bağlı hizmeti anlamına gelmektedir. |
+| type |Merhaba türü çok ayarlanmalıdır**HDInsightMapReduce**. |
+| className |Merhaba sınıfı adıdır: **wordcount** |
+| jarFilePath |Merhaba sınıfı içeren yolu toohello jar dosyasını. Kopyala/yapıştır koddan Merhaba, toochange hello hello kümenin adını unutmayın. |
+| jarLinkedService |Merhaba jar dosyasını içeren azure depolama bağlı hizmeti. Bu bağlı hizmetin hello Hdınsight kümesi ile ilişkili toohello depolama başvuruyor. |
+| Bağımsız değişkenler |Merhaba wordcount program iki bağımsız değişken, bir giriş ve çıkış alır. Merhaba giriş dosyası hello davinci.txt dosyasıdır. |
+| frequency/interval |Bu özelliklerin değerlerini Hello hello çıktı veri kümesi eşleşmesi. |
+| linkedServiceName |daha önce oluşturmuştunuz toohello Hdınsight bağlı hizmeti anlamına gelmektedir. |
 
 ```JSON
 {
     "name": "MRSamplePipeline",
     "properties": {
-        "description": "Sample Pipeline to Run the Word Count Program",
+        "description": "Sample Pipeline tooRun hello Word Count Program",
         "activities": [
             {
                 "type": "HDInsightMapReduce",
@@ -230,7 +230,7 @@ Bu örnekte ardışık türünde yalnızca bir etkinlik vardır: HDInsightMapRed
 ```
 
 ## <a name="run-spark-programs"></a>Spark programları çalıştırma
-MapReduce etkinliğini kullanarak HDInsight Spark kümenizde Spark programları çalıştırabilirsiniz. Ayrıntılar için bkz. [Azure Data Factory’den Spark programlarını çağırma](data-factory-spark.md).  
+MapReduce etkinliği toorun Spark programları Hdınsight Spark kümesinde kullanabilirsiniz. Ayrıntılar için bkz. [Azure Data Factory’den Spark programlarını çağırma](data-factory-spark.md).  
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456

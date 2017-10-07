@@ -1,6 +1,6 @@
 ---
-title: "Esnek veritabanı istemci Kitaplığı'nda kimlik bilgilerini yönetme | Microsoft Docs"
-description: "Doğru düzeyde kimlik bilgileri, yönetici salt okunur, esnek veritabanı uygulamaları için nasıl kurulur"
+title: "Merhaba esnek veritabanı istemci Kitaplığı'nda aaaManaging kimlik | Microsoft Docs"
+description: "Nasıl tooset hello doğru düzeyde kimlik bilgileri, yönetici tooread esnek veritabanı uygulamaları için yalnızca,"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 46908be2846062a0520d21e06db3091a4d711b0b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 218783ca2a07e3c0a4b089aa92634f32c41386e6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Esnek veritabanı istemci kitaplığına erişmek için kullanılan kimlik bilgileri
-[Esnek veritabanı istemci Kitaplığı](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) erişmek için kullandığı kimlik bilgilerini üç farklı türde [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md). Gereken bağlı olarak, kimlik bilgisi erişim olası en düşük düzeyde ile kullanın.
+# <a name="credentials-used-tooaccess-hello-elastic-database-client-library"></a>Kimlik bilgileri kullanılan tooaccess hello esnek veritabanı istemci kitaplığı
+Merhaba [esnek veritabanı istemci Kitaplığı](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) kimlik bilgileri tooaccess hello üç farklı türde kullanan [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md). Hello gerek bağlı olarak hello kimlik bilgisi hello düşük düzeyde erişim olası ile kullanın.
 
-* **Yönetim kimlik bilgilerini**: oluşturmak veya bir parça eşleme Yöneticisi düzenleme. (Bkz [sözlüğü](sql-database-elastic-scale-glossary.md).) 
-* **Erişim kimlik bilgilerini**: parça hakkında bilgi edinmek için mevcut bir parça eşleme Yöneticisi'ne erişmek için.
-* **Bağlantı kimlik bilgilerini**: parça için bağlanmak için. 
+* **Yönetim kimlik bilgilerini**: oluşturmak veya bir parça eşleme Yöneticisi düzenleme. (Merhaba bkz [sözlüğü](sql-database-elastic-scale-glossary.md).) 
+* **Erişim kimlik bilgilerini**: tooaccess var olan bir parça parça Yöneticisi tooobtain bilgilerini eşleyin.
+* **Bağlantı kimlik bilgilerini**: tooconnect tooshards. 
 
 Ayrıca bkz. [veritabanları ve Azure SQL veritabanında oturumları yönetme](sql-database-manage-logins.md). 
 
 ## <a name="about-management-credentials"></a>Yönetim kimlik bilgileri ayrıntıları
-Yönetim kimlik bilgileri oluşturmak için kullanılan bir [ **ShardMapManager** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) nesne parça eşlemeleri işleyen uygulamalar için. (Örneğin, [esnek veritabanı araçlarını kullanarak bir parça ekleme](sql-database-elastic-scale-add-a-shard.md) ve [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md)) esnek ölçek istemci kitaplığı kullanıcı SQL oturum açma bilgileri ve SQL kullanıcılar oluşturur ve her verilir emin olur Genel parça okuma/yazma izinleri veritabanını ve tüm parça veritabanlarını da eşleyin. Bu kimlik bilgileri, parça eşleme değişiklikleri gerçekleştirildiğinde genel parça eşleme ve yerel parça eşlemeleri korumak için kullanılır. Örneğin, parça eşleme Yöneticisi nesnesi oluşturmak için yönetim kimlik bilgilerini kullanın (kullanarak [ **GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx): 
+Yönetim kimlik bilgileri olan kullanılan toocreate bir [ **ShardMapManager** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) nesne parça eşlemeleri işleyen uygulamalar için. (Örneğin, [esnek veritabanı araçlarını kullanarak bir parça ekleme](sql-database-elastic-scale-add-a-shard.md) ve [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md)) hello kullanıcı hello esnek ölçek istemci kitaplığının hello SQL kullanıcılar ve SQL oturumu oluşturur ve her emin olur verilen hello genel parça hello okuma/yazma izinleri veritabanını ve tüm parça veritabanlarını da eşleyin. Değişiklikleri toohello parça eşleme gerçekleştirilir, bu kimlik bilgileri kullanılan toomaintain hello genel parça eşleme ve hello yerel parça eşlemeleri ' dir. Örneği için hello yönetim kimlik bilgileri toocreate hello parça eşleme Yöneticisi nesnesi kullanın (kullanarak [ **GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx): 
 
     // Obtain a shard map manager. 
     ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -39,14 +39,14 @@ Yönetim kimlik bilgileri oluşturmak için kullanılan bir [ **ShardMapManager*
             ShardMapManagerLoadPolicy.Lazy 
     ); 
 
-Değişkeni **smmAdminConnectionString** yönetim kimlik bilgilerini içeren bir bağlantı dizesi. Kullanıcı kimliği ve parola parça eşleme veritabanı ve tek tek parça okuma/yazma erişimi sağlar. Yönetim bağlantı dizesini de sunucu adını ve genel parça eşleme veritabanını tanımlamak için veritabanı adını içerir. Bu amaç için tipik bağlantı dizesi şöyledir:
+Merhaba değişkeni **smmAdminConnectionString** hello yönetim kimlik bilgilerini içeren bir bağlantı dizesi. Merhaba kullanıcı kimliği ve parola okuma/yazma erişimi tooboth parça eşleme veritabanı ve tek tek parça sağlar. Merhaba yönetim bağlantı dizesi hello sunucu adını ve veritabanını, ad tooidentify, hello genel parça, harita veritabanını da içerir. Bu amaç için tipik bağlantı dizesi şöyledir:
 
      "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 
-Değerler biçiminde kullanmayın "username@server" — yalnızca "username" değerini kullanın.  Bu durum, kimlik bilgileri parça eşleme manager veritabanı ve farklı sunucularda olabilir tek tek parça karşı çalışmanız gerekir çünkü.
+Değerleri hello biçiminde kullanmayın "username@server" — yalnızca hello "username" değerini kullanın.  Bu durum, kimlik bilgileri hello parça eşleme manager veritabanı ve farklı sunucularda olabilir tek tek parça karşı çalışmanız gerekir çünkü.
 
 ## <a name="access-credentials"></a>Erişim kimlik bilgileri
-Bir parça parça eşlemeleri yönetme olmayan bir uygulamada harita Yöneticisi oluştururken, genel parça harita üzerinde salt okuma izinlerine sahip kimlik bilgileri kullanın. Bu kimlik bilgileri altında genel parça eşlemesinden alındı bilgileri için kullanılan [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) ve istemci üzerindeki parça eşleme önbelleğini doldurmak için. Aynı çağrı düzeni aracılığıyla sağlanan kimlik bilgileri **GetSqlShardMapManager** yukarıda gösterildiği gibi: 
+Bir parça parça eşlemeleri yönetme olmayan bir uygulamada harita Yöneticisi oluştururken, hello genel parça harita üzerinde salt okuma izinlerine sahip kimlik bilgileri kullanın. Merhaba bu kimlik bilgileri altında hello genel parça eşlemesinden alındı bilgileri için kullanılır [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) ve toopopulate hello parça hello istemci önbelleği eşleyin. Merhaba aynı düzeni çok çağrı hello kimlik bilgileri sağlanır**GetSqlShardMapManager** yukarıda gösterildiği gibi: 
 
     // Obtain shard map manager. 
     ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -54,19 +54,19 @@ Bir parça parça eşlemeleri yönetme olmayan bir uygulamada harita Yöneticisi
             ShardMapManagerLoadPolicy.Lazy
     );  
 
-Kullanımına dikkat edin **smmReadOnlyConnectionString** adına bu erişimi için farklı kimlik bilgileri kullanımını yansıtacak şekilde **yönetici olmayan** kullanıcılar: Bu kimlik bilgileri yazma izinleri sağlamalıdır değil Genel parça eşleme. 
+Not hello hello **smmReadOnlyConnectionString** adına bu erişim için farklı kimlik bilgileri tooreflect hello kullanımı **yönetici olmayan** kullanıcılar: Bu kimlik bilgileri yazma sağlamalıdır değil Merhaba genel parça eşleme izinleri. 
 
 ## <a name="connection-credentials"></a>Bağlantı kimlik bilgileri
-Ek kimlik bilgileri kullanılırken gereklidir [ **OpenConnectionForKey** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) parçalama anahtar ile ilişkili bir parça erişim yöntemi. Bu kimlik bilgileri parça üzerinde bulunan yerel parça eşleme tablolarını salt okunur erişim izinlerini sağlamanız gerekir. Bu, veri bağımlı üzerinde parça yönlendirme için bağlantı doğrulama gerçekleştirmek için gereklidir. Bu kod parçacığını veri erişimini veri bağımlı yönlendirme bağlamında sağlar: 
+Ek kimlik bilgileri gerekli hello kullanırken [ **OpenConnectionForKey** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) yöntemi tooaccess parçalama anahtar ile ilişkili bir parça. Bu kimlik bilgileri, salt okunur erişim toohello yerel parça eşleme tablolarının hello parça üzerinde bulunan tooprovide izinlerinizin olması gerekir. Veri bağımlı hello parça üzerinde yönlendirme için gerekli tooperform bağlantısı doğrulama budur. Bu kod parçacığını veri erişimini veri bağımlı yönlendirme hello bağlamında sağlar: 
 
     using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>( 
     targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate)) 
 
-Bu örnekte, **smmUserConnectionString** kullanıcı kimlik bilgileri için bağlantı dizesini içerir. Azure SQL DB için kullanıcı kimlik bilgileri için tipik bağlantı dizesini şöyledir: 
+Bu örnekte, **smmUserConnectionString** hello bağlantı dizesi hello için kullanıcı kimlik bilgilerini tutar. Azure SQL DB için kullanıcı kimlik bilgileri için tipik bağlantı dizesini şöyledir: 
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-Yönetici kimlik olduğu gibi yok değerleri biçiminde "username@server". Bunun yerine, yalnızca "username" kullanın.  Ayrıca, bağlantı dizesi bir sunucu adı ve veritabanı adı içermediğini unutmayın. Çünkü **OpenConnectionForKey** çağrı otomatik olarak anahtarına göre doğru parça bağlantısı doğrudan. Bu nedenle, sunucu adını ve veritabanı adı sağlanmadı. 
+Merhaba yönetici kimlik'de olduğu gibi olmayan değerleri hello biçiminde "username@server". Bunun yerine, yalnızca "username" kullanın.  Ayrıca hello bağlantı dizesi bir sunucu adı ve veritabanı adı içermediğini unutmayın. Çünkü hello **OpenConnectionForKey** çağrı otomatik olarak hello bağlantı toohello parça dayalı hello anahtarı doğru doğrudan. Bu nedenle, hello veritabanı adı ve sunucu adı sağlanmadı. 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 [Azure SQL Veritabanında veritabanlarını ve oturum açma bilgilerini yönetme](sql-database-manage-logins.md)

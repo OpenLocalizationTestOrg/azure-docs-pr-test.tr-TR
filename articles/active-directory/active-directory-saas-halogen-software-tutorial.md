@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme halojensiz yazılımıyla | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve halojensiz yazılımı arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ve halojensiz yazılımı arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,115 +13,115 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: e09fa93038965e4880a23002bac6917ad2a077f7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bdb67de713771d6e306f287c4b13895f6336f7ba
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Öğretici: Azure Active Directory Tümleştirme halojensiz yazılımıyla
 
-Bu öğreticide, halojensiz yazılım Azure Active Directory (Azure AD) ile tümleştirme öğrenin.
+Bu öğreticide, bilgi nasıl toointegrate halojensiz yazılım Azure Active Directory'ye (Azure AD).
 
-Halojensiz yazılım Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Halojensiz yazılım Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
 
-- Halojensiz yazılım erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak halojensiz yazılımı (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Erişim tooHalogen yazılım sahip Azure AD'de kontrol edebilirsiniz
+- Kullanıcıların tooautomatically get açan tooHalogen yazılım (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure AD tümleştirme halojensiz yazılımıyla yapılandırmak için aşağıdaki öğeleri gerekir:
+tooconfigure halojensiz yazılım ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
 
 - Bir Azure AD aboneliği
 - Bir halojensiz yazılım çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden halojensiz yazılım ekleme
+1. Merhaba Galerisi'nden halojensiz yazılım ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-halogen-software-from-the-gallery"></a>Galeriden halojensiz yazılım ekleme
+## <a name="adding-halogen-software-from-hello-gallery"></a>Merhaba Galerisi'nden halojensiz yazılım ekleme
 
-Azure AD halojensiz yazılım tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden halojensiz yazılım eklemeniz gerekir.
+Azure AD'ye tooconfigure hello tümleştirme halojensiz yazılımın tooadd halojensiz yazılım hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
 
-**Galeriden halojensiz yazılım eklemek için aşağıdaki adımları gerçekleştirin:**
+**tooadd halojensiz yazılım hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **halojensiz yazılım**.
+4. Merhaba arama kutusuna yazın **halojensiz yazılım**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-halogen-software-tutorial/tutorial_halogensoftware_search.png)
 
-5. Sonuçlar panelinde seçin **halojensiz yazılım**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Merhaba Sonuçlar panelinde seçin **halojensiz yazılım**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-halogen-software-tutorial/tutorial_halogensoftware_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırmak ve halojensiz yazılım "Britta Simon" adlı bir test kullanıcı tabanlı Azure AD çoklu oturum açmayı sınayın.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen halojensiz yazılım bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının halojensiz yazılım ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek toowork'ın oturum açma hangi hello karşılık gelen halojensiz yazılım tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve hello ilgili kullanıcı halojensiz yazılım arasında bir bağlantı ilişkisi kurulan toobe gerekir.
 
-Değeri halojensiz yazılımda atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Merhaba hello değeri halojensiz yazılımda atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
 
-Yapılandırmak ve Azure AD çoklu oturum açma halojensiz yazılımıyla sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
+tooconfigure ve halojensiz yazılım ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Halojensiz yazılım test kullanıcısı oluşturma](#creating-a-halogen-software-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı halojensiz yazılım sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
+3. **[Halojensiz yazılım test kullanıcısı oluşturma](#creating-a-halogen-software-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir halojensiz yazılım, karşılık gelen.
+4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma halojensiz yazılım uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma halojensiz yazılım uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma halojensiz yazılımıyla yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**tooconfigure Azure AD çoklu oturum açma halojensiz yazılımıyla hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **halojensiz yazılım** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Merhaba hello üzerinde Azure portal'ın **halojensiz yazılım** uygulama tümleştirme sayfası, tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-halogen-software-tutorial/tutorial_halogensoftware_samlbase.png)
 
-3. Üzerinde **halojensiz yazılım etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **halojensiz yazılım etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-halogen-software-tutorial/tutorial_halogensoftware_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://global.hgncloud.com/<companyname>`
+    a. Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://global.hgncloud.com/<companyname>`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://global.halogensoftware.com/<companyname>`,`https://global.hgncloud.com/<companyname>`
+    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın: `https://global.halogensoftware.com/<companyname>`,`https://global.hgncloud.com/<companyname>`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [halojensiz yazılım istemci destek ekibi](https://support.halogensoftware.com/) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı. Kişi [halojensiz yazılım istemci destek ekibi](https://support.halogensoftware.com/) tooget bu değerleri. 
  
 
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-halogen-software-tutorial/tutorial_halogensoftware_certificate.png) 
 
@@ -129,17 +129,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-halogen-software-tutorial/tutorial_general_400.png)
 
-6. Farklı bir tarayıcı penceresinde için oturum, **halojensiz yazılım** yönetici olarak uygulama.
+6. Farklı bir tarayıcı penceresinde, oturum açma tooyour **halojensiz yazılım** yönetici olarak uygulama.
 
-7. Tıklatın **seçenekleri** sekmesi. 
+7. Merhaba tıklatın **seçenekleri** sekmesi. 
    
     ![Azure AD Connect nedir?][12]
 
-8. Sol gezinti bölmesinde **SAML Yapılandırması**. 
+8. Merhaba sol gezinti bölmesinde **SAML Yapılandırması**. 
    
     ![Azure AD Connect nedir?][13]
 
-9. Üzerinde **SAML Yapılandırması** sayfasında, aşağıdaki adımları gerçekleştirin: 
+9. Merhaba üzerinde **SAML Yapılandırması** sayfasında, hello aşağıdaki adımları gerçekleştirin: 
 
     ![Azure AD Connect nedir?][14]
 
@@ -147,96 +147,96 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
      b. Olarak **benzersiz tanıtıcı eşlemeleri için**seçin **kullanıcıadı**.
   
-     c. İndirilen meta veri dosyanızı karşıya yüklemek için tıklayın **Gözat** dosyasını seçmek için ve ardından **dosyasını karşıya yükle**.
+     c. tooupload, indirilen meta veri dosyası tıklatın **Gözat** tooselect hello dosya ve ardından **dosyasını karşıya yükle**.
  
-     d. Yapılandırmanızı sınamak için **testi Çalıştır**. 
+     d. tootest hello yapılandırma tıklatın **testi**. 
     
     >[!NOTE]
-    >Öğesinin ileti beklemesi gerekir "*SAML test tamamlandıktan. Lütfen bu pencereyi kapatmak*". Ardından, açılan tarayıcı penceresini kapatın. **Etkinleştirmek SAML** onay kutusunu test olmuşsa yalnızca etkin. 
+    >Merhaba ileti için toowait gerekir "*hello SAML test tamamlanmıştır. Lütfen bu pencereyi kapatmak*". Ardından, hello açılan tarayıcı penceresini kapatın. Merhaba **etkinleştirmek SAML** onay kutusunu hello test olmuşsa yalnızca etkin. 
      
      e. Seçin **etkinleştirmek SAML**.
     
      f. Tıklatın **değişiklikleri kaydetmek**. 
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-halogen-software-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-halogen-software-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-halogen-software-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-halogen-software-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, tür adı olarak **BrittaSimon**.
+    a. Merhaba, **adı** metin kutusuna, tür adı olarak **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-halogen-software-test-user"></a>Halojensiz yazılım test kullanıcısı oluşturma
 
-Bu bölümün amacı Britta Simon halojensiz yazılım adlı bir kullanıcı oluşturmaktır.
+Bu bölümde Hello amacı toocreate Britta Simon halojensiz yazılım adlı bir kullanıcı var.
 
-**Britta Simon halojensiz yazılım adlı bir kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**toocreate Britta Simon halojensiz yazılımda adlı bir kullanıcı hello aşağıdaki adımları gerçekleştirin:**
 
-1. Oturum, **halojensiz yazılım** yönetici olarak uygulama.
+1. Tooyour üzerinde oturum **halojensiz yazılım** yönetici olarak uygulama.
 
-2. Tıklatın **kullanıcı Merkezi** sekmesini ve ardından **kullanıcı oluştur**.
+2. Merhaba tıklatın **kullanıcı Merkezi** sekmesini ve ardından **kullanıcı oluştur**.
    
     ![Azure AD Connect nedir?][300]  
 
-3. Üzerinde **yeni kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **yeni kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
    
     ![Azure AD Connect nedir?][301]
 
-    a. İçinde **ad** metin kutusuna, tür ilk gibi kullanıcı adını **Britta**.
+    a. Merhaba, **ad** metin kutusuna, tür ilk gibi hello kullanıcı adını **Britta**.
     
-    b. İçinde **Soyadı** metin kutusuna, türü kullanıcının soyadını gibi **Simon**. 
+    b. Merhaba, **Soyadı** metin kutusuna, türü hello kullanıcının soyadını gibi **Simon**. 
 
-    c. İçinde **kullanıcıadı** metin kutusuna, türü **Britta Simon**, Azure portalında olduğu gibi kullanıcı adı.
+    c. Merhaba, **kullanıcıadı** metin kutusuna, türü **Britta Simon**, hello Azure portal olduğu gibi hello kullanıcı adı.
 
-    d. İçinde **parola** metin kutusuna, Britta parolasını yazın.
+    d. Merhaba, **parola** metin kutusuna, Britta parolasını yazın.
     
     e. **Kaydet** düğmesine tıklayın.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
 
-Bu bölümde, Britta halojensiz yazılıma erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, erişim tooHalogen yazılım vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**Britta Simon halojensiz yazılım atamak için aşağıdaki adımları gerçekleştirin:**
+**tooassign Britta Simon tooHalogen yazılım, hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **halojensiz yazılım**.
+2. Merhaba uygulamalar listesinde **halojensiz yazılım**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-halogen-software-tutorial/tutorial_halogensoftware_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -244,7 +244,7 @@ Bu bölümde, Britta halojensiz yazılıma erişim vererek, Azure çoklu oturum 
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -252,13 +252,13 @@ Bu bölümde, Britta halojensiz yazılıma erişim vererek, Azure çoklu oturum 
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümün amacı erişim paneli kullanılarak Azure AD SSO yapılandırmanızı test etmektir.
+Bu bölümde Hello amacı olan tootest hello erişim paneli, Azure AD SSO yapılandırmayı kullanarak.
 
-Erişim paneli halojensiz yazılım parçasında tıklattığınızda, otomatik olarak halojensiz yazılım uygulamanıza açan.
+Hello halojensiz yazılım hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour halojensiz yazılım uygulaması almanız gerekir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

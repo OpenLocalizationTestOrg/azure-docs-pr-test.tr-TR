@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory raporlama | Microsoft Docs
+title: Active Directory aaaAzure raporlama | Microsoft Docs
 description: "Azure Active Directory raporlamasına genel bir bakış sağlar."
 services: active-directory
 documentationcenter: 
@@ -15,22 +15,22 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 738c8f4a56586b87f03973ec258b0a3023affa60
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c91813acbdc4b0bfcd164169b0b575accac227d3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-reporting"></a>Azure Active Directory raporlama
 
 Azure Active Directory raporlamasıyla, ortamınızın nasıl çalıştığıyla ilgili fikir edinebilirsiniz.  
-Sağlanan verilerle:
+sağlanan hello veri sağlar:
 
 - Uygulama ve hizmetlerinizin kullanıcılarınız tarafından nasıl kullanıldığını saptayabilirsiniz
-- Ortamınızın durumunu etkileyebilecek olası riskleri algılayabilirsiniz
+- Ortamınızı Hello sağlığını etkileyen olası riskleri Algıla
 - Kullanıcılarınızın işlerini yapmalarını engelleyen sorunları giderebilirsiniz  
 
-Raporlama mimarisinin iki ana dayanağı vardır:
+Merhaba raporlama mimarisi üzerinde iki ana ayaklar dayanır:
 
 - Güvenlik raporları
 - Etkinlik raporları
@@ -41,79 +41,79 @@ Raporlama mimarisinin iki ana dayanağı vardır:
 
 ## <a name="security-reports"></a>Güvenlik raporları
 
-Azure Active Directory'deki güvenlik raporları kuruluşunuzun kimliklerini korumanıza yardımcı olur.  
+Azure Active Directory'de Hello güvenlik raporları, kuruluşunuzdaki kimlikleri, tooprotect yardımcı olur.  
 Azure Active Directory'de iki tür güvenlik raporu vardır:
 
-- **Riskli oldukları belirlenen kullanıcılar** - [Riskli oldukları belirlenen kullanıcılar güvenlik raporundan](active-directory-reporting-security-user-at-risk.md), gizliliği bozulmuş olabilecek kullanıcı hesaplarına genel bir bakış elde edersiniz.
+- **Bayrak eklenen kullanıcılar için risk** - hello [bayrak eklenen kullanıcılar için risk güvenlik raporu](active-directory-reporting-security-user-at-risk.md), geçirildiğini kullanıcı hesapları özetini almak.
 
-- **Riskli oturum açma işlemleri** - [Riskli oturum açma işlemleri güvenlik raporuyla](active-directory-reporting-security-risky-sign-ins.md), kullanıcı hesabının meşru sahibi olmayan biri tarafından gerçekleştirilmiş olabilecek oturum açma işlemleriyle ilgili göstergeler elde edersiniz. 
+- **Riskli oturum açma işlemleri** - hello [riskli oturum açma güvenlik raporu](active-directory-reporting-security-risky-sign-ins.md), yasal sahibi bir kullanıcı hesabı olan kişi tarafından gerçekleştirilmiş olabilecek oturum açma denemeleri hello değil için bir gösterge alın. 
 
-**Güvenlik raporuna erişebilmek için hangi Azure AD lisansınızın olması gerekir?**  
+**Hangi Azure AD lisans tooaccess bir güvenlik raporu gerekiyor mu?**  
 Azure Active Directory'nin tüm sürümlerinde size riskli oldukları belirlenen kullanıcılar ve riskli oturum açma işlemleri raporları sağlanır.  
-Bununla birlikte, rapordaki ayrıntı düzeyi sürümler arasında değişiklik gösterir: 
+Bununla birlikte, rapor ayrıntı düzeyini hello hello sürümleri arasında farklılık gösterir: 
 
-- **Azure Active Directory Ücretsiz ve Temel sürümlerinde**, riskli olduğu belirlenen kullanıcıların ve riskli oturum açma işlemlerinin listesini zaten alırsınız. 
+- Merhaba, **Azure Active Directory ücretsiz ve Basic sürümleri**, zaten risk ve riskli oturum açma işlemleri için işaretlenen kullanıcıların bir listesini alın. 
 
-- **Azure Active Directory Premium 1** sürümü bu modeli genişleterek her raporda algılanmış olan temel risk olaylarından bazılarını incelemenize olanak tanır. 
+- Merhaba **Azure Active Directory Premium 1** edition'ı genişletir bu modeli de tooexamine sağlayarak her rapor için algılanan risk olayı temel hello bazıları. 
 
-- **Azure Active Directory Premium 2** sürümü temel risk olayları hakkında en ayrıntılı bilgileri sağlar ve ayrıca, yapılandırılmış risk düzeylerine otomatik olarak yanıt veren güvenlik ilkeleri yapılandırmanıza da olanak tanır.
+- Merhaba **Azure Active Directory Premium 2** edition hello sizinle en hakkında ayrıntılı bilgi risk olaylarını temel hello ve ayrıca, otomatik olarak tooconfigured yanıt tooconfigure güvenlik ilkeleri sağlar sağlar risk düzeyleri.
 
 
 ## <a name="activity-reports"></a>Etkinlik raporları
 
 Azure Active Directory'de iki tür etkinlik raporu vardır:
 
-- **Denetim günlükleri** - [Denetim günlükleri etkinlik raporu](active-directory-reporting-activity-audit-logs.md), kiracınızda gerçekleştirilen her görevin geçmişine erişmenizi sağlar.
+- **Denetim günlükleri** - hello [denetim günlüklerini Etkinlik Raporu](active-directory-reporting-activity-audit-logs.md) kiracınızda gerçekleştirilen her görev toohello geçmişine erişim sağlar.
 
-- **Oturum açma işlemleri** - [Oturum açma işlemleri etkinlik raporuyla](active-directory-reporting-activity-sign-ins.md), denetim günlükleri raporunda bildirilen görevleri kimlerin gerçekleştirdiğini saptayabilirsiniz.
-
-
-
-**Denetim günlükleri raporu** uyumluluk amacıyla sistem etkinliklerinin kayıtlarını sağlar.
-Sağlanan verilerin yararları arasında şu yaygın senaryolara çözüm getirmenize olanak tanımaları da sayılabilir:
-
-- Kiracımda birisi yönetici grubuna erişim aldı. Ona kim erişim verdi? 
-
-- Belirli bir uygulamayı yeni ekledim ve iyi çalışıp çalışmadığını bilmek istiyorum; bu nedenle uygulamada oturum açan kullanıcıların listesini öğrenmek istiyorum
-
-- Kiracımda kaç parola sıfırlama işlemi yapıldığını bilmek istiyorum
-
-
-**Denetim günlükleri raporuna erişebilmek için hangi Azure AD lisansınızın olması gerekir?**  
-Denetim günlükleri raporu, lisansınız olan özellikler için sağlanır. Belirli bir özelliğin lisansına sahipseniz, o özelliğin denetim günlüğü bilgilerine de erişebilirsiniz.
-
-Diğer ayrıntılar için, [Azure Active Directory özellikleri ve becerileri](https://www.microsoft.com/cloud-platform/azure-active-directory-features) altında **Ücretsiz, Temel ve Premium sürümlerinin genel olarak sağlanan özelliklerini karşılaştırma** konusuna bakın.   
+- **Oturum açma işlemleri** - hello [gerçekleştirilen oturum açma etkinliği raporu](active-directory-reporting-activity-sign-ins.md), belirleyebilirsiniz, hello denetim günlüklerini raporu tarafından bildirilen hello görevleri gerçekleştiren.
 
 
 
-**Oturum açma işlemleri etkinlik raporu**, şöyle soruların yanıtlarını bulmanızı sağlar:
+Merhaba **denetim günlüklerini rapor** sistem faaliyetleri kayıtlarıyla için uyumluluk sağlar.
+Başkalarının arasında veri tooaddress yaygın senaryolar gibi sağlar hello sağlanan:
 
-- Belirli bir kullanıcının oturum açma düzeni nedir?
+- Kişi bilgilerimi Kiracı erişim tooan Yönetici grubu aldı. Ona kim erişim verdi? 
+
+- Kullanıcıların belirli bir uygulamaya imzalama tooknow hello listesini istediğiniz ı itibaren son edildi hello uygulama ve tooknow de yapmak istiyorsanız
+
+- Tooknow kaç parola sıfırlama gerçekleştiği my Kiracı istiyorum
+
+
+**Hangi Azure AD lisans tooaccess hello denetim günlüklerini rapor gerekiyor mu?**  
+Merhaba denetim günlüklerini raporu lisanslara sahip özellikler için kullanılabilir. Belirli bir özellik için bir lisans varsa, günlük bilgilerini Denetim erişim toohello de gerekir.
+
+Daha fazla ayrıntı için bkz: **hello ücretsiz, temel ve Premium sürümlerinde genel olarak kullanılabilir özelliklerini karşılaştırma** içinde [Azure Active Directory özellikleri ve yetenekleri](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
+
+
+
+Merhaba **gerçekleştirilen oturum açma etkinliği raporu** etkinleştirir tootoofind tooquestions gibi yanıt verir:
+
+- Bir kullanıcı oturum açma hello desenini nedir?
 - Bir hafta içerisinde kaç adet kullanıcı oturum açtı?
-- Bu açılan oturumların durumu nedir?
+- Bu oturum açma işlemleri hello durumu nedir?
 
 
-**Oturum açma işlemleri etkinlik raporuna erişebilmek için hangi Azure AD lisansınızın olması gerekir?**  
-Oturum açma işlemleri etkinlik raporuna erişebilmek için, kiracınızın ilişkili bir Azure AD Premium lisansı olması gerekir.
+**Hangi Azure AD lisans musunuz tooaccess gerçekleştirilen oturum açma etkinliği raporu hello?**  
+gerçekleştirilen oturum açma etkinliği raporu tooaccess Merhaba, Kiracı kendisiyle ilişkili bir Azure AD Premium lisansına sahip olması gerekir.
 
 
 ## <a name="programmatic-access"></a>Programlı erişim
 
-Kullanıcı arabirimine ek olarak, Azure Active Directory raporlaması [programlı erişim](active-directory-reporting-api-getting-started-azure-portal.md) yoluyla da raporlama verileri sağlar. Bu raporların verileri SIEM sistemleri, denetim ve iş zekası araçları gibi uygulamalarınız için çok yararlı olabilir. Azure AD raporlama API'leri, bir dizi REST tabanlı API aracılığıyla verilere programlı erişim sağlar. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz. 
+Toplama toohello kullanıcı arabiriminde, Azure Active Directory raporlama da sizinle sağlar [programlı erişim](active-directory-reporting-api-getting-started-azure-portal.md) raporlama verilerini toohello. Bu raporların Hello veriler SIEM sistemleri, Denetim ve iş zekası araçları gibi çok kullanışlı tooyour uygulamalar olabilir. bir dizi REST tabanlı API'ler aracılığıyla programlı erişim toohello veri API'leri sağlamak Hello Azure AD raporlama. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Active Directory'deki çeşitli rapor türleri hakkında daha fazla bilgi edinmek istiyorsanız, bkz.:
+Azure Active Directory'de çeşitli rapor türleri tooknow hello hakkında daha fazla bilgi istiyorsanız, bkz:
 
 - [Riskli olarak işaretlenen kullanıcılar raporu](active-directory-reporting-security-user-at-risk.md)
 - [Riskli oturum açma işlemleri raporu](active-directory-reporting-security-risky-sign-ins.md)
 - [Denetim günlükleri raporu](active-directory-reporting-activity-audit-logs.md)
 - [Oturum açma günlükleri raporu](active-directory-reporting-activity-sign-ins.md)
 
-Raporlama API'sini kullanarak raporlama verilerine erişim hakkında daha fazla bilgi edinmek istiyorsanız, bkz: 
+Tooknow API raporlama hello kullanarak verileri raporlama hello hello erişme hakkında daha fazla bilgi istiyorsanız, bkz: 
 
-- [Azure Active Directory raporlama API’siyle çalışmaya başlama](active-directory-reporting-api-getting-started-azure-portal.md)
+- [Hello Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started-azure-portal.md)
 
 
 <!--Image references-->

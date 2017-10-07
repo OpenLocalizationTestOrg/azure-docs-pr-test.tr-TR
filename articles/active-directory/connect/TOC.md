@@ -53,13 +53,13 @@
 ### [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD hizmet hesabı](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Yükleme sihirbazı](active-directory-aadconnectsync-installation-wizard.md)
-### [Varsayılan yapılandırmayı değiştirme](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
+### [Merhaba varsayılan yapılandırmayı değiştirme](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Filtrelemeyi Yapılandırma](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Dizin genişletmeleri](active-directory-aadconnectsync-feature-directory-extensions.md)
 
-### [Azure AD Eşitleme hizmeti hesabı parolasını değiştirme](active-directory-aadconnectsync-change-serviceacct-pass.md)
-### [AD DS hesap parolasını değiştirme](active-directory-aadconnectsync-change-addsacct-pass.md)
+### [Hello Azure AD eşitleme hizmeti hesabı parolasını değiştirme](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Merhaba AD DS hesap parolasını değiştirme](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [AD geri dönüşüm kutusunu etkinleştirme](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Eşitleme Hizmeti Yöneticisi](active-directory-aadconnectsync-service-manager-ui.md)
@@ -80,7 +80,7 @@
 ### [Nesne eşitlenmemiş](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Parola eşitleme](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [userCertificate’in neden olduğu LargeObject hatası](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
-### [LocalDB 10 GB sınırından kurtarma](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
+### [Nasıl toorecover LocalDB 10 GB sınırını gelen](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
@@ -91,7 +91,7 @@
 ## [Hesaplar ve izinler](active-directory-aadconnect-accounts-permissions.md)
 
 ## Azure AD Connect Sync
-### [Azure Active Directory ile eşitlenen öznitelikler](active-directory-aadconnectsync-attributes-synchronized.md)
+### [TooAzure Active Directory öznitelikleri eşitlenir](active-directory-aadconnectsync-attributes-synchronized.md)
 ### [Bağlayıcı Sürümü Yayınlama Geçmişi](active-directory-aadconnectsync-connector-version-history.md)
 ### [İşlevler Başvurusu](active-directory-aadconnectsync-functions-reference.md)
 ### [İşletimsel görevler ve önemli noktalar](active-directory-aadconnectsync-operations.md)
@@ -103,7 +103,7 @@
 
 
 # İlgili
-## [Bulutta şirket içi kimlik altyapınızı ve eşitleme hizmetlerinizi izleyin](../connect-health/active-directory-aadconnect-health.md)
+## [Şirket içi kimlik altyapınızı ve eşitleme hizmetlerinizi hello bulutta izleyin](../connect-health/active-directory-aadconnect-health.md)
 ## [Karma Kimlik Tasarım Kılavuzu](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 

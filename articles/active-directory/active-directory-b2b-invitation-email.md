@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2B işbirliği davet e-posta öğelerini | Microsoft Docs"
+title: "hello Azure Active Directory B2B işbirliği davet e-posta aaaThe öğeleri | Microsoft Docs"
 description: "Azure Active Directory B2B işbirliği davet e-posta şablonu"
 services: active-directory
 documentationcenter: 
@@ -15,60 +15,60 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 458a2cab13b7e83f120e0926a95d454070181dfb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f4908014d71a63442bbdca2182f54c7a79675a82
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>B2B işbirliği davet e-posta öğeleri
+# <a name="hello-elements-of-hello-b2b-collaboration-invitation-email"></a>Merhaba B2B işbirliği davet e-posta Hello öğeleri
 
-Davet e-postaları karttaki ortaklar B2B işbirliği kullanıcılar olarak Azure AD içinde getirmek için kritik bir bileşen var. Alıcının güven artırmak için bunları kullanabilirsiniz. yasallığı ekleyebilir ve alıcı emin olmak için e-posta, sosyal kanıt hissi seçme ile rahat **Get Started** daveti kabul düğmesi. Bu güven dir paylaşım uyuşmazlık azaltmak bir anahtar anlamına gelir. Ve ayrıca görünümlü e-posta yapmak istediğiniz!
+Davet e-postaların bir kritik bileşeni toobring karttaki B2B işbirliği kullanıcılar olarak Azure AD içinde ortaklarıdır. Bunları tooincrease hello alıcının güven kullanabilirsiniz. yasallığı ve sosyal kanıtını toohello e-posta ekleyebilirsiniz, toomake emin hello alıcı hissi hello seçme ile rahat **Get Started** düğmesini tooaccept hello davet. Bu güven dir bir anahtar uyuşmazlık paylaşımı tooreduce anlamına gelir. Ve ayrıca toomake hello e-posta görünüm harika!
 
 ![Azure AD B2b davet e-postası](media/active-directory-b2b-invitation-email/invitation-email.png)
 
-## <a name="explaining-the-email"></a>E-posta açıklayan
-En iyi şekilde nasıl yeteneklerini kullanmak için bilmesi e-postanın birkaç öğeler bakalım.
+## <a name="explaining-hello-email"></a>Merhaba e-posta açıklayan
+En iyi nasıl toouse yeteneklerini bilmesi hello e-postanın birkaç öğeler bakalım.
 
 ### <a name="subject"></a>Konu
-E-postanın konu şu deseni izler: davet ettiğiniz &lt;tenantname&gt; kuruluş
+Merhaba hello e-postanın konu izleyen desen aşağıdaki hello: sizi davet toohello &lt;tenantname&gt; kuruluş
 
 ### <a name="from-address"></a>Adresinden
-Başlangıç adresi için bir LinkedIn desen kullanırız.  Davet eden olan temizleyin ve hangi şirket ve ayrıca bir Microsoft e-posta geliyor açıklamak e-posta adresi gerekir. Biçim: &lt;davet eden görünen adını&gt; gelen &lt;tenantname&gt; (aracılığıyla Microsoft) <invites@microsoft.com&gt;
+Bir LinkedIn desen adresinden hello için kullanırız.  Merhaba davet eden olduğu ve hangi şirket ve ayrıca açıklamak hello e-posta bir Microsoft e-posta adresinden gelen açık olmalıdır. Merhaba biçimi: &lt;davet eden görünen adını&gt; gelen &lt;tenantname&gt; (aracılığıyla Microsoft) <invites@microsoft.com&gt;
 
 ### <a name="reply-to"></a>Yanıtla
-E-posta yanıtlama geri davet eden bir e-posta gönderir Yanıtla e-posta davet eden'ın e-posta için kullanılabilir olduğunda ayarlanır.
+Merhaba yanıt-tooemail toohello davet ın eden eposta kullanılabilir olduğunda, bir e-posta geri toohello davet eden toohello e-posta gönderir yanıtlama şekilde ayarlanır.
 
 ### <a name="branding"></a>Markalama
-Kiracı kullanımınız gelen davet e-postaları, marka şirket kiracınız için ayarladığınız. Bu özellikten yararlanabilir istiyorsanız [burada](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) nasıl yapılandırılacağı hakkında bilgi. Başlık logosu e-postasında görüntülenir. Görüntü boyutu izleyin ve kalite yönergeleri [burada](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) en iyi sonuçlar için. Ayrıca, şirket adı da eylem çağrısında görüntülenir.
+hello şirket, markası, Kiracı gelen e-postaları kullanmak hello davet kiracınız için ayarladığınız. Bu özellik tootake avantajlarından istiyorsanız [burada](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) hello ayrıntıları nasıl tooconfigure onu. Merhaba başlık logosu hello e-postayla görüntülenir. Merhaba görüntü boyutu izleyin ve kalite yönergeleri [burada](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) en iyi sonuçlar için. Ayrıca, hello şirket adı da hello çağrısı tooaction görüntülenir.
 
-### <a name="call-to-action"></a>Arama eylemi için
-Eylem çağrısı iki bölümden oluşur: alıcı posta neden aldı ve ne alıcı ne yapmanız isteniyor açıklayan.
-- "Neden" bölümünde şu biçimi kullanarak çözülebilir: uygulamalarında erişmeye davet &lt;tenantname&gt; kuruluş
+### <a name="call-tooaction"></a>Çağrı tooaction
+Merhaba çağrısı tooaction iki bölümden oluşur: hello alıcı hello posta neden aldı ve hangi hello alıcı toodo hakkında isteniyor açıklayan.
+- "neden" bölüm düzeni aşağıdaki hello kullanarak çözülebilir hello: hello davet edilen tooaccess uygulamalarda verilmiş &lt;tenantname&gt; kuruluş
 
-- Ve "ne, yapmanız isteniyor" bölümü varlığını tarafından gösterilen **Get Started** düğmesi. Alıcı davetleri gerek kalmadan eklendiğinde bu düğme göstermez.
+- Ve "ne, toodo isteniyor" bölümü hello hello varlığını tarafından gösterilen hello **Get Started** düğmesi. Merhaba alıcı davetleri hello gerek kalmadan eklendiğinde bu düğme göstermez.
 
 ### <a name="inviters-information"></a>Davet eden'ın bilgi
-Davet eden'ın görünen adı e-postasında dahil edilir. Ve Azure AD hesabınız için bir profil resmi oluşturmadıysanız, ayrıca, davet e-posta o resmi de içerir. Her ikisi de, e-posta alıcının güveni artırmak için tasarlanmıştır.
+Merhaba davet ın eden görünen adı hello e-postayla dahil edilir. Ve Azure AD hesabınız için bir profil resmi oluşturmadıysanız, ayrıca, e-posta davet hello o resmi de içerir. Her iki hedeflenen tooincrease hello e-posta alıcının güveni olan.
 
-Profil resminizi henüz ayarlamadıysanız, resmi yerine davet eden'ın baş harflerini içeren bir simge gösterilir:
+Profil resminizi henüz ayarlamadıysanız hello resim yerine hello davet ın eden baş harflerini içeren bir simge gösterilir:
 
-  ![Davet eden'ın baş harflerini görüntüleme](media/active-directory-b2b-invitation-email/inviters-initials.png)
+  ![görüntüleme hello davet eden'ın baş harfleri](media/active-directory-b2b-invitation-email/inviters-initials.png)
 
 ### <a name="body"></a>Gövde
-Davet eden oluşturur veya API davet yoluyla geçirilen ileti gövdesi içerir. Güvenlik nedenleriyle HTML etiketlerini işlemek için bir metin alanı var.
+Merhaba gövdesinde selamlama iletisine bu hello davet eden oluşturur veya hello davet API geçirilir. Güvenlik nedenleriyle HTML etiketlerini işlemek için bir metin alanı var.
 
 ### <a name="footer-section"></a>Altbilgi bölümü
-Altbilgi Microsoft şirketinizin markasını içeren ve e-posta izlenmeyen bir diğer ad tarafından gönderildiğini bilmeniz alıcı olanak tanır. Özel durumlar:
+Merhaba altbilgi hello Microsoft şirketinizin markasını içeren ve hello e-posta izlenmeyen bir diğer ad tarafından gönderildiyse bilmeniz hello alıcı olanak tanır. Özel durumlar:
 
-- Davet eden davet kiralama ile bir e-posta adresi yok
+- Merhaba davet eden bir e-posta adresi kiralama davet hello sahip değil
 
-  ![davet eden resmini davet kiralama ile bir e-posta adresi yok](media/active-directory-b2b-invitation-email/inviter-no-email.png)
+  ![davet eden resmi bir e-posta adresi kiralama davet hello sahip değil](media/active-directory-b2b-invitation-email/inviter-no-email.png)
 
 
-- Alıcı daveti kullanmak gerekmez
+- Merhaba alıcı tooredeem hello davet gerek yoktur
 
-  ![ne zaman alıcı davet kullanmak gerekmez](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
+  ![Alıcı tooredeem davet gerektiğinde değil](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

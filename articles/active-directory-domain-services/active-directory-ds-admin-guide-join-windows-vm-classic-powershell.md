@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory etki alanı Hizmetleri: Yönetim Kılavuzu | Microsoft Docs"
-description: "Windows sanal makinesi Azure PowerShell ve klasik dağıtım modeli kullanarak bir yönetilen etki alanına ekleyin."
+description: "Azure PowerShell ve hello Klasik dağıtım modeli kullanarak bir Windows sanal makine tooa yönetilen etki alanına katılın."
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 1bb1546fb616131a1e1868a0d0610c4cad5d73e2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 21bc5930d84c5368a120f9d81f09320e2a0168fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-powershell"></a>Bir Windows Server sanal makine PowerShell kullanarak bir yönetilen etki alanına ekleyin
+# <a name="join-a-windows-server-virtual-machine-tooa-managed-domain-using-powershell"></a>PowerShell kullanarak bir Windows Server sanal makine tooa yönetilen etki alanına katılma
 > [!div class="op_single_selector"]
 > * [Klasik Azure portalı - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 > * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
@@ -30,100 +30,100 @@ ms.lasthandoff: 07/11/2017
 <br>
 
 > [!IMPORTANT]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makale klasik dağıtım modelini incelemektedir. Azure AD etki alanı Hizmetleri, Resource Manager modeli şu anda desteklemiyor.
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanılarak yer almaktadır. Azure AD etki alanı Hizmetleri hello Resource Manager modeli şu anda desteklemiyor.
 >
 >
 
-Bu adımlar oluşturmak ve bir yapı bloğu yaklaşımını kullanarak Windows tabanlı bir Azure sanal makine önceden Azure PowerShell komut kümesini özelleştirmek nasıl gösterir. Bu adımları Windows tabanlı bir Azure sanal makine oluşturun ve bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılmak yardımcı olur.
+Bu adımlar nasıl toocustomize Azure PowerShell kümesi oluşturmak ve bir yapı bloğu yaklaşımını kullanarak Windows tabanlı bir Azure sanal makine önceden komutları gösterir. Bu adımları Windows tabanlı bir Azure sanal makine oluşturun ve tooan Azure AD etki alanı Hizmetleri yönetilen etki alanına katılması yardımcı olur.
 
-Bir doldurma-arada boşlukları yaklaşım Azure PowerShell komut kümelerini oluşturmak için aşağıdaki adımları izleyin. Bu yaklaşım, PowerShell için yeni olan veya ne başarılı yapılandırmayı belirtmek için değerleri bilmek istiyorsanız yararlı olabilir. Gelişmiş PowerShell kullanıcılar, komutları almak ve ("$" ile başlayan satırlar) değişkenleri için kendi değerlerinizi yerleştirin.
+Bir doldurma-arada boşlukları yaklaşım Azure PowerShell komut kümelerini oluşturmak için aşağıdaki adımları izleyin. Bu yaklaşım, yeni tooPowerShell olduğunuz veya başarılı bir yapılandırma için hangi değerlerin toospecify tooknow istiyorsanız yararlı olabilir. Gelişmiş PowerShell kullanıcıları hello komutları alabilir ve hello değişkenleri ("$" ile başlayan hello satırlar) için kendi değerlerinizi yerleştirin.
 
-Henüz yapmadıysanız, konusundaki yönergeleri kullanın [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) yerel bilgisayarınıza Azure PowerShell'i yüklemek için. Sonra bir Windows PowerShell komut istemi açın.
+Henüz yapmadıysanız, hello yönergeleri kullanın [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview) , yerel bilgisayarınızda Azure PowerShell tooinstall. Sonra bir Windows PowerShell komut istemi açın.
 
 ## <a name="step-1-add-your-account"></a>1. adım: hesabınızı ekleme
-1. PowerShell komut isteminde yazın **Add-AzureAccount** tıklatıp **Enter**.
-2. Azure aboneliğinizle ilişkili e-posta adresini yazın ve tıklatın **devam**.
-3. Hesabınızın parolasını yazın.
+1. Merhaba PowerShell isteminde **Add-AzureAccount** tıklatıp **Enter**.
+2. Azure aboneliğinizle ilişkili hello e-posta adresini yazın ve tıklatın **devam**.
+3. Merhaba hesabınızın parolasını yazın.
 4. Tıklatın **oturum**.
 
 ## <a name="step-2-set-your-subscription-and-storage-account"></a>2. adım: aboneliğiniz ve depolama hesabı ayarlama
-Azure aboneliği ve depolama hesabı Windows PowerShell komut isteminde şu komutları çalıştırarak ayarlayın. Dahil olmak üzere tırnak işaretleri içindeki her şeyi değiştirin < ve > karakterleri doğru adlara sahip.
+Azure aboneliği ve depolama hesabı hello Windows PowerShell komut isteminde şu komutları çalıştırarak ayarlayın. Merhaba < ve > karakterleri dahil olmak üzere hello tırnak içindeki her şeyi hello doğru adlarıyla değiştirin.
 
     $subscr="<subscription name>"
     $staccount="<storage account name>"
     Select-AzureSubscription -SubscriptionName $subscr –Current
     Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Doğru abonelik adını çıktısını varlığıyla SubscriptionName özelliğinden alabilirsiniz **Get-AzureSubscription** komutu. Doğru depolama hesabı adı çıktısını etiket özelliğinden alabilirsiniz **Get-AzureStorageAccount** çalıştırdıktan sonra komut **Select-AzureSubscription** komutu.
+Merhaba hello çıktısını varlığıyla SubscriptionName özelliği hello hello doğru abonelik adı alabilirsiniz **Get-AzureSubscription** komutu. Merhaba hello çıktısını Label özelliğinin hello hello doğru depolama hesabı adı alabilirsiniz **Get-AzureStorageAccount** hello çalıştırdıktan sonra komut **Select-AzureSubscription** komutu.
 
-## <a name="step-3-step-by-step-walkthrough---provision-the-virtual-machine-and-join-it-to-the-managed-domain"></a>Adım 3: Adım adım - sanal makine sağlama ve yönetilen bir etki alanına katılma
-Okunabilirlik için her bloğu arasında boş satırlar ile bu sanal makine oluşturmak için karşılık gelen Azure PowerShell komutunu aşağıda verilmiştir.
+## <a name="step-3-step-by-step-walkthrough---provision-hello-virtual-machine-and-join-it-toohello-managed-domain"></a>3. adım: Adım adım - hello sanal makine sağlama ve toohello yönetilen etki alanına katılma
+Okunabilirlik için her bloğu arasında boş satırlar ile bu sanal makine hello karşılık gelen Azure PowerShell komut kümesini toocreate aşağıdadır.
 
-Sağlanacak Windows sanal makine hakkındaki bilgileri belirtin.
+Sağlanan hello Windows sanal makine toobe hakkındaki bilgileri belirtin.
 
     $family="Windows Server 2012 R2 Datacenter"
     $vmname="Contoso100-test"
     $vmsize="ExtraSmall"
 
-D, DS veya G-serisi sanal makineler için InstanceSize değerleri için bkz: [sanal makine ve bulut hizmeti boyutları Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+D, DS veya G-serisi sanal makineler için Hello InstanceSize değerleri için bkz: [sanal makine ve bulut hizmeti boyutları Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Yönetilen etki alanı hakkında bilgi sağlar.
+Merhaba yönetilen etki alanı hakkında bilgi sağlar.
 
     $domaindns="contoso100.com"
     $domacctdomain="contoso100"
 
-Bulut hizmeti adını belirtin.
+Merhaba hello bulut hizmeti adını belirtin.
 
     $svcname="Contoso100-test"
 
-VM birleştirilmelidir sanal ağın adını belirtin. AAD DS yönetilen etki alanını bu sanal ağda kullanılabilir olduğundan emin olun.
+VM birleştirilmelidir hello sanal ağ toowhich hello Hello adını belirtin. Bu hello AAD DS yönetilen etki alanı bu sanal ağda kullanılabilir olduğundan emin olun.
 
     $vnetname="MyPreviewVnet"
 
-VM sağlamak için kullanılacak VM görüntüsünü seçin.
+Merhaba VM görüntü kullanılan toobe tooprovision hello VM seçin.
 
     $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-VM - kümesi VM adı, örnek boyutu & kullanılacak resmi yapılandırın.
+Merhaba VM - kümesi VM adı, yapılandırma kullanılan örnek boyutu & görüntü toobe.
 
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-VM için yerel yönetici kimlik bilgilerini edinin. Güçlü bir yerel yönetici parolası seçin.
+Merhaba VM için yerel yönetici kimlik bilgilerini edinin. Güçlü bir yerel yönetici parolası seçin.
 
-    $localadmincred=Get-Credential –Message "Type the name and password of the local administrator account."
+    $localadmincred=Get-Credential –Message "Type hello name and password of hello local administrator account."
 
-VM yönetilen etki alanına katmak için 'AAD DC Yöneticiler' grubuna ait bir kullanıcı hesabı için kimlik bilgilerini edinin. Etki alanı adı - Örneğin, örneğimizde belirtmezseniz, biz 'bob' kullanıcı adı olarak belirtin.
+Too'AAD DC Yöneticiler grubu toojoin VM toohello yönetilen etki alanına ait bir kullanıcı hesabı için kimlik bilgilerini edinin. Örneğimizde örneği belirttiğimiz 'Kemal için' hello etki alanı adı - hello kullanıcı adı olarak belirtmeyin.
 
-    $domainadmincred=Get-Credential –Message "Now type the name (DO NOT INCLUDE THE DOMAIN) and password of an account in the AAD DC Administrators group, that has permission to add the machine to the domain."
+    $domainadmincred=Get-Credential –Message "Now type hello name (DO NOT INCLUDE hello DOMAIN) and password of an account in hello AAD DC Administrators group, that has permission tooadd hello machine toohello domain."
 
-VM yapılandırma - etki alanı katılma gereksinim & gerekli kimlik bilgilerini belirtin.
+Merhaba VM yapılandırma - etki alanı katılma gereksinim & gerekli kimlik bilgilerini belirtin.
 
     $vm1 | Add-AzureProvisioningConfig -AdminUsername $localadmincred.Username -Password $localadmincred.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $domainadmincred.Username -DomainPassword $domainadmincred.GetNetworkCredential().Password -JoinDomain $domaindns
 
-Bir alt ağ için VM ayarlayın.
+Merhaba VM için bir alt ağ olarak ayarlayın.
 
     $vm1 | Set-AzureSubnet -SubnetNames "Subnet-1"
 
-İsteğe bağlı: etki alanı IP adresine işaret edecek. Sanal ağın DNS sunucuları olması için Azure AD etki alanı Hizmetleri yönetilen etki alanı IP adreslerini ayarlarsanız, bu adım gerekli değildir.
+İsteğe bağlı: Noktası toohello IP adresi hello etki alanı. Merhaba sanal ağ için DNS sunucularını hello Azure AD etki alanı Hizmetleri yönetilen etki alanı toobe hello hello IP adreslerini ayarlarsanız, bu adım gerekli değildir.
 
     $dns = New-AzureDns -Name 'contoso100-dc1' -IPAddress '10.0.0.4'
 
-Şimdi, etki alanına katılmış Windows VM sağlayın.
+Şimdi, sağlama hello etki alanı Windows VM katılmış.
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
 <br>
 
-## <a name="script-to-provision-a-windows-vm-and-automatically-join-it-to-an-aad-domain-services-managed-domain"></a>Bir Windows VM sağlamak ve otomatik olarak bir AAD etki alanı Hizmetleri yönetilen etki alanına eklemek için komut dosyası
+## <a name="script-tooprovision-a-windows-vm-and-automatically-join-it-tooan-aad-domain-services-managed-domain"></a>Bir Windows VM tooprovision komut dosyası ve otomatik olarak tooan AAD etki alanı Hizmetleri yönetilen etki alanına katılın
 Bu PowerShell komut kümesini iş sunucu için bir sanal makine oluşturur:
 
-* Windows Server 2012 R2 Datacenter görüntüsü kullanır.
+* Merhaba Windows Server 2012 R2 Datacenter görüntüsü kullanır.
 * Ek çok küçük bir sanal makine bulunuyor.
-* Contoso100 test adına sahip.
-* Otomatik olarak etki alanı contoso100 yönetilen etki alanına katılır.
-* Aynı sanal ağa yönetilen etki alanı olarak eklenir.
+* Merhaba adı Contoso100 test vardır.
+* Otomatik olarak etki alanına katılmış toohello contoso100 yönetilen etki alanıdır.
+* Toohello eklenen hello aynı sanal ağ yönetilen etki alanı.
 
-Aşağıda, Windows sanal makine oluşturun ve otomatik olarak Azure AD etki alanı Hizmetleri yönetilen etki alanına katmak için tam örnek komut dosyası verilmiştir.
+İşte tam örnek komut dosyası toocreate hello Windows sanal makine hello ve otomatik olarak toohello Azure AD etki alanı Hizmetleri yönetilen etki alanına katılın.
 
     $family="Windows Server 2012 R2 Datacenter"
     $vmname="Contoso100-test"
@@ -139,9 +139,9 @@ Aşağıda, Windows sanal makine oluşturun ve otomatik olarak Azure AD etki ala
 
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-    $localadmincred=Get-Credential –Message "Type the name and password of the local administrator account."
+    $localadmincred=Get-Credential –Message "Type hello name and password of hello local administrator account."
 
-    $domainadmincred=Get-Credential –Message "Now type the name (not including the domain) and password of an account in the AAD DC Administrators group, that has permission to add the machine to the domain."
+    $domainadmincred=Get-Credential –Message "Now type hello name (not including hello domain) and password of an account in hello AAD DC Administrators group, that has permission tooadd hello machine toohello domain."
 
     $vm1 | Add-AzureProvisioningConfig -AdminUsername $localadmincred.Username -Password $localadmincred.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $domainadmincred.Username -DomainPassword $domainadmincred.GetNetworkCredential().Password -JoinDomain $domaindns
 

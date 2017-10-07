@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory B2C: örtük akışını kullanarak tek sayfa uygulamaları | Microsoft Docs"
-description: "Azure Active Directory B2C ile OAuth 2.0 örtük akışını kullanarak doğrudan tek sayfa uygulamaları oluşturmayı öğrenin."
+description: "Nasıl toobuild tek sayfa uygulamaları doğrudan OAuth 2.0 örtük kullanarak Azure Active Directory B2C ile akış öğrenin."
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: parakhj
-ms.openlocfilehash: 44ff168599e9078506e1afdd0f1dc4657ef0964d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e52abc18fe545f0f6d1745cdb2ea42c5b2698cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Tek sayfalı uygulama oturum OAuth 2.0 örtük akışını kullanarak açma
 
@@ -26,30 +26,30 @@ ms.lasthandoff: 07/11/2017
 > Bu özelliğin önizlemede değil.
 > 
 
-Birçok modern uygulamanın, JavaScript'te öncelikli olarak yazılmış tek sayfa uygulaması ön ucu sahip. Genellikle, uygulama AngularJS, Ember.js veya Durandal gibi bir çerçeve kullanılarak yazılır. Tek sayfalı uygulamalar ve öncelikle tarayıcıda çalışan diğer JavaScript uygulamalar kimlik doğrulaması için ek bazı zorluklar vardır:
+Birçok modern uygulamanın, JavaScript'te öncelikli olarak yazılmış tek sayfa uygulaması ön ucu sahip. Genellikle, hello uygulama çerçevesi AngularJS, Ember.js veya Durandal gibi kullanılarak yazılır. Tek sayfalı uygulamalar ve öncelikle tarayıcıda çalışan diğer JavaScript uygulamalar kimlik doğrulaması için ek bazı zorluklar vardır:
 
-* Bu uygulamaların güvenlik özelliklerini geleneksel sunucu tabanlı web uygulamalarından önemli ölçüde farklıdır.
+* Bu uygulamaları Hello güvenlik özelliklerini geleneksel sunucu tabanlı web uygulamalarından önemli ölçüde farklıdır.
 * Çok sayıda yetkilendirme sunucularını ve kimlik sağlayıcıları çıkış noktaları arası kaynak paylaşma (CORS) isteklerini desteklemez.
-* Uygulama çıktığınızda tam tarayıcı yeniden yönlendirmeleri kullanıcı deneyimini önemli ölçüde bozucu olabilir.
+* Tam sayfa tarayıcı yeniden yönlendirmeleri hello uygulama çıktığınızda önemli ölçüde bozucu toohello kullanıcı deneyimi olabilir.
 
-Bu uygulamalar, Azure Active Directory B2C desteklemek için OAuth 2.0 örtük akışını (Azure AD B2C) kullanır. OAuth 2.0 yetkilendirme örtük grant akışını açıklanan [4.2 OAuth 2.0 belirtimi bölüm](http://tools.ietf.org/html/rfc6749). Örtük akışını uygulama belirteçlerini doğrudan Azure Active Directory'den (Azure AD) aldığı herhangi bir sunucudan sunucuya exchange olmadan son noktanın yetkilendirilmesi. Tüm kimlik doğrulaması mantığı ve gerçekleştirilen işlemlerin işleme oturumu tamamen ek sayfa yeniden yönlendirmeleri olmadan JavaScript istemci yerleştirin.
+toosupport bu uygulamaları, Azure Active Directory B2C (Azure AD B2C) hello OAuth 2.0 örtük akışını kullanır. Merhaba OAuth 2.0 yetkilendirme örtük grant akış açıklanan [4.2 hello OAuth 2.0 belirtimi bölüm](http://tools.ietf.org/html/rfc6749). Örtük akışını hello uygulama belirteçlerini doğrudan hello alır Azure Active Directory (Azure AD) kimlik doğrulama uç noktası, herhangi bir sunucudan sunucuya exchange olmadan. Tüm kimlik doğrulaması mantığı ve gerçekleştirilen işlemlerin işleme oturumu tamamen ek sayfa yeniden yönlendirmeleri olmadan hello JavaScript istemci yerleştirin.
 
-Azure AD B2C standart OAuth 2.0 örtük akışını birden çok basit kimlik doğrulama ve yetkilendirme genişletir. Azure AD B2C tanıtır [İlkesi parametresi](active-directory-b2c-reference-policies.md). İlke parametresiyle kullanıcı deneyimleri, uygulamanızın gibi eklemek için OAuth 2.0 kullanabilirsiniz kaydolma, oturum açma ve profil yönetimi. Bu makalede, Azure AD ve örtük akışını her bu deneyimler, tek sayfalı uygulamalarınızda uygulamak için nasıl kullanılacağını gösteriyoruz. Başlamanıza yardımcı olmak için bir göz atalım bizim [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) ve [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) örnekleri.
+Azure AD B2C hello standart OAuth 2.0 örtük akışını toomore daha basit kimlik doğrulama ve yetkilendirme genişletir. Azure AD B2C tanıtır hello [İlkesi parametresi](active-directory-b2c-reference-policies.md). Hello İlkesi parametresiyle tooadd kullanıcı deneyimleri tooyour uygulama gibi OAuth 2.0 kullanabilirsiniz kaydolma, oturum açma ve profil yönetimi. Bu makalede, toouse nasıl hello örtük akış ve Azure AD tooimplement her bu deneyimler, tek sayfalı uygulamalarınızda gösteriyoruz. başlamanıza, toohelp ele göz atın bizim [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) ve [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) örnekleri.
 
-Bu makaledeki örnek HTTP isteklerinde kullanırız bizim örnek Azure AD B2C dizini **fabrikamb2c.onmicrosoft.com**. Ayrıca kendi örnek uygulama ve ilkeleri kullanırız. Bu değerleri kullanarak kendiniz istekleri deneyebilir ya da kendi değerlerinizle değiştirin.
-Bilgi edinmek için nasıl [kendi Azure AD B2C dizini, uygulama ve ilkeleri alma](#use-your-own-b2c-tenant).
+Bizim örnek Azure AD B2C dizini kullanırız Hello örnek HTTP isteklerinde bu makalede, **fabrikamb2c.onmicrosoft.com**. Ayrıca kendi örnek uygulama ve ilkeleri kullanırız. Bu değerleri kullanarak kendiniz hello istekleri deneyebilir ya da kendi değerlerinizle değiştirin.
+Nasıl çok öğrenin[kendi Azure AD B2C dizini, uygulama ve ilkeleri alma](#use-your-own-b2c-tenant).
 
 
 ## <a name="protocol-diagram"></a>Protokol diyagramı
 
-Örtük oturum açma akışını aşağıdaki şekilde şöyle görünür. Her adım ayrıntılı makalenin sonraki bölümlerinde açıklanmıştır.
+oturum açma Hello örtük akış aşağıdaki şekilde hello şöyle görünür. Her adım ayrıntılı hello makalenin sonraki bölümlerinde açıklanmıştır.
 
 ![Openıd Connect kulvarları](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>Kimlik doğrulama isteklerini gönderme
-Web uygulamanızı kullanıcının kimliğini doğrulamak ve ilke yürütmesini gerektiğinde kullanıcıya yönlendirir `/authorize` uç noktası. Bu etkileşimli akış burada kullanıcı ilkesine bağlı olarak eylem gerçekleştirir bölümüdür. Kullanıcı Kimliği Azure AD uç noktasından belirteç alır.
+Web uygulamanızı tooauthenticate hello kullanıcı gerekir ve bir ilke yürütme zaman hello kullanıcı toohello yönlendirir `/authorize` uç noktası. Bu hello etkileşimli hello akış burada hello kullanıcı, hello ilkesine bağlı olarak eylemde bölümüdür. Merhaba kullanıcı kimliği hello Azure AD uç noktasından belirteç alır.
 
-İstemci bu istekte gösterir `scope` parametresi, kullanıcıdan almak için gereken izinleri. İçinde `p` parametresi, yürütmek için ilke gösterir. Aşağıdaki üç örnekler (okunabilirlik için satır sonuyla) her başka bir ilke kullanın. Nasıl çalıştığı her istek için bir fikir almak için onu çalıştıran ve bir tarayıcıya istek yapıştırma deneyin.
+Bu istekte hello istemci hello gösterir `scope` parametresi hello izinleri hello kullanıcıdan tooacquire gerekiyor. Merhaba, `p` parametresi hello İlkesi tooexecute gösterir. Merhaba aşağıdaki üç örnekler (okunabilirlik için satır sonuyla) her başka bir ilke kullanın. tooget bir fikir her istek işleyişi için bir tarayıcı ile çalışan yapıştırma hello isteği deneyin.
 
 ### <a name="use-a-sign-in-policy"></a>Bir oturum açma ilkesini kullanın
 ```
@@ -90,24 +90,24 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parametre | Gerekli? | Açıklama |
+| Parametre | Gerekli mi? | Açıklama |
 | --- | --- | --- |
-| client_id |Gerekli |Uygulamanıza atanan uygulama kimliği [Azure portal](https://portal.azure.com). |
-| response_type |Gerekli |İçermelidir `id_token` Openıd Connect oturum açma için. Yanıt türü içerebilir `token`. Kullanırsanız `token`, uygulamanızı hemen bir erişim belirteci authorize uç noktasından uç noktayı yetkilendirmek için ikinci bir isteği yapmadan alabilir.  Kullanırsanız `token` yanıt türü `scope` parametresi için belirteci vermek için hangi kaynak gösteren bir kapsam içermesi gerekir. |
-| redirect_uri |Önerilen |Yeniden yönlendirme URI'si burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan, uygulamanızın. URL kodlanmış olmalıdır dışında tam olarak yeniden yönlendirme Portalı'nda kayıtlı URI'ler biriyle eşleşmelidir. |
-| response_mode |Önerilen |Sonuçta elde edilen belirteci geri uygulamanıza göndermek için kullanılacak yöntemi belirtir.  Örtük akışlar için kullanmak `fragment`. |
-| Kapsam |Gerekli |Kapsamları boşlukla ayrılmış listesi. Azure AD'ye istenecek izinlerin hem tek bir kapsam değeri gösterir. `openid` Kapsam kullanıcı oturumu ve kullanıcı kimliği belirteçleri biçiminde hakkında veri Al izni gösterir. (Biz bu konuda daha sonra makalesinde konuşun.) `offline_access` Kapsamı web uygulamaları için isteğe bağlı değil. Bu, uygulamanızın uzun süreli kaynaklarına erişim için bir yenileme belirteci gerektiğini gösterir. |
-| durum |Önerilen |Ayrıca belirteci yanıtta döndürülen istek dahil bir değer. Kullanmak istediğiniz herhangi bir içerik dizesi olabilir. Genellikle, rastgele oluşturulmuş, benzersiz bir değer, siteler arası istek sahtekarlığı saldırıları önlemek için kullanılır. Durumu da kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkında bilgi kodlanması için kullanılan oldukları üzerinde sayfa gibi. |
-| nonce |Gerekli |Sonuçta elde edilen kimliği belirteç talep olarak dahil edilen (uygulama tarafından üretilen) istekte bulunan bir değer. Uygulama sonra belirteç yeniden yürütme saldırıları azaltmak için bu değeri doğrulayabilirsiniz. Genellikle, isteğin başlangıç noktasının tanımlamak için kullanılan rastgele, benzersiz bir dize değeridir. |
-| P |Gerekli |Yürütme ilkesi. Azure AD B2C kiracınızda oluşturulan bir ilkeyi adıdır. İlke adı değeri ile başlaması gereken **b2c\_1\_**. Daha fazla bilgi için bkz: [Azure AD B2C yerleşik ilkeleri](active-directory-b2c-reference-policies.md). |
-| istemi |İsteğe bağlı |Gerekli olan bir kullanıcı etkileşimi türü. Şu anda, yalnızca geçerli değer: `login`. Bu kullanıcının bu isteği kimlik bilgilerini girmesini zorlar. Çoklu oturum açma etkili olmaz. |
+| client_id |Gerekli |Merhaba uygulama kimliği atanan hello tooyour uygulamada [Azure portal](https://portal.azure.com). |
+| response_type |Gerekli |İçermelidir `id_token` Openıd Connect oturum açma için. Merhaba yanıt türü içerebilir `token`. Kullanırsanız `token`, uygulamanızı hello hemen bir erişim belirteci alabilir uç noktası, son noktanın yetkilendirilmesi ikinci bir istek toohello yapmadan yetkilendirin.  Merhaba kullanırsanız `token` yanıt türü, hello `scope` parametresi için hangi kaynak tooissue hello belirtecini gösteren bir kapsam içermesi gerekir. |
+| redirect_uri |Önerilen |Merhaba burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan uygulamanızı URI'sini yeniden yönlendir. URL kodlanmış olmalıdır dışında tam olarak hello yeniden yönlendirme hello Portalı'nda kayıtlı URI'ler biriyle eşleşmelidir. |
+| response_mode |Önerilen |Merhaba yöntemi toouse toosend hello elde edilen belirteci geri tooyour uygulama belirtir.  Örtük akışlar için kullanmak `fragment`. |
+| Kapsam |Gerekli |Kapsamları boşlukla ayrılmış listesi. Tek bir kapsam değeri tooAzure AD her iki talep edilen hello izinleri gösterir. Merhaba `openid` kapsam kimliği belirteçleri hello biçiminde hello kullanıcı hakkında hello kullanıcı ve get verilerdeki izni toosign gösterir. (Biz bu konuda daha sonra hello makalesinde konuşun.) Merhaba `offline_access` kapsamı web uygulamaları için isteğe bağlı değil. Uygulamanızın uzun süreli erişim tooresources için bir yenileme belirteci gerektiğini belirtir. |
+| durum |Önerilen |Merhaba, aynı zamanda isteğinde bir değer hello belirteci yanıt olarak döndürülür. Toouse istediğiniz herhangi bir içerik dizesi olabilir. Genellikle, rastgele oluşturulmuş, benzersiz bir değer kullanılır, tooprevent siteler arası istek sahteciliği saldırılarına. Merhaba ayrıca kullanılan tooencode bilgi durumudur hello kimlik doğrulama isteği oluşmadan önce hello uygulamasında hello kullanıcının durumu hakkında gibi hello sayfası üzerinde oldukları. |
+| nonce |Gerekli |İstekteki hello elde edilen kimliği belirteç talep olarak dahil edilen (Merhaba uygulama tarafından oluşturulan) hello dahil bir değer. Merhaba uygulama daha sonra bu değeri toomitigate belirteç yeniden yürütme saldırılarına doğrulayabilirsiniz. Genellikle, kullanılan tooidentify hello kaynak hello isteğinin olabilir rastgele, benzersiz bir dize hello değerdir. |
+| P |Gerekli |Hello İlkesi tooexecute. Hello Azure AD B2C kiracınızda oluşturulan bir ilkenin adını. Hello ilkesi adı değeri ile başlamalıdır **b2c\_1\_**. Daha fazla bilgi için bkz: [Azure AD B2C yerleşik ilkeleri](active-directory-b2c-reference-policies.md). |
+| istemi |İsteğe bağlı |gerekli olan bir kullanıcı etkileşimi Hello türü. Şu anda hello tek geçerli değer: `login`. Bu hello kullanıcı tooenter kimlik bilgilerini bu isteği zorlar. Çoklu oturum açma etkili olmaz. |
 
-Bu noktada, ilkenin iş akışını tamamlamak için kullanıcının istedi. Bu dizini ya da başka bir sayıyı adımları için kaydolan bir sosyal kimlik bilgilerinizle oturum, kullanıcı adını ve parolasını girerek kullanıcı gerektirebilir. İlkenin nasıl tanımlanan kullanıcı eylemlerini bağlıdır.
+Bu noktada, hello kullanıcı toocomplete hello İlkesi'nin iş akışı istedi. Bu, kullanıcı adını ve parolasını girerek hello kullanıcı hello dizin ya da başka bir sayıyı adımları için kaydolan bir sosyal kimlik bilgilerinizle oturum gerektirebilir. Kullanıcı eylemlerini hello İlkesi nasıl tanımlandığına bağlıdır.
 
-Kullanıcı ilkeyi tamamladıktan sonra Azure AD için kullanılır ve uygulamanızın değerde bir yanıt döndürür `redirect_uri`. Bölümünde belirtilen yöntemi kullanan `response_mode` parametresi. Yanıt tam olarak yürütülen ilke bağımsız kullanıcı eylemi senaryoların her biri için aynıdır.
+Merhaba kullanıcı hello İlkesi tamamlandıktan sonra Azure AD bir yanıt tooyour uygulaması için kullanılan hello değerde döndürür `redirect_uri`. Hello belirtilen hello yöntemini kullanır `response_mode` parametresi. Merhaba yanıt olan tam olarak hello aynı her hello kullanıcı eylemi senaryoları, yürütülen hello İlkesi bağımsız için.
 
 ### <a name="successful-response"></a>Başarılı yanıt
-Kullanan başarılı yanıt `response_mode=fragment` ve `response_type=id_token+token` okunabilirliği için satır sonu ile aşağıdaki gibi görünür:
+Kullanan başarılı yanıt `response_mode=fragment` ve `response_type=id_token+token` okunabilirliği için satır sonu ile Merhaba aşağıdaki gibi görünür:
 
 ```
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -121,15 +121,15 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parametre | Açıklama |
 | --- | --- |
-| access_token |Uygulama istenen erişim belirteci.  Erişim belirteci kodunu çözdü veya gerekir aksi takdirde sahip denetlenir. Genel olmayan bir dize olarak işlenebilir. |
-| token_type |Belirteç türü değeri. Azure AD destekleyen tek taşıyıcı türüdür. |
-| expires_in |Erişim belirtecinin (saniye olarak) geçerli olduğu süreyi. |
-| Kapsam |Belirteç için geçerli olur; kapsam. Önbellek belirteçleri kapsamına daha sonra kullanmak üzere de kullanabilirsiniz. |
-| id_token |İstenen uygulama kimliği belirteci. Kullanıcının kimliğini doğrulamak ve kullanıcı oturumu başlatmak için kimliği belirteci kullanabilirsiniz. Kimlik belirteçlerini ve içerikleri hakkında daha fazla bilgi için bkz: [Azure AD B2C belirteç başvurusunda](active-directory-b2c-reference-tokens.md). |
-| durum |Varsa bir `state` parametresi, aynı değeri yanıt olarak görünmesi gereken istekte bulunur. Uygulama olduğunu doğrulamanız gerekir `state` istek ve yanıt değerler aynı. |
+| access_token |İstenen uygulama hello hello erişim belirteci.  Merhaba erişim belirteci kodunu çözdü veya gerekir aksi takdirde sahip denetlenir. Genel olmayan bir dize olarak işlenebilir. |
+| token_type |Merhaba belirteç türü değeri. Merhaba yalnızca yazın Azure AD desteklediği taşıyıcı biçimde. |
+| expires_in |erişim belirteci hello süre Hello uzunluğu (saniye olarak) geçerli değil. |
+| Kapsam |belirteç hello hello kapsamlar için geçerlidir. Kapsamları toocache belirteçleri daha sonra kullanmak üzere de kullanabilirsiniz. |
+| id_token |İstenen uygulama hello kimliği belirteci hello. Merhaba kullanıcıyla oturumu başlatmak ve hello kimliği belirteci tooverify hello kullanıcının kimliğini kullanın. Merhaba kimlik belirteçlerini ve içerikleri hakkında daha fazla bilgi için bkz: [Azure AD B2C belirteç başvurusunda](active-directory-b2c-reference-tokens.md). |
+| durum |Varsa bir `state` parametresi dahil hello istekte hello aynı değere hello yanıt olarak görünmelidir. Merhaba uygulama bu hello doğrulamalısınız `state` hello istek ve yanıt değerler aynı. |
 
 ### <a name="error-response"></a>Hata yanıtı
-Böylece uygulama bunları uygun şekilde işleyebilir hata yanıtları yeniden yönlendirme URI'si da gönderilebilir:
+Böylece Hello uygulama bunları uygun şekilde işleyebilir hata yanıtları toohello yeniden yönlendirme URI'si da gönderilebilir:
 
 ```
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -140,50 +140,50 @@ error=access_denied
 
 | Parametre | Açıklama |
 | --- | --- |
-| error |Oluşan hataları türlerini sınıflandırmak için kullanılan bir hata kodu dizesi. Hata işleme için hata kodu de kullanabilirsiniz. |
-| error_description |Yardımcı olabilecek belirli bir hata iletisi kimlik doğrulama hatası kök nedenini tanımlayın. |
-| durum |Önceki tabloda tam açıklamasına bakın. Varsa bir `state` parametresi, aynı değeri yanıt olarak görünmesi gereken istekte bulunur. Uygulama olduğunu doğrulamanız gerekir `state` istek ve yanıt değerler aynı.|
+| error |Bir hata kodu dizesi oluşan hataları tooclassify türleri kullanılır. Merhaba hata kodunu hata işleme için de kullanabilirsiniz. |
+| error_description |Yardımcı olabilecek belirli bir hata iletisi kimlik doğrulama hatası hello kök nedenini tanımlayın. |
+| durum |Tablo önceki hello Hello tam açıklamaya bakın. Varsa bir `state` parametresi dahil hello istekte hello aynı değere hello yanıt olarak görünmelidir. Merhaba uygulama bu hello doğrulamalısınız `state` hello istek ve yanıt değerler aynı.|
 
-## <a name="validate-the-id-token"></a>Kimliği belirtecini doğrula
-Bir kimliği belirteci alma kullanıcının kimliğini doğrulamak için yeterli değil. Kimliği belirtecin imzayı doğrulamak ve uygulamanızın gereksinimleri başına belirtecinizdeki talepleri doğrulamanız gerekir. Azure AD B2C kullanan [JSON Web belirteçleri (Jwt'ler)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) ve Belirteçleri imzalamak ve bunların geçerli olduğunu doğrulamak için ortak anahtar şifrelemesi.
+## <a name="validate-hello-id-token"></a>Merhaba kimliği belirtecini doğrula
+Bir kimliği belirteci alma yeterli tooauthenticate hello kullanıcı değil. Merhaba kimliği belirtecin imzayı doğrulamak ve uygulamanızın gereksinimleri başına hello belirtecindeki hello talep doğrulamanız gerekir. Azure AD B2C kullanan [JSON Web belirteçleri (Jwt'ler)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) ve ortak anahtar şifrelemesi toosign belirteçleri ve geçerli olduğunu doğrulayın.
 
-Birçok açık kaynak kitaplıkları kullanmayı tercih ederseniz dil bağlı olarak Jwt'ler, doğrulamak için kullanılabilir. Kendi doğrulama mantığı uygulamak yerine kullanılabilir açık kaynak kitaplıkları keşfetme göz önünde bulundurun. Bu kitaplıklar düzgün bir şekilde kullanmayı öğrenmenize yardımcı olmak için bu makaledeki bilgileri kullanın.
+Birçok açık kaynak kitaplıkları Jwt'ler doğrulamak için kullanılabilen, hello dil bağlı olarak toouse tercih eder. Kendi doğrulama mantığı uygulamak yerine kullanılabilir açık kaynak kitaplıkları keşfetme göz önünde bulundurun. Merhaba bilgileri kullanabilirsiniz Bu makale toohelp tooproperly bu kitaplıklarını nasıl kullanacağınızı öğrenin.
 
-Azure AD B2C Openıd Connect meta veri son nokta vardır. Uygulama uç nokta çalışma zamanında Azure AD B2C hakkında bilgi almak için kullanabilirsiniz. Bu bilgiler, uç noktaları, belirteç içerikleri ve belirteç imzalama anahtarları içerir. Azure AD B2C kiracınızda her ilke için bir JSON meta veri belgesi yoktur. Örneğin, fabrikamb2c.onmicrosoft.com Kiracı b2c_1_sign_in ilkesinde meta veri belgesi şu konumdadır:
+Azure AD B2C Openıd Connect meta veri son nokta vardır. Bir uygulama çalışma zamanında hello uç nokta toofetch Azure AD B2C bilgilerini kullanabilirsiniz. Bu bilgiler, uç noktaları, belirteç içerikleri ve belirteç imzalama anahtarları içerir. Azure AD B2C kiracınızda her ilke için bir JSON meta veri belgesi yoktur. Örneğin, hello meta veri belgesi hello b2c_1_sign_in İlkesi'nde hello fabrikamb2c.onmicrosoft.com Kiracı için aşağıdaki konumda bulunur:
 
 `https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
-Bu yapılandırma belgesi özelliklerini biri `jwks_uri`. Aynı ilke için değer olacaktır:
+Bu yapılandırma belgenin hello özellikleri biri hello `jwks_uri`. aynı ilke olacaktır hello Hello değeri:
 
 `https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
-Hangi ilke kimliği belirteç imzalamak için kullanılan (ve meta verilerini getirmek nereye) belirlemek için iki seçeneğiniz vardır. İlk olarak, ilke adını dahil `acr` içinde talep `id_token`. Bir kimliği belirteci talepleri ayrıştırma hakkında daha fazla bilgi için bkz: [Azure AD B2C belirteç başvurusunda](active-directory-b2c-reference-tokens.md). Değerini ilkesinde kodlamak için diğer seçeneğiniz olduğunu `state` isteği gönderdiğinizde parametresi. Ardından, kod çözme `state` hangi ilke kullanılan belirlemek için parametre. Her iki yöntem geçerli değil.
+hangi ilke kullanılan toosign kimliği belirteci oluştu (ve burada toofetch hello meta verileri), toodetermine iki seçeneğiniz vardır. Hello ilkesi adı hello ilk olarak dahil `acr` içinde talep `id_token`. Merhaba nasıl tooparse hello kimliği belirtecinden talepleri hakkında daha fazla bilgi için bkz [Azure AD B2C belirteç başvurusunda](active-directory-b2c-reference-tokens.md). Diğer seçeneğiniz tooencode hello hello hello değeri ilkedir `state` hello isteği gönderdiğinizde parametresi. Ardından, hello kod çözme `state` parametresi toodetermine ilkeyi kullanıldı. Her iki yöntem geçerli değil.
 
-Openıd Connect meta veri uç noktasından meta veri belgesi edindiğiniz sonra kimliği belirtecinin imzası doğrulamak için (Bu uç noktada bulunur) 256 RSA ortak anahtarları kullanabilirsiniz. Belirli bir zamanda Bu uç noktada listelenen birden çok anahtar olabilir, her tarafından tanımlanan bir `kid`. Üstbilgisi `id_token` de içeren bir `kid` talep. Bu anahtarları hangisinin kimliği belirteç imzalamak için kullanılan belirtir. Hakkında bilgi dahil daha fazla bilgi için [belirteçleri doğrulama](active-directory-b2c-reference-tokens.md#token-validation), bkz: [Azure AD B2C belirteç başvurusunda](active-directory-b2c-reference-tokens.md).
-<!--TODO: Improve the information on this-->
+Merhaba meta veri belgesi hello Openıd Connect meta veri uç noktasından edindiğiniz sonra hello RSA-256 (Bu uç noktada bulunur) ortak anahtarları toovalidate hello hello kimliği belirtecinin imzası kullanabilirsiniz. Belirli bir zamanda Bu uç noktada listelenen birden çok anahtar olabilir, her tarafından tanımlanan bir `kid`. Merhaba üstbilgisinin `id_token` de içeren bir `kid` talep. Bu anahtarların kullanılan toosign hello kimliği belirteci olduğu belirtir. Hakkında bilgi dahil daha fazla bilgi için [belirteçleri doğrulama](active-directory-b2c-reference-tokens.md#token-validation), hello bkz [Azure AD B2C belirteç başvurusunda](active-directory-b2c-reference-tokens.md).
+<!--TODO: Improve hello information on this-->
 
-Kimliği belirtecinin imzası doğrulama sonra birkaç talep doğrulama gerektirir. Örneğin:
+Merhaba kimliği belirtecinin hello imzası doğrulama sonra birkaç talep doğrulama gerektirir. Örneğin:
 
-* Doğrulama `nonce` belirteç yeniden yürütme saldırılarını önlemek talep. Oturum açma istekte belirtilen değeri olmalıdır.
-* Doğrulama `aud` kimliği belirteci uygulamanız için verilmiş emin olmak talep. Değeri, uygulamanızın uygulama kimliği olmalıdır.
-* Doğrulama `iat` ve `exp` kimliği belirtecin süresi geçmemiş emin olmak talep.
+* Merhaba doğrulamak `nonce` tooprevent belirteç yeniden yürütme saldırılarını talep. Oturum açma hello istekte belirtilen değeri olmalıdır.
+* Merhaba doğrulamak `aud` kimliği belirteci hello tooensure, uygulamanız için yayımlandığında talep. Değeri, uygulamanızın hello uygulama kimliği olmalıdır.
+* Merhaba doğrulamak `iat` ve `exp` talep kimliği belirteci hello tooensure süresi.
 
-Gerçekleştirmeniz gereken birkaç daha fazla doğrulamaları ayrıntılı olarak açıklanmıştır [Openıd Connect çekirdek Spec](http://openid.net/specs/openid-connect-core-1_0.html). Senaryonuza bağlı olarak ek talep doğrulamak isteyebilirsiniz. Bazı ortak doğrulamaları şunları içerir:
+Gerçekleştirmeniz gereken birkaç daha fazla doğrulama hello ayrıntılı açıklanan [Openıd Connect çekirdek Spec](http://openid.net/specs/openid-connect-core-1_0.html). Senaryonuza bağlı olarak toovalidate ek talepleri de isteyebilirsiniz. Bazı ortak doğrulamaları şunları içerir:
 
-* Kullanıcı veya kuruluş uygulaması için kaydolmuş emin olma.
-* Kullanıcının uygun yetkilendirme ve ayrıcalıkları olduğundan emin olma.
+* Bu hello kullanıcıya veya kuruluşa sağlama hello uygulaması için kaydolmuş.
+* Merhaba kullanıcının uygun yetkilendirme ve ayrıcalıklara sahip olma.
 * Belirli bir kimlik doğrulama gücünü oluştuğunu gibi Azure çok faktörlü kimlik doğrulamasını kullanarak gibi sağlama.
 
-Bir kimliği belirtecinizdeki talepleri hakkında daha fazla bilgi için bkz: [Azure AD B2C belirteç başvurusunda](active-directory-b2c-reference-tokens.md).
+Merhaba hello talep kimliği belirteci hakkında daha fazla bilgi için bkz: [Azure AD B2C belirteç başvurusunda](active-directory-b2c-reference-tokens.md).
 
-Kimliği belirteci tamamen doğrulandıktan sonra kullanıcıyla oturum başlayabilirsiniz. Uygulamanızda, kullanıcı hakkında bilgi edinmek için kimliği belirteç talep kullanın. Bu bilgiler, görüntü, kayıtları, yetkilendirme ve benzeri için kullanılabilir.
+Merhaba kimliği belirteci tamamen doğrulandıktan sonra bir oturum hello kullanıcıyla başlayabilirsiniz. Uygulamanızda hello talep hello kimliği belirteci tooobtain hello kullanıcı bilgilerini kullanın. Bu bilgiler, görüntü, kayıtları, yetkilendirme ve benzeri için kullanılabilir.
 
 ## <a name="get-access-tokens"></a>Erişim belirteci alın
-Web uygulamalarınızı yapmak için gereksinim duyduğu tek şey ilkeleri yürütme ise, sonraki birkaç bölümlerde atlayabilirsiniz. Aşağıdaki bölümlerde yer alan bilgiler, web API'si için kimlik doğrulaması yapılmış çağrılar yapmanız ve hangi Azure AD B2C tarafından korunan yalnızca web uygulamaları için geçerlidir.
+Merhaba tek şey, web uygulamaları gereksinimlerini toodo olan ilkeleri yürütüyorsa atlayabilirsiniz hello sonraki birkaç bölümler. Kimliği doğrulanmış toomake çağrıları tooa web API gerekir ve hangi Azure AD B2C tarafından korunan geçerli yalnızca tooweb uygulamalar bölümleri aşağıdaki hello Hello bilgileri var.
 
-Kullanıcı tek sayfalı uygulamanıza oturum açtığınız, çağrıyı yapan web Azure AD tarafından güvenliği sağlanan API'leri için erişim belirteçleri alabilir. Zaten bir belirteç kullanarak aldığınız olsa bile `token` yanıt türünü, kullanıcı yeniden oturum açmak için yeniden yönlendirme olmadan ek kaynaklar için belirteçleri almak için bu yöntemi kullanabilirsiniz.
+Tooyour tek sayfalı uygulama hello kullanıcı oturum açtığınız, çağrıyı yapan web Azure AD tarafından güvenliği sağlanan API'leri için erişim belirteçleri alabilir. Zaten bir belirteç hello kullanarak aldığınız olsa bile `token` yanıt türü kullanabileceğiniz bu yöntem tooacquire belirteçleri için ek kaynaklar hello kullanıcı toosign yeniden yönlendirme olmadan.
 
-Tipik web uygulama akışı için bir istek yaparak bunu `/token` uç noktası.  Ancak, almak ve belirteçleri yenilemek için AJAX çağrıları yapma bir seçenek değilse şekilde uç nokta CORS isteklerini desteklemez. Bunun yerine, diğer web API'leri yeni belirteçleri almak için gizli bir HTML iframe öğesi içinde örtük akış kullanabilirsiniz. İle okunabilirliği için satır sonu, örnek aşağıda verilmiştir:
+Tipik web uygulama akışı isteği toohello yaparak bunu `/token` uç noktası.  Ancak, hello endpoint AJAX yapma tooget çağırır ve yenileme belirteçleri bir seçenek değil değil destek CORS isteklerini desteklemez. Bunun yerine, bir gizli HTML iframe öğesi tooget yeni belirteçleri hello örtük akış diğer web API'leri kullanabilirsiniz. İle okunabilirliği için satır sonu, örnek aşağıda verilmiştir:
 
 ```
 
@@ -201,20 +201,20 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-| Parametre | Gerekli? | Açıklama |
+| Parametre | Gerekli mi? | Açıklama |
 | --- | --- | --- |
-| client_id |Gerekli |Uygulamanıza atanan uygulama kimliği [Azure portal](https://portal.azure.com). |
-| response_type |Gerekli |İçermelidir `id_token` Openıd Connect oturum açma için.  Yanıt türü içerebilir `token`. Kullanırsanız `token` Burada, uygulamanızın hemen bir erişim belirteci authorize uç noktasından uç noktayı yetkilendirmek için ikinci bir isteği yapmadan alabilir. Kullanırsanız `token` yanıt türü `scope` parametresi için belirteci vermek için hangi kaynak gösteren bir kapsam içermesi gerekir. |
-| redirect_uri |Önerilen |Yeniden yönlendirme URI'si burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan, uygulamanızın. URL kodlanmış olmalıdır dışında tam olarak yeniden yönlendirme Portalı'nda kayıtlı URI'ler biriyle eşleşmelidir. |
-| Kapsam |Gerekli |Kapsamları boşlukla ayrılmış listesi.  Belirteçleri almak için istenen kaynak için ihtiyaç duyduğunuz tüm kapsamlar içerir. |
-| response_mode |Önerilen |Sonuçta elde edilen belirteci geri uygulamanıza göndermek için kullanılan yöntemi belirtir.  Olabilir `query`, `form_post`, veya `fragment`. |
-| durum |Önerilen |Belirteç yanıtta döndürülen istek dahil bir değer.  Kullanmak istediğiniz herhangi bir içerik dizesi olabilir.  Genellikle, rastgele oluşturulmuş, benzersiz bir değer, siteler arası istek sahtekarlığı saldırıları önlemek için kullanılır.  Durum, kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkındaki bilgileri kodlamak için de kullanılır. Örneğin, sayfa veya Görünüm kullanıcı açıktı. |
-| nonce |Gerekli |Elde edilen kimliği belirteç talep olarak dahil edilen uygulama tarafından üretilen istekte bulunan bir değer.  Uygulama sonra belirteç yeniden yürütme saldırıları azaltmak için bu değeri doğrulayabilirsiniz. Genellikle, istek kaynağını tanımlayan rastgele, benzersiz bir dize değeridir. |
-| istemi |Gerekli |Yenileme ve gizli bir iframe içinde belirteçleri almak için kullanmak `prompt=none` sağlamak IFRAME oturum açma sayfasında takılı değil ve hemen döndürür. |
-| login_hint |Gerekli |Yenileme ve gizli bir iframe içinde belirteçleri almak için kullanıcı belirli bir zamanda sahip birden çok oturumu ayırt etmek için bu ipucu kullanıcı adını içerir. Kullanarak bir önceki oturum bileşeninden kullanıcıadı ayıklayabilirsiniz `preferred_username` talep. |
-| domain_hint |Gerekli |Olabilir `consumers` veya `organizations`.  Yenileme ve gizli bir iframe içinde belirteçleri almak için içermelidir `domain_hint` istek değeri.  Extract `tid` kullanmak için hangi değeri belirlemek için bir önceki oturum açma kimliği belirteç talep.  Varsa `tid` değer talep `9188040d-6c67-4c5b-b112-36a304b66dad`, kullanmak `domain_hint=consumers`.  Aksi takdirde kullanın `domain_hint=organizations`. |
+| client_id |Gerekli |Merhaba uygulama kimliği atanan hello tooyour uygulamada [Azure portal](https://portal.azure.com). |
+| response_type |Gerekli |İçermelidir `id_token` Openıd Connect oturum açma için.  Merhaba yanıt türü içerebilir `token`. Kullanırsanız `token` Burada, uygulamanızın hemen bir erişim belirteci hello alabilir uç noktası, son noktanın yetkilendirilmesi ikinci bir istek toohello yapmadan yetkilendirin. Merhaba kullanırsanız `token` yanıt türü, hello `scope` parametresi için hangi kaynak tooissue hello belirtecini gösteren bir kapsam içermesi gerekir. |
+| redirect_uri |Önerilen |Merhaba burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan uygulamanızı URI'sini yeniden yönlendir. URL kodlanmış olmalıdır dışında tam olarak hello yeniden yönlendirme hello Portalı'nda kayıtlı URI'ler biriyle eşleşmelidir. |
+| Kapsam |Gerekli |Kapsamları boşlukla ayrılmış listesi.  Belirteçleri almak için hedeflenen hello kaynak için ihtiyaç duyduğunuz tüm kapsamlar içerir. |
+| response_mode |Önerilen |Kullanılan toosend hello elde edilen belirteci geri tooyour uygulaması hello yöntemini belirtir.  Olabilir `query`, `form_post`, veya `fragment`. |
+| durum |Önerilen |Merhaba belirteci yanıtta döndürülen hello istekte bulunan bir değer.  Toouse istediğiniz herhangi bir içerik dizesi olabilir.  Genellikle, rastgele oluşturulmuş, benzersiz bir değer kullanılır, tooprevent siteler arası istek sahteciliği saldırılarına.  Hello kimlik doğrulama isteği oluşmadan önce hello durumu ayrıca kullanılan tooencode hello uygulamasında hello kullanıcının durumu hakkındaki bilgilerdir. Örneğin, hello sayfa veya Görünüm hello kullanıcı açıktı. |
+| nonce |Gerekli |Merhaba elde edilen kimliği belirteç talep olarak dahil edilen hello uygulama tarafından üretilen hello isteğinde bulunan bir değer.  Merhaba uygulama daha sonra bu değeri toomitigate belirteç yeniden yürütme saldırılarına doğrulayabilirsiniz. Genellikle, hello isteği hello kaynağını tanımlayan rastgele, benzersiz bir dize hello değerdir. |
+| istemi |Gerekli |Gizli bir iframe toorefresh ve get belirteçleri kullanın `prompt=none` IFRAME hello tooensure hello oturum açma sayfasında takılı değil ve hemen döndürür. |
+| login_hint |Gerekli |Gizli bir iframe toorefresh ve get belirteçlerinde hello kullanıcı belirli bir zamanda sahip birden çok oturumlar arasında bu ipucu toodistinguish hello kullanıcı hello kullanıcı adını içerir. Hello kullanarak bir önceki oturum bileşeninden hello kullanıcıadı ayıklayabilirsiniz `preferred_username` talep. |
+| domain_hint |Gerekli |Olabilir `consumers` veya `organizations`.  Yenileme ve gizli bir iframe içinde belirteçleri almak için hello içermelidir `domain_hint` hello istekteki değeri.  Merhaba ayıklamak `tid` hello kimliği belirtecinden bir önceki oturum açma toodetermine, hangi değer toouse talep.  Merhaba, `tid` değer talep `9188040d-6c67-4c5b-b112-36a304b66dad`, kullanmak `domain_hint=consumers`.  Aksi takdirde kullanın `domain_hint=organizations`. |
 
-Ayarlayarak `prompt=none` parametresi, bu istek ya da başarılı ya da hemen başarısız olur ve uygulamanıza döndürür.  Başarılı yanıt uygulamanızı belirtilen yeniden yönlendirme URI'si bölümünde belirtilen yöntemi kullanarak gönderilir `response_mode` parametresi.
+Merhaba ayarı tarafından `prompt=none` parametresi, bu istek ya da başarılı ya da hemen başarısız olur ve tooyour uygulama döndürür.  Başarılı yanıt tooyour uygulama gönderilen belirtilen hello, hello belirtilen hello yöntemi kullanarak yeniden yönlendirme URI'si `response_mode` parametresi.
 
 ### <a name="successful-response"></a>Başarılı yanıt
 Kullanarak başarılı bir yanıt `response_mode=fragment` şöyle görünür:
@@ -230,14 +230,14 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parametre | Açıklama |
 | --- | --- |
-| access_token |Uygulama talep belirteci. |
-| token_type |Belirteç türü her zaman taşıyıcı olacaktır. |
-| durum |Varsa bir `state` parametresi, aynı değeri yanıt olarak görünmesi gereken istekte bulunur. Uygulama olduğunu doğrulamanız gerekir `state` istek ve yanıt değerler aynı. |
-| expires_in |Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil. |
-| Kapsam |Erişim belirteci için geçerli kapsam. |
+| access_token |İstenen uygulama hello hello belirteci. |
+| token_type |Merhaba belirteç türü her zaman taşıyıcı olacaktır. |
+| durum |Varsa bir `state` parametresi dahil hello istekte hello aynı değere hello yanıt olarak görünmelidir. Merhaba uygulama bu hello doğrulamalısınız `state` hello istek ve yanıt değerler aynı. |
+| expires_in |Ne kadar süreyle hello erişim belirteci (saniye olarak) geçerli değil. |
+| Kapsam |erişim belirteci hello hello kapsamlar için geçerlidir. |
 
 ### <a name="error-response"></a>Hata yanıtı
-Böylece uygulama bunları uygun şekilde işleyebilir hata yanıtları yeniden yönlendirme URI'si da gönderilebilir.  İçin `prompt=none`, beklenen hata şöyle görünür:
+Böylece Hello uygulama bunları uygun şekilde işleyebilir hata yanıtları toohello yeniden yönlendirme URI'si da gönderilebilir.  İçin `prompt=none`, beklenen hata şöyle görünür:
 
 ```
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -247,18 +247,18 @@ error=user_authentication_required
 
 | Parametre | Açıklama |
 | --- | --- |
-| error |Oluşan hataları türlerini sınıflandırmak için kullanılan bir hata kodu dizesi. Dize, hataları tepki vermek için de kullanabilirsiniz. |
-| error_description |Yardımcı olabilecek belirli bir hata iletisi kimlik doğrulama hatası kök nedenini tanımlayın. |
+| error |Oluşan hataları kullanılan tooclassify türde olabilir bir hata kodu dizesi. Merhaba dize tooreact tooerrors de kullanabilirsiniz. |
+| error_description |Yardımcı olabilecek belirli bir hata iletisi kimlik doğrulama hatası hello kök nedenini tanımlayın. |
 
-IFRAME istekte bu hatayı alırsanız, kullanıcı etkileşimli olarak yeniden yeni bir belirteç almak kaydolmalısınız. Bu, uygulamanız için anlamlı bir şekilde işleyebilir.
+Merhaba IFRAME istekte bu hatayı alırsanız hello kullanıcı etkileşimli olarak yeniden tooretrieve içinde yeni bir belirteç oturum açmanız gerekir. Bu, uygulamanız için anlamlı bir şekilde işleyebilir.
 
 ## <a name="refresh-tokens"></a>Yenileme belirteçlerini
-Kimlik belirteçlerini ve erişim belirteçleri kısa bir süre sonra süresi dolacak. Uygulamanız bu belirteçleri düzenli aralıklarla yenilemek için hazırlanması gerekir.  İki tür belirteç yenilemek için kullandık aynı gizli IFRAME isteği bir önceki örnekte kullanarak gerçekleştirmek `prompt=none` Azure AD adımları denetlemek için parametre.  Yeni bir almaya `id_token` değeri, kullandığınızdan emin olun `response_type=id_token` ve `scope=openid`ve bir `nonce` parametresi.
+Kimlik belirteçlerini ve erişim belirteçleri kısa bir süre sonra süresi dolacak. Uygulamanızı belirteçleri almak için düzenli aralıklarla, bunlar toorefresh hazırlanması gerekir.  belirteç, her iki tür toorefresh gerçekleştirmek hello kullandık bir önceki örnekte hello kullanarak aynı gizli IFRAME isteği `prompt=none` parametresi toocontrol Azure AD adımları.  Yeni bir tooreceive `id_token` emin toouse olması, değer `response_type=id_token` ve `scope=openid`ve bir `nonce` parametresi.
 
 ## <a name="send-a-sign-out-request"></a>Oturum kapatma isteği gönder
-Uygulama dışında kullanıcı oturum istediğinizde, kullanıcının oturumunu kapatmak için Azure ad yeniden yönlendir. Bunu yapmazsanız, kullanıcının kimlik bilgilerini yeniden girmeye gerek kalmadan, uygulamanızın yeniden kimlik doğrulamaya olabilir. Bu durum, geçerli tek bir oturum açma oturumu Azure AD ile gerekir çünkü.
+Merhaba uygulama dışında toosign hello kullanıcı istediğinizde hello kullanıcı tooAzure AD toosign çıkışı yönlendirin. Bunu yapmazsanız, hello kullanıcı kimlik bilgilerini yeniden girmeden mümkün tooreauthenticate tooyour uygulama olabilir. Bu durum, geçerli tek bir oturum açma oturumu Azure AD ile gerekir çünkü.
 
-Kullanıcıya yalnızca yönlendirebilirsiniz `end_session_endpoint` meta veri belgesi açıklanan bağlanmak, aynı Openıd içinde listelenen [kimliği belirtecini doğrula](#validate-the-id-token). Örneğin:
+Merhaba kullanıcı toohello yalnızca yönlendirebilirsiniz `end_session_endpoint` yani aynı Openıd Connect meta veri belgesi açıklanan listelenen hello [doğrulama hello kimliği belirteci](#validate-the-id-token). Örneğin:
 
 ```
 GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
@@ -266,22 +266,22 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parametre | Gerekli? | Açıklama |
+| Parametre | Gerekli mi? | Açıklama |
 | --- | --- | --- |
-| P |Gerekli |Kullanıcı uygulamanızı dışında imzalamak için kullandığınız ilke. |
-| post_logout_redirect_uri |Önerilen |Kullanıcı için sonra yeniden yönlendirilmesi gereken URL başarılı oturum kapatma. Dahil edilmezse, Azure AD B2C kullanıcı için genel bir ileti görüntülenir. |
+| P |Gerekli |Hello İlkesi toouse toosign hello kullanıcı uygulamanızı dışında. |
+| post_logout_redirect_uri |Önerilen |Merhaba hello kullanıcının yeniden yönlendirilen tooafter başarılı olmalıdır oturum kapatma. Dahil edilmezse, Azure AD B2C Genel ileti toohello kullanıcı görüntüler. |
 
 > [!NOTE]
-> Kullanıcıya yönlendirerek `end_session_endpoint` bazı Azure AD B2C ile kullanıcının tek oturum açma durumu temizler. Ancak, kullanıcının sosyal kimlik sağlayıcısı oturumu dışında kullanıcı oturum değil. Kullanıcı seçerse aynı sağlayıcısı bir sonraki oturum açma sırasında tanımlamak, kullanıcı, kimlik bilgilerini girmeden kimlik doğrulaması yeniden yapılır. Bir kullanıcı oturumunu Azure AD B2C uygulamanızı imzalamak isterse, mutlaka tamamen Facebook firması dışında örneğin imzalamak istedikleri anlamına gelmez. Ancak, yerel hesaplar için kullanıcının oturumunu düzgün sonlandırılır.
+> Merhaba kullanıcı toohello yönlendirerek `end_session_endpoint` bazı Azure AD B2C ile Merhaba kullanıcının tek oturum açma durumu temizler. Ancak, hello kullanıcının sosyal kimlik sağlayıcısı oturumunu dışında hello kullanıcı oturum değil. Merhaba kullanıcı hello seçerse aynı sağlayıcısı bir sonraki oturum açma sırasında tanımlamak, hello kullanıcı, kimlik bilgilerini girmeden kimlik doğrulaması yeniden yapılır. Bir kullanıcı Azure AD B2C uygulamanızı dışında toosign isterse, mutlaka toocompletely oturum Facebook hesaplarında dışında örneğin istedikleri anlamına gelmez. Ancak, yerel hesaplar için hello kullanıcının oturumunu düzgün sonlandırılır.
 > 
 > 
 
 ## <a name="use-your-own-azure-ad-b2c-tenant"></a>Kendi Azure AD B2C kiracısı kullanın
-Bu istekler kendiniz denemek için aşağıdaki üç adımı tamamlayın. Bu makalede, kendi değerlerle kullanırız örnek değerleri değiştirin:
+Bunlar kendiniz isteklerini tamamlamak tootry aşağıdaki üç adımları hello. Bu makalede, kendi değerlerle kullanırız hello örnek değerleri değiştirin:
 
-1. [Bir Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md). Kiracı adını isteklerinde kullanın.
-2. [Uygulama oluşturma](active-directory-b2c-app-registration.md) bir uygulama Kimliğini almak için ve bir `redirect_uri` değeri. Bir web uygulaması veya web API uygulamanızı içerir. İsteğe bağlı olarak, bir uygulama gizli anahtarı oluşturabilirsiniz.
-3. [İlkelerinizi oluşturma](active-directory-b2c-reference-policies.md) ilke adları elde edilir.
+1. [Bir Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md). Merhaba istekleri kiracınızda hello adını kullanın.
+2. [Uygulama oluşturma](active-directory-b2c-app-registration.md) tooobtain bir uygulama kimliği ve `redirect_uri` değeri. Bir web uygulaması veya web API uygulamanızı içerir. İsteğe bağlı olarak, bir uygulama gizli anahtarı oluşturabilirsiniz.
+3. [İlkelerinizi oluşturma](active-directory-b2c-reference-policies.md) tooobtain ilke adları.
 
 ## <a name="samples"></a>Örnekler
 

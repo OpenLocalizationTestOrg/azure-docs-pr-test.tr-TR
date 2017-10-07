@@ -1,6 +1,6 @@
 ---
-title: "Azure Windows VM boyutları - depolama | Microsoft Docs"
-description: "Azure'da Windows sanal makineler için kullanılabilir en iyi duruma getirilmiş farklı depolama boyutlarını listeler."
+title: "aaaAzure Windows VM boyutları - depolama | Microsoft Docs"
+description: "Listeleri hello farklı depolama azure'da Windows sanal makineler için kullanılabilir boyutları en iyi duruma getirilmiş."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 586b77c357f64f853374a7ba59e766b015d572c2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 205207c28c6266cc4daa15cc190bfeb0c00821b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storage-optimized"></a>Depolama için iyileştirilmiş
 

@@ -1,6 +1,6 @@
 ---
-title: "Belirli bir API izinlerini seçme | Microsoft Docs"
-description: "Kimlik doğrulama uç noktaları geliştirme veya Azure AD ile kaydetme özel bir uygulamayı bulmak nasıl."
+title: belirli bir API aaaHow tooselect izinlerini | Microsoft Docs
+description: "Nasıl özel bir uygulama için toofind hello kimlik doğrulama uç noktaları, geliştirme veya Azure AD ile kaydediliyor."
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 6966cf145375bf3d830d476564c428502ae40fd4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 303793eae96872c37b4de00e757ed0256494afa4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-select-permissions-for-a-given-api"></a>Belirli bir API izinlerini seçme
+# <a name="how-tooselect-permissions-for-a-given-api"></a>Nasıl tooselect izinleri verilen API'si
 
-Uygulamanıza kimlik doğrulaması uç noktaları bulabilirsiniz [Azure portal](https://portal.azure.com).
+Merhaba, uygulamanızda için kimlik doğrulama uç noktaları hello bulabilirsiniz [Azure portal](https://portal.azure.com).
 
--   [Azure portalına](https://portal.azure.com) gidin.
+-   Toohello gidin [Azure portal](https://portal.azure.com).
 
--   Sol gezinti bölmesinden tıklatın **Azure Active Directory**.
+-   Merhaba sol gezinti bölmesinden tıklatın **Azure Active Directory**.
 
 -   Tıklatın **uygulama kayıtlar** ve **uç noktaları**.
 
--   Bu açık **uç noktaları** kiracınız için tüm kimlik doğrulama uç noktaları listesi sayfası.
+-   Bu açık hello **uç noktaları** kiracınız için tüm hello kimlik doğrulama uç noktaları listesi sayfası.
 
--   Kimlik doğrulaması hazırlanması uygulama kimliği ile birlikte, uygulamaya özgü isteği, kullanmakta olduğunuz kimlik doğrulama protokolü belirli uç nokta kullanın.
+-   Merhaba uygulama kimliği toocraft hello kimlik doğrulama isteği belirli tooyour uygulama ile birlikte kullanıyorsanız hello uç nokta belirli toohello kimlik doğrulama protokolünü kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure Active Directory geliştirici kılavuzu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)

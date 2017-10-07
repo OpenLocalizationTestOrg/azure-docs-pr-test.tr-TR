@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory kimlik koruması etkinleştirme | Microsoft Docs"
-description: "Azure Active Directory kimlik koruması etkinleştirmeyi öğrenin."
+title: "Azure Active Directory kimlik koruması aaaEnabling | Microsoft Docs"
+description: "Bilgi nasıl tooenable Azure Active Directory kimlik koruması."
 services: active-directory
 keywords: "Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme"
 documentationcenter: 
@@ -15,31 +15,31 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e0683e837086ca08f4b4b3f49695bdd2b4063ea4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d26f466f5c7d6a425528a277d98c2c4b341ff8de
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması etkinleştirme
 Azure Active Directory kimlik koruması bildirimleri, düzeltme önerileri ve risk tabanlı ilkeleri korumanıza yardımcı olur ve oturum açma kuşkulu etkinlikleri ve olası güvenlik açıklarını birleştirilmiş bir görünüm sağlayan yeni bir özellik olan işinizi. 
 
-Hizmet, son kullanıcı ve ayrıcalıklı (Yönetici) kimlikler şüpheli etkinlikleri oturum açmalar tanınmayan konumlardan etkilenen cihazlar, bu etkinlikler gerçek zamanlı karşı korumak için kimlik bilgileri, sızmasını, deneme yanılma saldırıları gibi sinyalleri temel algılar. Daha da önemlisi, şüpheli etkinliklere dayalı olarak, bir kullanıcı risk önem derecesi hesaplanır ve risk tabanlı ilkeleri yapılandırılabilir ve otomatik olarak kuruluşunuzun kimlikleri korumak. Daha fazla ayrıntı için bkz: [Azure Active Directory kimlik koruması](active-directory-identityprotection.md).
+Merhaba hizmeti kuşkulu etkinlikleri saldırıları, son kullanıcı ve ayrıcalıklı (Yönetici) kimlikler sinyalleri kaba gibi temel zorlamak için sızmasını kimlik bilgileri, tanınmayan konumlardan oturum algılar etkilenen cihazlar, bu etkinlikler gerçek zamanlı karşı tooprotect. Daha da önemlisi, şüpheli etkinliklere dayalı olarak, bir kullanıcı risk önem derecesi hesaplanır ve risk tabanlı ilkeleri yapılandırılabilir ve hello kimlikleri, kuruluşunuzun otomatik olarak koruma. Daha fazla ayrıntı için bkz: [Azure Active Directory kimlik koruması](active-directory-identityprotection.md).
 
-Bu konular, Azure Active Directory kimlik koruması etkinleştirme gösterir.
+Bu konular gösterir nasıl tooenable Azure Active Directory kimlik koruması.
 
-## <a name="steps-to-enable-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması etkinleştirme adımları
-1. [Oturum açma](https://ms.portal.azure.com/) , Azure portalına genel yönetici olarak. 
-2. Azure portalında tıklatın **Market**.
+## <a name="steps-tooenable-azure-active-directory-identity-protection"></a>Adımları tooenable Azure Active Directory kimlik koruması
+1. [Oturum açma](https://ms.portal.azure.com/) tooyour Azure portalına genel yönetici olarak. 
+2. Hello Azure portal'ı tıklatın **Market**.
    
     ![Oluşturma](./media/active-directory-identityprotection-enable/01.png "oluşturma")
-3. Uygulamalar listesinde tıklayın **güvenlik + kimlik**.
+3. Merhaba uygulamalar listesinde tıklayın **güvenlik + kimlik**.
    
     ![Oluşturma](./media/active-directory-identityprotection-enable/02.png "oluşturma")
 4. Tıklatın **Azure AD kimlik koruması**.
    
     ![Oluşturma](./media/active-directory-identityprotection-enable/03.png "oluşturma")
-5. Üzerinde **Azure AD Identity Protection** dikey penceresinde tıklatın **oluşturma**.
+5. Merhaba üzerinde **Azure AD Identity Protection** dikey penceresinde tıklatın **oluşturma**.
    
     ![Oluşturma](./media/active-directory-identityprotection-enable/04.png "oluşturma")
 

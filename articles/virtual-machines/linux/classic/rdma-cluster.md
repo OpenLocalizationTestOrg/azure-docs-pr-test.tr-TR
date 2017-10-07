@@ -1,6 +1,6 @@
 ---
-title: "MPI uygulamaları çalıştırmak için Linux RDMA küme ayarlama | Microsoft Docs"
-description: "Linux küme boyutu H16r, H16mr, A8 veya A9 Vm'lerde Azure RDMA ağ MPI uygulamaları çalıştırmak için oluşturma"
+title: "bir Linux RDMA küme toorun MPI uygulamaları aaaSet | Microsoft Docs"
+description: "Linux kümesi boyutu H16r, H16mr, A8 veya A9 Vm'lerde toouse hello Azure RDMA ağ toorun MPI uygulamaları oluşturma"
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
@@ -15,92 +15,92 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3199317a37b095e80718d6724954687d30aea3a5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>MPI uygulamalarını çalıştırmak için bir Linux RDMA kümesi oluşturma
-Azure ile Linux RDMA kümedeki ayarlamak öğrenin [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) paralel ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için. Bu makalede bir kümede Intel MPI çalıştırmak için Linux HPC görüntüsünü hazırlamak için adımları sağlar. Hazırlık sonra bu görüntü ve RDMA özellikli Azure VM boyutlarını (şu anda H16r, H16mr, A8 veya A9) birini kullanarak sanal makineleri bir küme dağıtın. Küme, doğrudan uzak bellek erişimi (RDMA) teknolojisine dayalı düşük gecikmeli, yüksek verimlilik bir ağ üzerinden verimli bir şekilde iletişim kuran MPI uygulamaları çalıştırmak için kullanın.
+# <a name="set-up-a-linux-rdma-cluster-toorun-mpi-applications"></a>Bir Linux RDMA küme toorun MPI uygulama ayarlama
+Azure ile Linux RDMA yukarı tooset nasıl kümesi öğrenin [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) toorun paralel ileti geçirme arabirimi (MPI) uygulamalarını. Bu makale, bir kümede Linux HPC görüntü toorun Intel MPI adımları tooprepare sağlar. Hazırlık sonra bu görüntü ve hello RDMA özellikli Azure VM boyutlarını (şu anda H16r, H16mr, A8 veya A9) birini kullanarak sanal makineleri bir küme dağıtın. Doğrudan uzak bellek erişimi (RDMA) teknolojisine dayalı düşük gecikmeli, yüksek verimlilik bir ağ üzerinden verimli bir şekilde iletişim hello küme toorun MPI uygulamaları kullanın.
 
 > [!IMPORTANT]
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Azure Resource Manager](../../../resource-manager-deployment-model.md) ve klasik. Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Azure Resource Manager](../../../resource-manager-deployment-model.md) ve klasik. Bu makalede, hello Klasik dağıtım modeli kullanılarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir.
 
 ## <a name="cluster-deployment-options"></a>Küme dağıtım seçenekleri
-İle veya iş Zamanlayıcı olmadan Linux RDMA küme oluşturmak için kullanabileceğiniz yöntemleri aşağıda verilmiştir.
+Aşağıdaki yöntemlerdir ile veya iş Zamanlayıcı olmadan toocreate Linux RDMA küme kullanabilirsiniz.
 
-* **Azure CLI betikleri**: Bu makalenin sonraki bölümlerinde gösterildiği gibi kullanın [Azure komut satırı arabirimi](../../../cli-install-nodejs.md) RDMA özellikli VM'lerin bir küme dağıtımı komut dosyası için (CLI). Hizmet Yönetimi modunda CLI küme düğümleri seri olarak Klasik dağıtım modelinde oluşturur, bu nedenle birçok işlem düğümleri dağıtma birkaç dakika sürebilir. Klasik dağıtım modeli kullandığınızda RDMA ağ bağlantısı etkinleştirmek için sanal makineleri aynı bulut hizmetindeki dağıtın.
-* **Azure Resource Manager şablonları**: RDMA ağa bağlanır RDMA özellikli VM'ler oluşan bir küme dağıtmak için Resource Manager dağıtım modeli de kullanabilirsiniz. Yapabilecekleriniz [kendi şablonunuzu oluşturun](../../../resource-group-authoring-templates.md), ya da kontrol [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/documentation/templates/) istediğiniz çözümü dağıtmak için Microsoft veya topluluk tarafından katkıda bulunan şablonları için. Resource Manager şablonları Linux kümesi dağıtmak için hızlı ve güvenilir bir yol sağlar. Resource Manager dağıtım modeli kullandığınızda RDMA ağ bağlantısı etkinleştirmek için aynı kullanılabilirlik kümesindeki sanal makineleri dağıtın.
-* **HPC Pack**: Microsoft HPC Pack küme oluşturmayı ve RDMA ağ erişmek için desteklenen bir Linux dağıtım çalıştırmak RDMA özellikli işlem düğümleri ekleyin. Daha fazla bilgi için bkz: [Linux işlem düğümlerini Azure bir HPC Pack kümesindeki kullanmaya başlama](hpcpack-cluster.md).
+* **Azure CLI betikleri**: Bu makalenin sonraki bölümlerinde gösterildiği gibi hello kullanın [Azure komut satırı arabirimi](../../../cli-install-nodejs.md) (CLI) tooscript hello RDMA özellikli VM'lerin bir küme dağıtımı. çok sayıda işlem düğümleri dağıtma birkaç dakika sürebilir için hizmet yönetimi modu hello CLI hello küme düğümleri seri olarak hello Klasik dağıtım modelinde oluşturur. tooenable hello hello Klasik dağıtım modeli kullandığınızda RDMA ağ bağlantısı dağıtma hello VM'ler hello aynı bulut hizmeti.
+* **Azure Resource Manager şablonları**: hello Resource Manager dağıtım modeli toodeploy toohello RDMA ağ bağlanır RDMA özellikli VM'ler oluşan bir küme de kullanabilirsiniz. Yapabilecekleriniz [kendi şablonunuzu oluşturun](../../../resource-group-authoring-templates.md), veya hello denetleyin [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/documentation/templates/) istediğiniz Microsoft veya hello topluluk toodeploy hello çözümü tarafından katkıda bulunan şablonları için. Resource Manager şablonları hızlı ve güvenilir bir yol toodeploy Linux kümesi sağlar. tooenable hello hello Resource Manager dağıtım modeli kullandığınızda RDMA ağ bağlantısı dağıtma hello hello Vm'lerde aynı kullanılabilirlik kümesi.
+* **HPC Pack**: Microsoft HPC Pack küme oluşturmayı ve desteklenen bir Linux dağıtım tooaccess hello RDMA ağ Çalıştır RDMA özellikli işlem düğümleri ekleyin. Daha fazla bilgi için bkz: [Linux işlem düğümlerini Azure bir HPC Pack kümesindeki kullanmaya başlama](hpcpack-cluster.md).
 
-## <a name="sample-deployment-steps-in-the-classic-model"></a>Klasik modeli örnek dağıtım adımları
-Aşağıdaki adımlar, Azure CLI Azure Marketi'nden SUSE Linux Enterprise Server (SLES) 12 SP1 HPC VM dağıtmak, özelleştirebilir ve özel bir VM görüntüsü oluşturmak için nasıl kullanılacağını gösterir. Ardından RDMA özellikli VM'lerin bir küme dağıtımı komut dosyası için görüntüyü kullanabilirsiniz.
+## <a name="sample-deployment-steps-in-hello-classic-model"></a>Merhaba Klasik modelde örnek dağıtım adımları
+Merhaba aşağıdaki adımlar nasıl toouse hello Azure CLI toodeploy hello Azure Marketi SUSE Linux Enterprise Server (SLES) 12 SP1 HPC VM'den özelleştirebilir ve özel bir VM görüntüsü oluşturma gösterir. Daha sonra hello görüntü tooscript hello RDMA özellikli sanal makineleri bir küme dağıtımını kullanabilirsiniz.
 
 > [!TIP]
-> Azure Market CentOS tabanlı HPC görüntülerinde göre RDMA özellikli VM'ler oluşan bir küme dağıtmak için benzer adımları kullanın. Bazı adımlar belirtildiği gibi biraz daha farklı. 
+> RDMA yeteneğine sahip sanal makineleri bir küme hello Azure Marketi CentOS tabanlı HPC görüntülerinde temel benzer adımları toodeploy kullanın. Bazı adımlar belirtildiği gibi biraz daha farklı. 
 >
 >
 
 ### <a name="prerequisites"></a>Ön koşullar
-* **İstemci bilgisayar**: Azure ile iletişim kurmak için bir Mac, Linux veya Windows istemci bilgisayar gerekir. Bu adımlarda Linux istemci kullandığınız varsayılır.
+* **İstemci bilgisayar**: Azure ile Mac, Linux veya Windows istemci bilgisayarı toocommunicate gerekir. Bu adımlarda Linux istemci kullandığınız varsayılır.
 * **Azure aboneliği**: bir aboneliğiniz yoksa oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde. Daha büyük kümeleri için Kullandıkça Öde aboneliğine veya diğer satın alma seçenekleri göz önünde bulundurun.
-* **VM boyutu kullanılabilirlik**: RDMA özellikli aşağıdaki örneği boyutlarıdır: H16r, H16mr, A8 ve A9. Denetleme [bölgeye göre ürünleri](https://azure.microsoft.com/regions/services/) Azure bölgelerindeki kullanılabilirlik.
-* **Çekirdek kota**: işlem yoğunluklu VM'ler oluşan bir küme dağıtmak için çekirdek kota artırmanız gerekebilir. Örneğin, bu makaledeki gösterildiği gibi 8 A9 VM dağıtmak istiyorsanız, en az 128 çekirdek gerekir. Aboneliğinizi H-serisi dahil olmak üzere belirli VM boyutu aileleri, dağıtabilirsiniz çekirdek sayısı da sınırlayabilir. Bir kota artışı isteği göndermek üzere [bir çevrimiçi müşteri destek isteği açma](../../../azure-supportability/how-to-create-azure-support-request.md) herhangi bir ücret alınmaz.
-* **Azure CLI**: [yükleme](../../../cli-install-nodejs.md) Azure CLI ve [Azure aboneliğinize bağlanmak](../../../xplat-cli-connect.md) istemci bilgisayardan.
+* **VM boyutu kullanılabilirlik**: örnek boyutları aşağıdaki hello RDMA özelliğine sahip olan: H16r, H16mr, A8 ve A9. Denetleme [bölgeye göre ürünleri](https://azure.microsoft.com/regions/services/) Azure bölgelerindeki kullanılabilirlik.
+* **Çekirdek kota**: çekirdek toodeploy işlem yoğunluklu VM'ler oluşan bir küme tooincrease hello kotası gerekebilir. Örneğin, bu makaledeki gösterildiği gibi toodeploy 8 A9 Vm'lerde istiyorsanız en az 128 çekirdek gerekir. Aboneliğinizi de hello hello H-serisi dahil olmak üzere belirli VM boyutu aileleri, dağıtabilirsiniz çekirdek sayısını sınırlayabilir. toorequest kota artırma, [bir çevrimiçi müşteri destek isteği açma](../../../azure-supportability/how-to-create-azure-support-request.md) herhangi bir ücret alınmaz.
+* **Azure CLI**: [yükleme](../../../cli-install-nodejs.md) Azure CLI hello ve [tooyour Azure aboneliğine bağlanma](../../../xplat-cli-connect.md) hello istemci bilgisayardan.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>SLES 12 SP1 HPC VM sağlama
-Azure CLI ile azure'da oturum açtıktan sonra çalıştırmak `azure config list` çıkış hizmet yönetimi modu gösterir onaylamak için. Yoksa, şu komutu çalıştırarak modunu ayarlayın:
+TooAzure hello Azure CLI ile oturum sonra çalıştırmak `azure config list` çıktı hello tooconfirm hizmet yönetimi modu gösterir. Yoksa, şu komutu çalıştırarak hello modunu ayarlayın:
 
     azure config mode asm
 
 
-Kullanmak için yetkilendirilmesini tüm abonelikleri listelemek için aşağıdaki komutu yazın:
+Toolist aşağıdaki hello yetkili toouse olduğunuz tüm hello abonelikleri yazın:
 
     azure account list
 
-Geçerli etkin bir aboneliğiniz ile tanımlanan `Current` kümesine `true`. Bu abonelik küme oluşturmak için kullanmak istediğiniz bir değilse, uygun abonelik kimliği etkin bir aboneliğiniz ayarlayın:
+Merhaba geçerli etkin bir aboneliğiniz ile tanımlanan `Current` çok ayarlamak`true`. Bu abonelik hello değilse, bir toouse toocreate hello küme istediğiniz, hello uygun abonelik kimliği etkin bir aboneliğiniz hello ayarlayın:
 
     azure account set <subscription-Id>
 
-Azure genel kullanıma açık SLES 12 SP1 HPC görüntüleri görmek için aşağıdaki gibi bir komut çalıştırmak, kabuk ortamı destekler, varsayılarak **grep**:
+toosee Merhaba, kabuk ortam desteklediği varsayarak, aşağıdakileri hello gibi bir komut çalıştırmak Azure genel kullanıma açık SLES 12 SP1 HPC görüntülerinde **grep**:
 
     azure vm image list | grep "suse.*hpc"
 
-RDMA özellikli bir VM SLES 12 SP1 HPC görüntüsü ile aşağıdaki gibi bir komutu çalıştırarak sağlayın:
+SLES 12 SP1 HPC görüntüsü ile RDMA özellikli bir VM hello aşağıdaki gibi bir komutu çalıştırarak sağlayın:
 
     azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824
 
 Konumlar:
 
-* Boyutu (Bu örnekte A9) RDMA özelliğine sahip VM boyutları biridir.
-* Dış SSH bağlantı noktası numarası (Bu örnekte, SSH varsayılandır 22) tüm geçerli bağlantı noktası numarasıdır. İç SSH bağlantı noktası numarası 22 olarak ayarlanır.
-* Yeni bir bulut hizmeti konum tarafından belirtilen Azure bölgesinde oluşturulur. Seçtiğiniz VM boyutu kullanılabilir bir konum belirtin.
-* (Bu, ek ücret doğurur) SUSE öncelik desteği için SLES 12 SP1 görüntü adı şu anda bu iki seçenek biri olabilir: 
+* Merhaba boyutu (Bu örnekte A9) hello RDMA özelliğine sahip VM boyutları biridir.
+* Merhaba dış SSH bağlantı noktası numarası (Bu örnekte, hello SSH varsayılan olan 22) tüm geçerli bağlantı noktası numarasıdır. Merhaba iç SSH bağlantı noktası numarası too22 ayarlanır.
+* Yeni bir bulut hizmeti hello hello konumu tarafından belirtilen Azure bölgesi oluşturulur. Merhaba VM boyutu seçtiğiniz kullanılabilir bir konum belirtin.
+* (Bu, ek ücret doğurur) SUSE öncelik desteği için hello SLES 12 SP1 görüntü adı şu anda olabilir bu iki seçenekten birini: 
 
  `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824`
 
   `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-priority-v20160824`
 
 
-### <a name="customize-the-vm"></a>VM özelleştirme
-VM sağlama, VM'nin dış IP adresine (veya DNS adı) kullanarak VM SSH bitirip dış bağlantı noktası numarası yapılandırılmış ve ardından özelleştirin sonra. Bağlantı ayrıntıları için bkz: [Linux çalıştıran bir sanal makine için oturum açma](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Kök erişimi bir adımı tamamlamak için gerekli olmadıkça komutları VM üzerinde yapılandırılan kullanıcı olarak gerçekleştirin.
+### <a name="customize-hello-vm"></a>Merhaba VM özelleştirme
+Merhaba VM Sağlama tamamlandıktan sonra kullanarak SSH toohello VM VM'ın dış IP adresi (veya DNS adı) hello ve yapılandırılmış ve bu özelleştirme harici bağlantı noktası numarası hello. Bağlantı ayrıntıları için bkz: [nasıl toolog Linux çalıştıran tooa sanal makine üzerinde](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Gerekli toocomplete bir adım kök erişimi olmadığı sürece komutları hello VM üzerinde yapılandırılmış hello kullanıcı olarak gerçekleştirin.
 
 > [!IMPORTANT]
-> Microsoft Azure Linux VM'ler için kök erişimi sağlamaz. VM için bir kullanıcı olarak bağlanıldığında yönetimsel erişim kazanmak için komutları kullanarak çalıştırmak `sudo`.
+> Microsoft Azure tooLinux VM'ler kök erişimi sağlamaz. komutları kullanarak çalışacak bir kullanıcı toohello VM olarak bağlanıldığında toogain yönetimsel erişim `sudo`.
 >
 >
 
-* **Güncelleştirmeleri**: zypper kullanarak güncelleştirmeleri yükleyin. NFS utilities yüklemek isteyebilirsiniz.
+* **Güncelleştirmeleri**: zypper kullanarak güncelleştirmeleri yükleyin. Ayrıca tooinstall NFS yardımcı programları isteyebilirsiniz.
 
   > [!IMPORTANT]
-  > SLES 12 SP1 HPC VM ile sorunları sürücüleri ile Linux RDMA neden çekirdek güncelleştirmeleri uygulanmaz öneririz.
+  > SLES 12 SP1 HPC VM ile sürücüleri hello Linux RDMA ile sorunlara neden olabilir çekirdek güncelleştirmeleri uygulanmaz öneririz.
   >
   >
-* **Intel MPI**: Intel MPI SLES 12 SP1 HPC VM üzerinde aşağıdaki komutu çalıştırarak yüklemesini:
+* **Intel MPI**: hello aşağıdaki komutu çalıştırarak hello SLES 12 SP1 HPC VM Intel MPI hello yüklemesini tamamlayın:
 
         sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-* **Bellek kilitleme**: RDMA için kullanılabilir bellek kilitlenemedi için MPI kodları ekleyebilir veya /etc/security/limits.conf dosyasında aşağıdaki ayarları değiştirebilirsiniz. Bu dosyayı düzenlemek için kök erişimi gerekir.
+* **Bellek kilitleme**: MPI kodları toolock hello bellek RDMA için ekleme veya hello /etc/security/limits.conf dosyasındaki ayarları aşağıdaki hello değiştirin. Bu dosya kök erişimi tooedit gerekir.
 
     ```
     <User or group name> hard    memlock <memory required for your application in KB>
@@ -109,25 +109,25 @@ VM sağlama, VM'nin dış IP adresine (veya DNS adı) kullanarak VM SSH bitirip 
     ```
 
   > [!NOTE]
-  > Test amacıyla, ayrıca memlock sınırsız olarak ayarlayabilirsiniz. Örneğin: `<User or group name>    hard    memlock unlimited`. Daha fazla bilgi için bkz: [ayarı için bilinen en iyi yöntemleri kilitli bellek boyutu](https://software.intel.com/en-us/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size).
+  > Test amacıyla, memlock toounlimited de ayarlayabilirsiniz. Örneğin: `<User or group name>    hard    memlock unlimited`. Daha fazla bilgi için bkz: [ayarı için bilinen en iyi yöntemleri kilitli bellek boyutu](https://software.intel.com/en-us/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size).
   >
   >
-* **SLES VM'ler için SSH anahtarları**: SLES kullanıcı hesabınızın işlem düğümleri arasında güven oluşturmak SSH anahtarları küme MPI işlerini çalıştırırken. CentOS tabanlı HPC VM dağıttıysanız, bu adımı izlemeyin. Küme düğümleri arasında passwordless SSH güven görüntüsünü yakalamak ve küme dağıttıktan sonra ayarlama yönergeleri bu makalenin sonraki bölümlerinde bkz.
+* **SLES VM'ler için SSH anahtarları**: oluşturmak SSH anahtarları tooestablish güven hello arasında kullanıcı hesabınız için işlem hello SLES küme düğümünde MPI işlerini çalıştırırken. CentOS tabanlı HPC VM dağıttıysanız, bu adımı izlemeyin. Merhaba görüntüsünü yakalamak ve hello küme dağıttıktan sonra daha sonra bu makalede tooset hello küme düğümleri arasında passwordless SSH güveni yönergeleri bakın.
 
-    SSH anahtarları oluşturmak için aşağıdaki komutu çalıştırın. Giriş için istendiğinde seçin **Enter** parolayı belirtmeden varsayılan konumda anahtarları oluşturmak için.
+    toocreate SSH anahtarları, komutu aşağıdaki hello çalıştırın. Giriş için istendiğinde seçin **Enter** toogenerate hello anahtarları bir parola ayarlama olmadan hello varsayılan konumu.
 
         ssh-keygen
 
-    Authorized_keys dosya bilinen ortak anahtarları için ortak anahtarı ekleyin.
+    Bilinen ortak anahtarları için Hello ortak anahtar toohello authorized_keys dosyası ekleyin.
 
         cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
-    ~/.Ssh dizininde düzenleyin veya yapılandırma dosyası oluşturun. Azure (Bu örnekte 10.32.0.0/16) kullanmayı planlıyorsanız özel ağ IP adresi aralığı girin:
+    Merhaba ~/.ssh dizininde düzenleyin veya hello yapılandırma dosyası oluşturun. Başlangıç IP adresi aralığı hello özel ağ (Bu örnekte 10.32.0.0/16) azure'da toouse planlama sağlar:
 
         host 10.32.0.*
         StrictHostKeyChecking no
 
-    Alternatif olarak, her bir VM kümenizdeki özel ağ IP adresi gibi listesi:
+    Alternatif olarak, aşağıdaki gibi hello özel ağ IP adresi, kümedeki her bir VM listesi:
 
     ```
     host 10.32.0.1
@@ -142,16 +142,16 @@ VM sağlama, VM'nin dış IP adresine (veya DNS adı) kullanarak VM SSH bitirip 
   > Yapılandırma `StrictHostKeyChecking no` belirli IP adreslerini veya aralığını belirtilmediyse, bir güvenlik riski oluşturabilir.
   >
   >
-* **Uygulamaları**: gerekir ya da görüntüyü yakalamadan önce diğer özelleştirmeleri gerçekleştirin tüm uygulamaları yükleyin.
+* **Uygulamaları**: hello görüntüyü yakalamadan önce diğer özelleştirmeleri gerçekleştirin veya gerektiğini tüm uygulamaları yükleyin.
 
-### <a name="capture-the-image"></a>Yansıma Yakalama
-Görüntü yakalamak için önce Linux VM'de aşağıdaki komutu çalıştırın. Bu komut, VM deprovisions ancak kullanıcı hesapları ve ayarladığınız SSH anahtarları korur.
+### <a name="capture-hello-image"></a>Merhaba görüntü yakalama
+ilk komut hello Linux VM üzerinde aşağıdaki hello çalıştırma toocapture hello resim. Bu komut hello VM deprovisions ancak kullanıcı hesapları ve ayarladığınız SSH anahtarları korur.
 
 ```
 sudo waagent -deprovision
 ```
 
-İstemci bilgisayarınızdan görüntüsünü yakalamak için aşağıdaki Azure CLI komutları çalıştırın. Daha fazla bilgi için bkz: [klasik bir Linux sanal makinesini görüntü olarak yakalama](capture-image.md).  
+İstemci bilgisayarından, Azure CLI komutları toocapture hello görüntü aşağıdaki hello çalıştırın. Daha fazla bilgi için bkz: [nasıl toocapture klasik bir Linux sanal makinesini görüntü olarak](capture-image.md).  
 
 ```
 azure vm shutdown <vm-name>
@@ -160,24 +160,24 @@ azure vm capture -t <vm-name> <image-name>
 
 ```
 
-Bu komutları çalıştırdıktan sonra VM görüntüsü kullanımınız için yakalanır ve VM silinir. Şimdi bir küme dağıtmak için hazır özel görüntünüzü sahip.
+Bu komutları çalıştırdıktan sonra hello VM görüntüsü kullanımınız için yakalanır ve hello VM silinir. Şimdi bir küme, özel görüntü hazır toodeploy sahip.
 
-### <a name="deploy-a-cluster-with-the-image"></a>Görüntüsü olan bir kümeyi dağıtma
-Aşağıdaki Bash komut dosyası, ortamınız için uygun değerlerle değiştirin ve istemci bilgisayardan çalıştırın. Azure sanal makineleri Klasik dağıtım modelinde seri olarak dağıtır olduğundan, bu komut dosyasını önerilen sekiz A9 VM dağıtmak için birkaç dakika sürer.
+### <a name="deploy-a-cluster-with-hello-image"></a>Hello görüntüsü olan bir kümeyi dağıtma
+Ortamınız için uygun değerlerle Bash komut dosyası izleyen hello değiştirin ve istemci bilgisayardan çalıştırın. Azure hello VM'ler hello Klasik dağıtım modelinde seri olarak dağıtır çünkü toodeploy hello bu komut dosyasını önerilen sekiz A9 Vm'lerde birkaç dakika sürer.
 
 ```
 #!/bin/bash -x
-# Script to create a compute cluster without a scheduler in a VNet in Azure
+# Script toocreate a compute cluster without a scheduler in a VNet in Azure
 # Create a custom private network in Azure
 # Replace 10.32.0.0 with your virtual network address space
 # Replace <network-name> with your network identifier
-# Replace "West US" with an Azure region where the VM size is available
+# Replace "West US" with an Azure region where hello VM size is available
 # See Azure Pricing pages for prices and availability of compute-intensive VMs
 
 azure network vnet create -l "West US" -e 10.32.0.0 -i 16 <network-name>
 
-# Create a cloud service. All the compute-intensive instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
-# Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
+# Create a cloud service. All hello compute-intensive instances need toobe in hello same cloud service for Linux RDMA toowork across InfiniBand.
+# Note: hello current maximum number of VMs in a cloud service is 50. If you need tooprovision more than 50 VMs in hello same cloud service in your cluster, contact Azure Support.
 
 azure service create <cloud-service-name> --location "West US" –s <subscription-ID>
 
@@ -185,55 +185,55 @@ azure service create <cloud-service-name> --location "West US" –s <subscriptio
 
 vmname=cluster
 
-# Define a prefix for external port numbers. If you want to turn off external ports and use only internal ports to communicate between compute nodes via port 22, don’t use this option. Since port numbers up to 10000 are reserved, use numbers after 10000. Leave external port on for rank 0 and head node.
+# Define a prefix for external port numbers. If you want tooturn off external ports and use only internal ports toocommunicate between compute nodes via port 22, don’t use this option. Since port numbers up too10000 are reserved, use numbers after 10000. Leave external port on for rank 0 and head node.
 
 portnumber=101
 
-# In this cluster there will be 8 size A9 nodes, named cluster11 to cluster18. Specify your captured image in <image-name>. Specify the username and password you used when creating the SSH keys.
+# In this cluster there will be 8 size A9 nodes, named cluster11 toocluster18. Specify your captured image in <image-name>. Specify hello username and password you used when creating hello SSH keys.
 
 for (( i=11; i<19; i++ )); do
         azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
 done
 
-# Save this script with a name like makecluster.sh and run it in your shell environment to provision your cluster
+# Save this script with a name like makecluster.sh and run it in your shell environment tooprovision your cluster
 ```
 
 ## <a name="considerations-for-a-centos-hpc-cluster"></a>CentOS HPC Kümesi için ilgili önemli noktalar
-SLES 12 yerine Azure Marketi CentOS tabanlı HPC görüntülerden birini HPC için temel bir küme ayarlamak istiyorsanız, önceki bölümde genel adımları izleyin. Sağlama ve VM yapılandırdığınızda aşağıdaki farkları dikkat edin:
+Tooset birini hello Azure Marketi SLES 12 yerine hello CentOS tabanlı HPC görüntüleri için HPC temel alarak kümesi istiyorsanız, önceki bölümde hello hello genel adımları izleyin. Farkları sağlamak ve hello VM yapılandırdığınızda aşağıdaki hello dikkat edin:
 
 - Intel MPI CentOS tabanlı HPC görüntüden sağlanan bir VM üzerinde zaten yüklü.
-- Kilit bellek ayarları VM /etc/security/limits.conf dosyasında zaten eklendi.
-- Yakalama için SSH anahtarları sağlamanız VM'de oluşturmaz. Küme dağıttıktan sonra bunun yerine, kullanıcı tabanlı kimlik doğrulaması kurma öneririz. Daha fazla bilgi için aşağıdaki bölümüne bakın.  
+- Kilit bellek ayarları hello VM'in /etc/security/limits.conf dosyasında zaten eklendi.
+- Yakalama için SSH anahtarları hello sağlamanız VM üzerinde oluşturmaz. Merhaba küme dağıttıktan sonra bunun yerine, kullanıcı tabanlı kimlik doğrulaması kurma öneririz. Daha fazla bilgi için bölümden hello bakın.  
 
-### <a name="set-up-passwordless-ssh-trust-on-the-cluster"></a>Kümede passwordless SSH güven ayarlama
-CentOS tabanlı HPC küme üzerinde işlem düğümleri arasında güven kurulması için iki yöntem vardır: ana bilgisayar tabanlı kimlik doğrulama ve kullanıcı tabanlı kimlik doğrulaması. Ana bilgisayar tabanlı kimlik doğrulaması, bu makalenin kapsamı dışında ve genellikle bir uzantı komut dosyası dağıtımı sırasında yapılması gerekir. Kullanıcı tabanlı kimlik doğrulaması dağıtımdan sonra güven kurulması için uygundur ve oluşturma ve bilgi işlem düğümleri arasında SSH anahtarları kümede paylaşılmasını gerektirir. Bu yöntem genellikle passwordless SSH oturumu açma olarak bilinen ve MPI işlerini çalıştırma durumlarda gereklidir.
+### <a name="set-up-passwordless-ssh-trust-on-hello-cluster"></a>Merhaba kümede passwordless SSH güven ayarlama
+CentOS tabanlı HPC küme üzerinde hello işlem düğümleri arasında güven kurulması için iki yöntem vardır: ana bilgisayar tabanlı kimlik doğrulama ve kullanıcı tabanlı kimlik doğrulaması. Ana bilgisayar tabanlı kimlik doğrulaması bu makalenin kapsamı dışında hello ve genellikle dağıtımı sırasında bir uzantı komut dosyası yapılmalıdır. Kullanıcı tabanlı kimlik doğrulaması dağıtımdan sonra güven kurulması için uygundur ve işlem hello kümedeki düğümler hello oluşturma ve SSH anahtarları hello arasında paylaşılmasını gerektirir. Bu yöntem genellikle passwordless SSH oturumu açma olarak bilinen ve MPI işlerini çalıştırma durumlarda gereklidir.
 
-Topluluktan katkıda bulunan bir örnek komut dosyası edinilebilir [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) CentOS tabanlı HPC küme kolay kullanıcı kimlik doğrulamasını etkinleştirmek için. Karşıdan yükleyin ve aşağıdaki adımları kullanarak bu betiği kullanın. Ayrıca, bu komut dosyasını değiştirin veya küme bilgi işlem düğümleri arasında passwordless SSH kimlik doğrulaması kurmak için başka bir yöntemi kullanabilirsiniz.
+Merhaba topluluktan katkıda bulunan bir örnek komut dosyası edinilebilir [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) CentOS tabanlı HPC küme tooenable kolay kullanıcı kimlik doğrulaması. Karşıdan yükle ve hello aşağıdaki adımları kullanarak bu betiği kullanın. Ayrıca, bu komut dosyasını değiştirin veya herhangi diğer yöntemi tooestablish passwordless SSH kimlik doğrulaması hello küme işlem düğümleri arasında kullanabilirsiniz.
 
     wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
 
-Komut dosyasını çalıştırmak için alt ağ IP adresi için önek bilmeniz gerekir. Küme düğümlerinden biri üzerinde aşağıdaki komutu çalıştırarak öneki alın. Çıktı gibi 10.1.3.5 görünmelidir ve ön eki 10.1.3 bölümü.
+toorun hello betik tooknow hello öneki için alt ağ IP adresi gerekir. Merhaba önek hello hello küme düğümlerinden biri üzerinde aşağıdaki komutu çalıştırarak alın. Çıktı gibi 10.1.3.5 görünmelidir ve hello önek hello 10.1.3 bölümüdür.
 
     ifconfig eth0 | grep -w inet | awk '{print $2}'
 
-Artık üç parametrelerini kullanarak betiği çalıştırın: işlem düğümlerinde ortak kullanıcı adı, işlem düğümlerini ve önceki komutu döndürüldü alt ağ öneki sunucusundaki bu kullanıcı için sık kullanılan parola.
+Artık üç parametrelerini kullanarak hello komut dosyasını çalıştırın: hello hello ortak kullanıcı adına işlem düğümlerini, hello ortak parola hello bu kullanıcıya işlem düğümlerini ve hello alt ağ önek döndürüldü hello önceki komutu.
 
     ./user_authentication.sh <myusername> <mypassword> 10.1.3
 
-Bu betik şunları yapar:
+Bu komut dosyası izleyen hello:
 
-* .Ssh, passwordless oturum açma için gerekli olduğu adlı konak düğümde bir dizin oluşturur.
-* Kümedeki herhangi bir düğümden oturum açma izni passwordless oturum açma bildirir .ssh dizininde bir yapılandırma dosyası oluşturur.
-* Düğüm adı ve düğüm IP adresleri kümedeki tüm düğümler için içeren dosyaları oluşturur. Daha sonra başvurmak için komut dosyasını çalıştırdıktan sonra bu dosyaları bırakılır.
-* Her küme düğümü (ana bilgisayar düğümü dahil) için özel ve ortak anahtar çifti oluşturur ve girişleri authorized_keys dosyasında oluşturur.
+* Merhaba konak düğümde .ssh, passwordless oturum açma için gerekli olduğu adlı bir dizin oluşturur.
+* Merhaba kümedeki herhangi bir düğümden passwordless oturum açma tooallow oturum açma bildirir hello .ssh dizininde bir yapılandırma dosyası oluşturur.
+* Merhaba düğüm adı ve düğüm IP adresleri hello kümedeki tüm hello düğümler için içeren dosyaları oluşturur. Daha sonra başvurmak için Hello betiği çalıştırdıktan sonra bu dosyaları bırakılır.
+* (Merhaba ana bilgisayar düğümü dahil) her küme düğümü için özel ve ortak anahtar çifti oluşturur ve girişleri hello authorized_keys dosyasında oluşturur.
 
 > [!WARNING]
-> Bu komut dosyasını çalıştıran bir güvenlik riski oluşturabilir. Ortak anahtar bilgileri ~/.ssh içinde değil dağıtılmış emin olun.
+> Bu komut dosyasını çalıştıran bir güvenlik riski oluşturabilir. Ortak anahtar bilgileri ~/.ssh Hello değil dağıtılmış emin olun.
 >
 >
 
 ## <a name="configure-intel-mpi"></a>Intel MPI yapılandırın
-Azure Linux RDMA üzerinde MPI uygulamaları çalıştırmak için belirli bir ortam değişkenleri için Intel MPI belirli yapılandırmanız gerekir. Bir uygulamayı çalıştırmak için gereken değişkenleri yapılandırmak için bir Bash komut dosyası aşağıda verilmiştir. Yol için mpivars.sh Intel MPI yüklemeniz için gerektiği gibi değiştirin.
+Azure Linux RDMA toorun MPI uygulamaları, tooconfigure gereken belirli ortam değişkenleri belirli tooIntel MPI. Bir uygulama bir örnek komut dosyası tooconfigure Bash hello gerekli değişkenleri toorun aşağıdadır. Merhaba yolu toompivars.sh Intel MPI yüklemeniz için gerektiği gibi değiştirin.
 
 ```
 #!/bin/bash -x
@@ -249,7 +249,7 @@ source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 export I_MPI_FABRICS=shm:dapl
 
 # THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
-# Setting the variable to shm:dapl gives best performance for some applications
+# Setting hello variable tooshm:dapl gives best performance for some applications
 # If your application doesn’t take advantage of shared memory and MPI together, then set only dapl
 
 export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
@@ -260,14 +260,14 @@ export I_MPI_DYNAMIC_CONNECTION=0
 
 # THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
 
-# Command line to run the job
+# Command line toorun hello job
 
-mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path <path to the application exe> <arguments specific to the application>
+mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path <path toohello application exe> <arguments specific toohello application>
 
 #end
 ```
 
-Ana bilgisayar dosyası biçimi aşağıdaki gibidir. Kümedeki her düğüm için bir satır ekleyin. Sanal ağdan özel IP adresleri daha önce tanımlanan DNS adlarını belirtin. Örneğin, IP adresleriyle 10.32.0.1 ve 10.32.0.2 için iki ana dosyası şunları içerir:
+Merhaba ana bilgisayar dosyası Hello biçimi aşağıdaki gibidir. Kümedeki her düğüm için bir satır ekleyin. Hello sanal ağdan özel IP adresleri daha önce tanımlanan DNS adlarını belirtin. Örneğin, IP adresleriyle 10.32.0.1 ve 10.32.0.2 için iki ana hello dosya hello aşağıdakileri içerir:
 
 ```
 10.32.0.1:16
@@ -275,7 +275,7 @@ Ana bilgisayar dosyası biçimi aşağıdaki gibidir. Kümedeki her düğüm iç
 ```
 
 ## <a name="run-mpi-on-a-basic-two-node-cluster"></a>Temel iki düğümlü bir küme üzerinde MPI çalıştırın
-İlk zaten yapmadıysanız, Intel MPI ortamını ayarlama.
+İlk zaten yapmadıysanız, Intel MPI hello ortamını ayarlama.
 
 ```
 # For a SLES 12 SP1 HPC cluster
@@ -288,12 +288,12 @@ source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 ```
 
 ### <a name="run-an-mpi-command"></a>MPI komutunu çalıştırın
-MPI komutu MPI düzgün bir şekilde yüklendiğini ve arasındaki en az iki işlem düğümleri iletişim kurabilir göstermek için işlem düğümlerinden biri üzerinde çalıştırın. Aşağıdaki **mpirun** komutu çalıştırır **ana bilgisayar adı** iki düğüm üzerinde komutu.
+Bir MPI komutu MPI düzgün bir şekilde yüklendiğini ve iletişim kurabilir hello işlem düğümleri tooshow birinde en az iki işlem düğümleri arasında çalıştırın. Merhaba aşağıdaki **mpirun** komutu çalıştırır hello **ana bilgisayar adı** iki düğüm üzerinde komutu.
 
 ```
 mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
 ```
-Çıktı için giriş olarak geçirilen tüm düğümlerinin adlarını listelenmelidir `-hosts`. Örneğin, bir **mpirun** iki düğümü komut aşağıdaki gibi bir çıktı döndürür:
+Çıktı için giriş olarak geçirilen tüm hello düğümlerinin hello adlarını listelenmelidir `-hosts`. Örneğin, bir **mpirun** iki düğüm komutuyla hello aşağıdaki gibi bir çıktı döndürür:
 
 ```
 cluster11
@@ -301,13 +301,13 @@ cluster12
 ```
 
 ### <a name="run-an-mpi-benchmark"></a>MPI Kıyaslama çalıştırması
-Küme yapılandırmasını ve RDMA ağ bağlantısını doğrulamak için pingpong Kıyaslama aşağıdaki Intel MPI komutu çalıştırır.
+Intel MPI komutu aşağıdaki hello pingpong Kıyaslama tooverify hello küme yapılandırması ve bağlantı toohello RDMA ağ çalışır.
 
 ```
 mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
-İki düğümle bir çalışma kümesinde aşağıdaki gibi bir çıktı görmeniz gerekir. Azure RDMA ağ üzerinde gecikme düzeyinde veya altında 3 mikrosaniye ileti için en çok 512 bayt boyutları bekler.
+İki düğümle bir çalışma kümesinde hello aşağıdaki gibi bir çıktı görmeniz gerekir. Hello Azure RDMA ağ üzerinde gecikme düzeyinde veya altında 3 mikrosaniye too512 bayt ileti boyutları için bekler.
 
 ```
 #------------------------------------------------------------
@@ -321,11 +321,11 @@ mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAP
 # MPI Version           : 3.0
 # MPI Thread Environment:
 # New default behavior from Version 3.2 on:
-# the number of iterations per message size is cut down
+# hello number of iterations per message size is cut down
 # dynamically when a certain run time (per message size sample)
-# is expected to be exceeded. Time limit is defined by variable
+# is expected toobe exceeded. Time limit is defined by variable
 # "SECS_PER_SAMPLE" (=> IMB_settings.h)
-# or through the flag => -time
+# or through hello flag => -time
 
 # Calling sequence was:
 # /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
@@ -337,7 +337,7 @@ mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAP
 # MPI_Op                         :   MPI_SUM
 #
 #
-# List of Benchmarks to run:
+# List of Benchmarks toorun:
 # PingPong
 #---------------------------------------------------
 # Benchmarking PingPong
@@ -377,5 +377,5 @@ mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAP
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Dağıtın ve Linux MPI uygulamaları Linux kümenizde çalıştırın.
-* Bkz: [Intel MPI kitaplığı belgeleri](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) Intel MPI hakkında yönergeler için.
-* Deneyin bir [hızlı başlatma şablonunu](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) CentOS tabanlı HPC görüntüsünü kullanarak bir Intel Lustre küme oluşturmak için. Ayrıntılar için bkz [dağıtma Intel bulut Edition için Microsoft Azure üzerinde Lustre](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).
+* Merhaba bkz [Intel MPI kitaplığı belgeleri](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) Intel MPI hakkında yönergeler için.
+* Deneyin bir [hızlı başlatma şablonunu](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) toocreate bir Intel Lustre küme CentOS tabanlı HPC görüntüsünü kullanarak. Ayrıntılar için bkz [dağıtma Intel bulut Edition için Microsoft Azure üzerinde Lustre](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).

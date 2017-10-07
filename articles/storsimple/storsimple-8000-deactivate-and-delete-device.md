@@ -1,6 +1,6 @@
 ---
-title: "Devre dışı bırakın ve bir StorSimple 8000 serisi aygıtı silme | Microsoft Docs"
-description: "StorSimple cihazı hizmetinden önce devre dışı bırakma ve silme kaldırmayı açıklar."
+title: "aaaDeactivate ve StorSimple 8000 serisi aygıtı silme | Microsoft Docs"
+description: "Açıklar nasıl tooremove StorSimple cihazı hizmetinden önce devre dışı bırakma ve silme."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 3c00867a29cf8343a57e74e2aabe3971ae6837af
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 841ecd7f0fb5e425bf23e1fe0044faeab2af4b53
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Devre dışı bırakın ve bir StorSimple cihazı Sil
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu makalede, devre dışı bırakın ve bir StorSimple cihaz Yöneticisi hizmetine bağlı bir StorSimple cihazı silmek açıklar. Bu makalede yer alan yönergeleri StorSimple bulut cihazları dahil olmak üzere yalnızca StorSimple 8000 serisi cihazlar için geçerlidir. Bir StorSimple sanal dizisi kullanıyorsanız, geçin [devre dışı bırakma ve silme StorSimple sanal dizinin](storsimple-virtual-array-deactivate-and-delete-device.md).
+Bu makalede nasıl toodeactivate ve bağlı tooa StorSimple cihaz Yöneticisi hizmeti bir StorSimple cihaz silin. Bu makalede Hello yönerge hello StorSimple bulut cihazları dahil olmak üzere tooStorSimple 8000 serisi cihazlar geçerlidir. Bir StorSimple sanal dizisi kullanıyorsanız, çok Git[devre dışı bırakma ve silme StorSimple sanal dizinin](storsimple-virtual-array-deactivate-and-delete-device.md).
 
-Cihaz ve karşılık gelen StorSimple cihaz Yöneticisi hizmeti arasındaki bağlantı devre dışı bırakma sunucularının. Hizmet dışına StorSimple cihazı (örneğin, değiştirme veya Cihazınızı yükseltmek veya StorSimple artık kullanıyorsanız) almak isteyebilirsiniz. Öyleyse, silebilmek için önce cihazın devre dışı bırakılması gerekir.
+Devre dışı bırakma hello aygıt hello karşılık gelen StorSimple cihaz Yöneticisi hizmeti arasında hello bağlantı sunucularının. (Örneğin, değiştirme veya Cihazınızı yükseltmek veya StorSimple artık kullanıyorsanız) hizmet dışına StorSimple cihazını tootake isteyebilir. Silebilmek için önce bu durumda, toodeactivate hello aygıt gerekir.
 
-Bir aygıtı devre dışı bıraktığınızda, cihazda yerel olarak depolanan tüm verileri artık erişilebilir değil. Yalnızca bulutta depolanan cihaz ile ilişkili verileri kurtarılabilir.
+Bir aygıtı devre dışı bıraktığınızda, hello cihazda yerel olarak depolanan tüm verileri artık erişilebilir değil. Yalnızca hello bulutta depolanan hello cihaz ile ilişkili hello verileri kurtarılabilir.
 
 > [!WARNING]
-> Devre dışı bırakma kalıcı bir işlemdir ve geri alınamaz. Fabrika ayarlarına sıfırlama sürece devre dışı bırakılan bir cihaz StorSimple cihaz Yöneticisi hizmeti ile kaydedilemedi.
+> Devre dışı bırakma kalıcı bir işlemdir ve geri alınamaz. Toofactory varsayılana değilse devre dışı bırakılan bir cihaz StorSimple cihaz Yöneticisi hizmeti hello ile kaydedilemedi.
 >
-> İşlem siler, cihazda yerel olarak depolanan tüm verileri fabrika ayarlarına sıfırlayamaz. Bu nedenle, bir aygıtı devre dışı bırakmadan önce tüm verilerinizi bir bulut anlık görüntüsünü gerekir. Bu bulut anlık görüntüsü, daha sonraki bir aşamada tüm verileri kurtarmanıza olanak tanır.
+> Merhaba Fabrika işlem siler, cihazda yerel olarak depolanan tüm hello veri sıfırlayın. Bu nedenle, bir aygıtı devre dışı bırakmadan önce tüm verilerinizi bir bulut anlık görüntüsünü gerekir. Bu bulut anlık görüntüsü toorecover sağlayan tüm verileri daha sonraki bir aşamada hello.
 
 Bu öğretici okuduktan sonra aşağıdakileri gerçekleştirebilirsiniz:
 
-* Bir cihazı devre dışı bırakmak ve verileri silebilirsiniz.
-* Bir aygıtı devre dışı bırakın ve verileri korur.
+* Bir cihazı devre dışı bırakmak ve hello veri silin.
+* Bir aygıtı devre dışı bırakın ve hello verileri korur.
 
 > [!NOTE]
 > Bir StorSimple fiziksel cihazı veya Bulut uygulaması devre dışı bırakmadan önce durdurmak veya istemciler ve bu cihazda bağımlı konakları silin.
@@ -46,78 +46,78 @@ Bu öğretici okuduktan sonra aşağıdakileri gerçekleştirebilirsiniz:
 
 ## <a name="deactivate-and-delete-data"></a>Devre dışı bırakın ve verileri silme
 
-Cihaz tamamen silme ilgilendiğiniz ve cihazdaki verilerin korumak istemiyorsanız, aşağıdaki adımları tamamlayın.
+Merhaba aygıt tamamen silme ilgilendiğiniz ve tooretain hello verilerinin hello aygıtta istiyor musunuz, hello aşağıdaki adımları tamamlayın.
 
-#### <a name="to-deactivate-the-device-and-delete-the-data"></a>Aygıt devre dışı bırak ve veri silmek için
+#### <a name="toodeactivate-hello-device-and-delete-hello-data"></a>toodeactivate hello cihaz ve delete hello veri
 
-1. Bir aygıtı devre dışı bırakmadan önce tüm birim silmeniz gerekir aygıtla ilişkili kapsayıcıları (ve birimleri). Birim kapsayıcıları, ilişkili yedeklemelerinizi yalnızca sildikten sonra silebilirsiniz.
+1. Bir aygıtı devre dışı bırakmadan önce tüm hello birim kapsayıcıları (ve hello birimleri) hello aygıtla ilişkilendirilen silmeniz gerekir. Yalnızca ilişkili hello yedeklemeleri sildikten sonra birim kapsayıcıları silebilirsiniz.
 
     > [!NOTE]
-    > Bir StorSimple fiziksel cihazı veya Bulut uygulaması devre dışı bırakmadan önce silinen birim kapsayıcısı verileri gerçekten aygıttan silindiğinden emin olun. Bulut tüketim grafikleri izleyebilirsiniz ve sildiğiniz yedeklemeleri nedeniyle bırakma bulut kullanımı gördüğünüzde, daha sonra aygıt devre dışı bırakmak için geçebilirsiniz. Bu açılan oluşmadan önce aygıt devre dışı bırakırsanız, veri depolama hesabında stranded ve ücretler tahakkuk.
+    > Bir StorSimple fiziksel cihazı veya Bulut uygulaması devre dışı bırakmadan önce silinmiş hello birim kapsayıcısı hello verileri gerçekten hello aygıttan silindiğinden emin olun. Merhaba bulut tüketim grafikleri izleyebilirsiniz ve ardından hello bulut kullanımı nedeniyle sildiğiniz hello yedeklemeleri bırakma gördüğünüzde, toodeactivate hello aygıt geçebilirsiniz. Önce hello aygıt devre dışı bırakırsanız bu açılan oluşur, veri hello depolama hesabında stranded ve ücretler tahakkuk hello.
 
-2. Cihaz şu şekilde devre dışı bırakın:
+2. Merhaba cihaz aşağıdaki gibi devre dışı bırakın:
    
-   1. StorSimple Cihaz Yöneticisi hizmetinize gidin ve **Cihazlar**’a tıklayın. İçinde **aygıtları** dikey penceresinde, devre dışı bırakmak istediğiniz cihazı seçin sağ tıklatın ve ardından **etkinliğini**.
+   1. Tooyour StorSimple cihaz Yöneticisi hizmeti gidin ve tıklayın **aygıtları**. Merhaba, **aygıtları** dikey penceresinde, toodeactivate, sağ tıklatın ve ardından istediğiniz select hello cihaz **etkinliğini**.
 
         ![StorSimple cihazı devre dışı bırakma](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
-   2. İçinde **etkinliğini** dikey penceresinde, onaylamak için aygıt adı yazın ve ardından **etkinliğini**. Devre dışı bırakma işlemi başlatılır ve tamamlanması birkaç dakika sürer.
+   2. Merhaba, **etkinliğini** dikey penceresinde hello aygıt adı tooconfirm yazın ve ardından **etkinliğini**. Merhaba işlemi başlar devre dışı bırakın ve birkaç dakika toocomplete alır.
 
         ![StorSimple cihazı devre dışı bırakma](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 
-3. Devre dışı bırakma sonra cihaz tamamen silebilirsiniz. Bir cihazı silme hizmete bağlı aygıtlar listesinden kaldırır. Hizmeti, silinen cihaz artık yönetebilirsiniz. Cihazı silmek için aşağıdaki adımları kullanın:
+3. Devre dışı bırakma sonra hello aygıt tamamen silebilirsiniz. Bir cihazı silme hello aygıtları bağlı toohello hizmet listesinden kaldırır. Merhaba hizmeti artık silinen hello aygıt yönetebilirsiniz. Aşağıdaki adımları toodelete hello aygıt hello kullan:
    
-   1. StorSimple Cihaz Yöneticisi hizmetinize gidin ve **Cihazlar**’a tıklayın. İçinde **aygıtları** dikey penceresinde, silmek istediğiniz devre dışı bırakılan cihazı seçin sağ tıklatın ve ardından **silmek**.
+   1. Tooyour StorSimple cihaz Yöneticisi hizmeti gidin ve tıklayın **aygıtları**. Merhaba, **aygıtları** dikey penceresinde, toodelete, sağ tıklatın ve ardından istediğiniz etkinliği seçin hello cihaz **silmek**.
 
         ![StorSimple cihazı devre dışı bırakma](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
-   2. İçinde **silmek** dikey penceresinde, onaylamak için aygıt adı yazın ve ardından **silmek**. Silme işlemini tamamlamak için birkaç dakika sürer.
+   2. Merhaba, **silmek** dikey penceresinde hello aygıt adı tooconfirm yazın ve ardından **silmek**. Merhaba silme işlemi birkaç dakika toocomplete alır.
 
         ![StorSimple cihazı devre dışı bırakma](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
-   3. Silme işlemi başarıyla tamamlandıktan sonra size bildirilir. Aygıt listesi ayrıca silme yansıtacak şekilde güncelleştirir.
+   3. Merhaba silme işlemi başarıyla tamamlandıktan sonra size bildirilir. Merhaba aygıt listesini tooreflect hello silme de güncelleştirir.
 
 ## <a name="deactivate-and-retain-data"></a>Devre dışı bırakın ve verileri tut
 
-Cihaz silme ilginizi çekiyor mu, ancak verileri korumak istiyorsanız, aşağıdaki adımları tamamlayın:
+Merhaba cihaz silme ilginizi çekiyor mu ancak tooretain hello veri istiyorsanız hello aşağıdaki adımları tamamlayın:
 
-#### <a name="to-deactivate-a-device-and-retain-the-data"></a>Bir cihazı devre dışı bırakmak ve verileri korumak için
-1. Aygıt devre dışı bırakın. Tüm birim kapsayıcıları ve cihaz anlık görüntüleri olarak kalır.
+#### <a name="toodeactivate-a-device-and-retain-hello-data"></a>bir aygıt toodeactivate ve hello verileri tut
+1. Merhaba aygıt devre dışı bırakın. Tüm birim kapsayıcıları hello ve hello aygıt hello anlık görüntüleri korunur.
    
-   1. StorSimple Cihaz Yöneticisi hizmetinize gidin ve **Cihazlar**’a tıklayın. İçinde **aygıtları** dikey penceresinde, devre dışı bırakmak istediğiniz cihazı seçin sağ tıklatın ve ardından **etkinliğini**.
+   1. Tooyour StorSimple cihaz Yöneticisi hizmeti gidin ve tıklayın **aygıtları**. Merhaba, **aygıtları** dikey penceresinde, toodeactivate, sağ tıklatın ve ardından istediğiniz select hello cihaz **etkinliğini**.
 
          ![StorSimple cihazı devre dışı bırakma](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
-   2. İçinde **etkinliğini** dikey penceresinde, onaylamak için aygıt adı yazın ve ardından **etkinliğini**. Devre dışı bırakma işlemi başlatılır ve tamamlanması birkaç dakika sürer.
+   2. Merhaba, **etkinliğini** dikey penceresinde hello aygıt adı tooconfirm yazın ve ardından **etkinliğini**. Merhaba işlemi başlar devre dışı bırakın ve birkaç dakika toocomplete alır.
 
          ![StorSimple cihazı devre dışı bırakma](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
-2. Şimdi birim kapsayıcıları ve ilişkili anlık görüntüleri üzerinden başarısız olabilir. Yordamlar için Git [StorSimple cihazınız için yük devretme ve olağanüstü durum kurtarma](storsimple-8000-device-failover-disaster-recovery.md).
-3. Devre dışı bırakma ve yük devretme aygıtı tamamen silebilirsiniz. Bir cihazı silme hizmete bağlı aygıtlar listesinden kaldırır. Hizmeti, silinen cihaz artık yönetebilirsiniz. Cihazı silmek için aşağıdaki adımları tamamlayın:
+2. Şimdi hello birim kapsayıcıları ve ilişkili hello anlık görüntüleri başarısız olabilir. Yordamlar için çok Git[StorSimple cihazınız için yük devretme ve olağanüstü durum kurtarma](storsimple-8000-device-failover-disaster-recovery.md).
+3. Devre dışı bırakma ve yük devretme hello aygıt tamamen silebilirsiniz. Bir cihazı silme hello aygıtları bağlı toohello hizmet listesinden kaldırır. Merhaba hizmeti artık silinen hello aygıt yönetebilirsiniz. toodelete hello aygıt, aşağıdaki adımları tam hello:
    
-   1. StorSimple Cihaz Yöneticisi hizmetinize gidin ve **Cihazlar**’a tıklayın. İçinde **aygıtları** dikey penceresinde, silmek istediğiniz devre dışı bırakılan cihazı seçin sağ tıklatın ve ardından **silmek**.
+   1. Tooyour StorSimple cihaz Yöneticisi hizmeti gidin ve tıklayın **aygıtları**. Merhaba, **aygıtları** dikey penceresinde, toodelete, sağ tıklatın ve ardından istediğiniz etkinliği seçin hello cihaz **silmek**.
 
        ![StorSimple cihazı devre dışı bırakma](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
-   2. İçinde **silmek** dikey penceresinde, onaylamak için aygıt adı yazın ve ardından **silmek**. Silme işlemini tamamlamak için birkaç dakika sürer.
+   2. Merhaba, **silmek** dikey penceresinde hello aygıt adı tooconfirm yazın ve ardından **silmek**. Merhaba silme işlemi birkaç dakika toocomplete alır.
 
        ![StorSimple cihazı devre dışı bırakma](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
-   3. Silme işlemi başarıyla tamamlandıktan sonra size bildirilir. Aygıt listesi ayrıca silme yansıtacak şekilde güncelleştirir.
+   3. Merhaba silme işlemi başarıyla tamamlandıktan sonra size bildirilir. Merhaba aygıt listesini tooreflect hello silme de güncelleştirir.
 
      
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>Devre dışı bırakın ve bir bulut uygulaması Sil
 
-Bir StorSimple bulut uygulaması için devre dışı bırakma portalından kaldırır ve sanal makine ve hazırlandığında oluşturulan kaynakları siler. Bulut gereci devre dışı bırakıldıktan sonra, önceki durumuna geri yüklenemez.
+Bir StorSimple bulut uygulaması için devre dışı bırakma hello portalından kaldırır ve hello sanal makine ve hazırlandığında oluşturulan hello kaynakları siler. Merhaba bulut uygulaması devre dışı bırakıldıktan sonra olamaz tooits önceki durumuna geri.
 
 ![StorSimple bulut uygulaması devre dışı bırakma](./media/storsimple-8000-deactivate-and-delete-device/deactivate7.png)
 
-Aşağıdaki eylemleri sonuçlarında devre dışı bırakma:
+Aşağıdaki eylemler hello sonuçlarında devre dışı bırakma:
 
-* StorSimple bulut uygulaması hizmetten kaldırılır.
-* StorSimple bulut uygulaması için sanal makine silinir.
-* İşletim sistemi diski ve StorSimple bulut uygulaması için oluşturulan veri diskleri kaldırılır.
-* Barındırılan hizmet ve sağlama işlemi sırasında oluşturulan sanal ağ korunur. Bu varlıklar kullanmıyorsanız, bunları el ile silmeniz gerekir.
-* StorSimple bulut uygulaması tarafından oluşturulan bulut anlık görüntüleri korunur.
+* Merhaba StorSimple bulut uygulaması hello hizmetinden kaldırılır.
+* Merhaba StorSimple bulut uygulaması için Hello sanal makine silinir.
+* Merhaba işletim sistemi diski ve StorSimple bulut uygulaması hello için oluşturulan veri diskleri kaldırılır.
+* Merhaba barındırılan hizmet ve sağlama işlemi sırasında oluşturulan sanal ağ korunur. Bu varlıklar kullanmıyorsanız, bunları el ile silmeniz gerekir.
+* Merhaba StorSimple bulut uygulaması tarafından oluşturulan bulut anlık görüntüleri korunur.
 
-Bulut uygulaması devre dışı bırakıldıktan sonra aygıt listesinden silebilirsiniz. Devre dışı bırakılmış aygıt, sağ tıklatın ve ardından seçin **silmek**. StorSimple, cihaz silindikten sonra ve aygıtları güncelleştirmelerinin listesini bildirir.
+Merhaba bulut uygulaması devre dışı bırakıldıktan sonra cihazların Merhaba listesinden silebilirsiniz. Select hello aygıt, sağ tıklatın ve ardından devre dışı **silmek**. Merhaba cihaz silinir ve aygıtları güncelleştirmelerinin listesini hello sonra StorSimple size bildirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Devre dışı bırakılan cihazı fabrika varsayılan ayarlarına geri yüklemek için şu adrese gidin [cihazı fabrika varsayılan ayarlarına sıfırlama](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+* toorestore Merhaba devre dışı bırakılan cihaz toofactory Varsayılanları, çok Git[hello aygıt toofactory varsayılan ayarlara](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Teknik destek için [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).
-* StorSimple cihaz Yöneticisi hizmetini kullanma hakkında daha fazla bilgi için şuraya gidin [StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-8000-manager-service-administration.md).
+* toolearn toouse hello StorSimple cihaz Yöneticisi hizmeti, Git çok nasıl hakkında daha fazla bilgi[kullanım StorSimple Cihazınızı StorSimple cihaz Yöneticisi hizmeti tooadminister hello](storsimple-8000-manager-service-administration.md).
 

@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme Cerner orta ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Cerner Orta arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Cerner Orta arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,102 +13,102 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 77b5fb94cdfa5722081198aabc59fbf86229c2b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3493d180e8f229b7cd228769f780f10208114889
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Öğretici: Azure Active Directory Tümleştirme ile Cerner Orta
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Cerner Orta tümleştirmek öğrenin.
+Bu öğreticide, bilgi nasıl toointegrate Cerner Orta Azure Active Directory'ye (Azure AD).
 
-Cerner Orta Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Cerner Orta Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
 
-- Cerner Orta erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak Cerner Merkezi (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Erişim tooCerner Orta olan Azure AD'de kontrol edebilirsiniz
+- Kullanıcıların tooautomatically get açan tooCerner Orta (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure AD tümleştirme Cerner orta ile yapılandırmak için aşağıdaki öğeleri gerekir:
+tooconfigure Cerner orta ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
 
 - Bir Azure AD aboneliği
 - Onaylanan bir Cerner Merkezi sistem hesabı
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden Cerner Orta ekleme
+1. Merhaba Galerisi'nden Cerner Orta ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-cerner-central-from-the-gallery"></a>Galeriden Cerner Orta ekleme
-Azure AD Cerner Orta tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Cerner Orta eklemeniz gerekir.
+## <a name="adding-cerner-central-from-hello-gallery"></a>Merhaba Galerisi'nden Cerner Orta ekleme
+Azure AD'ye tooconfigure hello tümleştirme Cerner Orta, tooadd Cerner Orta hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
 
-**Galeriden Cerner Orta eklemek için aşağıdaki adımları gerçekleştirin:**
+**tooadd Cerner Orta hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** düğmesi iletişim kutusunun en üstünde.
+3. tooadd yeni uygulama tıklatın **yeni uygulama** düğmesi hello iletişim üstünde.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Cerner orta**.
+4. Merhaba arama kutusuna yazın **Cerner orta**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_search.png)
 
-5. Sonuçlar panelinde seçin **Cerner orta**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Merhaba Sonuçlar panelinde seçin **Cerner orta**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırmanız ve Cerner orta ile Azure AD çoklu oturum açmayı test "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı
 
-Tekli çalışmaya oturum için Azure AD Cerner Orta karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Cerner Orta ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek toowork'ın oturum açma hangi hello karşılık gelen Cerner Orta tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Cerner Orta hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma Cerner orta ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+tooconfigure ve Cerner orta ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Cerner Orta test kullanıcısı oluşturma](#creating-a-cerner-central-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Cerner Orta sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
+3. **[Cerner Orta test kullanıcısı oluşturma](#creating-a-cerner-central-test-user)**  -toohave Britta Simon hello kullanıcı bağlantılı toohello Azure AD gösterimidir Cerner Orta, karşılık gelen.
+4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Cerner Orta uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Cerner Orta uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma Cerner orta ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**tooconfigure Azure AD çoklu oturum açma Cerner orta ile Merhaba aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Cerner orta** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Hello hello üzerinde Azure portal'ın **Cerner orta** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_samlbase.png)
 
-3. Üzerinde **Cerner merkezi etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **Cerner merkezi etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, aşağıdaki desenleri kullanarak değeri yazın:
+    a. Merhaba, **tanımlayıcısı** metin kutusuna, desenler izleyen hello kullanarak türü başlangıç değeri:
     
     | |
     |--|
@@ -118,7 +118,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | `https://sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
 
-    b. İçinde **yanıt URL'si** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın: 
+    b. Merhaba, **yanıt URL'si** metin kutusuna, türü aşağıdaki hello kullanarak bir URL düzenleri: 
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
@@ -128,90 +128,90 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | `https://<subdomain>.sandboxcernercentral.com/<instancename>` |
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [Cerner Orta destek ekibi](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) bu değerleri almak için.
+    > Bu değerler hello gerçek değildir. Bu değerleri hello gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [Cerner Orta destek ekibi](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) tooget bu değerleri.
  
 4. Tıklatın **kaydetmek** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
 
-5. Oluşturulacak **meta veri** url, aşağıdaki adımları gerçekleştirin:
+5. toogenerate hello **meta veri** url hello aşağıdaki adımları gerçekleştirin:
 
     a. Tıklatın **uygulama kayıtlar**.
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_appregistrations.png)
    
-    b. Tıklatın **uç noktaları** açmak için **uç noktaları** iletişim kutusu.  
+    b. Tıklatın **uç noktaları** tooopen **uç noktaları** iletişim kutusu.  
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpointicon.png)
 
-    c. Kopyalamak için Kopyala düğmesini tıklatın **FEDERASYON meta veri belgesi** URL'yi kopyalayıp Not Defteri'ne yapıştırın.
+    c. Merhaba Kopyala düğmesine toocopy tıklatın **FEDERASYON meta veri belgesi** URL'yi kopyalayıp Not Defteri'ne yapıştırın.
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpoint.png)
      
-    d. Şimdi özellik sayfasına gidin **Cerner orta** ve kopyalama **uygulama kimliği** kullanarak **kopyalama** düğmesine tıklayın ve Not Defteri'ne yapıştırın.
+    d. Şimdi toohello özellik sayfasında gidin **Cerner orta** ve kopyalama hello **uygulama kimliği** kullanarak **kopyalama** düğmesine tıklayın ve Not Defteri'ne yapıştırın.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_appid.png)
 
-    e. Oluştur **meta veri URL'sini** şu biçimi kullanarak:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+    e. Merhaba oluşturmak **meta veri URL'sini** desen aşağıdaki hello kullanarak:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-6. Çoklu oturum açma yapılandırmak için **Cerner orta** yan, ihtiyacınız göndermek **meta veri URL'sini** için [Cerner Orta Destek](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Tümleştirme tamamlamak için uygulama tarafında SSO yapılandırırlar.
+6. tooconfigure çoklu oturum açma üzerinde **Cerner orta** yan, gereksinim duyduğunuz toosend hello **meta veri URL'sini** çok[Cerner Orta Destek](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Uygulama yan toocomplete hello tümleştirme'hello SSO yapılandırırlar.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır. 
+Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur. 
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-cernercentral-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-cernercentral-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle**.
+3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle**.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-cernercentral-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-cernercentral-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** Britta Simon biri.
+    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** Britta Simon biri.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-cerner-central-test-user"></a>Cerner Orta test kullanıcısı oluşturma
 
-**Cerner orta** uygulama tüm Federal Kimlik sağlayıcısından kimlik doğrulamasına izin verir. Bir kullanıcı uygulama giriş sayfası oturum açamaz ise, Federasyon ve herhangi bir el ile sağlama gerek vardır.
+**Cerner orta** uygulama tüm Federal Kimlik sağlayıcısından kimlik doğrulamasına izin verir. Bir kullanıcı toohello uygulama giriş sayfasındaki mümkün toolog ise, Federasyon ve herhangi bir el ile sağlama için gerekli olan.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
 
-Bu bölümde, Britta Cerner Merkezi erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, erişim tooCerner Orta vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**Cerner Orta Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**tooassign Britta Simon tooCerner Orta, hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **Cerner orta**.
+2. Merhaba uygulamalar listesinde **Cerner orta**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -219,7 +219,7 @@ Bu bölümde, Britta Cerner Merkezi erişim vererek, Azure çoklu oturum açma k
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -227,13 +227,13 @@ Bu bölümde, Britta Cerner Merkezi erişim vererek, Azure çoklu oturum açma k
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Cerner Orta parçasında tıklattığınızda, otomatik olarak Cerner Orta uygulamanıza açan. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
+Cerner Orta döşeme hello erişim paneli hello tıkladığınızda, otomatik olarak oturum açma Cerner yönetim uygulaması tooyour almanız gerekir. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

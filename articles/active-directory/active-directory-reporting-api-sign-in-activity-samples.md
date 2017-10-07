@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory oturum açma etkinliği raporu API örnekleri | Microsoft Docs"
-description: "Azure Active Directory raporlama API'sini kullanmaya başlama"
+title: "aaaAzure Active Directory oturum açma etkinliği raporu API örnekleri | Microsoft Docs"
+description: "Tooget hello Azure Active Directory raporlama API'si ile çalışmaya nasıl"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,28 +15,28 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7fc2b59fe37ed2ffe85925c457300ef8fd83c3c7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d4fbbea95fe0b52828673b997681ae37481e21bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Azure Active Directory oturum açma etkinliği raporu API örnekleri
-Bu konuda, Azure Active Directory hakkındaki konuları API raporlama koleksiyonu bir parçasıdır.  
-Azure AD raporlama kodu veya ilgili araçları kullanarak oturum açma etkinliği veri erişmenizi sağlayan bir API ile sağlar.  
-Örnek kod için ile sağlamak için bu konunun kapsamı olan **etkinlik API oturum aç**.
+Bu konu hello Azure Active Directory ilgili konulara koleksiyonu parçasıdır raporlama API'si.  
+Azure AD raporlama kodu veya ilgili araçları kullanarak tooaccess oturum açma etkinliği veri sağlayan bir API ile sağlar.  
+Merhaba bu konunun kapsamı olan, örnek kod Merhaba tooprovide **etkinlik API oturum aç**.
 
 Bkz.:
 
 * [Denetim günlükleri](active-directory-reporting-azure-portal.md#activity-reports) daha fazla kavramsal bilgi için
-* [Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md) raporlama API'si hakkında daha fazla bilgi için.
+* [Hello Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md) hello raporlama API'si hakkında daha fazla bilgi.
 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu konudaki örnekler kullanmadan önce tamamlanması gereken [Azure AD raporlama API'si erişmek için Önkoşullar](active-directory-reporting-api-prerequisites.md).  
+Bu konudaki hello örnekleri kullanabilmeniz için önce toocomplete hello gerekir [Önkoşullar tooaccess hello Azure AD raporlama API'si](active-directory-reporting-api-prerequisites.md).  
 
 ## <a name="powershell-script"></a>PowerShell betiği
-    # This script will require the Web Application and permissions setup in Azure Active Directory
+    # This script will require hello Web Application and permissions setup in Azure Active Directory
     $ClientID       = "<clientId>"             # Should be a ~35 character string insert your info here
     $ClientSecret   = "<clientSecret>"         # Should be a ~44 character string insert your info here
     $loginURL       = "https://login.microsoftonline.com/"
@@ -63,7 +63,7 @@ Bu konudaki örnekler kullanmadan önce tamamlanması gereken [Azure AD raporlam
     Do{
         Write-Output "Fetching data using Uri: $url"
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
-        Write-Output "Save the output to a file SigninActivities$i.json"
+        Write-Output "Save hello output tooa file SigninActivities$i.json"
         Write-Output "---------------------------------------------"
         $myReport.Content | Out-File -FilePath SigninActivities$i.json -Force
         $url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'
@@ -78,13 +78,13 @@ Bu konudaki örnekler kullanmadan önce tamamlanması gereken [Azure AD raporlam
 
 
 
-## <a name="executing-the-script"></a>Komut dosyası yürütme
-Komut dosyası düzenlemeyi tamamladıktan sonra çalıştırın ve denetim beklenen verilerden rapor günlüklerini doğrulayın döndürülür.
+## <a name="executing-hello-script"></a>Merhaba komut dosyası yürütme
+Sonra hello betik düzenlenmesini tamamlamayı, çalıştırın ve bu hello hello denetim günlüklerini rapor verileri döndürülen beklenen doğrulayın.
 
-Komut çıktısı raporundan oturum açma JSON biçiminde döndürür. Ayrıca oluşturur bir `SigninActivities.json` aynı çıkış dosyası. Veri diğer raporlar ve yorum ihtiyacınız olmayan çıkış biçimleri çıkışı döndürmek için komut dosyasını değiştirerek deneyebilirsiniz.
+Merhaba betik çıkış raporundan hello oturum açma JSON biçiminde döndürür. Ayrıca oluşturur bir `SigninActivities.json` hello ile aynı dosyayı çıktı. Diğer raporlar ve yorum ihtiyacınız olmayan hello Çıkış biçimleri çıkışı hello betik tooreturn veriler değiştirerek deneyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* Bu konudaki örnekler özelleştirme ister misiniz? Kullanıma [Azure Active Directory oturum açma etkinliği API Başvurusu](active-directory-reporting-api-sign-in-activity-reference.md). 
-* Azure Active Directory'ı Raporlama API'si kullanan bir tam genel bakış görmek istiyorsanız bkz [Azure Active raporlama API'si Directory ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).
-* Azure Active Directory raporlama hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [Azure Active Directory raporlama Kılavuzu](active-directory-reporting-guide.md).  
+* Bu konudaki toocustomize hello örnekleri ister misiniz? Merhaba denetleyin [Azure Active Directory oturum açma etkinliği API Başvurusu](active-directory-reporting-api-sign-in-activity-reference.md). 
+* Toosee kullanmanın eksiksiz bir genel görünüm istiyorsanız, Azure Active Directory raporlama API'si Merhaba, bkz: [hello Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).
+* Merhaba toofind Azure Active Directory raporlama hakkında daha fazla bilgi isterseniz bkz [Azure Active Directory raporlama Kılavuzu](active-directory-reporting-guide.md).  
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory karma kimlik tasarımı hakkında dikkat edilecek noktalar - belirlemek erişim denetimi gereksinimlerine | Microsoft Docs"
-description: "Kimlik ve karma bir ortamda kullanıcıları için kaynaklar için erişim gereksinimleri tanımlama ayaklar kapsar."
+title: "aaaAzure Active Directory karma kimlik tasarımı hakkında önemli noktalar - belirlemek erişim denetimi gereksinimlerine | Microsoft Docs"
+description: "Kapak kimlik ve karma bir ortamda kullanıcıları için kaynaklar tanımlayıcı erişim gereksinimlerini ayaklar hello."
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -14,63 +14,63 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 6404940da460461632616fe49f055d50c2a7aba3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f0c22629f732a4c13ee7a24456651bec7637c387
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü için erişim denetimi gereksinimleri belirleme
-Bir kuruluş kendi karma kimlik çözümü tasarlarken, bu fırsatı kullanıcılar için kullanılabilir hale getirmek için planlama kaynaklar için erişim gereksinimleri gözden geçirmek için kullanabilirsiniz. Veri erişimi olan tüm dört ayaklar kimliğini, çapraz:
+Bir kuruluş tasarlarken toomake planladığınıza gereksinimleri hello kaynaklar için erişim de kullanabilecekleri bu fırsatı tooreview kendi karma kimlik çözümü, kullanıcılar için kullanılabilir. Merhaba veri erişimi olan tüm dört ayaklar kimliğini, çapraz:
 
 * Yönetim
 * Kimlik Doğrulaması
 * Yetkilendirme
 * Denetim
 
-Aşağıdaki bölümlerde, kimlik doğrulama ve yetkilendirme daha ayrıntılı ele alınacaktır, yönetim ve denetimi karma kimlik yaşam döngüsü parçasıdır. Okuma [karma kimlik yönetimi görevleri belirlemek](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) bu özellikleri hakkında daha fazla bilgi için.
+izleyen hello bölümleri kimlik doğrulama ve yetkilendirme daha ayrıntılı ele alınacaktır, yönetim ve denetimi hello karma kimlik yaşam döngüsü parçasıdır. Okuma [karma kimlik yönetimi görevleri belirlemek](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) bu özellikleri hakkında daha fazla bilgi için.
 
 > [!NOTE]
-> Okuma [dört ayaklar kimliği - karma BT yaş Identity Management](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) bu dayanaklarından her biri hakkında daha fazla bilgi.
+> Okuma [hello dört ayaklar kimliği - hello karma BT yaş Identity Management](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) bu dayanaklarından her biri hakkında daha fazla bilgi.
 > 
 > 
 
 ## <a name="authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme
-Kimlik doğrulama ve yetkilendirme için farklı senaryolar vardır, bu senaryoların şirket benimsemeye gittiği karma kimlik çözümü tarafından yerine getirilmesi gereken belirli gereksinimleri vardır. Kuruluş tarafından kullanılan kimlik doğrulama ve yetkilendirme yöntemi iş ortakları ile iletişim kurabildiğinden emin olun gerekir bu yana işletmeler için (B2B) iletişim içeren senaryoları için BT yöneticileri bir ek sınama ekleyebilirsiniz. Kimlik doğrulama ve yetkilendirme gereksinimlerine yönelik tasarım işlemi sırasında aşağıdaki soruları yanıtlanır emin olun:
+Kimlik doğrulama ve yetkilendirme için farklı senaryolar vardır, bu senaryoların hello karma kimlik çözümü tarafından hello şirket giderek tooadopt olduğunu yerine getirilmesi gereken belirli gereksinimleri vardır. Merhaba kuruluş tarafından kullanılan kimlik doğrulama ve yetkilendirme yöntemi hello iş ortaklarıyla iletişim kurabilir tooensure gerekir bu yana iş tooBusiness (B2B) içeren senaryoları iletişimi için BT yöneticileri bir ek sınama ekleyebilirsiniz. Kimlik doğrulama ve yetkilendirme gereksinimlerine yönelik işlemini tasarlama hello sırasında aşağıdaki soruları bu hello yanıtlanır emin olun:
 
 * Kuruluşunuzun kimlik doğrulaması ve kimlik yönetimi sistemlerine bulunan kullanıcıları yetkilendirmek?
   * B2B senaryolarını için herhangi bir plan var mı?
-  * Yanıt Evet ise, hangi protokollerin (SAML, OAuth, Kerberos, belirteçleri veya sertifikaları) her iki işletmeler bağlanmak için kullanılan zaten biliyor musunuz?
-* Destek benimsemeyi kalacaklarını karma kimlik çözümü protokollerin mu?
+  * Yanıt Evet ise, zaten hangi protokollerin (SAML, OAuth, Kerberos, belirteçleri veya Sertifikalar) olacak bilebilirsiniz hem işletmeler kullanılan tooconnect olabilir?
+* Merhaba karma kimlik çözümü tooadopt kalacaklarını protokollerin destekliyor mu?
 
-Dikkate alınması gereken başka bir önemli olduğu kullanıcılar ve iş ortakları tarafından kullanılacak kimlik doğrulama deposu bulunur ve kullanılacak yönetim modeli noktasıdır. Aşağıdaki iki çekirdek seçenekleri göz önünde bulundurun:
+Başka bir önemli nokta tooconsider burada kullanıcılar ve iş ortakları tarafından kullanılacak hello kimlik doğrulama deposu bulunur ve kullanılan hello yönetim modeli toobe ' dir. Aşağıdaki iki çekirdek seçenekleri şu hello göz önünde bulundurun:
 
-* Merkezi: Bu modelde, kullanıcının kimlik bilgilerini, ilkeleri ve Yönetim Merkezi şirket içi olabilir veya bulutta.
-* Karma: Bu modelde, kullanıcının kimlik bilgilerini, ilkeleri ve Yönetim Merkezi şirket içi ve çoğaltılan bulutta olacaktır.
+* Merkezi: Bu modeli hello kullanıcının kimlik bilgilerini, ilkeleri ve Yönetim Merkezi şirket içi olabilir veya hello bulutta.
+* Karma: Bu modeli hello kullanıcının kimlik bilgilerini, ilkeleri ve Yönetim Merkezi şirket içi ve çoğaltılan hello bulutta olacaktır.
 
-Kuruluşunuz benimseyeceği hangi modeli iş gereksinimlerine göre farklılık gösterir, kimlik yönetimi sistemi bulunacağı ve kullanmak için yönetici moduna belirlemek için aşağıdaki soruları yanıtlayın istiyor:
+Kuruluşunuz benimseyeceği hangi model according tootheir iş gereksinimleri farklılık gösterir, burada hello kimlik yönetimi sistem bulunan ve Yönetici modu toouse hello soruları tooidentify aşağıdaki tooanswer hello istiyor:
 
 * Kuruluşunuz şu anda bir kimlik yönetimi sahip şirket içi?
-  * Yanıt Evet ise, kalmasını sağlamak planlıyor musunuz?
-  * Kuruluşunuz bu belirtir kimlik yönetimi sistemi bulunduğu izlemelisiniz düzenleme veya uyumluluk gereksinimleri var mı?
-* Kuruluşunuz çoklu oturum açma bulunan uygulamalar şirket içi veya bulutta kullanıyor mu?
-  * Yanıt Evet ise, bir karma kimlik modeli benimsenmesi bu işlem etkiliyor mu?
+  * Yanıt Evet ise, tookeep planlıyor musunuz?
+  * Kuruluşunuz bu belirtir hello kimlik yönetimi sistemi bulunduğu izlemelisiniz düzenleme veya uyumluluk gereksinimleri var mı?
+* Kuruluşunuz çoklu oturum açma bulunan uygulamalar şirket içi veya hello bulutta kullanıyor mu?
+  * Yanıt Evet ise, bir karma kimlik modelin hello benimseme bu işlem etkiliyor mu?
 
 ## <a name="access-control"></a>Access Control
-Kimlik doğrulama ve yetkilendirme kullanıcının doğrulama şirket verilerine erişimi etkinleştirmek için çekirdek öğeleri olsa da, ayrıca, bu kullanıcıların sahip ve erişim yöneticileri düzeyini yönetmekte olduğunuz kaynakları sahip erişim düzeyini denetlemek önemlidir. Karma kimlik çözümü kaynaklar, temsilci ve rol tabanlı erişim denetimini ayrıntılı erişim sağlamak mümkün olması gerekir. Aşağıdaki soruyu erişim denetimi ile ilgili yanıtlanır emin olun:
+Kimlik doğrulama ve yetkilendirme çekirdek öğeleri tooenable erişim toocorporate verilerine kullanıcının doğrulama olsa da, bu da önemli toocontrol hello bu kullanıcıların ve erişim yöneticileri hello düzeyini hello olacak bir erişim düzeyidir yönetmekte olduğunuz kaynaklar. Karma kimlik çözümü mümkün tooprovide ayrıntılı erişim tooresources, temsilci seçme ve rol tabanlı erişim denetimini olması gerekir. Soru aşağıdaki o Merhaba, erişim denetimi ile ilgili yanıtlanır emin olun:
 
-* Şirketinizin yükseltilmiş ayrıcalığa sahip birden fazla kullanıcı, kimlik sistemi yönetmek için var mı?
-  * Yanıt Evet ise, her kullanıcı aynı erişim düzeyini gerekiyor mu?
-* Şirketinizin belirli kaynakları yönetmek için kullanıcılara erişim vermek gerekir?
+* Şirketiniz yükseltilmiş ayrıcalık toomanage ile birden fazla kullanıcı, kimlik sistemi var mı?
+  * Evet, her kullanıcı hello mu gerekiyorsa aynı erişim düzeyi?
+* Şirket gerek toodelegate erişim toousers toomanage belirli kaynaklarınıza musunuz?
   * Yanıt Evet ise, bu ne sıklıkta olur?
-* Şirketiniz şirket içi ve bulut arasında erişim denetim özelliklerini tümleştiren gerek kaynakları?
-* Bazı koşullar uygun olarak kaynaklara erişimi sınırlamak, şirketinizin gerekir?
-* Şirketiniz bazı kaynaklar özel denetim erişmesi gereken herhangi bir uygulama bulunur?
-  * Yanıt Evet ise, burada uygulamalarla bulunur (şirket içi veya bulutta)?
-  * Yanıtınız evet ise, burada olan bu hedef kaynaklara (şirket içi veya bulutta)?
+* Şirket içi ve bulut arasında toointegrate erişim denetimi özelliklerinden gerekir kaynakları?
+* Şirketiniz toosome koşullara göre toolimit erişim tooresources gerekiyor mu?
+* Şirketiniz özel denetim toosome kaynaklarına erişim gerektiren herhangi bir uygulama bulunur?
+  * Yanıt Evet ise, burada uygulamalarla bulunur (şirket içi veya hello bulutta)?
+  * Yanıtınız evet ise, burada olan bu hedef kaynaklara (şirket içi veya hello bulutta)?
 
 > [!NOTE]
-> Her yanıtı not alın ve yanıtın yanıtın arkasındaki mantığı anladığınızdan emin olun. [Veri koruma stratejisini tanımlayın](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) seçenekleri ve her seçeneğin olumlu/olumsuz üzerinden geçer.  Bu soruyu yanıtlayarak, iş gereksinimlerinize en iyi hangi seçeneği en seçersiniz.
+> Her yanıtı tootake Not emin olun ve hello yanıtın hello yanıt arkasındaki mantığı anladığınızdan emin olun. [Veri koruma stratejisini tanımlayın](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) hello seçenekleri ve her seçeneğin olumlu/olumsuz üzerinden geçer.  Bu soruyu yanıtlayarak, iş gereksinimlerinize en iyi hangi seçeneği en seçersiniz.
 > 
 > 
 

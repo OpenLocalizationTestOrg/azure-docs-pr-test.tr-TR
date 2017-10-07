@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme yakınlaştırma ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve yakınlaştırma arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ve yakınlaştırma arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,229 +14,229 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: aab491f162fd4d24c6ff4d8858f2edd96dda30d4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 623a1f428ad1f0aa2c8205b79d61720cad5fc6a5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Öğretici: Yakınlaştırma Azure Active Directory Tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile yakınlaştırma tümleştirmek öğrenin.
+Bu öğreticide, bilgi nasıl toointegrate yakınlaştırma Azure Active Directory (Azure AD) ile.
 
-Yakınlaştırma Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Yakınlaştırma Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
 
-- Yakınlaştırma erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak (çoklu oturum açma) yakınlaştırmak için Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Erişim tooZoom sahip Azure AD'de kontrol edebilirsiniz.
+- Kullanıcıların tooautomatically get açan tooZoom (çoklu oturum açma) Azure AD hesaplarına ile etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure AD tümleştirme yakınlaştırma ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Yakınlaştırma ile tooconfigure Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
 
 - Bir Azure AD aboneliği
 - Bir yakınlaştırma çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden yakınlaştırma ekleme
+1. Yakınlaştırma hello Galerisi'nden ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-zoom-from-the-gallery"></a>Galeriden yakınlaştırma ekleme
-Azure AD'ye yakınlaştırma tümleştirmesini yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden yakınlaştırma eklemeniz gerekir.
+## <a name="adding-zoom-from-hello-gallery"></a>Yakınlaştırma hello Galerisi'nden ekleme
+Azure AD'ye yakınlaştırma tooconfigure hello tümleştirilmesi, tooadd yakınlaştırma hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
 
-**Yakınlaştırma Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
+**tooadd hello galerisinden yakınlaştırma hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Azure Active Directory düğmesi][1]
+    ![Hello Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![Merhaba kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Merhaba yeni uygulama düğmesi][3]
 
-4. Arama kutusuna **yakınlaştırma**seçin **yakınlaştırma** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Merhaba arama kutusuna yazın **yakınlaştırma**seçin **yakınlaştırma** sonuç panelinden ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
 
-    ![Sonuçlar listesinde Yakınlaştır](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_addfromgallery.png)
+    ![Merhaba sonuçlar listesinde Yakınlaştır](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı yakınlaştırma ile test etme.
 
-Tekli çalışmaya oturum için Azure AD yakınlaştırma karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve yakınlaştırma ilgili kullanıcı arasındaki bağlantıyı ilişki kurulması gerekir.
+Tek toowork'ın oturum açma hangi hello karşılık gelen yakınlaştırır tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir bağlantı bir Azure AD kullanıcı ve kullanıcı arasındaki ilişki hello ilgili kurulan yakınlaştırma gereksinimlerini toobe içinde.
 
-Yakınlaştırma, değeri atamak **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Yakınlaştırma, hello hello değerini atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
 
-Yapılandırma ve Azure AD çoklu oturum açma yakınlaştırma ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+tooconfigure ve yakınlaştırma ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Yakınlaştırma test kullanıcısı oluşturma](#create-a-zoom-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı yakınlaştırma sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
+3. **[Yakınlaştırma test kullanıcısı oluşturma](#create-a-zoom-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir yakınlaştırır, karşılık gelen.
+4. **[Hello Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma yakınlaştırma uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma yakınlaştırma uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma ile yakınlaştırma yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Yakınlaştırma ile Azure AD çoklu oturum açma tooconfigure hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **yakınlaştırma** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Merhaba hello üzerinde Azure portal'ın **yakınlaştırma** uygulama tümleştirmesi sayfasında, tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_samlbase.png)
 
-3. Üzerinde **yakınlaştırma etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **yakınlaştırma etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
 
     ![Etki alanı ve URL'leri tek oturum açma bilgilerini Yakınlaştır](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.zoom.us`
+    a. Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<companyname>.zoom.us`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.zoom.us`
+    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<companyname>.zoom.us`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [yakınlaştırma istemci destek ekibi](https://support.zoom.us/hc) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı. Kişi [yakınlaştırma istemci destek ekibi](https://support.zoom.us/hc) tooget bu değerleri. 
  
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![Merhaba sertifika indirme bağlantısı](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
 
 5. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **yakınlaştırma yapılandırma** 'yi tıklatın **yapılandırma yakınlaştırma** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Merhaba üzerinde **yakınlaştırma yapılandırma** 'yi tıklatın **yapılandırma yakınlaştırma** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
 
     ![Yakınlaştırma yapılandırma](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png) 
 
-7. Farklı web tarayıcısı penceresinde yakınlaştırma şirket sitenize yönetici olarak oturum açın.
+7. Farklı web tarayıcısı penceresinde tooyour yakınlaştırma şirket sitede yönetici olarak oturum açın.
 
-8. Tıklatın **çoklu oturum açma** sekmesi.
+8. Merhaba tıklatın **çoklu oturum açma** sekmesi.
    
     ![Oturum açma tek sekme](./media/active-directory-saas-zoom-tutorial/IC784700.png "çoklu oturum açma")
 
-9. Tıklatın **güvenlik denetimi** sekmesini tıklatın ve ardından Git **çoklu oturum açma** ayarlar.
+9. Hello tıklatın **güvenlik denetimi** sekmesini tıklatın ve ardından toohello Git **çoklu oturum açma** ayarlar.
 
-10. Çoklu oturum açma bölümünde, aşağıdaki adımları gerçekleştirin:
+10. Hello çoklu oturum açma bölümü, hello aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açma bölüm](./media/active-directory-saas-zoom-tutorial/IC784701.png "çoklu oturum açma")
    
-    a. İçinde **oturum açma sayfası URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
+    a. Merhaba, **oturum açma sayfası URL'si** metin kutusuna, Yapıştır hello değerini **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
    
-    b. İçinde **oturum kapatma sayfası URL'si** metin değerini yapıştırın **Sign-Out URL**, Azure portalından kopyalanan.
+    b. Merhaba, **oturum kapatma sayfası URL'si** metin kutusuna, Yapıştır hello değerini **Sign-Out URL**, Azure portalından kopyalanan.
      
-    c. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **kimlik sağlayıcısı sertifikası** metin kutusu.
+    c. Base-64 kodlanmış sertifikanızı kopyalama hello panonuza bunu içerik Not Defteri'nde açın ve toohello yapıştırın **kimlik sağlayıcısı sertifikası** metin kutusu.
 
-    d. İçinde **veren** metin değerini yapıştırın **SAML varlık kimliği**, Azure portalından kopyalanan. 
+    d. Merhaba, **veren** metin kutusuna, Yapıştır hello değerini **SAML varlık kimliği**, Azure portalından kopyalanan. 
 
     e. **Kaydet** düğmesine tıklayın.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Merhaba hello sol bölmede Azure portal hello tıklatın **Azure Active Directory** düğmesi.
 
-    ![Azure Active Directory düğmesi](./media/active-directory-saas-zoom-tutorial/create_aaduser_01.png)
+    ![Hello Azure Active Directory düğmesi](./media/active-directory-saas-zoom-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-zoom-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" Merhaba "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-zoom-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. tooopen hello **kullanıcı** iletişim kutusu, tıklatın **Ekle** hello hello üstündeki **tüm kullanıcılar** iletişim kutusu.
 
-    ![Ekle düğmesi](./media/active-directory-saas-zoom-tutorial/create_aaduser_03.png)
+    ![Merhaba Ekle düğmesi](./media/active-directory-saas-zoom-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+4. Merhaba, **kullanıcı** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
 
-    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-zoom-tutorial/create_aaduser_04.png)
+    ![Merhaba kullanıcı iletişim kutusu](./media/active-directory-saas-zoom-tutorial/create_aaduser_04.png)
 
-    a. İçinde **adı** kutusuna **BrittaSimon**.
+    a. Merhaba, **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. Merhaba, **kullanıcı adı** kutusuna, kullanıcının Britta Simon hello e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Select hello **Göster parola** onay kutusunu işaretleyin ve ardından hello görüntülenen hello değerini aşağı yazma **parola** kutusu.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="create-a-zoom-test-user"></a>Yakınlaştırma test kullanıcısı oluşturma
 
-Yakınlaştırma için oturum açmak Azure AD kullanıcıları etkinleştirmek için bunların yakınlaştırma sağlanmalıdır. Yakınlaştırma söz konusu olduğunda, sağlama bir el ile bir görevdir.
+Sipariş tooenable Azure AD kullanıcıların toolog içinde tooZoom içinde bunların yakınlaştırma sağlanmalıdır. Yakınlaştırma Hello durumda sağlama bir el ile bir görevdir.
 
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:
+### <a name="tooprovision-a-user-account-perform-hello-following-steps"></a>bir kullanıcı hesabı tooprovision hello aşağıdaki adımları gerçekleştirin:
 
-1. Oturum, **yakınlaştırma** yönetici olarak şirket site.
+1. İçinde tooyour oturum **yakınlaştırma** yönetici olarak şirket site.
  
-2. Tıklatın **hesap yönetimi** sekmesini ve ardından **kullanıcı yönetimi**.
+2. Merhaba tıklatın **hesap yönetimi** sekmesini ve ardından **kullanıcı yönetimi**.
 
-3. Kullanıcı Yönetimi bölümünde tıklayın **kullanıcıları eklemek**.
+3. Hello kullanıcı yönetimi bölümü, tıklatın **kullanıcıları eklemek**.
    
     ![Kullanıcı Yönetimi](./media/active-directory-saas-zoom-tutorial/IC784703.png "kullanıcı yönetimi")
 
-4. Üzerinde **kullanıcıları eklemek** sayfasında, aşağıdaki adımları gerçekleştirin:
+4. Merhaba üzerinde **kullanıcıları eklemek** sayfasında, hello aşağıdaki adımları gerçekleştirin:
    
     ![Kullanıcıları ekleme](./media/active-directory-saas-zoom-tutorial/IC784704.png "kullanıcı ekleme")
    
     a. Olarak **kullanıcı türü**seçin **temel**.
 
-    b. İçinde **e-postaları** metin kutusuna, türü e-posta adresi geçerli bir Azure ad hesabına sağlamak istiyor.
+    b. Merhaba, **e-postaları** metin kutusuna, türü hello e-posta adresi geçerli bir Azure tooprovision istediğiniz AD hesabı.
 
     c. **Ekle**'ye tıklayın.
 
 > [!NOTE]
-> Kullanıcı hesapları sağlama Azure Active Directory yakınlaştırma API'leri sağladığı veya herhangi diğer yakınlaştırma kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
+> API, kullanıcı hesaplarını yakınlaştırma tooprovision Azure Active Directory tarafından sağlanan veya herhangi diğer yakınlaştırma kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+### <a name="assign-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta yakınlaştırmak için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, erişim tooZoom vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Merhaba kullanıcı rolü atayın][200] 
 
-**Yakınlaştırma için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**tooassign Britta Simon tooZoom hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **yakınlaştırma**.
+2. Merhaba uygulamalar listesinde **yakınlaştırma**.
 
-    ![Uygulamalar listesinde yakınlaştırma bağlantı](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_app.png)  
+    ![Merhaba yakınlaştırma bağlantı hello uygulamalar listesinde](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    ![Merhaba "Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Merhaba eklemek atama bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -244,13 +244,13 @@ Bu bölümde, Britta yakınlaştırmak için erişim vererek, Azure çoklu oturu
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
-Bu bölümün amacı erişim paneli kullanılarak Azure AD çoklu oturum açma yapılandırmanızı test etmektir.
+Bu bölümde Hello amacı olan tootest hello erişim paneli, Azure AD çoklu oturum açma Yapılandırması'nı kullanarak.
 
-Erişim paneli yakınlaştırma parçasında tıklattığınızda, otomatik olarak yakınlaştırma uygulamanıza açan.
+Merhaba yakınlaştırma hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour yakınlaştırma uygulama almanız gerekir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

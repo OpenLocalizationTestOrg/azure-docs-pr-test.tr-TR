@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme Capriza platformuyla | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Capriza Platform arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Capriza Platform arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,109 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 668c094d5330be1c5f71d51d2e76170dc69d1bce
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1c4adb737bb5ba4690bbf74688010238c5c83f3b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>Öğretici: Azure Active Directory Tümleştirme Capriza platformuyla
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Capriza Platform tümleştirme öğrenin.
+Bu öğreticide, bilgi nasıl toointegrate Capriza Platform Azure Active Directory'ye (Azure AD).
 
-Azure AD ile Capriza Platform tümleştirme ile aşağıdaki avantajları sağlar:
+Capriza Platform Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
 
-- Capriza Platform erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak Capriza platformuna (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Erişim tooCapriza platformu olan Azure AD'de kontrol edebilirsiniz
+- Kullanıcıların tooautomatically get açan tooCapriza Platform (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure AD tümleştirme Capriza platformuyla yapılandırmak için aşağıdaki öğeleri gerekir:
+tooconfigure Capriza Platform ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Capriza Platform çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden Capriza Platform ekleme
+1. Merhaba Galerisi'nden Capriza Platform ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-capriza-platform-from-the-gallery"></a>Galeriden Capriza Platform ekleme
-Azure AD Capriza Platform tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Capriza Platform eklemeniz gerekir.
+## <a name="adding-capriza-platform-from-hello-gallery"></a>Merhaba Galerisi'nden Capriza Platform ekleme
+Azure AD'ye tooconfigure hello tümleştirme Capriza platformun tooadd Capriza Platform hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
 
-**Galeriden Capriza Platform eklemek için aşağıdaki adımları gerçekleştirin:**
+**tooadd Capriza Platform hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Capriza Platform**.
+4. Merhaba arama kutusuna yazın **Capriza Platform**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_search.png)
 
-5. Sonuçlar panelinde seçin **Capriza Platform**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Merhaba Sonuçlar panelinde seçin **Capriza Platform**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırmak ve Azure AD çoklu oturum açmayı test Capriza platformuyla "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen Capriza Platform bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı Capriza Platform arasında bağlantı ilişki kurulması gerekir.
+Tek toowork'ın oturum açma hangi hello karşılık gelen Capriza Platform tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve hello ilgili kullanıcı Capriza Platform arasında bağlantı ilişki kurulan toobe gerekir.
 
-Değeri Capriza platformunda atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Merhaba hello değeri Capriza platformunda atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
 
-Yapılandırmak ve Azure AD çoklu oturum açma Capriza platformuyla sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
+tooconfigure ve Capriza platformu ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Capriza Platform test kullanıcısı oluşturma](#creating-a-capriza-platform-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Capriza Platform sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
+3. **[Capriza Platform test kullanıcısı oluşturma](#creating-a-capriza-platform-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Capriza Platform, karşılık gelen.
+4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Capriza Platform uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Capriza Platform uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma Capriza platformuyla yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**tooconfigure Azure AD çoklu oturum açma Capriza platformuyla hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Capriza Platform** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Merhaba hello üzerinde Azure portal'ın **Capriza Platform** uygulama tümleştirmesi sayfasında, tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_samlbase.png)
 
-3. Üzerinde **Capriza Platform etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **Capriza Platform etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.capriza.com/<tenantid>`
+    Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<companyname>.capriza.com/<tenantid>`
 
     > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [Capriza Platform istemci destek ekibi](mailTo:support@capriza.com) bu değeri alınamıyor. 
+    > Bu değer gerçek değil. Bu değer ile Merhaba güncelleştirme gerçek oturum açma URL'si. Kişi [Capriza Platform istemci destek ekibi](mailTo:support@capriza.com) tooget bu değer. 
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_certificate.png) 
 
@@ -123,69 +123,69 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-capriza-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Capriza Platform Yapılandırması** 'yi tıklatın **Capriza Platform yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Merhaba üzerinde **Capriza Platform Yapılandırması** 'yi tıklatın **Capriza Platform yapılandırma** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_configure.png) 
 
-7. Çoklu oturum açma yapılandırmak için **Capriza Platform** yan, indirilen göndermek için ihtiyacınız **sertifika**, **Sign-Out URL**, **SAML varlık kimliği**ve **SAML çoklu oturum açma hizmet URL'si** için [Capriza Platform destek ekibi](mailTo:support@capriza.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+7. tooconfigure çoklu oturum açma üzerinde **Capriza Platform** yan, indirilen toosend hello ihtiyacınız **sertifika**, **Sign-Out URL**, **SAML varlık kimliği** ve **SAML çoklu oturum açma hizmet URL'si** çok[Capriza Platform destek ekibi](mailTo:support@capriza.com). Bunlar, bu ayar toohave hello iki tarafta da ayarlamanızı SAML SSO bağlantı ayarlayın.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-capriza-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-capriza-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-capriza-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-capriza-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-capriza-platform-test-user"></a>Capriza Platform test kullanıcısı oluşturma
 
-Bu bölümün amacı Britta Simon içinde Capriza adlı bir kullanıcı oluşturmaktır. Capriza yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler. **Kullanıcı sağlama için etki alanı adınızı Capriza ile yapılandırıldığından emin olun. Bundan sonra yalnızca tam zamanı kullanıcı sağlama çalışır.**
+Bu bölümde Hello amacı toocreate Britta Simon içinde Capriza adlı bir kullanıcı ' dir. Capriza yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler. **Kullanıcı sağlama için etki alanı adınızı Capriza ile yapılandırıldığından emin olun. Sonra yalnızca o hello tam zamanı kullanıcı sağlama çalışır.**
 
-Bu bölümde, eylem öğe yok. Yeni bir kullanıcı henüz yoksa Capriza erişme denemesi sırasında oluşturulur.
+Bu bölümde, eylem öğe yok. Henüz yoksa yeni bir kullanıcı bir girişim tooaccess Capriza sırasında oluşturulur.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
 
-Bu bölümde, Britta Capriza platformuna erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, erişim tooCapriza Platform vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**Britta Simon Capriza platformuna atamak için aşağıdaki adımları gerçekleştirin:**
+**tooassign Britta Simon tooCapriza Platform hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **Capriza Platform**.
+2. Merhaba uygulamalar listesinde **Capriza Platform**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -193,7 +193,7 @@ Bu bölümde, Britta Capriza platformuna erişim vererek, Azure çoklu oturum a�
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -201,13 +201,13 @@ Bu bölümde, Britta Capriza platformuna erişim vererek, Azure çoklu oturum a�
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Capriza Platform parçasında tıklattığınızda, otomatik olarak Capriza uygulamanıza açan. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
+Capriza Platform döşeme hello erişim paneli hello tıkladığınızda, otomatik olarak oturum açma Capriza uygulama tooyour almanız gerekir. Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

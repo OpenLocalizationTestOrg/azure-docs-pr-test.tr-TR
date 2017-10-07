@@ -1,6 +1,6 @@
 ---
-title: "Şirket içi uygulamalara - Azure AD koşullu erişim | Microsoft Docs"
-description: "Azure AD uygulama proxy'si kullanarak uzaktan erişilmesine yayımlama uygulamalar için koşullu erişimi ayarlama alınmaktadır."
+title: "aaaConditional erişim tooon içi uygulamaları - Azure AD | Microsoft Docs"
+description: "Nasıl tooset uygulamalar için koşullu erişim kullanarak uzaktan erişilen toobe yayımladığınız kapsayan Azure AD uygulama proxy'si."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,54 +15,54 @@ ms.date: 07/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: 463946256f9e335fa6d98fc904835e5c3dc2725e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7bed25dd4ba17941e77d8c4b2b9ba4edcf0cf597
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si koşullu erişim ile çalışma
 
 >[!NOTE]
->Bu makale, devre dışı bırakıldığını Klasik Azure portalı için geçerlidir. Kullanmanızı öneririz [Azure portal](https://portal.azure.com). Azure portalında uygulama proxy'si uygulamaların başka bir SaaS uygulaması ile aynı koşullu erişim özellikleri vardır. Koşullu erişim hakkında daha fazla bilgi için bkz: [Azure Active Directory'de koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md).
+>Bu makale toohello devre dışı bırakıldığını Azure Klasik portalı geçerlidir. Merhaba kullanmanızı öneririz [Azure portal](https://portal.azure.com). Hello Azure portal, uygulama proxy'si uygulamalara sahip aynı özelliklere koşullu erişim gibi diğer SaaS uygulama hello. koşullu erişim hakkında daha fazla toolearn bkz [Azure Active Directory'de koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md).
 
-Uygulama proxy'si kullanarak yayımlanan uygulamalar için koşullu erişim vermek üzere erişim kurallarını yapılandırabilirsiniz. Şunları yapmanızı sağlar:
+Erişimi yapılandırma kuralları toogrant koşullu erişim tooapplications yayımlanan uygulama proxy'si kullanma. Şunları yapmanızı sağlar:
 
 * Uygulama başına çok faktörlü kimlik doğrulaması gerektirir
 * Yalnızca kullanıcıların iş olmadığında çok faktörlü kimlik doğrulaması gerektirir
-* İşte olmadıkları zaman kullanıcıların uygulamaya erişmeyi engelle
+* İşte olmadıkları zaman kullanıcıların hello uygulamaya erişmeyi engelle
 
-Bu kurallar, tüm kullanıcılar ve gruplar için veya yalnızca belirli kullanıcılar ve gruplar için uygulanabilir. Varsayılan kural uygulamaya erişimi olan tüm kullanıcıları için geçerlidir. Ancak kural belirtilen güvenlik gruplarına üye olan kullanıcılara kısıtlanabilir.  
+Bu kurallar, uygulanan tooall kullanıcıları ve grupları veya yalnızca toospecific kullanıcıları ve grupları olabilir. Varsayılan olarak erişimi toohello uygulama sahip tooall kullanıcılar hello kuralı uygular. Ancak hello kural belirtilen güvenlik gruplarına üye olan kısıtlı toousers olabilir.  
 
-Erişim kuralları, bir kullanıcı OAuth 2.0, Openıd Connect, SAML veya WS-Federasyon kullanan bir federasyon uygulaması eriştiğinde değerlendirilir. Ayrıca, bir yenileme belirteci bir erişim belirteci almak için kullanıldığında, erişim kuralları OAuth 2.0 ve Openıd Connect ile değerlendirilir.
+Erişim kuralları, bir kullanıcı OAuth 2.0, Openıd Connect, SAML veya WS-Federasyon kullanan bir federasyon uygulaması eriştiğinde değerlendirilir. Ayrıca, bir yenileme belirteci kullanılan tooacquire bir erişim belirteci olduğunda erişim kuralları OAuth 2.0 ve Openıd Connect ile değerlendirilir.
 
 ## <a name="conditional-access-prerequisites"></a>Koşullu erişim önkoşulları
-* Azure Active Directory Premium aboneliği
+* Abonelik tooAzure Active Directory Premium
 * Federe veya yönetilen bir Azure Active Directory kiracısı
 * Federasyon kiracıları multi-Factor authentication (MFA) gerekli  
     ![Erişim kuralları yapılandırın - çok faktörlü kimlik doğrulaması gerektirir](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
 ## <a name="configure-per-application-multi-factor-authentication"></a>Uygulama başına çok faktörlü kimlik doğrulamasını yapılandırma
-1. Klasik Azure portalında yönetici olarak oturum açın.
-2. Active Directory'ye gidip Uygulama Ara Sunucusunu etkinleştirmek istediğiniz dizini seçin.
-3. Tıklatın **uygulamaları** ve ekranı aşağı kaydırarak **erişim kuralları** bölümü. Erişim kuralları bölümünde yalnızca federe kimlik doğrulaması kullanan uygulama proxy'si kullanılarak yayımlanan uygulamalar için görüntülenir.
-4. Kural seçerek etkinleştirin **erişim kurallarını etkinleştirme** için **üzerinde**.
-5. Kullanıcılar ve gruplar Kime kuralları uygula belirtin. Kullanım **Grup Ekle** düğmesine tıklayarak erişim kuralının uygulanacağı bir veya daha fazla grup seçin. Bu iletişim kutusu, seçili grupların kaldırmak için de kullanılabilir.  Gruplara uygulanacak kuralları seçildiğinde erişim kuralları yalnızca belirtilen güvenlik gruplarının birine ait kullanıcılar için uygulanır.  
+1. Yönetici hello olarak Klasik Azure portalında oturum açın.
+2. TooActive dizinine gidin ve tooenable uygulama proxy'si istediğiniz hello dizini seçin.
+3. Tıklatın **uygulamaları** ve toohello aşağı **erişim kuralları** bölümü. Merhaba erişim kuralları bölümünde yalnızca federe kimlik doğrulaması kullanan uygulama proxy'si kullanılarak yayımlanan uygulamalar için görüntülenir.
+4. Merhaba kuralı seçerek etkinleştirin **erişim kurallarını etkinleştirme** çok**üzerinde**.
+5. Kuralları uygula hello kullanıcılar ve gruplar toowhom hello belirtin. Kullanım hello **Grup Ekle** tooselect toowhich hello erişim kuralın uygulanacağı bir veya daha fazla grupları düğmesine tıklayın. Bu iletişim kutusunu da seçili kullanılan tooremove grupları olabilir.  Hello kuralları seçili tooapply toogroups olduğunda hello erişim kuralları, belirtilen hello tooone ait kullanıcılar için uygulanır güvenlik grupları.  
 
-   * Güvenlik grupları kuraldan açıkça dışlamak için kontrol **dışında** ve bir veya daha fazla gruplarını belirtin. Except listedeki bir grubun üyeleri olan kullanıcılar çok faktörlü kimlik doğrulaması gerçekleştirmek için gerekli değildir.  
-   * Bir kullanıcı kullanıcı başına çok faktörlü kimlik doğrulama özelliği kullanılarak yapılandırıldıysa, bu ayarı uygulama çok faktörlü kimlik doğrulaması kurallardan önceliklidir. Kullanıcı başına çok faktörlü kimlik doğrulaması için yapılandırılmış bir kullanıcı, uygulamanın çok faktörlü kimlik doğrulaması kurallardan bırakılan bile, çok faktörlü kimlik doğrulaması yapmak için gereklidir. Daha fazla bilgi edinmek [çok faktörlü kimlik doğrulama ve kullanıcı başına ayarları](../multi-factor-authentication/multi-factor-authentication.md).
-6. Ayarlamak istediğiniz erişim kuralını seçin:
+   * tooexplicitly dışlama güvenlik gruplarını hello kuraldan denetle **dışında** ve bir veya daha fazla gruplarını belirtin. Merhaba listesi dışında bir grubun üyeleri olan kullanıcılar gerekli tooperform çok faktörlü kimlik doğrulaması olup olmadığı.  
+   * Bir kullanıcı hello kullanıcı başına çok faktörlü kimlik doğrulama özelliği kullanılarak yapılandırıldıysa, bu ayar hello uygulama çok faktörlü kimlik doğrulama kurallarını önceliklidir. Merhaba uygulamanın çok faktörlü kimlik doğrulaması kurallardan bırakılan bile, kullanıcı başına çok faktörlü kimlik doğrulaması için yapılandırılmış gerekli tooperform çok faktörlü kimlik doğrulaması kullanıcıdır. Daha fazla bilgi edinmek [çok faktörlü kimlik doğrulama ve kullanıcı başına ayarları](../multi-factor-authentication/multi-factor-authentication.md).
+6. Tooset istediğiniz hello erişim kuralını seçin:
 
-   * **Çok faktörlü kimlik doğrulaması gerektiren**: kuralın uygulandığı uygulama erişmeden önce tam çok faktörlü kimlik doğrulaması için kendisine erişim kuralları geçerli gereklidir.
-   * **İş olduğunda değil, çok faktörlü kimlik doğrulaması gerektiren**: kullanıcıların uygulamanın güvenilir bir IP adresinden erişmelerine değil gerekecek çok faktörlü kimlik doğrulaması gerçekleştirin. Güvenilen IP adres aralıkları çok faktörlü kimlik doğrulama ayarları sayfasında yapılandırılabilir.
-   * **Çalışma zaman değil, erişimi engelleme**: kullanıcıların şirket ağınızın dışındaki uygulamadan erişmelerine edemeyecek uygulamaya erişmek.
+   * **Çok faktörlü kimlik doğrulaması gerektiren**: toowhom erişim kuralları uygula kullanıcılardır gerekli toocomplete çok faktörlü kimlik doğrulaması erişilirken hello uygulama toowhich hello kuralı uygulanmadan önce.
+   * **Çalışma zaman değil, çok faktörlü kimlik doğrulaması gerektiren**: kullanıcıların güvenilir bir IP adresinden tooaccess hello uygulama çalışırken gerekli tooperform çok faktörlü kimlik doğrulaması olmayacak. Merhaba, IP adres aralıklarını hello çok faktörlü kimlik doğrulama ayarları sayfasında yapılandırılabilir güvenilir.
+   * **Çalışma zaman değil, erişimi engelleme**: kullanıcıların şirket ağınızın dışındaki tooaccess hello uygulama çalışırken mümkün tooaccess Merhaba uygulaması olmayacak.
 
 ## <a name="configuring-mfa-for-federation-services"></a>MFA için Federasyon Hizmetleri Yapılandırılıyor
-Federasyon kiracıları için çok faktörlü kimlik doğrulaması (MFA) şirket içi veya Azure Active Directory tarafından işlem yapılabilir AD FS sunucusu. Varsayılan olarak, MFA Azure Active Directory tarafından barındırılan herhangi bir sayfada gerçekleşir. MFA şirket içi yapılandırmak için Windows PowerShell'i çalıştırın ve Azure AD modülünü ayarlamak için – SupportsMFA özelliğini kullanın.
+Federasyon kiracıları için çok faktörlü kimlik doğrulaması (MFA) hello veya Azure Active Directory tarafından işlem yapılabilir şirket içi AD FS sunucusu. Varsayılan olarak, MFA Azure Active Directory tarafından barındırılan herhangi bir sayfada gerçekleşir. tooconfigure MFA şirket içi, Windows PowerShell ve kullanım hello – SupportsMFA özelliği tooset hello Azure AD modülünü çalıştırın.
 
-Aşağıdaki örnek, şirket içi MFA kullanarak etkinleştirmek gösterilmiştir [Set-MsolDomainFederationSettings cmdlet'i](https://msdn.microsoft.com/library/azure/dn194088.aspx) contoso.com Kiracı üzerinde:`Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
+Merhaba aşağıdaki örnekte gösterilir nasıl tooenable MFA hello kullanarak şirket içi [Set-MsolDomainFederationSettings cmdlet'i](https://msdn.microsoft.com/library/azure/dn194088.aspx) hello contoso.com Kiracı üzerinde:`Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
 
-Bu bayrak ayarlamaya ek olarak, Federasyon Kiracı AD FS örneği çok faktörlü kimlik doğrulaması gerçekleştirmek için yapılandırılmış olması gerekir. Yönergeleri izleyin [Microsoft Azure çok faktörlü kimlik doğrulaması şirket içi dağıtma](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+Toplama toosetting hello Federasyon Kiracı AD FS örneği bu bayrak olmalıdır tooperform çok faktörlü kimlik doğrulaması yapılandırılmış. Merhaba yönergeleri izleyin [Microsoft Azure çok faktörlü kimlik doğrulaması şirket içi dağıtma](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Talepleri kullanan uygulamalarla çalışma](active-directory-application-proxy-claims-aware-apps.md)
@@ -70,4 +70,4 @@ Bu bayrak ayarlamaya ek olarak, Federasyon Kiracı AD FS örneği çok faktörl�
 * [Çoklu oturum açmayı etkinleştirme](active-directory-application-proxy-sso-using-kcd.md)
 * [Kendi etki alanı adınızı kullanarak uygulama yayımlama](active-directory-application-proxy-custom-domains.md)
 
-En yeni haberler ve güncelleştirmeler için [Uygulama Ara Sunucusu bloguna](http://blogs.technet.com/b/applicationproxyblog/) göz atın
+Merhaba en son haberler ve güncelleştirmeler için hello denetleyin [uygulama ara sunucusu bloguna](http://blogs.technet.com/b/applicationproxyblog/)

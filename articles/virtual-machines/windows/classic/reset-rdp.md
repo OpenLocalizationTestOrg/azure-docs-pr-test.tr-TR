@@ -1,6 +1,6 @@
 ---
-title: "Parola veya uzak masaüstü yapılandırmasının Azure Windows VM üzerinde sıfırlama | Microsoft Docs"
-description: "Bir hesap parolası sıfırlama öğrenin veya bir Windows VM üzerinde Uzak Masaüstü Hizmetleri Azure portalında veya Azure PowerShell kullanarak Klasik dağıtım modeli kullanılarak oluşturulmuş."
+title: "parola veya uzak masaüstü yapılandırmasının Azure Windows VM üzerinde aaaReset hello | Microsoft Docs"
+description: "Merhaba Klasik dağıtım modeli kullanarak bir hesap parolası veya Uzak Masaüstü Hizmetleri Windows VM üzerinde oluşturulan tooreset nasıl hello Azure portalında veya Azure PowerShell öğrenin."
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -15,59 +15,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 43e5cf1ab3bc3121d7e3915ea0785998e0ee2fc6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1721a91fc6c89b46df74e76dfcf918b1c4c77a4f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Uzak Masaüstü hizmetini veya Windows Klasik dağıtım modeli kullanılarak oluşturulan bir VM'de oturum açma parolasını sıfırlama
+# <a name="how-tooreset-hello-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-hello-classic-deployment-model"></a>Tooreset hello Uzak Masaüstü hizmet veya oturum açma parolasını bir Windows VM hello Klasik dağıtım modeli kullanılarak oluşturulan nasıl
 > [!IMPORTANT]
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Ayrıca [Resource Manager dağıtım modeliyle oluşturulan VM'ler için bu adımları uygulamadan](../reset-rdp.md).
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. Ayrıca [hello Resource Manager dağıtım modeli kullanılarak oluşturulmuş VM'ler için bu adımları uygulamadan](../reset-rdp.md).
 
-Bir Windows sanal makine (VM) bağlanamıyorsanız, yerel yönetici parolasını sıfırlama veya Uzak Masaüstü hizmet yapılandırmasını sıfırlayın. Parola sıfırlama için Azure PowerShell'de Azure portalından veya VM erişim uzantısı kullanabilirsiniz.
+Tooa Windows sanal makine (VM) bağlanamıyorsanız, hello yerel yönetici parolasını sıfırlama veya hello Uzak Masaüstü hizmet yapılandırmasını. Azure PowerShell tooreset hello Parolada ya da hello Azure portal veya hello VM erişim uzantısını kullanabilirsiniz.
 
-## <a name="ways-to-reset-configuration-or-credentials"></a>Yapılandırma veya kimlik bilgilerini sıfırlama yolları
+## <a name="ways-tooreset-configuration-or-credentials"></a>Yolları tooreset yapılandırma veya kimlik bilgileri
 Gereksinimlerinize bağlı olarak birkaç farklı şekilde, Uzak Masaüstü Hizmetleri ve kimlik bilgilerini sıfırlayabilirsiniz:
 
-- [Azure portalını kullanarak Sıfırla](#azure-portal)
+- [Hello Azure portal kullanarak Sıfırla](#azure-portal)
 - [Azure PowerShell kullanarak Sıfırla](#vmaccess-extension-and-powershell)
 
 ## <a name="azure-portal"></a>Azure portalına
-Kullanabileceğiniz [Azure portal](https://portal.azure.com) Uzak Masaüstü hizmetini sıfırlanır. Portal menü genişletmek için sol üst köşedeki üç çubuklarında'ı tıklatın ve ardından **sanal makineleri (Klasik)**:
+Merhaba kullanabilirsiniz [Azure portal](https://portal.azure.com) tooreset hello Uzak Masaüstü hizmet. tooexpand hello portal menüsünde hello sol üst köşedeki hello üç çubuklarında tıklayın ve ardından **sanal makineleri (Klasik)**:
 
 ![Azure VM için Gözat](./media/reset-rdp/Portal-Select-Classic-VM.png)
 
-Windows sanal makineyi seçin ve ardından **uzaktan Sıfırla...** . Uzak Masaüstü yapılandırmasının sıfırlamak için aşağıdaki iletişim kutusu görüntülenir:
+Windows sanal makineyi seçin ve ardından **uzaktan Sıfırla...** . hello aşağıdaki iletişim kutusu belirir tooreset hello uzak masaüstü yapılandırması:
 
 ![Sıfırlama RDP yapılandırma sayfası](./media/reset-rdp/Portal-RDP-Reset-Windows.png)
 
-Kullanıcı adı ve parola yerel yönetici hesabının da sıfırlayabilirsiniz. Sanal makineden tıklatın **destek + sorun giderme** > **parola sıfırlama**. Parola sıfırlama dikey penceresinde görüntülenir:
+Merhaba kullanıcı adı ve parola hello yerel yönetici hesabının da sıfırlayabilirsiniz. Sanal makineden tıklatın **destek + sorun giderme** > **parola sıfırlama**. Merhaba parola sıfırlama dikey penceresinde görüntülenir:
 
 ![Parola sıfırlama sayfası](./media/reset-rdp/Portal-PW-Reset-Windows.png)
 
-Yeni bir kullanıcı adı ve parolanızı girdikten sonra tıklatın **kaydetmek**.
+Merhaba yeni bir kullanıcı adı ve parolanızı girdikten sonra tıklatın **kaydetmek**.
 
 ## <a name="vmaccess-extension-and-powershell"></a>VMAccess uzantısını ve PowerShell
-VM aracısının sanal makinede yüklü olduğundan emin olun. VMAccess uzantısını VM Aracısı kullanılabilir olduğu sürece, kullanmadan önce yüklü olması gerekmez. VM Aracısı zaten aşağıdaki komutu kullanarak yüklü olduğunu doğrulayın. ("MyCloudService" ve "myVM" bulut hizmetiniz ve, VM adlarıyla sırasıyla değiştirin. Çalıştırarak bu adları öğrenebilirsiniz `Get-AzureVM` hiçbir parametre olmadan.)
+VM aracısının hello sanal makinede yüklü olduğundan emin hello olun. Merhaba VMAccess uzantısını hello VM Aracısı kullanılabilir olduğu sürece, kullanmadan önce yüklü toobe gerekmez. VM aracısının komutu aşağıdaki hello kullanarak zaten yüklü olduğundan bu hello doğrulayın. ("MyCloudService" ve "myVM" bulut hizmetiniz ve, VM tarafından hello adları sırasıyla değiştirin. Çalıştırarak bu adları öğrenebilirsiniz `Get-AzureVM` hiçbir parametre olmadan.)
 
 ```powershell
 $vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-Varsa **write-host** komutu görüntüler **doğru**, VM aracısının yüklü olduğundan. Görüntüler, **False**, yönergeler ve karşıdan yükleme bağlantısı bkz [VM aracısı ve uzantılar - 2. parça](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure blog gönderisi.
+Merhaba, **write-host** komutu görüntüler **doğru**, VM aracısının yüklü hello. Görüntüler, **False**, hello yönergeler ve hello indirme bağlantısı toohello bkz [VM aracısı ve uzantılar - 2. parça](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure blog postası.
 
-Portalı kullanarak sanal makine oluşturduysanız denetleyin olup olmadığını `$vm.GetInstance().ProvisionGuestAgent` döndürür **doğru**. Aksi halde, bu komutu kullanarak ayarlayabilirsiniz:
+Merhaba sanal makine hello portalını kullanarak oluşturduysanız, denetleyin olup olmadığını `$vm.GetInstance().ProvisionGuestAgent` döndürür **doğru**. Aksi halde, bu komutu kullanarak ayarlayabilirsiniz:
 
 ```powershell
 $vm.GetInstance().ProvisionGuestAgent = $true
 ```
 
-Çalıştırdığınız zaman bu komutu aşağıdaki hata engeller **kümesi AzureVMExtension** sonraki adımlarda komutu: "Sağlama Konuk Aracısı etkinleştirilmelidir VM nesnesinde Iaas VM erişim uzantısı ayarlamadan önce."
+Bu komut hello çalıştırırken aşağıdaki hata hello engeller **kümesi AzureVMExtension** komutunu hello sonraki adımlar: "Sağlama Konuk Aracısı etkinleştirilmelidir hello VM nesnesinde Iaas VM erişim uzantısı ayarlamadan önce."
 
-### <a name="reset-the-local-administrator-account-password"></a>**Yerel yönetici hesabı parolasını sıfırlama**
-Geçerli yerel yönetici hesabı adı ve yeni bir parola ile oturum açma kimlik bilgileri oluşturun ve çalıştırın `Set-AzureVMAccessExtension` gibi.
+### <a name="reset-hello-local-administrator-account-password"></a>**Merhaba yerel yönetici hesabı parolasını sıfırlama**
+Merhaba geçerli yerel yönetici hesabı adı ve yeni bir parola ile oturum açma kimlik bilgileri oluşturun ve hello çalıştırın `Set-AzureVMAccessExtension` gibi.
 
 ```powershell
 $cred=Get-Credential
@@ -75,37 +75,37 @@ Set-AzureVMAccessExtension –vm $vm -UserName $cred.GetNetworkCredential().User
     -Password $cred.GetNetworkCredential().Password  | Update-AzureVM
 ```
 
-Geçerli hesabından farklı bir ad yazın, VMAccess uzantısını yerel yönetici hesabı yeniden adlandırır, o hesabı için parola atar ve Uzak Masaüstü oturumu kapatma sorunlarını. Yerel yönetici hesabı devre dışı bırakılırsa, VMAccess uzantısını etkinleştirir.
+Merhaba geçerli hesabından farklı bir ad yazın, hello VMAccess uzantısını hello yerel yönetici hesabı yeniden adlandırır, hello parola toothat hesabı atar ve Uzak Masaüstü oturumu kapatma sorunlarını. Merhaba VMAccess uzantısını Hello yerel yönetici hesabı devre dışı bırakılırsa sağlar.
 
-Bu komutlar da Uzak Masaüstü hizmet yapılandırmasını sıfırlayın.
+Bu komutlar da hello Uzak Masaüstü hizmet yapılandırmasını sıfırlayın.
 
-### <a name="reset-the-remote-desktop-service-configuration"></a>**Uzak Masaüstü hizmet yapılandırmasını sıfırlama**
-Uzak Masaüstü hizmet yapılandırmasını sıfırlamak için aşağıdaki komutu çalıştırın:
+### <a name="reset-hello-remote-desktop-service-configuration"></a>**Merhaba Uzak Masaüstü hizmet yapılandırmasını sıfırlama**
+komutu aşağıdaki hello çalıştırmak tooreset hello Uzak Masaüstü hizmet yapılandırmasını:
 
 ```powershell
 Set-AzureVMAccessExtension –vm $vm | Update-AzureVM
 ```
 
-VMAccess uzantısını sanal makinede iki komutu çalıştırır:
+Merhaba VMAccess uzantısını hello sanal makinede iki komutu çalıştırır:
 
 ```powershell
 netsh advfirewall firewall set rule group="Remote Desktop" new enable=Yes
 ```
 
-Bu komut 3389 numaralı TCP bağlantı noktasını kullanır gelen Uzak Masaüstü trafiğe izin veren yerleşik Windows Güvenlik Duvarı Grup etkinleştirir.
+Bu komut 3389 numaralı TCP bağlantı noktasını kullanır gelen Uzak Masaüstü trafiğe izin veren hello yerleşik Windows Güvenlik Duvarı Grup etkinleştirir.
 
 ```powershell
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
 ```
 
-Bu komut fDenyTSConnections Uzak Masaüstü bağlantıları etkinleştirme 0 için kayıt defteri değerini ayarlar.
+Bu komut, Uzak Masaüstü bağlantıları etkinleştirme hello fDenyTSConnections kayıt defteri değeri too0, ayarlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure VM erişim uzantısı yanıt vermiyor ve parola sıfırlamaya yoksa, şunları yapabilirsiniz [çevrimdışı yerel Windows parola sıfırlama](../reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bu yöntem daha gelişmiş bir işlemdir ve başka bir VM için sanal sabit disk sorunlu VM bağlanmanızı gerektirir. Bu makalede ilk belgelenen adımları izleyin ve yalnızca son çare olarak çevrimdışı parola sıfırlama yöntemi deneyin.
+Hello Azure VM erişim uzantısı yanıt vermiyor ve oluşturamıyor tooreset hello parola eminseniz yapabilecekleriniz [hello yerel Windows parola sıfırlama çevrimdışı](../reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bu yöntem daha gelişmiş bir işlemdir ve hello sorunlu VM tooanother VM tooconnect hello sanal sabit diskin gerektirir. Bu makalede anlatıldığı ilk hello adımları izleyin ve yalnızca hello çevrimdışı parola sıfırlama yöntemi son çare olarak çalışır.
 
 [Azure VM uzantıları ve özellikleri](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[RDP veya SSH ile bir Azure sanal makineye bağlanmak](http://msdn.microsoft.com/library/azure/dn535788.aspx)
+[RDP veya SSH ile tooan Azure sanal makinesine bağlanma](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
-[Windows tabanlı bir Azure sanal makine için Uzak Masaüstü bağlantı sorunlarını giderme](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Uzak Masaüstü bağlantıları tooa Windows tabanlı Azure sanal makine sorunlarını giderme](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

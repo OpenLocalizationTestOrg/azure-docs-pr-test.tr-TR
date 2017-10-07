@@ -1,6 +1,6 @@
 ---
-title: "Windows Azure VM görüntülerini ile Packer oluşturma | Microsoft Docs"
-description: "Azure'da Windows sanal makine görüntülerini oluşturmak için Packer kullanmayı öğrenin"
+title: "Windows Azure VM görüntülerini Packer ile aaaHow toocreate | Microsoft Docs"
+description: "Bilgi nasıl toouse Packer toocreate görüntülerini azure'da Windows sanal makineler"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 11a4a4d65be09e6c518836c25bb455a6df738dcb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d310fae3becb453b52d21281cb8ac53fa14a3fc2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure'da Windows sanal makine görüntülerini oluşturmak için Packer kullanma
-Azure her sanal makine (VM) Windows Dağıtım ve işletim sistemi sürümü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Azure Market birçok ilk ve üçüncü taraf en yaygın işletim sistemi için sağlar ve uygulama ortamları veya gereksinimlerinize göre tasarlanmıştır, kendi özel görüntülerinizi oluşturabilirsiniz. Bu makalede açık kaynak aracının nasıl kullanılacağını ayrıntıları [Packer](https://www.packer.io/) tanımlamak ve Azure özel görüntülerinizi oluşturmak için.
+# <a name="how-toouse-packer-toocreate-windows-virtual-machine-images-in-azure"></a>Azure'da nasıl toouse Packer toocreate Windows sanal makine görüntüleri
+Her sanal makine (VM) azure'da hello Windows Dağıtım ve işletim sistemi sürümü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Hello Azure Marketi birçok ilk ve üçüncü taraf en yaygın işletim sistemi için sağlar ve uygulama ortamları veya kendi özel görüntülerinizi uyarlanmış tooyour gereksinimlerini oluşturabilirsiniz. Bu makalede nasıl toouse hello açık kaynak aracı ayrıntıları [Packer](https://www.packer.io/) azure'da toodefine ve yapı özel görüntüler.
 
 
 ## <a name="create-azure-resource-group"></a>Azure kaynak grubu oluşturun
-Kaynak VM oluştururken oluşturma işlemi sırasında geçici Azure kaynaklarını Packer oluşturur. Bir görüntü olarak kullanmak için bu kaynak VM yakalamak için bir kaynak grubu tanımlamanız gerekir. Çıktısı Packer oluşturma işlemi, bu kaynak grubunda depolanır.
+Merhaba kaynak VM derlemeler gibi hello oluşturma işlemi sırasında geçici Azure kaynaklarını Packer oluşturur. bir görüntü olarak kullanmak üzere VM kaynak toocapture, bir kaynak grubu tanımlamanız gerekir. Merhaba hello Packer oluşturma işleminin çıktısı bu kaynak grubunda depolanır.
 
-Bir kaynak grubu ile oluşturmak [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+Bir kaynak grubu ile oluşturmak [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myResourceGroup* hello içinde *eastus* konumu:
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -36,9 +36,9 @@ New-AzureRmResourceGroup -Name $rgName -Location $location
 ```
 
 ## <a name="create-azure-credentials"></a>Azure kimlik bilgileri oluşturun
-Packer bir hizmet sorumlusu kullanarak Azure ile kimliğini doğrular. Bir Azure hizmet sorumlusu uygulamaları, hizmetleri ve Packer gibi Otomasyon araçları ile birlikte kullanabileceğiniz bir güvenlik kimliğidir. Denetim ve hizmet sorumlusu Azure'da gerçekleştirebilirsiniz ne gibi işlemler için izinler tanımlar.
+Packer bir hizmet sorumlusu kullanarak Azure ile kimliğini doğrular. Bir Azure hizmet sorumlusu uygulamaları, hizmetleri ve Packer gibi Otomasyon araçları ile birlikte kullanabileceğiniz bir güvenlik kimliğidir. Denetim ve toowhat işlemleri hello hizmet sorumlusu Azure'da gerçekleştirebilirsiniz gibi hello izinleri tanımlayın.
 
-Bir hizmet sorumlusu ile oluşturma [yeni AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) ve hizmet sorumlusu oluşturmak ve kaynakları yönetmek izinleri atayın [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
+Bir hizmet sorumlusu ile oluşturma [yeni AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) hello hizmet asıl toocreate izinlerini atamak ve kaynaklarını yönetecek [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
 ```powershell
 $sp = New-AzureRmADServicePrincipal -DisplayName "Azure Packer IKF" -Password "P@ssw0rd!"
@@ -46,7 +46,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Azure için kimlik doğrulaması için Azure Kiracı ve abonelik kimlikleri ile elde etmeniz [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription):
+tooauthenticate tooAzure etmeniz tooobtain Azure Kiracı ve abonelik kimlikleri ile [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription):
 
 ```powershell
 $sub = Get-AzureRmSubscription
@@ -54,23 +54,23 @@ $sub.TenantId
 $sub.SubscriptionId
 ```
 
-Sonraki adımda bu iki kimlikleri kullanın.
+Bu iki kimlikleri hello sonraki adımda kullanın.
 
 
 ## <a name="define-packer-template"></a>Packer şablon oluştur
-Görüntüleri oluşturmak için bir şablon bir JSON dosyası oluşturun. Şablonda oluşturucular ve gerçek derleme işlemini yürütmek provisioners tanımlayın. Packer sahip bir [Azure sağlayıcısı](https://www.packer.io/docs/builders/azure.html) sağlayan Azure kaynaklarını tanımlamak önceki oluşturulan hizmet asıl kimlik bilgilerini adım gibi.
+toobuild görüntüleri bir JSON dosyası olarak bir şablon oluşturun. Merhaba şablonunda hello gerçek taşımak provisioners derleme işlemi ve oluşturucular tanımlayın. Packer sahip bir [Azure sağlayıcısı](https://www.packer.io/docs/builders/azure.html) toodefine Azure sağlayan adım önceki hello oluşturulan hello hizmet asıl kimlik bilgileri gibi kaynaklar.
 
-Adlı bir dosya oluşturun *windows.json* ve aşağıdaki içeriği yapıştırın. Aşağıdakiler için kendi değerlerinizi girin:
+Adlı bir dosya oluşturun *windows.json* ve Yapıştır hello aşağıdaki içeriği. Kendi değerlerinizi için hello aşağıdakileri girin:
 
-| Parametre                           | Nereden |
+| Parametre                           | Burada tooobtain |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Görünüm hizmet asıl kimliği ile`$sp.applicationId` |
 | *client_secret*                     | Belirttiğiniz parola`$securePassword` |
 | *tenant_id*                         | Çıktı `$sub.TenantId` komutu |
 | *ABONELİK_KİMLİĞİ*                   | Çıktı `$sub.SubscriptionId` komutu |
 | *object_id*                         | Görünüm hizmet asıl nesne kimliği ile`$sp.Id` |
-| *managed_image_resource_group_name* | İlk adımda oluşturduğunuz kaynak grubunun adı |
-| *managed_image_name*                | Oluşturulan yönetilen disk görüntüsü için adı |
+| *managed_image_resource_group_name* | Merhaba ilk adımda oluşturduğunuz kaynak grubunun adı |
+| *managed_image_name*                | Oluşturulan hello yönetilen disk görüntüsü için adı |
 
 ```json
 {
@@ -116,19 +116,19 @@ Adlı bir dosya oluşturun *windows.json* ve aşağıdaki içeriği yapıştır�
 }
 ```
 
-Bu şablon Windows Server 2016 VM oluşturur, IIS yükler ve sonra Sysprep ile VM genelleştirir.
+Bu şablon Windows Server 2016 VM oluşturur, IIS yükler ve sonra hello Sysprep ile VM genelleştirir.
 
 
 ## <a name="build-packer-image"></a>Packer yansıması oluştur
-Yerel makinenizde yüklü Packer zaten yoksa [Packer yükleme yönergelerini izleyin](https://www.packer.io/docs/install/index.html).
+Yerel makinenizde yüklü Packer zaten yoksa [hello Packer yükleme yönergelerini izleyin](https://www.packer.io/docs/install/index.html).
 
-Görüntü, Packer belirterek şablon dosyası gibi oluşturun:
+Merhaba görüntüsünü, Packer belirterek şablon dosyasını aşağıdaki gibi oluşturabilirsiniz:
 
 ```bash
 ./packer build windows.json
 ```
 
-Çıkış örneği önceki komutlarındaki aşağıdaki gibidir:
+Komutları önceki hello hello çıktının bir örnek aşağıdaki gibidir:
 
 ```bash
 azure-arm output will be in this color.
@@ -147,25 +147,25 @@ azure-arm output will be in this color.
 ==> azure-arm: Deploying deployment template ...
 ==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
 ==> azure-arm:  -> DeploymentName    : ‘pkrdppq0mthtbtt’
-==> azure-arm: Getting the certificate’s URL ...
+==> azure-arm: Getting hello certificate’s URL ...
 ==> azure-arm:  -> Key Vault Name        : ‘pkrkvpq0mthtbtt’
 ==> azure-arm:  -> Key Vault Secret Name : ‘packerKeyVaultSecret’
 ==> azure-arm:  -> Certificate URL       : ‘https://pkrkvpq0mthtbtt.vault.azure.net/secrets/packerKeyVaultSecret/8c7bd823e4fa44e1abb747636128adbb'
-==> azure-arm: Setting the certificate’s URL ...
+==> azure-arm: Setting hello certificate’s URL ...
 ==> azure-arm: Validating deployment template ...
 ==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
 ==> azure-arm:  -> DeploymentName    : ‘pkrdppq0mthtbtt’
 ==> azure-arm: Deploying deployment template ...
 ==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
 ==> azure-arm:  -> DeploymentName    : ‘pkrdppq0mthtbtt’
-==> azure-arm: Getting the VM’s IP address ...
+==> azure-arm: Getting hello VM’s IP address ...
 ==> azure-arm:  -> ResourceGroupName   : ‘packer-Resource-Group-pq0mthtbtt’
 ==> azure-arm:  -> PublicIPAddressName : ‘packerPublicIP’
 ==> azure-arm:  -> NicName             : ‘packerNic’
 ==> azure-arm:  -> Network Connection  : ‘PublicEndpoint’
 ==> azure-arm:  -> IP Address          : ‘40.76.55.35’
-==> azure-arm: Waiting for WinRM to become available...
-==> azure-arm: Connected to WinRM!
+==> azure-arm: Waiting for WinRM toobecome available...
+==> azure-arm: Connected tooWinRM!
 ==> azure-arm: Provisioning with Powershell...
 ==> azure-arm: Provisioning with shell script: /var/folders/h1/ymh5bdx15wgdn5hvgj1wc0zh0000gn/T/packer-powershell-provisioner902510110
     azure-arm: #< CLIXML
@@ -174,7 +174,7 @@ azure-arm output will be in this color.
     azure-arm: ------- -------------- ---------      --------------
     azure-arm: True    No             Success        {Common HTTP Features, Default Document, D...
     azure-arm: <Objs Version=“1.1.0.1” xmlns=“http://schemas.microsoft.com/powershell/2004/04"><Obj S=“progress” RefId=“0"><TN RefId=“0”><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N=“SourceId”>1</I64><PR N=“Record”><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>
-==> azure-arm: Querying the machine’s properties ...
+==> azure-arm: Querying hello machine’s properties ...
 ==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
 ==> azure-arm:  -> ComputeName       : ‘pkrvmpq0mthtbtt’
 ==> azure-arm:  -> Managed OS Disk   : ‘/subscriptions/guid/resourceGroups/packer-Resource-Group-pq0mthtbtt/providers/Microsoft.Compute/disks/osdisk’
@@ -190,11 +190,11 @@ azure-arm output will be in this color.
 ==> azure-arm:  -> Image Location            : ‘eastus’
 ==> azure-arm: Deleting resource group ...
 ==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
-==> azure-arm: Deleting the temporary OS disk ...
+==> azure-arm: Deleting hello temporary OS disk ...
 ==> azure-arm:  -> OS Disk : skipping, managed disk was used...
 Build ‘azure-arm’ finished.
 
-==> Builds finished. The artifacts of successful builds are:
+==> Builds finished. hello artifacts of successful builds are:
 --> azure-arm: Azure.ResourceManagement.VMImage:
 
 ManagedImageResourceGroupName: myResourceGroup
@@ -202,17 +202,17 @@ ManagedImageName: myPackerImage
 ManagedImageLocation: eastus
 ```
 
-VM oluşturmak için provisioners çalıştırıp dağıtım temizlemek Packer birkaç dakika sürer.
+Merhaba dağıtım temizleme ve Packer toobuild hello VM hello provisioners çalıştırmak için birkaç dakika sürer.
 
 
 ## <a name="create-vm-from-azure-image"></a>Azure görüntüden VM oluşturma
-Yönetici olan VM'ler için kullanıcı adı ve parola ayarlayın [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+Yönetici olan hello VM'ler için kullanıcı adı ve parola ayarlayın [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Artık bir VM ile görüntüden oluşturabilirsiniz [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* gelen *myPackerImage*.
+Artık bir VM ile görüntüden oluşturabilirsiniz [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Merhaba aşağıdaki örnekte oluşturur adlı bir VM'den *myVM* gelen *myPackerImage*.
 
 ```powershell
 # Create a subnet configuration
@@ -264,7 +264,7 @@ $nic = New-AzureRmNetworkInterface `
     -PublicIpAddressId $publicIP.Id `
     -NetworkSecurityGroupId $nsg.Id
 
-# Define the image created by Packer
+# Define hello image created by Packer
 $image = Get-AzureRMImage -ImageName myPackerImage -ResourceGroupName $rgName
 
 # Create a virtual machine configuration
@@ -276,11 +276,11 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
 ```
 
-VM oluşturmak için birkaç dakika sürer.
+Birkaç dakika toocreate hello VM alır.
 
 
 ## <a name="test-vm-and-iis"></a>Test VM ve IIS
-VM ile genel IP adresi elde [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Aşağıdaki örnek IP adresi alacağı *myPublicIP* daha önce oluşturduğunuz:
+Merhaba, VM ile genel IP adresi elde [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Merhaba aşağıdaki örnek alacağı için başlangıç IP adresi *myPublicIP* daha önce oluşturduğunuz:
 
 ```powershell
 Get-AzureRmPublicIPAddress `
@@ -288,12 +288,12 @@ Get-AzureRmPublicIPAddress `
     -Name "myPublicIP" | select "IpAddress"
 ```
 
-Bir web tarayıcısı ortak IP adresi girebilirsiniz.
+Ardından tooa web tarayıcısında hello genel IP adresi girebilirsiniz.
 
 ![Varsayılan IIS sitesi](./media/build-image-with-packer/iis.png) 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu örnekte, Packer IIS zaten yüklü bir VM görüntüsü oluşturmak için kullanılır. Varolan dağıtım iş akışları, yanı sıra bu VM görüntüsü gibi Team Services, Ansible, Chef veya Puppet görüntüden oluşturulan VM'ler için uygulamanızı dağıtmak için kullanabilirsiniz.
+Bu örnekte, yüklü IIS ile Packer toocreate bir VM görüntüsü kullanılır. Var olan dağıtım iş akışları, uygulama tooVMs hello Team Services, Ansible, Chef veya Puppet görüntüsüyle oluşturulan toodeploy gibi yanı sıra bu VM görüntüsü kullanabilirsiniz.
 
 Diğer Windows distro'lar için ek örnek Packer şablonları için bkz: [bu GitHub deposuna](https://github.com/hashicorp/packer/tree/master/examples/azure).

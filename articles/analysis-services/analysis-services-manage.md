@@ -1,6 +1,6 @@
 ---
-title: "Azure Analysis Services yönetme | Microsoft Docs"
-description: "Bir Analysis Services sunucusuna Azure yönetmeyi öğrenin."
+title: Azure Analysis Services aaaManage | Microsoft Docs
+description: "Toomanage Analiz Hizmetleri nasıl öğrenin Azure sunucusu."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,57 +15,57 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.openlocfilehash: b897e81351ebee11c292e67ac76ba8202a6f0108
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b03bc440801a68162039e28cdb4f863da374014e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-analysis-services"></a>Çözümleme Hizmetleri yönetme
-Azure'da bir Analysis Services sunucusuna oluşturduktan sonra hemen veya süre yol gerçekleştirmeniz gereken bazı yönetim görevleri olabilir. Örneğin, sunucunuz modellerinde erişim veya sunucunuzun sistem durumu izleme kimin yenileme veri işlemeyi çalıştırın. Bazı yönetim görevleri, Azure portalında, diğerleri de SQL Server Management Studio (SSMS), yalnızca gerçekleştirilebilir ve bazı görevler ya da gerçekleştirilebilir.
+Azure'da bir Analysis Services sunucusuna oluşturduktan sonra bazı yönetim görevleri tooperform hemen gerekir ya da süre aşağı hello yol olabilir. Örneğin, toohello yenileme verileri, sunucunuzdaki hello modelleri erişebilir veya sunucunuzun sistem durumu izleme kimin işlemeyi çalıştırın. Bazı yönetim görevleri, Azure portalında, diğerleri de SQL Server Management Studio (SSMS), yalnızca gerçekleştirilebilir ve bazı görevler ya da gerçekleştirilebilir.
 
 ## <a name="azure-portal"></a>Azure portalına
-[Azure portal](http://portal.azure.com/) , oluşturmak ve sunucuları silin, sunucu kaynaklarını izlemek, boyutunu değiştirmek ve sunucularınızın kimlerin erişebileceğini yönetmek yerdir.  Bazı sorunlar yaşıyorsanız, ayrıca bir destek isteği gönderebilirsiniz.
+[Azure portal](http://portal.azure.com/) , oluşturmak ve sunucuları silin, sunucu kaynaklarını izlemek, boyutunu değiştirmek ve erişim tooyour sunucuları olanların yönetmek yerdir.  Bazı sorunlar yaşıyorsanız, ayrıca bir destek isteği gönderebilirsiniz.
 
 ![Azure'da sunucu adını alma](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
-Azure'da sunucunuza bağlanma yalnızca bir sunucu örneği veya kendi kuruluşunuzdaki bağlanma gibi olur. SSMS verileri işlemek gibi gerçekleştirdiğiniz görevlerin çoğunu gerçekleştirmek veya bir işleme betiği oluşturmak, rolleri yönetebilir ve PowerShell kullanın.
+Azure'da tooyour sunucusuyla bağlantı kuruluyor yalnızca tooa server örneği veya kendi kuruluşunuzdaki bağlanma gibi olur. SSMS aynı işlem verileri gibi görevleri veya bir işleme betiği oluşturmak, rolleri yönetmek ve PowerShell kullanmak hello çoğunu gerçekleştirebilirsiniz.
   
 ![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
 ### <a name="download-and-install-ssms"></a>SSMS yükleyip
-Tüm almak için en son özellikleri ve Azure Analysis Services sunucusuna bağlanırken en yumuşak deneyimi SSMS en son sürümünü kullandığınızdan emin olun. 
+tooget tüm son özellikleri ve hello en yumuşak deneyimi tooyour Azure Analysis Services sunucusuna bağlanırken Merhaba, hello SSMS en son sürümünü kullandığınızdan emin olun. 
 
 [SQL Server Management Studio'yu indirme](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 
-### <a name="to-connect-with-ssms"></a>SSMS ile bağlanma
- SSMS, sunucunuza ilk kez bağlanmadan önce kullanırken, kullanıcı adınızı Analysis Services Yöneticiler grubunda bulunduğundan emin olun. Daha fazla bilgi için bkz: [sunucu yöneticileri](#server-administrators) bu makalenin ilerisinde yer.
+### <a name="tooconnect-with-ssms"></a>SSMS ile tooconnect
+ SSMS, bağlanan tooyour sunucu hello ilk kez önce kullanırken, kullanıcı adınızı hello Analysis Services Yöneticiler grubunda bulunduğundan emin olun. toolearn daha, fazla [sunucu yöneticileri](#server-administrators) bu makalenin ilerisinde yer.
 
-1. Bağlanmadan önce sunucu adını almanız gerekir. **Azure portalı** > sunucu > **Genel Bakış** > **Sunucu adı** menüsünde sunucu adını kopyalayın.
+1. Bağlanmadan önce tooget hello sunucu adı gerekiyor. İçinde **Azure portal** > server > **genel bakış** > **sunucu adı**, kopya hello sunucu adı.
    
     ![Azure'da sunucu adını alma](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. SSMS içinde > **Object Explorer**, tıklatın **Bağlan** > **Analysis Services**.
-3. İçinde **sunucuya Bağlan** iletişim kutusu, sunucu adının, sonra da Yapıştır **kimlik doğrulaması**, aşağıdaki kimlik doğrulama türlerinden birini seçin:
+3. Merhaba, **tooServer bağlanmak** iletişim kutusu, Yapıştır hello sunucu adını, sonra da **kimlik doğrulaması**, şu kimlik doğrulama türlerini hello birini seçin:
    
-    **Windows kimlik doğrulaması** Windows etki alanı\kullanıcı adı ve parola bilgileriniz kullanılacak.
+    **Windows kimlik doğrulaması** toouse Windows etki alanı\kullanıcı adı ve parola bilgileriniz.
 
-    **Active Directory parola kimlik doğrulaması** kurumsal bir hesap kullanmak için. Örneğin, ne zaman bir etki bağlanma bilgisayar katıldı.
+    **Active Directory parola kimlik doğrulaması** toouse bir kurumsal hesap. Örneğin, ne zaman bir etki bağlanma bilgisayar katıldı.
 
-    **Active Directory Evrensel kimlik doğrulaması** kullanmak için [etkileşimli olmayan veya çok faktörlü kimlik doğrulaması](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory Evrensel kimlik doğrulaması** toouse [etkileşimli olmayan veya çok faktörlü kimlik doğrulaması](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
     ![SSMS bağlanma](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 ## <a name="server-administrators-and-database-users"></a>Sunucu yöneticileri ve veritabanı kullanıcısı
-Azure Analysis Services içinde kullanıcılar, Yöneticiler ve veritabanı kullanıcılarını iki tür vardır. Her iki tür kullanıcı Azure Active Directory'yi olmalıdır ve kurumsal e-posta adresi veya UPN ile belirtilmelidir. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
+Azure Analysis Services içinde kullanıcılar, Yöneticiler ve veritabanı kullanıcılarını iki tür vardır. Her iki tür kullanıcı Azure Active Directory'yi olmalıdır ve kurumsal e-posta adresi veya UPN ile belirtilmelidir. toolearn daha, fazla [kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
 
 
 ## <a name="troubleshooting-connection-problems"></a>Bağlantı sorunlarını giderme
-Sorunlarla karşılaşırsanız, SSMS, kullanarak bağlanırken, oturum açma önbelleğini temizlemek gerekebilir. Hiçbir şey önbelleğe diske. Önbelleği temizlemek için kapatın ve bağlanma işlemi başlatın. 
+Sorunlarla karşılaşırsanız, SSMS, kullanarak bağlanırken, tooclear hello oturum açma önbellek gerekebilir. Önbelleğe alınan toodisc doğrudur. tooclear hello önbellek, kapatın ve yeniden başlatma hello işlem bağlayın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tablo modeli yeni sunucunuza zaten dağıttıysanız yapmadıysanız, iyi bir zamandır sunulmuştur. Daha fazla bilgi için bkz. [Azure Analysis Services’a Dağıtma](analysis-services-deploy.md).
+Tablo modeli tooyour yeni bir sunucu zaten dağıttıysanız yapmadıysanız, iyi bir zamandır sunulmuştur. toolearn daha, fazla [tooAzure Analysis Services dağıtma](analysis-services-deploy.md).
 
-Sunucunuza bir model dağıttıktan sonra bir istemci veya tarayıcı kullanarak bağlanmak hazırsınız. Daha fazla bilgi için bkz: [veri Azure Analysis Services sunucusundan alma](analysis-services-connect.md).
+Bir model tooyour sunucusu dağıttıktan sonra bir istemci veya tarayıcı kullanarak hazır tooconnect tooit demektir. toolearn daha, fazla [veri Azure Analysis Services sunucusundan alma](analysis-services-connect.md).
 

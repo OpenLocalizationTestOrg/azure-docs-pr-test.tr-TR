@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory Sertifika tabanlı kimlik doğrulaması android'de | Microsoft Docs"
-description: "Desteklenen senaryoları ve yapılandırma sertifika tabanlı kimlik doğrulama çözümlerinde gereksinimleri ile Android cihazları öğrenin"
+title: "aaaAzure Active Directory Sertifika tabanlı kimlik doğrulamasını Android | Microsoft Docs"
+description: "Merhaba desteklenen senaryolar ve sertifika tabanlı kimlik doğrulaması ile Android cihazları çözümlerinde yapılandırma hello gereksinimleri hakkında bilgi edinin"
 services: active-directory
 author: MarkusVi
 documentationcenter: na
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 8005bfe821fea25539c84efdccf6c49bd5f1f8ee
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 148275fa3da610530c278fcd57e02e907f735d9a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Azure Active Directory Sertifika tabanlı kimlik doğrulamasını Android
 
 
-Sertifika tabanlı kimlik doğrulaması (CBA), Azure Active Directory tarafından Windows, Android veya iOS aygıtında bir istemci sertifikası ile Exchange online hesabınızı bağlanırken kimliğinin doğrulanmasını sağlar: 
+Sertifika tabanlı kimlik doğrulaması (CBA) Azure Active Directory tarafından Windows, Android veya iOS aygıtında bir istemci sertifikası ile Exchange online hesabınızı bağlanırken kimlik doğrulaması toobe sağlar: 
 
 * Microsoft Outlook ve Microsoft Word gibi Office mobil uygulamaları   
 * Exchange ActiveSync (EAS) istemcileri 
 
-Bu özelliği yapılandıran bir kullanıcı adı ve parola birleşimini belirli mail ve Microsoft Office uygulamaları mobil cihazınızdan girin gereğini ortadan kaldırır. 
+Bu özelliği yapılandıran hello gerek tooenter bir kullanıcı adı ve parola birleşimi belirli mail ve Microsoft Office uygulamaları, mobil Cihazınızda içine ortadan kaldırır. 
 
-Bu konu, gereksinimler ve desteklenen senaryoları ile Office 365 Kurumsal, iş, eğitim, ABD devlet kurumları, Çin kiracılar kullanıcılarının iOS(Android) cihazında CBA yapılandırmak için sağlar ve Almanya planları.
+Bu konu, hello gereksinimleri ve desteklenen hello senaryoları ile Office 365 Kurumsal, iş, eğitim, ABD devlet kurumları, Çin kiracılar kullanıcılarının iOS(Android) cihazında CBA yapılandırmak için sağlar ve Almanya planları.
 
 
 
@@ -53,35 +53,35 @@ Bu özellik, Office 365 US Government savunma ve Federal planlarda Önizleme'de 
 
 ### <a name="implementation-requirements"></a>Uygulama gereksinimleri
 
-Aygıt işletim sistemi sürümü Android 5.0 (Lolipop) olmalıdır ve üstü. 
+Merhaba aygıt işletim sistemi sürümü Android 5.0 (Lolipop) olmalıdır ve üstü. 
 
 Bir federasyon sunucusunun yapılandırılması gerekir.  
 
-Azure bir istemci sertifikası iptal etmek için Active Directory, ADFS belirteç aşağıdaki talep sahip olmanız gerekir:  
+Azure Active Directory toorevoke bir istemci sertifikası hello ADFS belirteç talep aşağıdaki hello sahip olmanız gerekir:  
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
-  (İstemci sertifikanın seri numarası) 
+  (Merhaba sertifikanın seri numarası hello istemci) 
 * `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
-  (İstemci sertifikası veren dize) 
+  (Merhaba veren hello istemci sertifikasının hello dize) 
 
-ADFS belirteç (veya başka bir SAML belirteci) kullanılabilir olmaları durumunda azure Active Directory yenileme belirtecini bu talep ekler. Yenileme belirteci doğrulanması gerektiğinde, bu bilgileri iptalini denetlemek için kullanılır. 
+Merhaba ADFS belirteç (veya başka bir SAML belirteci) kullanılabilir olmaları durumunda azure Active Directory bu talep toohello yenileme belirteci ekler. Merhaba yenileme belirteci doğrulanmış toobe gerektiğinde, bu bilgiler kullanılan toocheck hello iptal olur. 
 
-En iyi uygulama, bir kullanıcı sertifikası almak yönergeler ile ADFS hata sayfaları güncelleştirmeniz gerekir.  
-Daha fazla ayrıntı için bkz: [AD FS oturum açma sayfalarını özelleştirme](https://technet.microsoft.com/library/dn280950.aspx).  
+En iyi uygulama, yönergelerini içeren hello ADFS hata sayfalarını güncelleştirmelidir tooget bir kullanıcı sertifikası.  
+Daha fazla ayrıntı için bkz: [hello AD FS oturum açma sayfalarını özelleştirme](https://technet.microsoft.com/library/dn280950.aspx).  
 
-Bazı Office uygulamaları (modern kimlik doğrulaması etkin ile) Gönder '*oturum açma istemini =*', istekte Azure ad. Varsayılan olarak, Azure AD bu için ADFS isteğinde dönüşür '*wauth usernamepassworduri =*' (U/P kimlik doğrulama yapmak için ADFS ister) ve '*wfresh = 0*' (SSO durumu yoksay ve yeni bir kimlik doğrulaması yapmak için ADFS ister). Sertifika tabanlı kimlik doğrulaması bu uygulamalar için etkinleştirmek istiyorsanız, varsayılan Azure AD davranışını değiştirmek gerekir. Ayarlamanız yeterlidir '*PromptLoginBehavior*'ın Federasyon etki alanı ayarlarınızı'*devre dışı*'. Kullanabileceğiniz [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) bu görevi gerçekleştirmek için cmdlet:
+Bazı Office uygulamaları (modern kimlik doğrulaması etkin ile) Gönder '*oturum açma istemini =*' tooAzure AD kendi isteği. Varsayılan olarak, Azure AD bu hello isteği tooADFS çok dönüşür '*wauth usernamepassworduri =*' (ADFS toodo U/P auth ister) ve '*wfresh = 0*' (ADFS tooignore SSO durumu ister ve yeni bir kimlik doğrulaması yapın) . Bu uygulamalar için sertifika tabanlı kimlik doğrulaması tooenable istiyorsanız toomodify hello varsayılan Azure AD davranışını gerekir. Yalnızca kümesi hello '*PromptLoginBehavior*' federasyon etki alanını ayarlarınızda çok '*devre dışı*'. Merhaba kullanabilirsiniz [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet tooperform bu görevi:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 
 
 
 ## <a name="exchange-activesync-clients-support"></a>Exchange ActiveSync istemcileri desteği
-Belirli Exchange ActiveSync uygulamaları Android 5.0 (Lolipop) veya sonraki sürümlerde desteklenmektedir. E-posta uygulamanız bu özelliği destekleyen belirlemek için uygulama geliştiricisi ile temasa geçin. 
+Belirli Exchange ActiveSync uygulamaları Android 5.0 (Lolipop) veya sonraki sürümlerde desteklenmektedir. toodetermine bu özellik, e-posta uygulamanızı destekliyorsa temasa geçin, uygulama geliştiricisi. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sertifika tabanlı kimlik doğrulaması, ortamınızda yapılandırmak istiyorsanız, bkz: [Android sertifika tabanlı kimlik doğrulamasını kullanmaya başlama](active-directory-certificate-based-authentication-get-started.md) yönergeler için.
+Ortamınızda tooconfigure sertifika tabanlı kimlik doğrulaması istiyorsanız, bkz: [Android sertifika tabanlı kimlik doğrulamasını kullanmaya başlama](active-directory-certificate-based-authentication-get-started.md) yönergeler için.
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png

@@ -1,5 +1,5 @@
 ---
-title: "Muhtemelen virüs bulaşmış cihazlardan gerçekleştirilen oturum açma işlemleri"
+title: "aaaSign muhtemelen virüs bulaşmış cihazlardan bileşenleri"
 description: "Bazı kötü amaçlı yazılım (kötü amaçlı yazılım) çalışmıyor olabilir aygıtlardan yürütülen deneme işareti içeren bir rapor."
 services: active-directory
 documentationcenter: 
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
-ms.openlocfilehash: 3809e20937d8d9829675e20f893101cb849dcea2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8d973701d6833f748de443f96cf7ed1d060202e3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sign-ins-from-possibly-infected-devices"></a>Muhtemelen virüs bulaşmış cihazlardan gerçekleştirilen oturum açma işlemleri
-Bu rapor, etkilenen haline gelir ve şimdi bir botnet parçası olan kullanıcıların cihazları tanımlamaya çalışır. Kullanıcıların oturum açtığını botnet sunucusu iletişim kurmayan gibi biliyoruz IP adresleri IP adreslerini aralarındaki ilişkileri belirlemektir.
+Bu rapor, etkilenen haline gelir ve şimdi bir botnet parçası olan kullanıcılarınızın aygıtları tooidentify çalışır. Kullanıcıların oturum açtığını toobe botnet sunucuları iletişim kurmayan biliyoruz IP adresleri IP adreslerini aralarındaki ilişkileri belirlemektir.
 
-Öneri: Bu rapor, IP adresleri, kullanıcı aygıtları işaretler. Kullanıcıyla iletişime geçin ve emin olmak için tüm kullanıcı aygıtları tarama öneririz. Ayrıca bir kullanıcının kişisel cihaz bulaşmış ya da aynı IP adresi kullanıcı tarafından kullanılan, kullanıcının başka birisi etkilenen bir aygıt olduğunu mümkündür.
+Öneri: Bu rapor, IP adresleri, kullanıcı aygıtları işaretler. Merhaba kullanıcıyla iletişime geçin ve tüm hello kullanıcının aygıtları toobe belirli tarama öneririz. Kullanıcının kişisel cihaz bulaşmış veya birisi tarafından kullanılan hello kullanıcıyı dışında hello kullanıcı aynı IP adresine hello sahip etkilenen bir aygıtı mümkündür.
 
-Adres kötü amaçlı yazılımların yayılmasını kullanma hakkında daha fazla bilgi için bkz: [kötü amaçlı yazılımdan koruma Merkezi](http://go.microsoft.com/fwlink/?linkid=335773).
+Hakkında daha fazla bilgi için tooaddress kötü amaçlı yazılımların yayılmasını bkz hello [kötü amaçlı yazılımdan koruma Merkezi](http://go.microsoft.com/fwlink/?linkid=335773).
 
 ![Muhtemelen virüs bulaşmış cihazlardan gerçekleştirilen oturum açma işlemleri](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 

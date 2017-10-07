@@ -1,6 +1,6 @@
 ---
 title: "Azure AD: Parolanızı Sıfırlama | Microsoft Docs"
-description: "Self Servis parola sıfırlama ve iş veya Okul kullanıcı hesabınıza erişimi yeniden kazanmak için kullanın"
+description: "Tooregain erişim tooyour iş veya Okul kullanıcı hesabı kullan Self Servis parola sıfırlama"
 services: active-directory
 keywords: 
 documentationcenter: 
@@ -16,42 +16,42 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: end-user
-ms.openlocfilehash: dcd590708bf937b99bb74e4d164d3451bffb46e1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6b78f2c511b83c6f0f34f72efb19502c4ed3f4e7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="help-i-forgot-my-azure-ad-password"></a>Yardım, Azure AD parolamı unuttum
 
-Parolanızı unuttuysanız, BT personelinizden hiç parola almadıysanız, hesabınız kilitlendiyse veya parolayı değiştirmek istiyorsanız, size yardımcı olabiliriz. Parolanızı biliyor ve yalnızca değiştirmek için bölümüne devam [parolamı Değiştir](#change-my-password) aşağıda.
+Parolanızı unuttuysanız, hiçbir zaman, BT personeliniz birinden alınan, kilitlendiğinden, hesap ya da istediğiniz toochange dışında yardım edebiliriz. Parolanızı biliyor ve toochange yeterlidir devam toohello bölümüne [parolamı Değiştir](#change-my-password) aşağıda.
 
    > [!NOTE]
-   > Xbox, hotmail.com veya outlook.com gibi kişisel hesabınızı kurtarmaya çalışıyorsanız [önerileri bu makaledeki bulundu](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+   > Xbox gibi kişisel hesabınızı uygulamasına geri tooget çalışıyorsanız, hotmail.com veya outlook.com deneyin hello [önerileri bu makaledeki bulundu](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
    >
 
 ## <a name="reset-or-unlock-my-password-for-a-work-or-school-account"></a>İş veya okul hesabımın parolasını sıfırlama veya kilidini açma
 
-Varsa, hesabınızı şunlardan biri nedeniyle erişemiyor:
+Varsa, oluşturulamıyor tooaccess hesabınızı hello aşağıdakilerden biri nedeniyle:
 
-* Parolanızı çalışmıyor ve onu sıfırlamak istiyor musunuz.
-* Parolanızı biliyorsanız, ancak hesabınız kilitlendi ve hesabınızın kilidini açmak istiyor musunuz.
+* Parolanızı çalışmıyor ve tooreset istersiniz.
+* Parolanızı biliyorsanız, ancak hesabınız kilitlendi ve toounlock ister misiniz hesabınızı.
 
-Biz onu çağırabilir ve hesabınızı geri dönmek istediğiniz kadar Azure AD Self Servis parola sıfırlama, SSPR erişmek için izlediği adımları izleyin.
+Merhaba tooaccess Azure AD Self Servis parola izleyin adımları sıfırlama, biz olarak SSPR toocall gibi geri hesabınızda ve get izleyin.
 
-1. Herhangi bir iş veya okul oturum açma sayfasında **Hesabınıza erişemiyor musunuz?** bağlantısına ve sonra **İş veya okul hesabı**’na tıklayın ya da doğrudan [parola sıfırlama sayfasına](https://passwordreset.microsoftonline.com/) gidin.
+1. Tüm iş veya Okul oturum açma sayfasından hello tıklatın **hesabınıza erişemiyor?** bağlantı ardından tıklatın **iş veya Okul hesabı** veya doğrudan toohello gidin [parola sıfırlama sayfası](https://passwordreset.microsoftonline.com/).
 
     ![Hesabınıza erişemiyor musunuz?][Login]
 
-2. İş veya okul **Kullanıcı Kimliğinizi** girin, ekranda gördüğünüz karakterleri girerek robot olmadığınızı kanıtlayın, sonra da **İleri**’ye tıklayın.
+2. İşiniz veya okulunuz girin **kullanıcı kimliği**, hello ekranda, ardından tıklatın hello karakterleri girerek bir robot olmayan kanıtlamak **sonraki**.
 
    > [!NOTE]
    > BT personeliniz bu işlevselliği etkinleştirmediyse "yöneticinize başvurun" bağlantısı görüntülenir ve BT personeliniz e-posta yoluyla veya kendi sahip oldukları web portalında size bu konuda yardımcı olabilir.
    > 
-   > Hesabınızın kilidini açmak gerekiyorsa, bu noktada "I parolamı biliyorum, ancak oturum açamıyorum" seçeneğini.
+   > Bu noktada hesabınızı toounlock gerekiyorsa, hello seçeneği "I parolamı biliyorum, ancak oturum açamıyorum" belirleyin.
    > 
 
-3. BT personelinizin SSPR’yi nasıl yapılandırdığına bağlı olarak aşağıdakilerden birini veya daha fazlasını görürsünüz. Siz veya BT personeliniz makaleyi kullanmadan önce bu bilgilerin bazıları doldurulmuş [Self Servis parola sıfırlama için kaydetme](active-directory-passwords-reset-register.md).
+3. SSPR, BT personeliniz nasıl yapılandırdığına bağlı olarak aşağıdakilerden birini veya daha fazlasını hello bakın. Siz veya BT personeliniz hello makale kullanmadan önce bu bilgilerin bazıları doldurulmuş [Self Servis parola sıfırlama için kaydetme](active-directory-passwords-reset-register.md).
 
    * **Alternatif e-posta adresime gönder**
    * **Cep telefonuma kısa mesaj gönder**
@@ -59,39 +59,39 @@ Biz onu çağırabilir ve hesabınızı geri dönmek istediğiniz kadar Azure AD
    * **Ofis telefonumu ara**
    * **Güvenlik sorularımı yanıtla**
 
-   Bir seçenek belirtin, doğru yanıtları sağlayın ve **İleri**’ye tıklayın.
+   Bir seçenek belirleyin, hello doğru yanıt sağlamanız ve tıklayın **sonraki**.
 
    ![Kimlik doğrulama verilerinizi doğrulama][Verification]
 
-4. BT personelinizin daha fazla doğrulamaya ihtiyacı olabilir ve farklı bir seçimle 3. adımı yinelemeniz gerekebilir.
-5. **Yeni parola seçin** sayfasında yeni bir parola girin, parolanızı onaylayın ve **Son**’a tıklayın. Parolanızın 8-16 karakter uzunluğunda olmasını ve büyük/küçük harf karakterleri, sayılar ve özel karakterler içermesini öneririz.
+4. Daha fazla doğrulama, BT personeliniz gerekebilir ve farklı bir seçenek olan yeniden toorepeat adım 3 sahip olabilir.
+5. Merhaba üzerinde **yeni bir parola seçmesi** sayfasında, yeni bir parola girin, parolanızı onaylayın ve ardından **son**. Parolanızın 8-16 karakter uzunluğunda olmasını ve büyük/küçük harf karakterleri, sayılar ve özel karakterler içermesini öneririz.
 6. **Parolanız sıfırlandı** ifadesini gördüğünüzde, yeni parolanızla oturum açabilirsiniz.
 
     ![Parolanız sıfırlandı][Complete]
 
-Artık hesabınıza erişebiliyor olmalısınız; erişemiyorsanız, kuruluşunuzun BT personelinden daha fazla yardım istemeniz gerekir.
+Şimdi gereken kuruluşunuzun başvurmalıdır değil, hesabınızın mümkün tooaccess olması daha fazla yardım için BT personeli.
 
-Bir hesap gibi geldiği bir onay e-postası alabilirsiniz "Microsoft adına \<kuruluşunuz >". Bunun gibi bir e-posta alırsanız ve hesabınıza yeniden erişebilmek için self servis parola sıfırlamayı kullanmadıysanız kuruluşunuzun BT personeline başvurun.
+Bir hesap gibi geldiği bir onay e-postası alabilirsiniz "Microsoft adına \<kuruluşunuz >". Böyle bir e-posta almak ve kullanmaz Self Servis parola sıfırlama tooregain erişim tooyour hesabı, kuruluşunuzun başvurun BT personeli.
 
 ## <a name="change-my-password"></a>Parolamı değiştirme
 
-Parolanızı zaten biliyorsanız ve değiştirmek istiyorsanız, parolanızı değiştirmek için aşağıdaki adımları izleyin.
+Parolanızı zaten biliyor ve toochange istiyorsanız, kullanım hello parolanızı bu izleyin toochange adımları.
 
-### <a name="change-your-password-from-the-office-365-portal"></a>Office 365 portalından parolanızı değiştirme
+### <a name="change-your-password-from-hello-office-365-portal"></a>Merhaba Office 365 portalından parolanızı değiştirin
 
-Normalde Office portalını kullanarak uygulamalarınıza erişiyorsanız bu yöntemi kullanın
+Merhaba Office portalı kullanarak uygulamalarınızı normalde erişirseniz bu yöntemi kullanın.
 
 1. Oturum, [Office 365 hesabı](https://www.office.com) mevcut parolanızı kullanma
-2. Sağ üst taraftaki profilinize tıklayın ve **Hesabı görüntüle**’ye tıklayın
+2. Profilinizi hello üst sağ tarafındaki'i tıklatın ve'ı tıklatın **görüntülemek hesabı**
 3. **Güvenlik ve gizlilik** > **Parola**’ya tıklayın
 4. Eski parolanızı girin ve yeni parolanızı ayarlayıp onaylayın ve ardından **Gönder**’e tıklayın
 
-### <a name="change-your-password-from-the-azure-access-panel"></a>Azure Erişim Paneli’nden parolanızı değiştirme
+### <a name="change-your-password-from-hello-azure-access-panel"></a>Azure erişim paneli hello parolanızı değiştirin
 
-Normalde Azure Erişim Portalı’ndan uygulamalarınıza erişiyorsanız bu yöntemi kullanın
+Uygulamalarınızı Azure erişim portalı hello normalde erişirseniz bu yöntemi kullanın.
 
-1. Mevcut parolanızı kullanarak [Azure Erişim Portalı](https://myapps.microsoft.com/)’nda oturum açın
-2. Sağ üst taraftaki profilinize ve sonra **Profil**’e tıklayın
+1. İçinde toohello oturum [Azure erişim portalı](https://myapps.microsoft.com/) mevcut parolanızı kullanma
+2. Profilinizi hello üst sağ tarafında tıklayın ve ardından **profili**
 3. **Parolayı değiştir**’e tıklayın
 4. Eski parolanızı girin ve yeni parolanızı ayarlayıp onaylayın ve ardından **Gönder**’e tıklayın
 
@@ -101,16 +101,16 @@ Normalde Azure Erişim Portalı’ndan uygulamalarınıza erişiyorsanız bu yö
 
 | Hata durumu| Hangi hata görürüm?| Çözüm |
 | --- | --- | --- |
-| Kullanıcı Kimliğimi girdikten sonra "Lütfen sistem yöneticinize başvurun" sayfası alıyorum | Lütfen sistem yöneticinize başvurun <br> <br> Kullanıcı hesabı parolanızı Microsoft tarafından yönetilmediğini algıladık. Sonuç olarak, otomatik olarak parolanızı sıfırlamak alamıyoruz. <br> <br> Daha fazla yardım için BT personeliniz başvurmanız gerekir. | BT personeliniz parolanızı, şirket içi ortamınızda yönetir ve gelen parolanızı sıfırlamak izin vermez, bu iletiyi görüyorsunuz hesap bağlantısı erişemiyor. <br> <br> Parolanızı sıfırlamak için doğrudan Yardım için BT personeliniz başvurun ve bunlar bu özellik sizin için etkinleştirebileceğiniz şekilde parolanızı sıfırlamak istediğiniz bildirmek.|
-| Kullanıcı Kimliğimi girdikten sonra bir "hesabınız parola sıfırlama için etkin değil" hatası alıyorum | Hesabınız parola sıfırlama için etkinleştirilmedi <br> <br> Üzgünüz, ancak, BT personeliniz hesabınız bu hizmeti kullanacak şekilde ayarlama değil. <br> <br> İsterseniz, biz parolanızı sıfırlaması için kuruluşunuzdaki yönetici başvurabilirsiniz. | BT personeliniz parola sıfırlama kuruluşunuzdan için etkin değil çünkü bu iletiyi görüyorsunuz hesap bağlantısı erişemez veya bu özelliği kullanmak için lisanslı kurmadı. <br> <br> Parolanızı sıfırlamak için şirket için bir e-posta göndermek için bir yönetici bağlantısı kişiyi tıklatın BT personeli, adı ve bunlar bu özellik sizin için etkinleştirebileceğiniz şekilde parolanızı sıfırlamak istediğiniz bildirmek. |
-| Kullanıcı Kimliğimi girdikten sonra bir "biz hesabınızı doğrulanamadı" hatası alıyorum | Hesabınız doğrulanamıyor <br> <br> İsterseniz, biz parolanızı sıfırlaması için kuruluşunuzdaki yönetici başvurabilirsiniz. | Parola sıfırlama için etkinleştirilir, ancak hizmeti kullanmak için kaydolmadınız için bu iletiyi görüyorsunuz. Parola sıfırlama için kaydetme için hesabınıza erişim artık sonra için http://aka.ms/ssprsetup gidin. <br> <br> Parolanızı sıfırlamak için şirketinizin e-posta göndermek için bir yönetici bağlantısı kişiyi tıklatın BT personeli. |
+| Kullanıcı Kimliğimi girdikten sonra "Lütfen sistem yöneticinize başvurun" sayfası alıyorum | Lütfen sistem yöneticinize başvurun <br> <br> Kullanıcı hesabı parolanızı Microsoft tarafından yönetilmediğini algıladık. Sonuç olarak, bağlanamıyoruz tooautomatically parolanızı sıfırlayın. <br> <br> Daha fazla yardım için BT personeliniz toocontact gerekir. | BT personeliniz parolanızı, şirket içi ortamınızda yönetir ve tooreset izin vermiyor bu iletiyi görüyorsunuz parolanızı gelen hesap bağlantısı erişemiyor. <br> <br> BT personel doğrudan için parolanızı kişi Yardım ve bildirmek tooreset bunlar bu özellik sizin için etkinleştirebileceğiniz şekilde tooreset parolanızı istediğiniz bilirsiniz.|
+| Kullanıcı Kimliğimi girdikten sonra bir "hesabınız parola sıfırlama için etkin değil" hatası alıyorum | Hesabınız parola sıfırlama için etkinleştirilmedi <br> <br> Üzgünüz, ancak, BT personeliniz hesabınız bu hizmeti kullanacak şekilde ayarlama değil. <br> <br> İsterseniz, biz kuruluş tooreset içinde bir Yönetici parolanızı sizin için başvurabilirsiniz. | BT personeliniz parola sıfırlama kuruluşunuzdan için etkin değil çünkü bu iletiyi görüyorsunuz hesap bağlantısı erişilemiyor veya toouse hello özelliği lisanslı kurmadı. <br> <br> tooreset parolanızı, bir yönetici bağlantı toosend bir e-posta tooyour şirket kişiyi tıklatın BT personeli, adı ve istediğiniz tooreset parolanızı bunlar bu özellik sizin için etkinleştirebileceğiniz şekilde bildirmek. |
+| Kullanıcı Kimliğimi girdikten sonra bir "biz hesabınızı doğrulanamadı" hatası alıyorum | Hesabınız doğrulanamıyor <br> <br> İsterseniz, biz kuruluş tooreset içinde bir Yönetici parolanızı sizin için başvurabilirsiniz. | Parola sıfırlama için etkinleştirilir, ancak toouse hello hizmet kayıtlı değil çünkü bu iletiyi görüyorsunuz. tooregister parola sıfırlama, erişim tooyour hesabı artık sonra toohttp://aka.ms/ssprsetup gidin. <br> <br> tooreset parolanızı, bir yönetici bağlantı toosend bir e-posta tooyour şirket 's kişiyi tıklatın BT personeli. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Self servis parola sıfırlamayı kullanmak için kaydolma](active-directory-passwords-reset-register.md)
+* [Nasıl tooregister toouse Self Servis parola sıfırlama](active-directory-passwords-reset-register.md)
 * [Parola sıfırlama kayıt sayfası](http://aka.ms/ssprsetup)
 * [Parola sıfırlama portalı](https://passwordreset.microsoftonline.com/)
-* [Microsoft hesabınızla oturum açamıyorsunuz](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+* [Tooyour Microsoft hesabı oturum açılamıyor](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Login]: ./media/active-directory-passwords-update-your-own-password/reset-1-login.png "Oturum açma sayfası Hesabınıza erişemiyor musunuz?"
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Kimlik doğrulama verilerinizi doğrulayın"

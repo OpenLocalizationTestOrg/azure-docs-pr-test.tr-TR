@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama hizmeti - Node.js için Mobile Services'den yükseltme"
-description: "Bir mobil uygulama hizmeti Mobile Services uygulamanıza kolayca yükseltmeyi öğrenin"
+title: Mobile Services tooAzure - App Service Node.js gelen aaaUpgrade
+description: "Nasıl tooeasily yükseltme Mobile Services uygulama tooan mobil uygulama hizmeti öğrenin"
 services: app-service\mobile
 documentationcenter: 
 author: ggailey777
@@ -14,135 +14,135 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: ce0572e85c258aa377c3eea7923d43a30c935bb2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 722cda244d4f633247827f58ea6f1397137ea600
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Varolan Node.js Azure mobil hizmetinizi App Service'e yükseltme
-App Service Mobile, Microsoft Azure kullanarak mobil uygulamaları oluşturmak için yeni bir yoludur. Daha fazla bilgi için bkz: [Mobile Apps nedir?].
+# <a name="upgrade-your-existing-nodejs-azure-mobile-service-tooapp-service"></a>Varolan Node.js Azure mobil hizmeti tooApp hizmet yükseltme
+App Service Mobile Microsoft Azure kullanarak bir yeni yolu toobuild mobil uygulamaları ' dir. toolearn daha, fazla [Mobile Apps nedir?].
 
-Bu konu, mevcut Node.js arka uç uygulama için yeni bir App Service Mobile Apps Azure Mobile Services yükseltme açıklar. Bu yükseltme gerçekleştirirken mevcut Mobile Services uygulamanız çalışmaya devam edebilirsiniz.  Bir Node.js arka uç uygulaması yükseltme yapmanız oluştuysa, [.NET Mobile Services yükseltme](app-service-mobile-net-upgrading-from-mobile-services.md).
+Bu konuda açıklanmaktadır nasıl Azure Mobile Services tooa varolan Node.js arka uç uygulamasından tooupgrade yeni App Service Mobile Apps. Bu yükseltme gerçekleştirirken mevcut Mobile Services uygulamanızı toooperate devam edebilirsiniz.  Tooupgrade bir Node.js arka uç uygulaması gereksinim duyarsanız, çok başvurun[.NET Mobile Services yükseltme](app-service-mobile-net-upgrading-from-mobile-services.md).
 
-Azure App Service'e bir mobil arka uç yükseltildiğinde, tüm uygulama hizmeti özelliklerine erişebilir ve göre faturalandırılır [uygulama hizmeti fiyatlandırma], fiyatlandırma değil Mobile Services.
+Bir mobil arka uç yükseltilmiş tooAzure uygulama hizmeti olduğunda, uygulama hizmeti özellikler ve öğeler faturalandırılır çok according erişim tooall sahip[uygulama hizmeti fiyatlandırma], fiyatlandırma değil Mobile Services.
 
 ## <a name="migrate-vs-upgrade"></a>Yükseltme geçirme
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
 > [!TIP]
-> Önerilir Bu, [bir geçiş gerçekleştirmek](app-service-mobile-migrating-from-mobile-services.md) yükseltme geçmeden önce. Bu şekilde, aynı uygulama hizmeti planı üzerinde her iki sürümü, uygulamanızın koyun ve ek bir maliyet doğurur.
+> Önerilir Bu, [bir geçiş gerçekleştirmek](app-service-mobile-migrating-from-mobile-services.md) yükseltme geçmeden önce. Bu şekilde, her iki sürümü, uygulamanızın koyabilirsiniz aynı App Service planı hello ve ek bir maliyet doğurur.
 >
 >
 
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>Mobile Apps Node.js sunucusu SDK yenilikleri
-Yeni yükseltme [Mobile Apps SDK'sı](https://www.npmjs.com/package/azure-mobile-apps) iyileştirmeler de dahil olmak üzere birçok sağlar:
+Yeni toohello yükseltme [Mobile Apps SDK'sı](https://www.npmjs.com/package/azure-mobile-apps) iyileştirmeler de dahil olmak üzere birçok sağlar:
 
-* Temel [Express framework](http://expressjs.com/en/index.html), yeni bir düğüm SDK hafif ve geldikleri gibi yeni düğümü sürümlerle karşılamak üzere tasarlanmıştır. Express ara yazılımını ile uygulama davranışını özelleştirebilirsiniz.
-* Mobile Services SDK'sına göre önemli performans geliştirmeleri.
-* Bir Web sitesi ile birlikte mobil arka şimdi barındırabilir; benzer şekilde, tüm mevcut express.v4 uygulamaya Azure Mobile SDK'sı ekleme kolaydır.
-* Platformlar arası ve yerel geliştirme için yerleşik, Mobile Apps SDK'sı geliştirilen ve yerel olarak Windows, Linux ve OSX platformlarda çalıştırmak kullanabilirsiniz. Şimdi çalışıyor gibi kullanımı kolay ortak düğüm geliştirme teknikleri olan [Mocha](https://mochajs.org/) testleri dağıtımından önce.
+* Merhaba üzerinde temel [Express framework](http://expressjs.com/en/index.html), hello yeni bir düğüm SDK hafif ve yeni düğümü sürümleriyle gelen yukarı tookeep tasarlanmıştır. Express ara yazılımını ile Merhaba uygulama davranışını özelleştirebilirsiniz.
+* Önemli performans geliştirmeleri toohello Mobile Services SDK'sı karşılaştırılan.
+* Bir Web sitesi ile birlikte mobil arka şimdi barındırabilir; benzer şekilde, bu kolay tooadd hello Azure Mobile SDK tooany varolan express.v4 uygulamasıdır.
+* Platformlar arası ve yerel geliştirme için oluşturulan hello Mobile Apps SDK'sı geliştirilen ve yerel olarak Windows, Linux ve OSX platformlarda çalıştırmak kullanabilirsiniz. Kolay toouse ortak düğüm geliştirme teknikleri çalışıyor gibi sunulmuştur [Mocha](https://mochajs.org/) önceki toodeployment sınar.
 
 ## <a name="overview"></a>Temel yükseltmeye genel bakış
-Node.js arka ucu yükseltme yardımcı olmak için Azure App Service uyumluluğu paketi sağlamıştır.  Yükseltmeden sonra yeni bir uygulama hizmeti siteye dağıtılabilir bir niew sitesi olur.
+Azure App Service'te bir Node.js arka ucu yükseltme sırasında tooaid uyumluluk paketi sağlamıştır.  Yükseltmeden sonra dağıtılan tooa yeni uygulama hizmeti site olabilir bir niew sitesi olur.
 
-Mobile Services istemci SDK'ları olan **değil** yeni mobil uygulamalar sunucusu SDK ile uyumlu. Uygulamanız için hizmetin sürekliliği sağlamak için değişiklikleri şu anda yayımlanan istemciler hizmet veren bir site yayınlamalıdır değil. Bunun yerine, yinelenen hizmet veren yeni bir mobil uygulama oluşturmanız gerekir. Bu uygulamayı ek finansal ücret oluşmasını önlemek için aynı uygulama hizmeti plan üzerinde koyabilirsiniz.
+Merhaba Mobile Services istemci SDK'ları olan **değil** hello yeni mobil uygulamalar sunucusu SDK ile uyumlu. Sipariş tooprovide kesintisiz hizmet devamlılığı uygulamanız için, değişiklikleri tooa site şu anda yayımlanan istemciler hizmet veren yayınlamalıdır değil. Bunun yerine, yinelenen hizmet veren yeni bir mobil uygulama oluşturmanız gerekir. Bu uygulama koyabilirsiniz hello üzerinde ek finansal masraf tooavoid aynı uygulama hizmeti planı.
 
-Uygulamanın iki sürümlerini sonra gerekir: aynı kalır ve hizmet veren bir yayımlanan uygulamalar joker diğer, ardından yükseltin ve yeni bir istemci sürümü ile hedef. Taşıma ve kodunuzu test etmek, hızı, ancak yaptığınız tüm hata düzeltmeleri hem de uygulandığından emin olmanız gerekir. İstediğiniz istemci uygulamaları yazılımların en son sürüme güncelleştirilmemiş istenen sayısını, özgün geçirilen uygulama silebilirsiniz olduğunu düşündüğünüz sonra. Mobil uygulamanızın aynı uygulama hizmeti planında barındırılan kullanılıyorsa, tüm ek para ücrete neden değil.
+Merhaba uygulaması iki sürümü sonra gerekir: kalır bir hello aynı görevi görür yayımlanan uygulamalar hello joker ve diğeri, ardından yükseltin ve yeni bir istemci ile hedef sürüm. Taşıma ve kodunuzu test etmek, hızı, ancak yaptığınız tüm hata düzeltmeleri uygulanan tooboth alma emin olmanız gerekir. Düşündüğünüz sonra joker istemci uygulamalarında istenen sayısını toohello en son sürümünü güncelleştirilen, istediğiniz hello özgün geçirilen uygulama silebilirsiniz. Mobil uygulamanızın aynı uygulama hizmeti planı hello barındırılıyorsa, tüm ek para ücrete neden değil.
 
-Yükseltme işlemi için tam anahattı aşağıdaki gibidir:
+Merhaba tam anahat hello yükseltme işlemi için aşağıdaki gibidir:
 
 1. Mevcut (geçirilen) Azure mobil hizmetiniz indirin.
-2. Proje Uyumluluk Paketi kullanarak bir Azure mobil uygulaması dönüştürün.
+2. Merhaba proje tooan Azure mobil uygulaması Dönüştür hello uyumluluk paketini kullanarak.
 3. Farkları (örneğin, kimlik doğrulama ayarları) düzeltin.
-4. Dönüştürülen Azure mobil uygulaması projeniz için yeni bir uygulama hizmeti dağıtın.
-5. Yeni mobil uygulamayı istemci uygulamanızı yeni bir sürümü kullanıma.
+4. Dönüştürülmüş Azure mobil uygulama projesi tooa dağıtmak yeni uygulama hizmeti.
+5. Yeni bir sürüm kullanmak yeni mobil uygulama hello istemci uygulamanızın serbest bırakın.
 6. (İsteğe bağlı) Özgün geçirilen mobil hizmet uygulamanızı silin.
 
 Özgün geçirilen mobil hizmette herhangi bir trafik görmüyorum silme ortaya çıkabilir.
 
-## <a name="install-npm-package"></a>Önkoşulları yüklemek
-Yerel makinenizde [Node] yüklemeniz gerekir.  Uyumluluk Paketi de yüklemeniz gerekir.  Düğüm yüklendikten sonra yeni cmd ya da PowerShell komut isteminde aşağıdaki komutu çalıştırabilirsiniz:
+## <a name="install-npm-package"></a>Merhaba Önkoşulları Yükleme
+Yerel makinenizde [Node] yüklemeniz gerekir.  Merhaba uyumluluğu paketi de yüklemeniz gerekir.  Düğüm yüklendikten sonra hello bir yeni cmd veya PowerShell komut isteminde aşağıdaki komutu çalıştırabilirsiniz:
 
 ```npm i -g azure-mobile-apps-compatibility```
 
 ## <a name="obtain-ams-scripts"></a>Azure mobil hizmetler komut dosyalarınız alın
-* [Azure Portal]’da oturum açın.
+* İçinde toohello oturum [Azure Portal].
 * Kullanarak **tüm kaynakları** veya **uygulama hizmetleri**, Mobile Services sitenizi bulun.
-* Site içinde tıklayın **Araçları** -> **Kudu** -> **Git** Kudu sitesini açın.
-* Tıklayın **hata ayıklama Konsolu'nda** -> **PowerShell** hata ayıklama konsolunu açın.
-* Gidin `site/wwwroot/App_Data/config` her bir dizinin sırayla tıklayarak
-* İndirme simgesine tıklayın `scripts` dizin.
+* Merhaba sitede tıklayın **Araçları** -> **Kudu** -> **Git** tooopen hello Kudu site.
+* Tıklayın **hata ayıklama Konsolu'nda** -> **PowerShell** tooopen hello Hata Ayıkla Konsolu.
+* Çok gidin`site/wwwroot/App_Data/config` her bir dizinin sırayla tıklayarak
+* Merhaba indirme simgesi sonraki toohello tıklatıldığında `scripts` dizin.
 
-Bu komut dosyaları ZIP biçiminde indirir.  Yerel makinenizde yeni bir dizin oluşturun ve paket `scripts.ZIP` dizin içindeki dosya.  Bu oluşturacak bir `scripts` dizin.
+Bu ZIP biçiminde hello komut dosyaları indirir.  Yerel makinenizde yeni bir dizin oluşturun ve hello paket `scripts.ZIP` hello dizini içindeki dosya.  Bu oluşturacak bir `scripts` dizin.
 
-## <a name="scaffold-app"></a>Yeni Azure Mobile Apps arka iskele
-Komut dosyaları dizinini içeren dizininden aşağıdaki komutu çalıştırın:
+## <a name="scaffold-app"></a>İskele hello yeni Azure Mobile Apps arka uç
+Merhaba betikleri dizinini içeren hello dizininden komutu aşağıdaki hello çalıştırın:
 
 ```scaffold-mobile-app scripts out```
 
-Bu kurulmuş bir Azure Mobile Apps arka ucu oluşturacak `out` dizin.  Gerekli değildir, ancak bunu denetlemek için iyi bir fikirdir `out` tercih ettiğiniz bir kaynak kod havuzunda dizin.
+Bu kurulmuş bir Azure Mobile Apps arka uç hello oluşturacak `out` dizin.  Gerekli değildir, ancak bir fikir toocheck hello olduğu `out` tercih ettiğiniz bir kaynak kod havuzunda dizin.
 
 ## <a name="deploy-ama-app"></a>Azure Mobile Apps arka dağıtma
-Dağıtım sırasında aşağıdakileri yapmanız gerekir:
+Dağıtım sırasında toodo hello aşağıdaki gerekir:
 
-1. Yeni bir mobil uygulaması oluşturmak [Azure Portal].
-2. Çalıştırma `createViews.sql` bağlı veritabanınızı komut.
-3. Yeni uygulama hizmetiniz için mobil hizmetinize bağlı veritabanı bağlayın.
-4. Yeni uygulama hizmeti (gibi bildirim hub'ları) başka kaynaklar bağlayın.
-5. Oluşturulan kod yeni sitenize dağıtın.
+1. Yeni bir mobil uygulaması hello oluşturma [Azure Portal].
+2. Merhaba çalıştırmak `createViews.sql` bağlı veritabanınızı komut.
+3. Bağlantılı tooyour mobil hizmeti tooyour bağlantı hello veritabanını yeni uygulama hizmeti.
+4. Diğer kaynaklar (örneğin, bildirim hub'ları) toohello bağlantı yeni uygulama hizmeti.
+5. Oluşturulan hello kod tooyour yeni site dağıtın.
 
 ### <a name="create-a-new-mobile-app"></a>Yeni bir mobil uygulaması oluşturma
-1. [Azure Portal]’da oturum açın.
+1. Merhaba oturum açma [Azure Portal].
 2. **+YENİ** > **Web + Mobil** > **Mobil Uygulama**’ya tıklayıp Mobile Uygulama arka ucu için bir ad verin.
-3. **Kaynak Grubu** için yeni bir kaynak grubu seçin ya da yeni bir tane oluşturun (uygulamanızla aynı adı kullanarak).
+3. Hello için **kaynak grubu**, varolan bir kaynak grubu seçin veya yeni bir tane oluşturun (kullanarak Merhaba, uygulamanızın adıyla aynı.)
 
-    Başka bir App Service planı seçin veya yeni bir tane oluşturun. Uygulama hizmetleri hakkında daha fazla bilgi için planları ve farklı fiyatlandırma yeni bir plan oluşturmak nasıl katmanı ve tercih ettiğiniz konumda bkz [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. **App Service planı** için, varsayılan plan ([Standart katman](https://azure.microsoft.com/pricing/details/app-service/)’da) seçilidir. Aynı zamanda başka bir plan da seçebilir veya [yeni bir tane oluşturabilirsiniz](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). App Service planının ayarları, uygulamanızla ilişkili [konumu, özellikleri, maliyeti ve işlem kaynaklarını](https://azure.microsoft.com/pricing/details/app-service/) saptar.
+    Başka bir App Service planı seçin veya yeni bir tane oluşturun. Uygulama Hizmetleri planları ve nasıl toocreate farklı fiyatlandırma içinde yeni bir plan katmanı ve tercih ettiğiniz konumda bkz hakkında daha fazla bilgi için [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+4. Hello için **uygulama hizmeti planı**, hello varsayılan plan (Merhaba içinde [standart katmanı](https://azure.microsoft.com/pricing/details/app-service/)) seçilidir. Aynı zamanda başka bir plan da seçebilir veya [yeni bir tane oluşturabilirsiniz](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Merhaba uygulama hizmeti planının ayarları belirlemek hello [konumu, özellikleri, maliyeti ve işlem kaynaklarını](https://azure.microsoft.com/pricing/details/app-service/) uygulamanızla ilişkili.
 
-    Planla ilgili kararı verdikten sonra **Oluştur**’a tıklayın. Böylece Mobil Uygulama arka uç oluşturulur.
+    Merhaba planla ilgili kararı verdikten sonra tıklayın **oluşturma**. Merhaba mobil uygulama arka ucu oluşturur.
 
 ### <a name="run-createviewssql"></a>CreateViews.SQL Çalıştır
-Adlı bir dosya kurulmuş uygulamasını içeren `createViews.sql`.  Bu komut dosyasını hedef veritabanında yürütülmelidir.  Hedef veritabanı için bağlantı dizesi geçirilen mobil hizmetinden gelen elde edilebilir **ayarları** altında dikey **bağlantı dizeleri**.  Bu adlı `MS_TableConnectionString`.
+Merhaba kurulmuş uygulama adlı bir dosyayı içeren `createViews.sql`.  Bu komut dosyasını hedef veritabanında yürütülmelidir.  Merhaba hello hedef veritabanı için bağlantı dizesini elde edilebilir geçirilen mobil hizmetinizden hello gelen **ayarları** altında dikey **bağlantı dizeleri**.  Bu adlı `MS_TableConnectionString`.
 
 Bu komut dosyasından SQL Server Management Studio veya Visual Studio içinde çalıştırabilirsiniz.
 
-### <a name="link-the-database-to-your-app-service"></a>Uygulama hizmetiniz için veritabanı bağlantı
-Varolan bir veritabanını uygulama hizmetiniz için bağlantı:
+### <a name="link-hello-database-tooyour-app-service"></a>Bağlantı hello veritabanı tooyour uygulama hizmeti
+Merhaba varolan veritabanı tooyour uygulama hizmeti bağlantı:
 
-* İçinde [Azure Portal], uygulama hizmetiniz açın.
+* Merhaba, [Azure Portal], uygulama hizmetiniz açın.
 * Seçin **tüm ayarları** -> **veri bağlantıları**.
 * Tıklayın **+ Ekle**.
-* Aşağı açılır menüsünde, seçin **SQL veritabanı**
+* Hello açılır, seçin **SQL veritabanı**
 * Altında **SQL veritabanı**mevcut veritabanını seçin, ardından tıklayın **seçin**.
-* Altında **bağlantı dizesi**, veritabanı için kullanıcı adını ve parolasını girin, ardından tıklayın **Tamam**.
-* İçinde **veri bağlantıları ekleme** dikey penceresinde, tıklatıldığında **Tamam**.
+* Altında **bağlantı dizesi**, hello veritabanı için hello kullanıcı adını ve parolasını girin, ardından tıklayın **Tamam**.
+* Merhaba, **veri bağlantıları ekleme** dikey penceresinde, tıklatıldığında **Tamam**.
 
-Kullanıcı adı ve parola geçirilen mobil hizmetinizi hedef veritabanı için bağlantı dizesini görüntüleyerek bulunabilir.
+Merhaba kullanıcı adı ve parola geçirilen mobil hizmetinizi hello hedef veritabanı için bağlantı dizesi hello görüntüleyerek bulunabilir.
 
 ### <a name="set-up-authentication"></a>Kimlik doğrulamasını ayarlama
-Azure Mobile Apps, Azure Active Directory, Facebook, Google, Microsoft ve Twitter kimlik doğrulama hizmeti içinde yapılandırmanıza olanak sağlar.  Özel kimlik doğrulama ayrı olarak geliştirilen gerekir.  Başvurmak [kimlik doğrulaması kavramlarını] belgelerine ve [kimlik doğrulaması Hızlı Başlangıç] daha fazla bilgi için.  
+Azure Mobile Apps tooconfigure Azure Active Directory, Facebook, Google, Microsoft ve Twitter kimlik doğrulaması hello hizmet içinde verir.  Özel kimlik doğrulama ayrı olarak geliştirilen toobe gerekir.  Hello başvuran [kimlik doğrulaması kavramlarını] belgelerine ve [kimlik doğrulaması Hızlı Başlangıç] daha fazla bilgi için.  
 
 ## <a name="updating-clients"></a>Mobil istemcilerin güncelleştir
-İşletimsel bir mobil uygulama arka ucu olduktan sonra hangi içereceği tükettiği istemci uygulamanızı yeni bir sürümünü çalışabilirsiniz. Mobile Apps istemci SDK ' yeni bir sürümünü de içerir ve benzer sunucu yükseltme için Mobile Apps sürümleri yüklemeden önce Mobile Services SDK'ları tüm başvurularını kaldırmanız gerekir.
+İşletimsel bir mobil uygulama arka ucu olduktan sonra hangi içereceği tükettiği istemci uygulamanızı yeni bir sürümünü çalışabilirsiniz. Mobile Apps istemci SDK'in hello yeni bir sürümünü de içerir ve benzer toohello sunucu yükseltme yukarıdaki, tüm başvurular toohello Mobile Services SDK'ları önce tooremove gerekir Mobile Apps sürümler yükleme.
 
-Sürümleri arasında ana değişikliklerden birini oluşturucular artık bir uygulama anahtarı gerekmesidir.
-Artık yalnızca mobil uygulamanızın URL'de geçirdiğiniz. Örneğin, .NET istemcilerde `MobileServiceClient` Oluşturucusu olan şimdi:
+Merhaba ana değişiklikleri hello sürümleri arasında hello oluşturucular artık bir uygulama anahtarı iste biridir.
+Artık yalnızca mobil uygulamanızın hello URL'de geçirdiğiniz. Örneğin, hello .NET istemcilerde hello `MobileServiceClient` Oluşturucusu olan şimdi:
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.azurewebsites.net" // URL of the Mobile App
+            "https://contoso.azurewebsites.net" // URL of hello Mobile App
         );
 
-Yeni SDK'ye yükleme ve yeni yapısı aşağıdaki bağlantıları üzerinden kullanma hakkında bilgi edinebilirsiniz:
+Yükleme hakkında bilgi edinebilirsiniz yeni SDK'ları hello ve aşağıdaki hello bağlantıları üzerinden hello yeni yapısını kullanarak:
 
 * [Android 2.2 veya sonraki sürümü](app-service-mobile-android-how-to-use-client-library.md)
 * [iOS sürüm 3.0.0 veya daha yenisi](app-service-mobile-ios-how-to-use-client-library.md)
 * [.NET (Windows/Xamarin) sürüm 2.0.0 veya daha yenisi](app-service-mobile-dotnet-how-to-use-client-library.md)
 * [Apache Cordova sürüm 2.0 veya üstü](app-service-mobile-cordova-how-to-use-client-library.md)
 
-Olmuştur gibi bazı değişiklikler vardır de uygulamanız anında iletme bildirimleri kullanın, her platform için belirli kayıt yönergeleri not yapıyorsa.
+Olmuştur gibi bazı değişiklikler vardır de uygulamanız anında iletme bildirimleri kullanın, her platform için belirli kayıt yönergeleri hello Not yapıyorsa.
 
-Yeni istemci sürümü hazır olduğunda, yükseltilen sunucu projenizi karşı deneyin. Çalışır durumda olduğunu doğrulandıktan sonra müşterilere, uygulamanızın yeni bir sürüm serbest bırakabilirsiniz. Sonuç olarak, müşterilerinizin bu güncelleştirmeleri almak için bir fırsat beklendiğinden sonra uygulamanızın Mobile Services sürüm silebilirsiniz. Bu noktada, bir mobil en son mobil uygulamalar sunucusu SDK kullanarak uygulama hizmeti için tamamen yükselttiniz.
+Merhaba yeni istemci sürümü hazır olduğunda, yükseltilen sunucu projenizi karşı deneyin. Çalışır durumda olduğunu doğrulandıktan sonra uygulama toocustomers yeni bir sürümü serbest bırakabilirsiniz. Sonuç olarak, müşterilerinizin bu güncelleştirmeler bir fırsat tooreceive beklendiğinden sonra hello Mobile Services sürümü, uygulamanızın silebilirsiniz. Bu noktada, tamamen tooan mobil uygulama hizmeti yükselttikten hello en son mobil uygulamalar sunucusu SDK kullanarak.
 
 <!-- URLs. -->
 
@@ -152,13 +152,13 @@ Yeni istemci sürümü hazır olduğunda, yükseltilen sunucu projenizi karşı 
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [Mobile App Server SDK]: https://www.npmjs.com/package/azure-mobile-apps
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
-[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
-[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
+[Add push notifications tooyour mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[Add authentication tooyour mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
 [Web Job]: ../app-service-web/websites-webjobs-resources.md
-[How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
+[How toouse hello .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Migrate from Mobile Services tooan App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service tooApp Service]: app-service-mobile-migrating-from-mobile-services.md
 [uygulama hizmeti fiyatlandırma]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [kimlik doğrulaması kavramlarını]: ../app-service/app-service-authentication-overview.md

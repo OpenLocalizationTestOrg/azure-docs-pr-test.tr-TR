@@ -1,6 +1,6 @@
 ---
-title: "Azure AD etki alanının otomatik kayıt sorunlarını giderme alanına katılmış bilgisayarları Windows 10 ve Windows Server 2016 için | Microsoft Docs"
-description: "Azure AD etki alanının otomatik kayıt sorunlarını giderme bilgisayarları Windows 10 ve Windows Server 2016 için katıldı."
+title: "aaaTroubleshooting hello otomatik kaydı Azure AD etki alanına katılmış bilgisayarları Windows 10 ve Windows Server 2016 için | Microsoft Docs"
+description: "Sorun giderme Hello otomatik kaydı Azure AD etki alanı bilgisayarları Windows 10 ve Windows Server 2016 için katıldı."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5b7f95f302f716d9221b5fae59aa2df5c956a524
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3795323ce9392368b412b3e1208868431e59a74b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad--windows-10-and-windows-server-2016"></a>Azure AD ile – Windows 10 ve Windows Server 2016 alanına katılmamış bilgisayarlar etki alanının otomatik kayıt sorunlarını giderme
+# <a name="troubleshooting-auto-registration-of-domain-joined-computers-tooazure-ad--windows-10-and-windows-server-2016"></a>Birleştirilmiş bilgisayarlar tooAzure AD – Windows 10 ve Windows Server 2016 etki alanının otomatik kayıt sorunlarını giderme
 
-Bu konu, aşağıdaki istemciler için geçerlidir:
+Bu konuda geçerli toohello istemcileri aşağıdaki gibidir:
 
 -   Windows 10
 -   Windows Server 2016
 
-Diğer Windows istemcileri için bkz: [etki alanının otomatik kaydı sorun giderme bilgisayarları Windows alt düzey istemciler için Azure AD alanına](active-directory-device-registration-troubleshoot-windows-legacy.md).
+Diğer Windows istemcileri için bkz: [Windows alt düzey istemciler için birleştirilmiş bilgisayarlar tooAzure AD otomatik kaydı etki alanının sorun giderme](active-directory-device-registration-troubleshoot-windows-legacy.md).
 
-Bu konu, etki alanına katılmış aygıtlar otomatik kaydı nda olarak açıklanan yapılandırmış olduğunuz varsayılır, [Azure Active Directory ile etki alanına katılmış Windows cihazlarının otomatik kaydını yapılandırma](active-directory-device-registration-get-started.md) aşağıdaki senaryoları desteklemek için:
+Bu konu, etki alanına katılmış aygıtlar otomatik kaydı nda olarak açıklanan yapılandırmış olduğunuz varsayılır, [nasıl tooconfigure otomatik kayıt Windows etki alanına katılmış cihazları Azure Active Directory ile](active-directory-device-registration-get-started.md) Aşağıdaki senaryolar toosupport hello:
 
 - [Cihaz temelli koşullu erişim](active-directory-conditional-access-automatic-device-registration-setup.md)
 
@@ -38,16 +38,16 @@ Bu konu, etki alanına katılmış aygıtlar otomatik kaydı nda olarak açıkla
 - [İş İçin Windows Hello](active-directory-azureadjoin-passport-deployment.md)
 
 
-Bu belge hakkında olası sorunları gidermek sorun giderme kılavuzu sağlar. 
+Bu belge, nasıl tooresolve olası sorunları hakkında sorun giderme kılavuzu sağlar. 
 
-Windows kayıt desteklenen 10 Kasım 2015 güncelleştirmesi ve üstü.  
-Yukarıdaki senaryoları etkinleştirmek için Yıldönümü güncelleştirme kullanmanızı öneririz.
+Merhaba kayıt hello Windows'da desteklenen 10 Kasım 2015 güncelleştirmesi ve üstü.  
+Yukarıdaki hello senaryoları etkinleştirmek için hello Yıldönümü güncelleştirme kullanmanızı öneririz.
 
-## <a name="step-1-retrieve-the-registration-status"></a>1. adım: kayıt durumunu alma 
+## <a name="step-1-retrieve-hello-registration-status"></a>1. adım: hello kayıt durumunu alma 
 
-**Kayıt durumunu almak için:**
+**tooretrieve hello kayıt durumu:**
 
-1. Komut istemini yönetici olarak açın.
+1. Merhaba komut istemini yönetici olarak açın.
 
 2. Tür **dsregcmd/Status**
 
@@ -57,7 +57,7 @@ Yukarıdaki senaryoları etkinleştirmek için Yıldönümü güncelleştirme ku
    | Cihaz durumu |+----------------------------------------------------------------------+
     
         AzureAdJoined : YES
-     EnterpriseJoined: Cihaz kimliği yok: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 parmak izi: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: Microsoft Platformu Crypto sağlayıcısı TpmProtected: Evet KeySignTest:: test etmek için yükseltilmiş çalıştırmanız gerekir.
+     EnterpriseJoined: Cihaz kimliği yok: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 parmak izi: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: Microsoft Platform şifreleme sağlayıcısı TpmProtected: Evet KeySignTest:: Çalıştır yükseltilmiş tootest gerekir.
                   IDP: login.windows.net Tenantıd: 72b988bf-86f1-41af-91ab-2d7cd011db47 TenantName: Contoso AuthCodeUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize AccessTokenUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token MdmUrl: https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc MdmTouUrl: https://portal.manage-beta.microsoft.com/TermsOfUse.aspx dmComplianceUrl: https://portal.manage-beta.microsoft.com/?portalAction=Compliance SettingsUrl: eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ JoinSrvVersion ==: 1.0 JoinSrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/device/ JoinSrvId: urn: ms-drs:enterpriseregistration.windows.net KeySrvVersion: 1.0 KeySrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/key/ KeySrvId: urn: ms-drs:enterpriseregistration.windows.net DomainJoined: Evet DomainName: CONTOSO
     
     +----------------------------------------------------------------------+
@@ -71,53 +71,53 @@ Yukarıdaki senaryoları etkinleştirmek için Yıldönümü güncelleştirme ku
 
 
 
-## <a name="step-2-evaluate-the-registration-status"></a>2. adım: kayıt durumunu değerlendirme 
+## <a name="step-2-evaluate-hello-registration-status"></a>2. adım: hello kayıt durumunu değerlendirme 
 
-Aşağıdaki alanları gözden geçirin ve beklenen değerleri sahip olduğunuzdan emin olun:
+Alanları aşağıdaki hello gözden geçirin ve hello beklenen değerler sahip olduğunuzdan emin olun:
 
 ### <a name="azureadjoined--yes"></a>AzureAdJoined: Evet  
 
-Bu alan, Azure AD ile cihazın kayıtlı olup olmadığını gösterir. Değer 'Hayır' gösteriliyorsa, kayıt tamamlanmadı. 
+Bu alan, Azure AD ile Merhaba cihazın kayıtlı olup olmadığını gösterir. Merhaba değeri 'Hayır' gösteriliyorsa, kayıt tamamlanmadı. 
 
 **Olası nedenler:**
 
-- Kayıt bilgisayarın kimlik doğrulaması başarısız oldu.
+- Merhaba bilgisayarın kayıt için kimlik doğrulaması başarısız oldu.
 
-- Bilgisayar tarafından bulunan kuruluştaki bir HTTP proxy yok
+- Merhaba bilgisayar tarafından bulunan hello kuruluşta bir HTTP proxy yok
 
-- Bilgisayar kimlik doğrulaması için Azure AD veya Azure DRS kaydı için ulaşamıyor
+- Merhaba bilgisayar kimlik doğrulaması için Azure AD veya Azure DRS kaydı için ulaşamıyor
 
-- Bilgisayar VPN veya kuruluşunuzun iç ağ üzerinde doğrudan görüş bir şirket içi ile olmayabilir AD etki alanı denetleyicisi.
+- Merhaba bilgisayar hello kuruluşunuzun iç ağ veya VPN ile doğrudan görüş tooan olmayabilir şirket içi AD etki alanı denetleyicisi.
 
-- Bilgisayar bir TPM varsa, hatalı durumda olabilir.
+- Merhaba bilgisayarda TPM varsa, hatalı durumda olabilir.
 
-- Olabilir yetersizliğini Hizmetleri'ndeki not ettiğiniz belgede daha önce yeniden doğrulamanız gerekir. Ortak örnekler şunlardır:
+- Olabilir yetersizliğini Hizmetleri'ndeki not ettiğiniz hello belgede daha önce tooverify yeniden gerekir. Ortak örnekler şunlardır:
 
     - Federasyon sunucunuz etkin WS-Trust uç nokta yok
 
     - Federasyon sunucunuz bilgisayarlardan gelen kimlik doğrulama tümleşik Windows kimlik doğrulaması kullanarak ağınızda izin vermeyebilir.
 
-    - Bilgisayar için ait olduğu AD ormanında Azure AD'de doğrulanmış etki alanı adınızı işaret hizmet bağlantı noktası nesnesi yok
+    - Merhaba bilgisayar için ait olduğu hello AD ormanındaki Azure AD'de tooyour doğrulanmış etki alanı adına işaret hizmet bağlantı noktası nesnesi yok
 
 ---
 
 ### <a name="domainjoined--yes"></a>DomainJoined: Evet  
 
-Bu alan, cihaz bir şirket içi Active Directory veya alanına katılıp katılmadığını gösterir. Değer olarak gösteriliyorsa **Hayır**, aygıt otomatik-Azure AD ile kayıt olamaz. İlk olarak Azure AD ile kaydedebilmek için şirket içi Active Directory cihaz birleştirir denetleyin. Lütfen doğrudan Azure AD ile bilgisayarın katılmasını istiyorsanız, Azure Active Directory katılım yeteneklerini hakkında edinin gidin.
+Bu alan hello aygıt birleştirilmiş tooan şirket içi Active Directory olup olmadığını gösterir. Merhaba değeri olarak gösteriliyorsa **Hayır**, hello aygıt olamaz otomatik kaydını Azure AD ile. İlk olarak bu hello aygıt birleştirmeler toohello Active Directory, Azure AD ile kaydedebilmek için şirket içi denetleyin. Lütfen hello bilgisayar tooAzure AD doğrudan katılmak için arıyorsanız, Azure Active Directory katılım yetenekleriyle ilgili tooLearn gidin.
 
 ---
 
 ### <a name="workplacejoined--no"></a>WorkplaceJoined: Hayır  
 
-Bu alan, aygıt Azure AD ile ancak ('Çalışma alanına katılmış ' işaretli) bir kişisel cihaz olarak kayıtlı olup olmadığını gösterir. Bu değer, Azure AD ile kayıtlı bir etki alanına katılmış bilgisayar için 'Hayır' göstermesi gerekir, Evet olarak görünüyorsa ancak bu bir iş veya Okul hesabı kayıt Tamamlanıyor bilgisayar önce eklendiğini anlamına gelir. Bu durumda hesaba Windows 10 (zaman WinVer çalışan komut 'Çalışma' veya bir komut istemi penceresinde 1607) Yıldönümü güncelleştirme sürümünü kullanıyorsanız yoksayılacak.
+Bu alan hello aygıt Azure AD ile ancak ('Çalışma alanına katılmış ' işaretli) bir kişisel cihaz olarak kayıtlı olup olmadığını gösterir. Ancak bu değer, Azure AD ile kayıtlı bir etki alanına katılmış bilgisayar için 'Hayır' göstermesi gerekir, bu anlamına gelir Evet olarak gösteriliyorsa eklenen önceki toohello bilgisayar Tamamlanıyor kaydı bir iş veya Okul hesabı idi. Bu durumda hello hesap hello Yıldönümü güncelleştirme Windows 10 (zaman içinde hello WinVer komutu çalıştıran hello 'Run' veya bir komut istemi penceresinde 1607) sürümünü kullanıyorsanız yoksayılacak.
 
 ---
 
 ### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet: Evet ve AzureADPrt: Evet
   
-Bu alanlar cihaza oturum açtıktan sonra Azure ad kullanıcı başarıyla kimliğini doğrulamasından gösterir. Olası nedenler şunlardır gösterdikleri 'Hayır' ise:
+Bu alanlar hello kullanıcı toohello aygıtı imzalama sırasında tooAzure AD başarıyla doğrulaması gösterir. Bunlar gösterirse 'Hayır' hello olası nedenleri şunlardır:
 
-- Hatalı depolama anahtar aygıt kaydı (denetimi yükseltilmiş çalışırken KeySignTest) ile ilişkili TPM (STK).
+- Hatalı depolama anahtar hello aygıt kaydı (KeySignTest yükseltilmiş çalışırken onay hello) ile ilişkili TPM (STK).
 
 - Alternatif oturum açma kimliği
 
@@ -125,4 +125,4 @@ Bu alanlar cihaza oturum açtıktan sonra Azure ad kullanıcı başarıyla kimli
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi için bkz: [otomatik cihaz kaydı SSS](active-directory-device-registration-faq.md) 
+Daha fazla bilgi için bkz: Merhaba [otomatik cihaz kaydı SSS](active-directory-device-registration-faq.md) 

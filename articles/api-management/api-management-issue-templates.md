@@ -1,6 +1,6 @@
 ---
-title: "Sorun Azure API Management şablonlarında | Microsoft Docs"
-description: "Azure API Management'ta Geliştirici portalını sorunu sayfalarında içeriğini özelleştirmeyi öğrenin."
+title: "Azure API Management'te aaaIssue şablonları | Microsoft Docs"
+description: "Nasıl toocustomize hello hello sorunu hello Azure API Management'ta Geliştirici portalını sayfalarında içeriğini öğrenin."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e13344df198bca4f73c75fa58221436b94e2f258
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e12902e52c164f73902a97f15ea550790dfecf1c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API Management şablonları verme
-Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriği özelleştirme yeteneği sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve düzenleyiciyi, gibi [DotLiquid tasarımcıları için](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfa denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde sayfaların yapılandırmak için büyük esneklik vardır.  
+Azure API Management yeteneği toocustomize hello Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriğini hello sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve hello düzenleyiciyi, gibi [tasarımcıları için DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [ Karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfasında denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde hello sayfaların büyük esneklik tooconfigure hello içeriğe sahip.  
   
- Bu bölümdeki şablonları Geliştirici Portalı sorunu sayfalarında içeriğini özelleştirmenize olanak sağlar.  
+ Bu bölümdeki Hello şablonları hello Geliştirici Portalı'nda toocustomize hello hello sorunu sayfaların içeriğini sağlar.  
   
 -   [Sorun listesi](#IssueList)  
   
 > [!NOTE]
->  Örnek varsayılan şablonları aşağıdaki belgelerde yer alır ancak değişikliği sürekli geliştirmeler nedeniyle tabidir. İstenen tek tek şablonları giderek Geliştirici Portalı'nda Canlı varsayılan şablonları görüntüleyebilirsiniz. Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](api-management-developer-portal-templates.md).  
+>  Örnek varsayılan şablonları belgelerine aşağıdaki hello dahil olan, ancak konu toochange toocontinuous geliştirmeler nedeniyle. İstenen toohello tek tek şablonları giderek hello Canlı varsayılan şablonları hello Geliştirici Portalı'nda görüntüleyebilirsiniz. Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](api-management-developer-portal-templates.md).  
   
 ##  <a name="IssueList"></a>Sorun listesi  
- **Sorun listesi** şablonu Geliştirici portalında sorun listesi sayfasının gövdesi özelleştirmenizi sağlar.  
+ Merhaba **sorun listesi** şablonu verir hello sorun listesi sayfasının toocustomize hello gövdesi hello Geliştirici Portalı'nda.  
   
  ![Sorun listesi Geliştirici Portalı](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM sorun listesi Geliştirici Portalı")  
   
@@ -88,7 +88,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ### <a name="controls"></a>Denetimler  
- `Issue list` Şablonu, aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba `Issue list` şablonu hello aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
   
 -   [disk belleği denetimi](api-management-page-controls.md#paging-control)  
   
@@ -96,10 +96,10 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Sorunlar|Koleksiyonu [sorunu](api-management-template-data-model-reference.md#Issue) varlıklar.|Geçerli kullanıcıya görülebilir sorunları.|  
-|Sayfalama|[Disk belleği](api-management-template-data-model-reference.md#Paging) varlık.|Uygulamaları koleksiyonu için disk belleği bilgileri.|  
-|IsAuthenticated|Boole değeri|Olup geçerli kullanıcı Geliştirici portalına açan.|  
-|CanReportIssues|Boole değeri|Geçerli kullanıcının bir sorunu dosya izni olup olmadığı.|  
+|Sorunlar|Koleksiyonu [sorunu](api-management-template-data-model-reference.md#Issue) varlıklar.|Merhaba sorunları görünür toohello geçerli kullanıcı.|  
+|Sayfalama|[Disk belleği](api-management-template-data-model-reference.md#Paging) varlık.|Hello disk belleği bilgileri hello uygulamaları koleksiyonu.|  
+|IsAuthenticated|Boole değeri|Merhaba geçerli kullanıcının oturum açmış toohello Geliştirici Portalı olup olmadığı.|  
+|CanReportIssues|Boole değeri|Merhaba geçerli kullanıcının izinlerini toofile bir sorun olup olmadığı.|  
 |Arama|Dize|Bu özellik kullanım dışıdır ve kullanılmamalıdır.|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
@@ -110,8 +110,8 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
         {  
             "Id": "5702b68bb16653124c8f9ba7",  
             "ApiId": "570275f1b16653124c8f9ba3",  
-            "Title": "I couldn't figure out how to connect my application to the API",  
-            "Description": "I'm having trouble connecting my application to the backend API.",  
+            "Title": "I couldn't figure out how tooconnect my application toohello API",  
+            "Description": "I'm having trouble connecting my application toohello backend API.",  
             "SubscriptionDeveloperName": "Clayton",  
             "IssueState": "Proposed",  
             "ReportedOn": "2016-04-04T18:46:35.64",  
@@ -134,4 +134,4 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](api-management-developer-portal-templates.md).
+Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](api-management-developer-portal-templates.md).

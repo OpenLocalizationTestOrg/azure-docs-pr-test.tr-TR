@@ -1,6 +1,6 @@
 ---
-title: "API Management ile Azure İzleyicisi İzleme | Microsoft Docs"
-description: "Azure İzleyicisi'ni kullanarak Azure API Management hizmeti izleme öğrenin."
+title: "aaaMonitor Azure İzleyicisi ile API Management | Microsoft Docs"
+description: "Nasıl toomonitor Azure API Management hizmet Azure İzleyicisi'ni kullanma hakkında bilgi edinin."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f64947755c79739bb6f15325929bd074cfd7210
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5012d8ed57ea4f94ea6bc1b7c4e1102516ec4414
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-api-management-with-azure-monitor"></a>Azure İzleyicisi ile İzleyici API Yönetimi
-Azure İzleyicisi tüm Azure kaynakları izlemek için tek bir kaynak sağlayan bir Azure hizmetidir. Azure izleme ile görselleştirme, sorgulama yapabilir, yönlendirmek, arşiv ve ölçümleri ve API Management gibi Azure kaynakları'ten gelen günlükleri eylemleri gerçekleştirin. 
+Azure İzleyicisi tüm Azure kaynakları izlemek için tek bir kaynak sağlayan bir Azure hizmetidir. Azure izleme ile görselleştirme, sorgulama yapabilir, yönlendirmek, arşiv ve hello ölçümleri ve API Management gibi Azure kaynakları'ten gelen günlükleri eylemleri gerçekleştirin. 
 
-Aşağıdaki video Azure İzleyicisi'ni kullanarak API Management izleme gösterir. Azure İzleyicisi hakkında daha fazla bilgi için bkz: [Azure İzleyicisi ile çalışmaya başlama]. 
+Video gösterileri nasıl aşağıdaki hello toomonitor API Azure İzleyicisi'ni kullanarak yönetim. Azure İzleyicisi hakkında daha fazla bilgi için bkz: [Azure İzleyicisi ile çalışmaya başlama]. 
 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
@@ -31,47 +31,47 @@ Aşağıdaki video Azure İzleyicisi'ni kullanarak API Management izleme göster
 >
  
 ## <a name="metrics"></a>Ölçümler
-API Management anda beş ölçümleri yayar ve gelecekte daha ekleme planlıyoruz. Bu ölçümler dakikada, Apı'lerinizi durumunu ve durumunu gerçek zamanlı görünürlük yakın vermiş gösterilen. Ölçümler bir özeti aşağıda verilmiştir:
-* : Toplam ağ geçidi API sayısı dönemde istekleri. 
-* Başarılı ağ geçidi istekleri: 304, 307 ve 301 (örneğin, 200) daha küçük bir şey de dahil olmak üzere başarılı HTTP yanıt kodları alınan API istek sayısı. 
-* Başarısız olan ağ geçidi istekleri: Hatalı HTTP yanıt kodu 400 ve 500'den büyük herhangi bir şey de dahil olmak üzere alınan API istek sayısı.
-* Yetkisiz ağ geçidi istekleri: 401, 403 ve 429 dahil olmak üzere HTTP yanıt kodları alınan API istek sayısı. 
-* Diğer ağ geçidi istekleri: önceki kategorileri (örneğin, 418) birine ait değil HTTP yanıt kodları alınan API istek sayısı.
+API Management anda beş ölçümleri yayar ve biz tooadd hello gelecekte daha fazla planlayın. Bu ölçümleri her dakika hello durumu ve Apı'lerinizi durumunu gerçek zamanlı görünürlük yakın vermiş gösterilen. Merhaba ölçümleri bir özeti aşağıda verilmiştir:
+* : Toplam ağ geçidi API hello sayısı hello dönemde istekleri. 
+* Başarılı ağ geçidi istekleri: 304, 307 ve 301 (örneğin, 200) daha küçük bir şey de dahil olmak üzere başarılı HTTP yanıt kodları alınan API istek hello sayısı. 
+* Ağ geçidi isteği başarısız oldu: hello hatalı HTTP yanıt kodu 400 ve 500'den büyük herhangi bir şey de dahil olmak üzere alınan API istek sayısı.
+* Yetkisiz ağ geçidi istekleri: HTTP yanıt kodları 401, 403 ve 429 dahil alınan API istek hello sayısı. 
+* Diğer ağ geçidi istekleri: Kategoriler (örneğin, 418) önceki hello tooany ait değil HTTP yanıt kodları alınan API istek hello sayısı.
 
-API Management hizmetiniz ölçümlerini ya da Azure İzleyicisi'nde tüm Azure kaynaklarına erişim ölçümlerini erişebilir. API Management hizmetiniz ölçümleri görüntülemek için:
-1. Azure Portalı'nı açın.
-2. API Management hizmetiniz gidin.
+API Management hizmetiniz ölçümlerini ya da Azure İzleyicisi'nde tüm Azure kaynaklarına erişim ölçümlerini erişebilir. API Management hizmetiniz tooview ölçümlerini:
+1. Açık hello Azure portalı.
+2. Tooyour API Management hizmeti gidin.
 3. Tıklatın **ölçümleri**.
 
 ![Ölçüm dikey penceresi][metrics-blade]
 
-Ölçümleri kullanma hakkında daha fazla bilgi için bkz: [genel bakış, ölçümleri].
+Hakkında daha fazla bilgi için toouse ölçümler görmek [genel bakış, ölçümleri].
 
 ## <a name="activity-logs"></a>Etkinlik Günlükleri
-Etkinlik günlükleri, API Management services üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Daha önce "denetim günlüklerini" veya "işletimsel logs" olarak bilinirdi. Etkinlik Günlükleri'ni kullanarak, belirleyebilirsiniz "ne, kimin, ne zaman ve" herhangi bir yazma, API Management hizmetlerde yapılan işlemleri (PUT, POST, DELETE) için. 
+Etkinlik günlükleri, API Management services üzerinde gerçekleştirilen hello işlemlerinin bir anlayış sağlar. Daha önce "denetim günlüklerini" veya "işletimsel logs" olarak bilinirdi. Etkinlik Günlükleri'ni kullanarak hello belirleyebilirsiniz "ne, kimin, ne zaman ve" herhangi bir yazma, API Management hizmetlerde yapılan işlemleri (PUT, POST, DELETE) için. 
 
 > [!NOTE]
-> Etkinlik günlükleri okuma (GET) işlemleri veya Klasik yayımcı portalında gerçekleştirilen veya özgün yönetim API'leri kullanılarak işlemleri içermez.
+> Etkinlik günlükleri okuma (GET) işlemleri veya başlığında gerçekleştirilen işlemleri dahil değil Klasik yayımcı portalı hello veya hello özgün yönetim API'leri kullanılarak.
 
-API Management hizmetiniz etkinlik günlükleri erişmek veya günlükleri, Azure kaynaklarınızın Azure İzleyicisi'nde erişim. Etkinliğini görüntülemek için API Management hizmetiniz kaydeder:
-1. Azure Portalı'nı açın.
-2. API Management hizmetiniz gidin.
+API Management hizmetiniz etkinlik günlükleri erişmek veya günlükleri, Azure kaynaklarınızın Azure İzleyicisi'nde erişim. API Management hizmetiniz tooview etkinliğini kaydeder:
+1. Açık hello Azure portalı.
+2. Tooyour API Management hizmeti gidin.
 3. Tıklatın **etkinlik günlüğü**.
 
 ![Etkinlik günlükleri dikey penceresi][activity-logs-blade]
 
-Ölçümleri kullanma hakkında daha fazla bilgi için bkz: [etkinlik günlükleri genel bakış].
+Hakkında daha fazla bilgi için toouse ölçümler görmek [etkinlik günlükleri genel bakış].
 
 ## <a name="alerts"></a>Uyarılar
-Ölçümleri ve etkinlik açtığında göre uyarıları almak üzere yapılandırabilirsiniz. Azure İzleyici tetikler, aşağıdakileri yapmak için bir uyarı yapılandırmanıza olanak sağlar:
+Ölçümleri ve etkinlik açtığında temelinde tooreceive uyarılar yapılandırabilirsiniz. Azure İzleyici tetikler olduğunda bir uyarı toodo hello aşağıdaki tooconfigure sağlar:
 
 * Bir e-posta bildirimi gönder
 * bir Web kancası çağırın
 * Bir Azure mantıksal uygulamayı çağırmak
 
-API Management hizmetiniz veya Azure İzleyicisi uyarı kuralları yapılandırabilirsiniz. API Management'te yapılandırmak için: 
-1. Azure Portalı'nı açın.
-2. API Management hizmetiniz gidin.
+API Management hizmetiniz veya Azure İzleyicisi uyarı kuralları yapılandırabilirsiniz. tooconfigure API Management bunları: 
+1. Açık hello Azure portalı.
+2. Tooyour API Management hizmeti gidin.
 3. Tıklatın **uyarı kuralları**.
 
 ![Uyarı kuralları dikey penceresi][alert-rules-blade]
@@ -79,9 +79,9 @@ API Management hizmetiniz veya Azure İzleyicisi uyarı kuralları yapılandıra
 Uyarıları kullanma hakkında daha fazla bilgi için bkz: [genel bakış, uyarıları].
 
 ## <a name="diagnostic-logs"></a>Tanılama Günlükleri
-Tanılama günlüklerini işlemleri ve denetim yanı sıra sorun giderme amacıyla önemli hataları hakkında zengin bilgi sağlar. Tanılama günlükleri, etkinlik günlükleri farklılık gösterir. Etkinlik günlükleri Azure kaynaklarınızı üzerinde gerçekleştirilen işlemler fikir sağlar. Tanılama günlükleri işlemleri kaynağınız kendisini gerçekleştirilen bir anlayış sağlar.
+Tanılama günlüklerini işlemleri ve denetim yanı sıra sorun giderme amacıyla önemli hataları hakkında zengin bilgi sağlar. Tanılama günlükleri, etkinlik günlükleri farklılık gösterir. Etkinlik günlükleri Azure kaynaklarınızı üzerinde gerçekleştirilen hello işlemlerinin fikir sağlar. Tanılama günlükleri işlemleri kaynağınız kendisini gerçekleştirilen bir anlayış sağlar.
 
-API Management anda tanılama sağlar (saatlik toplu hale) günlükleri ayrı API'si hakkında aşağıdaki yapıya sahip her girişi iste:
+API Management anda tanılama sağlar (saatlik toplu hale) günlükleri ayrı API'si hakkında isteği yapı izlenerek hello sahip her girişi:
 
 ```
 {
@@ -113,14 +113,14 @@ API Management anda tanılama sağlar (saatlik toplu hale) günlükleri ayrı AP
  }
 ```
 
-API Management hizmetiniz tanılama günlüklerine erişmek veya günlükleri, Azure kaynaklarınızın Azure İzleyicisi'nde erişim. API Management hizmetiniz tanılama günlükleri görüntülemek için:
-1. Azure Portalı'nı açın.
-2. API Management hizmetiniz gidin.
+API Management hizmetiniz tanılama günlüklerine erişmek veya günlükleri, Azure kaynaklarınızın Azure İzleyicisi'nde erişim. API Management hizmetiniz tanılama günlüklerine tooview:
+1. Açık hello Azure portalı.
+2. Tooyour API Management hizmeti gidin.
 3. Tıklatın **tanılama günlük**.
 
 ![Tanılama günlükleri dikey penceresi][diagnostic-logs-blade]
 
-Ölçümleri kullanma hakkında daha fazla bilgi için bkz: [tanılama günlükleri'ne genel bakış].
+Hakkında daha fazla bilgi için toouse ölçümler görmek [tanılama günlükleri'ne genel bakış].
 
 ## <a name="next-step"></a>Sonraki adım
 

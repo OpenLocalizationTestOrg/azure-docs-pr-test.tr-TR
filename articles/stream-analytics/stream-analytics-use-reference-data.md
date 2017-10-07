@@ -1,5 +1,5 @@
 ---
-title: "Stream Analytics başvuru verileri ve arama tabloları kullanın | Microsoft Docs"
+title: "Stream Analytics içinde aaaUse başvuru verileri ve arama tabloları | Microsoft Docs"
 description: "Stream Analytics sorgu başvuru verileri kullanın"
 keywords: "Arama tablosu, başvuru verileri"
 services: stream-analytics
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.openlocfilehash: 3fd9c869be68d624a59ffb09ee53e31cd5a2f71b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fb1d18fba920db5e097d0c95d333e8e8390d1589
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Başvuru verileri veya arama tabloları bir akış analizi Giriş akışı kullanma
-Başvuru verileri (arama tablosu olarak da bilinir) statik sınırlı bir veri kümesi veya yavaşlamasının doğası gereği değiştirme bir arama gerçekleştirmek ya da veri akışı ile ilişkilendirmek için kullanılır. Yapmak için Azure Stream Analytics işiniz başvuru verilerinde kullanımı, genellikle kullanacağınız bir [başvuru veri birleştirme](https://msdn.microsoft.com/library/azure/dn949258.aspx) Sorgunuzdaki. Akış analizi başvuru verileri için depolama katmanı olarak Azure Blob Depolama kullanır ve Azure Data Factory başvurusuyla veri dönüştürülen ve/veya başvuru veriler olarak kullanmak için Azure Blob Depolama birimine kopyalanan [bulut tabanlı herhangi bir sayıda ve Şirket içi veri depolarına](../data-factory/data-factory-data-movement-activities.md). Başvuru verileri blob adı alanında belirtilen tarih/saat artan (giriş yapılandırmada tanımlanan) BLOB'lar dizisi olarak modellenir. Bu **yalnızca** dizisi sonuna bir tarih/saat kullanarak eklenmesini destekleyen **büyük** sıradaki son blob tarafından belirtilenden.
+Başvuru verileri (arama tablosu olarak da bilinir) statik sınırlı bir veri kümesi veya yavaşlamasının doğası gereği değiştirme tooperform arama veya toocorrelate veri akışı ile kullanılır. başvuru verileri toomake kullanımını, Azure Stream Analytics işinde genellikle kullanacağınız bir [başvuru veri birleştirme](https://msdn.microsoft.com/library/azure/dn949258.aspx) Sorgunuzdaki. Akış analizi başvuru verileri için hello depolama katmanı olarak Azure Blob Depolama kullanır ve Azure Data Factory başvurusuyla, gelen, başvuru verileri olarak kullanmak için dönüştürülmüş ve/veya kopyalanan tooAzure Blob Depolama veri olabilir [bulut tabanlı herhangi bir sayıda ve Şirket içi veri depolarına](../data-factory/data-factory-data-movement-activities.md). Başvuru verileri hello hello blob adı alanında belirtilen tarih artan BLOB'lar (Merhaba giriş yapılandırmada tanımlanan) dizisi olarak modellenir. Bu **yalnızca** toohello hello dizinin sonuna bir tarih/saat kullanarak eklenmesini destekler **büyük** bir hello sırasında hello son blob tarafından belirtilen hello daha.
 
-Akış analizi sahip bir **blob 100 MB sınırı** ancak işleri, birden çok başvuru BLOB'ları kullanarak işleyebilir **yol deseni** özelliği.
+Akış analizi sahip bir **blob 100 MB sınırı** ancak işleri hello kullanarak birden çok başvuru BLOB'lar işlenebilecek **yol deseni** özelliği.
 
 
 ## <a name="configuring-reference-data"></a>Başvuru verileri yapılandırma
-Başvuru verileri yapılandırmak için önce türünde bir girişi oluşturmak ihtiyacınız **başvuru verileri**. Aşağıdaki tabloda açıklamasını ile giriş başvuru verileri oluşturulurken sağlamanız gerekir her bir özellik açıklanmaktadır:
+tooconfigure başvuru verilerinizi önce toocreate türünde bir girdi gerekir **başvuru verileri**. Merhaba tabloda tooprovide açıklamasını ile Merhaba başvuru veri girişi oluşturulurken gerekir her bir özellik açıklanmaktadır:
 
 
 <table>
@@ -39,69 +39,69 @@ Başvuru verileri yapılandırmak için önce türünde bir girişi oluşturmak 
 </tr>
 <tr>
 <td>Giriş diğer adı</td>
-<td>İş sorguda bu girişi başvurmak için kullanılan kolay adı.</td>
+<td>Merhaba iş sorgu tooreference bu giriş kullanılacak bir kolay ad.</td>
 </tr>
 <tr>
 <td>Depolama hesabı</td>
-<td>Bloblarınızın bulunduğu depolama hesabının adı. Akış analizi işi ile aynı abonelikte olması durumunda, açılan listeden seçebilirsiniz.</td>
+<td>Merhaba depolama hesabı bloblarınızın bulunduğu Hello adı. Hello ise, akış analizi işi aynı abonelik, seçebileceğiniz, hello açılır.</td>
 </tr>
 <tr>
 <td>Depolama hesabı anahtarı</td>
-<td>Depolama hesabıyla ilişkili gizli anahtar. Stream Analytics işiniz ile aynı abonelikte depolama hesabı ise, bu otomatik olarak doldurulur.</td>
+<td>Merhaba depolama hesabıyla ilişkili hello gizli anahtar. Hello Hello depolama hesabı ise, bu otomatik olarak doldurulur, Stream Analytics işi aynı abonelik.</td>
 </tr>
 <tr>
 <td>Depolama kapsayıcısı</td>
-<td>Kapsayıcılar Microsoft Azure Blob hizmetinde depolanan BLOB'lar için mantıksal bir gruplandırmasını sağlar. Blob hizmeti için bir blob karşıya yüklediğinde, o blob için bir kapsayıcı belirtmeniz gerekir.</td>
+<td>Kapsayıcılar hello Microsoft Azure Blob hizmeti depolanan BLOB'lar için mantıksal bir gruplandırmasını sağlar. Blob toohello Blob hizmeti karşıya yüklediğinde, o blob için bir kapsayıcı belirtmeniz gerekir.</td>
 </tr>
 <tr>
 <td>Yol deseni</td>
-<td>Belirtilen kapsayıcı içinde bloblarınızın bulunması için kullanılan yolu. Yol içinde şu 2 değişkenin bir veya daha fazla örneğini belirtmeyi seçebilirsiniz:<BR>{date} {time}<BR>Örnek 1: products/{date}/{time}/product-list.csv<BR>Örnek 2: products/{date}/product-list.csv
+<td>Merhaba yolu toolocate hello belirtilen kapsayıcı içinde bloblarınızın kullanılır. Hello yol içinde şu 2 değişkenin hello bir veya daha fazla örneğini toospecify seçebilirsiniz:<BR>{date} {time}<BR>Örnek 1: products/{date}/{time}/product-list.csv<BR>Örnek 2: products/{date}/product-list.csv
 </tr>
 <tr>
 <td>[İsteğe bağlı] tarih biçimi</td>
-<td>Belirttiğiniz yol deseni içinde {date} kullandıysanız, açılan listeden desteklenen biçimlerden birinde bloblarınızın organize edilmiştir tarih biçimi seçebilirsiniz.<BR>Örnek: YYYY/AA/GG, GG/AA/YYYY, vs.</td>
+<td>Belirttiğiniz yol deseni hello içinde {date} kullandıysanız, bloblarınızın organize edilmiştir hello tarih biçimi hello açılan listeden desteklenen biçimlerden birini seçebilirsiniz.<BR>Örnek: YYYY/AA/GG, GG/AA/YYYY, vs.</td>
 </tr>
 <tr>
 <td>[İsteğe bağlı] saat biçimi</td>
-<td>Belirttiğiniz yol deseni içinde {time} kullandıysanız, açılan listeden desteklenen biçimlerden birinde bloblarınızın düzenlenmiş zaman biçimini seçebilirsiniz.<BR>Örnek: Ss, ss/dd veya HH mm</td>
+<td>Belirttiğiniz yol deseni hello içinde {time} kullandıysanız, bloblarınızın organize edilmiştir hello saat biçimi hello açılan listeden desteklenen biçimlerden birini seçebilirsiniz.<BR>Örnek: Ss, ss/dd veya HH mm</td>
 </tr>
 <tr>
 <td>Olayı seri hale getirme biçimi</td>
-<td>Sorgularınızın beklediğiniz, Stream Analytics hangi serileştirme biçimini bilmek ister çalıştığından emin olmak için gelen veri akışları için kullanıyorsunuz. Başvuru verileri için CSV ve JSON desteklenen biçimler:.</td>
+<td>sorgularınızın beklediğiniz hello şekilde Stream Analytics çalışıp çalışmadığından emin toomake hangi serileştirme biçimini gelen veri akışları için kullanmakta olduğunuz tooknow gerekir. Başvuru verileri için CSV ve JSON hello desteklenen biçimler şunlardır.</td>
 </tr>
 <tr>
 <td>Encoding</td>
-<td>Şu anda desteklenen tek kodlama biçimi UTF-8 durumda</td>
+<td>Merhaba, kodlama biçimi yalnızca şu anda desteklenen. UTF-8 dir</td>
 </tr>
 </tbody>
 </table>
 
 ## <a name="generating-reference-data-on-a-schedule"></a>Başvuru verileri bir zamanlama oluşturma
-Başvuru verileri yavaş değişen bir veri kümesi ise, başvuru verileri {date} kullanarak giriş yapılandırmasında bir yol deseni belirterek etkin yenileme için destek ve {değiştirme belirteçleri time}. Bu yol deseni temel alınarak güncelleştirilen başvuru veri tanımlarını Yukarı Akış analizi seçer. Örneğin, bir düzeni `sample/{date}/{time}/products.csv` bir tarih biçimi ile **"YYYY-AA-GG"** ve bir saat biçimini **"Ss-dd"** güncelleştirilmiş blob seçmek için Stream Analytics bildirir `sample/2015-04-16/17-30/products.csv` 17:30:00 saatleri Nisan 16 üzerinde adresindeki , 2015 UTC saat dilimi.
+Başvuru verileri yavaş değişen bir veri kümesi ise, başvuru verileri yenilemek için destek hello {date} ve {time} değiştirme belirteçleri kullanarak hello giriş yapılandırmasında bir yol deseni belirterek etkinleştirilir. Bu yol deseni temel alınarak güncelleştirildi hello başvuru veri tanımlarını Yukarı Akış analizi seçer. Örneğin, bir düzeni `sample/{date}/{time}/products.csv` bir tarih biçimi ile **"YYYY-AA-GG"** ve bir saat biçimini **"Ss-dd"** güncelleştirilmiş hello blob Yukarı Akış analizi toopick bildirir `sample/2015-04-16/17-30/products.csv` 17:30:00 saatleri Nisan üzerinde adresindeki 16, 2015 UTC saat dilimi.
 
 > [!NOTE]
-> Şu anda yalnızca blob adı kodlanmış zamana makine süresini ilerler, akış analizi işleri için blob yenileme arayın. Örneğin, iş şuna `sample/2015-04-16/17-30/products.csv` 17:30:00 saatleri 16 Nisan 2015 UTC üzerinde daha olası ancak daha önce hiçbir bölge Zaman hemen sonra. İçinde *hiçbir zaman* bulunduğundan sonuncu daha önce kodlanmış bir zaman bir blob arayın.
+> Şu anda yalnızca hello makine süresini hello blob adı kodlanmış toohello zaman ilerler, akış analizi işleri hello blob yenileme için bakın. Örneğin, hello iş şuna `sample/2015-04-16/17-30/products.csv` 17:30:00 saatleri 16 Nisan 2015 UTC üzerinde daha olası ancak daha önce hiçbir bölge Zaman hemen sonra. İçinde *hiçbir zaman* bulunduğundan sonuncu hello daha önce kodlanmış bir zaman bir blob arayın.
 > 
-> Örneğin İş blob bulduğunda `sample/2015-04-16/17-30/products.csv` 17:30:00 saatleri 16 Nisan 2015'ten önce kodlanmış bir tarih ile herhangi bir dosya yoksayacak bunu geç ulaşan varsa `sample/2015-04-16/17-25/products.csv` blob oluşturulan aynı kapsayıcıda bu iş kullanmaz.
+> Örneğin Merhaba iş hello blob bulduğunda `sample/2015-04-16/17-30/products.csv` 17:30:00 saatleri 16 Nisan 2015'ten önce kodlanmış bir tarih ile herhangi bir dosya yoksayacak bunu geç ulaşan varsa `sample/2015-04-16/17-25/products.csv` blob hello oluşturulan aynı kapsayıcı hello iş onu kullanmaz.
 > 
-> Benzer şekilde, `sample/2015-04-16/17-30/products.csv` yalnızca 10:03 PM 16 Nisan 2015 oluşturulur ancak daha önceki bir tarihi ile hiçbir blob kapsayıcısında mevcut olduğundan, işi 10:03 PM 16 Nisan 2015 başlayarak bu dosyayı kullanmak ve o zamana kadar önceki başvuru verileri kullanın.
+> Benzer şekilde, `sample/2015-04-16/17-30/products.csv` yalnızca 10:03 PM 16 Nisan 2015 oluşturulur ancak hiçbir blob daha önceki bir tarihi ile Merhaba kapsayıcıda mevcut olduğundan, hello iş 10:03 PM 16 Nisan 2015 başlayarak bu dosyayı kullanmak ve o zamana kadar hello önceki başvuru verileri kullanın.
 > 
-> Bu konuda bir özel iş geçmişe yeniden işlemek verilere gerektiğinde veya iş ilk olduğunda başlatılır. Başlangıç zamanında iş üretilen işi başlatmadan önce belirtilen süre için en son blob arıyor. Bu olduğundan emin olmak için gerçekleştirilir bir **boş** iş başlatıldığında, veri kümesi başvurusu. Bir bulunamazsa işi aşağıdaki tanı görüntüler: `Initializing input without a valid reference data blob for UTC time <start time>`.
+> Bir özel durum toothis hello işi geçmişe toore işlem verileri gerektiğinde veya hello iş ilk kez başlatıldığında ' dir. Başlangıçta süresi hello işi hello en son blob hello işi başlatmadan önce belirtilen süre üretilen için arıyor. Bu var. tooensure yapılır bir **boş** hello işi başladığında veri kümesi başvurusu. Bir bulunamazsa hello iş tanılama aşağıdaki hello görüntüler: `Initializing input without a valid reference data blob for UTC time <start time>`.
 > 
 > 
 
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) akış analizi tarafından başvuru veri tanımlarını güncelleştirmek için gereken güncelleştirilmiş BLOB'ları oluşturma görevini düzenlemek için kullanılabilir. Data Factory, verilerin taşınmasını ve dönüştürülmesini düzenleyen ve otomatikleştiren bulut tabanlı bir veri tümleştirme hizmetidir. Veri Fabrikası destekleyen [çok sayıda bulut bağlanma tabanlı ve şirket içi veri depolarına](../data-factory/data-factory-data-movement-activities.md) ve taşıma verileri kolayca belirttiğiniz düzenli bir zamanlamaya göre. Daha fazla bilgi ve önceden tanımlanmış bir zamanlamayla yenilenir akış analizi için başvuru verileri oluşturmak için Data Factory işlem hattı ayarlama konusunda adım adım yönergeler için bu denetleyin [GitHub örnek](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) Stream Analytics tooupdate başvuru veri tanımlarını tarafından gerekli güncelleştirilmiş hello BLOB'ları oluşturma kullanılan tooorchestrate hello görev olabilir. Veri Fabrikası düzenler ve hello taşınmasını ve dönüştürülmesini veri otomatikleştiren bir bulut tabanlı veri tümleştirme hizmetidir. Veri Fabrikası destekleyen [tooa çok sayıda bulut tabanlı ve şirket içi veri depolarına bağlanma](../data-factory/data-factory-data-movement-activities.md) ve taşıma verileri kolayca belirttiğiniz düzenli bir zamanlamaya göre. Daha fazla bilgi ve nasıl tooset Data Factory yukarı kanal toogenerate başvuru verileri, önceden tanımlanmış bir zamanlamayla yenilenir akış analizi için adım adım yönergeler için bu denetleyin [GitHub örnek](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
 ## <a name="tips-on-refreshing-your-reference-data"></a>Başvuru verileriniz yenilenirken ipuçları
-1. Başvuru verileri BLOB'ları üzerine blob yeniden yüklemek Stream Analytics neden olmaz ve bazı durumlarda iş başarısız olmasına neden olabilir. Başvuru verileri değiştirmek için önerilen yöntem iş girişinde tanımlanan aynı kapsayıcı ve yol desenini kullanarak yeni bir blob ekleyin ve tarih/saat kullanmaktır **büyük** sıradaki son blob tarafından belirtilenden.
-2. Başvuru verileri BLOB'ları olan **değil** blob'un "Son değiştirme" zamana göre ancak yalnızca göre sıralanmış blob içinde belirtilen tarih ve saat {date} kullanarak ad ve {time} değişimler.
+1. Başvuru verileri BLOB'ları üzerine Stream Analytics tooreload hello blob neden olmaz ve bazı durumlarda hello iş toofail neden olabilir. Merhaba önerilen yolu toochange başvuru verileri aynı kapsayıcı ve yol deseni tanımlanan hello iş girişinde hello kullanarak yeni bir blob tooadd olduğundan ve bir tarih/saat **büyük** bir hello sırasında hello son blob tarafından belirtilen hello daha.
+2. Başvuru verileri BLOB'ları olan **değil** hello blob'un "Son değiştirilme" zamanı ancak yalnızca başlangıç saatini ve tarihini hello {date} ve {time} değişimler kullanarak hello blob adında belirtilen tarafından sıralanan.
 3. Bazı durumlarda üzerinde bir iş zamanında geri gitmeniz gerekir, bu nedenle başvuru verileri BLOB'ları değiştirilmiş silinmiş ya da gerekir değil.
 
 ## <a name="get-help"></a>Yardım alın
 Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Nesnelerin İnterneti'nden gelen verilerdeki akış analizlerine yönelik bir yönetilen hizmet olan Stream Analytics'e giriş yaptınız. Bu hizmet hakkında daha fazla bilgi edinmek için bkz:
+Sunulan tooStream Analytics, hello nesnelerin interneti verilerini analytics akış için yönetilen bir hizmet olan. Bu hizmet hakkında daha fazla toolearn bakın:
 
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)

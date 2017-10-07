@@ -1,5 +1,5 @@
 ---
-title: "Grup tabanlı Azure Active Directory lisanslaması nedir? | Microsoft Belgeleri"
+title: "Grup tabanlı Azure Active Directory'de lisans aaaWhat mi? | Microsoft Belgeleri"
 description: "Azure Active Directory grup tabanlı lisans, nasıl çalıştığı ve en iyi yöntemler açıklaması"
 services: active-directory
 keywords: Azure AD lisanslama
@@ -17,46 +17,46 @@ ms.date: 06/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 52dd48ce4e4acaf48f31edc51bbb657f8cd249cd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 11647de6b76022cd2393751fcafc67ce671aeba6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Azure Active Directory'de Grup tabanlı lisans temelleri
 
-Microsoft Office 365, Enterprise Mobility + güvenlik, Dynamics CRM ve benzer diğer ürünler gibi bulut Hizmetleri Ücretli kullanma lisansı gerektirir. Bu lisanslar hizmetlerin erişmesi gereken her kullanıcıya atanır. Lisansları yönetmek için yöneticiler yönetim portallarını (Office veya Azure) ve PowerShell cmdlet'leri kullanın. Azure Active Directory (Azure AD) olan tüm Microsoft bulut Hizmetleri için Kimlik Yönetimi destekleyen altyapının. Azure AD kullanıcıları için lisans Atama durumları hakkında bilgi depolar.
+Microsoft Office 365, Enterprise Mobility + güvenlik, Dynamics CRM ve benzer diğer ürünler gibi bulut Hizmetleri Ücretli kullanma lisansı gerektirir. Bu lisanslar erişim toothese Hizmetleri gereken tooeach kullanıcılar atanır. toomanage lisansları, yöneticiler hello yönetim portallarını (Office veya Azure) ve PowerShell cmdlet'leri birini kullanın. Azure Active Directory (Azure AD) olan tüm Microsoft bulut Hizmetleri için Kimlik Yönetimi destekleyen hello altyapının. Azure AD kullanıcıları için lisans Atama durumları hakkında bilgi depolar.
 
-Şimdiye kadar lisansları yalnızca büyük ölçekli yönetim zorlaştırabilir tek tek kullanıcı düzeyinde atanabilir. Örneğin, katılma veya kuruluş ya da bir bölüm bırakarak kullanıcılar gibi kuruluş değişikliklere göre kullanıcı lisans eklemek veya kaldırmak için yönetici genellikle karmaşık bir PowerShell komut dosyası yazmanız gerekir. Bu komut, bulut hizmetine tek tek çağrılar.
+Şimdiye kadar lisansları yalnızca güçleştirebilir büyük ölçekli yönetim hello bireysel kullanıcı düzeyinde atanabilir. Örneğin, kuruluş ya da bir bölüm birleştirme veya bırakarak kullanıcı hello gibi kuruluş değişikliklere dayalı tooadd veya kaldırma kullanıcı lisansları yönetici genellikle karmaşık bir PowerShell komut dosyası yazmanız gerekir. Bu komut dosyası çağrıları tek tek toohello bulut hizmeti sağlar.
 
-Bu sorunları çözmek için Grup tabanlı lisans artık Azure AD içerir. Bir gruba bir veya daha fazla ürün lisansları atayabilirsiniz. Azure AD lisans grubunun tüm üyeleri atanmasını sağlar. Gruba katılma herhangi bir yeni üyeler uygun lisansları atanır. Gruptan ayrılmak, bu lisansların kaldırılır. Bu, bir kullanıcı başına temelinde kuruluş ve departman yapısını değişiklikleri yansıtmak üzere PowerShell aracılığıyla Lisans Yönetimi otomatikleştirme gereğini ortadan kaldırır.
+Bu sorunlar, tooaddress artık Azure AD, Grup tabanlı lisans içerir. Bir veya daha fazla ürün lisansları tooa grubu atayabilirsiniz. Azure AD hello lisansları tooall grubunun üyeleri, hello atanmasını sağlar. Merhaba gruba katılma herhangi bir yeni üyeler hello uygun lisansları atanır. Merhaba grubu bırakın, bu lisansların kaldırılır. Bu, lisans yönetimi hello kuruluş ve kullanıcı başına temelinde departman yapısı PowerShell tooreflect yapılan değişiklikleri aracılığıyla otomatikleştirmek için hello gereksinimini ortadan kaldırır.
 
 ## <a name="features"></a>Özellikler
 
-Grup tabanlı lisansı önemli özellikleri şunlardır:
+Grup tabanlı lisansı hello önemli özellikleri şunlardır:
 
-- Lisansları Azure AD içinde herhangi bir güvenlik grubuna atanabilir. Güvenlik grupları, Azure AD Connect kullanarak eşitlenen şirket olabilir. Güvenlik grupları (yalnızca bulut grupları olarak da bilinir) doğrudan Azure AD'de veya otomatik olarak Azure AD dinamik grup özelliği aracılığıyla da oluşturabilirsiniz.
+- Lisansları tooany güvenlik grubu, Azure AD'de atanabilir. Güvenlik grupları, Azure AD Connect kullanarak eşitlenen şirket olabilir. Güvenlik grupları (yalnızca bulut grupları olarak da bilinir) doğrudan Azure AD'de veya otomatik olarak hello Azure AD dinamik grup özelliği aracılığıyla da oluşturabilirsiniz.
 
-- Bir ürün lisans bir gruba atandığında, yönetici bir veya daha fazla hizmet planları üründeki devre dışı bırakabilirsiniz. Kuruluşunuz henüz bir ürüne Hizmeti'ni kullanmaya başlamak hazır değil, genellikle, bu yapılır. Örneğin, yönetici Office 365 bir bölüme atarsanız, ancak Yammer hizmet geçici olarak devre dışı.
+- Bir ürün lisans tooa Grup atandığında, Merhaba yönetici bir veya daha fazla hizmet planları hello üründeki devre dışı bırakabilirsiniz. Genellikle, Hello Kuruluşunuz henüz bir ürüne hizmetini kullanarak hazır toostart olmadığında bu yapılır. Örneğin, Merhaba yönetici Office 365 tooa departmanı atarsanız, ancak geçici olarak hello Yammer hizmetini devre dışı bırakın.
 
 - Kullanıcı düzeyinde lisans gerektiren tüm Microsoft bulut hizmetlerine desteklenir. Bu, tüm Office 365 ürünler, Enterprise Mobility + güvenlik ve Dynamics CRM içerir.
 
-- Grup tabanlı lisans edinilebilir şu anda yalnızca [Azure portalı](https://portal.azure.com). Kullanıcı ve Grup Yönetimi, Office 365 portalı gibi diğer yönetim portalları öncelikle kullanıyorsanız, bunu yapmak devam edebilirsiniz. Ancak, lisans grubu düzeyinde yönetmek için Azure Portalı'nı kullanmanız gerekir.
+- Grup tabanlı lisans edinilebilir şu anda yalnızca [Azure portal hello](https://portal.azure.com). Kullanıcı ve Grup Yönetimi, hello Office 365 portalı gibi diğer yönetim portalları öncelikle kullanırsanız, bu nedenle toodo devam edebilirsiniz. Ancak grup düzeyinde hello Azure portal toomanage lisansları kullanmanız gerekir.
 
 - Azure AD, grup üyeliği değişikliklerden kaynaklanan lisans değişiklikler otomatik olarak yönetir. Genellikle, bir üyelik değişiklik dakika içinde lisans değişiklikler etkili olur.
 
-- Bir kullanıcı belirtilen lisans ilkelerini sahip birden fazla grup üyesi olabilir. Bir kullanıcı, doğrudan, dışında herhangi bir grup atanmış bazı lisanslar da sağlayabilirsiniz. Sonuçta elde edilen kullanıcı durumunu, tüm atanan ürün ve hizmet lisansı birleşimidir.
+- Bir kullanıcı belirtilen lisans ilkelerini sahip birden fazla grup üyesi olabilir. Bir kullanıcı, doğrudan, dışında herhangi bir grup atanmış bazı lisanslar da sağlayabilirsiniz. kullanıcı durumunu kaynaklanan hello tüm atanan ürün ve hizmet lisansı birleşimidir.
 
-- Bazı durumlarda, bir kullanıcıya lisans atanamaz. Örneğin, olmayabilir kullanılabilir yeterli lisans kiracısında veya çakışan Hizmetleri aynı anda atanmış. Yöneticileri, kendisi için Azure AD tam Grup lisansları işleyemedi kullanıcılar hakkındaki bilgilere erişebilir. Bunlar daha sonra bu bilgilere dayanarak düzeltme eylemi alabilir.
+- Bazı durumlarda, tooa kullanıcı lisansları atanamaz. Örneğin, olmayabilir kullanılabilir yeterli lisans hello kiracısında veya çakışan Hizmetleri atanan hello aynı saat. Yöneticiler, kendisi için Azure AD tam Grup lisansları işleyemedi kullanıcılar hakkında erişim tooinformation sahiptir. Bunlar daha sonra bu bilgilere dayanarak düzeltme eylemi alabilir.
 
-- Genel Önizleme sırasında grup tabanlı lisans yönetimi kullanmak için Kiracı ücretli veya deneme aboneliği Azure AD temel veya Premium sürümleri için gereklidir.
+- Genel Önizleme sırasında hello Kiracı toouse grup tabanlı Lisans Yönetimi'nde ücretli veya deneme aboneliği Azure AD temel veya Premium sürümleri için gereklidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Grup tabanlı lisans aracılığıyla lisans yönetimi için diğer senaryolar hakkında daha fazla bilgi için bkz:
+Grup tabanlı lisans aracılığıyla lisans yönetimi için diğer senaryolar hakkında daha fazla toolearn bakın:
 
 * [Azure Active Directory lisansları kullanmaya başlama](active-directory-licensing-get-started-azure-portal.md)
-* [Azure Active Directory'deki bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)
+* [Azure Active Directory'de lisansları tooa grup atama](active-directory-licensing-group-assignment-azure-portal.md)
 * [Azure Active Directory'deki bir gruba lisans sorunlarını tanımlama ve](active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [Azure Active Directory'de Grup tabanlı lisans için tek tek lisanslı kullanıcıları geçirme](active-directory-licensing-group-migration-azure-portal.md)
+* [Toomigrate tek tek kullanıcılar toogroup tabanlı Azure Active Directory'de lisanslama nasıl lisanslı](active-directory-licensing-group-migration-azure-portal.md)
 * [Azure Active Directory grup tabanlı ilave senaryolar lisanslama](active-directory-licensing-group-advanced.md)

@@ -14,48 +14,48 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
-ms.openlocfilehash: dc319c97e64e55861b84cc3943667418077a05d8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 90a495029f48d70232ef3f99de4ea4d351395aa7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>İzlenecek yol: Azure AD B2C kullanıcı Yolculuğunuzun REST API talep alışverişlerine orchestration adım olarak tümleştirin.
 
-Azure Active Directory B2C altını çizen kimlik deneyimi Framework (IEF) (Azure AD B2C) etkileşim kullanıcı gezisine bir RESTful API'si ile tümleştirmek kimlik Geliştirici sağlar.  
+Hello Azure Active Directory B2C altını çizen kimlik deneyimi Framework (IEF) (Azure AD B2C) hello kimlik Geliştirici toointegrate kullanıcı gezisine bir RESTful API'si ile etkileşim sağlar.  
 
-Bu kılavuzun sonunda RESTful hizmetlerle etkileşimde bulunan bir Azure AD B2C kullanıcı gezisine oluşturmak mümkün olacaktır.
+Bu kılavuzda Hello sonunda mümkün toocreate RESTful hizmetlerle etkileşimde bulunan bir Azure AD B2C kullanıcı gezisine olacaktır.
 
-IEF Taleplerde verileri gönderir ve geri Taleplerde verilerini alır. REST API exchange talepleri:
+Merhaba IEF Taleplerde verileri gönderir ve geri Taleplerde verilerini alır. REST API talep exchange Hello:
 
 - Orchestration adım olarak tasarlanmış olabilir.
 - Bir dış eylem tetikleyebilir. Örneğin, bir olay dış veritabanında kaydedebilirsiniz.
-- Bir değer getirebilir ve kullanıcı veritabanında depolamak için kullanılabilir.
+- Kullanılan toofetch bir değer olması ve hello kullanıcı veritabanında depolamak kullanabilirsiniz.
 
-Daha sonra akışını değiştirmek için alınan talep kullanabilirsiniz.
+Alınan hello talepleri kullanan sonraki toochange hello akışını.
 
-Bir doğrulama profili olarak etkileşim de tasarlayabilirsiniz. Daha fazla bilgi için bkz: [izlenecek yol: REST API tümleştirme kullanıcı girişini doğrulama olarak Azure AD B2C kullanıcı Yolculuğunuzun alışverişlerine talep](active-directory-b2c-rest-api-validation-custom.md).
+Bir doğrulama profili olarak hello etkileşim de tasarlayabilirsiniz. Daha fazla bilgi için bkz: [izlenecek yol: REST API tümleştirme kullanıcı girişini doğrulama olarak Azure AD B2C kullanıcı Yolculuğunuzun alışverişlerine talep](active-directory-b2c-rest-api-validation-custom.md).
 
-Bir kullanıcı profili Düzenle gerçekleştirdiğinde, istediğimizi senaryodur:
+Merhaba senaryo, bir kullanıcı profili Düzenle gerçekleştirdiğinde, istediğimizi şöyledir:
 
-1. Kullanıcı bir dış sistemde arayın.
-2. Bu kullanıcının, kayıtlı Şehir alın.
-3. Bu öznitelik uygulamayı bir talep olarak geri dönün.
+1. Merhaba kullanıcı bir dış sistemde arayın.
+2. Bu kullanıcının, kayıtlı hello Şehir alın.
+3. Bu öznitelik toohello uygulama talep olarak döndürür.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- Bölümünde açıklandığı gibi bir yerel hesap oturumu-up/oturum açmayı tamamlamak için yapılandırılmış bir Azure AD B2C kiracısı [Başlarken](active-directory-b2c-get-started-custom.md).
-- Etkileşim için bir REST API uç noktası. Bu kılavuzda, bir basit Azure işlevi app Web kancası örnek olarak kullanılır.
-- *Önerilen*: tamamlamak [REST API talep exchange izlenecek bir doğrulama adımı olarak](active-directory-b2c-rest-api-validation-custom.md).
+- Azure AD B2C Kiracı yapılandırılmış toocomplete oturumu-up/oturum açıklandığı gibi açma, yerel bir hesap [Başlarken](active-directory-b2c-get-started-custom.md).
+- REST API uç noktası toointeract ile. Bu kılavuzda, bir basit Azure işlevi app Web kancası örnek olarak kullanılır.
+- *Önerilen*: tam hello [REST API talep exchange izlenecek bir doğrulama adımı olarak](active-directory-b2c-rest-api-validation-custom.md).
 
-## <a name="step-1-prepare-the-rest-api-function"></a>1. adım: REST API işlevi hazırlama
+## <a name="step-1-prepare-hello-rest-api-function"></a>1. adım: hello REST API işlevi hazırlama
 
 > [!NOTE]
-> REST API işlevleri bu makalenin kapsamı dışındadır kurulması. [Azure işlevleri](https://docs.microsoft.com/azure/azure-functions/functions-reference) RESTful hizmetlerini bulutta oluşturmak için mükemmel bir araç sağlar.
+> REST API işlevleri bu makalenin kapsamı dışındadır hello kurulması. [Azure işlevleri](https://docs.microsoft.com/azure/azure-functions/functions-reference) toocreate RESTful hizmetlerini hello bulutta mükemmel bir araç sağlar.
 
-Adlı bir talep aldığında bir Azure işlevi ayarlarız `email`ve ardından talep döndürür `city` atanan değeriyle `Redmond`. Azure işlevi örnek açıktır [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+Adlı bir talep aldığında bir Azure işlevi ayarlarız `email`, ve ardından talep döndürür hello `city` , atanan hello değeriyle `Redmond`. Merhaba örnek Azure işlevi açıktır [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
-`userMessage` Azure işlevi döndürür talep bu bağlamda isteğe bağlıdır ve IEF bunu göz ardı eder. Potansiyel olarak uygulamaya geçirilen ve daha sonra kullanıcıya bir ileti kullanabilirsiniz.
+Merhaba `userMessage` Azure işlev dönüşleri hello talep bu bağlamda isteğe bağlıdır ve hello IEF bunu yoksayacaktır. Bir ileti toohello uygulama geçirilen ve toohello kullanıcı daha sonra sunulan, potansiyel olarak kullanabilirsiniz.
 
 ```csharp
 if (requestContentAsJObject.email == null)
@@ -78,14 +78,14 @@ return request.CreateResponse<ResponseContent>(
     "application/json");
 ```
 
-Bir Azure işlevi uygulama belirli bir işlev tanımlayıcısını içeren işlevi URL'sini alma kolay hale getirir. Bu durumda, URL'si şöyledir: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Bunu test etmek için kullanabilirsiniz.
+Bir Azure işlevi uygulama hello belirli bir işlev hello tanımlayıcısını içeren kolay tooget hello işlevi URL kolaylaştırır. Bu durumda, hello URL'dir: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Bunu test etmek için kullanabilirsiniz.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>2. adım: RESTful API'si talep exchange TrustFrameworExtensions.xml dosyanızdaki teknik bir profil olarak yapılandırın.
+## <a name="step-2-configure-hello-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>2. adım: hello RESTful API'si talep exchange TrustFrameworExtensions.xml dosyanızdaki teknik bir profil olarak yapılandırın.
 
-İstenen RESTful hizmeti ile exchange tam yapılandırmasını bir teknik profilidir. TrustFrameworkExtensions.xml dosyasını açın ve aşağıdaki XML parçacığını içine ekleyin `<ClaimsProvider>` öğesi.
+Teknik bir profili hello tam hello Exchange hello RESTful hizmeti ile istenen bir yapılandırmadır. Merhaba TrustFrameworkExtensions.xml dosyasını açın ve aşağıdaki XML parçacığını hello içinde hello ekleyin `<ClaimsProvider>` öğesi.
 
 > [!NOTE]
-> Aşağıdaki XML, RESTful sağlayıcısı `Version=1.0.0.0` protokol olarak açıklanmıştır. Dış hizmetiyle etkileşime gireceğini işlevi olarak düşünün. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
+> XML, RESTful sağlayıcısı aşağıdaki hello içinde `Version=1.0.0.0` hello protokolü olarak tanımlanır. Merhaba dış hizmetiyle etkileşime gireceğini hello işlevi olarak düşünün. <!-- TODO: A full definition of hello schema can be found...link tooRESTful Provider schema definition>-->
 
 ```XML
 <ClaimsProvider>
@@ -111,18 +111,18 @@ Bir Azure işlevi uygulama belirli bir işlev tanımlayıcısını içeren işle
 </ClaimsProvider>
 ```
 
-`<InputClaims>` Öğesi IEF REST hizmeti gönderilecek Talepleri tanımlar. Bu örnekte, talep içeriğini `givenName` REST hizmeti talep olarak gönderileceği `email`.  
+Merhaba `<InputClaims>` öğesi IEF toohello REST hizmeti hello gönderilecek hello talepleri tanımlar. Bu örnekte, hello hello talep içeriğini `givenName` toohello REST hizmeti hello talep olarak gönderilecek `email`.  
 
-`<OutputClaims>` Öğesi IEF REST hizmetinden beklediği talepleri tanımlar. Alınan talep sayısından bağımsız olarak, IEF yalnızca tanımlanan burada kullanır. Bu örnekte, olarak bir talep alınan `city` bir IEF eşlenecek adlı talep `city`.
+Merhaba `<OutputClaims>` öğesi IEF hello REST hizmetinden beklediğiniz bu hello hello talepleri tanımlar. Alınan talep Hello sayısından bağımsız olarak, hello IEF yalnızca tanımlanan burada kullanır. Bu örnekte, olarak bir talep alınan `city` eşlenen tooan IEF talep çağrılacağı `city`.
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>3. adım: yeni talep ekleme `city` TrustFrameworkExtensions.xml dosyanızın şemaya
+## <a name="step-3-add-hello-new-claim-city-toohello-schema-of-your-trustframeworkextensionsxml-file"></a>3. adım: hello yeni talep ekleme `city` TrustFrameworkExtensions.xml dosyanızı toohello şeması
 
-Talep `city` henüz herhangi bir yere bizim şemada tanımlı değil. Bu nedenle, öğe içindeki bir tanım ekleyin `<BuildingBlocks>`. Bu öğe TrustFrameworkExtensions.xml dosyasının başında bulabilirsiniz.
+Merhaba talep `city` henüz herhangi bir yere bizim şemada tanımlı değil. Bu nedenle, bir tanım hello öğesinin içine ekleyin `<BuildingBlocks>`. Bu öğe hello TrustFrameworkExtensions.xml dosyasının hello başında bulabilirsiniz.
 
 ```XML
 <BuildingBlocks>
-    <!--The claimtype city must be added to the TrustFrameworkPolicy-->
-    <!-- You can add new claims in the BASE file Section III, or in the extensions file-->
+    <!--hello claimtype city must be added toohello TrustFrameworkPolicy-->
+    <!-- You can add new claims in hello BASE file Section III, or in hello extensions file-->
     <ClaimsSchema>
         <ClaimType Id="city">
             <DisplayName>City</DisplayName>
@@ -134,14 +134,14 @@ Talep `city` henüz herhangi bir yere bizim şemada tanımlı değil. Bu nedenle
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>4. adım: Profil düzenleme kullanıcı Yolculuğunuzun TrustFrameworkExtensions.xml içinde bir orchestration adım gibi REST Hizmeti talepleri exchange içerir
+## <a name="step-4-include-hello-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>4. adım: Profil düzenleme kullanıcı Yolculuğunuzun TrustFrameworkExtensions.xml içinde orchestration adımda olarak hello REST Hizmeti talepleri exchange Ekle
 
-Kullanıcı sonra Profil düzenleme kullanıcı gezisine adıma (1-4 Aşağıdaki XML düzenleme adımlarının) kimlik doğrulaması ve kullanıcının güncelleştirilmiş profil bilgilerini (5. adım) sağlamıştır ekleyin.
+Bir adım eklemek hello kullanıcı sonra toohello profil düzenleme kullanıcı gezisine (1-4 XML aşağıdaki hello içinde düzenleme adımlarının) kimlik doğrulaması ve hello kullanıcı güncelleştirilmiş hello profil bilgilerini (5. adım) sağlanan.
 
 > [!NOTE]
-> REST API çağrısı orchestration adım olarak kullanıldığı birçok kullanım örnekleri vardır. Orchestration adım olarak, bu profili güncelleştirme olarak veya bir kullanıcı ilk kez kayıt gibi bir görevi başarıyla tamamlandıktan sonra bir dış sistem için bir güncelleştirme olarak bilgilerin eşitlenmiş tutmak için kullanılabilir. Bu durumda, bu profili düzenledikten sonra uygulamaya sağlanan bilgileri artırmak için kullanılır.
+> Merhaba REST API çağrısı orchestration adım olarak kullanıldığı birçok kullanım örnekleri vardır. Orchestration adım olarak, bir kullanıcı ilk kez kayıt gibi bir görevi başarıyla tamamlandıktan sonra bir güncelleştirme tooan dış sistem kullanılabilir veya bir profil olarak eşitlenen tookeep bilgilerini güncelleştirin. Bu durumda, onu hello profil düzenledikten sonra toohello uygulama sağlanan kullanılan tooaugment hello bilgilerdir.
 
-Kopya profil düzenleme Itanium tabanlı sistemler için kullanıcı gezisine XML kodu TrustFrameworkBase.xml dosyasından TrustFrameworkExtensions.xml dosyanıza içinde `<UserJourneys>` öğesi. Ardından 6. adım altında değişiklik yapın.
+Kopyalama hello profil düzenleme kullanıcı gezisine XML hello TrustFrameworkBase.xml tooyour TrustFrameworkExtensions.xml dosyası hello içinde kodundan `<UserJourneys>` öğesi. Daha sonra 6. adım altında hello değişiklik yapın.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
@@ -152,9 +152,9 @@ Kopya profil düzenleme Itanium tabanlı sistemler için kullanıcı gezisine XM
 ```
 
 > [!IMPORTANT]
-> Sipariş sürümünüzü eşleşmiyorsa, önce adım olarak kod ekleme emin olun `ClaimsExchange` türü `SendClaims`.
+> Merhaba sipariş sürümünüzü eşleşmiyorsa hello önce hello adım olarak hello kod yerleştirdiğinizden emin olun `ClaimsExchange` türü `SendClaims`.
 
-Kullanıcı gezisine için son XML aşağıdaki gibi görünmelidir:
+Merhaba son XML hello kullanıcı gezisine için aşağıdaki gibi görünmelidir:
 
 ```XML
 <UserJourney Id="ProfileEdit">
@@ -200,7 +200,7 @@ Kullanıcı gezisine için son XML aşağıdaki gibi görünmelidir:
                 <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
             </ClaimsExchanges>
         </OrchestrationStep>
-        <!-- Add a step 6 to the user journey before the JWT token is created-->
+        <!-- Add a step 6 toohello user journey before hello JWT token is created-->
         <OrchestrationStep Order="6" Type="ClaimsExchange">
             <ClaimsExchanges>
                 <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
@@ -212,11 +212,11 @@ Kullanıcı gezisine için son XML aşağıdaki gibi görünmelidir:
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>5. adım: talep ekleme `city` bağlı olan taraf için ilke dosya talep uygulamanıza gönderilir şekilde
+## <a name="step-5-add-hello-claim-city-tooyour-relying-party-policy-file-so-hello-claim-is-sent-tooyour-application"></a>5. adım: hello talep ekleme `city` tooyour bağlı olan taraf İlkesi dosya hello talep tooyour uygulama gönderilir şekilde
 
-ProfileEdit.xml bağlı olan taraf (RP) dosyanızı düzenleyin ve değiştirme `<TechnicalProfile Id="PolicyProfile">` öğesi aşağıdakileri ekleyin: `<OutputClaim ClaimTypeReferenceId="city" />`.
+ProfileEdit.xml bağlı olan taraf (RP) dosyanızı düzenleyin ve hello değiştirme `<TechnicalProfile Id="PolicyProfile">` öğesi tooadd hello aşağıdaki: `<OutputClaim ClaimTypeReferenceId="city" />`.
 
-Yeni Talep ekledikten sonra teknik profili şöyle görünür:
+Merhaba yeni talep ekledikten sonra hello teknik profili şöyle görünür:
 
 ```XML
 <DisplayName>PolicyProfile</DisplayName>
@@ -231,15 +231,15 @@ Yeni Talep ekledikten sonra teknik profili şöyle görünür:
 
 ## <a name="step-6-upload-your-changes-and-test"></a>6. adım: değişikliklerinizi karşıya yüklemek ve test etme
 
-İlkenin mevcut sürümlerin üzerine yazılır.
+Merhaba hello İlkesi varolan önceki sürümlerin üzerine yazın.
 
-1.  (İsteğe bağlı:) Devam etmeden önce mevcut sürümü (yükleyerek) uzantıları dosyanızın kaydedin. İlk karmaşıklık düşük tutmak için birden fazla sürümünü uzantıları dosya karşıya yüklemeyin öneririz.
-2.  (İsteğe bağlı:) İlke Kimliği İlkesi Düzenle dosyası için yeni sürümü değiştirerek yeniden adlandırın `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
-3.  Uzantıları dosyasını karşıya yükleyin.
-4.  İlkeyi Düzenle RP dosyasını karşıya yükleyin.
-5.  Kullanım **Şimdi Çalıştır** ilkesini test etmek. Uygulamaya IEF döndüren belirteci gözden geçirin.
+1.  (İsteğe bağlı:) Devam etmeden önce hello mevcut sürümü (yükleyerek) uzantıları dosyanızın kaydedin. tookeep hello ilk karmaşıklık düşük, birden fazla sürümünü hello uzantıları dosyasını karşıya yüklemeyin öneririz.
+2.  (İsteğe bağlı:) Merhaba ilke kimliği hello İlkesi Düzenle dosyası için yeni sürümü Hello değiştirerek yeniden adlandırın `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
+3.  Merhaba uzantıları dosyasını karşıya yükleyin.
+4.  Hello İlkesi Düzenle RP dosyasını karşıya yükleyin.
+5.  Kullanım **Şimdi Çalıştır** tootest hello ilkesi. IEF hello gözden geçirme hello belirteci toohello uygulama döndürür.
 
-Her şeyin doğru şekilde ayarlanmış olması durumunda, yeni talep belirteci içerecektir `city`, değerle `Redmond`.
+Her şeyin doğru şekilde ayarlanmış olması durumunda hello belirteci hello yeni talep içerecektir `city`, hello değerle `Redmond`.
 
 ```JSON
 {
@@ -261,4 +261,4 @@ Her şeyin doğru şekilde ayarlanmış olması durumunda, yeni talep belirteci 
 
 [Doğrulama adımı olarak REST API kullanın](active-directory-b2c-rest-api-validation-custom.md)
 
-[Kullanıcılardan ek bilgi toplamak için profil düzenleme değiştirme](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[Hello profil düzenleme toogather ek bilgileri, kullanıcılarınızın değiştirin](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)

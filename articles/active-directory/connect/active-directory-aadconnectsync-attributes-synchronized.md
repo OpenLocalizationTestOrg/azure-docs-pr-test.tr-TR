@@ -1,6 +1,6 @@
 ---
 title: "Öznitelikleri eşitlenmiş Azure AD Connect tarafından | Microsoft Docs"
-description: "Azure Active Directory'ye eşitlenen öznitelikler listelenmiştir."
+description: "Listeleri hello öznitelikleri tooAzure Active Directory eşitlendi."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 85878cbccf76e9f6faf523b89218d058fd24904b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2fe5b944a7fc832f245631416c265fb82eedeb15
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect eşitleme: öznitelikleri eşitlenmiş Azure Active Directory'ye
-Bu konuda, Azure AD Connect eşitleme tarafından eşitlenen öznitelikler listelenir.  
-Öznitelikleri ilgili Azure tarafından gruplandırılır AD uygulaması.
+# <a name="azure-ad-connect-sync-attributes-synchronized-tooazure-active-directory"></a>Azure AD Connect eşitleme: öznitelikleri eşitlenir tooAzure Active Directory
+Bu konuda, Azure AD Connect eşitleme tarafından eşitlenen hello öznitelikleri listeler.  
+Merhaba öznitelikleri ilgili hello göre gruplandırılır Azure AD uygulaması.
 
-## <a name="attributes-to-synchronize"></a>Eşitlenecek öznitelikleri
-Ortak bir soru *eşitlemek için en düşük öznitelikler listesi nedir*. Varsayılan ve önerilen yaklaşım, tam GAL (genel adres listesi) bulutta oluşturulabilir şekilde varsayılan öznitelikler tutmak için ve Office 365 iş yüklerini tüm özellikleri alınamıyor. Bazı durumlarda, bu öznitelikler içeren bu yana, kuruluşunuz bulutta eşitlenmiş hassas istemediği bazı öznitelikler vardır veya PII (kişisel bilgi) verileri, bu örnekte, ister:  
+## <a name="attributes-toosynchronize"></a>Öznitelikleri toosynchronize
+Ortak bir soru *düşük öznitelikler toosynchronize hello listesi nedir*. Merhaba varsayılan ve önerilen yaklaşım olan tam GAL (genel adres listesi) içinde yapılandırılan şekilde tookeep hello varsayılan öznitelikleri Bulut ve tooget Office 365 iş yükleri'ındaki tüm özelliklere hello. Bazı durumlarda, bu öznitelikler içeren bu yana kuruluşunuz eşitlenmiş toohello bulut hassas istemediği bazı öznitelikler vardır veya PII (kişisel bilgi) verileri, bu örnekte, ister:  
 ![hatalı öznitelikleri](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
 
-Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya PII veri içerir ve eşitlenemiyor özniteliklerle tanımlayın. Ardından yükleme kullanarak sırasında özniteliklerle seçimini [Azure AD uygulaması ve öznitelik filtrelemesi](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+Bu durumda, bu konu içinde öznitelik listesi hello başlayın ve duyarlı veya PII veri içerir ve eşitlenemiyor özniteliklerle tanımlayın. Ardından yükleme kullanarak sırasında özniteliklerle seçimini [Azure AD uygulaması ve öznitelik filtrelemesi](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
 
 > [!WARNING]
-> Öznitelikleri seçimini zaman dikkatli olun ve yalnızca özniteliklerle eşitlemek kesinlikle yapılamaz seçimini kaldırın. Diğer öznitelikleri unselecting özellikleri olumsuz bir etkisi olabilir.
+> Öznitelikleri seçimini zaman dikkatli olun ve yalnızca bu öznitelikler yapılamaz kesinlikle toosynchronize seçimini kaldırın. Diğer öznitelikleri unselecting özellikleri olumsuz bir etkisi olabilir.
 >
 >
 
@@ -41,11 +41,11 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | accountEnabled |X |Bir hesap etkinleştirilirse tanımlar. |
 | CN = |X | |
 | Görünen adı |X | |
-| objectSID |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı Azure arasında eşitleme korumak için kullanılan AD ve AD. |
-| pwdLastSet |X |mekanik özelliği. Zaten verilen belirteçler geçersiz kılmak ne zaman öğrenmek için kullanılır. Parola Eşitleme ve Federasyon tarafından kullanılır. |
-| sourceAnchor |X |mekanik özelliği. EKLER ve Azure AD arasındaki ilişkiyi korumak için tanımlayıcısı değişmez. |
-| usageLocation |X |mekanik özelliği. Kullanıcının ülke. Lisans atama için kullanılır. |
-| userPrincipalName |X |UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
+| objectSID |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı toomaintain eşitleme Azure arasında kullanılan AD ve AD. |
+| pwdLastSet |X |mekanik özelliği. Tooinvalidate zaten verilen belirteçler zaman kullanılan tooknow. Parola Eşitleme ve Federasyon tarafından kullanılır. |
+| sourceAnchor |X |mekanik özelliği. EKLER ve Azure AD arasındaki değişmez tanımlayıcı toomaintain ilişki. |
+| usageLocation |X |mekanik özelliği. Merhaba kullanıcının ülke. Lisans atama için kullanılır. |
+| userPrincipalName |X |UPN hello oturum açma hello kullanıcı kimliğidir. En sık [posta] değeri olarak aynı hello. |
 
 ## <a name="exchange-online"></a>Exchange Online
 | Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
@@ -60,7 +60,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | Şirket |X |X | | |
 | CountryCode |X |X | | |
 | Bölüm |X |X | | |
-| Açıklama |X |X |X | |
+| açıklama |X |X |X | |
 | Görünen adı |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -141,7 +141,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | msExchTeamMailboxSharePointUrl |X | | | |
 | msExchUserHoldPolicies |X | | | |
 | msOrg IsOrganizational | | |X | |
-| objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı Azure arasında eşitleme korumak için kullanılan AD ve AD. |
+| objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı toomaintain eşitleme Azure arasında kullanılan AD ve AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
@@ -151,12 +151,12 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | posta kodu |X |X | | |
 | proxyAddresses |X |X |X | |
 | publicDelegates |X |X |X | |
-| pwdLastSet |X | | |mekanik özelliği. Zaten verilen belirteçler geçersiz kılmak ne zaman öğrenmek için kullanılır. Parola Eşitleme ve Federasyon tarafından kullanılır. |
+| pwdLastSet |X | | |mekanik özelliği. Tooinvalidate zaten verilen belirteçler zaman kullanılan tooknow. Parola Eşitleme ve Federasyon tarafından kullanılır. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
 | securityEnabled | | |X |GroupType türetilmiş |
 | sn |X |X | | |
-| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki ilişkiyi korumak için tanımlayıcısı değişmez. |
+| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki değişmez tanımlayıcı toomaintain ilişki. |
 | St |X |X | | |
 | StreetAddress |X |X | | |
 | targetAddress |X |X | | |
@@ -165,9 +165,9 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | thumbnailphoto |X |X | | |
 | Başlık |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans atama için kullanılır. |
+| usageLocation |X | | |mekanik özelliği. Merhaba kullanıcının ülke. Lisans atama için kullanılır. |
 | userCertificate |X |X | | |
-| userPrincipalName |X | | |UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
+| userPrincipalName |X | | |UPN hello oturum açma hello kullanıcı kimliğidir. En sık [posta] değeri olarak aynı hello. |
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
 
@@ -182,7 +182,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | Şirket |X |X | | |
 | CountryCode |X |X | | |
 | Bölüm |X |X | | |
-| Açıklama |X |X |X | |
+| açıklama |X |X |X | |
 | Görünen adı |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -220,7 +220,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | msExchTeamMailboxOwners |X | | | |
 | msExchTeamMailboxSharePointLinkedBy |X | | | |
 | msExchTeamMailboxSharePointUrl |X | | | |
-| objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı Azure arasında eşitleme korumak için kullanılan AD ve AD. |
+| objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı toomaintain eşitleme Azure arasında kullanılan AD ve AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
@@ -234,12 +234,12 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | postOfficeBox |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mekanik özelliği. Zaten verilen belirteçler geçersiz kılmak ne zaman öğrenmek için kullanılır. Parola Eşitleme ve Federasyon tarafından kullanılır. |
+| pwdLastSet |X | | |mekanik özelliği. Tooinvalidate zaten verilen belirteçler zaman kullanılan tooknow. Parola Eşitleme ve Federasyon tarafından kullanılır. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
 | securityEnabled | | |X |GroupType türetilmiş |
 | sn |X |X | | |
-| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki ilişkiyi korumak için tanımlayıcısı değişmez. |
+| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki değişmez tanımlayıcı toomaintain ilişki. |
 | St |X |X | | |
 | StreetAddress |X |X | | |
 | targetAddress |X |X | | |
@@ -249,8 +249,8 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | Başlık |X |X | | |
 | unauthOrig |X |X |X | |
 | URL |X |X | | |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans atama için kullanılır. |
-| userPrincipalName |X | | |UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
+| usageLocation |X | | |mekanik özelliği. Merhaba kullanıcının ülke. Lisans atama için kullanılır. |
+| userPrincipalName |X | | |UPN hello oturum açma hello kullanıcı kimliğidir. En sık [posta] değeri olarak aynı hello. |
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online"></a>Lync Online
@@ -262,7 +262,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | Ortak |X |X | | |
 | Şirket |X |X | | |
 | Bölüm |X |X | | |
-| Açıklama |X |X |X | |
+| açıklama |X |X |X | |
 | Görünen adı |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
@@ -283,40 +283,40 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | Msrtcsıp-OwnerUrn |X | | | |
 | Msrtcsıp-Primaryuseraddress'teki |X |X | | |
 | Msrtcsıp-UserEnabled |X |X | | |
-| objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı Azure arasında eşitleme korumak için kullanılan AD ve AD. |
+| objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı toomaintain eşitleme Azure arasında kullanılan AD ve AD. |
 | otherTelephone |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | posta kodu |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mekanik özelliği. Zaten verilen belirteçler geçersiz kılmak ne zaman öğrenmek için kullanılır. Parola Eşitleme ve Federasyon tarafından kullanılır. |
+| pwdLastSet |X | | |mekanik özelliği. Tooinvalidate zaten verilen belirteçler zaman kullanılan tooknow. Parola Eşitleme ve Federasyon tarafından kullanılır. |
 | securityEnabled | | |X |GroupType türetilmiş |
 | sn |X |X | | |
-| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki ilişkiyi korumak için tanımlayıcısı değişmez. |
+| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki değişmez tanımlayıcı toomaintain ilişki. |
 | St |X |X | | |
 | StreetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | Başlık |X |X | | |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans atama için kullanılır. |
-| userPrincipalName |X | | |UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
+| usageLocation |X | | |mekanik özelliği. Merhaba kullanıcının ülke. Lisans atama için kullanılır. |
+| userPrincipalName |X | | |UPN hello oturum açma hello kullanıcı kimliğidir. En sık [posta] değeri olarak aynı hello. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
 | Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
-| CN = |X | |X |Ortak adı veya diğer ad. En sık [posta] değeri önek. |
-| Görünen adı |X |X |X |Genellikle kolay ad (ad Soyadı) olarak gösterilen adını temsil eden bir dize. |
+| CN = |X | |X |Ortak adı veya diğer ad. En sık hello öneki [posta] değeri. |
+| Görünen adı |X |X |X |Genellikle hello kolay ad (ad Soyadı) olarak gösterilen hello adını temsil eden bir dize. |
 | Posta |X |X |X |tam e-posta adresi. |
 | Üye | | |X | |
-| objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı Azure arasında eşitleme korumak için kullanılan AD ve AD. |
-| proxyAddresses |X |X |X |mekanik özelliği. Azure AD tarafından kullanılır. Kullanıcı için tüm ikincil e-posta adreslerini içerir. |
-| pwdLastSet |X | | |mekanik özelliği. Zaten verilen belirteçler geçersiz kılmak ne zaman öğrenmek için kullanılır. |
+| objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı toomaintain eşitleme Azure arasında kullanılan AD ve AD. |
+| proxyAddresses |X |X |X |mekanik özelliği. Azure AD tarafından kullanılır. Merhaba kullanıcı için tüm ikincil e-posta adreslerini içerir. |
+| pwdLastSet |X | | |mekanik özelliği. Tooinvalidate zaten verilen belirteçler zaman kullanılan tooknow. |
 | securityEnabled | | |X |GroupType türetilmiş. |
-| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki ilişkiyi korumak için tanımlayıcısı değişmez. |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans atama için kullanılır. |
-| userPrincipalName |X | | |Bu UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
+| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki değişmez tanımlayıcı toomaintain ilişki. |
+| usageLocation |X | | |mekanik özelliği. Merhaba kullanıcının ülke. Lisans atama için kullanılır. |
+| userPrincipalName |X | | |Bu UPN hello oturum açma hello kullanıcı kimliğidir. En sık [posta] değeri olarak aynı hello. |
 
 ## <a name="intune"></a>Intune
 | Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
@@ -324,18 +324,18 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | C |X |X | | |
 | CN = |X | |X | |
-| Açıklama |X |X |X | |
+| açıklama |X |X |X | |
 | Görünen adı |X |X |X | |
 | Posta |X |X |X | |
 | mailnickname |X |X |X | |
 | Üye | | |X | |
-| objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı Azure arasında eşitleme korumak için kullanılan AD ve AD. |
+| objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı toomaintain eşitleme Azure arasında kullanılan AD ve AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mekanik özelliği. Zaten verilen belirteçler geçersiz kılmak ne zaman öğrenmek için kullanılır. Parola Eşitleme ve Federasyon tarafından kullanılır. |
+| pwdLastSet |X | | |mekanik özelliği. Tooinvalidate zaten verilen belirteçler zaman kullanılan tooknow. Parola Eşitleme ve Federasyon tarafından kullanılır. |
 | securityEnabled | | |X |GroupType türetilmiş |
-| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki ilişkiyi korumak için tanımlayıcısı değişmez. |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans atama için kullanılır. |
-| userPrincipalName |X | | |UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
+| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki değişmez tanımlayıcı toomaintain ilişki. |
+| usageLocation |X | | |mekanik özelliği. Merhaba kullanıcının ülke. Lisans atama için kullanılır. |
+| userPrincipalName |X | | |UPN hello oturum açma hello kullanıcı kimliğidir. En sık [posta] değeri olarak aynı hello. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
 | Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
@@ -346,7 +346,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | Ortak |X |X | | |
 | Şirket |X |X | | |
 | CountryCode |X |X | | |
-| Açıklama |X |X |X | |
+| açıklama |X |X |X | |
 | Görünen adı |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
@@ -355,28 +355,28 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | Yöneticisi |X |X | | |
 | Üye | | |X | |
 | Mobil |X |X | | |
-| objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı Azure arasında eşitleme korumak için kullanılan AD ve AD. |
+| objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı toomaintain eşitleme Azure arasında kullanılan AD ve AD. |
 | physicalDeliveryOfficeName |X |X | | |
 | posta kodu |X |X | | |
 | preferredLanguage |X | | | |
-| pwdLastSet |X | | |mekanik özelliği. Zaten verilen belirteçler geçersiz kılmak ne zaman öğrenmek için kullanılır. Parola Eşitleme ve Federasyon tarafından kullanılır. |
+| pwdLastSet |X | | |mekanik özelliği. Tooinvalidate zaten verilen belirteçler zaman kullanılan tooknow. Parola Eşitleme ve Federasyon tarafından kullanılır. |
 | securityEnabled | | |X |GroupType türetilmiş |
 | sn |X |X | | |
-| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki ilişkiyi korumak için tanımlayıcısı değişmez. |
+| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki değişmez tanımlayıcı toomaintain ilişki. |
 | St |X |X | | |
 | StreetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | Başlık |X |X | | |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans atama için kullanılır. |
-| userPrincipalName |X | | |UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
+| usageLocation |X | | |mekanik özelliği. Merhaba kullanıcının ülke. Lisans atama için kullanılır. |
+| userPrincipalName |X | | |UPN hello oturum açma hello kullanıcı kimliğidir. En sık [posta] değeri olarak aynı hello. |
 
 ## <a name="3rd-party-applications"></a>3 taraf uygulamalar
-Bu grup, genel iş yükü veya uygulama için gerekli en az öznitelikleri olarak kullanılan öznitelikler kümesidir. Microsoft olmayan uygulama veya başka bir bölümünde listelenmeyen bir iş yükü için kullanılabilir. Açıkça aşağıdakiler için kullanılır:
+Bu grup, genel iş yükü veya uygulama için gerekli en az öznitelikleri hello olarak kullanılan öznitelikler kümesidir. Microsoft olmayan uygulama veya başka bir bölümünde listelenmeyen bir iş yükü için kullanılabilir. Açıkça hello şunlar için de kullanılır:
 
 * (Yalnızca kullanıcı tüketilen) yammer
 * [SharePoint gibi kaynaklar tarafından sunulan karma işletmeden işletmeye (B2B) org arası işbirliği senaryoları](http://go.microsoft.com/fwlink/?LinkId=747036)
 
-Bu grup, Office 365, Dynamics veya Intune desteklemek için Azure AD dizini kullanılmazsa, kullanılabilen öznitelikleri kümesidir. Küçük bir çekirdek öznitelikler kümesi vardır.
+Bu grubun bir hello Azure AD dizini değilse, kullanılabilen öznitelikler kümesi toosupport Office 365, Dynamics ya da Intune kullanılır. Küçük bir çekirdek öznitelikler kümesi vardır.
 
 | Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |
@@ -388,16 +388,16 @@ Bu grup, Office 365, Dynamics veya Intune desteklemek için Azure AD dizini kull
 | Şirketiniz tarafından | | |X | |
 | mailNickName |X |X |X | |
 | Üye | | |X | |
-| objectSID |X | | |mekanik özelliği. AD Kullanıcı tanımlayıcısı Azure arasında eşitleme korumak için kullanılan AD ve AD. |
+| objectSID |X | | |mekanik özelliği. AD Kullanıcı tanımlayıcısı toomaintain eşitleme Azure arasında kullanılan AD ve AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mekanik özelliği. Zaten verilen belirteçler geçersiz kılmak ne zaman öğrenmek için kullanılır. Parola Eşitleme ve Federasyon tarafından kullanılır. |
+| pwdLastSet |X | | |mekanik özelliği. Tooinvalidate zaten verilen belirteçler zaman kullanılan tooknow. Parola Eşitleme ve Federasyon tarafından kullanılır. |
 | sn |X |X | | |
-| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki ilişkiyi korumak için tanımlayıcısı değişmez. |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans atama için kullanılır. |
-| userPrincipalName |X | | |UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
+| sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki değişmez tanımlayıcı toomaintain ilişki. |
+| usageLocation |X | | |mekanik özelliği. Merhaba kullanıcının ülke. Lisans atama için kullanılır. |
+| userPrincipalName |X | | |UPN hello oturum açma hello kullanıcı kimliğidir. En sık [posta] değeri olarak aynı hello. |
 
 ## <a name="windows-10"></a>Windows 10
-Etki alanına katılmış Windows 10 computer(device) bazı öznitelikler Azure ad ile eşitler. Senaryoları hakkında daha fazla bilgi için bkz: [Windows 10 deneyimleri için etki alanına katılmış cihazlar için Azure AD Connect](../active-directory-azureadjoin-devices-group-policy.md). Bu öznitelikler her zaman eşitleyin ve Windows 10 işaretini kaldırabilirsiniz bir uygulama görünmez. Windows 10 etki alanına katılmış bir bilgisayar doldurulmuş özniteliği userCertificate sahip olarak tanımlanır.
+Etki alanına katılmış Windows 10 computer(device) bazı öznitelikler tooAzure AD eşitler. Merhaba senaryoları hakkında daha fazla bilgi için bkz: [Windows 10 deneyimleri için etki alanına katılmış aygıtlar tooAzure AD Connect](../active-directory-azureadjoin-devices-group-policy.md). Bu öznitelikler her zaman eşitleyin ve Windows 10 işaretini kaldırabilirsiniz bir uygulama görünmez. Windows 10 etki alanına katılmış bir bilgisayar doldurulmuş hello özniteliği userCertificate sahip olarak tanımlanır.
 
 | Öznitelik adı | Cihaz | Açıklama |
 | --- |:---:| --- |
@@ -411,7 +411,7 @@ Etki alanına katılmış Windows 10 computer(device) bazı öznitelikler Azure 
 | İşletimsistemisürümü |X |DeviceOSVersion olarak da bilinir. |
 | userCertificate |X | |
 
-Bu öznitelikler için **kullanıcı** seçtiğiniz diğer uygulamalar yanı sıra şunlardır.  
+Bu öznitelikler için **kullanıcı** ayrıca toohello seçtiğiniz diğer uygulamalardır.  
 
 | Öznitelik adı | Kullanıcı | Açıklama |
 | --- |:---:| --- |
@@ -419,22 +419,22 @@ Bu öznitelikler için **kullanıcı** seçtiğiniz diğer uygulamalar yanı sı
 | domainNetBios |X |NetBiosName olarak da bilinir. Örneğin, CONTOSO. |
 
 ## <a name="exchange-hybrid-writeback"></a>Exchange karma geri yazma
-Etkinleştirmeyi seçtiğinizde bu öznitelikler geri Azure AD'den şirket içi Active Directory'ye yazılır **Exchange karma**. Exchange sürümünüzün bağlı olarak, daha az sayıda öznitelik eşitlenmiş olabilir.
+Tooenable seçtiğinizde bu öznitelikler Azure AD tooon içi Active Directory geri yazılır **Exchange karma**. Exchange sürümünüzün bağlı olarak, daha az sayıda öznitelik eşitlenmiş olabilir.
 
 | Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |
 | msDS-ExternalDirectoryObjectID |X | | |Azure AD'de cloudAnchor türetilmiş. Bu öznitelik, Exchange 2016 ve Windows Server 2016 AD yenidir. |
-| msExchArchiveStatus |X | | |Çevrimiçi Arşiv: posta arşivlemek müşterilerin sağlar. |
+| msExchArchiveStatus |X | | |Çevrimiçi Arşiv: müşteriler tooarchive posta sağlar. |
 | msExchBlockedSendersHash |X | | |Filtreleme: geri filtreleme şirket içi ve çevrimiçi güvenli ve Engellenen gönderen veri istemcilerden yazar. |
 | msExchSafeRecipientsHash |X | | |Filtreleme: geri filtreleme şirket içi ve çevrimiçi güvenli ve Engellenen gönderen veri istemcilerden yazar. |
 | msExchSafeSendersHash |X | | |Filtreleme: geri filtreleme şirket içi ve çevrimiçi güvenli ve Engellenen gönderen veri istemcilerden yazar. |
-| msExchUCVoiceMailSettings |X | | |Birleşik Mesajlaşma (UM) - çevrimiçi sesli posta etkinleştirin: Microsoft Lync Server tarafından kullanılan tümleştirme Lync Server belirtmek için kullanıcının çevrimiçi hizmetlerinde sesli posta olduğunu şirket. |
-| msExchUserHoldPolicies |X | | |Mahkeme tutun: hangi kullanıcıların belirlemek için etkinleştirir bulut Hizmetleri, mahkeme tutun altında oluşturulur. |
-| proxyAddresses |X |X |X |Yalnızca Exchange Online adresinden eklenir x500. |
-| publicDelegates |X | | |Şirket içi Exchange posta kutusu kullanıcılarla SendOnBehalfTo hakkı verilecek bir Exchange Online posta kutusu sağlar. Azure AD Connect yapı 1.1.552.0 gerektirir veya sonra. |
+| msExchUCVoiceMailSettings |X | | |Birleşik Mesajlaşma (UM) - çevrimiçi sesli posta etkinleştirin: Microsoft Lync Server Tümleştirme tooindicate tooLync tarafından kullanılan şirket içi Server hello kullanıcının çevrimiçi hizmetlerinde sesli posta sahip. |
+| msExchUserHoldPolicies |X | | |Mahkeme tutun: kullanıcıların mahkeme tutma altında olan bulut Hizmetleri toodetermine sağlar. |
+| proxyAddresses |X |X |X |Yalnızca Exchange Online'dan hello x500 adresi eklenir. |
+| publicDelegates |X | | |SendOnBehalfTo hakları toousers şirket içi Exchange posta kutusu ile bir Exchange Online posta kutusu toobe izni verir. Azure AD Connect yapı 1.1.552.0 gerektirir veya sonra. |
 
 ## <a name="exchange-mail-public-folder"></a>Exchange posta ortak klasörü
-Bu öznitelikler seçtiğinizde etkinleştirmek için Azure AD ile şirket içi Active Directory'den eşitlenen **Exchange posta ortak klasör**.
+Bu öznitelikler şirket içi Active Directory tooAzure tooenable seçtiğinizde, AD eşitlenir **Exchange posta ortak klasör**.
 
 | Öznitelik adı | PublicFolder | Açıklama |
 | --- | :---:| --- |
@@ -446,7 +446,7 @@ Bu öznitelikler seçtiğinizde etkinleştirmek için Azure AD ile şirket içi 
 | targetAddress | X |  |
 
 ## <a name="device-writeback"></a>Cihaz geri yazma
-Cihaz nesneleri, Active Directory içinde oluşturulur. Bu nesneler için Azure AD alanına katılmış aygıtlar olabilir veya etki alanına katılmış Windows 10 bilgisayarlar.
+Cihaz nesneleri, Active Directory içinde oluşturulur. Bu nesneler tooAzure AD veya etki alanına katılmış Windows 10 bilgisayarları katılmış cihazlarda olabilir.
 
 | Öznitelik adı | Cihaz | Açıklama |
 | --- |:---:| --- |
@@ -466,10 +466,10 @@ Cihaz nesneleri, Active Directory içinde oluşturulur. Bu nesneler için Azure 
 | msDS-RegisteredOwner |X | |
 
 ## <a name="notes"></a>Notlar
-* Alternatif kimlik kullanırken, şirket içi özniteliği userPrincipalName Azure AD özniteliği onPremisesUserPrincipalName ile eşitlenir. Alternatif kimlik öznitelik örnek posta için Azure AD özniteliği userPrincipalName ile eşitlenir.
-* Yukarıdaki nesne türü listelerinde **kullanıcı** nesne türü için de geçerlidir **iNetOrgPerson**.
+* Alternatif kimlik, hello kullanarak şirket içi zaman özniteliği userPrincipalName hello Azure AD özniteliği onPremisesUserPrincipalName ile eşitlenir. Alternatif kimlik öznitelik Merhaba, örneğin posta, hello Azure AD özniteliği userPrincipalName ile eşitlenir.
+* Nesne türü Hello listelerinde yukarıdaki hello **kullanıcı** toohello nesne türü için de geçerlidir **iNetOrgPerson**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinmek [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md) yapılandırma.
+Merhaba hakkında daha fazla bilgi [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md) yapılandırma.
 
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.

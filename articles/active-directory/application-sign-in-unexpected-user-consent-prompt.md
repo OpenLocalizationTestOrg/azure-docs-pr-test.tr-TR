@@ -1,6 +1,6 @@
 ---
-title: "Bir uygulama için oturum açarken beklenmeyen onay istemi | Microsoft Docs"
-description: "Bir kullanıcı değil beklediğiniz neydi Azure AD ile tümleşik bir uygulama için bir onay istemi gördüğünde ile ilgili sorunları giderme"
+title: "tooan uygulamada oturum açarken aaaUnexpected onay istemi | Microsoft Docs"
+description: "Nasıl bir kullanıcı bir uygulama için bir onay istemi gördüğünde tootroubleshoot, değil beklediğiniz neydi Azure AD ile tümleşik"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,38 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e5b823e1251a7221f73efe6838d439f827f9665d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 32b7a5e6256faee0dcfe2e1644da3d3428812d35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Bir uygulama için oturum açarken beklenmeyen onay istemi
+# <a name="unexpected-consent-prompt-when-signing-in-tooan-application"></a>Tooan uygulamada oturum açarken beklenmeyen onay istemi
 
-Azure Active Directory ile tümleştirme birçok uygulamaları çalıştırmak için çeşitli kaynaklara izinleri gerektirir. Ne zaman bu kaynakları Azure Active Directory ile bunlara erişmek için izinleri de tümleştirilmiştir Azure AD onay framework kullanılarak istenir. 
+Azure Active Directory ile tümleştirme pek çok uygulama sipariş toorun toovarious kaynaklarında izinleri gerektirir. Bu kaynaklar ayrıca Azure Active Directory ile tümleşik olduğunda bunları istenen hello Azure AD kullanarak izinleri tooaccess framework olursunuz. 
 
-Bu tek seferlik bir işlem olduğu çoğunlukla ilk kez bir uygulama kullanıldığında, gösterilen bir onay istemi olan içinde sonuçlanır. 
+Bu, bir onay istemi hello tek seferlik bir işlem olduğu çoğunlukla bir uygulama kullanılır, ilk kez gösteriliyor sonuçlanır. 
 
 ## <a name="scenarios-in-which-users-see-consent-prompts"></a>Hangi kullanıcıların gördüğü senaryoları istemleri onayı
 
 Ek istekler çeşitli senaryolarda beklenebilir:
 
-* Uygulama için gereken izinler kümesi değişti.
+* Merhaba uygulama için gereken izinleri Hello kümesi değişti.
 
-* İlk olarak uygulamaya rıza kullanıcı yönetici değil ve farklı (yönetici olmayan) bir kullanıcı ilk kez uygulama artık kullanıyor.
+* Başlangıçta toohello uygulama rıza hello kullanıcı yönetici değil ve şimdi farklı (yönetici olmayan) bir kullanıcı Merhaba uygulaması hello için ilk kez kullanıyor.
 
-* İlk olarak uygulamaya rıza kullanıcı için bir yönetici olsa da, bunlar tüm kuruluş ın adına izin değil.
+* ilk olarak toohello uygulama rıza hello kullanıcı için bir yönetici olsa da, bunlar hello tüm kuruluş ın adına izin değil.
 
-* Uygulamayı kullanarak [artımlı ve dinamik izin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) onay başlangıçta verildi sonra ilave izin istemek için. Ek bir uygulamanın isteğe bağlı özellikler ötesinde temel işlevleri için gereken izinleri gerektirir, bu genellikle kullanılır.
+* Merhaba uygulaması kullanarak [artımlı ve dinamik izin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) onay başlangıçta verildi sonra toorequest ek izinler. Ek bir uygulamanın isteğe bağlı özellikler ötesinde temel işlevleri için gereken izinleri gerektirir, bu genellikle kullanılır.
 
 * Onay, başlangıçta verilmeden sonra iptal edildi.
 
-* Geliştirici uygulamayı her kullanılışında bir onay istemi gerektirecek şekilde yapılandırılmış olduğundan (Not: Bu en iyi yöntem değildir).
+* her kullanılışında Hello Geliştirici hello uygulama toorequire bir onay istemi yapılandırmamış (Not: Bu en iyi yöntem değildir).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 -   [Uygulamalar, izinler ve onay Azure Active Directory'de (v1.0 uç noktası)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
 
--   [Kapsam, izinleri ve onay Azure Active Directory'de (v2.0 uç noktası)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
+-   [Kapsam, izinleri ve hello Azure Active Directory (v2.0 uç noktası) onay](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
 
 

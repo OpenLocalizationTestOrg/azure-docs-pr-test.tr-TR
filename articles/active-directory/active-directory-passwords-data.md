@@ -1,6 +1,6 @@
 ---
 title: Azure AD SSPR'yi veri gereksinimleri | Microsoft Docs
-description: "Veri gereksinimleri için Azure AD Self Servis parola sıfırlama ve bunları karşılamak nasıl"
+description: "Veri gereksinimleri için Azure AD Self Servis parola sıfırlama ve nasıl toosatisfy bunları"
 services: active-directory
 keywords: 
 documentationcenter: 
@@ -16,24 +16,24 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2d1afd2d1265b371e0d311ed70fffbc55874b0a7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b68a1d7914dcd0bb4509d0e94914dc4309f4463a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Parola sıfırlama son kullanıcı kayıt gerektirmeden dağıtma
 
-Self Servis parola sıfırlama (SSPR) dağıtılması için kimlik doğrulama verileri mevcut olması gerekir. Bazı kuruluşlar kendi kimlik doğrulama verileri girin, kullanıcılar sahiptir, ancak mevcut verileri Active Directory ile eşitlemek birçok kuruluş tercih. Veri şirket içi dizininizde düzgün biçimlendirilmiş ve yapılandırırsanız [hızlı ayarları kullanarak Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md), veriler Azure AD ile kullanılabilir hale gelir ve SSPR hiçbir kullanıcı etkileşimi gerekli.
+Self Servis parola sıfırlama (SSPR) dağıtılması için kimlik doğrulama verileri toobe mevcut gerekir. Bazı kuruluşlar kendi kimlik doğrulama verileri girin, kullanıcılar sahiptir, ancak birçok kuruluş Active Directory'de mevcut verilerle toosynchronize tercih. Veri şirket içi dizininizde düzgün biçimlendirilmiş ve yapılandırırsanız [hızlı ayarları kullanarak Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md), veriler kullanılabilir tooAzure AD hale gelir ve SSPR hiçbir kullanıcı etkileşimi gerekli.
 
-Tüm telefon numaralarını olmalıdır biçimi + CountryCode PhoneNumber örnek: + 1 düzgün çalışması için 4255551234.
+Tüm telefon numaralarını olmalıdır hello biçimi + CountryCode PhoneNumber örnek: + 1 4255551234 toowork düzgün.
 
 > [!NOTE]
-> Parola sıfırlama telefon uzantıları desteklemez. Kurulmadan önce bile + 1 4255551234 X 12345 biçiminde uzantıları kaldırılır.
+> Parola sıfırlama telefon uzantıları desteklemez. Merhaba kurulmadan önce bile hello + 1 4255551234 X 12345 biçiminde uzantıları kaldırılır.
 
 ## <a name="fields-populated"></a>Doldurulmuş alanları
 
-Azure AD Connect varsayılan ayarları kullanırsanız aşağıdaki eşlemelerini yapılır.
+Aşağıdaki Azure AD Connect hello hello varsayılan ayarları kullanırsanız eşlemeleri yapılır.
 
 | Şirket içi AD | Azure AD | Azure AD kimlik doğrulaması kişi bilgisi |
 | --- | --- | --- |
@@ -43,21 +43,21 @@ Azure AD Connect varsayılan ayarları kullanırsanız aşağıdaki eşlemelerin
 
 ## <a name="security-questions-and-answers"></a>Güvenlik sorularını ve yanıtlarını
 
-Güvenlik sorularını ve yanıtlarını Azure AD kiracınızda güvenli bir şekilde depolanır ve yalnızca üzerinden kullanıcılara erişilebilir [SSPR kayıt portalı](https://aka.ms/ssprsetup). Yöneticiler bakın veya başka kullanıcıların sorularını ve yanıtlarını içeriğini değiştirin.
+Güvenlik sorularını ve yanıtlarını Azure AD kiracınızda güvenli bir şekilde depolanır ve yalnızca hello aracılığıyla erişilebilir toousers olan [SSPR kayıt portalı](https://aka.ms/ssprsetup). Yöneticiler bakın veya başka kullanıcıların sorularını ve yanıtlarını Merhaba içeriğine değiştirin.
 
 ### <a name="what-happens-when-a-user-registers"></a>Kullanıcı kayıtları ne olur
 
-Bir kullanıcı kaydettiğinde kayıt sayfası aşağıdaki alanları ayarlar:
+Bir kullanıcı kaydettiğinde hello kayıt sayfası alanları izleyen hello ayarlar:
 
 * Kimlik doğrulama telefon
 * Kimlik doğrulama e-posta
 * Güvenlik sorularını ve yanıtlarını
 
-İçin bir değer sağladıysanız **cep telefonu** veya **alternatif e-posta**, kullanıcıların hemen kullanabilir bu değerleri kendi parolalarını sıfırlamak için hizmet için kaydolmadıysanız bile. Ayrıca, kullanıcılar ilk kez kaydederken bu değerleri görmek ve istediklerinde onları değiştirebilir. İçinde başarıyla kaydettikten sonra bu değerler kalıcıdır **kimlik doğrulama telefon** ve **kimlik doğrulama e-posta** alanlar, sırasıyla.
+İçin bir değer sağladıysanız **cep telefonu** veya **alternatif e-posta**, kullanıcıların hemen kullanabilir bu değerleri tooreset kullanıcıların parolalarını hello hizmeti için kaydolmadıysanız bile. Ayrıca, kullanıcıların bu değerleri hello için ilk kez kaydederken bakın ve istediklerinde bunları değiştirin. Başarıyla kaydettikten sonra bu değerler hello kalıcıdır **kimlik doğrulama telefon** ve **kimlik doğrulama e-posta** alanlar, sırasıyla.
 
 ## <a name="set-and-read-authentication-data-using-powershell"></a>Ayarlama ve PowerShell kullanarak kimlik doğrulama verileri okuma
 
-Aşağıdaki alanları PowerShell kullanılarak ayarlanabilir.
+alanları aşağıdaki hello PowerShell kullanılarak ayarlanabilir.
 
 * Alternatif e-posta
 * Cep telefonu
@@ -65,7 +65,7 @@ Aşağıdaki alanları PowerShell kullanılarak ayarlanabilir.
 
 ### <a name="using-powershell-v1"></a>PowerShell V1 kullanma
 
-Başlamak için yapmanız [Azure AD PowerShell modülü yükleyip](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Yüklemediyseniz sonra her bir alan yapılandırmak için izlediği adımları izleyebilirsiniz.
+başlatılan tooget ihtiyacınız çok[hello Azure AD PowerShell modülü yükleyip](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Yüklemediyseniz sonra her bir alan tooconfigure izleyin hello adımları izleyebilirsiniz.
 
 #### <a name="set-authentication-data-with-powershell-v1"></a>PowerShell V1 ile kimlik doğrulaması veri kümesi
 
@@ -91,7 +91,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
 Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,MobilePhone,PhoneNumber | Format-Table
 ```
 
-#### <a name="authentication-phone-and-authentication-email-can-only-be-read-using-powershell-v1-using-the-commands-that-follow"></a>Kimlik doğrulama telefon ve kimlik doğrulama e-posta yalnızca okunabilir Powershell V1 kullanarak gelen komutlarda kullanma
+#### <a name="authentication-phone-and-authentication-email-can-only-be-read-using-powershell-v1-using-hello-commands-that-follow"></a>Kimlik doğrulama telefon ve kimlik doğrulama e-posta yalnızca okunabilir Powershell V1 kullanarak hello kullanarak komutları anlatılmaktadır
 
 ```
 Connect-MsolService
@@ -101,9 +101,9 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="using-powershell-v2"></a>PowerShell V2 kullanma
 
-Başlamak için yapmanız [Azure AD V2 PowerShell modülü yükleyip](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Yüklemediyseniz sonra her bir alan yapılandırmak için izlediği adımları izleyebilirsiniz.
+başlatılan tooget ihtiyacınız çok[hello Azure AD V2 PowerShell modülü yükleyip](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Yüklemediyseniz sonra her bir alan tooconfigure izleyin hello adımları izleyebilirsiniz.
 
-Install-Module destekleyen en son sürümlerinden PowerShell hızlı bir şekilde yüklemek için (ilk satırı yalnızca zaten yüklü olup olmadığını denetler) Bu komutları çalıştırın:
+Install-Module destekleyen hızla son sürümlerine PowerShell tooinstall (zaten yüklüyse hello ilk satırı yalnızca toosee denetler) Bu komutları çalıştırın:
 
 ```
 Get-Module AzureADPreview
@@ -137,14 +137,14 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki bağlantılar, Azure AD kullanarak parola sıfırlama ile ilgili ek bilgiler sağlar
+bağlantılar aşağıdaki hello parola sıfırlama ve Azure AD kullanma ile ilgili ek bilgiler sağlar
 
 * [**Hızlı Başlangıç**](active-directory-passwords-getting-started.md) - Azure AD self servis parola yönetimi ile çalışmaya hazırlanın 
 * [**Lisanslama**](active-directory-passwords-licensing.md) - Azure AD Lisanslarınızı yapılandırın
-* [**Kullanıma Sunma** ](active-directory-passwords-best-practices.md) - Buradaki yönergelerle SSPR’ı planlayın ve kullanıcılarınıza dağıtın
-* [**Özelleştirme**](active-directory-passwords-customize.md) - SSPR deneyiminin görünümünü şirketiniz için özelleştirin.
+* [**Sunum** ](active-directory-passwords-best-practices.md) -planlama ve burada bulunan hello kılavuzu kullanarak SSPR tooyour kullanıcılara dağıtma
+* [**Özelleştirme** ](active-directory-passwords-customize.md) -hello görünümüne hello SSPR deneyimi, şirketiniz için özelleştirebilirsiniz.
 * [**İlke**](active-directory-passwords-policy.md) - Azure AD parola ilkelerini anlayın ve ayarlayın
 * [**Raporlama**](active-directory-passwords-reporting.md) - Kullanıcılarınızın SSPR işlevine erişip erişmediğini, ne zaman ve nerede eriştiğini öğrenin
-* [**Teknik Ayrıntı**](active-directory-passwords-how-it-works.md) - Nasıl çalıştığını anlamak için perde arkasına gidin
-* [**Sık Sorulan Sorular**](active-directory-passwords-faq.md) - Nasıl? Neden? Ne? Nerede? Kim? Ne zaman? - Her zaman sormak istediğiniz soruların yanıtları
-* [**Sorun giderme**](active-directory-passwords-troubleshoot.md) - SSPR ile yaygın olarak karşılaştığımız sorunların çözümü hakkında bilgi alın
+* [**Teknik derinlemesine** ](active-directory-passwords-how-it-works.md) -hello perdenin toounderstand nasıl çalıştığını gidin
+* [**Sık Sorulan Sorular**](active-directory-passwords-faq.md) - Nasıl? Neden? Ne? Nerede? Kim? Ne zaman? -Her zaman tooask istediğinizi tooquestions yanıtlar
+* [**Sorun giderme** ](active-directory-passwords-troubleshoot.md) -nasıl biz SSPR ile bkz tooresolve ortak sorunları öğrenin

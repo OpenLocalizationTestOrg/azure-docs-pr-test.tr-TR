@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Evidence.com | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Evidence.com arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Evidence.com arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,208 +14,208 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: a9c474cfc648fc8a306d736c89a4813d82c133ea
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: eed98c15dca8a6a77f0b5d407bb40ee0037fccad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Öğretici: Azure Active Directory Tümleştirme Evidence.com ile
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Evidence.com tümleştirmek öğrenin.
+Bu öğreticide, bilgi nasıl toointegrate Evidence.com Azure Active Directory'ye (Azure AD).
 
-Evidence.com Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Evidence.com Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
 
-- Evidence.com erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak için Evidence.com (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Erişim tooEvidence.com sahip Azure AD'de kontrol edebilirsiniz.
+- Kullanıcıların tooautomatically get açan tooEvidence.com (çoklu oturum açma) Azure AD hesaplarına ile etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure AD tümleştirme Evidence.com ile yapılandırmak için aşağıdaki öğeleri gerekir:
+tooconfigure Evidence.com ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Evidence.com çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden Evidence.com ekleme
+1. Merhaba Galerisi'nden Evidence.com ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-evidencecom-from-the-gallery"></a>Galeriden Evidence.com ekleme
-Azure AD Evidence.com tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Evidence.com eklemeniz gerekir.
+## <a name="adding-evidencecom-from-hello-gallery"></a>Merhaba Galerisi'nden Evidence.com ekleme
+Azure AD'ye tooconfigure hello tümleştirme Evidence.com, tooadd Evidence.com hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
 
-**Galeriden Evidence.com eklemek için aşağıdaki adımları gerçekleştirin:**
+**tooadd Evidence.com hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Azure Active Directory düğmesi][1]
+    ![Hello Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![Merhaba kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Merhaba yeni uygulama düğmesi][3]
 
-4. Arama kutusuna **Evidence.com**seçin **Evidence.com** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Merhaba arama kutusuna yazın **Evidence.com**seçin **Evidence.com** sonuç panelinden ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
 
-    ![Sonuçlar listesinde Evidence.com](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_addfromgallery.png)
+    ![Merhaba sonuçları listesinde Evidence.com](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Evidence.com sınayın.
 
-Tekli çalışmaya oturum için Azure AD Evidence.com karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Evidence.com ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek toowork'ın oturum açma hangi hello karşılık gelen Evidence.com içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Evidence.com hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
 
-Evidence.com içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Merhaba hello değeri Evidence.com içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
 
-Yapılandırma ve Azure AD çoklu oturum açma Evidence.com ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+tooconfigure ve Evidence.com ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Evidence.com test kullanıcısı oluşturma](#create-a-evidencecom-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Evidence.com sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
+3. **[Evidence.com test kullanıcısı oluşturma](#create-a-evidencecom-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Evidence.com içinde karşılık gelen.
+4. **[Hello Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Evidence.com uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Evidence.com uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma ile Evidence.com yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**tooconfigure Azure AD çoklu oturum açma ile Evidence.com, hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Evidence.com** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Hello hello üzerinde Azure portal'ın **Evidence.com** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_samlbase.png)
 
-3. Üzerinde **Evidence.com etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **Evidence.com etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
 
     ![Evidence.com etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<yourtenant>.evidence.com`
+    a. Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<yourtenant>.evidence.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<yourtenant>.evidence.com`
+    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<yourtenant>.evidence.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Evidence.com istemci destek ekibi](https://communities.taser.com/support/SupportContactUs?typ=LE) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı. Kişi [Evidence.com istemci destek ekibi](https://communities.taser.com/support/SupportContactUs?typ=LE) tooget bu değerleri. 
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_certificate.png) 
+    ![Merhaba sertifika indirme bağlantısı](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_certificate.png) 
 
 5. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-evidence-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Evidence.com yapılandırma** 'yi tıklatın **yapılandırma Evidence.com** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Merhaba üzerinde **Evidence.com yapılandırma** 'yi tıklatın **yapılandırma Evidence.com** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
 
     ![Evidence.com yapılandırma](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_configure.png) 
 
-7. Bir oturum açma, Evidence.com için ayrı bir web tarayıcı penceresinde Kiracı yönetici olarak ve gidin **yönetici** sekmesi
+7. Oturum açma tooyour Evidence.com ayrı bir web tarayıcısı penceresinde, Kiracı yönetici olarak ve çok gidin**yönetici** sekmesi
 
 8. Tıklayın **Teşkilatı çoklu oturum açma**
 
 9. Seçin **SAML temel çoklu oturum açma**
 
-10. Kopya **SAML varlık kimliği**, **SAML çoklu oturum açma hizmet URL'si** ve **Sign-Out URL** Azure portalında ve Evidence.com karşılık gelen alanlara gösterilen değerleri.
+10. Kopya hello **SAML varlık kimliği**, **SAML çoklu oturum açma hizmet URL'si** ve **Sign-Out URL** hello Azure portal ve Evidence.com karşılık gelen alanlara toohello gösterilen değerleri.
 
-11. İndirilen Certificate(Base64) dosyasını Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **güvenlik sertifikası** kutusu. 
+11. İndirilen Certificate(Base64) dosyanızı kopyalama hello panonuza bunu içerik Not Defteri'nde açın ve toohello yapıştırın **güvenlik sertifikası** kutusu. 
 
-12. Yapılandırmayı Evidence.com kaydedin.
+12. Merhaba yapılandırma Evidence.com kaydedin.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Merhaba hello sol bölmede Azure portal hello tıklatın **Azure Active Directory** düğmesi.
 
-    ![Azure Active Directory düğmesi](./media/active-directory-saas-evidence-tutorial/create_aaduser_01.png)
+    ![Hello Azure Active Directory düğmesi](./media/active-directory-saas-evidence-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-evidence-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" Merhaba "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-evidence-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. tooopen hello **kullanıcı** iletişim kutusu, tıklatın **Ekle** hello hello üstündeki **tüm kullanıcılar** iletişim kutusu.
 
-    ![Ekle düğmesi](./media/active-directory-saas-evidence-tutorial/create_aaduser_03.png)
+    ![Merhaba Ekle düğmesi](./media/active-directory-saas-evidence-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+4. Merhaba, **kullanıcı** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
 
-    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-evidence-tutorial/create_aaduser_04.png)
+    ![Merhaba kullanıcı iletişim kutusu](./media/active-directory-saas-evidence-tutorial/create_aaduser_04.png)
 
-    a. İçinde **adı** kutusuna **BrittaSimon**.
+    a. Merhaba, **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. Merhaba, **kullanıcı adı** kutusuna, kullanıcının Britta Simon hello e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Select hello **Göster parola** onay kutusunu işaretleyin ve ardından hello görüntülenen hello değerini aşağı yazma **parola** kutusu.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="create-a-evidencecom-test-user"></a>Evidence.com test kullanıcısı oluşturma
 
-Azure AD kullanıcıların oturum açabilmesi için Evidence.com uygulama erişimi için hazırlanması gerekir. Bu bölümde Evidence.com içinde Azure AD kullanıcı hesaplarının nasıl oluşturulacağı açıklanmaktadır
+Azure AD kullanıcıların toobe mümkün toosign için hello Evidence.com uygulama içinde erişim sağlanması gerekir. Bu bölümde nasıl Evidence.com içinde toocreate Azure AD kullanıcı hesapları açıklanmaktadır
 
-**Bir kullanıcı hesabında Evidence.com sağlamak için:**
+**tooprovision Evidence.com bir kullanıcı hesabı:**
 
 1. Bir web tarayıcısı penceresinde Evidence.com şirket sitenize yönetici olarak oturum açın.
 
-2. Gidin **yönetici** sekmesi.
+2. Çok gidin**yönetici** sekmesi.
 
 3. Tıklayın **kullanıcı ekleme**.
 
-4. Tıklatın **Ekle** düğmesi.
+4. Merhaba tıklatın **Ekle** düğmesi.
 
-5. **E-posta adresi** eklenen kullanıcı erişimi vermek istediğiniz Azure AD içinde kullanıcıların kullanıcı adı eşleşmelidir. Kullanıcı adı ve e-posta adresi kuruluşunuzun aynı değeri emin değilseniz, kullanabileceğiniz **Evidence.com > öznitelikler > çoklu oturum açma** bölüm olmasını Evidence.com için gönderilen nameidenitifer değiştirmek için Azure portalı e-posta adresi.
+5. Merhaba **e-posta adresi** kullanıcı toogive istediğiniz Azure AD içinde hello kullanıcılar hello kullanıcı adı eşleşmelidir hello eklenen erişim. Merhaba kullanıcı adı ve e-posta adresi değil Merhaba, aynı değeri, kuruluşunuzda hello kullanabilirsiniz **Evidence.com > öznitelikler > çoklu oturum açma** gönderilen hello Azure portal toochange hello nameidenitifer bölümü tooEvidence.com toobe hello e-posta adresi.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+### <a name="assign-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta Evidence.com için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, erişim tooEvidence.com vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Merhaba kullanıcı rolü atayın][200] 
 
-**Evidence.com için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**tooassign Britta Simon tooEvidence.com hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **Evidence.com**.
+2. Merhaba uygulamalar listesinde **Evidence.com**.
 
-    ![Uygulamalar listesinde Evidence.com bağlantı](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_app.png)  
+    ![Merhaba Evidence.com bağlantı hello uygulamalar listesinde](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    ![Merhaba "Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Merhaba eklemek atama bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -223,14 +223,14 @@ Bu bölümde, Britta Evidence.com için erişim vererek, Azure çoklu oturum aç
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Evidence.com parçasında tıklattığınızda, otomatik olarak Evidence.com uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
+Merhaba Evidence.com hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Evidence.com uygulama almanız gerekir.
+Erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

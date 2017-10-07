@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme fon portalı ile | Microsoft Docs"
-description: "Çoklu oturum açma fon Portal ile Azure Active Directory arasındaki yapılandırmayı öğrenin."
+title: "Öğretici: Azure Active Directory Tümleştirme ile Merhaba fon portalı | Microsoft Docs"
+description: "Nasıl tooconfigure çoklu oturum açmayı Azure Active Directory arasında ve fon Portal hello öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,133 +13,133 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: d0bfc793bb26c551f85706eaec857962a3415e1f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9f4329e02f91eb6d8034f17646ac7d15afe503e8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Öğretici: Azure Active Directory Tümleştirme fon portalı ile
+# <a name="tutorial-azure-active-directory-integration-with-hello-funding-portal"></a>Öğretici: Azure Active Directory Tümleştirme ile Merhaba fon portalı
 
-Bu öğreticide, fon Portal Azure Active Directory (Azure AD) ile tümleştirme öğrenin.
+Bu öğreticide, nasıl toointegrate hello fon Portal Azure Active Directory (Azure AD) ile bilgi edinin.
 
-Fon Portal Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Merhaba tümleştirme fon Portal Azure AD ile ile Merhaba aşağıdaki avantajları sağlar:
 
-- Fon Portal erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak fon portalına (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Erişim toohello Funding Portal olan Azure AD'de kontrol edebilirsiniz
+- Kullanıcıların tooautomatically get açan toohello Funding portalıyla (çoklu oturum açma) Azure AD hesaplarına etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure AD tümleştirme fon Portal ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Merhaba Funding Portal ile Azure AD tooconfigure tümleştirme, aşağıdaki öğelerindeki hello gerekir:
 
 - Bir Azure AD aboneliği
-- Bir fon Portal çoklu oturum açma abonelik etkin
+- Abonelik hello fon Portal çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden fon Portal ekleme
+1. Ekleme hello hello galerisinden Funding portalı
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-the-funding-portal-from-the-gallery"></a>Galeriden fon Portal ekleme
-Azure AD fon Portal tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden fon Portal eklemeniz gerekir.
+## <a name="adding-hello-funding-portal-from-hello-gallery"></a>Ekleme hello hello galerisinden Funding portalı
+Azure AD'ye tooconfigure hello tümleştirme hello Funding Portal, tooadd hello hello galeri tooyour yönetilen SaaS uygulamaların listesini Funding portalından gerekir.
 
-**Galeriden fon Portal eklemek için aşağıdaki adımları gerçekleştirin:**
+**tooadd hello galeri fon portalından Merhaba, hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **fon Portal**.
+4. Merhaba arama kutusuna yazın **fon Portal hello**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_search.png)
 
-5. Sonuçlar panelinde seçin **fon Portal**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Merhaba Sonuçlar panelinde seçin **fon Portal hello**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma fon "Britta Simon" adlı bir test kullanıcı tabanlı Portal ile test etme.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı fon Portal tabanlı hello ile test etme.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen fon Portalı'nda bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı portalında fon arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek toowork'ın oturum açma Azure AD tooknow hangi hello karşılık gelen kullanıcı gereken hello fon tooa kullanıcı Azure AD'de portalıdır. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı hello hello arasında bir bağlantı ilişkisi fon Portal kurulan toobe gerekir.
 
-Fon portalında değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Buna fon Portal Merhaba, hello hello değerini atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
 
-Yapılandırma ve Azure AD çoklu oturum açma fon portalı ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+tooconfigure ve hello Funding Portal ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Fon Portal test kullanıcısı oluşturma](#creating-the-funding-portal-test-user)**  - Britta Simon, karşılık gelen fon kullanıcı Azure AD gösterimini bağlantılı Portal sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
+3. **[Merhaba fon Portal test kullanıcı oluşturma](#creating-the-funding-portal-test-user)**  -toohave bir Britta Simon karşılık gelen hello kullanıcı bağlantılı toohello Azure AD gösterimidir Funding Portal içinde.
+4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma fon portalı uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma hello fon Portal uygulaması yapılandırın.
 
-**Azure AD çoklu oturum açma fon Portal ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**tooconfigure Azure AD çoklu oturum açma ile fon Portal Merhaba, hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **fon Portal** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Merhaba hello üzerinde Azure portal'ın **fon Portal hello** uygulama tümleştirme sayfası, tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_samlbase.png)
 
-3. Üzerinde **fon Portal etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **fon Portal etki alanı ve URL'ler hello** bölümünde, hello aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.regenteducation.net/`
+    a. Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<subdomain>.regenteducation.net/`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.regenteducation.net`
+    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<subdomain>.regenteducation.net`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [fon Portal istemci destek ekibi](mailto:info@regenteducation.com) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı. Kişi [fon Portal istemci destek ekibi hello](mailto:info@regenteducation.com) tooget bu değerleri. 
 
-4. Portal Finansman sağlayan uygulama "externalId1" adlı bir özniteliği içerecek şekilde SAML onaylar bekler. "ExternalId1" değeri, tanınan bir studentID olmalıdır. Bu uygulama için "externalId1" talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulamanın. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
+4. Merhaba fon Portal uygulama hello SAML onaylar toocontain "externalId1" adlı bir özniteliği bekliyor. "externalId1" Merhaba değerinin tanınan bir studentID olması gerekir. Bu uygulama için Hello "externalId1" talep yapılandırın. Hello başlangıç değerleri bu özniteliklerin yönetebilirsiniz **kullanıcı öznitelikleri** hello uygulamasının. Ekran aşağıdaki hello bunun bir örneği gösterir.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_attribute.png)
 
-5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
+5. Merhaba, **kullanıcı öznitelikleri** hello bölüm **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği hello görüntüde gösterildiği gibi yapılandırmak ve hello aşağıdaki adımları gerçekleştirin:
 
     | Öznitelik adı | Öznitelik değeri |
     | ------------------- | ---------------- |
     | externalId1 | User.extensionattribute1 |
 
-    a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
+    a. Tıklatın **Ekle özniteliği** tooopen hello **özniteliği eklemek** iletişim.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-thefundingportal-tutorial/tutorial_attribute_04.png)
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-thefundingportal-tutorial/tutorial_attribute_05.png)
 
-    b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
+    b. Merhaba, **adı** metin kutusuna, ilgili satır için gösterilen türü hello öznitelik adı.
 
-    c. Gelen **öznitelik değeri** listesinde, uygulamanız için kullanmak istediğiniz özniteliği seçin. Örneğin, ExtensionAttribute1 StudentID değeri depoladıysanız ardından user.extensionattribute1 seçin.
+    c. Merhaba gelen **öznitelik değeri** listesi, uygulamanız için kullanmak istediğiniz toouse select hello özniteliği. Örneğin, hello ExtensionAttribute1 hello StudentID değeri depoladıysanız ardından user.extensionattribute1 seçin.
     
     d. **Tamam**’a tıklayın.
  
-6. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+6. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_certificate.png) 
 
@@ -147,64 +147,64 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_400.png)
 
-8. Çoklu oturum açma yapılandırmak için **fon Portal** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [fon Portal destek ekibi](mailto:info@regenteducation.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+8. tooconfigure çoklu oturum açma üzerinde **fon Portal hello** yan, indirilen toosend hello ihtiyacınız **meta veri XML** çok[fon Portal destek ekibi hello](mailto:info@regenteducation.com). Bunlar, bu ayar toohave hello iki tarafta da ayarlamanızı SAML SSO bağlantı ayarlayın.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
-### <a name="creating-the-funding-portal-test-user"></a>Fon Portal test kullanıcısı oluşturma
+### <a name="creating-hello-funding-portal-test-user"></a>Merhaba fon Portal test kullanıcısı oluşturma
 
-Bu bölümde, fon Portalı'nda Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [fon Portal destek ekibi](mailto:info@regenteducation.com) test kullanıcısı eklemek ve SSO'yu etkinleştirmek için.
+Bu bölümde, Britta Simon hello Funding Portal adlı bir kullanıcı oluşturun. Çalışmak [fon Portal destek ekibi hello](mailto:info@regenteducation.com) tooadd hello test kullanıcısı ve SSO etkinleştirin.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
 
-Bu bölümde, Britta fon portalına erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, erişim toohello Funding Portal vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**Fon portalına Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**tooassign Britta Simon toohello Funding Portal hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **fon Portal**.
+2. Merhaba uygulamalar listesinde **fon Portal hello**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -212,7 +212,7 @@ Bu bölümde, Britta fon portalına erişim vererek, Azure çoklu oturum açma k
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -220,13 +220,13 @@ Bu bölümde, Britta fon portalına erişim vererek, Azure çoklu oturum açma k
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümün amacı erişim paneli kullanılarak Azure AD çoklu oturum açma yapılandırmanızı test etmektir.
+Bu bölümde Hello amacı olan tootest hello erişim paneli, Azure AD çoklu oturum açma Yapılandırması'nı kullanarak.
 
-Erişim paneli fon Portal parçasında tıklattığınızda, otomatik olarak fon Portal uygulamanıza açan.
+Merhaba hello fon Portal hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Merhaba fon Portal uygulaması almanız gerekir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

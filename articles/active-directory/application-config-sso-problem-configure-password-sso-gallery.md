@@ -1,6 +1,6 @@
 ---
-title: "Parola tek oturum açma için Azure AD galeri uygulamanın yapılandırma sorunu | Microsoft Docs"
-description: "Azure AD uygulama galerisinde zaten listelenen uygulamalar için parola çoklu oturum açmayı yapılandırırken ortak sorunları kişiler yüz anlama"
+title: "Parola tek oturum açma için Azure AD galeri uygulamanın yapılandırma aaaProblem | Microsoft Docs"
+description: "Önceden listelenen uygulamalar için parola çoklu oturum açmayı hello Azure AD uygulama galerisinde yapılandırırken Hello ortak sorunları kişiler yüz anlama"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,98 +13,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 58d29996a922fac6d295e753ba5d66d32e745a57
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 78c37c52453c375bf7ccbca6df5c9008be4ce642
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Parola tek oturum açma için Azure AD galeri uygulamanın yapılandırma sorunu
 
-Bu makale ortak sorunları kişiler yüz yapılandırırken öğrenmenize yardımcı **parola çoklu oturum açma** Azure AD galeri uygulamayla.
+Bu makalede yardımcı toounderstand hello ortak sorunları kişiler yüz yapılandırırken **parola çoklu oturum açma** Azure AD galeri uygulamayla.
 
-## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Kimlik bilgileri girilir ancak uzantı bunları göndermez
+## <a name="credentials-are-filled-in-but-hello-extension-does-not-submit-them"></a>Kimlik bilgileri girilir ancak hello uzantısı bunları göndermez
 
-Bu, genellikle kullanıcı adı ve parola alanlarına algılamak veya nasıl çalışır, uygulama için oturum açma deneyimi değiştirmek için kullandık oturum açma sayfasını yakın zamanda bir alan eklemek için temel alınan tanımlayıcı değiştirmek için uygulama satıcısına değiştirilmesi durumunda gerçekleşir. Neyse ki, çoğu durumda, Microsoft Hızlı bir şekilde bu sorunları gidermek için uygulama satıcıları ile çalışabilirsiniz.
+Bu genellikle hello uygulamanın satıcısına oturum açma değiştiyse tooadd bir alan son sayfasında gerçekleşir, toodetect hello kullanıcı adı ve parola alanlarına kullandık temel alınan tanımlayıcı değiştirmek veya nasıl çalışır, uygulama için hello oturum açma deneyimi değiştirin. Neyse ki, çoğu durumda, Microsoft bu sorunları uygulama satıcıları toorapidly çözümleme ile çalışabilirsiniz.
 
-Microsoft bu tümleştirmeler bölün, ancak bazen bu sorunlar hemen bulmak yapamıyoruz veya düzeltmek için belirli bir süre devam otomatik olarak algılamak için teknolojilerini sahipken. Bu tümleştirmeler biri doğru çalışmaz zaman durumda biz bunu mümkün olan en kısa sürede giderebilmemiz bir destek servis talebi açtıysanız veriyoruz.
+Microsoft bu tümleştirmeler bölün, ancak bazen biz mümkün toofind değildir algılayabilir teknolojileri tooautomatically varken bu sorunları koyma ya da bunlar bazı alırken sağ toofix zaman. Bu tümleştirmeler biri doğru çalışmaz zaman hello durumda biz bunu mümkün olan en kısa sürede giderebilmemiz bir destek servis talebi açtıysanız veriyoruz.
 
-Bu, ek olarak **bu uygulamanın satıcısına iletişim kurmayan varsa** **bizim şekilde Gönder** bunları yerel olarak kendi uygulama Azure Active Directory ile tümleştirmek için ile çalışabilmek için. Satıcıya gönderebilirsiniz [Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) başlatılan getirmek için.
+Toplama toothis içinde **bu uygulamanın satıcısına iletişim kurmayan varsa** **bizim şekilde göndermek** toonatively biz ile çalışabilmek için Azure Active Directory ile kendi uygulama tümleştirin. Merhaba satıcı toohello gönderebilirsiniz [hello Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) tooget bunları başlatıldı.
 
-## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Kimlik bilgileri doldurulur ve gönderildi, ancak kimlik bilgileri yanlışsa sayfa gösterir
+## <a name="credentials-are-filled-in-and-submitted-but-hello-page-indicates-hello-credentials-are-incorrect"></a>Kimlik bilgileri doldurulur ve gönderildi, ancak hello kimlik bilgileri yanlışsa hello sayfa gösterir
 
-Bu sorunu çözmek için önce aşağıdakileri denetleyin:
+Bu sorun, ilk onay hello aşağıdaki tooresolve:
 
--   Önce dener kullanıcınız **oturum uygulama Web sitesine doğrudan** kendileri için depolanan kimlik bilgileri.
+-   İlk çok deneyin hello kullanıcınız**toohello uygulama Web sitesinin doğrudan oturum** kendileri için depolanan hello kimlik bilgilerine sahip.
 
-  * Çalışan sonra tıklatın kullanıcı varsa **güncelleştirme kimlik bilgileri** düğmesini **uygulama döşeme** içinde **uygulamaları** bölümünü [uygulama erişim paneli ](https://myapps.microsoft.com/) en son bilinen çalışma kullanıcı adı ve parola güncelleştirmek için.
+  * Çalışırsa, hello tıklatın hello kullanıcı sahip **güncelleştirme kimlik bilgileri** hello düğmesinde **uygulama döşeme** hello içinde **uygulamaları** hello bölümünü [uygulama Erişim paneli](https://myapps.microsoft.com/) tooupdate bunları en son bilinen toohello kullanıcı adı ve parola çalışma.
 
-   * Siz veya başka bir yöneticinin bu kullanıcı için kimlik bilgilerini atanmışsa, kullanıcı veya grubun uygulama atama giderek bulmak **kullanıcıları ve grupları** atama seçerek ve tıklatarakuygulamasınınsekmesi **Kimlik bilgilerini güncelleştirmeniz** düğmesi.
+   * Siz veya başka bir yönetici atanmış hello bu kullanıcının kimlik bilgilerinin, hello kullanıcı veya grubun uygulama atama toohello giderek bulursanız **kullanıcıları ve grupları** hello atama seçerek hello uygulamasının sekmesi ve Merhaba tıklatarak **güncelleştirme kimlik bilgileri** düğmesi.
 
--   Kullanıcı kendi kimlik bilgilerini atanan kullanıcı varsa **parolalarını uygulamada dolduğunu değil emin olmak için onay** ve bu durumda, **süresi dolmuş parolasını güncelleştirmesi** oturum açarak uygulamayı doğrudan.
+-   Merhaba kullanıcı kendi kimlik bilgilerini atanmışsa hello kullanıcınız **toobe parolalarını hello uygulamada dolduğunu değil emin denetleyin** ve bu durumda, **süresi dolmuş parolasını güncelleştirmesi** toohello içinde açarak doğrudan uygulama.
 
-   * Parola uygulamada güncelleştirildikten sonra kullanıcının'ı isteği **güncelleştirme kimlik bilgileri** düğmesini **uygulama döşeme** içinde **uygulamaları** bölümü [Uygulama erişim Paneli'ne](https://myapps.microsoft.com/) en son bilinen çalışma kullanıcı adı ve parola güncelleştirmek için.
+   * Merhaba parola hello uygulamada güncelleştirildikten sonra hello kullanıcı tooclick hello isteği **güncelleştirme kimlik bilgileri** hello düğmesinde **uygulama döşeme** hello içinde **uygulamaları** Merhaba bölümünü [uygulama erişim Paneli'ne](https://myapps.microsoft.com/) tooupdate bunları en son bilinen toohello kullanıcı adı ve parola çalışma.
 
-   * Siz veya başka bir yöneticinin bu kullanıcı için kimlik bilgilerini atanmışsa, kullanıcı veya grubun uygulama atama giderek bulmak **kullanıcıları ve grupları** atama seçerek ve tıklatarakuygulamasınınsekmesi **Kimlik bilgilerini güncelleştirmeniz** düğmesi.
+   * Siz veya başka bir yönetici atanmış hello bu kullanıcının kimlik bilgilerinin, hello kullanıcı veya grubun uygulama atama toohello giderek bulursanız **kullanıcıları ve grupları** hello atama seçerek hello uygulamasının sekmesi ve Merhaba tıklatarak **güncelleştirme kimlik bilgileri** düğmesi.
 
--   Aşağıda açıklanan adımları izleyerek erişim paneli tarayıcı uzantısı güncelleştirmek için kullanıcının sahip [erişim paneli tarayıcı uzantısı yükleme](#how-to-install-the-access-panel-browser-extension) bölümü.
+-   Merhaba aşağıda hello açıklanan adımları izleyerek Hello kullanıcı güncelleştirme hello erişim paneli tarayıcı uzantısına sahip [nasıl tooinstall hello erişim paneli tarayıcı uzantısı](#how-to-install-the-access-panel-browser-extension) bölümü.
 
--   Erişim paneli tarayıcı uzantısı çalışır ve kullanıcı tarayıcıda etkin olduğundan emin olun.
+-   Merhaba erişim paneli tarayıcı uzantısı çalışır ve kullanıcı tarayıcıda etkin olduğundan emin olun.
 
--   Kullanıcılarınız uygulamaya erişim panelinde oturum açmak ayarlamadığınızdan emin olun **incognito, InPrivate ya da özel mod**. Erişim paneli uzantısı bu modda desteklenmiyor.
+-   Kullanıcılarınızın panelinden hello erişim sırasında toohello uygulamada toosign ayarlamadığınızdan emin olun **incognito, InPrivate ya da özel mod**. Merhaba erişim paneli uzantısı bu modda desteklenmiyor.
 
-Bu işe yaramazsa durumunda, geçici olarak Azure AD ile tümleştirme uygulamanın bozuk uygulama tarafında gerçekleşen bir değişikliği durumda olabilir. Uygulamanın satıcısına tanıtır Örneğin, bu giriş, hangi nedenler ayırmak için tümleştirme, gibi kendi, otomatik bir komut dosyası için el ile vs farklı şekilde davranan kendi sayfasında otomatik ortaya çıkabilir. Neyse ki, çoğu durumda, Microsoft Hızlı bir şekilde bu sorunları gidermek için uygulama satıcıları ile çalışabilirsiniz.
+Bu işe yaramazsa durumunda, geçici olarak Azure AD ile Merhaba uygulamanın tümleştirme bozuk hello uygulama tarafında gerçekleşen bir değişikliği hello durumda olabilir. Merhaba uygulamanın satıcısına tanıtır Örneğin, bu giriş, hangi nedenler tümleştirmesi, kendi, toobreak gibi otomatik bir komut dosyası için el ile vs farklı şekilde davranan kendi sayfasında otomatik oluşabilir. Neyse ki, çoğu durumda, Microsoft bu sorunları uygulama satıcıları toorapidly çözümleme ile çalışabilirsiniz.
 
-Microsoft bu tümleştirmeler bölün, ancak bazen bu sorunlar hemen bulmak yapamıyoruz veya düzeltmek için belirli bir süre devam otomatik olarak algılamak için teknolojilerini sahipken. Bu tümleştirmeler biri doğru çalışmaz zaman durumda biz bunu mümkün olan en kısa sürede giderebilmemiz bir destek servis talebi açtıysanız veriyoruz.
+Microsoft bu tümleştirmeler bölün, ancak bazen biz mümkün toofind değildir algılayabilir teknolojileri tooautomatically varken bu sorunları koyma ya da bunlar bazı alırken sağ toofix zaman. Bu tümleştirmeler biri doğru çalışmaz zaman hello durumda biz bunu mümkün olan en kısa sürede giderebilmemiz bir destek servis talebi açtıysanız veriyoruz.
 
-Bu, ek olarak **bu uygulamanın satıcısına iletişim kurmayan varsa** **bizim şekilde Gönder** bunları yerel olarak kendi uygulama Azure Active Directory ile tümleştirmek için ile çalışabilmek için. Satıcıya gönderebilirsiniz [Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) başlatılan getirmek için.
+Toplama toothis içinde **bu uygulamanın satıcısına iletişim kurmayan varsa** **bizim şekilde göndermek** toonatively biz ile çalışabilmek için Azure Active Directory ile kendi uygulama tümleştirin. Merhaba satıcı toohello gönderebilirsiniz [hello Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) tooget bunları başlatıldı.
 
-## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>Chrome ve Firefox, ancak Internet Explorer uzantısı çalışır
+## <a name="hello-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>Chrome ve Firefox ancak Internet Explorer'da Hello uzantısı çalışır
 
-Bu sorun için iki ana nedeni vardır:
+Toothis sorunu iki ana nedeni vardır:
 
--   Web sitesi değilse, Internet Explorer'da etkin güvenlik ayarlarına bağlı olarak parçası bir **Güvenilen Bölge**, bazen bizim betik engellenmesi için uygulama yürütme.
+-   Yoksa hello Web sitesi Internet Explorer'da etkin hello güvenlik ayarlarına bağlı olarak parçası bir **Güvenilen Bölge**, bazen bizim betik engellenmesi hello uygulama için yürütme.
 
-  *  Bu sorunu çözmek için kullanıcıya isteyin **uygulamanın Web sitesi ekleme** için **Güvenilen siteler** içinde listesinde kendi **Internet Explorer güvenlik ayarlarını**. Kullanıcılarınıza gönderebilirsiniz [bir siteyi my Güvenilen siteler listesine eklemek nasıl](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) makale ayrıntılı yönergeler için.
+  *  tooresolve bunu hello kullanıcıdan çok isteyin**hello uygulamanın Web sitesi ekleme** toohello **Güvenilen siteler** içinde listesinde kendi **Internet Explorer güvenlik ayarlarını**. Kullanıcıların toohello gönderebilirsiniz [nasıl tooadd site toomy Güvenilen siteler listesini](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) makale ayrıntılı yönergeler için.
 
--   Nadir durumlarda, Internet Explorer'ın güvenlik doğrulaması bazen bizim betik yürütme işlemi daha yavaş yüklemek sayfanın neden olabilir.
+-   Nadir durumlarda, Internet Explorer'ın güvenlik doğrulaması bazen hello sayfa tooload hello betik yürütme işlemi bizim daha yavaş neden olabilir.
 
-   * Ne yazık ki, bu durum tarayıcı sürümü, bilgisayarın hızı veya site ziyaret bağlı olarak değişebilir. Bu durumda, biz bu belirli uygulama tümleştirmesi giderebilmemiz desteğe başvurun öneririz.
+   * Ne yazık ki, bu durum hello tarayıcı sürümü, bilgisayarın hızı veya ziyaret siteye bağlı olarak değişebilir. Bu durumda, biz bu belirli uygulama hello tümleştirme giderebilmemiz desteğe başvurun öneririz.
 
-Bu, ek olarak **bu uygulamanın satıcısına iletişim kurmayan varsa** **bizim şekilde Gönder** bunları yerel olarak kendi uygulama Azure Active Directory ile tümleştirmek için ile çalışabilmek için. Satıcıya gönderebilirsiniz [Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) başlatılan getirmek için.
+Toplama toothis içinde **bu uygulamanın satıcısına iletişim kurmayan varsa** **bizim şekilde göndermek** toonatively biz ile çalışabilmek için Azure Active Directory ile kendi uygulama tümleştirin. Merhaba satıcı toohello gönderebilirsiniz [hello Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) tooget bunları başlatıldı.
 
-## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Uygulamanın oturum açma sayfasına kısa süre önce değiştirildi veya ek bir alan gerektirir, denetleyin
+## <a name="check-if-hello-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Hello uygulamanın oturum açma sayfasına kısa süre önce değiştirildi veya ek bir alan gerektirir, denetleyin
 
-Uygulamanın oturum açma sayfasına büyük ölçüde değiştiyse, bazen bu ayırmak bizim tümleştirmeler neden olur. Bir uygulamanın satıcısına alanında, captcha veya çok faktörlü kimlik doğrulaması deneyimlerini için bir oturum eklediğinde, bu örneğidir. Neyse ki, çoğu durumda, Microsoft Hızlı bir şekilde bu sorunları gidermek için uygulama satıcıları ile çalışabilirsiniz.
+Merhaba uygulamanın oturum açma sayfasına büyük ölçüde değiştiyse, bazen bu bizim tümleştirmeler toobreak neden olur. Bu uygulamanın satıcısına işareti alan, bir güvenlik kodu ekler veya çok faktörlü kimlik doğrulaması tootheir karşılaştığında örneğidir. Neyse ki, çoğu durumda, Microsoft bu sorunları uygulama satıcıları toorapidly çözümleme ile çalışabilirsiniz.
 
-Microsoft teknolojileri otomatik olarak algıla sahipken kullandığınızda bu tümleştirmeler bölün ancak bazen bu sorunlar hemen bulmak yapamıyoruz. Aksi halde bunlar düzeltmek için biraz zaman ayırın. Bu tümleştirmeler biri doğru çalışmaz zaman durumda biz bunu mümkün olan en kısa sürede giderebilmemiz bir destek talebi açarak veriyoruz.
+Microsoft bu tümleştirmeler bölün, ancak bazen biz mümkün toofind değildir algılayabilir teknolojileri tooautomatically varken bu birlikte sorunları hemen. Aksi halde bazı zaman toofix gerçekleştirin. Bu tümleştirmeler biri doğru çalışmaz zaman hello durumda biz bunu mümkün olan en kısa sürede giderebilmemiz bir destek talebi açarak veriyoruz.
 
-Bu, ek olarak **bu uygulamanın satıcısına iletişim kurmayan varsa** **bizim şekilde Gönder** bunları yerel olarak kendi uygulama Azure Active Directory ile tümleştirmek için ile çalışabilmek için. Satıcıya gönderebilirsiniz [Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) başlatılan getirmek için.
+Toplama toothis içinde **bu uygulamanın satıcısına iletişim kurmayan varsa** **bizim şekilde göndermek** toonatively biz ile çalışabilmek için Azure Active Directory ile kendi uygulama tümleştirin. Merhaba satıcı toohello gönderebilirsiniz [hello Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) tooget bunları başlatıldı.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Erişim paneli tarayıcı uzantısı yükleme
+## <a name="how-tooinstall-hello-access-panel-browser-extension"></a>Nasıl tooinstall hello erişim paneli tarayıcı uzantısı
 
-Erişim paneli tarayıcı uzantısı yüklemek için aşağıdaki adımları izleyin:
+tooinstall hello erişim paneli tarayıcı uzantısı hello adımları izleyin:
 
-1.  Açık [erişim paneli](https://myapps.microsoft.com) olarak oturum açın ve desteklenen tarayıcılar birinde bir **kullanıcı** Azure ad.
+1.  Açık hello [erişim paneli](https://myapps.microsoft.com) hello Desteklenen tarayıcılar ve oturum açma olarak birinde bir **kullanıcı** Azure ad.
 
-2.  tıklatın bir **parola SSO uygulaması** erişim panelinde.
+2.  Tıklatın bir **parola SSO uygulaması** hello erişim paneli içinde.
 
-3.  Yazılımı yüklemek soran istem içinde seçin **Şimdi Yükle**.
+3.  Hello komut istemi soran tooinstall hello yazılımda seçin **Şimdi Yükle**.
 
-4.  Tarayıcınıza bağlı için karşıdan yükleme bağlantısı yönlendirilmiş. **Ekleme** tarayıcınız uzantısı.
+4.  Tarayıcınıza bağlı yönlendirilmiş toohello indirme bağlantısı olabilir. **Ekleme** hello uzantısı tooyour tarayıcı.
 
-5.  Tarayıcınız isterse, ya da seçin **etkinleştirmek** veya **izin** uzantısı.
+5.  Tarayıcınız isterse, tooeither seçin **etkinleştirmek** veya **izin** hello uzantısı.
 
 6.  Bir kez yüklenir, **yeniden** tarayıcı oturumunda.
 
-7.  Erişim paneline oturum açın ve, varsa görebilirsiniz **başlatma** parola SSO uygulamaları
+7.  Erişim paneli hello oturum açın ve, varsa görebilirsiniz **başlatma** parola SSO uygulamaları
 
-Ayrıca uzantısı Chrome ve Firefox için aşağıya doğrudan bağlantılarından yükleyebilirsiniz:
+Ayrıca hello uzantısı Chrome ve Firefox için hello doğrudan bağlantılarından aşağıdaki yükleyebilirsiniz:
 
 -   [Chrome erişim paneli uzantısı](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 -   [Firefox erişim paneli uzantısı](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Çoklu oturum açma uygulamalarınızı uygulama proxy'si ile sağlayın.](active-directory-application-proxy-sso-using-kcd.md)
+[Uygulama proxy'si ile çoklu oturum açma tooyour uygulamaları sağlayın](active-directory-application-proxy-sso-using-kcd.md)
 

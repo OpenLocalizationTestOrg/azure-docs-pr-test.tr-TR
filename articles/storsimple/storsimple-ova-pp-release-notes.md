@@ -1,6 +1,6 @@
 ---
-title: "StorSimple sanal dizinin sürüm notları | Microsoft Docs"
-description: "StorSimple sanal dizi için açık kritik sorunlar ve çözümleri açıklar."
+title: "aaaStorSimple sanal dizinin sürüm notları | Microsoft Docs"
+description: "Açık kritik sorunlar ve çözümleri hello StorSimple sanal dizi için açıklar."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2016
 ms.author: alkohli
-ms.openlocfilehash: f3ea83e32af4de2637d12766ee8c51adfbf0d3a3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ca7b543f95cf5787b7fef39f53887161ebfa7fcb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storsimple-virtual-array-release-notes"></a>StorSimple sanal dizinin sürüm notları
 ## <a name="overview"></a>Genel Bakış
-Aşağıdaki sürüm notları Microsoft Azure StorSimple sanal dizinin (şirket içi StorSimple sanal cihazı veya StorSimple sanal cihazı olarak da bilinir) Mart 2016 genel kullanılabilirlik (GA) sürümü için önemli açık sorunlar tanımlayın. Bu sürüm 10.0.10271.0 yazılım sürümüne karşılık gelir.
+Merhaba aşağıdaki sürüm notları hello kritik açık sorunlarını hello Mart 2016 genel kullanılabilirlik (GA) hello Microsoft Azure StorSimple sanal dizinin (veya olarak da bilinen hello içi StorSimple sanal cihazı hello StorSimple sanal sürümünün belirle aygıt). Bu sürüm toosoftware sürüm 10.0.10271.0 karşılık gelir.
 
-Sürüm Notları sürekli olarak güncelleştirilir ve geçici bir çözüm gerektiren kritik sorunlar bulundukça olarak eklenir. StorSimple sanal Cihazınızı dağıtmadan önce dikkatle Sürüm Notları'nda yer alan bilgileri gözden geçirin. 
+Merhaba sürüm notları sürekli olarak güncelleştirilir ve geçici bir çözüm gerektiren kritik sorunlar bulundukça olarak eklenir. StorSimple sanal Cihazınızı dağıtmadan önce hello Sürüm Notları'nda bulunan hello bilgileri dikkatle gözden geçirin. 
 
-Aşağıdaki tabloda bu sürümdeki bilinen sorunlara özetini sağlar.
+Aşağıdaki tablonun hello bu sürümdeki bilinen sorunlara özetini sağlar.
 
 | Hayır. | Özellik | Sorun | Geçici çözüm/açıklamaları |
 | --- | --- | --- | --- |
-| **1.** |Güncellemeler |Önizleme sürümünde oluşturulan sanal cihazlar için desteklenen bir genel kullanılabilirlik sürümü güncelleştirilemiyor. |Bu sanal cihazlar üzerinden bir olağanüstü durum kurtarma (DR) iş akışı kullanarak genel kullanılabilirlik sürümü için başarısız gerekir. |
-| **2.** |Sağlanan veri diski |Belirli bir belirtilen boyutta bir veri diski sağlamış ve karşılık gelen StorSimple sanal cihaz oluşturulan, gerekir değil genişletin veya veri diski küçültmeye sonra. Bunu yapmak çalışırken cihaz yerel katmanlarda tüm verilerin kaybıyla sonuçlanır. | |
-| **3.** |Grup İlkesi |Bir cihaz etki alanına katılmış olduğunda, bir Grup İlkesi uygulama aygıt işlemi olumsuz etkileyebilir. |Sanal dizinizi kendi kuruluş biriminde (OU) için Active Directory ve hiçbir Grup İlkesi nesneleri (GPO) için uygulanan olduğundan emin olun. |
+| **1.** |Güncellemeler |Merhaba Önizleme sürümünde oluşturulan hello sanal aygıt desteklenen güncelleştirilmiş tooa genel kullanılabilirlik sürümü olamaz. |Bu sanal cihazlar Merhaba olağanüstü durum kurtarma (DR) iş akışını kullanarak genel kullanılabilirlik sürümü devredilir gerekir. |
+| **2.** |Sağlanan veri diski |Belirli bir belirtilen boyutta bir veri diski kez sağlamış ve hello karşılık gelen StorSimple sanal cihaz oluşturulan, gerekir değil genişletin veya hello veri diski küçültmeye. Toodo çalışırken şekilde hello yerel katmanlarında hello cihazın tüm hello veri kaybına neden olur. | |
+| **3.** |Grup İlkesi |Bir cihaz etki alanına katılmış olduğunda, bir Grup İlkesi uygulama hello aygıt işlemi olumsuz etkileyebilir. |Active Directory için kendi kuruluş biriminde (OU) sanal dizinizi olduğundan ve hiçbir Grup İlkesi nesneleri (GPO) uygulanan tooit olduğundan emin olun. |
 | **4.** |Yerel web kullanıcı Arabirimi |Internet Explorer (IE ESC) Artırılmış güvenlik özellikleri etkinleştirilirse, sorun giderme veya bakım gibi bazı yerel web kullanıcı Arabirimi sayfalarını düzgün çalışmayabilir. Bu sayfaları düğmeleri de çalışmayabilir. |Internet Explorer Artırılmış güvenlik özelliklerini kapatın. |
-| **5.** |Yerel web kullanıcı Arabirimi |Bir Hyper-V sanal makine ağ kullanıcı Arabirimi olarak 10 görüntülenen Web Gbps arabirimleri. |Hyper-V yansımasını davranıştır. Hyper-V sanal ağ bağdaştırıcıları için 10 GB/sn her zaman gösterir. |
-| **6.** |Katmanlı birimler veya paylaşımlar |Katmanlı birimlerin desteklenmiyor StorSimple ile çalışan uygulamalar için kilitleme bayt aralığı. Bayt aralığı kilitleme etkinse, StorSimple katmanlama çalışmaz. |Önerilen ölçüleri içerir: <br></br>Uygulama mantığınızın kilitleme bayt aralığı kapatın.<br></br>Yerel olarak sabitlenmiş birimlerin katmanlı birimleri aksine bu uygulama için veri koymak seçin.<br></br>*Uyarı*: kullanarak yerel olarak sabitlenmiş birimleri ve bayt aralığı kilitleme etkinse, geri yükleme tamamlamadan önce yerel olarak sabitlenmiş birimin çevrimiçi olabileceğini unutmayın. Bir geri yükleme devam ediyor, böyle durumlarda, daha sonra tamamlamak geri yüklemek için beklemeniz gerekir. |
-| **7.** |Katmanlı paylaşımları |Büyük dosyaları ile çalışma yavaş katmanı genişletmek neden olabilir. |Büyük dosyaları ile çalışırken en büyük dosya paylaşımı boyutunu %3 küçüktür öneririz. |
-| **8.** |Kapasite paylaşımlar için kullanılan |Görebileceğiniz paylaşmak paylaşımındaki herhangi bir veri olmadığında tüketiminin. Paylaşımlar için kullanılan kapasitesi meta veriler içerdiğinden budur. | |
-| **9.** |Olağanüstü durum kurtarma |Yalnızca bir dosya sunucusu aynı etki alanında, kaynak cihaz için olağanüstü durum kurtarma gerçekleştirebilirsiniz. Başka bir etki alanındaki bir hedef cihaz için olağanüstü durum kurtarma, bu sürümde desteklenmiyor. |Bu, bir sonraki sürümde uygulanacaktır. |
-| **10.** |Azure PowerShell |StorSimple sanal cihazlar, bu sürümde Azure PowerShell aracılığıyla yönetilemez. |Klasik Azure portalı ve yerel web kullanıcı Arabirimi sanal aygıtların tüm yönetim yapılması gerekir. |
-| **11.** |Parola değiştirme |Sanal dizinin aygıt konsolu yalnızca en-US klavye biçiminde giriş kabul eder. | |
-| **12.** |CHAP |CHAP kimlik oluşturulduktan sonra kaldırılamaz. Ayrıca, CHAP kimlik bilgilerini değiştirirseniz, birimlerin çevrimdışına alın ve ardından çevrimiçi bunları değişikliğin etkili olması çevrimiçine gerekir. |Bunlar daha sonraki bir sürümde ele alınacaktır. |
-| **13.** |iSCSI sunucusu |' Depolama birimi için iSCSI biriminde görüntülenen kullanılan' StorSimple Yöneticisi hizmeti ve iSCSI konağının farklı olabilir. |İSCSI konağının filesystem görünüme sahiptir.<br></br>Cihaz en büyük boyutta birimi olduğu zaman ayrılan blok görür. |
+| **5.** |Yerel web kullanıcı Arabirimi |Bir Hyper-V sanal makine ağ arabirimleri hello Web kullanıcı Arabirimi 10 GB/sn arabirimleri görüntülenen hello. |Hyper-V yansımasını davranıştır. Hyper-V sanal ağ bağdaştırıcıları için 10 GB/sn her zaman gösterir. |
+| **6.** |Katmanlı birimler veya paylaşımlar |Bayt aralığı, katmanlı birimleri StorSimple hello ile çalışan uygulamalar için kilitleme desteklenmiyor. Bayt aralığı kilitleme etkinse, StorSimple katmanlama çalışmaz. |Önerilen ölçüleri içerir: <br></br>Uygulama mantığınızın kilitleme bayt aralığı kapatın.<br></br>Bu uygulama için tooput verileri yerel olarak sabitlenmiş birimleri olarak karşılıklı tootiered birimleri seçin.<br></br>*Uyarı*: kullanarak yerel olarak sabitlenmiş birimleri ve bayt aralığı kilitleme etkinse, hatta hello geri yükleme tamamlanmadan önce hello yerel olarak sabitlenmiş birimin çevrimiçi olabileceğini unutmayın. Bir geri yükleme devam ediyor, böyle durumlarda, ardından hello geri yükleme toocomplete için beklemeniz gerekir. |
+| **7.** |Katmanlı paylaşımları |Büyük dosyaları ile çalışma yavaş katmanı genişletmek neden olabilir. |Büyük dosyaları ile çalışırken, o hello en büyük dosya hello paylaşım boyutu %3 küçük öneririz. |
+| **8.** |Kapasite paylaşımlar için kullanılan |Görebileceğiniz tüketim hello paylaşımında herhangi bir veri hello yokluğu paylaşım. Paylaşımlar için kullanılan hello kapasite meta veriler içerdiğinden budur. | |
+| **9.** |Olağanüstü durum kurtarma |Yalnızca bir dosya sunucusu toohello hello olağanüstü durum kurtarma gerçekleştirebilirsiniz aynı etki alanında, hello kaynak aygıt. Olağanüstü durum kurtarma tooa hedef aygıt başka bir etki alanındaki bu sürümde desteklenmiyor. |Bu, bir sonraki sürümde uygulanacaktır. |
+| **10.** |Azure PowerShell |Merhaba StorSimple sanal cihazlar, bu sürümde hello Azure PowerShell aracılığıyla yönetilemez. |Tüm hello yönetim hello sanal cihazların Merhaba Klasik Azure portalı ve hello yerel web kullanıcı Arabirimi aracılığıyla yapılmalıdır. |
+| **11.** |Parola değiştirme |Merhaba sanal dizinin aygıt konsolu yalnızca en-US klavye biçiminde giriş kabul eder. | |
+| **12.** |CHAP |CHAP kimlik oluşturulduktan sonra kaldırılamaz. Ayrıca, hello CHAP kimlik bilgilerini değiştirirseniz, tootake hello çevrimdışı birimler gerekir ve bunları çevrimiçi hello tootake değişikliğin için duruma getirmeden. |Bunlar daha sonraki bir sürümde ele alınacaktır. |
+| **13.** |iSCSI sunucusu |bir iSCSI birim için görüntülenen 'depolama kullanılan' hello hello StorSimple Yöneticisi hizmetiniz ve hello iSCSI konağının farklı olabilir. |Merhaba iSCSI konağının hello filesystem görünüme sahiptir.<br></br>Merhaba aygıt hello birim hello en büyük boyutta değiştirildiği ayrılan hello blok görür. |
 

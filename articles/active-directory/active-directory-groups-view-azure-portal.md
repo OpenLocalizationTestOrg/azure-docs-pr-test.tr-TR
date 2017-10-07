@@ -1,6 +1,6 @@
 ---
-title: "Tüm mevcut grupları Azure Active Directory'de görüntüleme | Microsoft Docs"
-description: "Görünüm veya Azure Active Directory'deki grupları arayın"
+title: "aaaView varolan tüm grupları Azure Active Directory'de | Microsoft Docs"
+description: "Azure Active Directory'de nasıl tooview veya arama grupları"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1cc8b9194433840df9ce16baf1a0ec2c3dd08ad9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ae668d1cdb8032a332053dc40164d4dc829bdd19
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Görünüm veya Azure Active Directory'de kullanıcı gruplarınız arayın
-Bu makalede, Azure Active Directory (Azure AD) tüm gruplarını görüntülemek açıklanmaktadır. Azure AD kullanıcı yönetimi özelliklerini lisansları veya izinleri bir çok sayıda kullanıcının aynı anda atama gibi yönetim görevleri gerçekleştirmek için grupları kullanabilirsiniz biridir.
+Bu makalede, Azure Active Directory (Azure AD) nasıl tooview tüm gruplar açıklanmaktadır. Azure AD kullanıcı yönetimi hello özelliklerini lisansları veya izinleri tooa sayısı, kullanıcı aynı anda atama gibi grupları tooperform yönetim görevleri kullanabilirsiniz biridir.
 
-## <a name="how-do-i-see-all-the-groups"></a>Tüm grupları nasıl görürüm?
-1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2. Seçin **daha fazla hizmet**, girin **kullanıcılar ve gruplar** metin kutusuna ve ardından **Enter**.
+## <a name="how-do-i-see-all-hello-groups"></a>Tüm hello grupları nasıl görürüm?
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) hello dizin için genel yönetici olan bir hesapla.
+2. Seçin **daha fazla hizmet**, girin **kullanıcılar ve gruplar** hello metin kutusuna ve ardından **Enter**.
 
    ![Açılış kullanıcılar ve gruplar](./media/active-directory-groups-view-azure-portal/search-user-management.png)
-3. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **tüm grupları**.
+3. Merhaba üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **tüm grupları**.
 
-   ![Grupları dikey penceresini açma](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
-4. Üzerinde **kullanıcılar ve gruplar - tüm grupları** dikey penceresinde, ekleyin veya görünen sütunları kaldırmak, bir grubu aramak için listeyi filtrelemek veya değiştirmek için yeterli izinlere sahip gruplarına değişiklik yapma.
+   ![Açılış hello grupları dikey penceresi](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
+4. Merhaba üzerinde **kullanıcılar ve gruplar - tüm grupları** dikey penceresinde sütunları görüntüleme, bir grup için filtre hello listesi toosearch ekleyip veya yeterli izinleri toochange sahip toogroups değişiklik yapma.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.

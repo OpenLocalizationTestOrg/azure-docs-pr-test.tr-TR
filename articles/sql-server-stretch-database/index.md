@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Server Esnetme Veritabanı Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Sorguları veya uygulamaları değiştirmeden soğuk verilerinizi güvenli bir şekilde Azure’a geçirmek için SQL Server Esnetme Veritabanı’nı kullanmayı öğrenin. Öğreticiler ve diğer belgeler."
+title: "aaaAzure SQL Server Esnetme veritabanı belgeleri - öğreticileri | Microsoft Docs"
+description: "SQL Server Esnetme veritabanı toomigrate soğuk veri toouse değiştirmeden tooAzure güvenli bir şekilde nasıl sorgular veya uygulamalar öğrenin. Öğreticiler ve diğer belgeler."
 services: sql-server-stretch-database
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: bb5e0fa9981133a77c235a42be369b3bbacb4ac0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2b009d80224a62d940ec8b11de22ad8c0865d869
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="sql-server-stretch-database-documentation"></a>SQL Server Esnetme Veritabanı Belgeleri
 
-Soğuk verilerinizi şeffaf ve güvenli bir şekilde Azure bulutuna geçirmek için SQL Server Esnetme Veritabanı’nı kullanmayı öğrenin. Öğreticiler ve diğer belgeler, seyrek olarak kullanılan veriler içeren veritabanları için uygun maliyetli kullanılabilirlik seçeneklerini, mevcut sorgular veya uygulamalar için ücret ödemek zorunda kalmadan ayarlamanıza yardımcı olur.
+Bilgi toouse SQL Server Esnetme nasıl toomigrate soğuk veri saydam ve güvenli bir şekilde toohello Azure bulut. Öğreticiler ve uygun maliyetli kullanılabilirlik olan veritabanları için sık ayarlamanız diğer belgeleri Yardım veri değişiklikleri tooexisting sorgular veya uygulamalar gerek kalmadan kullanılır.
 
 
 <ul class="panelContent cardsFTitle">
@@ -89,7 +89,7 @@ Soğuk verilerinizi şeffaf ve güvenli bir şekilde Azure bulutuna geçirmek i�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>SQL Server Esnetme Veritabanı’nı kullanmaya başlama sihirbazı</h3>
+                        <h3>Merhaba SQL Server Esnetme Veritabanı Sihirbazı'nı kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>

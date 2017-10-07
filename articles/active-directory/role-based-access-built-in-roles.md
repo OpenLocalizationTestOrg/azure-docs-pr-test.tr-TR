@@ -1,6 +1,6 @@
 ---
-title: "Eylemler ve NotActions - Azure rol tabanlı erişim denetimi (RBAC) | Microsoft Docs"
-description: "Bu konu için rol tabanlı erişim denetimi (RBAC) rollerdeki yerleşik açıklar. Rolleri sürekli olarak eklenir, belgeleri yenilik kontrol edin."
+title: "aaaActions ve NotActions - Azure rol tabanlı erişim denetimi (RBAC) | Microsoft Docs"
+description: "Bu konu, rol tabanlı erişim denetimi (RBAC) rollerini yerleşik hello açıklar. Merhaba rolleri sürekli olarak eklenir, bunu onay hello belgelerine yenilik."
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -16,35 +16,35 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0a4ef9923fe05ec38e968534951911eaa4440b88
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için yerleşik roller
-Azure rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve hizmetlere atanmış aşağıdaki yerleşik rolleri ile birlikte gelir. Yerleşik rol tanımlarını değiştiremezsiniz. Ancak, oluşturabileceğiniz [Azure rbac'de özel roller](role-based-access-control-custom-roles.md) , kuruluşunuzun belirli gereksinimlerine uyacak şekilde.
+Azure rol tabanlı erişim denetimi (RBAC) toousers, gruplara ve hizmetlere atanmış yerleşik roller aşağıdaki hello ile birlikte gelir. Yerleşik roller hello tanımlarını değiştiremezsiniz. Ancak, oluşturabileceğiniz [Azure rbac'de özel roller](role-based-access-control-custom-roles.md) toofit hello kuruluşunuzun belirli gereksinimlerine.
 
 ## <a name="roles-in-azure"></a>Azure rollerinde
-Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Ayrıntılı bir listesi görmek için rol adını tıklatın **Eylemler** ve **notactions** rolü. **Eylemler** özelliği, Azure kaynakları izin verilen eylemleri belirtir. Eylem dizeleri joker karakterleri kullanabilirsiniz. **Notactions** özelliği, izin verilen eylemler hariç tutulan eylemleri belirtir.
+Merhaba aşağıdaki tabloda hello kısa açıklamaları yerleşik roller sağlar. Merhaba rol adı toosee hello ayrıntılı listesini tıklatın **Eylemler** ve **notactions** hello rolü için. Merhaba **Eylemler** özelliği, Azure kaynakları Eylemler izin hello belirtir. Eylem dizeleri joker karakterleri kullanabilirsiniz. Merhaba **notactions** özelliği, izin verilen eylemleri hello hariç tutulan hello eylemleri belirtir.
 
-Belirtilen kaynak türü üzerinde gerçekleştirebileceğiniz ne tür bir operations eylemi tanımlar. Örneğin:
-- **Yazma** PUT, POST, düzeltme eki ve silme işlemleri yapmanıza olanak sağlar.
-- **Okuma** GET işlemleri yapmanıza olanak sağlar.
+Merhaba eylemi belirtilen kaynak türü üzerinde gerçekleştirebileceğiniz işlemler türünü tanımlar. Örneğin:
+- **Yazma** , tooperform PUT, POST, düzeltme eki ve silme işlemlerini etkinleştirir.
+- **Okuma** tooperform GET işlemlerini sağlar.
 
-Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanıcıya rol atadığınızda, kapsam tanımlayarak daha fazla izin verilen eylemleri sınırlayabilirsiniz. Bu, birisi bir Web sitesi katkıda bulunan, ancak yalnızca bir kaynak grubu için yapmak istiyorsanız yararlıdır.
+Bu makalede yalnızca bugün mevcut hello farklı roller giderir. Ancak, bir rol tooa kullanıcı atadığınızda, Eylemler daha fazla kapsam tanımlayarak izin hello sınırlayabilirsiniz. Bu toomake birisi bir Web sitesi katkıda bulunan, ancak yalnızca bir kaynak grubu için istiyorsanız yararlıdır.
 
 > [!NOTE]
-> Azure rol tanımlarını sürekli olarak artmaktadır. Bu makalede olarak olabildiğince güncel tutulur, ancak her zaman en son rol tanımlarını Azure PowerShell'de bulabilirsiniz. Kullanım [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet'ini tüm geçerli rolleri listeler. Belirli bir rol kullanmaya başlayabilirsiniz `(get-azurermroledefinition "<role name>").actions` veya `(get-azurermroledefinition "<role name>").notactions` olarak uygulanabilir. Kullanım [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) listeleme işlemleri belirli bir Azure kaynak sağlayıcıları için.
+> Hello Azure rol tanımlarını sürekli olarak artmaktadır. Bu makalede toodate olarak mümkün olduğunca yukarı tutulur, ancak her zaman hello son rol tanımlarını Azure PowerShell'de bulabilirsiniz. Kullanım hello [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet toolist tüm geçerli rol. Belirli bir rol tooa kullanarak dalın `(get-azurermroledefinition "<role name>").actions` veya `(get-azurermroledefinition "<role name>").notactions` olarak uygulanabilir. Kullanım [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) toolist işlemleri belirli bir Azure kaynak sağlayıcıları.
 
 
 | Rol adı | Açıklama |
 | --- | --- |
-| [API Management hizmeti katkıda bulunan](#api-management-service-contributor) |API Management hizmeti ve API'leri Yönet |
-| [API Management hizmet işleci rolü](#api-management-service-operator-role) | API Management hizmeti, ancak API kendilerini yönetebilirsiniz. |
-| [API Management hizmet okuyucu rolü](#api-management-service-reader-role) | API Management hizmeti ve API'ler için salt okunur erişim |
+| [API Management hizmeti katkıda bulunan](#api-management-service-contributor) |API Management hizmeti ve hello API'leri yönetebilir |
+| [API Management hizmet işleci rolü](#api-management-service-operator-role) | API Management hizmeti, ancak hello API'leri kendilerini yönetebilirsiniz. |
+| [API Management hizmet okuyucu rolü](#api-management-service-reader-role) | Salt okunur erişim tooAPI yönetim hizmeti ve API'leri |
 | [Uygulama Öngörüler bileşen katkıda bulunan](#application-insights-component-contributor) |Application Insights bileşenlerini yönetebilirsiniz |
-| [Automation operatörü](#automation-operator) |Başlatma, durdurma, askıya alma ve işlerini sürdürmek için |
+| [Automation operatörü](#automation-operator) |Mümkün toostart durdurmak, askıya almak ve işleri sürdürün |
 | [Yedekleme katkıda bulunan](#backup-contributor) | Kurtarma Hizmetleri kasasına yedekleme yönetebilirsiniz. |
 | [Yedekleme işletmeni](#backup-operator) | Kurtarma Hizmetleri kasasına yedekleme kaldırma dışında yedekleme yönetebilirsiniz. |
 | [Yedekleme okuyucusu](#backup-reader) | Tüm yedekleme Yönetimi Hizmetleri görüntüleyebilirsiniz  |
@@ -73,20 +73,20 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | [Site kurtarma işleci](#site-recovery-operator) | Yük devretme ve yeniden çalışma işlemlerini Site Recovery kurtarma Hizmetleri kasasına yönetebilirsiniz |
 | [Site kurtarma okuyucusu](#site-recovery-reader) | Tüm Site Recovery yönetim işlemlerinin görüntüleyebilirsiniz  |
 | [SQL DB Katılımcısı](#sql-db-contributor) |SQL veritabanları, ancak değil güvenlikle ilgili ilkelerini yönetebilirsiniz. |
-| [SQL Güvenlik Yöneticisi](#sql-security-manager) |SQL sunucularının ve veritabanlarının güvenlikle ilgili ilkelerini yönetebilirsiniz |
+| [SQL Güvenlik Yöneticisi](#sql-security-manager) |SQL sunucularının ve veritabanlarının Hello güvenlikle ilgili ilkelerini yönetebilirsiniz |
 | [SQL Server katkıda bulunan](#sql-server-contributor) |SQL sunucuları ve veritabanları, ancak değil güvenlikle ilgili ilkelerini yönetebilirsiniz. |
 | [Klasik depolama hesabı katkıda bulunan](#classic-storage-account-contributor) |Klasik depolama hesaplarını yönetme |
 | [Depolama hesabı katkıda bulunan](#storage-account-contributor) |Depolama hesaplarını yönetme |
 | [Destek isteği katkıda bulunan](#support-request-contributor) | Oluşturabilir ve Destek isteklerini yönet |
-| [Kullanıcı erişimi Yöneticisi](#user-access-administrator) |Azure kaynakları için kullanıcı erişimini yönetebilirsiniz |
-| [Klasik sanal makine Katılımcısı](#classic-virtual-machine-contributor) |Klasik sanal makineler, ancak bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz. |
-| [Sanal makine Katılımcısı](#virtual-machine-contributor) |Sanal makineler, ancak bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz. |
+| [Kullanıcı erişimi Yöneticisi](#user-access-administrator) |Kullanıcı erişim tooAzure kaynakları yönetebilir |
+| [Klasik sanal makine Katılımcısı](#classic-virtual-machine-contributor) |Klasik sanal makineleri, ancak hello sanal ağ veya depolama hesabı toowhich bağlı olan yönetebilirsiniz |
+| [Sanal makine Katılımcısı](#virtual-machine-contributor) |Sanal makineler, ancak bunlar bağlı değil hello sanal ağ veya depolama hesabı toowhich yönetebilirsiniz. |
 | [Klasik Ağ Katılımcısı](#classic-network-contributor) |Klasik sanal ağlar ve ayrılmış IP yönetebilir |
 | [Web planı katkıda bulunan](#web-plan-contributor) |Web planlarını yönetme |
-| [Web sitesi katkıda bulunan](#website-contributor) |Web siteleri, ancak olmayan bağlı web planlarını yönetme |
+| [Web sitesi katkıda bulunan](#website-contributor) |Web sitelerini yönetme ancak bağlı olan web planları toowhich hello değil |
 
 ## <a name="role-permissions"></a>Rol izinleri
-Aşağıdaki tablolarda her rol için verilen özel izinler açıklanmaktadır. Bu içerebilir **Eylemler**, izinleri verin ve **NotActions**, hangi kısıtlamak bunları.
+Merhaba aşağıdaki tablolarda tooeach rolü verilen hello özel izinler açıklanmaktadır. Bu içerebilir **Eylemler**, izinleri verin ve **NotActions**, hangi kısıtlamak bunları.
 
 ### <a name="api-management-service-contributor"></a>API Management hizmeti katkıda bulunan
 API Management Hizmetleri yönetebilir.
@@ -96,7 +96,7 @@ API Management Hizmetleri yönetebilir.
 | Microsoft.ApiManagement/Service/* |Oluşturma ve API Management hizmeti yönetme |
 | Microsoft.Authorization/*/read |Yetkilendirme okuma |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
@@ -107,16 +107,16 @@ API Management Hizmetleri yönetebilir.
 | **Eylemler** |  |
 | --- | --- |
 | Microsoft.ApiManagement/Service/*/read | Okuma API Management hizmeti örnekleri |
-| Microsoft.ApiManagement/Service/backup/action | Bir kullanıcı tarafından sağlanan depolama hesabı belirtilen kapsayıcıda API Management hizmeti dön |
+| Microsoft.ApiManagement/Service/backup/action | API Management hizmeti toohello belirtilen kapsayıcıda bir kullanıcı tarafından sağlanan depolama hesabı yedekleyin |
 | Microsoft.ApiManagement/Service/delete | API Management hizmeti örneği Sil |
 | Microsoft.ApiManagement/Service/managedeployments/action | Değişiklik SKU/birimleri; API Management hizmet bölgesel dağıtımları Ekle Kaldır |
 | Microsoft.ApiManagement/Service/read | API Management hizmeti örneği ile ilgili meta verilerini okuma |
-| Microsoft.ApiManagement/Service/restore/action | API Management hizmeti belirtilen bir kullanıcı tarafından sağlanan depolama hesabı kapsayıcısında geri yükleme |
+| Microsoft.ApiManagement/Service/restore/action | API Management hizmeti bir kullanıcı tarafından sağlanan depolama hesabı belirtilen kapsayıcıda hello geri yükleme |
 | Microsoft.ApiManagement/Service/updatehostname/action | Ayarlama, güncelleştirmek veya bir API Management hizmeti için özel etki alanı adlarını kaldırın |
 | Microsoft.ApiManagement/Service/write | API Management hizmeti yeni bir örneğini oluşturma |
 | Microsoft.Authorization/*/read |Yetkilendirme okuma |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
@@ -130,7 +130,7 @@ API Management Hizmetleri yönetebilir.
 | Microsoft.ApiManagement/Service/read | API Management hizmeti örneği ile ilgili meta verilerini okuma |
 | Microsoft.Authorization/*/read |Yetkilendirme okuma |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
@@ -144,13 +144,13 @@ Application Insights bileşenlerini yönetebilirsiniz
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
 | Microsoft.Insights/components/* |Oluşturma ve Insights bileşenlerini yönetme |
 | Microsoft.Insights/webtests/* |Oluşturma ve web testleri yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
 ### <a name="automation-operator"></a>Otomasyon Operatörü
-Başlatma, durdurma, askıya alma ve işlerini sürdürmek için
+Mümkün toostart durdurmak, askıya almak ve işleri sürdürün
 
 | **Eylemler** |  |
 | --- | --- |
@@ -168,13 +168,13 @@ Başlatma, durdurma, askıya alma ve işlerini sürdürmek için
 | Microsoft.Automation/automationAccounts/schedules/read |Otomasyon hesabı zamanlamaları okuma |
 | Microsoft.Automation/automationAccounts/schedules/write |Otomasyon hesabı zamanlamaları yazma |
 | Microsoft.Insights/components/* |Oluşturma ve Insights bileşenlerini yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
 ### <a name="backup-contributor"></a>Yedekleme katkıda bulunan
-Kurtarma Hizmetleri kasası oluşturmaya ve erişim başkalarına verip dışındaki tüm yedekleme yönetimi eylemleri yönetebilirsiniz
+Kurtarma Hizmetleri kasası oluşturmaya ve erişim tooothers vermiş dışındaki tüm yedekleme yönetimi eylemleri yönetebilirsiniz
 
 | **Eylemler** | |
 | --- | --- |
@@ -183,14 +183,14 @@ Kurtarma Hizmetleri kasası oluşturmaya ve erişim başkalarına verip dışın
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Oluşturma ve kurtarma Hizmetleri kasasına yedekleme yapılarındaki yedekleme kapsayıcılarda yönetme |
 | Microsoft.RecoveryServices/Vaults/backupJobs/* | Yedekleme işleri oluşturmak ve yönetmek |
 | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Bir Excel'e yedekleme işleri |
-| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Oluşturma ve yedekleme yönetimiyle ilgili meta verileri yönetme |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Oluşturma ve yönetme meta veri ilgili toobackup Yönetimi |
 | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Oluşturma ve yedekleme Yönetimi işlemlerinin sonuçlarını yönetme |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Yedekleme ilkeleri oluşturun ve yönetin |
 | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Yedeklenebilir öğelerini oluşturma ve yönetme |
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Yedeklenen öğelerini oluşturma ve yönetme |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Oluşturma ve yedekleme öğelerini tutan kapsayıcı yönetme |
-| Microsoft.RecoveryServices/Vaults/certificates/* | Kurtarma Hizmetleri kasasına yedekleme ilgili sertifikaları oluşturmak ve yönetmek |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Oluşturma ve kasa ilgili genişletilmiş bilgilerini yönetme |
+| Microsoft.RecoveryServices/Vaults/certificates/* | Oluşturma ve kurtarma Hizmetleri kasasına ilgili toobackup sertifikaları yönetme |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Oluşturma ve ilgili genişletilmiş bilgileri yönetme toovault |
 | Microsoft.RecoveryServices/Vaults/read | Kurtarma Hizmetleri kasaları okuma |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Yeni kapsayıcıları oluşturulan getirme için bulma işlemini yönetme |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Oluşturma ve kayıtlı kimlikleri yönetme |
@@ -201,7 +201,7 @@ Kurtarma Hizmetleri kasası oluşturmaya ve erişim başkalarına verip dışın
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
 ### <a name="backup-operator"></a>Yedekleme işletmeni
-Yedekleme ve vermiş erişim başkalarına kaldırma kasalarını oluşturma dışındaki tüm yedekleme yönetimi eylemleri yönetebilirsiniz
+Kasa oluşturma, yedekleme kaldırarak ve erişim tooothers vermiş dışındaki tüm yedekleme yönetimi eylemleri yönetebilirsiniz
 
 | **Eylemler** | |
 | --- | --- |
@@ -218,21 +218,21 @@ Yedekleme ve vermiş erişim başkalarına kaldırma kasalarını oluşturma dı
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Yedekleme öğesi tutan kapsayıcılar okuma |
 | Microsoft.RecoveryServices/Vaults/backupJobs/* | Yedekleme işleri oluşturmak ve yönetmek |
 | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Bir Excel'e yedekleme işleri |
-| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Yedekleme yönetimiyle ilgili meta verilerini okuma |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Meta veri okuma toobackup Yönetimi ilgili |
 | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Oluşturma ve yedekleme Yönetimi işlemlerinin sonuçlarını yönetme |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Yedekleme ilkeleri üzerinde gerçekleştirilen işlemler okuma sonuçları |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Yedekleme ilkeleri okuma |
 | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Yedeklenebilir öğelerini oluşturma ve yönetme |
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Öğeleri okuma yedeklenen |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Yedekleme öğelerini tutan kapsayıcı okuma yedeklenen |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Kasa için ilgili bilgileri Genişletilmiş okuma |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Kasa için ilgili genişletilmiş bilgileri yazma |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Genişletilmiş okundu bilgisi toovault ilgili |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Genişletilmiş yazma bilgisi toovault ilgili |
 | Microsoft.RecoveryServices/Vaults/read | Kurtarma Hizmetleri kasaları okuma |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Yeni kapsayıcıları oluşturulan getirme için bulma işlemini yönetme |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Kasaya kayıtlı öğeler üzerinde gerçekleştirilen işlemin okuma sonuçları |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Kasa, kayıtlı öğeleri okuma |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Kasa için kayıtlı öğeler yazma |
-| Microsoft.RecoveryServices/Vaults/usages/read | Kurtarma Hizmetleri kasası kullanımını okuma |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Hello kasaya kayıtlı öğeler üzerinde gerçekleştirilen işlemin okuma sonuçları |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Merhaba kasasının kayıtlı öğeleri okuma |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Kayıtlı öğeler toovault yazma |
+| Microsoft.RecoveryServices/Vaults/usages/read | Kurtarma Hizmetleri kasası hello kullanımını okuma |
 | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını oku |
 | Microsoft.Storage/storageAccounts/read | Depolama hesapları okuma |
@@ -252,18 +252,18 @@ Kurtarma Hizmetleri kasasına yedekleme yönetimini izleyebilirsiniz
 | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read  | Yedekleme işleri sonuçlarını okuyun |
 | Microsoft.RecoveryServices/Vaults/backupJobs/read  | Yedekleme işleri okuma |
 | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Bir Excel'e yedekleme işleri |
-| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | Yedekleme yönetimiyle ilgili meta verilerini okuma |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | Meta veri okuma toobackup Yönetimi ilgili |
 | Microsoft.RecoveryServices/Vaults/backupOperationResults/read  | Yedekleme Yönetimi işlem sonuçları okuma |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read  | Yedekleme ilkeleri üzerinde gerçekleştirilen işlemler okuma sonuçları |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/read  | Yedekleme ilkeleri okuma |
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read  |  Öğeleri okuma yedeklenen |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read  | Yedekleme öğelerini tutan kapsayıcı okuma yedeklenen |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Kasa için ilgili bilgileri Genişletilmiş okuma |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Genişletilmiş okundu bilgisi toovault ilgili |
 | Microsoft.RecoveryServices/Vaults/read  | Kurtarma Hizmetleri kasaları okuma |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Yeni kapsayıcıları oluşturulan getirme için bulma işleminin sonucu okuma |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Kasaya kayıtlı öğeler üzerinde gerçekleştirilen işlemin okuma sonuçları |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Kasa, kayıtlı öğeleri okuma |
-| Microsoft.RecoveryServices/Vaults/usages/read  |  Kurtarma Hizmetleri kasası kullanımını okuma |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Hello kasaya kayıtlı öğeler üzerinde gerçekleştirilen işlemin okuma sonuçları |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Merhaba kasasının kayıtlı öğeleri okuma |
+| Microsoft.RecoveryServices/Vaults/usages/read  |  Kurtarma Hizmetleri kasası hello kullanımını okuma |
 
 ### <a name="billing-reader"></a>Faturalama okuyucusu
 Tüm faturalama bilgileri görüntüleyebilirsiniz
@@ -282,7 +282,7 @@ BizTalk Hizmetleri yönetebilir.
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
 | Microsoft.BizTalkServices/BizTalk/* |Oluşturma ve BizTalk services yönetme |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
@@ -294,7 +294,7 @@ ClearDB MySQL veritabanları yönetebilirsiniz
 | --- | --- |
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
@@ -320,7 +320,7 @@ Oluşturun ve veri fabrikaları ve bunların içindeki alt kaynakları yönetin.
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
 | Microsoft.DataFactory/dataFactories/* |Oluşturun ve veri fabrikaları ve bunların içindeki alt kaynakları yönetin. |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
@@ -331,13 +331,13 @@ Her şeyi görüntüleyebilir ve bağlanmak, Başlat, yeniden başlatma ve kapat
 | **Eylemler** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
-| Microsoft.Compute/availabilitySets/read |Kullanılabilirlik kümeleri özelliklerini okuma |
-| Microsoft.Compute/virtualMachines/*/read |Bir sanal makine (VM boyutları, çalışma zamanı durumu, VM uzantıları, vb.) özelliklerini okuma |
+| Microsoft.Compute/availabilitySets/read |Kullanılabilirlik kümeleri hello özellikleri okuma |
+| Microsoft.Compute/virtualMachines/*/read |Bir sanal makine (VM boyutları, çalışma zamanı durumu, VM uzantıları, vb.) Hello özelliklerini okuma |
 | Microsoft.Compute/virtualMachines/deallocate/action |Sanal makineler serbest bırakma |
-| Microsoft.Compute/virtualMachines/read |Bir sanal makinenin özelliklerini okuma |
+| Microsoft.Compute/virtualMachines/read |Bir sanal makinenin hello özellikleri okuma |
 | Microsoft.Compute/virtualMachines/restart/action |Sanal makineleri yeniden başlatın |
 | Microsoft.Compute/virtualMachines/start/action |Sanal makineleri Başlat |
-| Microsoft.DevTestLab/*/read |Bir laboratuvar özelliklerini okuma |
+| Microsoft.DevTestLab/*/read |Bir laboratuvar Hello özelliklerini okuma |
 | Microsoft.DevTestLab/labs/createEnvironment/action |Bir laboratuvar ortamı oluşturma |
 | Microsoft.DevTestLab/labs/formulas/delete |Formülleri silin |
 | Microsoft.DevTestLab/labs/formulas/read |Formülleri okuma |
@@ -345,11 +345,11 @@ Her şeyi görüntüleyebilir ve bağlanmak, Başlat, yeniden başlatma ve kapat
 | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action |Laboratuvar ilkeleri değerlendir |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action |Bir yük dengeleyici arka uç adres havuzuna Katıl |
 | Microsoft.Network/loadBalancers/inboundNatRules/join/action |Bir yük dengeleyici katılma gelen NAT kuralı |
-| Microsoft.Network/networkInterfaces/*/read |Bir ağ arabirimi (ağ arabirimi bir parçası olan Örneğin, tüm yük dengeleyicileri) özelliklerini okuma |
-| Microsoft.Network/networkInterfaces/join/action |Bir sanal makine bir ağ arabirimiyle Birleştir |
+| Microsoft.Network/networkInterfaces/*/read |Bir ağ arabirimi özelliklerini Hello okuma (örneğin, tüm hello yük dengeleyicileri hello ağ arabirimi bir parçasıdır.) |
+| Microsoft.Network/networkInterfaces/join/action |Bir sanal makine tooa ağ arabirimi katılma |
 | Microsoft.Network/networkInterfaces/read |Ağ arabirimleri okuma |
 | Microsoft.Network/networkInterfaces/write |Ağ arabirimleri yazma |
-| Microsoft.Network/publicIPAddresses/*/read |Bir ortak IP adresinin özelliklerini okuma |
+| Microsoft.Network/publicIPAddresses/*/read |Okuma hello özelliklerine genel bir IP adresi |
 | Microsoft.Network/publicIPAddresses/join/action |Genel IP adresine Katıl |
 | Microsoft.Network/publicIPAddresses/read |Ağ ortak IP adresleri okuyun |
 | Microsoft.Network/virtualNetworks/subnets/join/action |Sanal bir ağa |
@@ -366,7 +366,7 @@ DNS bölgeleri ve kayıtları yönetebilirsiniz.
 | Microsoft.Authorization/ \* /okuma |Okuma rolleri ve rol atamaları |
 | Microsoft.Insights/alertRules/\* |Oluşturma ve uyarı kurallarını yönetme |
 | Microsoft.Network/dnsZones/\* |DNS bölgeleri ve kayıtları oluşturma ve yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakları Hello durumunu okuma |
 | Microsoft.Resources/deployments/\* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/\* |Oluşturma ve Destek biletlerini yönetme |
@@ -379,7 +379,7 @@ Azure Cosmos DB hesaplarını yönetme
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
 | Microsoft.DocumentDb/databaseAccounts/* |DocumentDB hesapları oluşturma ve yönetme |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
@@ -392,7 +392,7 @@ Akıllı sistemler hesaplarını yönetme
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
 | Microsoft.IntelligentSystems/accounts/* |Akıllı sistemler hesapları oluşturma ve yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
@@ -415,11 +415,11 @@ Tüm izleme verileri okuyabilir ve izleme ayarlarını düzenleyin. Ayrıca bkz.
 | Microsoft.Insights/AlertRules/* |Okuma/yazma/silme uyarı kuralları. |
 | Microsoft.Insights/components/* |Okuma/yazma/silme Application Insights bileşenleri. |
 | Microsoft.Insights/DiagnosticSettings/* |Okuma/yazma/silme tanılama ayarları. |
-| Microsoft.Insights/eventtypes/* |Bir abonelikte etkinlik günlüğü olayları (Yönetim olayları) listeler. Bu izin, etkinlik günlüğü programlı ve portal erişimi için geçerlidir. |
-| Microsoft.Insights/LogDefinitions/* |Bu izin, etkinlik günlükleri için portal aracılığıyla erişmek isteyen kullanıcılar için gereklidir. Etkinlik günlüğü günlük kategorilerini liste. |
+| Microsoft.Insights/eventtypes/* |Bir abonelikte etkinlik günlüğü olayları (Yönetim olayları) listeler. Bu izni geçerli tooboth programlı ve portal erişim toohello etkinlik günlüğü yok. |
+| Microsoft.Insights/LogDefinitions/* |Bu izin, tooActivity günlükleri hello Portalı aracılığıyla erişen kullanıcılar için gereklidir. Etkinlik günlüğü günlük kategorilerini liste. |
 | Microsoft.Insights/MetricDefinitions/* |Ölçüm tanımlarını (bir kaynak için kullanılabilir ölçüm türlerinin listesi) okuyun. |
 | Microsoft.Insights/Metrics/* |Bir kaynak için ölçümleri okuyun. |
-| Microsoft.Insights/Register/Action |Microsoft.ınsights sağlayıcıyı kaydedin. |
+| Microsoft.Insights/Register/Action |Merhaba Microsoft.ınsights sağlayıcıyı kaydedin. |
 | Microsoft.Insights/webtests/* |Okuma/yazma/silme Application Insights testleri web. |
 | Microsoft.OperationalInsights/workspaces/intelligencepacks/* |Okuma/yazma/silme günlük analizi çözüm paketleri. |
 | Microsoft.OperationalInsights/workspaces/savedSearches/* |Okuma/yazma/silme günlük analizi kayıtlı aramalar. |
@@ -435,7 +435,7 @@ Tüm ağ kaynakları yönetebilir
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
 | Microsoft.Network/* |Oluşturun ve ağları yönetin |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
@@ -447,7 +447,7 @@ Yeni Relic uygulama performans yönetim hesaplarının ve uygulamaların yönete
 | --- | --- |
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
@@ -475,7 +475,7 @@ Redis önbellekleri yönetebilirsiniz.
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Cache/redis/* |Oluşturma ve Redis önbellekleri yönetme |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
@@ -487,7 +487,7 @@ Zamanlayıcı İş koleksiyonları yönetebilir
 | --- | --- |
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Scheduler/jobcollections/* |Oluşturma ve iş koleksiyonları yönetme |
@@ -500,7 +500,7 @@ Arama Hizmetleri yönetebilir.
 | --- | --- |
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Search/searchServices/* |Oluşturma ve arama hizmetleri yönetme |
@@ -516,23 +516,23 @@ Güvenlik bileşenleri, güvenlik ilkeleri ve sanal makineleri yönetebilirsiniz
 | Microsoft.ClassicCompute/virtualMachines/*/write |Sanal makineler için yapılandırma yazma |
 | Microsoft.ClassicNetwork/*/read |Klasik ağ hakkında yapılandırma bilgilerini okuyun |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Security/* |Güvenlik bileşenleri ve ilkeleri oluşturma ve yönetme |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
 ### <a name="site-recovery-contributor"></a>Site kurtarma katkıda bulunan
-Kurtarma Hizmetleri kasası oluşturma ve diğer kullanıcılara erişim hakları atama hariç tüm Site Recovery yönetim eylemleri, yönetebilirsiniz
+Kurtarma Hizmetleri kasası oluşturma ve erişim haklarını tooother kullanıcılar atama hariç tüm Site Recovery yönetim eylemleri, yönetebilirsiniz
 
 | **Eylemler** | |
 | --- | --- |
 | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönetme |
 | Microsoft.Network/virtualNetworks/read | Sanal ağlar okuma |
-| Microsoft.RecoveryServices/Vaults/certificates/write | Kasa kimlik bilgileri sertifikası güncelleştirir |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Oluşturma ve kasa ilgili genişletilmiş bilgilerini yönetme |
-| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Kurtarma Hizmetleri kasası için uyarıları okuma |
+| Microsoft.RecoveryServices/Vaults/certificates/write | Güncelleştirmeleri hello kasa kimlik bilgileri sertifikası |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Oluşturma ve ilgili genişletilmiş bilgileri yönetme toovault |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Merhaba kurtarma Hizmetleri kasası için uyarıları okuma |
 | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/okuma  | Okuma kurtarma Hizmetleri kasası bildirim yapılandırması |
 | Microsoft.RecoveryServices/Vaults/read | Okuma kurtarma Hizmetleri kasaları |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Yeni kapsayıcıları oluşturulan getirme için bulma işlemini yönetme |
@@ -546,22 +546,22 @@ Kurtarma Hizmetleri kasası oluşturma ve diğer kullanıcılara erişim haklar�
 | Microsoft.RecoveryServices/Vaults/storageConfig/* | Kurtarma Hizmetleri kasası, depolama yapılandırması oluşturma ve yönetme |
 | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Okuma kurtarma Hizmetleri kasası belirteç bilgileri |
 | Microsoft.RecoveryServices/Vaults/usages/read | Kurtarma Hizmetleri kasası kullanım ayrıntılarını okuyun |
-| Microsoft.ResourceHealth/availabilityStatuses/read | Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını oku |
 | Microsoft.Storage/storageAccounts/read | Depolama hesapları okuma |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
 ### <a name="site-recovery-operator"></a>Site kurtarma işleci
-Yük devretme ve yeniden çalışma ancak diğer Site Recovery yönetim eylemleri gerçekleştirmek veya diğer kullanıcılara erişimi atayın
+Yük devretme ve yeniden çalışma ancak değil diğer Site Recovery yönetim eylemleri gerçekleştirebilir veya tooother kullanıcıların erişimi atayın
 
 | **Eylemler** | |
 | --- | --- |
 | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönetme |
 | Microsoft.Network/virtualNetworks/read | Sanal ağlar okuma |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Kasa için ilgili bilgileri Genişletilmiş okuma |
-| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Kurtarma Hizmetleri kasası için uyarıları okuma |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Genişletilmiş okundu bilgisi toovault ilgili |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Merhaba kurtarma Hizmetleri kasası için uyarıları okuma |
 | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/okuma  | Okuma kurtarma Hizmetleri kasası bildirim yapılandırması |
 | Microsoft.RecoveryServices/Vaults/read | Okuma kurtarma Hizmetleri kasaları |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Yeni kapsayıcıları oluşturulan getirme için bulma işlemini yönetme |
@@ -569,7 +569,7 @@ Yük devretme ve yeniden çalışma ancak diğer Site Recovery yönetim eylemler
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Bir kaynak için kayıtlı okuma kapsayıcıları |
 | Microsoft.RecoveryServices/vaults/replicationAlertSettings/read | Çoğaltma uyarı ayarlarını okuma |
 | Microsoft.RecoveryServices/vaults/replicationEvents/read | Çoğaltma olayları okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Yapılar, tutarlılık denetimi |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Merhaba dokuları tutarlılık denetimi |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Okuma çoğaltma yapıları |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/eylem | Çoğaltma ağ geçidi yeniden ilişkilendirin |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Çoğaltma yapı sertifikasını Yenile |
@@ -587,7 +587,7 @@ Yük devretme ve yeniden çalışma ancak diğer Site Recovery yönetim eylemler
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/eylem | Korumalı bir öğe yük devretme Testi Başlat |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/eylem | Yük devretme testi temizlenmesi Başlat |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/unplannedFailover/eylem | Korumalı bir öğe planlanmamış yük devretme başlatın |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/eylem | Mobility hizmeti güncelleştirmesi |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/eylem | Merhaba mobility hizmeti güncelleştirmesi |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/okuma | Koruma kapsayıcısı eşlemeleri okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/okuma | Okuma kurtarma Hizmetleri sağlayıcıları |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/eylem | Kurtarma Hizmetleri sağlayıcısını yenileyin |
@@ -606,7 +606,7 @@ Yük devretme ve yeniden çalışma ancak diğer Site Recovery yönetim eylemler
 | Microsoft.RecoveryServices/Vaults/storageConfig/read | Kurtarma Hizmetleri kasası depolama yapılandırmasını okuma |
 | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Okuma kurtarma Hizmetleri kasası belirteç bilgileri |
 | Microsoft.RecoveryServices/Vaults/usages/read | Kurtarma Hizmetleri kasası kullanım ayrıntılarını okuyun |
-| Microsoft.ResourceHealth/availabilityStatuses/read | Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını oku |
 | Microsoft.Storage/storageAccounts/read | Depolama hesapları okuma |
@@ -618,8 +618,8 @@ Kurtarma Hizmetleri kasası Site kurtarma durumunu izleyebilir ve Destek biletle
 | **Eylemler** | |
 | --- | --- |
 | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Kasa için ilgili bilgileri Genişletilmiş okuma |
-| Microsoft.RecoveryServices/Vaults/monitoringAlerts/read  | Kurtarma Hizmetleri kasası için uyarıları okuma |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Genişletilmiş okundu bilgisi toovault ilgili |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/read  | Merhaba kurtarma Hizmetleri kasası için uyarıları okuma |
 | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/okuma  | Okuma kurtarma Hizmetleri kasası bildirim yapılandırması |
 | Microsoft.RecoveryServices/Vaults/read  | Okuma kurtarma Hizmetleri kasaları |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Yeni kapsayıcıları oluşturulan getirme için bulma işlemini yönetme |
@@ -654,7 +654,7 @@ SQL veritabanları ancak değil güvenlikle ilgili ilkelerini yönetebilirsiniz.
 | --- | --- |
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Sql/servers/databases/* |Oluşturma ve SQL veritabanlarını yönetme |
@@ -672,13 +672,13 @@ SQL veritabanları ancak değil güvenlikle ilgili ilkelerini yönetebilirsiniz.
 | Microsoft.Sql/servers/databases/securityMetrics/* |Güvenlik ölçümleri düzenlenemez. |
 
 ### <a name="sql-security-manager"></a>SQL Güvenlik Yöneticisi
-SQL sunucularının ve veritabanlarının güvenlikle ilgili ilkelerini yönetebilirsiniz
+SQL sunucularının ve veritabanlarının Hello güvenlikle ilgili ilkelerini yönetebilirsiniz
 
 | **Eylemler** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Okuma Microsoft yetkilendirme |
 | Microsoft.Insights/alertRules/* |Oluşturma ve Öngörüler uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Sql/servers/auditingPolicies/* |SQL server denetim ilkeleri oluşturun ve yönetin |
@@ -705,7 +705,7 @@ SQL sunucuları ve veritabanları ancak değil güvenlikle ilgili ilkelerini yö
 | --- | --- |
 | Microsoft.Authorization/*/read |Yetkilendirme okuma |
 | Microsoft.Insights/alertRules/* |Oluşturma ve Öngörüler uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Sql/servers/* |Oluşturun ve SQL sunucularını yönetme |
@@ -732,27 +732,27 @@ Klasik depolama hesaplarını yönetme
 | Microsoft.Authorization/*/read |Yetkilendirme okuma |
 | Microsoft.ClassicStorage/storageAccounts/* |Depolama hesapları oluşturma ve yönetme |
 | Microsoft.Insights/alertRules/* |Oluşturma ve Öngörüler uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
 ### <a name="storage-account-contributor"></a>Depolama hesabı katkıda bulunan
-Depolama hesaplarını yönetme, ancak onlara erişimi yok.
+Depolama hesaplarını yönetme, ancak toothem erişemezler.
 
 | **Eylemler** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Tüm Yetkilendirme okuma |
 | Microsoft.Insights/alertRules/* |Oluşturma ve Öngörüler uyarı kurallarını yönetme |
 | Microsoft.Insights/diagnosticSettings/* |Tanılama ayarlarını yönet |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Storage/storageAccounts/* |Depolama hesapları oluşturma ve yönetme |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
 ### <a name="support-request-contributor"></a>Destek isteği katkıda bulunan
-Oluşturabilir ve abonelik kapsamında destek biletlerini yönetme
+Oluşturabilir ve hello abonelik kapsamında destek biletlerini yönetme
 
 | **Eylemler** |  |
 | --- | --- |
@@ -761,7 +761,7 @@ Oluşturabilir ve abonelik kapsamında destek biletlerini yönetme
 | Microsoft.Resources/subscriptions/resourceGroups/read | Okuma rolleri ve rol atamaları |
 
 ### <a name="user-access-administrator"></a>Kullanıcı Erişimi Yöneticisi
-Azure kaynakları için kullanıcı erişimini yönetebilirsiniz
+Kullanıcı erişim tooAzure kaynakları yönetebilir
 
 | **Eylemler** |  |
 | --- | --- |
@@ -770,7 +770,7 @@ Azure kaynakları için kullanıcı erişimini yönetebilirsiniz
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
 ### <a name="classic-virtual-machine-contributor"></a>Klasik sanal makine Katılımcısı
-Klasik sanal makineleri ancak bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz.
+Klasik sanal makineleri ancak hello sanal ağ veya depolama hesabı toowhich bağlı olan yönetebilirsiniz
 
 | **Eylemler** |  |
 | --- | --- |
@@ -787,13 +787,13 @@ Klasik sanal makineleri ancak bağlı sanal ağ veya depolama hesabı değil yö
 | Microsoft.ClassicStorage/storageAccounts/listKeys/action |Depolama hesabı anahtarlarını Listele |
 | Microsoft.ClassicStorage/storageAccounts/read |Klasik depolama hesaplarını okuma |
 | Microsoft.Insights/alertRules/* |Oluşturma ve Öngörüler uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
 ### <a name="virtual-machine-contributor"></a>Sanal makine Katılımcısı
-Sanal makineler ancak bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz.
+Sanal makineler ancak bunlar bağlı değil hello sanal ağ veya depolama hesabı toowhich yönetebilirsiniz.
 
 | **Eylemler** |  |
 | --- | --- |
@@ -816,7 +816,7 @@ Sanal makineler ancak bağlı sanal ağ veya depolama hesabı değil yönetebili
 | Microsoft.Network/publicIPAddresses/read |Ağ ortak IP adresleri okuyun |
 | Microsoft.Network/virtualNetworks/read |Sanal ağlar okuma |
 | Microsoft.Network/virtualNetworks/subnets/join/action |Sanal ağ alt ağları katılma |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Storage/storageAccounts/listKeys/action |Depolama hesabı anahtarlarını Listele |
@@ -831,7 +831,7 @@ Klasik sanal ağlar ve ayrılmış IP yönetebilir
 | Microsoft.Authorization/*/read |Yetkilendirme okuma |
 | Microsoft.ClassicNetwork/* |Oluşturun ve klasik ağları yönetin |
 | Microsoft.Insights/alertRules/* |Oluşturma ve Öngörüler uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
@@ -843,32 +843,32 @@ Web planlarını yönetme
 | --- | --- |
 | Microsoft.Authorization/*/read |Yetkilendirme okuma |
 | Microsoft.Insights/alertRules/* |Oluşturma ve Öngörüler uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 | Microsoft.Web/serverFarms/* |Oluşturma ve sunucu grupları yönetme |
 
 ### <a name="website-contributor"></a>Web sitesi katkıda bulunan
-Web siteleri ancak olmayan bağlı web planlarını yönetme
+Web sitelerini yönetme ancak bağlı olan web planları toowhich hello değil
 
 | **Eylemler** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Yetkilendirme okuma |
 | Microsoft.Insights/alertRules/* |Oluşturma ve Öngörüler uyarı kurallarını yönetme |
 | Microsoft.Insights/components/* |Oluşturma ve Insights bileşenlerini yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Merhaba kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 | Microsoft.Web/certificates/* |Web sitesi sertifikaları oluşturmak ve yönetmek |
-| Microsoft.Web/listSitesAssignedToHostName/read |Bir ana bilgisayar adı atanmış siteler okuma |
+| Microsoft.Web/listSitesAssignedToHostName/read |Tooa ana bilgisayar adı atanmış okuma siteler |
 | Microsoft.Web/serverFarms/join/action |Sunucu grupları katılma |
 | Microsoft.Web/serverFarms/read |Sunucu grupları okuma |
-| Microsoft.Web/sites/* |Oluşturma ve (site oluşturma ilişkili uygulama hizmeti planı yazma izinleri de gerektirir) Web sitelerini yönetme |
+| Microsoft.Web/sites/* |Oluşturma ve (site oluşturma de yazma izinleri toohello App Service planı ilişkili gerektirir) Web sitelerini yönetme |
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Rol tabanlı erişim denetimi](role-based-access-control-configure.md): Azure portalında RBAC ile çalışmaya başlama.
-* [Azure rbac'de özel roller](role-based-access-control-custom-roles.md): erişim gereksinimlerinize uyacak şekilde özel roller oluşturma hakkında bilgi edinin.
+* [Rol tabanlı erişim denetimi](role-based-access-control-configure.md): hello Azure portalında RBAC ile çalışmaya başlama.
+* [Azure rbac'de özel roller](role-based-access-control-custom-roles.md): toocreate özel roller toofit erişiminizi nasıl gerektiğini öğrenin.
 * [Erişim değişiklik geçmişi raporu oluşturma](role-based-access-control-access-change-history-report.md): RBAC içinde rol atamalarını değiştirme izler.
 * [Rol tabanlı erişim denetimi sorun giderme](role-based-access-control-troubleshooting.md): sık karşılaşılan sorunları düzeltmek için öneriler alın.

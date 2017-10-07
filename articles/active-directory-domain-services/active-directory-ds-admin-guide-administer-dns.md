@@ -14,90 +14,90 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 812641a3e4d5bf496d81b036d326595c5722b7fe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f2085283649eadd3c9e89f708b0eecf10b2d7d70
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Bir Azure AD etki alanı Hizmetleri yönetilen etki alanının DNS yönetme
-Azure Active Directory etki alanı Hizmetleri yönetilen etki alanı için DNS çözümlemesi sağlayan bir DNS (etki alanı adı çözümlemesine) sunucusu içerir. Bazen, yönetilen etki alanında DNS yapılandırmanız gerekebilir. Etki alanına katılmamış makineler için DNS kayıtlarını oluşturun, yük Dengeleyiciler için sanal IP adreslerini yapılandırın veya dış DNS ileticileri Kurulum gerekebilir. Bu nedenle, 'AAD DC Yöneticiler' gruba ait kullanıcılar yönetilen etki alanı DNS yönetim ayrıcalıkları verilir.
+Azure Active Directory etki alanı Hizmetleri hello yönetilen etki alanı için DNS çözümlemesi sağlayan bir DNS (etki alanı adı çözümlemesine) sunucusu içerir. Bazen, tooconfigure hello yönetilen etki alanı DNS gerekebilir. Birleştirilmiş toohello etki alanı olmayan makinelere yük Dengeleyiciler için sanal IP adreslerini yapılandırın veya dış DNS ileticileri Kurulum toocreate DNS kayıtlarını gerekebilir. Bu nedenle, toohello 'AAD DC Administrators' grubuna ait kullanıcılar hello yönetilen etki alanı DNS yönetim ayrıcalıkları verilir.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
+Bu makalede listelenen tooperform hello görevleri, aşağıdakiler gerekir:
 
 1. Geçerli bir **Azure aboneliği**.
 2. Bir **Azure AD dizini** -ya da bir şirket içi dizin veya bir yalnızca bulut dizini ile eşitlenir.
-3. **Azure AD etki alanı Hizmetleri** Azure AD dizini için etkinleştirilmesi gerekir. Bunu yapmadıysanız, özetlenen tüm görevleri izleyin [Getting Started guide](active-directory-ds-getting-started.md).
-4. A **sanal makine etki alanına katılmış** Azure AD etki alanı Hizmetleri yönetilen etki yönettiğiniz. Bu tür bir sanal makine yoksa, başlıklı makalede açıklanan tüm görevleri izleyin [Windows sanal makinesini yönetilen bir etki alanına katma](active-directory-ds-admin-guide-join-windows-vm.md).
-5. Kimlik bilgilerini gereken bir **'AAD DC Yöneticiler' grubuna ait olan kullanıcı hesabı** dizininizde yönetilen etki alanınız için DNS yönetmek için.
+3. **Azure AD etki alanı Hizmetleri** hello Azure AD dizini için etkinleştirilmesi gerekir. Bunu yapmadıysanız, hello özetlenen tüm hello görevleri izleyin [Getting Started guide](active-directory-ds-getting-started.md).
+4. A **sanal makine etki alanına katılmış** , yönettiğiniz gelen hello Azure AD etki alanı Hizmetleri yönetilen etki alanı. Bu tür bir sanal makine yoksa, başlıklı hello makalesinde ana hatlarıyla tüm hello görevleri izleyin [Windows sanal makine tooa yönetilen etki alanına Katıl](active-directory-ds-admin-guide-join-windows-vm.md).
+5. Hello kimlik bilgilerini gereken bir **kullanıcı hesabına ait toohello 'AAD DC Yöneticiler' grubu** dizininizde, yönetilen etki alanınız için DNS tooadminister.
 
 <br>
 
-## <a name="task-1---provision-a-domain-joined-virtual-machine-to-remotely-administer-dns-for-the-managed-domain"></a>Görev 1 - yönetilen etki alanı için DNS uzaktan yönetmek için bir etki alanına katılmış sanal makine sağlama
-Azure AD etki alanı Hizmetleri yönetilen etki alanları, Active Directory Yönetim Merkezi (ADAC) veya AD PowerShell gibi bilinen Active Directory yönetim araçlarını kullanarak uzaktan yönetilebilir. Benzer şekilde, yönetilen etki alanı için DNS DNS sunucu yönetim araçları kullanarak uzaktan yönetilebilir.
+## <a name="task-1---provision-a-domain-joined-virtual-machine-tooremotely-administer-dns-for-hello-managed-domain"></a>Görev 1 - provizyon sanal makine etki alanına katılmış tooremotely hello yönetilen etki alanı için DNS yönetme
+Azure AD etki alanı Hizmetleri yönetilen etki alanları, Active Directory Yönetim Merkezi (ADAC) veya AD PowerShell hello gibi bilinen Active Directory yönetim araçlarını kullanarak uzaktan yönetilebilir. Benzer şekilde, hello yönetilen etki alanı için DNS hello DNS sunucu yönetim araçları kullanarak uzaktan yönetilebilir.
 
-Yöneticiler, Azure AD dizini, Uzak Masaüstü aracılığıyla yönetilen etki alanında etki alanı denetleyicisine bağlanmak için ayrıcalıklara sahip değil. 'AAD DC Yöneticiler' grubunun üyeleri, yönetilen etki alanına katılmış bir Windows Server/istemci bilgisayardan DNS sunucu araçları kullanarak uzaktan yönetilen etki alanları için DNS yönetebilirsiniz. DNS sunucusu araçları, Windows Server ve yönetilen etki alanına katılan istemci makineleri Uzak Sunucu Yönetim Araçları (RSAT) isteğe bağlı özellik bir parçası olarak yüklenebilir.
+Azure AD dizininizi yöneticileri ayrıcalıkları tooconnect toodomain denetleyicileri hello Uzak Masaüstü aracılığıyla yönetilen etki alanında yok. Merhaba 'AAD DC Yöneticiler' grubunun üyeleri, yönetilen etki alanına katılmış toohello bir Windows Server/istemci bilgisayardan DNS sunucu araçları kullanarak uzaktan yönetilen etki alanları için DNS yönetebilirsiniz. DNS sunucusu araçları hello Uzak Sunucu Yönetim Araçları (RSAT) Windows Server'da isteğe bağlı bir özellik bir parçası olarak yüklenebilir ve istemci makineleri toohello yönetilen etki alanına katıldı.
 
-İlk yönetilen etki alanına katılmış bir Windows Server sanal makine sağlamak için bir görevdir. Yönergeler için başlıklı makaleye bakın [bir Windows Server sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılmak](active-directory-ds-admin-guide-join-windows-vm.md).
+Merhaba ilk tooprovision birleştirilmiş toohello yönetilen etki alanı olan bir Windows Server sanal makineye bir görevdir. Yönergeler için başlıklı toohello makalesine başvurun [Windows Server sanal makine tooan Azure AD etki alanı Hizmetleri yönetilen etki alanına Katıl](active-directory-ds-admin-guide-join-windows-vm.md).
 
-## <a name="task-2---install-dns-server-tools-on-the-virtual-machine"></a>Görev 2 - sanal makineye yükleme DNS Sunucusu Araçları
-Etki alanına katılmış sanal makinede DNS Yönetim Araçları'nı yüklemek için aşağıdaki adımları gerçekleştirin. Daha fazla bilgi için [yükleme ve uzak sunucu yönetim araçları kullanarak](https://technet.microsoft.com/library/hh831501.aspx), Technet konusuna bakın.
+## <a name="task-2---install-dns-server-tools-on-hello-virtual-machine"></a>Görev 2 - hello sanal makineye yükleme DNS Sunucusu Araçları
+Adımları tooinstall hello DNS Yönetim Araçları hello etki alanına katılmış sanal makinede aşağıdaki hello gerçekleştirin. Daha fazla bilgi için [yükleme ve uzak sunucu yönetim araçları kullanarak](https://technet.microsoft.com/library/hh831501.aspx), Technet konusuna bakın.
 
-1. Gidin **sanal makineleri** Azure Klasik Portalı'ndaki düğüm. Görev 1'de oluşturduğunuz sanal makineyi seçin ve tıklatın **Bağlan** pencerenin altındaki komut çubuğunda.
+1. Çok gidin**sanal makineleri** hello Klasik Azure portalı düğümünde. Görev 1'de oluşturduğunuz Hello sanal makineyi seçin ve tıklatın **Bağlan** hello hello pencerenin hello altındaki komut çubuğunda.
 
-    ![Windows sanal makineye bağlanma](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-2. Klasik Portalı'nı açın ya da sanal makineye bağlanmak için kullanılan bir '.rdp' uzantısına sahip bir dosyayı kaydetmek isteyip istemediğinizi sorar. Yükleme tamamlandığında dosyayı tıklatın.
-3. Oturum açma isteminde 'AAD DC Yöneticiler' grubuna ait olan bir kullanıcının kimlik bilgilerini kullanın. Örneğin, kullandığımız 'bob@domainservicespreview.onmicrosoft.com' bizim durumda.
-4. Başlangıç ekranından açmak **Sunucu Yöneticisi'ni**. Tıklatın **rol ve Özellik Ekle** merkezi bölmesinde Sunucu Yöneticisi penceresi.
+    ![TooWindows sanal makineye bağlanma](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
+2. Merhaba Klasik portal tooopen komut istemleri veya kullanılan tooconnect toohello sanal makine olduğu '.rdp' uzantılı bir dosyayı kaydedin. Yükleme tamamlandığında hello dosyasına tıklayın.
+3. Merhaba oturum açma isteminde hello toohello 'AAD DC Yöneticiler' grubuna ait olan bir kullanıcı kimlik bilgilerini kullanın. Örneğin, kullandığımız 'bob@domainservicespreview.onmicrosoft.com' bizim durumda.
+4. Merhaba başlangıç ekranından açmak **Sunucu Yöneticisi'ni**. Tıklatın **rol ve Özellik Ekle** hello merkezi bölmesinde hello Sunucu Yöneticisi penceresi.
 
     ![Sanal makine üzerinde Sunucu Yöneticisi'ni başlatın](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
-5. Üzerinde **başlamadan önce** sayfasında **Ekle roller ve Özellikler Sihirbazı**, tıklatın **sonraki**.
+5. Merhaba üzerinde **başlamadan önce** hello sayfasının **Ekle roller ve Özellikler Sihirbazı**, tıklatın **sonraki**.
 
     ![Başlamadan önce sayfası](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
-6. Üzerinde **yükleme türü** sayfasında, bırakın **rol tabanlı veya özellik tabanlı yükleme** işaretli seçeneğini ve tıklayın **sonraki**.
+6. Merhaba üzerinde **yükleme türü** sayfasında, hello bırakın **rol tabanlı veya özellik tabanlı yükleme** işaretli seçeneğini ve tıklayın **sonraki**.
 
     ![Yükleme türü sayfası](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
-7. Üzerinde **sunucu seçimi** sayfasında, sunucu havuzundan geçerli sanal makine seçin ve tıklayın **sonraki**.
+7. Merhaba üzerinde **sunucu seçimi** sayfasında hello sunucu havuzundan hello geçerli sanal makine seçin ve tıklatın **sonraki**.
 
     ![Sunucu seçimi sayfası](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
-8. Üzerinde **sunucu rolleri** sayfasında, **sonraki**. Biz herhangi bir rol sunucuda yüklemiyorsanız beri Biz bu sayfayı atla.
-9. Üzerinde **özellikleri** sayfası, genişletmek için tıklatın **Uzak Sunucu Yönetim Araçları** düğümü genişletmek için tıklayın ve sonra **Rol Yönetim Araçları** düğümü. Seçin **DNS Sunucusu Araçları** rol yönetim araçları listesinden özelliği.
+8. Merhaba üzerinde **sunucu rolleri** sayfasında, **sonraki**. Biz herhangi bir rol hello sunucusuna yüklemiyorsanız beri Biz bu sayfayı atla.
+9. Merhaba üzerinde **özellikleri** tooexpand hello sayfasında, **Uzak Sunucu Yönetim Araçları** düğümü ve tooexpand hello ardından **Rol Yönetim Araçları** düğümü. Seçin **DNS Sunucusu Araçları** Rol Yönetim Araçları'nın hello listeden özelliği.
 
     ![Özellikler sayfası](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
-10. Üzerinde **onay** sayfasında, **yükleme** DNS Sunucusu Araçları özelliği sanal makineye yüklemek için. Özellik yükleme işlemi başarıyla tamamlandığında tıklatın **Kapat** çıkmak için **rol ve Özellik Ekle** Sihirbazı.
+10. Merhaba üzerinde **onay** sayfasında, **yükleme** tooinstall hello DNS sunucu araçları hello sanal makinede özelliği. Özellik yükleme işlemi başarıyla tamamlandığında tıklatın **Kapat** tooexit hello **rol ve Özellik Ekle** Sihirbazı.
 
     ![Onay sayfası](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-confirmation.png)
 
-## <a name="task-3---launch-the-dns-management-console-to-administer-dns"></a>Görev 3 - DNS yönetmek için DNS management konsolunu başlatın
-DNS Sunucusu Araçları özelliği yüklü göre sanal makine etki alanına katıldı, biz DNS araçları yönetilen etki alanı DNS yönetmek için kullanabilirsiniz.
+## <a name="task-3---launch-hello-dns-management-console-tooadminister-dns"></a>Görev 3 - başlatma hello DNS Yönetim Konsolu tooadminister DNS
+Etki alanına katılmış sanal makine Hello DNS Sunucusu Araçları özelliği yüklü Merhaba, hello DNS araçları tooadminister DNS hello yönetilen etki alanında kullanabilirsiniz.
 
 > [!NOTE]
-> Yönetilen etki alanı DNS yönetmek için 'AAD DC Yöneticiler' grubunun bir üyesi olmanız gerekir.
+> Toobe tooadminister hello yönetilen etki alanı DNS hello 'AAD DC Yöneticiler' grubunun bir üyesine gerekir.
 >
 >
 
-1. Başlangıç ekranından tıklatın **Yönetimsel Araçlar**. Görmeniz gerekir **DNS** sanal makinede yüklü konsol.
+1. Merhaba başlangıç ekranından tıklatın **Yönetimsel Araçlar**. Merhaba görmelisiniz **DNS** hello sanal makinede yüklü konsol.
 
     ![Yönetim Araçları - DNS konsolunu](./media/active-directory-domain-services-admin-guide/install-rsat-dns-tools-installed.png)
-2. Tıklatın **DNS** DNS Yönetimi konsolunu başlatın.
-3. İçinde **DNS sunucusuna bağlan** iletişim kutusunda, başlıklı seçeneğini **aşağıdaki bilgisayar**, yönetilen etki alanı (örneğin, ' contoso100.com') DNS etki alanı adını girin.
+2. Tıklatın **DNS** toolaunch hello DNS Yönetim Konsolu.
+3. Merhaba, **tooDNS sunucu bağlanmak** iletişim kutusunda, başlıklı hello seçeneğini **hello bilgisayar**ve hello yönetilen etki alanının (örneğin, ' contoso100.com') hello DNS etki alanı adını girin.
 
-    ![DNS konsolunu - etki alanına bağlayın](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
-4. DNS konsolunu yönetilen etki alanına bağlanır.
+    ![DNS konsolunu - toodomain Bağlan](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
+4. Merhaba DNS konsolunu toohello yönetilen etki alanına bağlanır.
 
     ![DNS konsolunu - etki alanını yönetme](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
-5. Şimdi, AAD etki alanı Hizmetleri'ni etkinleştirdikten sanal ağ içindeki bilgisayarlar için DNS girişleri eklemek için DNS konsolunu da kullanabilirsiniz.
+5. Merhaba DNS konsolunu tooadd DNS girişlerini artık AAD etki alanı Hizmetleri'ni etkinleştirdikten hello sanal ağ içindeki bilgisayarlar için de kullanabilirsiniz.
 
 > [!WARNING]
-> DNS Yönetim Araçları'nı kullanarak yönetilen etki alanı için DNS yönetirken, dikkatli olun. Sağlamak sizin **silmeyin veya etki alanındaki etki alanı Hizmetleri tarafından kullanılan yerleşik DNS kayıtlarını değiştirme**. Yerleşik DNS kayıtları etki alanı DNS kayıtları, ad sunucusu kayıtlarını ve DC konumu için kullanılan diğer kayıtlarını içerir. Bu kayıtları değiştirirseniz, etki alanı Hizmetleri'nin sanal ağda herhangi bir kesinti.
+> Yönetilen DNS yönetim araçları kullanarak etki alanı DNS Merhaba yönetme dikkatli olun. Sağlamak sizin **silmeyin veya hello etki alanındaki etki alanı Hizmetleri tarafından kullanılan hello yerleşik DNS kayıtlarını değiştirme**. Yerleşik DNS kayıtları etki alanı DNS kayıtları, ad sunucusu kayıtlarını ve DC konumu için kullanılan diğer kayıtlarını içerir. Bu kayıtları değiştirirseniz, etki alanı Hizmetleri hello sanal ağda herhangi bir kesinti.
 >
 >
 
-Bkz: [DNS araçları Technet makalesi](https://technet.microsoft.com/library/cc753579.aspx) DNS yönetme hakkında daha fazla bilgi için.
+Merhaba bkz [DNS araçları Technet makalesi](https://technet.microsoft.com/library/cc753579.aspx) DNS yönetme hakkında daha fazla bilgi için.
 
 ## <a name="related-content"></a>İlgili İçerik
 * [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](active-directory-ds-getting-started.md)
-* [Bir Windows Server sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Windows Server sanal makine tooan Azure AD etki alanı Hizmetleri yönetilen etki alanına Katıl](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Azure AD Domain Services tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
 * [DNS Yönetim Araçları](https://technet.microsoft.com/library/cc753579.aspx)

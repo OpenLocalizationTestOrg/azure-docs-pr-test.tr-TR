@@ -1,6 +1,6 @@
 ---
-title: "Azure Windows VM bağlı bir veri diski Genişlet | Microsoft Docs"
-description: "Bir Windows PowerShell kullanarak sanal makine için bağlı bir veri diski boyutu genişletin."
+title: "bir veri diski aaaExpand bağlı tooa Azure Windows VM | Microsoft Docs"
+description: "PowerShell kullanarak ekli tooa Windows sanal makine bir veri diski Hello boyutunu genişletin."
 services: virtual-machines-windows
 documentationcenter: na
 author: cynthn
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: cynthn
-ms.openlocfilehash: 5529856c2ffcd2942fe3fc2b438f7e3fd16a67b2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b16ad0da9cff9dfffc9dc9ec7dd72891e7ddd745
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="increase-the-size-of-a-data-disk-attached-to-a-windows-vm"></a>Bir Windows VM'ye ekli bir veri diski boyutunu artırın
+# <a name="increase-hello-size-of-a-data-disk-attached-tooa-windows-vm"></a>Bir veri bağlı disk tooa Windows VM Hello boyutunu artırın
 
-Sanal makineye bağlı veri diskin boyutunu artırmak gerekiyorsa, PowerShell kullanarak boyutunu artırabilirsiniz. Azure VM Ayarları'nda veri diski boyutu artırdıktan sonra ayrıca VM dahilinde yeni disk alanı ayırmak üzere gerekir.
+Tooincrease hello hello veri bağlı disk tooyour sanal makine boyutunu ihtiyacınız varsa, PowerShell kullanarak hello boyutunu artırabilir. Merhaba veri diski hello Azure VM ayarlarında hello boyutunu artırın sonra da tooallocate hello hello VM içinde yeni disk alanı gerekir.
 
 
-## <a name="use-powershell-to-increase-the-size-of-a-managed-data-disk"></a>Yönetilen veri diskin boyutunu artırmak için PowerShell kullanın
+## <a name="use-powershell-tooincrease-hello-size-of-a-managed-data-disk"></a>PowerShell tooincrease hello yönetilen veri diskin boyutunu kullanın
 
-Yönetilen veri diskin boyutunu artırmak için aşağıdaki PowerShell cmdlet'lerini kullanın:
+yönetilen veri diski, PowerShell cmdlet'leri aşağıdaki kullanım hello tooincrease hello boyutu:
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
@@ -37,18 +37,18 @@ Yönetilen veri diskin boyutunu artırmak için aşağıdaki PowerShell cmdlet'l
  | [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm)             |
 <br>
 
-Aşağıdaki komut dosyası VM bilgi alma, veri diski seçerek ve yeni boyutunu belirterek size yol gösterir.
+Hello aşağıdaki betiği hello VM bilgi alma, hello veri diski seçme ve hello yeni boyutunu belirtme size yol gösterir.
 
 ```powershell
 # Select resource group
 
     $rg = Get-AzureRMResourceGroup | Out-GridView `
-        -Title "Select the resource group" `
+        -Title "Select hello resource group" `
         -PassThru
 
     $rgName = $rg.ResourceGroupName
 
-# Select the VM
+# Select hello VM
 
     $vm = Get-AzureRMVM -ResourceGroupName $rgName `
         | Out-GridView `
@@ -61,32 +61,32 @@ Aşağıdaki komut dosyası VM bilgi alma, veri diski seçerek ve yeni boyutunu 
         -Title "Select a data disk" `
         -PassThru
 
-# Specify a larger size for the data disk
+# Specify a larger size for hello data disk
 
     $size =  Read-Host `
         -Prompt "New size in GB"
 
-# Stop and Deallocate VM prior to resizing data disk
+# Stop and Deallocate VM prior tooresizing data disk
 
     $vm | Stop-AzureRMVM -Force
 
-# Set the new disk size
+# Set hello new disk size
 
     $diskUpdateConfig = New-AzureRmDiskUpdateConfig -DiskSizeGB $size
 
-# Update the configuration in Azure
+# Update hello configuration in Azure
 
     $managedDisk = Get-AzureRmResource -ResourceId $disk.ManagedDisk.Id
     Update-AzureRmDisk -DiskName $managedDisk.ResourceName -ResourceGroupName $managedDisk.ResourceGroupName -DiskUpdate $diskUpdateConfig
 
-# Start the VM
+# Start hello VM
 
     Start-AzureRmVM -ResourceGroupName $rgName -VMName $vm.name
 ```
 
-## <a name="use-powershell-to-increase-the-size-of-an-unmanaged-data-disk"></a>Bir yönetilmeyen veri diskin boyutunu artırmak için PowerShell kullanın
+## <a name="use-powershell-tooincrease-hello-size-of-an-unmanaged-data-disk"></a>PowerShell tooincrease hello yönetilmeyen veri diskin boyutunu kullanın
 
-Yönetilmeyen veri diskleri depolama hesabındaki boyutunu artırmak için aşağıdaki PowerShell cmdlet'lerini kullanın:
+bir depolama hesabı, PowerShell cmdlet'leri aşağıdaki kullanım hello yönetilmeyen veri diskleri tooincrease hello boyutu:
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
@@ -96,7 +96,7 @@ Yönetilmeyen veri diskleri depolama hesabındaki boyutunu artırmak için aşa�
 
 <br>
 
-Aşağıdaki komut dosyası, veri diski seçerek ve yeni boyutunu belirterek VM ve depolama hesabı bilgileri alma size yol gösterir.
+Merhaba aşağıdaki betiği hello VM ve depolama hesabı bilgileri alınırken, hello veri diski seçme ve hello yeni boyutunu belirtme size yol gösterir.
 
 ```powershell
 
@@ -109,18 +109,18 @@ Aşağıdaki komut dosyası, veri diski seçerek ve yeni boyutunu belirterek VM 
 
     $rgName = $storageAccount.ResourceGroupName
 
-# Select the VM
+# Select hello VM
 
     $vm = Get-AzureRMVM `
     -ResourceGroupName $rgName | Out-GridView `
             -Title "Select a VM …" `
             -PassThru
 
-# Select Data Disk to resize
+# Select Data Disk tooresize
 
     $disk =
         $vm.DataDiskNames | Out-GridView `
-            -Title "Select a data disk to resize" `
+            -Title "Select a data disk tooresize" `
             -PassThru
 
 
@@ -129,28 +129,28 @@ Aşağıdaki komut dosyası, veri diski seçerek ve yeni boyutunu belirterek VM 
     $size =  Read-Host `
         -Prompt "New size in GB"
 
-# Stop and Deallocate VM prior to resizing data disk
+# Stop and Deallocate VM prior tooresizing data disk
 
     $vm | Stop-AzureRMVM -Force
 
-# Set the new disk size
+# Set hello new disk size
 
     Set-AzureRmVMDataDisk -VM $vm -Name "$disk" `
         -DiskSizeInGB $size
 
-# Update the configuration in Azure
+# Update hello configuration in Azure
 
     Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
-# Start the VM
+# Start hello VM
     Start-AzureRmVM -ResourceGroupName $rgName `
     -VMName $vm.name
 
 ```
 
-## <a name="allocate-the-unallocated-disk-space"></a>Ayrılmamış disk alanı Ayır
+## <a name="allocate-hello-unallocated-disk-space"></a>Merhaba ayrılmamış disk alanı Ayır
 
-Sürücü büyük yaptıktan sonra yeni ayrılmamış alan VM dahilinde ayırması gerekmez. Alan ayırmak için VM kullanımı için Disk Yönetimi'ni (diskmgmt.msc) bağlanabilir. Veya WinRM ve VM sertifikadaki etkinleştirilirse, oluşturduğunuz sırada diskini başlatmak için uzaktan PowerShell kullanabilirsiniz. Bir özel betik uzantısı de kullanabilirsiniz:
+Merhaba sürücü büyük yaptıktan sonra tooallocate hello yeni ayrılmamış alan hello VM içinde gerekir. tooallocate hello alanı toohello VM kullanım Disk Yönetimi'ni (diskmgmt.msc) bağlanabilir. Veya, oluşturduğunuz sırada WinRM ve hello VM sertifikadaki etkinleştirilirse, uzak PowerShell tooinitialize hello disk kullanabilirsiniz. Bir özel betik uzantısı de kullanabilirsiniz:
 
 ```powershell
     $location = "location-name"
@@ -159,7 +159,7 @@ Sürücü büyük yaptıktan sonra yeni ayrılmamış alan VM dahilinde ayırmas
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
 
-Komut dosyası gibi bir sürücü için en büyük boyutunu artırmak için bu kodu diskleri içerebilir:
+Merhaba komut dosyası gibi bir bu kodu tooincrease hello sürücü ayırma toohello en büyük boyutu hello diskleri içerebilir:
 
 ```powershell
 $driveLetter= "F"

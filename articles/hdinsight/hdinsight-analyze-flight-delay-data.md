@@ -1,6 +1,6 @@
 ---
-title: "Uçuş gecikme verilerini hdınsight'ta - Azure Hadoop ile çözümleme | Microsoft Docs"
-description: "Hdınsight kümesi oluşturmak, bir Hive işi çalıştırın, Sqoop işini çalıştırın ve kümeyi silmek için bir Windows PowerShell komut dosyası kullanmayı öğrenin."
+title: "hdınsight'ta - Azure Hadoop ile aaaAnalyze uçuş gecikme veri | Microsoft Docs"
+description: "Merhaba kümesini silmek ve Sqoop iş Hive işini çalıştır toouse bir Windows PowerShell komut dosyası toocreate bir Hdınsight kümesi çalışma şeklini öğrenin."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -15,85 +15,85 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 77790136c9bd3a4e3f7dcabea2fbe0bcffb6eafe
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6ebaee65d9b270e5dc2141dd1265011d372f497d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümleme
 Hive sağlar Hadoop MapReduce işleri adlı bir SQL benzeri komut dosyası dili ile çalışan bir  *[HiveQL][hadoop-hiveql]*, hangi uygulanabilir özetlemeye doğrultusunda, sorgulama, ve büyük miktarda veriyi analiz etme.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar Windows tabanlı Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı bir küme ile çalışma adımları için bkz: [(Linux) hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümlemek](hdinsight-analyze-flight-delay-data-linux.md).
+> Merhaba bu belgedeki adımlar Windows tabanlı Hdınsight kümesi gerektirir. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı bir küme ile çalışma adımları için bkz: [(Linux) hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümlemek](hdinsight-analyze-flight-delay-data-linux.md).
 
-Azure Hdınsight, büyük avantajlarından biri veri depolama ve işlem ayrılmasıdır. Hdınsight Azure Blob Depolama, veri depolaması için kullanır. Tipik bir işi üç bölümden oluşur:
+Merhaba önemli yararlarından biri Azure Hdınsight hello veri depolama ve işlem ayrılmasıdır. Hdınsight Azure Blob Depolama, veri depolaması için kullanır. Tipik bir işi üç bölümden oluşur:
 
 1. **Verileri Azure Blob Depolama alanında depolar.**  Örneğin, verileri, algılayıcı verilerini, web günlükleri hava durumu ve bu durumda, uçuş gecikme verileri Azure Blob depolama alanına kaydedilir.
-2. **İşlerini çalıştırın.** Verileri bir Hdınsight kümesi oluşturmak için bir Windows PowerShell komut dosyası (veya bir istemci uygulaması) çalıştırmadan işleme zamanı geldiğinde işleri çalıştırma ve küme silin. İşlerini çıktı verileri Azure Blob depolama alanına kaydedin. Küme bile silindikten sonra çıktı verileri korunur. Bu şekilde, yalnızca ne, tüketilen için ücret ödersiniz.
-3. **Çıktı Azure Blob Depolama'dan alın**, veya Bu öğreticide, verileri bir Azure SQL veritabanına verebilirsiniz.
+2. **İşlerini çalıştırın.** Zaman tooprocess hello veriler olduğunda, bir Windows PowerShell komut dosyası (veya bir istemci uygulaması) çalıştırmak toocreate bir Hdınsight kümesi işleri çalıştırma ve hello küme silin. Çıktı veri tooAzure Blob Depolama kaydetme Hello işler. hatta hello kümesi silindikten sonra hello çıktı verileri korunur. Bu şekilde, yalnızca ne, tüketilen için ücret ödersiniz.
+3. **Azure Blob depolama alanından Hello çıkış almak**, veya Bu öğreticide, hello veri tooan Azure SQL veritabanını dışa aktarın.
 
-Aşağıdaki diyagram, senaryo ve bu öğreticinin yapısını gösterir:
+Merhaba Aşağıdaki diyagramda hello senaryo ve bu öğreticinin hello yapısı gösterilmektedir:
 
 ![HDI. FlightDelays.flow][img-hdi-flightdelays-flow]
 
-Diyagramdaki sayıları bölüm başlıkları karşılık unutmayın. **M** için ana işlem anlamına gelir. **A** ek içerik için anlamına gelir.
+Merhaba diyagramı Hello numaraları toohello bölüm başlıkları karşılık unutmayın. **M** hello ana işlem için anlamına gelir. **A** hello ek hello içeriği anlamına gelir.
 
-Öğreticinin ana bölümü, bir Windows PowerShell Betiği aşağıdaki görevleri gerçekleştirmek için nasıl kullanılacağını gösterir:
+Merhaba ana bölümü hello öğreticinin nasıl toouse bir Windows PowerShell komut dosyası tooperform hello aşağıdaki görevleri gösterir:
 
 * Hdınsight kümesi oluşturun.
-* Ortalama gecikmelerden havaalanları hesaplamak için küme üzerinde bir Hive işi çalıştırın. Uçuş gecikme veriler bir Azure Blob Depolama hesabında depolanır.
-* Hive işi çıkışı bir Azure SQL veritabanı için dışarı aktarmak için bir Sqoop işi çalıştırın.
-* Hdınsight kümesi silin.
+* Bir Hive işi hello küme toocalculate ortalama gecikme üzerinde havaalanları çalıştırın. Merhaba uçuş gecikme veriler bir Azure Blob Depolama hesabında depolanır.
+* Sqoop iş tooexport hello Hive işi çıkış tooan Azure SQL veritabanı çalıştırın.
+* Merhaba Hdınsight kümesi silin.
 
-İlişkisini, uçuş gecikme veri yüklemek, Hive sorgu dizesi oluşturma/yükleme ve Azure SQL veritabanı için Sqoop işi hazırlama için yönergeler bulabilirsiniz.
+Merhaba çok içinde uçuş gecikme veri yüklemek, Hive sorgu dizesi oluşturma/yükleme ve hello Azure SQL veritabanı için hello Sqoop işi hazırlama hello yönergelerini bulabilirsiniz.
 
 > [!NOTE]
-> Bu belgede yer alan adımlar Windows tabanlı Hdınsight kümelerine özeldir. Linux tabanlı bir küme ile çalışma adımları için bkz: [(Linux) hdınsight'ta Hive kullanarak uçuş gecikme verileri analiz](hdinsight-analyze-flight-delay-data-linux.md)
+> Merhaba bu belgedeki belirli tooWindows tabanlı Hdınsight kümeleri adımlardır. Linux tabanlı bir küme ile çalışma adımları için bkz: [(Linux) hdınsight'ta Hive kullanarak uçuş gecikme verileri analiz](hdinsight-analyze-flight-delay-data-linux.md)
 
 ### <a name="prerequisites"></a>Ön koşullar
-Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
+Bu öğreticiye başlamadan önce aşağıdaki öğelerindeki hello sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Azure PowerShell içeren bir iş istasyonu**.
 
     > [!IMPORTANT]
-    > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır. Bu belgede yer alan adımlar, Azure Resource Manager ile çalışan yeni HDInsight cmdlet'lerini kullanır.
+    > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır. Azure Resource Manager ile çalışan hello adımları bu belgenin kullanımı hello yeni Hdınsight cmdlet'lerini.
     >
-    > Azure PowerShell’in en son sürümünü yüklemek için lütfen [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs)’daki adımları uygulayın. Azure Resource Manager’la çalışan yeni cmdlet’lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, daha fazla bilgi için bkz. [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
+    > Lütfen başlangıç adımları izleyin [yüklemek ve Azure PowerShell yapılandırma](/powershell/azureps-cmdlets-docs) tooinstall hello en son Azure PowerShell sürümü. Komut dosyalarınız varsa bu gereksinimi toobe Azure Resource Manager ile çalışma toouse hello yeni cmdlet'leri değişiklik için bkz: [geçiş tooAzure Resource Manager tabanlı geliştirme araçları Hdınsight kümeleri için](hdinsight-hadoop-development-using-azure-resource-manager.md) daha fazla bilgi için.
 
 **Bu öğreticide kullanılan dosyaları**
 
-Bu öğretici uçak uçuş verileri zamanında performansını kullanır [araştırma ve yenilikçi teknoloji yönetim, taşıma İstatistik Enstitüsü veya RITA][rita-website].
-Verilerin bir kopyasını ortak Blob erişim izni olan bir Azure Blob Depolama kapsayıcısını karşıya yüklendi.
-PowerShell Betiği parçası Veri kümenizi varsayılan blob kapsayıcısına ortak blob kapsayıcısından kopyalar. HiveQL betiğini de Blob kapsayıcıya kopyalanır.
-Get/kendi depolama hesabına veri yükleme etme ve HiveQL komut dosyası oluşturun/karşıya yükleme, bkz bilgi edinmek istiyorsanız [ek A](#appendix-a) ve [ek B](#appendix-b).
+Bu öğretici hello zamanında performans uçak uçuş verilerini kullanır [araştırma ve yenilikçi teknoloji yönetim, taşıma İstatistik Enstitüsü veya RITA][rita-website].
+Veriler hello kopyasını tooan Azure Blob Depolama kapsayıcısını hello ortak Blob erişim iznine sahip karşıya yüklendi.
+PowerShell Betiği parçası hello ortak blob kapsayıcısı toohello varsayılan blob kapsayıcısından kümenizin hello verileri kopyalar. Merhaba betiğidir de HiveQL kopyalanan toohello aynı Blob kapsayıcısı.
+Toolearn istiyorsanız tooget/karşıya yükleme hello veri tooyour nasıl kendi depolama hesabı ve nasıl toocreate/karşıya yükleme hello HiveQL komut dosyası, bkz: [ek A](#appendix-a) ve [ek B](#appendix-b).
 
-Aşağıdaki tabloda, bu öğreticide kullanılan dosyaları listeler:
+Merhaba aşağıdaki tabloda Bu öğreticide kullanılan hello dosyaları listeler:
 
 <table border="1">
 <tr><th>Dosyalar</th><th>Açıklama</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Hive işi tarafından kullanılan HiveQL komut dosyası. Bu komut dosyasını bir Azure Blob Depolama hesabına genel erişim ile karşıya yüklendi. <a href="#appendix-b">Ek B</a> yönergeler hazırlama ve bu dosyayı karşıya yüklemeyi kendi Azure Blob storage hesabına sahiptir.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Hive işi için giriş verileri. Verileri Azure Blob Depolama hesabına genel erişim ile karşıya yüklendi. <a href="#appendix-a">Ek A</a> verileri almak ve veri kendi Azure Blob Depolama hesabına yükleniyor yönergeleri açmıştır.</td></tr>
-<tr><td>\tutorials\flightdelays\output</td><td>Hive işi için çıkış yolu. Varsayılan kapsayıcı, çıktı verilerini depolamak için kullanılır.</td></tr>
-<tr><td>\tutorials\flightdelays\jobstatus</td><td>Varsayılan kapsayıcı Hive işi durumu klasör.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Merhaba HiveQL komut dosyası tarafından hello Hive işi kullanılır. Bu komut dosyasını karşıya yüklenen tooan hello genel erişim ile Azure Blob Depolama hesabı olmuştur. <a href="#appendix-b">Ek B</a> hazırlama ve bu dosyayı tooyour kendi Azure Blob Depolama hesabı karşıya yükleme hakkında yönergeler vardır.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Merhaba Hive işi için giriş verileri. Merhaba verileri karşıya yüklenen tooan hello genel erişim ile Azure Blob Depolama hesabı olmuştur. <a href="#appendix-a">Ek A</a> hello verileri almak ve hello veri tooyour kendi Azure Blob Depolama hesabı karşıya yükleme yönergeleri açmıştır.</td></tr>
+<tr><td>\tutorials\flightdelays\output</td><td>Merhaba Hive işi Hello çıkış yolu. Merhaba varsayılan kapsayıcı hello çıktı verilerini depolamak için kullanılır.</td></tr>
+<tr><td>\tutorials\flightdelays\jobstatus</td><td>Merhaba Hive işi durumu klasör hello varsayılan kapsayıcı.</td></tr>
 </table>
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Küme oluşturma ve Hive/Sqoop işleri çalıştırma
-Hadoop MapReduce toplu işlemesidir. Hive işi çalıştırmak için en uygun maliyetli iş için bir küme oluşturmak ve işi tamamlandıktan sonra işi silmek için yoludur. Aşağıdaki komut dosyası tüm işlem kapsar.
+Hadoop MapReduce toplu işlemesidir. Merhaba en uygun maliyetli şekilde toorun Hive işi toocreate hello işi için bir kümedir ve hello iş tamamlandıktan sonra hello işi silin. Merhaba aşağıdaki betiği hello tüm işlem kapsar.
 Hdınsight kümesi oluşturma ve Hive işleri çalıştırma hakkında daha fazla bilgi için bkz: [Hdınsight'ta oluşturmak Hadoop kümeleri] [ hdinsight-provision] ve [Hdınsight ile Hive kullanma] [hdinsight-use-hive].
 
-**Azure PowerShell ile Hive sorguları çalıştırmak için**
+**Azure PowerShell toorun hello Hive sorguları**
 
-1. ' Ndaki yönergeleri kullanarak bir Azure SQL veritabanı ve tablo Sqoop iş çıktısı için oluşturma [ek C](#appendix-c).
-2. Windows PowerShell ISE açın ve aşağıdaki komut dosyasını çalıştırın:
+1. Merhaba yönergeleri kullanarak hello Sqoop iş çıktısı için bir Azure SQL veritabanı ve hello tablo oluşturma [ek C](#appendix-c).
+2. Windows PowerShell ISE açın ve komut dosyası izleyen hello çalıştırın:
 
     ```powershell
     $subscriptionID = "<Azure Subscription ID>"
     $nameToken = "<Enter an Alias>"
 
     ###########################################
-    # You must configure the follwing variables
+    # You must configure hello follwing variables
     # for an existing Azure SQL Database
     ###########################################
     $existingSqlDatabaseServerName = "<Azure SQL Database Server>"
@@ -102,10 +102,10 @@ Hdınsight kümesi oluşturma ve Hive işleri çalıştırma hakkında daha fazl
     $existingSqlDatabaseName = "<Azure SQL Database name>"
 
     $localFolder = "E:\Tutorials\Downloads\" # A temp location for copying files.
-    $azcopyPath = "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy" # depends on the version, the folder can be different
+    $azcopyPath = "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy" # depends on hello version, hello folder can be different
 
     ###########################################
-    # (Optional) configure the following variables
+    # (Optional) configure hello following variables
     ###########################################
 
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -115,10 +115,10 @@ Hdınsight kümesi oluşturma ve Hive işleri çalıştırma hakkında daha fazl
 
     $HDInsightClusterName = $namePrefix + "hdi"
     $httpUserName = "admin"
-    $httpPassword = "<Enter the Password>"
+    $httpPassword = "<Enter hello Password>"
 
     $defaultStorageAccountName = $namePrefix + "store"
-    $defaultBlobContainerName = $HDInsightClusterName # use the cluster name
+    $defaultBlobContainerName = $HDInsightClusterName # use hello cluster name
 
     $existingSqlDatabaseTableName = "AvgDelays"
     $sqlDatabaseConnectionString = "jdbc:sqlserver://$existingSqlDatabaseServerName.database.windows.net;user=$existingSqlDatabaseLogin@$existingSqlDatabaseServerName;password=$existingSqlDatabaseLogin;database=$existingSqlDatabaseName"
@@ -145,15 +145,15 @@ Hdınsight kümesi oluşturma ve Hive işleri çalıştırma hakkında daha fazl
     # Create ARM group
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-    # Create the default storage account
+    # Create hello default storage account
     New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName -Location $location -Type Standard_LRS
 
-    # Create the default Blob container
+    # Create hello default Blob container
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
     $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
     New-AzureStorageContainer -Name $defaultBlobContainerName -Context $defaultStorageAccountContext
 
-    # Create the HDInsight cluster
+    # Create hello HDInsight cluster
     $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
     $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
 
@@ -170,25 +170,25 @@ Hdınsight kümesi oluşturma ve Hive işleri çalıştırma hakkında daha fazl
         -DefaultStorageContainer $existingDefaultBlobContainerName
 
     ###########################################
-    # Prepare the HiveQL script and source data
+    # Prepare hello HiveQL script and source data
     ###########################################
 
-    # Create the temp location
+    # Create hello temp location
     New-Item -Path $localFolder -ItemType Directory -Force
 
-    # Download the sample file from Azure Blob storage
+    # Download hello sample file from Azure Blob storage
     $context = New-AzureStorageContext -StorageAccountName "hditutorialdata" -Anonymous
     $blobs = Get-AzureStorageBlob -Container "flightdelay" -Context $context
     #$blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
 
-    # Upload data to default container
+    # Upload data toodefault container
 
     $azcopycmd = "cmd.exe /C '$azcopyPath\azcopy.exe' /S /Source:'$localFolder' /Dest:'https://$defaultStorageAccountName.blob.core.windows.net/$defaultBlobContainerName/tutorials/flightdelays' /DestKey:$defaultStorageAccountKey"
 
     Invoke-Expression -Command:$azcopycmd
 
     ###########################################
-    # Submit the Hive job
+    # Submit hello Hive job
     ###########################################
     Use-AzureRmHDInsightCluster -ClusterName $HDInsightClusterName -HttpCredential $httpCredential
     $response = Invoke-AzureRmHDInsightHiveJob `
@@ -201,7 +201,7 @@ Hdınsight kümesi oluşturma ve Hive işleri çalıştırma hakkında daha fazl
     write-Host $response
 
     ###########################################
-    # Submit the Sqoop job
+    # Submit hello Sqoop job
     ###########################################
     $exportDir = "wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
 
@@ -231,29 +231,29 @@ Hdınsight kümesi oluşturma ve Hive işleri çalıştırma hakkında daha fazl
         -DisplayOutputType StandardError
 
     ###########################################
-    # Delete the cluster
+    # Delete hello cluster
     ###########################################
     Remove-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
     ```
-3. SQL veritabanına bağlama ve AvgDelays tablo şehirde ortalama uçuş gecikmelerinden bakın:
+3. Tooyour SQL veritabanına bağlanmak ve hello AvgDelays tablo şehirde ortalama uçuş gecikmelerinden bakın:
 
     ![HDI. FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
 
 - - -
 
-## <a id="appendix-a"></a>Ek A - karşıya yükleme uçuş gecikme verileri Azure Blob Depolama
-Veri dosyası ve HiveQL komut dosyaları karşıya yükleme (bkz [ek B](#appendix-b)) bazı planlama gerektirir. Veri dosyaları ve Hdınsight kümesi oluşturma ve Hive işi çalıştırma önce HiveQL dosyasını depolamak için kullanılan uygulamadır. İki seçeneğiniz vardır:
+## <a id="appendix-a"></a>Ek A - karşıya yükleme uçuş gecikme veri tooAzure Blob Depolama
+Merhaba veri dosyası ve hello HiveQL komut dosyaları karşıya yükleme (bkz [ek B](#appendix-b)) bazı planlama gerektirir. Merhaba toostore hello veri dosyaları ve Hdınsight kümesi oluşturma ve hello Hive işi çalıştırma önce hello HiveQL dosya olur. İki seçeneğiniz vardır:
 
-* **Varsayılan dosya sistemi olarak Hdınsight küme tarafından kullanılacak aynı Azure depolama hesabı kullanın.** Hdınsight kümesi depolama hesabı erişim tuşu sahip olacağından ek değişiklik gerekmez.
-* **Hdınsight küme varsayılan dosya sistemi farklı bir Azure Storage hesabını kullanın.** Bu durumda, Windows PowerShell komut dosyası bulundu oluşturma parçası değiştirmelisiniz [oluşturma Hdınsight kümesi ve çalışma Hive/Sqoop işleri](#runjob) ek depolama alanı hesabı olarak depolama hesabı bağlamak için. Yönergeler için bkz: [Hdınsight'ta oluşturmak Hadoop kümeleri][hdinsight-provision]. Hdınsight kümesi sonra depolama hesabının erişim anahtarı bilir.
+* **Kullanım hello aynı hello Hdınsight küme tarafından hello varsayılan dosya sistemi olarak kullanılacak Azure depolama hesabı.** Merhaba Hdınsight kümesi hello depolama hesabının erişim anahtarı olacağı için ek değişiklikler toomake gerekmez.
+* **Merhaba Hdınsight küme varsayılan dosya sistemi farklı bir Azure Storage hesabını kullanın.** Merhaba Durum buysa, hello oluşturma hello Windows PowerShell komut dosyası bulundu parçası değiştirmelisiniz [oluşturma Hdınsight kümesi ve çalışma Hive/Sqoop işleri](#runjob) toolink hello ek depolama alanı hesabı olarak depolama hesabı. Yönergeler için bkz: [Hdınsight'ta oluşturmak Hadoop kümeleri][hdinsight-provision]. Merhaba Hdınsight kümesi sonra hello hello depolama hesabı için erişim anahtarı bilir.
 
 > [!NOTE]
-> Blob Depolama yolu veri dosyası için HiveQL komut dosyasında kodlanmış zordur. Buna uygun şekilde güncelleştirmeniz gerekir.
+> Merhaba Blob Depolama yolu hello veri dosyası için sabit kodlanmış içinde hello HiveQL komut dosyasıdır. Buna uygun şekilde güncelleştirmeniz gerekir.
 
-**Uçuş veri indirmek için**
+**toodownload hello uçuş veri**
 
-1. Gözat [araştırma ve yenilikçi teknoloji yönetim, taşıma İstatistik kuruluşu][rita-website].
-2. Sayfasında, aşağıdaki değerleri seçin:
+1. Çok Gözat[araştırma ve yenilikçi teknoloji yönetim, taşıma İstatistik Enstitüsü][rita-website].
+2. Başlangıç sayfasında, aşağıdaki değerleri hello seçin:
 
     <table border="1">
     <tr><th>Ad</th><th>Değer</th></tr>
@@ -262,129 +262,129 @@ Veri dosyası ve HiveQL komut dosyaları karşıya yükleme (bkz [ek B](#appendi
     <tr><td>Alanları</td><td>*Yıl*, *FlightDate*, *UniqueCarrier*, *taşıyıcı*, *FlightNum*, *OriginAirportID* , *Kaynak*, *OriginCityName*, *OriginState*, *DestAirportID*, *hedef* , *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (diğer tüm alanlar Temizle)</td></tr>
     </table>
 3.Tıklatın **karşıdan**.
-4. Dosyanın sıkıştırmasını açın **C:\Tutorials\FlightDelay\2013Data** klasör. Her dosya, bir CSV dosyası ve yaklaşık 60 GB boyutunda.
-5. Dosya verilerini içeren ayın adını yeniden adlandırın. Örneğin, Ocak verilerini içeren dosyayı adlı *January.csv*.
-6. 2 ve her 12 ay 2013'te bir dosyayı indirmek için 5. adımları yineleyin. Öğretici çalıştırmak için bir dosya en az gerekir.
+4. Merhaba dosya toohello sıkıştırmasını **C:\Tutorials\FlightDelay\2013Data** klasör. Her dosya, bir CSV dosyası ve yaklaşık 60 GB boyutunda.
+5. Merhaba toohello verilerini içeren hello ayın yeniden adlandırın. Örneğin, hello dosya hello Ocak verileri içeren adlandırılmış *January.csv*.
+6. Adım 2 ve 5 toodownload bir dosyayı her hello için 12 ay 2013'te yineleyin. En az bir dosya toorun hello öğreticinin gerekir.
 
-**Uçuş gecikme verileri Azure Blob depolama alanına yüklemek için**
+**tooupload hello uçuş gecikme veri tooAzure Blob Depolama**
 
-1. Parametreleri hazırlayın:
+1. Merhaba parametreleri hazırlayın:
 
     <table border="1">
     <tr><th>Değişken adı</th><th>Notlar</th></tr>
-    <tr><td>$storageAccountName</td><td>Verileri karşıya yüklemek istediğiniz Azure depolama hesabı.</td></tr>
-    <tr><td>$blobContainerName</td><td>Verileri karşıya yüklemek istediğiniz Blob kapsayıcısı.</td></tr>
+    <tr><td>$storageAccountName</td><td>Merhaba tooupload hello verilerin istediğiniz Azure depolama hesabı.</td></tr>
+    <tr><td>$blobContainerName</td><td>Blob kapsayıcısı tooupload hello verilerin istediğiniz hello.</td></tr>
     </table>
 2. Azure PowerShell ISE açın.
-3. Aşağıdaki komut dosyası komut dosyası bölmesine yapıştırın:
+3. Komut dosyası hello betik bölmesine aşağıdaki hello yapıştırın:
 
     ```powershell
     [CmdletBinding()]
     Param(
 
         [Parameter(Mandatory=$True,
-                    HelpMessage="Enter the Azure storage account name for creating a new HDInsight cluster. If the account doesn't exist, the script will create one.")]
+                    HelpMessage="Enter hello Azure storage account name for creating a new HDInsight cluster. If hello account doesn't exist, hello script will create one.")]
         [String]$storageAccountName,
 
         [Parameter(Mandatory=$True,
-                    HelpMessage="Enter the Azure blob container name for creating a new HDInsight cluster. If not specified, the HDInsight cluster name will be used.")]
+                    HelpMessage="Enter hello Azure blob container name for creating a new HDInsight cluster. If not specified, hello HDInsight cluster name will be used.")]
         [String]$blobContainerName
     )
 
     #Region - Variables
-    $localFolder = "C:\Tutorials\FlightDelay\2013Data"  # The source folder
-    $destFolder = "tutorials/flightdelay/2013data"     #The blob name prefix for the files to be uploaded
+    $localFolder = "C:\Tutorials\FlightDelay\2013Data"  # hello source folder
+    $destFolder = "tutorials/flightdelay/2013data"     #hello blob name prefix for hello files toobe uploaded
     #EndRegion
 
-    #Region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #Region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{Login-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
-    Write-Host "`nValidating the Azure Storage account and the Blob container..." -ForegroundColor Green
-    # Validate the Storage account
+    Write-Host "`nValidating hello Azure Storage account and hello Blob container..." -ForegroundColor Green
+    # Validate hello Storage account
     if (-not (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}))
     {
-        Write-Host "The storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
+        Write-Host "hello storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
         exit
     }
     else{
         $resourceGroupName = (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}).ResourceGroupName
     }
 
-    # Validate the container
+    # Validate hello container
     $storageAccountKey = (Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
     $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
     if (-not (Get-AzureStorageContainer -Context $storageContext |Where-Object{$_.Name -eq $blobContainerName}))
     {
-        Write-Host "The Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
+        Write-Host "hello Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
         Exit
     }
     #EngRegion
 
-    #Region - Copy the file from local workstation to Azure Blob storage
+    #Region - Copy hello file from local workstation tooAzure Blob storage
     if (test-path -Path $localFolder)
     {
         foreach ($item in Get-ChildItem -Path $localFolder){
             $fileName = "$localFolder\$item"
             $blobName = "$destFolder/$item"
 
-            Write-Host "Copying $fileName to $blobName" -ForegroundColor Green
+            Write-Host "Copying $fileName too$blobName" -ForegroundColor Green
 
             Set-AzureStorageBlobContent -File $fileName -Container $blobContainerName -Blob $blobName -Context $storageContext
         }
     }
     else
     {
-        Write-Host "The source folder on the workstation doesn't exist" -ForegroundColor Red
+        Write-Host "hello source folder on hello workstation doesn't exist" -ForegroundColor Red
     }
 
-    # List the uploaded files on HDInsight
+    # List hello uploaded files on HDInsight
     Get-AzureStorageBlob -Container $blobContainerName  -Context $storageContext -Prefix $destFolder
     #EndRegion
     ```
-4. Betiği çalıştırmak için **F5**'e basın.
+4. Tuşuna **F5** toorun hello komut dosyası.
 
-Dosyaları yüklemek için farklı bir yöntem kullanmayı tercih ederseniz, lütfen flightdelay/öğreticileri/veri dosya yolu olduğundan emin olun. Dosyalara erişmek için sözdizimi aşağıdaki gibidir:
+Lütfen hello dosyaları karşıya yükleme için farklı bir yöntem toouse seçerseniz, flightdelay/öğreticileri/veri hello dosya yolu olduğundan emin olun. Merhaba dosyalara erişmek için hello sözdizimi aşağıdaki gibidir:
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
-Öğreticiler/flightdelay/veri yolu dosyaları karşıya yüklediğiniz sırada oluşturulan sanal klasörüdür. 12 dosyaları, her ay için bir tane olduğundan emin olun.
+Merhaba yolu öğreticileri/flightdelay/verilerini hello dosyaları karşıya yüklediğiniz sırada oluşturulan hello sanal klasörüdür. 12 dosyaları, her ay için bir tane olduğundan emin olun.
 
 > [!NOTE]
-> Yeni konumdan okumak için Hive sorgusu güncelleştirmeniz gerekir.
+> Merhaba Hive sorgusu tooread hello yeni konumdan güncelleştirmeniz gerekir.
 >
-> Genel veya Hdınsight kümesi için depolama hesabı bağlamak için kapsayıcı erişim izni ya da yapılandırmanız gerekir. Aksi takdirde, Hive sorgu dizesi veri dosyalarına erişmesini mümkün olmaz.
+> Merhaba kapsayıcı erişim izni toobe ortak yapılandırmak veya hello depolama hesabı toohello Hdınsight kümesine bağlayın. Aksi takdirde hello Hive sorgu dizesi mümkün tooaccess hello veri dosyalarını olmaz.
 
 - - -
 
 ## <a id="appendix-b"></a>Ek B - oluşturun ve HiveQL betiğini yükleyin
-Azure PowerShell kullanarak, aynı anda birden çok HiveQL ifadelerini bir çalıştırma veya bir komut dosyası HiveQL ifadesine paket. Bu bölümde HiveQL komut dosyası oluşturabilir ve Azure PowerShell kullanarak Azure Blob depolama alanına komut dosyasını karşıya gösterilmektedir. Hive Azure Blob Depolama alanında depolanacak HiveQL betikleri gerektirir.
+Azure PowerShell kullanarak, birden çok HiveQL ifadelerini tek bir saat veya paket hello HiveQL deyimi bir komut dosyasına çalıştırabilirsiniz. Bu bölümde, nasıl toocreate HiveQL betiğini ve karşıya yükleme hello tooAzure Blob Depolama Azure PowerShell kullanarak komut dosyası gösterir. Hive Azure Blob depolamada depolanan hello HiveQL betikleri toobe gerektirir.
 
-HiveQL betiğini aşağıdakileri gerçekleştirir:
+Merhaba HiveQL betiğini hello aşağıdakileri gerçekleştirir:
 
-1. **Delays_raw tablo bırakma**, tablo zaten mevcut durumda.
-2. **Delays_raw dış Hive tablosu oluşturmak** uçuş gecikme dosyalarıyla Blob depolama konumuna işaret eden. Bu sorgu alanları tarafından sınırlandırılır belirtir "," ve "tarafından \n" satırları sonlandırılır. Alan değerleri virgül içerdiğinde Hive alan sınırlayıcı virgül ve alan değeri parçası olan bir tane arasında ayrım çünkü bu bir sorun oluşturur (kaynak için alan değerlerini durumda olduğu\_ŞEHİR\_adı ve hedef\_ ŞEHİR\_adı). Bu sorunu çözmek için yanlış sütunlara bölme verileri tutmak için TEMP sütunları sorgu oluşturur.
-3. **Gecikmeler tablo bırakma**, tablo zaten mevcut durumda.
-4. **Gecikmeler tablosu oluşturma**. Daha fazla işleme önce verileri temizlemek yararlıdır. Bu sorgu yeni bir tablo oluşturur *gecikmeler*, delays_raw tablosundan. (Daha önce belirtildiği gibi) TEMP sütunları kopyalanmadı Not ve **substring** işlevi tırnak işaretleri verileri kaldırmak için kullanılır.
-5. **Ortalama hava durumu gecikmesi ve test sonuçlarını gruplar Şehir ada göre işlem.** Ayrıca Blob Depolama sonuçları çıktı. Sorgu kesme verileri kaldırır ve dışlayacak Not satırları değeri **weather_delay** null. Daha sonra Bu öğreticide kullanılan Sqoop, bu değerler varsayılan olarak işleyebilmesini değil çünkü bu gereklidir.
+1. **Merhaba delays_raw tablo bırakma**, hello tablo zaten mevcut durumda.
+2. **Merhaba delays_raw dış Hive tablosu oluşturmak** hello uçuş gecikme dosyalarıyla toohello Blob depolama konumuna işaret eden. Bu sorgu alanları tarafından sınırlandırılır belirtir "," ve "tarafından \n" satırları sonlandırılır. Alan değerleri virgül içerdiğinde Hive alan sınırlayıcı virgül ve alan değeri parçası olan bir tane arasında ayrım çünkü bu bir sorun oluşturur (kaynak için alan değerlerini hello durumda olduğu\_ŞEHİR\_adı ve hedef\_ ŞEHİR\_adı). tooaddress Bu, hello sorgu sütunlara yanlış bölme toohold veri TEMP sütunları oluşturur.
+3. **Başlangıç gecikmeleri tablo bırakma**, hello tablo zaten mevcut durumda.
+4. **Merhaba gecikmeler tablosu oluşturma**. Merhaba verileri yararlı tooclean başka bir işleme önce yoktur. Bu sorgu yeni bir tablo oluşturur *gecikmeler*, hello delays_raw tablosundan. (Daha önce belirtildiği gibi) hello TEMP sütunları kopyalanmadı Not ve o hello **substring** kullanılan tooremove tırnak işaretleri hello verilerden işlevdir.
+5. **Merhaba ortalama hava durumu gecikme ve grupları hello sonuçları Şehir ada göre işlem.** Ayrıca hello sonuçları tooBlob depolama çıktı. Hello sorgulayan kesme hello verilerden kaldıracak ve burada hello değeri için satır dışladığı Not **weather_delay** null. Daha sonra Bu öğreticide kullanılan Sqoop, bu değerler varsayılan olarak işleyebilmesini değil çünkü bu gereklidir.
 
-HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-hiveql]. Noktalı virgül Sonlandır her HiveQL komutu gerekir.
+Merhaba HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-hiveql]. Noktalı virgül Sonlandır her HiveQL komutu gerekir.
 
-**HiveQL komut dosyası oluşturmak için**
+**toocreate HiveQL komut dosyası**
 
-1. Parametreleri hazırlayın:
+1. Merhaba parametreleri hazırlayın:
 
     <table border="1">
     <tr><th>Değişken adı</th><th>Notlar</th></tr>
-    <tr><td>$storageAccountName</td><td>HiveQL betiğini karşıya yüklemek istediğiniz Azure depolama hesabı.</td></tr>
-    <tr><td>$blobContainerName</td><td>HiveQL betiğini karşıya yüklemek istediğiniz Blob kapsayıcısı.</td></tr>
+    <tr><td>$storageAccountName</td><td>Merhaba tooupload hello HiveQL betiğini istediğiniz Azure depolama hesabı.</td></tr>
+    <tr><td>$blobContainerName</td><td>Blob kapsayıcısı tooupload hello HiveQL betiğini istediğiniz hello.</td></tr>
     </table>
 2. Azure PowerShell ISE açın.
-3. Kopyalayın ve aşağıdaki komut dosyası komut dosyası bölmesine yapıştırın:
+3. Kopyalama ve yapıştırma hello betik bölmesine komut dosyası izleyen hello:
 
     ```powershell
     [CmdletBinding()]
@@ -392,11 +392,11 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
 
         # Azure Blob storage variables
         [Parameter(Mandatory=$True,
-                    HelpMessage="Enter the Azure storage account name for creating a new HDInsight cluster. If the account doesn't exist, the script will create one.")]
+                    HelpMessage="Enter hello Azure storage account name for creating a new HDInsight cluster. If hello account doesn't exist, hello script will create one.")]
         [String]$storageAccountName,
 
         [Parameter(Mandatory=$True,
-                    HelpMessage="Enter the Azure blob container name for creating a new HDInsight cluster. If not specified, the HDInsight cluster name will be used.")]
+                    HelpMessage="Enter hello Azure blob container name for creating a new HDInsight cluster. If not specified, hello HDInsight cluster name will be used.")]
         [String]$blobContainerName
     )
 
@@ -404,53 +404,53 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
     # Treat all errors as terminating
     $ErrorActionPreference = "Stop"
 
-    # The HiveQL script file is exported as this file before it's uploaded to Blob storage
+    # hello HiveQL script file is exported as this file before it's uploaded tooBlob storage
     $hqlLocalFileName = "e:\tutorials\flightdelay\flightdelays.hql"
 
-    # The HiveQL script file will be uploaded to Blob storage as this blob name
+    # hello HiveQL script file will be uploaded tooBlob storage as this blob name
     $hqlBlobName = "tutorials/flightdelay/flightdelays.hql"
 
-    # These two constants are used by the HiveQL script file
+    # These two constants are used by hello HiveQL script file
     #$srcDataFolder = "tutorials/flightdelay/data"
     $dstDataFolder = "/tutorials/flightdelay/output"
     #endregion
 
-    #Region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #Region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{Login-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
-    Write-Host "`nValidating the Azure Storage account and the Blob container..." -ForegroundColor Green
-    # Validate the Storage account
+    Write-Host "`nValidating hello Azure Storage account and hello Blob container..." -ForegroundColor Green
+    # Validate hello Storage account
     if (-not (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}))
     {
-        Write-Host "The storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
+        Write-Host "hello storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
         exit
     }
     else{
         $resourceGroupName = (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}).ResourceGroupName
     }
 
-    # Validate the container
+    # Validate hello container
     $storageAccountKey = (Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
     $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
     if (-not (Get-AzureStorageContainer -Context $storageContext |Where-Object{$_.Name -eq $blobContainerName}))
     {
-        Write-Host "The Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
+        Write-Host "hello Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
         Exit
     }
     #EngRegion
 
-    #region - Validate the file and file path
+    #region - Validate hello file and file path
 
-    # Check if a file with the same file name already exists on the workstation
-    Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
+    # Check if a file with hello same file name already exists on hello workstation
+    Write-Host "`nvalidating hello folder structure on hello workstation for saving hello HQL script file ..."  -ForegroundColor Green
     if (test-path $hqlLocalFileName){
 
-        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
+        $isDelete = Read-Host 'hello file, ' $hqlLocalFileName ', exists.  Do you want toooverwirte it? (Y/N)'
 
         if ($isDelete.ToLower() -ne "y")
         {
@@ -458,7 +458,7 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
         }
     }
 
-    # Create the folder if it doesn't exist
+    # Create hello folder if it doesn't exist
     $folder = split-path $hqlLocalFileName
     if (-not (test-path $folder))
     {
@@ -468,8 +468,8 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
     }
     #end region
 
-    #region - Write the Hive script into a local file
-    Write-Host "`nWriting the Hive script into a file on your workstation ..." `
+    #region - Write hello Hive script into a local file
+    Write-Host "`nWriting hello Hive script into a file on your workstation ..." `
                 -ForegroundColor Green
 
     $hqlDropDelaysRaw = "DROP TABLE delays_raw;"
@@ -539,42 +539,42 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
     $hqlScript | Out-File $hqlLocalFileName -Encoding ascii -Force
     #endregion
 
-    #region - Upload the Hive script to the default Blob container
-    Write-Host "`nUploading the Hive script to the default Blob container ..." -ForegroundColor Green
+    #region - Upload hello Hive script toohello default Blob container
+    Write-Host "`nUploading hello Hive script toohello default Blob container ..." -ForegroundColor Green
 
     # Create a storage context object
     $storageAccountKey = (Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-    # Upload the file from local workstation to Blob storage
+    # Upload hello file from local workstation tooBlob storage
     Set-AzureStorageBlobContent -File $hqlLocalFileName -Container $blobContainerName -Blob $hqlBlobName -Context $destContext
     #endregion
 
-    Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
+    Write-host "`nEnd of hello PowerShell script" -ForegroundColor Green
     ```
 
-    Komut dosyasında kullanılan değişkenleri şunlardır:
+    Merhaba komut dosyasında kullanılan hello değişkenleri şunlardır:
 
-   * **$hqlLocalFileName** -komut dosyası HiveQL komut dosyası yerel olarak Blob depolama alanına karşıya yüklemeden önce kaydeder. Bu dosya adı değil. Varsayılan değer <u>C:\tutorials\flightdelay\flightdelays.hql</u>.
-   * **$hqlBlobName** -Azure Blob depolama alanına kullanılan HiveQL komut dosyası blob adı budur. Tutorials/flightdelay/flightdelays.hql varsayılan değerdir. Dosyayı doğrudan Azure Blob depolama alanına yazılır, var olmadığından bir "/" blob adının başında. Blob depolama alanından dosyaya erişmek istiyorsanız, bir "/" dosya adının başında eklemeniz gerekir.
+   * **$hqlLocalFileName** -hello betik kaydeder hello HiveQL komut dosyası yerel olarak yüklemeden önce tooBlob depolama. Merhaba dosya adı değil. Merhaba varsayılan değer <u>C:\tutorials\flightdelay\flightdelays.hql</u>.
+   * **$hqlBlobName** -hello Azure Blob Depolama kullanılan hello HiveQL komut dosyası blob adı budur. tutorials/flightdelay/flightdelays.hql Hello varsayılan değerdir. Merhaba dosyasını doğrudan tooAzure Blob depolama alanına yazılır, var olmadığından bir "/" Merhaba başında hello blob adı. Blob depolama biriminden tooaccess hello dosyanın istiyorsanız, tooadd gerekir bir "/" Merhaba başında hello dosya adı.
    * **$srcDataFolder** ve **$dstDataFolder** -"flightdelay/öğreticileri/data" = "flightdelay/öğreticileri/çıktı" =
 
 - - -
-## <a id="appendix-c"></a>Ek C - Sqoop iş çıktısı Azure SQL veritabanını hazırlama
-**SQL veritabanını hazırlamak için (Sqoop komut dosyasıyla Birleştir)**
+## <a id="appendix-c"></a>Ek C - hello Sqoop iş çıktısı için bir Azure SQL veritabanı hazırlama
+**tooprepare hello SQL veritabanı (Merhaba Sqoop betik ile Birleştir)**
 
-1. Parametreleri hazırlayın:
+1. Merhaba parametreleri hazırlayın:
 
     <table border="1">
     <tr><th>Değişken adı</th><th>Notlar</th></tr>
-    <tr><td>$sqlDatabaseServerName</td><td>Azure SQL veritabanı sunucusu adı. Yeni bir sunucu oluşturmak için hiçbir şey girin.</td></tr>
-    <tr><td>$sqlDatabaseUsername</td><td>Azure SQL veritabanı sunucusu için oturum açma adı. $SqlDatabaseServerName var olan bir sunucu ise, oturum açma ve oturum açma parolası sunucunun kimliğini doğrulamak için kullanılır. Aksi halde bunlar yeni bir sunucu oluşturmak için kullanılır.</td></tr>
-    <tr><td>$sqlDatabasePassword</td><td>Azure SQL veritabanı sunucusu için oturum açma parolası.</td></tr>
+    <tr><td>$sqlDatabaseServerName</td><td>hello Azure SQL veritabanı sunucusunun adını Hello. Hiçbir şey girin toocreate yeni bir sunucu.</td></tr>
+    <tr><td>$sqlDatabaseUsername</td><td>hello Azure SQL veritabanı sunucusu için Hello oturum açma adı. $SqlDatabaseServerName var olan bir sunucu varsa hello oturum açma ve oturum açma parolası hello sunucusuyla kullanılan tooauthenticate edilir. Aksi takdirde kullanılan toocreate yeni bir sunucu oldukları.</td></tr>
+    <tr><td>$sqlDatabasePassword</td><td>hello Azure SQL veritabanı sunucusuna Hello oturum açma parolası.</td></tr>
     <tr><td>$sqlDatabaseLocation</td><td>Yalnızca yeni bir Azure veritabanı sunucusu oluştururken bu değeri kullanılır.</td></tr>
-    <tr><td>$sqlDatabaseName</td><td>Sqoop iş AvgDelays tablo oluşturmak için kullanılan SQL veritabanı. Boş bırakarak HDISqoop adlı bir veritabanı oluşturur. AvgDelays Sqoop iş çıktısı için tablo adıdır. </td></tr>
+    <tr><td>$sqlDatabaseName</td><td>Merhaba SQL veritabanı toocreate hello AvgDelays tablo hello Sqoop işi için kullanılır. Boş bırakarak HDISqoop adlı bir veritabanı oluşturur. Merhaba tablo hello Sqoop iş çıktısı AvgDelays adıdır. </td></tr>
     </table>
 2. Azure PowerShell ISE açın.
-3. Kopyalayın ve aşağıdaki komut dosyası komut dosyası bölmesine yapıştırın:
+3. Kopyalama ve yapıştırma hello betik bölmesine komut dosyası izleyen hello:
 
     ```powershell
     [CmdletBinding()]
@@ -582,30 +582,30 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
 
         # Azure Resource group variables
         [Parameter(Mandatory=$True,
-                HelpMessage="Enter the Azure resource group name. It will be created if it doesn't exist.")]
+                HelpMessage="Enter hello Azure resource group name. It will be created if it doesn't exist.")]
         [String]$resourceGroupName,
 
         # SQL database server variables
         [Parameter(Mandatory=$True,
-                HelpMessage="Enter the Azure SQL Database Server Name. It will be created if it doesn't exist.")]
+                HelpMessage="Enter hello Azure SQL Database Server Name. It will be created if it doesn't exist.")]
         [String]$sqlDatabaseServer,
 
         [Parameter(Mandatory=$True,
-                HelpMessage="Enter the Azure SQL Database admin user.")]
+                HelpMessage="Enter hello Azure SQL Database admin user.")]
         [String]$sqlDatabaseLogin,
 
         [Parameter(Mandatory=$True,
-                HelpMessage="Enter the Azure SQL Database admin user password.")]
+                HelpMessage="Enter hello Azure SQL Database admin user password.")]
         [String]$sqlDatabasePassword,
 
         [Parameter(Mandatory=$True,
-                HelpMessage="Enter the region to create the Database in.")]
+                HelpMessage="Enter hello region toocreate hello Database in.")]
         [String]$sqlDatabaseLocation,   #For example, West US.
 
         # SQL database variables
         [Parameter(Mandatory=$True,
-                HelpMessage="Enter the database name. It will be created if it doesn't exist.")]
-        [String]$sqlDatabaseName # specify the database name if you have one created. Otherwise use "" to have the script create one for you.
+                HelpMessage="Enter hello database name. It will be created if it doesn't exist.")]
+        [String]$sqlDatabaseName # specify hello database name if you have one created. Otherwise use "" toohave hello script create one for you.
     )
 
     # Treat all errors as terminating
@@ -632,8 +632,8 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
             )"
     #endregion
 
-    #Region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #Region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{Login-AzureRmAccount}
     #EndRegion
@@ -664,7 +664,7 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
         $workstationIPAddress = Invoke-RestMethod $ipAddressRestService
         New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -FirewallRuleName "$fireWallRuleName-workstation" -StartIpAddress $workstationIPAddress -EndIpAddress $workstationIPAddress
 
-        #To allow other Azure services to access the server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. Note that this allows Azure traffic from any Azure subscription to access the server.
+        #tooallow other Azure services tooaccess hello server add a firewall rule and set both hello StartIpAddress and EndIpAddress too0.0.0.0. Note that this allows Azure traffic from any Azure subscription tooaccess hello server.
         New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -FirewallRuleName "$fireWallRuleName-Azureservices" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
     }
 
@@ -682,7 +682,7 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
 
     #endregion
 
-    #region -  Execute an SQL command to create the AvgDelays table
+    #region -  Execute an SQL command toocreate hello AvgDelays table
 
     Write-Host "`nCreating SQL Database table ..."  -ForegroundColor Green
     $conn = New-Object System.Data.SqlClient.SqlConnection
@@ -695,23 +695,23 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
 
     $conn.close()
 
-    Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
+    Write-host "`nEnd of hello PowerShell script" -ForegroundColor Green
     ```
 
    > [!NOTE]
-   > Komut dosyasını bir temsili durum aktarımı (REST) hizmeti http://bot.whatismyipaddress.com, dış IP adresi almak için kullanır. IP adresi, SQL veritabanı sunucunuz için bir güvenlik duvarı kuralı oluşturmak için kullanılır.
+   > Merhaba komut dosyası kullanan bir temsili durum aktarımı (REST) hizmeti, http://bot.whatismyipaddress.com, tooretrieve dış IP adresi. Başlangıç IP adresi, SQL veritabanı sunucunuz için bir güvenlik duvarı kuralı oluşturmak için kullanılır.
 
-    Komut dosyasında kullanılan bazı değişkenler şunlardır:
+    Merhaba komut dosyasında kullanılan bazı değişkenler şunlardır:
 
-   * **$ipAddressRestService** -http://bot.whatismyipaddress.com varsayılan değerdir. Bir ortak IP adresi, dış IP adresi almak için REST hizmeti değil. İsterseniz diğer hizmetler kullanabilirsiniz. Böylece (bir Windows PowerShell komut dosyası kullanarak) veritabanı istasyonunuzdan erişebilirsiniz hizmet aracılığıyla alınan dış IP adresi, Azure SQL veritabanı sunucusu için bir güvenlik duvarı kuralı oluşturmak için kullanılır.
-   * **$fireWallRuleName** -güvenlik duvarı kuralı adı Azure SQL veritabanı sunucusu budur. Varsayılan ad <u>FlightDelay</u>. İstiyorsanız, onu yeniden adlandırabilirsiniz.
-   * **$sqlDatabaseMaxSizeGB** -yalnızca yeni bir Azure SQL veritabanı sunucusu oluştururken bu değer kullanılır. Varsayılan değer 10 GB'tır. Bu öğretici için 10GB yeterlidir.
-   * **$sqlDatabaseName** -yalnızca yeni bir Azure SQL veritabanı oluştururken bu değer kullanılır. HDISqoop varsayılan değerdir. Adlandırırsanız, Sqoop Windows PowerShell komut dosyasını uygun şekilde güncelleştirmeniz gerekir.
-4. Betiği çalıştırmak için **F5**'e basın.
-5. Komut dosyası çıkışını doğrulayın. Komut dosyası başarıyla çalıştırıldığını doğrulayın.
+   * **$ipAddressRestService** -hello varsayılan değerdir http://bot.whatismyipaddress.com. Bir ortak IP adresi, dış IP adresi almak için REST hizmeti değil. İsterseniz diğer hizmetler kullanabilirsiniz. (bir Windows PowerShell komut dosyası kullanarak) istasyonunuzdan hello veritabanı erişebilmeniz hello hizmeti aracılığıyla alınan hello dış IP adresi kullanılan toocreate Azure SQL veritabanı sunucunuz için bir güvenlik duvarı kuralı olacaktır.
+   * **$fireWallRuleName** -bu hello hello güvenlik duvarı kuralı hello Azure SQL veritabanı sunucusunun adıdır. Merhaba varsayılan ad <u>FlightDelay</u>. İstiyorsanız, onu yeniden adlandırabilirsiniz.
+   * **$sqlDatabaseMaxSizeGB** -yalnızca yeni bir Azure SQL veritabanı sunucusu oluştururken bu değer kullanılır. Merhaba varsayılan değer 10 GB'tır. Bu öğretici için 10GB yeterlidir.
+   * **$sqlDatabaseName** -yalnızca yeni bir Azure SQL veritabanı oluştururken bu değer kullanılır. HDISqoop Hello varsayılan değerdir. Adlandırırsanız, hello Sqoop Windows PowerShell Betiği uygun şekilde güncelleştirmeniz gerekir.
+4. Tuşuna **F5** toorun hello komut dosyası.
+5. Merhaba komut dosyası çıkışını doğrulayın. Merhaba komut dosyası başarıyla çalıştırıldığını doğrulayın.
 
 ## <a id="nextsteps"></a> Sonraki adımlar
-Şimdi bir dosyayı Azure Blob depolama alanına yüklemek nasıl, verileri Azure Blob depolama biriminden kullanarak bir Hive tablosu doldurmak nasıl, Hive sorgularını çalıştırma ve Sqoop veri HDFS bir Azure SQL veritabanı için dışarı aktarmak için nasıl kullanılacağını anlayın. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Anladığınızdan artık nasıl tooupload dosya tooAzure Blob storage, toopopulate bir Hive tablosu nasıl hello verileri Azure Blob depolama biriminden kullanarak nasıl toorun Hive sorguları ve nasıl toouse HDFS tooan Azure SQL veritabanından Sqoop tooexport veri. toolearn daha makaleler hello bakın:
 
 * [Hdınsight kullanmaya başlama][hdinsight-get-started]
 * [HDInsight ile Hive kullanma][hdinsight-use-hive]

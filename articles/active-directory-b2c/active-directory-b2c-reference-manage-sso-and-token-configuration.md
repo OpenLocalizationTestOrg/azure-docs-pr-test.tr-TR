@@ -12,17 +12,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 05/02/2017
 ms.author: sama
-ms.openlocfilehash: 8f5703d15766f221517cd89352d41685652d32d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b65271a22c77ea41eeec2126e4a3ad24364edd17
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C: SSO ve belirteç özelleştirme özel ilkeler ile yönetme
-Özel ilkelerini kullanma belirteci, oturum ve çoklu oturum açma (SSO) yapılandırmaları üzerinden aynı denetimi gibi yerleşik ilkeleri aracılığıyla sağlar.  Her ayar yaptıklarını öğrenmek için lütfen belgelere bakın [burada](#active-directory-b2c-token-session-sso).
+Özel ilkelerini kullanma gibi yerleşik ilkeleri aracılığıyla belirteci, oturum ve çoklu oturum açma (SSO) yapılandırmaları aynı denetime hello sağlar.  Her ayarın yapar, toolearn hello belgelerine bakın [burada](#active-directory-b2c-token-session-sso).
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Belirteç yaşam süresi ve talep yapılandırma
-Üzerinde belirteci, yaşam süresi ayarları değiştirmek için eklemeniz gerekir bir `<ClaimsProviders>` etkisi istediğiniz ilkeyi bağlı olan taraf dosyasındaki öğesi.  `<ClaimsProviders>` Bir alt öğedir `<TrustFrameworkPolicy>`.  İçinde belirteç yaşam süreleri etkiler bilgileri koymak gerekir.  XML şöyle görünür:
+belirteç, yaşam süresi toochange hello ayarlarını, gereksinim duyduğunuz tooadd bir `<ClaimsProviders>` öğesi hello bağlı olan taraf hello İlkesi tooimpact istediğiniz dosyada.  Merhaba `<ClaimsProviders>` öğesidir hello alt `<TrustFrameworkPolicy>`.  İçinde belirteç yaşam süreleri etkiler tooput hello bilgi gerekir.  Merhaba XML şöyle görünür:
 
 ```XML
 <ClaimsProviders>
@@ -44,28 +44,28 @@ ms.lasthandoff: 07/11/2017
 </ClaimsProviders>
 ```
 
-**Erişim belirteci yaşam süreleri** erişim belirteç ömrü içindeki değeri değiştirerek değiştirilebilir `<Item>` anahtarla "token_lifetime_secs" = saniye içinde.  Varsayılan yerleşik 3600 saniye (60 dakika) değerdir.
+**Erişim belirteci yaşam süreleri** hello belirteç ömrü hello içindeki hello değeri değiştirerek değiştirilebilir erişim `<Item>` hello anahtarı ile "token_lifetime_secs" = saniye içinde.  Merhaba varsayılan yerleşik 3600 saniye (60 dakika) değerdir.
 
-**Kimliği belirteç ömrü** kimliği belirteç ömrü içindeki değeri değiştirerek değiştirilebilir `<Item>` anahtarla "id_token_lifetime_secs" = saniye içinde.  Varsayılan yerleşik 3600 saniye (60 dakika) değerdir.
+**Kimliği belirteç ömrü** hello kimliği belirteç ömrü hello içindeki hello değeri değiştirerek değiştirilebilir `<Item>` hello anahtarı ile "id_token_lifetime_secs" = saniye içinde.  Merhaba varsayılan yerleşik 3600 saniye (60 dakika) değerdir.
 
-**Belirteç ömrü yenileme** yenileme belirteç ömrü içindeki değeri değiştirerek değiştirilebilir `<Item>` anahtarla "refresh_token_lifetime_secs" = saniye içinde.  Yerleşik varsayılan değeri 1209600 (14 gün) saniyedir.
+**Belirteç ömrü yenileme** hello yenileme belirteç ömrü hello içindeki hello değeri değiştirerek değiştirilebilir `<Item>` hello anahtarı ile "refresh_token_lifetime_secs" = saniye içinde.  Yerleşik Hello varsayılan değer 1209600 (14 gün) saniyedir.
 
-**Belirteç kayan pencere ömrü yenileme** yenileme belirtecinizi kayan bir pencere ömrü ayarlamak istiyorsanız içindeki değeri değiştirmek `<Item>` anahtarla "rolling_refresh_token_lifetime_secs" = saniye içinde.  7776000 (90 gün) içinde yerleşik varsayılan değerdir.  Bir kayan için enfore istemiyorsanız, Pencere Ömrü bu satırla değiştirin:
+**Belirteç kayan pencere ömrü yenileme** tooset bir kayan pencere ömrü tooyour yenileme belirteci isterseniz içindeki hello değeri değiştirmek `<Item>` hello anahtarı ile "rolling_refresh_token_lifetime_secs" = saniye içinde.  Merhaba varsayılan yerleşik 7776000 (90 gün) değerdir.  Tooenfore istemiyorsanız, bir kayan pencere ömrü bu satırla değiştirin:
 ```XML
 <Item Key="allow_infinite_rolling_refresh_token">True</Item>
 ```
 
-**Veren (ISS) talep** içindeki değeri veren (ISS) talep değiştirmek isterseniz, değiştirmek `<Item>` anahtarıyla = "IssuanceClaimPattern".  Geçerli değerler `AuthorityAndTenantGuid` ve `AuthorityWithTfp`.
+**Veren (ISS) talep** toochange hello veren (ISS) talep istiyorsanız, hello içindeki hello değeri değiştirin `<Item>` hello anahtarı ile = "IssuanceClaimPattern".  Merhaba geçerli değerler `AuthorityAndTenantGuid` ve `AuthorityWithTfp`.
 
-**Ayar talep İlkesi Kimliğini temsil eden** bu değeri ayarlamak için Seçenekler şunlardır: TFP (güven framework ilke) ve ACR (kimlik doğrulaması bağlamı başvuru).  
-Bu TFP için ayarı öneririz, bunu yapmak için olun `<Item>` ile anahtar = "AuthenticationContextReferenceClaimPattern" var ve değer `None`.
+**Ayar talep İlkesi Kimliğini temsil eden** bu değeri ayarlamak için hello seçeneklerdir TFP (güven framework ilke) ve ACR (kimlik doğrulaması bağlamı başvuru).  
+Bu tooTFP toodo bu ayarlamanız önerilir, hello olun `<Item>` hello anahtarı ile = "AuthenticationContextReferenceClaimPattern" var ve hello değer `None`.
 İçinde `<OutputClaims>` öğesi, bu öğe ekleyin:
 ```XML
 <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
 ```
-ACR için kaldırma `<Item>` anahtarıyla = "AuthenticationContextReferenceClaimPattern".
+Merhaba ACR için kaldırma `<Item>` hello anahtarı ile = "AuthenticationContextReferenceClaimPattern".
 
-**Konu (alt) talep** için geçiş yapmak istiyorsanız bu seçeneği objectID için alınır `Not Supported`, aşağıdakileri yapın:
+**Konu (alt) talep** bu seçenek tooswitch isterseniz tooObjectID, bu çok varsayılan`Not Supported`, aşağıdaki hello:
 
 Bu satırı değiştirin 
 ```XML
@@ -77,7 +77,7 @@ Bu satırla:
 ```
 
 ## <a name="session-behavior-and-sso"></a>Oturum davranışını ve SSO
-Oturum davranışını ve SSO yapılandırmaları değiştirmek için eklemeniz gerekir bir `<UserJourneyBehaviors>` öğesinin içine `<RelyingParty>` öğesi.  `<UserJourneyBehaviors>` Öğesi hemen uymalıdır `<DefaultUserJourney>`.  İçini, `<UserJourneyBehavors>` öğesi aşağıdaki gibi görünmelidir:
+toochange oturum davranışını ve SSO yapılandırmaları tooadd gereken bir `<UserJourneyBehaviors>` öğesinin hello içindeki `<RelyingParty>` öğesi.  Merhaba `<UserJourneyBehaviors>` öğesi hello hemen uymalıdır `<DefaultUserJourney>`.  içinde Merhaba, `<UserJourneyBehavors>` öğesi aşağıdaki gibi görünmelidir:
 
 ```XML
 <UserJourneyBehaviors>
@@ -86,8 +86,8 @@ Oturum davranışını ve SSO yapılandırmaları değiştirmek için eklemeniz 
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
-**Çoklu oturum açma (SSO) yapılandırma** değerini değiştirmenize gerek tek oturum açma yapılandırmasını değiştirmek için `<SingleSignOn>`.  Geçerli değerler `Tenant`, `Application`, `Policy` ve `Disabled`. 
+**Çoklu oturum açma (SSO) yapılandırma** toochange hello tek oturum açma yapılandırması, gereksinim duyduğunuz toomodify hello değerini `<SingleSignOn>`.  Merhaba geçerli değerler `Tenant`, `Application`, `Policy` ve `Disabled`. 
 
-**Web uygulaması oturum yaşam süresi (dakika)** değiştirmek için web uygulaması oturum yaşam değerini değiştirmek ihtiyacınız `<SessionExpiryInSeconds>` öğesi.  Varsayılan değer yerleşik ilkelerinde 86400 (1440 dakika) saniyedir.
+**Web uygulaması oturum yaşam süresi (dakika)** toochange hello hello web uygulaması oturum yaşam hello toomodify değerini gereksinim `<SessionExpiryInSeconds>` öğesi.  Merhaba varsayılan yerleşik ilkeleri 86400 saniyedir (1440 dakika) değerdir.
 
-**Web uygulaması oturum zaman aşımı** değerini değiştirmenize gerek web uygulaması oturum zaman aşımı süresini değiştirmek için `<SessionExpiryType>`.  Geçerli değerler `Absolute` ve `Rolling`.
+**Web uygulaması oturum zaman aşımı** toochange hello web uygulaması oturum zaman aşımı, gereksinim duyduğunuz toomodify hello değerini `<SessionExpiryType>`.  Merhaba geçerli değerler `Absolute` ve `Rolling`.

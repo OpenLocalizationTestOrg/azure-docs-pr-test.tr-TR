@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Projectplace | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve Projectplace arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ve Projectplace arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,109 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: bb9dd10c887cb0e42e544066d9b0dcfa554e10ce
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 95d109052096161f995ff26a18f8d64f0c4a3dc5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-projectplace"></a>Öğretici: Azure Active Directory Tümleştirme Projectplace ile
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Projectplace tümleştirmek öğrenin.
+Bu öğreticide, bilgi nasıl toointegrate Projectplace Azure Active Directory'ye (Azure AD).
 
-Projectplace Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Projectplace Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
 
-- Projectplace erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için Projectplace (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Erişim tooProjectplace sahip Azure AD'de kontrol edebilirsiniz
+- Kullanıcıların tooautomatically get açan tooProjectplace (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure AD tümleştirme Projectplace ile yapılandırmak için aşağıdaki öğeleri gerekir:
+tooconfigure Projectplace ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Projectplace çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden Projectplace ekleme
+1. Projectplace hello Galerisi'nden ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-projectplace-from-the-gallery"></a>Galeriden Projectplace ekleme
-Azure AD Projectplace tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Projectplace eklemeniz gerekir.
+## <a name="adding-projectplace-from-hello-gallery"></a>Projectplace hello Galerisi'nden ekleme
+Azure AD'ye tooconfigure hello tümleştirme Projectplace, tooadd Projectplace hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
 
-**Galeriden Projectplace eklemek için aşağıdaki adımları gerçekleştirin:**
+**tooadd Projectplace hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Projectplace**.
+4. Merhaba arama kutusuna yazın **Projectplace**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_search.png)
 
-5. Sonuçlar panelinde seçin **Projectplace**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Merhaba Sonuçlar panelinde seçin **Projectplace**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Projectplace sınayın.
 
-Tekli çalışmaya oturum için Azure AD Projectplace karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve Projectplace ilgili kullanıcı arasındaki bağlantıyı ilişki kurulması gerekir.
+Tek toowork'ın oturum açma hangi hello karşılık gelen Projectplace içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve Projectplace hello ilgili kullanıcı arasındaki bağlantıyı ilişki kurulan toobe gerekir.
 
-Projectplace içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Projectplace içinde hello hello değerini atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
 
-Yapılandırma ve Azure AD çoklu oturum açma Projectplace ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+tooconfigure ve Projectplace ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Projectplace test kullanıcısı oluşturma](#creating-a-projectplace-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Projectplace sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
+3. **[Projectplace test kullanıcısı oluşturma](#creating-a-projectplace-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Projectplace içinde karşılık gelen.
+4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Projectplace uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Projectplace uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma ile Projectplace yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**tooconfigure Azure AD çoklu oturum açma ile Projectplace, hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Projectplace** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Hello hello üzerinde Azure portal'ın **Projectplace** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_samlbase.png)
 
-3. Üzerinde **Projectplace etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **Projectplace etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<company>.projectplace.com`
+    Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<company>.projectplace.com`
 
     > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [Projectplace istemci destek ekibi](https://success.planview.com/Projectplace/Support) bu değeri alınamıyor. 
+    > Bu değer gerçek değil. Bu değer ile Merhaba güncelleştirme gerçek oturum açma URL'si. Kişi [Projectplace istemci destek ekibi](https://success.planview.com/Projectplace/Support) tooget bu değer. 
  
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_certificate.png) 
 
@@ -123,54 +123,54 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-projectplace-tutorial/tutorial_general_400.png)
 
-7. Çoklu oturum açma yapılandırmak için **Projectplace** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [Projectplace destek ekibi](https://success.planview.com/Projectplace/Support). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+7. tooconfigure çoklu oturum açma üzerinde **Projectplace** yan, indirilen toosend hello ihtiyacınız **meta veri XML** çok[Projectplace destek ekibi](https://success.planview.com/Projectplace/Support). Bunlar, bu ayar toohave hello iki tarafta da ayarlamanızı SAML SSO bağlantı ayarlayın.
 
 >[!NOTE]
->Tek oturum açma tarafından gerçekleştirilmek üzere yapılandırılmış [Projectplace destek ekibi](https://success.planview.com/Projectplace/Support). Yapılandırma tamamlandıktan hemen sonra bir bildirim alırsınız.
+>oturum açma Hello tek yapılandırmasına sahip hello tarafından gerçekleştirilen toobe [Projectplace destek ekibi](https://success.planview.com/Projectplace/Support). Merhaba Yapılandırma tamamlandıktan hemen sonra bir bildirim alırsınız.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-projectplace-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-projectplace-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-projectplace-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-projectplace-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-projectplace-test-user"></a>Projectplace test kullanıcısı oluşturma
 
-Azure AD kullanıcıların Projectplace oturum etkinleştirmek için bunların Projectplace sağlanmalıdır. Projectplace söz konusu olduğunda, sağlama bir el ile bir görevdir.
+Projectplace içine sipariş tooenable Azure AD kullanıcıların toolog bunların Projectplace sağlanmalıdır. Projectplace Hello durumda sağlama bir el ile bir görevdir.
 
-**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
+**bir kullanıcı hesabı tooprovision hello aşağıdaki adımları gerçekleştirin:**
 
-1. Oturum, **Projectplace** yönetici olarak şirket site.
+1. İçinde tooyour oturum **Projectplace** yönetici olarak şirket site.
 
-2. Git **kişiler**ve ardından **üyeleri**.
+2. Çok Git**kişiler**ve ardından **üyeleri**.
    
     ![Kişiler](./media/active-directory-saas-projectplace-tutorial/ic790228.png "kişiler")
 
@@ -178,36 +178,36 @@ Azure AD kullanıcıların Projectplace oturum etkinleştirmek için bunların P
    
     ![Üye eklemek](./media/active-directory-saas-projectplace-tutorial/ic790232.png "üyeleri Ekle")
 
-4. İçinde **Üye Ekle** bölümünde, aşağıdaki adımları gerçekleştirin:
+4. Merhaba, **Üye Ekle** bölümünde, hello aşağıdaki adımları gerçekleştirin:
    
     ![Yeni üyeler](./media/active-directory-saas-projectplace-tutorial/ic790233.png "yeni üyeler")
    
-    a. İçinde **yeni üyeler** metin kutusuna, istediğiniz ilgili metin kutularına sağlamayı geçerli bir AAD hesabıyla e-posta adresini yazın.
+    a. Merhaba, **yeni üyeler** ilgili metin kutuları metin kutusuna, hello tooprovision istediğiniz geçerli bir AAD hesabının hello e-posta adresini yazın.
    
     b. Tıklatın **Gönder**.
 
-   Azure Active Directory hesap sahibi için etkin hale önce hesabı onaylamak için bir bağlantı içeren bir e-posta gönderilir.
+   Etkin hale önce bir bağlantı tooconfirm hello hesabı da dahil olmak üzere bir e-posta toohello Azure Active Directory hesap sahibi gönderilir.
 
 >[!NOTE]
->API sağlama AAD kullanıcı hesaplarına Projectplace tarafından sağlanan veya herhangi diğer Projectplace kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
+>API AAD kullanıcı hesaplarının Projectplace tooprovision tarafından sağlanan veya herhangi diğer Projectplace kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
 
-Bu bölümde, Britta Projectplace için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, erişim tooProjectplace vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**Projectplace için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**tooassign Britta Simon tooProjectplace hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **Projectplace**.
+2. Merhaba uygulamalar listesinde **Projectplace**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -215,7 +215,7 @@ Bu bölümde, Britta Projectplace için erişim vererek, Azure çoklu oturum aç
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -223,14 +223,14 @@ Bu bölümde, Britta Projectplace için erişim vererek, Azure çoklu oturum aç
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Projectplace parçasında tıklattığınızda, otomatik olarak Projectplace uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
+Merhaba Projectplace hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Projectplace uygulama almanız gerekir.
+Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

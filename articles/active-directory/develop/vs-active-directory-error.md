@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory Bağlantı Sihirbazı ile hataları tanılama"
-description: "Active directory Bağlantı Sihirbazı'nı uyumsuz kimlik doğrulama türü algılandı"
+title: "aaaHow toodiagnose hatalarla hello Azure Active Directory Bağlantı Sihirbazı"
+description: "Merhaba active directory Bağlantı Sihirbazı uyumsuz kimlik doğrulama türü algılandı"
 services: active-directory
 documentationcenter: 
 author: kraigb
@@ -15,45 +15,45 @@ ms.topic: article
 ms.date: 03/05/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 4f29f62b2996cae98b02c1ed5fcb59eca09301ef
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f71c5b41457c0c8db05042e8d5f723e58ad11844
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="diagnosing-errors-with-the-azure-active-directory-connection-wizard"></a>Azure Active Directory Bağlantı Sihirbazı ile hataları tanılama
-Sihirbaz, önceki kimlik doğrulama kodu algılanırken uyumsuz kimlik doğrulama türü algıladı.   
+# <a name="diagnosing-errors-with-hello-azure-active-directory-connection-wizard"></a>Hello Azure Active Directory Bağlantı Sihirbazı ile hataları tanılama
+Önceki kimlik doğrulama kodu algılanırken hello Sihirbazı uyumsuz kimlik doğrulama türü algılandı.   
 
 ## <a name="what-is-being-checked"></a>Ne denetlenen?
-**Not:** doğru projede önceki kimlik doğrulama kodu algılamak için proje oluşturulmalıdır.  Bu hata ile karşılaştı ve önceki bir kimlik doğrulama kodu projenizde sahip değilseniz, yeniden oluşturun ve yeniden deneyin.
+**Not:** toocorrectly projede önceki kimlik doğrulama kodu algılamak, Merhaba projeyi yeniden oluşturulur.  Bu hata ile karşılaştı ve önceki bir kimlik doğrulama kodu projenizde sahip değilseniz, yeniden oluşturun ve yeniden deneyin.
 
 ### <a name="project-types"></a>Proje türleri
-Sihirbaz projeye sağ kimlik doğrulaması mantığı ekleyemezsiniz şekilde geliştirirken projesi türünü denetler.  Türetilen denetleyici ise `ApiController` projede Proje Webapı proje olarak kabul edilir.  Öğesinden türetilen denetleyicileri varsa `MVC.Controller` projesinde projeye MVC projesinde olarak kabul edilir.  Başka bir şey, sihirbaz tarafından desteklenmiyor.
+Merhaba Sihirbazı hello projeye hello doğru kimlik doğrulaması mantığı ekleyemezsiniz şekilde geliştirirken projesi hello türünü denetler.  Türetilen denetleyici ise `ApiController` hello projesinde Webapı proje başlangıç projesi olarak kabul edilir.  Öğesinden türetilen denetleyicileri varsa `MVC.Controller` hello projesinde MVC projesinde başlangıç projesi olarak kabul edilir.  Başka bir şey hello sihirbaz tarafından desteklenmiyor.
 
 ### <a name="compatible-authentication-code"></a>Uyumlu kimlik doğrulama kodu
-Sihirbaz aynı zamanda daha önce Sihirbazı ile yapılandırılmış veya Sihirbazı ile uyumlu olan kimlik doğrulama ayarlarını denetler.  Tüm ayarları varsa, içe servis talebi kabul edilir ve Sihirbazı açılır ayarları görüntüleyin.  Yalnızca bazı ayarlar mevcut bir hata durumu olarak kabul edilir.
+Başlangıç Sihirbazı'nı da önceden hello Sihirbazı ile yapılandırılmış veya hello Sihirbazı ile uyumlu olan kimlik doğrulama ayarlarını denetler.  Tüm ayarları varsa, bir a durumu olarak kabul edilir ve hello Sihirbazı açılır hello ayarları görüntüleyin.  Yalnızca bazı hello ayarlarını mevcut bir hata durumu olarak kabul edilir.
 
-MVC projesinde, sihirbazın önceki kullanımdan neden aşağıdaki ayarlardan birini Sihirbazı'nı denetler:
+MVC projesinde, Başlangıç Sihirbazı'nın önceki kullanımdan sonuç ayarları aşağıdaki hello hiçbirini hello Sihirbazı'nı denetler:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Ayrıca, herhangi bir Web API projesi Sihirbazı'nın önceki kullanımdan sonucunda aşağıdaki ayarları Sihirbazı'nı denetler:
+Ayrıca, herhangi bir hello Sihirbazı'nın önceki kullanımdan neden bir Web API projesi ayarlarında aşağıdaki hello için hello Sihirbazı'nı denetler:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:Audience" value="" />
 
 ### <a name="incompatible-authentication-code"></a>Uyumsuz kimlik doğrulama kodu
-Son olarak, sihirbaz, Visual Studio'nun önceki sürümleri ile yapılandırılan kimlik doğrulama kodu sürümleri algılamaya çalışır. Bu hatayı aldıysanız, projenizin bir uyumsuz kimlik doğrulama türünü içeren anlamına gelir. Sihirbaz, Visual Studio'nun önceki sürümleri kimlik doğrulamasını aşağıdaki türlerini algılar:
+Son olarak, Başlangıç Sihirbazı'nı toodetect Visual Studio'nun önceki sürümleri ile yapılandırılan kimlik doğrulama kodu sürümlerinde çalışır. Bu hatayı aldıysanız, projenizin bir uyumsuz kimlik doğrulama türünü içeren anlamına gelir. Merhaba Sihirbazı şu kimlik doğrulama türlerini Visual Studio'nun önceki sürümlerden hello algılar:
 
 * Windows Kimlik Doğrulaması 
 * Bireysel kullanıcı hesapları 
 * Kurumsal hesaplar 
 
-Sihirbaz Windows kimlik doğrulaması MVC projesinde algılamak için arar `authentication` öğesinden, **web.config** dosya.
+Windows kimlik doğrulaması toodetect MVC projesinde hello Sihirbazı görünür Merhaba `authentication` öğesinden, **web.config** dosya.
 
 <pre>
     &lt;configuration&gt;
@@ -63,7 +63,7 @@ Sihirbaz Windows kimlik doğrulaması MVC projesinde algılamak için arar `auth
     &lt;/configuration&gt;
 </pre>
 
-Sihirbaz Windows kimlik doğrulaması Web API projesinde algılamak için arar `IISExpressWindowsAuthentication` projenizin öğesinden **.csproj** dosyası:
+Windows kimlik doğrulaması toodetect Web API projesinde, Başlangıç Sihirbazı görünür Merhaba `IISExpressWindowsAuthentication` projenizin öğesinden **.csproj** dosyası:
 
 <pre>
     &lt;Project&gt;
@@ -73,7 +73,7 @@ Sihirbaz Windows kimlik doğrulaması Web API projesinde algılamak için arar `
     &lt;/Project&gt;
 </pre>
 
-Bireysel kullanıcı hesapları kimlik doğrulaması algılamak için paket öğesinden sihirbaz arar, **Packages.config** dosya.
+toodetect bireysel kullanıcı hesapları kimlik doğrulaması, Başlangıç Sihirbazı'nı hello paket öğesinden arar, **Packages.config** dosya.
 
 <pre>
     &lt;packages&gt;
@@ -81,7 +81,7 @@ Bireysel kullanıcı hesapları kimlik doğrulaması algılamak için paket öğ
     &lt;/packages&gt;
 </pre>
 
-Kurumsal hesap kimlik doğrulaması eski bir formu algılamak için aşağıdaki öğeyi sihirbaz arar **web.config**:
+toodetect eski tür Kurumsal hesap kimlik doğrulama, Başlangıç Sihirbazı'nı öğesinden aşağıdaki hello arar **web.config**:
 
 <pre>
     &lt;configuration&gt;
@@ -91,7 +91,7 @@ Kurumsal hesap kimlik doğrulaması eski bir formu algılamak için aşağıdaki
     &lt;/configuration&gt;
 </pre>
 
-Kimlik doğrulama türünü değiştirmek için uyumsuz kimlik doğrulama türünü kaldırmak ve sihirbazı yeniden çalıştırın.
+toochange hello kimlik doğrulama türü, hello uyumsuz kimlik doğrulama türünü kaldırmak ve hello Sihirbazı'nı yeniden çalıştırın.
 
 Daha fazla bilgi için bkz: [Azure AD için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md).
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure AD .NET web uygulaması Başlarken | Microsoft Docs"
+title: "Başlarken aaaAzure AD .NET web uygulaması | Microsoft Docs"
 description: "Oturum açma için Azure AD ile tümleşen bir .NET MVC web uygulaması oluşturun."
 services: active-directory
 documentationcenter: .net
@@ -15,44 +15,44 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 7ac5d3e5cc28ead993e159d003244e6451acb0cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6d3098c9e3d7e1916ccb110c703f501ae52e788f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>ASP.NET web uygulaması oturum açma ve Azure AD ile oturum kapatma
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Yalnızca birkaç kod satırıyla, tek bir oturum açma ve oturum kapatma sağlayarak, Azure Active Directory (Azure AD), web uygulaması kimlik yönetimi dış için kolaylaştırır. .NET (OWIN) ara yazılımı için açık Web arabirimi Microsoft uyarlamasını kullanarak ASP.NET web uygulamaları ve kullanıcıların imzalayabilirsiniz. OWIN ara yazılımı topluluk odaklı .NET Framework 4. 5 ' bulunur. Bu makale için OWIN kullanmayı gösterir:
+Yalnızca birkaç kod satırıyla, tek bir oturum açma ve oturum kapatma sağlayarak, Azure Active Directory (Azure AD), toooutsource web uygulaması için kimlik yönetimi basit kolaylaştırır. ASP.NET web uygulamaları ve kullanıcıların .NET (OWIN) ara yazılımı için açık Web arabirimi Microsoft uyarlamasını hello kullanarak oturum. OWIN ara yazılımı topluluk odaklı .NET Framework 4. 5 ' bulunur. Bu makalede gösterilmektedir nasıl toouse OWIN için:
 
-* Kullanıcıların kimlik sağlayıcısı olarak Azure AD kullanarak web uygulamaları için oturum açın.
+* Kullanıcıların tooweb uygulamalarda hello kimlik sağlayıcısı Azure AD kullanarak oturum açın.
 * Bazı kullanıcı bilgileri görüntüler.
-* Kullanıcıların uygulamaları dışında oturum açın.
+* Merhaba uygulamaları dışında kullanıcılar oturum açın.
 
 ## <a name="before-you-get-started"></a>Başlamadan önce
-* Karşıdan [uygulama çatıyı](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) veya karşıdan [tamamlanan örnek](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).
-* Ayrıca uygulamanın kaydedileceği Azure AD kiracısı gerekir. Azure AD kiracısı, zaten yoksa [edinebileceğinizi öğrenin](active-directory-howto-tenant.md).
+* Merhaba karşıdan [uygulama çatıyı](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) veya hello indirme [tamamlanan örnek](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).
+* Ayrıca hangi tooregister hello uygulamasında Azure AD kiracısı gerekir. Azure AD kiracısı, zaten yoksa [öğrenin nasıl tooget bir](active-directory-howto-tenant.md).
 
-Hazır olduğunuzda İleri dört bölümlerdeki yordamları izleyin.
+Hazır olduğunuzda İleri dört bölüm izleyin hello yordamlarda hello.
 
-## <a name="step-1-register-the-new-app-with-azure-ad"></a>1. adım: Azure AD ile yeni uygulamayı Kaydet
-Kullanıcıların kimliğini doğrulamak için önce aşağıdakileri yaparak kiracınızda kaydetmeniz uygulama ayarlamak için:
+## <a name="step-1-register-hello-new-app-with-azure-ad"></a>1. adım: Azure AD ile Merhaba yeni uygulamayı Kaydet
+Merhaba uygulama tooauthenticate kullanıcıları tooset ilk kaydedin, kiracınızda hello aşağıdakileri yaparak:
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Üst çubuğunda hesabınızın adını tıklatın. Altında **Directory** listesinde, uygulama kaydetmek istediğiniz Active Directory Kiracı seçin.
-3. Tıklatın **daha Hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba üst çubuğunda hesabınızın adını tıklatın. Merhaba altında **Directory** listesi, tooregister hello uygulama istediğiniz select hello Active Directory kiracısı.
+3. Tıklatın **daha Hizmetleri** hello sol bölmesinde ve ardından **Azure Active Directory**.
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
-5. Yeni bir oluşturmak için istemleri izleyin **Web uygulaması ve/veya Webapı**.
-  * **Ad** kullanıcılara uygulamasının açıklar.
-  * **Oturum açma URL'si** uygulamasının temel URL'si. Çatıyı ait varsayılan URL'dir https://localhost:44320 /.
-6. Kayıt tamamladıktan sonra Azure AD uygulama benzersiz uygulama kimliği atar. Sonraki bölümlerde kullanmak için uygulama sayfasında değerini kopyalayın.
-7. Gelen **ayarları** -> **özellikleri** sayfasında uygulamanız için uygulama kimliği URI'si güncelleştirin. **Uygulama kimliği URI'si** uygulama için benzersiz bir tanımlayıcıdır. Adlandırma kuralı `https://<tenant-domain>/<app-name>` (örneğin, `https://contoso.onmicrosoft.com/my-first-aad-app`).
+5. İzleyin hello ister yeni bir toocreate **Web uygulaması ve/veya Webapı**.
+  * **Ad** hello uygulama toousers açıklar.
+  * **Oturum açma URL'si** hello hello uygulamasının temel URL'si. Merhaba çatıyı'nın varsayılan URL'dir https://localhost:44320 /.
+6. Merhaba kaydı tamamladıktan sonra Azure AD hello uygulama benzersiz uygulama kimliği atar. Merhaba uygulama sayfası toouse hello sonraki bölümlerde Hello değerini kopyalayın.
+7. Merhaba gelen **ayarları** -> **özellikleri** sayfasında uygulamanız için uygulama kimliği URI'si hello güncelleştirin. Merhaba **uygulama kimliği URI'si** hello uygulama için benzersiz bir tanımlayıcıdır. Merhaba adlandırma kuralı olan `https://<tenant-domain>/<app-name>` (örneğin, `https://contoso.onmicrosoft.com/my-first-aad-app`).
 
-## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>2. adım: uygulama OWIN kimlik doğrulaması ardışık kullanmak için ayarlama.
-Bu adımda, Openıd Connect kimlik doğrulama protokolünü kullanmak için OWIN ara yazılımını yapılandırın. Oturum açma ve oturum kapatma isteklerini yürütmek, kullanıcı oturumlarını yönetmek, kullanıcı bilgilerini almak ve benzeri için OWIN kullanın.
+## <a name="step-2-set-up-hello-app-toouse-hello-owin-authentication-pipeline"></a>2. adım: hello uygulama toouse hello OWIN kimlik doğrulaması ardışık ayarlayın
+Bu adımda, hello OWIN ara yazılımı toouse hello Openıd Connect kimlik doğrulama protokolü yapılandırın. OWIN tooissue oturum açma ve oturum kapatma isteklerini kullanın, kullanıcı oturumlarını yönetmek, kullanıcı bilgilerini almak ve benzeri.
 
-1. Başlamak için Paket Yöneticisi konsolu kullanılarak OWIN ara yazılımı NuGet paketlerini projeye ekleyin.
+1. toobegin, hello Paket Yöneticisi konsolu kullanarak hello OWIN ara yazılımı NuGet paketleri toohello projesi ekleyin.
 
      ```
      PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -60,8 +60,8 @@ Bu adımda, Openıd Connect kimlik doğrulama protokolünü kullanmak için OWIN
      PM> Install-Package Microsoft.Owin.Host.SystemWeb
      ```
 
-2. Bir OWIN başlangıç sınıfı adlı projeye eklemek için `Startup.cs`, projeye sağ tıklayın, seçin **Ekle**seçin **yeni öğe**, arayın ve sonra **OWIN**. OWIN ara yazılımı çağırır **Configuration(...)**  uygulama başlatıldığında yöntemi.
-3. Sınıf bildirimi değiştirme `public partial class Startup`. Zaten bu sınıfın parçası sizin için başka bir dosyaya uyguladık. İçinde **Configuration(...)**  yöntemi çağrısına duruma **ConfgureAuth(...)**  uygulaması için kimlik doğrulamasını ayarlamak için.  
+2. OWIN başlangıç sınıfı toohello projesinde adlı tooadd `Startup.cs`, hello projesine sağ tıklayın, seçin **Ekle**seçin **yeni öğe**, arayın ve sonra **OWIN**. Merhaba OWIN ara yazılımı çağırır hello **Configuration(...)**  hello uygulama başlatıldığında yöntemi.
+3. Merhaba sınıf bildirimi çok değiştirmek`public partial class Startup`. Zaten bu sınıfın parçası sizin için başka bir dosyaya uyguladık. Merhaba, **Configuration(...)**  yöntemi, çok çağırmaya**ConfgureAuth(...)**  tooset hello uygulaması için kimlik doğrulama ayarlama.  
 
      ```C#
      public partial class Startup
@@ -73,7 +73,7 @@ Bu adımda, Openıd Connect kimlik doğrulama protokolünü kullanmak için OWIN
      }
      ```
 
-4. App_Start\Startup.Auth.cs dosyasını açın ve ardından uygulama **ConfigureAuth(...)**  yöntemi. Sağladığınız içinde parametreleri *OpenIDConnectAuthenticationOptions* Azure AD ile iletişim kurmak için uygulama koordinatları olarak hizmet. Openıd Connect ara yazılımı arka planda tanımlama bilgileri kullandığından ayrıca tanımlama bilgisi kimlik doğrulamasını kurmanız gerekir.
+4. Merhaba App_Start\Startup.Auth.cs dosyasını açın ve ardından hello uygulamak **ConfigureAuth(...)**  yöntemi. Merhaba, sağladığınız parametreler *OpenIDConnectAuthenticationOptions* hello uygulama toocommunicate Azure AD ile koordinatları olarak hizmet. Merhaba Openıd Connect Ara hello arka planda tanımlama bilgileri kullandığından tooset tanımlama bilgisi kimlik doğrulamasını ayarlamak da gerekir.
 
      ```C#
      public void ConfigureAuth(IAppBuilder app)
@@ -101,15 +101,15 @@ Bu adımda, Openıd Connect kimlik doğrulama protokolünü kullanmak için OWIN
      }
      ```
 
-5. Proje kök dizininde web.config dosyasını açın ve ardından yapılandırma değerlerini girin `<appSettings>` bölümü.
-  * `ida:ClientId`: Azure portalında kendisinden kopyaladığınız GUID "1. adım: Azure AD ile yeni uygulamayı kaydedin."
-  * `ida:Tenant`: Azure AD kiracınız (örneğin, contoso.onmicrosoft.com) adı.
-  * `ida:PostLogoutRedirectUri`: Bir kullanıcı oturum kapatma isteği başarıyla tamamlandıktan sonra burada yönlendirilmesi gereken Azure AD bildirir göstergesi.
+5. Merhaba hello proje kök dizininde hello web.config dosyasını açın ve ardından hello hello yapılandırma değerlerini girin `<appSettings>` bölümü.
+  * `ida:ClientId`: hello Azure portalında hello kopyalanan GUID "1. adım: kayıt hello Azure AD ile yeni bir uygulaması."
+  * `ida:Tenant`: Azure AD kiracınız (örneğin, contoso.onmicrosoft.com) hello adı.
+  * `ida:PostLogoutRedirectUri`: bir kullanıcı oturum kapatma isteği başarıyla tamamlandıktan sonra burada yönlendirilmesi gereken Azure AD söyler hello göstergesi.
 
-## <a name="step-3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>3. adım: Kullanım için Azure AD oturum açma ve oturum kapatma isteklerini yürütmek için OWIN
-Uygulama artık Openıd Connect kimlik doğrulama protokolü kullanarak Azure AD ile iletişim kurmak için düzgün şekilde yapılandırılmıştır. OWIN tüm kimlik doğrulama iletileri hazırlayın, Azure AD'den belirteçleri doğrulamak ve kullanıcı oturumlarını Bakım Ayrıntıları ele. Kalan tek şey, kullanıcılarınızın bir şekilde oturum açabilir ve oturumu vermek için.
+## <a name="step-3-use-owin-tooissue-sign-in-and-sign-out-requests-tooazure-ad"></a>3. adım: Kullanma OWIN tooissue oturum açma ve oturum kapatma isteklerini tooAzure AD
+Merhaba uygulama Azure AD ile düzgün şekilde yapılandırılmış toocommunicate hello Openıd Connect kimlik doğrulama protokolü kullanarak sunulmuştur. OWIN tüm kimlik doğrulama iletileri hazırlayın, Azure AD'den belirteçleri doğrulamak ve kullanıcı oturumlarını koruma hello ayrıntıları ele. Tüm bu kalır, kullanıcılarınızın toogive olan bir şekilde toosign ve oturum kapatma.
 
-1. Kullanabileceğiniz belirli sayfalarını erişmeden önce oturum açmalarını gerektirecek şekilde denetleyicilerinizi etiketlerinde yetkilendirin. Bunu yapmak için Controllers\HomeController.cs açın ve ardından ekleyin `[Authorize]` hakkında denetleyicisine etiketi.
+1. Kullanabileceğiniz belirli sayfalarını erişmeden önce denetleyicileri toorequire kullanıcılar toosign içinde etiketlerinde yetkilendirin. toodo, Controllers\HomeController.cs açın ve ardından hello ekleyin `[Authorize]` Denetleyicisi hakkında toohello etiketi.
 
      ```C#
      [Authorize]
@@ -118,7 +118,7 @@ Uygulama artık Openıd Connect kimlik doğrulama protokolü kullanarak Azure AD
        ...
      ```
 
-2. OWIN, doğrudan kimlik doğrulama isteklerini kodunuzu içinde vermek için de kullanabilirsiniz. Bunu yapmak için Controllers\AccountController.cs açın. Ardından, SignIn() ve SignOut() Eylemler, Openıd Connect sınama ve oturum kapatma isteklerini gönderin.
+2. OWIN toodirectly sorunu kimlik doğrulama isteklerini kodunuzu içinde de kullanabilirsiniz. toodo, bu nedenle, Controllers\AccountController.cs açın. Ardından, Openıd Connect sınama ve oturum kapatma isteklerini hello SignIn() ve SignOut() Eylemler gönderin.
 
      ```C#
      public void SignIn()
@@ -137,7 +137,7 @@ Uygulama artık Openıd Connect kimlik doğrulama protokolü kullanarak Azure AD
      }
      ```
 
-3. Görünümler/paylaşılan açmak\_LoginPartial.cshtml kullanıcı uygulama oturum açma ve oturum kapatma bağlantıları göstermek için ve kullanıcının adını görünümünde yazdırmak için.
+3. Görünümler/paylaşılan açmak\_LoginPartial.cshtml tooshow hello kullanıcı hello uygulama oturum açma ve oturum kapatma bağlantılar ve tooprint hello kullanıcının adını görünümünde çıkışı.
 
     ```HTML
     @if (Request.IsAuthenticated)
@@ -162,9 +162,9 @@ Uygulama artık Openıd Connect kimlik doğrulama protokolü kullanarak Azure AD
     ```
 
 ## <a name="step-4-display-user-information"></a>4. adım: kullanıcı bilgilerini görüntüleme
-Openıd Connect ile kullanıcıların kimliğini doğrular, Azure AD bir id_token "talep" ya da kullanıcı hakkında onaylar içeren bir uygulamaya döndürür. Aşağıdakileri yaparak app kişiselleştirmek için bu talepler kullanabilirsiniz:
+Openıd Connect ile kullanıcıların kimliğini doğrular, Azure AD "talep" ya da hello kullanıcı hakkında onaylar içeren id_token toohello uygulama döndürür. Merhaba aşağıdakileri yaparak bu talepler toopersonalize hello uygulamasını kullanarak şunları yapabilirsiniz:
 
-1. Controllers\HomeController.cs dosyasını açın. Denetleyicilerinizi kullanıcının talepleri erişebilmeniz için `ClaimsPrincipal.Current` güvenlik sorumlusu nesnesi.
+1. Merhaba Controllers\HomeController.cs dosyasını açın. Denetleyicilerinizi hello aracılığıyla hello kullanıcının talepleri erişebilmeniz için `ClaimsPrincipal.Current` güvenlik sorumlusu nesnesi.
 
  ```C#
  public ActionResult About()
@@ -179,17 +179,17 @@ Openıd Connect ile kullanıcıların kimliğini doğrular, Azure AD bir id_toke
  }
  ```
 
-2. Derleme ve uygulamayı çalıştırın. Onmicrosoft.com etki alanı ile kiracınızda zaten yeni bir kullanıcı oluşturmadıysanız, bunu yapmak için gereken süre sunulmuştur. Bunu yapmak için:
+2. Derleme ve hello uygulamayı çalıştırın. Kiracınızda onmicrosoft.com etki alanı ile yeni bir kullanıcı zaten oluşturmadıysanız hello zaman toodo şekilde sunulmuştur. Bunu yapmak için:
 
-  a. Oturum, kullanıcı oturum açabilir ve kullanıcının kimliğini üst çubuğunda nasıl yansıtılır not edin.
+  a. Oturum, kullanıcı oturum açabilir ve hello kullanıcının kimliğini hello üst çubuğunda nasıl yansıtılır not edin.
 
   b. Oturumu kapatın ve kiracınızda başka bir kullanıcı olarak yeniden oturum açın.
 
   c. Özellikle hırslı hissediyorsanız kaydetmek ve bu uygulamayla (kendi ClientID) başka bir örneğini çalıştıran ve çoklu oturum açma eylem izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Başvuru için bkz: [tamamlanan örnek](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip) (yapılandırma değerleriniz olmadan).
+Başvuru için bkz: [tamamlandı hello örnek](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip) (yapılandırma değerleriniz olmadan).
 
-Artık daha ileri seviyeli konu başlıklarına geçebilirsiniz. Örneğin, [Azure AD ile Web API güvenliğini](active-directory-devquickstarts-webapi-dotnet.md).
+Gelişmiş konular toomore üzerinde şimdi taşıyabilirsiniz. Örneğin, [Azure AD ile Web API güvenliğini](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
