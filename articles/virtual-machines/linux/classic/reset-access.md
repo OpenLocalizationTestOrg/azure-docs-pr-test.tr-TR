@@ -1,6 +1,6 @@
 ---
-title: "Linux VM parolası ve clı'dan SSH anahtarı sıfırlama | Microsoft Docs"
-description: "Bir Linux VM parola veya SSH anahtarı sıfırlama, SSH yapılandırmasını düzeltmek ve disk tutarlılık denetimi için VMAccess uzantısını gelen Azure komut satırı arabirimi (CLI) kullanma"
+title: "Linux VM parola aaaReset ve SSH anahtarı CLI hello | Microsoft Docs"
+description: "Nasıl toouse hello VMAccess uzantısını hello Azure komut satırı arabirimi (CLI) tooreset bir Linux VM parola veya SSH anahtarı hello SSH yapılandırmasını düzeltmek ve disk tutarlılık denetimi"
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,43 +15,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1650ad64fb982627ae9f90b1a8209bb56bac7004
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Bir Linux VM parola veya SSH anahtarı sıfırlama, SSH yapılandırmasını düzeltmek ve VMAccess uzantısını kullanarak disk tutarlılık denetimi hakkında
-Unutulmuş parola nedeniyle, yanlış bir güvenli Kabuk (SSH) anahtarını Azure Linux sanal makineye bağlanılamıyor veya SSH yapılandırması ile ilgili bir sorun VMAccessForLinux uzantısını Azure CLI ile parola veya SSH anahtarını sıfırlamak için kullanıyorsanız, SSH Düzelt Yapılandırma ve onay disk tutarlılık. 
+# <a name="how-tooreset-a-linux-vm-password-or-ssh-key-fix-hello-ssh-configuration-and-check-disk-consistency-using-hello-vmaccess-extension"></a>Nasıl tooreset bir Linux VM parola veya SSH anahtarı hello SSH yapılandırmasını düzeltmek ve hello VMAccess uzantısını kullanarak disk tutarlılık denetimi
+Unutulan parolayı, yanlış bir güvenli Kabuk (SSH) anahtarının veya hello SSH yapılandırması ile ilgili bir sorun nedeniyle Azure tooa Linux sanal makineye bağlanamıyorsanız, hello VMAccessForLinux uzantısını hello Azure CLI tooreset hello parola veya SSH anahtarı ile birlikte kullanmak için düzeltme SSH yapılandırması hello ve disk tutarlılık denetimi. 
 
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. [Bu adımları Resource Manager modeli kullanarak gerçekleştirmeyi](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) öğrenin.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. Nasıl çok öğrenin[hello Resource Manager modelini kullanarak bu adımları uygulamadan](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
-Azure CLI ile kullandığınız **azure vm uzantısı kümesi** komutlara erişmek için komut satırı arabiriminden (Bash, Terminal, komut istemi) komutu. Çalıştırma **azure Yardım vm uzantısı kümesi** ayrıntılı uzantısını kullanım için.
+Hello Azure CLI ile kullandığınız hello **azure vm uzantısı kümesi** komut satırı arabirimi (Bash, Terminal, komut istemi) tooaccess komutlarının komutu. Çalıştırma **azure Yardım vm uzantısı kümesi** ayrıntılı uzantısını kullanım için.
 
-Azure CLI ile bunu aşağıdaki görevleri gerçekleştirebilirsiniz:
+Hello Azure CLI ile yapabileceğiniz hello görevler:
 
-* [Parola sıfırlama](#pwresetcli)
-* [SSH anahtarını Sıfırla](#sshkeyresetcli)
-* [Parola ve SSH anahtarı sıfırlama](#resetbothcli)
+* [Merhaba parola sıfırlama](#pwresetcli)
+* [Merhaba SSH anahtarını Sıfırla](#sshkeyresetcli)
+* [Merhaba parola ve hello SSH anahtarını Sıfırla](#resetbothcli)
 * [Yeni bir sudo kullanıcı hesabı oluşturma](#createnewsudocli)
-* [SSH yapılandırmasını sıfırlayın](#sshconfigresetcli)
+* [Merhaba SSH yapılandırmasını sıfırlayın](#sshconfigresetcli)
 * [Kullanıcı silme](#deletecli)
-* [VMAccess uzantısını durumunu görüntüleyin](#statuscli)
+* [Merhaba VMAccess uzantısını Hello durumunu görüntüleyin](#statuscli)
 * [Eklenen diskler tutarlılık denetimi](#checkdisk)
 * [Linux VM eklenen disklerde onarın](#repairdisk)
 
 ## <a name="prerequisites"></a>Ön koşullar
-Aşağıdakileri yapmanız gerekir:
+Toodo hello aşağıdaki gerekir:
 
-* Etmeniz [Azure CLI yükleme](../../../cli-install-nodejs.md) ve [aboneliğinize bağlanma](../../../xplat-cli-connect.md) hesabınızla ilişkili Azure kaynaklarını kullanmak için.
-* Komut isteminde aşağıdakini yazarak Klasik dağıtım modeli için doğru moda ayarlayın:
+* Çok gerekir[hello Azure CLI yükleme](../../../cli-install-nodejs.md) ve [tooyour abonelik bağlanmak](../../../xplat-cli-connect.md) toouse Azure hesabınızla ilişkili kaynakları.
+* Merhaba Klasik dağıtım modeli için doğru moda Hello hello komut isteminde hello aşağıdakileri yazarak ayarlayın:
     ``` 
         azure config mode asm
     ```
-* Bunlardan birini sıfırlamak istiyorsanız bir yeni bir parola veya SSH anahtarları kümesi vardır. SSH yapılandırmasını sıfırlamak istiyorsanız, bu gerekmez.
+* Tooreset herhangi birini isterseniz yeni bir parola veya SSH anahtarlarını gerekir. Tooreset hello SSH yapılandırması istiyorsanız bu gerekmez.
 
-## <a name="pwresetcli"></a>Parola sıfırlama
+## <a name="pwresetcli"></a>Merhaba parola sıfırlama
 1. Bu satırlar ile PrivateConf.json adlı yerel bilgisayarınızdaki bir dosya oluşturun. Değiştir **KullanıcıAdım** ve  **myP@ssW0rd**  kendi kullanıcı adı ve parola ile ve kendi sona erme tarihini ayarlayın.
 
     ```   
@@ -62,14 +62,14 @@ Aşağıdakileri yapmanız gerekir:
         }
     ```
         
-2. Sanal makine için adını değiştirerek bu komutu çalıştırmak **myVM**.
+2. Sanal makine için Hello adını değiştirerek bu komutu çalıştırmak **myVM**.
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
     ```
 
-## <a name="sshkeyresetcli"></a>SSH anahtarını Sıfırla
-1. Bu içerikle PrivateConf.json adlı bir dosya oluşturun. Değiştir **KullanıcıAdım** ve **mySSHKey** kendi bilgilerinizi değerlerle.
+## <a name="sshkeyresetcli"></a>Merhaba SSH anahtarını Sıfırla
+1. Bu içerikle PrivateConf.json adlı bir dosya oluşturun. Hello yerine **KullanıcıAdım** ve **mySSHKey** kendi bilgilerinizi değerlerle.
 
     ```   
         {
@@ -77,12 +77,12 @@ Aşağıdakileri yapmanız gerekir:
         "ssh_key":"mySSHKey"
         }
     ```
-2. Sanal makine için adını değiştirerek bu komutu çalıştırmak **myVM**.
+2. Sanal makine için Hello adını değiştirerek bu komutu çalıştırmak **myVM**.
    
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-## <a name="resetbothcli"></a>Parola ve SSH anahtarı sıfırlama
-1. Bu içerikle PrivateConf.json adlı bir dosya oluşturun. Değiştir **KullanıcıAdım**, **mySSHKey** ve  **myP@ssW0rd**  kendi bilgilerinizi değerlerle.
+## <a name="resetbothcli"></a>Merhaba parola ve hello SSH anahtarını Sıfırla
+1. Bu içerikle PrivateConf.json adlı bir dosya oluşturun. Hello yerine **KullanıcıAdım**, **mySSHKey** ve  **myP@ssW0rd**  kendi bilgilerinizi değerlerle.
 
     ``` 
         {
@@ -92,7 +92,7 @@ Aşağıdakileri yapmanız gerekir:
         }
     ```
 
-2. Sanal makine için adını değiştirerek bu komutu çalıştırmak **myVM**.
+2. Sanal makine için Hello adını değiştirerek bu komutu çalıştırmak **myVM**.
 
     ```   
         azure vm extension set MyVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
@@ -100,19 +100,19 @@ Aşağıdakileri yapmanız gerekir:
 
 ## <a name="createnewsudocli"></a>Yeni bir sudo kullanıcı hesabı oluşturma
 
-Kullanıcı adınızı unutursanız, Vmaccess'in sudo yetkisine sahip yeni bir tane oluşturmak için kullanabilirsiniz. Bu durumda, var olan kullanıcı adı ve parola değiştirilmeyecek.
+Kullanıcı adınızı unutursanız, Vmaccess'in toocreate hello sudo yetkisine sahip yeni bir tane kullanabilirsiniz. Bu durumda, hello olan bir kullanıcı adı ve parola değiştirilmeyecek.
 
-Parola erişimi ile yeni bir sudo kullanıcı oluşturmak için komut dosyasındaki kullanmak [parola sıfırlama](#pwresetcli) ve yeni bir kullanıcı adı belirtin.
+komut dosyası kullan hello parola erişimine sahip yeni bir sudo kullanıcı toocreate [hello parola sıfırlama](#pwresetcli) ve hello yeni bir kullanıcı adı belirtin.
 
-SSH anahtar erişimi ile yeni bir sudo kullanıcı oluşturmak için komut dosyasındaki kullanın [SSH anahtarı sıfırlama](#sshkeyresetcli) ve yeni bir kullanıcı adı belirtin.
+SSH anahtar erişimi, komut dosyası kullan hello sahip yeni bir sudo kullanıcı toocreate [sıfırlama hello SSH anahtarı](#sshkeyresetcli) ve hello yeni bir kullanıcı adı belirtin.
 
-Aynı zamanda [parola ve SSH anahtarı sıfırlama](#resetbothcli) hem parola hem de SSH anahtar erişimi ile yeni bir kullanıcı oluşturmak için.
+Aynı zamanda [hello parola ve hello SSH anahtarını Sıfırla](#resetbothcli) toocreate hem parola hem de SSH anahtar erişimi olan yeni bir kullanıcı.
 
-## <a name="sshconfigresetcli"></a>SSH yapılandırmasını sıfırlayın
-SSH yapılandırması istenmeyen bir durumda ise, erişim VM'ye kaybedebilirsiniz. Varsayılan durumuna getirmek yapılandırmasını sıfırlamak için VMAccess uzantısını kullanabilirsiniz. Bunu yapmak için yalnızca "True" "reset_ssh" anahtarını ayarlamak yeterlidir. Uzantı SSH sunucuyu yeniden başlatın, VM'yi SSH bağlantı noktası açın ve SSH yapılandırmasını varsayılan değerlere sıfırla. Kullanıcı hesabı (adı, parola veya SSH anahtarları) değiştirilmez.
+## <a name="sshconfigresetcli"></a>Merhaba SSH yapılandırmasını sıfırlayın
+Merhaba SSH yapılandırması istenmeyen bir durumda ise, erişim toohello VM de kaybedebilirsiniz. Merhaba VMAccess uzantısını tooreset hello yapılandırma tooits varsayılan durumu kullanabilirsiniz. toodo, tooset hello "reset_ssh" anahtar çok "True" yeterlidir. Merhaba uzantısı hello SSH sunucuyu yeniden başlatın, VM'yi hello SSH bağlantı noktası açın ve hello SSH yapılandırma toodefault değerlerini sıfırlayın. Merhaba kullanıcı hesabı (adı, parola veya SSH anahtarları) değiştirilmez.
 
 > [!NOTE]
-> Sıfırlama SSH yapılandırma dosyası /etc/ssh/sshd_config bulunur.
+> sıfırlama hello SSH yapılandırma dosyası /etc/ssh/sshd_config bulunur.
 > 
 > 
 
@@ -124,16 +124,16 @@ SSH yapılandırması istenmeyen bir durumda ise, erişim VM'ye kaybedebilirsini
         }
     ```
 
-2. Sanal makine için adını değiştirerek bu komutu çalıştırmak **myVM**. 
+2. Sanal makine için Hello adını değiştirerek bu komutu çalıştırmak **myVM**. 
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
 ## <a name="deletecli"></a>Kullanıcı silme
-Oturum açmayı VM doğrudan olmadan bir kullanıcı hesabı silmek istiyorsanız, bu komut dosyasını kullanabilirsiniz.
+Toodelete doğrudan oturum açmayı toohello VM olmadan bir kullanıcı hesabı istiyorsanız, bu komut dosyasını kullanabilirsiniz.
 
-1. İçin kaldırmak için kullanıcı adını değiştirerek bu içerikle PrivateConf.json adlı bir dosya oluşturun **removeUserName**. 
+1. Merhaba kullanıcı adı tooremove değiştirerek bu içerikle PrivateConf.json adlı bir dosya oluşturun **removeUserName**. 
 
     ```   
         {
@@ -141,23 +141,23 @@ Oturum açmayı VM doğrudan olmadan bir kullanıcı hesabı silmek istiyorsanı
         }
     ```
 
-2. Sanal makine için adını değiştirerek bu komutu çalıştırmak **myVM**. 
+2. Sanal makine için Hello adını değiştirerek bu komutu çalıştırmak **myVM**. 
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="statuscli"></a>VMAccess uzantısını durumunu görüntüleyin
-VMAccess uzantısını durumunu görüntülemek için bu komutu çalıştırın.
+## <a name="statuscli"></a>Merhaba VMAccess uzantısını Hello durumunu görüntüleyin
+Merhaba VMAccess uzantısını toodisplay hello durumu bu komutu çalıştırın.
 
 ```
         azure vm extension get
 ```
 
 ## <a name='checkdisk'></a>Eklenen diskler tutarlılık denetimi
-Linux sanal makinedeki tüm disklerde fsck çalıştırmak için aşağıdakileri yapmanız gerekir:
+toorun fsck Linux sanal makinedeki tüm disklerde toodo hello aşağıdaki gerekir:
 
-1. Bu içerikle PublicConf.json adlı bir dosya oluşturun. Onay Disk veya sanal makinenize bağlı diskler denetlenip denetlenmeyeceğini için bir Boole değeri alır. 
+1. Bu içerikle PublicConf.json adlı bir dosya oluşturun. Onay Disk olup olmadığını toocheck diskleri tooyour sanal makine veya bağlı için bir Boole değeri alır. 
 
     ```   
         {   
@@ -165,14 +165,14 @@ Linux sanal makinedeki tüm disklerde fsck çalıştırmak için aşağıdakiler
         }
     ```
 
-2. Sanal makine için adını değiştirerek yürütmek için bu komutu çalıştırmak **myVM**.
+2. Sanal makine için Hello adını değiştirerek bu komut tooexecute çalıştırmak **myVM**.
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
     ```
 
 ## <a name='repairdisk'></a>Onarım diskleri
-Değil bağlanması veya takma yapılandırma hataları olan diskleri onarmak için Linux sanal makinenizde bağlama yapılandırmasını sıfırlamak için VMAccess uzantısını kullanın. İçin disk adınızı değiştirerek **myDisk**.
+bağlama yapılandırma hataları, değil bağlanması veya toorepair diskler Linux sanal makinenizde hello VMAccess uzantısını tooreset hello bağlama yapılandırması kullanın. Merhaba adını değiştirerek diskiniz için **myDisk**.
 
 1. Bu içerikle PublicConf.json adlı bir dosya oluşturun. 
 
@@ -183,14 +183,14 @@ Değil bağlanması veya takma yapılandırma hataları olan diskleri onarmak i�
         }
     ```
 
-2. Sanal makine için adını değiştirerek yürütmek için bu komutu çalıştırmak **myVM**.
+2. Sanal makine için Hello adını değiştirerek bu komut tooexecute çalıştırmak **myVM**.
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Parola veya SSH anahtarını sıfırlamak için Azure PowerShell cmdlet'lerini veya Azure Resource Manager şablonları kullanmak istiyorsanız, SSH yapılandırması ve onay disk tutarlılık, bkz: düzeltme [VMAccess uzantısını belgelerine github'da](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
-* Aynı zamanda [Azure portal](https://portal.azure.com) parola veya SSH anahtarı bir Linux VM sıfırlamak için Klasik dağıtım modelinde dağıtılmış. Şu anda portal do kullanamazsınız Resource Manager dağıtım modelinde dağıtılan bu bir Linux VM için.
+* Toouse Azure PowerShell cmdlet'lerini veya Azure Resource Manager şablonları tooreset hello parola veya SSH anahtarı istiyorsanız, hello SSH yapılandırmasını düzeltmek ve disk tutarlılık denetimi, hello bkz [VMAccess uzantısını belgelerine github'da](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
+* Merhaba de kullanabilirsiniz [Azure portal](https://portal.azure.com) tooreset hello parola veya SSH anahtarı bir Linux VM dağıtılan hello Klasik dağıtım modelinde. Bir Linux VM hello Resource Manager dağıtım modelinde dağıtılan hello portal toothis şu anda kullanamazsınız.
 * Bkz: [sanal makine uzantıları ve özellikleri hakkında](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Azure sanal makineler için VM uzantıları kullanma hakkında daha fazla bilgi için.
 

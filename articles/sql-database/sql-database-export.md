@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure SQL veritabanı BACPAC dosyaya | Microsoft Docs"
-description: "Azure SQL veritabanını Azure Portalı'nı kullanarak bir BACPAC dosyasına dışarı aktarma"
+title: "bir Azure SQL veritabanı tooa BACPAC dosyası aaaExport | Microsoft Docs"
+description: "Hello Azure Portal kullanarak Azure SQL veritabanı tooa BACPAC dosyası dışarı aktarma"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,65 +15,65 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: faa567ec615a07da8633629fc98e3454c84a8f5f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: cb3b4227318e0fd2114529c86c9792615fe7fd1f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Bir Azure SQL veritabanı bir BACPAC dosyasına dışarı aktarma
+# <a name="export-an-azure-sql-database-tooa-bacpac-file"></a>Bir Azure SQL veritabanı tooa BACPAC dosyası dışarı aktarma
 
-Bir veritabanı veya başka bir platform için taşıma arşivleme için dışarı aktarmak gerektiğinde, verileri ve veritabanı şeması verebilirsiniz bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosya. ZIP dosyası meta verileri ve SQL Server veritabanından veri içeren BACPAC uzantılı bir BACPAC dosyasıdır. Bir BACPAC dosyayı Azure blob depolama veya bir şirket içi konumda yerel depolama depolanır ve daha sonra geri Azure SQL Database veya SQL Server içi yükleme içe. 
+Taşıma tooanother platform veya arşivleme için tooexport bir veritabanı gerektiğinde Merhaba veritabanı şeması ve verisi tooa verebilirsiniz [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosya. ZIP dosyası BACPAC hello meta verileri ve SQL Server veritabanından veri içeren bir uzantıya sahip bir BACPAC dosyasıdır. Bir BACPAC dosyayı Azure blob depolama veya bir şirket içi konumda yerel depolama depolanır ve daha sonra geri Azure SQL Database veya SQL Server içi yükleme içe. 
 
 > [!IMPORTANT] 
 > Azure SQL veritabanı otomatik dışarı aktarma 1 Mart 2017 üzerinde devre dışı bırakılan. Kullanabileceğiniz [uzun vadeli yedekleme bekletme](sql-database-long-term-retention.md
-) veya [Azure Otomasyonu](https://github.com/Microsoft/azure-docs-pr/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) düzenli aralıklarla SQL arşivlemek için veritabanları tercih ettiğiniz bir zamanlamaya göre PowerShell kullanarak. Bir örnek için indirme [PowerShell Betiği örnek](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) github'dan.
+) veya [Azure Otomasyonu](https://github.com/Microsoft/azure-docs-pr/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) tercih ettiğiniz tooa zamanlamaya göre PowerShell kullanarak tooperiodically arşiv SQL veritabanları. Bir örnek için hello karşıdan [PowerShell Betiği örnek](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) github'dan.
 >
 
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>Azure SQL veritabanını dışa aktarma ilgili önemli noktalar
 
-* Bir verme işlemsel olarak tutarlı olmasını ya da hiçbir yazma emin olmalısınız etkinlik dışa aktarma sırasında gerçekleşen veya dışarı aktarma bir [işlemsel olarak tutarlı kopyalama](sql-database-copy.md) Azure SQL veritabanınızın.
-* Blob depolama alanına veriyorsanız, bir BACPAC dosyasının en büyük boyutu 200 GB'tır. Daha büyük bir BACPAC dosyası arşivlemek için yerel depolama alanına verin.
-* Bu makalede bahsedilen yöntemler kullanarak Azure premium storage için bir BACPAC dosyayı dışa desteklenmiyor.
-* Azure SQL veritabanından dışa aktarma işlemi 20 saat aşarsa, iptal edilebilir. Dışa aktarma sırasında performansı artırmak için şunları yapabilirsiniz:
+* Bir dışarı aktarma için toobe sağlamanız hiçbir yazma etkinliği hello dışa aktarma sırasında oluştuğunu, veya, işlemsel olarak tutarlı vermekte gelen bir [işlemsel olarak tutarlı kopyalama](sql-database-copy.md) Azure SQL veritabanınızın.
+* Tooblob depolama veriyorsanız hello bir BACPAC dosyasının en büyük boyutu 200 GB'dir. tooarchive daha büyük bir BACPAC dosyası toolocal depolama verin.
+* Bu makalede açıklanan hello yöntemleri kullanarak bir BACPAC dosya tooAzure premium depolama verme desteklenmiyor.
+* Azure SQL veritabanından Hello dışa aktarma işlemi 20 saat aşarsa, iptal edilebilir. dışa aktarma sırasında tooincrease performansı, şunları yapabilirsiniz:
   * Geçici olarak hizmet düzeyini artırın.
-  * Tüm okuma ve dışarı aktarma sırasında etkinlik yazma kesildi.
-  * Kullanım bir [kümelenmiş dizin](https://msdn.microsoft.com/library/ms190457.aspx) tüm büyük tablolarda null olmayan değerler ile. 6-12 saatten daha uzun sürerse, kümelenmiş dizinler bir dışarı aktarma başarısız olabilir. Dışarı aktarma hizmeti tüm tabloyu dışarı aktarmak denemek için bir tablo taraması tamamlaması gereken olmasıdır. Tablolarınızı verme çalıştırmak için en iyileştirilmiş varsa belirlemek için en iyi yolu **DBCC SHOW_STATISTICS** emin olun *RANGE_HI_KEY* null olmayan ve iyi dağıtım onun değerine sahiptir. Ayrıntılar için bkz [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
+  * Tüm okuma ve etkinlik hello dışa aktarma sırasında yazma kesildi.
+  * Kullanım bir [kümelenmiş dizin](https://msdn.microsoft.com/library/ms190457.aspx) tüm büyük tablolarda null olmayan değerler ile. 6-12 saatten daha uzun sürerse, kümelenmiş dizinler bir dışarı aktarma başarısız olabilir. Merhaba dışarı aktarma hizmeti toocomplete bir tarama tootry tooexport tüm tablo gerektiğinden budur. Dışarı aktarma toorun için tablolarınızı en iyi duruma getirilir, en iyi yolu toodetermine **DBCC SHOW_STATISTICS** ve o hello emin olun *RANGE_HI_KEY* null olmayan ve iyi dağıtım onun değerine sahiptir. Ayrıntılar için bkz [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
 
 > [!NOTE]
-> BACPACs için yedekleme ve geri yükleme işlemleri amaçlanmamıştır. Azure SQL veritabanı yedeklemeleri her kullanıcı veritabanı için otomatik olarak oluşturur. Ayrıntılar için bkz [iş Sürekliliğine genel bakış](sql-database-business-continuity.md) ve [SQL veritabanı yedeklemeleri](sql-database-automated-backups.md).  
+> BACPACs yedekleme ve geri yükleme işlemleri için kullanılan hedeflenen toobe değildir. Azure SQL veritabanı yedeklemeleri her kullanıcı veritabanı için otomatik olarak oluşturur. Ayrıntılar için bkz [iş Sürekliliğine genel bakış](sql-database-business-continuity.md) ve [SQL veritabanı yedeklemeleri](sql-database-automated-backups.md).  
 > 
 
-## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir BACPAC dosyasına aktarın
+## <a name="export-tooa-bacpac-file-using-hello-azure-portal"></a>Hello Azure portal kullanarak tooa BACPAC dosyasını dışarı aktarma
 
-Bir veritabanını kullanarak dışarı aktarmak için [Azure portal](https://portal.azure.com), veritabanınız için sayfasını açın ve'ı tıklatın **verme** araç çubuğunda. BACPAC dosya adını belirtin, Azure depolama hesabı ve kapsayıcı dışa aktarma için sağlayabilir ve kaynak veritabanına bağlanmak için kimlik bilgilerini sağlayın.  
+kullanarak bir veritabanı tooexport hello [Azure portal](https://portal.azure.com), veritabanınız için başlangıç sayfasını açın ve tıklayın **verme** hello araç çubuğunda. Merhaba BACPAC dosya adı belirtin, hello Azure depolama hesabı ve kapsayıcı hello dışa aktarma için sağlayabilir ve hello kimlik bilgileri tooconnect toohello kaynak veritabanı sağlar.  
 
 ![Veritabanı dışarı aktarma](./media/sql-database-export/database-export.png)
 
-Dışarı aktarma işlemin ilerlemesini izlemek için dışarı aktarılan veritabanını içeren mantıksal sunucu için sayfayı açın. Ekranı aşağı kaydırarak **Operations** ve ardından **içeri/dışarı aktarma** geçmişi.
+Merhaba toomonitor hello ilerlemesini dışarı aktarma işlemi, dışarı aktarılan hello mantıksal sunucu içeren hello veritabanı için başlangıç sayfasını açın. Çok ilerleyin**Operations** ve ardından **içeri/dışarı aktarma** geçmişi.
 
 ![dışarı aktarma geçmişi](./media/sql-database-export/export-history.png)
 ![dışa aktarma geçmişi durumu](./media/sql-database-export/export-history2.png)
 
-## <a name="export-to-a-bacpac-file-using-the-sqlpackage-utility"></a>SQLPackage yardımcı programını kullanarak bir BACPAC dosyasına aktarın
+## <a name="export-tooa-bacpac-file-using-hello-sqlpackage-utility"></a>Merhaba SQLPackage yardımcı programını kullanarak tooa BACPAC dosyasını dışarı aktarma
 
-SQL veritabanı kullanarak dışarı aktarmak için [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) komut satırı yardımcı programı, bkz: [verme parametreleri ve özellikleri](https://msdn.microsoft.com/library/hh550080.aspx#Export Parameters and Properties). SQLPackage yardımcı programı en son sürümleri ile birlikte gelen [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ve [SQL Server veri araçları Visual Studio için](https://msdn.microsoft.com/library/mt204009.aspx), veya en son sürümünü indirebilirsiniz [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) doğrudan Microsoft İndirme Merkezi'nden.
+tooexport bir SQL veritabanı hello kullanarak [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) komut satırı yardımcı programı, bkz: [verme parametreleri ve özellikleri](https://msdn.microsoft.com/library/hh550080.aspx#Export Parameters and Properties). Merhaba SQLPackage yardımcı programı hello en son sürümleri ile birlikte gelen [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ve [SQL Server veri araçları Visual Studio için](https://msdn.microsoft.com/library/mt204009.aspx), veya hello en son sürümünü indirebilirsiniz [ SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) hello doğrudan Microsoft İndirme Merkezinden.
 
-Ölçek ve performans çoğu üretim ortamlarında SQLPackage yardımcı programı kullanılmak öneririz. BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+Ölçek ve performans çoğu üretim ortamlarında için hello SQLPackage yardımcı programı hello kullanılması önerilir. BACPAC dosyalarını kullanarak bir SQL Server Müşteri danışma ekibi blogu geçirme hakkında bkz [SQL BACPAC dosyalarını kullanarak veritabanını SQL Server tooAzure geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
-Bu örnek, Active Directory Evrensel kimlik doğrulaması ile SqlPackage.exe kullanarak bir veritabanını dışarı aktarma gösterir:
+Bu örnekte gösterilir nasıl SqlPackage.exe Active Directory Evrensel kimlik doğrulaması ile kullanarak veritabanını bir tooexport:
 
 ```cmd
 SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-## <a name="export-to-a-bacpac-file-using-sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS) kullanarak bir BACPAC dosyaya dışarı aktarma
+## <a name="export-tooa-bacpac-file-using-sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS) kullanarak tooa BACPAC dosyasını dışarı aktarma
 
-SQL Server Management Studio en yeni sürümleri de Azure SQL veritabanı bir BACPAC dosyasına aktarmak için bir sihirbaz sağlar. Bkz: [bir veri katmanı uygulaması verme](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
+Merhaba en yeni SQL Server Management Studio sürümleri Sihirbazı tooexport bir Azure SQL veritabanı tooa BACPAC dosyası da sağlar. Merhaba bkz [bir veri katmanı uygulaması verme](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 
-## <a name="export-to-a-bacpac-file-using-powershell"></a>PowerShell kullanarak bir BACPAC dosyasına aktarın
+## <a name="export-tooa-bacpac-file-using-powershell"></a>PowerShell kullanarak tooa BACPAC dosyasını dışarı aktarma
 
-Kullanım [yeni AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet'ini Azure SQL veritabanı hizmetinin bir verme veritabanı isteği gönderin. Veritabanı boyutuna bağlı olarak, dışarı aktarma işlemi tamamlamak için biraz zaman alabilir.
+Kullanım hello [yeni AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet toosubmit bir dışarı aktarma veritabanı isteği toohello Azure SQL veritabanı hizmeti. Veritabanınızı Hello boyutuna bağlı olarak, bazı zaman toocomplete hello dışa aktarma işlemi sürebilir.
 
  ```powershell
  $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
@@ -81,7 +81,7 @@ Kullanım [yeni AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azu
    -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
  ```
 
-Dışarı aktarma isteğinin durumunu denetlemek için kullanın [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet'i. Bu hemen sonra istek döndürür genellikle çalıştığını **durumu: devam ediyor**. Gördüğünüzde **durumu: başarılı** verme tamamlandı.
+Merhaba toocheck hello durumu dışarı aktarma isteği, hello kullan [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet'i. Bu hemen sonra hello çalıştığını istek genellikle döndürür **durumu: devam ediyor**. Gördüğünüzde **durumu: başarılı** hello verme işlemi tamamlandı.
 
 ```powershell
 $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
@@ -98,8 +98,8 @@ $exportStatus
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Arşiv amaçlar için bir veritabanı için bir alternatif dışarı gibi bir Azure SQL Veritabanı yedeğinin uzun vadeli yedekleme bekletme hakkında bilgi edinmek için [uzun vadeli yedekleme bekletme](sql-database-long-term-retention.md).
-- BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
-* Bir SQL Server veritabanı için bir BACPAC alma hakkında bilgi edinmek için [bir SQL Server veritabanına bir BACPCAC alma](https://msdn.microsoft.com/library/hh710052.aspx).
-* Bir SQL Server veritabanından bir BACPAC aktarma hakkında bilgi edinmek için [bir veri katmanı uygulaması verme](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) ve [ilk veritabanınızı geçirin](sql-database-migrate-your-sql-server-database.md).
-* SQL Server'dan prelude geçiş olarak Azure SQL veritabanına veriyorsanız, bkz: [bir SQL Server veritabanını Azure SQL veritabanına geçirme](sql-database-cloud-migrate.md).
+* toolearn alternatif bir tooexported arşiv amaçlar için bir veritabanı olarak bir Azure SQL Veritabanı yedeğinin uzun vadeli yedekleme bekletme hakkında bkz [uzun vadeli yedekleme bekletme](sql-database-long-term-retention.md).
+- BACPAC dosyalarını kullanarak bir SQL Server Müşteri danışma ekibi blogu geçirme hakkında bkz [SQL BACPAC dosyalarını kullanarak veritabanını SQL Server tooAzure geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+* bir BACPAC tooa SQL Server veritabanını içeri aktarma hakkında toolearn bkz [BACPCAC tooa SQL Server veritabanı alma](https://msdn.microsoft.com/library/hh710052.aspx).
+* bir SQL Server veritabanından bir BACPAC verme hakkında toolearn bkz [bir veri katmanı uygulaması verme](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) ve [ilk veritabanınızı geçirin](sql-database-migrate-your-sql-server-database.md).
+* Prelude toomigration tooAzure SQL veritabanı SQL Server'dan dışarı aktarıyorsanız, bkz: [bir SQL Server veritabanı tooAzure SQL veritabanı geçiş](sql-database-cloud-migrate.md).

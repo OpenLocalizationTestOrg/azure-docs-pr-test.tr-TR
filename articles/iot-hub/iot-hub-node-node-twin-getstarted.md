@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT Hub cihaz çiftlerini (düğüm) ile çalışmaya başlama | Microsoft Docs"
-description: "Azure IOT Hub cihaz çiftlerini etiket ekleyebilir ve IOT Hub sorgusuyla kullanmak için nasıl kullanılacağını. Sanal cihaz uygulamasının ve etiketleri ekler ve IOT hub'ı sorgu çalışan bir hizmet uygulaması uygulamak için Node.js için Azure IOT SDK'ları kullanın."
+title: "aaaGet başlatılan Azure IOT Hub cihaz çiftlerini (düğüm) | Microsoft Docs"
+description: "Nasıl toouse Azure IOT Hub cihaz çiftlerini tooadd etiketleri ve IOT Hub sorgusuyla kullanın. Node.js tooimplement hello sanal cihaz uygulaması için Azure IOT SDK'ları hello ve hello etiketleri ekler ve hello IOT hub'ı sorgu çalışan bir hizmet uygulaması kullanın."
 services: iot-hub
 documentationcenter: node
 author: fsautomata
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: 633c9fd4f8a1d017d93148f8c2e860ccba14238c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d60b8c3de85e9285e496b86e27d4ee31a0554a1e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-device-twins-node"></a>Cihaz çiftlerini (düğüm) ile çalışmaya başlama
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-Bu öğreticinin sonunda iki Node.js konsol uygulamaları olacaktır:
+Bu öğreticinin Hello sonunda, iki Node.js konsol uygulamaları olacaktır:
 
 * **AddTagsAndQuery.js**, etiketleri ekler ve cihaz çiftlerini sorgular bir Node.js arka uç uygulaması.
-* **TwinSimulatedDevice.js**, bir cihaza benzetim yapan daha önce oluşturulan cihaz kimliğiyle IOT hub'ınıza bağlanır ve kendi bağlantı koşulu raporları bir Node.js uygulaması.
+* **TwinSimulatedDevice.js**, bir cihaza benzetim yapan tooyour IOT hub'ı daha önce oluşturduğunuz hello cihaz kimliği bağlanır ve kendi bağlantı koşulu raporları bir Node.js uygulaması.
 
 > [!NOTE]
-> Makaleyi [Azure IOT SDK'ları] [ lnk-hub-sdks] hem cihaz hem de arka uç uygulamalar oluşturmak için kullanabileceğiniz Azure IOT SDK'ları hakkında bilgi sağlar.
+> Merhaba makale [Azure IOT SDK'ları] [ lnk-hub-sdks] toobuild kullanabileceğiniz hello Azure IOT SDK'ları hakkında bilgi sağlayan cihaz ve arka uç uygulamalar.
 > 
 > 
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+toocomplete hello aşağıdaki gereksinim Bu öğretici:
 
 * Node.js 0.10.x sürümü veya sonraki bir sürüm.
 * Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
@@ -42,21 +42,21 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-the-service-app"></a>Hizmet Uygulaması Oluştur
-Bu bölümde, ilişkili cihaz çifti konumu meta veri ekleyen bir Node.js konsol uygulaması oluşturma **myDeviceId**. Ardından, IOT hub'ı ABD, ardından bir cep telefonu bağlantı raporlama olanları içinde bulunan aygıtları seçerek depolanan cihaz çiftlerini sorgular.
+## <a name="create-hello-service-app"></a>Merhaba service uygulaması oluşturma
+Bu bölümde, konum meta veri toohello cihaz çifti ile ilişkili ekler bir Node.js konsol uygulaması oluşturma **myDeviceId**. Ardından hello cihaz çiftlerini hello IOT hub'ı hello bulunan hello aygıtları seçerek BİZE depolanır ve bir cep telefonu bağlantı raporlama olanları hello sorgular.
 
-1. Adlı yeni bir boş klasör oluşturun **addtagsandqueryapp**. İçinde **addtagsandqueryapp** klasörü, komut isteminde aşağıdaki komutu kullanarak yeni bir package.json dosyası oluşturun. Tüm varsayılanları kabul edin:
+1. Adlı yeni bir boş klasör oluşturun **addtagsandqueryapp**. Merhaba, **addtagsandqueryapp** klasörü, komut, komut isteminde aşağıdaki hello kullanarak yeni bir package.json dosyası oluşturun. Tüm hello Varsayılanları kabul edin:
    
     ```
     npm init
     ```
-2. Komut isteminizde **addtagsandqueryapp** klasörü yüklemek için aşağıdaki komutu çalıştırın, **azure-iothub** paketi:
+2. Merhaba, komut isteminde **addtagsandqueryapp** klasörüne, komut tooinstall hello aşağıdaki hello **azure-iothub** paketi:
    
     ```
     npm install azure-iothub --save
     ```
-3. Bir metin düzenleyicisi kullanarak yeni bir oluşturma **AddTagsAndQuery.js** dosyasını **addtagsandqueryapp** klasör.
-4. Aşağıdaki kodu ekleyin **AddTagsAndQuery.js** dosya ve yerine **{IOT hub bağlantı dizesine}** yer tutucu hub'ınızı oluşturduğunuzda kopyaladığınız IOT Hub bağlantı dizesine sahip:
+3. Bir metin düzenleyicisi kullanarak yeni bir oluşturma **AddTagsAndQuery.js** hello dosyasında **addtagsandqueryapp** klasör.
+4. Aşağıdaki kodu toohello hello eklemek **AddTagsAndQuery.js** dosya ve hello yerine **{IOT hub bağlantı dizesine}** yer tutucu hello hub'ınızı oluşturduğunuzda kopyaladığınız IOT Hub bağlantı dizesine sahip:
    
         'use strict';
         var iothub = require('azure-iothub');
@@ -87,16 +87,16 @@ Bu bölümde, ilişkili cihaz çifti konumu meta veri ekleyen bir Node.js konsol
             }
         });
    
-    **Kayıt defteri** nesne cihaz çiftlerini hizmet ile etkileşim kurmak için gereken tüm yöntemleri gösterir. Önceki kod ilk başlatır **kayıt defteri** nesnesi, ardından cihaz çiftinin alır **myDeviceId**ve son olarak, etiketleri istenen konumu bilgilerle güncelleştirir.
+    Merhaba **kayıt defteri** nesne cihaz çiftlerini hello hizmetinden ile tüm hello yöntemleri gerekli toointeract kullanıma sunar. Merhaba önceki kod ilk hello başlatır **kayıt defteri** nesnesi alır cihaz çiftinin hello sonra **myDeviceId**ve son olarak, etiketleri istenen hello konumu bilgilerle güncelleştirir.
    
-    Etiketler güncelleştirdikten sonra çağırır **queryTwins** işlevi.
-5. Sonuna aşağıdaki kodu ekleyin **AddTagsAndQuery.js** uygulamak için **queryTwins** işlevi:
+    Merhaba sonra hello güncelleştirme onu çağrıları hello etiketler **queryTwins** işlevi.
+5. Merhaba ucunda koddan hello eklemek **AddTagsAndQuery.js** tooimplement hello **queryTwins** işlevi:
    
         var queryTwins = function() {
             var query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
-                    console.error('Failed to fetch the results: ' + err.message);
+                    console.error('Failed toofetch hello results: ' + err.message);
                 } else {
                     console.log("Devices in Redmond43: " + results.map(function(twin) {return twin.deviceId}).join(','));
                 }
@@ -105,46 +105,46 @@ Bu bölümde, ilişkili cihaz çifti konumu meta veri ekleyen bir Node.js konsol
             query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
-                    console.error('Failed to fetch the results: ' + err.message);
+                    console.error('Failed toofetch hello results: ' + err.message);
                 } else {
                     console.log("Devices in Redmond43 using cellular network: " + results.map(function(twin) {return twin.deviceId}).join(','));
                 }
             });
         };
    
-    Önceki kod iki sorguları yürüten: yalnızca cihaz çiftlerini bulunan aygıtların ilk seçer **Redmond43** tesis ve ikinci da cep telefonu şebekesi bağlı aygıtlar seçmek için sorgu iyileştirir.
+    Merhaba önceki kod iki sorguları çalıştırır: hello ilk yalnızca hello cihaz çiftlerini hello bulunan aygıtların seçer **Redmond43** tesis ve ayrıca üzerinden bağlanan hello ikinci iyileştirir hello sorgu tooselect yalnızca hello cihazları cep telefonu şebekesi.
    
-    Unutmayın, oluşturduğunda, önceki kod **sorgu** nesne, döndürülen belgelerin en fazla sayısını belirtir. **Sorgu** nesnesini içeren bir **hasMoreResults** çağırmak için kullanabileceğiniz boolean özelliği **nextAsTwin** birden çok kez tüm sonuçları almak için yöntemleri. Bir yöntem olarak adlandırılan **sonraki** Örneğin, cihaz çiftlerini toplama sorguların sonuçlarını olmayan sonuçlar için kullanılabilir.
-6. Uygulama ile çalıştırın:
+    Merhaba oluşturduğunda bu hello önceki kod Not **sorgu** nesne, döndürülen belgelerin en fazla sayısını belirtir. Merhaba **sorgu** nesnesini içeren bir **hasMoreResults** tooinvoke hello kullanabileceğiniz boolean özelliği **nextAsTwin** yöntemleri tooretrieve tüm sonuçları birden çok kez. Bir yöntem olarak adlandırılan **sonraki** Örneğin, cihaz çiftlerini toplama sorguların sonuçlarını olmayan sonuçlar için kullanılabilir.
+6. Merhaba uygulaması ile çalıştırın:
    
         node AddTagsAndQuery.js
    
-    Bulunan tüm cihazlar için sorgu soran bir cihazda sonuçlarında görmelisiniz **Redmond43** ve sonuçları bir cep telefonu şebekesi kullanan cihazlar için sınırlar sorgu için yok.
+    Bulunan tüm cihazlar için sorgu hello soran bir cihazda hello sonuçlarında görmelisiniz **Redmond43** ve hiçbiri hello kısıtlayan hello sorgu için bir cep telefonu şebekesi kullanmak toodevices sonuçlanır.
    
     ![][1]
 
-Sonraki bölümde, önceki bölümde sorgusunun sonucu değiştirir ve bağlantı bilgilerini raporlar bir cihaz uygulaması oluşturursunuz.
+Merhaba sonraki bölümde hello bağlantı bilgilerini raporları bir cihaz uygulaması oluşturma ve değişiklikleri hello önceki bölümdeki hello sorgusunun sonucu hello.
 
-## <a name="create-the-device-app"></a>Cihaz uygulaması oluşturma
-Bu bölümde, hub'ınıza bağlanan bir Node.js konsol uygulaması oluşturma **myDeviceId**ve ardından, cihaz çifti bir cep telefonu şebekesi kullanarak bağlı bilgileri içerecek şekilde özellikleri bildirilen güncelleştirmeler.
+## <a name="create-hello-device-app"></a>Merhaba cihaz uygulaması oluşturma
+Bu bölümde, tooyour hub olarak bağlanan bir Node.js konsol uygulaması oluşturma **myDeviceId**ve ardından, cihaz çifti bir cep telefonu şebekesi kullanarak bağlı özellikler toocontain hello bilgilerini bildirilen güncelleştirmeler.
 
 > [!NOTE]
-> Şu anda cihaz çiftlerini MQTT protokolünü kullanarak IOT hub'a bağlanan cihazlar üzerinden erişilebilir. Lütfen [MQTT Destek] [ lnk-devguide-mqtt] MQTT kullanmak mevcut cihaz uygulaması dönüştürme hakkında yönergeler için makalenin.
+> Şu anda cihaz çiftlerini tooIoT hub'a bağlanan aygıtlardan erişilebilir hello MQTT protokolünü kullanarak. Lütfen toohello bakın [MQTT Destek] [ lnk-devguide-mqtt] hakkında yönergeler için makalenin tooconvert mevcut aygıt uygulama toouse MQTT.
 > 
 > 
 
-1. Adlı yeni bir boş klasör oluşturun **reportconnectivity**. İçinde **reportconnectivity** klasörü, komut isteminde aşağıdaki komutu kullanarak yeni bir package.json dosyası oluşturun. Tüm varsayılanları kabul edin:
+1. Adlı yeni bir boş klasör oluşturun **reportconnectivity**. Merhaba, **reportconnectivity** klasörü, komut, komut isteminde aşağıdaki hello kullanarak yeni bir package.json dosyası oluşturun. Tüm hello Varsayılanları kabul edin:
    
     ```
     npm init
     ```
-2. Komut isteminizde **reportconnectivity** klasörü yüklemek için aşağıdaki komutu çalıştırın, **azure IOT cihaz**, ve **azure-IOT-cihaz-mqtt** paketi:
+2. Merhaba, komut isteminde **reportconnectivity** klasörüne, komut tooinstall hello aşağıdaki hello **azure IOT cihaz**, ve **azure-IOT-cihaz-mqtt** paketi :
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Bir metin düzenleyicisi kullanarak yeni bir oluşturma **ReportConnectivity.js** dosyasını **reportconnectivity** klasör.
-4. Aşağıdaki kodu ekleyin **ReportConnectivity.js** dosya ve yerine **{cihaz bağlantı dizesi}** yer tutucu oluşturduğunuzdakopyaladığınızcihazbağlantıdizesiyle**myDeviceId** cihaz kimliği:
+3. Bir metin düzenleyicisi kullanarak yeni bir oluşturma **ReportConnectivity.js** hello dosyasında **reportconnectivity** klasör.
+4. Kod toohello aşağıdaki hello eklemek **ReportConnectivity.js** dosya ve hello yerine **{cihaz bağlantı dizesi}** hello oluşturduğunuzda kopyaladığınız hello cihaz bağlantı dizesiyle yer tutucusu **myDeviceId** cihaz kimliği:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -182,13 +182,13 @@ Bu bölümde, hub'ınıza bağlanan bir Node.js konsol uygulaması oluşturma **
         }
         });
    
-    **İstemci** nesne ihtiyaç duyduğunuz etkileşim kurmak için cihaz çiftlerini aygıttan ile tüm yöntemleri gösterir. Bunu başlatır sonra önceki kod **istemci** nesnesi, cihaz çiftinin alır **myDeviceId** ve kendi bildirilen özelliği ile bağlantı bilgilerini güncelleştirir.
-5. Cihaz uygulama çalıştırma
+    Merhaba **istemci** nesne cihaz çiftlerini hello aygıttan ile toointeract duyduğunuz tüm hello yöntemler sunar. Merhaba başlatır sonra önceki kod Hello **istemci** nesnesi alır, cihaz çiftinin hello **myDeviceId** ve kendi bildirilen özelliği hello bağlantı bilgileriyle güncelleştirir.
+5. Merhaba cihaz uygulamayı çalıştırma
    
         node ReportConnectivity.js
    
-    Şu iletiyi görürsünüz `twin state reported`.
-6. Aygıt bağlantısı bilgilerini bildirdi, her iki sorgularda görüntülenmelidir. Geri gidin **addtagsandqueryapp** klasörü ve sorguları yeniden çalıştırın:
+    Merhaba iletiyi görmeniz gerekir `twin state reported`.
+6. Merhaba aygıt bildirilen bağlantı bilgilerini, her iki sorgularda görüntülenmelidir. Merhaba edilene gidin **addtagsandqueryapp** klasörü ve Çalıştır hello sorgular yeniden:
    
         node AddTagsAndQuery.js
    
@@ -197,13 +197,13 @@ Bu bölümde, hub'ınıza bağlanan bir Node.js konsol uygulaması oluşturma **
     ![][3]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Azure portalında yeni bir IoT hub'ı yapılandırdınız ve ardından IoT hub'ının kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Cihaz meta verilerini bir arka uç uygulamadan etiketler eklendi ve sanal cihaz uygulaması rapor cihaz bağlantı bilgilerini cihaz çiftine yazıldı. Ayrıca SQL benzeri IOT hub'ı sorgu dili kullanarak bu bilgileri sorgulamak öğrendiniz.
+Bu öğreticide hello Azure portalında yeni bir IOT hub yapılandırılmış ve ardından hello IOT hub'ın kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Cihaz meta verilerini bir arka uç uygulamadan etiketler eklendi ve bir sanal cihaz uygulaması tooreport aygıt bağlantı bilgilerini hello cihaz çiftine yazıldı. Ayrıca nasıl öğrenilen tooquery hello SQL benzeri IOT hub'ı sorgu dili kullanarak bu bilgileri.
 
-Bilgi edinmek için aşağıdaki kaynakları kullanın nasıl yapılır:
+Kaynakları toolearn nasıl aşağıdaki kullanım hello için:
 
-* aygıtlarla telemetri gönderen [IOT Hub ile çalışmaya başlama] [ lnk-iothub-getstarted] öğretici
-* cihaz çifti'nın istenen özelliklere sahip kullanarak cihazları yapılandırma [kullanmak istediğiniz cihazları yapılandırmak için Özellikler] [ lnk-twin-how-to-configure] öğretici
-* ile etkileşimli olarak (örneğin, kullanıcı tarafından denetlenen bir uygulamadan fan etkinleştirdikten), cihazları denetleme [doğrudan yöntemleri kullanın] [ lnk-methods-tutorial] Öğreticisi.
+* Merhaba aygıtlarla telemetri gönderen [IOT Hub ile çalışmaya başlama] [ lnk-iothub-getstarted] öğretici
+* cihaz çifti'nın istenen özellikleri ile hello kullanarak cihazları yapılandırma [kullanım istenen özellikleri tooconfigure aygıtları] [ lnk-twin-how-to-configure] öğretici,
+* Merhaba ile etkileşimli olarak (örneğin, kullanıcı tarafından denetlenen bir uygulamadan fan etkinleştirdikten), cihazları denetleme [doğrudan yöntemleri kullanın] [ lnk-methods-tutorial] Öğreticisi.
 
 <!-- images -->
 [1]: media/iot-hub-node-node-twin-getstarted/service1.png

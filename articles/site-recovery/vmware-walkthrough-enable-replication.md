@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile azure'a VMware Vm'lerini çoğaltma için çoğaltma etkinleştirme | Microsoft Docs"
-description: "Azure VM'ler için çoğaltma VMware Azure Site Recovery hizmetini kullanarak etkinleştirmek için gereken adımları özetler"
+title: "VMware Vm'leri tooAzure Azure Site Recovery ile çoğaltmak için aaaEnable çoğaltma | Microsoft Docs"
+description: "Tooenable çoğaltma tooAzure hello Azure Site Recovery hizmetini kullanarak VMware Vm'leri için gereken hello adımları özetler"
 documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: 470b9ddd8df4a4e74ec7174f79020c252323e502
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 490782bbbfa3dd92c626d3985c75d771df53d566
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-11-enable-replication-for-vmware-virtual-machines-to-azure"></a>11. adım: Azure VMware sanal makineler için çoğaltmayı etkinleştirme
+# <a name="step-11-enable-replication-for-vmware-virtual-machines-tooazure"></a>11. adım: VMware sanal makineleri tooAzure için çoğaltmayı etkinleştirme
 
 
-Bu makalede Azure, şirket içi VMware sanal makineler için çoğaltma etkinleştirme kullanarak [Azure Site Recovery](site-recovery-overview.md) Azure portalında hizmet.
+Nasıl hello kullanarak tooAzure tooenable çoğaltma için şirket içi VMware sanal makineleri bu makalede [Azure Site Recovery](site-recovery-overview.md) hello Azure portal hizmeti.
 
-POST açıklamaları ve soruları alt bu makalenin veya üzerinde [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+POST açıklamaları ve soruları hello altındaki bu makalenin veya hello [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-- VMware sanal makinelerini olmalıdır [Mobility hizmeti bileşeninin yüklü](vmware-walkthrough-install-mobility.md). -Bir VM gönderme yüklemesi için hazırlanmış, çoğaltma etkinleştirdiğinizde işlem sunucusu otomatik olarak Mobility hizmetini yükler.
-- Azure kullanıcı hesabınızın belirli gereken [izinleri](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) Azure bir VM'nin çoğaltmayı etkinleştirmek için
-- Ekleyin veya VM'ler değiştirdiğinizde, 15 dakika veya daha uzun değişikliklerin etkili olması ve sunumların portalda görünebilmesi kadar sürebilir.
-- Vm'lerde bulunan en son ne zaman denetleyebilir **yapılandırma sunucularına** > **en son kişi**.
-- VM'ler için zamanlanmış bulma beklemeden eklemek için yapılandırma sunucusu vurgulayın (tıklatın yok), tıklatıp **yenileme**.
+- VMware Vm'leri hello olmalıdır [Mobility hizmeti bileşeninin yüklü](vmware-walkthrough-install-mobility.md). -Bir VM gönderme yüklemesi için hazırlanmış, çoğaltma etkinleştirdiğinizde hello işlem sunucusu otomatik olarak hello Mobility hizmetini yükler.
+- Azure kullanıcı hesabınızın belirli gereken [izinleri](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) VM tooAzure tooenable çoğaltması
+- Ekleyin veya VM'ler değiştirdiğinizde, too15 dakika veya daha uzun değişiklikler tootake etkisi ve bunları alabilir tooappear hello Portalı'nda.
+- VM için en son bulunan hello zaman denetimi **yapılandırma sunucularına** > **en son kişi**.
+- Merhaba zamanlanmış bulma Vurgu hello yapılandırma sunucusu bekleyen olmadan VM'ler tooadd (tıklatın yok), tıklatıp **yenileme**.
 
 
 
 ## <a name="exclude-disks-from-replication"></a>Diskleri çoğaltmanın dışında tutma
 
-Varsayılan olarak, bir makine üzerindeki tüm diskleri çoğaltılır. Diskleri çoğaltmanın dışında bırakabilirsiniz. Örneğin, geçici veriler veya her zaman bir makine yeniledi veri disklerini çoğaltmak istemeyebilirsiniz veya (örneğin pagefile.sys ya da SQL Server tempdb) uygulamasını yeniden başlatır. [Daha fazla bilgi](site-recovery-exclude-disk.md)
+Varsayılan olarak, bir makine üzerindeki tüm diskleri çoğaltılır. Diskleri çoğaltmanın dışında bırakabilirsiniz. Örneğin, geçici verileri ya da her zaman bir makine yeniledi veri tooreplicate disklerle istemeyebilirsiniz veya (örneğin pagefile.sys ya da SQL Server tempdb) uygulamasını yeniden başlatır. [Daha fazla bilgi](site-recovery-exclude-disk.md)
 
 ## <a name="replicate-vms"></a>Vm'lerini çoğaltma
 
@@ -48,37 +48,37 @@ Başlamadan önce hızlı bir video genel bakış izleyin
 >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video3-Protect-VMware-Virtual-Machines/player]
 
 1. **2. Adım: Uygulama çoğaltma** > **Kaynak** seçeneklerine tıklayın.
-2. İçinde **kaynak**, yapılandırma sunucusu seçin.
+2. İçinde **kaynak**seçin hello yapılandırma sunucusu.
 3. İçinde **makine türü**seçin **sanal makineleri**.
-4. İçinde **vCenter/vSphere hiper yönetici**vSphere ana yöneten vCenter sunucusu seçin veya konağı seçin.
-5. İşlem sunucusu seçin. Herhangi bir ek işlem sunucusu oluşturmadıysanız bu yapılandırma sunucusu olacaktır. Daha sonra, **Tamam**'a tıklayın.
+4. İçinde **vCenter/vSphere hiper yönetici**hello vSphere ana yöneten hello vCenter sunucusu seçin veya hello konak seçin.
+5. Merhaba işlem sunucusunu seçin. Herhangi bir ek işlem sunucusu oluşturmadıysanız bu hello yapılandırma sunucusu olacaktır. Daha sonra, **Tamam**'a tıklayın.
 
     ![Çoğaltmayı etkinleştirme](./media/vmware-walkthrough-enable-replication/enable-replication2.png)
 
-6. İçinde **hedef**, abonelik ve başarısız VM'ler üzerinde oluşturmak istediğiniz kaynak grubunu seçin. Devredilen sanal makineleri için Azure (Yönetim), Klasik veya resource kullanmak istediğiniz dağıtım modelini seçin.
+6. İçinde **hedef**hello aboneliği seçin ve hello vm'lerinde toocreate hello istediğiniz kaynak grubunu. Toouse (Yönetim), Klasik veya resource azure'da hello vm'lerinde için istediğiniz hello dağıtım modelini seçin.
 
 
-7. Veri çoğaltmak için kullanmak istediğiniz Azure depolama hesabı seçin. Ayarlamış bir hesap kullanmak istemiyorsanız, yeni bir tane oluşturabilirsiniz.
+7. Veri çoğaltmak için toouse istediğiniz hello Azure depolama hesabı seçin. Toouse ayarlamış bir hesap istemiyorsanız, yeni bir tane oluşturabilirsiniz.
 
-8. Yük devretme sonrasında oluşturulan Azure VM'lerinin bağlanacağı Azure ağını ve alt ağını seçin. Koruma için seçtiğiniz tüm makinelere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandır**’ı seçin. Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin. Varolan bir ağı kullanmak istemiyorsanız, bir tane oluşturabilirsiniz.
+8. Yük devretme sonrasında oluşturulduğunda select hello Azure ağ ve alt ağ toowhich Azure VM'ler bağlanır. Seçin **seçili makineler için Şimdi Yapılandır**, seçtiğiniz tooapply hello ağ ayarı tooall makineler için koruma. Seçin **daha sonra yapılandırma** tooselect hello makine başına Azure ağı. Varolan bir ağ toouse istemiyorsanız, bir tane oluşturabilirsiniz.
 
     ![Çoğaltmayı etkinleştirme](./media/vmware-walkthrough-enable-replication/enable-rep3.png)
-9. **Sanal Makineler** > **Sanal makine seçin** seçeneklerine tıklayın ve çoğaltmak istediğiniz makineleri seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın.
+9. İçinde **sanal makineleri** > **sanal makine Seç**, tıklatın ve tooreplicate istediğiniz her bir makine seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın.
 
     ![Çoğaltmayı etkinleştirme](./media/vmware-walkthrough-enable-replication/enable-replication5.png)
-10. İçinde **özellikleri** > **özelliklerini yapılandırma**, işlem sunucusu tarafından otomatik olarak makinede Mobility hizmeti yüklemek için kullanılacak hesabı seçin.
-11. Varsayılan olarak tüm diskler çoğaltılır. Tıklatın **tüm diskleri** ve çoğaltmak için istemediğiniz tüm diskleri temizleyin. Daha sonra, **Tamam**'a tıklayın. Ek VM özellikleri daha sonra ayarlayabilirsiniz.
+10. İçinde **özellikleri** > **özelliklerini yapılandırmak**seçin hello işlem sunucusu tooautomatically tarafından kullanılacak hello hesap hello makinede hello Mobility hizmeti yükleyin.
+11. Varsayılan olarak tüm diskler çoğaltılır. Tıklatın **tüm diskleri** ve tooreplicate istemediğiniz tüm diskleri temizleyin. Daha sonra, **Tamam**'a tıklayın. Ek VM özellikleri daha sonra ayarlayabilirsiniz.
 
     ![Çoğaltmayı etkinleştirme](./media/vmware-walkthrough-enable-replication/enable-replication6.png)
-11. İçinde **çoğaltma ayarları** > **çoğaltma ayarlarını yapılandırın**, doğru Çoğaltma İlkesi'nin seçili olduğunu doğrulayın. Bir ilkeyi değiştirirseniz, değişiklikler makinenin çoğaltıldığını ve yeni makinelere uygulanır.
-12. Etkinleştirme **çoklu VM tutarlılığını** makineler çoğaltma grubuna toplayın ve grup için bir ad belirtmek istiyorsanız. Daha sonra, **Tamam**'a tıklayın. Şunlara dikkat edin:
+11. İçinde **çoğaltma ayarları** > **çoğaltma ayarlarını yapılandırın**, o hello çoğaltma ilkesi seçili doğru doğrulayın. Bir ilkeyi değiştirirseniz, değişiklikler uygulanan tooreplicating makine ve toonew makineleri olacaktır.
+12. Etkinleştirme **çoklu VM tutarlılığını** toogather makineler çoğaltma grubuna isterseniz ve hello grubu için bir ad belirtin. Daha sonra, **Tamam**'a tıklayın. Şunlara dikkat edin:
 
     * Çoğaltma gruplarındaki makineler birlikte çoğaltılır ve kilitlenme tutarlı ve uygulamayla tutarlı kurtarma noktaları üzerinden başarısız olduğunda paylaşılan.
-    * Böylece, iş yüklerini yansıtma sanal makineleri ve fiziksel sunucuları araya toplamak öneririz. Çoklu VM tutarlılığını etkinleştirmek, iş yükü performansını etkileyebilir ve yalnızca makineler aynı iş yükünü çalıştırıyorsa ve tutarlılık ihtiyacınız varsa kullanılmalıdır.
+    * Böylece, iş yüklerini yansıtma sanal makineleri ve fiziksel sunucuları araya toplamak öneririz. Çoklu VM tutarlılığını etkinleştirmek iş yükü performansını etkileyebilir ve yalnızca makineler hello çalışıyorsa kullanılmalıdır aynı iş yükünü ve tutarlılık gerekir.
 
     ![Çoğaltmayı etkinleştirme](./media/vmware-walkthrough-enable-replication/enable-replication7.png)
-13. Tıklatın **çoğaltmasını etkinleştir**. İlerleme durumunu izleyebilirsiniz **korumayı etkinleştir** iş **ayarları** > **işleri** > **Site Recovery işleri**. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
+13. Tıklatın **çoğaltmasını etkinleştir**. Merhaba ilerlemesini izleyebilirsiniz **korumayı etkinleştir** iş **ayarları** > **işleri** > **Site Recovery işleri**. Merhaba sonra **korumayı Sonlandır** iş çalıştırmaları hello makine yük devretme için hazır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Git [adım 12: yük devretme testi çalıştırma](vmware-walkthrough-test-failover.md)
+Çok Git[adım 12: yük devretme testi çalıştırma](vmware-walkthrough-test-failover.md)

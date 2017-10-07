@@ -1,6 +1,6 @@
 ---
-title: "Microsoft tehdit modelleme aracı - Azure | Microsoft Docs"
-description: "Tehdit modelleme aracında kullanılabilir tüm özellikler hakkında bilgi edinin"
+title: "aaaMicrosoft tehdit modelleme aracı - Azure | Microsoft Docs"
+description: "Merhaba tehdit modelleme aracı kullanılabilir tüm hello özellikler hakkında bilgi edinin"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 621ff305d7e782f85eeaae6c3fb02031673549c6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f9ad5e623e7758063084cb7fc723c5735161a846
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Tehdit modelleme aracı özelliğine genel bakış
 
-Biz gereksinimlerini modelleme, tehdit tehdit modelleme Aracı'nı kullanmak seçtiğiniz memnunuz! Bunu yapmadıysanız, ziyaret  **[tehdit modelleme aracı ile çalışmaya başlama](./azure-security-threat-modeling-tool-getting-started.md)**  temellerini öğrenin.
+Biz toouse hello tehdit modelleme aracı gereksinimlerini modelleme, tehdit için seçtiğiniz memnunuz! Bunu yapmadıysanız, ziyaret  **[hello tehdit modelleme aracı ile çalışmaya başlama](./azure-security-threat-modeling-tool-getting-started.md)**  toolearn hello temelleri.
 
-> Aracımız sık sık güncelleştirilir, genellikle, en son özellikleri ve geliştirmeleri görmek için bu kılavuzu kontrol edin.
+> Aracımız sık sık güncelleştirilir, böylece bu denetleyin genellikle toosee bizim en son özellikleri ve geliştirmeleri Kılavuzu.
 
-"Oluştur bir yeni Model" düğmesini tıklatarak aşağıdaki görüntü benzer boş başlangıç sayfasını açar:
+Merhaba "Oluşturmak bir yeni Model" düğmesini tıklatarak boş başlangıç sayfası, benzer toohello görüntünün altına açar:
 
 ![Boş başlangıç sayfası](./media/azure-security-threat-modeling-tool/tmtstart.png)
 
-Tehdit modeli kullanılarak oluşturulan bizim ekibi tarafından  **[Başlarken](./azure-security-threat-modeling-tool-getting-started.md)**  örnek, şimdi aracında kullanılabilir tüm özellikleri bugün göz atın.
+Merhaba tehdit modeli kullanılarak oluşturulan ekibimiz hello içinde tarafından  **[Başlarken](./azure-security-threat-modeling-tool-getting-started.md)**  örnek, şimdi hello aracında kullanılabilir tüm hello özellikler bugün göz atın.
 
 ![Temel tehdit modeli](./media/azure-security-threat-modeling-tool/basictmt.png)
 
 ## <a name="navigation"></a>Gezinme
 
-İçinde yerleşik özellikler girmeden önce aracında bulunan ana bileşeni üzerinden edelim
+Merhaba yerleşik özellikleri girmeden önce hello aracında bulunan hello ana bileşeni üzerinden edelim
 
 ### <a name="menu-items"></a>Menü öğeleri
 
-Deneyimi diğer Microsoft ürünlerine benzer olmalıdır. Üst düzey menü öğeleri arasında giderek başlayalım:
+Merhaba deneyimi benzer tooother Microsoft ürünleri olmalıdır. Merhaba en üst düzey menü öğeleri arasında giderek başlayalım:
 
 ![Menü öğeleri](./media/azure-security-threat-modeling-tool/menuitems.png)
 
 | Etiket                               | Ayrıntılar      |
 | --------------------------------------- | ------------ |
-| **Dosya** | <ul><li>Açın, kaydetme ve dosyaları kapatın</li><li>Oturum seçeneğinde OneDrive'nın hesapları</li><li>Paylaşım bağlantılar (Görünüm + Düzenle)</li><li>Dosya bilgilerini görüntüleme</li><li>Varolan modeli yeni şablonu Uygula</li></ul> |
+| **Dosya** | <ul><li>Açın, kaydetme ve dosyaları kapatın</li><li>Oturum seçeneğinde OneDrive'nın hesapları</li><li>Paylaşım bağlantılar (Görünüm + Düzenle)</li><li>Dosya bilgilerini görüntüleme</li><li>Yeni şablon tooExisting modelleri Uygula</li></ul> |
 | **Düzenleme** | Geri alma/Eylemler, iyi bir kopyalama, yapıştırma ve delete olarak yinele |
-| **Görünümü** | <ul><li>Arasında geçiş **analiz** ve **tasarım** görünümleri</li><li>Açık kapalı windows (e.g.stencils, öğe özellikleri ve iletileri)</li><li>Düzen varsayılan ayarlarına sıfırlama</li></ul> |
+| **Görünümü** | <ul><li>Arasında geçiş **analiz** ve **tasarım** görünümleri</li><li>Açık kapalı windows (e.g.stencils, öğe özellikleri ve iletileri)</li><li>Düzen toodefault ayarlarını sıfırla</li></ul> |
 | **Diyagramı** | Diyagramları ekleme/silme ve diyagramları "sekmeleri" arasında gidin |
-| **Raporlar** | Diğer kişilerle paylaşmak için HTML rapor oluşturma |
-| **Yardım** | Aracı'nı kullanmanıza yardımcı olmak için size yol gösterir |
+| **Raporlar** | HTML raporları tooshare başkalarıyla oluşturma |
+| **Yardım** | Kılavuzlar toohelp hello aracını kullanın |
 
-Üst düzey menü kısayolları simgeler şunlardır:
+Merhaba en üst düzey menü kısayolları Hello simgeler şunlardır:
 
 | Simgesi                               | Ayrıntılar      |
 | --------------------------------------- | ------------ |
@@ -61,28 +61,28 @@ Deneyimi diğer Microsoft ürünlerine benzer olmalıdır. Üst düzey menü ö�
 | **Kaydet** | Geçerli dosya kaydeder |
 | **Tasarım** | Tasarım görünümüne modelleri oluşturabileceğiniz gider |
 | **Çözümleme** | Tehditler ve bunların özelliklerini gösterir oluşturulan |
-| **Diyagrama ekleyin** | Yeni Diyagram (Excel yeni sekmelerde benzer) ekler |
+| **Diyagrama ekleyin** | Yeni Diyagram (Excel'de benzer toonew sekmeleri) ekler |
 | **Diyagram Sil** | Geçerli diyagram siler |
 | **Kes/kopyala/yapıştır** | Keser/kopyaları/yapıştırır öğeleri |
 | **Geri alma/yineleme** | Eylemler alır/Yinele |
-| **Yakınlaştırma / Uzaklaştır** | Ve daha iyi bir görünüm için diyagramı yakınlaştırır |
-| **Geri Bildirim** | MSDN Forumu açar |
+| **Yakınlaştırma / Uzaklaştır** | Ve daha iyi bir görünüm için hello diyagramı yakınlaştırır |
+| **Geri Bildirim** | Açılır hello MSDN Forumu |
 
 ### <a name="canvas"></a>Tuvale
 
-Burada, sürükleyip elemanlara alanı. Sürükle ve bırak yoludur modelleri oluşturmak için hızlı ve en iyi yoldur. Ayrıca, sağ tıklayın ve aşağıda gösterildiği gibi kullanmakta olduğunuz öğeleri genel sürümlerini ekler menüsünde seçin.
+Burada, sürükleyip elemanlara hello alanı. Sürükle ve bırak olan hello hızlı ve en verimli şekilde toobuild modeller. Ayrıca, sağ tıklayın ve aşağıda gösterildiği gibi kullanmakta olduğunuz hello öğeleri genel sürümlerini ekler hello menüsünden seçin.
 
-#### <a name="dropping-the-stencil-on-the-canvas"></a>Tuvalde şablon bırakılıyor
+#### <a name="dropping-hello-stencil-on-hello-canvas"></a>Merhaba şablon hello tuvalde bırakılıyor
 
 ![Tuvale bırakma](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
 
-#### <a name="clicking-on-the-stencil"></a>Şablon üzerinde tıklatarak
+#### <a name="clicking-on-hello-stencil"></a>Merhaba şablonda tıklatarak
 
 ![Öğe özellikleri](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
 
 ### <a name="stencils"></a>Şablonlar
 
-Kullanılabilir tüm şablonlar bulabileceğiniz seçilen şablona dayalı. Sağ öğeleri bulamazsanız, başka bir şablonu kullanmayı deneyin veya bir gereksinimlerinize uyacak şekilde değiştirin. Genellikle, kategoriler ve olanlar gibi bir birleşimini bulamıyor olması gerekir:
+Bulabileceğiniz burada tüm şablonlar seçili hello şablonunu temel alan kullanılabilir toouse. Merhaba sağ öğeleri bulamazsanız, başka bir şablonu kullanmayı deneyin veya bir toofit gereksinimlerinizi değiştirin. Genellikle, mümkün toofind kategoriler altında olanları hello gibi bir birleşimi olmalıdır:
 
 | Şablon adı                               | Ayrıntılar      |
 | --------------------------------------- | ------------ |
@@ -97,27 +97,27 @@ Kullanılabilir tüm şablonlar bulabileceğiniz seçilen şablona dayalı. Sağ
 | Bileşen                               | Ayrıntılar      |
 | --------------------------------------- | ------------ |
 | **İletileri** | Öğeler arasında hiçbir veri akışları gibi bir hata olduğunda kullanıcıları uyarır iç aracı mantığı |
-| **Notlar** | Dosyaya mühendislik tasarımı ve gözden geçirme işlemi boyunca ekipleri tarafından eklenen el ile notları |
+| **Notlar** | El ile notları eklenen toohello dosyası mühendislik ekipleri tarafından baştan tasarım hello ve işlem gözden geçirin |
 
 ### <a name="element-properties"></a>Öğe özellikleri
 
-Bunlar, seçili öğeler farklılık gösterir. Güven sınırları dışında 3 genel seçimleri diğer tüm öğeleri içerir:
+Bunlar, seçili hello öğeleri tarafından farklılık gösterir. Güven sınırları dışında 3 genel seçimleri diğer tüm öğeleri içerir:
 
 | Öğe özelliği                               | Ayrıntılar      |
 | --------------------------------------- | ------------ |
-| **Ad** | Yararlı, işlemler, depolar, interactors ve akışlar kolayca tanınması için adlandırma |
-| **Kapsamının dışında** | Seçili olduğunda, öğe (önerilmez) tehdit nesil matris dışı alınır |
-| **Kapsam dışında nedeni** | Kapsam dışında neden bilmesini sağlamak üzere gerekçe alanları seçilmedi |
+| **Ad** | Kolay tanınan, işlemler, depolar, interactors ve akışlar toobe adlandırma yararlı |
+| **Kapsamının dışında** | Seçili olduğunda, hello öğesi hello tehdit nesil matris (önerilmez) dışında alınır |
+| **Kapsam dışında nedeni** | Doğrulama alanı toolet kullanıcılar kapsamının dışında seçilmedi neden bilmeniz |
 
-Özellikleri her öğe kategorisi altında değiştirilir. Kullanılabilir seçenekler inceleyin veya daha fazla bilgi için şablon açmak için her öğesini tıklatın. Şimdi özellikler alınamadı.
+Özellikleri her öğe kategorisi altında değiştirilir. Öğesi her tooinspect hello kullanılabilir Seçenekler'i tıklatın veya daha fazla hello şablonu toolearn açın. Şimdi hello özellikler alınamadı.
 
 ## <a name="welcome-screen"></a>Hoş Geldiniz ekranı
 
-Hoş Geldiniz ekranında uygulama açtığınızda gördüğünüz ilk şeydir.
+Merhaba Hoş Geldiniz ekranı hello uygulama açtığınızda gördüğünüz hello ilk şeydir.
 
 ### <a name="open-a-model"></a>Bir model açın
 
-"Açık bir modeli" düğmenin üzerine getirildiğinde, 2 gizli seçeneklerini gösterir: "Dan bu bilgisayarı açma" ve "Aç onedrive" İkinci, oturum açma işlemine aracılığıyla, OneDrive, başarılı bir kimlik doğrulamasından sonra dosya ve klasörleri seçmenize olanak sağlayan alır ancak ilk Dosya Aç ekranı açılır.
+"Açık bir modeli" düğmenin üzerine getirildiğinde, 2 gizli seçeneklerini gösterir: "Dan bu bilgisayarı açma" ve "Aç onedrive" Merhaba ikinci, hello oturum açma işlemine aracılığıyla OneDrive, başarılı bir kimlik doğrulamasından sonra toopick klasörleri ve dosyaları izin verme işlenirken hello hello Dosya Aç ekran, ilk açılır.
 
 ![Açık modeli](./media/azure-security-threat-modeling-tool/openmodel.png)
 
@@ -125,31 +125,31 @@ Hoş Geldiniz ekranında uygulama açtığınızda gördüğünüz ilk şeydir.
 
 ### <a name="feedback-suggestions-and-issues"></a>Geri bildirim, öneriler ve sorunları
 
-Bu seçeneğin belirlenmesi için SDL araçları MSDN Forumları olur. Geçici çözümler ve yeni fikirleri dahil olmak üzere aracı hakkında başkalarının ne dediğini denetlemek için harika bir yoludur.
+Bu seçeneğin belirlenmesi için SDL araçları toohello MSDN Forumları olur. Geçici çözümler ve yeni fikirleri gibi hello aracı hakkında başkalarının ne dediğini çıkışı mükemmel şekilde toocheck olur.
 
 ![Geri Bildirim](./media/azure-security-threat-modeling-tool/feedback.png)
 
 ## <a name="design-view"></a>Tasarım görünümü
 
-Her açın veya yeni bir model oluşturma Tasarım görünümüne gidersiniz.
+Her açın veya yeni bir model oluşturma toohello Tasarım görünümüne gidersiniz.
 
 ### <a name="adding-elements"></a>Öğeler ekleme
 
-Kılavuzda öğeler eklemek için 2 yolu vardır:
+Merhaba kılavuzda tooadd öğeleri 2 yolu vardır:
 
-- **Sürükleme ve bırakma** – İstenen öğe kılavuza sürükleyin ve ardından ek bilgi sağlamak için öğe özelliklerini kullanın.
-- **Sağ tıklayın** – sağ kılavuzda herhangi bir yere tıklayın ve açılan menüden seçin. Bu öğe genel bir gösterimini ekranında görüntülenir.
+- **Sürükleme ve bırakma** – hello İstenen öğe toohello kılavuz sürükleyin sonra hello öğe özellikleri tooprovide ek bilgileri kullanın.
+- **Sağ tıklayın** – sağ hello kılavuz üzerinde herhangi bir yere tıklayın ve hello açılır menüsünden seçin. Bu öğe genel bir gösterimini Merhaba ekranında görüntülenir.
 
 ### <a name="connecting-elements"></a>Bağlama öğeleri
 
-Öğeleri aracında bağlamak için 2 yolu vardır:
+Merhaba aracında tooconnect öğeleri 2 yolu vardır:
 
-- **Sürükleme ve bırakma** – istenen veri akışı kılavuza sürükleyin ve uygun öğeleri için her iki ucuna bağlayın.
-- **Shift + tıklayın** – (veri gönderme) ilk öğeyi tıklatın, tuşuna basın ve Shift tuşunu basılı tutun ve sonra da (veri alma) ikinci öğesini seçin. Sağ tıklatın ve "Bağlan" seçin İki yönlü veri akışı kullanıyorsanız, sipariş gibi önemli değildir.
+- **Sürükleme ve bırakma** – hello istenen veri akışı toohello kılavuz sürükleyin ve her iki uca toohello uygun öğeleri bağlayın.
+- **Shift + tıklayın** – (veri gönderme) hello ilk öğesini tıklatın, basılı hello SHIFT tuşunu sonra select hello ikinci öğesi (veri alma). Sağ tıklatın ve "Bağlan" seçin İki yönlü veri akışı kullanıyorsanız, hello sırası gibi önemli değildir.
 
 ### <a name="properties"></a>Özellikler
 
-Diyagramda yerleştirilen şablonlar değiştirilebilir tüm özellikleri gösterir. Özelliklerini görmek için şablon üzerinde tıklamanız yeterlidir ve bilgileri buna uygun olarak doldurulur. Aşağıdaki örnek, önce ve sonra "Şablon diyagram üzerine sürüklediğiniz bir veritabanı" gösterir:
+Merhaba şemada yerleştirilen hello şablonlar değiştirilebilir tüm hello özellikleri gösterir. toosee hello özellikler, yalnızca hello şablonda tıklayın ve hello bilgileri buna uygun olarak doldurulur. önce ve sonra "Şablon hello diyagram üzerine sürüklediğiniz bir veritabanı" Merhaba örnekte gösterilir:
 
 #### <a name="before"></a>Önce
 
@@ -161,17 +161,17 @@ Diyagramda yerleştirilen şablonlar değiştirilebilir tüm özellikleri göste
 
 ### <a name="messages"></a>İletiler
 
-Bir tehdit modeli oluşturmak ve veri akışları öğelere bağlanmak unutursanız, ileti penceresinde hareket size bildirir. Yok sayın veya sorunu düzeltmek için yönergeleri izleyin seçebilirsiniz. 
+Merhaba ileti penceresinde bir tehdit modeli oluşturmak ve tooelements tooconnect veri akışları unutursanız, tooact bildirir. Tooignore veya izleyin seçebilirsiniz hello yönergeleri toofix hello sorun. 
 
 ![İletiler](./media/azure-security-threat-modeling-tool/messages.png)
 
 ### <a name="notes"></a>Notlar
 
-İletileri sekmelerinden Notlar geçiş Notlar tüm düşüncelerinizi yakalamak için diyagrama eklemenize izin verir
+İletileri tooNotes sekmelerinden değiştirme, tooadd notları tooyour diyagramı toocapture tüm düşüncelerinizi sağlar
 
 ## <a name="analysis-view"></a>Analiz görünümü
 
-İşiniz bittiğinde, diyagram oluşturma, analiz görünümüne üst menü seçimleri gidip Büyüteç boyama palet yanındaki seçme geçebilir.
+İşiniz bittiğinde, diyagram oluşturma, tooanalysis görünüm giderek toohello üst menü seçimlerini ve hello Büyüteç sonraki toohello boyama paleti seçme geçiş.
 
 ![Analiz görünümü](./media/azure-security-threat-modeling-tool/analysisview.png)
 
@@ -181,28 +181,28 @@ Bir tehdit modeli oluşturmak ve veri akışları öğelere bağlanmak unutursan
 
 | Özellik                               | Bilgi      |
 | --------------------------------------- | ------------ |
-| **Okuma göstergesi** | <p>Tehdit şimdi kolayca zaten gittiğiniz aracılığıyla öğeleri izlemenize yardımcı olabilir okunur olarak işaretlendi</p><p>![Okuma/okunmamış göstergesi](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
-| **Etkileşim odak** | <p>Tehdit vurgulanır ait diyagramdaki etkileşimi</p><p>![Etkileşim odak](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
-| **İş parçacığı özellikleri** | <p>Tehdit hakkında ek bilgi tehdit Özellikler penceresinde doldurulur</p><p>![İş parçacığı özellikleri](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
+| **Okuma göstergesi** | <p>Tehdit şimdi kolayca zaten gittiğiniz aracılığıyla hello öğeleri izlemenize yardımcı olabilir okunur olarak işaretlendi</p><p>![Okuma/okunmamış göstergesi](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
+| **Etkileşim odak** | <p>Etkileşim toothat tehdit ait hello diyagramındaki vurgulanmış</p><p>![Etkileşim odak](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
+| **İş parçacığı özellikleri** | <p>Merhaba tehdit Özellikler penceresinde hello tehdit hakkında ek bilgi doldurulur</p><p>![İş parçacığı özellikleri](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Öncelik değiştirme
 
-Oluşturulan her tehdit öncelik düzeyini değiştirme, yüksek, Orta ve düşük öncelik tehditleri tanımlamak kolaylaştırmak için kendi renkleri değiştirir.
+Oluşturulan her tehdit Hello öncelik düzeyini değiştirme de kendi renkleri toomake değiştirir, kolay tooidentify yüksek, Orta ve düşük öncelik tehditleri.
 
 ![Öncelik değiştirme](./media/azure-security-threat-modeling-tool/prioritychange.png)
 
 ### <a name="threat-properties-editable-fields"></a>Tehdit özellikleri düzenlenebilir alanları
 
-Yukarıdaki resimde görüldüğü gibi kullanıcılar aracı tarafından oluşturulan bilgileri değiştirebilir bir gerekçe gibi bazı alanları ayrıca bilgi ekleyin. Bu alanların şablon tarafından oluşturulan her tehdit için daha fazla bilgiye ihtiyacınız varsa, değişiklikler yapmak için kullanmaları için.
+Yukarıdaki Hello resimde görüldüğü gibi kullanıcılar hello aracı tarafından oluşturulan hello bilgilerini değiştirebilir bir ayrıca gerekçe gibi bilgi toocertain alanları ekleyin. Bu alanların hello şablon tarafından oluşturulan her tehdit için daha fazla bilgiye ihtiyacınız varsa, kullanmaları toomake değişiklikleri olacak şekilde.
 
 ![İş parçacığı özellikleri](./media/azure-security-threat-modeling-tool/threatproperties.png)
 
 ## <a name="reports"></a>Reports
 
-Bir kez değişen öncelikleri işiniz bittiğinde ve oluşturulan her tehdit durumunu güncelleştirme, siz dosyayı kaydedin veya "Rapor" ve ardından "Tam rapor oluştur." giderek bir raporu yazdırma Rapor adı istenir ve bunu yaptığınızda, aşağıdaki görüntü benzer bir şey görmeniz gerekir:
+Değişen öncelikleri işiniz bittiğinde ve tehdit her güncelleştirme hello durumunu oluşturulan sonra siz hello dosyasını kaydedin veya çok "rapor" giderek ve ardından "tam rapor oluştur." bir raporu yazdırın Tooname hello rapor istenir ve bunu yaptığınızda, aşağıdaki benzeri toohello görüntü görmeniz gerekir:
 
 ![Rapor](./media/azure-security-threat-modeling-tool/report.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir şablon için topluluğa katkıda bulunmak için lütfen Git bizim  **[GitHub](https://github.com/Microsoft/threat-modeling-templates)**  sayfası. **[Karşıdan](https://aka.ms/tmtpreview)**  bugün başlamak için aracı.
+Lütfen gidin tooour toocontribute hello topluluk için bir şablon  **[GitHub](https://github.com/Microsoft/threat-modeling-templates)**  sayfası. **[Karşıdan](https://aka.ms/tmtpreview)**  hello aracı tooget kullanmaya bugün.

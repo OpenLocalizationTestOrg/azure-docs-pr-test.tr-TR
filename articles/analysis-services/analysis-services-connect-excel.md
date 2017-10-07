@@ -1,6 +1,6 @@
 ---
-title: "Azure Analysis Services Excel ile bağlanma | Microsoft Docs"
-description: "Excel kullanarak bir Azure Analysis Services sunucusuna bağlanmak öğrenin."
+title: aaaConnect tooAzure Analysis Services Excel ile | Microsoft Docs
+description: "Nasıl tooconnect tooan Azure Analysis Services öğrenin Excel kullanarak sunucu."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,30 +15,30 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.openlocfilehash: d51b6980120f1cf9bc8d053d463a73ac600b915f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 175b83e7d936716a626aa4b3bf22b5598bb983d2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="connect-with-excel"></a>Excel ile bağlanma
 
-Azure üzerinde bir sunucu oluşturulur ve bir tablo modeline dağıtılmış sonra bağlanmak ve veri araştırmaya başlamak hazırsınız.
+Bir sunucu Azure içinde oluşturulan ve dağıtılan bir tablo modeli tooit sonra hazır tooconnect olduğunuz ve veri araştırmaya başlamak.
 
 
 ## <a name="connect-in-excel"></a>Excel'de Bağlan
 
-Excel'de sunucusuna bağlanan Excel 2016'da Veri Al kullanılarak desteklenir. Power Pivot Tablo Alma Sihirbazı'nı kullanarak bağlanması desteklenmiyor. 
+Excel'de tooa sunucusuyla bağlantı kuruluyor Excel 2016'da Veri Al kullanılarak desteklenir. Power Pivot Hello alma Tablo Sihirbazı'nı kullanarak bağlanması desteklenmiyor. 
 
-**Excel 2016'da bağlanmak için**
+**Excel 2016 tooconnect**
 
-1. 2016, üzerinde Excel **veri** Şerit, tıklatın **dış veri al** > **diğer kaynaklardan** > **Çözümleme Hizmetleri'nden** .
+1. Excel 2016'da, hello içinde **veri** Şerit, tıklatın **dış veri al** > **diğer kaynaklardan** > **Çözümleme Hizmetleri'nden** .
 
-2. Veri Bağlantı Sihirbazı ' nda içinde **sunucu adı**, protokol ve URI'sini de dahil olmak üzere sunucu adı girin. Ardından **oturum açma kimlik bilgileri**seçin **aşağıdaki kullanıcı adını ve parolayı kullan**ve kuruluş kullanıcı adı, örneğin yazın nancy@adventureworks.comve parola.
+2. İçinde veri Bağlantı Sihirbazı ' hello **sunucu adı**, protokol ve URI'sini de dahil olmak üzere hello sunucu adı girin. Ardından **oturum açma kimlik bilgileri**seçin **kullanıcı adı ve parola aşağıdaki kullanım hello**ve hello kuruluş kullanıcı adı, örneğin yazın nancy@adventureworks.comve parola.
 
     ![Excel oturumu açma bağlanma](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 
-3. İçinde **veritabanı ve Tablo Seç**, veritabanı ve model veya perspektif seçin ve ardından **son**.
+3. İçinde **veritabanı ve Tablo Seç**hello veritabanı ve model veya perspektif seçin ve ardından **son**.
    
     ![Excel select modelden Bağlan](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 

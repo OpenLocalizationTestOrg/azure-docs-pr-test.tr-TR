@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri çalışma zamanı yükleme | Microsoft Docs"
-description: "Azure işlevleri çalışma zamanı yükleme"
+title: "aaaAzure işlevleri çalışma zamanı yükleme | Microsoft Docs"
+description: "Nasıl tooInstall hello Azure işlevleri çalışma zamanı"
 services: functions
 documentationcenter: 
 author: apwestgarth
@@ -14,84 +14,84 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
-ms.openlocfilehash: 1e4188313a87d07f396e5f8edc8969dd5da2c436
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 67c6d10b5c0ac43e880d29cff0ae7b099f82bdb5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="install-the-azure-functions-runtime-preview"></a>Azure işlevleri çalışma zamanı Preview yükleyin
+# <a name="install-hello-azure-functions-runtime-preview"></a>Hello Azure işlevleri çalışma zamanı Önizleme yükleyin
 
-Azure işlevleri çalışma zamanı Önizleme yüklemek istiyorsanız, şu adımları izlemelisiniz:
+Tooinstall hello Azure işlevleri çalışma zamanı Önizleme istiyorsanız şu adımları izlemelisiniz:
 
-1. En düşük gereksinimleri makinenizi geçirir emin olun
-1. Karşıdan [Azure işlevleri çalışma zamanı Önizleme yükleyici](https://aka.ms/azafr). 
-1. Azure işlevleri çalışma zamanı preview yükleyin
-1. Azure işlevleri çalışma zamanı Önizleme yapılandırmasını tamamlama
+1. Merhaba en düşük gereksinimler makinenizi geçirir emin olun
+1. Merhaba karşıdan [Azure işlevleri çalışma zamanı Önizleme yükleyici](https://aka.ms/azafr). 
+1. Hello Azure işlevleri çalışma zamanı preview yükleyin
+1. Hello Azure işlevleri çalışma zamanı Önizleme tam hello yapılandırması
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure işlevleri çalışma zamanı Önizleme yüklemeden önce aşağıdakilere sahip olmanız gerekir:
+Hello Azure işlevleri çalışma zamanı Önizleme yüklemeden önce hello şunlara sahip olmanız gerekir:
 
 1. Microsoft Windows Server 2016 veya Microsoft Windows 10 oluşturucuları Update (Professional veya Enterprise Edition) çalıştıran bir makineye.
 1. Ağınızın içinde çalışan bir SQL Server örneği.  En düşük sürümü SQL Server Express gereksinimdir.
 
-## <a name="install-the-azure-functions-runtime-preview"></a>Azure işlevleri çalışma zamanı Preview yükleyin
+## <a name="install-hello-azure-functions-runtime-preview"></a>Hello Azure işlevleri çalışma zamanı Önizleme yükleyin
 
-Azure işlevleri çalışma zamanı Önizleme yükleyici Azure işlevleri çalışma zamanı Önizleme yönetimi ve çalışan rolleri yüklenmesinde size kılavuzluk eder.  Yönetim ve çalışan rolü aynı makinede yüklemek mümkündür.  Ancak, daha fazla işlevler eklemek gibi birden çok Worker üzerine işlevlerinizi ölçeklendirme yapabilmek için ek makinelerde daha fazla çalışan rolleri dağıtmanız gerekir.
+Hello Azure işlevleri çalışma zamanı Önizleme yükleyici hello yüklemesi hello Azure işlevleri çalışma zamanı Önizleme yönetimi ve çalışan rolleri sırasında size kılavuzluk eder.  Olası tooinstall hello yönetimi ve hello üzerinde çalışan rolü olan aynı makine.  Ancak, daha fazla işlevler eklemek gibi ek makineleri toobe mümkün tooscale daha fazla çalışan rollerinde işlevlerinizi birden çok Worker üzerine dağıtmanız gerekir.
 
-## <a name="install-the-management-and-worker-role-on-the-same-machine"></a>Yönetim ve çalışan rolü aynı makineye yükleme
+## <a name="install-hello-management-and-worker-role-on-hello-same-machine"></a>Merhaba yönetimi ve çalışan rolü üzerinde hello yükleme aynı makine
 
-1. Azure işlevleri çalışma zamanı Önizleme yükleyiciyi çalıştırın.
+1. Hello Azure işlevleri çalışma zamanı Önizleme yükleyici çalıştırın.
 
     ![Azure işlevleri çalışma zamanı Önizleme yükleyici][1]
 
-1. **İleri'yi** öncelikli yükleyici ilk aşamasında geçmiş
-1. Koşullarını okuduğunuzu sonra **EULA**, **onay kutusunu** hükümleri kabul etmek ve **İleri'yi tıklatın** ilerlemek için.
-1. Şimdi, bu makinede yüklemek istediğiniz rol seçin **işlevleri yönetim rolü** ve/veya **işlevleri çalışan rolü** ve **İleri'yi tıklatın**
+1. **İleri'yi** öncelikli hello yükleyici ilk aşamasında hello geçmiş
+1. Merhaba hello koşullarını okuduğunuzu sonra **EULA**, **hello kutuyu** tooaccept hello hüküm ve **İleri'yi tıklatın** tooadvance.
+1. Rolleri seçin hello artık bu makinede tooinstall istediğiniz **işlevleri yönetim rolü** ve/veya **işlevleri çalışan rolü** ve **İleri'yi tıklatın**
 
     ![Azure işlevleri çalışma zamanı Önizleme yükleyici - rolü seçimi][3]
 
     > [!NOTE]
-    > Yükleyebileceğiniz **işlevleri çalışan rolü** Bunu yapmak için birçok diğer makinelere, aşağıdaki yönergeleri izleyin ve yalnızca seçin **işlevleri çalışan rolü** yükleyicisinde.
+    > Merhaba yükleyebilirsiniz **işlevleri çalışan rolü** diğer birçok makineler toodo bu nedenle, bu yönergeleri izleyin ve yalnızca seçin **işlevleri çalışan rolü** hello yükleyicisinde.
 
-1. **İleri'yi** olmasını **Azure işlevleri çalışma zamanı yükleyicisi** makinenize yükleyin.
-1. Tamamlandığında yükleyici başlatacak **Azure işlevleri çalışma zamanı yapılandırma aracı**.
+1. **İleri'yi** toohave hello **Azure işlevleri çalışma zamanı yükleyicisi** makinenize yükleyin.
+1. Tam hello yükleyici hello başlatacak sonra **Azure işlevleri çalışma zamanı yapılandırma aracı**.
 
     ![Azure işlevleri çalışma zamanı Önizleme yükleyici tamamlandı][5]
 
     > [!NOTE]
-    > Üzerinde yüklüyorsanız **Windows 10** ve **kapsayıcı** özelliği daha önce etkinleştirilmemiş, **Azure işlevleri çalışma zamanı** yükleyici yeniden başlatılmasını ister, yüklemeyi tamamlamak için makine.
+    > Üzerinde yüklüyorsanız **Windows 10** ve hello **kapsayıcı** özelliği daha önce etkinleştirilmemiş, hello **Azure işlevleri çalışma zamanı** yükleyici tooreboot ister Makine toocomplete hello yükleyin.
 
-## <a name="configure-the-azure-functions-runtime"></a>Azure işlevleri çalışma zamanı yapılandırma
+## <a name="configure-hello-azure-functions-runtime"></a>Hello Azure işlevleri çalışma zamanı yapılandırma
 
-Azure işlevleri çalışma zamanı yüklemenin tamamlanması için yapılandırmasını tamamlamanız gerekir.
+toocomplete hello Azure işlevleri çalışma zamanı yükleme hello yapılandırmasını tamamlamanız gerekir.
 
-1. **Azure işlevleri çalışma zamanı yapılandırma aracı** hangi rollerin makinenize yüklü olan gösterir.
+1. Merhaba **Azure işlevleri çalışma zamanı yapılandırma aracı** hangi rollerin makinenize yüklü olan gösterir.
 
     ![Azure işlevleri çalışma zamanı Önizleme yapılandırma aracı][6]
 
-1. Tıklatın **veritabanı** sekmesinde, girin **bağlantı ayrıntıları, SQL Server örneği için** ve **Uygula'yı**.  Çalışma zamanı desteklemek için bu bir veritabanı oluşturmak için sırayla Azure işlevleri çalışma zamanı için gereklidir.
+1. Hello tıklatın **veritabanı** sekmesinde, hello girin **bağlantı ayrıntıları, SQL Server örneği için** ve **Uygula'yı**.  Bu sipariş toohello Azure işlevleri çalışma zamanı toocreate veritabanı toosupport hello çalışma zamanı gereklidir.
     
     ![Azure işlevleri çalışma zamanı Önizleme veritabanı yapılandırması][7]
 
-1. Tıklatın **kimlik bilgileri** sekmesi.  Bu ekranda tüm Azure işlevleri barındırmak için iki yeni kimlik bilgileri kullanmak için bir dosya paylaşımı ile oluşturmanız gerekir.  **Kullanıcı adı ve parola belirtin** için KOMBİNASYON **dosya paylaşımı sahibi** ve **dosya paylaşımı kullanıcısı** tıklatıp **Uygula**.
+1. Merhaba tıklatın **kimlik bilgileri** sekmesi.  Bu ekranda tüm Azure işlevleri barındırmak için iki yeni kimlik bilgileri kullanmak için bir dosya paylaşımı ile oluşturmanız gerekir.  **Kullanıcı adı ve parola belirtin** hello için KOMBİNASYON **dosya paylaşımı sahibi** ve hello için **dosya paylaşımı kullanıcısı** tıklatıp **Uygula**.
 
     ![Azure işlevleri çalışma zamanı Önizleme kimlik bilgileri][8]
 
-1. Tıklatın **dosya paylaşımı** sekmesi.  Bu ekranda ayrıntılarını belirtmelisiniz **dosya paylaşım konumunu**.  Bu sizin için oluşturulabilir veya var olan bir dosya paylaşımı kullanabilir ve tıklatın **Uygula**.  Yeni bir dosya paylaşımı konumu seçerseniz Azure işlevleri çalışma zamanı tarafından kullanılmak üzere bir dizin belirtmeniz gerekir.
+1. Merhaba tıklatın **dosya paylaşımı** sekmesi.  Bu ekranda hello hello ayrıntılarını belirtmelisiniz **dosya paylaşım konumunu**.  Bu sizin için oluşturulabilir veya var olan bir dosya paylaşımı kullanabilir ve tıklatın **Uygula**.  Yeni bir dosya paylaşımı konumu seçerseniz, hello Azure işlevleri çalışma zamanı tarafından kullanım için bir dizin belirtmeniz gerekir.
     
     ![Azure işlevleri çalışma zamanı Önizleme dosya paylaşımı][9]
 
-1. Tıklatın **IIS** sekmesi.  Bu sekme, Azure işlevleri çalışma zamanı yükleme oluşturacak IIS'de Web siteleri ayrıntılarını gösterir.  **Uygula'yı** tamamlamak için.
+1. Merhaba tıklatın **IIS** sekmesi.  Bu sekme, IIS Azure işlevleri çalışma zamanı yükleme oluşturacak bu hello hello Web siteleri hello ayrıntılarını gösterir.  **Uygula'yı** toocomplete.
 
     ![Azure işlevleri çalışma zamanı Önizleme IIS][10]
 
-1. Tıklatın **Hizmetleri** sekmesi.  Bu sekme, Azure işlevleri çalışma zamanı yüklemenizdeki hizmetlerinin durumunu gösterir.  Eğer ilk yapılandırmadan sonra **Azure işlevleri konak Etkinleştirme hizmeti** tıklatın çalışmıyor **Hizmeti'ni Başlat**
+1. Merhaba tıklatın **Hizmetleri** sekmesi.  Bu sekme, Azure işlevleri çalışma zamanı yükleme hello hello hizmetlerinin durumunu gösterir.  Eğer ilk yapılandırma hello sonra **Azure işlevleri konak Etkinleştirme hizmeti** tıklatın çalışmıyor **Hizmeti'ni Başlat**
 
     ![Azure işlevleri çalışma zamanı Önizleme yapılandırma tamamlandı][11]
 
-1. Son olarak göz atın **Azure işlevleri çalışma zamanı Portal** olarak`https://<machinename>/`
+1. Son olarak toohello Gözat **Azure işlevleri çalışma zamanı Portal** olarak`https://<machinename>/`
 
     ![Azure işlevleri çalışma zamanı Önizleme portalı][12]
 

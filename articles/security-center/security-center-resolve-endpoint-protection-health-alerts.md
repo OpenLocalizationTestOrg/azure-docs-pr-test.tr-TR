@@ -1,6 +1,6 @@
 ---
-title: "Azure Güvenlik Merkezi'nde Endpoint protection durumu uyarıları gidermek | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** çözmek Endpoint Protection durumu uyarıları **."
+title: "Azure Güvenlik Merkezi'nde aaaResolve endpoint protection durumu uyarıları | Microsoft Docs"
+description: "Bu belge size nasıl tooimplement hello Azure Güvenlik Merkezi öneri gösterir. ** çözmek Endpoint Protection durumu uyarıları **."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
 ms.author: terrylan
-ms.openlocfilehash: 5e6b136d6bd3b11fb82126d104fd0cb149255118
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9631d15aa1dfa9003d56332363ae7911061ed0b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="resolve-endpoint-protection-health-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde uç nokta koruma durumu uyarıları Çözümle
-Azure Güvenlik Merkezi, algılanan endpoint protection durumu uyarıları gidermek önerir.  Güvenlik Merkezi, endpoint protection hatalarını ve kaç tane hataları hangi sanal makineleri (VM'ler) sahip görmenizi sağlar.
+Azure Güvenlik Merkezi, algılanan endpoint protection durumu uyarıları gidermek önerir.  Güvenlik Merkezi, endpoint protection hatalarını ve kaç tane hataları hangi sanal makineleri (VM'ler) sahip toosee sağlar.
 
 > [!NOTE]
-> Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır. Bu, adım adım ilerleyen bir kılavuz değildir.
+> Bu belge, örnek bir dağıtım kullanarak hello hizmeti sunar. Bu, adım adım ilerleyen bir kılavuz değildir.
 > 
 > 
 
-## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
-1. İçinde **öneriler dikey**seçin **gidermek Endpoint Protection durumu uyarıları**.
+## <a name="implement-hello-recommendation"></a>Merhaba öneriyi uygulamayı
+1. Merhaba, **öneriler dikey**seçin **gidermek Endpoint Protection durumu uyarıları**.
    ![Endpoint Protection sistem durumu uyarılarını çözümleme][1]
-2. Bu dikey pencere açılır **Endpoint Protection hata** listelerinin VM'ler hataları ve hata sayısı için her bir VM. VM listeden seçin.
+2. Bu hello dikey pencere açılır **Endpoint Protection hata** listelerinin VM'ler hataları ve hello sayısı için her bir VM. Bir VM hello listeden seçin.
    ![Uç nokta koruma hatası][2]
-3. A **hataları listesi** hatalarının listesini görüntüleyen seçili VM için dikey pencere açılır. Bir hata daha fazla bilgi için listeden seçin. Seçili hata hakkında bilgi içeren bir dikey pencere açılır.
+3. A **hataları listesi** hello hatalarının listesini görüntüleyen VM, seçilen için dikey pencere açılır. Bir hata hello listesi toolearn daha fazla seçin. Bu, seçilen hello hata hakkında bilgi içeren bir dikey pencere açılır.
    ![Hataları listesi][3]
    ![hatası olayı][4]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+Güvenlik Merkezi hakkında daha fazla toolearn hello aşağıdaki bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) - Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md)--öğrenin nasıl tooconfigure Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkeleri.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) - Önerilerin Azure kaynaklarınızı korumanıza nasıl yardım edeceği hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) - Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
-* [Azure Güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) - En son Azure güvenlik haberlerini ve bilgilerini edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md)--nasıl toomonitor hello Azure kaynaklarınızın sistem durumunu öğrenin.
+* [Azure Güvenlik Merkezi'nde Uyarıları yönetme ve yanıt toosecurity](security-center-managing-and-responding-alerts.md)--öğrenin nasıl toomanage ve yanıt toosecurity uyarıları.
+* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) --nasıl toomonitor hello iş ortağı çözümlerinizin sistem durumunu öğrenin.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md)--hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+* [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/)--hello en son Azure güvenlik haberlerini ve bilgilerini alın.
 
 <!--Image references-->
 [1]: ./media/security-center-resolve-endpoint-protection/resolve-endpoint-protection.png

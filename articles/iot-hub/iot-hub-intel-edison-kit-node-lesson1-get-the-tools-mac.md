@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT - Ders 1 Intel Edison'u (düğüm) bağlanma: Get Araçlar (macOS) | Microsoft Docs"
-description: "Karşıdan yükle ve gerekli araçları ve Edison'u için ilk örnek uygulama için yazılım üzerinde macOS yükleyin."
+title: "Intel Edison'u (düğüm) tooAzure IOT - Ders 1 bağlanın: Get Araçlar (macOS) | Microsoft Docs"
+description: "Karşıdan yükleyip hello gerekli araçları ve yazılım için Edison'u hello ilk örnek uygulaması macOS üzerinde."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,72 +17,72 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: a5e406f49379e9f2192ee93334ab1dcf9f3e53d4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f32c0ea3c69eb2f912171fd694ae883d2586c72e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-the-tools-macos-1010"></a>Araçları edinme (macOS 10.10)
+# <a name="get-hello-tools-macos-1010"></a>Merhaba Araçları (macOS 10.10) alın
 > [!div class="op_single_selector"]
 > * [Windows 7 veya üzeri][windows]
 > * [Ubuntu 16.04][ubuntu]
 > * [macOS 10.10][macos]
 
 ## <a name="what-you-will-do"></a>Ne yapacağını
-Geliştirme araçları ve Intel Edison'u için ilk örnek uygulama için yazılım indirin. Herhangi bir sorun varsa, çözümleri için Ara [sorun giderme sayfası][troubleshooting].
+Merhaba geliştirme araçları ve hello ilk örnek bir uygulama için Intel Edison'u hello yazılımını indirin. Herhangi bir sorun varsa, hello çözümlerini arayın [sorun giderme sayfası][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>Bilgi edineceksiniz
 Bu makalede, şunları öğreneceksiniz:
 
-* Git ve Node.js nasıl yüklenir.
-  * [Git](https://git-scm.com) bir açık kaynak dağıtılmış sürüm denetim sistemidir. Bu makalede örnek uygulama Git üzerinde depolanır.
+* Nasıl tooinstall Git ve Node.js.
+  * [Git](https://git-scm.com) bir açık kaynak dağıtılmış sürüm denetim sistemidir. Bu makale için Merhaba örnek uygulaması Git üzerinde depolanır.
   * [Node.js](https://nodejs.org/en/) JavaScript çalışma zamanı zengin paket ekosistemi ile.
-* NPM ek Node.js Geliştirme Araçları'nı yüklemek için nasıl kullanılacağını.
-  * Node.js, gerekli en düşük sürüm 4.5 LTS ' dir.
-  * [NPM](https://www.npmjs.com) Node.js paket yöneticilerinden biridir.
+* Nasıl toouse NPM tooinstall ek Node.js geliştirme araçları.
+  * Merhaba gerekli en düşük sürümü Node.js 4.5 LTS ' dir.
+  * [NPM](https://www.npmjs.com) hello Node.js paket yöneticilerinden biridir.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
-Bu işlemi tamamlamak için gerekir:
-* Geliştirme araçları ve yazılım indirmesi için Internet bağlantısı.
+toocomplete bu işlem, gerekir:
+* Bir Internet bağlantısı toodownload geliştirme araçları hello ve yazılım hello.
 * MacOS Yosemite (10.10) çalıştıran bir Mac veya sonraki bir sürümü.
 
 ## <a name="install-git-and-nodejs"></a>Git ve Node.js yükleyin
-Git ve Node.js yüklemek için kullandığınız [Homebrew](http://brew.sh) paket yönetimi yardımcı programı aşağıdaki adımları izleyerek:
+tooinstall Git ve Node.js kullanın hello [Homebrew](http://brew.sh) paket yönetimi yardımcı programı aşağıdaki adımları izleyerek:
 
-1. Homebrew yükleyin. Homebrew zaten yüklediyseniz, 2. adıma geçin.
+1. Homebrew yükleyin. Homebrew zaten yüklediyseniz, toostep 2 gidin.
 
-   1. Tuşuna `Cmd + Space` ve girin `Terminal` bir Terminali açın.
-   2. Şu komutu çalıştırın:
+   1. Tuşuna `Cmd + Space` ve girin `Terminal` tooopen bir terminal.
+   2. Merhaba aşağıdaki komutu çalıştırın:
 
       ```bash
       /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
       ```
-2. Git ve Node.js aşağıdaki komutu çalıştırarak yükleyin:
+2. Git ve Node.js hello aşağıdaki komutu çalıştırarak yükleyin:
 
    ```bash
    brew install node git
    ```
 
 ## <a name="install-additional-nodejs-development-tools"></a>Ek Node.js geliştirme araçlarını yükleme
-Kullanım [gulp.js](http://gulpjs.com) , Edison'u örnek uygulamaya dağıtımını otomatik hale getirmek için.
+Kullanım [gulp.js](http://gulpjs.com) hello örnek uygulama tooyour Edison'u tooautomate hello dağıtımı.
 
-Yükleme `gulp` terminale aşağıdaki komutu çalıştırarak:
+Yükleme `gulp` komutu hello terminalde aşağıdaki hello çalıştırarak:
 
 ```bash
 sudo npm install -g gulp
 ```
 
-Node.js ve bu ek geliştirme araçları üzerinde macOS yüklerken sorunlarla karşılaşırsanız bkz [sorun giderme kılavuzu] [ troubleshooting] yaygın sorunların çözümleri için.
+Node.js ve bu ek geliştirme araçları üzerinde macOS yüklerken sorunlarla karşılaşırsanız, hello bkz [sorun giderme kılavuzu] [ troubleshooting] çözümleri toocommon sorunları.
 
 ## <a name="install-visual-studio-code"></a>Visual Studio Kodu'nu yükle
-[Karşıdan](https://code.visualstudio.com/docs/setup/osx) ve Visual Studio Code yükleyin. Visual Studio Code, Windows, Linux ve macOS için basit ancak güçlü kaynak kod düzenleyicisidir. Örnek kod düzenlemek için öğreticide daha sonra bu Düzenleyicisi'ni kullanın.
+[Karşıdan](https://code.visualstudio.com/docs/setup/osx) ve Visual Studio Code yükleyin. Visual Studio Code, Windows, Linux ve macOS için basit ancak güçlü kaynak kod düzenleyicisidir. Daha sonra hello öğretici tooedit hello örnek kodda bu Düzenleyicisi'ni kullanın.
 
 ## <a name="summary"></a>Özet
-İlk örnek uygulama için yazılım ve gerekli geliştirme araçları yüklediniz. Sonraki oluşturmak, dağıtmak ve örnek uygulama Edison'u üzerinde çalıştırmak için bir görevdir.
+Gerekli hello geliştirme araçları ve hello ilk örnek uygulama için yazılım yüklediniz. Merhaba sonraki toocreate bir görevdir, dağıtmak ve üzerinde Edison'u hello örnek uygulamayı çalıştırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Blink uygulama oluşturun ve dağıtın][create-and-deploy-the-blink-application]
+[Merhaba blink uygulama oluşturun ve dağıtın][create-and-deploy-the-blink-application]
 <!-- Images and links -->
 
 [troubleshooting]: iot-hub-intel-edison-kit-node-troubleshooting.md

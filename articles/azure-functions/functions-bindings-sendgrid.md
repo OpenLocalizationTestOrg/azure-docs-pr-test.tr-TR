@@ -1,5 +1,5 @@
 ---
-title: "Azure işlevleri SendGrid bağlamaları | Microsoft Docs"
+title: "aaaAzure işlevleri SendGrid bağlamaları | Microsoft Docs"
 description: "Azure işlevleri SendGrid bağlamaları başvurusu"
 services: functions
 documentationcenter: na
@@ -12,35 +12,35 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/16/2017
 ms.author: rachelap
-ms.openlocfilehash: 445a40a884e648cdb2a57f8ef43bed4f8a3efcf2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 10a3837875eb6ae18e6c789bcf64cc401cf5f26a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure işlevleri SendGrid bağlamaları
 
-Bu makalede, yapılandırma ve Azure işlevlerinde SendGrid bağlamaları çalışmak açıklanmaktadır. SendGrid program aracılığıyla özelleştirilmiş e-posta göndermek için Azure işlevleri kullanabilirsiniz.
+Bu makalede açıklanır nasıl tooconfigure ve Azure işlevlerinde SendGrid bağlamaları ile çalışır. SendGrid Azure işlevleri toosend özelleştirilmiş e-posta programlı olarak kullanabilirsiniz.
 
-Bu makalede, Azure işlevleri geliştiricileri için başvuru bilgilerdir. Azure işlevleri yeniyseniz, aşağıdaki kaynaklarla başlatın:
+Bu makalede, Azure işlevleri geliştiricileri için başvuru bilgilerdir. Yeni tooAzure işlevleri değilseniz, kaynakları aşağıdaki hello ile başlayın:
 
 [İlk Azure işlevinizi oluşturma](functions-create-first-azure-function.md). 
 [C#](functions-reference-csharp.md), [F #](functions-reference-fsharp.md), veya [düğümü](functions-reference-node.md) Geliştirici başvuruları.
 
 ## <a name="functionjson-for-sendgrid-bindings"></a>SendGrid bağlamaları için Function.JSON
 
-Azure işlevleri için SendGrid bir çıktı bağlama sağlar. Etkinleştirir bağlama SendGrid çıktı oluşturmak ve göndermek için program aracılığıyla e-posta. 
+Azure işlevleri için SendGrid bir çıktı bağlama sağlar. Merhaba SendGrid bağlama toocreate ve Gönder'e-posta program aracılığıyla sağlar çıktı. 
 
-SendGrid bağlama aşağıdaki özellikleri destekler:
+Merhaba SendGrid bağlama aşağıdaki özelliklere hello destekler:
 
-- `name`: Gerekli - istek veya istek gövdesi için işlevi kod içinde kullanılan değişken adı. Bu değer ```$return``` yalnızca bir dönüş değeri olduğunda. 
-- `type`: Gerekli - "sendGrid" ayarlanmış olmalıdır
-- `direction`: Gerekli - out"." olarak ayarlı olması gerekir
-- `apiKey`: Gerekli - API anahtarınıza işlevi uygulamanın uygulama ayarlarında depolanan adına ayarlanması gerekir.
-- `to`: alıcının e-posta adresi.
-- `from`: gönderenin e-posta adresi.
-- `subject`: e-posta konusu.
-- `text`: e-posta içeriği.
+- `name`: Gerekli - işlev kodu hello istek veya istek gövdesi için kullanılan hello değişken adı. Bu değer ```$return``` yalnızca bir dönüş değeri olduğunda. 
+- `type`: Gerekli - çok ayarlanmış olmalıdır "sendGrid."
+- `direction`: Gerekli - çok "out." ayarlanmış olmalıdır
+- `apiKey`: Gerekli - API anahtarınıza hello işlevi uygulamanın uygulama ayarlarında depolanan kümesi toohello adı olması gerekir.
+- `to`: Merhaba alıcının e-posta adresi.
+- `from`: Merhaba gönderenin e-posta adresi.
+- `subject`: hello e-postanın hello konu.
+- `text`: Merhaba e-posta içeriği.
 
 Örnek **function.json**:
 
@@ -65,7 +65,7 @@ SendGrid bağlama aşağıdaki özellikleri destekler:
 >
 >
 
-## <a name="c-example-of-the-sendgrid-output-binding"></a>C# SendGrid örneği bağlama çıktı
+## <a name="c-example-of-hello-sendgrid-output-binding"></a>C# hello SendGrid örneği bağlama çıktı
 
 ```csharp
 #r "SendGrid"
@@ -92,7 +92,7 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 }
 ```
 
-## <a name="node-example-of-the-sendgrid-output-binding"></a>Bağlama SendGrid düğümü örnek çıkış
+## <a name="node-example-of-hello-sendgrid-output-binding"></a>Bağlama SendGrid hello düğümü örnek çıkış
 
 ```javascript
 module.exports = function (context, input) {    
@@ -115,6 +115,6 @@ module.exports = function (context, input) {
 Azure işlevleri için diğer bağlamalar ve tetikleyicileri hakkında bilgi için bkz 
 - [Azure işlevleri Tetikleyicileri ve bağlamaları Geliştirici Başvurusu](functions-triggers-bindings.md)
 
-- [En iyi uygulamalar için Azure işlevleri](functions-best-practices.md) Azure işlevleri oluşturulurken kullanılacak bazı en iyi uygulamaları listeler.
+- [En iyi uygulamalar için Azure işlevleri](functions-best-practices.md) Azure işlevleri oluşturulurken bazı en iyi yöntemler toouse listeler.
 
 - [Azure işlevleri Geliştirici Başvurusu](functions-reference.md) işlevleri kodlamak ve tetikleyicileri ve bağlamaları tanımlamak için Programcı Başvurusu.

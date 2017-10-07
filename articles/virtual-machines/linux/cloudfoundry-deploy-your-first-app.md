@@ -1,6 +1,6 @@
 ---
-title: "Microsoft azure'da bulut Foundry ilk uygulamanızı dağıtma | Microsoft Docs"
-description: "Bulut Foundry azure'da bir uygulamayı dağıtma"
+title: aaaDeploy ilk uygulama tooCloud Foundry Microsoft Azure | Microsoft Docs
+description: "Bir uygulama tooCloud Foundry Azure üzerinde dağıtma"
 services: virtual-machines-linux
 documentationcenter: 
 author: seanmck
@@ -16,136 +16,136 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b617127fc0a3f8dcae293e356ea669edcfa5deff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 878da38f6eabe32a339f02aa0ead811d6e5af9a8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft azure'da bulut Foundry ilk uygulamanızı dağıtma
+# <a name="deploy-your-first-app-toocloud-foundry-on-microsoft-azure"></a>İlk app tooCloud Foundry Microsoft Azure üzerinde dağıtma
 
-[Bulut Foundry](http://cloudfoundry.org) popüler açık kaynak uygulama platformu Microsoft Azure üzerinde kullanılabilir. Bu makalede, dağıtmak ve uygulamayı bulut Foundry üzerinde bir Azure ortamı yönetmek nasıl gösterir.
+[Bulut Foundry](http://cloudfoundry.org) popüler açık kaynak uygulama platformu Microsoft Azure üzerinde kullanılabilir. Bu makalede, gösteriyoruz nasıl toodeploy ve uygulamayı bulut Foundry üzerinde bir Azure ortamı yönetin.
 
 ## <a name="create-a-cloud-foundry-environment"></a>Bir bulut Foundry ortam oluşturma
 
 Azure üzerinde bir bulut Foundry ortamı oluşturmak için birkaç seçenek vardır:
 
-- Kullanım [Bileşendirler bulut Foundry teklif] [ pcf-azuremarketplace] PCF Ops Manager ve Azure hizmet aracısı içeren standart bir ortam oluşturmak için Azure Market'te. Bulabileceğiniz [tamamlamak yönergeleri] [ pcf-azuremarketplace-pivotaldocs] Market dağıtmak için Bileşendirler belgelerde sunar.
+- Kullanım hello [Bileşendirler bulut Foundry teklif] [ pcf-azuremarketplace] hello Azure Marketi toocreate PCF Ops Manager ve hello Azure hizmet aracısı içeren standart bir ortam içinde. Bulabileceğiniz [tamamlamak yönergeleri] [ pcf-azuremarketplace-pivotaldocs] hello Market dağıtmak için hello Bileşendirler belgelerine sunar.
 - Tarafından özelleştirilmiş bir ortam oluşturmak [Bileşendirler bulut Foundry el ile dağıtma][pcf-custom].
-- [Açık kaynak bulut Foundry paketlerini doğrudan dağıtma] [ oss-cf-bosh] ayarıyla bir [BOSH](http://bosh.io) director, bulut Foundry ortamı dağıtımını koordine eden bir VM.
+- [Merhaba açık kaynak bulut Foundry paketlerini doğrudan dağıtma] [ oss-cf-bosh] ayarıyla bir [BOSH](http://bosh.io) director hello dağıtım hello bulut Foundry ortamının koordine eden bir VM.
 
 > [!IMPORTANT] 
-> Azure Marketi'nden PCF dağıtıyorsanız, SYSTEMDOMAINURL ve her ikisi de Market Dağıtım Kılavuzu'nda açıklanan Bileşendirler uygulamaları Yöneticisi'ne erişmek için gereken yönetici kimlik bilgilerini not edin. Bu öğreticiyi tamamlamak için gereklidir. Market dağıtımları için SYSTEMDOMAINURL form https://system ' dir. *IP adresi*. cf.pcfazure.com.
+> Azure Market hello PCF dağıtıyorsanız, hello SYSTEMDOMAINURL not edin ve tooaccess Bileşendirler uygulamaları Yöneticisi, her ikisi de hello Market Dağıtım Kılavuzu'nda açıklanan hello hello yönetici kimlik bilgileri gerekir. Bunlar Bu öğreticide gerekli toocomplete şunlardır. Market dağıtımları için hello SYSTEMDOMAINURL hello form https://system ' dir. *IP adresi*. cf.pcfazure.com.
 
-## <a name="connect-to-the-cloud-controller"></a>Bulut denetleyicisine bağlanma
+## <a name="connect-toohello-cloud-controller"></a>Toohello bulut denetleyicisi Bağlan
 
-Bulut denetleyicisi uygulamaları dağıtma ve yönetme için bir bulut Foundry ortam için birincil giriş noktasıdır. Çekirdek bulut denetleyicisi API (CCAPI), REST API olmakla birlikte çeşitli araçları üzerinden erişilebilir. Bu durumda, biz üzerinden etkileşimde [bulut Foundry CLI][cf-cli]. Linux, MacOS veya Windows CLI yükleyebilirsiniz, ancak bunu hiç yüklemeyi tercih ediyorsanız, önceden yüklenmiş kullanılabilir [Azure bulut Kabuk][cloudshell-docs].
+Merhaba bulut denetleyicisi uygulamaları dağıtma ve yönetme için hello birincil giriş noktası tooa bulut Foundry ortamıdır. Merhaba çekirdek bulut denetleyicisi API (CCAPI), REST API olmakla birlikte çeşitli araçları üzerinden erişilebilir. Bu durumda, biz ile Merhaba etkileşim [bulut Foundry CLI][cf-cli]. Linux, MacOS veya Windows hello CLI yükleyebilirsiniz, ancak hiç, bu durumda kullanılabilir hello önceden yüklenmiş tooinstall tercih ederseniz [Azure bulut Kabuk][cloudshell-docs].
 
-Oturum açmak için başına `api` Market dağıtımından elde SYSTEMDOMAINURL için. Varsayılan dağıtım otomatik olarak imzalanan bir sertifika kullandığından, da bulundurmalısınız `skip-ssl-validation` geçin.
+' de, toolog başına `api` toohello hello Market dağıtımından elde SYSTEMDOMAINURL. Merhaba varsayılan dağıtım otomatik olarak imzalanan bir sertifika kullandığından, ayrıca hello içermelidir `skip-ssl-validation` geçin.
 
 ```bash
 cf login -a https://api.SYSTEMDOMAINURL --skip-ssl-validation
 ```
 
-Bulut Denetleyicisi oturum istenir. Market dağıtım yer alan adımları aldığınız Yönetici hesap kimlik bilgilerini kullanın.
+İstendiğinde toolog toohello bulut denetleyicisi içinde var. Merhaba Market dağıtım adımları aldığınız hello yönetici hesabı kimlik bilgileri kullanın.
 
-Bulut Foundry sağlar *düzenlemeler* ve *alanları* ekipleri ve ortamlar paylaşılan bir dağıtım içinde yalıtmak için ad alanları olarak. Varsayılan PCF Market dağıtımının *sistem* org ve alanları temel bileşenler içerecek şekilde oluşturulmuş bir dizi gibi otomatik ölçeklendirmeyi hizmeti ve Azure hizmet Aracısı. Şimdilik, seçin *sistem* alanı.
+Bulut Foundry sağlar *düzenlemeler* ve *alanları* ad alanları tooisolate hello ekipleri ve paylaşılan bir dağıtım ortamlarında olarak. Merhaba PCF Market dağıtım içerir hello varsayılan *sistem* org ve bir dizi alanları hello otomatik ölçeklendirmeyi hizmet ve hello Azure hizmet aracısı gibi hello temel bileşenler toocontain oluşturuldu. Şimdilik, hello seçin *sistem* alanı.
 
 
 ## <a name="create-an-org-and-space"></a>Bir kuruluş oluşturup alanı
 
-Yazarsanız, `cf apps`, sistem Krlş. içinde sistem alanında dağıtılan sistem uygulamaları bakın 
+Yazarsanız, `cf apps`, hello sistem Krlş. Sistem boşluğu hello olarak dağıtılan sistem uygulamaları bakın 
 
-Bulundurmanız gereken *sistem* sistem uygulamaları için ayrılmış org dolayısıyla oluşturun org ve örnek uygulamamız barındırmak için alanı.
+Merhaba tutmalısınız *sistem* org sistem uygulamalar için ayrılmış örnek uygulamamız dolayısıyla bir kurum ve alan toohouse oluşturun.
 
 ```bash
 cf create-org myorg
 cf create-space dev -o myorg
 ```
 
-Yeni org ve alan geçiş yapmak için hedef komutu kullanın:
+Merhaba hedef komutu tooswitch toohello yeni org ve alan kullanın:
 
 ```bash
 cf target -o testorg -s dev
 ```
 
-Şimdi, bir uygulamayı dağıttığınızda, otomatik olarak yeni org ve alanı oluşturulur. Olduğunu şu anda hiçbir uygulamanın yeni org/alan doğrulamak için şunu yazın `cf apps` yeniden.
+Şimdi, bir uygulamayı dağıttığınızda, otomatik olarak hello yeni org ve alanı oluşturulur. şu anda tooconfirm hiçbir alanındaki hello yeni org/türdeki `cf apps` yeniden.
 
 > [!NOTE] 
-> Düzenlemeler ve alanları ve rol tabanlı erişim denetimi (RBAC) bunlar nasıl kullanılabileceği hakkında daha fazla bilgi için bkz: [bulut Foundry belgelerine][cf-orgs-spaces-docs].
+> Merhaba düzenlemeler ve alanları ve rol tabanlı erişim denetimi (RBAC) bunlar nasıl kullanılabileceği hakkında daha fazla bilgi için bkz: [bulut Foundry belgelerine][cf-orgs-spaces-docs].
 
 ## <a name="deploy-an-application"></a>Uygulama dağıtma
 
-Merhaba yay Java'da yazılmış ve temel bulut adlı örnek bir bulut Foundry uygulama kullanalım [yay Framework](http://spring.io) ve [yay önyükleme](http://projects.spring.io/spring-boot/).
+Java'da yazılmış ve hello üzerinde temel Hello yay bulut adlı örnek bir bulut Foundry uygulama kullanalım [yay Framework](http://spring.io) ve [yay önyükleme](http://projects.spring.io/spring-boot/).
 
-### <a name="clone-the-hello-spring-cloud-repository"></a>Merhaba yay bulut depoyu kopyalayın
+### <a name="clone-hello-hello-spring-cloud-repository"></a>Merhaba Hello yay bulut depoyu kopyalayın
 
-Merhaba yay bulut örnek uygulama, GitHub üzerinde kullanılabilir. Ortamınız için kopyalama ve yeni dizine değiştirin:
+Merhaba Hello yay bulut örnek uygulama, GitHub üzerinde kullanılabilir. Tooyour ortam kopyalamak ve hello yeni dizine değiştirin:
 
 ```bash
 git clone https://github.com/cloudfoundry-samples/hello-spring-cloud
 cd hello-spring-cloud
 ```
 
-### <a name="build-the-application"></a>Uygulama oluşturma
+### <a name="build-hello-application"></a>Merhaba uygulaması oluşturma
 
-Uygulamasını kullanarak yapı [Apache Maven](http://maven.apache.org).
+Yapı hello uygulamasını kullanarak [Apache Maven](http://maven.apache.org).
 
 ```bash
 mvn clean package
 ```
 
-### <a name="deploy-the-application-with-cf-push"></a>Uygulama cf itme ile dağıtma
+### <a name="deploy-hello-application-with-cf-push"></a>Merhaba uygulama cf itme oluşturup dağıtın
 
-Bulut Foundry kullanmanın çoğu uygulamaları dağıtabilirsiniz `push` komutu:
+Çoğu uygulamalar tooCloud Foundry dağıtabilirsiniz hello kullanarak `push` komutu:
 
 ```bash
 cf push
 ```
 
-Olduğunda, *itme* bir uygulama, bulut Foundry uygulamada (Bu durumda, Java uygulaması) türünü algılar ve bağımlılıklarını (Bu durumda, yay framework) tanımlar. Bunun ardından olarak bilinen bir tek başına kapsayıcı görüntüsü kodunuzu çalıştırmak için gereken her şeyi paketleri bir *Damlacık*. Son olarak, bulut Foundry ortamınızdaki kullanılabilir makineleri birindeki uygulama zamanlar ve size, komut çıktısında kullanılabilir olduğu ulaşabilecekleri bir URL oluşturur.
+Olduğunda, *itme* bir uygulama, bulut Foundry (Bu durumda, bir uygulamasında Java) uygulamasının hello türü algılar ve bağımlılıklarını (Framework'teki bu durumda, hello yay) tanımlar. Bunu daha sonra her şeyi paketleri olarak bilinen bir tek başına kapsayıcı görüntüsü kodunuzu toorun gerekli bir *Damlacık*. Son olarak, bulut Foundry zamanlamaları hello kullanılabilir makineleri ortamınızdaki birindeki uygulama hello ve size, hello hello komut çıktısında kullanılabilir olduğu ulaşabilecekleri bir URL oluşturur.
 
 ![Cf itme komut çıktısı][cf-push-output]
 
-Merhaba yay bulut uygulaması görmek için sağlanan URL'nin tarayıcınızda açın:
+toosee Merhaba hello yay bulut uygulaması, tarayıcınızda açık hello sağlanan URL:
 
 ![Merhaba yay bulut için varsayılan kullanıcı Arabirimi][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Sırasında neler olduğu hakkında daha fazla bilgi için `cf push`, bkz: [uygulamaları nasıl hazırlanır] [ cf-push-docs] bulut Foundry belgelerinde.
+> toolearn sırasında neler olduğu hakkında daha fazla `cf push`, bkz: [uygulamaları nasıl hazırlanır] [ cf-push-docs] hello bulut Foundry belge içinde.
 
 ## <a name="view-application-logs"></a>Uygulama günlüklerini görüntüle
 
-Bulut Foundry CLI adını kullanarak bir uygulama için günlükleri görüntülemek için kullanabilirsiniz:
+Merhaba bulut Foundry CLI tooview günlükleri için bir uygulama adıyla kullanabilirsiniz:
 
 ```bash
 cf logs hello-spring-cloud
 ```
 
-Varsayılan olarak, günlükler kullanan komut *tail*, yazıldığı gibi yeni günlükler gösterir. Yeni günlükler görünür görmek için tarayıcıda hello yay bulut uygulama yenileyin.
+Varsayılan olarak, komut kullanır hello günlüklerini *tail*, yazıldığı gibi yeni günlükler gösterir. toosee yeni günlükler görünen hello hello yay bulut uygulamayı hello tarayıcıda yenileyin.
 
-Zaten yazılmış günlükleri görüntülemek için add `recent` geçin:
+yazılan tooview günlükleri eklemek hello `recent` geçin:
 
 ```bash
 cf logs --recent hello-spring-cloud
 ```
 
-## <a name="scale-the-application"></a>Uygulama ölçeklendirme
+## <a name="scale-hello-application"></a>Merhaba uygulamayı Ölçeklendir
 
-Varsayılan olarak, `cf push` yalnızca uygulamanızın tek bir örneğini oluşturur. Yüksek kullanılabilirlik sağlamak ve ölçek genişletme için daha yüksek verimlilik etkinleştirmek için genellikle uygulamalarınızı birden fazla örneğini çalıştıran istersiniz. Zaten dağıtılmış uygulamalarının kullanarak kolayca ölçeklendirebilirsiniz `scale` komutu:
+Varsayılan olarak, `cf push` yalnızca uygulamanızın tek bir örneğini oluşturur. tooensure yüksek kullanılabilirlik ve yüksek verimlilik için etkinleştir ölçek genişletme, uygulamalarınızı bir örneğine birden çok toorun genellikle istersiniz. Zaten dağıtılmış uygulamalarının hello kullanarak kolayca ölçeklendirebilirsiniz `scale` komutu:
 
 ```bash
 cf scale -i 2 hello-spring-cloud
 ```
 
-Çalışan `cf app` uygulama komutunda gösterir bulut Foundry uygulama başka bir örneği oluşturmaktır. Uygulama başlatıldıktan sonra bulut Foundry Yük Dengeleme trafiğini onu otomatik olarak başlar.
+Çalışan hello `cf app` Merhaba uygulaması komutunda gösterir bulut Foundry hello uygulama başka bir örneği oluşturmaktır. Merhaba uygulaması başladıktan sonra bulut Foundry Yük Dengeleme trafik tooit otomatik olarak başlar.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bulut Foundry belgeleri okuyun][cloudfoundry-docs]
-- [Visual Studio Team Services eklentisi bulut Foundry için ayarlama][vsts-plugin]
-- [Microsoft günlük analizi kafa bulut Foundry için yapılandırma][loganalytics-nozzle]
+- [Okuma hello bulut Foundry belgeleri][cloudfoundry-docs]
+- [Hello Visual Studio Team Services eklentisi için bulut Foundry ayarlayın][vsts-plugin]
+- [Merhaba Microsoft günlük analizi kafa bulut Foundry için yapılandırma][loganalytics-nozzle]
 
 <!-- LINKS -->
 

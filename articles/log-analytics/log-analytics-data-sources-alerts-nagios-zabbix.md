@@ -1,6 +1,6 @@
 ---
-title: "OMS günlük analizi Nagios ve Zabbix uyarıları Topla | Microsoft Docs"
-description: "Nagios ve Zabbix izleme araçları açık kaynaktır. Bunları yanı sıra diğer kaynaklardan uyarıları çözümlemek amacıyla yararlı günlük analizi bu Araçları'ndan uyarıları toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS aracısının yapılandırma açıklar."
+title: "OMS günlük analizi aaaCollect Nagios ve Zabbix uyarılar | Microsoft Docs"
+description: "Nagios ve Zabbix izleme araçları açık kaynaktır. Toplama uyarıları bu Araçları'ndan sipariş tooanalyze günlük analizi içine bunları uyarıları diğer kaynaklardan birlikte.  Bu makalede, Linux toocollect tooconfigure Merhaba OMS Aracısı bu sistemlerden nasıl uyarıları açıklanmaktadır."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 23e2252e4fed8bc87baec063694a8472ca84220d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Linux için Nagios ve günlük analizi OMS aracısından Zabbix uyarılarını Topla 
-[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan açık kaynak izleme araçları.  Uyarıları bu Araçları'ndan günlük analizi ile birlikte çözümlemek için toplayabilirsiniz [diğer kaynaklardan uyarıları](log-analytics-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS aracısının yapılandırma açıklar.
+[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan açık kaynak izleme araçları.  Toplama uyarıları bu Araçları'ndan günlük analizi sipariş tooanalyze bunları ile birlikte [diğer kaynaklardan uyarıları](log-analytics-alerts.md).  Bu makalede, Linux toocollect tooconfigure Merhaba OMS Aracısı bu sistemlerden nasıl uyarıları açıklanmaktadır.
  
 ## <a name="configure-alert-collection"></a>Uyarı koleksiyonunu yapılandırma
 
 ### <a name="configuring-nagios-alert-collection"></a>Nagios uyarı koleksiyonunu yapılandırma
-Uyarılarını toplamak için Nagios sunucusunda aşağıdaki adımları gerçekleştirin.
+Merhaba hello Nagios sunucu toocollect uyarıları üzerinde aşağıdaki adımları gerçekleştirin.
 
-1. Kullanıcının izni **omsagent** okuma erişimi Nagios günlük dosyasına (yani `/var/log/nagios/nagios.log`). Nagios.log dosya varsayılarak grupla sahibi `nagios`, kullanıcı ekleyebilir **omsagent** için **nagios** grubu. 
+1. GRANT hello kullanıcı **omsagent** okuma erişimi toohello Nagios günlük dosyası (yani `/var/log/nagios/nagios.log`). Merhaba nagios.log dosya hello grupla ait olduğu varsayılarak `nagios`, hello kullanıcı ekleyebilir **omsagent** toohello **nagios** grubu. 
 
     sudo usermod - a -G nagios omsagent
 
-2.  Konumunda yapılandırma dosyasını değiştirme (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Mevcut ve kullanıma açıklamalı aşağıdaki girdileri çalıştığından emin olun:  
+2.  Merhaba yapılandırma dosyasını değiştirme (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Mevcut ve kullanıma açıklamalı girişleri aşağıdaki hello çalıştığından emin olun:  
 
         <source>  
           type tail  
-          #Update path to point to your nagios.log  
+          #Update path toopoint tooyour nagios.log  
           path /var/log/nagios/nagios.log  
           format none  
           tag oms.nagios  
@@ -46,18 +46,18 @@ Uyarılarını toplamak için Nagios sunucusunda aşağıdaki adımları gerçek
           type filter_nagios_log  
         </filter>  
 
-3. Omsagent arka plan programı yeniden başlatın
+3. Merhaba omsagent arka plan programı yeniden başlatın
 
     ```
     sudo sh /opt/microsoft/omsagent/bin/service_control restart
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Zabbix uyarı koleksiyonunu yapılandırma
-Zabbix sunucudan uyarılarını toplamak için bir kullanıcı ve parola belirtmeniz gerekir *açık metin*. Bu ideal değildir, ancak kullanıcı oluşturmak ve onlu izlemek için izinleri öneririz.
+Zabbix sunucusundan toocollect uyarıları, gereksinim duyduğunuz toospecify bir kullanıcıyı ve parolayı *açık metin*. Bu ideal değildir, ancak hello kullanıcı oluşturun ve izinleri toomonitor onlu vermek öneririz.
 
-Uyarılarını toplamak için Nagios sunucusunda aşağıdaki adımları gerçekleştirin.
+Merhaba hello Nagios sunucu toocollect uyarıları üzerinde aşağıdaki adımları gerçekleştirin.
 
-1. Konumunda yapılandırma dosyasını değiştirme (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Mevcut ve kullanıma açıklamalı aşağıdaki girdileri olduğundan emin olun.  Kullanıcı adı ve parola Zabbix ortamınız için değerlerle değiştirin.
+1. Merhaba yapılandırma dosyasını değiştirme (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Mevcut ve kullanıma açıklamalı girişleri aşağıdaki hello olduğundan emin olun.  Zabbix ortamınız için Hello kullanıcı adı ve parola toovalues değiştirin.
 
         <source>
          type zabbix_alerts
@@ -68,7 +68,7 @@ Uyarılarını toplamak için Nagios sunucusunda aşağıdaki adımları gerçek
          zabbix_password zabbix
         </source>
 
-2. Omsagent arka plan programı yeniden başlatın
+2. Merhaba omsagent arka plan programı yeniden başlatın
 
     sudo Paylaş /opt/microsoft/omsagent/bin/service_control yeniden başlatın
 
@@ -78,39 +78,39 @@ Nagios ve Zabbix uyarı kayıtları almak kullanarak [oturum aramaları](log-ana
 
 ### <a name="nagios-alert-records"></a>Nagios uyarı kaydeder
 
-Nagios tarafından toplanan kayıtları uyarı bir **türü** , **uyarı** ve **SourceSystem** , **Nagios**.  Aşağıdaki tabloda özellikleri sahiptirler.
+Nagios tarafından toplanan kayıtları uyarı bir **türü** , **uyarı** ve **SourceSystem** , **Nagios**.  Bunlar, aşağıdaki tablonun hello hello özelliklere sahiptir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
 | Tür |*Uyarı* |
 | SourceSystem |*Nagios* |
-| AlertName |Uyarı adı. |
-| AlertDescription | Uyarı açıklaması. |
-| AlertState | Hizmet veya ana bilgisayar durumu.<br><br>TAMAM<br>UYARI<br>AYARLAMA<br>AŞAĞI |
-| Ana bilgisayar adı | Uyarı oluşturan ana bilgisayar adı. |
-| PriorityNumber | Uyarı öncelik düzeyi. |
-| StateType | Uyarının durumunu türü.<br><br>SOFT - değil yeniden sorun.<br>Sabit - bırakıldı sorunu belirtilen kaç kez yeniden.  |
-| TimeGenerated |Uyarının oluşturulduğu tarih ve saat. |
+| AlertName |Merhaba uyarı adı. |
+| AlertDescription | Merhaba uyarı açıklaması. |
+| AlertState | Merhaba hizmet veya ana bilgisayar durumu.<br><br>TAMAM<br>UYARI<br>AYARLAMA<br>AŞAĞI |
+| Ana bilgisayar adı | Merhaba uyarı oluşturulan hello ana bilgisayar adı. |
+| PriorityNumber | Merhaba uyarı öncelik düzeyi. |
+| StateType | Merhaba uyarının durumunu Hello türü.<br><br>SOFT - değil yeniden sorun.<br>Sabit - bırakıldı sorunu belirtilen kaç kez yeniden.  |
+| TimeGenerated |Tarih ve saat hello uyarı oluşturuldu. |
 
 
 ### <a name="zabbix-alert-records"></a>Zabbix uyarı kaydeder
-Zabbix tarafından toplanan kayıtları uyarı bir **türü** , **uyarı** ve **SourceSystem** , **Zabbix**.  Aşağıdaki tabloda özellikleri sahiptirler.
+Zabbix tarafından toplanan kayıtları uyarı bir **türü** , **uyarı** ve **SourceSystem** , **Zabbix**.  Bunlar, aşağıdaki tablonun hello hello özelliklere sahiptir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
 | Tür |*Uyarı* |
 | SourceSystem |*Zabbix* |
-| AlertName | Uyarı adı. |
-| AlertPriority | Uyarının önem derecesi.<br><br>Sınıflandırılmamış<br>Bilgi<br>Uyarı<br>Ortalama<br>Yüksek<br>Olağanüstü durum  |
-| AlertState | Uyarı durumu.<br><br>0 - durumu güncel değil.<br>1 - durumu bilinmiyor.  |
-| AlertTypeNumber | Uyarı birden çok sorun Olay Oluştur olup olmadığını belirtir.<br><br>0 - durumu güncel değil.<br>1 - durumu bilinmiyor.    |
+| AlertName | Merhaba uyarı adı. |
+| AlertPriority | Uyarının önem derecesini hello.<br><br>Sınıflandırılmamış<br>Bilgi<br>Uyarı<br>Ortalama<br>Yüksek<br>Olağanüstü durum  |
+| AlertState | Merhaba uyarı durumu.<br><br>0 - toodate durumudur.<br>1 - durumu bilinmiyor.  |
+| AlertTypeNumber | Uyarı birden çok sorun Olay Oluştur olup olmadığını belirtir.<br><br>0 - toodate durumudur.<br>1 - durumu bilinmiyor.    |
 | Yorumlar | Ek açıklamalar uyarı için. |
-| Ana bilgisayar adı | Uyarı oluşturan ana bilgisayar adı. |
-| PriorityNumber | Uyarının önem derecesini belirten değer.<br><br>0 - Sınıflandırılmamış<br>1 - bilgileri<br>2 - uyarı<br>3 - ortalama<br>4 - yüksek<br>5 - olağanüstü durum |
-| TimeGenerated |Uyarının oluşturulduğu tarih ve saat. |
-| TimeLastModified |Tarih ve saat uyarının durumunu en son değiştirildiği. |
+| Ana bilgisayar adı | Merhaba uyarı oluşturulan hello ana bilgisayar adı. |
+| PriorityNumber | Merhaba uyarının önem derecesini belirten değer.<br><br>0 - Sınıflandırılmamış<br>1 - bilgileri<br>2 - uyarı<br>3 - ortalama<br>4 - yüksek<br>5 - olağanüstü durum |
+| TimeGenerated |Tarih ve saat hello uyarı oluşturuldu. |
+| TimeLastModified |Tarih ve saat hello durumu hello uyarının son değişti. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [uyarıları](log-analytics-alerts.md) günlük analizi içinde.
-* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümleri toplanan verileri çözümlemek için. 
+* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) tooanalyze hello veri toplanan veri kaynakları ve çözümler. 

@@ -1,6 +1,6 @@
 ---
-title: "Bir örnek ile kullanmaya başlama"
-description: "Power BI Embedded, iş zekası uygulamanıza etkileşimli Power BI raporları eklemek için SDK'yi kullanın"
+title: "bir örnek kullanmaya aaaGet"
+description: "Power BI Embedded, iş zekası uygulamanıza etkileşimli Power BI raporları SDK tooadd kullanın"
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/02/2017
 ms.author: asaxton
-ms.openlocfilehash: c3cb1763f807220a4a829f410d7eb77974b25776
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1fef9dd8e0f734b748b930d3f85ad4b517d9661e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-power-bi-embedded-sample"></a>Power BI Embedded örneği kullanmaya başlama
 
-İle **Microsoft Power BI Embedded**, Power BI raporları sağ web veya mobil uygulamaları tümleştirebilirsiniz. Bu makalede, biz size tanıtmak **Power BI Embedded** get başlatılan örnek.
+İle **Microsoft Power BI Embedded**, Power BI raporları sağ web veya mobil uygulamaları tümleştirebilirsiniz. Bu makalede, sizi, toohello tanıtmak **Power BI Embedded** get başlatılan örnek.
 
-Biz daha ilerlemeden önce aşağıdaki kaynaklara kaydetmek istersiniz. Bunlar Power BI raporları örnek uygulaması ve kendi uygulamalarınızı halinde çok tümleştirdiğinizde yardımcı olacağız.
+Biz daha ilerlemeden önce kaynakları aşağıdaki toosave hello büyük olasılıkla isteyeceksiniz. Bunlar Power BI raporları hello örnek uygulaması ve kendi uygulamalarınızı halinde çok tümleştirdiğinizde yardımcı olacağız.
 
 * [Örnek çalışma web uygulaması](http://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI Embedded API Başvurusu](https://msdn.microsoft.com/en-US/library/azure/mt711507.aspx)
@@ -33,26 +33,26 @@ Biz daha ilerlemeden önce aşağıdaki kaynaklara kaydetmek istersiniz. Bunlar 
 * [JavaScript rapor örnek ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE] 
-> En az bir oluşturmanıza gerek yapılandırabilirsiniz ve Power BI Embedded alma çalışma başlatıldı örnek önce **çalışma alanı koleksiyonu** Azure aboneliğinizde. Nasıl oluşturulacağını öğrenmek için bir **çalışma alanı koleksiyonu** Azure Portal görüyor [Power BI Embedded ile çalışmaya başlama](power-bi-embedded-get-started.md).
+> Yapılandırabilirsiniz ve Power BI Embedded alma çalışma hello başlatılan örnek önce toocreate en az bir gereksinim **çalışma alanı koleksiyonu** Azure aboneliğinizde. toolearn nasıl toocreate bir **çalışma alanı koleksiyonu** hello Azure Portal bkz [Power BI Embedded ile çalışmaya başlama](power-bi-embedded-get-started.md).
 
-## <a name="configure-the-sample-app"></a>Örnek uygulamayı yapılandırma
+## <a name="configure-hello-sample-app"></a>Merhaba örnek uygulamayı yapılandırma
 
-Şimdi örnek uygulamayı çalıştırmak için gerekli bileşenleri erişmek için Visual Studio geliştirme ortamını ayarlama aracılığıyla yol.
+Şimdi Visual Studio geliştirme ortamında tooaccess hello bileşenleri gerekli toorun hello örnek uygulamanızı ayarlama aracılığıyla yol.
 
-1. İndirip sıkıştırmasını [Power BI Embedded - bir web uygulamasına bir rapor tümleştirme](http://go.microsoft.com/fwlink/?LinkId=761493) github'da örnek.
-2. Açık **Powerbı embedded.sln** Visual Studio. Yürütme gerekebilir **güncelleştirme paketini** bu çözümde kullanılan paketler güncelleştirmek için NuGET Paket Yöneticisi konsolunda komutu.
-3. Çözümü oluşturun.
-4. Çalıştırma **ProvisionSample** konsol uygulaması. Örnek konsol uygulamasındaki bir çalışma alanı sağlamak ve PBIX dosyasını içeri aktarın.
-5. Yeni bir sağlamak için **çalışma**, 1 seçeneğini belirleyin **koleksiyonu Yönetimi**ve ardından seçeneğini 6, **yeni bir çalışma alanı sağlanamadı**
-6. Yeni bir almak için **rapor**, 2, seçeneğini belirleyin **rapor Yönetim**ve seçenek 3, ardından **PBIX Masaüstü içeri aktarma dosyası bir çalışma alanına**.
+1. İndirip hello sıkıştırmasını [Power BI Embedded - bir web uygulamasına bir rapor tümleştirme](http://go.microsoft.com/fwlink/?LinkId=761493) github'da örnek.
+2. Açık **Powerbı embedded.sln** Visual Studio. Tooexecute hello gerekebilir **güncelleştirme paketini** hello NuGET Paket Yöneticisi konsolunda bu çözümde kullanılan sipariş tooupdate hello paketlerde komutu.
+3. Merhaba çözümü oluşturun.
+4. Merhaba çalıştırmak **ProvisionSample** konsol uygulaması. Merhaba örnek konsol uygulamasındaki bir çalışma alanı sağlamak ve PBIX dosyasını içeri aktarın.
+5. Yeni bir tooprovision **çalışma**, 1 seçeneğini belirleyin **koleksiyonu Yönetimi**ve ardından seçeneğini 6, **yeni bir çalışma alanı sağlanamadı**
+6. Yeni bir tooimport **rapor**, 2, seçeneğini belirleyin **rapor Yönetim**ve seçenek 3, ardından **alma PBIX Masaüstü dosya bir çalışma alanına**.
 
-7. Girin, **çalışma alanı koleksiyonu** adı ve **erişim tuşu**. Bunlar alabileceğiniz **Azure Portal**. Nasıl alınacağı hakkında daha fazla bilgi için **erişim tuşu**, bkz: [görünümü Power BI API'si erişim anahtarlarını](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) içinde Microsoft Power BI Embedded ile çalışmaya başlama.
+7. Girin, **çalışma alanı koleksiyonu** adı ve **erişim tuşu**. Bu hello alabilirsiniz **Azure Portal**. toolearn nasıl hakkında daha fazla tooget, **erişim tuşu**, bkz: [görünümü Power BI API'si erişim anahtarlarını](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) içinde Microsoft Power BI Embedded ile çalışmaya başlama.
 
     ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
-8. Kopyala ve yeni oluşturulan kaydedin **çalışma alanı kimliği** bu makalenin sonraki bölümlerinde kullanılacak. Sonra **çalışma alanı kimliği** olan oluşturulan, onu bulabilirsiniz **Azure Portal**.
+8. Kopyala ve yeni oluşturulan hello kaydedin **çalışma alanı kimliği** bu makalenin sonraki bölümlerinde toouse. Merhaba sonra **çalışma alanı kimliği** olan oluşturulan, bunu hello bulabilirsiniz **Azure Portal**.
 
     ![](media/powerbi-embedded-get-started-sample/workspace-id.png)
-9. Bir PBIX aktarmak için **çalışma**, seçeneğini belirleyin **6. İçeri aktarma PBIX Masaüstü dosyası var olan bir çalışma alanına**. Kullanışlı dosya PBIX yoksa, indirebilirsiniz [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+9. tooimport bir PBIX dosyası içine, **çalışma**, seçeneğini belirleyin **6. İçeri aktarma PBIX Masaüstü dosyası var olan bir çalışma alanına**. Kullanışlı dosya PBIX yoksa, hello indirebilirsiniz [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
 10. İstenirse, için kolay bir ad girin, **Dataset**.
 
 Benzer bir yanıt görmeniz gerekir:
@@ -63,15 +63,15 @@ Checking import state... Succeeded
 ```
 
 > [!NOTE]
-> PBIX dosyanızın tüm doğrudan sorgu bağlantıları içeriyorsa, bağlantı dizelerini güncelleştirmek için 7 seçeneği çalıştırın.
+> PBIX dosyanızın tüm doğrudan sorgu bağlantıları içeriyorsa, seçeneği 7 tooupdate hello bağlantı dizeleri çalıştırın.
 
-Bu noktada, içeri aktarılan bir Power BI PBIX rapor vardır, **çalışma**. Şimdi çalıştırmak ne bakalım **Power BI Embedded** başlatılan örnek web uygulamasını edinin.
+Bu noktada, içeri aktarılan bir Power BI PBIX rapor vardır, **çalışma**. Şimdi ne bakalım toorun hello **Power BI Embedded** başlatılan örnek web uygulamasını edinin.
 
-## <a name="run-the-sample-web-app"></a>Örnek web uygulaması çalıştırın
-Web uygulaması örneği içeri aktarılan raporlar işleyen örnek bir uygulama olduğundan, **çalışma**. Web uygulaması örneği yapılandırma bırakılır.
+## <a name="run-hello-sample-web-app"></a>Merhaba örnek web uygulaması çalıştırın
+Merhaba web uygulaması örneği içeri aktarılan raporlar işleyen örnek bir uygulama olduğundan, **çalışma**. Nasıl tooconfigure hello web uygulaması örneği aşağıda verilmiştir.
 
-1. İçinde **Powerbı katıştırılmış** Visual Studio çözümü, sağ tıklatma **EmbedSample** web uygulaması ve seçin **başlangıç projesi olarak ayarla**.
-2. İçinde **web.config**, **EmbedSample** web uygulaması, düzenleme **appSettings**: **AccessKey**, **WorkspaceCollection** adı ve **Workspaceıd**.
+1. Merhaba, **Powerbı katıştırılmış** Visual Studio çözümü, sağ tıklatın hello **EmbedSample** web uygulaması ve seçin **başlangıç projesi olarak ayarla**.
+2. İçinde **web.config**, hello içinde **EmbedSample** web uygulaması, hello Düzenle **appSettings**: **AccessKey**,  **WorkspaceCollection** adı ve **Workspaceıd**.
 
     ```
     <appSettings>
@@ -81,28 +81,28 @@ Web uygulaması örneği içeri aktarılan raporlar işleyen örnek bir uygulama
         <add key="powerbi:WorkspaceId" value="" />
     </appSettings>
     ```
-3. Çalıştırma **EmbedSample** web uygulaması.
+3. Merhaba çalıştırmak **EmbedSample** web uygulaması.
 
-Çalıştırdığınız sonra **EmbedSample** web uygulaması, sol gezinti bölmesinin içermelidir bir **raporları** menüsü. İçeri aktardığınız raporunu görüntülemek için Genişlet **raporları**ve bir rapora tıklayın. İçeri aktardığınız varsa [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), örnek web uygulaması şuna benzer:
+Merhaba çalıştırdıktan sonra **EmbedSample** web uygulaması hello sol gezinti bölmesini içermelidir bir **raporları** menüsü. içeri aktardığınız, tooview hello rapor genişletin **raporları**ve bir rapora tıklayın. Merhaba aldıysanız [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), hello örnek web uygulaması şuna benzeyebilir:
 
 ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-sample-left-nav.png)
 
-Bir raporu tıklattıktan sonra **EmbedSample** web uygulaması görünmelidir bir şey:
+Bir raporu tıklattıktan sonra hello **EmbedSample** web uygulaması görünmelidir bir şey:
 
 ![](media/powerbi-embedded-get-started-sample/sample-web-app.png)
 
-## <a name="explore-the-sample-code"></a>Örnek kod keşfetme
+## <a name="explore-hello-sample-code"></a>Merhaba örnek kod keşfetme
 
-**Microsoft Power BI Embedded** örnektir nasıl tümleştirileceği gösteren örnek bir web uygulaması **Power BI** uygulamanıza raporlar. Bir Model-View-Controller (MVC) tasarım deseni en iyi yöntemleri göstermek için kullanır. Bu bölüm içinde keşfedebilirsiniz örnek kod parçalarını vurgular **Powerbı katıştırılmış** web uygulaması çözümü. Etki alanı, sunu ve üç ayrı sınıfları kullanıcı girişine bağlı eylemleri modelleme Model-View-Controller (MVC) deseni ayırır: Model, Görünüm ve denetim. MVC hakkında daha fazla bilgi için bkz: [ASP.NET hakkında bilgi edinin](http://www.asp.net/mvc).
+Merhaba **Microsoft Power BI Embedded** örnektir nasıl gösteren örnek bir web uygulaması toointegrate **Power BI** uygulamanıza raporlar. Bir Model-View-Controller (MVC) kullanan tasarım deseni toodemonstrate en iyi yöntemleri. Bu bölüm içinde hello keşfedebilirsiniz hello örnek kod parçalarını vurgular **Powerbı katıştırılmış** web uygulaması çözümü. Merhaba Model-View-Controller (MVC) deseni ayıran hello modelleme hello etki alanı, hello sunu ve üç ayrı sınıfları kullanıcı girişine bağlı hello eylemleri: Model, Görünüm ve denetim. MVC, hakkında daha fazla toolearn bkz [ASP.NET hakkında bilgi edinin](http://www.asp.net/mvc).
 
-**Microsoft Power BI Embedded** örnek kod gibi ayrılmış. Örnek kod kolayca bulabilmeniz için her bölüm Powerbı embedded.sln çözümde dosya adını içerir.
+Merhaba **Microsoft Power BI Embedded** örnek kod gibi ayrılmış. Hello örnek hello kod kolayca bulabilmeniz için her bölüm hello Powerbı embedded.sln çözüm hello dosya adını içerir.
 
 > [!NOTE]
-> Bu bölümde, kodu nasıl yazılmıştır gösteren örnek kod bir özetidir. Tam örnek görüntülemek için lütfen Visual Studio Powerbı embedded.sln çözümde yükleyin.
+> Bu bölümde bir özeti nasıl hello kodu yazılmıştır gösterir hello örnek kod yer almaktadır. tooview hello tam örnek, Lütfen Visual Studio hello Powerbı embedded.sln çözümde yükleyin.
 
 ### <a name="model"></a>modeli
 
-Örnek sahip bir **ReportsViewModel** ve **ReportViewModel**.
+Merhaba örnek sahip bir **ReportsViewModel** ve **ReportViewModel**.
 
 **ReportsViewModel.cs**: Power BI raporları temsil eder.
 
@@ -122,7 +122,7 @@ Bir raporu tıklattıktan sonra **EmbedSample** web uygulaması görünmelidir b
 
 ### <a name="connection-string"></a>Bağlantı dizesi
 
-Bağlantı dizesi şu biçimde olmalıdır:
+Merhaba bağlantı dizesi biçimi aşağıdaki hello olmalıdır:
 
 ```
 Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
@@ -132,14 +132,14 @@ Ortak sunucu ve veritabanı özniteliklerini kullanarak başarısız olur. Örne
 
 ### <a name="view"></a>Görünüm
 
-**Görünüm** Power BI görüntüsünü yönetir **raporları** ve Power BI **rapor**.
+Merhaba **Görünüm** Power BI hello görüntüsünü yönetir **raporları** ve Power BI **rapor**.
 
-**Reports.cshtml**: üzerinden yineleme **Model.Reports** oluşturmak için bir **ActionLink**. **ActionLink** şu şekilde oluşur:
+**Reports.cshtml**: üzerinden yineleme **Model.Reports** toocreate bir **ActionLink**. Merhaba **ActionLink** şu şekilde oluşur:
 
 | Bölümü | Açıklama |
 | --- | --- |
-| Başlık |Raporun adı. |
-| Sorgu dizesi |Rapor Kimliği Bağla |
+| Başlık |Merhaba rapor adı. |
+| Sorgu dizesi |Bağlantı toohello rapor kimliği |
 
     <div id="reports-nav" class="panel-collapse collapse">
         <div class="panel-body">
@@ -155,7 +155,7 @@ Ortak sunucu ve veritabanı özniteliklerini kullanarak başarısız olur. Örne
         </div>
     </div>
 
-Report.cshtml: Ayarlamak **Model.AccessToken**ve Lambda ifadesi **PowerBIReportFor**.
+Report.cshtml: Hello ayarlamak **Model.AccessToken**, ve Lambda ifadesi hello **PowerBIReportFor**.
 
     @model ReportViewModel
 
@@ -168,7 +168,7 @@ Report.cshtml: Ayarlamak **Model.AccessToken**ve Lambda ifadesi **PowerBIReportF
 
 ### <a name="controller"></a>Denetleyici
 
-**DashboardController.cs**: PowerBIClient geçirme oluşturur bir **uygulama belirteci**. Bir JSON Web Token (JWT) oluşturulur **imzalama anahtarı** almak için **kimlik bilgileri**. **Kimlik bilgileri** bir örneğini oluşturmak için kullanılan **PowerBIClient**. Örneği olduktan sonra **PowerBIClient**, GetReports() ve GetReportsAsync() çağırabilirsiniz.
+**DashboardController.cs**: PowerBIClient geçirme oluşturur bir **uygulama belirteci**. Bir JSON Web Token (JWT) hello oluşturulan **imzalama anahtarı** tooget hello **kimlik bilgileri**. Merhaba **kimlik bilgileri** kullanılan toocreate örneği olan **PowerBIClient**. Örneği olduktan sonra **PowerBIClient**, GetReports() ve GetReportsAsync() çağırabilirsiniz.
 
 CreatePowerBIClient()
 
@@ -223,13 +223,13 @@ Görev<ActionResult> rapor (dize reportId)
 
 ### <a name="integrate-a-report-into-your-app"></a>Uygulamanıza bir rapor tümleştirme
 
-Bulduktan sonra bir **rapor**, kullandığınız bir **IFRAME** Power BI katıştırmak için **rapor**. İçinde powerbi.js gelen kod parçacığı aşağıda verilmiştir **Microsoft Power BI Embedded** örnek.
+Bulduktan sonra bir **rapor**, kullandığınız bir **IFRAME** tooembed hello Power BI **rapor**. Merhaba powerbi.js'nden bir kod parçacığı aşağıda verilmiştir **Microsoft Power BI Embedded** örnek.
 
 ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-iframe-code.png)
 
 ## <a name="filter-reports-embedded-in-your-application"></a>Uygulamanıza filtre raporları
 
-Bir URL söz dizimini kullanarak eklenmiş bir raporu filtreleyebilirsiniz. Bunu yapmak için eklediğiniz bir **$filter** sorgu dizesi parametresi ile bir **eq** belirterek iFrame src URL'nize belirtilen filtre ile işleci. Filtre sorgu sözdizimi şöyledir:
+Bir URL söz dizimini kullanarak eklenmiş bir raporu filtreleyebilirsiniz. toodo Bu, eklediğiniz bir **$filter** sorgu dizesi parametresi ile bir **eq** işleci tooyour iFrame src url belirtilen hello Filtresi ile. Merhaba filtre sorgu sözdizimi şöyledir:
 
 ```
 https://app.powerbi.com/reportEmbed
@@ -238,7 +238,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ```
 
 > [!NOTE]
-> {tableName/fieldName} boşluk ya da özel karakter içeremez. {fieldValue} tek bir kategorik değer kabul eder.  
+> {tableName/fieldName} boşluk ya da özel karakter içeremez. Merhaba {fieldValue} tek bir kategorik değer kabul eder.  
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
@@ -248,4 +248,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 [Veri kümesinden yeni rapor oluşturma](power-bi-embedded-create-report-from-dataset.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Örnek Ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)
+Başka sorunuz mu var? [Merhaba Power BI topluluk deneyin](http://community.powerbi.com/)

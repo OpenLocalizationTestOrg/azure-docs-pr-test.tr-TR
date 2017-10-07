@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning modeli sonuçlarında yorumlama | Microsoft Docs"
-description: "Bir algoritma kullanmak için en iyi parametre seçme ayarlayın ve score model görselleştirme çıkarır."
+title: "Machine Learning modeli sonuçlarında aaaInterpret | Microsoft Docs"
+description: "Nasıl toochoose hello en iyi parametresini kullanarak ve score model çıkışları görselleştirmek için bir algoritma ayarlayın."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.openlocfilehash: 939dd7b359b4f5c248ade47b794102f4930994b1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 52161b1aa5ff3e7a63fc4b1bfb7c5e354eabcc50
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="interpret-model-results-in-azure-machine-learning"></a>Azure Machine Learning modeli sonuçlarında yorumlama
-Bu konu, görselleştirin ve Azure Machine Learning Studio'da tahmin sonuçlarını yorumlanacağı açıklanmaktadır. Bir model eğitilmiş ve Öngörüler ("model skoru") en üstünde bitti sonra anlamak ve tahmin sonuç yorumlamak gerekir.
+Bu konuda açıklanmaktadır nasıl toovisualize ve Azure Machine Learning Studio'da tahmin sonuçlarını çevirebilir. Bir model eğitilmiş ve Öngörüler ("Merhaba modeli skoru") en üstünde bitti sonra toounderstand gerekir ve hello tahmin sonuç yorumlama.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -32,17 +32,17 @@ Machine learning Azure Machine Learning modellerini dört ana tür vardır:
 * regresyon
 * Öneren sistemleri
 
-Bu modeller üstünde tahmin için kullanılan modülleri şunlardır:
+Bu modeller üstünde tahmin için kullanılan hello modülleri şunlardır:
 
 * [Modeli Puanlama] [ score-model] sınıflandırma ve regresyon için Modülü
-* [Kümeye atamak] [ assign-to-clusters] kümeleme Modülü
+* [TooClusters Ata] [ assign-to-clusters] kümeleme Modülü
 * [Matchbox öneren puan] [ score-matchbox-recommender] önerisi sistemleri
 
-Bu belgede tahmin sonuçlarını bu modüllerin her biri için yorumlama açıklanmaktadır. Bu modüller genel bakış için bkz: [, Azure Machine Learning algoritmaları en iyi duruma getirmek için parametreleri seçme](machine-learning-algorithm-parameters-optimize.md).
+Bu belge, bu modüllerin her biri için nasıl toointerpret tahmin sonuçlarını açıklar. Bu modüller genel bakış için bkz: [nasıl toochoose parametreleri toooptimize, Azure Machine Learning algoritmaları](machine-learning-algorithm-parameters-optimize.md).
 
-Bu konu, tahmin yorumlama ancak değil modeli değerlendirme giderir. Modelinizi değerlendirme hakkında daha fazla bilgi için bkz: [Azure Machine Learning modeli performansını değerlendirmek nasıl](machine-learning-evaluate-model-performance.md).
+Bu konu, tahmin yorumlama ancak değil modeli değerlendirme giderir. Hakkında daha fazla bilgi için tooevaluate modelinizde Bkz [nasıl tooevaluate model Azure Machine Learning performans](machine-learning-evaluate-model-performance.md).
 
-Azure Machine Learning için yenidir ve başlamak için bkz: basit bir deneme oluşturma konusunda Yardım ihtiyacınız varsa [Azure Machine Learning Studio'da basit bir deneme oluşturmak](machine-learning-create-experiment.md) Azure Machine Learning Studio'da.
+Yeni tooAzure Machine Learning olan ve başlatılan bir basit deneme tooget oluşturmaya yardımcı olmak için bkz: ihtiyacınız varsa [Azure Machine Learning Studio'da basit bir deneme oluşturmak](machine-learning-create-experiment.md) Azure Machine Learning Studio'da.
 
 ## <a name="classification"></a>Sınıflandırma
 Sınıflandırma sorunları iki alt kategorileri şunlardır:
@@ -50,22 +50,22 @@ Sınıflandırma sorunları iki alt kategorileri şunlardır:
 * Yalnızca iki sınıf (iki sınıflı veya ikili sınıflandırma) sorunları
 * İkiden fazla sınıfları (çok sınıfı sınıflandırma) sorunları
 
-Azure Machine Learning için türlerinin her biri bu sınıflandırma ile mücadele etmek için farklı modülleri olsa da, tahmin sonuçlarını yorumlanması için yöntemler benzerdir.
+Azure Machine Learning için bu türleri sınıflandırmaya sahip farklı modülleri toodeal olsa da, kendi tahmin sonuçları yorumlayarak hello yöntemleri benzerdir.
 
 ### <a name="two-class-classification"></a>İki sınıflı sınıflandırma
 **Örnek deneme**
 
-İki sınıflı sınıflandırma sorunu iris çiçekler sınıflandırmasını örnektir. Kendi özelliklerini temel alarak iris çiçekler sınıflandırmak için bir görevdir. Azure Machine Learning ile sağlanan Iris veri kümesi popüler bir alt kümesidir [Iris veri kümesi](http://en.wikipedia.org/wiki/Iris_flower_data_set) iki sağındaki (0 ve 1 sınıflar) çiçek yalnızca örneklerini içeren. Her çiçek (sepal uzunluğu, sepal genişlik, petal uzunluğu ve petal genişliği) için dört özellikler vardır.
+İki sınıflı sınıflandırma sorunu iris çiçekler hello sınıflandırılması örnektir. Merhaba, bunların özelliklerini temel alarak tooclassify iris çiçekler görevdir. Merhaba Iris veri Azure Machine Learning ile sağlanan bir alt kümesini hello popüler kümesidir [Iris veri kümesi](http://en.wikipedia.org/wiki/Iris_flower_data_set) iki sağındaki (0 ve 1 sınıflar) çiçek yalnızca örneklerini içeren. Her çiçek (sepal uzunluğu, sepal genişlik, petal uzunluğu ve petal genişliği) için dört özellikler vardır.
 
 ![İris deneme ekran görüntüsü](./media/machine-learning-interpret-model-results/1.png)
 
 Şekil 1 '. Iris iki sınıflı sınıflandırma sorunu deneme
 
-Bir deneme Şekil 1'de gösterildiği gibi bu sorunu çözmek için yapılmıştır. İki sınıflı artırılmış karar ağacı modeli eğitilmiş ve skoru. Tahmin sonuçlarını görselleştirme artık [Score Model] [ score-model] çıkış bağlantı noktasına tıklayarak Modülü [Score Model] [ score-model] modülü ve ardından **Görselleştir**.
+Bir deneme gerçekleştirilen toosolve Şekil 1'de gösterildiği gibi bu sorun olmuştur. İki sınıflı artırılmış karar ağacı modeli eğitilmiş ve skoru. Merhaba hello tahmin sonuçlarını görselleştirme artık [Score Model] [ score-model] hello hello çıkış bağlantı noktasına tıklayarak Modülü [Score Model] [ score-model]modülü ve ardından **Görselleştir**.
 
 ![Score model Modülü](./media/machine-learning-interpret-model-results/1_1.png)
 
-Şekil 2'de gösterildiği gibi bu Puanlama sonuçları getirir.
+Bu Şekil 2'de gösterildiği gibi sonuçları Puanlama hello getirir.
 
 ![İris iki sınıflı sınıflandırma deneme sonuçları](./media/machine-learning-interpret-model-results/2.png)
 
@@ -73,23 +73,23 @@ Bir deneme Şekil 1'de gösterildiği gibi bu sorunu çözmek için yapılmışt
 
 **Sonuç yorumlama**
 
-Sonuçlar tablosunda altı sütun vardır. Sol dört sütun dört özellikleridir. Sağda iki sütun, skoru etiketleri ve skoru olasılıklar tahmin sonuçlarını vardır. Olasılık skoru olasılıklar sütunda görüntülenir çiçek pozitif sınıfı (sınıf 1) ait. Örneğin, ilk sütun (0.028571) gösterir ilk çiçek sınıfı 1'e ait 0.028571 olasılık sayısıdır. Skoru etiketleri sütunu her çiçek için tahmin edilen sınıfı gösterir. Bu skoru olasılıklar sütunu temel alır. Bir çiçek puanlanmış olasılığını 0,5 büyükse, sınıf 1 olarak tahmin. Aksi takdirde sınıfı 0 tahmin.
+Merhaba sonuçlar tablosunda altı sütun vardır. Merhaba sol dört sütun hello dört özellikleridir. Merhaba sağda iki sütun, skoru etiketleri ve skoru olasılıklar hello tahmin sonuçlarını vardır. Merhaba skoru olasılıklar sütun gösterir hello olasılık çiçek toohello pozitif sınıfı (sınıf 1) ait. Örneğin, ilk numara var. ilk çiçek hello 0.028571 olasılık tooClass 1 ait hello sütun (0.028571) anlamına gelir hello. Merhaba skoru etiketleri sütun gösterir hello her çiçek için sınıf tahmin. Bu hello skoru olasılıklar sütunu temel alır. Bir çiçek olasılığını belirtmek hello 0,5 büyükse, sınıf 1 olarak tahmin. Aksi takdirde sınıfı 0 tahmin.
 
 **Web hizmet yayımı**
 
-Tahmin sonuçlarını anlamış ve ses nitelendirilmiştir sonra böylece çeşitli uygulamalar dağıtmak ve yeni bir iris çiçek üzerinde sınıf Öngörüler almak üzere çağrı denemeyi bir web hizmeti olarak yayımlanabilir. Eğitim denemenizi Puanlama denemeyi değiştirmek ve bir web hizmeti olarak yayımlamak öğrenmek için bkz: [Azure Machine Learning web hizmeti yayımlama](machine-learning-walkthrough-5-publish-web-service.md). Bu yordam ile Puanlama bir deneme, Şekil 3'te gösterildiği gibi sağlar.
+Merhaba tahmin sonuçlarını anlamış ve ses nitelendirilmiştir sonra böylece çeşitli uygulamalar dağıtmak ve tüm yeni Iris çiçek üzerinde tooobtain sınıfı tahminleri çağrı hello deneme bir web hizmeti olarak yayımlanabilir. toolearn toochange bir eğitim Puanlama deneme deneyin ve bir web hizmeti olarak yayımlama nasıl bkz [yayımlama hello Azure Machine Learning web hizmeti](machine-learning-walkthrough-5-publish-web-service.md). Bu yordam ile Puanlama bir deneme, Şekil 3'te gösterildiği gibi sağlar.
 
 ![Deneme Puanlama işleminin ekran görüntüsü](./media/machine-learning-interpret-model-results/3.png)
 
-Şekil 3 '. İris iki sınıflı sınıflandırma sorunu deneme Puanlama
+Şekil 3 '. Puanlama hello iris iki sınıflı sınıflandırma sorunu deneme
 
-Şimdi giriş ve çıkış web hizmeti için ayarlamanız gerekir. Sağ giriş bağlantı noktasını girdidir [Score Model][score-model], Iris çiçek olduğu giriş özellikleri. Çıktı Seçimi olup, tahmin edilen sınıfı (puanlanmış etiketi), puanlanmış olasılık veya her ikisi de ilginizi bağlıdır. Bu örnekte, her ikisinde de ilginizi varsayılır. İstenen çıkış sütunları seçmek için kullanın bir [veri kümesinde Sütun Seç] [ select-columns] modülü. ' I tıklatın [veri kümesinde Sütun Seç][select-columns], tıklatın **başlatma Sütun seçiciyi**seçip **skoru etiketleri** ve **skoru olasılıklar**. Çıkış bağlantı noktasına ayarlandıktan sonra [veri kümesinde Sütun Seç] [ select-columns] ve yeniden çalıştırmayı, tıklayarak bir web hizmeti olarak Puanlama deneme yayımlanacağını hazır olmalısınız **yayımlama WEB hizmeti**. Son deneme Şekil 4 gibi görünüyor.
+Şimdi tooset hello giriş ve çıkış hello web hizmeti için gerekir. Merhaba giriş hello sağ giriş bağlantı noktasıdır [Score Model][score-model], Iris çiçek özellikleri giriş hello. Merhaba hello çıkış seçimine olup, ilgi bağlıdır hello sınıfı (puanlanmış etiketi) tahmin, hello skoru olasılık ya da her ikisini de. Bu örnekte, her ikisinde de ilginizi varsayılır. tooselect hello çıktı sütunları, kullanmak istediğiniz bir [veri kümesinde Sütun Seç] [ select-columns] modülü. ' I tıklatın [veri kümesinde Sütun Seç][select-columns], tıklatın **başlatma Sütun seçiciyi**seçip **skoru etiketleri** ve **skoru olasılıklar**. Merhaba çıkış bağlantı noktasına ayarlandıktan sonra [veri kümesinde Sütun Seç] [ select-columns] ve yeniden çalıştırmayı, hazır toopublish hello Puanlama deneme bir web hizmeti olarak tıklayarak **WEB'i Yayımla Hizmet**. Merhaba son deneme Şekil 4 gibi görünüyor.
 
-![İris iki sınıflı sınıflandırma deneme](./media/machine-learning-interpret-model-results/4.png)
+![Merhaba iris iki sınıflı sınıflandırma deneme](./media/machine-learning-interpret-model-results/4.png)
 
 Şekil 4 '. Bir iris iki sınıflı sınıflandırma sorununun son Puanlama deneme
 
-Web hizmetini çalıştırmak ve bir test örneğinin bazı özellik değerleri girin sonra iki sayının sonucunu döndürür. Puanlanmış etiket ilk sayıdır ve ikinci puanlanmış olasılıktır. Bu çiçek sınıfı 1 olarak 0.9655 olasılık ile tahmin.
+Merhaba web hizmetini çalıştırmak ve bir test örneğinin bazı özellik değerleri girin sonra iki sayının hello sonucunu döndürür. Merhaba ilk sayı hello etiket belirtmek ve hello ikinci olasılık skoru hello. Bu çiçek sınıfı 1 olarak 0.9655 olasılık ile tahmin.
 
 ![Test yorumlama score model](./media/machine-learning-interpret-model-results/4_1.png)
 
@@ -100,17 +100,17 @@ Web hizmetini çalıştırmak ve bir test örneğinin bazı özellik değerleri 
 ### <a name="multi-class-classification"></a>Birden çok sınıf sınıflandırma
 **Örnek deneme**
 
-Bu deneme içinde bir harf tanıma görev çok sınıflı sınıflandırma örneği olarak gerçekleştirin. Sınıflandırıcı, elle yazılmış görüntülerden ayıklanan bazı elle yazılmış öznitelik değerlerine göre belirli bir harfi (sınıfı) tahmin etmek çalışır.
+Bu deneme içinde bir harf tanıma görev çok sınıflı sınıflandırma örneği olarak gerçekleştirin. Merhaba sınıflandırıcı toopredict belirli bir deneme hello elle yazılmış görüntülerden ayıklanan bazı elle yazılmış öznitelik değerleri temel harf (sınıfı).
 
 ![Harf tanıma örneği](./media/machine-learning-interpret-model-results/5_1.png)
 
-Eğitim verileri içinde elle yazılmış harf görüntülerden ayıklanan 16 özellikler vardır. 26 harf bizim 26 sınıfları oluşturur. Şekil 6 harf tanıma için çok sınıflı sınıflandırma modeli eğitmek ve tahmin bir denemeyi sınama veri kümesi üzerinde aynı özelliğini gösterir.
+Merhaba eğitim verileri içinde elle yazılmış harf görüntülerden ayıklanan 16 özellikler vardır. Merhaba 26 harf bizim 26 sınıfları oluşturur. Bir sınama veri kümesi kümesinde çok sınıflı sınıflandırma eğitmek bir denemeyi harf tanıma için model ve hello üzerinde aynı tahmin 6 gösterir özelliğini kullanın.
 
 ![Harf tanıma çok sınıflı sınıflandırma deneme](./media/machine-learning-interpret-model-results/6.png)
 
 Şekil 6. Harf tanıma çok sınıflı sınıflandırma sorunu deneme
 
-Sonuçlarını görselleştirme [Score Model] [ score-model] çıkış bağlantı noktasına tıklayarak Modülü [Score Model] [ score-model] modülü ve ardından **Görselleştir**, içerik Şekil 7'de gösterildiği gibi görmeniz gerekir.
+Merhaba Hello sonuçlarını görselleştirme [Score Model] [ score-model] hello çıkış bağlantı noktasına tıklayarak Modülü [Score Model] [ score-model] modülü ve ardından tıklatarak **Görselleştir**, içerik Şekil 7'de gösterildiği gibi görmeniz gerekir.
 
 ![Score model sonuçları](./media/machine-learning-interpret-model-results/7.png)
 
@@ -118,21 +118,21 @@ Sonuçlarını görselleştirme [Score Model] [ score-model] çıkış bağlant�
 
 **Sonuç yorumlama**
 
-Sol 16 sütunlar sınama kümesi özellik değerlerini temsil eder. Sütunları skoru olasılıklar sınıf "XX" için yalnızca gibi adlara sahip iki sınıflı durumda skoru olasılıklar sütun ister. Olasılık Göster, belirli bir sınıfına karşılık gelen bir giriş döner. Örneğin, ilk giriş için bir "A", "B" ve benzeri olduğunu 0.000451 olasılık olduğunu 0.003571 olasılık yoktur. Son sütun (skoru etiketleri) skoru etiketleri aynı iki sınıflı durumda değil. En büyük puanlanmış olasılık sınıfıyla ilgili girişi tahmin edilen sınıf olarak seçilir. Örneğin, bir "F" (0.916995) olması için en büyük olasılık olduğundan ilk girişi için puanlanmış etiketi "F" olur.
+Merhaba sol 16 sütundan hello test kümesinin hello özellik değerleri temsil eder. Merhaba sütunlar skoru olasılıklar sınıf "XX" için yalnızca hello skoru olasılıklar sütun gibi hello iki sınıflı durumda olduğu gibi adlara sahip. Bunlar, karşılık gelen bir giriş hello hello olasılık belirli bir sınıfına denk gösterir. Örneğin, hello ilk giriş için bir "A", "B" ve benzeri olduğunu 0.000451 olasılık olduğunu 0.003571 olasılık yoktur. Merhaba son sütun (Scored etiketleri) olan hello aynı skoru etiketleri hello iki sınıflı durumda. Hello en büyük olasılık hello karşılık gelen bir giriş tahmin edilen sınıfının hello gibi skoru hello sınıfıyla seçer. Örneğin, hello en büyük olasılık toobe bir "F" (0.916995) sahip olduğundan hello ilk giriş etiketi skoru hello "F" dosyasıdır.
 
 **Web hizmet yayımı**
 
-Ayrıca, her giriş ve puanlanmış etiket olasılığını için puanlanmış etiket elde edebilirsiniz. Temel mantığı puanlanmış olasılıklar arasında büyük olasılık bulmaktır. Bunu yapmak için kullanmanız gerekir [R betiği yürütün] [ execute-r-script] modülü. R kodu Şekil 8'de gösterilen ve deneme sonucunu Şekil 9'da gösterilir.
+Etiket etiket skoru hello için her giriş ve hello olasılık skoru hello de alabilirsiniz. Merhaba temel mantığı toofind hello en büyük olasılıklar skoru tüm hello arasında olasılıktır. toodo bunu toouse hello gereksinim [R betiği yürütün] [ execute-r-script] modülü. Merhaba R kodu Şekil 8'de gösterilen ve Şekil 9'hello deneme hello sonucunu gösterilir.
 
 ![R kod örneği](./media/machine-learning-interpret-model-results/8.png)
 
-Şekil 8'de. R kodunu skoru etiketleri ve etiketlerin ilişkili olasılıklar ayıklanıyor
+Şekil 8'de. Merhaba etiketlerinin olasılıklar skoru etiketleri ve hello ayıklanacağı R kodu ilişkili
 
 ![Deneme sonucu](./media/machine-learning-interpret-model-results/9.png)
 
-Şekil 9. Harf tanıma çok sınıflı sınıflandırma sorununun son Puanlama deneme
+Şekil 9. Merhaba harf tanıma çok sınıflı sınıflandırma sorununun son Puanlama deneme
 
-Sonra yayımlama ve web hizmetini çalıştırmak ve bazı giriş özellik değerleri, Şekil 10 döndürülen sonuç görülüyor girin. Bu elle yazılmış harf ayıklanan 16 özelliklerini 0.9715 olasılık ile "T" olarak tahmin.
+Yayımlama hello web hizmetini çalıştırmak ve bazı giriş özellik değerleri girin sonra hello Şekil 10 görülüyor sonuç döndürdü. Bu elle yazılmış harf ayıklanan 16 özelliklerini 0.9715 olasılık ile tahmin edilen toobe "T" dir.
 
 ![Sınama yorumlama puan Modülü](./media/machine-learning-interpret-model-results/9_1.png)
 
@@ -141,35 +141,35 @@ Sonra yayımlama ve web hizmetini çalıştırmak ve bazı giriş özellik değe
 Şekil 10. Web hizmeti sonucu çok sınıflı sınıflandırma
 
 ## <a name="regression"></a>regresyon
-Regresyon sorunları sınıflandırma sorunlarında farklıdır. Bir sınıflandırma sorunu sınıfı iris çiçek ait olduğu gibi ayrık sınıfları tahmin deniyorsunuz. Ancak regresyon sorun aşağıdaki örnekte görüldüğü gibi bir araba fiyatını gibi sürekli bir değişken tahmin etmeye çalıştığınız.
+Regresyon sorunları sınıflandırma sorunlarında farklıdır. Bir sınıflandırma sorunu gibi hangi sınıfın ait olduğu bir iris çiçek toopredict ayrık sınıfları deniyorsunuz. Ancak bir regresyon sorununun örneği aşağıdaki hello görebileceğiniz gibi toopredict bir araba fiyatını hello gibi sürekli bir değişken çalıştığınız.
 
 **Örnek deneme**
 
-Otomobil fiyat tahmini regresyon için örnek olarak kullanın. Oluştur, yakıt türü, gövde türü ve sürücü tekerleği dahil olmak üzere kendi özelliklerini temel alarak otomobil fiyatını tahmin etmek çalışıyorsunuz. Denemeyi Şekil 11'de gösterilir.
+Otomobil fiyat tahmini regresyon için örnek olarak kullanın. Toopredict hello fiyat yapma, yakıt türü, gövde türü ve sürücü tekerleği dahil olmak üzere kendi özelliklerini temel alarak bir araba çalışıyorsunuz. Merhaba deneme Şekil 11'de gösterilir.
 
 ![Otomobil fiyat regresyon denemesini](./media/machine-learning-interpret-model-results/11.png)
 
 Şekil 11. Otomobil fiyat regresyon sorun deneme
 
-Görselleştirme [Score Model] [ score-model] modülü, sonuç Şekil 12 gibi görünüyor.
+Görselleştirme hello [Score Model] [ score-model] modülü, hello sonuç Şekil 12 gibi görünüyor.
 
 ![Otomobil fiyat tahmini soruna yönelik Puanlama sonuçları](./media/machine-learning-interpret-model-results/12.png)
 
-Şekil 12. Otomobil fiyat tahmini soruna yönelik Puanlama sonucu
+Şekil 12. Merhaba otomobil fiyat tahmini soruna yönelik Puanlama sonucu
 
 **Sonuç yorumlama**
 
-Puanlanmış etiketler Puanlama bu sonucu sonuç sütununda olur. Tahmin edilen her araba fiyatını numaralarıdır.
+Bu Puanlama sonuç hello sonuç sütununu puanlanmış etiketler var. Merhaba, her araba için tahmin edilen fiyat hello numaralarıdır.
 
 **Web hizmet yayımı**
 
-Bir web hizmeti içine regresyon denemesini yayımlayın ve bu otomobil fiyat tahmini için iki sınıflı sınıflandırma kullanım durumunda olduğu gibi aynı şekilde çağırın.
+Bir web hizmeti içine hello regresyon denemesini yayımlamak ve çağrısından hello içinde otomobil fiyat tahmini için hello iki sınıflı sınıflandırma olduğu gibi kullanım örneği.
 
 ![Otomobil fiyat regresyon sorun için deneme Puanlama](./media/machine-learning-interpret-model-results/13.png)
 
 Şekil 13. Bir otomobil fiyat regresyon sorununun deneme Puanlama
 
-Web hizmeti çalıştıran, döndürülen sonuç Şekil 14 gibi görünüyor. Bu otomobil fiyatını tahmin edilen $15,085.52 ' dir.
+Merhaba Hello web hizmetini çalıştıran Şekil 14 görülüyor sonuç döndürdü. Bu otomobil için tahmin edilen fiyat Hello $15,085.52 olur.
 
 ![Sınama yorumlama Puanlama Modülü](./media/machine-learning-interpret-model-results/13_1.png)
 
@@ -180,21 +180,21 @@ Web hizmeti çalıştıran, döndürülen sonuç Şekil 14 gibi görünüyor. Bu
 ## <a name="clustering"></a>Kümeleme
 **Örnek deneme**
 
-Şimdi Iris veri kümesini yeniden kümeleme bir deneme oluşturmak için kullanın. Burada yalnızca özelliklere sahiptir ve kümeleme için kullanılan veri kümesi sınıfı etiketler çıkışı filtreleyebilirsiniz. Bu iris kullanım, iki iki sınıf halinde çiçekler küme anlamına gelir eğitim işlemi sırasında olması için küme sayısını belirtin. Denemeyi Şekil 15'te gösterilir.
+Merhaba Iris veri kümesini yeniden toobuild bir kümeleme deneme kullanalım. Burada yalnızca özelliklere sahiptir ve kümeleme için kullanılabilir böylece hello sınıfı etiketleri hello veri kümesindeki çıkışı filtreleyebilirsiniz. Bu iris kullanım, kümeleri toobe iki iki sınıf halinde hello çiçekler küme anlamına gelir hello eğitim işlemi sırasında hello sayısını belirtin. Merhaba deneme Şekil 15'te gösterilir.
 
 ![Iris kümeleme sorun denemeler](./media/machine-learning-interpret-model-results/15.png)
 
 Şekil 15. Iris kümeleme sorun denemeler
 
-Eğitim veri kümesinin başından başlayarak gerçekte etiketleri tek başına yok kümeleme sınıflandırma farklıdır. Grupları eğitim veri kümesi örnekleri, ayrı kümeler halinde kümeleme. Eğitim işlemi sırasında model özelliklerine arasındaki farklar öğrenerek girişleri etiketler. Bundan sonra eğitilen model daha ileride girişleri sınıflandırmak için kullanılabilir. Biz kümeleme sorun içinde ilgilendiğiniz sonucunun iki bölümü vardır. İlk bölümü eğitim veri kümesi etiketleme ve ikinci bir yeni veri kümesi ve eğitilen modele ile sınıflandırmak.
+Merhaba eğitim veri kümesinin başından başlayarak gerçekte etiketleri tek başına yok kümeleme sınıflandırma farklıdır. Kümeleme grupları eğitim veri kümesi örneklerinin ayrı kümeler halinde hello. Merhaba eğitim işlemi sırasında özelliklerine hello farklarını öğrenerek hello modeli etiketleri girişleri hello. Bundan sonra hello eğitilen model kullanılabilir toofurther sınıflandırmak gelecekteki girişleri. Biz kümeleme sorun içinde ilgilendiğiniz hello sonucunun iki bölümü vardır. Merhaba ilk bölümü hello eğitim veri kümesi etiketleme ve hello ikinci hello eğitilen model ile yeni bir veri kümesi sınıflandırma.
 
-Sol çıkış bağlantı noktasına tıklayarak sonucu ilk bölümü canlandırılabilir [tren kümeleme modelinde] [ train-clustering-model] ve ardından **Görselleştir**. Görselleştirme Şekil 16'gösterilir.
+Merhaba hello sonuç ilk bölümü çıkış bağlantı noktasına sol hello tıklayarak canlandırılabilir [tren kümeleme modelinde] [ train-clustering-model] ve ardından **Görselleştir**. Şekil 16'Hello görselleştirme gösterilir.
 
 ![Kümeleme sonucu](./media/machine-learning-interpret-model-results/16.png)
 
-Şekil 16. Sonuç eğitim veri kümesi için kümeleme Görselleştirme
+Şekil 16. Sonuç hello eğitim veri kümesi için kümeleme Görselleştirme
 
-Yeni girişlerle eğitilen kümeleme modeli, kümeleme ikinci bölümü, sonuç şekil 17'de gösterilir.
+Yeni girişlerle hello eğitilen kümeleme modeli, kümeleme hello ikinci bölümü Hello sonucunu şekil 17'de gösterilir.
 
 ![Sonuç kümeleme Görselleştirme](./media/machine-learning-interpret-model-results/17.png)
 
@@ -202,17 +202,17 @@ Yeni girişlerle eğitilen kümeleme modeli, kümeleme ikinci bölümü, sonuç 
 
 **Sonuç yorumlama**
 
-Farklı deneme aşamaları iki bölümden sonuçlarını gövdesi karşın, aynı bakın ve aynı şekilde yorumlanır. İlk dört sütun özellikleridir. Son sütun atamaları tahmin sonucudur. Atanan aynı sayı girişleri, (Bu deneme varsayılan Euclidean uzaklığı ölçüm kullanır) şekilde benzerlikler paylaştıkları aynı küme olacak şekilde tahmin. 2 küme sayısı belirtilmediğinden atamaları girdileri 0 veya 1 etiketlenir.
+Farklı deneme aşamaları hello iki bölümden Hello sonuçlarını gövdesi rağmen göründükleri aynı hello ve hello yorumlanır aynı şekilde. Merhaba ilk dört sütun özellikleridir. Merhaba son sütun, atamaları hello tahmin sonucudur. aynı sayı tahmin hello atanan girişleri hello diğer bir deyişle, aynı küme hello toobe benzerlikler (Bu deneme kullanır hello varsayılan Euclidean uzaklığı ölçüm) bir şekilde paylaşır. Kümeleri toobe 2 hello sayısı belirtilmediğinden atamaları hello girişleri 0 veya 1 etiketlenir.
 
 **Web hizmet yayımı**
 
-Bir web hizmeti içine kümeleme deneme yayımlama ve iki sınıflı sınıflandırma olduğu gibi kullanım örneği tahminleri kümeleme için çağırın.
+Bir web hizmetine deneme kümeleme hello yayımlayın ve kümeleme Öngörüler aynı şekilde hello iki sınıflı sınıflandırmasında kullanım örneği hello için çağırın.
 
 ![Deneme iris kümeleme sorunu Puanlama](./media/machine-learning-interpret-model-results/18.png)
 
 Şekil 18. Deneme iris kümeleme sorununun Puanlama
 
-Sonra web hizmetini çalıştırmak, döndürülen sonuç şekil 19 gibi görünüyor. Küme 0 olması için bu çiçek tahmin.
+Sonra hello web hizmetini çalıştırmak hello şekil 19 görülüyor sonuç döndürdü. Bu çiçek 0 kümedeki tahmin edilen toobe ' dir.
 
 ![Test Puanlama modülü yorumlama](./media/machine-learning-interpret-model-results/18_1.png)
 
@@ -223,24 +223,24 @@ Sonra web hizmetini çalıştırmak, döndürülen sonuç şekil 19 gibi görün
 ## <a name="recommender-system"></a>Öneren sistem
 **Örnek deneme**
 
-Öneren sistemleri için örnek olarak Restoran öneri sorun kullanabilirsiniz: müşteriler kendi derecelendirme geçmiş temelinde Restoran öneririz. Giriş verisi üç bölümden oluşur:
+Öneren sistemleri için örnek olarak hello Restoran öneri sorun kullanabilirsiniz: müşteriler kendi derecelendirme geçmiş temelinde Restoran öneririz. Merhaba giriş verileri üç bölümden oluşur:
 
 * Müşterilerden Restoran derecelendirme
 * Müşteri özellik verileri
 * Restoran özelliği verileri
 
-Biz ile yapabilir birkaç şey vardır [tren Matchbox öneren] [ train-matchbox-recommender] Azure Machine Learning modülünde:
+Biz ile Merhaba yapabilir birkaç şey vardır [tren Matchbox öneren] [ train-matchbox-recommender] Azure Machine Learning modülünde:
 
 * Verilen kullanıcı ve madde derecelendirmesi tahmin etme
-* Belirli bir kullanıcıya öğeleri önerilir
-* Belirli bir kullanıcıyla ilişkili kullanıcı Bul
-* Belirli bir öğesiyle ilgili öğeleri bulma
+* Kullanıcıya verilen öğeleri tooa önerilir
+* Kullanıcıya verilen kullanıcılar ilgili tooa Bul
+* Öğe verilen öğeleri ilgili tooa Bul
 
-Dört seçeneklerinde seçerek yapmak istediğiniz seçebilirsiniz **öneren tahmin türü** menüsü. Burada tüm dört senaryolar üzerinden yol.
+Toodo hello hello dört seçeneklerinde seçerek istediğinizi seçebilirsiniz **öneren tahmin türü** menüsü. Burada tüm dört senaryolar üzerinden yol.
 
 ![Matchbox öneren](./media/machine-learning-interpret-model-results/19_1.png)
 
-Tipik bir Azure Machine Learning deneme öneren sistemi Şekil 20 gibi görünüyor. Bu öneren sistem modüllerini kullanma hakkında daha fazla bilgi için bkz: [tren matchbox öneren] [ train-matchbox-recommender] ve [puan matchbox öneren][score-matchbox-recommender].
+Tipik bir Azure Machine Learning deneme öneren sistemi Şekil 20 gibi görünüyor. Bu öneren sistem modüller toouse nasıl görürüm hakkında bilgi için [tren matchbox öneren] [ train-matchbox-recommender] ve [puan matchbox öneren] [ score-matchbox-recommender].
 
 ![Öneren sistem deneme](./media/machine-learning-interpret-model-results/20.png)
 
@@ -250,55 +250,55 @@ Tipik bir Azure Machine Learning deneme öneren sistemi Şekil 20 gibi görünü
 
 **Verilen kullanıcı ve madde derecelendirmesi tahmin etme**
 
-Seçerek **derecelendirme tahmin** altında **öneren tahmin türü**, öneren sistem verilen kullanıcı ve madde için derecelendirme tahmin etmek istiyoruz. Görsel olarak [puan Matchbox öneren] [ score-matchbox-recommender] çıkış şekil 21 gibi görünüyor.
+Seçerek **derecelendirme tahmin** altında **öneren tahmin türü**, verilen kullanıcı ve öğesi için derecelendirme sistem toopredict hello hello öneren istiyoruz. Merhaba hello görselleştirme [puan Matchbox öneren] [ score-matchbox-recommender] çıkış şekil 21 gibi görünüyor.
 
-![Tahmin derecelendirme öneren sistem--sonucunu puan](./media/machine-learning-interpret-model-results/21.png)
+![Tahmin derecelendirme hello öneren sistemi--sonucunu puan](./media/machine-learning-interpret-model-results/21.png)
 
-Şekil 21. Tahmin derecelendirme öneren sistem--puan sonucunu Görselleştirme
+Şekil 21. Merhaba öneren sistem--derecelendirme tahmin Hello puan sonucu Görselleştirme
 
-İlk iki sütunu giriş verisi tarafından sağlanan kullanıcı öğesi çiftleridir. Bir kullanıcı belirli bir öğe için tahmin edilen derecesi üçüncü sütundur. Örneğin, ilk satırda müşteri U1048 oranı Restoran 135026 2 olarak tahmin.
+Merhaba ilk iki sütun hello giriş verisi tarafından sağlanan hello kullanıcı öğesi çiftleridir. Merhaba üçüncü sütun bir kullanıcı belirli bir öğe için tahmin edilen derecesi hello. Örneğin, hello ilk satırda U1048 olduğu müşteri toorate Restoran 135026 2 olarak tahmin.
 
-**Belirli bir kullanıcıya öğeleri önerilir**
+**Kullanıcıya verilen öğeleri tooa önerilir**
 
-Seçerek **öğesi öneri** altında **öneren tahmin türü**, öğeleri belirli bir kullanıcıya önermek için öneren sistem isteyen. Bu senaryoda seçmek için son parametre *öğe seçimi önerilen*. Seçenek **gelen derecelendirilmiş öğeleri (model değerlendirme)** eğitim işlemi sırasında model değerlendirme öncelikle içindir. Bu tahmin aşaması için seçeneğini belirledik **gelen tüm öğeleri**. Görsel olarak [puan Matchbox öneren] [ score-matchbox-recommender] çıkış Şekil 22 gibi görünüyor.
+Seçerek **öğesi öneri** altında **öneren tahmin türü**, kullanıcıya verilen sistem toorecommend öğeleri tooa hello öneren istiyoruz. Bu senaryoda Hello son parametre toochoose olan *öğe seçimi önerilen*. Merhaba seçeneği **gelen derecelendirilmiş öğeleri (model değerlendirme)** hello eğitim işlemi sırasında model değerlendirme öncelikle içindir. Bu tahmin aşaması için seçeneğini belirledik **gelen tüm öğeleri**. Merhaba hello görselleştirme [puan Matchbox öneren] [ score-matchbox-recommender] çıkış Şekil 22 gibi görünüyor.
 
 ![Öneren sistem--öğesi öneri puan sonucu](./media/machine-learning-interpret-model-results/22.png)
 
-Şekil 22. Öneren sistem--öğesi öneri puan sonucunu Görselleştirme
+Şekil 22. Merhaba öneren sistem--öğesi öneri puan sonucunu Görselleştirme
 
-İlk altı sütunların giriş verisi tarafından sağlanan belirli kullanıcı için öğeleri önermek için kimlikleri temsil eder. Diğer beş sütun ilgi azalan düzende kullanıcıya önerilen öğeleri temsil eder. Örneğin, ilk satırda müşteri U1048 en önerilen Restoran 135018, 134975, 135021 ve 132862 tarafından izlenen 134986 ' dir.
+kullanıcı kimliklerini toorecommend öğeleri için verilen hello altı sütunları temsil hello ilk hello giriş verisi tarafından sağlanan gibi hello. Merhaba diğer beş sütunlar toohello kullanıcı ilgi azalan düzende önerilen hello öğeler temsil eder. Örneğin, hello ilk satırda hello en Restoran müşteri U1048 135018, 134975, 135021 ve 132862 tarafından izlenen 134986 önerilir.
 
-**Belirli bir kullanıcıyla ilişkili kullanıcı Bul**
+**Kullanıcıya verilen kullanıcılar ilgili tooa Bul**
 
-Seçerek **ilgili kullanıcıları** altında **öneren tahmin türü**, verili bir kullanıcı için ilgili kullanıcıları bulmak için öneren sistem isteyen. Benzer Tercihler kullanıcılar ilgili kullanıcılardır. Bu senaryoda seçmek için son parametre *ilgili kullanıcı seçimi*. Seçenek **gelen kullanıcılar, derecelendirilmiş öğeleri (model değerlendirme)** eğitim işlemi sırasında model değerlendirme öncelikle içindir. Seçin **tüm kullanıcıların** bu tahmin aşaması için. Görsel olarak [puan Matchbox öneren] [ score-matchbox-recommender] çıkış şekil 23 gibi görünüyor.
+Seçerek **ilgili kullanıcıları** altında **öneren tahmin türü**, sistem toofind ilgili kullanıcılara verilen tooa kullanıcı hello öneren istiyoruz. Benzer Tercihler sahip hello kullanıcılar ilgili kullanıcılardır. Bu senaryoda Hello son parametre toochoose olan *ilgili kullanıcı seçimi*. Merhaba seçeneği **gelen kullanıcılar, derecelendirilmiş öğeleri (model değerlendirme)** hello eğitim işlemi sırasında model değerlendirme öncelikle içindir. Seçin **tüm kullanıcıların** bu tahmin aşaması için. Merhaba hello görselleştirme [puan Matchbox öneren] [ score-matchbox-recommender] çıkış şekil 23 gibi görünüyor.
 
 ![Öneren sistem--ilgili kullanıcıları puan sonucu](./media/machine-learning-interpret-model-results/23.png)
 
-Şekil 23. Öneren sisteminin--ilgili kullanıcıları Puanlama sonuçlarını Görselleştirme
+Şekil 23. Merhaba öneren sisteminin--ilgili kullanıcıları Puanlama sonuçlarını Görselleştirme
 
-İlk altı sütunların verilen kullanıcı kimlikleri ilgili kullanıcıları bulmak gerekli giriş verileri tarafından sağlanan gibi gösterir. Diğer beş sütun ilgi azalan sırada kullanıcının tahmin edilen ilgili kullanıcıları depolar. Örneğin, ilk satırda müşteri U1048 en ilgili müşteri U1066, U1044, U1017 ve U1072 tarafından izlenen U1051 ' dir.
+ilk hello hello altı sütunları gösterir hello kullanıcı gerekli kimlikleri toofind verilen kullanıcılar, giriş verisi tarafından sağlanan gibi ilgili. Merhaba diğer beş sütun deposu hello hello kullanıcının ilgi azalan düzende tahmin edilen ilgili kullanıcıları. Örneğin, hello ilk satırında, müşteri U1048 için en uygun müşteri hello U1066, U1044, U1017 ve U1072 tarafından izlenen U1051 ' dir.
 
-**Belirli bir öğesiyle ilgili öğeleri bulma**
+**Öğe verilen öğeleri ilgili tooa Bul**
 
-Seçerek **ilgili öğeler** altında **öneren tahmin türü**, belirli bir öğe için ilgili öğeleri bulmak için öneren sistem istiyoruz. İlgili öğeler aynı kullanıcı tarafından beğendiğinizi olasılıkla öğelerdir. Bu senaryoda seçmek için son parametre *ilgili öğe seçimi*. Seçenek **gelen derecelendirilmiş öğeleri (model değerlendirme)** eğitim işlemi sırasında model değerlendirme öncelikle içindir. Seçeneğini belirledik **gelen tüm öğeleri** bu tahmin aşaması için. Görsel olarak [puan Matchbox öneren] [ score-matchbox-recommender] çıkış şekil 24 gibi görünüyor.
+Seçerek **ilgili öğeler** altında **öneren tahmin türü**, sistem toofind ilgili öğeler verilen tooa öğesini hello öneren istiyoruz. Öğeleri hello öğeleri büyük olasılıkla toobe beğendiğinizi hello tarafından aynı ilgili kullanıcı. Bu senaryoda Hello son parametre toochoose olan *ilgili öğe seçimi*. Merhaba seçeneği **gelen derecelendirilmiş öğeleri (model değerlendirme)** hello eğitim işlemi sırasında model değerlendirme öncelikle içindir. Seçeneğini belirledik **gelen tüm öğeleri** bu tahmin aşaması için. Merhaba hello görselleştirme [puan Matchbox öneren] [ score-matchbox-recommender] çıkış şekil 24 gibi görünüyor.
 
 ![Puan sonuç öneren sisteminin--ilgili öğeler](./media/machine-learning-interpret-model-results/24.png)
 
-Şekil 24. Öneren sisteminin--ilgili öğeler Puanlama sonuçlarını Görselleştirme
+Şekil 24. Merhaba öneren sisteminin--ilgili öğeler Puanlama sonuçlarını Görselleştirme
 
-İlk altı sütunların verilen öğesi ilgili öğeleri bulmak için giriş verileri tarafından sağlanan gibi gerekli kimlikleri temsil eder. Diğer beş sütun uygunluk açısından azalan sırada tahmin edilen ilgili öğeler öğenin depolar. Örneğin, ilk satırda en uygun öğesinin 135026 135035, 132875, 135055 ve 134992 tarafından izlenen 135074 öğesidir.
+Merhaba gerekli öğe kimliklerinin verilen hello altı sütunları temsil hello ilk toofind hello giriş verisi tarafından sağlanan gibi öğeleri, ilgili. Merhaba diğer beş sütun deposu hello uygunluk açısından azalan düzende hello öğesinin tahmin edilen ilgili öğeler. Örneğin, hello ilk satırda hello en uygun öğesinin 135026 135035, 132875, 135055 ve 134992 tarafından izlenen 135074 öğesidir.
 
 **Web hizmet yayımı**
 
-Bu denemeler Öngörüler almak için web Hizmetleri olarak yayımlama işlemi her dört senaryo için benzer. Burada size ikinci senaryo (belirli bir kullanıcının öğelerine önerilir) örnek olarak alın. Diğer üç ile aynı yordamı izleyebilirsiniz.
+web hizmetleri tooget tahminleri olarak bu denemeler yayımlama hello her hello dört senaryo için benzer işlemidir. Burada size hello ikinci senaryo (kullanıcı verilen öneri öğeleri tooa) örnek olarak alın. İzleyebileceğiniz hello diğer üç yordamın aynısını hello.
 
-Eğitilmiş öneren sistem eğitilen model olarak kaydetme ve istendiği gibi tek bir kullanıcı kimliği sütunu için giriş verileri filtreleme, Şekil 25 olduğu gibi deneme bağlanacağını ve web hizmeti olarak yayımlayın.
+Öneren sistem modeli olarak kaydetme hello eğitilmiş ve hello giriş verisi tooa filtreleme tek bir kullanıcı kimliği sütunu olarak istenen, Şekil 25 olduğu gibi hello deneme bağlanacağını ve web hizmeti olarak yayımlama.
 
-![Deneme Restoran öneri sorununun Puanlama](./media/machine-learning-interpret-model-results/25.png)
+![Deneme hello Restoran öneri sorununun Puanlama](./media/machine-learning-interpret-model-results/25.png)
 
-Şekil 25. Deneme Restoran öneri sorununun Puanlama
+Şekil 25. Deneme hello Restoran öneri sorununun Puanlama
 
-Web hizmeti çalıştıran, döndürülen sonuç şekil 26 gibi görünüyor. Kullanıcı U1048 için beş önerilen Restoran 134986, 135018, 134975, 135021 ve 132862 ' dir.
+Merhaba Hello web hizmetini çalıştıran şekil 26 görülüyor sonuç döndürdü. Merhaba beş önerilen Restoran kullanıcı U1048 için 134986, 135018, 134975, 135021 ve 132862 ' dir.
 
 ![Öneren sistem hizmeti örneği](./media/machine-learning-interpret-model-results/25_1.png)
 

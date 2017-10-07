@@ -1,5 +1,5 @@
 ---
-title: "Site Recovery ile Azure çoğaltma için VMware ağ planı | Microsoft Docs"
+title: "Site Recovery ile VMware tooAzure çoğaltma için ağ aaaPlan | Microsoft Docs"
 description: "Bu makalede Azure Site Recovery ile Azure sanal makineleri çoğaltırken ağ gerekli planlama açıklanır"
 services: site-recovery
 documentationcenter: 
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: sujayt
-ms.openlocfilehash: 7b37e853f6b97ba313111f9201f877846a28fae9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e4036351ca707bd4966cf2a855d4a162f88153e8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="step-3-plan-networking-for-azure-vm-replication"></a>3. adım: Azure VM çoğaltması için ağ planlama
 
-Doğrulandıktan sonra [dağıtımının önkoşulları](azure-to-azure-walkthrough-prerequisites.md), çoğaltma ve Azure sanal makineleri (VM'ler) bir Azure bölgesinden diğerine kurtarma ağ konuları anlamak için bu makaleyi okuyun Azure kullanma Site Recovery hizmeti. 
+Merhaba doğrulandıktan sonra [dağıtımının önkoşulları](azure-to-azure-walkthrough-prerequisites.md), çoğaltma ve Azure sanal makineleri (VM'ler) bir Azure bölgesi tooanother kurtarma durumlarda dikkat edilmesi gerekenler ağ Bu makale toounderstand hello okuma hello kullanarak Azure Site Recovery hizmeti. 
 
-- Makaleyi tamamladığınızda, Azure sanal makineleri çoğaltmak istediğiniz için giden erişimi ayarlamak nasıl ve bu sanal makineleri şirket içi sitenizden bağlanma NET bir anlayış olmalıdır.
-- Tüm yorumlarınızı bu makalenin alt kısmında paylaşabilir veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda soru sorabilirsiniz.
+- Merhaba makale bitirdikten sonra açık olmalıdır anlama nasıl tooset giden yukarı erişim Azure VM'ler için istediğiniz tooreplicate ve nasıl tooconnect, şirket içi site toothose VM'ler.
+- Bu makalenin hello altındaki tüm yorumlar gönderin ya da hello sorular sormak [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 >[!NOTE]
 > Site Recovery ile Azure VM çoğaltma şu anda önizlemede değil.
@@ -34,48 +34,48 @@ Doğrulandıktan sonra [dağıtımının önkoşulları](azure-to-azure-walkthro
 
 ## <a name="network-overview"></a>Ağ genel bakış
 
-Şirket içi sitenizi bir bağlantıdan Azure ExpressRoute kullanarak veya bir VPN bağlantısı yoktur ve genellikle bir Azure sanal ağ/alt ağında Azure Vm'leriniz bulunur.
+Azure ExpressRoute veya bir VPN bağlantısı kullanarak, şirket içi site tooAzure öğesinden bir bağlantı yoktur ve genellikle bir Azure sanal ağ/alt ağında Azure Vm'leriniz bulunur.
 
-Ağlar genellikle güvenlik duvarları kullanarak korunur ve/veya ağ güvenlik grubu (Nsg'ler). Güvenlik duvarları URL tabanlı denetim ağ bağlantısı için IP tabanlı listeleri kullanabilirsiniz. Nsg'ler IP aralığı tabanlı kurallarını kullanın. 
-
-
-Site Recovery'nın beklenen çalışmaya çoğaltmak istediğiniz VM'lerin giden ağ bağlantısı'nda bazı değişiklikler yapmanız gerekir. Site kurtarma denetim ağ bağlantısı için bir kimlik doğrulama proxy'si kullanımını desteklemez. Bir kimlik doğrulama proxy'si varsa, çoğaltma etkinleştirilemez. 
+Ağlar genellikle güvenlik duvarları kullanarak korunur ve/veya ağ güvenlik grubu (Nsg'ler). Güvenlik duvarları URL tabanlı IP tabanlı listelerde, toocontrol ağ bağlantısını kullanabilirsiniz. Nsg'ler IP aralığı tabanlı kurallarını kullanın. 
 
 
-Aşağıdaki diyagram tipik bir ortamı Azure Vm'lerinde çalışan bir uygulama için gösterir.
+Beklenen Site Recovery toowork için toomake bazı değişiklikler tooreplicate istediğiniz vm'lerden giden ağ bağlantısı gerekir. Site kurtarma kimlik doğrulaması proxy toocontrol ağ bağlantısı kullanımını desteklemez. Bir kimlik doğrulama proxy'si varsa, çoğaltma etkinleştirilemez. 
+
+
+Merhaba Aşağıdaki diyagramda Azure Vm'lerinde çalışan bir uygulama için tipik bir ortamı gösterilmektedir.
 
 ![Müşteri ortamı](./media/azure-to-azure-walkthrough-network/source-environment.png)
 
 **Azure VM ortamı**
 
-Ayrıca, şirket içi sitenizden ayarlanan Azure Azure ExpressRoute veya bir VPN bağlantısı kullanarak bağlantı olabilir. 
+Ayrıca Azure ExpressRoute veya bir VPN bağlantısı kullanarak şirket içi sitenizden ayarlanan bir bağlantı tooAzure sahip olabilir. 
 
 ![Müşteri ortamı](./media/azure-to-azure-walkthrough-network/source-environment-expressroute.png)
 
-**Azure için şirket içi bağlantısı**
+**Şirket içi bağlantı tooAzure**
 
 
 
 ## <a name="outbound-connectivity-for-urls"></a>URL'ler için giden bağlantı
 
-Giden bağlantıyı denetlemek için bir URL tabanlı bir güvenlik duvarı proxy kullanıyorsanız, Site Recovery tarafından kullanılan bu URL'leri izin emin olun
+Bir URL tabanlı güvenlik duvarı proxy toocontrol giden bağlantı kullanıyorsanız, Site Recovery tarafından kullanılan bu URL'leri izin emin olun
 
 **URL** | **Ayrıntılar**  
 --- | ---
-*.blob.core.windows.net | Sanal makineden kaynak bölge önbellek depolama hesabına yazılması veri sağlar.
-Login.microsoftonline.com | Yetkilendirme ve kimlik doğrulaması için Site Recovery hizmeti URL'lerine sağlar.
-*.hypervrecoverymanager.windowsazure.com | Site Recovery hizmeti ile iletişimi sanal makineden sağlar.
-*. servicebus.windows.net | Böylece Site Recovery izleme ve tanılama verilerini sanal makineden yazılabilir gereklidir.
+*.blob.core.windows.net | Merhaba VM toohello önbellek depolama hesabı hello kaynak bölgede gelen yazılan veri toobe sağlar.
+Login.microsoftonline.com | Yetkilendirme ve kimlik doğrulama tooSite kurtarma hizmeti URL'leri sağlar.
+*.hypervrecoverymanager.windowsazure.com | Merhaba hello VM hizmetinden Site Recovery ile iletişim sağlar.
+*. servicebus.windows.net | Böylece Hello Site Recovery izleme ve tanılama veri VM hello yazılabilir gereklidir.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP adres aralıkları için giden bağlantı
 
-- Otomatik olarak gerekli kuralları üzerinde NSG indirme ve çalıştırma oluşturabilirsiniz [bu komut dosyası](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
-- Bir test NSG gerekli NSG kuralları oluşturmak ve bir üretim NSG kuralları oluşturmadan önce herhangi bir sorun olduğunu doğrulayın öneririz.
-- NSG kuralları gereken sayısını oluşturmak için aboneliğinizi Güvenilenler listesine olmasını sağlayın. Aboneliğinizde NSG kural sınırını artırmak üzere desteğe başvurun.
-Giden bağlantıyı denetlemek için herhangi bir IP tabanlı bir güvenlik duvarı proxy veya NSG kuralları kullanıyorsanız, aşağıdaki IP aralıklarını sanal makinelerin kaynak ve hedef konumların bağlı olarak güvenilir listesinde olması gerekir:
+- Otomatik olarak gerekli hello kuralları NSG hello üzerinde indirme ve çalıştırma oluşturabilirsiniz [bu komut dosyası](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
+- Bir test NSG gerekli hello NSG kuralları oluşturmak ve bir üretim NSG hello kuralları oluşturmadan önce herhangi bir sorun olduğunu doğrulayın öneririz.
+- NSG kuralları toocreate gerekli hello sayısı aboneliğinizi Güvenilenler listesine olduğundan emin olun. Aboneliğinizde desteğe başvurun tooincrease hello NSG kural sınırı.
+Herhangi bir IP tabanlı bir güvenlik duvarı proxy veya NSG kuralları toocontrol giden bağlantı kullanıyorsanız, hello aşağıdaki IP aralıklarını hello kaynak ve hedef konumların hello sanal makinelerin bağlı olarak toobe Güvenilenler listesine gerekir:
 
-    - Kaynak konumuna karşılık gelen tüm IP adresi aralığı. Karşıdan [aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653).) Böylece veri önbelleği depolama hesabına sanal makineden yazılabilir uygulamaları güvenilir listeye almayı gereklidir.
-    - Office 365'e karşılık gelen tüm IP aralıklarını [kimlik doğrulama ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity). Yeni IP Office 365 IP aralıklarına eklediyseniz, bu yeni NSG kuralları oluşturmanız gerekir.
+    - Toohello kaynak konumu karşılık gelen tüm IP adresi aralığı. İndirme hello [aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653).) Böylece veri toohello önbellek depolama hesabı VM hello yazılabilir uygulamaları güvenilir listeye almayı gereklidir.
+    - TooOffice 365 karşılık gelen tüm IP aralıklarını [kimlik doğrulama ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity). Yeni IP tooOffice 365 IP aralıkları eklediyseniz, bu toocreate yeni NSG kuralları gerekir.
 -     Site Recovery Hizmeti uç noktası IP adresleri ([bir XML dosyasında kullanılabilir](https://aka.ms/site-recovery-public-ips)), hedef konumuna bağlıdır: 
 
    **Hedef konumu** | **Site Recovery hizmeti IP'leri** |  **Site Recovery IP izleme**
@@ -106,18 +106,18 @@ Giden bağlantıyı denetlemek için herhangi bir IP tabanlı bir güvenlik duva
 
 ## <a name="example-nsg-configuration"></a>Örnek NSG yapılandırma
 
-Bir VM için çoğaltmalar çalışır böylece bu bölümde NSG kurallarının nasıl yapılandırıldığı gösterir. Giden bağlantıyı denetlemek için NSG kuralları kullanıyorsanız, "HTTPS giden izin ver" kuralları için tüm gerekli IP aralıklarını kullanın.
+Bir VM için çoğaltmalar çalışır böylece nasıl tooconfigure NSG kuralları, bu bölümde gösterilmiştir. NSG kuralları toocontrol giden bağlantı kullanıyorsanız, tüm gerekli hello IP aralıkları için "HTTPS Gidene izin ver" kurallarını kullanın.
 
-Bu örnekte, "Doğu ABD" VM kaynak konum değil. Çoğaltma hedef Orta ABD konumdur.
+Bu örnekte, "Doğu ABD" Merhaba VM kaynak konumu değil. Orta ABD Hello çoğaltma hedef konumudur.
 
 
 ### <a name="example"></a>Örnek
 
 #### <a name="east-us"></a>Doğu ABD
 
-1. Karşılık gelen kuralları oluşturma [Doğu ABD IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653). Bu, böylece veri önbelleği depolama hesabına sanal makineden yazılabilir gereklidir.
-2. Office 365'e karşılık gelen tüm IP aralıkları için kurallar oluşturun [kimlik doğrulama ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-3. Hedef konuma karşılık gelen kurallarını oluşturun:
+1. Çok karşılık gelen kuralları oluşturma[Doğu ABD IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653). Bu, böylece veri toohello önbellek depolama hesabı VM hello yazılabilir gereklidir.
+2. TooOffice 365 karşılık gelen tüm IP aralıkları için kurallar oluşturun [kimlik doğrulama ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+3. Toohello hedef konumu karşılık gelen kurallarını oluşturun:
 
    **Konum** | **Site Recovery hizmeti IP'leri** |  **Site Recovery IP izleme**
     --- | --- | ---
@@ -125,11 +125,11 @@ Bu örnekte, "Doğu ABD" VM kaynak konum değil. Çoğaltma hedef Orta ABD konum
 
 #### <a name="central-us"></a>Orta ABD
 
-Bu kurallar, böylece yük devretme sonrasında çoğaltma hedef bölgesinden kaynak bölgesine etkinleştirilebilir gereklidir.
+Bu kurallar, böylece yük devretme sonrasında çoğaltma hello hedef bölge toohello Kaynak bölgesi, etkinleştirilebilmesi için gereklidir.
 
-1. Karşılık gelen kuralları oluşturma [merkezi ABD IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653).
-2. Office 365'e karşılık gelen tüm IP aralıkları için kurallar oluşturun [kimlik doğrulama ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-3. Kaynak konumuna karşılık gelen kurallarını oluşturun:
+1. Çok karşılık gelen kuralları oluşturma[merkezi ABD IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+2. TooOffice 365 karşılık gelen tüm IP aralıkları için kurallar oluşturun [kimlik doğrulama ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+3. Toohello kaynak konumu karşılık gelen kurallarını oluşturun:
 
    **Konum** | **Site Recovery hizmeti IP'leri** |  **Site Recovery IP izleme**
     --- | --- | ---
@@ -138,18 +138,18 @@ Bu kurallar, böylece yük devretme sonrasında çoğaltma hedef bölgesinden ka
 
 ## <a name="existing-on-premises-connection"></a>Var olan bağlantı şirket içi
 
-Şirket içi siteniz ve azure'da kaynak konumu arasında bir ExpressRoute veya VPN bağlantınız varsa, aşağıdaki yönergeleri izleyin:
+Şirket içi siteniz ve azure'da hello kaynak konumu arasında bir ExpressRoute veya VPN bağlantısı varsa, aşağıdaki yönergeleri izleyin:
 
 **Yapılandırma** | **Ayrıntılar**
 --- | ---
-**Zorlanan tünel** | Genellikle varsayılan yol (0.0.0.0/0) aracılığıyla şirket içi konuma giden internet akışına zorlar. Bu önerilmemektedir. Çoğaltma trafiği ve Site Recovery iletişimleri Azure içinde kalır.<br/><br/> Bir çözüm olarak, kullanıcı tanımlı yollar (Udr'ler) add [bu IP aralıkları](#outbound-connectivity-for-azure-site-recovery-ip-ranges), böylece trafiğin şirket içi Git değil.
-**Bağlantı** | Uygulamaları gerek şirket içi makinelere bağlanmak ya da şirket içi istemcilerde VPN/ExpressRoute şirket içi uygulamaya bağlanmak, elinizde en az bir emin [siteden siteye bağlantı](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), arasında hedef Azure bölgesi ve Şirket içi site.<br/><br/> Hedef Azure bölgesi ve şirket içi site arasında trafiği birimleri yüksekse, başka birini oluşturmak [ExpressRoute bağlantısı](../expressroute/expressroute-introduction.md), hedef bölgesi ve şirket içi arasında.<br/><br/> IP'leri VM'ler için yük devretme sonrasında korumak istiyorsanız, hedef bölgenin site siteye/ExpressRoute bağlantısı bağlantısı kesik durumda tutun. Bu, kaynak ve hedef IP adresi aralıkları arasında hiçbir aralık çakışmalarından vardır sağlar.
-**ExpressRoute** | Bir expressroute bağlantı hattı kaynak ve hedef bölgeler oluşturun.<br/><br/> Kaynak ağ ile ExpressRoute devresi arasında ve hedef ağ ile bağlantı hattı arasında bir bağlantı oluşturun.<br/><br/> Kaynak ve hedef bölgeler farklı IP aralıkları kullanmanızı öneririz. Bağlantı hattı aynı anda birden fazla Azure ağları ile aynı IP aralıkları bağlanmak mümkün olmayacaktır.<br/><br/> Her iki bölgelerinde aynı IP aralıklarıyla sanal ağlar oluşturabilir ve sonra ExpressRoute bağlantı hatları her iki bölgelerde oluşturun. Yük devretme, kaynak sanal ağdan bağlantı hattı kesin ve hedef sanal ağ'daki hattına bağlayın.<br/><br/> Birincil bölge tamamen kapalı ise, bağlantıyı kesme işlemi başarısız olabilir. Bu durumda, hedef sanal ağ ExpressRoute bağlantısı alamazsınız.
-**ExpressRoute Premium** | Aynı coğrafi bölgede devreler oluşturabilirsiniz.<br/><br/> Farklı coğrafi bölgelerde devreler oluşturmak için Azure ExpressRoute Premium gerekir.<br/><br/> Premium ile artımlı maliyetidir. Zaten kullanıyorsanız, ek bir maliyet yoktur.<br/><br/> Daha fazla bilgi edinmek [konumları](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/expressroute/).
+**Zorlanan tünel** | Genellikle varsayılan yol (0.0.0.0/0) hello şirket içi konum üzerinden giden Internet trafiği tooflow zorlar. Bu önerilmemektedir. Çoğaltma trafiği ve Site Recovery iletişimleri Azure içinde kalır.<br/><br/> Bir çözüm olarak, kullanıcı tanımlı yollar (Udr'ler) add [bu IP aralıkları](#outbound-connectivity-for-azure-site-recovery-ip-ranges), böylece hello trafiği şirket içi Git değil.
+**Bağlantı** | Uygulamaların tooconnect tooon içi makineler gerekir ya da şirket içi istemcileri VPN/ExpressRoute şirket içi toohello uygulama bağlama, elinizde en az bir emin [siteden siteye bağlantı](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), arasında hello hedef Azure bölgesi ve Merhaba şirket içi site.<br/><br/> Merhaba hedef Azure bölgesi ve hello şirket içi site arasında trafiği birimleri yüksekse, başka birini oluşturmak [ExpressRoute bağlantısı](../expressroute/expressroute-introduction.md), hello hedef bölgesi ve şirket içi arasında.<br/><br/> Yük devretme sonrasında VM'ler için tooretain IP'leri istiyorsanız, hello hedef bölgenin site siteye/ExpressRoute bağlantısı bağlantısı kesik durumda tutun. Bu, hiçbir aralık çakışmalarından hello kaynak ve hedef IP adresi aralıkları arasında vardır sağlar.
+**ExpressRoute** | Bir expressroute bağlantı hattı hello kaynak ve hedef bölgeler oluşturun.<br/><br/> Hello kaynak ağı hello expressroute bağlantı hattı arasındaki ve hello hedef ağ ile Merhaba hattı arasında bir bağlantı oluşturun.<br/><br/> Kaynak ve hedef bölgeler farklı IP aralıkları kullanmanızı öneririz. bir Azure hello ile aynı ağları daha hello hattı mümkün tooconnect toomore olmayacaktır IP aralıkları, hello aynı anda.<br/><br/> Aynı IP hem bölgelerde aralıkları ve ExpressRoute bağlantı hatları her iki bölgelerde oluşturun hello ile sanal ağlar oluşturabilir. Yük devretme, hello hattı hello kaynak sanal ağdan kesin ve hello hedef sanal ağ'daki hello hattına bağlayın.<br/><br/> Merhaba birincil bölge tamamen aşağı ise, hello bağlantısını kesme işlemi başarısız olabilir. Bu durumda, hello hedef sanal ağ ExpressRoute bağlantısı alamazsınız.
+**ExpressRoute Premium** | Hello devreler oluşturabilirsiniz aynı coğrafi bölge.<br/><br/> toocreate devreler farklı coğrafi bölgelerde Azure ExpressRoute Premium gerekir.<br/><br/> Premium ile Merhaba artımlı maliyetidir. Zaten kullanıyorsanız, ek bir maliyet yoktur.<br/><br/> Daha fazla bilgi edinmek [konumları](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/expressroute/).
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Git [4. adım: bir kasa oluşturun](azure-to-azure-walkthrough-vault.md)
+Çok Git[4. adım: bir kasa oluşturun](azure-to-azure-walkthrough-vault.md)
 

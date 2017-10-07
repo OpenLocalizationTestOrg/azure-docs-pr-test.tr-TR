@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory cihaz yönetimi ile ilgili SSS | Microsoft Docs"
+title: "aaaAzure Active Directory cihaz yönetimi ile ilgili SSS | Microsoft Docs"
 description: "Azure Active Directory cihaz Yönetimi SSS."
 services: active-directory
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2934b64c693f6505ddb389766374e31a5e6f249b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 000eb6a930187e13cb24cf628793afd06813be23
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi ile ilgili SSS
 
-**S: son cihazın kayıtlı. Azure portalında kullanıcı bilgilerimi altında aygıt neden göremiyorum?**
+**S: hello aygıt son kayıtlı. Kullanıcı bilgilerimi hello Azure portal'ın altında hello aygıt neden göremiyorum?**
 
-**Y:** ile otomatik cihaz kaydı etki alanına katılan Windows 10 cihazları gösterme altında kullanıcı bilgileri.
-Tüm aygıtları görmek için PowerShell kullanmanız gerekir. 
+**Y:** ile otomatik cihaz kaydı etki alanına katılan Windows 10 cihazları gösterme altında hello kullanıcı bilgileri.
+Tüm cihazlar toouse PowerShell toosee gerekir. 
 
-Yalnızca aşağıdaki aygıtlar, kullanıcı bilgisi altında listelenir:
+Yalnızca hello aşağıdaki cihazları hello kullanıcı bilgileri altında listelenmiştir:
 
 - Birleştirilmiş Kurumsal olmayan tüm kişisel cihazlar 
 - Tüm Windows 10 olmayan / Windows Server 2016 
@@ -35,38 +35,38 @@ Yalnızca aşağıdaki aygıtlar, kullanıcı bilgisi altında listelenir:
 
 ---
 
-**Neden Azure portalında Azure Active Directory'de kayıtlı tüm cihazları görebilirim değil mi?** 
+**S: neden hello Azure portalında Azure Active Directory'de kayıtlı tüm hello cihazlar görebilirim değil mi?** 
 
-**Y:** şu anda Azure Portalı'ndaki tüm kayıtlı cihazları görmek için bir yolu yoktur. Tüm aygıtları bulmak için Azure PowerShell'i kullanabilirsiniz. Daha fazla ayrıntı için bkz: [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.
+**Y:** şu anda bulunmamaktadır hiçbir şekilde toosee tüm kayıtlı cihazlar hello Azure portalı. Tüm cihazlar Azure PowerShell toofind kullanabilirsiniz. Daha fazla ayrıntı için bkz: Merhaba [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.
 
 --- 
 
-**S: istemci cihaz kayıt durumu nedir nasıl biliyor musunuz?**
+**Hangi hello cihaz kayıt durumu hello istemcisinin nasıl bilebilirim s: mi?**
 
-**Y:** cihaz kayıt durumu bağlıdır:
+**Y:** hello cihaz kayıt durumu bağlıdır:
 
-- Cihaz nedir
+- Hangi hello cihaz
 - Nasıl kaydedildi 
-- Bununla ilgili tüm ayrıntıları. 
+- Tooit ilgili tüm ayrıntıları. 
  
 
 ---
 
-**Bir aygıt neden olduğundan Azure portalında silinmiş ya da Windows PowerShell kullanarak hala listelenen kayıtlı olarak?**
+**I silinmiş bir aygıt neden olduğundan hello Azure portalı veya Windows PowerShell kullanarak hala kayıtlı olarak listeleniyor?**
 
-**Y:** bu tasarım gereğidir. Cihazın kaynaklara bulutta erişimi. Aygıtı kaldırın ve yeniden kaydetmek istiyorsanız, el ile bir eylem cihaz üzerinde gerçekleştirilecek olması gerekir. 
+**Y:** bu tasarım gereğidir. Merhaba aygıt erişim tooresources hello buluta sahip olmaz. Tooremove hello aygıt istiyorsanız ve yeniden kaydettirin işlemi el ile Merhaba cihazda gerçekleştirilen toobe olması gerekir. 
 
 Windows 10 ve Windows Server 2016'de, şirket içi AD etki alanına katılmış:
 
-1.  Komut istemini yönetici olarak açın.
+1.  Merhaba komut istemini yönetici olarak açın.
 
 2.  Türü`dsregcmd.exe /debug /leave`
 
-3.  Oturumu kapatın ve aygıt yeniden kaydeder zamanlanmış görev tetiklemek oturum açın. 
+3.  Oturumu kapatın ve yeniden hello aygıtı kaydeden tootrigger hello de zamanlanmış görevi açın. 
 
 Şirket içi diğer Windows platformları için AD etki alanına katılmış:
 
-1.  Komut istemini yönetici olarak açın.
+1.  Merhaba komut istemini yönetici olarak açın.
 2.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"` yazın.
 3.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` yazın.
 
@@ -76,78 +76,78 @@ Windows 10 ve Windows Server 2016'de, şirket içi AD etki alanına katılmış:
 
 **A:**
 
--   Windows 10 ve Windows Server 2016 için ayrılma ve aynı aygıt yeniden katılmak için yinelenen denemeleri olmaları durumunda olabilir yinelenen girdi. 
+-   Windows 10 ve Windows Server 2016 yinelenen denemeleri toounjoin olan ve yeniden katılabilir, aynı aygıt hello için yinelenen giriş olabilir. 
 
--   Ekleme iş veya Okul hesabınızla kullandıysanız, eklemek iş veya Okul hesabını kullanan her bir windows kullanıcı aynı cihaz adı ile yeni bir cihaz kaydı oluşturun.
+-   Ekleme iş veya Okul hesabınızla kullandıysanız, eklemek iş veya Okul hesabını kullanan her bir windows kullanıcı hello ile yeni bir cihaz kaydı oluşturmak aynı aygıt adı.
 
--   Şirket içi diğer Windows platformları etki alanına katılmış otomatik kayıt kullanarak AD cihazda oturum her etki alanı kullanıcı için aynı aygıt adıyla yeni bir cihaz kayıt oluşturur. 
+-   Şirket içi diğer Windows platformları AD etki alanına katılmış otomatik kayıt kullanarak yeni bir cihaz kaydı ile Merhaba oluşturur hello cihazda oturum her etki alanı kullanıcı için aynı aygıt adı. 
 
--   Temizlenmeden, yeniden yüklendi ve aynı adla yeniden birleştirilmiş bir AADJ makine görünmesini sağlar başka bir kayıtla aynı aygıt adı olarak.
+-   Temizlendiğinde bir AADJ makine yeniden yükledikten ve hello ile aynı yeniden birleştirilmiş adı, başka bir kayıtla hello olarak gösterilir aynı aygıt adı.
 
 ---
 
-**Neden bir kullanıcı Azure portalında devre dışı bırakan bir aygıttan hala kaynaklarına erişebilir mi?**
+**Neden kullanıcı hello Azure portal devre dışı bırakan bir aygıttan hala kaynaklarına erişebilir mi?**
 
-**Y:** uygulanacak iptal etmek için bir saat sürebilir.
+**Y:** uygulanan revoke toobe tooan saattir yukarı alabilir.
 
 >[!Note] 
->Kaybolan cihazlarda, Kullanıcılar Cihaz erişemiyor emin olmak için cihaz silinirken öneririz. Daha fazla ayrıntı için bkz: [cihazları Yönetim için ıntune'a kaydetme](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>Kaybolan cihazlarda, kullanıcılar hello aygıt erişemiyor hello aygıt tooensure silme öneririz. Daha fazla ayrıntı için bkz: [cihazları Yönetim için ıntune'a kaydetme](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 
 ---
 
 **Kullanıcılarım "Buradan var. alınamıyor" neden görüyor musunuz?**
 
-**Y:** belirli koşullu erişim kuralları belirli cihaz durumu gerektirecek şekilde yapılandırılmış ve cihaz ölçütleri karşılamıyor, kullanıcılar engellenir ve bu ileti görür. Lütfen kuralları değerlendirin ve cihaz bu iletinin görünmemesi için belirttiğiniz ölçütlere uyan mümkün olduğundan emin olun.
+**Y:** belirli koşullu erişim kuralları toorequire belirli cihaz durumu yapılandırdıktan ve hello cihaz hello ölçütleri karşılamadığında, kullanıcıların engellenir ve bu ileti görür. Merhaba aygıt lütfen hello kuralları değerlendirin ve bu ileti mümkün toomeet hello ölçütleri tooavoid içindir.
 
 ---
 
 
-**S: Azure portalında kullanıcı bilgileri altında cihaz kaydı görebilir ve istemcide kayıtlı olarak durumunu görebilirsiniz. Koşullu erişim kullanarak ayarlarım doğru miyim?**
+**S: hello cihaz kaydını hello kullanıcı bilgisi'hello Azure portal'ın altında görmek ve hello durumu hello istemcide kayıtlı olarak görebilirsiniz. Koşullu erişim kullanarak ayarlarım doğru miyim?**
 
-**Y:** aygıt kaydı (DeviceID) ve Azure Portal'da durumu gerekir istemci eşleşen ve koşullu erişim için herhangi bir değerlendirme ölçütleri karşılayan. Daha fazla ayrıntı için bkz: [Azure Active Directory cihaz kaydı ile çalışmaya başlama](active-directory-device-registration.md).
+**Y:** hello aygıt kaydı (DeviceID) hello Azure portal durumuna gerekir eşleşen hello istemci ve koşullu erişim için herhangi bir değerlendirme ölçütleri karşılayan. Daha fazla ayrıntı için bkz: [Azure Active Directory cihaz kaydı ile çalışmaya başlama](active-directory-device-registration.md).
 
 ---
 
-**Yalnızca Azure AD alanına bir aygıt için bir "kullanıcı adı veya parola, yanlış" iletisi neden sağlarım?**
+**Neden bir "kullanıcı adı veya parola, yanlış" iletisi alıyorum bir aygıt için t yalnızca tooAzure AD katılmış?**
 
 **Y:** bu senaryo için yaygın nedenler şunlardır:
 
 - Kullanıcı kimlik bilgilerinizi artık geçerli değildir.
 
-- Bilgisayarınızı Azure Active Directory ile iletişim kuramıyor. Tüm ağ bağlantısı sorunlarını denetleyin.
+- Bilgisayarınızı Azure Active Directory ile oluşturulamıyor toocommunicate ' dir. Tüm ağ bağlantısı sorunlarını denetleyin.
 
-- Azure AD katılım ön koşulları karşılanmadı. Lütfen adımları izlediğinizden emin olun [geniletmek bulut özelliklerini Azure Active Directory katılım aracılığıyla Windows 10 cihazlarına](active-directory-azureadjoin-overview.md).  
+- Hello Azure AD katılım Önkoşullar karşılanmadı. Lütfen başlangıç adımları izlediğinizden emin olun [bulut özellikleri tooWindows 10 cihazların Azure Active Directory katılım aracılığıyla genişletme](active-directory-azureadjoin-overview.md).  
 
-- Federasyon oturumları bir WS-Trust etkin uç noktası desteklemek için Federasyon sunucusu gerektirir. 
+- Federe oturum açma bilgileri, Federasyon sunucusu toosupport bir WS-Trust etkin uç noktası gerektirir. 
 
 ---
 
-**S: görmemin nedeni "... Oops bir hata oluştu!" çalıştığımda iletişim Bilgisayarımda katılma?**
+**S: neden hello görüyorum "... Oops bir hata oluştu!" çalıştığımda iletişim Bilgisayarımda katılma?**
 
 **Y:** bu bir Intune ile Azure Active Directory kaydını ayarlama sonucudur. Daha fazla ayrıntı için bkz: [Windows cihaz yönetimini ayarlama](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 
-**Neden hata bilgilerini almadım rağmen bir PC katılmaya my girişimi başarısız oldu?**
+**Neden bir PC başarısız hata bilgilerini almadım rağmen my girişimi toojoin mı?**
 
-**Y:** kullanıcının aygıtına yerleşik yönetici hesabı kullanarak açanlar bir nedeni olması. Lütfen farklı bir yerel hesap Azure Active Directory katılım Kurulumu tamamlamak için kullanmadan önce oluşturun. 
-
----
-
-**S: otomatik cihaz kaydı için kurulum yönergeleri nereden bulabilirim?**
-
-**Y:** ayrıntılı yönergeler için bkz: [Azure Active Directory ile etki alanına katılmış Windows cihazlarının otomatik kaydını yapılandırma](active-directory-conditional-access-automatic-device-registration-setup.md)
+**Y:** bir nedeni bu hello kullanıcı toohello aygıtı hello yerleşik Yönetici hesabını kullanarak oturum olması. Lütfen farklı bir yerel hesap Azure Active Directory katılım toocomplete hello Kurulum kullanmadan önce oluşturun. 
 
 ---
 
-**S: sorun giderme nereden bulabilirim otomatik cihaz kaydı hakkında bilgi mi?**
+**S: otomatik cihaz kaydı hello kurulumu için yönergeler nereden bulabilirim?**
+
+**Y:** ayrıntılı yönergeler için bkz: [nasıl tooconfigure otomatik kayıt Windows etki alanına katılmış cihazları Azure Active Directory ile](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+---
+
+**S: sorun giderme nereden bulabilirim hello otomatik cihaz kaydı hakkında bilgi mi?**
 
 **Y:** sorun giderme bilgileri için bkz:
 
-- [Azure AD ile – Windows 10 ve Windows Server 2016 alanına katılmamış bilgisayarlar etki alanının otomatik kayıt sorunlarını giderme](active-directory-device-registration-troubleshoot-windows.md)
+- [Birleştirilmiş bilgisayarlar tooAzure AD – Windows 10 ve Windows Server 2016 etki alanının otomatik kayıt sorunlarını giderme](active-directory-device-registration-troubleshoot-windows.md)
 
-- [Otomatik kaydı etki alanının sorun giderme bilgisayarlar, alt düzey istemciler için Windows Azure AD alanına katılmış](active-directory-device-registration-troubleshoot-windows-legacy.md)
+- [Windows alt düzey istemciler için alanına katılmış bilgisayarları tooAzure AD otomatik kaydı etki alanının sorun giderme](active-directory-device-registration-troubleshoot-windows-legacy.md)
  
 ---
 

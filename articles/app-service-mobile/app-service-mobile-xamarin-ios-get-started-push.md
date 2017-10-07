@@ -1,6 +1,6 @@
 ---
-title: "Xamarin.iOS uygulamanızı Azure App Service için anında iletme bildirimleri ekleme"
-description: "Azure uygulama hizmeti Xamarin.iOS uygulamanızı anında iletme bildirimleri göndermek için nasıl kullanılacağını öğrenin"
+title: "Azure uygulama hizmeti ile aaaAdd anında iletme bildirimleri tooyour Xamarin.iOS uygulaması"
+description: "Nasıl toouse Azure App Service toosend anında bildirimler tooyour Xamarin.iOS uygulaması öğrenin"
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -14,38 +14,38 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: glenga
-ms.openlocfilehash: bf922e49c4c92d0065817a5dd6c7d10a04737304
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3e6439aee4f3fe0f60b9786d0bbfd74c4f5e52d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-push-notifications-to-your-xamarinios-app"></a>Xamarin.iOS uygulamanıza anında iletme bildirimleri ekleme
+# <a name="add-push-notifications-tooyour-xamarinios-app"></a>Anında iletme bildirimleri tooyour Xamarin.iOS uygulaması ekleyin
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğreticide, anında iletme bildirimleri ekleme [Xamarin.iOS Hızlı Başlangıç](app-service-mobile-xamarin-ios-get-started.md) proje böylece bir kayda eklenen her zaman bir anında iletme bildirimi cihaza gönderilir.
+Bu öğreticide, eklediğiniz anında iletme bildirimleri toohello [Xamarin.iOS Hızlı Başlangıç](app-service-mobile-xamarin-ios-get-started.md) bir kayda eklenen her zaman bir anında iletme bildirimi toohello aygıt gönderilen böylece proje.
 
-İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantısı paketi gerekir. Bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) daha fazla bilgi için.
+Kullanmıyorsanız, hızlı başlangıç sunucu projesi hello indirilen, anında iletme bildirimi uzantısı paketi hello. Bkz: [hello .NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) daha fazla bilgi için.
 
 ## <a name="prerequisites"></a>Ön koşullar
-* Tamamlamak [Xamarin.iOS quickstart](app-service-mobile-xamarin-ios-get-started.md) Öğreticisi.
-* Fiziksel bir iOS cihazına. Anında iletme bildirimlerini iOS simülatörü tarafından desteklenmez.
+* Tam hello [Xamarin.iOS quickstart](app-service-mobile-xamarin-ios-get-started.md) Öğreticisi.
+* Fiziksel bir iOS cihazına. Anında iletme bildirimleri hello iOS simülatörü tarafından desteklenmez.
 
-## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>Apple Geliştirici portalındaki anında iletme bildirimleri için uygulamanızı kaydetmeniz
+## <a name="register-hello-app-for-push-notifications-on-apples-developer-portal"></a>Apple Geliştirici portalındaki anında iletme bildirimleri için Hello uygulamasını Kaydet
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## <a name="configure-your-mobile-app-to-send-push-notifications"></a>Anında iletme bildirimleri göndermek için mobil uygulama yapılandırma
+## <a name="configure-your-mobile-app-toosend-push-notifications"></a>Mobil uygulama toosend anında iletme bildirimleri yapılandırma
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-## <a name="update-the-server-project-to-send-push-notifications"></a>Güncelleştirme anında iletme bildirimleri göndermek için sunucu projesi
+## <a name="update-hello-server-project-toosend-push-notifications"></a>Güncelleştirme Hello sunucu projesi toosend anında iletme bildirimleri
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 ## <a name="configure-your-xamarinios-project"></a>Xamarin.iOS projesi yapılandırma
 [!INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-## <a name="add-push-notifications-to-your-app"></a>Uygulamanıza anında iletme bildirimleri ekleme
-1. İçinde **QSTodoService**, aşağıdaki özellik eklemek için **AppDelegate** mobil istemci elde edebilirsiniz:
+## <a name="add-push-notifications-tooyour-app"></a>Anında iletme bildirimleri tooyour uygulama Ekle
+1. İçinde **QSTodoService**, özellik aşağıdaki hello eklemek için **AppDelegate** hello mobil istemci elde edebilirsiniz:
    
             public MobileServiceClient GetClient {
             get
@@ -57,11 +57,11 @@ Bu öğreticide, anında iletme bildirimleri ekleme [Xamarin.iOS Hızlı Başlan
                 client = value;
             }
         }
-2. Aşağıdakileri ekleyin `using` deyimi üstüne **AppDelegate.cs** dosya.
+2. Merhaba aşağıdakileri ekleyin `using` hello deyimi toohello üst **AppDelegate.cs** dosya.
    
         using Microsoft.WindowsAzure.MobileServices;
         using Newtonsoft.Json.Linq;
-3. İçinde **AppDelegate**, geçersiz kılma **FinishedLaunching** olay:
+3. İçinde **AppDelegate**, hello geçersiz kılma **FinishedLaunching** olay:
    
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -77,7 +77,7 @@ Bu öğreticide, anında iletme bildirimleri ekleme [Xamarin.iOS Hızlı Başlan
    
             return true;
         }
-4. Aynı dosyada geçersiz kılma **RegisteredForRemoteNotifications** olay. Bu kod sunucu tarafından tüm desteklenen platformlarda gönderilecek basit bir şablon bildirim kaydediyorsunuz.
+4. Buna Merhaba aynı dosya, hello geçersiz kılma **RegisteredForRemoteNotifications** olay. Bu kodda hello sunucu tarafından tüm desteklenen platformlarda gönderilecek basit bir şablon bildirim kaydediyorsunuz.
    
     Notification Hubs ile şablonları hakkında daha fazla bilgi için bkz: [şablonları](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
@@ -99,7 +99,7 @@ Bu öğreticide, anında iletme bildirimleri ekleme [Xamarin.iOS Hızlı Başlan
         }
 
 
-1. Ardından, geçersiz kılma **DidReceivedRemoteNotification** olay:
+1. Ardından, hello geçersiz kılma **DidReceivedRemoteNotification** olay:
    
         public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
@@ -117,18 +117,18 @@ Bu öğreticide, anında iletme bildirimleri ekleme [Xamarin.iOS Hızlı Başlan
             }
         }
 
-Uygulamanıza anında iletme bildirimlerini desteklemek üzere güncelleştirilmiştir.
+Uygulamanızı güncelleştirilmiş toosupport anında iletme bildirimleri sunulmuştur.
 
 ## <a name="test"></a>Test, uygulamanızda anında iletme bildirimleri
-1. Tuşuna **çalıştırmak** projeyi oluşturun ve uygulamayı bir iOS özellikli aygıtı Başlat düğmesine ve ardından **Tamam** anında iletme bildirimleri kabul etmek için.
+1. Tuşuna hello **çalıştırmak** düğmesini toobuild hello proje ve hello uygulamayı bir iOS özellikli aygıt başlatın, ardından **Tamam** tooaccept anında iletme bildirimleri.
    
    > [!NOTE]
-   > Anında iletme bildirimleri, uygulamanızdan açıkça kabul etmeniz gerekir. Bu istek, yalnızca uygulamayı çalıştıran ilk kez oluşur.
+   > Anında iletme bildirimleri, uygulamanızdan açıkça kabul etmeniz gerekir. Bu istek, yalnızca uygulama çalıştırır hello ilk kez hello oluşur.
    > 
    > 
-2. Uygulamasında bir görevi yazın ve ardından artı (**+**) simgesi.
-3. Bir bildirim alındı ve ardından doğrulamak **Tamam** bildirim kapatılamadı.
-4. 2. adımı yineleyin ve hemen uygulamasını kapatın, sonra bir bildirim göründüğünü doğrulayın.
+2. Merhaba uygulamasında, bir görev yazın ve ardından hello artı (**+**) simgesi.
+3. Bir bildirim alındı ve ardından doğrulamak **Tamam** toodismiss hello bildirim.
+4. Adım 2 ve hemen kapat hello uygulama yineleyin ve sonra bir bildirim göründüğünü doğrulayın.
 
 Bu öğreticiyi başarıyla tamamladınız.
 

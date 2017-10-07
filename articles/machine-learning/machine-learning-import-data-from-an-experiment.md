@@ -1,6 +1,6 @@
 ---
-title: "Veri içeri aktarma Machine Learning Studio'ya başka bir deneme | Microsoft Docs"
-description: "Azure Machine Learning Studio'da eğitim verilerini kaydetme ve başka bir deney kullanmak üzere nasıl."
+title: "başka bir denemeyi Machine Learning Studio uygulamasına aaaImport verileri | Microsoft Docs"
+description: "Nasıl toosave Azure Machine Learning Studio'da eğitim verilerini ve içinde başka bir deneme kullanın."
 keywords: "Veri, verileri, veri kaynakları, eğitim verilerini içeri aktarma"
 services: machine-learning
 documentationcenter: 
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;bradsev
-ms.openlocfilehash: ecfa2110d0d51511ceb5bd07b730732ecfa2e9e0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ca085149ed23c219a791ce09ac48dafeb807cb88
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>Verilerinizi başka bir denemeden Azure Machine Learning Studio’ya alma
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Bir deneme Ara bir sonuç almak ve başka bir deneme bir parçası olarak kullanmak istediğinizde kez olacaktır. Bunu yapmak için bir veri kümesi modülü kaydedin:
+Zaman recovery'de tootake bir deneme Ara bir sonucundan istediğiniz ve başka bir deneme bir parçası olarak kullanın kez olacaktır. toodo bunu hello modülü bir veri kümesi kaydedin:
 
-1. Bir veri kümesi kaydetmek istediğiniz modülünün Çıkış'ı tıklatın.
+1. Hello modülü bir veri kümesi olarak toosave istediğiniz Hello Çıkış'ı tıklatın.
 2. Tıklatın **veri kümesi Kaydet**.
-3. İstendiğinde, bir ad ve veri kümesi kolayca tanımlamanıza olanak tanır bir açıklama girin.
-4. Tıklatın **Tamam** onay işareti.
+3. İstendiğinde, bir ad ve, tooidentify hello dataset kolayca belirleyebilmesini bir açıklama girin.
+4. Merhaba tıklatın **Tamam** onay işareti.
 
-Kaydetme sona erdiğinde, veri kümesi herhangi deneme çalışma alanınızdaki içinde kullanmak için kullanılabilir. İçinde bulabileceğiniz **kaydedilen veri kümeleri** modül paletindeki listesi.
+Merhaba sonlandığında kaydettiğinizde hello veri kümesi herhangi deneme çalışma alanınızdaki içinde kullanmak için kullanılabilir. Hello Bul **kaydedilen veri kümeleri** hello modül paleti listesinde.
 

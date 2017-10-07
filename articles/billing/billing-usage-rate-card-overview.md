@@ -1,6 +1,6 @@
 ---
-title: Azure faturalama API'leri | Microsoft Docs
-description: "Azure kaynak tüketimini ve eğilimleri sağlamak için kullanılan Azure faturalama kullanım ve RateCard API'ları hakkında bilgi edinin."
+title: aaaAzure faturalama API'leri | Microsoft Docs
+description: "Azure kaynak tüketimini ve eğilimleri kullanılan tooprovide Öngörüler olan Azure faturalama kullanımını ve RateCard API'ları hakkında bilgi edinin."
 services: 
 documentationcenter: 
 author: BryanLa
@@ -15,65 +15,65 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/18/2017
 ms.author: mobandyo;bryanla
-ms.openlocfilehash: 394ed29ed468fe80f47a6517c9521a81a5ddb7fd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b3214996cc3279f76fdc7f0dbd2059c3ae7bb15c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Program aracılığıyla Azure kullanımınızı bir anlayış almak için Azure faturalama API'lerini kullanın
-Azure faturalama API'leri kullanımı ve kaynak veri çekmek için tercih edilen veri analizi araçlarınızı kullanın. Azure kaynak kullanımı ve RateCard API'leri doğru şekilde tahmin etmek ve maliyetlerinizi yönetmenize yardımcı olabilir. API'ler bir kaynak sağlayıcısı ve Azure Resource Manager tarafından kullanıma sunulan API ailesinin bir parçası olarak uygulanır.  
+# <a name="use-azure-billing-apis-tooprogrammatically-get-insight-into-your-azure-usage"></a>Kullanım Azure faturalama API'leri tooprogrammatically Azure kullanımınızı bir anlayış Al
+Azure faturalama API'leri toopull kullanımı ve kaynak verileri, tercih edilen veri çözümleme araçları kullanın. Hello Azure kaynak kullanımı ve RateCard API'leri doğru şekilde tahmin etmek ve maliyetlerinizi yönetmenize yardımcı olabilir. Merhaba API'leri bir kaynak sağlayıcısı ve Azure Resource Manager hello tarafından kullanıma sunulan API hello ailesinin bir parçası olarak uygulanır.  
 
 ## <a name="azure-invoice-download-api-preview"></a>Azure fatura indirme API (Önizleme)
-Bir kez [katılımı tam](billing-manage-access.md#opt-in), önizleme sürümünü kullanarak indirme faturaları [fatura API](/rest/api/billing). Özellikleri içerir:
+Bir kez hello [katılımı tam](billing-manage-access.md#opt-in), indirme faturalar hello preview sürümünü kullanarak [fatura API](/rest/api/billing). Merhaba özellikleri içerir:
 
-* **Azure rol tabanlı erişim denetimi** -yapılandırma erişim ilkeleri [Azure portal](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar veya uygulamalar için erişim sağlayabilmek için belirtmek için Aboneliğin kullanım verileri. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Çağıran, belirli bir Azure aboneliği kullanım verileri erişmek için faturalama Okuyucu, okuyucu, sahibi veya katkıda bulunan rolü ekleyin.
-* **Tarih filtreleme** -kullanım `$filter` tüm faturalar ters sırasına göre fatura dönem bitiş tarihi almak için parametre. 
+* **Azure rol tabanlı erişim denetimi** -erişimi yapılandırma hello ilkeleri [Azure portal](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) toospecify hangi kullanıcıların veya uygulamaların erişim alabilirsiniz toohello aboneliğin kullanım verileri. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Merhaba arayan tooeither hello faturalama Okuyucu, okuyucu, sahibi veya katkıda bulunan rolü tooget erişim toohello kullanım verilerini belirli bir Azure aboneliği için ekleyin.
+* **Tarih filtreleme** -kullanım hello `$filter` parametresi tooget hello tarafından ters kronolojik sırada tüm hello faturaları Fatura dönemi bitiş tarihi. 
 
 > [!NOTE]
-> Bu özellik ilk önizleme sürümünde olduğu ve uyumsuz geriye dönük değişiklikler tabi olabilir. Şu anda kullanılabilir belirli abonelik teklifler (Kurumsal Sözleşme, CSP, desteklenmeyen AIO) ve Azure Almanya değil.
+> Bu özellik ilk önizleme sürümünde olduğu ve konu toobackward uyumsuz değişiklikler olabilir. Şu anda kullanılabilir belirli abonelik teklifler (Kurumsal Sözleşme, CSP, desteklenmeyen AIO) ve Azure Almanya değil.
 
 ## <a name="azure-resource-usage-api-preview"></a>Azure kaynak kullanım API'si (Önizleme)
-Azure kullanmak [kaynak kullanım API'si](https://msdn.microsoft.com/library/azure/mt219003) tahmini Azure tüketim verilerinizi almak için. API içerir:
+Kullanım hello Azure [kaynak kullanım API'si](https://msdn.microsoft.com/library/azure/mt219003) tooget tahmini Azure tüketim verilerinizi. Merhaba API içerir:
 
-* **Azure rol tabanlı erişim denetimi** -yapılandırma erişim ilkeleri [Azure portal](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar veya uygulamalar için erişim sağlayabilmek için belirtmek için Aboneliğin kullanım verileri. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Çağıran, belirli bir Azure aboneliği kullanım verileri erişmek için faturalama Okuyucu, okuyucu, sahibi veya katkıda bulunan rolü ekleyin.
-* **Saatlik veya günlük toplamalar** - arayanlar olup Azure kullanım verilerini saatlik istedikleri aralıkları belirtebilirsiniz veya günlük aralıkları. Varsayılan günlük.
-* **(Kaynak etiketleri içerir) örneği meta veri** – alma tam Kaynak URI gibi örnek düzeyi ayrıntısı (/subscriptions/ {subscrıptıon-ID} /..), kaynak grubu bilgileri ve kaynak etiketleri. Çapraz ücretlendirme kullanım örnekleri ister için bu meta veriler, belirleyici biçimde ve program aracılığıyla kullanım etiketlere göre ayırmak yardımcı olur.
-* **Kaynak meta verilerini** -kaynak ayrıntılarını ölçüm adı, ölçer kategori, ölçüm alt kategorisi, birim ve bölge gibi daha iyi ne tüketilen anlamak çağıran verin. Ayrıca Azure portalı kaynak meta verileri terminolojisi hizalamak için çalışıyoruz Azure kullanım CSV, CSV ve diğer genel kullanıma yönelik deneyimleri deneyimleri arasında verilerin bağıntısını olanak faturalama EA.
+* **Azure rol tabanlı erişim denetimi** -erişimi yapılandırma hello ilkeleri [Azure portal](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) toospecify hangi kullanıcıların veya uygulamaların erişim alabilirsiniz toohello aboneliğin kullanım verileri. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Merhaba arayan tooeither hello faturalama Okuyucu, okuyucu, sahibi veya katkıda bulunan rolü tooget erişim toohello kullanım verilerini belirli bir Azure aboneliği için ekleyin.
+* **Saatlik veya günlük toplamalar** - arayanlar olup Azure kullanım verilerini saatlik istedikleri aralıkları belirtebilirsiniz veya günlük aralıkları. Merhaba varsayılan günlük.
+* **(Kaynak etiketleri içerir) örneği meta veri** – tam Kaynak URI hello gibi örnek düzeyinde ayrıntı almak (/subscriptions/ {subscrıptıon-ID} /..), kaynak grubu bilgileri ve kaynak etiketleri hello. Bu meta veriler belirleyici biçimde yardımcı olur ve program aracılığıyla çapraz ücretlendirme gibi kullanım örnekleri için hello etiketleriyle kullanım paylaştırabilirsiniz.
+* **Kaynak meta verilerini** -kaynak ayrıntılarını hello ölçüm adı, ölçüm kategori, ölçüm alt kategorisi, birim ve bölge gibi daha iyi ne tüketilen anlamak hello çağıran verin. Ayrıca tooalign kaynak meta verileri terminolojisi hello Azure portal, Azure kullanım CSV, CSV, faturalama EA ve diğer genel kullanıma yönelik deneyimleri deneyimleri arasında verilerin bağıntısını toolet üzerinde çalışıyoruz.
 * **Tüm kullanım teklif türleri** – kullanım verilerini, tüm Kullandıkça Öde, MSDN, parasal taahhüt, kredi ve EA gibi türlerinde sunmak için kullanılabilir.
 
 ## <a name="azure-resource-ratecard-api-preview"></a>Azure kaynak RateCard API (Önizleme)
-Kullanım [Azure kaynak RateCard API](https://msdn.microsoft.com/library/azure/mt219005) mevcut Azure kaynakları ve her biri için tahmini fiyatlandırma bilgileri listesini almak için. API içerir:
+Kullanım hello [Azure kaynak RateCard API](https://msdn.microsoft.com/library/azure/mt219005) tooget hello listesi kullanılabilir Azure kaynakları ve her biri için tahmini fiyatlandırma bilgileri. Merhaba API içerir:
 
-* **Azure rol tabanlı erişim denetimi** -erişim ilkelerinizi yapılandırmasına [Azure portal](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar veya uygulamalar için erişim sağlayabilmek için belirtmek için RateCard verileri. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Çağıran, belirli bir Azure aboneliği kullanım verileri erişmek için okuyucu, sahibi veya katkıda bulunan rolü ekleyin.
-* **Kullandıkça Öde, MSDN, parasal taahhüt ve kredi desteği sunar (EA desteklenmiyor)** -bu API Azure teklifi düzeyi oranı bilgi sağlar.  Bu API'yi çağıran kaynak ayrıntılarını ve ücretlerin almak için teklif bilgileri geçmesi gerekir. EA teklifleri kayıt göre oranları özelleştirdikten çünkü EA oranları sağlamak şu anda kaydedemiyoruz. 
+* **Azure rol tabanlı erişim denetimi** -hello üzerinde erişim ilkelerinizi yapılandırmak [Azure portal](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) toospecify hangi kullanıcıların veya uygulamaların erişim alabilirsiniz toohello RateCard veri. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Merhaba arayan tooeither hello Okuyucu, sahibi veya katkıda bulunan rolü tooget erişim toohello kullanım verilerini belirli bir Azure aboneliği için ekleyin.
+* **Kullandıkça Öde, MSDN, parasal taahhüt ve kredi desteği sunar (EA desteklenmiyor)** -bu API Azure teklifi düzeyi oranı bilgi sağlar.  Bu API Hello çağıran hello teklif bilgileri tooget kaynak ayrıntıları ve ücretlerin geçmesi gerekir. EA teklifleri kayıt göre oranları özelleştirilmiş olduğundan şu anda işleyemiyor tooprovide EA oranları çalışıyoruz. 
 
 ## <a name="scenarios"></a>Senaryolar
-Kullanım ve RateCard API'leri birleşimiyle olası hale getirilen senaryolardan bazıları şunlardır:
+Merhaba kullanım ve hello RateCard API'leri hello birlikte olası hale getirilen hello senaryolardan bazıları şunlardır:
 
-* **Azure ay sırasında harcadığı** - kullanım birleşimini kullanın ve RateCard API'ları, bulut daha iyi fikir almak için bir ay sırasında harcadığı. Kullanım ve Ücret tahminleri saatlik ve günlük demet analiz edebilirsiniz.
-* **Uyarıları ayarlamak** – tahmini bulut kullanımı ve ücretleri almak ve kaynak veya parasal tabanlı uyarıları ayarlamak için kullanım ve RateCard API'lerini kullanın.
-* **Fatura tahmin** – tahmini tüketim ve bulut harcamanız ve fatura fatura döneminin sonunda ne olacağını tahmin etmek için makine öğrenimi algoritmalarını uygulamak alın.
-* **Analiz maliyetiyle öncesi tüketim** –, iş yükleri için Azure taşıdığınızda ne kadar faturanızı beklenen kullanımınız için olacaktır tahmin etmek için RateCard API'sini kullanın. Ayrıca var olan iş yükleri diğer Bulut veya özel bulutlara varsa, Azure ile kullanımınızı eşleştirebilirsiniz oranları Azure daha iyi kestirmek için harcadıkları. Bu tahmin teklif ve karşılaştırma ve parasal taahhüt ve kredi gibi Kullandıkça Öde ötesinde farklı teklif türleri arasında karşıtlığı Özet olanağı sağlar. API da bölgeye göre maliyet farklılıkları görme olanağı verir ve dağıtım kararları vermenize yardımcı olmak için durum maliyet çözümlemesi yapmanıza izin verir.
+* **Azure hello ay sırasında harcadığı** -kullanım hello hello kullanım ve RateCard API'leri tooget daha iyi fikir bulut birleşimi hello ay sırasında harcadığı. Hello saatlik çözümleyebilir ve kullanımı ve Ücret günlük demet tahmin eder.
+* **Uyarıları ayarlamak** – hello kullanım kullanın ve hello RateCard API'leri tooget tahmini bulut kullanımı ve ücretleri ve kaynak veya parasal tabanlı uyarıları ayarlayın.
+* **Fatura tahmin** – tahmini tüketim ve bulut harcamanız ve hangi hello fatura döngüsü faturalama hello hello sonunda olacaktır algoritmaları toopredict öğrenme makinesi geçerli alın.
+* **Analiz maliyetiyle öncesi tüketim** – ne kadar faturanızı, beklenen kullanımınız için olacaktır, iş yüklerini tooAzure taşıdığınızda hello RateCard API toopredict kullanın. Var olan iş yükleri diğer Bulut veya özel bulutlara varsa, ayrıca Azure daha iyi bir tahmin harcamanız hello Azure oranları tooget ile kullanımınızı eşleyebilirsiniz. Teklif ve karşılaştırma ve Kullandıkça Öde, ötesinde hello farklı teklif türleri arasında karşıtlığı özelliği toopivot hello tahmin kazandırır parasal taahhüt ve kredi gibi. Merhaba API de size hello özelliği toosee maliyet farkları bölgeye göre ve toodo dağıtım kararları yaptığınız benzetim maliyet analiz toohelp sağlar.
 * **Çözümlemeleri** -
   
-  * Başka bir bölgede ya da başka bir Azure kaynak yapılandırması iş yüklerini çalıştırmak için daha uygun maliyetli olup olmadığını belirleyebilirsiniz. Azure kaynak maliyetleri kullanmakta olduğunuz Azure bölgesinde değişebilir.
+  * Daha fazla uygun maliyetli toorun iş yükünü başka bir bölgede ya da başka bir yapılandırması hello Azure kaynak olup olmadığını belirleyebilirsiniz. Azure kaynak maliyetleri değişebilir kullanmakta olduğunuz Azure bölgesi hello üzerinde temel.
   * Başka bir Azure Teklif türü bir Azure kaynağı üzerinde daha iyi oranı sağlar, ayrıca belirleyebilirsiniz.
   
 ## <a name="partner-solutions"></a>İş ortağı çözümleri
-[Microsoft Azure kullanım ve etkinleştirme RateCard API'leri Cloudyn müşteriler için ITFM sağlamak için](billing-usage-rate-card-partner-solution-cloudyn.md) Azure faturalama API iş ortağı tarafından sunulan tümleştirme deneyimini açıklamaktadır [Cloudyn](https://www.cloudyn.com/microsoft-azure/). Bu makalede deneyimlerini hakkında konuşur ve Azure tüketim verilerden bilgileri elde etmek için Cloudyn ve faturalama Azure API'lerini nasıl kullanacağınızı gösteren bir video içerir.
+[Microsoft Azure kullanım ve RateCard API'leri etkinleştirin Cloudyn tooProvide müşteriler için ITFM](billing-usage-rate-card-partner-solution-cloudyn.md) Azure faturalama API iş ortağı tarafından sunulan hello tümleştirme deneyimini açıklamaktadır [Cloudyn](https://www.cloudyn.com/microsoft-azure/). Bu makalede deneyimlerini hakkında konuşur ve nasıl Cloudyn kullanın ve Azure faturalama API'leri tooget Öngörüler Azure tüketim verilerden hello gösteren bir video içerir.
 
-[Cruiser ve Microsoft Azure fatura API tümleştirme bulut](billing-usage-rate-card-partner-solution-cloudcruiser.md) açıklar nasıl [Azure Pack için bulut Cruiser'ın Express](http://www.cloudcruiser.com/partners/microsoft/) doğrudan Microsoft Azure Pack (WAP) portalından çalışır. Bu gibi durumlarda, Microsoft Azure özel veya barındırılan genel bulut işletimsel ve finansal yönleri sorunsuz bir şekilde bir tek kullanıcı arabiriminden yönetebilirsiniz.   
+[Cruiser ve Microsoft Azure fatura API tümleştirme bulut](billing-usage-rate-card-partner-solution-cloudcruiser.md) açıklar nasıl [Azure Pack için bulut Cruiser'ın Express](http://www.cloudcruiser.com/partners/microsoft/) doğrudan hello Microsoft Azure Pack (WAP) portalından çalışır. Bu gibi durumlarda, her iki hello işletimsel ve finansal yönlerini hello Microsoft Azure özel veya barındırılan genel bulut sorunsuz bir şekilde bir tek kullanıcı arabiriminden yönetebilirsiniz.   
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Github'daki kod örnekleri gözden geçirin:
+* Github'da hello kod örnekleri gözden geçirin:
   * [Fatura API kod örneği](https://go.microsoft.com/fwlink/?linkid=845124)
 
   * [Kullanım API'si kod örneği](https://github.com/Azure-Samples/billing-dotnet-usage-api)
 
   * [RateCard API kod örneği](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
-* Azure Kaynak Yöneticisi hakkında daha fazla bilgi edinmek için [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md). 
+* toolearn hello Azure Resource Manager hakkında daha fazla bilgi görmek [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md). 
 
-* Bulut bir anlayış yardımcı olmak gerekli araçları paketi hakkında daha fazla bilgi için harcadıkları, Gartner makalesine bakın [BT Finansal Yönetimi (ITFM) araçları için Pazar Kılavuzu](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
+* Bulut bir anlayış almanız gerekli toohelp harcamanız hello suite araçları hakkında daha fazla bilgi için bkz: hello Gartner makale [BT Finansal Yönetimi (ITFM) araçları için Pazar Kılavuzu](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 

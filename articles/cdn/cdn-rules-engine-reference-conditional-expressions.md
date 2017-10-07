@@ -1,5 +1,5 @@
 ---
-title: "Azure CDN kuralları altyapısı koşullu ifadeler | Microsoft Docs"
+title: "aaaAzure CDN kurallar altyapısı koşullu ifadeler | Microsoft Docs"
 description: "Azure CDN başvuru belgelerine altyapısı eşleşme koşulları ve özellikleri kuralları."
 services: cdn
 documentationcenter: 
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 57e56c38e003cb83dcf44f455c4451d159db8a59
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 39d0754c34a577f77ca87b6fd92e2b6a9e4ff8fa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Azure CDN kuralları koşullu ifadeler altyapısı
-Bu konu ayrıntılı açıklamaları koşullu ifadeler Azure içerik teslim ağı (CDN) için listeler [kurallar altyapısı](cdn-rules-engine.md).
+Bu konu ayrıntılı açıklamaları hello koşullu ifadeler Azure içerik teslim ağı (CDN) için listeler [kurallar altyapısı](cdn-rules-engine.md).
 
-İlk kural koşullu ifade parçasıdır.
+Merhaba ilk kural hello koşullu ifade parçasıdır.
 
 Koşullu ifade | Açıklama
 -----------------------|-------------
-EĞER | Bir IF ifadesi her zaman bir kural ilk deyiminde parçasıdır. Tüm diğer koşullu ifadeler gibi bu IF deyimi bir eşleşme ile ilişkilendirilmiş olması gerekir. Hiçbir ek koşullu ifadeler tanımlanmışsa, bu eşleşen bir özellik kümesi için bir istek uygulanabilir önce karşılanması gereken ölçütü belirler.
-VE | VE IF ifadesi yalnızca koşullu ifadeler: IF, ve eğer aşağıdaki türden sonra eklenebilir. Bu, ilk IF deyimi için karşılanması gereken başka bir koşul olduğunu belirtir.
-ELSE IF| ELSE IF ifadesi bu ELSE IF deyimi belirli özellikler kümesi gerçekleşmeden önce karşılanması gereken alternatif bir koşulu belirtir. ELSE IF deyimi varlığını önceki deyimin sonuna gösterir. ELSE IF deyimi başka bir ELSE IF deyimi sonra yerleştirilebilir yalnızca koşullu ifade. Başka bir deyişle, bir ELSE IF deyimi yalnızca karşılanması gereken tek bir ek koşulu belirtmek için kullanılan.
+EĞER | Bir IF ifadesi her zaman bir kural ilk deyiminde hello parçasıdır. Tüm diğer koşullu ifadeler gibi bu IF deyimi bir eşleşme ile ilişkilendirilmiş olması gerekir. Hiçbir ek koşullu ifadeler tanımlanmışsa, bu eşleşen bir özellik kümesi uygulanan tooa isteği olabilir önce karşılanması gereken hello ölçütü belirler.
+VE | VE IF ifadesi yalnızca şu koşullu ifadeler: if, ve eğer türlerini hello sonra eklenebilir. Merhaba ilk IF deyimi için karşılanması gereken başka bir koşul olduğunu belirtir.
+ELSE IF| ELSE IF ifadesi bir dizi özellikler belirli toothis ELSE IF deyimi gerçekleşmeden önce karşılanması gereken alternatif bir koşulu belirtir. ELSE IF deyimi Hello varlığını hello önceki deyimi hello sonunu gösterir. ELSE IF deyimi başka bir ELSE IF deyimi sonra yerleştirilebilir hello yalnızca koşullu ifade. Başka bir deyişle, bir ELSE IF deyimi yalnızca kullanılan toospecify karşılanır toobe sahip tek bir ek koşul olabilir.
 
 **Örnek**: ![CDN eşleşen koşulu](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
 
  > [!TIP]
-   > Bir sonraki kural önceki bir kural tarafından belirtilen eylemleri geçersiz kılabilir. Örnek: Bir catch tüm kural belirteç tabanlı kimlik doğrulaması aracılığıyla tüm istekleri güvenliğini sağlar. Başka bir kural doğrudan, bir özel durum istek türlerini belirli yapma oluşturulabilir.
+   > Bir sonraki kural önceki bir kural tarafından belirtilen hello Eylemler geçersiz kılabilir. Örnek: Bir catch tüm kural belirteç tabanlı kimlik doğrulaması aracılığıyla tüm istekleri güvenliğini sağlar. Başka bir kural doğrudan o oluşturulabilir toomake belirli türde bir istekleri için bir özel durum.
 
 ### <a name="next-steps"></a>Sonraki adımlar
 * [Azure CDN'ye genel bakış](cdn-overview.md)
 * [Kuralları altyapısı başvurusu](cdn-rules-engine-reference.md)
 * [Kurallar altyapısı eşleşme koşulları](cdn-rules-engine-reference-match-conditions.md)
 * [Kurallar altyapısı özellikleri](cdn-rules-engine-reference-features.md)
-* [Kurallar altyapısı kullanarak varsayılan HTTP davranışı geçersiz kılma](cdn-rules-engine.md)
+* [Merhaba kurallar altyapısı kullanarak varsayılan HTTP davranışı geçersiz kılma](cdn-rules-engine.md)

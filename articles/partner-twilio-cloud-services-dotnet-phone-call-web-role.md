@@ -1,6 +1,6 @@
 ---
-title: "Twilio (.NET) bir telefon araması yapma | Microsoft Docs"
-description: "Bir telefon araması yapın ve Azure üzerinde Twilio API hizmetiyle SMS mesajı göndermek öğrenin. .NET ile yazılan kod örnekleri."
+title: "aaaHow toomake bir telefon araması gelen Twilio (.NET) | Microsoft Docs"
+description: "Nasıl azure'da hello Twilio API hizmetiyle toomake telefon ve SMS iletisi öğrenin. .NET ile yazılan kod örnekleri."
 services: 
 documentationcenter: .net
 author: devinrader
@@ -14,36 +14,36 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 0899a49cbfda775017dab7fc6d8963bbeb86d74c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 857d89961c563a51fef944f4a72828036af79b43
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Azure üzerinde bir web rolü Twilio kullanarak bir telefon araması yapma
-Bu kılavuz Twilio Azure üzerinde barındırılan bir web sayfasından bir arama yapmak için nasıl kullanılacağını gösterir. Sonuçta elde edilen uygulama, aşağıdaki ekran görüntüsünde gösterildiği gibi verilen sayıda ve ileti ile arama yapmak için kullanıcıya sorar.
+# <a name="how-toomake-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Nasıl toomake bir telefon görüşmesi Twilio Azure üzerinde bir web rolü kullanma
+Bu kılavuz, nasıl toouse Twilio toomake bir web sayfasından bir çağrı Azure üzerinde barındırılan gösterir. Merhaba sonuç uygulaması hello kullanıcı toomake, çağrı hello ekran aşağıdaki gösterildiği gibi numarası ve ileti, verilen hello ile ister.
 
 ![Twilio ve ASP.NET kullanarak azure çağrı formu][twilio_dotnet_basic_form]
 
 ## <a name="twilio-prereqs"></a>Önkoşullar
-Bu konudaki kodu kullanmak için aşağıdakileri yapmanız gerekir:
+Toodo hello aşağıdaki gerekir toouse hello kod bu konuda:
 
-1. Twilio hesabı ve kimlik doğrulaması almak belirtecine [Twilio konsol][twilio_console]. Twilio ile çalışmaya başlamak için oturum açın [https://www.twilio.com/try-twilio][try_twilio]. Konumundaki fiyatlandırma değerlendirebilir [http://www.twilio.com/pricing][twilio_pricing]. Twilio tarafından sağlanan API'si hakkında daha fazla bilgi için bkz: [http://www.twilio.com/voice/api][twilio_api].
-2. Ekleme *Twilio .NET kitaplığı* web rolünüz. Bkz: **Twilio kitaplıkları web rolü projenize eklemek için**, bu konunun devamındaki.
+1. Twilio hesabı ve kimlik doğrulaması almak hello belirtecine [Twilio konsol][twilio_console]. tooget tarihinde başladı, Twilio, oturum [https://www.twilio.com/try-twilio][try_twilio]. Konumundaki fiyatlandırma değerlendirebilir [http://www.twilio.com/pricing][twilio_pricing]. Merhaba Twilio tarafından sağlanan API hakkında daha fazla bilgi için bkz: [http://www.twilio.com/voice/api][twilio_api].
+2. Merhaba eklemek *Twilio .NET kitaplığı* tooyour web rolü. Bkz: **tooadd hello Twilio kitaplıkları tooyour web rolü projesi**, bu konunun devamındaki.
 
 Temel bir oluşturma konusunda bilgi sahibi olmanız gerekir [Azure Web rolü][azure_webroles_get_started].
 
 ## <a name="howtocreateform"></a>Nasıl yapılır: arama yapmak için web formu oluşturma
-<a id="use_nuget"></a>Twilio kitaplıkları web rolü projenize eklemek için:
+<a id="use_nuget"></a>tooadd hello Twilio kitaplıkları tooyour web rolü projesi:
 
 1. Çözümünüzü Visual Studio'da açın.
 2. Sağ **başvurular**.
 3. Tıklatın **NuGet paketlerini Yönet**.
 4. Tıklatın **çevrimiçi**.
-5. Arama çevrimiçi kutuya yazın *twilio*.
-6. Tıklatın **yükleme** Twilio paketinizdeki.
+5. Merhaba arama çevrimiçi kutusuna *twilio*.
+6. Tıklatın **yükleme** hello Twilio paketinizdeki.
 
-Aşağıdaki kod, arama yapmak için kullanıcı verilerini almak için web formu oluşturulacağını gösterir. Bu örnekte, bir ASP.NET Web rolü adlı **TwilioCloud** oluşturulur.
+koddan hello nasıl toocreate web form arama yapmak için tooretrieve kullanıcı verileri gösterir. Bu örnekte, bir ASP.NET Web rolü adlı **TwilioCloud** oluşturulur.
 
 ```aspx
 <%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master"
@@ -69,8 +69,8 @@ Aşağıdaki kod, arama yapmak için kullanıcı verilerini almak için web form
 </asp:Content>
 ```
 
-## <a id="howtocreatecode"></a>Nasıl yapılır: arama yapmak için kod oluşturma
-Kullanıcı formu tamamlandığında olarak adlandırılır, aşağıdaki kod, arama iletisi oluşturur ve çağrı oluşturur. Bu örnekte, formdaki düğmenin onclick olay işleyicisini kod çalıştırılır. (Kullanım Twilio hesabı ve kimlik doğrulama belirteci atanan yer tutucu değerlerini yerine `accountSID` ve `authToken` aşağıdaki kodda.)
+## <a id="howtocreatecode"></a>Nasıl yapılır: hello kod toomake hello çağrı oluşturma
+Merhaba hello kullanıcı hello form tamamlandığında olarak adlandırılır, aşağıdaki kod, hello çağrı iletisi oluşturur ve hello çağrı oluşturur. Bu örnekte, hello kod hello onclick olay işleyicisini hello düğmesinin hello form üzerinde çalıştırılır. (Twilio hesabı ve kimlik doğrulama belirteci çok atanan hello yer tutucu değerlerini yerine kullanım`accountSID` ve `authToken` aşağıdaki hello kodda.)
 
 ```csharp
 using System;
@@ -98,14 +98,14 @@ namespace WebRole1
             // Call porcessing happens here.
 
             // Use your account SID and authentication token instead of
-            // the placeholders shown here.
+            // hello placeholders shown here.
             var accountSID = "ACNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN";
             var authToken =  "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN";
 
-            // Instantiate an instance of the Twilio client.
+            // Instantiate an instance of hello Twilio client.
             TwilioClient.Init(accountSID, authToken);
 
-            // Retrieve the account, used later to retrieve the
+            // Retrieve hello account, used later tooretrieve the
             var account = AccountResource.Fetch(accountSID);
 
             this.varDisplay.Items.Clear();
@@ -117,24 +117,24 @@ namespace WebRole1
             }
             else
             {
-                // Retrieve the values entered by the user.
-                var to = PhoneNumber(this.toNumber.Text);
+                // Retrieve hello values entered by hello user.
+                var too= PhoneNumber(this.toNumber.Text);
                 var from = new PhoneNumber("+14155992671");
                 var myMessage = this.message.Text;
 
-                // Create a URL using the Twilio message and the user-entered
-                // text. You must replace spaces in the user's text with '%20'
-                // to make the text suitable for a URL.
+                // Create a URL using hello Twilio message and hello user-entered
+                // text. You must replace spaces in hello user's text with '%20'
+                // toomake hello text suitable for a URL.
                 var url = $"http://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
                 var twimlUri = new Uri(url);
 
-                // Display the endpoint, API version, and the URL for the message.
+                // Display hello endpoint, API version, and hello URL for hello message.
                 this.varDisplay.Items.Add($"Using Twilio endpoint {
                 }");
                 this.varDisplay.Items.Add($"Twilioclient API Version is {apiVersion}");
-                this.varDisplay.Items.Add($"The URL is {url}");
+                this.varDisplay.Items.Add($"hello URL is {url}");
 
-                // Place the call.
+                // Place hello call.
                 var call = CallResource.create(to, from, url: twimlUri);
                 this.varDisplay.Items.Add("Call status: " + call.Status);
             }
@@ -143,22 +143,22 @@ namespace WebRole1
 }
 ```
 
-Çağrı yapılır ve Twilio uç noktası, API sürümü ve arama durumu görüntülenir. Aşağıdaki ekran görüntüsünde bir örnek çalışma çıktısını gösterir.
+Merhaba çağrı yapılır ve hello Twilio uç noktası, API sürümü ve hello arama durumu görüntülenir. ekran görüntüsü gösterildiği çıkış çalıştırmak bir örnekten aşağıdaki hello.
 
 ![Twilio ve ASP.NET kullanılarak azure çağrı yanıtı][twilio_dotnet_basic_form_output]
 
 TwiML hakkında daha fazla bilgi bulunabilir [http://www.twilio.com/docs/api/twiml][twiml]. Hakkında daha fazla bilgi &lt;Say&gt; ve diğer Twilio fiiller bulunabilir [http://www.twilio.com/docs/api/twiml/say][twilio_say].
 
 ## <a id="nextsteps"></a>Sonraki adımlar
-Bu kod, bir ASP.NET web rolünde Azure ile ilgili Twilio kullanarak temel işlevselliğini göstermek için sağlanmıştır. Azure'a üretimde dağıtmadan önce daha fazla hata işleme veya diğer özellikler eklemek isteyebilirsiniz. Örneğin:
+Bu kod tooshow sağlanan Azure üzerinde ASP.NET web rolünde Twilio kullanarak, temel işlevleri. TooAzure üretimde dağıtmadan önce daha fazla hata işleme veya diğer özellikler tooadd isteyebilirsiniz. Örneğin:
 
-* Bir web formu kullanmak yerine, Azure Blob storage veya Azure SQL veritabanı örneği telefon numaralarını depolamak ve metin çağırmak için kullanabilirsiniz. Azure BLOB'ları kullanma hakkında daha fazla bilgi için bkz: [.NET ile Azure Blob Depolama hizmetini kullanmayı][howto_blob_storage_dotnet]. SQL veritabanı kullanma hakkında daha fazla bilgi için bkz: [.NET uygulamalarında Azure SQL Database kullanmayı][howto_sql_azure_dotnet].
-* Kullanabileceğinizi `RoleEnvironment.getConfigurationSettings` hesap Kimliğini ve kimlik doğrulama belirteci form değerleri sabit kodlama yerine dağıtımınızın yapılandırma ayarları Twilio alınamadı. Hakkında bilgi için `RoleEnvironment` sınıfı için bkz: [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet].
-* Twilio güvenlik yönergeleri okuyun [https://www.twilio.com/docs/security][twilio_docs_security].
+* Bir web formu kullanmak yerine, Azure Blob Depolama veya bir Azure SQL veritabanı örneği toostore telefon numaralarını kullanın ve metin arama. Azure BLOB'ları kullanma hakkında daha fazla bilgi için bkz: [nasıl toouse hello Azure Blob Depolama hizmetine .NET][howto_blob_storage_dotnet]. SQL veritabanı kullanma hakkında daha fazla bilgi için bkz: [nasıl toouse Azure SQL veritabanı .NET uygulamalarında][howto_sql_azure_dotnet].
+* Kullanabileceğinizi `RoleEnvironment.getConfigurationSettings` tooretrieve hello Twilio hesap Kimliğini ve kimlik doğrulama belirteci hello değerlerde kodlamak formunuz yerine dağıtımınızın yapılandırma ayarları. Merhaba hakkında bilgi için `RoleEnvironment` sınıfı için bkz: [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet].
+* Merhaba Twilio güvenlik yönergeleri okuyun [https://www.twilio.com/docs/security][twilio_docs_security].
 * Twilio hakkında daha fazla bilgi [https://www.twilio.com/docs][twilio_docs].
 
 ## <a name="seealso"></a>Ayrıca bkz.
-* [Azure'dan ses ve SMS özelliklerine yönelik Twilio kullanma](twilio-dotnet-how-to-use-for-voice-sms.md)
+* [Nasıl toouse Twilio azure'dan ses ve SMS özellikleri](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console
 [twilio_pricing]: http://www.twilio.com/pricing

@@ -1,6 +1,6 @@
 ---
-title: "Ücretsiz Azure aboneliğinizi Kullandıkça Öde aboneliğine yükseltin | Microsoft Docs"
-description: "Bir Kullandıkça Öde nasıl yapabileceğiniz açıklanır ücretsiz bir abonelik ve gereksinimleri'den yükseltme"
+title: "aaaUpgrade, Azure aboneliğini ücretsiz tooPay olarak-size-Git | Microsoft Docs"
+description: "Boş bir abonelikten bir Kullandıkça Öde yükseltme yapın ve gereksinimleri hello nasıl açıklanmaktadır"
 keywords: "Kullandıkça Öde yükseltme"
 services: 
 documentationcenter: 
@@ -17,22 +17,22 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18fd43d0b1d6276ebc41a0ad33d861a27a472551
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3257f2af3295c4dc80b98e3e52ee709425e9db98
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Ücretsiz deneme sürümü veya Microsoft düşünün Azure aboneliğinizi Kullandıkça Öde aboneliğine yükseltin
-Yükseltme, [ücretsiz deneme](https://azure.microsoft.com/free/) veya [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) aboneliğine [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) Azure hesap portalından. Yükseltme paranın tek başına maliyet değil ve kullandığınız Hizmetleri için yalnızca tutar alınacaktır.
+# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-toopay-as-you-go"></a>Ücretsiz deneme sürümü veya Microsoft düşünün Azure abonelik tooPay olarak-size-Git yükseltme
+Yükseltme, [ücretsiz deneme](https://azure.microsoft.com/free/) veya [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) abonelik çok[Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) hello Azure hesap Portalı'ndan. Yükseltme paranın tek başına maliyet değil ve kullandığınız hello Hizmetleri için yalnızca tutar alınacaktır.
 
-1. Oturum [Azure hesap portalı](https://account.windowsazure.com/subscriptions) gidin **abonelikleri** sekmesi.
-2. Abonelik durumu bölümünde seçin **Şimdi Yükselt** başlığı.
+1. İçinde toohello oturum [Azure hesap portalı](https://account.windowsazure.com/subscriptions) toohello giderek **abonelikleri** sekmesi.
+2. Merhaba abonelik durumu bölümünde hello seçin **Şimdi Yükselt** başlığı.
    
-    ![Kullandıkça Öde aboneliğine ücretsiz deneme sürümünden yükseltme yeri gösteren ekran görüntüsü](./media/billing-upgrade-azure-subscription/billpage.png)
+    ![Where gösteren ekran görüntüsü tooclick tooupgrade ücretsiz deneme tooPay olarak-size-Git gelen](./media/billing-upgrade-azure-subscription/billpage.png)
 3. Yükseltme onaylayın.
    
-    ![Ne aboneliğinizi yükseltmek istediğinizi onaylamak için seçilecek gösteren ekran görüntüsü](./media/billing-upgrade-azure-subscription/Upgrade.png)
+    ![Aboneliğiniz tooupgrade istediğiniz hangi tooselect tooconfirm gösteren ekran görüntüsü](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-30 günlük sınır veya kredi gibi ücretsiz deneme sürümünüzü kalan avantajları kullanın. Tüm avantajları kullandıktan sonra aboneliğiniz yükseltilir.
+Merhaba 30 günlük sınır veya hello kredi gibi ücretsiz deneme sürümünüzü kalan avantajları kullanın. Tüm hello avantajları kullandıktan sonra aboneliğiniz yükseltilir.
 

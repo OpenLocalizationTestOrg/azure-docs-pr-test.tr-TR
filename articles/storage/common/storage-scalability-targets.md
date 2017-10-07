@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage ölçeklenebilirlik ve performans hedefleri | Microsoft Docs"
-description: "Azure depolama kapasitesi, istek hızı ve her iki standart ve premium depolama hesapları için gelen ve giden bant genişliği de dahil olmak üzere, ölçeklenebilirlik ve performans hedefleri hakkında bilgi edinin. Bölümler içinde Azure Storage hizmetlerinin her biri için performans hedefleri anlayın."
+title: "aaaAzure Storage ölçeklenebilirlik ve performans hedefleri | Microsoft Docs"
+description: "Azure depolama kapasitesi, istek hızı ve her iki standart ve premium depolama hesapları için gelen ve giden bant genişliği de dahil olmak üzere, Hello ölçeklenebilirlik ve performans hedefleri hakkında bilgi edinin. Bölümler içinde hello Azure Depolama hizmetlerinin her biri için performans hedefleri anlayın."
 services: storage
 documentationcenter: na
 author: robinsh
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: robinsh
-ms.openlocfilehash: 47a1d2b87269d40716b3dae02276207060b41c24
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7afe4366a02887b4e3d9781c26c8adda81adce95
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure Depolama Ölçeklenebilirlik ve Performans Hedefleri
 ## <a name="overview"></a>Genel Bakış
-Bu konuda, Microsoft Azure Storage ölçeklenebilirlik ve performans konuları açıklanmaktadır. Diğer Azure sınırları özeti için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../../azure-subscription-service-limits.md).
+Bu konuda, Microsoft Azure Storage için hello ölçeklenebilirlik ve performans konuları açıklanmaktadır. Diğer Azure sınırları özeti için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../../azure-subscription-service-limits.md).
 
 > [!NOTE]
-> Tüm depolama hesaplarının yeni düz ağ topolojisine çalıştırın ve ne zaman oluşturulduğu bağımsız olarak, aşağıda açıklanan ölçeklenebilirlik ve performans hedefleri destekler. Ölçeklenebilirlik ve Azure depolama düz ağ mimarisi üzerinde daha fazla bilgi için bkz: [Microsoft Azure Storage: yüksek oranda kullanılabilir bulut depolama hizmet güçlü tutarlılık](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+> Tüm depolama hesapları hello yeni düz ağ topolojisini çalıştırın ve ne zaman oluşturulduğu bağımsız olarak, aşağıda açıklanan hello ölçeklenebilirlik ve performans hedefleri destekler. Ölçeklenebilirlik ve hello Azure depolama düz ağ mimarisi üzerinde daha fazla bilgi için bkz: [Microsoft Azure Storage: yüksek oranda kullanılabilir bulut depolama hizmet güçlü tutarlılık](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 > 
 > [!IMPORTANT]
-> Burada listelenen ölçeklenebilirlik ve performans hedefleri Gelişmiş hedefleri, ancak ulaşılabilir. Uygulamanızı iş yükü türünü gerçekleştirir ve tüm durumlarda, istek hızı ve bant genişliği, depolama birimi tarafından elde saklanan nesneleri kullanılan, erişim desenlerini boyutuna bağlı hesap bağlıdır. Hizmetinizin performansını gereksinimlerinizi karşılayıp karşılamadığını belirlemek için test emin olun. Mümkünse, trafiğinin oranını içindeki ani ani önlemek ve bölümler trafiği iyi dağıtılmış olduğundan emin olun.
+> Burada listelenen hello ölçeklenebilirlik ve performans hedefleri Gelişmiş hedefleri, ancak ulaşılabilir. Tüm durumlarda hello istek oranı ve depolama hesabınız tarafından elde edilen bant genişliği bağlıdır saklanan nesneleri hello boyutuna bağlı hello erişim desenlerini kullanılan ve uygulamanızı gerçekleştiren iş yükü türünü hello. Kendi performans gereksinimlerinizi karşılayıp karşılamadığını emin tootest hizmet toodetermine olabilir. Mümkünse, trafik hello oranı ani ani önlemek ve bölümler trafiği iyi dağıtılmış olduğundan emin olun.
 > 
-> Uygulamanızın ne bir bölüm için iş yükünü işleyebilir, sınırına ulaştığında, Azure depolama hata kodu 503 (Sunucu meşgul) veya hata kodu 500 (işlemi zaman aşımı) yanıtları döndürülecek başlar. Bu durumda, uygulama için yeniden deneme üstel geri alma İlkesi kullanmanız gerekir. Üstel geri alma yükü azaltmak ve o bölümün trafiğinin ani çıkışı kolaylaştırmak için bölüm olanak tanır.
+> Uygulamanızın ne bir bölüm için iş yükünü işleyebilir, hello sınırına ulaştığında, Azure Storage tooreturn hata kodu 503 (Sunucu meşgul) başlar veya hata kodu: 500 (işlemi zaman aşımı) yanıtlar. Bu durumda, Merhaba uygulaması için yeniden deneme üstel geri alma İlkesi kullanmanız gerekir. Merhaba üstel geri alma trafiği toothat bölümünde hello yük hello bölüm toodecrease ve tooease ani çıkışı sağlar.
 > 
 > 
 
-Uygulamanızın gereksinimlerine tek bir depolama hesabı ölçeklenebilirlik hedeflerini aşarsa, birden çok depolama hesabı kullanmak için uygulamanızı oluşturmak ve bu depolama hesapları arasında veri nesnelerinizi bölüm. Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) birim fiyatlandırma hakkında bilgi için.
+Hello uygulamanızın veya tek bir depolama hesabına hello ölçeklenebilirlik hedefleri aşarsa, uygulama toouse birden çok depolama hesabı oluşturun ve bu depolama hesapları arasında veri nesnelerinizi bölüm. Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) birim fiyatlandırma hakkında bilgi için.
 
 ## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>BLOB, kuyruklar, tablolar ve dosyalar için ölçeklenebilirlik hedefleri
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+<!-- conceptual info about disk limits -- applies toounmanaged and managed -->
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>Sanal makine disklerini için ölçeklenebilirlik hedefleri
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
@@ -58,20 +58,20 @@ Bkz: [Windows VM boyutları](../../virtual-machines/windows/sizes.md?toc=%2fazur
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ## <a name="partitions-in-azure-storage"></a>Azure depolama alanında bölümleri
-Azure Storage (BLOB'ları, iletileri, varlıkları ve dosyaları) depolanan verileri tutar her nesne bir bölüme ait ve bir bölüm anahtar tarafından tanımlanır. Bölüm, nasıl Azure depolama yükünü bu nesneler trafiği ihtiyaçlarını karşılamak için sunucular arasında BLOB'ları, iletileri, varlıkları ve dosyaları dengeleyen belirler. Bölüm anahtarı benzersizdir ve blob, ileti veya varlık bulmak için kullanılır.
+Azure Storage (BLOB'ları, iletileri, varlıkları ve dosyaları) depolanan verileri tutar her nesne tooa bölüm ait ve bir bölüm anahtar tarafından tanımlanır. Merhaba bölüm, nasıl Azure depolama yükünü sunucuları toomeet hello trafiği ihtiyaçlarını bu nesneler arasında BLOB'ları, iletileri, varlıkları ve dosyaları dengeleyen belirler. Merhaba bölüm anahtarı benzersizdir ve kullanılan toolocate bir blob, ileti veya varlık kümesidir.
 
-Yukarıda gösterilen tablo [standart depolama hesapları için ölçeklenebilirlik hedefleri](#standard-storage-accounts) her hizmet için tek bir bölüm için performans hedefleri listeler.
+Yukarıda gösterilen hello tablo [standart depolama hesapları için ölçeklenebilirlik hedefleri](#standard-storage-accounts) listeleri hello performans hedefleri her hizmet için tek bir bölüm için.
 
-Bölümler Yük Dengeleme ve ölçeklenebilirlik her depolama hizmetleri için aşağıdaki şekillerde etkiler:
+Bölümler, her bir yolu aşağıdaki hello hello depolama hizmetleri için Yük Dengeleme ve ölçeklenebilirlik etkiler:
 
-* **BLOB'ları**: blob bölüm anahtarı olan hesap adını, kapsayıcı adı + blob adı. Başka bir deyişle, her bir blob blob üzerindeki yükü, talep varsa, kendi bölümü olabilir. BLOB'ları onlara erişimi genişletmek için birçok sunucular arasında dağıtılabilir, ancak tek bir blob yalnızca tek bir sunucu tarafından sunulabilen. BLOB'ları blob kapsayıcı mantıksal olarak gruplandırılabilir olsa da, bu gruplandırma bölümleme hiçbir etkileri vardır.
-* **Dosyaları**: bölüm anahtarı için bir dosya adı + dosya paylaşımı adı hesabıdır. Bu, bir dosya paylaşımında tüm dosyaları da tek bir bölüm olduğu anlamına gelir.
-* **İletileri**: sıradaki tüm iletileri tek bir bölümde gruplandırılır tek bir sunucu tarafından sunulan bir ileti için bölüm anahtarı hesap adı + kuyruk adı olduğundan ve. Farklı kuyruklar birçok sıraları bir depolama hesabına sahip ancak için yükü dengelemek için farklı sunucular tarafından işlenebilir.
-* **Varlıkları**: bölüm anahtarı bir varlık için hesap adı + tablo adı + bölüm anahtarı, bölüm anahtarı değerini gereken kullanıcı tanımlı olduğu **PartitionKey** varlığın özelliği. Aynı bölüm anahtarı değerine sahip tüm varlıkları aynı bölüme gruplandırılır ve aynı bölüm sunucu tarafından sunulan. Bu, uygulamanızın tasarlarken anlamak için önemli bir noktadır. Uygulamanızın veri erişim avantajları, tek bir bölüm varlıklarda gruplandırma birden çok bölüm arasında varlıklar yayılmak ölçeklenebilirlik avantajlarını dengelemeniz.  
+* **BLOB'ları**: hello bölüm anahtarı bir blob için olan hesap adını, kapsayıcı adı + blob adı. Başka bir deyişle, her bir blob hello blob üzerindeki yükü, talep varsa, kendi bölümü olabilir. BLOB'ları erişim toothem çıkış sırası tooscale çok sayıda sunucuya dağıtılmış olabilir, ancak tek bir blob yalnızca tek bir sunucu tarafından sunulabilen. BLOB'ları blob kapsayıcı mantıksal olarak gruplandırılabilir olsa da, bu gruplandırma bölümleme hiçbir etkileri vardır.
+* **Dosyaları**: hello bölüm anahtarı bir dosya için hesabıdır adı + dosya paylaşımı adı. Bu, bir dosya paylaşımında tüm dosyaları da tek bir bölüm olduğu anlamına gelir.
+* **İletileri**: hello bölüm anahtarı için bir ileti olduğundan hello hesap adı + kuyruk adı, sıradaki tüm iletileri tek bir bölümde gruplandırılır ve tek bir sunucu tarafından sunulan. Farklı sıraları toobalance hello yük için çok sayıda sıraları bir depolama hesabına sahip ancak farklı sunucular tarafından işlenebilir.
+* **Varlıkları**: hello bölüm anahtarı bir varlık için hesap adı + tablo adı + hello bölüm anahtarı gerekli hello hello değeri olduğu bölüm anahtarı, kullanıcı tarafından tanımlanan **PartitionKey** hello varlığın özelliği. Aynı bölüm anahtarı değerini aynı bölüm ve aynı hello tarafından sunulan hello gruplandırılır hello tüm varlıklarla sunucu bölüm. Uygulamanızı tasarlamanın önemli bir nokta toounderstand budur. Uygulamanızı hello ölçeklenebilirlik avantajlarını, tek bir bölüm varlıklarda gruplandırma hello veri erişim yararları birden çok bölüm arasında varlıklar yayılmak dengelemeniz.  
 
-Varlıklar bir tablodaki bir dizi tek bir bölümde gruplandırmak için önemli bir avantajı bir bölüm tek bir sunucu üzerinde mevcut olduğundan aynı bölüme varlıklar arasında atomik toplu işlemleri gerçekleştirmek olası olmasıdır. Bir grup varlıkların toplu işlemleri gerçekleştirmek isterseniz, bu nedenle, aynı bölüm anahtarı ile gruplandırma göz önünde bulundurun. 
+Önemli bir avantajı toogrouping kümesine tek bir bölüm varlıklar bir tabloda, olası tooperform atomik toplu işlemleri bir bölüm tek bir sunucu üzerinde mevcut olduğundan aynı, bölüm hello varlıklar arasında olmasıdır. Toplu işlem varlık grubunun tooperform istiyorsanız, bu nedenle, hello ile gruplandırma düşünün aynı bölüm anahtarı. 
 
-Diğer taraftan, aynı olan varlıkları tablo ancak farklı bölüm anahtarları daha yüksek ölçeklenebilirlik olası hale getirerek farklı sunucular arasında yük dengeli.
+Üzerindeki diğer yandan Merhaba, aynı tablo ancak farklı bölüm anahtarlarının sahip hello olan varlıkları olası toohave daha yüksek ölçeklenebilirlik kolaylaştırarak farklı sunucular arasında dengeli olabilir.
 
 Ayrıntılı tablolar bulunabilir stratejisi bölümleme tasarlama için öneriler [burada](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 

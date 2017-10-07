@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect: DirSync'ten yükseltme | Microsoft Belgeleri"
-description: "DirSync'ten Azure AD Connect'e nasıl yükseltme yapılacağı konusunda bilgi edinin. Bu makalede DirSync'ten Azure AD Connect'e yükseltmeye yönelik adımlar açıklanmaktadır."
+description: "Bilgi nasıl tooupgrade DirSync tooAzure AD alanından Bağlan. Bu makaleler DirSync tooAzure AD Connect yükseltme hello adımları açıklar."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7049af4567947d3d799a38c5a3940ba25a2c0f18
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 05572af410698deaa1392c8837bfcb749efc69e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync'ten yükseltme
-Azure AD Connect, DirSync'in yerini almıştır. Bu konu başlığı altında DirSync'ten yükseltme yöntemlerini bulabilirsiniz. Bu adımlar, Azure AD Connect'in başka bir sürümünden veya Azure AD Eşitleme'den yapılacak yükseltmeler için geçerli değildir.
+Azure AD Connect hello ardıl tooDirSync ' dir. Bu konu başlığı altında Dirsync'ten yükseltme hello yollarını bulun. Bu adımlar, Azure AD Connect'in başka bir sürümünden veya Azure AD Eşitleme'den yapılacak yükseltmeler için geçerli değildir.
 
-Azure AD Connect'i yüklemeye başlamadan önce [Azure AD Connect'i indirdiğinizden](http://go.microsoft.com/fwlink/?LinkId=615771) ve [Azure AD Connect: Donanım ve önkoşullar](active-directory-aadconnect-prerequisites.md) bölümündeki önkoşul adımlarını tamamladığınızdan emin olun. Bu alanlar DirSync’ten farklı olduğu için özellikle aşağıdakiler hakkında bilgi edinmek isteyebilirsiniz:
+Azure AD Connect'i yüklemeye başlamadan önce emin olun çok[Azure AD Connect indirin](http://go.microsoft.com/fwlink/?LinkId=615771) ve tam hello önkoşul adımlarını [Azure AD Connect: donanım ve Önkoşullar](active-directory-aadconnect-prerequisites.md). Özellikle, bu alanlar Dirsync'ten farklı olduğundan hello aşağıdaki hakkında tooread istiyor:
 
-* Gerekli .Net ve PowerShell sürümü. Sunucuda, DirSync’in gerektirdiğinden daha yeni sürümlerin bulunması gerekir.
-* Ara sunucu yapılandırması. İnternet’e erişmek için bir ara sunucu kullanıyorsanız yükseltmeden önce bu ayarın yapılandırılması gerekir. DirSync her zaman programı yükleyen kullanıcı için yapılandırılan ara sunucuyu kullanıyordu, ancak Azure AD Connect bunun yerine makine ayarlarını kullanır.
-* URL’lerin ara sunucuda açılması gerekir. DirSync tarafından da desteklenen temel senaryolar için gereksinimler aynıdır. Azure AD Connect’in içerdiği yeni özelliklerden herhangi birini kullanmak istiyorsanız bazı yeni URL’lerin açılması gerekir.
+* Merhaba, PowerShell ve .net sürümü gereklidir. DirSync gerekenleri daha hello sunucuda gerekli toobe daha yeni sürümleri.
+* Merhaba proxy sunucu yapılandırması. Bir proxy sunucu tooreach kullanıyorsanız, Internet Merhaba, yükseltmeden önce bu ayarın yapılandırılması gerekir. DirSync hello proxy sunucusu yükleme hello kullanıcı için yapılandırılan her zaman kullanılır, ancak Azure AD Connect kullanan makine ayarlarını yerine.
+* Merhaba URL'leri gerekli toobe hello proxy sunucu açın. Temel senaryoları, aynı zamanda DirSync tarafından desteklenen bu senaryoları için aynı hello hello gereksinimleri verilmiştir. Azure AD Connect ile sunulan yeni özelliklerle hello hiçbirini toouse istiyorsanız, bazı yeni URL'ler açılması gerekir.
 
 > [!NOTE]
-> Değişiklikleri Azure AD ile eşitlemeye başlamak için yeni Azure AD Connect sunucunuzu etkinleştirdikten sonra DirSync veya Azure AD Sync kullanmaya geri dönemezsiniz. Sürümün Azure AD Connect’ten DirSync ve Azure AD Sync gibi eski istemcilere düşürülmesi desteklenmez ve Azure AD’de veri kaybı gibi sorunlara yol açabilir.
+> Yeni Azure AD Connect sunucusu toostart eşitleme değişiklikleri tooAzure AD etkinleştirdikten sonra toousing DirSync veya Azure AD eşitleme geri gerekir. Azure AD Connect toolegacy istemcilerden DirSync ve Azure AD eşitleme gibi eski sürüme düşürmeyi desteklenmez ve Azure AD içinde veri kaybı gibi tooissues yol açabilir.
 
 DirSync'ten yükseltmiyorsanız diğer senaryolar için [ilgili belgelere](#related-documentation) göz atın.
 
 ## <a name="upgrade-from-dirsync"></a>DirSync'ten yükseltme
-Geçerli DirSync dağıtımınıza bağlı olarak farklı yükseltme seçenekleri mevcuttur. Tahmini yükseltme süresi üç saatten azsa yerinde yükseltme yapılması önerilir. Tahmini yükseltme süresi üç saatten fazlaysa başka bir sunucu üzerinde paralel dağıtım yapılması önerilir. 50.000'den fazla nesneniz varsa yükseltmenin üç saatten fazla süreceği tahmin edilir.
+Geçerli DirSync dağıtımınıza bağlı olarak, hello yükseltme için farklı seçenekler vardır. Merhaba yükseltme süresi üç saatten az olması beklenen sonra hello toodo yerinde yükseltme önerilir. Merhaba yükseltme süresi üç saatten fazla bekleniyordu, ardından hello toodo başka bir sunucu üzerinde paralel dağıtım önerilir. 50. 000'den fazla nesneniz varsa, birden çok üç saat toodo hello yükseltme süreceğini tahmin.
 
 | Senaryo |
 | --- | --- |
@@ -43,18 +43,18 @@ Geçerli DirSync dağıtımınıza bağlı olarak farklı yükseltme seçenekler
 | [Paralel dağıtım](#parallel-deployment) |
 
 > [!NOTE]
-> DirSync'ten Azure AD Connect'e yükseltmeyi planlıyorsanız yükseltmeden önce DirSync'i kendiniz kaldırmayın. Azure AD Connect, DirSync'ten yapılandırmayı okuyup geçişini yapar ve sunucuyu denetledikten sonra kaldırma işlemini gerçekleştirir.
+> DirSync tooAzure AD alanından tooupgrade planlarken Connect, DirSync kendiniz hello yükseltmeden önce kaldırmayın. Azure AD Connect okuyun ve Dirsync'ten hello yapılandırmasını geçirmek ve hello sunucuyu denetledikten sonra kaldırma.
 
 **Yerinde yükseltme**  
-Yükseltmenin tamamlanmasına ilişkin tahmini süre sihirbaz tarafından görüntülenir. Bu tahmin, yükseltme işleminin 50.000 nesne (kullanıcılar, kişiler ve gruplar) içeren bir veritabanı için üç saatte tamamlanacağı varsayımına dayanır. Veritabanınızdaki nesnelerin sayısı 50.000’den azsa Azure AD Connect yerinde yükseltme yapılmasını önerir. Devam etmek isterseniz yükseltme sırasında geçerli ayarlarınız otomatik olarak uygulanır ve sunucunuz etkin eşitlemeyi otomatik olarak sürdürür.
+Merhaba, zaman toocomplete hello yükseltme hello Sihirbazı tarafından görüntülenen bekleniyordu. Bu tahmin, üç saat toocomplete 50.000 nesne (kullanıcılar, kişiler ve gruplar) içeren bir veritabanı için yükseltme gereken hello varsayımına dayanır. Merhaba, veritabanınızdaki nesne sayısı 50. 000'den az ise, Azure AD Connect yerinde yükseltme önerir. Toocontinue karar verirseniz, geçerli ayarlarınız otomatik olarak yükseltme sırasında uygulanır ve sunucunuz etkin eşitlemeyi otomatik olarak sürdürür.
 
-Yapılandırma geçişi ve paralel dağıtım yapmak istiyorsanız yerinde yükseltme önerisini geçersiz kılabilirsiniz. Örneğin, donanım ve işletim sistemini yenileme olanağından faydalanabilirsiniz. Daha fazla bilgi için [paralel dağıtım](#parallel-deployment) bölümüne bakın.
+Ardından, toodo yapılandırma geçişi ve paralel dağıtım yapmak istiyorsanız hello yerinde yükseltme önerisini geçersiz kılabilirsiniz. Örneğin, hello fırsat toorefresh hello donanım ve işletim sistemi alabilir. Daha fazla bilgi için bkz: Merhaba [paralel dağıtım](#parallel-deployment) bölümü.
 
 **Paralel dağıtım**  
-50.000'den fazla nesneniz varsa paralel dağıtım seçeneğini kullanmanız önerilir. Bu dağıtım, kullanıcılarınızın işletimsel gecikme yaşamasını önler. Azure AD Connect yüklemesi, yükseltme için kesinti süresini tahmin etmeye çalışır ancak DirSync'i daha önce yükselttiyseniz kendi deneyiminizin sizin için en iyi kılavuz olacağını söyleyebiliriz.
+50.000'den fazla nesneniz varsa paralel dağıtım seçeneğini kullanmanız önerilir. Bu dağıtım, kullanıcılarınızın işletimsel gecikme yaşamasını önler. Merhaba yükseltme için tooestimate hello kapalı kalma süresi Hello Azure AD Connect yükleme çalışır ancak hello geçmiş DirSync yükselttiyseniz kendi deneyiminizin büyük olasılıkla toobe hello en iyi kılavuzdur.
 
-### <a name="supported-dirsync-configurations-to-be-upgraded"></a>Yükseltilecek olan desteklenen DirSync yapılandırmaları
-Yükseltilmiş DirSync ile şu yapılandırma değişiklikleri desteklenir:
+### <a name="supported-dirsync-configurations-toobe-upgraded"></a>Desteklenen DirSync yapılandırmaları toobe yükseltme
+yapılandırma değişiklikleri izleyen hello yükseltilmiş DirSync ile desteklenir:
 
 * Etki alanı ve OU filtreleme
 * Alternatif kimlik (UPN)
@@ -62,21 +62,21 @@ Yükseltilmiş DirSync ile şu yapılandırma değişiklikleri desteklenir:
 * Ormanınız/etki alanınız ve Azure AD ayarlarınız
 * Kullanıcı özniteliği tabanlı filtreleme
 
-Aşağıdaki değişiklik yükseltilemez. Bu yapılandırmaya sahipseniz yükseltme engellenir:
+Merhaba değişikliğinden sonra yükseltilemez. Bu yapılandırma varsa, hello yükseltme engellenir:
 
 * Kaldırılan öznitelikler ve özel uzantı DLL'si kullanmak gibi desteklenmeyen DirSync değişiklikleri
 
 ![Yükseltme engellendi](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
-Bu gibi durumlarda, [hazırlama modunda](active-directory-aadconnectsync-operations.md#staging-mode) yeni bir Azure AD Connect sunucusunun yüklenmesi ve eski DirSync ile yeni Azure AD Connect yapılandırmasının doğrulanması önerilir. [Azure AD Connect Eşitleme özel yapılandırmasında](active-directory-aadconnectsync-whatis.md) tanımlanan şekilde, özel yapılandırmayı kullanarak yapılan tüm değişiklikleri yeniden uygulayın.
+Bu gibi durumlarda hello tooinstall yeni bir Azure AD Connect sunucusunun önerilir [hazırlama modu](active-directory-aadconnectsync-operations.md#staging-mode) ve doğrulama eski DirSync ile yeni Azure AD Connect yapılandırması hello. [Azure AD Connect Eşitleme özel yapılandırmasında](active-directory-aadconnectsync-whatis.md) tanımlanan şekilde, özel yapılandırmayı kullanarak yapılan tüm değişiklikleri yeniden uygulayın.
 
-DirSync tarafından hizmet hesapları için kullanılan parolalar alınamaz ve geçirilmez. Bu parolalar yükseltme sırasında sıfırlanır.
+hello hizmet hesapları için DirSync tarafından kullanılan hello parolalar alınamaz ve değil geçirilir. Bu parolalar hello yükseltme sırasında sıfırlanır.
 
-### <a name="high-level-steps-for-upgrading-from-dirsync-to-azure-ad-connect"></a>DirSync'ten Azure AD Connect'e yükseltme için üst düzey adımlar
-1. Azure AD Connect'e Hoş Geldiniz
+### <a name="high-level-steps-for-upgrading-from-dirsync-tooazure-ad-connect"></a>DirSync tooAzure AD Connect yükseltme için üst düzey adımlar
+1. Hoş Geldiniz tooAzure AD Connect
 2. Geçerli DirSync yapılandırmasının analizi
 3. Azure AD genel yönetici parolası toplama
-4. Kuruluş yöneticisi hesabı için kimlik bilgileri toplama (yalnızca Azure AD Connect yüklemesi sırasında kullanılır)
+4. (Azure AD Connect hello yükleme sırasında kullanılan yalnızca) bir kuruluş yöneticisi hesabı için kimlik bilgileri toplama
 5. Azure AD Connect yüklemesi
    * DirSync’i kaldırma (veya geçici olarak devre dışı bırakma)
    * Azure AD Connect'i yükleme
@@ -88,131 +88,131 @@ Ek adımların gerekli olduğu durumlar:
 * Eşitleme kapsamında 50.000'den fazla nesnenizin olması
 
 ## <a name="in-place-upgrade"></a>Yerinde yükseltme
-1. Azure AD Connect yükleyicisini (MSI) başlatın.
-2. Lisans koşulları ve gizlilik bildirimini gözden geçirin ve kabul edin.  
-   ![Azure AD'ye Hoş Geldiniz](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
-3. Mevcut DirSync yüklemenizin analizine başlamak için İleri'ye tıklayın.  
+1. Hello Azure AD Connect yükleyicisini (MSI) başlatın.
+2. Gözden geçirin ve toolicense koşulları ve gizlilik bildirimini kabul etmektesiniz.  
+   ![TooAzure AD Hoş Geldiniz](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
+3. Mevcut DirSync yüklemenizin sonraki toobegin çözümleme'yi tıklatın.  
    ![Mevcut Directory Sync yüklemesini analiz etme](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Analyze.png)
-4. Analiz tamamlandığında nasıl devam edeceğinize ilişkin öneriler görürsünüz.  
-   * SQL Server Express kullanıyorsanız ve 50.000'den az nesneniz varsa aşağıdaki ekran gösterilir:  
-     ![Analiz tamamlandı, DirSync'ten yükseltme yapmaya hazırsınız](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
+4. Merhaba analiz tamamlandığında nasıl hello önerilerini görmek tooproceed.  
+   * SQL Server Express kullanıyorsanız ve 50. 000'den az nesneniz varsa, aşağıdaki ekran hello gösterilir:  
+     ![Analiz tamamlandı, dirsync'ten hazır tooupgrade](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
    * DirSync için tam SQL Sunucusu kullanıyorsanız bu paketi görürsünüz:  
-     ![Analiz tamamlandı, DirSync’ten yükseltme yapmaya hazırsınız](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
-     DirSync tarafından kullanılan mevcut SQL Server veritabanı sunucusuyla ilgili bilgiler görüntülenir. Gerekirse uygun ayarlamaları yapın. Yüklemeye devam etmek için **İleri**'ye tıklayın.
+     ![Analiz tamamlandı, dirsync'ten hazır tooupgrade](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
+     DirSync tarafından kullanılan hello var olan SQL Server veritabanı sunucusunun ilgili Hello bilgileri görüntülenir. Gerekirse uygun ayarlamaları yapın. Tıklatın **sonraki** toocontinue hello yükleme.
    * 50.000’den fazla nesneniz varsa şu ekranı görürsünüz:  
-     ![Analiz tamamlandı, DirSync’ten yükseltme yapmaya hazırsınız](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
-     Yerinde yükseltme işlemiyle devam etmek için şu iletinin yanındaki onay kutusuna tıklayın: **Bu bilgisayarda DirSync'i yükseltmeye devam edin.**
-     Bunun yerine [paralel dağıtım](#parallel-deployment) yapmak için DirSync yapılandırma ayarlarını dışarı aktarın ve yapılandırmayı yeni sunucuya taşıyın.
-5. Şu anda Azure AD'ye bağlanmak için kullandığınız hesabın parolasını belirtin. Bu hesabın, şu anda DirSync tarafından kullanılan hesap olması gerekir.  
+     ![Analiz tamamlandı, dirsync'ten hazır tooupgrade](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
+     yerinde yükseltme ile tooproceed hello onay kutusu sonraki toothis iletiye tıklayın: **bu bilgisayarda Dirsync'i yükseltmeye devam edin.**
+     toodo bir [paralel dağıtım](#parallel-deployment) bunun yerine, hello DirSync yapılandırma ayarlarını dışarı aktarın ve hello yapılandırma toohello yeni sunucusuna taşıyın.
+5. Şu anda tooconnect tooAzure AD kullandığınız hello hesabı için Hello parola sağlayın. Bu, şu anda DirSync tarafından kullanılan hello hesabı olması gerekir.  
    ![Azure AD kimlik bilgilerinizi girin](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)  
    Bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa bkz. [Bağlantı sorunlarını giderme](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Active Directory için bir kuruluş yöneticisi hesabı sağlayın.  
    ![ADDS kimlik bilgilerinizi girin](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
-7. Artık yapılandırma için hazırsınız. **Yükselt**'e tıkladığınızda DirSync kaldırılır, Azure AD Connect yapılandırılır ve eşitleme başlar.  
-   ![Yapılandırma için hazır](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
-8. Yükleme tamamlandıktan sonra Synchronization Service Manager'ı ve Synchronization Rule Editor'ı kullanmadan veya başka bir yapılandırma değişikliği yapmadan önce Windows oturumunuzu kapatıp tekrar açın.
+7. Şimdi hazır tooconfigure olduğunuz. **Yükselt**'e tıkladığınızda DirSync kaldırılır, Azure AD Connect yapılandırılır ve eşitleme başlar.  
+   ![Hazır tooconfigure](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
+8. Merhaba yükleme tamamlandıktan sonra oturumu kapatın ve Eşitleme Hizmeti Yöneticisi, eşitleme kuralı düzenleyicisi kullanın ya da herhangi bir yapılandırma değişikliği toomake deneyin önce tooWindows içinde yeniden oturum açın.
 
 ## <a name="parallel-deployment"></a>Paralel dağıtım
-### <a name="export-the-dirsync-configuration"></a>DirSync yapılandırmasını dışarı aktarma
+### <a name="export-hello-dirsync-configuration"></a>Merhaba DirSync yapılandırmasını dışarı aktarma
 **50.000'den fazla nesneyle paralel dağıtım**
 
-50.000'den fazla nesneniz varsa Azure AD Connect yüklemesi tarafından paralel dağıtım seçeneğini kullanmanız önerilir.
+50. 000'den fazla nesneniz sahip sonra hello Azure AD Connect yükleme paralel dağıtım önerir.
 
-Şuna benzer bir ekran görüntülenir:  
+Ekran benzer toohello aşağıdaki görüntülenir:  
 ![Analiz tamamlandı](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)
 
-Paralel dağıtım ile devam etmek istiyorsanız şu adımları tamamlamanız gerekir:
+Paralel dağıtım ile tooproceed istiyorsanız, aşağıdaki adımları tooperform hello gerekir:
 
-* **Ayarları dışarı aktar** düğmesine tıklayın. Azure AD Connect'i ayrı bir sunucuya yüklediğinizde bu ayarlar, geçerli DirSync hesabınızdan yeni Azure AD Connect yüklemenize geçirilir.
+* Merhaba tıklatın **ayarlarını dışa aktarma** düğmesi. Azure AD Connect'i ayrı bir sunucuya yüklediğinizde, bu ayarlar, geçerli DirSync tooyour yeni Azure AD Connect'i yüklemeye geçirilir.
 
-Ayarlarınız başarıyla dışarı aktarıldıktan sonra DirSync sunucusundaki Azure AD Connect sihirbazından çıkabilirsiniz. [Azure AD Connect'i ayrı bir sunucuya yüklemek](#installation-of-azure-ad-connect-on-separate-server) için bir sonraki adımla devam edin
+Ayarlarınız başarıyla dışarı aktarıldıktan sonra hello Azure AD Connect Sihirbazı hello DirSync sunucusundaki çıkabilirsiniz. Çok Hello sonraki adıma devam[Azure AD Connect'i ayrı bir sunucuya yükleme](#installation-of-azure-ad-connect-on-separate-server)
 
 **50.000'den az nesneyle paralel dağıtım**
 
-50.000'den az nesneniz varsa ancak yine de paralel dağıtım yapmak istiyorsanız şunları yapın:
+Ardından 50. 000'den az nesneniz varsa, ancak yine de paralel dağıtım toodo mi yoksa aşağıdaki hello:
 
-1. Azure AD Connect yükleyicisini (MSI) çalıştırın.
-2. **Azure AD Connect'e Hoş Geldiniz** ekranını gördüğünüzde, pencerenin sağ üst köşesindeki "X" işaretine tıklayarak yükleme sihirbazından çıkın.
+1. Hello Azure AD Connect yükleyicisini (MSI) çalıştırın.
+2. Merhaba gördüğünüzde **Hoş Geldiniz tooAzure AD Connect** ekran, çıkış hello Yükleme Sihirbazı'hello "X" Merhaba sağ üst köşedeki hello penceresinin tıklatarak.
 3. Bir komut istemi açın.
-4. Azure AD Connect yükleme konumundan (Varsayılan: C:\Program Files\Microsoft Azure Active Directory Connect) şu komutu yürütün:  `AzureADConnect.exe /ForceExport`.
-5. **Ayarları dışarı aktar** düğmesine tıklayın. Azure AD Connect'i ayrı bir sunucuya yüklediğinizde bu ayarlar, geçerli DirSync hesabınızdan yeni Azure AD Connect yüklemenize geçirilir.
+4. Merhaba yükleme konumu Azure AD Connect (varsayılan: C:\Program Files\Microsoft Azure Active Directory Connect) hello aşağıdaki komutu yürütün: `AzureADConnect.exe /ForceExport`.
+5. Merhaba tıklatın **ayarlarını dışa aktarma** düğmesi. Azure AD Connect'i ayrı bir sunucuya yüklediğinizde, bu ayarlar, geçerli DirSync tooyour yeni Azure AD Connect'i yüklemeye geçirilir.
 
 ![Analiz tamamlandı](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
 
-Ayarlarınız başarıyla dışarı aktarıldıktan sonra DirSync sunucusundaki Azure AD Connect sihirbazından çıkabilirsiniz. [Azure AD Connect'i ayrı bir sunucuya yüklemek](#installation-of-azure-ad-connect-on-separate-server) için bir sonraki adımla devam edin.
+Ayarlarınız başarıyla dışarı aktarıldıktan sonra hello Azure AD Connect Sihirbazı hello DirSync sunucusundaki çıkabilirsiniz. Çok Hello sonraki adıma devam[Azure AD Connect'i ayrı bir sunucuya yüklemek](#installation-of-azure-ad-connect-on-separate-server).
 
 ### <a name="install-azure-ad-connect-on-separate-server"></a>Azure AD Connect'i ayrı bir sunucuya yükleme
-Azure AD Connect'i yeni bir sunucuya yüklediğinizde, Azure AD Connect’i temiz bir şekilde yüklemek istediğiniz varsayılır. DirSync yapılandırmasını kullanmak istiyorsanız tamamlamanız gereken bazı ek adımlar vardır:
+Azure AD Connect'i yeni bir sunucuya yüklediğinizde, hello tooperform Azure AD Connect temiz bir yüklemesini istediğiniz varsayılır. Toouse hello DirSync yapılandırması istediğinden, bazı ek adımlar tootake vardır:
 
-1. Azure AD Connect yükleyicisini (MSI) çalıştırın.
-2. **Azure AD Connect'e Hoş Geldiniz** ekranını gördüğünüzde, pencerenin sağ üst köşesindeki "X" işaretine tıklayarak yükleme sihirbazından çıkın.
+1. Hello Azure AD Connect yükleyicisini (MSI) çalıştırın.
+2. Merhaba gördüğünüzde **Hoş Geldiniz tooAzure AD Connect** ekran, çıkış hello Yükleme Sihirbazı'hello "X" Merhaba sağ üst köşedeki hello penceresinin tıklatarak.
 3. Bir komut istemi açın.
-4. Azure AD Connect yükleme konumundan (Varsayılan: C:\Program Files\Microsoft Azure Active Directory Connect) şu komutu yürütün: `AzureADConnect.exe /migrate`.
-   Azure AD Connect yükleme sihirbazı başlar ve şu ekranla karşılaşırsınız:  
+4. Merhaba yükleme konumu Azure AD Connect (varsayılan: C:\Program Files\Microsoft Azure Active Directory Connect) hello aşağıdaki komutu yürütün: `AzureADConnect.exe /migrate`.
+   Hello Azure AD Connect Yükleme Sihirbazı'nı başlatır ve ekran aşağıdaki hello ile sunar:  
    ![Azure AD kimlik bilgilerinizi girin](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
-5. DirSync yüklemesinden dışarı aktarılan ayarlar dosyasını seçin.
+5. DirSync yüklemesinden dışarı aktarılan hello ayarları dosyasını seçin.
 6. Şunlar dahil olmak üzere tüm gelişmiş seçenekleri yapılandırın:
    * Azure AD Connect için özel bir yükleme konumu.
-   * Mevcut bir SQL Server örneği (Varsayılan: Azure AD Connect, SQL Server 2012 Express'i yükler). DirSync sunucunuzla aynı veritabanını kullanmayın.
-   * SQL Server'a bağlanmak için kullanılan hizmet hesabı. (SQL Server veritabanınız uzak ise bu hesabın etki alanı hizmet hesabı olması gerekir.)
+   * Mevcut bir SQL Server örneği (Varsayılan: Azure AD Connect, SQL Server 2012 Express'i yükler). Merhaba kullanmayın DirSync sunucunuzla aynı veritabanı örneği.
+   * (Bu hesap bir etki alanı hizmeti hesabı olması gerekir SQL Server veritabanınız uzak ise) bir hizmet hesabı tooconnect tooSQL sunucu kullanılır.
      Bu seçenekler şu ekranda görülebilir:  
      ![Azure AD kimlik bilgilerinizi girin](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 7. **İleri**’ye tıklayın.
-8. **Yapılandırma için hazır** sayfasında, **Start the synchronization process as soon as configuration completes (Yapılandırma tamamlanınca eşitlemeyi başlat)** seçeneğini işaretli olarak bırakın. Sunucu şu an [hazırlama modunda](active-directory-aadconnectsync-operations.md#staging-mode) olduğundan değişiklikler Azure AD’ye dışarı aktarılmaz.
+8. Merhaba üzerinde **hazır tooconfigure** sayfasında, hello bırakın **hello Yapılandırma tamamlandıktan hemen sonra hello eşitleme işlemini başlatmak** işaretli. Hello server şu an içinde [hazırlama modu](active-directory-aadconnectsync-operations.md#staging-mode) nedenle değişiklikleri dışarı aktarılan tooAzure AD değildir.
 9. **Yükle**'ye tıklayın.
-10. Yükleme tamamlandıktan sonra Synchronization Service Manager'ı ve Synchronization Rule Editor'ı kullanmadan veya başka bir yapılandırma değişikliği yapmadan önce Windows oturumunuzu kapatıp tekrar açın.
+10. Merhaba yükleme tamamlandıktan sonra oturumu kapatın ve Eşitleme Hizmeti Yöneticisi, eşitleme kuralı düzenleyicisi kullanın ya da herhangi bir yapılandırma değişikliği toomake deneyin önce tooWindows içinde yeniden oturum açın.
 
 > [!NOTE]
-> Windows Server Active Directory ile Azure Active Directory arasında eşitleme başlar, ancak hiçbir değişiklik Azure AD'ye dışarı aktarılmaz. Aynı anda yalnızca bir eşitleme aracı değişiklikleri etkin olarak dışarı aktarabilir. Bu durum, [hazırlama modu](active-directory-aadconnectsync-operations.md#staging-mode) olarak adlandırılır.
+> Windows Server Active Directory ve Azure Active Directory arasında eşitleme başlar ancak dışarı aktarılan tooAzure AD hiçbir değişir. Aynı anda yalnızca bir eşitleme aracı değişiklikleri etkin olarak dışarı aktarabilir. Bu durum, [hazırlama modu](active-directory-aadconnectsync-operations.md#staging-mode) olarak adlandırılır.
 
-### <a name="verify-that-azure-ad-connect-is-ready-to-begin-synchronization"></a>Azure AD Connect'in eşitlemeye başlamak için hazır olduğunu doğrulama
-Azure AD Connect'in DirSync'ten devralma işleminin hazır olduğunu doğrulamak için başlat menüsünden **Azure AD Connect** grubundaki **Synchronization Service Manager**'ı açmanız gerekir.
+### <a name="verify-that-azure-ad-connect-is-ready-toobegin-synchronization"></a>Azure AD Connect hazır toobegin eşitleme olduğunu doğrulayın
+Azure AD Connect, dirsync'ten üzerinden hazır tootake tooverify, gereksinim duyduğunuz tooopen **Eşitleme Hizmeti Yöneticisi'ni** hello grubundaki **Azure AD Connect** hello Başlat menüsünden.
 
-Uygulamada **İşlemler** sekmesine gidin. Bu sekmede şu işlemlerin tamamlandığını doğrulayın:
+Merhaba uygulamada toohello Git **Operations** sekmesi. Bu sekmede, işlemleri aşağıdaki o hello tamamladığınızdan onaylayın:
 
-* AD Bağlayıcısı üzerinde içeri aktarma
-* Azure AD Bağlayıcısı üzerinde içeri aktarma
-* AD Bağlayıcısı üzerinde tam eşitleme
-* Azure AD Bağlayıcısı üzerinde tam eşitleme
+* Merhaba AD Bağlayıcısı üzerinde içeri aktarma
+* Hello Azure AD Bağlayıcısı üzerinde içeri aktarma
+* Merhaba AD Bağlayıcısı üzerinde tam eşitleme
+* Hello Azure AD Bağlayıcısı üzerinde tam eşitleme
 
 ![İçeri aktarma ve Eşitleme tamamlandı](./media/active-directory-aadconnect-dirsync-upgrade-get-started/importsynccompleted.png)
 
-Bu işlemlerin sonucunu gözden geçirin ve herhangi bir hata olmadığından emin olun.
+Bu işlemlerin Hello sonucunu gözden geçirin ve hiç hata olmadığından emin olun.
 
-Azure AD'ye aktarılacak olan değişiklikleri görmek ve incelemek isterseniz [hazırlama modu](active-directory-aadconnectsync-operations.md#staging-mode) bölümüne giderek yapılandırmanın nasıl doğrulanacağı hakkında bilgi edinin. Beklenmeyen bir durumla karşılaşmadığınız sürece gerekli yapılandırma değişikliklerini yapın.
+Toosee istediğiniz ve AD dışarı toobe tooAzure hakkında hello değişikliklerini inceleyin, ardından nasıl tooverify hello yapılandırmada okuma [hazırlama modu](active-directory-aadconnectsync-operations.md#staging-mode). Beklenmeyen bir durumla karşılaşmadığınız sürece gerekli yapılandırma değişikliklerini yapın.
 
-Bu adımları tamamladıysanız ve sonuçtan memnunsanız DirSync’ten Azure AD’ye geçmeye hazırsınız demektir.
+DirSync tooAzure zaman bu adımları tamamladıktan ve hello sonuçla Mutluluk duyuyoruz AD alanından hazır tooswitch var.
 
 ### <a name="uninstall-dirsync-old-server"></a>DirSync'i (eski sunucuyu) kaldırma
 * **Programlar ve özellikler**’de **Microsoft Azure Active Directory eşitleme aracını** bulun
 * **Microsoft Azure Active Directory eşitleme aracını** kaldırma
-* Kaldırma işlemi 15 dakika kadar sürebilir.
+* Merhaba kaldırma too15 dakika toocomplete alabilir.
 
-DirSync’i daha sonra kaldırmak isterseniz sunucuyu geçici olarak kapatabilir veya hizmeti devre dışı bırakabilirsiniz. Yanlış giden bir şey olursa bu yöntem, hizmeti yeniden etkinleştirmenize izin verir. Ancak sonraki adımın başarısız olması beklenmediğinden buna ihtiyacınız olmayabilir.
+Daha sonra DirSync toouninstall tercih ederseniz, geçici olarak hello sunucusunu kapatın veya hello hizmetini devre dışı bırakın. Bu yöntem bir sorun yaşanırsa toore etkinleştir tanır. Ancak, bu gerekli böylece bu hello sonraki adımı başarısız olur beklenmiyor.
 
-DirSync kaldırıldığında veya devre dışı bırakıldığında Azure AD’ye dışarı aktarım gerçekleştiren hiç etkin sunucu kalmaz. Şirket içi Active Directory'nizdeki değişiklikler Azure AD ile eşitlenmeye devam etmeden önce Azure AD’yi etkinleştirmeye yönelik bir sonraki adımın tamamlanması gerekir.
+Kaldırılması veya devre dışı DirSync ile tooAzure AD dışarı aktarma etkin sunucusu yok. Merhaba sonraki adım tooenable Azure AD Connect değişiklikleri şirket içi Active Directory'de eşitlenen toobe tooAzure AD devam etmeden önce tamamlanması gerekir.
 
 ### <a name="enable-azure-ad-connect-new-server"></a>Azure AD Connect'i (yeni sunucu) etkinleştirme
-Yükleme sonrasında Azure AD Connect'i yeniden açarak ek yapılandırma değişiklikleri gerçekleştirebilirsiniz. **Azure AD Connect**'i başlat menüsünden veya masaüstündeki kısayoldan başlatın. MSI yüklemesini tekrar çalıştırmayı denemeyin.
+Yükleme sonrasında, Azure AD açmayı Connect'i toomake ek yapılandırma değişiklikleri izin verin. Başlat **Azure AD Connect** hello Başlat menüsünden veya hello masaüstünde hello kısayol. Toorun hello MSI yüklemesini tekrar denemek emin olun.
 
-Şunları görmeniz gerekir:  
+Merhaba şunları görmeniz gerekir:  
 ![Ek görevler](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AdditionalTasks.png)
 
 * **Hazırlama modunu yapılandır** seçeneğini belirleyin.
-* **Hazırlama modunu etkinleştir** onay kutusunun işaretini kaldırarak hazırlamayı devre dışı bırakın.
+* İn işaretini kaldırarak hello tarafından hazırlamayı devre dışı bırakma **hazırlama modunu** onay kutusu.
 
 ![Azure AD kimlik bilgilerinizi girin](./media/active-directory-aadconnect-dirsync-upgrade-get-started/configurestaging.png)
 
-* **İleri** düğmesine tıklayın
-* Onay sayfasındaki **yükle** düğmesine tıklayın.
+* Merhaba tıklatın **sonraki** düğmesi
+* Merhaba Hello onay sayfasında, tıklatın **yükleme** düğmesi.
 
-Azure AD Connect artık etkin sunucunuzdur ve mevcut DirSync sunucunuzu kullanmaya geri dönemezsiniz.
+Azure AD Connect artık etkin sunucunuzdur ve geri toousing mevcut DirSync sunucunuzu geçiş gerekir değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure AD Connect'i yüklediniz, artık [yüklemeyi doğrulayabilir ve lisans atayabilirsiniz](active-directory-aadconnect-whats-next.md).
+Azure AD Connect'i sahip olduğunuza göre şunları yapabilirsiniz [hello yüklemeyi doğrulayın ve lisansları atama](active-directory-aadconnect-whats-next.md).
 
-Yüklemeyle etkinleştirilen şu yeni özellikler hakkında daha fazla bilgi edinin: [Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md), [Yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) ve [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
+Merhaba yüklemeyle etkinleştirilen şu yeni özellikler hakkında daha fazla bilgi edinin: [otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md), [yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md), ve [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
 
-Şu genel konu başlıkları hakkında daha fazla bilgi edinin: [Zamanlayıcı ve eşitleme tetikleme](active-directory-aadconnectsync-feature-scheduler.md).
+Bu genel konular hakkında daha fazla bilgi edinin: [Zamanlayıcı ve nasıl tootrigger eşitleme](active-directory-aadconnectsync-feature-scheduler.md).
 
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.

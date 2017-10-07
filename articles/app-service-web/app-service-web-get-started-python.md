@@ -1,5 +1,5 @@
 ---
-title: "Azure'da Python web uygulaması oluşturma | Microsoft Docs"
+title: "aaaCreate bir Python web uygulamasını Azure | Microsoft Docs"
 description: "Azure App Service Web Uygulamalarında ilk Python Hello World uygulamanızı birkaç dakika içinde dağıtın."
 services: app-service\web
 documentationcenter: 
@@ -15,22 +15,22 @@ ms.topic: quickstart
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 119f9770097c010cc360e0e204d06a307a268814
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 42178d490d8aa8eaf93710667aad598794c62c8f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Azure’da Python web uygulaması oluşturma
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisi, Azure Web Apps'te bir Python uygulaması geliştirip dağıtma konusunda yol göstermektedir. Web uygulamasını [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'yi kullanarak oluşturabilir ve web uygulamasında örnek Python kodu dağıtmak için Git'i kullanabilirsiniz.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç nasıl anlatılmaktadır toodevelop ve Python uygulama tooAzure Web uygulamaları dağıtın. Hello kullanarak hello web uygulaması oluşturma [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), ve Git toodeploy örnek Python kodu toohello web uygulaması kullanın.
 
 ![Azure'da çalışan örnek uygulama](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.
-## <a name="prerequisites"></a>Önkoşullar
+Mac, Windows veya Linux makine kullanarak aşağıda hello adımları izleyebilirsiniz. Merhaba önkoşulları yüklendikten sonra yaklaşık beş dakika toocomplete hello tedbirleri alır.
+## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için:
+toocomplete Bu öğretici:
 
 1. [Git'i yükleyin](https://git-scm.com/)
 1. [Python'ı yükleyin](https://www.python.org/downloads/)
@@ -39,47 +39,47 @@ Bu öğreticiyi tamamlamak için:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu konuda hello Azure CLI Sürüm 2.0 veya üstü çalıştığını gerektirir. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-## <a name="download-the-sample"></a>Örneği indirme
+## <a name="download-hello-sample"></a>Merhaba örnek indirme
 
-Bir terminal penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
+Bir terminal penceresi komutu tooclone hello örnek uygulama havuzu tooyour yerel makine aşağıdaki hello çalıştırın.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-Bu hızlı başlangıç öğreticisindeki tüm komutları çalıştırmak için bu terminal penceresini kullanırsınız.
+Bu bir terminal penceresi toorun Bu hızlı başlangıcı tüm hello komutları kullanın.
 
-Örnek kodu içeren dizine geçin.
+Merhaba örnek kod içeren toohello dizini değiştirin.
 
 ```bash
 cd Python-docs-hello-world
 ```
 
-## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
+## <a name="run-hello-app-locally"></a>Merhaba uygulamayı yerel olarak çalıştırma
 
-Gereken paketleri `pip` kullanarak yükleyin.
+Kullanarak hello gerekli paketleri yüklemek `pip`.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Yerleşik Python web sunucusunu başlatmak için bir terminal penceresi açıp ve `Python` komutunu kullanıp uygulamayı yerel olarak çalıştırın.
+Merhaba uygulaması bir terminal penceresi açarak ve hello kullanarak yerel olarak çalıştırın `Python` komutu toolaunch hello yerleşik Python web sunucusu.
 
 ```bash
 python main.py
 ```
 
-Bir web tarayıcısı açın ve http://localhost:5000 konumundaki örnek uygulamaya gidin.
+Bir web tarayıcısı açın ve http://localhost: 5000 toohello örnek uygulamaya gidin.
 
-Sayfada gösterilen örnek uygulamada **Hello World** iletisini görebilirsiniz.
+Merhaba görebilirsiniz **Hello World** hello örnek uygulamadan hello sayfasında görüntülenen ileti.
 
 ![Yerel olarak çalışan örnek uygulama](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
 
-Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
+Terminal pencerenizde basın **Ctrl + C** tooexit hello web sunucusu.
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [Log in tooAzure](../../includes/login-to-azure.md)] 
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
@@ -93,24 +93,24 @@ Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 Azure'da yeni bir boş uygulama oluşturdunuz.
 
-## <a name="configure-to-use-python"></a>Python kullanacak şekilde yapılandırma
+## <a name="configure-toouse-python"></a>Toouse Python yapılandırın
 
-Web uygulamasını Python `3.4` sürümünü kullanacak şekilde yapılandırmak için [az webapp config set](/cli/azure/webapp/config#set) komutunu kullanın.
+Kullanım hello [az webapp yapılandırma kümesi](/cli/azure/webapp/config#set) komutu tooconfigure hello web uygulama toouse Python sürümü `3.4`.
 
 ```azurecli-interactive
 az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
 
-Python sürümü bu şekilde ayarlandığında, platform tarafından sağlanan varsayılan bir kapsayıcı kullanılır. Kendi kapsayıcınızı kullanmak üzere, [az webapp config container set](/cli/azure/webapp/config/container#set) komutuna ilişkin CLI başvurusuna bakın.
+Bu şekilde Hello Python sürümü ayarı hello platform tarafından sağlanan varsayılan kapsayıcı kullanır. toouse kendi kapsayıcı bkz hello hello için CLI başvurusu [az webapp config kapsayıcı kümesi](/cli/azure/webapp/config/container#set) komutu.
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push tooAzure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 18, done.
-Delta compression using up to 4 threads.
+Delta compression using up too4 threads.
 Compressing objects: 100% (16/16), done.
 Writing objects: 100% (18/18), 4.31 KiB | 0 bytes/s, done.
 Total 18 (delta 4), reused 0 (delta 0)
@@ -146,56 +146,56 @@ remote:         1 file(s) copied.
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+toohttps://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## <a name="browse-to-the-app"></a>Uygulamaya göz atma
+## <a name="browse-toohello-app"></a>Toohello uygulama Gözat
 
-Web tarayıcınızı kullanarak dağıtılan uygulamaya göz atın.
+Web tarayıcınız üzerinden dağıtılan toohello uygulama göz atın.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Python örnek kodu bir Azure App Service web uygulamasında çalışıyor.
+Merhaba Python örnek kod bir Azure App Service web uygulaması çalışıyor.
 
 ![Azure'da çalışan örnek uygulama](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-**Tebrikler!** App Service’e ilk Python uygulamanızı dağıttınız.
+**Tebrikler!** İlk Python uygulaması tooApp hizmeti dağıttıktan sonra.
 
-## <a name="update-and-redeploy-the-code"></a>Kodu güncelleştirme ve yeniden dağıtma
+## <a name="update-and-redeploy-hello-code"></a>Güncelleştirme ve hello kodu yeniden dağıtın
 
-Yerel bir metin düzenleyici kullanarak `main.py` dosyasını Python uygulamasında açın ve `return` deyiminin yanındaki metinde küçük bir değişiklik yapın:
+Bir yerel metin düzenleyicisi kullanarak hello açmak `main.py` dosya hello Python uygulamada ve küçük değişiklikler toohello metin sonraki toohello olun `return` deyimi:
 
 ```python
 return 'Hello, Azure!'
 ```
 
-Değişikliklerinizi Git’e işleyin ve ardından kod değişikliklerini Azure’a gönderin.
+Git yaptığınız değişiklikleri kaydetmek ve hello kod değişiklikleri tooAzure gönderme.
 
 ```bash
 git commit -am "updated output"
 git push azure master
 ```
 
-Dağıtım tamamlandıktan sonra [Uygulamaya göz atma](#browse-to-the-app) adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.
+Dağıtım tamamlandıktan sonra hello açılan arka toohello tarayıcı penceresine dönün [Gözat toohello uygulama](#browse-to-the-app) adım ve yenileme hello sayfası.
 
 ![Azure'da çalışan güncelleştirilmiş örnek uygulama](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Yeni Azure web uygulamanızı yönetme
 
-Oluşturduğunuz web uygulamasını yönetmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
+Toohello Git <a href="https://portal.azure.com" target="_blank">Azure portal</a> oluşturduğunuz toomanage hello web uygulaması.
 
-Sol menüden **Uygulama Hizmetleri**'ne ve ardından Azure web uygulamanızın adına tıklayın.
+Merhaba sol menüden **uygulama hizmetleri**ve ardından, Azure web uygulamanızın hello adına tıklayın.
 
-![Portaldan Azure web uygulamasına gitme](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
+![Portal Gezinti tooAzure web uygulaması](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
 Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. 
 
 ![Azure portalında App Service dikey penceresi](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar. 
+Merhaba soldaki menüden, uygulamanızı yapılandırmak için farklı sayfaları sağlar. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

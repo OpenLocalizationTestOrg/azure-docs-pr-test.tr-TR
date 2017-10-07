@@ -1,5 +1,5 @@
 ---
-title: "Veri Fabrikası kullanım örneği - ürün önerileri"
+title: "aaaData Fabrika kullanım örneği - ürün önerileri"
 description: "Diğer hizmetlerin yanı sıra Azure Data Factory kullanarak uygulanan bir kullanım durumu hakkında bilgi edinin."
 services: data-factory
 documentationcenter: 
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
-ms.openlocfilehash: 697e7814f0e7c4407728e6623c8f36a6c4abeb56
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d7912965fe4762d64e8ca3c28381ea6187f36631
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-case---product-recommendations"></a>Kullanım Örneği - Ürün Önerileri
-Azure Data Factory Çözüm Hızlandırıcıları Cortana Intelligence Suite uygulamak için kullanılan birçok hizmetlerden biridir.  Bkz: [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) bu paketi hakkında ayrıntılar için sayfa. Bu belgede, Azure kullanıcıların zaten Çözüldü ve Azure Data Factory ve diğer Cortana Intelligence Bileşen Hizmetleri kullanılarak uygulanan ortak bir kullanım örneği açıklanmaktadır.
+Azure Data Factory birçok kullanılan hizmetler tooimplement hello Cortana Intelligence Suite Çözüm Hızlandırıcıları, biridir.  Bkz: [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) bu paketi hakkında ayrıntılar için sayfa. Bu belgede, Azure kullanıcıların zaten Çözüldü ve Azure Data Factory ve diğer Cortana Intelligence Bileşen Hizmetleri kullanılarak uygulanan ortak bir kullanım örneği açıklanmaktadır.
 
 ## <a name="scenario"></a>Senaryo
-Çevrimiçi Perakendeciler genellikle büyük olasılıkla ilginizi olmasını ve bu nedenle büyük olasılıkla satın ürünleriyle sunarak ürünlerini satın müşterilerine ikna istiyorsunuz. Bunu gerçekleştirmek için çevrimiçi Perakendeciler, belirli bir kullanıcı için kişiselleştirilmiş ürün önerilerini kullanarak kendi kullanıcının çevrimiçi deneyimini özelleştirme gerekir. Kişiselleştirilmiş Bu öneriler, geçerli ve geçmiş davranışı verileri, ürün bilgilerini, yeni sunulan markalar ve ürün ve müşteri Segment veri alışveriş göre tabanlı yapılması üzeresiniz.  Ayrıca, bunlar birlikte, tüm kullanıcıların genel kullanım davranış analizini göre kullanıcı ürün önerilerini sağlayabilir.
+Müşteriler toopurchase ürünlerini yaygın olarak istediğiniz tooentice bunları oldukları ürünlerle büyük olasılıkla toobe ilginizi ve bu nedenle büyük olasılıkla toobuy sunarak çevrimiçi Perakendeciler. tooaccomplish Bu, çevrimiçi Perakendeciler gereksinim toocustomize kendi kullanıcının çevrimiçi deneyimi, belirli bir kullanıcı için kişiselleştirilmiş ürün önerilerini kullanarak. Bu kişiselleştirilmiş geçerli ve geçmiş alışveriş davranışı verilerini üzerinde ürün bilgilerini göre yapılan toobe yeni markalar ve ürün ve müşteri Segment veri sunulan önerilerdir.  Ayrıca, bunlar birlikte, tüm kullanıcıların genel kullanım davranış analizini göre hello kullanıcı ürün önerilerini sağlayabilir.
 
-Kullanıcı tıklatın satış dönüştürmeleri için en iyi duruma getirme ve daha yüksek satış gelirinin kazanmak için bu perakende belirtilir.  Bunlar, bu dönüştürme Müşteri ilgi alanları ve Eylemler dayalı olarak bağlamsal, davranış tabanlı ürün öneriler sunarak elde edin. Bu kullanım durumu için örnek olarak, müşterileri için en iyi duruma getirmek istediğiniz işletmeler çevrimiçi Perakendeciler kullanın. Ancak, bu ilkeler, müşterilerinin kendi mal ve hizmet geçici devreye ve müşterilerin satın alma kişiselleştirilmiş ürün önerilerini deneyiminizi geliştirmek için istediği herhangi bir işletme için geçerlidir.
+Bu perakende Hello amacı toooptimize kullanıcı tıklatın satış dönüştürmeleri için olduğundan ve daha yüksek satış gelirinin kazanırsınız.  Bunlar, bu dönüştürme Müşteri ilgi alanları ve Eylemler dayalı olarak bağlamsal, davranış tabanlı ürün öneriler sunarak elde edin. Bu kullanım durumu için örnek olarak, müşterileri için toooptimize isteyen işletmeler çevrimiçi Perakendeciler kullanın. Ancak, bu ilkeler, müşterilerinin kendi mal ve hizmet çevresinde tooengage istediği tooany iş uygulayın ve müşterilerin satın alma kişiselleştirilmiş ürün önerilerini deneyiminizi geliştirmek.
 
 ## <a name="challenges"></a>Zorlukları
-Birçok zorluklar mevcuttur, çevrimiçi Perakendeciler yüz bu tür bir kullanım örneği çalışırken. 
+Birçok zorluklar mevcuttur, çevrimiçi Perakendeciler yüz tooimplement kullanım örneği bu tür çalışırken. 
 
-İlk olarak, farklı boyutlarda ve şekiller verilerin birden çok veri kaynaklarından alınan gerekir hem şirket içinde ve bulutta. Kullanıcının çevrimiçi perakende site gözatar olarak bu veriler ürün verilerini, geçmiş müşteri davranışı verileri ve kullanıcı verilerini içerir. 
+İlk olarak, farklı boyutlarda ve şekiller verilerin birden çok veri kaynaklarından alınan gerekir hem şirket içi ve hello bulutta. Merhaba kullanıcı hello çevrimiçi perakende site gözatar olarak bu veriler ürün verilerini, geçmiş müşteri davranışı verileri ve kullanıcı verilerini içerir. 
 
-İkinci, kişiselleştirilmiş ürün önerilerini makul ve doğru şekilde hesaplanan tahmin ve gerekir. Ürün, marka ve müşteri davranışı ve tarayıcı verilerini ek olarak, çevrimiçi Perakendeciler, ayrıca kullanıcı için en iyi ürün önerilerini belirlenmesi faktörü son alışveriş müşteri geri bildirimi eklemeniz gerekir. 
+İkinci, kişiselleştirilmiş ürün önerilerini makul ve doğru şekilde hesaplanan tahmin ve gerekir. Ayrıca tooproduct, marka ve müşteri verileri davranışı ve tarayıcı, çevrimiçi Perakendeciler hello kullanıcıdan ayrıca hello en iyi ürün önerilerini hello belirlenmesi, geçmiş satın alma işlemleri toofactor tooinclude müşteri geri bildirimi gerekir. 
 
-Üçüncü önerileri sorunsuz göz atma ve satın alma deneyimi sağlamak ve en son ve ilgili öneriler sunmak için kullanıcıya hemen teslim edilebilir olmalıdır. 
+Üçüncü hello önerileri hemen teslim edilebilir toohello kullanıcı tooprovide sorunsuz gözatma ve deneyimi satın alma ve gerekir hello en son ve ilgili öneriler sağlar. 
 
-Son olarak, perakende genel yukarı satış izleyerek kendi yaklaşım etkisini ölçmek ve çapraz satış tıklatın dönüştürme satış başarı ve bunların gelecekteki önerileri ayarlamak gerekir.
+Son olarak, perakende genel yukarı satış izleyerek kendi yaklaşım toomeasure hello verimliliğini gerekir ve çapraz satış tıklatın dönüştürme satış başarı ve tootheir gelecekteki önerileri ayarlayın.
 
 ## <a name="solution-overview"></a>Çözüme genel bakış
 Bu örnek kullanım örneği Çözüldü ve Azure Data Factory ve de dahil olmak üzere diğer Cortana Intelligence component services kullanarak gerçek Azure kullanıcılar tarafından uygulanan [Hdınsight](https://azure.microsoft.com/services/hdinsight/) ve [Power BI](https://powerbi.microsoft.com/).
 
-Çevrimiçi satıcısı kendi veri depolama seçenekleri iş akışı boyunca olarak Azure Blob Depolama, bir şirket içi SQL server, Azure SQL DB ve bir ilişkisel veri reyonu kullanır.  Blob deposu, müşteri bilgileri, müşteri davranışı verileri ve ürün bilgi verilerini içerir. Bir ürün kataloğu depolanmış şirket içi SQL veri ambarı ve ürün bilgileri verileri ürün marka bilgileri içerir. 
+Merhaba çevrimiçi satıcısı kendi veri depolama seçenekleri hello iş akışı boyunca olarak Azure Blob Depolama, bir şirket içi SQL server, Azure SQL DB ve bir ilişkisel veri reyonu kullanır.  Merhaba blob deposu, müşteri bilgileri, müşteri davranışı verileri ve ürün bilgi verilerini içerir. Merhaba ürün bilgisi verileri ürün marka bilgileri ve ürün kataloğu içerir şirket içi bir SQL veri ambarında depolanır. 
 
-Tüm veriler birleştirilmiş ve müşteri ilgi alanları ve Eylemler, Ürün Kataloğu Web sitesi kullanıcı gözatar sırada dayalı olarak kişiselleştirilmiş öneriler sunmak için bir ürün öneri sistemine ssas'nin. Müşteriler, ayrıca tek bir kullanıcıya ilgili olmayan genel Web sitesi kullanım desenlerini bakarak ürün ilgili ürünler dayalı bakın.
+Tüm hello veriler birleştirilmiş ve ürünleri hello Web sitesinde hello kataloğunda hello kullanıcı gözatar müşteri ilgi alanları ve Eylemler, tabanlı bir ürün öneri sistem kişiselleştirilmiş toodeliver önerileri içine ssas'nin. Merhaba müşterileri de toohello ürün bakarak bir kullanıcı ilgili tooany olmayan genel Web sitesi kullanım düzenlerini esas alarak ilgili ürünler bakın.
 
 ![Kullanım örneği diyagramı](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-Ham web günlüğü dosyalarını gigabayt günlük olarak yarı yapılandırılmış dosyaları çevrimiçi satıcısında'nın Web sitesinden üretilir. Ham web günlük dosyaları ve müşteri ve ürün kataloğu bilgilerini alınan düzenli aralıklarla veri fabrikasının genel olarak dağıtılmış veri taşıma hizmeti olarak kullanarak bir Azure Blob depolama alanına. Gün için ham günlük dosyaları, uzun vadeli depolama için blob depolama birimindeki (yıl ve ay) bölümlenir.  [Azure Hdınsight](https://azure.microsoft.com/services/hdinsight/) blob deposu ham günlük dosyalarında bölüm ve Hive veya Pig betikleri kullanarak ölçekte alınan günlükleri işlemek için kullanılır. Verileri bölümlenen web günlüklerini öğrenme öneri sistemine kişiselleştirilmiş ürün öneri oluşturmak amacıyla bir makine için gerekli girişleri ayıklamak için işlenir.
+Ham web günlüğü dosyalarını gigabayt olarak yarı yapılandırılmış dosyaları günlük hello çevrimiçi satıcısında'nın Web sitesinden üretilir. Ham web günlüğü dosyalarını hello ve hello müşteri ve ürün kataloğu bilgilerini düzenli olarak veri fabrikasının genel olarak dağıtılmış veri taşıma hizmeti olarak kullanarak bir Azure Blob depolama alanına alınan. Merhaba ham günlük dosyalarını hello gün için uzun vadeli depolama için blob depolama birimindeki (yıl ve ay) bölümlenir.  [Azure Hdınsight](https://azure.microsoft.com/services/hdinsight/) Hive veya Pig betikleri kullanarak ölçekli depolama ve işlem alınan hello günlüklerini hello blob kullanılan toopartition hello ham günlük dosyalarında olduğu. veriler bölümlenmiş web günlüklerini hello sonra işlenen tooextract hello girişleri öneri sistem toogenerate kişiselleştirilmiş hello ürün önerilerini öğrenme bir makine için gerekli.
 
-Bu örnekte öğrenme makine için kullanılan öneri öneri platformundan öğrenme bir açık kaynak makine sistemidir [Apache Mahout](http://mahout.apache.org/).  Tüm [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) veya özel model senaryoya uygulanabilir.  Mahout modeli genel kullanım düzenlerini esas alarak Web sitesinde öğeleri arasında benzerlik tahmin etmek ve bireysel kullanıcıyı temel alarak kişiselleştirilmiş öneri oluşturmak amacıyla kullanılır.
+Merhaba Bu örnekte hello machine learning için kullanılan öneri öneri platformundan öğrenme bir açık kaynak makine sistemidir [Apache Mahout](http://mahout.apache.org/).  Tüm [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) veya özel model uygulanan toohello senaryo olabilir.  Genel kullanım düzenlerini esas alarak hello Web sitesinde öğeleri ve hello bireysel kullanıcıyı temel alarak toogenerate kişiselleştirilmiş hello önerileri arasında kullanılan toopredict hello benzerlik Hello Mahout modelidir.
 
-Son olarak, kişiselleştirilmiş ürün önerilerini sonuç kümesini bir ilişkisel veri reyonuna tüketimi için satıcıya Web sitesi tarafından taşınır.  Sonuç kümesi ayrıca doğrudan blob depolama alanından başka bir uygulama tarafından erişilen, veya ek mağazaları diğer tüketicilerin ve kullanım örnekleri için taşınır.
+Son olarak, hello sonuç kişiselleştirilmiş ürün önerilerini tüketimi hello satıcısında Web sitesi tarafından taşınan tooa ilişkisel veri reyonu kümesidir.  Hello sonuç kümesi, doğrudan blob depolama alanından başka bir uygulama tarafından erişilemedi veya diğer tüketicilerin ve kullanım örnekleri için tooadditional depoları taşınır.
 
 ## <a name="benefits"></a>Avantajlar
-Kendi ürün öneri stratejisi en iyi duruma getirme ve iş hedeflerini ile hizalama çözümü çevrimiçi Satıcısı'nın ticaret ve hedefleri pazarlama karşılanır. Ayrıca, bunlar faaliyete ve ürün öneri iş akışı verimli, güvenilir ve uygun maliyetli bir şekilde yönetmek kullanabilirsiniz. Yaklaşım bunları kendi modeli güncelleştirmek ve satış tıklatın dönüştürme başarıları ölçüler üzerinde temel verimliliğinden ince ayar yapmak daha kolay hale. Azure Data Factory kullanarak, kullanıcılar kendi zaman alabilir ve pahalı el ile bulut kaynak yönetimi bırakın ve isteğe bağlı bulut kaynak yönetimi için taşıma. Bu nedenle, bunlar zaman, para tasarrufu ve çözüm dağıtımı için kendi süresini azaltabilir. Veri çizgileri görünümleri ve işletimsel hizmet durumu görselleştirmek ve sezgisel Data Factory izleme ve yönetim Azure portalından kullanılabilir kullanıcı Arabirimi ile ilgili sorunları giderme kolay hale geldi. Kendi çözüm şimdi zamanlanmış ve böylece bitmiş veri güvenilir bir şekilde üretilen ve kullanıcılara teslim ve verileri ve işleme bağımlılıkları insan etkileşimi olmadan otomatik olarak yönetilir yönetilir.
+Kendi ürün öneri stratejisi en iyi duruma getirme ve iş hedeflerini ile hizalama hello çözüm hello çevrimiçi Satıcısı'nın ticaret ve hedefleri pazarlama karşılıyor. Ayrıca, mümkün toooperationalize olan ve hello ürün öneri akışını verimli, güvenilir ve uygun maliyetli bir şekilde yönetin. Merhaba yaklaşım yaptığı kolay kendileri için tooupdate kendi model ve satış tıklatın dönüştürme başarıları hello ölçüler üzerinde temel verimliliğinden ince ayar yapma. Azure Data Factory kullanarak kendi zaman alabilir ve pahalı el ile bulut kaynak yönetimi mümkün tooabandon olan ve tooon isteğe bulut kaynak yönetimi taşıyın. Bu nedenle, mümkün toosave sürenin, para ve bunların zamanı toosolution dağıtımı azaltır. Veri çizgileri görünümleri ve işletimsel hizmet durumu kolay toovisualize hale geldi ve hello Data Factory sezgisel izleme ve yönetim hello Azure portal ' kullanılabilir kullanıcı Arabirimi ile ilgili sorunları giderme. Kendi çözüm şimdi zamanlanmış ve böylece bitmiş veri güvenilir bir şekilde üretilen ve toousers teslim ve verileri ve işleme bağımlılıkları insan etkileşimi olmadan otomatik olarak yönetilir yönetilir.
 
-Bu kişiselleştirilmiş alışveriş deneyimi sağlayarak daha fazla rekabet çekici bir müşteri oluşturulan çevrimiçi satıcısında deneyimi ve bu nedenle satış ve genel müşteri memnuniyetini artırın.
+Bu kişiselleştirilmiş alışveriş deneyimi sağlayarak hello daha fazla rekabet çekici bir müşteri oluşturulan çevrimiçi satıcısında deneyimi ve bu nedenle satış ve genel müşteri memnuniyetini artırın.
 

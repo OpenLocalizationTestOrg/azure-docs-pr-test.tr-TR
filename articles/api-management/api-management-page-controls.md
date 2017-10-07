@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management sayfası denetimleri | Microsoft Docs"
-description: "Azure API Management'ta Geliştirici Portalı şablonlarındaki kullanıma sayfa denetimleri hakkında bilgi edinin."
+title: "aaaAzure API Management sayfası denetimleri | Microsoft Docs"
+description: "Azure API Management'ta Geliştirici Portalı şablonlarındaki kullanıma hello sayfa denetimleri hakkında bilgi edinin."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 1ce0657aebe34d093ae94281de208c929067742a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1a16a6fce197c0a2e14807ac21e81a9a73b515b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management sayfası denetimleri
-Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici kullanmak için sağlar.  
+Azure API Management denetimleri şablonlarda hello Geliştirici Portalı aşağıdaki hello sağlar.  
   
- Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konuma yerleştirin. Gibi bazı denetimleri [uygulama eylemleri](#app-actions) denetlemek, parametreleri, aşağıdaki örnekte gösterildiği gibi sahiptir.  
+ toouse bir denetim yerleştirin, istenen hello konumda hello Geliştirici Portalı şablonunda. Hello gibi bazı denetimler [uygulama eylemleri](#app-actions) denetlemek, parametreleri, hello aşağıdaki örnekte gösterildiği gibi sahiptir.  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
- Parametreler için değerler olarak şablonu için veri modelinin parçası olarak geçirilir. Çoğu durumda, yalnızca düzgün çalışabilmesi için her denetim için sağlanan örnekte yapıştırabilirsiniz. Parametre değerleri hakkında daha fazla bilgi için denetim kullanılabilir her şablon için veri modeli bölümünde görebilirsiniz.  
+ Merhaba parametrelerin Hello değerleri içinde hello veri modeli hello şablonu için bir parçası olarak geçirilir. Çoğu durumda, yalnızca yapıştırabilirsiniz hello sağlanan örnek için her denetim için toowork doğru. Merhaba parametre değerleri ile ilgili daha fazla bilgi için denetim kullanılabilir her şablon için hello veri modeli bölümünde görebilirsiniz.  
   
- Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+ Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ## <a name="developer-portal-template-page-controls"></a>Geliştirici Portalı şablonuna sayfa denetimleri  
   
@@ -52,7 +52,7 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
 -   [aboneliği iptal etme](#subscription-cancel)  
   
 ##  <a name="app-actions"></a>Uygulama eylemleri  
- `app-actions` Denetimi Geliştirici Portalı'ndaki kullanıcı profili sayfasında uygulamalarla etkileşim için bir kullanıcı arabirimi sağlar.  
+ Merhaba `app-actions` denetim hello kullanıcı profili sayfasında hello Geliştirici Portalı'nda uygulamalarla etkileşim için bir kullanıcı arabirimi sağlar.  
   
  ![uygulamanın &#45; Eylemler denetim](./media/api-management-page-controls/APIM-app-actions-control.png "APIM uygulama eylemleri denetimi")  
   
@@ -66,15 +66,15 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
   
 |Parametre|Açıklama|  
 |---------------|-----------------|  
-|AppID|Uygulama kimliği.|  
+|AppID|Merhaba uygulaması Hello kimliği.|  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `app-actions` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ Merhaba `app-actions` denetlemek Geliştirici Portalı şablonları aşağıdaki hello kullanılır.  
   
 -   [Uygulamalar](api-management-user-profile-templates.md#Applications)  
   
 ##  <a name="basic-signin"></a>temel oturum açma  
- `basic-signin` Denetimi, kullanıcı oturum açma oturum açma sayfası Geliştirici Portalı'ndaki bilgileri toplamak için bir denetim sağlar.  
+ Merhaba `basic-signin` Denetim toplama kullanıcı oturum açma bilgilerini hello içinde hello Geliştirici Portalı'ndaki sayfasında oturum için bir denetim sağlar.  
   
  ![Basic &#45; oturum açma denetimi](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic oturum açma denetimi")  
   
@@ -88,12 +88,12 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
  yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `basic-signin` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ Merhaba `basic-signin` denetlemek Geliştirici Portalı şablonları aşağıdaki hello kullanılır.  
   
 -   [Oturum Aç](api-management-page-templates.md#SignIn)  
   
 ##  <a name="paging-control"></a>disk belleği denetimi  
- `paging-control` Sayfalama işlevselliğinin Geliştirici öğelerinin bir listesini görüntülemek portal sayfalarına sağlar.  
+ Merhaba `paging-control` sayfalama işlevselliğinin Geliştirici öğelerinin bir listesini görüntülemek portal sayfalarına sağlar.  
   
  ![Denetim disk belleği](./media/api-management-page-controls/APIM-paging-control.png "APIM disk belleği denetimi")  
   
@@ -107,7 +107,7 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
  yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `paging-control` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ Merhaba `paging-control` denetlemek Geliştirici Portalı şablonları aşağıdaki hello kullanılır.  
   
 -   [API listesi](api-management-api-templates.md#APIList)  
   
@@ -116,7 +116,7 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
 -   [Ürün Listesi](api-management-product-templates.md#ProductList)  
   
 ##  <a name="providers"></a>sağlayıcıları  
- `providers` Denetim, oturum açma sayfasında Geliştirici Portalı'nda kimlik doğrulama sağlayıcıları seçimi için bir denetim sağlar.  
+ Merhaba `providers` denetim hello oturum açma sayfası hello Geliştirici Portalı'nda kimlik doğrulama sağlayıcıları seçimi için bir denetim sağlar.  
   
  ![sağlayıcıları Denetim](./media/api-management-page-controls/APIM-providers-control.png "APIM sağlayıcıları denetimi")  
   
@@ -130,12 +130,12 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
  yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `providers` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ Merhaba `providers` denetlemek Geliştirici Portalı şablonları aşağıdaki hello kullanılır.  
   
 -   [Oturum Aç](api-management-page-templates.md#SignIn)  
   
 ##  <a name="search-control"></a>arama denetimi  
- `search-control` Arama işlevini Geliştirici öğelerinin bir listesini görüntülemek portal sayfalarına sağlar.  
+ Merhaba `search-control` arama işlevini Geliştirici öğelerinin bir listesini görüntülemek portal sayfalarına sağlar.  
   
  ![Arama denetim](./media/api-management-page-controls/APIM-search-control.png "APIM arama denetimi")  
   
@@ -149,14 +149,14 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
  yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `search-control` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ Merhaba `search-control` denetlemek Geliştirici Portalı şablonları aşağıdaki hello kullanılır.  
   
 -   [API listesi](api-management-api-templates.md#APIList)  
   
 -   [Ürün Listesi](api-management-product-templates.md#ProductList)  
   
 ##  <a name="sign-up"></a>Kaydolma  
- `sign-up` Denetim kayıt sayfasını Geliştirici Portalı'nda kullanıcı profili bilgilerini toplamak için bir denetim sağlar.  
+ Merhaba `sign-up` denetim hello kayıt sayfasını hello Geliştirici Portalı'nda kullanıcı profili bilgilerini toplamak için bir denetim sağlar.  
   
  ![oturum &#45; yukarı denetim](./media/api-management-page-controls/APIM-sign-up-control.png "APIM kayıt denetimi")  
   
@@ -170,12 +170,12 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
  yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `sign-up` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ Merhaba `sign-up` denetlemek Geliştirici Portalı şablonları aşağıdaki hello kullanılır.  
   
 -   [Kaydol](api-management-page-templates.md#SignUp)  
   
 ##  <a name="subscribe-button"></a>Abone düğmesi  
- `subscribe-button` Bir kullanıcı bir ürüne abone olmak için bir denetim sağlar.  
+ Merhaba `subscribe-button` bir kullanıcı tooa ürüne abone olmak için bir denetim sağlar.  
   
  ![Abone &#45; düğme denetimi](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM abone düğmesi denetimi")  
   
@@ -189,12 +189,12 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
  yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `subscribe-button` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ Merhaba `subscribe-button` denetlemek Geliştirici Portalı şablonları aşağıdaki hello kullanılır.  
   
 -   [Ürün](api-management-product-templates.md#Product)  
   
 ##  <a name="subscription-cancel"></a>aboneliği iptal etme  
- `subscription-cancel` Denetim Geliştirici Portalı'ndaki kullanıcı profili sayfasında ürün aboneliği iptal etmek için bir denetim sağlar.  
+ Merhaba `subscription-cancel` denetim hello kullanıcı profili sayfasını hello Geliştirici Portalı'nda bir abonelik tooa üründe iptal etmek için bir denetim sağlar.  
   
  ![Abonelik &#45; denetim iptal](./media/api-management-page-controls/APIM-subscription-cancel-control.png "APIM aboneliği iptal denetimi")  
   
@@ -210,13 +210,13 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
   
 |Parametre|Açıklama|  
 |---------------|-----------------|  
-|subscriptionId|İptal etmek için abonelik kimliği.|  
-|CancelUrl|Aboneliği iptal URL'si.|  
+|subscriptionId|Merhaba abonelik toocancel Hello kimliği.|  
+|CancelUrl|Merhaba aboneliği iptal etmeniz URL.|  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `subscription-cancel` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ Merhaba `subscription-cancel` denetlemek Geliştirici Portalı şablonları aşağıdaki hello kullanılır.  
   
 -   [Ürün](api-management-product-templates.md#Product)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](api-management-developer-portal-templates.md).
+Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](api-management-developer-portal-templates.md).

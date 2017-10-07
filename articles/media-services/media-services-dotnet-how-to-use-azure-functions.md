@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri Media Services ile geliştirme"
-description: "Bu konu Azure işlevleri Media Services ile geliştirmeye başlamak Azure portalını kullanarak gösterilmiştir."
+title: "aaaDevelop Media Services ile Azure işlevleri"
+description: "Bu konu, nasıl Azure portal ile Media Services'i kullanarak Azure işlevleri geliştirme toostart hello gösterir."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,47 +14,47 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: juliako
-ms.openlocfilehash: 35d539855572fef6c00de614a4e57738a8abd075
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3b2c2fb498fea399c862dfbdb63033d06cabf6d0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="develop-azure-functions-with-media-services"></a>Azure işlevleri Media Services ile geliştirme
 
-Bu konu, Media Services'i kullanma Azure işlevleri oluşturmaya başlamak gösterilmiştir. Bu konu başlığı altında tanımlanan Azure işlevi adlı bir depolama hesabı kapsayıcısının izler **giriş** yeni MP4 dosyaları için. Bir dosya depolama kapsayıcıya bırakılan sonra blob tetikleyici işlevi yürütülür.
+Bu konuda tooget Media Services'i kullanma Azure işlevleri oluşturma ile çalışmaya nasıl gösterilmektedir. Hello Azure Bu konu başlığı altında tanımlanan işlevi izler adlı bir depolama hesabı kapsayıcısının **giriş** yeni MP4 dosyaları için. Bir dosya hello depolama kapsayıcıya bırakılan sonra hello blob tetikleyici hello işlevi yürütülür.
 
-Keşfetmek ve Azure Media Services'i kullanma mevcut Azure işlevleri dağıtmak istiyorsanız, kullanıma [medya Hizmetleri Azure işlevleri](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Bu depo alma için ilgili iş akışları doğrudan blob depolama alanından blob depolama alanına kodlama ve içeriği yazma geri içeriğini göstermek için Media Services'i kullanma örnekleri içerir. Ayrıca Web kancaları ve Azure kuyrukları aracılığıyla iş bildirimleri izleme örnekleri içerir. İşlevlerinizi örneklerde göre de geliştirebilirsiniz [medya Hizmetleri Azure işlevleri](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) deposu. İşlevler dağıtmak için basın **Azure'a Dağıt** düğmesi.
+Tooexplore istediğiniz ve Azure Media Services'i kullanma mevcut Azure işlevleri dağıtırsanız, kullanıma [medya Hizmetleri Azure işlevleri](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Bu depo, Media Services tooshow iş akışları ilgili tooingesting doğrudan blob depolama alanından tooblob depolama kodlama ve içeriği yazma geri içerik kullanma örnekleri içerir. Ayrıca nasıl toomonitor iş Web kancaları ve Azure kuyruklar üzerinden bildirimleri örnekleri içerir. İşlevlerinizi hello hello örneklerde göre de geliştirebilirsiniz [medya Hizmetleri Azure işlevleri](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) deposu. toodeploy hello İşlevler, basın hello **tooAzure dağıtmak** düğmesi.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- İlk işlevinizin oluşturmadan önce etkin bir Azure hesabınız olması gerekir. Bir Azure hesabınız yoksa [ücretsiz hesaplar kullanılabilir](https://azure.microsoft.com/free/).
-- Azure Media Services (AMS) hesabınızdaki eylemleri gerçekleştirmek veya Media Services tarafından gönderilen olayları dinleme Azure işlevleri oluşturmak için kullanacaksanız, açıklandığı gibi bir AMS hesabının oluşturmalısınız [burada](media-services-portal-create-account.md).
-- Anlayış [Azure işlevlerinin nasıl kullanılacağı](../azure-functions/functions-overview.md). Ayrıca, gözden geçirin:
+- İlk işlevinizin oluşturmadan önce toohave etkin bir Azure hesabı gerekir. Bir Azure hesabınız yoksa [ücretsiz hesaplar kullanılabilir](https://azure.microsoft.com/free/).
+- Azure Media Services (AMS) hesabınızdaki eylemleri gerçekleştirmek ya da Media Services tarafından gönderilen tooevents dinleme toocreate Azure işlevleri kullanacaksanız açıklandığı gibi bir AMS hesabının oluşturmalısınız [burada](media-services-portal-create-account.md).
+- Anlayış [nasıl toouse Azure işlevleri](../azure-functions/functions-overview.md). Ayrıca, gözden geçirin:
     - [Azure işlevleri HTTP ve Web kancası bağlamaları](../azure-functions/functions-triggers-bindings.md)
-    - [Azure işlevi uygulama ayarlarının nasıl yapılandırılacağı](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
+    - [Nasıl tooconfigure Azure işlevi uygulama ayarları](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
     
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 
--  Tüketim plan altında çalışan azure işlevlerinin 5 dakika zaman aşımı sınırı yoktur.
+-  Merhaba tüketim plan altında çalışan azure işlevlerinin 5 dakika zaman aşımı sınırı yoktur.
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
-1. [Azure portalına](http://portal.azure.com) gidip Azure hesabınızla oturum açın.
+1. Toohello Git [Azure portal](http://portal.azure.com) ve Azure hesabınız ile oturum açın.
 2. Açıklandığı gibi işlev uygulaması oluşturma [burada](../azure-functions/functions-create-function-app-portal.md).
 
 >[!NOTE]
-> Belirttiğiniz bir depolama hesabı **StorageConnection** ortam değişkeni, uygulamanız ile aynı bölgede olmalıdır (sonraki adıma bakın).
+> Hello belirttiğiniz bir depolama hesabı **StorageConnection** ortam değişkeni hello olmalıdır (Merhaba sonraki adıma bakın), uygulamanızın aynı bölgede.
 
 ## <a name="configure-function-app-settings"></a>İşlev uygulaması ayarlarını yapılandır
 
-Media Services işlevleri geliştirirken işlevlerinizi kullanılan ortam değişkenleri eklemek için kullanışlıdır. Uygulama ayarlarını yapılandırmak için uygulama ayarlarını yapılandır bağlantısına tıklayın. Daha fazla bilgi için bkz: [Azure işlevi uygulama ayarlarının nasıl yapılandırılacağı](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
+Media Services işlevleri geliştirme işlevlerinizi kullanılan kullanışlı tooadd ortam değişkenleri olur. tooconfigure uygulama ayarları, hello uygulama ayarlarını yapılandır bağlantısını tıklatın. Daha fazla bilgi için bkz: [nasıl tooconfigure Azure işlevi uygulama ayarları](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
 
 Örneğin:
 
 ![Ayarlar](./media/media-services-azure-functions/media-services-azure-functions001.png)
 
-Bu makalede, tanımlanmış işlevi, aşağıdaki ortam değişkenleri, uygulama ayarlarınızı olduğu varsayılır:
+Bu makalede, tanımlanan hello işlevi uygulama ayarlarınızı ortam değişkenleri aşağıdaki hello olduğu varsayılır:
 
 **AMSAccount** : *AMS hesabının adını* (örneğin testams)
 
@@ -71,12 +71,12 @@ Bu makalede, tanımlanmış işlevi, aşağıdaki ortam değişkenleri, uygulama
 İşlev Uygulamanız dağıtıldıktan sonra onu arasında bulabilirsiniz **uygulama hizmetleri** Azure işlevleri.
 
 1. İşlev uygulamanızı seçin ve'ı tıklatın **yeni işlev**.
-2. Seçin **C#** dil ve **veri işleme** senaryo.
-3. Seçin **BlobTrigger** şablonu. Bir blob hizmetine yüklendikten olduğunda bu işlev tetiklenen **giriş** kapsayıcı. **Giriş** adı belirtilen **yolu**, sonraki adımda.
+2. Merhaba seçin **C#** dil ve **veri işleme** senaryo.
+3. Seçin **BlobTrigger** şablonu. Blob hello karşıya olduğunda bu işlev tetiklenen **giriş** kapsayıcı. Merhaba **giriş** adı hello belirtilen **yolu**, hello sonraki adımda.
 
     ![Dosyaları](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
-4. Seçtiğinizde, bundan sonra **BlobTrigger**, daha fazla bazı denetimler sayfasında görünür.
+4. Seçtiğinizde, bundan sonra **BlobTrigger**, daha fazla bazı denetimler hello sayfasında görünür.
 
     ![Dosyaları](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
@@ -85,16 +85,16 @@ Bu makalede, tanımlanmış işlevi, aşağıdaki ortam değişkenleri, uygulama
 
 ## <a name="files"></a>Dosyalar
 
-Azure işlevinizi ve bu bölümde açıklanan diğer dosyaları kod dosyaları ile ilişkilidir. Varsayılan olarak, bir işlev ilişkili olduğu **function.json** ve **run.csx** (C#) dosyaları. Eklemeniz gerekir bir **project.json** dosya. Bu bölümün geri kalanında bu dosyaları tanımlarında gösterir.
+Azure işlevinizi ve bu bölümde açıklanan diğer dosyaları kod dosyaları ile ilişkilidir. Varsayılan olarak, bir işlev ilişkili olduğu **function.json** ve **run.csx** (C#) dosyaları. Tooadd ihtiyacınız olacak bir **project.json** dosya. Bu bölümde Hello kalan hello tanımlarını bu dosyalar için gösterir.
 
 ![Dosyaları](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>Function.JSON
 
-Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarlarını tanımlar. Çalışma zamanı izlenecek olaylar belirlemek için bu dosyaya ve verilerini geçirin ve işlev yürütülmesini veri dönmek nasıl kullanır. Daha fazla bilgi için bkz: [Azure işlevleri HTTP ve Web kancası bağlamaları](../azure-functions/functions-reference.md#function-code).
+Merhaba function.json dosyası hello işlev bağlamaları ve diğer yapılandırma ayarlarını tanımlar. Bu dosya toodetermine hello olayları toomonitor ve yürütme toopass verisine ve dönüş verileri nasıl işlev Hello çalışma zamanı kullanır. Daha fazla bilgi için bkz: [Azure işlevleri HTTP ve Web kancası bağlamaları](../azure-functions/functions-reference.md#function-code).
 
 >[!NOTE]
->Ayarlama **devre dışı** özelliğine **true** işlevi çalıştırılmasını engellemek için. 
+>Set hello **devre dışı** özelliği çok**true** çalıştırılmasını tooprevent hello işlevi. 
 
 
 Bir örneği burada verilmiştir **function.json** dosya.
@@ -114,7 +114,7 @@ Bir örneği burada verilmiştir **function.json** dosya.
 
 ### <a name="projectjson"></a>Project.JSON
 
-Project.json dosyası bağımlılıkları içerir. Bir örneği burada verilmiştir **project.json** Nuget gerekli .NET Azure Media Services'i paketlerinden içeren dosya. Sürüm numaraları, en son sürümleri onaylamanız böylece paketler için en son güncelleştirmeleri ile değişir unutmayın. 
+Merhaba project.json dosyası bağımlılıkları içerir. Bir örneği burada verilmiştir **project.json** gerekli hello .NET Azure Media Services içeren dosyası Nuget'ten paketler. Hello en son sürümleri onaylamalısınız şekilde hello sürüm numaraları toohello paketleri, en son güncelleştirmeleri ile değiştirmek olduğunu unutmayın. 
 
     {
       "frameworks": {
@@ -129,14 +129,14 @@ Project.json dosyası bağımlılıkları içerir. Bir örneği burada verilmiş
     
 ### <a name="runcsx"></a>Run.csx
 
-C# kodunu işlevinizi budur.  İşlevi izleyiciler adlı bir depolama hesabı kapsayıcısının tanımlanan **giriş** (ne yolu belirtildi olan) yeni MP4 dosyaları için. Bir dosya depolama kapsayıcıya bırakılan sonra blob tetikleyici işlevi yürütülür.
+Bu hello C# işlevinizi kodudur.  Merhaba işlevi adlı bir depolama hesabı kapsayıcısının izleyiciler tanımlanan **giriş** (ne hello yolunda belirtilen olan) yeni MP4 dosyaları için. Bir dosya hello depolama kapsayıcıya bırakılan sonra hello blob tetikleyici hello işlevi yürütülür.
     
-Bu bölümde tanımlanan örnek gösterir 
+Bu bölümde tanımlanan hello örnek gösterir 
 
-1. bir Media Services hesabına (blob bir AMS varlığa kopyalamayı tarafından) varlık alma konusunda ve 
-2. bir kodlama işi göndermek için Medya Kodlayıcısı standart 's kullanan nasıl "Uyarlamalı akış" hazır.
+1. nasıl tooingest bir varlığa bir medya hizmetleri hesabı (bir blobu bir AMS varlığa kopyalamayı göre) ve 
+2. nasıl toosubmit Medya Kodlayıcısı standart 's "Uyarlamalı akış" kullanan bir kodlama işi hazır.
 
-Gerçek Hayatta senaryosunda, büyük olasılıkla iş ilerleme durumunu izlemek ve kodlanmış Varlığınızı yayımlamak istediğiniz. Daha fazla bilgi için bkz: [kullanım Azure Media Services iş bildirimleri izlemek için Web kancası](media-services-dotnet-check-job-progress-with-webhooks.md). Daha fazla örnek için bkz: [medya Hizmetleri Azure işlevleri](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
+Merhaba gerçek hayatta senaryosunda, büyük olasılıkla tootrack ilerleyişini istediğiniz ve kodlanmış Varlığınızı yayımlayın. Daha fazla bilgi için bkz: [kullanım Azure Web Kancalarını toomonitor Media Services iş bildirimleri](media-services-dotnet-check-job-progress-with-webhooks.md). Daha fazla örnek için bkz: [medya Hizmetleri Azure işlevleri](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
 Tamamladıktan sonra işlevinizi tanımlama tıklatın **kaydedip çalıştırın**.
 
@@ -171,12 +171,12 @@ Tamamladıktan sonra işlevinizi tanımlama tıklatın **kaydedip çalıştırı
 
     public static void Run(CloudBlockBlob myBlob, string fileName, TraceWriter log)
     {
-        // NOTE that the variables {fileName} here come from the path setting in function.json
-        // and are passed into the  Run method signature above. We can use this to make decisions on what type of file
-        // was dropped into the input container for the function. 
+        // NOTE that hello variables {fileName} here come from hello path setting in function.json
+        // and are passed into hello  Run method signature above. We can use this toomake decisions on what type of file
+        // was dropped into hello input container for hello function. 
 
-        // No need to do any Retry strategy in this function, By default, the SDK calls a function up to 5 times for a 
-        // given blob. If the fifth try fails, the SDK adds a message to a queue named webjobs-blobtrigger-poison.
+        // No need toodo any Retry strategy in this function, By default, hello SDK calls a function up too5 times for a 
+        // given blob. If hello fifth try fails, hello SDK adds a message tooa queue named webjobs-blobtrigger-poison.
 
         log.Info($"C# Blob trigger function processed: {fileName}.mp4");
         log.Info($"Using Azure Media Services account : {_mediaServicesAccountName}");
@@ -184,16 +184,16 @@ Tamamladıktan sonra işlevinizi tanımlama tıklatın **kaydedip çalıştırı
 
         try
         {
-        // Create and cache the Media Services credentials in a static class variable.
+        // Create and cache hello Media Services credentials in a static class variable.
         _cachedCredentials = new MediaServicesCredentials(
                 _mediaServicesAccountName,
                 _mediaServicesAccountKey);
 
-        // Used the chached credentials to create CloudMediaContext.
+        // Used hello chached credentials toocreate CloudMediaContext.
         _context = new CloudMediaContext(_cachedCredentials);
 
-        // Step 1:  Copy the Blob into a new Input Asset for the Job
-        // ***NOTE: Ideally we would have a method to ingest a Blob directly here somehow. 
+        // Step 1:  Copy hello Blob into a new Input Asset for hello Job
+        // ***NOTE: Ideally we would have a method tooingest a Blob directly here somehow. 
         // using code from this sample - https://azure.microsoft.com/en-us/documentation/articles/media-services-copying-existing-blob/
 
         StorageCredentials mediaServicesStorageCredentials =
@@ -203,25 +203,25 @@ Tamamladıktan sonra işlevinizi tanımlama tıklatın **kaydedip çalıştırı
 
         // Step 2: Create an Encoding Job
 
-        // Declare a new encoding job with the Standard encoder
+        // Declare a new encoding job with hello Standard encoder
         IJob job = _context.Jobs.Create("Azure Function - MES Job");
 
-        // Get a media processor reference, and pass to it the name of the 
-        // processor to use for the specific task.
+        // Get a media processor reference, and pass tooit hello name of hello 
+        // processor toouse for hello specific task.
         IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-        // Create a task with the encoding details, using a custom preset
+        // Create a task with hello encoding details, using a custom preset
         ITask task = job.Tasks.AddNew("Encode with Adaptive Streaming",
             processor,
             "Adaptive Streaming",
             TaskOptions.None); 
 
-        // Specify the input asset to be encoded.
+        // Specify hello input asset toobe encoded.
         task.InputAssets.Add(newAsset);
 
-        // Add an output asset to contain the results of the job. 
+        // Add an output asset toocontain hello results of hello job. 
         // This output is specified as AssetCreationOptions.None, which 
-        // means the output asset is not encrypted. 
+        // means hello output asset is not encrypted. 
         task.OutputAssets.AddNew(fileName, AssetCreationOptions.None);
 
         job.Submit();
@@ -266,13 +266,13 @@ Tamamladıktan sonra işlevinizi tanımlama tıklatın **kaydedip çalıştırı
     }
 
     /// <summary>
-    /// Creates a new asset and copies blobs from the specifed storage account.
+    /// Creates a new asset and copies blobs from hello specifed storage account.
     /// </summary>
-    /// <param name="blob">The specified blob.</param>
-    /// <returns>The new asset.</returns>
+    /// <param name="blob">hello specified blob.</param>
+    /// <returns>hello new asset.</returns>
     public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, string assetName, TraceWriter log)
     {
-         //Get a reference to the storage account that is associated with the Media Services account. 
+         //Get a reference toohello storage account that is associated with hello Media Services account. 
         StorageCredentials mediaServicesStorageCredentials =
         new StorageCredentials(_storageAccountName, _storageAccountKey);
         _destinationStorageAccount = new CloudStorageAccount(mediaServicesStorageCredentials, false);
@@ -286,7 +286,7 @@ Tamamladıktan sonra işlevinizi tanımlama tıklatın **kaydedip çalıştırı
         ILocator destinationLocator = _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
         CloudBlobClient destBlobStorage = _destinationStorageAccount.CreateCloudBlobClient();
 
-        // Get the destination asset container reference
+        // Get hello destination asset container reference
         string destinationContainerName = (new Uri(destinationLocator.Path)).Segments[1];
         CloudBlobContainer assetContainer = destBlobStorage.GetContainerReference(destinationContainerName);
 
@@ -300,7 +300,7 @@ Tamamladıktan sonra işlevinizi tanımlama tıklatın **kaydedip çalıştırı
 
         log.Info("Created asset.");
 
-        // Get hold of the destination blob
+        // Get hold of hello destination blob
         CloudBlockBlob destinationBlob = assetContainer.GetBlockBlobReference(blob.Name);
 
         // Copy Blob
@@ -334,15 +334,15 @@ Tamamladıktan sonra işlevinizi tanımlama tıklatın **kaydedip çalıştırı
     }
 ##<a name="test-your-function"></a>İşlevinizi test
 
-İşlevinizi test etmek için bir MP4 dosyasına karşıya yüklemek gereken **giriş** bağlantı dizesinde belirtilen depolama hesabının kapsayıcı.  
+tootest, işlevi bir MP4 dosyası hello tooupload gerek **giriş** hello bağlantı dizesinde belirtilen depolama hesabının hello kapsayıcı.  
 
 ## <a name="next-step"></a>Sonraki adım
 
-Bu noktada, Media Services uygulama geliştirmeye başlamak hazırsınız. 
+Bu noktada, Media Services uygulama geliştirme hazır toostart var. 
  
-Daha fazla ayrıntı ve Azure işlevleri ve Logic Apps özel içerik oluşturma iş akışı oluşturmak üzere Azure Media Services ile kullanma tam örnekleri/çözümler için bkz: [Media Services .NET işlevleri tümleştirme örnek github'da](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
+Daha fazla ayrıntı ve Azure işlevleri ve Logic Apps ile Azure Media Services toocreate özel içerik oluşturma iş akışı kullanarak tam örnekleri/çözümleri için hello bkz [Media Services .NET işlevleri tümleştirme örnek github'da](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
-Ayrıca bkz [.NET ile Media Services iş bildirimleri izlemek için kullanım Azure Kancalarını](media-services-dotnet-check-job-progress-with-webhooks.md). 
+Ayrıca bkz [kullanım Azure Web Kancalarını toomonitor Media Services .NET ile bildirimleri iş](media-services-dotnet-check-job-progress-with-webhooks.md). 
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

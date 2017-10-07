@@ -1,6 +1,6 @@
 ---
-title: "Ayarlar ve veri dolaşımı SSS | Microsoft Docs"
-description: "BT yöneticileri bazı sorulara yanıtlar ayarları ve uygulama veri eşitleme hakkında olabilir sağlar."
+title: "aaaSettings ve veri dolaşımı SSS | Microsoft Docs"
+description: "Yanıtlar toosome BT yöneticileri ayarları ve uygulama veri eşitleme hakkında sorularınız olabilir sağlar."
 services: active-directory
 keywords: "Kurumsal durum Dolaşım ayarları, windows bulut Kurumsal durumda Dolaşım hakkında sık sorulan sorular"
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 9968d9fa1ebbc92b5647a23c75e75fb819f5d5ab
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4d6d6619b3a5fbd1d274603808d89b73ed942cd7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="settings-and-data-roaming-faq"></a>Ayarlar ve veri dolaşımı hakkında SSS
 Bu konuda, BT yöneticileri, ayarları ve uygulama veri eşitleme hakkında olabilir bazı sorular yanıtlanmaktadır.
 
 ## <a name="what-data-roams"></a>Hangi verilerin Dolaşım yapar?
-**Windows ayarlarını**: Windows işletim sisteminde yerleşik PC Ayarları. Genellikle, bunlar Bilgisayarınızı kişiselleştirme ayarlarını ve aşağıdaki geniş kategoriler şunlardır:
+**Windows ayarlarını**: hello Windows işletim sisteminde yerleşik PC Ayarları hello. Genellikle, bunlar Bilgisayarınızı kişiselleştirme ayarlarını ve geniş kategorisi aşağıdaki hello içerir:
 
 * *Tema*, masaüstü teması ve görev çubuğunda ayarlar gibi özellikleri içerir.
 * *Internet Explorer ayarlarını*son açılan sekmeler ve Sık Kullanılanlar dahil olmak üzere.
@@ -35,92 +35,92 @@ Bu konuda, BT yöneticileri, ayarları ve uygulama veri eşitleme hakkında olab
 * *Özelliklere erişim kolaylığı*, yüksek karşıtlık teması, okuyucu ve Büyüteç gibi.
 * *Diğer Windows ayarları*komut istemi ayarlarını ve uygulama listesi gibi.
 
-**Uygulama verileri**: Evrensel Windows uygulamaları ayarları veri gezici bir klasöre yazma ve bu klasöre yazılan tüm veriler otomatik olarak senkronize edilir. Bu uygulama bu özellikten yararlanabilir için tasarlamak için tek tek uygulama geliştiricisi hazır. Dolaşım kullanan bir evrensel Windows uygulaması geliştirme hakkında daha fazla ayrıntı için bkz: [appdata depolama API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) ve [Geliştirici blog gezici Windows 8 appdata](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Uygulama verileri**: Evrensel Windows uygulamaları klasörü Dolaşım ayarları veri tooa yazma ve toothis klasörü yazılan tüm veriler otomatik olarak senkronize edilir. Toohello tek tek uygulama Geliştirici toodesign bu özellik bir uygulama tootake avantajı olur. Dolaşım kullanan bir evrensel Windows uygulaması toodevelop nasıl görürüm hakkında daha fazla ayrıntı için hello [appdata depolama API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) ve hello [Geliştirici blog gezici Windows 8 appdata](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Hangi hesabı ayarları eşitleme için kullanılır?
-Windows 8 ve Windows 8.1 ayarları eşitleme tüketici Microsoft hesapları her zaman kullanılır. Kurumsal kullanıcıların ayarları eşitleme erişmek için Active Directory etki alanı hesabı için bir Microsoft hesabı bağlanma özelliği gerekiyordu. Windows 10'da bu işlevselliği birincil/ikincil hesap çerçevesiyle değiştirilmekte olan Microsoft hesabı bağlı.
+Windows 8 ve Windows 8.1 ayarları eşitleme tüketici Microsoft hesapları her zaman kullanılır. Kurumsal kullanıcılar bir Microsoft hesabı tootheir Active Directory etki alanı hesabı toogain erişim toosettings eşitleme hello özelliği tooconnect vardı. Windows 10'da bu işlevselliği birincil/ikincil hesap çerçevesiyle değiştirilmekte olan Microsoft hesabı bağlı.
 
-Birincil hesap, Windows'ta oturum açmak için kullanılan hesap olarak tanımlanır. Bu, bir Microsoft hesabı, bir Azure Active Directory (Azure AD) hesabı, bir şirket içi Active Directory hesabı veya yerel bir hesap olabilir. Birincil hesabının yanı sıra, Windows 10 kullanıcılar cihazlarını için bir veya daha fazla ikincil bulut hesapları ekleyebilirsiniz. Bir ikincil genellikle bir Microsoft hesabı, bir Azure AD hesabının veya başka bir hesap Gmail veya Facebook gibi hesabıdır. Bu ikincil hesapları için çoklu oturum açma gibi ek hizmetleri ve Windows mağazası erişimi sağlasa da, bunlar ayarları eşitleme destekleyen yeteneğine sahip değil.
+Merhaba hesabı toosign tooWindows içinde kullanılan gibi hello birincil hesap tanımlanır. Bu, bir Microsoft hesabı, bir Azure Active Directory (Azure AD) hesabı, bir şirket içi Active Directory hesabı veya yerel bir hesap olabilir. Toplama toohello birincil hesabı, bir veya daha fazla ikincil bulut hesapları tootheir cihaz Windows 10 kullanıcıları ekleyebilirsiniz. Bir ikincil genellikle bir Microsoft hesabı, bir Azure AD hesabının veya başka bir hesap Gmail veya Facebook gibi hesabıdır. Bu ikincil hesapları erişim çoklu oturum açma ve hello Windows mağazası gibi tooadditional Hizmetleri sağlasa da, bunlar ayarları eşitleme destekleyen yeteneğine sahip değil.
 
-Windows 10 cihaz için yalnızca birincil hesap ayarları eşitleme için kullanılabilir (bkz [nasıl yükseltebilirim Microsoft hesabı ayarları eşitleme Windows 8'den Azure AD ile Windows 10 ayarları eşitleme?](active-directory-windows-enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
+Windows 10'da yalnızca hello birincil hesabı hello cihaz için ayarları eşitleme için kullanılabilir (bkz [nasıl yükseltebilirim Microsoft hesabı ayarları eşitleme Windows 8 tooAzure AD ayarları eşitleme Windows 10?](active-directory-windows-enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
 
-Veri cihazda farklı kullanıcı hesapları arasında hiçbir zaman karma. Ayarları eşitleme için iki kural vardır:
+Veri hello aygıtta hello farklı kullanıcı hesapları arasında hiçbir zaman karma. Ayarları eşitleme için iki kural vardır:
 
-* Windows ayarlarını her zaman birincil hesabıyla dolaşan.
-* Uygulama verileri uygulama almak için kullanılan hesap ile etiketlenecektir. Birincil hesabıyla etiketli yalnızca uygulamaları eşitler. Bir uygulamayı Windows mağazası veya mobil cihaz Yönetimi (MDM) dışarıdan yüklenen olduğunda uygulama sahipliği etiketleme belirlenir.
+* Windows ayarlarını her zaman hello birincil hesabıyla dolaşan.
+* Uygulama verileri hello kullanılan hesap tooacquire hello uygulamayla etiketlenecektir. Merhaba birincil hesabıyla etiketli yalnızca uygulamaları eşitler. Bir uygulama hello Windows mağazası veya mobil cihaz Yönetimi (MDM) dışarıdan yüklenen olduğunda uygulama sahipliği etiketleme belirlenir.
 
-Bir uygulamanın sahibi tanımlanamıyor, birincil hesabıyla dolaşan. Windows 10'a bir cihaz Windows 8 veya Windows 8.1 yükseltilmiş ise, tüm uygulamalar Microsoft hesabı tarafından alınan olarak etiketlenecektir. Windows mağazası uygulamaları kullanıcıların çoğunun edinmeli ve Azure AD hesapları önce Windows 10 için Windows mağazası destek yoktu çünkü budur. Bir uygulama çevrimdışı bir lisans yüklüyse, uygulama cihaz üzerinde birincil hesabıyla etiketlenecektir.
+Bir uygulamanın sahibi tanımlanamıyorsa hello birincil hesabıyla dolaşan. Bir cihaz Windows 8 veya Windows 8.1 tooWindows 10 yükselttiyseniz, tüm hello uygulamalar hello Microsoft hesabı tarafından alınan olarak etiketlenecektir. Bu kullanıcıların çoğunun hello Windows mağazası uygulamaları edinmeli ve Azure AD hesapları önceki tooWindows 10 için Windows mağazası desteği vardı kaynaklanır. Bir uygulama çevrimdışı bir lisans yüklüyse hello uygulama hello aygıtta hello birincil hesabı kullanarak etiketlenecektir.
 
 > [!NOTE]
-> Kuruluşa ait olan ve Azure AD ile bağlı olan Windows 10 cihazları için bir etki alanı hesabı artık Microsoft hesaplarını bağlanabilir. Bir Microsoft hesabı bir etki alanı hesabına bağlanma ve tüm kullanıcı verileri eşitlemek için Microsoft hesabı (diğer bir deyişle, gezici bağlı Microsoft hesabı ve Active Directory işlevselliği Microsoft hesabı) sahip olanağı bağlı bir Active Directory veya Azure AD ortamına katılmış Windows 10 cihazları kaldırılır.
+> Bağlı tooAzure AD kuruluşa ait olan ve Windows 10 cihazlarına artık Microsoft hesapları tooa etki alanı hesabını bağlanabilir. özelliği tooconnect bir Microsoft hesabı tooa etki alanı hesabı hello ve tüm hello kullanıcının veri eşitleme sahip toohello Microsoft hesabı (gezici bağlı hello Microsoft hesabı ve Active Directory işlevselliği başka bir deyişle, hello Microsoft hesabı) kaldırılır Birleştirilmiş tooa Windows 10 cihazları, Active Directory veya Azure AD ortamında bağlı.
 >
 >
 
-## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Nasıl yükseltebilirim Microsoft hesabı ayarları eşitleme Windows 8'den Azure AD ile Windows 10 ayarları eşitleme?
-Bağlı bir Microsoft hesabı ile Windows 8 veya Windows 8.1 çalıştıran Active Directory etki alanına katılırsa, Microsoft hesabınız üzerinden ayarları eşitleme yapar. Windows 10'a yükselttikten sonra etki alanına katılmış bir kullanıcı olduğunuz ve Azure AD ile Active Directory etki alanına bağlanmaz sürece kullanıcı ayarlarını bir Microsoft hesabı ile eşitlemeye devam eder.
+## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-tooazure-ad-settings-sync-in-windows-10"></a>Windows 8 tooAzure AD ayarları eşitleme Windows 10'daki Microsoft hesabı ayarları eşitleme nasıl yükseltme?
+Bağlı bir Microsoft hesabı ile Windows 8 veya Windows 8.1 çalıştıran birleştirilmiş toohello Active Directory etki alanı varsa, Microsoft hesabınız üzerinden ayarları eşitleme yapar. TooWindows 10 yükselttikten sonra Microsoft hesabı aracılığıyla toosync kullanıcı ayarlarını etki alanına katılmış bir kullanıcı olduğunuz ve Azure AD ile Merhaba Active Directory etki alanına bağlanmaz sürece devam eder.
 
-Şirket içi Active Directory etki alanı ile Azure AD connect, Cihazınızı bağlı kullanarak ayarlarını eşitleme dener Azure AD hesabı. Azure AD Yöneticisi Kurumsal durumda dolaşım, sizin bağlı etkinleştirmez, Azure AD hesabının ayarları eşitleniyor durdurur. Bir Windows 10 kullanıcı olduğunuz ve Azure AD kimlik bilgilerinizle oturum açın, Azure AD üzerinden ayarları eşitleme yöneticinize etkinleştirir hemen sonra windows ayarları eşitleme başlar.
+Merhaba içi bağlı Active Directory etki alanı ile Azure AD connect, Cihazınızı toosync ayarlarını bağlı hello Azure AD hesabı kullanarak çalışacaktır. Merhaba Azure AD yönetici Kurumsal durumda dolaşım, sizin bağlı etkinleştirmez, Azure AD hesabının ayarları eşitleniyor durdurur. Bir Windows 10 kullanıcı olduğunuz ve Azure AD kimlik bilgilerinizle oturum açın, Azure AD üzerinden ayarları eşitleme yöneticinize etkinleştirir hemen sonra windows ayarları eşitleme başlar.
 
-Kişisel verileri şirket aygıtınızda depolanırsa, Windows işletim sistemi ve uygulama verileri için Azure AD eşitleme başlayacağını farkında olmalıdır. Bu, aşağıdaki etkilere sahiptir:
+Kişisel verileri şirket aygıtınızda depolanırsa, Windows işletim sistemi ve uygulama verilerini tooAzure AD eşitleniyor başlayacağını farkında olmalıdır. Bu uygulamaları aşağıdaki hello sahiptir:
 
-* Kişisel Microsoft hesap ayarlarınızı dışında ayarları üzerindeki çalışmanızı kayma veya Okul Azure AD hesapları. Microsoft hesabınız ve Azure AD ayarları eşitleme olmasıdır artık ayrı hesaplar kullanma.
+* Kişisel Microsoft hesap ayarlarınızı hello ayarları dışında üzerindeki çalışmanızı kayma veya Okul Azure AD hesapları. Merhaba Microsoft hesabını ve Azure AD ayarları eşitleme olmasıdır artık ayrı hesaplar kullanma.
 * Wi-Fi parolalar, web kimlik bilgilerini ve bağlı bir Microsoft hesabı ile önceden eşitlenmiş olan Internet Explorer Sık Kullanılanlar gibi kişisel verileri Azure AD ile eşitlenir.
 
 ## <a name="how-do-microsoft-account-and-azure-ad-enterprise-state-roaming-interoperability-work"></a>Microsoft hesabınız ve Azure AD kuruluş durumu gezici birlikte çalışabilirlik iş nasıl musunuz?
-Windows 10 Kasım 2015 veya sonraki sürümlerde Kurumsal durumda Dolaşım yalnızca tek bir hesap için aynı anda desteklenir. Bir iş kullanarak Windows'a oturum açın veya Azure AD hesabının Okul varsa, tüm verileri Azure AD eşitleme yapar. Windows kişisel bir Microsoft hesabı kullanarak oturum açarsanız, tüm verileri Microsoft hesabı ile eşitler. Evrensel uygulama verileri cihazdaki yalnızca birincil oturum açma hesabı kullanarak dolaşan ve yalnızca uygulamanın lisans birincil hesabıyla aitse dolaşan. Tüm İkincil hesapları tarafından sahip olunan uygulamalar için evrensel appdata eşitlenmeyecek.
+Merhaba Kasım 2015 veya sonraki sürümlerinde Windows 10 Kurumsal durumda Dolaşım yalnızca tek bir hesap için aynı anda desteklenir. TooWindows içinde bir iş veya Okul Azure AD hesabı kullanarak imzalarsanız, tüm verileri Azure AD eşitleme yapar. İçinde tooWindows kişisel bir Microsoft hesabı kullanarak imzalarsanız, tüm verileri hello Microsoft hesabı ile eşitler. Evrensel appdata yalnızca hello birincil oturum açma hesabı hello aygıtta kullanarak dolaşan ve yalnızca hello uygulamanın lisans hello birincil hesabıyla aitse dolaşan. Tüm İkincil hesapları tarafından sahip olunan hello uygulamalar için evrensel appdata eşitlenmeyecek.
 
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Ayarları birden çok kiracıdan Azure AD hesapları için eşitliyor musunuz?
-Birden çok Azure AD farklı hesaplarını Azure AD kiracılarıyla aynı cihaza, her bir Azure AD Kiracı için Azure Rights Management (Azure RMS) ile iletişim kurmak için cihaz kayıt defterini güncelleştirmeniz gerekir.  
+Azure AD kiracılarıyla birden çok Azure AD farklı hesapları üzerinde hello alındığında aynı aygıt, Azure Rights Management (Azure RMS) hello cihazın kayıt defteri toocommunicate her bir Azure AD Kiracı için güncelleştirmeniz gerekir.  
 
-1. Her bir Azure AD Kiracı için GUID'i bulun. Azure Klasik Portalı'nı açın ve Azure AD kiracısı seçin. Kiracı için tarayıcınızın adres çubuğundaki URL'ye GUID'dir. Örneğin, `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
-2. GUID aldıktan sonra kayıt defteri anahtarını eklemeniz gerekir **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<kimliği GUID Kiracı >**.
-   Gelen **kimliği GUID Kiracı** anahtar, adlı yeni bir çok dizeli değer (REG-MULTI-SZ) oluşturma **AllowedRMSServerUrls**. Verileri için aygıt erişen bir Azure kiracılar lisans dağıtım noktası URL'lerini belirtin.
-3. Lisans dağıtım noktası URL'leri çalıştırarak bulabileceğiniz **Get-AadrmConfiguration** cmdlet'i. Varsa değerlerini **Licensingıntranetdistributionpointurl** ve **LicensingExtranetDistributionPointUrl** farklıysa, her iki değeri belirtin. Değerler aynıysa değeri yalnızca bir kez belirtin.
+1. Hello GUID her Azure AD kiracısı bulur. Merhaba Klasik Azure portalını açın ve Azure AD kiracısı seçin. Merhaba URL'sini tarayıcınızın adres çubuğuna hello Hello GUID hello Kiracı için kullanılıyor. Örneğin, `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+2. Merhaba GUID aldıktan sonra tooadd hello kayıt defteri anahtarına ihtiyaç duyarsınız **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<kimliği GUID Kiracı >**.
+   Merhaba gelen **kimliği GUID Kiracı** anahtar, adlı yeni bir çok dizeli değer (REG-MULTI-SZ) oluşturma **AllowedRMSServerUrls**. Verileri için dağıtım noktası hello URL'lerini aygıt erişimleri hello Azure diğer kiracılar lisans hello belirtin.
+3. Dağıtım noktası URL'leri hello çalıştırarak lisans hello bulabilirsiniz **Get-AadrmConfiguration** cmdlet'i. Merhaba Hello değerleri, **Licensingıntranetdistributionpointurl** ve **LicensingExtranetDistributionPointUrl** farklıysa, her iki değeri belirtin. Değerler hello aynı Merhaba, yalnızca bir kez hello değeri belirtin.
 
-## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Var olan Windows Masaüstü uygulamaları için Dolaşım ayarları seçenekleri nelerdir?
+## <a name="what-are-hello-roaming-settings-options-for-existing-windows-desktop-applications"></a>Var olan Windows Masaüstü uygulamaları için hello Dolaşım ayarları seçenekleri nelerdir?
 Dolaşım, yalnızca evrensel Windows uygulamaları için çalışır. Varolan bir Windows Masaüstü uygulama gezici etkinleştirmek için kullanılabilen iki seçenek vardır:
 
-* [Masaüstü köprüsü](http://aka.ms/desktopbridge) var olan Windows Masaüstü uygulamalarınızı Evrensel Windows platformu getirmenize yardımcı olur. Buradan, kodda minimum düzeyde değişiklik Azure AD uygulama verileri dolaşımı avantajlarından yararlanmak için gerekli olacaktır. Masaüstü köprüsü uygulamalarınızı varolan Masaüstü uygulamaları için gezici uygulama verilerini etkinleştirmek için gereken bir uygulama kimliği ile sağlar.
-* [Kullanıcı deneyimi sanallaştırma (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) , var olan Windows Masaüstü uygulamaları için özel ayarlar şablonu oluşturmak ve Win32 uygulamaları için dolaşımını etkinleştir yardımcı olur. Bu seçenek uygulamanın kodunu değiştirmek uygulama geliştiricisi gerektirmez. UE-V, Microsoft Masaüstü iyileştirme paketi satın alan müşteriler için şirket içi Active Directory için gezici sınırlıdır.
+* Merhaba [Masaüstü köprüsü](http://aka.ms/desktopbridge) , var olan Windows Masaüstü uygulamaları toohello Evrensel Windows platformu getirmenize yardımcı olur. Buradan, Azure AD uygulama verileri dolaşımı tootake avantajı değişikliklerin çok az kod gereklidir. Merhaba Masaüstü köprüsü sağlar uygulamalarınızı bir uygulama kimliği ile varolan Masaüstü uygulamaları için gezici tooenable uygulama verilerini gerekli olduğu.
+* [Kullanıcı deneyimi sanallaştırma (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) , var olan Windows Masaüstü uygulamaları için özel ayarlar şablonu oluşturmak ve Win32 uygulamaları için dolaşımını etkinleştir yardımcı olur. Bu seçenek hello Uygulama geliştirici toochange kodu hello uygulamasının gerektirmez. UE-V hello Microsoft Masaüstü iyileştirme paketi satın alan müşteriler için gezici sınırlı tooon içi Active Directory ' dir.
 
-Yöneticiler, Windows Masaüstü uygulama verileri, Windows işletim sistemi ayarları ve evrensel uygulama verilerine gezici değiştirerek dolaşıma UE-V yapılandırabilir [UE-V grup ilkeleri](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)dahil:
+Yöneticiler, Windows işletim sistemi ayarları ve evrensel uygulama verilerine gezici değiştirerek UE-V tooroam Windows Masaüstü uygulama verilerini yapılandırabilirsiniz [UE-V grup ilkeleri](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)dahil:
 
 * Windows ayarlarını Grup İlkesi dolaşan
 * Windows uygulamaları Grup İlkesi eşitlemeyin
-* Internet Explorer'ın uygulamaları bölümünde Dolaşım
+* Internet Explorer hello uygulamaları bölümünde Dolaşım
 
-Gelecekte, Microsoft iç Windows'da tümleşik UE-V yapmak ve Azure AD bulut aracılığıyla ayarları dolaştırmayı UE-V genişletmek için yollar araştırabilir.
+Hello gelecekteki, Microsoft UE-V derine Windows'da tümleşik şekilde toomake araştırın ve UE-V tooroam ayarları hello Azure AD bulut aracılığıyla genişletme.
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Şirket içinde eşitlenmiş ayarları ve verileri depolayabilir?
-Kurumsal durumda Dolaşım tüm eşitlenmiş veriler Azure bulutunda depolar. UE-V sunan bir şirket içi çözüm gezici.
+Kurumsal durumda Dolaşım tüm eşitlenmiş veriler hello Azure bulut depolar. UE-V sunan bir şirket içi çözüm gezici.
 
-## <a name="who-owns-the-data-thats-being-roamed"></a>Çıkan verilerin sahibi kim?
-Kuruluşların kendi Kurumsal durumda Dolaşım veri çıkan. Veriler bir Azure veri merkezinde depolanır. Aktarım sırasında hem Azure RMS kullanan bulut bekleyen tüm kullanıcı verileri şifrelenir. Cihaz terk etmeden önce yalnızca kullanıcı kimlik bilgileri gibi hassas belirli verileri şifreler Microsoft hesabı tabanlı ayarları eşitleme için karşılaştırıldığında geliştirme budur.
+## <a name="who-owns-hello-data-thats-being-roamed"></a>Çıkan hello veri sahibi kim?
+Merhaba kuruluşlar kendi veri Kurumsal durumda Dolaşım çıkan hello. Veriler bir Azure veri merkezinde depolanır. Tüm kullanıcı verileri aktarım sırasında hem Azure RMS kullanarak hello bulutta REST şifrelenir. Merhaba aygıt terk etmeden önce yalnızca kullanıcı kimlik bilgileri gibi hassas belirli verileri şifreler bir karşılaştırma geliştirme tooMicrosoft hesabı tabanlı ayarları eşitleme, budur.
 
-Microsoft müşteri verilerini koruma için taahhüt eder. Başka bir kullanıcı bu verileri okuyabilmesi için bir Windows 10 cihaz terk etmeden önce bir kurumsal kullanıcının ayarlarını verileri Azure RMS tarafından otomatik olarak şifrelenir. Kuruluşunuzun Azure RMS için ücretli bir abonelik varsa, izleme gibi diğer Azure RMS özellikleri ve belgeleri iptal, otomatik olarak hassas bilgiler içeren bir e-postaları korumak ve kullanabilirsiniz ("kendi anahtarını getir" Çözüm, BYOK olarak da bilinir), kendi anahtarları Yönet. Bu özellikler ve Azure RMS'nin nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure Rights Management nedir](https://technet.microsoft.com/jj585026.aspx).
+Microsoft, kaydedilmiş toosafeguarding müşteri verilerdir. Başka bir kullanıcı bu verileri okuyabilmesi için bir Windows 10 cihaz terk etmeden önce bir kurumsal kullanıcının ayarlarını verileri Azure RMS tarafından otomatik olarak şifrelenir. Kuruluşunuz Azure RMS için ücretli bir abonelik varsa, izleme gibi diğer Azure RMS özellikleri kullanmak ve belgeleri iptal edebilir, otomatik olarak hassas bilgiler içeren bir e-postaları korumak ve kendi anahtarları Yönet (Merhaba "kendi anahtarını getir" Çözüm Ayrıca bilinen BYOK olarak). Bu özellikler ve Azure RMS'nin nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure Rights Management nedir](https://technet.microsoft.com/jj585026.aspx).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Eşitleme için belirli uygulama veya ayarını yönetebilir miyim?
-Windows 10'da tek bir uygulama için gezici devre dışı bırakmak için hiçbir MDM veya Grup İlkesi ayarı yoktur. Kiracı Yöneticiler appdata eşitleme yönetilen bir cihazda tüm uygulamalar için devre dışı bırakabilir, ancak uygulama başına veya uygulama içinde düzeyinde daha hassas bir denetim yok yok.
+Windows 10'da tek bir uygulama için gezici hiçbir MDM veya Grup İlkesi ayarı toodisable yoktur. Kiracı Yöneticiler appdata eşitleme yönetilen bir cihazda tüm uygulamalar için devre dışı bırakabilir, ancak uygulama başına veya uygulama içinde düzeyinde daha hassas bir denetim yok yok.
 
 ## <a name="how-can-i-enable-or-disable-roaming"></a>Nasıl etkinleştirebilirim veya gezici devre dışı?
-İçinde **ayarları** uygulama, Git **hesapları** > **ayarlarınızı eşitleyin**. Bu sayfadan hangi hesabı ayarları dolaştırmayı kullanılıyor görebilirsiniz ve etkinleştirmek veya bireysel gruplar çıkan ayarlarının devre dışı bırakabilirsiniz.
+Merhaba, **ayarları** uygulama, çok Git**hesapları** > **ayarlarınızı eşitleyin**. Bu sayfadan hangi hesabı kullanılan tooroam ayarlar yapılıyor görebilirsiniz ve etkinleştirmek veya ayarları toobe çıkan tek tek grupları devre dışı bırakabilirsiniz.
 
 ## <a name="what-is-microsofts-recommendation-for-enabling-roaming-in-windows-10"></a>Windows 10 Dolaşım etkinleştirmek için Microsoft'un öneri nedir?
-Microsoft solutions gezici kullanıcı profilleri, UE-V ve kurumsal durumu Dolaşım gibi kullanılabilir gezici birkaç farklı ayarları vardır.  Microsoft Enterprise yatırım gelecekteki Windows sürümlerinde gezici durum hale getireceğini taahhüt eder. Ardından, kuruluşunuzun verilerini buluta taşıma ile hazır veya rahat değilse, birincil gezici teknolojiyi UE-V kullanma öneririz. Kuruluşunuz var olan Windows Masaüstü uygulamaları için destek gezici gerektiriyor, ancak buluta taşımak istekli, hem Enterprise durumu gezici hem de UE-V kullanmanızı öneririz. UE-V ve kurumsal durumda Dolaşım çok benzer teknolojiler olsa da, bunlar birbirini dışlayan değildir. Bunlar diğer kuruluşunuz kullanıcılarınıza gezici hizmetleri sağlayan sağlamaya yardımcı olmak için tamamlar.  
+Microsoft solutions gezici kullanıcı profilleri, UE-V ve kurumsal durumu Dolaşım gibi kullanılabilir gezici birkaç farklı ayarları vardır.  Microsoft kaydedilmiş toomaking yatırımın gelecekteki Windows sürümlerinde gezici Kurumsal durumda olduğunu. Ardından, kuruluşunuzun taşıma veri toohello bulutla hazır veya rahat değilse, birincil gezici teknolojiyi UE-V kullanma öneririz. Kuruluşunuz var olan Windows Masaüstü uygulamaları için destek gezici gerektiriyor, ancak istekli toomove toohello bulut, kuruluş durumu gezici hem UE-V kullanmanızı öneririz. UE-V ve kurumsal durumda Dolaşım çok benzer teknolojiler olsa da, bunlar birbirini dışlayan değildir. Bunlar, birbirleri toohelp emin olun, kuruluşunuz, kullanıcılarınıza gereken Hizmetleri gezici hello sağlar tamamlar.  
 
-Kurumsal durumda Dolaşım ve UE-V kullanırken, aşağıdaki kurallar geçerlidir:
+Kurumsal durumda Dolaşım ve UE-V kullanırken kuralları aşağıdaki hello geçerlidir:
 
-* Kurumsal durumda Dolaşım birincil gezici cihazda aracısıdır. UE-V "Win32 boşluğu." desteklemek için kullanılıyor
-* UE-V grubunu kullanarak ilkeleri zaman UE-V Windows ayarları ve modern UWP uygulama verileri için gezici devre dışı bırakılması gerekir. Bunlar zaten Kurumsal durumda Dolaşım tarafından ele alınmıştır.
+* Kurumsal durumda Dolaşım hello birincil gezici hello aygıtta aracısıdır. UE-V kullanılan toosupplement hello "Win32 boşluk" yapılıyor
+* İlkeleri Hello UE-V Grup kullanarak olduğunda UE-V Windows ayarları ve modern UWP uygulama verileri için gezici devre dışı bırakılması gerekir. Bunlar zaten Kurumsal durumda Dolaşım tarafından ele alınmıştır.
 
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>Sanal Masaüstü Altyapısı (VDI) Kurumsal durumda Dolaşım nasıl destekler?
-Kurumsal durumda dolaşım, Windows 10 İstemci SKU'ları, ancak sunucu SKU'ları desteklenir. Bir istemci VM hiper yönetici makinesinde barındırılır ve sanal makineye uzaktan oturum açın, verilerinizi dolaşıma. Birden çok kullanıcı aynı işletim sistemi paylaşma ve kullanıcıların uzaktan bir sunucu tam masaüstü deneyimi için oturum açın, gezici çalışmayabilir. İkinci oturum tabanlı senaryo resmi olarak desteklenmez.
+Kurumsal durumda dolaşım, Windows 10 İstemci SKU'ları, ancak sunucu SKU'ları desteklenir. Bir istemci VM hiper yönetici makinesinde barındırılır ve Uzaktan toohello sanal makinede oturum verilerinizi dolaşıma. Birden çok kullanıcı aynı işletim sistemi ve kullanıcıların uzaktan tooa sunucusu tam masaüstü deneyimi için oturum açma hello paylaşıyorsanız, gezici çalışmayabilir. Merhaba ikinci oturum tabanlı senaryo resmi olarak desteklenmez.
 
 ## <a name="what-happens-when-my-organization-purchases-azure-rms-after-using-roaming"></a>Dolaşım kullandıktan sonra Azure RMS Kuruluşum satın ne olur?
-Azure RMS sınırlı kullanım ücretsiz abonelik, Windows 10 Dolaşım Kuruluşunuz zaten kullanıyorsanız, ücretli bir Azure RMS aboneliği satın gezici özelliği işlevselliğini hiçbir etkisi olmaz ve yapılandırma değişikliği, BT yöneticiniz tarafından gerekli.
+Kuruluşunuz zaten kullanıyorsanız, Windows 10 Dolaşım hello Azure RMS sınırlı kullanım ücretsiz abonelik, ücretli bir Azure RMS aboneliği satın hello gezici özelliği hello işlevselliğini hiçbir etkisi olmaz ve hiçbir yapılandırma değişikliği olacaktır BT yöneticiniz tarafından gerekli.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
-Lütfen belgelere bakın [sorun giderme](active-directory-windows-enterprise-state-roaming-troubleshooting.md) bilinen sorunların bir listesi için bölüm. 
+Lütfen hello hello belgelerine bakın [sorun giderme](active-directory-windows-enterprise-state-roaming-troubleshooting.md) bilinen sorunların bir listesi için bölüm. 
 
 ## <a name="related-topics"></a>İlgili konular
 * [Kurumsal durum gezici genel bakış](active-directory-windows-enterprise-state-roaming-overview.md)

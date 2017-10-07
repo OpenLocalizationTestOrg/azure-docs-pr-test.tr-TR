@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama hizmeti güvenliği"
-description: "Azure App Service'te Web, mobil, API ve Logic apps güvenli öğrenin."
+title: "aaaAzure uygulama hizmeti güvenliği"
+description: "Bilgi nasıl toosecure Web, mobil, API ve Logic apps Azure App Service'te."
 services: app-service
 documentationcenter: 
 author: naziml
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2015
 ms.author: naziml
-ms.openlocfilehash: 7d26d52ad04bd4158a1450ae0f49fc7c1f8a04e8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8a0bff7d9665abadd70c1cfd07dca265ea057596
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-security"></a>Azure uygulama hizmeti güvenliği
-Azure uygulama hizmetleri için güvenlik ve güvenilirlik müşterilerimiz güvenli bir platform sağlamak üzere anahtar endüstri standartları karşılar. Uygulamanız için hem gelen hem de giden trafiği güvenli hale getirmek için çeşitli kullanımı kolay özellikler sunuyoruz. Biz de müşterilerin kendi uygulama kodu dışarıdan sağlayarak, web uygulamanızın güvenlik açıkları için taramak için işlevselliği sağlayan güvenli yardımcı olur.
+Azure uygulama hizmetleri için güvenlik ve güvenilirlik tooprovide hello anahtar endüstri standartları ile güvenli bir platform müşterilerimizin karşılar. Uygulamanız için hem gelen hem de giden trafiği güvenli birkaç kullanımı kolay özellikleri toohelp sunuyoruz. Biz de dışarıdan sağlayarak kendi uygulama kodu işlevselliği tooscan web uygulamanız güvenlik açıkları için sağlanan güvenli müşterilere yardımcı olun.
 
 [!INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-Azure uygulama hizmeti Azure Cloud Services ve sanal makineler tarafından kullanılan kötü amaçlı yazılımdan koruma çözümünü kullanır. Bilgi edinmek için bu hakkında daha fazla başvurmak bizim [kötü amaçlı yazılımdan koruma belgelerine](../security/azure-security-antimalware.md). 
+Azure uygulama hizmeti kullanan Azure Cloud Services ve sanal makineler tarafından kullanılan aynı kötü amaçlı yazılımdan koruma çözümünü hello. Bu hakkında daha fazla toolearn başvuran tooour [kötü amaçlı yazılımdan koruma belgelerine](../security/azure-security-antimalware.md). 
 

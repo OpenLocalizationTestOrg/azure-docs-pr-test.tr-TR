@@ -1,5 +1,5 @@
 ---
-title: "Azure Mobile Engagement Android SDK tümleştirmesi"
+title: "aaaAzure Mobile Engagement Android SDK tümleştirmesi"
 description: "En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,24 +14,24 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0282abbf44406cac89c13520bc2a4e375817ed1f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e81230cbc99a209f2909cc163c4e566df67dc828
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-integrate-gcm-with-mobile-engagement"></a>GCM mobil katılım ile tümleştirme
+# <a name="how-toointegrate-gcm-with-mobile-engagement"></a>Nasıl tooIntegrate Mobile Engagement ile GCM
 > [!IMPORTANT]
-> Tümleştirme katılım nasıl Android belge üzerinde bu kılavuzu izlemeden önce açıklanan tümleştirme yordamı izlemeniz gerekir.
+> TooIntegrate android'de katılım nasıl belge bu kılavuzu izlemeden önce hello açıklanan hello tümleştirme yordamı izlemeniz gerekir.
 > 
-> Bu belge, yalnızca, zaten Reach modülünün ve Google Play aygıtları göndermek için plan tümleşik yararlıdır. Uygulamanızda Reach kampanyaları tümleştirmek için önce okuyun nasıl android'de Engagement Reach tümleştirmek için.
+> Bu belge, yalnızca, zaten tümleşik hello modülü ve planı toopush Google Play cihazlara ulaşmak yararlıdır. Lütfen ilk nasıl okuyun, uygulamanızda toointegrate Reach kampanyaları tooIntegrate Engagement Reach android'de.
 > 
 > 
 
 ## <a name="introduction"></a>Giriş
-GCM tümleştirme uygulamanızı edilmesini sağlar.
+GCM tümleştirme gönderilir, uygulama toobe sağlar.
 
-SDK her zaman gönderilen GCM yüklerini içeren `azme` veri nesnesindeki anahtar. Böylece, uygulamanızda başka bir amaçla GCM kullanırsanız, bu anahtarı temel iter filtreleyebilirsiniz.
+Toohello SDK her zaman gönderilen GCM yüklerini içeren hello `azme` hello veri nesnesindeki anahtar. Böylece, uygulamanızda başka bir amaçla GCM kullanırsanız, bu anahtarı temel iter filtreleyebilirsiniz.
 
 > [!IMPORTANT]
 > Yalnızca Android 2.2 çalıştıran cihazlar veya üzeri yüklü ve Google sahip Google Play sahip etkin arka plan bağlantı GCM; kullanarak gönderilemez Ancak, bu kod cihazlarda (yalnızca hedefleri'ı kullanır) güvenli bir şekilde desteklenmeyen tümleştirebilirsiniz.
@@ -43,19 +43,19 @@ SDK her zaman gönderilen GCM yüklerini içeren `azme` veri nesnesindeki anahta
 
 ## <a name="sdk-integration"></a>SDK tümleştirmesi
 ### <a name="managing-device-registrations"></a>Cihaz kayıtlarını yönetme
-Her bir cihaz kayıt komutu Google sunucularına göndermesi gerekir, aksi halde bunlar ulaşılamıyor.
+Her bir cihaz kayıt komutu toohello Google sunucularına göndermesi gerekir, aksi halde bunlar ulaşılamıyor.
 
-Bir cihaz da GCM bildirim (uygulama kaldırılırsa cihaz otomatik olarak kaydettirilmemiş) kaydını kaldırabilirsiniz.
+Bir cihaz da GCM bildirimleri (Merhaba uygulaması kaldırılırsa hello cihaz otomatik olarak kaydettirilmemiş) kaydını kaldırabilirsiniz.
 
-Kullanmazsanız [Google Play SDK] veya, zaten kayıt hedefi kendiniz gönderme, otomatik olarak sizin için kaydedilecek katılım yapabilirsiniz.
+Kullanmazsanız [Google Play SDK] veya, zaten hello kayıt hedefi kendiniz gönderme, hello aygıt sizin için otomatik olarak kaydedilecek katılım yapabilirsiniz.
 
-Bu ayarı etkinleştirmek için aşağıdakileri ekleyin, `AndroidManifest.xml` içinde dosya `<application/>` etiketi:
+tooenable bunu tooyour aşağıdaki hello eklemek `AndroidManifest.xml` hello içinde dosya `<application/>` etiketi:
 
-            <!-- If only 1 sender, don't forget the \n, otherwise it will be parsed as a negative number... -->
+            <!-- If only 1 sender, don't forget hello \n, otherwise it will be parsed as a negative number... -->
             <meta-data android:name="engagement:gcm:sender" android:value="<Your Google Project Number>\n" />
 
-### <a name="communicate-registration-id-to-the-engagement-push-service-and-receive-notifications"></a>Katılım itme hizmetine kayıt kimliği iletişim kurmak ve bildirimlerin
-Katılım itme hizmetini cihaza kayıt kimliğini iletişim kurmak ve kendi bildirimleri almak için aşağıdakileri ekleyin, `AndroidManifest.xml` içinde dosya `<application/>` (cihaz kayıtları kendiniz yönettiğiniz olsa bile) etiketi:
+### <a name="communicate-registration-id-toohello-engagement-push-service-and-receive-notifications"></a>Kayıt Kimliği toohello katılım gönderme hizmeti iletişim ve bildirimlerin
+Sipariş toocommunicate hello kayıt kimliğinde hello aygıt toohello katılım anında hizmet ve kendi bildirimleri almak, tooyour aşağıdaki hello eklemeniz `AndroidManifest.xml` hello içinde dosya `<application/>` (cihaz kayıtları kendiniz yönettiğiniz olsa bile) etiketi:
 
             <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
               android:exported="false">
@@ -72,13 +72,13 @@ Katılım itme hizmetini cihaza kayıt kimliğini iletişim kurmak ve kendi bild
               </intent-filter>
             </receiver>
 
-Aşağıdaki izinlere sahip olmak, `AndroidManifest.xml` (sonra `</application>` etiketi).
+Aşağıdaki izinleri de hello olduğundan emin olun, `AndroidManifest.xml` (Merhaba sonra `</application>` etiketi).
 
             <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
             <uses-permission android:name="<your_package_name>.permission.C2D_MESSAGE" />
             <permission android:name="<your_package_name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-## <a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>GCM API Anahtarınıza Mobile Engagement erişimi verin
-İzleyin [bu kılavuzda](mobile-engagement-android-get-started.md#grant-mobile-engagement-access-to-your-gcm-api-key) GCM API anahtarınıza Mobile Engagement erişim vermek için.
+## <a name="grant-mobile-engagement-access-tooyour-gcm-api-key"></a>GRANT Mobile Engagement erişimi tooyour GCM API anahtarı
+İzleyin [bu kılavuzda](mobile-engagement-android-get-started.md#grant-mobile-engagement-access-to-your-gcm-api-key) toogrant Mobile Engagement erişimi tooyour GCM API anahtarı.
 
 [Google Play SDK]:https://developers.google.com/cloud-messaging/android/start

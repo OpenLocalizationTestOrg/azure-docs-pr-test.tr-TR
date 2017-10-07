@@ -1,6 +1,6 @@
 ---
-title: "Azure RemoteApp görüntü gereksinimleri | Microsoft Docs"
-description: "Azure RemoteApp ile kullanılacak görüntüleri oluşturmak için gereksinimleri hakkında bilgi edinin"
+title: "aaaAzure RemoteApp görüntü gereksinimleri | Microsoft Docs"
+description: "Azure RemoteApp ile kullanılan görüntüleri toobe oluşturmak için hello gereksinimleri hakkında bilgi edinin"
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,40 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 75b0f8d6b25a80f11002b683152cfb294cbb68bd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4e35203eb93a866d4e0bd591d42b34746c7ffa4d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="requirements-for-azure-remoteapp-images"></a>Azure RemoteApp görüntüleri için gereksinimleri
 > [!IMPORTANT]
-> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Okuma hello [duyuru](https://go.microsoft.com/fwlink/?linkid=821148) Ayrıntılar için.
 > 
 > 
 
-Azure RemoteApp, kullanıcılarınız ile paylaşmak istediğiniz tüm programlar barındırmak için bir Windows Server 2012 R2 görüntüsünü kullanır. Özel bir görüntü oluşturmak için varolan bir görüntüyle başlatabilirsiniz veya [yeni bir tane oluşturun](remoteapp-create-custom-image.md).
+Azure RemoteApp Kullanıcılarınızla tooshare istediğiniz tüm hello programlar Windows Server 2012 R2 görüntüsünü toohost kullanır. özel görüntü toocreate, varolan bir görüntüyle başlayabilir veya [yeni bir tane oluşturun](remoteapp-create-custom-image.md).
 
 > [!TIP]
-> Azure RemoteApp aboneliğiniz Windows Server 2012 R2 görüntüsünü kendi şablon görüntüsü oluşturmak için kullanabilirsiniz Azure VM galerisinde erişmenizi olduğunu biliyor muydunuz? [Kullanıma](remoteapp-image-on-azurevm.md).  
+> Tooa Windows Server 2012 R2 görüntüsünde, Azure RemoteApp abonelik erişmenizi kendi şablon görüntüsü toocreate kullanabileceğiniz Azure VM galeri hello biliyor muydunuz? [Kullanıma](remoteapp-image-on-azurevm.md).  
 > 
 > 
 
-Azure RemoteApp ile kullanılmak üzere yüklenen görüntü için gereksinimleri şunlardır:
+Azure RemoteApp ile kullanılmak üzere karşıya hello görüntüsü için Hello gereksinimleri şunlardır:
 
-* Özel uygulamalar veri görüntüde yerel olarak depolamayın. Bu görüntüler, durum bilgisiz ve uygulamalar yalnızca içermelidir.
-* Görüntü kaybedilen veri içermiyor.
-* Görüntü boyutu, MB katları olmalıdır. Tam katı değil görüntüyü karşıya yüklemeye karşıya yükleme başarısız olur.
-* Görüntü boyutu 127 GB olmalıdır ya da daha küçük.
+* Özel uygulamalar veri hello görüntüde yerel olarak depolamayın. Bu görüntüler, durum bilgisiz ve uygulamalar yalnızca içermelidir.
+* Merhaba görüntü kaybedilen veri içermiyor.
+* Merhaba görüntü boyutu, MB katları olmalıdır. Tooupload tam katı değil bir görüntü deneyin hello karşıya yükleme başarısız olur.
+* Merhaba görüntü boyutu 127 GB olmalıdır ya da daha küçük.
 * Bir VHD dosyası üzerinde olmalıdır (VHDX dosyaları şu anda desteklenmiyor).
-* 2. nesil sanal makine VHD olmamalıdır.
-* VHD'yi sabit boyutlu veya dinamik olarak genişletilen olabilir. Azure için bir sabit boyutlu VHD dosyasının karşıya yüklemek için daha az zaman alır çünkü dinamik olarak genişleyen bir VHD önerilir.
-* Disk bölümleme stilini ana önyükleme kaydı (MBR) kullanarak başlatılması gerekir. GUID bölümleme tablosu (GPT) bölümleme stilini desteklenmiyor.
-* VHD'yi tek bir Windows Server 2012 R2 yüklemesini içermesi gerekir. Windows yüklemesini içeren birden çok birim, ancak yalnızca bir içerebilir.
-* Uzak Masaüstü oturumu ana bilgisayarı (RDSH) rolü ve Masaüstü Deneyimi özelliği yüklü olmalıdır.
-* Uzak Masaüstü Bağlantı Aracısı rol gerekir *değil* yüklü olmalıdır.
-* Şifreleme Dosya Sistemi (EFS) devre dışı bırakılması gerekir.
-* Resmin parametrelerini kullanarak bir Sysprep uygulanmış olması gerekir **/oobe / generalize/shutdown** (vermeyin kullanım **/mode:vm** parametresi).
+* Merhaba VHD 2. nesil sanal makine olmaması gerekir.
+* Merhaba VHD sabit boyutlu veya dinamik olarak genişletilen olabilir. Bir sabit boyutlu VHD dosyası'den daha az zaman tooupload tooAzure aldığından dinamik olarak genişleyen bir VHD önerilir.
+* Merhaba ana önyükleme kaydı (MBR) bölümleme stilini kullanarak Hello disk başlatılması gerekir. Merhaba GUID bölümleme tablosu (GPT) bölümleme stilini desteklenmiyor.
+* Merhaba VHD tek bir Windows Server 2012 R2 yüklemesini içermesi gerekir. Windows yüklemesini içeren birden çok birim, ancak yalnızca bir içerebilir.
+* Merhaba Uzak Masaüstü oturumu ana bilgisayarı (RDSH) rolü ve hello Masaüstü Deneyimi özelliği yüklü olmalıdır.
+* Merhaba Uzak Masaüstü Bağlantı Aracısı rol gerekir *değil* yüklü olmalıdır.
+* Merhaba şifreleme dosya sistemi (EFS) devre dışı bırakılması gerekir.
+* Merhaba görüntüsü hello parametrelerini kullanarak bir Sysprep uygulanmış olması gerekir **/oobe / generalize/shutdown** (yapmak kullanmaz hello **/mode:vm** parametresi).
 * Bir anlık görüntü zinciri, VHD'den karşıya yükleme desteklenmez.
 
 Bkz: [Azure RemoteApp görüntüsü oluşturma](remoteapp-imageoptions.md) Azure RemoteApp için görüntüleri oluşturma hakkında daha fazla bilgi.

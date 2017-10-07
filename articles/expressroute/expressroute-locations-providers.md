@@ -1,6 +1,6 @@
 ---
 title: "Konumlar ve bağlantı sağlayıcıları: Azure ExpressRoute | Microsoft Docs"
-description: "Bu makale, sunulan hizmetlerin konumları ve Azure bölgelerine nasıl bağlanılacağı hakkında ayrıntılı bir genel bakış sağlar. Konuma göre sıralanmıştır."
+description: "Bu makalede hizmetleri sunulan nerede ve nasıl konumları ayrıntılı bir genel bakış sağlanmaktadır tooconnect tooAzure bölgeleri. Konuma göre sıralanmıştır."
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/17/2017
 ms.author: kaanan
-ms.openlocfilehash: a10986ac0b36a3f2065f02533f9e321c755d4cc8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 838d52701d177aa7f13e845b7bde66d07b5efed6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
 
@@ -27,17 +27,17 @@ ms.lasthandoff: 08/29/2017
 > * [Konuma Göre Sağlayıcılar](expressroute-locations-providers.md)
 
 
-Bu makaledeki tablolar ExpressRoute bağlantı sağlayıcıları, ExpressRoute coğrafi kapsamı, ExpressRoute üzerinden desteklenen Microsoft bulut hizmetleri ve ExpressRoute Sistem Tümleştiricileri (SIs) hakkında bilgi sağlar.
+Bu makalede Hello tablolar ExpressRoute bağlantı sağlayıcıları, ExpressRoute coğrafi kapsamı, ExpressRoute ve ExpressRoute sistem tümleştiricileri (SIS) üzerinden desteklenen Microsoft bulut hizmetleri hakkında bilgi sağlar.
 
 ## <a name="partners"></a>ExpressRoute bağlantı sağlayıcıları
-ExpressRoute tüm Azure bölgeleri ve konumları arasında desteklenir. Aşağıdaki harita Azure bölgeleri ve ExpressRoute konumlarının listesini sağlar. ExpressRoute konumları birkaç hizmet sağlayıcının sahip olduğu Microsoft eşlerine başvurur.
+ExpressRoute tüm Azure bölgeleri ve konumları arasında desteklenir. Harita aşağıdaki hello Azure bölgeleri ve ExpressRoute konumlarının listesini sağlar. ExpressRoute konumları birkaç hizmet sağlayıcının sahip olduğu Microsoft eşlerine toothose bakın.
 
 ![Konum eşleme][0]
 
-Coğrafi bölge içindeki en az bir ExpressRoute konumuna bağlanırsanız coğrafi bölge içindeki tüm bölgeler arasında Azure hizmetlerine erişebileceksiniz. 
+Tooat en az bir ExpressRoute konumuyla hello coğrafi bölge içindeki bağlı değilse bir coğrafi bölge içindeki tüm bölgeler arasında erişim tooAzure Hizmetleri gerekir. 
 
-### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Bir coğrafi bölge içindeki Azure bölgeler ile ExpressRoute konumları arasında eşleme
-Aşağıdaki tablo, coğrafi bölge içindeki Azure bölgeler ile ExpressRoute konumları arasında yapılan eşlemeyi sağlar.
+### <a name="azure-regions-tooexpressroute-locations-within-a-geopolitical-region"></a>Coğrafi bölge içindeki Azure bölgeler tooExpressRoute konumları
+Aşağıdaki tablonun hello tooExpressRoute konumları coğrafi bölge içindeki Azure bölgelerinin Haritası sağlar.
 
 | **Jeopolitik bölge** | **Azure bölgeleri** | **ExpressRoute konumları** |
 | --- | --- | --- |
@@ -51,7 +51,7 @@ Aşağıdaki tablo, coğrafi bölge içindeki Azure bölgeler ile ExpressRoute k
 | **Güney Kore** |Kore Orta, Kore Güney |Busan, Seul |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Ulusal bulutlar için bölgeler ve coğrafi sınırlar
-Aşağıdaki tablo ulusal bulutlar için bölgeler ve coğrafi sınırlar hakkında bilgi sağlar.
+Aşağıdaki Hello tablo Ulusal Bulutlar için bölgeler ve coğrafi sınırlar hakkında bilgi sağlar.
 
 | **Jeopolitik bölge** | **Azure bölgeleri** | **ExpressRoute konumları** |
 | --- | --- | --- |
@@ -59,11 +59,11 @@ Aşağıdaki tablo ulusal bulutlar için bölgeler ve coğrafi sınırlar hakkı
 | **Çin** |Kuzey Çin, Doğu Çin |Pekin, Şangay |
 | **Almanya** |Orta Almanya, Doğu Almanya |Berlin, Frankfurt |
 
-Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da desteklenmiyor. Genel bağlantıyı desteklemek için ExpressRoute premium eklentisini etkinleştirmeniz gerekir. Ulusal bulut ortamlarına bağlantı desteklenmiyor. Bu tür bir ihtiyaç ortaya çıkarsa bağlantı sağlayıcınız ile çalışabilirsiniz.
+Coğrafi bölgeler arasındaki bağlantı hello standart ExpressRoute SKU'da desteklenmiyor. Tooenable hello ExpressRoute premium eklentisi toosupport genel bağlantı gerekir. Bağlantı toonational bulut ortamları desteklenmez. Bu tür bir ihtiyaç ortaya çıkarsa bağlantı sağlayıcınız ile çalışabilirsiniz.
 
 ## <a name="locations"></a>Bağlantı sağlayıcı konumları
 
-Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıcıları gösterilmektedir. Hizmet sağlayıcılarını ve hizmet sunabildikleri konumları görüntülemek istiyorsanız bkz. [Hizmet sağlayıcısına göre konumlar](expressroute-locations.md#locations). 
+Merhaba aşağıdaki tabloda bağlantı konumları ve hello hizmet sağlayıcılarının her konum için gösterir. Tooview hizmet sağlayıcıları ve hello konumları, bunlar hizmeti sağlayabilir istiyorsanız, bkz: [konumları hizmeti sağlayıcısı tarafından](expressroute-locations.md#locations). 
 
 
 ### <a name="production-azure"></a>Üretim Azure
@@ -121,7 +121,7 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 | **Pekin** |China Telecom |
 | **Şangay** |China Telecom |
 
-Daha fazla bilgi için bkz. [Çin’de ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)
+toolearn daha, fazla [Çin'de ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)
 
 ### <a name="germany"></a>Almanya
 | **Konum** | **Hizmet Sağlayıcılar** |
@@ -132,7 +132,7 @@ Daha fazla bilgi için bkz. [Çin’de ExpressRoute](http://www.windowsazure.cn/
 ## <a name="c1partners"></a>Exchange Sağlayıcıları Üzerinden Bağlantı
 Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlantı oluşturabilirsiniz.
 
-* Yukarıdaki tabloda yer alan değişimlerin herhangi birine bağlı olup olmadığını görmek için bağlantı sağlayıcınıza başvurun. Değişim sağlayıcıları tarafından sunulan hizmetler hakkında daha fazla bilgi edinmek için aşağıdaki bağlantıları kontrol edebilirsiniz. Birkaç bağlantı sağlayıcı Ethernet değişimlerine zaten bağlı.
+* Yukarıdaki hello tablosundaki hello alışverişi bağlı tooany farklıysa, bağlantı sağlayıcısı toosee ile denetleyin. Değişim sağlayıcıları tarafından sunulan hizmetler hakkında daha fazla bilgi toogather hello aşağıdaki bağlantıları kontrol edebilirsiniz. Birkaç bağlantı sağlayıcı bağlı tooEthernet alışverişleri zaten var.
   * [Cologix](http://www.cologix.com/)
   * [Console](https://www.consoleconnect.com/partners/cloudsaas/)
   * [CoreSite](http://www.coresite.com/)
@@ -141,10 +141,10 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
   * [NextDC](http://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-* Bağlantı sağlayıcınızı, ağınızı seçtiğiniz eşleme konumuna genişletmesini sağlayın.
+* Bağlantı sağlayıcınız ağ toohello eşleme konumunuza tercih genişletmek vardır.
   * Bağlantı sağlayıcınızın bağlantınızı yüksek oranda kullanılabilir şekilde genişlettiğinden emin olun, böylece hiç tek nokta arızası olmaz.
-* Microsoft’a bağlanmak için bağlantı sağlayınız olarak değişime sahip bir ExpressRoute bağlantı hattı sipariş edin.
-  * Bağlantı kurmak için [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-classic.md)’daki adımları izleyin.
+* Merhaba exchange ile bir expressroute bağlantı sağlayıcınız tooconnect tooMicrosoft sipariş.
+  * İzleyeceğiniz adımlar [bir expressroute bağlantı hattı oluşturma](expressroute-howto-circuit-classic.md) tooset bağlantı kurma.
 
 ## <a name="c1partners"></a>Diğer Hizmet Sağlayıcılar Üzerinden Bağlantı
 | **Konum** | **Exchange** | **Bağlantı Sağlayıcılar** |
@@ -169,7 +169,7 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 | **Washington DC** |Equinix | Altice Business, Gtt Communications Inc, Epsilon, Lightower, Masergy, Windstream |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute sistem tümleştiricileri
-İhtiyaçlarınıza uyan özel bağlantıyı etkinleştirme ağınızın ölçeğine bağlı olarak zorlu olabilir. ExpressRoute’a yönelik ekleme işleminde size yardımcı olmak üzere aşağıdaki tabloda listelenen herhangi bir sistem tümleştirici ile çalışabilirsiniz.
+Özel bağlantı toofit gereksinimlerinizi zor olabilir, ağınızı hello ölçeğini tabanlı. Herhangi bir tablo tooassist aşağıdaki hello listelenen hello sistem tümleştiricileri, onboarding tooExpressRoute ile çalışabilirsiniz.
 
 | **Continent** | **Sistem tümleştiricileri** |
 | --- | --- |
@@ -179,7 +179,7 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 | **Kuzey Amerika** |Avanade Inc., Equinix Professional Services, FlexManage, Perficient, Presidio |
 | **Güney Amerika** |Avanade Inc. |
 ## <a name="next-steps"></a>Sonraki adımlar
-* ExpressRoute hakkında daha fazla bilgi için, bkz. [ExpressRoute SSS](expressroute-faqs.md).
+* ExpressRoute hakkında daha fazla bilgi için bkz: Merhaba [ExpressRoute SSS](expressroute-faqs.md).
 * Tüm önkoşulların sağlandığından emin olun. Bkz. [ExpressRoute önkoşulları](expressroute-prerequisites.md).
 
 <!--Image References-->

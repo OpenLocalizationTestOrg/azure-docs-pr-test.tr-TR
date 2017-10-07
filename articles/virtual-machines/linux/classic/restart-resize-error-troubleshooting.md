@@ -1,5 +1,5 @@
 ---
-title: "Yeniden başlatmadan veya sorunları yeniden boyutlandırma VM | Microsoft Docs"
+title: "yeniden başlatmadan veya sorunları yeniden boyutlandırma aaaVM | Microsoft Docs"
 description: "Yeniden başlatmadan veya varolan bir Linux sanal makinesini Azure yeniden boyutlandırma Klasik dağıtım sorunlarını giderme"
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 01/10/2017
 ms.devlang: na
 ms.author: delhan
-ms.openlocfilehash: c6d4ed45133dc3f4b1f3d17fb5a87d3bf77aa3f7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fb1dc88bb1b83043c434590118bc8810ad402872
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Yeniden başlatmadan veya varolan bir Linux sanal makinesini Azure yeniden boyutlandırma Klasik dağıtım sorunlarını giderme
 > [!div class="op_single_selector"]
@@ -28,56 +28,56 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Durdurulmuş bir Azure sanal makine (VM) Başlat veya mevcut bir Azure VM'yi yeniden boyutlandırmak çalıştığınızda karşılaştığınız ortak bir ayırma hatası hatadır. Küme veya bölgede kullanılabilir kaynak yok veya istenen VM boyutu destekleyemez olduğunda bu hata oluşur.
+Toostart durdurulmuş Azure sanal makine (VM) deneyin ya da mevcut bir Azure VM'i yeniden boyutlandırın karşılaştığınız hello ortak bir ayırma hatası hatasıdır. Merhaba küme veya bölgede kullanılabilir kaynakları ya da yok ya da alamazsınız destek hello istenen VM boyutu bu hata oluşur.
 
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager sürümü için bkz: [burada](../restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. Merhaba Resource Manager sürümü için bkz: [burada](../restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
 ## <a name="collect-audit-logs"></a>Toplama denetim günlüklerini
-Sorun giderme başlatmak için sorunu ile ilişkili hata tanımlamak için denetim günlüklerini toplayın.
+sorun giderme, toostart toplama hello denetim hello sorun ilişkili tooidentify hello hata günlüğe kaydeder.
 
-Azure portalında tıklatın **Gözat** > **sanal makineleri** > *Linux sanal makineniz*  >   **Ayarları** > **denetim günlüklerini**.
+Hello Azure portal'ı tıklatın **Gözat** > **sanal makineleri** > *Linux sanal makineniz*  >   **Ayarları** > **denetim günlüklerini**.
 
 ## <a name="issue-error-when-starting-a-stopped-vm"></a>Sorun: durmuş bir VM'yi başlatma sırasında hata
-Durmuş bir VM'yi Başlat ancak alma ayırma hatası deneyin.
+Toostart durmuş bir VM'yi deneyin ancak bir ayırma hatası alır.
 
 ### <a name="cause"></a>Nedeni
-Bulut hizmeti barındıran özgün kümesine denenmesi durdurulmuş VM başlatmak için bir istek aldı. Ancak, Küme isteği gerçekleştirmek kullanılabilir boş disk alanı yok.
+VM toostart hello durduruldu hello isteği hello bulut hizmeti barındıran hello özgün kümesine çalıştı toobe sahiptir. Ancak, hello küme boş alan kullanılabilir toofulfill hello isteği yok.
 
 ### <a name="resolution"></a>Çözüm
 * Yeni bir bulut hizmeti oluşturup bir bölge veya bölge tabanlı bir sanal ağ, ancak bir benzeşim grubu ile ilişkilendirin.
-* Durdurulan VM silin.
-* Yeni bulut hizmeti VM diskleri kullanarak yeniden oluşturun.
-* Yeniden oluşturulan VM başlatın.
+* Silme hello VM durduruldu.
+* Merhaba yeni bulut hizmeti VM Hello hello diskleri kullanarak yeniden oluşturun.
+* Başlangıç hello VM yeniden oluşturulacak.
 
-Yeni bir bulut hizmeti oluşturmaya çalışırken bir hata alırsanız, daha sonra yeniden deneyin veya Bulut hizmeti için bölge değiştirin.
+Toocreate yeni bir bulut hizmeti çalışırken bir hata alırsanız, daha sonra yeniden deneyin veya hello bölge hello bulut hizmeti için değiştirin.
 
 > [!IMPORTANT]
-> Bu bilgi için bu bilgileri mevcut bulut hizmeti için kullandığınız tüm bağımlılıkları değiştirmeniz gerekir böylece yeni bulut hizmeti yeni bir ad ve VIP, gerekir.
+> Bu bilgileri hello mevcut bulut hizmeti için kullandığınız tüm hello bağımlılıklar için bu bilgileri toochange gerekir hello yeni bulut hizmeti yeni bir ad ve VIP, gerekir.
 > 
 > 
 
 ## <a name="issue-error-when-resizing-an-existing-vm"></a>Sorun: mevcut bir VM'yi yeniden boyutlandırılırken hata
-Mevcut bir VM'yi yeniden boyutlandırın, ancak bir ayırma hatası almak deneyin.
+Mevcut bir VM'yi tooresize deneyin ancak bir ayırma hatası alır.
 
 ### <a name="cause"></a>Nedeni
-Bulut hizmeti barındıran özgün kümesine denenmesi VM yeniden boyutlandırmak için bir istek aldı. Ancak, küme istenen VM boyutu desteklemez.
+Merhaba isteği tooresize hello VM toobe sahip hello özgün kümesine, konaklar hello bulut hizmetinin çalıştı. Ancak, hello küme desteklemediği hello istenen VM boyutu.
 
 ### <a name="resolution"></a>Çözüm
-İstenen VM boyutu azaltın ve yeniden boyutlandırma isteği yeniden deneyin.
+Azaltmak hello istenen VM boyutu ve Yeniden Dene'yi hello isteği yeniden boyutlandırın.
 
-* Tıklatın **tümüne Gözat** > **sanal makineleri (Klasik)** > *sanal makineniz* > **ayarları** > **boyutu**. Ayrıntılı adımlar için bkz: [sanal makine yeniden boyutlandırma](https://msdn.microsoft.com/library/dn168976.aspx).
+* Tıklatın **tümüne Gözat** > **sanal makineleri (Klasik)** > *sanal makineniz* > **ayarları** > **boyutu**. Ayrıntılı adımlar için bkz: [hello sanal makine yeniden boyutlandırma](https://msdn.microsoft.com/library/dn168976.aspx).
 
-VM boyutunu azaltmak mümkün değilse, aşağıdaki adımları izleyin:
+Olası tooreduce hello VM boyutu değilse, aşağıdaki adımları izleyin:
 
-* Bir benzeşim grubuna bağlı değil ve bir benzeşim grubuna bağlı bir sanal ağ ile ilişkilendirilmemiş sağlayarak yeni bir bulut hizmeti oluşturun.
+* Bağlantılı tooan benzeşim grubu olmadığı ve bağlantılı tooan benzeşim grubu olan bir sanal ağ ile ilişkili olmayan sağlayarak yeni bir bulut hizmeti oluşturun.
 * Yeni, büyük ölçekli bir VM içinde oluşturun.
 
-Aynı bulut hizmetindeki tüm Vm'leriniz birleştirebilir. Mevcut bulut hizmetiniz bir bölge tabanlı sanal ağ ile ilişkili ise, yeni bulut hizmeti varolan bir sanal ağa bağlanabilir.
+Tüm Vm'leriniz birleştirebilir hello aynı bulut hizmeti. Mevcut bulut hizmetiniz bir bölge tabanlı sanal ağ ile ilişkili ise, hello yeni bulut hizmeti toohello mevcut sanal ağa bağlanabilir.
 
-Mevcut bulut hizmeti bir bölge tabanlı sanal ağ ile ilişkili değilse, mevcut bulut hizmetindeki sanal makineleri silin ve bunları kendi disklerden yeni bulut hizmeti yeniden sahip. Ancak, bunlar şu anda mevcut bulut hizmeti için bu bilgileri kullanan tüm bağımlılıkları için güncelleştirmeniz gerekir böylece yeni bulut hizmeti yeni bir ad ve VIP, olacaktır unutmamak önemlidir.
+Hello mevcut bulut hizmeti bir bölge tabanlı sanal ağ ile ilişkili değilse, sonra toodelete hello VM'ler hello mevcut bulut hizmetine sahip ve bunların disklerden hello yeni bulut hizmetinde yeniden oluşturun. Ancak, önemli tooremember tooupdate ihtiyacınız olacak şekilde hello yeni bulut hizmeti yeni bir ad ve VIP, bunlar şu anda bu bilgileri hello olan bulut hizmetini kullanan tüm hello bağımlılıklar için sahip olma olasılığı vardır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure'da yeni bir Linux VM oluşturma sırasında sorunlarla karşılaşırsanız, bkz: [Azure'da yeni bir Linux sanal makine oluşturma ile dağıtım sorunlarını giderme](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

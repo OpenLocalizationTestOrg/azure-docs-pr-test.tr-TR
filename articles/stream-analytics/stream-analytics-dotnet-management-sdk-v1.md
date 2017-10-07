@@ -1,6 +1,6 @@
 ---
-title: "Yönetim .NET SDK v1.x Azure akış analizi için | Microsoft Docs"
-description: "Stream Analytics yönetimi .NET SDK ile çalışmaya başlayın. Ayarlama ve analytics işleri çalıştırma hakkında bilgi edinin. Proje, giriş, çıkış ve dönüşümleri oluşturun."
+title: "Azure akış analizi için aaaManagement .NET SDK'sı v1.x | Microsoft Docs"
+description: "Stream Analytics yönetimi .NET SDK ile çalışmaya başlayın. Bilgi nasıl tooset yukarı ve analytics işlerini çalıştırın. Proje, giriş, çıkış ve dönüşümleri oluşturun."
 keywords: .NET SDK, API analizi
 services: stream-analytics
 documentationcenter: 
@@ -15,53 +15,53 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
 ms.author: jeffstok
-ms.openlocfilehash: c75322ba53a447b8529023482945051caaf61bb2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d205c388880e3d9c2ca5df218f4b68abac8c9780
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Yönetim .NET SDK'sı v1.x: ayarlamak ayarlama ve .NET için Azure Stream Analytics API'sini kullanarak analytics işleri çalıştırma
-Ayarlamak ve yönetim .NET SDK kullanarak .NET için Stream Analytics API kullanarak analytics işleri çalıştırma hakkında bilgi edinin. Bir projesi ayarlayın, giriş ve çıkış kaynakları, dönüştürme ve başlangıç oluşturun ve işleri durdurur. Analytics işleriniz için Blob depolama biriminden veya event hub'ındaki veri akışını sağlayabilirsiniz.
+# <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-hello-azure-stream-analytics-api-for-net"></a>Yönetim .NET SDK'sı v1.x: ayarlama ve çalıştırma analytics işleri kullanarak .NET için Azure Stream Analytics API hello
+Yukarı tooset ve .NET için hello Stream Analytics API kullanarak çalışma analytics işleri yönetimi .NET SDK'sı nasıl hello öğrenin. Bir projesi ayarlayın, giriş ve çıkış kaynakları, dönüştürme ve başlangıç oluşturun ve işleri durdurur. Analytics işleriniz için Blob depolama biriminden veya event hub'ındaki veri akışını sağlayabilirsiniz.
 
-Bkz: [.NET Stream Analytics API'si için yönetim başvuru belgelerine](https://msdn.microsoft.com/library/azure/dn889315.aspx).
+Merhaba bkz [.NET hello Stream Analytics API'si için yönetim başvuru belgelerine](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
-Azure Stream Analytics akış verileri bulutta üzerinden düşük gecikmeli, yüksek oranda kullanılabilir, ölçeklenebilir, karmaşık olay işleme sağlayan tam olarak yönetilen bir hizmettir. Akış analizi veri akışlarını çözümlemek için akış işlerinin ayarlamak müşteriler etkinleştirir ve gerçek zamanlı analiz sürücü almalarını sağlar.  
+Azure Stream Analytics hello bulutta veri akış üzerinden düşük gecikmeli, yüksek oranda kullanılabilir, ölçeklenebilir, karmaşık olay işleme sağlayan tam olarak yönetilen bir hizmettir. Akış analizi işleri tooanalyze veri akışlarını akış yukarı müşteriler tooset etkinleştirir ve neredeyse gerçek zamanlı analiz toodrive sağlar.  
 
 > [!NOTE]
-> Bu makaledeki örnek kod, yine Azure Stream Analytics yönetimi .NET SDK'ın eski (1.x) sürümünü kullanır. Güncel SDK sürümü kullanan örnek kod için lütfen bkz [akış analizi için yönetim .NET SDK'sını kullanma](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-dotnet-management-sdk).
+> Bu makaledeki örnek kod, yine Azure Stream Analytics yönetimi .NET SDK'ın eski (1.x) sürümünü kullanır. Merhaba güncel SDK sürümü kullanan örnek kod için lütfen bkz [kullanım hello akış analizi için yönetim .NET SDK'sı](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-dotnet-management-sdk).
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
+Bu makaleye başlamadan önce hello şunlara sahip olmanız gerekir:
 
 * Visual Studio 2017 veya 2015 yükleyin.
 * İndirme ve yükleme [Azure .NET SDK'sı](https://azure.microsoft.com/downloads/).
-* Aboneliğinizde Azure kaynak grubu oluşturun. Örnek bir Azure PowerShell komut dosyası verilmiştir. Azure PowerShell bilgi için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview);  
+* Aboneliğinizde Azure kaynak grubu oluşturun. Merhaba, örnek bir Azure PowerShell komut dosyası aşağıdadır. Azure PowerShell bilgi için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview);  
 
-        # Log in to your Azure account
+        # Log in tooyour Azure account
         Add-AzureAccount
 
-        # Select the Azure subscription you want to use to create the resource group
+        # Select hello Azure subscription you want toouse toocreate hello resource group
         Select-AzureSubscription -SubscriptionName <subscription name>
 
-            # If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+            # If Stream Analytics has not been registered toohello subscription, remove hello remark symbol (#) toorun hello Register-AzureRMProvider cmdlet tooregister hello provider namespace
             #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
         # Create an Azure resource group
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
-* Kullanmak için bir giriş kaynağı ve Çıkış hedefini ayarlayın. Daha ayrıntılı yönergeler için bkz [eklemek girişleri](stream-analytics-add-inputs.md) örnek giriş ayarlamak için ve [eklemek çıkışları](stream-analytics-add-outputs.md) örnek bir çıktı ayarlamak için.
+* Bir giriş kaynağı ayarlama ve hedef toouse çıktı. Daha ayrıntılı yönergeler için bkz [girişleri eklemek](stream-analytics-add-inputs.md) tooset örnek giriş yukarı ve [eklemek çıkışları](stream-analytics-add-outputs.md) tooset örnek bir çıktı ayarlama.
 
 ## <a name="set-up-a-project"></a>Bir projesi ayarlayın
-Bir analiz işi oluşturmak için .NET, ilk projenizi ayarlamak için Stream Analytics API kullanın.
+toocreate analytics işi kullanılmak hello Stream Analytics API .NET, ilk projenizi ayarlayın.
 
 1. Visual Studio C# .NET konsol uygulaması oluşturun.
-2. Paket Yöneticisi Konsolu'nda NuGet paketlerini yüklemek için aşağıdaki komutları çalıştırın. İlk Azure Stream Analytics yönetimi .NET SDK ' dir. İkinci bir kimlik doğrulaması için kullanılacak Azure Active Directory istemcidir.
+2. Hello Paket Yöneticisi konsolu, tooinstall hello NuGet paketlerini çalışma hello aşağıdaki komutları. Merhaba ilk hello Azure Stream Analytics yönetimi .NET SDK'sı biridir. Merhaba ikinci bir kimlik doğrulaması için kullanılacak hello Azure Active Directory istemcidir.
    
         Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 1.8.3
         Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
-3. Aşağıdakileri ekleyin **appSettings** App.config dosyasını bölümüne:
+3. Merhaba aşağıdakileri ekleyin **appSettings** bölüm toohello App.config dosyası:
    
         <appSettings>
           <!--CSM Prod related values-->
@@ -74,15 +74,15 @@ Bir analiz işi oluşturmak için .NET, ilk projenizi ayarlamak için Stream Ana
           <add key="ActiveDirectoryTenantId" value="YOU TENANT ID" />
         </appSettings>
 
-    İçin değerleri **Subscriptionıd** ve **ActiveDirectoryTenantId** Azure aboneliği ve Kiracı kimlikleri. Aşağıdaki Azure PowerShell cmdlet'ini çalıştırarak bu değerleri alabilirsiniz:
+    İçin değerleri **Subscriptionıd** ve **ActiveDirectoryTenantId** Azure aboneliği ve Kiracı kimlikleri. Merhaba aşağıdaki Azure PowerShell cmdlet'ini çalıştırarak bu değerleri alabilirsiniz:
 
         Get-AzureAccount
 
-4. Aşağıdaki başvuru .csproj dosyanızda ekleyin:
+4. Başvuru .csproj dosyanızda aşağıdaki hello ekleyin:
 
         <Reference Include="System.Configuration" />
 
-1. Aşağıdakileri ekleyin **kullanarak** deyimleri projenin kaynak dosyasında (Program.cs):
+1. Merhaba aşağıdakileri ekleyin **kullanarak** hello projesindeki deyimleri toohello kaynak dosyasını (Program.cs):
    
         using System;
         using System.Configuration;
@@ -110,14 +110,14 @@ Bir analiz işi oluşturmak için .NET, ilk projenizi ayarlamak için Stream Ana
         if (result != null)
             return result.AccessToken;
 
-       throw new InvalidOperationException("Failed to acquire token");
+       throw new InvalidOperationException("Failed tooacquire token");
    }
    ```  
 
 ## <a name="create-a-stream-analytics-management-client"></a>Stream Analytics Yönetimi istemcisi oluşturma
-A **StreamAnalyticsManagementClient** nesnesi, iş ve giriş, çıkış ve dönüştürme gibi iş bileşenlerini yönetmenizi sağlar.
+A **StreamAnalyticsManagementClient** nesne toomanage hello iş ve hello iş bileşenleri, giriş, çıkış ve dönüştürme gibi sağlar.
 
-Aşağıdaki kodu başlangıcına ekleyin **ana** yöntemi:
+Kod toohello hello başlangıcını izleyen hello eklemek **ana** yöntemi:
 
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
@@ -133,14 +133,14 @@ Aşağıdaki kodu başlangıcına ekleyin **ana** yöntemi:
     // Create Stream Analytics management client
     StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
 
-**ResourceGroupName** değişkenin değeri oluşturulduğunda veya bölümündeki önkoşul adımlarını çekilen kaynak grubunun adı ile aynı olması gerekir.
+Merhaba **resourceGroupName** değişkenin değeri hello adı hello kaynak ile aynı grup oluşturan veya hello önkoşul adımlarını çekilen hello olması gerekir.
 
-Proje oluşturma kimlik bilgisi sunu yönünü otomatikleştirmek için başvurmak [bir hizmet sorumlusu Azure Resource Manager ile kimlik doğrulaması](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+tooautomate hello kimlik bilgisi sunu, iş oluşturma yönünü başvurmak çok[bir hizmet sorumlusu Azure Resource Manager ile kimlik doğrulaması](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
-Bu makalenin kalan bölümlerinde Bu kod, başında olduğunu varsayın **ana** yöntemi.
+Merhaba, bu makalenin kalan bölümleri bu kodu hello hello başında olduğunu varsayın **ana** yöntemi.
 
 ## <a name="create-a-stream-analytics-job"></a>Akış Analizi işi oluşturma
-Aşağıdaki kod, tanımladığınız kaynak grubu altında Stream Analytics işi oluşturur. İş için bir giriş, çıkış ve dönüştürme daha sonra eklersiniz.
+Merhaba aşağıdaki kod, tanımladığınız hello kaynak grubu altında Stream Analytics işi oluşturur. Bir giriş, çıkış ve dönüştürme toohello işi daha sonra eklersiniz.
 
     // Create a Stream Analytics job
     JobCreateOrUpdateParameters jobCreateParameters = new JobCreateOrUpdateParameters()
@@ -164,7 +164,7 @@ Aşağıdaki kod, tanımladığınız kaynak grubu altında Stream Analytics iş
 
 
 ## <a name="create-a-stream-analytics-input-source"></a>Stream Analytics giriş kaynağı oluşturma
-Aşağıdaki kod blob giriş kaynağı türü ve CSV serileştirme Stream Analytics giriş kaynağı oluşturur. Bir olay hub'ı giriş kaynağı oluşturmak için kullanın **EventHubStreamInputDataSource** yerine **BlobStreamInputDataSource**. Benzer şekilde, giriş kaynağı seri hale getirme türü özelleştirebilirsiniz.
+Merhaba aşağıdaki kodu Stream Analytics giriş kaynağı hello blob giriş kaynağı türü ve CSV serileştirme oluşturur. toocreate bir olay hub'ı giriş kaynağı kullanmak **EventHubStreamInputDataSource** yerine **BlobStreamInputDataSource**. Benzer şekilde, hello giriş kaynağının hello seri hale getirme türü özelleştirebilirsiniz.
 
     // Create a Stream Analytics input source
     InputCreateOrUpdateParameters jobInputCreateParameters = new InputCreateOrUpdateParameters()
@@ -205,19 +205,19 @@ Aşağıdaki kod blob giriş kaynağı türü ve CSV serileştirme Stream Analyt
     InputCreateOrUpdateResponse inputCreateResponse =
         client.Inputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobInputCreateParameters);
 
-Giriş kaynağı, varsayılan olarak, belirli bir iş için Blob Depolama veya bir event hub bağlıdır. Farklı projeler için aynı giriş kaynağı kullanmak için yeniden yöntemini çağırın ve başka bir iş adı belirtin.
+Giriş kaynağı, Blob Depolama veya bir event hub bağlı tooa belirli iş arasındadır. toouse Merhaba farklı işleri için aynı giriş kaynağı, yeniden hello yöntemini çağırın ve başka bir iş adı belirtmeniz gerekir.
 
 ## <a name="test-a-stream-analytics-input-source"></a>Stream Analytics giriş kaynağı test
-**TestConnection** yöntemi, Stream Analytics işi giriş kaynağına giriş kaynağı türüne özel sair yönlerini bağlanabiliyor olup olmadığını sınar. Örneğin, bir önceki adımda oluşturduğunuz blob giriş kaynağında yanı sıra depolama hesabına bağlanmak için belirtilen kapsayıcının var olup olmadığını denetleyin depolama hesabı adı ve anahtar çifti kullanılabilir yöntem kontrol eder.
+Merhaba **TestConnection** hello Stream Analytics işi mümkün tooconnect toohello olup olmadığını giriş kaynağı, hem de diğer yönlerini belirli toohello yöntemi testleri giriş kaynak türü. Örneğin, bir önceki adımda oluşturduğunuz hello blob giriş kaynağı hello yöntemi hello depolama hesabı adı ve anahtar çifti kullanılan tooconnect toohello depolama hesabı olması yanı sıra, bu hello belirtilen kapsayıcı varlığını denetle kontrol eder.
 
     // Test input source connection
     DataSourceTestConnectionResponse inputTestResponse =
         client.Inputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsInputName);
 
 ## <a name="create-a-stream-analytics-output-target"></a>Stream Analytics Çıkış hedefini oluşturma
-Bir çıkış hedefini oluşturma, Stream Analytics giriş kaynağı oluşturmak için çok benzer. Giriş kaynaklarıyla gibi belirli bir iş çıktı hedefleri bağlıdır. Aynı çıktı hedefi olarak farklı işler için kullanmak üzere yeniden yöntemini çağırın ve başka bir iş adı belirtin.
+Bir çıkış hedefini oluşturma çok benzer toocreating Stream Analytics giriş kaynağına bağlıdır. Giriş gibi çıktı hedefleri bağlı tooa belirli iş kaynaklardır. toouse farklı işleri için aynı çıkış hedefini Merhaba, yeniden hello yöntemini çağırın ve başka bir iş adı belirtmeniz gerekir.
 
-Aşağıdaki kod bir çıkış hedefini (Azure SQL veritabanı) oluşturur. Çıktı hedefin veri türüne ve/veya seri hale getirme türü özelleştirebilirsiniz.
+koddan hello Çıkış hedefini (Azure SQL veritabanı) oluşturur. Merhaba çıkış hedefin veri türüne ve/veya seri hale getirme türü özelleştirebilirsiniz.
 
     // Create a Stream Analytics output target
     OutputCreateOrUpdateParameters jobOutputCreateParameters = new OutputCreateOrUpdateParameters()
@@ -246,14 +246,14 @@ Aşağıdaki kod bir çıkış hedefini (Azure SQL veritabanı) oluşturur. Çı
         client.Outputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobOutputCreateParameters);
 
 ## <a name="test-a-stream-analytics-output-target"></a>Stream Analytics Çıkış hedefini test
-Stream Analytics Çıkış hedefini de sahip **TestConnection** bağlantıları sınama yöntemi.
+Stream Analytics Çıkış hedefini hello de sahip **TestConnection** bağlantıları sınama yöntemi.
 
     // Test output target connection
     DataSourceTestConnectionResponse outputTestResponse =
         client.Outputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsOutputName);
 
 ## <a name="create-a-stream-analytics-transformation"></a>Stream Analytics dönüşüm oluşturun
-Aşağıdaki kod bir akış analizi dönüştürmesi sorguyla oluşturur "seçin * giriş öğesinden" ve akış analizi işi için bir akış birimi ayırmak için belirtir. Akış birimleri ayarlama hakkında daha fazla bilgi için bkz: [ölçek Azure akış analizi işi](stream-analytics-scale-jobs.md).
+Merhaba aşağıdaki kod bir akış analizi dönüştürmesi hello sorguyla oluşturur "seçin * giriş öğesinden" Merhaba Stream Analytics işi için bir akış birimi tooallocate belirtir. Akış birimleri ayarlama hakkında daha fazla bilgi için bkz: [ölçek Azure akış analizi işi](stream-analytics-scale-jobs.md).
 
     // Create a Stream Analytics transformation
     TransformationCreateOrUpdateParameters transformationCreateParameters = new TransformationCreateOrUpdateParameters()
@@ -272,12 +272,12 @@ Aşağıdaki kod bir akış analizi dönüştürmesi sorguyla oluşturur "seçin
     var transformationCreateResp =
         client.Transformations.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, transformationCreateParameters);
 
-Giriş ve çıkış gibi bir dönüşüm de altında oluşturulan belirli Stream Analytics işi bağlıdır.
+Giriş ve çıkış gibi bir dönüşüm de altında oluşturulduğu bağlı toohello belirli akış analizi işi ' dir.
 
 ## <a name="start-a-stream-analytics-job"></a>Akış analizi işi Başlat
-Akış analizi işi ve kendi input(s), çıkışa ve dönüştürme oluşturduktan sonra iş çağırarak başlatabilirsiniz **Başlat** yöntemi.
+Akış analizi işi ve kendi input(s), çıkışa ve dönüştürme oluşturduktan sonra arama hello tarafından hello işi başlatabilir **Başlat** yöntemi.
 
-Aşağıdaki örnek kod başlatır Stream Analytics işi özel çıkış başlangıç saati ile 12:12:12 12 Kasım 2012 için ayarlanmış UTC:
+Aşağıdaki örnek kod hello başlatır Stream Analytics işi bir özel çıkış başlangıç saati kümesi tooDecember ile 12, 2012, 12:12:12 UTC:
 
     // Start a Stream Analytics job
     JobStartParameters jobStartParameters = new JobStartParameters
@@ -289,13 +289,13 @@ Aşağıdaki örnek kod başlatır Stream Analytics işi özel çıkış başlan
     LongRunningOperationResponse jobStartResponse = client.StreamingJobs.Start(resourceGroupName, streamAnalyticsJobName, jobStartParameters);
 
 ## <a name="stop-a-stream-analytics-job"></a>Stream Analytics işini durdurma
-Çağırarak çalışan bir akış analizi işi durdurabilirsiniz **durdurmak** yöntemi.
+Çalışan bir akış analizi işi tarafından arama hello durdurabilirsiniz **durdurmak** yöntemi.
 
     // Stop a Stream Analytics job
     LongRunningOperationResponse jobStopResponse = client.StreamingJobs.Stop(resourceGroupName, streamAnalyticsJobName);
 
 ## <a name="delete-a-stream-analytics-job"></a>Akış analizi işi Sil
-**Silmek** yöntemi input(s), çıkışa ve dönüşüm işinin dahil olmak üzere temel alınan bir alt kaynaklara yanı sıra iş siler.
+Merhaba **silmek** yöntemi input(s) ve çıkışa hello iş dönüşümü çeşitli alt kaynakları temel hello yanı sıra hello işi siler.
 
     // Delete a Stream Analytics job
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
@@ -304,9 +304,9 @@ Aşağıdaki örnek kod başlatır Stream Analytics işi özel çıkış başlan
 Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Oluşturmak ve analytics işlerini çalıştırmak için .NET SDK kullanarak temelleri öğrendiniz. Daha fazla bilgi edinmek için şunlara bakın:
+.NET SDK'sı toocreate kullanmanın hello temel konuları öğrendiğinize göre artık ve analytics işlerini çalıştırın. toolearn daha hello aşağıdaki bakın:
 
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Giriş tooAzure akış analizi](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics yönetimi .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).

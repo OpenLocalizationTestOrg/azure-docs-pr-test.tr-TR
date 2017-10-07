@@ -14,16 +14,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d7af3a531bc1bcced1a3c48403a6f60afea0f82f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 41632a54e8e85492fbf1a751ef4e618c8870abe0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect için topolojiler
-Bu makalede, çeşitli şirket içi ve Azure AD Connect eşitleme anahtar tümleştirme çözümü olarak kullanan Azure Active Directory (Azure AD) topolojileri açıklanır. Bu makalede, desteklenen ve desteklenmeyen yapılandırmalar içerir.
+Bu makalede, çeşitli şirket içi ve Azure AD Connect eşitleme hello anahtar tümleştirme çözümü kullanan Azure Active Directory (Azure AD) topolojileri açıklanır. Bu makalede, desteklenen ve desteklenmeyen yapılandırmalar içerir.
 
-Makaleyi resimleri için gösterge şöyledir:
+Resim hello makalede hello gösterge şöyledir:
 
 | Açıklama | Simgesi |
 | --- | --- |
@@ -39,119 +39,119 @@ Makaleyi resimleri için gösterge şöyledir:
 ## <a name="single-forest-single-azure-ad-tenant"></a>Tek bir orman, tek bir Azure AD kiracısı
 ![Tek bir ormana ve tek bir kiracı için topoloji](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-Tek bir orman, bir veya birden çok etki alanı ve tek bir Azure AD Kiracı şirket içi en sık kullanılan topolojidir. Azure AD kimlik doğrulaması için parola eşitleme kullanılır. Azure AD Connect hızlı yükleme yalnızca bu topoloji destekler.
+Merhaba en yaygın tek bir orman, bir veya birden çok etki alanı ve tek bir Azure AD Kiracı şirket içi topolojidir. Azure AD kimlik doğrulaması için parola eşitleme kullanılır. Azure AD Connect Hello hızlı yükleme yalnızca bu topoloji destekler.
 
-### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>Tek orman, birden çok eşitleme sunucusu için bir Azure AD kiracısı
+### <a name="single-forest-multiple-sync-servers-tooone-azure-ad-tenant"></a>Tek orman, birden çok eşitleme sunucuları tooone Azure AD Kiracı
 ![Desteklenmeyen, filtrelenmiş topolojisi tek orman](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
 
-Birden çok Azure AD Connect eşitleme sunucusu için aynı Azure AD kiracısı bağlı olması desteklenmiyor, dışında bir [server hazırlama](#staging-server). Bu sunucular ile birbirini dışlayan bir nesneler kümesini eşitlemek için yapılandırılmış olsa bile desteklenmeyen sahip. Tek bir sunucudan ormandaki tüm etki alanları erişemezse ya da yük çeşitli sunucular arasında dağıtmak istiyorsanız bu topoloji kabul.
+Birden çok Azure AD Connect eşitleme sunucusu bağlı toohello aynı Azure AD Kiracı desteklenmiyor sahip, dışındaki bir [server hazırlama](#staging-server). Bu sunucular ile birbirini dışlayan bir nesneler kümesini yapılandırılmış toosynchronize olsa bile desteklenmeyen sahip. Tek bir sunucudan hello ormandaki tüm etki alanları erişemezse ya da birçok sunucuya toodistribute yük istiyorsanız bu topoloji kabul.
 
 ## <a name="multiple-forests-single-azure-ad-tenant"></a>Birden çok orman, tek bir Azure AD kiracısı
 ![Birden çok orman ve tek bir kiracı için topoloji](./media/active-directory-aadconnect-topologies/MultiForestSingleDirectory.png)
 
-Çoğu kuruluş ortamları ile birden çok şirket içi Active Directory ormanı sahiptir. Birden fazla şirket içi Active Directory ormanına sahip olmak için çeşitli nedenleri vardır. Tasarımlar hesap-kaynak ormanına ve birleşme veya alım sonucu ile tipik örnekleridir.
+Çoğu kuruluş ortamları ile birden çok şirket içi Active Directory ormanı sahiptir. Birden fazla şirket içi Active Directory ormanına sahip olmak için çeşitli nedenleri vardır. Tasarımlar hesap-kaynak ormanına ve hello birleşme veya sonucu edinme ile tipik örnekleridir.
 
-Birden çok orman, tüm ormanlardaki olduğunda tek bir tarafından erişilebilir olmalıdır Azure AD Connect eşitleme sunucusu. Sunucu bir etki alanına sahip değilsiniz. Gerekirse tüm ormanlarda ulaşmak, sunucuyu bir çevre ağında (DMZ, sivil bölge ve denetimli alt ağ olarak da bilinir) yerleştirebilirsiniz.
+Birden çok orman, tüm ormanlardaki olduğunda tek bir tarafından erişilebilir olmalıdır Azure AD Connect eşitleme sunucusu. Toojoin hello server tooa etki alanına sahip değilsiniz. Varsa gerekli tooreach tüm ormanlarda hello sunucu bir çevre ağında (Ayrıca DMZ, sivil bölge bilinen ve Perdeli alt ağ) yerleştirebilirsiniz.
 
-Azure AD Connect Yükleme Sihirbazı'nı birden fazla ormanda temsil kullanıcılar birleştirmek için çeşitli seçenekler sağlar. Bir kullanıcı, Azure AD içinde yalnızca bir kez temsil edilir hedeftir. Yükleme Sihirbazı'nda özel yükleme yolundaki yapılandırabilirsiniz bazı ortak topolojileri vardır. Üzerinde **kullanıcılarınızı benzersiz olarak tanımlama** sayfasında, topolojinizi temsil eden ilgili seçeneği seçin. Birleştirme yalnızca kullanıcılar için yapılandırılır. Varsayılan yapılandırmada yinelenen grupları birleştirilmiş değil.
+Hello Azure AD Connect Yükleme Sihirbazı'nı birden fazla ormanda temsil çeşitli seçenekler tooconsolidate kullanıcılar sunar. Merhaba bir kullanıcı, Azure AD içinde yalnızca bir kez temsil edilir hedeftir. Merhaba özel yükleme yolu hello Yükleme Sihirbazı'nda yapılandırabileceğiniz bazı ortak topolojileri vardır. Merhaba üzerinde **kullanıcılarınızı benzersiz olarak tanımlama** sayfası, topolojinizi temsil eden select hello ilgili seçeneği. Merhaba birleştirme yalnızca kullanıcılar için yapılandırılır. Yinelenen grupları hello varsayılan yapılandırmayla birleştirilmiş değil.
 
-Ortak topolojileri hakkında bölümlerde açıklanan [ayrı topolojileri](#multiple-forests-separate-topologies), [tam mesh](#multiple-forests-full-mesh-with-optional-galsync), ve [hesap-kaynak topoloji](#multiple-forests-account-resource-forest).
+Ortak topolojileri hakkında hello bölümlerde açıklanan [ayrı topolojileri](#multiple-forests-separate-topologies), [tam mesh](#multiple-forests-full-mesh-with-optional-galsync), ve [hesap-kaynak topoloji hello](#multiple-forests-account-resource-forest).
 
-Azure AD Connect eşitleme Varsayılan yapılandırmada varsayılır:
+Azure AD Connect eşitleme Hello Varsayılan yapılandırmada varsayılır:
 
-* Her kullanıcının yalnızca bir etkin hesaba sahip ve bu hesabın bulunduğu orman kullanıcının kimliğini doğrulamak için kullanılır. Bu, hem parola eşitleme hem de Federasyon için varsayılır. UserPrincipalName ve sourceAnchor/İmmutableıd bu ormandan gelir.
+* Her kullanıcının yalnızca bir etkin hesaba sahip ve bu hesabın bulunduğu hello orman kullanılan tooauthenticate hello kullanıcıdır. Bu, hem parola eşitleme hem de Federasyon için varsayılır. UserPrincipalName ve sourceAnchor/İmmutableıd bu ormandan gelir.
 * Her kullanıcının yalnızca bir posta kutusu vardır.
-* Bir kullanıcının posta kutusunu barındıran ormanda Exchange Genel adres listesi (GAL) içinde görünür öznitelikler için en iyi veri kalitesini vardır. Kullanıcı için hiçbir posta kutusu varsa, bu öznitelik değerlerini katkıda bulunmak için herhangi bir orman kullanılabilir.
+* bir kullanıcının hello posta kutusunu barındıran hello ormanda hello en iyi veri kalitesini hello Exchange Genel adres listesi (GAL) görünür öznitelikler için vardır. Merhaba kullanıcı için hiçbir posta kutusu varsa, herhangi bir orman kullanılan toocontribute olabilir bu değerleri özniteliği.
 * Bağlı bir posta kutusu varsa, yoktur da bir hesap oturum açma için kullanılan farklı bir ormanda.
 
-Ortamınızı bu varsayımları eşleşmiyorsa, aşağıdaki durumlar ortaya çıkar:
+Ortamınızı bu varsayımları eşleşmiyorsa hello aşağıdakiler gerçekleşir:
 
-* Birden fazla etkin hesabı ya da birden fazla posta kutusu varsa, eşitleme altyapısı birini seçer ve diğer yok sayar.
-* Başka bir etkin hesabı bağlı posta kutusu Azure AD'ye aktarılan değil. Kullanıcı hesabının herhangi bir grubu üye olarak gösterilmiyor. DirSync bağlı bir posta kutusu her zaman normal bir posta kutusu olarak temsil edilir. Bu kasıtlı olarak daha iyi birden çok orman senaryoları desteklemek için farklı bir davranış farklıdır.
+* Birden fazla etkin hesabı ya da birden fazla posta kutusu varsa, hello eşitleme altyapısı birini seçer ve diğer hello yok sayar.
+* Başka bir etkin hesabı bağlı posta kutusu dışarı aktarılan tooAzure AD değil. Merhaba kullanıcı hesabı, herhangi bir grubu üye olarak gösterilmiyor. DirSync bağlı bir posta kutusu her zaman normal bir posta kutusu olarak temsil edilir. Bu kasıtlı olarak farklı davranışlar toobetter destek birden çok orman senaryoları değişikliktir.
 
-Daha ayrıntılı bilgi bulabilirsiniz [varsayılan yapılandırmayı anlama](active-directory-aadconnectsync-understanding-default-configuration.md).
+Daha ayrıntılı bilgi bulabilirsiniz [anlama hello varsayılan yapılandırma](active-directory-aadconnectsync-understanding-default-configuration.md).
 
-### <a name="multiple-forests-multiple-sync-servers-to-one-azure-ad-tenant"></a>Birden çok orman, birden çok eşitleme sunucusu için bir Azure AD kiracısı
+### <a name="multiple-forests-multiple-sync-servers-tooone-azure-ad-tenant"></a>Birden çok orman, birden çok eşitleme sunucuları tooone Azure AD Kiracı
 ![Birden fazla ormanına ve birden çok eşitleme sunucusu için desteklenmeyen topolojisi](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
 
-Birden fazla Azure AD Connect eşitleme sunucusu tek bir bağlı olan Azure AD kiracısı desteklenmiyor. Özel durum kullanımıdır bir [server hazırlama](#staging-server).
+Birden fazla Azure AD Connect eşitleme bağlı sunucu tooa Azure AD kiracısı tek sahip desteklenmiyor. Merhaba hello kullanımını istisnadır bir [server hazırlama](#staging-server).
 
 ### <a name="multiple-forests-separate-topologies"></a>Birden çok orman, ayrı topolojileri
 ![Kullanıcıların yalnızca bir kez temsil eden tüm dizinlerde seçeneği](./media/active-directory-aadconnect-topologies/MultiForestUsersOnce.png)
 
 ![Birden çok orman ve ayrı topolojileri gösterimi](./media/active-directory-aadconnect-topologies/MultiForestSeperateTopologies.png)
 
-Bu ortamda, tüm şirket içi ormanları ayrı varlıklar olarak kabul edilir. Hiçbir kullanıcı, başka bir ormanda mevcuttur. Her ormanda kendi Exchange kuruluşu vardır ve ormanlar arasında hiçbir GALSync yoktur. Bu topoloji, burada her iş birimi bağımsız olarak çalışır bir birleşme/edinme sonra veya bir kuruluşta durum olabilir. Bu ormanlarda Azure AD aynı kuruluşta bulunan ve birleşik GAL ile görünür. Yukarıdaki resimde, her ormanda her nesnenin meta veri deposunda bir kez temsil ve hedef Azure AD kiracısı'nda bir araya getirilir.
+Bu ortamda, tüm şirket içi ormanları ayrı varlıklar olarak kabul edilir. Hiçbir kullanıcı, başka bir ormanda mevcuttur. Her ormanda kendi Exchange kuruluşu vardır ve hello ormanlar arasında hiçbir GALSync yoktur. Bu topoloji, burada her iş birimi bağımsız olarak çalışır hello durum birleşme/edinme sonra veya bir kuruluşta olabilir. Bu ormanlarda: içinde hello Azure AD aynı kuruluşta ve birleşik GAL ile görünür. Resim önceki hello her ormanda her nesne hello meta veri deposunda bir kez temsil ve hello hedef Azure AD kiracısında bir araya getirilir.
 
 ### <a name="multiple-forests-match-users"></a>Birden çok orman: eşleşen kullanıcıları
-Bu senaryolar için dağıtım yaygındır ve güvenlik grupları kullanıcılar, kişiler ve yabancı güvenlik sorumlusu (FSP) bir karışımını içerebilir. FSP Active Directory Etki Alanı Hizmetleri'nde (AD DS) bir güvenlik grubundaki diğer ormanlardaki üyeleri göstermek için kullanılır. Tüm FSP Azure AD'de gerçek nesnesine çözümlenir.
+Ortak tooall bu senaryolar olduğundan, dağıtım ve güvenlik grupları, kullanıcıları, kişileri ve yabancı güvenlik sorumlusu (FSP) bir karışımını içerebilir. FSP Active Directory etki alanı Hizmetleri (AD DS) toorepresent üyeleri bir güvenlik grubundaki diğer ormanlardaki kullanılır. Tüm FSP Azure AD içinde çözümlenen toohello gerçek nesne var.
 
 ### <a name="multiple-forests-full-mesh-with-optional-galsync"></a>Birden çok orman: tam mesh isteğe bağlı GALSync ile
-![Kullanıcı kimlikleri birden fazla dizinde bulunur zaman eşleştirme için posta özniteliğinin kullanma seçeneği](./media/active-directory-aadconnect-topologies/MultiForestUsersMail.png)
+![Kullanıcı kimlikleri birden fazla dizinde bulunur zaman eşleştirme için hello posta özniteliğinin kullanma seçeneği](./media/active-directory-aadconnect-topologies/MultiForestUsersMail.png)
 
 ![Birden çok orman için tam ağ topolojisi](./media/active-directory-aadconnect-topologies/MultiForestFullMesh.png)
 
-Tam ağ topolojisi kullanıcılar ve kaynaklar içinde herhangi bir orman bulunmasını sağlar. Genellikle, ormanlar arasında iki yönlü güven vardır.
+Tam ağ topolojisi, kullanıcılara ve tüm ormanda bulunan kaynaklar toobe sağlar. Genellikle, hello ormanlar arasında iki yönlü güven vardır.
 
 Birden fazla ormanda Exchange varsa olabilir (isteğe bağlı) bir şirket içi GALSync çözümü. Her kullanıcı ardından diğer tüm ormanlarda kişi olarak temsil edilir. GALSync sık FIM 2010 veya MIM 2016 aracılığıyla uygulanır. Azure AD Connect, şirket içi GALSync için kullanılamaz.
 
-Bu senaryoda, posta özniteliğinin kimlik nesneleri birleştirilir. Bir posta kutusunu bir ormanda olan bir kullanıcı, diğer ormanlardaki kişilerle birleştirilir.
+Bu senaryoda, kimlik nesneleri hello posta özniteliği ile birleştirilir. Bir posta kutusunu bir ormanda olan bir kullanıcı hello hello kişilerle katılmışsa diğer ormanlardaki.
 
 ### <a name="multiple-forests-account-resource-forest"></a>Birden çok orman: hesap-kaynak ormanı
-![Kimlikleri birden fazla dizinde bulunur zaman eşleştirme için objectSID ve msExchMasterAccountSID öznitelikleri kullanma seçeneği](./media/active-directory-aadconnect-topologies/MultiForestUsersObjectSID.png)
+![Kimlikleri birden fazla dizinde bulunur zaman eşleştirme için hello objectSID ve msExchMasterAccountSID öznitelikleri kullanma seçeneği](./media/active-directory-aadconnect-topologies/MultiForestUsersObjectSID.png)
 
 ![Birden çok orman için hesap-kaynak ormanı topolojisi](./media/active-directory-aadconnect-topologies/MultiForestAccountResource.png)
 
 Bir veya daha fazla sahip bir hesap-kaynak ormanı topolojisinde *hesap* etkin kullanıcı hesapları ile ormanlar. Bir veya daha fazla de sahip *kaynak* devre dışı bırakılan hesapları ormanlar.
 
-Bu senaryoda, tüm hesap ormanları bir (veya daha fazla) kaynak orman güvenleri. Kaynak orman genellikle Exchange ve Lync ile genişletilmiş bir Active Directory şeması vardır. Tüm Exchange ve Lync Hizmetleri, diğer paylaşılan hizmetler yanı sıra, bu ormanda yer alır. Kullanıcılar devre dışı bırakılmış kullanıcı hesabı, bu ormandaki sahip ve posta kutusu hesabı ormana bağlanır.
+Bu senaryoda, tüm hesap ormanları bir (veya daha fazla) kaynak orman güvenleri. Merhaba kaynak ormanda Exchange ve Lync ile genişletilmiş bir Active Directory şemasını genellikle vardır. Tüm Exchange ve Lync Hizmetleri, diğer paylaşılan hizmetler yanı sıra, bu ormanda yer alır. Kullanıcılar bu ormanda bir devre dışı bırakılmış kullanıcı hesabı varsa ve hello posta kutusu bağlı olduğu toohello hesap ormanı.
 
 ## <a name="office-365-and-topology-considerations"></a>Office 365 ve topolojisi hakkında önemli noktalar
 Bazı Office 365 iş yükleri üzerinde desteklenen topolojiler bazı kısıtlamalar vardır:
 
 | İş yükü | Kısıtlamaları |
 --------- | ---------
-| Exchange Online | Birden fazla şirket içi Exchange kuruluşu ise (diğer bir deyişle, Exchange için birden çok orman dağıtıldı), Exchange 2013 SP1'i kullanın veya sonraki bir sürümü. Daha fazla bilgi için bkz: [birden çok Active Directory ormanına karma dağıtımlarında](https://technet.microsoft.com/library/jj873754.aspx). |
-| Skype Kurumsal | Birden çok şirket içi ormanları kullanırken, yalnızca hesap-kaynak orman topolojisini desteklenir. Daha fazla bilgi için bkz: [Business Server 2015 için Skype ortam gereksinimleri](https://technet.microsoft.com/library/dn933910.aspx). |
+| Exchange Online | Birden fazla şirket içi Exchange kuruluşu ise (diğer bir deyişle, Exchange bir orman daha dağıtılan toomore bırakıldı), Exchange 2013 SP1'i kullanın veya sonraki bir sürümü. Daha fazla bilgi için bkz: [birden çok Active Directory ormanına karma dağıtımlarında](https://technet.microsoft.com/library/jj873754.aspx). |
+| Skype Kurumsal | Birden çok şirket içi ormanları kullanırken, yalnızca hello hesabına kaynak orman topolojisini desteklenir. Daha fazla bilgi için bkz: [Business Server 2015 için Skype ortam gereksinimleri](https://technet.microsoft.com/library/dn933910.aspx). |
 
 
 ## <a name="staging-server"></a>Hazırlama sunucusu
 ![Hazırlama sunucu topoloji](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
 
-İkinci bir sunucu yüklemeyi azure AD Connect destekler *hazırlama modu*. Bu modundaki bir sunucu, tüm bağlı dizinlerden verileri okur ancak hiçbir şey bağlı dizinlere yazmaz. Normal eşitleme döngüsü kullanır ve bu nedenle kimlik verilerini güncelleştirilmiş bir kopyasını sahiptir.
+İkinci bir sunucu yüklemeyi azure AD Connect destekler *hazırlama modu*. Bu modundaki bir sunucu, tüm bağlı dizinlerden verileri okur ancak hiçbir şey tooconnected dizinleri yazmaz. Merhaba normal eşitleme döngüsü kullanır ve bu nedenle hello kimlik verilerini güncelleştirilmiş bir kopyasını sahiptir.
 
-Burada birincil sunucu başarısız bir felaket içinde üzerinden hazırlama sunucusuna yük devredebilirsiniz. Bu Azure AD Connect Sihirbazı'nda yapın. Birincil sunucu ile hiçbir altyapı paylaşıldığından bu ikinci sunucuyu farklı bir veri merkezinde yer alabilir. İkinci sunucuyu birincil sunucuya yapılan herhangi bir yapılandırma değişikliği el ile kopyalamanız gerekir.
+Burada hello birincil sunucu başarısız olağanüstü bir durumda sunucu hazırlama toohello başarısız olabilir. Bu hello Azure AD Connect Sihirbazı'nda yapın. Hiçbir altyapı hello birincil sunucusu ile paylaşıldığından bu ikinci sunucuyu farklı bir veri merkezinde yer alabilir. Merhaba birincil sunucu toohello ikinci sunucusunda yapılan herhangi bir yapılandırma değişikliği el ile kopyalamanız gerekir.
 
-Yeni bir özel yapılandırma ve verilerinizi olan etkisini test etmek için bir hazırlama sunucu kullanabilirsiniz. Önizleme değişiklikleri ve yapılandırmasını ayarlayın. Yeni yapılandırmayla memnun kaldığınızda, hazırlama sunucuyu active server yapmak ve eski active server hazırlama modu olarak ayarlanmış.
+Hazırlama sunucu tootest verilerinizde sahip yeni bir özel yapılandırma ve hello efekt kullanabilirsiniz. Önizleme hello değişiklikleri ve hello yapılandırmasını ayarlayın. Merhaba yeni yapılandırmayla memnun kaldığınızda, sunucu hello active server hazırlama hello yapmak ve hello eski active server toostaging modunu ayarlayın.
 
-Bu yöntem, active eşitleme sunucusunu değiştirmek için de kullanabilirsiniz. Yeni bir sunucu hazırlayın ve hazırlama modu olarak ayarlanmış. İyi durumda, hazırlama modu (etkin hale), devre dışı olduğundan emin olun ve şu anda etkin sunucuyu kapatın.
+Bu yöntem tooreplace hello active eşitleme sunucusu de kullanabilirsiniz. Merhaba yeni bir sunucu hazırlayın ve toostaging modunu ayarlayın. İyi durumda, hazırlama modu (etkin hale), devre dışı olduğundan emin olun ve hello şu anda etkin sunucuyu kapatın.
 
-Birden çok yedekleme farklı veri merkezlerinde sahip istediğinizde birden fazla hazırlama sunucu olması mümkündür.
+Farklı veri merkezlerinde bulunan birden çok yedekleme toohave istiyorsanız bir hazırlama sunucusunda birden çok olası toohave yarar.
 
 ## <a name="multiple-azure-ad-tenants"></a>Birden çok Azure AD kiracılarıyla
 Bir kuruluş için Azure AD'de tek bir kiracı olması önerilir.
-Birden çok Azure AD kiracılarıyla kullanmayı planlıyorsanız önce makalesine bakın [Azure AD'de idari Birim Yönetimi](../active-directory-administrative-units-management.md). Tek bir kiracı burada kullanabileceğiniz ortak senaryolar kapsar.
+Birden çok Azure AD kiracılarıyla toouse planlama önce hello makalesine bakın [Azure AD'de idari Birim Yönetimi](../active-directory-administrative-units-management.md). Tek bir kiracı burada kullanabileceğiniz ortak senaryolar kapsar.
 
 ![Birden fazla ormanına ve birden çok Kiracı için topoloji](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
-Bir Azure AD Connect eşitleme sunucusu ve Azure AD kiracısı arasında 1:1 ilişkisi yoktur. Her bir Azure AD Kiracı için bir Azure AD Connect eşitleme sunucusu yüklemesi gerekir. Azure AD Kiracı örnekleri tasarım gereği yalıtılır. Diğer bir deyişle, bir kiracı kullanıcılar diğer Kiracı kullanıcılar göremezsiniz. Bu ayrım istiyorsanız, desteklenen bir yapılandırmadır. Aksi durumda, tek kullanmanız gereken Azure AD Kiracı modeli.
+Bir Azure AD Connect eşitleme sunucusu ve Azure AD kiracısı arasında 1:1 ilişkisi yoktur. Her bir Azure AD Kiracı için bir Azure AD Connect eşitleme sunucusu yüklemesi gerekir. Hello Azure AD Kiracı örnekleri tasarım gereği yalıtılır. Diğer bir deyişle, bir kiracı kullanıcılar hello kullanıcıların diğer Kiracı göremezsiniz. Bu ayrım istiyorsanız, desteklenen bir yapılandırmadır. Aksi takdirde hello kullanması gereken tek bir Azure AD Kiracı modeli.
 
 ### <a name="each-object-only-once-in-an-azure-ad-tenant"></a>Her nesne yalnızca bir kez Azure AD kiracısı
 ![Tek bir orman için filtrelenmiş topolojisi](./media/active-directory-aadconnect-topologies/SingleForestFiltered.png)
 
-Bu topolojide, her bir Azure AD Kiracı için bir Azure AD Connect eşitleme sunucusu bağlandı. Böylece her dışlayan bir küme üzerinde çalışan nesnelerin sahip Azure AD Connect eşitleme sunucuları filtreleme için yapılandırılmalıdır. Örneğin, her sunucunun belirli bir etki alanı veya kuruluş birimi kapsamını olabilir.
+Bu topolojide, bir Azure AD Connect eşitleme bağlı tooeach Azure AD Kiracı sunucusudur. böylece her nesneleri toooperate birbirini dışlayan bir dizi sahip hello Azure AD Connect eşitleme sunucuları filtreleme için yapılandırılmalıdır. Örneğin, her sunucu tooa belirli etki alanı ya da kuruluş birimi kapsamını olabilir.
 
-Bir DNS etki alanı yalnızca tek bir kaydedilebilir Azure AD kiracısı. Kullanıcıların şirket içi Active Directory örneğinde UPN'ler ayrıca ayrı ad alanları kullanmanız gerekir. Örneğin, önceki resimde, üç ayrı UPN soneki şirket içi Active Directory örneğinde kayıtlı: contoso.com, fabrikam.com ve wingtiptoys.com. Her şirket içi Active Directory etki alanındaki kullanıcıların farklı bir ad kullanın.
+Bir DNS etki alanı yalnızca tek bir kaydedilebilir Azure AD kiracısı. Merhaba UPN'ler hello şirket içi Active Directory örneğinde hello kullanıcılarının ayrıca ayrı ad alanları kullanmanız gerekir. Örneğin, resim önceki hello, üç ayrı UPN soneki hello şirket içi Active Directory örneğinde kayıtlı: contoso.com, fabrikam.com ve wingtiptoys.com. Her şirket içi Active Directory etki alanındaki Hello kullanıcılar farklı bir ad kullanın.
 
-Azure AD Kiracı örnekleri arasında hiçbir GALSync yoktur. Adres Defteri Exchange Online ve Skype iş gösterir yalnızca kullanıcılar aynı Kiracı için.
+Hello Azure AD Kiracı örnekleri arasında hiçbir GALSync yoktur. kullanıcılar aynı Kiracı hello yalnızca Exchange Online ve Skype iş gösterir için adres defteri hello.
 
-Bu topoloji aşağıdaki sahip başka kısıtlamalar desteklenen senaryolar:
+Bu topoloji hello aşağıdaki sahip başka kısıtlamalar desteklenen senaryolar:
 
-* Azure AD kiracılarıyla yalnızca biri şirket içi Active Directory örneğiyle bir Exchange karma etkinleştirebilirsiniz.
+* Hello Azure AD kiracılar yalnızca bir Exchange karma hello şirket içi Active Directory örneğiyle etkinleştirebilirsiniz.
 * Windows 10 cihazları tek bir Azure AD Kiracı ile ilişkilendirilebilir.
-* Çoklu oturum açma (SSO) seçeneği parola eşitleme ve geçişli kimlik doğrulaması için yalnızca bir Azure AD Kiracı ile kullanılabilir.
+* Merhaba tek oturum açma (SSO) seçenek parola eşitleme ve geçişli kimlik doğrulaması için yalnızca bir Azure AD Kiracı ile kullanılabilir.
 
-Birbirini dışlayan bir nesneler kümesini gereksinimini geri yazma için de geçerlidir. Tek şirket içi yapılandırma varsayar çünkü geri yazma özelliklerinden bazıları bu topolojisi ile desteklenmez. Bu özellikler şunlardır:
+birbirini dışlayan bir nesneler kümesini Hello gereksinimini toowriteback de geçerlidir. Tek şirket içi yapılandırma varsayar çünkü geri yazma özelliklerinden bazıları bu topolojisi ile desteklenmez. Bu özellikler şunlardır:
 
 * Grup geri yazma varsayılan yapılandırmaya sahip.
 * Cihaz geri yazma.
@@ -161,26 +161,26 @@ Birbirini dışlayan bir nesneler kümesini gereksinimini geri yazma için de ge
 
 Bu görevler desteklenmez:
 
-* Birden çok Azure AD kiracılarıyla aynı kullanıcıya eşitleyin.
+* Eşitleme hello aynı kullanıcı toomultiple Azure AD kiracılar.
 * Bir yapılandırma bir Azure AD Kiracı kullanıcılar başka bir Azure AD kiracısı ilgili kişi olarak görünmesini sağlayacak şekilde değişikliği yapın.
-* Birden çok Azure AD kiracılarıyla bağlanmak için Azure AD Connect eşitleme değiştirin.
+* Azure AD Connect eşitleme tooconnect toomultiple Azure AD kiracılar değiştirin.
 
 ### <a name="galsync-by-using-writeback"></a>Geri yazma kullanarak GALSync
 ![Birden çok orman ve üzerinde Azure AD odaklanan GALSync ile birden çok dizin için desteklenmeyen topolojisi](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![Birden çok orman ve GALSync odaklanan ile birden çok dizin için desteklenmeyen topoloji üzerinde Active Directory şirket içi](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
 
 Azure AD kiracılarıyla tasarım gereği yalıtılır. Bu görevler desteklenmez:
 
-* Başka bir Azure AD kiracısı verileri okumak için Azure AD Connect eşitleme yapılandırmasını değiştirin.
-* Kullanıcılar başka bir şirket içi Active Directory örneğine kişiler olarak Azure AD Connect eşitleme kullanarak dışarı aktarın.
+* Başka bir Azure AD kiracısı Azure AD Connect eşitleme tooread verilerini hello yapılandırmasını değiştirme.
+* Kullanıcılar, Azure AD Connect eşitleme kullanarak kişiler tooanother şirket içi Active Directory örneği olarak dışarı aktarın.
 
 ### <a name="galsync-with-on-premises-sync-server"></a>Şirket içi eşitleme sunucusu ile GALSync
 ![Birden fazla ormanına ve birden çok dizin için topoloji GALSync](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync.png)
 
-FIM 2010 veya MIM 2016 şirket içi (aracılığıyla GALSync) kullanıcıların iki Exchange kuruluş arasında eşitlemek için kullanabilirsiniz. Bir kuruluştaki kullanıcılar diğer kuruluştaki yabancı kullanıcıları/kişiler olarak görünür. Bu farklı şirket içi Active Directory örnekleri sonra kendi Azure AD kiracılar ile eşitlenebilir.
+FIM 2010 veya MIM 2016 şirket içi toosync (üzerinden kullanıcılara GALSync) iki Exchange kuruluşlar arasında kullanabilirsiniz. Yabancı kullanıcıları/ilgili kişi olarak görünür hello diğer kuruluştaki bir kuruluştaki Hello kullanıcıların. Bu farklı şirket içi Active Directory örnekleri sonra kendi Azure AD kiracılar ile eşitlenebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu senaryolar için Azure AD Connect'i yüklemek öğrenmek için bkz: [Azure AD Connect özel yüklemesi](active-directory-aadconnect-get-started-custom.md).
+tooinstall bu senaryoları için Azure AD Connect nasıl görürüm toolearn [Azure AD Connect özel yüklemesi](active-directory-aadconnect-get-started-custom.md).
 
-Daha fazla bilgi edinmek [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md) yapılandırma.
+Merhaba hakkında daha fazla bilgi [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md) yapılandırma.
 
 Daha fazla bilgi edinmek [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).

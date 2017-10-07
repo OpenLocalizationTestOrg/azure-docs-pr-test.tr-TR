@@ -1,5 +1,5 @@
 ---
-title: "Aktör tabanlı Azure mikro yaşam döngüsüne genel bakış | Microsoft Docs"
+title: "Aktör tabanlı Azure mikro yaşam döngüsünün aaaOverview | Microsoft Docs"
 description: "Service Fabric güvenilir aktör yaşam döngüsü, atık toplama ve aktörler ve durumlarına el ile silinmesi açıklanmaktadır"
 services: service-fabric
 documentationcenter: .net
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: amanbha
-ms.openlocfilehash: 75b7b77a0bef2051599a4f61183109cfb2ffff3b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a7926e372449048f0a579c2c58573754a4a82363
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktör yaşam döngüsü, otomatik çöp toplama ve el ile silme
-Bir oyuncu yöntemlerinden herhangi biri için bir çağrı yapılır ilk kez etkinleştirilir. Bir oyuncu devre dışı bırakılmış (Çöp aktörler çalışma zamanı tarafından toplanan) ise yapılandırılabilir bir süre için kullanılmaz. Bir aktör ve durumu da el ile herhangi bir zamanda silinebilir.
+Bir oyuncu etkinleştirilir hello ilk kez yöntemlerinden tooany bir çağrı yapılır. Bir oyuncu devre dışı bırakılmış (Çöp hello aktörler çalışma zamanı tarafından toplanan) ise yapılandırılabilir bir süre için kullanılmaz. Bir aktör ve durumu da el ile herhangi bir zamanda silinebilir.
 
 ## <a name="actor-activation"></a>Aktör etkinleştirme
-Bir oyuncu etkinleştirildiğinde, aşağıdakiler gerçekleşir:
+Bir oyuncu etkinleştirildiğinde hello şunlar olur:
 
 * Bir oyuncu için bir çağrı gelir ve bir etkin değilse, yeni aktör oluşturulur.
-* Durum koruma aktör'in durumu yüklenir.
-* `OnActivateAsync` (C#) veya `onActivateAsync` (hangi aktör uygulamasında kılınabilir) (Java) yöntemi çağrılır.
-* Aktör şimdi etkin olarak kabul edilir.
+* Durum koruma hello aktör'ın durumunu yüklenir.
+* Merhaba `OnActivateAsync` (C#) veya `onActivateAsync` (hangi hello aktör uygulamasında kılınabilir) (Java) yöntemi çağrılır.
+* Merhaba aktör şimdi etkin olarak kabul edilir.
 
 ## <a name="actor-deactivation"></a>Aktör devre dışı bırakma
-Bir oyuncu devre dışı bırakıldığında, aşağıdakiler gerçekleşir:
+Bir oyuncu devre dışı bırakıldığında hello şunlar olur:
 
-* Belirli bir süre için bir aktör kullanılmadığı zaman etkin aktörler tablosundan kaldırılır.
-* `OnDeactivateAsync` (C#) veya `onDeactivateAsync` (hangi aktör uygulamasında kılınabilir) (Java) yöntemi çağrılır. Aktör için tüm zamanlayıcılar temizler. Aktör işlemleri değişiklikler bu yönteminden çağrılmamalıdır durumu ister.
+* Belirli bir süre için bir aktör kullanılmadığı zaman hello etkin aktörler tablosundan kaldırılır.
+* Merhaba `OnDeactivateAsync` (C#) veya `onDeactivateAsync` (hangi hello aktör uygulamasında kılınabilir) (Java) yöntemi çağrılır. Merhaba aktör tüm hello zamanlayıcılarını temizler. Aktör işlemleri değişiklikler bu yönteminden çağrılmamalıdır durumu ister.
 
 > [!TIP]
-> Fabric aktör çalışma zamanı bazı yayar [olayları ilgili aktör etkinleştirme ve devre dışı bırakma](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Bunlar, tanılama ve performans izlemesi kullanışlıdır.
+> Merhaba Fabric aktör çalışma zamanı bazı yayar [olayları ilgili tooactor etkinleştirme ve devre dışı bırakma](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Bunlar, tanılama ve performans izlemesi kullanışlıdır.
 >
 >
 
 ### <a name="actor-garbage-collection"></a>Aktör çöp toplama
-Bir oyuncu devre dışı bırakıldığında aktör nesne başvuruları yayımlanan ve normalde ortak dil çalışma zamanı (CLR) veya java sanal makinesi (JVM) atık toplayıcı tarafından toplanacak olabilir. Çöp toplama yalnızca aktör nesnesini temizler; Mevcut **değil** aktör ait durum Yöneticisi'nde depolanan durumunu kaldırın. Aktör etkinleştirilir, sonraki açışınızda yeni bir aktör nesnesi oluşturulur ve durumu geri.
+Bir aktör devre dışı bırakıldığında başvuruları toohello aktör nesne yayımlandığında ve normal şekilde Merhaba ortak dil çalışma zamanı (CLR) veya java sanal makinesi (JVM) atık toplayıcı tarafından toplanacak olabilir. Çöp toplama yalnızca hello aktör nesnesini temizler; Mevcut **değil** hello aktör'ın durum Yöneticisi'nde depolanan durumunu kaldırın. Hello sonraki zaman hello aktör etkinleştirilir, yeni bir aktör nesnesi oluşturulur ve durumuna geri yüklenir.
 
-Ne "devre dışı bırakma ve atık toplama amacıyla kullanılan olarak" sayar?
+"Hello amacı devre dışı bırakma ve atık toplama için kullanılan olarak" ne sayar?
 
 * Çağrı Alma
-* `IRemindable.ReceiveReminderAsync`(yalnızca aktör anımsatıcıları kullanıyorsa geçerlidir) çağrılan yöntemi
+* `IRemindable.ReceiveReminderAsync`(yalnızca hello aktör anımsatıcıları kullanıyorsa geçerlidir) çağrılan yöntemi
 
 > [!NOTE]
-> Aktör zamanlayıcılar kullanıyorsa ve Zamanlayıcı geri çağırma çağrılır, mevcut **değil** "kullanılan" olarak sayısı.
+> Merhaba aktör zamanlayıcılar kullanıyorsa ve Zamanlayıcı geri çağırma çağrılır, mevcut **değil** "kullanılan" olarak sayısı.
 >
 >
 
-Biz devre dışı bırakma ayrıntıları geçmeden önce aşağıdaki koşulları tanımlamak önemlidir:
+Biz devre dışı bırakma hello ayrıntılarını geçmeden önce önemli toodefine hello koşulları aşağıdaki gibidir:
 
-* *Tarama aralığı*. Withintext aktörler çalışma zamanı, etkin aktörler tablosunu devre dışı bırakılabilir aktörler için tarar ve atık toplanan aralığını budur. Bu varsayılan değeri 1 dakikadır.
-* *Boşta kalma zaman aşımı*. Bu bir aktör kullanılmayan kalması gereken süreyi belirtir (boş) devre dışı bırakılabilir ve atık toplanan önce. Bunun için varsayılan değer 60 dakikadır.
+* *Tarama aralığı*. Bu başlangıç aralığı aktörler hangi hello çalışma zamanı, etkin aktörler tablosunu devre dışı bırakılabilir aktörler için tarar ve atık toplanan. Bu Hello varsayılan değeri 1 dakikadır.
+* *Boşta kalma zaman aşımı*. Bu hello bir aktör tooremain kullanılmayan gerektiğini zaman miktarıdır (boş) devre dışı bırakılabilir ve atık toplanan önce. Bunun için Hello varsayılan değer 60 dakikadır.
 
-Genellikle, bu varsayılan değişiklik gerekmez. Ancak, gerekirse, bu aralıklar üzerinden değiştirilebilir `ActorServiceSettings` kaydederken, [aktör hizmeti](service-fabric-reliable-actors-platform.md):
+Genellikle, bu varsayılan toochange gerekmez. Ancak, gerekirse, bu aralıklar üzerinden değiştirilebilir `ActorServiceSettings` kaydederken, [aktör hizmeti](service-fabric-reliable-actors-platform.md):
 
 ```csharp
 public class Program
@@ -93,29 +93,29 @@ public class Program
     }
 }
 ```
-Her etkin aktör aktör çalışma zamanı, (yani kullanılır) boşta olduğu süre miktarını izler. Aktör çalışma zamanı her aktörler denetler her `ScanIntervalInSeconds` , çöp toplanır ve boşta olması durumunda topladığı olup olmadığını görmek için `IdleTimeoutInSeconds`.
+Her etkin aktör hello aktör çalışma zamanı, (yani kullanılır) boşta zaman hello miktarını izler. Merhaba aktör çalışma zamanı denetler her hello aktörler her `ScanIntervalInSeconds` çöp olabiliyorsa toosee toplanır ve boşta olması durumunda topladığı `IdleTimeoutInSeconds`.
 
-Bir oyuncu kullanılan zaman boşta kalma süresini 0 olarak sıfırlanır. Bundan sonra yalnızca onu yeniden boşta kalırsa toplanacak aktör olabilir `IdleTimeoutInSeconds`. Bir oyuncu aktör arabirim yöntemi veya aktör anımsatıcı geri çağırma yürütülürse kullanılan değerlendirilir çağırma. Bir oyuncu olan **değil** Zamanlayıcı geri çağırma çalıştırıldığında kullanılan düşünülür.
+Bir oyuncu kullanılan zaman boşta kalma süresini sıfırlama too0 ' dir. Bundan sonra yalnızca onu yeniden boşta kalırsa toplanacak hello aktör olabilir `IdleTimeoutInSeconds`. Bir aktör toohave değerlendirilir geri çağırma edilmiş bir aktör arabirim yöntemini veya aktör anımsatıcı geri çağırma yürütülürse kullanılır. Bir aktör olan **değil** toohave olarak kabul edilen Zamanlayıcı geri çağırma çalıştırıldığında kullanılan.
 
-Aşağıdaki diyagramda bu kavramları göstermek için tek bir aktör yaşam döngüsü gösterilmektedir.
+Merhaba Aşağıdaki diyagramda tek aktör tooillustrate hello yaşam döngüsü Bu kavramlar gösterilmektedir.
 
 ![Boşta kalma süresi örneği][1]
 
-Örnek bu aktör lifetime öğesine aktör yöntem çağrıları, anımsatıcı ve zamanlayıcılar etkisini gösterir. Aşağıdaki noktaları örnek hakkında tümleştirilmediği şunlardır:
+Merhaba örnek hello etkisini aktör yöntem çağrıları, anımsatıcı ve zamanlayıcılar bu aktör hello ömrü gösterir. Başlangıç noktaları hello örnek hakkında aşağıdaki tümleştirilmediği şunlardır:
 
-* ScanInterval ve IdleTimeout 5 ve 10 sırasıyla ayarlanır. (Yalnızca kavramı göstermek için bu konudaki Hedefimiz olduğundan birimleri burada önemli değildir.)
-* Toplanacak aktörler için tarama T = 0, 5, 10, 15, 20, 25 5 tarama aralığı tarafından tanımlandığı şekilde gerçekleşir.
-* T = konumundaki 4, 8, 12, 16, 20, 24, düzenli bir süreölçeri başlatılır ve kendi geri çağırmayı yürütür. Aktör boşta kalma süresi etkilemez.
-* Aktör yöntem çağrısı T = 7, boşta kalma süresi 0 olarak sıfırlar ve aktör çöp koleksiyonu geciktirir.
-* Aktör anımsatıcı geri çağırma T = 14 yürütür ve daha fazla aktör çöp koleksiyonu geciktirir.
-* Çöp toplama tarama T = 25 adresindeki sırasında aktör'ın boşta kalma süresi son 10 boşta kalma zaman aşımı aşıyor ve aktör toplanacak olan.
+* ScanInterval ve IdleTimeout too5 ve 10 sırasıyla ayarlanır. (Bu konudaki Hedefimiz yalnızca tooillustrate hello kavram olduğundan birimleri burada önemli değildir.)
+* Merhaba tarama teşkil eden kişilerin toobe çöp toplama T = 0, 5, 10, 15, 20, 25 ' hello tarama aralığı 5 tarafından tanımlandığı şekilde gerçekleşir.
+* T = konumundaki 4, 8, 12, 16, 20, 24, düzenli bir süreölçeri başlatılır ve kendi geri çağırmayı yürütür. Boşta kalma süresi hello aktör hello etkilemez.
+* T = 7 konumundaki bir aktör yöntemi çağrısı hello boşta kalma süresi too0 sıfırlar ve hello aktör hello çöp koleksiyonu geciktirir.
+* T = 14 aktör anımsatıcı geri çağırmayı yürütür ve daha fazla gecikmeler hello aktör çöp koleksiyonu hello.
+* Merhaba atık toplama taramada T = 25, sırasında hello aktör'ın boşta kalma süresi son 10 hello boşta kalma zaman aşımı aşıyor ve hello aktör toplanacak olan.
 
-Bir oyuncu hiçbir zaman bu yöntemin yürütülmesi için ne kadar süre olsun yöntemlerinden birini yürütülürken toplanacak olmaz. Daha önce belirtildiği gibi aktör arabirim yöntemleri ve anımsatıcı geri aramalar yürütülmesini aktör'ın boşta kalma süresi 0 olarak sıfırlayarak çöp toplama engeller. Zamanlayıcı geri aramalar yürütülmesi boşta kalma süresi 0 olarak sıfırlamaz. Ancak, aktör çöp koleksiyonu Zamanlayıcı geri yürütme tamamlanana kadar ertelenir.
+Bir oyuncu hiçbir zaman bu yöntemin yürütülmesi için ne kadar süre olsun yöntemlerinden birini yürütülürken toplanacak olmaz. Daha önce belirtildiği gibi hello yürütülmesini aktör arabirim yöntemleri ve anımsatıcı geri aramalar hello aktör'ın boşta kalma süresi too0 sıfırlayarak çöp toplama engeller. Zamanlayıcı geri aramalar Hello yürütülmesi hello boşta kalma süresi too0 sıfırlamaz. Ancak, hello aktör hello çöp koleksiyonu Hello Zamanlayıcı geri yürütme tamamlanana kadar ertelenir.
 
 ## <a name="deleting-actors-and-their-state"></a>Aktör ve durumlarına silme
-Çöp toplama devre dışı bırakılan aktör yalnızca aktör nesnesini temizler, ancak bir aktör ait durum Yöneticisi'nde depolanan verileri kaldırmaz. Bir aktör yeniden etkinleştirildiğinde, verileri yeniden durum Yöneticisi aracılığıyla için kullanılabilir hale getirilir. Burada aktörler durum Yöneticisi'nde veri depolamak ve devre dışı ancak hiçbir zaman yeniden etkinleştirilmiş durumda, kendi verilerini temizle gerekebilir.
+Çöp toplama devre dışı bırakılan aktör yalnızca hello aktör nesnesini temizler, ancak bir aktör ait durum Yöneticisi'nde depolanan verileri kaldırmaz. Bir aktör yeniden etkinleştirildiğinde, verileri yeniden kullanılabilir tooit hello durum Yöneticisi aracılığıyla yapılır. Burada aktörler durum Yöneticisi'nde veri depolamak ve devre dışı ancak hiçbir zaman yeniden etkinleştirilmiş durumda, kendi verilerini gerekli tooclean olabilir.
 
-[Aktör hizmeti](service-fabric-reliable-actors-platform.md) aktörler uzak çağrıyı yapandan silmek için bir işlev sağlar:
+Merhaba [aktör hizmeti](service-fabric-reliable-actors-platform.md) aktörler uzak çağrıyı yapandan silmek için bir işlev sağlar:
 
 ```csharp
 ActorId actorToDelete = new ActorId(id);
@@ -134,7 +134,7 @@ ActorService myActorServiceProxy = ActorServiceProxy.create(
 myActorServiceProxy.deleteActorAsync(actorToDelete);
 ```
 
-Bir oyuncu silme aktör şu anda etkin olan olup olmadığına bağlı olarak aşağıdaki etkileri gösterir:
+Bir oyuncu silme etkileri hello aktör şu anda etkin olan olup olmadığına bağlı olarak aşağıdaki hello sahiptir:
 
 * **Etkin aktör**
   * Aktör etkin aktörler listesinden kaldırılır ve devre dışı bırakılır.
@@ -142,7 +142,7 @@ Bir oyuncu silme aktör şu anda etkin olan olup olmadığına bağlı olarak a�
 * **Etkin olmayan aktör**
   * Durumu kalıcı olarak silinir.
 
-Bir oyuncu çağrılamıyor Not Sil aktör yöntemlerinden birini kendisinden aktör çalışma zamanı tek iş parçacıklı erişim uygulamaya aktör çağrısı geçici bir kilidi elde bir aktör çağrısı bağlamı içinde yürütülürken silinemez çünkü.
+Bir oyuncu çağrılamıyor Not Sil aktör yöntemlerinden birini kendisinden hangi hello çalışma zamanı hello aktör çağrısı tooenforce tek iş parçacıklı erişimine geçici bir kilidi elde bir aktör çağrısı bağlamı içinde yürütülürken hello aktör silinemez çünkü.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Aktör zamanlayıcılar ve anımsatıcıları](service-fabric-reliable-actors-timers-reminders.md)

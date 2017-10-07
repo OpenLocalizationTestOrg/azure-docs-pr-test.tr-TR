@@ -1,6 +1,6 @@
 ---
-title: "Hadoop - Azure Hdınsight ile MapReduce ve PowerShell kullanma | Microsoft Docs"
-description: "PowerShell uzaktan MapReduce işleri Hdınsight'ta Hadoop ile çalıştırmak için nasıl kullanılacağını öğrenin."
+title: "aaaUse MapReduce ve Hadoop - Azure Hdınsight ile PowerShell | Microsoft Docs"
+description: "Toouse PowerShell tooremotely çalışma şeklini MapReduce işleri Hadoop ile Hdınsight'ta öğrenin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,56 +16,56 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/16/2017
 ms.author: larryfr
-ms.openlocfilehash: c3801573808709f29cb1e563ac803f225a28cafc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 59524f0e8813d4c017f92bccb2e50d4c018acf71
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>PowerShell kullanarak Hdınsight'ta Hadoop ile MapReduce işleri çalıştırma
 
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Bu belge, Hdınsight kümesinde bir Hadoop MapReduce işi çalıştırmak için Azure PowerShell kullanarak bir örnek sağlar.
+Bu belge, Hdınsight kümesinde bir Hadoop bir MapReduce işi Azure PowerShell toorun kullanmaya ilişkin bir örnek sağlar.
 
 ## <a id="prereq"></a>Önkoşullar
 
 * **Azure Hdınsight (Hadoop hdınsight) kümesi**
 
   > [!IMPORTANT]
-  > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Azure PowerShell içeren bir iş istasyonu**.
 
 ## <a id="powershell"></a>Azure PowerShell kullanarak bir MapReduce işi çalıştırma
 
-Azure PowerShell sağlar *cmdlet'leri* Hdınsight'ta MapReduce işleri uzaktan çalıştırma izin verir. Dahili olarak, bu REST çağrılarını kullanarak gerçekleştirilir [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (Templeton adıysa) Hdınsight kümesinde çalışan.
+Azure PowerShell sağlar *cmdlet'leri* olanak tanıyacak şekilde çalıştırın tooremotely MapReduce işleri Hdınsight'ta. Dahili olarak, bu çok REST çağrılarını kullanarak gerçekleştirilir[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (Templeton adıysa) Hdınsight kümesi hello üzerinde çalışan.
 
-Aşağıdaki cmdlet, MapReduce işleri uzaktan Hdınsight kümesinde çalıştırılırken kullanılır.
+Merhaba aşağıdaki cmdlet'ler MapReduce işleri uzaktan Hdınsight kümesinde çalıştırılırken kullanılır.
 
-* **Login-AzureRmAccount**: Azure PowerShell'i Azure aboneliğinize kimliğini doğrular.
+* **Login-AzureRmAccount**: Azure PowerShell kimliğini doğrulayan tooyour Azure aboneliği.
 
-* **AzureRmHDInsightMapReduceJobDefinition yeni**: yeni bir *iş tanımı* belirtilen MapReduce bilgileri kullanarak.
+* **AzureRmHDInsightMapReduceJobDefinition yeni**: yeni bir *iş tanımı* hello kullanarak belirtilen MapReduce bilgi.
 
-* **Başlangıç AzureRmHDInsightJob**: iş tanımı için Hdınsight gönderir, işini başlatır ve döndüren bir *iş* işinin durumunu denetlemek için kullanılan nesne.
+* **Başlangıç AzureRmHDInsightJob**: hello iş tanımı tooHDInsight gönderir, hello işini başlatır ve döndürür bir *iş* kullanılan toocheck hello hello işinin durumunu olabilir nesnesi.
 
-* **Bekleme AzureRmHDInsightJob**: iş nesnesi işinin durumunu denetlemek için kullanır. İş tamamlandığında veya bekleme süresi aşılırsa kadar bekler.
+* **Bekleme AzureRmHDInsightJob**: hello iş nesnesi toocheck hello hello işinin durumunu kullanır. Merhaba işi tamamlar veya hello bekleme süresi aşılırsa kadar bekler.
 
-* **Get-AzureRmHDInsightJobOutput**: işlemin çıktısını almak için kullanılır.
+* **Get-AzureRmHDInsightJobOutput**: tooretrieve hello çıktısını hello kullanılır.
 
-Aşağıdaki adımlarda bu cmdlet'leri Hdınsight kümenizdeki bir işi çalıştırmak için nasıl kullanılacağı gösterilmektedir.
+Merhaba aşağıdaki adımları göstermek nasıl toouse bu cmdlet'leri toorun Hdınsight kümenizdeki bir işi.
 
-1. Bir düzenleyici kullanarak aşağıdaki kodu olarak Kaydet **mapreducejob.ps1**.
+1. Bir düzenleyici kullanarak Kaydet kodu olarak aşağıdaki hello **mapreducejob.ps1**.
 
-    [!code-powershell[Ana](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
+    [!code-powershell[main](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
-2. Yeni bir **Azure PowerShell** komut istemi. Dizin konumuna değiştirme **mapreducejob.ps1** dosya sonra komut dosyasını çalıştırmak için aşağıdaki komutu kullanın:
+2. Yeni bir **Azure PowerShell** komut istemi. Dizinleri toohello hello konumunu değiştirme **mapreducejob.ps1** dosya sonra toorun hello komut aşağıdaki hello kullanın:
 
         .\mapreducejob.ps1
 
-    Komut dosyasını çalıştırdığınızda, Hdınsight kümesi adını ve HTTPS/Yönetici hesap adı ve küme için parola istenir. Ayrıca, Azure aboneliğinizin kimlik doğrulaması istenebilir.
+    Merhaba komut çalıştırdığınızda hello hello Hdınsight küme adını ve hello HTTPS/Yönetici hesap adı ve parola hello kümesi için istenir. İstendiğinde tooauthenticate tooyour Azure aboneliği de olabilir.
 
-3. İş tamamlandığında, aşağıdakine benzer bir çıktı alırsınız:
+3. Merhaba işi tamamlandığında, çıkış benzer toohello metin aşağıdaki alırsınız:
 
         Cluster         : CLUSTERNAME
         ExitCode        : 0
@@ -77,27 +77,27 @@ Aşağıdaki adımlarda bu cmdlet'leri Hdınsight kümenizdeki bir işi çalış
         SubmissionTime  : 12/5/2014 8:34:09 PM
         JobId           : job_1415949758166_0071
 
-    Bu çıktı, iş başarıyla tamamlandığını gösterir.
+    Bu çıktı, o hello işi başarıyla tamamlandı gösterir.
 
     > [!NOTE]
-    > Varsa **ExitCode** bir değer 0'dan bkz [sorun giderme](#troubleshooting).
+    > Merhaba, **ExitCode** bir değer 0'dan bkz [sorun giderme](#troubleshooting).
 
-    Bu örnek ayrıca indirilen dosyaları depolayan bir **çýktý.txt** komut dosyasını çalıştırmak dizindeki dosyayı.
+    Bu örnek ayrıca hello indirilen dosyaları tooan depolar **çýktý.txt** hello dizinindeki hello komut dosyasından çalıştırın.
 
 ### <a name="view-output"></a>Görünüm çıktı
 
-Açık **çýktý.txt** sözcükler ve iş tarafından üretilen sayılar görmek için bir metin düzenleyicisinde dosya.
+Açık hello **çýktý.txt** bir metin düzenleyicisi toosee hello dosyasında sözcükleri ve hello iş tarafından üretilen sayar.
 
 > [!NOTE]
-> Bir MapReduce işi çıktı dosyalarını değişmez. Bu nedenle, bu örnek çalıştırırsanız, çıktı dosyası adını değiştirmeniz gerekir.
+> Merhaba çıktı dosyalarını bir MapReduce işi değişmez. Bu nedenle, bu örnek çalıştırırsanız, toochange hello hello çıktı dosyası adını gerekir.
 
 ## <a id="troubleshooting"></a>Sorun giderme
 
-İş tamamlandığında hiçbir bilgi döndürülürse, işleme sırasında bir hata oluşmuş olabilir. Bu işi için hata bilgilerini görüntülemek için aşağıdaki komutu sonuna ekleyin **mapreducejob.ps1** dosya, dosyayı kaydedin ve yeniden çalıştırın.
+Merhaba işi tamamlandığında hiçbir bilgi döndürülürse, işleme sırasında bir hata oluşmuş olabilir. Bu iş için tooview hata bilgilerini Ekle komutu toohello hello sonuna aşağıdaki hello **mapreducejob.ps1** dosya, dosyayı kaydedin ve yeniden çalıştırın.
 
 ```powershell
-# Print the output of the WordCount job.
-Write-Host "Display the standard output ..." -ForegroundColor Green
+# Print hello output of hello WordCount job.
+Write-Host "Display hello standard output ..." -ForegroundColor Green
 Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
@@ -105,11 +105,11 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-Bu cmdlet iş çalıştırdığınızda, STDERR'e sunucuda yazıldı bilgiler döndürür ve iş neden başarısız olduğunu belirlemenize yardımcı.
+Bu cmdlet hello işi çalıştırdığınızda, tooSTDERR hello sunucuda yazıldı hello bilgiler döndürür ve hello iş neden başarısız olduğunu belirlemenize yardımcı.
 
 ## <a id="summary"></a>Özet
 
-Gördüğünüz gibi Azure PowerShell bir Hdınsight kümesine MapReduce işleri çalıştırma, iş durumunu izleyebilir ve çıkış almak için kolay bir yol sağlar.
+Gördüğünüz gibi bir Hdınsight kümesi, hello iş durumunu izleyin ve alma hello çıktı Azure PowerShell kolay bir yolu toorun MapReduce işleri sağlar.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 

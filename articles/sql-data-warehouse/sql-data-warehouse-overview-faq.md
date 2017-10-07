@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL veri ambarı sık sorulan sorular | Microsoft Docs"
+title: "aaaAzure SQL veri ambarı ile ilgili sık sorulan sorular | Microsoft Docs"
 description: "Bu makalede Azure SQL veri ambarı hakkında sık sorulan sorular müşteriler ve geliştiricilerin çıkışı listeler"
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: overview
 ms.date: 3/1/2017
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 4c00710ecc0c91f8407eca81b78176075fcbd6ad
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 09fd3f65d9507b09fcb8f477742c7d020add2755
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL veri ambarı sık sorulan sorular
 
@@ -31,7 +31,7 @@ A. SQL DW TDE gibi verileri korumak ve denetlemek için çeşitli çözümler su
 
 Q. Hangi yasal veya iş standartları SQL DW olduğunu uyumlu nereden bulabilirim?
 
-A. Ziyaret [Microsoft Compliance] ürün SOC ve ISO gibi çeşitli uyumluluk sunumları için sayfa. İlk uyumluluk başlığı seçin, ardından Azure genişletin Microsoft kapsam içinde bulut hizmetlerini bölümünde Azure hangi hizmetlerin olduğunu görmek için sayfanın sağ tarafında Hizmetleri uyumludur.
+A. Merhaba ziyaret [Microsoft Compliance] ürün SOC ve ISO gibi çeşitli uyumluluk sunumları için sayfa. İlk uyumluluk başlığı seçin, ardından Azure genişletin hangi hizmetler Azure hizmetlerdir hello içinde kapsam için Microsoft bulut Hizmetleri bölümünde hello sayfa toosee hello sağ tarafında uyumlu.
 
 Q. Powerbı bağlayabilir miyim?
 
@@ -43,7 +43,7 @@ A. Bizim geçerli bkz [kapasite limitlerini] sayfası.
 
 Q. Neden my ölçek/Duraklat/Sürdür çok uzun sürüyor?
 
-A. İşlem yönetimi işlemleri için süre çeşitli etkenlere etkileyebilir. Bir ortak işlemleri uzun süre çalışan işlem geri alma için durumda. Bir ölçek veya duraklatma işlemi başlatıldığında, tüm gelen oturumları engellenir ve sorguları boşaltmış. Bir işlem yeniden başlatılmadan önce sistem kararlı durumda bırakın için işlemleri geri alınması gerekir. Büyük sayı ve daha büyük günlük boyutu hareketlerinin, uzun işlemi sistem kararlı bir duruma geri yükleme durduruldu.
+A. Çeşitli etkenlere işlem yönetimi işlemleri için başlangıç saati etkileyebilir. Bir ortak işlemleri uzun süre çalışan işlem geri alma için durumda. Bir ölçek veya duraklatma işlemi başlatıldığında, tüm gelen oturumları engellenir ve sorguları boşaltmış. Bir işlem yeniden başlatılmadan önce sipariş tooleave hello sisteminde tutarlı bir durumda, işlemleri geri alınması gerekir. büyük hello sayısını ve işlemleri büyük hello günlük boyutunu Merhaba, hello sistem tooa kararlı durum geri hello uzun hello işlemi durduruldu.
 
 ## <a name="user-support"></a>Kullanıcı desteği
 
@@ -73,7 +73,7 @@ A. SQL veri ambarı birçok özellik desteklerken, bazı desteklenmez ve belgele
 
 Q. Visual Studio veritabanı projelerini desteklemez.
 
-A. Şu anda veritabanı projeleri Visual Studio ile SQL Data Warehouse için desteklemiyoruz. Bu özellik almak için bir oy dönüştürmek istiyorsanız, bizim kullanıcı sesi ziyaret [veritabanı projeleri özellik isteği].
+A. Şu anda veritabanı projeleri Visual Studio ile SQL Data Warehouse için desteklemiyoruz. Oy tooget toocast isterseniz bu özelliği, bizim kullanıcı sesi ziyaret [veritabanı projeleri özellik isteği].
 
 Q. SQL Data Warehouse, REST API'leri destekliyor mu?
 
@@ -84,23 +84,23 @@ A. Evet. SQL veritabanı ile kullanılan çoğu REST işlevselliği de SQL Data 
 
 Q. Hangi istemci sürücüleri destekliyor?
 
-A. DW sürücü desteği bulunabilir [bağlantı dizeleri] sayfası
+A. DW sürücü desteği hello üzerinde bulunabilir [bağlantı dizeleri] sayfası
 
 S: hangi dosya biçimleri, SQL veri ambarı ile PolyBase tarafından desteklenir?
 
 Y: Orc, RC, Parquet ve düz sınırlandırılmış metin
 
-S: ne ı PolyBase kullanarak SQL DW bağlanabilir mi? 
+S: ne toofrom SQL DW Polybase'i kullanarak bağlanmak? 
 
 Y: [Azure Data Lake Store] ve [Azure depolama BLOB'ları]
 
-S: hesaplama aşağı itme Azure Storage Bloblarında veya ADLS bağlanırken mi? 
+S: hesaplama aşağı itme olası tooAzure depolama BLOB veya ADLS bağlanırken mi? 
 
-A: Hayır SQL DW PolyBase yalnızca depolama bileşenleri etkileşim kurar. 
+A: Hayır SQL DW PolyBase yalnızca hello depolama bileşenleri etkileşim kurar. 
 
-S: HDI için bağlanabilir?
+S: tooHDI bağlanmak?
 
-Y: HDI ADLS veya WASB HDFS katmanı olarak kullanabilirsiniz. HDFS katmanı olarak ya da varsa, bu verileri SQL DW yükleyebilirsiniz. Ancak, aşağı itme hesaplama HDI örneği oluşturulamıyor. 
+Y: HDI ADLS veya WASB hello HDFS katmanı olarak kullanabilirsiniz. HDFS katmanı olarak ya da varsa, bu verileri SQL DW yükleyebilirsiniz. Ancak, aşağı itme hesaplama toohello HDI örneği oluşturulamıyor. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir bütün olarak SQL Data Warehouse hakkında daha fazla bilgi için bkz: bizim [genel bakış] sayfası.

@@ -1,5 +1,5 @@
 ---
-title: "SQL veri ambarı tablolarda bölümleme | Microsoft Docs"
+title: "SQL veri ambarı aaaPartitioning tablolarda | Microsoft Docs"
 description: "Azure SQL Data Warehouse'da tablo bölümleme ile çalışmaya başlama."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
 ms.author: shigu;barbkess
-ms.openlocfilehash: 3edfd34d368228be32afef48688739639a3b03ed
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aa63c51562f3e6f83063320860b195e135a721e1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda bölümlendirme
 > [!div class="op_single_selector"]
@@ -33,28 +33,28 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Bölümleme tüm SQL veri ambarı tablo türlerinde desteklenir; Kümelenmiş columnstore, kümelenmiş dizin ve yığın dahil.  Bölümlendirme, karma veya dağıtılmış hepsini dahil olmak üzere tüm dağıtım türlerinde de desteklenir.  Etkinleştirir bölümlendirme, bölümleme küçük gruplara veri ve çoğu durumda, verilerinizi ayırmak için bir tarih sütunu üzerinde gerçekleştirilir.
+Bölümleme tüm SQL veri ambarı tablo türlerinde desteklenir; Kümelenmiş columnstore, kümelenmiş dizin ve yığın dahil.  Bölümlendirme, karma veya dağıtılmış hepsini dahil olmak üzere tüm dağıtım türlerinde de desteklenir.  Bölümleme bölümleme daha küçük gruplar veri ve çoğu durumda, verilerinizi bir tarih sütunu yapılır toodivide sağlar.
 
 ## <a name="benefits-of-partitioning"></a>Bölümleme avantajları
-Bölümleme veri Bakım ve sorgu performansını yararlı olabilir.  Olup hem veya yalnızca bir avantaj verilerin nasıl yüklendiği ve bölümleme yalnızca bir sütun üzerinde yapılabilir bu yana aynı sütuna iki amaçlar için kullanılıp kullanılamayacağını bağımlıdır.
+Bölümleme veri Bakım ve sorgu performansını yararlı olabilir.  Olup hem veya yalnızca bir avantaj verilerin nasıl yüklendiği ve bölümleme yalnızca bir sütun üzerinde yapılabilir beri hello aynı sütuna iki amaçlar için kullanılıp kullanılamayacağını bağımlıdır.
 
-### <a name="benefits-to-loads"></a>Yükleri için avantajları
-SQL veri ambarı'nda bölümleme birincil yararı olan veri bölümü silinmesini kullanın yükleme, değiştirme ve birleştirme performansını ve verimliliğini iyileştirir.  Çoğu durumda, yakın olan veriler veritabanına yüklendikten dizisine bağlı bir tarih sütunu üzerinde verileri bölümlenen.  Verileri tutmak için bölümleri kullanmanın en büyük avantajlarından biri, işlem günlüğü kaçınma.  Yalnızca ekleme, güncelleştirme veya verileri silme küçük bir düşünce ve çaba, en kolay yaklaşım olabileceği yükleme işlemi sırasında bölümleme kullanılarak önemli ölçüde performansı artırabilir.
+### <a name="benefits-tooloads"></a>Avantajları tooloads
+SQL veri ambarı'nda bölümleme hello birincil yararı olduğu hello verimliliği ve bölüm silme işlemini kullanarak verileri yüklenirken, değiştirme ve birleştirme performansını artırır.  Çoğu durumda bir tarihte verileri bölümlenen toohello sırası hello veri yüklenen toohello veritabanı yakından sütuna bağlıdır.  İşlem günlüğü kaçınma hello bölümleri toomaintain veri kullanımının hello en büyük avantajlarından biri.  Yalnızca ekleme, güncelleştirme veya verileri silme küçük bir düşünce ve çaba, hello en kolay yaklaşım olabileceği yükleme işlemi sırasında bölümleme kullanılarak önemli ölçüde performansı artırabilir.
 
-Bölüm geçiş hızlı bir şekilde kaldırmak veya bir tablonun bölümünü değiştirmek için kullanılabilir.  Örneğin, satış Olgu Tablosu yalnızca veriler için geçmiş 36 ay içerebilir.  Her ayın sonunda, en eski aylık satış veri tablosundan silindi.  Bu veriler, en eski ay için verileri silmek için delete deyimi kullanarak silinemedi.  Ancak, büyük miktarda veri-satır delete deyimi ile silme çok uzun zaman yanı bir sorun yaşanırsa, uzun bir süre için geri alma ele geçirebilir büyük işlemleri riskini oluşturun.  Yalnızca eski bölüm veri bırakma daha uygun bir yaklaşımdır.  Burada, tek tek satırları silme saat ele geçirebilir bölümünün tamamını silme saniye sürebilir.
+Bölüm geçiş kullanılan tooquickly Kaldır yüklenebilir veya bir tablonun bölümünü değiştirmek.  Örneğin, satış olgu tablosunun son 36 ay hello için yalnızca verileri içerebilir.  Her ayın Hello sonunda hello satış verileri eski ayın hello tablosundan silindi.  Bu veriler, en eski ay Merhaba bir delete deyimi toodelete hello verileri kullanarak silinemedi.  Ancak, büyük miktarda veri-satır delete deyimi ile silme çok uzun zaman yanı bir sorun yaşanırsa, uzun süre toorollback ele geçirebilir büyük işlemleri hello riskini oluşturun.  Daha iyi yaklaşımı toosimply açılan hello en eski veri bölümdür.  Burada, hello tek tek satırları silme saat ele geçirebilir bölümünün tamamını silme saniye sürebilir.
 
-### <a name="benefits-to-queries"></a>Sorgular için avantajları
-Bölümleme de sorgu performansını artırmak için kullanılabilir.  Bir sorgu bölümlenmiş bir sütunda bir filtre geçerliyse, bu çok daha küçük bir alt verilerin tam tablo taraması önleme olabilen belirleme bölümlere tarama sınırlayabilirsiniz.  Kümelenmiş columnstore dizinleri giriş, koşul eleme performans avantajı daha az faydalı bağlıdır, ancak bazı durumlarda olabilir bir avantajı sorgulara.  Satış Olgu Tablosu 36 satış tarihi alanını kullanarak ay bölümlenmiş, sonra bu filtre satış tarihinde sorgular, örneğin, filtre eşleşmeyen bölümlerinde arama atlayabilirsiniz.
+### <a name="benefits-tooqueries"></a>Avantajları tooqueries
+Bölümleme kullanılan tooimprove sorgu performansını da olabilir.  Bir sorgu bölümlenmiş bir sütunda bir filtre geçerliyse, bu bir çok daha küçük veri alt kümesini tam tablo taraması önleme hello olabilen bölümleri niteleme hello tarama tooonly hello sınırlayabilirsiniz.  Merhaba giriş kümelenmiş columnstore dizinleri hello koşul eleme performans avantajı daha az faydalı bağlıdır, ancak bazı durumlarda olabilir avantajı tooqueries.  Merhaba satış Olgu Tablosu 36 hello satış tarihi alanını kullanarak ay bölümlenmiş, örneğin, ardından hello satış tarihte filtre sorguları hello filtre eşleşmeyen bölümlerinde arama atlayabilirsiniz.
 
 ## <a name="partition-sizing-guidance"></a>Bölüm boyutlandırma kılavuzluğu
-Bölümleme bazı senaryolar performansını artırmak için kullanılabilir, içeren bir tablo oluştururken **çok fazla** bölümleri bazı koşullarda performans ölçeklenme.  Bu sorunları için kümelenmiş columnstore tabloları özellikle doğrudur.  Yardımcı olması için bölümleme için bölümleme kullanmak ne zaman ve oluşturmak için bölüm sayısı anlamak önemlidir.  Kaç tane bölümleri çok fazla seçeceğine sabit hızlı kural yok, bağımlı verilerinizi ve kaç tane bölümler için aynı anda yüklüyorsunuz.  Ancak genel altın kural, 10'luk için 100s, bölümlerinin değil 1000'lik ekleme düşünün.
+Bölümleme sırasında kullanılan tooimprove performans içeren bir tablo oluşturma bazı senaryolar olabilir **çok fazla** bölümleri bazı koşullarda performans ölçeklenme.  Bu sorunları için kümelenmiş columnstore tabloları özellikle doğrudur.  Toobe yararlı bölümleme için önemli toounderstand olduğu zaman toouse bölümlendirme ve hello sayısı bölümleri toocreate.  Var. toohow olarak sabit bir hızlı kural yok birçok bölüm çok fazla, verilerinizde bağlıdır ve kaç tane bölümler toosimultaneously yüklüyorsunuz.  Ancak genel altın kural, 10'luk ekleme düşündüğünüz bölümlerinin değil 1000'lik too100s.
 
-Üzerinde bölümleme oluştururken **kümelenmiş columnstore** , olduğu tablolar satır sayısını her bölüm gideceksiniz göz önünde bulundurun.  Dağıtım ve bölüm başına 1 milyon satır en az, en iyi sıkıştırma ve kümelenmiş columnstore tabloları performansını için gereklidir.  Bölümler oluşturulmadan önce SQL veri ambarı her tablo 60 dağıtılmış veritabanlarına zaten böler.  Arka planda oluşturulan dağıtımları ek olarak, herhangi bir tabloya eklenen bölümleme olur.  Bu örnekte, satış Olgu Tablosu 36 aylık bölümleri yer alan ve o SQL veri ambarı 60 dağıtımları, tüm ay yerleştirildiğinde sonra satış Olgu Tablosu 60 milyon satır aylık veya 2.1 milyon satır içermelidir kullanıyor.  Bir tablo, bölüm başına satır önerilen minimum sayısını önemli ölçüde daha az satır içeriyorsa, bölüm başına satır sayısını artırmak yapmak için daha az bölümleri kullanmayı düşünün.  Ayrıca bkz. [dizin] [ Index] küme columnstore dizinleri kalitesini değerlendirmek için SQL veri ambarı üzerinde çalışan sorguları içerir makalesi.
+Üzerinde bölümleme oluştururken **kümelenmiş columnstore** tablolar, satır sayısını her bölüm güden önemli tooconsider değil.  Dağıtım ve bölüm başına 1 milyon satır en az, en iyi sıkıştırma ve kümelenmiş columnstore tabloları performansını için gereklidir.  Bölümler oluşturulmadan önce SQL veri ambarı her tablo 60 dağıtılmış veritabanlarına zaten böler.  Herhangi bir bölümleme eklenen tooa Tablo ayrıca hello arka planda oluşturulan toohello dağıtımları olur.  Bu örnekte, Hello satış Olgu Tablosu 36 aylık bölümleri içeriyordu ve SQL Data Warehouse 60 dağıtımları sahip o aylar yerleştirildiğinde tablo 60 milyon satır aylık veya 2.1 milyon satır içermelidir satış olgu hello kullanıyor.  Bir tablo hello önerilen minimum bölüm başına satır sayısı çok önemli ölçüde daha az satır içeriyorsa, daha az bölümleri sipariş toomake artış hello bölüm başına satır sayısı kullanmayı düşünün.  Ayrıca bkz. hello [dizin] [ Index] Itanium tabanlı sistemler için SQL Data Warehouse tooassess hello kalitesi küme columnstore dizinleri, üzerinde çalışan sorguları içerir makale.
 
 ## <a name="syntax-difference-from-sql-server"></a>SQL Server sözdizimi farkı
-SQL veri ambarı SQL Server'dan biraz farklıdır basitleştirilmiş bir bölüm tanımı tanıtır.  SQL Server'da olduğu gibi SQL veri ambarı'nda bölümleme işlevleri ve şeması kullanılmaz.  Bunun yerine, yapmanız gereken tek şey bölümlenmiş sütun ve sınır noktaları tanımlamak.  Bölümleme sözdizimi SQL Server'dan biraz farklı olabilir, ancak temel kavramları aynıdır.  SQL Server ve SQL Data Warehouse aralıklı bölüm olabilir tablo başına bir bölüm sütunu destekler.  Bölümleme hakkında daha fazla bilgi için bkz: [bölümlenmiş tablolar ve dizinler][Partitioned Tables and Indexes].
+SQL veri ambarı SQL Server'dan biraz farklıdır basitleştirilmiş bir bölüm tanımı tanıtır.  SQL Server'da olduğu gibi SQL veri ambarı'nda bölümleme işlevleri ve şeması kullanılmaz.  Bunun yerine, tüm toodo gereken budur bölümlenmiş sütun ve hello sınır noktaları tanımlar.  Bölümleme hello sözdizimi SQL Server'dan biraz farklı olabilir, ancak hello temel kavramları şunlardır hello aynı.  SQL Server ve SQL Data Warehouse aralıklı bölüm olabilir tablo başına bir bölüm sütunu destekler.  Bölümlendirme, hakkında daha fazla toolearn bkz [bölümlenmiş tablolar ve dizinler][Partitioned Tables and Indexes].
 
-Bölümlenmiş bir SQL veri ambarı örneği aşağıda [CREATE TABLE] [ CREATE TABLE] deyimi, bölümler OrderDateKey sütununda Factınternetsales tablosunda:
+bölümlenmiş bir SQL veri ambarı örneği aşağıda Hello [CREATE TABLE] [ CREATE TABLE] deyimi, bölümler hello OrderDateKey sütun hello Factınternetsales tablosunda:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -81,12 +81,12 @@ WITH
 ```
 
 ## <a name="migrating-partitioning-from-sql-server"></a>SQL Server'dan bölümleme geçirme
-SQL Server bölüm tanımları SQL veri ambarı'na basit geçirmek için:
+toomigrate SQL Server veri ambarı tanımları tooSQL yalnızca bölüm:
 
-* SQL Server ortadan [bölüm düzeni][partition scheme].
-* Ekleme [bölümleme işlevi] [ partition function] CREATE TABLE tanımına.
+* SQL Server Hello ortadan [bölüm düzeni][partition scheme].
+* Merhaba eklemek [bölümleme işlevi] [ partition function] tanımı tooyour tablo oluştur.
 
-Bir SQL Server örneğinden bölümlenmiş bir tablodaki taşıyorsanız SQL her bölüm satır sayısı sorgulayın yardımcı olabilir.  SQL Data Warehouse aynı bölümleme ayrıntı kullandıysanız, bölüm başına satır sayısı 60 faktörüyle düşürür aklınızda bulundurun.  
+Bölümlenmiş bir tablodaki bir SQL Server örneği hello SQL aşağıda geçiş durumunda toointerrogate hello her bölüm satır sayısı yardımcı olabilir.  Merhaba aynı bölümleme ayrıntı SQL Data Warehouse kullanılırsa, bölüm başına satır sayısı hello 60 faktörüyle düşürür aklınızda bulundurun.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -123,9 +123,9 @@ GROUP BY    s.[name]
 ```
 
 ## <a name="workload-management"></a>İş yükü yönetimi
-Tablo bölüm kararı faktörü için bir son parçası husustur [iş yükü Yönetim][workload management].  SQL veri ambarı iş yükü yönetiminde öncelikle bellek ve eşzamanlılık yönetimidir.  SQL veri ambarı'nda sorgu yürütme sırasında her dağıtım için ayrılan maksimum bellek yönetilen kaynak sınıfları ' dir.  İdeal olarak, bölümler kümelenmiş columnstore dizinleri oluşturmanın bellek gereksinimlerini gibi diğer faktörlere söz konusu boyutta.  Daha fazla bellek ayırırken columnstore dizinleri avantajı büyük ölçüde kümelenmiş.  Bu nedenle, bir bölüm dizini yeniden oluşturma bellek gerek duyuldu değil emin olmak istersiniz. Sorgunuz için kullanılabilir bellek miktarını artırmayı varsayılan rolünden smallrc, largerc gibi diğer rolleri birini geçerek elde edilebilir.
+Bir son parçası göz önünde bulundurarak toofactor toohello tablo bölüm karar içinde olduğu [iş yükü Yönetim][workload management].  SQL veri ambarı iş yükü yönetiminde öncelikle hello bellek ve eşzamanlılık yönetimidir.  SQL veri ambarı hello tooeach dağıtım sorgu yürütme sırasında ayrılan en fazla bellek yönetilen kaynak sınıfları ' dir.  İdeal olarak, bölümler hello bellek gereksinimlerini kümelenmiş columnstore dizinleri oluşturma gibi diğer faktörlere söz konusu boyutta.  Daha fazla bellek ayırırken columnstore dizinleri avantajı büyük ölçüde kümelenmiş.  Bu nedenle, bir bölüm dizini yeniden tooensure bellek gerek duyuldu değil isteyeceksiniz. Merhaba kullanılabilir tooyour sorgu elde edilebilir hello varsayılan rol, smallrc, tooone, geçiş tarafından bellek miktarını artırmayı hello largerc gibi diğer rolleri.
 
-Dağıtım başına bellek ayırma hakkında bilgi kaynak İdarecisi dinamik yönetim görünümlerini sorgulayarak kullanılabilir. Gerçekte, bellek ataması aşağıdaki şekilde daha az olur. Ancak, bu veri yönetimi işlemleri için iyi bir bölüm boyutlandırma olduğunda kullanabileceğiniz kılavuzu düzeyi sağlar.  Çok büyük kaynak sınıfı tarafından sağlanan bellek ataması ötesinde, bölümler boyutlandırma kaçınmaya çalışın. Bu şekil, bölümler büyümesine sırayla daha az en iyi sıkıştırma müşteri adayları bellek baskısı riskini çalıştırın.
+Dağıtım başına bellek hello ayrılması hakkında bilgi hello kaynak İdarecisi dinamik yönetim görünümlerini sorgulayarak kullanılabilir. Gerçekte, bellek ataması hello resimde daha az olur. Ancak, bu veri yönetimi işlemleri için iyi bir bölüm boyutlandırma olduğunda kullanabileceğiniz kılavuzu düzeyi sağlar.  Merhaba bellek ataması hello çok büyük kaynak sınıfı tarafından sağlanan dışında bir bölüm boyutlandırma tooavoid deneyin. Bu şekil, bölümler büyümesine hangi sırayla tooless en iyi sıkıştırma müşteri adayları bellek baskısı hello riskini çalıştırın.
 
 ```sql
 SELECT  rp.[name]                                AS [pool_name]
@@ -144,12 +144,12 @@ AND     rp.[name]    = 'SloDWPool'
 ```
 
 ## <a name="partition-switching"></a>Bölüm değiştirme
-SQL veri ambarı geçiş bölme ve birleştirme bölüm destekler. Bu işlevlerin her biri excuted olan kullanarak [ALTER TABLE] [ ALTER TABLE] deyimi.
+SQL veri ambarı geçiş bölme ve birleştirme bölüm destekler. Bu işlevlerin her biri hello kullanarak excuted olan [ALTER TABLE] [ ALTER TABLE] deyimi.
 
-Bölüm iki tablo arasında geçiş yapmak için bölümleri ilgili sınırlarının hizalama ve tablo tanımları eşleştiğinden emin olmalısınız. Denetim kısıtlamalarında tablodaki değerleri aralığı zorlamak kullanılabilir olmadığından kaynak tablosu hedef tablo olarak aynı bölüm sınırları içermesi gerekir. Bu durumda değilse, bölüm meta verileri eşitlenmemiş bölüm anahtarı başarısız olur.
+tooswitch bölümleri iki tablo arasında hello bölümleri ilgili sınırlarının hizalama ve hello tablo tanımları eşleştiğinden emin olmalısınız. Denetim kısıtlamalarında kullanılabilir olmadığından bir tablo hello kaynak tablodaki değerleri tooenforce hello aralığı hello içermelidir hello hedef tablo olarak aynı bölüm sınırlar. Merhaba durum bu değilse, hello bölüm meta verileri eşitlenmemiş hello bölüm anahtarı başarısız olur.
 
-### <a name="how-to-split-a-partition-that-contains-data"></a>Veri içeren bir bölüme bölme
-Veri içeren bir bölüm bölmek için en verimli yöntemi kullanmaktır bir `CTAS` deyimi. Bölümlenmiş tabloda kümelenmiş columnstore ise, bölünebilir önce sonra tablo bölüm boş olması gerekir.
+### <a name="how-toosplit-a-partition-that-contains-data"></a>Nasıl toosplit verileri içeren bir bölüm
+Merhaba en verimli yöntemi toosplit zaten verileri içeren bir bölüm olduğundan toouse bir `CTAS` deyimi. Merhaba bölümlenmiş tabloda kümelenmiş columnstore ise, bölünebilir önce sonra hello tablo bölüm boş olması gerekir.
 
 Her bölümde bir satır içeren bir örnek bölümlenmiş columnstore tablo aşağıdadır:
 
@@ -185,11 +185,11 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 ```
 
 > [!NOTE]
-> İstatistik nesne oluşturarak, biz Bu tablo meta veri daha doğru olduğundan emin olun. Biz istatistikleri oluşturma atlarsanız, SQL veri ambarı varsayılan değerleri kullanır. Lütfen istatistikleri ayrıntıları gözden geçirme için [istatistikleri][statistics].
+> Oluşturma hello istatistiği nesnesiyle Biz bu tablo meta veri daha doğru olduğundan emin olun. Biz istatistikleri oluşturma atlarsanız, SQL veri ambarı varsayılan değerleri kullanır. Lütfen istatistikleri ayrıntıları gözden geçirme için [istatistikleri][statistics].
 > 
 > 
 
-Biz sonra satır sayısı kullanarak için sorgu yürütebilir `sys.partitions` Katalog görünümü:
+Biz sonra hello satır sayısı için hello kullanarak sorgulama yapabilirsiniz `sys.partitions` Katalog görünümü:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -206,15 +206,15 @@ WHERE t.[name] = 'FactInternetSales'
 ;
 ```
 
-Biz bu tabloyu bölme denerseniz, şu hata iletisini alırsınız:
+Toosplit Bu tablo çalışırsanız şu hata iletisini alırsınız:
 
 ```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Bölüm boş olmadığından msg 35346, düzey 15, State 1, ALTER PARTITION deyiminin yan tümcesi 44 Satırı Böl başarısız oldu.  Tabloda bir columnstore dizini mevcut olduğunda, yalnızca boş bölümler bölünebilir. ALTER PARTITION deyimini yürütmeden, ardından ALTER PARTITION tamamlandıktan sonra columnstore dizinini yeniden oluşturmayı önce columnstore dizinini devre dışı bırakın.
+Msg 35346, düzey 15, State 1, ALTER PARTITION deyiminin yan tümcesi 44 Satırı Böl Hello bölüm boş olmadığından başarısız oldu.  Merhaba tabloda bir columnstore dizini mevcut olduğunda, yalnızca boş bölümler bölünebilir. Merhaba ALTER PARTITION deyimini yürütmeden, ardından ALTER PARTITION tamamlandıktan sonra hello columnstore dizinini yeniden oluşturmayı önce hello columnstore dizinini devre dışı bırakın.
 
-Ancak, biz kullanabilirsiniz `CTAS` verilerimizi tutmak için yeni bir tablo oluşturmak için.
+Ancak, biz kullanabilirsiniz `CTAS` toocreate yeni bir tablo toohold verilerimizi.
 
 ```sql
 CREATE TABLE dbo.FactInternetSales_20000101
@@ -232,15 +232,15 @@ WHERE   1=2
 ;
 ```
 
-Bölüm sınırları hizalı gibi bir anahtar izin verilir. Bu kaynak tablosu biz sonradan bölebilirsiniz boş bir bölüm ile bırakır.
+Merhaba bölüm sınırları hizalı gibi bir anahtar izin verilir. Biz sonradan bölebilirsiniz boş bir bölüm ile bu hello kaynak tablosu bırakır.
 
 ```sql
-ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
+ALTER TABLE FactInternetSales SWITCH PARTITION 2 too FactInternetSales_20000101 PARTITION 2;
 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Tüm yapmak için sol bizim verileri kullanarak yeni bölüm sınırları hizalama etmektir `CTAS` ve verilerimizi yeniden ana tablo anahtarı
+Toodo kalan tek şey bizim veri toohello yeni bölüm kullanarak sınırları tooalign `CTAS` ve verilerimizi toohello ana tabloda geçiş
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
@@ -258,19 +258,19 @@ WHERE   [OrderDateKey] >= 20000101
 AND     [OrderDateKey] <  20010101
 ;
 
-ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
+ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 toodbo.FactInternetSales PARTITION 2;
 ```
 
-Veri hareketini tamamladıktan sonra bunlar doğru bir şekilde yeni dağıtım ilgili bölümlerinin verilerin yansıtmak emin olmak için hedef tablo istatistiklerle yenilemek için iyi bir fikirdir:
+Merhaba veri hello hareketini tamamladıktan sonra bir fikir toorefresh hello istatistikleri olduğu hello hedef tablo tooensure üzerinde bunlar doğru bir şekilde hello yeni dağıtım ilgili bölümlerinin hello veri yansıtmak:
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="table-partitioning-source-control"></a>Kaynak denetimi bölümleme tablosu
-Tablo tanımından önlemek için **paslanma** kaynak denetimi sisteminizdeki aşağıdaki yaklaşımı düşünmek isteyebilirsiniz:
+tooavoid tablosu tanımınızı **paslanma** kaynak denetim sisteminiz yaklaşımı izleyerek tooconsider hello isteyebilirsiniz:
 
-1. Bölümlenmiş bir tablodaki olarak ancak hiç bölüm değerlerle tablosu oluşturma
+1. Bölümlenmiş bir tablodaki olarak ancak hiç bölüm değerlerle Hello tablosu oluşturma
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -294,10 +294,10 @@ WITH
 ;
 ```
 
-1. `SPLIT`Tablo dağıtım işleminin bir parçası olarak:
+1. `SPLIT`Merhaba tablo hello dağıtım işleminin bir parçası olarak:
 
 ```sql
--- Create a table containing the partition boundaries
+-- Create a table containing hello partition boundaries
 
 CREATE TABLE #partitions
 WITH
@@ -321,7 +321,7 @@ FROM    (
         ) a
 ;
 
--- Iterate over the partition boundaries and split the table
+-- Iterate over hello partition boundaries and split hello table
 
 DECLARE @c INT = (SELECT COUNT(*) FROM #partitions)
 ,       @i INT = 1                                 --iterator for while loop
@@ -347,10 +347,10 @@ END
 DROP TABLE #partitions;
 ```
 
-Bu yaklaşımda kaynak denetimi kodda statik kalır ve bölümleme sınır değerleri dinamik olarak izin verilir; Ambar zamanla gelişen.
+Bu yaklaşım hello ile kaynak denetimi kodu statik kalır ve hello bölümleme sınır değerleri toobe dinamik izin verilir; Merhaba ambarıyla zamanla gelişen.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinmek için üzerinde makalelerine bakın [tablo genel bakışı][Overview], [tablo veri türleri][Data Types], [bir tablodağıtma] [ Distribute], [Tablo dizin][Index], [tablo istatistikleri koruma] [ Statistics] ve [Geçici tablolar][Temporary].  En iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL veri ambarı en iyi uygulamalar][SQL Data Warehouse Best Practices].
+toolearn daha hello makalelere bakın üzerinde [tablo genel bakışı][Overview], [tablo veri türleri][Data Types], [bir tablodağıtma] [ Distribute], [Tablo dizin][Index], [tablo istatistikleri koruma] [ Statistics] ve [ Geçici tablolara][Temporary].  En iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL veri ambarı en iyi uygulamalar][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 

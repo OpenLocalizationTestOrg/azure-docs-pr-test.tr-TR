@@ -1,6 +1,6 @@
 ---
-title: "Azure konuk işletim sistemine uygulanan güncelleştirmeleri listesi | Microsoft Docs"
-description: "Konuk işletim sistemi sürümleri için uygulanan güncelleştirmeleri listesi"
+title: "Azure konuk işletim sistemi güncelleştirmelerinin uygulanmış toohello aaaList | Microsoft Docs"
+description: "işletim sistemi güncelleştirmelerinin uygulanmış tooGuest Hello listesi serbest bırakır"
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/24/2017
 ms.author: raiye
-ms.openlocfilehash: 09c433ccf54c84ee2ae40c3ba3ccd84e7462124c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ac604bc8ea6a0c4aa9a9e0ae01ecde2f92a04e15
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
-Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güvenlik Yanıt Merkezi (MSRC) güncelleştirmelerinin gösterir. Belirli bir güncelleştirme Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeleri her zaman taşımak İleri için belirli [ailesi] [ family-explain] de tanıtılan.
+Merhaba aşağıdaki tablolarda toohello Azure konuk işletim sistemi Microsoft Güvenlik Yanıt Merkezi (MSRC) güncelleştirmeleri hello uygulanan gösterilmektedir. Belirli bir güncelleştirme toohello konuk işletim sistemi, kullanmakta olduğunuz uygulanıyorsa, bu makale toodetermine arayın. Güncelleştirmeleri her zaman taşımak İleri hello belirli [ailesi] [ family-explain] de tanıtılan.
 
 ## <a name="august-guest-os"></a>Ağustos konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -173,7 +173,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | MS16 134 |[3193706] |Ortak günlük dosyası sistem sürücüsü için güvenlik güncelleştirmesi |5.3, 4.38, 3.45, 2.57 |8 Kas 2016 |
 | MS16 135 |[3199135] |Çekirdek modu sürücüleri için güvenlik güncelleştirmesi |5.3, 4.38, 3.45, 2.57 |8 Kas 2016 |
 | MS16 137 |[3199173]   |Windows kimlik doğrulama yöntemleri için güvenlik güncelleştirmesi |5.3, 4.38, 3.45, 2.57 |8 Kas 2016 |
-| MS16 138 |[3199647] |Microsoft sanal sabit sürücünün güvenlik güncelleştirmesi |5.3, 4.38, 3.45 |8 Kas 2016 |
+| MS16 138 |[3199647] |Güvenlik güncelleştirmesi tooMicrosoft sanal sabit sürücü |5.3, 4.38, 3.45 |8 Kas 2016 |
 | MS16 139 |[3199720] |Windows çekirdek güvenlik güncelleştirmesi |2.57 |Kas 8.2016 |
 | MS16-140 |[3193479] |Güvenlik güncelleştirmesi için Önyükleme Yöneticisi |5.3, 4.38, 3.45 |8 Kas 2016 |
 | MS16 142 |[3198467] |Internet Explorer için toplu güvenlik güncelleştirmesi |2.57, 4.38, 5.3 |8 Kas 2016 |
@@ -253,8 +253,8 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 ## <a name="june-guest-os"></a>Haziran konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| MS16 035 |[3141780] |.NET Framework güvenlik özelliği atlama adresi güvenlik güncelleştirmesi |4.33, 3.40, 2.52 |14 Haziran 2016 |
-| Danışma |[3155527] |Güncelleştirme paketleri için FalseStart şifre |4.33, 3.40 |14 Haziran 2016 |
+| MS16 035 |[3141780] |.NET Framework tooAddress güvenlik özelliği atlama güvenlik güncelleştirmesi |4.33, 3.40, 2.52 |14 Haziran 2016 |
+| Danışma |[3155527] |FalseStart için tooCipher paketlerini güncelleştirme |4.33, 3.40 |14 Haziran 2016 |
 | MS16-063 |[3163649] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.33, 3.40, 2.52 |14 Haziran 2016 |
 | MS16 069 |[3163640] |JScript ve VBScript için toplu güvenlik güncelleştirmesi |2.52 |14 Haziran 2016 |
 | MS16 071 |[3164065] |Microsoft Windows DNS sunucusu için güvenlik güncelleştirmesi |4.33, 3.40 |14 Haziran 2016 |
@@ -268,9 +268,9 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | MS16 081 |[3160352] |Active Directory güvenlik güncelleştirmesi |4.33, 3.40, 2.52 |14 Haziran 2016 |
 | Yok |[2922223] |RealTimeIsUniversal kayıt defteri girdisi Windows etkinse, sistem saati değiştirilemiyor |2.52 |14 Haziran 2016 |
 | Yok |[3121255] |"0x00000024" Durma hatası FsRtlNotifyFilterReportChange ve kopyalama dosyasındaki Windows'ta başarısız olabilir |2.52 |14 Haziran 2016 |
-| Yok |[3125424] |Windows Server 2012 R2 veya Windows Server 2012 yanıt vermiyor LSASS kilitlenmeleri neden |4.33, 3.40 |14 Haziran 2016 |
+| Yok |[3125424] |Windows Server 2012 R2 veya Windows Server 2012 değil toorespond LSASS kilitlenmeleri neden |4.33, 3.40 |14 Haziran 2016 |
 | Yok |[3125574] |Windows 7 SP1 ve Windows Server 2008 R2 SP1 Güncelleştirmesi kolaylık toplaması |2.52 |14 Haziran 2016 |
-| Yok |[3140245] |TLS 1.1 ve TLS 1.2 WinHTTP Windows'da bir varsayılan güvenli protokollerin olarak etkinleştirmek için güncelleştirme |3.40, 2.52 |14 Haziran 2016 |
+| Yok |[3140245] |Bir varsayılan güvenli iletişim kuralları Windows WinHTTP olarak tooenable TLS 1.1 ve TLS 1.2 güncelleştir |3.40, 2.52 |14 Haziran 2016 |
 | Yok |[3146604] |WMI hizmeti Windows Server 2012 R2 veya Windows Server 2012'deki rastgele kilitleniyor |4.33, 3.40 |14 Haziran 2016 |
 | Yok |[3149157] |Windows Server 2012 R2 ve Windows 8.1 için TCP/IP'yi güvenilirlik ve ölçeklendirilebilirlik geliştirmeleri |4.33 |14 Haziran 2016 |
 | Yok |[3156416] |Windows Server 2012 için güncelleştirme paketi Mayıs 2016 |3.40 |14 Haziran 2016 |
@@ -285,13 +285,13 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | MS16-055 |[3156754] |Microsoft grafik bileşeni için güvenlik güncelleştirmesi |4.32, 3.39, 2.51 |10 Mayıs 2016 |
 | MS16-057 |[3156987] |Windows Kabuğu Güvenlik güncelleştirmesi |4.32 |10 Mayıs 2016 |
 | MS16 060 |[3154846] |Windows çekirdek güvenlik güncelleştirmesi |4.32, 3.39, 2.51 |10 Mayıs 2016 |
-| MS16 061 |[3155520] |RPC güvenlik güncelleştirmesi |4.32, 3.39, 2.51 |10 Mayıs 2016 |
+| MS16 061 |[3155520] |Güvenlik güncelleştirmesi tooRPC |4.32, 3.39, 2.51 |10 Mayıs 2016 |
 | MS16 062 |[3158222] |Çekirdek modu sürücüleri için güvenlik güncelleştirmesi |4.32, 3.39, 2.51 |10 Mayıs 2016 |
 | MS16 065 |[3156757] |.Net Framework güvenlik güncelleştirmesi |4.32, 3.39, 2.51 |10 Mayıs 2016 |
 | MS16 067 |[3155784] |Birim Yöneticisi sürücüsü için güvenlik güncelleştirmesi |4.32, 3.39 |10 Mayıs 2016 |
 | Yok |[3148851] |Windows Rusya için saat dilimi değişiklikleri  |4.32, 3.39, 2.51 |10 Mayıs 2016 |
 | Yok |[3133977] |BitLocker Sürücü svchost.exe işleminde Windows 7 veya Windows Server 2008 R2 hizmet kilitlenme nedeniyle şifrelenemiyor  |2.51 |10 Mayıs 2016 |
-| Yok |[3133681] |Sanal makineler işlemi Windows Server 2012 R2'de SCVMM yanıt yok  |4.32 |10 Mayıs 2016 |
+| Yok |[3133681] |Sanal makineler tooyour işlemi Windows Server 2012 R2'de SCVMM yanıt yok  |4.32 |10 Mayıs 2016 |
 | Yok |[3123245] |Güncelleştirme, Windows Server 2012 R2'de bağlantı noktası Tükenme kimliği geliştirir.  |4.32 |10 Mayıs 2016 |
 | Yok |[RC4'ü devre dışı bırak] | Microsoft güvenlik önerisi: güncelleştirme RC4'ü devre dışı bırakmak için  |4.32, 3.39, 2.51 |10 Mayıs 2016 |
 
@@ -310,40 +310,40 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.30, 3.37, 2.49 |8 Mart 2016 |
-| MS16-026 |[3143148] |Güvenlik güncelleştirmesi uzaktan kod yürütülmesine yönelik olarak grafik yazı tipleri |4.30, 3.37, 2.49 |8 Mart 2016 |
-| MS16-027 |[3143146] |Güvenlik güncelleştirmeleri için Windows Media Player adresine uzaktan kod yürütme |4.30, 3.37, 2.49 |8 Mart 2016 |
-| MS16 028 |[3143081] |Güvenlik güncelleştirmesi uzaktan kod yürütme gidermek üzere Microsoft Windows PDF kitaplığı |4.30, 3.37 |8 Mart 2016 |
-| MS16-030 |[3143136] |Windows uzaktan kod yürütülmesine yönelik OLE güvenlik güncelleştirmesi |4.30, 3.37, 2.49 |8 Mart 2016 |
-| MS16 031 |[3140410] |Ayrıcalık yükseltme gidermek üzere Microsoft Windows Güvenlik güncelleştirmesi |2.49 |8 Mart 2016 |
-| MS16 032 |[3143141] |Güvenlik güncelleştirmesi ayrıcalıkların yönelik olarak ikincil oturum açma |4.30, 3.37, 2.49 |8 Mart 2016 |
-| MS16-033 |[3143142] |USB yığın depolama sınıfı sürücüsü ayrıcalıkların yönelik güvenlik güncelleştirmesi |4.30, 3.37, 2.49 |8 Mart 2016 |
-| MS16-034 |[3143145] |Çekirdek modu sürücüsü adresine ayrıcalık yükselmesine için güvenlik güncelleştirmeleri |4.30, 3.37, 2.49 |8 Mart 2016 |
+| MS16-026 |[3143148] |Güvenlik güncelleştirmesi tooGraphic yazı tiplerini tooAddress uzaktan kod yürütme |4.30, 3.37, 2.49 |8 Mart 2016 |
+| MS16-027 |[3143146] |Güvenlik güncelleştirmeleri Windows Media Player tooaddress uzaktan kod yürütme |4.30, 3.37, 2.49 |8 Mart 2016 |
+| MS16 028 |[3143081] |Microsoft Windows PDF kitaplığı tooAddress uzaktan kod yürütme güvenlik güncelleştirmesi |4.30, 3.37 |8 Mart 2016 |
+| MS16-030 |[3143136] |Güvenlik güncelleştirmesi için Windows OLE tooAddress uzaktan kod yürütme |4.30, 3.37, 2.49 |8 Mart 2016 |
+| MS16 031 |[3140410] |Microsoft Windows tooAddress ayrıcalık yükselmesi güvenlik güncelleştirmesi |2.49 |8 Mart 2016 |
+| MS16 032 |[3143141] |Güvenlik güncelleştirmesi tooSecondary oturum açma tooAddress ayrıcalık yükselmesi |4.30, 3.37, 2.49 |8 Mart 2016 |
+| MS16-033 |[3143142] |Güvenlik güncelleştirmesi tooUSB yığın depolama sınıfı sürücüsü tooAddress ayrıcalık yükselmesi |4.30, 3.37, 2.49 |8 Mart 2016 |
+| MS16-034 |[3143145] |Çekirdek modu sürücüsü tooaddress ayrıcalık yükselmesine için güvenlik güncelleştirmeleri |4.30, 3.37, 2.49 |8 Mart 2016 |
 
 ## <a name="february-guest-os"></a>Şubat konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16 009 |[3134220] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.29, 3.36, 2.48 |9 Şubat 2016 |
-| MS16-013 |[3134811] |Uzaktan kod yürütülmesine yönelik olarak Windows Günlük güvenlik güncelleştirmesi |4.29, 3.36, 2.48 |9 Şubat 2016 |
-| MS16 014 |[3134228] |Microsoft Windows adresi uzaktan kod yürütme için güvenlik güncelleştirmesi |4.29, 3.36, 2.48 |9 Şubat 2016 |
-| MS16 016 |[3136041] |WebDAV ayrıcalıkların adres için güvenlik güncelleştirmesi |4.29, 3.36, 2.48 |9 Şubat 2016 |
-| MS16-018 |[3136082] |Windows çekirdek modu sürücüsü ayrıcalıkların yönelik güvenlik güncelleştirmesi |4.29, 3.36, 2.48 |9 Şubat 2016 |
-| MS16-019 |[3137893] |.NET Framework uzaktan kod yürütülmesine yönelik güvenlik güncelleştirmesi |4.29, 3.36, 2.48 |9 Şubat 2016 |
-| MS16-021 |[3133043] |Hizmet reddi yönelik olarak NPS RADIUS sunucusu güvenlik güncelleştirmesi |4.29, 3.36, 2.48 |9 Şubat 2016 |
-| Microsoft Güvenlik Danışma |[3109853] |TLS birlikte çalışabilirlik artırmak için güncelleştirme |4.29, 3.36 |9 Şubat 2016 |
+| MS16-013 |[3134811] |Güvenlik güncelleştirmesi tooWindows günlük tooAddress uzaktan kod yürütme |4.29, 3.36, 2.48 |9 Şubat 2016 |
+| MS16 014 |[3134228] |Güvenlik güncelleştirmesi tooMicrosoft Windows tooAddress uzaktan kod yürütme |4.29, 3.36, 2.48 |9 Şubat 2016 |
+| MS16 016 |[3136041] |Güvenlik güncelleştirmesi tooWebDAV tooAddress ayrıcalık yükselmesi |4.29, 3.36, 2.48 |9 Şubat 2016 |
+| MS16-018 |[3136082] |Güvenlik güncelleştirmesi Windows için çekirdek modu sürücüsü tooAddress ayrıcalık yükselmesi |4.29, 3.36, 2.48 |9 Şubat 2016 |
+| MS16-019 |[3137893] |.NET Framework tooAddress uzaktan kod yürütme güvenlik güncelleştirmesi |4.29, 3.36, 2.48 |9 Şubat 2016 |
+| MS16-021 |[3133043] |NPS RADIUS sunucusu tooAddress hizmet reddi güvenlik güncelleştirmesi |4.29, 3.36, 2.48 |9 Şubat 2016 |
+| Microsoft Güvenlik Danışma |[3109853] |Güncelleştirme tooImprove TLS birlikte çalışabilirlik |4.29, 3.36 |9 Şubat 2016 |
 | -MS15 101 yeniden yayımlama |[3089662] |.NET Framework'teki güvenlik açıkları ayrıcalık yükselmesine |4.29, 3.36, 2.48 |9 Şubat 2016 |
-| -MS15 118 yeniden yayımlama |[3104507] |Ayrıcalık yükseltme adres .NET Framework için güvenlik güncelleştirmeleri |4.29, 3.36, 2.48 |9 Şubat 2016 |
-| -MS15-128 yeniden yayımlama |[3104503] |Uzaktan kod yürütme gidermek üzere Microsoft grafik bileşeni için güvenlik güncelleştirmeleri |4.29, 3.36, 2.48 |9 Şubat 2016 |
+| -MS15 118 yeniden yayımlama |[3104507] |.NET Framework tooAddress ayrıcalık yükselmesine için güvenlik güncelleştirmeleri |4.29, 3.36, 2.48 |9 Şubat 2016 |
+| -MS15-128 yeniden yayımlama |[3104503] |Microsoft grafik bileşeni tooAddress uzaktan kod yürütme için güvenlik güncelleştirmeleri |4.29, 3.36, 2.48 |9 Şubat 2016 |
 
 ## <a name="january-guest-os"></a>Ocak konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16 001 |[3124903] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.28, 3.35, 2.47 |12 Ocak 2016 |
 | MS16 003 |[3125540] |JScript ve VBScript için toplu güvenlik güncelleştirmesi |2.47 |12 Ocak 2016 |
-| MS16-005 |[3124584] |Windows çekirdek modu sürücüleri uzaktan kod yürütülmesine yönelik güvenlik güncelleştirmesi |4.28, 3.35, 2.47 |12 Ocak 2016 |
-| MS16 007 |[3124901] |Microsoft uzaktan kod yürütülmesine yönelik olarak Windows Güvenlik güncelleştirmesi |4.28, 3.35, 2.47 |12 Ocak 2016 |
-| MS16 008 |[3124605] |Ayrıcalık yükseltme adres çekirdek güvenlik güncelleştirmesi |4.28, 3.35, 2.47 |12 Ocak 2016 |
+| MS16-005 |[3124584] |Güvenlik güncelleştirmesi Windows için çekirdek modu sürücüleri tooAddress uzaktan kod yürütme |4.28, 3.35, 2.47 |12 Ocak 2016 |
+| MS16 007 |[3124901] |Microsoft Windows tooAddress uzaktan kod yürütme güvenlik güncelleştirmesi |4.28, 3.35, 2.47 |12 Ocak 2016 |
+| MS16 008 |[3124605] |Çekirdek tooAddress ayrıcalık yükselmesi güvenlik güncelleştirmesi |4.28, 3.35, 2.47 |12 Ocak 2016 |
 | Microsoft Security Advisory düzeltme |[2755801] |Internet Explorer'da Adobe Flash Player güvenlik açıkları için güncelleştirme (KB paketini: henüz Belirlenmedi)-danışma yer tutucusu |4.28, 3.35 |12 Ocak 2016 |
-| Microsoft Güvenlik Danışma |[3109853] |TLS birlikte çalışabilirlik artırmak için güncelleştirme |4.28, 3.35 |12 Ocak 2016 |
+| Microsoft Güvenlik Danışma |[3109853] |Güncelleştirme tooImprove TLS birlikte çalışabilirlik |4.28, 3.35 |12 Ocak 2016 |
 | Microsoft Güvenlik Danışma |[3123479] |Microsoft kök sertifika programı için SHA-1 karma algoritmasının kullanımdan kaldırma |4.28, 3.35, 2.47 |12 Ocak 2016 |
 | Microsoft Güvenlik Danışma |[2736233] |ActiveX KILL BITS güncelleştirmeleri |4.28, 3.35, 2.47 |12 Ocak 2016 |
 
@@ -351,36 +351,36 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15 124 |[3116180] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.27, 3.34, 2.46 |8 aralık 2015 |
-| MS15 126 |[3116178] |Güvenlik güncelleştirmesi Microsoft VBScript ve JScript uzaktan kod yürütme gidermek için |2.46 |8 aralık 2015 |
-| MS15 127 |[3100465] |Microsoft Windows uzaktan kod yürütme adres için DNS güvenlik güncelleştirmesi |4.27, 3.34, 2.46 |8 aralık 2015 |
-| MS15-128 |[3104503] |Uzaktan kod yürütme gidermek üzere Microsoft grafik bileşeni için güvenlik güncelleştirmeleri |4.27, 3.34, 2.46 |8 aralık 2015 |
-| MS15 132 |[3116162] |Uzaktan kod yürütülmesine yönelik olarak Windows Güvenlik güncelleştirmesi |4.27, 3.34, 2.46 |8 aralık 2015 |
-| MS15 133 |[3116130] |PGM ayrıcalıkların gidermek için Windows Güvenlik güncelleştirmesi |4.27, 3.34, 2.46 |8 aralık 2015 |
-| MS15 134 |[3108669] |Uzaktan kod yürütülmesine yönelik olarak Windows Media Center güvenlik güncelleştirmesi |4.27, 3.34, 2.46 |8 aralık 2015 |
-| MS15 135 |[3119075] |Windows çekirdek modu sürücüleri ayrıcalıkların yönelik güvenlik güncelleştirmesi |4.27, 3.34, 2.46 |8 aralık 2015 |
+| MS15 126 |[3116178] |Microsoft VBScript ve JScript tooAddress uzaktan kod yürütme güvenlik güncelleştirmesi |2.46 |8 aralık 2015 |
+| MS15 127 |[3100465] |Microsoft Windows DNS tooAddress uzaktan kod yürütme güvenlik güncelleştirmesi |4.27, 3.34, 2.46 |8 aralık 2015 |
+| MS15-128 |[3104503] |Microsoft grafik bileşeni tooAddress uzaktan kod yürütme için güvenlik güncelleştirmeleri |4.27, 3.34, 2.46 |8 aralık 2015 |
+| MS15 132 |[3116162] |Güvenlik güncelleştirmesi için Windows tooAddress uzaktan kod yürütme |4.27, 3.34, 2.46 |8 aralık 2015 |
+| MS15 133 |[3116130] |Güvenlik güncelleştirmesi için Windows PGM tooAddress ayrıcalık yükselmesi |4.27, 3.34, 2.46 |8 aralık 2015 |
+| MS15 134 |[3108669] |Güvenlik güncelleştirmesi için Windows Media Center tooAddress uzaktan kod yürütme |4.27, 3.34, 2.46 |8 aralık 2015 |
+| MS15 135 |[3119075] |Güvenlik güncelleştirmesi için Windows çekirdek modu sürücüleri tooAddress ayrıcalık yükselmesi |4.27, 3.34, 2.46 |8 aralık 2015 |
 
 ## <a name="november-guest-os"></a>Kasım konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15 112 |[3104517] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.26, 3.33, 2.45 |10 Kasım 2015 |
-| MS15 114 |[3100213] |Uzaktan kod yürütülmesine yönelik olarak Windows Günlük güvenlik güncelleştirmesi |2.45 |10 Kasım 2015 |
-| MS15 115 |[3105864] |Microsoft uzaktan kod yürütülmesine yönelik olarak Windows Güvenlik güncelleştirmesi |4.26, 3.33, 2.45 |10 Kasım 2015 |
-| MS15 117 |[3101722] |NDIS ayrıcalıkların adres güvenlik güncelleştirmesi |2.45 |10 Kasım 2015 |
-| MS15 118 |[3104507] |Ayrıcalık yükseltme adres .NET Framework için güvenlik güncelleştirmeleri |4.26, 3.33, 2.45 |10 Kasım 2015 |
-| MS15 119 |[3104521] |Winsock ayrıcalıkların adres güvenlik güncelleştirmesi |4.26, 3.33, 2.45 |10 Kasım 2015 |
-| MS15-120 |[3102939] |Hizmet reddi yönelik IPSec güvenlik güncelleştirmesi |4.26, 3.33 |10 Kasım 2015 |
-| MS15 121 |[3081320] |Adresi yanıltma Schannel güvenlik güncelleştirmesi |4.26, 3.33, 2.45 |10 Kasım 2015 |
-| MS15 122 |[3105256] |Güvenlik özelliğinin atlama adresi Kerberos güvenlik güncelleştirmesi |4.26, 3.33, 2.45 |10 Kasım 2015 |
+| MS15 114 |[3100213] |Güvenlik Windows Update günlük tooAddress uzaktan kod yürütme |2.45 |10 Kasım 2015 |
+| MS15 115 |[3105864] |Microsoft Windows tooAddress uzaktan kod yürütme güvenlik güncelleştirmesi |4.26, 3.33, 2.45 |10 Kasım 2015 |
+| MS15 117 |[3101722] |NDIS tooAddress ayrıcalık yükselmesi güvenlik güncelleştirmesi |2.45 |10 Kasım 2015 |
+| MS15 118 |[3104507] |.NET Framework tooAddress ayrıcalık yükselmesine için güvenlik güncelleştirmeleri |4.26, 3.33, 2.45 |10 Kasım 2015 |
+| MS15 119 |[3104521] |Winsock tooAddress ayrıcalık yükselmesi güvenlik güncelleştirmesi |4.26, 3.33, 2.45 |10 Kasım 2015 |
+| MS15-120 |[3102939] |IPSec tooAddress hizmet reddi güvenlik güncelleştirmesi |4.26, 3.33 |10 Kasım 2015 |
+| MS15 121 |[3081320] |Güvenlik güncelleştirmesi tooSchannel tooAddress sahtekarlık |4.26, 3.33, 2.45 |10 Kasım 2015 |
+| MS15 122 |[3105256] |Kerberos tooAddress güvenlik özelliği atlama güvenlik güncelleştirmesi |4.26, 3.33, 2.45 |10 Kasım 2015 |
 | Microsoft Güvenlik Danışma |[3097966] |Dijital sertifikalar izin verebilir yanlışlıkla bildirilen kimlik sahtekarlığı |4.26, 3.33, 2.45 |10 Kasım 2015 |
 
 ## <a name="october-guest-os"></a>Ekim konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15 106 |[3096441] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.25, 3.32, 2.44 |13 Ekim 2015 |
-| MS15 108 |[3089659] |JScript ve VBScript uzaktan kod yürütme olası ilgilenmenin güvenlik güncelleştirmesi |2.44 |13 Ekim 2015 |
-| MS15 109 |[3096443] |Uzaktan kod yürütülmesine yönelik olarak Windows Kabuğu Güvenlik güncelleştirmesi |4.25, 3.32, 2.44 |13 Ekim 2015 |
-| MS15 111 |[3096447] |Windows çekirdek ayrıcalıkların adres güvenlik güncelleştirmesi |4.25, 3.32, 2.44 |13 Ekim 2015 |
-| Microsoft Güvenlik Danışma |[3092627] |Windows düzeltmek üzere Eylül 2015 güncelleştirmesi veya güvenlik güncelleştirmesi 3076895 yüklendikten sonra uygulama donuyor |4.25, 3.32, 2.44 |13 Ekim 2015 |
+| MS15 108 |[3089659] |JScript ve VBScript tooAddress olası uzaktan kod yürütme güvenlik güncelleştirmesi |2.44 |13 Ekim 2015 |
+| MS15 109 |[3096443] |Güvenlik güncelleştirmesi için Windows Kabuğu tooAddress uzaktan kod yürütme |4.25, 3.32, 2.44 |13 Ekim 2015 |
+| MS15 111 |[3096447] |Güvenlik güncelleştirmesi için Windows Çekirdeği tooAddress ayrıcalık yükselmesi |4.25, 3.32, 2.44 |13 Ekim 2015 |
+| Microsoft Güvenlik Danışma |[3092627] |Eylül 2015 toofix Windows update veya güvenlik güncelleştirmesi 3076895 yüklendikten sonra uygulama donuyor |4.25, 3.32, 2.44 |13 Ekim 2015 |
 
 ## <a name="september-guest-os"></a>Eylül konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -421,7 +421,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | MS15 075 |[3072633] |OLE güvenlik açıkları ayrıcalık yükselmesine izin verebilir |4.22, 3.29, 2.41 |14 Temmuz 2015 |
 | MS15 076 |[3067505] |Windows Uzaktan yordam çağrısı güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.22, 3.29, 2.41 |14 Temmuz 2015 |
 | MS15 077 |[3077657] |Ayrıcalık yükseltme ATM yazı tipi sürücüsündeki güvenlik açığı izin ver |4.22, 3.29, 2.41 |14 Temmuz 2015 |
-| NA |[3057154] |DES şifreleme kullanımını kısıtlamak için güncelleştirme |4.22, 3.29, 2.41 |14 Temmuz 2015 |
+| NA |[3057154] |Güncelleştirme tooRestrict DES şifrelemesi kullanır |4.22, 3.29, 2.41 |14 Temmuz 2015 |
 
 ## <a name="june-guest-os"></a>Haziran konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -454,7 +454,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | MS15 040 |[3045711] |ADFS doğrulamasındaki bilgileri açığa çıkmasına neden olabilir |4.20, 3.27, 2.39 |17 Apr 2015 |
 | MS15-041 |[3048010] |.NET Framework'teki güvenlik açığı bilgileri açığa çıkmasına neden olabilir |4.20, 3.27, 2.39 |17 Apr 2015 |
 | MS15 042 |[3047234] |Windows Hyper-V güvenlik açığı hizmet reddine izin verebilir |4.20, 3.27, 2.39 |17 Apr 2015 |
-| NA |[3045755] |Güncelleştirmeyi pku2u ile kimlik doğrulaması artırmak için |4.20, 3.27, 2.39 |17 Apr 2015 |
+| NA |[3045755] |Güncelleştirme tooImprove pku2u ile kimlik doğrulaması |4.20, 3.27, 2.39 |17 Apr 2015 |
 
 ## <a name="april-guest-os"></a>Nisan konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -477,7 +477,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | MS15-030 |[3039976] |Uzak Masaüstü Protokolü güvenlik açığı hizmet reddine izin verebilir |4.18, 3.25, 2.37 |Yok |
 
 > [!NOTE]
-> Bülten MS15-031 kaldırılması gibi görünebilir. Ancak, bu konuk işletim sistemi sürümüne uygulanmaz.
+> Bülten MS15-031 kaldırılması gibi görünebilir. Ancak, konuk işletim sistemi sürüm toothis uygulanmaz.
 >
 >
 
@@ -490,7 +490,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | MS15 014 |[3004361] |Güvenlik özelliğinin atlama SMB'deki güvenlik açığı izin ver |4.17, 3.24, 2.36 |Yok |
 | MS15 015 |[3031432] |Microsoft Windows güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.17, 3.24, 2.36 |Yok |
 | MS15 016 |[3029944] |Microsoft grafik bileşenindeki güvenlik açığı bilgileri açığa çıkmasına neden olabilir |4.17, 3.24, 2.36 |Yok |
-| Yok |[3004375] |Güncelleştirmeyi Windows artırmak için komut satırı denetimi<p/>**Not**: Bu yüklendi, ancak etkinleştirmek için kayıt defteri anahtarının devre dışı |4.17, 3.24, 2.36 |Yok |
+| Yok |[3004375] |Güncelleştirme tooImprove Windows komut satırı denetimi<p/>**Not**: Bu yüklendi, ancak hello kayıt defteri anahtarı tooenable onu kapalı |4.17, 3.24, 2.36 |Yok |
 
 ## <a name="january-guest-os"></a>Ocak konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -511,17 +511,17 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 ## <a name="december-guest-os"></a>Aralık konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| Yok |[3013776] |Bir uygulamayı başlatmak için bir etki alanı hesabı kullandığınızda sistem donuyor |4.15, 3.22, 2.34 |13 Ocak 2015 |
+| Yok |[3013776] |Bir etki alanı hesabı toostart bir uygulama kullandığınızda sistem donuyor |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[3013043] |Birden fazla NUMA düğümü olan Windows tabanlı bir bilgisayarda dosya sistemi verileri bozuk olabilir |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[3012712] |Fark kayıt VHD genişletildiğinde yeni veri blokları yanlış başlatma |4.15, 3.22, 2.34 |13 Ocak 201 |
 | Yok |[3004905] |Windows Hyper-V geliştirme 2 TB'den büyük dosya sistemlerinde Linux sanal makineleri için |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[3004394] |Windows kök sertifika programı Windows için aralık 2014 güncelleştirme |4.15, 3.22, 2.34 |13 Ocak 2015 |
-| Yok |[2999323] |Olay Kimliği 17 metin değiştirilir |4.15, 3.22, 2.34 |13 Ocak 2015 |
-| Yok |[3013488] |Windows Server 2012 R2 veya Windows Server 2012 CSA dosyalarından içeri aktardığınızda, WSUS sunucusu sıfırlamak için uzun bekleme |4.15, 3.22, 2.34 |13 Ocak 2015 |
+| Yok |[2999323] |Olay Kimliği 17 Hello metin değiştirilir |4.15, 3.22, 2.34 |13 Ocak 2015 |
+| Yok |[3013488] |Windows Server 2012 R2 veya Windows Server 2012 CSA dosyalarından içeri aktardığınızda uzun bekleme tooreset WSUS sunucusu |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[3012325] |DIGI, Vodafone ve Telekom mobil işleçleri Windows 8.1 ve Windows 8 için Windows APN veritabanı girişlerini güncelleştir |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[3007054] |PIN korumalı yazdırma seçenek her zaman Windows Windows mağazası uygulamasında belgede yazdırırken gösterir |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[2999802] |Kesiksiz çizgi noktalı çizgiler yerine Windows yazdırılır |4.15, 3.22, 2.34 |13 Ocak 2015 |
-| Yok |[2896881] |Uzun AddPrinterConnection VBScript komut Windows oturum açma işlemi sırasında kullanıcılar için Yazıcılar eşlemek için kullandığınızda, oturum açma zamanı |4.15, 3.22, 2.34 |13 Ocak 2015 |
+| Yok |[2896881] |Uzun hello AddPrinterConnection VBScript komut toomap yazıcılar kullanıcılar için Windows oturum açma işlemi sırasında kullandığınızda, oturum açma zamanı |4.15, 3.22, 2.34 |13 Ocak 2015 |
 
 
 [4034658]: http://support.microsoft.com/kb/4034658

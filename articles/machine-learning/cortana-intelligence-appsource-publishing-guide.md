@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence AppSource yayımlama Kılavuzu | Microsoft Docs"
-description: "Microsoft Partner AppSource için Cortana Intelligence çözümünüzü yayımlamak için izlemeniz gereken adımlar şunlardır."
+title: "aaaCortana Intelligence AppSource yayımlama Kılavuzu | Microsoft Docs"
+description: "Microsoft Partner toofollow toopublish Cortana Intelligence çözüm tooAppSource gerek duyduğunuz tüm hello adımlar şunlardır."
 services: machine-learning
 documentationcenter: 
 author: AnupamMicrosoft
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 66f26016b5eb709c567e9829aa787ca926e13d9d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource yayımlama Kılavuzu
 
 ## <a name="overview"></a>Genel Bakış
-AppSource bulmak ve sorunsuz bir şekilde işletme çözümleri/iş ortakları tarafından oluşturulmuş ve Microsoft tarafından değerlendirilen uygulamalar denemek için iş karar alıcılar (BDMs) tek hedefi değil. Gözcü [bu videoyu](https://youtu.be/hpq_Y9LuIB8) AppSource nasıl çalıştığını öğrenin. 
+AppSource iş karar alıcılar (BDMs) toodiscover tek hedefi hello ve sorunsuz bir şekilde işletme çözümleri/iş ortakları tarafından oluşturulmuş ve Microsoft tarafından değerlendirilen uygulamalar deneyin. Gözcü [bu videoyu](https://youtu.be/hpq_Y9LuIB8) toolearn AppSource nasıl çalışır. 
 
 Microsoft Partner varsa üzerinde AppSource yayımlama gerçekten yararlı olabilir:
 - Bir akıllı çözüm/uygulama kullanılarak oluşturulan [Cortana Intelligence Suite](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable).
@@ -31,19 +31,19 @@ Microsoft Partner varsa üzerinde AppSource yayımlama gerçekten yararlı olabi
 
 Bir göz atalım [Cortana Intelligence çözümleri](https://appsource.microsoft.com/en-us/marketplace/apps?product=cortana-intelligence&page=1) , zaten yayımlanır AppSource üzerinde. 
 
-Bu makalede AppSource için yayımlanan bir iş ortağının Cortana Intelligence çözüm almak için adımlarında yol gösterir
+Bu makalede hello adımları tooget bir iş ortağı yol Cortana Intelligence çözüm tooAppSource öğesinin yayımlanan
 
 ## <a name="getting-started"></a>Başlarken
-1. İçinde [Partner topluluğunun avantajları Kılavuzu](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf) (PDF), sayfa 9 Advanced Analytics iş ortağı olarak listelenen için bkz.
-1. Tamamlamak [uygulamanızı gönderme](https://appsource.microsoft.com/en-us/partners/list-an-app) formu.
+1. Merhaba, [Partner topluluğunun avantajları Kılavuzu](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf) (PDF), sayfa 9 tooget Advanced Analytics iş ortağı olarak listelenen bakın.
+1. Tam hello [uygulamanızı gönderme](https://appsource.microsoft.com/en-us/partners/list-an-app) formu.
 
-    Soru için *"uygulamanız için yerleşik ürünleri seçin*", denetleme **diğer** düzenleme "Cortana Intelligence" onay kutusu ve liste denetimi.
-1. Cortana Intelligence uygulama AppSource sayede sağlayabilmek için önce Cortana Intelligence'nın iş ortağı çözümü teknolojisi ekibi tarafından sertifikalı gerekir. İşlem sırasında anket formu doldurarak uygulamanızı Lütfen paylaşım ayrıntılarını başlatıldığından emin almak için [Cortana Intelligence çözüm değerlendirme AppSource yayımlama](https://aka.ms/cisappsrceval). Bu site parola korumalıysa ve site parola alma hakkında yönergeler içerir.
+    Merhaba soru için *"uygulamanız için yerleşik Seç hello ürünleri*", hello denetleyin **diğer** onay ve hello "Cortana Intelligence" listesinde düzenleme denetimi.
+1. Cortana Intelligence uygulama edildi tooAppSource sağlayabilmek için önce Cortana Intelligence'nın iş ortağı çözümü teknolojisi ekibi tarafından sertifikalı gerekir. işlemi başlatıldı tooget, anket doldurarak uygulamanızı Lütfen paylaşım ayrıntılarını forma [Cortana Intelligence çözüm değerlendirme AppSource yayımlama](https://aka.ms/cisappsrceval). Bu site parola korumalı olup hello site nasıl tooget hello parola hakkında yönergeler içerir.
 
 ## <a name="solution-evaluation-criteria"></a>Çözüm değerlendirme ölçütleri
-Uygulama gereksinimlerini karşılamak için ölçüt listesi aşağıdadır
-1. Adres belirli iş gereksinimlerine göre uygulama servis talebi sorun, küçük yapılandırmaları ile tekrarlanabilir bir şekilde önceden tanımlanmış değer önermeleri kısa bir süre içinde implementable için belirli bir işlev alanı içinde kullanın.
-1. Çözüm, aşağıdaki bileşenleri en az birini kullanmalıdır:
+Ölçüt hello uygulama gereksinimlerini toomeet hello listesi aşağıdadır
+1. Uygulamanın tooaddress belirli iş kullanım örneği sorun belirli bir işlev alanda önceden tanımlanmış değer önermeleri için en düşük yapılandırmaları ile tekrarlanabilir bir şekilde implementable kısa bir süre içinde gerekir.
+1. Çözüm bileşenlerini aşağıdaki hello en az birini kullanmanız gerekir:
 
     - HDInsight
     - Machine Learning
@@ -55,64 +55,64 @@ Uygulama gereksinimlerini karşılamak için ölçüt listesi aşağıdadır
     - Microsoft R Server tek başına bekleme
     - R hizmetlerinde SQL 2016 ya da Hdınsight Premium
 1. En az $1000 DPOR/CSP kullanarak müşteri ayda bir çözüm oluşturmak.
-1. Çözüm (AAD Federasyon SSO) Azure Active Directory Federasyon tek oturum açma kullanıcı kimlik doğrulaması ve kaynak erişim denetimleri için etkin onay kullanmalısınız. Değerlendirme ekibine çözümünüzün AAD Federasyon SSO uygulamanızı AppSource sayede çalıştırılmadan önce etkin olduğunu göstermek gerekir.
+1. Çözüm (AAD Federasyon SSO) hello Azure Active Directory Federasyon tek oturum açma kullanıcı kimlik doğrulaması ve kaynak erişim denetimleri için etkin onay kullanmalısınız. Uygulamanızı edildi tooAppSource çalıştırılmadan önce etkin SSO çözümünüzün AAD olduğunu takım Federasyon tooshow toohello değerlendirme gerekir.
 
-     AAD Federasyon SSO etkin olması ne anlama geldiğini görmek için 02:35 konumlandırmak arama [AppSource deneme sürümü deneyimi için size yol](https://aka.ms/trialexperienceforwebapps) video. Uygulamanız ile etkin değilse SSO AAD Federasyon henüz, ilgili bazı belgelerde İşte
+     toosee toobe AAD ne anlama geldiğini Federasyon SSO etkin, tooposition 02:35 arama [AppSource deneme sürümü deneyimi için size yol](https://aka.ms/trialexperienceforwebapps) video. Uygulamanız ile etkin değilse SSO AAD Federasyon henüz, ilgili bazı belgelerde İşte
    1. [Tek tıklamayla oturum açma](https://identity.microsoft.com/Landing?ru=https://identity.microsoft.com/).
    1. [Uygulamaları Azure Active Directory ile tümleştirme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application).
      
-1. Power BI çözümünüzde kullanın: isteğe bağlıdır, ancak daha yüksek sayıda müşteri adayları oluşturmak için kanıtlanmış önemle önerilir.
+1. Power BI çözümünüzde kullanın: isteğe bağlıdır, ancak müşteri adayları daha yüksek sayıda toogenerate kanıtlanmış önemle önerilir.
 
 ## <a name="devcenter-account-setup"></a>DevCenter hesabı kurulumu
-Bu, şirketinizin Microsoft ile bir yayımcı olmasını kaydetme işlemidir. Kayıtlı bir yayımcı ile DevCenter hesabınız zaten varsa, DevCenter hesabınızla ilişkili e-posta kimliği paylaşır. Uygulamanızı yayımlama için onaylandıktan sonra tam belgelerine erişim karşılaşırsınız [yayımcı profil bulut Portal yönetme](https://cloudpartner.azure.com/#documentation/manage-publisher-profile)
+Bu, şirket toobecome bir yayımcı Microsoft'a kaydolma hello işlemidir. Kayıtlı bir yayımcı ile DevCenter hesabınız zaten varsa, DevCenter hesabınızla ilişkili hello e-posta kimliği paylaşır. Uygulamanızı yayımlama için onaylandıktan sonra erişim toofull belgelerine karşılaşırsınız [yayımcı profil bulut Portal yönetme](https://cloudpartner.azure.com/#documentation/manage-publisher-profile)
 
-Aşağıda, yoksa, bir DevCenter hesabı kurmak için temel adımlar verilmiştir.
+Yoksa, hello anahtar adımları toosetup DevCenter hesabı altındadır.
 1. Bir Microsoft hesabı oluşturmak [burada](https://signup.live.com/signup.aspx).
-1. Microsoft DevCenter gidin [kayıt sayfası](http://go.microsoft.com/fwlink/?LinkId=615100) "kaydolun"'a tıklayın.
-1. Ödeme için istendiğinde, biz size sağlanan kodunu kullanın. Bir kod yoksa, kişi [ appsourcecissupport@microsoft.com ](mailto:appsourcecissupport@microsoft.com?subject=Request%20for%20promotion-code%20for%20DevCenter%20account%20setup).
-1. Seçin [ülke/bölge](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees) yaşadığınız veya işletmenizin bulunduğu. **Bu daha sonra değiştirmesi mümkün olmayacaktır.**
-1. Seçin, [Geliştirici hesap türü](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees) için AppSource, select **şirket**. Bir şirket hesabı için bu gözden geçirdiğinizden emin olun [yönergeleri](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account).
-1. Geliştirici hesabınız için kullanmak istediğiniz kişi bilgilerini girin.
-Yönergeler Kurulumu DevCenter hesabı konusunda ayrıntılı adım adım yönergeler için bkz: [burada](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration).
+1. Toohello Microsoft DevCenter Git [kayıt sayfası](http://go.microsoft.com/fwlink/?LinkId=615100) "kaydolun"'a tıklayın.
+1. Ödeme için istendiğinde, biz tooyou sağlanan hello kodunu kullanın. Bir kod yoksa, kişi [ appsourcecissupport@microsoft.com ](mailto:appsourcecissupport@microsoft.com?subject=Request%20for%20promotion-code%20for%20DevCenter%20account%20setup).
+1. Select hello [ülke/bölge](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees) yaşadığınız veya işletmenizin bulunduğu. **Mümkün toochange olmayacaktır bu daha sonra.**
+1. Seçin, [Geliştirici hesap türü](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees) için AppSource, select **şirket**. Bir şirket hesabı için emin tooreview bunlar olması [yönergeleri](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account).
+1. Geliştirici hesabınız için toouse istediğiniz hello kişi bilgilerini girin.
+Ayrıntılı adım adım yönergeleri nasıl toosetup DevCenter hesabı bkz hello yönergeleri [burada](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration).
 
 ## <a name="provide-info-for-microsoft-sellers"></a>Microsoft satıcıları için bilgilerini belirtin
-AppSource anahtar değer önermeleri iş ortakları için iş ortağı uygulamalarını potansiyel müşterilerle önünde konumlandırma Microsoft Sellers ile işbirliği yapabilir için biridir.
+İş ortakları için AppSource, hello anahtar değer önermeleri toobe mümkün toocollaborate Microsoft Sellers ile iş ortağı uygulamalarını potansiyel müşterilerle önünde konumlandırma biridir.
 
-Doldurup [Microsoft Sellers için iş ortağı çözümü bilgisi](https://aka.ms/aapartnerappinfo) ve göndermeden [ appsourcecissupport@microsoft.com ](mailto:appsourcecissupport@microsoft.com?subject=Request%20publisher%20account%20creation%20for%20%3cPartner%20Name%3e%20and%20whitelist%20owner/contributer%20AAD/MSA%20email%20IDs). Bu bir Cortana Intelligence uygulaması yayımlama için onay almanız için gerekli adımdır.
+Doldurup [Microsoft Sellers için iş ortağı çözümü bilgisi](https://aka.ms/aapartnerappinfo) ve çok gönderme[appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20publisher%20account%20creation%20for%20%3cPartner%20Name%3e%20and%20whitelist%20owner/contributer%20AAD/MSA%20email%20IDs). Bu yayımlama için onaylanan Cortana Intelligence uygulama tooget için gerekli adımdır.
 
 ## <a name="build-a-compelling-customer-walkthrough-on-appsource"></a>İlgi çekici bir müşteri kılavuz üzerinde AppSource derleme
-İlk olarak, bir göz atalım [Neal Analytics stok iyileştirme](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome) AppSource üzerinde. AppSource her uygulama giriş için bir deneme sürümü deneyimi pdf belgelerini girişi dışında'nın üzerine başlık, özeti (en fazla 100 karakter), açıklama (max 1300 karakter), görüntüler, videoları (isteğe bağlı) sahiptir. İş ortakları tüm bunlar bir ilgi çekici müşteri deneyimi oluşturmak için bu hizmetlerden yararlanır.
+İlk olarak, bir göz atalım [Neal Analytics stok iyileştirme](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome) AppSource üzerinde. AppSource her uygulama giriş için bir deneme sürümü deneyimi pdf belgelerini girişi dışında'nın üzerine başlık, özeti (en fazla 100 karakter), açıklama (max 1300 karakter), görüntüler, videoları (isteğe bağlı) sahiptir. İş ortakları, tüm bu toobuild ilgi çekici bir müşteri deneyimi faydalanın.
 
-İş ortakları, uçtan uca satış orchestration olarak AppSource üzerinde koyarlar içeriğin düşünmelisiniz. Müşteriler, başlık ve değer teklifinde anlamak ve görüntüler ve çözüm hakkındadır anlamak için videolar aracılığıyla gitmek için açıklama okuyun. Örnek olay incelemeleri müşterilerinizin nasıl Mevcut müşterileri görmek olası değer alınıyor. 
+İş ortakları, bir son tooend satış orchestration olarak AppSource üzerinde koyarlar hello içeriğinin düşünmelisiniz. Müşteriler hello başlığı ve açıklamayı toounderstand hello değer teklifinde okuyun ve hangi hello çözüm hakkındadır görüntüleri & videolar toounderstand aracılığıyla gidin. Örnek olay incelemeleri müşterilerinizin nasıl Mevcut müşterileri görmek olası değer alınıyor. 
 
-Tüm bu müşteri olmalısınız düşünüyor, ilgi ve isteyen daha fazla bilgi edinmek için. Bu aralık tabanlı deste sunu iyi teknik satış temsilcisi yeni müşteriler size yol olarak düşünün. Önerilen açıklama metni değere göre alt bölümlere ayırmak için propositions, her bir alt başlık ile vurgulanmış biçimidir. 
+Tüm bu hello müşteri olmalısınız ilgilenen ve isteyen tooknow daha fazla eşitleyerek. Bu aralık tabanlı deste sunu iyi teknik satış temsilcisi hello yeni müşteriler size yol olarak düşünün. Merhaba önerilen biçimidir açıklaması toobreak değer önermeleri bağlı alt bölümlerine hello metni, her biri vurgulanmış olan bir alt başlık. 
 
-Ziyaretçilerin genellikle bakışta "Özet sunan" alan ve uygulama adreslerinin gist almak için alt başlıklar üzerinden ve neden bunlar düşünmelisiniz yalnızca hızlı bir bakış uygulamada. Bu nedenle, kullanıcının almak önemlidir dikkat edin bunları nedeni ayrıntıları almak için okumaya devam edin.
+Ziyaretçilerin genellikle hangi hello uygulama adresleri, hello "Özet sunan" alanı ve alt başlıklar tooget gist genel bakış ve neden bunlar düşünmelisiniz hello uygulamada yalnızca hızlı bir bakış. Bu nedenle, tooget hello kullanıcının dikkat edin bunları neden tooread tooget hello özellikleri üzerinde önemlidir.
 
 Bu iş ortaklarının yapmış olmanız bakın.
 - [Neal Analytics stok en iyi duruma getirme](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview)
 - [Plexure perakende kişiselleştirme](https://appsource.microsoft.com/en-us/product/web-apps/plexure.c82dc2fc-817b-487e-ae83-1658c1bc8ff2?tab=Overview)
 - [AvePoint Citizen Hizmetleri](https://appsource.microsoft.com/en-us/product/web-apps/avepoint.7738ac97-fd40-4ed3-aaab-327c3e0fe0b3?tab=Overview)
 
-Son satış nasıl değer teklifinde teslim gösteren uygulama/çözüm gösterimini göstermek için işlemidir. Tam olarak bir müşteri deneme sürümü deneyimi AppSource üzerinde için tasarlanmıştır olmasıdır. İyi bir tanıtım aşağıdakileri yapın:
-- Değer teklifinde çözümle etkileşime müşteri kesin içinde Kişiler listesini ve kısa uygulamada yeniden özetler
-- Bir olay anlatın ve belirli sorunlarla ilgilenen bir örnek müşteri hakkında bağlam ayarlar
-- Nasıl durum genellikle devolve ve müşterinin (önce) VS çözüm kullanımda olduğunda ne olacağını etkisi açıklanmaktadır. Bu Power BI panoları vb. kullanarak gösterilebilir.
-- Nasıl çözüm herhangi belirli Machine Learning algoritmaları vb. kullanarak durum kolaylaştırır özetler.
+Merhaba son satış tooshow hello uygulama/çözümünün nasıl hello değer teklifinde teslim gösteren bir tanıtım işlemidir. Tam olarak bir müşteri deneme sürümü deneyimi AppSource üzerinde için tasarlanmıştır olmasıdır. İyi bir tanıtım ne yapacağını hello aşağıdaki:
+- Merhaba değer teklifinde hello uygulamanın kısa yeniden özetlemek ve hello kişiler hello çözümü ile etkileşime hello müşteri kesin içinde kullanıma listesi
+- Öykü ve kümelerini hello bağlam belirli sorunlarla ilgilenen bir örnek müşteri hakkında bilgi verin
+- Nasıl hello durum genellikle devolve ve hello çözüm kullanımda olduğunda ne olacağını hello müşteri (önce) VS etkisi açıklanmaktadır. Bu Power BI panoları vb. kullanarak gösterilebilir.
+- Nasıl hello çözüm herhangi belirli Machine Learning algoritmaları vb. kullanarak durum kolaylaştırır özetler.
 
-İçinde AppSource eklenen içerik kaliteli olmalıdır ve aşağıdaki işlemleri etkinleştirmek için yeterli Dikiş:
-- Bir iş ortağının teknik satış insanların kendi satış düzenlemesi kullanıyor olması gerekir. Satış ekipleriniz kullanmadan da aynı şeyi bölümlemeye MS satış terimleri bekleyebilirsiniz iyi bir oturum olur. Bu, müşteri tutarlı olarak aynı Öykü takım mates ve daha yüksek ups satın alma anlaşma yapılabilmesi bütçe ve onaylar almak için geçiş yapabilmek için iletişim noktası olanak tanır.
-- Organik bir şekilde sitesinden bir müşteri, tüm kendilerini ve hissi tarafından geri sonraki adımlara devam taşıma için iş ortağı iletişimi yanıt verecek şekilde heyecan içerik aracılığıyla gidebilirsiniz.
+içinde AppSource eklenen hello içerik kaliteli olmalıdır ve yeterli tooenable hello aşağıdaki yukarı Dikiş:
+- Bir iş ortağının teknik satış insanların kendi satış düzenlemesi kullanıyor olması gerekir. Satış ekipleriniz kullanmadan da mümkün toodo olan MS satış terimleri aynı hello bekleyebilirsiniz iyi bir oturum olur. Bu iletişim müşteri noktası etkinleştirecek toobe mümkün tooconsistently geçiş hello aynı Öykü tootheir takım mates ve daha yüksek ups tooget bütçe ve onaylar önce bir satın alma işlem yapılabilir.
+- Hello site organik bir şekilde ziyaret müşteri hello tüm başlarına içerik gidin ve Çoğalması toorespond geri toopartner iletişimi toomove sonraki adımlara devam eşitleyerek.
 
-İşte bu nedenle iş ortakları düşündüğünüz koyarlar uçtan uca satış orchestration olarak AppSource üzerinde içerik. Öykü satır ve deneme sürümü deneyimi gösterilecek özellikleri bağlı olarak, Teklif türü karar.
+İş ortakları düşünmek neden, içerik AppSource bir bitiş tooend satış orchestration olarak üzerinde koyarlar hello olduğu. Merhaba Öykü satır ve deneme sürümü deneyimi gösterilen özellikleri toobe bağlı olarak, Teklif türü karar.
 
-## <a name="publish-your-app-on-the-publishing-portal"></a>Uygulamanızı yayımlama portalında yayımlayın
-Biz, uygulamanız için yukarıdaki adımları hesaplanan sonra yayımlama portalına erişim alırsınız ve görebilirsiniz [Cortana Intelligence teklif bulut iş ortağı Portalı aracılığıyla yayımlamak nasıl](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app) sonraki adımlar hakkında ayrıntılı yönergeler için.
+## <a name="publish-your-app-on-hello-publishing-portal"></a>Uygulamanızı yayımlama hello portalındaki yayımlayın
+Biz, uygulamanız için yukarıdaki adımları hello hesaplanan sonra erişim toohello yayımlama portalında alırsınız ve görebilirsiniz [nasıl toopublish Cortana Intelligence teklif bulut iş ortağı portalı yoluyla](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app) sonraki adımlar hakkında ayrıntılı yönergeler için.
 
-Alanlar hakkında bilgi gerekiyorsa, e-posta < appsourcecissupport@microsoft.com >.
+Merhaba alanlar hakkında bilgi gerekiyorsa, e-posta < appsourcecissupport@microsoft.com >.
 ## <a name="my-app-is-published-on-appsource---now-what"></a>Uygulamam AppSource üzerinde - yayımlanan şimdi ne?
 İlk olarak, uygulamanızı alma Tebrikler yayımladı.
-Hedef kitle nasıl etkileyeceğini uygulamanıza AppSource yoğun yayımlama alma döndürür düzeyine bağlıdır. Bkz: [büyüme-korsan Cortana Intelligence uygulamanıza AppSource](http://aka.ms/aagrowthhackguide) nasıl, döndürür en üst düzeye hakkında daha fazla ayrıntı için.
+Merhaba hedef kitle nasıl etkileyeceğini uygulamanıza AppSource yoğun yayımlama alma döndürür Hello düzeyine bağlıdır. Bkz: [büyüme-korsan Cortana Intelligence uygulamanıza AppSource](http://aka.ms/aagrowthhackguide) nasıl, hello döndürür en üst düzeye hakkında daha fazla ayrıntı için.
 
-Herhangi bir sorunuz veya önerileri varsa, lütfen bizimle ulaşmak < appsourcecissupport@microsoft.com >.
+Herhangi bir sorunuz varsa veya öneriler, lütfen ulaşmak adresindeki toous < appsourcecissupport@microsoft.com >.
 

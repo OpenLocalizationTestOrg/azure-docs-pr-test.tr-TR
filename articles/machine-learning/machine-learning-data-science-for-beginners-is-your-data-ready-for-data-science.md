@@ -1,6 +1,6 @@
 ---
-title: "Verileriniz veri bilimi için hazır mı? Veri değerlendirmesi - Azure Machine Learning | Microsoft Docs"
-description: "Veri bilimi için hazır olmasını veriler için 4 ölçüt öğrenin. Veri bilimi video 2 yeni başlayanlar için temel veri değerlendirme ile yardımcı olmak için somut örnekler vardır."
+title: "aaaIs verilerinizi veri bilimi için hazır mısınız? Veri değerlendirmesi - Azure Machine Learning | Microsoft Docs"
+description: "Veri toobe veri bilimi için hazır Hello 4 ölçütlerine öğrenin. Veri bilimi video 2 yeni başlayanlar için temel veri değerlendirme ile somut örnekler toohelp sahiptir."
 keywords: "ilgili verileri verileri değerlendirmek, verileri, veri ölçütlerini, veri hazır hazırlayın"
 services: machine-learning
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: c4a8bc11aec2f71796f589c0af54cc92253e5180
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ef6bb680ace771537157dbdd50a4ccce0a3eb7ed
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Verileriniz veri bilimi için hazır mı?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Veri bilimi yeni başlayanlar seri için
-Verilerinizi veri bilimi için hazır olması için temel ölçütlerini karşıladığından emin olmak için değerlendirilecek öğrenin.
+Bilgi nasıl tooevaluate temel ölçütleri toobe veri bilimi için hazır karşıladığından emin, veri toomake.
 
-Serinin en dışında almak için tümünü izleyin. [Videolar listesine Git](#other-videos-in-this-series)
+tooget hello en hello serisi dışında tümünü izleyin. [Videolar toohello listesi gidin](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
@@ -33,81 +33,81 @@ Serinin en dışında almak için tümünü izleyin. [Videolar listesine Git](#o
 >
 
 ## <a name="other-videos-in-this-series"></a>Bu serideki diğer videolar
-*Yeni başlayanlar için veri bilimi* veri bilimi beş kısa videolar içindeki bir giriş değil.
+*Yeni başlayanlar için veri bilimi* beş kısa video içinde hızlı giriş toodata bilimsel olduğu.
 
-* Video 1: [5 veri bilimi yanıtlar sorular](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 dakika 14 saniye)*
+* Video 1: [hello 5 sorular veri bilimi yanıtlar](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 dakika 14 saniye)*
 * Video 2: verileriniz için veri bilimi hazır mı?
 * Video 3: [verilerle yanıt soru](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sn)*
 * Video 4: [basit bir modelle bir yanıt tahmin](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sn)*
-* Video 5: [veri bilimi yapmak için diğer kişilerin çalışma kopyalama](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 dakika 18 saniye)*
+* Video 5: [diğer kişilerin çalışma toodo veri bilimi kopyalama](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 dakika 18 saniye)*
 
 ## <a name="transcript-is-your-data-ready-for-data-science"></a>Dökümü: verileriniz için veri bilimi hazır mı?
-Hoş Geldiniz "verileriniz için veri bilimi hazır mı?" serideki ikinci video *yeni başlayanlar için veri bilimi*.  
+Hoş Geldiniz çok "verileriniz için veri bilimi hazır mı?" İkinci video hello serideki hello *yeni başlayanlar için veri bilimi*.  
 
-Veri bilimi istediğiniz yanıt vermeden önce bazı yüksek kaliteli hammaddeleri çalışmak için vermeniz gerekir. Daha iyi bir pizza daha iyi son ürünle, başlangıç malzemeleri yalnızca yapma gibi. 
+Veri bilimi vermeden önce istediğiniz yanıtlar Merhaba, toogive sahip, bazı yüksek kaliteli hammaddeleri toowork ile. Yalnızca bir pizza yapma gibi başlangıç hello daha iyi hello malzemeleri hello daha iyi hello son ürün. 
 
 ## <a name="criteria-for-data"></a>Veriler için ölçüt
-Bu nedenle, veri bilimi durumunda birlikte çıkarmak için ihtiyacımız bazı malzemeleri vardır.
+Bu nedenle, veri bilimi hello durumda biz toopull birlikte gereken bazı malzemeleri vardır.
 
 Verileri ihtiyacımız var:
 
 * İlgili
 * bağlı
 * Doğru
-* Yeterli çalışmak için
+* Yeterli toowork ile
 
 ## <a name="is-your-data-relevant"></a>Verilerinizi ilgili mi?
-Bu nedenle ilk tarifi - ilgili olan verileri ihtiyacımız var.
+Bu nedenle hello ilk tarifi - ilgili olan verileri ihtiyacımız var.
 
 ![İlgili verileri ilgisiz verilerin - karşılaştırması veri değerlendir](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
-Sol tarafta tabloya bakın. Biz Boston çubukları dışında yedi kişi yerine, kan Alkol düzeylerini, son kullanıcıların oyun kırmızı Sox batting ortalama ve en yakın Market sütlü fiyat ölçülür.
+Merhaba tablosunda hello solda arayın. Biz Boston çubukları dışında yedi kişi yerine, kendi kan Alkol düzeyi, son kullanıcıların oyun hello kırmızı Sox batting ortalama ve Market en yakın hello sütlü hello fiyatını ölçülür.
 
-Bu tüm mükemmel yasal verilerdir. İlgili değil, yalnızca hataya değildir. Bu sayılar arasında belirgin ilişkisi yoktur. I sütlü ve kırmızı Sox batting ortalama geçerli fiyat vermiş, kan Alkol İçeriğim tahmin edebilir yolu yoktur.
+Bu tüm mükemmel yasal verilerdir. İlgili değil, yalnızca hataya değildir. Bu sayılar arasında belirgin ilişkisi yoktur. I verdiyse sütlü ve hello kırmızı Sox batting ortalama geçerli fiyat Merhaba, kan Alkol İçeriğim tahmin bir yolu yoktur.
 
-Şimdi sağ tarafta tabloya bakın. Bu süre, biz ölçülen her birinin gövde yığın ve sayılan sahip oldukları İçecekler sayısı.  Her satır numaraları şimdi birbiriyle ilgili olur. I size my gövde verdiyse yığın ve ı vardı Margaritas sayısı, yaptığınız my kan konumundaki tahmin Alkol içerik.
+Şimdi hello sağ hello tablosuna bakın. Bu süre her birinin gövde yığın ve sayılan hello sahip İçecekler sayısı ölçülür.  Her satırda Hello numaraları diğer ilgili tooeach sunulmuştur. I size my gövde yığın ve hello sayısı sahip Margaritas verdiyse, my kan konumundaki tahmin Alkol içerik hale getirebilir.
 
 ## <a name="do-you-have-connected-data"></a>Sahip bağlı veri?
-Sonraki tarifi bağlı verilerdir.
+Merhaba sonraki tarifi bağlı verilerdir.
 
 ![Bağlı veri bağlantısı kesilmiş verileri - veri ölçütlerini hazır karşılaştırması](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/connected-vs-disconnected-data.png)
 
-Hamburgers kalitesini bazı ilgili bilgiler aşağıdadır: sıcaklık, patty ağırlık ve dergi yerel yemek derecesi maske. Ancak sol tablodaki boşlukları dikkat edin.
+Hamburgers hello kalitesini bazı ilgili bilgiler aşağıdadır: sıcaklık, patty ağırlık ve hello yerel yemek dergi derecesi maske. Ancak hello boşluklar hello soldaki hello tablosundaki dikkat edin.
 
-Çoğu veri kümelerini bazı değerler eksik. Böyle delik sağlamak için yaygın bir durumdur ve etrafında çalışmaya yolu vardır. Ancak, verilerinizi varsa çok fazla eksik, İsviçre Peynir gibi ara başlar.
+Çoğu veri kümelerini bazı değerler eksik. Bu gibi ortak toohave delik olduğunu ve yolları toowork etrafında. Ancak çok fazla eksik olduğundan, verilerinizi İsviçre Peynir gibi toolook başlar.
 
-Sol tarafta tabloya bakarsanız, olmadığından eksik kadar veri grill sıcaklık ve patty ağırlık ilişkiyi her türlü gündeme sabit. Bu, bağlantısı kesilmiş veri örneğidir.
+Merhaba solda hello tablosunda bakarsanız, olmadığından arasındaki ilişkiyi her türlü ile yukarı sabit toocome olduğu kadar eksik veri maske sıcaklık ve patty ağırlık. Bu, bağlantısı kesilmiş veri örneğidir.
 
-Ancak sağ taraftaki tablo dolu olduğunda ve tamamlandı - bağlı veri örneği.
+Merhaba sağ taraftaki tablo ancak Merhaba, tam ve tamamlandı - bağlı veri örneği.
 
 ## <a name="is-your-data-accurate"></a>Verilerinizi geçerli mi?
-İhtiyacımız sonraki tarifi doğruluğu ' dir. Oklarla isabet isteriz dört hedefleri şunlardır.
+Merhaba ihtiyacımız sonraki tarifi doğruluğu olur. Burada, dört hedefleri oklarla toohit isteriz bulunmaktadır.
 
 ![Doğru verileri yanlış data - veri ölçütlerini karşılaştırması](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Sağ üst hedef bakın. Biz sağ hedef merkezi etrafında sıkı bir gruplandırma açıyor. Doğal olarak, doğru olur. Arasında veri bilimi dilde altındaki hedef sağdaki bizim performans da doğru olarak değerlendirilir.
+Sağ üstteki hello hello hedef bakın. Biz sağ hello hedef merkezi etrafında sıkı bir gruplandırma açıyor. Doğal olarak, doğru olur. Arasında veri bilimi hello dilde hello hedef hemen altındaki bizim performans da doğru olarak değerlendirilir.
 
-Bu okları merkezi eşlemek için olsaydı, bu çok hedef merkezi yakın olduğunu görürsünüz. Oklar, tüm hedef geçici kesin olmayan kabul ancak doğru kabul şekilde hedef merkezi ortalanmış yayılır.
+Bu okları hello merkezi çıkışı toomap olsaydı, çok yakın toohello hedef merkezi olduğunu görürsünüz. Merhaba okları kesin olmayan kabul ancak doğru kabul şekilde hello hedef merkezi ortalanmış tüm hello hedef, geçici yayılır.
 
-Artık sol üst hedefe arayın. Burada bizim okları çok birbirine sıkı bir gruplandırma ulaştı. Kesin, ancak merkezi şekilde hedef merkezi devre dışı olduğundan, bunlar yanlış. Ve Elbette, sol alt hedef okları yanlış ve kesin. Bu archer daha fazla uygulama gerekir.
+Şimdi hello sol üst hedefe arayın. Burada bizim okları çok birbirine sıkı bir gruplandırma ulaştı. Kesin ancak hello merkezi şekilde hello hedef merkezi devre dışı olduğundan, bunlar yanlış. Ve Elbette, hello sol alt hedef hello okları yanlış ve kesin. Bu archer daha fazla uygulama gerekir.
 
-## <a name="do-you-have-enough-data-to-work-with"></a>Çalışmak için yeterli veri var mı?
-Son olarak, malzeme #4 - biz yeterli veri olması gerekir.
+## <a name="do-you-have-enough-data-toowork-with"></a>Yeterli veri toowork ile var mı?
+Son olarak, malzeme #4 - yeterli veri toohave ihtiyacımız.
 
 ![Analiz için yeterli veri var mı? Veri değerlendirme](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
-Her veri noktası tablosundaki boyama içinde fırça vuruş olarak düşünün. Yalnızca birkaç tanesi varsa, boyama oldukça benzer - ne olduğunu ayırt etmek zordur.
+Her veri noktası tablosundaki boyama içinde fırça vuruş olarak düşünün. Yalnızca birkaç tanesi sahip, hello boyama oldukça benzer olabilir - sabit tootell olup olmadığını nedir.
 
-Daha fazla bazı fırça vuruşları eklerseniz, boyama biraz daha net alma başlar.
+Daha fazla bazı fırça vuruşları eklerseniz, boyama tooget biraz daha keskin başlatır.
 
-Neredeyse hiç yeterli vuruşları olduğunda yetecek kadar geniş bazı kararlar almak için görebilirsiniz. Bu bir yere ziyaret etmek istediğiniz mi? Açık görünüyor, temiz su gibi – Evet, burada tatile kullanacağım olan arar.
+Neredeyse hiç yeterli vuruşları sahip olduğunuzda, bazı geniş kararları yeterli toomake görebilirsiniz. Bu bir yere toovisit istediğiniz mi? Açık görünüyor, temiz su gibi – Evet, burada tatile kullanacağım olan arar.
 
-Daha fazla veri ekleme gibi resmi daha anlaşılır olur ve daha ayrıntılı kararlarını verebilir. Artık sol bank üzerinde üç Oteller adresindeki gözden geçirebilirsiniz. Bildiğiniz ı gerçekten mimari ön planda biri gibi özellikler. Üçüncü kat üzerinde kalır,.
+Daha fazla veri ekleme gibi hello resim daha anlaşılır olur ve daha ayrıntılı kararlarını verebilir. Merhaba hello sol bank üzerinde üç Oteller şimdi bakabilirim. Bildiğiniz ı gerçekten hello mimari hello ön planda hello özelliklerini ister. Merhaba üçüncü kat üzerinde kalır,.
 
-İlgili, bağlı, doğru veri ve yeterli, biz ile sahip ihtiyacımız için tüm malzemeleri yapmak bazı yüksek kaliteli veri bilimi.
+İlgili, bağlı, doğru verilerle ve yeterli, tüm hello malzemeleri ihtiyacımız toodo bazı yüksek kaliteli veri bilimi sunuyoruz.
 
-Diğer dört videoları kullanıma özen *yeni başlayanlar için veri bilimi* Microsoft Azure Machine learning'in.
+Diğer dört videoları hello çıkışı emin toocheck olması *yeni başlayanlar için veri bilimi* Microsoft Azure Machine learning'in.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [İlk veri bilimi denemeyi Machine Learning Studio'da deneyin](machine-learning-create-experiment.md)
-* [Microsoft Azure Machine Learning giriş Al](machine-learning-what-is-machine-learning.md)
+* [Bir giriş tooMachine alma Microsoft Azure üzerinde öğrenme](machine-learning-what-is-machine-learning.md)

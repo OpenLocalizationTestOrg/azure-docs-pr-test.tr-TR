@@ -1,6 +1,6 @@
 ---
-title: "Data Lake (Hadoop) araçları ile Visual Studio - Azure Hdınsight Hive | Microsoft Docs"
-description: "Azure Hdınsight'ta Apache Hadoop ile Apache Hive sorguları çalıştırmak için Visual Studio için Data Lake araçları kullanmayı öğrenin."
+title: "Visual Studio - Azure Hdınsight (Hadoop) Data Lake araçları ile aaaHive | Microsoft Docs"
+description: "Toouse hello Data Lake Visual Studio toorun için Apache Hive sorguları Azure hdınsight'ta Apache Hadoop ile nasıl araçları hakkında bilgi edinin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,24 +16,24 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 3411c59fee73aa2e26a05d70e1dae11cdfc865ff
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dc76974c02cf68bcf701b2b155842c9e9c5cb988
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları kullanarak Hive sorguları çalıştırma
+# <a name="run-hive-queries-using-hello-data-lake-tools-for-visual-studio"></a>Merhaba Data Lake araçları için Visual Studio kullanarak Hive sorguları çalıştırma
 
-Sorgu için Apache Hive Visual Studio için Data Lake araçları kullanmayı öğrenin. Data Lake araçları, kolayca oluşturmanıza, gönderme ve Azure hdınsight'ta Hadoop Hive sorguları izlemenize olanak tanır.
+Visual Studio tooquery için Apache Hive nasıl toouse hello Data Lake araçları hakkında bilgi edinin. Merhaba Data Lake araçları tooeasily izin oluşturma, gönderme ve Azure hdınsight'ta Hive sorguları tooHadoop izleyin.
 
 ## <a id="prereq"></a>Önkoşullar
 
 * Azure Hdınsight (Hadoop hdınsight) kümesi
 
   > [!IMPORTANT]
-  > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* Visual Studio (aşağıdaki sürümlerinden biri):
+* Visual Studio (sürümleri aşağıdaki hello biri):
 
     * Visual Studio 2013 Community/Professional/Premium/Ultimate güncelleştirme 4 ile
 
@@ -41,13 +41,13 @@ Sorgu için Apache Hive Visual Studio için Data Lake araçları kullanmayı ö�
 
     * Visual Studio 2017 (herhangi bir sürümünü)
 
-* Visual Studio ya da Azure Data Lake araçları Visual Studio için Hdınsight araçları. Bkz: [Hdınsight için Visual Studio Hadoop araçlarını kullanmaya başlamanıza](hdinsight-hadoop-visual-studio-tools-get-started.md) yükleme ve yapılandırma araçları hakkında bilgi için.
+* Visual Studio ya da Azure Data Lake araçları Visual Studio için Hdınsight araçları. Bkz: [Hdınsight için Visual Studio Hadoop araçlarını kullanmaya başlamanıza](hdinsight-hadoop-visual-studio-tools-get-started.md) yükleme ve yapılandırma hello araçlar hakkında bilgi için.
 
-## <a id="run"></a>Visual Studio kullanarak Hive sorguları çalıştırma
+## <a id="run"></a>Merhaba Visual Studio kullanarak Hive sorguları çalıştırma
 
 1. Açık **Visual Studio** seçip **yeni** > **proje** > **Azure Data Lake**  >   **HIVE** > **Hive uygulaması**. Bu proje için bir ad sağlayın.
 
-2. Açık **Script.hql** bu proje ve aşağıdaki HiveQL ifadelerini Yapıştır ile oluşturulan dosyası:
+2. Açık hello **Script.hql** bu proje ve aşağıdaki HiveQL ifadelerini hello Yapıştır ile oluşturulan dosyası:
 
    ```hiveql
    set hive.execution.engine=tez;
@@ -58,38 +58,38 @@ Sorgu için Apache Hive Visual Studio için Data Lake araçları kullanmayı ö�
    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
    ```
 
-    Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
+    Bu deyimler hello aşağıdaki eylemleri gerçekleştirin:
 
-   * `DROP TABLE`: Tablo zaten varsa, bu deyimi bu siler.
+   * `DROP TABLE`: Bu bildirimi Hello tablo zaten varsa, onu siler.
 
-   * `CREATE EXTERNAL TABLE`: Yeni bir 'external' tablo kovanında oluşturur. Dış tablolara (verileri özgün konumda bırakılır) Hive tablo tanımı yalnızca depolayın.
+   * `CREATE EXTERNAL TABLE`: Yeni bir 'external' tablo kovanında oluşturur. Dış tablolara hello tablo tanımı Hive (Merhaba veri hello özgün konumunda bırakılır) yalnızca depolayın.
 
      > [!NOTE]
-     > Dış kaynak tarafından güncelleştirilecek temel alınan veri beklediğiniz dış tablolara kullanılmalıdır. Örneğin, bir MapReduce işi veya Azure hizmeti.
+     > Dış kaynak tarafından güncelleştirilmiş hello temel alınan veri toobe beklediğiniz dış tablolara kullanılmalıdır. Örneğin, bir MapReduce işi veya Azure hizmeti.
      >
-     > Bir dış tablo bırakma mu **değil** verileri, yalnızca tablo tanımını silin.
+     > Bir dış tablo bırakma mu **değil** hello verileri, yalnızca hello tablo tanımını silin.
 
-   * `ROW FORMAT`: Veri nasıl biçimlendirilmiş Hive söyler. Bu durumda, her günlüğün içinde alanlar boşlukla ayrılır.
+   * `ROW FORMAT`: Hello verilerin nasıl biçimlendirilmiş Hive söyler. Bu durumda, her günlüğün içinde hello alanlar boşlukla ayrılır.
 
-   * `STORED AS TEXTFILE LOCATION`: Veri depolandığı Hive söyler (örneğin/veri dizini) ve metin olarak depolanır.
+   * `STORED AS TEXTFILE LOCATION`: Hive hello burada verilerin depolandığı söyler (Merhaba örnek/veri dizini) ve metin olarak depolanır.
 
-   * `SELECT`: Tüm satırların sayımını seçme Burada sütun `t4` değeri içeren `[ERROR]`. Bu ifade değerini döndürür `3` çünkü bu değer içeren üç satır vardır.
+   * `SELECT`: Tüm satırların sayımını seçme Burada sütun `t4` hello değeri içeren `[ERROR]`. Bu ifade değerini döndürür `3` çünkü bu değer içeren üç satır vardır.
 
-   * `INPUT__FILE__NAME LIKE '%.log'`-Hive biz yalnızca veri biten dosyalarından döndürmesi gerektiğini bildirir. günlük. Bu yan tümcesi arama verileri içeren sample.log dosyası kısıtlar.
+   * `INPUT__FILE__NAME LIKE '%.log'`-Hive biz yalnızca veri biten dosyalarından döndürmesi gerektiğini bildirir. günlük. Bu yan tümce hello verileri içeren hello arama toohello sample.log dosyası kısıtlar.
 
-3. Araç çubuğundan seçin **Hdınsight kümesi** bu sorgu için kullanmak istediğiniz. Seçin **gönderme** deyimleri bir Hive işi olarak çalıştırmak için.
+3. Merhaba Hello araç çubuğundan seçin **Hdınsight kümesi** bu sorgu için toouse istiyor. Seçin **gönderme** toorun hello deyimleri Hive işi.
 
    ![Gönderme çubuğu](./media/hdinsight-hadoop-use-hive-visual-studio/toolbar.png)
 
-4. **Hive işi Özet** görünür ve çalışan iş hakkındaki bilgileri görüntüler. Kullanım **yenileme** kadar iş bilgilerini yenilemek için bağlantı **iş durumu** değişikliklerini **tamamlandı**.
+4. Merhaba **Hive işi Özet** görünür ve hello işi hakkındaki bilgileri görüntüler. Kullanım hello **yenileme** bağlantı hello kadar toorefresh hello iş bilgileri **iş durumu** çok değiştirir**tamamlandı**.
 
    ![İş özeti tamamlanmış bir iş görüntüleme](./media/hdinsight-hadoop-use-hive-visual-studio/jobsummary.png)
 
-5. Kullanım **iş çıktısı** bu işin çıktısını görüntülemek için bağlantı. Görüntülediği `[ERROR] 3`, bu sorgu tarafından döndürülen değer olduğu.
+5. Kullanım hello **iş çıktısı** bağlantı bu işin tooview hello çıktı. Görüntülediği `[ERROR] 3`, bu sorgu tarafından döndürülen hello değeri olduğu.
 
 6. Ayrıca, bir proje oluşturmadan Hive sorguları çalıştırabilirsiniz. Kullanarak **Sunucu Gezgini**, genişletin **Azure** > **Hdınsight**Hdınsight sunucunuzun sağ tıklayın ve ardından **Hive sorgusu Yaz** .
 
-7. İçinde **temp.hql** görünür, belge aşağıdaki HiveQL ifadelerini ekleyin:
+7. Merhaba, **temp.hql** görünür, belge aşağıdaki HiveQL ifadelerini hello ekleme:
 
    ```hiveql
    set hive.execution.engine=tez;
@@ -97,24 +97,24 @@ Sorgu için Apache Hive Visual Studio için Data Lake araçları kullanmayı ö�
    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
    ```
 
-    Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
+    Bu deyimler hello aşağıdaki eylemleri gerçekleştirin:
 
-   * `CREATE TABLE IF NOT EXISTS`: Zaten yoksa, bir tablo oluşturur. Çünkü `EXTERNAL` anahtar sözcüğü kullanılmaz, bu deyim bir iç tablosu oluşturur. İç tabloları Hive veri ambarında depolanır ve Hive tarafından yönetilir.
+   * `CREATE TABLE IF NOT EXISTS`: Zaten yoksa, bir tablo oluşturur. Çünkü hello `EXTERNAL` anahtar sözcüğü kullanılmaz, bu deyim bir iç tablosu oluşturur. İç tablolar hello Hive veri ambarında depolanır ve Hive tarafından yönetilir.
 
      > [!NOTE]
-     > Farklı `EXTERNAL` tablolar, bir iç tablosu da bırakarak temel alınan verileri siler.
+     > Farklı `EXTERNAL` tablolar, bir iç tablosu da bırakarak hello alttaki verileri siler.
 
-   * `STORED AS ORC`: En iyi duruma getirilmiş satır sütun (ORC) biçiminde verileri depolar. ORC Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
+   * `STORED AS ORC`: En iyi duruma getirilmiş satır sütunlu (ORC) biçimindeki verileri depoları hello. ORC Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
 
-   * `INSERT OVERWRITE ... SELECT`: Satırları seçer `log4jLogs` içeren tablo `[ERROR]`, verileri ekler `errorLogs` tablo.
+   * `INSERT OVERWRITE ... SELECT`: Hello satırları seçer `log4jLogs` içeren tablo `[ERROR]`, eklemeleri veri hello hello sonra `errorLogs` tablo.
 
-8. Araç çubuğundan seçin **gönderme** işi çalıştırmak için. Kullanım **iş durumu** işi başarıyla tamamlandığını belirlemek için.
+8. Merhaba araç çubuğundan seçin **gönderme** toorun hello işi. Kullanım hello **iş durumu** toodetermine o hello işi başarıyla tamamlandı.
 
-9. İş tablo oluştuğunu doğrulamak için kullanmak **Sunucu Gezgini** ve genişletin **Azure** > **Hdınsight** > Hdınsight kümenize >  **Veritabanları hive** > **varsayılan**. **Günlüklerini** tablo ve **log4jLogs** tablo listelenir.
+9. Merhaba tablo, kullanım oluşturulan iş hello tooverify **Sunucu Gezgini** ve genişletin **Azure** > **Hdınsight** > Hdınsight kümenize > **Hive veritabanları** > **varsayılan**. Merhaba **günlüklerini** tablo ve hello **log4jLogs** tablo listelenir.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 
-Gördüğünüz gibi Visual Studio için Hdınsight araçları Hdınsight'ta Hive sorguları ile çalışmak için kolay bir yol sağlar.
+Gördüğünüz gibi Visual Studio için Hdınsight araçları hello Hdınsight'ta Hive sorguları kolay bir yolu toowork sağlar.
 
 Hdınsight'ta Hive hakkında genel bilgi için:
 
@@ -126,7 +126,7 @@ Diğer yolları hakkında bilgi için hdınsight'ta Hadoop ile çalışabilirsin
 
 * [Hdınsight'ta Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
-Visual Studio için Hdınsight araçları hakkında daha fazla bilgi için:
+Merhaba hakkında daha fazla bilgi için Visual Studio için Hdınsight araçları:
 
 * [Visual Studio için Hdınsight araçlarını kullanmaya başlama](hdinsight-hadoop-visual-studio-tools-get-started.md)
 

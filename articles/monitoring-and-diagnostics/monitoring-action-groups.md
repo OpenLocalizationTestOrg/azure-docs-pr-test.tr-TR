@@ -1,6 +1,6 @@
 ---
-title: "Azure portalında eylem gruplarını oluşturma ve yönetme | Microsoft Docs"
-description: "Azure portalında eylem gruplarını oluşturma ve yönetme öğrenin."
+title: "aaaCreate ve hello Azure portal'ın eylem gruplarını yönetme | Microsoft Docs"
+description: "Bilgi nasıl toocreate hello Azure portal'ın Eylem grupları ve yönetin."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: ea15705bf02d9773507c6cb59f2da4c1dd0f9d77
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 97e0b22bea7787fff6856f895a7e6256c177efd9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında eylem gruplarını oluşturma ve yönetme
+# <a name="create-and-manage-action-groups-in-hello-azure-portal"></a>Hello Azure portal'ın eylem gruplarını oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
-Bu makalede, Azure portalında Eylem grupları oluşturmak ve yönetmek nasıl gösterilmektedir.
+Bu makale size nasıl gösterir toocreate hello Azure portal'ın Eylem grupları ve yönetin.
 
-Eylem gruplarıyla eylemlerin bir listesini yapılandırabilirsiniz. Etkinlik günlüğü uyarıları tanımlarken bu gruplar daha sonra kullanılabilir. Bu gruplar daha sonra aynı eylemleri etkinlik günlüğü uyarısı her tetiklenişinde alınır sağlama tanımlamak her etkinlik günlüğü uyarı tarafından yeniden kullanılabilir.
+Eylem gruplarıyla eylemlerin bir listesini yapılandırabilirsiniz. Etkinlik günlüğü uyarıları tanımlarken bu gruplar daha sonra kullanılabilir. Bu gruplar daha sonra aynı eylemleri hello etkinlik günlüğü uyarısı her tetiklenişinde alınır, hello sağlama tanımlamak her etkinlik günlüğü uyarı tarafından yeniden kullanılabilir.
 
-Bir eylem grubu 10 her eylem türünde olabilir. Her eylem aşağıdaki özellikleri oluşur:
+Bir eylem grubu, her eylem türü too10 olabilir. Her eylem aşağıdaki özelliklere hello oluşur:
 
-* **Ad**: eylem grubu içinde benzersiz bir tanımlayıcı.  
+* **Ad**: hello eylem grubu içinde benzersiz bir tanımlayıcı.  
 * **Eylem türü**: bir SMS gönder, bir e-posta gönderme veya bir Web kancası çağırın.  
-* **Ayrıntılar**: karşılık gelen telefon numarası, e-posta adresi veya Web kancası URI.
+* **Ayrıntılar**: karşılık gelen telefon numarası, e-posta adresi veya Web kancası URI hello.
 
-Eylem grupları yapılandırmak için Azure Resource Manager şablonları kullanma hakkında daha fazla bilgi için bkz: [eylem Grup Resource Manager şablonları](monitoring-create-action-group-with-resource-manager-template.md).
+Hakkında bilgi için bkz: toouse Azure Resource Manager şablonları tooconfigure Eylem grupları, [eylem Grup Resource Manager şablonları](monitoring-create-action-group-with-resource-manager-template.md).
 
-## <a name="create-an-action-group-by-using-the-azure-portal"></a>Azure portalını kullanarak bir eylem grubu oluşturma ##
-1. İçinde [portal](https://portal.azure.com)seçin **İzleyici**. **İzleyici** dikey penceresinde, izleme ayarları ve verileri tek bir görünümde birleştirir.
+## <a name="create-an-action-group-by-using-hello-azure-portal"></a>Hello Azure portal kullanarak bir eylem grubu oluşturma ##
+1. Merhaba, [portal](https://portal.azure.com)seçin **İzleyici**. Merhaba **İzleyici** dikey penceresinde, izleme ayarları ve verileri tek bir görünümde birleştirir.
 
-    !["İzleme" hizmeti](./media/monitoring-action-groups/home-monitor.png)
-2. İçinde **etkinlik günlüğü** bölümünde, select **Eylem grupları**.
+    ![Merhaba "İzleme" hizmeti](./media/monitoring-action-groups/home-monitor.png)
+2. Merhaba, **etkinlik günlüğü** bölümünde, select **Eylem grupları**.
 
-    !["Eylem grupları" sekmesi](./media/monitoring-action-groups/action-groups-blade.png)
-3. Seçin **eylem Grup Ekle**ve alanları doldurun.
+    ![Merhaba "Eylem grupları" sekmesi](./media/monitoring-action-groups/action-groups-blade.png)
+3. Seçin **eylem Grup Ekle**ve hello alanları doldurun.
 
-    !["Eylem Grup Ekle" komutu](./media/monitoring-action-groups/add-action-group.png)
-4. Bir ad girin **eylem grup adı** kutu ve bir ad girin **kısa ad** kutusu. Bu grubun kullanarak bildirimler gönderildiğinde kısa adı yerine bir tam eylem grup adı kullanılır.
+    ![Merhaba "Eylem Grup Ekle" komutu](./media/monitoring-action-groups/add-action-group.png)
+4. Hello bir ad girin **eylem grup adı** kutusunda ve hello bir ad girin **kısa ad** kutusu. Bu grubun kullanarak bildirimler gönderildiğinde hello kısa adı yerine bir tam eylem grup adı kullanılır.
 
-      ![Eylem Grup Ekle"iletişim kutusu](./media/monitoring-action-groups/action-group-define.png)
+      ![Merhaba eylem Grup Ekle"iletişim kutusu](./media/monitoring-action-groups/action-group-define.png)
 
-5. **Abonelik** kutusuna geçerli aboneliğiniz ile autofills. Bu abonelik eylem grubunu kaydedildiği adrestir.
+5. Merhaba **abonelik** kutusuna geçerli aboneliğiniz ile autofills. Bu abonelik, hangi hello eylem grubu kaydedildi hello bir olur.
 
-6. Seçin **kaynak grubu** eylem grubunu kaydedildiği içinde.
+6. Select hello **kaynak grubu** hangi hello eylemde Grup kaydedilir.
 
 7. Eylemlerin bir listesini, her eylemin sağlayarak tanımlayın:
 
@@ -58,19 +58,19 @@ Eylem grupları yapılandırmak için Azure Resource Manager şablonları kullan
 
     b. **Eylem türü**: SMS seçin, e-posta veya Web kancası.
 
-    c. **Ayrıntılar**: eylem türüne bağlı olarak, bir telefon numarası, e-posta adresi veya Web kancası URI girin.
+    c. **Ayrıntılar**: hello eylem türüne bağlı olarak, bir telefon numarası, e-posta adresi veya Web kancası URI girin.
 
-8. Seçin **Tamam** eylem grubu oluşturmak için.
+8. Seçin **Tamam** toocreate hello eylem grubu.
 
 ## <a name="manage-your-action-groups"></a>Eylem gruplarınızı yönetme ##
-Bir eylem grubu oluşturduktan sonra görünür **Eylem grupları** bölümünü **İzleyici** dikey. Yönetmek istediğiniz eylem grubunu seçin:
+Bir eylem grubu oluşturduktan sonra hello görünür **Eylem grupları** hello bölümünü **İzleyici** dikey. Toomanage için istediğiniz hello eylem grubunu seçin:
 
 * Ekleme, düzenleme veya Eylemler kaldırma.
-* Eylem grubunu silin.
+* Merhaba eylem grubunu silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar ##
 * Daha fazla bilgi edinmek [SMS uyarı davranış](monitoring-sms-alert-behavior.md).  
-* Geçirmesine bir [etkinlik günlüğü uyarı Web kancası şeması anlama](monitoring-activity-log-alerts-webhook.md).  
+* Geçirmesine bir [hello etkinlik günlüğü uyarı Web kancası şeması anlama](monitoring-activity-log-alerts-webhook.md).  
 * Daha fazla bilgi edinmek [hız sınırlaması](monitoring-alerts-rate-limiting.md) uyarılar hakkında. 
-* Alma bir [etkinlik günlüğü uyarıları genel bakış](monitoring-overview-alerts.md)ve uyarıların nasıl alınacağını öğrenin.  
-* Bilgi edinmek için nasıl [hizmeti sistem durumu bildirimi gönderilen her uyarıları yapılandırmak](monitoring-activity-log-alerts-on-service-notifications.md).
+* Alma bir [etkinlik günlüğü uyarıları genel bakış](monitoring-overview-alerts.md)ve öğrenin nasıl tooreceive uyarıları.  
+* Nasıl çok öğrenin[hizmeti sistem durumu bildirimi gönderilen her uyarıları yapılandırmak](monitoring-activity-log-alerts-on-service-notifications.md).

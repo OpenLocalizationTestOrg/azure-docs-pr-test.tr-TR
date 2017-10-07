@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Service Fabric ara yazılım platformunu kullanarak bulut ölçeğinde uygulamalara yönelik mikro hizmetler paketleme ve dağıtma hakkında bilgi edinin. Öğreticiler, API başvuruları ve kod örnekleri."
+title: "aaaAzure Service Fabric belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Bilgi nasıl toouse Service Fabric ara yazılım platformu toopackage ve bulut ölçekli uygulamalar için mikro dağıtın. Öğreticiler, API başvuruları ve kod örnekleri."
 services: service-fabric
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 95499b3ca42e17a6586f97ca3e28919d2fc64a80
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0758059e7f8604fc2fe9cff4acb826204ff8d686
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="service-fabric-documentation"></a>Service Fabric Belgeleri
 
-Service Fabric’i kullanarak ölçeklenebilir ve güvenilir mikro hizmetler paketleme, dağıtma ve yönetme. Öğreticiler, API başvuruları ve kod örneklerinde, bu ara yazılım platformunu kullanarak bulut ölçeğinde uygulamalar oluşturma ve dağıtma hakkında bilgi sağlanmıştır.
+Nasıl toouse Service Fabric toopackage, dağıtmak ve ölçeklenebilir ve güvenilir mikro öğrenin. Eğitim, API Başvurusu ve kod örnekleri Göster nasıl toouse bu ara yazılım platformu toobuild ve bulut ölçekli uygulamalar yönetin.
 
 <ul class="panelContent cardsFTitle">
     <li>

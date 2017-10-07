@@ -1,6 +1,6 @@
 ---
-title: "Oluşturma ve paylaşılan erişim imzası (SAS) ile Azure Blob storage kullanma | Microsoft Docs"
-description: "Bu öğretici, Blob storage'ı kullanmak için paylaşılan erişim imzaları oluşturma ve istemci uygulamalarında kullanma gösterir."
+title: "aaaCreate ve paylaşılan erişim imzası (SAS) ile Azure Blob storage kullanma | Microsoft Docs"
+description: "Bu öğreticide toocreate Blob Depolama ile paylaşılan erişim imzası kullanmak için nasıl ve ne gösterilmiştir tooconsume istemci uygulamalarınızı bunları."
 services: storage
 documentationcenter: 
 author: mmacy
@@ -14,39 +14,39 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: marsma
-ms.openlocfilehash: 0d7bede352667931527c8583cb172a46a37b5aa8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 32004d7d29a190a7ed7234513428c3c156b833b7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Paylaşılan erişim imzası, bölüm 2: Oluşturma ve bir SAS Blob storage'ı kullanma
 
-[Bölüm 1](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) keşfedilen Bu öğretici paylaşılan erişim imzası (SAS) ve bunları kullanmak için en iyi uygulamalar açıklanmıştır. Bölüm 2 oluşturmak ve ardından paylaşılan erişim imzaları Blob storage'ı nasıl kullanılacağını gösterir. Örnekler C# dilinde yazılmıştır ve .NET için Azure Storage istemci kitaplığı kullanın. Bu öğreticide örnekler:
+[Bölüm 1](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) keşfedilen Bu öğretici paylaşılan erişim imzası (SAS) ve bunları kullanmak için en iyi uygulamalar açıklanmıştır. Bölüm 2 gösterilir nasıl toogenerate ve ardından paylaşılan erişim imzaları Blob storage ile. Merhaba örnekler C# dilinde yazılmıştır ve .NET için Azure Storage istemci kitaplığı hello kullanın. Bu öğreticide Hello örnekler:
 
 * Üzerinde bir kapsayıcı paylaşılan erişim imzası oluşturma
 * Blob üzerindeki paylaşılan erişim imzası oluşturma
-* Bir kapsayıcının kaynakları imzalarını yönetmek için bir saklı erişim ilkesi oluşturun
-* Bir istemci uygulamasında paylaşılan erişim imzaları test
+* Depolanmış bir erişim ilkesi toomanage imzalar bir kapsayıcının kaynakları oluşturun.
+* Bir istemci uygulamasında hello paylaşılan erişim imzaları test
 
 ## <a name="about-this-tutorial"></a>Bu öğretici hakkında
 Bu öğreticide, oluşturma ve kapsayıcılar ve bloblar için paylaşılan erişim imzaları kullanma gösteren iki konsol uygulamaları oluşturun:
 
-**Uygulama 1**: yönetimi uygulaması. Bir kapsayıcı ve bir blob için bir paylaşılan erişim imzası oluşturur. Depolama hesabı erişim tuşu kaynak kodunu içerir.
+**Uygulama 1**: Merhaba yönetimi uygulaması. Bir kapsayıcı ve bir blob için bir paylaşılan erişim imzası oluşturur. Merhaba depolama hesabının erişim anahtarı kaynak kodunu içerir.
 
-**Uygulama 2**: istemci uygulaması. İlk uygulama ile oluşturulan paylaşılan erişim imzaları kullanarak erişse kapsayıcı ve blob kaynakları. Yalnızca paylaşılan erişim imzalarını erişim kapsayıcısına ve blob kaynaklarını--kullanır mevcut *değil* depolama hesabının erişim anahtarı içerir.
+**Uygulama 2**: Merhaba istemci uygulaması. Merhaba ilk uygulaması ile oluşturulan hello paylaşılan erişim imzaları kullanarak erişse kapsayıcı ve blob kaynakları. Kullandığı yalnızca hello paylaşılan erişim imzaları tooaccess kapsayıcı ve blob kaynaklarını--mu *değil* hello depolama hesabının erişim anahtarı içerir.
 
-## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>1. Kısım: paylaşılan erişim imzaları üretmek için bir konsol uygulaması oluşturun
-İlk olarak, yüklü .NET için Azure Storage istemci kitaplığı olduğundan emin olun. Yükleyebileceğiniz [NuGet paketi](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet paketi") istemci kitaplığı için en güncel derlemelerini içeren. Bu, en son düzeltmeler olmasını sağlamaya yönelik önerilen yöntemdir. İstemci kitaplığının en son sürümünü bir parçası olarak indirebilirsiniz [.NET için Azure SDK](https://azure.microsoft.com/downloads/).
+## <a name="part-1-create-a-console-application-toogenerate-shared-access-signatures"></a>1. Kısım: bir konsol uygulaması toogenerate paylaşılan erişim imzaları oluşturma
+İlk olarak, yüklü .NET için Azure Storage istemci kitaplığı hello olduğundan emin olun. Merhaba yükleyebilirsiniz [NuGet paketi](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet paketi") hello hello istemci kitaplığı için en güncel derlemelerini içeren. Merhaba yöntemi hello en son düzeltmelerin yüklü olmasını sağlamaya yönelik önerilen budur. Merhaba istemci kitaplığı hello hello en son sürümünü bir parçası olarak indirebilirsiniz [.NET için Azure SDK](https://azure.microsoft.com/downloads/).
 
-Visual Studio'da yeni bir Windows konsol uygulaması oluşturun ve adlandırın **GenerateSharedAccessSignatures**. Başvurular ekleyin [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) ve [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) aşağıdaki yaklaşımlardan birini kullanarak:
+Visual Studio'da yeni bir Windows konsol uygulaması oluşturun ve adlandırın **GenerateSharedAccessSignatures**. Başvuruları çok ekleyin[Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) ve [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) hello aşağıdaki yaklaşımlardan birini kullanarak:
 
-* Kullanım [NuGet Paket Yöneticisi](https://docs.nuget.org/consume/installing-nuget) Visual Studio. Seçin **proje** > **NuGet paketlerini Yönet**, her paket için (Microsoft.WindowsAzure.ConfigurationManager ve WindowsAzure.Storage) çevrimiçi olarak arayın ve yükleyin.
-* Alternatif olarak, bu derlemeler yüklemenizde Azure SDK'sının bulun ve bunları başvurular ekleyin:
+* Kullanım hello [NuGet Paket Yöneticisi](https://docs.nuget.org/consume/installing-nuget) Visual Studio. Seçin **proje** > **NuGet paketlerini Yönet**, her paket için (Microsoft.WindowsAzure.ConfigurationManager ve WindowsAzure.Storage) çevrimiçi olarak arayın ve yükleyin.
+* Alternatif olarak, bu derlemeler hello Azure SDK'sı yüklemenizdeki bulun ve başvurular toothem ekleyin:
   * Microsoft.WindowsAzure.Configuration.dll
   * Microsoft.WindowsAzure.Storage.dll
 
-Program.cs dosyasının üst kısmında, aşağıdaki ekleyin **kullanarak** yönergeleri:
+Merhaba Program.cs dosyasının Hello üstünde hello aşağıdakileri ekleyin **kullanarak** yönergeleri:
 
 ```csharp
 using System.IO;
@@ -55,7 +55,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-Bir yapılandırma ayarı depolama hesabınıza işaret eden bir bağlantı dizesini içeren app.config dosyasını düzenleyin. App.config dosyasını buna benzer görünmelidir:
+Bir yapılandırma ayarı noktaları tooyour depolama hesabını bir bağlantı dizesini içeren hello app.config dosyasını düzenleyin. App.config dosyasını benzer toothis bir görünmelidir:
 
 ```xml
 <configuration>
@@ -69,127 +69,127 @@ Bir yapılandırma ayarı depolama hesabınıza işaret eden bir bağlantı dize
 ```
 
 ### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>Bir kapsayıcı için bir paylaşılan erişim imzası URI oluşturma
-Başından itibaren üzerinde yeni bir kapsayıcı paylaşılan erişim imzası oluşturmak için bir yöntem ekleyin. Bu durumda, sona erme saati ve verir izinleri olduğunu gösteren bilgiler URI üzerinde taşıyan şekilde imza depolanmış erişim ilkesi ile ilişkili değil.
+toobegin ile yeni bir kapsayıcıda yöntemi toogenerate paylaşılan erişim imzası ekleriz. Bu durumda, hello imza depolanmış erişim ilkesi ile ilişkili değil, kendi bitiş saati ve hello izinleri gösteren URI hello bilgi hello üzerinde taşır şekilde verir.
 
-İlk olarak, kodu ekleyin **Main()** yöntemi depolama hesabınıza erişim için kimlik doğrulaması yapmak ve yeni bir kapsayıcı oluşturmak için:
+İlk olarak, kod toohello ekleyin **Main()** yöntemi tooauthenticate erişim tooyour depolama hesabı ve yeni bir kapsayıcı oluşturun:
 
 ```csharp
 static void Main(string[] args)
 {
-    //Parse the connection string and return a reference to the storage account.
+    //Parse hello connection string and return a reference toohello storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    //Create the blob client object.
+    //Create hello blob client object.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    //Get a reference to a container to use for the sample code, and create it if it does not exist.
+    //Get a reference tooa container toouse for hello sample code, and create it if it does not exist.
     CloudBlobContainer container = blobClient.GetContainerReference("sascontainer");
     container.CreateIfNotExists();
 
-    //Insert calls to the methods created below here...
+    //Insert calls toohello methods created below here...
 
-    //Require user input before closing the console window.
+    //Require user input before closing hello console window.
     Console.ReadLine();
 }
 ```
 
-Ardından, kapsayıcı paylaşılan erişim imzası oluşturur ve imza URI döndüren bir yöntem ekleyin:
+Ardından, hello paylaşılan erişim imzası hello kapsayıcısı için oluşturur ve hello imza URI döndüren bir yöntem ekleyin:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
 {
-    //Set the expiry time and permissions for the container.
-    //In this case no start time is specified, so the shared access signature becomes valid immediately.
+    //Set hello expiry time and permissions for hello container.
+    //In this case no start time is specified, so hello shared access signature becomes valid immediately.
     SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
     sasConstraints.SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddHours(24);
     sasConstraints.Permissions = SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Write;
 
-    //Generate the shared access signature on the container, setting the constraints directly on the signature.
+    //Generate hello shared access signature on hello container, setting hello constraints directly on hello signature.
     string sasContainerToken = container.GetSharedAccessSignature(sasConstraints);
 
-    //Return the URI string for the container, including the SAS token.
+    //Return hello URI string for hello container, including hello SAS token.
     return container.Uri + sasContainerToken;
 }
 ```
 
-Sonuna şu satırları ekleyin **Main()** yöntemi çağırmadan önce **Console.ReadLine()**, çağırmak için **GetContainerSasUri()** ve imza URI yazmak için Konsol penceresinde:
+Merhaba hello sonundaki satırlardan hello eklemek **Main()** hello çağırmadan önce çok yöntemi**Console.ReadLine()**, toocall **GetContainerSasUri()** ve hello yazma İmza URI toohello konsol penceresi:
 
 ```csharp
-//Generate a SAS URI for the container, without a stored access policy.
+//Generate a SAS URI for hello container, without a stored access policy.
 Console.WriteLine("Container SAS URI: " + GetContainerSasUri(container));
 Console.WriteLine();
 ```
 
-Derleme ve yeni kapsayıcı paylaşılan erişim imzası URI çıktısını almak için çalıştırın. URI aşağıdakine benzer olacaktır:
+Derleme ve hello yeni kapsayıcı için toooutput hello paylaşılan erişim imzası URI çalıştırın. Merhaba URI benzer toohello şu olacaktır:
 
 ```
 https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
 ```
 
-Kod çalıştırdıktan sonra oluşturduğunuz için kapsayıcı paylaşılan erişim imzası sonraki 24 saat için geçerli olur. İmza listesi BLOB kapsayıcısında ve yeni BLOB kapsayıcıya yazma için bir istemci izni verir.
+Merhaba kod çalıştırdıktan sonra hello paylaşılan erişim imzası hello kapsayıcısı için oluşturduğunuz sonraki 24 saat hello için geçerli olur. Merhaba imza izni toolist BLOB'lar hello kapsayıcı ve toowrite yeni BLOB'lar toohello kapsayıcı istemci verir.
 
 ### <a name="generate-a-shared-access-signature-uri-for-a-blob"></a>Bir blob için bir paylaşılan erişim imzası URI oluşturma
-Ardından, yeni blob kapsayıcı içinde oluşturmak ve paylaşılan erişim imzası oluşturmak için benzer bir kod yazın. URI'de başlangıç zamanı, bitiş saati ve izin bilgileri içerecek şekilde bu paylaşılan erişim imzası depolanmış erişim ilkesi ile ilişkili değil.
+Ardından, biz hello kapsayıcı içinde yeni bir blob benzer kodu toocreate yazma ve paylaşılan erişim imzası oluşturmak. Merhaba URI hello başlangıç zamanı, bitiş saati ve izin bilgileri içerecek şekilde bu paylaşılan erişim imzası depolanmış erişim ilkesi ile ilişkili değil.
 
-Yeni bir blob oluşturur ve bazı metin, yazar sonra paylaşılan erişim imzası oluşturur ve URI imza döndüren yeni bir yöntem ekleyin:
+Yeni bir blob oluşturur ve bazı metin tooit Yazar sonra paylaşılan erişim imzası oluşturur ve hello imza URI döndüren yeni bir yöntem ekleyin:
 
 ```csharp
 static string GetBlobSasUri(CloudBlobContainer container)
 {
-    //Get a reference to a blob within the container.
+    //Get a reference tooa blob within hello container.
     CloudBlockBlob blob = container.GetBlockBlobReference("sasblob.txt");
 
-    //Upload text to the blob. If the blob does not yet exist, it will be created.
-    //If the blob does exist, its existing content will be overwritten.
-    string blobContent = "This blob will be accessible to clients via a shared access signature (SAS).";
+    //Upload text toohello blob. If hello blob does not yet exist, it will be created.
+    //If hello blob does exist, its existing content will be overwritten.
+    string blobContent = "This blob will be accessible tooclients via a shared access signature (SAS).";
     blob.UploadText(blobContent);
 
-    //Set the expiry time and permissions for the blob.
-    //In this case, the start time is specified as a few minutes in the past, to mitigate clock skew.
-    //The shared access signature will be valid immediately.
+    //Set hello expiry time and permissions for hello blob.
+    //In this case, hello start time is specified as a few minutes in hello past, toomitigate clock skew.
+    //hello shared access signature will be valid immediately.
     SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
     sasConstraints.SharedAccessStartTime = DateTimeOffset.UtcNow.AddMinutes(-5);
     sasConstraints.SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddHours(24);
     sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
 
-    //Generate the shared access signature on the blob, setting the constraints directly on the signature.
+    //Generate hello shared access signature on hello blob, setting hello constraints directly on hello signature.
     string sasBlobToken = blob.GetSharedAccessSignature(sasConstraints);
 
-    //Return the URI string for the container, including the SAS token.
+    //Return hello URI string for hello container, including hello SAS token.
     return blob.Uri + sasBlobToken;
 }
 ```
 
-Ekranın alt kısmındaki **Main()** yöntemini çağırmak için aşağıdaki satırları ekleyin **GetBlobSasUri()**, çağırmadan önce **Console.ReadLine()**ve paylaşılan erişim imzası yazma URI konsol penceresine:
+Merhaba hello sonundaki **Main()** yöntemi, aşağıdaki satırları toocall hello eklemek **GetBlobSasUri()**, hello çağırmadan önce çok**Console.ReadLine()**ve paylaşılan hello yazma erişim imzası URI toohello konsol penceresi:
 
 ```csharp
-//Generate a SAS URI for a blob within the container, without a stored access policy.
+//Generate a SAS URI for a blob within hello container, without a stored access policy.
 Console.WriteLine("Blob SAS URI: " + GetBlobSasUri(container));
 Console.WriteLine();
 ```
 
-Derleme ve yeni blob paylaşılan erişim imzası URI çıktısını almak için çalıştırın. URI aşağıdakine benzer olacaktır:
+Derleme ve hello yeni blob için toooutput hello paylaşılan erişim imzası URI çalıştırın. Merhaba URI benzer toohello şu olacaktır:
 
 ```
 https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
 ```
 
-### <a name="create-a-stored-access-policy-on-the-container"></a>Kapsayıcıda depolanmış erişim ilkesi oluşturma
-Şimdi bir saklı erişim ilkesi kendisiyle ilişkilendirilmiş herhangi bir paylaşılan erişim imzaları kısıtlamalarını tanımlayacaksınız kapsayıcısı üzerinde oluşturalım.
+### <a name="create-a-stored-access-policy-on-hello-container"></a>Merhaba kapsayıcısında depolanmış erişim ilkesi oluşturma
+Şimdi bir saklı erişim ilkesi kendisiyle ilişkilendirilmiş herhangi bir paylaşılan erişim imzaları hello kısıtlamalarını tanımlayacaksınız hello kapsayıcısı üzerinde oluşturalım.
 
-Önceki örneklerde, biz başlangıç saati (örtük veya açık olarak), sona erme saati ve izinleri paylaşılan erişim imzası URI kendisini belirtilen. Aşağıdaki örneklerde, biz Bu saklı erişim ilkesi, paylaşılan erişim imzası değil, belirtin. Bunun yapılması paylaşılan erişim imzası vermeden bu kısıtlamaların değiştirmek için bize sağlar.
+Merhaba önceki örneklerde (örtük veya açık olarak) hello başlangıç saati belirtilmiş, paylaşılan erişim imzası URI kendisini hello sona erme saati ve hello hello izinleri. Örnek hello Biz bu depolanan hello erişim ilkesi, değil hello paylaşılan erişim imzası belirtin. Bize bunu sağlar yapmak toochange hello verilene olmadan bu kısıtlamaların paylaşılan erişim imzası.
 
-Bir veya daha fazla paylaşılan erişim imzası kısıtlamalar ve saklı erişim ilkesinde kalanı olması mümkündür. Ancak, yalnızca başlangıç zamanı, bitiş saati ve izinleri tek bir yerde veya diğer belirtebilirsiniz. Örneğin, paylaşılan erişim imzası üzerinde izinleri belirtmek ve ayrıca bunları depolanmış erişim ilkesine belirtin.
+Bir veya daha fazla hello paylaşılan erişim imzası hello kısıtlamalar ve depolanan hello erişim ilkesinde hello kalan olası toohave olur. Ancak, yalnızca hello başlangıç zamanı, bitiş saati ve izinleri bir yerde veya hello diğer belirtebilirsiniz. Örneğin, izinleri hello paylaşılan erişim imzası belirtmek ve ayrıca bunları depolanan hello erişim ilkesinde belirtin.
 
-Bir saklı erişim ilkesi için bir kapsayıcı eklediğinizde, kapsayıcının var olan izinleri almak, yeni Erişim İlkesi Ekle ve kapsayıcının izinlerini ayarlayın.
+Saklı erişim ilkesi tooa kapsayıcısı eklediğinizde, hello kapsayıcının var olan izinleri almak, hello yeni Erişim İlkesi Ekle ve hello kapsayıcının izinlerini ayarlayın.
 
-Bir kapsayıcıda yeni bir saklı erişim ilkesi oluşturur ve ilkenin adını döndüren yeni bir yöntem ekleyin:
+Bir kapsayıcıda yeni bir saklı erişim ilkesi oluşturur ve hello İlkesi hello adını döndüren yeni bir yöntem ekleyin:
 
 ```csharp
 static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContainer container,
     string policyName)
 {
-    //Get the container's existing permissions.
+    //Get hello container's existing permissions.
     BlobContainerPermissions permissions = container.GetPermissions();
 
     //Create a new shared access policy and define its constraints.
@@ -199,13 +199,13 @@ static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContai
         Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Read
     };
 
-    //Add the new policy to the container's permissions, and set the container's permissions.
+    //Add hello new policy toohello container's permissions, and set hello container's permissions.
     permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
     container.SetPermissions(permissions);
 }
 ```
 
-Ekranın alt kısmındaki **Main()** yöntemi çağırmadan önce **Console.ReadLine()**, aşağıdaki satırları ilk Temizle varolan tüm erişim ilkeleri ekleyin ve ardından çağrısı  **CreateSharedAccessPolicy()** yöntemi:
+Merhaba hello sonundaki **Main()** hello çağırmadan önce çok yöntemi**Console.ReadLine()**, aşağıdaki hello satırları toofirst temizleyin varolan tüm erişim ilkeleri ekleyin ve hello çağrısı  **CreateSharedAccessPolicy()** yöntemi:
 
 ```csharp
 //Clear any existing access policies on container.
@@ -213,54 +213,54 @@ BlobContainerPermissions perms = container.GetPermissions();
 perms.SharedAccessPolicies.Clear();
 container.SetPermissions(perms);
 
-//Create a new access policy on the container, which may be optionally used to provide constraints for
-//shared access signatures on the container and the blob.
+//Create a new access policy on hello container, which may be optionally used tooprovide constraints for
+//shared access signatures on hello container and hello blob.
 string sharedAccessPolicyName = "tutorialpolicy";
 CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
 ```
 
-Bir kapsayıcı erişim ilkeleri temizlediğinizde, gerekir ilk kapsayıcının var olan izinleri almak sonra izinleri temizleyin ve ardından yeniden izinlerini ayarlayın.
+Bir kapsayıcı hello erişim ilkelerinin temizlediğinizde gerekir ilk hello kapsayıcının var olan izinleri sonra Temizle hello izinleri almak ve ardından yeniden hello izinlerini ayarlayın.
 
-### <a name="generate-a-shared-access-signature-uri-on-the-container-that-uses-an-access-policy"></a>Paylaşılan erişim imzası bir erişim ilkesi kullanan kapsayıcısı üzerinde URI oluşturma
-Ardından, daha önce ancak biz imza önceki örnekte oluşturduğumuz depolanmış erişim ilkesi ilişkilendirmek bu kez oluşturduğumuz kapsayıcısı için başka bir paylaşılan erişim imzası oluşturun.
+### <a name="generate-a-shared-access-signature-uri-on-hello-container-that-uses-an-access-policy"></a>Paylaşılan erişim imzası bir erişim ilkesi kullanan hello kapsayıcısı üzerinde URI oluşturma
+Ardından, daha önce oluşturduğumuz hello kapsayıcısı için başka bir paylaşılan erişim imzası oluşturuyoruz, ancak bu kez biz hello imza hello önceki örnekte oluşturduğumuz depolanan hello erişim ilkesi ile ilişkilendirin.
 
-Kapsayıcı için başka bir paylaşılan erişim imzası oluşturmak için yeni bir yöntem ekleyin:
+Yeni bir yöntem toogenerate hello kapsayıcısı için başka bir paylaşılan erişim imzası ekleyin:
 
 ```csharp
 static string GetContainerSasUriWithPolicy(CloudBlobContainer container, string policyName)
 {
-    //Generate the shared access signature on the container. In this case, all of the constraints for the
-    //shared access signature are specified on the stored access policy.
+    //Generate hello shared access signature on hello container. In this case, all of hello constraints for the
+    //shared access signature are specified on hello stored access policy.
     string sasContainerToken = container.GetSharedAccessSignature(null, policyName);
 
-    //Return the URI string for the container, including the SAS token.
+    //Return hello URI string for hello container, including hello SAS token.
     return container.Uri + sasContainerToken;
 }
 ```
 
-Ekranın alt kısmındaki **Main()** yöntemi çağırmadan önce **Console.ReadLine()**, çağırmak için aşağıdaki satırları ekleyin **GetContainerSasUriWithPolicy** yöntemi:
+Merhaba hello sonundaki **Main()** hello çağırmadan önce çok yöntemi**Console.ReadLine()**, aşağıdaki satırları toocall hello hello eklemek **GetContainerSasUriWithPolicy** yöntemi :
 
 ```csharp
-//Generate a SAS URI for the container, using a stored access policy to set constraints on the SAS.
+//Generate a SAS URI for hello container, using a stored access policy tooset constraints on hello SAS.
 Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
 Console.WriteLine();
 ```
 
-### <a name="generate-a-shared-access-signature-uri-on-the-blob-that-uses-an-access-policy"></a>URI üstünde bir erişim ilkesi kullanan Blob paylaşılan erişim imzası oluşturma
-Son olarak, başka bir blob oluşturun ve saklı erişim ilkesi ile ilişkili bir paylaşılan erişim imzası oluşturmak için benzer bir yöntem ekleyin.
+### <a name="generate-a-shared-access-signature-uri-on-hello-blob-that-uses-an-access-policy"></a>Bir paylaşılan erişim imzası URI hello Blob kullandığı üzerinde bir erişim ilkesi oluştur
+Son olarak, biz benzer bir yöntem toocreate başka bir blob ekleyin ve saklı erişim ilkesi ile ilişkili bir paylaşılan erişim imzası oluşturmak.
 
-Bir blob oluşturun ve paylaşılan erişim imzası oluşturmak için yeni bir yöntem ekleyin:
+Yeni bir yöntem toocreate blob ekleyin ve bir paylaşılan erişim imzası oluştur:
 
 ```csharp
 static string GetBlobSasUriWithPolicy(CloudBlobContainer container, string policyName)
 {
-    //Get a reference to a blob within the container.
+    //Get a reference tooa blob within hello container.
     CloudBlockBlob blob = container.GetBlockBlobReference("sasblobpolicy.txt");
 
-    //Upload text to the blob. If the blob does not yet exist, it will be created.
-    //If the blob does exist, its existing content will be overwritten.
-    string blobContent = "This blob will be accessible to clients via a shared access signature. " +
-    "A stored access policy defines the constraints for the signature.";
+    //Upload text toohello blob. If hello blob does not yet exist, it will be created.
+    //If hello blob does exist, its existing content will be overwritten.
+    string blobContent = "This blob will be accessible tooclients via a shared access signature. " +
+    "A stored access policy defines hello constraints for hello signature.";
     MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
     ms.Position = 0;
     using (ms)
@@ -268,42 +268,42 @@ static string GetBlobSasUriWithPolicy(CloudBlobContainer container, string polic
         blob.UploadFromStream(ms);
     }
 
-    //Generate the shared access signature on the blob.
+    //Generate hello shared access signature on hello blob.
     string sasBlobToken = blob.GetSharedAccessSignature(null, policyName);
 
-    //Return the URI string for the container, including the SAS token.
+    //Return hello URI string for hello container, including hello SAS token.
     return blob.Uri + sasBlobToken;
 }
 ```
 
-Ekranın alt kısmındaki **Main()** yöntemi çağırmadan önce **Console.ReadLine()**, çağırmak için aşağıdaki satırları ekleyin **GetBlobSasUriWithPolicy** yöntemi:
+Merhaba hello sonundaki **Main()** hello çağırmadan önce çok yöntemi**Console.ReadLine()**, aşağıdaki satırları toocall hello hello eklemek **GetBlobSasUriWithPolicy** yöntemi:
 
 ```csharp
-//Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
+//Generate a SAS URI for a blob within hello container, using a stored access policy tooset constraints on hello SAS.
 Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWithPolicy(container, sharedAccessPolicyName));
 Console.WriteLine();
 ```
 
-**Main()** yöntemi şimdi şöyle görünmelidir tamamının. Paylaşılan erişim imzası URI'ler konsol penceresine yazma sonra kopyalayın ve bu öğreticinin ikinci bölümünde kullanmak için bir metin dosyası yapıştırmak için çalıştırın.
+Merhaba **Main()** yöntemi şimdi şöyle görünmelidir tamamının. Toowrite hello paylaşılan erişim imzası URI'ler toohello konsol penceresi, çalıştırın, sonra kopyalayın ve bunları bu öğreticinin ikinci bölümünde hello kullanmak için bir metin dosyasına yapıştırın.
 
 ```csharp
 static void Main(string[] args)
 {
-    //Parse the connection string and return a reference to the storage account.
+    //Parse hello connection string and return a reference toohello storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    //Create the blob client object.
+    //Create hello blob client object.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    //Get a reference to a container to use for the sample code, and create it if it does not exist.
+    //Get a reference tooa container toouse for hello sample code, and create it if it does not exist.
     CloudBlobContainer container = blobClient.GetContainerReference("sascontainer");
     container.CreateIfNotExists();
 
-    //Generate a SAS URI for the container, without a stored access policy.
+    //Generate a SAS URI for hello container, without a stored access policy.
     Console.WriteLine("Container SAS URI: " + GetContainerSasUri(container));
     Console.WriteLine();
 
-    //Generate a SAS URI for a blob within the container, without a stored access policy.
+    //Generate a SAS URI for a blob within hello container, without a stored access policy.
     Console.WriteLine("Blob SAS URI: " + GetBlobSasUri(container));
     Console.WriteLine();
 
@@ -312,16 +312,16 @@ static void Main(string[] args)
     perms.SharedAccessPolicies.Clear();
     container.SetPermissions(perms);
 
-    //Create a new access policy on the container, which may be optionally used to provide constraints for
-    //shared access signatures on the container and the blob.
+    //Create a new access policy on hello container, which may be optionally used tooprovide constraints for
+    //shared access signatures on hello container and hello blob.
     string sharedAccessPolicyName = "tutorialpolicy";
     CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
 
-    //Generate a SAS URI for the container, using a stored access policy to set constraints on the SAS.
+    //Generate a SAS URI for hello container, using a stored access policy tooset constraints on hello SAS.
     Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
     Console.WriteLine();
 
-    //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
+    //Generate a SAS URI for a blob within hello container, using a stored access policy tooset constraints on hello SAS.
     Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWithPolicy(container, sharedAccessPolicyName));
     Console.WriteLine();
 
@@ -329,7 +329,7 @@ static void Main(string[] args)
 }
 ```
 
-GenerateSharedAccessSignatures konsol uygulamasını çalıştırdığınızda, aşağıdakine benzer bir çıktı göreceksiniz. Bu öğreticinin Kısım 2'de kullanmak paylaşılan erişim imzaları değil.
+Merhaba GenerateSharedAccessSignatures konsol uygulamasını çalıştırdığınızda, çıktı benzer toohello aşağıdaki görürsünüz. Merhaba öğreticinin Kısım 2'de kullanmak hello paylaşılan erişim imzaları bunlar.
 
 ```
 Container SAS URI: https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=pFlEZD%2F6sJTNLxD%2FQ26Hh85j%2FzYPxZav6mP1KJwnvJE%3D&se=2017-05-16T16%3A16%3A47Z&sp=wl
@@ -341,16 +341,16 @@ Container SAS URI using stored access policy: https://storagesample.blob.core.wi
 Blob SAS URI using stored access policy: https://storagesample.blob.core.windows.net/sascontainer/sasblobpolicy.txt?sv=2016-05-31&sr=b&si=tutorialpolicy&sig=%2FkTWkT23SS45%2FoF4bK2mqXkN%2BPKs%2FyHuzkfQ4GFoZVU%3D
 ```
 
-## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>2. Kısım: paylaşılan erişim imzaları test etmek için bir konsol uygulaması oluşturun
-Önceki örneklerde oluşturulan paylaşılan erişim imzaları sınamak için biz ve blob kapsayıcısı üzerinde işlem gerçekleştirmeye imzalarını kullanır ikinci bir konsol uygulaması oluşturun.
+## <a name="part-2-create-a-console-application-tootest-hello-shared-access-signatures"></a>2. Kısım: bir konsol uygulaması tootest hello paylaşılan erişim imzaları oluşturma
+paylaşılan erişim imzası hello önceki örneklerde oluşturulan tootest Merhaba, biz hello kapsayıcı ve blob hello imzaları tooperform işlemleri kullanır ikinci bir konsol uygulaması oluşturun.
 
 > [!NOTE]
-> Öğreticinin ilk kısmı tamamlandı beri 24 saatten fazla geçmişse, üretilen imzalar artık geçerli olmayacak. Bu durumda, öğreticinin ikinci bölümünde kullanmak için yeni paylaşılan erişim imzaları üretmek için ilk konsol uygulamasındaki kod çalıştırmanız gerekir.
+> Hello hello öğretici ilk kısmı tamamlandı beri 24 saatten fazla geçmişse, üretilen hello imzalar artık geçerli olacaktır. Bu durumda, hello kod hello ilk konsol uygulaması toogenerate içinde hello öğreticinin ikinci bölümünde hello kullanmak için yeni paylaşılan erişim imzaları çalıştırmanız gerekir.
 >
 
-Visual Studio'da yeni bir Windows konsol uygulaması oluşturun ve adlandırın **ConsumeSharedAccessSignatures**. Başvurular ekleyin [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) ve [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/), daha önce yaptığınız gibi.
+Visual Studio'da yeni bir Windows konsol uygulaması oluşturun ve adlandırın **ConsumeSharedAccessSignatures**. Başvuruları çok ekleyin[Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) ve [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/), daha önce yaptığınız gibi.
 
-Program.cs dosyasının üst kısmında, aşağıdaki ekleyin **kullanarak** yönergeleri:
+Merhaba Program.cs dosyasının Hello üstünde hello aşağıdakileri ekleyin **kullanarak** yönergeleri:
 
 ```csharp
 using System.IO;
@@ -358,7 +358,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-Gövdesinde **Main()** yöntemi, değerlerine öğreticinin 1 bölümünde oluşturulan paylaşılan erişim imzaları değiştirerek aşağıdaki dize sabitleri ekleyin.
+Merhaba hello gövdesinde **Main()** yöntemi, dize sabitleri izleyerek, bölüm başlangıç Öğreticisi 1 oluşturulan kendi değerlerini toohello paylaşılan erişim imzaları değiştirme hello ekleyin.
 
 ```csharp
 static void Main(string[] args)
@@ -370,27 +370,27 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="add-a-method-to-try-container-operations-using-a-shared-access-signature"></a>Paylaşılan erişim imzası kullanarak kapsayıcı işlemleri denemek için bir yöntem ekleyin
-Ardından, bazı kapsayıcı işlemleri için kapsayıcı paylaşılan erişim imzası kullanarak testleri bir yöntem ekleyin. Paylaşılan erişim imzası, tek başına imza tabanlı kapsayıcıya erişimi kimlik doğrulaması kapsayıcıya başvuru döndürmek için kullanılır.
+### <a name="add-a-method-tootry-container-operations-using-a-shared-access-signature"></a>Paylaşılan erişim imzası kullanarak bir yöntem tootry kapsayıcı işlem ekleme
+Ardından, bazı kapsayıcı işlemleri için hello kapsayıcı paylaşılan erişim imzası kullanarak testleri bir yöntem ekleyin. Merhaba paylaşılan erişim imzası kullanılan tooreturn erişim toohello kapsayıcı tek başına hello imza tabanlı kimlik doğrulaması bir başvuru toohello kapsayıcı ' dir.
 
-Aşağıdaki yöntemi ekleyin:
+Yöntem tooProgram.cs aşağıdaki hello ekleyin:
 
 ```csharp
 static void UseContainerSAS(string sas)
 {
-    //Try performing container operations with the SAS provided.
+    //Try performing container operations with hello SAS provided.
 
-    //Return a reference to the container using the SAS URI.
+    //Return a reference toohello container using hello SAS URI.
     CloudBlobContainer container = new CloudBlobContainer(new Uri(sas));
 
-    //Create a list to store blob URIs returned by a listing operation on the container.
+    //Create a list toostore blob URIs returned by a listing operation on hello container.
     List<ICloudBlob> blobList = new List<ICloudBlob>();
 
-    //Write operation: write a new blob to the container.
+    //Write operation: write a new blob toohello container.
     try
     {
         CloudBlockBlob blob = container.GetBlockBlobReference("blobCreatedViaSAS.txt");
-        string blobContent = "This blob was created with a shared access signature granting write permissions to the container. ";
+        string blobContent = "This blob was created with a shared access signature granting write permissions toohello container. ";
         blob.UploadText(blobContent);
 
         Console.WriteLine("Write operation succeeded for SAS " + sas);
@@ -403,7 +403,7 @@ static void UseContainerSAS(string sas)
         Console.WriteLine();
     }
 
-    //List operation: List the blobs in the container.
+    //List operation: List hello blobs in hello container.
     try
     {
         foreach (ICloudBlob blob in container.ListBlobs())
@@ -420,7 +420,7 @@ static void UseContainerSAS(string sas)
         Console.WriteLine();
     }
 
-    //Read operation: Get a reference to one of the blobs in the container and read it.
+    //Read operation: Get a reference tooone of hello blobs in hello container and read it.
     try
     {
         CloudBlockBlob blob = container.GetBlockBlobReference(blobList[0].Name);
@@ -442,7 +442,7 @@ static void UseContainerSAS(string sas)
     }
     Console.WriteLine();
 
-    //Delete operation: Delete a blob in the container.
+    //Delete operation: Delete a blob in hello container.
     try
     {
         CloudBlockBlob blob = container.GetBlockBlobReference(blobList[0].Name);
@@ -459,7 +459,7 @@ static void UseContainerSAS(string sas)
 }
 ```
 
-Güncelleştirme **Main()** çağrılacak yöntem **UseContainerSAS()** ikisini de kapsayıcısında oluşturduğunuz paylaşılan erişim imzaları:
+Güncelleştirme hello **Main()** yöntemi toocall **UseContainerSAS()** ikisi hello ile paylaşılan erişim imzası hello kapsayıcısında oluşturduğunuz:
 
 ```csharp
 static void Main(string[] args)
@@ -469,7 +469,7 @@ static void Main(string[] args)
     string containerSASWithAccessPolicy = "<your container SAS with access policy>";
     string blobSASWithAccessPolicy = "<your blob SAS with access policy>";
 
-    //Call the test methods with the shared access signatures created on the container, with and without the access policy.
+    //Call hello test methods with hello shared access signatures created on hello container, with and without hello access policy.
     UseContainerSAS(containerSAS);
     UseContainerSAS(containerSASWithAccessPolicy);
 
@@ -477,23 +477,23 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="add-a-method-to-try-blob-operations-using-a-shared-access-signature"></a>Paylaşılan erişim imzası kullanarak blob işlemleri denemek için bir yöntem ekleyin
-Son olarak, bir paylaşılan erişim imzası blob üzerindeki kullanarak bazı blobu işlemleri testleri bir yöntem ekleyin. Bu durumda, biz Oluşturucu kullanın **CloudBlockBlob(String)**, blob bir başvuru döndürmek için paylaşılan erişim imzası geçen. Diğer kimlik doğrulaması gerekli değildir; tek başına imza dayanır.
+### <a name="add-a-method-tootry-blob-operations-using-a-shared-access-signature"></a>Paylaşılan erişim imzası kullanarak bir yöntem tootry blobu işlemleri ekleme
+Son olarak, hello blob'unda paylaşılan erişim imzası kullanarak bazı blobu işlemleri testleri bir yöntem ekleyin. Bu durumda, biz hello Oluşturucu kullanın **CloudBlockBlob(String)**, hello paylaşılan erişim imzası, tooreturn başvuru toohello blob geçen. Diğer kimlik doğrulaması gerekli değildir; İmza hello tek başına dayanır.
 
-Aşağıdaki yöntemi ekleyin:
+Yöntem tooProgram.cs aşağıdaki hello ekleyin:
 
 ```csharp
 static void UseBlobSAS(string sas)
 {
-    //Try performing blob operations using the SAS provided.
+    //Try performing blob operations using hello SAS provided.
 
-    //Return a reference to the blob using the SAS URI.
+    //Return a reference toohello blob using hello SAS URI.
     CloudBlockBlob blob = new CloudBlockBlob(new Uri(sas));
 
-    //Write operation: Write a new blob to the container.
+    //Write operation: Write a new blob toohello container.
     try
     {
-        string blobContent = "This blob was created with a shared access signature granting write permissions to the blob. ";
+        string blobContent = "This blob was created with a shared access signature granting write permissions toohello blob. ";
         MemoryStream msWrite = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
         msWrite.Position = 0;
         using (msWrite)
@@ -510,7 +510,7 @@ static void UseBlobSAS(string sas)
         Console.WriteLine();
     }
 
-    //Read operation: Read the contents of the blob.
+    //Read operation: Read hello contents of hello blob.
     try
     {
         MemoryStream msRead = new MemoryStream();
@@ -537,7 +537,7 @@ static void UseBlobSAS(string sas)
         Console.WriteLine();
     }
 
-    //Delete operation: Delete the blob.
+    //Delete operation: Delete hello blob.
     try
     {
         blob.Delete();
@@ -553,7 +553,7 @@ static void UseBlobSAS(string sas)
 }
 ```
 
-Güncelleştirme **Main()** çağrılacak yöntem **UseBlobSAS()** hem blob üzerindeki oluşturduğunuz paylaşılan erişim imzaları:
+Güncelleştirme hello **Main()** yöntemi toocall **UseBlobSAS()** hem hello hello blob üzerinde oluşturulan erişim imzaları paylaşılan:
 
 ```csharp
 static void Main(string[] args)
@@ -563,11 +563,11 @@ static void Main(string[] args)
     string containerSASWithAccessPolicy = "<your container SAS with access policy>";
     string blobSASWithAccessPolicy = "<your blob SAS with access policy>";
 
-    //Call the test methods with the shared access signatures created on the container, with and without the access policy.
+    //Call hello test methods with hello shared access signatures created on hello container, with and without hello access policy.
     UseContainerSAS(containerSAS);
     UseContainerSAS(containerSASWithAccessPolicy);
 
-    //Call the test methods with the shared access signatures created on the blob, with and without the access policy.
+    //Call hello test methods with hello shared access signatures created on hello blob, with and without hello access policy.
     UseBlobSAS(blobSAS);
     UseBlobSAS(blobSASWithAccessPolicy);
 
@@ -575,7 +575,7 @@ static void Main(string[] args)
 }
 ```
 
-Konsol uygulamasını çalıştırın ve hangi işlemleri hangi imzalar için izin verilen görmek için çıktıyı inceleyin. Çıkış konsol penceresinde aşağıdakine benzer görünecektir:
+Merhaba konsol uygulamasını çalıştırın ve hangi işlemleri hangi imzalar için izin verilen hello çıktı toosee gözlemleyin. Merhaba konsol penceresinde Hello çıkış benzer toohello aşağıdaki görünür:
 
 ```
 Write operation succeeded for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
@@ -583,17 +583,17 @@ Write operation succeeded for SAS https://storagesample.blob.core.windows.net/sa
 List operation succeeded for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
 
 Read operation failed for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
-Additional error information: The remote server returned an error: (403) Forbidden.
+Additional error information: hello remote server returned an error: (403) Forbidden.
 
 Delete operation failed for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
-Additional error information: The remote server returned an error: (403) Forbidden.
+Additional error information: hello remote server returned an error: (403) Forbidden.
 
 ...
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-* [Paylaşılan erişim imzası, bölüm 1: SAS modelini anlama](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](storage-manage-access-to-resources.md)
+* [Paylaşılan erişim imzası, bölüm 1: hello SAS modelini anlama](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Anonim okuma erişimini toocontainers ve BLOB'ları yönetme](storage-manage-access-to-resources.md)
 * [Paylaşılan erişim imzası (REST API) ile erişim için temsilci seçme](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Tablo ve kuyruk SAS Tanıtımı](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

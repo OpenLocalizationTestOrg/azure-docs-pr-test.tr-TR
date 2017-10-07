@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric kapsayıcıları izleme ve tanılama | Microsoft Docs"
-description: "İzleme ve Microsoft Azure Service Fabric üzerinde OMS'ın kapsayıcıları çözümüyle bağımsızlıklar kapsayıcıları tanılama öğrenin."
+title: "aaaAzure Service Fabric kapsayıcıları izleme ve tanılama | Microsoft Docs"
+description: "Bilgi nasıl toomonitor ve Microsoft Azure Service Fabric üzerinde OMS'ın kapsayıcıları çözümüyle bağımsızlıklar kapsayıcıları tanılayın."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/10/2017
 ms.author: dekapur
-ms.openlocfilehash: 874c1a5c4b399ff2254072b7282f05d83a005cc3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cd79111cf78b9d76a60d489bb9953587aa06186d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitoring-windows-server-containers-with-oms"></a>Windows Server kapsayıcıları OMS ile izleme
 
 ## <a name="oms-containers-solution"></a>OMS kapsayıcıları çözümü
 
-Operations Management Suite (OMS) ekibin tanılama kapsayıcıları çözüm ve kapsayıcıları için izleme yayımladı. Kendi Service Fabric çözümünü yanı sıra bu çözüm Service Fabric bağımsızlıklar kapsayıcı dağıtımlarını izlemek için harika bir araçtır. Çözüm panosunda benzer basit bir örnek aşağıda verilmiştir:
+Merhaba Operations Management Suite (OMS) ekip tanılama kapsayıcıları çözüm ve kapsayıcıları için izleme yayımladı. Kendi Service Fabric yanı sıra, bu çözüm Service Fabric bağımsızlıklar harika aracı toomonitor kapsayıcı dağıtımlarını çözümüdür. Aşağıda, hangi hello Pano hello çözümde benzer basit bir örnek verilmiştir:
 
 ![Temel OMS Panosu](./media/service-fabric-diagnostics-containers-windowsserver/oms-containers-dashboard.png)
 
-Ayrıca, değişik OMS günlük analizi aracında sorgulanabilir ve herhangi bir ölçümleri veya oluşturulan olaylar görselleştirmek için kullanılan günlükleri toplar. Toplanan günlük türleri şunlardır:
+Farklı türde hello OMS günlük analizi aracında sorgulanabilir günlükleri de toplar ve kullanılan toovisualize herhangi bir ölçümleri veya oluşturulan olaylar olabilir. toplanan hello günlük türleri şunlardır:
 
 1. ContainerInventory: kapsayıcı konumunu, adı ve görüntüleri hakkında bilgi gösterir
 2. ContainerImageInventory: bilgi kimlikleri veya boyutları dahil olmak üzere, dağıtılan görüntüler hakkında
 3. ContainerLog: belirli hata günlüklerini, docker günlükleri (stdout, vb.) ve diğer girişleri
 4. ContainerServiceLog: çalıştırılmış docker arka plan programı komutları
-5. Perf: kapsayıcı dahil olmak üzere performans sayaçlarını cpu, bellek, ağ trafiğini, disk g/ç ve ana bilgisayar makinelerden özel ölçümleri
+5. Perf: kapsayıcı dahil olmak üzere performans sayaçlarını cpu, bellek, ağ trafiğini, disk g/ç ve hello özel ölçümleri makineler ana bilgisayar
 
-Bu makalede, kümeniz için kapsayıcı izleme ayarlamak için gerekli adımlar kapsanmaktadır. OMS'ın kapsayıcıları çözüm hakkında daha fazla bilgi için kullanıma kendi [belgelerine](../log-analytics/log-analytics-containers.md).
+Bu makalede hello adımları gerekli tooset kapsayıcı kümeniz için izleme yukarı kapsar. OMS'ın kapsayıcıları çözüm hakkında daha fazla toolearn kullanıma kendi [belgelerine](../log-analytics/log-analytics-containers.md).
 
 ## <a name="1-set-up-a-service-fabric-cluster"></a>1. Bir Service Fabric kümesi
 
-Bulunan Azure Resource Manager şablonunu kullanarak bir küme oluşturmak [burada](https://github.com/dkkapur/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample). Benzersiz bir OMS çalışma ad eklediğinizden emin olun. Bu şablon, ayrıca hizmet, bu da üretimde kullanılamaz ve farklı bir Service Fabric sürüme yükseltilemez dokusu (v255.255) önizleme derlemesinin bir kümede dağıtmak için varsayılan olarak ayarlanır. Bu şablon için kullanmaya karar verirseniz, uzun vadeli veya üretim kullanın, sürüm kararlı sürüm numarasını değiştirin.
+Bulunan hello Azure Resource Manager şablonunu kullanarak bir küme oluşturmak [burada](https://github.com/dkkapur/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample). Benzersiz bir OMS çalışma ad tooadd emin olun. Bu şablon hello Önizleme'de bir küme oluşturmak toodeploying hizmet üretimde kullanılamaz ve olamaz anlamına tooa farklı Service Fabric sürüm yükseltme dokusu (v255.255) de varsayılan olarak ayarlanır. Bu şablon için toouse karar verirseniz uzun vadeli veya üretim kullanın, hello sürüm tooa kararlı sürüm numarasını değiştirin.
 
-Küme ayarladıktan sonra uygun sertifika yüklediyseniz ve olduğunuzdan emin olun, kümeye bağlanmak için onaylayın.
+Merhaba küme ayarlandıktan sonra hello uygun sertifika yüklediyseniz ve mümkün tooconnect toohello küme olduğundan emin olun onaylayın.
 
-Kaynak grubunuzun doğru göre başlığını yukarı ayarlandığından emin olun [Azure portal](https://portal.azure.com/) ve dağıtım bulma. Kaynak grubu Service Fabric kaynaklarını içeren ve Service Fabric çözüm yanı sıra, bir günlük analizi çözüm de gerekir.
+Kaynak grubunuzun doğru başlık toohello tarafından ayarlandığını onaylayın [Azure portal](https://portal.azure.com/) ve hello dağıtım bulma. Merhaba kaynak grubunun tüm hello Service Fabric kaynakları içeren ve Service Fabric çözüm yanı sıra, bir günlük analizi çözüm de gerekir.
 
 Var olan bir Service Fabric kümesi değiştirmek için:
-* Tanılama etkinleştirilmiş olduğunu doğrulayın (Aksi takdirde, aracılığıyla etkinleştirmek [sanal makine ölçek kümesi güncelleştirme](/rest/api/virtualmachinescalesets/create-or-update-a-set))
-* "Service Fabric Analytics" Çözüm Azure Market üzerinden oluşturarak bir OMS çalışma alanı Ekle
-* Veri kaynakları (WAD tarafından ayarlanır) uygun Azure Storage tablolardaki verileri alması için Service Fabric çözümün kümesinin kaynak grubundaki Düzenle
-* Aracısı olarak ekleme bir [sanal makine ölçek kümesi uzantısı](/powershell/module/azurerm.compute/add-azurermvmssextension) PowerShell aracılığıyla veya sanal makine güncelleştiriliyor aracılığıyla ölçek kümesi (Resource Manager şablonu değiştirmek için yukarıdaki gibi aynı bağlantı)
+* Tanılama etkinleştirilmiş olduğunu doğrulayın (Aksi takdirde, aracılığıyla etkinleştirmek [hello sanal makine ölçek kümesi güncelleştirme](/rest/api/virtualmachinescalesets/create-or-update-a-set))
+* "Service Fabric Analytics" Çözüm hello Azure Market üzerinden oluşturarak bir OMS çalışma alanı Ekle
+* Hello Service Fabric çözüm toopick tablolardaki verileri (WAD tarafından ayarlanır) hello uygun Azure Storage yukarı Hello veri kaynağının küme hello kaynak grubu hello düzenleme
+* Merhaba aracısı olarak ekleme bir [uzantısı toohello sanal makine ölçek kümesi](/powershell/module/azurerm.compute/add-azurermvmssextension) PowerShell aracılığıyla veya hello sanal makine ölçek kümesi (yukarıdaki gibi aynı bağlantı, toomodify hello Resource Manager şablonu) güncelleştirme
 
 ## <a name="2-deploy-a-container"></a>2. Bir kapsayıcı dağıtma
 
-Küme hazır olduğundan ve ona erişebildiğinizden emin onayladıktan sonra bir kapsayıcı dağıtma. Şablon tarafından kümesi olarak Önizleme sürümü kullanmayı seçerseniz, Service Fabric'ın yeni docker de keşfedebilirsiniz işlevselliği oluşturun. Bir küme için bir kapsayıcı görüntüsü dağıtılan ilk kez, görüntünün boyutuna bağlı olarak yüklemek için birkaç dakika sürer aklınızda size aittir.
+Merhaba küme hazır olduğundan ve ona erişebildiğinizden emin onayladıktan sonra bir kapsayıcı tooit dağıtın. Merhaba şablon tarafından kümesi olarak toouse hello Önizleme sürümü seçerseniz, Service Fabric'ın yeni docker de keşfedebilirsiniz işlevselliği oluşturun. İlk kez bir kapsayıcı görüntüsü hello aklınızda ayı dağıtılan tooa küme, boyutuna bağlı olarak birkaç dakika toodownload hello görüntü alır.
 
-## <a name="3-add-the-containers-solution"></a>3. Kapsayıcıları çözüme ekleyin
+## <a name="3-add-hello-containers-solution"></a>3. Merhaba kapsayıcılara çözüme ekleyin
 
-Azure portalında kapsayıcıları kaynak oluşturma (izleme + Yönetimi altında kategori) Azure Market üzerinden. 
+İçinde Azure portal Merhaba, kapsayıcıları kaynak oluşturma (altında hello izleme + yönetim kategorisi) Azure Market üzerinden. 
 
 ![Kapsayıcıları çözüm ekleme](./media/service-fabric-diagnostics-containers-windowsserver/containers-solution.png)
 
-Oluşturma adımda bir OMS çalışma ister. Yukarıdaki dağıtımı ile oluşturulmuş bir tanesini seçin. Bu adım, OMS çalışma kapsayıcıları çözümünüzde ekler ve şablon tarafından dağıtılan OMS aracısı tarafından otomatik olarak algılanır. Aracı kümedeki kapsayıcıları işlemler üzerinde veri toplamayı başlatılır ve yaklaşık 10-15 dakika içinde yukarı çözüm ışık yukarıdaki Pano görüntüsü olduğu gibi verilerle görmeniz gerekir.
+Merhaba oluşturma adımda bir OMS çalışma ister. Yukarıdaki hello dağıtımı ile oluşturulmuş bir Hello seçin. Bu adım, OMS çalışma kapsayıcıları çözümünüzde ekler ve hello şablon tarafından dağıtılan hello OMS aracısı tarafından otomatik olarak algılanır. Merhaba Aracısı Merhaba kapsayıcılara işlemler hello kümedeki üzerinde veri toplamayı başlatılır ve yaklaşık 10-15 dakika içinde hello çözüm hello Pano yukarıdaki hello görüntüsü olduğu gibi verilerle yukarı hafif görmeniz gerekir.
 
 ## <a name="4-next-steps"></a>4. Sonraki adımlar
 
-OMS çalışma daha kullanışlı varsa yapmak için çeşitli araçlar sunar. Çözümü gereksinimlerinize özelleştirmek için aşağıdaki seçeneklerden keşfedin:
-- İle familiarized [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) günlük analizi bir parçası olarak sunulan özellikler
-- Belirli performans sayaçlarını seçmek için OMS Aracısı'nı yapılandırma (çalışma giriş gidin > ayarları > veri > Windows performans sayaçlarını)
-- Ayarlamak için OMS yapılandırma [uyarı otomatik](../log-analytics/log-analytics-alerts.md) algılama ve tanılama yardımcı olmak için kurallar
+OMS hello çalışma toomake içinde çeşitli araçları daha kullanışlı, sizin için sunar. Seçenekler toocustomize hello çözüm tooyour gereksinimlerini aşağıdaki hello keşfedin:
+- Merhaba ile familiarized [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) günlük analizi bir parçası olarak sunulan özellikler
+- Merhaba OMS Aracısı toopick belirli performans sayaçlarını yukarı yapılandırın (toohello çalışma giriş Git > ayarları > veri > Windows performans sayaçlarını)
+- Yukarı OMS tooset yapılandırma [uyarı otomatik](../log-analytics/log-analytics-alerts.md) kuralları tooaid algılama ve tanılama

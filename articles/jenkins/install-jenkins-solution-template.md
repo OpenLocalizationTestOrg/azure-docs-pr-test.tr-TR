@@ -1,6 +1,6 @@
 ---
-title: "Azure’da bir Jenkins sunucusu oluşturma"
-description: "Jenkins çözüm şablonundan Azure Linux sanal makinesine Jenkins’i yükleyin ve örnek bir Java uygulaması oluşturun."
+title: aaaCreate Azure Jenkins sunucuda
+description: "Merhaba Jenkins çözüm şablonu Azure Linux sanal makineden Jenkins yükleyin ve bir örnek Java uygulaması oluşturma."
 author: mlearned
 manager: douge
 ms.service: multiple
@@ -10,102 +10,102 @@ ms.topic: hero-article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 82ab2ac52594acba131414b449b608978591d4b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Azure portalından Azure Linux VM'de bir Jenkins sunucusu oluşturma
+# <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-hello-azure-portal"></a>Azure Linux VM'de hello Azure Portalı'ndan bir Jenkins sunucu oluşturma
 
-Bu hızlı başlangıç, Ubuntu Linux VM'de araçları ve eklentileri Azure ile çalışmak için yapılandırılmış [Jenkins](https://jenkins.io)’in nasıl yükleneceğini gösterir. İşlemi tamamladığınızda, Azure‘da çalışan bir Jenkins sunucusuna sahip ve [GitHub](https://github.com)’dan örnek bir Java uygulaması oluşturmuş olursunuz.
+Bu hızlı başlangıç gösterir nasıl tooinstall [Jenkins](https://jenkins.io) hello Araçlar ve eklentiler yapılandırılmış toowork Ubuntu Linux VM'de Azure ile. İşlemi tamamladığınızda, Azure‘da çalışan bir Jenkins sunucusuna sahip ve [GitHub](https://github.com)’dan örnek bir Java uygulaması oluşturmuş olursunuz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 * Bir Azure aboneliği
-* Bilgisayarınızın komut satırından (Bash kabuğu veya [PuTTY](http://www.putty.org/) gibi) SSH’ye erişin.
+* Bilgisayarınızın komut satırında erişim tooSSH (Merhaba gibi Kabuk Bash veya [PuTTY](http://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-jenkins-vm-from-the-solution-template"></a>Çözüm şablonundan Jenkins VM’si oluşturma
+## <a name="create-hello-jenkins-vm-from-hello-solution-template"></a>Merhaba Jenkins VM hello çözüm Şablondan Oluştur
 
-Web tarayıcınızda [Jenkins için mağaza görüntüsü](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) adresine gidin ve sayfanın sol tarafındaki **ŞİMDİ EDİN** bağlantısını seçin. Fiyatlandırma ayrıntılarını gözden geçirin ve **Devam**’ı seçin, ardından Azure portalında Jenkins sunucusunu yapılandırmak için **Oluştur**’u seçin. 
+Açık hello [Market görüntüsü için Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) web tarayıcısı ve seçin **BT almak artık** hello sayfasının sol taraftaki hello. Gözden geçirme hello fiyatlandırma ayrıntıları ve select **devam**seçeneğini belirleyip **oluşturma** tooconfigure hello Jenkins hello Azure portal Server'da. 
    
 ![Azure portalı iletişim kutusu](./media/install-jenkins-solution-template/ap-create.png)
 
-**Temel ayarları yapılandırma** sekmesinde, aşağıdaki alanları doldurun:
+Merhaba, **temel ayarları yapılandırmanız** sekmesinde, hello aşağıdaki alanları doldurun:
 
 ![Temel ayarları yapılandırma](./media/install-jenkins-solution-template/ap-basic.png)
 
 * **Ad** olarak **Jenkins** yazın.
-* Bir **Kullanıcı adı** girin. Kullanıcı adı [belirli gereksinimleri](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) karşılamalıdır.
-* **Kimlik doğrulama türü** olarak **Parola**’yı seçin ve bir parola girin. Parola bir büyük harf karakter, bir sayı ve bir özel karakter içermelidir.
-* **Kaynak grubu** için **myJenkinsResourceGroup** değerini kullanın.
-* **Konum** açılır menüsünden **Doğu ABD** [Azure bölgesini](https://azure.microsoft.com/regions/) seçin.
+* Bir **Kullanıcı adı** girin. Merhaba kullanıcı adı karşılamalıdır [belirli gereksinimleri](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
+* Seçin **parola** hello olarak **kimlik doğrulama türü** ve bir parola girin. Merhaba parolası, bir büyük harf karakter, sayı ve bir özel karakter olmalıdır.
+* Kullanım **myJenkinsResourceGroup** hello için **kaynak grubu**.
+* Merhaba seçin **Doğu ABD** [Azure bölgesi](https://azure.microsoft.com/regions/) hello gelen **konumu** açılır.
 
-**Ek seçenekleri yapılandırma** sekmesine geçmek için **Tamam**’ı seçin. Jenkins sunucusunu belirtecek benzersiz bir etki alanı adı girin ve **Tamam**’ı seçin.
+Seçin **Tamam** tooproceed toohello **ek seçenekleri yapılandırmak** sekmesi. Benzersiz etki alanı adı tooidentify hello Jenkins sunucusu girin ve **Tamam**.
 
 ![Ek seçenekleri ayarlama](./media/install-jenkins-solution-template/ap-addtional.png)  
 
- Doğrulama başarılı olduktan sonra **Özet** sekmesinde tekrar **Tamam**’ı seçin. Son olarak da Jenkins VM’sini oluşturmak için **Satın al**’ı seçin. Sunucunuz hazır olduğunda, Azure portalında bir bildirim alırsınız:   
+ Doğrulama başarılı sonra seçeneğini **Tamam** yeniden hello gelen **Özet** sekmesi. Son olarak, seçin **satın alma** toocreate hello Jenkins VM. Sunucunuz hazır olduğunda, hello Azure portalında bir bildirim alın:   
 
 ![Jenkins hazır bildirimi](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
 
-## <a name="connect-to-jenkins"></a>Jenkins’e bağlanma
+## <a name="connect-toojenkins"></a>TooJenkins Bağlan
 
-Web tarayıcınızdan sanal makinenize (örneğin http://jenkins2517454.eastus.cloudapp.azure.com/) gidin. Jenkins konsoluna güvenli olmayan HTTP üzerinden erişilemeyeceğinden Jenkins konsoluna bilgisayarınızdan SSH tüneli kullanarak güvenli bir şekilde erişmek için yönergeler bu sayfada sağlanmıştır.
+Web tarayıcınızda tooyour sanal makine (örneğin, http://jenkins2517454.eastus.cloudapp.azure.com/) gidin. Merhaba Jenkins konsol güvenli olmayan HTTP erişilemez olduğundan hello sayfa tooaccess hello Jenkins konsolunda bilgisayarınızdan SSH tüneli kullanarak güvenli bir şekilde yönergeler sağlanmıştır.
 
 ![Jenkins’in kilidini açma](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 
-Komut satırından `ssh` komutunu kullanarak tüneli ayarlayın. `username` değerini çözüm şablonundan sanal makineyi ayarlarken seçtiğiniz sanal makine yönetici kullanıcısının adıyla değiştirin.
+Hello kullanarak hello tünel ayarlamak `ssh` hello komut satırından hello sayfasında komutu değiştirme `username` hello hello sanal Makine'yi hello çözüm şablondan ayarlarken daha önce seçilen hello sanal makine yönetici kullanıcı adı.
 
 ```bash
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-Tüneli başlattıktan sonra, yerel makinenizde http://localhost:8080/ adresine gidin. 
+Merhaba tünel başlattıktan sonra toohttp://localhost:8080 gidin / yerel makinenizde. 
 
-İlk parolayı Jenkins VM’ye SSH üzerinden bağlanırken bir komut satırında aşağıdaki komutu çalıştırarak alın.
+Merhaba ilk parola hello komut satırında SSH toohello Jenkins VM bağlıyken komutu aşağıdaki hello çalıştırarak alın.
 
 ```bash
 `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
 ```
 
-Bu ilk yönetici parolasıyla Jenkins panosunun kilidini ilk kez açın.
+Merhaba Hello Jenkins panosunu ilk bu parolayı kullanarak ilk kez kilidini açın.
 
 ![Jenkins’in kilidini açma](./media/install-jenkins-solution-template/jenkins-unlock.png)
 
-Sonraki sayfada **Önerilen eklentileri yükle**’yi seçin ve Jenkins panosuna erişmek için kullanılacak bir Jenkins yönetici kullanıcısı oluşturun.
+Seçin **önerilen Eklentileri yüklemek** hello sonraki sayfa ve bir Jenkins yönetici kullanıcı kullanılan tooaccess hello Jenkins pano oluşturun.
 
 ![Jenkins hazır!](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
-Jenkins sunucusu artık kod oluşturmak için hazırdır.
+Merhaba Jenkins sunucu şimdi hazır toobuild kodudur.
 
 ## <a name="create-your-first-job"></a>İlk işinizi oluşturma
 
-Jenkins konsolundan **Yeni iş oluştur**’u seçin, ardından işi **mySampleApp** olarak adlandırıp **Serbest tarzda proje**seçeneğini belirleyin ve **Tamam**’ı seçin.
+Seçin **yeni iş oluşturma** hello Jenkins konsolundan adını **mySampleApp** seçip **Serbest stilde proje**seçeneğini belirleyip **Tamam**.
 
 ![Yeni bir iş oluşturma](./media/install-jenkins-solution-template/jenkins-new-job.png) 
 
-**Kaynak Kod Yönetimi** sekmesini seçin, **Git**’i etkinleştirin ve **Depo URL'si** alanına aşağıdaki URL'yi girin :`https://github.com/spring-guides/gs-spring-boot.git`
+Select hello **kaynak kodu Yönetimi** sekmesinde, etkinleştirme **Git**, URL'de aşağıdaki hello girin **depo URL'si** alan:`https://github.com/spring-guides/gs-spring-boot.git`
 
-![Git deposunu tanımlayın](./media/install-jenkins-solution-template/jenkins-job-git-configuration.png) 
+![Merhaba Git deposuna tanımlayın](./media/install-jenkins-solution-template/jenkins-job-git-configuration.png) 
 
-**Yapı** sekmesini ve ardından **Yapı ekleme adımı**’nı ve **Gradle betiğini başlat**’ı seçin. **Gradle sarmalayıcıyı kullan**’ı seçin, ardından **Sarmalayıcı konumu**’na `complete` değerini, **Görevler** için `build` değerini girin.
+Select hello **yapı** sekmesini ve ardından **Ekle derleme adımı**, **çağırma Gradle betik**. **Gradle sarmalayıcıyı kullan**’ı seçin, ardından **Sarmalayıcı konumu**’na `complete` değerini, **Görevler** için `build` değerini girin.
 
-![Derlemek için Gradle sarmalayıcıyı kullanma](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
+![Merhaba Gradle sarmalayıcı toobuild kullanın](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
 
-**Gelişmiş...**’i seçin ve ardından **Kök Yapı betiği** alanına `complete` değerini girin. **Kaydet**’i seçin.
+**Gelişmiş...**’i seçin ve ardından girin `complete` hello içinde **kök yapı betik** alan. **Kaydet**’i seçin.
 
-![Gradle sarmalayıcısı derleme adımında Gelişmiş ayarları belirleme](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
+![Merhaba Gradle sarmalayıcı yapı adımda Gelişmiş ayarlar](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
 
-## <a name="build-the-code"></a>Kodu oluşturma
+## <a name="build-hello-code"></a>Merhaba kodu derleme
 
-Kodu derlemek ve örnek uygulamayı paketlemek için **Şimdi Derle**’yi seçin. Yapınız tamamlandığında proje için **Çalışma alanı** bağlantısını seçin.
+Seçin **şimdi yapı** toocompile hello kodu ve paket hello örnek uygulama. Merhaba, yapı tamamlandıktan sonra seçin **çalışma** hello projesi için bağlantı.
 
-![Derlemeden JAR dosyasını almak için çalışma alanına göz atma](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
+![Toohello çalışma tooget hello JAR dosyasını hello yapıdan Gözat](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 
-Yapınızın başarılı olduğunu doğrulamak için `complete/build/libs` konumuna gidin ve `gs-spring-boot-0.1.0.jar` dosyasının olduğundan emin olun. Jenkins sunucunuz artık Azure’da projelerinizi derlemeye hazırdır.
+Çok gidin`complete/build/libs` ve hello olun `gs-spring-boot-0.1.0.jar` yapınızın başarılı tooverify yoktur. Sunucu artık oldu, Jenkins toobuild kendi Azure projelerinde hazır.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

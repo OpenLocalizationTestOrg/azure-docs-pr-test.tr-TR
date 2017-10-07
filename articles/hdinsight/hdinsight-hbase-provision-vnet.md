@@ -1,6 +1,6 @@
 ---
-title: "Sanal bir ağa - Azure HBase kümeleri oluşturma | Microsoft Docs"
-description: "Azure Hdınsight'ta HBase kullanarak başlayın. Hdınsight HBase kümeleri Azure sanal ağ oluşturmayı öğrenin."
+title: "aaaCreate HBase kümeleri sanal bir ağa - Azure | Microsoft Docs"
+description: "Azure Hdınsight'ta HBase kullanarak başlayın. Azure sanal ağ üzerinde nasıl toocreate Hdınsight HBase kümeleri hakkında bilgi edinin."
 keywords: 
 services: hdinsight,virtual-network
 documentationcenter: 
@@ -16,32 +16,32 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/17/2017
 ms.author: jgao
-ms.openlocfilehash: 668bd494ce3274188af56cf7d6253cec7af9abbc
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 097338a5a650bb607a9f6f9ddb59bb88d098b56f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure sanal ağındaki hdınsight'ta HBase kümeleri oluşturma
-Azure Hdınsight HBase kümelerini oluşturmayı öğrenin bir [Azure Virtual Network][1].
+İçinde nasıl toocreate Azure Hdınsight HBase kümeleri öğrenin bir [Azure Virtual Network][1].
 
-Uygulamalar HBase ile doğrudan iletişim kurabilmesi için sanal ağ tümleştirmesinin ile uygulamalarınızı aynı sanal ağ için HBase kümelerine dağıtılabilir. Avantajlara şunlar dahildir:
+Sanal ağ tümleştirmesinin ile HBase kümeleri aynı sanal ağ, uygulamalarınızın böylece dağıtılan toohello olabilir uygulamalar HBase ile doğrudan iletişim kurabilir. Merhaba yararlar şunlardır:
 
-* Doğrudan bağlantı HBase Java uzaktan yordam üzerinden iletişimi sağlayan HBase küme düğümleri için web uygulamasının (RPC) API'larını çağırma.
+* Doğrudan bağlantı düğümlerinin hello web uygulama toohello HBase Java uzaktan yordam üzerinden iletişimi sağlayan hello HBase kümesi (RPC) API'larını çağırma.
 * Geliştirilmiş performans trafiğinizi zorunluluğunu ortadan kaldırarak birden çok ağ geçitleri ve yük dengeleyicileri üzerine gidin.
-* Genel bir uç nokta sokmadan hassas bilgileri daha güvenli bir şekilde işleme yeteneği.
+* Merhaba özelliği tooprocess hassas bilgileri genel bir uç nokta gösterme olmadan daha güvenli bir şekilde.
 
 ### <a name="prerequisites"></a>Ön koşullar
-Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
+Bu öğreticiye başlamadan önce aşağıdaki öğelerindeki hello sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Azure PowerShell içeren bir iş istasyonu**. Bkz: [yükleme ve kullanma Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ## <a name="create-hbase-cluster-into-virtual-network"></a>Sanal ağda HBase kümesi oluşturma
-Bu bölümde, bir Azure sanal ağı kullanarak bağımlı Azure depolama hesabı ile Linux tabanlı HBase kümesi oluşturma bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-template-deploy.md). Diğer küme oluşturma yöntemleri ve ayarlarını anlama, bkz: [Hdınsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Hdınsight'ta Hadoop kümeleri oluşturmak için bir şablon kullanma hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları kullanarak Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+Bu bölümde, bir Azure sanal ağı kullanarak hello bağımlı Azure depolama hesabıyla Linux tabanlı HBase kümesi oluşturma bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-template-deploy.md). Diğer küme oluşturma yöntemleri ve hello ayarlarını anlama, bkz: [Hdınsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Hdınsight'ta bir şablon toocreate Hadoop kullanma hakkında daha fazla bilgi kümeleri için bkz: [Azure Resource Manager şablonları kullanarak Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
 > [!NOTE]
-> Bazı özellikler şablonuna sabit kodlanmış. Örneğin:
+> Bazı özellikler hello şablonuna sabit kodlanmış. Örneğin:
 >
 > * **Konum**: Doğu ABD 2
 > * **Küme sürümü**: 3.5
@@ -52,66 +52,66 @@ Bu bölümde, bir Azure sanal ağı kullanarak bağımlı Azure depolama hesabı
 > * **Alt ağ adı**: subnet1
 > * **Alt ağ adres aralığı**: 10.0.0.0/24
 >
-> &lt;Küme adı > şablon kullanırken sağladığınız küme adı ile değiştirilir.
+> &lt;Küme adı > merhaba şablon kullanırken sağladığınız hello küme adı ile değiştirilir.
 >
 >
 
-1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın. Şablon bulunan [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
+1. Görüntü tooopen hello hello Azure portal şablonda aşağıdaki hello'ı tıklatın. Merhaba şablon bulunduğu [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Gelen **özel dağıtım** dikey penceresinde, aşağıdaki özellikleri girin:
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy tooAzure"></a>
+2. Merhaba gelen **özel dağıtım** dikey penceresinde, aşağıdaki özelliklere hello girin:
 
-   * **Abonelik**: Hdınsight küme, bağımlı depolama hesabı ve Azure sanal ağı oluşturmak için kullanılan Azure aboneliğini seçin.
+   * **Abonelik**: Azure aboneliği kullanılan toocreate hello Hdınsight kümesi seçin, bağımlı depolama hesabı hello ve Azure sanal ağı hello.
    * **Kaynak grubu**: seçin **Yeni Oluştur**ve yeni bir kaynak grubu adı belirtin.
-   * **Konum**: Kaynak grubu için bir konum seçin.
-   * **ClusterName**: Oluşturulacak Hadoop kümesi için bir ad girin.
-   * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı **admin** şeklindedir.
-   * **SSH kullanıcı adı ve parolası**: Varsayılan kullanıcı adı **sshuser** şeklindedir.  Bunu yeniden adlandırabilirsiniz.
-   * **Hüküm ve koşullar yukarıda belirtildiği ediyorum**: (seçin)
-3. **Satın al**’a tıklayın. Bir küme oluşturmak yaklaşık 20 dakika sürer. Küme oluşturulduktan sonra küme dikey penceresini açmak için portalda tıklatabilirsiniz.
+   * **Konum**: hello kaynak grubu için bir konum seçin.
+   * **ClusterName**: Merhaba Hadoop küme toobe oluşturulan için bir ad girin.
+   * **Küme oturum açma adı ve parola**: hello varsayılan oturum açma adı **yönetici**.
+   * **SSH kullanıcı adı ve parola**: hello varsayılan kullanıcı adı **sshuser**.  Bunu yeniden adlandırabilirsiniz.
+   * **Toohello hüküm ve yukarıda belirtilen hello koşullarını kabul ediyorum**: (seçin)
+3. **Satın al**’a tıklayın. Bir küme hakkında toocreate yaklaşık 20 dakika sürer. Merhaba Küme oluşturulduktan sonra hello küme dikey penceresinde hello portal tooopen tıklatabilirsiniz.
 
-Öğreticiyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. Küme silme ilişkin yönergeler için bkz: [yönetmek Hdınsight'ta Hadoop kümeleri Azure portalını kullanarak](hdinsight-administer-use-management-portal.md#delete-clusters).
+Merhaba öğreticiyi tamamladıktan sonra toodelete hello küme isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Merhaba ücretleri hello küme için hello ücretleri depolama birkaç katı olduğundan, bunlar kullanımda olmadığında ekonomik toodelete kümeleri mantıklıdır. Bir küme silme hello yönergeler için bkz: [kullanarak yönetmek Hadoop kümeleri hdınsight'ta Azure portalına hello](hdinsight-administer-use-management-portal.md#delete-clusters).
 
-Yeni HBase kümesi ile çalışmaya başlamak için bulunan yordamları kullanabilirsiniz [hdınsight'ta Hadoop ile HBase kullanmaya başlamanıza](hdinsight-hbase-tutorial-get-started.md).
+Yeni, HBase kümesi ile çalışma toobegin bulunan hello yordamları kullanabilirsiniz [hdınsight'ta Hadoop ile HBase kullanmaya başlamanıza](hdinsight-hbase-tutorial-get-started.md).
 
-## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>HBase Java RPC API'lerini kullanarak HBase kümeye bağlanın
-1. Bir altyapı (ıaas) sanal makine olarak aynı Azure sanal ağı ve aynı alt ağ olarak oluşturun. Yeni bir Iaas sanal makine oluşturma ile ilgili yönergeler için bkz: [bir sanal makine çalıştıran Windows Server oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md). Bu belgedeki adımları izleyerek, ağ yapılandırması için aşağıdaki değerleri kullanmanız gerekir:
+## <a name="connect-toohello-hbase-cluster-using-hbase-java-rpc-apis"></a>Toohello HBase kümesi HBase Java RPC API'lerini kullanarak bağlan
+1. Bir hizmet (Iaas) sanal makineye bir altyapı oluşturmanızı hello aynı Azure sanal ağı ve hello aynı alt ağ. Yeni bir Iaas sanal makine oluşturma ile ilgili yönergeler için bkz: [bir sanal makine çalıştıran Windows Server oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md). Bu belgedeki Hello adımları izleyerek, hello ağ yapılandırması için değerleri aşağıdaki hello kullanmanız gerekir:
 
    * **Sanal ağ**: &lt;küme adı >-vnet
    * **Alt ağ**: subnet1
 
    > [!IMPORTANT]
-   > Değiştir &lt;küme adı > önceki adımlarda Hdınsight kümesi oluştururken, kullandığınız ada sahip.
+   > Değiştir &lt;küme adı > merhaba adıyla önceki adımlarda hello Hdınsight kümesi oluştururken kullandığınız.
    >
    >
 
-   Bu değerleri kullanarak, sanal makineyi aynı sanal ağ ve alt Hdınsight kümesi olarak yerleştirilir. Bu yapılandırma doğrudan birbirleri ile iletişim kurmasına olanak sağlar. Boş kenar düğümüne ile Hdınsight kümesi oluşturmak için bir yol yoktur. Kenar düğümüne kümeyi yönetmek için kullanılabilir.  Daha fazla bilgi için bkz: [Hdınsight'ta boş kenar düğümünü kullanmak](hdinsight-apps-use-edge-node.md).
+   Bu değerleri kullanarak hello sanal makinenin hello aynı yerleştirildiğinden sanal ağ ve alt hello Hdınsight kümesi olarak. Bu yapılandırma veren toodirectly birbirleri ile iletişim kurar. Bir Hdınsight kümesini boş kenar düğümüne bir şekilde toocreate yoktur. Merhaba kenar düğümüne kullanılan toomanage hello kümesi olabilir.  Daha fazla bilgi için bkz: [Hdınsight'ta boş kenar düğümünü kullanmak](hdinsight-apps-use-edge-node.md).
 
-2. Bir Java uygulaması HBase için uzaktan bağlanmak için kullanıldığında, tam etki alanı adı (FQDN) kullanmanız gerekir. Bunu belirlemek için HBase kümesi bağlantıya özgü DNS son ekini edinmeniz gerekir. Bunu yapmak için aşağıdaki yöntemlerden birini kullanabilirsiniz:
+2. Java uygulama tooconnect tooHBase uzaktan kullanılırken hello tam etki alanı adı (FQDN) kullanmanız gerekir. toodetermine bunu hello bağlantıya özgü DNS soneki hello HBase kümesi almanız gerekir. toodo: yöntemler aşağıdaki hello birini kullanabilirsiniz
 
-   * Ambari arama yapmak için bir Web tarayıcısı kullanın:
+   * Bir Web tarayıcısı toomake Ambari çağrısı kullanın:
 
-     Https:// için Gözat&lt;ClusterName >.azurehdinsight.net/api/v1/clusters/&lt;ClusterName > / barındıran? minimal_response = true. Bir JSON dosyası DNS sonekleri etkinleştirir.
-   * Ambari Web sitesi kullanın:
+     Toohttps göz atın: / /&lt;ClusterName >.azurehdinsight.net/api/v1/clusters/&lt;ClusterName > / barındıran? minimal_response = true. Bir JSON dosyası hello DNS sonekleri etkinleştirir.
+   * Merhaba Ambari Web sitesi kullanın:
 
-     1. Https:// için Gözat&lt;ClusterName >. azurehdinsight.net.
-     2. Tıklatın **ana** üstteki menüden.
-   * REST çağrı yapmak için Curl kullanın:
+     1. Çok Gözat https://&lt;ClusterName >. azurehdinsight.net.
+     2. Tıklatın **ana** hello üst menüsünde.
+   * Curl toomake REST çağrılarını kullanın:
 
     ```bash
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
     ```
 
-     Döndürülen JavaScript nesne gösterimi (JSON) verileri "host_name" girdiyi bulun. Kümedeki düğümler için FQDN'yi içerir. Örneğin:
+     Merhaba "host_name" girişini bulun, Hello JavaScript nesne gösterimi (JSON) veri döndürdü. Merhaba düğümler hello küme için FQDN hello içerir. Örneğin:
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
          ...
 
-     Küme adı ile başlayan etki alanı adı DNS soneki bölümüdür. Örneğin, mycluster.b1.cloudapp.net.
+     Merhaba hello küme adı ile başlayan hello etki alanı adı hello DNS soneki bölümüdür. Örneğin, mycluster.b1.cloudapp.net.
    * Azure PowerShell kullanma
 
-     Kaydetmek için aşağıdaki Azure PowerShell betiğini kullanın **Get-ClusterDetail** DNS soneki döndürmek için kullanılan işlev:
+     Azure PowerShell komut dosyası tooregister hello aşağıdaki kullanım hello **Get-ClusterDetail** kullanılan tooreturn hello DNS soneki olabilir işlevi:
 
     ```powershell
         function Get-ClusterDetail(
@@ -131,29 +131,29 @@ Yeni HBase kümesi ile çalışmaya başlamak için bulunan yordamları kullanab
         {
         <#
             .SYNOPSIS
-            Displays information to facilitate an HDInsight cluster-to-cluster scenario within the same virtual network.
+            Displays information toofacilitate an HDInsight cluster-to-cluster scenario within hello same virtual network.
             .Description
-            This command shows the following 4 properties of an HDInsight cluster:
+            This command shows hello following 4 properties of an HDInsight cluster:
             1. ZookeeperQuorum (supports only HBase type cluster)
-                Shows the value of HBase property "hbase.zookeeper.quorum".
+                Shows hello value of HBase property "hbase.zookeeper.quorum".
             2. ZookeeperClientPort (supports only HBase type cluster)
-                Shows the value of HBase property "hbase.zookeeper.property.clientPort".
+                Shows hello value of HBase property "hbase.zookeeper.property.clientPort".
             3. HBaseRestServers (supports only HBase type cluster)
-                Shows a list of host FQDNs that run the HBase REST server.
+                Shows a list of host FQDNs that run hello HBase REST server.
             4. FQDNSuffix (supports all cluster types)
-                Shows the FQDN suffix of hosts in the cluster.
+                Shows hello FQDN suffix of hosts in hello cluster.
             .EXAMPLE
             Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName ZookeeperQuorum
-            This command shows the value of HBase property "hbase.zookeeper.quorum".
+            This command shows hello value of HBase property "hbase.zookeeper.quorum".
             .EXAMPLE
             Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName ZookeeperClientPort
-            This command shows the value of HBase property "hbase.zookeeper.property.clientPort".
+            This command shows hello value of HBase property "hbase.zookeeper.property.clientPort".
             .EXAMPLE
             Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName HBaseRestServers
-            This command shows a list of host FQDNs that run the HBase REST server.
+            This command shows a list of host FQDNs that run hello HBase REST server.
             .EXAMPLE
             Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName FQDNSuffix
-            This command shows the FQDN suffix of hosts in the cluster.
+            This command shows hello FQDN suffix of hosts in hello cluster.
         #>
 
             $DnsSuffix = ".azurehdinsight.net"
@@ -205,33 +205,33 @@ Yeni HBase kümesi ile çalışmaya başlamak için bulunan yordamları kullanab
         }
     ```
 
-     Azure PowerShell Betiği çalıştırdıktan sonra DNS son ekini kullanarak döndürmek için aşağıdaki komutu kullanın **Get-ClusterDetail** işlevi. Bu komutu kullanırken Hdınsight HBase küme adı, yönetici adı ve yönetici parolasını belirtin.
+     Çalışan hello Azure PowerShell Betiği sonra kullanım hello şu komutu tooreturn hello DNS soneki hello kullanarak **Get-ClusterDetail** işlevi. Bu komutu kullanırken Hdınsight HBase küme adı, yönetici adı ve yönetici parolasını belirtin.
 
     ```powershell
         Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
     ```
 
-     Bu komut, DNS son eki döndürür. Örneğin, **yourclustername.b4.internal.cloudapp.net**.
+     Bu komut hello DNS soneki döndürür. Örneğin, **yourclustername.b4.internal.cloudapp.net**.
 
 
 <!--
-3.    Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
+3.    Change hello primary DNS suffix configuration of hello virtual machine. This enables hello virtual machine tooautomatically resolve hello host name of hello HBase cluster without explicit specification of hello suffix. For example, hello *workernode0* host name will be correctly resolved tooworkernode0 of hello HBase cluster.
 
-    To make the configuration change:
+    toomake hello configuration change:
 
-    1. RDP into the virtual machine.
-    2. Open **Local Group Policy Editor**. The executable is gpedit.msc.
+    1. RDP into hello virtual machine.
+    2. Open **Local Group Policy Editor**. hello executable is gpedit.msc.
     3. Expand **Computer Configuration**, expand **Administrative Templates**, expand **Network**, and then click **DNS Client**.
-    - Set **Primary DNS Suffix** to the value obtained in step 2:
+    - Set **Primary DNS Suffix** toohello value obtained in step 2:
 
         ![hdinsight.hbase.primary.dns.suffix][img-primary-dns-suffix]
     4. Click **OK**.
-    5. Reboot the virtual machine.
+    5. Reboot hello virtual machine.
 -->
 
-Sanal makine HBase kümesi ile iletişim kurabildiğinden emin doğrulamak için komutunu kullanın `ping headnode0.<dns suffix>` sanal makineden. Örneğin, ping headnode0.mycluster.b1.cloudapp.net.
+sanal makine hello tooverify HBase kümesi hello ile iletişim kurmak, hello komutunu `ping headnode0.<dns suffix>` hello sanal makineden. Örneğin, ping headnode0.mycluster.b1.cloudapp.net.
 
-Bu bilgiler bir Java uygulamasında kullanmak için adımları izleyebilirsiniz [Hdınsight (Hadoop) ile HBase kullanan Java uygulamaları oluşturmak için Maven kullanmak](hdinsight-hbase-build-java-maven.md) bir uygulama oluşturmak için. Uzak bir HBase sunucuya uygulama sağlamak için değiştirmek **hbase-site.xml** dosyası bu örnekte FQDN için Zookeeper kullanın. Örneğin:
+toouse bu bilgileri bir Java uygulamasında hello adımları izleyebilirsiniz [Hdınsight (Hadoop) ile HBase kullanan Maven kullanmak toobuild Java uygulamaları](hdinsight-hbase-build-java-maven.md) toocreate bir uygulama. toohave Merhaba uygulaması tooa uzak HBase sunucusuna bağlanma, hello Değiştir **hbase-site.xml** Zookeeper Bu örnek toouse hello FQDN dosyasında. Örneğin:
 
     <property>
         <name>hbase.zookeeper.quorum</name>
@@ -239,12 +239,12 @@ Bu bilgiler bir Java uygulamasında kullanmak için adımları izleyebilirsiniz 
     </property>
 
 > [!NOTE]
-> Azure ad çözümlemesi hakkında daha fazla bilgi için sanal ağlar kendi DNS sunucusunu kullanacak şekilde nasıl dahil olmak üzere, bkz: [adı çözümleme (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+> Azure sanal ağlar, ad çözümleme hakkında daha fazla bilgi için nasıl dahil toouse kendi DNS sunucusu bkz [adı çözümleme (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 >
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir HBase kümesi oluşturmayı öğrendiniz. Daha fazla bilgi için bkz:
+Bu öğreticide, nasıl öğrenilen toocreate bir HBase kümesi. toolearn daha bakın:
 
 * [Hdınsight kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Hdınsight'ta boş kenar düğümleri kullanın](hdinsight-apps-use-edge-node.md)
@@ -295,7 +295,7 @@ Bu öğreticide, bir HBase kümesi oluşturmayı öğrendiniz. Daha fazla bilgi 
 
 [img-dns-surffix]: ./media/hdinsight-hbase-provision-vnet/DNSSuffix.png
 [img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
-[img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Yeni HBase kümesi ayrıntılarını sağlayın"
-[img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Betik eylemi bir HBase kümesi özelleştirmek için kullanın"
+[img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Hello yeni HBase kümesi ayrıntılarını sağlayın"
+[img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Betik eylemi toocustomize bir HBase kümesi kullanın"
 
 [azure-preview-portal]: https://portal.azure.com

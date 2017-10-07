@@ -1,6 +1,6 @@
 ---
-title: "Öneriler API belgelerine makine | Microsoft Docs"
-description: "Bir Microsoft Azure markette önerileri altyapısı için Azure Machine Learning önerileri API'si belgeleri."
+title: "aaaMachine öğrenme önerileri API belgeleri | Microsoft Docs"
+description: "Azure Machine Learning önerileri API'si belgeleri önerileri altyapısının hello Microsoft Azure Market kullanılabilir."
 services: machine-learning
 documentationcenter: 
 author: LuisCabrer
@@ -16,17 +16,17 @@ ms.date: 03/31/2017
 ms.author: LuisCa
 ROBOTS: NOINDEX
 redirect_url: machine-learning-datamarket-deprecation
-redirect_document_id: TRUE
-ms.openlocfilehash: 1fba64d78d779344e2895b0d54419186b7584865
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: d1cec228bf23870c05c8ab8df2779b0c3c65b06d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-machine-learning-recommendations-api-documentation"></a>Azure Machine Learning Öneri API’si Belgeleri
 > [!NOTE]
-> Öneriler API Bilişsel hizmeti yerine bu sürümünü kullanarak başlamanız gerekir. Öneriler Bilişsel hizmet bu hizmeti koyacağınız ve tüm yeni özellikler vardır geliştirilmiştir. Toplu işlem desteği, daha iyi API'si Gezgini, bir temizleyici API yüzeyi, daha tutarlı kaydolma/faturalandırma deneyimi, vb. gibi yeni özellikler vardır.
-> Daha fazla bilgi edinmek [yeni Bilişsel Service'e geçirme](http://aka.ms/recomigrate)
+> Merhaba önerileri API Bilişsel hizmeti yerine bu sürümünü kullanarak başlamanız gerekir. Merhaba önerileri Bilişsel hizmet bu hizmeti koyacağınız ve tüm hello yeni özellikler vardır geliştirilmiştir. Toplu işlem desteği, daha iyi API'si Gezgini, bir temizleyici API yüzeyi, daha tutarlı kaydolma/faturalandırma deneyimi, vb. gibi yeni özellikler vardır.
+> Daha fazla bilgi edinmek [geçiş toohello yeni Bilişsel hizmeti](http://aka.ms/recomigrate)
 > 
 > 
 
@@ -35,58 +35,58 @@ Bu belgede, Microsoft Azure Machine Learning önerileri API'leri gösterir.
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="1-general-overview"></a>1. Genel bir bakış
-Bu belge, bir API Başvurusu değil. "Azure Machine Learning öneri – Hızlı Başlat" belgeyle başlamanız gerekir.
+Bu belge, bir API Başvurusu değil. "Azure Machine Learning öneri – Hızlı Başlat" Merhaba belgeyle başlamanız gerekir.
 
-Azure Machine Learning önerileri API'si aşağıdaki mantıksal gruplar halinde ayrılabilir:
+Hello Azure Machine Learning önerileri API'si mantıksal gruplar aşağıdaki hello ayrılabilir:
 
 * <ins>Sınırlamalar</ins> -önerileri API sınırlamaları.
 * <ins>Genel bilgiler</ins> -kimlik doğrulaması hakkında bilgi hizmet URI'si ve sürüm oluşturma.
-* <ins>Model Basic</ins> -model üzerinde temel işlemleri yapmanıza olanak sağlayan API (örneğin oluşturma, güncelleştirme ve bir modeli silme).
-* <ins>Model Gelişmiş</ins> -veri Öngörüler model üzerinde Gelişmiş size sağlayan API.
-* <ins>Model iş kuralları</ins> -iş kuralları modeli öneri sonuçlarını yönetmenize olanak tanıyan API'ler.
-* <ins>Katalog</ins> -bir model katalogunda temel işlemleri yapmanıza olanak sağlayan API. Katalog öğeleri Kullanım verilerinin meta veri bilgileri içerir.
-* <ins>Özellik</ins> -kataloğu ve bu bilgileri daha iyi öneriler oluşturmak için nasıl kullanılacağını öğede bilgileri elde etmek için sağlayan API.
-* <ins>Kullanım verileri</ins> -model kullanım verilerini temel işlemleri yapmanıza olanak sağlayan API. Kullanım verilerini temel formda çiftlerini &#60; UserID &#62; içeren satırları oluşur, &#60; ItemId &#62;.
-* <ins>Yapı</ins> -model derlemeyi tetiklemeyi ve bu derleme ilgili temel işlemleri yapmak etkinleştirmeniz API'leri. Değerli kullanım verileri bulduktan sonra model yapı tetikleyebilir.
-* <ins>Öneri</ins> -bir model oluşturma bittikten sonra öneriler kullanmasına olanak sağlayan API.
-* <ins>Kullanıcı verilerini</ins> -kullanıcı kullanım verilerini temel bilgileri getirmek etkinleştirmeniz API'leri.
-* <ins>Bildirimleri</ins> -API işlemleriniz için ilgili sorunlar hakkında bildirim almak etkinleştirmeniz API'ler. (Örneğin, kullanım verilerini veri alımı ve çoğu işleme başarısız olayların aracılığıyla bildirdiğiniz. Bir hata bildirimi gerçekleştirilecektir.)
+* <ins>Model Basic</ins> -toodo hello temel işlemleri modeli sağlayan API (örneğin oluşturma, güncelleştirme ve bir modeli silme).
+* <ins>Model Gelişmiş</ins> -hello model üzerinde Gelişmiş tooget veri ınsights'ı etkinleştir API'leri.
+* <ins>Model iş kuralları</ins> -toomanage iş kuralları hello modeli öneri sonuçlarını sağlayan API.
+* <ins>Katalog</ins> -toodo temel işlemleri modeli katalogunda sağlayan API. Bir katalog hello Kullanım verilerinin hello öğelerde meta veri bilgileri içerir.
+* <ins>Özellik</ins> -tooget Öngörüler öğede hello kataloğuna sağlayan API ve nasıl toouse bu bilgileri toobuild daha iyi öneriler.
+* <ins>Kullanım verileri</ins> -toodo temel işlemleri hello modeli kullanım verilerini sağlayan API. Kullanım verileri hello temel formda çiftlerini &#60; UserID &#62; içeren satırları oluşur, &#60; ItemId &#62;.
+* <ins>Yapı</ins> - bir model tootrigger sağlayan API yapı ve ilgili toothis temel işlemleri oluşturun. Değerli kullanım verileri bulduktan sonra model yapı tetikleyebilir.
+* <ins>Öneri</ins> -hello derleme bir modelin sona erince tooconsume öneriler sağlayan API.
+* <ins>Kullanıcı verilerini</ins> -hello kullanıcı kullanım verilerini toofetch bilgi sağlayan API.
+* <ins>Bildirimleri</ins> -tooyour API işlemleri ilgili sorunları tooreceive bildirimlerini sağlayan API'ler. (Örneğin, kullanım verilerini veri alımı ve hello olayları işleme testlerden çoğunu aracılığıyla bildirdiğiniz. Bir hata bildirimi gerçekleştirilecektir.)
 
 ## <a name="2-limitations"></a>2. Sınırlamalar
-* En büyük abonelik başına model sayısı 10'dur.
-* Derlemeleri modeli başına en fazla sayısını 20'dir.
-* En fazla bir katalog tutabilir öğe sayısı 100. 000 ' dir.
-* En fazla tutulur kullanım noktaları ~ 5,000,000 sayısıdır. Yeni bir tane karşıya bildirilen veya gereken eski silinir.
-* En büyük boyutunu (örn. içeri aktarma katalog verilerini, kullanım verileri İçeri Aktar) POSTASINA gönderilen veri 200 MB'tır.
-* Öneriler alınırken 150 olduğunda, için sorulan öğe maksimum sayısı.
+* Merhaba en büyük abonelik başına model sayısı 10'dur.
+* Merhaba derlemeleri modeli başına en fazla 20'dir.
+* Merhaba en fazla bir katalog tutabilir öğe sayısı 100. 000 ' dir.
+* Merhaba maksimum tutulur kullanım noktaları ~ 5,000,000 sayısıdır. Yeni bir tane karşıya bildirilen veya gereken hello eski silinir.
+* Merhaba en büyük boyutu (örn. içeri aktarma katalog verilerini, kullanım verileri İçeri Aktar) POSTASINA gönderilen veri 200 MB'tır.
+* Merhaba maksimum öneriler alınırken 150 olduğunda için sorulan öğe sayısı.
 
 ## <a name="3-apis---general-information"></a>3. API - genel bilgiler
 ### <a name="31-authentication"></a>3.1. Kimlik Doğrulaması
-Lütfen kimlik doğrulaması ile ilgili Microsoft Azure Market yönergeleri izleyin. Market temel veya OAuth kimlik doğrulama yöntemini destekler.
+Lütfen kimlik doğrulaması ile ilgili hello Microsoft Azure Market yönergeleri izleyin. Merhaba Market ya da hello temel veya OAuth kimlik doğrulama yöntemini destekler.
 
 ### <a name="32-service-uri"></a>3.2. Hizmet URI'si
-Hizmet kök Azure Machine Learning önerileri API'leri için URI [burada.](https://api.datamarket.azure.com/amla/recommendations/v3/)
+hello Azure Machine Learning önerileri API'leri için Hello hizmet kök URI [burada.](https://api.datamarket.azure.com/amla/recommendations/v3/)
 
-URI tam hizmet OData belirtimi öğeleri kullanılarak ifade edilir.  
+Merhaba tam hizmet URI'si hello OData belirtimi öğeleri kullanılarak ifade edilir.  
 
 ### <a name="33-api-version"></a>3.3. API sürümü
-Her API çağrısı, sonunda 1.0 ayarlanmalıdır apiVersion adlı bir sorgu parametresi sahip olur.
+Her API çağrısı, hello sonunda too1.0 ayarlanmalıdır apiVersion adlı bir sorgu parametresi sahip olur.
 
 ### <a name="34-ids-are-case-sensitive"></a>3.4. Kimlikleri büyük küçük harf duyarlıdır
-Herhangi bir API'ları tarafından döndürülen kimlikleri, büyük/küçük harfe duyarlıdır ve bu nedenle sonraki API çağrıları parametre olarak geçirilen kullanılmalıdır. Örneğin, model kimlikleri ve Katalog büyük küçük harfe duyarlı.
+Herhangi bir hello API ' ları tarafından döndürülen kimlikleri, büyük/küçük harfe duyarlıdır ve bu nedenle sonraki API çağrıları parametre olarak geçirilen kullanılmalıdır. Örneğin, model kimlikleri ve Katalog büyük küçük harfe duyarlı.
 
 ## <a name="4-recommendations-quality-and-cold-items"></a>4. Öneriler kalite ve soğuk öğeleri
 ### <a name="41-recommendation-quality"></a>4.1. Öneri kalitesi
-Öneri model oluşturma olduğundan genellikle öneriler sağlamak sistem izin vermek yeterli. Bununla birlikte, öneri kalite işlenen kullanım ve Katalog kapsamını göre değişir. Örneğin çok soğuk öğelerinin (öğeleri önemli kullanım olmadan) varsa, sistem bu tür bir öğe için bir öneri sağlama veya böyle bir öğe önerilen bir kullanarak sorunlar sahip olur. Soğuk öğesi sorunu çözmek için sistem meta veri önerileri geliştirmek için öğelerinin kullanılmasına izin verir. Bu meta veriler özellikleri adlandırılır. Bir kitaptaki yazar veya bir film aktör Bunun tipik özellikleridir. Özellikler, formun anahtar/değer dizeleri kataloğunda aracılığıyla sağlanır. Katalog dosyası tam biçim için lütfen [alma katalog bölümü](#81-import-catalog-data). 
+Öneri model oluşturma genellikle yeterli tooallow hello sistem tooprovide önerileri olur. Bununla birlikte, öneri kalitesini işlenen hello kullanıma göre değişir ve hello katalog kapsamını hello. Örneğin çok soğuk öğelerinin (öğeleri önemli kullanım olmadan) varsa, bu tür bir öğe için bir öneri sağlama veya böyle bir öğe önerilen bir kullanarak sorunlar hello sistem olacaktır. Sipariş tooovercome hello soğuk öğesi sorunda hello sistem hello öğeleri tooenhance hello önerileri meta verileri hello kullanılmasına izin verir. Bu meta veriler başvurulan tooas özellik gibidir. Bir kitaptaki yazar veya bir film aktör Bunun tipik özellikleridir. Özellikler anahtar/değer dizeleri hello biçiminde hello katalog aracılığıyla sağlanır. Merhaba tam biçim hello katalog dosyası için lütfen toohello bakın [alma katalog bölümü](#81-import-catalog-data). 
 
 ### <a name="42-rank-build"></a>4.2. RANK derleme
-Özellikleri öneri modeli artırabilir, ancak bunu yapmak için anlamlı özellikleri kullanımını gerektirir. Yeni bir yapı tanıtılan - bu amaç için bir sıra oluşturun. Bu yapı özellikleri yararlılığı rank. Anlamlı bir özellik, bir sıra puan 2 ve yedekleme ile bir özelliktir.
-Hangi özelliklerin anlamlı anlama sonra anlamlı özellik listesi (veya alt liste) içeren bir öneri yapı tetikler. Soğuk öğeleri ve yarı öğelerinin geliştirmesi için bu özelliği kullanmak da mümkündür. Yarı öğeleri için kullanmak için `UseFeatureInModel` yapı parametresi ayarlanmalıdır. Soğuk öğeleri için özellikleri kullanmak için `AllowColdItemPlacement` yapı parametresi etkinleştirilmesi gerekir.
-Not: Bunu etkinleştirmek mümkün değildir `AllowColdItemPlacement` etkinleştirmeden `UseFeatureInModel`.
+Özellikleri hello öneri modeli artırabilir, ancak toodo şekilde anlamlı özellikleri hello kullanımını gerektirir. Yeni bir yapı tanıtılan - bu amaç için bir sıra oluşturun. Bu yapı özellikleri hello yararlılığı rank. Anlamlı bir özellik, bir sıra puan 2 ve yedekleme ile bir özelliktir.
+Merhaba özelliklerinin anlamlı olan anlama sonra anlamlı özelliklerinin hello listesi (veya alt liste) içeren bir öneri yapı tetikler. Bunlar için hello geliştirme soğuk öğeleri ve yarı öğelerinin özellik olası toouse olur. Bunları sıcak öğeleri için sipariş toouse hello `UseFeatureInModel` yapı parametresi ayarlanmalıdır. Soğuk öğeleri için sipariş toouse özellikleri hello `AllowColdItemPlacement` yapı parametresi etkinleştirilmesi gerekir.
+Not: Bu olası tooenable değil `AllowColdItemPlacement` etkinleştirmeden `UseFeatureInModel`.
 
 ### <a name="43-recommendation-reasoning"></a>4.3. Öneri mantığı
-Öneri mantığı özellik kullanımı başka bir yönüdür. Aslında, Azure Machine Learning önerileri altyapısı özellikleri öneri açıklamaları (paketini sağlayabilirsiniz , daha fazla güvenilirlik önerilen öğesindeki öneri tüketiciden neden akıl).
-Mantık, etkinleştirmek için `AllowFeatureCorrelation` ve `ReasoningFeatureList` parametreleri bir öneri yapı isteyen önce kurulum olması gerekir.
+Öneri mantığı özellik kullanımı başka bir yönüdür. Aslında, hello Azure Machine Learning önerileri altyapısı özellikleri tooprovide öneri açıklamaları (paketini kullanabilirsiniz akıl), toomore güvenirlik hello öndeki öğe hello öneri tüketiciden önerilir.
+tooenable, hello akıl `AllowFeatureCorrelation` ve `ReasoningFeatureList` parametreleri Kurulum önceki toorequesting bir öneri yapı olması gerekir.
 
 ## <a name="5-model-basic"></a>5. Temel modeli
 ### <a name="51-create-model"></a>5.1. Model oluşturma
@@ -96,7 +96,7 @@ Mantık, etkinleştirmek için `AllowFeatureCorrelation` ve `ReasoningFeatureLis
 |:--- |:--- |
 | YAYINLA |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
 | modelName |Yalnızca harf (A-Z, a-z), sayılar (0-9), tireler (-) ve alt çizgi (_).<br>En fazla uzunluk: 20 |
 | apiVersion |1.0 |
@@ -107,7 +107,7 @@ Mantık, etkinleştirmek için `AllowFeatureCorrelation` ve `ReasoningFeatureLis
 
 HTTP durum kodu: 200
 
-* `feed/entry/content/properties/id`-Model kimliğini içerir.
+* `feed/entry/content/properties/id`-Hello model kimliğini içerir.
   **Not**: model kimliği büyük küçük harfe duyarlı.
 
 OData XML
@@ -147,9 +147,9 @@ OData XML
 |:--- |:--- |
 | AL |`<rootURI>/GetModel?id=%27<model_id>%27&apiVersion=%271.0%27`<br>Örnek:<br>`<rootURI>/GetModel?id=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| id |Benzersiz tanıtıcısı (büyük küçük harf duyarlı) modeli |
+| id |Benzersiz tanımlayıcı hello modelinin (büyük küçük harf duyarlı) |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -158,15 +158,15 @@ OData XML
 
 HTTP durum kodu: 200
 
-Model verileri şu öğeler altında bulunabilir:
+Merhaba model veri öğeleri aşağıdaki hello altında bulunabilir:
 
 * `feed/entry/content/properties/Id`-Model benzersiz kimliği
 * `feed/entry/content/properties/Name`-Model adı.
 * `feed/entry/content/properties/Date`-Model oluşturulma tarihi.
-* `feed/entry/content/properties/Status`-Model durumu. Şunlardan biri:
+* `feed/entry/content/properties/Status`-Model durumu. Merhaba aşağıdakilerden biri:
   * Oluşturulan - modeli oluşturulur ve Katalog ve kullanım içermiyor.
   * ReadyForBuild - Model oluşturulur ve Katalog ve kullanım içerir.
-* `feed/entry/content/properties/HasActiveBuild`-Model başarıyla yerleşik gösterir.
+* `feed/entry/content/properties/HasActiveBuild`-Hello model başarıyla yerleşik gösterir.
 * `feed/entry/content/properties/BuildId`-Model etkin yapı kimliği
 * `feed/entry/content/properties/Mpr`-Model ortalama yüzdebirlik Derecelendirme (MPR - ModelInsight daha fazla bilgi için bkz.).
 * `feed/entry/content/properties/UserName`-Model iç kullanıcı adı.
@@ -205,13 +205,13 @@ OData XML
     </feed>
 
 ### <a name="53----get-all-models"></a>5.3.    Tüm modelleri Al
-Geçerli kullanıcının tüm modelleri alır.
+Merhaba geçerli kullanıcının tüm modelleri alır.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/GetAllModels?apiVersion=%271.0%27`<br>Örnek:<br>`<rootURI>/GetAllModels?apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
 | apiVersion |1.0 |
 |  | |
@@ -224,10 +224,10 @@ HTTP durum kodu: 200
 * `feed/entry/content/properties/Id`-Model benzersiz kimliği
 * `feed/entry/content/properties/Name`-Model adı.
 * `feed/entry/content/properties/Date`-Model oluşturulma tarihi.
-* `feed/entry/content/properties/Status`-Model durumu. Şunlardan biri:
+* `feed/entry/content/properties/Status`-Model durumu. Merhaba aşağıdakilerden biri:
   * Oluşturulan - modeli oluşturulur ve Katalog ve kullanım içermiyor.
   * ReadyForBuild - Model oluşturulur ve Katalog ve kullanım içerir.
-* `feed/entry/content/properties/HasActiveBuild`-Model başarıyla yerleşik gösterir.
+* `feed/entry/content/properties/HasActiveBuild`-Hello model başarıyla yerleşik gösterir.
 * `feed/entry/content/properties/BuildId`-Model etkin yapı kimliği
 * `feed/entry/content/properties/Mpr`-Model MPR (daha fazla bilgi için bkz: ModelInsight).
 * `feed/entry/content/properties/UserName`-Model iç kullanıcı adı.
@@ -270,20 +270,20 @@ OData XML
     </feed>
 
 ### <a name="54----update-model"></a>5.4.    Bir güncelleştirme modeli
-Model açıklama veya etkin yapı kimliği güncelleştirebilirsiniz<br>
-<ins>Etkin yapı kimliği</ins> -her derleme her model için bir yapı kimliği vardır. Her yeni model ilk başarılı yapısını etkin yapı kimliğidir. Bir etkin yapı Kimliğine sahip ve bunu bir kez aynı modeli için ek derlemeler, açıkça isterseniz varsayılan derleme kimliği olarak ayarlamak gerekir. Kullanmak istediğiniz derleme kimliği belirtmezseniz, öneriler, kullandığında, varsayılan bir otomatik olarak kullanılır.<br>
-Üretimde - yeni modelleri oluşturabilir ve üretim hazırlığına önce bunları test etmek için bir öneri modeli eğittikten sonra bu düzenek - sağlar.
+Merhaba modeli güncelleştirmesi ya da etkin yapı kimliği hello<br>
+<ins>Etkin yapı kimliği</ins> -her derleme her model için bir yapı kimliği vardır. Merhaba etkin yapı kimliği hello ilk başarılı her yeni modelinin yapıdır. Bir etkin yapı Kimliğine sahip ve ek derlemeler hello için bunu bir kez aynı modelin ihtiyacınız tooexplicitly ayarlayın, bu, hello varsayılan derleme gibi kimliği istiyorsanız. Ne zaman toouse, bir otomatik olarak kullanılacak hello varsayılan istediğiniz hello derleme kimliği belirtmezseniz, öneriler, tüketir.<br>
+Üretim - toobuild yeni modelleri öneri modeline sahiptir ve bunları yükseltmeden önce bunları tooproduction test sonra bu düzenek - sağlar.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br>Örnek:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| id |Benzersiz tanıtıcısı (büyük küçük harf duyarlı) modeli |
+| id |Benzersiz tanımlayıcı hello modelinin (büyük küçük harf duyarlı) |
 | apiVersion |1.0 |
 |  | |
-| İstek Gövdesi |`<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>XML etiketleri açıklama ve ActiveBuildId isteğe bağlı olduğunu unutmayın. Açıklama veya ActiveBuildId ayarlamak istiyorsanız değil, tüm etiket kaldırın. |
+| İstek Gövdesi |`<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Merhaba XML açıklama etiketleri ve ActiveBuildId isteğe bağlı olduğunu unutmayın. Açıklama veya ActiveBuildId tooset istemiyorsanız hello tüm etiket kaldırın. |
 
 **Yanıt**:
 
@@ -296,9 +296,9 @@ Kimliğe göre var olan bir model siler
 |:--- |:--- |
 | SİL |`<rootURI>/DeleteModel?id=%27<model_id>%27&apiVersion=%271.0%27`<br>Örnek:<br>`<rootURI>/DeleteModel?id=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| id |Benzersiz tanıtıcısı (büyük küçük harf duyarlı) modeli |
+| id |Benzersiz tanımlayıcı hello modelinin (büyük küçük harf duyarlı) |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -331,7 +331,7 @@ OData XML
 
 ## <a name="6-model-advanced"></a>6. Gelişmiş modeli
 ### <a name="61----model-data-insight"></a>6.1.    Model veri öngörüleri
-İstatistik bilgileri, bu model ile oluşturulmuş kullanım verileri döndürür.
+İstatistik bilgileri, bu model ile oluşturulmuş hello kullanım verilerini döndürür.
 
 Yalnızca öneri derleme için kullanılabilir.
 
@@ -339,9 +339,9 @@ Yalnızca öneri derleme için kullanılabilir.
 |:--- |:--- |
 | AL |`<rootURI>/GetDataInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>Örnek:<br>`<rootURI>/GetDataInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -350,12 +350,12 @@ Yalnızca öneri derleme için kullanılabilir.
 
 HTTP durum kodu: 200
 
-Veri özellikleri koleksiyonu döndürülür.
+Merhaba veri özellikleri koleksiyonu döndürülür.
 
-* `feed/entry/id/content/properties/key`-Özellik adı tutar.
-* `feed/entry/id/content/properties/value`-Özellik değeri tutar.
+* `feed/entry/id/content/properties/key`-Hello özellik adı tutar.
+* `feed/entry/id/content/properties/value`-Başlangıç özellik değeri tutar.
 
-Aşağıdaki tabloda her anahtar gösteren bir değer gösterir.
+Merhaba tabloda her anahtar temsil eden hello değeri gösterir.
 
 | Anahtar | Açıklama |
 |:--- |:--- |
@@ -364,11 +364,11 @@ Aşağıdaki tabloda her anahtar gösteren bir değer gösterir.
 | DensificationNumberOfItems |Modelled olamaz ayıklama öğeleri sonra öğe sayısı. |
 | DensificationNumberOfUsers |Ayıklama kullanıcılar ve modelled olamaz öğeler sonra kullanım sayısını gösterir. |
 | DensificationNumberOfRecords |Ayıklama kullanıcılar ve modelled olamaz öğeler sonra kullanım sayısını gösterir. |
-| MaxItemLength |En popüler öğesi için benzersiz kullanıcı sayısı. |
+| MaxItemLength |Merhaba en popüler öğesi için benzersiz kullanıcı sayısı. |
 | MaxUserLength |Bir kullanıcı için farklı öğe sayısı üst sınırından. |
 | MinItemLength |Bir öğe için benzersiz kullanıcı sayısı üst sınırından. |
 | MinUserLength |En az bir kullanıcı için farklı öğe sayısı. |
-| RawNumberOfItems |Kullanım dosyalar öğelerin sayısı. |
+| RawNumberOfItems |Merhaba kullanım dosyalar öğelerin sayısı. |
 | RawNumberOfUsers |Tüm ayıklama önce kullanım noktalarını sayısı. |
 | RawNumberOfRecords |Tüm ayıklama önce kullanım noktalarını sayısı. |
 | SamplingNumberOfItems |Yok |
@@ -567,7 +567,7 @@ OData XML
     </feed>
 
 ### <a name="62----model-insight"></a>6.2.    Model Insight
-Üzerinde etkin yapı döndürür model Insight veya (belirtilmişse) belirli bir yapı üzerinde.
+Döndürür model Insight hello etkin yapı üzerinde veya (belirtilmişse) belirli bir yapı üzerinde.
 
 Yalnızca öneri derleme için kullanılabilir.
 
@@ -575,9 +575,9 @@ Yalnızca öneri derleme için kullanılabilir.
 |:--- |:--- |
 | AL |Etkin yapı Kimliğine sahip:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/GetModelInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>Özel derleme Kimliğine sahip:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
 | Buildıd |İsteğe bağlı - başarılı bir yapı tanımlayan bir numara. |
 | apiVersion |1.0 |
 |  | |
@@ -587,18 +587,18 @@ Yalnızca öneri derleme için kullanılabilir.
 
 HTTP durum kodu: 200
 
-Veri özellikleri koleksiyonu döndürülür.
+Merhaba veri özellikleri koleksiyonu döndürülür.
 
 * `feed/entry/id/content/properties/key`
 * `feed/entry/id/content/properties/value`
 
-Aşağıdaki tabloda her anahtar gösteren bir değer gösterir.
+Merhaba tabloda her anahtar temsil eden hello değeri gösterir.
 
 | Anahtar | Açıklama |
 |:--- |:--- |
-| CatalogCoverage |Katalog hangi kısmının ile kullanım desenlerini modelled. Öğelerin geri kalanı içerik tabanlı özellikleri gerekir. |
-| Mpr |Model yüzdebirlik sıralamasını anlamına gelir. Daha düşük daha iyidir. |
-| NumberOfDimensions |Matris factorization algoritması tarafından kullanılan dimensions sayısı. |
+| CatalogCoverage |Başlangıç kataloğu hangi kısmının ile kullanım desenlerini modelled. Merhaba rest hello öğelerinin içerik tabanlı özellikleri gerekir. |
+| Mpr |Merhaba modeli yüzdebirlik sıralamasını anlamına gelir. Daha düşük daha iyidir. |
+| NumberOfDimensions |Merhaba matris factorization algoritması tarafından kullanılan dimensions sayısı. |
 
 OData XML
 
@@ -648,15 +648,15 @@ OData XML
     </feed>
 
 ### <a name="63----get-model-sample"></a>6.3.    Model örnek alma
-Öneri modelin bir örneğini alır.
+Merhaba öneri model örneği alır.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/GetModelSample?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>Örnek:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>Özel derleme Kimliğine sahip:<br>`<rootURI>/GetModelSample?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`<br>Örnek:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&buildId=%271500068%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -684,115 +684,115 @@ Level 1
     fb8cf7a6-8719-46ee-97d4-92f931d77a3a, Smoke and Mirrors: Short Fictions and Illusions Rating: 0.5188
     8f5fe006-79e4-4679-816b-950989d1db4b, A Place I've Never Been (Contemporary American Fiction) Rating: 0.5156
     d8db4583-cc0f-49ce-bc95-b7fa3491623f, Happiness: A Novel Rating: 0.5156
-50471eec-9aeb-4900-84d7-21567ab18546, If the Buddha Dated: A Handbook for Finding Love on a Spiritual Path
-    cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of the Ya-Ya Sisterhood: A Novel Rating: 0.5266
-    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5252
+50471eec-9aeb-4900-84d7-21567ab18546, If hello Buddha Dated: A Handbook for Finding Love on a Spiritual Path
+    cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of hello Ya-Ya Sisterhood: A Novel Rating: 0.5266
+    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, hello Poisonwood Bible: A Novel Rating: 0.5252
     973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5244
     e2cbf7ad-0636-4117-8b30-298da6df7077, Animal Dreams Rating: 0.5227
     6c818fd3-5a09-417d-9ab4-7ffe090f0fef, Confessions of an Ugly Stepsister: A Novel Rating: 0.5222
-5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club)
-    5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) Rating: 0.537
+5e97148f-defb-4d74-af2d-80f4763bf531, hello Deep End of hello Ocean (Oprah's Book Club)
+    5e97148f-defb-4d74-af2d-80f4763bf531, hello Deep End of hello Ocean (Oprah's Book Club) Rating: 0.537
     5dcbac37-2946-4f2a-a0b3-bbe710f9409a, Up Island: A Novel Rating: 0.5277
     bc5b69db-733b-4346-adde-3927544258f7, Downtown Rating: 0.5275
     31fe5c63-3e5a-48d0-802b-d3b0f989a634, Have a Nice Day: A Tale of Blood and Sweatsocks Rating: 0.5252
-    0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm: A True Story of Men Against the Sea Rating: 0.5238
-68f97068-ae1a-4163-9e94-396b800b743d, Modoc: The True Story of the Greatest Elephant That Ever Lived
-    68f97068-ae1a-4163-9e94-396b800b743d, Modoc: The True Story of the Greatest Elephant That Ever Lived Rating: 0.5379
-    6724862e-e4e7-4022-9614-1468d8b902ff, Little House on the Prairie Rating: 0.5345
-    cdedb837-1620-496d-94c4-6ccfed888320, Little House in the Big Woods Rating: 0.5325
-    382164ba-406b-4187-b726-d7a54b9d790d, The Tao of Pooh Rating: 0.5309
-    6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On the Banks of Plum Creek Rating: 0.5285
+    0adf981a-b65b-4c11-b36b-78aca2f948a2, hello Perfect Storm: A True Story of Men Against hello Sea Rating: 0.5238
+68f97068-ae1a-4163-9e94-396b800b743d, Modoc: hello True Story of hello Greatest Elephant That Ever Lived
+    68f97068-ae1a-4163-9e94-396b800b743d, Modoc: hello True Story of hello Greatest Elephant That Ever Lived Rating: 0.5379
+    6724862e-e4e7-4022-9614-1468d8b902ff, Little House on hello Prairie Rating: 0.5345
+    cdedb837-1620-496d-94c4-6ccfed888320, Little House in hello Big Woods Rating: 0.5325
+    382164ba-406b-4187-b726-d7a54b9d790d, hello Tao of Pooh Rating: 0.5309
+    6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On hello Banks of Plum Creek Rating: 0.5285
 37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships
     37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars, Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships Rating: 0.5397
     f2be16d4-5faf-4d32-ab83-7ba74d29261e, Politically Correct Bedtime Stories: Modern Tales for Our Life and Times Rating: 0.5207
     ef732c5c-334b-4d6b-ab82-7255eb7286d0, Honor Among Thieves Rating: 0.5195
-    0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, The Giving Tree Rating: 0.5194
-    883b360f-8b42-407f-b977-2f44ad840877, Scary Stories to Tell in the Dark: Collected from American Folklore (Scary Stories) Rating: 0.5184
-ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: The Craft of Baseball
-    d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956: An Experiment in Literary Investigation I-II Rating: 0.5416
-    ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: The Craft of Baseball Rating: 0.5403
+    0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, hello Giving Tree Rating: 0.5194
+    883b360f-8b42-407f-b977-2f44ad840877, Scary Stories tooTell in hello Dark: Collected from American Folklore (Scary Stories) Rating: 0.5184
+ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: hello Craft of Baseball
+    d008dae9-c73a-40a1-9a9b-96d5cf546f36, hello Gulag Archipelago 1918-1956: An Experiment in Literary Investigation I-II Rating: 0.5416
+    ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: hello Craft of Baseball Rating: 0.5403
     49dec30e-0adb-411a-b186-48eaabf6f8bc, Fatherland Rating: 0.5394
-    cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic the Gathering: Arena Vol. 1 Rating: 0.5379
-    8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in the Dictionary but Should Rating: 0.5377
+    cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic hello Gathering: Arena Vol. 1 Rating: 0.5379
+    8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in hello Dictionary but Should Rating: 0.5377
 12a6d988-be21-4a09-8143-9d5f4261ba16, A Dream of Eagles
     07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon Rating: 0.5417
     e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List Rating: 0.5416
-    1f1a34c4-9781-49f5-a3cc-acec3ae3c71d, The Family Rating: 0.5371
+    1f1a34c4-9781-49f5-a3cc-acec3ae3c71d, hello Family Rating: 0.5371
     56daeffe-7d48-43cd-8ef8-7dffd0c103d3, Kilo Class Rating: 0.5366
     b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5366
 df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish
-    56d33036-dfda-46b9-8e2a-76cb03921bb0, The X-Files: Ground Zero Rating: 0.5417
+    56d33036-dfda-46b9-8e2a-76cb03921bb0, hello X-Files: Ground Zero Rating: 0.5417
     0780cde8-6529-4e1d-b6c6-082c1b80e596, Twelve Red Herrings Rating: 0.5416
     df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish Rating: 0.5408
-    400fe331-2c35-490c-adbc-b28b4b73d56c, Shall We Tell the President? Rating: 0.5383
+    400fe331-2c35-490c-adbc-b28b4b73d56c, Shall We Tell hello President? Rating: 0.5383
     f86ad7d0-5c03-42b3-aebf-13d44aec8b30, Shades of Grace Rating: 0.5358
-de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology
-    de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology Rating: 0.5422
+de1f62a4-89e6-44d2-aaee-992a4bf093f1, hello Map That Changed hello World: William Smith and hello Birth of Modern Geology
+    de1f62a4-89e6-44d2-aaee-992a4bf093f1, hello Map That Changed hello World: William Smith and hello Birth of Modern Geology Rating: 0.5422
     b303538f-e2c6-4a2c-b425-8d21e684fc3e, My Uncle Oswald Rating: 0.5385
-    34b84627-48af-4a4c-96c4-b26fb3863f56, Midnight In the Garden of Good and Evil Rating: 0.5379
-    306cbaa7-b1a8-4142-9d55-e11b5018a7a8, The Street Lawyer Rating: 0.5376
+    34b84627-48af-4a4c-96c4-b26fb3863f56, Midnight In hello Garden of Good and Evil Rating: 0.5379
+    306cbaa7-b1a8-4142-9d55-e11b5018a7a8, hello Street Lawyer Rating: 0.5376
     e53b4baa-8c09-45c4-95c0-b6a26b98770b, Miss Smillas Feeling for Snow Rating: 0.5367
 
 Level 2
 ---------------
-352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony)
-    352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) Rating: 0.5425
-    74c49398-bc10-4af5-a658-a996a1201254, Children of the Storm (Peters Elizabeth) Rating: 0.5387
-    9ba80080-196e-43fd-8025-391d963f77e7, The Floating Girl Rating: 0.5372
+352aaea1-6b12-454d-a3d5-46379d9e4eb2, hello Sinister Pig (Hillerman Tony)
+    352aaea1-6b12-454d-a3d5-46379d9e4eb2, hello Sinister Pig (Hillerman Tony) Rating: 0.5425
+    74c49398-bc10-4af5-a658-a996a1201254, Children of hello Storm (Peters Elizabeth) Rating: 0.5387
+    9ba80080-196e-43fd-8025-391d963f77e7, hello Floating Girl Rating: 0.5372
     e68f81d5-7745-4cc7-b943-fedb8fcc2ced, Killer Smile (Scottoline Lisa) Rating: 0.5353
     b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5332
 c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days
-    0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm: A True Story of Men Against the Sea Rating: 0.5433
+    0adf981a-b65b-4c11-b36b-78aca2f948a2, hello Perfect Storm: A True Story of Men Against hello Sea Rating: 0.5433
     c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days Rating: 0.543
-    a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit: Any Word That Doesn't Appear in the Dictionary But Should) Rating: 0.5327
+    a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit: Any Word That Doesn't Appear in hello Dictionary But Should) Rating: 0.5327
     6f6e192e-0d64-49ca-9b63-f09413ea1ee6, Politically Correct Holiday Stories: For an Enlightened Yuletide Season Rating: 0.5307
     798051a8-147d-4d46-b0dc-e836325029e6, AGE OF INNOCENCE (MOVIE TIE-IN) Rating: 0.5301
 73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics)
-    cba8163f-6536-436b-8130-47b4a43c827f, Trust No One (The Official Guide to the X-Files Vol. 2) Rating: 0.5434
+    cba8163f-6536-436b-8130-47b4a43c827f, Trust No One (hello Official Guide toohello X-Files Vol. 2) Rating: 0.5434
     5708e4cb-2492-49c0-94a8-cc413eec5d89, Small Gods (Discworld Novels (Paperback)) Rating: 0.5406
     73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) Rating: 0.5403
-    d885b0bd-ae4b-452d-bdf2-faa90197dbc9, The Color of Magic Rating: 0.539
-    b133a9c4-4784-4db3-b100-d0d6dffb94d2, The Truth Is Out There (The Official Guide to the X-Files Vol. 1) Rating: 0.5367
-271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why the Winged Whale Sings
-    271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why the Winged Whale Sings Rating: 0.5445
-    2de1c354-90ff-47c5-a0db-1bad7d88ef94, The Salaryman's Wife (Children of Violence Series) Rating: 0.5329
+    d885b0bd-ae4b-452d-bdf2-faa90197dbc9, hello Color of Magic Rating: 0.539
+    b133a9c4-4784-4db3-b100-d0d6dffb94d2, hello Truth Is Out There (hello Official Guide toohello X-Files Vol. 1) Rating: 0.5367
+271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why hello Winged Whale Sings
+    271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why hello Winged Whale Sings Rating: 0.5445
+    2de1c354-90ff-47c5-a0db-1bad7d88ef94, hello Salaryman's Wife (Children of Violence Series) Rating: 0.5329
     d279416e-19c0-43f8-9ec9-a585947879ca, Zen Attitude Rating: 0.5316
-    c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of the Cootie Girls: A Robin Hudson Mystery (Robin Hudson Mysteries (Paperback)) Rating: 0.5305
-    8ef4751c-7074-409e-a3ac-d49b222fc864, Where the Wild Things Are Rating: 0.5289
+    c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of hello Cootie Girls: A Robin Hudson Mystery (Robin Hudson Mysteries (Paperback)) Rating: 0.5305
+    8ef4751c-7074-409e-a3ac-d49b222fc864, Where hello Wild Things Are Rating: 0.5289
 9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God
     9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God Rating: 0.5446
-    da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees Rating: 0.5389
-    65ecbdd1-131c-40c3-a3d6-d86ca281377a, The God of Small Things Rating: 0.5387
-    c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries Rating: 0.5355
+    da45c4d5-aba1-413b-a9bd-50df98b1e1d2, hello Bean Trees Rating: 0.5389
+    65ecbdd1-131c-40c3-a3d6-d86ca281377a, hello God of Small Things Rating: 0.5387
+    c78743bf-7947-4a0c-8db7-8a3bfe69ba70, hello Stone Diaries Rating: 0.5355
     973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5344
-5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback))
-    5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback)) Rating: 0.5446
+5f17d90a-2604-4fe8-8977-1a280b9098b1, One for hello Money (Stephanie Plum Novels (Paperback))
+    5f17d90a-2604-4fe8-8977-1a280b9098b1, One for hello Money (Stephanie Plum Novels (Paperback)) Rating: 0.5446
     57169b2b-9a8a-486b-9aac-1ed98ce57168, Final Appeal Rating: 0.5332
     efcb1bc4-7278-4a8f-b491-befde02070d6, Moment of Truth Rating: 0.5329
     1efa91a2-993b-4c43-9f5c-3454fc12612d, Burn Factor Rating: 0.5309
-    24c59962-458a-4ec8-b95d-d694e861919c, At Home in Mitford (The Mitford Years) Rating: 0.5303
-4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl
-    4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl Rating: 0.5449
+    24c59962-458a-4ec8-b95d-d694e861919c, At Home in Mitford (hello Mitford Years) Rating: 0.5303
+4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: hello Boy Who Was Raised As a Girl
+    4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: hello Boy Who Was Raised As a Girl Rating: 0.5449
     cd5f2c03-20cb-43be-a1fb-3b4233e63222, Pigs in Heaven Rating: 0.5329
-    19985fdb-d07a-4a25-ae4a-97b9cb61e5d1, Love in the Time of Cholera (Penguin Great Books of the 20th Century) Rating: 0.5267
+    19985fdb-d07a-4a25-ae4a-97b9cb61e5d1, Love in hello Time of Cholera (Penguin Great Books of hello 20th Century) Rating: 0.5267
     15689d09-c711-4844-84d8-130a90237b26, Bel Canto Rating: 0.5245
-    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5235
+    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, hello Poisonwood Bible: A Novel Rating: 0.5235
 98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories
-    f874b5a3-5d40-4436-94ff-0fa1c090ddf5, The Sun Also Rises (A Scribner classic) Rating: 0.5451
+    f874b5a3-5d40-4436-94ff-0fa1c090ddf5, hello Sun Also Rises (A Scribner classic) Rating: 0.5451
     98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories Rating: 0.5442
     0ce0014a-9a48-4013-a08a-7f2c11877930, H.M.S. Unseen Rating: 0.5421
-    15316ca6-1e38-425f-893d-691944a47000, More Scary Stories To Tell In The Dark Rating: 0.5409
-    329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from the Earth Rating: 0.54
+    15316ca6-1e38-425f-893d-691944a47000, More Scary Stories tooTell In hello Dark Rating: 0.5409
+    329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from hello Earth Rating: 0.54
 5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune: A Novel (Oprah's Book Club (Hardcover))
     5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune: A Novel (Oprah's Book Club (Hardcover)) Rating: 0.5462
-    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5372
+    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, hello Poisonwood Bible: A Novel Rating: 0.5372
     604eb3bd-6026-4f51-bffd-9fb54f180400, Family Pictures: A Novel Rating: 0.5341
     8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5334
-    da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees Rating: 0.5319
+    da45c4d5-aba1-413b-a9bd-50df98b1e1d2, hello Bean Trees Rating: 0.5319
 d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
     d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven Rating: 0.5491
-    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5401
-    c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries Rating: 0.5393
+    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, hello Poisonwood Bible: A Novel Rating: 0.5401
+    c78743bf-7947-4a0c-8db7-8a3bfe69ba70, hello Stone Diaries Rating: 0.5393
     8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5382
     973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5367
 
@@ -800,26 +800,26 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 
 ## <a name="7-model-business-rules"></a>7. Model iş kuralları
-Desteklenen kural türleri şunlardır:
+Bu, desteklenen kuralları hello türleri şunlardır:
 
-* <strong>Engelleme</strong> -engelleme, öneri sonuçlarında dönmek istiyor musunuz öğelerin listesini sağlamanıza olanak tanır. 
-* <strong>FeatureBlockList</strong> -özelliğini engelleme özelliklerinin değerlerine göre öğeleri engellemenize olanak sağlar.
+* <strong>Engelleme</strong> -engelleme tooprovide hello öneri sonuçlarında tooreturn istiyor musunuz öğelerinin bir listesini sağlar. 
+* <strong>FeatureBlockList</strong> -özelliğini engelleme özelliklerinin hello değerlerine göre tooblock öğeleri sağlar.
 
-*1000'den fazla öğe tek engelleme kuralında gönderme veya aramanız zaman aşımı olabilir. 1000'den fazla öğe engellemek gerekiyorsa, birkaç engelleme çağrıları yapabilirsiniz.*
+*1000'den fazla öğe tek engelleme kuralında gönderme veya aramanız zaman aşımı olabilir. 1000'den fazla öğe tooblock gerekiyorsa, birkaç engelleme çağrıları yapabilirsiniz.*
 
-* <strong>Upsale</strong> -Upsale öneri sonuçları döndürmek için öğeleri zorunlu tutmanıza olanak sağlar.
-* <strong>Beyaz liste</strong> -beyaz liste listesini önerileri öğelerinin yalnızca olanak sağlar.
-* <strong>FeatureWhiteList</strong> -özellik beyaz listesi, yalnızca belirli özellik değerlerine sahip öğeleri önerilir olanak tanır.
-* <strong>PerSeedBlockList</strong> -başına çekirdek engelleme listesi, öğe başına bir öneri sonuçları olarak döndürülen öğe listesi sağlamanıza olanak tanır.
+* <strong>Upsale</strong> -Upsale tooenforce öğeleri tooreturn hello öneri sonuçlarında sağlar.
+* <strong>Beyaz liste</strong> -beyaz liste etkinleştirir, tooonly öğelerin listesini önerileri öneririz.
+* <strong>FeatureWhiteList</strong> -özellik beyaz listesi belirli özellik değerlerine sahip tooonly öneri öğeleri sağlar.
+* <strong>PerSeedBlockList</strong> - çekirdek engelleme listesi etkinleştirir, tooprovide her bir öneri sonuçları olarak döndürülen öğe listesi öğesi başına.
 
 ### <a name="71----get-model-rules"></a>7.1.    Modeli kuralları Al
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/GetModelRules?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>Örnek:<br>`<rootURI>/GetModelRules?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -829,7 +829,7 @@ Desteklenen kural türleri şunlardır:
 HTTP durum kodu: 200
 
 * `feed/entry/content/properties/Id`-Bu kural benzersiz tanımlayıcısı.
-* `feed/entry/content/properties/Type`-Kural türü.
+* `feed/entry/content/properties/Type`-Hello kural türü.
 * `feed/entry/content/properties/Parameter`-Kural parametresi.
 
 OData XML
@@ -875,31 +875,31 @@ OData XML
 | YAYINLA |`<rootURI>/AddRule?apiVersion=%271.0%27` |
 | ÜSTBİLGİ |`"Content-Type", "text/xml"` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi | |
 
-<ins>Öğesi kimlikleri için iş kuralları sağlayan her dış öğenin kimliği (katalog dosyasında kullanılan aynı kimliği) kullandığınızdan emin olun</ins><br>
-<ins>Bir engelleme kuralı eklemek için:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>FeatureBlockList kuralı eklemek için:</ins><br>
+<ins>Öğesi kimlikleri için iş kuralları sağlayan her emin toouse hello hello öğesinin dış kimliği yapın (Merhaba katalog dosyasında kullanılan aynı kimliği hello)</ins><br>
+<ins>tooadd engelleme kuralı:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>tooadd FeatureBlockList kural:</ins><br>
 <br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>Bir Upsale kuralı eklemek için:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br>
-<ins>Beyaz liste kuralı eklemek için:</ins><br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>tooadd bir Upsale kuralı:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br>
+<ins>tooadd bir beyaz liste kural:</ins><br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>FeatureWhiteList kuralı eklemek için:</ins><br>
+<ins>tooadd FeatureWhiteList kural:</ins><br>
 <br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>PerSeedBlockList kuralı eklemek için:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>tooadd PerSeedBlockList kural:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Yanıt**:
 
 HTTP durum kodu: 200
 
-API yeni oluşturulan kurala ayrıntılarını döndürür. Kural özellik aşağıdaki yollardan alınabilir:
+Merhaba API Yeni kuralın ayrıntılarını ile oluşturulan hello döndürür. Merhaba kuralları özellik yolları aşağıdaki hello alınabilir:
 
 * `feed/entry/content/properties/Id`-Bu kural benzersiz tanımlayıcısı.
-* `feed/entry/content/properties/Type`-Kural Türü: engelleme veya Upsale.
+* `feed/entry/content/properties/Type`-Hello kural türü: engelleme veya Upsale.
 * `feed/entry/content/properties/Parameter`-Kural parametresi.
 
 OData XML
@@ -931,10 +931,10 @@ OData XML
 |:--- |:--- |
 | SİL |`<rootURI>/DeleteRule?modelId=%27<model_id>%27&filterId=%27<filter_Id>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`DeleteRule?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&filterId=%271000011%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| filterId |Filtre benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| filterId |Merhaba filtre benzersiz tanıtıcısı |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -948,9 +948,9 @@ HTTP durum kodu: 200
 |:--- |:--- |
 | SİL |`<rootURI>/DeleteAllRules?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`DeleteAllRules?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -961,14 +961,14 @@ HTTP durum kodu: 200
 
 ## <a name="8-catalog"></a>8. Katalog
 ### <a name="81----import-catalog-data"></a>8.1.    Katalog verileri içeri aktar
-Çeşitli çağrıları ile aynı modeline birkaç katalog dosyaları karşıya yükleme, biz yalnızca yeni katalog öğeleri ekler. Varolan öğeleri özgün değerleriyle kalır. Bu yöntemi kullanarak katalog verilerini güncelleştirilemiyor.
+Aynı model birkaç katalog dosyaları toohello birkaç çağrılarla yüklerseniz, biz yalnızca hello yeni katalog öğeleri ekler. Varolan öğeleri hello özgün değerleriyle kalır. Bu yöntemi kullanarak katalog verilerini güncelleştirilemiyor.
 
-Katalog verilerini aşağıdaki biçimi izlemelidir:
+başlangıç kataloğu veri biçimini izleyen hello izlemelidir:
 
 * Özellikleri-`<Item Id>,<Item Name>,<Item Category>[,<Description>]`
 * İle özellikleri-`<Item Id>,<Item Name>,<Item Category>,[<Description>],<Features list>`
 
-Not: En büyük dosya boyutu 200 MB'tır.
+Not: hello en büyük dosya boyutu 200 MB'tır.
 
 ** Ayrıntıları Biçimlendir **
 
@@ -976,31 +976,31 @@ Not: En büyük dosya boyutu 200 MB'tır.
 |:--- |:--- |:--- |:--- |
 | Öğe kimliği |Evet |[A-z], [a-z], [0-9], [_] &#40; Alt çizgi &#41; [-] &#40; çizgi &#41;<br> En fazla uzunluk: 50 |Bir öğeyi benzersiz tanımlayıcısı. |
 | Öğe adı |Evet |Herhangi bir alfasayısal karakter<br> En fazla uzunluk: 255 |Öğe adı. |
-| Öğesi kategorisi |Evet |Herhangi bir alfasayısal karakter <br> En fazla uzunluk: 255 |Bu öğe (örneğin pişirme kitapları, ekranda...) ait olduğu kategoriyi; boş olabilir. |
+| Öğesi kategorisi |Evet |Herhangi bir alfasayısal karakter <br> En fazla uzunluk: 255 |Kategori toowhich bu öğenin ait olduğu (örneğin pişirme kitapları, ekranda...); boş olabilir. |
 | Açıklama |Hayır, özellikleri olmadıkça var (ancak boş olabilir) |Herhangi bir alfasayısal karakter <br> En fazla uzunluk: 4000 |Bu öğenin açıklaması. |
-| Özellikler listesi |Hayır |Herhangi bir alfasayısal karakter <br> En fazla uzunluk: 4000; Özellikler: 20 sayısı üst sınırı |Özellik adı virgülle ayrılmış listesini = modeli öneri; artırmak için kullanılan özellik değeri bkz: [konuları Gelişmiş](#2-advanced-topics) bölümü. |
+| Özellikler listesi |Hayır |Herhangi bir alfasayısal karakter <br> En fazla uzunluk: 4000; Özellikler: 20 sayısı üst sınırı |Özellik adı virgülle ayrılmış listesini = kullanılan tooenhance modeli öneri; olabilir özellik değeri bkz: [konuları Gelişmiş](#2-advanced-topics) bölümü. |
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | YAYINLA |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27` |
 | ÜSTBİLGİ |`"Content-Type", "text/xml"` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| Dosya adı |Katalog metinsel tanımlayıcısı.<br>Yalnızca harf (A-Z, a-z), sayılar (0-9), tireler (-) ve alt çizgi (_).<br>En fazla uzunluk: 50 |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| Dosya adı |Başlangıç kataloğu metinsel tanımlayıcısı.<br>Yalnızca harf (A-Z, a-z), sayılar (0-9), tireler (-) ve alt çizgi (_).<br>En fazla uzunluk: 50 |
 | apiVersion |1.0 |
 |  | |
-| İstek Gövdesi |Örnek (özelliklerle ile):<br/>Clara Callan, kitap, kitap açıklama 2406e770-769c-4189-89de-1c9283f93a96, yazar Richard Erikli = yayımcı Harper Flamingo Kanada = yıl 2001 =<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, unutulması yer: A kurgu (Byzantium defteri), kitap,, yazar Nick Bantock = yayımcı Harpercollins, = yıl 1997 =<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, kitap,, yazar Attila Findley = yayımcı HarperFlamingo Kanada = yıl 2001 =<br>552a1940-21e4-4399-82bb-594b46d7ed54, Restraint, hayvanlar, kitap, kitap açıklama Yazar Magnus değirmenler = yayımcı Arcade yayımlama = yıl 1998 =</pre> |
+| İstek Gövdesi |Örnek (özelliklerle ile):<br/>Clara Callan, kitap hello kitap açıklama 2406e770-769c-4189-89de-1c9283f93a96, yazar Richard Erikli = yayımcı Harper Flamingo Kanada = yıl 2001 =<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, hello Forgetting yer: A kurgu (Byzantium defteri), kitap,, yazar Nick Bantock = yayımcı Harpercollins, = yıl 1997 =<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, kitap,, yazar Attila Findley = yayımcı HarperFlamingo Kanada = yıl 2001 =<br>552a1940-21e4-4399-82bb-594b46d7ed54, Restraint, hayvanlar, kitap, hello kitap açıklama Yazar Magnus değirmenler = yayımcı Arcade yayımlama = yıl 1998 =</pre> |
 
 **Yanıt**:
 
 HTTP durum kodu: 200
 
-API alma raporunu döndürür.
+Merhaba API hello alma raporunu döndürür.
 
 * `feed\entry\content\properties\LineCount`-Kabul satır sayısı.
-* `feed\entry\content\properties\ErrorCount`-Bir hata nedeniyle eklenmemiş satır sayısı.
+* `feed\entry\content\properties\ErrorCount`-Tooan hata eklenmemiş satır sayısı.
 
 OData XML
 
@@ -1027,15 +1027,15 @@ OData XML
 
 ### <a name="82----get-catalog"></a>8.2.    Katalog alma
 Tüm katalog öğelerini alır.
-Katalog olacak bir kerede bir sayfa alınır. Belirli bir dizinden öğeleri almak istiyorsanız, $skip odata parametresini kullanabilirsiniz. Örneğin 100 konumdan başlayarak öğeleri almak istiyorsanız, $skip parametresi ekleyin = 100 isteği.
+başlangıç kataloğu olacaktır aynı anda bir sayfa alınır. Belirli dizinindeki tooget öğe istiyorsanız hello $skip odata parametresini kullanabilirsiniz. Örneğin, 100 konumdan başlayarak tooget öğe istiyorsanız, hello parametre $skip ekleme = 100 toohello istek.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/GetCatalog?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`GetCatalog?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -1044,10 +1044,10 @@ Katalog olacak bir kerede bir sayfa alınır. Belirli bir dizinden öğeleri alm
 
 HTTP durum kodu: 200
 
-Yanıt katalog öğesi her bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt katalog öğesi her bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
-* `feed/entry/content/properties/ExternalId`-Katalog öğesi dış kimliği, müşteri tarafından sağlanan bir.
-* `feed/entry/content/properties/InternalId`-Öğesi iç kimliği, Azure Machine Learning önerileri üretti bir katalog.
+* `feed/entry/content/properties/ExternalId`-Katalog öğesi dış kimliği, bir hello müşteri tarafından sağlanan hello.
+* `feed/entry/content/properties/InternalId`-Katalog öğesi iç kimliği, Azure Machine Learning önerileri oluşturan bir hello.
 * `feed/entry/content/properties/Name`-Katalog öğesi adı.
 * `feed/entry/content/properties/Category`-Katalog öğesi kategorisi.
 * `feed/entry/content/properties/Description`-Katalog öğesi açıklaması.
@@ -1119,7 +1119,7 @@ OData XML
             <m:properties>
                 <d:ExternalId m:type="Edm.String">21BF8088-B6C0-4509-870C-E1C7AC78304A</d:ExternalId>
                 <d:InternalId m:type="Edm.String">ea65e4fa-768c-40b4-92c3-69d3e8178691</d:InternalId>
-                <d:Name m:type="Edm.String">The Forgetting Room: A Fiction (Byzantium Book)</d:Name>
+                <d:Name m:type="Edm.String">hello Forgetting Room: A Fiction (Byzantium Book)</d:Name>
                 <d:Category m:type="Edm.String">Book</d:Category>
                 <d:Description m:type="Edm.String"></d:Description>
                 <d:Metadata m:type="Edm.String"></d:Metadata>
@@ -1133,10 +1133,10 @@ OData XML
 |:--- |:--- |
 | AL |`<rootURI>/GetCatalogItemsByToken?modelId=%27<modelId>%27&token=%27<token>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`GetCatalogItemsByToken?modelId=%270dbb55fa-7f11-418d-8537-8ff2d9d1d9c6%27&token=%27Cla%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| Belirteç |Katalog öğesi'nin adı belirteci. En az 3 karakter içermelidir. |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| Belirteç |Belirteç hello katalog öğesi'nin adı. En az 3 karakter içermelidir. |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -1145,9 +1145,9 @@ OData XML
 
 HTTP durum kodu: 200
 
-Yanıt katalog öğesi her bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt katalog öğesi her bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
-* `feed/entry/content/properties/InternalId`-Öğesi iç kimliği, Azure Machine Learning önerileri üretti bir katalog.
+* `feed/entry/content/properties/InternalId`-Katalog öğesi iç kimliği, Azure Machine Learning önerileri oluşturan bir hello.
 * `feed/entry/content/properties/Name`-Katalog öğesi adı.
 * `feed/entry/content/properties/Rating`-(gelecekte kullanmak için)
 * `feed/entry/content/properties/Reasoning`-(gelecekte kullanmak için)
@@ -1184,26 +1184,26 @@ OData XML
 ## <a name="9-usage-data"></a>9. Kullanım verileri
 ### <a name="91----import-usage-data"></a>9.1.    Kullanım verilerini alma
 #### <a name="911-uploading-file"></a>9.1.1. Dosya karşıya yükleme
-Bu bölümde, bir dosya kullanarak kullanım verilerini karşıya gösterilmektedir. Bu API birkaç kez ile kullanım verilerini çağırabilirsiniz. Tüm kullanım verileri tüm çağrıları için kaydedilir.
+Bu bölümde gösterilmiştir nasıl dosyası kullanarak tooupload kullanım verileri. Bu API birkaç kez ile kullanım verilerini çağırabilirsiniz. Tüm kullanım verileri tüm çağrıları için kaydedilir.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | YAYINLA |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| Dosya adı |Katalog metinsel tanımlayıcısı.<br>Yalnızca harf (A-Z, a-z), sayılar (0-9), tireler (-) ve alt çizgi (_).<br>En fazla uzunluk: 50 |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| Dosya adı |Başlangıç kataloğu metinsel tanımlayıcısı.<br>Yalnızca harf (A-Z, a-z), sayılar (0-9), tireler (-) ve alt çizgi (_).<br>En fazla uzunluk: 50 |
 | apiVersion |1.0 |
 |  | |
-| İstek Gövdesi |Kullanım verileri. Biçimi:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Ad</th><th>Zorunlu</th><th>Tür</th><th>Açıklama</th></tr><tr><td>Kullanıcı Kimliği</td><td>Evet</td><td>[A-z], [a-z], [0-9], [_] &#40; Alt çizgi &#41; [-] &#40; çizgi &#41;<br> En fazla uzunluk: 255 </td><td>Bir kullanıcının benzersiz tanıtıcısı.</td></tr><tr><td>Öğe kimliği</td><td>Evet</td><td>[A-z], [a-z], [0-9], [&#95;] &#40; Alt çizgi &#41; [-] &#40; çizgi &#41;<br> En fazla uzunluk: 50</td><td>Bir öğeyi benzersiz tanımlayıcısı.</td></tr><tr><td>Zaman</td><td>Hayır</td><td>Tarih biçiminde: YYYY/AA/ddTHH (örneğin 2013/06/20T10:00:00)</td><td>Veri zamanı.</td></tr><tr><td>Olay</td><td>Yok; sağlanan daha sonra tarih de konulmalıdır</td><td>Şunlardan biri:<br>• Tıklatın<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Satın alma</td><td></td></tr></table><br>En büyük dosya boyutu: 200MB<br><br>Örnek:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| İstek Gövdesi |Kullanım verileri. Biçimi:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Ad</th><th>Zorunlu</th><th>Tür</th><th>Açıklama</th></tr><tr><td>Kullanıcı Kimliği</td><td>Evet</td><td>[A-z], [a-z], [0-9], [_] &#40; Alt çizgi &#41; [-] &#40; çizgi &#41;<br> En fazla uzunluk: 255 </td><td>Bir kullanıcının benzersiz tanıtıcısı.</td></tr><tr><td>Öğe kimliği</td><td>Evet</td><td>[A-z], [a-z], [0-9], [&#95;] &#40; Alt çizgi &#41; [-] &#40; çizgi &#41;<br> En fazla uzunluk: 50</td><td>Bir öğeyi benzersiz tanımlayıcısı.</td></tr><tr><td>Zaman</td><td>Hayır</td><td>Tarih biçiminde: YYYY/AA/ddTHH (örneğin 2013/06/20T10:00:00)</td><td>Veri zamanı.</td></tr><tr><td>Olay</td><td>Yok; sağlanan daha sonra tarih de konulmalıdır</td><td>Merhaba aşağıdakilerden biri:<br>• Tıklatın<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Satın alma</td><td></td></tr></table><br>En büyük dosya boyutu: 200MB<br><br>Örnek:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Yanıt**:
 
 HTTP durum kodu: 200
 
 * `Feed\entry\content\properties\LineCount`-Kabul satır sayısı.
-* `Feed\entry\content\properties\ErrorCount`-Bir hata nedeniyle eklenmemiş satır sayısı.
+* `Feed\entry\content\properties\ErrorCount`-Tooan hata eklenmemiş satır sayısı.
 * `Feed\entry\content\properties\FileId`-Dosya tanımlayıcısı.
 
 OData XML
@@ -1232,17 +1232,17 @@ OData XML
 
 
 #### <a name="912-using-data-acquisition"></a>9.1.2. Veri alma kullanma
-Bu bölümde olayları gerçek zamanlı olarak Azure Machine Learning önerileri için genellikle Web sitesinden nasıl gönderileceğini gösterir.
+Bu bölüm, gerçek toosend olayları tooAzure Machine Learning önerileri, genellikle Web sitenizi nasıl zaman gösterir.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | YAYINLA |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27` |
 | ÜSTBİLGİ |`"Content-Type", "text/xml"` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
 | apiVersion |1.0 |
-| İstek gövdesi |Her olay için olay veri girişi göndermek istiyor. Aynı Kimliğe aynı kullanıcı veya tarayıcı oturumu için SessionID alanında göndermesi gerekir. (Olay gövdesi aşağıdaki örneği bakın.) |
+| İstek gövdesi |Olay veri girişi toosend istediğiniz her olay için. Merhaba aynı kullanıcı veya tarayıcı oturumunu hello için aynı kimliği hello SessionID alanında göndermesi gerekir. (Olay gövdesi aşağıdaki örneği bakın.) |
 
 * Olay 'Tıklatın' Örneğin:
   
@@ -1337,15 +1337,15 @@ Bu bölümde olayları gerçek zamanlı olarak Azure Machine Learning önerileri
 
 ### <a name="92----list-model-usage-files"></a>9.2.    Liste modeli kullanım dosyalar
 Tüm model kullanım dosyalar meta verilerini alır.
-Dosyalar kullanım aynı anda bir sayfa aldı. Her sayfa içerir 100 öğeleri. Belirli bir dizinden öğeleri almak istiyorsanız, $skip odata parametresini kullanabilirsiniz. Örneğin 100 konumdan başlayarak öğeleri almak istiyorsanız, $skip parametresi ekleyin = 100 isteği.
+Merhaba kullanım dosyalar olacak bir sayfa aynı anda aldı. Her sayfa içerir 100 öğeleri. Belirli dizinindeki tooget öğe istiyorsanız hello $skip odata parametresini kullanabilirsiniz. Örneğin, 100 konumdan başlayarak tooget öğe istiyorsanız, hello parametre $skip ekleme = 100 toohello istek.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/ListModelUsageFiles?forModelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/ListModelUsageFiles?forModelId=%270dbb55fa-7f11-418d-8537-8ff2d9d1d9c6%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| forModelId |Model benzersiz tanıtıcısı |
+| forModelId |Merhaba modeli benzersiz tanıtıcısı |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -1354,12 +1354,12 @@ Dosyalar kullanım aynı anda bir sayfa aldı. Her sayfa içerir 100 öğeleri. 
 
 HTTP durum kodu: 200
 
-Yanıt, kullanım dosyasını her bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt kullanım dosyasını her bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
 * `feed\entry\content\properties\Id`-Kullanım dosya kimliği
 * `feed\entry\content\properties\Length`-MB cinsinden kullanım dosya uzunluğu.
-* `feed\entry\content\properties\DateModified`-Kullanım dosyanın oluşturulduğu tarih.
-* `feed\entry\content\properties\UseInModel`-Olup kullanım dosyasını modelde kullanılır.
+* `feed\entry\content\properties\DateModified`-Hello kullanım dosyasını oluşturulduğu tarih.
+* `feed\entry\content\properties\UseInModel`-Olup hello kullanım dosyasını hello modelinde kullanılır.
 
 OData XML
 
@@ -1407,12 +1407,12 @@ Kullanım istatistiklerini alır.
 |:--- |:--- |
 | AL |`<rootURI>/GetUsageStatistics?modelId=%27<modelId>%27& startDate=%27<date>%27&endDate=%27<date>%27&eventTypes=%27<types>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/GetUsageStatistics?modelId=%271d20c34f-dca1-4eac-8e5d-f299e4e4ad66%27&startDate=%272014%2F10%2F17T00%3A00%3A00%27&endDate=%272014%2F11%2F16T00%3A00%3A00%27&eventTypes=%271%2C2%2C3%2C4%2C5%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
 | StartDate |Başlangıç tarihi. Biçimi: yyyy/aa/ddTHH |
 | endDate |Bitiş tarihi. Biçimi: yyyy/aa/ddTHH |
-| eventTypes |Virgülle ayrılmış dize olay türlerini ya da null tüm olayları almak için |
+| eventTypes |Virgülle ayrılmış dize olay türleri veya tüm olayları tooget null |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -1421,9 +1421,9 @@ Kullanım istatistiklerini alır.
 
 HTTP durum kodu: 200
 
-Anahtar/değer öğeleri koleksiyonu. Her bir saate göre gruplandırılmış belirli bir olay türü için olayları toplamını içeriyor.
+Anahtar/değer öğeleri koleksiyonu. Her bir saate göre gruplandırılmış belirli bir olay türü için olayları hello toplamını içeriyor.
 
-* `feed\entry[i]\content\properties\Key`-(Saate göre gruplandırılmış) süresi ve olay türünü içerir.
+* `feed\entry[i]\content\properties\Key`-Başlangıç saati (saate göre gruplandırılmış) içerir ve hello olay türü.
 * `feed\entry[i]\content\properties\Value`-Toplam olay sayısı.
 
 OData XML
@@ -1486,16 +1486,16 @@ OData XML
     </feed>
 
 ### <a name="94----get-usage-file-sample"></a>9.4.    Kullanım örneği Al
-İlk 2 KB'lık kullanım dosya içeriğini alır.
+Alır kullanım dosya içeriğinin ilk 2 KB hello.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/GetUsageFileSample?modelId=%27<modelId>%27& fileId=%27<fileId>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/GetUsageFileSample?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&fileId=%274c067b42-e975-4cb2-8c98-a6ab80ed6d63%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| Fileıd |Model kullanım dosyanın benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| Fileıd |Merhaba modeli kullanım dosyanın benzersiz tanıtıcısı |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -1526,16 +1526,16 @@ Yanıt ham metin biçiminde verilir:
 
 
 ### <a name="95----get-model-usage-file"></a>9.5.    Model kullanım dosyasını Al
-Kullanım dosyanın tam içeriğini alır.
+Merhaba tam hello kullanım dosyasının içeriğini alır.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/GetModelUsageFile?mid=%27<modelId>%27& fid=%27<fileId>%27&download=%27<download_value>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/GetModelUsageFile?mid=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&fid=%273126d816-4e80-4248-8339-1ebbdb9d544d%27&download=%271%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| Orta |Model benzersiz tanıtıcısı |
-| FID |Model kullanım dosyanın benzersiz tanıtıcısı |
+| Orta |Merhaba modeli benzersiz tanıtıcısı |
+| FID |Merhaba modeli kullanım dosyanın benzersiz tanıtıcısı |
 | İndirme |1 |
 | apiVersion |1.0 |
 |  | |
@@ -1584,16 +1584,16 @@ Yanıt ham metin biçiminde verilir:
 </pre>
 
 ### <a name="96----delete-usage-file"></a>9.6.    Kullanım dosyasını silin
-Belirtilen model kullanım dosyasını siler.
+Merhaba belirtilen model kullanım dosyasını siler.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | SİL |`<rootURI>/DeleteUsageFile?modelId=%27<modelId>%27&fileId=%27<fileId>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/DeleteUsageFile?modelId=%270f86d698-d0f4-4406-a684-d13d22c47a73%27&fileId=%27f2e0b09d-be5c-46b2-9ac2-c7f622e5e1a5%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| Fileıd |Silinecek dosyanın benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| Fileıd |Silinen hello dosya toobe benzersiz tanıtıcısı |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -1609,9 +1609,9 @@ Tüm model kullanım dosyalarını siler.
 |:--- |:--- |
 | SİL |`<rootURI>/DeleteAllUsageFiles?modelId=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/DeleteAllUsageFiles?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -1621,21 +1621,21 @@ Tüm model kullanım dosyalarını siler.
 HTTP durum kodu: 200
 
 ## <a name="10-features"></a>10. Özellikler
-Bu bölümde, içeri aktarılan özellikleri ve bunların derece değerlerine gibi ve bu sıra ayrıldı özelliği bilgi almak gösterilmiştir. Özellikleri katalog verilerini bir parçası olarak içe aktarılır ve bunların derece derece yapı yapıldığında sonra ilişkilendirilir.
-Özellik derece kullanım verilerini ve tür öğelerinin düzeni göre değiştirebilirsiniz. Ancak tutarlı kullanım/öğeler için yalnızca küçük dalgalanmaları derecesini olmalıdır.
-Özellikler derecesini negatif olmayan bir sayıdır. 0 numaralı özelliği olmayan derece anlamına gelir (ilk derece yapı tamamlanmasından önce bu API çağırma olur). Hangi derecesini öznitelikli tarih puan yenilik adı verilir.
+Bu bölümde tooretrieve özellik içeri hello özellikleri ve bunların değerleri, kendi derece gibi bilgileri nasıl ve ne zaman bu derece ayrıldı gösterir. Özellikler hello katalog verilerini bir parçası olarak içe aktarılır ve bunların derece derece yapı yapıldığında sonra ilişkilendirilir.
+Özellik derece kullanım verilerini ve tür öğelerinin according toohello düzenini değiştirebilirsiniz. Ancak tutarlı kullanım/öğeler için yalnızca küçük dalgalanmaları hello derece olması gerekir.
+Özellikler Hello derecesini negatif olmayan bir sayıdır. Merhaba numarası 0 bu hello özelliği olmayan derece anlamına gelir (Bu hello ilk derece yapı API önceki toohello tamamlanmasından çağırma olur). hangi hello derece öznitelikli hello tarih hello puan yenilik adı verilir.
 
 ### <a name="101-get-features-info-for-last-rank-build"></a>10.1. (İçin son derece derleme) özellikleri bilgilerini al
-Son başarılı derece yapı için bir derecelendirme özellik bilgilerini alır.
+Merhaba son başarılı derece yapı için bir derecelendirme hello özellik bilgilerini alır.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| samplingSize |Katalogda mevcut verileri göre her bir özellik için içerecek şekilde değerlerinin sayısı. <br/>Olası değerler şunlardır:<br> -1 - tüm örnekleri. <br>0 - hiçbir örnekleme. <br>N - her bir özellik adı için dönüş N örneklerini içerir. |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| samplingSize |Başlangıç Kataloğu'nda mevcut toohello verileri göre her bir özellik için değerleri tooinclude sayısı. <br/>Olası değerler şunlardır:<br> -1 - tüm örnekleri. <br>0 - hiçbir örnekleme. <br>N - her bir özellik adı için dönüş N örneklerini içerir. |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -1644,18 +1644,18 @@ Son başarılı derece yapı için bir derecelendirme özellik bilgilerini alır
 
 HTTP durum kodu: 200
 
-Yanıt özellik bilgileri girişlerinin listesini içerir. Her giriş içerir:
+Merhaba yanıt özellik bilgileri girişlerinin listesini içerir. Her giriş içerir:
 
 * `feed/entry/content/m:properties/d:Name`-Özellik adı.
-* `feed/entry/content/m:properties/d:RankUpdateDate`-Date aktarılma derecesini bu özellik için paketini ayrıldı puan yenilik özelliği. Geçmiş bir tarih ('0001-01-01T00:00:00') hiçbir derece yapı gerçekleştirildiğini anlamına gelir.
+* `feed/entry/content/m:properties/d:RankUpdateDate`-Date ayrılmış toothis özellik, sıralama sırasında hangi hello paketini: puan yenilik özelliği. Geçmiş bir tarih ('0001-01-01T00:00:00') hiçbir derece yapı gerçekleştirildiğini anlamına gelir.
 * `feed/entry/content/m:properties/d:Rank`-Özellik derece (kayan nokta). 2.0 ve yedekleme bir derece iyi bir özellik olarak kabul edilir.
-* `feed/entry/content/m:properties/d:SampleValues`-İstenen örnekleme boyut kadar değerleri virgülle ayrılmış listesi.
+* `feed/entry/content/m:properties/d:SampleValues`-İstenen toohello örnekleme boyut değerleri virgülle ayrılmış listesi.
 
 OData XML
 
     <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
     <title type="text" />
-    <subtitle type="text">Get the features of a model</subtitle>
+    <subtitle type="text">Get hello features of a model</subtitle>
     <id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'</id>
     <rights type="text" />
     <updated>2015-01-08T13:15:02Z</updated>
@@ -1705,17 +1705,17 @@ OData XML
 </feed>
 
 ### <a name="102-get-features-info-for-specific-rank-build"></a>10.2. (Belirli derece derleme için) özellikleri bilgilerini al
-Belirli bir derece yapı derecelendirme özellik bilgilerini alır.
+Belirli bir derece yapı sıralaması hello hello özellik bilgilerini alır.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=<rankBuildId>&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=1000551&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| samplingSize |Katalogda mevcut verileri göre her bir özellik için içerecek şekilde değerlerinin sayısı.<br/> Olası değerler şunlardır:<br> -1 - tüm örnekleri. <br>0 - hiçbir örnekleme. <br>N - her bir özellik adı için dönüş N örneklerini içerir. |
-| rankBuildId |Rank derleme veya -1 son derece derleme için benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| samplingSize |Başlangıç Kataloğu'nda mevcut toohello verileri göre her bir özellik için değerleri tooinclude sayısı.<br/> Olası değerler şunlardır:<br> -1 - tüm örnekleri. <br>0 - hiçbir örnekleme. <br>N - her bir özellik adı için dönüş N örneklerini içerir. |
+| rankBuildId |Merhaba derece yapı veya -1 hello son derece yapı için benzersiz tanıtıcısı |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -1724,18 +1724,18 @@ Belirli bir derece yapı derecelendirme özellik bilgilerini alır.
 
 HTTP durum kodu: 200
 
-Yanıt özellik bilgileri girişlerinin listesini içerir. Her giriş içerir:
+Merhaba yanıt özellik bilgileri girişlerinin listesini içerir. Her giriş içerir:
 
 * `feed/entry/content/m:properties/d:Name`-Özellik adı.
-* `feed/entry/content/m:properties/d:RankUpdateDate`-Date aktarılma derecesini bu özellik için paketini ayrıldı puan yenilik özelliği. Geçmiş bir tarih ('0001-01-01T00:00:00') hiçbir derece yapı gerçekleştirildiğini anlamına gelir.
+* `feed/entry/content/m:properties/d:RankUpdateDate`-Date ayrılmış toothis özellik, sıralama sırasında hangi hello paketini: puan yenilik özelliği. Geçmiş bir tarih ('0001-01-01T00:00:00') hiçbir derece yapı gerçekleştirildiğini anlamına gelir.
 * `feed/entry/content/m:properties/d:Rank`-Özellik derece (kayan nokta). 2.0 ve yedekleme bir derece iyi bir özellik olarak kabul edilir.
-* `feed/entry/content/m:properties/d:SampleValues`-İstenen örnekleme boyut kadar değerleri virgülle ayrılmış listesi.
+* `feed/entry/content/m:properties/d:SampleValues`-İstenen toohello örnekleme boyut değerleri virgülle ayrılmış listesi.
 
 OData
 
     <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
         <title type="text" />
-        <subtitle type="text">Get the features of a model</subtitle>
+        <subtitle type="text">Get hello features of a model</subtitle>
         <id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'</id>
         <rights type="text" />
         <updated>2015-01-08T13:54:22Z</updated>
@@ -1786,103 +1786,103 @@ OData
 
 
 ## <a name="11-build"></a>11. Oluşturma
-  Bu bölümde, derlemeleri ilgili farklı API'ler açıklanmaktadır. Derleme 3 türleri vardır: bir öneri yapı, derece yapı ve (sık birlikte satın) FBT derleme.
+  Bu bölümde hello açıklanmaktadır toobuilds ilgili farklı API'ler. Derleme 3 türleri vardır: bir öneri yapı, derece yapı ve (sık birlikte satın) FBT derleme.
 
-Öneri yapı tahminleri için kullanılan bir öneri model oluşturmak için amaçtır. Öngörüler (için yapı bu tür) içinde iki özellikleri getirir:
+Merhaba öneri yapı, bir öneri modeli tahminleri için kullanılan toogenerate amaçtır. Öngörüler (için yapı bu tür) içinde iki özellikleri getirir:
 
-* I2I - paketini Öğe için öneriler - verilen bir öğe veya, bu seçenek, büyük olasılıkla yüksek ilgi öğelerin bir listesi tahmin etmek öğelerin bir listesi.
-* U2I - paketini Kullanıcı öğesi önerileri - belirli bir kullanıcı kimliği (ve isteğe bağlı olarak bir öğe listesi) bu seçeneği, belirtilen kullanıcı (ve ek dilediği öğelerinin) çok ilgisini büyük olasılıkla öğelerin bir listesi tahmin. U2I önerileri model oluşturulan zamana kadar kullanıcının ilgi olan öğelerin geçmişini dayanır.
+* I2I - paketini Madde tooItem önerileri - verilen öğeyi veya liste öğelerinin bu seçenek, büyük olasılıkla toobe çok ilgisini çeken öğeleri listesini tahmin.
+* U2I - paketini Kullanıcı tooItem önerileri verilen bir kullanıcı kimliği (ve isteğe bağlı olarak bir öğe listesi) - Bu seçenek, büyük olasılıkla toobe verilen kullanıcı (ve ek dilediği öğelerinin) hello çok ilgisini öğeleri listesini tahmin etmek. Merhaba U2I önerileri hello model oluşturulmuş toohello süresini hello kullanıcının ilgi olan öğelerin hello geçmişini dayanır.
 
-Bir derece yapı özelliklerinizi yararlılığını hakkında bilgi edinmek izin veren teknik bir yapıdır. Genellikle, özellikleri kapsayan bir öneri modeli için en iyi sonucu almak için aşağıdaki adımları izlemesi gerekir:
+Bir derece yapı özelliklerinizi hello yararlılığı hakkında toolearn sağlayan teknik bir yapıdır. Genellikle, sipariş tooget hello en iyi sonucu özellikleri içeren bir öneri model için aşağıdaki adımları hello izlemesi gerekir:
 
-* (Özelliklerinizi puanı kararlı değilse) derece bir derlemeyi tetiklemeyi ve özellik puanı almak kadar bekleyin.
-* Çağırarak özelliklerinizi derecesini almak [özellikleri bilgi al](#101-get-features-info-for-last-rank-build) API.
-* Aşağıdaki parametrelerle bir öneri yapı yapılandırın:
-  * `useFeatureInModel`-True olarak ayarlayın.
-  * `ModelingFeatureList`-Puanı 2.0 veya (göre daha önceki adımda alınan sıralar) özelliklerin virgülle ayrılmış bir listesi için ayarlayın.
-  * `AllowColdItemPlacement`-True olarak ayarlayın.
-  * İsteğe bağlı olarak ayarlayabilirsiniz `EnableFeatureCorrelation` true ve `ReasoningFeatureList` açıklamaları (genellikle aynı modelleme veya bir alt liste kullanılan özellikler listesini) için kullanmak istediğiniz özelliklerin listesi.
-* Yapılandırılan parametrelerle öneri yapı tetikler.
+* (Özelliklerinizi hello puanı kararlı değilse) derece bir derlemeyi tetiklemeyi ve hello özelliği puanı almak kadar bekleyin.
+* Arama hello tarafından özelliklerinizi Hello derecesini almak [özellikleri bilgi al](#101-get-features-info-for-last-rank-build) API.
+* Bir öneri yapı şu parametreler hello ile yapılandırın:
+  * `useFeatureInModel`-TooTrue ayarlayın.
+  * `ModelingFeatureList`-2.0 veya daha fazla puanı özelliklerinin set tooa virgülle ayrılmış listesi (Merhaba önceki adımda alınan toohello sıralar according).
+  * `AllowColdItemPlacement`-TooTrue ayarlayın.
+  * İsteğe bağlı olarak ayarlayabilirsiniz `EnableFeatureCorrelation` tooTrue ve `ReasoningFeatureList` toohello açıklamalarını (genellikle aynı özelliklerin listesi kullanılan Model oluşturma veya bir alt liste hello) toouse istediğiniz özelliklerin listesi.
+* Merhaba öneri yapı yapılandırılmış hello parametrelerle tetikler.
 
-Not: herhangi bir parametre yapılandırmazsanız (örneğin parametresiz öneri yapı çağırma) veya açıkça özellikleri kullanımını devre dışı değil (örneğin `UseFeatureInModel` False olarak ayarlayın), sistem anlatıldığı özelliği ile ilgili parametreleri ayarlayacaksınız Yukarıdaki değerleri bir derece yapı halinde bulunmaktadır.
+Not: herhangi bir parametre yapılandırmazsanız (örneğin hello öneri yapı parametresiz çağırma) veya açıkça özellikleri hello kullanımını devre dışı değil (örneğin `UseFeatureInModel` ayarlamak tooFalse), hello sistem hello özelliği ile ilgili parametreleri ayarlayacak derece yapı mevcut durumda toohello değerleri yukarıdaki açıklanmıştır.
 
-Bir derece yapı ve aynı anda aynı modeli için bir öneri yapı çalıştırma sınırlaması yoktur. Bununla birlikte, paralel aynı model üzerinde aynı türde iki derlemeleri çalıştırılamıyor.
+Bir derece yapı çalıştırma sınırlaması yoktur ve bir öneri yapı eşzamanlı olarak Merhaba aynı modeli. Bununla birlikte, aynı aynı paralel olarak model hello yazın hello iki derlemelerini çalıştırılamıyor.
 
 (Sık birlikte satın) FBT yapı henüz doğası gereği homojen olmayan katalogları için yararlı olan "Klasik" bazen öneren adlı başka bir önerileri algoritmasıdır (homojen: defterleri, filmler, bazı yemek deneyerek; homojen olmayan: bilgisayar ve cihazlar, etki alanları arası, oldukça farklı).
 
-Not: isteğe bağlı alan "olay türü" karşıya yüklediğiniz kullanım dosyalar içeriyorsa, daha sonra FBT için yalnızca "Satın Al" olayları modelleme kullanılacaktır. Olay türü sağlanırsa tüm olayları satın alma olarak kabul edilir.
+Not: hello karşıya yüklediğiniz kullanım dosyalar içeriyorsa hello isteğe bağlı alan "olay türü", daha sonra FBT için yalnızca "Satın Al" olayları modelleme kullanılacaktır. Olay türü sağlanırsa tüm olayları satın alma olarak kabul edilir.
 
 #### <a name="111-build-parameters"></a>11.1 parametreleri derleme
-Her bir yapı türü (aşağıda gösterilen) parametreleri kümesini aracılığıyla yapılandırılabilir. Parametreleri yapılandırmazsanız, sistem değerleri otomatik olarak bir derlemeyi tetiklemeyi bilgileri aynı anda mevcut göre parametreleri öznitelik.
+Her bir yapı türü (aşağıda gösterilen) parametreleri kümesini aracılığıyla yapılandırılabilir. Merhaba parametreleri yapılandırmazsanız, hello sistem otomatik olarak toohello bilgi hello zaman mevcut bir derlemeyi tetiklemeyi göre değerleri toohello parametreleri öznitelik.
 
 ##### <a name="1111-usage-condenser"></a>11.1.1. Kullanım Kondansatör
-Kullanıcılar veya birkaç kullanım noktalarıyla öğeleri bilgileri'den daha fazla gürültü içerebilir. En az bir model kullanılacak kullanıcı/öğe başına kullanım nokta sayısı tahmin etmek sistem çalışır. Bu numara, öğeleri için ItemCutoffLowerBound ve ItemCutoffUpperBound parametreleri tarafından tanımlanan aralığın ve kullanıcılar için UserCutOffLowerBound ve UserCutoffUpperBound parametreleri tarafından tanımlanan aralık içinde olacaktır. Öğeler veya kullanıcıların Kondansatör etkisi sıfır ayarıyla ilgili sınırların en az biri en aza indirgenebilir.
+Kullanıcılar veya birkaç kullanım noktalarıyla öğeleri bilgileri'den daha fazla gürültü içerebilir. Merhaba sistem toopredict hello en az bir model kullanılan kullanıcı/öğe toobe başına kullanım noktası denemesi sayısı. Bu numara, hello ItemCutoffLowerBound ve öğeleri ve hello UserCutOffLowerBound ve kullanıcılar için UserCutoffUpperBound parametreleri tarafından tanımlanan hello aralık ItemCutoffUpperBound parametreleri tarafından tanımlanan hello aralıkta olacaktır. Merhaba Kondansatör etkisi öğeler veya kullanıcıların ayarıyla hello karşılık gelen sınırları toozero en az biri en aza indirgenebilir.
 
 ##### <a name="1112-rank-build-parameters"></a>11.1.2. RANK yapı parametreleri
-Aşağıdaki tabloda bir derece yapı için yapı parametreleri gösterilmektedir.
+Merhaba tabloda derece bir yapı için hello yapı parametreleri gösterilmektedir.
 
 | Anahtar | Açıklama | Tür | Geçerli bir değer |
 |:--- |:--- |:--- |:--- |
-| NumberOfModelIterations |Model gerçekleştirir yineleme sayısını, toplam işlem süresi ve model doğruluğundan tarafından yansıtılır. Sayı, daha iyi doğruluğu, daha yüksek alırsınız, ancak işlem süresini daha uzun sürer. |Tamsayı |10-50 |
-| NumberOfModelDimensions |Dimensions sayısı 'model verilerinizi bulmayı dener Özellikleri' sayısı ile ilgilidir. Boyut sayısını artırmayı sonuçlarını daha küçük kümeler halinde daha iyi ince ayar izin verir. Ancak, çok fazla boyutları bulmalarını bağıntıları öğeleri arasında model engeller. |Tamsayı |10-40 |
-| ItemCutOffLowerBound |Kondansatör öğesi alt sınırını tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
-| ItemCutOffUpperBound |Kondansatör öğesi üst sınırını tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
-| UserCutOffLowerBound |Kondansatör kullanıcı alt sınırını tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
-| UserCutOffUpperBound |Kondansatör kullanıcı üst sınırını tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
+| NumberOfModelIterations |Merhaba hello modeli gerçekleştirir yineleme sayısını hello tarafından yansıtılan zaman ve hello model doğruluğundan genel işlem. Merhaba daha yüksek hello sayı, hello daha iyi doğruluk alırsınız, ancak hello hesaplamak için daha uzun sürer. |Tamsayı |10-50 |
+| NumberOfModelDimensions |Merhaba dimensions sayısı 'Özellikler' hello modeli toohello sayısı toofind verilerinizi içinde deneyecek ilişkilendirir. Boyutlar Hello sayısını artırmayı daha iyi hello sonuçlarını daha küçük kümeler halinde hassas ayar yapma izin verir. Ancak, çok fazla boyutları bulmalarını bağıntıları öğeleri arasında hello modeli engeller. |Tamsayı |10-40 |
+| ItemCutOffLowerBound |Merhaba öğesi alt sınır hello Kondansatör için tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
+| ItemCutOffUpperBound |Merhaba öğesi üst sınır hello Kondansatör için tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
+| UserCutOffLowerBound |Merhaba kullanıcı alt sınır hello Kondansatör için tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
+| UserCutOffUpperBound |Merhaba kullanıcı üst sınır hello Kondansatör için tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
 
 ##### <a name="1113-recommendation-build-parameters"></a>11.1.3. Öneri yapı parametreleri
-Aşağıdaki tabloda öneri yapı için yapı parametreleri gösterilmektedir.
+Merhaba tabloda öneri yapı için hello yapı parametreleri gösterilmektedir.
 
 | Anahtar | Açıklama | Tür | Geçerli bir değer |
 |:--- |:--- |:--- |:--- |
-| NumberOfModelIterations |Model gerçekleştirir yineleme sayısını, toplam işlem süresi ve model doğruluğundan tarafından yansıtılır. Sayı, daha iyi doğruluğu, daha yüksek alırsınız, ancak işlem süresini daha uzun sürer. |Tamsayı |10-50 |
-| NumberOfModelDimensions |Dimensions sayısı 'model verilerinizi bulmayı dener Özellikleri' sayısı ile ilgilidir. Boyut sayısını artırmayı sonuçlarını daha küçük kümeler halinde daha iyi ince ayar izin verir. Ancak, çok fazla boyutları bulmalarını bağıntıları öğeleri arasında model engeller. |Tamsayı |10-40 |
-| ItemCutOffLowerBound |Kondansatör öğesi alt sınırını tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
-| ItemCutOffUpperBound |Kondansatör öğesi üst sınırını tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
-| UserCutOffLowerBound |Kondansatör kullanıcı alt sınırını tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
-| UserCutOffUpperBound |Kondansatör kullanıcı üst sınırını tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
+| NumberOfModelIterations |Merhaba hello modeli gerçekleştirir yineleme sayısını hello tarafından yansıtılan zaman ve hello model doğruluğundan genel işlem. Merhaba daha yüksek hello sayı, hello daha iyi doğruluk alırsınız, ancak hello hesaplamak için daha uzun sürer. |Tamsayı |10-50 |
+| NumberOfModelDimensions |Merhaba dimensions sayısı 'Özellikler' hello modeli toohello sayısı toofind verilerinizi içinde deneyecek ilişkilendirir. Boyutlar Hello sayısını artırmayı daha iyi hello sonuçlarını daha küçük kümeler halinde hassas ayar yapma izin verir. Ancak, çok fazla boyutları bulmalarını bağıntıları öğeleri arasında hello modeli engeller. |Tamsayı |10-40 |
+| ItemCutOffLowerBound |Merhaba öğesi alt sınır hello Kondansatör için tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
+| ItemCutOffUpperBound |Merhaba öğesi üst sınır hello Kondansatör için tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
+| UserCutOffLowerBound |Merhaba kullanıcı alt sınır hello Kondansatör için tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
+| UserCutOffUpperBound |Merhaba kullanıcı üst sınır hello Kondansatör için tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
 | Açıklama |Açıklama oluşturun. |Dize |Herhangi bir metin en çok 512 karakter |
-| EnableModelingInsights |Öneri model ölçülerine işlem olanak tanır. |Boole değeri |True/False |
-| UseFeaturesInModel |Özellikler öneri modeli geliştirmek için kullanılıp kullanılamayacağını belirtir. |Boole değeri |True/False |
-| ModelingFeatureList |Öneri derlemede öneri geliştirmek için kullanılan özellik adlarının virgülle ayrılmış listesi. |Dize |En çok 512 karakter adları özelliği |
-| AllowColdItemPlacement |Öneri de soğuk öğeleri özelliği benzerlik anında varsa gösterir. |Boole değeri |True/False |
+| EnableModelingInsights |Merhaba öneri model üzerinde toocompute ölçümleri sağlar. |Boole değeri |True/False |
+| UseFeaturesInModel |Özellikler sipariş tooenhance hello öneri modelinde kullandıysanız gösterir. |Boole değeri |True/False |
+| ModelingFeatureList |Sipariş tooenhance hello öneri de hello öneri derlemede kullanılan özellik adları toobe virgülle ayrılmış listesi. |Dize |Özellik adlarını, too512 karakter |
+| AllowColdItemPlacement |Hello öneri de soğuk öğeleri özelliği benzerlik anında olmadığını gösterir. |Boole değeri |True/False |
 | EnableFeatureCorrelation |Mantığı içinde kullanılabilir özellikleri gösterir. |Boole değeri |True/False |
-| ReasoningFeatureList |Tümceler (örn. öneri açıklamaları) akıl için kullanılacak özellik adlarının virgülle ayrılmış listesi. |Dize |En çok 512 karakter adları özelliği |
-| EnableU2I |Kişiselleştirilmiş öneri paketini izin ver U2I (kullanıcı öğesi önerileri için). |Boole değeri |True/False (varsayılan true) |
+| ReasoningFeatureList |Tümceler (örn. öneri açıklamaları) akıl için kullanılan özellik adları toobe virgülle ayrılmış listesi. |Dize |Özellik adlarını, too512 karakter |
+| EnableU2I |Kişiselleştirilmiş hello öneri paketini izin ver U2I (kullanıcı tooitem öneriler). |Boole değeri |True/False (varsayılan true) |
 
 ##### <a name="1114-fbt-build-parameters"></a>11.1.4. FBT yapı parametreleri
-Aşağıdaki tabloda öneri yapı için yapı parametreleri gösterilmektedir.
+Merhaba tabloda öneri yapı için hello yapı parametreleri gösterilmektedir.
 
 | Anahtar | Açıklama | Tür | Geçerli değer (varsayılan) |
 |:--- |:--- |:--- |:--- |
-| FbtSupportThreshold |Nasıl koruyucu modelidir. Model oluşturma için değerlendirilmesi öğelerinin birlikte yineleme sayısı. |Tamsayı |3-50 (6) |
-| FbtMaxItemSetSize |Sık kümedeki öğe sayısı bounds. |Tamsayı |2-3 (2) |
-| FbtMinimalScore |Döndürülen sonuçların dahil edilmesi için sık kümesine sahip olması gerekir, en az puanı. Daha iyi olur. |Çift |0 ve üstünde (0) |
-| FbtSimilarityFunction |Yapı tarafından kullanılacak benzerlik işlevi tanımlar. Yükseltme serendipity korur, ortak oluşumu öngörülebilirlik korur ve ikisi arasında iyi bir güvenlik açığı Jaccard olduğundan. |Dize |cooccurrence, yükseltme, jaccard (yükseltme) |
+| FbtSupportThreshold |Koruyucu hello modeli nasıl. Modelleme için kabul öğeleri toobe ortak oluşumları sayısı. |Tamsayı |3-50 (6) |
+| FbtMaxItemSetSize |Öğe sık kümesinde sınırları hello sayısı. |Tamsayı |2-3 (2) |
+| FbtMinimalScore |Sık kümesi hello dahil sipariş toobe içinde döndürülen en az puan sonuçlanır. Merhaba yüksek hello daha iyi. |Çift |0 ve üstünde (0) |
+| FbtSimilarityFunction |Merhaba yapı tarafından kullanılan hello benzerlik işlevi toobe tanımlar. Yükseltme serendipity korur, ortak oluşumu öngörülebilirlik ayrıcalıklı kılar ve Jaccard hello iki arasında iyi bir seçim değil. |Dize |cooccurrence, yükseltme, jaccard (yükseltme) |
 
 ### <a name="112-trigger-a-recommendation-build"></a>11.2. Tetikleyici bir öneri derleme
-  Varsayılan olarak bu API öneri modeli yapı tetikler. (Özellikleri puan için) bir derece yapı tetiklemek için yapı API değişken yapı tür parametresi birlikte kullanılmalıdır.
+  Varsayılan olarak bu API öneri modeli yapı tetikler. tootrigger bir derece derleme (sipariş tooscore özelliklerinde), hello yapı API değişken yapı tür parametresi birlikte kullanılmalıdır.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | YAYINLA |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27` |
 | ÜSTBİLGİ |`"Content-Type", "text/xml"`(İstek gövdesi gönderiliyorsa) |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| userDescription |Katalog metinsel tanımlayıcısı. Boşluklar kullanırsanız, % 20 yerine kodlamak gerekir olduğunu unutmayın. Yukarıdaki örnekte bkz.<br>En fazla uzunluk: 50 |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| userDescription |Başlangıç kataloğu metinsel tanımlayıcısı. Boşluklar kullanırsanız, % 20 yerine kodlamak gerekir olduğunu unutmayın. Yukarıdaki örnekte bkz.<br>En fazla uzunluk: 50 |
 | apiVersion |1.0 |
 |  | |
-| İstek Gövdesi |Boş bırakılırsa varsayılan derleme parametrelerle yapı yürütülür.<br><br>Yapı parametreleri ayarlamak istiyorsanız, parametreleri aşağıdaki örnekteki gibi gövdesine XML olarak gönderin. (Bir açıklama parametreleri için "parametreler derleme" bölümüne bakın.)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+| İstek Gövdesi |Boş bırakılırsa hello yapı hello varsayılan derleme parametrelerle yürütülür.<br><br>Hello parametreleri XML olarak tooset hello yapı parametreleri isterseniz, örnek aşağıdaki hello olduğu gibi hello gövdesine gönderin. (Merhaba parametreleri bir açıklaması için hello "yapı parametreleri" bölümüne bakın.)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Yanıt**:
 
 HTTP durum kodu: 200
 
-Bu zaman uyumsuz bir API'dir. Yanıt olarak bir yapı kimliği alırsınız. Derleme sona erdiğinde bilmek için "Get derlemeler durumu bir modelin" API çağrısı ve yanıtta bu derleme Kimliğini bulun. Saatlik veri boyutuna bağlı olarak bir yapı dakika arasında sürebilir unutmayın.
+Bu zaman uyumsuz bir API'dir. Yanıt olarak bir yapı kimliği alırsınız. Merhaba derleme sona erdiğinde tooknow hello "Get derlemeler durumu bir modelin" API çağrısı ve gerekir bulun hello yanıtta bu derleme kimliği. Bir yapı dakika toohours hello hello verilerin boyutuna bağlı olarak gelen alabileceğine dikkat edin.
 
-Önerileri kasa yapı kullanamayacaklarını sona erer.
+Merhaba yapı kadar sona erer önerileri kullanamayacaklarını.
 
 Geçerli yapı durumu:
 
@@ -1892,9 +1892,9 @@ Geçerli yapı durumu:
 * Başarılı - yapı başarılı bir şekilde sona erdi.
 * Hata - derleme bir hata ile sona erdi.
 * İptal - derleme iptal edildi.
-* İptal etme - yapı için bir iptal etme isteği gönderildi.
+* İptal etme - hello yapı için bir iptal etme isteği gönderildi.
 
-Derleme kimliği şu yolun altında bulunabilir dikkat edin:`Feed\entry\content\properties\Id`
+Kimliği yolu izleyerek hello altında bulunabilir bu hello yapı dikkat edin:`Feed\entry\content\properties\Id`
 
 OData XML
 
@@ -1941,22 +1941,22 @@ OData XML
 | YAYINLA |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27` |
 | ÜSTBİLGİ |`"Content-Type", "text/xml"`(İstek gövdesi gönderiliyorsa) |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| userDescription |Katalog metinsel tanımlayıcısı. Boşluklar kullanırsanız, % 20 yerine kodlamak gerekir olduğunu unutmayın. Yukarıdaki örnekte bkz.<br>En fazla uzunluk: 50 |
-| buildType |Çağrılacak yapı türü: <br/> -Öneri yapı ' Önerisi' <br> -'Rank derleme için sıralaması' <br/> -FBT yapı için ' Fbt' |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| userDescription |Başlangıç kataloğu metinsel tanımlayıcısı. Boşluklar kullanırsanız, % 20 yerine kodlamak gerekir olduğunu unutmayın. Yukarıdaki örnekte bkz.<br>En fazla uzunluk: 50 |
+| buildType |Merhaba yapı tooinvoke türü: <br/> -Öneri yapı ' Önerisi' <br> -'Rank derleme için sıralaması' <br/> -FBT yapı için ' Fbt' |
 | apiVersion |1.0 |
 |  | |
-| İstek Gövdesi |Boş bırakılırsa varsayılan derleme parametrelerle yapı yürütülür.<br><br>Aşağıdaki örnekteki gibi gövdesine yapı parametreleri ayarlamak istiyorsanız, bunları XML olarak gönderin. (Bir açıklama ve parametrelerin tam listesi için "parametreler oluşturma" bölümüne bakın.)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+| İstek Gövdesi |Boş bırakılırsa hello yapı hello varsayılan derleme parametrelerle yürütülür.<br><br>Merhaba gövdesinde gibi örnek aşağıdaki hello içine tooset yapı parametreleri istiyorsanız, bunları XML olarak gönderin. (Bir açıklama ve hello parametrelerin tam listesi için hello "yapı parametreleri" bölümüne bakın.)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Yanıt**:
 
 HTTP durum kodu: 200
 
-Bu zaman uyumsuz bir API'dir. Yanıt olarak bir yapı kimliği alırsınız. Derleme sona erdiğinde bilmek için "Get derlemeler durumu bir modelin" API çağrısı ve yanıtta bu derleme Kimliğini bulun. Saatlik veri boyutuna bağlı olarak bir yapı dakika arasında sürebilir unutmayın.
+Bu zaman uyumsuz bir API'dir. Yanıt olarak bir yapı kimliği alırsınız. Merhaba derleme sona erdiğinde tooknow hello "Get derlemeler durumu bir modelin" API çağrısı ve gerekir bulun hello yanıtta bu derleme kimliği. Bir yapı dakika toohours hello hello verilerin boyutuna bağlı olarak gelen alabileceğine dikkat edin.
 
-Önerileri kasa yapı kullanamayacaklarını sona erer.
+Merhaba yapı kadar sona erer önerileri kullanamayacaklarını.
 
 Geçerli yapı durumu:
 
@@ -1968,7 +1968,7 @@ Geçerli yapı durumu:
 * İptal - derleme iptal edildi.
 * İptal etme - derleme iptal edildi.
 
-Derleme kimliği şu yolun altında bulunabilir dikkat edin:`Feed\entry\content\properties\Id`
+Kimliği yolu izleyerek hello altında bulunabilir bu hello yapı dikkat edin:`Feed\entry\content\properties\Id`
 
 OData XML
 
@@ -2019,31 +2019,31 @@ Yapılar ve belirtilen bir model için durumlarını alır.
 |:--- |:--- |
 | AL |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| onlyLastBuild |Modelin tüm yapı geçmiş veya yalnızca en son yapı durumunu döndürülmeyeceğini gösterir |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| onlyLastBuild |Gösteren tüm hello tooreturn hello modeli geçmişini ya da hello en son yapı yalnızca hello durumunu derleme |
 | apiVersion |1.0 |
 
 **Yanıt**:
 
 HTTP durum kodu: 200
 
-Yanıt yapı her bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt yapı her bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
-* `feed/entry/content/properties/UserName`-Kullanıcı adı.
-* `feed/entry/content/properties/ModelName`-Modelin adı.
+* `feed/entry/content/properties/UserName`-Hello kullanıcı adı.
+* `feed/entry/content/properties/ModelName`-Hello model adı.
 * `feed/entry/content/properties/ModelId`-Model benzersiz tanımlayıcısı.
-* `feed/entry/content/properties/IsDeployed`-Derleme (paketini dağıtılan olup olmadığı Etkin yapı).
+* `feed/entry/content/properties/IsDeployed`-Olup hello yapı (paketini dağıtılır Etkin yapı).
 * `feed/entry/content/properties/BuildId`-Benzersiz tanımlayıcısı oluşturun.
-* `feed/entry/content/properties/BuildType`-Yapı türü.
-* `feed/entry/content/properties/Status`-Durum oluşturun. Şunlardan biri olabilir: hata, yapı, sıraya alınan, Cancelling, iptal edildi, başarılı.
-* `feed/entry/content/properties/StatusMessage`-Ayrıntılı durum iletisi (yalnızca belirli durumlar için geçerlidir).
+* `feed/entry/content/properties/BuildType`-Hello yapı türü.
+* `feed/entry/content/properties/Status`-Durum oluşturun. Merhaba aşağıdakilerden biri olabilir: hata, yapı, sıraya alınan, Cancelling, iptal edildi, başarılı.
+* `feed/entry/content/properties/StatusMessage`-Ayrıntılı durum iletisi (yalnızca toospecific durumlar geçerlidir).
 * `feed/entry/content/properties/Progress`-İlerleme durumu (%) oluşturun.
 * `feed/entry/content/properties/StartTime`-Başlangıç saati oluşturun.
 * `feed/entry/content/properties/EndTime`-Bitiş saati oluşturun.
 * `feed/entry/content/properties/ExecutionTime`-Yapı süresi.
-* `feed/entry/content/properties/ProgressStep`-Devam eden bir derleme geçerli aşamasını hakkında ayrıntılar.
+* `feed/entry/content/properties/ProgressStep`-Devam eden bir derleme geçerli aşamasını hello hakkında ayrıntılar.
 
 Geçerli yapı durumu:
 
@@ -2103,30 +2103,30 @@ Alır, bir kullanıcının tüm modellerin durumlar oluşturun.
 |:--- |:--- |
 | AL |`<rootURI>/GetUserBuildsStatus?onlyLastBuilds=<bool>&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/GetUserBuildsStatus?onlyLastBuilds=true&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| onlyLastBuild |Modelin tüm yapı geçmiş veya yalnızca en son yapı durumunu döndürülmeyeceğini gösterir. |
+| onlyLastBuild |Gösteren tüm hello tooreturn hello modeli geçmişini ya da hello en son yapı yalnızca hello durumunu derleme. |
 | apiVersion |1.0 |
 
 **Yanıt**:
 
 HTTP durum kodu: 200
 
-Yanıt yapı her bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt yapı her bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
-* `feed/entry/content/properties/UserName`-Kullanıcı adı.
-* `feed/entry/content/properties/ModelName`-Modelin adı.
+* `feed/entry/content/properties/UserName`-Hello kullanıcı adı.
+* `feed/entry/content/properties/ModelName`-Hello model adı.
 * `feed/entry/content/properties/ModelId`-Model benzersiz tanımlayıcısı.
-* `feed/entry/content/properties/IsDeployed`-Yapı olup dağıtılır.
+* `feed/entry/content/properties/IsDeployed`-Olup hello yapı dağıtılır.
 * `feed/entry/content/properties/BuildId`-Benzersiz tanımlayıcısı oluşturun.
-* `feed/entry/content/properties/BuildType`-Yapı türü.
-* `feed/entry/content/properties/Status`-Durum oluşturun. Şunlardan biri olabilir: hata, yapı, sıraya alınan, iptal edildi, Cancelling, başarılı.
-* `feed/entry/content/properties/StatusMessage`-Ayrıntılı durum iletisi (yalnızca belirli durumlar için geçerlidir).
+* `feed/entry/content/properties/BuildType`-Hello yapı türü.
+* `feed/entry/content/properties/Status`-Durum oluşturun. Merhaba aşağıdakilerden biri olabilir: hata, yapı, sıraya alınan, iptal edildi, Cancelling, başarılı.
+* `feed/entry/content/properties/StatusMessage`-Ayrıntılı durum iletisi (yalnızca toospecific durumlar geçerlidir).
 * `feed/entry/content/properties/Progress`-İlerleme durumu (%) oluşturun.
 * `feed/entry/content/properties/StartTime`-Başlangıç saati oluşturun.
 * `feed/entry/content/properties/EndTime`-Bitiş saati oluşturun.
 * `feed/entry/content/properties/ExecutionTime`-Yapı süresi.
-* `feed/entry/content/properties/ProgressStep`-Devam eden bir derleme geçerli aşamasını hakkında ayrıntılar.
+* `feed/entry/content/properties/ProgressStep`-Devam eden bir derleme geçerli aşamasını hello hakkında ayrıntılar.
 
 Geçerli yapı durumu:
 
@@ -2182,15 +2182,15 @@ OData XML
 ### <a name="116-delete-build"></a>11.6. Yapı Sil
 Bir yapı siler.
 
-NOT: <br>Etkin bir yapı silemezsiniz. Silmeden önce model için farklı bir etkin yapı güncelleştirilmesi gerekir.<br>Devam eden yapı silemezsiniz. Yapı ilk çağırarak iptal <strong>iptal yapı</strong>.
+NOT: <br>Etkin bir yapı silemezsiniz. Merhaba modeli olmalıdır tooa farklı etkin yapı silmeden önce güncelleştirildi.<br>Devam eden yapı silemezsiniz. Merhaba yapı ilk çağırarak iptal <strong>iptal yapı</strong>.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | SİL |`<rootURI>/DeleteBuild?buildId=%27<buildId>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/DeleteBuild?buildId=%271500068%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| Buildıd |Yapı benzersiz tanımlayıcısı. |
+| Buildıd |Merhaba yapı benzersiz tanımlayıcısı. |
 | apiVersion |1.0 |
 
 **Yanıtı:**
@@ -2204,9 +2204,9 @@ Durum oluşturulmasında, bir derlemede iptal eder.
 |:--- |:--- |
 | PUT |`<rootURI>/CancelBuild?buildId=%27<buildId>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/CancelBuild?buildId=%271500076%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| Buildıd |Yapı benzersiz tanımlayıcısı. |
+| Buildıd |Merhaba yapı benzersiz tanımlayıcısı. |
 | apiVersion |1.0 |
 
 **Yanıtı:**
@@ -2220,9 +2220,9 @@ Alır parametreleri oluşturun.
 |:--- |:--- |
 | AL |`<rootURI>/GetBuildParameters?buildId=%27<buildId>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/GetBuildParameters?buildId=%271000653%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| Buildıd |Yapı benzersiz tanımlayıcısı. |
+| Buildıd |Merhaba yapı benzersiz tanımlayıcısı. |
 | apiVersion |1.0 |
 
 **Yanıtı:**
@@ -2234,23 +2234,23 @@ Bu API anahtar/değer öğe koleksiyonunu döndürür. Her öğe bir parametre v
 * `feed/entry/content/properties/Key`-Parametre adı oluşturun.
 * `feed/entry/content/properties/Value`-Parametre değeri oluşturun.
 
-Aşağıdaki tabloda her anahtar gösteren bir değer gösterir.
+Merhaba tabloda her anahtar temsil eden hello değeri gösterir.
 
 | Anahtar | Açıklama | Tür | Geçerli bir değer |
 |:--- |:--- |:--- |:--- |
-| NumberOfModelIterations |Model gerçekleştirir yineleme sayısını, toplam işlem süresi ve model doğruluğundan tarafından yansıtılır. Sayı, daha iyi doğruluğu, daha yüksek alırsınız, ancak işlem süresini daha uzun sürer. |Tamsayı |10-50 |
-| NumberOfModelDimensions |Dimensions sayısı 'model verilerinizi bulmayı dener Özellikleri' sayısı ile ilgilidir. Boyut sayısını artırmayı sonuçlarını daha küçük kümeler halinde daha iyi ince ayar izin verir. Ancak, çok fazla boyutları bulmalarını bağıntıları öğeleri arasında model engeller. |Tamsayı |10-40 |
-| ItemCutOffLowerBound |Kondansatör öğesi alt sınırını tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
-| ItemCutOffUpperBound |Kondansatör öğesi üst sınırını tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
-| UserCutOffLowerBound |Kondansatör kullanıcı alt sınırını tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
-| UserCutOffUpperBound |Kondansatör kullanıcı üst sınırını tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
+| NumberOfModelIterations |Merhaba hello modeli gerçekleştirir yineleme sayısını hello tarafından yansıtılan zaman ve hello model doğruluğundan genel işlem. Merhaba daha yüksek hello sayı, hello daha iyi doğruluk alırsınız, ancak hello hesaplamak için daha uzun sürer. |Tamsayı |10-50 |
+| NumberOfModelDimensions |Merhaba dimensions sayısı 'Özellikler' hello modeli toohello sayısı toofind verilerinizi içinde deneyecek ilişkilendirir. Boyutlar Hello sayısını artırmayı daha iyi hello sonuçlarını daha küçük kümeler halinde hassas ayar yapma izin verir. Ancak, çok fazla boyutları bulmalarını bağıntıları öğeleri arasında hello modeli engeller. |Tamsayı |10-40 |
+| ItemCutOffLowerBound |Merhaba öğesi alt sınır hello Kondansatör için tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
+| ItemCutOffUpperBound |Merhaba öğesi üst sınır hello Kondansatör için tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
+| UserCutOffLowerBound |Merhaba kullanıcı alt sınır hello Kondansatör için tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
+| UserCutOffUpperBound |Merhaba kullanıcı üst sınır hello Kondansatör için tanımlar. Yukarıdaki kullanım Kondansatör bakın. |Tamsayı |2 veya daha fazla (0 Kondansatör devre dışı) |
 | Açıklama |Açıklama oluşturun. |Dize |Herhangi bir metin en çok 512 karakter |
-| EnableModelingInsights |Öneri model ölçülerine işlem olanak tanır. |Boole değeri |True/False |
-| UseFeaturesInModel |Özellikler öneri modeli geliştirmek için kullanılıp kullanılamayacağını belirtir. |Boole değeri |True/False |
-| ModelingFeatureList |Öneri derlemede öneri geliştirmek için kullanılan özellik adlarının virgülle ayrılmış listesi. |Dize |En çok 512 karakter adları özelliği |
-| AllowColdItemPlacement |Öneri de soğuk öğeleri özelliği benzerlik anında varsa gösterir. |Boole değeri |True/False |
+| EnableModelingInsights |Merhaba öneri model üzerinde toocompute ölçümleri sağlar. |Boole değeri |True/False |
+| UseFeaturesInModel |Özellikler sipariş tooenhance hello öneri modelinde kullandıysanız gösterir. |Boole değeri |True/False |
+| ModelingFeatureList |Sipariş tooenhance hello öneri de hello öneri derlemede kullanılan özellik adları toobe virgülle ayrılmış listesi. |Dize |Özellik adlarını, too512 karakter |
+| AllowColdItemPlacement |Hello öneri de soğuk öğeleri özelliği benzerlik anında olmadığını gösterir. |Boole değeri |True/False |
 | EnableFeatureCorrelation |Mantığı içinde kullanılabilir özellikleri gösterir. |Boole değeri |True/False |
-| ReasoningFeatureList |Tümceler (örn. öneri açıklamaları) akıl için kullanılacak özellik adlarının virgülle ayrılmış listesi. |Dize |En çok 512 karakter adları özelliği |
+| ReasoningFeatureList |Tümceler (örn. öneri açıklamaları) akıl için kullanılan özellik adları toobe virgülle ayrılmış listesi. |Dize |Özellik adlarını, too512 karakter |
 
 OData XML
 
@@ -2421,16 +2421,16 @@ OData XML
 
 ## <a name="12-recommendation"></a>12. Öneri
 ### <a name="121-get-item-recommendations-for-active-build"></a>12.1. (İçin etkin yapı) öğesi öneriler alın
-"Öneri" etkin yapı türü önerileri alın veya "Fbt" oluştururken Çekirdeği (giriş) öğelerinin bir listesini esas.
+"Öneri" Merhaba etkin yapı türü önerileri alın veya "Fbt" oluştururken Çekirdeği (giriş) öğelerinin bir listesini esas.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| öğe kimliklerinin |Virgülle ayrılmış bir liste öğesi için önerilir. <br>Etkin yapı türü FBT ise, yalnızca bir öğe gönderebilirsiniz. <br>En fazla uzunluk: 1024 |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| öğe kimliklerinin |Merhaba öğeleri toorecommend için virgülle ayrılmış listesi. <br>Merhaba etkin yapı ise yalnızca bir öğe gönderebilirsiniz sonra FBT yazın. <br>En fazla uzunluk: 1024 |
 | numberOfResults |Gerekli sonuç sayısı <br> En fazla: 150 |
 | includeMetatadata |Gelecekte kullanmak, her zaman yanlış |
 | apiVersion |1.0 |
@@ -2439,14 +2439,14 @@ OData XML
 
 HTTP durum kodu: 200
 
-Yanıt önerilen öğe başına bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt önerilen öğe başına bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
 * `Feed\entry\content\properties\Id`-Önerilen öğesi kimliği
-* `Feed\entry\content\properties\Name`-Öğesinin adı.
-* `Feed\entry\content\properties\Rating`-Öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
+* `Feed\entry\content\properties\Name`-Hello öğesinin adı.
+* `Feed\entry\content\properties\Rating`-Hello öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
 * `Feed\entry\content\properties\Reasoning`-Öneri (örn. öneri açıklamaları) akıl.
 
-Aşağıdaki örnek yanıt 10 önerilen öğeler içeriyor.
+Aşağıdaki örnek yanıt Hello 10 önerilen öğeleri içerir.
 
 OData XML
 
@@ -2606,41 +2606,41 @@ Belli bir yapı türü "Öneri" veya "Fbt" öneriler alın.
 |:--- |:--- |
 | AL |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&buildId=1234&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| öğe kimliklerinin |Virgülle ayrılmış bir liste öğesi için önerilir. <br>Etkin yapı türü FBT ise, yalnızca bir öğe gönderebilirsiniz. <br>En fazla uzunluk: 1024 |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| öğe kimliklerinin |Merhaba öğeleri toorecommend için virgülle ayrılmış listesi. <br>Merhaba etkin yapı ise yalnızca bir öğe gönderebilirsiniz sonra FBT yazın. <br>En fazla uzunluk: 1024 |
 | numberOfResults |Gerekli sonuç sayısı <br> En fazla: 150 |
 | includeMetatadata |Gelecekte kullanmak, her zaman yanlış |
-| Buildıd |Bu öneri isteği için kullanmak için derleme kimliği |
+| Buildıd |Bu öneri istek kimliği toouse Hello derleme |
 | apiVersion |1.0 |
 
 **Yanıtı:**
 
 HTTP durum kodu: 200
 
-Yanıt önerilen öğe başına bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt önerilen öğe başına bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
 * `Feed\entry\content\properties\Id`-Önerilen öğesi kimliği
-* `Feed\entry\content\properties\Name`-Öğesinin adı.
-* `Feed\entry\content\properties\Rating`-Öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
+* `Feed\entry\content\properties\Name`-Hello öğesinin adı.
+* `Feed\entry\content\properties\Rating`-Hello öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
 * `Feed\entry\content\properties\Reasoning`-Öneri (örn. öneri açıklamaları) akıl.
 
 12,1 yanıt örnekte bkz:
 
 ### <a name="123-get-fbt-recommendations-for-active-build"></a>12.3. (İçin etkin yapı) FBT öneriler alın
-Bir çekirdek (giriş) öğesi "Fbt" temel türü etkin yapı öneriler alın.
+Bir çekirdek (giriş) öğesi "Fbt" temel türü hello etkin yapı öneriler alın.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/ItemFbtRecommend?modelId=%27<modelId>%27&itemId=%27<itemId>%27&numberOfResults=<int>&minimalScore=<double>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/ItemFbtRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemId=%271003%27&numberOfResults=10&minimalScore=<double>&includeMetadata=false&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| öğe kimliği |Öğesi için önermek için. <br>En fazla uzunluk: 1024 |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| öğe kimliği |Öğe toorecommend için. <br>En fazla uzunluk: 1024 |
 | numberOfResults |Gerekli sonuç sayısı <br>En fazla: 150 |
-| minimalScore |Döndürülen sonuçların dahil edilmesi için sık kümesine sahip olması gerekir en az puan |
+| minimalScore |Sık kümesi hello dahil sipariş toobe içinde döndürülen en az puan sonuçları |
 | includeMetatadata |Gelecekte kullanmak, her zaman yanlış |
 | apiVersion |1.0 |
 
@@ -2648,16 +2648,16 @@ Bir çekirdek (giriş) öğesi "Fbt" temel türü etkin yapı öneriler alın.
 
 HTTP durum kodu: 200
 
-Yanıt önerilen öğesi kümesi (genellikle çekirdek/giriş öğesi ile birlikte satın öğeleri kümesi) her bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt önerilen öğesi kümesi (genellikle hello çekirdek/giriş öğesi ile birlikte satın öğeleri kümesi) her bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
 * `Feed\entry\content\properties\Id1`-Önerilen öğesi kimliği
-* `Feed\entry\content\properties\Name1`-Öğesinin adı.
+* `Feed\entry\content\properties\Name1`-Hello öğesinin adı.
 * `Feed\entry\content\properties\Id2`-2 önerilen öğesi kimliği (isteğe bağlı).
-* `Feed\entry\content\properties\Name2`-(İsteğe bağlı) 2 öğesinin adı.
-* `Feed\entry\content\properties\Rating`-Öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
+* `Feed\entry\content\properties\Name2`-Öğesinin adı hello 2 (isteğe bağlı).
+* `Feed\entry\content\properties\Rating`-Hello öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
 * `Feed\entry\content\properties\Reasoning`-Öneri (örn. öneri açıklamaları) akıl.
 
-Aşağıdaki örnek yanıt 3 önerilen öğesi kümeleri içeriyor.
+Merhaba örnek yanıt aşağıdaki 3 önerilen öğesi ayarlar içerir.
 
 OData XML
 
@@ -2725,27 +2725,27 @@ Belli bir yapı türü "Fbt" öneriler alın.
 |:--- |:--- |
 | AL |`<rootURI>/ItemFbtRecommend?modelId=%27<modelId>%27&itemId=%27<itemId>%27&numberOfResults=<int>&minimalScore=<double>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/ItemFbtRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemId=%271003%27&numberOfResults=10&minimalScore=0.1&includeMetadata=false&buildId=1234&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| öğe kimliği |Öğesi için önermek için. <br>En fazla uzunluk: 1024 |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| öğe kimliği |Öğe toorecommend için. <br>En fazla uzunluk: 1024 |
 | numberOfResults |Gerekli sonuç sayısı <br>En fazla: 150 |
-| minimalScore |Döndürülen sonuçların dahil edilmesi için sık kümesine sahip olması gerekir en az puan |
+| minimalScore |Sık kümesi hello dahil sipariş toobe içinde döndürülen en az puan sonuçları |
 | includeMetatadata |Gelecekte kullanmak, her zaman yanlış |
-| Buildıd |Bu öneri isteği için kullanmak için derleme kimliği |
+| Buildıd |Bu öneri istek kimliği toouse Hello derleme |
 | apiVersion |1.0 |
 
 **Yanıtı:**
 
 HTTP durum kodu: 200
 
-Yanıt önerilen öğesi kümesi (genellikle çekirdek/giriş öğesi ile birlikte satın öğeleri kümesi) her bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt önerilen öğesi kümesi (genellikle hello çekirdek/giriş öğesi ile birlikte satın öğeleri kümesi) her bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
 * `Feed\entry\content\properties\Id1`-Önerilen öğesi kimliği
-* `Feed\entry\content\properties\Name1`-Öğesinin adı.
+* `Feed\entry\content\properties\Name1`-Hello öğesinin adı.
 * `Feed\entry\content\properties\Id2`-2 önerilen öğesi kimliği (isteğe bağlı).
-* `Feed\entry\content\properties\Name2`-(İsteğe bağlı) 2 öğesinin adı.
-* `Feed\entry\content\properties\Rating`-Öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
+* `Feed\entry\content\properties\Name2`-Öğesinin adı hello 2 (isteğe bağlı).
+* `Feed\entry\content\properties\Rating`-Hello öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
 * `Feed\entry\content\properties\Reasoning`-Öneri (örn. öneri açıklamaları) akıl.
 
 12.3 yanıt örnekte bkz:
@@ -2753,21 +2753,21 @@ Yanıt önerilen öğesi kümesi (genellikle çekirdek/giriş öğesi ile birlik
 ### <a name="125-get-user-recommendations-for-active-build"></a>12.5. Kullanıcı öneriler alın (etkin derleme için)
 Tür "Öneri" etkin yapı işaretlenmiş bir yapı kullanıcı öneriler alın.
 
-API, kullanım geçmişine göre tahmin edilen öğesi kullanıcının listesini dönecek.
+Merhaba API hello kullanıcı toohello kullanım geçmişine göre tahmin edilen madde listesini döndürür.
 
 Notlar: 
 
 1. FBT derleme için hiçbir kullanıcı öneri yok.
-2. Etkin yapı ise, bu yöntem olacak FBT bir hata döndürür.
+2. Bu yöntem bir hata döndürür olacak FBT Hello etkin yapı ise.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| Kullanıcı Kimliği |Kullanıcının benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| Kullanıcı Kimliği |Merhaba kullanıcının benzersiz tanıtıcısı |
 | numberOfResults |Gerekli sonuç sayısı |
 | includeMetatadata |Gelecekte kullanmak, her zaman yanlış |
 | apiVersion |1.0 |
@@ -2776,11 +2776,11 @@ Notlar:
 
 HTTP durum kodu: 200
 
-Yanıt önerilen öğe başına bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt önerilen öğe başına bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
 * `Feed\entry\content\properties\Id`-Önerilen öğesi kimliği
-* `Feed\entry\content\properties\Name`-Öğesinin adı.
-* `Feed\entry\content\properties\Rating`-Öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
+* `Feed\entry\content\properties\Name`-Hello öğesinin adı.
+* `Feed\entry\content\properties\Rating`-Hello öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
 * `Feed\entry\content\properties\Reasoning`-Öneri (örn. öneri açıklamaları) akıl.
 
 12,1 yanıt örnekte bkz:
@@ -2788,22 +2788,22 @@ Yanıt önerilen öğe başına bir giriş içeriyor. Her giriş aşağıdaki ve
 ### <a name="126-get-user-recommendations-with-item-list-for-active-build"></a>12.6. Kullanıcı öneriler öğesi listesiyle (için etkin yapı) alın.
 Tür "Öneri" ek öğeler listesi ile etkin yapı olarak işaretlenmiş bir yapı kullanıcı öneriler alın
 
-API tahmin edilen öğenin kullanım geçmişine göre kullanıcının ve ek sağlanan listesini döndürür.
+Merhaba API hello kullanıcı ve hello ek sağlanan öğeleri toohello kullanım geçmişine göre tahmin edilen madde listesini döndürür.
 
 Notlar: 
 
 1. FBT derleme için hiçbir kullanıcı öneri yok.
-2. Etkin yapı ise, bu yöntem olacak FBT bir hata döndürür.
+2. Bu yöntem bir hata döndürür olacak FBT Hello etkin yapı ise.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%2C1000%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| Kullanıcı Kimliği |Kullanıcının benzersiz tanıtıcısı |
-| itemsIds |Virgülle ayrılmış bir liste öğesi için önerilir. En fazla uzunluk: 1024 |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| Kullanıcı Kimliği |Merhaba kullanıcının benzersiz tanıtıcısı |
+| itemsIds |Merhaba öğeleri toorecommend için virgülle ayrılmış listesi. En fazla uzunluk: 1024 |
 | numberOfResults |Gerekli sonuç sayısı |
 | includeMetatadata |Gelecekte kullanmak, her zaman yanlış |
 | apiVersion |1.0 |
@@ -2812,11 +2812,11 @@ Notlar:
 
 HTTP durum kodu: 200
 
-Yanıt önerilen öğe başına bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt önerilen öğe başına bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
 * `Feed\entry\content\properties\Id`-Önerilen öğesi kimliği
-* `Feed\entry\content\properties\Name`-Öğesinin adı.
-* `Feed\entry\content\properties\Rating`-Öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
+* `Feed\entry\content\properties\Name`-Hello öğesinin adı.
+* `Feed\entry\content\properties\Rating`-Hello öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
 * `Feed\entry\content\properties\Reasoning`-Öneri (örn. öneri açıklamaları) akıl.
 
 12,1 yanıt örnekte bkz:
@@ -2824,7 +2824,7 @@ Yanıt önerilen öğe başına bir giriş içeriyor. Her giriş aşağıdaki ve
 ### <a name="127-get-user-recommendations--of-a-specific-build"></a>12.7. (Biri, belirli bir yapı) kullanıcı öneriler alın
 Belli bir yapı türü "Öneri" kullanıcı öneriler alın.
 
-API, kullanım geçmişine göre tahmin edilen öğesi (belirli bir yapı içinde kullanılan) kullanıcı listesini dönecek.
+Merhaba API (Merhaba belirli derlemede kullanılan) hello kullanıcı toohello kullanım geçmişine göre tahmin edilen madde listesini döndürür.
 
 Not: FBT derleme için hiçbir kullanıcı öneri yok.
 
@@ -2832,32 +2832,32 @@ Not: FBT derleme için hiçbir kullanıcı öneri yok.
 |:--- |:--- |
 | AL |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&numberOfResults=10&includeMetadata=false&buildId=50012&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| Kullanıcı Kimliği |Kullanıcının benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| Kullanıcı Kimliği |Merhaba kullanıcının benzersiz tanıtıcısı |
 | numberOfResults |Gerekli sonuç sayısı |
 | includeMetatadata |Gelecekte kullanmak, her zaman yanlış |
-| Buildıd |Bu öneri isteği için kullanmak için derleme kimliği |
+| Buildıd |Bu öneri istek kimliği toouse Hello derleme |
 | apiVersion |1.0 |
 
 **Yanıtı:**
 
 HTTP durum kodu: 200
 
-Yanıt önerilen öğe başına bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt önerilen öğe başına bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
 * `Feed\entry\content\properties\Id`-Önerilen öğesi kimliği
-* `Feed\entry\content\properties\Name`-Öğesinin adı.
-* `Feed\entry\content\properties\Rating`-Öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
+* `Feed\entry\content\properties\Name`-Hello öğesinin adı.
+* `Feed\entry\content\properties\Rating`-Hello öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
 * `Feed\entry\content\properties\Reasoning`-Öneri (örn. öneri açıklamaları) akıl.
 
 12,1 yanıt örnekte bkz:
 
 ### <a name="128-get-user-recommendations-with-item-list-of-a-specific-build"></a>12.8. Öğe listesi (belirli bir yapı) ile kullanıcı öneriler alın
-Belirli bir yapı türü "Öneri" kullanıcı öneriler ve ek öğelerin listesini alın.
+Belirli bir yapı türü "Öneri" kullanıcı öneriler ve ek öğeler hello listesini alın.
 
-API öğeleri ek listesi ve kullanım geçmişine göre tahmin edilen öğesi kullanıcının listesini döndürür.
+Merhaba API hello kullanıcı toohello kullanım geçmişini ve hello ek öğeler listesi göre tahmin edilen madde listesini döndürür.
 
 Not: Työnetici, FBT yapı için hiçbir kullanıcı önerilir.
 
@@ -2865,57 +2865,57 @@ Not: Työnetici, FBT yapı için hiçbir kullanıcı önerilir.
 |:--- |:--- |
 | AL |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&buildId=50012&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
-| Kullanıcı Kimliği |Kullanıcının benzersiz tanıtıcısı |
-| öğe kimliklerinin |Virgülle ayrılmış bir liste öğesi için önerilir. En fazla uzunluk: 1024 |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
+| Kullanıcı Kimliği |Merhaba kullanıcının benzersiz tanıtıcısı |
+| öğe kimliklerinin |Merhaba öğeleri toorecommend için virgülle ayrılmış listesi. En fazla uzunluk: 1024 |
 | numberOfResults |Gerekli sonuç sayısı |
 | includeMetatadata |Gelecekte kullanmak, her zaman yanlış |
-| Buildıd |Bu öneri isteği için kullanmak için derleme kimliği |
+| Buildıd |Bu öneri istek kimliği toouse Hello derleme |
 | apiVersion |1.0 |
 
 **Yanıtı:**
 
 HTTP durum kodu: 200
 
-Yanıt önerilen öğe başına bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt önerilen öğe başına bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
 * `Feed\entry\content\properties\Id`-Önerilen öğesi kimliği
-* `Feed\entry\content\properties\Name`-Öğesinin adı.
-* `Feed\entry\content\properties\Rating`-Öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
+* `Feed\entry\content\properties\Name`-Hello öğesinin adı.
+* `Feed\entry\content\properties\Rating`-Hello öneri derecesi; daha yüksek numarası, daha yüksek güvenilirlik anlamına gelir.
 * `Feed\entry\content\properties\Reasoning`-Öneri (örn. öneri açıklamaları) akıl.
 
 12,1 yanıt örnekte bkz:
 
 ## <a name="13-user-usage-history"></a>13. Kullanıcı Kullanım Geçmişi
-Bir öneri model oluşturulmuş bir kez sistem kullanıcı geçmişi (belirli bir kullanıcı ilişkili öğeleri) almak için izin verecektir derleme için kullanılır.
-Bu API izin kullanıcı geçmişi alınamadı
+Bir öneri model oluşturulmuş bir kez hello sistem hello derleme için kullanılan tooretrieve hello kullanıcı geçmişi (öğeleri ilişkili tooa belirli kullanıcı) izin verir.
+Bu API izin tooretrieve hello kullanıcı geçmişi
 
-Not: kullanıcı geçmişi yalnızca öneri derlemeler için şu anda büyük/küçük harf yok.
+Not: hello kullanıcı geçmişi yalnızca öneri derlemeler için şu anda büyük/küçük harf yok.
 
 ### <a name="131-retrieve-user-history"></a>13,1 kullanıcı geçmişi alma
-Etkin yapı veya belirtilen yapı belirtilen kullanıcı kimliği için kullanılan öğesi listesini alır.
+Alma hello hello etkin kullanılan öğe listesi oluşturmak veya kullanıcı kimliği verilen hello için belirtilen hello oluşturabilirsiniz.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
-| AL |Kullanıcı geçmişi için etkin yapı alın.<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>Verilen derleme için kullanıcı geçmişini alma`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>Örnek:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277` |
+| AL |Merhaba kullanıcı geçmişi hello etkin yapı için alın.<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>Yapı verilen Merhaba Hello kullanıcı geçmişini alma`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>Örnek:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |model benzersiz tanımlayıcısı. |
-| Kullanıcı Kimliği |kullanıcının benzersiz tanıtıcısı. |
-| Buildıd |İsteğe bağlı bir parametre hangi yapıdan getirme kullanıcı geçmişi olmalıdır belirtmek için izin ver |
+| modelId |Merhaba hello modelinin benzersiz tanımlayıcısı. |
+| Kullanıcı Kimliği |Merhaba hello kullanıcının benzersiz tanımlayıcısı. |
+| Buildıd |İsteğe bağlı bir parametre hangi yapıdan hello kullanıcı geçmişi fetch olmalıdır tooindicate izin ver |
 | apiVersion |1.0 |
 
 **Yanıtı:**
 
 HTTP durum kodu: 200
 
-Yanıt önerilen öğe başına bir giriş içeriyor. Her giriş aşağıdaki veriler vardır:
+Merhaba yanıt önerilen öğe başına bir giriş içerir. Her giriş verileri aşağıdaki hello sahiptir:
 
 * `Feed\entry\content\properties\Id`-Önerilen öğesi kimliği
-* `Feed\entry\content\properties\Name`-Öğesinin adı.
+* `Feed\entry\content\properties\Name`-Hello öğesinin adı.
 * `Feed\entry\content\properties\Rating`-YOK.
 * `Feed\entry\content\properties\Reasoning`-YOK.
 
@@ -2947,22 +2947,22 @@ OData XML
 </feed>
 
 ## <a name="14-notifications"></a>14. Bildirimler
-Sistemde kalıcı hata oluştuğunda azure Machine Learning önerileri bildirimleri oluşturur. 3 bildirim türleri şunlardır:
+Hello sistemde kalıcı hata oluştuğunda azure Machine Learning önerileri bildirimleri oluşturur. 3 bildirim türleri şunlardır:
 
 1. Derleme hatası: Bu bildirim için her derleme hatası tetiklenir.
-2. Biz 100'den fazla hataları son 5 dakika içinde bir model başına kullanım olayları işleme olduğunda veri alma hatası: Bu bildirim işleme tetiklenir.
-3. Biz 100'den fazla hataları son 5 dakika içinde bir model başına öneri istek işleme sahip olduğunuzda öneri tüketim hatası - Bu bildirim tetiklenir.
+2. Veri alma hatası: Bu bildirim işleme 100'den fazla hataları hello son 5 dakika içinde kullanım olaylarının modeli başına hello işleme sahip olduğumuz geldiğinde tetiklenir.
+3. Biz 100'den fazla hataları hello son 5 dakika içinde bir öneri istekleri modeli başına hello işlenmesini varsa öneri tüketim hatası - Bu bildirim tetiklenir.
 
 ### <a name="141-get-notifications"></a>14.1. Bildirimleri alma
-Tüm bildirimler tek bir model veya tüm modelleri için alır.
+Tek bir model veya tüm modelleri için tüm hello bildirimleri alır.
 
 | HTTP yöntemi | URI |
 |:--- |:--- |
 | AL |`<rootURI>/GetNotifications?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Tüm modelleri için tüm bildirimleri alma:<br>`<rootURI>/GetNotifications?apiVersion=%271.0%27`<br><br>Örneğin, belirli bir model için bildirimleri almak için:<br>`<rootURI>/GetNotifications?modelId=%27967136e8-f868-4258-9331-10d567f87fae%27&apiVersion=%271.0%277` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |İsteğe bağlı parametre. Atlanırsa, tüm modelleri için tüm bildirim alırsınız. <br>Geçerli değer: model benzersiz tanıtıcısı. |
+| modelId |İsteğe bağlı parametre. Atlanırsa, tüm modelleri için tüm bildirim alırsınız. <br>Geçerli değer: hello modelinin benzersiz tanımlayıcısı. |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -2973,7 +2973,7 @@ HTTP durum kodu: 200
 
 OData XML
 
-    The response includes one entry per notification. Each entry has the following data:
+    hello response includes one entry per notification. Each entry has hello following data:
         * feed\entry\content\properties\UserName - Internal user name identification.
         * feed\entry\content\properties\ModelId - Model ID.
         * feed\entry\content\properties\Message - Notification message.
@@ -3011,9 +3011,9 @@ Bir model için tüm okuma bildirimleri siler.
 |:--- |:--- |
 | SİL |`<rootURI>/DeleteModelNotifications?modelId=%<model_id>%27&apiVersion=%271.0%27`<br><br>Örnek:<br>`<rootURI>/DeleteModelNotifications?modelId=%27967136e8-f868-4258-9331-10d567f87fae%27&apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
-| modelId |Model benzersiz tanıtıcısı |
+| modelId |Merhaba modeli benzersiz tanıtıcısı |
 | apiVersion |1.0 |
 |  | |
 | İstek Gövdesi |YOK |
@@ -3029,7 +3029,7 @@ Tüm modelleri ilişkin tüm bildirimler siler.
 |:--- |:--- |
 | SİL |`<rootURI>/DeleteUserNotifications?apiVersion=%271.0%27` |
 
-| Parametre Adı | Geçerli değerler |
+| Parametre Adı | Geçerli Değerler |
 |:--- |:--- |
 | apiVersion |1.0 |
 |  | |
@@ -3042,6 +3042,6 @@ HTTP durum kodu: 200
 ## <a name="15-legal"></a>15. Yasal Bilgiler
 Bu belgede sağlanan "olarak-olan". URL ve diğer Internet Web sitesi başvuruları dahil olmak üzere bu belgede belirtilen bilgiler ve görüntüler bildirim yapılmadan değiştirilebilir.<br><br>
 Burada açıklanan bazı örnekler yalnızca çizim için sağlanmıştır ve kurgusaldır. Gerçek bir ilişki veya bağlantı amaçlanmamıştır veya çıkarılmamalıdır.<br><br>
-Bu belge, herhangi bir Microsoft ürünü üzerinde hiçbir fikri mülkiyet hakkı sağlamaz. Kopyalayabilir ve bu belgeyi şirket içinde kullanmak başvuru amaçlıdır.<br><br>
+Bu belge, herhangi bir yasal hak ile herhangi bir Microsoft ürünü üzerinde tooany fikri mülkiyet sağlamaz. Kopyalayabilir ve bu belgeyi şirket içinde kullanmak başvuru amaçlıdır.<br><br>
 © 2015 Microsoft. Tüm hakları saklıdır.
 

@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric kümesi oluşturma | Microsoft Docs"
-description: "PowerShell kullanarak Azure'da bir Windows veya Linux Service Fabric kümesi oluşturmayı öğrenin."
+title: "aaaCreate Service Fabric küme Azure'da | Microsoft Docs"
+description: "Nasıl toocreate bir Windows veya Linux Service Fabric kümesi Azure PowerShell'i kullanma hakkında bilgi edinin."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,60 +14,60 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: f62249417552b9cf840bfac3b94c27f63bd7064e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e697e2a2e99f67cb02422efdb368c664c9fd5a97
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-secure-cluster-on-azure-using-powershell"></a>PowerShell kullanarak Azure'da güvenli küme oluşturma
-Bu öğretici bir Service Fabric kümesi (Windows veya Linux) oluşturmak gösterilmiştir Azure'da çalışan. İşlemi tamamladığınızda, uygulamaları dağıtabileceğiniz bulutta çalıştıran bir kümeye sahip.
+Bu öğretici nasıl toocreate Service Fabric kümesi (Windows veya Linux) çalıştığından gösterir azure'da. İşlemi tamamladığınızda, uygulamaları dağıtabileceğiniz hello bulutta çalıştıran bir kümeye sahip.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * PowerShell kullanarak Azure'da güvenli bir Service Fabric kümesi oluştur
-> * Küme bir X.509 sertifikası ile güvenli
-> * PowerShell kullanarak kümeye bağlanma
+> * Bir X.509 sertifikası ile güvenli hello kümesi
+> * PowerShell kullanarak toohello kümesine bağlanın
 > * Bir küme Kaldır
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce:
 - Bir Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Yükleme [Service Fabric SDK ve PowerShell Modülü](service-fabric-get-started.md)
-- Yükleme [Azure Powershell modülü sürümü 4.1 veya üzeri](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+- Merhaba yüklemek [Service Fabric SDK ve PowerShell Modülü](service-fabric-get-started.md)
+- Merhaba yüklemek [Azure Powershell modülü sürümü 4.1 veya üzeri](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
-Aşağıdaki yordam (tek sanal makine) tek bir düğüm Önizleme Service Fabric kümesi oluşturur. Küme yanı sıra küme oluşturulan ve bir anahtar kasası yerleştirilen otomatik olarak imzalanan bir sertifika tarafından korunmaktadır. Tek düğümlü küme bir sanal makine genişletilemez ve önizleme kümeleri için daha yeni sürümleri yükseltilemez.
+Aşağıdaki yordamı hello (tek sanal makine) tek bir düğüm Önizleme Service Fabric kümesi oluşturur. Merhaba küme hello küme yanı sıra oluşturulan ve bir anahtar kasası yerleştirilen otomatik olarak imzalanan bir sertifika tarafından korunmaktadır. Tek düğümlü küme bir sanal makine genişletilemez ve önizleme kümeleri yükseltilmiş toonewer sürümleri kaldırılamıyor.
 
-Service Fabric kümesi Azure kullanımda çalıştırarak ücrete maliyeti hesaplamak için [Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/).
+Azure kullanım hello Service Fabric kümesi çalıştırarak ücrete toocalculate maliyet [Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/).
 Service Fabric kümeleri oluşturma hakkında daha fazla bilgi için bkz: [Azure Kaynak Yöneticisi'ni kullanarak bir Service Fabric kümesi oluştur](service-fabric-cluster-creation-via-arm.md).
 
-## <a name="create-the-cluster-using-azure-powershell"></a>Azure PowerShell kullanarak küme oluşturma
-1. Azure Resource Manager şablonu ve parametre dosyanın yerel bir kopyasını indirin [Service Fabric için Azure Resource Manager şablonu](https://aka.ms/securepreviewonelineclustertemplate) GitHub depo.  *azuredeploy.JSON* Service Fabric kümesi tanımlayan Azure Resource Manager şablonudur. *azuredeploy.Parameters.JSON* , Küme dağıtımı özelleştirmek bir parametre dosyası.
+## <a name="create-hello-cluster-using-azure-powershell"></a>Azure PowerShell kullanarak hello kümesi oluşturma
+1. Hello hello Azure Resource Manager şablonu ve hello parametre dosyası yerel bir kopyasını indirin [Service Fabric için Azure Resource Manager şablonu](https://aka.ms/securepreviewonelineclustertemplate) GitHub depo.  *azuredeploy.JSON* tanımlayan bir Service Fabric kümesi hello Azure Resource Manager şablonudur. *azuredeploy.Parameters.JSON* toocustomize hello Küme dağıtımı sizin için bir parametre dosyası olduğunu.
 
-2. Aşağıdaki parametreleri özelleştirmek *azuredeploy.parameters.json* parametreler dosyası:
+2. Merhaba parametrelerinde aşağıdaki hello özelleştirme *azuredeploy.parameters.json* parametreler dosyası:
 
    | Parametre       | Açıklama | Önerilen Değer |
    | --------------- | ----------- | --------------- |
-   | clusterLocation | Küme dağıtılacağı Azure bölgesi. | *Örneğin, westeurope, eastasia, eastus* |
-   | clusterName     | Oluşturmak istediğiniz küme adıdır. | *Örneğin, bobs sfpreviewcluster* |
-   | adminUserName   | Küme sanal makinelerde yerel yönetici hesabı. | *Herhangi bir geçerli Windows Server kullanıcı adı* |
-   | Admınpassword   | Küme sanal makinelerde yerel yönetici hesabının parolası. | *Geçerli bir Windows Server parola* |
-   | clusterCodeVersion | Çalıştırmak üzere Service Fabric sürümü. (255.255.X.255 Önizleme sürümleri). | **255.255.5718.255** |
-   | vmInstanceCount | (1 ya da 3-99 olabilir), kümedeki sanal makine sayısı. | **1** | *Önizleme küme için yalnızca bir sanal makine belirtin* |
+   | clusterLocation | Hello Azure bölgesi toowhich toodeploy hello küme. | *Örneğin, westeurope, eastasia, eastus* |
+   | clusterName     | Ad hello kümesinin toocreate istiyor. | *Örneğin, bobs sfpreviewcluster* |
+   | adminUserName   | Merhaba küme sanal makinelerde Hello yerel yönetici hesabı. | *Herhangi bir geçerli Windows Server kullanıcı adı* |
+   | Admınpassword   | Hello hello küme sanal makinelerde yerel yönetici hesabının parolası. | *Geçerli bir Windows Server parola* |
+   | clusterCodeVersion | Merhaba Service Fabric sürümü toorun. (255.255.X.255 Önizleme sürümleri). | **255.255.5718.255** |
+   | vmInstanceCount | sanal makineler (1 ya da 3-99 olabilir) kümenizdeki Hello sayısı. | **1** | *Önizleme küme için yalnızca bir sanal makine belirtin* |
 
-3. Azure, oturum açma bir PowerShell konsolu açın ve kümede dağıtmak istediğiniz aboneliği seçin:
+3. Bir PowerShell konsol, oturum açma tooAzure açın ve toodeploy hello küme istediğiniz hello aboneliği seçin:
 
    ```powershell
    Login-AzureRmAccount
    Select-AzureRmSubscription -SubscriptionId <subscription-id>
    ```
-4. Oluşturma ve Service Fabric tarafından kullanılmak üzere sertifika için bir parola şifreleyebilirsiniz.
+4. Oluşturma ve Service Fabric tarafından kullanılan hello sertifika toobe için bir parola şifreleyebilirsiniz.
 
    ```powershell
    $pwd = "<your password>" | ConvertTo-SecureString -AsPlainText -Force
    ```
-5. Küme ve sertifikasını aşağıdaki komutu çalıştırarak oluşturun:
+5. Merhaba küme ve sertifikasını hello aşağıdaki komutu çalıştırarak oluşturun:
 
    ```powershell
       New-AzureRmServiceFabricCluster
@@ -80,28 +80,28 @@ Service Fabric kümeleri oluşturma hakkında daha fazla bilgi için bkz: [Azure
    ```
 
    >[!NOTE]
-   >`-CertificateSubjectName` Parametre Hizala gibi seçtiğiniz bir Azure bölgesine bağlı etki alanının yanı sıra Parametreler dosyasında belirtilen clusterName parametresi: `clustername.eastus.cloudapp.azure.com`.
+   >Merhaba `-CertificateSubjectName` parametre Hizala hello Parametreler dosyasında belirtilen hello clusterName parametresiyle, de etki alanına bağlı toohello Azure bölgesi hello gibi gibi seçtiğiniz: `clustername.eastus.cloudapp.azure.com`.
 
-Yapılandırma tamamlandıktan sonra Azure içinde oluşturulan küme bilgilerini çıkarır. Ayrıca bu parametre için belirtilen yol - CertificateOutputFolder dizinine küme sertifika kopyalar. Service Fabric Explorer erişmek ve kümenizi durumunu görüntülemek için bu sertifika gerekir.
+Merhaba Yapılandırma tamamlandıktan sonra Azure içinde oluşturulan hello küme bilgilerini çıkarır. Ayrıca, bu parametre için belirtilen hello yolunda hello küme sertifika toohello - CertificateOutputFolder dizin kopyalar. Bu sertifika tooaccess kümenizi Service Fabric Explorer ve görünüm hello durumunu gerekir.
 
-Aşağıdaki URL'ye benzer kümenizi URL'sini not edin: *https://mycluster.westeurope.cloudapp.azure.com:19080*
+Benzer toohello olabilir, kümeniz hello URL'sini not edin URL aşağıdaki: *https://mycluster.westeurope.cloudapp.azure.com:19080*
 
-## <a name="modify-the-certificate--access-service-fabric-explorer"></a>Service Fabric Explorer erişim & sertifika Değiştir ##
+## <a name="modify-hello-certificate--access-service-fabric-explorer"></a>Service Fabric Explorer erişim & Hello sertifika Değiştir ##
 
-1. Sertifika Alma Sihirbazı'nı açmak için sertifikayı çift tıklatın.
+1. Merhaba sertifika tooopen hello Sertifika Alma Sihirbazı'nı çift tıklatın.
 
-2. Varsayılan ayarları kullanır, ancak denetlediğinizden emin olun **bu anahtarı verilebilir olarak işaretle.** onay kutusunu içinde **özel anahtar korumasını** adım. Azure kapsayıcı kayıt defteri için daha sonra Bu öğreticide Service Fabric kümesi kimlik doğrulamasını yapılandırırken sertifika vermek Visual Studio gerekir.
+2. Varsayılan ayarları kullanır, ancak emin toocheck hello olun **bu anahtarı verilebilir olarak işaretle.** onay kutusuna hello **özel anahtar korumasını** adım. Visual Studio, Azure kapsayıcı kayıt defteri tooService doku küme kimlik doğrulaması daha sonra Bu öğreticide yapılandırırken tooexport hello sertifika gerekir.
 
-3. Bu gibi durumlarda, Service Fabric Explorer şimdi bir tarayıcıda açabilirsiniz. Bunu yapmak için gidin **ManagementEndpoint** bir web tarayıcısı kullanarak kümenizi URL'sini ve makinenizde kaydedilen sertifikayı seçin.
-
->[!NOTE]
->Kendinden imzalı bir sertifika kullanıyor gibi Service Fabric Explorer açarken bir sertifika hatası bakın. Kenar içinde tıklattığınızdan sahip *ayrıntıları* ve ardından *Web sayfasına gidin* bağlantı. Chrome'tıklatmak zorunda *Gelişmiş* ve ardından *devam* bağlantı.
+3. Bu gibi durumlarda, Service Fabric Explorer şimdi bir tarayıcıda açabilirsiniz. toodo, bu nedenle, toohello gidin **ManagementEndpoint** bir web tarayıcısı ve makinenizde kaydedilmiş select hello sertifika kullanarak, kümeniz için URL.
 
 >[!NOTE]
->Küme oluşturma başarısız olursa, her zaman zaten dağıtılmış kaynaklar güncelleştirmeleri komutu çalıştırabilirsiniz. Bir sertifika başarısız dağıtımının bir parçası oluşturulmuş olsa bile, yeni bir tane oluşturulur. Küme oluşturma sorunlarını gidermek için bkz: [Azure Kaynak Yöneticisi'ni kullanarak bir Service Fabric kümesi oluştur](service-fabric-cluster-creation-via-arm.md).
+>Kendinden imzalı bir sertifika kullanıyor gibi Service Fabric Explorer açarken bir sertifika hatası bakın. Edge'de, tooclick sahip *ayrıntıları* ve ardından hello *toohello Web sayfasındaki Git* bağlantı. Chrome'tooclick sahip *Gelişmiş* ve ardından hello *devam* bağlantı.
 
-## <a name="connect-to-the-secure-cluster"></a>Güvenli kümeye bağlanın
-Service Fabric SDK ile birlikte yüklenen Service Fabric PowerShell modülünü kullanarak kümeye bağlanın.  İlk olarak, geçerli kullanıcının, bilgisayarınızdaki kişisel (My) deposuna sertifikası yükleyin.  Aşağıdaki PowerShell komutunu çalıştırın:
+>[!NOTE]
+>Merhaba küme oluşturma işlemi başarısız olursa, her zaman önceden dağıtılan hello kaynak güncelleştirmeleri hello komutu çalıştırabilirsiniz. Bir sertifika başarısız hello dağıtımının bir parçası oluşturulmuş olsa bile, yeni bir tane oluşturulur. tootroubleshoot küme oluşturma, bkz: [Azure Kaynak Yöneticisi'ni kullanarak bir Service Fabric kümesi oluştur](service-fabric-cluster-creation-via-arm.md).
+
+## <a name="connect-toohello-secure-cluster"></a>Toohello güvenli kümesine bağlanın
+Service Fabric SDK Hello ile yüklü hello Service Fabric PowerShell modülünü kullanarak toohello kümesine bağlanın.  Önce bilgisayarınızdaki geçerli kullanıcının hello hello (My) kişisel deposuna hello sertifikası yükleyin.  Merhaba aşağıdaki PowerShell komutunu çalıştırın:
 
 ```powershell
 $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
@@ -110,9 +110,9 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
         -Password $certpwd
 ```
 
-Şimdi güvenli kümenize bağlanmaya hazırsınız.
+Hazır tooconnect tooyour güvenli küme sunulmuştur.
 
-**Service Fabric** PowerShell Modülü Service Fabric kümeleri, uygulamaları ve hizmetleri yönetmek için birçok cmdlet'leri sağlar.  Kullanım [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet'ini güvenli kümeye bağlanın. Sertifika parmak izi ve bağlantı uç nokta ayrıntılarını önceki adımdaki çıktı bulunur.
+Merhaba **Service Fabric** PowerShell Modülü Service Fabric kümeleri, uygulamaları ve hizmetleri yönetmek için birçok cmdlet'leri sağlar.  Kullanım hello [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet tooconnect toohello güvenli küme. Sertifika parmak izi hello ve bağlantı uç nokta ayrıntılarını bir önceki adımda hello çıktısı bulunur.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.cloudapp.azure.com:19000 `
@@ -122,7 +122,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.clou
           -StoreLocation CurrentUser -StoreName My
 ```
 
-Bağlı ve küme sağlıklı olduğundan emin olun kullanarak [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) cmdlet'i.
+Bağlı ve hello küme hello kullanarak sağlıklı olduğundan emin olun [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) cmdlet'i.
 
 ```powershell
 Get-ServiceFabricClusterHealth
@@ -130,9 +130,9 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Küme, küme kaynağının yanı sıra diğer Azure kaynaklarından oluşur. Kümeyi ve kullandığı tüm kaynakları silmenin en basit yolu, kaynak grubunun silinmesidir.
+Bir küme diğer Azure kaynaklarını toohello küme kaynağı kendisi ayrıca oluşur. Merhaba en basit yolu toodelete hello küme içereceği tükettiği tüm hello kaynakları ise toodelete hello kaynak grubu.
 
-Azure'da oturum açma ve küme kaldırmak istediğiniz abonelik kimliği seçin.  Abonelik Kimliğiniz için oturum açarak bulabileceğiniz [Azure portal](http://portal.azure.com). Kaynak grubu ve kullanarak tüm küme kaynakları silmek [Remove-AzureRMResourceGroup cmdlet'i](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+İçinde tooAzure oturum ve hello abonelik kimliği tooremove hello kümenin istediğinizi seçin.  Abonelik Kimliğinizi toohello içinde oturum açarak bulabilirsiniz [Azure portal](http://portal.azure.com). Merhaba kaynak grubu ve hello kullanarak tüm hello küme kaynakları silmek [Remove-AzureRMResourceGroup cmdlet'i](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
 Login-AzureRmAccount
@@ -147,10 +147,10 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Service Fabric kümesi oluşturma
-> * Küme bir X.509 sertifikası ile güvenli
-> * PowerShell kullanarak kümeye bağlanma
+> * Bir X.509 sertifikası ile güvenli hello kümesi
+> * PowerShell kullanarak toohello kümesine bağlanın
 > * Bir küme Kaldır
 
-Ardından, var olan bir uygulama dağıtma hakkında bilgi edinmek için aşağıdaki öğreticiyi ilerleyin.
+Ardından, öğretici toolearn nasıl aşağıdaki toohello ilerletmek toodeploy varolan bir uygulama.
 > [!div class="nextstepaction"]
 > [Varolan bir .NET uygulama Docker Compose ile dağıtma](service-fabric-host-app-in-a-container.md)

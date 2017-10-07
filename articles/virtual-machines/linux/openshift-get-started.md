@@ -1,6 +1,6 @@
 ---
-title: "OpenShift kaynak Azure'a dağıtma | Microsoft Docs"
-description: "Azure sanal makinelerine OpenShift kaynak dağıtmayı öğrenin."
+title: aaaDeploy OpenShift kaynak tooAzure | Microsoft Docs
+description: "Toodeploy OpenShift kaynak tooAzure sanal makineler hakkında bilgi edinin."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: jbinder
@@ -15,48 +15,48 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: jbinder
-ms.openlocfilehash: e03da05625e440eab29ccc28a2343d3433fc7607
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a67450c46da41134a5f6c669a9e54e14773ac5b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-openshift-origin-to-azure-virtual-machines"></a>Azure sanal makinelerine OpenShift kaynak dağıtma 
+# <a name="deploy-openshift-origin-tooazure-virtual-machines"></a>OpenShift kaynak tooAzure sanal makineleri dağıtma 
 
-[OpenShift kaynak](https://www.openshift.org/) üzerinde oluşturulan bir açık kaynak kapsayıcı platformdur [Kubernetes](https://kubernetes.io/). Dağıtma, ölçeklendirme ve çok kiracılı uygulamalara çalışan işlemini basitleştirir. 
+[OpenShift kaynak](https://www.openshift.org/) üzerinde oluşturulan bir açık kaynak kapsayıcı platformdur [Kubernetes](https://kubernetes.io/). Dağıtma, ölçeklendirme ve çok kiracılı uygulamalara işletim hello sürecini basitleştirir. 
 
-Bu kılavuz, OpenShift kaynak üzerinde Azure Azure CLI ve Azure Resource Manager şablonları kullanarak sanal makineleri dağıtmayı açıklar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Bu kılavuz, Azure sanal makineleri kullanma OpenShift kaynak toodeploy nasıl hello Azure CLI ve Azure Resource Manager şablonları açıklar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * OpenShift küme için SSH anahtarları yönetmek için bir KeyVault oluşturun.
+> * KeyVault toomanage hello OpenShift kümesi için SSH anahtarları oluşturma.
 > * Azure VM'ler OpenShift kümede dağıtın. 
-> * Yükleme ve yapılandırma [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) kümeyi yönetmek için.
-> * OpenShift dağıtım özelleştirin.
+> * Yükleme ve yapılandırma hello [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) toomanage hello küme.
+> * Merhaba OpenShift dağıtım özelleştirin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-Bu hızlı başlangıç Azure CLI Sürüm 2.0.8 gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Bu hızlı başlangıç hello Azure CLI Sürüm 2.0.8 gerektirir veya sonraki bir sürümü. çalıştırma toofind hello sürüm `az --version`. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma 
-Oturum açtığınızda, Azure aboneliğinizle [az oturum açma](/cli/azure/#login) komut ve izleyin ekrandaki yönergeleri veya tıklatın **deneyin** bulut Kabuğu'nu kullanmak için.
+## <a name="log-in-tooazure"></a>İçinde tooAzure oturum 
+Tooyour hello Azure aboneliğiyle oturum [az oturum açma](/cli/azure/#login) komut ve hello ekrandaki yönergeleri izleyin veya **deneyin** toouse bulut Kabuk.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+Bir kaynak grubu ile Merhaba oluşturmak [az grubu oluşturma](/cli/azure/group#create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
-Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myResourceGroup* hello içinde *eastus* konumu.
 
 ```azurecli 
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Anahtar kasası oluşturma
-Küme için SSH anahtarları depolamak için bir KeyVault oluşturma [az keyvault oluşturma](/cli/azure/keyvault#create) komutu.  
+KeyVault toostore hello ile Merhaba hello kümesi için SSH anahtarları oluşturma [az keyvault oluşturma](/cli/azure/keyvault#create) komutu.  
 
 ```azurecli 
 az keyvault create --resource-group myResourceGroup --name myKeyVault \
@@ -65,19 +65,19 @@ az keyvault create --resource-group myResourceGroup --name myKeyVault \
 ```
 
 ## <a name="create-an-ssh-key"></a>SSH anahtarı oluşturma 
-Bir SSH anahtarı OpenShift kaynak kümesine erişimi güvenli hale getirmek için gereklidir. Kullanarak bir SSH anahtar çifti oluşturma `ssh-keygen` komutu. 
+Bir SSH anahtarı gerekli toosecure erişim toohello OpenShift kaynak kümesi olur. Bir SSH anahtarı çifti oluşturma hello kullanarak `ssh-keygen` komutu. 
  
  ```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
 > [!NOTE]
-> Oluşturduğunuz SSH anahtar çiftiniz bir parola olmaması gerekir.
+> Merhaba SSH anahtar çifti oluşturduğunuz bir parola olmaması gerekir.
 
-Windows, SSH anahtarları hakkında daha fazla bilgi için [SSH oluşturma Windows anahtarları](/azure/virtual-machines/linux/ssh-from-windows).
+Windows, SSH anahtarları hakkında daha fazla bilgi için [nasıl Windows toocreate SSH anahtarları](/azure/virtual-machines/linux/ssh-from-windows).
 
 ## <a name="store-ssh-private-key-in-key-vault"></a>Anahtar kasasına SSH özel anahtar depolama
-OpenShift dağıtım OpenShift asıl güvenli erişim için oluşturulan SSH anahtarı kullanır. SSH anahtarı güvenli bir şekilde almasını dağıtımını etkinleştirmek için aşağıdaki komutu kullanarak anahtar kasasına anahtarı depolar.
+Merhaba OpenShift dağıtım toohello OpenShift ana toosecure erişim oluşturulan hello SSH anahtarı kullanır. tooenable hello dağıtım toosecurely hello SSH anahtarı almak, komutu aşağıdaki hello kullanarak anahtar kasasına hello anahtarını depolamak.
 
 # <a name="enabled-for-template-deployment"></a>Şablon dağıtımı için etkin
 ```azurecli
@@ -85,16 +85,16 @@ az keyvault secret set --vault-name KeyVaultName --name OpenShiftKey --file ~/.s
 ```
 
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma 
-OpenShift bir kullanıcı adı ve parola veya bir hizmet sorumlusu kullanarak Azure ile iletişim kurar. Bir Azure hizmet sorumlusu uygulamaları, hizmetleri ve OpenShift gibi Otomasyon araçları ile birlikte kullanabileceğiniz bir güvenlik kimliğidir. Denetim ve hizmet sorumlusu Azure'da gerçekleştirebilirsiniz ne gibi işlemler için izinler tanımlar. Yalnızca bir kullanıcı adı ve parola sağlayarak üzerinden güvenliğini artırmak için bu örnek temel bir hizmet sorumlusu oluşturur.
+OpenShift bir kullanıcı adı ve parola veya bir hizmet sorumlusu kullanarak Azure ile iletişim kurar. Bir Azure hizmet sorumlusu uygulamaları, hizmetleri ve OpenShift gibi Otomasyon araçları ile birlikte kullanabileceğiniz bir güvenlik kimliğidir. Denetim ve toowhat işlemleri hello hizmet sorumlusu Azure'da gerçekleştirebilirsiniz gibi hello izinleri tanımlayın. yalnızca bir kullanıcı adı ve parola sağlayarak tooimprove güvenliği, bu örnek temel bir hizmet sorumlusu oluşturur.
 
-Bir hizmet sorumlusu ile oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#create-for-rbac) ve OpenShift gereken kimlik bilgilerini çıktı:
+Bir hizmet sorumlusu ile oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#create-for-rbac) ve OpenShift gereken çıktı hello kimlik bilgileri:
 
 ```azurecli
 az ad sp create-for-rbac --name openshiftsp \
           --role Contributor --password {strong password} \
           --scopes $(az group show --name myResourceGroup --query id)
 ```
-Komuttan döndürülen AppID özelliği not edin.
+Merhaba komutundan geri döndürülen hello AppID özelliği not edin.
 ```json
 {
   "appId": "a487e0c1-82af-47d9-9a0b-af184eb87646d",
@@ -109,13 +109,13 @@ Komuttan döndürülen AppID özelliği not edin.
 
 Hizmet sorumluları hakkında daha fazla bilgi için bkz: [bir Azure hizmet sorumlusu Azure CLI 2.0 ile oluşturun.](/cli/azure/create-an-azure-service-principal-azure-cli)
 
-## <a name="deploy-the-openshift-origin-template"></a>OpenShift kaynak şablonu dağıtma
+## <a name="deploy-hello-openshift-origin-template"></a>Merhaba OpenShift kaynak şablonu dağıtma
 Sonraki OpenShift bir Azure Resource Manager şablonu kullanarak kaynak dağıtın. 
 
 > [!NOTE] 
-> Aşağıdaki komutu az CLI 2.0.8 gerektirir veya sonraki bir sürümü. CLI az doğrulayabilirsiniz sürümüyle `az --version` komutu. CLI Sürüm güncelleştirmek için bkz: [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+> Merhaba aşağıdaki komutu gerektirir az CLI 2.0.8 veya sonraki bir sürümü. Doğrulayabilirsiniz az CLI hello hello sürümüyle `az --version` komutu. tooupdate hello CLI Sürüm bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
-Kullanım `appId` daha önce oluşturduğunuz için hizmet sorumlusu değerinden `aadClientId` parametresi.
+Kullanım hello `appId` daha önce oluşturduğunuz Merhaba hello hizmet sorumlusu değerinden `aadClientId` parametresi.
 
 ```azurecli 
 az group deployment create --name myOpenShiftCluster \
@@ -131,7 +131,7 @@ az group deployment create --name myOpenShiftCluster \
         aadClientId={appId} \
         aadClientSecret={strong password} 
 ```
-Dağıtımın tamamlanması 20 dakika sürebilir. Dağıtım tamamlandığında OpenShift asıl DNS adını ve OpenShift konsol URL'sini terminale yazdırılır.
+Merhaba dağıtım too20 dakika toocomplete sürebilir. Merhaba dağıtım tamamlandığında hello hello OpenShift konsol URL'sini ve hello DNS adını yöneticisidir OpenShift toohello terminal yazdırılmıştır.
 
 ```json
 {
@@ -139,15 +139,15 @@ Dağıtımın tamamlanması 20 dakika sürebilir. Dağıtım tamamlandığında 
   "OpenShift Master SSH": "ocpadmin@myopenshiftmaster.cloudapp.azure.com"
 }
 ```
-## <a name="connect-to-the-openshift-cluster"></a>OpenShift kümeye bağlanın
-Dağıtım tamamlandığında, tarayıcı kullanarak OpenShift Konsolu'na bağlanmak `OpenShift Console Uri`. Alternatif olarak, aşağıdaki komutu kullanarak OpenShift ana bağlanabilir.
+## <a name="connect-toohello-openshift-cluster"></a>Toohello OpenShift kümesine bağlanın
+Merhaba dağıtım tamamlandığında hello kullanarak hello tarayıcı kullanarak toohello OpenShift konsol bağlantısı `OpenShift Console Uri`. Alternatif olarak, komutu aşağıdaki hello kullanarak toohello OpenShift asıl bağlanabilir.
 
 ```bash
 $ ssh ocpadmin@myopenshiftmaster.cloudapp.azure.com
 ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Artık gerekli olduğunda, kullanabileceğiniz [az grubu Sil](/cli/azure/group#delete) OpenShift küme, kaynak grubu kaldırmak için komut ve ilişkili tüm kaynakları.
+Artık gerektiğinde Merhaba kullanabilirsiniz [az grubu Sil](/cli/azure/group#delete) tooremove hello kaynak grubu, OpenShift küme ve tüm ilişkili kaynakları komutu.
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -157,8 +157,8 @@ az group delete --name myResourceGroup
 
 Bu öğretici, öğrenilmiş nasıl için:
 > [!div class="checklist"]
-> * OpenShift küme için SSH anahtarları yönetmek için bir KeyVault oluşturun.
+> * KeyVault toomanage hello OpenShift kümesi için SSH anahtarları oluşturma.
 > * Azure VM'ler OpenShift kümede dağıtın. 
-> * Yükleme ve yapılandırma [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) kümeyi yönetmek için.
+> * Yükleme ve yapılandırma hello [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) toomanage hello küme.
 
-Şimdi bu OpenShift kaynak küme dağıtılır. İlk Uygulamanızı dağıtmak ve OpenShift araçlarını kullanma hakkında bilgi almak için OpenShift öğreticileri izleyebilirsiniz. Bkz: [OpenShift kaynağı ile çalışmaya başlama](https://docs.openshift.org/latest/getting_started/index.html) başlamak için. 
+Şimdi bu OpenShift kaynak küme dağıtılır. OpenShift öğreticileri toolearn nasıl izleyebilirsiniz toodeploy ilk uygulama ve kullanım OpenShift araçları hello. Bkz: [OpenShift kaynağı ile çalışmaya başlama](https://docs.openshift.org/latest/getting_started/index.html) tooget başlatıldı. 

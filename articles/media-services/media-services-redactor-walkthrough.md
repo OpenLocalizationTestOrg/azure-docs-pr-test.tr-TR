@@ -1,6 +1,6 @@
 ---
-title: "Azure medya analizi kılavuza yüzeyleri Redaksiyon | Microsoft Docs"
-description: "Bu konu Azure Media Services Gezgini (AMSE) ve Azure Media Redactor Görselleştirici (açık kaynak aracı) kullanarak tam Redaksiyon iş akışını çalıştırma hakkında adım adım yönergeler gösterir."
+title: "Azure medya analizi kılavuza aaaRedact yüzeyleri | Microsoft Docs"
+description: "Bu konu hakkında adım adım yönergeler gösterir toorun Azure Media Services Gezgini (AMSE) ve Azure Media Redactor Görselleştirici (açık kaynak aracı) kullanarak bir tam Redaksiyon iş akışı."
 services: media-services
 documentationcenter: 
 author: Lichard
@@ -14,36 +14,36 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: c0c622237f8cdca65fb6933f14cc21e9eb9ac036
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ab28f4052b73fdb74fcd5766235eab35402a0c9d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Azure medya analizi kılavuza yüzeyleri Redaksiyon
 
 ## <a name="overview"></a>Genel Bakış
 
-**Azure Media Redactor** olan bir [Azure medya analizi](media-services-analytics-overview.md) medya işlemcisi (MP) ölçeklenebilir yüz Redaksiyon bulutta sunar. Yüz Redaksiyon seçili kişiler yüzeyleri ölçeklendirilmelidir için videonuzu değiştirmenizi sağlar. Genel güvenlik ve haber medya senaryolarda yüz Redaksiyon hizmeti kullanmak isteyebilirsiniz. Birden çok yüzeyleri içeren çekimi birkaç dakika el ile Redaksiyon saat sürebilir, ancak bu hizmet ile birkaç basit adımla yüz Redaksiyon işlem gerektirir. Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/blog/azure-media-redactor/) blogu.
+**Azure Media Redactor** olan bir [Azure medya analizi](media-services-analytics-overview.md) medya işlemcisi (MP) ölçeklenebilir yüz Redaksiyon hello bulutta sunar. Yüz Redaksiyon sipariş tooblur yüzeyleri seçilen kişilerin, video, toomodify sağlar. Toouse hello yüz Redaksiyon hizmeti ortak güvenliği ve haber medya senaryolarda isteyebilirsiniz. Saat tooredact el ile birden çok yüzeyleri içeren çekimi birkaç dakika sürebilir, ancak bu hizmet hello yüz ile birkaç basit adımla Redaksiyon işlem gerektirir. Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/blog/azure-media-redactor/) blogu.
 
-Hakkındaki ayrıntılar için **Azure medya Redactor**, bkz: [yüz Redaksiyon genel bakış](media-services-face-redaction.md) konu.
+Hakkındaki ayrıntılar için **Azure medya Redactor**, hello bkz [yüz Redaksiyon genel bakış](media-services-face-redaction.md) konu.
 
-Bu konu Azure Media Services Gezgini (AMSE) ve Azure Media Redactor Görselleştirici (açık kaynak aracı) kullanarak tam Redaksiyon iş akışını çalıştırma hakkında adım adım yönergeler gösterir.
+Bu konu hakkında adım adım yönergeler gösterir toorun Azure Media Services Gezgini (AMSE) ve Azure Media Redactor Görselleştirici (açık kaynak aracı) kullanarak bir tam Redaksiyon iş akışı.
 
-**Azure medya Redactor** MP şu anda önizlemede. Tüm ortak Azure bölgeleri yanı sıra ABD devlet kurumları ve Çin veri merkezleri kullanılabilir. Bu önizleme şu anda ücretsizdir. Geçerli sürümde, işlenen video uzunluk 10 dakikalık sınırı yoktur.
+Merhaba **Azure medya Redactor** MP şu anda önizlemede. Tüm ortak Azure bölgeleri yanı sıra ABD devlet kurumları ve Çin veri merkezleri kullanılabilir. Bu önizleme şu anda ücretsizdir. Merhaba geçerli sürümde, işlenen video uzunluk 10 dakikalık sınırı yoktur.
 
 Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blogu.
 
 ## <a name="azure-media-services-explorer-workflow"></a>Azure Media Services Gezgini iş akışı
 
-Redactor ile çalışmaya başlamak için en kolay yolu, github'da açık kaynaklı AMSE aracını kullanmaktır. Basitleştirilmiş bir iş akışı aracılığıyla çalıştırabilirsiniz **birleştirilmiş** ek açıklama json veya yüz jpg görüntüleri erişim gerekmiyorsa modu.
+Merhaba en kolay yolu tooget kullanmaya Redactor araçtır toouse hello açık kaynak AMSE github'da. Basitleştirilmiş bir iş akışı aracılığıyla çalıştırabilirsiniz **birleştirilmiş** modu toohello ek açıklama json ya da hello yüz jpg görüntüleri erişim yoktur.
 
 ### <a name="download-and-setup"></a>Karşıdan yükleme ve Kurulum
 
-1. AMSE aracını indirin [burada](https://github.com/Azure/Azure-Media-Services-Explorer).
-1. Media Services hesabınıza hizmet anahtarınızı kullanarak oturum açın.
+1. Merhaba AMSE aracını indirin [burada](https://github.com/Azure/Azure-Media-Services-Explorer).
+1. Tooyour hizmeti anahtarınızı kullanarak Media Services hesabı oturum açın.
 
-    Hesap adını ve anahtar bilgilerini almak için [Azure portalına](https://portal.azure.com/) gidin ve AMS hesabınızı seçin. Ardından, ayarları seçin > anahtarları. Anahtarları yönet pencerelerinde hesap adı gösterilir ve birincil anahtar ile ikincil anahtar görüntülenir. Hesap adı ve birincil anahtar değerlerini kopyalayın.
+    hesap adı ve anahtar bilgilerini, Git toohello tooobtain hello [Azure portal](https://portal.azure.com/) ve AMS hesabınızı seçin. Ardından, ayarları seçin > anahtarları. Merhaba Yönet anahtarları windows hello hesap adını gösterir ve hello birincil ve ikincil anahtarlar görüntülenir. Merhaba hesap adı ve hello birincil anahtar değerlerini kopyalayın.
 
 ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
 
@@ -57,69 +57,69 @@ Redactor ile çalışmaya başlamak için en kolay yolu, github'da açık kaynak
 
 ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
 
-Çıktı jpg algılanan her yazıtipinin yanı sıra, yüz konum verilerini içeren bir ek açıklamaları json dosyası içerir. 
+Merhaba çıkış jpg algılanan her yazıtipinin yanı sıra, yüz konum verilerini içeren bir ek açıklamaları json dosyası içerir. 
 
 ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
 ###<a name="second-pass--redact-mode"></a>İkinci geçirmek – modu Redaksiyon
 
-1. Özgün video Varlığınızı çıkışı ilk pass karşıya yükleyin ve birincil bir varlık ayarlayın. 
+1. Merhaba ilk pass çıkış ve birincil bir varlık ayarlamak, özgün bir varlığı toohello karşıya yükleyin. 
 
     ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
-2. (İsteğe bağlı) Redaksiyon istediğiniz kimlikleri yeni satır ayrılmış listesini içeren bir 'Dance_idlist.txt' dosyasını karşıya yükleyin. 
+2. (İsteğe bağlı) Merhaba tooredact istediğiniz kimlikleri yeni satır ayrılmış listesini içeren bir 'Dance_idlist.txt' dosyasını karşıya yükleyin. 
 
     ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
-3. (İsteğe bağlı) Sınırlama kutusu sınırlarını artırma gibi annotations.json dosyaya tüm düzenlemeleri yapın. 
-4. İlk geçişi çıkış varlığından sağ tıklayın, Redactor seçin ve çalıştırmalarına **Redact** modu. 
+3. (İsteğe bağlı) Sınırlama kutusu sınırlarını hello artırma gibi tüm düzenlemeleri toohello annotations.json dosya olun. 
+4. Merhaba ilk geçişi hello çıkış varlığından sağ tıklayın, hello Redactor seçin ve hello ile Çalıştır **Redact** modu. 
 
     ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
-5. Karşıdan yükleyin ya da son Redaksiyonu yapılmış çıkış varlığına paylaşabilirsiniz. 
+5. İndirme veya hello son Redaksiyonu yapılmış çıkış varlığına paylaşabilirsiniz. 
 
     ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
 ##<a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor Görselleştirici açık kaynak aracı
 
-Bir açık kaynak [Görselleştirici aracı](https://github.com/Microsoft/azure-media-redactor-visualizer) ayrıştırma ve çıktı kullanarak ek açıklama biçimi yalnızca başlayarak geliştiricilere yardımcı olmak için tasarlanmıştır.
+Bir açık kaynak [Görselleştirici aracı](https://github.com/Microsoft/azure-media-redactor-visualizer) tasarlanmış toohelp geliştiriciler ayrıştırma ve hello çıkış kullanan hello ek açıklama biçimi yalnızca başlayarak olduğunu.
 
-Projeyi çalıştırmak için depoyu kopyalama sonra gelen FFMPEG indirme gerekir kendi [resmi sitesi](https://ffmpeg.org/download.html).
+Sipariş toorun hello projesinde hello depoyu kopyalama sonra toodownload FFMPEG gerekir gelen kendi [resmi sitesi](https://ffmpeg.org/download.html).
 
-JSON ek açıklama verilerini ayrıştırma çalışılırken bir geliştirici iseniz içinde Models.MetaData için örnek kod örnekleri arayın.
+Tooparse hello JSON ek açıklama verilerini çalışırken bir geliştirici iseniz içinde Models.MetaData için örnek kod örnekleri arayın.
 
-### <a name="set-up-the-tool"></a>Aracı ayarlamak
+### <a name="set-up-hello-tool"></a>Merhaba aracı ayarlamak
 
-1.  İndirin ve tüm çözümü oluşturun. 
+1.  Karşıdan yükle ve hello tüm çözümü oluşturun. 
 
     ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
 2.  Gelen FFMPEG karşıdan [burada](https://ffmpeg.org/download.html). Bu projede statik bağlama ile sürüm be1d324 (2016-10-04) ile ilk olarak geliştirilmiştir. 
-3.  Ffmpeg.exe ve ffprobe.exe AzureMediaRedactor.exe aynı çıktı klasöre kopyalayın. 
+3.  Ffmpeg.exe ve ffprobe.exe toohello kopyalamak aynı çıkış klasörü AzureMediaRedactor.exe olarak. 
 
     ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
 4. AzureMediaRedactor.exe çalıştırın. 
 
-### <a name="use-the-tool"></a>Aracını kullanma
+### <a name="use-hello-tool"></a>Merhaba aracını kullanın
 
-1. Azure Media Services hesabınızla Redactor MP Çözümle modunu, videoda işleyin. 
-2. Özgün video dosyası ve Redaksiyon çıktısını yükle - iş analiz edin. 
-3. Görselleştirici uygulamayı çalıştırın ve yukarıdaki dosyaları seçin. 
+1. Azure Media Services hesabınızla hello Redactor MP Çözümle modunu, videoda işleyin. 
+2. Merhaba özgün video dosyası ve hello Redaksiyon hello çıktısını yükle - iş analiz edin. 
+3. Merhaba Görselleştirici uygulamayı çalıştırın ve yukarıdaki hello dosyalar'ı seçin. 
 
     ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
 
-4. Dosyanızı önizlemede. Sağ kenar aracılığıyla ölçeklendirilmelidir istediğiniz hangi yüzeyleri seçin. 
+4. Dosyanızı önizlemede. Hangi, yüzler seçin hello Kenar çubuğunda hello aracılığıyla tooblur sağ ister. 
     
     ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.  Alt metin alanı kimlikleri yüz ile güncelleştirir. "İdlist.txt" adlı bir dosya Bu kimliklerle yeni satır ayrılmış liste olarak oluşturun. 
+5.  Merhaba alt metin alanı hello yüz kimlikleri ile güncelleştirir. "İdlist.txt" adlı bir dosya Bu kimliklerle yeni satır ayrılmış liste olarak oluşturun. 
 
     >[!NOTE]
-    > İdlist.txt ANSI kaydedilmesi gerekir. ANSI kaydetmek için Not Defteri'ni kullanabilirsiniz.
+    > Merhaba idlist.txt ANSI kaydedilmesi gerekir. Not Defteri'ni toosave ANSI kullanabilirsiniz.
     
-6.  Bu dosya, adım 1'den çıkış varlığına karşıya yükleyin. Bu varlık için özgün video karşıya yükleyin ve birincil varlık ayarlayın. 
-7.  Redaksiyon işi Redaksiyon son video almak için bu varlık üzerinde "Redact" modu ile çalıştırın. 
+6.  Bu dosya toohello çıkış varlık 1. adımdaki karşıya yükleyin. Merhaba özgün video toothis varlık da karşıya yükleyin ve birincil varlık ayarlayın. 
+7.  Bu varlık "Redact" modu tooget hello son Redaksiyonu yapılmış video Redaksiyon işi çalıştırın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 

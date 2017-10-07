@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Verileri kopyalamak amacıyla Azure Data Factory işlem hattı oluşturma | Microsoft Docs"
-description: "Bu öğreticide, Azure blob depolama alanından Azure SQL veritabanına veri kopyalamak için Azure portalını kullanarak Kopyalama Etkinliği içeren Azure Data Factory işlem hattı oluşturursunuz."
+title: "Öğretici: bir Azure Data Factory işlem hattı toocopy veri (Azure portalı) oluşturma | Microsoft Docs"
+description: "Bu öğreticide, Azure blob depolama tooan Azure SQL veritabanına bir kopyalama etkinliği toocopy verilerle Azure portal toocreate bir Azure Data Factory işlem hattı kullanın."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 8072a863fab0b304ccbbba639aa56b403e8f37c7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fadd840fe9a15cd8831cdb25dccbd10ac42fa161
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Öğretici: Verileri kopyalamak amacıyla Data Factory işlem hattı oluşturmak için Azure portalını kullanma | Microsoft Docs 
+# <a name="tutorial-use-azure-portal-toocreate-a-data-factory-pipeline-toocopy-data"></a>Öğretici: Kullanmak Azure portal toocreate Data Factory işlem hattı toocopy veri 
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
@@ -33,135 +33,135 @@ ms.lasthandoff: 08/03/2017
 > 
 > 
 
-Bu makalede, Azure blob depolama alanından Azure SQL veritabanına veri kopyalayan bir işlem hattıyla veri fabrikası oluşturmak için [Azure portalını](https://portal.azure.com) nasıl kullanacağınızı öğreneceksiniz. Azure Data Factory’yi ilk kez kullanıyorsanız bu öğreticiyi tamamlamadan önce [Azure Data Factory’ye Giriş](data-factory-introduction.md) makalesini okuyun.   
+Bu makalede, bilgi nasıl toouse [Azure portal](https://portal.azure.com) toocreate data factory Azure blob depolama tooan Azure SQL veritabanına verileri kopyalayan bir işlem hattı ile. Yeni tooAzure Data Factory varsa, hello okuma [giriş tooAzure Data Factory](data-factory-introduction.md) Bu öğretici yapmadan önce makalesi.   
 
-Bu öğreticide, içinde bir etkinlik olan işlem hattı oluşturursunuz: Kopyalama Etkinliği. Kopyalama etkinliği, verileri, desteklenen bir veri deposundan desteklenen bir havuz veri deposuna kopyalar. Kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama Etkinliği hakkında daha fazla bilgi için bkz. [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md).
+Bu öğreticide, içinde bir etkinlik olan işlem hattı oluşturursunuz: Kopyalama Etkinliği. Merhaba kopyalama etkinliği bir desteklenen veri deposu tooa desteklenen havuz veri deposundan verileri kopyalar. Kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Merhaba etkinlik verileri güvenli, güvenilir ve ölçeklenebilir bir şekilde çeşitli veri depolamaları arasında kopyalayabilirsiniz genel olarak kullanılabilir bir hizmet tarafından desteklenir. Merhaba kopyalama etkinliği hakkında daha fazla bilgi için bkz: [veri taşıma etkinlikleri](data-factory-data-movement-activities.md).
 
-Bir işlem hattında birden fazla etkinlik olabilir. Bir etkinliğin çıkış veri kümesini diğer etkinliğin giriş veri kümesi olarak ayarlayarak iki etkinliği zincirleyebilir, yani bir etkinliğin diğerinden sonra çalıştırılmasını sağlayabilirsiniz. Daha fazla bilgi için bkz. [bir işlem hattında birden fazla etkinlik](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
+Bir işlem hattında birden fazla etkinlik olabilir. Ve hello çıkış veri kümesi bir etkinlik hello hello dataset diğer etkinlik girişi olarak ayarlayarak (bir etkinlik sonra başka bir Çalıştır) iki etkinlik zincir. Daha fazla bilgi için bkz. [bir işlem hattında birden fazla etkinlik](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 > [!NOTE] 
-> Bu öğreticideki veri işlem hattı, bir kaynak veri deposundaki verileri hedef veri deposuna kopyalar. Azure Data Factory kullanarak verileri dönüştürme hakkında bir öğretici için bkz. [Öğretici: Hadoop kümesi kullanarak verileri dönüştürmek için işlem hattı oluşturma](data-factory-build-your-first-pipeline.md).
+> Merhaba veri ardışık Bu öğreticide, bir kaynak veri deposu tooa hedef veri deposundan verileri kopyalar. Nasıl bir öğretici için Azure Data Factory kullanarak tootransform verileri görmek [Öğreticisi: Hadoop kümesi kullanarak bir ardışık düzen tootransform veri derleme](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu öğreticiyi uygulamadan önce [öğretici önkoşulları](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesinde listelenen önkoşulları tamamlayın.
+Hello listelenen önkoşulları tamamlamanız [öğretici önkoşulları](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) Bu öğreticiyi gerçekleştirmeden önce makalesi.
 
 ## <a name="steps"></a>Adımlar
-Bu eğitimin bir parçası olarak gerçekleştireceğiniz adımlar şunlardır:
+Bu öğretici bir parçası olarak gerçekleştirdiğiniz hello adımlar şunlardır:
 
 1. Azure **veri fabrikası** oluşturma. Bu adımda, ADFTutorialDataFactory adlı bir veri fabrikası oluşturursunuz. 
-2. Veri fabrikasında **bağlı hizmetler** oluşturun. Bu adımda Azure Depolama ve Azure SQL Veritabanı türünde iki bağlı hizmet oluşturursunuz. 
+2. Oluşturma **bağlantılı Hizmetleri** hello veri fabrikası'nda. Bu adımda Azure Depolama ve Azure SQL Veritabanı türünde iki bağlı hizmet oluşturursunuz. 
     
-    AzureStorageLinkedService, Azure depolama hesabınızı veri fabrikasına bağlar. Bir kapsayıcı oluşturup verileri [ön koşulların](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) parçası olarak bu depolama hesabına yüklediniz.   
+    Merhaba AzureStorageLinkedService Azure depolama hesabı toohello veri fabrikanıza bağlar. Bir kapsayıcı oluşturulur ve veri toothis depolama hesabı bir parçası olarak yüklenen [Önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-    AzureSqlLinkedService, Azure SQL veritabanınızı veri fabrikasına bağlar. Blob depolama alanından kopyalanan veriler bu veritabanında depolanır. Bu veritabanındaki SQL tablosunu, [ön koşulların](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) parçası olarak oluşturdunuz.   
-3. Veri fabrikasında girdi ve çıktı **veri kümesi oluşturma**.  
+    AzureSqlLinkedService Azure SQL veritabanı toohello veri fabrikanıza bağlar. Merhaba blob depolama biriminden kopyalanan hello veriler bu veritabanında depolanır. Bu veritabanındaki SQL tablosunu, [ön koşulların](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) parçası olarak oluşturdunuz.   
+3. Giriş ve çıkış oluşturma **veri kümeleri** hello veri fabrikası'nda.  
     
-    Azure depolama bağlı hizmeti, Data Factory hizmetinin Azure depolama hesabınıza bağlanmak için çalışma zamanında kullandığı bağlantı dizesini belirtir. Giriş blob veri kümesi ise kapsayıcıyı ve girdi verilerini içeren klasörü belirtir.  
+    Hello Azure depolama bağlı hizmeti çalışma zamanı tooconnect tooyour Azure depolama hesabı Data Factory hizmetinin kullandığı hello bağlantı dizesini belirtir. Ve hello giriş blob dataset hello kapsayıcı ve hello giriş verisi içeren hello klasörü belirtir.  
 
-    Benzer şekilde, Azure SQL Veritabanı bağlı hizmeti, Data Factory hizmetinin Azure SQL veritabanınıza bağlanmak için çalışma zamanında kullandığı bağlantı dizesini belirtir. Çıktı SQL tablosu veri kümesi ise blob depolama alanındaki verilerin kopyalandığı veritabanında tabloyu belirtir.
-4. Veri fabrikasında **işlem hattı** oluşturun. Bu adımda, kopyalama etkinliği ile bir işlem hattı oluşturursunuz.   
+    Benzer şekilde, hello Azure SQL veritabanı bağlantılı hizmet çalışma zamanı tooconnect tooyour Azure SQL veritabanını Data Factory hizmetinin kullandığı hello bağlantı dizesini belirtir. Ve hello veritabanı toowhich hello verileri hello blob depolama biriminden hello tabloda kopyalanır hello çıktı SQL tablosu veri kümesi belirtir.
+4. Oluşturma bir **ardışık düzen** hello veri fabrikası'nda. Bu adımda, kopyalama etkinliği ile bir işlem hattı oluşturursunuz.   
     
-    Kopyalama etkinliği, verileri Azure blob depolama alanındaki bir blobdan Azure SQL veritabanındaki tabloya kopyalar. Verileri desteklenen herhangi bir kaynaktan desteklenen herhangi bir hedefe kopyalamak için bir işlem hattındaki kopyalama etkinliğini kullanabilirsiniz. Desteklenen veri depolarının bir listesi için [veri taşıma etkinlikleri](data-factory-data-movement-activities.md#supported-data-stores-and-formats) makalesine bakın. 
-5. İşlem hattını izleme. Bu adımda, girdi ve çıktı veri kümelerinin dilimlerini Azure portalını kullanarak **izlersiniz**. 
+    Merhaba kopyalama etkinliği hello Azure blob depolama tooa hello Azure SQL veritabanı tablosunda bir blob veri kopyalar. Kopyalama etkinliği herhangi bir desteklenen kaynak desteklenen tooany hedefin bir ardışık düzen toocopy verileri kullanabilirsiniz. Desteklenen veri depolarının bir listesi için [veri taşıma etkinlikleri](data-factory-data-movement-activities.md#supported-data-stores-and-formats) makalesine bakın. 
+5. Merhaba işlem hattını izleme. Bu adımda, **İzleyici** hello girdi ve çıktı veri kümeleri dilimlerini Azure portal kullanarak. 
 
 ## <a name="create-data-factory"></a>Veri fabrikası oluşturma
 > [!IMPORTANT]
-> Henüz yapmadıysanız, [öğreticinin ön koşullarını](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) tamamlayın.   
+> Tam [hello öğreticisi için Önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) zaten yapmadıysanız.   
 
-Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattında bir veya daha fazla etkinlik olabilir. Örneğin, verileri bir kaynaktan bir hedef veri deposuna kopyalamak için Kopyalama Etkinliği, giriş verilerini ürün çıkış verilerine dönüştürecek Hive betiğini çalıştırmak için de HDInsight Hive etkinliği. Bu adımda data factory oluşturmayla başlayalım.
+Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattında bir veya daha fazla etkinlik olabilir. Örneğin, bir kopyalama etkinliği toocopy verilerinden bir kaynak tooa hedef veri deposu ve Hdınsight Hive etkinliği toorun bir Hive betiği tootransform veri tooproduct çıktı verileri girin. Bu adımda hello data factory oluşturmayla başlayalım.
 
-1. [Azure portalında](https://portal.azure.com/) oturum açtıktan sonra sol taraftaki menüde **Yeni**'ye tıklayın, **Zeka + Analiz**'i seçin ve **Data Factory**'ye tıklayın. 
+1. Toohello içinde oturum sonra [Azure portal](https://portal.azure.com/), tıklatın **yeni** hello sol menüsünde **veri + analiz**, tıklatıp **Data Factory**. 
    
    ![Yeni->DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
-2. **Yeni data factory** dikey penceresinde:
+2. Merhaba, **yeni data factory** dikey penceresinde:
    
-   1. **Ad** için **ADFTutorialDataFactory** girin. 
+   1. Girin **ADFTutorialDataFactory** hello için **adı**. 
       
          ![Yeni veri fabrikası dikey penceresi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
       
-       Azure data factory adı **küresel olarak benzersiz** olmalıdır. Aşağıdaki hatayı alırsanız veri fabrikasının adını değiştirin (örneğin adınızADFTutorialDataFactory) ve oluşturmayı yeniden deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
+       Merhaba adı'hello Azure data Factory olması **genel benzersiz**. Merhaba aşağıdaki hata alırsanız, hello veri fabrikası (örneğin, yournameADFTutorialDataFactory) ve oluşturmayı yeniden deneyin hello adını değiştirin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
       
            Data factory name “ADFTutorialDataFactory” is not available  
       
        ![Data Factory adı yok](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png)
-   2. Veri fabrikasını oluşturmak istediğiniz Azure **aboneliğini** seçin. 
-   3. **Kaynak Grubu** için aşağıdaki adımlardan birini uygulayın:
+   2. Azure seçin **abonelik** toocreate hello veri fabrikası istiyor. 
+   3. Hello için **kaynak grubu**, aşağıdaki adımları hello birini yapın:
       
-      - **Var olanı kullan**’ı seçin ve ardından açılır listeden var olan bir kaynak grubu belirleyin. 
-      - **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.   
+      - Seçin **var olanı kullan**, varolan bir kaynak grubu hello aşağı açılan listeden seçin. 
+      - Seçin **Yeni Oluştur**ve hello bir kaynak grubu adını girin.   
          
-          Bu öğreticideki adımlardan bazıları kaynak grubu için şu adı kullandığınızı varsayar: **ADFTutorialResourceGroup**. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
-   4. Data factory için **konum** seçin. Açılır listede yalnızca Data Factory hizmeti tarafından desteklenen bölgeler gösterilmektedir.
-   5. **Panoya sabitle**’yi seçin.     
+          Bu öğreticideki hello adımlardan bazıları hello adı kullandığınızı varsayar: **ADFTutorialResourceGroup** hello kaynak grubu için. Kaynak grupları hakkında toolearn bkz [Azure kaynaklarınızı grupları toomanage kaynağı kullanan](../azure-resource-manager/resource-group-overview.md).  
+   4. Select hello **konumu** hello veri fabrikası için. Yalnızca Hello Data Factory hizmeti tarafından desteklenen bölgeler hello aşağı açılan listesinde gösterilir.
+   5. Seçin **PIN toodashboard**.     
    6. **Oluştur**'a tıklayın.
       
       > [!IMPORTANT]
-      > Data Factory örnekleri oluşturmak için abonelik/kaynak grubu düzeyinde [Data Factory Katılımcısı](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) rolünün üyesi olmanız gerekir.
+      > toocreate Data Factory örnekleri hello üyesi olmalıdır [veri fabrikası katkıda bulunan](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) hello abonelik/kaynak grubu düzeyinde rol.
       > 
-      > Data factory adı gelecekte bir DNS adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.                
+      > Merhaba veri fabrikasının Hello adı hello gelecekte bir DNS adı olarak kayıtlı ve bu nedenle herkese görünür hale gelmiştir.                
       > 
       > 
-3. Panoda şu kutucuğu ve üzerinde şu durumu görürsünüz: **Veri fabrikası dağıtılıyor**. 
+3. Merhaba Panoda durumuyla döşeme hello aşağıdakilere bakın: **dağıtma veri fabrikası**. 
 
     ![veri fabrikası dağıtılıyor kutucuğu](media/data-factory-copy-activity-tutorial-using-azure-portal/deploying-data-factory.png)
-4. Oluşturma işlemi tamamlandıktan sonra, görüntüde gösterildiği gibi **Data Factory** dikey penceresini görürsünüz.
+4. Merhaba oluşturma işlemi tamamlandıktan sonra hello bkz **Data Factory** hello görüntüde gösterildiği gibi dikey.
    
    ![Data factory giriş sayfası](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)
 
 ## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
-Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için veri fabrikasında bağlı hizmetler oluşturursunuz. Bu öğreticide, Azure HDInsight veya Azure Data Lake Analytics gibi herhangi bir işlem hizmeti kullanmazsınız. Azure Depolama (kaynak) ve Azure SQL Veritabanı (hedef) türünde iki veri deposu kullanırsınız. 
+Verilerinizi depolayan ve Hizmetleri toohello veri fabrikası işlem bir veri fabrikası toolink bağlı hizmetler oluşturma. Bu öğreticide, Azure HDInsight veya Azure Data Lake Analytics gibi herhangi bir işlem hizmeti kullanmazsınız. Azure Depolama (kaynak) ve Azure SQL Veritabanı (hedef) türünde iki veri deposu kullanırsınız. 
 
 Bu nedenle, AzureStorage ve AzureSqlDatabase türlerinde AzureStorageLinkedService ve AzureSqlLinkedService adlı iki bağlı hizmet oluşturursunuz.  
 
-AzureStorageLinkedService, Azure depolama hesabınızı veri fabrikasına bağlar. Bu depolama hesabı, kapsayıcı oluşturduğunuz ve verileri [ön koşulların](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) parçası olarak yüklediğiniz hesaptır.   
+Merhaba AzureStorageLinkedService Azure depolama hesabı toohello veri fabrikanıza bağlar. Bu depolama hesap hello biri, hangi, kapsayıcı oluşturuldu ve hello veri parçası olarak yüklenen [Önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-AzureSqlLinkedService, Azure SQL veritabanınızı veri fabrikasına bağlar. Blob depolama alanından kopyalanan veriler bu veritabanında depolanır. Bu veritabanındaki emp tablosunu, [ön koşulların](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) parçası olarak oluşturdunuz.  
+AzureSqlLinkedService Azure SQL veritabanı toohello veri fabrikanıza bağlar. Merhaba blob depolama biriminden kopyalanan hello veriler bu veritabanında depolanır. Bu veritabanında hello emp tablosunda bir parçası olarak oluşturulan [Önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).  
 
 ### <a name="create-azure-storage-linked-service"></a>Azure Storage bağlı hizmeti oluşturma
-Bu adımda, Azure depolama hesabınızı veri fabrikanıza bağlarsınız. Bu bölümde Azure depolama hesabınızın adını ve anahtarını belirtirsiniz.  
+Bu adımda, Azure depolama hesabı tooyour veri fabrikanıza bağlayın. Bu bölümde hello adı ve Azure depolama hesabınızın anahtarı belirtin.  
 
-1. **Data Factory** dikey penceresinde **Geliştir ve dağıt** kutucuğuna tıklayın.
+1. Merhaba, **Data Factory** dikey penceresinde tıklatın **yazar ve dağıtma** döşeme.
    
    ![Geliştir ve Dağıt Kutucuğu](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-author-deploy-tile.png) 
-2. Bu resimdeki gibi **Data Factory Düzenleyicisi**'ni göreceksiniz: 
+2. Merhaba gördüğünüz **Data Factory düzenleyici** hello görüntü aşağıdaki gösterildiği gibi: 
 
     ![Data Factory Düzenleyicisi](./media/data-factory-copy-activity-tutorial-using-azure-portal/data-factory-editor.png)
-3. Düzenleyici'de, araç çubuğundaki **Yeni veri deposu** düğmesine tıklayın ve açılan menüden **Azure depolama**'yı seçin. Sağ bölmede Azure depolama bağlı hizmeti oluşturmak için JSON şablonunu görmeniz gerekir. 
+3. Merhaba Düzenleyicisi'nde tıklatın **yeni veri deposu** hello araç ve Seç düğmesini **Azure depolama** hello açılan menüsünden. Merhaba sağ bölmede Azure depolama bağlı hizmeti oluşturmak için hello JSON şablonunu görmeniz gerekir. 
    
     ![Düzenleyici Yeni veri deposu düğmesi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)    
-3. Burada, `<accountname>` ve `<accountkey>` sözcüklerini Azure depolama hesabınıza ait hesap adı ve hesap anahtarı değerleriyle değiştirin. 
+3. Değiştir `<accountname>` ve `<accountkey>` hello hesap adı ve hesap anahtarı değerleriyle Azure depolama hesabınız ile. 
    
     ![Düzenleyici Blob Storage JSON](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)    
-4. Araç çubuğunda **Dağıt**’a tıklayın. Dağıtılan **AzureStorageLinkedService** öğesini şu anda ağaçta görmeniz gerekir. 
+4. Tıklatın **dağıtma** hello araç. Dağıtılan hello görmelisiniz **AzureStorageLinkedService** hello ağacında şimdi görüntüleyin. 
    
     ![Düzenleyici Blob Storage Dağıtma](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
 
-    Bağlı hizmet tanımındaki JSON özellikleri hakkında daha fazla bilgi için [Azure Blob Depolama bağlayıcısı](data-factory-azure-blob-connector.md#linked-service-properties) makalesine bakın.
+    Merhaba bağlantılı hizmet tanımında JSON özellikleri hakkında daha fazla bilgi için bkz: [Azure Blob Storage bağlayıcı](data-factory-azure-blob-connector.md#linked-service-properties) makalesi.
 
-### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Azure SQL Database için bağlı hizmet oluşturma
-Bu adımda, Azure SQL veritabanınızı veri fabrikanıza bağlarsınız. Bu bölümde Azure SQL sunucu adı, veritabanı adı, kullanıcı adı ve kullanıcı parolasını belirtirsiniz. 
+### <a name="create-a-linked-service-for-hello-azure-sql-database"></a>Hello Azure SQL Database için bağlı hizmet oluşturma
+Bu adımda, Azure SQL veritabanı tooyour veri fabrikanıza bağlayın. Bu bölümde hello Azure SQL sunucu adı, veritabanı adı, kullanıcı adı ve parola belirtin. 
 
-1. **Data Factory Düzenleyici**’de, araç çubuğundaki **Yeni veri deposu** düğmesine tıklayın ve açılan menüden **Azure SQL Veritabanı**’nı seçin. Sağ bölmede Azure SQL bağlı hizmeti oluşturmak için JSON şablonunu görmeniz gerekir.
+1. Merhaba, **Data Factory düzenleyici**, tıklatın **yeni veri deposu** hello araç ve Seç düğmesini **Azure SQL veritabanı** hello açılan menüsünden. Merhaba sağ bölmede hello Azure SQL bağlı hizmeti oluşturmak için hello JSON şablonunu görmeniz gerekir.
 2. `<servername>`, `<databasename>`, `<username>@<servername>` ve `<password>` öğesini Azure SQL sunucusu, veritabanı, kullanıcı hesabı ve parolası ile değiştirin. 
-3. **AzureSqlLinkedService**’i oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın.
-4. Ağaç görünümünde **Bağlı hizmetler** bölümünde **AzureSqlLinkedService** öğesini gördüğünüzü onaylayın.  
+3. Tıklatın **dağıtma** araç toocreate hello ve hello dağıtmak **AzureSqlLinkedService**.
+4. Gördüğünüzü onaylayın **AzureSqlLinkedService** altında hello ağaç görünümünde **bağlantılı Hizmetleri**.  
 
     Bu JSON özellikleri hakkında daha fazla bilgi için [Azure SQL Veritabanı bağlayıcısı](data-factory-azure-sql-connector.md#linked-service-properties) makalesine bakın.
 
 ## <a name="create-datasets"></a>Veri kümeleri oluşturma
-Önceki adımda, Azure Depolama hesabınızı ve Azure SQL veritabanınızı veri fabrikanıza bağlamak için bağlı hizmetler oluşturdunuz. Bu adımda, sırasıyla AzureStorageLinkedService ve AzureSqlLinkedService tarafından başvurulan veri depolarında depolanan girdi ve çıktı verilerini temsil eden InputDataset ve OutputDataset adlı iki veri kümesini tanımlarsınız.
+Merhaba önceki adımda, Azure Storage hesabını ve Azure SQL veritabanı tooyour veri fabrikası bağlı hizmetler toolink oluşturuldu. Bu adımda, iki veri kümesi InputDataset ve giriş temsil OutputDataset ve sırasıyla AzureStorageLinkedService ve Azuresqllinkedservice'in başvurduğu hello veri depolarında depolanan çıktı verilerini adlı tanımlayın.
 
-Azure depolama bağlı hizmeti, Data Factory hizmetinin Azure depolama hesabınıza bağlanmak için çalışma zamanında kullandığı bağlantı dizesini belirtir. Giriş blobu veri kümesi (InputDataset) ise kapsayıcıyı ve girdi verilerini içeren klasörü belirtir.  
+Hello Azure depolama bağlı hizmeti çalışma zamanı tooconnect tooyour Azure depolama hesabı Data Factory hizmetinin kullandığı hello bağlantı dizesini belirtir. Ve hello giriş blob veri kümesi (InputDataset) hello kapsayıcı ve hello giriş verisi içeren hello klasörü belirtir.  
 
-Benzer şekilde, Azure SQL Veritabanı bağlı hizmeti, Data Factory hizmetinin Azure SQL veritabanınıza bağlanmak için çalışma zamanında kullandığı bağlantı dizesini belirtir. Çıktı SQL tablosu veri kümesi (OutputDataset) ise blob depolama alanındaki verilerin kopyalandığı veritabanında tabloyu belirtir. 
+Benzer şekilde, hello Azure SQL veritabanı bağlantılı hizmet çalışma zamanı tooconnect tooyour Azure SQL veritabanını Data Factory hizmetinin kullandığı hello bağlantı dizesini belirtir. Ve kopyalanan verileri hello blob depolama biriminden hello veritabanı toowhich hello SQL tablosu veri kümesi (OututDataset) hello tabloda hello çıktı. 
 
 ### <a name="create-input-dataset"></a>Girdi veri kümesi oluşturma
-Bu adımda, InputDataset adlı bir veri kümesi oluşturursunuz. Bu veri kümesi, AzureStorageLinkedService bağlı hizmetiyle temsil edilen Azure Depolama’daki bir blob kapsayıcısının (adftutorial) kök klasöründe bulunan blob dosyasını (emp.txt) işaret eder. fileName için bir değer belirtmezseniz (veya bu adımı atlarsanız) girdi klasöründe bulunan tüm blob’lardaki veriler hedefe kopyalanır. Bu öğreticide, dosya adı için bir değer belirtirsiniz. 
+Bu adımda, tooa blob dosya (emp.txt) işaret InputDataset adlı bir veri hello kök klasöründe bir blob kapsayıcısını (adftutorial) hello Azure hello AzureStorageLinkedService bağlı hizmeti tarafından temsil edilen depolama oluşturun. Verme hello dosya adı için bir değer belirtin (veya atlayın) hello giriş klasöründeki tüm blob'lara ait veriler kopyalanan toohello hedef demektir. Bu öğreticide, hello dosya adı için bir değer belirtin. 
 
-1. Data Factory **Düzenleyici**’de açılır listeden **... Daha fazla**, **Yeni veri kümesi** ve **Azure Blob depolama** öğelerine tıklayın. 
+1. Merhaba, **Düzenleyicisi** hello Data Factory tıklatın **... Daha fazla**, tıklatın **yeni veri kümesi**, tıklatıp **Azure Blob Depolama** hello açılan menüsünden. 
    
     ![Yeni veri kümesi menüsü](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
-2. Sağ bölmedeki JSON ifadesini aşağıdaki JSON parçacığıyla değiştirin: 
+2. JSON hello sağ bölmedeki JSON parçacığı aşağıdaki hello ile değiştirin: 
    
     ```json
     {
@@ -196,27 +196,27 @@ Bu adımda, InputDataset adlı bir veri kümesi oluşturursunuz. Bu veri kümesi
     }
     ```   
 
-    Aşağıdaki tabloda, kod parçacığında kullanılan JSON özellikleri için açıklamalar verilmektedir:
+    Merhaba aşağıdaki tabloda hello parçacığında kullanılan hello JSON özellikleri için açıklamalar sağlanır:
 
     | Özellik | Açıklama |
     |:--- |:--- |
-    | type | Veriler Azure blob depolama alanında yer aldığından type özelliği **AzureBlob** olarak ayarlanmıştır. |
-    | linkedServiceName | Daha önce oluşturduğunuz **AzureStorageLinkedService**’e başvurur. |
-    | folderPath | blob **kapsayıcıyı** ve girdi blob’larını içeren **klasörü** belirtir. Bu öğreticide adftutorial, blob kapsayıcısıdır ve klasör, kök klasördür. | 
-    | fileName | Bu özellik isteğe bağlıdır. Bu özelliği atarsanız tüm folderPath dosyaları alınır. Bu öğreticide fileName için **emp.txt** belirtilir, bu nedenle işlem için yalnızca bu dosya seçilir. |
-    | format -> type |Girdi dosyası metin biçiminde olduğundan **TextFormat**'ı kullanırız. |
-    | columnDelimiter | Girdi dosyasındaki sütunlar, **virgül (`,`)** ile ayrılmıştır. |
-    | frequency/interval | frequency **Saat**, interval da **1** olarak ayarlanmıştır. Bu, girdi dilimlerinin **saatlik** olarak kullanılabileceğini belirtir. Başka bir deyişle, Data Factory hizmeti belirttiğiniz blob kapsayıcısının (**adftutorial**) kök klasöründe girdi verilerini saatte bir kere arar. İşlem hattı başlangıç ve bitiş zamanlarındaki verileri arar, bu zamanlardan önceki veya sonraki verileri aramaz.  |
-    | external | Bu özellik, veriler bu işlem hattı tarafından oluşturulmazsa **true** olarak ayarlanır. Bu öğreticideki girdi verileri, bu işlem hattı tarafından oluşturulmayan emp.txt dosyasında bulunur, bu nedenle bu özelliği true olarak ayarlarız. |
+    | type | Merhaba type özelliği çok ayarlamak**AzureBlob** verileri Azure blob depolama alanında bulunduğundan. |
+    | linkedServiceName | Toohello başvuruyor **AzureStorageLinkedService** daha önce oluşturduğunuz. |
+    | folderPath | Merhaba blob belirtir **kapsayıcı** ve hello **klasörü** giriş BLOB'ları içerir. Bu öğreticide adftutorial hello blob kapsayıcı ve hello kök klasör. | 
+    | fileName | Bu özellik isteğe bağlıdır. Bu özelliği atarsanız, tüm dosyaları hello folderPath çekilir. Bu öğreticide **emp.txt** hello fileName, böylece yalnızca bu dosyanın işleme için kayıt için belirtilir. |
+    | format -> type |Merhaba giriş dosyası kullanırız hello metin biçiminde olduğundan **TextFormat**. |
+    | columnDelimiter | Merhaba giriş dosyası Hello sütunlarında tarafından ayrılmış **virgül karakteriyle (`,`)**. |
+    | frequency/interval | Merhaba sıklığını çok ayarlamak**saat** ve aralığı çok ayarlamak**1**, o hello yani dilimler kullanılabilir giriş **saatlik**. Hello Data Factory hizmeti için giriş verileri saatte hello kök klasöründe blob kapsayıcısının diğer bir deyişle, görünüyor (**adftutorial**), belirtilen. Merhaba veri hello ardışık düzen başlangıç ve bitiş zamanları, değil önce veya sonra bu kez içinde arar.  |
+    | external | Bu özellik çok ayarlanır**true** hello verileri bu ardışık düzen tarafından oluşturulmamış olması durumunda. Bu öğreticide girdi verileri Hello Biz bu özellik tootrue ayarlamak için bu ardışık düzen tarafından oluşturulmayan hello emp.txt, dosyasıdır. |
 
     Bu JSON özellikleri hakkında daha fazla bilgi için bkz. [Azure Blob bağlayıcısı makalesi](data-factory-azure-blob-connector.md#dataset-properties).      
-3. **InputDataset** veri kümesini oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın. **InputDataset** öğesini ağaç görünümünde gördüğünüzü onaylayın.
+3. Tıklatın **dağıtma** araç toocreate hello ve hello dağıtmak **InputDataset** veri kümesi. Merhaba gördüğünüzü onaylayın **InputDataset** hello ağaç görünümünde.
 
 ### <a name="create-output-dataset"></a>Çıktı veri kümesi oluşturma
-Azure SQL Veritabanı bağlı hizmeti, Data Factory hizmetinin Azure SQL veritabanınıza bağlanmak için çalışma zamanında kullandığı bağlantı dizesini belirtir. Bu adımda oluşturduğunuz çıktı SQL tablosu veri kümesi (OututDataset), blob depolama alanındaki verilerin kopyalandığı veritabanında tabloyu belirtir.
+Hello Azure SQL veritabanı bağlantılı hizmet çalışma zamanı tooconnect tooyour Azure SQL veritabanını Data Factory hizmetinin kullandığı hello bağlantı dizesini belirtir. Bu adımda oluşturduğunuz hello çıktı SQL tablosu veri kümesi (OututDataset) hello veritabanı toowhich hello verileri hello blob depolama biriminden hello tabloda kopyalanır belirtir.
 
-1. Data Factory **Düzenleyici**’de açılır listeden **... Daha fazla**, **Yeni veri kümesi** ve **Azure SQL** öğelerine tıklayın. 
-2. Sağ bölmedeki JSON ifadesini aşağıdaki JSON parçacığıyla değiştirin:
+1. Merhaba, **Düzenleyicisi** hello Data Factory tıklatın **... Daha fazla**, tıklatın **yeni veri kümesi**, tıklatıp **Azure SQL** hello açılan menüsünden. 
+2. JSON hello sağ bölmedeki JSON parçacığı aşağıdaki hello ile değiştirin:
 
     ```json   
     {
@@ -245,33 +245,33 @@ Azure SQL Veritabanı bağlı hizmeti, Data Factory hizmetinin Azure SQL veritab
     }
     ```     
 
-    Aşağıdaki tabloda, kod parçacığında kullanılan JSON özellikleri için açıklamalar verilmektedir:
+    Merhaba aşağıdaki tabloda hello parçacığında kullanılan hello JSON özellikleri için açıklamalar sağlanır:
 
     | Özellik | Açıklama |
     |:--- |:--- |
-    | type | type özelliği, veriler Azure SQL veritabanındaki bir tabloya kopyalandığından **AzureSqlTable** olarak ayarlanır. |
-    | linkedServiceName | Daha önce oluşturduğunuz **AzureSqlLinkedService**’e başvurur. |
-    | tableName | Verilerin kopyalandığı **tabloyu** belirtir. | 
-    | frequency/interval | frequency **Saatlik** ve interval **1** olarak ayarlanır. Bu durumda çıktı dilimleri, işlem hattı başlangıç ve bitiş zamanları arasında **saatlik** olarak üretilir, bu zamanlardan önce veya sonra üretilmez.  |
+    | type | Merhaba type özelliği çok ayarlamak**AzureSqlTable** verileri bir Azure SQL veritabanı tablosunda kopyalanan tooa olduğundan. |
+    | linkedServiceName | Toohello başvuruyor **AzureSqlLinkedService** daha önce oluşturduğunuz. |
+    | tableName | Belirtilen hello **tablo** toowhich hello veri kopyalanır. | 
+    | frequency/interval | Merhaba sıklığı çok ayarlı**saat** ve aralığı **1**, hello çıkış dilimler üretilir anlamına gelir **saatlik** hello ardışık düzen başlangıç ve bitiş zamanları, önce değil arasında veya Bu kez sonra.  |
 
-    Veritabanındaki emp tablosunda üç sütun vardır: **ID**, **FirstName** ve **LastName**. ID bir kimlik sütunu olduğundan, burada yalnızca **FirstName** ve **LastName** değerlerini belirtmeniz gerekir.
+    Üç sütun – **kimliği**, **FirstName**, ve **LastName** – hello veritabanındaki emp tablosunda hello. Kimliktir bir kimlik sütunu yalnızca toospecify gereken şekilde **FirstName** ve **LastName** burada.
 
     Bu JSON özellikleri hakkında daha fazla bilgi için bkz. [Azure SQL bağlayıcısı makalesi](data-factory-azure-sql-connector.md#dataset-properties).
-3. **OutputDataset** veri kümesini oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın. **OutputDataset** öğesini ağaç görünümünde **Veri kümeleri** altında gördüğünüzü onaylayın. 
+3. Tıklatın **dağıtma** araç toocreate hello ve hello dağıtmak **OutputDataset** veri kümesi. Merhaba gördüğünüzü onaylayın **OutputDataset** altında hello ağaç görünümünde **veri kümeleri**. 
 
 ## <a name="create-pipeline"></a>İşlem hattı oluşturma
 Bu adımda, girdi olarak **InputDataset** ve çıktı olarak **OutputDataset** kullanan **kopyalama etkinliğine** sahip bir işlem hattı oluşturursunuz.
 
-Şu anda zamanlamayı çıktı veri kümesi yürütmektedir. Bu öğreticide, çıktı veri kümesi saatte bir dilim oluşturacak şekilde yapılandırılır. İşlem hattının başlangıç zamanı ve bitiş zamanı arasında bir gün, yani 24 saat vardır. Bu nedenle, işlem hattı çıktı veri kümesinden 24 dilim oluşturur. 
+Şu anda, hangi sürücü zamanlama hello çıktı veri kümesi değil. Bu öğreticide, çıktı veri kümesi yapılandırılmış tooproduce bir dilim saate birdir. bir başlangıç saati ve bir 24 saat olan günü birbirinden, bitiş zamanı Hello ardışık düzen vardır. Bu nedenle, çıktı veri kümesinin 24 dilim hello ardışık düzen tarafından oluşturulur. 
 
-1. Data Factory **Düzenleyici**’de açılır listeden **... Daha fazla** ve **Yeni işlem hattı** öğelerine tıklayın. Alternatif olarak, ağaç görünümünde **İşlem hatları**’na sağ tıklayın ve**Yeni işlem hattı**’na tıklayın.
-2. Sağ bölmedeki JSON ifadesini aşağıdaki JSON parçacığıyla değiştirin: 
+1. Merhaba, **Düzenleyicisi** hello Data Factory tıklatın **... Daha fazla** ve **Yeni işlem hattı** öğelerine tıklayın. Alternatif olarak, sağ tıklayarak **ardışık düzen** hello ağaç görünümünde ve tıklatın **yeni işlem hattı**.
+2. JSON hello sağ bölmedeki JSON parçacığı aşağıdaki hello ile değiştirin: 
 
     ```json   
     {
       "name": "ADFTutorialPipeline",
       "properties": {
-        "description": "Copy data from a blob to Azure SQL table",
+        "description": "Copy data from a blob tooAzure SQL table",
         "activities": [
           {
             "name": "CopyFromBlobToSQL",
@@ -310,105 +310,105 @@ Bu adımda, girdi olarak **InputDataset** ve çıktı olarak **OutputDataset** k
     } 
     ```   
     
-    Aşağıdaki noktalara dikkat edin:
+    Hello aşağıdaki noktaları göz önünde bulundurun:
    
-    - Etkinlikler bölümünde, **türü** **Copy** olarak ayarlanmış yalnızca bir etkinlik vardır. Kopyalama etkinliği hakkında daha fazla bilgi için bkz. [veri taşıma etkinlikleri](data-factory-data-movement-activities.md). Data Factory çözümlerinde, [veri dönüştürme etkinliklerini](data-factory-data-transformation-activities.md) de kullanabilirsiniz.
-    - Etkinlik girdisi **InputDataset** olarak, etkinlik çıktısı ise **OutputDataset** olarak ayarlanmıştır. 
-    - **typeProperties** bölümünde **BlobSource** kaynak türü, **SqlSink** de havuz türü olarak belirtilir. Kaynak ve havuz olarak kopyalama etkinliği tarafından desteklenen veri depolarının eksiksiz listesi için bkz. [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Kaynak/havuz olarak desteklenen belirli bir veri deposunu nasıl kullanacağınızı öğrenmek için tablodaki bağlantıya tıklayın.
-    - Başlangıç ve bitiş tarih saatleri [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601) olmalıdır. Örneğin: 2016-10-14T16:32:41Z. **End** zamanı isteğe bağlıdır; ancak bu öğreticide bunu kullanacağız. **end** özelliği için değer belirtmezseniz "**start + 48 hours**" olarak hesaplanır. İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın.
+    - Merhaba etkinlikler bölümünde, yalnızca bir etkinlik olduğundan, **türü** çok ayarlanır**kopya**. Merhaba kopyalama etkinliği hakkında daha fazla bilgi için bkz: [veri taşıma etkinlikleri](data-factory-data-movement-activities.md). Data Factory çözümlerinde, [veri dönüştürme etkinliklerini](data-factory-data-transformation-activities.md) de kullanabilirsiniz.
+    - Merhaba etkinlik çok kümesi için giriş**InputDataset** ve hello etkinlik çok kümesi için çıkış**OutputDataset**. 
+    - Merhaba, **typeProperties** bölümünde **BlobSource** hello kaynak türü olarak belirtilir ve **SqlSink** hello Havuz türü olarak belirtilir. Kaynakları ve havuzlarını olarak hello kopyalama etkinliği tarafından desteklenen veri depoları tam bir listesi için bkz: [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats). nasıl toouse belirli bir desteklenen veri depolayan bir kaynak/havuz toolearn hello tablosundaki hello bağlantısını tıklatın.
+    - Başlangıç ve bitiş tarih saatleri [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601) olmalıdır. Örneğin: 2016-10-14T16:32:41Z. Merhaba **son** saati isteğe bağlıdır ancak biz Bu öğreticide kullanın. Hello için değer belirtmezseniz, **son** özelliği olarak hesaplanır "**start + 48 saat**". toorun hello ardışık kalıcı olarak belirtmek **9999-09-09** hello hello değeri olarak **son** özelliği.
      
-    Önceki örnekte, her veri dilimi saatlik oluşturulduğundan 24 veri dilimi vardır.
+    Örnek önceki hello vardır 24 veri dilimi her veri dilimi saatlik oluşturulduğundan.
 
     İşlem hattı tanımındaki JSON özelliklerinin açıklamaları için [işlem hatları oluşturma](data-factory-create-pipelines.md) makalesine bakın. Kopyalama etkinliği tanımındaki JSON özelliklerinin açıklamaları için bkz. [veri taşıma etkinlikleri](data-factory-data-movement-activities.md). BlobSource tarafından desteklenen JSON özelliklerinin açıklamaları için bkz. [Azure Blob bağlayıcısı makalesi](data-factory-azure-blob-connector.md). SqlSink tarafından desteklenen JSON özelliklerinin açıklamaları için bkz. [Azure SQL Veritabanı bağlayıcısı makalesi](data-factory-azure-sql-connector.md).
-3. **ADFTutorialPipeline** tablosunu oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın. İşlem hattını ağaç görünümünde gördüğünüzü onaylayın. 
-4. Şimdi, **Düzenleyici** dikey penceresini **X** işaretine tıklayarak kapatın. **X** simgesine yeniden tıklayarak **ADFTutorialDataFactory** için **Data Factory** giriş sayfasını görüntüleyin.
+3. Tıklatın **dağıtma** araç toocreate hello ve hello dağıtmak **ADFTutorialPipeline**. Merhaba ardışık hello ağaç görünümünde gördüğünüzü onaylayın. 
+4. Şimdi, hello kapatmak **Düzenleyicisi** dikey **X**. Tıklatın **X** yeniden toosee hello **Data Factory** hello için giriş sayfası **ADFTutorialDataFactory**.
 
-**Tebrikler!** Azure blob depolamadan bir Azure SQL veritabanına veri kopyalamak üzere işlem hattına sahip bir Azure veri fabrikasını başarıyla oluşturdunuz. 
+**Tebrikler!** Bir Azure data factory, ardışık düzen toocopy verilerle bir Azure blob depolama tooan Azure SQL veritabanı başarıyla oluşturdunuz. 
 
 
 ## <a name="monitor-pipeline"></a>İşlem hattını izleme
-Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure Portal kullanacaksınız.    
+Bu adımda, bir Azure data factory'de neler olduğunu Azure portal toomonitor hello kullanın.    
 
 ### <a name="monitor-pipeline-using-monitor--manage-app"></a>İzleme ve Yönetme Uygulamasını kullanarak işlem hattını izleme
-Aşağıdaki adımlar İzleme ve Yönetme uygulamasını kullanarak veri fabrikanızdaki işlem hatlarını nasıl izleyeceğinizi göstermektedir: 
+Merhaba aşağıdaki adımlar, nasıl toomonitor data factory'nizi Merhaba izleme ve yönetme uygulaması kullanarak ardışık düzenleri gösterir: 
 
-1. Data factory’nin giriş sayfasındaki **İzleme ve Yönetme** kutucuğuna tıklayın.
+1. Tıklatın **İzleyici & Yönet** döşeme hello veri fabrikanızın giriş sayfasında.
    
     ![İzleme ve Yönetme kutucuğu](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-manage-tile.png) 
 2. **İzleme ve Yönetme uygulaması** ayrı bir sekmede açılmalıdır. 
 
     > [!NOTE]
-    > Web tarayıcısının "Yetkilendiriliyor..." durumunda takıldığını görürseniz **Üçüncü taraf tanımlama bilgilerini ve site verilerini engelle** ayarının işaretini kaldırın (ya da) **login.microsoftonline.com** için bir özel durum oluşturun ve ardından uygulamayı yeniden başlatmayı deneyin.
+    > Bu hello web tarayıcısının "Yetkilendiriliyor..." takılmış görürseniz, hello aşağıdakilerden birini yapın: Temizle hello **üçüncü taraf tanımlama bilgilerini engelleyebilir ve site verileri** onay kutusunu (veya) için bir özel durum oluşturmak **login.microsoftonline.com**, tooopen hello uygulama yeniden deneyin.
 
     ![İzleme ve Yönetme Uygulaması](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png)
-3. **Başlangıç saati** ve **Bitiş saati**'ni işlem hattınızın başlangıç (2017-05-11) ve bitiş saatlerini (2017-05-12) içerecek şekilde değiştirin ve **Uygula**'ya tıklayın.       
-3. İşlem hattı başlangıç ve bitiş saatleri arasındaki saatlerle ilişkilendirilmiş **etkinlik pencerelerini** orta bölmede görebilirsiniz. 
-4. Bir etkinlik penceresinin ayrıntılarını görmek için **Etkinlik Pencereleri** listesinde seçin. 
+3. Değişiklik hello **başlangıç zamanı** ve **bitiş saati** tooinclude (2017-05-11) başlangıç ve bitiş zamanları (2017-05-12), ardışık ve tıklatın **Uygula**.     
+3. Merhaba gördüğünüz **etkinlik windows** ardışık düzen başlangıç ve bitiş arasındaki her bir saat ile ilişkili kez hello Orta bölmesindeki hello listesinde. 
+4. bir etkinlik penceresinde, seçin toosee ayrıntılarını hello etkinlik penceresinde hello **etkinlik Windows** listesi. 
     ![Etkinlik penceresi ayrıntıları](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
 
-    Sağ taraftaki Etkinlik Penceresi Gezgini'nde geçerli saate (20:12) kadar olan dilimlerin işlendiğini (yeşil renkli olduğunu) göreceksiniz. 20-21, 21-22, 22-23 ve 23-00 dilimleri henüz işlenmemiştir.
+    Etkinlik penceresini Gezgini'nde hello doğru o hello toohello geçerli UTC saat dilimi bakın (8:12 PM) tüm işlenir (yeşil renkte). Merhaba 8-9 PM, 9-10 PM, 10-11 PM, 23: 00 - 00: 00 dilimler henüz işlenmedi.
 
-    Sağ bölmedeki **Denemeler**bölümünde veri dilimi için çalıştırılan etkinlik hakkında bilgiler yer alır. Bir hata varsa onunla ilgili bilgiler de eklenir. Örneğin girdi klasörü veya kapsayıcı mevcut değilse ve dilim işleme başarısız olursa kapsayıcının veya klasörün bulunmadığını belirten bir hata iletisi görürsünüz.
+    Merhaba **denemeleri** bölümünde hello sağ bölmesinde hello veri dilimi için çalıştırın hello etkinliği hakkında bilgi sağlar. Bir hata varsa, hello hata hakkında ayrıntılar sağlar. Örneğin, klasör veya kapsayıcı hello giriş değil mevcut ve hello dilim işlem başarısız olursa, o hello kapsayıcısını belirten bir hata iletisine bakın veya klasörü yok.
 
     ![Etkinlik çalıştırma denemeleri](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-run-attempts.png) 
-4. **SQL Server Management Studio**’yu başlatın, Azure SQL Veritabanı’na bağlanın ve veritabanındaki **emp** tablosuna satırların eklenmiş olduğunu doğrulayın.
+4. Başlatma **SQL Server Management Studio**toohello Azure SQL veritabanına bağlanma ve hello satır içinde toohello eklenen doğrulayın **emp** hello veritabanındaki tablo.
     
     ![sql sorgu sonuçları](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
 Bu uygulamanın kullanımına ilişkin ayrıntılı bilgi için bkz. [İzleme ve Yönetme Uygulamasını kullanarak Azure Data Factory işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md).
 
 ### <a name="monitor-pipeline-using-diagram-view"></a>Diyagram Görünümünü kullanarak işlem hattını izleme
-Veri işlem hatlarını diyagram görünümüyle de izleyebilirsiniz.  
+İzleyici veri ardışık ayrıca hello diyagram görünümü kullanarak yapabilirsiniz.  
 
-1. **Data Factory** dikey penceresinde **Diyagram**’a tıklayın.
+1. Merhaba, **Data Factory** dikey penceresinde tıklatın **diyagramı**.
    
     ![Data Factory Dikey Penceresi - Diyagram Kutucuğu](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png)
-2. Aşağıdaki görüntüye benzer bir diyagram görmeniz gerekir: 
+2. Merhaba diyagramı benzer toohello görüntü aşağıdaki görmeniz gerekir: 
    
     ![Diyagram görünümü](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png)  
-5. Diyagram görünümünde **InputDataset**'e çift tıklayarak veri kümesinin dilimlerini görüntüleyebilirsiniz.  
+5. Merhaba diyagram görünümünde çift **InputDataset** toosee dilimler hello veri kümesi için.  
    
     ![InputDataset seçiliyken veri kümeleri](./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSetsWithInputDatasetFromBlobSelected.png)   
-5. Tüm veri dilimlerini görmek için **Daha fazlasını gör** bağlantısına tıklayın. İşlem hattı başlangıç ve bitiş saatleri arasında 24 saatlik dilim göreceksiniz. 
+5. Tıklatın **daha fazla** toosee tüm hello veri dilimleri bağlantı. İşlem hattı başlangıç ve bitiş saatleri arasında 24 saatlik dilim göreceksiniz. 
    
     ![Tüm girdi veri dilimleri](./media/data-factory-copy-activity-tutorial-using-azure-portal/all-input-slices.png)  
    
-    **emp.txt** dosyası her zaman **adftutorial\input** blob kapsayıcısında yer aldığından geçerli UTC saatine kadar olan tüm veri dilimleri **Hazır**'dır. Geleceğe yönelik dilimler hazır değil durumundadır. Alttaki **En son başarısız olan dilimler** bölümünde hiç dilim gösterilmediğini onaylayın.
-6. Diyagram görünümüne ulaşana kadar dikey pencereleri kapatın veya diyagram görünümüne geçmek için sola kaydırın. Ardından **OutputDataset** öğesine çift tıklayın. 
-8. Tüm dilimleri görmek için **OutputDataset** öğesine ait **Tablo** dikey penceresinde **Daha fazlasını gör** bağlantısına tıklayın.
+    Tüm veri dilimleri toohello geçerli UTC zaman hello olduğuna dikkat edin **hazır** çünkü hello **emp.txt** dosyanın hello blob kapsayıcısında tüm hello zaman var: **adftutorial\input**. Merhaba dilimler hello gelecekteki saatler için hazır durumda henüz değildir. Hiç dilim hello gösterilmediğini onaylayın **en son başarısız olan dilimler** hello alt kısmına.
+6. Kapat hello Kanatlar, kadar hello diyagramı görünümü (veya) kaydırma sol toosee hello diyagramını görüntülemek bakın. Ardından **OutputDataset** öğesine çift tıklayın. 
+8. Tıklatın **daha fazla** hello bağlantıdaki **tablo** dikey **OutputDataset** toosee tüm dilimleri hello.
 
     ![veri dilimleri dikey penceresi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png) 
-9. Geçerli UTC saatine kadar olan tüm dilimlerin durumunun **bekleyen yürütme** yerine => **Sürüyor** ==> **Hazır** durumuna geçtiğine dikkat edin. Geçmiş dilimler (geçerli saat öncesi) varsayılan olarak en yeniden en eskiye doğru işlenir. Örneğin geçerli saat 20:12 UTC ise 19-20 dilimi 18-19 diliminden önce işlenir. 20-21 dilimi varsayılan olarak zaman aralığın sonunda,yani 21 sonrasında işlenir.  
-10. Listeden herhangi bir veri dilimine tıklayın; **Veri dilimi** dikey penceresini görmeniz gerekir. Bir etkinlik penceresiyle ilişkilendirilmiş veri parçasına dilim adı verilir. Bir dilim bir veya birden çok dosya olabilir.  
+9. Tüm dilimleri toohello geçerli UTC zaman hello bildirimi taşıma **yürütme bekleyen** durumu = > **devam eden** ==> **hazır** durumu. Merhaba hello son öğesinden dilimleri (önce geçerli saati) en son toooldest varsayılan olarak işlenir. Örneğin, Hello geçerli saat 8:12 PM UTC ise hello dilim 19: 00 - 8 PM için hello 6 PM - 19: 00 dilim öncesinde işlenir. Merhaba 8 PM - 9 PM dilim hello hello süre sonunda 9 PM sonra olan varsayılan olarak işlenir.  
+10. Merhaba listeden herhangi bir veri dilimine tıklayın ve hello görmelisiniz **veri dilimi** dikey. Bir etkinlik penceresiyle ilişkilendirilmiş veri parçasına dilim adı verilir. Bir dilim bir veya birden çok dosya olabilir.  
     
      ![veri dilimi dikey penceresi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslice-blade.png)
     
-     Dilim **Hazır** durumunda değilse, Hazır olmayan ve geçerli dilimin yürütülmesini engelleyen yukarı akış dilimlerini **Hazır olmayan yukarı akış dilimleri** listesinde görebilirsiniz.
-11. **VERİ DİLİMİ** dikey penceresinde, alttaki listede tüm etkinlik çalıştırmalarını görmelisiniz. **Etkinlik çalışma ayrıntıları** dikey penceresini görmek için bir **etkinlik çalışması**’na tıklayın. 
+     Merhaba dilim hello değilse **hazır** durumu, hazır olmayan ve geçerli dilimin yürütülmesini hello hello engelleme hello Yukarı Akış dilimleri görebilirsiniz **hazır olmayan Yukarı Akış dilimleri** listesi.
+11. Merhaba, **veri DİLİMİ** dikey penceresinde hello altındaki hello listesindeki tüm etkinlik çalıştırmalarını görmelisiniz. Tıklatın bir **etkinlik** toosee hello **etkinlik çalışma ayrıntıları** dikey. 
     
     ![Etkinlik Çalışma Ayrıntıları](./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png)
 
-    Bu dikey pencerede kopyalama işleminin ne kadar sürdüğünü, aktarım hızını, kaç bayt veri okunup yazıldığını, çalışma başlangıç zamanını, çalışma bitiş zamanını vs. görebilirsiniz.  
-12. **ADFTutorialDataFactory** giriş dikey penceresine dönene kadar tüm dikey pencereleri kapatmak için **X** işaretine tıklayın.
-13. (isteğe bağlı) Önceki adımlarda gördüğünüz dikey pencerelere ulaşmak için **Veri kümeleri** kutucuğuna veya **İşlem hatları** kutucuğuna tıklayın. 
-14. **SQL Server Management Studio**’yu başlatın, Azure SQL Veritabanı’na bağlanın ve veritabanındaki **emp** tablosuna satırların eklenmiş olduğunu doğrulayın.
+    Bu dikey pencerede gördüğünüz uzun hello kopyalama işlemi sürdü nasıl hangi verimlilik, okuma ve yazılı, çalıştırma başlangıç zamanı, kaç tane veri baytı sayısı olan bitiş zamanı vb. çalıştırılır.  
+12. Tıklatın **X** tooclose, kadar tüm hello dikey geri alma hello giriş dikey penceresine toohello **ADFTutorialDataFactory**.
+13. (isteğe bağlı) hello **veri kümeleri** döşeme veya **ardışık düzen** görülen döşeme tooget hello Kanatlar hello önceki adımları. 
+14. Başlatma **SQL Server Management Studio**toohello Azure SQL veritabanına bağlanma ve hello satır içinde toohello eklenen doğrulayın **emp** hello veritabanındaki tablo.
     
     ![sql sorgu sonuçları](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
 
 ## <a name="summary"></a>Özet
-Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzere Azure data factory oluşturdunuz. Data factory, bağlı hizmetler, veri kümeleri ve işlem hattı oluşturmak için Azure Portal’ı kullandınız. Bu öğreticide gerçekleştirilen üst düzey adımları şunlardır:  
+Bu öğreticide, bir Azure veri fabrikası toocopy verileri Azure blob tooan Azure SQL veritabanından oluşturuldu. Hello Azure portal toocreate hello veri fabrikası, bağlı hizmetler, veri kümeleri ve işlem hattı kullanılır. Bu öğreticide gerçekleştirilen hello üst düzey adımlar şunlardır:  
 
-1. Azure **data factory** oluşturuldu.
+1. Oluşturulan Azure **data factory**.
 2. Oluşturulan **bağlı hizmetler**:
-   1. Girdi verilerini tutan Azure Storage hesabınıza bağlamak için **Azure Storage** bağlı hizmeti.     
-   2. Çıktı verilerini tutan Azure SQL veritabanınıza bağlamak için **Azure SQL** bağlı hizmeti. 
+   1. Bir **Azure Storage** hizmet toolink girdi verilerini tutan Azure Storage hesabınıza bağlı.     
+   2. Bir **Azure SQL** hizmet toolink hello çıktı verilerini tutan Azure SQL veritabanınızı bağlı. 
 3. İşlem hatları için girdi verilerini ve çıktı verilerini açıklayan oluşturulan **veri kümeleri**.
 4. Kaynak olarak **BlobSource**’u, havuz olarak da **SqlSink**’i kapsayan **Kopyalama Etkinliği**’ne sahip oluşturulan **işlem hattı**.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir kopyalama işleminde kaynak veri deposu olarak Azure blob depolama alanını ve hedef veri deposu olarak Azure SQL veritabanını kullandınız. Aşağıdaki tabloda, kopyalama etkinliği tarafından kaynak ve hedef olarak desteklenen veri depolarının listesi sağlanmıştır: 
+Bu öğreticide, bir kopyalama işleminde kaynak veri deposu olarak Azure blob depolama alanını ve hedef veri deposu olarak Azure SQL veritabanını kullandınız. Merhaba aşağıdaki tabloda kaynakları ve hedefleri hello kopyalama etkinliği tarafından desteklenen veri depoları listesi verilmiştir: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-Veri deposundan/veri deposuna veri kopyalama hakkında bilgi edinmek için tablodaki veri deposunun bağlantısına tıklayın.
+nasıl bir veri öğesine/öğesinden toocopy veri deposu hakkında toolearn hello veri deposu hello tablosundaki hello bağlantısını tıklatın.

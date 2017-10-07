@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure StorSimple 8000 serisi aygıt pilde Değiştir | Microsoft Docs"
-description: "Kaldırmak için değiştirin ve StorSimple Cihazınızda yedek pil modülü korumak açıklar."
+title: "Microsoft Azure StorSimple 8000 serisi aygıt aaaReplace pilde | Microsoft Docs"
+description: "Nasıl tooremove, değiştirin ve StorSimple Cihazınızı hello yedek pil modülünü bakımını açıklar."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 174a3163082594ea6a49b7f5a78857848f8f0566
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5ac767807e6c3fd817d8d522629db2aceaac9bdf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>StorSimple Cihazınızda yedek pil modülü değiştirin
+# <a name="replace-hello-backup-battery-module-on-your-storsimple-device"></a>StorSimple Cihazınızda Hello yedek pil modülü değiştirin
 
 ## <a name="overview"></a>Genel Bakış
-Birincil muhafaza güç ve soğutma Modülü (PCM), Microsoft Azure StorSimple Cihazınızda bir ek pil paketi vardır. Bu paketi güç sunar, böylece birincil kasası AC güç kaybı ise StorSimple cihazı veri kaydedebilirsiniz. Bu pil paketi olarak adlandırılır *yedek pil Modülü*. Yedek pil modülü yalnızca StorSimple Cihazınızı (EBOD muhafazası bir yedek pil modül içermiyor) birincil muhafazada yok.
+Merhaba birincil muhafaza güç ve soğutma Modülü (PCM), Microsoft Azure StorSimple Cihazınızda bir ek pil paketi vardır. Bu paketi güç sunar, böylece AC güç toohello birincil muhafaza kaybı ise hello StorSimple Cihazınızı veri kaydedebilirsiniz. Başvurulan tooas hello bu pil paketidir *yedek pil Modülü*. Merhaba yedek pil modülü var. yalnızca StorSimple Cihazınızı birincil muhafazada hello için (Merhaba EBOD muhafazası bir yedek pil modül içermiyor).
 
 Bu öğretici açıklar nasıl yapılır:
 
-* Yedek pil modülünü Kaldır
+* Merhaba yedek pil modülünü Kaldır
 * Yeni bir yedek pil modülünü yükleme
-* Yedek pil modülü koru
+* Merhaba yedek pil modülü koru
 
 > [!IMPORTANT]
-> Kaldırma ve bir yedek pil modül değiştirme gözden önce güvenlik bilgileri [StorSimple donanım bileşeni değiştirme giriş](storsimple-8000-hardware-component-replacement.md).
+> Kaldırma ve bir yedek pil modül değiştirme gözden önce hello hello güvenlik bilgileri [giriş tooStorSimple donanım bileşeni değiştirme](storsimple-8000-hardware-component-replacement.md).
 
 
-## <a name="remove-the-backup-battery-module"></a>Yedek pil modülünü Kaldır
-Bir alan değiştirebilen birim StorSimple cihazınız için yedek pil modülüdür. PCM yüklenmeden önce pil modülü kendi özgün paketleme depolanması gerekir. Yedek pil kaldırmak için aşağıdaki adımları gerçekleştirin.
+## <a name="remove-hello-backup-battery-module"></a>Merhaba yedek pil modülünü Kaldır
+Merhaba yedek pil StorSimple cihazınız için bir alan değiştirebilen birim modülüdür. Merhaba PCM yüklenmeden önce hello pil modülü kendi özgün paketleme depolanması gerekir. Aşağıdaki adımları tooremove hello yedek pil hello gerçekleştirin.
 
-#### <a name="to-remove-the-backup-battery-module"></a>Yedek pil modülünü kaldırmak için
-1. Azure portalında StorSimple cihaz Yöneticisi hizmeti dikey penceresine gidin. Git **aygıtları** ve ardından Cihazınızı aygıtları listesinden seçin. Gidin **İzleyici** > **donanım durumu**. Altında **paylaşılan bileşenleri**, pil durum öğesine bakın.
-2. Pil başarısız oldu PCM tanımlayın. Şekil 1, StorSimple cihazı arkası gösterir.
+#### <a name="tooremove-hello-backup-battery-module"></a>tooremove hello yedek pil Modülü
+1. Hello Azure portal, tooyour StorSimple cihaz Yöneticisi hizmeti dikey penceresine gidin. Çok Git**aygıtları** ve cihazların Merhaba listeden Cihazınızı seçin. Çok gidin**İzleyici** > **donanım durumu**. Altında **paylaşılan bileşenleri**, hello pil hello durum öğesine bakın.
+2. Hangi hello pil başarısız oldu hello PCM tanımlayın. Şekil 1'hello StorSimple cihazı arkasına hello gösterir.
    
     ![Aygıt birincil muhafaza modüllerinin devre kartı](./media/storsimple-battery-replacement/IC740994.png)
    
@@ -53,11 +53,11 @@ Bir alan değiştirebilen birim StorSimple cihazınız için yedek pil modülüd
    | 3 |Denetleyici 0 |
    | 4 |Denetleyici 1 |
    
-    Sayı 3 Şekil 2'de gösterildiği gibi izleme gösterge ÖNCÜLÜK karşılık gelen PCM 0 üzerinde **pil hataya** aydınlatma.
+    Gösterge izleme hello numarası 3 hello Şekil 2'de gösterildiği gibi çok karşılık gelen PCM üzerinde 0 neden**pil hataya** aydınlatma.
    
     ![Cihaz PCM izleme gösterge LED'lerinin devre kartı](./media/storsimple-battery-replacement/IC740992.png)
    
-    **Şekil 2** geri of PCM izleme gösterge LED'leri gösterme
+    **Şekil 2** geri of PCM gösteren hello gösterge LED'lerinin izleme
    
    | Etiket | Açıklama |
    |:--- |:--- |
@@ -67,43 +67,43 @@ Bir alan değiştirebilen birim StorSimple cihazınız için yedek pil modülüd
    | 4 |PCM TAMAM |
    | 5 |DC Güç kesintisi |
    | 6 |Sağlıklı pil |
-3. Başarısız pille PCM kaldırmak için adımları [bir PCM kaldırmak](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
-4. Kaldırılan PCM ile kaldırın ve aşağıdaki çizimde gösterildiği gibi pil modül işleyiciyi Yukarı Döndür ve pil Kaldır kadar çekme.
+3. başarısız bir pil ile tooremove hello PCM izleyin hello adımlarda [bir PCM kaldırmak](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+4. Hello PCM kaldırıldı, yükseltme ve döndürme hello pil modülü yukarı hello aşağıdaki şekilde gösterildiği gibi işler ve tooremove hello pil çeker.
    
     ![PCM'den pil çıkarılıyor](./media/storsimple-battery-replacement/IC741019.png)
    
-    **Şekil 3** PCM'den pil çıkarılıyor
-5. Paketleme alan değiştirebilen birim modülünde yer.
-6. Arızalı ünite uygun Bakım ve işleme için Microsoft'a döndürür.
+    **Şekil 3** hello pil hello PCM ' kaldırma
+5. Merhaba modülü paketleme hello değiştirilebilen birimine yerleştirin.
+6. Uygun Bakım ve işleme için hello arızalı ünite tooMicrosoft döndürür.
 
 ## <a name="install-a-new-backup-battery-module"></a>Yeni bir yedek pil modülünü yükleme
-StorSimple cihazınızın birincil muhafazada PCM değiştirme pil modülünü yüklemek için aşağıdaki adımları gerçekleştirin.
+Aşağıdaki adımları tooinstall hello değiştirme pil modülünde hello PCM StorSimple cihazınızın hello birincil muhafazada hello gerçekleştirin.
 
-#### <a name="to-install-the-battery-module"></a>Pil modülünü yüklemek için
-1. Yedek pil modülü PCM uygun yönde yerleştirin.
-2. Bu süreç boyunca tüm bağlayıcı oturak için pil modül işleyiciyi basın.
-3. Yönergeleri izleyerek birincil muhafazada PCM Değiştir [güç ve soğutma modülü StorSimple Cihazınızda Değiştir](storsimple-power-cooling-module-replacement.md).
-4. Bu değişiklik tamamlandıktan sonra aygıtınıza gidin ve gidin **İzleyici** > **donanım durumu** Azure portalında. Yüklemenin başarılı olduğunu emin olmak için pil durumunu doğrulayın. Yeşil durum pil sağlıklı olduğunu gösterir.
+#### <a name="tooinstall-hello-battery-module"></a>tooinstall hello pil Modülü
+1. Merhaba yedek pil modülü hello uygun hello PCM yönde yerleştirin.
+2. Merhaba pil modülü aşağı tuşuna tüm hello yolu tooseat hello bağlayıcı işleyin.
+3. Değiştir hello yönergeleri izleyerek hello birincil muhafazada PCM hello [güç ve soğutma modülü StorSimple Cihazınızda Değiştir](storsimple-power-cooling-module-replacement.md).
+4. Merhaba değiştirme tamamlandıktan sonra Git tooyour cihaz ve çok Git**İzleyici** > **donanım durumu** hello Azure portal'ın. Merhaba pil toomake hello yüklemenin başarılı olduğunu emin Hello durumunu doğrulayın. Yeşil durum hello pil sağlıklı olduğunu gösterir.
 
-## <a name="maintain-the-backup-battery-module"></a>Yedek pil modülü koru
-StorSimple Cihazınızı yedek pil modülü güç kaybı olayı sırasında denetleyiciye güç sağlar. Denetimli bir biçimde kapatmadan önce kritik verileri kaydetmek StorSimple cihazı sağlar. İki tam dolu pilleri ile PCMs, iki ardışık kaybı olay sistem işleyebilir.
+## <a name="maintain-hello-backup-battery-module"></a>Merhaba yedek pil modülü koru
+StorSimple Cihazınızı hello yedek pil modülü güç kaybı olayı sırasında güç toohello denetleyicisi sunar. Merhaba StorSimple cihaz toosave kritik verilerin önceki tooshutting aşağı denetimli bir biçimde izin verir. Merhaba PCMs içinde iki tam dolu pil ile Merhaba sistem iki ardışık kaybı olayları işleyebilir.
 
-Azure portalında **donanım durumu** altında **İzleyici** dikey pil arızalı ya da son yaşam yaklaştığını gösterir. Pil durumu belirtilir **PCM 0 pil** veya **pil PCM 1** altında **paylaşılan bileşenleri**. Bu dikey gösterecek bir **DEGRADED** ömrü sonu yaklaşan için durum ve **başarısız** ömrü son ulaştı.
+Hello Azure portal, hello **donanım durumu** hello altında **İzleyici** dikey penceresinde hello pil arızalı ya da hello son yaşam yaklaşan gösterir. Merhaba pil durumu tarafından belirtilir **PCM 0 pil** veya **pil PCM 1** altında **paylaşılan bileşenleri**. Bu dikey gösterecek bir **DEGRADED** ömrü sonu yaklaşan için durum ve **başarısız** ömrü son ulaştı.
 
 > [!NOTE]
-> Pil raporlayabilirsiniz **başarısız** , yalnızca gerektiği zaman uygulanacak.
+> Merhaba pil raporlama yapabilir **başarısız** , yalnızca gerektiği zaman toobe ücretlendirilir.
 
 
-Varsa **DEGRADED** durumu görünür, eylem aşağıdaki seyri öneririz:
+Merhaba, **DEGRADED** durumu görünür, aşağıdaki eylemin hello öneririz:
 
-* Sistem son güç kaybı karşılaşmış veya piller düzenli bakım altında. Devam etmeden önce 12 saat sistem gözlemleyin.
+* Merhaba sistem son güç kaybı karşılaşmış veya hello piller düzenli bakım altında. Devam etmeden önce 12 saat Hello sistem gözlemleyin.
   
-  * Durum hala ise **DEGRADED** AC sürekli bağlantı 12 saatlik denetleyicileri ve çalışan PCMs ile güç sonra sonra pil değiştirilmesi gerekiyor. Lütfen [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) yedek yedek pil modülü için.
-  * Durumu Tamam 12 saat sonra olursa, pil işlevseldir ve yalnızca bir bakım ücret gereklidir.
-* Ayrıca bir ilişkili AC güç kaybı değil açıldı ve PCM açık ve AC güç kaynağına bağlı, pil değiştirilmesi gerekiyor. [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) bir yedek yedek pil modül sıralamak için.
+  * Merhaba durum hala ise **DEGRADED** denetleyicileri ve PCMs çalıştıran, sürekli bağlantı tooAC güç hello ile 12 saat sonra hello sonra değiştirilen toobe pil gerekir. Lütfen [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) yedek yedek pil modülü için.
+  * Merhaba durumu Tamam 12 saat sonra olursa, hello pil işlevseldir ve yalnızca bir bakım ücret gereklidir.
+* Değil yapıldıysa ilişkili kaybına AC gücü ve hello PCM açık olduğundan ve tooAC güç bağlı, hello pil yerini toobe gerekir. [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) tooorder bir yedek yedek pil modül.
 
 > [!IMPORTANT]
-> Ulusal ve bölgesel düzenlemeleri göre başarısız pil Dispose.
+> Merhaba Dispose toonational ve bölgesel düzenlemelere göre pil başarısız oldu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi edinmek [StorSimple donanım bileşeni değiştirme](storsimple-8000-hardware-component-replacement.md).

@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Veritabanını sorgulamak için PHP kullanma | Microsoft Docs"
-description: "Bu konu başlığı altında, PHP kullanarak Azure SQL Veritabanına bağlanan ve Transact-SQL deyimleriyle veritabanını sorgulayan bir program oluşturma işlemi gösterilir."
+title: "aaaUse PHP tooquery Azure SQL veritabanı | Microsoft Docs"
+description: "Bu konu, nasıl gösterir toouse PHP toocreate tooan Azure SQL veritabanı ve sorgu Transact-SQL deyimi kullanarak bağlanan bir program."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,51 +15,51 @@ ms.devlang: php
 ms.topic: hero-article
 ms.date: 08/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 3a43472ad2be4a0fd6f7126f72433acd8b5f25fd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 5fc49dcc42ab07cc1bec554be39bdf08dbd6f75e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-php-to-query-an-azure-sql-database"></a>PHP kullanarak Azure SQL veritabanı sorgulama
+# <a name="use-php-tooquery-an-azure-sql-database"></a>PHP tooquery Azure SQL veritabanını kullan
 
-Bu hızlı başlangıç öğreticisi, [PHP](http://php.net/manual/en/intro-whatis.php) kullanarak Azure SQL veritabanına bağlanan ve Transact-SQL deyimleriyle veri sorgulayan bir program oluşturmayı gösterir.
+Bu hızlı başlangıç Öğreticisi gösteren nasıl toouse [PHP](http://php.net/manual/en/intro-whatis.php) toocreate program tooconnect tooan Azure SQL veritabanı ve Transact-SQL deyimleri tooquery verileri kullanın.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu hızlı başlangıç öğreticisini tamamlamak için aşağıdakilere sahip olduğunuzdan emin olun:
+toocomplete Bu hızlı başlangıç Öğreticisi, hello aşağıdaki sahip olduğunuzdan emin olun:
 
-- Bir Azure SQL veritabanı. Bu hızlı başlangıçta, aşağıdaki hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır: 
+- Bir Azure SQL veritabanı. Bu hızlı başlangıç Bu hızlı başlangıçlar birinde oluşturulan hello kaynakları kullanır: 
 
    - [DB Oluşturma - Portal](sql-database-get-started-portal.md)
    - [DB oluşturma - CLI](sql-database-get-started-cli.md)
    - [DB Oluşturma - PowerShell](sql-database-get-started-powershell.md)
 
-- Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+- A [sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) hello için genel IP adresi hello bilgisayarın bu hızlı başlangıç öğreticisi için kullanın.
 
 - İşletim sisteminiz için PHP ve ilgili yazılımları yüklediniz.
 
-    - **MacOS**: Homebrew ve PHP yükleyin, ODBC sürücüsünü ve SQLCMD yükleyin, ardından SQL Server için PHP Sürücüsü yükleyin. Bkz. [Adım 1.2, 1.3 ve 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
-    - **Ubuntu**:  PHP ve diğer gerekli paketleri yükleyin ve ardından SQL Server için PHP Sürücüsü yükleyin. Bkz. [Adım 1.2 ve 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
-    - **Windows**: IIS Express için PHP’nin en yeni sürümünü, IIS Express’te SQL Server için Microsoft Sürücülerinin en yeni sürümlerini, Chocolatey, ODBC sürücüsü ve SQLCMD’yi yükleyin. Bkz. [Adım 1.2 ve 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
+    - **MacOS**: Homebrew yükleyin ve PHP, hello ODBC sürücüsü ve SQLCMD yükleyin ve SQL Server için PHP sürücü hello yükleyin. Bkz. [Adım 1.2, 1.3 ve 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
+    - **Ubuntu**: PHP yüklemek ve diğer SQL Server için gerekli paketleri ve yükleme hello PHP sürücü. Bkz. [Adım 1.2 ve 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Windows**: hello en yeni sürümünü yüklemek PHP için IIS Express, Microsoft SQL Server için Drivers IIS Express, Chocolatey, hello ODBC sürücüsü ve SQLCMD hello en yeni sürümü. Bkz. [Adım 1.2 ve 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
 
 ## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
 
-Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Sonraki yordamlarda tam sunucu adına, veritabanı adına ve oturum açma bilgilerine ihtiyacınız olacaktır.
+Merhaba bağlantı gerekli bilgileri tooconnect toohello Azure SQL veritabanı alın. Merhaba tam sunucu adını, veritabanı adının ve oturum açma bilgilerini hello sonraki yordamlarda gerekir.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın **Genel Bakış** sayfasında, aşağıdaki görüntüde gösterildiği gibi tam sunucu adını gözden geçirin. Sunucu adının üzerine gelerek **Kopyalamak için tıklayın** seçeneğini ortaya çıkarabilirsiniz.  
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Seçin **SQL veritabanları** hello sol taraftaki menüden veritabanınızda hello tıklatıp **SQL veritabanları** sayfası. 
+3. Merhaba üzerinde **genel bakış** gözden geçirme hello veritabanınız için sayfa hello görüntü aşağıdaki gösterildiği gibi sunucu adı tam olarak nitelenmiş. Merhaba sunucu adı toobring hello yukarı üzerine getirin **tıklatın toocopy** seçeneği.  
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Sunucunuzun oturum açma bilgilerini unuttuysanız SQL Veritabanı sunucusu sayfasına giderek sunucu yöneticisi adını görüntüleyin ve gerekirse parolayı sıfırlayın.     
+4. Sunucu oturum açma bilgilerinizi unutursanız, toohello SQL veritabanı sunucusu sayfa tooview hello sunucu yönetici adı gidin ve gerekiyorsa, sıfırlama, hello parola.     
     
-## <a name="insert-code-to-query-sql-database"></a>SQL veritabanını sorgulamak için kod girme
+## <a name="insert-code-tooquery-sql-database"></a>Kod tooquery SQL veritabanı Ekle
 
 1. Sık kullandığınız metin düzenleyicisinde **sqltest.php** adında yeni bir dosya oluşturun.  
 
-2. İçeriğini aşağıdaki kod ile değiştirin ve sunucunuz, veritabanınız, kullanıcınız ve parolanız için uygun değerleri ekleyin.
+2. Aşağıdaki kod ve sunucu, veritabanı, kullanıcı ve parola için uygun değerleri hello ekleme hello Hello içeriğini değiştirin.
 
    ```PHP
    <?php
@@ -69,7 +69,7 @@ Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. S
        "Uid" => "your_username",
        "PWD" => "your_password"
    );
-   //Establishes the connection
+   //Establishes hello connection
    $conn = sqlsrv_connect($serverName, $connectionOptions);
    $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
            FROM [SalesLT].[ProductCategory] pc
@@ -86,15 +86,15 @@ Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. S
    ?>
    ```
 
-## <a name="run-the-code"></a>Kodu çalıştırma
+## <a name="run-hello-code"></a>Merhaba kodu çalıştırma
 
-1. Komut isteminde aşağıdaki komutları çalıştırın:
+1. Merhaba komut isteminde aşağıdaki komutları hello çalıştırın:
 
    ```php
    php sqltest.php
    ```
 
-2. En üst 20 satırın döndürüldüğünü doğrulayın ve sonra uygulama penceresini kapatın.
+2. Merhaba üst 20 satır döndürülür ve hello uygulama penceresini kapatın doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [İlk Azure SQL veritabanınızı tasarlama](sql-database-design-first-database.md)

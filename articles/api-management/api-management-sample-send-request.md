@@ -1,6 +1,6 @@
 ---
-title: "HTTP istekleri oluşturmak için API Management hizmeti kullanma"
-description: "Dış hizmetler, API çağrısı için API Management'te istek ve yanıt ilkeleri kullanma hakkında bilgi edinin"
+title: aaaUsing API Management hizmet toogenerate HTTP istekleri
+description: "API Management toocall dış Hizmetleri, API toouse istek ve yanıt ilkeleri öğrenin"
 services: api-management
 documentationcenter: 
 author: darrelmiller
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: e778943715d6ca5256ad612d82bdc1f82197df0d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8002ee453057513340328d99f298703c3b3a9531
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management hizmetinden dış hizmetler kullanarak
-Azure API Management hizmetinde kullanılabilir ilkeler çeşitli yararlı iş tamamen gelen istek, giden yanıt ve temel yapılandırma bilgileri göre yapabilirsiniz. Ancak, dış API Management hizmetlerinden etkileşimde yapamamasına ilkeleri açılır pek çok daha fazla fırsatı.
+# <a name="using-external-services-from-hello-azure-api-management-service"></a>Dış Hizmetleri'nden hello Azure API Management hizmeti kullanma
+Merhaba ilkelerini Azure API Management hizmeti içinde çok çeşitli tamamen hello gelen istek, hello giden yanıt ve temel yapılandırma bilgileri göre yararlı iş yapabilirsiniz. Ancak, API Management dış hizmetler ile mümkün toointeract olan ilkeleri açılır pek çok daha fazla fırsatı.
 
-Biz nasıl biz etkileşim kurabildikleri daha önce gördünüz [günlüğe kaydetme, izleme ve analiz için Azure olay hub'ı hizmeti](api-management-log-to-eventhub-sample.md). Bu makalede, tüm dış HTTP ile etkileşim kurmasına izin ilkeleri hizmet tabanlı gösterecek. Bu ilkeler, uzak olaylarını tetiklemek veya özgün istek ve yanıt bir şekilde işlemek için kullanılan bilgileri almak için kullanılabilir.
+Biz biz hello ile nasıl etkileşim daha önce gördünüz [günlüğe kaydetme, izleme ve analiz için Azure olay hub'ı hizmeti](api-management-log-to-eventhub-sample.md). Bu makaledeki tüm dış HTTP ile toointeract izin ilkeleri hizmet tabanlı gösterecek. Bu ilkeler, kullanılan toomanipulate hello özgün istek ve yanıt şekilde olacak bilgileri almak için veya uzak olaylarını tetiklemek için kullanılabilir.
 
 ## <a name="send-one-way-request"></a>Bir şekilde İsteği Gönder
-Büyük olasılıkla önemli olay çeşit bildirim almak bir dış hizmet veren istek yangın ve unut stilini basit dış etkileşim olduğu. Denetim akışı İlkesi kullanırız `choose` biz ilgilendiğiniz ve Koşul sağlanıyorsa, daha sonra biz dış bir HTTP isteği kullanarak yapabilirsiniz koşulu her türlü algılamak için [bir şekilde İsteği Gönder](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) ilkesi. Bu ileti sistemi Hipchat veya boşluk ya da posta API SendGrid veya MailChimp gibi gibi bir istek olabilir veya kritik destek olaylar için şuna benzer PagerDuty. Bu ileti sistemlerini biz kolayca çağırabileceği basit HTTP API'ler sahip.
+Büyük olasılıkla hello basit dış etkileşim hello yangın ve unut stil bazı önemli olay türünü bildirim bir dış hizmet toobe sağlayan isteğinin gelir. Merhaba denetim akışı İlkesi kullanırız `choose` her türlü ilginizi çekiyor mu ve daha sonra Merhaba, koşul koşulu karşılandığında, biz hello kullanarak harici bir HTTP isteği yapabilir toodetect [bir şekilde İsteği Gönder](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) ilkesi. Bu ileti sistemi Hipchat veya boşluk ya da posta API SendGrid veya MailChimp gibi gibi bir isteği tooa olabilir veya kritik destek olaylar için şuna benzer PagerDuty. Bu ileti sistemlerini biz kolayca çağırabileceği basit HTTP API'ler sahip.
 
 ### <a name="alerting-with-slack"></a>Kayma ile uyarı
-Aşağıdaki örnek, HTTP yanıtı durum kodu 500 eşit veya daha büyük ise Slack sohbet odasına bir ileti göndermek gösterilmiştir. 500 aralık hatası API'mize istemci kendilerini çözümlenemiyor bizim arka uç API'si bir sorun olduğunu gösterir. Genellikle, bazı tür bir araya bizim bölümü gerektirir.  
+Aşağıdaki örnek hello nasıl toosend ileti tooa hello HTTP yanıtı durum kodu daha büyükse, sohbet odası boşluk veya too500 eşit gösterir. Bizim API İstemci hello bizim arka uç API'si sorun kendilerini çözümlenemiyor bir 500 aralığı hatasını gösterir. Genellikle, bazı tür bir araya bizim bölümü gerektirir.  
 
 ```xml
 <choose>
@@ -56,31 +56,31 @@ Aşağıdaki örnek, HTTP yanıtı durum kodu 500 eşit veya daha büyük ise Sl
 </choose>
 ```
 
-Kayma gelen web kancaları kavramı vardır. Gelen web kancası yapılandırırken, boşluk, basit bir POST isteği yapmak için ve bir ileti Slack kanal geçmesine izin veren özel bir URL oluşturur. Oluşturuyoruz JSON gövdesi kayma tarafından tanımlanan bir biçimini temel alır.
+Kayma gelen web kancaları hello kavramı vardır. Gelen web kancası yapılandırırken kayma hello Slack kanal toodo basit bir POST isteği ve toopass bir ileti sağlayan özel bir URL oluşturur. Merhaba oluşturuyoruz JSON gövdesi kayma tarafından tanımlanan bir biçimini temel alır.
 
 ![Slack Web kancası](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>Yangın uyguluyor ve yeterli unuttunuz mu?
-İstek yangın ve unut stili kullanırken belirli bileşim yoktur. Herhangi bir nedenle olduğu varsa, istek başarısız olur ve ardından hata raporlanmayacak. Bu belirli bir durumda, sistem ve yanıt bekleme ek performans maliyeti raporlama ikincil bir hataya neden karmaşıklığını garanti değil. Yanıt denetlemek için gerekli olduğu senaryolar için sonra [gönderme isteği](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) ilkedir daha iyi bir seçenek.
+İstek yangın ve unut stili kullanırken belirli bileşim yoktur. Herhangi bir nedenle olduğu varsa, hello isteği başarısız olur ve ardından hello hatası raporlanmayacak. Bu belirli durumda hello karmaşıklığını ikincil hata raporlama sistemi ve hello yanıtı bekleniyor hello ek performans maliyeti olması garanti değil. Temel toocheck hello yanıt olduğu senaryolar için sonra hello [gönderme isteği](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) ilkedir daha iyi bir seçenek.
 
 ## <a name="send-request"></a>Gönderme isteği
-`send-request` İlkesi etkinleştirir karmaşık işleme işlevleri gerçekleştirmek ve veri API Management hizmeti dönmek için bir dış hizmet kullanarak daha fazla ilke işleme için kullanılabilir.
+Merhaba `send-request` işleme işlevleri ve daha fazla ilke işleme için kullanılan dönüş verileri toohello API management hizmeti karmaşık bir dış hizmet tooperform kullanarak ilke etkinleştirir.
 
 ### <a name="authorizing-reference-tokens"></a>Başvuru belirteçleri yetkilendirme
-API Management ana işlevinin arka uç kaynaklarına koruyor. API tarafından kullanılan yetkilendirme sunucusu oluşturursa [JWT belirteçleri](http://jwt.io/) kendi OAuth2 akışının parçası olarak olarak [Azure Active Directory](../active-directory/active-directory-aadconnect.md) mu kullanabileceğiniz sonra `validate-jwt` İlkesi belirtecin geçerliliğini doğrulayın. Ancak, bazı yetkilendirme sunucuları ne denir oluşturma [başvuru belirteçleri](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) , doğrulanamıyor yetkilendirme sunucuya geri arama yapmadan.
+API Management ana işlevinin arka uç kaynaklarına koruyor. API tarafından kullanılan hello yetkilendirme sunucusu oluşturursa [JWT belirteçleri](http://jwt.io/) , OAuth2 akışının parçası olarak olarak [Azure Active Directory](../active-directory/active-directory-aadconnect.md) mu hello kullanabilirsiniz `validate-jwt` İlkesi tooverify hello geçerliliğini Merhaba belirteci. Ancak, bazı yetkilendirme sunucuları ne denir oluşturma [başvuru belirteçleri](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) , doğrulanamıyor çağrı geri toohello yetkilendirme sunucusu yapmadan.
 
 ### <a name="standardized-introspection"></a>Standartlaştırılmış introspection
-Geçmişte başvuru belirteci yetkilendirme sunucusu ile doğrulama hiçbir standartlaştırılmış şekilde açıldı. Ancak en son önerilen standart [RFC 7662](https://tools.ietf.org/html/rfc7662) bir kaynak sunucuda bir belirtecin geçerliliğini nasıl doğrulayabilirsiniz tanımlar IETF tarafından yayımlandı.
+Hello geçmiş başvuru belirteci yetkilendirme sunucusu ile doğrulama standartlaştırılmış hiçbir şekilde açıldı. Ancak en son önerilen standart [RFC 7662](https://tools.ietf.org/html/rfc7662) hello kaynak sunucuda bir belirteç hello geçerliliğini nasıl doğrulayabilirsiniz tanımlar IETF tarafından yayımlandı.
 
-### <a name="extracting-the-token"></a>Belirteç ayıklanıyor
-Belirteç yetkilendirme başlığından ayıklamak için ilk adımdır bakın. Üstbilgi değeri ile biçimlendirilmiş olması `Bearer` Yetkilendirme düzeni, tek bir boşluk ve ardından yetkilendirme belirteci olarak başına [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Ne yazık ki burada Yetkilendirme düzeni atlanmış durumlar vardır. Ayrıştırılırken bu hesap için bir alanı üstbilgi değeri Böl ve son dize dizeleri döndürülen diziden seçin. Bu, hatalı biçimlendirilmiş yetkilendirme üstbilgileri için geçici bir çözüm sağlar.
+### <a name="extracting-hello-token"></a>Merhaba belirteci ayıklanıyor
+Merhaba ilk tooextract hello hello Authorization Üstbilgisi belirtecinden adımdır. Merhaba üstbilgi değeri ile Merhaba biçimlendirilmiş `Bearer` Yetkilendirme düzeni, tek bir boşluk ve ardından hello yetkilendirme belirteci olarak başına [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Ne yazık ki burada hello Yetkilendirme düzeni atlanmış durumlar vardır. Bu tooaccount ayrıştırılırken, biz hello üstbilgi değeri bir boşluk ve select hello son dizisini döndürülen hello dizeden bölün. Bu, hatalı biçimlendirilmiş yetkilendirme üstbilgileri için geçici bir çözüm sağlar.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 ```
 
-### <a name="making-the-validation-request"></a>Doğrulama isteği yapan
-Biz yetkilendirme belirtecini olduktan sonra biz belirteci doğrulama isteği yapabilirsiniz. RFC 7662 bu işlem introspection çağırır ve gerektiren, `POST` introspection kaynak için bir HTML formu. HTML formu anahtarla en az bir anahtar/değer çifti içermelidir `token`. Kötü amaçlı istemciler için geçerli belirteçleri trawling Git olamaz emin olmak için bu istek için yetkilendirme sunucusu da kimliğinin doğrulanması gerekir.
+### <a name="making-hello-validation-request"></a>Merhaba doğrulama isteği yapan
+Biz hello yetkilendirme belirtecini olduktan sonra biz hello isteği toovalidate hello belirteci yapabilirsiniz. RFC 7662 bu işlem introspection çağırır ve gerektiren, `POST` bir HTML form toohello introspection kaynak. Merhaba HTML formu en az olarak hello anahtarla bir anahtar/değer çifti içermelidir `token`. Bu istek toohello yetkilendirme sunucusu ayrıca kötü amaçlı istemciler için geçerli belirteçleri trawling Git olamaz kimliği doğrulanmış tooensure olmalıdır.
 
 ```xml
 <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
@@ -96,13 +96,13 @@ Biz yetkilendirme belirtecini olduktan sonra biz belirteci doğrulama isteği ya
 </send-request>
 ```
 
-### <a name="checking-the-response"></a>Yanıt denetleniyor
-`response-variable-name` Özniteliği döndürülen yanıt erişmesini sağlamak için kullanılır. Bu özelliği içinde tanımlı adı bir anahtar olarak kullanılan `context.Variables` erişmek için sözlük `IResponse` nesnesi.
+### <a name="checking-hello-response"></a>Merhaba yanıt denetleniyor
+Merhaba `response-variable-name` özniteliktir kullanılan toogive erişim hello yanıt döndürdü. Merhaba bu özelliği içinde tanımlı adı bir anahtar olarak hello kullanılabilir `context.Variables` sözlük tooaccess hello `IResponse` nesnesi.
 
-Yanıt nesnesinden biz gövdesi alabilir ve RFC 7622 söyler, bize, yanıt bir JSON nesnesi olmalıdır ve adlı en az bir özellik içermelidir `active` diğer bir deyişle bir Boole değeri. Zaman `active` belirtecin geçerli kabul doğrudur.
+Merhaba yanıt nesnesinden biz hello gövde alabilir ve RFC 7622 söyler, bize, hello yanıt bir JSON nesnesi olmalıdır ve adlı en az bir özellik içermelidir `active` diğer bir deyişle bir Boole değeri. Zaman `active` hello belirteci geçerli kabul doğrudur.
 
 ### <a name="reporting-failure"></a>Hata Raporlama
-Kullandığımız bir `<choose>` belirteci geçersiz varsa ve bu durumda, algılamak için ilke 401 yanıtı döndürür.
+Kullandığımız bir `<choose>` İlkesi toodetect hello belirteci geçersiz varsa ve bu durumda, bir 401 yanıtı döndürür.
 
 ```xml
 <choose>
@@ -117,17 +117,17 @@ Kullandığımız bir `<choose>` belirteci geçersiz varsa ve bu durumda, algıl
 </choose>
 ```
 
-Göre [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) açıklayan nasıl `bearer` belirteçleri kullanılması gerekir, ayrıca döndürürüz bir `WWW-Authenticate` 401 yanıt üstbilgisi. WWW-Authenticate amaçlanmıştır düzgün yetkili isteği oluşturmak nasıl bir istemcide istemek üzere. Çeşitli yaklaşımlar OAuth2 framework ile olası nedeni, gerekli tüm bilgileri iletişim kurmak zordur. Neyse ki devam yardımcı olmak üzere çabalarına vardır [istemcileri bulmak düzgün bir şekilde bir kaynak sunucuya isteklerini yetkilendirmek nasıl](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Göre [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) açıklayan nasıl `bearer` belirteçleri kullanılması gerekir, ayrıca döndürürüz bir `WWW-Authenticate` hello 401 yanıt üstbilgisi. Merhaba WWW-Authenticate olduğu hedeflenen tooinstruct nasıl bir istemcide tooconstruct düzgün yetkili isteği. Toohello çeşitli yaklaşımlar hello OAuth2 framework ile olası, zor olduğu tüm hello toocommunicate gerekli bilgileri. Neyse ki vardır çaba devam toohelp [istemcileri bulmak nasıl tooproperly yetkilendirmek istekleri tooa kaynak sunucusu](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Son çözüm
-Tüm parçaları bir araya getirilmesi, biz aşağıdaki İlkesi alın:
+Tüm hello parçaları bir araya getirilmesi, biz ilke aşağıdaki hello alın:
 
 ```xml
 <inbound>
   <!-- Extract Token from Authorization header parameter -->
   <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 
-  <!-- Send request to Token Server to validate token (see RFC 7662) -->
+  <!-- Send request tooToken Server toovalidate token (see RFC 7662) -->
   <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
     <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
     <set-method>POST</set-method>
@@ -156,32 +156,32 @@ Tüm parçaları bir araya getirilmesi, biz aşağıdaki İlkesi alın:
 </inbound>
 ```
 
-Bu yalnızca, birçok örnekleri nasıl biri `send-request` İlkesi, isteklerin ve yanıtların API Management hizmet aracılığıyla akan işlemine yararlı dış hizmetler tümleştirmek için kullanılabilir.
+Bu yalnızca nasıl birçok örnekleri biridir hello `send-request` İlkesi kullanılan toointegrate yararlı dış hizmetler isteklerin ve yanıtların hello API Management hizmet akan hello işlemine olabilir.
 
 ## <a name="response-composition"></a>Yanıt oluşturma
-`send-request` İlkesi, önceki örnekte gördüğümüz veya tam değiştirme için arka uç çağrının kullanılabilmesi için bir arka uç sistemi birincil isteğine geliştirme için kullanılabilir. Bu teknik kullanılarak kolayca toplanır bileşik kaynakları birden çok farklı sistemlerden oluşturabiliriz.
+Merhaba `send-request` İlkesi hello önceki örnekte gördüğümüz veya tam değiştirme için hello arka uç arama kullanılan bir birincil istek tooa arka uç sistemi geliştirme için kullanılabilir. Bu teknik kullanılarak kolayca toplanır bileşik kaynakları birden çok farklı sistemlerden oluşturabiliriz.
 
 ### <a name="building-a-dashboard"></a>Bir pano oluşturma
-Bazen birden fazla arka uç sistemlerinde, örneğin bulunan bilgilerini kullanıma sunmak için bir Pano sürücüsüne kullanabilmek ister. Tüm farklı arka uçları, KPI'ları gelir ancak bunları doğrudan erişim sağlamak için değil tercih ve tüm bilgileri tek bir istekte alınamadı, iyi olur. Belki de arka uç bilgilerin bazıları gereken bazı dilimleme ve sağlanır ve biraz önce temizleme! Bileşik bu kaynağın önbelleğe yapamamasına kendi underperforming ölçümleri değişebilir olmadığını görmek için F5 tuşuna sözcüğüne, alýþkanlýk kullanıcınız bildiğiniz gibi arka uç yükü azaltmak bir yararlı olacaktır.    
+Bazen birden fazla arka uç sistemlerinde bulunan toobe mümkün tooexpose bilgilerini örneğin, bir Pano toodrive istersiniz. Merhaba KPI'leri gelen tüm farklı arka uçları, ancak tooprovide doğrudan erişim toothem tercih ediyorsanız ve tek bir istekte tüm hello bilgisi alınamadı, iyi olacaktır. Belki de hello arka uç bilgilerin bazıları gereken bazı dilimleme ve sağlanır ve biraz önce temizleme! Bileşik kaynak yararlı tooreduce olacaktır mümkün toocache olan hello arka uç yük kendi underperforming ölçümleri değiştirirseniz, sipariş toosee hello F5 anahtar sözcüğüne alýþkanlýk kullanıcınız bildiğiniz gibi.    
 
-### <a name="faking-the-resource"></a>Kaynak faking
-Bizim Pano kaynak oluşturmanın ilk adımı, API Management yayımcı Portalı'nda yeni işlem yapılandırmaktır. Bu bizim dinamik kaynak oluşturmak için birleşim ilkemizi yapılandırmak için kullanılan bir yer tutucu işlemi olacaktır.
+### <a name="faking-hello-resource"></a>Merhaba kaynak faking
+İlk adım toobuilding hello tooconfigure hello API Management yayımcı portalına yeni bir işlemde bizim Pano kaynaktır. Bu yer tutucu kullanılan işleminin tooconfigure bizim birleşim İlkesi toobuild olacaktır bizim dinamik kaynak.
 
 ![Pano işlemi](./media/api-management-sample-send-request/api-management-dashboard-operation.png)
 
-### <a name="making-the-requests"></a>İsteği gerçekleştiren
-Bir kez `dashboard` işlemi oluşturulan biz özel olarak bu işlem için bir ilke yapılandırabilirsiniz. 
+### <a name="making-hello-requests"></a>Merhaba istekleri yapan
+Bir kez hello `dashboard` işlemi oluşturulan biz özel olarak bu işlem için bir ilke yapılandırabilirsiniz. 
 
 ![Pano işlemi](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
-Böylece biz bunları bizim arka uç için iletme ilk gelen istekte, sorgu parametreleri ayıklamak için adımdır. Bu örnekte bir zaman aralığında bağlı bilgileri bizim Pano gösteren bir nedenle sahip bir `fromDate` ve `toDate` parametresi. Biz kullanabilirsiniz `set-variable` isteği URL'den bilgi ayıklamak için ilke.
+Merhaba ilk adımı biz tooour arka uç iletebilir hello gelen istek, herhangi bir sorgu parametre tooextract aynıdır. Bu örnekte bir zaman aralığında bağlı bilgileri bizim Pano gösteren bir nedenle sahip bir `fromDate` ve `toDate` parametresi. Merhaba kullanırız `set-variable` ilke tooextract hello bilgilerini hello istek URL'si.
 
 ```xml
 <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
 <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
 ```
 
-Biz bu bilgileri olduktan sonra istekleri için tüm arka uç sistemleri yapabilirsiniz. Her istek parametre bilgileri içeren yeni bir URL oluşturur ve ilgili sunucusuna çağırır ve yanıt içeriği değişkeninde depolar.
+Biz bu bilgileri olduktan sonra istekleri tooall hello arka uç sistemleri yapabilirsiniz. Her istek hello parametre bilgilerini içeren yeni bir URL oluşturur ve ilgili sunucusuna çağırır ve hello yanıt içeriği değişkeninde depolar.
 
 ```xml
 <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
@@ -205,10 +205,10 @@ Biz bu bilgileri olduktan sonra istekleri için tüm arka uç sistemleri yapabil
 </send-request>
 ```
 
-Bu istekler ideal olmayan sırayla çalıştırır. Gelecek bir sürümde biz adlı yeni bir ilke size sunmuş olacağız `wait` paralel olarak çalıştırmak için bu istekleri etkinleştirecek.
+Bu istekler ideal olmayan sırayla çalıştırır. Gelecek bir sürümde biz adlı yeni bir ilke size sunmuş olacağız `wait` bu istekleri tooexecute paralel olarak etkinleştirecek.
 
 ### <a name="responding"></a>Yanıt
-Kullanabileceğiniz bileşik yanıt oluşturmak için [return yanıt](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) ilkesi. `set-body` Öğesi, yeni bir oluşturmak için bir ifade kullanabilir `JObject` özellikleri olarak katıştırılmış tüm bileşen Beyanları ile.
+tooconstruct hello bileşik yanıt hello kullanabileceğiniz [return yanıt](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) ilkesi. Merhaba `set-body` öğesi, bir ifade tooconstruct kullanabilir yeni `JObject` özellikleri olarak katıştırılmış tüm hello bileşen Beyanları ile.
 
 ```xml
 <return-response response-variable-name="existing response variable">
@@ -226,7 +226,7 @@ Kullanabileceğiniz bileşik yanıt oluşturmak için [return yanıt](https://ms
 </return-response>
 ```
 
-Tam İlkesi şu şekilde görünür:
+Merhaba tam İlkesi şu şekilde görünür:
 
 ```xml
 <policies>
@@ -278,13 +278,13 @@ Tam İlkesi şu şekilde görünür:
 </policies>
 ```
 
-Bunu hala kullanıcılara değerli bilgiler iletmek için yeterince etkili olacaktır güncel değil, bir saat olsa bile yer tutucu yapılandırmasında biz verilerin yapısını anlamak için en az bir saat için önbelleğe alınacak Pano kaynak yapılandırabilirsiniz işlemi anlamına gelir.
+Bunu hala yeterince etkili olacaktır güncel değil, bir saat olsa bile anlamına hello veri hello yapısını anlamak için biz yapılandırabilirsiniz hello yer tutucu işlemi hello yapılandırmasında hello Pano kaynak toobe için en az bir saat önbelleğe alınan tooconvey değerli bilgiler toohello kullanıcılar.
 
 ## <a name="summary"></a>Özet
-Azure API Management hizmeti, HTTP trafiği için seçmeli olarak uygulanabilir esnek ilkeler sağlar ve arka uç hizmetlerinin birleşim etkinleştirir. Uyarı İşlevler, doğrulama, doğrulama yetenekleri ile API ağ geçidi geliştirmek veya birden fazla arka uç hizmetlerini temel alarak yeni bileşik kaynakları oluşturmak isteyip istemediğinizi `send-request` ve ilgili ilkeler olanaklar dünyası açın.
+Azure API Management hizmeti, seçmeli olarak olabilir esnek ilkeler tooHTTP trafiği uygulanan sağlar ve arka uç hizmetlerinin birleşim etkinleştirir. Uyarı İşlevler, doğrulama, doğrulama yetenekleri ile API ağ geçidi tooenhance istediğiniz ya da birden fazla arka uç hizmetlerini temel alarak yeni bileşik kaynakları oluşturmak isteyip hello `send-request` ve ilgili ilkeler olanaklar dünyası açın.
 
 ## <a name="watch-a-video-overview-of-these-policies"></a>Bu ilkelerin video genel izleyin
-Daha fazla bilgi için [bir şekilde İsteği Gönder](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [gönderme isteği](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), ve [return yanıt](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) bu makalede ele alınan ilkeleri Lütfen aşağıdaki videoyu izleyin.
+Merhaba hakkında daha fazla bilgi için [bir şekilde İsteği Gönder](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [gönderme isteği](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), ve [return yanıt](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) bu makalede ele alınan ilkeleri Lütfen video aşağıdaki hello izleyin.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
 > 

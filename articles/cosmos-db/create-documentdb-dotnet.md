@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: .NET ve DocumentDB API'si ile bir web uygulaması derleme | Microsoft Docs"
-description: "Azure Cosmos DB DocumentDB API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir .NET kodu örneği sunar"
+title: "Azure Cosmos DB: .NET ile bir web uygulaması oluşturma ve DocumentDB API hello | Microsoft Docs"
+description: "Tooconnect tooand sorgu kullanabileceğiniz bir .NET kod örneği hello Azure Cosmos DB DocumentDB API sunar"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,23 +15,23 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 9bb863261da64c97f99757d4a0cb3474a7755591
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 35517e35d80c48662a51a99814652ffa1121fc5d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: .NET ve Azure portalı ile bir DocumentDB API web uygulaması derleme
+# <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-hello-azure-portal"></a>Azure Cosmos DB: .NET ile DocumentDB API web uygulaması oluşturma ve Azure portal hello
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Hızlı bir şekilde oluşturmak ve belge, anahtar/değer ve grafik veritabanları, her biri hello genel dağıtım ve yatay ölçek özelliklerini Azure Cosmos DB'nin hello çekirdek yararlı sorgulayabilirsiniz. 
 
-Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB hesabını, belge veritabanını ve koleksiyonunu nasıl oluşturacağınız anlatılmıştır. Bu işlemlerin ardından aşağıdaki ekran görüntüsünde gösterilen şekilde [DocumentDB .NET API'si](documentdb-sdk-dotnet.md) üzerinde bir yapılacaklar listesi web uygulaması derleyecek ve dağıtacaksınız. 
+Bu hızlı başlangıç nasıl toocreate Azure Cosmos DB hesabınız, belge veritabanı ve koleksiyonu kullanarak Azure portalında hello gösterir. Daha sonra yapı ve hello üzerinde oluşturulmuş bir Yapılacaklar listesi web uygulaması dağıtma [DocumentDB .NET API](documentdb-sdk-dotnet.md)hello ekran aşağıdaki gösterildiği gibi. 
 
 ![Yapılacaklar listesi uygulaması ve örnek veriler](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+Visual Studio yüklü 2017 zaten sahip değilseniz, indirin ve hello kullan **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Etkinleştirdiğinizden emin olun **Azure geliştirme** hello Visual Studio Kurulumu sırasında.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -48,13 +48,13 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 <a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>Örnek verileri ekleme
 
-Şimdi Veri Gezgini'ni kullanarak yeni koleksiyonunuza veri ekleyebilirsiniz.
+Veri Gezgini'ni kullanarak veri tooyour yeni bir koleksiyon artık ekleyebilirsiniz.
 
-1. Yeni veritabanı, Veri Gezgini'nin Koleksiyonlar bölmesinde görüntülenir. **Görevler** veritabanını genişletin, **Öğeler** koleksiyonunu genişletin, **Belgeler**'e ve ardından **Yeni Belge**'ye tıklayın. 
+1. Veri Gezgini'nde hello yeni veritabanı hello Koleksiyonlar bölmesinde görünür. Merhaba genişletin **görevleri** veritabanı, hello Genişlet **öğeleri** koleksiyonu tıklatın **belgeleri**ve ardından **yeni belgeler**. 
 
-   ![Azure portalındaki Veri Gezgini'nde yeni belge oluşturma](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+   ![Yeni belgeler veri Gezgini'nde hello Azure portal oluşturun.](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Şimdi koleksiyona aşağıdaki yapıya sahip bir belge ekleyin.
+2. Şimdi bir belge toohello Koleksiyonu Yapı izlenerek hello ile ekleyin.
 
      ```json
      {
@@ -66,35 +66,35 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
      }
      ```
 
-3. JSON öğesini **Belgeler** sekmesine ekledikten sonra **Kaydet**'e tıklayın.
+3. Merhaba json toohello ekledikten sonra **belgeleri** sekmesini tıklatın, **kaydetmek**.
 
-    ![Azure portalında JSON verilerini kopyalayın ve Veri Gezgini'ne kaydedin](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
+    ![JSON verileri kopyalayın ve Veri Gezgini'nde hello Azure portal Kaydet](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
-4.  `id` özelliği için benzersiz bir değer eklediğiniz yerde bir veya daha fazla belge oluşturun ve kaydedin ve diğer özellikleri uygun şekilde değiştirin. Azure Cosmos DB, verilerinizin bir şemaya uygun olmasını şart koşmadığı için yeni belgelerinizin yapısını istediğiniz şekilde oluşturabilirsiniz.
+4.  Oluştur ve Ekle burada hello için benzersiz bir değer bir daha fazla belgeyi kaydedin `id` özelliği ve diğer özellikleri uygun gördüğünüz şekilde hello Değiştir. Azure Cosmos DB, verilerinizin bir şemaya uygun olmasını şart koşmadığı için yeni belgelerinizin yapısını istediğiniz şekilde oluşturabilirsiniz.
 
-     Şimdi verilerinizi almak için Veri Gezgini'ndeki sorguları kullanabilirsiniz. Veri Gezgini koleksiyondaki tüm belgeleri almak için varsayılan olarak `SELECT * FROM c` komutunu kullanır ancak bunu `SELECT * FROM c ORDER BY c._ts DESC` gibi farklı bir [SQL sorgusuyla](documentdb-sql-query.md) değiştirerek tüm belgelerin zaman damgasına göre azalan sırada döndürülmesini sağlayabilirsiniz.
+     Artık, verilerinizi Veri Gezgini tooretrieve sorgularda kullanabilirsiniz. Varsayılan olarak, Veri Gezgini kullanır `SELECT * FROM c` tooretrieve tüm belgeleri hello koleksiyonu, ancak siz o tooa farklı değiştirebilirsiniz [SQL sorgusu](documentdb-sql-query.md), gibi `SELECT * FROM c ORDER BY c._ts DESC`, azalan sırada tüm hello belgeleri temel alarak tooreturn kendi zaman damgası.
  
-     Veri Gezgini'ni kullanarak ayrıca saklı yordamlar, UDF'ler ve tetikleyiciler oluşturabilir, bu sayede sunucu tarafı iş mantığını gerçekleştirebilir ve aktarım hızını ölçeklendirebilirsiniz. Veri Gezgini, API'lerdeki tüm yerleşik programlı veri erişimini açığa çıkarır ancak Azure portalındaki verilerinize kolayca erişmenizi sağlar.
+     Ayrıca Veri Gezgini toocreate saklı yordamlar, UDF'ler ve Tetikleyicileri tooperform sunucu tarafı iş mantığı da kullanabilirsiniz ölçek işleme olarak. Veri Gezgini tüm hello yerleşik programlı veri erişim hello API'leri kullanılabilir gösterir, ancak tooyour verileri hello Azure portalında kolay erişim sağlar.
 
-## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
+## <a name="clone-hello-sample-application"></a>Merhaba örnek uygulaması kopyalama
 
-Şimdi kod ile çalışmaya geçelim. GitHub'dan bir DocumentDB API uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Şimdi şimdi koduyla tooworking geçin. Şimdi DocumentDB API uygulaması github'dan hello bağlantı dizesini ayarlamak ve çalıştırın kopyalayın. Ne kadar kolay toowork verilerle program aracılığıyla olduğunu görürsünüz. 
 
-1. Git bash gibi bir git terminal penceresi açın ve `CD` ile çalışma dizinine gidin.  
+1. Git bash gibi bir git terminal penceresi açın ve `CD` tooa çalışma dizini.  
 
-2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. 
+2. Çalışma hello aşağıdaki tooclone hello örnek depo komutu. 
 
     ```bash
     git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
     ```
 
-3. Ardından Visual Studio'daki TODO çözüm dosyasını açın. 
+3. Ardından Visual Studio'da hello Yapılacaklar çözüm dosyasını açın. 
 
-## <a name="review-the-code"></a>Kodu gözden geçirin
+## <a name="review-hello-code"></a>Merhaba kod gözden geçirme
 
-Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. DocumentDBRepository.cs dosyasını açtığınızda Azure Cosmos DB kaynaklarını bu kod satırlarının oluşturduğunu göreceksiniz. 
+Neler olduğuna dair hello uygulamada hızlı bir gözden geçirme olalım. Açık hello DocumentDBRepository.cs dosyanız varsa ve bu kod satırları hello Azure Cosmos DB kaynakları oluşturma bulabilirsiniz. 
 
-* 73 satırda DocumentClient başlatılır.
+* Merhaba DocumentClient 73 satırda başlatılır.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
@@ -117,51 +117,51 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. DocumentDBRepo
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
-Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
+Şimdi Azure portal tooget toohello bağlantı dizesi bilgilerinizi geri dönün ve hello uygulamaya kopyalayın.
 
-1. [Azure portalında](http://portal.azure.com/), Azure Cosmos DB hesabınızın sol taraftaki gezinti menüsünden **Anahtarlar**'a ve ardından **Okuma/Yazma Anahtarları**'na tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak URI ve Birincil Anahtar değerlerini kopyalayarak sonraki adımda web.config dosyasına yapıştırın.
+1. Merhaba, [Azure portal](http://portal.azure.com/), Azure Cosmos DB hesap, sol gezinti hello tıklatın **anahtarları**ve ardından **okuma-yazma anahtarları**. Merhaba sonraki adımda hello web.config dosyasına hello Kopyala düğmesi hello sağ tarafında Merhaba ekranında toocopy hello URI ve birincil anahtar kullanacaksınız.
 
-    ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-documentdb-dotnet/keys.png)
+    ![Görüntüleme ve kopyalama hello Azure portalına erişim tuşu, anahtarlar dikey penceresinde](./media/create-documentdb-dotnet/keys.png)
 
-2. Visual Studio 2017'de web.config dosyasını açın. 
+2. Visual Studio 2017 içinde hello web.config dosyasını açın. 
 
-3. Portaldaki URI değerinizi kopyalayın (kopyalama düğmesini kullanarak) ve web.config dosyasına uç nokta değeri olarak yapıştırın. 
+3. URI değeri (Merhaba Kopyala düğmesini kullanarak) hello Portal'dan kopyalayın ve hale hello web.config dosyasında hello uç nokta anahtar değeri. 
 
     `<add key="endpoint" value="FILLME" />`
 
-4. Ardından portaldaki BİRİNCİL ANAHTAR değerinizi kopyalayıp web.config dosyasına authKey değeri olarak yapıştırın. Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
+4. Sonra birincil anahtar değer hello Portal'dan kopyalayın ve kolaylaştırır hello hello authKey web.config dosyasındaki değeri. Uygulamanızı şimdi güncelleştirdikten toocommunicate Azure Cosmos DB ile gerekli tüm hello bilgilerine sahip. 
 
     `<add key="authKey" value="FILLME" />`
     
-## <a name="run-the-web-app"></a>Web uygulamasını çalıştırma
-1. Visual Studio'nun **Çözüm Gezgini** bölümünde projeye sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın. 
+## <a name="run-hello-web-app"></a>Merhaba web uygulaması çalıştırın
+1. Visual Studio'da hello projeye sağ tıklayın **Çözüm Gezgini** ve ardından **NuGet paketlerini Yönet**. 
 
-2. NuGet **Gözat** kutusuna *DocumentDB* yazın.
+2. Merhaba NuGet içinde **Gözat** kutusuna *DocumentDB*.
 
-3. Sonuçlardan **Microsoft.Azure.DocumentDB** kitaplığını yükleyin. Bunu yaptığınızda Microsoft.Azure.DocumentDB paketi ve tüm bağımlılıklar yüklenir.
+3. Merhaba sonuçlarından hello yüklemek **Microsoft.Azure.DocumentDB** kitaplığı. Bu, tüm bağımlılıkları yanı sıra hello Microsoft.Azure.DocumentDB paketi yükler.
 
-4. Uygulamayı çalıştırmak için CTRL+F5 tuşlarına basın. Uygulamanız tarayıcınızda görüntülenir. 
+4. CTRL + F5'e tıklayın toorun Merhaba uygulaması. Uygulamanız tarayıcınızda görüntülenir. 
 
-5. Tarayıcıda **Create New** (Yeni Oluştur) düğmesine tıklayın ve yapılacaklar listesi uygulamanızda birkaç yeni görev oluşturun.
+5. Tıklatın **Yeni Oluştur** hello tarayıcı ve yapılacaklar uygulamanızda birkaç yeni görevler oluşturabilir.
 
    ![Yapılacaklar listesi uygulaması ve örnek veriler](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
-Şimdi Veri Gezgini'ne dönüp bu yeni verileri görebilir, sorgulayabilir, değiştirebilir ve onlarla çalışabilirsiniz. 
+Şimdi tooData Explorer geri dönün ve sorgu görmek değiştirmek ve bu yeni verilerle çalışmak. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
+## <a name="review-slas-in-hello-azure-portal"></a>Gözden geçirme SLA'hello Azure portalı
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak Azure portalında bu hızlı başlangıç tarafından oluşturulan tüm kaynakları silin:
+Toocontinue toouse bu uygulamayı değil kullanacaksanız, bu hızlı başlangıç tarafından hello Azure portalında aşağıdaki adımları hello ile oluşturulan tüm kaynakları silin:
 
-1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
-2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
+1. Merhaba sol taraftaki menüden hello Azure portal'ın, **kaynak grupları** ve ardından oluşturduğunuz hello kaynak hello adına tıklayın. 
+2. Kaynak grubu sayfanızda tıklatın **silmek**hello metin kutusuna hello kaynak toodelete hello adını yazın ve ardından **silmek**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak koleksiyon oluşturmayı ve bir web uygulamasını çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
+Bu hızlı başlangıç toocreate bir Azure Cosmos DB hesap hello Veri Gezgini'ni kullanarak bir koleksiyon oluşturma ve bir web uygulamasını çalıştırmak öğrendiniz. Artık ek verileri tooyour Cosmos DB hesap içeri aktarabilirsiniz. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB hesabınıza veri aktarma](import-data.md)

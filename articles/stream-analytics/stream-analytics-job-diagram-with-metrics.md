@@ -1,6 +1,6 @@
 ---
-title: "Azure akış veri temelli iş diyagramı kullanarak hata ayıklama analizi | Microsoft Docs"
-description: "Stream Analytics işiniz iş diyagramı ve ölçümleri kullanarak sorun giderin."
+title: "Ayrıca Azure akış analizi veri güdümlü hello iş diyagramı kullanarak hata ayıklama | Microsoft Docs"
+description: "Stream Analytics işiniz hello iş diyagramı ve ölçümleri kullanarak sorun giderin."
 keywords: 
 documentationcenter: 
 services: stream-analytics
@@ -15,60 +15,60 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
 ms.author: jeffstok
-ms.openlocfilehash: 4e5949232e8377b7697eaebf96eacdc31c4f5422
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1af884d485bebb06b034da01a13f7f8240516571
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="data-driven-debugging-by-using-the-job-diagram"></a>Veri temelli iş diyagramı kullanarak hata ayıklama
+# <a name="data-driven-debugging-by-using-hello-job-diagram"></a>Veri temelli hello iş diyagramı kullanarak hata ayıklama
 
-İş diyagramı **izleme** dikey Azure portalında iş hattınızı görselleştirmenize yardımcı olabilir. Giriş, çıkış ve sorgu adımları gösterir. Her adım sorunları giderirken daha hızlı bir sorunun kaynağını yalıtmak için ölçümleri incelemek için iş diyagramı kullanabilirsiniz.
+Merhaba iş hello diyagramda **izleme** dikey penceresinde hello Azure portal iş hattınızı görselleştirmenize yardımcı olabilir. Giriş, çıkış ve sorgu adımları gösterir. Toomore sorunları giderirken bir sorunun hello kaynağını hızlı bir şekilde ayırmak, her adımı için hello iş diyagramı tooexamine hello ölçümleri kullanabilirsiniz.
 
-## <a name="using-the-job-diagram"></a>İş diyagramı kullanma
+## <a name="using-hello-job-diagram"></a>Merhaba iş diyagramı kullanma
 
-Azure portalında altında bir Stream Analytics işinde while **destek + sorun giderme**seçin **iş diyagramı**:
+Hello Azure portal'ın altında bir Stream Analytics işinde while **destek + sorun giderme**seçin **iş diyagramı**:
 
 ![Ölçümleri - konumu ile iş diyagramı](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 
-Her sorgu adım bölmesinde düzenleme sorgu karşılık gelen bölümünde görmek için seçin. Adım için bir ölçüm grafik sayfasında alt bölmesinde görüntülenir.
+Her sorgu adım toosee hello karşılık gelen bölüm bölmesinde düzenleme sorguda seçin. Merhaba adım için bir ölçüm grafik hello sayfasında alt bölmesinde görüntülenir.
 
 ![Ölçümleri - temel iş ile iş diyagramı](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-2.png)
 
-Azure Event Hubs'a giriş bölümlerini görmek için seçin **...** Bir bağlam menüsü görüntülenir. Giriş birleşme de görebilirsiniz.
+hello Azure Event Hubs'a giriş toosee hello bölümleri seçin **...** Bir bağlam menüsü görüntülenir. Merhaba giriş birleşme de görebilirsiniz.
 
 ![Diyagram ölçümlerle iş - bölümü genişletin](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-3.png)
 
-Yalnızca tek bir bölüm için ölçüm grafik görmek için bölüm düğümünü seçin. Ölçümleri sayfasının en altında gösterilir.
+yalnızca tek bir bölüm, select hello bölümü düğümü için toosee hello ölçüm grafik. Merhaba ölçümleri hello sayfasının hello altında gösterilir.
 
 ![Ölçümleri - daha fazla ölçümleri ile iş diyagramı](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-4.png)
 
-Bir birleşme ölçümleri grafik görmek için birleşme düğümünü seçin. Aşağıdaki grafikte hiçbir olay bırakılan veya ayarlanmış gösterir.
+bir birleşme select hello birleşme düğümü için toosee hello ölçümleri grafik. Grafik aşağıdaki hello hiçbir olay bırakılan veya ayarlanmış gösterir.
 
 ![İş diyagramı - ölçümlerle kılavuz](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-5.png)
 
-Saat ve ölçüm değeri ayrıntılarını görmek için grafik üzerine gelin.
+Merhaba ölçüm değer ve zaman noktası toohello grafik toosee hello ayrıntıları.
 
 ![Diyagram ölçümlerle iş - getirin](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-6.png)
 
 ## <a name="troubleshoot-by-using-metrics"></a>Ölçümleri kullanarak sorun giderme
 
-**QueryLastProcessedTime** ölçüm, belirli bir adıma veri alındığında gösterir. Topoloji bakarak, hangi adımın veri almıyor görmek için çıkış işlemcisine geriye doğru çalışabilir. Bir adım veri alamıyorsanız, hemen önce sorgu adıma gidin. Önceki sorgu adımı bir zaman penceresi sahip olup olmadığını belirler ve yeterli bir süre için çıktı verilerini geçti olmadığını denetleyin. (Windows saate tutturulur Not bundan.)
+Merhaba **QueryLastProcessedTime** ölçüm, belirli bir adıma veri alındığında gösterir. Merhaba topoloji bakarak hello çıkış işlemci toosee hangi adımın veri almıyor geriye doğru çalışabilir. Bir adımı veri alamıyorsanız, toohello sorgu adımı hemen önce gidin. Merhaba önceki sorgu adımı bir zaman penceresi olup olmadığını ve bunun için yeterli süre geçtiyse denetleyin toooutput veri. (Windows açıldı toohello saat olan Not bundan.)
  
-Önceki sorgu adımı Giriş bir işlemci ise, giriş ölçümleri yanıt yardımcı olması için aşağıdaki hedeflenen soruları kullanın. Bunlar, bir iş giriş kaynaklardan veri alma olup olmadığını belirlemenize yardımcı olabilir. Sorgu bölümlendirilmişse her bir bölümü inceleyin.
+Merhaba önceki sorgu adımı bir giriş işlemci ise, hedeflenen sorular aşağıdaki hello giriş ölçümleri toohelp yanıt hello kullanın. Bunlar, bir iş giriş kaynaklardan veri alma olup olmadığını belirlemenize yardımcı olabilir. Merhaba sorgu bölümlenmiş varsa her bölüm inceleyin.
  
 ### <a name="how-much-data-is-being-read"></a>Ne kadar veri okunan?
 
-*   **InputEventsSourcesTotal** okuma veri birimleri sayısıdır. Örneğin, BLOB sayısı.
-*   **InputEventsTotal** okuma olay sayısıdır. Bu ölçüm her bölüm için kullanılabilir.
-*   **InputEventsInBytesTotal** okunan bayt sayısı.
+*   **InputEventsSourcesTotal** okuma veri birimleri hello sayısıdır. Örneğin, BLOB sayısı hello.
+*   **InputEventsTotal** okuma olay hello sayısıdır. Bu ölçüm her bölüm için kullanılabilir.
+*   **InputEventsInBytesTotal** hello okunan bayt sayısı.
 *   **InputEventsLastArrivalTime** alınan her olayın sıraya alınan saatiyle güncelleştirilir.
  
 ### <a name="is-time-moving-forward-if-actual-events-are-read-punctuation-might-not-be-issued"></a>Zaman ilerleyen? Gerçek olayları okuyorsanız noktalama verilen değil.
 
-*   **InputEventsLastPunctuationTime**, zamanın ilerlemesini sağlamak için bir noktalama işaretinin ne zaman verildiğini gösterir. Noktalama işaretleri verilmemiş, veri akışı engellenen.
+*   **InputEventsLastPunctuationTime** tookeep zaman taşıma bir noktalama zaman verilmiş gösterir ilet. Noktalama işaretleri verilmemiş, veri akışı engellenen.
  
-### <a name="are-there-any-errors-in-the-input"></a>Girdide hataları var mı?
+### <a name="are-there-any-errors-in-hello-input"></a>Merhaba girişinde hataları var mı?
 
 *   **InputEventsEventDataNullTotal** null veri olayları sayısıdır.
 *   **InputEventsSerializerErrorsTotal** doğru serisi kaldırılamadı olayların sayısıdır.
@@ -76,20 +76,20 @@ Saat ve ölçüm değeri ayrıntılarını görmek için grafik üzerine gelin.
  
 ### <a name="are-events-being-dropped-or-adjusted"></a>Olayları bırakılan veya ayarlanmış misiniz?
 
-*   **InputEventsEarlyTotal** yüksek Filigran önce bir uygulama zaman damgası olan olayları sayısıdır.
-*   **InputEventsLateTotal** yüksek Filigran sonra bir uygulama zaman damgası olan olayları sayısıdır.
-*   **InputEventsDroppedBeforeApplicationStartTimeTotal** iş başlangıç saatinden önce bırakılan sayı olayı.
+*   **InputEventsEarlyTotal** hello yüksek Filigran önce bir uygulama zaman damgası olan olayları hello sayısıdır.
+*   **InputEventsLateTotal** hello yüksek Filigran sonra bir uygulama zaman damgası olan olayları hello sayısıdır.
+*   **InputEventsDroppedBeforeApplicationStartTimeTotal** hello sayı olayı hello iş başlangıç saatinden önce bırakıldı.
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Biz veri okuma dönmeden?
 
-*   **InputEventsSourcesBackloggedTotal** olay hub'ları ve Azure IOT Hub girdileri okumak kaç tane daha fazla ileti gereksinim söyler.
+*   **InputEventsSourcesBackloggedTotal** toobe kaç tane daha fazla ileti gereksinim söyler olay hub'ları ve Azure IOT Hub girdileri okuyun.
 
 
 ## <a name="get-help"></a>Yardım alın
 Ek Yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Giriş tooStream analizi](stream-analytics-introduction.md)
 * [Stream Analytics ile çalışmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)

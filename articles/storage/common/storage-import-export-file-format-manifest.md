@@ -1,6 +1,6 @@
 ---
-title: "Azure içeri/dışarı aktarma bildirim dosyasının biçimi | Microsoft Docs"
-description: "BLOB'ları Azure Blob Depolama ve alma bir sürücüde dosyaları arasındaki eşlemeyi açıklar sürücü bildirim dosyasının biçimi hakkında bilgi edinin veya içeri/dışarı aktarma hizmeti işinde dışa aktarın."
+title: "aaaAzure içeri/dışarı aktarma bildirim dosyasının biçimi | Microsoft Docs"
+description: "Azure Blob storage blobları ve dosyaları hello içeri/dışarı aktarma hizmeti içeri veya dışarı bir işlemde bir sürücüde arasında hello eşleme açıklayan Hello hello sürücü bildirim dosyası biçimi hakkında öğrenin."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d7e5e1990482916f7ff5f891c97343b52e82b2f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure içeri/dışarı aktarma hizmeti bildirim dosyası biçimi
-Sürücü bildirim dosyası Azure Blob storage blobları ve içe veya dışa aktarma işi kapsayan sürücüsündeki dosyaları arasındaki eşlemeyi açıklar. Bir alma işlemi için bildirim dosyası sürücü hazırlama işleminin bir parçası olarak oluşturulur ve sürücü Azure veri merkezine gönderilmeden önce sürücüde depolanır. Bir dışa aktarma işlemi sırasında bildirim oluşturulur ve Azure içeri/dışarı aktarma hizmeti tarafından sürücüde depolanan.  
+Merhaba sürücü bildirim dosyası Azure Blob storage blobları ve içe veya dışa aktarma işi kapsayan sürücüsündeki dosyaları arasında hello eşleme açıklar. Bir alma işlemi için hello bildirim dosyası hello sürücü hazırlama işleminin bir parçası olarak oluşturulur ve hello sürücü toohello Azure veri merkezine gönderilmeden önce hello sürücüsünde depolanır. Bir dışa aktarma işlemi sırasında hello bildirimi oluşturulur ve hello Azure içeri/dışarı aktarma hizmeti tarafından hello sürücüde depolanan.  
   
-Her ikisi de almak ve işleri dışarı aktarmak için sürücü bildirim dosyasını içeri veya dışarı sürücüsünde depolanır; herhangi bir API işlemi aracılığıyla hizmete aktarılan değil.  
+Her ikisi de içeri ve dışarı aktarma işleri, hello sürücü bildirim dosyasının depolandığı için üzerinde hello alma veya sürücü verme; olmayan herhangi bir API işlemi aracılığıyla toohello hizmet aktarılan.  
   
-Aşağıdaki sürücü bildirim dosyası genel biçimi açıklar:  
+Merhaba hello genel sürücü bildirim dosyasının biçimi açıklanmıştır:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -36,7 +36,7 @@ Aşağıdaki sürücü bildirim dosyası genel biçimi açıklar:
   
     <!-- First Blob List -->  
     <BlobList>  
-      <!-- Global properties and metadata that applies to all blobs -->  
+      <!-- Global properties and metadata that applies tooall blobs -->  
       [<MetadataPath Hash="md5-hash">global-metadata-file-path</MetadataPath>]  
       [<PropertiesPath   
         Hash="md5-hash">global-properties-file-path</PropertiesPath>]  
@@ -93,44 +93,44 @@ block-list ::=
 
 ## <a name="manifest-xml-elements-and-attributes"></a>Bildirim XML öğeleri ve öznitelikleri
 
-Aşağıdaki tabloda, veri öğeleri ve sürücü bildirim XML biçimi özniteliklerini belirtilir.  
+Aşağıdaki tablonun hello Hello veri öğeleri ve öznitelikleri hello sürücü bildirim XML biçimi belirtilir.  
   
 |XML öğesi|Tür|Açıklama|  
 |-----------------|----------|-----------------|  
-|`DriveManifest`|Kök öğesi|Bildirim dosyasının kök öğesinin. Diğer tüm öğeleri dosyasındaki altında bu öğesidir.|  
-|`Version`|Öznitelik, dize|Bildirim dosyasının sürümü.|  
-|`Drive`|İç içe geçmiş XML öğesi|Her sürücü için bildirimi içerir.|  
-|`DriveId`|Dize|Sürücü benzersiz sürücü tanımlayıcısı. Sürücü tanımlayıcı sürücü seri numarası için sorgulanarak bulunur. Sürücü seri numarası genellikle sürücüsünün de dışarıda yazdırılır. `DriveID` Öğesi önce görünmelidir `BlobList` bildirim dosyasındaki öğesi.|  
-|`StorageAccountKey`|Dize|İçeri aktarma bulunuyorsa ve yalnızca iş için gereken `ContainerSas` belirtilmedi. Azure depolama hesabı için hesap anahtarı işle ilişkili.<br /><br /> Bu öğe bir verme işlemi için bildirimindeki atlanır.|  
-|`ContainerSas`|Dize|İçeri aktarma bulunuyorsa ve yalnızca iş için gereken `StorageAccountKey` belirtilmedi. İşlemle ilişkili BLOB'ları erişmek için kapsayıcı SAS. Bkz: [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) , biçimi için. Bu öğe bir verme işlemi için bildirimindeki atlanır.|  
-|`ClientCreator`|Dize|XML dosyasını oluşturulan istemciyi belirtir. Bu değer içeri/dışarı aktarma hizmeti tarafından yorumlanmaz.|  
-|`BlobList`|İç içe geçmiş XML öğesi|İçeri aktarma parçası olan veya iş verme BLOB listesini içerir. Bir blob listedeki her bir blob aynı meta verileri ve özellikleri paylaşır.|  
-|`BlobList/MetadataPath`|Dize|İsteğe bağlı. BLOB alma işlemi için blob listesinde üzerinde ayarlanmış varsayılan meta veriler içeren diskteki bir dosyanın göreli yolunu belirtir. Bu meta veriler isteğe bağlı olarak bir blob tarafından blob temelinde geçersiz kılınabilir.<br /><br /> Bu öğe bir verme işlemi için bildirimindeki atlanır.|  
-|`BlobList/MetadataPath/@Hash`|Öznitelik, dize|Meta veri dosyası için Base16 kodlu MD5 karma değeri belirtir.|  
-|`BlobList/PropertiesPath`|Dize|İsteğe bağlı. BLOB alma işlemi için blob listesinde üzerinde ayarlanmış varsayılan özellikleri içeren diskteki bir dosyanın göreli yolunu belirtir. Bu özellikleri isteğe bağlı olarak bir blob tarafından blob temelinde geçersiz kılınabilir.<br /><br /> Bu öğe bir verme işlemi için bildirimindeki atlanır.|  
-|`BlobList/PropertiesPath/@Hash`|Öznitelik, dize|Özellikler dosya için Base16 kodlu MD5 karma değeri belirtir.|  
+|`DriveManifest`|Kök öğesi|Merhaba bildirim dosyasının kök öğesinin Hello. Diğer tüm öğeleri hello dosyasındaki altında bu öğesidir.|  
+|`Version`|Öznitelik, dize|Merhaba bildirim dosyası Hello sürümü.|  
+|`Drive`|İç içe geçmiş XML öğesi|Her sürücü için Hello bildirimi içerir.|  
+|`DriveId`|Dize|Merhaba sürücü Hello benzersiz sürücü tanımlayıcısı. Merhaba sürücü tanımlayıcı hello sürücü seri numarası için sorgulanarak bulunur. Merhaba sürücü seri numarası genellikle hello sürücü dışında hello yazılır. Merhaba `DriveID` öğesi önce görünmelidir `BlobList` hello bildirim dosyasında öğesi.|  
+|`StorageAccountKey`|Dize|İçeri aktarma bulunuyorsa ve yalnızca iş için gereken `ContainerSas` belirtilmedi. Merhaba hesap anahtarı hello Azure depolama hesabı için hello işle ilişkili.<br /><br /> Bu öğe bir verme işlemi için hello bildirimindeki atlanır.|  
+|`ContainerSas`|Dize|İçeri aktarma bulunuyorsa ve yalnızca iş için gereken `StorageAccountKey` belirtilmedi. Merhaba kapsayıcı SAS hello işle ilişkili hello BLOB'ları erişmek için. Bkz: [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) , biçimi için. Bu öğe bir verme işlemi için hello bildirimindeki atlanır.|  
+|`ClientCreator`|Dize|Merhaba XML dosyası oluşturulan hello istemci belirtir. Bu değer hello içeri/dışarı aktarma hizmeti tarafından yorumlanmaz.|  
+|`BlobList`|İç içe geçmiş XML öğesi|Merhaba alma parçası olan veya iş verme BLOB listesini içerir. Bir blob listedeki her bir blob paylaşımları hello aynı meta verileri ve özellikleri.|  
+|`BlobList/MetadataPath`|Dize|İsteğe bağlı. BLOB alma işlemi için hello blob listesinde üzerinde ayarlanacak hello varsayılan meta verileri içeren hello diskteki dosyasının Hello göreli yolunu belirtir. Bu meta veriler isteğe bağlı olarak bir blob tarafından blob temelinde geçersiz kılınabilir.<br /><br /> Bu öğe bir verme işlemi için hello bildirimindeki atlanır.|  
+|`BlobList/MetadataPath/@Hash`|Öznitelik, dize|Merhaba meta veri dosyası için Hello Base16 kodlu MD5 karma değeri belirtir.|  
+|`BlobList/PropertiesPath`|Dize|İsteğe bağlı. BLOB alma işlemi için hello blob listesinde üzerinde ayarlanacak hello varsayılan özelliklerini içeren hello diskteki dosyasının Hello göreli yolunu belirtir. Bu özellikleri isteğe bağlı olarak bir blob tarafından blob temelinde geçersiz kılınabilir.<br /><br /> Bu öğe bir verme işlemi için hello bildirimindeki atlanır.|  
+|`BlobList/PropertiesPath/@Hash`|Öznitelik, dize|Merhaba özellikleri dosya için Hello Base16 kodlu MD5 karma değeri belirtir.|  
 |`Blob`|İç içe geçmiş XML öğesi|Her bir blob listedeki her bir blob hakkında bilgiler içerir.|  
-|`Blob/BlobPath`|Dize|Kapsayıcı adı ile başlayan göreli URI blob. Kök kapsayıcıda blob ise, ile başlamalıdır `$root`.|  
-|`Blob/FilePath`|Dize|Sürücüsündeki dosyanın göreli yolunu belirtir. Dışarı aktarma işleri için blob yolu Mümkünse dosya yolu için kullanılır; *örneğin*, `pictures/bob/wild/desert.jpg` aktarılacak `\pictures\bob\wild\desert.jpg`. Ancak, NTFS adları sınırlamaları nedeniyle, bir blob blob yolu benzer olmayan bir yola sahip bir dosyaya dışarı.|  
-|`Blob/ClientData`|Dize|İsteğe bağlı. Müşteriden açıklamaları içerir. Bu değer içeri/dışarı aktarma hizmeti tarafından yorumlanmaz.|  
-|`Blob/Snapshot`|Tarih saat|Dışarı aktarma işleri için isteğe bağlıdır. Dışarı aktarılan blob anlık görüntü için anlık görüntü tanımlayıcısını belirtir.|  
-|`Blob/Length`|Tamsayı|Blob toplam uzunluğu bayt cinsinden belirtir. Değer bir blok blobu en fazla 200 GB olabilir ve bir sayfa blob'u için 1 TB'a kadar. Bir sayfa blob'u için bu değer 512 birden fazla olmalıdır.|  
-|`Blob/ImportDisposition`|Dize|Dışarı aktarma işleri için atlanmış içeri aktarma işi için isteğe bağlıdır. Bu, burada aynı ada sahip bir blob zaten içeri/dışarı aktarma hizmeti bir alma işi söz konusu nasıl yöneteceğini belirtir. Bu değer alma bildirimden atlanırsa, varsayılan değer olan `rename`.<br /><br /> Bu öğe için değerleri şunlardır:<br /><br /> -   `no-overwrite`: Aynı ada sahip bir hedef blob zaten varsa, içeri aktarma işlemi bu dosyayı içeri aktarırken atlar.<br />-   `overwrite`: Tüm var olan hedef blob tamamen yeni içeri aktarılan dosya tarafından üzerine yazılır.<br />-   `rename`: Yeni blob değiştirilmiş bir adla karşıya.<br /><br /> Yeniden adlandırma kuralı aşağıdaki gibidir:<br /><br /> -Blob adı noktayla içermiyorsa, yeni bir ad eklenerek oluşturulur `(2)` bu yeni ad Ayrıca varolan bir blob adla sonra çakışırsa özgün blob adına; `(3)` yerine eklenen `(2)`; ve benzeri.<br />Blob adı noktayla içeriyorsa, son nokta aşağıdaki bölümü uzantı adı olarak kabul edilir. Yukarıdaki yordama benzer `(2)` adı sonra hizmet varolan yeni ad hala çakışmaları blob; yeni bir ad oluşturmak üzere son nokta denemeden önce eklenen `(3)`, `(4)`ve benzeri çakışmayan bir adı bulunana kadar.<br /><br /> Bazı örnekler:<br /><br /> Blob `BlobNameWithoutDot` adlandırılacak:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> Blob `Seattle.jpg` adlandırılacak:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
-|`PageRangeList`|İç içe geçmiş XML öğesi|Bir sayfa blob'u için gereklidir.<br /><br /> İçin alma işlemi, bir bayt aralıkları listesi, içeri aktarılacak bir dosyanın belirtir. Her sayfası aralık bir uzaklık ve uzunluk kaynak dosyasında bir MD5 karma değeri bölgenin birlikte sayfa aralığı açıklar tarafından tanımlanır. `Hash` Bir sayfa aralığının özniteliği gereklidir. Hizmet blob verileri karmasını hesaplanan MD5 karma değeri sayfa aralığından eşleştiğini doğrular. Herhangi bir sayıda sayfa aralıklarını alma işlemi için bir dosya tanımlamak, 1 TB'ye kadar toplam boyutu için kullanılabilir. Tüm sayfa aralıklarını tarafından uzaklığı sıralanmalıdır ve hiçbir üst üste geliyor verilir.<br /><br /> İşlemi, bir dışarı aktarma için bir dizi sürücüye dışarı bayt aralığı bir BLOB belirtir.<br /><br /> Sayfa aralıklarını birlikte bir blob veya dosya yalnızca alt aralığını kapsayan.  Herhangi bir sayfa aralığı tarafından kapsanmayan dosyanın kalan kısmını beklenen ve içeriği tanımlanmamış olabilir.|  
+|`Blob/BlobPath`|Dize|Merhaba kapsayıcı adı ile başlayan hello göreli URI toohello blob. Merhaba blob kök kapsayıcısında ise, ile başlamalıdır `$root`.|  
+|`Blob/FilePath`|Dize|Merhaba sürücüde Hello göreli yol toohello dosyası belirtir. Dışarı aktarma işleri için hello blob yolu mümkünse hello dosya yolu için kullanılır; *örneğin*, `pictures/bob/wild/desert.jpg` çok verilecek`\pictures\bob\wild\desert.jpg`. Ancak, NTFS adları toohello sınırlamaları, bir blob dışarı aktarılan tooa dosya hello blob yolu benzer olmayan bir yola sahip olabilir.|  
+|`Blob/ClientData`|Dize|İsteğe bağlı. Merhaba müşteriden açıklamaları içerir. Bu değer hello içeri/dışarı aktarma hizmeti tarafından yorumlanmaz.|  
+|`Blob/Snapshot`|Tarih saat|Dışarı aktarma işleri için isteğe bağlıdır. Dışarı aktarılan blob anlık görüntü için başlangıç anlık görüntü tanımlayıcısını belirtir.|  
+|`Blob/Length`|Tamsayı|Merhaba toplam hello blob uzunluğu bayt cinsinden belirtir. Merhaba değeri bir blok blobu için too200 GB ve bir sayfa blob'u too1 TB yukarı olabilir. Bir sayfa blob'u için bu değer 512 birden fazla olmalıdır.|  
+|`Blob/ImportDisposition`|Dize|Dışarı aktarma işleri için atlanmış içeri aktarma işi için isteğe bağlıdır. Bu, bir blob zaten aynı adı hello bulunduğu hello içeri/dışarı aktarma hizmeti hello durum içe aktarma işi için nasıl yöneteceğini belirtir. Bu değer hello alma bildirimden atlanırsa hello varsayılan değerdir `rename`.<br /><br /> Bu öğe için Hello değerleri şunlardır:<br /><br /> -   `no-overwrite`: Hedef blob zaten ile hello varsa aynı ada hello içeri aktarma işlemi atlar bu dosyayı içeri aktarma.<br />-   `overwrite`: Tüm var olan hedef blob tamamen hello yeni içeri aktarılan dosya tarafından üzerine yazılır.<br />-   `rename`: hello yeni blob karşıya değiştirilmiş bir ada sahip olur.<br /><br /> yeniden adlandırma kuralı hello aşağıdaki gibidir:<br /><br /> -Hello blob adı noktayla içermiyorsa, yeni bir ad eklenerek oluşturulur `(2)` bu yeni ad Ayrıca varolan bir blob adla sonra çakışırsa toohello özgün blob adı; `(3)` yerine eklenen `(2)`; ve benzeri.<br />Merhaba blob adı noktayla içeriyorsa hello son nokta aşağıdaki hello bölümü hello uzantı adı olarak kabul edilir. Yordam, yukarıda benzer toohello `(2)` önce eklenen son nokta toogenerate yeni bir ad hello; hello yeni adı hala varolan bir blob adla çakışırsa, hello hizmeti çalışır `(3)`, `(4)`ve benzeri bir çakışmayan kadar ad bulunamadı.<br /><br /> Bazı örnekler:<br /><br /> Merhaba blob `BlobNameWithoutDot` adlandırılacak:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> Merhaba blob `Seattle.jpg` adlandırılacak:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
+|`PageRangeList`|İç içe geçmiş XML öğesi|Bir sayfa blob'u için gereklidir.<br /><br /> İçin alma işlemi, içe aktarılan dosya toobe bayt aralıkları listesi belirtir. Her sayfası aralık bir uzaklık ve uzunluk hello bölgesinin bir MD5 karma değeri ile birlikte hello sayfa aralığını açıklayan hello kaynak dosyasında tarafından tanımlanır. Merhaba `Hash` bir sayfa aralığının özniteliği gereklidir. Merhaba hizmet hello blob hello verilerde hello karmasını hesaplanan hello MD5 karma değeri hello sayfa aralığından eşleştiğini doğrular. Herhangi bir sayıda sayfa aralıklarını kullanılan toodescribe too1 TB toplam boyutu hello ile içeri aktarma için bir dosya olabilir. Tüm sayfa aralıklarını tarafından uzaklığı sıralanmalıdır ve hiçbir üst üste geliyor verilir.<br /><br /> Bir verme işlemi için henüz bir blob bayt aralığı kümesi toohello sürücü dışarı belirtir.<br /><br /> Hello sayfa aralıklarını birlikte bir blob veya dosya yalnızca alt aralığını kapsayan.  herhangi bir sayfa aralığı tarafından kapsanmayan hello dosyasının Hello geri kalan bölümü beklenen ve içeriği tanımlanmamış olabilir.|  
 |`PageRange`|XML öğesi|Sayfa aralığını temsil eder.|  
-|`PageRange/@Offset`|Öznitelik, tamsayı|Belirtilen sayfa aralığı başladığı blob ve aktarım dosyası de uzaklığını belirtir. Bu değer 512'ın katları olmalıdır.|  
-|`PageRange/@Length`|Öznitelik, tamsayı|Sayfa aralığı uzunluğunu belirtir. Bu değer birden fazla 512 ve en fazla 4 MB olmalıdır.|  
-|`PageRange/@Hash`|Öznitelik, dize|Sayfa aralığı Base16 kodlu MD5 karma değeri belirtir.|  
-|`BlockList`|İç içe geçmiş XML öğesi|Adlandırılmış bloklara sahip bir blok blobu için gereklidir.<br /><br /> Bir alma işlemi için bir Azure depolama alanına içeri aktarılacak blokları kümesi engelleme listesi belirtir. Bir dışarı aktarma işlemi için burada her bloğu verme diskteki dosyasındaki zamandır saklanan engelleme listesi belirtir. Her blok uzaklığı dosya ve blok uzunluğu tarafından açıklanan; Her blok blok Kimliği özniteliği tarafından ayrıca adlandırılır ve blok için MD5 karma değeri içerir. En fazla 50.000 blok blob tanımlamak için kullanılabilir.  Tüm bloklar gerekir sıralı uzaklık ve birlikte dosyanın tam aralığını kapsayan *yani*, blokları boşluksuz olmalıdır. Blob en fazla 64 MB ise, her blok blok kimliği tüm yok ya da tüm mevcut olması gerekir. Blok kimlikleri Base64 ile kodlanmış dize olması gerekir. Bkz: [yerleştirme blok](/rest/api/storageservices/put-block) daha fazla blok kimliği için gereksinimleri için.|  
+|`PageRange/@Offset`|Öznitelik, tamsayı|Merhaba uzaklığı hello aktarımı dosya ve burada hello sayfa aralığı belirtilen hello blob başlar belirtir. Bu değer 512'ın katları olmalıdır.|  
+|`PageRange/@Length`|Öznitelik, tamsayı|Merhaba sayfa aralığı Hello uzunluğunu belirtir. Bu değer birden fazla 512 ve en fazla 4 MB olmalıdır.|  
+|`PageRange/@Hash`|Öznitelik, dize|Merhaba sayfa aralığı için Hello Base16 kodlu MD5 karma değeri belirtir.|  
+|`BlockList`|İç içe geçmiş XML öğesi|Adlandırılmış bloklara sahip bir blok blobu için gereklidir.<br /><br /> Bir alma işlemi için bir Azure depolama alanına içeri aktarılacak blokları kümesi hello engelleme listesini belirtir. Bir dışarı aktarma işlemi için burada her bloğu hello verme diskteki hello dosyasındaki zamandır saklanan hello engelleme listesi belirtir. Her blok uzaklığı hello dosya ve blok uzunluğu tarafından açıklanan; Her blok blok Kimliği özniteliği tarafından ayrıca adlandırılır ve hello bloğu için MD5 karma değeri içerir. Too50 000 blokları kullanılan toodescribe blob olabilir.  Tüm bloklar gerekir sıralı uzaklık ve birlikte kapak hello eksiksiz hello dosyasının *yani*, blokları boşluksuz olmalıdır. Her bloğu olmalıdır en fazla 64 MB, hello blok kimliği hello blob ise tüm yok veya tüm sunmak. Blok kimlikleri gerekli toobe Base64 ile kodlanmış dizelerdir. Bkz: [yerleştirme blok](/rest/api/storageservices/put-block) daha fazla blok kimliği için gereksinimleri için.|  
 |`Block`|XML öğesi|Bloğunu temsil eder.|  
-|`Block/@Offset`|Öznitelik, tamsayı|Belirtilen blok başladığı uzaklığını belirtir.|  
-|`Block/@Length`|Öznitelik, tamsayı|Bayt sayısını bloğunda belirtir; Bu değer, en fazla 4 MB olmalıdır.|  
-|`Block/@Id`|Öznitelik, dize|Bloğun blok Kimliğini temsil eden bir dize belirtir.|  
-|`Block/@Hash`|Öznitelik, dize|Bloğun Base16 kodlu MD5 karma değeri belirtir.|  
-|`Blob/MetadataPath`|Dize|İsteğe bağlı. Meta veri dosyasının göreli yolunu belirtir. Alma işlemi sırasında meta veriler üzerinde hedef blob ayarlanır. Dışa aktarma işlemi sırasında blob'un meta veri sürücüsünde meta veri dosyasında depolanır.|  
-|`Blob/MetadataPath/@Hash`|Öznitelik, dize|Blob'un meta veri dosyasının Base16 kodlu MD5 karma değeri belirtir.|  
-|`Blob/PropertiesPath`|Dize|İsteğe bağlı. Özellikler dosyanın göreli yolunu belirtir. Alma işlemi sırasında hedef blob üzerindeki özellikleri ayarlanır. Dışa aktarma işlemi sırasında blob özellikleri sürücüde özellikleri dosyasında depolanır.|  
-|`Blob/PropertiesPath/@Hash`|Öznitelik, dize|Blob'un özellikleri dosyasının Base16 kodlu MD5 karma değeri belirtir.|  
+|`Block/@Offset`|Öznitelik, tamsayı|Belirtilen blok hello başladığı hello uzaklığını belirtir.|  
+|`Block/@Length`|Öznitelik, tamsayı|Merhaba bloğunda Hello bayt belirtir; Bu değer, en fazla 4 MB olmalıdır.|  
+|`Block/@Id`|Öznitelik, dize|Merhaba hello bloğu için blok Kimliğini temsil eden bir dize belirtir.|  
+|`Block/@Hash`|Öznitelik, dize|Merhaba Base16 kodlu MD5 karma hello bloğunun belirtir.|  
+|`Blob/MetadataPath`|Dize|İsteğe bağlı. Meta veri dosyasının Hello göreli yolunu belirtir. Bir içeri aktarma sırasında hello meta verileri hello hedef blob üzerinde ayarlanır. Bir dışa aktarma işlemi sırasında hello blob'un meta verileri hello meta veri dosyası hello sürücüsünde depolanır.|  
+|`Blob/MetadataPath/@Hash`|Öznitelik, dize|Merhaba Base16 kodlu MD5 karma hello blob'un meta veri dosyasının belirtir.|  
+|`Blob/PropertiesPath`|Dize|İsteğe bağlı. Özellikler dosyasının Hello göreli yolunu belirtir. Bir içeri aktarma sırasında hello özellikleri hello hedef blob üzerinde ayarlanır. Bir dışa aktarma işlemi sırasında hello blob özellikleri hello özellikleri dosya hello sürücüsünde depolanır.|  
+|`Blob/PropertiesPath/@Hash`|Öznitelik, dize|Merhaba Base16 kodlu MD5 karması hello blob'un özellikleri dosyasının belirtir.|  
   
 ## <a name="next-steps"></a>Sonraki adımlar
  

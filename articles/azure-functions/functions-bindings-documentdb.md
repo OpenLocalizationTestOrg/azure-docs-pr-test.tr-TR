@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri Cosmos DB bağlamaları | Microsoft Docs"
-description: "Azure işlevleri Azure Cosmos DB bağlamaları kullanmayı öğrenme."
+title: "aaaAzure işlevleri Cosmos DB bağlamaları | Microsoft Docs"
+description: "Anlamak nasıl toouse Azure Cosmos DB bağlamaları Azure işlevlerinde."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,48 +16,48 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/18/2016
 ms.author: glenga
-ms.openlocfilehash: de95b0591eb95e76dbb7ba2382e9e14e1f66cda1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 76b89e8296db1dd28dff9528903b1f6a28f55232
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-cosmos-db-bindings"></a>Azure işlevleri Cosmos DB bağlamaları
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Bu makalede nasıl yapılandırılacağı ve kod Azure Cosmos DB bağlamaları Azure işlevlerinde açıklanmaktadır. Giriş ve Cosmos DB bağlantılarında çıktı Azure işlevleri destekler.
+Bu makalede açıklanır nasıl tooconfigure ve kod Azure Cosmos DB bağlamaları Azure işlevlerinde. Giriş ve Cosmos DB bağlantılarında çıktı Azure işlevleri destekler.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Cosmos DB hakkında daha fazla bilgi için bkz: [Cosmos DB giriş](../documentdb/documentdb-introduction.md) ve [Cosmos DB konsol uygulaması oluşturma](../documentdb/documentdb-get-started.md).
+Cosmos DB hakkında daha fazla bilgi için bkz: [giriş tooCosmos DB](../documentdb/documentdb-introduction.md) ve [Cosmos DB konsol uygulaması oluşturma](../documentdb/documentdb-get-started.md).
 
 <a id="docdbinput"></a>
 
 ## <a name="documentdb-api-input-binding"></a>DocumentDB API giriş bağlama
-DocumentDB API giriş bağlaması Cosmos DB belge alır ve işlev adlandırılmış giriş parametresi olarak geçirir. Kimliği belirlenebilir belge işlevi çağırır Tetikle temel. 
+Merhaba DocumentDB API giriş bağlaması Cosmos DB belge alır ve hello işlevinin giriş parametresi adlı toohello geçirir. Merhaba belge kimliği belirlenebilir hello işlevi çağırır hello Tetikle temel. 
 
-DocumentDB API giriş bağlaması aşağıdaki özelliklere sahip *function.json*:
+Merhaba DocumentDB API giriş bağlaması sahip özelliklerinde aşağıdaki hello *function.json*:
 
-- `name`: İşlev kodu ve belge için kullanılan tanımlayıcı adı
-- `type`: "documentdb" olarak ayarlanmalıdır
-- `databaseName`: Belge içeren veritabanı
-- `collectionName`: Belge içeren bir koleksiyon
-- `id`: Alınacak kimliği belge. Bu özellik bağlamaları parametreleri destekler; bkz: [bir bağlama ifadesinde özel giriş özellikleri bağlamak](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) makalede [Azure işlevleri Tetikleyicileri ve bağlamaları kavramları](functions-triggers-bindings.md).
-- `sqlQuery`Birden çok belge almak için kullanılan Cosmos DB SQL sorgusu. Sorgu, çalışma zamanı bağlamaları destekler. Örneğin, `SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection`: Cosmos DB bağlantı dizesi içeren uygulama ayarı adı
-- `direction`: ayarlanmalıdır `"in"`.
+- `name`: İşlev kodu hello belge için kullanılan tanımlayıcı adı
+- `type`: çok ayarlanması gerekir "documentdb"
+- `databaseName`: hello belge içeren hello veritabanı
+- `collectionName`: hello belge içeren hello koleksiyon
+- `id`: hello belge tooretrieve kimliğini hello. Bu özellik bağlamaları parametreleri destekler; bkz: [toocustom giriş özellikleri bağlama ifadesinde bağlamak](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) hello makalede [Azure işlevleri Tetikleyicileri ve bağlamaları kavramları](functions-triggers-bindings.md).
+- `sqlQuery`Birden çok belge almak için kullanılan Cosmos DB SQL sorgusu. Merhaba query çalışma zamanı bağlamaları destekler. Örneğin, `SELECT * FROM c where c.departmentId = {departmentId}`
+- `connection`: Cosmos DB bağlantı dizesi içeren hello uygulama ayarı hello adı
+- `direction`: çok ayarlanmalıdır`"in"`.
 
-Özellikler `id` ve `sqlQuery` hem de belirtilemez. Ne `id` ya da `sqlQuery` , tüm koleksiyon alınır ayarlanmadı.
+Merhaba özellikleri `id` ve `sqlQuery` hem de belirtilemez. Ne `id` ya da `sqlQuery` , hello tüm ayarlanmış koleksiyonu alınır.
 
 ## <a name="using-a-documentdb-api-input-binding"></a>Bir DocumentDB API giriş bağlama işlemini kullanma
 
-* İşlev başarıyla çıktığında, C# ve F # işlevleri adlandırılmış giriş parametreleri aracılığıyla giriş belgeye yapılan değişiklikler otomatik olarak kalıcıdır. 
-* JavaScript işlevleri güncelleştirmeleri otomatik olarak işlevi çıkış duruma getirilmez. Bunun yerine, kullanın `context.bindings.<documentName>In` ve `context.bindings.<documentName>Out` güncelleştirme yapmak için. Bkz: [JavaScript örnek](#injavascript).
+* Merhaba işlevi başarıyla çıktığında, C# ve F # işlevleri toohello giriş belgesi adlandırılmış giriş parametreleri aracılığıyla yapılan tüm değişiklikler otomatik olarak kalıcıdır. 
+* JavaScript işlevleri güncelleştirmeleri otomatik olarak işlevi çıkış duruma getirilmez. Bunun yerine, kullanın `context.bindings.<documentName>In` ve `context.bindings.<documentName>Out` toomake güncelleştirmeleri. Merhaba bkz [JavaScript örnek](#injavascript).
 
 <a name="inputsample"></a>
 
 ## <a name="input-sample-for-single-document"></a>Tek belge için giriş örneği
-Aşağıdaki olduğunu varsayalım DocumentDB API bağlamasında giriş `bindings` function.json dizisi:
+Merhaba aşağıdaki olduğunu varsayalım DocumentDB API hello bağlamasında giriş `bindings` function.json dizisi:
 
 ```json
 {
@@ -71,7 +71,7 @@ Aşağıdaki olduğunu varsayalım DocumentDB API bağlamasında giriş `binding
 }
 ```
 
-Belgenin metin değeri güncelleştirmek için bu giriş bağlama kullanır dile özgü örneğe bakın.
+Bu giriş bağlaması tooupdate hello belgenin metin değeri kullanan hello dile özgü örneğine bakın.
 
 * [C#](#incsharp)
 * [F#](#infsharp)
@@ -98,7 +98,7 @@ let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
 ```
 
-Bu örnek gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dynamic` ve `Dynamitey` NuGet bağımlılıklar:
+Bu örnek gerektiren bir `project.json` hello belirten dosyası `FSharp.Interop.Dynamic` ve `Dynamitey` NuGet bağımlılıklar:
 
 ```json
 {
@@ -113,7 +113,7 @@ Bu örnek gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dynami
 }
 ```
 
-Eklemek için bir `project.json` dosya için bkz: [F # paket Yönetimi](functions-reference-fsharp.md#package).
+tooadd bir `project.json` dosya için bkz: [F # paket Yönetimi](functions-reference-fsharp.md#package).
 
 <a name="injavascript"></a>
 
@@ -130,9 +130,9 @@ module.exports = function (context) {
 
 ## <a name="input-sample-with-multiple-documents"></a>Giriş örneği ile birden çok belge
 
-Bir SQL sorgusu tarafından belirtilen birden çok belge almak sorgu parametrelerini özelleştirmek için bir sıra tetikleyici kullanarak istediğiniz varsayalım. 
+Bir kuyruk tetikleyici toocustomize hello sorgu parametrelerini kullanarak, bir SQL sorgusu tarafından belirtilen birden çok belge tooretrieve istediğiniz varsayalım. 
 
-Bu örnekte, bir parametre sırası tetikleyici sağlar `departmentId`. Bir kuyruk iletisi, `{ "departmentId" : "Finance" }` Finans departmanı için tüm kayıtları döndürür. Aşağıda, kullanmak *function.json*:
+Bu örnekte, bir parametre hello sıra tetikleyici sağlar `departmentId`. Bir kuyruk iletisi, `{ "departmentId" : "Finance" }` hello Finans departmanı için tüm kayıtları döndürür. Merhaba aşağıdakileri kullanmak *function.json*:
 
 ```
 {
@@ -177,30 +177,30 @@ module.exports = function (context, input) {
 ```
 
 ## <a id="docdboutput"></a>DocumentDB API bağlama çıktı
-Sağlar bağlama DocumentDB API çıktı yeni bir belge bir Azure Cosmos DB veritabanına yazar. Aşağıdaki özelliklere sahip *function.json*:
+Merhaba DocumentDB API bağlama, yeni bir belge tooan Azure Cosmos DB veritabanı yazmanıza olanak veren çıktı. Aşağıdaki özelliklere de hello sahip *function.json*:
 
-- `name`: İşlev kodu yeni belge için kullanılan tanımlayıcı
-- `type`: ayarlanmalıdır`"documentdb"`
-- `databaseName`: Yeni belge oluşturulacağı koleksiyonu içeren veritabanı.
-- `collectionName`: Yeni belge oluşturulacağı koleksiyonu.
-- `createIfNotExists`: Henüz yoksa koleksiyonu oluşturduğunuzda olup olmadığını belirtmek için bir Boole değeri. Varsayılan değer *false*. Neden bu yeni için koleksiyonları fiyatlandırmaya olan ayrılmış işleme ile oluşturulur. Daha fazla ayrıntı için lütfen ziyaret [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection`: Cosmos DB bağlantı dizesi içeren uygulama ayarı adı
-- `direction`: ayarlanmalıdır`"out"`
+- `name`: İşlev kodu hello yeni belge için kullanılan tanımlayıcı
+- `type`: çok ayarlanmalıdır`"documentdb"`
+- `databaseName`: Burada hello yeni belge oluşturulacak hello koleksiyonu içeren hello veritabanı.
+- `collectionName`: Merhaba burada hello yeni belge oluşturulacak koleksiyonu.
+- `createIfNotExists`: Henüz yoksa hello koleksiyon oluşturulur olup olmadığını tooindicate bir Boole değeri. Merhaba varsayılandır *false*. Merhaba neden bu yeni için koleksiyonları fiyatlandırmaya olan ayrılmış işleme ile oluşturulur. Daha fazla ayrıntı için lütfen başlangıç adresini ziyaret edin [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/documentdb/).
+- `connection`: Cosmos DB bağlantı dizesi içeren hello uygulama ayarı hello adı
+- `direction`: çok ayarlanmalıdır`"out"`
 
 ## <a name="using-a-documentdb-api-output-binding"></a>Bir DocumentDB API kullanarak çıktıyı bağlama
-Bu bölümde işlevi kodunuzda bağlama, DocumentDB API çıkış kullanmayı gösterir.
+Bu bölümde işlevi kodunuzda bağlama toouse DocumentDB API'nizi nasıl çıktısını gösterir.
 
-Çıktı parametresi, işlev yazdığınızda, varsayılan olarak yeni bir belge belge kimliği olarak bir otomatik olarak oluşturulan GUID ile veritabanınızda oluşturulur Çıktı belgenin belge kimliği belirterek belirtebilirsiniz `id` çıkış parametresi bir JSON özellik. 
+Başlangıç olarak bir otomatik olarak oluşturulan GUID ile yeni bir belge veritabanınızda oluşturulan varsayılan olarak, işlevinde toohello çıktı parametresi yazdığınızda, kimliği belge Merhaba belirterek hello belge kimliği çıktı belgenin belirtebilirsiniz `id` hello JSON özelliğinde çıktı parametresi. 
 
 >[!Note]  
->Var olan bir belgeyi Kimliğini belirttiğinizde, yeni çıktı belgenin üzerine. 
+>Var olan bir belgeyi hello Kimliğini belirttiğinizde, hello yeni çıkış belge tarafından üzerine. 
 
-Birden çok belge çıktısını almak için de bağlayabilirsiniz `ICollector<T>` veya `IAsyncCollector<T>` burada `T` desteklenen türlerden biri.
+toooutput birden çok belge, ayrıca çok bağlayabilirsiniz`ICollector<T>` veya `IAsyncCollector<T>` burada `T` desteklenen hello türlerinden biridir.
 
 <a name="outputsample"></a>
 
 ## <a name="documentdb-api-output-binding-sample"></a>DocumentDB API çıkış bağlama örneği
-Aşağıdaki olduğunu varsayalım DocumentDB API bağlamasında çıktı `bindings` function.json dizisi:
+Merhaba aşağıdaki olduğunu varsayalım DocumentDB API hello bağlamasında çıktı `bindings` function.json dizisi:
 
 ```json
 {
@@ -214,7 +214,7 @@ Aşağıdaki olduğunu varsayalım DocumentDB API bağlamasında çıktı `bindi
 }
 ```
 
-Ve şu biçimde JSON alan sıra için bir sıra giriş bağlama sahip:
+Ve JSON biçimini izleyen hello alan sıra için bir sıra giriş bağlama vardır:
 
 ```json
 {
@@ -224,7 +224,7 @@ Ve şu biçimde JSON alan sıra için bir sıra giriş bağlama sahip:
 }
 ```
 
-Ve her kayıt için şu biçimde Cosmos DB belgeleri oluşturmak isterseniz:
+Ve toocreate Cosmos DB hello biçimi her kayıt için aşağıdaki belgelerde istiyorsanız:
 
 ```json
 {
@@ -235,7 +235,7 @@ Ve her kayıt için şu biçimde Cosmos DB belgeleri oluşturmak isterseniz:
 }
 ```
 
-Belgeler, veritabanına eklemek için bu çıktı bağlama kullanan dile özgü örneğine bakın.
+Bu çıktı bağlama tooadd belgeleri tooyour veritabanı kullanan hello dile özgü örneğine bakın.
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
@@ -292,7 +292,7 @@ let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
       address = employee?address }
 ```
 
-Bu örnek gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dynamic` ve `Dynamitey` NuGet bağımlılıklar:
+Bu örnek gerektiren bir `project.json` hello belirten dosyası `FSharp.Interop.Dynamic` ve `Dynamitey` NuGet bağımlılıklar:
 
 ```json
 {
@@ -307,7 +307,7 @@ Bu örnek gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dynami
 }
 ```
 
-Eklemek için bir `project.json` dosya için bkz: [F # paket Yönetimi](functions-reference-fsharp.md#package).
+tooadd bir `project.json` dosya için bkz: [F # paket Yönetimi](functions-reference-fsharp.md#package).
 
 <a name="outjavascript"></a>
 

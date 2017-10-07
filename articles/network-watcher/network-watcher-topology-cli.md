@@ -1,6 +1,6 @@
 ---
-title: "Azure Ağ İzleyicisi topolojisi - Azure CLI görüntülemek | Microsoft Docs"
-description: "Bu makalede, Azure CLI ağ topolojinizi sorgulamak için nasıl kullanılacağını anlatmaktadır."
+title: "aaaView Azure Ağ İzleyicisi topolojisi - Azure CLI | Microsoft Docs"
+description: "Bu makalede anlatmaktadır nasıl toouse Azure CLI tooquery ağ topolojinizi."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 5be8e103f9a1f32117a4ed3be73bff021db1186d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: afa7e7dd844ecb2ab4c616ba99fa0a433f1e4ade
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="view-network-watcher-topology-with-azure-cli"></a>Ağ İzleyicisi topolojisi Azure CLI ile görüntüleme
 
@@ -28,39 +28,39 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-topology-cli.md)
 > - [REST API](network-watcher-topology-rest.md)
 
-Ağ İzleyicisi'nin topoloji özelliği görsel bir abonelik ağ kaynaklarında sağlar. Portalda, bu görselleştirme için otomatik olarak sunulur. Portal topoloji görünümünde ardındaki bilgiler PowerShell aracılığıyla alınabilir.
-Bu özelliği olan topoloji bilgisi veri görselleştirmesi oluşturmak için diğer araçları tarafından kullanılabilecek daha verimli hale getirir.
+Ağ İzleyicisi Merhaba topoloji özelliği görsel bir abonelik hello ağ kaynaklarını sağlar. Merhaba Portalı'nda bu görselleştirme tooyou otomatik olarak sunulur. Merhaba topoloji görünümü hello portalında ardındaki Hello bilgileri PowerShell aracılığıyla alınabilir.
+Bu özellik hello topoloji bilgilerini hello veri diğer araçları toobuild hello görselleştirme çıkışı tarafından kullanılabilecek daha verimli hale getirir.
 
 Bu makalede, platformlar arası Azure CLI 1.0, Windows, Mac ve Linux için kullanılabilir olduğu kullanır. Ağ İzleyicisi, CLI desteği şu anda Azure CLI 1.0 kullanır.
 
-Bağlantısı altında iki ilişki modellenir.
+Merhaba bağlantısı altında iki ilişki modellenir.
 
 - **Kapsama** -örnek: VNet bir alt ağ içeren bir NIC içerir
 - **İlişkili** -örnek: NIC VM ile ilişkili
 
-Topoloji REST API'si sorgulanırken döndürülen özellikler listelenmiştir.
+Merhaba aşağıdaki hello topoloji REST API'si sorgulanırken döndürülen özellikler listelenmiştir.
 
-* **ad** -kaynağın adı
-* **Kimliği** -kaynak URI'si.
-* **Konum** -kaynağın bulunduğu konum.
-* **ilişkileri** -başvurulan nesne ilişkilerini listesi.
-    * **ad** -başvurulan kaynağın adı.
-    * **ResourceId** -ResourceId association'ında başvurulan kaynak URI'si değil.
-    * **associationType** -bu değer alt nesne ve üst arasındaki ilişkiyi başvuruyor. Geçerli değerler **içerir** veya **ilişkilendirilmiş**.
+* **ad** - hello hello kaynak adı
+* **Kimliği** -hello kaynak URI'si hello.
+* **Konum** -hello hello kaynak bulunduğu konumu.
+* **ilişkileri** -ilişkilendirmeleri toohello listesini başvurulan nesne.
+    * **ad** -hello hello adını başvurulan kaynak.
+    * **ResourceId** -hello ResourceId olduğu hello association'ında başvurulan hello kaynağının hello URI.
+    * **associationType** -bu değer hello ilişkisi hello alt nesne hello üst başvuruyor. Geçerli değerler **içerir** veya **ilişkilendirilmiş**.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu senaryoda, kullandığınız `network watcher topology` topoloji bilgilerini almak üzere. Olduğundan ayrıca bir makale nasıl [ağ topolojisi REST API ile almak](network-watcher-topology-rest.md).
+Bu senaryoda, kullandığınız hello `network watcher topology` cmdlet tooretrieve hello topoloji bilgilerini. Ayrıca bir makalesi vardır hakkında çok[ağ topolojisi REST API ile almak](network-watcher-topology-rest.md).
 
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için.
+Bu senaryo zaten izlediğiniz hello adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) toocreate bir Ağ İzleyicisi.
 
 ## <a name="scenario"></a>Senaryo
 
-Bu makalede ele alınan senaryo belirtilen kaynak grubu için topoloji yanıtı alır.
+Bu makalede ele alınan hello senaryo belirtilen kaynak grubu için hello topoloji yanıtını alır.
 
 ## <a name="retrieve-topology"></a>Topoloji alma
 
-`network watcher topology` Cmdlet'i, belirtilen kaynak grubu için topoloji alır. Bağımsız değişken Ekle "--json" json biçiminde oput görüntülemek için
+Merhaba `network watcher topology` cmdlet'i belirtilen kaynak grubu için hello topolojisini alır. Merhaba bağımsız değişken Ekle "--json" json biçiminde tooview hello oput
 
 ```azurecli
 azure network watcher topology -g resourceGroupName -n networkWatcherName -r topologyResourceGroupName --json
@@ -68,7 +68,7 @@ azure network watcher topology -g resourceGroupName -n networkWatcherName -r top
 
 ## <a name="results"></a>Sonuçlar
 
-Döndürülen sonuçların bir özellik "json yanıt gövdesi için içeren adı" kaynaklarınız `network watcher topology` cmdlet'i.  Yanıt ağ güvenlik grubu ve ilişkilendirmelerinin (diğer bir deyişle, içerir, ilişkilendirilmiş) kaynakları içerir.
+Merhaba döndürülen sonuçları bir özellik "Merhaba json yanıt gövdesine hello için içeren adı" kaynaklarınız `network watcher topology` cmdlet'i.  Merhaba yanıt hello kaynaklarında hello ağ güvenlik grubu ve ilişkilendirmelerinin (diğer bir deyişle, içerir, ilişkilendirilmiş) içerir.
 
 ```json
 {
@@ -113,4 +113,4 @@ Döndürülen sonuçların bir özellik "json yanıt gövdesi için içeren adı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ağ kaynaklarınıza ziyaret ederek uygulanan güvenlik kuralları hakkında daha fazla bilgi [güvenlik grubu Görünümü'ne genel bakış](network-watcher-security-group-view-overview.md)
+Şu adresi ziyaret ederek uygulanan tooyour ağ kaynaklarına olan hello güvenlik kuralları hakkında daha fazla bilgi [güvenlik grubu Görünümü'ne genel bakış](network-watcher-security-group-view-overview.md)

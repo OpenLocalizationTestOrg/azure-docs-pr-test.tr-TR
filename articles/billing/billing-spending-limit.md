@@ -1,6 +1,6 @@
 ---
-title: "Azure harcama sınırı anlama | Microsoft Docs"
-description: "Azure harcama sınırı nasıl çalıştığını ve nasıl kaldırılacağı açıklanır"
+title: "Azure harcama aaaUnderstand sınırlamak | Microsoft Docs"
+description: "Azure harcama sınırını nasıl çalıştığı ve nasıl açıklar tooremove,"
 services: 
 documentationcenter: 
 author: genlin
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: genli
-ms.openlocfilehash: a2743ef34bde0faabb3afd2ace27acddd59d3d70
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ed01401a07c3d0e7edebe42fb1482b7b60b1df51
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Azure harcama sınırı ve nasıl kaldırılacağı anlama
+# <a name="understand-azure-spending-limit-and-how-tooremove-it"></a>Azure harcama sınırı anlamak ve nasıl tooremove,
 
-Azure harcama sınırı, Azure aboneliğinizin ne kadar harcayabilir üzerinde sınırıdır. Kaydolan deneme teklifi veya birden çok ay içinde krediler içeren teklifler için tüm yeni müşteriler varsayılan olarak açıktır harcama sınırı vardır. Harcama sınırını $0'dır. Değiştirilemez. Harcama limiti; Kullandıkça Öde abonelikleri ve taahhüt planları gibi abonelik türlerinde kullanılamaz. Bkz: [Azure teklifleri ve harcama sınırını kullanılabilirliğini tam listesi](https://azure.microsoft.com/support/legal/offer-details/).
+Azure harcama sınırı, Azure aboneliğinizin ne kadar harcayabilir üzerinde sınırıdır. Kaydolan hello deneme teklifi veya birden çok ay içinde krediler içeren teklifler için tüm yeni müşteriler harcama sınırı varsayılan olarak açıktır hello vardır. Harcama sınırı hello $0'dır. Değiştirilemez. Harcama sınırı hello Kullandıkça Öde abonelikleri ve taahhüt planları gibi abonelik türleri için kullanılamaz. Merhaba bkz [Azure teklifleri ve harcama sınırı hello hello kullanılabilirliğini tam listesi](https://azure.microsoft.com/support/legal/offer-details/).
 
-## <a name="what-happens-when-i-reach-the-spending-limit"></a>Harcama limitine ulaştığımda ne olur?
+## <a name="what-happens-when-i-reach-hello-spending-limit"></a>Harcama sınırı hello ulaştığında ne olur?
 
-Dağıttığınız Hizmetleri kullanım sonuçlarınızda aylık tutarlar tüketebilir ücretleri kullanımınız teklifinize dahil, o faturalama ayına geri kalanı için devre dışı bırakılır. Örneğin, dağıttığınız Bulut Hizmetleri üretimden kaldırılır, ayrıca Azure sanal makineleriniz durdurulur ve serbest bırakılır. Hizmetlerinizin devre dışı bırakılmasını önlemek için harcama limitinizi kaldırabilirsiniz. Hizmetlerinizin devre dışı bırakıldığında, depolama hesapları ve veritabanları veriler salt okunur şekilde Yöneticiler için kullanılabilir. Teklifiniz birden fazla ay krediler içeriyorsa sonraki fatura ayının başlangıcında aboneliğinizi yeniden etkin olacaktır. Ardından, bulut hizmetlerinize dağıtmanız ve depolama hesapları ve veritabanları tam erişimi vardır.
+Dağıttığınız hello Hizmetleri kullanımınız teklifinize dahil hello aylık tutarlarının tüketebilir ücretleri kullanımınızı sonuçlanır, o faturalama ayına hello kalanı için devre dışı bırakılır. Örneğin, dağıttığınız Bulut Hizmetleri üretimden kaldırılır, ayrıca Azure sanal makineleriniz durdurulur ve serbest bırakılır. tooprevent devre dışı bırakılıyor, hizmetlerin, harcama limitine tooremove seçebilirsiniz. Hizmetlerinizin devre dışı bırakıldığında, depolama hesapları ve veritabanları hello veriler salt okunur şekilde Yöneticiler için kullanılabilir. Teklifiniz birden fazla ay krediler içeriyorsa hello başlangıcında hello sonraki fatura ayı, aboneliğinizi yeniden etkin olacaktır. Ardından, bulut hizmetlerinize dağıtmanız ve tam erişim tooyour depolama hesapları ve veritabanlarına sahip.
 
-Ücretsiz deneme aboneliği harcama sınırına ulaştığında sonra aboneliği yeniden etkinleştirin ve otomatik olarak sahip [bizim standart Kullandıkça Öde teklif yükseltme](billing-upgrade-azure-subscription.md) 90 gün içinde.
+Harcama sınırı hello Hello ücretsiz deneme aboneliği ulaştıktan sonra hello aboneliği yeniden etkinleştirin ve otomatik olarak sahip [standart teklifinden Kullandıkça Öde teklifine yükseltme tooour](billing-upgrade-azure-subscription.md) 90 gün içinde.
 
-Teklifiniz için harcama sınırına olduğunda bildirim alırsınız. Oturum [Azure hesap Merkezi](https://account.windowsazure.com)seçin **hesap**ve ardından **abonelikleri**. Harcama sınırına abonelikleri hakkında bildirimler bakın.
+Teklifiniz için harcama sınırı hello isabet olduğunda bildirim alırsınız. Toohello üzerinde oturum [Azure hesap Merkezi](https://account.windowsazure.com)seçin **hesap**ve ardından **abonelikleri**. Harcama sınırı hello ulaştınız abonelikleri hakkında bildirimler bakın.
 
 ## <a name="things-you-are-charged-for-even-if-you-have-a-spending-limit-enabled"></a>Etkin bir harcama sınırına sahip olsanız bile için ücretlendirilirsiniz noktalar
 
-Bazı Azure Hizmetleri ve [Market satın](https://azure.microsoft.com/marketplace/) bir harcama sınırına ayarlanmış olsa bile, ödeme yöntemini (CC) altında bir ücrete tabi. Visual studio lisansları, Azure Active Directory premium, destek planları ve Market üzerinden satılan Hizmetleri markalı çoğu üçüncü taraf örnektir.
+Bazı Azure Hizmetleri ve [Market satın](https://azure.microsoft.com/marketplace/) bir harcama sınırına ayarlasanız bile hello ödeme yöntemini (CC) altında bir ücrete tabi. Visual studio lisansları, Azure Active Directory premium, destek planları ve hello Market satılan Hizmetleri markalı çoğu üçüncü taraf örnektir.
 
 
-## <a name="when-not-to-use-the-spending-limit"></a>Harcama limitinin kullanılmaması gereken durumlar
+## <a name="when-not-toouse-hello-spending-limit"></a>Ne zaman değil toouse hello harcama sınırı
 
-Harcama limiti, belirli Market ve Microsoft hizmetlerini dağıtmanızı veya kullanmanızı engelleyebilir. Aboneliğinizdeki harcama limitini kaldırmanızı gerektiren senaryolar aşağıda belirtilmiştir.
+Harcama sınırı hello dağıtma veya belirli Market ve Microsoft hizmetlerini kullanarak engelleyebilir. Burada, abonelikte harcama sınırı hello kaldırmalısınız hello senaryolar verilmiştir.
 
-- Oracle gibi birinci taraf görüntülerini ve Visual Studio Team Services gibi hizmetleri dağıtmayı planlıyorsunuz. Bu senaryo, harcama limitine hemen aşmasına neden olur ve aboneliğiniz devre dışı bırakılmasına neden olur.
+- Oracle ve Visual Studio Team Services gibi hizmetleri gibi birinci taraf görüntüleri toodeploy planlayın. Bu senaryo, harcama sınırını hemen tooexceed neden olur ve devre dışı, abonelik toobe neden olur.
 
 - Kesintiye uğramaması gereken hizmetleriniz var.
 
-- Sanal IP adresleri gibi ayarlar içeren, kaybetmek istemediğiniz hizmet ve kaynaklarınız var. Bu ayarlar, hizmet ve kaynakları serbest zaman kaybolur.
+- Hizmetleri ve sanal IP adreslerine gibi ayarları kaynaklarla toolose istemezsiniz. Bu ayarları Hello hizmet ve kaynakları serbest kaybolur.
 
 
-## <a name="remove-the-spending-limit"></a>Harcama limitini kaldırma
+## <a name="remove-hello-spending-limit"></a>Harcama sınırı hello Kaldır
 
-Aboneliğinizle ilişkili geçerli bir ödeme yöntemi olduğu sürece, harcama limitini istediğiniz zaman kaldırabilirsiniz. Birden çok aya yayılan kredi içeren tekliflerde, bir sonraki fatura döneminin başlangıcında harcama limitini yeniden etkinleştirebilirsiniz.
+Merhaba aboneliğinizle ilişkili bir geçerli ödeme yöntemi var olduğu sürece harcama sınırı dilediğiniz zaman kaldırabilirsiniz. Birden çok ay içinde iade sahip teklifleri için harcama sınırı, sonraki fatura döneminde hello başında hello yeniden etkinleştirebilirsiniz.
 
-Harcama limitini kaldırmak için şu adımları izleyin:
+tooremove, harcama sınırını, aşağıdaki adımları izleyin:
 
-1. Oturum [Azure hesap Merkezi](https://account.windowsazure.com).
+1. Toohello üzerinde oturum [Azure hesap Merkezi](https://account.windowsazure.com).
 
 2. Bir abonelik seçin.
 
-3. Abonelik, Harcama Limitine ulaşılması nedeniyle devre dışı bırakılmışsa şu bildirime tıklayın: "Abonelik, Harcama Limitine ulaştı ve ücretleri önlemek için devre dışı bırakıldı." Aksi takdirde tıklatın **harcama sınırı Kaldır** içinde **ABONELİK durumunu** alanı.
+3. Merhaba Abonelik son devre dışıysa toohello harcama sınırına, bu bildirime tıklayın: "Abonelik hello ilişkin harcama limitine ulaştı ve devre dışı tooprevent ücretleri bırakıldı." Aksi takdirde tıklatın **harcama sınırı Kaldır** hello içinde **ABONELİK durumunu** alanı.
 
 4. Size uygun bir seçenek belirleyin.
 
 |Seçenek|Etki|
 |-------|-----|
-|Harcama limitini süresiz olarak kaldırma|Harcama limiti kaldırılır ve bir sonraki fatura döneminin başlangıcında otomatik olarak yeniden açılmaz.|
-|Geçerli fatura dönemi için harcama limitini kaldırma|Harcama limiti kaldırılır ve bir sonraki fatura döneminin başlangıcında otomatik olarak yeniden açılır.|
+|Harcama limitini süresiz olarak kaldırma|Otomatik olarak hello hello başlangıcında sonraki fatura döneminde açma olmadan harcama sınırı hello kaldırır.|
+|Merhaba geçerli fatura dönemi için harcama limitini kaldırın|Böylece, geri otomatik olarak hello hello başlangıcında sonraki fatura döneminde açar harcama sınırı hello kaldırır.|
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
-Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorunu Çözümlendi hızla tooget.

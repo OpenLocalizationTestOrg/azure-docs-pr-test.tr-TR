@@ -1,6 +1,6 @@
 ---
-title: "Azure'da bir VHD'den yönetilen bir disk oluşturma | Microsoft Docs"
-description: "Yönetilen bir disk Resource Manager dağıtım modelini kullanarak bir Azure depolama hesabında şu anda olan bir VHD'den oluşturun."
+title: "aaaCreate Azure VHD'yi yönetilen bir diskten | Microsoft Docs"
+description: "Yönetilen bir disk hello Resource Manager dağıtım modelini kullanarak bir Azure depolama hesabında şu anda olan bir VHD'den oluşturun."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
-ms.openlocfilehash: c03ebf73f1090b595149daf2eb3e274b05822f4f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 77adaac5419186ff85039fe2c4752f021aa5e448
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-managed-disks-from-unmanaged-disks-in-a-storage-account"></a>Bir depolama hesabı yönetilmeyen disklerden yönetilen diskleri oluşturma
 
 Yönetilen bir disk, varolan bir veri diski veya bir Azure depolama hesabında şu anda olan işletim sistemi diski oluşturulabilir. Ayrıca, bir VM için yeni bir veri diski olarak kullanılabilmesi için boş bir disk oluşturabilirsiniz. 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-PowerShell'i kullanırsanız, AzureRM.Compute PowerShell modülü en son sürümüne sahip olduğunuzdan emin olun. Yüklemek için aşağıdaki komutu çalıştırın.
+PowerShell'i kullanırsanız, hello hello AzureRM.Compute PowerShell modülü en son sürümüne sahip olduğunuzdan emin olun. Çalıştırma hello komut tooinstall onu.
 
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -36,9 +36,9 @@ Daha fazla bilgi için bkz: [Azure PowerShell sürüm](/powershell/azure/overvie
 
 ## <a name="create-a-managed-disk-from-a-vhd-in-an-azure-storage-account"></a>Bir Azure depolama hesabındaki bir VHD'den yönetilen bir disk oluşturma
 
-Yönetilen disk olarak bir VHD'den disk oluştur ve parametreye atayın örnekte **$ disk 1** daha sonra kullanmak üzere. 
+Yönetilen disk olarak bir VHD'den disk oluştur ve toohello parametresi atamak hello örnekte **$ disk 1** toouse daha sonra. 
 
-Yönetilen disk içinde oluşturulacak **Batı ABD** konumda adlı bir kaynak grubu **myResourceGroup**. Disk adında **myDisk** ve adlı bir VHD dosyasından oluşturulacak **myDisk.vhd** biz adlı bir depolama hesabı için daha önce karşıya **mystorageaccount**. Yönetilen disk premium yerel olarak yedekli depolama (LRS) oluşturulur. StandardLRS ve PremiumLRS olan tek **- AccountType** için kullanılabilir seçenekleri yönetilen diskler. 
+Merhaba yönetilen disk hello oluşturulacak **Batı ABD** konumda adlı bir kaynak grubu **myResourceGroup**. Merhaba disk adlı **myDisk** ve adlı bir VHD dosyasından oluşturulacak **myDisk.vhd** biz adlı tooa depolama hesabı daha önce karşıya **mystorageaccount**. Merhaba yönetilen disk premium yerel olarak yedekli depolama (LRS) oluşturulur. StandardLRS ve PremiumLRS olan hello yalnızca **- AccountType** için kullanılabilir seçenekleri yönetilen diskler. 
 
 1.  Bazı parametreler Ayarla
 
@@ -49,7 +49,7 @@ Yönetilen disk içinde oluşturulacak **Batı ABD** konumda adlı bir kaynak gr
     $vhdUri = "https://mystorageaccount.blob.core.windows.net/vhds/myDisk.vhd"
     ```
 
-2. Veri diski oluşturun. 
+2. Merhaba veri diski oluşturun. 
     ```powershell
     $disk1 = New-AzureRmDisk -DiskName $diskName -Disk (New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreateOption Import -SourceUri $vhdUri) -ResourceGroupName $rgName
     ```
@@ -58,11 +58,11 @@ Yönetilen disk içinde oluşturulacak **Batı ABD** konumda adlı bir kaynak gr
 
 ## <a name="create-an-empty-data-disk-as-a-managed-disk"></a>Boş veri diski yönetilen bir disk oluşturma
 
-Boş veri diski yönetilen disk olarak oluşturun ve parametreye atayın örnekte **$dataDisk2** daha sonra kullanmak üzere. Boş veri diski başlatılmış VM'ye oturum açmayı ve diskmgmt.msc kullanarak olması gerekir veya [WinRM ve bir komut dosyası kullanarak uzaktan](attach-disk-ps.md#initialize-the-disk), çalışan bir VM bağlandıktan sonra.
+Boş veri diski yönetilen disk olarak oluşturun ve toohello parametresi atamak hello örnekte **$dataDisk2** toouse daha sonra. Boş veri diskini toohello VM günlüğe kaydetme ve diskmgmt.msc kullanarak başlatılmış toobe gerekir veya [WinRM ve bir komut dosyası kullanarak uzaktan](attach-disk-ps.md#initialize-the-disk), VM çalıştıran ekli tooa olduğunda.
 
-Boş veri diski içinde oluşturulacak **Batı Orta ABD** konumda adlı bir kaynak grubu **myResourceGroup**. Disk adında **myEmptyDataDisk**. Premium yerel olarak yedekli depolama (LRS) boş disk oluşturulur. StandardLRS ve PremiumLRS olan tek **- AccountType** için kullanılabilir seçenekleri yönetilen diskler.
+Merhaba boş veri diski hello oluşturulacak **Batı Orta ABD** konumda adlı bir kaynak grubu **myResourceGroup**. Merhaba disk adlı **myEmptyDataDisk**. Merhaba boş disk premium yerel olarak yedekli depolama (LRS) oluşturulur. StandardLRS ve PremiumLRS olan hello yalnızca **- AccountType** için kullanılabilir seçenekleri yönetilen diskler.
 
-Bu örnekte disk boyutu, 128 GB olmakla birlikte, VM üzerinde çalışan uygulamaların gereksinimlerini karşılayan bir boyut seçmeniz gerekir.
+Bu örnekte Hello disk boyutu, 128 GB olmakla birlikte, VM'de çalışan herhangi bir uygulama, hello gereksinimlerini karşılayan bir boyut seçmeniz gerekir.
 
 1.  Bazı parametreler Ayarla
 
@@ -72,7 +72,7 @@ Bu örnekte disk boyutu, 128 GB olmakla birlikte, VM üzerinde çalışan uygula
     $dataDiskName = "myEmptyDataDisk"
     ```
 
-2. Veri diski oluşturun.
+2. Merhaba veri diski oluşturun.
     ```powershell
     $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreateOption Empty -DiskSizeGB 128) -ResourceGroupName $rgName
     ```

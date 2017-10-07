@@ -1,6 +1,6 @@
 ---
-title: "Azure File storage'ı Linux ile kullanma | Microsoft Docs"
-description: "Bir Azure dosya paylaşımı üzerinden SMB Linux'ta bağlama öğrenin."
+title: Azure File storage ile Linux aaaUse | Microsoft Docs
+description: "Nasıl toomount bir Azure dosya paylaşımı Linux'ta SMB üzerinden öğrenin."
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/8/2017
 ms.author: renash
-ms.openlocfilehash: d8987082c559a374b8d19fd69e20cf5e81cb25ef
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: eeaa24b7f9e646724c5d86ae1e80dfdadaff34fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-azure-file-storage-with-linux"></a>Azure File storage'ı Linux ile kullanma
-[Azure Dosya depolama](../storage-dotnet-how-to-use-files.md), Windows’un kolay kullanılan bulut dosya sistemidir. Azure dosya paylaşımları kullanarak Linux dağıtımları içinde takılı [CIFS yardımcı programları paket](https://wiki.samba.org/index.php/LinuxCIFS_utils) gelen [Samba proje](https://www.samba.org/). Bu makale bir Azure dosya paylaşımı bağlamak için iki yol gösterir: isteğe bağlı ile `mount` komut ve üzerinde önyükleme bir girişe oluşturarak `/etc/fstab`.
+[Azure File storage](../storage-dotnet-how-to-use-files.md) Microsoft'un kolay toouse bulut dosya sistemidir. Azure dosya paylaşımları hello kullanarak Linux dağıtımları içinde takılı [CIFS yardımcı programları paket](https://wiki.samba.org/index.php/LinuxCIFS_utils) hello gelen [Samba proje](https://www.samba.org/). Bu makale bir Azure dosya paylaşımı iki yolu toomount gösterir: isteğe bağlı hello ile `mount` komut ve üzerinde önyükleme bir girişe oluşturarak `/etc/fstab`.
 
 > [!NOTE]  
-> Azure dışında bir Azure dosya paylaşımı bağlamak için bu, şirket içi gibi veya farklı bir bölgede Azure, işletim sistemi barındırıldığı bölgeyi SMB 3.0 şifreleme işlevlerini desteklemesi gerekir. Linux için SMB 3.0 şifreleme özelliği 4.11 Çekirdeği'nde sunulmuştur. Bu özellik Azure dosya paylaşımının şirket içi veya farklı bir Azure bölgesindeki bağlama sağlar. Yayımlama zaman bu işlevselliği 16.04 ve yukarıdaki backported Ubuntu için bırakıldı.
+> Sipariş toomount hello dışında bir Azure dosya paylaşımı, bu, şirket içi gibi veya farklı bir bölgede Azure, hello OS barındırıldığı Azure bölgesi SMB 3.0 hello şifreleme işlevlerini desteklemesi gerekir. Linux için SMB 3.0 şifreleme özelliği 4.11 Çekirdeği'nde sunulmuştur. Bu özellik Azure dosya paylaşımının şirket içi veya farklı bir Azure bölgesindeki bağlama sağlar. Yayımlama Hello anda bu işlevselliği backported tooUbuntu 16.04 ve yukarıdaki olmuştur.
 
 
-## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Bir Azure dosya bağlanması için ön koşullar paylaşımı Linux ve yardımcı programları CIFS paketi
-* **Yüklü CIFS yardımcı programları paketi olabilir Linux dağıtım çekme**: Microsoft Azure görüntü Galerisi içinde aşağıdaki Linux dağıtımları önerir:
+## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-hello-cifs-utils-package"></a>Linux ve hello CIFS yardımcı programları paketine sahip bir Azure dosya paylaşımına bağlanması için ön koşullar
+* **Merhaba CIFS yardımcı programları paketi yüklü olan bir Linux dağıtım çekme**: Microsoft hello Azure görüntü Galerisi Linux dağıtımları aşağıdaki hello önerir:
 
     * Ubuntu Server 14.04 +
     * RHEL 7 +
@@ -37,82 +37,82 @@ ms.lasthandoff: 08/29/2017
     * openSUSE 13.2 +
     * SUSE Linux Enterprise Server 12
 
-* <a id="install-cifs-utils"></a>**CIFS yardımcı programları paketinin yüklü olduğu**: yardımcı programları CIFS tercih ettiğiniz Linux dağıtım noktasında Paket Yöneticisi kullanılarak yüklenebilir. 
+* <a id="install-cifs-utils"></a>**Merhaba CIFS yardımcı programları paketinin yüklü olduğu**: hello CIFS yardımcı programları, tercih ettiğiniz hello Linux dağıtım noktasında hello Paket Yöneticisi kullanılarak yüklenebilir. 
 
-    Üzerinde **Ubuntu** ve **Debian tabanlı** dağıtımları kullanın `apt-get` Paket Yöneticisi:
+    Üzerinde **Ubuntu** ve **Debian tabanlı** dağıtımları, hello kullan `apt-get` Paket Yöneticisi:
 
     ```
     sudo apt-get update
     sudo apt-get install cifs-utils
     ```
 
-    Üzerinde **RHEL** ve **CentOS**, kullanın `yum` Paket Yöneticisi:
+    Üzerinde **RHEL** ve **CentOS**, hello kullan `yum` Paket Yöneticisi:
 
     ```
     sudo yum install samba-client samba-common cifs-utils
     ```
 
-    Üzerinde **openSUSE**, kullanın `zypper` Paket Yöneticisi:
+    Üzerinde **openSUSE**, hello kullan `zypper` Paket Yöneticisi:
 
     ```
     sudo zypper install samba*
     ```
 
-    Diğer dağıtımlar üzerinde uygun Paket Yöneticisi'ni kullanın veya [derleme kaynağından](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
+    Diğer dağıtımları hello uygun Paket Yöneticisi'ni kullanın veya [derleme kaynağından](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* **Bağlanılan paylaşımı dizin/dosya izinlerini karar**: 0777 kullanırız aşağıdaki örneklerde, okuma, yazma ve Yürütme izinleri tüm kullanıcılara. Diğer değiştirebileceğiniz [chmod izinleri](https://en.wikipedia.org/wiki/Chmod) istenen şekilde. 
+* **Merhaba dizin/dosya izinlerini hello takılı paylaşımının karar**: 0777, kullandığımız hello aşağıdaki örnekte, toogive okuma, yazma ve Yürütme izinleri tooall kullanıcılar. Diğer değiştirebileceğiniz [chmod izinleri](https://en.wikipedia.org/wiki/Chmod) istenen şekilde. 
 
-* **Depolama Hesabı Adı**: Azure Dosya paylaşımını bağlayabilmeniz için depolama hesabınızın adı gerekir.
+* **Depolama hesabı adı**: toomount bir Azure dosya paylaşımı, hello depolama hesabının adını hello.
 
-* **Depolama Hesabı Anahtarı**: Azure Dosya paylaşımını bağlayabilmeniz için birincil (veya ikincil) depolama anahtarı gerekir. SAS anahtarları şu an bağlama için desteklenmemektedir.
+* **Depolama hesabı anahtarı**: toomount bir Azure dosya paylaşımı, birincil (veya ikincil) depolama anahtarı hello. SAS anahtarları şu an bağlama için desteklenmemektedir.
 
-* **445 bağlantı noktası açık olduğundan emin olun**: SMB 445 - TCP bağlantı noktası üzerinden iletişim kurar, güvenlik duvarının TCP engellemediğinden varsa görmek için istemci makineden 445 bağlantı noktalarını kontrol edin.
+* **445 bağlantı noktası açık olduğundan emin olun**: SMB 445 - TCP bağlantı noktası üzerinden iletişim kurar, güvenlik duvarının TCP engellemediğinden varsa toosee istemci makineden 445 bağlantı noktalarını kontrol edin.
 
-## <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Azure dosya paylaşımı isteğe bağlı ile bağlama`mount`
-1. **[Linux dağıtımınızı CIFS yardımcı programları paketini Yükle](#install-cifs-utils)**.
+## <a name="mount-hello-azure-file-share-on-demand-with-mount"></a>Azure dosya paylaşımı isteğe bağlı ile Merhaba bağlama`mount`
+1. **[Linux dağıtımınız için Hello CIFS yardımcı programları paketini Yükle](#install-cifs-utils)**.
 
-2. **Bağlama noktası için bir klasör oluşturun**: Bu dosya sisteminde herhangi bir yere yapılabilir.
+2. **Merhaba bağlama noktası için bir klasör oluşturun**: herhangi bir yere hello dosya sisteminde yapılabilir.
 
     ```
     mkdir mymountpoint
     ```
 
-3. **Azure dosya paylaşımını bağlama için bağlama komutunu kullanın**: değiştirmek unutmayın `<storage-account-name>`, `<share-name>`, ve `<storage-account-key>` uygun bilgilerle.
+3. **Kullanım hello bağlama komutu toomount hello Azure dosya paylaşımı**: tooreplace unutmayın `<storage-account-name>`, `<share-name>`, ve `<storage-account-key>` hello uygun bilgilerle.
 
     ```
     sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
-> İşiniz bittiğinde Azure dosya paylaşımı kullanarak `sudo umount ./mymountpoint` paylaşım çıkaramadı.
+> İşiniz bittiğinde hello Azure dosya paylaşımı kullanarak, kullanabilirsiniz `sudo umount ./mymountpoint` toounmount hello paylaşımı.
 
-## <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Azure dosya paylaşımının için kalıcı bağlama noktası oluştur`/etc/fstab`
-1. **[Linux dağıtımınızı CIFS yardımcı programları paketini Yükle](#install-cifs-utils)**.
+## <a name="create-a-persistent-mount-point-for-hello-azure-file-share-with-etcfstab"></a>Hello Azure dosya paylaşımının için kalıcı bağlama noktası oluştur`/etc/fstab`
+1. **[Linux dağıtımınız için Hello CIFS yardımcı programları paketini Yükle](#install-cifs-utils)**.
 
-2. **Bağlama noktası için bir klasör oluşturun**: Bu dosya sisteminde herhangi bir yere yapılabilir, ancak klasör mutlak yolu not gerekir. Aşağıdaki örnek, kök altında bir klasör oluşturur.
+2. **Merhaba bağlama noktası için bir klasör oluşturun**: herhangi bir yere hello dosya sisteminde yapılabilir, ancak toonote hello hello klasörünün mutlak bir yol gerekir. Aşağıdaki örnek hello kök altında bir klasör oluşturur.
 
     ```
     sudo mkdir /mymountpoint
     ```
 
-3. **Aşağıdaki satırı eklemek için aşağıdaki komutu kullanın `/etc/fstab`** : değiştirmek unutmayın `<storage-account-name>`, `<share-name>`, ve `<storage-account-key>` uygun bilgilerle.
+3. **Kullanım hello aşağıdaki komut satırı çok aşağıdaki tooappend hello`/etc/fstab`**: tooreplace unutmayın `<storage-account-name>`, `<share-name>`, ve `<storage-account-key>` hello uygun bilgilerle.
 
     ```
     sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  
-> Kullanabileceğiniz `sudo mount -a` düzenledikten sonra Azure dosya paylaşımını bağlama için `/etc/fstab` yerine yeniden başlatılıyor.
+> Kullanabileceğiniz `sudo mount -a` düzenleme sonrasında toomount hello Azure dosya paylaşımı `/etc/fstab` yerine yeniden başlatılıyor.
 
 ## <a name="feedback"></a>Geri Bildirim
-Linux kullanıcıları, sizden duymak istiyoruz!
+Linux kullanıcıları, sizden toohear bekliyoruz!
 
-Azure File storage Linux Kullanıcıları grubu için bir forum değerlendirin ve File storage Linux'ı benimsemeyi olarak geri bildirim paylaşmanızı sağlar. E-posta [Azure File storage Linux kullanıcıları](mailto:azurefileslinuxusers@microsoft.com) kullanıcıların Gruba katılmak için.
+değerlendirin ve File storage Linux'ı benimsemeyi gibi hello Azure File storage Linux Kullanıcıları grubu için bir forum sizin için tooshare geri bildirim sağlar. E-posta [Azure File storage Linux kullanıcıları](mailto:azurefileslinuxusers@microsoft.com) toojoin hello kullanıcıların Grup.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
 * [Dosya Hizmeti REST API başvurusu](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-* [Microsoft Azure storage ile AzCopy kullanma](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Azure storage ile Azure CLI kullanma](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
+* [Nasıl Microsoft Azure storage ile AzCopy toouse](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Azure storage ile Hello Azure CLI kullanma](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [SSS](../storage-files-faq.md)
 * [Sorun giderme](storage-troubleshoot-linux-file-connection-problems.md)

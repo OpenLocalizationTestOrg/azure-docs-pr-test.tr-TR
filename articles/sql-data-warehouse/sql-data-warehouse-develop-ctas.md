@@ -1,6 +1,6 @@
 ---
-title: "(CTAS) SQL veri ambarı'nda seçerken tablo oluşturma | Microsoft Docs"
-description: "Çözümleri geliştirme için Azure SQL Data Warehouse select (CTAS) deyiminde olarak oluşturma tabloyla kodlamak için ipuçları."
+title: "SQL veri ambarı'nda (CTAS) seçip aaaCreate tablo | Microsoft Docs"
+description: "Merhaba ile kodlamak için ipuçları çözümleri geliştirmek için Azure SQL Data Warehouse'da select (CTAS) deyimi gibi tablo oluşturun."
 services: sql-data-warehouse
 documentationcenter: NA
 author: shivaniguptamsft
@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 01/30/2017
 ms.author: shigu;barbkess
-ms.openlocfilehash: cb08313726e8135feaa9b413937c2197ea397f4b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e381601a0a4d94e189d8f9115bf2e7593025410b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>SQL veri ambarı'nda create Table As Select (CTAS)
-Tablo seçin olarak oluşturun veya `CTAS` en önemli T-SQL özellikler kullanılabilir. Bir SELECT deyimi çıktıya dayalı yeni bir tablo oluşturur tam olarak parallelized bir işlemdir. `CTAS`bir tablonun kopyasını oluşturmak için basit ve hızlı bir yoludur. Bu belge örnekleri ve en iyi yöntemleri sağlar `CTAS`.
+Tablo seçin olarak oluşturun veya `CTAS` hello en önemli T-SQL özelliklerini biridir. SELECT deyiminin hello çıktıya dayalı yeni bir tablo oluşturur tam olarak parallelized bir işlemdir. `CTAS`Merhaba basit ve hızlı yolu toocreate bir tablonun bir kopyasıdır. Bu belge örnekleri ve en iyi yöntemleri sağlar `CTAS`.
 
 ## <a name="selectinto-vs-ctas"></a>SEÇİN... VS. CTAS
 Göz önünde bulundurabilirsiniz `CTAS` Süper kartınızdan bir sürümü olarak `SELECT..INTO`.
@@ -35,11 +35,11 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-Yukarıdaki örnekte `[dbo].[FactInternetSales_new]` Azure SQL Data warehouse'da tablo Varsayılanları bunlar gibi üzerindeki kümelenmiş COLUMNSTORE dizini olan ROUND_ROBIN dağıtılmış tablosu olarak oluşturulması.
+Yukarıdaki hello örnekte `[dbo].[FactInternetSales_new]` hello tablo Varsayılanları Azure SQL Data warehouse'da bunlar gibi üzerindeki kümelenmiş COLUMNSTORE dizini olan ROUND_ROBIN dağıtılmış tablosu olarak oluşturulması.
 
-`SELECT..INTO`ancak dağıtım yöntemini veya dizin türü işleminin bir parçası değiştirmenize izin vermez. Bu yerdir `CTAS` devreye girer.
+`SELECT..INTO`Ancak, her iki hello dağıtım yöntemini veya hello dizinini yazın hello işleminin bir parçası toochange izin vermez. Bu yerdir `CTAS` devreye girer.
 
-Yukarıdaki dönüştürmek için `CTAS` oldukça düz-bir işlemdir:
+çok hello yukarıda tooconvert`CTAS` oldukça düz-bir işlemdir:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_new]
@@ -54,17 +54,17 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-İle `CTAS` dağıtım, tablo türü yanı sıra tablo verileri değiştirebilirsiniz. 
+İle `CTAS` mümkün toochange olduğunuz her ikisi de hello tablo türü yanı sıra hello tablo verisi dağıtımını hello. 
 
 > [!NOTE]
-> Yalnızca dizinde değiştirmeye çalışıyorsanız, `CTAS` işlemi ve kaynak tablosu olduğu dağıtılmış karma sonra `CTAS` işlemi aynı dağıtım sütun ve veri türü sahipseniz en iyi şekilde gerçekleştirir. Bu dağıtım veri taşıma daha etkilidir işlemi sırasında kaçının.
+> Toochange hello dizinde yalnızca çalışıyorsanız, `CTAS` işlemi ve hello kaynak tablodur dağıtılmış karma sonra `CTAS` işlemi gerçekleştirecek, sahipseniz en iyi hello aynı dağıtım sütun ve veri türü. Bu dağıtım veri taşıma daha etkili olan hello işlemi sırasında kaçının.
 > 
 > 
 
-## <a name="using-ctas-to-copy-a-table"></a>CTAS bir tabloyu kopyalama için kullanma
-Belki de en yaygın birini kullanır `CTAS` DDL geçiş yapabilmeniz sağlayan bir tablonun kopyasını oluşturma. Örneğin, tablo olarak başlangıçta oluşturduysanız `ROUND_ROBIN` ve değiştirmek istediğiniz artık, dağıtılmış bir sütuna, tabloya `CTAS` nasıl dağıtım sütun değiştirme olduğu. `CTAS`Ayrıca bölümlendirme, dizin oluşturma veya sütun türlerini değiştirmek için kullanılabilir.
+## <a name="using-ctas-toocopy-a-table"></a>CTAS toocopy tablo kullanma
+Belki de hello en yaygın birini kullanır `CTAS` hello DDL geçiş yapabilmeniz sağlayan bir tablonun kopyasını oluşturma. Örneğin, tablo olarak başlangıçta oluşturduysanız `ROUND_ROBIN` ve değiştirmek istediğiniz şimdi onu tooa tablo dağıtılmış bir sütuna, `CTAS` nasıl hello dağıtım sütun değiştirme olduğu. `CTAS`Ayrıca kullanılan toochange bölümlendirme, dizin oluşturma veya sütun türleri olabilir.
 
-Bu tablonun varsayılan dağıtım türünü kullanarak oluşturduğunuz düşünelim `ROUND_ROBIN` hiçbir dağıtım sütun belirtilmediğinden dağıtılmış `CREATE TABLE`.
+Bu tablo hello varsayılan dağıtım türünü kullanarak oluşturduğunuz düşünelim `ROUND_ROBIN` hiçbir dağıtım sütun hello belirtilmediğinden dağıtılmış `CREATE TABLE`.
 
 ```sql
 CREATE TABLE FactInternetSales
@@ -95,7 +95,7 @@ CREATE TABLE FactInternetSales
 );
 ```
 
-Şimdi bu tabloda yeni bir kopyasını, ile kümelenmiş Columnstore dizini oluşturun, böylece kümelenmiş Columnstore tabloları performansını yararlanabilir istiyorsunuz. Ayrıca bu sütunda birleştirmeler bekleme beri bu tabloda ProductKey dağıtmak istediğiniz ve ProductKey üzerinde birleştirme sırasında veri taşıma önlemek istiyor. Son olarak da eski bölümleri bırakarak, eski verileri hızlı bir şekilde silebilirsiniz böylece OrderDateKey üzerinde bölümleme eklemek istediğiniz. Burada, eski tablonuz yeni bir tabloya kopyalarsınız CTAS deyimi verilmiştir.
+Şimdi kümelenmiş Columnstore tabloları hello performansını yararlanabilir böylece toocreate Bu tablo bir kümelenmiş Columnstore dizini ile yeni bir kopyasını istiyorsunuz. Bu sütunda birleştirmeler bekleme ve ProductKey üzerinde birleştirme sırasında tooavoid veri taşıma istiyorsanız bu yana ProductKey bu tabloda toodistribute da isteyebilirsiniz. Son olarak, böylece eski bölümleri bırakarak, eski verileri hızlı bir şekilde silebilirsiniz tooadd OrderDateKey üzerinde bölümleme da isteyebilirsiniz. Burada, eski tablonuz yeni bir tabloya kopyalarsınız hello CTAS deyimi verilmiştir.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -116,36 +116,36 @@ WITH
 AS SELECT * FROM FactInternetSales;
 ```
 
-Son olarak, yeni tablonuzda değiştirme ve eski tablonuz bırakma için tablolarınız adlandırabilirsiniz.
+Son olarak, tablolar tooswap yeni tablonuzda yeniden adlandırın ve eski tablonuz bırakın.
 
 ```sql
-RENAME OBJECT FactInternetSales TO FactInternetSales_old;
-RENAME OBJECT FactInternetSales_new TO FactInternetSales;
+RENAME OBJECT FactInternetSales tooFactInternetSales_old;
+RENAME OBJECT FactInternetSales_new tooFactInternetSales;
 
 DROP TABLE FactInternetSales_old;
 ```
 
 > [!NOTE]
-> Azure SQL Data Warehouse henüz istatistiklerin otomatik olarak oluşturulup güncelleştirilmesini desteklemiyor.  Sorgularınızdan en iyi performansı elde edebilmeniz için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra her tablonun her sütununa ilişkin istatistiklerin oluşturulması önemlidir.  İstatistikler hakkında ayrıntılı bir açıklama için Geliştirme ile ilgili konu başlığı grubunda yer alan [İstatistikler][Statistics] bölümüne göz atın.
+> Azure SQL Data Warehouse henüz istatistiklerin otomatik olarak oluşturulup güncelleştirilmesini desteklemiyor.  Sipariş tooget hello en iyi performansı sorgularınızı, istatistikleri hello ilk yükleme işleminden sonra tüm tabloların tüm sütunlarda oluşturulması önemlidir veya hello verilerde önemli değişikliklerden.  Merhaba istatistikleri ayrıntılı bir açıklaması için bkz [istatistikleri] [ Statistics] konu hello geliştirme grubunu konuda.
 > 
 > 
 
-## <a name="using-ctas-to-work-around-unsupported-features"></a>Desteklenmeyen özellikler etrafında çalışmak için CTAS kullanma
-`CTAS`Ayrıca aşağıda listelenen desteklenmeyen özellikler çeşitli geçici olarak çözmek için kullanılabilir. Bu genellikle yalnızca kodunuzu uyumlu olacaktır, ancak bunu genellikle daha hızlı SQL Data Warehouse yürütecek win/win durum olması için kanıtlayabilirsiniz. Tam olarak parallelized tasarımını sonucunda budur. Geçici CTAS ile çalışılabilecek senaryolar şunlardır:
+## <a name="using-ctas-toowork-around-unsupported-features"></a>Desteklenmeyen özellikler etrafında CTAS toowork kullanma
+`CTAS`Aşağıda listelenen desteklenmeyen hello özelliklerini geçici kullanılan toowork de olabilir. Yalnızca kodunuzun uyumlu olur ancak bu genellikle daha hızlı SQL Data Warehouse yürütülmez bu genellikle bir win/win durum toobe kanıtlayabilirsiniz. Tam olarak parallelized tasarımını sonucunda budur. Geçici CTAS ile çalışılabilecek senaryolar şunlardır:
 
 * ANSI BİRLEŞTİRMELER güncelleştirmeleri
 * ANSI birleştirmeler üzerinde siler
 * MERGE deyimi
 
 > [!NOTE]
-> Düşünmek deneyin "CTAS ilk". Kullanarak bir sorunu çözebilir düşünüyorsanız `CTAS` , ise genellikle en iyi yolu, - yaklaşımını daha fazla veri sonuç olarak yazıyorsanız bile.
+> Toothink deneyin "CTAS ilk". Kullanarak bir sorunu çözebilir düşünüyorsanız `CTAS` , genellikle hello en iyi şekilde tooapproach sonra onu - daha fazla veri sonuç olarak yazıyorsanız, hatta.
 > 
 > 
 
 ## <a name="ansi-join-replacement-for-update-statements"></a>ANSI birleştirme değiştirme için güncelleştirme deyimleri
-Birlikte sözdizimi birleştirme ANSI UPDATE veya DELETE kullanarak gerçekleştirmek için ikiden fazla tabloyu birleştiren karmaşık bir güncelleştirmeye sahip bulabilirsiniz.
+Sözdizimi tooperform hello birleştirme ANSI kullanılarak güncelleştirme veya silme ikiden fazla tabloyu birleştiren karmaşık bir güncelleştirmeye sahip bulabilirsiniz.
 
-Bu tablo güncelleştirmeniz gerekiyordu düşünün:
+Bu tabloda tooupdate olduğunu varsayalım:
 
 ```sql
 CREATE TABLE [dbo].[AnnualCategorySales]
@@ -160,7 +160,7 @@ WITH
 ;
 ```
 
-Özgün sorgu şöyle bir şey attıktan:
+Merhaba özgün sorgu şöyle bir şey attıktan:
 
 ```sql
 UPDATE    acs
@@ -185,9 +185,9 @@ AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
 ;
 ```
 
-ANSI SQL veri ambarı desteklemediği bu yana birleştirmeleri `FROM` yan tümcesinde bir `UPDATE` deyimi, biraz değiştirmeden üzerinden bu kodu kopyalayamıyor.
+SQL veri ambarı desteklemediği beri ANSI hello birleştirmeleri `FROM` yan tümcesinde bir `UPDATE` deyimi, biraz değiştirmeden üzerinden bu kodu kopyalayamıyor.
 
-Bir bileşimini kullanabilirsiniz bir `CTAS` ve bu kodu değiştirmek için örtük bir birleşim:
+Bir bileşimini kullanabilirsiniz bir `CTAS` ve bir örtük bu kodu tooreplace Katıl:
 
 ```sql
 -- Create an interim table
@@ -208,7 +208,7 @@ GROUP BY
 ,        [CalendarYear]
 ;
 
--- Use an implicit join to perform the update
+-- Use an implicit join tooperform hello update
 UPDATE  AnnualCategorySales
 SET     AnnualCategorySales.TotalSalesAmount = CTAS_ACS.TotalSalesAmount
 FROM    CTAS_acs
@@ -216,13 +216,13 @@ WHERE   CTAS_acs.[EnglishProductCategoryName] = AnnualCategorySales.[EnglishProd
 AND     CTAS_acs.[CalendarYear]               = AnnualCategorySales.[CalendarYear]
 ;
 
---Drop the interim table
+--Drop hello interim table
 DROP TABLE CTAS_acs
 ;
 ```
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>ANSI birleştirme yerini silme deyimleri
-Bazen veri silmek için en iyi yaklaşımı kullanmaktır `CTAS`. Verileri yalnızca silme yerine korumak istediğiniz verileri seçin. Bu özellikle true `DELETE` ANSI SQL veri ambarı ANSI desteklemediğinden katılma sözdizimi birleştirir kullan deyimleri `FROM` yan tümcesinde bir `DELETE` deyimi.
+Bazen veri silmek için hello en iyi toouse yaklaşımdır `CTAS`. Merhaba verileri yalnızca silme yerine tookeep istediğiniz hello verileri seçin. Bu özellikle true `DELETE` ANSI SQL veri ambarı hello ANSI birleştirmeler desteklemediğinden sözdizimi birleştirme kullan deyimleri `FROM` yan tümcesinde bir `DELETE` deyimi.
 
 Dönüştürülen DELETE deyimi örneği aşağıda kullanılabilir:
 
@@ -232,7 +232,7 @@ WITH
 (   Distribution=HASH(ProductKey)
 ,   CLUSTERED INDEX (ProductKey)
 )
-AS -- Select Data you wish to keep
+AS -- Select Data you wish tookeep
 SELECT     p.ProductKey
 ,          p.EnglishProductName
 ,          p.Color
@@ -241,12 +241,12 @@ RIGHT JOIN dbo.stg_DimProduct s
 ON         p.ProductKey = s.ProductKey
 ;
 
-RENAME OBJECT dbo.DimProduct        TO DimProduct_old;
-RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
+RENAME OBJECT dbo.DimProduct        tooDimProduct_old;
+RENAME OBJECT dbo.DimProduct_upsert tooDimProduct;
 ```
 
 ## <a name="replace-merge-statements"></a>Merge deyimlerinde değiştirin
-Merge deyimlerinde değiştirilebilir, en az bölümünde kullanarak `CTAS`. Birleştirebilir `INSERT` ve `UPDATE` tek bir deyimde içine. Silinmiş kayıtları Kapat'ı ikinci bir deyimde kapatılması gerekir.
+Merge deyimlerinde değiştirilebilir, en az bölümünde kullanarak `CTAS`. Merhaba birleştirebilir `INSERT` ve hello `UPDATE` tek bir deyimde içine. Silinmiş kayıtları kapalı ikinci bir deyimde kapalı toobe gerekir.
 
 Örnek olarak bir `UPSERT` aşağıda verilmiştir:
 
@@ -275,8 +275,8 @@ WHERE NOT EXISTS
 )
 ;
 
-RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
-RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
+RENAME OBJECT dbo.[DimProduct]          too[DimProduct_old];
+RENAME OBJECT dbo.[DimpProduct_upsert]  too[DimProduct];
 
 ```
 
@@ -297,9 +297,9 @@ SELECT @d*@f
 ;
 ```
 
-İnstinctively CTAS için bu kodu geçirmeniz gerekir ve doğru olacaktır düşünebilirsiniz. Ancak, burada gizli bir sorun yoktur.
+İnstinctively bu kodu tooa CTAS geçirmeniz gerekir ve doğru olacaktır düşünebilirsiniz. Ancak, burada gizli bir sorun yoktur.
 
-Aşağıdaki kod, aynı sonucu vermez:
+Merhaba aşağıdaki kodu değil verim hello aynı sonucu:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -313,9 +313,9 @@ SELECT @d*@f as result
 ;
 ```
 
-"Sonuç" sütun İleri ifade veri türü ve null atanabilirlik değerleri taşıyan dikkat edin. Dikkatli değilseniz, bu değerleri Zarif Varyanslar neden olabilir.
+Merhaba sütun "sonuç" İleri hello ifadesinin hello veri türü ve null atanabilirlik değerleri taşıyan dikkat edin. Dikkatli değilseniz, bu değerleri toosubtle Varyanslar neden olabilir.
 
-Örnek olarak aşağıdakileri deneyin:
+Örnek olarak Hello aşağıdakileri deneyin:
 
 ```sql
 SELECT result,result*@d
@@ -327,17 +327,17 @@ from ctas_r
 ;
 ```
 
-Sonuç için saklanan değer farklıdır. Sonuç sütunu kalıcı değerinde diğer ifadelerinde kullanıldıkça hata daha önemli hale gelir.
+sonuç için saklanan hello değeri farklıdır. Hello hello sonuç sütunu kalıcı değerinde diğer kullanıldıkça ifadeleri hello hata daha önemli hale gelir.
 
 ![][1]
 
-Bu veri geçişler için özellikle önemlidir. İkinci sorguyu tartışmaya açık bir şekilde daha doğru olsa bile bir sorun yoktur. Veri kaynağı sisteme karşılaştırıldığında farklı olacaktır ve bütünlüğü geçiş sorular, yol açar. Bu, "yanlış" yanıt gerçekten doğru olanı olduğu bu nadir durumlarda biridir!
+Bu veri geçişler için özellikle önemlidir. Merhaba ikinci sorguyu tartışmaya açık bir şekilde daha doğru olsa bile bir sorun yoktur. Hello veri farklı karşılaştırılan toohello kaynak sistemi olacaktır ve bütünlüğü tooquestions hello geçişte yol açar. Bu, hello "yanlış" yanıt gerçekte hello sağa bir olduğu bu nadir durumlarda biridir!
 
-Biz bu farklılığa arasında iki sonuçları görmek için örtük tür atama nedenidir. İlk örnekte tablonun sütun tanımı tanımlar. Satır eklendiğinde, bir örtük tür dönüştürme oluşur. İkinci örnekte yoktur örtük tür dönüştürme gibi ifade sütunun veri türünü tanımlar. Ayrıca ilk örnekte, henüz ancak ikinci örnek sütununda bir boş değer atanabilir sütun olarak tanımlanmış dikkat edin. Tablonun ilk örnek sütun null atanabilirlik içinde oluşturulduğu açıkça tanımlandı. İkinci örneği, yalnızca bir ifadeye ve varsayılan olarak bu bırakıldı NULL tanımında neden olur.  
+Merhaba Biz bu farklılığa hello iki sonuçları arasında bkz tooimplicit nedeni atama yazın. Hello ilk örnek Merhaba tablonun hello sütun tanımı tanımlar. Merhaba satır eklendiğinde, bir örtük tür dönüştürme oluşur. Merhaba ikinci örnekte yoktur örtük tür dönüştürme gibi hello ifade hello sütunun veri türünü tanımlar. Hello ilk örnekte, henüz ancak aynı zamanda hello ikinci örnek hello sütunda boş değer atanabilir sütun olarak tanımlanmış dikkat edin. Merhaba tablo içinde oluşturulduğu sırada hello ilk örnek sütun null atanabilirlik açıkça tanımlandı. Merhaba ikinci örnekte toohello ifade yalnızca bırakıldı ve varsayılan olarak bu NULL tanımında neden olur.  
 
-Bu sorunları gidermek için açıkça içinde null atanabilirlik ve tür dönüştürmeleri ayarlanmalıdır `SELECT` kısmı `CTAS` deyimi. Create table bölümünde bu özellikleri ayarlanamıyor.
+Bu sorunları tooresolve açıkça ayarlamalıdır hello tür dönüştürmeleri ve null atanabilirlik hello `SELECT` hello kısmı `CTAS` deyimi. Bunlar ayarlanamıyor hello özelliklerinde tablo kısmen oluşturulamıyor.
 
-Aşağıdaki örnek kod gidermeye yönelik gösterir.
+Aşağıdaki Hello örnek nasıl toofix hello kodu gösterir.
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -349,19 +349,19 @@ AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
-Şunlara dikkat edin:
+Merhaba aşağıdakileri göz önünde bulundurun:
 
 * CAST veya CONVERT kullanılan
-* IsNull null Atanabilirlik olmayan birleşim zorlamak için kullanılır
-* IsNull en dıştaki işlevidir
-* Bir sabit IsNull ikinci parçası olan yani 0
+* IsNull kullanılan tooforce null Atanabilirlik olmayan birleşim değil
+* IsNull hello en dıştaki işlevidir
+* Merhaba ikinci hello IsNull parçası olan bir sabit yani 0
 
 > [!NOTE]
-> Olabilirliği doğru şekilde ayarlanması kullanılacak önemli `ISNULL` ve `COALESCE`. `COALESCE`belirleyici bir işlev değil ve bu nedenle ifade sonucu null atanabilir her zaman olacaktır. `ISNULL`farklıdır. Belirleyici. Bu nedenle, ikinci bölümü `ISNULL` işlevidir bir sabit ya da bir hazır değer sonra sonuçta elde edilen değer olacaktır NOT NULL.
+> Merhaba null atanabilirlik toobe doğru şekilde ayarlanması önemli toouse aranır `ISNULL` ve `COALESCE`. `COALESCE`belirleyici bir işlev değil ve bu nedenle hello ifadenin hello sonucu null atanabilir her zaman olacaktır. `ISNULL`farklıdır. Belirleyici. Bu nedenle zaman hello hello ikinci bölümü `ISNULL` işlevidir bir sabit ya da bir hazır değer sonra hello elde edilen değer NULL.
 > 
 > 
 
-Bu ipucu, hesaplamalar bütünlüğünü sağlamak için yalnızca kullanışlı değildir. Bölüm tablo geçmek için önemlidir. Bu tablo, olgu tanımlanan olduğunu düşünün:
+Bu ipucu, hesaplamalar hello bütünlüğünü sağlamak için yalnızca kullanışlı değildir. Bölüm tablo geçmek için önemlidir. Bu tablo, olgu tanımlanan olduğunu düşünün:
 
 ```sql
 CREATE TABLE [dbo].[Sales]
@@ -384,9 +384,9 @@ WITH
 ;
 ```
 
-Ancak, değer alanına veri kaynağını parçası olmayan bir hesaplanan ifadesidir.
+Ancak, hello değeri alanı hello kaynak veri parçası olmayan bir hesaplanan ifadesidir.
 
-Bölümlenmiş kümenizi oluşturmak için bunu yapmak isteyebilirsiniz:
+toocreate isteyebileceğiniz toodo bu bölümlenmiş kümenizi:
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -410,7 +410,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create')
 ;
 ```
 
-Sorgu mükemmel iyi çalışır. Bölüm anahtarı gerçekleştirmeye çalıştığında sorun gelir. Tablo tanımları eşleşmiyor. CTAS eşleşen tablo tanımları yapmak için değiştirilmesi gerekir.
+Merhaba sorgu mükemmel iyi çalışır. tooperform hello bölüm anahtarı çalıştığınızda hello sorun gelir. Merhaba tablo tanımları eşleşmiyor. toomake hello tablo tanımları değiştiren toobe CTAS gereken hello eşleşir.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -433,9 +433,9 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-Bu nedenle, türü tutarlılık ve bir CTAS null atanabilirlik özellikleri koruma iyi bir mühendislik en iyi uygulama olduğunu görebilirsiniz. Bu, hesaplamalarda bütünlüğünü sağlamaya yardımcı olur ve ayrıca bölüm değiştirme mümkün olmasını sağlar.
+Bu nedenle, türü tutarlılık ve bir CTAS null atanabilirlik özellikleri koruma iyi bir mühendislik en iyi uygulama olduğunu görebilirsiniz. Toomaintain bütünlüğü, hesaplamalarda yardımcı olur ve ayrıca bölüm değiştirme mümkün olmasını sağlar.
 
-Lütfen kullanma hakkında daha fazla bilgi için MSDN başvurun [CTAS][CTAS]. Azure SQL Data Warehouse en önemli deyimlerinde biridir. İyice anladığınızdan emin olun.
+Kullanma hakkında daha fazla bilgi için lütfen tooMSDN bakın [CTAS][CTAS]. Azure SQL Data Warehouse en önemli deyimlerinde hello biridir. İyice anladığınızdan emin olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla geliştirme ipuçları için bkz: [geliştirmeye genel bakış][development overview].

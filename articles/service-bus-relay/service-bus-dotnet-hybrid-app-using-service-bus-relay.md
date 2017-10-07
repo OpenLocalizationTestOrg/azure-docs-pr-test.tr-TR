@@ -1,6 +1,6 @@
 ---
-title: "Azure WCF Geçişi karma şirket içi uygulama/bulut uygulaması (.NET) | Microsoft Belgeleri"
-description: "Azure WCF Geçişini kullanarak karma .NET şirket içi uygulama/bulut uygulaması oluşturmayı öğrenin."
+title: "aaaAzure WCF geçiş karma şirket içi/bulut uygulama (.NET) | Microsoft Docs"
+description: "Bilgi nasıl Azure WCF geçiş kullanarak toocreate bir .NET şirket içi/bulut karma uygulama."
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
@@ -14,78 +14,78 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: sethm
-ms.openlocfilehash: 366922a083b9d18ef50e04eb8b459d2725315e1e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aab8b1dbdc85c4edf7b0ccef0921b69524b2d306
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Azure WCF Geçişini kullanan karma .NET şirket içi uygulama/bulut uygulaması
 ## <a name="introduction"></a>Giriş
 
-Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması derleyeceğinizi gösterir. Öğretici Azure kullanımına ilişkin deneyim sahibi olmadığınızı varsayar. 30 dakikadan kısa sürede, birden çok Azure kaynağını kullanan ve bulutta çalışan bir uygulamaya sahip olacaksınız.
+Bu makalede, Microsoft Azure ve Visual Studio ile uygulama toobuild karma bir bulut nasıl gösterilmektedir. Başlangıç Öğreticisi Azure kullanma konusunda deneyim sahibi varsayar. Az 30 dakika içerisinde birden çok Azure kaynağını kullanan bir uygulama ve hello bulutta çalışan sahip olacaktır.
 
 Şunları öğreneceksiniz:
 
-* Bir web çözümünde kullanılması amacıyla web hizmeti oluşturma veya var olan bir web hizmetini uyarlama.
-* Azure uygulaması ve başka bir yerde barındırılan web hizmeti arasında veri paylaşımı için Azure WCF Geçişi hizmetini kullanma.
+* Nasıl toocreate veya bir web çözümünde var olan bir web hizmetini uyarlama.
+* Nasıl bir Azure uygulaması ve web hizmeti arasında toouse hello Azure WCF geçiş hizmeti tooshare verileri başka bir yerde barındırılan.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Azure Relay geçişinin karma çözümlere yönelik yardımları
 
-İşletme çözümleri, genel olarak yeni ve benzersiz işletme gereksinimlerini karşılamak için yazılan özel bir kodun ve kullanılan çözüm ve sistemler tarafından sağlanan var olan işlevselliğin bir birleşiminden oluşur.
+İşletme Çözümleri tootackle yeni yazılmış özel kod ve benzersiz iş gereksinimlerine ve mevcut işlevselliğini çözümleri ve zaten kullanımdadır sistemler tarafından sağlanan birlikte genellikle oluşur.
 
-Çözüm mimarları, ölçek gereksinimlerini daha kolay bir şekilde karşılamak ve işlem maliyetlerini düşürmek için bulutu kullanmaya başlıyor. Bunu yaparken de çözümleri için yapı taşı olarak kullanmak istedikleri var olan hizmet varlıklarının kurumsal güvenlik duvarının içinde ve bulut çözümüyle kolayca erişilemeyecek konumda olduklarını fark ettiler. Birçok dahili hizmet, kurumsal ağ ucunda kolayca kullanıma sunulabilecek şekilde derlenmez veya barındırılmaz.
+Çözüm mimarları ölçek gereksinimlerine ve işletim maliyetlerini daha kolay işlenmesi için toouse hello bulut başlıyor. Bunu yaparken, bunların çözümleri için yapı taşları hello Kurumsal güvenlik duvarı içinde ve dışında kolay olduğundan tooleverage istediğiniz var olan hizmet varlıklarının hello bulut çözümü tarafından erişim için ulaşmak bulun. Birçok dahili Hizmet derlenmez veya bunlar kolayca hello kurumsal ağ ucunda kullanıma sunulabilecek şekilde şekilde barındırılan.
 
-[Azure Geçişi](https://azure.microsoft.com/services/service-bus/) ise mevcut Windows Communication Foundation (WCF) web hizmetlerinin alınarak kurumsal ağ altyapısını bozan değişikliklere gerek kalmadan kurumsal çevre dışında bulunan çözümlere güvenli bir şekilde erişmesini sağlamaya yönelik kullanım senaryosu için tasarlanmıştır. Bu tür geçişi hizmetleri, var olan ortamlarında barındırılmaya devam eder ancak bu hizmetler gelen oturumları ve istekleri bulutta barındırılan geçiş hizmetine devreder. Ayrıca, Azure Geçişi [Paylaşılan Erişim İmzası (SAS)](../service-bus-messaging/service-bus-sas.md) kimlik doğrulaması kullanarak bu hizmetleri yetkilendirilmemiş erişime karşı korur.
+[Azure geçiş](https://azure.microsoft.com/services/service-bus/) için tasarlanmış var olan Windows Communication Foundation (WCF) web hizmetlerini almaya kullanım örneği hello ve Hizmetleri gerek kalmadan hello Kurumsal çevre dışında bulunan güvenli bir şekilde erişilebilir toosolutions olanlar yapma toohello kurumsal ağ altyapısına müdahale eden değişiklikler. Bu tür geçiş hizmetleri hala kendi mevcut ortamın içinde barındırılan, ancak gelen oturumları ve istekleri toohello geçiş bulutta barındırılan hizmeti için dinleme temsilci. Ayrıca, Azure Geçişi [Paylaşılan Erişim İmzası (SAS)](../service-bus-messaging/service-bus-sas.md) kimlik doğrulaması kullanarak bu hizmetleri yetkilendirilmemiş erişime karşı korur.
 
 ## <a name="solution-scenario"></a>Çözüm senaryosu
-Bu öğreticide, ürün stoğu sayfasındaki ürünlerin listesini görmenize olanak sağlayan bir ASP.NET web sitesi oluşturacaksınız.
+Bu öğreticide, hello ürün stoğu sayfasındaki ürünlerin listesini toosee sağlayan bir ASP.NET Web sitesi oluşturur.
 
 ![][0]
 
-Öğretici, var olan şirket içi sistemde ürün bilgilerine sahip olduğunuzu varsayar ve bu sisteme erişmek için Azure Geçişini kullanır. Bu çözüm, basit bir konsol uygulamasında çalışan web hizmeti ile benzetilir ve bir bellek içi ürün kümesi ile desteklenir. Bu konsol uygulamasını kendi bilgisayarınızda çalıştırabilirsiniz ve web rolünü Azure'a dağıtabilirsiniz. Bu özellik sayesinde, bilgisayarınız en az bir güvenlik duvarının arkasında ve bir ağ adresi çevirisi (NAT) katmanında yer alsa bile Azure veri merkezinde çalışan web rolünün gerçekten bilgisayarınıza çağrı gönderebildiğini göreceksiniz.
+Başlangıç Öğreticisi, varolan bir şirket içi sistemde ürün bilgilerine sahip ve bu sisteme Azure geçiş tooreach kullanır varsayar. Bu çözüm, basit bir konsol uygulamasında çalışan web hizmeti ile benzetilir ve bir bellek içi ürün kümesi ile desteklenir. Siz mümkün toorun bu konsol uygulamasını kendi bilgisayarınızda yüklü olması ve hello web rolünü Azure'a dağıtabilirsiniz. Bilgisayarınızı, bilgisayarınız en az bir güvenlik duvarı ve ağ adresi çevirisi (NAT) katmanı arkasında yer alacağı olsa bile bunu yaparak, nasıl hello Azure veri merkezinde çalışan hello web rolü gerçekten bilgisayarınıza çağrı gönderebildiğini göreceksiniz.
 
-## <a name="set-up-the-development-environment"></a>Geliştirme ortamını ayarlama
+## <a name="set-up-hello-development-environment"></a>Merhaba geliştirme ortamını ayarlama
 
-Azure uygulamalarını geliştirmeye başlamadan önce, araçları indirip geliştirme ortamınızı ayarlayın:
+Azure uygulamalarını geliştirmeye başlamadan önce hello Araçları'nı indirmek ve geliştirme ortamınızı ayarlayın:
 
-1. SDK [indirme sayfasından](https://azure.microsoft.com/downloads/) .NET için Azure SDK'sını yükleyin.
-2. **.NET** sütununda, kullandığınız [Visual Studio](http://www.visualstudio.com) sürümüne tıklayın. Bu öğreticideki adımlar Visual Studio 2015 kullanır, ancak Visual Studio 2017 ile de çalışır.
-3. Yükleyiciyi çalıştırmanız veya kaydetmeniz istendiğinde **Çalıştır**'a tıklayın.
-4. **Web Platformu Yükleyicisi**'nde **Yükle**'ye tıklayın ve kuruluma devam edin.
-5. Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir.
+1. .NET için SDK hello Hello Azure SDK'sını yüklemek [indirmeler sayfası](https://azure.microsoft.com/downloads/).
+2. Merhaba, **.NET** sütun hello sürümünü [Visual Studio](http://www.visualstudio.com) kullanmakta olduğunuz. Bu öğretici kullanımda Visual Studio 2015 Hello adımlar, ancak bunlar da Visual Studio 2017 ile çalışır.
+3. Toorun istenir veya hello yükleyici kaydettiğinizde tıklatın **çalıştırmak**.
+4. Merhaba, **Web Platformu yükleyicisi**,'ı tıklatın **yüklemek** ve hello yükleme işlemine devam edin.
+5. Merhaba yüklemesi tamamlandıktan sonra her şeyi olacaktır gerekli toostart toodevelop hello uygulama. Merhaba SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir.
 
 ## <a name="create-a-namespace"></a>Ad alanı oluşturma
 
-Azure'da geçiş özelliklerini kullanmaya başlamak için öncelikle bir hizmet ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Azure kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar. [Buradaki yönergeleri](relay-create-namespace-portal.md) izleyerek bir Geçiş ad alanı oluşturun.
+Merhaba Azure geçiş özelliklerinde toobegin kullanarak, öncelikle bir hizmet ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Azure kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar. Merhaba izleyin [yönergeleri burada](relay-create-namespace-portal.md) toocreate geçiş ad alanı.
 
 ## <a name="create-an-on-premises-server"></a>Şirket içi sunucu oluşturma
 
-Öncelikle, bir (sahte) şirket içi ürün kataloğu sistemi derleyeceksiniz. Bu oldukça kolay bir işlemdir. Bu çalışmanın, entegre etmeye çalıştığımız tüm hizmet yüzeyini içeren gerçek bir şirket içi ürün kataloğu sistemini temsil ettiğini düşünebilirsiniz.
+Öncelikle, bir (sahte) şirket içi ürün kataloğu sistemi derleyeceksiniz. Bu, oldukça basit olacaktır; Bu bir toointegrate çalıştığınız tüm hizmet yüzeyini içeren gerçek şirket içi ürün kataloğu sistemini temsil eden olarak görebilirsiniz.
 
-Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları ile yapılandırma ayarlarını dahil etmek için [Azure Service Bus NuGet paketini](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) kullanır.
+Bu proje bir Visual Studio konsol uygulamasıdır ve kullandığı hello [Azure Service Bus NuGet paketi](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) tooinclude hello Service Bus kitaplıkları ile yapılandırma ayarları.
 
-### <a name="create-the-project"></a>Proje oluşturma
+### <a name="create-hello-project"></a>Başlangıç projesi oluşturma
 
-1. Yönetici ayrıcalıklarını kullanarak Microsoft Visual Studio'yu başlatın. Bunu yapmak için Visual Studio program simgesine sağ tıklayıp **Yönetici olarak çalıştır**’a tıklayın.
-2. Visual Studio'da, **Dosya** menüsündeki **Yeni** seçeneğine ve ardından **Proje**'ye tıklayın.
-3. **Yüklü Şablonlar**'daki **Visual C#** bölümünde **Konsol Uygulaması (.NET Framework)** seçeneğine tıklayın. **Ad** kutusuna **ProductsServer** adını yazın:
+1. Yönetici ayrıcalıklarını kullanarak Microsoft Visual Studio'yu başlatın. toodo, bu nedenle, hello Visual Studio program simgesine sağ tıklayın ve ardından **yönetici olarak çalıştır**.
+2. Visual Studio'da, hello **dosya** menüsünde tıklatın **yeni**ve ardından **proje**.
+3. **Yüklü Şablonlar**'daki **Visual C#** bölümünde **Konsol Uygulaması (.NET Framework)** seçeneğine tıklayın. Merhaba, **adı** kutusu, tür hello adı **ProductsServer**:
 
    ![][11]
-4. **ProductsServer** projesini oluşturmak için **Tamam** seçeneğine tıklayın.
-5. Visual Studio'ya yönelik NuGet paketi yöneticisini zaten yüklediyseniz bir sonraki adımı atlayın. Yükleme yapmadıysanız [NuGet][NuGet] bölümünü ziyaret edin ve [NuGet'i Yükle](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)'ye tıklayın. NuGet paketi yöneticisini yüklemek için gereken istemleri gerçekleştirin ve Visual Studio'yu yeniden başlatın.
-6. Çözüm Gezgini'nde **ProductsServer** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın.
-7. **Gözat** sekmesine tıklayıp `Microsoft Azure Service Bus` için arama yapın. **WindowsAzure.ServiceBus** paketini seçin.
-8. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
+4. Tıklatın **Tamam** toocreate hello **ProductsServer** projesi.
+5. Visual Studio hello NuGet paketi yöneticisini zaten yüklediyseniz, toohello bir sonraki adımı atlayın. Yükleme yapmadıysanız [NuGet][NuGet] bölümünü ziyaret edin ve [NuGet'i Yükle](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)'ye tıklayın. Merhaba istemleri tooinstall hello NuGet Paket Yöneticisi izleyin ve ardından Visual Studio'yu yeniden başlatın.
+6. Çözüm Gezgini'nde hello sağ **ProductsServer** proje ve ardından **NuGet paketlerini Yönet**.
+7. Merhaba tıklatın **Gözat** sekmesini ve ardından arama `Microsoft Azure Service Bus`. Select hello **WindowsAzure.ServiceBus** paket.
+8. Tıklatın **yükleme**ve hello kullanım koşullarını kabul edin.
 
    ![][13]
 
-   Artık gerekli istemci derlemelerine başvuru oluşturulduğunu unutmayın.
-8. Ürün sözleşmeniz için yeni bir sınıf ekleyin. Çözüm Gezgini'nde **ProductsServer** projesine sağ tıklayın ve ardından **Ekle** ve **Sınıf** seçeneklerine tıklayın.
-9. **Ad** kutusuna **ProductsContract.cs** adını yazın: Daha sonra **Ekle**'ye tıklayın.
-10. **ProductsContract.cs** sınıfında, ad alanı tanımını hizmet sözleşmesini tanımlayan şu kod ile değiştirin:
+   Bu hello gerekli istemci derlemelerine başvuru oluşturulduğunu unutmayın.
+8. Ürün sözleşmeniz için yeni bir sınıf ekleyin. Çözüm Gezgini'nde hello sağ **ProductsServer** proje ve tıklatın **Ekle**ve ardından **sınıfı**.
+9. Merhaba, **adı** kutusu, tür hello adı **ProductsContract.cs**. Daha sonra **Ekle**'ye tıklayın.
+10. İçinde **ProductsContract.cs**, hello hello hizmeti için hello sözleşmesini tanımlayan kodu aşağıdaki ile Merhaba ad alanı tanımını değiştirin.
 
     ```csharp
     namespace ProductsServer
@@ -94,9 +94,9 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
         using System.Runtime.Serialization;
         using System.ServiceModel;
 
-        // Define the data contract for the service
+        // Define hello data contract for hello service
         [DataContract]
-        // Declare the serializable properties.
+        // Declare hello serializable properties.
         public class ProductData
         {
             [DataMember]
@@ -107,7 +107,7 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
             public string Quantity { get; set; }
         }
 
-        // Define the service contract.
+        // Define hello service contract.
         [ServiceContract]
         interface IProducts
         {
@@ -121,7 +121,7 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
         }
     }
     ```
-11. Program.cs sınıfında içinde, ad alanı tanımını profil hizmetini ve bu hizmete yönelik ana bilgisayarı ekleyen şu kod ile değiştirin:
+11. Program.cs içinde hello ad alanı tanımını hello hello Profil Hizmeti ile Merhaba konağını ekler kodu aşağıdaki ile değiştirin.
 
     ```csharp
     namespace ProductsServer
@@ -131,7 +131,7 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
         using System.Collections.Generic;
         using System.ServiceModel;
 
-        // Implement the IProducts interface.
+        // Implement hello IProducts interface.
         class ProductsService : IProducts
         {
 
@@ -149,8 +149,8 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
                                          Quantity = "2500"},
                     };
 
-            // Display a message in the service console application
-            // when the list of products is retrieved.
+            // Display a message in hello service console application
+            // when hello list of products is retrieved.
             public IList<ProductData> GetProducts()
             {
                 Console.WriteLine("GetProducts called.");
@@ -161,13 +161,13 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
 
         class Program
         {
-            // Define the Main() function in the service application.
+            // Define hello Main() function in hello service application.
             static void Main(string[] args)
             {
                 var sh = new ServiceHost(typeof(ProductsService));
                 sh.Open();
 
-                Console.WriteLine("Press ENTER to close");
+                Console.WriteLine("Press ENTER tooclose");
                 Console.ReadLine();
 
                 sh.Close();
@@ -175,7 +175,7 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
         }
     }
     ```
-12. Çözüm Gezgini'nde, **App.config** dosyasına çift tıklayarak dosyayı Visual Studio düzenleyicisinde açın. `<system.ServiceModel>` öğesinin en altına (yine `<system.ServiceModel>` içinde kalacak şekilde) aşağıdaki XML kodunu ekleyin. *yourKey* alanını daha önce portaldan aldığınız SAS anahtarıyla ve *yourServiceNamespace* alanını da ad alanı adınızla değiştirdiğinizden emin olun:
+12. Çözüm Gezgini'nde hello çift tıklayarak **App.config** tooopen dosya hello Visual Studio düzenleyicisinde içinde. Merhaba hello sonundaki `<system.ServiceModel>` öğesi (ancak hala içinde `<system.ServiceModel>`), aşağıdaki XML kodunu hello ekleyin. Emin tooreplace olması *yourServiceNamespace* ad alanınızın hello adla ve *yourKey* , alınan önceki hello portalından hello SAS anahtarıyla:
 
     ```xml
     <system.serviceModel>
@@ -198,7 +198,7 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
       </behaviors>
     </system.serviceModel>
     ```
-13. App.config dosyasından çıkmadan, `<appSettings>` öğesinde bağlantı dizesi değerini portaldan daha önce edindiğiniz bağlantı dizesiyle değiştirin.
+13. Merhaba, App.config yine de `<appSettings>` öğesi, hello Portalı'ndan daha önce edindiğiniz hello bağlantı dizesiyle değiştirin hello bağlantı dizesi değeri.
 
     ```xml
     <appSettings>
@@ -207,40 +207,40 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
-14. Uygulamayı derlemek ve o ana kadarki doğruluğunu onaylamak üzere **Derle** menüsünde **Çözümü Derle** seçeneğine tıklayın veya **Ctrl+Shift+B**'ye basın.
+14. Tuşuna **Ctrl + Shift + B** veya hello **yapı** menüsünde tıklatın **yapı çözümü** toobuild hello uygulama ve hello çalışmanızın o ana kadarki doğruluğundan.
 
 ## <a name="create-an-aspnet-application"></a>ASP.NET uygulaması oluşturma
 
 Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir ASP.NET uygulaması oluşturacaksınız.
 
-### <a name="create-the-project"></a>Proje oluşturma
+### <a name="create-hello-project"></a>Başlangıç projesi oluşturma
 
 1. Visual Studio'nun yönetici ayrıcalıklarıyla çalıştığından emin olun.
-2. Visual Studio'da, **Dosya** menüsündeki **Yeni** seçeneğine ve ardından **Proje**'ye tıklayın.
-3. **Yüklü Şablonlar**'daki **Visual C#** bölümünde bulunan **ASP.NET Web Uygulaması (.NET Framework)** seçeneğine tıklayın. Projeyi **ProductsPortal** olarak adlandırın. Daha sonra, **Tamam**'a tıklayın.
+2. Visual Studio'da, hello **dosya** menüsünde tıklatın **yeni**ve ardından **proje**.
+3. **Yüklü Şablonlar**'daki **Visual C#** bölümünde bulunan **ASP.NET Web Uygulaması (.NET Framework)** seçeneğine tıklayın. Ad hello proje **ProductsPortal**. Daha sonra, **Tamam**'a tıklayın.
 
    ![][15]
 
-4. **New ASP.NET Web Uygulaması** iletişim kutusundaki **ASP.NET Şablonları** listesinde **MVC** seçeneğine tıklayın.
+4. Merhaba gelen **ASP.NET şablonları** hello listesinde **yeni ASP.NET Web uygulaması** iletişim kutusunda, tıklatın **MVC**.
 
    ![][16]
 
-6. **Kimlik Doğrulamayı Değiştir** düğmesine tıklayın. **Kimlik Doğrulamayı Değiştir** iletişim kutusunda **Kimlik Doğrulama Yok** seçeneğinin belirlendiğinden emin olun ve ardından **Tamam**'a tıklayın. Bu öğreticide, kullanıcının oturum açmasını gerektirmeyen bir uygulamayı dağıtacaksınız.
+6. Merhaba tıklatın **kimlik doğrulamayı Değiştir** düğmesi. Merhaba, **kimlik doğrulamayı Değiştir** iletişim kutusunda **doğrulaması yok** seçilir ve ardından **Tamam**. Bu öğreticide, kullanıcının oturum açmasını gerektirmeyen bir uygulamayı dağıtacaksınız.
 
     ![][18]
 
-7. MVC uygulamasını oluşturmak üzere **New ASP.NET Web Uygulaması** iletişim kutusunda **Tamam**'a tıklayın.
-8. Şimdi yeni bir web uygulaması için Azure kaynaklarını yapılandırmanız gerekir. [Bu makalenin Azure'da Yayımlama bölümündeki](../app-service-web/app-service-web-get-started-dotnet.md) adımları uygulayın. Daha sonra, bu öğreticiye geri dönün ve sonraki adıma geçin.
-10. Çözüm Gezgini'nde **Modeller**'e sağ tıklayıp **Ekle**’ye ve ardından **Sınıf**’a tıklayın. **Ad** kutusuna **Product.cs** yazın. Daha sonra **Ekle**'ye tıklayın.
+7. Merhaba edilene **yeni ASP.NET Web uygulaması** iletişim kutusunda, tıklatın **Tamam** toocreate hello MVC uygulama.
+8. Şimdi yeni bir web uygulaması için Azure kaynaklarını yapılandırmanız gerekir. Merhaba Hello adımları [tooAzure bu makalenin yayımlama](../app-service-web/app-service-web-get-started-dotnet.md). Ardından, toothis öğretici dönün ve toohello sonraki adıma geçin.
+10. Çözüm Gezgini'nde **Modeller**'e sağ tıklayıp **Ekle**’ye ve ardından **Sınıf**’a tıklayın. Merhaba, **adı** kutusu, tür hello adı **Product.cs**. Daha sonra **Ekle**'ye tıklayın.
 
     ![][17]
 
-### <a name="modify-the-web-application"></a>Web uygulamasını değiştirme
+### <a name="modify-hello-web-application"></a>Merhaba web uygulamasını değiştirme
 
-1. Visual Studio'da Product.cs dosyasındaki var olan ad alanı tanımını şu kod ile değiştirin:
+1. Merhaba Product.cs dosyasında Visual Studio, hello var olan ad alanı tanımını koddan hello ile değiştirin.
 
    ```csharp
-    // Declare properties for the products inventory.
+    // Declare properties for hello products inventory.
     namespace ProductsWeb.Models
     {
        public class Product
@@ -251,8 +251,8 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
        }
     }
     ```
-2. Çözüm Gezgini'nde **Denetleyiciler** klasörünü genişletin ve Visual Studio'da açmak için **HomeController.cs** dosyasına çift tıklayın.
-3. **HomeController.cs** dosyasındaki var olan ad alanı tanımını aşağıdaki kod ile değiştirin.
+2. Çözüm Gezgini'nde hello genişletin **denetleyicileri** klasörünü hello çift tıklatın **HomeController.cs** tooopen dosya Visual Studio içinde.
+3. İçinde **HomeController.cs**, hello var olan ad alanı tanımını koddan hello ile değiştirin.
 
     ```csharp
     namespace ProductsWeb.Controllers
@@ -263,7 +263,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
 
         public class HomeController : Controller
         {
-            // Return a view of the products inventory.
+            // Return a view of hello products inventory.
             public ActionResult Index(string Identifier, string ProductName)
             {
                 var products = new List<Product>
@@ -273,13 +273,13 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
          }
     }
     ```
-4. Çözüm Gezgini'nde, Görünümler/Paylaşılan klasörünü genişletin ve ardından **_Layout.cshtml** öğesine tıklayarak Visual Studio düzenleyicisinde açın.
-5. **My ASP.NET Application** uygulamasının tüm örneklerini **LITWARE's Products** olarak değiştirin.
-6. **Home**, **About** ve **Contact** bağlantılarını kaldırın. Aşağıdaki örnekte vurgulanmış kodu silin.
+4. Çözüm Gezgini'nde hello görünümler/paylaşılan klasörünü genişletin ve ardından **_Layout.cshtml** tooopen onu hello Visual Studio düzenleyicisinde.
+5. Tüm oluşumlarını değiştirme **My ASP.NET Application** çok**LITWARE's Products**.
+6. Merhaba kaldırmak **giriş**, **hakkında**, ve **kişi** bağlantılar. Aşağıdaki örneğine hello hello vurgulanmış kodu silin.
 
     ![][41]
 
-7. Çözüm Gezgini'nde, Görünümler/Giriş klasörünü genişletin ve ardından **Index.cshtml** öğesine tıklayarak Visual Studio düzenleyicisinde açın. Dosyanın tüm içeriğini aşağıdaki kodla değiştirin.
+7. Çözüm Gezgini'nde hello görünümler/giriş klasörünü genişletin ve ardından **Index.cshtml** tooopen onu hello Visual Studio düzenleyicisinde. Merhaba dosyanın tüm içeriğini Hello koddan hello ile değiştirin.
 
    ```html
    @model IEnumerable<ProductsWeb.Models.Product>
@@ -314,31 +314,31 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
 
    </table>
    ```
-8. Çalışmanızın o ana kadarki doğruluğunu onaylamak üzere projeyi derlemek için **Ctrl+Shift+B**'ye basabilirsiniz.
+8. tooverify hello doğruluğu çalışmanızın o ana kadarki basabilirsiniz **Ctrl + Shift + B** toobuild hello projesi.
 
-### <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
+### <a name="run-hello-app-locally"></a>Merhaba uygulamayı yerel olarak çalıştırma
 
-Çalışır durumda olduğunu doğrulamak için uygulamayı çalıştırın.
+Çalıştığını hello uygulama tooverify çalıştırın.
 
-1. **ProductsPortal** projesinin, etkin olduğundan emin olun. Çözüm Gezgini'nde proje adına sağ tıklayıp **Başlangıç Projesi Olarak Ayarla**'yı seçin.
+1. Emin **ProductsPortal** hello etkin projesidir. Merhaba Çözüm Gezgini'nde proje adına sağ tıklayıp **başlangıç projesi olarak ayarla**.
 2. Visual Studio'da **F5** tuşuna basın.
 3. Uygulamanız, bir tarayıcıda çalışıyor olarak görüntülenmelidir.
 
    ![][21]
 
-## <a name="put-the-pieces-together"></a>Parçaları bir araya getirme
+## <a name="put-hello-pieces-together"></a>Merhaba parçaları bir araya getirme
 
-Sonraki adım, şirket içi ürünlerin sunucusu ile ASP.NET uygulamasını birleştirmektir.
+Merhaba sonraki hello şirket içi ürünlerin sunucusu hello ASP.NET uygulaması ile toohook adımdır.
 
-1. Açık değilse [ASP.NET uygulaması oluşturma](#create-an-aspnet-application) bölümünde oluşturduğunuz **ProductsPortal** projesini Visual Studio'da yeniden açın.
-2. "Şirket İçi Sunucu Oluşturma" bölümündeki adıma benzer şekilde proje başvurularına NuGet paketini ekleyin. Çözüm Gezgini'nde **ProductsPortal** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın.
-3. "Service Bus" için arama yapın ve **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlayıp iletişim kutusunu kapatın.
-4. Çözüm Gezgini'nde **ProductsPortal** projesine sağ tıklayın ve ardından **Ekle** ve **Var Olan Öğe** seçeneklerine tıklayın.
-5. **ProductsServer** konsol projesinden **ProductsContract.cs** dosyasına gidin. ProductsContract.cs dosyasına tıklayarak dosyayı vurgulayın. **Ekle** seçeneğinin yanındaki aşağı oka ve ardından **Bağlantı Olarak Ekle** seçeneğine tıklayın.
+1. Visual Studio'da yeniden Aç'u hello zaten açık değilse, **ProductsPortal** hello oluşturulan proje [ASP.NET uygulaması oluşturma](#create-an-aspnet-application) bölümü.
+2. Merhaba "Bir şirket içi sunucu oluşturma" bölümünde, benzer toohello adımı hello NuGet paketi toohello proje başvuruları ekleyin. Çözüm Gezgini'nde hello sağ **ProductsPortal** proje ve ardından **NuGet paketlerini Yönet**.
+3. "Hizmet veri yolu" ve select hello arama **WindowsAzure.ServiceBus** öğesi. Ardından hello yüklemeyi tamamlamak ve bu iletişim kutusunu kapatın.
+4. Çözüm Gezgini'nde hello sağ **ProductsPortal** proje ve ardından **Ekle**, ardından **varolan öğeyi**.
+5. Toohello gidin **ProductsContract.cs** hello dosyasından **ProductsServer** konsol projesi. Toohighlight ProductsContract.cs'ı tıklatın. Aşağı ok Hello sonraki çok tıklatın**Ekle**, ardından **bağlantı olarak Ekle**.
 
    ![][24]
 
-6. Şimdi, Visual Studio düzenleyicisinde **HomeController.cs** dosyasını açın ve ad alanı tanımını aşağıdaki kodla değiştirin. *yourServiceNamespace* alanını hizmet ad alanınızla ve *yourKey* alanını da SAS anahtarınızla değiştirdiğinizden emin olun. Bu işlem, çağrı sonucunu döndürerek istemcinin şirket içi hizmete çağrı yapmasına olanak sağlar.
+6. Şimdi hello açmak **HomeController.cs** dosya hello Visual Studio düzenleyicisinde ve hello ad alanı tanımını koddan hello ile değiştirin. Emin tooreplace olması *yourServiceNamespace* hizmet ad alanınızın hello adla ve *yourKey* da SAS anahtarınızla. Bu hello hello çağrı sonucunu döndürerek hello istemci toocall hello şirket içi hizmet, olanak tanır.
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -352,7 +352,7 @@ Sonraki adım, şirket içi ürünlerin sunucusu ile ASP.NET uygulamasını birl
 
        public class HomeController : Controller
        {
-           // Declare the channel factory.
+           // Declare hello channel factory.
            static ChannelFactory<IProductsChannel> channelFactory;
 
            static HomeController()
@@ -369,7 +369,7 @@ Sonraki adım, şirket içi ürünlerin sunucusu ile ASP.NET uygulamasını birl
            {
                using (IProductsChannel channel = channelFactory.CreateChannel())
                {
-                   // Return a view of the products inventory.
+                   // Return a view of hello products inventory.
                    return this.View(from prod in channel.GetProducts()
                                     select
                                         new Product { Id = prod.Id, Name = prod.Name,
@@ -379,83 +379,83 @@ Sonraki adım, şirket içi ürünlerin sunucusu ile ASP.NET uygulamasını birl
        }
    }
    ```
-7. Çözüm Gezgini’nde **ProductsPortal** çözümüne sağ tıklayın (projeye değil, çözüme sağ tıkladığınızdan emin olun). **Ekle**'ye ve ardından **Var Olan Proje**'ye tıklayın.
-8. **ProductsServer** projesine gidip **ProductsServer.csproj** çözümüne çift tıklayarak ekleyin.
-9. **ProductsPortal**'da veri görüntülemek için**ProductsServer** projesinin çalışıyor olması gerekir. Çözüm Gezgini'nde **ProductsPortal** çözümüne sağ tıklayın ve ardından **Özellikler** seçeneğine tıklayın. **Özellik Sayfaları** iletişim kutusu görüntülenir.
-10. Sol taraftaki **Başlangıç Projesi**'ne tıklayın. Sağ taraftaki **Birden çok başlangıç projesine** tıklayın. **ProductsServer** ve **ProductsPortal** projelerinin belirtilen sırada göründüğünden ve her ikisi için de eylem olarak **Başlat** seçeneğinin ayarlandığından emin olun.
+7. Çözüm Gezgini'nde hello sağ **ProductsPortal** çözüm (yapma emin tooright tıklatma hello çözüm, değil hello Proje). **Ekle**'ye ve ardından **Var Olan Proje**'ye tıklayın.
+8. Toohello gidin **ProductsServer** proje ve ardından hello **ProductsServer.csproj** çözüm dosya tooadd onu.
+9. **ProductsServer** sipariş toodisplay hello verilerde çalıştırmalıdır **ProductsPortal**. Çözüm Gezgini'nde hello sağ **ProductsPortal** çözümü ve tıklatın **özellikleri**. Merhaba **özellik sayfaları** iletişim kutusu görüntülenir.
+10. Sol tarafında hello üzerinde tıklatın **başlangıç projesi**. Merhaba sağ tarafta tıklatın **birden fazla başlangıç projesi**. Emin **ProductsServer** ve **ProductsPortal** , o sırada göründüğünden **Başlat** ikisi için de hello eylem olarak ayarlayın.
 
       ![][25]
 
-11. Yine **Özellikler** iletişim kutusunda, sol tarafta bulunan **Proje Bağımlılıkları**'na tıklayın.
-12. **Projeler** listesinde **ProductsServer** projesine tıklayın. **ProductsPortal**'ın seçilmediğinden emin olun.
-13. **Projeler** listesinde **ProductsPortal** projesine tıklayın. **ProductsServer** projesinin seçili olduğundan emin olun.
+11. Merhaba yine de **özellikleri** iletişim kutusu, tıklatın **proje bağımlılıkları** yan sol hello üzerinde.
+12. Merhaba, **projeleri** tıklatın **ProductsServer**. **ProductsPortal**'ın seçilmediğinden emin olun.
+13. Merhaba, **projeleri** tıklatın **ProductsPortal**. **ProductsServer** projesinin seçili olduğundan emin olun.
 
     ![][26]
 
-14. **Özellik Sayfaları** iletişim kutusunda **Tamam**'a tıklayın.
+14. Tıklatın **Tamam** hello içinde **özellik sayfaları** iletişim kutusu.
 
-## <a name="run-the-project-locally"></a>Projeyi yerel olarak çalıştırma
+## <a name="run-hello-project-locally"></a>Merhaba projeyi yerel olarak çalıştırma
 
-Uygulamayı yerel olarak test etmek için Visual Studio'da **F5**'e basın. İlk olarak şirket içi sunucunun (**ProductsServer**) başlaması gerekir, ardından **ProductsPortal** uygulaması bir tarayıcı penceresinde başlamalıdır. Bu kez ürün stoğunun ürün hizmeti şirket içi sisteminden aldığı verileri listelediğini görürsünüz.
+Visual Studio'da yerel olarak tootest Merhaba uygulaması basın **F5**. Merhaba şirket içi sunucu (**ProductsServer**) ilk başlayın, ardından hello **ProductsPortal** uygulaması bir tarayıcı penceresinde başlamalıdır. Bu süre, hello ürün stoğunun hello ürün hizmeti şirket içi sisteminden aldığı verileri listelediğini görürsünüz.
 
 ![][10]
 
-**ProductsPortal** sayfasında **Yenile** düğmesine basın. Sayfayı her yenilediğinizde, **ProductsServer** uygulamasından `GetProducts()` çağrıldığında sunucu uygulamasının bir ileti gönderdiğini görürsünüz.
+Tuşuna **yenileme** hello üzerinde **ProductsPortal** sayfası. Merhaba sayfayı yenileyin, her bir ileti görüntüler hello sunucu uygulama göreceğiniz zaman `GetProducts()` gelen **ProductsServer** olarak adlandırılır.
 
-Sonraki adıma geçmeden önce her iki uygulamayı da kapatın.
+Her iki uygulamayı toohello sonraki adıma devam etmeden önce kapatın.
 
-## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>ProductsPortal projesini bir Azure web uygulamasına dağıtma
+## <a name="deploy-hello-productsportal-project-tooan-azure-web-app"></a>Merhaba ProductsPortal proje tooan Azure web uygulaması dağıtma
 
-Sonraki adımda, Azure Web uygulaması **ProductsPortal** ön ucunu yeniden yayımlayacaksınız. Şunları yapın:
+Merhaba sonraki adımdır toorepublish hello Azure Web uygulaması **ProductsPortal** ön uç. Aşağıdaki hello:
 
-1. Çözüm Gezgini'nde **ProductsPortal** projesine sağ tıklayın ve **Yayımla** seçeneğine tıklayın. Ardından **Yayımlama** sayfasında **Yayımla**'ya tıklayın.
+1. Çözüm Gezgini'nde hello sağ **ProductsPortal** proje öğesini tıklatıp **Yayımla**. Ardından **Yayımla** hello üzerinde **Yayımla** sayfası.
 
   > [!NOTE]
-  > Dağıtımdan sonra **ProductsPortal** web projesinin otomatik olarak başlatılması durumunda tarayıcıda bir hata iletisi görüntülenebilir. **ProductsServer** uygulaması henüz çalışmadığından bu durumun meydana gelmesi olasıdır.
+  > Bir hata iletisi hello tarayıcı penceresinde hello zaman görebilirsiniz **ProductsPortal** web projesi hello dağıtım sonrasında otomatik olarak başlatılır. Bu beklenen bir durumdur ve oluşur hello **ProductsServer** uygulaması henüz çalışmadığından.
 >
 >
 
-2. Bir sonraki adımda ihtiyaç duyacağınız için, dağıtılan web uygulamasının URL'sini kopyalayın. Ayrıca, Visual Studio'daki Azure App Service Etkinliği penceresinden de bu URL'yi elde edebilirsiniz:
+2. Merhaba URL hello sonraki adımda ihtiyaç duyacağınız kopyalama hello hello URL'sini web uygulaması dağıtılmış. Visual Studio'da hello Azure App Service etkinliği penceresinden de bu URL'yi elde edebilirsiniz:
 
   ![][9]
 
-3. Çalışan uygulamayı durdurmak için tarayıcı penceresini kapatın.
+3. Uygulama çalıştıran hello tarayıcı penceresini toostop hello kapatın.
 
 ### <a name="set-productsportal-as-web-app"></a>ProductsPortal'ı web uygulaması olarak ayarlama
 
-Uygulamayı bulutta çalıştırmadan önce **ProductsPortal** öğesinin Visual Studio'da bir web uygulaması olarak başlatıldığından emin olmanız gerekir.
+Merhaba bulutta çalışan hello uygulama önce emin olmanız gerekir **ProductsPortal** gelen Visual Studio'dan bir web uygulaması olarak başlatılır.
 
-1. Visual Studio'da **ProductsPortal** projesine sağ tıklayın ve ardından **Özellikler**'e tıklayın.
-2. Sol sütunda, **Web**'e tıklayın.
-3. **Eylemi Başlat** bölümünde, **URL'yi Başlat** düğmesine tıklayın ve daha önce dağıttınız web uygulamasının URL'sini metin kutusuna girin (örneğin, `http://productsportal1234567890.azurewebsites.net/`).
+1. Visual Studio'da hello sağ **ProductsPortal** proje ve ardından **özellikleri**.
+2. Merhaba sol sütunda, tıklatın **Web**.
+3. Merhaba, **eylemi Başlat** bölümünde, hello tıklatın **Start URL** düğmesine tıklayın ve hello metin kutusuna, daha önce dağıttınız web uygulamanız için; hello URL'sini girin örneğin, `http://productsportal1234567890.azurewebsites.net/`.
 
     ![][27]
 
-4. Visual Studio'daki **Dosya** menüsünde **Tümünü Kaydet**'e tıklayın.
-5. Visual Studio'da Derle menüsünde **Çözümü Yeniden Derle**'ye tıklayın.
+4. Merhaba gelen **dosya** Visual Studio'da menüsünü **Tümünü Kaydet**.
+5. Merhaba yapı menüden Visual Studio'da, **çözümü yeniden derle**.
 
-## <a name="run-the-application"></a>Uygulamayı çalıştırma
+## <a name="run-hello-application"></a>Merhaba uygulamayı çalıştırın
 
-1. Uygulamayı derleyip çalıştırmak için F5'e basın. Öncelikle şirket içi sunucu (**ProductsServer** konsol uygulaması) başlamalıdır, ardından aşağıdaki ekran görüntüsünde gösterildiği gibi **ProductsPortal** uygulaması bir tarayıcı penceresinde başlamalıdır. Ürün stoğunun ürün hizmeti şirket içi sisteminden aldığı verileri listelediğini ve bu verileri web uygulamasında gösterdiğini göz önünde bulundurun. **ProductsPortal**'ın bir Azure web uygulaması olarak bulutta çalıştığından emin olmak için URL'yi kontrol edin.
+1. F5 toobuild tuşuna basın ve hello uygulamayı çalıştırın. Merhaba şirket içi sunucu (Merhaba **ProductsServer** konsol uygulaması) ilk başlayın, ardından hello **ProductsPortal** uygulaması, bir tarayıcı penceresinde başlamalıdır, aşağıdaki ekran hello gösterildiği gibi görüntüsü. Yeniden, hello ürün stoğunun hello ürün hizmeti şirket içi sisteminden aldığı verileri listelediğini ve bu verileri hello web uygulamasında gösterdiğini dikkat edin. Merhaba URL toomake emin denetleyin, **ProductsPortal** hello bulut Azure web uygulaması olarak çalışıyor.
 
    ![][1]
 
    > [!IMPORTANT]
-   > **ProductsServer** konsol uygulamasının çalışır ve **ProductsPortal** uygulamasına veri sunma işlemini gerçekleştirebilir durumda olması gerekir. Tarayıcı bir hata görüntülerse birkaç saniye daha **ProductsServer** uygulamasının yüklenmesini ve aşağıdaki iletiyi görüntülemesini bekleyin. Daha sonra, tarayıcıda **Yenile** seçeneğine basın.
+   > Merhaba **ProductsServer** çalışıp çalışmadığını ve konsol uygulaması olmalıdır tooserve hello veri toohello **ProductsPortal** uygulama. Merhaba tarayıcı bir hata görüntülerse birkaç saniye daha bekleyin **ProductsServer** tooload ve aşağıdaki görüntü hello iletisi gönderir. Tuşuna basarak **yenileme** hello tarayıcıda.
    >
    >
 
    ![][37]
-2. Tarayıcı yenilendikten sonra **ProductsPortal** sayfasında **Yenile**'ye basın. Sayfayı her yenilediğinizde, **ProductsServer** uygulamasından `GetProducts()` çağrıldığında sunucu uygulamasının bir ileti gönderdiğini görürsünüz.
+2. Geri hello tarayıcıda basın **yenileme** hello üzerinde **ProductsPortal** sayfası. Merhaba sayfayı yenileyin, her bir ileti görüntüler hello sunucu uygulama göreceğiniz zaman `GetProducts()` gelen **ProductsServer** olarak adlandırılır.
 
     ![][38]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Geçiş hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:  
+Azure geçişi hakkında daha fazla toolearn kaynakları aşağıdaki hello bakın:  
 
 * [Azure Geçiş nedir?](relay-what-is-it.md)  
-* [Geçiş nasıl kullanılır?](service-bus-dotnet-how-to-use-relay.md)  
+* [Toouse nasıl geçiş](service-bus-dotnet-how-to-use-relay.md)  
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png

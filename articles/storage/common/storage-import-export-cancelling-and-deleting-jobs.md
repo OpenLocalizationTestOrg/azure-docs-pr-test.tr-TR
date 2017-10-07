@@ -1,6 +1,6 @@
 ---
-title: "İptal etmek ve bir Azure içeri/dışarı aktarma işini silmek | Microsoft Docs"
-description: "İptal etmek ve Microsoft Azure içeri/dışarı aktarma hizmeti için silme hakkında bilgi edinin."
+title: "aaaCancel ve bir Azure içeri/dışarı aktarma işini silmek | Microsoft Docs"
+description: "Nasıl toocancel ve delete işleri Merhaba Microsoft Azure içeri/dışarı aktarma hizmeti hakkında bilgi edinin."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 1e989c72fc03697bf6d2e515ff53003703665d1a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 13456a8e7652850baacb53730cc7bb1520b0a4c4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="canceling-and-deleting-azure-importexport-jobs"></a>İptal etme ve Azure içeri/dışarı aktarma işleri siliniyor
 
- Bir işi olarak önce iptal istemek için `Packaging` durum, çağrı [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) işlemi ve kümesi `CancelRequested` öğesine `true`. En iyi çaba ilkesine göre işleri iptal edilir. Veri aktarma işlemi yapıyor sürücülerdir, veri iptal talep edilen sonra aktarılacak devam edebilir.
+ daha önce bir işi iptal toorequest olan hello `Packaging` durum, çağrı hello [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) işlemi ve kümesi hello `CancelRequested` öğesi çok`true`. en iyi çaba ilkesine göre Hello işleri iptal edilir. Veri aktarma hello işleminde sürücüleri varsa veri iptal talep edilen sonra aktarılan toobe devam edebilir.
 
- İptal edilen işi taşınır `Completed` durum ve 90 gün boyunca, bu noktada, silindiğinden tutulur.
+ Taşınan toohello iptal edilmiş iş `Completed` durum ve 90 gün boyunca, bu noktada, silindiğinden tutulur.
 
- Bir işi silmek için arama [iş Sil](/rest/api/storageimportexport/jobs#Jobs_Delete) iş sevk edilmiş önce işlemi (diğer bir deyişle, iş, aktarılırken `Creating` durumu). İçinde olduğunda bir iş ayrıca silebilirsiniz `Completed` durumu. Bir işi silindikten sonra kendi bilgilerini ve durumunu artık REST API veya Azure portalı erişilebilir.
+ toodelete bir işi çağrısı hello [iş Sil](/rest/api/storageimportexport/jobs#Jobs_Delete) hello işi sevk edilmiş önce işlemi (diğer bir deyişle, hello iş hello ederken `Creating` durumu). Hello olduğunda bir iş ayrıca silebilirsiniz `Completed` durumu. Bir işi silindikten sonra kendi bilgilerini ve durumunu artık hello REST API erişilebilir veya Azure portal hello.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [İçeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)
+* [Merhaba içeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)

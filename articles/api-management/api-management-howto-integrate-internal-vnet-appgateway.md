@@ -1,6 +1,6 @@
 ---
-title: "Uygulama ağ geçidi ile sanal ağındaki Azure API Management kullanma | Microsoft Docs"
-description: "Kurulum ve iç sanal ağ ile uygulama ağ geçidi (WAF) ön uç olarak Azure API Management yapılandırmak hakkında bilgi edinin"
+title: "Sanal ağ uygulama ağ geçidi ile Azure API Management'te aaaHow toouse | Microsoft Docs"
+description: "Bilgi nasıl toosetup ve iç sanal ağ ile uygulama ağ geçidi (WAF) ön uç olarak Azure API Management yapılandırın"
 services: api-management
 documentationcenter: 
 author: solankisamir
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2017
 ms.author: sasolank
-ms.openlocfilehash: 8131ded6b74e9c544bf70b1a4659ed07e5def04d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 74303a2ee8a10db633ab1740ec7267728eacb473
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Bir iç sanal ağ API Management'te uygulama ağ geçidi ile tümleştirme 
 
 ##<a name="overview"></a> Genel bakış
  
-API Management hizmeti, bir sanal ağdaki sanal ağda yalnızca erişilebilir kılan iç modunda yapılandırılabilir. Azure uygulama ağ geçidi bir katman 7 yük dengeleyici sağlayan bir PAAS hizmetidir. Ters proxy hizmeti davranır ve onun bir Web uygulaması Güvenlik Duvarı (WAF) sunan arasında sağlar.
+Merhaba API Management hizmeti, bir sanal ağdaki hello sanal ağ içinde yalnızca erişilebilir kılan iç modunda yapılandırılabilir. Azure uygulama ağ geçidi bir katman 7 yük dengeleyici sağlayan bir PAAS hizmetidir. Ters proxy hizmeti davranır ve onun bir Web uygulaması Güvenlik Duvarı (WAF) sunan arasında sağlar.
 
-API uygulama ağ geçidi ön uç ile dahili bir VNET içinde sağlanan yönetim birleştirme, aşağıdaki senaryolarda sağlar:
+API Management hello uygulama ağ geçidi ön uç ile dahili bir VNET içinde sağlanan birleştirme senaryoları aşağıdaki hello sağlar:
 
-* Hem iç tüketiciler hem de dış tüketiciler tarafından tüketimi için aynı API Management kaynağı kullanın.
+* Kullanım hello aynı API Management kaynak tüketimi hem iç tüketiciler hem de dış tüketiciler tarafından.
 * Bir alt kümesini API'leri dış Tüketiciler için kullanılabilir API Management tanımladığınız ve tek bir API Management kaynağı kullanın.
-* API Management genel Internet'ten açma ve kapatma anahtar erişimi için bir anahtar teslim yol sağlar. 
+* Bir anahtar teslim yolu tooswitch erişim tooAPI yönetim hello gelen sağlayan genel Internet'ı kapatabilirsiniz. 
 
 ##<a name="scenario"></a> Senaryosu
-Bu makalede, iç ve dış tüketicilerin tek bir API Management hizmetini kullanın ve her iki şirket içi için tek bir ön uç görevi görür ve bulut API'leri sağlamak nasıl ele alınacaktır. Ayrıca dış uygulama ağ geçidi mevcut PathBasedRouting işlevselliğini kullanarak tüketimi için yalnızca bir alt kümesini Apı'lerinizi (yeşil renkte vurgulanır örnekte) kullanıma sunmak nasıl görürsünüz.
+Bu makalede nasıl toouse tek bir API Management hizmet için hem iç hem de dış tüketicileri kapsar ve her iki şirket içi için tek bir ön uç görevi görür ve bulut API'leri yapın. Ayrıca görürsünüz nasıl tooexpose Apı'lerinizi (örnekte yeşil vurgulanmış bunlar hello) yalnızca bir kısmı dış uygulama ağ geçidi mevcut hello PathBasedRouting işlevselliğini kullanarak tüketimi için.
 
-İlk kurulum örnekte tüm API'leri yalnızca sanal ağınızın içinde yönetilir. İç tüketicileri (vurgulanmış turuncu) tüm iç ve dış API'leri erişebilir. Trafik hiçbir zaman yüksek performanslı teslim Internet'e Expressroute bağlantı hatları gider.
+Merhaba ilk kurulum örnekte tüm API'leri yalnızca sanal ağınızın içinde yönetilir. İç tüketicileri (vurgulanmış turuncu) tüm iç ve dış API'leri erişebilir. Trafik, yüksek performanslı teslim tooInternet Expressroute bağlantı hatları hiçbir zaman gider.
 
 ![URL rota](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
 ## <a name="before-you-begin"></a> Başlamadan önce
 
-1. Web Platformu Yükleyicisi’ni kullanarak Azure PowerShell cmdlet’lerin en son sürümünü yükleyin. **İndirmeler sayfası**’ndaki [Windows PowerShell](https://azure.microsoft.com/downloads/) bölümünden en son sürümü indirip yükleyebilirsiniz.
+1. Merhaba Web Platformu Yükleyicisi'ni kullanarak Hello hello Azure PowerShell cmdlet'lerinin en yeni sürümünü yükleyin. Karşıdan yükle ve hello hello en son sürümünü yüklemek **Windows PowerShell** hello bölümünü [indirmeler sayfası](https://azure.microsoft.com/downloads/).
 2. Bir sanal ağ oluşturma ve API Management ve uygulama ağ geçidi için ayrı alt ağlar oluşturun. 
-3. Sanal ağ için özel bir DNS sunucusu oluşturmak istiyorsanız, dağıtıma başlamadan önce bunu. Sanal ağda yeni bir alt ağ içinde oluşturulmuş bir sanal makinenin sağlayarak çalıştığını kontrol edin, çözümlemek ve tüm Azure hizmet uç noktalarına erişebilirsiniz.
+3. Toocreate hello sanal ağ için özel bir DNS sunucusu düşünüyorsanız, hello dağıtıma başlamadan önce bunu. Hello sanal ağ içinde yeni bir alt ağ içinde oluşturulmuş bir sanal makinenin sağlayarak çalıştığını kontrol edin, çözümlemek ve tüm Azure hizmet uç noktalarına erişebilirsiniz.
 
-## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>API Management ile uygulama ağ geçidi arasında bir tümleştirme oluşturmak için gerekli nedir?
+## <a name="what-is-required-toocreate-an-integration-between-api-management-and-application-gateway"></a>Gerekli toocreate API Management ile uygulama ağ geçidi arasında bir tümleştirme nedir?
 
-* **Arka uç sunucusu havuzu:** API Management hizmeti iç sanal IP adresine budur.
-* **Arka uç sunucu havuzu ayarları**: Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar, havuzdaki tüm sunuculara uygulanır.
-* **Ön uç bağlantı noktası:** bu uygulama ağ geçidinde açılan genel bağlantı noktasıdır. Bunu basarsa trafiği arka uç sunuculardan birine yönlendirilir.
-* **Dinleyici:** Dinleyicide bir ön uç bağlantı noktası, bir protokol (Http veya Https, bu değerler büyük/küçük harfe duyarlıdır) ve SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa) vardır.
-* **Kural:** kural dinleyici bir arka uç sunucu havuzuna bağlar.
-* **Özel durum araştırması:** uygulama ağ geçidi, varsayılan olarak, kullanan IP adreslerini göre araştırmalar BackendAddressPool hangi sunucuları etkin olduğunu anlamak için. API Management hizmeti yalnızca doğru ana bilgisayar üstbilgisi olan isteklerine yanıt verir, bu nedenle varsayılan araştırmalar başarısız. Bir özel durum araştırması uygulama ağ geçidi hizmeti kullanımda ve isteklerini iletmek belirlemek amacıyla tanımlanması gerekiyor.
-* **Özel etki alanı sertifikası:** API Management kendi ana bilgisayar adı uygulama ağ geçidi ön uç DNS adına CNAME eşlemesi oluşturmanız internet'ten erişmek için. Bu uygulama için API Management ileten ağ geçidi için gönderilen sertifikayı ve ana bilgisayar üstbilgisi bir APIM geçerli olarak tanıyabilmesi için sağlanır.
+* **Arka uç sunucusu havuzu:** hello iç sanal IP adresini hello API Management hizmeti budur.
+* **Arka uç sunucu havuzu ayarları**: Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar, hello havuz içindeki uygulanan tooall sunucularıdır.
+* **Ön uç bağlantı noktası:** bu hello hello uygulama ağ geçidinde açılan genel bağlantı noktasıdır. Bunu basarsa trafiği yeniden yönlendirilen tooone Merhaba, arka uç sunucuları alır.
+* **Dinleyici:** hello dinleyicisi sahip bir ön uç bağlantı noktası, bir protokol (Http veya Https, bu değerleri büyük küçük harfe duyarlı) ve hello SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa).
+* **Kural:** hello kuralı bir dinleyici tooa arka uç sunucusu havuzunu bağlar.
+* **Özel durum araştırması:** uygulama ağ geçidi, varsayılan olarak, hangi sunucuların hello içinde kullanıma BackendAddressPool etkin IP adreslerini göre araştırmalar toofigure kullanır. Merhaba API Management hizmeti yalnızca hello doğru ana bilgisayar üstbilgisi olan toorequests yanıtlar, bu nedenle hello varsayılan araştırmalar başarısız. Bir özel durum araştırması tanımlanan toobe gereken toohelp uygulama ağ geçidi hello hizmetidir canlı ve isteklerini iletmek belirler.
+* **Özel etki alanı sertifikası:** tooaccess API Management hello gelen Internet toocreate CNAME eşlemesi kendi ana bilgisayar adı toohello uygulama ağ geçidi ön uç DNS adı gerekiyor. Bu hello ana bilgisayar üstbilgisi ve gönderilen sertifikayı tooApplication tooAPI iletilen ağ geçidi yönetim bir APIM geçerli olarak tanıyabilmesi olmasını sağlar.
 
 ## <a name="overview-steps"></a> API Management ve uygulama ağ geçidi tümleştirmek için gerekli adımları 
 
 1. Resource Manager için kaynak grubu oluşturun.
-2. Uygulama ağ geçidi için bir sanal ağ alt ağı ve genel IP oluşturun. API yönetimi için başka bir alt ağ oluşturun.
-3. Yukarıda oluşturduğunuz sanal alt ağ içinde bir API Management hizmeti oluşturma ve iç modu kullandığınızdan emin olun.
-4. API Management hizmetinde özel etki alanı adı ayarlayın.
+2. Bir sanal ağ, alt ağ ve hello uygulama ağ geçidi için genel IP oluşturun. API yönetimi için başka bir alt ağ oluşturun.
+3. Yukarıda oluşturduğunuz hello sanal alt içinde bir API Management hizmeti oluşturma ve hello iç modu kullandığınızdan emin olun.
+4. Merhaba API Management hizmeti Hello özel etki alanı adı ayarlayın.
 5. Bir uygulama ağ geçidi yapılandırma nesnesi oluşturun.
 6. Bir uygulama ağ geçidi kaynağı oluşturun.
-7. Uygulama ağ geçidi API Management proxy ana bilgisayar adı için Genel DNS adından bir CNAME oluşturun.
+7. Merhaba Genel DNS adından hello uygulama ağ geçidi toohello API Management proxy ana bilgisayar adı bir CNAME oluşturun.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager için kaynak grubu oluşturun
 
-Azure PowerShell’in en yeni sürümünü kullandığınızdan emin olun. Daha fazla bilgi için bkz.[Resource Manager ile Windows PowerShell Kullanma](../powershell-azure-resource-manager.md)
+Hello Azure PowerShell'in en son sürümünü kullandığınızdan emin olun. Daha fazla bilgi için bkz.[Resource Manager ile Windows PowerShell Kullanma](../powershell-azure-resource-manager.md)
 
 ### <a name="step-1"></a>1. Adım
 
-Azure'da oturum açma
+İçinde tooAzure oturum
 
 ```powershell
 Login-AzureRmAccount
@@ -81,7 +81,7 @@ Kimlik bilgilerinizle kimlik doğrulaması.<BR>
 
 ### <a name="step-2"></a>2. Adım
 
-Hesap için abonelikleri kontrol edin ve seçin.
+Merhaba hesabının Hello abonelikleri kontrol edin ve seçin.
 
 ```powershell
 Get-AzureRmSubscription -Subscriptionid "GUID of subscription" | Select-AzureRmSubscription
@@ -94,15 +94,15 @@ Bir kaynak grubu oluşturun (mevcut bir kaynak grubu kullanıyorsanız bu adım�
 ```powershell
 New-AzureRmResourceGroup -Name "apim-appGw-RG" -Location "West US"
 ```
-Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu, kaynak grubunda kaynaklar için varsayılan konum olarak kullanılır. Bir uygulama ağ geçidi oluşturmak için verilecek komutların aynı kaynak grubunda kullandığınızdan emin olun.
+Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu kaynak grubundaki kaynaklar için hello varsayılan konum olarak kullanılır. Tüm komutlar, toocreate bir uygulama ağ geçidi kullanım hello emin olun aynı kaynak grubu.
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Bir sanal ağ ve uygulama ağ geçidi için bir alt ağ oluşturma
+## <a name="create-a-virtual-network-and-a-subnet-for-hello-application-gateway"></a>Bir sanal ağ ve hello uygulama ağ geçidi için bir alt ağ oluşturma
 
-Aşağıdaki örnek Yöneticisi kaynağı kullanan bir sanal ağ oluşturulacağını gösterir.
+Aşağıdaki örnek hello Kaynak Yöneticisi'ni kullanarak bir sanal ağ toocreate hello nasıl gösterir.
 
 ### <a name="step-1"></a>1. Adım
 
-10.0.0.0/24 adres aralığını, sanal ağ oluşturulurken uygulama ağ geçidi için kullanılacak bir alt ağ değişkenine atayın.
+Başlangıç adresi aralığı 10.0.0.0/24 toohello alt değişken toobe uygulama ağ geçidi için bir sanal ağ oluşturulurken kullanılan atayın.
 
 ```powershell
 $appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim01" -AddressPrefix "10.0.0.0/24"
@@ -110,7 +110,7 @@ $appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim01" -Addres
 
 ### <a name="step-2"></a>2. Adım
 
-Adres aralığı 10.0.1.0/24 bir sanal ağ oluşturulurken API yönetimi için kullanılacak bir alt ağ değişkenine atayın.
+Başlangıç adresi aralığı 10.0.1.0/24 toohello alt değişken toobe API yönetimi için bir sanal ağ oluşturulurken kullanılan atayın.
 
 ```powershell
 $apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10.0.1.0/24"
@@ -118,7 +118,7 @@ $apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefi
 
 ### <a name="step-3"></a>3. Adım
 
-Adlı bir sanal ağ oluşturma **appgwvnet** kaynak grubunda **apim-appGw-RG** önek 10.0.0.0/16 kullanarak Batı ABD bölgesi için 10.0.0.0/24 alt ağları ve 10.0.1.0/24.
+Adlı bir sanal ağ oluşturma **appgwvnet** kaynak grubunda **apim-appGw-RG** hello önek 10.0.0.0/16 kullanarak hello Batı ABD bölgesi için 10.0.0.0/24 alt ağları ve 10.0.1.0/24.
 
 ```powershell
 $vnet = New-AzureRmVirtualNetwork -Name "appgwvnet" -ResourceGroupName "apim-appGw-RG" -Location "West US" -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
@@ -126,7 +126,7 @@ $vnet = New-AzureRmVirtualNetwork -Name "appgwvnet" -ResourceGroupName "apim-app
 
 ### <a name="step-4"></a>4. Adım
 
-Sonraki adımlar için bir alt ağ değişkeni atayın
+Merhaba sonraki adımlar için bir alt ağ değişkeni atayın
 
 ```powershell
 $appgatewaysubnetdata=$vnet.Subnets[0]
@@ -134,56 +134,56 @@ $apimsubnetdata=$vnet.Subnets[1]
 ```
 ## <a name="create-an-api-management-service-inside-a-vnet-configured-in-internal-mode"></a>İç modunda yapılandırılmış bir sanal ağ içinde bir API Management hizmeti oluşturma
 
-Aşağıdaki örnekte nasıl bir API Management hizmeti yalnızca iç erişimi için yapılandırılmış bir sanal ağ oluşturulacağını gösterir.
+Merhaba aşağıdaki örnekte toocreate bir VNET içindeki bir API Management hizmeti yalnızca iç erişim için nasıl yapılandırılacağı gösterilmektedir.
 
 ### <a name="step-1"></a>1. Adım
-Yukarıda oluşturduğunuz $apimsubnetdata alt ağı kullanarak bir API Yönetim sanal ağ nesnesi oluşturun.
+Merhaba alt yukarıda oluşturduğunuz $apimsubnetdata kullanarak bir API Yönetim sanal ağ nesnesi oluşturun.
 
 ```powershell
 $apimVirtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location "West US" -SubnetResourceId $apimsubnetdata.Id
 ```
 ### <a name="step-2"></a>2. Adım
-Sanal ağ içindeki bir API Management hizmeti oluşturun.
+Merhaba sanal ağ içinde bir API Management hizmeti oluşturun.
 
 ```powershell
 $apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization "Contoso" -AdminEmail "admin@contoso.com" -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
-Yukarıdaki komut başarılı olduktan sonra başvurmak [DNS yapılandırma gerekli iç VNET API Management hizmetine erişmek için](api-management-using-with-internal-vnet.md#apim-dns-configuration) erişmek için.
+Merhaba komutu yukarıda başarılı olduktan sonra çok başvurmak[DNS yapılandırma gerekli tooaccess iç VNET API Management hizmeti](api-management-using-with-internal-vnet.md#apim-dns-configuration) tooaccess onu.
 
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>Kurulum API Management'te özel etki alanı adı
 
 ### <a name="step-1"></a>1. Adım
-Etki alanı için özel anahtara sahip sertifika yükleyin. Bu örnek için olacak `*.contoso.net`. 
+Merhaba etki alanı için özel anahtara sahip Hello sertifikasını yükleyin. Bu örnek için olacak `*.contoso.net`. 
 
 ```powershell
-$certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName "apim-appGw-RG" -Name "ContosoApi" -HostnameType "Proxy" -PfxPath <full path to .pfx file> -PfxPassword <password for certificate file> -PassThru
+$certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName "apim-appGw-RG" -Name "ContosoApi" -HostnameType "Proxy" -PfxPath <full path too.pfx file> -PfxPassword <password for certificate file> -PassThru
 ```
 
 ### <a name="step-2"></a>2. Adım
-Sertifika yüklendikten sonra ana bilgisayar adını proxy'si için ana bilgisayar yapılandırma nesnesi oluşturun `api.contoso.net`, örnek sertifika yetkilisi için sağladığından `*.contoso.net` etki alanı. 
+Merhaba sertifika yüklendikten sonra bir ana bilgisayar adını ile Merhaba proxy için bir ana bilgisayar yapılandırma nesnesi oluşturun `api.contoso.net`hello örnek sertifika yetkilisi Merhaba sağlar gibi `*.contoso.net` etki alanı. 
 
 ```powershell
 $proxyHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname "api.contoso.net"
 $result = Set-AzureRmApiManagementHostnames -Name "ContosoApi" -ResourceGroupName "apim-appGw-RG" -ProxyHostnameConfiguration $proxyHostnameConfig
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Ön uç yapılandırma için genel bir IP adresi oluşturun
+## <a name="create-a-public-ip-address-for-hello-front-end-configuration"></a>Merhaba ön uç yapılandırma için genel bir IP adresi oluştur
 
-Genel IP kaynağı oluşturun **Publicıp01** kaynak grubunda **apim-appGw-RG** Batı ABD bölgesi için.
+Genel IP kaynağı oluşturun **Publicıp01** kaynak grubunda **apim-appGw-RG** hello Batı ABD bölgesi için.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -name "publicIP01" -location "West US" -AllocationMethod Dynamic
 ```
 
-Hizmet başlatıldığında uygulama ağ geçidine bir IP adresi atanır.
+Merhaba hizmeti başladığında toohello uygulama ağ geçidi bir IP adresi atanır.
 
 ## <a name="create-application-gateway-configuration"></a>Uygulama ağ geçidi yapılandırmasını oluşturma
 
-Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturulmadan önce ayarlanmalıdır. Aşağıdaki adımlar uygulama ağ geçidi kaynağı için gerekli yapılandırma öğelerini oluşturur.
+Tüm yapılandırma öğeleri hello uygulama ağ geçidi oluşturmadan önce ayarlanması gerekir. Merhaba aşağıdaki adımları hello uygulama ağ geçidi kaynağı için gerekli olan yapılandırma öğeleri oluşturun.
 
 ### <a name="step-1"></a>1. Adım
 
-**gatewayIP01** adlı bir uygulama ağ geçidi IP yapılandırması oluşturun. Application Gateway başladığında, yapılandırılan alt ağdan bir IP adresi alır ve ağ trafiğini arka uç IP havuzundaki IP adreslerine yönlendirir. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
+**gatewayIP01** adlı bir uygulama ağ geçidi IP yapılandırması oluşturun. Application Gateway başladığında, yapılandırılan hello alt ağdan bir IP adresi seçer ve ağ trafiğini toohello IP adreslerini hello arka uç IP havuzundaki rota. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
 
 ```powershell
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
@@ -191,14 +191,14 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "gatewayIP01" -S
 
 ### <a name="step-2"></a>2. Adım
 
-Genel IP uç noktası için ön uç IP bağlantı noktası yapılandırın. Bu bağlantı noktası, son kullanıcılara bağlanan bağlantı noktasıdır.
+Merhaba ön uç IP bağlantı noktası hello genel IP uç noktası için yapılandırın. Bu bağlantı noktası, son kullanıcılara bağlanan hello bağlantı noktasıdır.
 
 ```powershell
 $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "port01"  -Port 443
 ```
 ### <a name="step-3"></a>3. Adım
 
-Ön uç IP’sini genel IP uç noktası ile yapılandırın.
+Merhaba ön uç IP ile genel IP uç noktasını yapılandırın.
 
 ```powershell
 $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
@@ -206,15 +206,15 @@ $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -
 
 ### <a name="step-4"></a>4. Adım
 
-Komut zincirinden geçen trafik yeniden şifrelemek ve şifresini çözmek için kullanılan uygulama ağ geçidi için sertifika yapılandırın.
+Merhaba uygulama ağ geçidi, kullanılan için toodecrypt hello sertifikası yapılandırın ve komut zincirinden geçen hello trafiğini yeniden şifreleyin.
 
 ```powershell
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name "cert01" -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+$cert = New-AzureRmApplicationGatewaySslCertificate -Name "cert01" -CertificateFile <full path too.pfx file> -Password <password for certificate file>
 ```
 
 ### <a name="step-5"></a>5. Adım
 
-HTTP dinleyicisi için uygulama ağ geçidi oluşturun. Ön uç IP yapılandırması, bağlantı noktası ve ssl sertifika atayabilirsiniz.
+Merhaba HTTP dinleyicisi hello uygulama ağ geçidi için oluşturun. Merhaba ön uç IP yapılandırmasını, bağlantı noktası ve ssl sertifika tooit atayın.
 
 ```powershell
 $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert
@@ -222,10 +222,10 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 
 ### <a name="step-6"></a>6. Adım
 
-API Management hizmeti için özel bir araştırma oluşturmak `ContosoApi` proxy etki alanı uç noktası. Yolun `/status-0123456789abcdef` olan varsayılan, tüm API Management services üzerinde barındırılan bir sistem durumu uç. Ayarlama `api.contoso.net` SSL sertifikası ile güvenli hale getirmek için bir özel araştırma ana bilgisayar adı olarak.
+Özel araştırma toohello API Management hizmeti oluşturma `ContosoApi` proxy etki alanı uç noktası. Merhaba yolu `/status-0123456789abcdef` olan tüm hello API Management services üzerinde barındırılan bir varsayılan durumu uç noktası. Ayarlama `api.contoso.net` özel araştırma hostname toosecure olarak SSL sertifikası ile.
 
 > [!NOTE]
-> Ana bilgisayar adı `contosoapi.azure-api.net` olan adlı bir hizmette, yapılandırılan varsayılan proxy ana bilgisayar adı `contosoapi` ortak Azure içinde oluşturulur. 
+> ana bilgisayar adı hello `contosoapi.azure-api.net` adlı bir hizmetin hello varsayılan proxy ana bilgisayar adı yapılandırılır `contosoapi` ortak Azure içinde oluşturulur. 
 > 
 
 ```powershell
@@ -234,15 +234,15 @@ $apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Pr
 
 ### <a name="step-7"></a>7. Adım
 
-SSL etkin arka uç havuzu kaynaklardaki kullanılan sertifikayı karşıya yükleyin. Bu, adım 4'te sağlanan aynı sertifikadır.
+Merhaba SSL etkin arka uç havuzu kaynaklardaki toobe kullanılan hello sertifikasını yükleyin. Merhaba budur yukarıdaki adım 4'te sağlanan aynı sertifika.
 
 ```powershell
-$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile <full path to .cer file>
+$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile <full path too.cer file>
 ```
 
 ### <a name="step-8"></a>8. Adım
 
-Uygulama ağ geçidi için HTTP arka uç ayarlarını yapılandırın. Bu, daha sonra iptal arka uç istek için zaman aşımı sınırı ayarı içerir. Bu değer, yoklama zaman aşımı farklıdır.
+Merhaba uygulama ağ geçidi için HTTP arka uç ayarlarını yapılandırın. Bu, daha sonra iptal arka uç istek için zaman aşımı sınırı ayarı içerir. Bu değer hello yoklama zaman aşımı farklıdır.
 
 ```powershell
 $apimPoolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "apimPoolSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimprobe -AuthenticationCertificates $authcert -RequestTimeout 180
@@ -250,7 +250,7 @@ $apimPoolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "apimP
 
 ### <a name="step-9"></a>9. Adım
 
-Adlı bir arka uç IP adresi havuzu yapılandırmak **apimbackend** yukarıda iç sanal IP adresi API Management hizmeti, oluşturduğunuz.
+Adlı bir arka uç IP adresi havuzu yapılandırmak **apimbackend** hello iç sanal IP'ye sahip yukarıda hello API Management hizmeti, bir adres oluşturdu.
 
 ```powershell
 $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.StaticIPs[0]
@@ -258,21 +258,21 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "a
 
 ### <a name="step-10"></a>10. adım
 
-Bir kukla (mevcut olmayan) arka uç ayarlarını oluşturun. API Management uygulama ağ geçidi aracılığıyla kullanıma sunmak için istiyoruz değil API yolları isteklerine bu arka uç isabet ve 404 döndürür.
+Bir kukla (mevcut olmayan) arka uç ayarlarını oluşturun. İstek tooAPI yollarını biz tooexpose API Management uygulama ağ geçidi aracılığıyla istemiyorsanız bu arka uç isabet ve 404 döndürür.
 
-Sahte arka uç HTTP ayarları yapılandırın.
+Merhaba kukla arka uç HTTP ayarları yapılandırın.
 
 ```powershell
 $dummyBackendSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "dummySetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-Sahte bir arka uç yapılandırma **dummyBackendPool**, bir FQDN adresine işaret eden **dummybackend.com**. Bu FQDN adresi sanal ağında yok.
+Sahte bir arka uç yapılandırma **dummyBackendPool**, tooa FQDN adresi işaret **dummybackend.com**. Bu FQDN adresi hello sanal ağında yok.
 
 ```powershell
 $dummyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "dummyBackendPool" -BackendFqdns "dummybackend.com"
 ```
 
-Uygulama ağ geçidi için mevcut olmayan arka uç noktaları varsayılan olarak kullanacağı bir kural ayarı oluşturma **dummybackend.com** sanal ağda.
+Uygulama ağ geçidi toohello mevcut olmayan arka uç noktaları varsayılan olarak kullanacağı bu hello ayarını bir kural oluşturmak **dummybackend.com** hello sanal ağ içinde.
 
 ```powershell
 $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistentapis" -Paths "/*" -BackendAddressPool $dummyBackendPool -BackendHttpSettings $dummyBackendSetting
@@ -280,25 +280,25 @@ $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistenta
 
 ### <a name="step-11"></a>11. adım
 
-URL kuralı yolları arka uç havuzları için yapılandırın. Bu API'ları yalnızca bir kısmını herkese açık için API Yönetimi'nden seçerek sağlar. Örneğin, varsa `Echo API` (/ Yankı /) `Calculator API` (/calc/) vb. yapma yalnızca `Echo API` Internet'ten erişilebilir). 
+URL kuralı yolları hello arka uç havuzları için yapılandırın. Bu, bazı olması için API Management API'lerinin hello toohello genel kullanıma sunulan yalnızca seçerek sağlar. Örneğin, varsa `Echo API` (/ Yankı /) `Calculator API` (/calc/) vb. yapma yalnızca `Echo API` Internet'ten erişilebilir). 
 
-Aşağıdaki örnek, "/ Yankı /" yol yönlendirme trafiği için arka uç "apimProxyBackendPool" basit bir kural oluşturur.
+Merhaba aşağıdaki örnek hello "/ Yankı /" yol yönlendirme trafiği toohello arka uç "apimProxyBackendPool" için basit bir kural oluşturur.
 
 ```powershell
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-Yolun istiyoruz API Yönetimi'nden etkinleştirmek için yol kuralları eşleşmiyorsa, kural yol haritası yapılandırmasını da adlı bir varsayılan arka uç adres havuzu yapılandırır **dummyBackendPool**. Örneğin, http://api.contoso.net/calc/ * gider **dummyBackendPool** beklemediğiniz eşleşen trafik için varsayılan havuzu olarak tanımlanan.
+API Management, yol haritası yapılandırması da adlı bir varsayılan arka uç adres havuzu yapılandırır hello kural tooenable istiyoruz hello yolu Hello yolu eşleşmiyorsa kuralları **dummyBackendPool**. Örneğin, çok http://api.contoso.net/calc/ * gider**dummyBackendPool** beklemediğiniz eşleşen trafiği için varsayılan havuzu hello olarak tanımlanan.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
 ```
 
-Yukarıdaki adımı yolu yalnızca istekleri sağlar "/ echo" uygulama ağ geçidi üzerinden izin verilir. API Yönetimi'nde yapılandırılmış diğer API'leri isteklerine Internet'ten erişilen uygulama geçidinden 404 hataları atar. 
+Yukarıdaki adımı Hello sağlar hello yolu yalnızca istekleri "/ echo" Merhaba uygulama ağ geçidi izin verilir. API Management API'leri yapılandırılmış istekleri tooother 404 hataları uygulama Internet hello erişildiğinde ağ geçidi durum oluşturur. 
 
 ### <a name="step-12"></a>12. adımı
 
-Yol tabanlı URL yönlendirmeyi kullanmak uygulama ağ geçidi için bir kuralı ayarı oluşturun.
+Merhaba uygulama ağ geçidi toouse URL yolu tabanlı yönlendirme kuralı ayarı oluşturun.
 
 ```powershell
 $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
@@ -306,7 +306,7 @@ $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleTyp
 
 ### <a name="step-13"></a>13. adım
 
-Uygulama ağ geçidi için örnekleri ve boyutu sayısını yapılandırın. Burada kullanıyoruz [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) API Management kaynağının güvenliği artırmak için.
+Merhaba sayısı örnekleri ve boyutu hello uygulama ağ geçidi için yapılandırın. Merhaba burada kullanıyoruz [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) hello API Management kaynak güvenliği artırmak için.
 
 ```powershell
 $sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
@@ -314,31 +314,31 @@ $sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity
 
 ### <a name="step-14"></a>14. adım
 
-WAF "Önleme" modunda olacak şekilde yapılandırın.
+WAF toobe "Önleme" modunda yapılandırın.
 ```powershell
 $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
 ## <a name="create-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Yukarıdaki adımlarda geçen tüm yapılandırma nesne içeren bir uygulama ağ geçidi oluşturun.
+Merhaba yapılandırma adımları önceki hello alt nesnelerden ile bir uygulama ağ geçidi oluşturun.
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name $applicationGatewayName -ResourceGroupName $resourceGroupName  -Location $location -BackendAddressPools $apimProxyBackendPool, $dummyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $dummyBackendSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert -Probes $apimprobe
 ```
 
-## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>CNAME uygulama ağ geçidi kaynak ortak DNS adına API Management proxy konak adı
+## <a name="cname-hello-api-management-proxy-hostname-toohello-public-dns-name-of-hello-application-gateway-resource"></a>CNAME hello API Management proxy ana bilgisayar adı toohello Genel DNS adını hello uygulama ağ geçidi kaynağı
 
-Ağ geçidi oluşturulduktan sonraki adım, iletişim için ön uç yapılandırması yapmaktır. Genel IP kullanırken, uygulama ağ geçidi kullanımı kolay olmayabilir dinamik olarak atanmış bir DNS adı gerektirir. 
+Merhaba ağ geçidi oluşturulduktan sonra hello sonraki tooconfigure hello ön uç iletişimi için adımdır. Genel IP kullanırken, uygulama ağ geçidi kolay toouse olmayabilir dinamik olarak atanmış bir DNS adı gerektirir. 
 
-Uygulama ağ geçidi DNS adı APIM proxy ana bilgisayar adını gösteren bir CNAME kaydı oluşturmak için kullanılması gereken (örneğin `api.contoso.net` Yukarıdaki örneklerde) bu DNS adı. Ön uç IP CNAME kaydını yapılandırmak için uygulama ağ geçidi ve Publicıpaddress öğesini kullanarak ilişkili IP/DNS adı ayrıntılarını alamadı. Ağ geçidi başlatmada VIP değişebileceği A kayıtlarını kullanılması önerilmez.
+Merhaba uygulama ağ geçidi DNS adı kullanılan toocreate hello APIM proxy ana bilgisayar adını gösteren bir CNAME kaydı olmalıdır (ör `api.contoso.net` yukarıdaki hello örneklerde) toothis DNS adı. tooconfigure hello ön uç IP CNAME kaydı hello uygulama ağ geçidi hello ayrıntılarını ve hello Publicıpaddress öğesi kullanarak ilişkili IP/DNS adını alır. ağ geçidi başlatmada Hello VIP değişebileceği A kayıtlarını hello kullanımı önerilmez.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
 ```
 
 ##<a name="summary"></a> Özeti
-Azure API Management sanal ağ içinde yapılandırılmış bir tek ağ geçidi arabirimi barındırılan şirket içi olmalarından bağımsız veya bulutta tüm yapılandırılmış API'ler sağlar. Uygulama ağ geçidi API Management ile tümleştirme, API Management örneği için bir ön olarak bir Web uygulaması güvenlik duvarı sağlama yanı sıra seçmeli olarak Internet üzerinden erişilebilir olması için belirli API'ler etkinleştirme esnekliğini sağlar.
+Azure API Management sanal ağ içinde yapılandırılmış bir tek ağ geçidi arabirimi barındırılan şirket içi olup olmadıklarını hello bulutta tüm yapılandırılmış API'ler sağlar. Uygulama ağ geçidi API Management ile tümleştirme sağlayan bir Web uygulaması güvenlik duvarı bir ön uç tooyour API Management örneği olarak yanı sıra belirli API'leri toobe hello Internet üzerinde erişilebilir seçmeli olarak etkinleştirme hello esnekliğini sağlar.
 
 ##<a name="next-steps"></a> Sonraki adımlar
 * Azure uygulama ağ geçidi hakkında daha fazla bilgi edinin
@@ -346,5 +346,5 @@ Azure API Management sanal ağ içinde yapılandırılmış bir tek ağ geçidi 
   * [Uygulama ağ geçidi Web uygulaması güvenlik duvarı](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
   * [Yol tabanlı yönlendirme kullanarak uygulama ağ geçidi](../application-gateway/application-gateway-create-url-route-arm-ps.md)
 * API Management ve sanal ağlar hakkında daha fazla bilgi edinin
-  * [Yalnızca sanal ağ içinde kullanılabilir API Management kullanma](api-management-using-with-internal-vnet.md)
+  * [API Management hello içinde yalnızca VNET kullanılabilir kullanma](api-management-using-with-internal-vnet.md)
   * [VNET içinde API Management kullanma](api-management-using-with-vnet.md)

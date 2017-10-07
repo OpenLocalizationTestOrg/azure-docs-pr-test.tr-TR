@@ -1,5 +1,5 @@
 ---
-title: "Azure Güvenlik Merkezi'nde desteklenen platformlar | Microsoft Docs"
+title: "Azure Güvenlik Merkezi'nde aaaSupported platformları | Microsoft Docs"
 description: "Bu belgede Azure Güvenlik Merkezi'nde desteklenen Windows ve Linux operatings sistemlerinin bir listesini sağlar."
 services: security-center
 documentationcenter: na
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: terrylan
-ms.openlocfilehash: c33e132037d95fa92fd59a8243a9a8a351ae0224
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f73e04970749271fc9d75836f4f468b0a4953f9e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde desteklenen platformlar
-Güvenlik durumunu izleme ve öneriler, Klasik ve Resource Manager dağıtım modeli kullanılarak oluşturulan sanal makineleri için (VM'ler) kullanılabilir.
+Güvenlik durumunu izleme ve öneriler hello Klasik ve Resource Manager dağıtım modeli kullanılarak oluşturulan sanal makineleri için (VM'ler) kullanılabilir.
 
 > [!NOTE]
-> Daha fazla bilgi edinmek [Klasik ve Resource Manager dağıtım modellerinde](../azure-classic-rm.md) Azure kaynakları için.
+> Merhaba hakkında daha fazla bilgi [Klasik ve Resource Manager dağıtım modellerinde](../azure-classic-rm.md) Azure kaynakları için.
 >
 >
 
@@ -60,11 +60,11 @@ Desteklenen Linux işletim sistemleri:
 >
 
 ## <a name="vms-and-cloud-services"></a>VM'ler ve bulut Hizmetleri
-Bir bulut hizmetinde çalışan sanal makineler de desteklenir. Yalnızca bulut yuvaları izlenen üretimde çalışan web ve çalışan rolleri Hizmetleri. Bulut hizmeti hakkında daha fazla bilgi için bkz: [bulut hizmetlerine genel bakış](../cloud-services/cloud-services-choose-me.md).
+Bir bulut hizmetinde çalışan sanal makineler de desteklenir. Yalnızca bulut yuvaları izlenen üretimde çalışan web ve çalışan rolleri Hizmetleri. Bulut hizmeti hakkında daha fazla toolearn bkz [bulut hizmetlerine genel bakış](../cloud-services/cloud-services-choose-me.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Güvenlik Merkezi planlama ve işlemler Kılavuzu](security-center-planning-and-operations-guide.md) — planlama ve anlama Azure Güvenlik Merkezi'ni benimsemek için tasarım konuları hakkında bilgi edinin
+- [Azure Güvenlik Merkezi planlama ve işlemler Kılavuzu](security-center-planning-and-operations-guide.md) — öğrenin nasıl tooplan ve hello tasarım konuları tooadopt Azure Güvenlik Merkezi anlama
 - [Azure Güvenlik Merkezi'nde türüne göre güvenlik uyarılarını](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) - sanal makine davranış analizi hakkında daha fazla bilgi ve kilitlenme dökümü bellek analizi Güvenlik Merkezi'nde
-- [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmet kullanımı ile ilgili sık sorulan soruları burada bulabilirsiniz
+- [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) — hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz
 - [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) — Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz

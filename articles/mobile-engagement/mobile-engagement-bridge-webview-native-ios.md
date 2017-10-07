@@ -1,6 +1,6 @@
 ---
-title: "Yerel Mobile Engagement iOS SDK ile iOS WebView köprüsü"
-description: "Javascript ve yerel Mobile Engagement iOS SDK'sı çalıştıran Web görünümü arasında bir köprü oluşturmayı açıklar"
+title: "Yerel Mobile Engagement iOS SDK'sı ile aaaBridge iOS Web görünümü"
+description: "Açıklar nasıl toocreate Javascript ve hello yerel Mobile Engagement iOS SDK'sı çalıştıran Web görünümü arasında bir köprü"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 35f7bdbeb480122513ae2a0b04a6d8cfd426802a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 089ed8484722cb5ba624e5dce0e670ab56de514d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="bridge-ios-webview-with-native-mobile-engagement-ios-sdk"></a>Yerel Mobile Engagement iOS SDK ile iOS WebView köprüsü
 > [!div class="op_single_selector"]
@@ -27,25 +27,25 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Bazı mobil uygulamalar, uygulamanın kendi yerel iOS Objective-C geliştirme kullanılarak geliştirilen ancak bile tümünü veya bazılarını ekranlar WebView iOS içinde işlenir bir karma uygulama olarak tasarlanmıştır. Bu tür uygulamaların içindeki Mobile Engagement iOS SDK'sı hala tüketebileceği ve Bu öğreticide bunu yapma hakkında Git açıklar. 
+Bazı mobil uygulamalar, nerede hello uygulamanın kendi yerel iOS Objective-C geliştirme kullanılarak geliştirilen ancak bile tümünü veya bazılarını hello ekranlar WebView iOS içinde işlenir bir karma uygulama olarak tasarlanmıştır. Bu tür uygulamaların içindeki Mobile Engagement iOS SDK'sı hala kullanabilir ve bu öğreticinin açıklar nasıl bunu yapma hakkında toogo. 
 
-Her ikisi de belgelenmemiş ancak bunun için iki yaklaşım vardır:
+Vardır iki yaklaşım tooachieve bu her ikisi de belgelenmemiş ancak:
 
 * Bir bu ilk açıklanan [bağlantı](http://stackoverflow.com/questions/9826792/how-to-invoke-objective-c-method-from-javascript-and-send-back-data-to-javascrip) kaydetme içerir bir `UIWebViewDelegate` web görünümü ve catch-ve-hemen-iptal JavaScript'te yapılan bir konum Değiştir. 
-* Bir bu ikinci dayanır [WWDC 2013 oturum](https://developer.apple.com/videos/play/wwdc2013/615), ilk temizleyici olduğu ve biz bu kılavuzun izleyecek bir yaklaşımdır. Bu yaklaşım yalnızca iOS7 ve üzeri sürümlerde çalıştığını unutmayın. 
+* Bir bu ikinci dayanır [WWDC 2013 oturum](https://developer.apple.com/videos/play/wwdc2013/615), olduğu hello temizleyici ilk ve biz bu kılavuzun izleyecek bir yaklaşımdır. Bu yaklaşım yalnızca iOS7 ve üzeri sürümlerde çalıştığını unutmayın. 
 
-Örnek iOS köprülemek için aşağıdaki adımları izleyin:
+Örnek Hello iOS köprülemek için hello adımları izleyin:
 
-1. Öncelikle, çalıştınız emin olmak gereken bizim [Başlarken Öğreticisi](mobile-engagement-ios-get-started.md) karma uygulamanızı Mobile Engagement iOS SDK'sını tümleştirmek için. İsteğe bağlı olarak, biz görünümünden tetiklemek gibi SDK yöntemleri görebilmeniz için test gibi günlüğe kaydetmeyi etkinleştirebilirsiniz. 
+1. Öncelikle, aracılığıyla ilerlemiş tooensure gerekir bizim [Başlarken Öğreticisi](mobile-engagement-ios-get-started.md) toointegrate hello karma uygulamanızda Mobile Engagement iOS SDK'sı. İsteğe bağlı olarak, biz hello görünümünden tetiklemek gibi hello SDK yöntemleri görebilmeniz için test gibi günlüğe kaydetmeyi etkinleştirebilirsiniz. 
    
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
            ....
              [EngagementAgent setTestLogEnabled:YES];
            ....
         }
-2. Şimdi karma uygulamanızı bir Web görünümü ekranla olduğundan emin olun. Ona ekleyebilirsiniz `Main.storyboard` uygulamanın. 
-3. Bu Web görünümü ile ilişkilendirmek, **ViewController** tıklatıp Görünüm denetleyicisini Sahne gelen webview sürükleyerek `ViewController.h` yerleştirerek ekran Düzenle yalnızca aşağıda `@interface` satır. 
-4. Bunu yaptıktan sonra bir iletişim kutusu için bir ad isteyen açılır. Ad olarak **webView**. `ViewController.h` Dosya, aşağıdaki gibi görünmelidir:
+2. Şimdi karma uygulamanızı bir Web görünümü ekranla olduğundan emin olun. Toohello ekleme `Main.storyboard` hello uygulamasının. 
+3. Bu Web görünümü ile ilişkilendirmek, **ViewController** tıklatıp hello webview hello görünüm denetleyicisini Sahne toohello sürükleyerek `ViewController.h` yalnızca hello yerleştirme ekran Düzenle `@interface` satır. 
+4. Bunu yaptıktan sonra bir iletişim kutusu için bir ad isteyen açılır. Merhaba ad olarak **webView**. `ViewController.h` Dosya hello aşağıdaki gibi görünmelidir:
    
         #import <UIKit/UIKit.h>
         #import "EngagementViewController.h"
@@ -54,7 +54,7 @@ Her ikisi de belgelenmemiş ancak bunun için iki yaklaşım vardır:
         @property (strong, nonatomic) IBOutlet UIWebView *webView;
    
         @end
-5. Güncelleştireceğiz `ViewController.m` daha sonra dosya ancak yaygın olarak kullanılan bazı Mobile Engagement iOS SDK yöntemleri bir sarmalayıcı oluşturur köprüsü dosyasının ilk oluşturacağız. Adlı yeni bir üst bilgi dosyası oluştur **EngagementJsExports.h** kullanan `JSExport` daha önce bahsedilen içinde açıklanan mekanizması [oturum](https://developer.apple.com/videos/play/wwdc2013/615) yerel iOS yöntemleri göstermek için. 
+5. Merhaba güncelleştireceğiz `ViewController.m` daha sonra dosya ancak yaygın olarak kullanılan bazı Mobile Engagement iOS SDK yöntemleri bir sarmalayıcı oluşturur hello köprüsü dosyasını ilk oluşturacağız. Adlı yeni bir üst bilgi dosyası oluştur **EngagementJsExports.h** hello kullanan `JSExport` hello daha önce bahsedilen açıklanan mekanizması [oturum](https://developer.apple.com/videos/play/wwdc2013/615) tooexpose hello yerel iOS yöntemleri. 
    
         #import <Foundation/Foundation.h>
         #import <JavaScriptCore/JavascriptCore.h>
@@ -72,7 +72,7 @@ Her ikisi de belgelenmemiş ancak bunun için iki yaklaşım vardır:
         @interface EngagementJs : NSObject <EngagementJsExports>
    
         @end
-6. Sonraki ikinci bölümü köprüsü dosyasının oluşturacağız. Adlı bir dosya oluşturun **EngagementJsExports.m** Mobile Engagement iOS SDK yöntemlerini çağırarak gerçek sarmalayıcıları oluşturma uygulama içerecek. Ayrıca biz ayrıştırma Not `extras` webview JavaScript'ten geçirilen ve, içine koyma bir `NSMutableDictionary` ile Engagement SDK'sı yöntem çağrılarını geçirilecek nesnesi.  
+6. Merhaba köprüsü dosyasının hello ikinci bölümü sonraki oluşturacağız. Adlı bir dosya oluşturun **EngagementJsExports.m** hello Mobile Engagement iOS SDK yöntemlerini çağırarak hello gerçek sarmalayıcıları oluşturma hello uygulama içerecek. Ayrıca biz hello ayrıştırma Not `extras` hello webview JavaScript'ten geçirilen ve, içine koyma bir `NSMutableDictionary` nesne toobe çağrıları hello Engagement SDK'sı yöntemi ile geçirildi.  
    
         #import <UIKit/UIKit.h>
         #import "EngagementAgent.h"
@@ -113,7 +113,7 @@ Her ikisi de belgelenmemiş ancak bunun için iki yaklaşım vardır:
         }
    
         @end
-7. Biz geri gelmeniz artık **ViewController.m** ve aşağıdaki kod ile güncelleştirin: 
+7. Biz toohello döndürülmesini artık **ViewController.m** ve koddan hello ile güncelleştirin: 
    
         #import <JavaScriptCore/JavaScriptCore.h>
         #import "ViewController.h"
@@ -158,11 +158,11 @@ Her ikisi de belgelenmemiş ancak bunun için iki yaklaşım vardır:
         }
    
         @end
-8. İlgili aşağıdaki noktalara dikkat edin **ViewController.m** dosyası:
+8. Not hello aşağıdaki noktaları hello hakkında **ViewController.m** dosyası:
    
-   * İçinde `loadWebView` yöntemi, biz yüklenirken adlı yerel bir HTML dosyası **LocalPage.html** biz gözden sonraki kodu. 
-   * İçinde `webViewDidFinishLoad` yöntemi, biz ele geçirme `JsContext` ve bizim sarmalayıcı sınıfı ile ilişkilendirme. Bu bizim sarmalayıcı işleci kullanılarak SDK yöntemleri çağırma sağlayacak **EngagementJs** webView gelen. 
-9. Adlı bir dosya oluşturun **LocalPage.html** aşağıdaki kod ile:
+   * Merhaba, `loadWebView` yöntemi, biz yüklenirken adlı yerel bir HTML dosyası **LocalPage.html** biz gözden sonraki kodu. 
+   * Merhaba, `webViewDidFinishLoad` yöntemi, biz hello kapmasını `JsContext` ve bizim sarmalayıcı sınıfı ile ilişkilendirme. Bu bizim sarmalayıcı hello işleci kullanılarak SDK yöntemleri çağırma sağlayacak **EngagementJs** hello webView gelen. 
+9. Adlı bir dosya oluşturun **LocalPage.html** koddan hello ile:
    
         <!doctype html>
         <html>
@@ -186,7 +186,7 @@ Her ikisi de belgelenmemiş ancak bunun için iki yaklaşım vardır:
                    if(input)
                    {
                        var value = input.value;
-                       // Example of how extras info can be passed with the Engagement logs
+                       // Example of how extras info can be passed with hello Engagement logs
                        var extras = '{"CustomerId":"MS290011"}';
                    }
    
@@ -248,16 +248,16 @@ Her ikisi de belgelenmemiş ancak bunun için iki yaklaşım vardır:
                </div>
            </body>
         </html>
-10. Yukarıdaki HTML dosya ile ilgili aşağıdaki noktalara dikkat edin:
+10. Not hello aşağıdaki hello HTML dosyası hakkında yukarıdaki noktaları:
     
-    * Olay, iş, hata, appInfo adları olarak kullanılacak verileri nerede sağlayabilir giriş kutularının kümesi içerir. Yanında düğmesine tıkladığınızda sonuçta Mobile Engagement iOS SDK'sı bu çağrıyı geçirmek için köprü dosyasından yöntemlerini çağıran Javascript için bir çağrı yapılır. 
-    * Olaylar, işler ve bu nasıl yapılabilir göstermek için bile hatalar için statik bazı ek bilgiler üzerinde etiketleme. Bakarsanız JSON dize olarak, bu ek bilgileri gönderilir `EngagementJsExports.m` dosya, ayrıştırılır ve olaylar, işleri, hataları gönderme birlikte geçirildi. 
-    * Mobile Engagement işi için 10 saniye çalıştırın ve bilgisayarı kapat giriş kutusunda belirttiğiniz adla koparılan. 
-    * Mobile Engagement appInfo veya etiketi statik anahtarı ve değeri olarak giriş etiketi için girilen değer olarak 'customer_name' ile geçirilir. 
-11. Uygulamayı çalıştırın ve aşağıdaki görürsünüz. Şimdi aşağıdaki gibi bir test olayı için bazı ad ve tıklatın **Gönder** yanında. 
+    * Burada, olay, iş, hata, appInfo adları olarak kullanılan veri toobe sağlayabilirsiniz giriş kutularının kümesi içerir. Merhaba düğmesine bir sonraki tooit tıklattığınızda toohello sonunda hello yöntemleri bu çağrı toohello Mobile Engagement iOS SDK'sı hello köprüsü dosya toopass çağıran Javascript bir çağrı yapılır. 
+    * Bunun nasıl yapılacağı ki bazı statik ek bilgi toohello olayları, işler ve hatta hataları toodemonstrate etiketleme. JSON dize olarak, bu ek bilgileri hello bakarsanız gönderilir `EngagementJsExports.m` dosya, ayrıştırılır ve olaylar, işleri, hataları gönderme birlikte geçirildi. 
+    * Mobile Engagement iş için 10 saniye çalıştırın ve bilgisayarı kapat hello giriş kutusunda belirttiğiniz hello adla koparılan. 
+    * Mobile Engagement appInfo veya etiketi 'ile customer_name' hello statik anahtar ve hello girişinde hello değeri olarak hello etiketi için girdiğiniz hello değer olarak geçirilir. 
+11. Çalışma hello uygulama ve hello aşağıdaki görürsünüz. Şimdi aşağıdaki hello gibi bir test olayı için bazı ad ve tıklatın **Gönder** sonraki tooit. 
     
      ![][1]
-12. Giderseniz şimdi **İzleyici** 'ın altına bakın ve uygulama sekmesinde **olayları -> ayrıntıları**, statik uygulama biz Gönderen bilgisi birlikte görünmesini bu olay görürsünüz. 
+12. Toohello giderseniz şimdi **İzleyici** 'ın altına bakın ve uygulama sekmesinde **olayları -> ayrıntıları**, hello statik uygulama biz Gönderen bilgisi birlikte görünmesini bu olay görürsünüz. 
     
     ![][2]
 

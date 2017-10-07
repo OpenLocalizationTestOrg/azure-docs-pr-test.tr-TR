@@ -1,6 +1,6 @@
 ---
-title: "CLI oluşturmak örnek bir Azure SQL veritabanı | Microsoft Docs"
-description: "Bir SQL veritabanı oluşturmak için azure CLI örnek betik"
+title: "bir Azure SQL veritabanı aaaCLI örnek-create | Microsoft Docs"
+description: "Azure CLI örnek komut dosyası toocreate bir SQL veritabanı"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,29 +16,29 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 908898ca691d2b53b9f54afa60c41e091163bd50
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d54e284e19f16387813e24d7beb7ab048a39263
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Tek bir Azure SQL veritabanı oluşturma ve bir güvenlik duvarı kuralı yapılandırmak için CLI kullanın
+# <a name="use-cli-toocreate-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>CLI toocreate tek bir Azure SQL veritabanı kullanın ve bir güvenlik duvarı kuralı yapılandırın
 
-Bu Azure CLI betik örnek bir Azure SQL veritabanı oluşturur ve bir sunucu düzeyinde güvenlik duvarı kuralı yapılandırın. Betik başarılı şekilde gerçekleştirildikten sonra SQL veritabanı tüm Azure hizmetlerini ve yapılandırılan IP adresi erişilebilir. 
+Bu Azure CLI betik örnek bir Azure SQL veritabanı oluşturur ve bir sunucu düzeyinde güvenlik duvarı kuralı yapılandırın. Hello betik başarılı şekilde gerçekleştirildikten sonra SQL veritabanı tüm Azure hizmetlerinden erişilebilir hello ve başlangıç IP adresi yapılandırılır. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu konuda hello Azure CLI Sürüm 2.0 veya üstü çalıştığını gerektirir. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
-[!code-azurecli-interactive[Ana](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "SQL veritabanı oluşturma")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Komut dosyası örneği çalıştırdıktan sonra kaynak grubu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu kullanılabilir.
+Merhaba komut dosyası örneği çalıştırdıktan sonra komutu aşağıdaki hello kullanılan tooremove hello kaynak grubu ve onunla ilişkili tüm kaynakları olabilir.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -46,19 +46,19 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu komut dosyası komutları aşağıdaki hello kullanır. Her komut hello tablosundaki toocommand belirli belgeleri bağlar.
 
 | Komut | Notlar |
 |---|---|
 | [az grubu oluşturma](/cli/azure/group#create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az sql server oluşturun](/cli/azure/sql/server#create) | SQL veritabanı barındıran bir mantıksal sunucu oluşturur. |
-| [az sql server güvenlik duvarı oluşturma](/cli/azure/sql/server/firewall-rule#create) | Girilen IP adresi aralığından sunucusundaki tüm SQL veritabanlarına erişim sağlamak için bir güvenlik duvarı kuralı oluşturur. |
-| [az sql db oluştur](/cli/azure/sql/db#create) | SQL Database mantıksal sunucu oluşturur. |
+| [az sql server oluşturun](/cli/azure/sql/server#create) | Konaklar SQL veritabanı hello mantıksal sunucu oluşturur. |
+| [az sql server güvenlik duvarı oluşturma](/cli/azure/sql/server/firewall-rule#create) | Merhaba girilen IP adresi aralığından hello sunucusunda bir güvenlik duvarı kuralı tooallow erişim tooall SQL veritabanları oluşturur. |
+| [az sql db oluştur](/cli/azure/sql/db#create) | SQL veritabanı Hello hello mantıksal Server'da oluşturur. |
 | [az grubu Sil](/cli/azure/resource#delete) | Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Hello Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
 
-Ek SQL veritabanı CLI kod örnekleri bulunabilir [Azure SQL veritabanı belgeleri](../sql-database-cli-samples.md).
+Ek SQL veritabanı CLI kod örnekleri hello bulunabilir [Azure SQL veritabanı belgeleri](../sql-database-cli-samples.md).
 

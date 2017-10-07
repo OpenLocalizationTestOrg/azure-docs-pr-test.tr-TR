@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT paketi bağlı Fabrika özelleştirme | Microsoft Docs"
-description: "Bağlı Fabrika önceden yapılandırılmış çözümün davranışını özelleştirmek nasıl açıklaması."
+title: "Azure IOT paketi aaaCustomize bağlı Fabrika | Microsoft Docs"
+description: "Merhaba toocustomize hello davranışını Fabrika nasıl bağlı bir açıklama önceden yapılandırılmış çözümü."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,72 +15,72 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 90a6172dbd887ecda5a9f5d9082a4e136092bc10
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 53f2fef7a76b5d8e6ad023945a7812dc7fabd12c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Bağlı Fabrika çözüm OPC UA sunucularınızdan veri biçimini Özelleştir
+# <a name="customize-how-hello-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Merhaba Fabrika çözüm görüntüler veri OPC UA sunucularınızdan nasıl bağlanacağını özelleştirme
 
 ## <a name="introduction"></a>Giriş
 
-Bağlı Fabrika çözüm toplar ve çözüme bağlı OPC UA sunuculardan verileri görüntüler. Göz atın ve komutları OPC UA sunucularına çözümünüzde gönderir. OPC UA hakkında daha fazla bilgi için bkz. [Connected factory SSS](iot-suite-faq-cf.md).
+Merhaba bağlı Fabrika çözüm toplar ve hello OPC UA sunucuları bağlı toohello çözüm verileri görüntüler. Göz atın ve komutları toohello OPC UA sunucuları çözümünüzde gönderir. Merhaba OPC UA hakkında daha fazla bilgi için bkz: [bağlı Fabrika SSS](iot-suite-faq-cf.md).
 
-Genel donanım verimliliği (OEE) ve Fabrika, satır ve istasyon düzeylerinde panosunda görüntüleyebileceğiniz ana performans göstergelerini (KPI'lar) çözümüne toplanan veri örneklerindendir. Aşağıdaki ekran görüntüsü için OEE ve KPI değerleri gösterir **derleme** istasyon, üzerinde **üretim satırı 1**, **Münih** Fabrika:
+Merhaba çözümde toplanan veri örnekleri hello genel donanım verimliliği (OEE) ve başlangıç panosunda hello Fabrika, satır ve istasyon düzeylerinde görüntüleyebileceğiniz ana performans göstergelerini (KPI'lar) içerir. Merhaba aşağıdaki ekran görüntüsünde hello OEE KPI için ve değerleri hello gösterir **derleme** istasyon, üzerinde **üretim satırı 1**, hello içinde **Münih** Fabrika:
 
-![OEE ve KPI değerleri çözümde örneği][img-oee-kpi]
+![Merhaba çözümde OEE ve KPI değerleri örneği][img-oee-kpi]
 
-Çözüm, belirli veri öğeleri olarak adlandırılan OPC UA sunucularından alınan ayrıntılı bilgileri görüntülemenize olanak tanır *istasyonları*. Aşağıdaki ekran çizimleri belirli bir istasyonu üretilen öğelerinden sayısının gösterir:
+hello çözüm etkinleştirir, tooview belirli veri öğelerinden bilgilerinden ayrıntılı olarak bilinen OPC UA sunucuları hello *istasyonları*. Merhaba aşağıdaki ekran görüntüsü hello sayının belirli bir istasyondan üretilen öğelerinin çizimleri gösterir:
 
 ![Çizimler üretilen öğe sayısı][img-manufactured-items]
 
-Aşağıdakilerden grafikleri tıklarsanız, verileri daha fazla zaman serisi Öngörüler (TSI) kullanarak da gözden geçirebilirsiniz:
+Merhaba grafikleri birini tıklatın, daha fazla zaman serisi Öngörüler (TSI) kullanarak hello veri da gözden geçirebilirsiniz:
 
 ![Zaman serisi Öngörüler kullanarak verileri keşfedin][img-tsi]
 
 Bu makalede açıklanır:
 
-- Nasıl veri çözümde çeşitli görünümleri için kullanılabilir hale getirilir.
-- Çözüm şekilde nasıl özelleştirebileceğiniz verileri görüntüler.
+- Nasıl hello veri kullanılabilir toohello çeşitli görünümleri hello çözümde yapılır.
+- Merhaba şekilde hello çözümü nasıl özelleştirebileceğiniz hello verilerini görüntüler.
 
 ## <a name="data-sources"></a>Veri kaynakları
 
-Bağlı Fabrika çözüm çözüme bağlı OPC UA sunuculardan verileri görüntüler. Varsayılan yükleme Fabrika benzetimi birkaç OPC UA sunucuları içerir. Kendi OPC UA sunucuları ekleyebilirsiniz, [bir ağ geçidi üzerinden bağlanma] [ lnk-connect-cf] çözümünüze.
+Merhaba bağlı Fabrika çözüm hello OPC UA sunucuları bağlı toohello çözüm verileri görüntüler. Merhaba varsayılan yükleme Fabrika benzetimi birkaç OPC UA sunucuları içerir. Kendi OPC UA sunucuları ekleyebilirsiniz, [bir ağ geçidi üzerinden bağlanma] [ lnk-connect-cf] tooyour çözümü.
 
-Pano çözümünüzde bağlı OPC UA sunucu gönderebilir veri öğelerini göz atabilirsiniz:
+Bağlı bir OPC UA sunucuya hello panosunda tooyour çözüm gönderebilirsiniz hello veri öğeleri göz atabilirsiniz:
 
-1. Gidin **OPC UA sunucuyu seçin** görünümü:
+1. Toohello gidin **OPC UA sunucuyu seçin** görünümü:
 
-    ![OPC UA sunucu görünümü seçin gidin][img-select-server]
+    ![Toohello seçin OPC UA sunucu görünümü gidin][img-select-server]
 
-1. Bir sunucu seçin ve tıklatın **Bağlan**. Tıklatın **İlerle** zaman güvenlik uyarısı görüntülenmez.
+1. Bir sunucu seçin ve tıklatın **Bağlan**. Tıklatın **İlerle** zaman hello güvenlik uyarısı görüntülenmez.
 
     > [!NOTE]
-    > Bu uyarı yalnızca bir kez her sunucu için görünür ve çözüm panosu ve sunucu arasında bir güven ilişkisi oluşturur.
+    > Bu uyarı yalnızca bir kez her sunucu için görünür ve hello çözüm Panosu hello sunucu arasında bir güven ilişkisi oluşturur.
 
-1. Sunucu çözüme gönderebilirsiniz veri öğelerini gözatabilirsiniz. Çözüme gönderilen öğeleri yeşil bir onay işareti vardır:
+1. Sunucu hello Gözat hello veri öğeleri toohello çözüm gönderebilirsiniz artık kullanabilirsiniz. Toohello Çözüm gönderilen öğeleri yeşil bir onay işareti vardır:
 
     ![Yayımlanan öğeler][img-published]
 
-1. Kullanıyorsanız bir *yönetici* çözümde bağlı Fabrika çözümde kullanılabilir hale getirmek için bir veri öğesi yayımlamayı seçebilirsiniz. Yönetici olarak, veri öğeleri değerini değiştirin ve OPC UA Server'da yöntemlerini çağırın.
+1. Kullanıyorsanız bir *yönetici* hello çözümde, bir veri öğesi toomake toopublish seçebilirsiniz hello kullanılabilir bağlı Fabrika çözümü. Yönetici olarak, veri öğeleri hello değerini değiştirin ve hello OPC UA server yöntemlerini çağırın.
 
-## <a name="map-the-data"></a>Verileri eşleme
+## <a name="map-hello-data"></a>Merhaba verileri eşleme
 
-Bağlı Fabrika çözüm eşler ve çeşitli görünümlere çözümdeki OPC UA sunucudan yayımlanan veri öğelerini toplar. Bir çözüm sağladığınızda Azure hesabınıza bağlı Fabrika çözümü dağıtır. Visual Studio bağlı Fabrika çözümü JSON dosyasında bu eşleme bilgilerini depolar. Görüntüleyin ve bu bağlantılı Fabrika Visual Studio çözümü JSON yapılandırma dosyasında değiştirin. Değişikliği yaptıktan sonra çözümü yeniden dağıtabilirsiniz.
+Fabrika çözüm eşlemeleri Hello bağlı ve toplamalar hello hello OPC UA sunucu toohello veri öğeleri çeşitli görünümleri hello çözümde yayımlanır. Merhaba çözüm sağladığınızda hello bağlı Fabrika çözüm tooyour Azure hesabı dağıtır. Merhaba bağlı Visual Studio Fabrika çözümü JSON dosyasında bu eşleme bilgilerini depolar. Görüntüleyin ve bu hello bağlı Fabrika Visual Studio çözümü JSON yapılandırma dosyasında değiştirin. Değişikliği yaptıktan sonra hello çözümü yeniden dağıtabilirsiniz.
 
-Yapılandırma dosyası kullanabilirsiniz:
+Merhaba yapılandırma dosyasına kullanabilirsiniz:
 
-- Varolan sanal oluşturucuları, Üretim satırları ve istasyonları düzenleyin.
-- Çözümü arasında bağlantı gerçek OPC UA sunuculardan verileri eşleyin.
+- Merhaba varolan sanal oluşturucuları, Üretim satırları ve istasyonları düzenleyin.
+- Toohello çözümü bağlantı gerçek OPC UA sunuculardan verileri eşleyin.
 
-Visual Studio çözümü bağlı Fabrika kopyasını kopyalamak için aşağıdaki git komutu kullanın:
+tooclone hello bir kopyasını Fabrika Visual Studio çözümü, git komut aşağıdaki kullanım hello bağlı:
 
 `git clone https://github.com/Azure/azure-iot-connected-factory.git`
 
-Dosya **ContosoTopologyDescription.json** bağlı Fabrika çözüm panosunda OPC UA sunucu veri öğeleri eşleme görünümleri tanımlar. Bu yapılandırma dosyasında bulabilirsiniz **Contoso\Topology** klasöründe **WebApp** Visual Studio çözümü projesinde.
+Merhaba dosya **ContosoTopologyDescription.json** OPC UA sunucu verilerini hello eşleme öğeleri toohello görünümleri hello bağlı Fabrika çözüm panosunda hello tanımlar. Bu yapılandırma dosyası hello bulabilirsiniz **Contoso\Topology** hello klasöründe **WebApp** hello Visual Studio çözümü projesinde.
 
-JSON dosyasının içeriği Fabrika, üretim hattı ve istasyon düğümleri hiyerarşi olarak düzenlenir. Bu hiyerarşi Gezinti hiyerarşisinde bağlı Fabrika panosunda tanımlar. Hiyerarşinin her düğümde değerler panosunda görüntülenen bilgileri belirler. Örneğin, JSON dosyası Münih Fabrika için aşağıdaki değerleri içerir:
+Merhaba JSON dosyası Merhaba içeriğine hiyerarşisini Fabrika, üretim hattı ve istasyon düğümler düzenlenir. Bu hiyerarşi hello Gezinti hiyerarşisinde hello bağlı Fabrika panosunda tanımlar. Her düğümde hello hiyerarşisinin değerler hello panosunda görüntülenen hello bilgileri belirler. Örneğin, hello JSON dosyası hello Münih Fabrika için değerleri aşağıdaki hello içerir:
 
 ```json
 "Guid": "73B534AE-7C7E-4877-B826-F1C0EA339F65",
@@ -95,31 +95,31 @@ JSON dosyasının içeriği Fabrika, üretim hattı ve istasyon düğümleri hiy
 "Image": "munich.jpg"
 ```
 
-Adını, açıklamasını ve konum bu Pano görünümünde görünür:
+Merhaba adını, açıklamasını ve konum bu hello Pano görünümünde görünür:
 
-![Pano Münih verileri][img-munich]
+![Merhaba Pano Münih verileri][img-munich]
 
-Her fabrika, üretim hattı ve istasyon bir görüntü özelliği vardır. Bu JPEG dosyaları bulabilirsiniz **Content\img** klasöründe **WebApp** projesi. Bu görüntü dosyalar bağlı Fabrika panosunda görüntülenir.
+Her fabrika, üretim hattı ve istasyon bir görüntü özelliği vardır. Bu JPEG dosyaları hello bulabilirsiniz **Content\img** hello klasöründe **WebApp** projesi. Bu görüntü dosyalar hello bağlı Fabrika panosunda görüntülenir.
 
-Her istasyon OPC UA veri öğeleri eşlemesinden tanımlayan çeşitli ayrıntılı özellikleri içerir. Bu özellikler aşağıdaki bölümlerde açıklanmıştır:
+Her istasyon OPC UA hello veri öğeleri eşleme hello tanımlayan çeşitli ayrıntılı özellikleri içerir. Bu özellikleri hello aşağıdaki bölümlerde açıklanmıştır:
 
 ### <a name="opcuri"></a>OpcUri
 
-**OpcUri** OPC UA sunucunun benzersiz olarak tanıtan OPC UA uygulama URI bir değerdir. Örneğin, **OpcUri** değeri 1 üretim satırında Münih derleme istasyon aşağıdaki gibi görünür: **urn: scada2194:ua:munich:productionline0:assemblystation**.
+Merhaba **OpcUri** hello OPC UA uygulama URI'hello OPC UA sunucu benzersiz olarak tanıtan bir değerdir. Örneğin, hello **OpcUri** hello derleme istasyon Münih 1 satırda üretim hello şuna benzeyen için bir değer: **urn: scada2194:ua:munich:productionline0:assemblystation**.
 
-Çözüm panosunda URI'ler bağlı OPC UA sunucuları görüntüleyebilirsiniz:
+Merhaba çözüm panosunda hello bağlı hello OPC UA sunucularının URI'ler görüntüleyebilirsiniz:
 
 ![OPC UA sunucusu URI görüntülemek][img-server-uris]
 
 ### <a name="simulation"></a>Benzetim
 
-Bilgileri **benzetimi** düğümü, varsayılan olarak sağlanan OPC UA sunucularında çalışan OPC UA benzetimi için özeldir. Gerçek bir OPC UA sunucusu için kullanılmaz.
+Merhaba hello bilgilerinde **benzetimi** belirli toohello hello varsayılan olarak sağlanan OPC UA sunucuları çalıştıran OPC UA benzetimi düğümdür. Gerçek bir OPC UA sunucusu için kullanılmaz.
 
 ### <a name="kpi1-and-kpi2"></a>Kpi1 ve kpı2
 
-Bu düğümler Pano iki KPI değerler istasyon verileri nasıl katkıda bulunan açıklanmaktadır. Varsayılan dağıtımında, bu KPI saat başına birim ve saatte kWh değerlerdir. Çözüm KPI değerlerinde bir istasyon düzeyinde hesaplar ve bunları üretim hattı ve Fabrika düzeylerinde toplar.
+Bu düğümler hello istasyon verilerden toohello iki KPI değerleri hello panosunda nasıl katkıda açıklanmaktadır. Varsayılan dağıtımında, bu KPI saat başına birim ve saatte kWh değerlerdir. Merhaba çözüm KPI değerlerinde bir istasyonun hello düzeyinde hesaplar ve bunları hello üretim hattı ve Fabrika düzeylerinde toplar.
 
-Her KPI minimum, maksimum ve hedef değer vardır. Her bir KPI değeri Uyarı eylemleri gerçekleştirmek bağlı Fabrika çözüm için de tanımlayabilirsiniz. Aşağıdaki kod parçacığında derleme istasyon KPI tanımlarında Münih 1 üretim satırdaki gösterir:
+Her KPI minimum, maksimum ve hedef değer vardır. Her bir KPI değeri bağlı hello Fabrika çözüm tooperform için uyarı eylemleri de tanımlayabilirsiniz. Merhaba aşağıdaki kod parçacığında hello KPI hello derleme istasyon tanımlarında satırdaki üretim Münih 1 gösterir:
 
 ```json
 "Kpi1": {
@@ -139,41 +139,41 @@ Her KPI minimum, maksimum ve hedef değer vardır. Her bir KPI değeri Uyarı ey
 }
 ```
 
-Aşağıdaki ekran görüntüsünde KPI verileri Panoda gösterir.
+Merhaba aşağıdaki ekran görüntüsünde hello KPI verileri hello panosunda gösterir.
 
-![KPI bilgilerini panosunda][lnk-kpi]
+![KPI bilgilerini hello panosunda][lnk-kpi]
 
 ### <a name="opcnodes"></a>OpcNodes
 
-**OpcNodes** düğümleri OPC UA sunucusundan yayımlanan veri öğelerini tanımlamak ve bu verileri işlemek nasıl belirtin.
+Merhaba **OpcNodes** düğümleri tanımlamak hello OPC UA sunucu yayımlanan veri öğeleri hello ve belirtin nasıl tooprocess verileri.
 
-**NodeId** değer OPC UA sunucusundan belirli OPC UA nodeId tanımlar. Derleme istasyon üretim hattı Münih 1 için ilk düğüm bir değere sahip **ns = 2; ı 385 =**. A **nodeId** değeri OPC UA sunucusundan okumak için veri öğesi belirtir ve **SymbolicName** bu verileri Panoda kullanmak için kullanıcı dostu bir ad sağlar.
+Merhaba **nodeId** değeri tanımlar hello hello OPC UA sunucu gelen belirli OPC UA nodeId. Merhaba ilk düğüm hello derleme istasyon üretim satırının Münih 1 değerine sahip **ns = 2; ı 385 =**. A **nodeId** değeri belirten hello veri öğesi tooread hello OPC UA sunucu ve hello **SymbolicName** bu veriler için bir kolay ad toouse hello panosunda sağlar.
 
-Her düğüm ile ilişkili diğer değerler aşağıdaki tabloda özetlenmiştir:
+Her düğüm ile ilişkili diğer değerler, aşağıdaki tablonun hello özetlenmiştir:
 
 | Değer | Açıklama |
 | ----- | ----------- |
-| İlgi Düzeyi  | KPI'yı ve OEE değerleri için bu verileri katkıda bulunur. |
-| İşlem kodu     | Verileri nasıl toplanır. |
-| Birimler      | Panoda kullanılacak birim.  |
-| Görünür    | Bu değer panosunda görüntülenip görüntülenmeyeceğini belirtir. Bazı değerler hesaplamalarında kullanılır ancak görüntülenmez.  |
-| Maksimum    | Panodaki bir uyarıyı tetikleyen en yüksek değer. |
-| MaximumAlertActions | Yanıt bir uyarı olarak gerçekleştirilecek bir eylem. Örneğin, bir komut istasyona gönderir. |
+| İlgi Düzeyi  | Merhaba KPI'yı ve OEE değerleri için bu verileri katkıda bulunur. |
+| İşlem kodu     | Merhaba verileri nasıl toplanır. |
+| Birimler      | Merhaba birimleri toouse hello panosunda.  |
+| Görünür    | Toodisplay bu değer olup olmadığını hello Pano. Bazı değerler hesaplamalarında kullanılır ancak görüntülenmez.  |
+| Maksimum    | Merhaba panosunda uyarıyı tetikleyen hello en büyük değer. |
+| MaximumAlertActions | Bir eylem tootake yanıt tooan uyarısında. Örneğin, bir komut tooa istasyon gönderir. |
 | ConstValue | Bir hesaplanmasında kullanılan sabit bir değer. |
 
-## <a name="deploy-the-changes"></a>Değişiklikleri dağıtma
+## <a name="deploy-hello-changes"></a>Merhaba değişiklikleri dağıtma
 
-Değişiklikler yapma tamamladığınızda **ContosoTopologyDescription.json** dosyası, Azure hesabınıza bağlı Fabrika çözümü yeniden dağıtmanız gerekir.
+Değişiklikleri toohello yapmadan tamamladığınızda **ContosoTopologyDescription.json** gerekir dağıtmanız dosyası hello bağlı Fabrika çözüm tooyour Azure hesabı.
 
-**Azure-IOT-bağlı-Fabrika** deposu içeren bir **build.ps1** PowerShell komut dosyasını yeniden oluşturun ve çözümü dağıtmak için kullanabilirsiniz.
+Merhaba **azure-IOT-bağlı-Fabrika** deposu içeren bir **build.ps1** toorebuild kullanın ve hello çözümü dağıtmak PowerShell komut dosyası.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Aşağıdaki makaleleri okuyarak bağlı Fabrika önceden yapılandırılmış çözüm hakkında daha fazla bilgi:
+Bağlı hello Fabrika önceden yapılandırılmış çözüm hakkında daha fazla tarafından okuma hello makaleleri aşağıdaki bilgi:
 
 * [Önceden yapılandırılmış bağlı fabrika çözümü yönergeleri][lnk-rm-walkthrough]
 * [Bağlı üreteci için bir ağ geçidi dağıtma][lnk-connect-cf]
-* [azureiotsuite.com sitesindeki izinler][lnk-permissions]
+* [Merhaba azureiotsuite.com sitesindeki izinler][lnk-permissions]
 * [Bağlı fabrika hakkında SSS](iot-suite-faq-cf.md)
 * [SSS][lnk-faq]
 

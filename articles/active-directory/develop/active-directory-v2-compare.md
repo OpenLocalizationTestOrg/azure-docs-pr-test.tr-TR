@@ -1,6 +1,6 @@
 ---
-title: "Azure AD v2.0 uç farklı nedir? | Microsoft Belgeleri"
-description: "Özgün Azure AD arasında bir karşılaştırma ve v2.0 uç noktaları."
+title: "aaaWhat hello Azure AD v2.0 uç farklı mı çalışıyor? | Microsoft Belgeleri"
+description: "Merhaba özgün Azure AD ve hello v2.0 uç noktaları arasında bir karşılaştırma."
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,51 +15,51 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e7ed196f9053fc21db799cd6bc513ba5c2b92885
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="whats-different-about-the-v20-endpoint"></a>V2.0 uç noktası hakkında farklı nedir?
-Azure Active Directory ile tanıdık veya uygulamaları geçmişte Azure AD ile tümleşik değil beklediğiniz v2.0 uç noktası bazı farklılıklar olabilir.  Bu belge, anlamak için bu farkları çıkışı çağırır.
+# <a name="whats-different-about-hello-v20-endpoint"></a>Merhaba v2.0 uç hakkında farklı nedir?
+Azure Active Directory ile tanıdık veya uygulamaları hello son olarak Azure AD ile tümleşik değil beklediğiniz hello v2.0 uç noktası bazı farklılıklar olabilir.  Bu belge, anlamak için bu farkları çıkışı çağırır.
 
 > [!NOTE]
-> Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası tarafından desteklenir.  V2.0 uç kullanmanızın gerekli olup olmadığını belirlemek için okuyun [v2.0 sınırlamaları](active-directory-v2-limitations.md).
+> Tüm Azure Active Directory senaryolarını ve özelliklerini hello v2.0 uç noktası tarafından desteklenir.  Merhaba v2.0 uç noktası, kullanmanız gereken varsa toodetermine okuyun hakkında [v2.0 sınırlamaları](active-directory-v2-limitations.md).
 >
 
 ## <a name="microsoft-accounts-and-azure-ad-accounts"></a>Microsoft ve Azure AD hesapları
-V2.0 uç geliştiriciler, oturum açma tek kimlik doğrulama uç noktası kullanarak, Microsoft Accounts ve Azure AD hesaplarının kabul eden uygulamalar yazmayı izin verir.  Bu, uygulamanızın tümüyle hesap belirsiz yazma yeteneği verir; Bu tür bir hesap ile oturum açtığında kullanmayan olabilir.  Elbette, *yapabilirsiniz* uygulamanızı belirli bir oturumda kullanılan hesap türünü farkında olun, ancak zorunda değilsiniz.
+Merhaba v2.0 uç geliştiriciler oturum açma tek kimlik doğrulama uç noktası kullanarak, Microsoft Accounts ve Azure AD hesaplarının kabul toowrite uygulamaları izin verir.  Uygulamanızı tamamen hesap belirsiz özelliği toowrite hello bu verir; kullanmayan kullanıcı işaretlerini ile Merhaba hesabının hello türünde olabilir.  Elbette, *yapabilirsiniz* uygulamanızı belirli bir oturumda kullanılan hesap hello türü farkında olun, ancak zorunda değilsiniz.
 
-Örneğin, uygulamanızın çağırırsa [Microsoft Graph](https://graph.microsoft.io), bazı ek işlevler ve veri SharePoint sitelerinde veya dizin verilerini gibi kurumsal kullanıcılar için kullanılabilir.  Ancak birçok eylemler gibi [bir kullanıcının posta okuma](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), kodu tam olarak aynı Microsoft Accounts ve Azure AD hesapları için yazılabilir.  
+Örneğin, uygulamanızın hello çağırırsa [Microsoft Graph](https://graph.microsoft.io), kullanılabilir tooenterprise kullanıcılar, SharePoint sitelerinde veya dizin verileri gibi bazı ek işlevler ve veri olacaktır.  Ancak birçok eylemler gibi [bir kullanıcının posta okuma](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), hello kodu tam olarak yazılabilir aynı Microsoft Accounts ve Azure AD hesapları için hello.  
 
-Uygulamanızı Microsoft Accounts ve Azure AD hesapları ile tümleştirme şimdi bir basit bir işlemdir.  Tüketici ve enterprise dünyaları erişmek için tek bir uç noktaları, tek bir kitaplık ve tek uygulama kayıt kümesi kullanabilirsiniz.  V2.0 uç noktası hakkında daha fazla bilgi için kullanıma [genel bakış](active-directory-appmodel-v2-overview.md).
+Uygulamanızı Microsoft Accounts ve Azure AD hesapları ile tümleştirme şimdi bir basit bir işlemdir.  Uç noktaları, tek bir kitaplık ve bir tek uygulama kayıt toogain erişim tooboth hello müşteri ve kuruluş dünyaları tek bir dizi kullanabilirsiniz.  toolearn hakkında daha fazla bilgi v2.0 uç Merhaba, kullanıma [genel bakış hello](active-directory-appmodel-v2-overview.md).
 
 ## <a name="new-app-registration-portal"></a>Yeni uygulama kayıt portalı
-V2.0 uç noktası ile çalışan bir uygulama kaydetmek için yeni bir uygulama kayıt portalı kullanın: [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  Bu burada edinebilirsiniz bir uygulama kimliği portalıdır uygulamanızın oturum açma sayfası ve daha fazlasını görünümünü özelleştirin.  Tüm portalına erişmek için gereken desteklenen Microsoft hesabı - kişisel veya iş/Okul hesap budur.
+tooregister hello v2.0 uç noktası ile çalışan bir uygulama, yeni bir uygulama kayıt portalı kullanmanız gerekir: [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  Bu burada edinebilirsiniz bir uygulama kimliği hello portalıdır uygulamanızın oturum açma sayfası ve daha fazlasını hello görünümünü özelleştirin.  Tüm tooaccess hello portal gereken gücü Microsoft hesabı - kişisel veya iş/Okul hesap budur.
 
 ## <a name="one-app-id-for-all-platforms"></a>Tüm platformlar için bir uygulama kimliği
-Azure Active Directory kullandıysanız, büyük olasılıkla birkaç farklı uygulamaları tek bir proje için kaydınız.  Bir Web sitesi ve bir iOS uygulaması oluşturulduysa, örneğin, ayrı olarak kaydetmek iki farklı uygulama kimliği kullanarak içeriyor. Azure AD uygulama kayıt Portalı'nı kayıt sırasında Bu ayrım yapmanıza zorla:
+Azure Active Directory kullandıysanız, büyük olasılıkla birkaç farklı uygulamaları tek bir proje için kaydınız.  Örneğin, bir Web sitesi ve bir iOS uygulaması oluşturulduysa, tooregister vardı bunları ayrı olarak, iki farklı uygulama kimlikleri kullanma. Hello Azure AD uygulama kayıt portalı kaydı sırasında Bu ayrım, toomake zorla:
 
 ![Eski uygulama kaydı kullanıcı Arabirimi](../../media/active-directory-v2-flows/old_app_registration.PNG)
 
-Bir Web sitesi ve web API'si arka uç olsaydı, benzer şekilde, her ayrı bir uygulama olarak Azure AD içinde kaydettiğiniz.  Veya bir iOS uygulaması ve bir Android uygulaması varsa, aynı zamanda iki farklı uygulamalar kaydettiğiniz.  Her bir uygulama bileşeninin kaydetme bazı beklenmeyen davranışları, geliştiriciler ve müşterileri için neden:
+Bir Web sitesi ve web API'si arka uç olsaydı, benzer şekilde, her ayrı bir uygulama olarak Azure AD içinde kaydettiğiniz.  Veya bir iOS uygulaması ve bir Android uygulaması varsa, aynı zamanda iki farklı uygulamalar kaydettiğiniz.  Her bir uygulama bileşeninin kaydetme neden toosome beklenmeyen davranışları geliştiriciler ve müşterileri için:
 
-* Her müşterinin Azure Active Directory kiracısı içinde ayrı bir uygulama olarak her bileşenin görüldü.
-* Erişimi yönetmek veya bir uygulamayı silmek için ilkeyi uygulamak bir kiracı Yöneticisi çalışırken her uygulama bileşeni için yapmanız gerekir.
-* Bir uygulamaya müşteriler rıza, her bileşen farklı bir uygulama olarak onay ekranında görüntülenir.
+* Her müşterinin hello Azure Active Directory kiracısı içinde ayrı bir uygulama olarak her bileşenin görüldü.
+* Bir kiracı yönetici erişimi yönetmek veya bir uygulamayı silmek için tooapply İlkesi çalışırken toodo olurdu hello uygulamasının her bileşen için bunu.
+* Müşteriler tooan uygulama rıza, her bileşenin farklı bir uygulama olarak hello onay ekranında görüntülenir.
 
-V2.0 uç noktası ile artık projenizin tüm bileşenleri tek uygulama kaydı kaydetmek ve tek bir uygulama kimliği projeniz için kullanın.  Her bir proje için birkaç "Platform" ekleyin ve eklediğiniz her platform için uygun veri sağlar.  Elbette, gereksinimlerinize bağlı olarak ister, ancak yalnızca bir uygulama kimliği çoğu durumda gerekli olması gereken şekilde sayıda uygulamaları oluşturabilirsiniz.
+Merhaba v2.0 uç noktası ile artık projenizin tüm bileşenleri tek uygulama kaydı kaydetmek ve tek bir uygulama kimliği projeniz için kullanın.  Birkaç "platformlar" tooa her proje ekleyin ve eklediğiniz her platform için hello uygun veriler sağlar.  Elbette, gereksinimlerinize bağlı olarak ister, ancak yalnızca bir uygulama kimliği için hello çoğu kez, gerekli olması gereken şekilde sayıda uygulamaları oluşturabilirsiniz.
 
-Bizim AIM bu bir daha Basitleştirilmiş uygulama yönetimi ve geliştirme deneyimi sağlama, üzerinde çalışabilir tek bir proje, fazla birleştirilmiş bir görünümünü oluşturmak olmasıdır.
+Bizim AIM bu Basitleştirilmiş tooa uygulama yönetimi ve geliştirme deneyimi sağlama, üzerinde çalışabilir tek bir proje, fazla birleştirilmiş bir görünümünü oluşturmak olmasıdır.
 
 ## <a name="scopes-not-resources"></a>Kapsamları, kaynakları değil
-Azure Active Directory'de bir uygulama olarak davranabilir bir **kaynak**, veya bir alıcının belirteçleri.  Bir kaynak bir dizi tanımlayabilirsiniz **kapsamları** veya **oAuth2Permissions** anladığı, istemci bu kaynağa kapsamları belirli bir dizi için belirteçler istemek uygulamaları sağlar.  Örnek bir kaynak olarak Azure AD Graph API göz önünde bulundurun:
+Azure Active Directory'de bir uygulama olarak davranabilir bir **kaynak**, veya bir alıcının belirteçleri.  Bir kaynak bir dizi tanımlayabilirsiniz **kapsamları** veya **oAuth2Permissions** anladığı, istemci uygulamaları toorequest belirteçleri toothat kaynak belirli bir dizi kapsamlar için izin verme.  Örnek bir kaynak olarak Hello Azure AD Graph API göz önünde bulundurun:
 
 * Kaynak tanımlayıcısı veya `AppID URI`:`https://graph.windows.net/`
 * Kapsamları veya `OAuth2Permissions`: `Directory.Read`, `Directory.Write`vb..  
 
-Tüm bunlar tutan true v2.0 uç noktası.  Bir uygulamayı hala davranabilir kaynak olarak kapsamları tanımlamak ve bir URI tarafından tanımlanan.  İstemci uygulamaları hala bu kapsamlara erişim isteğinde bulunabilirsiniz.  Ancak, bir istemci bu izinleri ister şekilde değiştirdi.  Geçmişte, OAuth 2.0 yetkilendirme isteği Azure ad Aranan gibi:
+Tüm bu tutar hello hello v2.0 uç noktası için true.  Bir uygulamayı hala davranabilir kaynak olarak kapsamları tanımlamak ve bir URI tarafından tanımlanan.  İstemci uygulamaları hala erişim toothose kapsamları isteyebilir.  Ancak, bir istemci bu izinleri ister hello şekilde değiştirdi.  Hello geçmiş, bir OAuth 2.0 yetkilendirme isteği tooAzure AD gibi attıktan:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/authorize?
@@ -68,7 +68,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Burada **kaynak** parametresi belirtilen hangi kaynak yetkilendirme için istemci uygulaması istiyor.  Azure AD, Azure Portal'da statik yapılandırmasını temel alarak ve verilen belirteçler buna göre uygulama tarafından gerekli izinleri hesaplanır.  Şimdi, aynı OAuth 2.0 isteği görülüyor yetkilendirin.
+Burada hello **kaynak** parametresi belirtilen yetkilendirme için hangi kaynak hello istemci uygulamanın istiyor.  Azure AD hello Azure Portal'ın statik yapılandırmasını temel alarak ve verilen belirteçler uygun şekilde hello uygulama tarafından gerekli hello izinler hesaplanır.  Şimdi, hello aynı OAuth 2.0 yetkilendirme isteği görülüyor:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -77,20 +77,20 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Burada **kapsam** parametresi hangi kaynak gösterir ve izinleri uygulamanın istediği yetkilendirme için. İstenen kaynak hala çok istekte - bunu yalnızca her kapsam parametresinin değeri ileride olan.  Bu şekilde kapsam parametresi kullanarak v2.0 uç noktası ile OAuth 2.0 belirtimi daha uyumlu olmasını sağlar ve daha yakından ortak endüstri yöntemlerle hizalar.  Ayrıca gerçekleştirmek uygulamaları sağlar [artımlı izin](#incremental-and-dynamic-consent), sonraki bölümde açıklanmaktadır.
+Burada hello **kapsam** parametre, yetkilendirme için hangi kaynak ve izinleri hello uygulama isteyen belirtir. Merhaba, kaynak hala hello çok istekte - bunu yalnızca her hello kapsam parametresi hello değerlerini ileride olan istenen.  Bu şekilde Hello kapsam parametresi kullanılarak hello v2.0 uç noktası toobe hello OAuth 2.0 belirtimi daha uyumlu sağlar ve daha yakından ortak endüstri yöntemlerle hizalar.  Ayrıca uygulamalar tooperform sağlar [artımlı izin](#incremental-and-dynamic-consent), hello sonraki bölümde açıklanmaktadır.
 
 ## <a name="incremental-and-dynamic-consent"></a>Artımlı ve dinamik onayı
-Uygulama oluşturma sırasında Azure Portalı'nda gerekli OAuth 2.0 izinlerini belirlemek için önceden gereken Azure AD'de uygulamalar kayıtlı:
+Uygulamaları Azure AD daha önce gerekli toospecify gerekli OAuth 2.0 izinlerini hello Azure Portal, uygulama oluşturma zamanında kayıtlı:
 
 ![İzinleri kayıt kullanıcı Arabirimi](../../media/active-directory-v2-flows/app_reg_permissions.PNG)
 
-Gerekli bir uygulama yapılandırıldı izinleri **statik olarak**.  Bu yapılandırma Azure Portalı'nda mevcut uygulamanın izin verilen ve iyi ve basit kod tutulan olsa da, geliştiriciler için bazı sorunları gösterir:
+gerekli bir uygulama yapılandırıldı hello izinleri **statik olarak**.  Bu hello Azure Portal hello uygulama tooexist yapılandırılmasına izin ve iyi ve basit hello kod tutulan olsa da, geliştiriciler için bazı sorunları gösterir:
 
-* Bir uygulama, uygulama oluşturma sırasında herhangi bir zamanda gerekir tüm izinleri bilmeniz gerekiyordu.  Zaman içinde izinlerini eklemek zor bir işlem.
-* Bir uygulama herhangi bir zamanda önceden erişir kaynakların tümünü biliyorsanız gerekiyordu.  Rastgele bir kaynak sayısı erişebilir uygulamaları oluşturmak zordu.
-* Şimdiye kadar kullanıcının ilk oturum açma sırasında gerekir tüm izinleri istemek bir uygulama içeriyor.  Bazı durumlarda bu ilk oturum açma uygulamanın erişimi onaylama gelen son kullanıcılar önermez izinleri çok uzun bir listesi kılavuzluk sağlar.
+* Bir uygulama tooknow sahip hiç gerek uygulama oluşturma zamanında hello izinleri.  Zaman içinde izinlerini eklemek zor bir işlem.
+* Bir uygulama tooknow sahip şimdiye kadar erişim süresi öncesinde hello kaynakların tümünü.  Rastgele bir kaynak sayısı erişebilir zor toocreate uygulamalar oluştu.
+* Bir uygulama toorequest hiç hello kullanıcının ilk oturum açma sırasında gerekir tüm hello izinleri vardı.  Bazı durumlarda bu tooa çok uzun ilk oturum açma hello uygulamanın erişimi onaylama gelen son kullanıcılar önermez izinlerin listesi gerektiriyordu.
 
-V2.0 uç noktası ile izinleri belirtebilirsiniz uygulama gereksinimlerinizi **dinamik olarak**, uygulamanızın normal kullanım sırasında çalışma zamanında.  Bunu yapmak için uygulamanız gereken belirli bir anda zamanında bunları dahil ederek kapsamları belirtebilirsiniz `scope` bir yetkilendirme isteği parametresinin:
+Merhaba v2.0 uç noktası ile Merhaba izinlerini belirtebilirsiniz uygulama gereksinimlerinizi **dinamik olarak**, uygulamanızın normal kullanım sırasında çalışma zamanında.  toodo, hello kapsamları uygulama gereksinimlerinizi verilen herhangi bir noktada zamanında hello dahil ederek belirtebilirsiniz `scope` bir yetkilendirme isteği parametresinin:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -99,29 +99,29 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Bir Azure AD kullanıcının dizin verilerini yanı sıra, dizinlerini veri yazma okumak uygulama için yukarıdaki istekleri izni.  Kullanıcı bu belirli uygulama için geçmiş bu izni verdiği, yalnızca kendi kimlik bilgilerini girer ve uygulamada oturum açmanız.  Kullanıcı bu izinleri hiçbirine seçtiği değil, v2.0 uç noktası kullanıcı bu izinler için izin sorar.  Daha fazla bilgi için okuyabilirsiniz [izinleri, onay ve kapsamları](active-directory-v2-scopes.md).
+Yukarıdaki Merhaba, bir Azure AD kullanıcının dizin verilerini yanı sıra yazma veri tootheir dizini hello uygulama tooread için izin ister.  Merhaba kullanıcı hello geçmiş toothose izin verdiği varsa bu belirli uygulama için bunlar yalnızca kimlik bilgilerini girer ve hello uygulamaya imzalanmış.  Merhaba kullanıcı bu izinlerin tooany seçtiği değil, hello v2.0 uç hello kullanıcı onayı toothose izinlerini isteyin.  Daha fazla toolearn, alabileceğiniz üzerinde [izinleri, onay ve kapsamları](active-directory-v2-scopes.md).
 
-Bir uygulamanın dinamik olarak aracılığıyla izinleri istemek için verme `scope` parametresi, kullanıcı deneyimi üzerinde tam denetim verir.  İsterseniz, onayınızı deneyimi ve bir başlangıç yetkilendirme isteği tüm izinleri isteyin frontload seçebilirsiniz.  Veya, uygulamanız çok sayıda izinleri gerektiriyorsa, bunlar zaman içinde uygulamanızın belirli özellikleri kullanma girişimi gibi bu izinleri kullanıcıdan artımlı olarak, toplamak seçebilirsiniz.
+Bir uygulamanın dinamik olarak hello aracılığıyla toorequest izinleri verme `scope` parametresi, kullanıcı deneyimi üzerinde tam denetim verir.  İsterseniz, onayınızı deneyimi ve bir başlangıç yetkilendirme isteği tüm izinleri isteyin toofrontload seçebilirsiniz.  Veya, uygulamanız çok sayıda izinleri gerektiriyorsa, bunlar toouse, uygulamanızın belirli özellikleri zamanla denemesi gibi toogather bu izinleri hello kullanıcıdan artımlı olarak, seçebilirsiniz.
 
 ## <a name="well-known-scopes"></a>İyi bilinen kapsamları
 #### <a name="offline-access"></a>Çevrimdışı erişim
-V2.0 uç noktası kullanan uygulamalar için uygulama - yeni bir iyi bilinen izin kullanımını gerektirebilir `offline_access` kapsam.  Tüm uygulamalar, bir uzun süren süre, kullanıcının uygulamayı etkin olarak kullanan olmayan zamanlarda bile bir kullanıcı adına kaynaklara erişmek gerekiyorsa bu izni istemek gerekir.  `offline_access` Kapsam görünür kullanıcı onay iletişim kutuları için "Verilerinizi çevrimdışı erişim", hangi kullanıcı kabul etmeniz gerekir.  İsteyen `offline_access` izni OAuth 2.0 refresh_tokens v2.0 uç noktasından almak için web uygulamanızı etkinleştirir.  Refresh_tokens uzun süreli ve uzun süreler erişim için yeni OAuth 2.0 access_tokens değiştirilebilir.  
+Merhaba v2.0 uç kullanarak uygulamaları gerektirebilir yeni bir iyi bilinen izin hello kullanımını uygulamaları için - hello `offline_access` kapsam.  Bir kullanıcının hello adına tooaccess kaynaklara süresi, uzun süren bir süre için bile hello kullanıcı hello uygulama etkin olarak kullanan değil ihtiyaç duydukları tüm uygulamalar toorequest bu izni gerekir.  Merhaba `offline_access` kapsam olarak iletişimleri "Verilerinizi çevrimdışı erişim" onay toohello kullanıcı görünür hello kullanıcı için kabul etmesi gerekir.  İstekte bulunan hello `offline_access` izni web uygulama tooreceive OAuth 2.0 refresh_tokens hello v2.0 uç noktasından etkinleştirir.  Refresh_tokens uzun süreli ve uzun süreler erişim için yeni OAuth 2.0 access_tokens değiştirilebilir.  
 
-Uygulamanızı değil istemiyorsa `offline_access` kapsam refresh_tokens almaz.  Bu bir authorization_code OAuth 2.0 yetkilendirme kodu akışı içinde kullanmak, yalnızca geri gelen bir access_token alacağınız anlamına gelir `/token` uç noktası.  Bu access_token saati (genellikle bir saat) kısa bir süre için geçerli kalır, ancak sonunda dolacaktır.  Kullanıcıyı yeniden yönlendirmek için bir noktaya, uygulamanız gereken at başa `/authorize` yeni authorization_code almak için uç nokta.  Bu yeniden yönlendirme sırasında kullanıcı veya kullanıcının kimlik bilgilerini yeniden girmesi veya izinler için yeniden onayı bağlı olarak gerek kalmaz uygulamanın türü.
+Uygulamanızı hello istemezse `offline_access` kapsam refresh_tokens almaz.  Bu bir authorization_code hello OAuth 2.0 yetkilendirme kodu akışı içinde kullanmak, yalnızca geri bir access_token hello alacağınız anlamına gelir `/token` uç noktası.  Bu access_token saati (genellikle bir saat) kısa bir süre için geçerli kalır, ancak sonunda dolacaktır.  Bu noktada, zaman içindeki tooredirect hello kullanıcı toohello uygulamanıza gerekecek `/authorize` uç nokta tooretrieve yeni authorization_code.  Bu yeniden yönlendirme sırasında hello kullanıcı olabilir veya düzgün tooenter kimlik bilgilerini yeniden gerekir veya uygulamanın hello hello türüne bağlı olarak toopermissions yeniden onayı.
 
-OAuth 2.0, refresh_tokens ve access_tokens hakkında daha fazla bilgi için kullanıma [v2.0 protokol başvurusu](active-directory-v2-protocols.md).
+Merhaba OAuth 2.0, refresh_tokens ve access_tokens, kullanıma hakkında daha fazla toolearn [v2.0 protokol başvurusu](active-directory-v2-protocols.md).
 
 #### <a name="openid-profile-and-email"></a>Openıd, profili ve e-posta
-Tarihsel olarak, en temel Openıd Connect oturum açma akışını Azure Active Directory ile çok sayıda sonuç id_token kullanıcı hakkında bilgi sağlar.  Bir id_token talepleri, kullanıcının adı, tercih edilen kullanıcı adı, e-posta adresi, nesne kimliği ve daha fazlasını içerebilir.
+Geçmişte, hello en temel Openıd Connect oturum açma akışını Azure Active Directory ile bol miktarda hello elde edilen id_token hello kullanıcı hakkında bilgi sağlar.  bir id_token Hello Taleplerde hello kullanıcının adı, tercih edilen kullanıcı adı, e-posta adresi, nesne kimliği ve daha fazlasını içerebilir.
 
-Biz şimdi bilgileri kısıtlayarak, `openid` kapsam uygulama erişiminizi ortaya koymaktadır.  'Openıd' kapsamı yalnızca kullanıcı oturum sağlamak ve kullanıcı için uygulamaya özgü tanımlayıcıyı alır.  Uygulamanızda kullanıcıyla ilgili kişisel bilgileri (PII) elde etmek istiyorsanız, uygulamanızı kullanıcıdan ek izinler istemeniz gerekir.  İki yeni kapsamlar – sunuyoruz `email` ve `profile` , bunu yapmak izin kapsamları –.
+Bu hello hello bilgi kısıtlama artık duyuyoruz `openid` kapsam uygulama erişiminizi ortaya koymaktadır.  Hello 'openıd' kapsamı yalnızca uygulama toosign hello kullanıcınız izin ve hello kullanıcı için uygulamaya özgü tanımlayıcıyı alır.  Uygulamanızda hello kullanıcı hakkında tooobtain kişisel bilgileri (PII) istiyorsanız, uygulamanızı toorequest hello kullanıcıdan ek izinler gerekir.  İki yeni kapsamlar – hello sunuyoruz `email` ve `profile` toodo şekilde izin kapsamları –.
 
-`email` Kapsamı çok basit – kullanıcının birincil e-posta adresi uygulama erişiminizi sağlayan `email` id_token talep.  `profile` Kapsam ortaya koymaktadır tüm diğer ilgili temel bilgileri kendi adı, tercih edilen kullanıcı adı, bir kullanıcının, uygulama erişimini nesne kimliği ve benzeri.
+Merhaba `email` kapsamı çok basit –, uygulama erişim toohello kullanıcının birincil e-posta adresi hello aracılığıyla verir `email` hello id_token talep.  Merhaba `profile` nesne kimliği kapsam ortaya koymaktadır, uygulama erişim tooall hello kullanıcı – kendi adı, tercih edilen kullanıcı adı, hakkındaki diğer temel bilgileri ve benzeri.
 
-Bu sayede uygulamanız açığa en az bir şekilde kod – uygulamanızı işini yapmak için gerektirdiği bilgiler kümesi için yalnızca kullanıcı sorabilirsiniz.  Bu kapsamları hakkında daha fazla bilgi için başvurmak [v2.0 kapsam başvurusu](active-directory-v2-scopes.md).
+Toocode bu sayede uygulamanız açığa en az bir şekilde – yalnızca uygulamanızı işini toodo gerektirdiği bilgiler hello kümesi için hello kullanıcı sorabilirsiniz.  Bu kapsamları hakkında daha fazla bilgi için çok başvuran[hello v2.0 kapsam başvurusu](active-directory-v2-scopes.md).
 
 ## <a name="token-claims"></a>Belirteç talep
-V2.0 uç noktası tarafından yayınlanan belirteçleri Taleplerde genel olarak kullanılabilir tarafından yayınlanan belirteçleri aynı olmayacak Azure AD uç noktaları - uygulamaları yeni Service'e geçirilmesi değil varsayın belirli bir talep id_tokens veya access_tokens var. V2.0 belirteçleri yayılan belirli talepler hakkında bilgi edinmek için [v2.0 belirteç başvurusu](active-directory-v2-tokens.md).
+Merhaba v2.0 uç noktası tarafından yayınlanan belirteçleri Hello Taleplerde hello Azure AD genel olarak kullanılabilir uç noktaları tarafından verilen aynı tootokens olmaz - toohello yeni hizmet geçirme uygulamalar belirli bir talep id_tokens veya access_tokens bulunacağı varsayımında bulunmamalıdır. toolearn hello belirli talepler v2.0 belirteçlerinde yayınlaması hakkında bkz hello [v2.0 belirteç başvurusu](active-directory-v2-tokens.md).
 
 ## <a name="limitations"></a>Sınırlamalar
-V2.0 noktası kullanırken dikkat edilmesi gereken bazı kısıtlamalar vardır.  Lütfen [v2.0 sınırlamaları belge](active-directory-v2-limitations.md) kısıtlamalarının hiçbirini özel senaryonuz için geçerli değilse görmek için.
+Merhaba v2.0 nokta kullanılırken farkında birkaç kısıtlamaları toobe vardır.  Lütfen toohello bakın [v2.0 sınırlamaları belge](active-directory-v2-limitations.md) herhangi biri bu kısıtlamalar tooyour belirli senaryoları geçerliyse toosee.

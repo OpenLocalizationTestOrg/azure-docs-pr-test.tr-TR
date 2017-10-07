@@ -1,5 +1,5 @@
 ---
-title: "Azure veritabanı sınırlamalarını PostgreSQL için | Microsoft Docs"
+title: "Azure veritabanı PostgreSQL için aaaLimitations | Microsoft Docs"
 description: "PostgreSQL Azure veritabanındaki sınırlamalar açıklanır."
 services: postgresql
 author: kamathsun
@@ -10,19 +10,19 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/01/2017
-ms.openlocfilehash: 38988fc5c0dc05331ea078534cd1a05e9eca2493
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f53dd240e55e0633bc1dfb8ad25e1818fa8ae18c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL Azure veritabanındaki sınırlamaları
-Azure veritabanı PostgreSQL hizmeti için genel önizlemede değil. Aşağıdaki bölümlerde, kapasite ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır.
+Hello Azure veritabanı PostgreSQL hizmeti için genel önizlemede değil. Merhaba aşağıdaki bölümlerde kapasite ve hello veritabanı hizmeti işlevsel sınırları açıklanmaktadır.
 
 ## <a name="service-tier-maximums"></a>Hizmet katmanı üst sınırlar
 Azure veritabanı PostgreSQL için bir sunucu oluştururken seçebileceğiniz birden çok hizmet katmanı içerir. Daha fazla bilgi için bkz: [her hizmet katmanında nelerin kullanılabildiğini anlama](concepts-service-tiers.md).  
 
-Olduğundan maksimum sayısını bağlantıları, işlem birimleri ve depolama her hizmet katmanında hizmet Önizleme sırasında şu şekilde: 
+Olduğundan maksimum sayısını bağlantıları, işlem birimleri ve depolama her hizmet katmanında hello hizmet Önizleme sırasında şu şekilde: 
 
 |                            |                   |
 | :------------------------- | :---------------- |
@@ -40,7 +40,7 @@ Olduğundan maksimum sayısını bağlantıları, işlem birimleri ve depolama h
 | Temel hizmet katmanı         | 1 TB              |
 | Standart hizmet katmanı      | 1 TB              |
 
-Çok fazla bağlantı erişildiğinde, aşağıdaki hata iletisini alabilirsiniz:
+Çok fazla bağlantı erişildiğinde, aşağıdaki hata hello alabilirsiniz:
 > Önemli: ne yazık ki zaten çok fazla sayıda istemci
 
 ## <a name="preview-functional-limitations"></a>Önizleme işlevsel sınırlamaları
@@ -56,10 +56,10 @@ Olduğundan maksimum sayısını bağlantıları, işlem birimleri ve depolama h
 - Önceden oluşturulmuş sunucuları abonelik ve kaynak grubu arasında dinamik olarak taşıma şu anda desteklenmiyor.
 
 ### <a name="point-in-time-restore"></a>belirli bir noktaya geri yükleme
-1.  Farklı bir hizmet katmanı ve/veya bir işlem birimleri ve depolama boyutu geri izin verilmiyor.
+1.  Toodifferent hizmet katmanı ve/veya işlem birimleri ve depolama boyutu geri izin verilmiyor.
 2.  Bırakılan bir sunucuya geri yüklenmesi desteklenmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Anlamak [her fiyatlandırma katmanının kullanılabilir](concepts-service-tiers.md)
 - Anlamak [PostgreSQL veritabanı sürümleri desteklenir](concepts-supported-versions.md)
-- Gözden geçirme [yedeklemek ve Azure veritabanındaki bir sunucu için Azure portalını kullanarak PostgreSQL geri yükleme](howto-restore-server-portal.md)
+- Gözden geçirme [nasıl tooBack yedeklemek ve geri yükleme PostgreSQL kullanmak için bir sunucu Azure veritabanındaki Azure portal hello](howto-restore-server-portal.md)

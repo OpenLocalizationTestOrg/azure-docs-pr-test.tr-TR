@@ -1,5 +1,5 @@
 ---
-title: "Azure MFA sunucusu yüksek kullanılabilirlik için yapılandırma | Microsoft Docs"
+title: "yüksek kullanılabilirlik için Azure MFA sunucusu aaaConfigure | Microsoft Docs"
 description: "Azure multi-Factor Authentication sunucusu yüksek kullanılabilirlik sağlamak yapılandırmalarında birden çok örneğini dağıtın."
 services: multi-factor-authentication
 keywords: Azure MFA
@@ -16,62 +16,62 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.openlocfilehash: 9f03e61e05383c309fb66b67e0641b17df5ab00f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8c6b1921c734c7a7273e443b3591fbbb15cd5e6c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Azure multi-Factor Authentication sunucusu yüksek kullanılabilirlik için yapılandırma
 
-Azure sunucusu MFA dağıtımınız ile yüksek kullanılabilirlik elde etmek için birden çok MFA sunucusu dağıtmak için gerekir. Bu bölümde, Azure MFS sunucu dağıtımı, yüksek kullanılabilirlik hedeflerini elde etmek için yük dengeli bir tasarım hakkında bilgiler sağlar.
+tooachieve yüksek oranda kullanılabilirlik Azure sunucu MFA dağıtımınız ile toodeploy gereken birden çok MFA sunucusu. Bu bölümde, Azure MFS sunucu dağıtımı, yüksek kullanılabilirlik hedeflerini bir yük dengeli tasarım tooachieve bilgi sağlar.
 
 ## <a name="mfa-server-overview"></a>MFA sunucusu genel bakış
 
-Azure MFA sunucusu hizmet mimarisi, aşağıdaki çizimde gösterildiği gibi birçok bileşenden oluşur:
+Hello Azure MFA sunucusu hizmet mimarisi diyagramı aşağıdaki hello gösterildiği gibi birçok bileşenden oluşur:
 
  ![MFA sunucusu mimarisi](./media/mfa-server-high-availability/mfa-ha-architecture.png)
 
-Azure multi-Factor Authentication yazılımı yüklü olan bir Windows Server bir MFA sunucusudur. MFA sunucusu örneğini Azure MFA hizmeti tarafından çalışması için etkinleştirilmesi gerekir. Birden fazla MFA sunucusu içi yüklü olabilir.
+MFA sunucusu hello Azure çok faktörlü kimlik doğrulaması yazılımı yüklü olan bir Windows sunucusudur. Merhaba MFA sunucusu örneğini Azure toofunction hello MFA hizmeti tarafından etkinleştirilmesi gerekir. Birden fazla MFA sunucusu içi yüklü olabilir.
 
-Yüklü ilk MFA sunucusu MFA sunucusu varsayılan olarak Azure MFA hizmeti tarafından etkinleştirme sırasında yöneticisidir. Ana MFA sunucusu PhoneFactor.pfdata veritabanı yazılabilir bir kopyası bulunur. MFA sunucusu örneklerinin sonraki yüklemelerini slaves bilinir. MFA slaves çoğaltılmış salt okunur veritabanının bir kopyasını PhoneFactor.pfdata sahip. MFA sunucusu uzak yordam çağrısı (RPC) kullanarak bilgileri çoğaltarak. Tüm MFA sunucularının topluca ya da etki alanına katılmış veya bilgi çoğaltmak için tek başına olması gerekir.
+yüklenen ilk MFA sunucusu hello hello Azure MFA hizmeti varsayılan olarak etkinleştirme sırasında ana MFA sunucusu hello. Hello Yöneticisi MFA sunucusu hello PhoneFactor.pfdata veritabanı yazılabilir bir kopyası bulunur. MFA sunucusu örneklerinin sonraki yüklemelerini slaves bilinir. Merhaba MFA slaves çoğaltılmış salt okunur veritabanının bir kopyasını hello PhoneFactor.pfdata sahip. MFA sunucusu uzak yordam çağrısı (RPC) kullanarak bilgileri çoğaltarak. Tüm MFA sunucularının topluca ya da etki alanına katılmış veya tek başına tooreplicate bilgileri olması gerekir.
 
-İki faktörlü kimlik doğrulaması gerekli olduğunda MFA ana ve bağımlı MFA sunucuları MFA hizmetiyle iletişim kurar. Örneğin, bir kullanıcı iki öğeli kimlik doğrulama gerektiren bir uygulamaya erişim girişiminde bulunduğunda, kullanıcı ilk gibi Active Directory (AD) bir kimlik sağlayıcısı tarafından doğrulanır.
+İki faktörlü kimlik doğrulaması gerekli olduğunda MFA ana ve bağımlı MFA sunucuları hello MFA hizmeti ile iletişim kurar. Örneğin, bir kullanıcı iki öğeli kimlik doğrulama gerektiren toogain erişim tooan uygulama çalıştığında hello kullanıcı ilk gibi Active Directory (AD) bir kimlik sağlayıcısı tarafından doğrulanır.
 
-AD ile başarılı kimlik doğrulamasından sonra MFA sunucusu MFA hizmetiyle iletişim kurar. MFA sunucusu veya uygulama için kullanıcı erişimini reddetmek için MFA hizmetinden bildirim bekler.
+AD ile başarılı kimlik doğrulamasından sonra MFA sunucusu hello hello MFA hizmeti ile iletişim kurar. Merhaba MFA sunucusu hello MFA hizmeti tooallow bildirimden bekler veya hello kullanıcı erişimi toohello uygulaması reddedin.
 
-MFA ana sunucu çevrimdışı olursa, kimlik doğrulamaları hala işlenebilir, ancak MFA veritabanında yapılan değişiklikler gerektiren işlemler işlenemiyor. (Örnekler: Ayrıca kullanıcılar, Self Servis PIN değişiklikleri ve kullanıcı bilgilerini değiştirme)
+Merhaba MFA ana sunucu çevrimdışı olursa, kimlik doğrulamaları hala işlenebilir, ancak değişiklikleri toohello MFA veritabanı gerektiren işlemler işlenemiyor. (Örnekler: Merhaba Ayrıca kullanıcılar, Self Servis PIN değişiklikleri ve kullanıcı bilgilerini değiştirme)
 
 ## <a name="deployment"></a>Dağıtım
 
-Yük Dengeleme Azure MFA sunucusu ve ilişkili bileşenler için aşağıdaki önemli noktaları göz önünde bulundurun.
+Yük Dengeleme Azure MFA sunucusu ve ilişkili bileşenler için önemli noktalar aşağıdaki hello göz önünde bulundurun.
 
-* **Yüksek kullanılabilirlik elde etmek için RADIUS Standart kullanarak**. RADIUS sunucuları olarak Azure MFA sunucuları kullanıyorsanız, bir MFA sunucusu birincil RADIUS kimlik doğrulaması hedefi ve diğer Azure MFA sunucusu ikincil kimlik doğrulama hedefleri olarak potansiyel olarak yapılandırabilirsiniz. Ancak, ikincil kimlik doğrulama hedefe karşı doğrulanabilmesinden önce birincil kimlik doğrulaması hedef kimlik doğrulama başarısız olduğunda gerçekleşmesi bir zaman aşımı süresi beklemeniz gerekir çünkü yüksek kullanılabilirlik elde etmek için bu yöntem pratik olmayabilir. RADIUS istemcisi ve RADIUS sunucuları (Bu durumda, Azure MFA RADIUS sunucuları olarak hareket sunucuları) arasındaki RADIUS trafiği dengelemek için daha verimlidir böylelikle işaret edebilir tek bir URL ile RADIUS istemcileri yapılandırabilirsiniz.
-* **MFA slaves el ile yükseltmeniz gerektiği**. Ana Azure MFA sunucusunun çevrimdışı olması durumunda ikincil Azure MFA sunucuları MFA istekleri işlemeye devam eder. Ancak, bir ana MFA sunucusu kullanılabilir olana kadar Yöneticileri olmayan kullanıcılar ekleyebilir veya MFA ayarları değiştirebilirsiniz ve kullanıcılar Kullanıcı Portalı'nı kullanarak değişiklik yapabilirsiniz değil. MFA ikincil ana rolüne yükseltme her zaman el ile bir işlemdir.
-* **Bileşenlerinin separability**. Azure MFA sunucusu, aynı Windows Server örneğine veya farklı örneklerinde yüklü birçok bileşenden oluşur. Bu bileşenler, kullanıcı portalı, mobil uygulama Web hizmeti ve ADFS bağdaştırıcı (aracı) içerir. Bu separability Kullanıcı Portalı ile mobil uygulama Web sunucusu çevre ağından yayımlamak için Web uygulaması proxy'si kullanmayı mümkün kılar. Bu tür bir yapılandırma, aşağıdaki çizimde gösterildiği gibi tasarımınızın genel güvenlik ekler. Ayrıca MFA Kullanıcı Portalı ve mobil uygulama Web sunucusu HA yük dengeli yapılandırmasında dağıtılabilir.
+* **RADIUS Standart tooachieve yüksek kullanılabilirlik kullanarak**. RADIUS sunucuları olarak Azure MFA sunucuları kullanıyorsanız, bir MFA sunucusu birincil RADIUS kimlik doğrulaması hedefi ve diğer Azure MFA sunucusu ikincil kimlik doğrulama hedefleri olarak potansiyel olarak yapılandırabilirsiniz. Merhaba ikincil kimlik doğrulamasını doğrulanabilmesinden önce hello birincil kimlik doğrulaması hedefte kimlik doğrulama başarısız olduğunda bir zaman aşımı dönemi toooccur için beklemeniz gerekir çünkü ancak, bu yöntem tooachieve yüksek kullanılabilirlik pratik olmayabilir Hedef. Daha verimli tooload hello RADIUS arasındaki trafiğin yükünü dengelemek hello RADIUS istemcisi ve hello RADIUS sunucuları (Bu durumda, hello Azure MFA RADIUS sunucuları olarak hareket sunucuları) olan böylelikle işaret edebilir tek bir URL ile Merhaba RADIUS istemcileri yapılandırabilirsiniz.
+* **Toomanually MFA slaves Yükselt**. Hello Yöneticisi Azure MFA sunucusunun çevrimdışı olması durumunda hello ikincil Azure MFA sunucuları tooprocess MFA istekleri devam eder. Ancak, bir ana MFA sunucusu kullanılabilir olana kadar Yöneticileri olmayan kullanıcılar ekleyebilir veya MFA ayarları değiştirebilirsiniz ve kullanıcılar hello kullanıcı portalı kullanarak değişiklikleri yapabilirler değil. Bir MFA bağımlı toohello yöneticisi rolü yükseltme her zaman el ile bir işlemdir.
+* **Bileşenlerinin separability**. Azure MFA sunucusu oluşur yüklenebilir çeşitli bileşenleri hello hello aynı Windows Server örneği veya farklı örnekleri. Bu bileşenlerin hello Kullanıcı Portalı, mobil uygulama Web hizmeti ve hello ADFS bağdaştırıcı (aracı) içerir. Bu separability olası toouse hello Web uygulaması proxy'si toopublish hello Kullanıcı Portalı ve mobil uygulama Web sunucusu hello çevre ağından kolaylaştırır. Bu tür bir yapılandırma toohello ekler hello Aşağıdaki diyagramda gösterildiği gibi tasarımın genel güvenlik. Ayrıca Hello MFA Kullanıcı Portalı ve mobil uygulama Web sunucusu HA yük dengeli yapılandırmasında dağıtılabilir.
 
    ![MFA sunucusu çevre ağı ile](./media/mfa-server-high-availability/mfasecurity.png)
 
-* **Tek kullanımlık parola (OTP) SMS (diğer adıyla tek yönlü SMS) üzerinden trafik yükü dengelenmiş ise Yapışkan oturumları kullanılmasını gerektiren**. Tek yönlü SMS kullanıcılar bir OTP içeren bir kısa mesaj göndermek için MFA sunucusunu neden olan bir kimlik doğrulama seçenektir. Kullanıcı, OTP MFA testini tamamlamanız için bir komut istemi penceresinde girer. Azure MFA sunucuları dengelemek ilk kimlik doğrulaması isteği sunan sunucunun kullanıcıdan OTP iletiyi alır sunucu olması gerekir; başka bir MFA sunucusu OTP yanıt alırsa, kimlik doğrulaması sınaması başarısız olur. Daha fazla bilgi için bkz: [SMS eklenen Azure MFA sunucusu üzerinden bir zaman parola](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server).
-* **Yük dengeli dağıtımı Kullanıcı Portalı ve mobil uygulama Web hizmeti gerektirir Yapışkan oturumları**. Yük MFA Kullanıcı Portalı ile mobil uygulama Web hizmeti Dengeleme izliyorsanız, aynı sunucuda kalmak her oturum gerekir.
+* **Tek kullanımlık parola (OTP) SMS (diğer adıyla tek yönlü SMS) üzerinden trafik yükü dengelenmiş ise Yapışkan oturumları hello kullanılmasını gerektiren**. Tek yönlü SMS hello MFA sunucusu toosend hello kullanıcılar bir OTP içeren bir kısa mesaj neden olan bir kimlik doğrulama seçenektir. Merhaba kullanıcı, bir komut istemi penceresi toocomplete hello MFA testini hello OTP girer. Azure MFA sunucuları dengelemek hello hello ilk kimlik doğrulaması isteği sunan aynı sunucu hello OTP ileti hello kullanıcıdan alır hello sunucu olması gerekir; başka bir MFA sunucusu hello OTP yanıt alırsa, hello kimlik doğrulaması sınaması başarısız olur. Daha fazla bilgi için bkz: [SMS eklenen tooAzure MFA sunucusu üzerinden bir zaman parola](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server).
+* **Yük dengeli dağıtımı hello Kullanıcı Portalı ve mobil uygulama Web hizmeti gerektirir Yapışkan oturumları**. Yük Dengeleme varsa MFA Kullanıcı Portalı hello ve hello mobil uygulama Web hizmeti, her oturum gerekiyor toostay hello üzerinde aynı sunucu.
 
 ## <a name="high-availability-deployment"></a>Yüksek kullanılabilirlik dağıtımı
 
-Aşağıdaki diyagramda, tam bir HA yük dengeli uygulama, Azure MFA ve başvuru için ADFS birlikte bileşenlerinin gösterir.
+Merhaba Aşağıdaki diyagramda tam bir HA yük dengeli uygulama, Azure MFA ve başvuru için ADFS birlikte bileşenlerinin gösterilmektedir.
 
  ![Azure MFA Server HA uygulama](./media/mfa-server-high-availability/mfa-ha-deployment.png)
 
-Önceki diyagramda gelenlere numaralı alanı için aşağıdaki öğelerden unutmayın.
+Aşağıdaki diyagram önceki hello gelenlere numaralı hello alanı için öğelerindeki hello unutmayın.
 
-1. İki Azure MFA sunucusu (MFA1 ve MFA2) yükü dengelenmiş (mfaapp.contoso.com) ve statik bağlantı noktasını kullanmak üzere yapılandırılmış PhoneFactor.pfdata veritabanı çoğaltmak için (4443). Web hizmeti SDK'sı her ADFS sunucularıyla TCP bağlantı noktası 443 üzerinden iletişimi etkinleştirmek için MFA sunucusu yüklenir. MFA sunucusu, durum bilgisi olmayan bir yük dengeli yapılandırmasında dağıtılır. Ancak, OTP SMS kullanmak istiyorsanız, durum bilgisi olan Yük Dengeleme kullanmanız gerekir.
+1. iki Azure MFA sunucusu (MFA1 ve MFA2) hello Dengeli (mfaapp.contoso.com) yükleyin ve bir statik bağlantı noktası (4443) tooreplicate hello PhoneFactor.pfdata veritabanı yapılandırılmış toouse şunlardır. Merhaba Web hizmeti SDK'sı her hello MFA sunucusu tooenable iletişimi hello ADFS sunucularıyla TCP bağlantı noktası 443 üzerinden yüklenir. Hello MFA sunucusu, durum bilgisi olmayan bir yük dengeli yapılandırmasında dağıtılır. Ancak, toouse OTP SMS istediyseniz, durum bilgisi olan Yük Dengeleme kullanmanız gerekir.
    ![Azure MFA Server - App server HA](./media/mfa-server-high-availability/mfaapp.png)
 
    > [!NOTE]
-   > RPC dinamik bağlantı noktaları kullandığından, güvenlik duvarları RPC potansiyel olarak kullanabileceğiniz dinamik bağlantı noktaları aralığı kadar açmak için önerilmez. Bir güvenlik duvarınız varsa **arasında** MFA uygulama sunucularınızın bağımlı ve asıl sunucuları arasındaki çoğaltma trafiği için statik bir bağlantı noktası iletişim ve güvenlik duvarını Bu bağlantı noktasını açmak için MFA sunucusunu yapılandırmanız gerekir. Bir DWORD kayıt defteri değerinde oluşturarak statik bağlantı noktası zorlayabilirsiniz ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` adlı ```Pfsvc_ncan_ip_tcp_port``` ve kullanılabilir bir statik bağlantı noktası değerini ayarlar. Bağlantıları her zaman ana bağımlı MFA sunucuları tarafından başlatılan, statik bağlantı noktası yalnızca ana gereklidir, ancak bağımlı herhangi bir zamanda ana olacak şekilde yükseltebilirsiniz olduğundan, tüm MFA sunucularında statik bağlantı noktasına ayarlamanız gerekir.
+   > RPC dinamik bağlantı noktaları kullandığından, RPC potansiyel olarak kullanabileceğiniz dinamik bağlantı noktaları toohello aralığı yukarı tooopen güvenlik duvarları önerilmez. Bir güvenlik duvarınız varsa **arasında** MFA uygulama sunucularınızın hello MFA sunucusu toocommunicate statik bağlantı noktası, bağlantı noktası hello çoğaltma trafiği için bağımlı ve asıl sunucuları arasındaki ve açık güvenlik duvarını yapılandırmanız gerekiyor. Bir DWORD kayıt defteri değerinde oluşturarak hello statik bağlantı noktası zorlayabilirsiniz ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` adlı ```Pfsvc_ncan_ip_tcp_port``` ve tooan kullanılabilir statik bağlantı noktası hello değerini ayarlar. Her zaman hello bağımlı MFA sunucuları toohello Yöneticisi tarafından başlatılan bağlantıları, hello statik bağlantı noktası yalnızca hello yöneticisinde gereklidir, ancak herhangi bir zamanda bir ikincil toobe hello ana yükseltebilirsiniz olduğundan, tüm MFA sunucularında hello statik bağlantı noktasına ayarlamanız gerekir.
 
-2. İki kullanıcı portalı/MFA mobil uygulama sunucularını (MFA yukarı MAS1 ve MFA yukarı MAS2) içinde dengeleneceğini bir **durum bilgisi olan** yapılandırma (mfa.contoso.com). Yapışkan oturumları Yük Dengeleme MFA Kullanıcı Portalı ve mobil uygulama hizmeti için bir gereksinim olan bir geri çağırma.
+2. Merhaba iki kullanıcı portalı/MFA mobil uygulama (MFA yukarı MAS1 ve MFA yukarı MAS2) sunucularıdır içinde dengelendiği bir **durum bilgisi olan** yapılandırma (mfa.contoso.com). Yapışkan oturumları Yük Dengeleme hello MFA Kullanıcı Portalı ve mobil uygulama hizmeti için bir gereksinim olan bir geri çağırma.
    ![Azure MFA sunucusu - kullanıcı portalı ile mobil uygulama hizmeti HA](./media/mfa-server-high-availability/mfaportal.png)
-3. ADFS sunucu grubu yükü dengelenir ve Yük Dengelemesi ADFS proxy'leri çevre ağındaki üzerinden internet yayımlanan ' dir. Her ADFS sunucusu ADFS Aracısı TCP bağlantı noktası 443 bir tek bir yük dengeli URL (mfaapp.contoso.com) kullanarak Azure MFA sunucularıyla iletişim kurmak için kullanır.
+3. Merhaba ADFS sunucu grubu yük dengeli ve hello çevre ağında toohello Internet yük dengeli ADFS proxy üzerinden yayımlanan ' dir. Her ADFS sunucusu hello ADFS Aracısı toocommunicate hello Azure MFA TCP bağlantı noktası 443 bir tek bir yük dengeli URL (mfaapp.contoso.com) kullanarak sunucuları ile kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

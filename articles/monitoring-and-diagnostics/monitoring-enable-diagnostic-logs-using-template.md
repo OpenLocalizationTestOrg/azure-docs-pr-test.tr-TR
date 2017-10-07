@@ -1,6 +1,6 @@
 ---
-title: "Otomatik olarak bir Resource Manager şablonu kullanarak tanılama ayarlarını etkinleştirin | Microsoft Docs"
-description: "Tanılama günlüklerinize Event hubs'a akışla aktarmak veya bir depolama hesabında depolamak sağlayacak tanılama ayarları oluşturmak için Resource Manager şablonu kullanmayı öğrenin."
+title: "aaaAutomatically tanılama Resource Manager şablonu kullanarak ayarlarını etkinleştir | Microsoft Docs"
+description: "Bilgi nasıl toouse Resource Manager toostream etkinleştirecek şablonu toocreate tanılama ayarlarını, tanılama günlüklerini tooEvent hub'ları veya bir depolama hesabında depolamak."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2017
 ms.author: johnkem
-ms.openlocfilehash: dde2435e976bbd14ca35cccc714ea21dcc5817b7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8f38731107029928029c6d940da7bd076fea5d49
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak kaynak oluşturma sırasında otomatik olarak tanılama ayarlarını etkinleştirin
-Bu makalede biz nasıl kullanabileceğinizi gösterir. bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) oluşturulduğunda bir kaynakta tanılama ayarlarını yapılandırmak için. Bu, tanılama günlüklerini ve Event Hubs, bir depolama hesabında arşivleme veya bir kaynak oluşturulduğunda için günlük analizi göndererek ölçümlere akış otomatik olarak başlatılmasını sağlar.
+Bu makalede biz nasıl kullanabileceğinizi gösterir. bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) tooconfigure tanılama ayarlarını oluşturulduğunda kaynak üzerinde. Bu, tanılama günlüklerini ve ölçümleri tooEvent bir depolama hesabında arşivleme veya bir kaynak oluşturulduğunda tooLog Analytics göndererek hub akış tooautomatically başlangıç sağlar.
 
-Resource Manager şablonu kullanarak tanılama günlüklerini etkinleştirme yöntemi kaynak türüne bağlıdır.
+Tanılama günlüklerini Resource Manager şablonu kullanarak etkinleştirmek için hello yöntemi hello kaynak türüne bağlıdır.
 
 * **İşlem olmayan** kaynakları (örneğin, ağ güvenlik grupları, Logic Apps Otomasyonu) kullanmak [tanılama bu makalede açıklanan ayarlarını](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-* **İşlem** (WAD/LAD tabanlı) kaynakları kullanmak [WAD/LAD yapılandırma dosyasını bu makalede açıklanan](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **İşlem** (WAD/LAD tabanlı) kaynakları hello kullan [WAD/LAD yapılandırma dosyasını bu makalede açıklanan](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
-Bu makalede her iki yöntemi kullanarak tanılama yapılandırma açıklanmaktadır.
+Biz bu makalede açıklamak nasıl her iki yöntemi kullanarak tooconfigure tanılama.
 
-Temel adımlar aşağıdaki gibidir:
+Merhaba temel adımlar aşağıdaki gibidir:
 
-1. Bir şablonu kaynak oluşturmak ve tanılama etkinleştirmek nasıl açıklayan bir JSON dosyası olarak oluşturun.
-2. [Herhangi bir dağıtım yöntemi kullanarak şablonu dağıtmak](../azure-resource-manager/resource-group-template-deploy.md).
+1. Bir şablonu nasıl toocreate kaynak hello ve tanılamayı etkinleştirin açıklayan bir JSON dosyası olarak oluşturun.
+2. [Herhangi bir dağıtım yöntemi kullanarak hello şablonu dağıtmak](../azure-resource-manager/resource-group-template-deploy.md).
 
-Aşağıdaki işlem dışı ve işlem kaynakları için oluşturmak için gereken şablon JSON dosyası örneği sunuyoruz.
+Aşağıda hello şablonu toogenerate işlem dışı ve işlem kaynakları için gereksinim duyduğunuz JSON dosyası örneği sunuyoruz.
 
 ## <a name="non-compute-resource-template"></a>İşlem olmayan kaynak şablonu
-İşlem dışı kaynaklar için iki işlem yapmanız gerekir:
+İşlem olmayan kaynakları toodo iki şey gerekir:
 
-1. Depolama hesabı adı, hizmet veri yolu kural kimliği ve/veya OMS günlük analizi çalışma alanı kimliği (tanılama günlüklerini arşivleme Event hubs'a günlükler akış ve/veya günlükleri göndermek için günlük analizi depolama hesabında etkinleştirmek) için parametreleri blob parametreleri ekleyin.
+1. Parametreleri toohello parametreleri blob hello depolama hesabı adı, hizmet veri yolu kural kimliği ve/veya OMS günlük analizi çalışma alanı kimliği (günlükleri tooEvent Hubs akış ve/veya günlükleri tooLog Analytics gönderme depolama hesabı, tanılama günlüklerini arşivleme etkinleştirmek) ekleyin.
    
     ```json
     "storageAccountName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
+        "description": "Name of hello Storage Account in which Diagnostic Logs should be saved."
       }
     },
     "serviceBusRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Service Bus Rule Id for hello Service Bus Namespace in which hello Event Hub should be created or streamed to."
       }
     },
     "workspaceId":{
       "type": "string",
       "metadata": {
-        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+        "description": "Log Analytics workspace ID for hello Log Analytics workspace toowhich logs will be sent."
       }
     }
     ```
-2. Tanılama günlüklerini etkinleştirmek istediğiniz kaynak kaynakları dizisinde bir kaynak türü ekleyin `[resource namespace]/providers/diagnosticSettings`.
+2. Hello kaynakları dizisinde tooenable tanılama günlüklerini istediğiniz hello kaynağının, bir kaynak türü eklemek `[resource namespace]/providers/diagnosticSettings`.
    
     ```json
     "resources": [
@@ -102,9 +102,9 @@ Aşağıdaki işlem dışı ve işlem kaynakları için oluşturmak için gereke
     ]
     ```
 
-Tanılama ayarını özellikleri blob izleyen [bu makalede açıklanan biçimde](https://msdn.microsoft.com/library/azure/dn931931.aspx). Ekleme `metrics` özelliği, sağlanan bu aynı çıktıları kaynak ölçümleri de göndermenizi etkinleştirecek [kaynak Azure İzleyici ölçümleri destekleyen](monitoring-supported-metrics.md).
+Merhaba hello tanılama ayarını için özellikler blob izleyen [bu makalede açıklanan hello biçimi](https://msdn.microsoft.com/library/azure/dn931931.aspx). Ekleme hello `metrics` özelliğini etkinleştirir, aynı çıkarır, sağlanan, tooalso gönderme kaynak ölçümleri toothese [hello kaynak destekleyen Azure İzleyici ölçümleri](monitoring-supported-metrics.md).
 
-Aşağıda, bir mantıksal uygulama oluşturan ve olay hub'ları ve depolama hesabındaki depolama akışı kapatır tam bir örnek verilmiştir.
+Aşağıda, bir mantıksal uygulama oluşturan ve akış tooEvent hub'lar ve bir depolama hesabındaki depolama kapatır tam bir örnek verilmiştir.
 
 ```json
 
@@ -115,7 +115,7 @@ Aşağıda, bir mantıksal uygulama oluşturan ve olay hub'ları ve depolama hes
     "logicAppName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Logic App that will be created."
+        "description": "Name of hello Logic App that will be created."
       }
     },
     "testUri": {
@@ -125,19 +125,19 @@ Aşağıda, bir mantıksal uygulama oluşturan ve olay hub'ları ve depolama hes
     "storageAccountName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
+        "description": "Name of hello Storage Account in which Diagnostic Logs should be saved."
       }
     },
     "serviceBusRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Service Bus Rule Id for hello Service Bus Namespace in which hello Event Hub should be created or streamed to."
       }
     },
     "workspaceId": {
       "type": "string",
       "metadata": {
-        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+        "description": "Log Analytics workspace ID for hello Log Analytics workspace toowhich logs will be sent."
       }
     }
   },
@@ -224,20 +224,20 @@ Aşağıda, bir mantıksal uygulama oluşturan ve olay hub'ları ve depolama hes
 ```
 
 ## <a name="compute-resource-template"></a>Kaynak şablonu işlem
-İşlem kaynak üzerinde tanılamayı etkinleştirmek için örneğin bir sanal makine ya da Service Fabric kümesi, gerekir:
+Örneğin bir sanal makine veya Service Fabric kümesi, bir işlem kaynağına tooenable tanılama şunları yapmanız gerekir:
 
-1. Azure tanılama uzantısını VM kaynak tanımına ekleyin.
+1. Hello Azure tanılama uzantısını toohello VM kaynak tanımını ekleyin.
 2. Bir depolama hesabı ve/veya olay hub'ı bir parametre olarak belirtin.
-3. WADCfg XML dosyasının içeriğini tüm XML karakterleri düzgün kaçış XMLCfg özelliği ekleyin.
+3. WADCfg XML dosyanızı Merhaba içeriğine tüm XML karakterleri düzgün kaçış hello XMLCfg özelliğinin içine ekleyin.
 
 > [!WARNING]
-> Bu son adım sağ almak zor olabilir. [Bu makaleye bakın](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) tanılama yapılandırma şeması kaçışlı ve doğru biçimlendirilmiş değişkenleri böler bir örnek.
+> Bu son adım, hassas tooget sağ olabilir. [Bu makaleye bakın](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) bölmelerini kaçışlı ve doğru biçimlendirilmiş değişkenleri tanılama yapılandırma şeması hello bir örnek.
 > 
 > 
 
-Örnekler dahil olmak üzere tüm işlem açıklanan [bu belgedeki](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Merhaba, örnekler dahil olmak üzere tüm işlem açıklanan [bu belgedeki](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Azure tanılama günlükleri hakkında daha fazla bilgi](monitoring-overview-of-diagnostic-logs.md)
-* [Akış olay hub'ları için Azure tanılama günlükleri](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Akış Azure tanılama günlükleri tooEvent hub'lar](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Data factory'de veri yönetimi ağ geçidi ile yüksek kullanılabilirlik | Microsoft Docs"
+title: "Azure Data factory'de veri yönetimi ağ geçidi ile aaaHigh kullanılabilirliğini | Microsoft Docs"
 description: "Bu makalede daha fazla düğüm ve ölçek ekleyerek veri yönetimi ağ geçidi nasıl ölçeklendirebilirsiniz açıklanmaktadır yukarı bir düğümde çalıştırılabilen eşzamanlı iş sayısını artırarak."
 services: data-factory
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
-ms.openlocfilehash: b6bf353a2bad28b0db3a88e971e5c6b209b7ab2b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 925f63728e23596bca2655636f6535b509fce0b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Veri Yönetimi ağ geçidi - yüksek kullanılabilirlik ve ölçeklenebilirlik (Önizleme)
 Bu makalede veri yönetimi ağ geçidi ile yüksek kullanılabilirlik ve ölçeklenebilirlik çözümü yapılandırmanıza yardımcı olur.    
@@ -25,138 +25,138 @@ Bu makalede veri yönetimi ağ geçidi ile yüksek kullanılabilirlik ve ölçek
 > [!NOTE]
 > Bu makale, veri yönetimi ağ geçidi temelleri ile bilginiz olduğunu varsayar. Emin değilseniz, bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md).
 
->**Bu önizleme özelliği resmi olarak veri yönetimi ağ geçidi sürümü 2.12.xxxx.x ve üzeri sürümlerde desteklenen**. Lütfen sürüm 2.12.xxxx.x kullandığınızdan emin olun veya üstü. Veri Yönetimi ağ geçidi en son sürümünü indirme [burada](https://www.microsoft.com/download/details.aspx?id=39717).
+>**Bu önizleme özelliği resmi olarak veri yönetimi ağ geçidi sürümü 2.12.xxxx.x ve üzeri sürümlerde desteklenen**. Lütfen sürüm 2.12.xxxx.x kullandığınızdan emin olun veya üstü. Veri Yönetimi ağ geçidi Hello en son sürümünü indirme [burada](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="overview"></a>Genel Bakış
-Tek bir mantıksal ağ geçidi portalından sahip birden çok şirket içi makinelerde yüklü veri yönetimi ağ geçidi ilişkilendirebilirsiniz. Bu makineler adlı **düğümleri**. En fazla olabilir **dört düğüm** mantıksal bir ağ geçidi ile ilişkilendirilmiş. Mantıksal bir ağ geçidi için birden çok düğüm (yüklü ağ geçidi ile şirket içi makineler) sahip avantajları şunlardır:  
+Tek bir mantıksal ağ geçidi hello portalından sahip birden çok şirket içi makinelerde yüklü veri yönetimi ağ geçidi ilişkilendirebilirsiniz. Bu makineler adlı **düğümleri**. Çok bulunabilir**dört düğüm** mantıksal bir ağ geçidi ile ilişkilendirilmiş. mantıksal bir ağ geçidi için birden çok düğüm (yüklü ağ geçidi ile şirket içi makineler) sahip hello avantajları şunlardır:  
 
 - Şirket içi ve bulut arasında veri taşıma performansını verileri depolar.  
-- Herhangi bir nedenden dolayı düğümlerinden biri arıza yaparsa, diğer düğümler veri taşımak için hala kullanılabilmektedir. 
-- Bir düğümünde bakım için çevrimdışı duruma ihtiyacınız varsa, diğer düğümler veri taşımak için hala kullanılabilir durumdadır.
+- Herhangi bir nedenden dolayı hello düğümlerinden biri arıza yaparsa, diğer düğümler hello veri taşımak için hala kullanılabilmektedir. 
+- Merhaba düğümlerinden biri bakım için çevrimdışına toobe ihtiyacınız varsa, diğer düğümlere hello veri taşımak için hala kullanılabilmektedir.
 
-Sayısı da yapılandırabilirsiniz **eş zamanlı veri taşıma işleri** şirket içi ve bulut arasında veri taşıma özelliği ölçeklendirmek için bir düğüm üzerinde çalışabilir veri depolarına. 
+Merhaba sayısı da yapılandırabilirsiniz **eş zamanlı veri taşıma işleri** düğümü tooscale şirket içi ve bulut arasında veri taşıma hello yetenek yukarı üzerinde çalışabilir veri depolarına. 
 
-Azure Portalı'nı kullanarak, bir düğüm mantıksal ağ geçidi'nden ekleyip karar vermenize yardımcı olan bu düğümler durumunu izleyebilirsiniz. 
+Hello Azure portal kullanarak, hello karar vermenize yardımcı olan bu düğümler durumunu izleyebilirsiniz olup olmadığını tooadd veya bir düğüm hello mantıksal ağ geçidi'nden kaldırın. 
 
 ## <a name="architecture"></a>Mimari 
-Aşağıdaki diyagramda mimari genel bakış ölçeklenebilirlik ve kullanılabilirlik özelliği veri yönetimi ağ geçidi sağlar: 
+Merhaba Aşağıdaki diyagramda hello mimarisine genel bakış ölçeklenebilirlik ve kullanılabilirlik özelliğini hello veri yönetimi ağ geçidi sağlar: 
 
 ![Veri Yönetimi ağ geçidi - yüksek kullanılabilirlik ve ölçeklenebilirlik](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
 
-A **mantıksal ağ geçidi** Azure Portal'daki data factory eklediğiniz ağ geçididir. Daha önce veri yönetimi ağ geçidi mantıksal bir ağ geçidi ile yüklü olan yalnızca bir şirket içi Windows makine ilişkilendirme. Bu ağ geçidi makinesi bir düğüm olarak adlandırılan şirket içi. En fazla şimdi ilişkilendirebilirsiniz **dört fiziksel düğüm** mantıksal bir ağ geçidi ile. Mantıksal bir ağ geçidi birden çok düğüm ile adlı bir **çok düğümlü ağ geçidi**.  
+A **mantıksal ağ geçidi** hello ağ geçidi hello Azure portal tooa veri fabrikası ekleyin. Daha önce veri yönetimi ağ geçidi mantıksal bir ağ geçidi ile yüklü olan yalnızca bir şirket içi Windows makine ilişkilendirme. Bu ağ geçidi makinesi bir düğüm olarak adlandırılan şirket içi. Şimdi, Yukarı çok ilişkilendirebilirsiniz**dört fiziksel düğüm** mantıksal bir ağ geçidi ile. Mantıksal bir ağ geçidi birden çok düğüm ile adlı bir **çok düğümlü ağ geçidi**.  
 
-Bu düğümler **etkin**. Tüm şirket içi ve bulut arasında veri taşımak için veri taşıma işleri işleyebilmesi için verileri depolar. Düğümlerden birinde dağıtıcısı ve çalışan davranır. Diğer düğümlere gruplar halinde çalışan düğümleri ' dir. A **dağıtıcısı** düğümü veri taşıma görevleri/işleri bulut hizmetinden çeker ve çalışan düğümlerine (kendisi dahil) gönderir. A **çalışan** düğümü şirket içi ve bulut arasında veri taşımak için veri taşıma işlerini yürütür verileri depolar. Tüm düğümleri çalışanlardır. Yalnızca bir düğüm, gönderme ve çalışan olabilir.    
+Bu düğümler **etkin**. Tüm şirket içi ve bulut arasında veri taşıma işleri toomove veri işleyebilir verileri depolar. Merhaba düğümlerinden biri dağıtıcısı ve çalışan davranır. Diğer düğümlere hello gruplar halinde çalışan düğümleri ' dir. A **dağıtıcısı** düğümü veri taşıma görevleri/işleri hello bulut hizmetinden çeker ve tooworker düğümleri (kendisi dahil) gönderir. A **çalışan** düğümü yürütür şirket içi ve bulut arasında veri taşıma işleri toomove verileri veri depoları. Tüm düğümleri çalışanlardır. Yalnızca bir düğüm, gönderme ve çalışan olabilir.    
 
-Tek bir düğüm genellikle başlayabilir ve **ölçeğini** varolan düğümlerini veri taşıma yük ile çok gibi daha fazla düğüm eklemek için. Ayrıca **ölçeği** düğümde çalışmasına izin verilen eşzamanlı iş sayısını artırarak bir ağ geçidi düğümü, veri taşıma özelliği. Bu özellik, tek bir düğüm ile ağ geçidi (ölçeklenebilirlik ve kullanılabilirlik özelliği etkin değilse bile) de kullanılabilir. 
+Tek bir düğüm genellikle başlayabilir ve **ölçeğini** varolan düğümlerini hello gibi daha fazla düğüm hello veri taşıma yük ile çok tooadd. Ayrıca **ölçeği** hello veri taşıma özelliği bir ağ geçidi düğümünün hello toorun hello düğümünde izin verilen eşzamanlı iş sayısını artırarak. Bu özellik, tek bir düğüm ile ağ geçidi (Merhaba ölçeklenebilirlik ve kullanılabilirlik özelliği etkin değilse bile) de kullanılabilir. 
 
-Bir ağ geçidi birden çok düğüm ile veri deposu kimlik tüm düğümlere eşitlenmiş tutar. Bir düğümden düğüme bağlantı sorunu varsa, kimlik bilgileri eşitlenmemiş olabilir. Bir ağ geçidi kullanan bir şirket içi veri deposu için kimlik bilgilerini ayarladığınızda, dağıtıcı/çalışan düğümünde kimlik bilgileri kaydeder. Dağıtıcı düğümü eşitlemeler diğer alt düğümü. Bu işlem olarak bilinir **kimlik eşitleme**. Düğümler arasındaki iletişim kanalını olabilir **şifrelenmiş** ortak SSL/TLS sertifikası tarafından. 
+Bir ağ geçidi birden çok düğüm ile Merhaba veri deposu kimlik tüm düğümlere eşitlenmiş tutar. Bir düğümden düğüme bağlantı sorunu varsa, hello kimlik eşitlenmemiş olabilir. Bir ağ geçidi kullanan bir şirket içi veri deposu için kimlik bilgilerini ayarladığınızda, hello dağıtıcısı/çalışan düğümünde kimlik bilgileri kaydeder. Merhaba dağıtıcısı düğümü eşitlemeler diğer alt düğümü. Bu işlem olarak bilinir **kimlik eşitleme**. düğümler arasındaki iletişim kanalını hello olabilir **şifrelenmiş** ortak SSL/TLS sertifikası tarafından. 
 
 ## <a name="set-up-a-multi-node-gateway"></a>Bir çok düğümlü ağ geçidi kurun
-Bu bölümde, aşağıdaki iki makaleler veya bu makalelerde kavramları tanıdık aracılığıyla geçmiş olabileceğini varsayar: 
+Bu bölümde, iki makaleler veya bu makalelerde açıklanan kavramlar bilmiyorsanız aşağıdaki hello aracılığıyla ilerlemiş varsayılır: 
 
-- [Veri Yönetimi ağ geçidi](data-factory-data-management-gateway.md) -ağ geçidi ayrıntılı bir genel bakış sağlar.
+- [Veri Yönetimi ağ geçidi](data-factory-data-management-gateway.md) -hello ağ geçidi ayrıntılı bir genel bakış sağlar.
 - [Şirket içi ve bulut arasında veri taşıma veri depolarına](data-factory-move-data-between-onprem-and-cloud.md) -bir ağ geçidi ile tek bir düğüm kullanmak için adım adım yönergeleri içeren bir kılavuz içerir.  
 
 > [!NOTE]
-> Bir şirket içi Windows makinesinde veri yönetimi ağ geçidi'ni yüklemeden önce listelenen önkoşullara bakın [Ana Makalesi](data-factory-data-management-gateway.md#prerequisites).
+> Bir şirket içi Windows makinesinde veri yönetimi ağ geçidi'ni yüklemeden önce listelenen önkoşullara bakın [hello Ana Makalesi](data-factory-data-management-gateway.md#prerequisites).
 
-1. İçinde [izlenecek](data-factory-move-data-between-onprem-and-cloud.md#create-gateway), mantıksal bir ağ geçidi oluştururken, etkinleştirme **yüksek kullanılabilirlik ve ölçeklenebilirlik** özelliği. 
+1. Merhaba, [izlenecek](data-factory-move-data-between-onprem-and-cloud.md#create-gateway), mantıksal bir ağ geçidi oluştururken, hello etkinleştirmek **yüksek kullanılabilirlik ve ölçeklenebilirlik** özelliği. 
 
     ![Veri Yönetimi ağ geçidi - enable yüksek kullanılabilirlik ve ölçeklenebilirlik](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-enable-high-availability-scalability.png)
-2. İçinde **yapılandırma** sayfasında, kullanın ya da **Express Kurulum** veya **el ile Kurulum** ilk düğümde (şirket içi Windows makine) bir ağ geçidi yüklemek için bağlantı.
+2. Merhaba, **yapılandırma** sayfasında, kullanın ya da **Express Kurulum** veya **el ile Kurulum** tooinstall hello ilk düğümü (şirket içi Windows makine) üzerinde bir ağ geçidi bağlantı.
 
     ![Veri Yönetimi ağ geçidi - hızlı veya el ile Kurulum](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-express-manual-setup.png)
 
     > [!NOTE]
-    > Hızlı kurulum seçeneğini kullanırsanız, düğüm düğüme iletişim şifreleme olmadan yapılır. Düğüm adı, makine adı olarak aynıdır. El ile kuruluma düğümler iletişimi şifrelenmesi gerekiyor veya tercih ettiğiniz bir düğüm adı belirtmek istiyorsanız kullanın. Düğüm adı daha sonra düzenlenemez.
+    > Merhaba hızlı kurulum seçeneğini kullanırsanız, başlangıç düğümü, düğümü iletişimi şifreleme olmadan yapılır. Merhaba düğüm adı hello makine adıyla aynıdır. El ile kuruluma hello düğümler iletişiminin şifrelenmiş toobe veya toospecify tercih ettiğiniz bir düğüm adı istiyorsanız kullanın. Düğüm adı daha sonra düzenlenemez.
 3. Seçerseniz **hızlı kurulumu**
-    1. Ağ geçidi başarıyla yüklendikten sonra aşağıdaki iletiyi görürsünüz:
+    1. Merhaba ağ geçidi başarıyla yüklendikten sonra iletiden hello bakın:
 
         ![Veri Yönetimi ağ geçidi - hızlı Kurulumu başarılı](media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png)
-    2. Aşağıdaki ağ geçidi için veri yönetimi Yapılandırma Yöneticisi başlatma [bu yönergeleri](data-factory-data-management-gateway.md#configuration-manager). Ağ geçidi adı, düğüm adı, durumu, vb. görürsünüz.
+    2. İzleyerek hello ağ geçidi için veri yönetimi Yapılandırma Yöneticisi başlatma [bu yönergeleri](data-factory-data-management-gateway.md#configuration-manager). Gördüğünüz hello ağ geçidi adı, düğüm adı, durum, vs.
 
         ![Veri Yönetimi ağ geçidi - yükleme başarılı](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 4. Seçerseniz **el ile kuruluma**:
-    1. Ağ geçidini makinenize yüklemek için çalıştırın Microsoft Download Center, yükleme paketini indirin.
-    2. Kullanım **kimlik doğrulama anahtarı** gelen **yapılandırma** ağ geçidini kaydetmek için sayfa.
+    1. Merhaba Microsoft Download Center, yükleme hello yükleme paketini çalıştırın tooinstall ağ geçidi makinenizde.
+    2. Kullanım hello **kimlik doğrulama anahtarı** hello gelen **yapılandırma** sayfa tooregister hello ağ geçidi.
     
         ![Veri Yönetimi ağ geçidi - yükleme başarılı](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
-    3. İçinde **yeni ağ geçidi düğümü** sayfasında, özel bir sağlayabilir **adı** ağ geçidi düğümü. Varsayılan olarak, makine adı olarak aynı düğüm adı.    
+    3. Merhaba, **yeni ağ geçidi düğümü** sayfasında, özel bir sağlayabilir **adı** toohello ağ geçidi düğümü. Varsayılan olarak, düğüm adı hello makine adıyla aynı.    
 
         ![Veri Yönetimi ağ geçidi - adını belirtin](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
-    4. Sonraki sayfada, seçtiğiniz kullanılıp kullanılmayacağını **düğümü düğümü iletişimi için şifrelemeyi etkinleştirmeniz**. Tıklatın **atla** şifreleme (varsayılan) devre dışı bırakmak için.
+    4. Merhaba sonraki sayfada, çok olup olmadığını seçebilirsiniz**düğümü düğümü iletişimi için şifrelemeyi etkinleştirmeniz**. Tıklatın **atla** toodisable şifreleme (varsayılan).
 
         ![Veri Yönetimi ağ geçidi - enable şifreleme](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-node-encryption.png)  
     
         > [!NOTE]
-        > Şifreleme modunu değiştirme, yalnızca bir tek ağ geçidi düğümü mantıksal ağ geçidi olduğunda desteklenir. Bir ağ geçidi birden fazla düğüme sahip olduğunda şifreleme modunu değiştirmek için aşağıdaki adımları uygulayın: bir düğüm dışındaki tüm düğümleri silerseniz, şifreleme modunu değiştirin ve ardından düğümler yeniden ekleyin.
+        > Şifreleme modunu değiştirme, yalnızca bir tek ağ geçidi düğümü hello mantıksal ağ geçidi olduğunda desteklenir. bir ağ geçidi birden fazla düğüme sahip olduğunda toochange hello şifreleme modu adımları izleyerek hello: bir düğüm dışındaki tüm hello düğümleri silerseniz, hello şifreleme modunu değiştirme ve hello düğümleri tekrar ekleyin.
         > 
         > Bkz: [TLS/SSL sertifika gereksinimlerini](#tlsssl-certificate-requirements) bir TLS/SSL sertifikası kullanmak için gereksinimleri listesi bölümü. 
-    5. Ağ geçidi başarıyla yüklendikten sonra başlatma Configuration Manager'ı tıklatın:
+    5. Merhaba ağ geçidi başarıyla yüklendikten sonra başlatma Configuration Manager'ı tıklatın:
     
         ![El ile kuruluma - başlatma Yapılandırma Yöneticisi](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)   
-    6. Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi bağlantısı durumunu gösteren, düğümde (şirket içi Windows makine), bkz. **ağ geçidi adı**, ve **düğüm adı**.  
+    6. Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi bağlantısı durumunu gösteren hello düğümde (şirket içi Windows makine), bkz. **ağ geçidi adı**, ve **düğüm adı**.  
 
         ![Veri Yönetimi ağ geçidi - yükleme başarılı](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
-        > Bir Azure VM ağ geçidinde sağlıyorsanız, kullanabileceğiniz [github'daki bu Azure Resource Manager şablonu](https://github.com/xiaoyingLJ/vms-with-multiple-data-management-gateway). Bu komut, mantıksal bir ağ geçidi oluşturur, veri yönetimi ağ geçidi yazılımı yüklü Vm'leri ayarlar ve mantıksal ağ geçidi ile kaydeder. 
-6. Azure portalında başlatma **ağ geçidi** sayfa: 
-    1. Portalı'nda veri fabrikası giriş sayfasında tıklatın **bağlı hizmetler**.
+        > Bir Azure VM ağ geçidinde hello sağlıyorsanız, kullanabileceğiniz [github'daki bu Azure Resource Manager şablonu](https://github.com/xiaoyingLJ/vms-with-multiple-data-management-gateway). Bu komut, mantıksal bir ağ geçidi oluşturur, veri yönetimi ağ geçidi yazılımı yüklü Vm'leri ayarlar ve hello mantıksal ağ geçidi ile kaydeder. 
+6. Azure portalında hello başlatma **ağ geçidi** sayfa: 
+    1. Merhaba portalında Hello data factory giriş sayfası üzerinde tıklatın **bağlı hizmetler**.
     
         ![Data factory giriş sayfası](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
-    2. seçin **ağ geçidi** görmek için **ağ geçidi** sayfa:
+    2. Merhaba seçin **ağ geçidi** toosee hello **ağ geçidi** sayfa:
     
         ![Data factory giriş sayfası](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
-    4. Gördüğünüz **ağ geçidi** sayfa:   
+    4. Merhaba gördüğünüz **ağ geçidi** sayfa:   
 
         ![Tek düğüm görünümü ile ağ geçidi](media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png) 
-7. Tıklatın **düğüm Ekle** mantıksal ağ geçidi için bir düğüm eklemek için araç çubuğunda. Hızlı Kurulum kullanmayı planlıyorsanız, ağ geçidi için bir düğüm olarak eklenecek şirket içi makineden bu adımı uygulayın. 
+7. Tıklatın **düğüm Ekle** hello araç tooadd düğümü toohello mantıksal bir ağ geçidi üzerinde. Toouse hızlı kurulum planlıyorsanız, bu adımı bir düğüm toohello ağ geçidi olarak eklenecek hello şirket içi makineden yapın. 
 
     ![Veri Yönetimi ağ geçidi - düğüm menü ekleme](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
-8. Adımlar, ilk düğümü ayarını benzer. Yapılandırma Yöneticisi kullanıcı Arabirimi, el ile yükleme seçeneğini seçerseniz, düğüm adı ayarlamanızı sağlar: 
+8. Merhaba ilk düğümü yukarı benzer toosetting adımlardır. Merhaba Yapılandırma Yöneticisi kullanıcı Arabirimi, hello el ile yüklemesi seçeneğini belirlerseniz hello düğüm adı ayarlamanızı sağlar: 
 
     ![Configuration Manager - yükleme ikinci ağ geçidi](media/data-factory-data-management-gateway-high-availability-scalability/install-second-gateway.png)
-9. Ağ geçidi düğümüne başarıyla yüklendikten sonra Configuration Manager aracını aşağıdaki ekran görüntüler:  
+9. Merhaba ağ geçidi hello düğümde başarıyla yüklendikten sonra hello Yapılandırma Yöneticisi Aracı ekran aşağıdaki hello görüntüler:  
 
     ![Configuration Manager - yükleme ikinci ağ geçidi başarılı](media/data-factory-data-management-gateway-high-availability-scalability/second-gateway-installation-successful.png)
-10. Açarsanız **ağ geçidi** sayfa Portalı'nda, iki ağ geçidi düğümleri şimdi görürsünüz: 
+10. Merhaba açarsanız **ağ geçidi** sayfa hello Portalı'nda, iki ağ geçidi düğümleri şimdi görürsünüz: 
 
-    ![Ağ geçidi portalında iki düğümü](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
-11. Bir ağ geçidi düğümü silmek için tıklatın **silmek düğümü** araç çubuğunda, silme ve ardından istediğiniz düğümü seçin **silmek** araç çubuğundan. Bu eylem seçili düğümün grubundan siler. Bu eylem düğümden (şirket içi Windows makine) veri yönetimi ağ geçidi yazılımını kaldırmaz unutmayın. Kullanım **Program Ekle veya Kaldır'ı** ağ geçidini kaldırmak için Denetim Masası şirket içi'nda. Ağ geçidi düğümü kaldırdığınızda, Portalı'nda otomatik olarak silinir.   
+    ![Ağ geçidi hello portalında iki düğümü](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
+11. toodelete bir ağ geçidi düğümü tıklatın **silmek düğümü** hello araç çubuğunda toodelete istediğiniz ve ardından hello düğümü seçin **silmek** hello araç çubuğundan. Bu eylemin hello Seçili düğümün hello grubundan siler. Bu eylemin hello düğümden (şirket içi Windows makine) hello veri yönetimi ağ geçidi yazılımının kaldırmaz unutmayın. Kullanım **Program Ekle veya Kaldır'ı** hello şirket içi toouninstall hello ağ geçidi üzerinde Denetim Masası'nda. Ağ geçidi hello düğümden kaldırdığınızda, hello Portalı'nda otomatik olarak silinir.   
 
 ## <a name="upgrade-an-existing-gateway"></a>Mevcut bir ağ geçidi yükseltme
-Yüksek kullanılabilirlik ve ölçeklenebilirlik özelliği kullanmak için mevcut bir ağ geçidi yükseltme yapabilirsiniz. Bu özellik, veri yönetimi ağ geçidi sürümü sahip düğümüyle çalışır > 2.12.xxxx =. Veri Yönetimi ağ geçidi bir makinede yüklü sürümünü görmek **yardımcı** sekmesi, veri yönetimi ağ geçidi Yapılandırma Yöneticisi. 
+Varolan ağ geçidi toouse hello yüksek kullanılabilirlik ve ölçeklenebilirlik özelliği yükseltebilirsiniz. Bu özellik hello veri yönetimi ağ geçidi sürümü olan düğümler ile çalışır > 2.12.xxxx =. Veri Yönetimi ağ geçidi hello bir makinede yüklü hello sürümünü görebilirsiniz **yardımcı** hello veri yönetimi ağ geçidi Yapılandırma Yöneticisi sekmesinde. 
 
-1. Ağ geçidi şirket içi makinede aşağıdaki tarafından yükleyerek güncelleştirin ve Kurulum paketinden bir MSI çalıştıran [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Bkz: [yükleme](data-factory-data-management-gateway.md#installation) ayrıntıları bölümü.  
-2. Azure portalına gidin. Başlatma **Data Factory sayfasını** veri fabrikanızın. Bağlı hizmetler kutucuğunda başlatmak için tıklatın **bağlantılı Hizmetler Sayfası**. Başlatmak için ağ geçidi seçin **ağ geçidi sayfa**. ' I tıklatın ve etkinleştirme **önizleme özelliği** aşağıdaki görüntüde gösterildiği gibi: 
+1. Güncelleştirme hello ağ geçidi izleyerek hello şirket içi makineyi toohello en son sürümünü indirip hello bir MSI kurulum paketi çalıştıran [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Bkz: [yükleme](data-factory-data-management-gateway.md#installation) ayrıntıları bölümü.  
+2. Toohello Azure portalına gidin. Merhaba başlatma **Data Factory sayfasını** veri fabrikanızın. Bağlı hizmetler döşeme toolaunch hello tıklatın **bağlantılı Hizmetler Sayfası**. Select hello ağ geçidi toolaunch hello **ağ geçidi sayfa**. ' I tıklatın ve etkinleştirme **önizleme özelliği** hello görüntü aşağıdaki gösterildiği gibi: 
 
     ![Veri Yönetimi ağ geçidi - önizleme özelliğini etkinleştir](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
-2. Önizleme özelliğini portalda etkinleştirildikten sonra tüm sayfaları kapatın. Yeniden **ağ geçidi sayfa** yeni önizleme kullanıcı arabirimi (UI) görmek için.
+2. Merhaba önizleme özelliği hello Portalı'nda etkinleştirildikten sonra tüm sayfaları kapatın. Merhaba yeniden **ağ geçidi sayfa** toosee hello yeni önizleme kullanıcı arabirimi (UI).
  
     ![Veri Yönetimi ağ geçidi - enable önizleme özelliği başarılı](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview-success.png)
 
     ![Veri Yönetimi ağ geçidi - UI Önizleme](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview.png)
 
     > [!NOTE]
-    > Yükseltme sırasında ilk düğümü adı makinenin adıdır. 
-3. Şimdi, bir düğüm ekleyin. İçinde **ağ geçidi** sayfasında, **düğüm Ekle**.  
+    > Merhaba yükseltme sırasında hello ilk düğümün adı hello hello makinenin adıdır. 
+3. Şimdi, bir düğüm ekleyin. Merhaba, **ağ geçidi** sayfasında, **düğüm Ekle**.  
 
     ![Veri Yönetimi ağ geçidi - düğüm menü ekleme](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
 
-    Düğümü ayarlamak için önceki bölümdeki yönergeleri izleyin. 
+    Merhaba önceki bölümde tooset hello düğümü yukarı gelen yönergeleri izleyin. 
 
 ### <a name="installation-best-practices"></a>Yükleme için en iyi yöntemler
 
-- Makine değil hazırda bekletme güç planı ağ geçidi için konak makinedeki yapılandırın. Konak makine hazırda bekleme, ağ geçidi veri isteklere yanıt vermez.
-- Ağ geçidi ile ilişkili sertifika yedekleyin.
+- Böylece Hello makine değil hazırda bekleme güç planı hello konak hello ağ geçidi için yapılandırın. Merhaba ana makine hazırda bekleme durumunda hello ağ geçidi toodata istekleri yanıt vermez.
+- Merhaba ağ geçidiyle ilişkili hello sertifikayı yedekleyin.
 - Tüm düğümler (ideal performans için önerilen) benzer yapılandırmasının emin olun. 
-- Yüksek kullanılabilirlik sağlamak için en az iki düğüm ekleyin.  
+- En az iki düğüme tooensure yüksek kullanılabilirlik ekleyin.  
 
 ### <a name="tlsssl-certificate-requirements"></a>TLS/SSL sertifika gereksinimleri
-Ağ geçidi düğümleri arasındaki iletişimi korumak için kullanılan TLS/SSL sertifika için gereksinimler şunlardır:
+Ağ geçidi düğümleri arasındaki iletişimi korumak için kullanılan hello TLS/SSL sertifikası hello gereksinimleri şunlardır:
 
-- Sertifika genel olarak güvenilir X509 olmalıdır v3 sertifikası.
+- Merhaba sertifika, genel olarak güvenilir X509 olmalıdır v3 sertifikası.
 - Tüm ağ geçidi düğümleri bu sertifikaya güvenmeleri gerekir. 
 - Ortak (üçüncü taraf) sertifika yetkilisi (CA) tarafından verilen sertifikaların kullanmanızı öneririz.
 - SSL sertifikaları için Windows Server 2012 R2 tarafından desteklenen herhangi bir anahtar boyutunu destekler.
@@ -166,49 +166,49 @@ Ağ geçidi düğümleri arasındaki iletişimi korumak için kullanılan TLS/SS
 
 ## <a name="monitor-a-multi-node-gateway"></a>İzleyici bir çok düğümlü ağ geçidi
 ### <a name="multi-node-gateway-monitoring"></a>Birden çok düğümlü ağ geçidi izleme
-Azure portalında, ağ geçidi düğümleri durumları yanı sıra her bir düğümde neredeyse gerçek zamanlı anlık görüntüsünü kaynak kullanımı (CPU, bellek, network(in/out), vb.) görüntüleyebilirsiniz. 
+Hello Azure portal'da, ağ geçidi düğümleri durumları yanı sıra her bir düğümde neredeyse gerçek zamanlı anlık görüntüsünü kaynak kullanımı (CPU, bellek, network(in/out), vb.) görüntüleyebilirsiniz. 
 
 ![Veri Yönetimi ağ geçidi - birden çok düğüm izleme](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-Etkinleştirebilirsiniz **Gelişmiş ayarları** içinde **ağ geçidi** gibi gelişmiş ölçümlerini görmek için sayfayı **ağ**(in/out), **rol & kimlik bilgisi durum**, ağ geçidi sorunları, hata ayıklamaya yardımcı olduğu ve **eşzamanlı iş** (çalışan / sınırlamak) hangi olması değiştirilmiş / sırasında buna göre değişen performans ayarlama. Aşağıdaki tabloda yer alan sütun açıklanmakta **ağ geçidi düğümleri** listesi:  
+Etkinleştirebilirsiniz **Gelişmiş ayarları** hello içinde **ağ geçidi** sayfasında ölçümleri gibi gelişmiş toosee **ağ**(in/out), **rol & kimlik bilgisi durum**, ağ geçidi sorunları, hata ayıklamaya yardımcı olduğu ve **eşzamanlı iş** (çalışan / sınırlamak) hangi olması değiştirilmiş / sırasında buna göre değişen performans ayarlama. Merhaba aşağıdaki tabloda verilmiştir hello sütunlarında açıklamalarını **ağ geçidi düğümleri** listesi:  
 
 İzleme özelliği | Açıklama
 :------------------ | :---------- 
-Ad | Ağ geçidi ile ilişkili düğümleri ve mantıksal ağ geçidi adı.  
-Durum | Mantıksal ağ geçidi ve ağ geçidi düğümleri durumu. Örnek: Çevrimiçi/çevrimdışı/sınırlı/vs. Bu durumlar hakkında daha fazla bilgi için bkz: [ağ geçidi durumu](#gateway-status) bölümü. 
-Sürüm | Mantıksal ağ geçidi ve her ağ geçidi düğümü sürümünü gösterir. Mantıksal ağ geçidi sürümü grubu düğüm çoğunluğu sürümüne göre belirlenir. Varsa düğümleri mantıksal ağ geçidi kurulumunda yalnızca mantıksal ağ geçidi işlevi aynı sürüm numarasına sahip farklı sürümleriyle düzgün. Başkalarının sınırlı modda ve (yalnızca otomatik güncelleştirmeler başarısız olursa) el ile güncelleştirilmesi gerekir. 
+Ad | Merhaba mantıksal ağ geçidi ve hello ağ geçidiyle ilişkilendirilen düğüm adı.  
+Durum | Merhaba mantıksal ağ geçidi ve hello ağ geçidi düğümleri durumu. Örnek: Çevrimiçi/çevrimdışı/sınırlı/vs. Bu durumlar hakkında daha fazla bilgi için bkz: [ağ geçidi durumu](#gateway-status) bölümü. 
+Sürüm | Merhaba mantıksal ağ geçidi Hello sürümü ve her ağ geçidi düğümü gösterir. Hello hello mantıksal ağ geçidi sürümü hello grubu düğüm çoğunluğu sürümüne göre belirlenir. Farklı sürümlerde hello mantıksal ağ geçidi ile düğüm varsa, yalnızca hello düğümleriyle aynı sürüm numarasına hello mantıksal ağ geçidi işlevi düzgün şekilde hello. Başkalarının hello sınırlı modda ve (yalnızca otomatik güncelleştirmeler başarısız olursa) el ile güncelleştirilmiş toobe gerekir. 
 Kullanılabilir bellek | Bir ağ geçidi düğümü kullanılabilir bellek. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. 
 CPU kullanımı | Bir ağ geçidi düğümünün CPU kullanımı. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. 
 Ağ (çıkış) | Bir ağ geçidi düğümünün ağ kullanımı. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. 
-(Çalışan / sınırlamak) eşzamanlı işleri | İşlerini veya her bir düğümde çalışan görevlerin sayısıdır. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. Her düğüm için en fazla eşzamanlı iş sınırı belirtir. Bu değeri makine boyutuna göre tanımlanır. Gelişmiş senaryolarda eşzamanlı iş yürütme ölçeklendirin sınırı artırabilirsiniz burada CPU / bellek / ağ altında kullanılan ancak etkinlik zaman aşımı. Bu özellik, tek bir düğüm ile ağ geçidi (ölçeklenebilirlik ve kullanılabilirlik özelliği etkin değilse bile) de kullanılabilir. Daha fazla bilgi için bkz: [ölçeklendirme konuları](#scale-considerations) bölümü. 
-Rol | Dağıtıcı ve çalışan rolleri – iki tür vardır. Tüm düğümleri, tüm işleri yürütmek için kullanılabilmesi için başka bir deyişle, çalışanlardır. Görevler/işleri bulut hizmetlerinden çekmek ve bunları farklı çalışan düğümlerine (kendisi dahil) gönderme için kullanılan tek bir dağıtıcı düğüm yok. 
+(Çalışan / sınırlamak) eşzamanlı işleri | İşlerini veya her bir düğümde çalışan görevlerin sayısıdır. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. Her düğüm için en fazla eşzamanlı iş hello sınırı belirtir. Bu değer hello makine boyutuna göre tanımlanır. Gelişmiş senaryolarda eşzamanlı iş yürütme yukarı hello sınırı tooscale artırabilirsiniz burada CPU / bellek / ağ altında kullanılan ancak etkinlik zaman aşımı. Bu özellik, tek bir düğüm ile ağ geçidi (Merhaba ölçeklenebilirlik ve kullanılabilirlik özelliği etkin değilse bile) de kullanılabilir. Daha fazla bilgi için bkz: [ölçeklendirme konuları](#scale-considerations) bölümü. 
+Rol | Dağıtıcı ve çalışan rolleri – iki tür vardır. Tüm düğümleri, yani tüm kullanılan tooexecute işleri olabilirler çalışanlardır. Kullanılan toopull görevler/işleri bulut hizmetlerinden ve toodifferent çalışan düğümleri (kendisi dahil) gönderme yalnızca bir dağıtıcı düğüm yok. 
 
 ![Veri Yönetimi ağ geçidi - Gelişmiş birden çok düğüm izleme](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-advanced.png)
 
 ### <a name="gateway-status"></a>Ağ geçidi durumu
 
-Aşağıdaki tabloda, olası durumlar sağlayan bir **ağ geçidi düğümü**: 
+Merhaba aşağıdaki tabloda sağlar, olası durumlar bir **ağ geçidi düğümü**: 
 
 Durum  | Yorumlar/senaryoları
 :------- | :------------------
-Çevrimiçi | Düğümü, veri fabrikası hizmetine bağlı.
+Çevrimiçi | Düğüm tooData Fabrika hizmete bağlı.
 Çevrimdışı | Çevrimdışı düğümdür.
-Yükseltme | Düğüm, otomatik olarak güncelleştirilir.
-Sınırlı | Bağlantı sorunundan kaynaklanıyor. HTTP bağlantı noktası 8050 sorunu, hizmet veri yolu bağlantı sorunu veya kimlik bilgisi eşitleme sorunu nedeniyle olabilir. 
-Etkin olmayan | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir. 
+Yükseltme | Merhaba düğümü otomatik olarak güncelleştirilir.
+Sınırlı | TooConnectivity sorunu nedeniyle. TooHTTP bağlantı noktası 8050 sorunu, hizmet veri yolu bağlantı sorunu veya kimlik bilgisi eşitleme sorunu olabilir. 
+Etkin olmayan | Diğer Çoğunluk düğüm hello yapılandırmasından farklı bir yapılandırmada düğümdür.<br/><br/> Tooother düğümleri bağlanamadığında bir düğüm etkin olabilir. 
 
 
-Aşağıdaki tabloda, olası durumlar sağlayan bir **mantıksal ağ geçidi**. Ağ geçidi durumu üzerinde ağ geçidi düğümleri durumlar değişir. 
+Merhaba aşağıdaki tabloda sağlar, olası durumlar bir **mantıksal ağ geçidi**. Merhaba ağ geçidi durumu hello ağ geçidi düğümleri durumları üzerinde bağlıdır. 
 
 Durum | Yorumlar
 :----- | :-------
-Kaydedilmesi gerekiyor | Hiçbir düğümü için bu mantıksal ağ geçidi henüz kayıtlı değil
+Kaydedilmesi gerekiyor | Hiçbir düğümü henüz kayıtlı toothis mantıksal ağ geçididir
 Çevrimiçi | Ağ geçidi düğümleri çevrimiçi
 Çevrimdışı | Çevrimiçi durumu düğümü yok.
-Sınırlı | Bu ağ geçidi tüm düğümler sağlıklı durumda. Bu durum bazı düğümü kapalı olabilir bir uyarıdır! <br/><br/>Dağıtıcı/çalışan düğümünde kimlik bilgisi eşitleme sorunu nedeniyle olabilir. 
+Sınırlı | Bu ağ geçidi tüm düğümler sağlıklı durumda. Bu durum bazı düğümü kapalı olabilir bir uyarıdır! <br/><br/>Dağıtıcı/çalışan düğümünde toocredential eşitleme sorunu nedeniyle olabilir. 
 
 ### <a name="pipeline-activities-monitoring"></a>Ardışık Düzen / etkinliklerini izleme
-Azure portal, izleme deneyimine ayrıntılı düğümü düzey ayrıntılara sahip bir işlem hattı sağlar. Örneğin, hangi etkinlikler hangi düğümde çalışan gösterir. Bu bilgiler, belirli bir düğümde performans sorunları anlamak yararlı olabilir, ağ azaltma nedeniyle söyleyin. 
+Hello Azure portal izleme deneyimine ayrıntılı düğümü düzey ayrıntılara sahip bir işlem hattı sağlar. Örneğin, hangi etkinlikler hangi düğümde çalışan gösterir. Bu bilgiler performans sorunları toonetwork azaltma nedeniyle deyin belirli bir düğümde anlamak yararlı olabilir. 
 
 ![Veri Yönetimi ağ geçidi - birden çok düğüm işlem hatlarını izleme](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-pipelines.png)
 
@@ -217,34 +217,34 @@ Azure portal, izleme deneyimine ayrıntılı düğümü düzey ayrıntılara sah
 ## <a name="scale-considerations"></a>Ölçek konuları
 
 ### <a name="scale-out"></a>Ölçeği genişletme
-Zaman **kullanılabilir bellek düşük** ve **CPU kullanımının yüksek olduğu**, makine genelinde yardımcı yük genişletme yeni bir düğüm ekleme. Etkinlik zaman aşımı veya ağ geçidi düğümü çevrimdışı olmasından dolayı başarısız oluyorsa, ağ geçidi için bir düğüm eklerseniz yardımcı olur.
+Ne zaman hello **kullanılabilir bellek düşük** ve hello **CPU kullanımının yüksek olduğu**, makine genelinde yardımcı hello yük genişletme yeni bir düğüm ekleme. Etkinlikler çevrimdışı olmasından tootime genişletme veya ağ geçidi düğümü başarısız oluyorsa, bir düğüm toohello ağ geçidi eklerseniz yardımcı olur.
  
 ### <a name="scale-up"></a>Ölçeği artırma
-Kullanılabilir bellek ve CPU iyi kullanılmaz, ancak boşta kapasitesi 0 ise, bir düğümde çalıştırılabilen eşzamanlı iş sayısını artırarak ölçeği. Ağ geçidi aşırı yüklendiği için etkinlikler zaman aşımına uğruyor zaman ölçeği isteyebilirsiniz. Aşağıdaki görüntüde gösterildiği gibi bir düğüm için maksimum kapasiteyi artırabilir. İle başlamak Katlama öneririz.  
+Merhaba kullanılabilir bellek ve CPU değil kullanıldığı iyi ancak hello boşta kapasite 0 olduğu durumlarda ölçeklendirmeniz gerekir yukarı hello bir düğümde çalıştırılabilen eşzamanlı iş sayısını artırarak. Merhaba ağ geçidi aşırı yüklendiği için etkinlikler zaman aşımına uğruyor olduğunda, tooscale ayarlamak isteyebilirsiniz. Görüntü aşağıdaki hello gösterildiği gibi bir düğüm için maksimum kapasite hello artırabilir. İle toostart Katlama öneririz.  
 
 ![Veri Yönetimi ağ geçidi - ölçek konuları](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-scale-considerations.png)
 
 
 ## <a name="known-issuesbreaking-changes"></a>Bilinen sorunlar/sonu değiştirir
 
-- Şu anda, tek bir mantıksal ağ geçidi için en fazla dört fiziksel ağ geçidi düğümleri bulunabilir. Performansı artırmak için dörtten fazla düğüm gerekirse, e-posta Gönder [ DMGHelp@microsoft.com ](mailto:DMGHelp@microsoft.com).
-- Bir ağ geçidi düğümü geçerli mantıksal ağ geçidi'nden geçiş yapmak için başka bir mantıksal ağ geçidi kimlik doğrulaması anahtarla yeniden kaydedilemiyor. Yeniden kaydetmek için ağ geçidi düğümden kaldırmak, ağ geçidini yeniden yükleyin ve diğer mantıksal ağ geçidi için kimlik doğrulama anahtarı ile kaydeder. 
-- Tüm ağ geçidi düğümleri için HTTP proxy gerekiyorsa, proxy diahost.exe.config ve diawp.exe.config ayarlayın ve tüm düğümleri aynı diahost.exe.config ve diawip.exe.config emin olmak için Sunucu Yöneticisi'ni kullanın. Bkz: [proxy ayarlarını yapılandırma](data-factory-data-management-gateway.md#configure-proxy-server-settings) ayrıntıları bölümü. 
-- Ağ geçidi Yapılandırma Yöneticisi'nde düğümü düğümü iletişimi için şifreleme modunu değiştirmek için portal dışındaki tüm düğümleri silin. Ardından düğümler şifreleme modu geri değiştirdikten sonra ekleyin.
-- Düğümü düğümü iletişim kanalını şifrelemek isterseniz resmi bir SSL sertifikası kullanın. Aynı sertifikayı diğer makinelere sertifika yetkilisi listesinin içinde güvenilmiyor gibi otomatik olarak imzalanan sertifika bağlantı sorunlarına neden olabilir. 
-- Düğüm sürüm mantıksal ağ geçidi sürümden daha düşük olduğunda bir mantıksal ağ geçidi için ağ geçidi düğümü kaydedilemiyor. Mantıksal ağ geçidi'nin tüm düğümleri portalından silmeniz daha düşük bir sürüm node(downgrade) kaydedebilirsiniz. Mantıksal bir ağ geçidi'nin tüm düğümleri silerseniz, el ile yükleyin ve yeni düğümler bu mantıksal ağ geçidine kaydedin. Hızlı Kurulum, bu durumda desteklenmiyor.
-- Düğümleri hala bulut kimlik bilgilerini kullanan mevcut bir mantıksal ağ geçidi için yüklemek için hızlı kurulum kullanamazsınız. Kimlik bilgilerini ayarlar sekmesinde ağ geçidi Yapılandırma Yöneticisi'nden depolandığı kontrol edebilirsiniz.
-- Düğümleri düğümü düğümü şifreleme etkin olan mevcut bir mantıksal ağ geçidi için yüklemek için hızlı kurulum kullanamazsınız. Şifreleme modu ayarı sertifikaları el ile ekleyerek içerir gibi hızlı yükleme hiçbir daha fazla bir seçenektir. 
-- Şirket içi ortamından bir dosya kopyalama için kullanılamaz \\localhost veya artık bu yana localhost veya yerel sürücü C:\files olabilir tüm düğümler erişilebilir. Bunun yerine, kullanın \\ServerName\files dosyalarının konumunu belirtin.
+- Şu anda, tek bir mantıksal ağ geçidi için toofour fiziksel ağ geçidi düğümleri olabilir. Performansı artırmak için dörtten fazla düğüm gerekirse, bir e-posta çok gönderme[DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com).
+- Bir ağ geçidi düğümü hello geçerli mantıksal ağ geçidi alanından başka bir mantıksal ağ geçidi tooswitch hello kimlik doğrulama anahtarı ile yeniden kaydedilemiyor. toore kaydını hello gateway hello düğümden kaldırmak, hello ağ geçidini yeniden yükleyin ve diğer mantıksal ağ geçidi hello için hello kimlik doğrulama anahtarı ile kaydeder. 
+- HTTP proxy tüm ağ geçidi düğümleri için gerekliyse, diahost.exe.config ve diawp.exe.config hello proxy ayarlayın ve hello Sunucu Yöneticisi'ni toomake tüm düğümlere sahip hello aynı diahost.exe.config ve diawip.exe.config emin kullanın. Bkz: [proxy ayarlarını yapılandırma](data-factory-data-management-gateway.md#configure-proxy-server-settings) ayrıntıları bölümü. 
+- toochange şifreleme modu düğümü düğümü iletişimi Ağ Geçidi Yapılandırma Yöneticisi ' nde hello portal dışındaki tüm hello düğümler silin. Ardından düğümler hello şifreleme modu geri değiştirdikten sonra ekleyin.
+- Tooencrypt hello düğümü düğümü iletişim kanalını seçerseniz resmi bir SSL sertifikası kullanın. Otomatik olarak imzalanan sertifika, aynı sertifikayı diğer makinelere sertifika yetkilisi listesinin içinde güvenilmiyor hello olarak bağlantı sorunlarına neden olabilir. 
+- Merhaba düğümü sürüm hello mantıksal ağ geçidi sürümden daha düşük olduğunda bir ağ geçidi düğümü tooa mantıksal ağ geçidi'ni kaydedilemiyor. Tüm düğümleri hello mantıksal ağ geçidinin portalından silmeniz daha düşük bir sürüm node(downgrade) kaydedebilirsiniz. Mantıksal bir ağ geçidi'nin tüm düğümleri silerseniz, el ile yükleyin ve yeni düğümler toothat mantıksal ağ geçidini kaydedin. Hızlı Kurulum, bu durumda desteklenmiyor.
+- Bulut kimlik bilgilerini kullanmaya devam hızlı kurulum tooinstall düğümleri tooan var olan mantıksal ağ geçidi, kullanamazsınız. Merhaba ağ geçidi Yapılandırma Yöneticisi hello ayarları sekmesinde ndan hello kimlik bilgilerinin depolandığı kontrol edebilirsiniz.
+- Düğümü düğümü şifreleme etkin olan hızlı kurulum tooinstall düğümleri tooan var olan mantıksal ağ geçidi kullanamazsınız. Sertifikaları el ile eklenmesi hello şifreleme modu ayarı gerektirir, hızlı yükleme seçeneği artık aynıdır. 
+- Şirket içi ortamından bir dosya kopyalama için kullanılamaz \\localhost veya artık bu yana localhost veya yerel sürücü C:\files olabilir tüm düğümler erişilebilir. Bunun yerine, kullanın \\ServerName\files toospecify dosyaları konumu.
 
 
-## <a name="rolling-back-from-the-preview"></a>Önizlemesi'nden geri alınıyor 
-Önizlemesi'nden geri almak için bir düğüm dışındaki tüm düğümleri silin. Silme, ancak mantıksal ağ geçidi en azından bir düğümün sahip olduğundan emin olun hangi düğümlerin önemli değildir. Bir düğüm makinedeki ağ geçidi kaldırma veya Azure portalını kullanarak silebilirsiniz. Azure portalında içinde **Data Factory** sayfasında, bağlı hizmetleri başlatmak için **bağlantılı Hizmetleri** sayfası. Başlatmak için ağ geçidi seçin **ağ geçidi** sayfası. Ağ geçidi sayfasında, ağ geçidi ile ilişkili düğümleri görebilirsiniz. Sayfa bir düğüm ağ geçidi'nden silmenize olanak sağlar.
+## <a name="rolling-back-from-hello-preview"></a>Merhaba Önizlemesi'nden geri alınıyor 
+tooroll geri hello preview sürümünden bir düğüm dışındaki tüm düğümleri silin. Silme, ancak en az bir düğümü hello mantıksal ağ geçidi olduğundan emin olun hangi düğümlerin önemli değildir. Bir düğüm hello makinedeki ağ geçidi kaldırma veya hello Azure portal kullanarak silebilirsiniz. Hello Azure portalında, hello içinde **Data Factory** sayfasında, bağlı hizmetler toolaunch hello **bağlantılı Hizmetleri** sayfası. Select hello ağ geçidi toolaunch hello **ağ geçidi** sayfası. Merhaba ağ geçidi sayfasında hello ağ geçidiyle ilişkili hello düğümleri görebilirsiniz. Merhaba sayfa hello ağ geçidi'nden bir düğüm silmenize olanak sağlar.
  
-Sildikten sonra tıklatın **Önizleme özellikleri** aynı Azure portal sayfası ve önizleme özelliğini devre dışı bırakın. Bir düğüm GA (genel kullanılabilirlik) ağ geçidi için ağ geçidiniz sıfırladınız.
+Sildikten sonra tıklatın **Önizleme özellikleri** hello aynı Azure portal sayfası ve hello önizleme özelliğini devre dışı bırakın. Ağ geçidi tooone düğümü GA (genel kullanılabilirlik) ağ geçidi sıfırladınız.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Aşağıdaki makaleleri gözden geçirin:
-- [Veri Yönetimi ağ geçidi](data-factory-data-management-gateway.md) -ağ geçidi ayrıntılı bir genel bakış sağlar.
+Aşağıdaki makaleleri hello gözden geçirin:
+- [Veri Yönetimi ağ geçidi](data-factory-data-management-gateway.md) -hello ağ geçidi ayrıntılı bir genel bakış sağlar.
 - [Şirket içi ve bulut arasında veri taşıma veri depolarına](data-factory-move-data-between-onprem-and-cloud.md) -bir ağ geçidi ile tek bir düğüm kullanmak için adım adım yönergeleri içeren bir kılavuz içerir. 

@@ -1,6 +1,6 @@
 ---
-title: "Azure günlük analizi, uyarıları anlama | Microsoft Docs"
-description: "Günlük analizi uyarılarını OMS deponuzun önemli bilgileri tanımlamak ve önceden sorunları size bildiren veya düzeltmenize girişiminde Eylemler çağırma.  Bu makalede uyarı kuralları ve nasıl tanımlanır farklı türleri açıklanmaktadır."
+title: "Azure günlük analizi aaaUnderstanding uyarılar | Microsoft Docs"
+description: "Günlük analizi uyarılarını OMS deponuzun önemli bilgileri tanımlamak ve önceden sorunları size bildiren veya Eylemler tooattempt toocorrect çağırma bunları.  Bu makalede hello farklı türdeki uyarı kuralları ve nasıl tanımlanır."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: bwren
-ms.openlocfilehash: 951e76d3fb18d9e433b148e82d4d6cee9417ce6d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: bfa0a5aaeca81674e79a6d647f36d937efeeb439
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Günlük analizi, uyarıları anlama
 
-Günlük analizi uyarılarını günlük analizi deponuzun önemli bilgiler tanımlayın.  Bu makalede, günlük analizi çalışma nasıl uyarı kuralları ayrıntılarını sağlar ve uyarı kuralları farklı türleri arasındaki farklar açıklanmaktadır.
+Günlük analizi uyarılarını günlük analizi deponuzun önemli bilgiler tanımlayın.  Bu makalede, günlük analizi çalışma nasıl uyarı kuralları ayrıntılarını sağlar ve hello uyarı kuralları farklı türleri arasındaki farklar açıklanmaktadır.
 
-Uyarı kuralları oluşturma işlemi için aşağıdaki makalelere bakın:
+Hello işlemi uyarı kuralları oluşturma, aşağıdaki makaleler hello bakın:
 
 - Kullanarak uyarı kuralları oluşturmak [Azure portalı](log-analytics-alerts-creating.md)
 - Kullanarak uyarı kuralları oluşturmak [Resource Manager şablonu](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
@@ -33,57 +33,57 @@ Uyarı kuralları oluşturma işlemi için aşağıdaki makalelere bakın:
 
 ## <a name="alert-rules"></a>Uyarı kuralları
 
-Uyarılar, günlük aramaları düzenli aralıklarla otomatik olarak çalışacak uyarı kuralları tarafından oluşturulur.  Günlük arama sonuçlarını belirli ölçütlere uyan varsa bir uyarı kaydı oluşturulur.  Kural, ileriye dönük olarak uyarı bildiren veya başka bir işlem çağırmak için bir veya daha fazla eylemleri otomatik olarak çalıştırabilirsiniz.  Uyarı kuralları farklı türlerde farklı mantık bu analizi yapmak için kullanın.
+Uyarılar, günlük aramaları düzenli aralıklarla otomatik olarak çalışacak uyarı kuralları tarafından oluşturulur.  Merhaba hello günlük arama sonuçlarını belirli ölçütlere uyan varsa bir uyarı kaydı oluşturulur.  Merhaba kuralı daha sonra otomatik olarak bir çalıştırabilirsiniz veya daha fazla Eylemler tooproactively hello uyarı bildiren veya başka bir işlem çağırma.  Farklı türde bir uyarı kuralları bu çözümleme farklı mantık tooperform kullanın.
 
 ![Log Analytics uyarıları](media/log-analytics-alerts/overview.png)
 
-Uyarı kuralları tarafından aşağıdaki ayrıntıları tanımlanmıştır:
+Uyarı kuralları aşağıdaki ayrıntılara hello tarafından tanımlanır:
 
-- **Günlük arama**.  Uyarı kural her çalıştığında sorgusu gönderir.  Bu sorgu tarafından döndürülen kayıtları bir uyarı oluşturulup oluşturulmayacağını belirlemek için kullanılır.
-- **Zaman penceresi**.  Sorgu için zaman aralığını belirtir.  Sorgu, geçerli zaman aralığında oluşturulan kayıtları döndürür.  Bu, 5 dakika ile 24 saat arasında herhangi bir değer olabilir. Örneğin, zaman penceresi 60 dakika olarak ayarlanmıştır ve sorgu 13: 15'te çalıştırırsanız, yalnızca saat 12: 15'e ve 13: 15'te arasında oluşturulan kayıtları döndürülür.
-- **Sıklık**.  Sorgunun ne sıklıkta çalıştırılması gerektiğini belirtir. 5 dakika ile 24 saat arasında herhangi bir değer olabilir. Eşit veya bu zaman penceresi'den daha az olmalıdır.  Değeri zaman penceresi'den büyükse, eksik kayıtları riski oluşur.<br>Örneğin, 30 dakikalık bir zaman penceresi ve 60 dakika sıklığını göz önünde bulundurun.  Sorgu 1: 00'dan çalıştırırsanız, 12:30 ve 1:00 arasında kayıt döndürür.  Sorguyu çalıştırabilir sonraki 2:00 kayıtlar 1:30 ve 2:00 arasında ne zaman döndürecektir süresidir.  1:00-1:30 arasında oluşturulan kayıtları hiçbir zaman değerlendirilmesi.
-- **Eşik**.  Günlük arama sonuçlarını, bir uyarının oluşturulması gerekip gerekmediğini belirlemek için değerlendirilir.  Eşik uyarı kuralları farklı türleri için farklıdır.
+- **Günlük arama**.  her zaman hello uyarı kuralı çalıştıran hello sorgusu gönderir.  Bu sorgu tarafından döndürülen hello kayıtları olup kullanılan toodetermine bir uyarı oluşturulur.
+- **Zaman penceresi**.  Merhaba sorgu Hello zaman aralığını belirtir.  Merhaba sorgu bu hello aralığında geçerli saati oluşturulan kayıtları döndürür.  Bu, 5 dakika ile 24 saat arasında herhangi bir değer olabilir. Örneğin, hello zaman penceresi too60 dakika ve hello sorgu ayarlanmış 13: 15'te çalıştırılırsa, yalnızca saat 12: 15'e ve 13: 15'te arasında oluşturulan kayıtları döndürülür.
+- **Sıklık**.  Ne sıklıkta hello sorgu çalıştırılması gerektiğini belirtir. 5 dakika ile 24 saat arasında herhangi bir değer olabilir. Merhaba zaman penceresi'den küçük eşit tooor olmalıdır.  Merhaba değeri hello zaman penceresi'den büyükse, eksik kayıtları riski oluşur.<br>Örneğin, 30 dakikalık bir zaman penceresi ve 60 dakika sıklığını göz önünde bulundurun.  Merhaba sorgu 1: 00'dan çalıştırırsanız, 12:30 ve 1:00 arasında kayıt döndürür.  Merhaba hello sorguyu çalıştırabilir sonraki 2:00 kayıtlar 1:30 ve 2:00 arasında ne zaman döndürecektir saattir.  1:00-1:30 arasında oluşturulan kayıtları hiçbir zaman değerlendirilmesi.
+- **Eşik**.  bir uyarı oluşturulup oluşturulmayacağını hello hello günlük arama sonuçlarını değerlendirilen toodetermine ' dir.  Merhaba eşik hello farklı türlerde uyarı kuralları için farklıdır.
 
-Günlük analizi her uyarı kuralı iki türlerinden biridir.  Bu türleri izleyen bölümlerde ayrıntılı olarak açıklanmıştır.
+Günlük analizi her uyarı kuralı iki türlerinden biridir.  Bu türleri izleyin hello bölümlerde ayrıntılı olarak açıklanmıştır.
 
-- **[Sonuç sayısı](#number-of-results-alert-rules)**. Günlük araması tarafından döndürülen sayı kayıtları belirli sayıda aştıklarında oluşturulan tek bir uyarı.
-- **[Ölçüm ölçüm](#metric-measurement-alert-rules)**.  Belirtilen eşiğini aşan değerlerle günlük arama sonuçlarında her nesne için oluşturulan bir uyarı.
+- **[Sonuç sayısı](#number-of-results-alert-rules)**. Merhaba sayı kayıtları hello günlük araması tarafından döndürülen oluşturulan tek bir uyarı belirtilen sayıyı aşıyor.
+- **[Ölçüm ölçüm](#metric-measurement-alert-rules)**.  Belirtilen eşiğini aşan değerlerle hello günlük arama sonuçlarını hello her nesne için oluşturulan bir uyarı.
 
-Uyarı kuralı türleri arasındaki farkları aşağıdaki gibidir.
+Uyarı kuralı türleri arasındaki farkları Hello aşağıdaki gibidir.
 
-- **Sonuç sayısı** uyarı kuralı her zaman tek bir uyarı while Oluştur **ölçüm ölçüm** uyarı kuralı eşiği aşıyor her nesne için bir uyarı oluşturur.
-- **Sonuç sayısı** uyarı kuralları tek bir kez eşiği aştığında bir uyarı oluşturmak. **Ölçüm ölçüm** uyarı kuralları, bir uyarı oluşturabilir, eşik aşıldığında, belirli bir süre boyunca belirli sayıda.
+- **Sonuç sayısı** uyarı kuralı her zaman tek bir uyarı while Oluştur **ölçüm ölçüm** uyarı kuralı hello eşiğini aştığında her nesne için bir uyarı oluşturur.
+- **Sonuç sayısı** tek bir kez hello eşiği aştığında bir uyarı uyarı kuralları oluşturmak. **Ölçüm ölçüm** uyarı kuralları, bir uyarı oluşturabilir, başlangıç eşiği aşıldığında, belirli bir süre boyunca belirli sayıda.
 
 ## <a name="number-of-results-alert-rules"></a>Sonuçları uyarı kuralları sayısı
-**Sonuç sayısı** uyarı kuralları arama sorgusu tarafından döndürülen kayıt sayısını belirtilen eşiği aştığında tek bir uyarı oluştur.
+**Sonuç sayısı** hello hello arama sorgusu tarafından döndürülen kayıt sayısını hello belirtilen eşiği aştığında uyarı kuralları oluşturmak tek bir uyarı.
 
 ### <a name="threshold"></a>Eşik
-Eşiği bir **sonuç sayısı** yalnızca büyük veya belirli bir değerden daha az uyarı kuralı.  Günlük araması tarafından döndürülen kayıt sayısını bu ölçütlere uyan varsa bir uyarı oluşturulur.
+Merhaba eşiği için bir **sonuç sayısı** yalnızca büyük veya belirli bir değerden daha az uyarı kuralı.  Merhaba hello günlük araması tarafından döndürülen kayıt sayısını bu ölçütlere uyan varsa bir uyarı oluşturulur.
 
 ### <a name="scenarios"></a>Senaryolar
 
 #### <a name="events"></a>Olaylar
-Bu tür bir uyarı kuralı olaylar Windows olay günlükleri, Syslog, gibi ile çalışmak için idealdir ve özel günlüğe kaydeder.  Belirli hata olayı oluştururken ya da birden çok hata olayları belirli zaman penceresi içinde oluşturulan bir uyarı oluşturmak isteyebilirsiniz.
+Bu tür bir uyarı kuralı olaylar Windows olay günlükleri, Syslog, gibi ile çalışmak için idealdir ve özel günlüğe kaydeder.  Belirli hata olayı oluştururken ya da birden çok hata olayları belirli zaman penceresi içinde oluşturulduğunda, toocreate bir uyarı isteyebilirsiniz.
 
-Tek bir olayda uyarmak için 0 ile sıklığı ve 5 dakika zaman penceresi'den büyük sonuç sayısını ayarlayın.  Her 5 dakikada bir ve onay son kez sorgu çalıştırıldığında bu yana oluşturulan tek bir olay geçtiği, sorguyu çalıştırır.  Bir uzun sıklığı toplanmakta olan olay ile oluşturulan uyarı arasındaki süre geciktirebilir.
+tek bir olay tooalert sonuçları toogreater 0 ve her ikisi de hello sıklığından hello sayısını ayarlayın ve pencere too5 dakika süresi.  Her 5 dakikada bir ve onay hello son zaman hello sorgu çalıştırıldıktan sonra oluşturulan tek bir olay hello geçtiği, hello sorguyu çalıştırır.  Bir uzun sıklığı hello olay olma toplanan ve oluşturulmakta hello uyarı arasındaki hello süre geciktirebilir.
 
-Bazı uygulamalar, mutlaka bir uyarı oluşturmadan döndürmemelidir hatayla zaman oturum açabilir.  Örneğin, uygulama hata olayı oluşturan işlemi yeniden deneyin ve bir sonraki sefer başarılı.  Bu durumda, birden çok olay belirli zaman penceresi içinde oluşturulan sürece uyarı oluşturma istemeyebilirsiniz.  
+Bazı uygulamalar, mutlaka bir uyarı oluşturmadan döndürmemelidir hatayla zaman oturum açabilir.  Örneğin, hello uygulama hello hata olayı oluşturan hello işlemi yeniden deneyin ve ardından bir sonraki sefer hello başarılı.  Bu durumda, birden çok olay belirli zaman penceresi içinde oluşturulan sürece toocreate hello uyarı istemeyebilirsiniz.  
 
-Bazı durumlarda, bir olay olmaması durumunda bir uyarı oluşturmak isteyebilirsiniz.  Örneğin, bir işlem düzgün çalıştığını göstermek için normal olaylarla oturum açabilir.  Belirli bir zaman penceresi içinde aşağıdaki olaylardan biri oturum değil, bir uyarı oluşturulmalıdır.  Bu durumda, eşik ayarlamalısınız **değerinden 1**.
+Bazı durumlarda, bir olay hello olmaması durumunda toocreate bir uyarı isteyebilirsiniz.  Örneğin, bir işlem düzgün çalıştığını normal olaylarla tooindicate oturum açabilir.  Belirli bir zaman penceresi içinde aşağıdaki olaylardan biri oturum değil, bir uyarı oluşturulmalıdır.  Bu durumda, hello eşik çok ayarlamalısınız**değerinden 1**.
 
 #### <a name="performance-alerts"></a>Performans uyarıları
-[Performans verileri](log-analytics-data-sources-performance-counters.md) olaylarına benzer OMS depo kayıt olarak depolanır.  Bir performans sayacı belirli bir eşiği aştığında uyarı istiyorsanız, bu eşiği sorguda bulunması gerekir.
+[Performans verileri](log-analytics-data-sources-performance-counters.md) hello OMS deposu benzer tooevents kayıt olarak depolanır.  Bir performans sayacı belirli bir eşiği aştığında tooalert istiyorsanız, bu eşiği hello sorguda bulunması gerekir.
 
-Örneğin, işlemci çalıştığında uyarı istiyorsanız %90 üzerindeki aşağıdaki gibi bir sorgu ile eşiği için uyarı kuralı kullanacağınız **0'dan büyük**.
+Tooalert hello zaman istediyseniz Örneğin, işlemci çalıştıran % 90'de, kullandığınız hello hello uyarı kuralı için başlangıç eşik ile aşağıdaki gibi bir sorgu **0'dan büyük**.
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-İşlemci üzerinde belirli bir zaman penceresi için % 90 ortalaması olduğunda uyarır istiyorsanız, bir sorgu kullanarak kullanırsınız [ölçmek komutu](log-analytics-search-reference.md#commands) uyarı kuralı için eşik ile aşağıdaki gibi **0'dan büyük**.
+Merhaba işlemci üzerinde belirli bir zaman penceresi için % 90 ortalama zaman tooalert istediyseniz, hello kullanarak bir sorgu kullanırsınız [ölçmek komutu](log-analytics-search-reference.md#commands) ister hello uyarı kuralı için başlangıç eşiği hello aşağıdakilerle **0'dan büyük** .
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 >[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), yukarıdaki sorguları aşağıdakiler için değişeceğinden sonra:`Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> Çalışma alanınızı yükseltilmiş toohello yüklediyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), sorguları yukarıda hello toohello aşağıdaki değişeceğinden sonra:`Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
 > `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
 
@@ -92,20 +92,20 @@ Bazı durumlarda, bir olay olmaması durumunda bir uyarı oluşturmak isteyebili
 >[!NOTE]
 > Ölçüm ölçüm uyarı kuralları şu anda genel önizlemede.
 
-**Ölçüm ölçüm** uyarı kuralları bir sorguda belirtilen eşiği aşarsa bir değerle her nesne için bir uyarı oluştur.  Aşağıdaki ayrı farkları sahip oldukları **sonuç sayısı** uyarı kuralları.
+**Ölçüm ölçüm** uyarı kuralları bir sorguda belirtilen eşiği aşarsa bir değerle her nesne için bir uyarı oluştur.  Ayrı farkları aşağıdaki hello sahip oldukları **sonuç sayısı** uyarı kuralları.
 
 #### <a name="log-search"></a>Günlük araması
-Herhangi bir sorgu için kullanabilirsiniz, ancak bir **sonuç sayısı** uyarı kuralı, bir ölçüm ölçüm uyarı kuralı için sorgu belirli koşullar yoktur.  İçermesi gerekir bir [ölçmek komut](log-analytics-search-reference.md#commands) belirli bir alan sonuçları gruplandırmak için. Bu komut, aşağıdaki öğeleri eklemeniz gerekir.
+Herhangi bir sorgu için kullanabilirsiniz, ancak bir **sonuç sayısı** uyarı kuralı, belirli gereksinimleri hello sorgusunu ölçüm ölçüm bir uyarı kuralı vardır.  İçermesi gerekir bir [ölçmek komutu](log-analytics-search-reference.md#commands) toogroup hello sonuçları belirli bir alan. Bu komut, öğeleri aşağıdaki hello eklemeniz gerekir.
 
-- **Toplama işlevi**.  Gerçekleştirilen hesaplama ve büyük olasılıkla bir sayısal belirler toplanacak alan.  Örneğin, **count()** kayıt sayısını sorgudan döndürülecek **avg(CounterValue)** aralığı içinde CounterValue alanının ortalamasını döndürür.
-- **Alan grup**.  Bu alan her örneği için bir toplu değeri içeren bir kayıt oluşturulur ve her biri için bir uyarı oluşturulabilir.  Örneğin, her bilgisayar için bir uyarı oluşturmak istiyorsanız, kullanacağınız **bilgisayar tarafından**.   
-- **Aralığı**.  Birleşik verileri zaman aralığını tanımlar.  Örneğin, belirttiğiniz **5minutes**, bir kayıt her örneği için uyarı belirtilen zaman penceresi üzerinden 5 dakikalık aralıklarla toplanan grup alanının oluşturulması.
+- **Toplama işlevi**.  Gerçekleştirilen hello hesaplama ve büyük olasılıkla bir sayısal alana tooaggregate belirler.  Örneğin, **count()** kayıt hello sayısını hello sorguda döndürülecek **avg(CounterValue)** hello aralığı içinde hello CounterValue alanının hello ortalamasını döndürür.
+- **Alan grup**.  Bu alan her örneği için bir toplu değeri içeren bir kayıt oluşturulur ve her biri için bir uyarı oluşturulabilir.  Örneğin, her bilgisayar için bir uyarı toogenerate istediyseniz, kullanacağınız **bilgisayar tarafından**.   
+- **Aralığı**.  Merhaba zaman aralığı üzerinde hello verileri toplanır tanımlar.  Örneğin, belirttiğiniz **5minutes**, hello uyarı için belirtilen hello zaman penceresi üzerinden 5 dakikalık aralıklarla toplanan hello grup alanı her örneği için bir kayıt oluşturulması.
 
 #### <a name="threshold"></a>Eşik
-Ölçüm ölçüm uyarı kuralları için eşik bir toplam değerini ve bir dizi tarafından tanımlanır.  Herhangi bir veri noktasını günlük arama bu değeri aştığında bir ihlal dikkate almıştır.  Dizi içinde sonuçlarındaki herhangi bir nesne için belirtilen değeri aşarsa bir uyarı bu nesne için oluşturulur.
+Merhaba eşiği ölçüm ölçüm uyarı kuralları için bir toplam değerini ve bir dizi tarafından tanımlanır.  Merhaba günlük arama herhangi bir veri noktasını bu değeri aştığında bir ihlal dikkate almıştır.  Merhaba dizi içinde herhangi bir nesnenin hello sonuçlarında aşarsa hello belirtilen değer, ardından bu nesne için bir uyarı oluşturulur.
 
 #### <a name="example"></a>Örnek
-Burada herhangi bir bilgisayar işlemci kullanımı % 90'ın üç kez üzerinde 30 dakika aşılırsa bir uyarı isteyen bir senaryo düşünün.  Bir uyarı kuralı aşağıdaki ayrıntılarla oluşturursunuz.  
+Burada herhangi bir bilgisayar işlemci kullanımı % 90'ın üç kez üzerinde 30 dakika aşılırsa bir uyarı isteyen bir senaryo düşünün.  Aşağıdaki ayrıntılara hello ile bir uyarı kuralı oluşturursunuz.  
 
 **Sorgu:** türü Perf ObjectName = işlemci CounterName = "% işlemci zamanı" = | avg(CounterValue) 5 dakika bilgisayar aralığına göre ölçün<br>
 **Zaman penceresi:** 30 dakika<br>
@@ -113,35 +113,35 @@ Burada herhangi bir bilgisayar işlemci kullanımı % 90'ın üç kez üzerinde 
 **Toplam değer:** 90'dan büyük<br>
 **Tetikleyici uyarı temel alarak:** toplam ihlal 5'ten büyük<br>
 
-Sorgu her bilgisayar için bir ortalama değer 5 dakika aralıklarla oluşturursunuz.  Bu sorguyu her 5 dakikada bir toplanan veriler için önceki 30 dakika boyunca çalışır.  Örnek verileri varsayılan olarak, üç bilgisayarlar için aşağıda gösterilmiştir.
+Merhaba sorgu her bilgisayar için bir ortalama değer 5 dakika aralıklarla oluşturursunuz.  Bu sorguyu her 5 dakikada bir toplanan veriler için önceki 30 dakika içinde hello çalıştırılmaz.  Örnek verileri varsayılan olarak, üç bilgisayarlar için aşağıda gösterilmiştir.
 
 ![Örnek sorgu sonuçları](media/log-analytics-alerts/metrics-measurement-sample-graph.png)
 
-Bunlar % 90 eşiği 3 kez zaman penceresi ihlal beri bu örnekte, ayrı uyarılar srv02 ve srv03 oluşturulması.  Varsa **tetikleyici uyarı temel alarak:** üzere değiştirilmiştir **art arda** ardışık 3 örnek eşiği ihlal bu yana bir uyarı yalnızca srv03 için oluşturulacak sonra.
+Bunlar hello % 90 eşiği 3 kez hello zaman penceresi ihlal beri bu örnekte, ayrı uyarılar srv02 ve srv03 oluşturulması.  Merhaba, **tetikleyici uyarı temel alarak:** çok değiştirilen**art arda** ardışık 3 örnek hello eşiği ihlal bu yana bir uyarı yalnızca srv03 için oluşturulacak sonra.
 
 ## <a name="alert-records"></a>Uyarı kaydeder
-Günlük analizi uyarı kuralları tarafından oluşturulan uyarı kayıtlarına sahip bir **türü** , **uyarı** ve **SourceSystem** , **OMS**.  Aşağıdaki tabloda özellikleri sahiptirler.
+Günlük analizi uyarı kuralları tarafından oluşturulan uyarı kayıtlarına sahip bir **türü** , **uyarı** ve **SourceSystem** , **OMS**.  Bunlar, aşağıdaki tablonun hello hello özelliklere sahiptir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
 | Tür |*Uyarı* |
 | SourceSystem |*OMS* |
-| *Nesne*  | [Ölçüm ölçüm uyarıları](#metric-measurement-alert-rules) Grup alan için bir özelliğe sahiptir.  Örneğin, bilgisayarda günlük arama grupları uyarı kaydıyla varsa bilgisayar ada sahip bir bilgisayar alan değeri olarak.
-| AlertName |Uyarı adı. |
-| AlertSeverity |Uyarı önem derecesi. |
-| LinkToSearchResults |Günlük analizi günlük kayıtları uyarı oluşturulan sorgudan döndüren bir arama bağlayın. |
-| Sorgu |Çalıştırıldığı sorgu metni. |
-| QueryExecutionEndTime |Sorgu için zaman aralığı sonu. |
-| QueryExecutionStartTime |Sorgu için zaman aralığını başlangıcı. |
-| ThresholdOperator | Uyarı kuralı tarafından kullanılan işleci. |
-| ThresholdValue | Uyarı kuralı tarafından kullanılan değeri. |
-| TimeGenerated |Uyarının oluşturulduğu tarih ve saat. |
+| *Nesne*  | [Ölçüm ölçüm uyarıları](#metric-measurement-alert-rules) hello Grup alan için bir özelliğe sahiptir.  Örneğin, bilgisayarda hello günlük arama grupları hello uyarı kaydıyla varsa hello bilgisayarın hello ada sahip bir bilgisayar alan hello değeri olarak.
+| AlertName |Merhaba uyarı adı. |
+| AlertSeverity |Merhaba uyarı önem derecesi. |
+| LinkToSearchResults |Merhaba uyarı oluşturulan hello sorgudan hello kayıtları döndüren tooLog Analytics günlük arama bağlayın. |
+| Sorgu |Çalıştırıldığı hello sorgu metni. |
+| QueryExecutionEndTime |Merhaba sorgu için hello zaman aralığı sonu. |
+| QueryExecutionStartTime |Merhaba sorgu hello zaman aralığını başlangıcı. |
+| ThresholdOperator | Merhaba uyarı kuralı tarafından kullanılan işleci. |
+| ThresholdValue | Merhaba uyarı kuralı tarafından kullanılan değeri. |
+| TimeGenerated |Tarih ve saat hello uyarı oluşturuldu. |
 
-Tarafından oluşturulan uyarı kayıtları diğer tür vardır [uyarı yönetim çözümü](log-analytics-solution-alert-management.md) kullanarak ve [Power BI dışarı aktarır](log-analytics-powerbi.md).  Bunların tümüne sahip bir **türü** , **uyarı** göre ayırt edilen ancak kendi **SourceSystem**.
+Merhaba tarafından oluşturulan uyarı kayıtları diğer tür vardır [uyarı yönetim çözümü](log-analytics-solution-alert-management.md) kullanarak ve [Power BI dışarı aktarır](log-analytics-powerbi.md).  Bunların tümüne sahip bir **türü** , **uyarı** göre ayırt edilen ancak kendi **SourceSystem**.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yükleme [uyarı yönetimi çözümü](log-analytics-solution-alert-management.md) System Center Operations Manager'dan toplanan uyarılar ile birlikte günlük analizi oluşturulan uyarıların çözümlemek için.
+* Merhaba yüklemek [uyarı yönetimi çözümü](log-analytics-solution-alert-management.md) günlük analizi ile birlikte uyarıları oluşturulan tooanalyze uyarıların toplanan System Center Operations Manager'dan.
 * Daha fazla bilgi edinin [oturum aramaları](log-analytics-log-searches.md) uyarılar oluşturabilir.
 * İzlenecek yollar için tamamlamak [bir webook yapılandırma](log-analytics-alerts-webhooks.md) bir uyarı kuralı ile.  
-* Nasıl yazılacağını öğrenmek [Azure automation'daki runbook'lar](https://azure.microsoft.com/documentation/services/automation) uyarılar tarafından tanımlanan sorunları düzeltmek için.
+* Öğrenin nasıl toowrite [Azure automation'daki runbook'lar](https://azure.microsoft.com/documentation/services/automation) tooremediate sorunları uyarıları ile tanımlanır.

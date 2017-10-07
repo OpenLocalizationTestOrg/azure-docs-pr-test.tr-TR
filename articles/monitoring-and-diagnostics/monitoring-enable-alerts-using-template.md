@@ -1,6 +1,6 @@
 ---
-title: "Resource Manager şablonu ile bir ölçüm uyarısı oluştur | Microsoft Docs"
-description: "E-posta veya Web kancası bildirimleri almak için ölçüm bir uyarı oluşturmak için Resource Manager şablonu kullanmayı öğrenin."
+title: "Resource Manager şablonu ile bir ölçüm uyarısı aaaCreate | Microsoft Docs"
+description: "Bilgi nasıl toouse bir Resource Manager şablonu toocreate ölçüm uyarı e-posta veya Web kancası tooreceive bildirimleri."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/21/2017
 ms.author: johnkem
-ms.openlocfilehash: ac12605636d21fd0b5c89512c454ef2d899ef6dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dcf92b189f56a8389fff007c82197527239b96b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile ölçüm uyarısı oluşturma
-Bu makalede nasıl kullanabileceğinizi gösteren bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) Azure ölçüm uyarılarını yapılandırmak için. Bu otomatik olarak tüm kaynakların doğru izlenen emin olmak için oluşturuldukları sırada kaynaklarınızı uyarılar ayarlamanıza olanak sağlar.
+Bu makalede nasıl kullanabileceğinizi gösteren bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) tooconfigure Azure ölçüm uyarıları. Bu, tüm kaynakların doğru izlenen tooensure oluşturduğunuzda kaynaklarınız uyarıları ayarlama tooautomatically sağlar.
 
-Temel adımlar aşağıdaki gibidir:
+Merhaba temel adımlar aşağıdaki gibidir:
 
-1. Uyarının oluşturulacağını açıklayan bir JSON dosyası bir şablon oluşturun.
-2. [Herhangi bir dağıtım yöntemi kullanarak şablonu dağıtmak](../azure-resource-manager/resource-group-template-deploy.md).
+1. Bir şablonu nasıl toocreate hello uyarı tanımlayan bir JSON dosyası olarak oluşturun.
+2. [Herhangi bir dağıtım yöntemi kullanarak hello şablonu dağıtmak](../azure-resource-manager/resource-group-template-deploy.md).
 
-Aşağıda biz Resource Manager şablonu önce bir uyarı için tek başına, nasıl oluşturulacağını açıklar sonra başka bir kaynak oluşturulması sırasında bir uyarı için.
+Aşağıda biz açıklamak nasıl toocreate önce tek başına, bir uyarı için bir Resource Manager şablonu sonra başka bir kaynak hello oluşturulması sırasında bir uyarı için.
 
 ## <a name="resource-manager-template-for-a-metric-alert"></a>Ölçüm uyarı için Resource Manager şablonu
-Resource Manager şablonu kullanarak bir uyarı oluşturmak için bir kaynak türü oluşturun `Microsoft.Insights/alertRules` ve tüm ilişkili özellikleri doldurur. Aşağıda, bir uyarı kuralı oluşturan bir şablondur.
+toocreate Resource Manager şablonu kullanarak bir uyarı, oluşturduğunuz bir kaynak türü `Microsoft.Insights/alertRules` ve tüm ilişkili özellikleri doldurur. Aşağıda, bir uyarı kuralı oluşturan bir şablondur.
 
 ```json
 {
@@ -62,14 +62,14 @@ Resource Manager şablonu kullanarak bir uyarı oluşturmak için bir kaynak tü
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Resource ID of the resource emitting the metric that will be used for the comparison."
+                "description": "Resource ID of hello resource emitting hello metric that will be used for hello comparison."
             }
         },
         "metricName": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Name of the metric used in the comparison to activate the alert."
+                "description": "Name of hello metric used in hello comparison tooactivate hello alert."
             }
         },
         "operator": {
@@ -82,14 +82,14 @@ Resource Manager şablonu kullanarak bir uyarı oluşturmak için bir kaynak tü
                 "LessThanOrEqual"
             ],
             "metadata": {
-                "description": "Operator comparing the current value with the threshold value."
+                "description": "Operator comparing hello current value with hello threshold value."
             }
         },
         "threshold": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "The threshold value at which the alert is activated."
+                "description": "hello threshold value at which hello alert is activated."
             }
         },
         "aggregation": {
@@ -103,35 +103,35 @@ Resource Manager şablonu kullanarak bir uyarı oluşturmak için bir kaynak tü
                 "Total"
             ],
             "metadata": {
-                "description": "How the data that is collected should be combined over time."
+                "description": "How hello data that is collected should be combined over time."
             }
         },
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used toomonitor alert activity based on hello threshold. Must be between five minutes and one day. ISO 8601 duration format."
             }
         },
         "sendToServiceOwners": {
             "type": "bool",
             "defaultValue": true,
             "metadata": {
-                "description": "Specifies whether alerts are sent to service owners"
+                "description": "Specifies whether alerts are sent tooservice owners"
             }
         },
         "customEmailAddresses": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Comma-delimited email addresses where the alerts are also sent"
+                "description": "Comma-delimited email addresses where hello alerts are also sent"
             }
         },
         "webhookUrl": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "URL of a webhook that will receive an HTTP POST when the alert activates."
+                "description": "URL of a webhook that will receive an HTTP POST when hello alert activates."
             }
         }
     },
@@ -178,10 +178,10 @@ Resource Manager şablonu kullanarak bir uyarı oluşturmak için bir kaynak tü
 }
 ```
 
-Bir şema ve özellikleri açıklaması bir uyarı kuralı için [buradan kullanılabilir](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Bir uyarı kuralı hello şema ve özelliklerinin bir açıklama [buradan kullanılabilir](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="resource-manager-template-for-a-resource-with-an-alert"></a>Bir uyarı sahip bir kaynak için Resource Manager şablonu
-Bir Resource Manager şablonu bir uyarı çoğunlukla bir uyarı kaynak oluşturulurken oluştururken yararlıdır. Örneğin, emin olmak isteyebilir bir "CPU % > 80" kural ayarlandığından her bir sanal makine dağıttığınız zaman. Bunu yapmak için VM şablonunuz için uyarı kuralı kaynak dizisinde bulunan bir kaynak olarak ekleyin ve kullanarak bir bağımlılık ekleme `dependsOn` VM kaynak kimliği özelliği Aşağıda, bir Windows VM oluşturur ve abonelik yöneticileri CPU kullanımı % 80 ' gittiğinde bildiren bir uyarı ekler tam bir örnek verilmiştir.
+Bir Resource Manager şablonu bir uyarı çoğunlukla bir uyarı kaynak oluşturulurken oluştururken yararlıdır. Örneğin, tooensure isteyebilir, bir "CPU % > 80" kural ayarlandığından her bir sanal makine dağıttığınız zaman. toodo Bu, VM şablonunuz için bir kaynak hello kaynak dizi olarak hello uyarı kuralı ekleyin ve hello kullanarak bir bağımlılık ekleme `dependsOn` özellik toohello VM kaynak kimliği Aşağıda, bir Windows VM oluşturur ve abonelik yöneticileri hello CPU kullanımı % 80 ' gittiğinde bildiren bir uyarı ekler tam bir örnek verilmiştir.
 
 ```json
 {
@@ -191,25 +191,25 @@ Bir Resource Manager şablonu bir uyarı çoğunlukla bir uyarı kaynak oluştur
         "newStorageAccountName": {
             "type": "string",
             "metadata": {
-                "Description": "The name of the storage account where the VM disk is stored."
+                "Description": "hello name of hello storage account where hello VM disk is stored."
             }
         },
         "adminUsername": {
             "type": "string",
             "metadata": {
-                "Description": "The name of the administrator account on the VM."
+                "Description": "hello name of hello administrator account on hello VM."
             }
         },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
-                "Description": "The administrator account password on the VM."
+                "Description": "hello administrator account password on hello VM."
             }
         },
         "dnsNameForPublicIP": {
             "type": "string",
             "metadata": {
-                "Description": "The name of the public IP address used to access the VM."
+                "Description": "hello name of hello public IP address used tooaccess hello VM."
             }
         }
     },
@@ -402,5 +402,5 @@ Bir Resource Manager şablonu bir uyarı çoğunlukla bir uyarı kaynak oluştur
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Uyarılar hakkında daha fazla bilgi](insights-receive-alert-notifications.md)
-* [Tanılama ayarlarını ekleyin](monitoring-enable-diagnostic-logs-using-template.md) Resource Manager şablonu için
+* [Tanılama ayarlarını ekleyin](monitoring-enable-diagnostic-logs-using-template.md) tooyour Resource Manager şablonu
 

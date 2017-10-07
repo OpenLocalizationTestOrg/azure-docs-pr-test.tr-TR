@@ -1,6 +1,6 @@
 ---
-title: "Yay önyükleme uygulamasını Azure App Service'e dağıtma | Microsoft Docs"
-description: "Bu öğretici yay önyükleme Başlarken web uygulamasını Azure App Service'e dağıtmak için geliştiricilere adımlarında yol gösterir."
+title: "aaaDeploy yay önyükleme uygulama toohello Azure App Service | Microsoft Docs"
+description: "Bu öğretici, başlangıç adımları toodeploy hello yay önyükleme Başlarken web uygulama tooAzure uygulama hizmeti aracılığıyla geliştiricilerin yol gösterecektir."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -14,32 +14,32 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
-ms.openlocfilehash: 0c388862d927a1492745832225c686670c071f86
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 69f9c4903fd740125194402cdb4b4db46a1f2773
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-a-spring-boot-application-to-the-azure-app-service"></a>Azure Uygulama Hizmeti’ne Spring Boot Uygulaması dağıtma
+# <a name="deploy-a-spring-boot-application-toohello-azure-app-service"></a>Yay önyükleme uygulama toohello Azure App Service'e dağıtma
 
- **[Yay Framework]**  Java geliştiriciler kuruluş düzeyinde uygulamalar oluşturmanıza yardımcı olan bir açık kaynak çözümüdür ve bu platformu üzerine kurulmuştur daha popüler projeleri biri [yay önyükleme], tek başına Java uygulamaları oluşturmak için basitleştirilmiş bir yaklaşım sağlar.
+Merhaba  **[yay Framework]**  Java geliştiriciler kuruluş düzeyinde uygulamalar oluşturmanıza yardımcı olan bir açık kaynak çözümüdür ve bu platformu üzerine kurulmuştur hello daha popüler projeleri biridir [Yay önyükleme], tek başına Java uygulamaları oluşturmak için basitleştirilmiş bir yaklaşım sağlar.
 
-Bu öğretici ancak örnek yay önyükleme Başlarken web uygulaması oluşturma ve dağıttıktan anlatılır [Azure App Service].
+Bu öğretici ancak hello örnek yay önyükleme Başlarken web uygulaması oluşturma ve çok dağıtma anlatılır[Azure App Service].
 
 ### <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için aşağıdakilere sahip olmanız gerekir:
+Sipariş toocomplete hello adımlarda Bu öğreticide, toohave hello aşağıdaki gerekir:
 
 * Bir Azure aboneliği; bir Azure aboneliği zaten sahip değilseniz, etkinleştirebilir, [MSDN abone Avantajlarınızı] veya kaydolun bir [ücretsiz Azure hesabı].
 * Güncel bir [Java Geliştirme Seti (JDK)].
 * Apache'nın [Maven] aracını (sürüm 3) yapılandırma.
 * A [Git] istemci.
 
-## <a name="create-the-spring-boot-getting-started-web-app"></a>Yay önyükleme Başlarken web uygulaması oluşturma
+## <a name="create-hello-spring-boot-getting-started-web-app"></a>Merhaba yay önyükleme Başlarken web uygulaması oluşturma
 
-Aşağıdaki adımlar, basit bir yay önyükleme web uygulaması oluşturma ve yerel olarak test etmek için gereken adımlarda size yol gösterir.
+Merhaba aşağıdaki adımlar, gerekli toocreate basit bir yay önyükleme web uygulaması ve yerel olarak test hello adımlarda size yol gösterir.
 
-1. Bir komut istemi açın ve uygulamanızı tutun ve bu dizine değiştirmek için yerel bir dizin oluşturun; Örneğin:
+1. Bir komut istemi açın ve yerel dizin toohold uygulama ve değişiklik toothat dizin oluşturun; Örneğin:
    ```
    md C:\SpringBoot
    cd C:\SpringBoot
@@ -50,56 +50,56 @@ Aşağıdaki adımlar, basit bir yay önyükleme web uygulaması oluşturma ve y
    cd /users/robert/SpringBoot
    ```
 
-1. Kopya [yay önyükleme Başlarken] örnek proje yeni oluşturduğunuz; dizine örneğin:
+1. Kopya hello [yay önyükleme Başlarken] örnek proje hello dizinine yeni oluşturduğunuz; örneğin:
    ```
    git clone https://github.com/spring-guides/gs-spring-boot.git
    ```
 
-1. Projeyi Dizin Değiştir; Örneğin:
+1. Dizin tamamlandı toohello proje Değiştir; Örneğin:
    ```
    cd gs-spring-boot
    cd complete
    ```
 
-1. Maven kullanarak JAR dosyasını oluşturun; Örneğin:
+1. Maven kullanarak hello JAR dosyasını oluşturun; Örneğin:
    ```
    mvn package
    ```
 
-1. Web uygulaması oluşturulduktan sonra JAR dosyasına dizini değiştirin ve web uygulaması başlatın; Örneğin:
+1. Merhaba web uygulaması oluşturulduktan sonra dizin toohello JAR dosyasını değiştirin ve hello web uygulaması başlatın; Örneğin:
    ```
    cd target
    java -jar gs-spring-boot-0.1.0.jar
    ```
 
-1. Web uygulaması http://localhost: 8080 bir web tarayıcısı kullanarak göz atarak test veya curl kullanılabilir varsa aşağıdaki örnekteki gibi sözdizimini kullanın:
+1. Bir web tarayıcısı kullanarak toohttp://localhost:8080 göz atarak Hello web uygulaması test veya curl kullanılabilir varsa aşağıdaki örneğine hello gibi hello sözdizimini kullanın:
    ```
    curl http://localhost:8080
    ```
 
-1. Aşağıdaki ileti görürsünüz: **Tebrikler İlkbahar önyüklemesinden!**
+1. Görüntülenen iletiden hello görmeniz gerekir: **Tebrikler İlkbahar önyüklemesinden!**
 
    ![Örnek uygulaması Gözat][SB01]
 
 ## <a name="create-an-azure-web-app-for-use-with-java"></a>Java ile kullanmak için bir Azure web uygulaması oluşturma
 
-Aşağıdaki adımlar bir Azure Web uygulaması oluşturma, Java için gereken ayarları yapılandırın ve FTP kimlik bilgilerinizi yapılandırma adımlarında size yol gösterir.
+Aşağıdaki adımları hello Azure Web uygulaması başlangıç adımları toocreate yol, Java için gerekli hello ayarlarını yapılandırmak ve FTP kimlik bilgilerinizi yapılandırın.
 
-1. Gözat [Azure portal] ve oturum açın.
+1. Toohello Gözat [Azure portal] ve oturum açın.
 
-1. Azure portalındaki hesabınızda oturum açtıktan sonra menü simgesini **uygulama hizmetleri**:
+1. Hello Azure portalı üzerinde hesabınızda oturum açtıktan sonra hello menü simgesini **uygulama hizmetleri**:
    
    ![Azure portalına][AZ01]
 
-1. Zaman **uygulama hizmetleri** sayfası görüntülenirse, tıklatın **+ Ekle** yeni bir uygulama hizmeti oluşturmak için.
+1. Ne zaman hello **uygulama hizmetleri** sayfası görüntülenirse, tıklatın **+ Ekle** toocreate yeni bir uygulama hizmeti.
 
    ![Uygulama hizmeti oluşturma][AZ02]
 
-1. Web uygulama şablonları görüntülendiğinde, temel Microsoft Web uygulaması için bağlantıyı tıklatın.
+1. Web uygulama şablonları Hello listesi gösterildiğinde, hello hello bağlantısına tıklayın temel Microsoft Web uygulaması.
 
    ![Web Uygulama Şablonları][AZ03]
 
-1. Bilgi sayfası Web uygulaması şablonu görüntülenen için tıklattığınızda **oluşturma**.
+1. Merhaba Web uygulaması şablonu için başlangıç bilgileri sayfası görüntülendiğinde tıklayın **oluşturma**.
 
    ![Web Uygulaması Oluşturma][AZ04]
 
@@ -107,27 +107,27 @@ Aşağıdaki adımlar bir Azure Web uygulaması oluşturma, Java için gereken a
 
    ![Web uygulaması ayarları oluşturma][AZ05]
 
-1. Web uygulamanız oluşturulduktan sonra menü simgesini **uygulama hizmetleri**ve yeni oluşturulan web uygulamanız'ye tıklayın:
+1. Web uygulamanız oluşturulduktan sonra hello menü simgesini **uygulama hizmetleri**ve yeni oluşturulan web uygulamanız'ye tıklayın:
 
    ![Liste Web uygulamaları][AZ06]
 
-1. Web uygulamanızı görüntülendiğinde, aşağıdaki adımları kullanarak Java sürümü belirtin:
+1. Web uygulamanızı görüntülendiğinde hello Java Sürüm hello aşağıdaki adımları kullanarak belirtin:
 
-   a. Tıklatın **uygulama ayarları** menü öğesi.
+   a. Merhaba tıklatın **uygulama ayarları** menü öğesi.
 
-   b. Seçin **Java 8** Java sürümü için.
+   b. Seçin **Java 8** hello Java sürümü için.
 
-   c. Seçin **Newest** alt Java Sürüm için.
+   c. Seçin **Newest** hello alt Java Sürüm için.
 
-   d. Seçin **yeni Tomcat 8.5** web kapsayıcısı için. (Aslında bu kapsayıcı kullanılmaz; Azure kapsayıcı yay önyükleme uygulamanızdan kullanır.)
+   d. Seçin **yeni Tomcat 8.5** hello web kapsayıcısı için. (Aslında bu kapsayıcı kullanılmaz; Azure hello kapsayıcı yay önyükleme uygulamanızdan kullanır.)
 
    e. **Kaydet** düğmesine tıklayın.
 
    ![Uygulama ayarları][AZ07]
 
-1. Aşağıdaki adımları kullanarak, FTP dağıtımı kimlik bilgileri belirtin:
+1. FTP dağıtım kimlik bilgilerinizi hello aşağıdaki adımları kullanarak belirtin:
 
-   a. Tıklatın **dağıtım kimlik bilgileri** menü öğesi.
+   a. Merhaba tıklatın **dağıtım kimlik bilgileri** menü öğesi.
 
    b. Kullanıcı adı ve parola belirtin.
 
@@ -135,19 +135,19 @@ Aşağıdaki adımlar bir Azure Web uygulaması oluşturma, Java için gereken a
 
    ![Dağıtım kimlik bilgilerini belirtin][AZ08]
 
-1. Aşağıdaki adımları kullanarak FTP bağlantı bilgileri alın:
+1. FTP bağlantı bilgileri hello aşağıdaki adımları kullanarak Al:
 
-   a. Tıklatın **dağıtım kimlik bilgileri** menü öğesi.
+   a. Merhaba tıklatın **dağıtım kimlik bilgileri** menü öğesi.
 
-   b. Tam FTP kullanıcı adı ve URL kopyalayın ve Bu öğretici için sonraki bölüme kaydedin.
+   b. Tam FTP kullanıcı adı ve URL kopyalayın ve bunları hello için bu öğreticinin sonraki bölümde kaydedin.
 
    ![FTP URL ve kimlik bilgileri][AZ09]
 
-## <a name="deploy-your-spring-boot-web-app-to-azure"></a>Yay önyükleme web uygulamanızı Azure'a dağıtma
+## <a name="deploy-your-spring-boot-web-app-tooazure"></a>Yay önyükleme web uygulama tooAzure dağıtma
 
-Aşağıdaki adımları yay önyükleme web uygulamanızı Azure'a dağıtmak için adımlarda size yol gösterecek.
+Aşağıdaki adımları hello yay önyükleme web uygulama tooAzure hello adımları toodeploy yol gösterir.
 
-1. Windows Not Defteri gibi bir metin düzenleyicide açın ve aşağıdaki metni yeni bir belgeye yapıştırın ve ardından dosyayı farklı Kaydet *web.config*:
+1. Windows Not Defteri gibi bir metin düzenleyicide açın ve yeni bir belgeye metin aşağıdaki hello yapıştırın, ardından hello dosyası olarak kaydetmeniz *web.config*:
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
    <configuration>
@@ -162,7 +162,7 @@ Aşağıdaki adımları yay önyükleme web uygulamanızı Azure'a dağıtmak i�
    </configuration>
    ```
 
-1. Kaydettiğiniz sonra *web.config* dosya sistemi için bu öğreticinin önceki bölümünden URL, kullanıcı adı ve parola kullanarak FTP üzerinden web uygulamanıza bağlayın. Örneğin:
+1. Merhaba kaydettikten sonra *web.config* dosya tooyour sistemi, tooyour web uygulaması hello URL, kullanıcı adı ve bölüm bu öğreticinin önceki hello paroladan kullanarak FTP aracılığıyla bağlanır. Örneğin:
    ```
    ftp
    open waws-prod-sn0-000.ftp.azurewebsites.windows.net
@@ -170,41 +170,41 @@ Aşağıdaki adımları yay önyükleme web uygulamanızı Azure'a dağıtmak i�
    pass ********
    ```
 
-1. Uzak dizin, web uygulamanızın kök klasörüne değiştirme (olduğu anda */site/wwwroot*), ardından yay önyükleme uygulamanızdan JAR dosyasını kopyalamanız ve *web.config* daha önce gelen. Örneğin:
+1. Web uygulamanızın hello Uzak dizin toohello kök klasörünü Değiştir (olduğu anda */site/wwwroot*), ardından yay önyükleme uygulamanızdan hello JAR dosyasını kopyalayın ve hello *web.config* daha önce gelen. Örneğin:
    ```
    cd site/wwwroot
    put gs-spring-boot-0.1.0.jar
    put web.config
    ```
 
-1. JAR dağıttıktan sonra ve *web.config* dosyaları web uygulamanız için Azure Portalı'nı kullanarak, web uygulaması yeniden vermeniz gerekir:
+1. JAR dağıttıktan sonra ve *web.config* dosyaları tooyour web uygulaması, toorestart hello Azure portal kullanarak web uygulamanız gerekir:
 
    ![][AZ10]
 
-1. Web uygulaması bir web tarayıcısı kullanarak, web uygulamanızın URL'sine göz atarak test veya curl kullanılabilir varsa aşağıdaki örnekteki gibi sözdizimini kullanın:
+1. Bir web tarayıcısı kullanarak tooyour web uygulamanızın URL'sine göz atarak Hello web uygulaması test veya curl kullanılabilir varsa aşağıdaki örneğine hello gibi hello sözdizimini kullanın:
    ```
    curl http://wingtiptoys-springboot.azurewebsites.net/
    ```
 
-1. Aşağıdaki ileti görürsünüz: **Tebrikler İlkbahar önyüklemesinden!**
+1. Görüntülenen iletiden hello görmeniz gerekir: **Tebrikler İlkbahar önyüklemesinden!**
 
    ![Örnek uygulaması Gözat][SB02]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure üzerinde yay önyükleme uygulamalarında kullanma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+Azure üzerinde yay önyükleme uygulamalarında kullanma hakkında daha fazla bilgi için aşağıdaki makaleler hello bakın:
 
-* [Azure kapsayıcı Hizmeti'nde Linux'ta yay önyükleme uygulamasını dağıtma](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
+* [Linux üzerinde bir yay önyükleme uygulamasının hello Azure kapsayıcı hizmeti dağıtma](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
 
-* [Azure kapsayıcı hizmeti Kubernetes kümesinde yay önyükleme uygulamasını dağıtma](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
+* [Hello Azure kapsayıcı hizmeti Kubernetes kümesinde yay önyükleme uygulamasını dağıtma](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
-Azure’u Java ile kullanma hakkında daha fazla bilgi edinmek için bkz. [Azure Java Geliştirici Merkezi] ve [Visual Studio Team Services için Java Araçları].
+Azure Java ile kullanma hakkında daha fazla bilgi için bkz: Merhaba [Azure Java Geliştirici Merkezi] ve hello [Visual Studio Team Services için Java Araçları].
 
-FTP kullanarak Azure depoying web uygulamaları hakkında ek bilgi için bkz [FTP/S kullanarak Azure App Service için uygulamanızı dağıtma].
+FTP kullanarak depoying web apps tooAzure hakkında ek bilgi için bkz: [, uygulama tooAzure uygulama FTP/S kullanarak hizmeti dağıtmak].
 
-Yay önyükleme örnek proje hakkında daha fazla ayrıntı için bkz: [yay önyükleme Başlarken].
+Merhaba yay önyükleme örnek proje hakkında daha fazla ayrıntı için bkz: [yay önyükleme Başlarken].
 
-Kendi yay önyükleme uygulamaları ile çalışmaya başlama hakkında bilgi için bkz: **yay Initializr** https://start.spring.io/ adresindeki.
+Hello kendi yay önyükleme uygulamaları ile çalışmaya başlama hakkında bilgi için bkz: **yay Initializr** https://start.spring.io/ adresindeki.
 
 Web uygulamanız için ek ayarlarını yapılandırma hakkında daha fazla bilgi için bkz: [Azure App Service'te web uygulamalarını yapılandırma].
 
@@ -215,16 +215,16 @@ Web uygulamanız için ek ayarlarını yapılandırma hakkında daha fazla bilgi
 [Azure Java Geliştirici Merkezi]: https://azure.microsoft.com/develop/java/
 [Azure portal]: https://portal.azure.com/
 [Azure App Service'te web uygulamalarını yapılandırma]: /azure/app-service-web/web-sites-configure
-[FTP/S kullanarak Azure App Service için uygulamanızı dağıtma]: https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp
+[, uygulama tooAzure uygulama FTP/S kullanarak hizmeti dağıtmak]: https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp
 [ücretsiz Azure hesabı]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java Geliştirme Seti (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
 [Visual Studio Team Services için Java Araçları]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
 [MSDN abone Avantajlarınızı]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[yay önyükleme]: http://projects.spring.io/spring-boot/
+[Yay önyükleme]: http://projects.spring.io/spring-boot/
 [yay önyükleme Başlarken]: https://github.com/spring-guides/gs-spring-boot
-[Yay Framework]: https://spring.io/
+[yay Framework]: https://spring.io/
 
 <!-- IMG List -->
 

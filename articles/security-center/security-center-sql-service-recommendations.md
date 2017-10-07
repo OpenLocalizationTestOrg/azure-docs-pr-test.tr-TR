@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL Hizmeti ve Azure Güvenlik Merkezi'nde veri koruma | Microsoft Docs"
+title: "aaaProtecting Azure SQL Hizmeti ve verileri Azure Güvenlik Merkezi'nde | Microsoft Docs"
 description: "Bu belge adresleri yardımcı olacak öneriler Azure Güvenlik Merkezi'nde veri ve Azure SQL Hizmeti korumak ve güvenlik ilkeleriyle uyumlu olmak."
 services: security-center
 documentationcenter: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 0c3a11e9a86767641533b16de1b96b4c59bfdf51
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 75d782d3c2418f9645139e4cd6ecb7765c488f91
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Azure SQL Hizmeti ve Azure Güvenlik Merkezi'nde veri koruma
-Azure Güvenlik Merkezi, ayrıca Azure kaynaklarınızın güvenlik durumunu çözümler. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması sürecinde size rehberlik öneriler oluşturur.  Önerileri Azure kaynak türleri için geçerlidir: sanal ağ, SQL ve veri ve uygulamaları makineleri (VM'ler).
+Azure Güvenlik Merkezi hello Azure kaynaklarınızın güvenlik durumunu çözümler. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli hello denetimlerini yapılandırma hello işleminde size kılavuzluk öneriler oluşturur.  Önerileri tooAzure kaynak türleri geçerlidir: sanal ağ, SQL ve veri ve uygulamaları makineleri (VM'ler).
 
-Bu makalede, Azure SQL Hizmeti ve verilere uygulanır önerileri giderir. Azure SQL sunucuları ve SQL veritabanları için şifreleme ve Azure depolama hesabınızın etkinleştirme şifreleme etkinleştirme veritabanları için denetimi etkinleştirme geçici önerileri Merkezi.  Aşağıdaki tabloda kullanılabilir SQL Hizmeti ve verileri önerileri ve onu uygularsanız ne her biri yaptığını anlamanıza yardımcı olması için bir başvuru olarak kullanın.
+Bu makalede tooAzure SQL Hizmeti ve verileri uygulamak önerileri giderir. Azure SQL sunucuları ve SQL veritabanları için şifreleme ve Azure depolama hesabınızın etkinleştirme şifreleme etkinleştirme veritabanları için denetimi etkinleştirme geçici önerileri Merkezi.  Bir başvuru toohelp olarak kullanımı hello tablo aşağıda hello kullanılabilir SQL Hizmeti ve verileri önerileri ve onu uygularsanız her birini ne yaptığını anlayın.
 
 ## <a name="available-sql-service-and-data-recommendations"></a>Kullanılabilir SQL Hizmeti ve verileri önerileri
 | Öneri | Açıklama |
@@ -33,14 +33,14 @@ Bu makalede, Azure SQL Hizmeti ve verilere uygulanır önerileri giderir. Azure 
 | [SQL veritabanlarını saydam veri şifreleme etkinleştir](security-center-enable-transparent-data-encryption.md) |SQL veritabanları (yalnızca Azure SQL Hizmeti) için şifrelemeyi etkinleştirmek önerir. |
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Diğer Azure kaynak türleri için geçerli öneriler hakkında daha fazla bilgi için aşağıdakilere bakın:
+toolearn tooother Azure kaynak türleri bkz hello aşağıdaki öneriler hakkında daha fazla bilgi:
 
 * [Azure Güvenlik Merkezi'nde, sanal makineleri koruma](security-center-virtual-machine-recommendations.md)
 * [Uygulamalarınızı Azure Güvenlik Merkezi'nde koruma](security-center-application-recommendations.md)
 * [Azure Güvenlik Merkezi, ağınızda koruma](security-center-network-recommendations.md)
 
-Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+Güvenlik Merkezi hakkında daha fazla toolearn hello aşağıdaki bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) --öğrenin nasıl tooconfigure Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkeleri.
+* [Azure Güvenlik Merkezi'nde Uyarıları yönetme ve yanıt toosecurity](security-center-managing-and-responding-alerts.md) --öğrenin nasıl toomanage ve yanıt toosecurity uyarıları.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) --hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.

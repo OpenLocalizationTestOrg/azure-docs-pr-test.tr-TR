@@ -1,6 +1,6 @@
 ---
-title: "Gelişmiş Raporlama ile MobileApps Engagement Windows Evrensel"
-description: "Azure Mobile Engagement Windows Evrensel uygulamaları ile tümleştirme"
+title: "aaaWindows Gelişmiş Evrensel raporlama MobileApps engagement"
+description: "Nasıl Azure Mobile Engagement Windows Evrensel uygulamaları ile tooIntegrate"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 20968f238ef7ae9dc0b8bb6dac3fb8bdb9bc3a10
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Gelişmiş Windows Evrensel uygulamaları Engagement SDK'sı raporlama
+# <a name="advanced-reporting-with-hello-windows-universal-apps-engagement-sdk"></a>Merhaba Windows Evrensel uygulamaları Engagement SDK'sı ile Gelişmiş raporlama
 > [!div class="op_single_selector"]
 > * [Evrensel Windows](mobile-engagement-windows-store-advanced-reporting.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -29,22 +29,22 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Bu konu Windows Evrensel uygulamanız ek raporlama senaryolarda açıklar. Bu senaryolar, oluşturduğunuz uygulama uygulamak için seçebileceğiniz seçenekleriniz [Başlarken](mobile-engagement-windows-store-dotnet-get-started.md) Öğreticisi.
+Bu konu Windows Evrensel uygulamanız ek raporlama senaryolarda açıklar. Bu senaryolar hello oluşturulan tooapply toohello uygulaması seçebileceği seçenekleriniz [Başlarken](mobile-engagement-windows-store-dotnet-get-started.md) Öğreticisi.
 
 ## <a name="prerequisites"></a>Ön koşullar
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-Bu öğreticiye başlamadan önce ilk tamamlamalısınız [Başlarken](mobile-engagement-windows-store-dotnet-get-started.md) kasıtlı olarak doğrudan ve basit öğretici. Bu öğretici aralarından seçim yapabileceğiniz ek seçenekler ele alınmaktadır.
+Bu öğreticiye başlamadan önce ilk hello tamamlamanız gereken [Başlarken](mobile-engagement-windows-store-dotnet-get-started.md) kasıtlı olarak doğrudan ve basit öğretici. Bu öğretici aralarından seçim yapabileceğiniz ek seçenekler ele alınmaktadır.
 
 ## <a name="specifying-engagement-configuration-at-runtime"></a>Çalışma zamanında katılım yapılandırmasını belirtme
-Katılım yapılandırma içinde Merkezi `Resources\EngagementConfiguration.xml` Burada belirtilmiş olan projenizin dosya içinde [Başlarken](mobile-engagement-windows-store-dotnet-get-started.md) konu.
+Merhaba katılım yapılandırma hello Merkezi `Resources\EngagementConfiguration.xml` hello Burada belirtilmiş olan projenizin dosya [Başlarken](mobile-engagement-windows-store-dotnet-get-started.md) konu.
 
-Ancak, ayrıca, çalışma zamanında belirtebilirsiniz: katılım aracı başlatmadan önce aşağıdaki yöntemini çağırabilirsiniz:
+Ancak, ayrıca, çalışma zamanında belirtebilirsiniz: yöntemi hello katılım aracı başlatmadan önce aşağıdaki hello çağırabilirsiniz:
 
           /* Engagement configuration. */
           EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 
-          /* Set the Engagement connection string. */
+          /* Set hello Engagement connection string. */
           engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
 
           /* Initialize Engagement angent with above configuration. */
@@ -53,14 +53,14 @@ Ancak, ayrıca, çalışma zamanında belirtebilirsiniz: katılım aracı başla
 
 
 ## <a name="recommended-method-overload-your-page-classes"></a>Önerilen yöntem: aşırı yükleme, `Page` sınıfları
-Kullanıcılar, oturumlar, etkinlikleri, kilitlenme ve teknik istatistikleri işlem katılım tarafından gerekli tüm günlükleri raporlama etkinleştirmek için tüm olun, `Page` alt sınıfları `EngagementPage` sınıfları.
+Katılım toocompute kullanıcıları, oturumlar, etkinlikleri, kilitlenme ve teknik istatistikleri, gerekli tüm hello günlüklerinin hello tooactivate raporlama tüm olun, `Page` alt sınıfları devral hello `EngagementPage` sınıfları.
 
-Burada, uygulamanızın bir sayfa için bir örnek verilmiştir. Uygulamanızın tüm sayfalar için aynı şey yapabilirsiniz.
+Burada, uygulamanızın bir sayfa için bir örnek verilmiştir. Yapabileceğiniz Merhaba, uygulamanızın tüm sayfalar için aynı anlama.
 
 ### <a name="c-source-file"></a>C# kaynak dosyası
 Sayfanızı değiştirmek `.xaml.cs` dosyası:
 
-* Ekleme, `using` deyimleri:
+* Tooyour ekleme `using` deyimleri:
   
       using Microsoft.Azure.Engagement;
 * Değiştir `Page` ile `EngagementPage`:
@@ -88,14 +88,14 @@ Sayfanızı değiştirmek `.xaml.cs` dosyası:
         }
 
 > [!IMPORTANT]
-> Sayfanız `OnNavigatedTo` yöntemini geçersiz kılıyorsa `base.OnNavigatedTo(e)` öğesini çağırdığınızdan emin olun. Aksi takdirde etkinlik olması bildirilmedi ( `EngagementPage` çağrıları `StartActivity` içinde kendi `OnNavigatedTo` yöntemi).
+> Sayfanız hello kılıyorsa `OnNavigatedTo` yöntemi, emin toocall olması `base.OnNavigatedTo(e)`. Aksi takdirde hello etkinlik olması bildirilmedi (Merhaba `EngagementPage` çağrıları `StartActivity` içinde kendi `OnNavigatedTo` yöntemi).
 > 
 > 
 
 ### <a name="xaml-file"></a>XAML dosyası
 Sayfanızı değiştirmek `.xaml` dosyası:
 
-* Ad alanı bildirimlerinize aşağıdakini ekleyin:
+* Tooyour ad alanları bildirimleri ekleyin:
   
       xmlns:engagement="using:Microsoft.Azure.Engagement"
 * Değiştir `Page` ile `engagement:EngagementPage`:
@@ -115,31 +115,31 @@ Sayfanızı değiştirmek `.xaml` dosyası:
             ...
         </engagement:EngagementPage >
 
-### <a name="override-the-default-behaviour"></a>Varsayılan davranışı geçersiz kılma
-Varsayılan olarak, sayfa sınıf adını etkinlik adıyla hiçbir ek olarak bildirilir. Sınıf "Sayfa" soneki kullanıyorsa, katılım kaldırır.
+### <a name="override-hello-default-behaviour"></a>Merhaba varsayılan davranışı geçersiz kılma
+Varsayılan olarak, hiçbir ek ile Merhaba etkinlik adı olarak hello sınıf adı hello sayfasının bildirilir. Merhaba sınıfı hello "Sayfa" soneki kullanıyorsa, katılım kaldırır.
 
-Ad için varsayılan davranışı geçersiz kılma için bu kodu ekleyin:
+toooverride hello varsayılan davranışı hello adı için bu kodu ekleyin:
 
-        // in the .xaml.cs file
+        // in hello .xaml.cs file
         protected override string GetEngagementPageName()
         {
           /* your code */
           return "new name";
         }
 
-Etkinliğiniz ek bilgilerle bildirmek için bu kodu ekleyin:
+tooreport ek bilgilerle, etkinlik bu kodu ekleyin:
 
-        // in the .xaml.cs file
+        // in hello .xaml.cs file
         protected override Dictionary<object,object> GetEngagementPageExtra()
         {
           /* your code */
           return extra;
         }
 
-Bu yöntemler içinden adlı `OnNavigatedTo` sayfanızın yöntemi.
+Bu yöntemler içinde hello denir `OnNavigatedTo` sayfanızın yöntemi.
 
 ### <a name="alternate-method-call-startactivity-manually"></a>Alternatif yöntem: çağrı `StartActivity()` el ile
-Olamaz ya da tekrar etmek istiyor musunuz, `Page` sınıfları, bunun yerine, çağırarak etkinliklerinizi başlatabilirsiniz `EngagementAgent` doğrudan yöntemleri.
+Olamaz ya da toooverload istiyor musunuz, `Page` sınıfları, bunun yerine, çağırarak etkinliklerinizi başlatabilirsiniz `EngagementAgent` doğrudan yöntemleri.
 
 Arama öneririz `StartActivity` içinde `OnNavigatedTo` sayfanızın yöntemi.
 
@@ -152,12 +152,12 @@ Arama öneririz `StartActivity` içinde `OnNavigatedTo` sayfanızın yöntemi.
 > [!IMPORTANT]
 > Doğru oturumunuzu sonlandırmak emin olun.
 > 
-> Windows Evrensel SDK'yı otomatik olarak çağırır `EndActivity` uygulama kapatıldığında yöntemi. Bu nedenle, olan **yüksek oranda** çağırmak için önerilen `StartActivity` kullanıcı etkinliği değiştirdiğinizde, yöntemi ve **hiçbir zaman** çağrısı `EndActivity` yöntemi. Bu yöntem, geçerli kullanıcının tüm uygulama günlüklerini etkiler uygulama ayrıldı katılım sunucusu bildirir.
+> Merhaba Windows Evrensel SDK otomatik olarak çağırır hello `EndActivity` hello uygulama kapatıldığında yöntemi. Bu nedenle, olan **yüksek oranda** toocall hello önerilen `StartActivity` hello kullanıcının hello etkinliği değiştirdiğinizde, yöntemi ve çok**hiçbir zaman** çağrısı hello `EndActivity` yöntemi. Bu yöntem hello geçerli kullanıcının tüm uygulama günlüklerini etkiler Merhaba uygulaması ayrıldı hello katılım sunucusuna bildirir.
 > 
 > 
 
 ## <a name="advanced-reporting"></a>Gelişmiş raporlama
-İsteğe bağlı olarak, uygulamaya özgü olaylar, hatalar ve bunu yapmak için işleri, kullanın diğer yöntemleri bulunan rapor isteyebilirsiniz `EngagementAgent` sınıfı. Katılım API tüm Engagement'ın gelişmiş özelliklerini kullanılmasına izin verir.
+İsteğe bağlı olarak, böylece tooreport uygulamaya özgü olaylar, hatalar ve işleri, toodo isteyebilirsiniz, kullanım hello diğer yöntemleri bulunanlar hello `EngagementAgent` sınıfı. Merhaba katılım API tüm Engagement'ın gelişmiş özelliklerini kullanılmasına izin verir.
 
-Daha fazla bilgi için bkz: [Gelişmiş Mobile Engagement Windows Evrensel uygulamanız API etiketleme kullanmayı](mobile-engagement-windows-store-use-engagement-api.md).
+Daha fazla bilgi için bkz: [nasıl toouse hello Mobile Engagement Windows Evrensel uygulamanız API etiketleme Gelişmiş](mobile-engagement-windows-store-use-engagement-api.md).
 

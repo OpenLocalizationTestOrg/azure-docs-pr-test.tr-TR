@@ -1,6 +1,6 @@
 ---
-title: "C++ için depolama istemci kitaplığı ile Azure Storage kaynaklarını listesi | Microsoft Docs"
-description: "Kapsayıcı, BLOB, kuyruklar, tabloları ve varlıkları numaralandırmak için C++ için Microsoft Azure depolama istemci Kitaplığı'ndaki listenin API'leri kullanmayı öğrenin."
+title: "Merhaba C++ için depolama istemci kitaplığı ile aaaList Azure Storage kaynaklarını | Microsoft Docs"
+description: "C++ tooenumerate kapsayıcıları, blobları, Microsoft Azure Storage istemci kitaplığı API'leri listeleme toouse hello nasıl kuyruklar, bilgi tabloları ve varlıkları."
 documentationcenter: .net
 services: storage
 author: dineshmurthy
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
-ms.openlocfilehash: 9844412739f4f6f95416f81347f0f2eeeca62bea
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a76a5ce3cd690f32914f8f0c1f64273f13c5063e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="list-azure-storage-resources-in-c"></a>C++'ta Azure Storage kaynakları listeler
-Liste, Azure Storage ile birçok geliştirme senaryolarını anahtarına işlemleridir. Bu makalede, Azure listenin C++ için Microsoft Azure depolama istemci Kitaplığı'nda sağlanan API'leri kullanarak depolama en verimli bir şekilde derlemesindeki açıklar.
+Liste, Azure Storage ile anahtar toomany geliştirme senaryolarını işlemleridir. Bu makalede nasıl toomost verimli bir şekilde listeleme C++ için Microsoft Azure Storage istemci kitaplığı hello API'lerinden listeleme hello kullanarak Azure storage'da nesneleri açıklanmaktadır.
 
 > [!NOTE]
-> Bu kılavuz hedefleyen C++ sürümü için Azure Storage istemci kitaplığı aracılığıyla kullanıma 2.x [NuGet](http://www.nuget.org/packages/wastorage) veya [GitHub](https://github.com/Azure/azure-storage-cpp).
+> Bu kılavuzda C++ sürümü için Azure Storage istemci kitaplığı hello hedefler aracılığıyla kullanıma 2.x [NuGet](http://www.nuget.org/packages/wastorage) veya [GitHub](https://github.com/Azure/azure-storage-cpp).
 > 
 > 
 
-Depolama istemcisi kitaplığı çeşitli Azure Storage liste veya sorgu nesneleri için yöntemler sağlar. Bu makalede aşağıdaki senaryolar ele alır:
+Merhaba depolama istemci kitaplığı çeşitli yöntemleri toolist veya Azure Storage sorgu nesneleri sağlar. Bu makalede senaryoları aşağıdaki hello ele alır:
 
 * Bir hesap listesi kapsayıcıları
 * Liste BLOB bir kapsayıcı veya sanal blob dizini
@@ -39,13 +39,13 @@ Depolama istemcisi kitaplığı çeşitli Azure Storage liste veya sorgu nesnele
 Bu yöntemlerin her biri için farklı senaryolar farklı aşırı yüklemeleri kullanarak gösterilir.
 
 ## <a name="asynchronous-versus-synchronous"></a>Zaman uyumlu ve zaman uyumsuz
-C++ için depolama istemci kitaplığı üzerine inşa edildiğinden [C++ REST Kitaplığı](https://github.com/Microsoft/cpprestsdk), kendiliğinden zaman uyumsuz işlemleri kullanarak destekliyoruz [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Örneğin:
+Merhaba C++ için depolama istemci kitaplığı hello üzerine inşa edildiğinden [C++ REST Kitaplığı](https://github.com/Microsoft/cpprestsdk), kendiliğinden zaman uyumsuz işlemleri kullanarak destekliyoruz [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Örneğin:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 ```
 
-Zaman uyumlu işlemler karşılık gelen zaman uyumsuz işlemleri kaydır:
+Zaman uyumlu işlemler hello karşılık gelen zaman uyumsuz işlemleri kaydır:
 
 ```cpp
 list_blob_item_segment list_blobs_segmented(const continuation_token& token) const
@@ -54,22 +54,22 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 }
 ```
 
-Birden çok iş parçacıklı uygulamalar veya hizmetler ile çalışıyorsanız, zaman uyumsuz API'lerini doğrudan bir iş parçacığı oluşturma yerine eşitleme, performansı önemli ölçüde etkiler API'leri çağırmak için kullanmanızı öneririz.
+Birden çok iş parçacıklı uygulamalar veya hizmetler ile çalışıyorsanız, doğrudan bir iş parçacığı toocall hello eşitleme, performansı önemli ölçüde etkiler API ' larını oluşturmak yerine hello zaman uyumsuz API'leri kullanmanızı öneririz.
 
 ## <a name="segmented-listing"></a>Bölümlenmiş listeleme
-Bulut depolama ölçeğini bölümlenmiş listeleme gerektirir. Örneğin, bir Azure blob kapsayıcısındaki bir milyon BLOB veya bir Azure tablosu bir milyar varlıklarda üzerinden olabilir. Bunlar teorik numaraları, ancak gerçek müşteri kullanım durumları olup olmadığı.
+Bulut depolama Hello ölçeğini bölümlenmiş listeleme gerektirir. Örneğin, bir Azure blob kapsayıcısındaki bir milyon BLOB veya bir Azure tablosu bir milyar varlıklarda üzerinden olabilir. Bunlar teorik numaraları, ancak gerçek müşteri kullanım durumları olup olmadığı.
 
-Bu nedenle, tek bir yanıt tüm nesneleri listelemek için zordur. Bunun yerine, disk belleği kullanarak nesneleri listeleyebilirsiniz. Her API listeleme sahip bir *kesimli* aşırı yükleme.
+Bu nedenle, tüm nesneleri tek bir yanıtta pratik toolist olur. Bunun yerine, disk belleği kullanarak nesneleri listeleyebilirsiniz. Her API listeleme hello sahip bir *kesimli* aşırı yükleme.
 
-Bölümlenmiş listeleme işlemi yanıtı içerir:
+bölümlenmiş listeleme işlemi Hello yanıtı içerir:
 
-* <i>_segment</i>, tek bir çağrı listeleme API için döndürülen sonuç kümesi içerir.
-* *continuation_token*, sonraki sonuç sayfasını alabilmek için sonraki çağrı geçirildi. Devamlılık belirteci dönmek için daha fazla sonuç olduğunda null olur.
+* <i>_segment</i>, API listeleyen tek çağrı toohello için döndürülen sonuçları hello kümesi içerir.
+* *continuation_token*, hangi geçirilir toohello sonraki çağrı sırası tooget hello sonraki sonuç sayfasını içinde. Daha fazla hiçbir sonuç tooreturn olduğunda hello devamlılık belirteci null.
 
-Örneğin, bir kapsayıcıdaki tüm blobları listelemek için tipik bir çağrı aşağıdaki kod parçacığını gibi görünebilir. Kod kullanılabilir bizim [örnekleri](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
+Örneğin, tipik çağrısı toolist bir kapsayıcıdaki tüm blob'lara hello kod parçacığını aşağıdaki gibi görünebilir. Merhaba kodudur bulunan bizim [örnekleri](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
 ```cpp
-// List blobs in the blob container
+// List blobs in hello blob container
 azure::storage::continuation_token token;
 do
 {
@@ -91,7 +91,7 @@ do
 while (!token.empty());
 ```
 
-Bir sayfa döndürülen sonuç sayısı parametresiyle denetlenebilir Not *max_results* örneğin her API yüklemesini içinde:
+Bir sayfa döndürülen sonuç sayısı Hello hello parametresiyle denetlenebilir Not *max_results* örneğin her API hello yüklemesini içinde:
 
 ```cpp
 list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
@@ -99,14 +99,14 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
     const blob_request_options& options, operation_context context)
 ```
 
-Belirtmezseniz, *max_results* parametresi, varsayılan en büyük değer en fazla 5000 sonuçlarını tek bir sayfayla döndürülür.
+Merhaba belirtmezseniz *max_results* parametresi, hello varsayılan too5000 sonuçları yukarı en büyük değer olan tek bir sayfayla döndürülür.
 
-Ayrıca, Azure Table storage bir sorgu kayıt yok veya değerinden daha az sayıda kayıt döndürebilir unutmayın *max_results* devamlılık belirteci boş olsa bile, belirtilen parametre. Nedenlerinden biri, sorgu beş saniye içinde tamamlanamadı olabilir. Devamlılık belirteci boş değil sürece, sorgu devam etmesi gerektiğini ve kodunuzu segment sonuçları boyutunu varsayımında bulunmamalıdır.
+Ayrıca, Azure Table storage bir sorgu kayıt yok veya hello hello değerinden daha az sayıda kayıt döndürebilir unutmayın *max_results* hello devamlılık belirteci boş olsa bile, belirtilen parametre. Nedenlerinden biri, o hello sorgu beş saniye içinde tamamlanamadı olabilir. Hello devamlılık belirteci boş değil sürece hello sorgu devam etmesi gerektiğini ve kodunuzu segment sonuçları hello boyutunu varsayımında bulunmamalıdır.
 
-Çoğu senaryo için önerilen kodlama düzeni listeleme, liste veya sorgulama ve hizmetin her istek nasıl yanıt vereceğini açık ilerlemesini sağlayan kesimli. Özellikle C++ uygulamalar veya hizmetler için alt düzey denetim listesi ilerleme denetim bellek ve performans yardımcı olabilir.
+Çoğu senaryo için desen kodlama listeleme listeleme veya sorgulama açık ilerleme sağlayan bölümlenmiş ve hello hizmet tooeach isteği nasıl yanıt vereceğini Hello önerilir. Özellikle C++ uygulamalar veya hizmetler için alt düzey denetim ilerleme listeleme hello denetim bellek ve performans yardımcı olabilir.
 
 ## <a name="greedy-listing"></a>Doyumsuz listeleme
-C++ için depolama istemci Kitaplığı'nın önceki sürümlerini (sürümleri 0.5.0 Önizleme ve önceki sürümler) bölümlenmiş listesine API'leri tablolar ve Kuyruklar, aşağıdaki örnekte olduğu gibi dahil:
+Merhaba C++ için depolama istemci Kitaplığı'nın önceki sürümlerini (sürümleri 0.5.0 Önizleme ve önceki sürümler) kesimli olmayan listeleme API'leri tablolar ve Kuyruklar aşağıdaki örneğine hello olduğu için dahil:
 
 ```cpp
 std::vector<cloud_table> list_tables(const utility::string_t& prefix) const;
@@ -114,11 +114,11 @@ std::vector<table_entity> execute_query(const table_query& query) const;
 std::vector<cloud_queue> list_queues() const;
 ```
 
-Bu yöntemleri bölümlenmiş API'leri sarmalayıcılar olarak oluşturulmuştur. Her yanıtı bölümlenmiş dökümün için kod sonuçları bir vektörüne eklenen ve tam kapsayıcıları taranan sonra tüm sonuç döndürmedi.
+Bu yöntemleri bölümlenmiş API'leri sarmalayıcılar olarak oluşturulmuştur. Her yanıtı bölümlenmiş dökümün hello kod hello sonuçları tooa vektör eklenmiş ve tam Merhaba kapsayıcılara taranan sonra tüm sonuç döndürmedi.
 
-Az sayıda nesne depolama hesabı veya tablo içerdiğinde, bu yaklaşım çalışabilir. Ancak, tüm sonuçları bellekte kalan çünkü bir artış ile nesnelerin sayısı, gerekli bellek sınırı arttırabilir. Bir listeleme işlemi sırasında ilerleme durumunu hakkında hiçbir bilgi arayan sahip bir çok uzun zaman alabilir.
+Az sayıda nesne Hello depolama hesabı veya tablo içerdiğinde, bu yaklaşım çalışabilir. Ancak, tüm sonuçları bellekte kalan çünkü bir artış ile Merhaba nesnelerin sayısı, gerekli hello bellek sınırı arttırabilir. Bir listeleme işlemi sırasında hangi hello ilerleme durumunu hakkında hiçbir bilgi arayan sahip bir çok uzun zaman alabilir.
 
-Bu doyumsuz listeleme SDK API'leri C#, Java veya JavaScript Node.js ortamında mevcut değil. Doyumsuz bu API'leri kullanarak olası sorunları önlemek için biz bunları 0.6.0 sürümde kaldırılan Önizleme.
+Doyumsuz bu hello SDK API'leri listeleme C# ' ta, Java, yok veya JavaScript Node.js ortamı hello. doyumsuz bu API'leri kullanarak tooavoid hello olası sorunları, biz onları kaldırmış sürüm 0.6.0 Önizleme.
 
 Kodunuzu bu doyumsuz API çağırıyorsa:
 
@@ -130,7 +130,7 @@ for (auto it = entities.cbegin(); it != entities.cend(); ++it)
 }
 ```
 
-Ardından kodunuzu bölümlenmiş listenin API'leri kullanmak için değiştirmeniz gerekir:
+Kodunuzu değiştirmelisiniz sonra toouse hello kesimli API'leri listeleme:
 
 ```cpp
 azure::storage::continuation_token token;
@@ -146,14 +146,14 @@ do
 } while (!token.empty());
 ```
 
-Belirterek *max_results* parametresi kesiminin, Bakiye isteklerinin sayısı ve uygulamanız için başarım düşünceleri karşılamak için bellek kullanımını arasında.
+Merhaba belirterek *max_results* parametresi hello kesiminin, Bakiye hello sayıda isteği ve uygulamanız için bellek kullanım toomeet başarım düşünceleri arasında.
 
-Bölümlenmiş listeleme API'leri kullanıyorsanız, ancak bir "Hızlı" stilde yerel bir koleksiyondaki verileri depolamak, ayrıca, aynı zamanda dikkatle ölçekte yerel bir koleksiyondaki veri depolama işlemek için kodunuzu yeniden düzenlemeniz öneririz.
+Bölümlenmiş listeleme API'leri kullanarak ancak bir "Hızlı" stili yerel bir koleksiyondaki hello verilerini depolamak olduğunuz, ayrıca, aynı zamanda dikkatle ölçekte yerel bir koleksiyondaki veri depolama, kod toohandle yeniden düzenlemeniz öneririz.
 
 ## <a name="lazy-listing"></a>Yavaş listeleme
-Doyumsuz listeleme olası sorunları ortaya kapsayıcısında çok fazla nesne değilse bu kullanışlı olsa da.
+Doyumsuz listeleme olası sorunları ortaya hello kapsayıcısında çok fazla nesne değilse bu kullanışlı olsa da.
 
-C# veya Oracle Java SDK'ları da kullanıyorsanız, bir yavaş, gerekirse burada belirli uzaklığındaki verileri yalnızca alınmadığı listeleme stili sunan numaralandırılabilir programlama modeli, tanımanız gerekir. C++'da, yineleyici tabanlı şablonunu de benzer bir yaklaşım sağlar.
+C# veya Oracle Java SDK'ları da kullanıyorsanız, bir yavaş, gerekirse burada hello belirli uzaklığındaki veri yalnızca alınmadığı listeleme stili sunan hello numaralandırılabilir programlama modeli, tanımanız gerekir. C++'da, hello yineleyici tabanlı şablonunu de benzer bir yaklaşım sağlar.
 
 Tipik yavaş listeleme API'sini kullanarak **list_blobs** örnek olarak, şöyle görünür:
 
@@ -161,10 +161,10 @@ Tipik yavaş listeleme API'sini kullanarak **list_blobs** örnek olarak, şöyle
 list_blob_item_iterator list_blobs() const;
 ```
 
-Yavaş listeleme desen kullanan bir tipik kod parçacığını şuna benzeyebilir:
+Merhaba yavaş listeleme desen kullanan bir tipik kod parçacığını şuna benzeyebilir:
 
 ```cpp
-// List blobs in the blob container
+// List blobs in hello blob container
 azure::storage::list_blob_item_iterator end_of_results;
 for (auto it = container.list_blobs(); it != end_of_results; ++it)
 {
@@ -181,24 +181,24 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 
 Yavaş listeleme yalnızca zaman uyumlu modda kullanılabilir olduğunu unutmayın.
 
-Doyumsuz listesi ile karşılaştırıldığında, yavaş listeleme verileri yalnızca gerekli olduğunda getirir. Yalnızca sonraki yineleyici sonraki segmentin taşındığında perde arkasında, verileri Azure depolama biriminden getirir. Bu nedenle, bellek kullanımı ile sınırlanmış bir boyutu denetlenir ve hızlı bir işlemdir.
+Doyumsuz listesi ile karşılaştırıldığında, yavaş listeleme verileri yalnızca gerekli olduğunda getirir. Yalnızca hello sonraki yineleyici sonraki segmentin taşındığında hello perde arkasında bu verileri Azure depolama biriminden getirir. Bu nedenle, bellek kullanımı ile sınırlanmış bir boyutu denetlenir ve hello hızlı bir işlemdir.
 
-Yavaş listeleme API'leri dahil edilir depolama istemci Kitaplığı'nda C++ için sürüm 2.2.0.
+Yavaş listeleme API'leri dahil edilir hello depolama istemci kitaplığı C++ için sürüm 2.2.0.
 
 ## <a name="conclusion"></a>Sonuç
-Bu makalede, C++ için depolama istemci Kitaplığı'nda çeşitli nesneler için API listeleme için farklı aşırı açıklanmıştır. Özetlemek için:
+Bu makalede, C++ için depolama istemci kitaplığı hello çeşitli nesneler için API listeleme için farklı aşırı açıklanmıştır. toosummarize:
 
 * Zaman uyumsuz API'leri birden çok iş parçacığı senaryolarda önerilir.
 * Bölümlenmiş listeleme çoğu senaryolar için önerilir.
-* Yavaş listeleme kullanışlı bir sarmalayıcı zaman uyumlu senaryolarda olarak kitaplıkta sağlanır.
-* Doyumsuz listeleme tavsiye edilmez ve Kitaplığı'ndan kaldırıldı.
+* Yavaş listeleme kullanışlı bir sarmalayıcı zaman uyumlu senaryolarda olarak hello Kitaplığı'nda sağlanır.
+* Doyumsuz listeleme tavsiye edilmez ve hello Kitaplığı'ndan kaldırıldı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-C++ için Azure Storage istemci Kitaplığı hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın.
+C++ için Azure Storage istemci Kitaplığı hakkında daha fazla bilgi için kaynakları aşağıdaki hello bakın.
 
-* [C++ içinden BLOB Storage kullanma](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Tablo depolama C++ içinden kullanma](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [C++ içinden kuyruk depolama kullanma](../storage-c-plus-plus-how-to-use-queues.md)
+* [Nasıl toouse Blob depolama alanından C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Nasıl toouse C++ tablo depolamasından](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [Nasıl toouse C++ içinden kuyruk depolama](../storage-c-plus-plus-how-to-use-queues.md)
 * [C++ API belgeleri için Azure Storage istemci kitaplığı.](http://azure.github.io/azure-storage-cpp/)
 * [Azure Depolama Ekibi Blog’u](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Azure Depolama Belgeleri](https://azure.microsoft.com/documentation/services/storage/)

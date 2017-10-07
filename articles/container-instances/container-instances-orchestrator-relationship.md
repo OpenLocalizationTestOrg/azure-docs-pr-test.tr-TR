@@ -1,5 +1,5 @@
 ---
-title: "Azure kapsayıcı örnekleri ve kapsayıcı düzenleme"
+title: "aaaAzure kapsayıcı örnekleri ve kapsayıcı düzenleme"
 description: "Azure kapsayıcı örnekleri kapsayıcı orchestrators ile nasıl etkileşim anlama"
 services: container-instances
 documentationcenter: 
@@ -17,36 +17,36 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: cbb558a92d565759c8dc7d2693960955eb053b0a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 69a39edc6f14d885c1ac300990ed1399002ccfee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure kapsayıcı örnekleri ve kapsayıcı orchestrators
 
-Kendi küçük boyutu ve uygulama yönlendirme nedeniyle kapsayıcıları Çevik teslim ortamları ve mikro hizmet tabanlı mimariler için uygundur. Otomatikleştirme ve çok sayıda kapsayıcıları ve nasıl etkileşim kurduklarını yönetme görevini olarak bilinen *orchestration*. Popüler kapsayıcı orchestrators dahil Kubernetes, DC/OS ve tümü kullanılabilir Docker Swarm, [Azure kapsayıcı hizmeti](https://docs.microsoft.com/azure/container-service/).
+Kendi küçük boyutu ve uygulama yönlendirme nedeniyle kapsayıcıları Çevik teslim ortamları ve mikro hizmet tabanlı mimariler için uygundur. Başlangıç görevini otomatikleştirmek ve çok sayıda kapsayıcıları ve nasıl etkileşim kurduklarını yönetme olarak bilinir *orchestration*. Popüler kapsayıcı orchestrators dahil Kubernetes, DC/OS ve tümü hello kullanılabilir Docker Swarm, [Azure kapsayıcı hizmeti](https://docs.microsoft.com/azure/container-service/).
 
-Azure kapsayıcı örnekleri bazı orchestration platformları temel zamanlama özelliklerini sağlar, ancak bu platformlar sağlar ve hatta bunları tamamlayıcı olabilir daha yüksek değerli hizmetleri kapsamaz. Bu makalede, Azure kapsayıcı örnekleri ne işler ve kapsayıcı orchestrators ile nasıl tam etkileşebilir kapsamını açıklanmaktadır.
+Bazı zamanlama özellikleri orchestration platformlarının temel hello Azure kapsayıcı örnekleri sağlar, ancak bu platformlar sağlar ve hatta bunları tamamlayıcı olabilir hello yüksek değerli hizmetleri kapsamaz. Bu makalede hello kapsamını ne Azure kapsayıcı örnekleri işler ve kapsayıcı orchestrators ile nasıl tam etkileşebilir açıklanmaktadır.
 
 ## <a name="traditional-orchestration"></a>Geleneksel düzenleme
 
-Orchestration standart tanımını aşağıdaki görevleri içerir:
+orchestration standart tanımını Hello hello aşağıdaki görevleri içerir:
 
-- **Zamanlama**: verilen bir kapsayıcı görüntüsü ve bir kaynak isteği, kapsayıcı çalıştırmak için uygun bir makine bulunamadı.
+- **Zamanlama**: verilen bir kapsayıcı görüntüsü ve bir kaynak isteği, hangi toorun hello kapsayıcısı üzerinde uygun bir makine bulunamadı.
 - **Benzeşim/Anti-affinity**: kapsayıcıları bir dizi diğer (performans için) yakındaki veya yeterince kadar parçalayın (kullanılabilirlik için) çalışması gerektiğini belirtmek.
 - **Sistem durumu izleme**: kapsayıcı hatalarını ve otomatik olarak izlemek yeniden zamanlayabilirsiniz.
-- **Yük devretme**: her makinede çalışan izlemek ve başarısız makineler kapsayıcılardan sağlıklı düğümlere yeniden zamanlayın.
-- **Ölçeklendirme**: isteğe bağlı, el ile veya otomatik olarak eşleştirmek için kapsayıcı örnekler ekleyip kaldıracaktır.
-- **Ağ**: birden çok ana makine arasında iletişim kurmak için kapsayıcıları düzenlemekten bir katman ağ sağlar.
-- **Hizmet bulma**: etkinleştirmek ana makineler arasında taşımak ve IP adreslerini değiştirmek gibi bile birbirlerine otomatik olarak bulmak kapsayıcı.
-- **Uygulama yükseltme Eşgüdümlü**: uygulama kesinti önlemek ve bir sorun yaşanırsa geri alma etkinleştirmek için kapsayıcı yükseltmelerini yönetme.
+- **Yük devretme**: her makinede çalışan izlemek ve başarısız makineler toohealthy düğümleri kapsayıcılardan yeniden zamanlayın.
+- **Ölçeklendirme**: ekleyin veya kapsayıcı örnekleri toomatch isteğe bağlı, el ile veya otomatik olarak kaldırın.
+- **Ağ**: birden çok ana bilgisayar makine genelinde kapsayıcıları toocommunicate düzenlemekten bir katman ağ sağlar.
+- **Hizmet bulma**: ana makineler arasında taşımak ve IP adreslerini değiştirmek gibi bile kapsayıcıları toolocate birbirine otomatik olarak etkinleştirin.
+- **Uygulama yükseltme Eşgüdümlü**: kapsayıcı yükseltmeler tooavoid uygulama kesinti yönetebilir ve bir sorun yaşanırsa geri alma etkinleştirebilir.
 
 ## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Azure kapsayıcı örnekleri düzenlemesini: bir katmanlı yaklaşımın
 
-Azure kapsayıcı örnekleri, tüm orchestrator platformlar, üzerinde birden çok kapsayıcı görevleri yönetmek üzere izin verirken tek bir kapsayıcı çalıştırmak için gerekli planlama ve yönetim özellikleri sağlayarak orchestration, katmanlı bir yaklaşım sağlar.
+Tüm hello zamanlama sağlayan bir katmanlı yaklaşımın tooorchestration Azure kapsayıcı örnekleri sağlar ve yönetim özellikleri, orchestrator platformları toomanage çok kapsayıcı görevler, en üstünde olanak tanırken, tek bir kapsayıcı toorun gerekli.
 
-Azure tarafından tüm altyapının kapsayıcı örnekleri için yönetilen çünkü bir orchestrator platformu kendisini bir uygun konak makinesi üzerinde tek bir kapsayıcı çalıştırmak için bulma ile ilgili gerekmez. Bir her zaman kullanılabilir bulut esneklik sağlar. Bunun yerine, orchestrator ölçeklendirme dahil olmak üzere birden çok kapsayıcı mimarileri ve Eşgüdümlü yükseltmeleri geliştirilmesini basitleştirmek görevlerde odaklanabilirsiniz.
+Azure tarafından tüm altyapı kapsayıcı örnekleri için temel alınan hello yönetilir çünkü bir orchestrator platformu hangi toorun uygun ana makinede tek bir kapsayıcı bulma ile tooconcern kendisini gerekmez. bir her zaman kullanılabilir hello bulutun Hello esneklik sağlar. Bunun yerine, hello orchestrator hello geliştirilmesini ölçeklendirme dahil olmak üzere birden çok kapsayıcı mimarileri ve Eşgüdümlü yükseltmeleri basitleştirmek hello görevlerde odaklanabilirsiniz.
 
 
 
@@ -56,28 +56,28 @@ Azure kapsayıcı örnekleri ile orchestrator tümleştirme hala nascent olsa da
 
 ### <a name="orchestration-of-container-instances-exclusively"></a>Orchestration kapsayıcı örneklerinin özel olarak
 
-Hızlı Başlat ve ikinciye faturalandırmak çünkü özel olarak Azure kapsayıcı örneklerinde bağlı bir ortam başlamak ve yüksek oranda değişken iş yükleri ile mücadele etmek için en hızlı yolu sunar.
+Hızlı Başlat ve fatura hello tarafından ikinci, özel olarak üzerinde bağlı bir ortam Azure kapsayıcı örnekleri sunar hello en hızlı yolu tooget başlatıldı ve yüksek oranda değişken iş yükleri ile toodeal.
 
 ### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Kapsayıcı örnekleri ve sanal makineleri kapsayıcılarında birleşimi
 
-Uzun süre çalışan, kararlı iş yükleri için ayrılmış sanal makine bir kümede kapsayıcıları yönetme genellikle kapsayıcı örnekleriyle aynı kapsayıcıları çalıştıran daha ucuz olacaktır. Ancak, kapsayıcı örnekleri hızlı bir şekilde genişletme ve beklenmeyen veya kısa süreli ani kullanımı uğraşmanız genel kapasitenizi daraltılırken için harika bir çözüm sunar. Sanal makine kümenizdeki sayısı ölçeğini, yerine daha sonra bu makinelere ek kapsayıcıları dağıtma, orchestrator yalnızca kapsayıcı örnekleri kullanılarak ek kapsayıcıları zamanlayabilir ve artık gerekmediğinde silin.
+Uzun süre çalışan için ayrılmış sanal makine bir kümede kapsayıcıları yönetme kararlı iş yükleri, genellikle hello aynı kapsayıcı örnekleriyle çalışan kapsayıcılar daha ucuz olacaktır. Ancak, kapsayıcı örnekleri hızlı bir şekilde genişletme ve beklenmeyen veya kısa süreli ani kullanımı ile genel kapasitesini toodeal daraltılırken için harika bir çözüm sunar. Sanal makine kümenizdeki hello sayısı ölçeğini, yerine daha sonra bu makinelere ek kapsayıcıları dağıtma, hello orchestrator yalnızca hello ek kapsayıcıları kapsayıcı örnekleri kullanılarak zamanlayabilir ve bunlar olduğunuzda silin yok artık gerekli.
 
 ## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>Örnek uygulama: Kubernetes için Azure kapsayıcı örnekleri Bağlayıcısı
 
-Kapsayıcı orchestration platformları Azure kapsayıcı örnekleri ile nasıl tümleşebilir göstermek için biz yapı başlattığınız bir [Kubernetes için örnek Bağlayıcısı][aci-connector-k8s]. 
+nasıl kapsayıcı orchestration platformları tümleştirebilir Azure kapsayıcı örnekleriyle toodemonstrate, biz başlatıldı yapı bir [Kubernetes için örnek Bağlayıcısı][aci-connector-k8s]. 
 
-Bağlayıcı Kubernetes için taklit eder [kubelet] [ kubelet-doc] sınırsız kapasiteye sahip bir düğüm olarak kaydetme ve oluşturulmasını göndermeyi [pod'ları] [ pod-doc] Azure kapsayıcı durumlarda kapsayıcı grupları olarak. 
+Merhaba Kubernetes taklit için bağlayıcı hello [kubelet] [ kubelet-doc] sınırsız kapasiteye sahip bir düğüm olarak kaydetme ve hello oluşturulmasını göndermeyi [pod'ları] [ pod-doc] Azure kapsayıcı durumlarda kapsayıcı grupları olarak. 
 
 <!-- ![ACI Connector for Kubernetes][aci-connector-k8s-gif] -->
 
-Diğer orchestrators bağlayıcılarının API orchestrator gücünü hızı ve Azure kapsayıcı örnekleri kapsayıcılarında yönetme Basitlik birleştirip platform temelleri ile benzer şekilde tümleşik oluşturulabilir.
+Diğer orchestrators bağlayıcılarının platform temelleri toocombine hello güç hello orchestrator API'si hello hızı ile ve Azure kapsayıcı örnekleri kapsayıcılarında yönetme Basitlik ile benzer şekilde tümleşik oluşturulabilir.
 
 > [!WARNING]
-> Kubernetes ACI Bağlayıcısı *Deneysel* ve üretimde kullanılmamalıdır.
+> Kubernetes için ACI bağlayıcı hello *Deneysel* ve üretimde kullanılmamalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure kapsayıcı örneği kullanarak, ilk kapsayıcı oluşturmak [Hızlı Başlangıç Kılavuzu](container-instances-quickstart.md).
+İlk kapsayıcı hello kullanarak Azure kapsayıcı örnekleri ile oluşturmak [Hızlı Başlangıç Kılavuzu](container-instances-quickstart.md).
 
 <!-- IMAGES -->
 [aci-connector-k8s-gif]: ./media/container-instances-orchestrator-relationship/aci-connector-k8s.gif

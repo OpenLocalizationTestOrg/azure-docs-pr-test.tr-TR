@@ -1,6 +1,6 @@
 ---
-title: "Günlükleri ve ölçüm verilerini toplamak için Azure Storage Analytics kullanın | Microsoft Docs"
-description: "Storage Analytics Ölçüm verilerini tüm depolama hizmetlerini izlemenizi ve Blob, kuyruk ve tablo depolama için günlükleri toplamak için etkinleştirir."
+title: "Azure Storage Analytics toocollect günlüklerini ve ölçümleri veri aaaUse | Microsoft Docs"
+description: "Storage Analytics tootrack ölçüm verilerini tüm depolama hizmetleri sağlar ve toocollect Blob, kuyruk ve tablo depolama için günlüğe kaydeder."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -14,100 +14,100 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
-ms.openlocfilehash: a477c1eaf2388f31d4fd36b90f9a830c782873d3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: aba1a236cb69fa2e60bcb8fda5d34841e36e379a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storage-analytics"></a>Depolama Analizi
 
-Azure Depolama Analizi günlük kaydı yapar ve depolama hesabı için ölçüm verileri sağlar. Bu verileri kullanarak istekleri izleyebilir, kullanım eğilimlerini çözümleyebilir ve depolama hesabınızdaki sorunları tanılayabilirsiniz.
+Azure Depolama Analizi günlük kaydı yapar ve depolama hesabı için ölçüm verileri sağlar. Bu veri tootrace istekleri kullanır, kullanım eğilimleri çözümlemek ve depolama hesabınızla sorunlarını tanılamak.
 
-Storage Analytics kullanmak için onu ayrı ayrı izlemek istediğiniz her hizmet için etkinleştirmelisiniz. Şuradan etkinleştirebilirsiniz [Azure Portal](https://portal.azure.com). Ayrıntılar için bkz [Azure Portal'da depolama hesabı izleme](storage-monitor-storage-account.md). Storage Analytics REST API veya istemci kitaplığı yoluyla programlı olarak etkinleştirebilirsiniz. Kullanım [Blob hizmeti özellik alma](https://msdn.microsoft.com/library/hh452239.aspx), [sıra hizmeti özelliklerini alma](https://msdn.microsoft.com/library/hh452243.aspx), [tablo hizmeti özellik alma](https://msdn.microsoft.com/library/hh452238.aspx), ve [dosya hizmeti özelliklerini alma](https://msdn.microsoft.com/library/mt427369.aspx) her hizmet için depolama çözümlemeleri etkinleştirme işlemleri.
+Storage Analytics toouse etkinleştirmeniz gerekir, tek tek her hizmet için toomonitor istediğiniz. Hello etkinleştirmek [Azure Portal](https://portal.azure.com). Ayrıntılar için bkz [hello Azure Portal'da depolama hesabı izleme](storage-monitor-storage-account.md). Storage Analytics hello REST API aracılığıyla programlı olarak veya hello istemci kitaplığı da etkinleştirebilirsiniz. Kullanım hello [Blob hizmeti özellik alma](https://msdn.microsoft.com/library/hh452239.aspx), [sıra hizmeti özelliklerini alma](https://msdn.microsoft.com/library/hh452243.aspx), [tablo hizmeti özellik alma](https://msdn.microsoft.com/library/hh452238.aspx), ve [dosya hizmeti özellikleriAl](https://msdn.microsoft.com/library/mt427369.aspx) her hizmet için işlemleri tooenable depolama çözümlemeleri.
 
-Toplanan veriler (günlük için) iyi bilinen bir blob ve Blob hizmeti ve tablo hizmeti API'leri kullanılarak erişilebilecek (için ölçümleri), iyi bilinen tablolara depolanır.
+Merhaba toplanan veriler (günlük için) iyi bilinen bir blob ve hello Blob hizmeti ve tablo hizmeti API'leri kullanılarak erişilebilecek (için ölçümleri), iyi bilinen tablolara depolanır.
 
-Storage Analytics bir 20 TB depolama hesabınız için toplam sınırı bağımsızdır depolanan veri miktarına sahiptir. Faturalama ve veri bekletme ilkeleri hakkında daha fazla bilgi için bkz: [depolama çözümlemeleri ve faturalama](https://msdn.microsoft.com/library/hh360997.aspx). Depolama hesabı sınırları hakkında daha fazla bilgi için bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md).
+Storage Analytics bir 20 TB'ye hello depolama hesabınız için toplam sınırı hello bağımsızdır depolanan veri miktarına sahiptir. Faturalama ve veri bekletme ilkeleri hakkında daha fazla bilgi için bkz: [depolama çözümlemeleri ve faturalama](https://msdn.microsoft.com/library/hh360997.aspx). Depolama hesabı sınırları hakkında daha fazla bilgi için bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md).
 
-Ayrıntılı bir kılavuz tanımlamak, tanılama ve Azure Storage ile ilgili sorunları gidermek için depolama çözümlemeleri ve diğer araçları kullanma hakkında bilgi için bkz: [izleme, tanılama ve Microsoft Azure Storage sorun giderme](storage-monitoring-diagnosing-troubleshooting.md).
+Kapsamlı bir kılavuz depolama çözümlemeleri ve diğer araçları tooidentify kullanma hakkında bilgi için tanılama ve Azure Storage ile ilgili sorunları giderme bkz [izleme, tanılama ve Microsoft Azure Storage sorun giderme](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## <a name="about-storage-analytics-logging"></a>Storage Analytics oturum açma hakkında
-Storage Analytics bir depolama hizmetine başarılı ve başarısız istekler hakkında ayrıntılı bilgi günlüğe kaydeder. Bu bilgiler, istekleri ayrı ayrı izlemek ve depolama hizmeti ile ilgili sorunları tanılamak için kullanılabilir. İstekleri en iyi çaba ilkesine göre günlüğe kaydedilir.
+Storage Analytics başarılı ve başarısız istekleri tooa depolama birimi hizmeti hakkındaki ayrıntılı bilgileri kaydeder. Bu bilgiler kullanılan toomonitor istekleri ayrı ayrı ve depolama hizmeti toodiagnose sorunları olabilir. İstekleri en iyi çaba ilkesine göre günlüğe kaydedilir.
 
-Yalnızca depolama hizmeti etkinliği ise günlük girişleri oluşturulur. Örneğin, bir depolama hesabı Blob hizmeti ancak tablo veya kuyruğu hizmetlerinin etkinlik varsa, yalnızca Blob hizmetiyle ilişkili günlükleri oluşturulur.
+Yalnızca depolama hizmeti etkinliği ise günlük girişleri oluşturulur. Örneğin, bir depolama hesabı Blob hizmeti ancak tablo veya kuyruğu hizmetlerinin etkinlik varsa, yalnızca toohello Blob hizmeti ilgili günlükleri oluşturulur.
 
 Storage Analytics günlüğü Azure File storage için kullanılabilir değil.
 
 ### <a name="logging-authenticated-requests"></a>Kimlik doğrulaması günlüğe kaydetme istekleri
-Kimliği doğrulanmış istekler aşağıdaki türlerini kaydedilir:
+Kimliği doğrulanmış istekler türleri aşağıdaki hello kaydedilir:
 
 * Başarılı istek sayısı.
 * İstek zaman aşımı, azaltma, ağ, yetkilendirme ve başka hatalar da dahil olmak üzere, başarısız oldu.
 * Başarılı ve başarısız istekleri dahil olmak üzere paylaşılan erişim imzası (SAS), kullanarak istek sayısı.
-* Analiz verileri için istek sayısı.
+* İstekleri tooanalytics verileri.
 
-Storage Analytics kendisini günlük oluşturma veya silme gibi tarafından yapılan istekleri günlüğe kaydedilmez. Günlüğe kaydedilen verilerin tam bir liste belgelenen [depolama Analytics günlüğe yazılan işlemler ve durum iletileri](https://msdn.microsoft.com/library/hh343260.aspx) ve [depolama Analytics günlük biçimi](https://msdn.microsoft.com/library/hh343259.aspx) Konular.
+Storage Analytics kendisini günlük oluşturma veya silme gibi tarafından yapılan istekleri günlüğe kaydedilmez. Oturum hello verilerin tam bir liste hello belgelenen [depolama Analytics günlüğe yazılan işlemler ve durum iletileri](https://msdn.microsoft.com/library/hh343260.aspx) ve [depolama Analytics günlük biçimi](https://msdn.microsoft.com/library/hh343259.aspx) Konular.
 
 ### <a name="logging-anonymous-requests"></a>Anonim istekler günlüğe kaydetme
-Anonim istekler aşağıdaki türlerini kaydedilir:
+Anonim istek türlerini aşağıdaki hello kaydedilir:
 
 * Başarılı istek sayısı.
 * Sunucu hataları.
 * İstemci ve sunucu zaman aşımı hataları.
 * Başarısız GET istekleri 304 hata koduyla (değişiklik).
 
-Diğer tüm başarısız anonim istekler günlüğe kaydedilmez. Günlüğe kaydedilen verilerin tam bir liste belgelenen [depolama Analytics günlüğe yazılan işlemler ve durum iletileri](https://msdn.microsoft.com/library/hh343260.aspx) ve [depolama Analytics günlük biçimi](https://msdn.microsoft.com/library/hh343259.aspx) Konular.
+Diğer tüm başarısız anonim istekler günlüğe kaydedilmez. Oturum hello verilerin tam bir liste hello belgelenen [depolama Analytics günlüğe yazılan işlemler ve durum iletileri](https://msdn.microsoft.com/library/hh343260.aspx) ve [depolama Analytics günlük biçimi](https://msdn.microsoft.com/library/hh343259.aspx) Konular.
 
 ### <a name="how-logs-are-stored"></a>Günlükleri nasıl depolanır
-Tüm günlükler blok blobları Storage Analytics bir depolama hesabı için etkinleştirildiğinde, otomatik olarak oluşturulan $logs adlı bir kapsayıcıda depolanır. $Logs kapsayıcı depolama hesabı blob ad alanında örneğin bulunur: `http://<accountname>.blob.core.windows.net/$logs`. Storage Analytics etkinleştirildikten sonra bu kapsayıcı içeriğini silinebilir silinemiyor.
+Tüm günlükler blok blobları Storage Analytics bir depolama hesabı için etkinleştirildiğinde, otomatik olarak oluşturulan $logs adlı bir kapsayıcıda depolanır. Merhaba $logs kapsayıcı bulunan hello blob ad alanında hello depolama hesabının, örneğin: `http://<accountname>.blob.core.windows.net/$logs`. Storage Analytics etkinleştirildikten sonra bu kapsayıcı içeriğini silinebilir silinemiyor.
 
 > [!NOTE]
-> İşlem listeleme bir kapsayıcı, gibi gerçekleştirildiğinde $logs kapsayıcı görüntülenmeyen [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx) yöntemi. Doğrudan erişim gerekir. Örneğin, kullanabileceğiniz [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) BLOB'ları erişmek için yöntemi `$logs` kapsayıcı.
+> İşlem listeleme bir kapsayıcı gerçekleştirildiğinde hello gibi Hello $logs kapsayıcı görüntülenmez [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx) yöntemi. Doğrudan erişim gerekir. Örneğin, hello kullanabilirsiniz [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) yöntemi tooaccess hello blobları hello `$logs` kapsayıcı.
 > İstekleri günlüğe gibi depolama çözümlemeleri Ara sonuçların taşı olarak yükleyin. Düzenli aralıklarla, Storage Analytics bu blokları tamamlama ve bir blob olarak kullanılmasını.
 > 
 > 
 
-Yinelenen kayıtları aynı saat içinde oluşturulan günlükleri için mevcut olabilir. Bir kayıt yinelenen olup olmadığını kontrol ederek belirleyebilirsiniz **RequestId** ve **işlemi** numarası.
+Yinelenen kayıtları hello oluşturulan günlükleri için bulunabilir aynı saat. Merhaba denetleyerek bir kayıt yinelenen olup olmadığını belirleyebilirsiniz **RequestId** ve **işlemi** numarası.
 
 ### <a name="log-naming-conventions"></a>Günlük adlandırma kuralları
-Her günlük şu biçimde yazılır.
+Her günlük biçimini izleyen hello yazılır.
 
     <service-name>/YYYY/MM/DD/hhmm/<counter>.log
 
-Aşağıdaki tabloda günlük ad içindeki her bir öznitelik açıklanmaktadır.
+Merhaba aşağıdaki tabloda her özniteliği hello günlük adında açıklanmaktadır.
 
 | Öznitelik | Açıklama |
 | --- | --- |
-| < hizmet-adı > |Depolama hizmet adı. Örneğin: blob, tablo veya kuyruğu. |
-| YYYY |Günlük için dört rakamlı yıl. Örneğin: 2011. |
-| MM |Günlük için iki basamaklı ayı. Örneğin: 07. |
-| DD |Günlük için iki basamaklı ayı. Örneğin: 07. |
-| ss |İki basamaklı saat, 24 saatlik UTC biçiminde günlükleri için başlangıç saati gösterir. Örneğin: 18. |
-| mm |Günlükleri için başlangıç dakika gösteren iki basamaklı bir sayı. Bu değer Storage Analytics geçerli sürümde desteklenmiyor ve değeri her zaman 00 olacaktır. |
-| <counter> |Altı basamaklı bir saat süre depolama hizmeti için oluşturulan günlük BLOB'ları sayısını gösteren sıfır tabanlı bir sayacı. Bu sayaç 000000 başlatır. Örneğin: 000001. |
+| < hizmet-adı > |Merhaba depolama hizmeti Hello adı. Örneğin: blob, tablo veya kuyruğu. |
+| YYYY |Merhaba dört rakamlı yıl hello günlüğü. Örneğin: 2011. |
+| MM |Merhaba iki basamaklı ay hello günlüğü. Örneğin: 07. |
+| DD |Merhaba iki basamaklı ay hello günlüğü. Örneğin: 07. |
+| ss |saat hello için başlangıç hello gösterir hello iki basamaklı saat, 24 saatlik UTC biçiminde kaydeder. Örneğin: 18. |
+| mm |dakika hello günlükleri için başlangıç hello gösteren hello iki basamaklı bir sayı. Bu değer hello geçerli depolama çözümlemeleri sürümünde desteklenmiyor ve değeri her zaman 00 olacaktır. |
+| <counter> |Altı basamaklı bir saat süre hello depolama hizmeti için oluşturulan günlük BLOB'ları hello sayısını gösteren sıfır tabanlı bir sayacı. Bu sayaç 000000 başlatır. Örneğin: 000001. |
 
-Önceki örneklerde birleştiren bir tam örnek günlük adını verilmiştir.
+Merhaba, hello önceki örneklerde birleştiren bir tam örnek günlük adını aşağıdadır.
 
     blob/2011/07/31/1800/000001.log
 
-Önceki günlük erişmek için kullanılan URI bir örnek verilmiştir.
+Merhaba, örnek kullanılan tooaccess hello önceki günlük olabilir URI aşağıdadır.
 
     https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log
 
-Bir depolama istek günlüğe kaydedildiğinde, sonuçta elde edilen günlük adı tamamlanmış olduğunda istenen işlem saati hatalarla ilintilidir. Örneğin, bir GetBlob istek 6: 30'da tamamlandı 7/31/2011 ' günlük şu önek ile yazılmış:`blob/2011/07/31/1800/`
+Bir depolama istek günlüğe kaydedildiğinde hello elde edilen günlük adı hello işlemi tamamlandı istediğinizde toohello saat hatalarla ilintilidir. Örneğin, bir GetBlob istek 6: 30'da tamamlandı 7/31/2011'hello günlük önek aşağıdaki hello ile yazılacaktır:`blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>Log meta verileri
-Tüm günlük BLOB'lar blob içerdiği günlük verileri tanımlamak için kullanılan meta verileriyle depolanır. Aşağıdaki tabloda, her meta veri özniteliğinin açıklanmaktadır.
+Tüm günlük BLOB'lar kullanılan tooidentify hangi günlük veri hello blob içeriyor olabilir meta verileriyle depolanır. Aşağıdaki tablonun hello her meta veri özniteliğinin açıklar.
 
 | Öznitelik | Açıklama |
 | --- | --- |
-| LogType |Günlük Okuma, yazma veya silme işlemleri için ilgili bilgiler içeren olup olmadığını açıklar. Bu değer, bir tür veya üçünü virgülle ayrılmış bir birleşimini içerebilir. Örnek 1: yazma; Örnek 2: Okuma, yazma; Örnek 3: Okuma, yazma, silme. |
-| StartTime |YYYY biçiminde günlüğündeki bir girişi en erken zaman-aa-: ssZ. Örneğin: 2011-07-31T18:21:46Z. |
-| EndTime |YYYY biçiminde günlüğündeki bir girişi son süresini-aa-: ssZ. Örneğin: 2011-07-31T18:22:09Z. |
-| LogVersion |Günlük biçimi sürümü. Şu anda desteklenen tek değer 1.0 ' dir. |
+| LogType |Merhaba günlük tooread, yazma veya silme işlemleri ilgili bilgiler içeren olup olmadığını açıklar. Bu değer, bir tür veya üçünü virgülle ayrılmış bir birleşimini içerebilir. Örnek 1: yazma; Örnek 2: Okuma, yazma; Örnek 3: Okuma, yazma, silme. |
+| StartTime |Merhaba YYYY hello biçiminde hello günlüğündeki bir girişi erken süresini-aa-: ssZ. Örneğin: 2011-07-31T18:21:46Z. |
+| EndTime |Merhaba YYYY hello biçiminde hello günlüğündeki bir girişi son süresini-aa-: ssZ. Örneğin: 2011-07-31T18:22:09Z. |
+| LogVersion |Merhaba günlük biçimi Hello sürümü. Şu anda 1.0 yalnızca desteklenen hello değerdir. |
 
-Aşağıdaki listede önceki örneklerde kullanarak tam örnek meta verilerini görüntüler.
+Merhaba aşağıdaki listede hello önceki örnekler kullanarak tam örnek meta verilerini görüntüler.
 
 * LogType yazma =
 * StartTime 2011 =-07-31T18:21:46Z
@@ -115,71 +115,71 @@ Aşağıdaki listede önceki örneklerde kullanarak tam örnek meta verilerini g
 * LogVersion = 1.0
 
 ### <a name="accessing-logging-data"></a>Günlük verilerine erişme
-Tüm verileri `$logs` kapsayıcı Blob hizmeti API'leri kullanılarak erişilebilir, Azure tarafından sağlanan .NET API'lerini de dahil olmak üzere kitaplığı yönetilen. Depolama hesabının yöneticisine okuyun ve günlükleri, silme, ancak oluşturabilir veya bunları güncelleştirin. Günlüğün meta veri ve günlük adı için bir günlük sorgulanırken kullanılabilir. Verilen saatlik günlükleri bozuk görünmesi mümkündür, ancak meta verileri, günlük girişlerini timespan her zaman bir oturum açma belirtir.. Bu nedenle, belirli bir günlük için arama yaparken günlük adları ve meta verileri bir bileşimini kullanabilirsiniz.
+Merhaba tüm verileri `$logs` kapsayıcı hello Blob hizmeti API'leri kullanılarak erişilebilir, hello .NET hello tarafından sağlanan API'lerini de dahil olmak üzere Azure kitaplığı yönetilen. Hello depolama hesabının yöneticisine okuma ve günlükleri, silme, ancak oluşturabilir veya bunları güncelleştirin. Merhaba günlüğün meta veri ve günlük adı için bir günlük sorgulanırken kullanılabilir. Verilen saatlik günlükleri tooappear için bozuk mümkündür, ancak hello meta veri, günlük girişlerinin hello timespan her zaman bir oturum açma belirtir.. Bu nedenle, belirli bir günlük için arama yaparken günlük adları ve meta verileri bir bileşimini kullanabilirsiniz.
 
 ## <a name="about-storage-analytics-metrics"></a>Storage Analytics ölçümleri hakkında
-Storage Analytics bir depolama birimi hizmeti istekleriyle ilgili toplu işlem istatistiklerini ve kapasite verilerini dahil ölçümleri depolayabilirsiniz. İşlem düzeyinde hem de API işlemi ve aynı zamanda depolama hizmeti düzeyinde bildirilir ve kapasite depolama hizmet düzeyinde bildirilir. Ölçüm verilerini depolama hizmeti kullanım çözümlemek, depolama birimi hizmeti karşı yapılan istekleri ile sorunlarını tanılamak ve bir hizmeti kullanan uygulamaların performansını artırmak için kullanılabilir.
+Storage Analytics istekleri tooa depolama hizmeti hakkında toplu işlem istatistiklerini ve kapasite verilerini dahil ölçümleri depolayabilirsiniz. İşlemler her iki hello API işlemi düzeyinde ve aynı zamanda hello depolama hizmeti düzeyinde bildirilir ve kapasite hello depolama hizmet düzeyinde bildirilir. Ölçüm verilerini kullanılan tooanalyze depolama hizmeti kullanım olması, hello depolama hizmeti ve tooimprove hello bir hizmeti kullanan uygulamaların performansını karşı yapılan istekleri ile sorunları tanılayın.
 
-Storage Analytics kullanmak için onu ayrı ayrı izlemek istediğiniz her hizmet için etkinleştirmelisiniz. Şuradan etkinleştirebilirsiniz [Azure Portal](https://portal.azure.com). Ayrıntılar için bkz [Azure Portal'da depolama hesabı izleme](storage-monitor-storage-account.md). Storage Analytics REST API veya istemci kitaplığı yoluyla programlı olarak etkinleştirebilirsiniz. Kullanım **hizmet özellikleri Al** her hizmet için depolama çözümlemeleri etkinleştirme işlemleri.
+Storage Analytics toouse etkinleştirmeniz gerekir, tek tek her hizmet için toomonitor istediğiniz. Hello etkinleştirmek [Azure Portal](https://portal.azure.com). Ayrıntılar için bkz [hello Azure Portal'da depolama hesabı izleme](storage-monitor-storage-account.md). Storage Analytics hello REST API aracılığıyla programlı olarak veya hello istemci kitaplığı da etkinleştirebilirsiniz. Kullanım hello **hizmet özellikleri Al** her hizmet için işlemleri tooenable depolama çözümlemeleri.
 
 ### <a name="transaction-metrics"></a>İşlem ölçümlerini
-Güçlü bir veri kümesi istenen API işlemi, giriş/çıkış, kullanılabilirlik, hatalar dahil olmak üzere her depolama hizmeti için saat veya dakika aralıklarla kaydedilir ve istek yüzdelerini kategorilere. İşlem ayrıntıları tam bir listesini görebilir [Storage Analytics Ölçüm tablosu şeması](https://msdn.microsoft.com/library/hh343264.aspx) konu.
+Güçlü bir veri kümesi istenen API işlemi, giriş/çıkış, kullanılabilirlik, hatalar dahil olmak üzere her depolama hizmeti için saat veya dakika aralıklarla kaydedilir ve istek yüzdelerini kategorilere. Merhaba hello işlem ayrıntıları tam bir listesini görebilir [Storage Analytics Ölçüm tablosu şeması](https://msdn.microsoft.com/library/hh343264.aspx) konu.
 
-İşlem verileri iki düzeyde – hizmet düzeyi ve API işlem düzeyinde kaydedilir. Hizmet düzeyinde hiçbir istek hizmetinde yapılan olsa bile API işlemleri saatte bir tablo varlığına yazılan tüm özetlemeye istatistikleri istedi. İşlemi, bir saat içinde istediyseniz API işlem düzeyinde istatistikleri yalnızca bir varlığa yazılır.
+İşlem verileri iki düzeyde – hello hizmet düzeyi ve hello API işlem düzeyinde kaydedilir. Merhaba hizmet düzeyinde hiçbir istek toohello hizmet yapılmışsa bile API işlemleri saatte tooa Tablo varlığı yazılan tüm özetlemeye istatistikleri istedi. Merhaba işlemi, bir saat içinde istediyseniz hello API işlemi, istatistikleri yalnızca yazılı tooan varlık düzeyindedir.
 
-Örneğin, gerçekleştirdiğiniz bir **GetBlob** Blob Storage Analytics ölçümleri hizmetiniz işlemi isteği oturum ve Blob hizmeti için toplanan veriler dahil yanı sıra **GetBlob** işlemi. Ancak, yoksa **GetBlob** saatte istenen işlem, bir varlık için yazılmayacak `$MetricsTransactionsBlob` bu işlem için.
+Örneğin, gerçekleştirdiğiniz bir **GetBlob** Blob Storage Analytics ölçümleri hizmetiniz işlemi oturum hello istek ve her ikisi de hello yanı sıra Blob hizmeti hello için toplanan hello verilerine dahil **GetBlob** işlemi. Ancak, yoksa **GetBlob** hello saatte istenen işlem, bir varlık toohello yazılmayacak `$MetricsTransactionsBlob` bu işlem için.
 
-İşlem ölçümlerini, kullanıcı isteklerini ve depolama analizi tarafından kendisini yapılan istekleri için kaydedilir. Örneğin, günlükleri ve tablo varlıkları yazma isteklerini Storage Analytics tarafından kaydedilir. Bu istekler nasıl faturalandırılır hakkında daha fazla bilgi için bkz: [depolama çözümlemeleri ve faturalama](https://msdn.microsoft.com/library/hh360997.aspx).
+İşlem ölçümlerini, kullanıcı isteklerini ve depolama analizi tarafından kendisini yapılan istekleri için kaydedilir. Örneğin, depolama çözümlemeleri toowrite günlükleri ve tablo varlıkları isteklerinden kaydedilir. Bu istekler nasıl faturalandırılır hakkında daha fazla bilgi için bkz: [depolama çözümlemeleri ve faturalama](https://msdn.microsoft.com/library/hh360997.aspx).
 
 ### <a name="capacity-metrics"></a>Kapasite ölçümleri
 > [!NOTE]
-> Şu anda, kapasite ölçümlerini yalnızca Blob hizmeti için kullanılabilir. Sıra hizmeti ve tablo hizmeti için kapasite ölçümlerini Storage Analytics gelecekteki sürümlerinde kullanılabilir.
+> Kapasite ölçümlerini şu anda yalnızca Merhaba Blob hizmeti olarak kullanılabilir. Merhaba tablo hizmeti ve sıra hizmeti için kapasite ölçümlerini Storage Analytics gelecekteki sürümlerinde kullanılabilir.
 > 
 > 
 
-Kapasite verileri günlük bir depolama hesabının Blob hizmeti için kaydedilir ve iki tablo varlıkları yazılır. Bir varlık için kullanıcı verilerini istatistikleri sağlar ve diğer ilgili istatistikler sağlar `$logs` depolama analizi tarafından kullanılan blob kapsayıcısı. `$MetricsCapacityBlob` Tablosu aşağıdaki İstatistikler içerir:
+Kapasite verileri günlük bir depolama hesabının Blob hizmeti için kaydedilir ve iki tablo varlıkları yazılır. Bir varlık istatistikleri için kullanıcı verileri ve hello diğer sağlar hello hakkındaki istatistiklerdir `$logs` depolama analizi tarafından kullanılan blob kapsayıcısı. Merhaba `$MetricsCapacityBlob` tablo istatistikleri aşağıdaki hello içerir:
 
-* **Kapasite**: bayt cinsinden depolama hesabının Blob hizmeti tarafından kullanılan depolama alanı miktarı.
-* **ContainerCount**: depolama hesabının Blob hizmeti blob kapsayıcı sayısı.
-* **ObjectCount**: kaydedilmiş ve kaydedilmemiş blok veya sayfa BLOB Depolama hesabının Blob hizmetinde sayısı.
+* **Kapasite**: hello bayt hello depolama hesabının Blob hizmeti tarafından kullanılan depolama alanı miktarı.
+* **ContainerCount**: Merhaba hello depolama hesabının Blob hizmeti blob kapsayıcı sayısı.
+* **ObjectCount**: Merhaba kaydedilmiş ve kaydedilmeyen bloğu ya da sayfa BLOB'ları hello depolama hesabının Blob hizmeti sayısı.
 
-Kapasite ölçümleri hakkında daha fazla bilgi için bkz: [Storage Analytics Ölçüm tablosu şeması](https://msdn.microsoft.com/library/hh343264.aspx).
+Merhaba kapasite ölçümleri hakkında daha fazla bilgi için bkz: [Storage Analytics Ölçüm tablosu şeması](https://msdn.microsoft.com/library/hh343264.aspx).
 
 ### <a name="how-metrics-are-stored"></a>Ölçümleri nasıl depolanır
-Tüm ölçüm verilerini depolama hizmetlerinin her biri için bu hizmet için ayrılmış üç tablolarında depolanır: işlem bilgileri için bir tablo, dakikalık işlem bilgileri için bir tablo ve kapasite bilgileri için başka bir tablo. İstek ve yanıt verilerini işlem ve dakika işlem bilgilerini oluşur ve depolama alanı kullanım verilerini kapasite bilgilerini oluşur. Aşağıdaki tabloda açıklandığı gibi adlı tablolardaki saat ölçümleri, dakika ölçümleri ve bir depolama hesabının Blob hizmeti için kapasite erişilebilir.
+Tüm ölçüm verilerini hello Depolama hizmetlerinin her biri için bu hizmet için ayrılmış üç tabloda depolanır: işlem bilgileri için bir tablo, dakikalık işlem bilgileri için bir tablo ve kapasite bilgileri için başka bir tablo. İstek ve yanıt verilerini işlem ve dakika işlem bilgilerini oluşur ve depolama alanı kullanım verilerini kapasite bilgilerini oluşur. Aşağıdaki tablonun hello açıklandığı gibi adlı tablolardaki saat ölçümleri, dakika ölçümleri ve bir depolama hesabının Blob hizmeti için kapasite erişilebilir.
 
 | Ölçümleri düzeyi | Tablo adları | Desteklenen sürümler |
 | --- | --- | --- |
-| Saatlik ölçümleri, birincil konumu |$MetricsTransactionsBlob <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |2013-08-15 yalnızca'den önceki sürümleri. Bu adları hala desteklenmektedir, ancak aşağıda listelenen tabloların kullanmaya geçiş yapmanız önerilir. |
+| Saatlik ölçümleri, birincil konumu |$MetricsTransactionsBlob <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Sürümleri önceki too2013-08-15 yalnızca. Bu adları hala desteklenmektedir, ancak aşağıda listelenen toousing hello tabloları geçiş önerilir. |
 | Saatlik ölçümleri, birincil konumu |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |2013-08-15 dahil olmak üzere tüm sürümleri. |
 | Dakika ölçümleri, birincil konumu |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |2013-08-15 dahil olmak üzere tüm sürümleri. |
 | Saatlik ölçümleri, ikincil konum |$MetricsHourSecondaryTransactionsBlob <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |2013-08-15 dahil olmak üzere tüm sürümleri. Okuma erişimli coğrafi olarak yedekli çoğaltma etkinleştirilmiş olması gerekir. |
 | Dakika ölçümleri, ikincil konum |$MetricsMinuteSecondaryTransactionsBlob <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue |2013-08-15 dahil olmak üzere tüm sürümleri. Okuma erişimli coğrafi olarak yedekli çoğaltma etkinleştirilmiş olması gerekir. |
 | Kapasite (yalnızca Blob hizmeti) |$MetricsCapacityBlob |2013-08-15 dahil olmak üzere tüm sürümleri. |
 
-Storage Analytics bir depolama hesabı için etkinleştirildiğinde, bu tablolar otomatik olarak oluşturulur. Örneğin, depolama hesabı ad alanı erişilir:`https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
+Storage Analytics bir depolama hesabı için etkinleştirildiğinde, bu tablolar otomatik olarak oluşturulur. Örneğin, hello depolama hesabı, başlangıç ad alanı erişilir:`https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
 
 ### <a name="accessing-metrics-data"></a>Ölçümleri verilerine erişme
-Ölçümleri tablolarındaki tüm verileri tablo hizmeti API'leri kullanılarak erişilebilir, Azure tarafından sağlanan .NET API'lerini de dahil olmak üzere kitaplığı yönetilen. Depolama hesabının yöneticisine okuyun ve tablo varlıkları silmek, ancak oluşturabilir veya bunları güncelleştirin.
+Merhaba ölçümleri tablolarındaki tüm verileri hello tablo hizmeti API'leri kullanılarak erişilebilir, hello .NET hello tarafından sağlanan API'lerini de dahil olmak üzere Azure kitaplığı yönetilen. Hello depolama hesabının yöneticisine okuyun ve tablo varlıkları silmek, ancak oluşturabilir veya bunları güncelleştirin.
 
 ## <a name="billing-for-storage-analytics"></a>Depolama çözümlemeleri için fatura
-Tüm ölçüm verilerini bir depolama hesabı Hizmetleri tarafından yazılır. Sonuç olarak, depolama analizi tarafından gerçekleştirilen her yazma işlemi faturalanabilir. Ayrıca, ölçüm verilerini tarafından kullanılan depolama alanı miktarı da faturalanabilir.
+Tüm ölçüm verilerini bir depolama hesabı hello Hizmetleri tarafından yazılır. Sonuç olarak, depolama analizi tarafından gerçekleştirilen her yazma işlemi faturalanabilir. Ayrıca, hello ölçüm verilerini tarafından kullanılan depolama alanı da Faturalanabilir miktarıdır.
 
-Storage Analytics tarafından gerçekleştirilen aşağıdaki eylemler Faturalanabilir şunlardır:
+Storage Analytics tarafından gerçekleştirilen eylemler şu hello Faturalanabilir şunlardır:
 
-* Günlük için BLOB'ları oluşturmak için istek sayısı. 
-* Ölçümler için tablo varlıkları oluşturmak için istek sayısı.
+* Günlük için toocreate BLOB'lar ister. 
+* Ölçümler için istekleri toocreate tablo varlıklar.
 
 Bir veri bekletme ilkesi yapılandırdıysanız, depolama çözümlemeleri eski günlüğe kaydetme ve ölçüm verileri sildiğinde, silme işlemleri için sizden ücret istenmese. Ancak, bir istemciden silme işlemleri faturalanabilir. Bekletme ilkeleri hakkında daha fazla bilgi için bkz: [depolama Analytics veri Bekletme İlkesi ayarı](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
 ### <a name="understanding-billable-requests"></a>Faturalandırılabilir isteklerin anlama
-Bir hesabın depolama hizmetine yapılan her isteği Faturalanabilir ya da Faturalanamayan değil. Storage Analytics istek nasıl işlendiğini gösteren bir durum iletisi de dahil olmak üzere bir hizmetine yapılan her isteği günlüğe kaydeder. Benzer şekilde, Storage Analytics ölçümleri hem hizmet hem de o hizmetinde yüzdeleri ve belirli durum iletilerinin sayısını gibi API işlemlerini depolar. Birlikte, bu özellikler, uygulamanızda geliştirmeler yapmak ve hizmetlerinizi istekleri ile ilgili sorunları tanılamak Faturalanabilir isteklerinizi çözümlemenize yardımcı olabilir. Faturalama hakkında daha fazla bilgi için bkz: [anlama Azure depolama faturalama - bant genişliği, işlemleri ve kapasite](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Faturalanabilir ya da Faturalanamayan tooan hesabın depolama hizmeti yapılan her isteği değil. Storage Analytics hello isteği nasıl işlendiğini gösteren bir durum iletisi dahil tooa hizmetini yapılan her isteği günlüğe kaydeder. Benzer şekilde, Storage Analytics ölçümleri hello yüzdeleri ve belirli durum iletilerinin sayısını da dahil olmak üzere bu hizmetinin hem hizmet hem de hello API işlemleri için depolar. Birlikte, bu özellikler, uygulamanızda geliştirmeler yapmak ve istekleri tooyour Hizmetleri ile ilgili sorunları tanılamak Faturalanabilir isteklerinizi çözümlemenize yardımcı olabilir. Faturalama hakkında daha fazla bilgi için bkz: [anlama Azure depolama faturalama - bant genişliği, işlemleri ve kapasite](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-Storage Analytics veri bakarken tablolarında kullanabilirsiniz [depolama Analytics günlüğe yazılan işlemler ve durum iletileri](https://msdn.microsoft.com/library/azure/hh343260.aspx) hangi istekleri Faturalanabilir belirlemek için konu. Ardından, ölçüm verileri belirli bir istek için ücret olmadığını görmek için durum iletilerini ve günlükleri karşılaştırabilirsiniz. Ayrıca, depolama birimi hizmeti veya bireysel API işlemi için araştırmak için önceki konusunda tabloları kullanabilir.
+Storage Analytics veri bakarken hello hello tabloları kullanabilir [depolama Analytics günlüğe yazılan işlemler ve durum iletileri](https://msdn.microsoft.com/library/azure/hh343260.aspx) hangi isteklerin olduğu Faturalanabilir konu toodetermine. Ardından, belirli bir istek için sizden ücret günlükleri ve ölçümleri veri toohello durum iletileri toosee karşılaştırabilirsiniz. Önceki konu tooinvestigate kullanılabilirlik hello bir depolama birimi hizmeti veya bireysel API işlemi için hello tabloları kullanabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 ### <a name="setting-up-storage-analytics"></a>Storage Analytics ayarlama
-* [Azure Portal'da depolama hesabı izleme](storage-monitor-storage-account.md)
+* [İzleyici hello Azure Portal'da depolama hesabı](storage-monitor-storage-account.md)
 * [Etkinleştirme ve depolama çözümlemeleri yapılandırma](https://msdn.microsoft.com/library/hh360996.aspx)
 
 ### <a name="storage-analytics-logging"></a>Storage Analytics günlüğe kaydetme

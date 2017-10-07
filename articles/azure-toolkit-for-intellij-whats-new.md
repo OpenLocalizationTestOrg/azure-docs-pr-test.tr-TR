@@ -1,6 +1,6 @@
 ---
-title: "Intellij için Azure Araç Seti yenilikler | Microsoft Docs"
-description: "Intellij için en son özelliklere Azure araç setindeki öğrenin."
+title: "aaaWhat hello Intellij için Azure araç seti, yeni kullanıcının | Microsoft Docs"
+description: "Intellij için en son özellikleri hello Azure Araç Seti hello öğrenin."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,73 +14,73 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm;asirveda;martinsawicki
-ms.openlocfilehash: 23714856f0f778be04cf321e0726b53ade430f57
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 57599c9af1d41784941b8b363ab9089db5df98f2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="whats-new-in-the-azure-toolkit-for-intellij"></a>Intellij için Azure Araç Seti yenilikleri
+# <a name="whats-new-in-hello-azure-toolkit-for-intellij"></a>Yeni hello Intellij için Azure Araç Seti nedir
 ## <a name="azure-toolkit-for-intellij-releases"></a>Intellij yayımları için Azure Araç Seti
-Bu makale Intellij için çeşitli yayınları ve Azure Araç Seti en son güncelleştirmeleri hakkında bilgi içerir.
+Bu makalede toohello Azure Araç Seti Intellij için en son güncelleştirmeleri ve çeşitli yayınları hello hakkında bilgi içerir.
 
 > [!NOTE]
-> Bir Azure araç setini Eclipse IDE yoktur. Daha fazla bilgi için bkz: [Eclipse için Azure Araç Seti].
+> Merhaba Eclipse IDE için bir Azure Araç Seti yoktur. Daha fazla bilgi için bkz: [Eclipse için Azure Araç Seti].
 > 
 > 
 
 ### <a name="april-14-2017"></a>14 Nisan 2017
-Intellij - Nisan 2017 yayın için Azure Araç Seti aşağıdaki geliştirmeleri içerir:
+Merhaba Intellij - Nisan 2017 yayın için Azure Araç Seti hello aşağıdaki geliştirmeleri içerir:
 
-* **Azure deneyimi oturum geliştirilmiş**: Intellij için Azure Araç Seti artık Azure hesabınızda oturum açılırken iki yöntemi destekler: *etkileşimli* ve *otomatik*. Daha fazla bilgi için bkz: [içinde Azure oturum yönergeler Intellij için Azure Araç Seti için].
-* **Docker kapsayıcıları kullanma yayımlama**: Docker Intellij için Azure Araç Seti kullanarak kapsayıcı olarak, web uygulamalarınızı şimdi yayımlayabilirsiniz. Daha fazla bilgi için bkz: [Docker Intellij için Azure Araç Seti kullanarak bir kapsayıcı olarak bir Web uygulaması yayımlama].
-* **Depolama hesap yönetimi**: Intellij için Azure Araç Seti artık destekliyor depolama hesaplarınızı Azure Explorer görünümünden yönetme. Daha fazla bilgi için bkz: [depolama Intellij için Azure Explorer'ı kullanarak hesapları yönetme].
-* **Sanal Makine Yönetimi**: Intellij için Azure Araç Seti artık destekler Azure Gezgini aracı penceresinden sanal makinelerinizi yönetme. Daha fazla bilgi için bkz: [yönetme Azure Gezgini Intellij için kullanarak sanal makineleri].
-* **Uzaktan hata ayıklama desteği kaldırılmasını**. Azure App Service'te Java web uygulamaları uzaktan hata ayıklama Azure araç setinin Intellij için kaldırılmıştır; Bu araç seti kullanırken müşteriler yaşıyordu bazı sorunları gidermek gerekliydi.
+* **Azure deneyimi oturum geliştirilmiş**: Intellij artık Azure hesabınızda oturum açılırken iki yöntemi destekler için Azure Araç Seti hello: *etkileşimli* ve *otomatik*. Daha fazla bilgi için bkz: [içinde Azure oturum yönergeler hello Intellij için Azure Araç Seti için].
+* **Docker kapsayıcıları kullanma yayımlama**: Docker Intellij için Azure Araç Seti kullanarak kapsayıcı olarak, web uygulamalarınızı şimdi yayımlayabilirsiniz. Daha fazla bilgi için bkz: [nasıl toopublish kullanarak bir Docker kapsayıcısı olarak bir Web uygulaması hello Azure Araç Seti için Intellij].
+* **Depolama hesap yönetimi**: depolama hesaplarınızı Azure Gezgin Görünümü hello yönetme Intellij artık destekliyor için Azure Araç Seti hello. Daha fazla bilgi için bkz: [Intellij için hello Azure Gezgini yönetme depolama hesaplarını kullanarak].
+* **Sanal Makine Yönetimi**: hello Azure Explorer araç penceresi sanal makinelerinizi yönetme Intellij artık destekliyor için Azure Araç Seti hello. Daha fazla bilgi için bkz: [Intellij için hello Azure Gezgini sanal makineleri yönetme kullanarak].
+* **Uzaktan hata ayıklama desteği kaldırılmasını**. Azure App Service'te Java web uygulamaları uzaktan hata ayıklama hello Azure Araç Seti Intellij için kaldırılmıştır; gerekli tooresolve, bu araç seti hangi müşterilerin kullanırken karşılaşılan bazı sorunları hello.
 
 ### <a name="august-26-2016"></a>26 Ağustos 2016
-Intellij - Ağustos 2016 sürüm için Azure Araç Seti aşağıdaki geliştirmeleri içerir:
+Merhaba Intellij - Ağustos 2016 sürüm için Azure Araç Seti hello aşağıdaki geliştirmeleri içerir:
 
-* **Özel JDK dağıtımları**. Intellij için Azure Araç Seti artık belirtme ve rasgele bir JDK sürümü, Azure WebApp kapsayıcıya dağıtma destekler:
-  * Azure tarafından sağlanan JDKs yanı sıra, Azure üzerinde Azul sistemler tarafından kullanılabilir hale Zulu dili OpenJDK sürümlerinin geniş seçimden seçebilirsiniz.
-  * Depolama hesabınıza bir ZIP dosyası yüklerseniz, ayrıca kendi JDK dağıtım belirtebilirsiniz.
-* **Azure Explorer görünümü geliştirmeler**:
-  * Azure'nın yeni Resource Manager modelini kullanarak sanal makine yönetimi desteği: listesinde, oluşturabilir ve IDE ayrılmadan resource manager tabanlı sanal makineleri silin.
-  * "Klasik" depolama hesapları yönetmek için var olan işlevselliği tamamlar Azure Resource Manager kullanarak depolama hesabı blob yönetimi için destek.
-* **SQL Server için Microsoft JDBC sürücüsü 6.0**. Bu güncelleştirme, Microsoft SQL olan sunucu için (v6.0), en son JDBC sürücüsü içerir, Java projenize kolayca ekleyebilirsiniz kitaplık olarak dahil artık eski sürümü böylece değiştirme.
+* **Özel JDK dağıtımları**. Merhaba Intellij için Azure Araç Seti artık belirtme ve bir rastgele JDK sürüm tooyour Azure WebApp kapsayıcı dağıtma destekler:
+  * Ayrıca toohello JDKs Azure tarafından sağlanan, ayrıca Azure üzerinde Azul sistemler tarafından kullanılabilir hale Zulu dili OpenJDK sürümlerinin geniş seçebilirsiniz.
+  * Bir ZIP dosyası tooyour depolama hesabı olarak yüklerseniz, ayrıca kendi JDK dağıtım belirtebilirsiniz.
+* **Geliştirmeler toohello Azure Gezgin Görünümü**:
+  * Azure'nın yeni Resource Manager modelini kullanarak sanal makine yönetimi desteği: listesinde, oluşturabilir ve hello IDE ayrılmadan resource manager tabanlı sanal makineleri silin.
+  * "Klasik" depolama hesapları yönetmek için var olan işlevselliği hello tamamlar Azure Resource Manager kullanarak depolama hesabı blob yönetimi için destek.
+* **SQL Server için Microsoft JDBC sürücüsü 6.0**. Bu güncelleştirme, Microsoft SQL artık Server için (v6.0) hello son JDBC sürücüsü içerir, kolayca tooyour Java projeleri, böylece hello eski sürümü değiştirme ekleyebileceğinizi kitaplık olarak dahil.
 
 ### <a name="june-29-2016"></a>29 Haziran 2016
-Intellij - Haziran 2016 sürüm için Azure Araç Seti aşağıdaki geliştirmeleri içerir:
+Merhaba Intellij - Haziran 2016 sürüm için Azure Araç Seti hello aşağıdaki geliştirmeleri içerir:
 
-* **Java 8 gereksinim**. Intellij için Azure Araç Seti artık Java 8, gerektirir ancak bu gereksinim yalnızca için araç seti - uygulamalarınız Java'nın Azure tarafından desteklenen tüm sürümleri kullanmaya devam edebilirsiniz.
-* **En son Java JDKs desteği**. Java JDKs en son sürümlerini Intellij için artık Azure araç takımı tarafından desteklenmektedir.
-* **Azure SDK'sı v2.9.1 desteği**. Azure SDK'nin en son sürümünü Intellij için Azure Araç Seti için minimum önkoşul sunulmuştur.
-* **Örnekleri tümleşik**. Intellij için Azure Araç Seti artık başlama geliştiricilerin yardımcı olmak için birkaç örnek uygulama özellikleri.
-* **Hdınsight aracı tümleştirme**. Azure Hdınsight araçları Intellij için artık Azure araç seti ile paketlenmiştir. Daha fazla bilgi için bkz: [Intellij için Hdınsight araçları eklentisi].
-* **Uzaktan hata ayıklama Java Web uygulamaları**. Intellij için Azure Araç Seti artık Azure App Service'te Java web uygulamaları uzaktan hata ayıklama destekler.
+* **Java 8 gereksinim**. Hello Intellij için Azure Araç Seti artık Java 8, gerektirir ancak bu gereksinim yalnızca hello Araç Seti için - uygulamalarınız Java'nın Azure tarafından desteklenen tüm sürümleri toouse devam edebilirsiniz.
+* **Destek için en son Java JDKs hello**. Merhaba Java JDKs en son sürümlerini Hello Intellij için şimdi hello Azure araç takımı tarafından desteklenir.
+* **Azure SDK'sı v2.9.1 desteği**. hello Azure SDK en son sürümünü Hello hello minimum önkoşul hello Intellij için Azure Araç Seti için sunulmuştur.
+* **Örnekleri tümleşik**. Merhaba Intellij için Azure Araç Seti artık toohelp geliştiriciler başlamak birkaç örnek uygulama özellikleri.
+* **Hdınsight aracı tümleştirme**. Azure Hdınsight araçları Intellij için şimdi hello Azure araç seti ile paketlenmiştir. Daha fazla bilgi için bkz: [Intellij için Hdınsight araçları eklentisi].
+* **Uzaktan hata ayıklama Java Web uygulamaları**. Merhaba Intellij için Azure Araç Seti artık Azure App Service'te Java web uygulamaları uzaktan hata ayıklama destekler.
 
 ### <a name="april-12-2016"></a>12 Nisan, 2016
-Intellij - Nisan 2016 sürüm için Azure Araç Seti aşağıdaki geliştirmeleri içerir:
+Merhaba Intellij - Nisan 2016 sürüm için Azure Araç Seti hello aşağıdaki geliştirmeleri içerir:
 
-* **Azure SDK'sı v2.9.0 desteği**. Azure SDK'nin en son sürümünü Intellij için Azure Araç Seti için minimum önkoşul sunulmuştur.
-* **Çeşitli kullanılabilirlik, yanıtlama ve performans iyileştirmeleri ilgili Azure Web uygulaması desteklemek için**. Bir dizi araç seti Azure sonucu ile nasıl iletişim kurduğu, performans iyileştirmelerini daha iyi yanıt arabiriminde.
-* **Var olan bir Web uygulaması kapsayıcıyı Intellij içinde azure'da silme yeteneği**. Intellij için Azure Araç Seti artık Intellij ayrılmadan var olan bir Azure Web kapsayıcı silmenize olanak sağlar.
+* **Azure SDK'sı v2.9.0 desteği**. hello Azure SDK en son sürümünü Hello hello minimum önkoşul hello Intellij için Azure Araç Seti için sunulmuştur.
+* **Çeşitli kullanılabilirlik, yanıtlama ve performans iyileştirmeleri ilgili tooAzure Web uygulaması Destek**. Merhaba Araç Seti Azure sonucu ile nasıl iletişim kurduğu, performans iyileştirmelerini sayısı daha iyi yanıt arabiriminde.
+* **Özelliği toodelete Intellij içinde azure'da var olan bir Web uygulaması kapsayıcı**. Merhaba Intellij için Azure Araç Seti artık toodelete var olan bir Azure Web kapsayıcı Intellij ayrılmadan sağlar.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-Java IDE’leri için Azure Araç Setleri hakkında daha fazla bilgi için aşağıdaki bağlantılara bakın:
+Java IDE hello Azure araç takımları hakkında daha fazla bilgi için bağlantılar aşağıdaki hello bakın:
 
 * [Eclipse için Azure Araç Seti]
-  * [Eclipse için Azure Araç Seti Yenilikleri]
-  * [Eclipse için Azure Araç Setini Yükleme]
+  * [Yeni hello Eclipse için Azure Araç Seti nedir]
+  * [Yükleme hello Eclipse için Azure Araç Seti]
   * [Eclipse Azure'da Hello World Web uygulaması oluşturun]
-  * [Eclipse için Azure Araç Setinde Oturum Açma Yönergeleri]
+  * [Merhaba Eclipse için Azure Araç Seti içinde oturum yönergeleri]
 * [IntelliJ için Azure Araç Seti]
-  * *Intellij (Bu makalede) için Azure Araç Seti yenilikleri*
-  * [IntelliJ için Azure Araç Setini Yükleme]
-  * [IntelliJ için Azure Araç Setinde Oturum Açma Yönergeleri]
+  * *Yeni hello Intellij (Bu makalede) için Azure Araç Seti nedir*
+  * [Yükleme hello Intellij için Azure Araç Seti]
+  * [Merhaba Intellij için Azure Araç Seti içinde oturum yönergeleri]
   * [Intellij Azure'da Hello World Web uygulaması oluşturun]
 
-Azure’u Java ile kullanma hakkında daha fazla bilgi edinmek için bkz. [Azure Java Geliştirici Merkezi].
+Azure Java ile kullanma hakkında daha fazla bilgi için bkz: Merhaba [Azure Java Geliştirici Merkezi].
 
 <!-- URL List -->
 
@@ -88,17 +88,17 @@ Azure’u Java ile kullanma hakkında daha fazla bilgi edinmek için bkz. [Azure
 [IntelliJ için Azure Araç Seti]: ./azure-toolkit-for-intellij.md
 [Eclipse Azure'da Hello World Web uygulaması oluşturun]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Intellij Azure'da Hello World Web uygulaması oluşturun]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Eclipse için Azure Araç Setini Yükleme]: ./azure-toolkit-for-eclipse-installation.md
-[IntelliJ için Azure Araç Setini Yükleme]: ./azure-toolkit-for-intellij-installation.md
-[Eclipse için Azure Araç Setinde Oturum Açma Yönergeleri]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[IntelliJ için Azure Araç Setinde Oturum Açma Yönergeleri]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Eclipse için Azure Araç Seti Yenilikleri]: ./azure-toolkit-for-eclipse-whats-new.md
-[What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Yükleme hello Eclipse için Azure Araç Seti]: ./azure-toolkit-for-eclipse-installation.md
+[Yükleme hello Intellij için Azure Araç Seti]: ./azure-toolkit-for-intellij-installation.md
+[Merhaba Eclipse için Azure Araç Seti içinde oturum yönergeleri]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Merhaba Intellij için Azure Araç Seti içinde oturum yönergeleri]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Yeni hello Eclipse için Azure Araç Seti nedir]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's New in hello Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[içinde Azure oturum yönergeler Intellij için Azure Araç Seti için]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Docker Intellij için Azure Araç Seti kullanarak bir kapsayıcı olarak bir Web uygulaması yayımlama]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
-[depolama Intellij için Azure Explorer'ı kullanarak hesapları yönetme]: ./azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
-[yönetme Azure Gezgini Intellij için kullanarak sanal makineleri]: ./azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
+[içinde Azure oturum yönergeler hello Intellij için Azure Araç Seti için]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[nasıl toopublish kullanarak bir Docker kapsayıcısı olarak bir Web uygulaması hello Azure Araç Seti için Intellij]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
+[Intellij için hello Azure Gezgini yönetme depolama hesaplarını kullanarak]: ./azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
+[Intellij için hello Azure Gezgini sanal makineleri yönetme kullanarak]: ./azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
 
 [Azure Java Geliştirici Merkezi]: http://go.microsoft.com/fwlink/?LinkID=699547
 

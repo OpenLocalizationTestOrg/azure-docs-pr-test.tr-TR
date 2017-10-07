@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric uygulama dağıtımı | Microsoft Docs"
-description: "FabricClient API'ları dağıtmak ve Service Fabric uygulamaları kaldırmak için kullanın."
+title: "aaaAzure Service Fabric uygulama dağıtımı | Microsoft Docs"
+description: "Merhaba FabricClient API'leri toodeploy kullanın ve Service Fabric uygulamaları kaldırın."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/07/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2e4ca1069b4e8e473b26b790e81770b41e25ff50
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b2986b71c461f3e785ba16ec1b827fe47ad852fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Dağıtma ve FabricClient kullanarak uygulamaları kaldırma
 > [!div class="op_single_selector"]
@@ -30,90 +30,90 @@ ms.lasthandoff: 07/11/2017
 
 <br/>
 
-Bir kez bir [uygulama türü paketlenmiş][10], Azure Service Fabric kümesi içine dağıtımı için hazırdır. Dağıtım aşağıdaki üç adımdan oluşur:
+Bir kez bir [uygulama türü paketlenmiş][10], Azure Service Fabric kümesi içine dağıtımı için hazırdır. Dağıtım hello aşağıdaki üç adımları içerir:
 
-1. Uygulama paketi görüntü deposuna karşıya yükleme
-2. Uygulama türünü kaydetme
-3. Uygulama örneği oluşturma
+1. Merhaba uygulama paketi toohello görüntü deposuna karşıya yükleme
+2. Merhaba uygulama türünü kaydetme
+3. Merhaba uygulama örneği oluşturma
 
-Bir uygulamanın dağıtıldığını ve bir örnek kümede çalışan sonra uygulama örneği ve uygulama türünü silebilirsiniz. Bir uygulamayı kümeden tamamen kaldırmak için aşağıdaki adımları içerir:
+Bir uygulamanın dağıtıldığını ve bir örnek hello kümede çalışan sonra hello uygulama örneği ve uygulama türünü silebilirsiniz. bir uygulama hello kümeden toocompletely Kaldır hello aşağıdaki adımları içerir:
 
-1. Çalışan Kaldır (veya Sil) uygulama örneği
-2. Artık ihtiyacınız varsa uygulama türü kaydını kaldırma
-3. Uygulama paketi görüntü deposundan kaldırır
+1. Uygulama örneğini çalıştıran hello Kaldır (veya Sil)
+2. Artık ihtiyacınız varsa hello uygulama türü kaydını kaldırma
+3. Merhaba görüntü deposundan Hello uygulama paketini kaldırma
 
-Kullanırsanız [uygulamalarında hata ayıklama ve dağıtma için Visual Studio](service-fabric-publish-app-remote-cluster.md) yerel geliştirme kümenizde yukarıdaki adımların tümünü otomatik olarak bir PowerShell komut dosyası işlenir.  Bu komut dosyası içinde bulunur *betikleri* uygulama projesi klasörü. Bu makalede, Visual Studio dışında aynı işlemleri gerçekleştirebilmeleri için komut dosyası yaptıklarını üzerinde arka plan sağlar. 
+Kullanırsanız [uygulamalarında hata ayıklama ve dağıtma için Visual Studio](service-fabric-publish-app-remote-cluster.md) yerel geliştirme kümenizde yukarıdaki adımların tümünü hello bir PowerShell komut dosyası otomatik olarak işlenir.  Bu komut dosyası hello bulunan *komut dosyaları* hello uygulama projesi klasörü. Bu makalede, gerçekleştirebilmeleri için komut dosyası yaptıklarını üzerinde arka plan sağlar hello Visual Studio dışında aynı işlemleri. 
  
-## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
-Oluşturarak kümeye bağlanın bir [FabricClient](/dotnet/api/system.fabric.fabricclient) bu makaledeki kod örnekleri birini çalıştırmadan önce örneği. Yerel bir geliştirme kümesi veya bir uzak küme veya Azure Active Directory, X509 kullanılarak güvenlik altına kümeye bağlanma örnekleri için sertifikalar veya Windows Active Directory bkz [güvenli kümeye Bağlan](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Yerel geliştirme kümeye bağlanmak için şu komutu çalıştırın:
+## <a name="connect-toohello-cluster"></a>Toohello kümesine bağlanın
+Toohello küme oluşturarak bağlanabilecek bir [FabricClient](/dotnet/api/system.fabric.fabricclient) , herhangi bir hello bu makaledeki kod örnekleri çalıştırmadan önce örneği. Bağlantı tooa yerel geliştirme küme veya uzaktan küme veya küme Azure Active Directory, X509 kullanılarak güvenli örnekleri için sertifikalar veya Windows Active Directory bkz [Bağlan tooa güvenli küme](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Merhaba aşağıdaki komutu çalıştırarak tooconnect toohello yerel geliştirme kümesi:
 
 ```csharp
-// Connect to the local cluster.
+// Connect toohello local cluster.
 FabricClient fabricClient = new FabricClient();
 ```
 
-## <a name="upload-the-application-package"></a>Uygulama paketi yükleme
-Derleme ve adlı bir uygulama paketi varsayalım *MyApplication* Visual Studio. Varsayılan olarak, ApplicationManifest.xml listelenen uygulama türü adı "MyApplicationType" bağlıdır.  Gerekli uygulama bildirimini, hizmet bildirimlerini ve kod/config/veri paketleri içeren uygulama paketi bulunan *C:\Users\&lt; kullanıcı adı&gt;\Documents\Visual Studio 2017\Projects\ MyApplication\MyApplication\pkg\Debug*.
+## <a name="upload-hello-application-package"></a>Merhaba uygulama paketini karşıya yükleyin
+Derleme ve adlı bir uygulama paketi varsayalım *MyApplication* Visual Studio. Varsayılan olarak, "MyApplicationType" Merhaba ApplicationManifest.xml listelenen hello uygulama türü adı bağlıdır.  Merhaba hello gerekli uygulama bildirimini, hizmet bildirimlerini ve kod/config/veri paketleri içeren uygulama paketi bulunan *C:\Users\&lt; kullanıcı adı&gt;\Documents\Visual Studio 2017\Projects\ MyApplication\MyApplication\pkg\Debug*.
 
-Uygulama paketini karşıya yükleme, iç Service Fabric bileşenleri tarafından erişilebilen bir konuma koyan. Service Fabric uygulama paketi kaydı sırasında uygulama paketini doğrular. Ancak, uygulama paketi yerel olarak (yani, yüklemeden önce) doğrulamak istiyorsanız, kullanmak [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet'i.
+Karşıya yükleme hello uygulama paketi hello iç Service Fabric bileşenleri tarafından erişilebilen bir konumda koyar. Service Fabric hello uygulama paketi hello uygulama paketi hello kayıt sırasında doğrular. (Yani, yüklemeden önce) tooverify hello uygulama paketi yerel olarak istiyorsanız, ancak hello kullanın [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet'i.
 
-[CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API küme görüntü deposu için uygulama paketi yükler. 
+Merhaba [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API hello uygulama paketi toohello küme görüntü deposuna karşıya yükler. 
 
-Uygulama paketi büyük ve/veya birçok dosyaları yoksa, şunları yapabilirsiniz [onu Sıkıştır](service-fabric-package-apps.md#compress-a-package) ve PowerShell kullanarak görüntü deposuna kopyalama. Sıkıştırma, boyutu ve dosya sayısını azaltır.
+Merhaba uygulama paketi büyük ve/veya birçok dosyaları yoksa, şunları yapabilirsiniz [onu Sıkıştır](service-fabric-package-apps.md#compress-a-package) ve PowerShell kullanarak toohello Image store kopyalayın. Merhaba sıkıştırma hello boyutunu ve dosya hello sayısını azaltır.
 
-Bkz: [görüntü deposu bağlantı dizesi anlamak](service-fabric-image-store-connection-string.md) resim ve görüntü deposu hakkında ek bilgi için bağlantı dizesi depolar.
+Bkz: [hello görüntü deposu bağlantı dizesi anlamak](service-fabric-image-store-connection-string.md) için tamamlayıcı bilgiler hakkında hello Image store ve görüntü depolama bağlantı dizesi.
 
-## <a name="register-the-application-package"></a>Uygulama paketi Kaydet
-Uygulama türü ve sürümü, uygulama paketi kaydedildikten sonra kullanılabilir hale uygulama bildiriminde bildirildi. Sistem önceki adımda karşıya yüklenen paket okur, paket doğrular, paket içeriğini işler ve işlenen paket bir iç sistem konumuna kopyalar.  
+## <a name="register-hello-application-package"></a>YAZMAÇ hello uygulama paketi
+Merhaba uygulama türü ve sürümü hello uygulama paketi kaydedildikten sonra kullanılabilir hale hello uygulama bildiriminde bildirildi. Merhaba sistem hello önceki adımda karşıya yüklenen hello paket okur hello paket doğrular, hello paket içeriğini işler ve işlenen hello paket tooan iç sistem konumuna kopyalar.  
 
-[ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) uygulama kümede yazın ve dağıtım kullanımına API kaydeder.
+Merhaba [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API yazmaçlar hello hello kümedeki uygulama türü ve dağıtım için kullanılabilir hale getirmek.
 
-[GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) API tüm başarıyla kayıtlı uygulama türleri hakkında bilgi sağlar. Bu API, kaydı yapıldığında belirlemek için kullanabilirsiniz.
+Merhaba [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) API tüm başarıyla kayıtlı uygulama türleri hakkında bilgi sağlar. Merhaba kaydı yapıldığında bu API toodetermine kullanabilirsiniz.
 
 ## <a name="create-an-application-instance"></a>Uygulama örneğini oluşturma
-Bir uygulama kullanarak başarıyla kaydettirildi herhangi bir uygulama türü örneği [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync) API. Her bir uygulama adı ile başlamalıdır *"fabric:"* düzen ve her uygulama örneği (küme içinde) benzersiz olmalıdır. Hedef uygulama türü uygulama bildiriminde tanımlanan varsayılan hizmetlerin de oluşturulur.
+Hello kullanarak başarıyla kaydettirildi herhangi bir uygulama türü'ten bir uygulamanın örneği [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync) API. her uygulamanın Hello adı hello ile başlamalı *"fabric:"* düzen ve her uygulama örneği (küme içinde) benzersiz olmalıdır. Hello uygulama bildiriminde hello hedef uygulama türünün tanımlı hiçbir varsayılan hizmetleri de oluşturulur.
 
 Verilen herhangi bir kayıtlı uygulama türü sürümü için birden çok uygulama örneği oluşturulabilir. Her uygulama örneği yalıtımı, kendi çalışma dizini ve işlemleri kümesi ile çalışır.
 
-Hangi adlı görmek için uygulamalar ve hizmetler çalıştırmak kümede çalışan [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) ve [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync) API'leri.
+uygulamalar ve hizmetler olarak adlandırılan toosee hello çalıştırmak hello kümede çalışan [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) ve [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync) API'leri.
 
 ## <a name="create-a-service-instance"></a>Bir hizmet örneği oluşturma
-Bir hizmet türünü kullanarak bir hizmet örneği [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API.  Hizmet, varsayılan hizmet uygulama bildiriminde olarak bildirilirse, uygulama örneği oluşturulduğunda hizmet örneği.  Çağırma [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API zaten örneği bir hizmet için bir hata kodu FabricErrorCode.ServiceAlreadyExists değerini içeren FabricException türünde bir özel durum döndürür.
+Hello kullanarak bir hizmet türünün alanından bir hizmet örneği [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API.  Merhaba hizmeti varsayılan hizmet hello uygulama bildiriminde olarak bildirilirse hello uygulama örneği oluşturulduğunda hello hizmet örneği.  Arama hello [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API zaten örneği bir hizmet için bir hata kodu FabricErrorCode.ServiceAlreadyExists değerini içeren FabricException türünde bir özel durum döndürür.
 
 ## <a name="remove-a-service-instance"></a>Bir hizmet örneği Kaldır
-Bir hizmet örneği artık gerekli olmadığında çalışmasını kaldırabilirsiniz çağırarak uygulama örneği [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) API.  
+Bir hizmet örneği artık gerekli olmadığında, bu uygulama örneği tarafından arama hello çalıştıran hello kaldırabilirsiniz [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) API.  
 
 > [!WARNING]
 > Bu işlem geri alınamaz ve hizmet durumu kurtarılamıyor.
 
 ## <a name="remove-an-application-instance"></a>Bir uygulama örneğini kaldırma
-Uygulama örneğini artık gerekli olmadığında kalıcı olarak adını kullanarak kaldırabilirsiniz [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) API. [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) tüm hizmet durumunu da, kalıcı olarak kaldırma uygulamaya ait tüm hizmetleri otomatik olarak kaldırır.
+Uygulama örneğini artık gerekli olmadığında kalıcı olarak hello kullanarak adıyla kaldırabilirsiniz [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) API. [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) tüm hizmet durumunu da, kalıcı olarak kaldırma toohello uygulama ait tüm hizmetleri otomatik olarak kaldırır.
 
 > [!WARNING]
 > Bu işlem geri alınamaz ve uygulama durumu kurtarılamıyor.
 
 ## <a name="unregister-an-application-type"></a>Bir uygulama türü kaydını kaldırma
-Belirli bir uygulama türü sürümü artık gerekli olduğunda, uygulama türünü kullanarak bu belirli sürümü kaydı [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Kullanılmayan uygulama türleri sürümleri kaydını Image store tarafından kullanılan depolama alanını serbest bırakır. Uygulama türü sürümü, uygulama bu uygulama türü sürümü karşı örneği ve hiçbir bekleyen uygulama yükseltmesi bu uygulama türü sürümü başvurduğunuzdan sürece kaydı olabilir.
+Belirli bir uygulama türü sürümü artık gerekli olmadığında bu belirli sürümü hello kullanarak hello uygulama türü kaydını [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Uygulama türü sürümleri depolama alanı hello Image store tarafından kullanılan kaydı siliniyor kullanılmayan sürümleri. Uygulama türü sürümü, uygulama bu hello uygulama türü sürümü karşı örneği ve hiçbir bekleyen uygulama yükseltmesi hello uygulama türü sürümünün başvurduğunuzdan sürece kaydı olabilir.
 
-## <a name="remove-an-application-package-from-the-image-store"></a>Bir uygulama paketi görüntü deposundan kaldırır
-Bir uygulama paketi artık gerekli olmadığında kullanarak sistem kaynakları boşaltmak için görüntü deposundan silebilmek [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage) API.
+## <a name="remove-an-application-package-from-hello-image-store"></a>Bir uygulama paketi hello görüntü deposundan kaldırır
+Bir uygulama paketi artık gerekli olmadığında hello görüntü deposu toofree hello kullanarak sistem kaynaklarının gelen silebilmek [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage) API.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Kopya ServiceFabricApplicationPackage bir ImageStoreConnectionString için sorar
-Service Fabric SDK ortam zaten ayarlanmış doğru Varsayılanları olması gerekir. Ancak gerekirse, tüm komutlar için ImageStoreConnectionString Service Fabric kümesi kullanarak değer eşleşmesi gerekir. Küme bildiriminde ImageStoreConnectionString bulabilirsiniz kullanarak alınan [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) ve Get-ImageStoreConnectionStringFromClusterManifest komutlar:
+Merhaba Service Fabric SDK ortam zaten hello Varsayılanlarını Ayarla doğru olması gerekir. Ancak gerekirse, hello ImageStoreConnectionString tüm komutlar için Service Fabric kümesi kullanarak bu hello hello değeri eşleşmelidir. Merhaba küme bildiriminde hello ImageStoreConnectionString bulabilirsiniz hello kullanarak alınan [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) ve Get-ImageStoreConnectionStringFromClusterManifest komutlar:
 
 ```powershell
 PS C:\> Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)
 ```
 
-**Get-ImageStoreConnectionStringFromClusterManifest** Service Fabric SDK PowerShell modülünün bir parçası olan cmdlet, görüntü deposu bağlantı dizesini almak için kullanılır.  SDK modülü içeri aktarmak için aşağıdakini çalıştırın:
+Merhaba **Get-ImageStoreConnectionStringFromClusterManifest** hello Service Fabric SDK PowerShell modülünün bir parçası olan cmdlet kullanılan tooget hello görüntü olan bağlantı dizesi depolar.  çalıştırma tooimport hello SDK Modülü:
 
 ```powershell
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
 
-ImageStoreConnectionString küme bildiriminde bulunur:
+Merhaba ImageStoreConnectionString hello küme bildiriminde bulunur:
 
 ```xml
 <ClusterManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -127,30 +127,29 @@ ImageStoreConnectionString küme bildiriminde bulunur:
     [...]
 ```
 
-Bkz: [görüntü deposu bağlantı dizesi anlamak](service-fabric-image-store-connection-string.md) resim ve görüntü deposu hakkında ek bilgi için bağlantı dizesi depolar.
+Bkz: [hello görüntü deposu bağlantı dizesi anlamak](service-fabric-image-store-connection-string.md) için tamamlayıcı bilgiler hakkında hello Image store ve görüntü depolama bağlantı dizesi.
 
 ### <a name="deploy-large-application-package"></a>Büyük uygulama paketini dağıtma
 Sorun: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API zaman aşımına uğruyor büyük uygulama paketi (GB sırasını).
 Deneyin:
-- Daha büyük zaman aşımını belirtmek [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) yöntemi ile `timeout` parametresi. Varsayılan olarak, zaman aşımı 30 dakikadır.
-- Kaynak makine ve küme arasındaki ağ bağlantısını denetleyin. Bağlantı yavaş ise, bir makine daha iyi bir ağ bağlantısı ile kullanmayı düşünün.
-İstemci makine küme başka bir bölgede ise, bir istemci makine bir daha yakından ya da aynı bölgede küme olarak düşünün.
-- Dış azaltma devreyi olmadığını denetleyin. Örneğin, görüntü deposu azure depolama kullanacak şekilde yapılandırıldığında, karşıya yükleme kısıtlanan.
+- Daha büyük zaman aşımını belirtmek [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) yöntemi ile `timeout` parametresi. Varsayılan olarak, hello zaman aşımı 30 dakikadır.
+- Kaynak makine ve küme arasındaki Hello ağ bağlantısını denetleyin. Merhaba bağlantı yavaş ise, bir makine daha iyi bir ağ bağlantısı ile kullanmayı düşünün.
+Merhaba istemci makine hello küme başka bir bölgede ise, bir istemci makine bir daha yakından ya da aynı bölgede hello küme olarak düşünün.
+- Dış azaltma devreyi olmadığını denetleyin. Örneğin, Hello Image store yapılandırılmış toouse azure depolama olduğunda, karşıya yükleme kısıtlanan.
 
-Sorun: karşıya yükleme paketi başarıyla tamamlandı ancak [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API zaman aşımına uğradı.
-Deneyin:
-- [Paket Sıkıştır](service-fabric-package-apps.md#compress-a-package) görüntü deposuna kopyalama önce.
-Sıkıştırma küçültür ve hangi sırayla trafik miktarını azaltır ve bu Service Fabric çalışma dosyaları sayısı gerçekleştirmeniz gerekir. Karşıya yükleme işlemi (özellikle sıkıştırma zaman eklerseniz) daha yavaş olabilir, ancak kaydedin ve kaydı uygulama türü daha hızlı.
+Sorun: karşıya yükleme paketi başarıyla tamamlandı ancak [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API zaman aşımına uğradı. Deneyin:
+- [Merhaba paket Sıkıştır](service-fabric-package-apps.md#compress-a-package) toohello Image store kopyalamadan önce.
+Hello sıkıştırma hello boyutunu azaltır ve hangi sırayla hello trafik miktarını azaltır ve bu Service Fabric çalışma hello dosya sayısı, gerçekleştirmeniz gerekir. Merhaba karşıya yükleme işlemi (özellikle hello sıkıştırma zaman eklerseniz) daha yavaş olabilir, ancak daha hızlı kaydedin ve kaydı hello uygulama türü.
 - Daha büyük zaman aşımını belirtmek [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API'si ile `timeout` parametresi.
 
 ### <a name="deploy-application-package-with-many-files"></a>Birçok dosyalarıyla uygulama paketini dağıtma
 Sorun: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) zaman aşımına uğraması için uygulama paketi birçok dosyalarla (binlerce sırasını).
 Deneyin:
-- [Paket Sıkıştır](service-fabric-package-apps.md#compress-a-package) görüntü deposuna kopyalama önce. Sıkıştırma dosyalarının sayısını azaltır.
+- [Merhaba paket Sıkıştır](service-fabric-package-apps.md#compress-a-package) toohello Image store kopyalamadan önce. Merhaba sıkıştırma dosyaları hello sayısını azaltır.
 - Daha büyük zaman aşımını belirtmek [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) ile `timeout` parametresi.
 
 ## <a name="code-example"></a>Kod örneği
-Aşağıdaki örnek bir uygulama paketi görüntü deposuna kopyalar, uygulama türü sağlar, uygulama örneğini oluşturur, bir hizmet örneği oluşturur, uygulama türü kaydını hükümleri uygulama örneği kaldırır ve siler Uygulama paketi görüntü deposundan.
+Merhaba aşağıdaki örnek bir uygulama paketi toohello görüntü deposu kopyalar, hazırlar hello uygulama türü, uygulama örneğini oluşturur, hello uygulama türü, bir hizmet örneği, kaldırır hello Uygulama örneğinin kaydını hükümleri oluşturur ve Merhaba uygulama paketi hello görüntü deposundan kaldırır.
 
 ```csharp
 using System;
@@ -181,27 +180,27 @@ static void Main(string[] args)
     string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2017\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
     string serviceType = "Stateless1Type";
 
-    // Connect to the cluster.
+    // Connect toohello cluster.
     FabricClient fabricClient = new FabricClient(clusterConnection);
 
-    // Copy the application package to a location in the image store
+    // Copy hello application package tooa location in hello image store
     try
     {
         fabricClient.ApplicationManager.CopyApplicationPackage(imageStoreConnectionString, packagePath, packagePathInImageStore);
-        Console.WriteLine("Application package copied to {0}", packagePathInImageStore);
+        Console.WriteLine("Application package copied too{0}", packagePathInImageStore);
     }
     catch (AggregateException ae)
     {
-        Console.WriteLine("Application package copy to Image Store failed: ");
+        Console.WriteLine("Application package copy tooImage Store failed: ");
         foreach (Exception ex in ae.InnerExceptions)
         {
             Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
         }
     }
 
-    // Provision the application.  "MyApplicationV1" is the folder in the image store where the application package is located. 
-    // The application type with name "MyApplicationType" and version "1.0.0" (both are found in the application manifest) 
-    // is now registered in the cluster.            
+    // Provision hello application.  "MyApplicationV1" is hello folder in hello image store where hello application package is located. 
+    // hello application type with name "MyApplicationType" and version "1.0.0" (both are found in hello application manifest) 
+    // is now registered in hello cluster.            
     try
     {
         fabricClient.ApplicationManager.ProvisionApplicationAsync(packagePathInImageStore).Wait();
@@ -218,7 +217,7 @@ static void Main(string[] args)
         }
     }
 
-    //  Create the application instance.
+    //  Create hello application instance.
     try
     {
         ApplicationDescription appDesc = new ApplicationDescription(new Uri(appName), appType, appVersion);
@@ -234,7 +233,7 @@ static void Main(string[] args)
         }
     }
 
-    // Create the stateless service description.  For stateful services, use a StatefulServiceDescription object.
+    // Create hello stateless service description.  For stateful services, use a StatefulServiceDescription object.
     StatelessServiceDescription serviceDescription = new StatelessServiceDescription();
     serviceDescription.ApplicationName = new Uri(appName);
     serviceDescription.InstanceCount = 1;
@@ -242,8 +241,8 @@ static void Main(string[] args)
     serviceDescription.ServiceName = new Uri(serviceName);
     serviceDescription.ServiceTypeName = serviceType;
 
-    // Create the service instance.  If the service is declared as a default service in the ApplicationManifest.xml,
-    // the service instance is already running and this call will fail.
+    // Create hello service instance.  If hello service is declared as a default service in hello ApplicationManifest.xml,
+    // hello service instance is already running and this call will fail.
     try
     {
         fabricClient.ServiceManager.CreateServiceAsync(serviceDescription).Wait();
@@ -275,7 +274,7 @@ static void Main(string[] args)
         }
     }
 
-    // Delete an application instance from the application type.
+    // Delete an application instance from hello application type.
     try
     {
         DeleteApplicationDescription deleteApplicationDescription = new DeleteApplicationDescription(new Uri(appName));
@@ -292,7 +291,7 @@ static void Main(string[] args)
         }
     }
 
-    // Un-provision the application type.
+    // Un-provision hello application type.
     try
     {
         fabricClient.ApplicationManager.UnprovisionApplicationAsync(appType, appVersion).Wait();
@@ -307,7 +306,7 @@ static void Main(string[] args)
         }
     }
 
-    // Delete the application package from a location in the image store.
+    // Delete hello application package from a location in hello image store.
     try
     {
         fabricClient.ApplicationManager.RemoveApplicationPackage(imageStoreConnectionString, packagePathInImageStore);
@@ -339,6 +338,6 @@ static void Main(string[] args)
 
 [Service Fabric uygulamada modeli](service-fabric-application-model.md)
 
-<!--Link references--In actual articles, you only need a single period before the slash-->
+<!--Link references--In actual articles, you only need a single period before hello slash-->
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md

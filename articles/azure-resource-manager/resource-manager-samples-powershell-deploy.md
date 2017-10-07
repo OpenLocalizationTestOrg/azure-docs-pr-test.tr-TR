@@ -1,5 +1,5 @@
 ---
-title: "Azure PowerShell Betiği örnek - şablon dağıtma | Microsoft Docs"
+title: "PowerShell komut dosyası örneği - aaaAzure şablonu dağıtma | Microsoft Docs"
 description: "Bir Azure Resource Manager şablonunu dağıtmak için örnek komut dosyası."
 services: azure-resource-manager
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: b7a7dda1da653d084e02e6724d2f0cb5aa76807a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 536b8ccecad4ed8a4c4a4139c6bf4600e2eb9405
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-resource-manager-template-deployment---powershell-script"></a>Azure Resource Manager şablon dağıtımı - PowerShell Betiği
 
-Bu komut dosyasını bir Resource Manager şablonu bir kaynak grubu aboneliğinizde dağıtır.
+Bu komut dosyasını bir Resource Manager şablonu tooa kaynak grubu aboneliğinizde dağıtır.
 
 [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
 
@@ -33,7 +33,7 @@ Bu komut dosyasını bir Resource Manager şablonu bir kaynak grubu aboneliğini
 ```powershell
 <#
  .SYNOPSIS
-    Deploys a template to Azure
+    Deploys a template tooAzure
 
  .DESCRIPTION
     Deploys an Azure Resource Manager template
@@ -41,30 +41,30 @@ Bu komut dosyasını bir Resource Manager şablonu bir kaynak grubu aboneliğini
 
 param (
     [Parameter(Mandatory)]
-    #The subscription id where the template will be deployed.
+    #hello subscription id where hello template will be deployed.
     [string]$SubscriptionId,  
 
     [Parameter(Mandatory)]
-    #The resource group where the template will be deployed. Can be the name of an existing or a new resource group.
+    #hello resource group where hello template will be deployed. Can be hello name of an existing or a new resource group.
     [string]$ResourceGroupName, 
 
-    #Optional, a resource group location. If specified, will try to create a new resource group in this location. If not specified, assumes resource group is existing.
+    #Optional, a resource group location. If specified, will try toocreate a new resource group in this location. If not specified, assumes resource group is existing.
     [string]$ResourceGroupLocation, 
 
-    #The deployment name.
+    #hello deployment name.
     [Parameter(Mandatory)]
     [string]$DeploymentName,    
 
-    #Path to the template file. Defaults to template.json.
+    #Path toohello template file. Defaults tootemplate.json.
     [string]$TemplateFilePath = "template.json",  
 
-    #Path to the parameters file. Defaults to parameters.json. If file is not found, will prompt for parameter values based on template.
+    #Path toohello parameters file. Defaults tooparameters.json. If file is not found, will prompt for parameter values based on template.
     [string]$ParametersFilePath = "parameters.json"
 )
 
 $ErrorActionPreference = "Stop"
 
-# Login to Azure and select subscription
+# Login tooAzure and select subscription
 Write-Output "Logging in"
 Login-AzureRmAccount
 Write-Output "Selecting subscription '$SubscriptionId'"
@@ -84,7 +84,7 @@ else {
     Write-Output "Using existing resource group '$ResourceGroupName'"
 }
 
-# Start the deployment
+# Start hello deployment
 Write-Output "Starting deployment"
 if ( Test-Path $ParametersFilePath ) {
     New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFilePath -TemplateParameterFile $ParametersFilePath
@@ -96,7 +96,7 @@ else {
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Kaynak grubu ve tüm kaynaklarını kaldırmak için aşağıdaki komutu çalıştırın.
+Çalışma hello aşağıdaki tooremove hello kaynak grubunu ve tüm kaynaklarını komutu.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -104,21 +104,21 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyası dağıtımı oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her öğe.
+Bu komut dosyası komutları toocreate hello dağıtım aşağıdaki hello kullanır. Merhaba tablosundaki her öğesi toocommand belirli belgeleri bağlar.
 
 | Komut | Notlar |
 |---|---|
-| [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider) | Kaynak türleri aboneliğinize dağıtılabilmesi amacıyla bir kaynak sağlayıcısına kaydeder.  |
+| [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider) | Kaynak türleri dağıtılan tooyour abonelik olabilir bir kaynak sağlayıcısına kaydeder.  |
 | [Get-AzureRmResourceGroup](/powershell/module/azurerm.resources/get-azurermresourcegroup) | Kaynak grupları alır.  |
 | [Yeni-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [Yeni-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) | Bir Azure dağıtımı bir kaynak grubuna ekler.  |
+| [Yeni-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) | Bir Azure dağıtım tooa kaynak grubu ekler.  |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Bir kaynak grubu ve içerdiği tüm kaynaklar kaldırır. |
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Şablon dağıtımı için giriş için bkz [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](resource-group-template-deploy.md).
+* Bir giriş toodeploying şablonları için bkz: [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](resource-group-template-deploy.md).
 * Bir SAS belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [dağıtma özel şablonu SAS belirteci ile](resource-manager-powershell-sas-token.md).
-* Şablonda parametreleri tanımlamak için bkz: [şablonları yazma](resource-group-authoring-templates.md#parameters).
-* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](resource-manager-subscription-governance.md).
+* Şablon toodefine parametrelerinde bkz [şablonları yazma](resource-group-authoring-templates.md#parameters).
+* Kuruluşların Resource Manager tooeffectively nasıl kullanabileceğiniz hakkında rehberlik için abonelikleri yönetmek için bkz: [Azure enterprise iskele - Düzenleyici abonelik idare](resource-manager-subscription-governance.md).
 

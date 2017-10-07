@@ -1,6 +1,6 @@
 ---
-title: "Temizleme ve Azure Machine Learning için verileri hazırlama | Microsoft Docs"
-description: "Machine learning için hazırlamak üzere önceden işlem ve temiz verileri."
+title: "aaaClean ve Azure Machine Learning için verileri hazırlama | Microsoft Docs"
+description: "Önceden işlem ve temiz veri tooprepare, machine learning için."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,89 +14,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3e3c3e4b0cfb9187f5820d7165e6ee1ea013ba02
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Gelişmiş machine learning için verileri hazırlama görevleri
-Ön işleme ve veri temizleme dataset machine learning için etkili bir şekilde kullanılabilmesi için önce genellikle gerçekleştirilmesi gereken önemli görevlerdir. Ham verileri gürültülü ve güvenilmeyen görülür ve değerleri eksik olabilir. Bu tür veriler için modelleme kullanarak yanıltıcı sonuçlara yol açabilir. Bu görevleri takım veri bilimi işlem (TDSP) bir parçasıdır ve genellikle ilk incelenmesi bulmak ve gerekli ön işleme planı için kullanılan bir veri kümesinin izleyin. Daha ayrıntılı TDSP işlemi hakkında yönergeler için bkz: özetlenen adımları [takım veri bilimi işlemi](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+# <a name="tasks-tooprepare-data-for-enhanced-machine-learning"></a>Gelişmiş machine learning için görevler tooprepare veri
+Ön işleme ve veri temizleme dataset machine learning için etkili bir şekilde kullanılabilmesi için önce genellikle gerçekleştirilmesi gereken önemli görevlerdir. Ham verileri gürültülü ve güvenilmeyen görülür ve değerleri eksik olabilir. Bu tür veriler için modelleme kullanarak yanıltıcı sonuçlara yol açabilir. Bu görevleri hello takım veri bilimi işlem (TDSP) parçası olan ve genellikle bir veri kümesi kullanılan toodiscover ve planı hello ön işleme gereken ilk incelenmesi izleyin. Hello özetlenen hello adımları daha ayrıntılı hello TDSP işlemi hakkında yönergeler için bkz [takım veri bilimi işlemi](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Ön işleme ve veri araştırması görev gibi görevleri temizleme ortamları, çeşitli araçlar ve R veya Python, verilerinizin depolandığı bağlı olarak gibi dilleri ve SQL veya Hive veya Azure Machine Learning Studio gibi çeşitli gerçekleştirilebilme ve nasıl biçimlendirilir. TDSP doğası gereği yinelemeli olduğundan, bu görevleri iş akışı işleminin çeşitli adımları sırasında gerçekleşebilir.
+Ön işleme ve temizleme görevlerini hello veri araştırması görev gibi çok çeşitli ortamlar, SQL veya Hive veya Azure Machine Learning Studio gibi ve çeşitli araçlar ve R veya Python, verilerinizin nerede olduğuna bağlı olarak, gibi dilleri içinde gerçekleştirilebilme depolanır ve nasıl biçimlendirilir. TDSP doğası gereği yinelemeli olduğundan, bu görevleri hello iş akışında hello işleminin çeşitli adımları sırasında gerçekleşebilir.
 
 Bu makalede, çeşitli veri işleme kavramları ve önce veya sonra Azure Machine Learning veri alma üstlendiği görevleri tanıtır.
 
-Veri keşfi ve Azure Machine Learning studio içinde yapılan ön işleme örneği için bkz: [Azure Machine Learning Studio'da verilerin önceden işlenmesi](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
+Merhaba veri keşfi ve Azure Machine Learning studio içinde yapılan ön işleme örneği için bkz: [Azure Machine Learning Studio'da verilerin önceden işlenmesi](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
 
 ## <a name="why-pre-process-and-clean-data"></a>Neden önceden işleyebilir ve veri temizleme?
-Gerçek dünya veriler çeşitli kaynaklardan toplanır ve işlemleri ve sıradışı veya veri kümesi kalitesini tehlikeye bozuk veriler içeriyor olabilir. Ortaya çıkan tipik veri kalitesi sorunlar verilmiştir:
+Gerçek dünya veriler çeşitli kaynaklardan toplanır ve işlemleri ve sıradışı veya bozuk veri hello dataset hello kalitesini tehlikeye içerebilir. ortaya çıkan hello tipik veri kalitesi sorunları şunlardır:
 
 * **Tamamlanmamış**: öznitelikleri veya eksik değerler içeren veri eksik.
 * **Gürültülü**: verileri hatalı kayıtları veya aykırı değerlerini içerir.
 * **Tutarsız**: çakışan kayıtları veya tutarsızlıklar veri içeriyor.
 
-Kalite veri kalitesi Tahmine dayalı modelleri için bir önkoşuldur. "Çöp girişi, atık" kaçının veri kalitesini geliştirmek ve bu nedenle performans modeli için veri sorunları erken nokta ve karşılık gelen veri işleme ve temizleme adımları karar için veri sistem durumu ekranı yürütmek için zorunludur.
+Kalite veri kalitesi Tahmine dayalı modelleri için bir önkoşuldur. tooavoid "Çöp girişi, atık" ve veri kalitesini geliştirmek ve bu nedenle performans model, kesinlik temelli tooconduct veri erken sorunları ve karşılık gelen veri işleme ve adımları temizleme hello üzerinde karar bir veri sistem durumu ekran toospot değildir.
 
 ## <a name="what-are-some-typical-data-health-screens-that-are-employed"></a>Çalışan bazı tipik veri sistem durumu ekranlar nelerdir?
-Biz verilerin genel kalitesini denetleyerek denetleyebilirsiniz:
+Biz hello genel veri kalitesi denetleyerek denetleyebilirsiniz:
 
-* Sayısı **kayıtları**.
-* Sayısı **öznitelikleri** (veya **özellikleri**).
-* Öznitelik **veri türleri** (nominal, sıralı veya sürekli).
-* Sayısı **eksik değerleri**.
-* **Doğru biçimlendirilmiş** verileri.
-  * Veri TSV veya CSV, sütun ayırıcılar ve satır ayırıcı sütunları ve satırları her zaman doğru ayrı kontrol edin.
-  * Verileri HTML veya XML biçiminde ise, verileri doğru kendi ilgili standartlarına göre biçimlendirildiğinden olup olmadığını denetleyin.
-  * Ayrıştırma de bu kadar yarı yapılandırılmış veya yapılandırılmamış verileri yapılandırılmış bilgi ayıklamak için gerekli olabilir.
-* **Tutarsız veri kayıtlarını**. Onay değerleri aralığı izin verilir. Örneğin Öğrenci GPA, belirlenen aralıkta GPA olup olmadığını denetleyin veri içeriyorsa, 0 söyleyin ~ 4.
+* Merhaba sayısı **kayıtları**.
+* Merhaba sayısı **öznitelikleri** (veya **özellikleri**).
+* Merhaba özniteliği **veri türleri** (nominal, sıralı veya sürekli).
+* Merhaba sayısı **eksik değerleri**.
+* **Doğru biçimlendirilmiş** hello veri.
+  * Merhaba veri TSV veya CSV, hello sütun ayırıcılar ve satır ayırıcı sütunları ve satırları her zaman doğru ayrı kontrol edin.
+  * Merhaba veri HTML veya XML biçiminde ise hello veri doğru kendi ilgili standartlarına göre biçimlendirildiğinden olup olmadığını denetleyin.
+  * Ayrıştırma de bu kadar sipariş yapılandırılmış tooextract yarı yapılandırılmış veya yapılandırılmamış veriler bilgilerinden gerekli olabilir.
+* **Tutarsız veri kayıtlarını**. Değer denetimi hello aralığı izin verilir. Örneğin Öğrenci GPA, aralığı, belirlenen hello hello GPA olup olmadığını denetleyin hello veri içeriyorsa, 0 söyleyin ~ 4.
 
-Verileri ile ilgili sorunları bulduğunuzda **işleme adımları** genellikle temizleme eksik değerleri, veri normalleştirme, ayrılma kapsar gerekli, kaldırma ve/veya değiştirmek için metin işleme katıştırılmış veri etkileyebilir karakterleri hizalama, karma veri alanları ve diğerleri ortak yazar.
+Verileri ile ilgili sorunları bulduğunuzda **işleme adımları** genellikle temizleme eksik değerleri, veri normalleştirme, ayrılma, metin işleme tooremove kapsar gerekli ve/veya etkileyebilir katıştırılmış karakterler değiştirin Veri hizalama karma veri alanları ve diğerleri ortak yazar.
 
-**Azure Machine Learning tüketir doğru biçimlendirilmiş tablo veri**.  Veriler tablo biçiminde ise, veri ön işleme doğrudan Machine Learning Studio'daki Azure Machine Learning ile gerçekleştirilebilir.  Veri Tablo formunda, XML'de olduğu say değilse ayrıştırma verileri tablo biçimine dönüştürmek için gerekli olabilir.  
+**Azure Machine Learning tüketir doğru biçimlendirilmiş tablo veri**.  Merhaba veriler tablo biçiminde ise, veri ön işleme doğrudan hello Machine Learning Studio, Azure Machine Learning ile gerçekleştirilebilir.  Veriler tablo biçiminde değilse, ayrıştırma XML'de olduğu say sipariş tooconvert hello veri tootabular formunda gerekebilir.  
 
-## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Bazı önemli görevler verileri ön işleme nelerdir?
+## <a name="what-are-some-of-hello-major-tasks-in-data-pre-processing"></a>Verileri ön işleme hello önemli görevlerden bazılarını nelerdir?
 * **Veri temizleme**: doldurun veya eksik değerleri algılamak ve gürültülü veri ve aykırı değerlerini kaldırın.
-* **Veri dönüştürme**: boyutları ve gürültü azaltmak için veri normalleştirin.
+* **Veri dönüştürme**: veri tooreduce boyutları ve gürültü normalleştirin.
 * **Veri azaltma**: örnek veri kayıtlarını ya da daha kolay veri işleme için öznitelikler.
-* **Veri ayrılma**: Dönüştür sürekli özniteliklerin kullanım kolaylığı için kategorik öznitelikler belirli machine learning yöntemleriyle.
+* **Veri ayrılma**: dönüştürme sürekli belirli machine learning yöntemleriyle kullanım kolaylığı için toocategorical öznitelikleri öznitelikleri.
 * **Metin Temizleme**: Örneğin, bir sekmeyle ayrılmış veri dosyasında katıştırılmış sekmeleri katıştırılmış için kayıtları, vb. kesilebilir yeni satırlar veri uyuşmazlığın neden olabilecek katıştırılmış karakterleri kaldırın.
 
-Aşağıdaki bölümlerde bazı veri işleme adımlar ayrıntılı olarak açıklanmaktadır.
+Aşağıdaki bölümler Hello bazı veri işleme adımlar ayrıntılı olarak açıklanmaktadır.
 
-## <a name="how-to-deal-with-missing-values"></a>Eksik değerleri ile mücadele etmek nasıl?
-Eksik değerleri ile mücadele etmek için daha iyi işlemek için eksik değerleri nedeni sorunu belirlemek öncelikle en iyisidir. Tipik eksik değeri işleme yöntemler şunlardır:
+## <a name="how-toodeal-with-missing-values"></a>Eksik olan toodeal nasıl değerleri?
+toodeal eksik değerleri ile en iyi toofirst toobetter tanıtıcı hello sorun hello eksik değerler için hello neden tanımlayın. Tipik eksik değeri işleme yöntemler şunlardır:
 
 * **Silme**: eksik değerleri ile kayıt kaldırma
 * **Kukla değiştirme**: eksik değerleri bir kukla değer ile değiştirin: Örneğin, *bilinmeyen* kategorik veya 0 için sayısal değerler için.
-* **Değiştirme anlamına**: eksik verileri sayısal ise, eksik değerlerin ortalaması ile değiştirin.
-* **Sık kullanılan alternatifi**: eksik verileri kategorik ise, eksik değerleri en sık kullanılan öğe ile değiştirin.
-* **Regresyon değiştirme**: gerileyen değerlerle eksik değerleri değiştirmek için bir regresyon yöntemi kullanın.  
+* **Değiştirme anlamına**: hello eksik veri sayısal ise, hello eksik değerleri hello ortalama ile değiştirin.
+* **Sık kullanılan alternatifi**: hello eksik veri kategorik ise, hello eksik değerleri hello en sık rastlanan öğeyle değiştirin.
+* **Regresyon değiştirme**: regresyon yöntemi tooreplace eksik değerleri gerileyen değerlerle kullanılır.  
 
-## <a name="how-to-normalize-data"></a>Veri normalleştirmek nasıl?
-Veri normalleştirme sayısal değerlerini belirtilen bir aralıkta yeniden ölçeklendirir. Popüler veri normalleştirme yöntemler şunlardır:
+## <a name="how-toonormalize-data"></a>Nasıl toonormalize veri?
+Veri normalleştirme yeniden ölçekler sayısal değerleri tooa aralığı belirtildi. Popüler veri normalleştirme yöntemler şunlardır:
 
-* **Min-Max normalleştirme**: doğrusal olarak aralığı için veri dönüştürme, 0 ve 1 ' en küçük değer nerede ölçeği 0 ve en büyük değeri 1 arasında söyleyin.
-* **Z-score normalleştirme**: ölçeklendirme ortalama ve standart sapma göre verileri: verileri ortalaması arasındaki fark standart sapmayı bölün.
-* **Ondalık ölçeklendirme**: öznitelik değerinin Ondalık ayırıcının taşıyarak veri ölçeklendirin.  
+* **Min-Max normalleştirme**: doğrusal olarak dönüştürme hello veri tooa aralığı, söyleyin 0 ile 1 arasında hello burada en küçük değerdir ölçeklendirilmiş too0 ve en büyük değer too1.
+* **Z-score normalleştirme**: ölçeklendirme ortalama ve standart sapma göre verileri: hello veri hello ortalaması arasındaki hello fark hello standart sapma tarafından bölün.
+* **Ondalık ölçeklendirme**: hello veri taşıma hello ondalık noktası tarafından hello öznitelik değerinin ölçeklendirin.  
 
-## <a name="how-to-discretize-data"></a>Veri ayırmak için nasıl?
-Veri nominal öznitelikleri veya aralıkları sürekli değerleri dönüştürerek ayrılmış. Bunun yapılması bazı yöntemler şunlardır:
+## <a name="how-toodiscretize-data"></a>Nasıl toodiscretize veri?
+Veri sürekli değerleri toonominal öznitelikleri veya aralıkları dönüştürerek ayrılmış. Bunun yapılması bazı yöntemler şunlardır:
 
-* **Eşit genişlikte Binning**: bir özniteliğin tüm olası değerleri aralığı aynı boyutta N gruba ayırın ve kalan değerler bir depo depo numarasıyla atayın.
-* **Eşittir yükseklikli Binning**: bir özniteliğin tüm olası değerleri aralığı N gruplara her örnekleri aynı sayıda içeren bölme sonra kalan değerler bir depo depo numarasıyla atayın.  
+* **Eşit genişlikte Binning**: bir özniteliğin tüm olası değerler hello aralığı aynı boyut ve kalmıyor hello bir depo hello depo numarasıyla atayabilmeniz hello N gruplar halinde bölün.
+* **Eşittir yükseklikli Binning**: bölmek hello aralığı tüm olası değerler N gruplara bir özniteliğin örnekleri aynı sayıda hello her içeren sonra Ata hello kalan hello bir depo değerlerde bin numarası.  
 
-## <a name="how-to-reduce-data"></a>Verileri azaltmak nasıl?
-Daha kolay veri işleme için veri boyutunu düşürmek için çeşitli yöntemler vardır. Veri boyutu ve etki alanına bağlı olarak, aşağıdaki yöntemlerden uygulanabilir:
+## <a name="how-tooreduce-data"></a>Nasıl tooreduce veri?
+Daha kolay veri işleme için çeşitli yöntemler tooreduce veri boyutu vardır. Veri boyutu ve hello etki alanına bağlı olarak, yöntemler aşağıdaki hello uygulanabilir:
 
-* **Kayıt örnekleme**: örnek veri kayıtlarını ve yalnızca temsili alt verileri seçin.
-* **Öznitelik örnekleme**: verileri yalnızca bir alt en önemli özniteliklerini seçin.  
-* **Toplama**: verileri gruba ayırın ve her grup için sayıları depolamak. Örneğin, son 20 yılda bir restoran zinciri günlük gelir numaralarını verilerin boyutunu azaltmak için aylık gelir kümelenebilir.  
+* **Kayıt örnekleme**: örnek hello veri kayıtlarını ve yalnızca hello temsilcisi alt hello verileri seçin.
+* **Öznitelik örnekleme**: yalnızca bir alt hello en önemli özniteliklerinin hello verileri seçin.  
+* **Toplama**: hello veri gruplara ayırın ve her grup için hello numaraları depolamak. Örneğin, hello hello son 20 yılda üzerinden bir restoran zincirinin numaraları oluşturulabilir günlük gelir toomonthly gelir tooreduce hello hello verilerin boyutunu bir araya getirilir.  
 
-## <a name="how-to-clean-text-data"></a>Metin verilerini temizlemek nasıl?
-**Tablo verisi metin alanlarında** sütunları hizalama ve/veya kaydı sınırları etkileyen karakter içerebilir. Örneğin, bir sekmeyle ayrılmış dosya neden sütun uyuşmazlığın içinde sekmeleri katıştırılmış ve katıştırılmış yeni satır karakterlerini kayıt satırları bölün. Metin yazma/okuma sırasında hatalı metin kodlama işleme için bilgi kaybı, giriş okunamaz karakter, örn., null değerlere ve de etkiler metni ayrıştırma yanlışlıkla yol açar. Dikkatli ayrıştırma ve düzenleme metin alanları uygun hizalama ve/veya metin yapılandırılmamış veya yarı yapılandırılmış verilerden yapılandırılmış extract verilere temizlemek için gerekli olabilir.
+## <a name="how-tooclean-text-data"></a>Nasıl tooclean metin veri?
+**Tablo verisi metin alanlarında** sütunları hizalama ve/veya kaydı sınırları etkileyen karakter içerebilir. Örneğin, bir sekmeyle ayrılmış dosya neden sütun uyuşmazlığın içinde sekmeleri katıştırılmış ve katıştırılmış yeni satır karakterlerini kayıt satırları bölün. Hatalı metin okunurken yazma/metin işleme kodlama giriş okunamaz karakter, örn., null değerlere ve de etkiler metni ayrıştırma yanlışlıkla tooinformation kaybına yol açar. Dikkatli ayrıştırma ve düzenleme sipariş tooclean metin alanlarında doğru hizalama ve/veya yapılandırılmamış veya yarı yapılandırılmış metin verileri yapılandırılmış tooextract verileri için gerekli olabilir.
 
-**Veri keşfi** veri erken bir görünüme sunar. Veri sorunları sayısı bu adım sırasında bitişik olabilir ve bu sorunları gidermek için karşılık gelen yöntemleri uygulanabilir.  Sorun kaynağı nedir ve nasıl sorun tanıtılmıştır gibi sorular sormak önemlidir. Bu da, bunları çözmek için yapılması gereken veri işleme adımı karar vermenize yardımcı olur. Bir veri türetilen amaçlayan Öngörüler türü, veri işleme çaba önceliğini belirlemek için de kullanılabilir.
+**Veri keşfi** hello veri erken bir görünüme sunar. Veri sorunları sayısı bu adım sırasında bitişik olabilir ve karşılık gelen yöntemleri için uygulanan tooaddress bu sorunları olabilir.  Merhaba sorunu hello kaynağı nedir ve nasıl hello sorunu tanıtılmıştır gibi önemli tooask soruları olur. Bu ayrıca hello veri işleme adımları tooresolve gerçekleştirilecek bu gereksinimi toobe karar vermenize yardımcı olan bunları. bir hello verilerden tooderive oranla Öngörüler Hello tür kullanılan tooprioritize hello veri işleme çaba de olabilir.
 
 ## <a name="references"></a>Başvurular
 > *Veri araştırma: Kavramlar ve teknikler*, üçüncü baskı, Morgan Kaufmann 2011, Jiawei Han, Micheline Kamber ve Jian Pei

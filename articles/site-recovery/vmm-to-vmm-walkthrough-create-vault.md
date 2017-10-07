@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile ikincil siteye Hyper-V çoğaltma için bir kasa oluşturun | Microsoft Docs"
-description: "Azure Site Recovery ile ikincil System Center VMM siteye Hyper-V sanal makineleri çoğaltırken bir kasa oluşturmayı açıklar."
+title: "Hyper-V çoğaltma tooa Azure Site Recovery ile ikincil site için bir kasa aaaCreate | Microsoft Docs"
+description: "Nasıl toocreate Hyper-V sanal makineleri tooa çoğaltırken bir kasa ikincil System Center VMM site Azure Site Recovery ile açıklar."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.openlocfilehash: 28cfcf12b2e369f96664c163c0b6f2aa8a6ddcb9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 96ee09cbf2376a5089b9efa09dc7ab3fb7d472cb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-5-create-a-vault-for-hyper-v-replication-to-a-secondary-site"></a>5. adım: Hyper-V çoğaltma için bir kasa ikincil bir siteye oluşturma
+# <a name="step-5-create-a-vault-for-hyper-v-replication-tooa-secondary-site"></a>5. adım: Hyper-V çoğaltma tooa ikincil site için bir kasa oluşturma
 
-Şirket içi hazırlandıktan sonra [System Center Virtual Machine Manager (VMM) sunucuları ve Hyper-V konakları/kümeleri](vmm-to-vmm-walkthrough-vmm-hyper-v.md) kullanarak bir ikincil site için Hyper-V çoğaltma için [Azure Site Recovery](site-recovery-overview.md), oluşturabileceğiniz bir Kurtarma Hizmetleri kasası ve çoğaltma senaryosuna seçin.
+Şirket içi hazırlandıktan sonra [System Center Virtual Machine Manager (VMM) sunucuları ve Hyper-V konakları/kümeleri](vmm-to-vmm-walkthrough-vmm-hyper-v.md) Hyper-V çoğaltma tooa ikincil site kullanma [Azure Site Recovery](site-recovery-overview.md), oluşturabileceğiniz bir Kurtarma Hizmetleri kasası ve select hello çoğaltma senaryo.
 
-Bu makaleyi okuduktan sonra yapmak istediğiniz tüm yorumları makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
+Bu makaleyi okuduktan sonra tüm yorumlar hello altındaki ya da hello sonrası [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
@@ -34,11 +34,11 @@ Bu makaleyi okuduktan sonra yapmak istediğiniz tüm yorumları makalenin alt k�
 
 ## <a name="choose-a-protection-goal"></a>Koruma hedefi seçin
 
-Neleri çoğaltmak istediğinizi ve bunları nereye çoğaltacağınızı seçin.
+Ne seçin tooreplicate ve tooreplicate için istediğiniz istiyor.
 
 1. Tıklatın **Site Recovery** > **1. adım: altyapıyı hazırlama** > **koruma hedefi**.
-2. Seçin **kurtarma sitesine**seçip **Evet, Hyper-V ile**.
-3. Seçin **Evet** Hyper-V ana bilgisayarları yönetmek için VMM kullandığınızı belirtmek için.
+2. Seçin **toorecovery site**seçip **Evet, Hyper-V ile**.
+3. Seçin **Evet** VMM toomanage hello Hyper-V konakları kullanmakta olduğunuz tooindicate.
 4. Seçin **Evet** bir ikincil VMM sunucunuz varsa. Tek bir VMM sunucusundaki Bulutlar arasında çoğaltma dağıtıyorsanız tıklatın **Hayır**. Daha sonra, **Tamam**'a tıklayın.
 
     ![Hedefleri seçme](./media/vmm-to-vmm-walkthrough-create-vault/choose-goals.png)
@@ -47,4 +47,4 @@ Neleri çoğaltmak istediğinizi ve bunları nereye çoğaltacağınızı seçin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Git [6. adım: çoğaltma kaynağı ve hedef ayarlama](vmm-to-vmm-walkthrough-source-target.md).
+Çok Git[adım 6: hello çoğaltma kaynağı ve hedef ayarlama](vmm-to-vmm-walkthrough-source-target.md).

@@ -1,5 +1,5 @@
 ---
-title: "Azure tanılama genel bakış | Microsoft Docs"
+title: "Azure tanılama aaaOverview | Microsoft Docs"
 description: "Hata ayıklama, izleme, bulut Hizmetleri, sanal makineler ve hizmet doku trafiği çözümleme performansını ölçmek için Azure Tanılama'yı kullanın"
 services: multiple
 documentationcenter: .net
@@ -14,67 +14,67 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: e2d3a6725ee53dc6d6986b185fac143901ba6955
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2a03a96a37091894d7ab16120c125116e4bf462a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-azure-diagnostics"></a>Azure tanılama nedir
-Azure tanılama dağıtılan bir uygulama tanılama verilerini toplama sağlar. Azure içinde bir özelliktir. Bir dizi farklı kaynaktan tanılama uzantısını kullanabilirsiniz. Şu anda Azure bulut hizmeti Web ve çalışan rolleri, Microsoft Windows ve Service Fabric çalışan Azure sanal makineler desteklenir. Diğer Azure hizmetleriyle kendi ayrı tanılama vardır.
+Azure Tanılama, dağıtılan bir uygulama tanılama verilerini hello koleksiyonunu sağlayan Azure içinde hello yetenektir. Bir dizi farklı kaynaktan hello tanılama uzantısını kullanabilirsiniz. Şu anda Azure bulut hizmeti Web ve çalışan rolleri, Microsoft Windows ve Service Fabric çalışan Azure sanal makineler desteklenir. Diğer Azure hizmetleriyle kendi ayrı tanılama vardır.
 
 ## <a name="data-you-can-collect"></a>Verileri toplamak
-Azure tanılama aşağıdaki veri türlerini toplayabilirsiniz:
+Azure tanılama veri türleri aşağıdaki hello toplayabilirsiniz:
 
 | Veri kaynağı | Açıklama |
 | --- | --- |
 | Performans sayaçları |İşletim sistemi ve özel performans sayaçları |
 | Uygulama günlükleri |Uygulamanız tarafından yazılan iletilerin izleme |
-| Windows olay günlükleri |Windows olay günlüğü sisteme gönderilen bilgiler |
-| .NET olay kaynağı |.NET kullanarak olayları yazma kodu [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) sınıfı |
+| Windows olay günlükleri |Toohello Windows olay günlüğü sistem gönderilen bilgiler |
+| .NET olay kaynağı |Merhaba .NET kullanarak olayları yazma kodu [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) sınıfı |
 | IIS günlükleri |IIS web siteleri hakkında bilgi |
 | Temel ETW bildirimi |Herhangi bir işlem tarafından oluşturulan olay Windows için izleme olayları |
-| Kilitlenme bilgi dökümleri |Bir uygulama çökmesi durumunda işleminin durumu hakkında bilgi |
+| Kilitlenme bilgi dökümleri |Bir uygulama kilitlenme hello olay hello işleminde hello durumuyla ilgili bilgileri |
 | Özel hata günlükleri |Uygulama veya hizmet tarafından oluşturulan günlükleri |
 | Azure tanılama altyapı günlükleri |Tanılama kendisi hakkında bilgi |
 
-Azure tanılama uzantısını bir Azure depolama hesabı bu veri aktarma veya gibi hizmetler için Gönder [Application Insights](../application-insights/app-insights-cloudservices.md). Veri, hata ayıklama ve sorun giderme performansını ölçmek, kaynak kullanımı, trafik analizi ve kapasite planlaması izleme ve denetim için kullanabilirsiniz.
+Hello Azure tanılama uzantısını bu verileri tooan Azure depolama hesabı aktarma veya tooservices gibi Gönder [Application Insights](../application-insights/app-insights-cloudservices.md). Merhaba veri, hata ayıklama ve sorun giderme performansını ölçmek, kaynak kullanımı, trafik analizi ve kapasite planlaması izleme ve denetim için kullanabilirsiniz.
 
 ## <a name="versioning"></a>Sürüm oluşturma
 Bkz: [Azure tanılama sürüm geçmişi](azure-diagnostics-versioning-history.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tanılama toplamak ve başlamak için aşağıdaki makalelere kullanmak için çalıştığınız hangi hizmet seçin. Belirli görevleri başvurusu için genel Azure tanılama bağlantıları kullanın.
+Hangi hizmet toocollect tanılama çalıştığınız seçin ve çalışmaya makaleleri tooget aşağıdaki hello kullanın. Belirli görevleri başvurusu için Hello genel Azure tanılama bağlantıları kullanın.
 
 ## <a name="web-apps"></a>Web Apps
-Web uygulamaları Azure tanılama kullanmayın unutmayın. Eşdeğer bilgileri bulmak [Web uygulamaları](../app-service-web/web-sites-enable-diagnostic-log.md)
+Web uygulamaları Azure tanılama kullanmayın unutmayın. Merhaba eşdeğer bilgilerini bulmak [Web uygulamaları](../app-service-web/web-sites-enable-diagnostic-log.md)
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Azure Tanılama'yı kullanarak bulut Hizmetleri
-* Visual Studio kullanıyorsanız, bkz: [bir bulut Hizmetleri uygulaması izleme için Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md) başlamak için. Aksi takdirde bkz:
-* [Bulut Hizmetleri Azure Tanılama'yı kullanarak izleme](../cloud-services/cloud-services-how-to-monitor.md)
+* Visual Studio kullanıyorsanız, bkz: [Visual Studio'yu kullanın tootrace bir bulut Hizmetleri uygulaması](../vs-azure-tools-debug-cloud-services-virtual-machines.md) tooget başlatıldı. Aksi takdirde bkz:
+* [Azure Tanılama'yı kullanarak nasıl toomonitor bulut Hizmetleri](../cloud-services/cloud-services-how-to-monitor.md)
 * [Bulut Hizmetleri uygulamada Azure tanılama ayarlama](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 Daha gelişmiş konular için bkz:
 
 * [Bulut Hizmetleri için Application Insights'a Azure tanılama kullanma](../application-insights/app-insights-cloudservices.md)
-* [Bulut Hizmetleri uygulaması Azure Tanılama ile akışı izleme](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [Bulut hizmetleri üzerinde tanılamayı ayarlamak için PowerShell kullanın](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Bulut Hizmetleri uygulaması Azure Tanılama ile Merhaba akışını izleme](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
+* [Bulut Hizmetleri PowerShell tooset tanılama yukarı kullanın](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines-using-azure-diagnostics"></a>Azure tanılama kullanarak sanal makineler
-* Visual Studio kullanıyorsanız, bkz: [izleme Azure sanal makineler için Visual Studio'yu kullanın](../vs-azure-tools-debug-cloud-services-virtual-machines.md) başlamak için. Aksi takdirde bkz:
+* Visual Studio kullanıyorsanız, bkz: [Visual Studio'yu kullanın tootrace Azure sanal makineleri](../vs-azure-tools-debug-cloud-services-virtual-machines.md) tooget başlatıldı. Aksi takdirde bkz:
 * [Azure tanılama üzerinde bir Azure sanal makine ayarlama](../virtual-machines-dotnet-diagnostics.md)
 
 Daha gelişmiş konular için bkz:
 
-* [Tanılama Azure sanal makineler üzerinde ayarlamak için PowerShell kullanın](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure sanal makinelerde tanılama yukarı PowerShell tooset kullanın](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [İzleme ve tanılama Azure Resource Manager şablonu kullanarak bir Windows sanal makine oluşturma](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-using-azure-diagnostics"></a>Service Fabric Azure Tanılama'yı kullanarak
-Konumundaki başlamak [Service Fabric uygulaması izleme](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Bu makalede aldıktan sonra diğer birçok Service Fabric tanılama makalelerin sol taraftaki gezinti ağacında kullanılabilir.
+Konumundaki başlamak [Service Fabric uygulaması izleme](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Diğer birçok Service Fabric tanılama makale hello Gezinti ağacında toothis makale aldıktan sonra sol hello üzerinde kullanılabilir.
 
 ## <a name="general-azure-diagnostics-articles"></a>Genel Azure tanılama makaleleri
-* [Azure tanılama şema yapılandırma](https://msdn.microsoft.com/library/azure/mt634524.aspx) -toplamak ve Tanılama verileri yönlendirmek için şema dosyası değiştirmeyi öğrenin. Ayrıca Visual Studio şema dosyasını değiştirmek için kullanabileceğiniz olduğunu unutmayın.
-* [Azure Tanılama verileri Azure depolama alanında nasıl depolandığını](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) -tanılama veri yazıldığı BLOB'ları ve tabloları adlarını bilme.
-* Öğrenme [performans sayaçları Azure Tanılama'kullanma](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
-* Öğrenme [Application Insights rota Azure tanılama bilgileri](azure-diagnostics-configure-application-insights.md)
+* [Azure tanılama şema yapılandırma](https://msdn.microsoft.com/library/azure/mt634524.aspx) – nasıl toochange hello şema dosyası toocollect öğrenin ve rota Tanılama verileri. Visual Studio toochange hello şema dosyasını da kullanabileceğinizi unutmayın.
+* [Azure Tanılama verileri Azure depolama alanında nasıl depolandığını](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) -hello tabloları ve blobları hello tanılama veri yazıldığı hello adlarını bilme.
+* Çok öğrenin[performans sayaçları Azure Tanılama'kullanma](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
+* Çok öğrenin[rota Azure tanılama bilgileri tooApplication Öngörüler](azure-diagnostics-configure-application-insights.md)
 * Tanılama başlatılıyor ile sorun varsa veya verileriniz Azure Storage tablolarda bkz [Azure tanılama sorunlarını giderme](azure-diagnostics-troubleshooting.md)

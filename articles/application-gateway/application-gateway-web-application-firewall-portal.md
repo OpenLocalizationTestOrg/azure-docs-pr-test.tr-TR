@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama ağ geçidi ile web uygulaması güvenlik duvarı güncelle | Microsoft Docs"
-description: "Portalı kullanarak bir uygulama ağ geçidi ile web uygulaması güvenlik duvarı oluşturma hakkında bilgi edinin"
+title: "aaaCreate veya web uygulaması güvenlik duvarı ile bir Azure uygulama ağ geçidi güncelleştirme | Microsoft Docs"
+description: "Nasıl toocreate bir uygulama ağ geçidi kullanarak web uygulaması güvenlik duvarı ile Merhaba portal öğrenin"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,67 +15,67 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
-ms.openlocfilehash: 650f26d19615d27a94f3947aad7b7904b6c1fabc
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 68d140fef14499da654ea251d1208e6a800f55a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>Portalı kullanarak bir uygulama ağ geçidi ile web uygulaması güvenlik duvarı oluşturma
+# <a name="create-an-application-gateway-with-web-application-firewall-by-using-hello-portal"></a>Merhaba portalını kullanarak bir uygulama ağ geçidi ile web uygulaması güvenlik duvarı oluşturma
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [Azure CLI](application-gateway-web-application-firewall-cli.md)
 
-Bir web uygulaması Güvenlik Duvarı etkin uygulama ağ geçidi oluşturmayı öğrenin.
+Uygulama ağ geçidi nasıl toocreate bir web uygulaması Güvenlik Duvarı etkin öğrenin.
 
-Azure uygulama ağ geçidi, web uygulaması Güvenlik Duvarı (WAF), SQL ekleme gibi ortak web tabanlı saldırıları, siteler arası komut dosyası saldırıları ve oturumu ele geçirilmesini web uygulamaları korur. Web uygulaması birçok OWASP üst 10 ortak web güvenlik açıklarına karşı korur.
+Hello web uygulaması Güvenlik Duvarı (WAF) Azure uygulama ağ geçidi, web uygulamaları, SQL ekleme gibi ortak web tabanlı saldırıları, siteler arası komut dosyası saldırıları ve oturumu ele geçirilmesini korur. Web uygulaması birçok hello OWASP üst 10 ortak web güvenlik açıklarına karşı korur.
 
 ## <a name="scenarios"></a>Senaryolar
 
 Bu makalede iki senaryo vardır:
 
-İlk senaryoda, öğrenin [web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturma](#create-an-application-gateway-with-web-application-firewall)
+Merhaba ilk senaryoda, çok bilgi[web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturma](#create-an-application-gateway-with-web-application-firewall)
 
-İkinci senaryoda, öğrenin [var olan bir uygulama ağ geçidi için web uygulaması güvenlik duvarı ekleme](#add-web-application-firewall-to-an-existing-application-gateway).
+Merhaba İkinci senaryoda, çok bilgi[web uygulaması güvenlik duvarı tooan varolan uygulama ağ geçidi eklemek](#add-web-application-firewall-to-an-existing-application-gateway).
 
 ![Senaryo örneği][scenario]
 
 > [!NOTE]
-> Özel durumu da dahil olmak üzere uygulama ağ geçidinin ek yapılandırma araştırmaları, arka uç havuzu adresleri ve ek kurallar uygulama ağ geçidi yapılandırıldıktan sonra ve ilk dağıtım sırasında değil yapılandırılır.
+> Merhaba uygulama ağ geçidi, özel durumu da dahil olmak üzere ek yapılandırma araştırmaları, arka uç havuzu adresleri ve ek kurallar hello uygulama ağ geçidi yapılandırıldıktan sonra ve ilk dağıtım sırasında değil yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Azure uygulama ağ geçidi, kendi alt gerektirir. Bir sanal ağ oluştururken, birden çok alt ağa sahip için yeterli adres alanı bıraktığınızdan emin olun. Bir alt ağ için bir uygulama ağ geçidi dağıttığınızda, yalnızca ek uygulama ağ geçidi alt ağına eklemek kullanabilirsiniz.
+Azure uygulama ağ geçidi, kendi alt gerektirir. Bir sanal ağ oluştururken, birden çok alt ağı yeterli adres alanı toohave bıraktığınızdan emin olun. Bir uygulama ağ geçidi tooa alt dağıttığınızda, yalnızca ek uygulama ağ geçitleri eklenen mümkün toobe olan toohello alt ağ.
 
-##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Web uygulaması güvenlik duvarı için var olan bir uygulama ağ geçidi Ekle
+##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Web uygulaması güvenlik duvarı tooan varolan uygulama ağ geçidi Ekle
 
-Bu örnek web uygulaması güvenlik duvarı engelleme modunda desteklemek için varolan uygulama ağ geçidi güncelleştirir.
+Bu örnek, bir var olan uygulama ağ geçidi toosupport web uygulaması güvenlik duvarı engelleme modunda güncelleştirir.
 
-1. Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. Mevcut uygulama ağ geçidi tıklatın **tüm kaynakları** dikey. Zaten seçili abonelik çeşitli kaynaklar varsa, ad girebilirsiniz **ada göre Filtrele...** girebilirsiniz.
+1. Hello Azure portal'ın **Sık Kullanılanlar** bölmesinde tıklatın **tüm kaynakları**. Tıklatın hello hello varolan uygulama ağ geçidi **tüm kaynakları** dikey. Merhaba aboneliği zaten içinde birçok kaynak varsa hello hello ad girebilirsiniz **ada göre Filtrele...** kutusunu tooeasily erişim hello DNS bölgesi.
 
    ![Uygulama ağ geçidi oluşturma][1]
 
-1. Tıklatın **Web uygulaması güvenlik duvarı** ve uygulama ağ geçidi ayarlarını güncelleştirin. Tıklatın tamamlandığında **Kaydet**
+1. Tıklatın **Web uygulaması güvenlik duvarı** ve hello uygulama ağ geçidi ayarlarını güncelleştirin. Tıklatın tamamlandığında **Kaydet**
 
-    Web uygulaması güvenlik duvarı desteklemek için varolan uygulama ağ geçidi güncelleştirmek için ayarlar şunlardır:
+    Hello ayarları tooupdate bir var olan uygulama ağ geçidi toosupport web uygulaması güvenlik duvarı şunlardır:
 
    | **Ayar** | **Değer** | **Ayrıntılar**
    |---|---|---|
-   |**WAF katmanına yükseltme**| İşaretli | Bu uygulama ağ geçidi WAF katmanına katmanı ayarlar.|
-   |**Güvenlik Duvarı durumu**| Etkin | Bu ayar, Güvenlik Duvarı'nı WAF sağlar.|
-   |**Güvenlik Duvarı modu** | Önleme | Bu ayar, web uygulaması güvenlik duvarı kötü amaçlı trafiği ile nasıl ilgileneceğini değildir. **Algılama** modu yalnızca, olayları günlüğe kaydeder, **önleme** modu olayları günlüğe kaydeder ve kötü amaçlı trafiği durdurur.|
-   |**Kural kümesi**|3.0|Bu ayar belirler [çekirdek kural kümesi](application-gateway-web-application-firewall-overview.md#core-rule-sets) arka uç havuzu üyelerini korumak için kullanılır.|
-   |**Devre dışı kurallarını yapılandırma**|Değişir|Olası hatalı pozitif sonuç önlemek için bu ayarı belirli devre dışı bırakmanızı sağlar [kurallar ve kural gruplarını](application-gateway-crs-rulegroups-rules.md).|
+   |**Yükseltme tooWAF katmanı**| İşaretli | Merhaba katmanı hello uygulama ağ geçidi toohello WAF katmanının ayarlar.|
+   |**Güvenlik Duvarı durumu**| Etkin | Bu ayar hello Güvenlik Duvarı'nı hello WAF sağlar.|
+   |**Güvenlik Duvarı modu** | Önleme | Bu ayar, web uygulaması güvenlik duvarı kötü amaçlı trafiği ile nasıl ilgileneceğini değildir. **Algılama** modu yalnızca hello olayları günlüğe kaydeder, **önleme** modu hello olayları günlüğe kaydeder ve durakları hello kötü amaçlı trafiği.|
+   |**Kural kümesi**|3.0|Bu ayar hello belirler [çekirdek kural kümesi](application-gateway-web-application-firewall-overview.md#core-rule-sets) diğer bir deyişle kullanılan tooprotect hello arka uç havuzu üyeleri.|
+   |**Devre dışı kurallarını yapılandırma**|Değişir|tooprevent olası hatalı pozitif sonuç, bu ayarı tanır toodisable belirli [kurallar ve kural gruplarını](application-gateway-crs-rulegroups-rules.md).|
 
     >[!NOTE]
-    > WAF SKU için var olan bir uygulama ağ geçidi yükseltme yaparken, SKU boyutunu değişikliklerini **orta**. Yapılandırma tamamlandıktan sonra yeniden.
+    > Var olan bir uygulama ağ geçidi toohello WAF SKU yükseltirken hello SKU boyutunu değişiklikleri çok**orta**. Yapılandırma tamamlandıktan sonra yeniden.
 
     ![Dikey gösteren temel ayarları][2-1]
 
     > [!NOTE]
-    > Web uygulaması güvenlik duvarı günlüklerini görüntülemek için tanılama etkinleştirilmelidir ve ApplicationGatewayFirewallLog seçtiniz. Test amacıyla örnek sayısını 1 seçilebilir. Tüm örnek sayısı iki örneği altında SLA kapsamında değildir ve bu nedenle önerilmez bilmeniz önemlidir. Web uygulaması güvenlik duvarı kullanırken küçük ağ geçidi kullanılamaz.
+    > tooview web uygulaması güvenlik duvarı günlükler, tanılama etkinleştirilmelidir ve ApplicationGatewayFirewallLog seçtiniz. Test amacıyla örnek sayısını 1 seçilebilir. Herhangi bir örneğine altında iki örnek sayısı tooknow hello tarafından SLA kapsamında değildir ve bu nedenle önerilmez önemlidir. Web uygulaması güvenlik duvarı kullanırken küçük ağ geçidi kullanılamaz.
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>Web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturma
 
@@ -86,78 +86,78 @@ Bu senaryo aşağıdakileri yapar:
 * Appgatewaysubnet adlı, CIDR bloğu olarak 10.0.0.0/28 kullanan bir alt ağ oluşturacaksınız.
 * SSL yük boşaltımı için bir sertifika yapılandırın.
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın. Zaten bir hesabınız yoksa, için kaydolabilirsiniz bir [ücretsiz bir aylık deneme sürümü](https://azure.microsoft.com/free)
-1. Sık Kullanılanlar portalı bölmesinde **yeni**
-1. **Yeni** dikey penceresinde, **Ağ** öğesine tıklayın. İçinde **ağ** dikey penceresinde tıklatın **uygulama ağ geçidi**aşağıdaki görüntüde gösterildiği gibi:
-1. Azure Portalı'na gidin, tıklatın **yeni** > **ağ** > **uygulama ağ geçidi**
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com). Zaten bir hesabınız yoksa, için kaydolabilirsiniz bir [ücretsiz bir aylık deneme sürümü](https://azure.microsoft.com/free)
+1. Merhaba Sık Kullanılanlar hello portalı bölmesinde **yeni**
+1. Merhaba, **yeni** dikey penceresinde tıklatın **ağ**. Merhaba, **ağ** dikey penceresinde tıklatın **uygulama ağ geçidi**hello görüntü aşağıdaki gösterildiği gibi:
+1. Toohello Azure portalına gidin, tıklatın **yeni** > **ağ** > **uygulama ağ geçidi**
 
     ![Uygulama ağ geçidi oluşturma][1]
 
-1. İçinde **Temelleri** görünür, dikey penceresinde aşağıdaki değerleri girin ve ardından **Tamam**:
+1. Merhaba, **Temelleri** görüntülenirse, dikey hello aşağıdaki değerleri girin ve ardından **Tamam**:
 
    | **Ayar** | **Değer** | **Ayrıntılar**
    |---|---|---|
-   |**Ad**|AdatumAppGateway|Uygulama ağ geçidi adı|
-   |**Katmanı**|WAF|Standart ve WAF değerleri kullanılabilir. Ziyaret [web uygulaması güvenlik duvarı](application-gateway-web-application-firewall-overview.md) WAF hakkında daha fazla bilgi edinmek için.|
+   |**Ad**|AdatumAppGateway|Merhaba uygulama ağ geçidi Hello adı|
+   |**Katmanı**|WAF|Standart ve WAF değerleri kullanılabilir. Ziyaret [web uygulaması güvenlik duvarı](application-gateway-web-application-firewall-overview.md) toolearn WAF hakkında daha fazla bilgi.|
    |**SKU boyutu**|Orta|Standart katmanı seçildiğinde küçük, Orta ve büyük seçimlerdir. WAF katmanı seçerken, Orta ve büyük yalnızca seçeneklerdir.|
-   |**Örnek sayısı**|2|Uygulama ağ geçidi yüksek kullanılabilirlik için örnek sayısı. Örnek sayısı 1 yalnızca sınama amacıyla kullanılmalıdır.|
-   |**Abonelik**|[Aboneliğiniz]|Uygulama ağ geçidinin oluşturulacağı bir abonelik seçin.|
-   |**Kaynak grubu**|**Yeni Oluştur:** AdatumAppGatewayRG|Bir kaynak grubu oluşturun. Kaynak grubu adı, seçili abonelik içinde benzersiz olmalıdır. Kaynak grupları hakkında daha fazla bilgi için, [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups)’a genel bakış makalesini okuyun.|
+   |**Örnek sayısı**|2|Merhaba uygulama ağ geçidi yüksek kullanılabilirlik için örnek sayısı. Örnek sayısı 1 yalnızca sınama amacıyla kullanılmalıdır.|
+   |**Abonelik**|[Aboneliğiniz]|Bir abonelik toocreate hello uygulama ağ geçidi seçin.|
+   |**Kaynak grubu**|**Yeni Oluştur:** AdatumAppGatewayRG|Bir kaynak grubu oluşturun. Merhaba kaynak grubu adı, seçtiğiniz hello abonelik içinde benzersiz olmalıdır. Merhaba okuyun, kaynak grupları hakkında daha fazla toolearn [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups) genel bakış makalesi.|
    |**Konum**|Batı ABD||
 
    ![Dikey gösteren temel ayarları][2-2]
 
-1. İçinde **ayarları** altında görüntülenen dikey **sanal ağ**, tıklatın **sanal ağ seçin**. Bu adımı açılır girin **Seç sanal ağ** dikey.  Tıklatın **Yeni Oluştur** açmak için **sanal ağ oluştur** dikey.
+1. Merhaba, **ayarları** altında görüntülenen dikey **sanal ağ**, tıklatın **sanal ağ seçin**. Bu adımı açılır girin hello **Seç sanal ağ** dikey.  Tıklatın **Yeni Oluştur** tooopen hello **sanal ağ oluştur** dikey.
 
    ![sanal ağ seçin][2]
 
-1. Üzerinde **oluşturma sanal ağ dikey** aşağıdaki değerleri girin ve ardından **Tamam**. Bu adım kapatır **sanal ağ oluştur** ve **Seç sanal ağ** dikey pencereleri. Bu doldurur **alt** alanını **ayarları** dikey penceresinde seçilen alt ağ ile.
+1. Merhaba üzerinde **oluşturma sanal ağ dikey** hello aşağıdaki değerleri girin ve ardından **Tamam**. Bu adım hello kapatır **sanal ağ oluştur** ve **Seç sanal ağ** dikey pencereleri. Bu hello doldurur **alt** hello alanını **ayarları** seçilen hello alt dikey.
 
    |**Ayar** | **Değer** | **Ayrıntılar** |
    |---|---|---|
-   |**Ad**|AdatumAppGatewayVNET|Uygulama ağ geçidi adı|
-   |**Adres alanı**|10.0.0.0/16| Bu değer sanal ağ adres alanı|
-   |**Alt ağ adı**|AppGatewaySubnet|Uygulama ağ geçidi için alt ağ adı|
-   |**Alt ağ adres aralığı**|10.0.0.0/28 | Bu alt ağ daha fazla ek alt ağlar sanal ağında arka uç havuzu üyeleri için izin verir|
+   |**Ad**|AdatumAppGatewayVNET|Merhaba uygulama ağ geçidi adı|
+   |**Adres alanı**|10.0.0.0/16| Bu değer hello adres alanı hello sanal ağ için kullanılabilir|
+   |**Alt ağ adı**|AppGatewaySubnet|Merhaba uygulama ağ geçidi için hello alt ağ adı|
+   |**Alt ağ adres aralığı**|10.0.0.0/28 | Bu alt ağ daha fazla ek alt ağlar hello sanal ağında arka uç havuzu üyeleri için izin verir|
 
-1. Üzerinde **ayarları** altında dikey **ön uç IP yapılandırmasını**, seçin **ortak** olarak **IP adresi türü**
+1. Merhaba üzerinde **ayarları** altında dikey **ön uç IP yapılandırmasını**, seçin **ortak** hello olarak **IP adresi türü**
 
-1. Üzerinde **ayarları** altında dikey **genel IP adresi**, tıklatın **genel bir IP adresi seçin**, bu adımı açılır **genel IP adresi seçin** Dikey penceresinde tıklatın **Yeni Oluştur**.
+1. Merhaba üzerinde **ayarları** altında dikey **genel IP adresi**, tıklatın **genel bir IP adresi seçin**, bu adımı hello açar **genel IP adresiseçin**dikey penceresinde tıklatın **Yeni Oluştur**.
 
    ![genel IP seçin][3]
 
-1. Üzerinde **ortak IP adresi oluştur** dikey penceresinde, varsayılan değeri kabul edin ve tıklatın **Tamam**. Bu adım kapatır **genel IP adresi seçin** dikey penceresinde **ortak IP adresi oluştur** dikey penceresinde ve doldurmak **genel IP adresi** seçilen genel IP adresine sahip.
+1. Merhaba üzerinde **ortak IP adresi oluştur** dikey penceresinde hello varsayılan değeri kabul edin ve tıklatın **Tamam**. Bu adım hello kapatır **genel IP adresi seçin** dikey penceresinde, hello **ortak IP adresi oluştur** dikey penceresinde ve doldurmak **genel IP adresi** seçilen hello ortak IP adresine sahip.
 
-1. Üzerinde **ayarları** altında dikey **dinleyici Yapılandırması**, tıklatın **HTTP** altında **Protokolü**. Kullanılacak **https**, bir sertifika gereklidir. Bir .pfx verme sağlanacak sertifika gereksinimlerini ve dosyanın parolası, böylece sertifikanın özel anahtarı gereklidir.
+1. Merhaba üzerinde **ayarları** altında dikey **dinleyici Yapılandırması**, tıklatın **HTTP** altında **Protokolü**. toouse **https**, bir sertifika gereklidir. Böylece hello sertifika .pfx verilmesini sağlanan toobe gerekir ve hello dosyası için parolayı hello hello hello sertifikasının özel anahtarı gereklidir.
 
-1. Yapılandırma **WAF** belirli ayarları.
+1. Merhaba yapılandırma **WAF** belirli ayarları.
 
    |**Ayar** | **Değer** | **Ayrıntılar** |
    |---|---|---|
    |**Güvenlik Duvarı durumu**| Etkin| Bu ayar WAF üzerinde veya devre dışı bırakır.|
-   |**Güvenlik Duvarı modu** | Önleme| Bu ayar, kötü amaçlı trafiği Eylemler WAF alır belirler. Varsa **algılama** seçildiğinde trafiği yalnızca oturum.  Varsa **önleme** seçildiğinde trafiği oturum ve 403 yetkisiz yanıtta durduruldu.|
+   |**Güvenlik Duvarı modu** | Önleme| Bu ayar, kötü amaçlı trafiği WAF alır hello eylemleri belirler. Varsa **algılama** seçildiğinde trafiği yalnızca oturum.  Varsa **önleme** seçildiğinde trafiği oturum ve 403 yetkisiz yanıtta durduruldu.|
 
 
-1. Özet sayfasını gözden geçirin ve tıklatın **Tamam**.  Artık uygulama ağ geçidi sıraya ve oluşturuldu.
+1. Merhaba Özet sayfasını gözden geçirin ve tıklatın **Tamam**.  Şimdi hello uygulama ağ geçidi sıraya ve oluşturuldu.
 
-1. Uygulama ağ geçidi oluşturulduktan sonra kendisine uygulama ağ geçidi yapılandırmasının devam edebilmesi için portalında gidin.
+1. Merhaba uygulama ağ geçidi oluşturulduktan sonra hello portal toocontinue yapılandırmasındaki hello uygulama ağ geçidi tooit gidin.
 
     ![Uygulama ağ geçidi kaynağı görünümü][10]
 
-Bu adımları dinleyicisi, arka uç havuzu, arka uç http ayarları ve kuralları için varsayılan ayarlarla temel uygulama ağ geçidi oluşturun. Sağlama başarılı olduktan sonra dağıtımınızı uyacak şekilde bu ayarları değiştirebilirsiniz
+Bu adımları hello dinleyicisi, arka uç havuzu, arka uç http ayarları ve kuralları için varsayılan ayarlarla temel uygulama ağ geçidi oluşturun. Merhaba sağlama başarılı olduktan sonra bu ayarları toosuit dağıtımınızı değiştirebilirsiniz
 
 > [!NOTE]
-> Temel web uygulaması güvenlik duvarı yapılandırması ile oluşturulmuş uygulama ağ geçitleri için koruma CRS 3.0 ile yapılandırılır.
+> Merhaba temel web uygulaması güvenlik duvarı yapılandırması ile oluşturulmuş uygulama ağ geçitleri için koruma CRS 3.0 ile yapılandırılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ardından, bir özel etki alanı diğer adı için yapılandırma hakkında bilgi edinebilirsiniz [genel IP adresi](../dns/dns-custom-domain.md#public-ip-address) Azure DNS veya başka bir DNS sağlayıcısı kullanarak.
+Ardından, öğrenebilirsiniz nasıl tooconfigure hello için bir özel etki alanı diğer adı [genel IP adresi](../dns/dns-custom-domain.md#public-ip-address) Azure DNS veya başka bir DNS sağlayıcısı kullanarak.
 
-Algılanan ya da engelledi ile web uygulaması güvenlik duvarı adresini ziyaret ederek günlük olaylarıyla tanılama günlük yapılandırmayı öğrenin [uygulama ağ geçidi tanılama](application-gateway-diagnostics.md)
+Bilgi nasıl tooconfigure tanılama günlük kaydını, algılanan veya web uygulaması güvenlik duvarı ile ziyaret ederek engelledi toolog hello olayları [uygulama ağ geçidi tanılama](application-gateway-diagnostics.md)
 
-Özel sistem durumu araştırmalarının ziyaret ederek oluşturmayı öğrenin [bir özel durum araştırması oluştur](application-gateway-create-probe-portal.md)
+Nasıl toocreate özel durumu ziyaret ederek yoklamaları öğrenin [bir özel durum araştırması oluştur](application-gateway-create-probe-portal.md)
 
-SSL boşaltma yapılandırmak ve web sunucularınızın kapalı maliyetli SSL şifre çözme ziyaret ederek ele öğrenin [SSL boşaltma yapılandırın](application-gateway-ssl-portal.md)
+Nasıl tooconfigure SSL boşaltma ve Al hello maliyetli SSL şifre çözme ziyaret ederek, web sunucuları kapalı öğrenin [SSL boşaltma yapılandırın](application-gateway-ssl-portal.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-web-application-firewall-portal/figure1.png

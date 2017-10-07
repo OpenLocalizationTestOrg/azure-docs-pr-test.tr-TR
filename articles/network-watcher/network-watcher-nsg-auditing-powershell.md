@@ -1,6 +1,6 @@
 ---
-title: "Azure Ağ İzleyicisi güvenlik grubu görünümü ile NSG denetim otomatikleştirmek | Microsoft Docs"
-description: "Bu sayfa bir ağ güvenlik grubunun denetimi yapılandırma hakkında yönergeler sağlar"
+title: "Azure Ağ İzleyicisi güvenlik grubu görünümü ile NSG aaaAutomate denetim | Microsoft Docs"
+description: "Bu sayfa hakkında yönergeler sağlar. bir ağ güvenlik grubunun tooconfigure denetleme"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: a91da330e677c85f16f6f4e506613576b6507d7c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 24fc418c433fceaf55a74b7c3b0e354dc46c8729
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Azure Ağ İzleyicisi güvenlik grubu görünümü ile NSG denetim otomatikleştirme
 
-Müşteriler genellikle güvenlik yaklaşımı altyapılarını, doğrulama, bir güçlükle karşı karşıya kalmaktadır. Bu sorunu Azure Vm'leri için farklı değildir. Uygulanan ağ güvenlik grubu (NSG) kurallara göre benzer bir güvenlik profili olması önemlidir. Güvenlik grubu görünümü kullanarak, bir VM bir NSG içinde uygulanan kurallar listesi şimdi alabilirsiniz. Bir altın NSG güvenlik profili tanımlamak ve güvenlik grubu görünümü haftalık bir tempoyla üzerinde başlatmak ve altın profili çıkışı karşılaştırın ve bir rapor oluşturun. Bu şekilde, önceden belirlenen güvenlik profili uymayan tüm sanal makineleri kolayca tanımlayabilirsiniz.
+Müşteriler genellikle altyapılarını hello güvenlik duruşunu doğrulama hello sınama ile karşı karşıya kalmaktadır. Bu sorunu Azure Vm'leri için farklı değildir. Benzer bir güvenlik profili uygulanan hello ağ güvenlik grubu (NSG) kurallara göre önemli toohave olur. Merhaba güvenlik grubu görünümü kullanarak, şimdi uygulanan kurallar tooa bir NSG içinde VM hello listesini elde edebilirsiniz. Altın NSG güvenlik profili tanımlamak ve güvenlik grubu görünümü haftalık bir tempoyla üzerinde başlatmak ve hello çıktı toohello altın profili karşılaştırın ve bir rapor oluşturun. Bu şekilde güvenlik profili belirlenen toohello uymayan tüm hello VM'ler kolayca tanımlayabilirsiniz.
 
 Ağ güvenlik gruplarıyla tanımıyorsanız ziyaret [ağ güvenliğine genel bakış](../virtual-network/virtual-networks-nsg.md)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu senaryoda, bir sanal makine için döndürülen güvenlik grubu görünümü sonuçları bilinen iyi taban çizgisi karşılaştırın.
+Bu senaryoda, bir bilinen iyi temel toohello güvenlik grubu karşılaştırmak için bir sanal makine döndürülen sonuçları görüntüleyin.
 
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için. Senaryo da geçerli bir sanal makine ile bir kaynak grubu kullanılacak var olduğunu varsayar.
+Bu senaryo zaten izlediğiniz hello adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) toocreate bir Ağ İzleyicisi. Merhaba senaryo da geçerli bir sanal makine ile bir kaynak grubu kullanılan toobe var olduğunu varsayar.
 
 ## <a name="scenario"></a>Senaryo
 
-Bu makalede ele alınan senaryo, bir sanal makine için güvenlik grubu görünümü alır.
+Bu makalede ele alınan hello senaryo hello güvenlik grubu görünümü bir sanal makine için alır.
 
 Bu senaryoda, şunları yapacaksınız:
 
@@ -45,7 +45,7 @@ Bu senaryoda, şunları yapacaksınız:
 
 ## <a name="retrieve-rule-set"></a>Kural kümesini Al
 
-İlk Bu örnekte varolan bir taban çizgisi ile çalışmak için adımdır. Aşağıdaki örnekte olduğu bir mevcut ağ güvenlik grubu kullanımından ayıklanan bazı json `Get-AzureRmNetworkSecurityGroup` taban çizgisi olarak bu örnek için kullanılan cmdlet.
+Bu örnekte Hello ilk adımı, var olan bir taban çizgisi toowork oluşturur. Merhaba aşağıdaki örnekte olduğu bir mevcut ağ güvenlik hello kullanarak grubundan ayıklanan bazı json `Get-AzureRmNetworkSecurityGroup` hello taban çizgisi olarak bu örnek için kullanılan cmdlet.
 
 ```json
 [
@@ -112,9 +112,9 @@ Bu senaryoda, şunları yapacaksınız:
 ]
 ```
 
-## <a name="convert-rule-set-to-powershell-objects"></a>Kural kümesi için PowerShell nesneleri dönüştürme
+## <a name="convert-rule-set-toopowershell-objects"></a>Kural kümesi tooPowerShell nesneleri dönüştürme
 
-Bu adımda, biz Bu örnek için ağ güvenlik grubu olması beklenen kurallar ile daha önce oluşturulmuş bir json dosyası okur.
+Bu adımda, biz Bu örnek için ağ güvenlik grubu hello üzerinde beklenen toobe hello kurallar ile daha önce oluşturulmuş bir json dosyası okur.
 
 ```powershell
 $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
@@ -122,7 +122,7 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## <a name="retrieve-network-watcher"></a>Ağ İzleyicisi alma
 
-Ağ İzleyicisi örneği almak için sonraki adımdır bakın. `$networkWatcher` Değişkeni iletilir `AzureRmNetworkWatcherSecurityGroupView` cmdlet'i.
+Merhaba sonraki adıma tooretrieve hello Ağ İzleyicisi örneğidir. Merhaba `$networkWatcher` değişkeni toohello geçirilen `AzureRmNetworkWatcherSecurityGroupView` cmdlet'i.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
@@ -131,7 +131,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 
 ## <a name="get-a-vm"></a>VM Al
 
-Bir sanal makineyi çalıştırmak için gerekli `Get-AzureRmNetworkWatcherSecurityGroupView` karşı cmdlet'i. Aşağıdaki örnek, VM nesnesini alır.
+Gerekli toorun hello bir sanal makinedir `Get-AzureRmNetworkWatcherSecurityGroupView` karşı cmdlet'i. Aşağıdaki örnek hello VM nesnesini alır.
 
 ```powershell
 $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
@@ -139,17 +139,17 @@ $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
 
 ## <a name="retrieve-security-group-view"></a>Güvenlik grubu görünümü alma
 
-Güvenlik grubu Görünüm sonucu almak için sonraki adımdır bakın. Bu sonuç, daha önce gösterilen "temel" json karşılaştırılır.
+Merhaba sonraki tooretrieve hello güvenlik grubu Görünüm sonucu adımdır. Daha önce gösterilen karşılaştırılan toohello "temel" json sonucudur.
 
 ```powershell
 $secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
-## <a name="analyzing-the-results"></a>Sonuçlarını çözümleme
+## <a name="analyzing-hello-results"></a>Merhaba sonuçlarını çözümleme
 
-Yanıt ağ arabirimleri tarafından gruplandırılır. Farklı tür döndürülen kuralların etkili olur ve güvenlik kuralları varsayılan. Sonuç daha fazla nasıl, bir alt ağ veya bir sanal NIC uygulandığı tarafından ayrılmıştır
+Merhaba yanıt ağ arabirimleri tarafından gruplandırılır. Merhaba farklı tür döndürülen kuralların etkili olur ve güvenlik kuralları varsayılan. Merhaba sonuç daha fazla nasıl, bir alt ağ veya bir sanal NIC uygulandığı tarafından ayrılmıştır
 
-Aşağıdaki PowerShell betiğini bir NSG varolan çıktısı güvenlik grubu görünümüne sonuçlarını karşılaştırır. Aşağıdaki örnekte nasıl sonuçları ile karşılaştırılabilir bir basit örneğidir `Compare-Object` cmdlet'i.
+Merhaba aşağıdaki PowerShell betiğini hello güvenlik grubu görünümü tooan varolan çıktısı bir NSG hello sonuçlarını karşılaştırır. Merhaba aşağıdaki örnekte nasıl hello sonuçları ile karşılaştırılabilir bir basit örneğidir `Compare-Object` cmdlet'i.
 
 ```powershell
 Compare-Object -ReferenceObject $nsgbaserules `
@@ -157,7 +157,7 @@ Compare-Object -ReferenceObject $nsgbaserules `
 -Property Name,Description,Protocol,SourcePortRange,DestinationPortRange,SourceAddressPrefix,DestinationAddressPrefix,Access,Priority,Direction
 ```
 
-Aşağıdaki örnek sonucudur. İki ilk kuralında ayarlanan kuralların Karşılaştırmada mevcut değil görebilirsiniz.
+Aşağıdaki örnek hello hello sonucudur. İki hello ilk kural kümesinde olan hello kuralları hello Karşılaştırmada mevcut değil görebilirsiniz.
 
 ```
 Name                     : My2ndRuleDoNotDelete
@@ -187,7 +187,7 @@ SideIndicator            : <=
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ayarları değiştirilmiş olup [ağ güvenlik grupları yönet](../virtual-network/virtual-network-manage-nsg-arm-portal.md) söz konusu olan ağ güvenlik grubu ve güvenlik kuralları izlemek için.
+Ayarları değiştirilmiş olup [ağ güvenlik grupları yönet](../virtual-network/virtual-network-manage-nsg-arm-portal.md) söz konusu olan hello ağ güvenlik grubu ve güvenlik kuralları aşağı tootrack.
 
 
 

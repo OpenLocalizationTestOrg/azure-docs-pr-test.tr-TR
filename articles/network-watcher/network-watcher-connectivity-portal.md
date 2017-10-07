@@ -1,6 +1,6 @@
 ---
-title: "Azure Ağ İzleyicisi - Azure portal ile bağlantısını kontrol edin. | Microsoft Docs"
-description: "Bu sayfayı Ağ İzleyicisi Azure portalını kullanarak bağlantı denetimi kullanımı açıklanmaktadır"
+title: "Azure Ağ İzleyicisi - Azure portal ile aaaCheck bağlantısı | Microsoft Docs"
+description: "Bu sayfayı nasıl toouse bağlantısını denetleyin Ağ İzleyicisi Merhaba Azure portal kullanarak açıklar"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: gwallace
-ms.openlocfilehash: 84774d0f40e06a819ca6de6cf0be68e17ba474e4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ef6ecccd688f06f70003a5b59771c15bcbe8f3e2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Azure portalını kullanarak Azure Ağ İzleyicisi ile bağlantısını denetleyin
+# <a name="check-connectivity-with-azure-network-watcher-using-hello-azure-portal"></a>Hello Azure portal kullanarak Azure Ağ İzleyicisi ile bağlantısını denetleyin
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,38 +27,38 @@ ms.lasthandoff: 08/29/2017
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API'si](network-watcher-connectivity-rest.md)
 
-Bir doğrudan belirli bir uç noktası TCP bağlantısı bir sanal makineden oluşturulan olmadığını doğrulamak için bağlantı kullanmayı öğrenin.
+Toouse bağlantı tooverify doğrudan TCP bağlantısı, uç nokta verilen bir sanal makine tooa nasıl kurulabilir öğrenin.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, aşağıdaki kaynaklara sahip olduğunuz varsayılmaktadır:
+Bu makalede, kaynakları aşağıdaki hello olduğu varsayılır:
 
-* Ağ İzleyicisi bağlantı denetlemek istediğiniz bölgede bir örneği.
+* Bir örneği toocheck bağlantı istediğiniz Ağ İzleyicisinin hello bölgede.
 
-* Sanal makineler ile bağlantılarını denetlemek için.
+* Sanal makineler toocheck bağlantısına sahip.
 
 > [!IMPORTANT]
-> Bağlantı onay gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
+> Bağlantı onay gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM Hello uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Azure Ağ İzleyicisi Aracısı sanal makine uzantısı Linuxiçin](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Bir sanal makineye bağlantısını kontrol edin.
+## <a name="check-connectivity-tooa-virtual-machine"></a>Bağlantı tooa sanal makine kontrol edin
 
-Bu örnekte, bağlantı noktası 80 üzerinden bir hedef sanal makine bağlantısı denetler.
+Bu örnekte, bağlantı noktası 80 üzerinden bağlantı tooa hedef sanal makine denetler.
 
-Ağ İzleyicisi gidin ve tıklayın **bağlantı denetimi (Önizleme)**. Bağlantısını denetlemek için sanal makineyi seçin. İçinde **hedef** bölümü seçin **bir sanal makine seçin** ve doğru sanal makine ve test etmek için bağlantı noktası seçin.
+Ağ İzleyicisi tooyour gidin ve tıklayın **bağlantı denetimi (Önizleme)**. Merhaba sanal makine toocheck bağlantısını seçin. Merhaba, **hedef** bölümü seçin **bir sanal makine seçin** hello doğru sanal makine ve bağlantı noktası tootest seçin.
 
-Tıkladığınızda **denetleyin**, belirtilen bağlantı noktası sanal makineleri arasındaki bağlantıyı denetlenir. Örnekte, hedef VM erişilemiyor, atlama listesi gösterilir.
+Tıkladığınızda **denetleyin**, belirtilen başlangıç bağlantı noktası hello sanal makineler arasında hello bağlantı denetlenir. Merhaba örnekte hello hedef VM erişilemiyor, atlama listesi gösterilir.
 
 ![Bir sanal makine için denetim bağlantı sonuçları][1]
 
 ## <a name="check-remote-endpoint-connectivity"></a>Uzak uç noktada bağlantısını kontrol edin.
 
-Bağlantısını ve uzak uç nokta için gecikme süresini denetlemek için seçin **el ile belirt** radyo düğmesini **hedef** bölümünde, url ve bağlantı noktasını girin ve tıklatın **denetleyin**.  Bu, Web siteleri ve depolama uç noktaları gibi uzak uç noktalar için kullanılır.
+toocheck hello bağlantısı ve gecikme tooa uzak uç nokta, seçim hello **el ile belirtin** hello radyo düğmesini **hedef** bölümünde, giriş hello url ve başlangıç bağlantı noktası ve tıklatın **denetleyin** .  Bu, Web siteleri ve depolama uç noktaları gibi uzak uç noktalar için kullanılır.
 
 ![Bir web sitesi için bağlantı sonuçları denetleyin][2]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sanal makine uyarılarla paket yakalamaları görüntüleyerek otomatikleştirmeyi öğrenin [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
+Nasıl sanal makine uyarılarla tooautomate paket görüntüleyerek yakalar öğrenin [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
 
 Belirli trafik içinde veya dışında VM ziyaret ederek izin verilip verilmediğini Bul [denetleyin IP akış doğrulayın](network-watcher-check-ip-flow-verify-portal.md)
 

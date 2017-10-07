@@ -1,6 +1,6 @@
 ---
-title: "StorSimple sanal dizinin paylaşımlarını yönetmek | Microsoft Docs"
-description: "StorSimple cihaz Yöneticisi'ni açıklar ve bunu, StorSimple sanal dizisindeki paylaşımlarını yönetmek için nasıl kullanılacağını açıklar."
+title: "StorSimple sanal dizinin aaaManage paylaşır | Microsoft Docs"
+description: "Merhaba StorSimple Aygıt Yöneticisi'ni tanımlar ve açıklar nasıl toouse, StorSimple sanal dizinizi toomanage paylaşımlarında."
 services: storsimple
 documentationcenter: 
 author: manuaery
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9b57d7ec7c0b7de5a22e1b816daa8852d0f32a48
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>StorSimple sanal dizisindeki paylaşımlarını yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
+# <a name="use-hello-storsimple-device-manager-service-toomanage-shares-on-hello-storsimple-virtual-array"></a>StorSimple sanal dizinin hello üzerinde Hello StorSimple cihaz Yöneticisi hizmeti toomanage paylaşımları kullanın
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğretici StorSimple cihaz Yöneticisi hizmeti oluşturmak ve StorSimple sanal dizinizi paylaşımlarında yönetmek için nasıl kullanılacağını açıklar.
+Bu öğretici nasıl toouse StorSimple cihaz Yöneticisi hizmeti toocreate hello ve StorSimple sanal dizinizi paylaşımlarında yönetmek açıklanmaktadır.
 
-StorSimple cihaz Yöneticisi hizmeti, StorSimple çözümünüzün bir tek web arabiriminden yönetmenizi sağlayan Azure portalında bir uzantısıdır. Paylaşımları ve birimler yönetmeye ek olarak, StorSimple cihaz Yöneticisi hizmeti görüntülemek ve cihazları yönetmek, uyarıları görüntülemek, yedekleme ilkelerini yönetmek ve yedekleme kataloğu yönetmek için kullanabilirsiniz.
+Merhaba StorSimple cihaz Yöneticisi hizmeti hello StorSimple çözümünüzün bir tek web arabiriminden yönetmenizi sağlayan Azure portalı bir uzantıdır. Toplama toomanaging paylaşımları ve birimler, hello StorSimple cihaz Yöneticisi hizmeti tooview kullanın ve cihazları yönetmek, uyarıları görüntüleyebilir, yedekleme ilkelerini yönetme ve hello yedekleme kataloğunu yönetir.
 
 ## <a name="share-types"></a>Paylaşım türleri
 
 StorSimple paylaşımları olabilir:
 
-* **Yerel olarak sabitlenmiş**: bu paylaşımlar verileri her zaman dizi kalmasını ve buluta dağıtılmamasını.
-* **Katmanlı**: bu paylaşımlar verileri buluta sığdırmaya. Katmanlı bir paylaşımı oluşturduğunuzda, alanın % 10'yaklaşık yerel katmanında sağlanır ve alan % 90'ını bulutta sağlanır. Örneğin, 1 TB paylaşımı sağlanan, 100 GB yerel alanında bulunması ve 900 GB bulutta kullanılabilir zaman veri katmanları. Bu, sırayla cihazda yerel alana çalıştırırsanız, (% 10 yerel katmanda gereken kullanılamaz çünkü), bir katmanlı paylaşımı sağlayamazsınız olduğunu gösterir.
+* **Yerel olarak sabitlenmiş**: bu paylaşımlar verileri her zaman hello dizisinde kalır ve toohello buluta dağıtılmamasını.
+* **Katmanlı**: bu paylaşımlar verilerde toohello bulut sığdırmaya. Katmanlı bir paylaşımı oluşturduğunuzda, hello alanın % 10'yaklaşık hello yerel katmanında sağlanır ve hello alanı % 90'ını hello bulutta sağlanır. Örneğin, 1 TB paylaşımı sağlanan, 100 GB hello yerel alan bulunması ve 900 GB hello bulutta kullanılacak ne zaman veri katmanlarını hello. Bu, sırayla hello cihazda tüm hello yerel alana çalıştırırsanız (Merhaba % 10 hello yerel katmanı kullanılamaz gerektirdiğinden), katmanlı bir paylaşım sağlayamazsınız olduğunu gösterir.
 
 ### <a name="provisioned-capacity"></a>Sağlanan kapasite
 
-Her bir paylaşım türü için maksimum sağlanan kapasite için aşağıdaki tabloya bakın.
+Aşağıdaki tablonun her paylaşım türü için en fazla sağlanan kapasite toohello bakın.
 
 | **Sınır tanımlayıcısı** | **Sınırı** |
 | --- | --- |
@@ -46,25 +46,25 @@ Her bir paylaşım türü için maksimum sağlanan kapasite için aşağıdaki t
 | Yerel olarak sabitlenmiş bir paylaşımı en küçük boyut |50 GB |
 | Yerel olarak sabitlenmiş bir paylaşımı en büyük boyutu |2 TB |
 
-## <a name="the-shares-blade"></a>Paylaşımlar dikey penceresi
+## <a name="hello-shares-blade"></a>Merhaba paylaşımları dikey penceresi
 
-**Paylaşımları** StorSimple hizmeti Özet dikey menüsünde belirli bir StorSimple dizi depolama paylaşımları listesini görüntüler ve bunları yönetmenize olanak sağlar.
+Merhaba **paylaşımları** StorSimple hizmeti Özet dikey menüsünde belirli bir StorSimple dizi depolama paylaşımları hello listesini görüntüler ve toomanage sağlayan bunları.
 
 ![Paylaşımlar dikey penceresi](./media/storsimple-virtual-array-manage-shares/shares-blade.png)
 
 Bir paylaşım öznitelikleri bir dizi oluşur:
 
-* **Paylaşım adı** – benzersiz olmalı ve Paylaşım tanımlamanıza yardımcı olan açıklayıcı bir ad.
-* **Durum** – çevrimiçi veya çevrimdışı olabilir. Bir paylaşım çevrimdışıysa, paylaşımın kullanıcılar buna erişebilir olmayacaktır.
-* **Tür** – paylaşım olup olmadığını belirten **katmanlı** (varsayılan) veya **yerel olarak sabitlenmiş**.
-* **Kapasite** – toplam paylaşımında depolanan veri miktarını karşılaştırıldığında kullanılan veri miktarını belirtir.
-* **Açıklama** – paylaşım açıklamak yardımcı olan isteğe bağlı bir ayar.
-* **İzinleri** -Windows Explorer ile yönetilebilir paylaşımı için NTFS izinleri.
-* **Yedekleme** – StorSimple sanal dizisi tüm paylaşımlar yedekleme için otomatik olarak etkinleştirilmiş durumda.
+* **Paylaşım adı** – benzersiz olmalı ve hello paylaşımı tanımlamanıza yardımcı olan açıklayıcı bir ad.
+* **Durum** – çevrimiçi veya çevrimdışı olabilir. Bir paylaşım çevrimdışı olduğunda, kullanıcılar hello paylaşımının mümkün tooaccess olmayacaktır.
+* **Tür** – hello paylaşımı olup olmadığını belirten **katmanlı** (Merhaba varsayılan) veya **yerel olarak sabitlenmiş**.
+* **Kapasite** – hello karşılaştırılan toohello toplam hello paylaşımında depolanan veri miktarını olarak kullanılan veri miktarını belirtir.
+* **Açıklama** – hello paylaşımı açıklamak yardımcı olan isteğe bağlı bir ayar.
+* **İzinleri** -Windows Explorer ile yönetilebilir hello NTFS izinleri toohello paylaşımı.
+* **Yedekleme** – hello StorSimple sanal dizinin tüm paylaşımlar yedekleme için otomatik olarak etkinleştirilmiş durumda.
 
 ![Paylaşımlar ayrıntıları](./media/storsimple-virtual-array-manage-shares/share-details.png)
 
-Aşağıdaki görevleri gerçekleştirmek için Bu öğreticide yönergeleri kullanın:
+Bu öğretici tooperform hello görevleri aşağıdaki Hello yönergeleri kullanın:
 
 * Paylaşım Ekle
 * Bir paylaşımı değiştirme
@@ -73,56 +73,56 @@ Aşağıdaki görevleri gerçekleştirmek için Bu öğreticide yönergeleri kul
 
 ## <a name="add-a-share"></a>Paylaşım Ekle
 
-1. StorSimple hizmeti Özet dikey penceresinden tıklayın **+ Ekle paylaşımı** komut çubuğundan. Bu açılır **Ekle paylaşımı** dikey.
+1. Merhaba StorSimple hizmeti Özet dikey penceresinden, tıklayın **+ Ekle paylaşımı** hello komut çubuğundan. Merhaba açılır **Ekle paylaşımı** dikey.
 
     ![Paylaşım Ekle](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
-2. İçinde **Ekle paylaşımı** dikey penceresinde aşağıdakileri yapın:
+2. Merhaba, **Ekle paylaşımı** dikey penceresinde, aşağıdaki hello:
    
-    1. İçinde **paylaşım adı** alanında, paylaşımınıza için benzersiz bir ad girin. Adı 3 ile 127 karakter içeren bir dize olmalıdır.
+    1. Merhaba, **paylaşım adı** alanında, paylaşımınıza için benzersiz bir ad girin. Merhaba adı 3 too127 karakter içeren bir dize olmalıdır.
 
-    2. İsteğe bağlı bir **açıklama** paylaşımı için. Açıklama, paylaşım sahiplerini tanımlamaya yardımcı olur.
+    2. İsteğe bağlı bir **açıklama** hello paylaşımı için. Merhaba açıklama hello paylaşım sahiplerini tanımlamaya yardımcı olur.
 
-    3. İçinde **türü** açılır listesinde, oluşturulup oluşturulmayacağını belirtin bir **katmanlı** veya **yerel olarak sabitlenmiş** paylaşın. Yerel GARANTİLERİN, düşük gecikme ve yüksek performansın gerektiği iş yükleri için seçin **Paylaşımı'yerel olarak sabitlenmiş**. Diğer tüm veriler için seçin **katmanlı** paylaşın.
+    3. Merhaba, **türü** açılır listesinde, belirleyin olup olmadığını toocreate bir **katmanlı** veya **yerel olarak sabitlenmiş** paylaşın. Yerel GARANTİLERİN, düşük gecikme ve yüksek performansın gerektiği iş yükleri için seçin **Paylaşımı'yerel olarak sabitlenmiş**. Diğer tüm veriler için seçin **katmanlı** paylaşın.
 
-    4. İçinde **kapasite** alanında, paylaşımı boyutunu belirtin. Katmanlı bir paylaşımı, 500 GB ile 20 TB arasında olmalıdır ve yerel olarak sabitlenmiş bir paylaşımı, 50 GB ile 2 TB arasında olmalıdır.
+    4. Merhaba, **kapasite** alanında, hello hello paylaşımı boyutunu belirtin. Katmanlı bir paylaşımı, 500 GB ile 20 TB arasında olmalıdır ve yerel olarak sabitlenmiş bir paylaşımı, 50 GB ile 2 TB arasında olmalıdır.
 
-    5. İçinde **kümesine varsayılan tam izinleri** alanında, kullanıcı ya da bu paylaşıma erişim grubu için izinleri atayın. Kullanıcı veya kullanıcı grubunun adını belirtin  _john@contoso.com_  biçimi. Bu paylaşımlar erişmek yönetici ayrıcalıkları izin vermek için bir kullanıcı grubu (yerine tek bir kullanıcı) kullanmanızı öneririz. İzinlerini burada atadıktan sonra bu izinleri değiştirmek için dosya Gezgini'ni kullanabilirsiniz.
-3. Paylaşımınıza yapılandırma tamamladığınızda tıklatın **oluşturma**. Belirtilen ayarlarla bir paylaşımı oluşturulur ve bir bildirim görürsünüz. Varsayılan olarak, yedekleme paylaşım için etkin.
-4. Paylaşım başarıyla oluşturulduğunu doğrulamak için şu adrese gidin **paylaşımları** dikey. Listelenen paylaşımına görmeniz gerekir.
+    5. Merhaba, **kümesine varsayılan tam izinleri** alan, hello izinleri toohello kullanıcı veya bu paylaşıma erişen hello grubuna atayın. Merhaba kullanıcı veya hello kullanıcı grubunda Hello adını belirtin  _john@contoso.com_  biçimi. Bir kullanıcı grubu (yerine tek bir kullanıcı) tooallow yönetici ayrıcalıkları tooaccess bu paylaşımları kullanmanızı öneririz. Merhaba izinlerini burada atadıktan sonra bu izinleri dosya Gezgini toomodify sonra kullanabilirsiniz.
+3. Paylaşımınıza yapılandırma tamamladığınızda tıklatın **oluşturma**. Bir paylaşımı ile belirtilen hello oluşturulacak ayarları ve bir bildirim görürsünüz. Varsayılan olarak, yedekleme hello paylaşımı için etkin.
+4. Paylaşım hello tooconfirm edildi başarıyla oluşturuldu, Git toohello **paylaşımları** dikey. Listelenen paylaşmak hello görmeniz gerekir.
    
     ![Paylaşımı oluşturma başarılı](./media/storsimple-virtual-array-manage-shares/share-success.png)
 
 ## <a name="modify-a-share"></a>Bir paylaşımı değiştirme
 
-Paylaşımın açıklaması değiştirmeniz gerektiğinde bir paylaşımı değiştirin. Paylaşımı oluşturulduktan sonra başka bir paylaşım özellikleri değiştirilebilir.
+Merhaba paylaşımı toochange hello açıklama gerektiğinde bir paylaşımı değiştirin. Merhaba paylaşımı oluşturulduktan sonra başka bir paylaşım özellikleri değiştirilebilir.
 
-#### <a name="to-modify-a-share"></a>Bir paylaşım değiştirmek için
+#### <a name="toomodify-a-share"></a>toomodify bir paylaşımı
 
-1. Gelen **paylaşımları** değiştirmenizi istiyor paylaşımın bulunduğu sanal dizinin StorSimple hizmeti Özet dikey ayarı seçin.
-2. **Seçin** geçerli açıklamasını görüntülemek ve değiştirmek için paylaşımı.
-3. Tıklayarak yaptığınız değişiklikleri kaydetmek **kaydetmek** komut çubuğu. Belirtilen ayarlarınızı uygulanır ve bir bildirim görürsünüz.
+1. Merhaba gelen **paylaşımları** seçin istediğinizden, toomodify paylaşımı üzerinde hangi hello bulunduğu sanal dizinin hello hello StorSimple hizmeti Özet dikey ayarı.
+2. **Seçin** hello paylaşımı tooview hello geçerli açıklama ve değiştirebilirsiniz.
+3. Merhaba tıklayarak yaptığınız değişiklikleri kaydetmek **kaydetmek** komut çubuğu. Belirtilen ayarlarınızı uygulanır ve bir bildirim görürsünüz.
    
     ![ Paylaşım Düzenle](./media/storsimple-virtual-array-manage-shares/share-edit.png)
 
 ## <a name="take-a-share-offline"></a>Bir paylaşım çevrimdışı duruma getirin
 
-Değiştirmek veya silmek planlama yaparken bir paylaşımı çevrimdışına gerekebilir. Bir paylaşım çevrimdışı olduğunda okuma-yazma erişimi için kullanılabilir değildir. Cihaz yanı sıra konak paylaşımı çevrimdışı olması gerekir.
+Toomodify veya delete planlarken tootake çevrimdışı bir paylaşımı gerekebilir. Bir paylaşım çevrimdışı olduğunda okuma-yazma erişimi için kullanılabilir değildir. Tootake hello paylaşımı çevrimdışı hello aygıt yanı sıra hello ana bilgisayar gerekir.
 
-#### <a name="to-take-a-share-offline"></a>Bir paylaşım çevrimdışına almak için
+#### <a name="tootake-a-share-offline"></a>tootake çevrimdışı bir paylaşımı
 
-1. Söz konusu paylaşımı çevrimdışı duruma getirmeden önce kullanımda olmadığından emin olun.
-2. Paylaşım, aşağıdaki adımları gerçekleştirerek dizi çevrimdışı gerçekleştirin:
+1. Söz konusu hello paylaşan çevrimdışı duruma getirmeden önce kullanımda olmadığından emin olun.
+2. Merhaba paylaşımı hello aşağıdaki adımları gerçekleştirerek çevrimdışı hello dizisinde alın:
    
-    1. Gelen **paylaşımları** StorSimple hizmeti Özet dikey ayarı, çevrimdışı duruma getirmenizi istiyor paylaşımın bulunduğu sanal dizinin seçin.
+    1. Merhaba gelen **paylaşımları** seçin istediğinizden, çevrimdışı tootake paylaşımı üzerinde hangi hello bulunduğu sanal dizinin hello hello StorSimple hizmeti Özet dikey ayarı.
 
-    2. **Seçin** tıklatın ve Paylaşım **...**  (Alternatif olarak bu satırı sağ) ve bağlam menüsünden seçin **çevrimdışına**.
+    2. **Seçin** hello paylaşım ve tıklatın **...**  (Alternatif olarak bu satırı sağ) ve hello bağlam menüsünden seçin **çevrimdışına**.
      
         ![Çevrimdışı paylaşımı](./media/storsimple-virtual-array-manage-shares/shares-offline.png)
 
-    3. Bilgileri gözden **çevrimdışına** dikey ve işlemin onaylamış olursunuz. Tıklatın **çevrimdışına** paylaşım çevrimdışı duruma getirmek için. İşlem devam ettiğinden, bir bildirim görürsünüz.
+    3. Merhaba hello bilgileri gözden **çevrimdışına** dikey ve hello işleminin onaylamış olursunuz. Tıklatın **çevrimdışına** tootake hello çevrimdışı paylaşımı. Merhaba işlem devam ettiğinden, bir bildirim görürsünüz.
 
-    4. Paylaşım başarıyla çevrimdışı duruma olduğunu doğrulamak için Git **paylaşımları** dikey. Paylaşım durumu çevrimdışı olarak görmeniz gerekir.
+    4. Paylaşım hello tooconfirm çevrimdışı, Git toohello başarıyla alındığı **paylaşımları** dikey. Çevrimdışı olarak hello paylaşımı hello durumunu görmeniz gerekir.
 
 ## <a name="delete-a-share"></a>Bir paylaşımı silme
 
@@ -130,17 +130,17 @@ Değiştirmek veya silmek planlama yaparken bir paylaşımı çevrimdışına ge
 > Yalnızca çevrimdışı ise, bir paylaşım silebilirsiniz.
 
 
-Bir paylaşımı silmek için aşağıdaki adımları tamamlayın.
+Aşağıdaki adımları toodelete bir paylaşımı hello tamamlayın.
 
-#### <a name="to-delete-a-share"></a>Bir paylaşımı silmek için
+#### <a name="toodelete-a-share"></a>toodelete bir paylaşımı
 
-1. Gelen **paylaşımları** StorSimple hizmeti Özet dikey ayarı, silmek istediğiniz paylaşımı bulunduğu sanal dizinin seçin.
-2. **Seçin** tıklatın ve Paylaşım **...**  (Alternatif olarak bu satırı sağ) ve bağlam menüsünden seçin **silmek**.
+1. Merhaba gelen **paylaşımları** seçin hangi hello paylaşımında istediğiniz toodelete bulunduğu sanal dizinin hello hello StorSimple hizmeti Özet dikey ayarı.
+2. **Seçin** hello paylaşım ve tıklatın **...**  (Alternatif olarak bu satırı sağ) ve hello bağlam menüsünden seçin **silmek**.
    
     ![Paylaşımı silin](./media/storsimple-virtual-array-manage-shares/share-delete.png)
-3. Silmek istediğiniz paylaşımı durumunu denetleyin. Silmek istediğiniz paylaşımı çevrimdışı durumda değilse, onu önce çevrimdışına. Adımları [bir paylaşımı çevrimdışına](#take-a-share-offline).
-4. İçinde onaylamanız istendiğinde **silmek** dikey penceresinde, onay kabul etmek ve tıklatın **silmek**. Paylaşım şimdi silinecek ve **paylaşımları** dikey paylaşımları Sanal dizi güncelleştirilmiş listesini gösterir.
+3. Merhaba durumunu denetlemek hello payı toodelete istiyor. Merhaba paylaşımı toodelete istediğiniz çevrimdışı durumda değilse, onu önce çevrimdışına. Merhaba adımları [bir paylaşımı çevrimdışına](#take-a-share-offline).
+4. Merhaba onaylamanız istendiğinde **silmek** dikey penceresinde hello onay kabul edin ve tıklatın **silmek**. Merhaba paylaşım şimdi silinecek ve hello **paylaşımları** dikey penceresinde hello sanal dizi paylaşımlarının hello güncelleştirilmiş listesini gösterir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bilgi edinmek için nasıl [bir StorSimple paylaşımı kopyalama](storsimple-virtual-array-clone.md).
+Nasıl çok öğrenin[bir StorSimple paylaşımı kopyalama](storsimple-virtual-array-clone.md).
 

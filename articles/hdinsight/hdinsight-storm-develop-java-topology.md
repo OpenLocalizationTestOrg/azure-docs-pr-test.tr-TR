@@ -1,6 +1,6 @@
 ---
-title: "Apache Storm örnek Java topolojisi - Azure Hdınsight | Microsoft Docs"
-description: "Bir örnek word count topolojisi oluşturarak Java'da Apache Storm topolojilerini oluşturmayı öğrenin."
+title: "aaaApache örnek Java topolojisi - Azure Hdınsight Storm | Microsoft Docs"
+description: "Bir örnek sözcük oluşturarak toocreate Apache Storm topolojilerini Java topolojisi nasıl saymak öğrenin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -17,23 +17,23 @@ ms.workload: big-data
 ms.date: 07/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 36285fbaf1da3c566d338bd5612eebad327eaf50
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 54fa9dc3c93ddad83ac861f3101f50f80117d804
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Apache Storm topolojisini Java oluşturma
 
-Apache Storm için Java tabanlı bir topoloji oluşturmayı öğrenin. Word-count uygulama uygulayan bir Storm topolojisinin oluşturun. Maven oluşturun ve projeyi paketini kullanın. Ardından, nasıl Flux framework kullanarak topolojisi tanımlayacağınızı öğrenin.
+Bilgi nasıl toocreate Apache Storm için Java tabanlı bir topolojiyi. Word-count uygulama uygulayan bir Storm topolojisinin oluşturun. Maven toobuild ve paket hello proje kullanın. Daha sonra nasıl toodefine hello topolojisi kullanarak izin ver hello Flux framework öğrenin.
 
 > [!NOTE]
-> Flux Storm 0.10.0 veya sonraki sürümlerinde çerçevedir. Storm 0.10.0 Hdınsight 3.3 ve 3.4 ile kullanılabilir.
+> Merhaba Flux Storm 0.10.0 veya sonraki sürümlerinde çerçevedir. Storm 0.10.0 Hdınsight 3.3 ve 3.4 ile kullanılabilir.
 
-Bu belgedeki adımları tamamladıktan sonra Hdınsight üzerinde Apache Storm topolojisini dağıtabilirsiniz.
+Bu belgedeki Hello adımları tamamladıktan sonra hello topoloji tooApache Hdınsight üzerinde Storm dağıtabilirsiniz.
 
 > [!NOTE]
-> Bu belgede oluşturulan Storm topolojisini örnekler tamamlanmış bir sürümünü şu adresten edinilebilir [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
+> Bu belgede oluşturulan hello Storm topolojisini örnekler tamamlanmış bir sürümünü şu adresten edinilebilir [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -45,21 +45,21 @@ Bu belgedeki adımları tamamladıktan sonra Hdınsight üzerinde Apache Storm t
 
 ## <a name="configure-environment-variables"></a>Ortam değişkenleri yapılandırın
 
-Java ve JDK yüklediğinizde aşağıdaki ortam değişkenleri ayarlayabilirsiniz. Ancak, bunlar mevcut olduğundan ve sisteminiz için doğru değerleri içerdikleri denetlemeniz gerekir.
+Java ve hello JDK yüklediğinizde hello aşağıdaki ortam değişkenleri ayarlanmış olabilir. Ancak, bunlar mevcut olduğundan ve sisteminiz için doğru değerleri hello içerdikleri denetlemeniz gerekir.
 
-* **JAVA_HOME** -Java Çalışma zamanı ortamı (JRE) yüklü olduğu dizine işaret etmelidir. Örneğin, bir UNIX veya Linux dağıtımlarında benzeri bir değer olması gereken `/usr/lib/jvm/java-7-oracle`. Windows'da benzeri bir değer gerekir`c:\Program Files (x86)\Java\jre1.7`
+* **JAVA_HOME** -hello Java Çalışma zamanı ortamı (JRE) yüklü olduğu toohello dizin işaret etmelidir. Örneğin, bir UNIX veya Linux dağıtımlarında benzeri bir değer çok olması gereken`/usr/lib/jvm/java-7-oracle`. Windows'da onu benzeri bir değer çok gerekir`c:\Program Files (x86)\Java\jre1.7`
 
-* **YOL** -aşağıdaki yolları içermelidir:
+* **YOL** -yolları aşağıdaki hello içermelidir:
 
-  * **JAVA_HOME** (veya eşdeğer yolu)
+  * **JAVA_HOME** (veya hello eşdeğer yolu)
 
-  * **JAVA_HOME\bin** (veya eşdeğer yolu)
+  * **JAVA_HOME\bin** (veya hello eşdeğer yolu)
 
-  * Maven'ın yüklendiği dizin
+  * Maven'ın yüklendiği hello dizini
 
 ## <a name="create-a-maven-project"></a>Bir Maven projesi oluşturun
 
-Komut satırından adlı bir Maven projesi oluşturmak için aşağıdaki komutu kullanın. **WordCount**:
+Merhaba komut satırından kullanma hello aşağıdaki toocreate adlı bir Maven projesi komutu **WordCount**:
 
 ```bash
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
@@ -70,22 +70,22 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupI
 >
 > `mvn archetype:generate "-DarchetypeArtifactId=maven-archetype-quickstart" "-DgroupId=com.microsoft.example" "-DartifactId=WordCount" "-DinteractiveMode=false"`
 
-Bu komut adlı bir dizin oluşturur `WordCount` geçerli konumda içeren temel bir Maven projesi. `WordCount` Dizini aşağıdaki öğeleri içerir:
+Bu komut adlı bir dizin oluşturur `WordCount` hello geçerli konumda içeren temel bir Maven projesi. Merhaba `WordCount` dizini aşağıdaki öğelerindeki hello içerir:
 
-* `pom.xml`: Bir Maven projesi için ayarları içerir.
+* `pom.xml`: Merhaba Maven projesine ayarlarını içerir.
 * `src\main\java\com\microsoft\example`: Uygulama kodunuz içerir.
 * `src\test\java\com\microsoft\example`: Uygulamanız için testleri içerir. 
 
-### <a name="remove-the-generated-example-code"></a>Oluşturulan örnek kodu Kaldır
+### <a name="remove-hello-generated-example-code"></a>Merhaba oluşturulan örnek kodu kaldırın
 
-Oluşturulan test ve uygulama dosyalarını silin:
+Oluşturulan hello test ve hello uygulama dosyaları silin:
 
 * **src\test\java\com\microsoft\example\AppTest.Java**
 * **src\main\java\com\microsoft\example\App.Java**
 
 ## <a name="add-maven-repositories"></a>Maven depoları ekleme
 
-Hdınsight Hortonworks veri Platformu (HDP) üzerinde dayalı, bu yüzden Apache Storm projelerinizi bağımlılıklarını karşıdan yüklemek için Hortonworks depo kullanmanızı öneririz. İçinde __pom.xml__ dosya, aşağıdaki XML'i ekleyin sonra `<url>http://maven.apache.org</url>` satır:
+Hdınsight üzerinde hello Hortonworks veri Platformu (HDP) dayalı, bu yüzden hello Hortonworks depo toodownload bağımlılıkları Apache Storm projeleriniz için kullanmanızı öneririz. Merhaba, __pom.xml__ dosya, XML hello sonra aşağıdaki hello eklemek `<url>http://maven.apache.org</url>` satır:
 
 ```xml
 <repositories>
@@ -126,42 +126,42 @@ Hdınsight Hortonworks veri Platformu (HDP) üzerinde dayalı, bu yüzden Apache
 
 ## <a name="add-properties"></a>Özellikler ekleme
 
-Maven özellikleri olarak adlandırılan proje düzeyi değerleri tanımlamanızı sağlar. İçinde __pom.xml__, aşağıdaki metinden sonra Ekle `</repositories>` satır:
+Maven özellikleri olarak adlandırılan toodefine proje düzeyi değerlere izin verir. Merhaba, __pom.xml__, metin hello sonra aşağıdaki hello eklemek `</repositories>` satır:
 
 ```xml
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--
-    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight.
+    This is a version of Storm from hello Hortonworks repository that is compatible with HDInsight.
     -->
     <storm.version>1.0.1.2.5.3.0-37</storm.version>
 </properties>
 ```
 
-Bu değer diğer bölümlerinde artık kullanabilirsiniz `pom.xml`. Örneğin, Storm bileşenleri belirtirken kullanabileceğiniz `${storm.version}` sabit bir değer kodlama yerine.
+Bu değer hello diğer bölümlerinde artık kullanabilirsiniz `pom.xml`. Örneğin, Storm bileşenleri hello sürümü belirtirken kullanabileceğiniz `${storm.version}` sabit bir değer kodlama yerine.
 
 ## <a name="add-dependencies"></a>Bağımlılıkları ekleyin.
 
-Storm bileşenleri için bağımlılık ekleyin. Açık `pom.xml` dosya ve aşağıdaki kodu ekleyin `<dependencies>` bölümü:
+Storm bileşenleri için bağımlılık ekleyin. Açık hello `pom.xml` dosya ve hello kodda aşağıdaki hello ekleyin `<dependencies>` bölümü:
 
 ```xml
 <dependency>
     <groupId>org.apache.storm</groupId>
     <artifactId>storm-core</artifactId>
     <version>${storm.version}</version>
-    <!-- keep storm out of the jar-with-dependencies -->
+    <!-- keep storm out of hello jar-with-dependencies -->
     <scope>provided</scope>
 </dependency>
 ```
 
-Derleme zamanında Maven aramak için bu bilgileri kullanır `storm-core` Maven deposunda. Yerel bilgisayarınızda depodaki İlk bakar. Dosya yoksa, Maven ortak Maven depodan yükler ve yerel depoda depolar.
+Bu bilgi toolook Maven derleme zamanında kullanan `storm-core` hello Maven deposundaki. Yerel bilgisayarınızda hello deposundaki İlk bakar. Merhaba dosyaları yoksa, Maven hello ortak Maven depodan indirir ve hello yerel depoda depolar.
 
 > [!NOTE]
-> Bildirim `<scope>provided</scope>` bu bölümdeki satır. Bu ayar dışlamak için Maven söyler **storm çekirdek** sistem tarafından sağlanan bulunduğundan, oluşturulan JAR dosyalarını.
+> Bildirim hello `<scope>provided</scope>` bu bölümdeki satır. Bu ayar Maven tooexclude söyler **storm çekirdek** hello sistem tarafından sağlanan bulunduğundan, oluşturulan JAR dosyalarını.
 
 ## <a name="build-configuration"></a>Derleme yapılandırması
 
-Maven eklentileri projeyi derleme aşamaları özelleştirmenizi sağlar. Örneğin, projenin nasıl derlenmiş veya JAR dosyasına paketlemek nasıl. Açık `pom.xml` dosya ve doğrudan yukarıdaki aşağıdaki kodu ekleyin `</project>` satır.
+Maven eklentileri toocustomize hello derleme aşamaları hello projesinin izin verin. Örneğin, nasıl hello Proje derlenir veya nasıl toopackage JAR dosyasını içine. Açık hello `pom.xml` dosya ve doğrudan hello yukarıdaki kodu aşağıdaki hello ekleyin `</project>` satır.
 
 ```xml
 <build>
@@ -172,11 +172,11 @@ Maven eklentileri projeyi derleme aşamaları özelleştirmenizi sağlar. Örne�
 </build>
 ```
 
-Bu bölümde, eklentiler, kaynakları ve diğer yapı yapılandırma seçeneklerini eklemek için kullanılır. Bir tam başvuru için **pom.xml** dosya için bkz: [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
+Bu bölümde kullanılan tooadd eklentileri, kaynakları ve diğer yapı yapılandırma seçenekleri ' dir. Merhaba, tam başvuru için **pom.xml** dosya için bkz: [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
 
 ### <a name="add-plug-ins"></a>Eklentiler
 
-Apache Storm topolojilerini Java'da, uygulanan için [Exec Maven eklentisi](http://www.mojohaus.org/exec-maven-plugin/) kolayca topolojisi geliştirme ortamınızı yerel olarak çalıştırmanızı izin verdiği için kullanışlıdır. Aşağıdakileri ekleyin `<plugins>` bölümünü `pom.xml` Exec Maven eklentisi eklenecek dosyası:
+Java'da uygulanan Apache Storm topolojilerini için hello [Exec Maven eklentisi](http://www.mojohaus.org/exec-maven-plugin/) hello topolojisi geliştirme ortamınızı yerel olarak çalıştırma tooeasily izin verdiği için kullanışlıdır. Toohello aşağıdaki hello eklemek `<plugins>` hello bölümünü `pom.xml` tooinclude hello Exec Maven eklenti dosyası:
 
 ```xml
 <plugin>
@@ -201,13 +201,13 @@ Apache Storm topolojilerini Java'da, uygulanan için [Exec Maven eklentisi](http
 </plugin>
 ```
 
-Başka bir eklenti yararlı [Apache Maven derleyici eklentisi](http://maven.apache.org/plugins/maven-compiler-plugin/), derleme seçeneklerini değiştirmek için kullanılır. Java değişiklikleri kaynak ve hedef uygulamanız için Maven kullanımları sürümü.
+Başka yararlı hello eklentidir [Apache Maven derleyici eklentisi](http://maven.apache.org/plugins/maven-compiler-plugin/), hangi derleme seçenekleri kullanılan toochange değil. Merhaba değişiklikleri hello kaynak ve hedef uygulamanız için Maven kullanımları Java sürümü hello.
 
-* Hdınsight için __3.4 veya önceki__, kaynak ayarlayabilir ve Java sürümü için hedef __1.7__.
+* Hdınsight için __3.4 veya önceki__hello kaynak ayarlamak ve Java Sürüm too__1.7__ hedef.
 
-* Hdınsight için __3.5__, kaynak ayarlayabilir ve Java sürümü için hedef __1.8__.
+* Hdınsight için __3.5__hello kaynak ayarlamak ve Java Sürüm too__1.8__ hedef.
 
-Aşağıdaki metni eklemek `<plugins>` bölümünü `pom.xml` Apache Maven derleyici eklentisi eklenecek dosyası. Hedef Hdınsight sürüm 3.5 olması için bu örnek 1.8, belirtir.
+Merhaba metinde aşağıdaki hello eklemek `<plugins>` hello bölümünü `pom.xml` tooinclude hello Apache Maven derleyici eklentisi dosya. Merhaba hedef Hdınsight sürüm 3.5 olması için bu örnek 1.8, belirtir.
 
 ```xml
 <plugin>
@@ -223,7 +223,7 @@ Aşağıdaki metni eklemek `<plugins>` bölümünü `pom.xml` Apache Maven derle
 
 ### <a name="configure-resources"></a>Kaynaklarını yapılandırma
 
-Kaynakları bölümü kod olmayan kaynakları topolojideki bileşenleri tarafından gereken yapılandırma dosyaları gibi eklemenizi sağlar. Bu örnek için aşağıdaki metni eklemek `<resources>` bölümünü ' pom.xml dosyasını.
+Merhaba kaynakları bölümü hello topolojisinde bileşenleri tarafından gereken yapılandırma dosyaları gibi tooinclude kod olmayan kaynakları sağlar. Bu örnekte, hello metinde aşağıdaki hello eklemek `<resources>` hello bölümünü ' pom.xml dosyasını.
 
 ```xml
 <resource>
@@ -235,29 +235,29 @@ Kaynakları bölümü kod olmayan kaynakları topolojideki bileşenleri tarafın
 </resource>
 ```
 
-Bu örnek kaynaklar directory proje kök dizininde ekler (`${basedir}`) kaynaklar içeriyor ve adlı dosyayı içeren bir konum olarak `log4j2.xml`. Bu dosya, hangi bilgilerin topolojisi tarafından kaydedilir yapılandırmak için kullanılır.
+Bu örnek hello kaynakları dizin hello hello proje kök dizininde ekler (`${basedir}`) kaynaklar içeriyor ve adlı hello dosya içeren bir konum olarak `log4j2.xml`. Bu dosya kullanılan tooconfigure hello topolojisi tarafından hangi bilgilerin oturum açmış durumda.
 
-## <a name="create-the-topology"></a>Topoloji oluşturma
+## <a name="create-hello-topology"></a>Merhaba topolojisi oluştur
 
 Java tabanlı Apache Storm topolojisini bağımlılık olarak yazmanız gerekir üç bileşeni (veya başvuru) oluşur.
 
-* **Spout'lar**: dış veri kaynakları ve veri akışları topoloji yayar okur.
+* **Spout'lar**: dış veri kaynakları ve veri akışları hello topoloji yayar okur.
 
 * **Cıvatalar**: spout'lar veya diğer Cıvatalar tarafından gösterilen akışları üzerinde işlemeyi gerçekleştirir ve bir veya daha fazla akışları yayar.
 
-* **Topoloji**: nasıl spout'lar Cıvatalar düzenlenir ve giriş noktası için topoloji sunar tanımlar.
+* **Topoloji**: nasıl hello spout'lar ve Cıvatalar düzenlenir ve hello giriş noktası için hello topolojisi sunar tanımlar.
 
-### <a name="create-the-spout"></a>Spout oluşturma
+### <a name="create-hello-spout"></a>Merhaba spout oluşturma
 
-Dış veri kaynakları için gereksinimler azaltmak için aşağıdaki spout yalnızca rastgele cümleleri yayar. İle sağlanan bir spout değiştirilmiş bir sürümünü olan [Storm Starter örnekleri](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).
+Dış veri kaynakları için tooreduce gereksinimler hello aşağıdaki spout yalnızca rastgele cümleleri yayar. Merhaba ile sağlanan bir spout değiştirilmiş bir sürümünü olan [Storm Starter örnekleri](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).
 
 > [!NOTE]
-> Bir dış veri kaynağından okur spout bir örnek için aşağıdaki örneklerde birine bakın:
+> Bir dış veri kaynağından okur spout bir örnek için örnek hello birine bakın:
 >
 > * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): Twitter'dan okuyan bir örnek spout
 > * [Storm Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): Kafka okur spout
 
-Spout için adlı bir dosya oluşturun `RandomSentenceSpout.java` içinde `src\main\java\com\microsoft\example` dizin ve kullanım aşağıdaki Java kod içeriği:
+Merhaba spout için adlı bir dosya oluşturun `RandomSentenceSpout.java` hello içinde `src\main\java\com\microsoft\example` hello içeriği Java kod aşağıdaki dizin ve kullanım hello:
 
 ```java
 package com.microsoft.example;
@@ -275,31 +275,31 @@ import java.util.Random;
 
 //This spout randomly emits sentences
 public class RandomSentenceSpout extends BaseRichSpout {
-  //Collector used to emit output
+  //Collector used tooemit output
   SpoutOutputCollector _collector;
-  //Used to generate a random number
+  //Used toogenerate a random number
   Random _rand;
 
-  //Open is called when an instance of the class is created
+  //Open is called when an instance of hello class is created
   @Override
   public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
-  //Set the instance collector to the one passed in
+  //Set hello instance collector toohello one passed in
     _collector = collector;
     //For randomness
     _rand = new Random();
   }
 
-  //Emit data to the stream
+  //Emit data toohello stream
   @Override
   public void nextTuple() {
   //Sleep for a bit
     Utils.sleep(100);
-    //The sentences that are randomly emitted
-    String[] sentences = new String[]{ "the cow jumped over the moon", "an apple a day keeps the doctor away",
-        "four score and seven years ago", "snow white and the seven dwarfs", "i am at two with nature" };
+    //hello sentences that are randomly emitted
+    String[] sentences = new String[]{ "hello cow jumped over hello moon", "an apple a day keeps hello doctor away",
+        "four score and seven years ago", "snow white and hello seven dwarfs", "i am at two with nature" };
     //Randomly pick a sentence
     String sentence = sentences[_rand.nextInt(sentences.length)];
-    //Emit the sentence
+    //Emit hello sentence
     _collector.emit(new Values(sentence));
   }
 
@@ -313,7 +313,7 @@ public class RandomSentenceSpout extends BaseRichSpout {
   public void fail(Object id) {
   }
 
-  //Declare the output fields. In this case, an sentence
+  //Declare hello output fields. In this case, an sentence
   @Override
   public void declareOutputFields(OutputFieldsDeclarer declarer) {
     declarer.declare(new Fields("sentence"));
@@ -322,20 +322,20 @@ public class RandomSentenceSpout extends BaseRichSpout {
 ```
 
 > [!NOTE]
-> Bu topoloji yalnızca bir spout kullansa da, diğerlerinin birkaç topoloji farklı kaynaklardan veri akışı olabilir.
+> Bu topoloji yalnızca bir spout kullansa da, diğerlerinin hello topoloji farklı kaynaklardan veri akışı birkaç olabilir.
 
-### <a name="create-the-bolts"></a>Cıvatalar oluşturma
+### <a name="create-hello-bolts"></a>Merhaba Cıvatalar oluşturma
 
-Cıvatalar veri işleme işleyin. Bu topoloji iki Cıvatalar kullanır:
+Cıvatalar hello veri işleme işleyin. Bu topoloji iki Cıvatalar kullanır:
 
-* **SplitSentence**: tarafından gösterilen cümleleri böler **RandomSentenceSpout** ayrı sözcükleri içine.
+* **SplitSentence**: böler tarafından gösterilen hello cümleleri **RandomSentenceSpout** ayrı sözcükleri içine.
 
 * **WordCount**: her sözcüğün oluştu kaç kez sayar.
 
 > [!NOTE]
-> Cıvatalar hiçbir şey, örneğin, hesaplama, sürdürme veya dış bileşenlere Konuşmayı yapabilirsiniz.
+> Cıvatalar hiçbir şey, örneğin, hesaplama, sürdürme veya tooexternal bileşenleri Konuşmayı yapabilirsiniz.
 
-İki yeni dosyalar oluşturma `SplitSentence.java` ve `WordCount.java` içinde `src\main\java\com\microsoft\example` dizin. Aşağıdaki metin dosyalarını içeriği kullanın:
+İki yeni dosyalar oluşturma `SplitSentence.java` ve `WordCount.java` hello içinde `src\main\java\com\microsoft\example` dizin. Metin olarak hello içeriği hello dosyaları için aşağıdaki hello kullan:
 
 #### <a name="splitsentence"></a>SplitSentence
 
@@ -354,20 +354,20 @@ import org.apache.storm.tuple.Values;
 //There are a variety of bolt types. In this case, use BaseBasicBolt
 public class SplitSentence extends BaseBasicBolt {
 
-  //Execute is called to process tuples
+  //Execute is called tooprocess tuples
   @Override
   public void execute(Tuple tuple, BasicOutputCollector collector) {
-    //Get the sentence content from the tuple
+    //Get hello sentence content from hello tuple
     String sentence = tuple.getString(0);
-    //An iterator to get each word
+    //An iterator tooget each word
     BreakIterator boundary=BreakIterator.getWordInstance();
-    //Give the iterator the sentence
+    //Give hello iterator hello sentence
     boundary.setText(sentence);
-    //Find the beginning first word
+    //Find hello beginning first word
     int start=boundary.first();
-    //Iterate over each word and emit it to the output stream
+    //Iterate over each word and emit it toohello output stream
     for (int end=boundary.next(); end != BreakIterator.DONE; start=end, end=boundary.next()) {
-      //get the word
+      //get hello word
       String word=sentence.substring(start,end);
       //If a word is whitespace characters, replace it with empty
       word=word.replaceAll("\\s+","");
@@ -414,12 +414,12 @@ public class WordCount extends BaseBasicBolt {
   private static final Logger logger = LogManager.getLogger(WordCount.class);
   //For holding words and counts
   Map<String, Integer> counts = new HashMap<String, Integer>();
-  //How often to emit a count of words
+  //How often tooemit a count of words
   private Integer emitFrequency;
 
   // Default constructor
   public WordCount() {
-      emitFrequency=5; // Default to 60 seconds
+      emitFrequency=5; // Default too60 seconds
   }
 
   // Constructor that sets emit frequency
@@ -429,7 +429,7 @@ public class WordCount extends BaseBasicBolt {
 
   //Configure frequency of tick tuples for this bolt
   //This delivers a 'tick' tuple on a specific interval,
-  //which is used to trigger certain actions
+  //which is used tootrigger certain actions
   @Override
   public Map<String, Object> getComponentConfiguration() {
       Config conf = new Config();
@@ -437,7 +437,7 @@ public class WordCount extends BaseBasicBolt {
       return conf;
   }
 
-  //execute is called to process tuples
+  //execute is called tooprocess tuples
   @Override
   public void execute(Tuple tuple, BasicOutputCollector collector) {
     //If it's a tick tuple, emit all words and counts
@@ -449,13 +449,13 @@ public class WordCount extends BaseBasicBolt {
         logger.info("Emitting a count of " + count + " for word " + word);
       }
     } else {
-      //Get the word contents from the tuple
+      //Get hello word contents from hello tuple
       String word = tuple.getString(0);
       //Have we counted any already?
       Integer count = counts.get(word);
       if (count == null)
         count = 0;
-      //Increment the count and store it
+      //Increment hello count and store it
       count++;
       counts.put(word, count);
     }
@@ -469,15 +469,15 @@ public class WordCount extends BaseBasicBolt {
 }
 ```
 
-### <a name="define-the-topology"></a>Topolojisi tanımlayın
+### <a name="define-hello-topology"></a>Merhaba topolojisi tanımlayın
 
-Spout'lar bağlar ve bileşenler arasında veri akışını tanımlayan bir grafik içine birlikte Cıvatalar topoloji. Ayrıca, Storm bileşenleri kümedeki örneklerini oluştururken kullandığı paralellik ipuçlarını sağlar.
+Merhaba topolojisi hello spout'lar bağlar ve hello bileşenler arasında veri akışını tanımlayan bir grafik içine birlikte Cıvatalar. Ayrıca, Storm hello bileşenleri hello küme içinde örneklerini oluştururken kullandığı paralellik ipuçlarını sağlar.
 
-Aşağıdaki resimde, grafik bileşenlerinin bu topoloji için temel bir diyagramıdır.
+Merhaba aşağıdaki temel bir hello grafik bu topoloji bileşenleri diyagramı görüntüdür.
 
-![spout'lar ve Cıvatalar düzenlemesini gösteren diyagram](./media/hdinsight-storm-develop-java-topology/wordcount-topology.png)
+![Diyagram gösteren hello spout'lar ve düzenlemeyi Cıvatalar](./media/hdinsight-storm-develop-java-topology/wordcount-topology.png)
 
-Topoloji uygulamak için adlı bir dosya oluşturun `WordCountTopology.java` içinde `src\main\java\com\microsoft\example` dizin. Aşağıdaki Java kod dosyasının içeriği kullanın:
+tooimplement topoloji Merhaba, adlı bir dosya oluşturun `WordCountTopology.java` hello içinde `src\main\java\com\microsoft\example` dizin. Java kod hello dosyasının Merhaba içeriğine aşağıdaki hello kullan:
 
 ```java
 package com.microsoft.example;
@@ -492,49 +492,49 @@ import com.microsoft.example.RandomSentenceSpout;
 
 public class WordCountTopology {
 
-  //Entry point for the topology
+  //Entry point for hello topology
   public static void main(String[] args) throws Exception {
-  //Used to build the topology
+  //Used toobuild hello topology
     TopologyBuilder builder = new TopologyBuilder();
-    //Add the spout, with a name of 'spout'
+    //Add hello spout, with a name of 'spout'
     //and parallelism hint of 5 executors
     builder.setSpout("spout", new RandomSentenceSpout(), 5);
-    //Add the SplitSentence bolt, with a name of 'split'
+    //Add hello SplitSentence bolt, with a name of 'split'
     //and parallelism hint of 8 executors
-    //shufflegrouping subscribes to the spout, and equally distributes
-    //tuples (sentences) across instances of the SplitSentence bolt
+    //shufflegrouping subscribes toohello spout, and equally distributes
+    //tuples (sentences) across instances of hello SplitSentence bolt
     builder.setBolt("split", new SplitSentence(), 8).shuffleGrouping("spout");
-    //Add the counter, with a name of 'count'
+    //Add hello counter, with a name of 'count'
     //and parallelism hint of 12 executors
-    //fieldsgrouping subscribes to the split bolt, and
-    //ensures that the same word is sent to the same instance (group by field 'word')
+    //fieldsgrouping subscribes toohello split bolt, and
+    //ensures that hello same word is sent toohello same instance (group by field 'word')
     builder.setBolt("count", new WordCount(), 12).fieldsGrouping("split", new Fields("word"));
 
     //new configuration
     Config conf = new Config();
-    //Set to false to disable debug information when
+    //Set toofalse toodisable debug information when
     // running in production on a cluster
     conf.setDebug(false);
 
     //If there are arguments, we are running on a cluster
     if (args != null && args.length > 0) {
-      //parallelism hint to set the number of workers
+      //parallelism hint tooset hello number of workers
       conf.setNumWorkers(3);
-      //submit the topology
+      //submit hello topology
       StormSubmitter.submitTopology(args[0], conf, builder.createTopology());
     }
     //Otherwise, we are running locally
     else {
-      //Cap the maximum number of executors that can be spawned
-      //for a component to 3
+      //Cap hello maximum number of executors that can be spawned
+      //for a component too3
       conf.setMaxTaskParallelism(3);
-      //LocalCluster is used to run locally
+      //LocalCluster is used toorun locally
       LocalCluster cluster = new LocalCluster();
-      //submit the topology
+      //submit hello topology
       cluster.submitTopology("word-count", conf, builder.createTopology());
       //sleep
       Thread.sleep(10000);
-      //shut down the cluster
+      //shut down hello cluster
       cluster.shutdown();
     }
   }
@@ -543,7 +543,7 @@ public class WordCountTopology {
 
 ### <a name="configure-logging"></a>Günlük tutmayı yapılandırma
 
-Storm bilgileri günlüğe kaydetmek için Apache Log4j kullanır. Günlük kaydını yapılandırmazsanız topoloji tanılama bilgisi yayar. Günlüğe kaydedilenler denetlemek için adlı bir dosya oluşturun `log4j2.xml` içinde `resources` dizin. Aşağıdaki XML dosyasının içeriği kullanın.
+Storm Apache Log4j toolog bilgileri kullanır. Günlük kaydını yapılandırmazsanız hello topoloji tanılama bilgisi yayar. ne kaydedilir, toocontrol adlı bir dosya oluşturun `log4j2.xml` hello içinde `resources` dizin. XML hello hello dosyasının içeriğini aşağıdaki hello kullanın.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -564,24 +564,24 @@ Storm bilgileri günlüğe kaydetmek için Apache Log4j kullanır. Günlük kayd
 </Configuration>
 ```
 
-Yeni bir Günlükçü için bu XML yapılandırır `com.microsoft.example` Bu örnek topolojide bileşenlerini içeren sınıf. Düzeyi izleme bu topolojide bileşenleri tarafından gösterilen tüm günlük bilgilerini yakalar bu Günlükçü için ayarlanır.
+Yeni bir Günlükçü hello için bu XML yapılandırır `com.microsoft.example` Bu örnek topolojide hello bileşenleri içeren sınıf. Merhaba düzeyi tootrace bu topolojide bileşenleri tarafından gösterilen tüm günlük bilgilerini yakalar bu Günlükçü için ayarlanır.
 
-`<Root level="error">` Bölümü kök düzeyini yapılandırır (içinde değil her şeyi `com.microsoft.example`) yalnızca hata bilgileri günlüğe kaydetmek için.
+Merhaba `<Root level="error">` bölüm günlük hello kök düzeyi yapılandırır (içinde değil her şeyi `com.microsoft.example`) tooonly günlük hata bilgileri.
 
 Log4j için günlüğe kaydetmeyi yapılandırma hakkında daha fazla bilgi için bkz: [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
 
 > [!NOTE]
-> Storm sürüm 0.10.0 ve daha yüksek kullanım Log4j 2.x. Storm eski sürümlerinde kullanılan Log4j günlük yapılandırması için farklı bir biçim kullanılan 1.x. Eski yapılandırma hakkında daha fazla bilgi için bkz: [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
+> Storm sürüm 0.10.0 ve daha yüksek kullanım Log4j 2.x. Storm eski sürümlerinde kullanılan Log4j günlük yapılandırması için farklı bir biçim kullanılan 1.x. Merhaba eski yapılandırması hakkında daha fazla bilgi için bkz: [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
 
-## <a name="test-the-topology-locally"></a>Topoloji yerel olarak test etme
+## <a name="test-hello-topology-locally"></a>Yerel olarak test hello topolojisi
 
-Dosyaları kaydettikten sonra topoloji yerel olarak test etmek için aşağıdaki komutu kullanın.
+Merhaba dosyaları kaydettikten sonra yerel olarak komut tootest hello topolojisi aşağıdaki hello kullanın.
 
 ```bash
 mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 ```
 
-Çalışırken, topoloji başlangıç bilgileri görüntüler. Aşağıdaki metni word sayısı çıkış örneğidir:
+Çalışırken, hello topolojisini başlangıç bilgileri görüntüler. Merhaba aşağıdaki metni hello word sayısı çıkış örneğidir:
 
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
@@ -591,29 +591,29 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
     17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
 
-Bu örnek günlük belirten word 've' 113 kez yayılan. Sayı spout sürekli olarak aynı cümleleri yayar çünkü topoloji çalıştığı sürece gidebilir devam eder.
+Bu örnek günlük dosyası bu hello sözcüğü gösterir ' ve ' 113 kez yayılan. Merhaba spout sürekli hello yayar çünkü hello topoloji çalıştığı sürece hello sayısı toogo yukarı devam aynı cümleleri.
 
-Sözcükler yayımlanmasını ve sayılar arasında 5 saniye aralığını yoktur. **WordCount** bileşen değer çizgisi tanımlama grubu geldiğinde bilgileri yalnızca yaymak üzere yapılandırılır. Diziler yalnızca beş saniyede teslim edilir, onay ister.
+Sözcükler yayımlanmasını ve sayılar arasında 5 saniye aralığını yoktur. Merhaba **WordCount** bileşen yapılandırılmış değer çizgisi tanımlama grubu geldiğinde tooonly yayma bilgi. Diziler yalnızca beş saniyede teslim edilir, onay ister.
 
-## <a name="convert-the-topology-to-flux"></a>Topoloji Flux için Dönüştür
+## <a name="convert-hello-topology-tooflux"></a>Merhaba topoloji tooFlux Dönüştür
 
-Flux, uygulama yapılandırmasından ayırmanıza olanak sağlayan bir yeni kullanılabilir Storm 0.10.0 veya üzeri bir çerçevedir. Bileşenlerinizi Java'da tanımlanmış olan ancak topoloji YAML dosyası kullanılarak tanımlanır. Projenizi ile varsayılan topoloji tanımı paketini veya tek başına dosya topoloji gönderirken kullanın. Storm için topoloji gönderirken YAML topoloji tanımı değerleri doldurmak için ortam değişkenleri veya yapılandırma dosyalarını kullanabilirsiniz.
+Flux uygulama tooseparate yapılandırmasından sağlayan bir yeni kullanılabilir Storm 0.10.0 veya üzeri bir çerçevedir. Bileşenlerinizi Java'da tanımlanmış olan ancak hello topoloji YAML dosyası kullanılarak tanımlanır. Projenizi ile varsayılan topoloji tanımı paketini veya tek başına dosya hello topoloji gönderirken kullanın. Merhaba topoloji tooStorm gönderirken hello YAML topoloji tanımı ortam değişkenleri veya yapılandırma dosyaları toopopulate değerlerini kullanabilirsiniz.
 
-Topoloji ve verileri için kullanılacak bileşenleri YAML dosyası tanımlar aralarında akış. Bir YAML dosyası jar dosyasını bir parçası olarak ekleyebilirsiniz veya dış YAML dosyası kullanabilirsiniz.
+Merhaba YAML dosyası hello bileşenleri toouse hello topolojisi ve aralarındaki hello veri akışı için tanımlar. Bir YAML dosyası hello jar dosyasını bir parçası olarak ekleyebilirsiniz veya dış YAML dosyası kullanabilirsiniz.
 
 Flux hakkında daha fazla bilgi için bkz: [Flux framework (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 > [!WARNING]
-> Verilecek bir [hata (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) Storm 1.0.1 yüklemeniz gerekebilir bir [Storm geliştirme ortamı](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) Flux topolojileri yerel olarak çalıştırmak için.
+> Son tooa [hata (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) Storm 1.0.1 tooinstall gerekebilir bir [Storm geliştirme ortamı](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) toorun Flux yerel olarak topolojileri.
 
-1. Taşıma `WordCountTopology.java` dosya proje dışında. Daha önce bu dosyayı topoloji tanımlı, ancak Flux ile gerekli değildir.
+1. Merhaba taşıma `WordCountTopology.java` dosya hello proje dışında. Daha önce bu dosyayı hello topoloji tanımlı, ancak Flux ile gerekli değildir.
 
-2. İçinde `resources` dizin adlı bir dosya oluşturun `topology.yaml`. Aşağıdaki metni bu dosyanın içeriğini kullanın.
+2. Merhaba, `resources` dizin adlı bir dosya oluşturun `topology.yaml`. Bu dosyanın içeriğini hello metin aşağıdaki hello kullanın.
 
-        name: "wordcount"       # friendly name for the topology
+        name: "wordcount"       # friendly name for hello topology
         
         config:                 # Topology configuration
-        topology.workers: 1     # Hint for the number of workers to create
+        topology.workers: 1     # Hint for hello number of workers toocreate
         
         spouts:                 # Spout definitions
         - id: "sentence-spout"
@@ -633,8 +633,8 @@ Flux hakkında daha fazla bilgi için bkz: [Flux framework (https://storm.apache
         
         streams:                # Stream definitions
             - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
-            from: "sentence-spout"       # The stream emitter
-            to: "splitter-bolt"          # The stream consumer
+            from: "sentence-spout"       # hello stream emitter
+            to: "splitter-bolt"          # hello stream consumer
             grouping:                    # Grouping type
                 type: SHUFFLE
           
@@ -643,21 +643,21 @@ Flux hakkında daha fazla bilgi için bkz: [Flux framework (https://storm.apache
             to: "counter-bolt"
             grouping:
             type: FIELDS
-                args: ["word"]           # field(s) to group on
+                args: ["word"]           # field(s) toogroup on
 
-3. Aşağıdaki değişiklikleri yapın `pom.xml` dosya.
+3. Değişiklikleri toohello aşağıdaki hello olun `pom.xml` dosya.
    
-   * Aşağıdaki yeni bağımlılık olarak ekleme `<dependencies>` bölümü:
+   * Yeni bağımlılık hello olarak aşağıdaki hello eklemek `<dependencies>` bölümü:
      
         ```xml
-        <!-- Add a dependency on the Flux framework -->
+        <!-- Add a dependency on hello Flux framework -->
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>flux-core</artifactId>
             <version>${storm.version}</version>
         </dependency>
         ```
-   * Aşağıdaki eklenti ekleme `<plugins>` bölümü. Bu eklenti projesi için bir paket (jar dosyasını) oluşturulmasını işler ve belirli bazı dönüşümleri paket oluştururken Flux için geçerlidir.
+   * Eklenti toohello aşağıdaki hello eklemek `<plugins>` bölümü. Bu eklenti hello proje için bir paket (jar dosyasını) hello oluşturulmasını işler ve bazı dönüşümleri belirli tooFlux hello paket oluştururken uygular.
      
         ```xml
         <!-- build an uber jar -->
@@ -670,7 +670,7 @@ Flux hakkında daha fazla bilgi için bkz: [Flux framework (https://storm.apache
                     <!-- Keep us from getting a "can't overwrite file error" -->
                     <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
                     <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
-                    <!-- We're using Flux, so refer to it as main -->
+                    <!-- We're using Flux, so refer tooit as main -->
                     <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                         <mainClass>org.apache.storm.flux.Flux</mainClass>
                     </transformer>
@@ -698,41 +698,41 @@ Flux hakkında daha fazla bilgi için bkz: [Flux framework (https://storm.apache
         </plugin>
         ```
 
-   * İçinde **exec maven eklentisi** `<configuration>` bölümünde, değerini değiştirin `<mainClass>` için `org.apache.storm.flux.Flux`. Bu ayar topolojisi geliştirme yerel olarak çalışan işlemeye Flux sağlar.
+   * Merhaba, **exec maven eklentisi** `<configuration>` bölümünde, hello değerini değiştirmek `<mainClass>` çok`org.apache.storm.flux.Flux`. Bu ayar hello topolojisi geliştirme yerel olarak çalışan Flux toohandle sağlar.
 
-   * İçinde `<resources>` bölümünde, aşağıdakileri ekleyin `<includes>`. Bu XML topoloji projenin bir parçası tanımlayan YAML dosyası içerir.
+   * Merhaba, `<resources>` bölümünde, toohello aşağıdaki hello eklemek `<includes>`. Bu XML hello topoloji hello projesinin bir parçası tanımlayan hello YAML dosyası içerir.
 
         ```xml
         <include>topology.yaml</include>
         ```
 
-## <a name="test-the-flux-topology-locally"></a>Flux topoloji yerel olarak test etme
+## <a name="test-hello-flux-topology-locally"></a>Yerel olarak test hello flux topolojisi
 
-1. Maven kullanarak Flux topolojisi derleyip için aşağıdakileri kullanın:
+1. Maven kullanarak hello Flux topolojisi yürütün ve toocompile aşağıdaki hello kullanın:
 
     ```bash
     mvn compile exec:java -Dexec.args="--local -R /topology.yaml"
     ```
 
-    PowerShell kullanıyorsanız, aşağıdaki komutu kullanın:
+    PowerShell kullanıyorsanız, hello aşağıdaki komutu kullanın:
 
     ```bash
     mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
     ```
 
     > [!WARNING]
-    > Topolojiniz Storm 1.0.1 BITS kullanıyorsa, bu komut başarısız olur. Bu hatanın nedeni [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Bunun yerine, [geliştirme ortamınızda Storm yüklemek](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) ve aşağıdaki bilgileri kullanın.
+    > Topolojiniz Storm 1.0.1 BITS kullanıyorsa, bu komut başarısız olur. Bu hatanın nedeni [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Bunun yerine, [geliştirme ortamınızda Storm yüklemek](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) ve kullanım hello aşağıdaki bilgileri.
 
-    Varsa [Storm geliştirme ortamınızda yüklü](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), bunun yerine aşağıdaki komutları kullanın:
+    Varsa [Storm geliştirme ortamınızda yüklü](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), komutları bunun yerine aşağıdaki hello kullanabilirsiniz:
 
     ```bash
     mvn compile package
     storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
     ```
 
-    `--local` Parametre yerel modda topolojisi geliştirme ortamınızı çalıştırır. `-R /topology.yaml` Parametresini kullanır `topology.yaml` topoloji tanımlamak için jar dosyasından kaynak dosya.
+    Merhaba `--local` parametre yerel modda hello topolojisi geliştirme ortamınızı çalıştırır. Merhaba `-R /topology.yaml` parametresini kullanır hello `topology.yaml` hello jar dosyasını toodefine hello topoloji kaynak dosya.
 
-    Çalışırken, topoloji başlangıç bilgileri görüntüler. Aşağıdaki metni çıkış örneğidir:
+    Çalışırken, hello topolojisini başlangıç bilgileri görüntüler. metin aşağıdaki hello hello çıkış örneğidir:
 
         17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
         17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
@@ -743,7 +743,7 @@ Flux hakkında daha fazla bilgi için bkz: [Flux framework (https://storm.apache
 
     Günlüğe kaydedilen bilgileri toplu işlemleri arasında 10 saniye gecikme olur.
 
-2. Bir kopyasını `topology.yaml` proje dosyasından. Yeni dosya adı `newtopology.yaml`. İçinde `newtopology.yaml` dosya, aşağıdaki bölümü bulun ve değerini değiştirme `10` için `5`. Bu değişikliği 5 için 10 saniye gelen sözcük sayıları verme toplu arasındaki aralığı değiştirir.
+2. Merhaba kopyası `topology.yaml` hello proje dosyasından. Ad hello yeni dosya `newtopology.yaml`. Merhaba, `newtopology.yaml` dosya, hello aşağıdaki bölümünde ve hello değerini değiştirme Bul `10` çok`5`. Word'ün toplu yayma arasındaki bu değişikliği değişiklikleri hello aralığı 10 saniye too5 sayar.
 
     ```yaml
     - id: "counter-bolt"
@@ -753,7 +753,7 @@ Flux hakkında daha fazla bilgi için bkz: [Flux framework (https://storm.apache
     parallelism: 1
     ```yaml
 
-3. To run the topology, use the following command:
+3. toorun hello topology, use hello following command:
 
     ```bash
     mvn exec:java -Dexec.args="--local /path/to/newtopology.yaml"
@@ -765,25 +765,25 @@ Flux hakkında daha fazla bilgi için bkz: [Flux framework (https://storm.apache
     storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local /path/to/newtopology.yaml
     ```
 
-    Değişiklik `/path/to/newtopology.yaml` önceki adımda oluşturduğunuz newtopology.yaml dosyasının yolu. Bu komut newtopology.yaml topoloji tanımı olarak kullanır. Biz eklemediniz beri `compile` parametresi, Maven, önceki adımda yapılandırdığınız projenin sürümü kullanır.
+    Değişiklik hello `/path/to/newtopology.yaml` hello önceki adımda oluşturduğunuz toohello yolu toohello newtopology.yaml dosyası. Bu komut hello newtopology.yaml hello topoloji tanımı olarak kullanır. Biz hello eklemediniz beri `compile` parametresi, Maven önceki adımlarda kurulu hello proje hello sürümünü kullanır.
 
-    Topoloji başladıktan sonra verilmiş toplu işlemleri arasındaki süre newtopology.yaml değerinde yansıtmak üzere değiştirilmiştir dikkat etmelidir. Bu nedenle, yapılandırmanızı YAML dosyası aracılığıyla topoloji yeniden derlemenize gerek kalmadan değiştirebileceğiniz olduğunu görebilirsiniz.
+    Bir kez hello topolojisini başlatır ve verilmiş toplu işlemleri arasındaki hello süre tooreflect hello newtopology.yaml değerinde değiştiğine dikkat edin. Bu nedenle, yapılandırmanızı YAML dosyası aracılığıyla toorecompile hello topoloji gerek kalmadan değiştirebileceğiniz olduğunu görebilirsiniz.
 
-Bunlar ve diğer özellikler Flux framework'ün hakkında daha fazla bilgi için bkz: [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
+Bunlar ve diğer özellikler hello Flux framework'ün hakkında daha fazla bilgi için bkz: [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 ## <a name="trident"></a>Trident
 
-Trident Storm tarafından sağlanan üst düzey bir soyutlamadır. Durum bilgisi olan işlemeyi destekler. Trident birincil avantajı, topoloji girer her ileti yalnızca bir kez işlenir garanti edebilir ' dir. Trident kullanmadan topolojinizi yalnızca iletileri en az bir kez işlenir garanti edebilir. Cıvatalar oluşturmak yerine kullanılabilir yerleşik bileşenleri gibi diğer farklar vardır. Aslında, Cıvatalar filtreleri, tahminleri ve işlevleri gibi daha az genel bileşenler tarafından değiştirilir.
+Trident Storm tarafından sağlanan üst düzey bir soyutlamadır. Durum bilgisi olan işlemeyi destekler. Trident birincil avantajı Hello hello topoloji girer her ileti yalnızca bir kez işlenir garanti edebilir sağlamasıdır. Trident kullanmadan topolojinizi yalnızca iletileri en az bir kez işlenir garanti edebilir. Cıvatalar oluşturmak yerine kullanılabilir yerleşik bileşenleri gibi diğer farklar vardır. Aslında, Cıvatalar filtreleri, tahminleri ve işlevleri gibi daha az genel bileşenler tarafından değiştirilir.
 
-Trident uygulamaları Maven projelerini kullanarak oluşturulabilir. Aynı temel adımlar bu makalenin önceki bölümlerinde sunulan gibi kullandığınız — yalnızca kodu farklı. Trident de (şu anda) Flux framework ile kullanılamaz.
+Trident uygulamaları Maven projelerini kullanarak oluşturulabilir. Hello kullandığınız aynı temel adımlar bu makalenin önceki bölümlerinde sunulan — yalnızca hello kodu farklı. Trident de (şu anda) hello Flux framework ile kullanılamaz.
 
-Trident hakkında daha fazla bilgi için bkz: [Trident API genel bakış](http://storm.apache.org/documentation/Trident-API-Overview.html).
+Trident hakkında daha fazla bilgi için bkz: Merhaba [Trident API genel bakış](http://storm.apache.org/documentation/Trident-API-Overview.html).
 
 Trident uygulama örneği için bkz: [hdınsight'ta Apache Storm oluşturan eğilim konuları Twitter](hdinsight-storm-twitter-trending.md).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Java kullanarak bir Storm topolojisinin oluşturma öğrendiniz. Daha fazla bilgi nasıl yapılır:
+Öğrendiğiniz nasıl toocreate Java kullanarak bir Storm topolojisinin. Daha fazla bilgi nasıl yapılır:
 
 * [Dağıtma ve Hdınsight üzerinde Apache Storm topolojilerini yönetme](hdinsight-storm-deploy-monitor-topology.md)
 

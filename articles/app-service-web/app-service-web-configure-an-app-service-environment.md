@@ -1,6 +1,6 @@
 ---
-title: "Bir uygulama hizmeti yapılandırma ortamı v1"
-description: "Yapılandırma, yönetim ve uygulama hizmeti ortamı v1 izleme"
+title: "aaaHow tooConfigure bir uygulama hizmeti ortamı v1"
+description: "Yapılandırma, yönetim ve uygulama hizmeti ortamı v1 Merhaba izleme"
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -14,186 +14,186 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: ae99f5a412f73cddc28543ba12c66c82f1a7835a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f9539a72517276d8a1e340a408841561e8b8f56d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Bir uygulama hizmeti ortamı v1
 
 > [!NOTE]
-> Bu makale hakkında uygulama hizmeti ortamı v1 yazılmıştır.  Uygulama hizmeti ortamı kullanmak daha kolay ve daha güçlü altyapısı üzerinde çalışan daha yeni bir sürümü var. Yeni sürüm Başlarken hakkında daha fazla bilgi edinmek için [uygulama hizmeti ortamı giriş](../app-service/app-service-environment/intro.md).
+> Uygulama hizmeti ortamı v1 hello hakkında makaledir.  Merhaba, daha kolay toouse ve daha güçlü altyapısı üzerinde çalışan uygulama hizmeti ortamı'nın daha yeni bir sürümü var. Merhaba yeni sürümü hakkında daha fazla ile Merhaba Başlat toolearn [giriş toohello uygulama hizmeti ortamı](../app-service/app-service-environment/intro.md).
 > 
 
 ## <a name="overview"></a>Genel Bakış
 Yüksek bir düzeyde bir Azure uygulama hizmeti ortamı birkaç önemli bileşenlerden oluşur:
 
-* Uygulama hizmeti ortamı'nda çalışan işlem kaynakları barındıran hizmet
+* Uygulama hizmeti ortamı hello çalışan işlem kaynakları barındıran hizmet
 * Depolama
 * Bir veritabanı
 * Classic(V1) veya kaynak Manager(V2) Azure sanal ağ (VNet) 
-* Bir alt ağ içinde çalışan uygulama hizmeti ortamı'nın barındırılan hizmeti ile
+* Bir alt ağ içinde çalışan hello uygulama hizmeti ortamı'nın barındırılan hizmeti ile
 
 ### <a name="compute-resources"></a>İşlem kaynaklarını
-İşlem kaynaklarını dört kaynak havuzları için kullanın.  Her uygulama hizmeti ortamı'nın (ana) ön uçlar ve üç olası çalışan havuzu kümesi vardır. Tüm üç alt havuzları--kullanmanız gerekmez isterseniz, yalnızca bir veya iki kullanabilirsiniz.
+Merhaba işlem kaynakları, dört kaynak havuzları için kullanın.  Her uygulama hizmeti ortamı'nın (ana) ön uçlar ve üç olası çalışan havuzu kümesi vardır. Tüm üç alt havuzları--toouse gerekmeyen isterseniz, yalnızca bir veya iki kullanabilirsiniz.
 
-Ana bilgisayar (ön uçlar ve çalışanlar) kaynak havuzlarında kiracıların doğrudan erişilebilir değildir. Bağlanabilmek için bunların sağlama değiştirmek için Uzak Masaüstü Protokolü (RDP) kullanın veya bunları bir yönetim görevi görür.
+Merhaba konakları hello kaynak havuzlarında (ön uçlar ve çalışanlar) doğrudan erişilebilir tootenants değildir. Uzak Masaüstü Protokolü (RDP) tooconnect toothem kullanmak, kendi sağlama değiştiremez veya bunları bir yönetim görevi görür.
 
 Kaynak havuzu miktarı ve boyutu ayarlayabilirsiniz. ASE'de, P1 P4 aracılığıyla etiketli dört boyutu seçeneğiniz vardır. Bu boyutları ve bunların fiyatlandırma hakkında daha fazla ayrıntı için bkz: [uygulama hizmeti fiyatlandırma](../app-service/app-service-value-prop-what-is.md).
-Miktar veya boyutunu değiştirme bir ölçeklendirme işlemi adı verilir.  Yalnızca bir ölçeklendirme işlemi aynı anda ediyor olabilir.
+Merhaba miktarı veya boyutunu değiştirme bir ölçeklendirme işlemi adı verilir.  Yalnızca bir ölçeklendirme işlemi aynı anda ediyor olabilir.
 
-**Ön Uçları**: ön uçlar, ana tutulan uygulamalarınız için HTTP/HTTPS noktalarıdır. Ön Uçları iş yükleri çalıştırmayın.
+**Ön Uçları**: hello ön uçlar olan hello HTTP/HTTPS uç noktaları, ana tutulan uygulamalarınız için. Ön Uçları hello iş yükleri çalıştırmayın.
 
-* Bir ana geliştirme ve test iş yükleri ve alt düzey üretim iş yükleri için yeterli olan iki P2s ile başlar. P3s Orta Ağır üretim iş yükleri için önerilir.
-* Orta ila çok yoğun üretim iş yükleri, zamanlanmış bakım oluştuğunda çalıştıran yeterli ön uçlar emin olmak üzere en az dört P3s sahip olmasını öneririz. Zamanlanmış bakım etkinlikler aynı anda bir ön uç çıkarır. Bu genel azaltır bakım etkinlikleri sırasında kullanılabilir ön uç kapasitesi.
-* Ön Uçları sağlamak için bir saat sürebilir. 
-* Daha fazla ölçek ince ayar için CPU yüzdesi ve bellek yüzdesi ön uç havuzu için etkin istek ölçümleri izlemeniz gerekir. CPU veya bellek yüzdelerini P3s çalıştırırken yüzde 70 varsa, daha fazla ön uçlar ekleyin. Etkin istek değer 15.000 ön uç başına 20.000 istekleri için ortalama, daha fazla ön uçlar eklemeniz gerekir. Genel amacı % 70 CPU ve bellek yüzdelerini aşağıdaki korumaktır ve P3s çalıştırırken etkin ön başına 15.000 istek aşağıda için ortalama istekleri bitmelidir.  
+* Bir ana geliştirme ve test iş yükleri ve alt düzey üretim iş yükleri için yeterli olan iki P2s ile başlar. Kesinlikle P3s üretim iş yükleri için Orta tooheavy öneririz.
+* Orta tooheavy üretim iş yükleri için en az dört P3s tooensure zamanlanmış bakım oluştuğunda çalıştıran yeterli ön uçlar vardır sahip olmasını öneririz. Zamanlanmış bakım etkinlikler aynı anda bir ön uç çıkarır. Bu genel azaltır bakım etkinlikleri sırasında kullanılabilir ön uç kapasitesi.
+* Ön Uçları tooan saat tooprovision alabilir. 
+* Daha fazla ölçek ince ayar için hello CPU yüzdesi ve bellek yüzdesi etkin istek ölçümleri hello ön uç havuzu için izlemeniz gerekir. Merhaba CPU veya bellek yüzdelerini P3s çalıştırırken yüzde 70 varsa, daha fazla ön uçlar ekleyin. Merhaba etkin istek değeri ortalama, too15, 000 too20, ön uç başına 000 istekleri çıkışı daha fazla ön uçlar eklemeniz gerekir. Merhaba genel tookeep CPU ve bellek yüzdelerini % 70 ve etkin P3s çalıştırırken toobelow 15.000 istekleri ön uç başına ortalama istek aşağıda hedeftir.  
 
-**Çalışanlar**: uygulamalarınızı gerçekte çalıştırdığı çalışanlardır. Uygulama hizmeti planlarınızı ölçeklendirdiğinizde ilişkili çalışan havuzunda yukarı kullanılır.
+**Çalışanlar**: hello çalışanlardır uygulamalarınızı gerçekte çalıştırdığı. App Service planlarına ölçeklendirdiğinizde hello çalışanlarına temizleme işleminde çalışan havuzunda ilişkilendirilmiş.
 
-* Çalışanlar anında ekleyemezsiniz. Bunlar sağlamak için bir saate kadar sürebilir.
-* Herhangi bir havuz için bir işlem kaynağı boyutunu ölçeklendirme güncelleştirme etki alanı başına < 1 saat sürer. ASE'de 20 güncelleştirme etki alanı yoktur. İşlem boyutu 10 örneğiyle çalışan havuzunda ölçeği varsa, tamamlanması 10 saat sürebilir.
-* Çalışan havuzunda kullanılan işlem kaynaklarını boyutunu değiştirirseniz, çalışan havuzunda çalışan uygulamaların soğuk başlatır neden olur.
+* Çalışanlar anında ekleyemezsiniz. Bunlar tooan saat tooprovision sürebilir.
+* Herhangi bir havuz için bir işlem kaynağı Hello boyutunu ölçeklendirme güncelleştirme etki alanı başına < 1 saat sürer. ASE'de 20 güncelleştirme etki alanı yoktur. Merhaba işlem boyutu 10 örneğiyle çalışan havuzunda ölçeği, too10 saatleri toocomplete ele geçirebilir.
+* Çalışan havuzunda kullanılan hello işlem kaynakları hello boyutunu değiştirirseniz, çalışan havuzunda çalışan hello uygulamaların soğuk başlatır neden olur.
 
-Tüm uygulamalar çalıştırmayan bir çalışan havuzu işlem kaynak boyutunu değiştirmek için en hızlı yolu şudur:
+toochange hello işlem uygulamalardan çalıştırmayan bir çalışan havuzu kaynak boyutu hello en hızlı yolu şudur:
 
-* 2 çalışanlarına miktarını ölçeğini.  Minimum ölçek portal boyutunda aşağı 2'dir. Örneklerinizin ayırması için birkaç dakika sürer. 
-* Örneklerinin sayısını ve yeni işlem boyutu seçin. Buradan, işlemin tamamlanması 2 saat sürecek.
+* Çalışanlar too2 Hello miktarını ölçeklendirin.  Merhaba minimum ölçek hello portal boyutunda aşağı 2'dir. Bu işlem birkaç dakika toodeallocate örneklerinizi olur. 
+* Merhaba yeni işlem boyutu ve örneklerinin sayısını seçin. Buradan, too2 saatleri toocomplete olur.
 
-Uygulamalarınızı daha büyük bir işlem kaynak boyutu gerektiriyorsa, önceki kılavuzunun yararlanamaz. Bu uygulamaları barındıran alt havuzunun boyutunu değiştirme yerine çalışanları için istenen boyutta sahip başka bir çalışan havuzu doldurun ve uygulamalarınızı ilgili havuza üzerine getirin.
+Uygulamalarınızı daha büyük bir işlem kaynak boyutu gerektiriyorsa, hello önceki kılavuzunun yararlanamaz. Bu uygulamaları barındıran hello çalışan havuzunda Hello boyutunu değiştirme yerine başka bir çalışan havuzu hello istenen boyutta arkadaşlarınızla doldurmak ve uygulamalarınızı toothat havuzunda taşıyın.
 
-* Gerekli işlem boyutu ek örneklerini başka bir çalışan havuzunda oluşturun. Bu bir saat tamamlanması için gereken.
-* Yeni yapılandırılan çalışan havuzuna daha büyük bir boyutu gereken uygulamaları barındıran, uygulama hizmeti planları yeniden atayın. Tamamlanması bir dakikadan az zamanınızı hızlı bir işlemdir.  
-* Artık kullanılmayan Bu örneklerde gerekmiyorsa ilk çalışan havuzunda ölçeklendirin. Bu işlemin tamamlanması birkaç dakika sürer.
+* Başka bir çalışan havuzu boyutu işlem gerekli hello ek örneklerini Hello oluşturun. Bu tooan saat toocomplete sürecek.
+* Daha büyük boyutu yeni yapılandırılmış toohello çalışan havuzunda gereken hello uygulamaları barındırma, uygulama hizmeti planları yeniden atayın. Bu dakika toocomplete değerinden yapması gereken hızlı bir işlemdir.  
+* Artık kullanılmayan Bu örneklerde gerekmiyorsa hello ilk çalışan havuzunda ölçeklendirin. Bu işlem birkaç dakika toocomplete alır.
 
-**Otomatik ölçeklendirmeyi**: otomatik ölçeklendirmeyi işlem kaynak tüketimini yönetmenize yardımcı olacak araçlar biridir. Otomatik ölçeklendirme için kullanabileceğiniz ön uç veya çalışan havuzlarında. Örneklerinizin herhangi bir havuz türde sabah şeyler artış gibi ve akşam azaltır. Veya bir çalışan havuzunda kullanılabilir çalışan sayısı belirli bir eşiğin altına düştüğünde örnekleri belki de ekleyebilirsiniz.
+**Otomatik ölçeklendirmeyi**: bir toomanage yardımcı olabilecek hello araçlarının işlem kaynak tüketimini otomatik ölçeklendirme yapıyor. Otomatik ölçeklendirme için kullanabileceğiniz ön uç veya çalışan havuzlarında. Merhaba sabah örneklerinizi herhangi bir havuz türde bu artış gibi şeyler ve hello Akşam azaltır. Veya bir çalışan havuzunda kullanılabilir çalışan hello sayısı belirli bir eşiğin altına düştüğünde örnekleri belki de ekleyebilirsiniz.
 
-Otomatik ölçeklendirme kurallarını işlem kaynak havuzu ölçümleri geçici ayarlamak istiyorsanız, ardından sağlanması gerekir. zaman unutmayın. Otomatik ölçeklendirmeyi App Service ortamları hakkında daha fazla ayrıntı için bkz: [otomatik ölçeklendirme bir uygulama hizmeti ortamı'nda yapılandırma][ASEAutoscale].
+İşlem kaynak havuzu ölçümleri geçici tooset otomatik ölçeklendirme kurallarını istediğiniz sonra bu sağlama göz hello süre tutmak gerektirir. Otomatik ölçeklendirmeyi App Service ortamları hakkında daha fazla ayrıntı için bkz: [nasıl tooconfigure otomatik ölçeklendirme uygulama hizmeti ortamı'nda][ASEAutoscale].
 
 ### <a name="storage"></a>Depolama
-Her ana 500 GB depolama yapılandırılır. Bu alan, ana tüm uygulamalar arasında kullanılır. Bu depolama alanı ana bir parçasıdır ve depolama alanınızı kullanmak için şu anda alınamaz. Sanal ağ yönlendirme veya güvenlik ayarlamalar yapıyorsanız, yine Azure Storage--erişmesine izin vermek gereken veya ana çalışamaz.
+Her ana 500 GB depolama yapılandırılır. Bu alanı hello ana tüm hello uygulamaları arasında kullanılır. Bu depolama alanı hello ana bir parçasıdır ve anahtarlı toouse depolama alanınızı şu anda olamaz. Ayarlamaları tooyour sanal ağ yönlendirme veya güvenlik yapıyorsanız, toostill gereken erişim tooAzure depolama--izin vermek veya hello ana çalışamaz.
 
 ### <a name="database"></a>Database
-Veritabanı içinde çalışan uygulamalar hakkında ayrıntılar yanı sıra, ortamı tanımlayan bilgileri tutar. Bu çok bir Azure tutulan abonelik parçasıdır. İşlemek için doğrudan bir özelliği olan bir şey değil. Sanal ağ yönlendirme veya güvenlik ayarlamalar yapıyorsanız, hala SQL Azure--erişmesine izin vermek gereken veya ana çalışamaz.
+Merhaba veritabanı içinde çalıştırılan hello uygulamaları hello ayrıntılarını yanı sıra hello ortamı tanımlar hello bilgileri tutar. Bu çok bir hello Azure tutulan abonelik parçasıdır. Bir şey doğrudan özelliği toomanipulate sahip değil. Ayarlamaları tooyour sanal ağ yönlendirme veya güvenlik yapıyorsanız, toostill gereken erişim tooSQL Azure--izin vermek veya hello ana çalışamaz.
 
 ### <a name="network"></a>Ağ
-İle ana kullanılan VNet ana oluşturduğunuzda yaptığınız veya önceden yapılan olabilir. Ana oluşturma sırasında alt ağ oluşturduğunuzda, sanal ağ ile aynı kaynak grubunda olması için ana zorlar. Ağınızı farklı olması için ana tarafından kullanılan kaynak grubu gerekiyorsa, resource manager şablonu kullanarak, ana oluşturmanız gerekir.
+Merhaba, ana ile kullanılan VNet hello ana oluşturduğunuzda yaptığınız veya önceden yapılan olabilir. Ana oluşturma sırasında hello alt ağ oluşturduğunuzda, hello ana toobe hello içinde zorlar hello sanal ağ ile aynı kaynak grubunda. Daha sonra sanal ağınızı farklı, ana toobe tarafından kullanılan hello kaynak grubu gerekiyorsa, resource manager şablonu kullanarak, ana toocreate gerekir.
 
-Bir ana için kullanılan sanal ağda bazı sınırlamalar vardır:
+Bir ana için kullanılan sanal ağda hello bazı sınırlamalar vardır:
 
-* Sanal ağı bölgesel bir sanal ağ olmalıdır.
-* Var. 8 veya daha fazla adresleri olan bir alt ağ ana dağıtıldığı olması gerekir.
-* Alt ağ adres aralığı, bir alt ağ bir ana barındırmak için kullanılan sonra değiştirilemez. Bu nedenle, alt ağ gelecekteki ana büyümesine uyum sağlamak için en az 64 adreslerini içeren öneririz.
-* Olabilir alt ancak ana başka bir şey.
+* Merhaba sanal ağı bölgesel bir sanal ağ olmalıdır.
+* Toobe hello ana dağıtıldığı 8 veya daha fazla adresleri olan bir alt ağ gerekir.
+* Bir alt ağ kullanılan toohost bir ana sonra hello adres aralığı hello alt ağ değiştirilemez. Bu nedenle, gelecekteki ana büyümesine en az 64 adresleri tooaccommodate hello alt içeren öneririz.
+* Olabilir hello alt ancak hello ana başka bir şey.
 
-Ana içerir barındırılan hizmet aksine [sanal ağ] [ virtualnetwork] ve alt ağ kullanıcı denetimi altında.  Sanal ağ kullanıcı Arabirimi veya PowerShell ile sanal ağınızı yönetebilirsiniz.  Bir ana Klasik veya Resource Manager Vnet'i dağıtılabilir.  Portal ve API deneyimleri Klasik ve Resource Manager sanal ağlar arasında biraz farklılık gösterir, ancak ana deneyimi aynıdır.
+Merhaba ana içeren hello barındırılan hizmet hello [sanal ağ] [ virtualnetwork] ve alt ağ kullanıcı denetimi altında.  Sanal ağınızı hello sanal ağ kullanıcı Arabirimi veya PowerShell ile yönetebilirsiniz.  Bir ana Klasik veya Resource Manager Vnet'i dağıtılabilir.  Merhaba portal ve API deneyimleri Klasik ve Resource Manager sanal ağlar arasında biraz farklılık gösterir ancak hello ana deneyimi aynı hello değil.
 
-Bir ana barındırmak için kullanılan VNet ya da özel RFC1918 IP adresleri kullanabilirsiniz veya genel IP adresleri kullanabilirsiniz.  RFC1918 tarafından kapsanmayan bir IP aralığı kullanmak isteyip istemediğinizi (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) yeniden ana oluşturma öncesinde, ana tarafından kullanılacak sanal ağ ve alt ağ oluşturmak gerekiyor.
+Merhaba, kullanılan toohost bir ana sanal ağ ya da özel RFC1918 IP adresleri kullanabilirsiniz veya genel IP adresleri kullanabilirsiniz.  RFC1918 tarafından kapsanmayan bir IP aralığı toouse isterseniz (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) ana oluşturma öncesinde, ana tarafından kullanılan, VNet ve alt ağ toobe toocreate yüklemeniz gerekir.
 
-Bu özellik Azure App Service sanal ağınıza yerleştirir olduğundan, ana barındırılan uygulamalarınızı şimdi doğrudan ExpressRoute veya siteden siteye sanal özel ağlar (VPN) kullanılabilir hale getirilir kaynaklara erişebilir anlamına gelir. Uygulama hizmeti ortamınızı içinde olan uygulamaları, uygulama hizmeti ortamınızı barındıran sanal ağ için kullanılabilir kaynaklara erişmek için ek ağ özellikleri gerekmez. Başka bir deyişle, VNET tümleştirme ya da karma bağlantılar da ya da sanal ağınıza bağlı kaynaklara almak için kullanmanız gerekmez. Bu özelliklerin her ikisi de olsa kaynaklara erişmek için sanal ağınıza bağlı olmayan ağlarda kullanmaya devam edebilirsiniz.
+Bu özellik hello Azure App Service sanal ağınızda yerleştirir olduğundan, ana barındırılan uygulamalarınızı şimdi doğrudan ExpressRoute veya siteden siteye sanal özel ağlar (VPN) kullanılabilir hale getirilir kaynaklara erişebilir anlamına gelir. Uygulama hizmeti ortamınızı içinde hello uygulamalar, uygulama hizmeti ortamınızı barındıran ek ağ özellikleri tooaccess kaynakları kullanılabilir toohello sanal ağ gerekmez. Başka bir deyişle, toouse VNET tümleştirme ya da karma bağlantılar tooget tooresources içinde veya bağlı tooyour sanal ağ gerekmez. Tooaccess kaynakları olmayan ağlarda tooyour sanal ağa bağlı olsa bu özelliklerin her ikisi de kullanmaya devam edebilirsiniz.
 
-Örneğin, aboneliğinizde olmakla birlikte, ana bulunduğu sanal ağa bağlı olmayan bir sanal ağ ile tümleştirmek için VNET tümleştirme özelliğini kullanabilirsiniz. Karma bağlantılar, normalde yapabildiğiniz gibi diğer ağlarda bulunan kaynaklara erişmek için yine de kullanabilirsiniz.  
+Örneğin, aboneliğinizde olmakla birlikte, ana içinde bağlı toohello sanal ağı olmayan bir sanal ağ ile VNET tümleştirme toointegrate kullanabilirsiniz. Normalde yapabildiğiniz gibi diğer ağlarda, karma bağlantılar tooaccess kaynakları yine de kullanabilirsiniz.  
 
-Bir ExpressRoute VPN ile yapılandırılmış sanal ağınız varsa, bir ana sahip yönlendirme gereksinimlerini bazıları farkında olmalıdır. Bir ana ile uyumlu olmayan bazı kullanıcı tanımlı yönlendirme (UDR) yapılandırmaları vardır. ExpressRoute ile bir sanal ağ içinde bir ana çalıştırma hakkında daha fazla ayrıntı için bkz: [bir sanal ağ ExpressRoute ile bir uygulama hizmeti ortamı çalışan][ExpressRoute].
+Bir ExpressRoute VPN ile yapılandırılmış sanal ağınız varsa, bir ana sahip hello yönlendirme gereksinimlerini bazıları farkında olmalıdır. Bir ana ile uyumlu olmayan bazı kullanıcı tanımlı yönlendirme (UDR) yapılandırmaları vardır. ExpressRoute ile bir sanal ağ içinde bir ana çalıştırma hakkında daha fazla ayrıntı için bkz: [bir sanal ağ ExpressRoute ile bir uygulama hizmeti ortamı çalışan][ExpressRoute].
 
 #### <a name="securing-inbound-traffic"></a>Gelen trafiğinin güvenliğini sağlama
-Ana gelen trafiği denetlemek için başlıca iki yöntem vardır.  Ağ güvenlik Groups(NSGs) hangi IP denetlemek için kullanabileceğiniz adresleri burada açıklandığı şekilde, ana erişim [bir uygulama hizmeti ortamına gelen trafiği denetlemek nasıl](app-service-app-service-environment-control-inbound-traffic.md) ve bir iç yük dengeleyici ile ana de yapılandırabilirsiniz (ILB).  ILB ana Nsg'leri kullanarak erişimi kısıtlamak istiyorsanız bu özellikleri de birlikte kullanılabilir.
+İki birincil yöntemleri toocontrol vardır gelen trafiği tooyour ana.  Hangi IP ağ güvenlik Groups(NSGs) toocontrol kullanabilirsiniz adresleri burada açıklandığı şekilde, ana erişim [nasıl toocontrol gelen bir uygulama hizmeti ortamı trafiği](app-service-app-service-environment-control-inbound-traffic.md) ve bir iç yük ile ana de yapılandırabilirsiniz Balancer(ILB).  Nsg'ler tooyour ILB ana kullanarak toorestrict erişmek istiyorsanız bu özellikleri de birlikte kullanılabilir.
 
 Bir ana oluşturduğunuzda, sanal ağınızda bir VIP oluşturur.  İki VIP türleri, iç ve dış vardır.  Bir dış VIP ile bir ana oluşturduğunuzda, ana uygulamalarınızda bir Internet yönlendirilebilir IP adresi erişilebilir olacaktır. İç, ana seçtiğinizde, bir ILB ile yapılandırılmış ve doğrudan internet erişilebilir olmaz.  Bir ILB ana hala bir dış VIP gerektiriyor, ancak yalnızca Azure yönetim ve Bakım erişimi için kullanılır.  
 
-ILB ana oluşturma sırasında ILB ana tarafından kullanılan alt etki alanı sağlamak ve belirttiğiniz alt etki alanı kendi DNS yönetmek gerekir.  Alt etki alanı adı ayarlamak için de HTTPS erişimi için kullanılan sertifika yönetmesi gerekir.  Ana oluşturulduktan sonra sertifika sağlamanız istenir.  Oluşturma ve bir ILB ana kullanma hakkında daha fazla bilgi için okuma [bir uygulama hizmeti ortamı ile bir iç yük dengeleyici kullanarak][ILBASE]. 
+ILB ana oluşturma sırasında ILB ana hello tarafından kullanılan hello alt etki alanı sağlayın ve toomanage kendi DNS hello alt belirtmeniz gerekir.  Hello alt etki alanı adı ayarlamak için de HTTPS erişimi için kullanılan toomanage hello sertifika gerekiyor.  Sonra ana olduğunuz oluşturma tooprovide hello sertifika istenir.  oluşturma ve bir ILB ana kullanma hakkında daha fazla toolearn okuma [bir uygulama hizmeti ortamı ile bir iç yük dengeleyici kullanarak][ILBASE]. 
 
 ## <a name="portal"></a>Portal
-Yönetebilir ve uygulama hizmeti ortamınızı Azure portalında kullanıcı arabirimini kullanarak izleyebilirsiniz. Bir ana varsa, daha sonra uygulama hizmeti simgenin Kenar çubuğunda görmeniz olasıdır. Bu simge, App Service ortamları Azure portalında temsil etmek için kullanılır:
+Yönetebilir ve uygulama hizmeti ortamınızı hello UI hello Azure portal kullanarak izleyebilirsiniz. Ardından bir ana varsa, büyük olasılıkla toosee hello uygulama hizmeti simgesi Kenar çubuğunda olur. Bu simgenin kullanılan toorepresent App Service ortamları hello Azure portal'ın şöyledir:
 
 ![Uygulama hizmeti ortamı simgesi][1]
 
-Tüm uygulama hizmeti ortamları listeler kullanıcı arabirimini açmak için simgeyi kullanın veya Köşeli Çift Ayraca seçin (">" simgesi) App Service ortamları seçmek için Kenar Çubuğu'nu ekranın alt kısmındaki. Listelenen ASEs birini seçerek, izlemek ve yönetmek için kullanılan kullanıcı arabirimini açın.
+tooopen tüm App Service ortamları listeler UI Merhaba, hello simgesine veya select hello Köşeli Çift Ayraca kullanabilirsiniz (">" simgesi) hello kenar tooselect App Service ortamları hello sonundaki. Listelenen hello ASEs birini seçerek hello kullanılan toomonitor olan kullanıcı arabirimini açın ve yönetebilirsiniz.
 
 ![İzleme ve uygulama hizmeti ortamınızı yönetmek için kullanıcı Arabirimi][2]
 
-Bu ilk Kama kaynak havuzu başına ölçüm grafik yanı sıra, ana bazı özelliklerini gösterir. ' Nda gösterilen özelliklerin bazıları **Essentials** blok olan de onunla ilişkilendirilen dikey yukarı açılır köprüler. Örneğin, seçebileceğiniz **sanal ağ** UI'yi açmak için adı, ana çalışır durumda sanal ağ ile ilişkili. **Uygulama hizmeti planları** ve **uygulamaları** , ana bu öğeleri listesinde Kanatlar her açın.  
+Bu ilk Kama kaynak havuzu başına ölçüm grafik yanı sıra, ana bazı özelliklerini gösterir. Hello gösterilen hello özelliklerden bazıları **Essentials** blok olan de onunla ilişkilendirilen hello dikey yukarı açılır köprüler. Örneğin, hello seçebilirsiniz **sanal ağ** adı tooopen hello UI yukarı, ana çalıştığı hello sanal ağ ile ilişkili. **Uygulama hizmeti planları** ve **uygulamaları** , ana bu öğeleri listesinde Kanatlar her açın.  
 
 ### <a name="monitoring"></a>İzleme
-Grafikler, çeşitli performans ölçümleri her kaynak havuzundaki görmek izin verir. Ön uç havuzu için ortalama CPU ve bellek izleyebilirsiniz. Çalışan havuzlarında kullanılan miktar ve kullanılabilir miktar izleyebilirsiniz.
+Merhaba grafikleri toosee çeşitli performans ölçümleri her kaynak havuzundaki izin verin. Merhaba ön uç havuzu için hello ortalama CPU ve bellek izleyebilirsiniz. Çalışan havuzlarında kullanılan hello ve kullanılabilir olan hello miktar izleyebilirsiniz.
 
-Birden çok uygulama hizmeti planları yapabilirsiniz çalışan havuzunda çalışanlar kullanın. Bu nedenle ön uç sunucuları ile yok CPU ve bellek kullanımı sağlamak gibi çok yararlı bilgiler in the way of iş yükünü aynı şekilde dağıtılmaz. Özellikle başkalarının kullanmak bu sistem yönetiyorsanız kaç tanesinin kullanıldığını çalışanları ve kullanılabilir--izleyen daha önemlidir.  
+Birden çok uygulama hizmeti planları yapabilirsiniz hello çalışanı çalışan havuzunda kullanın. Merhaba iş yükü yok hello CPU ve bellek kullanımı sağlamak için çok yararlı bilgiler hello yolu hello ön uç sunucuları gibi aynı deneyerek hello dağıtılmaz. Daha önemli tootrack olan kaç kullandığınızı çalışanları ve özellikle, bu sistem başkaları için yönetiyorsanız kullanılabilir--toouse.  
 
-Ayrıca, uyarıları ayarlamak için grafiklerde tüm izlenebilir ölçümleri de kullanabilirsiniz. Burada uyarılarını ayarlama aynı olarak başka bir yere App Service içinde çalışır. Bir uyarı ayarlayabilirsiniz **uyarıları** UI parçası ya da kullanıcı Arabirimi ve seçerek herhangi ölçümleri inmelerini **eklemek uyarı**.
+Ayrıca, tüm uyarıları hello grafikleri tooset izlenebilir hello ölçümleri de kullanabilirsiniz. Ayarlama, burada works aynı olarak başka bir yere App Service'te hello uyarır. Bir uyarı ya da hello ayarlayabilirsiniz **uyarıları** UI parçası ya da kullanıcı Arabirimi ve seçerek herhangi ölçümleri inmelerini **eklemek uyarı**.
 
 ![Ölçümleri kullanıcı Arabirimi][3]
 
-Yalnızca bahsedilen ölçümleri uygulama hizmeti ortamı ölçümleridir. Uygulama hizmeti plan düzeyinde kullanılabilir ölçümleri de vardır. Bu, CPU ve bellek izleme algılama çok kılan unsurdur.
+yalnızca bahsedilen hello ölçümleri hello uygulama hizmeti ortamı ölçümleridir. Uygulama hizmeti planı düzeyi hello kullanılabilir ölçümleri de vardır. Bu, CPU ve bellek izleme algılama çok kılan unsurdur.
 
-ASE'de, uygulama hizmeti planları ayrılmış uygulama hizmeti planları tümü. Bu, uygulama hizmeti planı olduğunu uygulamalar bu uygulama hizmeti planında çalıştıran ayrılmış konaklarda uygulamalar yalnızca anlamına gelir. Uygulama hizmeti planınızın ayrıntılarını görmek için herhangi bir ana UI veya gelen listeleri uygulama hizmeti planınızı Getir **Gözat App Service planlarına** (listelerinin bunların tümünün).   
+ASE'de, App Service planlarına hello ayrılmış uygulama hizmeti planları tümü. Merhaba ayrılan konakları toothat uygulama hizmeti planı üzerinde çalışan hello yalnızca uygulamaların bu uygulama hizmeti planında hello uygulamaları olmasını anlamına gelir. Uygulama hizmeti planınızı toosee ayrıntıları herhangi birinden hello listeleri hello ana UI veya gelen uygulama hizmeti planınızı Getir **Gözat App Service planlarına** (listelerinin bunların tümünün).   
 
 ### <a name="settings"></a>Ayarlar
-Ana Dikey içinde var olan bir **ayarları** çeşitli önemli özellikleri içeren bölümü:
+Hello ana Dikey içinde var olan bir **ayarları** çeşitli önemli özellikleri içeren bölümü:
 
-**Ayarları** > **özellikleri**: **ayarları** dikey penceresi otomatik olarak açılır, ana dikey getirdiğinizde. Üst kısmındaki **özellikleri**. İçinde gördükleri için yedekli öğe burada sayısı vardır **Essentials**, ancak çok kullanışlı nedir **sanal IP adresi**, yanı **giden IP adreslerini**.
+**Ayarları** > **özellikleri**: Merhaba **ayarları** dikey penceresi otomatik olarak açılır, ana dikey getirdiğinizde. Hello üstünde olduğu **özellikleri**. İçinde gördüğünüz yedekli toowhat olan öğelerin burada birkaç vardır **Essentials**, ancak çok kullanışlı nedir **sanal IP adresi**, yanı **giden IP adreslerini**.
 
 ![Ayarlar dikey ve özellikleri][4]
 
-**Ayarları** > **IP adreslerini**: bir IP Güvenli Yuva Katmanı (SSL) uygulama, ana oluşturduğunuzda, bir IP SSL adresi gerekir. Bir sertifika edinmeniz için sahip olduğu IP SSL adresleri ayrılabilen, ana gerekir. Bir ana oluşturulduğunda, bu amaç için bir IP SSL adresi vardır, ancak daha ekleyebilirsiniz. Var olan bir ücret ek IP SSL adresleri için gösterildiği gibi [uygulama hizmeti fiyatlandırma] [ AppServicePricing] (SSL bağlantılarını bölümünde). IP SSL fiyat ek fiyatıdır.
+**Ayarları** > **IP adreslerini**: bir IP Güvenli Yuva Katmanı (SSL) uygulama, ana oluşturduğunuzda, bir IP SSL adresi gerekir. Sipariş tooobtain içinde biri, ana ayrılabilen sahibi IP SSL adres olması gerekir. Bir ana oluşturulduğunda, bu amaç için bir IP SSL adresi vardır, ancak daha ekleyebilirsiniz. Var olan bir ücret ek IP SSL adresleri için gösterildiği gibi [uygulama hizmeti fiyatlandırma] [ AppServicePricing] (bölümünde hello SSL bağlantılarını). Merhaba ek hello IP SSL fiyat fiyatıdır.
 
-**Ayarları** > **ön uç havuzu** / **çalışan havuzlarında**: her bu kaynak havuzu dikey yalnızca bu kaynak havuzu hakkında bilgi görmek için olanak sağlar tam olarak bu kaynak havuzu ölçeklendirmek için Denetim sağlamanın yanı sıra.  
+**Ayarları** > **ön uç havuzu** / **çalışan havuzlarında**: her bu kaynak havuzu dikey hello özelliği toosee bilgi yalnızca bu kaynak havuzu sunar , ayrıca tooproviding toofully ölçek bu kaynak havuzu denetler.  
 
-Her kaynak havuzu için temel dikey bu kaynak havuzu için bir grafik ölçümlerle sağlar. Gibi ana dikey penceresinden grafiklerle, grafiğe gidin ve Uyarıları istenen olarak ayarlayın. Belirli bir kaynak havuzu için ana dikey penceresinden bir uyarı ayarını kaynak havuzundan yapmakta olarak aynı şeyi yapar. Çalışan havuzundan **ayarları** dikey penceresinde tüm uygulamalara erişim sahibi veya uygulama hizmeti planları bu çalışan havuzunda çalışmakta olan.
+Hello temel dikey pencere her kaynak havuzu için bu kaynak havuzu için bir grafik ölçümlerle sağlar. Gibi hello grafiklerle hello ana dikey penceresinden, hello şemasına gidin ve istediğiniz gibi uyarıları ayarlama. Belirli bir kaynak havuzu için hello ana dikey penceresinden bir uyarı ayarını hello kaynak havuzundan yapmakta olarak aynı anlama hello. Merhaba çalışan havuzundan **ayarları** dikey penceresinde, App Service planlarına bu çalışan havuzunda çalışmakta olan veya erişim tooall hello uygulamaları yüklü.
 
 ![Çalışan havuzu ayarları kullanıcı Arabirimi][5]
 
 ### <a name="portal-scale-capabilities"></a>Portal ölçeği özellikleri
 Üç ölçeklendirme işlemleri şunlardır:
 
-* IP SSL kullanımı için uygun olan ana IP adresleri sayısını değiştirme.
-* Bir kaynak havuzunda kullanılan hesaplama kaynağı boyutunu değiştirme.
-* Bir kaynak havuzu el ile veya otomatik ölçeklendirmeyi aracılığıyla kullanılan işlem kaynakları sayısını değiştirme.
+* IP SSL kullanımı için uygun olan hello ana IP adresleri Hello sayısını değiştirme.
+* Bir kaynak havuzunda kullanılan hello işlem kaynak Hello boyutunu değiştirme.
+* Bir kaynak havuzu el ile veya otomatik ölçeklendirmeyi aracılığıyla kullanılan işlem kaynakları Hello sayısını değiştirme.
 
-Portalı'nda, kaynak havuzlarında sahip kaç tane sunucuya denetlemek için üç yolu vardır:
+Merhaba Portalı'nda, kaynak havuzlarında sahip kaç tane sunucuya üç yolu toocontrol vardır:
 
-* Üst ana ana dikey penceresinden bir ölçeklendirme işlemi. Birden fazla ölçek için ön uç ve çalışan havuzlarını yapılandırma değişiklikleri yapabilirsiniz. Tek bir işlem olarak tüm uygulanır.
-* Tek başına bir kaynak havuzundan bir el ile bir ölçeklendirme işlemi **ölçek** altındaki dikey **ayarları**.
-* Tek tek kaynak havuzundan ayarladığınız otomatik ölçeklendirmeyi **ölçek** dikey.
+* Merhaba ana ana dikey penceresinde hello üstünde bir ölçeklendirme işlemi. Birden fazla ölçek yaptığınız yapılandırma değişiklikleri toohello ön uç ve çalışan havuzlarında. Tek bir işlem olarak tüm uygulanır.
+* El ile ölçeklendirme işlemi hello tek başına bir kaynak havuzundan **ölçek** altındaki dikey **ayarları**.
+* Merhaba tek tek kaynak havuzundan ayarladığınız otomatik ölçeklendirmeyi **ölçek** dikey.
 
-Ana dikey penceresinde ölçeklendirme işlemi kullanmak için istediğiniz ve kaydetme miktarı için kaydırıcıyı sürükleyin. Bu UI boyutunu değiştirme de destekler.  
+toouse hello ölçeklendirme işlemi hello ana dikey penceresinde, istediğiniz ve kaydetme hello kaydırıcı toohello miktarı sürükleyin. Bu UI, değişen hello boyutu da destekler.  
 
 ![Ölçek kullanıcı Arabirimi][6]
 
-Belirli kaynak havuzunda el ile veya otomatik ölçeklendirme özelliklerini kullanmak için şu adrese gidin **ayarları** > **ön uç havuzu** / **çalışan havuzlarında** olarak uygun. Daha sonra değiştirmek istediğiniz kuyruğunu açın. Git **ayarları** > **ölçeğini** veya **ayarları** > **ölçeği**. **Ölçeği Genişlet** dikey örneği miktar denetlemenize olanak sağlar. **Ölçeği Artır** kaynak boyutu denetlemenizi sağlar.  
+belirli kaynak havuzundaki toouse hello el ile veya otomatik ölçeklendirme özelliği Git çok**ayarları** > **ön uç havuzu** / **çalışan havuzlarında** olarak uygun. Ardından hello kuyruğunu toochange istediğiniz açın. Çok Git**ayarları** > **ölçeği Genişlet** veya **ayarları** > **ölçeği Artır**. Merhaba **ölçeği Genişlet** dikey toocontrol örneği miktar sağlar. **Ölçeği Artır** toocontrol kaynak boyutu sağlar.  
 
 ![Ölçek ayarları kullanıcı Arabirimi][7]
 
 ## <a name="fault-tolerance-considerations"></a>Hataya dayanıklılık konuları
-Bir uygulama hizmeti ortamı kadar 55 toplam işlem kaynaklarını kullanmak için yapılandırabilirsiniz. Bu 55 işlem kaynakları yalnızca 50 iş yüklerini barındırmak için kullanılabilir. Bunun nedeni iki yönlüdür. En az 2 ön uç işlem kaynakları yoktur.  Çalışan havuzu ayırma desteklemek için en fazla 53 bırakır. Hataya dayanıklılık sağlamak için aşağıdaki kurallara göre ayrılmış bir ek hesaplama kaynak sahip olmanız gerekir:
+Bir uygulama hizmeti ortamı toouse too55 toplam işlem kaynakları yapılandırabilirsiniz. Bu 55 işlem kaynakları yalnızca 50 kullanılan toohost iş yükleri olabilir. Bunun nedeni Hello yönlüdür. En az 2 ön uç işlem kaynakları yoktur.  Too53 toosupport hello çalışan havuzu ayırma bırakır. Sipariş tooprovide hata toleransı içinde toohave toohello kurallara göre ayrılmış bir ek hesaplama kaynağı gerekir:
 
-* Her bir çalışan havuzu bir iş yükü atanacak kullanılabilir olmayan en az 1 ek hesaplama kaynak gerekir.
-* Çalışan havuzunda işlem kaynakları miktarı belirli bir değere gittiğinde, başka bir işlem kaynağı hataya dayanıklılık için gerekli değildir. Bu ön uç havuzu durumda değil.
+* Her bir çalışan havuzu, bir iş yükü atanan kullanılabilir toobe olmayan en az 1 ek hesaplama kaynağa gerekir.
+* Merhaba miktar çalışan havuzunda işlem kaynakları üzerinde belirli bir değere gittiğinde, başka bir işlem kaynağı hataya dayanıklılık için gerekli değildir. Bu hello ön uç havuzu hello durumda değil.
 
-Herhangi bir tek çalışan havuzunda içinde hataya dayanıklılık gereksinimleri, belirli bir değerini çalışan havuzuna atanan kaynakların X şunlardır:
+Herhangi bir tek çalışan havuzunda içinde belirli bir X değeri için kaynakları tooa çalışan havuzuna atanmış hello hataya dayanıklılık gereksinimleri şunlardır:
 
-* X 2 ile 20 arasında iş yükleri için kullanabileceğiniz kullanılabilir bilgi işlem kaynaklarının miktarını X-1 ise.
-* X 21 ile 40 arasında iş yükleri için kullanabileceğiniz kullanılabilir bilgi işlem kaynaklarının miktarını X-2 ise.
-* X 41 ve 53 arasında iş yükleri için kullanabileceğiniz kullanılabilir bilgi işlem kaynaklarının miktarını X-3 ise.
+* X 2 ile 20 arasında hello tutar iş yükleri için kullanabileceğiniz kullanılabilir işlem kaynakları X-1 ise.
+* X 21 ile 40 arasında hello tutar iş yükleri için kullanabileceğiniz kullanılabilir işlem kaynakları X-2 ise.
+* X 41 ve 53 arasındaysa hello iş yükleri için kullanabileceğiniz kullanılabilir işlem kaynakları X-3 miktarıdır.
 
-Minimum ayak 2 ön uç sunucuları ve 2 çalışan vardır.  Yukarıdaki ifadelerle daha sonra burada açıklamak için birkaç örnekler verilmiştir:  
+Merhaba minimum ayak izini 2 ön uç sunucuları ve 2 çalışan vardır.  Ardından deyimleri yukarıda Hello ile birkaç örnek tooclarify şunlardır:  
 
-* Tek bir havuzda 30 çalışanları varsa, bunların 28 iş yüklerini barındırmak için kullanılabilir.
-* Tek bir havuzda 2 çalışan varsa, 1 ana iş yükleri için kullanılabilir.
-* Tek bir havuzda 20 çalışanları varsa, 19 iş yüklerini barındırmak için kullanılabilir.  
-* Tek bir havuzda 21 çalışanları varsa, sonra hala yalnızca 19 iş yüklerini barındırmak için kullanılabilir.  
+* Tek bir havuzda 30 çalışanları varsa, bunların 28 kullanılan toohost iş yükleri olabilir.
+* Tek bir havuzda 2 çalışan varsa, 1 kullanılan toohost iş yükleri olabilir.
+* Tek bir havuzda 20 çalışanları varsa, 19 kullanılan toohost iş yükleri olabilir.  
+* Tek bir havuzda 21 çalışanları varsa, kullanılan toohost iş yükleri 19 yalnızca sonra hala.  
 
-Hataya dayanıklılık en boy önemlidir, ancak belirli eşikleri ölçeklendirmenize göre göz önünde bulundurmanız gerekir. 20 örneklerden giderek daha fazla Kapasite eklemek istiyorsanız, 21 herhangi daha fazla Kapasite eklemek değil çünkü 22 ya da daha yüksek geçin. Aynı kapasite ekler sonraki sayıyı 42 olduğu 40 giderek geçerlidir.  
+Merhaba hataya dayanıklılık en boy önemlidir, ancak bunu aklınızda ölçeklendirme belirli eşikleri tookeep gerekir. 21 herhangi daha fazla Kapasite eklemek değil çünkü tooadd fazla Kapasite 20 örnekleri sonra gidin too22 geçiyor ya da daha yüksek istiyorsanız. Merhaba aynı kapasite ekler hello sonraki sayıyı 42 olduğu 40 giderek geçerlidir.  
 
 ## <a name="deleting-an-app-service-environment"></a>Bir uygulama hizmeti ortamı siliniyor
-Bir uygulama hizmeti ortamı silmek istiyorsanız, yalnızca kullanmak **silmek** uygulama hizmeti ortamı dikey pencerenin üstündeki eylem. Bunu yaptığınızda, gerçekten Bunu yapmak istediğinizi onaylamak için uygulama hizmeti ortamınızı adını girmeniz istenir. Bir uygulama hizmeti ortamı sildiğinizde, tüm içeriğin içindeki silmek unutmayın.  
+Bir uygulama hizmeti ortamı toodelete istiyorsanız, hello yalnızca kullanın **silmek** eylemin hello uygulama hizmeti ortamı dikey penceresinde hello üstünde. Bunu yaptığınızda, gerçekten toodo bu istediğinizi, uygulama hizmeti ortamı tooconfirm istendiğinde tooenter hello adı olması. Bir uygulama hizmeti ortamı sildiğinizde, tüm içeriğini hello içindeki de Sil unutmayın.  
 
 ![Bir uygulama hizmeti ortamı UI silin.][9]  
 
 ## <a name="getting-started"></a>Başlarken
-Uygulama hizmeti ortamları ile çalışmaya başlamak için bkz: [bir uygulama hizmeti ortamı oluşturmak nasıl](app-service-web-how-to-create-an-app-service-environment.md).
+Uygulama hizmeti ortamları ile çalışmaya tooget bkz [nasıl toocreate bir uygulama hizmeti ortamı](app-service-web-how-to-create-an-app-service-environment.md).
 
-Azure Uygulama Hizmeti platformu hakkında daha fazla bilgi için bkz. [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+Hello Azure App Service platformu hakkında daha fazla bilgi için bkz: [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

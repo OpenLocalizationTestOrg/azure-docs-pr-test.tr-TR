@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory v2.0 Node.js web uygulaması oturum açma | Microsoft Docs"
-description: "Kişisel bir Microsoft hesabı ve bir iş veya Okul hesabı kullanarak bir kullanıcı oturum açtığında bir Node.js web uygulaması oluşturmayı öğrenin."
+title: "Node.js web uygulaması oturum açma aaaAzure Active Directory v2.0 | Microsoft Docs"
+description: "Nasıl toobuild bir Node.js web kişisel bir Microsoft hesabı ve bir iş veya Okul hesabı kullanarak bir kullanıcı oturum açtığında uygulama hakkında bilgi edinin."
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
@@ -15,42 +15,42 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 6d49c742f72440e22830915c90de009d9188db2a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f8ce6e2b841c215cb14e82bcf444fe849634cc88
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-sign-in-to-a-nodejs-web-app"></a>Oturum açma bir Node.js web uygulamasına ekleme
+# <a name="add-sign-in-tooa-nodejs-web-app"></a>Oturum açma tooa Node.js web uygulaması Ekle
 
 > [!NOTE]
-> Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası ile çalışır. V2.0 uç noktası veya v1.0 uç nokta kullanması gerekip gerekmediğini belirlemek için okuyun [v2.0 sınırlamaları](active-directory-v2-limitations.md).
+> Tüm Azure Active Directory senaryolarını ve özelliklerini hello v2.0 uç noktası ile çalışır. mı hello v2.0 uç noktası veya hello v1.0 uç noktası, kullanılacağını toodetermine okuma hakkında [v2.0 sınırlamaları](active-directory-v2-limitations.md).
 > 
 
-Bu öğreticide, aşağıdaki görevleri gerçekleştirmek için Passport kullanın:
+Bu öğreticide, görevleri aşağıdaki Passport toodo hello kullanın:
 
-* Bir web uygulaması, Azure Active Directory (Azure AD) ve v2.0 uç noktası kullanarak kullanıcı oturum.
-* Kullanıcı hakkındaki bilgileri görüntüler.
-* Uygulama dışında kullanıcı oturum açabilir.
+* Bir web uygulamasında hello kullanıcının Azure Active Directory (Azure AD) kullanarak oturum açın ve v2.0 uç hello.
+* Merhaba kullanıcı hakkındaki bilgileri görüntüler.
+* Oturum, kullanıcı hello uygulama dışında hello.
 
-**Passport**, Node.js için kimlik doğrulama ara yazılımıdır. Esnek ve modüler, Passport sorunsuz bir şekilde bırakılan hiçbir Express tabanlı veya restify web uygulamasına. Passport, bir dizi kapsamlı strateji kimlik doğrulamasını bir kullanıcı adı ve parola, Facebook, Twitter veya diğer seçenekleri kullanarak destekler. Azure AD için bir strateji geliştirdik. Bu makalede, modülünü yüklemek ve Azure AD eklemek nasıl gösteriyoruz `passport-azure-ad` eklentisi.
+**Passport**, Node.js için kimlik doğrulama ara yazılımıdır. Esnek ve modüler, Passport sorunsuz bir şekilde bırakılan hiçbir Express tabanlı veya restify web uygulamasına. Passport, bir dizi kapsamlı strateji kimlik doğrulamasını bir kullanıcı adı ve parola, Facebook, Twitter veya diğer seçenekleri kullanarak destekler. Azure AD için bir strateji geliştirdik. Bu makalede, nasıl tooinstall hello modülü ve ardından hello Azure AD ekleyin gösteriyoruz `passport-azure-ad` eklentisi.
 
 ## <a name="download"></a>İndir
-Bu öğretici için kod [GitHub'da](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) korunur. Öğreticiyi izlemek için şunları yapabilirsiniz [uygulamanın çatısını bir .zip dosyası karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/skeleton.zip) veya çatıyı kopyalayın:
+Bu öğretici için kod Hello korunduğu [github'da](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs). yapabilecekleriniz toofollow hello öğretici, [hello uygulamanın çatısını bir .zip dosyası karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/skeleton.zip) veya kopya hello çatıyı:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-Bu öğretici sonunda tamamlanmış uygulama da alabilirsiniz.
+Bu öğretici hello sonunda tamamlanmış Merhaba uygulaması da alabilirsiniz.
 
 ## <a name="1-register-an-app"></a>1: bir uygulamayı Kaydet
-En yeni bir uygulama oluşturma [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya izleyin [bu adımları ayrıntılı](active-directory-v2-app-registration.md) uygulama kaydetmek için. Emin olun:
+En yeni bir uygulama oluşturma [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya izleyin [bu adımları ayrıntılı](active-directory-v2-app-registration.md) tooregister bir uygulama. Emin olun:
 
-* Kopya **uygulama kimliği** uygulamanıza atanmış. Bu öğretici için ihtiyacınız.
-* Ekleme **Web** uygulamanız için platform.
-* Kopya **yeniden yönlendirme URI'si** portalından. Varsayılan URI değeri kullanmalısınız `urn:ietf:wg:oauth:2.0:oob`.
+* Kopya hello **uygulama kimliği** tooyour uygulama atanmış. Bu öğretici için ihtiyacınız.
+* Merhaba eklemek **Web** uygulamanız için platform.
+* Kopya hello **yeniden yönlendirme URI'si** hello portalından. Merhaba varsayılan URI değeri kullanmalısınız `urn:ietf:wg:oauth:2.0:oob`.
 
-## <a name="2-add-prerequisities-to-your-directory"></a>2: ön koşullar dizininize eklemek
-Zaten orada değilseniz kök klasörünüze gitmek için dizinleri bir komut isteminde değiştirin. Aşağıdaki komutları çalıştırın:
+## <a name="2-add-prerequisities-tooyour-directory"></a>2: ön koşullar tooyour Dizin Ekle
+Zaten yoksa bir komut isteminde dizinleri toogo tooyour kök klasörü değiştirin. Merhaba aşağıdaki komutları çalıştırın:
 
 * `npm install express`
 * `npm install ejs`
@@ -65,22 +65,22 @@ Zaten orada değilseniz kök klasörünüze gitmek için dizinleri bir komut ist
 * `npm install express-session`
 * `npm install cookie-parser`
 
-Ayrıca, kullandığımız `passport-azure-ad` hızlı başlangıç çatısında önizlememiz:
+Ayrıca, kullandığımız `passport-azure-ad` hello hızlı başlangıç çatısında önizlememiz hello içinde:
 
 * `npm install passport-azure-ad`
 
-Bu kitaplıklar yükler, `passport-azure-ad` kullanır.
+Bu hello kitaplıkları yükler, `passport-azure-ad` kullanır.
 
-## <a name="3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>3: passport düğümü js stratejisi kullanmak için uygulamanızı ayarlayın
-Openıd Connect kimlik doğrulama protokolünü kullanmak için Express ara yazılımını ayarlayın. Passport, oturum açma ve oturum kapatma isteklerini yürütmek, kullanıcının oturumunu yönetmek ve kullanıcı, başka şeylerin hakkında bilgi almak için kullanın.
+## <a name="3-set-up-your-app-toouse-hello-passport-node-js-strategy"></a>3: uygulama toouse hello passport düğümü js stratejinizi ayarlayın
+Merhaba Express ara yazılım toouse hello Openıd Connect kimlik doğrulama protokolü olarak ayarlayın. Passport tooissue oturum açma ve oturum kapatma isteklerini kullanın, hello kullanıcının oturumunu yönetmek ve başka şeylerin hello kullanıcı hakkında bilgi alın.
 
-1.  Proje kök dizininde Config.js dosyasını açın. İçinde `exports.creds` bölümünde, uygulamanızın yapılandırma değerlerini girin.
+1.  Merhaba proje Hello kökte hello Config.js dosyasını açın. Merhaba, `exports.creds` bölümünde, uygulamanızın yapılandırma değerlerini girin.
   
-  * `clientID`**Uygulama kimliği** Azure portalında uygulamanıza atanan.
-  * `returnURL`**Yeniden yönlendirme URI'si** portalda girdiğiniz.
-  * `clientSecret`: Portalda oluşturulan gizli anahtarı.
+  * `clientID`: Merhaba **uygulama kimliği** hello Azure portal atanan tooyour uygulamada olmasıdır.
+  * `returnURL`: Merhaba **yeniden yönlendirme URI'si** hello portalda girdiğiniz.
+  * `clientSecret`: hello Portalı'nda oluşturulan hello gizli anahtarı.
 
-2.  Proje kök dizininde App.js dosyasını açın. İle birlikte OIDCStrategy stratey çağrılacak `passport-azure-ad`, aşağıdaki çağrıyı ekleyin:
+2.  Merhaba proje Hello kökte hello App.js dosyasını açın. ile birlikte tooinvoke hello OIDCStrategy stratey `passport-azure-ad`, çağrı aşağıdaki hello ekleyin:
 
   ```JavaScript
   var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -91,12 +91,12 @@ Openıd Connect kimlik doğrulama protokolünü kullanmak için Express ara yaz�
   });
   ```
 
-3.  Oturum açma isteklerini işlemek için az önce başvurduğunuz stratejiyi kullanın:
+3.  toohandle, oturum açma istekleri, yalnızca başvurulan hello stratejisi kullanın:
 
   ```JavaScript
-  // Use the OIDCStrategy within Passport (section 2)
+  // Use hello OIDCStrategy within Passport (section 2)
   //
-  //   Strategies in Passport require a `validate` function. The function accepts
+  //   Strategies in Passport require a `validate` function. hello function accepts
   //   credentials (in this case, an OpenID identifier), and invokes a callback
   //   with a user object.
   passport.use( new OIDCStrategy({
@@ -131,23 +131,23 @@ Openıd Connect kimlik doğrulama protokolünü kullanmak için Express ara yaz�
   ));
   ```
 
-Passport, tüm kendi stratejileri (Twitter, Facebook vb.) benzer bir desen kullanır. Tüm strateji yazıcıları desene bağlı kalır. Stratejisi geçirmek bir `function()` bir belirteç kullanan ve `done` parametre olarak. Tüm iş yaptıktan sonra strateji döndürülür. Kullanıcıyı depolayın ve böylece bunları yeniden istemeniz gerekmez belirteci kaydedin;.
+Passport, tüm kendi stratejileri (Twitter, Facebook vb.) benzer bir desen kullanır. Tüm strateji yazıcıları toohello düzeni uyması. Merhaba stratejisi geçirmek bir `function()` bir belirteç kullanan ve `done` parametre olarak. tüm iş yaptıktan sonra hello stratejisi döndürülür. İçin yeniden tooask gerekmeyen şekilde hello kullanıcı ve hazırlama hello belirtecini depolar.
 
   > [!IMPORTANT]
-  > Önceki kod sunucunuza doğrulanabilir herhangi bir kullanıcı alır. Bu otomatik kaydı bilinir. Bir üretim sunucusunda herkes bunları seçtiğiniz bir kayıt sürecinden geçerler gerekmeden let istemezsiniz. Bu genellikle tüketici uygulamalarında görürsünüz düzeni olur. Uygulama, Facebook ile kaydetmenize olanak sağlayabilir, ancak ek bilgileri girmenizi ister. Bu öğretici için bir komut satırı programı doğru kullanıyorsanız, döndürülen belirteç nesnesinden e-posta ayıklanamıyor. Sonra ek bilgilerini girmesini isteyebilir. Bu bir test sunucusu olduğundan, bellek içi veritabanına doğrudan kullanıcı ekleyin.
+  > Merhaba önceki kod tooyour sunucu kimliğini doğrulayabilir herhangi bir kullanıcı alır. Bu otomatik kaydı bilinir. Bir üretim sunucusunda toolet herkes bunları seçtiğiniz bir kayıt sürecinden geçerler gerekmeden istediğiniz olmayacaktır. Bu genellikle tüketici uygulamalarında görürsünüz hello düzeni olur. Merhaba uygulama Facebook ile tooregister sağlayabilir, ancak tooenter ek bilgiler, ister. Bu öğretici için bir komut satırı programı doğru kullanıyorsanız, döndürülen hello belirteç nesnesinden hello e-posta ayıklanamıyor. Ardından, hello kullanıcı tooenter ek bilgileri isteyebilir. Bu bir test sunucusu olduğundan, hello kullanıcı ekleme doğrudan toohello bellek içi veritabanı.
   > 
   > 
 
-4.  Oturum açtığınız kullanıcılar izlemek için kullandığınız yöntemleri ekleyin Passport'un gerektirdiği gibi. Bu seri hale getirme ve seri durumdan kullanıcının bilgileri içerir:
+4.  Oturum açtığınız kullanıcı tookeep izleme kullanmak hello yöntemleri ekleyin Passport'un gerektirdiği gibi. Bu seri hale getirme ve seri durumdan hello kullanıcının bilgileri içerir:
 
   ```JavaScript
 
   // Passport session setup (section 2)
 
-  //   To support persistent login sessions, Passport needs to be able to
-  //   serialize users into, and deserialize users out of, the session. Typically,
-  //   this is as simple as storing the user ID when serializing, and finding
-  //   the user by ID when deserializing.
+  //   toosupport persistent login sessions, Passport needs toobe able to
+  //   serialize users into, and deserialize users out of, hello session. Typically,
+  //   this is as simple as storing hello user ID when serializing, and finding
+  //   hello user by ID when deserializing.
   passport.serializeUser(function(user, done) {
     done(null, user.email);
   });
@@ -158,7 +158,7 @@ Passport, tüm kendi stratejileri (Twitter, Facebook vb.) benzer bir desen kulla
     });
   });
 
-  // Array to hold signed-in users
+  // Array toohold signed-in users
   var users = [];
 
   var findByEmail = function(email, fn) {
@@ -173,7 +173,7 @@ Passport, tüm kendi stratejileri (Twitter, Facebook vb.) benzer bir desen kulla
   };
   ```
 
-5.  Express altyapısını yükler kodu ekleyin. Varsayılan /views kullanın ve Express /routes desen sağlar:
+5.  Merhaba Express altyapısını yükler hello kodu ekleyin. Merhaba varsayılan /views kullanın ve Express /routes desen sağlar:
 
   ```JavaScript
 
@@ -189,7 +189,7 @@ Passport, tüm kendi stratejileri (Twitter, Facebook vb.) benzer bir desen kulla
     app.use(cookieParser());
     app.use(expressSession({ secret: 'keyboard cat', resave: true, saveUninitialized: false }));
     app.use(bodyParser.urlencoded({ extended : true }));
-    // Initialize Passport!  Also use passport.session() middleware, to support
+    // Initialize Passport!  Also use passport.session() middleware, toosupport
     // persistent login sessions (recommended).
     app.use(passport.initialize());
     app.use(passport.session());
@@ -199,31 +199,31 @@ Passport, tüm kendi stratejileri (Twitter, Facebook vb.) benzer bir desen kulla
 
   ```
 
-6.  POST yönlendirir o elde gerçek oturum açma istekleri için devre dışı eklemek `passport-azure-ad` altyapısı:
+6.  Merhaba POST yönlendirir o elde hello gerçek oturum açma isteklerini toohello kapalı eklemek `passport-azure-ad` altyapısı:
 
   ```JavaScript
 
   // Auth routes (section 3)
 
   // GET /auth/openid
-  //   Use passport.authenticate() as route middleware to authenticate the
-  //   request. The first step in OpenID authentication involves redirecting
-  //   the user to the user's OpenID provider. After authenticating, the OpenID
-  //   provider redirects the user back to this application at
+  //   Use passport.authenticate() as route middleware tooauthenticate the
+  //   request. hello first step in OpenID authentication involves redirecting
+  //   hello user toohello user's OpenID provider. After authenticating, hello OpenID
+  //   provider redirects hello user back toothis application at
   //   /auth/openid/return.
 
   app.get('/auth/openid',
     passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
     function(req, res) {
-      log.info('Authentication was called in the sample');
+      log.info('Authentication was called in hello sample');
       res.redirect('/');
     });
 
   // GET /auth/openid/return
-  //   Use passport.authenticate() as route middleware to authenticate the
-  //   request. If authentication fails, the user is redirected back to the
-  //   sign-in page. Otherwise, the primary route function is called.
-  //   In this example, it redirects the user to the home page.
+  //   Use passport.authenticate() as route middleware tooauthenticate the
+  //   request. If authentication fails, hello user is redirected back toothe
+  //   sign-in page. Otherwise, hello primary route function is called.
+  //   In this example, it redirects hello user toohello home page.
   app.get('/auth/openid/return',
     passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
     function(req, res) {
@@ -232,10 +232,10 @@ Passport, tüm kendi stratejileri (Twitter, Facebook vb.) benzer bir desen kulla
     });
 
   // POST /auth/openid/return
-  //   Use passport.authenticate() as route middleware to authenticate the
-  //   request. If authentication fails, the user is redirected back to the
-  //   sign-in page. Otherwise, the primary route function is called. 
-  //   In this example, it redirects the user to the home page.
+  //   Use passport.authenticate() as route middleware tooauthenticate the
+  //   request. If authentication fails, hello user is redirected back toothe
+  //   sign-in page. Otherwise, hello primary route function is called. 
+  //   In this example, it redirects hello user toohello home page.
 
   app.post('/auth/openid/return',
     passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
@@ -245,10 +245,10 @@ Passport, tüm kendi stratejileri (Twitter, Facebook vb.) benzer bir desen kulla
     });
   ```
 
-## <a name="4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>4: Azure AD ile oturum açma ve oturum kapatma isteklerini yürütmek için Passport kullan
-Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak v2.0 uç noktası ile iletişim kurmak için ayarlanır. `passport-azure-ad` Stratejisi, kimlik doğrulama iletileri hazırlayın, Azure AD'den belirteçleri doğrulamak ve kullanıcı oturumunu sürdürme tüm ayrıntılarını mvc'deki. Tüm yapmak için sol etmektir kullanıcılarınız oturum açın ve oturumu kapatın ve oturum kullanıcının hakkında daha fazla bilgi toplamak için bir yol sağlar.
+## <a name="4-use-passport-tooissue-sign-in-and-sign-out-requests-tooazure-ad"></a>4: kullanım Passport tooissue oturum açma ve oturum kapatma isteklerini tooAzure AD
+Uygulamanızı şimdi hello v2.0 uç noktası ile toocommunicate yukarı hello Openıd Connect kimlik doğrulama protokolü kullanarak ayarlanır. Merhaba `passport-azure-ad` stratejisi, kimlik doğrulama iletileri hazırlayın, Azure AD'den belirteçleri doğrulamak ve hello kullanıcı oturumunu sürdürme hello ayrıntılarını mvc'deki. Toodo sol tüm kullanıcılarınız toogive olan bir şekilde toosign ve oturum out ve toogather açık olan hello kullanıcı hakkında daha fazla bilgi.
 
-1.  Ekleme **varsayılan**, **oturum açma**, **hesap**, ve **oturum kapatma** App.js dosyanıza yöntemleri:
+1.  Merhaba eklemek **varsayılan**, **oturum açma**, **hesap**, ve **oturum kapatma** yöntemleri tooyour App.js dosyası:
 
   ```JavaScript
 
@@ -265,7 +265,7 @@ Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak v2.0
   app.get('/login',
     passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
     function(req, res) {
-      log.info('Login was called in the sample');
+      log.info('Login was called in hello sample');
       res.redirect('/');
   });
 
@@ -276,22 +276,22 @@ Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak v2.0
 
   ```
 
-  Ayrıntıları aşağıdadır:
+  Merhaba ayrıntıları aşağıdadır:
     
-    * `/` Rota index.ejs görünümüne yeniden yönlendirir. (Varsa) istek kullanıcı geçirir.
-    * `/account` İlk yol *, kimlik doğrulaması yapmasını sağlar* (Bu aşağıdaki kodda uygulamanız). Ardından, kullanıcı istekte geçirir. Böylece kullanıcı hakkında daha fazla bilgi elde edebilirsiniz budur.
-    * `/login` Rota çağrıları, `azuread-openidconnect` doğrulayıcıdan `passport-azuread`. Değil başarılı olursa, kullanıcının yeniden geri `/login`.
-    * `/logout` Logout.ejs görüntüleyin (ve rota) yol çağırır. Bu tanımlama bilgilerini temizler ve ardından kullanıcıyı geri index.ejs döndürür.
+    * Merhaba `/` rota toohello index.ejs görünümü yeniden yönlendirir. (Varsa) hello istekte hello kullanıcı geçirir.
+    * Merhaba `/account` ilk yol *, kimlik doğrulaması yapmasını sağlar* (Bu koddan hello uygulamanız). Ardından, hello istekte hello kullanıcı geçirir. Merhaba kullanıcı hakkında daha fazla bilgi sınıflandırıp budur.
+    * Merhaba `/login` rota çağrıları, `azuread-openidconnect` doğrulayıcıdan `passport-azuread`. Başarılı değil, hello kullanıcı geri çok yeniden`/login`.
+    * Merhaba `/logout` hello logout.ejs görüntüleyin (ve rota) yol çağırır. Bu tanımlama bilgilerini temizler ve ardından kullanıcı geri tooindex.ejs döndürür hello.
 
-2.  Ekleme **EnsureAuthenticated** daha önce kullanılan yöntem `/account`:
+2.  Merhaba eklemek **EnsureAuthenticated** daha önce kullanılan yöntem `/account`:
 
   ```JavaScript
 
-  // Route middleware to ensure the user is authenticated (section 4)
+  // Route middleware tooensure hello user is authenticated (section 4)
 
-  //   Use this route middleware on any resource that needs to be protected. If
-  //   the request is authenticated (typically via a persistent login session),
-  //   the request proceeds. Otherwise, the user is redirected to the
+  //   Use this route middleware on any resource that needs toobe protected. If
+  //   hello request is authenticated (typically via a persistent login session),
+  //   hello request proceeds. Otherwise, hello user is redirected toothe
   //   sign-in page.
   function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) { return next(); }
@@ -300,7 +300,7 @@ Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak v2.0
 
   ```
 
-3.  App.js içinde sunucu oluşturun:
+3.  App.js içinde hello sunucusu oluştur:
 
   ```JavaScript
 
@@ -309,10 +309,10 @@ Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak v2.0
   ```
 
 
-## <a name="5-create-the-views-and-routes-in-express-that-you-show-your-user-on-the-website"></a>5: kullanıcı Web sitesinde Göster Express'te yolları ve görünümleri oluşturma
-Yollar ve kullanıcı bilgilerini göster görünümleri ekleyin. Yolları ve görünümleri de işlemek `/logout` ve `/login` oluşturduğunuz yollar.
+## <a name="5-create-hello-views-and-routes-in-express-that-you-show-your-user-on-hello-website"></a>5: hello Web sitesinde kullanıcı Göster Express'te hello görünümleri ve yollar oluşturma
+Merhaba yollar ve bilgi toohello kullanıcı Göster görünümleri ekleyin. Merhaba yolları ve görünümleri de hello işlemek `/logout` ve `/login` oluşturduğunuz yollar.
 
-1. Kök dizininde oluşturmak `/routes/index.js` rota.
+1. Merhaba Hello kök dizininde oluşturmak `/routes/index.js` rota.
 
   ```JavaScript
 
@@ -325,7 +325,7 @@ Yollar ve kullanıcı bilgilerini göster görünümleri ekleyin. Yolları ve g�
   };
   ```
 
-2.  Kök dizininde oluşturmak `/routes/user.js` rota.
+2.  Merhaba Hello kök dizininde oluşturmak `/routes/user.js` rota.
 
   ```JavaScript
 
@@ -338,9 +338,9 @@ Yollar ve kullanıcı bilgilerini göster görünümleri ekleyin. Yolları ve g�
   };
   ```
 
-  `/routes/index.js`ve `/routes/user.js` isteği varsa kullanıcı da dahil olmak üzere, geçer basit yollar.
+  `/routes/index.js`ve `/routes/user.js` isteği tooyour görünümlerini hello kullanıcı gibi hello geçirmek basit yollar.
 
-3.  Kök dizininde oluşturmak `/views/index.ejs` görünümü. Bu sayfa çağrıları, **oturum açma** ve **oturum kapatma** yöntemleri. Aynı zamanda `/views/index.ejs` hesap bilgileri yakalamak için görünümü. Koşullu kullanabilirsiniz `if (!user)` aracılığıyla istekte geçirilen kullanıcı olarak. Bu bulgu açtığınız kullanıcı sahip olur.
+3.  Merhaba Hello kök dizininde oluşturmak `/views/index.ejs` görünümü. Bu sayfa çağrıları, **oturum açma** ve **oturum kapatma** yöntemleri. Merhaba de `/views/index.ejs` toocapture hesap bilgileri görüntüleyin. Merhaba koşullu kullanabilirsiniz `if (!user)` aracılığıyla hello istekte geçirilen hello kullanıcı olarak. Bu bulgu açtığınız kullanıcı sahip olur.
 
   ```JavaScript
   <% if (!user) { %>
@@ -353,7 +353,7 @@ Yollar ve kullanıcı bilgilerini göster görünümleri ekleyin. Yolları ve g�
   <% } %>
   ```
 
-4.  Kök dizininde oluşturmak `/views/account.ejs` görünümü. `/views/account.ejs` Görünümü sağlar, ek bilgileri görüntülemek, `passport-azuread` kullanıcı isteğine koyar.
+4.  Merhaba Hello kök dizininde oluşturmak `/views/account.ejs` görünümü. Merhaba `/views/account.ejs` görünümü tooview ek bilgiler sağlar, `passport-azuread` hello kullanıcı istekte koyar.
 
   ```Javascript
   <% if (!user) { %>
@@ -372,7 +372,7 @@ Yollar ve kullanıcı bilgilerini göster görünümleri ekleyin. Yolları ve g�
   <% } %>
   ```
 
-5.  Bir düzen ekleyin. Kök dizininde oluşturmak `/views/layout.ejs` görünümü.
+5.  Bir düzen ekleyin. Merhaba Hello kök dizininde oluşturmak `/views/layout.ejs` görünümü.
 
   ```HTML
 
@@ -399,20 +399,20 @@ Yollar ve kullanıcı bilgilerini göster görünümleri ekleyin. Yolları ve g�
   </html>
   ```
 
-6.  Derleme ve uygulamanızı çalıştırmak için Çalıştır `node app.js`. Ardından, Git `http://localhost:3000`.
+6.  toobuild, uygulamanızı ve çalıştırma Çalıştır `node app.js`. Ardından, çok Git`http://localhost:3000`.
 
-7.  Kişisel bir Microsoft hesabı veya bir iş veya Okul hesabınızla oturum açın. Kullanıcının kimliğini ApplicationTier/account listesinde yansıtılır unutmayın. 
+7.  Kişisel bir Microsoft hesabı veya bir iş veya Okul hesabınızla oturum açın. Merhaba kullanıcının kimliğini hello ApplicationTier/account listesinde yansıtılır unutmayın. 
 
 Endüstri standardı protokoller kullanılarak güvenli bir web uygulaması şimdi sahipsiniz. Kişisel ve iş veya Okul hesaplarını kullanarak uygulamanızı kullanıcıların kimliklerini doğrulayabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Başvuru için tamamlanan örnek (yapılandırma değerleriniz olmadan) olarak sağlanan [bir .zip dosyası](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). Aynı zamanda Github'dan kopyalayabilirsiniz:
+Başvuru için tamamlandı hello örnek (yapılandırma değerleriniz olmadan) olarak sağlanan [bir .zip dosyası](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). Aynı zamanda Github'dan kopyalayabilirsiniz:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-Ardından, size daha ileri seviyeli konulara geçebilirsiniz. Denemek isteyebilirsiniz:
+Ardından, Gelişmiş konular toomore üzerinde taşıyabilirsiniz. Tootry isteyebilirsiniz:
 
-[Node.js web API'si v2.0 uç noktası kullanarak güvenli hale getirme](active-directory-v2-devquickstarts-node-api.md)
+[Node.js web API'si hello v2.0 uç kullanarak güvenli hale getirme](active-directory-v2-devquickstarts-node-api.md)
 
 Bazı ek kaynaklar aşağıda verilmiştir:
 
@@ -420,5 +420,5 @@ Bazı ek kaynaklar aşağıda verilmiştir:
 * [Yığın taşması "azure-active-directory" etiketi](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ### <a name="get-security-updates-for-our-products"></a>Ürünlerimiz için güvenlik güncelleştirmelerini alma
-Güvenlik olayları oluştuğunda bildirim almak için kaydolun öneririz. Üzerinde [Microsoft Teknik Güvenlik bildirimleri](https://technet.microsoft.com/security/dd252948) sayfasında, güvenlik danışma uyarılara abone.
+Güvenlik olayları olduğunda bildirim toobe yukarı toosign öneririz. Merhaba üzerinde [Microsoft Teknik Güvenlik bildirimleri](https://technet.microsoft.com/security/dd252948) sayfasında, tooSecurity danışma uyarıları abone olun.
 

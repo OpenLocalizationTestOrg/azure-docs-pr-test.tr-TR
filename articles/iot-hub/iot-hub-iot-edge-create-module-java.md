@@ -1,6 +1,6 @@
 ---
-title: "Java ile Azure IOT kenar modülü oluşturma | Microsoft Docs"
-description: "Bu öğretici nasıl en son Azure IOT kenar Maven paketlerini kullanma bırak veri dönüştürücü modülü yazılacağını gösterir."
+title: "aaaCreate bir Java ile Azure IOT kenar Modülü | Microsoft Docs"
+description: "Bu öğretici, nasıl bir bırak veri dönüştürücü modülünü kullanarak toowrite hello en son Azure IOT kenar Maven paketlerin gösterir."
 services: iot-hub
 author: junyi
 manager: timlt
@@ -11,53 +11,53 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: junyi
-ms.openlocfilehash: 0c430272225d79737baec2be15ed7c93991cdeac
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: abb560933d13d133ae9a1da08b503d5735b230e0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-java"></a>Java ile Azure IOT kenar modülü oluşturun
 
 Bu öğretici bir Java Azure IOT sınır için bir modül nasıl oluşturabilir gösterir.
 
-Bu öğreticide, biz ortam kurulumu ve nasıl yazılacağını yükselteceğinizi bir [bırak](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) veri dönüştürücü modülü en son Azure IOT kenar Maven paketleri kullanma.
+Bu öğreticide, ortamı kurulumu aracılığıyla size yol gösterir ve nasıl toowrite bir [bırak](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) veri dönüştürücü modülü hello en son Azure IOT kenar Maven paketleri kullanma.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu bölümde IOT kenar modülü geliştirme ortamınızı ayarlayacaksınız. Her ikisi de geçerli *64-bit Windows* ve *64-bit Linux (Ubuntu/Debian 8)* işletim sistemleri.
+Bu bölümde IOT kenar modülü geliştirme ortamınızı ayarlayacaksınız. Tooboth geçerlidir *64-bit Windows* ve *64-bit Linux (Ubuntu/Debian 8)* işletim sistemleri.
 
-Aşağıdaki yazılımlar gereklidir:
+yazılımı aşağıdaki hello gereklidir:
 
 * [Git istemci](https://git-scm.com/downloads).
 * [**x64** JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * [Maven](https://maven.apache.org/install.html).
 
-Komut satırı bir terminal penceresi açın ve aşağıdaki depoyu kopyalayın:
+Depo izleyen bir komut satırı terminal penceresi ve kopya hello açın:
 
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`.
 2. `cd iot-edge-samples/java/simulated_ble`
 
 ## <a name="overall-architecture"></a>Genel mimari
 
-Azure IOT kenar platform yoğun uyarlar [Von Neumann mimarisi](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Hangi tüm Azure IOT kenar mimarisi, işleyen giriş ve çıkışı üretir bir sistem anlamına gelir; ve tek tek her modül küçük bir giriş-çıkış alt olduğunu. Bu öğreticide, biz aşağıdaki iki modüller getirir:
+Hello Azure IOT kenar platform yoğun hello uyarlar [Von Neumann mimarisi](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Bu hello tüm Azure IOT kenar mimarisi anlamına gelir, işleyen giriş ve çıkışı üretir bir sistemdir; ve tek tek her modül küçük bir giriş-çıkış alt olduğunu. Bu öğreticide, şu iki modülleri aşağıdaki hello getirir:
 
 1. Sanal alan bir modül [bırak](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) sinyal ve biçimlendirilmiş dönüştürür [JSON](https://en.wikipedia.org/wiki/JSON) ileti.
-2. Alınan yazdırır bir modül [JSON](https://en.wikipedia.org/wiki/JSON) ileti.
+2. Alınan hello yazdırır bir modül [JSON](https://en.wikipedia.org/wiki/JSON) ileti.
 
-Aşağıdaki resimde bu proje için tipik uçtan uca veri akışı görüntüler:
+Merhaba aşağıdaki görüntüde hello tipik uçtan uca veri akışı bu proje için görüntüler:
 
 ![Veri akışı üç modülleri arasında](media/iot-hub-iot-edge-create-module/dataflow.png "giriş: benzetimli bırak Modülü; İşlemci: Dönüştürücü Modülü; Çıktı: Yazıcı Modülü")
 
-## <a name="understanding-the-code"></a>Kodu anlama
+## <a name="understanding-hello-code"></a>Merhaba kodu anlama
 
 ### <a name="maven-project-structure"></a>Maven projesi yapısı
 
-Azure IOT kenar paketleri Maven üzerinde dayandığından, içeren tipik bir Maven projesi yapısı oluşturmak ihtiyacımız bir `pom.xml` dosyası.
+Azure IOT kenar paketleri Maven üzerinde dayandığından, toocreate içeren tipik bir Maven projesi yapısı ihtiyacımız bir `pom.xml` dosyası.
 
-POM devraldığı `com.microsoft.azure.gateway.gateway-module-base` tüm çalışma zamanı ikili dosyaları, ağ geçidi yapılandırma dosyası yolu ve yürütme davranışını içeren bir modülü projesi tarafından gerekli bağımlılıkların bildirir paket. Bu, bize çok fazla kaydeder ve yazma ve kod satırlarını yüzlerce tekrar tekrar yeniden yazma gereksinimini ortadan kaldırır.
+Merhaba POM devralır hello `com.microsoft.azure.gateway.gateway-module-base` tüm hello çalışma zamanı ikili dosyaları, hello ağ geçidi yapılandırma dosyası yolu ve hello yürütme davranışı içeren bir modülü projesi tarafından gerekli hello bağımlılıklarını bildirir paket. Bu bize çok fazla kaydeder ve hello gerek toowrite ortadan kaldırmak ve kod satırlarını yüzlerce tekrar tekrar yeniden yazın.
 
-Biz gerekli bağımlılıkları/eklenti ve aşağıdaki kod parçacığında gösterildiği gibi bizim modülü tarafından kullanılacak yapılandırma dosyasının adını bildirerek pom.xml dosyasını güncelleştirmeniz gerekir.
+Merhaba gerekli bağımlılıkları/eklenti ve hello aşağıdaki kod parçacığında gösterildiği gibi bizim modülü tarafından kullanılan hello yapılandırma dosyası toobe hello adını bildirerek tooupdate pom.xml dosyasını ihtiyacımız var.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -77,7 +77,7 @@ Biz gerekli bağımlılıkları/eklenti ve aşağıdaki kod parçacığında gö
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <!-- Set the filename of the Azure IoT Edge configuration located
+  <!-- Set hello filename of hello Azure IoT Edge configuration located
        under ./src/main/resources/gateway/ which is used in parent -->
   <properties>
     <gw.config.fileName>gw-config.json</gw.config.fileName>
@@ -123,13 +123,13 @@ Biz gerekli bağımlılıkları/eklenti ve aşağıdaki kod parçacığında gö
 
 Bir veri işleri için işlemci olarak Azure IOT kenar modülü davranabilirsiniz: girişi almak, işlemesi ve çıktı üretir.
 
-Giriş (gibi hareket algılayıcısı) donanım verilerden bir ileti diğer modüller ya da (örneğin, düzenli aralıklarla bir Zamanlayıcı tarafından oluşturulan bir rastgele sayı) başka bir şey olabilir.
+Merhaba giriş donanım (gibi hareket algılayıcısı) verileri, bir ileti diğer modüller ya da (örneğin, düzenli aralıklarla bir Zamanlayıcı tarafından oluşturulan bir rastgele sayı) başka bir şey olabilir.
 
-Giriş benzer bir çıkış, tetikleyebilir donanım davranış (gibi yanıp sönen LED), diğer modüller ya da (örneğin, yazdırma konsoluna) başka bir şey için bir ileti.
+Merhaba çıkış benzer toohello giriş, donanım davranış (gibi hello ışığı yanıp sönen), bir ileti tooother modülleri ya da (yazdırma toohello konsolu gibi) başka bir şey tetikleyebilir.
 
-Modüller birbirleri ile kullanarak iletişim `com.microsoft.azure.gateway.messaging.Message` sınıfı. **İçerik** , bir `Message` istediğiniz verilerin herhangi bir tür temsil etme işleyebilen bir bayt dizisi. **Özellikler** mevcuttur `Message` ve yalnızca bir dize-dize eşleme. Düşünebilirsiniz **özellikleri** bir HTTP isteğinin ya da meta veri dosyasının başlığı olarak.
+Modüller birbirleri ile kullanarak iletişim `com.microsoft.azure.gateway.messaging.Message` sınıfı. Merhaba **içerik** , bir `Message` istediğiniz verilerin herhangi bir tür temsil etme işleyebilen bir bayt dizisi. **Özellikler** de hello kullanılabilir `Message` ve yalnızca bir dize-dize eşleme. Düşünebilirsiniz **özellikleri** bir HTTP isteğinin ya da hello meta veri dosyasının hello başlığı olarak.
 
-Java Azure IOT kenar modülünde geliştirmek için hangi devraldığı yeni bir modül sınıfı oluşturmanız gerekir `com.microsoft.azure.gateway.core.GatewayModule` ve gerekli soyut yöntemleri uygulamak `receive()` ve `destroy()`. Bu noktada, ayrıca isteğe bağlı uygulamayı seçebilir `start()` veya `create()` de yöntemleri. Aşağıdaki kod parçacığını bir Azure IOT kenar modülü yazma başlayacağınızı gösterir.
+Sipariş toodevelop Java Azure IOT kenar modülünde'da, toocreate devraldığı yeni bir modül sınıf gereken `com.microsoft.azure.gateway.core.GatewayModule` ve gerekli hello soyut yöntemleri uygulamak `receive()` ve `destroy()`. Bu noktada, ayrıca isteğe bağlı tooimplement hello tercih edebilirsiniz `start()` veya `create()` de yöntemleri. Aşağıdaki kod parçacığını hello Azure IOT kenar modülü yazma tooget nasıl başlatılacağını gösterir.
 
 ```java
 import com.microsoft.azure.gateway.core.Broker;
@@ -138,29 +138,29 @@ import com.microsoft.azure.gateway.messaging.Message;
 
 public class MyEdgeModule extends GatewayModule {
   public MyEdgeModule(long address, Broker broker, String configuration) {
-    /* Let the GatewayModule do the dirty work of initialization. It's also
-       a good time to parse your own configuration defined in Azure IoT Edge
+    /* Let hello GatewayModule do hello dirty work of initialization. It's also
+       a good time tooparse your own configuration defined in Azure IoT Edge
        configuration file (typically ./src/main/resources/gateway/gw-config.json) */
     super(address, broker, configuration);
   }
 
   @Override
   public void start() {
-    /* Acquire the resources you need. If you don't
+    /* Acquire hello resources you need. If you don't
        need any resources, you may omit this method. */
   }
 
   @Override
   public void destroy() {
-    /* It's time to release all resources. This method is required. */
+    /* It's time toorelease all resources. This method is required. */
   }
 
   @Override
   public void receive(Message message) {
-    /* Logic to process the input message. This method is required. */
+    /* Logic tooprocess hello input message. This method is required. */
     // ...
-    /* Use publish() method to do the output. You are
-       allowed to publish your new Message instance. */
+    /* Use publish() method toodo hello output. You are
+       allowed toopublish your new Message instance. */
     this.publish(message);
   }
 }
@@ -172,7 +172,7 @@ public class MyEdgeModule extends GatewayModule {
 | ------------------------ | -------------------------------------- | ---------------------- | ---------------------- |
 | Sıcaklık veri iletisi | Ayrıştırma ve yeni bir JSON ileti oluşturun | Yapı JSON iletisi | `ConverterModule.java` |
 
-Bu modül tipik bir Azure IOT kenar modüldür. Diğer modüllerden sıcaklık iletileri kabul eder (bir donanım modülü veya bu bizim benzetimli bırak modülü durumda); ve (sıcaklık uyarı tetiklemesi ve benzeri için ihtiyacımız özelliğini ayarlama ileti kimliği ekleme dahil) yapılandırılmış bir JSON iletisi sıcaklık iletisinde normalleştirir.
+Bu modül tipik bir Azure IOT kenar modüldür. Diğer modüllerden sıcaklık iletileri kabul eder (bir donanım modülü veya bu bizim benzetimli bırak modülü durumda); ve (Merhaba ileti kimliği, tootrigger hello sıcaklık uyarı ihtiyacımız hello özelliğini ayarlama ekleme de dahil olmak üzere vb.) yapılandırılmış tooa JSON iletinin hello sıcaklık iletiyi normalleştirir.
 
 ```java
 @Override
@@ -202,9 +202,9 @@ public void receive(Message message) {
 
 | Girdi                          | İşlemci | Çıktı                     | Kaynak dosya          |
 | ------------------------------ | --------- | -------------------------- | -------------------- |
-| Diğer modüllerden herhangi bir iletisi | Yok       | İleti konsola oturum | `PrinterModule.java` |
+| Diğer modüllerden herhangi bir iletisi | Yok       | Merhaba ileti tooconsole oturum | `PrinterModule.java` |
 
-Bu, terminal penceresi alınan iletileri çıkarır basit ve açıklayıcı, bir modüldür.
+Bu, hello alınan iletileri toohello terminal penceresi çıkarır basit ve açıklayıcı, bir modüldür.
 
 ```java
 @Override
@@ -215,9 +215,9 @@ public void receive(Message message) {
 
 ### <a name="azure-iot-edge-configuration"></a>Azure IOT kenar yapılandırma
 
-Modülleri çalıştırmadan önce son adım, Azure IOT kenar yapılandırmak ve modülleri arasında bağlantı kurmak için ' dir.
+Merhaba modülleri çalıştırmadan önce hello son tooconfigure hello Azure IOT kenarı ve modülleri arasında tooestablish hello bağlantıları adımdır.
 
-İlk başvurduğu (itibaren Azure IOT kenar destekler yükleyicilerini farklı dillerde) bizim Java yükleyicisi bildirmek ihtiyacımız kendi `name` bölümlerde daha sonra.
+Toodeclare tarafından başvurulan (itibaren Azure IOT kenar destekler yükleyicilerini farklı dillerde) bizim Java yükleyicisi ilk ihtiyacımız kendi `name` hello bölümlerde daha sonra.
 
 ```json
 "loaders": [{
@@ -231,7 +231,7 @@ Modülleri çalıştırmadan önce son adım, Azure IOT kenar yapılandırmak ve
 }]
 ```
 
-Biz bizim yükleyicilerini bildirdikten sonra biz de bizim modülleri bildirmeniz gerekir. Benzer yükleyicileri bildirmek için bunlar ayrıca tarafından başvurulabilir kendi `name` özniteliği. Bir modül bildirirken (hangi önce tanımladığımız biri olmalıdır) kullanması gereken yükleyicisi belirtmek ihtiyacımız ve-(bizim modül normalleştirilmiş sınıf adı olmalıdır) için giriş noktası her modül. `simulated_device` Azure IOT kenar çekirdek çalışma zamanı paketinde bulunan bir yerel modül modülüdür. Her zaman içermelidir `args` JSON'dosyası, olsa bile `null`.
+Biz bizim yükleyicilerini bildirdikten sonra biz toodeclare bizim modüller de gerekir. Benzer toodeclaring hello yükleyicileri, bunlar ayrıca başvurulabilir tarafından kendi `name` özniteliği. Bir modül bildirirken (hangi önce tanımladığımız hello biri olmalıdır) kullanması gereken toospecify hello yükleyicisi ihtiyacımız ve -(bizim modülün hello normalleştirilmiş sınıf adı olmalıdır) için giriş noktası her modül hello. Merhaba `simulated_device` hello Azure IOT kenar çekirdek çalışma zamanı paketinde bulunan bir yerel modül modülüdür. Her zaman içermelidir `args` JSON dosyası, olsa bile hello içinde `null`.
 
 ```json
 "modules": [
@@ -273,7 +273,7 @@ Biz bizim yükleyicilerini bildirdikten sonra biz de bizim modülleri bildirmeni
 ]
 ```
 
-Yapılandırma sonunda bağlantı kurun. Her bağlantı ile ifade edilen `source` ve `sink`. Önceden tanımlanmış bir modül her ikisi de başvurmalısınız. Çıktı ileti `source` modülü girişi için iletilir `sink` modülü.
+Merhaba yapılandırma Hello sonunda hello bağlantı kurar. Her bağlantı ile ifade edilen `source` ve `sink`. Önceden tanımlanmış bir modül her ikisi de başvurmalısınız. Merhaba çıkış iletisini `source` modülü toohello girişi iletilir `sink` modülü.
 
 ```json
 "links": [
@@ -288,14 +288,14 @@ Yapılandırma sonunda bağlantı kurun. Her bağlantı ile ifade edilen `source
 ]
 ```
 
-## <a name="running-the-modules"></a>Modülleri çalıştırma
+## <a name="running-hello-modules"></a>Çalışan hello modülleri
 
-Kullanım `mvn package` içine her şeyi oluşturmak için `target/` klasör. `mvn clean package`Ayrıca temiz bir yapı için tavsiye edilir.
+Kullanım `mvn package` toobuild hello içine her şeyi `target/` klasör. `mvn clean package`Ayrıca temiz bir yapı için tavsiye edilir.
 
-Kullanım `mvn exec:exec` Azure IOT kenar ve çalıştırmak için sıcaklık veri ve tüm özellikler sabit bir oranda konsola yazdırılır gözlemlemek.
+Kullanım `mvn exec:exec` toorun hello Azure IOT kenarı ve inceleyin hello sıcaklık veri ve tüm hello özellikler sabit oranı yazdırılan toohello konsolunda mevcuttur.
 
-Uygulamayı istiyorsanız, basın `<Enter>` anahtarı.
+Tooterminate Merhaba uygulaması istiyorsanız basın `<Enter>` anahtarı.
 
 > [!IMPORTANT]
-> IOT sınır ağ geçidi sonlandırmak için Ctrl + C kullanmak için önerilmez. Bu, olağan dışı ciddiyeti işlemin neden olabilir ve.
+> Toouse Ctrl + C tooterminate hello IOT kenar önerilmez ağ geçidi uygulaması. Bu aşırı hello işlem tooterminate neden olarak.
 

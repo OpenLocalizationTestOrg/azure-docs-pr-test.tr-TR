@@ -1,6 +1,6 @@
 ---
-title: "App Service Ortamları ile Coğrafi Olarak Dağıtılmış Ölçek"
-description: "Trafik Yöneticisi ve App Service ortamları coğrafi dağıtım kullanarak uygulamaları yatay ölçek öğrenin."
+title: "Uygulama hizmeti ortamları dağıtılmış ölçekli aaaGeo"
+description: "Nasıl toohorizontally ölçeklendirme Traffic Manager ve App Service ortamları coğrafi dağıtım kullanarak uygulamaları hakkında bilgi edinin."
 services: app-service
 documentationcenter: 
 author: stefsch
@@ -14,57 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.openlocfilehash: 505301b2650c9b8bafdad352055f30e55148ab0c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9b441f637d8b7f679b3d83240baf99b8ee57e8f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>App Service Ortamları ile Coğrafi Olarak Dağıtılmış Ölçek
 ## <a name="overview"></a>Genel Bakış
-Çok büyük ölçekli gerektiren uygulama senaryoları tek bir uygulama dağıtım için kullanılabilir olan işlem kaynak kapasitesini aşamaz.  Uygulamaları oylama, spor olaylar ve televised eğlence olaylar tüm son derece yüksek ölçekli gerektiren senaryolara verilen örneklerdir. Yüksek ölçekli gereksinimleri, birden çok uygulama dağıtımı tek bir bölge içinde ve aynı zamanda bölgelere, aşırı yük gereksinimlerini karşılamak için yapılan uygulamalarını, yatay olarak ölçekleme tarafından karşılanabilir.
+Çok büyük ölçekli gerektiren uygulama senaryoları hello işlem kaynak kapasite kullanılabilir tooa tek dağıtım, bir uygulamanın aşabilir.  Uygulamaları oylama, spor olaylar ve televised eğlence olaylar tüm son derece yüksek ölçekli gerektiren senaryolara verilen örneklerdir. Yüksek ölçekli gereksinimleri yatay uygulamalarını, tek bir bölge içinde ve aynı zamanda bölgelere, toohandle aşırı yük gereksinimlerine yapılan birden çok uygulama dağıtımı ile ölçeklendirme tarafından karşılanabilir.
 
-Uygulama hizmeti ortamları yatay ölçek genişletme için ideal bir platform ' dir.  Bir kez bir uygulama hizmeti yapılandırması seçili bilinen istek hızı destekleyen ortamı, geliştiricilerin ek App Service istenen yoğun yük kapasitesi elde etmek için ortamları "Tanımlama Bilgisi kesici" şekilde dağıtabilirsiniz.
+Uygulama hizmeti ortamları yatay ölçek genişletme için ideal bir platform ' dir.  Bir uygulama hizmeti ortamı yapılandırma seçildiğinde bilinen istek hızı destekleyen, geliştiricilerin "Tanımlama Bilgisi kesici" şekilde tooattain istenen yoğun yük kapasitesi ek uygulama hizmeti ortamlarında dağıtabilirsiniz.
 
-Örneğin bir uygulama hizmeti ortamı yapılandırması üzerinde çalışan bir uygulama (RPS) saniyede 20 K isteklerini işlemek için test varsayalım.  İstenen yoğun yük kapasitesi 100 K RPS ise, sonra beş (5) App Service ortamları oluşturulabilir ve uygulamanın en fazla tahmini yükleme işleyebilir emin olmak için yapılandırılmış.
+Örneğin bir uygulama hizmeti ortamı yapılandırması üzerinde çalışan bir uygulama sınanan toohandle 20 K istekleri / saniye (RPS) bırakıldı varsayalım.  Merhaba istenen yoğun yüklerseniz 100 K RPS kapasitesi ise, sonra beş (5) App Service ortamları oluşturulabilir ve yapılandırılmış tooensure Merhaba uygulaması hello en fazla tahmini yükleme işleyebilir.
 
-Müşteriler genellikle bir özel (ya da gösterim) etki alanını kullanan uygulamalara erişim olduğundan, geliştiricilerin uygulama isteklerini tüm uygulama hizmeti ortamı örnekleri arasında dağıtmak için bir yol gerekir.  Bunu gerçekleştirmek için harika bir özel etki alanı kullanarak çözümlemeye yoludur bir [Azure Traffic Manager profilini][AzureTrafficManagerProfile].  Trafik Yöneticisi profili, tek tek uygulama hizmeti ortamları hiç işaret edecek şekilde yapılandırılabilir.  Trafik Yöneticisi otomatik olarak dağıtma müşteriler tüm App Service ortamları Yük Dengeleme trafik Yöneticisi profili ayarlarında göre işler.  Bu yaklaşım olup tüm App Service ortamları tek bir Azure bölgesinde dağıtılan veya birçok Azure bölgesinde dünya çapında dağıtılan bağımsız olarak çalışır.
+Müşteriler genellikle bir özel (ya da gösterim) etki alanı, geliştiricilerin gerek kullanarak uygulamalara erişim bu yana bir şekilde toodistribute uygulaması tüm hello uygulama hizmeti ortamı örnekleri arasında ister.  Bu harika bir şekilde tooaccomplish tooresolve hello özel etki alanı kullanarak bir [Azure Traffic Manager profilini][AzureTrafficManagerProfile].  tek tek uygulama hizmeti ortamları hello Hello trafik Yöneticisi profili tüm yapılandırılmış toopoint olabilir.  Trafik Yöneticisi tüm hello yük dengeleme ayarlarını hello trafik Yöneticisi profili, uygulama hizmeti ortamları dayalı hello müşteriler dağıtma otomatik olarak işler.  Bu yaklaşım mı hello App Service ortamları tümünün tek bir Azure bölgesinde dağıtılan veya birçok Azure bölgesinde dünya çapında dağıtılan bağımsız olarak çalışır.
 
-Ayrıca, müşteriler uygulamaları üzerinden gösterim etki alanına erişim bu yana müşteriler bir uygulamayı çalıştıran uygulama hizmeti ortamları sayısı farkında değildir.  Sonuç olarak geliştiricilerin hızla ve kolayca, ekleyip kaldırabilirsiniz, App Service ortamları gözlemlenen trafiği yüküne göre.
+Ayrıca, müşteriler uygulamaları üzerinden hello gösterim etki alanına erişim bu yana müşteriler bir uygulamayı çalıştıran uygulama hizmeti ortamları hello sayısı farkında değildir.  Sonuç olarak geliştiricilerin hızla ve kolayca, ekleyip kaldırabilirsiniz, App Service ortamları gözlemlenen trafiği yüküne göre.
 
-Aşağıdaki alanlara yönelik kavramsal diyagram yatay çıkışı tek bir bölge içinde üç uygulama hizmeti ortamları boyunca ölçeklendirilmiş bir uygulama gösterilmektedir.
+Merhaba kavramsal diyagram aşağıdaki yatay çıkışı tek bir bölge içinde üç uygulama hizmeti ortamları boyunca ölçeklendirilmiş bir uygulamayı gösterir.
 
 ![Kavramsal mimarisi][ConceptualArchitecture] 
 
-Bu konunun geri kalanında birden fazla App Service ortamları kullanarak örnek uygulama için Dağıtılmış bir topolojiyi ayarlama ile ilgili adım adım anlatılmaktadır.
+Bu konuda Hello kalanı hello örnek uygulaması kullanarak birden fazla App Service ortamları için Dağıtılmış bir topolojiyi ayarlama ile ilgili hello adım adım anlatılmaktadır.
 
-## <a name="planning-the-topology"></a>Topoloji planlama
-Dağıtılmış uygulama ayak izini çıkışı yapılandırmadan önce önceden birkaç parça bilgiye sahip yardımcı olabilir.
+## <a name="planning-hello-topology"></a>Merhaba topolojisini planlama
+Dağıtılmış uygulama ayak izini çıkışı yapılandırmadan önce toohave vaktinden birkaç parça bilgiler sağlar.
 
-* **Uygulama için özel etki alanı:** müşteriler uygulamaya erişmek için kullanacağı özel etki alanı adı nedir?  İçin örnek uygulama özel etki alanı adıdır *www.scalableasedemo.com*
-* **Trafik yöneticisi etki alanı:** bir etki alanı adı oluştururken seçilmesi gerekir bir [Azure Traffic Manager profilini][AzureTrafficManagerProfile].  Bu ad ile birleştirilmiş *trafficmanager.net* soneki trafik Yöneticisi tarafından yönetilen bir etki alanı girişi kaydeder.  Örnek uygulama için ad seçilmiş olan *ana demo ölçeklenebilir*.  Sonuç olarak, trafik Yöneticisi tarafından yönetilen tam etki alanı adıdır *ana demo.trafficmanager.net ölçeklenebilir*.
-* **Uygulama ayak ölçeklendirmeye yönelik stratejisi:** uygulama ayak tek bir bölge içinde birden fazla App Service ortamları arasında dağıtılmış?  Birden çok bölgeye?  Bir karışımını-ve-eşleşme her iki yaklaşımın?  Karar ne kadar iyi bir uygulamanın arka uç altyapısı destekleme rest ölçeklendirebilirsiniz yanı sıra burada müşteri trafiği kaynaklanan beklentilerini bağlı olmalıdır.  Örneğin, durum bilgisi olmayan bir % 100 uygulaması ile bir uygulama yüksek düzeyde birçok Azure bölgesinde dağıtılan uygulama hizmeti ortamları çarpılmasıyla Azure bölgesi başına birden fazla App Service ortamları birleşimini kullanarak genişletilebilir.  15 + ortak Azure bölgeler ile seçim yapabileceğiniz, müşterilerin gerçekten dünya çapında hiper ölçekli uygulama ayak izini oluşturabilirsiniz.  Bu makale için kullanılan örnek uygulama için üç uygulama hizmeti ortamları bir tek Azure bölgesinde (Orta Güney ABD) oluşturuldu.
-* **Uygulama hizmeti ortamları için adlandırma:** her uygulama hizmeti ortamı benzersiz bir ad gerektirir.  Bir veya iki uygulama hizmeti ortamları her uygulama hizmeti ortamı belirlemenize yardımcı olması için bir adlandırma kuralı yararlıdır.  Örnek uygulama için basit bir adlandırma kuralı kullanıldı.  Üç uygulama hizmeti ortamları adlarının *fe1ase*, *fe2ase*, ve *fe3ase*.
-* **Uygulamalar için adlandırma:** uygulama birden çok örneğini dağıtılacak olmadığından dağıtılan uygulama her örneği için bir ad gerekli.  Bir bilinen az, ancak çok kullanışlı uygulama hizmeti ortamları aynı uygulama adı birden fazla App Service ortamları kullanılabilir özelliğidir.  Her uygulama hizmeti ortamı benzersiz etki alanı soneki olduğundan, geliştiricilerin her ortamda tam aynı uygulama adı yeniden kullanmayı seçebilirsiniz.  Örneğin, bir geliştirici uygulamalar gibi adlı sahip olabilir: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, vb..  Örnek uygulama için yine de her bir uygulama örneği de benzersiz bir ada sahip.  Kullanılan uygulama örneği adları *webfrontend1*, *webfrontend2*, ve *webfrontend3*.
+* **Merhaba uygulaması için özel etki alanı:** müşteriler tooaccess hello uygulama kullanır hello özel etki alanı adı nedir?  Merhaba örnek uygulama hello özel etki alanı adıdır *www.scalableasedemo.com*
+* **Trafik yöneticisi etki alanı:** toobe oluştururken, seçilen bir etki alanı adı gerekli bir [Azure Traffic Manager profilini][AzureTrafficManagerProfile].  Bu ada hello birleştirilecek *trafficmanager.net* tooregister trafik Yöneticisi tarafından yönetilen bir etki alanı girişi soneki.  Merhaba adı seçilen Hello örnek uygulama için olduğunu *ana demo ölçeklenebilir*.  Sonuç olarak, trafik Yöneticisi tarafından yönetilen hello tam etki alanı adıdır *ana demo.trafficmanager.net ölçeklenebilir*.
+* **Merhaba uygulama ayak izini ölçeklendirmeye yönelik stratejisi:** hello uygulama kaplama alanı için tek bir bölge içinde birden fazla App Service ortamları arasında dağıtılmış?  Birden çok bölgeye?  Bir karışımını-ve-eşleşme her iki yaklaşımın?  Merhaba karar bir uygulamanın arka uç altyapısı destekleme iyi hello rest ölçeklendirebilirsiniz nasıl burada müşteri trafik, de kaynaklanan, beklentileri üzerine.  Örneğin, durum bilgisi olmayan bir % 100 uygulaması ile bir uygulama yüksek düzeyde birçok Azure bölgesinde dağıtılan uygulama hizmeti ortamları çarpılmasıyla Azure bölgesi başına birden fazla App Service ortamları birleşimini kullanarak genişletilebilir.  15 + ortak Azure bölgeleri kullanılabilir toochoose ile müşterilerin gerçekten dünya çapında hiper ölçekli uygulama ayak izini oluşturabilirsiniz.  Bu makale için kullanılan hello örnek uygulama için üç uygulama hizmeti ortamları bir tek Azure bölgesinde (Orta Güney ABD) oluşturuldu.
+* **Uygulama hizmeti ortamları hello için adlandırma:** her uygulama hizmeti ortamı benzersiz bir ad gerektirir.  İsteğe bağlı olarak bir veya iki uygulama hizmeti ortamları yararlı toohave bir adlandırma kuralı olan toohelp her uygulama hizmeti ortamı tanımlayın.  Merhaba örnek uygulama için basit bir adlandırma kuralı kullanıldı.  Merhaba hello üç uygulama hizmeti ortamları adlarıdır *fe1ase*, *fe2ase*, ve *fe3ase*.
+* **Merhaba uygulamaları için adlandırma:** hello uygulama birden çok örneğini dağıtılacak olduğundan, dağıtılan hello uygulama her örneği için bir ad gereklidir.  Bir bilinen az, ancak çok kullanışlı uygulama hizmeti ortamları aynı uygulama adı birden fazla App Service ortamları kullanılabilir o hello özelliğidir.  Her uygulama hizmeti ortamı benzersiz etki alanı soneki olduğundan, geliştiricilerin her ortamda toore kullanımlı hello tam aynı uygulama adı seçebilirsiniz.  Örneğin, bir geliştirici uygulamalar gibi adlı sahip olabilir: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, vb..  Merhaba örnek uygulama için yine de her bir uygulama örneği de benzersiz bir ada sahip.  Merhaba kullanılan uygulama örnek adları olan *webfrontend1*, *webfrontend2*, ve *webfrontend3*.
 
-## <a name="setting-up-the-traffic-manager-profile"></a>Trafik Yöneticisi profili ayarlama
-Bir uygulama birden çok örneği üzerinde birden fazla App Service ortamları dağıtıldığında, tek tek uygulama örnekleri ile trafik Yöneticisi kaydedilebilir.  Örnek uygulama için bir trafik Yöneticisi profili için gerekli *ana demo.trafficmanager.net ölçeklenebilir* , yönlendirebilirsiniz müşteriler herhangi şu dağıtılmış bir uygulamayı örnekleri:
+## <a name="setting-up-hello-traffic-manager-profile"></a>Merhaba trafik Yöneticisi profili ayarlama
+Bir uygulama birden çok örneği üzerinde birden fazla App Service ortamları dağıtıldığında hello tek tek uygulama örnekleri ile trafik Yöneticisi kaydedilebilir.  Merhaba örnek uygulama için bir trafik Yöneticisi profili için gerekli *ana demo.trafficmanager.net ölçeklenebilir* müşteriler aşağıdaki Merhaba, dağıtılan tooany app örnekleri yönlendirebilirsiniz:
 
-* **webfrontend1.fe1ase.p.azurewebsites.NET:** ilk uygulama hizmeti ortamı üzerinde dağıtılan örnek uygulama örneği.
-* **webfrontend2.fe2ase.p.azurewebsites.NET:** ikinci uygulama hizmeti ortamı üzerinde dağıtılan örnek uygulama örneği.
-* **webfrontend3.fe3ase.p.azurewebsites.NET:** üçüncü uygulama hizmeti ortamı üzerinde dağıtılan örnek uygulama örneği.
+* **webfrontend1.fe1ase.p.azurewebsites.NET:** dağıtılan hello örnek uygulaması örneğini hello ilk uygulama hizmeti ortamı.
+* **webfrontend2.fe2ase.p.azurewebsites.NET:** dağıtılan hello örnek uygulaması örneğini hello ikinci uygulama hizmeti ortamı.
+* **webfrontend3.fe3ase.p.azurewebsites.NET:** dağıtılan hello örnek uygulaması örneğini hello üçüncü uygulama hizmeti ortamı.
 
-Birden fazla Azure Uygulama Hizmeti uç noktası, içindeki tüm çalışan kaydetmek için en kolay yolu **aynı** Azure bölgesi Powershell ile olan [Azure Kaynak Yöneticisi trafik Yöneticisi Destek][ARMTrafficManager].  
+birden fazla Azure Uygulama Hizmeti uç noktası, hello tüm çalışan en kolay yolu tooregister hello **aynı** Azure bölgesi olan hello Powershell ile [Azure Kaynak Yöneticisi trafik Yöneticisi Destek] [ ARMTrafficManager].  
 
-İlk adım, bir Azure Traffic Manager profilini oluşturmaktır.  Aşağıdaki kod, profil için örnek uygulama nasıl oluşturulduğuna gösterir:
+Merhaba ilk adımı toocreate bir Azure Traffic Manager profilini oluşturur.  Aşağıdaki Hello kodu hello profil hello örnek uygulama için nasıl oluşturulduğuna gösterir:
 
     $profile = New-AzureTrafficManagerProfile –Name scalableasedemo -ResourceGroupName yourRGNameHere -TrafficRoutingMethod Weighted -RelativeDnsName scalable-ase-demo -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
-Bildirim nasıl *RelativeDnsName* parametresi ayarlandığı *ana demo ölçeklenebilir*.  Bunun nasıl etki alanı adı *ana demo.trafficmanager.net ölçeklenebilir* oluşturulur ve bir trafik Yöneticisi profili ile ilişkilendirilmiş.
+Nasıl hello fark *RelativeDnsName* parametresi çok ayarlandığı*ana demo ölçeklenebilir*.  Bu olduğunu nasıl hello etki alanı adı *ana demo.trafficmanager.net ölçeklenebilir* oluşturulur ve bir trafik Yöneticisi profili ile ilişkilendirilmiş.
 
-*TrafficRoutingMethod* parametre tanımlar Yük Dengeleme İlkesi trafik Yöneticisi nasıl müşteri yük tüm kullanılabilir uç noktaları arasında yayılan belirlemek için kullanır.  Bu örnekte *Weighted* yöntemi seçildi.  Bu tüm her bitiş noktasıyla ilişkili göreli ağırlığı göre kayıtlı uygulama uç noktaları yayılmasını müşteri isteklerine neden olur. 
+Merhaba *TrafficRoutingMethod* parametre tanımlar hello Yük Dengeleme İlkesi trafik Yöneticisi nasıl toospread müşteri yükünü tüm hello kullanılabilir uç noktaları arasında toodetermine kullanır.  Bu örnek hello içinde *Weighted* yöntemi seçildi.  Bu tüm kayıtlı hello uygulama uç hello göreli ağırlığı her bitiş noktasıyla ilişkili temel yayılmasını müşteri isteklerine neden olur. 
 
-Oluşturulan profiliyle her uygulama örneği profiline bir yerel Azure uç noktası olarak eklenir.  Aşağıdaki kodu her ön uç web uygulaması için bir başvuru getirir ve bir trafik Yöneticisi uç noktası tarafından yolu olarak her uygulama ekler *uç noktası Targetresourceıd* parametresi.
+Oluşturulan hello profiliyle her uygulama örneği toohello profili yerel bir Azure uç noktası olarak eklenir.  Aşağıdaki Hello kodu bir başvuru tooeach ön uç web uygulaması getirir ve hello yapmamanız trafik Yöneticisi uç noktası olarak her uygulama ekler *uç noktası Targetresourceıd* parametresi.
 
     $webapp1 = Get-AzureRMWebApp -Name webfrontend1
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
@@ -77,44 +77,44 @@ Oluşturulan profiliyle her uygulama örneği profiline bir yerel Azure uç nokt
 
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
-Nasıl yapılan bir çağrı fark *Ekle AzureTrafficManagerEndpointConfig* her tek tek uygulama örneği.  *Uç noktası Targetresourceıd* her Powershell komutunu parametresinde üç dağıtılmış bir uygulamayı örneklerden birini başvuruyor.  Trafik Yöneticisi profili yükleme profilinde kayıtlı tüm üç uç noktaları arasında yayılır.
+Nasıl bir çağrı çok fark*Ekle AzureTrafficManagerEndpointConfig* her tek tek uygulama örneği.  Merhaba *uç noktası Targetresourceıd* her Powershell komutunu parametresinde bir hello üç dağıtılan uygulama örneklerinin başvuruyor.  Merhaba trafik Yöneticisi profili yük hello profilinde kayıtlı tüm üç uç noktaları arasında yayılır.
 
-Üç bitiş noktalarının tümü için aynı değeri (10) kullanması *ağırlık* parametresi.  Bu trafik Yöneticisi yayılmasından müşteri isteklerine tüm üç uygulama örneklerde görece eşit olur. 
+Tüm üç uç noktaları kullanma hello hello hello için aynı değeri (10) *ağırlık* parametresi.  Bu trafik Yöneticisi yayılmasından müşteri isteklerine tüm üç uygulama örneklerde görece eşit olur. 
 
-## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Uygulamanın özel etki alanı trafik yöneticisi etki alanına işaret eden
-Son gerekli özel etki alanı trafik yöneticisi etki alanındaki uygulamanın işaret edecek şekilde adımdır.  Örnek uygulama için bu işaret eden anlamına gelir *www.scalableasedemo.com* adresindeki *ana demo.trafficmanager.net ölçeklenebilir*.  Bu adım, özel etki alanı yöneten etki alanı kayıt şirketi ile tamamlanması gerekiyor.  
+## <a name="pointing-hello-apps-custom-domain-at-hello-traffic-manager-domain"></a>Merhaba Traffic Manager etki alanına işaret hello uygulamanın özel etki alanı
+Merhaba son adım gerekli toopoint hello özel etki hello uygulama hello trafik yöneticisi etki alanıdır.  Merhaba örnek uygulama için bu işaret eden anlamına gelir *www.scalableasedemo.com* adresindeki *ana demo.trafficmanager.net ölçeklenebilir*.  Bu adım hello özel etki alanı yöneten hello etki alanı kayıt şirketinizle tamamlandı toobe gerekir.  
 
-Kayıt şirketinizin etki alanı Yönetim Araçları'nı kullanarak bir CNAME özel etki alanı trafik yöneticisi etki alanına işaret ettiği oluşturulacak gereksinimlerini kaydeder.  Aşağıdaki resimde bu CNAME yapılandırma benzer bir örnek gösterilmektedir:
+Kayıt şirketinizin etki alanı Yönetim Araçları'nı kullanarak bir CNAME kayıtları gereksinimlerini toobe hello Traffic Manager etki alanına hangi noktaları hello özel etki alanı oluşturuldu.  Merhaba resimde bu CNAME yapılandırma benzer bir örnek gösterilmektedir:
 
 ![Özel etki alanı için CNAME][CNAMEforCustomDomain] 
 
-Bu konuda ele değil de, her tek tek uygulama örneği ile de kayıtlı özel etki alanı sahip olması gerektiğini unutmayın.  Aksi takdirde, uygulama örneğini istekte bulunur ve uygulamanın uygulamayla kayıtlı özel etki alanı yok, isteği başarısız olur.  
+Bu konuda ele değil de, her tek tek uygulama örneği ile de kayıtlı toohave hello özel etki alanı gerektiğini unutmayın.  Aksi takdirde Merhaba uygulaması hello uygulamayla kayıtlı hello özel etki alanı yok ve bir istek tooan uygulama örneği kolaylaştırır, hello isteği başarısız olur.  
 
-Bu örnekte özel etki alanıdır *www.scalableasedemo.com*, ve ilişkili özel etki alanı her uygulama örneği vardır.
+Bu örnek hello özel etki alanı içinde *www.scalableasedemo.com*, ve her uygulama örneğinin ilişkili hello özel etki alanı vardır.
 
 ![Özel Etki Alanı][CustomDomain] 
 
-Azure uygulama hizmeti uygulamaları ile özel bir etki alanı kaydı bir özeti için aşağıdaki makaleye bakın [özel etki alanlarını kaydetme][RegisterCustomDomain].
+Azure uygulama hizmeti uygulamaları ile özel bir etki alanı kaydı bir özeti için aşağıdaki makaleye bakın hello bkz [özel etki alanlarını kaydetme][RegisterCustomDomain].
 
-## <a name="trying-out-the-distributed-topology"></a>Dağıtılmış topoloji çalışıyor
-Trafik Yöneticisi ve DNS yapılandırması nihai sonucu isteklerine için olan *www.scalableasedemo.com* aşağıdakiler akar:
+## <a name="trying-out-hello-distributed-topology"></a>Dağıtılmış topoloji Hello çalışıyor
+Merhaba son hello trafik Yöneticisi ve DNS yapılandırması yönelik isteklere sonucudur *www.scalableasedemo.com* dizisi aşağıdaki hello akar:
 
 1. DNS araması yapmak bir tarayıcı veya aygıt *www.scalableasedemo.com*
-2. Etki alanı kayıt CNAME girdisi Azure trafik Yöneticisi için yeniden yönlendirilmesi için DNS araması neden olur.
-3. DNS araması yapılan *ana demo.trafficmanager.net ölçeklenebilir* Azure trafik Yöneticisi DNS sunucularını birini karşı.
-4. Yük Dengeleme İlkesi göre ( *TrafficRoutingMethod* trafik Yöneticisi profili oluştururken daha önce kullanılan parametresi), trafik Yöneticisi yapılandırılmış uç birini seçin ve bu uç FQDN'sini tarayıcı veya aygıt geri dönün.
-5. Uç nokta FQDN'sini bir uygulama hizmeti ortamı üzerinde çalışan bir uygulama örneğine URL'sini olduğundan, tarayıcı veya aygıt IP adresine FQDN'yi çözümlemek için bir Microsoft Azure DNS sunucusu sorar. 
-6. HTTP/S isteği, tarayıcı veya aygıt IP adresine gönderir.  
-7. İstek, App Service ortamları biri üzerinde çalışan uygulama örnekleri birinde ulaşırsınız.
+2. Merhaba hello etki alanı kayıt CNAME girdisi hello DNS Arama yeniden yönlendirilen toobe tooAzure trafik Yöneticisi neden olur.
+3. DNS araması yapılan *ana demo.trafficmanager.net ölçeklenebilir* hello Azure trafik Yöneticisi DNS sunucularından birinde karşı.
+4. Merhaba Yük Dengeleme İlkesi tabanlı (Merhaba *TrafficRoutingMethod* hello trafik Yöneticisi profili oluştururken daha önce kullanılan parametresi), hello biri uç noktaları yapılandırılmış seçip dönüş trafik Yöneticisi Merhaba, FQDN'si uç nokta toohello tarayıcı veya aygıt.
+5. Bir uygulama hizmeti ortamı üzerinde çalışan bir uygulama örneğine hello URL'sini Hello hello uç noktası FQDN'si olduğuna göre hello tarayıcı veya aygıt bir Microsoft Azure DNS sunucusu tooresolve hello FQDN tooan IP adresi sorar. 
+6. Merhaba tarayıcı veya aygıt hello HTTP/S isteği toohello IP adresine gönderir.  
+7. Merhaba isteği hello App Service ortamları biri üzerinde çalışan hello app örnekleri birinde ulaşırsınız.
 
-Konsol resimde üç örnek uygulama hizmeti ortamları (Bu durumda ikinci üç uygulama hizmeti ortamları,) biri üzerinde çalışan bir uygulama örneği başarıyla çözümleme örnek uygulamanın özel etki alanı için DNS araması gösterilmektedir:
+Merhaba konsol resimde gösterilmektedir hello üç örnek uygulama hizmeti ortamları biri üzerinde çalışan hello örnek uygulamanın özel etki alanı başarıyla çözümleme tooan uygulama örneği için DNS araması (Bu durumda hello hello üç uygulama hizmeti ortamları saniye):
 
 ![DNS araması][DNSLookup] 
 
 ## <a name="additional-links-and-information"></a>Ek bağlantıları ve bilgileri
-Tüm makaleler ve nasıl-için uygulama hizmeti ortamları kullanılabilir için kullanıcının [uygulama hizmeti ortamları için Benioku](../app-service/app-service-app-service-environments-readme.md).
+Tüm makaleler ve nasıl-için uygulama hizmeti ortamları hello kullanılabilir için kullanıcının [uygulama hizmeti ortamları için Benioku](../app-service/app-service-app-service-environments-readme.md).
 
-Belgeleri, Powershell [Azure Kaynak Yöneticisi trafik Yöneticisi Destek][ARMTrafficManager].  
+Merhaba Powershell belgelerine [Azure Kaynak Yöneticisi trafik Yöneticisi Destek][ARMTrafficManager].  
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: "Dosyaları ve klasörleri yedeklemek için kullanım Azure Yedekleme aracısı | Microsoft Docs"
-description: "Microsoft Azure Yedekleme aracısı Windows dosya ve klasörlerinizi Azure'a yedeklemek için kullanın. Bir kurtarma Hizmetleri kasası oluşturmanız, yedekleme aracısını yüklemek, yedekleme ilkesi tanımlama ve dosya ve klasörleri ilk yedeklemeyi çalıştırın."
+title: "Dosya ve klasörleri aaaUse Azure Yedekleme aracısı tooback | Microsoft Docs"
+description: "Windows dosya ve klasörleri tooAzure yukarı Hello Microsoft Azure Yedekleme aracısı tooback kullanın. Kurtarma Hizmetleri kasası oluşturma, hello yedekleme aracısını yüklemek, hello yedekleme ilkenizi tanımlayın ve hello dosyalar ve klasörler üzerinde hello ilk yedeklemeyi çalıştırın."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -15,173 +15,173 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b95dc0a83d8e5618effb573353f419e1837d30c5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: be203c24841971872b5c6e7cf260a2fa5c58ac47
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager dağıtım modelini kullanarak Windows Server veya istemcisini Azure’a yedekleme
+# <a name="back-up-a-windows-server-or-client-tooazure-using-hello-resource-manager-deployment-model"></a>Merhaba Resource Manager dağıtım modelini kullanarak bir Windows Server ya da istemci tooAzure yedekleyin
 > [!div class="op_single_selector"]
 > * [Azure portal](backup-configure-vault.md)
 > * [Klasik portal](backup-configure-vault-classic.md)
 >
 >
 
-Bu makalede, Windows Server (veya Windows istemcisi) yedekleme açıklanmaktadır dosya ve klasörleri Azure Resource Manager dağıtım modelini kullanarak yedekleme ile azure'a.
+Bu makalede, Resource Manager dağıtım modeli kullanarak Azure Backup ile tooback, Windows Server (veya Windows istemcisi) dosya ve klasörleri tooAzure hello nasıl açıklanmaktadır.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
 
 ![Yedekleme işlemi adımları](./media/backup-configure-vault/initial-backup-process.png)
 
 ## <a name="before-you-start"></a>Başlamadan önce
-Bir sunucu veya istemci için Azure yedekleme için bir Azure hesabınızın olması gerekir. Yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde.
+bir sunucu veya istemci tooAzure tooback, bir Azure hesabınızın olması gerekir. Yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde.
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
-Kurtarma Hizmetleri kasası tüm yedeklemeleri ve zaman içinde oluşturduğunuz kurtarma noktalarını depolayan bir varlıktır. Kurtarma Hizmetleri kasası, korumalı dosyalara ve klasörlere uygulanan yedekleme ilkesini de içerir. Kurtarma Hizmetleri kasası oluşturduğunuzda, aynı zamanda uygun depolama artıklığı seçeneği işaretlemeniz gerekir.
+Kurtarma Hizmetleri kasası tüm hello yedeklemeleri ve zaman içinde oluşturduğunuz kurtarma noktalarını depolayan bir varlıktır. Hello kurtarma Hizmetleri kasası ayrıca hello uygulanan yedekleme ilkesini toohello korumalı dosyaları ve klasörleri içerir. Kurtarma Hizmetleri kasası oluşturduğunuzda, aynı zamanda hello uygun depolama artıklığı seçeneği işaretlemeniz gerekir.
 
-### <a name="to-create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturmak için
-1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure Portal](https://portal.azure.com/)'da oturum açın.
-2. Hub menüsünde **Diğer hizmetler**'e tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazıp **Kurtarma Hizmetleri kasaları** seçeneğine tıklayın.
+### <a name="toocreate-a-recovery-services-vault"></a>toocreate bir kurtarma Hizmetleri kasası
+1. Zaten yapmadıysanız, toohello içinde oturum [Azure Portal](https://portal.azure.com/) Azure aboneliğinizi kullanarak.
+2. Merhaba Hub menüsünde **daha fazla hizmet** ve kaynakları hello listesinde yazın **kurtarma Hizmetleri** tıklatıp **kurtarma Hizmetleri kasaları**.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
-    Abonelikte kurtarma hizmetleri kasaları varsa kasalar listelenir.
+    Merhaba abonelikte kurtarma Hizmetleri kasaları varsa hello kasalarını listelenir.
 
-3. **Kurtarma Hizmetleri kasaları** menüsünde **Ekle**'ye tıklayın.
+3. Merhaba üzerinde **kurtarma Hizmetleri kasaları** menüsünde tıklatın **Ekle**.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 2. adım](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    Kurtarma Hizmetleri kasası dikey penceresi açılır ve sizden bir **Ad**, **Abonelik**, **Kaynak Grubu** ve **Konum** sağlamanızı ister.
+    Merhaba kurtarma Hizmetleri kasası dikey penceresi açılır tooprovide isteyen bir **adı**, **abonelik**, **kaynak grubu**, ve **konumu**.
 
     ![Kurtarma Hizmetleri Kasası Oluşturma 3. adım](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-4. **Ad** alanına, kasayı tanımlayacak kolay bir ad girin. Adın Azure aboneliği için benzersiz olması gerekir. 2 ila 50 karakterden oluşan bir ad yazın. Ad bir harf ile başlamalıdır ve yalnızca harf, rakam ve kısa çizgi içerebilir.
+4. İçin **adı**, bir kolay ad tooidentify hello kasası girin. Merhaba adı toobe hello Azure aboneliği için benzersiz olmalıdır. 2 ila 50 karakterden oluşan bir ad yazın. Ad bir harf ile başlamalıdır ve yalnızca harf, rakam ve kısa çizgi içerebilir.
 
-5. **Abonelik** bölümündeki açılır menüyü kullanarak Azure aboneliğini seçin. Yalnızca bir abonelik kullanıyorsanız bu abonelik görüntülenir ve sonraki adıma atlayabilirsiniz. Hangi aboneliğin kullanılacağından emin değilseniz varsayılan (veya önerilen) aboneliği kullanın. Yalnızca kuruluş hesabınızın birden çok Azure aboneliği ile ilişkili olması durumunda birden çok seçenek olur.
+5. Merhaba, **abonelik** bölümünde, hello açılır menü toochoose hello Azure aboneliği kullanın. Yalnızca bir abonelik kullanırsanız, bu abonelik görünür ve toohello sonraki adımı atlayabilirsiniz. Hangi abonelik toouse emin değilseniz, hello varsayılan kullanın (veya önerilen) aboneliği. Yalnızca kuruluş hesabınızın birden çok Azure aboneliği ile ilişkili olması durumunda birden çok seçenek olur.
 
-6. **Kaynak grubu** bölümünde:
+6. Merhaba, **kaynak grubu** bölümü:
 
-    * Yeni bir Kaynak grubu oluşturmak istiyorsanız **Yeni oluştur**’u seçin.
+    * seçin **Yeni Oluştur** toocreate yeni bir kaynak grubu istiyorsanız.
     Veya
-    * **Var olanı kullan**’ı seçin ve açılır menüyü kullanarak mevcut Kaynak gruplarının listesine bakın.
+    * seçin **var olanı kullan** ve hello açılır menü toosee hello kullanılabilir kaynak gruplarının listesini'ı tıklatın.
 
-  Kaynak grupları hakkında eksiksiz bilgiler için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md).
+  Kaynak grupları hakkında tam bilgi için bkz: Merhaba [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).
 
-7. Kasa için coğrafi bölgeyi seçmek üzere **Konum**'a tıklayın. Bu seçim, yedekleme verilerinizin gönderildiği coğrafi bölgeyi belirler.
+7. Tıklatın **konumu** tooselect hello hello kasa için coğrafi bölgeyi. Bu seçim, yedekleme verilerinizi burada gönderilen hello coğrafi bölgeyi belirler.
 
-8. Kurtarma Hizmetleri kasası dikey penceresinin alt kısmındaki **Oluştur**’a tıklayın.
+8. Merhaba kurtarma Hizmetleri kasası dikey penceresinde Hello altındaki tıklatın **oluşturma**.
 
-  Kurtarma Hizmetleri kasasının oluşturulması birkaç dakika sürebilir. Portalın sağ üst kısmından durum bildirimlerini izleyin. Kasanız oluşturulduktan sonra Kurtarma Hizmetleri kasaları listesinde görünür. Birkaç dakika sonra kasayı görmezseniz **Yenile**’ye tıklayın.
+  Oluşturulan toobe kurtarma Hizmetleri kasası hello için birkaç dakika sürebilir. Merhaba portal hello üst sağ bölmesinde Hello durum bildirimlerini izleyin. Kasanız oluşturulduktan sonra hello kurtarma Hizmetleri kasaları listesinde görünür. Birkaç dakika sonra kasayı görmezseniz **Yenile**’ye tıklayın.
 
   ![Yenile düğmesine tıklayın](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
-  Kasanızı Kurtarma Hizmetleri kasaları listesinde gördükten sonra, depolama yedekliliğini ayarlamaya hazır olursunuz.
+  Kasanızı kurtarma Hizmetleri kasalarının hello listesinde gördüğünüz verdikten sonra hazır tooset hello depolama artıklığı demektir.
 
 
 ### <a name="set-storage-redundancy"></a>Küme depolama artıklığı
 Bir Kurtarma Hizmetleri kasasını ilk oluşturduğunuzda depolamanın nasıl çoğaltılacağını belirlersiniz.
 
-1. **Kurtarma Hizmetleri kasaları** dikey penceresinden yeni kasaya tıklayın.
+1. Merhaba gelen **kurtarma Hizmetleri kasaları** dikey penceresinde hello yeni kasaya tıklayın.
 
-    ![Kurtarma Hizmetleri kasası listesinden yeni kasayı seçin](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![Kurtarma Hizmetleri kasası hello listeden Hello yeni kasa seçin](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-    Kasayı seçtiğinizde **Kurtarma Hizmetleri kasası** dikey penceresi daralır ve Ayarlar dikey penceresi (*en üstünde kasanın adı bulunur*) ve ile kasa ayrıntıları dikey penceresi açılır.
+    Merhaba kasası seçtiğinizde hello **kurtarma Hizmetleri kasası** dikey daraltır ve hello ayarları dikey (*hello üstünde hello kasasının hello ada sahip*) ve hello kasa Ayrıntılar dikey penceresini açın.
 
-    ![Yeni kasa için depolama yapılandırmasını görüntüleme](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![Yeni kasa için Görünüm hello depolama yapılandırması](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
 
-2. Yeni kasanın Ayarlar dikey penceresinde dikey kaydırma çubuğunu kullanarak Yönet bölümüne inin ve **Yedekleme Altyapısı**’na tıklayın.
+2. Merhaba yeni kasasının ayarlar dikey penceresinde hello dikey slayt tooscroll toohello Yönet bölümüne aşağı kullanın ve'ı tıklatın **Yedekleme Altyapısı**.
 
-  Yedekleme Altyapısı dikey penceresi açılır.
+  Merhaba yedekleme altyapısı dikey pencere açılır.
 
-3. Yedekleme Altyapısı dikey penceresinde, **Yedekleme Yapılandırması**’na tıklayarak **Yedekleme Yapılandırması** dikey penceresini açın.
+3. Merhaba yedekleme altyapısı dikey penceresinde tıklayın **yedekleme yapılandırması** tooopen hello **yedekleme yapılandırması** dikey.
 
-  ![Yeni kasa için depolama yapılandırması ayarlama](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![Yeni kasa Hello depolama yapılandırmasını ayarlayın](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 
-4. Kasanız için uygun depolama çoğaltma seçeneğini belirleyin.
+4. Kasanız için Hello uygun depolama çoğaltma seçeneğini seçin.
 
   ![depolama yapılandırması seçenekleri](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-  Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Azure'ı birincil yedek depolama uç noktası olarak kullanıyorsanız, **Coğrafi olarak yedekli** seçeneğini kullanmaya devam edin. Azure’u birincil yedek depolama uç noktası olarak kullanmıyorsanız, Azure depolama maliyetlerini azaltan **Yerel olarak yedekli** seçeneğini belirleyin. [Coğrafi olarak yedekli](../storage/common/storage-redundancy.md#geo-redundant-storage) ve [yerel olarak yedekli](../storage/common/storage-redundancy.md#locally-redundant-storage) depolama seçenekleri hakkında daha fazla bilgiyi [Depolama yedekliliğine genel bakış](../storage/common/storage-redundancy.md) bölümünden edinebilirsiniz.
+  Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Azure birincil yedekleme alanı uç noktası kullanıyorsanız, toouse devam **coğrafi olarak yedekli**. Birincil yedekleme alanı uç noktası Azure kullanmıyorsanız, ardından **yerel olarak yedekli**, hello Azure depolama maliyetlerini azaltır. [Coğrafi olarak yedekli](../storage/common/storage-redundancy.md#geo-redundant-storage) ve [yerel olarak yedekli](../storage/common/storage-redundancy.md#locally-redundant-storage) depolama seçenekleri hakkında daha fazla bilgiyi [Depolama yedekliliğine genel bakış](../storage/common/storage-redundancy.md) bölümünden edinebilirsiniz.
 
-Bir kasa oluşturduğunuza göre indirme ve Microsoft Azure kurtarma Hizmetleri Aracısı'nı yükleyerek, kasa kimlik bilgilerini indirme ve aracı kasaya kaydetmek için bu kimlik bilgilerini kullanarak dosyaları ve klasörleri yedeklemek için altyapınızı hazırlayın.
+Bir kasa oluşturduğunuza göre indirme ve hello Microsoft Azure kurtarma Hizmetleri aracısını yükleyerek, kasa kimlik bilgilerini indirme ve bu kimlik bilgileri tooregister hello aracısını kullanarak, altyapı tooback dosya ve klasörleri hazırlama Merhaba kasası.
 
-## <a name="configure-the-vault"></a>Kasa yapılandırma
+## <a name="configure-hello-vault"></a>Merhaba kasası yapılandırma
 
-1. Kurtarma Hizmetleri kasası dikey penceresinin (yeni oluşturduğunuz kasa için) Başlarken bölümünde **Yedekle**’ye tıklayın, ardından **Yedeklemeye Başlama** dikey penceresinde **Yedekleme hedefi**’ne tıklayın.
+1. Açık kurtarma Hizmetleri kasası dikey (Merhaba kasa), yeni oluşturduğunuz, hello Başlarken bölümünde Merhaba, tıklatın **yedekleme**, sonra da hello **yedekleme ile çalışmaya başlama** dikey penceresinde, select  **Yedekleme hedefi**.
 
   ![Yedekleme hedefi dikey penceresini açma](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-  **Yedekleme Hedefi** dikey penceresi açılır. Kurtarma Hizmetleri kasası önceden yapılandırılmışsa, sonra **yedekleme hedefi** dikey pencere açılır tıkladığınızda **yedekleme** kurtarma Hizmetleri kasası dikey penceresi.
+  Merhaba **yedekleme hedefi** dikey pencere açılır. Kurtarma Hizmetleri kasası hello önceden yapılandırılmışsa, ardından hello **yedekleme hedefi** dikey pencere açılır tıkladığınızda **yedekleme** hello kurtarma Hizmetleri kasası dikey penceresi.
 
   ![Yedekleme hedefi dikey penceresini açma](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
-2. **İş yükünüz nerede çalışıyor?** açılır menüsünden **Şirket içi**’ni seçin.
+2. Merhaba gelen **, iş yükünü çalıştırdığı?** açılır menüsünde, select **şirket içi**.
 
   Windows Server veya Windows bilgisayarınız Azure üzerinde olmayan fiziksel bir makine olduğu için **Şirket içi** seçeneğini belirlersiniz.
 
-3. **Neleri yedeklemek istiyorsunuz?** menüsünden **Dosyalar ve klasörler**'i seçin ve **Tamam**'a tıklayın.
+3. Merhaba gelen **neler toobackup istediğiniz?** menüsünde, select **dosya ve klasörleri**, tıklatıp **Tamam**.
 
   ![Dosya ve klasörleri yedekleme](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
 
-  Tamam'a tıkladıktan sonra **Yedekleme hedefi**’nin yanında bir onay işareti görünür ve **Altyapıyı hazırlama** dikey penceresi açılır.
+  Tamam'ı tıklattıktan sonra bir onay işareti çok sonraki görünür**yedekleme hedefi**ve hello **altyapıyı hazırlama** dikey pencere açılır.
 
   ![Yedekleme hedefi yapılandırılmıştır, bundan sonra altyapıyı hazırlayın](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
-4. **Altyapıyı hazırlama** dikey penceresinde **Windows Server veya Windows İstemcisi için Aracı'yı indir** seçeneğine tıklayın.
+4. Merhaba üzerinde **altyapıyı hazırlama** dikey penceresinde tıklatın **karşıdan aracısı için Windows Server veya Windows İstemcisi**.
 
   ![altyapıyı hazırlama](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-  Windows Server Essential kullanıyorsanız Windows Server Essential aracısını indirmeyi seçin. Açılır menü, MARSAgentInstaller.exe dosyasını çalıştırma veya kaydetme seçeneğini sunar.
+  Windows Server temel kullanıyorsanız, Windows Server temel için toodownload hello Aracısı seçin. Açılır menü toorun komut istemleri veya MARSAgentInstaller.exe kaydedin.
 
   ![MARSAgentInstaller iletişim kutusu](./media/backup-try-azure-backup-in-10-mins/mars-installer-run-save.png)
 
-5. İndirme açılır penceresinde **Kaydet**'e tıklayın.
+5. Merhaba indirme açılır menüsünde tıklatın **kaydetmek**.
 
-  Varsayılan olarak, **MARSagentinstaller.exe** dosyası İndirilenler klasörünüze kaydedilir. Yükleyici tamamlandığında yükleyiciyi çalıştırmak veya klasörü açmak isteyip istemediğinizi soran bir açılır pencere görüntülenir.
+  Varsayılan olarak, hello **MARSagentinstaller.exe** dosya tooyour indirmeler klasörüne kaydedilir. Merhaba yükleyici tamamladığında, toorun hello yükleyici istediğiniz veya hello klasörünü açın, isteyen bir açılır pencere görürsünüz.
 
   ![altyapıyı hazırlama](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-  Aracıyı yüklemeniz henüz gerekli değildir. Kasa kimlik bilgilerini indirdikten sonra aracıyı yükleyebilirsiniz.
+  Tooinstall hello Aracısı henüz gerekmez. Merhaba kasa kimlik bilgileri indirdikten sonra hello aracısını yükleyebilirsiniz.
 
-6. **Altyapıyı hazırlama** dikey penceresinde **İndir**'e tıklayın.
+6. Merhaba üzerinde **altyapıyı hazırlama** dikey penceresinde tıklatın **karşıdan**.
 
   ![kasa kimlik bilgilerini indirme](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-  Kasa kimlik bilgileri, İndirmeler klasörünüze indirilir. Kasa kimlik bilgilerini indirme tamamlandıktan sonra kimlik bilgilerini açmak veya kaydetmek isteyip istemediğinizi soran bir açılır pencere görüntülenir. **Kaydet**’e tıklayın. Yanlışlıkla **Aç**’a tıklarsanız, kasa kimlik bilgilerini açmaya çalışan iletişim kutusu başarısız olur. Kasa kimlik bilgilerini açamazsınız. Sonraki adıma geçin. Kasa kimlik bilgileri İndirmeler klasöründedir.   
+  Merhaba kasa kimlik bilgileri tooyour indirmeler klasörüne indirin. Hello kasa kimlik bilgilerini indirme işlemini tamamladıktan sonra tooopen istediğiniz veya hello kimlik bilgilerini Kaydet isteyen bir açılır pencere görürsünüz. **Kaydet** düğmesine tıklayın. Yanlışlıkla tıklatırsanız **açık**, tooopen hello kasa kimlik bilgileri çalışır hello iletişim sağlar, başarısız. Merhaba kasa kimlik bilgileri açamıyor. Toohello sonraki adıma geçin. Merhaba kasa kimlik bilgileri hello indirme klasöründe yer alır.   
 
   ![kasa kimlik bilgilerini indirme tamamlandı](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
-## <a name="install-and-register-the-agent"></a>Aracıyı yükleme ve kaydetme
+## <a name="install-and-register-hello-agent"></a>Yükleme ve hello Aracısı kaydedin
 
 > [!NOTE]
-> Azure portal üzerinden yedeklemeyi etkinleştirme olanağı henüz mevcut değildir. Dosya ve klasörlerinizi yedeklemek üzere Microsoft Azure Kurtarma Hizmetleri Aracısı'nı kullanın.
+> Hello Azure portal üzerinden yedeklemeyi etkinleştirme olanağı henüz kullanılabilir değil. Dosya ve klasörleri Hello Microsoft Azure kurtarma Hizmetleri Aracısı tooback kullanın.
 >
 
-1. İndirilenler klasöründen (veya diğer kayıtlı konumdan) **MARSagentinstaller.exe** dosyasını bulun ve dosyaya çift tıklayın.
+1. Bulun ve çift hello **MARSagentinstaller.exe** hello yükleme klasöründen (veya diğer kayıtlı konumdan).
 
-  Yükleyici, Kurtarma Hizmetleri aracısı ayıklama, yükleme ve kaydetme sırasında bir dizi ileti sunar.
+  Merhaba yükleyici, bir dizi ileti ayıklar gibi yükler ve hello kurtarma Hizmetleri aracısını kaydeder sağlar.
 
   ![Kurtarma Hizmetleri aracısı yükleyici kimlik bilgilerini çalıştırma](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
 
-2. Microsoft Azure Kurtarma Hizmetleri Aracısı Kurulum Sihirbazı'nı tamamlayın. Sihirbazı tamamlamak için şunları yapmanız gerekir:
+2. Merhaba Microsoft Azure kurtarma Hizmetleri Aracısı Kurulum Sihirbazı tamamlayın. toocomplete Başlangıç Sihirbazı, şunları yapmanız gerekir:
 
-  * Yükleme ve önbellek klasörü için bir konum seçin.
-  * İnternet'e bağlanmak için bir ara sunucu kullanıyorsanız ara sunucu bilgilerinizi sağlayın.
+  * Merhaba yükleme ve önbellek klasörü için bir konum seçin.
+  * Bir proxy sunucu tooconnect toohello kullanırsanız, Ara sunucu bilgilerinizi sağlayın Internet.
   * Kimliği doğrulanmış bir ara sunucu kullanıyorsanız kullanıcı adı ve parola bilgilerinizi sağlayın.
-  * İndirilen kasa kimlik bilgilerini sağlayın
-  * Şifreleme parolasını güvenli bir konuma kaydedin.
+  * Merhaba indirilen kasa kimlik bilgilerini sağlayın
+  * Merhaba şifreleme parolası güvenli bir konuma kaydedin.
 
   > [!NOTE]
-  > Parolayı kaybeder veya unutursanız Microsoft, yedekleme verilerini kurtarmanıza yardımcı olamaz. Dosyayı güvenli bir konuma kaydedin. Bu dosya, bir yedeklemeyi geri yüklemek için gereklidir.
+  > Kaybeder veya hello parolayı unutursanız Microsoft hello yedekleme verilerini kurtarmanıza yardımcı olamaz. Merhaba dosyayı güvenli bir konuma kaydedin. Gerekli toorestore bir yedekleme olur.
   >
   >
 
-Aracı artık yüklenmiş ve makineniz kasaya kaydedilmiştir. Yedeklemenizi yapılandırıp zamanlamak için hazırsınız.
+Merhaba aracı artık yüklenmiş ve kayıtlı toohello kasasına makineniz olduğu. Hazır tooconfigure olduğunuz ve yedekleme zamanlayabilirsiniz.
 
 ## <a name="network-and-connectivity-requirements"></a>Ağ ve Bağlantı Gereksinimleri
 
-Makine/proxy sınırlı Internet erişimi, güvenlik duvarı ayarlarını makine/proxy aşağıdaki URL'ler izin verecek şekilde yapılandırıldığından emin olun: <br>
+Makine/proxy Internet erişimi sınırlı hello makine/proxy üzerinde güvenlik duvarı ayarlarını aşağıdaki URL'lere yapılandırılmış tooallow hello olduğundan emin olun: <br>
     1. www.msftncsi.com
     2. *.Microsoft.com
     3. *.WindowsAzure.com
@@ -189,81 +189,81 @@ Makine/proxy sınırlı Internet erişimi, güvenlik duvarı ayarlarını makine
     5. *.windows.ne
 
 
-## <a name="create-the-backup-policy"></a>Yedekleme ilkesi oluşturma
-Yedekleme kurtarma noktası alınma zamanlaması ve kurtarma noktalarının bekletileceği süre ilkesidir. Microsoft Azure Yedekleme aracısı, dosyalar ve klasörler için yedekleme ilkesi oluşturmak için kullanın.
+## <a name="create-hello-backup-policy"></a>Merhaba yedekleme ilkesi oluşturma
+Kurtarma noktaları alınır ve hello kurtarma noktalarının bekletileceği süre hello hello yedekleme İlkesi hello zamanlamadır. Merhaba Microsoft Azure Yedekleme aracısı toocreate hello yedekleme ilkesinin dosya ve klasörler için kullanın.
 
-### <a name="to-create-a-backup-schedule"></a>Bir yedekleme zamanlaması oluşturmak için
-1. Microsoft Azure yedekleme Aracısı'nı açın. Bunu, makinenizde **Microsoft Azure Backup** aramasını yaparak bulabilirsiniz.
+### <a name="toocreate-a-backup-schedule"></a>toocreate bir yedekleme zamanlaması
+1. Merhaba Microsoft Azure yedekleme Aracısı'nı açın. Bunu, makinenizde **Microsoft Azure Backup** aramasını yaparak bulabilirsiniz.
 
-    ![Azure Backup aracısını başlatma](./media/backup-configure-vault/snap-in-search.png)
-2. Yedekleme aracının içinde **Eylemler** bölmesinde tıklatın **yedekleme zamanlaması** yedeklemeyi Zamanlama Sihirbazı başlatmak için.
+    ![Hello Azure Backup aracısını başlatma](./media/backup-configure-vault/snap-in-search.png)
+2. Merhaba yedekleme aracısının içinde **Eylemler** bölmesinde tıklatın **yedekleme zamanlaması** toolaunch hello yedeklemeyi Zamanlama Sihirbazı.
 
     ![Windows Server yedeklemesini zamanlama](./media/backup-configure-vault/schedule-first-backup.png)
 
-3. Üzerinde **Başlarken** sayfa zamanlama Yedekleme Sihirbazı'nın tıklatın **sonraki**.
-4. Üzerinde **yedeklenecek öğeleri seçin** sayfasında, **öğeleri Ekle**.
+3. Merhaba üzerinde **Başlarken** hello yedeklemeyi Zamanlama Sihirbazı sayfasını tıklatın **sonraki**.
+4. Merhaba üzerinde **öğeleri seçin tooBackup** sayfasında, **öğeleri Ekle**.
 
-  Öğeleri seçin iletişim kutusu açılır.
+  Merhaba öğeleri seçin iletişim kutusu açılır.
 
-5. Dosya ve koruyun ve ardından istediğiniz klasörleri seçin **Tamam**.
-6. İçinde **yedeklenecek öğeleri seçin** sayfasında, **sonraki**.
-7. Üzerinde **yedekleme zamanlamasını belirtin** sayfasında, yedekleme zamanlamasını belirtin ve tıklayın **sonraki**.
+5. Merhaba dosyalar ve klasörler tooprotect istediğiniz ve ardından seçin **Tamam**.
+6. Merhaba, **öğeleri seçin tooBackup** sayfasında, **sonraki**.
+7. Merhaba üzerinde **yedekleme zamanlamasını belirtin** sayfasında, hello yedekleme zamanlamasını ve tıklatın belirtin **sonraki**.
 
     Günlük (en fazla günde üç kez olmak üzere) veya haftalık yedeklemeler zamanlayabilirsiniz.
 
     ![Windows Server Yedekleme öğeleri](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
    > [!NOTE]
-   > Yedekleme zamanlamasını belirtme konusunda daha fazla bilgi için [Bant altyapınızın yerini alması için Azure Windows Server Backup'ı kullanma](backup-azure-backup-cloud-as-tape.md) makalesine bakın.
+   > Merhaba makale nasıl toospecify hello yedekleme zamanlaması hakkında daha fazla bilgi için bkz: [kullanım Azure yedekleme tooreplace bant altyapınızın](backup-azure-backup-cloud-as-tape.md).
    >
    >
 
-8. Üzerinde **bekletme ilkesi seçin** belirli bekletme ilkeleri sayfasında, tıklatın ve yedek kopya için **sonraki**.
+8. Merhaba üzerinde **bekletme ilkesi seçin** sayfasında hello belirli bekletme ilkeleri hello hello yedek kopya seçin ve tıklayın **sonraki**.
 
-    Bekletme İlkesi yedekleme depolanan süreyi belirtir. Tüm yedekleme noktaları için bir "sabit ilke" belirtmek yerine, yedeklemenin gerçekleşme zamanını temel alan farklı bekletme ilkeleri belirtebilirsiniz. Günlük, haftalık, aylık ve yıllık bekletme ilkelerini gereksinimlerinizi karşılayacak şekilde değiştirebilirsiniz.
-9. İlk Yedekleme Türünü Seçin sayfasında ilk yedekleme türünü seçin. **Ağ üzerinden otomatik olarak** seçeneğini işaretli bırakın ve ardından **İleri**'ye tıklayın.
+    Merhaba bekletme ilkesi hangi hello yedekleme depolanan hello süresini belirtir. Yalnızca tüm yedekleme noktaları için "sabit ilke" belirtmek yerine, hello yedekleme gerçekleştiğinde göre farklı bekletme ilkeleri belirtebilirsiniz. Merhaba günlük, haftalık, aylık ve yıllık bekletme ilkeleri toomeet gereksinimlerinizi değiştirebilirsiniz.
+9. Merhaba ilk yedekleme türünü seçin sayfasında hello ilk yedekleme türünü seçin. Merhaba seçeneği bırakın **hello ağ üzerinden otomatik olarak** seçili ve ardından **sonraki**.
 
-    Otomatik olarak ağ üzerinden veya çevrimdışı yedekleme yapabilirsiniz. Bu makalenin sonraki bölümlerinde otomatik olarak yedekleme işlemi açıklanmaktadır. Çevrimdışı yedekleme işlemini tercih ediyorsanız ek bilgi için [Azure Backup'ta çevrimdışı yedekleme iş akışı](backup-azure-backup-import-export.md) makalesini gözden geçirin.
-10. Onay sayfasında bilgileri gözden geçirin ve ardından **Son**'a tıklayın.
-11. Sihirbaz yedekleme zamanlamasını oluşturduktan sonra **Kapat**'a tıklayın.
+    Otomatik olarak hello ağ üzerinden yedekleyebilir veya çevrimdışı yedekleme yapabilirsiniz. Bu makalenin sonraki bölümlerinde Hello otomatik olarak yedekleme hello işlemini açıklar. Çevrimdışı Yedekleme toodo tercih ederseniz, hello makalesini inceleyin [Azure backup'ta Çevrimdışı Yedekleme iş akışı](backup-azure-backup-import-export.md) ek bilgi için.
+10. Merhaba onay sayfasında hello bilgileri gözden geçirin ve ardından **son**.
+11. Merhaba Sihirbazı hello yedekleme zamanlamasını oluşturduktan sonra tıklayın **Kapat**.
 
 ### <a name="enable-network-throttling"></a>Ağ azaltmayı etkinleştir
-Microsoft Azure Yedekleme aracısı, ağ azaltma sağlar. Veri aktarımı sırasında ağ bant genişliğinin nasıl kullanıldığını denetimleri azaltma. Bu denetim sırasında verilerin yedeklemeniz gerekiyorsa, çalışma saatleri ancak Yedekleme işleminin diğer Internet trafiğine engel olmasını istiyor musunuz yararlı olabilir. Azaltma yedeklemek ve geri yükleme etkinlikleri için geçerlidir.
+Merhaba Microsoft Azure Yedekleme aracısı, ağ azaltma sağlar. Veri aktarımı sırasında ağ bant genişliğinin nasıl kullanıldığını denetimleri azaltma. Bu denetim verileri tooback çalışma saatlerinde gerekir, ancak diğer Internet trafiği ile Merhaba yedekleme işlemi toointerfere istiyor musunuz yararlı olabilir. Azaltma yukarıya tooback uygular ve geri yükleme etkinlikleri.
 
 > [!NOTE]
-> Ağ azaltma (hizmet paketleri ile) Windows Server 2008 R2 SP1, Windows Server 2008 SP2 veya Windows 7 üzerinde kullanılabilir değil. Özellik azaltma Azure Backup ağ hizmet kalitesi (QoS) yerel işletim sisteminde ilgilenir. Azure Backup bu işletim sistemlerini korumak için de, QoS bu platformlarda kullanılabilir sürümü Azure Backup ağ azaltma ile çalışmaz. Ağ azaltma kullanılabilir tüm diğer bağlı [desteklenen işletim sistemleri](backup-azure-backup-faq.md).
+> Ağ azaltma (hizmet paketleri ile) Windows Server 2008 R2 SP1, Windows Server 2008 SP2 veya Windows 7 üzerinde kullanılabilir değil. özellik azaltma hello Azure Backup ağ hizmet kalitesi (QoS) hello yerel işletim sisteminde ilgilenir. Azure Backup bu işletim sistemlerini korumak için de, QoS bu platformlarda kullanılabilir hello sürümü Azure Backup ağ azaltma ile çalışmaz. Ağ azaltma kullanılabilir tüm diğer bağlı [desteklenen işletim sistemleri](backup-azure-backup-faq.md).
 >
 >
 
-**Ağ azaltma etkinleştirmek için**
+**tooenable ağ azaltma**
 
-1. Microsoft Azure Yedekleme aracısı, tıklatın **özelliklerini değiştirme**.
+1. Merhaba Microsoft Azure yedekleme aracı tıklatın **özelliklerini değiştirme**.
 
     ![Özelliklerini değiştir](./media/backup-configure-vault/change-properties.png)
-2. Üzerinde **azaltma** sekmesine **yedekleme işlemleri için Internet bant genişliği kullanımı daraltmayı etkinleştir** onay kutusu.
+2. Merhaba üzerinde **azaltma** sekmesi, select hello **yedekleme işlemleri için Internet bant genişliği kullanımı daraltmayı etkinleştir** onay kutusu.
 
     ![Ağ azaltma](./media/backup-configure-vault/throttling-dialog.png)
-3. Azaltma etkinleştirdikten sonra sırasında yedek veri aktarımı için izin verilen bant genişliğini belirtin **çalışma saatleri** ve **çalışılmayan saatler**.
+3. Azaltma etkinleştirdikten sonra sırasında yedek veri aktarımı için bant genişliği izin verilen hello belirtin **çalışma saatleri** ve **çalışılmayan saatler**.
 
-    Bant genişliği değerler 512 kilobit / saniye (Kbps) başlar ve 1,023 megabayt (MBps) saniyede gidebilirsiniz. Ayrıca başlangıç belirleyin ve için son **çalışma saatleri**, ve haftanın hangi günleri dikkate alınan iş günlerini. Belirtilen iş saatleri kabul dışında saat saat İş dışı.
+    Merhaba bant genişliği değerler 512 kilobit / saniye (Kbps) başlar ve too1, 023 megabayt (MBps) saniyede yukarı gidebilirsiniz. Ayrıca hello başlangıç belirleyin ve için son **çalışma saatleri**, ve hello haftanın hangi günleri dikkate alınan iş günlerini. Belirtilen iş saatleri kabul dışında saat saat İş dışı.
 4. **Tamam** düğmesine tıklayın.
 
-### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Dosya ve klasörleri ilk kez yedeklemek için
-1. Yedekleme aracı tıklatın **Şimdi Yedekle** ağ üzerinden ilk doldurma işlemini tamamlamak için.
+### <a name="tooback-up-files-and-folders-for-hello-first-time"></a>Dosya ve klasörleri ilk kez hello için tooback
+1. Merhaba yedekleme aracısını içinde tıklatın **Şimdi Yedekle** toocomplete hello hello ağ üzerinden dengeli ilk.
 
     ![Windows Server şimdi yedekle](./media/backup-configure-vault/backup-now.png)
-2. Onay sayfasında, Şimdi Yedekle Sihirbazı'nın makineyi yedeklemek için kullanacağı ayarları gözden geçirin. Ardından **Yedekle**'ye tıklayın.
-3. Sihirbazı kapatmak için **Kapat**'a tıklayın. Bunu yedekleme işlemi tamamlanmadan önce yaparsanız sihirbaz arka planda çalışmaya devam eder.
+2. Merhaba onay sayfasında, Şimdi Yedekle sihirbazı hello hello ayarları gözden geçir hello makineyi tooback kullanır. Ardından **Yedekle**'ye tıklayın.
+3. Tıklatın **Kapat** tooclose hello Sihirbazı. Merhaba yedekleme işlemi tamamlanmadan önce bunu yaparsanız, Başlangıç Sihirbazı'nı toorun hello arka planda devam eder.
 
-İlk yedekleme tamamlandıktan sonra, Yedekleme konsolunda **İş tamamlandı** durumu görünür.
+Merhaba ilk Yedekleme tamamlandıktan sonra hello **işi tamamlandı** durum hello yedekleme konsolunda görüntülenir.
 
 ![IR tamamlandı](./media/backup-configure-vault/ircomplete.png)
 
 ## <a name="questions"></a>Sorularınız mı var?
-Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](http://aka.ms/azurebackup_feedback).
+Sorularınız varsa veya herhangi bir özellik varsa dahil, toosee istediğiniz [Geri bildirimlerinizi bize gönderin](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Sanal makineler veya diğer iş yüklerini yedekleme hakkında ek bilgi için bkz:
 
 * Dosya ve klasörlerinizi yedeklediğinize göre artık [kasa ve sunucularınızı yönetebilirsiniz](backup-azure-manage-windows-server.md).
-* Bir yedeklemeyi geri yüklemeniz gerekirse [dosyaları bir Windows makinesine geri yüklemek](backup-azure-restore-windows-server.md) için bu makaleyi kullanın.
+* Toorestore yedekleme ihtiyacınız varsa, bu makalede çok kullanmak[dosyaları tooa Windows makinesine geri](backup-azure-restore-windows-server.md).

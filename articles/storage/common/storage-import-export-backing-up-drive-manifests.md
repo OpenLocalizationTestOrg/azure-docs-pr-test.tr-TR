@@ -1,6 +1,6 @@
 ---
-title: "Azure içeri/dışarı aktarma sürücü bildirimlerini yedekleme | Microsoft Docs"
-description: "Sürücü bildirimlerinizi otomatik olarak yedeklenen Microsoft Azure içeri/dışarı aktarma hizmeti için sahip öğrenin."
+title: "aaaBacking Azure içeri/dışarı aktarma sürücü bildirimlerini ayarlama | Microsoft Docs"
+description: "Nasıl toohave sürücünüze hello Microsoft Azure içeri/dışarı aktarma hizmeti için otomatik olarak yedeklenen bildirimlerini öğrenin."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 33eb8e1eea8f8aa7b79ef3e54f2b1ed88dc794ae
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f48b97a2cce62714aace2b30a393305202c7ecd9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="backing-up-drive-manifests-for-azure-importexport-jobs"></a>Azure içeri/dışarı aktarma işleri sürücünün yedekleme bildirimleri
 
-Sürücü bildirimleri otomatik olarak yedeklenebilir BLOB'larını ayarlayarak `BackupDriveManifest` özelliğine `true` içinde [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) veya [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) REST API işlemleri. Varsayılan olarak, sürücü bildirimleri yedeklenmez. Sürücü bildirim yedeklemeler, blok bloblar bir kapsayıcıda işle ilişkili depolama hesabı olarak depolanır. Varsayılan olarak, kapsayıcı addır `waimportexport`, ancak farklı bir ad belirtebilirsiniz `DiagnosticsPath` çağrılırken özelliği `Put Job` veya `Update Job Properties` işlemleri. Yedekleme bildirim blob şu biçimde adlandırılır: `waies/jobname_driveid_timestamp_manifest.xml`.
+Sürücü bildirimleri otomatik olarak yedeklenir tooblobs ayarı hello tarafından `BackupDriveManifest` özelliği çok`true` hello içinde [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) veya [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) REST API işlemleri. Varsayılan olarak, hello sürücü bildirimleri yedeklenmez. Merhaba sürücü bildirim yedeklemeler, blok bloblar bir kapsayıcıda hello işle ilişkili hello depolama hesabı olarak depolanır. Varsayılan olarak, hello kapsayıcı adı olan `waimportexport`, ancak hello farklı bir ad belirtebilirsiniz `DiagnosticsPath` hello çağrılırken özelliği `Put Job` veya `Update Job Properties` işlemleri. Merhaba yedekleme bildirim blob adlı biçimini izleyen hello: `waies/jobname_driveid_timestamp_manifest.xml`.
 
- Çağırarak işi için yedekleme sürücü bildirimleri URI'sini alabilir [alma işi](/rest/api/storageimportexport/jobs#Jobs_Get) işlemi. URI döndürülür blob `ManifestUri` özelliği her bir sürücü için.
+ Merhaba yedekleme sürücü URI'sini bildirimleri için bir iş tarafından arama hello hello alabilir [alma işi](/rest/api/storageimportexport/jobs#Jobs_Get) işlemi. Merhaba blob URI'si hello döndürülen `ManifestUri` özelliği her bir sürücü için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [İçeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)
+* [Merhaba içeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)

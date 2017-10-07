@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager şablonları kullanarak Azure Service Bus kaynakları oluşturun | Microsoft Docs"
-description: "Service Bus kaynaklarını oluşturmayı otomatikleştirmek için Azure Resource Manager şablonlarını kullanma"
+title: "Azure Resource Manager şablonları kullanarak aaaCreate Azure Service Bus kaynakları | Microsoft Docs"
+description: "Azure Resource Manager şablonları tooautomate hello Service Bus kaynaklarını oluşturulmasını kullanın"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm
-ms.openlocfilehash: c8142d8edfd3a527b13d655bac21acf5332f2d14
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e539902cae307b63ae7c332580e2064761331ec5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonları kullanarak Service Bus kaynakları oluşturun
 
-Bu makalede, Azure Resource Manager şablonları, PowerShell ve Service Bus kaynak sağlayıcısı kullanarak Service Bus kaynaklarını oluşturup açıklar.
+Bu makalede nasıl toocreate ve Service Bus kaynaklarını Azure Resource Manager şablonları, PowerShell ve hello Service Bus kaynak sağlayıcısı kullanarak dağıtın.
 
-Azure Resource Manager şablonları bir çözümü dağıtmak ve parametreleri ve farklı ortamlar için değer girmesini sağlayan değişkenleri belirtmek için kaynakları tanımlamanıza yardımcı. JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler, şablon oluşur. Azure Resource Manager şablonları ve şablon biçimi tartışması yazma hakkında ayrıntılı bilgi için bkz: [yapısı ve Azure Resource Manager şablonları sözdizimini](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure Resource Manager şablonları şunları hello kaynakları toodeploy bir çözüm ve toospecify parametreleri ve farklı ortamlar için tooinput değerleri etkinleştir değişkenleri için tanımlamanıza yardımcı olur. JSON ve dağıtımınız için tooconstruct değerleri kullanabileceğiniz ifadeler Hello şablonu oluşur. Azure Resource Manager şablonları ve tartışma hello şablon biçimi için yazma hakkında ayrıntılı bilgi için bkz: [yapısı ve Azure Resource Manager şablonları sözdizimini](../azure-resource-manager/resource-group-authoring-templates.md).
 
 > [!NOTE]
-> Bu makaledeki örnekler Azure Resource Manager bir hizmet veri yolu ad alanı ve mesajlaşma varlığıyla (kuyruk) oluşturmak için nasıl kullanılacağını gösterir. Diğer şablon örnekler için ziyaret [Azure hızlı başlangıç Şablon Galerisi] [ Azure Quickstart Templates gallery] ve "Service Bus" için arama
+> Bu makale Göster örneklerde nasıl hello toouse Azure Resource Manager toocreate bir hizmet veri yolu ad alanı ve varlık (kuyruk) Mesajlaşma. Diğer şablon örnekler için hello ziyaret [Azure hızlı başlangıç Şablon Galerisi] [ Azure Quickstart Templates gallery] ve "Service Bus" için arama
 >
 >
 
 ## <a name="service-bus-resource-manager-templates"></a>Hizmet veri yolu Resource Manager şablonları
 
-Bu hizmet veri yolu Azure Resource Manager şablonları, yükleme ve dağıtım için kullanılabilir. Her biri, GitHub şablonlar için bağlantılar ile birlikte hakkında ayrıntılı bilgi için aşağıdaki bağlantıları tıklatın:
+Bu hizmet veri yolu Azure Resource Manager şablonları, yükleme ve dağıtım için kullanılabilir. Her biri, github'da bağlantıları toohello şablonlarıyla hakkında ayrıntılı bilgi için bağlantılar aşağıdaki hello tıklatın:
 
 * [Hizmet veri yolu ad alanı oluşturma](service-bus-resource-manager-namespace.md)
 * [Sıra ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-queue.md)
@@ -43,25 +43,25 @@ Bu hizmet veri yolu Azure Resource Manager şablonları, yükleme ve dağıtım 
 
 ## <a name="deploy-with-powershell"></a>PowerShell ile dağıtma
 
-Aşağıdaki yordam oluşturan bir Azure Resource Manager şablonu dağıtmak için PowerShell kullanmayı açıklar bir **standart** Service Bus ad alanı ve bu ad alanı içindeki bir sıra katmanı. Bu örnek dayanır [sıra ile Service Bus ad alanı oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) şablonu. Yaklaşık iş akışı aşağıdaki gibidir:
+Merhaba aşağıdaki yordamda açıklanmıştır nasıl toouse PowerShell toodeploy bir Azure Resource Manager şablonu oluşturan bir **standart** Service Bus ad alanı ve bu ad alanı içindeki bir sıra katmanı. Bu örnekte hello üzerinde temel [sıra ile Service Bus ad alanı oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) şablonu. Merhaba yaklaşık iş akışı aşağıdaki gibidir:
 
 1. PowerShell yükleyin.
-2. Şablon ve (isteğe bağlı) bir parametre dosyası oluşturun.
-3. PowerShell'de, Azure hesabınızda oturum açın.
+2. Merhaba şablonu ve (isteğe bağlı) bir parametre dosyası oluşturun.
+3. PowerShell'de tooyour Azure hesabı oturum açın.
 4. Bir mevcut değilse yeni bir kaynak grubu oluşturun.
-5. Dağıtımı test etme.
-6. İsterseniz, dağıtım modu ayarlayın.
-7. Şablon dağıtın.
+5. Merhaba dağıtımını test edin.
+6. İsterseniz, hello dağıtım modunu ayarlayın.
+7. Merhaba şablon dağıtın.
 
 Azure Resource Manager şablonları dağıtma hakkında tam bilgi için bkz: [kaynakları Azure Resource Manager şablonları ile dağıtma][Deploy resources with Azure Resource Manager templates].
 
 ### <a name="install-powershell"></a>PowerShell yükleme
 
-Azure PowerShell yönergelerini takip ederek yükleyin [Azure PowerShell ile çalışmaya başlama](/powershell/azure/get-started-azureps).
+Merhaba yönergeleri takip ederek Azure PowerShell'i yükleme [Azure PowerShell ile çalışmaya başlama](/powershell/azure/get-started-azureps).
 
 ### <a name="create-a-template"></a>Şablon oluşturma
 
-Kopya veya kopya [201-servicebus--kuyruk oluşturma](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) github'dan şablon:
+Kopya veya kopya hello [201-servicebus--kuyruk oluşturma](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) github'dan şablon:
 
 ```json
 {
@@ -71,20 +71,20 @@ Kopya veya kopya [201-servicebus--kuyruk oluşturma](https://github.com/Azure/az
         "serviceBusNamespaceName": {
             "type": "string",
             "metadata": {
-                "description": "Name of the Service Bus namespace"
+                "description": "Name of hello Service Bus namespace"
             }
         },
         "serviceBusQueueName": {
             "type": "string",
             "metadata": {
-                "description": "Name of the Queue"
+                "description": "Name of hello Queue"
             }
         },
         "serviceBusApiVersion": {
             "type": "string",
             "defaultValue": "2015-08-01",
             "metadata": {
-                "description": "Service Bus ApiVersion used by the template"
+                "description": "Service Bus ApiVersion used by hello template"
             }
         }
     },
@@ -131,7 +131,7 @@ Kopya veya kopya [201-servicebus--kuyruk oluşturma](https://github.com/Azure/az
 
 ### <a name="create-a-parameters-file-optional"></a>Bir parametre dosyası (isteğe bağlı) oluşturun
 
-Bir isteğe bağlı parametreler dosyası kullanmak için kopyalamanız [201-servicebus--kuyruk oluşturma](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) dosya. Değerini `serviceBusNamespaceName` bu dağıtımda oluşturun ve değerini değiştirmek istediğiniz hizmet veri yolu ad alanı ile `serviceBusQueueName` oluşturmak istediğiniz kuyruk adı.
+toouse bir isteğe bağlı parametreler dosya kopyalama hello [201-servicebus--kuyruk oluşturma](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) dosya. Hello değerini `serviceBusNamespaceName` hello adıyla hello Service Bus ad alanı bu dağıtımdaki toocreate istediğiniz ve hello değerini değiştirin `serviceBusQueueName` toocreate istediğiniz hello sırasının hello adı.
 
 ```json
 {
@@ -151,37 +151,37 @@ Bir isteğe bağlı parametreler dosyası kullanmak için kopyalamanız [201-ser
 }
 ```
 
-Daha fazla bilgi için bkz: [parametreleri](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) konu.
+Daha fazla bilgi için bkz: Merhaba [parametreleri](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) konu.
 
-### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Azure'da oturum açma ve Azure abonelik ayarlayın
+### <a name="log-in-tooazure-and-set-hello-azure-subscription"></a>İçinde tooAzure oturum ve hello Azure aboneliği ayarlama
 
-Bir PowerShell isteminden aşağıdaki komutu çalıştırın:
+Bir PowerShell isteminden hello aşağıdaki komutu çalıştırın:
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-Azure hesabınızda oturum açmak için istenir. Oturum açtıktan sonra kullanılabilir aboneliklerinizi görüntülemek için aşağıdaki komutu çalıştırın.
+İstendiğinde toolog tooyour Azure hesabı üzerinde var. Oturum açtıktan sonra komut tooview aşağıdaki hello kullanılabilir aboneliklerinizi çalıştırın.
 
 ```powershell
 Get-AzureRMSubscription
 ```
 
-Bu komut kullanılabilir Azure Aboneliklerin listesini döndürür. Aşağıdaki komutu çalıştırarak geçerli oturum için bir abonelik seçin. Değiştir `<YourSubscriptionId>` kullanmak istediğiniz Azure aboneliği için GUID ile.
+Bu komut kullanılabilir Azure Aboneliklerin listesini döndürür. Merhaba aşağıdaki komutu çalıştırarak geçerli oturumun hello için bir abonelik seçin. Değiştir `<YourSubscriptionId>` hello Azure aboneliği için hello GUID ile toouse istiyor.
 
 ```powershell
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 ```
 
-### <a name="set-the-resource-group"></a>Kaynak grubu
+### <a name="set-hello-resource-group"></a>Merhaba kaynak grubunu Ayarla
 
-Grup, yeni bir kaynak grubu oluşturmak için mevcut bir kaynağı yoksa ** New-AzureRmResourceGroup ** komutu. Kullanmak istediğiniz konumu ve kaynak grubu adını sağlayın. Örneğin:
+Grup, hello ile yeni bir kaynak grubu oluşturmak için mevcut bir kaynağı yoksa ** New-AzureRmResourceGroup ** komutu. Merhaba adını hello kaynak grubunu ve toouse istediğiniz konumu belirtin. Örneğin:
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
-Başarılı olursa, yeni kaynak grubu bir özeti görüntülenir.
+Başarılı olursa, hello yeni kaynak grubu bir özeti görüntülenir.
 
 ```powershell
 ResourceGroupName : MyDemoRG
@@ -191,44 +191,44 @@ Tags              :
 ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 ```
 
-### <a name="test-the-deployment"></a>Dağıtımı test etme
+### <a name="test-hello-deployment"></a>Merhaba dağıtımı test etme
 
-Çalıştırarak, dağıtımınızı doğrulama `Test-AzureRmResourceGroupDeployment` cmdlet'i. Tam dağıtım yürütülürken gibi dağıtım sınarken parametreleri sağlar.
-
-```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
-```
-
-### <a name="create-the-deployment"></a>Dağıtım oluşturma
-
-Yeni dağıtım oluşturmak için çalıştırın `New-AzureRmResourceGroupDeployment` cmdlet'ini ve istendiğinde gerekli parametreleri belirtin. Parametreleri adına, kaynak grubu ve yolu veya URL'si şablon dosyası, dağıtımınız için bir ad içerir. Varsa **modu** parametresi belirtilmezse, varsayılan değeri **artımlı** kullanılır. Daha fazla bilgi için bkz: [artımlı ve tam dağıtımları](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
-
-Aşağıdaki komutu PowerShell penceresinde üç parametre ister:
+Merhaba çalıştırarak, dağıtımınızı doğrulama `Test-AzureRmResourceGroupDeployment` cmdlet'i. Tam olarak hello dağıtım yürütülürken gibi hello dağıtım sınarken parametreleri sağlar.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json
 ```
 
-Bunun yerine bir parametre dosyası belirtmek için aşağıdaki komutu kullanın.
+### <a name="create-hello-deployment"></a>Merhaba dağıtımı oluşturma
+
+Merhaba çalıştırmak toocreate hello yeni dağıtım `New-AzureRmResourceGroupDeployment` cmdlet'ini ve istendiğinde hello gerekli parametreleri belirtin. Merhaba parametreleri dağıtımınıza, kaynak grubu ve hello yolu veya URL'si toohello şablon dosyası hello adı için bir ad içerir. Merhaba, **modu** parametresi belirtilmezse, varsayılan değeri hello **artımlı** kullanılır. Daha fazla bilgi için bkz: [artımlı ve tam dağıtımları](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
+
+komut istemlerini hello PowerShell penceresinde hello üç parametreler için hello:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json
 ```
 
-Dağıtım cmdlet'ini çalıştırdığınızda, satır içi parametreleri de kullanabilirsiniz. Komut aşağıdaki gibidir:
+toospecify bir parametre dosyası, bunun yerine, komutu aşağıdaki hello kullanın.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json -TemplateParameterFile <path tooparameters file>\azuredeploy.parameters.json
 ```
 
-Çalıştırmak için bir [tam](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) dağıtımı, **modu** parametresi **tam**:
+Merhaba deployment cmdlet'ini çalıştırdığınızda, satır içi parametreleri de kullanabilirsiniz. Merhaba komut aşağıdaki gibidir:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-### <a name="verify-the-deployment"></a>Dağıtımı doğrulama
-Kaynakları başarıyla dağıtılmışsa, dağıtım özetini PowerShell penceresinde görüntülenir:
+toorun bir [tam](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) dağıtım, kümesi hello **modu** parametresi çok**tam**:
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json
+```
+
+### <a name="verify-hello-deployment"></a>Merhaba dağıtımı doğrulama
+Merhaba kaynakları başarıyla dağıtılan hello dağıtım özetini hello PowerShell penceresinde görüntülenir:
 
 ```powershell
 DeploymentName    : MyDemoDeployment
@@ -247,7 +247,7 @@ Parameters        :
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi bir Azure Resource Manager şablonunu dağıtmak için komutları ve temel iş akışı gördünüz. Daha ayrıntılı bilgi için aşağıdaki bağlantıları ziyaret edin:
+Şimdi hello temel iş akışı ve Azure Resource Manager şablonunu dağıtmak için komutları gördünüz. Daha ayrıntılı bilgi için bağlantılar aşağıdaki hello ziyaret edin:
 
 * [Azure Resource Manager'a genel bakış][Azure Resource Manager overview]
 * [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtma][Deploy resources with Azure Resource Manager templates]

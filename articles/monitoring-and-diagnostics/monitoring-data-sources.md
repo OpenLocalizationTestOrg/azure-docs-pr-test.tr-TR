@@ -1,6 +1,6 @@
 ---
-title: Azure'dan izleme verileri kullanmak | Microsoft Docs
-description: "Tüm izleme verilerini Azure üzerinde kullanılabilen kaynakları bugün öğrenin."
+title: izleme verilerini azure'dan aaaConsume | Microsoft Docs
+description: "Azure üzerinde kullanılabilir veri kaynaklarını bugün izleme tüm hello hakkında bilgi edinin."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 6586cad908e6527b874dc3f0ee256c6b2cea8c49
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3c7fdad7c25b4d456df395b453fa0e75d514b0b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="consume-monitoring-data-from-azure"></a>İzleme verilerini Azure kullanma
 
-Azure platformu üzerinde biz birlikte Azure İzleyicisi ile tek bir yerde izleme veri kanalı, ancak bugün tüm izleme verilerini bu ardışık düzeninde kullanılabilir olduğunu henüz pratikte onaylamak getiren. Bu makalede, sizi Azure hizmetlerinden izleme verileri program aracılığıyla erişebilirsiniz çeşitli şekillerde özetler.
+Hello Azure üzerinden platform, biz ister getiriyor verileri tek bir yerde hello Azure İzleyici ardışık düzeni ile birlikte izleme, ancak hemen hemen bugün tüm izleme verilerini olduğunu bu ardışık düzeninde kullanılabilir henüz kabul ediyorsunuz. Bu makalede, biz hello Azure hizmetlerinden izleme verileri program aracılığıyla erişebilirsiniz çeşitli şekillerde özetler.
 
 ## <a name="options-for-data-consumption"></a>Veri tüketim için seçenekleri
 
@@ -52,5 +52,5 @@ Azure platformu üzerinde biz birlikte Azure İzleyicisi ile tek bir yerde izlem
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Daha fazla bilgi edinmek [Azure İzleyici ölçümleri](monitoring-overview-metrics.md)
-- Daha fazla bilgi edinmek [Azure etkinlik günlüğü](monitoring-overview-activity-logs.md)
+- Daha fazla bilgi edinmek [hello Azure etkinlik günlüğü](monitoring-overview-activity-logs.md)
 - Daha fazla bilgi edinmek [Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md)

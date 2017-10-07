@@ -1,6 +1,6 @@
 ---
-title: ".NET kullanarak azure depolama örnekleri | Microsoft Docs"
-description: "Görüntülemek, indirin ve örnek kod ve uygulamaları için Azure Storage çalıştırın. BLOB, kuyruklar, tablolar ve dosyaları için .NET depolama istemcisi kitaplıklarını kullanarak örnek Başlarken bulur."
+title: ".NET kullanarak aaaAzure depolama örnekleri | Microsoft Docs"
+description: "Görüntülemek, indirin ve örnek kod ve uygulamaları için Azure Storage çalıştırın. BLOB, kuyruklar, tablolar ve dosyaları için örnek hello .NET depolama istemcisi kitaplıklarını kullanarak Başlarken bulur."
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: d2b6b3d9483f230ad25ae47255a4f28c1a67e064
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9a7055645b0f0658b850f024b8b19ab19840330e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-samples-using-net"></a>.NET kullanarak azure depolama örnekleri
 
 ## <a name="net-sample-index"></a>.NET örnek dizini
 
-Aşağıdaki tabloda bizim örnek depo ve her örnek kapsamdaki senaryolar genel bakış sağlar. Github'da karşılık gelen örnek kod görüntülemek için bağlantıları tıklatın.
+Merhaba aşağıdaki tabloda örneklerimizi genel bir bakış depo ve hello senaryolar sağlar her örnek kapsamdaki. Merhaba bağlantılar tooview hello karşılık gelen örnek kod github'ı tıklatın.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Uç Nokta</th><th style="font-size:110%">Senaryo</th><th style="font-size:110%">Örnek kod</th></tr></thead><tbody> 
 <tr> 
@@ -197,13 +197,13 @@ Aşağıdaki tabloda bizim örnek depo ve her örnek kapsamdaki senaryolar genel
 
 ## <a name="azure-code-samples-library"></a>Azure Kod Örnekleri Kitaplığı
 
-Tam örnek kitaplığını görüntülemek için Git [Azure Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=storage) Azure Storage için karşıdan yükle ve yerel olarak çalıştırılan örnekleri içeren kitaplık. Kod örneği kitaplığı .zip biçimi örnek kodda sağlar. Alternatif olarak, bulun ve her bir örnek için GitHub deposunu kopyalayın.
+tooview hello tam örnek kitaplığı, Git toohello [Azure Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=storage) Azure Storage için karşıdan yükle ve yerel olarak çalıştırılan örnekleri içeren kitaplık. Merhaba kod örnek kitaplığı .zip biçimi örnek kodda sağlar. Alternatif olarak, bulun ve her bir örnek için hello GitHub deposunu kopyalayın.
 
 [!INCLUDE [storage-dotnet-samples-include](../../includes/storage-dotnet-samples-include.md)]
 
 ## <a name="getting-started-guides"></a>Başlarken kılavuzları alma
 
-Yükleyin ve Azure Storage istemcisi kitaplıklarını ile çalışmaya başlama hakkında yönergeler arıyorsanız aşağıdaki kılavuzlara denetleyin.
+Kılavuzları hakkında yönergeler arıyorsanız aşağıdaki hello kullanıma tooinstall ve Azure Storage istemcisi kitaplıklarını hello ile çalışmaya başlama.
 
 * [Azure Blob hizmetine .NET kullanmaya Başlarken](storage-dotnet-how-to-use-blobs.md)
 * [Azure kuyruk hizmetinde .NET kullanmaya Başlarken](storage-dotnet-how-to-use-queues.md)

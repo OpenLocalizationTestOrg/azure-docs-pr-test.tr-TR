@@ -1,6 +1,6 @@
 ---
-title: "Azure Automation’da ilk grafik runbook uygulamam | Microsoft Belgeleri"
-description: "Basit bir grafik runbook uygulaması oluşturma, test etme ve yayımlama adımlarını anlatan öğretici."
+title: Azure automation'da ilk grafik runbook aaaMy | Microsoft Docs
+description: "Test ve basit bir grafik runbook yayımlama hello oluşturma adımlarını anlatan öğretici."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/17/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 9d4b28416376482247127698bec7c99b83308885
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 964cf8bae75ca597959bfc39b2b07c22bbc9acb5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="my-first-graphical-runbook"></a>İlk grafik runbook uygulamam
 
@@ -30,154 +30,154 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Bu öğretici, Azure Automation’da bir [grafik runbook uygulaması](automation-runbook-types.md#graphical-runbooks) oluşturulmasını adım adım göstermektedir.  Runbook işi durumunun nasıl izleneceğini açıklarken test edip yayımlayan basit bir runbook ile başlayacağız.  Ardından, bir Azure sanal makinesini başlatmayı içeren bir örnekle, bu runbook’u gerçekten Azure kaynaklarını yönetmek üzere değiştireceğiz.  Daha sonra, runbook parametreleri ve koşullu bağlantılar ekleme yoluyla runbook’u daha sağlam hale getirerek öğreticiyi tamamlayacağız.
+Bu öğreticide, hello oluşturulmasını açıklanmaktadır bir [grafik runbook](automation-runbook-types.md#graphical-runbooks) Azure Automation.  Biz sınayan ve biz nasıl tootrack hello hello runbook işinin durumunu açıklarken yayımlar basit bir runbook ile başlatın.  Biz hello runbook değiştirebilir sonra tooactually yönetmek Azure kaynaklarını, bu durumda bir Azure sanal makinesi başlatılıyor.  Ardından biz hello runbook'u daha sağlam runbook parametreleri ve koşula bağlı bağlantılar ekleyerek yaparak hello öğretici tamamlayın.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+toocomplete Bu öğreticiyi izleyerek hello gerekir.
 
 * Azure aboneliği.  Henüz bir aboneliğiniz yoksa [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ya da <a href="/pricing/free-account/" target="_blank">[ücretsiz hesap için kaydolabilirsiniz](https://azure.microsoft.com/free/).
-* Runbook’u tutacak ve Azure kaynaklarında kimlik doğrulamasını yapacak bir [Azure Otomasyonu hesabı](automation-sec-configure-azure-runas-account.md).  Bu hesabın sanal makineyi başlatma ve durdurma izni olmalıdır.
+* [Azure Otomasyon hesabı](automation-sec-configure-azure-runas-account.md) toohold runbook hello ve tooAzure kaynakları kimlik doğrulaması.  Bu hesap, izin toostart sahip ve hello sanal makineyi durdurun.
 * Azure sanal makinesi.  Bu makineyi durdurup başlatacağımız için makinenin üretime yönelik olmaması gerekir.
 
 ## <a name="step-1---create-runbook"></a>1. Adım - Runbook oluşturma
-Çıktı olarak *Hello World* metnini veren basit bir runbook oluşturacağız.
+Merhaba metnini veren basit bir runbook oluşturarak başlangıç *Hello World*.
 
-1. Azure portalında, Otomasyon hesabınızı açın.  
-   Automation hesabı sayfası size bu hesaptaki kaynakların hızlı bir görünümünü sağlar.  Birkaç Varlığınız zaten olmalıdır.  Bunların çoğu, yeni bir Automation hesabına otomatik olarak dahil edilen modüllerdir.  Burada ayrıca [önkoşullarda](#prerequisites) belirtilen Kimlik Bilgileri varlığınız da bulunmalıdır.
-2. Runbook'ların listesini açmak için **Runbook'lar** kutucuğuna tıklayın.<br> ![Runbook denetimi](media/automation-first-runbook-graphical/runbooks-resources-tile.png)
-3. **Runbook ekle** düğmesine ve ardından **Yeni bir runbook oluştur**’a tıklayarak yeni bir runbook oluşturun.
-4. Runbook’a *MyFirstRunbook-Graphical* adını verin.
-5. Bu örneğimizde bir [grafik runbook uygulaması](automation-graphical-authoring-intro.md) oluşturacağız, bu nedenle **Runbook türü** olarak **Grafik**’i seçin.<br> ![Yeni runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
-6. Runbook’u oluşturmak için **Oluştur**’a tıklayın ve grafik düzenleyicisini açın.
+1. Hello Azure portal, Automation hesabınızı açın.  
+   Merhaba Automation hesabı sayfası, bu hesapta hello kaynakların hızlı bir görünümünü sağlar.  Birkaç Varlığınız zaten olmalıdır.  Bunların çoğu, yeni bir Otomasyon hesabı içinde otomatik olarak dahil edilen hello modüllerdir.  Hello belirtiliyor hello kimlik bilgisi varlığı de olmalıdır [Önkoşullar](#prerequisites).
+2. Merhaba tıklatın **Runbook'lar** döşeme tooopen hello listesini.<br> ![Runbook denetimi](media/automation-first-runbook-graphical/runbooks-resources-tile.png)
+3. Merhaba üzerinde tıklatarak yeni bir runbook oluşturmak **runbook Ekle** düğmesine ve ardından **yeni bir runbook oluşturmak**.
+4. Merhaba runbook hello adlandırın *MyFirstRunbook-Graphical*.
+5. Bu durumda, toocreate yapacağız bir [grafik runbook](automation-graphical-authoring-intro.md) şekilde select **grafik** için **Runbook türü**.<br> ![Yeni runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
+6. Tıklatın **oluşturma** toocreate hello runbook ve açık hello grafik düzenleyici.
 
-## <a name="step-2---add-activities-to-the-runbook"></a>2. Adım - Runbook’a etkinlikler ekleme
-Düzenleyicinin sol tarafındaki Kitaplık denetimi runbook uygulamanıza eklenecek etkinlikleri seçmenizi sağlar.  Runbook uygulamasından çıktı metnine **Write-Output** cmdlet’ini ekleyeceğiz.
+## <a name="step-2---add-activities-toohello-runbook"></a>2. adım - etkinlikleri toohello runbook Ekle
+Merhaba hello hello Düzenleyicisi sol tarafındaki kitaplık denetimi tooselect etkinlikleri tooadd tooyour runbook sağlar.  Tooadd yapacağız bir **Write-Output** hello runbook'tan cmdlet toooutput metin.
 
-1. Kitaplık denetiminde, arama metin kutusuna tıklayın ve **Write-Output** yazın.  Arama sonuçları altında görüntülenir. <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
-2. Listenin aşağısına kaydırın.  **Write-Output**’a sağ tıklayıp **Tuvale ekle**’yi seçebilir ya da cmdlet’in yanındaki elipse tıklayıp ardından **Tuvale ekle**’yi seçebilirsiniz.
-3. Tuvalde **Write-Output** etkinliğine tıklayın.  Bu işlem, etkinliği yapılandırmanızı sağlayan Yapılandırma denetimi dikey penceresini açar.
-4. **Etiket** cmdlet’in adını varsayılan olarak alır ancak bunu daha kolay bir şeyle değiştirebiliriz. Bunu *çıkışa Hello World yazmak* üzere değiştirin.
-5. Cmdlet parametreleri değerlerini sağlamak için **Parametreler**’e tıklayın.   
-   Bazı cmdlet’ler birden fazla parametre kümesine sahiptir ve kullanacağınız cmdlet’i seçmeniz gerekir. Bu durumda, **Write-Output** yalnızca bir parametre kümesine sahip olur, bu nedenle seçmeniz gerekmez. <br> ![Write-Output özellikleri](media/automation-first-runbook-graphical/write-output-properties-b.png)
-6. **InputObject** parametresini seçin.  Bu, çıkış akışına göndermek üzere metin belirttiğimiz parametredir.
-7. **Veri kaynağı** açılır listesinde, **PowerShell ifadesi**’nı seçin.  **Veri kaynağı** açılır penceresi bir parametre değerini doldurmak için kullandığınız farklı kaynaklar sağlar.  
-   Başka bir etkinlik, Automation varlığı ya da PowerShell ifadesi gibi böyle kaynaklardan alınan çıktıları kullanabilirsiniz.  Bu durumda, yalnızca *Hello World* için metin çıktısı istiyoruz. Bir PowerShell ifadesi kullanabilir ve dize belirtebiliriz.
-8. **İfade** kutusuna *"Hello World"* yazın ve ardından tuvale döndürmek için iki kez **Tamam**’a tıklayın.<br> ![PowerShell İfadesi](media/automation-first-runbook-graphical/expression-hello-world.png)
-9. **Kaydet**’e tıklayarak runbook’u kaydedin.<br> ![Runbook’u kaydetme](media/automation-first-runbook-graphical/runbook-toolbar-save-revised20165.png)
+1. Hello kitaplığı denetimi, hello arama metin kutusuna ve türü'i tıklatın **Write-Output**.  Merhaba arama sonuçları altında görüntülenir. <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
+2. Merhaba listesinin toohello altında kaydırın.  Ya da sağ tıklatma yapabilecekleriniz **Write-Output** seçip **toocanvas eklemek** veya hello elips sonraki toohello cmdlet'ı tıklatın ve ardından **toocanvas eklemek**.
+3. Merhaba tıklatın **Write-Output** hello tuval üzerinde etkinlik.  Bu tooconfigure hello etkinlik verir hello yapılandırma denetimi dikey açar.
+4. Merhaba **etiket** toohello hello cmdlet'in adını varsayılan olarak, ancak biz toosomething daha kolay değiştirebilirsiniz. Çok değiştirme*yazma Hello World toooutput*.
+5. Tıklatın **parametreleri** hello cmdlet parametreleri için tooprovide değerleri.  
+   Bazı cmdlet'ler birden çok parametre kümesine sahiptir ve hangi, bir toouse tooselect gerekir. Bu durumda, **Write-Output** yalnızca bir parametre kümesine sahiptir, bu nedenle tooselect biri gerekmez. <br> ![Write-Output özellikleri](media/automation-first-runbook-graphical/write-output-properties-b.png)
+6. Select hello **Inputobject** parametresi.  Bu hello biz hello metin toosend toohello çıkış akışı belirlediğiniz parametredir.
+7. Merhaba, **veri kaynağı** açılan listesinde, select **PowerShell ifadesi**.  Merhaba **veri kaynağı** açılır farklı kaynaklar sağlar toopopulate bir parametre değeri kullanın.  
+   Başka bir etkinlik, Automation varlığı ya da PowerShell ifadesi gibi böyle kaynaklardan alınan çıktıları kullanabilirsiniz.  Toooutput hello metin yalnızca bu durumda, istiyoruz *Hello World*. Bir PowerShell ifadesi kullanabilir ve dize belirtebiliriz.
+8. Merhaba, **ifade** kutusuna *"Hello World"* ve ardından **Tamam** iki kez tooreturn toohello tuvale.<br> ![PowerShell İfadesi](media/automation-first-runbook-graphical/expression-hello-world.png)
+9. Tıklayarak Hello runbook'u kaydetmek **kaydetmek**.<br> ![Runbook’u kaydetme](media/automation-first-runbook-graphical/runbook-toolbar-save-revised20165.png)
 
-## <a name="step-3---test-the-runbook"></a>3. Adım - Runbook'u test etme
-Runbook’u üretimde kullanılabilir hale getirmek üzere yayımlamadan önce düzgün çalıştığından emin olmak için test etmek istiyoruz.  Bir runbook'u test ettiğinizde, bunun **Taslak** sürümünü çalıştırır ve çıktısını etkileşimli olarak görüntülersiniz.
+## <a name="step-3---test-hello-runbook"></a>3. adım - hello runbook sınaması
+Biz hello runbook toomake yayımlamadan önce onu üretimde kullanılabilir tootest istiyoruz, toomake düzgün çalıştığından emin.  Bir runbook'u test ettiğinizde, bunun **Taslak** sürümünü çalıştırır ve çıktısını etkileşimli olarak görüntülersiniz.
 
-1. Test dikey penceresini açmak için **Test bölmesi**’ne tıklayın.<br> ![Test bölmesi](media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
-2. Testi başlatmak için **Başlat**’a tıklayın.  Etkinleştirilen tek seçenek bu olmalıdır.
-3. Bölmede bir [runbook işi](automation-runbook-execution.md) oluşturulur ve durumu görüntülenir.  
-   İş durumu, bulutta bir runbook çalışanının kullanılabilir hale gelmesinin beklendiğini gösteren şekilde *Sırada* olarak başlar.  Ardından, bir çalışan işi talep ettiğinde *Başlatılıyor* olarak ve runbook gerçekten çalışmaya başladığında *Çalışıyor* olarak değiştirilir.  
-4. Runbook işi tamamlandığında çıktısı görüntülenir. Örneğimizde, *Hello World* metnini görmeliyiz.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
-5. Tuvale geri dönmek için Test dikey penceresini kapatın.
+1. Tıklatın **Test bölmesi** tooopen hello Test dikey penceresini.<br> ![Test bölmesi](media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
+2. Tıklatın **Başlat** toostart hello test.  Bu, yalnızca etkin hello seçeneği olmalıdır.
+3. A [runbook işi](automation-runbook-execution.md) oluşturulur ve durumu hello bölmesinde görüntülenir.  
+   Merhaba iş durumunu başlatır olarak *sıraya alınan* bir runbook worker'hello bulut toobecome için bekleyen belirten.  Ardından çok taşır*başlangıç* bir çalışan hello işi talep ettiğinde ve ardından *çalıştıran* hello runbook gerçekten çalışmaya başladığında.  
+4. Merhaba runbook işi tamamlandığında çıktısı görüntülenir. Örneğimizde, *Hello World* metnini görmeliyiz.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
+5. Merhaba Test dikey tooreturn toohello tuvale kapatın.
 
-## <a name="step-4---publish-and-start-the-runbook"></a>4. Adım - Runbook’u yayımlama ve başlatma
-Oluşturduğumuz runbook hala Taslak modundadır. Runbook’un üretimde çalıştırılabilmesi için önce yayımlanması gerekir.  Bir runbook yayımladığınızda, Taslak sürümü mevcut Yayımlanmış sürümün üzerine yazarsınız.  Örneğimizde, runbook’u henüz oluşturduğumuzdan, Yayımlanmış sürümümüz yok.
+## <a name="step-4---publish-and-start-hello-runbook"></a>4. adım - yayımlama ve hello runbook başlatın
+oluşturduğumuz hello runbook hala taslak modunda değil. Toopublish ihtiyacımız, biz üretimde çalıştırılabilmesi için önce.  Bir runbook yayımladığınızda, hello Taslak sürümü hello mevcut yayımlanmış sürümün üzerine.  Merhaba runbook oluşturduğumuz çünkü Örneğimizde, yayımlanan sürümü biz henüz yok.
 
-1. Runbook’u yayımlamak için **Yayımla**’ya tıklayın ve sorulduğunda **Evet**’e tıklayın.<br> ![Yayımlama](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
-2. Şimdi runbook'u **Runbook'lar** dikey penceresinde görüntülemek için sola kaydırırsanız, **Yazma Durumu** olarak **Yayımlandı** gösterilir.
-3. **MyFirstRunbook** için dikey pencereyi görüntülemek üzere geri sağa kaydırın.  
-   Üst kısımdaki seçenekler runbook’u başlatmamıza, gelecekte bir zamanda başlatmak üzere zamanlamamıza ya da bir HTTP çağrısıyla başlatılabilmesi için [web kancası](automation-webhooks.md) oluşturmamıza olanak tanır.
-4. Yalnızca runbook'u başlatmak istiyoruz, bu nedenle **Başlat**’a ve ardından sorulduğunda **Evet**’e tıklayın.<br> ![Runbook’u başlatma](media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
-5. Oluşturduğumuz runbook için bir iş dikey penceresi açılır.  Bu dikey pencere kapatılabilir, ancak bu kez işin ilerleme durumunu izleyebilmek için açık bırakacağız.
-6. İş durumu **İş Özeti**’nde gösterilir ve runbook’u test ettiğimizde gördüğümüz durumların aynısıdır.<br> ![İş Özeti](media/automation-first-runbook-graphical/runbook-job-summary.png)
-7. Runbook durumu olarak *Tamamlandı* gösterilince **Çıktı**’ya tıklayın. **Çıktı** dikey penceresi açılır ve bölmede *Hello World* metnimizi görebiliriz.<br> ![İş Özeti](media/automation-first-runbook-graphical/runbook-job-output.png)  
-8. Çıktı dikey penceresini kapatın.
-9. Runbook işine ait Akışlar dikey penceresini açmak için **Tüm Günlükler**’e tıklayın.  Çıktı akışında yalnızca *Hello World* metnini görmeliyiz, ancak bu bölmede, runbook bunlara yazıyorsa Ayrıntılı ve Hata gibi runbook işine yönelik diğer akışlar da gösterilebilir.<br> ![İş Özeti](media/automation-first-runbook-graphical/runbook-job-AllLogs.png)
-10. Tüm Günlükler dikey penceresini ve İş dikey penceresini kapatarak MyFirstRunbook dikey penceresine dönün.
-11. Bu runbook’a ait İşler dikey penceresini açmak için **İşler**’e tıklayın.  Bu bölmede, bu runbook tarafından oluşturulan tüm işler listelenir. İşi yalnızca bir kez çalıştırdığımız için sadece bir işin listelendiğini görmeliyiz.<br> ![İşler](media/automation-first-runbook-graphical/runbook-control-jobs.png)
-12. Runbook’u başlattığımızda, görüntülediğimiz iş bölmesini açmak için bu işe tıklayabilirsiniz.  Böylece zaman içinde geri dönerek, belirli bir runbook için oluşturulan herhangi bir işin ayrıntılarını görüntüleyebilirsiniz.
+1. Tıklatın **Yayımla** toopublish hello runbook ardından **Evet** istendiğinde.<br> ![Yayımlama](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
+2. Sol tooview hello hello runbook'ta kaydırırsanız **Runbook'lar** dikey penceresinde, gösterir bir **yazma durumu** , **yayımlanan**.
+3. Kaydırma geri toohello sağ tooview hello dikey **MyFirstRunbook**.  
+   Merhaba seçenekleri hello üstte bize toostart hello runbook izin, gelecekteki hello bazı zamanında toostart zamanlama veya oluşturma bir [Web kancası](automation-webhooks.md) başlatılmış olması için bir HTTP çağrısı aracılığıyla.
+4. Yalnızca toostart hello runbook istiyoruz böylece tıklatın **Başlat** ve ardından **Evet** istendiğinde.<br> ![Runbook’u başlatma](media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
+5. Oluşturduğumuz hello runbook işi için bir iş dikey penceresi açılır.  Biz bu dikey pencere kapatılabilir, ancak biz hello işin ilerleme durumunu izleyebilmek için bu durumda biz açık bırakın.
+6. Merhaba iş durumu gösterilir **iş özeti** ve eşleşmeleri hello zaman hello runbook test gördüğümüz durumların.<br> ![İş Özeti](media/automation-first-runbook-graphical/runbook-job-summary.png)
+7. Runbook durumu gösterir'bir kez hello *tamamlandı*, tıklatın **çıkış**. Merhaba **çıkış** dikey penceresi açılır ve görebiliriz bizim *Hello World* hello bölmesinde.<br> ![İş Özeti](media/automation-first-runbook-graphical/runbook-job-output.png)  
+8. Çıktı Dikey penceresini kapat hello.
+9. Tıklatın **tüm günlükleri** tooopen hello akışlar dikey hello runbook işi için.  Yalnızca görmeliyiz *Hello World* hello çıkış akışı, ancak bu ayrıntılı ve hata gibi runbook işine yönelik diğer akışlar hello runbook toothem yazıyorsa gösterebilir.<br> ![İş Özeti](media/automation-first-runbook-graphical/runbook-job-AllLogs.png)
+10. Merhaba tüm günlükler dikey penceresini ve hello iş dikey tooreturn toohello MyFirstRunbook dikey penceresini kapatın.
+11. Tıklatın **işleri** tooopen hello işler dikey penceresinde bu runbook için.  Bu, bu runbook tarafından oluşturulan tüm hello işleri listeler. Yalnızca bir işin yalnızca hello iş kez karşılaştık beri listelendiğini görmeliyiz.<br> ![İşler](media/automation-first-runbook-graphical/runbook-control-jobs.png)
+12. Bu iş tıklayabilirsiniz tooopen hello biz hello runbook'u başlattığımızda, görüntülediğimiz iş bölmesini.  Bu, toogo geri belirli bir runbook için oluşturulan herhangi bir işi zaman ve görünüm hello ayrıntılarını sağlar.
 
 ## <a name="step-5---create-variable-assets"></a>5. Adım - Değişken varlıkları oluşturma
-Runbook uygulamamızı test ettik ve yayımladık, ancak şu ana kadar faydalı bir şey yapmadı. Bu runbook’un Azure kaynaklarını yönetmesini istiyoruz.  Kimlik doğrulaması için runbook uygulamamızı yapılandırmadan önce, aşağıda 6. adımda kimlik doğrulamak üzere abonelik kimliğini tutmak için bir değişken oluşturacağız ve etkinliği ayarladıktan sonra buna başvuracağız.  Abonelik bağlamına başvuru eklemek birden fazla abonelik arasından kolayca çalışmanızı sağlar.  Devam etmeden önce, Gezinti bölmesindeki Abonelik seçeneği kapalı’daki abonelik kimliğinizi kopyalayın.  
+Runbook uygulamamızı test ettik ve yayımladık, ancak şu ana kadar faydalı bir şey yapmadı. Azure kaynaklarını yönetmek toohave istiyoruz.  Biz hello runbook tooauthenticate yapılandırmadan önce size bir değişken toohold hello abonelik kimliği oluşturur ve biz hello etkinlik tooauthenticate aşağıda 6. adımda ayarladıktan sonra başvuru.  Başvuru toohello abonelik bağlamına dahil olmak üzere birden çok abonelik arasındaki tooeasily iş sağlar.  Devam etmeden önce hello abonelik seçeneği kapalı hello Gezinti bölmesini abonelik Kimliğinizi kopyalayın.  
 
-1. Otomasyon hesapları dikey penceresinde **Varlıklar** kutucuğuna tıkladığınızda **Varlıklar** dikey penceresi açılır.
-2. Varlıklar dikey penceresinde, **Değişkenler** kutucuğuna tıklayın.
-3. Değişkenleri dikey penceresinde, **Değişken ekle**’ye tıklayın.<br>![Automation Değişkeni](media/automation-first-runbook-graphical/create-new-subscriptionid-variable.png)
-4. Yeni değişken dikey penceresinde, **Ad** kutusuna, **AzureSubscriptionId** girin ve **Değer** kutusuna Abonelik kimliğinizi yazın.  **Tür** için *dizeyi* **Şifreleme** için değeri koruyun.  
-5. Değişkeni oluşturmak için **Oluştur**’a tıklayın.  
+1. Merhaba Automation hesapları dikey penceresinde hello tıklayın **varlıklar** döşeme ve hello **varlıklar** dikey penceresi açılır.
+2. Merhaba varlıklar dikey penceresinde hello tıklayın **değişkenleri** döşeme.
+3. Merhaba değişkenleri dikey penceresinde **değişken Ekle**.<br>![Automation Değişkeni](media/automation-first-runbook-graphical/create-new-subscriptionid-variable.png)
+4. Merhaba yeni değişken dikey penceresinde hello içinde **adı** kutusuna **Azuresubscriptionıd** ve hello **değeri** kutusuna abonelik kimliğinizi girin  Tutmak *dize* hello için **türü** ve hello varsayılan değerini **şifreleme**.  
+5. Tıklatın **oluşturma** toocreate hello değişkeni.  
 
-## <a name="step-6---add-authentication-to-manage-azure-resources"></a>6. Adım- Azure kaynaklarını yönetmek için kimlik doğrulaması ekleme
-Abonelik kimliğimizi tutmak üzere bir değişkene sahip olduğumuza göre, runbook uygulamamızı [ön koşullarda](#prerequisites) başvurulan Farklı Çalıştır kimlik bilgileri ile kimlik doğrulamak üzere yapılandırabiliriz.  Bunu tuvale Azure Farklı Çalıştır bağlantısı **Varlığı** ve **Add-AzureRMAccount** cmdlet’i ekleyerek yaparız.  
+## <a name="step-6---add-authentication-toomanage-azure-resources"></a>6. adım - kimlik doğrulama toomanage ekleme Azure kaynakları
+Abonelik Kimliğimizi değişken toohold sahibiz, biz bizim runbook tooauthenticate başvurulan tooin hello hello farklı çalıştır kimlik bilgileri ile yapılandırabilirsiniz [Önkoşullar](#prerequisites).  Hello Azure farklı çalıştır bağlantısı ekleyerek bunu **varlık** ve **Add-AzureRMAccount** cmdlet toohello tuvale.  
 
-1. MyFirstRunbook dikey penceresinde **Düzenle**’ye tıklayarak grafik düzenleyicisini açın.<br> ![Runbook’u düzenleme](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
-2. Artık **çıktıya Merhaba Dünya yazmamız** gerekmez, bu nedenle sağ tıklayın ve **Sil**’i seçin.
-3. Kitaplık denetiminde, **Bağlantılar**’ı genişletin ve **Tuvale Ekle**’yi seçerek **AzureRunAsConnection**’ı ekleyin.
-4. Tuvalde, **AzureRunAsConnection**’ı seçin ve Yapılandırma denetim bölmesinde **Etiket** metin kutusuna **Farklı Çalıştır Bağlantısını Al** yazın.  Bu bağlantıdır
-5. Kitaplık denetiminde, arama metin kutusuna **Add-AzureRmAccount** yazın.
-6. Tuvale **Add-AzureRmAccount** ekleme<br> ![Add-AzureRMAccount](media/automation-first-runbook-graphical/search-powershell-cmdlet-addazurermaccount.png)
-7. Şeklin altında bir daire görünene kadar **Farklı Çalıştır Bağlantısını Al** üzerinde bekleyin. Daireye tıklayın ve oku **Add-AzureRmAccount**’a sürükleyin.  Oluşturduğunuz ok bir *bağlantıdır*.  Runbook **Farklı Çalıştır Bağlantısını Al** ile başlar ve ardından **Add-AzureRmAccount**’ı çalıştırır.<br> ![Etkinlikler arasında bağlantı oluşturma](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
-8. Tuvalde, **Add-AzureRmAccount**’ı seçin ve Yapılandırma denetim bölmesinde **Etiket** metin kutusuna **Azure’da Oturum Aç** yazın.
-9. **Parametreler**’e tıklayın, Parametre Yapılandırma dikey penceresi görünür.
-10. **Add-AzureRmAccount** birden fazla parametre kümesine sahiptir, bu nedenle parametre değerleri sağlamadan önce birini seçmeliyiz.  **Parametre Kümesi**’ne tıklayın ve ardından **ServicePrincipalCertificatewithSubscriptionId** parametre kümesine tıklayın.
-11. Parametre kümesini seçtiğinizde, parametreleri Etkinlik Parametresi yapılandırma dikey penceresinde parametreler görüntülenir.  **APPLICATIONID**’ye tıklayın.<br> ![Azure RM hesabı parametreleri ekleme](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
-12. Parametre değeri dikey penceresinde **Veri kaynağı** için **Etkinlik çıkışı**’nı seçin ve listede **Farklı Çalıştır Bağlantısını Al**’ı seçin, **Alan yolu** metin kutusuna **ApplicationId** yazın ve ardından **Tamam**’a tıklayın.  Etkinlik birden fazla özelliğe sahip bir nesne çıkardığından, Alan yolu için özellik adını belirtiyoruz.
-13. **CERTIFICATETHUMBPRINT**’ tıklayın ve Parametre Değeri dikey penceresinde, **Veri kaynağı** için **Etkinlik çıkışı**’nı seçin.  Listede **Farklı Çalıştır Bağlantısını Al**’ı seçin **Alan yolu** metin kutusuna **CertificateThumbprint** yazın ve ardından **Tamam**’a tıklayın.
-14. **SERVICEPRINCIPAL**’e tıklayın ve Parametre Değeri dikey penceresinde, **Veri kaynağı** için **ConstantValue** ‘yu seçin, **True** seçeneğine tıklayın ve **Tamam**’a tıklayın.
-15. **TENANTID**’ye tıklayın ve Parametre Değeri dikey penceresinde, **Veri kaynağı** için **Etkinlik çıkışı**’nı seçin.  Listede **Farklı Çalıştır Bağlantısını Al**’ı seçin **Alan yolu** metin kutusuna **TenantId** yazın ve ardından iki kez **Tamam**’a tıklayın.  
-16. Kitaplık denetiminde, arama metin kutusuna **Set-AzureRmContext** yazın.
-17. Tuvale **Set-AzureRmContext** ekleme
-18. Tuvalde, **Set-AzureRmContext**’i seçin ve Yapılandırma denetim bölmesinde **Etiket** metin kutusuna **Abonelik Kimliği Belirt** yazın.
-19. **Parametreler**’e tıklayın, Parametre Yapılandırma dikey penceresi görünür.
-20. **Set-AzureRmContext** birden fazla parametre kümesine sahiptir, bu nedenle parametre değerleri sağlamadan önce birini seçmeliyiz.  **Parametre Kümesi**’ne tıklayın ve ardından **SubscriptionId** parametre kümesini seçin.  
-21. Parametre kümesini seçtiğinizde, parametreleri Etkinlik Parametresi yapılandırma dikey penceresinde parametreler görüntülenir.  **SubscriptionID**’e tıklayın.
-22. Parametre Değeri dikey penceresinde, **Veri kaynağı** için **Değişken Varlığı**’nı seçin ve listede **AzureSubscriptionId**’yi seçin ve iki kez **Tamam**’a tıklayın.   
-23. Şeklin altında bir daire görünene kadar **Azure’da Oturum Aç** üzerinde bekleyin. Daireye tıklayın ve oku **Abonelik Kimliği Belirt**’e sürükleyin.
+1. Tıklayarak grafik düzenleyicisini açın hello **Düzenle** hello MyFirstRunbook dikey.<br> ![Runbook’u düzenleme](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
+2. Merhaba gerekmez **Hello World yazmak toooutput** artık, bu nedenle sağ tıklatın ve seçin **silmek**.
+3. Hello kitaplığı denetimi, genişletin **bağlantıları** ve ekleme **AzureRunAsConnection** seçerek toohello tuvale **toocanvas eklemek**.
+4. Merhaba tuval üzerinde seçin **AzureRunAsConnection** ve hello yapılandırma denetim bölmesinde yazın **farklı çalıştır bağlantısını Al** hello içinde **etiket** metin kutusu.  Bu hello bağlantıdır
+5. Hello kitaplığı denetimi, yazın **Add-AzureRmAccount** hello arama metin kutusuna.
+6. Ekle **Add-AzureRmAccount** toohello tuvale.<br> ![Add-AzureRMAccount](media/automation-first-runbook-graphical/search-powershell-cmdlet-addazurermaccount.png)
+7. Üzerine gelerek **farklı çalıştır bağlantısını Al** hello şekli hello sonuna bir daire görünene kadar. Merhaba daire sürükleyip hello ok çok**Add-AzureRmAccount**.  oluşturduğunuz hello ok olan bir *bağlantı*.  Merhaba runbook başlatır ile **farklı çalıştır bağlantısını Al** ve ardından çalıştırın **Add-AzureRmAccount**.<br> ![Etkinlikler arasında bağlantı oluşturma](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
+8. Merhaba tuval üzerinde seçin **Add-AzureRmAccount** ve yapılandırma hello bölmesini denetlemenize **oturum açma tooAzure** hello içinde **etiket** metin kutusu.
+9. Tıklatın **parametreleri** ve hello Etkinlik parametresi yapılandırma dikey penceresi görünür.
+10. **Add-AzureRmAccount** biz parametre değerleri sağlamadan önce birini tooselect ihtiyacımız şekilde birden çok parametre kümesine sahiptir.  Tıklatın **parametre** seçip hello **ServicePrincipalCertificatewithSubscriptionId** parametre kümesi.
+11. Merhaba parametre kümesini seçtiğinizde hello parametreleri hello Etkinlik parametresi yapılandırma dikey penceresinde görüntülenir.  **APPLICATIONID**’ye tıklayın.<br> ![Azure RM hesabı parametreleri ekleme](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
+12. Merhaba parametre değeri dikey penceresinde, seçin **etkinlik çıkışı** hello için **veri kaynağı** seçip **farklı çalıştır bağlantısını Al** hello için hello listesinden **alan yol** metin kutusuna **ApplicationId**ve ardından **Tamam**.  Merhaba etkinlik birden fazla özelliğe sahip bir nesne çıkardığından biz hello alan yolu için hello özelliğinin hello adı belirtirsiniz.
+13. Tıklatın **CERTIFICATETHUMBPRINT**, hello parametre değeri dikey penceresinde seçip **etkinlik çıkışı** hello için **veri kaynağı**.  Seçin **farklı çalıştır bağlantısını Al** hello için hello listesinden **alan yolu** metin kutusuna **CertificateThumbprint**ve ardından **Tamam**.
+14. ' I tıklatın **SERVICEPRINCIPAL**, hello parametre değeri dikey penceresinde seçip **ConstantValue** hello için **veri kaynağı**, hello seçeneğini **True**ve ardından **Tamam**.
+15. Tıklatın **TENANTID**, hello parametre değeri dikey penceresinde seçip **etkinlik çıkışı** hello için **veri kaynağı**.  Seçin **farklı çalıştır bağlantısını Al** hello için hello listesinden **alan yolu** metin kutusuna **Tenantıd**ve ardından **Tamam** iki kez.  
+16. Hello kitaplığı denetimi, yazın **Set-AzureRmContext** hello arama metin kutusuna.
+17. Ekleme **Set-AzureRmContext** toohello tuvale.
+18. Merhaba tuval üzerinde seçin **Set-AzureRmContext** ve yapılandırma hello bölmesini denetlemenize **abonelik kimliği belirt** hello içinde **etiket** metin kutusu.
+19. Tıklatın **parametreleri** ve hello Etkinlik parametresi yapılandırma dikey penceresi görünür.
+20. **Set-AzureRmContext** biz parametre değerleri sağlamadan önce birini tooselect ihtiyacımız şekilde birden çok parametre kümesine sahiptir.  Tıklatın **parametre** seçip hello **Subscriptionıd** parametre kümesi.  
+21. Merhaba parametre kümesini seçtiğinizde hello parametreleri hello Etkinlik parametresi yapılandırma dikey penceresinde görüntülenir.  **SubscriptionID**’e tıklayın.
+22. Merhaba parametre değeri dikey penceresinde, seçin **değişken varlığı** hello için **veri kaynağı** seçip **Azuresubscriptionıd** hello listesi ve ardından **Tamam**  iki kez.   
+23. Üzerine gelerek **oturum açma tooAzure** hello şekli hello sonuna bir daire görünene kadar. Merhaba daire sürükleyip hello ok çok**abonelik kimliği belirt**.
 
-Runbook'unuzda bu noktada aşağıdakine benzer: <br>![Runbook kimlik doğrulama yapılandırması](media/automation-first-runbook-graphical/runbook-auth-config.png)
+Runbook'unuzda bu noktada hello aşağıdaki gibi görünmelidir: <br>![Runbook kimlik doğrulama yapılandırması](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
-## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>7. Adım - Sanal makineyi başlatmak üzere etkinlik ekleme
-Burada bir sanal makineyi başlatmak için **Start-AzureRmVM** etkinliği ekleyeceğiz.  Azure aboneliğinizdeki herhangi bir sanal makineyi seçebilirsiniz, şimdilik bu adı cmdlet’e kod olarak ekleyin.
+## <a name="step-7---add-activity-toostart-a-virtual-machine"></a>7. adım - etkinlik toostart bir sanal makine ekleme
+Burada eklediğimiz bir **Start-AzureRmVM** etkinlik toostart bir sanal makine.  Merhaba cmdlet'ine adı, stillerinizin artık Azure aboneliğinizde ve için herhangi bir sanal makine seçebilirsiniz.
 
-1. Kitaplık denetiminde, arama metin kutusuna **Start-AzureRm** yazın.
-2. Tuvale **Start-AzureRmVM** ekleyin ve ardından **Abonelik Kimliği Belirt** altına tıklayarak sürükleyin.
-3. Şeklin altında bir daire görünene kadar **Abonelik Kimliği Belirt** üzerinde bekleyin.  Daireye tıklayın ve oku **Start-AzureRmVM**’ye sürükleyin.
-4. **Start-AzureRmVM**’yi seçin.  **Start-AzureRmVM** için kümeleri görüntülemek üzere **Parametreler**’i ve ardından **Parametre kümesi**’ni seçin.  **ResourceGroupNameParameterSetName** parametre kümesini seçin. **ResourceGroupName** ve **Ad**’ın yanında ünlem işareti olduğuna dikkat edin.  Bu, bunların gerekli parametreler olduğunu gösterir.  Ayrıca, her ikisinin de dize değerleri beklediğini unutmayın.
-5. **Ad**’ı seçin.  **Veri Kaynağı** için **PowerShell ifadesi**’ni seçin ve çift tırnakların arasına, bu runbook uygulamasını başlatacağımız sanal makine adını yazın.  **Tamam** düğmesine tıklayın.<br>![Start-AzureRmVM Adı Parametre Değeri](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
-6. **ResourceGroupName**’i seçin. **Veri Kaynağı** için **PowerShell ifadesi**’ni seçin ve çift tırnakların arasına kaynak grubu adını yazın.  **Tamam** düğmesine tıklayın.<br> ![Start-AzureRmVM Parametreleri](media/automation-first-runbook-graphical/startazurermvm-params.png)
-7. Runbook’u test edebilmemiz için Test bölmesine tıklayın.
-8. Testi başlatmak için **Başlat**’a tıklayın.  Tamamlandığında, sanal makinenin başlatıldığını kontrol edin.
+1. Hello kitaplığı denetimi, yazın **Start-AzureRm** hello arama metin kutusuna.
+2. Ekleme **Start-AzureRmVM** toohello tuvale ve ardından altına tıklayarak sürükleyin **abonelik kimliği belirt**.
+3. Üzerine gelerek **abonelik kimliği belirt** hello şekli hello sonuna bir daire görünene kadar.  Merhaba daire sürükleyip hello ok çok**Start-AzureRmVM**.
+4. **Start-AzureRmVM**’yi seçin.  Tıklatın **parametreleri** ve ardından **parametre** tooview hello ayarlar için **Start-AzureRmVM**.  Select hello **ResourceGroupNameParameterSetName** parametre kümesi. **ResourceGroupName** ve **Ad**’ın yanında ünlem işareti olduğuna dikkat edin.  Bu, bunların gerekli parametreler olduğunu gösterir.  Ayrıca, her ikisinin de dize değerleri beklediğini unutmayın.
+5. **Ad**’ı seçin.  Seçin **PowerShell ifadesi** hello için **veri kaynağı** ve biz bu runbook'la Başlat çift tırnak işareti ile çevrelenmiş hello sanal makinenin hello ad yazın.  **Tamam** düğmesine tıklayın.<br>![Start-AzureRmVM Adı Parametre Değeri](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
+6. **ResourceGroupName**’i seçin. Kullanım **PowerShell ifadesi** hello için **veri kaynağı** ve çift tırnakların arasına hello kaynak grubunun hello ad yazın.  **Tamam** düğmesine tıklayın.<br> ![Start-AzureRmVM Parametreleri](media/automation-first-runbook-graphical/startazurermvm-params.png)
+7. Hello runbook'u test edebilmemiz için Test bölmesine tıklayın.
+8. Tıklatın **Başlat** toostart hello test.  Tamamlandığında, sanal makine hello onay başlatıldı.
 
-Runbook'unuzda bu noktada aşağıdakine benzer: <br>![Runbook kimlik doğrulama yapılandırması](media/automation-first-runbook-graphical/runbook-startvm.png)
+Runbook'unuzda bu noktada hello aşağıdaki gibi görünmelidir: <br>![Runbook kimlik doğrulama yapılandırması](media/automation-first-runbook-graphical/runbook-startvm.png)
 
-## <a name="step-8---add-additional-input-parameters-to-the-runbook"></a>8. Adım - Runbook’a ek giriş parametreleri ekleme
-Runbook’umuz şu anda **Start-AzureRmVM** cmdlet’inde belirttiğimiz kaynak grubunda sanal makineyi başlatır.  Runbook’umuz, runbook başlatıldığında her ikisini de belirtmemiz durumunda daha kullanışlı olur.  Şimdi bu işlevi sağlamak için runbook’a girdi parametreleri ekleyeceğiz.
+## <a name="step-8---add-additional-input-parameters-toohello-runbook"></a>8. adım - ek giriş parametreleri toohello runbook Ekle
+Runbook uygulamamız şu hello belirtilen hello kaynak grubu hello sanal makine şu anda başlatır **Start-AzureRmVM** cmdlet'i.  Runbook uygulamamız hello runbook çalıştırıldığında her ikisini de belirtirseniz, daha kullanışlı olurdu.  Şimdi giriş parametreleri toohello runbook tooprovide bu işlevselliği ekleriz.
 
-1. **MyFirstRunbook** bölmesinde **Düzenle**’ye tıklayarak grafik düzenleyicisini açın.
-2. **Giriş ve çıkış**’a tıklayın ve ardından Runbook Giriş Parametresi bölmesini açmak için **Giriş ekle**’ye tıklayın.<br> ![Runbook Giriş ve Çıkış](media/automation-first-runbook-graphical/runbook-toolbar-InputandOutput-revised20165.png)
-3. **Ad** için *VMName* belirtin.  **Tür** *dizesini* koruyun ancak, **Zorunlu**’yu *Evet* olarak değiştirin.  **Tamam**’a tıklayın.
-4. *ResourceGroupName* adlı ikinci bir zorunlu giriş parametresi oluşturun ve ardından **Giriş ve Çıkış** bölmesini kapatmak için **Tamam**’a tıklayın.<br> ![Runbook Giriş Parametreleri](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
-5. **Start-AzureRmVM** etkinliğini seçin ve ardından **Parametreler**’e tıklayın.
-6. **Ad** için **Veri kaynağı**’nı, **Runbook girişi** olarak değiştirin ve ardından **VMName**’i seçin.<br>
-7. **ResourceGroupName** için **Veri kaynağı**’nı, **Runbook girişi** olarak değiştirin ve ardından **ResourceGroupName**’i seçin.<br> ![Start-AzureVM Parametreleri](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
-8. Runbook'u kaydedin ve Test bölmesini açın.  Şimdi testte kullanılacak olan iki girdi değişkeni için değerleri sağlayabileceğinizi unutmayın.
-9. Test bölmesini kapatın.
-10. Runbook’un yeni sürümünü yayımlamak için **Yayımla**’ya tıklayın.
-11. Önceki adımda başlattığınız sanal makineyi durdurun.
-12. Runbook'u başlatmak için **Başlat**’a tıklayın.  Başlatacağınız sanal makinenin **VMName** ve **ResourceGroupName** bilgilerini yazın.<br> ![Runbook’u başlatma](media/automation-first-runbook-graphical/runbook-start-inputparams.png)
-13. Runbook tamamlandığında, sanal makinenin başladığından emin olun.
+1. Tıklayarak grafik düzenleyicisini açın hello **Düzenle** hello üzerinde **MyFirstRunbook** bölmesi.
+2. Tıklatın **giriş ve çıkış** ve ardından **giriş Ekle** tooopen hello Runbook giriş parametresi bölmesini.<br> ![Runbook Giriş ve Çıkış](media/automation-first-runbook-graphical/runbook-toolbar-InputandOutput-revised20165.png)
+3. Belirtin *VMName* hello için **adı**.  Tutmak *dize* hello için **türü**, ancak değiştirmek **zorunlu** çok*Evet*.  **Tamam** düğmesine tıklayın.
+4. Adlı ikinci bir zorunlu giriş parametresi oluşturun *ResourceGroupName* ve ardından **Tamam** tooclose hello **giriş ve çıkış** bölmesi.<br> ![Runbook Giriş Parametreleri](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
+5. Select hello **Start-AzureRmVM** etkinliği ve ardından **parametreleri**.
+6. Değişiklik hello **veri kaynağı** için **adı** çok**Runbook giriş** ve ardından **VMName**.<br>
+7. Değişiklik hello **veri kaynağı** için **ResourceGroupName** çok**Runbook giriş** ve ardından **ResourceGroupName**.<br> ![Start-AzureVM Parametreleri](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
+8. Merhaba runbook'u kaydedin ve hello Test bölmesini açın.  Artık değerleri Merhaba hello testinde kullanmak iki girdi değişkeni sağlayabileceğinizi unutmayın.
+9. Kapat hello Test bölmesi.
+10. Tıklatın **Yayımla** toopublish hello yeni sürümünü hello runbook.
+11. Merhaba önceki adımda başlattığınız Hello sanal makineyi durdurun.
+12. Tıklatın **Başlat** toostart hello runbook.  Merhaba türü **VMName** ve **ResourceGroupName** hello sanal makine toostart oluşturacağız.<br> ![Runbook’u başlatma](media/automation-first-runbook-graphical/runbook-start-inputparams.png)
+13. Merhaba runbook tamamlandığında, sanal makine hello onay başlatıldı.
 
 ## <a name="step-9---create-a-conditional-link"></a>9. Adım - Koşullu bağlantı oluşturma
-Hala başlatılmamışsa, yalnızca sanal makineyi başlatmayı deneyecek şekilde runbook’u değiştireceğiz.  Bunu, runbook’a sanal makinenin örnek düzeyi durumunu alan **Get-AzureRmVM** cmdlet’ini ekleyerek yapabilirsiniz. Ardından, sanal makine durumunun çalışıyor veya durduruldu olduğunu belirlemek amacıyla PowerShell kodu kod parçacığıyla birlikte **Durumu Al** adlı PowerShell İş Akışı kodu modülü ekleyin.  **Durumu Al** modülünden alınan bir koşullu bağlantı yalnızca, geçerli çalışma durumu durduruldu ise, **Start-AzureRmVM** cmdlet’ini çalıştırır.  Son olarak, sanal makinin başarıyla başlatılıp başlatılmadığını veya PowerShell Write-Output cmdlet’ini kullanmadığını size bildirmek üzere bir çıktı mesajı göndereceğiz.
+Zaten başlatılmadığında toostart hello sanal makine yalnızca deneme böylece biz şimdi hello runbook değiştirin.  Ekleyerek bunu bir **Get-AzureRmVM** hello örnek düzeyi durumunu hello sanal makine alır cmdlet toohello runbook. Adlı bir PowerShell iş akışı kodu modülü ekleyin ve sonra **Get Status** hello sanal makine durumu çalışıyor veya durdurulmuştur ise PowerShell parçacığıyla toodetermine kod.  Merhaba koşullu bağlantı **Get Status** modülü yalnızca çalışır **Start-AzureRmVM** hello geçerli çalışma durumu Durduruldu ise.  Son olarak, bir ileti tooinform başarıyla başlatıldı veya değil kullanarak hello VM isteyip PowerShell Write-Output cmdlet'ini hello çıktı.
 
-1. Grafik düzenleyicisinde **MyFirstRunbook**’u açın.
-2. Üzerine tıklayarak ve ardından *Sil* tuşuna basarak **Specify Subscription Id** ve **Start-AzureRmVM** arasındaki bağlantıyı kaldırın.
-3. Kitaplık denetiminde, arama metin kutusuna **Get-AzureRm** yazın.
-4. Tuvale **Get-AzureRmVM** ekleyin.
-5. **Get-AzureRmVM** için kümeleri görüntülemek üzere **Get-AzureRmVM**’yi ve ardından **Parametre kümesi**’ni seçin.  **GetVirtualMachineInResourceGroupNameParamSet** parametre kümesini seçin.  **ResourceGroupName** ve **Ad**’ın yanında ünlem işareti olduğuna dikkat edin.  Bu, bunların gerekli parametreler olduğunu gösterir.  Ayrıca, her ikisinin de dize değerleri beklediğini unutmayın.
+1. Açık **MyFirstRunbook** hello grafik Düzenleyicisi'nde.
+2. Arasında hello bağlantıyı Kaldır **abonelik kimliği belirt** ve **Start-AzureRmVM** üzerine tıklayarak ve ardından hello basarak *silmek* anahtarı.
+3. Hello kitaplığı denetimi, yazın **Get-AzureRm** hello arama metin kutusuna.
+4. Ekleme **Get-AzureRmVM** toohello tuvale.
+5. Seçin **Get-AzureRmVM** ve ardından **parametre** tooview hello ayarlar için **Get-AzureRmVM**.  Select hello **Getvirtualmachineınresourcegroupnameparamset** parametre kümesi.  **ResourceGroupName** ve **Ad**’ın yanında ünlem işareti olduğuna dikkat edin.  Bu, bunların gerekli parametreler olduğunu gösterir.  Ayrıca, her ikisinin de dize değerleri beklediğini unutmayın.
 6. **Ad** için **Veri kaynağı** altında, **Runbook girişi**’ni ve ardından **VMName**’i seçin.  **Tamam**’a tıklayın.
 7. **ResourceGroupName** için **Veri kaynağı** altında, **Runbook girişi**’ni ve ardından **ResourceGroupName**’i seçin.  **Tamam** düğmesine tıklayın.
 8. **Durum** için **Veri kaynağı** altında, **Sabit değer**’i seçin ve ardından **True** öğesine tıklayın.  **Tamam** düğmesine tıklayın.  
-9. **Abonelik Kimliği Belirt**’ten **Get-AzureRmVM**’ye bir bağlantı oluşturun.
-10. Kitaplık denetiminde, **Runbook Denetimi**’ni genişletin ve tuvale **Kod** ekleyin.  
-11. **Get-AzureRmVM**’den **Kod**’a bir bağlantı oluşturun.  
-12. **Kod**’a tıklayın ve Yapılandırma bölmesinde etiketi **Durumu Al** olarak değiştirin.
-13. **Kod** parametresini seçin, **Kod Düzenleyicisi** dikey penceresi görünür.  
-14. Kod düzenleyicisine, aşağıdaki kod parçacığını yapıştırın:
+9. Bağlantı oluşturmak **abonelik kimliği belirt** çok**Get-AzureRmVM**.
+10. Merhaba kitaplık denetiminde genişletin **Runbook denetimi** ve ekleme **kod** toohello tuvale.  
+11. Bağlantı oluşturmak **Get-AzureRmVM** çok**kod**.  
+12. Tıklatın **kod** değiştirip hello yapılandırma bölmesinde etiketi çok**Get Status**.
+13. Seçin **kod** parametre ve hello **Kod düzenleyicisinde** dikey penceresi görünür.  
+14. Merhaba Kod Düzenleyicisi'nde hello aşağıdaki kod parçacığını yapıştırın:
     
      ```
      $StatusesJson = $ActivityOutput['Get-AzureRmVM'].StatusesText
@@ -189,25 +189,25 @@ Hala başlatılmamışsa, yalnızca sanal makineyi başlatmayı deneyecek şekil
      }
      $StatusOut
      ```
-15. **Durumu Al**’dan **Start-AzureRmVM**’ye bir bağlantı oluşturun.<br> ![Kod Modülü ile Runbook](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
-16. Bağlantıyı seçin ve Yapılandırma bölmesinde, **Koşul uygula**’yı **Evet** olarak değiştirin.   Bağlantının, hedef etkinliğin yalnızca koşulun true olarak çözümlemesi halinde çalıştırılacağını belirten kesikli çizgiye döndüğüne dikkat edin.  
-17. **Koşul ifadesi** için *$ActivityOutput['Get Status'] -eq "Stopped"* yazın.  **Start-AzureRmVM** artık yalnızca sanal makine durursa çalışır.
-18. Kitaplık denetiminde, **Cmdlet'leri** ve ardından **Microsoft.PowerShell.Utility**’yi genişletin.
-19. Tuvale iki kez **Write-Output** ekleyin.<br> ![Write-Output ile Runbook](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
-20. İlk **Write-Output** denetiminde, **Parametreler**’e tıklayın ve **Etiket** değerini *VM Başlatıldığında Bildir* olarak değiştirin.
-21. **InputObject** için, **Veri kaynağını** **PowerShell ifadesi** olarak değiştirin ve ifadeye *"$VMName successfully started."* yazın.
-22. Birinci **Write-Output** denetiminde, **Parametreler**’e tıklayın ve **Etiket** değerini *VM Başlatılamadığında Bildir* olarak değiştirin
-23. **InputObject** için, **Veri kaynağını** **PowerShell ifadesi** olarak değiştirin ve ifadeye *"$VMName could not start."* yazın.
-24. **Start-AzureRmVM**’den **VM Başlatıldığında Bildir** ve **VM Başlatma Başarısız Olduğunda Bildir**’e bir bağlantı oluşturun.
-25. **VM Başlatıldığında Bildir** bağlantısını seçin ve **Koşul uygula**’yı **True** olarak değiştirin.
-26. **Koşul ifadesi** için, *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true* yazın.  Write-Output denetimi artık yalnızca sanal makine başarıyla başlatıldığında çalışır.
-27. **VM Başlatma Başarısız Olduğunda Bildir** bağlantısını seçin ve **Koşul uygula**’yı **True** olarak değiştirin.
-28. **Koşul ifadesi** için, *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true* yazın.  Write-Output denetimi artık yalnızca sanal makine başarıyla başlatılmadığında çalışır.
-29. Runbook'u kaydedin ve Test bölmesini açın.
-30. Sanal makine kapalı iken runbook’u çalıştırın, başlamalıdır.
+15. Bağlantı oluşturmak **Get Status** çok**Start-AzureRmVM**.<br> ![Kod Modülü ile Runbook](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
+16. Merhaba bağlantıyı seçin ve hello yapılandırma bölmesinde değiştirmek **koşul Uygula** çok**Evet**.   Not hello bağlantı hello koşulu tootrue çözümlenirse hello hedef etkinliğin yalnızca çalıştığını belirten kesikli tooa satır etkinleştirir.  
+17. Hello için **koşul ifadesi**, türü *$ActivityOutput ['Get Status'] - eq "Stopped"*.  **Start-AzureRmVM** hello sanal makine durursa artık yalnızca çalıştırır.
+18. Hello kitaplığı denetimi, genişletin **cmdlet'leri** ve ardından **Microsoft.PowerShell.Utility**.
+19. Ekleme **Write-Output** toohello tuvale iki kez.<br> ![Write-Output ile Runbook](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
+20. Merhaba üzerinde ilk **Write-Output** denetlemek, tıklatın **parametreleri** hello değiştirip **etiket** çok değer*VM başlatıldığında bildir*.
+21. İçin **Inputobject**, değiştirme **veri kaynağı** çok**PowerShell ifadesi** ve hello ifade türü *"$VMName successfully started."* .
+22. Merhaba üzerinde ikinci **Write-Output** denetlemek, tıklatın **parametreleri** hello değiştirip **etiket** çok değer*VM başlatma başarısız olduğunda bildir*
+23. İçin **Inputobject**, değiştirme **veri kaynağı** çok**PowerShell ifadesi** ve hello ifade türü *"$VMName could not start."* .
+24. Bağlantı oluşturmak **Start-AzureRmVM** çok**VM başlatıldığında bildir** ve **VM başlatma başarısız olduğunda bildir**.
+25. Merhaba bağlantıyı çok seçin**VM başlatıldığında bildir** değiştirip **koşul Uygula** çok**doğru**.
+26. Hello için **koşul ifadesi**, türü *$ActivityOutput ['Start-AzureRmVM']. IsSuccessStatusCode - eq $true*.  Bu Write-Output hello sanal makine başarıyla başlatıldığında artık yalnızca denetler.
+27. Merhaba bağlantıyı çok seçin**VM başlatma başarısız olduğunda bildir** değiştirip **koşul Uygula** çok**doğru**.
+28. Hello için **koşul ifadesi**, türü *$ActivityOutput ['Start-AzureRmVM']. IsSuccessStatusCode - ne $true*.  Bu Write-Output denetimi artık yalnızca çalıştırır hello sanal makine başarıyla başlatılmadığında.
+29. Merhaba runbook'u kaydedin ve hello Test bölmesini açın.
+30. Merhaba sanal makine kapalı iken Hello runbook'u başlatmak ve başlamanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Grafik Yazma hakkında daha fazla bilgi için bkz. [Azure Automation’da grafik yazma](automation-graphical-authoring-intro.md)
-* PowerShell runbook'ları kullanmaya başlamak için bkz. [İlk PowerShell runbook uygulamam](automation-first-runbook-textual-powershell.md)
-* PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md)
+* Grafik yazma hakkında daha fazla toolearn bakın [Azure Automation'da grafik yazma](automation-graphical-authoring-intro.md)
+* PowerShell runbook'ları ile çalışmaya tooget bakın [ilk PowerShell runbook'um](automation-first-runbook-textual-powershell.md)
+* PowerShell iş akışı runbook'ları ile başlatılan tooget bakın [ilk PowerShell iş akışı runbook Uygulamam](automation-first-runbook-textual.md)
 

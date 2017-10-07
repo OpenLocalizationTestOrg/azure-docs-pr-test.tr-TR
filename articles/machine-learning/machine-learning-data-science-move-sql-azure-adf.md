@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma | Microsoft Docs"
-description: "Bulutta içi veritabanları arasında verileri günlük olarak birlikte taşımak iki veri taşıma etkinlikleri oluşturur bir ADF ardışık ayarlayın."
+title: "bir şirket içi SQL Server tooSQL Azure Data Factory ile Azure aaaMove verilerden | Microsoft Docs"
+description: "Merhaba bulutta içi veritabanları arasında verileri günlük olarak birlikte taşımak iki veri taşıma etkinlikleri oluşturur bir ADF ardışık ayarlayın."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: 39fe26d3388be8b558f05063a8965889c013a41e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7f7e78c7a84a259539221d3235b76bb5a3cf9866
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma
-Bu konu, Azure veri fabrikası (ADF) kullanarak verileri bir şirket içi SQL Server veritabanından bir SQL Azure veritabanına Azure Blob Storage nasıl taşınacağı gösterir.
+# <a name="move-data-from-an-on-premises-sql-server-toosql-azure-with-azure-data-factory"></a>Bir şirket içi SQL server tooSQL Azure Azure Data Factory ile veri taşıma
+Bu konu, Azure Blob Storage kullanarak aracılığıyla bir şirket içi SQL Server veritabanı tooa SQL Azure veritabanı toomove verileri Azure veri fabrikası (ADF) nasıl hello gösterir.
 
-Bir Azure SQL veritabanına veri taşıma için çeşitli seçenekler özetler bir tablo için bkz: [veri taşıma bir Azure SQL veritabanına Azure Machine Learning için](machine-learning-data-science-move-sql-azure.md).
+Taşıma veri tooan Azure SQL veritabanı için çeşitli seçenekler özetler bir tablo için bkz: [Azure Machine Learning için verileri tooan Azure SQL veritabanı taşıma](machine-learning-data-science-move-sql-azure.md).
 
-## <a name="intro"></a>Giriş: ADF nedir ve ne zaman, verileri geçirmek için kullanılmalı?
-Azure Data Factory düzenler ve taşınmasını ve dönüştürülmesini veri otomatikleştiren bir bulut tabanlı tam olarak yönetilen bir veri tümleştirme hizmetidir. Anahtar ADF modelinde ardışık düzen kavramdır. Bir işlem hattı her biri veri kümelerinde bulunan veriler üzerinde gerçekleştirilecek eylemleri tanımlar mantıksal etkinlikleri grubudur. Bağlı hizmetler, veri fabrikası'nın veri kaynaklarına bağlanmak için gereken bilgileri tanımlamak için kullanılır.
+## <a name="intro"></a>Giriş: ADF nedir ve ne zaman kullanılan toomigrate veriler olmalıdır?
+Azure Data Factory düzenler ve hello taşınmasını ve dönüştürülmesini veri otomatikleştiren bir bulut tabanlı tam olarak yönetilen bir veri tümleştirme hizmetidir. Merhaba anahtar hello ADF modelinde ardışık düzen kavramdır. Bir ardışık düzen veri kümelerinde bulunan hello verileri üzerindeki hello Eylemler tooperform tanımlar, her biri bir mantıksal etkinlikleri gruplandırmasıdır. Bağlı hizmetler Data Factory tooconnect toohello veri kaynakları için gerekli kullanılan toodefine hello bilgilerdir.
 
-ADF ile mevcut veri işleme hizmetlerini bulutta yüksek oranda kullanılabilir ve yönetilen veri ardışık içine birleştirilebilir. Bu veri ardışık alma, hazırlamak, dönüştürmek, analiz ve veri yayımlamak için zamanlanabilir ve ADF yönetir ve karmaşık veri ve işleme bağımlılıkları yönetir. Çözümleri hızlı bir şekilde oluşturulur ve şirket içi artan sayıda bağlanma buluta dağıtılan ve bulut veri kaynakları.
+ADF ile mevcut veri işleme Hizmetleri hello bulutta yüksek oranda kullanılabilir ve yönetilen veri ardışık içine birleştirilebilir. Bu veri ardışık zamanlanmış tooingest olması, hazırlamak, dönüştürmek, analiz ve verilerini yayımlamak ve ADF yönetir ve hello karmaşık veri ve işleme bağımlılıkları yönetir. Çözümleri hızla yerleşik ve içinde dağıtılan hello bulut, şirket içi artan sayıda bağlanma ve veri kaynakları bulut değiştirebilirsiniz.
 
 ADF kullanmayı dikkate alın:
 
-* sürekli olarak geçirilecek verilere ihtiyaç duyduğunda her ikisi de erişen karma bir senaryoda şirket içi ve bulut kaynakları
-* ne zaman veri işlem yapılan işlem veya değiştirilmiş veya iş mantığı kendisine geçirilen zaman eklenmiş olması gerekir.
+* ne zaman gereksinimlerini toobe sürekli olarak her ikisi de erişen bir karma senaryoda geçirilen verileri şirket içi ve bulut kaynakları
+* ne zaman hello veri işlem yapılan işlem veya gereksinimlerini toobe değiştirilmiş veya iş mantığı sahip Geçirilmekte olan tooit eklenmesi.
 
-ADF zamanlama ve işleri düzenli aralıklarla veri hareketini yönetmek basit JSON komut dosyaları kullanarak izlenmesini sağlar. ADF karmaşık işlemleri için destek gibi diğer özellikleri de vardır. Adresindeki ADF hakkında daha fazla bilgi için bkz: [Azure veri fabrikası (ADF)](https://azure.microsoft.com/services/data-factory/).
+Zamanlama ve düzenli aralıklarla veri hello hareketini yönetmek basit JSON komut dosyalarını kullanarak iş izleme hello ADF sağlar. ADF karmaşık işlemleri için destek gibi diğer özellikleri de vardır. Hello belgelerine ADF hakkında daha fazla bilgi için bkz: [Azure veri fabrikası (ADF)](https://azure.microsoft.com/services/data-factory/).
 
-## <a name="scenario"></a>Senaryo
-İki veri taşıma etkinlikleri oluşturur bir ADF ardışık ayarlarız. Birlikte bunlar verileri günlük olarak bir şirket içi SQL database ve Azure SQL Database'i bulutta arasında taşıyın. İki etkinlik şunlardır:
+## <a name="scenario"></a>Merhaba senaryosu
+İki veri taşıma etkinlikleri oluşturur bir ADF ardışık ayarlarız. Birlikte bunlar verileri günlük olarak bir şirket içi SQL database ve Azure SQL Database hello bulutta arasında taşıyın. Merhaba iki etkinlik şunlardır:
 
-* bir Azure Blob Storage hesabı için bir şirket içi SQL Server veritabanından veri kopyalama
-* verileri Azure Blob Depolama hesabından bir Azure SQL veritabanına kopyalayın.
+* bir şirket içi SQL Server veritabanı tooan Azure Blob Storage hesabı veri kopyalama
+* verileri hello Azure Blob Storage hesabı tooan ' Azure SQL veritabanı kopyalayın.
 
 > [!NOTE]
-> Burada olmuştur ADF ekibi tarafından sağlanan daha ayrıntılı öğreticiden uyarlanmış gösterilen adımlar: [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../data-factory/data-factory-move-data-between-onprem-and-cloud.md) uygun olduğunda bu konusunun ilgili bölümlerine başvurular sağlanır.
+> Merhaba burada olmuştur hello ADF ekibi tarafından sağlanan öğretici ayrıntılı hello gelen uyarlanmış gösterilen adımlar: [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../data-factory/data-factory-move-data-between-onprem-and-cloud.md) başvuran toohello bu konunun ilgili bölümleri uygun olduğunda sağlanır.
 >
 >
 
@@ -52,35 +52,35 @@ ADF zamanlama ve işleri düzenli aralıklarla veri hareketini yönetmek basit J
 Bu öğretici, sahip olduğunuz varsayılmaktadır:
 
 * Bir **Azure aboneliği**. Bir aboneliğiniz yoksa [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-* Bir **Azure depolama hesabı**. Bu öğreticide verileri depolamak için bir Azure depolama hesabı kullanın. Azure depolama hesabınız yoksa [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın. Depolama hesabını oluşturduktan sonra, depolamaya erişmek için kullanılan hesap anahtarını edinmeniz gerekir. Bkz: [depolama erişim tuşlarınızı yönetme](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
-* Erişim bir **Azure SQL veritabanı**. Bir Azure SQL veritabanı, tpoic ayarlanması, [Microsoft Azure SQL veritabanı ile çalışmaya başlama ](../sql-database/sql-database-get-started.md) bir Azure SQL veritabanına yeni bir örneğini sağlayacak bilgiler verilmektedir.
-* Yüklenmiş ve yapılandırılmış **Azure PowerShell** yerel olarak. Yönergeler için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
+* Bir **Azure depolama hesabı**. Bu öğreticide hello verileri depolamak için bir Azure depolama hesabı kullanın. Bir Azure depolama hesabınız yoksa, hello bkz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesi. Merhaba depolama hesabı oluşturduktan sonra anahtarı tooaccess hello depolama kullanılan tooobtain hello hesabınızın olması gerekir. Bkz: [depolama erişim tuşlarınızı yönetme](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+* Erişim tooan **Azure SQL veritabanı**. Bir Azure SQL veritabanı ayarlanması, tpoic hello [Microsoft Azure SQL veritabanı ile çalışmaya başlama ](../sql-database/sql-database-get-started.md) ilgili bilgiler verilmektedir tooprovision bir Azure SQL veritabanına yeni bir örneğini.
+* Yüklenmiş ve yapılandırılmış **Azure PowerShell** yerel olarak. Yönergeler için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview).
 
 > [!NOTE]
-> Bu yordamı kullanır [Azure portal](https://portal.azure.com/).
+> Bu yordam hello kullanır [Azure portal](https://portal.azure.com/).
 >
 >
 
-## <a name="upload-data"></a>Şirket içi SQL Server'ınızı veri yükleme
-Kullanırız [NYC ücreti dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) geçiş işlemini göstermek için. NYC ücreti dataset Azure blob depolama o post belirtildiği gibi kullanılabilir [NYC ücreti verileri](http://www.andresmh.com/nyctaxitrips/). Verileri iki dosya, seyahat ayrıntılarını içeren, trip_data.csv dosya ve her seyahat için ödenen ücreti ayrıntılarını içeren trip_far.csv dosyası vardır. Bir örnek ve bu dosyaların açıklaması sağlanan [NYC ücreti dönüşleri veri kümesi tanımı](machine-learning-data-science-process-sql-walkthrough.md#dataset).
+## <a name="upload-data"></a>Karşıya yükleme hello veri tooyour içi SQL Server
+Merhaba kullanırız [NYC ücreti dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) toodemonstrate hello geçiş işlemi. Merhaba NYC ücreti dataset Azure blob depolama o post belirtildiği gibi kullanılabilir [NYC ücreti verileri](http://www.andresmh.com/nyctaxitrips/). Hello veri iki dosya, seyahat ayrıntılarını içeren, hello trip_data.csv dosyası ve her seyahat için ücretli hello ücreti ayrıntılarını içeren hello trip_far.csv dosyası vardır. Bir örnek ve bu dosyaların açıklaması sağlanan [NYC ücreti dönüşleri veri kümesi tanımı](machine-learning-data-science-process-sql-walkthrough.md#dataset).
 
-Burada, kendi veri kümesi için sağlanan yordamı uyarlamak veya NYC ücreti dataset kullanarak açıklanan adımları izleyin. NYC ücreti veri kümesi şirket içi SQL Server veritabanınıza karşıya yüklemek için özetlenen yordamı izleyin [toplu içeri aktarma verileri SQL Server veritabanına](machine-learning-data-science-process-sql-walkthrough.md#dbload). SQL Server üzerinde bir Azure sanal makine için bu yönergeleri bağlıdır, ancak şirket içi SQL Server'a yükleme yordamı aynıdır.
+Burada, kendi veri kümesini tooa sağlanan hello yordamı uyarlamak veya hello NYC ücreti dataset kullanarak açıklandığı gibi hello adımları izleyin. tooupload Merhaba, şirket içi SQL Server veritabanınızın NYC ücreti kümesine özetlenen hello yordamı izleyin [toplu içeri aktarma verileri SQL Server veritabanına](machine-learning-data-science-process-sql-walkthrough.md#dbload). SQL Server üzerinde bir Azure sanal makine için bu yönergeleri bağlıdır, ancak şirket içi SQL Server toohello yüklemeyle hello yordamı hello aynı.
 
 ## <a name="create-adf"></a>Bir Azure Data Factory oluşturma
-Yeni bir Azure Data Factory ve bir kaynak grubu oluşturmak için yönergeleri [Azure portal](https://portal.azure.com/) sağlanan [bir Azure Data Factory oluşturmak](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Yeni ADF örnek adı *adfdsp* ve oluşturulan kaynak grubu adı *adfdsprg*.
+Merhaba hello yeni bir Azure Data Factory ve bir kaynak grubu oluşturmak için yönergeler [Azure portal](https://portal.azure.com/) sağlanan [bir Azure Data Factory oluşturmak](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Ad hello yeni ADF örnek *adfdsp* ve oluşturulan ad hello kaynak grubu *adfdsprg*.
 
-## <a name="install-and-configure-up-the-data-management-gateway"></a>Yükleme ve veri yönetimi ağ geçidi yapılandırma
-Bir şirket içi SQL Server ile çalışmak için bir Azure data factory'de işlem hatlarınızı etkinleştirmek için bu data factory bağlantılı bir hizmet olarak eklemeniz gerekir. Bir şirket içi SQL Server için bağlı hizmet oluşturmak için şunları yapmanız gerekir:
+## <a name="install-and-configure-up-hello-data-management-gateway"></a>Yükleme ve veri yönetimi ağ geçidi hello yapılandırma
+tooenable hatlarınızı tooadd gereken bir şirket içi SQL Server ile bir Azure data factory toowork içinde bir bağlantılı hizmet toohello veri fabrikası olarak. Bağlantılı hizmeti bir şirket içi SQL Server için bir toocreate, şunları yapmalısınız:
 
-* indirin ve Microsoft Veri Yönetimi ağ geçidi şirket içi bilgisayara yükleyin.
-* bağlantılı hizmeti ağ geçidini kullanmak için şirket içi veri kaynağı için yapılandırın.
+* indirin ve Microsoft Veri Yönetimi ağ geçidi hello şirket içi bilgisayara yükleyin.
+* Merhaba bağlantılı hizmeti hello şirket içi veri kaynağı toouse hello ağ geçidi için yapılandırın.
 
-Veri Yönetimi ağ geçidi serileştirir ve burada barındırılan bilgisayar üzerinde kaynak ve havuz verileri seri durumdan çıkarır.
+Veri Yönetimi ağ geçidi Hello serileştirir ve burada barındırılan hello bilgisayardaki hello kaynak ve havuz verileri seri durumdan çıkarır.
 
 Kurulum yönergeleri ve veri yönetimi ağ geçidi hakkında ayrıntılar için bkz: [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../data-factory/data-factory-move-data-between-onprem-and-cloud.md)
 
-## <a name="adflinkedservices"></a>Veri kaynaklarına bağlanmak için bağlı hizmetler oluşturma
-Bağlı hizmet Azure veri fabrikası'nın bir veri kaynağına bağlanmak için gereken bilgileri tanımlar. Bağlı hizmetler oluşturmak için adım adım yordam sağlanan [bağlı hizmetler oluşturma](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+## <a name="adflinkedservices"></a>Bağlı hizmetler tooconnect toohello veri kaynakları oluşturun
+Bağlı hizmet Azure Data Factory tooconnect tooa veri kaynağı için gerekli hello bilgilerini tanımlar. bağlı hizmetler oluşturmak için adım adım yordam hello sağlanır [bağlı hizmetler oluşturma](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
 Bağlı hizmetler gerekli olan bu senaryoda üç kaynakları sahibiz.
 
@@ -89,36 +89,36 @@ Bağlı hizmetler gerekli olan bu senaryoda üç kaynakları sahibiz.
 3. [Azure SQL database için bağlı hizmet](#adf-linked-service-azure-sql)
 
 ### <a name="adf-linked-service-onprem-sql"></a>Şirket içi SQL Server database için bağlı hizmet
-Şirket içi SQL Server için bağlı hizmet oluşturmak için:
+toocreate hello bağlantılı hizmeti hello için SQL Server içi:
 
-* tıklatın **veri deposu** Klasik Azure portalı üzerinde ADF giriş sayfasındaki
-* seçin **SQL** ve girin *kullanıcıadı* ve *parola* şirket içi SQL Server için kimlik bilgileri. Servername olarak girmeniz gereken bir **tam servername ters eğik çizgi örnek adı (Sunucuadı\örnekadı)**. Bağlı hizmetin adı *adfonpremsql*.
+* Merhaba tıklatın **veri deposu** hello ADF giriş sayfasında Klasik Azure portalı üzerinde
+* seçin **SQL** ve hello girin *kullanıcıadı* ve *parola* hello SQL Server şirket için kimlik bilgileri. Tooenter hello servername olarak gereken bir **tam servername ters eğik çizgi örnek adı (Sunucuadı\örnekadı)**. Ad hello bağlantılı hizmeti *adfonpremsql*.
 
 ### <a name="adf-linked-service-blob-store"></a>Blob için bağlı hizmet
-Azure Blob Storage hesabı için bağlı hizmet oluşturmak için:
+toocreate hello Azure Blob Storage hesabı için bağlı hizmet hello:
 
-* tıklatın **veri deposu** Klasik Azure portalı üzerinde ADF giriş sayfasındaki
+* Merhaba tıklatın **veri deposu** hello ADF giriş sayfasında Klasik Azure portalı üzerinde
 * seçin **Azure depolama hesabı**
-* Azure Blob Depolama hesabı anahtarı ve kapsayıcı adı girin. Bağlı hizmetin adı *adfds*.
+* Merhaba, Azure Blob Depolama hesabı anahtarı ve kapsayıcı adı girin. Bağlantılı hizmet adı hello *adfds*.
 
 ### <a name="adf-linked-service-azure-sql"></a>Azure SQL database için bağlı hizmet
-Azure SQL Database için bağlı hizmet oluşturmak için:
+toocreate hello Azure SQL Database için bağlı hizmet hello:
 
-* tıklatın **veri deposu** Klasik Azure portalı üzerinde ADF giriş sayfasındaki
-* seçin **Azure SQL** ve girin *kullanıcıadı* ve *parola* Azure SQL veritabanı için kimlik bilgileri. *Kullanıcıadı* olarak belirtilmelidir  *user@servername* .   
+* Merhaba tıklatın **veri deposu** hello ADF giriş sayfasında Klasik Azure portalı üzerinde
+* seçin **Azure SQL** ve hello girin *kullanıcıadı* ve *parola* hello Azure SQL veritabanı için kimlik bilgileri. Merhaba *kullanıcıadı* olarak belirtilmelidir  *user@servername* .   
 
-## <a name="adf-tables"></a>Tanımlama ve veri kümeleri erişmek nasıl belirlemek için tabloları oluşturma
-Aşağıdaki betik tabanlı yordamları yapısını, konum ve veri kümelerinin kullanılabilirliğini belirtin tablolar oluşturun. JSON dosyaları tabloları tanımlamak için kullanılır. Bu dosyalar yapısı hakkında daha fazla bilgi için bkz: [veri kümeleri](../data-factory/data-factory-create-datasets.md).
+## <a name="adf-tables"></a>Tanımlayın ve tabloları toospecify oluşturun nasıl tooaccess veri kümeleri hello
+Betik tabanlı yordamları izleyerek hello ile hello yapısı, konumu ve hello DataSet kullanılabilirliği belirtin tablolar oluşturun. Kullanılan toodefine hello tablolar JSON dosyalarıdır. Bu dosyaları hello yapısı hakkında daha fazla bilgi için bkz: [veri kümeleri](../data-factory/data-factory-create-datasets.md).
 
 > [!NOTE]
-> Yürütme `Add-AzureAccount` yürütmeden önce cmdlet [yeni AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet'ini sağ Azure aboneliği için komut yürütme seçili olduğunu doğrulayın. Bu cmdlet belgeleri için bkz: [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0).
+> Merhaba yürütülecek `Add-AzureAccount` hello yürütmeden önce cmdlet [yeni AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) sağ Azure aboneliği hello cmdlet tooconfirm hello komutu yürütme için seçilen. Bu cmdlet belgeleri için bkz: [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 
-Tablolar JSON tabanlı tanımlarında aşağıdaki adları kullanın:
+Merhaba JSON tabanlı tanımları hello tablolardaki adlarından hello kullan:
 
-* **tablo adı** şirket içi SQL sunucusudur *nyctaxi_data*
-* **kapsayıcı adı** Azure Blob Storage'da hesabıdır *kapsayıcı adı*  
+* Merhaba **tablo adı** hello şirket içi SQL server, *nyctaxi_data*
+* Merhaba **kapsayıcı adı** hello Azure Blob Depolama hesabıdır *kapsayıcı adı*  
 
 Üç tablo tanımları bu ADF ardışık düzeni için gereklidir:
 
@@ -127,12 +127,12 @@ Tablolar JSON tabanlı tanımlarında aşağıdaki adları kullanın:
 3. [SQL Azure tablo](#adf-table-azure-sql)
 
 > [!NOTE]
-> Tanımlama ve ADF etkinlikleri oluşturmak için Azure PowerShell Bu yordamları kullanın. Ancak bu görevleri Azure Portalı'nı kullanarak da gerçekleştirilebilir. Ayrıntılar için bkz [veri kümeleri oluşturma](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-datasets).
+> Bu yordamları Azure PowerShell toodefine kullanın ve ADF etkinlikleri hello oluşturun. Ancak bu görevleri hello Azure portalı kullanılarak da gerçekleştirilebilir. Ayrıntılar için bkz [veri kümeleri oluşturma](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-datasets).
 >
 >
 
 ### <a name="adf-table-onprem-sql"></a>SQL şirket içi tablosu
-Şirket içi SQL Server için tablo tanımı aşağıdaki JSON dosyasında belirtilir:
+Merhaba tablo tanımı hello için SQL Server aşağıdaki JSON dosyasına hello belirtilen şirket içi:
 
         {
             "name": "OnPremSQLTable",
@@ -159,15 +159,15 @@ Tablolar JSON tabanlı tanımlarında aşağıdaki adları kullanın:
             }
         }
 
-Sütun adlarını buraya dahil değil. Sütun adları burada ekleyerek alt seçebilirsiniz (Ayrıntılar için denetleyin [ADF belgelerine](../data-factory/data-factory-data-movement-activities.md) konu.
+Merhaba sütun adları buraya dahil değil. Merhaba sütun adlarına göre burada ekleyerek alt seçebilirsiniz (Merhaba ayrıntıları denetlemek için [ADF belgelerine](../data-factory/data-factory-data-movement-activities.md) konu.
 
-Tablosunun JSON tanımını bir dosyaya adlı kopya *onpremtabledef.json* dosya ve bilinen bir konuma kaydedin (burada varsayılır *C:\temp\onpremtabledef.json*). Tablo içinde ADF aşağıdaki Azure PowerShell cmdlet'iyle oluşturun:
+Merhaba JSON tanımını Merhaba tablonun adlı bir dosyaya kopyalama *onpremtabledef.json* dosya ve konum bilinen tooa kaydedin (burada toobe kabul *C:\temp\onpremtabledef.json*). Merhaba tablo içinde ADF ile Azure PowerShell cmdlet'i aşağıdaki hello oluşturun:
 
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
 ### <a name="adf-table-blob-store"></a>BLOB tablosu
-Tablosu için çıkış blob konumu tanımıdır (Bu eşler şirket içi Azure blob alınan verileri) aşağıdaki:
+(Şirket içi tooAzure blob hello alınan verileri eşler) hello aşağıdaki blob konumdur tanımı hello tablosu hello için çıktı:
 
         {
             "name": "OutputBlobTable",
@@ -192,12 +192,12 @@ Tablosu için çıkış blob konumu tanımıdır (Bu eşler şirket içi Azure b
             }
         }
 
-Tablosunun JSON tanımını bir dosyaya adlı kopya *bloboutputtabledef.json* dosya ve bilinen bir konuma kaydedin (burada varsayılır *C:\temp\bloboutputtabledef.json*). Tablo içinde ADF aşağıdaki Azure PowerShell cmdlet'iyle oluşturun:
+Merhaba JSON tanımını Merhaba tablonun adlı bir dosyaya kopyalama *bloboutputtabledef.json* dosya ve konum bilinen tooa kaydedin (burada toobe kabul *C:\temp\bloboutputtabledef.json*). Merhaba tablo içinde ADF ile Azure PowerShell cmdlet'i aşağıdaki hello oluşturun:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
 ### <a name="adf-table-azure-sq"></a>SQL Azure tablo
-SQL Azure tablo tanımı çıkış (Bu şemayı eşlemeleri blobundan gelen veriler) aşağıdaki:
+Merhaba tablosu hello SQL Azure çıkışı için (Bu şemayı hello blobundan gelen hello veri eşlemeleri) hello aşağıdaki tanımıdır:
 
     {
         "name": "OutputSQLAzureTable",
@@ -222,34 +222,34 @@ SQL Azure tablo tanımı çıkış (Bu şemayı eşlemeleri blobundan gelen veri
         }
     }
 
-Tablosunun JSON tanımını bir dosyaya adlı kopya *AzureSqlTable.json* dosya ve bilinen bir konuma kaydedin (burada varsayılır *C:\temp\AzureSqlTable.json*). Tablo içinde ADF aşağıdaki Azure PowerShell cmdlet'iyle oluşturun:
+Merhaba JSON tanımını Merhaba tablonun adlı bir dosyaya kopyalama *AzureSqlTable.json* dosya ve konum bilinen tooa kaydedin (burada toobe kabul *C:\temp\AzureSqlTable.json*). Merhaba tablo içinde ADF ile Azure PowerShell cmdlet'i aşağıdaki hello oluşturun:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
 
 
-## <a name="adf-pipeline"></a>Tanımlama ve işlem hattı oluşturma
-Ardışık düzene ait olan ve aşağıdaki komut dosyası tabanlı yordamları ile işlem hattı oluşturma etkinlikleri belirtin. Bir JSON dosyası ardışık düzen özelliklerini tanımlamak için kullanılır.
+## <a name="adf-pipeline"></a>Tanımlama ve hello işlem hattı oluşturma
+Toohello ait hello etkinlikleri kanal ve aşağıdaki komut dosyası tabanlı yordamlarını hello ile Merhaba işlem hattı oluşturma belirtin. Kullanılan toodefine hello ardışık düzen özellikleri bir JSON dosyasıdır.
 
-* Komut dosyası varsayar **ardışık düzen adı** olan *AMLDSProcessPipeline*.
-* Ayrıca, günlük olarak yürütülen ve varsayılan yürütme süresi işi (00: 00 UTC) kullanmak için ardışık düzen periyodikliğini ayarlarız unutmayın.
+* Merhaba betik varsayar bu hello **ardışık düzen adı** olan *AMLDSProcessPipeline*.
+* Ayrıca, günlük olarak ve kullanım hello varsayılan yürütme süresi hello işi (00: 00 UTC) yürütülen hello ardışık düzen toobe hello periyodikliğini ayarlarız unutmayın.
 
 > [!NOTE]
-> Aşağıdaki yordamlar tanımlayın ve ADF ardışık düzen oluşturmak için Azure PowerShell kullanın. Ancak, bu görevi Azure Portalı'nı kullanarak da gerçekleştirilebilir. Ayrıntılar için bkz [oluşturma ardışık düzen](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-pipeline).
+> Merhaba aşağıdaki yordamları Azure PowerShell toodefine kullanın ve hello ADF işlem hattını oluşturun. Ancak, bu görevi Azure Portalı'nı kullanarak da gerçekleştirilebilir. Ayrıntılar için bkz [oluşturma ardışık düzen](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-pipeline).
 >
 >
 
-Daha önce sağlanan tablo tanımları kullanarak ADF ardışık düzen tanımı gibi belirtilir:
+Merhaba tablo tanımları kullanarak hello ardışık düzen tanımı ADF gibi belirtilir hello için daha önce sağlanan:
 
         {
             "name": "AMLDSProcessPipeline",
             "properties":
             {
-                "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL to Azure blob",
+                "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL tooAzure blob",
                  "activities":
                 [
                     {
                         "name": "CopyFromSQLtoBlob",
-                        "description": "Copy data from on-premises SQL server to blob",     
+                        "description": "Copy data from on-premises SQL server tooblob",     
                         "type": "CopyActivity",
                         "inputs": [ {"name": "OnPremSQLTable"} ],
                         "outputs": [ {"name": "OutputBlobTable"} ],
@@ -278,7 +278,7 @@ Daha önce sağlanan tablo tanımları kullanarak ADF ardışık düzen tanımı
 
                     {
                         "name": "CopyFromBlobtoSQLAzure",
-                        "description": "Push data to Sql Azure",        
+                        "description": "Push data tooSql Azure",        
                         "type": "CopyActivity",
                         "inputs": [ {"name": "OutputBlobTable"} ],
                         "outputs": [ {"name": "OutputSQLAzureTable"} ],
@@ -307,21 +307,21 @@ Daha önce sağlanan tablo tanımları kullanarak ADF ardışık düzen tanımı
             }
         }
 
-Bu ardışık düzen JSON tanımı dosyasına adlı kopya *pipelinedef.json* dosya ve bilinen bir konuma kaydedin (burada varsayılır *C:\temp\pipelinedef.json*). Ardışık Düzen ADF içinde aşağıdaki Azure PowerShell cmdlet'iyle oluşturun:
+Bu JSON tanımını hello ardışık olarak adlandırılan bir dosyaya kopyalayın *pipelinedef.json* dosya ve konum bilinen tooa kaydedin (burada toobe kabul *C:\temp\pipelinedef.json*). Merhaba ardışık düzen içinde ADF ile Azure PowerShell cmdlet'i aşağıdaki hello oluşturun:
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-(Diyagram tıklattığınızda) aşağıdaki gibi görünmesini Azure Klasik Portalı'nda ADF ardışık gördüğünüzü onaylayın
+(Merhaba diyagramı tıklattığınızda) hello ardışık düzen ADF hello Klasik Azure Portalı'nda gösterilmesi hello üzerinde aşağıdaki gibi gördüğünüzden onaylayın
 
 ![ADF ardışık düzen](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
-## <a name="adf-pipeline-start"></a>Ardışık Düzen Başlat
-Ardışık Düzen aşağıdaki komutu kullanarak şimdi çalıştırabilirsiniz:
+## <a name="adf-pipeline-start"></a>Merhaba ardışık düzen Başlat
+Merhaba ardışık düzen komutu aşağıdaki hello kullanarak şimdi çalıştırabilirsiniz:
 
     Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
 
-*Startdate* ve *enddate* parametre değerlerini çalıştırmak için ardışık düzen arasında istediğiniz gerçek tarihleri ile değiştirilmesi gerekir.
+Merhaba *startdate* ve *enddate* parametre değerlerini hello ardışık düzen toorun arasında istediğiniz hello gerçek tarihlerle yerini toobe gerekir.
 
-Ardışık Düzen yürütür sonra blob, günde bir dosya için seçilen kapsayıcıdaki görünmesini verileri görmek görebilmeniz gerekir.
+Merhaba ardışık düzen yürütür sonra Itanium tabanlı sistemler için mümkün toosee hello veri Göster yukarı hello blob, günde bir dosya için seçtiğiniz hello kapsayıcıda olmalıdır.
 
-Biz tarafından ADF kanal veri için artımlı olarak sağlanan işlevselliği işlevden olmayan olduğunu unutmayın. Bu ve ADF tarafından sağlanan diğer özellikleri hakkında daha fazla bilgi için bkz: [ADF belgelerine](https://azure.microsoft.com/services/data-factory/).
+Biz ADF toopipe verilerle artımlı olarak sağlanan hello işlevselliği işlevden olmayan olduğunu unutmayın. Bu ve diğer özellikleri ADF tarafından sağlanan toodo nasıl görürüm hakkında daha fazla bilgi için hello [ADF belgelerine](https://azure.microsoft.com/services/data-factory/).

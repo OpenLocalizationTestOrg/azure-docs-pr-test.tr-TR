@@ -1,6 +1,6 @@
 ---
-title: "Alt runbook'ları Azure Automation | Microsoft Docs"
-description: "Azure Otomasyonu'nda başka bir runbook'tan runbook başlatma ve bunlar arasında bilgi paylaşımı için farklı yöntemleri açıklar."
+title: Azure Otomasyonu aaaChild runbook'larda | Microsoft Docs
+description: "Azure Otomasyonu'nda başka bir runbook'tan runbook başlatma ve bunlar arasında bilgi paylaşımı için farklı yöntemler hello açıklar."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: a605d278dbbda9613b91007ea6a7042403a7a6ff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d3d06818d344b565d53cc4f4705b41dcfcf9a376
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure Otomasyonu'nda alt runbook'lar
-Azure Automation'ın diğer runbook'lar tarafından kullanılabilen ayrı işleve sahip yeniden kullanılabilir, modüler runbook'lar yazmak için en iyi bir uygulamadır. Üst runbook genellikle gerekli işlevleri gerçekleştirmek için bir veya daha fazla alt runbook'u çağırır. Bir alt runbook'u çağırmanın iki yolu vardır ve her anlamanız gereken belirli farklara sahiptir, farklı senaryolarınız için en iyi olacağı belirleyebilmesi.
+Bunu bir Azure Otomasyonu toowrite yeniden kullanılabilir, modüler runbook'lar diğer runbook'lar tarafından kullanılabilen ayrı işleve sahip en iyi uygulamadır. Üst runbook genellikle bir veya daha fazla alt runbook'lar gerekli tooperform işlevi çağırır. Bir alt runbook'u iki yolu toocall vardır ve her anlamanız gereken belirli farklara sahiptir, farklı senaryolarınız için en iyi olacağı belirleyebilmesi.
 
 ## <a name="invoking-a-child-runbook-using-inline-execution"></a>Satır içi yürütme kullanarak bir alt runbook çağırma
-Başka bir runbook'tan bir runbook'u satır içi olarak çağırmak için runbook adı kullanın ve tam olarak, bir etkinlik veya cmdlet'i kullanırken yaptığınız gibi parametreleri için değerler sağlayın.  Aynı Otomasyon hesaptaki tüm runbook'lar bu şekilde kullanılacak diğerleri tarafından kullanılabilir. Üst runbook alt runbook'un bir sonraki satıra geçmeden önce tamamlanmasını bekler ve herhangi bir çıkış doğrudan üst öğeye döndürülür.
+bir runbook'u satır içi tooinvoke başka bir runbook'tan hello runbook hello adını kullanın ve tam olarak, bir etkinlik veya cmdlet'i kullanırken yaptığınız gibi parametreleri için değerler sağlayın.  Tüm runbook'ları hello aynı Otomasyon hesabı kullanılabilir tooall diğerleri toobe bu yöntemle kullanılan alanlarıdır. Merhaba üst runbook toohello sonraki satıra geçmeden önce hello alt runbook toocomplete için bekler ve herhangi bir çıkış doğrudan toohello üst döndürülür.
 
-Bir runbook'u satır içi çağırdığınızda üst runbook ile aynı işi çalıştırır. Çalıştırdığı alt runbook'un iş geçmişinde hiçbir belirti olmaz. Tüm özel durumlar ve alt runbook'tan çıkış akışı üst öğesi ile ilişkilendirilir. Bu daha az iş çalıştırılır ve izlemek için ve alt runbook'un ve tüm ve akış çıkışı tarafından karşılaşılan özel durumlar üst işle ilişkili olduğundan gidermek için daha kolay hale getirir.
+Bir runbook'u satır içi çağırdığınızda hello aynı hello üst runbook işi çalıştırır. Çalıştırdığınız hello alt runbook'un hello iş geçmişinde hiçbir belirti olmaz. Tüm özel durumlar ve akış hello alt runbook'tan hello üst öğesi ile ilişkilendirilir. Bu daha az iş çalıştırılır ve bunları tootrack ve tootroubleshoot hello alt runbook tarafından karşılaşılan özel durumlar itibaren kolaylaştırır ve akış çıktısını hello üst işle ilişkili olan.
 
-Bir runbook yayımlandığında, bu runbook'un çağırdığı tüm alt runbook zaten yayımlanması gerekir. Azure Otomasyonu runbook derlendiğinde alt runbook'larla bir ilişkilendirme derlemeler olmasıdır. Yoksa, üst runbook doğru şekilde yayımlamak için görünür ancak başlatıldığında bir özel durum oluşturur. Bu durumda, üst runbook alt runbook'ları doğru şekilde başvurmak için yayımlayabilirsiniz. İlişki zaten oluşturulmuş olduğundan herhangi bir alt runbook'lardan biri değiştirilirse üst runbook'u yeniden yayımlamanız gerekmez.
+Bir runbook yayımlandığında, bu runbook'un çağırdığı tüm alt runbook zaten yayımlanması gerekir. Azure Otomasyonu runbook derlendiğinde alt runbook'larla bir ilişkilendirme derlemeler olmasıdır. Yoksa, hello üst runbook toopublish düzgün görünür ancak başlatıldığında bir özel durum oluşturur. Bu durumda, sipariş tooproperly başvuru hello alt runbook'hello üst runbook yeniden yayımlayabilirsiniz. Merhaba ilişki zaten oluşturulmuş olduğundan hello alt runbook'ları hiçbirini değiştirilirse toorepublish hello üst runbook gerekmez.
 
-Satır içi olarak adlandırılan bir alt runbook'un parametreleri karmaşık nesneler de dahil olmak üzere herhangi bir veri türü olabilir ve olmadığından hiçbir [JSON serileştirmesi](automation-starting-a-runbook.md#runbook-parameters) Azure Yönetim Portalı'nı kullanarak runbook'u başlattığınızda veya Start-AzureRmAutomationRunbook cmdlet ile olduğundan.
+Satır içi olarak adlandırılan bir alt runbook'un Hello parametreleri karmaşık nesneler de dahil olmak üzere herhangi bir veri türü olabilir ve var. hiçbir [JSON serileştirmesi](automation-starting-a-runbook.md#runbook-parameters) hello Azure Yönetim Portalı kullanarak hello runbook'u başlattığınızda veya hello olduğundan Start-AzureRmAutomationRunbook cmdlet'ini kullanın.
 
 ### <a name="runbook-types"></a>Runbook türleri
 Hangi tür birbirine çağırabilirsiniz:
 
 * A [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) ve [grafik runbook'lar](automation-runbook-types.md#graphical-runbooks) (her ikisi de olan temel PowerShell) her bir satır çağırabilirsiniz.
 * A [PowerShell iş akışı runbook'u](automation-runbook-types.md#powershell-workflow-runbooks) ve grafik PowerShell iş akışı runbook'ları (her ikisi de olan temel PowerShell iş akışı) her bir satır çağırın
-* PowerShell türleri ve PowerShell iş akışı türleri birbirine satır içi çağrılamıyor ve başlangıç AzureRmAutomationRunbook kullanmanız gerekir.
+* PowerShell türleri hello ve PowerShell iş akışı türleri hello birbirine satır içi çağrılamıyor ve başlangıç AzureRmAutomationRunbook kullanmanız gerekir.
 
 Zaman sipariş sağlasa da yayımlayın:
 
-* Runbook'ları Yayımla sırasını yalnızca PowerShell iş akışı ve grafik PowerShell iş akışı runbook'ları için önemlidir.
+* Merhaba, PowerShell iş akışı ve grafik PowerShell iş akışı runbook için runbook'ları yalnızca önemlidir dizisi yayımlayın.
 
-Satır içi yürütme kullanarak bir grafik veya PowerShell iş akışı alt runbook'u çağırdığınızda, yalnızca runbook'un adını kullanabilirsiniz.  PowerShell alt runbook çağırdığınızda, gerekir öncesinde adıyla *.\\*  komut dosyası yerel dizinde bulunur belirtmek için. 
+Satır içi yürütme kullanarak bir grafik veya PowerShell iş akışı alt runbook'u çağırdığınızda, yalnızca hello runbook hello adını kullanabilirsiniz.  PowerShell alt runbook çağırdığınızda, gerekir öncesinde adıyla *.\\*  betik hello toospecify hello yerel dizininde bulunur. 
 
 ### <a name="example"></a>Örnek
-Aşağıdaki örnekte, üç parametre, karmaşık bir nesne, bir tamsayı ve bir Boole değeri kabul eden bir test alt runbook'u çağırır. Alt runbook'un çıkışı bir değişkene atanır.  Bu durumda, bir PowerShell iş akışı runbook alt runbook.
+Aşağıdaki örnek hello üç parametre, karmaşık bir nesne, bir tamsayı ve bir Boole değeri kabul eden bir test alt runbook'u çağırır. Merhaba hello alt runbook'un çıktısını tooa değişkeni atanır.  Bu durumda, bir PowerShell iş akışı runbook hello alt runbook.
 
     $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
     $output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
 
-Aşağıda bir PowerShell runbook alt öğesi olarak kullanarak aynı örnek verilmiştir.
+Aşağıdadır hello hello alt öğesi olarak bir PowerShell runbook kullanarak aynı örneği.
 
     $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
     $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 
 ## <a name="starting-a-child-runbook-using-cmdlet"></a>Cmdlet'ini kullanarak bir alt runbook'u başlatma
-Kullanabileceğiniz [başlangıç AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) açıklandığı gibi bir runbook'u başlatmak için cmdlet [Windows PowerShell ile bir runbook'u başlatmak için](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Bu cmdlet kullanım iki modu mevcuttur.  Alt iş alt runbook için oluşturulan hemen bir modda cmdlet iş kimliğini döndürür.  Belirterek etkinleştirmek diğer bütün modunda **-bekleyin** parametresi, cmdlet alt kadar bekler işi bittiğinde ve alt runbook'tan çıkış döndürür.
+Merhaba kullanabilirsiniz [başlangıç AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) cmdlet toostart açıklandığı gibi bir runbook [toostart Windows PowerShell ile bir runbook](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Bu cmdlet kullanım iki modu mevcuttur.  Merhaba alt iş hello alt runbook için oluşturulan hemen bir modda hello cmdlet hello iş kimliği döndürür.  İçinde hello belirterek etkinleştirmek diğer modu hello **-bekleyin** parametresi hello cmdlet hello alt kadar bekler işi bittiğinde ve hello çıktı hello alt runbook'tan döndürür.
 
-Bir alt runbook'tan bir cmdlet'le başlatılan iş, üst runbook'tan ayrı bir iş çalıştırılır. Bu runbook'u satır içi çağırma'den daha fazla iş sonuçlanır ve izlemek daha zor hale getirir. Üst her birinin tamamlanmasını beklemeden birden çok alt runbook zaman uyumsuz olarak başlatabilirsiniz. Alt runbook'ların satır içi olarak çağrıldığı Paralel yürütme türü için üst runbook kullanması gerekir [parallel anahtar kelimesini](automation-powershell-workflow.md#parallel-processing).
+Merhaba iş bir alt runbook'tan bir cmdlet'le başlatılan hello üst runbook'tan ayrı bir iş çalıştırılır. Bu hello runbook'u satır içi çağırma'den daha fazla iş sonuçlanır ve daha zor tootrack yapar. Merhaba üst birden çok alt runbook için her toocomplete beklemeden zaman uyumsuz olarak başlatabilirsiniz. Merhaba alt runbook'ların satır içi olarak çağrıldığı Paralel yürütme türü için hello üst runbook toouse hello gerekir [parallel anahtar kelimesini](automation-powershell-workflow.md#parallel-processing).
 
-Bir cmdlet'le başlatılan bir alt runbook'un parametreleri açıklandığı gibi karma tablosu olarak sağlanır [Runbook parametreleri](automation-starting-a-runbook.md#runbook-parameters). Yalnızca basit veri türleri kullanılabilir. Ardından runbook karmaşık veri türü olan bir parametreye sahipse satır içi çağrılmalıdır.
+Bir cmdlet'le başlatılan bir alt runbook'un parametreleri açıklandığı gibi karma tablosu olarak sağlanır [Runbook parametreleri](automation-starting-a-runbook.md#runbook-parameters). Yalnızca basit veri türleri kullanılabilir. Ardından Hello runbook karmaşık veri türüne sahip bir parametre varsa, satır içi çağrılmalıdır.
 
 ### <a name="example"></a>Örnek
-Aşağıdaki örnek parametrelere sahip bir alt runbook başlatır ve başlangıç AzureRmAutomationRunbook kullanarak tamamlanmasını bekler-parametre bekleyin. Tamamlandığında, çıktısını alt runbook'tan toplanır.
+Merhaba aşağıdaki örnek bir alt runbook parametreleri ve ardından bekler hello başlangıç AzureRmAutomationRunbook kullanarak toocomplete başlar-parametre bekleyin. Tamamlandığında, çıktısını hello alt runbook'tan toplanır.
 
     $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
     $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
 
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Alt runbook çağırma yöntemlerinin karşılaştırılması
-Aşağıdaki tabloda, başka bir runbook'tan bir runbook'u çağırmak için iki yöntem arasındaki farklar özetlenmektedir.
+Merhaba aşağıdaki tabloda hello hello başka bir runbook'tan bir runbook'u çağırmak için iki yöntem arasındaki farklar özetlenmektedir.
 
 |  | Satır içi | Cmdlet |
 |:--- |:--- |:--- |
-| İş |Alt runbook'lar üst ile aynı işi çalıştırın. |Alt runbook için ayrı bir iş oluşturulur. |
-| Yürütme |Üst runbook alt runbook'un devam etmeden önce tamamlanmasını bekler. |Üst runbook alt runbook başlatıldıktan hemen sonra devam *veya* üst runbook alt iş tamamlamak bekler. |
+| İş |Alt runbook'ları hello aynı hello üst öğe olarak işi çalıştırın. |Merhaba alt runbook için ayrı bir iş oluşturulur. |
+| Yürütme |Üst runbook devam etmeden önce hello alt runbook toocomplete için bekler. |Üst runbook alt runbook başlatıldıktan hemen sonra devam *veya* üst runbook hello alt iş toofinish için bekler. |
 | Çıktı |Üst runbook doğrudan alt runbook'tan çıkış alabilir. |Üst runbook alt runbook işinden çıkış almak gerekir *veya* üst runbook alt runbook'tan çıkış doğrudan alabilirsiniz. |
-| Parametreler |Alt runbook parametre değerlerini ayrı ayrı belirtilir ve herhangi bir veri türü kullanabilirsiniz. |JSON serileştirmesi kullanan nesne veri türlerini ve alt runbook parametreleri tek bir karma tablosunda birleştirilmelidir ve yalnızca basit, içerebilir değerleri dizisi. |
-| Otomasyon Hesabı |Üst runbook, yalnızca aynı automation hesabında alt runbook kullanabilirsiniz. |Bir bağlantı varsa, üst runbook alt runbook'tan herhangi bir Otomasyon hesabı aynı Azure aboneliği ve hatta farklı bir abonelik kullanabilirsiniz. |
+| Parametreler |Merhaba alt runbook parametreleri için değerleri ayrı ayrı belirtilir ve herhangi bir veri türü kullanabilirsiniz. |Parametreleri tek bir karma tablosunda birleştirilmelidir ve yalnızca basit, içerebilir hello alt runbook için değerleri dizisi ve JSON serileştirmesi kullanan veri türleri nesne. |
+| Otomasyon Hesabı |Üst runbook alt runbook hello kullanma yalnızca aynı automation hesabı. |Üst runbook alt runbook'tan herhangi bir Otomasyon hesabı hello gelen kullanabileceğiniz aynı Azure aboneliği ve bir bağlantı tooit varsa bile farklı bir abonelik. |
 | Yayımlama |Üst runbook yayımlanmadan önce alt runbook yayımlanmalıdır. |Üst runbook başlatılmadan önce dilediğiniz zaman alt runbook yayımlanmalıdır. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

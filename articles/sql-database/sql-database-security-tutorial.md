@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veritabanınızı güvenli | Microsoft Docs"
-description: "Teknikleri ve Azure SQL veritabanınızın güvenliğini sağlamak için özellikleri hakkında bilgi edinin."
+title: "aaaSecure Azure SQL veritabanınızı | Microsoft Docs"
+description: "Azure SQL veritabanınızı teknikler ve Özellikler toosecure hakkında bilgi edinin."
 services: sql-database
 documentationcenter: 
 author: DRediske
@@ -16,22 +16,22 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: 4bc09ad13ed0c9dc9257e9c75ec6f9ff3d689a0b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1450d633d6f65faf1b8a2dc0dc7dfe996fb0719d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL veritabanınızı güvenli
 
-SQL Veritabanı veritabanınıza erişimi sınırlamak için güvenlik duvarı kurallarını, kullanıcıların kimliğini doğrulamak için kimlik doğrulama sistemlerini, rol tabanlı üyelikler ve izinler ile veri yetkilendirmeyi, satır düzeyi güvenliği ve dinamik veri maskelemeyi kullanarak verilerinizin güvenliğini sağlar.
+SQL veritabanı güvenlik duvarı kuralları, kullanıcıların tooprove kendi kimlik ve yetkilendirme toodata üyeliklerini rol tabanlı ve izinleri aracılığıyla yanı sıra aracılığıyla gerektiren kimlik doğrulama mekanizmaları kullanarak erişim tooyour veritabanı sınırlandırarak verilerinizi korur satır düzeyi güvenlik ve dinamik veri maskeleme.
 
-Veritabanınızı kötü amaçlı kullanıcılar ya da yalnızca birkaç basit adımla yetkisiz erişime karşı koruma artırabilir. Bu öğreticide, öğrenin: 
+Kötü amaçlı kullanıcılar ya da yalnızca birkaç basit adımla yetkisiz erişime karşı veritabanınızın hello koruma artırabilir. Bu öğreticide, öğrenin: 
 
 > [!div class="checklist"]
-> * Azure portalında sunucunuz için sunucu düzeyinde güvenlik duvarı kuralları ayarlayın
+> * Sunucunuzdaki hello Azure portal için sunucu düzeyinde güvenlik duvarı kuralları ayarlayın
 > * SSMS kullanarak, veritabanı için veritabanı düzeyinde güvenlik duvarı kuralları ayarlayın
-> * Güvenli bağlantı dizesi kullanarak veritabanınıza bağlanmak
+> * Güvenli bağlantı dizesi kullanarak tooyour veritabanına bağlanın
 > * Kullanıcı erişimini yönetme
 > * Şifreleme ile verilerinizi koruma
 > * SQL veritabanı denetimi etkinleştir
@@ -41,78 +41,78 @@ Bir Azure aboneliğiniz yoksa [ücretsiz bir hesap oluşturma](https://azure.mic
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için aşağıdakilere sahip olduğunuzdan emin olun:
+toocomplete Bu öğretici, yapma emin aşağıdaki hello sahip:
 
-- En son sürümü yüklü [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
+- Yüklü hello en yeni sürümünü [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
 - Yüklü Microsoft Excel
-- Bir Azure SQL server ve veritabanı - oluşturulan bkz [Azure portalında bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md), [Azure CLI kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-cli.md), ve [PowerShell kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-powershell.md). 
+- Bir Azure SQL server ve veritabanı - oluşturulan bkz [hello Azure portalında bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md), [hello Azure CLI kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-cli.md), ve [tek bir Azure SQL oluşturma PowerShell kullanarak veritabanı](sql-database-get-started-powershell.md). 
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+## <a name="log-in-toohello-azure-portal"></a>Toohello Azure portalında oturum açın
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+İçinde toohello oturum [Azure portal](https://portal.azure.com/).
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure portalında sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
+## <a name="create-a-server-level-firewall-rule-in-hello-azure-portal"></a>Hello Azure portalında bir sunucu düzeyinde güvenlik duvarı kuralı oluşturma
 
-SQL veritabanları Azure güvenlik duvarı tarafından korunur. Varsayılan olarak, diğer Azure hizmetleriyle bağlantılarından dışında sunucusunu ve veritabanlarını Sunucusu'ndaki tüm bağlantıları reddedilir. Daha fazla bilgi için bkz: [Azure SQL veritabanı sunucusu ve veritabanı düzeyi güvenlik duvarı kuralları](sql-database-firewall-configure.md).
+SQL veritabanları Azure güvenlik duvarı tarafından korunur. Varsayılan olarak, diğer Azure hizmetleriyle bağlantılarından hariç tüm bağlantıları toohello sunucusu ve hello veritabanları hello Sunucusu'ndaki reddedilir. Daha fazla bilgi için bkz: [Azure SQL veritabanı sunucusu ve veritabanı düzeyi güvenlik duvarı kuralları](sql-database-firewall-configure.md).
 
-En güvenli yapılandırma, 'OFF olarak Azure hizmetlerine erişime izin ver' ayarlamaktır. Bir Azure VM veya Bulut hizmetinden veritabanına bağlanmak gerekiyorsa, oluşturmalısınız bir [ayrılmış IP](../virtual-network/virtual-networks-reserved-public-ip.md) ve yalnızca ayrılmış IP adresi erişim güvenlik duvarı aracılığıyla izin verin. 
+Merhaba en güvenli tooset 'tooAzure Hizmetleri erişime izin ver' tooOFF yapılandırmadır. Bir Azure VM veya Bulut hizmeti tooconnect toohello veritabanından gerekiyorsa, oluşturmalısınız bir [ayrılmış IP](../virtual-network/virtual-networks-reserved-public-ip.md) ve yalnızca hello ayrılmış IP adresi erişim hello güvenlik duvarı aracılığıyla izin verin. 
 
-Oluşturmak için bu adımları bir [SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı](sql-database-firewall-configure.md) sunucunuz belirli bir IP adresinden gelen bağlantılara izin vermek için. 
+Bu adımları toocreate izleyin bir [SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı](sql-database-firewall-configure.md) belirli bir IP adresi, sunucu tooallow bağlantıları için. 
 
 > [!NOTE]
-> Önceki öğreticileri veya quickstarts birini kullanarak Azure'da bir örnek veritabanı oluşturdunuz ve bu öğreticileri gitti sırasındaki aynı IP adresine sahip bir bilgisayarda bu öğreticiyi gerçekleştirmeden, sunucu düzeyinde güvenlik duvarı kuralı oluşturmuş şekilde, bu adımı atlayabilirsiniz.
+> Azure'da hello önceki öğreticiler veya quickstarts ve misiniz birini kullanarak bir örnek veritabanı oluşturduysanız hello olan bir bilgisayarda bu öğreticiyi gerçekleştirmeden aynı IP adresi, BT'nin sahip şekilde bu öğreticileri gitti aldığında sahip, bu adımı atlayabilirsiniz zaten bir sunucu düzeyinde güvenlik duvarı kuralı oluşturdu.
 >
 
-1. Tıklatın **SQL veritabanları** üzerinde Güvenlik Duvarı'nı yapılandırmak istediğiniz veritabanı kural için tıklatın ve sol taraftaki menüden **SQL veritabanları** sayfası. Veritabanınız için genel bakış sayfası açılır ve tam sunucu adını gösteren (gibi **mynewserver 20170313.database.windows.net**) ve diğer yapılandırmalar için seçenekler sağlar.
+1. Tıklatın **SQL veritabanları** hello sol menüsüne ve ardından hello veritabanından tooconfigure hello güvenlik duvarı kuralı için başlangıç istediğiniz **SQL veritabanları** sayfa. Merhaba hello tam olarak gösteren, veritabanı açılır genel bakış sayfasında tam sunucu adını (gibi **mynewserver 20170313.database.windows.net**) ve diğer yapılandırmalar için seçenekler sağlar.
 
       ![sunucu güvenlik duvarı kuralı](./media/sql-database-security-tutorial/server-firewall-rule.png) 
 
-2. Önceki görüntüde gösterildiği gibi araç çubuğundaki **sunucu güvenlik duvarı ayarla** öğesine tıklayın. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır. 
+2. Tıklatın **ayarlayın sunucu Güvenlik Duvarı** hello önceki görüntüde gösterildiği gibi hello araç. Merhaba **Güvenlik Duvarı ayarları** hello SQL veritabanı sunucusu sayfasını açar. 
 
-3. Tıklatın **istemci IP'si Ekle** genel portal ile bağlı bilgisayarın IP adresini ekleyin veya güvenlik duvarı kuralı el ile girin ve ardından araç çubuğundaki **kaydetmek**.
+3. Tıklatın **istemci IP'si Ekle** üzerinde hello araç tooadd hello genel IP adresi hello bilgisayar bağlı toohello portalıyla veya hello güvenlik duvarı kuralı el ile girin ve ardından **kaydetmek**.
 
       ![sunucu güvenlik duvarı kuralı ayarla](./media/sql-database-security-tutorial/server-firewall-rule-set.png) 
 
-4. **Tamam**’a tıklayın ve ardından **Güvenlik duvarı ayarları** sayfasını kapatmak için **X** öğesine tıklayın.
+4. Tıklatın **Tamam** ve hello ardından **X** tooclose hello **Güvenlik Duvarı ayarları** sayfası.
 
-Şimdi belirtilen IP adresi veya IP adresi aralığı sunucusuyla herhangi bir veritabanına bağlanabilir.
+Belirtilen hello ile Merhaba Server'daki tooany veritabanı artık bağlanabilir IP adresi veya IP adresi aralığı.
 
 > [!NOTE]
-> SQL Veritabanı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir kurumsal ağ içerisinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda, BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL veritabanı sunucusuna bağlanamazsınız.
+> SQL Veritabanı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir şirket ağından gelen tooconnect çalışıyorsanız, bağlantı noktası 1433 üzerinden giden trafik, ağınızın güvenlik duvarı tarafından izin verilmiyor. Öyleyse, BT departmanınızın 1433 numaralı bağlantı noktasını açar sürece mümkün tooconnect tooyour Azure SQL veritabanı sunucusu olmaz.
 >
 
 ## <a name="create-a-database-level-firewall-rule-using-ssms"></a>SSMS kullanarak bir veritabanı düzeyinde güvenlik duvarı kuralı oluşturma
 
-Veritabanı düzeyinde güvenlik duvarı kurallarını etkinleştirmek, aynı mantıksal sunucu içindeki farklı veritabanları için farklı bir güvenlik duvarı ayarları oluşturma ve taşınabilir - takip etmeleri sırasında veritabanı anlamına gelen güvenlik duvarı kuralları oluşturmak için bir [yük devretme](sql-database-geo-replication-overview.md) yerine SQL server üzerinde depolanıyor. İlk sunucu düzeyinde güvenlik duvarı kuralını yapılandırdıktan sonra veritabanı düzeyinde güvenlik duvarı kuralları yalnızca Transact-SQL deyimi kullanarak yapılandırılmış ve yalnızca olabilir. Daha fazla bilgi için bkz: [Azure SQL veritabanı sunucusu ve veritabanı düzeyi güvenlik duvarı kuralları](sql-database-firewall-configure.md).
+Veritabanı düzeyinde güvenlik duvarı kuralları aynı mantıksal sunucu ve toocreate güvenlik duvarı kuralları, taşınabilir - takip etmeleri sırasında hello veritabanı anlamı hello içinde farklı veritabanları için toocreate farklı bir güvenlik duvarı ayarlarını etkinleştir bir [yük devretme ](sql-database-geo-replication-overview.md) hello SQL sunucusunda depolanıp depolanmadığı yerine. Merhaba ilk sunucu düzeyinde güvenlik duvarı kuralını yapılandırdıktan sonra veritabanı düzeyinde güvenlik duvarı kuralları yalnızca Transact-SQL deyimi kullanarak yapılandırılmış ve yalnızca olabilir. Daha fazla bilgi için bkz: [Azure SQL veritabanı sunucusu ve veritabanı düzeyi güvenlik duvarı kuralları](sql-database-firewall-configure.md).
 
-Bir veritabanı özel güvenlik duvarı kuralı oluşturmak için şu adımları izler.
+Bu adımları toocreate bir veritabanı özel güvenlik duvarı kuralı izler.
 
-1. Örneğin kullanarak, bir veritabanına bağlanmak [SQL Server Management Studio](./sql-database-connect-query-ssms.md).
+1. Örneğin kullanarak tooyour veritabanı bağlantı [SQL Server Management Studio](./sql-database-connect-query-ssms.md).
 
-2. Nesne Gezgini'nde, önce için bir güvenlik duvarı kuralı eklemek istediğiniz veritabanını sağ tıklatın **yeni sorgu**. Veritabanınıza bağlı boş bir sorgu penceresi açılır.
+2. Bir güvenlik duvarı için kural ve tıklatın tooadd istediğiniz hello veritabanında nesne Gezgini'nde sağ **yeni sorgu**. Boş sorgu penceresi bağlı tooyour veritabanını başka bir deyişle açar.
 
-3. Sorgu penceresinde, genel IP adresi IP adresini değiştirin ve aşağıdaki sorguyu çalıştırın:
+3. Merhaba sorgu penceresinde hello IP adresi tooyour ortak IP adresini değiştirmek ve sorgu aşağıdaki hello yürütün:
 
     ```sql
     EXECUTE sp_set_database_firewall_rule N'Example DB Rule','0.0.0.4','0.0.0.4';
     ```
 
-4. Araç çubuğunda tıklatın **yürütme** güvenlik duvarı kuralı oluşturun.
+4. Merhaba araç çubuğundan, **yürütme** toocreate hello güvenlik duvarı kuralı.
 
-## <a name="view-how-to-connect-an-application-to-your-database-using-a-secure-connection-string"></a>Güvenli bağlantı dizesi kullanarak veritabanını bir uygulamaya bağlanmak nasıl görüntüleyin
+## <a name="view-how-tooconnect-an-application-tooyour-database-using-a-secure-connection-string"></a>Bir uygulama tooyour tooconnect nasıl veritabanı güvenli bağlantı dizesi kullanarak görüntüleme
 
-Bir istemci uygulaması ve SQL veritabanı arasında güvenli, şifreli bir bağlantı sağlamak için bağlantı dizesi için yapılandırılması gerekir:
+tooensure bir istemci uygulaması ve SQL veritabanı arasında güvenli, şifreli bir bağlantı, hello bağlantı dizesi için yapılandırılmış toobe sahiptir:
 
 - Şifreli bir bağlantı isteği ve
-- Sunucu sertifikası güvenmediğiniz için. 
+- toonot güven hello sunucu sertifikası. 
 
-Bu Aktarım Katmanı Güvenliği (TLS) kullanarak bağlantı kurar ve man-in--middle saldırıları riski azaltılır. Doğru yapılandırılmış bağlantı dizeleri desteklenen istemci için SQL veritabanınızın sürücüleri Azure portalından ADO.net için bu ekran görüntüsünde gösterildiği gibi alabilirsiniz.
+Bu Aktarım Katmanı Güvenliği (TLS) kullanarak bağlantı kurar ve man-in--middle saldırıları hello riskini azaltır. Doğru yapılandırılmış bağlantı dizeleri desteklenen istemci için SQL veritabanınızın sürücüleri hello Azure portal ' ADO.net için bu ekran görüntüsünde gösterildiği gibi alabilirsiniz.
 
-1. Seçin **SQL veritabanları** sol taraftaki menüden ve veritabanınızı tıklayın **SQL veritabanları** sayfası.
+1. Seçin **SQL veritabanları** hello sol taraftaki menüden veritabanınızda hello tıklatıp **SQL veritabanları** sayfası.
 
-2. Üzerinde **genel bakış** sayfasında veritabanınız için **veritabanı bağlantı dizelerini Göster**.
+2. Merhaba üzerinde **genel bakış** sayfasında veritabanınız için **veritabanı bağlantı dizelerini Göster**.
 
-3. Tam **ADO.NET** bağlantı dizesini gözden geçirin.
+3. Gözden geçirme hello tam **ADO.NET** bağlantı dizesi.
 
     ![ADO.NET bağlantı dizesi](./media/sql-database-security-tutorial/adonet-connection-string.png)
 
@@ -120,130 +120,130 @@ Bu Aktarım Katmanı Güvenliği (TLS) kullanarak bağlantı kurar ve man-in--mi
 
 Herhangi bir kullanıcı oluşturmadan önce ilk Azure SQL veritabanı tarafından desteklenen iki kimlik doğrulama türleri birini seçmeniz gerekir: 
 
-**SQL kimlik doğrulaması**, kullanan kullanıcı adı ve parola oturum açmalar ve yalnızca bir mantıksal sunucu içinde belirli bir veritabanı bağlamında geçerli olan kullanıcılar için. 
+**SQL kimlik doğrulaması**kullanan kullanıcı adı ve parola oturumları için ve yalnızca, geçerli olan kullanıcılar bir mantıksal sunucu içinde belirli bir veritabanı bağlamında hello. 
 
 **Azure Active Directory kimlik doğrulaması**, Azure Active Directory tarafından yönetilen kimlikleri kullanır. 
 
-Kullanmak istiyorsanız, [Azure Active Directory](./sql-database-aad-authentication.md) devam etmeden önce SQL veritabanında kimlik doğrulaması için doldurulan bir Azure Active Directory bulunmalıdır.
+Toouse istiyorsanız [Azure Active Directory](./sql-database-aad-authentication.md) tooauthenticate SQL veritabanında doldurulan bir Azure Active Directory devam etmeden önce bulunmalıdır.
 
-SQL kimlik doğrulaması kullanarak bir kullanıcı oluşturmak için aşağıdaki adımları izleyin:
+Bu adımları toocreate SQL kimlik doğrulaması kullanan bir kullanıcının izleyin:
 
-1. Örneğin kullanarak, bir veritabanına bağlanmak [SQL Server Management Studio](./sql-database-connect-query-ssms.md) server yönetici kimlik bilgilerinizi kullanarak.
+1. Örneğin kullanarak tooyour veritabanı bağlantı [SQL Server Management Studio](./sql-database-connect-query-ssms.md) server yönetici kimlik bilgilerinizi kullanarak.
 
-2. Nesne Gezgini'nde, önce yeni bir kullanıcı eklemek istediğiniz veritabanını sağ tıklatın **yeni sorgu**. Seçilen veritabanına bağlı bir boş sorgu penceresi açar.
+2. Nesne Gezgini'nde üzerinde üzerinde yeni bir kullanıcı tooadd istediğiniz hello veritabanını sağ tıklatın **yeni sorgu**. Boş sorgu penceresi, diğer bir deyişle bağlı toohello seçili veritabanı açılır.
 
-3. Sorgu penceresine aşağıdaki sorguyu girin:
+3. Merhaba sorgu penceresinde, sorgu aşağıdaki hello girin:
 
     ```sql
     CREATE USER ApplicationUser WITH PASSWORD = 'YourStrongPassword1';
     ```
 
-4. Araç çubuğunda tıklatın **yürütme** kullanıcı oluşturmak için.
+4. Merhaba araç çubuğundan, **yürütme** toocreate hello kullanıcı.
 
-5. Varsayılan olarak, kullanıcının veritabanına bağlanabilirsiniz, ancak okuma veya veri yazma izni olduğundan. Yeni oluşturulan kullanıcı bu izinleri vermek için yeni bir sorgu penceresinde aşağıdaki iki komutu yürütme
+5. Varsayılan olarak, hello kullanıcı toohello veritabanı bağlanabilirsiniz, ancak izinleri tooread veya yazma veri yok. toogrant bu izinleri toohello yeni oluşturulan kullanıcı, aşağıdaki iki komutu yeni bir sorgu penceresinde hello yürütme
 
     ```sql
     ALTER ROLE db_datareader ADD MEMBER ApplicationUser;
     ALTER ROLE db_datawriter ADD MEMBER ApplicationUser;
     ```
 
-Yeni kullanıcılar oluşturma gibi yönetici görevleri çalıştırmak gerekli olmadıkça, veritabanına bağlanmak için veritabanı düzeyinde bu yönetici olmayan bir hesap oluşturmak için en iyi bir uygulamadır. Lütfen gözden [Azure Active Directory öğretici](./sql-database-aad-authentication-configure.md) Azure Active Directory'yi kullanarak kimlik doğrulaması yapmayı üzerinde.
+Bu yönetici olmayan hesaplar hello veritabanı düzeyi tooconnect tooyour en yeni kullanıcılar oluşturma gibi tooexecute yönetici görevleri gerekmedikçe veritabanı en iyi yöntem toocreate olur. Lütfen hello gözden [Azure Active Directory öğretici](./sql-database-aad-authentication-configure.md) nasıl Azure Active Directory'yi kullanarak tooauthenticate.
 
 
 ## <a name="protect-your-data-with-encryption"></a>Şifreleme ile verilerinizi koruma
 
-Azure SQL veritabanında saydam veri şifreleme (TDE) şifrelenmiş veritabanına erişen uygulama herhangi bir değişiklik gerektirmeden verilerinizi REST, otomatik olarak şifreler. Yeni oluşturulan veritabanları için TDE varsayılan olarak açıktır. Veritabanınız için TDE etkinleştirmek ya da TDE açık olduğunu doğrulamak için şu adımları izleyin:
+Azure SQL veritabanında saydam veri şifreleme (TDE) tüm değişiklikleri toohello uygulama hello şifrelenmiş veritabanı erişimi gerek kalmadan, rest, verileri otomatik olarak şifreler. Yeni oluşturulan veritabanları için TDE varsayılan olarak açıktır. tooenable TDE veritabanı veya TDE açıktır tooverify için şu adımları izleyin:
 
-1. Seçin **SQL veritabanları** sol taraftaki menüden ve veritabanınızı tıklayın **SQL veritabanları** sayfası. 
+1. Seçin **SQL veritabanları** hello sol taraftaki menüden veritabanınızda hello tıklatıp **SQL veritabanları** sayfası. 
 
-2. Tıklayın **saydam veri şifreleme** TDE için yapılandırma sayfasını açın.
+2. Tıklayın **saydam veri şifreleme** TDE için tooopen hello yapılandırma sayfası.
 
     ![Saydam Veri Şifrelemesi](./media/sql-database-security-tutorial/transparent-data-encryption-enabled.png)
 
-3. Gerekirse, ayarlamak **veri şifreleme** on tıklatıp **kaydetmek**.
+3. Gerekirse, ayarlamak **veri şifreleme** tooON tıklatıp **kaydetmek**.
 
-Şifreleme işlemi arka planda başlatılır. SQL veritabanı için kullanılacak bağlanarak ilerleme durumunu izleyebilirsiniz [SQL Server Management Studio](./sql-database-connect-query-ssms.md) encryption_state sütunu sorgulamak `sys.dm_database_encryption_keys` görünümü.
+Merhaba arka planda Hello şifreleme işlemi başlatır. Bağlantı tooSQL veritabanını kullanarak hello ilerlemesini izleyebilirsiniz [SQL Server Management Studio](./sql-database-connect-query-ssms.md) hello hello encryption_state sütunu sorgulamak `sys.dm_database_encryption_keys` görünümü.
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>SQL veritabanı denetimi, gerekirse etkinleştirme
 
-Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bunları Denetim günlüğüne yazar izler. Denetim, yönetmeliklere uygunluğu korumanıza, veritabanı etkinliklerini anlamanıza ve ifade eden tutarsızlıklar ve olası güvenlik ihlallerini gösterebilir anormallikleri kavramanıza yardımcı olabilir. Denetim İlkesi SQL veritabanınız için bir varsayılan oluşturmak için aşağıdaki adımları izleyin:
+Azure SQL veritabanı denetimi veritabanı olaylarını izler ve bunları Azure depolama hesabınızdaki tooan denetim günlüğünü yazar. Denetim, yönetmeliklere uygunluğu korumanıza, veritabanı etkinliklerini anlamanıza ve ifade eden tutarsızlıklar ve olası güvenlik ihlallerini gösterebilir anormallikleri kavramanıza yardımcı olabilir. Bu adımları toocreate SQL veritabanınız için varsayılan bir denetim ilkesini izleyin:
 
-1. Seçin **SQL veritabanları** sol taraftaki menüden ve veritabanınızı tıklayın **SQL veritabanları** sayfası. 
+1. Seçin **SQL veritabanları** hello sol taraftaki menüden veritabanınızda hello tıklatıp **SQL veritabanları** sayfası. 
 
-2. Ayarlar dikey penceresinde seçin **denetim ve tehdit algılama**. Bildirim olduğunu ve sunucu düzeyi denetimi devre: bir **sunucu ayarlarını görüntüleyin** bağlantı görüntülemek veya sunucunun denetim ayarları'nı bu bağlamından değiştirmenize olanak sağlar.
+2. Hello ayarları dikey penceresinde, seçin **denetim ve tehdit algılama**. Bildirim olduğunu ve sunucu düzeyi denetimi devre: bir **sunucu ayarlarını görüntüleyin** bağlantıyı tooview sağlar veya bu bağlamından hello sunucu denetim ayarlarını değiştirin.
 
     ![Denetim dikey penceresi](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. Bir denetim türü (veya konum?) etkinleştirmeyi tercih ediyorsanız olandan farklı sunucu düzeyinde belirtilen, kapatma **ON** denetleme ve **Blob** denetim türü. Sunucu Blob denetimi etkinse, yapılandırılmış veritabanı denetimi yan yana sunucu Blob denetim yer alır.
+3. Tooenable bir denetim türü (veya konum?) tercih ederseniz hello bir hello sunucu düzeyinde belirtilen farklı Aç **ON** denetleme ve hello seçin **Blob** denetim türü. Sunucu Blob denetimi etkinse hello yapılandırılmış veritabanı denetimi hello sunucu Blob denetim yan yana yer alır.
 
     ![Denetim Aç](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
-4. Seçin **depolama ayrıntıları** denetim günlüklerini depolama dikey penceresini açın. Burada günlüklerine kaydedilir ve daha sonra eski günlükleri silinecek, saklama dönemi, ardından Azure depolama hesabı seçin **Tamam** altındaki. 
+4. Seçin **depolama ayrıntıları** tooopen hello denetim günlüklerini depolama dikey. Burada günlükleri kaydedilecek select hello Azure depolama hesabı ve hello saklama dönemi, hangi hello sonra eski günlükleri silinecek, ardından **Tamam** hello altındaki. 
 
    > [!TIP]
-   > En iyi denetim raporları şablonları almak için tüm denetlenen veritabanları için aynı depolama hesabı kullanın.
+   > Kullanım hello aynı depolama hesabı en hello denetimi dışında tüm denetlenen veritabanları tooget hello için raporları şablonları.
    > 
 
 5. **Kaydet** düğmesine tıklayın.
 
 > [!IMPORTANT]
-> Denetlenen olayları özelleştirmek istiyorsanız, PowerShell veya REST API - bunu yapabilirsiniz bkz [Otomasyon (PowerShell / REST API)](sql-database-auditing.md#subheading-7) daha fazla ayrıntı için bölüm.
+> Toocustomize denetlenen hello olayları istiyorsanız, PowerShell veya REST API - bunu yapabilirsiniz hello bkz [Otomasyon (PowerShell / REST API)](sql-database-auditing.md#subheading-7) daha fazla ayrıntı için bölüm.
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>SQL veritabanı tehdit algılama etkinleştir
 
-Tehdit algılama, müşterilerin algılamak ve anormal etkinlikler güvenlik uyarıları sağlayarak göründüklerinde olası risklere yanıt sağlayan bir güvenlik yeni bir katman sağlar. Kullanıcılar, bunlar erişim, ihlal ya da veritabanındaki verileri yararlanma girişimi sonucu olmadığını belirlemek için SQL veritabanı denetimi kullanarak şüpheli olayları gözden geçirebilirsiniz. Tehdit algılama, veritabanına Uzman güvenlik olması veya sistemleri izleme Gelişmiş Güvenlik yönetmek zorunda kalmadan adresi olası tehditlere kolaylaştırır.
-Örneğin, tehdit algılama olası SQL ekleme girişimlerini gösteren belirli anormal veritabanı etkinliklerini algılar. SQL ekleme veri güdümlü uygulamaları saldırmak için kullanılıyorsa Internet üzerinde ortak Web uygulaması güvenlik sorunlarını biridir. Saldırganlar ihlal veya veritabanındaki verileri değiştirmek için uygulama giriş alanları, kötü amaçlı SQL deyimleri eklemesine uygulama güvenlik açıkları yararlanın.
+Tehdit algılama müşteriler toodetect sağlar ve güvenlik uyarıları anormal etkinlikler sağlayarak göründüklerinde toopotential tehditlerine yanıt güvenliği, yeni bir katman sağlar. Kullanıcılar bir girişim tooaccess, ihlali neden veya hello veritabanındaki verileri yararlanma SQL veritabanı denetimi toodetermine kullanarak hello şüpheli olayları gözden geçirebilirsiniz. Tehdit algılama basit tooaddress olası tehditler toohello veritabanı hello gerek toobe güvenlik Uzman olmadan kolaylaştırır veya sistemleri izleme Gelişmiş Güvenlik yönetin.
+Örneğin, tehdit algılama olası SQL ekleme girişimlerini gösteren belirli anormal veritabanı etkinliklerini algılar. SQL ekleme hello ortak Web uygulaması güvenlik sorunlarını hello Internet, veri güdümlü kullanılan tooattack uygulamalar üzerinde biridir. Saldırganlar uygulama güvenlik açıkları tooinject kötü amaçlı SQL deyimlerini ihlal veya hello veritabanındaki verileri değiştirmek için uygulama giriş alanları içine yararlanın.
 
-1. İzlemek istediğiniz SQL veritabanı yapılandırma dikey penceresine gidin. Ayarlar dikey penceresinde seçin **denetim ve tehdit algılama**.
+1. Merhaba toomonitor istediğiniz SQL veritabanını toohello yapılandırma dikey gidin. Hello ayarları dikey penceresinde, seçin **denetim ve tehdit algılama**.
 
     ![Gezinti Bölmesi](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
-2. İçinde **denetim ve tehdit algılama** yapılandırma dikey Aç **ON** denetleme, hangi görüntüler tehdit algılama ayarlar.
+2. Merhaba, **denetim ve tehdit algılama** yapılandırma dikey Aç **ON** denetleme, hangi görüntüler hello tehdit algılama ayarları.
 
 3. Kapatma **ON** tehdit algılama.
 
-4. Güvenlik Uyarıları anormal veritabanı etkinliklerini algılandığında alacak e-postaları listesini yapılandırın.
+4. Güvenlik Uyarıları anormal veritabanı etkinliklerini algılandığında alacak e-postaları Hello listesini yapılandırın.
 
-5. Tıklatın **kaydetmek** içinde **denetim ve tehdit algılama** yeni veya güncelleştirilmiş denetim kaydedin ve tehdit algılama İlkesi dikey penceresi.
+5. Tıklatın **kaydetmek** hello içinde **denetim ve tehdit algılama** dikey toosave hello yeni veya güncelleştirilmiş denetim ve tehdit algılama ilkesi.
 
     ![Gezinti Bölmesi](./media/sql-database-security-tutorial/td-turn-on-threat-detection.png)
 
-    Anormal veritabanı etkinliklerini algılanmazsa, anormal veritabanı etkinliklerini algılandığında bir e-posta bildirimi alırsınız. E-posta anormal etkinlikler, veritabanı adı, sunucu adını ve olay süresi yapısını dahil olmak üzere şüpheli güvenlik olayı üzerinde bilgi sağlar. Ayrıca, olası nedenler bilgileri sağlarız ve önerilen eylemleri araştırmak ve veritabanına olası tehdidi azaltmak için. Sonraki adımlarda size yol yapmanız gerekenler aracılığıyla gibi e-posta almanız gerekir:
+    Anormal veritabanı etkinliklerini algılanmazsa, anormal veritabanı etkinliklerini algılandığında bir e-posta bildirimi alırsınız. Merhaba e-posta hello şüpheli güvenlik olayı hello yapısını hello anormal etkinlikler, veritabanı adı, sunucu adını ve hello olay zaman dahil olmak üzere bilgileri sağlarız. Ayrıca, olası nedenler bilgileri sağlarız Eylemler tooinvestigate önerilen ve hello olası tehdit toohello veritabanı etkisini azaltır. Merhaba hangi toodo size gereken sonraki adımları ilerlemesi gibi e-posta alırsınız:
 
     ![Tehdit algılama e-posta](./media/sql-database-threat-detection-get-started/4_td_email.png)
 
-6. E-posta ile tıklayın **Azure SQL denetim günlüğü** bağlantı, hangi Azure Portalı'nı başlatın ve ilgili denetim kayıtları şüpheli olay sırada geçici gösterir.
+6. Hello postada hello üzerinde tıklatın **Azure SQL denetim günlüğü** hello Azure portal'ı başlatın ve hello ilgili denetim kayıtları hello şüpheli olay hello sırada geçici Göster bağlantı.
 
     ![Denetim kaydı](./media/sql-database-threat-detection-get-started/5_td_audit_records.png)
 
-7. Denetim kayıtlarının SQL deyimini gibi şüpheli veritabanı etkinlikleri hakkında daha fazla ayrıntı görüntülemek için tıklatın başarısızlık nedeni ve istemci IP.
+7. SQL deyimi gibi hello veritabanı kuşkulu etkinlikleri hakkında daha fazla ayrıntı Hello denetim kayıtları tooview üzerinde tıklatın başarısızlık nedeni ve istemci IP.
 
     ![Kayıt ayrıntıları](./media/sql-database-security-tutorial/6_td_audit_record_details.png)
 
-8. Denetim kayıtlarının dikey penceresinde tıklayın **Excel'de açın** açmak için önceden yapılandırılmış excel almak ve daha derin denetim günlüğü şüpheli olay sırada geçici analizini çalıştırmak için şablon.
+8. Merhaba denetimi kayıtları dikey penceresinde tıklayın **Excel'de Aç** tooopen önceden yapılandırılmış excel şablonu tooimport ve hello denetim günlüğü hello şüpheli olay hello sırada geçici çalışma daha derin çözümlenmesi.
 
     > [!NOTE]
-    > Excel 2010 veya üzeri, güç sorgu ve **hızlı Birleştir** ayarı gereklidir.
+    > Excel 2010 veya üzeri, Power Query ve hello **hızlı Birleştir** ayarı gereklidir.
 
     ![Kayıtları Excel'de Aç](./media/sql-database-threat-detection-get-started/7_td_audit_records_open_excel.png)
 
-9. Yapılandırmak için **hızlı Birleştir** - ayarlamayı **POWER QUERY** Şerit sekmesi, select **seçenekleri** Seçenekleri iletişim kutusunu görüntülemek için. Gizlilik bölümünü seçin ve ikinci seçeneği 'Gizlilik düzeylerini yoksayın ve potansiyel performansı geliştirin' - belirtin:
+9. tooconfigure hello **hızlı Birleştir** ayarında - hello **POWER QUERY** Şerit sekmesi, select **seçenekleri** toodisplay hello Seçenekleri iletişim kutusu. Merhaba gizlilik bölümünü seçin ve 'Hello gizlilik düzeylerini yoksayın ve potansiyel performansı geliştirin' hello ikinci seçeneği - belirtin:
 
     ![Excel hızlı Birleştir](./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png)
 
-10. SQL denetim günlüklerini yüklemek için sekme doğru ayarlandığından ve 'Data' Şerit'i seçin ve 'Tümünü Yenile' düğmesini tıklatın ayarlarını parametrelerinde emin olun.
+10. tooload SQL denetim günlüklerini hello parametreleri hello Ayarlar sekmesinde doğru ayarlandığından ve ardından hello 'Verileri' Şerit'i seçin ve hello 'Tümünü Yenile' düğmesini tıklatın emin olun.
 
     ![Excel parametreleri](./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png)
 
-11. Sonuçları görünür **SQL denetim günlüklerini** algılandı anormal etkinlikler daha derin çözümlenmesi çalıştırın ve güvenlik olay uygulamanızda etkisini olanak tanıyan sayfası.
+11. Merhaba sonuçları görünen hello **SQL denetim günlüklerini** toorun daha derin algılanan ve uygulamanızda hello güvenlik olayı hello etkisini hello anormal etkinlikler analizini sağlayan sayfası.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veritabanınızı kötü amaçlı kullanıcılar ya da yalnızca birkaç basit adımla yetkisiz erişime karşı koruma artırabilir. Bu öğreticide, öğrenin: 
+Kötü amaçlı kullanıcılar ya da yalnızca birkaç basit adımla yetkisiz erişime karşı veritabanınızın hello koruma artırabilir. Bu öğreticide, öğrenin: 
 
 > [!div class="checklist"]
 > * Sunucu ve veya veritabanı için güvenlik duvarı kuralları ayarlayın
-> * Güvenli bağlantı dizesi kullanarak veritabanınıza bağlanmak
+> * Güvenli bağlantı dizesi kullanarak tooyour veritabanına bağlanın
 > * Kullanıcı erişimini yönetme
 > * Şifreleme ile verilerinizi koruma
 > * SQL veritabanı denetimi etkinleştir

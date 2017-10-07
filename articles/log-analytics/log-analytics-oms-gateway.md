@@ -1,6 +1,6 @@
 ---
-title: "OMS ağ geçidini kullanarak OMS bilgisayarları bağlama | Microsoft Docs"
-description: "OMS tarafından yönetilen cihazlar ve Operations Manager izlenen bilgisayarlar OMS Internet erişimi olmadığında OMS hizmetine veri göndermek için ağ geçidi ile bağlanır."
+title: "kullanarak aaaConnect bilgisayarlar tooOMS hello OMS ağ geçidi | Microsoft Docs"
+description: "Internet erişimi olmadığında, OMS tarafından yönetilen cihazlar ve Operations Manager izlenen bilgisayarlar hello OMS ağ geçidi toosend veri toohello OMS hizmetiyle bağlayın."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: magoedte
-ms.openlocfilehash: a4d3a45d4bf83754fba363cdb3f3688d7218baa4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0cfa8f2fb66016e494f22c780e328be472b5fdee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Internet erişimi olmayan bilgisayarları OMS ağ geçidini kullanma OMS Bağlan
+# <a name="connect-computers-without-internet-access-toooms-using-hello-oms-gateway"></a>Internet erişimi tooOMS hello OMS ağ geçidi kullanarak bilgisayarları bağlama
 
-Bu belgede, Internet erişimi olmadığında nasıl OMS tarafından yönetilen ve System Center Operations Manager izlenen bilgisayarlar veri OMS hizmete gönderebilirsiniz açıklanmaktadır. OMS HTTP BAĞLAMAK komutunu kullanarak HTTP tüneli destekleyen bir HTTP iletme proxy ağ geçidi, veri toplamak ve şirket adına OMS hizmetine gönderebilirsiniz.  
+Bu belgede, Internet erişimi olmadığında nasıl OMS tarafından yönetilen ve System Center Operations Manager izlenen bilgisayarlar veri toohello OMS Hizmeti'nin gönderebileceği açıklanmaktadır. Merhaba OMS HTTP tüneli destekleyen bir HTTP iletme proxy'si, ağ geçidi, veri toplamak ve onların adına toohello OMS hizmetine iletebilirsiniz HTTP BAĞLAMAK hello komutunu kullanarak.  
 
-OMS ağ geçidi destekler:
+Merhaba OMS ağ geçidi destekler:
 
 * Azure Otomasyon karma Runbook çalışanları  
-* Windows bilgisayarları Microsoft Monitoring Agent ile doğrudan bir OMS çalışma alanına bağlı
-* Linux için OMS Aracısı ile Linux bilgisayarlar doğrudan bir OMS çalışma alanına bağlı  
+* Windows bilgisayarları hello Microsoft İzleme Aracısı ile doğrudan bağlı tooan OMS çalışma
+* Linux için OMS aracısının hello Linux bilgisayarlarla tooan OMS çalışma doğrudan bağlı  
 * System Center Operations Manager 2012 SP1 UR7, Operations Manager 2012 R2 UR3 veya Operations Manager 2016 yönetim grubu ile OMS ile tümleşiktir.  
 
-BT güvenlik ilkelerinizi bilgisayarlar noktası (POS) satış aygıtları veya BT Hizmetleri destekleyen sunucular gibi Internet bağlanmak için ağınızdaki izin vermez ancak bunları izlemek ve yönetmek için OMS için bağlanması gereken, bunlar iletişim kurmak için yapılandırılabilir doğrudan OMS yapılandırma ve şirket adına verileri almak için ağ geçidi ile.  Bu bilgisayarlar doğrudan bir OMS çalışma alanına bağlanmak için OMS Aracısı ile yapılandırılmışsa, tüm bilgisayarlar yerine OMS ağ geçidi ile iletişim kurar.  Ağ geçidi veri aracılardan için OMS doğrudan aktarır, bunu herhangi Aktarımdaki verileri analiz etmez.
+BT güvenlik ilkelerinizi bilgisayarlar noktası (POS) satış aygıtları veya BT Hizmetleri destekleyen sunucular gibi ağ tooconnect toohello Internet üzerinde izin vermez ancak tooconnect gerekiyorsa bunları tooOMS toomanage ve bunları izleme, bunlar yapılandırılabilir toocommunicate hello OMS ağ geçidi tooreceive yapılandırma ve verileri şirket adına ile doğrudan.  Bu bilgisayarlar hello OMS Aracısı toodirectly ile yapılandırılmışsa tooan OMS çalışma, tüm bilgisayarlar yerine hello OMS ağ geçidi ile iletişim kuracak bağlayın.  Merhaba aracıları tooOMS verileri Hello ağ geçidi doğrudan aktarır, bunu herhangi bir aktarım hello verileri analiz etmez.
 
-Bir Operations Manager yönetim grubu OMS ile tümleştirildiğinde, yönetim sunucuları yapılandırma bilgilerini almak ve etkinleştirdiğiniz çözümüne bağlı olarak toplanan verileri göndermek için OMS ağ geçidine bağlanmak için yapılandırılabilir.  Operations Manager aracıları Operations Manager uyarıları, yapılandırma değerlendirmesi, örnek alanı ve kapasite verileri gibi bazı verileri yönetim sunucusuna gönderir. IIS günlükleri, performans ve güvenlik olayları gibi diğer yüksek hacimli verileri doğrudan OMS ağ geçidi için gönderilir.  Güvenilmeyen sistemlerini izlemek üzere bir DMZ veya diğer yalıtılmış ağ dağıtılmış bir veya daha fazla Operations Manager Ağ Geçidi sunucuları varsa, bir OMS ağ geçidi ile iletişim kuramıyor.  Operations Manager Ağ Geçidi sunucuları, yalnızca bir yönetim sunucusuna rapor edebilir.  Bir Operations Manager yönetim grubu OMS ağ geçidi ile iletişim kurmak için yapılandırıldığında proxy yapılandırma bilgilerini günlük analizi için veri toplamak üzere yapılandırılmış her aracı yönetilen bir bilgisayar için otomatik olarak dağıtılır olsa bile boş bir ayardır.    
+Bir Operations Manager yönetim grubu OMS ile tümleştirildiğinde hello yönetim sunucuları yapılandırılmış tooconnect toohello OMS ağ geçidi tooreceive yapılandırma bilgilerini olması ve etkinleştirdiğiniz hello çözümüne bağlı olarak toplanan verileri gönderin.  Operations Manager aracıları Operations Manager uyarıları, yapılandırma değerlendirmesi, örnek alanı ve kapasite veri toohello yönetim sunucusu gibi bazı verileri gönderin. IIS günlükleri, performans ve güvenlik olayları gibi diğer yüksek hacimli verileri doğrudan toohello OMS ağ geçidi gönderilir.  Bir veya daha fazla Operations Manager ağ geçidi sunucusu güvenilmeyen sistemleri DMZ veya diğer yalıtılmış ağ toomonitor dağıtılmış, OMS ağ geçidi ile iletişim kuramıyor.  Operations Manager Ağ Geçidi sunucuları yalnızca rapor tooa yönetim sunucusu olabilir.  Bir Operations Manager yönetim grubu hello OMS ağ geçidi ile yapılandırılmış toocommunicate, hello proxy yapılandırma bilgilerini günlük analizi için yapılandırılmış toocollect verilerini otomatik olarak dağıtılmış tooevery aracıyla yönetilen bilgisayar olduğunda bile Merhaba ayarı boştur.    
 
-Yüksek kullanılabilirlik sağlamak için doğrudan bağlı veya OMS ile ağ geçidi üzerinden iletişim Operations Yönetim grupları, Ağ Yükü Dengeleme yönlendirebilir ve trafik birden fazla ağ geçidi sunucusu arasında dağıtmak için kullanabilirsiniz.  Bir ağ geçidi sunucusu kullanılamaz hale gelirse trafiği kullanılabilir başka bir düğüme yönlendirilir.  
+tooprovide yüksek kullanılabilirlik için doğrudan bağlı veya OMS ile kullanabileceğiniz hello ağ geçidi üzerinden iletişim kuran, Operations Management grupları Ağ Yük Dengelemesi tooredirect ve hello trafiği birden fazla ağ geçidi sunucusu arasında dağıtma.  Bir ağ geçidi sunucusu kullanılamaz hale gelirse hello yeniden yönlendirilen tooanother kullanılabilir düğüm trafiğidir.  
 
-OMS ağ geçidi izlemek ve performans veya olay verileri çözümlemek için OMS ağ geçidi yazılımının çalıştıran bilgisayarda OMS Aracısı'nı yüklemeniz önerilir. Ayrıca, aracı ile iletişim kurması için gereken hizmet uç noktaları tanımlamak OMS Gateway yardımcı olur.
+Merhaba OMS Aracısı hello OMS ağ geçidi yazılım toomonitor hello OMS ağ geçidi çalıştıran hello bilgisayara yükleyin ve performans veya olay verileri çözümlemek önerilir. Ayrıca, hello Aracısı yardımcı hello OMS ağ geçidi ile toocommunicate gereken hello hizmet uç noktaları tanımlayın.
 
-Aracıları otomatik olarak ağ geçidi veri aktarmasına olanak veren her bir aracının kendi ağ geçidi için ağ bağlantısı olmalıdır. Ağ geçidi etki alanı denetleyicisine yüklenmesi önerilmez.
+Her bir aracının, ağ bağlantısı tooits geçidi olması gerekir, böylece aracıları otomatik olarak hello ağ geçidi'nden veri tooand aktarabilirsiniz değil. Bir etki alanı denetleyicisinde yükleme hello ağ geçidi önerilmez.
 
-Aşağıdaki diyagramda veri akışı doğrudan aracılardan OMS için ağ geçidi sunucusu kullanarak gösterir.  Aracıları OMS ağ geçidi için OMS iletişim kurması için yapılandırılmış aynı bağlantı noktası eşleşmesi kendi proxy yapılandırmasını olması gerekir.  
+Aşağıdaki diyagramda hello hello ağ geçidi sunucusu kullanarak doğrudan aracıları tooOMS veri akışından gösterir.  Aracıları aynı hello kendi proxy yapılandırması eşleşme olmalıdır bağlantı noktası hello OMS ağ geçidi tooOMS ile yapılandırılmış toocommunicate değil.  
 
 ![OMS diyagramı ile doğrudan aracı iletişimi](./media/log-analytics-oms-gateway/oms-omsgateway-agentdirectconnect.png)
 
-Aşağıdaki diyagramda, OMS için Operations Manager yönetim grubundan veri akışı gösterilmektedir.   
+Merhaba Aşağıdaki diyagramda bir Operations Manager yönetim grubu tooOMS veri akışından gösterilmektedir.   
 
 ![Operations Manager iletişim OMS diyagramı](./media/log-analytics-oms-gateway/oms-omsgateway-opsmgrconnect.png)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-OMS ağ geçidini çalıştırmak için bir bilgisayara atandığında, bu bilgisayar aşağıdakilere sahip olmanız gerekir:
+Bir bilgisayar toorun hello OMS ağ geçidi atandığında, bu bilgisayar hello şunlara sahip olmanız gerekir:
 
 * Windows 10, Windows 8.1, Windows 7
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
@@ -60,7 +60,7 @@ OMS ağ geçidini çalıştırmak için bir bilgisayara atandığında, bu bilgi
 
 ### <a name="language-availability"></a>Dil kullanılabilirliği
 
-OMS ağ geçidi aşağıdaki dillerde kullanılabilir:
+Merhaba OMS ağ geçidi dilleri aşağıdaki hello kullanılabilir:
 
 - Çince (Basitleştirilmiş)
 - Çince (Geleneksel)
@@ -79,104 +79,104 @@ OMS ağ geçidi aşağıdaki dillerde kullanılabilir:
 - Rusça
 - İspanyolca (uluslararası)
 
-## <a name="download-the-oms-gateway"></a>OMS ağ geçidini indirin
+## <a name="download-hello-oms-gateway"></a>Merhaba OMS ağ geçidi indir
 
-OMS ağ geçidi Kurulum dosyasının en son sürümünü almak için üç yolu vardır.
+Üç yolu tooget hello en son sürümünü hello OMS ağ geçidi kurulum dosyası vardır.
 
-1. İndirin [Microsoft Yükleme Merkezi'nden](https://www.microsoft.com/download/details.aspx?id=54443).
+1. Hello karşıdan [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=54443).
 
-2. OMS Portalı'ndan indirin.  OMS çalışma alanına oturum açtıktan sonra gidin **ayarları** > **bağlı kaynakları** > **Windows sunucuları** tıklatıp**Karşıdan OMS ağ geçidi**.
+2. Merhaba OMS Portalı'ndan indirin.  Tooyour OMS çalışma alanında oturumu sonra çok gidin**ayarları** > **bağlı kaynakları** > **Windows sunucuları** tıklatıp**Karşıdan OMS ağ geçidi**.
 
-3. İndirin [Azure portal](https://portal.azure.com).  Sonra oturum açın:  
+3. Hello karşıdan [Azure portal](https://portal.azure.com).  Sonra oturum açın:  
 
-   1. Hizmetlerin listesini bulun ve seçin **günlük analizi**.  
+   1. Merhaba hizmetlerin listesini bulun ve seçin **günlük analizi**.  
    2. Bir çalışma alanı seçin.
    3. Çalışma alanı dikey penceresinde altında **genel**, tıklatın **Hızlı Başlangıç**.
-   4. Altında **çalışma alanına bağlanmak için veri kaynağı seçin**, tıklatın **bilgisayarlar**.
-   5. İçinde **doğrudan Aracısı** dikey penceresinde tıklatın **OMS ağ geçidi indirme**.<br><br> ![OMS ağ geçidini indirin](./media/log-analytics-oms-gateway/download-gateway.png)
+   4. Altında **bir veri kaynağı tooconnect toohello çalışma alanı seçin**, tıklatın **bilgisayarlar**.
+   5. Merhaba, **doğrudan Aracısı** dikey penceresinde tıklatın **OMS ağ geçidi indirme**.<br><br> ![OMS ağ geçidini indirin](./media/log-analytics-oms-gateway/download-gateway.png)
 
 
-## <a name="install-the-oms-gateway"></a>OMS ağ geçidini yükleyin
+## <a name="install-hello-oms-gateway"></a>Merhaba OMS ağ geçidi yükleyin
 
-Bir ağ geçidi yüklemek için aşağıdaki adımları gerçekleştirin.  Önceki bir sürümü yüklü değilse adıysa *günlük analizi iletici*, bu sürüme yükseltilir.  
+bir ağ geçidi tooinstall hello aşağıdaki adımları gerçekleştirin.  Önceki bir sürümü yüklü değilse adıysa *günlük analizi iletici*, olacak toothis sürüm yükseltme.  
 
-1. Hedef klasördeki çift **OMS Gateway.msi**.
-2. Üzerinde **Hoş Geldiniz** sayfasında, **sonraki**.<br><br> ![Ağ geçidi Kurulum Sihirbazı](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br>
-3. Üzerinde **Lisans Sözleşmesi'ni** sayfasında, **lisans sözleşmesinin koşullarını kabul ediyorum** EULA'yı kabul ve ardından **sonraki**.
-4. Üzerinde **bağlantı noktası ve proxy adresi** sayfa:
-   1. Ağ geçidi için kullanılan TCP bağlantı noktası numarasını yazın. Kurulum, Windows Güvenlik Duvarı'nda bu bağlantı noktası numarasına sahip bir gelen kuralı yapılandırır.  Varsayılan değer 8080'dir.
-      Geçerli bağlantı noktası numarası 1 ile 65535 arasındadır. Giriş bu aralığa uymazsa bir hata iletisi görüntülenir.
-   2. İsteğe bağlı olarak, ağ geçidinin yüklü olduğu sunucunun bir proxy üzerinden iletişim kurması gerekirse, burada bağlanmak için ağ geçidi gerekli proxy adresi yazın. Örneğin, `http://myorgname.corp.contoso.com:80`.  Boş bırakılırsa, doğrudan Internet'e bağlanmak ağ geçidi çalışacaktır.  Proxy sunucusu kimlik doğrulaması gerektiriyorsa, kullanıcı adı ve parola girin.<br><br> ![Ağ geçidi Sihirbazı proxy yapılandırması](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
+1. Merhaba hedef klasöründen çift **OMS Gateway.msi**.
+2. Merhaba üzerinde **Hoş Geldiniz** sayfasında, **sonraki**.<br><br> ![Ağ geçidi Kurulum Sihirbazı](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br>
+3. Merhaba üzerinde **Lisans Sözleşmesi'ni** sayfasında, **hello Lisans Sözleşmesi'hello koşullarını kabul ediyorum** tooagree toohello EULA'yı ve ardından **sonraki**.
+4. Merhaba üzerinde **bağlantı noktası ve proxy adresi** sayfa:
+   1. Türü hello TCP bağlantı noktası numarası toobe hello ağ geçidi için kullanılır. Kurulum, Windows Güvenlik Duvarı'nda bu bağlantı noktası numarasına sahip bir gelen kuralı yapılandırır.  8080 Hello varsayılan değerdir.
+      Merhaba geçerli başlangıç bağlantı noktası numarası 1-65535 aralığındadır. Merhaba giriş bu aralığa uymazsa bir hata iletisi görüntülenir.
+   2. Hello hello ağ geçidi olduğu sunucusu gereksinimlerini toocommunicate bir proxy üzerinden yüklediyseniz, isteğe bağlı olarak, burada tooconnect hello bir ağ geçidi oluşturulmalıdır hello proxy adresini yazın. Örneğin, `http://myorgname.corp.contoso.com:80`.  Boşsa, hello ağ geçidi tooconnect toohello Internet doğrudan deneyin.  Proxy sunucusu kimlik doğrulaması gerektiriyorsa, kullanıcı adı ve parola girin.<br><br> ![Ağ geçidi Sihirbazı proxy yapılandırması](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
    3. **İleri**’ye tıklayın.
-5. Microsoft Update etkinleştirilmişse yoksa etkinleştirmek seçebileceğiniz Microsoft Update sayfasında görüntülenir. Bir seçim yapın ve ardından **sonraki**. Aksi halde, sonraki adıma devam edin.
-6. Üzerinde **hedef klasörü** sayfasında, varsayılan klasör C:\Program Files\OMS ağ geçidi bırakın ya da ağ geçidi yükleyin ve ardından istediğiniz konumu girin **sonraki**.
-7. Üzerinde **yüklenmeye hazır** sayfasında, **yükleme**. Kullanıcı hesabı denetimi yüklemeye izin istemeden görünebilir. Öyleyse **Evet**.
-8. Kurulum tamamlandıktan sonra **son**. Hizmet services.msc ek bileşenini açarak çalıştıran ve doğrulayın doğrulayabilirsiniz **OMS ağ geçidi** durum Hizmetleri ve listesinde görünür olan **çalıştıran**.<br><br> ![Hizmetleri – OMS ağ geçidi](./media/log-analytics-oms-gateway/gateway-service.png)  
+5. Microsoft Update etkinleştirilmişse yoksa tooenable seçebileceğiniz hello Microsoft Update sayfası görüntülenir. Bir seçim yapın ve ardından **sonraki**. Aksi durumda, toohello sonraki adıma devam edin.
+6. Merhaba üzerinde **hedef klasörü** sayfasında, ya da bırakın nerede tooinstall ağ geçidi istediğiniz ve ardından hello varsayılan klasör C:\Program Files\OMS ağ geçidi veya türü hello konumu **sonraki**.
+7. Merhaba üzerinde **hazır tooinstall** sayfasında, **yükleme**. Kullanıcı hesabı denetimi isteme izni tooinstall görünebilir. Öyleyse **Evet**.
+8. Kurulum tamamlandıktan sonra **son**. Hello hizmeti hello services.msc ek bileşenini açarak çalıştıran ve doğrulayın doğrulayabilirsiniz **OMS ağ geçidi** durum Hizmetleri ve hello listesinde görünür olan **çalıştıran**.<br><br> ![Hizmetleri – OMS ağ geçidi](./media/log-analytics-oms-gateway/gateway-service.png)  
 
 ## <a name="configure-network-load-balancing"></a>Ağ Yükü Dengeleme yapılandırma
-Ağ geçidi Ağ Yükü Dengeleme (NLB Microsoft Ağ Yükü Dengeleme (NLB) veya donanım tabanlı yük dengeleyici kullanarak) kullanarak yüksek kullanılabilirlik için yapılandırabilirsiniz.  Yük Dengeleyici, düğümlere OMS aracısı veya Operations Manager yönetim sunucusu istenen bağlantılarından yönlendirerek trafiği yönetir. Bir ağ geçidi sunucusu kullanılamaz hale gelirse trafiği diğer düğümlere yönlendirilir.
+Ağ Yükü Dengeleme (NLB Microsoft Ağ Yükü Dengeleme (NLB) veya donanım tabanlı yük dengeleyici kullanarak) kullanarak yüksek kullanılabilirlik için hello ağ geçidini yapılandırabilirsiniz.  Merhaba yük dengeleyici trafiği yönlendirerek yönetir hello kendi düğümlere hello OMS Aracısı bağlantılarından veya Operations Manager yönetim sunucuları istenen. Bir ağ geçidi sunucusu kullanılamaz hale gelirse hello trafiği yeniden yönlendirilen tooother düğümleri alır.
 
-Tasarım ve bir Windows Server 2016 Ağ Yükü Dengeleme kümesi dağıtma hakkında bilgi edinmek için [Ağ Yükü Dengeleme](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  Aşağıdaki adımlar, Microsoft Ağ Yükü Dengeleme kümesini yapılandırın açıklar.  
+toolearn nasıl toodesign ve bir Windows Server 2016 Ağ Yükü Dengeleme kümesi dağıtma, bkz: [Ağ Yükü Dengeleme](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  Merhaba aşağıdaki adımlar nasıl tooconfigure Microsoft Ağ Yükü Dengeleme kümesini açıklar.  
 
-1.  Bir yönetici hesabı ile NLB kümesinin bir üyesi olan Windows sunucuya oturum açın.  
+1.  Merhaba Windows yönetici hesabıyla hello NLB kümesinin bir üyesi olan bir sunucuya oturum açın.  
 2.  Sunucu Yöneticisi'nde Ağ Yükü Dengeleme Yöneticisi'ni açın, **Araçları**ve ardından **Ağ Yükü Dengeleme Yöneticisi**.
-3. Microsoft izleme aracısının yüklü bir OMS Ağ Geçidi sunucusuna bağlanmak için kümenin IP adresine sağ tıklayın ve ardından **kümeye konak Ekle**.<br><br> ![Ağ Yükü Dengeleme Yöneticisi – kümeye konak Ekle](./media/log-analytics-oms-gateway/nlb02.png)<br>
-4. Bağlanmak istediğiniz Ağ Geçidi sunucusunun IP adresini girin.<br><br> ![Ağ Yükü Dengeleme Yöneticisi – kümeye konak Ekle: bağlanma](./media/log-analytics-oms-gateway/nlb03.png)
+3. tooconnect bir OMS ağ geçidi sunucusu hello yüklü, Microsoft İzleme Aracısı ile Merhaba kümenin IP adresine sağ tıklayın ve ardından **ana bilgisayar Ekle tooCluster**.<br><br> ![Ağ Yükü Dengeleme Yöneticisi – konak tooCluster ekleyin](./media/log-analytics-oms-gateway/nlb02.png)<br>
+4. Merhaba tooconnect istediğiniz hello Ağ Geçidi sunucusunun IP adresini girin.<br><br> ![Ağ Yükü Dengeleme Yöneticisi'ni – konak tooCluster ekleyin: bağlanma](./media/log-analytics-oms-gateway/nlb03.png)
 
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>OMS aracısı ve Operations Manager yönetim grubu yapılandırma
-Aşağıdaki bölümde OMS ile iletişim kurmak için OMS ağ geçidi ile doğrudan bağlı OMS Aracısı, bir Operations Manager yönetim grubu ya da Azure Otomasyon karma Runbook çalışanlarını yapılandırma adımlarını içerir.  
+Merhaba aşağıdaki bölümde nasıl tooconfigure doğrudan OMS Aracısı, bir Operations Manager yönetim grubu ya da Azure Otomasyon karma Runbook çalışanları hello OMS ağ geçidi toocommunicate OMS ile ile bağlı adımlar içerir.  
 
-Gereksinimleri ve Windows bilgisayarlar için OMS doğrudan bağlanan OMS Aracısı'nı yüklemek adımları anlamak için bkz: [OMS bağlanmak Windows bilgisayarlara](log-analytics-windows-agents.md) veya Linux bilgisayarları bakın [OMSbağlanmakLinuxbilgisayarlara](log-analytics-linux-agents.md).
+bkz: toounderstand gereksinimleri ve nasıl tooinstall hello OMS Aracısı'nı Windows bilgisayarlar tooOMS, doğrudan bağlanan adımlar [bağlanmak Windows bilgisayarları tooOMS](log-analytics-windows-agents.md) veya Linux bilgisayarları bakın [bağlanmak Linux bilgisayarları tooOMS](log-analytics-linux-agents.md).
 
-### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>OMS aracısı ve Operations Manager OMS ağ geçidi bir proxy sunucusu olarak kullanacak şekilde yapılandırma
+### <a name="configuring-hello-oms-agent-and-operations-manager-toouse-hello-oms-gateway-as-a-proxy-server"></a>Merhaba OMS aracısı ve Operations Manager toouse hello OMS ağ geçidi bir proxy sunucusu olarak yapılandırma
 
 ### <a name="configure-standalone-oms-agent"></a>Tek başına OMS Aracısı'nı yapılandırma
-Bkz: [proxy ve güvenlik duvarı ayarlarını Microsoft İzleme Aracısı ile yapılandırma](log-analytics-proxy-firewall.md) bir aracının bir proxy sunucusu kullanacak şekilde yapılandırma hakkında daha fazla bilgi için bu durumda olduğu ağ geçidi.  Ağ Yük Dengeleyici arkasında birden çok ağ geçidi sunucusu dağıttıysanız, OMS Aracısı proxy yapılandırmasını NLB sanal IP adresi şöyledir:<br><br> ![Microsoft İzleme Aracısı Özellikleri – Proxy ayarları](./media/log-analytics-oms-gateway/nlb04.png)
+Bkz: [hello Microsoft İzleme Aracısı ile proxy ve güvenlik duvarı ayarlarını yapılandırma](log-analytics-proxy-firewall.md) Aracısı toouse hello ağ geçidi bu durumda olduğu bir proxy sunucusu yapılandırma hakkında bilgi.  Ağ Yük Dengeleyici arkasında birden çok ağ geçidi sunucusu dağıttıysanız, hello OMS Aracısı proxy yapılandırmasını hello hello NLB sanal IP adresi şöyledir:<br><br> ![Microsoft İzleme Aracısı Özellikleri – Proxy ayarları](./media/log-analytics-oms-gateway/nlb04.png)
 
-### <a name="configure-operations-manager---all-agents-use-the-same-proxy-server"></a>Operations Manager yapılandırma - tüm aracıları aynı proxy sunucuyu kullan
-Operations Manager ağ geçidi sunucusu eklemek için yapılandırın.  Ayarı boş olsa bile, Operations Manager proxy yapılandırması tüm aracılar Operations Manager için raporlama otomatik olarak uygulanır.
+### <a name="configure-operations-manager---all-agents-use-hello-same-proxy-server"></a>Operations Manager yapılandırma - tüm aracıların hello kullan aynı proxy sunucu
+Operations Manager tooadd hello ağ geçidi sunucusu yapılandırın.  Merhaba ayarı boş olsa bile hello proxy yapılandırmasını otomatik olarak Operations Manager tooOperations Yöneticisi, raporlama tooall aracıları uygulanır.
 
-Operations Manager desteklemek için ağ geçidini kullanmak için şunlara sahip olmalısınız:
+toouse hello ağ geçidi toosupport Operations Manager, bilmeniz gerekir:
 
-* Microsoft Monitoring Agent (aracı sürümü – **8.0.10900.0** ve sonraki sürümler) Ağ Geçidi sunucusunda yüklü ve istediğiniz iletişim kurmak OMS çalışma alanları için yapılandırılmış.
-* Ağ geçidi yapan bir proxy sunucusuna bağlı olmanız veya Internet bağlantısı olması gerekir.
+* Microsoft Monitoring Agent (aracı sürümü – **8.0.10900.0** ve sonraki sürümler) hello Ağ Geçidi sunucusunda yüklenir ve toocommunicate istediğiniz hello OMS çalışma alanları için yapılandırılır.
+* Hello ağ geçidi, Internet bağlantınız veya mu bağlı tooa proxy sunucusu olması gerekir.
 
 > [!NOTE]
-> Ağ geçidi için bir değer belirtmezseniz, boş değerler için tüm aracılar atılır.
+> Merhaba ağ geçidi için bir değer belirtmezseniz, boş değerler tooall aracıları atılır.
 
 
-1. Operations Manager konsolunu açın ve altında **Operations Management Suite**, tıklatın **bağlantı** ve ardından **Proxy sunucusunu yapılandırma**.<br><br> ![Operations Manager – Proxy sunucusunu yapılandırın](./media/log-analytics-oms-gateway/scom01.png)<br>
-2. Seçin **Operations Management Suite erişimi için bir proxy sunucusunu kullanmak** ve OMS Ağ Geçidi sunucusunun IP adresini veya NLB sanal IP adresini yazın. İle başlatıldığından emin olmak `http://` öneki.<br><br> ![Operations Manager – proxy sunucusu adresi](./media/log-analytics-oms-gateway/scom02.png)<br>
-3. **Son**'a tıklayın. Operations Manager sunucunuza OMS çalışma alanına bağlı.
+1. Açık hello Operations Manager konsolunu ve altında **Operations Management Suite**, tıklatın **bağlantı** ve ardından **Proxy sunucusunu yapılandırma**.<br><br> ![Operations Manager – Proxy sunucusunu yapılandırın](./media/log-analytics-oms-gateway/scom01.png)<br>
+2. Seçin **bir proxy sunucu tooaccess hello Operations Management Suite kullanmak** ve başlangıç IP adresi hello OMS ağ geçidi sunucusu ya da hello NLB sanal IP adresini yazın. Merhaba ile başlatıldığından emin olmak `http://` öneki.<br><br> ![Operations Manager – proxy sunucusu adresi](./media/log-analytics-oms-gateway/scom02.png)<br>
+3. **Son**'a tıklayın. Operations Manager sunucunuza bağlı tooyour OMS çalışma alanıdır.
 
 ### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>Operations Manager yapılandırma - belirli aracıları proxy sunucusu kullan
-Büyük veya karmaşık ortamları için OMS ağ geçidi sunucusu kullanmak için belirli sunucuları (veya gruplar) yalnızca isteyebilirsiniz.  Bu sunucular için Operations Manager Aracısı güncelleştirilemiyor. Bu değer yönetim grubu için genel değeriyle üzerine doğrudan.  Bunun yerine bu değerleri göndermek için kullanılan kural geçersiz kılmanız gerekir.
+Büyük veya karmaşık ortamları için belirli sunucuları (veya gruplar) toouse hello OMS ağ geçidi sunucusu yalnızca isteyebilirsiniz.  Bu sunucular için hello Operations Manager Aracısı hello yönetim grubu için genel hello değeriyle doğrudan bu değeri olarak yazılır güncelleştirilemiyor.  Bunun yerine bu değerleri toooverride hello kullanılan kural toopush gerekir.
 
 > [!NOTE]
-> Aynı yapılandırma tekniği ortamınızda birden çok OMS ağ geçidi sunucusu kullanımına izin vermek için kullanılabilir.  Örneğin, bir bölge başına temelinde belirtilmesi için belirli OMS Ağ Geçidi sunucuları gerektirebilir.
+> Aynı yapılandırma tekniği olabilir, birden çok OMS ağ geçidi sunucusu tooallow hello kullan ortamınızda kullanılan.  Örneğin, bir bölge başına temelinde belirtilen belirli OMS Ağ Geçidi sunucuları toobe gerektirebilir.
 
-1. Operations Manager konsolunu açın ve seçin **yazma** çalışma.  
-2. Yazma çalışma alanında seçin **kuralları** tıklatıp **kapsam** Operations Manager araç çubuğunda. Bu düğme kullanılamıyorsa, izleme bölmesinde bir nesne seçili bir klasör değil sahip olduğunuzdan emin olmak için kontrol edin. **Kapsam Yönetim Paketi nesneleri** iletişim kutusunda ortak hedeflenen sınıfları, grupları veya nesneleri listesini görüntüler.
-3. Tür **sistem durumu hizmeti** içinde **Ara** alan ve listeden seçin.  **Tamam** düğmesine tıklayın.  
-4. Arama kuralı için **Danışmanı Proxy ayarı kural** Operations konsolu araç tıklatıp **geçersiz kılar** üzerine gelin ve ardından **Rule\For sınıfın belirli bir nesnesi geçersiz kılma: sistem durumu hizmeti**  ve belirli bir nesneyi listeden seçin.  İsteğe bağlı olarak, sistem durumu hizmeti nesnesi, bu geçersiz kılma uygulayın ve ardından bu gruba geçersiz kılma uygulayın istediğiniz sunucuları içeren özel bir grup oluşturabilirsiniz.
-5. İçinde **geçersiz kılma özellikleri** iletişim kutusu, bir onay işareti tıklatıp **geçersiz kılma** yanındaki sütuna **WebProxyAddress** parametresi.  İçinde **geçersiz kılma değeri** ile başlayan URL OMS ağ geçidi sunucusu sağlamaya alanına, `http://` öneki.
+1. Açık hello Operations Manager konsolunu ve select hello **yazma** çalışma.  
+2. Merhaba yazma çalışma alanında seçin **kuralları** hello tıklatıp **kapsam** hello Operations Manager araç çubuğunda. Bu düğme kullanılamıyorsa, toomake hello izleme bölmesinde bir nesne seçili bir klasör değil sahip olduğunuzdan emin denetleyin. Merhaba **kapsam Yönetim Paketi nesneleri** iletişim kutusunda ortak hedeflenen sınıfları, grupları veya nesneleri listesini görüntüler.
+3. Tür **sistem durumu hizmeti** hello içinde **Ara** alan ve hello listeden seçin.  **Tamam** düğmesine tıklayın.  
+4. Merhaba kuralını arayın **Danışmanı Proxy ayarı kural** ve hello Operations konsolu araç çubuğunda **geçersiz kılar** gelin ve ardından çok**geçersiz kılma hello Rule\For sınıfın belirli bir nesnesi: sistem durumu Hizmet** ve belirli bir nesneyi hello listeden seçin.  İsteğe bağlı olarak, hello sistem durumu hizmeti nesnesi içeren özel bir grup oluşturabilirsiniz hello sunucularının bu geçersiz kılma tooand tooapply istediğiniz sonra hello geçersiz kılma toothat grubu uygulayın.
+5. Merhaba, **geçersiz kılma özellikleri** iletişim kutusunda, tooplace hello onay işareti **geçersiz kılma** sütun sonraki toohello **WebProxyAddress** parametresi.  Merhaba, **geçersiz kılma değeri** hello ile başlayan hello OMS ağ geçidi sunucusu sağlamaya hello URL alanına, `http://` öneki.
    >[!NOTE]
-   > Bunu zaten otomatik olarak Microsoft System Center Advisor Monitoring Server grubu hedefleme Microsoft System Center Advisor Güvenli başvuru geçersiz kılma yönetim paketinde bir geçersiz kılma ile yönetilen olarak Kuralı etkinleştirmek gerekmez.
+   > Bunu zaten otomatik olarak hello Microsoft System Center Advisor Monitoring Server grubu hedefleme hello Microsoft System Center Advisor Güvenli başvuru geçersiz kılma Yönetim Paketi içinde yer alan bir geçersiz kılma ile yönetilen olarak tooenable hello kuralı gerekmez.
    >
-6. Bir yönetim paketinden seçin **hedef Yönetim Paketi seçin** listelemek veya tıklatarak yeni bir korumasız Yönetim Paketi oluşturun **yeni**.
+6. Merhaba Yönetim Paketi seçin **hedef Yönetim Paketi seçin** listelemek veya tıklatarak yeni bir korumasız Yönetim Paketi oluşturun **yeni**.
 7. Değişikliklerinizi tamamladığınızda tıklatın **Tamam**.
 
 ### <a name="configure-for-automation-hybrid-workers"></a>Otomasyon karma çalışanları için yapılandırma
-Ortamınızda Otomasyon karma Runbook çalışanları varsa, aşağıdaki adımlar desteklemek için ağ geçidini yapılandırmak için el ile geçici geçici çözümler sağlar.
+Ortamınızda Otomasyon karma Runbook çalışanları varsa, aşağıdaki adımları hello sağlamak el ile geçici geçici çözümler tooconfigure hello ağ geçidi toosupport bunları.
 
-Aşağıdaki adımlarda Otomasyon hesabının bulunduğu Azure bölgesi bilmeniz gerekir. Konumu bulmak için:
+Aşağıdaki adımları hello tooknow hello hello Otomasyon hesabı bulunduğu Azure bölgesi gerekir. toolocate hello konumu:
 
-1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Azure Otomasyon hizmetine seçin.
-3. Uygun Azure Otomasyon hesabı seçin.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Hello Azure Otomasyon hizmetine seçin.
+3. Merhaba uygun Azure Otomasyon hesabı seçin.
 4. Kendi bölge altında görüntülemek **konumu**.<br><br> ![Azure portal – Otomasyon hesabı konumu](./media/log-analytics-oms-gateway/location.png)  
 
-Her konum URL'sini belirlemek için aşağıdaki tabloları kullanın:
+Her konum için tabloları tooidentify hello URL aşağıdaki hello kullan:
 
 **İş çalışma zamanı veri hizmeti URL'leri**
 
@@ -208,85 +208,85 @@ Her konum URL'sini belirlemek için aşağıdaki tabloları kullanın:
 | Japonya |jpe-agentservice-üretim-1.azure-automation.net |
 | Avustralya |Ana-agentservice-üretim-1.azure-automation.net |
 
-Bilgisayarınızı bir karma Runbook çalışanı olarak otomatik olarak güncelleştirme yönetimi çözümü kullanarak düzeltme eki uygulama için kayıtlı değilse, aşağıdaki adımları izleyin:
+Bilgisayarınızı bir karma Runbook çalışanı olarak otomatik olarak hello güncelleştirme yönetimi çözümü kullanarak düzeltme eki uygulama için kayıtlı değilse, aşağıdaki adımları izleyin:
 
-1. İş çalışma zamanı veri hizmeti URL'leri OMS ağ geçidi ana bilgisayar izin listesine ekleyin. Örneğin, `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-2. OMS ağ geçidi hizmeti aşağıdaki PowerShell cmdlet'ini kullanarak yeniden başlatın:`Restart-Service OMSGatewayService`
+1. Merhaba iş çalışma zamanı veri hizmeti URL'leri toohello izin verilen ana bilgisayar listesi hello OMS ağ geçidi üzerinde ekleyin. Örneğin, `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+2. Merhaba OMS ağ geçidi hizmeti hello aşağıdaki PowerShell cmdlet'ini kullanarak yeniden başlatın:`Restart-Service OMSGatewayService`
 
-Bilgisayarınız karma Runbook çalışanı kayıt cmdlet'ini kullanarak Azure Otomasyonu dahil edilmiş ise, şu adımları izleyin:
+Bilgisayarınız dahil edilmiş tooAzure Otomasyon hello karma Runbook çalışanı kayıt cmdlet'ini kullanarak ise, şu adımları izleyin:
 
-1. Aracı hizmeti kayıt URL'si OMS ağ geçidi ana bilgisayar izin listesine ekleyin. Örneğin, `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-2. İş çalışma zamanı veri hizmeti URL'leri OMS ağ geçidi ana bilgisayar izin listesine ekleyin. Örneğin, `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-3. OMS ağ geçidi hizmeti yeniden başlatın.
+1. Hello Aracısı hizmeti kayıt URL toohello izin konak listesi hello OMS ağ geçidi üzerinde ekleyin. Örneğin, `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+2. Merhaba iş çalışma zamanı veri hizmeti URL'leri toohello izin verilen ana bilgisayar listesi hello OMS ağ geçidi üzerinde ekleyin. Örneğin, `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+3. Merhaba OMS ağ geçidi hizmeti yeniden başlatın.
     `Restart-Service OMSGatewayService`
 
 ## <a name="useful-powershell-cmdlets"></a>Yararlı PowerShell cmdlet'leri
-Cmdlet'leri OMS ağ geçidi yapılandırma ayarlarını güncelleştirmek için gerekli görevleri tamamlamanıza yardımcı olabilir. Kullanmadan önce emin olun:
+Cmdlet gerekli tooupdate hello OMS ağ geçidi yapılandırma ayarları görevleri tamamlamanıza yardımcı olabilir. Kullanmadan önce emin olun:
 
-1. OMS ağ geçidi (MSI) yükleyin.
+1. Merhaba OMS ağ geçidi (MSI) yükleyin.
 2. Bir PowerShell konsol penceresi açın.
-3. Modülü içeri aktarmak için aşağıdaki komutu yazın:`Import-Module OMSGateway`
-4. Önceki adımda herhangi bir hata oluştu, modülü başarıyla içeri aktarıldı ve cmdlet'leri kullanılabilir. Türü`Get-Module OMSGateway`
-5. Cmdlet'lerini kullanarak değişiklikleri yaptıktan sonra ağ geçidi hizmeti yeniden emin olun.
+3. tooimport hello modülü, bu komutu yazın:`Import-Module OMSGateway`
+4. Merhaba önceki adımda herhangi bir hata oluştu, hello modülü başarıyla içeri aktarıldı ve hello cmdlet'leri kullanılabilir. Türü`Get-Module OMSGateway`
+5. Merhaba cmdlet'lerini kullanarak değişiklikleri yaptıktan sonra hello ağ geçidi hizmeti yeniden emin olun.
 
-3. adımında bir hata alırsanız, modül içeri değildi. PowerShell modülü bulamıyor olduğunda hata oluşabilir. Ağ geçidi yükleme yolunda bulabilirsiniz: *C:\Program Files\Microsoft OMS Gateway\PowerShell*.
+3. adımında bir hata alırsanız, hello modülü içeri değildi. PowerShell oluşturulamıyor toofind hello modülü olduğunda hello hata oluşabilir. Merhaba ağ geçidi yükleme yolunda bulabilirsiniz: *C:\Program Files\Microsoft OMS Gateway\PowerShell*.
 
 | **Cmdlet'i** | **Parametreler** | **Açıklama** | **Örnek** |
 | --- | --- | --- | --- |  
-| `Get-OMSGatewayConfig` |Anahtar |Hizmet yapılandırmasını alır |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |Anahtarı (gerekli) <br> Değer |Hizmet yapılandırma değişiklikleri |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
-| `Get-OMSGatewayRelayProxy` | |Geçiş (Yukarı Akış) proxy adresi alır |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Adres<br> Kullanıcı adı<br> Parola |Geçiş (Yukarı Akış) proxy adresi (ve kimlik bilgisi) ayarlar |1. Bir geçiş proxy ve kimlik bilgilerini ayarlayın:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Kimlik doğrulama gerekmez geçiş proxy ayarlayın:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Geçiş proxy ayarını temizleyin:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
-| `Get-OMSGatewayAllowedHost` | |(Yalnızca yerel olarak yapılandırılmış izin verilen ana, otomatik olarak indirilen izin verilen ana içermez) şu anda izin verilen ana bilgisayar alır |`Get-OMSGatewayAllowedHost` |
-| `Add-OMSGatewayAllowedHost` |Ana bilgisayar (gerekli) |İzin verilenler konağa ekler |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
-| `Remove-OMSGatewayAllowedHost` |Ana bilgisayar (gerekli) |Ana bilgisayar izin verilen listeden kaldırır |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
-| `Add-OMSGatewayAllowedClientCertificate` |Konu (gerekli) |İzin verilenler tabi istemci sertifikası ekler |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
-| `Remove-OMSGatewayAllowedClientCertificate` |Konu (gerekli) |İstemci sertifikası konu izin verilen listeden kaldırır |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
-| `Get-OMSGatewayAllowedClientCertificate` | |Şu anda izin verilen istemci sertifika konuları alır (yalnızca yerel olarak yapılandırılmış konuları izin verilen, izin verilen otomatik olarak indirilen konuları içermez) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
+| `Get-OMSGatewayConfig` |Anahtar |Merhaba hizmetinin başlangıç yapılandırmasını alır |`Get-OMSGatewayConfig` |  
+| `Set-OMSGatewayConfig` |Anahtarı (gerekli) <br> Değer |Değişiklikleri hello hizmetinin yapılandırmasını hello |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Get-OMSGatewayRelayProxy` | |Geçiş (Yukarı Akış) proxy Hello adresini alır |`Get-OMSGatewayRelayProxy` |  
+| `Set-OMSGatewayRelayProxy` |Adres<br> Kullanıcı adı<br> Parola |Merhaba adresini (ve kimlik bilgileri) geçiş (Yukarı Akış) proxy'si ayarlar |1. Bir geçiş proxy ve kimlik bilgilerini ayarlayın:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Kimlik doğrulama gerekmez geçiş proxy ayarlayın:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Clear hello geçiş proxy ayarı:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Get-OMSGatewayAllowedHost` | |(Merhaba yerel olarak yapılandırılmış izin verilen ana içermez yalnızca otomatik olarak indirilen izin verilen ana bilgisayarları) şu anda izin verilen ana bilgisayar alır hello |`Get-OMSGatewayAllowedHost` |
+| `Add-OMSGatewayAllowedHost` |Ana bilgisayar (gerekli) |İzin verilen listesine hello konak toohello ekler |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
+| `Remove-OMSGatewayAllowedHost` |Ana bilgisayar (gerekli) |İzin verilen listesine hello Hello konak kaldırır |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
+| `Add-OMSGatewayAllowedClientCertificate` |Konu (gerekli) |Merhaba istemci sertifikası konu toohello izin verilen listesine ekler |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
+| `Remove-OMSGatewayAllowedClientCertificate` |Konu (gerekli) |İzin verilen listesine hello Hello istemci sertifikası konu kaldırır |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
+| `Get-OMSGatewayAllowedClientCertificate` | |Alır hello sertifika konuları istemci şu anda izin verilen (izin verilen konuları hello yerel olarak yapılandırılmış yalnızca otomatik olarak indirilen izin verilen konuları içermez) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## <a name="troubleshooting"></a>Sorun giderme
-Ağ Geçidi tarafından günlüğe kaydedilen olayları toplamak için de OMS aracısının yüklü olması gerekir.<br><br> ![Olay Görüntüleyicisi'ni – OMS ağ geçidi günlük](./media/log-analytics-oms-gateway/event-viewer.png)
+Merhaba ağ geçidi tarafından günlüğe kaydedilen toocollect olaylar tooalso ihtiyacınız hello OMS aracısının yüklü olması.<br><br> ![Olay Görüntüleyicisi'ni – OMS ağ geçidi günlük](./media/log-analytics-oms-gateway/event-viewer.png)
 
 **OMS ağ geçidi olay kimlikleri ve açıklamaları**
 
-Aşağıdaki tabloda, olay kimlikleri ve açıklamaları OMS ağ geçidi günlük olayları gösterir.
+Merhaba aşağıdaki tabloda gösterildiği olay kimlikleri ve açıklamaları OMS ağ geçidi günlük olayları için hello.
 
 | **ID** | **Açıklama** |
 | --- | --- |
 | 400 |Belirli bir Kimliğe sahip olmayan herhangi bir uygulama hatası |
 | 401 |Yanlış yapılandırma. Örneğin: listenPort tamsayı yerine "metin" = |
 | 402 |TLS el sıkışma iletileri ayrıştırılırken bir özel durum |
-| 403 |Ağ hatası. Örneğin: hedef sunucuya bağlanılamıyor |
+| 403 |Ağ hatası. Örneğin: tootarget sunucusuna bağlanamıyor |
 | 100 |Genel bilgiler |
 | 101 |Hizmeti başlatıldı |
 | 102 |Hizmeti durdu |
 | 103 |Bir HTTP BAĞLAMAK komutu istemciden alınan |
 | 104 |Olmayan bir HTTP BAĞLAMAK komutu |
-| 105 |Hedef sunucuda izin verilen listesindeki değil veya hedef bağlantı noktası güvenli bağlantı noktası (443) değil <br> <br> Ağ geçidi sunucunuzda MMA aracı ve ağ geçidi ile iletişim kurmasını aracıları bağlandığını aynı günlük analizi çalışma alanına emin olun. |
-| 105 |HATA TcpConnection – geçersiz bir istemci sertifikası: CN = ağ geçidi <br><br> Emin olun: <br>    <br> &#149; 1.0.395.0 sürüm numarasına sahip bir ağ geçidi kullanarak veya daha büyük. <br> &#149; Ağ geçidi sunucunuzda MMA aracı ve ağ geçidi ile iletişim kurmasını aracıları aynı günlük analizi çalışma alanına bağlı. |
-| 106 |TLS oturum şüpheli ve reddedilen herhangi bir nedenle |
-| 107 |TLS oturum doğrulandı |
+| 105 |Hedef sunucuda izin verilen listesindeki değil veya hello hedef bağlantı noktası güvenli bağlantı noktası (443) değil <br> <br> Bu hello MMA aracı, ağ geçidi sunucunuzda emin olun ve ağ geçidi hello ile iletişim kurmasını hello aracılardır bağlı toohello aynı günlük analizi çalışma alanı. |
+| 105 |HATA TcpConnection – geçersiz bir istemci sertifikası: CN = ağ geçidi <br><br> Emin olun: <br>    <br> &#149; 1.0.395.0 sürüm numarasına sahip bir ağ geçidi kullanarak veya daha büyük. <br> &#149; Merhaba MMA Aracısı'nı, ağ geçidi sunucusu ve ağ geçidi hello ile iletişim kurmasını hello aracıları bağlı toohello olan aynı günlük analizi çalışma alanı. |
+| 106 |Şüpheli ve reddedilen hello TLS oturumu herhangi bir nedenle |
+| 107 |Merhaba TLS oturumu doğrulandı |
 
-**Toplanacak performans sayaçları**
+**Performans sayaçları toocollect**
 
-Aşağıdaki tabloda OMS ağ geçidi için kullanılabilen performans sayaçlarını gösterir. Performans İzleyicisi'ni kullanarak sayaçlar ekleyebilirsiniz.
+Merhaba aşağıdaki tabloda hello OMS ağ geçidi için kullanılabilen hello performans sayaçlarını gösterir. Performans İzleyicisi'ni kullanarak hello sayaçlar ekleyebilirsiniz.
 
 | **Ad** | **Açıklama** |
 | --- | --- |
 | OMS ağ geçidi/etkin istemci bağlantısı |Etkin istemci (TCP) ağ bağlantısı sayısı |
 | OMS ağ geçidi/hata sayısı |Hata sayısı |
 | OMS ağ geçidi ve bağlı istemci |Bağlı istemci sayısı |
-| OMS ağ geçidi/reddetme sayısı |Herhangi bir TLS doğrulama hatası nedeniyle reddi sayısı |
+| OMS ağ geçidi/reddetme sayısı |Tooany TLS doğrulama hatası nedeniyle reddi sayısı |
 
 ![OMS ağ geçidi performans sayaçları](./media/log-analytics-oms-gateway/counters.png)
 
 ## <a name="get-assistance"></a>Yardım alın
-Azure portalında açan, OMS ağ geçidi veya herhangi başka Azure hizmeti veya özellik, bir hizmetin ile Yardım isteği oluşturabilirsiniz.
-Yardım isteğinde, portalın sağ üst köşedeki soru işareti sembolü tıklatın ve ardından **yeni destek isteği**. Ardından, yeni destek isteği formunu tamamlayın.
+Oturum açmış Azure portal toohello olduğunuzda, Yardım için bir istek hello OMS ağ geçidi veya herhangi başka Azure hizmeti veya özellik, bir hizmetin ile oluşturabilirsiniz.
+toorequest Yardım hello soru işareti sembolü hello sağ üst köşesinde hello portal'ı tıklatın ve ardından **yeni destek isteği**. Ardından, hello yeni destek isteği formu tamamlayın.
 
 ![Yeni destek isteği](./media/log-analytics-oms-gateway/support.png)
 
-OMS veya günlük analizi adresindeki hakkında geri bildirim de bırakabilirsiniz [Microsoft Azure geri bildirim Forumunda](https://feedback.azure.com/forums/267889).
+Merhaba, OMS veya günlük analizi hakkında geri bildirim de bırakabilirsiniz [Microsoft Azure geri bildirim Forumunda](https://feedback.azure.com/forums/267889).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Veri kaynakları ekleyin](log-analytics-data-sources.md) OMS çalışma alanınızdaki bağlı kaynaklardan veri toplamak ve OMS deposunda depolamak için.
+* [Veri kaynakları ekleyin](log-analytics-data-sources.md) toocollect verilerden bağlı kaynakları OMS çalışma alanınızdaki hello ve hello OMS deposunda saklayın.

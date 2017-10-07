@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri Zamanlayıcı tetikleyicisi | Microsoft Docs"
-description: "Azure işlevleri Zamanlayıcı Tetikleyicileri kullanmayı öğrenme."
+title: "aaaAzure işlevleri Zamanlayıcı tetikleyicisi | Microsoft Docs"
+description: "Toouse Zamanlayıcı Azure işlevlerinde nasıl tetikler anlayın."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -17,26 +17,26 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 6a97ab8508f889b77d064a5da70e3c726d62900c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 17fca22372dbc55d4684c8c099cc97923a7d3cf3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Azure işlevleri Zamanlayıcı tetikleyicisi
 
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Bu makalede nasıl yapılandırılacağı ve kod Zamanlayıcı Tetikleyicileri Azure işlevleri açıklanmaktadır. Azure işlevleri tanımlanmış bir zamanlamaya göre işlevi kodunuzu çalıştırmak olanak sağlayan zamanlayıcı tetikleyicisi bağlama sahiptir. 
+Bu makalede, Azure işlevlerinde nasıl tooconfigure ve kod Zamanlayıcı tetikler açıklanmaktadır. Azure işlevleri tanımlanmış bir zamanlamaya göre işlevi kodunuzu çalıştırmak olanak sağlayan zamanlayıcı tetikleyicisi bağlama sahiptir. 
 
-Zamanlayıcı tetikleyicisi çok örnekli genişleme destekler. Belirli Zamanlayıcı işlevi tek bir örneğini boyunca tüm örneklerde çalıştırılır.
+çok örnekli genişleme Hello Zamanlayıcı tetikleyicisi destekler. Belirli Zamanlayıcı işlevi tek bir örneğini boyunca tüm örneklerde çalıştırılır.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a id="trigger"></a>
 
 ## <a name="timer-trigger"></a>Zamanlayıcı tetikleyicisi
-Aşağıdaki JSON nesnesinde bir işleve Zamanlayıcı tetikleyicisi kullanan `bindings` function.json dizisi:
+Merhaba Zamanlayıcı tetikleyicisi tooa işlevini kullanıyor hello JSON nesnesinde aşağıdaki hello `bindings` function.json dizisi:
 
 ```json
 {
@@ -47,22 +47,22 @@ Aşağıdaki JSON nesnesinde bir işleve Zamanlayıcı tetikleyicisi kullanan `b
 }
 ```
 
-Değeri `schedule` olan bir [CRON ifade](http://en.wikipedia.org/wiki/Cron#CRON_expression) altı bu alanları içerir: 
+Merhaba değerini `schedule` olan bir [CRON ifade](http://en.wikipedia.org/wiki/Cron#CRON_expression) altı bu alanları içerir: 
 
     {second} {minute} {hour} {day} {month} {day-of-week}
 &nbsp;
 >[!NOTE]   
->Birçok çevrimiçi Bul cron ifadelerin atlayın `{second}` alan. Bunlardan birini kopyalarsanız, ek için ayarlamanız gereken `{second}` alan. Belirli örnekler için bkz: [zamanlama örnekler](#examples) aşağıda.
+>Birçok çevrimiçi Bul hello cron ifadelerin hello atlayın `{second}` alan. Bunlardan birini kopyalarsanız, hello fazladan tooadjust gerek `{second}` alan. Belirli örnekler için bkz: [zamanlama örnekler](#examples) aşağıda.
 
-CRON ifadelerle kullanılan varsayılan saat dilimini Eşgüdümlü Evrensel Saat (UTC) ' dir. CRON İfadenizde başka bir saat dilimini temel olmasını adlı işlev uygulamanız için yeni bir uygulama ayarı oluşturmak `WEBSITE_TIME_ZONE`. İstenen saat dilimini adına gösterildiği gibi değeri [Microsoft saat dilimi dizin](https://msdn.microsoft.com/library/ms912391.aspx). 
+Merhaba varsayılan saat dilimi hello CRON ifadelerle kullanılan Eşgüdümlü Evrensel Saat (UTC) alınır. CRON İfadenizde bağlı başka bir saat dilimini temel toohave adlı işlev uygulamanız için yeni bir uygulama ayarı oluşturmak `WEBSITE_TIME_ZONE`. Set hello değeri toohello hello adını istenen saat dilimi hello gösterildiği gibi [Microsoft saat dilimi dizin](https://msdn.microsoft.com/library/ms912391.aspx). 
 
-Örneğin, *Doğu Standart Saati* olan UTC-05:00. 10:00 AM EST her gün yangın tetikleyin, UTC saat dilimi hesapları aşağıdaki CRON deyimi kullanın, Zamanlayıcı sağlamak için:
+Örneğin, *Doğu Standart Saati* olan UTC-05:00. toohave, Zamanlayıcı tetiklemek yangın 10:00 AM EST, her gün için UTC saat dilimi hesapları CRON ifade aşağıdaki kullanım hello adresindeki:
 
 ```json
 "schedule": "0 0 15 * * *",
 ``` 
 
-Alternatif olarak, adlı işlev uygulamanız için yeni bir uygulama ayarı ekleyebilirsiniz `WEBSITE_TIME_ZONE` ve değerine **Doğu Standart Saati**.  Ardından aşağıdaki CRON ifade 10:00 AM EST için kullanılabilir: 
+Alternatif olarak, adlı işlev uygulamanız için yeni bir uygulama ayarı ekleyebilirsiniz `WEBSITE_TIME_ZONE` ve hello değeri çok**Doğu Standart Saati**.  Ardından CRON ifade aşağıdaki hello 10:00 AM EST için kullanılabilir: 
 
 ```json
 "schedule": "0 0 10 * * *",
@@ -72,39 +72,39 @@ Alternatif olarak, adlı işlev uygulamanız için yeni bir uygulama ayarı ekle
 <a name="examples"></a>
 
 ## <a name="schedule-examples"></a>Zamanlama örnekleri
-CRON ifadeler için kullanabileceğiniz bazı örnekleri şunlardır `schedule` özelliği. 
+CRON ifadeleri hello için kullanabileceğiniz bazı örnekleri şunlardır `schedule` özelliği. 
 
-Her beş dakikada tetiklemek için:
+her beş dakikada tootrigger:
 
 ```json
 "schedule": "0 */5 * * * *"
 ```
 
-Bir kez saatte en üstte tetiklemek için:
+tootrigger kez üstündeki hello her saat:
 
 ```json
 "schedule": "0 0 * * * *",
 ```
 
-Her iki saatte tetiklemek için:
+Her iki saatte tootrigger:
 
 ```json
 "schedule": "0 0 */2 * * *",
 ```
 
-Saatte 09: 00'dan 18: 00 için tetiklemek için:
+tootrigger saatte 09: 00 too5 gelen PM:
 
 ```json
 "schedule": "0 0 9-17 * * *",
 ```
 
-09:30:00 her gün tetiklemek için:
+tootrigger 9: 30'da her gün:
 
 ```json
 "schedule": "0 30 9 * * *",
 ```
 
-09:30:00 her hafta içi günü tetiklemek için:
+tootrigger 9: 30'da her hafta içi günü:
 
 ```json
 "schedule": "0 30 9 * * 1-5",
@@ -113,7 +113,7 @@ Saatte 09: 00'dan 18: 00 için tetiklemek için:
 <a name="usage"></a>
 
 ## <a name="trigger-usage"></a>Tetikleyici kullanımı
-Bir zamanlayıcı tetikleyicisi işlevi çağrıldığında, [Zamanlayıcı nesne](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) işlevdeki geçirilir. Aşağıdaki JSON timer nesnesi bir örnek gösterimidir. 
+Bir zamanlayıcı tetikleyicisi işlevi çağrıldığında, hello [Zamanlayıcı nesne](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) hello işlevdeki geçirilir. Merhaba aşağıdaki JSON bir örnek hello Zamanlayıcı nesne gösterimidir. 
 
 ```json
 {
@@ -130,7 +130,7 @@ Bir zamanlayıcı tetikleyicisi işlevi çağrıldığında, [Zamanlayıcı nesn
 <a name="sample"></a>
 
 ## <a name="trigger-sample"></a>Tetikleyici örnek
-Aşağıdaki Zamanlayıcı tetikleyicisi olduğunu varsayalım `bindings` function.json dizisi:
+Merhaba Zamanlayıcı tetikleyicisi aşağıdaki hello olduğunu varsayalım `bindings` function.json dizisi:
 
 ```json
 {
@@ -141,7 +141,7 @@ Aşağıdaki Zamanlayıcı tetikleyicisi olduğunu varsayalım `bindings` functi
 }
 ```
 
-Geç çalışıp çalışmadığını görmek için timer nesnesini okur dile özgü örneğe bakın.
+Geç çalışıp çalışmadığını nesne toosee hello Zamanlayıcı okuyan hello dile özgü örneğine bakın.
 
 * [C#](#triggercsharp)
 * [F#](#triggerfsharp)

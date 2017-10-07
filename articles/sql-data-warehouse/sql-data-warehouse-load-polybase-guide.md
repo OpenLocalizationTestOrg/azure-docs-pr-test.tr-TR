@@ -1,5 +1,5 @@
 ---
-title: "SQL Data Warehouse'da PolyBase kullanarak Kılavuzu | Microsoft Docs"
+title: SQL Data Warehouse'da PolyBase kullanarak aaaGuide | Microsoft Docs
 description: "Kılavuzları ve PolyBase kullanarak SQL Data Warehouse senaryolarda ilgili öneriler."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,36 +15,36 @@ ms.workload: data-services
 ms.date: 6/5/2016
 ms.custom: loading
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b05e4c5d528f2fe1c60d6855b5333065f0c908ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>SQL Data Warehouse'da PolyBase kullanarak Kılavuzu
 Bu kılavuz, SQL Data Warehouse'da PolyBase kullanmaya yönelik pratik bilgileri verir.
 
-Başlamak için bkz: [PolyBase ile veri yükleme] [ Load data with PolyBase] Öğreticisi.
+başlatıldı, tooget bkz hello [PolyBase ile veri yükleme] [ Load data with PolyBase] Öğreticisi.
 
 ## <a name="rotating-storage-keys"></a>Depolama anahtarları döndürme
-Zaman zaman güvenlik nedenleriyle blob depolama alanınızın erişim anahtarı değiştirmek isteyeceksiniz.
+Saat tootime güvenlik nedenleriyle toochange hello erişim anahtar tooyour blob depolama isteyeceksiniz.
 
-Bu görevi gerçekleştirmek için en Zarif yolu "anahtarları döndürme" olarak bilinen bir işlem izlemektir. Blob depolama hesabınız için iki depolama anahtarınız olduğunu fark etmiş olabilirsiniz. Böylece geçiş yapabileceğini budur
+Bu görev toofollow "Merhaba anahtarları döndürme" olarak bilinen bir işlem olduğundan en Zarif yolu tooperform hello. Blob depolama hesabınız için iki depolama anahtarınız olduğunu fark etmiş olabilirsiniz. Böylece geçiş yapabileceğini budur
 
 Azure depolama hesabı anahtarları döndürme basit üç adımı bir işlemdir
 
-1. İkincil depolama erişim anahtarı temel ikinci veritabanı kapsamlı kimlik bilgileri oluşturun
+1. Merhaba ikincil depolama erişim anahtarı temel ikinci veritabanı kapsamlı kimlik bilgileri oluşturun
 2. Bu yeni bir kimlik bilgisi dayalı ikinci dış veri kaynağı oluşturma
-3. Bırakın ve yeni dış veri kaynağına işaret eden dış tabloları oluşturma
+3. Bırakma ve toohello yeni dış veri kaynağına işaret eden hello dış tabloları oluşturma
 
-Geçirdikten sonra yeni dış veri kaynağına tüm dış tablolar sonra temizleme görevleri gerçekleştirebilirsiniz:
+Gerçekleştirebileceğiniz sonra tüm dış tablolara toohello yeni dış veri kaynağınızda geçirdikten sonra hello görevleri temizleyin:
 
 1. Bırakma ilk dış veri kaynağı
-2. Birincil depolama erişim anahtarı temel kimlik bilgisi açılan ilk veritabanı kapsamlı
-3. Azure'da oturum ve bir sonraki seferde hazır birincil erişim anahtarını yeniden oluşturma
+2. Kimlik bilgisi hello birincil depolama erişim anahtarı temel açılan ilk veritabanı kapsamlı
+3. Azure'da oturum açın ve hello birincil erişim anahtarı Merhaba hazır sonraki sefer yeniden
 
 ## <a name="query-azure-blob-storage-data"></a>Azure blob depolama veri sorgulama
-İlişkisel bir tablo olduğu gibi sorgulamanıza sorguları dış tablolara yönelik yalnızca tablo adı kullanın.
+İlişkisel bir tablo olduğu gibi sorgulamanıza sorguları dış tablolara yönelik yalnızca hello tablo adı kullanın.
 
 ```sql
 -- Query Azure storage resident data via external table.
@@ -53,21 +53,21 @@ SELECT * FROM [ext].[CarSensor_Data]
 ```
 
 > [!NOTE]
-> Bir dış tablo üzerinde bir sorgu hatası ile başarısız olabilir *"Sorgu iptal edildi--bir dış kaynaktan okurken maksimum Reddet Eşiğe ulaşıldığında"*. Bu, dış veri içerip içermediğini gösterir *kirli* kaydeder. Bir veri kaydı gerçek veri türleri/sütun sayısı dış tablosunun sütun tanımları eşleşmiyorsa veya verileri belirtilen dış dosya biçimine uygun değil 'kirli' olarak kabul edilir. Bu sorunu gidermek için dış tablo ve dış dosya biçimini tanımları doğru olduğundan ve bu tanımları, dış veri uyan emin olun. Dış veri kayıtların bir alt kümesini durumunda kirli, sorgularınızı bu kayıtları oluşturma dış tablo DDL Reddet seçeneklerini kullanarak reddetmek seçebilirsiniz.
+> Bir dış tablo sorgu hello hata ile başarısız olabilir *"Sorgu iptal edildi--hello maksimum Reddet eşik bir dış kaynaktan okurken ulaşıldı"*. Bu, dış veri içerip içermediğini gösterir *kirli* kaydeder. Bir veri kaydı hello gerçek veri türleri/sütun sayısı hello hello dış tablosunun sütun tanımları eşleşmiyorsa veya hello verileri toohello belirtilen dış dosya biçimi uygun değil 'kirli' olarak kabul edilir. toofix Bu, dış tablo ve dış dosya biçimini tanımları doğru ve dış verilerinizi toothese tanımları uyumlu olduğundan emin olun. Dış veri kayıtların bir alt kümesini durumunda kirli, tooreject bu kayıtları sorgularınızı oluşturmak dış tablo DDL hello reddetme seçenekleri kullanılarak seçebilirsiniz.
 > 
 > 
 
 ## <a name="load-data-from-azure-blob-storage"></a>Azure blob depolamadan veri yükleme
-Bu örnek verileri Azure blob depolama alanından SQL Data Warehouse veritabanına yükler.
+Bu örnek verileri Azure blob depolama tooSQL veri ambarı veritabanından yükler.
 
-Verileri doğrudan depolama sorguları için veri aktarım süresini kaldırır. Bir columnstore dizini olan verileri depolamak için 10 kat analiz sorgular tarafından sorgu performansı geliştirir.
+Verileri doğrudan depolamak hello veri aktarım süresini sorgular için kaldırır. Bir columnstore dizini olan veri depolama too10x tarafından analiz sorguları için sorgu performansı geliştirir.
 
-Bu örnek CREATE TABLE AS SELECT deyimi veri yüklemek için kullanır. Yeni bir tablo sorguda adlandırılan sütunları devralır. Dış tablo tanımı bu sütunların veri türlerini devralır.
+Bu örnek hello CREATE TABLE AS SELECT deyimi tooload verileri kullanır. Merhaba yeni tablo hello sorguda adlandırılan hello sütunları devralır. Bu sütunların veri türlerini hello hello dış tablo tanımından devralır.
 
-CREATE TABLE AS SELECT bir yüksek oranda kullanıcı verileri SQL veri ambarı tüm işlem düğümlerini paralel yükler Transact-SQL deyimini olur.  Analiz platformu sistemi yüksek düzeyde paralel işleme (MPP) altyapısında için geliştirilmiştir ve SQL veri ambarı'nda sunulmuştur.
+CREATE TABLE AS SELECT bir yüksek oranda kullanıcı paralel tooall hello hello verileri yükler Transact-SQL deyimini işlem düğümleri, SQL Data warehouse'un olur.  Analiz platformu sistemi hello yüksek düzeyde paralel işleme (MPP) altyapısı için geliştirilmiştir ve SQL veri ambarı'nda sunulmuştur.
 
 ```sql
--- Load data from Azure blob storage to SQL Data Warehouse
+-- Load data from Azure blob storage tooSQL Data Warehouse
 
 CREATE TABLE [dbo].[Customer_Speed]
 WITH
@@ -84,7 +84,7 @@ FROM   [ext].[CarSensor_Data]
 Bkz: [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
 
 ## <a name="create-statistics-on-newly-loaded-data"></a>Yeni yüklenen verilere ilişkin istatistikler oluşturma
-Azure SQL Data Warehouse henüz istatistiklerin otomatik olarak oluşturulup güncelleştirilmesini desteklemiyor.  Sorgularınızdan en iyi performansı elde edebilmeniz için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra her tablonun her sütununa ilişkin istatistiklerin oluşturulması önemlidir.  İstatistikler hakkında ayrıntılı bir açıklama için Geliştirme ile ilgili konu başlığı grubunda yer alan [İstatistikler][Statistics] bölümüne göz atın.  İstatistik oluşturacağınıza yönelik bu örnekte yüklenen oluşturmak nasıl hızlı bir örneği aşağıdadır.
+Azure SQL Data Warehouse henüz istatistiklerin otomatik olarak oluşturulup güncelleştirilmesini desteklemiyor.  Sipariş tooget hello en iyi performansı sorgularınızı, istatistikleri hello ilk yükleme işleminden sonra tüm tabloların tüm sütunlarda oluşturulması önemlidir veya hello verilerde önemli değişikliklerden.  Merhaba istatistikleri ayrıntılı bir açıklaması için bkz [istatistikleri] [ Statistics] konu hello geliştirme grubunu konuda.  Aşağıda bu örnekte toocreate istatistik oluşturacağınıza yönelik hello nasıl yüklenir, hızlı bir örnek verilmiştir.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -94,10 +94,10 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="export-data-to-azure-blob-storage"></a>Azure blob depolama alanına veri dışarı aktarma
-Bu bölümde Azure blob depolama alanına SQL veri ambarından verilerin dışarı aktarma gösterir. Bu örnek, dış tablo AS bir yüksek oranda kullanıcı paralel veri tüm işlem düğümlerinden dışarı aktarmak için Transact-SQL deyimini olan Oluştur kullanır.
+## <a name="export-data-tooazure-blob-storage"></a>Veri tooAzure blob depolama dışarı aktarma
+Bu bölümde, nasıl SQL Data Warehouse tooAzure tooexport verileri blob depolama gösterir. Bu örnek, dış tablo AS yüksek oranda kullanıcı Transact-SQL deyimi tooexport hello veri paralel tüm hello işlem düğümlerinden olan Oluştur kullanır.
 
-Aşağıdaki örnek, sütun tanımları ve dbo verileri kullanarak bir dış tablo Weblogs2014 oluşturur. Web günlüklerini tablo. Dış tablo tanımındaki SQL veri ambarı'nda depolanır ve veri kaynağı tarafından belirtilen blob kapsayıcısı altında "/ / log2014/Arşiv" dizinine SELECT deyiminin sonuçlarını dışarı aktarılır. Verileri belirtilen metin dosyası biçiminde dışarı aktarılır.
+Merhaba aşağıdaki örnek sütun tanımları ve dbo verileri kullanarak bir dış tablo Weblogs2014 oluşturur. Web günlüklerini tablo. Merhaba dış tablo tanımındaki SQL veri ambarında depolanır ve hello SELECT deyimi hello sonuçlarını dışarı aktarılan toohello olan "/ / log2014/Arşiv" dizini hello veri kaynağı tarafından belirtilen hello blob kapsayıcısı altında. Merhaba veri hello belirtilen metin dosyası biçiminde dışarı aktarılır.
 
 ```sql
 CREATE EXTERNAL TABLE Weblogs2014 WITH
@@ -118,21 +118,21 @@ WHERE
     AND DateRequested < '01/01/2015';
 ```
 ## <a name="isolate-loading-users"></a>Kullanıcıları yüklenirken yalıtma
-Genellikle verileri SQL DW yükleyebilirsiniz birden fazla kullanıcınız gerek yoktur. Çünkü [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] denetim izinleri gerektirir, veritabanını, Denetim erişimi olan birden çok kullanıcıya sahip tüm şemaları son bulur. Bu sınırlamak için REDDETME denetim deyimi kullanabilirsiniz.
+Verileri bir SQL DW yükleyebilirsiniz birden çok kullanıcı genellikle gerek toohave var. Çünkü hello [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] denetim izinleri gerektirir hello veritabanının, Denetim erişimi olan birden çok kullanıcıya sahip tüm şemaları son bulur. toolimit bunu hello REDDET denetim deyimi kullanabilirsiniz.
 
 Örnek: bir bölüm için veritabanı şemalarını schema_A ve Bölüm B izin veritabanı kullanıcıları user_A schema_B göz önünde bulundurun ve kullanıcılar için Bölüm A ve B, sırasıyla Polybase'in user_B olmalıdır. Her ikisi de denetim veritabanı izinleri verildi.
-Şema A ve B şimdi kilidi oluşturucuları REDDETME kullanılarak kendi şemaları aşağı:
+Merhaba oluşturucuları şemasının A ve B şimdi REDDETME kullanılarak kendi şemaları kilitle:
 
 ```sql
-   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
-   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+   DENY CONTROL ON SCHEMA :: schema_A toouser_B;
+   DENY CONTROL ON SCHEMA :: schema_B toouser_A;
 ```   
- Bu, user_A ve user_B şimdi diğer bölüm 's şemadan kilitlenmesi.
+ Bu, user_A ve user_B şimdi hello kilitlenmesi diğer bölüm 's şema.
  
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL Data Warehouse'a veri taşıma hakkında daha fazla bilgi için bkz: [veri geçişine genel bakış][data migration overview].
+toolearn taşıma veri tooSQL veri ambarı hakkında daha fazla bilgi görmek hello [veri geçişine genel bakış][data migration overview].
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: "SQL Azure Cosmos veritabanı ile nasıl? | Microsoft Belgeleri"
-description: "SQL Azure Cosmos veritabanı ile DocumentDB verilerle sorgu öğrenin"
+title: "SQL Azure Cosmos veritabanı ile aaaHow tooquery? | Microsoft Belgeleri"
+description: "SQL Azure Cosmos veritabanı ile DocumentDB verilerle tooquery öğrenin"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,24 +16,24 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: a2a562c06c6302b9548e758b4c6754ec13b6001d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d3dc51acf92cb78d4f4d9dbac7ec54b1382431cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: SQL kullanarak nasıl?
+# <a name="azure-cosmos-db-how-tooquery-using-sql"></a>Azure Cosmos DB: Nasıl SQL kullanarak tooquery?
 
-Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) belgeleri SQL kullanarak sorgulama destekler. Bu makalede, örnek bir belge ve iki örnek SQL sorguları ve sonuçları sağlar.
+Hello Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) belgeleri SQL kullanarak sorgulama destekler. Bu makalede, örnek bir belge ve iki örnek SQL sorguları ve sonuçları sağlar.
 
-Bu makalede aşağıdaki görevleri içerir: 
+Bu makalede görevleri aşağıdaki hello yer almaktadır: 
 
 > [!div class="checklist"]
 > * SQL ile veri sorgulama
 
 ## <a name="sample-document"></a>Örnek bir belge
 
-Bu makalede SQL sorguları aşağıdaki örnek belge kullanın.
+Merhaba SQL sorgularını bu makaledeki örnek bir belge aşağıdaki hello kullanın.
 
 ```json
 {
@@ -65,18 +65,18 @@ Bu makalede SQL sorguları aşağıdaki örnek belge kullanın.
 ```
 ## <a name="where-can-i-run-sql-queries"></a>SQL sorguları yeri çalıştırabilir miyim?
 
-Aracılığıyla Azure portalında Veri Gezgini'ni kullanarak sorguları çalıştırabilirsiniz [REST API ve SDK](documentdb-sdk-dotnet.md)ve hatta [Query playground](https://www.documentdb.com/sql/demo), var olan bir örnek veri kümesini temel sorguları çalıştırır.
+Hello Veri Gezgini hello hello aracılığıyla Azure portal kullanarak sorguları çalıştırabilirsiniz [REST API ve SDK](documentdb-sdk-dotnet.md)ve hatta hello [Query playground](https://www.documentdb.com/sql/demo), var olan bir örnek veri kümesini temel sorguları çalıştırır.
 
 SQL sorguları hakkında daha fazla bilgi için bkz:
 * [SQL sorgusu ve SQL söz dizimi](documentdb-sql-query.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğretici bir Azure Cosmos DB hesap ve koleksiyon olduğunu varsayar. Bu yok? Tamamlamak [5 dakikalık quickstart](create-mongodb-nodejs.md) veya [Geliştirici öğretici](tutorial-develop-mongodb.md) bir hesap ve koleksiyonu oluşturmak için.
+Bu öğretici bir Azure Cosmos DB hesap ve koleksiyon olduğunu varsayar. Bu yok? Tam hello [5 dakikalık quickstart](create-mongodb-nodejs.md) veya hello [Geliştirici öğretici](tutorial-develop-mongodb.md) toocreate bir hesap ve koleksiyonu.
 
 ## <a name="example-query-1"></a>Örnek sorgu 1
 
-Yukarıdaki örnek ailesi belge verilen, SQL sorgusu aşağıdaki belgeleri ID alanı eşleştiği döndürür `WakefieldFamily`. Olduğundan bir `SELECT *` ifadesi, sorgu çıktısı tam JSON belgesi şöyledir:
+Merhaba örnek ailesi belge yukarıda verilen, SQL sorgusu aşağıdaki hello belgeleri hello Kimliği alanı eşleştiği döndürür `WakefieldFamily`. Olduğundan bir `SELECT *` ifadesi, hello sorgu hello çıktısını hello tam JSON belgesi şöyledir:
 
 **Sorgu**
 
@@ -117,7 +117,7 @@ Yukarıdaki örnek ailesi belge verilen, SQL sorgusu aşağıdaki belgeleri ID a
 
 ## <a name="example-query-2"></a>Örnek Sorgu 2
 
-Sonraki sorgu kimliğine eşleşen ailesinde alt tüm verilen adlarını döndürür `WakefieldFamily` kendi sınıf tarafından sıralanan.
+Merhaba sonraki sorgunun döndürdüğü tüm hello verilen adları alt kimliğine eşleşen hello ailesinde `WakefieldFamily` kendi sınıf tarafından sıralanan.
 
 **Sorgu**
 
@@ -137,12 +137,12 @@ Sonraki sorgu kimliğine eşleşen ailesinde alt tüm verilen adlarını döndü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan:
+Bu öğreticide, hello aşağıdakileri yaptığınızdan:
 
 > [!div class="checklist"]
-> * SQL kullanarak sorgulamak öğrendiniz  
+> * Nasıl öğrenilen SQL kullanarak tooquery  
 
-Verilerinizi Genel dağıtma konusunda bilgi almak için sonraki öğretici şimdi devam edebilirsiniz.
+Toohello sonraki öğretici toolearn nasıl şimdi devam toodistribute verilerinizi genel.
 
 > [!div class="nextstepaction"]
 > [Verilerinizi genel Dağıt](tutorial-global-distribution-documentdb.md)

@@ -1,6 +1,6 @@
 ---
-title: "Azure tanılama günlükleri desteklenen Hizmetleri ve şemaları | Microsoft Docs"
-description: "Desteklenen hizmetler ve olay şema Azure tanılama günlüklerini anlayın."
+title: "aaaAzure tanılama günlükleri desteklenen Hizmetleri ve şemaları | Microsoft Docs"
+description: "Azure tanılama günlüklerini Hello desteklenen Hizmetleri ve olay şema anlayın."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
-ms.openlocfilehash: aa4fa6e0310b2725005dfa34e3225c89fb4282d6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a3cbf5267e1bd0dc257f4fb4f42c323644046a6a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
-[Azure kaynak tanılama günlüklerini](monitoring-overview-of-diagnostic-logs.md) olan bu kaynağın işlemi açıklayan Azure kaynaklarınızı tarafından gösterilen günlükleri. Kaynak türü bu günlüklerin belirli. Bu makalede, desteklenen Hizmetleri ve her hizmeti tarafından oluşturulan olaylar için olay şema kümesini alır. Bu makalede ayrıca kaynak türüne göre kullanılabilen günlük kategorilerinin tam bir listesini içerir.
+[Azure kaynak tanılama günlüklerini](monitoring-overview-of-diagnostic-logs.md) olan hello işlemi bu kaynağın açıklayan Azure kaynaklarınızı tarafından gösterilen günlükleri. Kaynak türü bu günlüklerin belirli. Bu makalede, her hizmeti tarafından oluşturulan olaylar için desteklenen Hizmetleri ve olay şema hello kümesi verilmiştir. Bu makalede ayrıca kaynak türüne göre kullanılabilen günlük kategorilerinin tam bir listesini içerir.
 
 ## <a name="supported-services-and-schemas-for-resource-diagnostic-logs"></a>Desteklenen kaynak tanılama günlüklerini Hizmetleri ve şemaları
-Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye göre değişir.   
+Kaynak tanılama günlükleri için Hello şeması hello kaynak ve günlük kategoriye göre değişir.   
 
 | Hizmet | Şema & belgeleri |
 | --- | --- |
@@ -52,12 +52,12 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 ## <a name="supported-log-categories-per-resource-type"></a>Kaynak türü başına günlük kategoriler desteklenen
 |Kaynak Türü|Kategori|Kategori görünen adı|
 |---|---|---|
-|Microsoft.ApiManagement/service|GatewayLogs|ApiManagement ağ geçidine ilgili günlükleri|
+|Microsoft.ApiManagement/service|GatewayLogs|Günlükleri ilgili tooApiManagement ağ geçidi|
 |Microsoft.Automation/automationAccounts|JobLogs|İş günlükleri|
 |Microsoft.Automation/automationAccounts|JobStreams|İş akışları|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|DSC düğüm durumu|
 |Microsoft.Batch/batchAccounts|ServiceLog|Hizmet Günlükleri|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Örneğin, bant genişliği, çıkış, vb. ölçümleri uç noktanın alır.|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Merhaba ölçümlerini hello uç noktası, örneğin, bant genişliği, çıkış, vb. alır.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataLakeAnalytics/accounts|Denetim|Denetim Günlükleri|
 |Microsoft.DataLakeAnalytics/accounts|İstekler|İstek günlükleri|
@@ -89,6 +89,6 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 * [Tanılama günlükleri hakkında daha fazla bilgi edinin](monitoring-overview-of-diagnostic-logs.md)
-* [Akış kaynak tanılama günlüklerine **olay hub'ları**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Azure İzleyici REST API'sini kullanarak kaynak tanılama ayarlarını değiştirme](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Kaynağın tanılama günlükleri çok akış**olay hub'ları**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Hello Azure İzleyici REST API'sini kullanarak kaynak tanılama ayarlarını değiştirme](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Günlük analizi ile Azure depolama biriminden günlüklerini analiz edin](../log-analytics/log-analytics-azure-storage.md)

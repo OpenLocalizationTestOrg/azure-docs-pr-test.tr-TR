@@ -1,5 +1,5 @@
 ---
-title: "Azure işlevleri OpenAPI meta verilerde | Microsoft Docs"
+title: "Azure işlevleri aaaOpenAPI meta verilerde | Microsoft Docs"
 description: "Azure işlevleri OpenAPI desteği'ne genel bakış"
 services: functions
 documentationcenter: 
@@ -14,41 +14,41 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: e426e56bcac30c740e86d620dadf291fe31e3e10
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fff8f14110469a002a6c9dca03f641672003a3a1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>OpenAPI 2.0 meta verileri desteği Azure işlevlerinde (Önizleme)
-OpenAPI 2.0 (önceki adıyla Swagger) meta verileri desteği Azure işlevleri OpenAPI 2.0 tanımının bir işlev uygulaması içinde yazmak için kullanabileceğiniz bir önizleme özelliği değil. Bu dosyayı işlev uygulaması kullanarak ardından barındırabilir.
+OpenAPI 2.0 (önceki adıyla Swagger) meta verileri desteği Azure işlevleri toowrite OpenAPI 2.0 tanımının bir işlev uygulaması içinde kullanabileceğiniz bir önizleme özelliği değil. Bu dosyayı hello işlev uygulaması kullanarak ardından barındırabilir.
 
-[OpenAPI meta veri](http://swagger.io/) çok çeşitli diğer yazılımlar tarafından kullanılması için bir REST API barındıran bir işlev sağlar. Bu yazılım Microsoft teklifleri PowerApps gibi içerir ve [Azure App Service API Apps özelliğini](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), üçüncü taraf geliştirici araçları ister [Postman](https://www.getpostman.com/docs/importing_swagger), ve [pek çok daha fazla paket](http://swagger.io/tools/).
+[OpenAPI meta veri](http://swagger.io/) bir REST API toobe barındırma işlevi çok çeşitli diğer yazılımlar tarafından tüketilen sağlar. Bu yazılım Microsoft teklifleri PowerApps ve hello gibi içerir [Azure App Service API Apps özelliğini](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), üçüncü taraf geliştirici araçları ister [Postman](https://www.getpostman.com/docs/importing_swagger), ve [çok daha fazla paket](http://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 >[!TIP]
->İle başlayan öneririz [başlama Öğreticisi](./functions-api-definition-getting-started.md) ve belirli özellikler hakkında daha fazla bilgi edinmek için bu belgeye döndürüyor.
+>Merhaba ile başlayan öneririz [başlama Öğreticisi](./functions-api-definition-getting-started.md) ve belirli özellikler hakkında daha fazla toothis belge toolearn döndürüyor.
 
 ## <a name="enable"></a>OpenAPI tanımı desteğini etkinleştir
-Tüm OpenAPI ayarları yapılandırabilirsiniz **API tanımı** işlevi uygulamanızın sayfa **Platform özellikleri**.
+Merhaba tüm OpenAPI ayarlarını yapılandırabilirsiniz **API tanımı** işlevi uygulamanızın sayfa **Platform özellikleri**.
 
-Barındırılan bir OpenAPI tanımı ve hızlı başlangıç tanım oluşturulmasını etkinleştirmek için ayarlanmış **API tanımı kaynak** için **işlevi (Önizleme)**. **Dış URL** başka bir yerde barındırılan bir OpenAPI tanımı kullanmak, işlevi sağlar.
+tooenable hello nesil barındırılan OpenAPI tanımı ve bir hızlı başlangıç tanımı ayarlamak **API tanımı kaynak** çok**işlevi (Önizleme)**. **Dış URL** işlevi toouse başka bir yerde barındırılan bir OpenAPI tanımlanmasına olanak tanır.
 
 ## <a name="generate-definition"></a>İşlevin meta verilerini Swagger çatıyı oluştur
-Bir şablonu ilk OpenAPI tanımınızı yazma başlamanıza yardımcı olabilir. Tanımı şablon özelliği bir seyrek OpenAPI tanımı tüm meta verilerin function.json dosyasında her bir HTTP tetikleyicisi işlevlerinizi için kullanarak oluşturur. API öğesinden hakkında daha fazla bilgi doldurmanız gerekir [OpenAPI belirtimi](http://swagger.io/specification/), istek ve yanıt şablonlar gibi.
+Bir şablonu ilk OpenAPI tanımınızı yazma başlamanıza yardımcı olabilir. Hello tanımı şablon özelliği bir seyrek OpenAPI tanımı tüm hello meta veriler hello function.json dosyasında her bir HTTP tetikleyicisi işlevleri için kullanarak oluşturur. Merhaba, API hakkında daha fazla bilgi toofill gerekir [OpenAPI belirtimi](http://swagger.io/specification/), istek ve yanıt şablonlar gibi.
 
-Adım adım yönergeler için bkz: [başlama Öğreticisi](./functions-api-definition-getting-started.md).
+Adım adım yönergeler için bkz: Merhaba [başlama Öğreticisi](./functions-api-definition-getting-started.md).
 
 ### <a name="templates"></a>Kullanılabilir şablonlar
 
 |Ad| Açıklama |
 |:-----|:-----|
-|Oluşturulan tanımı|Bir işlevin varolan meta verilerini çıkarsanabileceği bilgi maksimum OpenAPI tanımıyla.|
+|Oluşturulan tanımı|OpenAPI tanımı hello işlevin varolan meta verilerini çıkarsanabileceği bilgilerinin hello maksimum tutar.|
 
-### <a name="quickstart-details"></a>Oluşturulan tanımı'nda bulunan meta verileri
+### <a name="quickstart-details"></a>Oluşturulan hello tanımında dahil meta verileri
 
-Oluşturulan Swagger çatıyı eşlenmiş olarak aşağıdaki tabloda Azure portal ayarları ve function.json karşılık gelen verileri temsil eder.
+oluşturulan eşlenen toohello Swagger çatıyı olduğu gibi hello tablo temsil aşağıdaki Azure portal ayarları ve function.json karşılık gelen verileri hello.
 
 |Swagger.JSON|Portal UI|Function.JSON|
 |:----|:-----|:-----|
@@ -58,26 +58,26 @@ Oluşturulan Swagger çatıyı eşlenmiş olarak aşağıdaki tabloda Azure port
 |[Güvenlik](http://swagger.io/specification/#security-scheme-object-112)|**Anahtarları**|*Mevcut değil*|
 |Operationıd *|**Rota + izin verilen fiiller**|Rota + izin verilen fiiller|
 
-\*İşlem kimliği, yalnızca PowerApps ve akış ile tümleştirmek için gereklidir.
+\*Merhaba işlem kimliği, yalnızca PowerApps ve akış ile tümleştirmek için gereklidir.
 > [!NOTE]
-> X-ms-Özet uzantısı bir görünen ad mantıksal uygulamalar, PowerApps ve akış sağlar.
+> Merhaba x-ms-Özet uzantısı bir görünen ad mantıksal uygulamalar, PowerApps ve akış sağlar.
 >
-> Daha fazla bilgi için bkz: [PowerApps için Swagger tanımı özelleştirme](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
+> toolearn daha, fazla [PowerApps için Swagger tanımı özelleştirme](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
 
-## <a name="CICD"></a>CI/CD bir API tanımı ayarlamak için kullanın
+## <a name="CICD"></a>CI/CD tooset bir API tanımı kullanın
 
- API tanımı, API tanımı kaynak denetiminden değiştirmek kaynak denetimi etkinleştirmeden önce portalda barındırma etkinleştirmeniz gerekir. Bu yönergeleri izleyin:
+ Kaynak denetimi toomodify API tanımınızı kaynak denetiminden etkinleştirmeden önce API tanımı hello Portalı'nda barındırma etkinleştirmeniz gerekir. Bu yönergeleri izleyin:
 
-1. Gözat **API tanımı (Önizleme)** işlevi uygulama ayarları'nda.
-  1. Ayarlama **API tanımı kaynak** için **işlevi**.
-  1. Tıklatın **oluşturmak API tanımı şablonu** ve ardından **kaydetmek** daha sonra değiştirmek için bir şablon tanımı oluşturmak için.
+1. Çok Gözat**API tanımı (Önizleme)** işlevi uygulama ayarları'nda.
+  1. Ayarlama **API tanımı kaynak** çok**işlevi**.
+  1. Tıklatın **oluşturmak API tanımı şablonu** ve ardından **kaydetmek** toocreate daha sonra değiştirmek için bir şablon tanımı.
   1. API tanımı URL'si ve anahtar unutmayın.
 1. [Sürekli Tümleştirme/sürekli dağıtım (CI/CD) ayarlayın.](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
 2. Swagger.JSON \site\wwwroot adresindeki kaynak denetiminde değiştirme\.azurefunctions\swagger\swagger.json.
 
-Şimdi, deponuzun swagger.json değişiklikleri işlevi uygulamanızı API tarafından barındırılan tanımı URL'si ve de not ettiğiniz anahtarı adım 1.c.
+Şimdi, değişiklikleri tooswagger.json deponuzun işlevi uygulamanızı hello API tanımı URL'si tarafından barındırılan ve de not ettiğiniz anahtarı 1.c adım.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Başlangıç Öğreticisi](functions-api-definition-getting-started.md). Bir eylem OpenAPI tanımında görmek için izlenecek deneyin.
-* [Azure işlevleri GitHub deposunu](https://github.com/Azure/Azure-Functions/). API tanımı destek Önizleme'bize geri bildirim sağlamak için işlevleri depo göz atın. GitHub sorunu güncelleştirilmiş görmek istediğiniz her şey için yapın.
+* [Başlangıç Öğreticisi](functions-api-definition-getting-started.md). Bizim izlenecek toosee eylem OpenAPI tanımında deneyin.
+* [Azure işlevleri GitHub deposunu](https://github.com/Azure/Azure-Functions/). Merhaba işlevleri depo toogive bize hello API tanımı destek Önizleme geribildirim denetleyin. GitHub sorunu herhangi bir şey için güncelleştirilmiş toosee istiyor olun.
 * [Azure işlevleri Geliştirici Başvurusu](functions-reference.md). İşlevlerin kodlanması ve tetikleyicilerin ve bağlamaların tanımlanması hakkında bilgi edinin.

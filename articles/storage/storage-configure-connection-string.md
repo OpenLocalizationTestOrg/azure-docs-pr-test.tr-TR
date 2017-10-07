@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage için bir bağlantı dizesi yapılandırma | Microsoft Docs"
-description: "Bir Azure depolama hesabı için bir bağlantı dizesi yapılandırın. Bir bağlantı dizesi çalışma zamanında uygulamanızdan bir depolama hesabına erişimi kimlik doğrulaması yapmak için gereken bilgileri içerir."
+title: "Azure depolama için bir bağlantı dizesi aaaConfigure | Microsoft Docs"
+description: "Bir Azure depolama hesabı için bir bağlantı dizesi yapılandırın. Bir bağlantı dizesi tooauthenticate tooa depolama hesabı uygulamanızdan çalışma zamanında gereken erişim hello bilgiler içerir."
 services: storage
 documentationcenter: 
 author: mmacy
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: marsma
-ms.openlocfilehash: 01aa506e2b47fc29a70592e670a206a2b74248a4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 80c38a6f8f0d4f06b99e7c487647b984e01d1772
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure Storage bağlantı dizelerini yapılandırma
 
-Bir bağlantı dizesi uygulamanız çalışma zamanında bir Azure depolama hesabındaki verilere erişmek için gereken kimlik doğrulama bilgileri içerir. Bağlantı dizeleri için yapılandırabilirsiniz:
+Bir bağlantı dizesi uygulama tooaccess verilerinizi çalışma zamanında bir Azure depolama hesabı için gerekli hello kimlik doğrulama bilgilerini içerir. Bağlantı dizeleri için yapılandırabilirsiniz:
 
-* Azure storage öykünücüsü bağlayın.
+* Toohello Azure storage öykünücüsü bağlayın.
 * Azure depolama hesabı erişim.
 * Paylaşılan erişim imzası (SAS) aracılığıyla Azure içinde belirtilen kaynaklara erişir.
 
 [!INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
 ## <a name="storing-your-connection-string"></a>Bağlantı dizenizi depolanması
-Azure depolama alanına yapılan istekleri kimlik doğrulaması için çalışma zamanında bağlantı dizesi erişmek uygulamanız gerekir. Bağlantı dizenizi depolamak için birkaç seçeneğiniz vardır:
+Uygulamanızı tooaccess hello bağlantı dizesi çalışma zamanı tooauthenticate yapılan istekleri tooAzure depolama konumunda gerekir. Bağlantı dizenizi depolamak için birkaç seçeneğiniz vardır:
 
-* Masaüstünde veya bir cihazdaki uygulama çalıştıran bir bağlantı dizesinde depolayabilir bir **app.config** veya **web.config** dosya. Bağlantı dizesine eklemek **AppSettings** bu dosyaları bölümünde.
-* Bir Azure bulut hizmetindeki çalışan bir uygulamaya bağlantı dizesinde depolayabilir [Azure hizmet yapılandırma (.cscfg) şema dosyası](https://msdn.microsoft.com/library/ee758710.aspx). Bağlantı dizesine eklemek **ConfigurationSettings** hizmet yapılandırma dosyasının.
+* Çalışan hello Masaüstü veya bir aygıtta bir uygulama hello bağlantı dizesinde depolayabilir bir **app.config** veya **web.config** dosya. Merhaba bağlantı dizesi toohello ekleme **AppSettings** bu dosyaları bölümünde.
+* Bir Azure bulut hizmetindeki çalışan bir uygulama hello bağlantı dizesi hello depolayabilir [Azure hizmet yapılandırma (.cscfg) şema dosyası](https://msdn.microsoft.com/library/ee758710.aspx). Merhaba bağlantı dizesi toohello ekleme **ConfigurationSettings** hello hizmet yapılandırma dosyasının.
 * Bağlantı dizenizi doğrudan kodunuzda kullanabilirsiniz. Ancak, çoğu senaryoda yapılandırma dosyasında bağlantı dizenizi depolamanız önerilir.
 
-Bağlantı dizenizi bir yapılandırma dosyasında depolamak depolama öykünücüsünü ve buluttaki bir Azure depolama hesabını arasında geçiş yapmak için bağlantı dizesini güncellemeniz kolaylaştırır. Yalnızca hedef ortamınızı noktası için bağlantı dizesi düzenlemeniz gerekir.
+Bağlantı dizenizi bir yapılandırma dosyasında depolanması, bu kolay tooupdate hello bağlantı dizesi tooswitch hello depolama öykünücüsü Azure storage hesabı arasındaki hello bulutta sağlar. Yalnızca tooedit hello bağlantı dizesi toopoint tooyour hedef ortam gerekir.
 
-Kullanabileceğiniz [Microsoft Azure Yapılandırma Yöneticisi](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) , uygulamanızın nerede çalıştığına bakmaksızın çalışma zamanında bağlantı dizenizi erişmek için.
+Merhaba kullanabilirsiniz [Microsoft Azure Yapılandırma Yöneticisi](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) , bağlantı dizesi, uygulamanızın nerede çalıştığına bakmaksızın çalışma zamanında tooaccess.
 
-## <a name="create-a-connection-string-for-the-storage-emulator"></a>Bir bağlantı dizesi oluşturmak için depolama öykünücüsü
+## <a name="create-a-connection-string-for-hello-storage-emulator"></a>Merhaba depolama öykünücüsü için bağlantı dizesi oluştur
 [!INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
-Depolama öykünücüsü hakkında daha fazla bilgi için bkz: [geliştirme ve sınama için Azure storage öykünücüsünü kullanma](storage-use-emulator.md).
+Merhaba depolama öykünücüsü hakkında daha fazla bilgi için bkz: [geliştirme ve test amacıyla hello Azure storage öykünücüsünü kullanma](storage-use-emulator.md).
 
 ## <a name="create-a-connection-string-for-an-azure-storage-account"></a>Bir Azure depolama hesabı için bir bağlantı dizesi oluşturma
-Azure depolama hesabınız için bir bağlantı dizesi oluşturmak için aşağıdaki biçimi kullanın. (Önerilen) HTTPS üzerinden depolama hesabı bağlanmak istediğiniz veya HTTP belirtmek, yerine `myAccountName` depolama hesabı ve Değiştir adıyla `myAccountKey` hesabının erişim anahtarı ile:
+Azure depolama hesabınız için bir bağlantı dizesi toocreate, kullanım hello aşağıdaki biçimi. (Önerilen) HTTPS üzerinden tooconnect toohello depolama hesabı isteyip istemediğiniz veya HTTP belirtmek, yerine `myAccountName` hello adlı depolama hesabı ve Değiştir `myAccountKey` hesabının erişim anahtarı ile:
 
 `DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey`
 
@@ -58,14 +58,14 @@ Azure depolama hesabınız için bir bağlantı dizesi oluşturmak için aşağ�
 Azure Storage HTTP ve HTTPS bağlantı dizesinde desteklemesine rağmen *HTTPS tavsiye*.
 
 > [!TIP]
-> Depolama hesabınızın bağlantı dizeleri bulabilirsiniz [Azure portal](https://portal.azure.com). Gidin **ayarları** > **erişim anahtarları** bağlantı dizeleri için hem birincil ve ikincil erişim tuşlarını görmek için depolama hesabınızın menü dikey penceresinde.
+> Depolama hesabınızın bağlantı dizeleri hello bulabilirsiniz [Azure portal](https://portal.azure.com). Çok gidin**ayarları** > **erişim anahtarları** depolama hesabınızın menü dikey toosee bağlantı dizelerinde her iki birincil ve ikincil erişim anahtarı.
 >
 
 ## <a name="create-a-connection-string-using-a-shared-access-signature"></a>Paylaşılan erişim imzası kullanarak bir bağlantı dizesi oluşturma
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ## <a name="create-a-connection-string-for-an-explicit-storage-endpoint"></a>Bir açık depolama uç nokta için bir bağlantı dizesi oluşturma
-Varsayılan uç noktalar kullanmak yerine, bağlantı dizesinde açık hizmet uç noktaları belirtin. Açık bir uç nokta belirten bir bağlantı dizesi oluşturmak için aşağıdaki biçimde protokolü belirtimi (HTTPS (önerilen) veya HTTP) dahil olmak üzere her hizmet için tam Hizmeti uç noktası belirtin:
+Merhaba varsayılan uç noktaları kullanmak yerine, bağlantı dizesinde açık hizmet uç noktaları belirtin. toocreate açık bir uç nokta belirten bir bağlantı dizesi biçimi aşağıdaki hello hello protokolü belirtimi (HTTPS (önerilen) veya HTTP) dahil olmak üzere her hizmet için hello tüm hizmet uç noktası belirtin:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -77,9 +77,9 @@ AccountName=myAccountName;
 AccountKey=myAccountKey
 ```
 
-Blob storage uç noktanız eşlenen nerede istediğiniz açık bir uç nokta belirtmek için bir senaryo olduğunda bir [özel etki alanı](storage-custom-domain-name.md). Bu durumda, bağlantı dizenizi Blob storage için özel uç noktanızı belirtebilirsiniz. Uygulamanız bunları kullanıyorsa, isteğe bağlı olarak diğer hizmetler için varsayılan uç noktalar belirtebilirsiniz.
+Blob storage uç nokta tooa eşlenen nerede istediğiniz toospecify açık bir uç nokta bir senaryo olduğunda [özel etki alanı](storage-custom-domain-name.md). Bu durumda, bağlantı dizenizi Blob storage için özel uç noktanızı belirtebilirsiniz. Uygulamanız bunları kullanıyorsa diğer hizmetler hello için hello varsayılan uç noktalar isteğe bağlı olarak belirtebilirsiniz.
 
-Burada, Blob hizmeti için açık bir uç nokta belirten bir bağlantı dizesi örneği verilmiştir:
+Burada, hello Blob hizmeti için açık bir uç nokta belirten bir bağlantı dizesi örneği verilmiştir:
 
 ```
 # Blob endpoint only
@@ -89,7 +89,7 @@ AccountName=storagesample;
 AccountKey=<account-key>
 ```
 
-Bu örnek Blob hizmeti için özel bir etki alanı dahil olmak üzere tüm hizmetleri için açık uç nokta belirtir:
+Bu örnek hello Blob hizmeti için özel bir etki alanı dahil olmak üzere tüm hizmetleri için açık uç nokta belirtir:
 
 ```
 # All service endpoints
@@ -102,16 +102,16 @@ AccountName=storagesample;
 AccountKey=<account-key>
 ```
 
-Bir bağlantı dizesi uç nokta değerleri depolama hizmetleri için URI isteği oluşturun ve kodunuzu döndürülen URI'ler form dikte için kullanılır.
+Merhaba uç değerler bağlantı dizesinde kullanılan tooconstruct hello isteği URI'ler toohello depolama hizmetleri ve tooyour kodu döndürdü URI'ler hello biçiminde dikte.
 
-Bir depolama uç noktası için özel bir etki alanı eşlenen ve bu uç bağlantı dizesinden atlarsanız, daha sonra kodunuzdan bu hizmetindeki verilere erişmek için bağlantı dizesini kullanmanız mümkün olmaz.
+Depolama uç nokta tooa özel bir etki alanı eşlenen ve bu uç bağlantı dizesinden mümkün toouse olmaz atlayın Bu bağlantı o hizmet kodunuzdan tooaccess verileri dize.
 
 > [!IMPORTANT]
-> Hizmet uç noktası değerleri bağlantı dizelerinizi doğru biçimlendirilmiş olmalıdır URI'ler dahil olmak üzere, `https://` (önerilen) veya `http://`. Azure Storage henüz HTTPS özel etki alanları için desteklemediğinden, *gerekir* belirtin `http://` için herhangi bir uç nokta için özel bir etki alanı gösteren URI.
+> Hizmet uç noktası değerleri bağlantı dizelerinizi doğru biçimlendirilmiş olmalıdır URI'ler dahil olmak üzere, `https://` (önerilen) veya `http://`. Azure Storage henüz HTTPS özel etki alanları için desteklemediğinden, *gerekir* belirtin `http://` için herhangi bir uç nokta tooa özel etki alanı gösteren URI.
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Bir uç nokta soneki ile bir bağlantı dizesi oluşturma
-Azure Çin veya Azure kamu gibi bölgelerde veya farklı uç nokta sonekleri örnekleriyle depolama hizmeti için bir bağlantı dizesi oluşturmak için aşağıdaki bağlantı dizesi biçimi kullanın. (Önerilen) HTTPS üzerinden depolama hesabı bağlanmak istediğiniz veya HTTP belirtmek, yerine `myAccountName` depolama hesabınızın adıyla değiştirin `myAccountKey` hesap erişim tuşu ve Değiştir ile `mySuffix` URI soneki:
+toocreate bir bağlantı dizesi için bölgeler ve farklı uç nokta sonekleri örnekleriyle depolama hizmetinde gibi Azure Çin veya Azure kamu, bağlantı dizesi biçimi aşağıdaki kullanım hello için. (Önerilen) HTTPS üzerinden tooconnect toohello depolama hesabı isteyip istemediğiniz veya HTTP belirtmek, yerine `myAccountName` depolama hesabınız hello adıyla değiştirin `myAccountKey` hesap erişim tuşu ve Değiştir ile `mySuffix` hello URI ile soneki:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -133,7 +133,7 @@ EndpointSuffix=core.chinacloudapi.cn;
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Geliştirme ve sınama için Azure storage öykünücüsünü kullanma](storage-use-emulator.md)
+* [Geliştirme ve test amacıyla Hello Azure storage öykünücüsünü kullanma](storage-use-emulator.md)
 * [Azure depolama gezginleri](storage-explorers.md)
 * [Paylaşılan erişim imzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md)
 

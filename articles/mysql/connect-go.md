@@ -1,6 +1,6 @@
 ---
-title: "Go'yu kullanarak MySQL için Azure Veritabanı'na bağlanma | Microsoft Docs"
-description: "Bu hızlı başlangıçta, MySQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz birkaç Go kod örneği sağlanmıştır."
+title: "TooAzure veritabanı için MySQL Git kullanarak bağlanma | Microsoft Docs"
+description: "Bu hızlı başlangıç MySQL için Azure veritabanındaki verileri sorgulamak ve tooconnect için kullanabileceğiniz birkaç Git kod örnekleri sağlar."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,32 +11,32 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: hero-article
 ms.date: 07/18/2017
-ms.openlocfilehash: 42a6b1c37de08971674c8b38f1e13bfd657f8b03
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: e8067b807ee729e04850c5325f476806bcd54983
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Go dilini kullanma
-Bu hızlı başlangıçta, Windows, Ubuntu Linux ve Apple macOS platformlarından [Go](https://golang.org/) dilinde yazılmış kod kullanarak MySQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Ayrıca veritabanında veri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini nasıl kullanacağınız da gösterilmiştir. Bu makalede, Go kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+# <a name="azure-database-for-mysql-use-go-language-tooconnect-and-query-data"></a>Azure veritabanı için MySQL: dil tooconnect ve sorgu veri kullanımı gidin
+Bu hızlı başlangıç gösterir nasıl MySQL kullanma tooconnect tooan Azure veritabanı kod yazılmış Merhaba [Git](https://golang.org/) macOS platformları Windows, Ubuntu Linux ve Apple dili. Nasıl toouse SQL deyimleri tooquery, Ekle, Güncelleştir ve hello veritabanında bulunan verileri silme gösterir. Bu makale, Azure veritabanı için MySQL ile yeni tooworking olan ancak bu, Git, kullanarak geliştirme ile bildiğinizi varsayar.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
+Bu hızlı başlangıç Bu kılavuzlara birini başlangıç noktası olarak oluşturulan hello kaynakları kullanır:
 - [Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Azure CLI kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>Go ve MySQL bağlayıcısını yükleme
-Makinenize [Go](https://golang.org/doc/install) ve [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation)'i yükleyin. Platformunuza bağlı olarak, şu adımları izleyin:
+Yükleme [Git](https://golang.org/doc/install) ve hello [MySQL için Git-sql-sürücü](https://github.com/go-sql-driver/mysql#installation) kendi makinede. Platformunuz bağlı olarak hello adımları izleyin:
 
 ### <a name="windows"></a>Windows
-1. [Yükleme yönergelerine](https://golang.org/doc/install) uygun olarak Microsoft Windows için Go’yu [indirin](https://golang.org/dl/) ve yükleyin.
-2. Başlat menüsünden komut istemini başlatın.
+1. [Karşıdan](https://golang.org/dl/) ve Microsoft toohello göre Windows için Git yükleme [yükleme yönergeleri](https://golang.org/doc/install).
+2. Merhaba Başlat menüsünden Hello komut istemi başlatın.
 3. Projeniz için şöyle bir klasör oluşturun. `mkdir  %USERPROFILE%\go\src\mysqlgo`.
-4. Dizini değiştirerek proje klasörünüze geçin; örneğin, `cd %USERPROFILE%\go\src\mysqlgo`.
-5. GOPATH için ortam değişkenini kaynak kod dizinine işaret edecek şekilde ayarlayın. `set GOPATH=%USERPROFILE%\go`.
-6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin.
+4. Dizin hello proje klasörüne gibi değiştirmek `cd %USERPROFILE%\go\src\mysqlgo`.
+5. Merhaba ortam değişkeni GOPATH toopoint toohello kaynak kod dizini için ayarlayın. `set GOPATH=%USERPROFILE%\go`.
+6. Merhaba yüklemek [mysql için Git-sql-sürücü](https://github.com/go-sql-driver/mysql#installation) hello çalıştırarak `go get github.com/go-sql-driver/mysql` komutu.
 
-   Özetle, Go’yu yükleyin ve ardından komut isteminde şu komutları çalıştırın:
+   Özet olarak, Git yüklemeniz ve ardından hello komut isteminde şu komutları çalıştırın:
    ```cmd
    mkdir  %USERPROFILE%\go\src\mysqlgo
    cd %USERPROFILE%\go\src\mysqlgo
@@ -45,12 +45,12 @@ Makinenize [Go](https://golang.org/doc/install) ve [go-sql-driver for MySQL](htt
    ```
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-1. Bash kabuğunu başlatın. 
+1. Merhaba Bash kabuğunda başlatın. 
 2. `sudo apt-get install golang-go` komutunu çalıştırarak Go'yu yükleyin.
 3. Giriş dizininizde projeniz için `mkdir -p ~/go/src/mysqlgo/` gibi bir klasör oluşturun.
-4. Dizini değiştirerek klasöre geçin; örneğin, `cd ~/go/src/mysqlgo/`.
-5. GOPATH ortam değişkenini geçerli bir kaynak dizine, örneğin geçerli giriş dizininizin go klasörüne işaret edecek şekilde ayarlayın. Bash kabuğunda `export GOPATH=~/go` komutunu çalıştırarak geçerli kabuk oturumu için GOPATH olarak go dizinini ayarlayın.
-6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin.
+4. Dizin hello klasörüne gibi değiştirmek `cd ~/go/src/mysqlgo/`.
+5. Kümesi hello GOPATH ortam değişkeni toopoint tooa geçerli bir kaynak dizini, geçerli ev gibi dizinin klasörüne gidin. Merhaba bash kabuğunda çalıştırmak `export GOPATH=~/go` tooadd hello hello geçerli kabuk oturumu için GOPATH hello gibi dizin gidin.
+6. Merhaba yüklemek [mysql için Git-sql-sürücü](https://github.com/go-sql-driver/mysql#installation) hello çalıştırarak `go get github.com/go-sql-driver/mysql` komutu.
 
    Özetle, şu bash komutlarını çalıştırın:
    ```bash
@@ -62,12 +62,12 @@ Makinenize [Go](https://golang.org/doc/install) ve [go-sql-driver for MySQL](htt
    ```
 
 ### <a name="apple-macos"></a>Apple macOS
-1. Platformunuza uygun [yükleme yönergelerine](https://golang.org/doc/install) göre Go’yu indirip yükleyin. 
-2. Bash kabuğunu başlatın. 
+1. İndirme ve yükleme toohello göre Git [yükleme yönergeleri](https://golang.org/doc/install) platformunuz eşleşen. 
+2. Merhaba Bash kabuğunda başlatın. 
 3. Giriş dizininizde projeniz için `mkdir -p ~/go/src/mysqlgo/` gibi bir klasör oluşturun.
-4. Dizini değiştirerek klasöre geçin; örneğin, `cd ~/go/src/mysqlgo/`.
-5. GOPATH ortam değişkenini geçerli bir kaynak dizine, örneğin geçerli giriş dizininizin go klasörüne işaret edecek şekilde ayarlayın. Bash kabuğunda `export GOPATH=~/go` komutunu çalıştırarak geçerli kabuk oturumu için GOPATH olarak go dizinini ayarlayın.
-6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin.
+4. Dizin hello klasörüne gibi değiştirmek `cd ~/go/src/mysqlgo/`.
+5. Kümesi hello GOPATH ortam değişkeni toopoint tooa geçerli bir kaynak dizini, geçerli ev gibi dizinin klasörüne gidin. Merhaba bash kabuğunda çalıştırmak `export GOPATH=~/go` tooadd hello hello geçerli kabuk oturumu için GOPATH hello gibi dizin gidin.
+6. Merhaba yüklemek [mysql için Git-sql-sürücü](https://github.com/go-sql-driver/mysql#installation) hello çalıştırarak `go get github.com/go-sql-driver/mysql` komutu.
 
    Özetle, Go’yu yükleyin ve ardından şu bash komutlarını çalıştırın:
    ```bash
@@ -78,32 +78,32 @@ Makinenize [Go](https://golang.org/doc/install) ve [go-sql-driver for MySQL](htt
    ```
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
-MySQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
+Merhaba bağlantı gerekli bilgileri tooconnect toohello Azure veritabanı için MySQL alın. Tam sunucu adını ve oturum açma kimlik bilgileri hello gerekir.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **myserver4demo**) arayın.
-3. **myserver4demo** sunucu adına tıklayın.
-4. Sunucunun **Özellikler** sayfasını seçin. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Merhaba sol taraftaki menüden Azure portalında, **tüm kaynakları** ve aramak için creased, gibi hello sunucu **myserver4demo**.
+3. Merhaba sunucu adına tıklatarak **myserver4demo**.
+4. Select hello sunucunun **özellikleri** sayfası. Merhaba Not **sunucu adı** ve **sunucu yönetici oturum açma adı**.
  ![MySQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma](./media/connect-go/1_server-properties-name-login.png)
-5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+5. Sunucu oturum açma bilgilerinizi unutursanız, toohello gidin **genel bakış** tooview hello sunucu yönetici oturum açma adı sayfasında ve gerekirse sıfırlamak hello parola.
    
 
 ## <a name="build-and-run-go-code"></a>Go kodunu derleme ve çalıştırma 
-1. Golang kodlarını yazmak için Microsoft Windows’da Not Defteri , Ubuntu’da [VI](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) veya [Nano](https://www.nano-editor.org/), macOS’da TextEdit gibi basit metin düzenleyicilerini kullanabilirsiniz. Daha zengin bir Tümleşik Geliştirme Ortamı (IDE) tercih ediyorsanız [Atom](https://atom.io/), Jetbrains [Gogland](https://www.jetbrains.com/go/) veya Microsoft [Visual Studio Code](https://code.visualstudio.com/) kullanmayı deneyebilirsiniz.
-2. Aşağıdaki bölümde bulunan Go kodunu metin dosyalarına yapıştırın ve \*.go dosya uzantısıyla proje klasörünüze kaydedin; örneğin, Windows'da `%USERPROFILE%\go\src\mysqlgo\createtable.go` yolu veya Linux'ta `~/go/src/mysqlgo/createtable.go` yolu.
-3. Kodda `HOST`, `DATABASE`, `USER` ve `PASSWORD` sabitlerini bulun ve örnek değerleri kendi değerlerinizle değiştirin. 
-4. Komut istemini veya bash kabuğunu başlatın. Dizini değiştirerek proje klasörünüze geçin. Örneğin; Windows’da `cd %USERPROFILE%\go\src\mysqlgo\`. Linux'ta `cd ~/go/src/mysqlgo/`.  Belirtilen IDE düzenleyicilerinden bazıları kabuk komutları gerektirmeden hata ayıklama ve çalışma zamanı özellikleri sunar.
-5. Uygulamayı derlemek ve çalıştırmak için `go run createtable.go` komutunu yazarak kodu çalıştırın. 
-6. Alternatif olarak, kodu yerel bir uygulamada derlemek için `go build createtable.go` komutunu kullanın, ardından uygulamayı çalıştırmak için `createtable.exe`’yi başlatın.
+1. toowrite Golang kodu, Microsoft Windows, Not Defteri gibi bir basit bir metin düzenleyicisi kullanabilirsiniz [VI](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) veya [Nano](https://www.nano-editor.org/) Ubuntu ya da macOS TextEdit. Daha zengin bir Tümleşik Geliştirme Ortamı (IDE) tercih ediyorsanız [Atom](https://atom.io/), Jetbrains [Gogland](https://www.jetbrains.com/go/) veya Microsoft [Visual Studio Code](https://code.visualstudio.com/) kullanmayı deneyebilirsiniz.
+2. Merhaba hello bölümlere Git koddan metin dosyasına yapıştırın ve proje klasörünüzdeki dosya uzantısına sahip saklamalısınız \*Windows yolu gibi .go `%USERPROFILE%\go\src\mysqlgo\createtable.go` ya da Linux yolu `~/go/src/mysqlgo/createtable.go`.
+3. Merhaba bulun `HOST`, `DATABASE`, `USER`, ve `PASSWORD` sabitleri hello kod ve kendi değerlerle değiştirin hello örnek değerler. 
+4. Merhaba komut istemi başlatın veya kabuk bash. Dizini değiştirerek proje klasörünüze geçin. Örneğin; Windows’da `cd %USERPROFILE%\go\src\mysqlgo\`. Linux'ta `cd ~/go/src/mysqlgo/`.  Belirtilen hello IDE düzenleyicileri bazıları, hata ayıklama ve çalışma zamanı yeteneklerini Kabuk komutları gerek kalmadan sunar.
+5. Merhaba komutu yazarak Hello kodu çalıştırma `go run createtable.go` toocompile hello uygulama ve çalıştırın. 
+6. Alternatif olarak, toobuild hello kodu yerel bir uygulamaya `go build createtable.go`, ardından başlatma `createtable.exe` toorun Merhaba uygulaması.
 
 ## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
-Sunucuya bağlanmak, tablo oluşturmak ve **INSERT** SQL deyimini kullanarak verileri yüklemek için aşağıdaki kodu kullanın. 
+Kullanım hello aşağıdaki kod tooconnect toohello sunucu, bir tablo oluşturun ve verileri hello kullanarak yük bir **Ekle** SQL deyimi. 
 
-Kod üç paketi içeri aktarır: [sql paketi](https://golang.org/pkg/database/sql/), MySQL için Azure Veritabanı'yla iletişim kuran sürücü olarak [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) ve komut satırında yazdırılan girdi ve çıktı için [fmt paketi](https://golang.org/pkg/fmt/).
+Merhaba kod üç paketlerini içeri aktarır: hello [sql paketi](https://golang.org/pkg/database/sql/), hello [gidin sql sürücüsü mysql için](https://github.com/go-sql-driver/mysql#installation) sürücü toocommunicate hello Azure veritabanı için MySQL ve hello olarak [fmt paket](https://golang.org/pkg/fmt/)yazdırılan giriş ve çıkış hello komut satırında için.
 
-Kod, [sql.Open()](http://go-database-sql.org/accessing.html) yöntemini çağırarak MySQL için Azure Veritabanı’na bağlanır ve [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) yöntemini kullanarak bağlantıyı kontrol eder. İşlem boyunca, veritabanı sunucusu için bağlantı havuzunu tutan bir [veritabanı tanıtıcı](https://golang.org/pkg/database/sql/#DB) kullanılır. Kod, birkaç DDL komutunu çalıştırmak için birkaç kez [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) yöntemini çağırır. Kod ayrıca, hazırlanmış deyimleri farklı parametrelerle çalıştırıp üç satır eklemek için [Prepare()](http://go-database-sql.org/prepared.html) ve Exec() kullanır. Her seferinde hata oluşup olmadığını denetlemek ve acil çıkış yapmak için özel bir checkError() yöntemi kullanılır.
+Merhaba kod yöntemi çağırır [sql. Open()](http://go-database-sql.org/accessing.html) tooconnect tooAzure veritabanı için MySQL ve denetimleri hello bağlantı yöntemini kullanarak [db. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [veritabanı işleci](https://golang.org/pkg/database/sql/#DB) boyunca, hello bağlantı havuzu hello veritabanı sunucusu için bulunduran kullanılır. Merhaba kod çağrıları hello [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) yöntemi birkaç kez toorun birkaç DDL komutları. Merhaba kodu da hello kullanan [Prepare()](http://go-database-sql.org/prepared.html) ve Exec() toorun hazırlanan farklı parametrelerle deyimleri tooinsert üç satır. Bir hata oluştu ve tooexit Panik her zaman bir özel checkError() kullanılan toocheck yöntemidir.
 
-`host`, `database`, `user` ve `password` sabitlerini kendi değerlerinizle değiştirin. 
+Hello yerine `host`, `database`, `user`, ve `password` sabitleri kendi değerlere sahip. 
 
 ```Go
 package main
@@ -140,7 +140,7 @@ func main() {
 
     err = db.Ping()
     checkError(err)
-    fmt.Println("Successfully created connection to database.")
+    fmt.Println("Successfully created connection toodatabase.")
 
     // Drop previous table of same name if one exists.
     _, err = db.Exec("DROP TABLE IF EXISTS inventory;")
@@ -174,13 +174,13 @@ func main() {
 ```
 
 ## <a name="read-data"></a>Verileri okuma
-Bağlanmak ve **SELECT** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. 
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak verileri okuyun bir **seçin** SQL deyimi. 
 
-Kod üç paketi içeri aktarır: [sql paketi](https://golang.org/pkg/database/sql/), MySQL için Azure Veritabanı'yla iletişim kuran sürücü olarak [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) ve komut satırında yazdırılan girdi ve çıktı için [fmt paketi](https://golang.org/pkg/fmt/).
+Merhaba kod üç paketlerini içeri aktarır: hello [sql paketi](https://golang.org/pkg/database/sql/), hello [gidin sql sürücüsü mysql için](https://github.com/go-sql-driver/mysql#installation) sürücü toocommunicate hello Azure veritabanı için MySQL ve hello olarak [fmt paket](https://golang.org/pkg/fmt/)yazdırılan giriş ve çıkış hello komut satırında için.
 
-Kod, [sql.Open()](http://go-database-sql.org/accessing.html) yöntemini çağırarak MySQL için Azure Veritabanı’na bağlanır ve [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) yöntemini kullanarak bağlantıyı kontrol eder. İşlem boyunca, veritabanı sunucusu için bağlantı havuzunu tutan bir [veritabanı tanıtıcı](https://golang.org/pkg/database/sql/#DB) kullanılır. Kod, seçme komutunu çalıştırmak için [Query()](https://golang.org/pkg/database/sql/#DB.Query) yöntemini çağırır. Ardından, sonuç kümesi üzerinden yineleme yapmak için [Next()](https://golang.org/pkg/database/sql/#Rows.Next) ve sütun değerlerini ayrıştırıp değeri değişkenlere kaydetmek için [Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) çalıştırır. Her seferinde hata oluşup olmadığını denetlemek ve acil çıkış yapmak için özel bir checkError() yöntemi kullanılır.
+Merhaba kod yöntemi çağırır [sql. Open()](http://go-database-sql.org/accessing.html) tooconnect tooAzure veritabanı için MySQL ve denetimleri hello bağlantı yöntemini kullanarak [db. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [veritabanı işleci](https://golang.org/pkg/database/sql/#DB) boyunca, hello bağlantı havuzu hello veritabanı sunucusu için bulunduran kullanılır. Merhaba kod çağrıları hello [Query()](https://golang.org/pkg/database/sql/#DB.Query) yöntemi toorun hello select komutu. Çalıştıktan sonra [Next()](https://golang.org/pkg/database/sql/#Rows.Next) hello sonuç kümesi aracılığıyla tooiterate ve [Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) tooparse hello sütun değerleri, değişkenlere hello değeri kaydetme. Bir hata oluştu ve tooexit Panik her zaman bir özel checkError() kullanılan toocheck yöntemidir.
 
-`host`, `database`, `user` ve `password` sabitlerini kendi değerlerinizle değiştirin. 
+Hello yerine `host`, `database`, `user`, ve `password` sabitleri kendi değerlere sahip. 
 
 ```Go
 package main
@@ -217,7 +217,7 @@ func main() {
 
     err = db.Ping()
     checkError(err)
-    fmt.Println("Successfully created connection to database.")
+    fmt.Println("Successfully created connection toodatabase.")
 
     // Variables for printing column data when scanned.
     var (
@@ -226,7 +226,7 @@ func main() {
         quantity int
     )
 
-    // Read some data from the table.
+    // Read some data from hello table.
     rows, err := db.Query("SELECT id, name, quantity from inventory;")
     checkError(err)
     defer rows.Close()
@@ -243,13 +243,13 @@ func main() {
 ```
 
 ## <a name="update-data"></a>Verileri güncelleştirme
-Bağlanmak ve **UPDATE** SQL deyimi kullanarak verileri güncelleştirmek için aşağıdaki kodu kullanın. 
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak veri güncelleştirme bir **güncelleştirme** SQL deyimi. 
 
-Kod üç paketi içeri aktarır: [sql paketi](https://golang.org/pkg/database/sql/), MySQL için Azure Veritabanı'yla iletişim kuran sürücü olarak [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) ve komut satırında yazdırılan girdi ve çıktı için [fmt paketi](https://golang.org/pkg/fmt/).
+Merhaba kod üç paketlerini içeri aktarır: hello [sql paketi](https://golang.org/pkg/database/sql/), hello [gidin sql sürücüsü mysql için](https://github.com/go-sql-driver/mysql#installation) sürücü toocommunicate hello Azure veritabanı için MySQL ve hello olarak [fmt paket](https://golang.org/pkg/fmt/)yazdırılan giriş ve çıkış hello komut satırında için.
 
-Kod, [sql.Open()](http://go-database-sql.org/accessing.html) yöntemini çağırarak MySQL için Azure Veritabanı’na bağlanır ve [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) yöntemini kullanarak bağlantıyı kontrol eder. İşlem boyunca, veritabanı sunucusu için bağlantı havuzunu tutan bir [veritabanı tanıtıcı](https://golang.org/pkg/database/sql/#DB) kullanılır. Kod, güncelleştirme komutunu çalıştırmak için [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) yöntemini çağırır. Her seferinde hata oluşup olmadığını denetlemek ve acil çıkış yapmak için özel bir checkError() yöntemi kullanılır.
+Merhaba kod yöntemi çağırır [sql. Open()](http://go-database-sql.org/accessing.html) tooconnect tooAzure veritabanı için MySQL ve denetimleri hello bağlantı yöntemini kullanarak [db. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [veritabanı işleci](https://golang.org/pkg/database/sql/#DB) boyunca, hello bağlantı havuzu hello veritabanı sunucusu için bulunduran kullanılır. Merhaba kod çağrıları hello [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) yöntemi toorun hello güncelleştirme komutu. Bir hata oluştu ve tooexit Panik her zaman bir özel checkError() kullanılan toocheck yöntemidir.
 
-`host`, `database`, `user` ve `password` sabitlerini kendi değerlerinizle değiştirin. 
+Hello yerine `host`, `database`, `user`, ve `password` sabitleri kendi değerlere sahip. 
 
 ```Go
 package main
@@ -286,7 +286,7 @@ func main() {
 
     err = db.Ping()
     checkError(err)
-    fmt.Println("Successfully created connection to database.")
+    fmt.Println("Successfully created connection toodatabase.")
 
     // Modify some data in table.
     rows, err := db.Exec("UPDATE inventory SET quantity = ? WHERE name = ?", 200, "banana")
@@ -298,13 +298,13 @@ func main() {
 ```
 
 ## <a name="delete-data"></a>Verileri silme
-Bağlanmak ve **DELETE** SQL deyimini kullanarak verileri kaldırmak için aşağıdaki kodu kullanın. 
+Kullanım hello aşağıdaki tooconnect kod ve verileri kullanarak kaldırma bir **silmek** SQL deyimi. 
 
-Kod üç paketi içeri aktarır: [sql paketi](https://golang.org/pkg/database/sql/), MySQL için Azure Veritabanı'yla iletişim kuran sürücü olarak [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) ve komut satırında yazdırılan girdi ve çıktı için [fmt paketi](https://golang.org/pkg/fmt/).
+Merhaba kod üç paketlerini içeri aktarır: hello [sql paketi](https://golang.org/pkg/database/sql/), hello [gidin sql sürücüsü mysql için](https://github.com/go-sql-driver/mysql#installation) sürücü toocommunicate hello Azure veritabanı için MySQL ve hello olarak [fmt paket](https://golang.org/pkg/fmt/)yazdırılan giriş ve çıkış hello komut satırında için.
 
-Kod, [sql.Open()](http://go-database-sql.org/accessing.html) yöntemini çağırarak MySQL için Azure Veritabanı’na bağlanır ve [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) yöntemini kullanarak bağlantıyı kontrol eder. İşlem boyunca, veritabanı sunucusu için bağlantı havuzunu tutan bir [veritabanı tanıtıcı](https://golang.org/pkg/database/sql/#DB) kullanılır. Kod, silme komutunu çalıştırmak için [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) yöntemini çağırır. Her seferinde hata oluşup olmadığını denetlemek ve acil çıkış yapmak için özel bir checkError() yöntemi kullanılır.
+Merhaba kod yöntemi çağırır [sql. Open()](http://go-database-sql.org/accessing.html) tooconnect tooAzure veritabanı için MySQL ve denetimleri hello bağlantı yöntemini kullanarak [db. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [veritabanı işleci](https://golang.org/pkg/database/sql/#DB) boyunca, hello bağlantı havuzu hello veritabanı sunucusu için bulunduran kullanılır. Merhaba kod çağrıları hello [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) yöntemi toorun hello Sil komutu. Bir hata oluştu ve tooexit Panik her zaman bir özel checkError() kullanılan toocheck yöntemidir.
 
-`host`, `database`, `user` ve `password` sabitlerini kendi değerlerinizle değiştirin. 
+Hello yerine `host`, `database`, `user`, ve `password` sabitleri kendi değerlere sahip. 
 
 ```Go
 package main
@@ -340,7 +340,7 @@ func main() {
 
     err = db.Ping()
     checkError(err)
-    fmt.Println("Successfully created connection to database.")
+    fmt.Println("Successfully created connection toodatabase.")
 
     // Modify some data in table.
     rows, err := db.Exec("DELETE FROM inventory WHERE name = ?", "orange")

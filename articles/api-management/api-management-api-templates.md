@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management'te API şablonları | Microsoft Docs"
-description: "Azure API Management'ta Geliştirici portalını API sayfalarında içeriğini özelleştirmeyi öğrenin."
+title: "Azure API Management'te aaaAPI şablonları | Microsoft Docs"
+description: "Nasıl toocustomize hello hello Azure API Management'ta Geliştirici portalını hello API sayfalarında içeriğini öğrenin."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 3802868470f0f74cd1f895a00195259861ea16f8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fdfa76167cfaf3b23b22d6321904f34da077fecb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management'te API şablonları
-Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriği özelleştirme yeteneği sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve düzenleyiciyi, gibi [DotLiquid tasarımcıları için](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfa denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde sayfaların yapılandırmak için büyük esneklik vardır.  
+Azure API Management yeteneği toocustomize hello Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriğini hello sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve hello düzenleyiciyi, gibi [tasarımcıları için DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [ Karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfasında denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde hello sayfaların büyük esneklik tooconfigure hello içeriğe sahip.  
   
- Bu bölümdeki şablonları Geliştirici Portalı API sayfalarında içeriğini özelleştirmenize olanak sağlar.  
+ Bu bölümdeki Hello şablonları hello Geliştirici Portalı'nda toocustomize hello hello API sayfaların içeriğini sağlar.  
   
 -   [API listesi](#APIList)  
 -   [İşlem](#Product)  
@@ -38,10 +38,10 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
     -   [Ruby](#Ruby)  
 
 > [!NOTE]
->  Örnek varsayılan şablonları aşağıdaki belgelerde yer alır ancak değişikliği sürekli geliştirmeler nedeniyle tabidir. İstenen tek tek şablonları giderek Geliştirici Portalı'nda Canlı varsayılan şablonları görüntüleyebilirsiniz. Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Örnek varsayılan şablonları belgelerine aşağıdaki hello dahil olan, ancak konu toochange toocontinuous geliştirmeler nedeniyle. İstenen toohello tek tek şablonları giderek hello Canlı varsayılan şablonları hello Geliştirici Portalı'nda görüntüleyebilirsiniz. Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="APIList"></a>API listesi  
- **API listesi** şablonu Geliştirici portalında API listesi sayfasının gövdesi özelleştirmenizi sağlar.  
+ Merhaba **API listesi** şablonu verir hello API listesi sayfasının toocustomize hello gövdesi hello Geliştirici Portalı'nda.  
   
  ![Geliştirici Portalı API listesi](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Geliştirici Portalı şablonları API listesi")  
   
@@ -76,7 +76,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ### <a name="controls"></a>Denetimler  
- `API list` Şablonu, aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba `API list` şablonu hello aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
   
 -   [disk belleği denetimi](api-management-page-controls.md#paging-control)  
   
@@ -86,7 +86,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|API'leri|Koleksiyonu [API özeti](api-management-template-data-model-reference.md#APISummary) varlıklar.|API'ler geçerli kullanıcıya görünür.|  
+|API'leri|Koleksiyonu [API özeti](api-management-template-data-model-reference.md#APISummary) varlıklar.|Merhaba API'leri görünür toohello geçerli kullanıcı.|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -109,7 +109,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ##  <a name="Product"></a>İşlemi  
- **İşlemi** şablonu Geliştirici portalında işlemi sayfasının gövdesi özelleştirmenizi sağlar.  
+ Merhaba **işlemi** şablonu verir hello işlemi sayfasının toocustomize hello gövdesi hello Geliştirici Portalı'nda.  
   
  ![Geliştirici Portalı işlemi sayfa](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Geliştirici Portalı şablonlarını işlemi")  
   
@@ -335,21 +335,21 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ### <a name="controls"></a>Denetimler  
- `Operation` Şablonu herhangi kullanılmasına izin verme [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba `Operation` şablon herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Veri modeli  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|ApiId|Dize|Geçerli API kimliği.|  
-|apiName|Dize|API adı.|  
-|apiDescription|Dize|API açıklaması.|  
-|api|[API özeti](api-management-template-data-model-reference.md#APISummary) varlık.|Geçerli API.|  
-|işlemi|[İşlem](api-management-template-data-model-reference.md#Operation)|Şu anda görüntülenen işlemi.|  
-|sampleUrl|Dize|Geçerli işlem için URL.|  
+|ApiId|Dize|Merhaba geçerli API Hello kimliği.|  
+|apiName|Dize|Merhaba API Hello adı.|  
+|apiDescription|Dize|Merhaba API açıklaması.|  
+|api|[API özeti](api-management-template-data-model-reference.md#APISummary) varlık.|Merhaba geçerli API.|  
+|işlemi|[İşlem](api-management-template-data-model-reference.md#Operation)|şu anda görüntülenen hello işlemi.|  
+|sampleUrl|Dize|Merhaba geçerli işlem için Hello URL.|  
 |operationMenu|[İşlemi menüsü](api-management-template-data-model-reference.md#Menu)|Bu API işlemlerinin menüsü.|  
-|consoleUrl|URI|URI'sini **deneyin** düğmesi.|  
-|Örnekleri|Koleksiyonu [kod örneği](api-management-template-data-model-reference.md#Sample) varlıklar.|Geçerli işlem için kod örnekleri...|  
+|consoleUrl|URI|Merhaba URI hello **deneyin** düğmesi.|  
+|Örnekleri|Koleksiyonu [kod örneği](api-management-template-data-model-reference.md#Sample) varlıklar.|Merhaba kod örnekleri hello geçerli işlem için...|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -376,7 +376,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -456,7 +456,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -480,7 +480,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -504,7 +504,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -528,7 +528,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -552,7 +552,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -576,7 +576,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -600,7 +600,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -624,7 +624,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -639,7 +639,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ##  <a name="CodeSamples"></a>Kod örnekleri  
- Aşağıdaki şablonlardan işlemi sayfasında tek tek kod örnekleri gövdesi özelleştirmenizi sağlar.  
+ Merhaba aşağıdaki şablonlardan toocustomize hello gövde hello tek tek kod örnekleri hello işlemi sayfasında sağlar.  
   
  ![Geliştirici Portalı şablonları kod örnekleri](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Geliştirici Portalı şablonları kod örnekleri")  
   
@@ -660,7 +660,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 -   [Ruby](#Ruby)  
   
 ###  <a name="Curl"></a>Curl  
- **DocumentationSamplesCurl** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
+ Merhaba **DocumentationSamplesCurl** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.  
   
 #### <a name="default-template"></a>Varsayılan şablonu  
   
@@ -678,7 +678,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ```  
   
 #### <a name="controls"></a>Denetimler  
- Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Veri modeli  
  [Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.  
@@ -700,7 +700,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -713,7 +713,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ```  
   
 ###  <a name="CSharp"></a>C#  
- **DocumentationSamplesCsharp** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
+ Merhaba **DocumentationSamplesCsharp** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.  
   
 #### <a name="default-template"></a>Varsayılan şablonu  
   
@@ -731,7 +731,7 @@ namespace CSHttpClientSample
         static void Main()  
         {  
             MakeRequest();  
-            Console.WriteLine("Hit ENTER to exit...");  
+            Console.WriteLine("Hit ENTER tooexit...");  
             Console.ReadLine();  
         }  
   
@@ -857,7 +857,7 @@ namespace CSHttpClientSample
 ```  
   
 #### <a name="controls"></a>Denetimler  
- Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Veri modeli  
  [Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.  
@@ -879,7 +879,7 @@ namespace CSHttpClientSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -892,12 +892,12 @@ namespace CSHttpClientSample
 ```  
   
 ###  <a name="Stub"></a>Java  
- **DocumentationSamplesJava** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
+ Merhaba **DocumentationSamplesJava** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.  
   
 #### <a name="default-template"></a>Varsayılan şablonu  
   
 ```xml  
-// // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// // This sample uses hello Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
 import org.apache.http.HttpResponse;  
@@ -953,7 +953,7 @@ public class JavaSample
 ```  
   
 #### <a name="controls"></a>Denetimler  
- Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Veri modeli  
  [Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.  
@@ -975,7 +975,7 @@ public class JavaSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -988,7 +988,7 @@ public class JavaSample
 ```  
   
 ###  <a name="JavaScript"></a>JavaScript  
- **DocumentationSamplesJs** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
+ Merhaba **DocumentationSamplesJs** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.  
   
 #### <a name="default-template"></a>Varsayılan şablonu  
   
@@ -1042,7 +1042,7 @@ public class JavaSample
 ```  
   
 #### <a name="controls"></a>Denetimler  
- Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Veri modeli  
  [Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.  
@@ -1064,7 +1064,7 @@ public class JavaSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1077,7 +1077,7 @@ public class JavaSample
 ```  
   
 ###  <a name="ObjectiveC"></a>Objective C  
- **DocumentationSamplesObjc** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
+ Merhaba **DocumentationSamplesObjc** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.  
   
 #### <a name="default-template"></a>Varsayılan şablonu  
   
@@ -1154,7 +1154,7 @@ int main(int argc, const char * argv[])
 ```  
   
 #### <a name="controls"></a>Denetimler  
- Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Veri modeli  
  [Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.  
@@ -1176,7 +1176,7 @@ int main(int argc, const char * argv[])
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1189,13 +1189,13 @@ int main(int argc, const char * argv[])
 ```  
   
 ###  <a name="PHP"></a>PHP  
- **DocumentationSamplesPhp** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
+ Merhaba **DocumentationSamplesPhp** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.  
   
 #### <a name="default-template"></a>Varsayılan şablonu  
   
 ```xml  
 <?php  
-// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// This sample uses hello Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 require_once 'HTTP/Request2.php';  
   
 $request = new Http_Request2('{{scheme}}://{{host}}{{path}}');  
@@ -1244,7 +1244,7 @@ catch (HttpException $ex)
 ```  
   
 #### <a name="controls"></a>Denetimler  
- Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Veri modeli  
  [Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.  
@@ -1266,7 +1266,7 @@ catch (HttpException $ex)
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1279,7 +1279,7 @@ catch (HttpException $ex)
 ```  
   
 ###  <a name="Python"></a>Python  
- **DocumentationSamplesPython** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
+ Merhaba **DocumentationSamplesPython** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.  
   
 #### <a name="default-template"></a>Varsayılan şablonu  
   
@@ -1362,7 +1362,7 @@ except Exception as e:
 ```  
   
 #### <a name="controls"></a>Denetimler  
- Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Veri modeli  
  [Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.  
@@ -1384,7 +1384,7 @@ except Exception as e:
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1397,7 +1397,7 @@ except Exception as e:
 ```  
   
 ###  <a name="Ruby"></a>Ruby  
- **DocumentationSamplesRuby** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
+ Merhaba **DocumentationSamplesRuby** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.  
   
 #### <a name="default-template"></a>Varsayılan şablonu  
   
@@ -1433,7 +1433,7 @@ puts response.body
 ```  
   
 #### <a name="controls"></a>Denetimler  
- Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
+ Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Veri modeli  
  [Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.  
@@ -1455,7 +1455,7 @@ puts response.body
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1468,4 +1468,4 @@ puts response.body
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](api-management-developer-portal-templates.md).
+Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](api-management-developer-portal-templates.md).

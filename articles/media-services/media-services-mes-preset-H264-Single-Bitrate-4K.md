@@ -1,6 +1,6 @@
 ---
-title: "H264 Çoklu bit hızı 4K Medya Kodlayıcısı standart hazır - Azure | Microsoft Docs"
-description: "Konuyu genel bir fikir veren ** H264 Çoklu bit hızı 4 K ** görev hazır."
+title: "aaaH264 tek bit hızlı 4K Medya Kodlayıcısı standart hazır - Azure | Microsoft Docs"
+description: "Merhaba konu hello genel bir bakış sunar ** H264 Çoklu bit hızı 4 K ** görev hazır."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 64c68363d4ba89e9ebbcaca8ff45d12f771e3a8c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3a88207ba89baaefddfea631aa5d4c1c74194c68
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="h264-single-bitrate-4k"></a>H264 Çoklu bit hızı 4K
-`Media Encoder Standard`kodlama işler oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine medya dosyanızın kodlamak istediğiniz belirtmek için. Veya, kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından kodlayıcıya önceden özel geçirirsiniz. Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` encoder bkz [Medya Kodlayıcısı standart için görev hazır](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`kodlama işler oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine gibi tooencode toospecify medya dosyanızın. Veya, kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından hello özel hazır toohello Kodlayıcı geçirirsiniz. Tüm hello Hello listesi için bu tarafından desteklenen adları önceden `Media Encoder Standard` encoder bkz [Medya Kodlayıcısı standart için görev hazır](media-services-mes-presets-overview.md).  
   
- Bu konuda gösterilmektedir `H264 Single Bitrate 4K` XML ve JSON biçiminde hazır.  
+ Bu konu, hello gösterir `H264 Single Bitrate 4K` XML ve JSON biçiminde hazır.  
   
- Bu önceden belirlenmiş üretir tek bir MP4 dosyası 18000 kbps stereo AAC ses ve bit hızı ile. Profili hakkında ayrıntılı bilgi için örnekleme hızını bu vb. bit hızı, önceden, XML veya JSON aşağıda tanımlanan inceleyin. Her öğe için hangi her bir öğe bu hazır anlamına gelir ve geçerli değerleri açıklamalar için bkz [Medya Kodlayıcısı standart şema](media-services-mes-schema.md) konu.  
+ Bu önceden belirlenmiş üretir tek bir MP4 dosyası 18000 kbps stereo AAC ses ve bit hızı ile. Profili hakkında ayrıntılı bilgi için örnekleme hızını bu vb. bit hızı, önceden, XML veya JSON aşağıda tanımlanan hello inceleyin. Merhaba hangi her bir öğe bu hazır anlamına gelir ve hello geçerli değerlerin her öğe için açıklamalar için bkz: [Medya Kodlayıcısı standart şema](media-services-mes-schema.md) konu.  
   
 > [!NOTE]
->  Premium ayrılmış birim alması gereken 4K türüyle kodlar. Daha fazla bilgi için bkz: [ölçek kodlama nasıl](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
+>  Merhaba ayrılmış Premium alması gereken birimi türü 4K ile kodlar. Daha fazla bilgi için bkz: [nasıl tooScale kodlama](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
   
  XML  
   

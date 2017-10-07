@@ -1,6 +1,6 @@
 ---
-title: "Operations Management Suite içinde hizmet haritası yapılandırma | Microsoft Docs"
-description: "Hizmet eşlemesi otomatik olarak sistemlerde, Windows ve Linux uygulama bileşenleri bulur ve Hizmetleri arasındaki iletişimi eşleyen bir Operations Management Suite çözümüdür. Bu makalede hizmet Haritası ortamınıza dağıtmak ve çeşitli senaryolarda içinde kullanma ile ilgili ayrıntıları sağlar."
+title: "Operations Management Suite hizmet eşlemesinde aaaConfigure | Microsoft Docs"
+description: "Linux sistemleri ve haritalar Hizmetleri arasındaki iletişimi hello ve hizmet Haritası Windows uygulama bileşenleri otomatik olarak bulur bir Operations Management Suite çözümüdür. Bu makalede hizmet Haritası ortamınıza dağıtmak ve çeşitli senaryolarda içinde kullanma ile ilgili ayrıntıları sağlar."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 0da0231f1a6c01ddd95ce7872e0e4aa47dc61f1b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3127f4440f2886370f8ff617c405c6d70a926eb8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Operations Management Suite içinde hizmet Haritası yapılandırın
-Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--Kritik hizmetler sunan birbirine bağlı sistemler olarak düşündüğünüz sunucularınızı görüntülemek için kullanabilirsiniz. Hizmet eşlemesi gerekli, bir aracı yüklemesini dışındaki herhangi bir yapılandırma TCP bağlı mimarisiyle boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir.
+Hizmet eşlemesi sistemlerde, Windows ve Linux uygulama bileşenleri otomatik olarak bulur ve Hizmetleri arasındaki iletişimi eşlemeleri hello. Sunucularınızın siz bunları--Kritik hizmetler sunan birbirine bağlı sistemler olarak düşündüğünüz tooview kullanabilirsiniz. Hizmet eşlemesi gerekli, bir aracı yüklemesini dışındaki herhangi bir yapılandırma TCP bağlı mimarisiyle boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir.
 
-Bu makalede hizmet Haritası ve ekleme aracıları yapılandırma ayrıntılarını açıklanmaktadır. Hizmet eşlemesi kullanarak hakkında daha fazla bilgi için bkz: [Operations Management Suite içinde hizmet Haritası çözümü kullanan](operations-management-suite-service-map.md).
+Bu makalede hizmet Haritası ve ekleme aracıları yapılandırma ayrıntılarını hello açıklanmaktadır. Hizmet eşlemesi kullanarak hakkında daha fazla bilgi için bkz: [Operations Management Suite hello hizmet Haritası çözümü kullanan](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Bağımlılık Aracısı indirir
 | Dosya | İşletim Sistemi | Sürüm | SHA-256 |
@@ -33,86 +33,86 @@ Bu makalede hizmet Haritası ve ekleme aracıları yapılandırma ayrıntıları
 
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
-Hizmet eşlemesi Microsoft bağımlılık Aracısı'ndan verileri alır. Operations Management suite'e bağlantıları için OMS Aracısı bağımlılık Aracısı'nı bağlıdır. Bunun anlamı bir sunucuya yüklenir ve yapılandırılır. ilk OMS Aracısı olması gerekir ve ardından bağımlılık Aracısı yüklenir. Aşağıdaki tabloda hizmet Haritası çözümünü destekler bağlı kaynakları açıklanmaktadır.
+Hizmet eşlemesi hello Microsoft bağımlılık Aracısı ' verileri alır. Merhaba bağımlılık Aracısı hello OMS aracısı için kendi bağlantıları tooOperations yönetim paketine bağlıdır. Başka bir deyişle, bir sunucu OMS Aracısı yüklenir ve ilk ve bağımlılık aracısı yüklü hello yapılandırılmış hello olması gerekir. Merhaba aşağıdaki tabloda hello hizmet Haritası çözümünü destekler hello bağlı kaynakları açıklanmaktadır.
 
 | Bağlı kaynak | Destekleniyor | Açıklama |
 |:--|:--|:--|
-| Windows aracıları | Evet | Hizmet eşlemesi analiz eder ve Windows Aracısı bilgisayarlardan verileri toplar. <br><br>Ek olarak [OMS Aracısı](../log-analytics/log-analytics-windows-agents.md), Windows aracıları Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
-| Linux aracıları | Evet | Hizmet eşlemesi analiz eder ve Linux Aracısı bilgisayarlardan verileri toplar. <br><br>Ek olarak [OMS Aracısı](../log-analytics/log-analytics-linux-agents.md), Linux aracılarını Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
-| System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi Windows ve Linux aracıları bağlı bir veri toplar ve analiz eder [System Center Operations Manager yönetim grubu](../log-analytics/log-analytics-om-agents.md). <br><br>Operations Management Suite System Center Operations Manager Aracısı bilgisayardan doğrudan bir bağlantı gereklidir. Veri yönetim grubundaki Operations Management Suite depoya iletilir.|
-| Azure depolama hesabı | Hayır | Azure depolama biriminden toplamak için hiçbir veri nedenle hizmet eşlemesi Aracısı bilgisayarlardan verileri toplar. |
+| Windows aracıları | Evet | Hizmet eşlemesi analiz eder ve Windows Aracısı bilgisayarlardan verileri toplar. <br><br>Toplama toohello içinde [OMS Aracısı](../log-analytics/log-analytics-windows-agents.md), Windows aracıları hello Microsoft bağımlılık Aracısı gerektirir. Merhaba bkz [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
+| Linux aracıları | Evet | Hizmet eşlemesi analiz eder ve Linux Aracısı bilgisayarlardan verileri toplar. <br><br>Toplama toohello içinde [OMS Aracısı](../log-analytics/log-analytics-linux-agents.md), Linux aracılarını hello Microsoft bağımlılık Aracısı gerektirir. Merhaba bkz [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
+| System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi Windows ve Linux aracıları bağlı bir veri toplar ve analiz eder [System Center Operations Manager yönetim grubu](../log-analytics/log-analytics-om-agents.md). <br><br>Merhaba System Center Operations Manager Aracısı bilgisayar tooOperations arasında doğrudan bağlantı Yönetim Paketi gereklidir. Veri hello yönetim grubu toohello Operations Management Suite depodan iletilir.|
+| Azure depolama hesabı | Hayır | Hiçbir verilerden nedenle hizmet eşlemesi toocollect Azure depolama biriminden Aracısı bilgisayarlardan verileri toplar. |
 
 Hizmet eşlemesi yalnızca 64-bit platformları destekler.
 
-Windows, Microsoft İzleme Aracısı'nı (MMA) System Center Operations Manager ve Operations Management Suite tarafından toplamak ve göndermek için kullanılan izleme verileri. (Bu aracı System Center Operations Manager Aracısı, OMS Aracısı, günlük analizi Aracısı, MMA veya doğrudan Aracısı bağlamı bağlı olarak adlandırılır.) System Center Operations Manager ve Operations Management Suite MMA farklı çıkış-yepyeni sürümleri sağlar. Bu sürümleri her System Center Operations Manager, Operations Management Suite veya her ikisine de bildirebilirsiniz.  
+Windows hello Microsoft İzleme Aracısı'nı (MMA) hem System Center Operations Manager ve Operations Management Suite toogather hem de izleme verileri gönder tarafından kullanılır. (Bu aracı hello System Center Operations Manager Aracısı, OMS Aracısı, günlük analizi Aracısı, MMA veya doğrudan Aracısı hello bağlam bağlı olarak adlandırılır.) System Center Operations Manager ve Operations Management Suite hello MMA farklı hello kutu sürümleri sağlar. Bu sürümleri her tooSystem Center Operations Manager, tooOperations Management Suite veya tooboth bildirebilirsiniz.  
 
-Linux, OMS Aracısı Linux toplar ve izleme verilerini Operations Management suite'e gönderir. Hizmet eşlemesi OMS doğrudan aracılarıyla sunucularda veya System Center Operations Manager Yönetim grupları Operations Management Suite'e bağlı olan sunucuları kullanabilirsiniz.  
+Linux üzerinde Linux toplar ve veri tooOperations Management Suite izleme gönderir için OMS aracısının hello. Hizmet eşlemesi OMS doğrudan aracılarıyla sunucularda veya System Center Operations Manager Yönetim grupları aracılığıyla ekli tooOperations Management Suite olan sunucular kullanabilirsiniz.  
 
-Bu makalede, sizi tüm aracılara--başvurmak olup olmadığını Linux veya Windows, System Center Operations Manager yönetim grubu veya doğrudan Operations Management Suite--"OMS Aracısı." olarak bağlı olup olmadığını Bağlam için yalnızca ihtiyaç duyduğunuzda aracısının belirli dağıtım adı kullanacağız.
+Bu makalede, biz tooall aracıları--olup başvurmak Linux veya Windows olup olmadığını bağlı tooa System Center Operations Manager yönetim grubu veya doğrudan tooOperations Management Suite--"OMS Aracısı" Merhaba gibi Bağlam için yalnızca gerekli ise hello belirli dağıtım adı hello Aracısı'nın kullanacağız.
 
-Hizmet eşlemesi Aracısı tüm verileri aktarmaz ve güvenlik duvarları veya bağlantı noktalarını herhangi bir değişiklik gerektirmez. Hizmet eşlemesi verileri her zaman için Operations Management Suite, OMS aracısı tarafından doğrudan veya OMS ağ geçidi üzerinden aktarılır.
+Merhaba hizmet Haritası Aracısı tüm verileri aktarmaz ve herhangi bir değişiklik toofirewalls veya bağlantı noktalarını gerektirmez. Hizmet eşlemesi Hello verilerde hello OMS Aracısı tooOperations Yönetim Paketi tarafından her zaman doğrudan veya hello OMS ağ geçidi üzerinden aktarılır.
 
 ![Hizmet eşlemesi aracıları](media/oms-service-map/agents.png)
 
-Operations Management Suite'e bağlı yönetim grubu ile System Center Operations Manager müşteri varsa:
+Bir yönetim grubu bağlı tooOperations Management Suite ile System Center Operations Manager müşteri varsa:
 
-- System Center Operations Manager aracıları Operations Management Suite'e bağlamak için Internet erişebiliyorsanız, ek yapılandırma gereklidir.  
-- System Center Operations Manager aracıları Operations Management Suite Internet üzerinden erişemiyorsanız, System Center Operations Manager ile çalışmak için OMS ağ geçidi yapılandırmanız gerekir.
+- System Center Operations Manager aracıları hello Internet tooconnect tooOperations Management Suite erişebiliyorsanız, ek yapılandırma gereklidir.  
+- System Center Operations Manager aracıları Operations Management Suite hello Internet erişemiyorsanız tooconfigure hello OMS ağ geçidi toowork System Center Operations Manager ile gerekir.
   
-OMS doğrudan Aracısı'nı kullanıyorsanız, OMS Operations Management Suite veya OMS ağ geçidine bağlanmak için aracının kendisi yapılandırmanız gerekir. OMS ağ geçidi yüklenebilir [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+Merhaba OMS doğrudan aracı kullanıyorsanız, tooconnect tooOperations Management Suite veya tooyour OMS ağ geçidi tooconfigure hello OMS Aracısı kendisini gerekir. Merhaba OMS ağ geçidi hello indirilebilir [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### <a name="management-packs"></a>Yönetim paketleri
-Hizmet eşlemesi bir Operations Management Suite çalışma alanı içinde etkinleştirildiğinde, 300-KB Yönetim Paketi bu çalışma alanındaki tüm Windows sunucularına gönderilir. System Center Operations Manager aracıları kullanıyorsanız, bir [bağlı yönetim grubu](../log-analytics/log-analytics-om-agents.md), hizmet Haritası Yönetim Paketi System Center Operations Manager'dan dağıtılır. Aracıları doğrudan bağlıysanız, Yönetim Paketi Operations Management Suite sunar.
+Hizmet eşlemesi bir Operations Management Suite çalışma alanı içinde etkinleştirildiğinde, 300-KB Yönetim Paketi bu çalışma alanında tooall hello Windows sunucuları gönderilir. System Center Operations Manager aracıları kullanıyorsanız, bir [bağlı yönetim grubu](../log-analytics/log-analytics-om-agents.md), hello hizmet Haritası Yönetim Paketi System Center Operations Manager'dan dağıtılır. Merhaba aracıları doğrudan bağlıysanız, Operations Management Suite hello Yönetim Paketi sunar.
 
-Yönetim Paketi Microsoft.IntelligencePacks.ApplicationDependencyMonitor olarak adlandırılır. %Programfiles%\Microsoft izleme Agent\Agent\Health hizmet State\Management Packs\ yazılır. Yönetim Paketi kullanan veri kaynağı % Program files%\Microsoft izleme Agent\Agent\Health hizmet State\Resources olan\<AutoGeneratedID > \Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
+Merhaba Yönetim Paketi Microsoft.IntelligencePacks.ApplicationDependencyMonitor olarak adlandırılır. Buna ait yazılı too%Programfiles%\Microsoft izleme Agent\Agent\Health hizmet State\Management Packs\. Merhaba hello Yönetim Paketi kullanan veri kaynağı olan % Program files%\Microsoft izleme Agent\Agent\Health hizmet State\Resources\<AutoGeneratedID > \ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
 ## <a name="installation"></a>Yükleme
-### <a name="install-the-dependency-agent-on-microsoft-windows"></a>Microsoft Windows bağımlılık Aracısı'nı yükleme
-Yüklemek veya aracıyı kaldırmak için yönetici ayrıcalıkları gerekir.
+### <a name="install-hello-dependency-agent-on-microsoft-windows"></a>Microsoft Windows Hello bağımlılık Aracısı yükleme
+Yönetici ayrıcalıkları gerekli tooinstall ya da hello aracısını kaldırın.
 
-Bağımlılık Aracısı'nı InstallDependencyAgent Windows.exe üzerinden Windows bilgisayarlara yüklenir. Bu yürütülebilir dosya seçenekleri olmadan çalıştırırsanız, etkileşimli olarak yüklemek için izleyebileceğiniz Sihirbazı'nı başlatır.  
+Merhaba bağımlılık Aracısı InstallDependencyAgent Windows.exe üzerinden Windows bilgisayarlara yüklenir. Bu yürütülebilir dosya seçenekleri olmadan çalıştırırsanız, tooinstall etkileşimli olarak izleyebileceğiniz bir sihirbazı başlatır.  
 
-Her Windows bilgisayarda bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
+Adımları tooinstall hello bağımlılık Aracısı her Windows bilgisayarda aşağıdaki hello kullan:
 
-1.  Kısmındaki yönergeleri kullanarak OMS Aracısı'nı yükleme [Azure günlük analizi hizmeti bağlanmak Windows bilgisayarlara](../log-analytics/log-analytics-windows-agents.md).
-2.  Windows Aracısı'nı indirin ve çalıştırın aşağıdaki komutu kullanarak: <br>`InstallDependencyAgent-Windows.exe`
-3.  Aracıyı yüklemek için sihirbazı izleyin.
-4.  Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracısında %Programfiles%\Microsoft bağımlılık Agent\logs günlük dizindir. 
+1.  Yükleme hello yönergeleri kullanarak OMS Aracısı hello [bağlanmak Windows bilgisayarları toohello Azure günlük analizi hizmeti](../log-analytics/log-analytics-windows-agents.md).
+2.  Merhaba Windows Aracısı'nı indirin ve çalıştırın komutu aşağıdaki hello kullanarak: <br>`InstallDependencyAgent-Windows.exe`
+3.  Merhaba Sihirbazı tooinstall hello Aracısı izleyin.
+4.  Merhaba bağımlılık Aracısı toostart başarısız olursa, ayrıntılı hata bilgileri için hello günlüklerini denetleyin. Windows aracısında %Programfiles%\Microsoft bağımlılık Agent\logs hello günlük dizindir. 
 
 #### <a name="windows-command-line"></a>Windows komut satırı
-Bir komut satırından yüklemek için aşağıdaki tablodaki seçenekleri kullanın. Yükleme bayrakları listesini görmek için yükleyiciyi kullanarak çalıştırmak /? aşağıdaki gibi bayrak.
+Merhaba tablo tooinstall komut satırından aşağıdaki seçenekleri kullanın. toosee hello kullanarak hello yükleyiciyi çalıştırmak, hello yükleme bayrakları listesini /? aşağıdaki gibi bayrak.
 
     InstallDependencyAgent-Windows.exe /?
 
 | Bayrağı | Açıklama |
 |:--|:--|
-| /? | Komut satırı seçeneklerinin listesini alın. |
+| /? | Merhaba komut satırı seçeneklerinin listesini alın. |
 | / S | Kullanıcı etkileşimi ile sessiz bir yükleme gerçekleştirin. |
 
-Dosyalar Windows bağımlılık aracısı için varsayılan olarak C:\Program Files\Microsoft bağımlılık Aracısı yerleştirilir.
+Merhaba Windows bağımlılık aracısı için dosyalar varsayılan olarak C:\Program Files\Microsoft bağımlılık Aracısı yerleştirilir.
 
-### <a name="install-the-dependency-agent-on-linux"></a>Linux'ta bağımlılık Aracısı'nı yüklemek
-Kök erişimi yüklemek veya aracıyı yapılandırmak için gereklidir.
+### <a name="install-hello-dependency-agent-on-linux"></a>Linux'ta Hello bağımlılık Aracısı yükleme
+Kök erişimi gerekli tooinstall ya da hello Aracısı yapılandırın.
 
-Bağımlılık Aracısı'nı InstallDependencyAgent Linux64.bin, kendiliğinden açılan bir ikili içeren bir kabuk betiği aracılığıyla Linux bilgisayarlara yüklenir. Dosyayı Paylaş kullanarak çalıştırın ya da eklemek yürütme dosya izinlerinin.
+Merhaba bağımlılık Aracısı InstallDependencyAgent Linux64.bin, kendiliğinden açılan bir ikili içeren bir kabuk betiği aracılığıyla Linux bilgisayarlara yüklenir. Merhaba Paylaş kullanarak dosyasını çalıştırın ya da eklemek izinleri toohello dosyasının kendisini yürütün.
  
-Her bir Linux bilgisayarda bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
+Adımları tooinstall hello bağımlılık Aracısı her bir Linux bilgisayarda aşağıdaki hello kullan:
 
-1.  Kısmındaki yönergeleri kullanarak OMS Aracısı'nı yükleme [toplamak ve Linux bilgisayarları veri yönetmek](https://technet.microsoft.com/library/mt622052.aspx).
-2.  Linux bağımlılık Aracısı'nı, aşağıdaki komutu kullanarak kök olarak yükleyin:<br>`sh InstallDependencyAgent-Linux64.bin`
-3.  Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Linux aracısında /var/opt/microsoft/dependency-agent/log günlük dizindir.
+1.  Yükleme hello yönergeleri kullanarak OMS Aracısı hello [toplamak ve Linux bilgisayarları veri yönetmek](https://technet.microsoft.com/library/mt622052.aspx).
+2.  Merhaba Linux bağımlılık Aracısı, komutu aşağıdaki hello kullanarak kök olarak yükleyin:<br>`sh InstallDependencyAgent-Linux64.bin`
+3.  Merhaba bağımlılık Aracısı toostart başarısız olursa, ayrıntılı hata bilgileri için hello günlüklerini denetleyin. Linux aracısında /var/opt/microsoft/dependency-agent/log hello günlük dizindir.
 
-Çalıştır yükleme bayrakları listesini görmek için yükleme programını Yardım bayrağı gibi.
+toosee ile Merhaba yükleme programını çalıştırmak, hello yükleme bayrakları listesini hello - Yardım bayrağı gibi.
 
     InstallDependencyAgent-Linux64.bin -help
 
 | Bayrağı | Açıklama |
 |:--|:--|
-| -Yardım | Komut satırı seçeneklerinin listesini alın. |
+| -Yardım | Merhaba komut satırı seçeneklerinin listesini alın. |
 | -s | Kullanıcı etkileşimi ile sessiz bir yükleme gerçekleştirin. |
-| --denetleyin | İzinler ve işletim sistemi denetle, ancak aracı yüklemeyin. |
+| --denetleyin | İzinler ve hello işletim sistemi denetle, ancak hello Aracısı yüklemeyin. |
 
-Bağımlılık aracısı için dosyalar aşağıdaki dizinlerindeki yerleştirilir:
+Merhaba bağımlılık aracısı için dosyalar dizinleri izleyen hello yerleştirilir:
 
 | Dosyalar | Konum |
 |:--|:--|
@@ -123,7 +123,7 @@ Bağımlılık aracısı için dosyalar aşağıdaki dizinlerindeki yerleştiril
 | İkili depolama dosyaları | /var/OPT/Microsoft/Dependency-Agent/Storage |
 
 ## <a name="installation-script-examples"></a>Yükleme komut dosyası örnekleri
-Kolayca bağımlılık Aracısı pek çok sunucu üzerinde aynı anda dağıtmak için bir komut dosyası kullanmak yararlı olur. Aşağıdaki komut örnekleri indirin ve Windows ya da Linux bağımlılık Aracısı'nı yüklemek için kullanabilirsiniz.
+tooeasily hello bağımlılık Aracısı pek çok sunucu üzerinde aynı anda dağıtabilir, bir komut dosyası toouse yardımcı olur. Aşağıdaki komut örnekleri toodownload hello kullanın ve Windows ya da Linux hello bağımlılık aracısı yükleyin.
 
 ### <a name="powershell-script-for-windows"></a>Windows PowerShell Betiği
 ```PowerShell
@@ -139,7 +139,7 @@ sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="desired-state-configuration"></a>İstenen Durum Yapılandırması
-Bağımlılık Aracısı istenen durum yapılandırması üzerinden dağıtmak için xPSDesiredStateConfiguration modülü ve biraz kod aşağıdaki gibi kullanabilirsiniz:
+toodeploy hello bağımlılık Aracısı istenen durum yapılandırması hello xPSDesiredStateConfiguration modülü ve biraz kod hello aşağıdaki gibi kullanabilirsiniz:
 ```
 configuration ServiceMap {
 
@@ -149,7 +149,7 @@ $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
 
 Node localhost
 { 
-    # Download and install the Dependency Agent
+    # Download and install hello Dependency Agent
     xRemoteFile DAPackage 
     {
         Uri = "https://aka.ms/dependencyagentwindows"
@@ -173,13 +173,13 @@ Node localhost
 ```
 
 ## <a name="uninstallation"></a>Kaldırma
-### <a name="uninstall-the-dependency-agent-on-windows"></a>Windows üzerinde bağımlılık Aracısı'nı kaldırın
-Bir yönetici için bağımlılık Aracısı Windows Denetim Masası'ndan kaldırabilirsiniz.
+### <a name="uninstall-hello-dependency-agent-on-windows"></a>Bağımlılık Aracısı'nı Windows Hello kaldırma
+Bir yönetici için hello bağımlılık Aracısı Windows Denetim Masası'ndan kaldırabilirsiniz.
 
-Bir yönetici, %Programfiles%\Microsoft Agent\Uninstall.exe bağımlılık Aracısı'nı kaldırmak için bağımlılık olarak da çalıştırabilirsiniz.
+Bir yönetici, %Programfiles%\Microsoft bağımlılık Agent\Uninstall.exe toouninstall hello bağımlılık aracısı olarak da çalıştırabilirsiniz.
 
-### <a name="uninstall-the-dependency-agent-on-linux"></a>Linux üzerinde bağımlılık Aracısı'nı kaldırın
-Bağımlılık Aracısı'nı Linux tamamen kaldırmak için aracı ve otomatik olarak bir aracı yüklü bağlayıcı kaldırmanız gerekir. Aşağıdaki komutu kullanarak her ikisi de kaldırabilirsiniz:
+### <a name="uninstall-hello-dependency-agent-on-linux"></a>Merhaba bağımlılık Aracısı'nı Linux kaldırma
+Bağımlılık Aracısı'ndan Linux toocompletely kaldırma Merhaba, hello aracı ile otomatik olarak yüklenen bağlayıcı hello ve hello aracının kendisi kaldırmanız gerekir. Hem tek bir komut aşağıdaki hello kullanarak kaldırabilirsiniz:
 
     rpm -e dependency-agent dependency-agent-connector
 
@@ -188,56 +188,56 @@ Yükleme veya hizmet Haritası çalıştıran herhangi bir sorun varsa, bu böl�
 
 ### <a name="dependency-agent-installation-problems"></a>Bağımlılık Aracısı yükleme sorunları
 #### <a name="installer-asks-for-a-reboot"></a>Yeniden başlatma için yükleyici sorar
-Bağımlılık Aracısı'nı *genellikle* yükleme veya kaldırma işlemi sırasında yeniden başlatma gerektirmez. Ancak, bazı nadir durumlarda, Windows Server yükleme işlemine devam etmek için yeniden başlatma gerektirir. Bu, genellikle Microsoft Visual C++ yeniden dağıtılabilir, bir bağımlılık nedeniyle kilitli bir dosyayı yeniden başlatma gerektiren ortaya çıkar.
+Merhaba bağımlılık Aracısı *genellikle* yükleme veya kaldırma işlemi sırasında yeniden başlatma gerektirmez. Ancak, bazı nadir durumlarda, Windows Server yükleme ile bir yeniden başlatma toocontinue gerektirir. Bu, bağımlılık, genellikle Microsoft Visual C++ yeniden dağıtılabilir, hello kilitli bir dosyayı nedeniyle yeniden başlatma gerektiren ortaya çıkar.
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>İleti "bağımlılık aracısı yüklemek için oluşturulamıyor: Visual Studio çalışma zamanı kitaplıkları yüklenemedi (kod [code_number] =)" görüntülenir
+#### <a name="message-unable-tooinstall-dependency-agent-visual-studio-runtime-libraries-failed-tooinstall-code--codenumber-appears"></a>İleti "oluşturulamıyor tooinstall bağımlılık aracısı: Visual Studio çalışma zamanı kitaplıkları tooinstall başarısız oldu (kod [code_number] =)" görüntülenir
 
-Microsoft bağımlılık Aracısı Microsoft Visual Studio çalışma zamanı kitaplıkları'nı yerleşik olarak bulunur. Kitaplıkları yükleme sırasında bir sorun varsa bir ileti alırsınız. 
+Merhaba Microsoft bağımlılık Aracısı hello Microsoft Visual Studio çalışma zamanı kitaplıkları üzerinde oluşturulmuştur. Merhaba kitaplıkları yükleme sırasında bir sorun varsa bir ileti alırsınız. 
 
-Çalışma Zamanı Kitaplığı yükleyicileri günlükleri %LOCALAPPDATA%\temp klasöründe oluşturun. Dd_vcredist_arch_yyyymmddhhmmss.log, dosyasıdır nerede *arch* "x86" veya "amd64" ve *YYYYMMDD'nin* tarih ve günlük ne zaman oluşturulduğu saat (24 saat cinsinden). Günlük yükleme engelleme sorunu hakkında ayrıntılar sağlar.
+Merhaba çalışma zamanı kitaplığı yükleyicileri günlükleri hello %LOCALAPPDATA%\temp klasöründe oluşturun. Merhaba dosyasıdır dd_vcredist_arch_yyyymmddhhmmss.log, burada *arch* "x86" veya "amd64" ve *YYYYMMDD'nin* hello tarih ve saate hello günlük ne zaman oluşturulduğu (24 saat cinsinden). Merhaba günlük yükleme engelleme hello sorun hakkında ayrıntılar sağlar.
 
-Yüklemek yararlı olabilecek [son çalışma zamanı kitaplıkları](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) kendiniz ilk.
+Yararlı tooinstall hello olabilir [son çalışma zamanı kitaplıkları](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) kendiniz ilk.
 
-Aşağıdaki tabloda, kod numaraları ve önerilen çözümler listelenmektedir.
+Merhaba aşağıdaki tabloda kod numaraları ve önerilen çözümler listelenmektedir.
 
 | Kod | Açıklama | Çözüm |
 |:--|:--|:--|
-| 0x17 | Kitaplık yükleyicinin yüklenmemiştir bir Windows güncelleştirmesi gerekir. | En son kitaplığı yükleyici günlüğüne bakın.<br><br>"Windows8.1-KB2999226-x64.msu" başvuru bir çizgiyle izlediyseniz "hata 0x80240017: MSU paketini yürütülemedi" KB2999226 yüklemek amacıyla önkoşulları yok. Önkoşullar bölümünde'ndaki yönergeleri izleyin [Windows Evrensel C çalışma zamanı](https://support.microsoft.com/kb/2999226). Windows Update'i çalıştırın ve önkoşulları yüklemek için birden çok kez yeniden başlatma gerekebilir.<br><br>Microsoft bağımlılık Aracısı yükleyiciyi yeniden çalıştırın. |
+| 0x17 | Merhaba kitaplığı yükleyicinin yüklenmemiştir bir Windows güncelleştirmesi gerekir. | Merhaba en son kitaplığı yükleyici günlüğüne bakın.<br><br>Bir referans varsa "Windows8.1-KB2999226-x64.msu" bir çizgiyle çok izlenir "hata 0x80240017: başarısız tooexecute MSU paket," Merhaba Önkoşullar tooinstall KB2999226 yok. Merhaba önkoşullar bölümünde Hello yönergeleri [Windows Evrensel C çalışma zamanı](https://support.microsoft.com/kb/2999226). Toorun Windows Update ihtiyacınız ve birden çok kez sipariş tooinstall hello önkoşulları yeniden başlatın.<br><br>Merhaba Microsoft bağımlılık Aracısı yükleyiciyi yeniden çalıştırın. |
 
 ### <a name="post-installation-issues"></a>Yükleme sonrası sorunları
 #### <a name="server-doesnt-appear-in-service-map"></a>Sunucu hizmet eşlemesinde görünmüyor
-Bağımlılık Aracısı yükleme başarılı oldu, ancak sunucunuzun hizmet Haritası çözümde görmüyorum varsa:
-* Bağımlılık Aracısı'nı başarıyla yüklenir? Bu hizmeti yüklü olup olmadığını görmek için denetleme ve çalıştırarak doğrulayabilirsiniz.<br><br>
-**Windows**: "Microsoft Dependency Aracısı" adlı hizmet için Ara<br>
-**Linux**: çalışan işlem için "microsoft-bağımlılık-agent." arayın
+Bağımlılık Aracısı yükleme başarılı oldu, ancak sunucunuzun hello hizmet Haritası çözüm görmüyorum varsa:
+* Merhaba bağımlılık Aracısı başarıyla yüklenir? Bu, hello hizmetini yüklediyseniz toosee denetleniyor ve çalıştırarak doğrulayabilirsiniz.<br><br>
+**Windows**: "Microsoft Dependency Aracısı" adlı hello hizmeti için Ara<br>
+**Linux**: işlemin "microsoft-bağımlılık-agent." Merhaba arayın
 
-* Bulunduğunuz [ücretsiz fiyatlandırma katmanı Operations Management Suite/Log Analytics,](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Ücretsiz planı en fazla beş benzersiz hizmet Haritası sunucularda izin verir. Önceki beş artık veri gönderiyor olsa bile herhangi bir sonraki sunucu hizmet eşlemesinde görünmez.
+* Merhaba üzerinde olduğunuz [ücretsiz fiyatlandırma katmanı Operations Management Suite/Log Analytics,](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? hello ücretsiz planı toofive benzersiz hizmet Haritası sunucuları için sağlar. Merhaba önceki beş artık gönderme olsa bile veri herhangi bir sonraki sunucu hizmet eşlemesinde görünmez.
 
-* Sunucu gönderen günlük ve performans verileri Operations Management Suite mi? Günlük arama gidin ve bilgisayarınız için aşağıdaki sorguyu çalıştırın: 
+* Sunucu gönderen günlük ve performans verileri tooOperations Management Suite nedir? TooLog arama gidin ve bilgisayarınız için sorgu aşağıdaki hello çalıştırın: 
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  Sonuçlarda olayları çeşitli mı aldınız? Verilerin son mi? Bu durumda, OMS Aracısı düzgün çalışmasını ve Operations Management Suite hizmetiyle iletişim kurulurken. Değilse, sunucunuzdaki OMS Aracısı kontrol edin: [OMS Aracısı Windows için sorun giderme](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) veya [Linux sorun giderme için OMS aracısının](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Merhaba sonuçlarında olayları çeşitli mı aldınız? Merhaba veri son mi? Öyleyse, OMS Aracısı doğru işletim ve hello Operations Management Suite hizmeti ile iletişim. Değilse, sunucunuzdaki hello OMS Aracısı kontrol edin: [OMS Aracısı Windows için sorun giderme](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) veya [Linux sorun giderme için OMS aracısının](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Sunucu hizmet eşlemesinde görünür ancak hiçbir işlem var
-Hizmet eşlemesi sunucunuzun bakın, ancak hiçbir işlem veya bağlantı veri varsa, bağımlılık aracısı yüklü olduğundan ve çalıştığından, ancak çekirdek sürücüsü yüklenmeyen gösterir. 
+Hizmet eşlemesi sunucunuzun bakın, ancak bu hello gösteren hiçbir işlem veya bağlantı veri varsa bağımlılık aracısı yüklü olduğundan ve çalıştığından, ancak hello çekirdek sürücüsü yüklenmeyen. 
 
-C:\Program Files\Microsoft bağımlılık Agent\logs\wrapper.log dosyası (Windows) veya /var/opt/microsoft/dependency-agent/log/service.log dosyası (Linux) denetleyin. Dosyanın son satırları çekirdek neden yüklenmeyen belirtmeniz gerekir. Örneğin, çekirdek güncelleştirilmiş çekirdek Linux'ta desteklenmeyebilir.
+Merhaba C:\Program Files\Microsoft bağımlılık Agent\logs\wrapper.log dosyası (Windows) veya /var/opt/microsoft/dependency-agent/log/service.log dosyası (Linux) denetleyin. Merhaba son satırları hello dosyasının hello çekirdek neden yüklenmeyen belirtmeniz gerekir. Örneğin, çekirdek güncelleştirdiyseniz hello çekirdek Linux'ta desteklenmeyebilir.
 
 ## <a name="data-collection"></a>Veri toplama
-Kabaca 25 MB günde nasıl sistemi bağımlılıkları karmaşıktır bağlı olarak iletmek için her bir aracının bekleyebilirsiniz. Her bir aracının 15 dakikada hizmet Haritası bağımlılık verileri gönderir.  
+Her aracı tootransmit kabaca bekleyebilirsiniz 25 MB günde nasıl sistemi bağımlılıkları karmaşıktır bağlı olarak. Her bir aracının 15 dakikada hizmet Haritası bağımlılık verileri gönderir.  
 
-Bağımlılık Aracısı'nı genellikle sistem belleğinin yüzde 0,1 ve sistem CPU yüzdesi 0,1 tüketir.
+Merhaba bağımlılık Aracısı genellikle sistem belleğinin yüzde 0,1 ve sistem CPU yüzdesi 0,1 tüketir.
 
 ## <a name="supported-azure-regions"></a>Desteklenen Azure bölgeleri
-Hizmet eşlemesi aşağıdaki Azure bölgelerinde şu anda kullanılabilir değil:
+Hizmet eşlemesi Azure bölgeleri aşağıdaki hello şu anda kullanılabilir değil:
 - Doğu ABD
 - Batı Avrupa
 - Batı Orta ABD
 
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
-Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim sistemleri listelenmektedir. Hizmet eşlemesi 32-bit mimariler için herhangi bir işletim sistemini desteklemiyor.
+Merhaba aşağıdaki bölümlerde hello bağımlılık aracısı için hello desteklenen işletim sistemleri listelenmektedir. Hizmet eşlemesi 32-bit mimariler için herhangi bir işletim sistemini desteklemiyor.
 
 ### <a name="windows-server"></a>Windows Server
 - Windows Server 2016
@@ -253,7 +253,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 ### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (ile RHEL çekirdek)
 - Yalnızca varsayılan ve SMP Linux çekirdek sürümleri desteklenir.
-- PAE ve Xen, desteklenmez için tüm Linux dağıtım gibi standart olmayan çekirdek serbest bırakır. Örneğin, "2.6.16.21-0.8-xen" sürüm dizesi sistemiyle desteklenmiyor.
+- PAE ve Xen, desteklenmez için tüm Linux dağıtım gibi standart olmayan çekirdek serbest bırakır. Örneğin, "2.6.16.21-0.8-xen" Merhaba sürüm dizesi sistemiyle desteklenmiyor.
 - Standart çekirdekleri yeniden derlemelerinin dahil olmak üzere özel çekirdekleri desteklenmez.
 - CentOSPlus çekirdek desteklenmiyor.
 - Oracle kesilemeyen kurumsal çekirdek (UEK), bu makalenin sonraki bölümlerde ele alınmıştır.
@@ -325,11 +325,11 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 | 10 SP4 | 2.6.16.60 |
 
 ## <a name="diagnostic-and-usage-data"></a>Tanılama ve kullanım verileri
-Microsoft otomatik olarak hizmet Haritası hizmet kullanımınız vasıtasıyla kullanım ve performans verilerini toplar. Microsoft bu verileri sağlamak ve kalitesini, güvenlik ve hizmet eşlemesi hizmet bütünlüğünü geliştirmek için kullanır. Veriler, işletim sistemi ve sürümü gibi yazılımınızın yapılandırması hakkında bilgi içerir. Ayrıca IP adresi, DNS adı ve iş istasyonu adı doğru ve etkili sorun giderme özellikleri sunmak için içerir. Ad, adres veya diğer kişi bilgilerini toplamaz.
+Microsoft otomatik olarak hello hizmet Haritası hizmet kullanımınız vasıtasıyla kullanım ve performans verilerini toplar. Microsoft hello kalite, güvenlik ve hello hizmet Haritası hizmet bütünlüğünü geliştirmek ve bu verileri tooprovide kullanır. Veriler, işletim sistemi ve sürümü gibi yazılımınızın hello yapılandırma hakkında bilgi içerir. Ayrıca IP adresi, DNS adı ve iş istasyonu adı sipariş tooprovide doğru ve etkili sorun giderme özellikleri içerir. Ad, adres veya diğer kişi bilgilerini toplamaz.
 
-Veri toplama ve kullanım hakkında daha fazla bilgi için bkz: [Microsoft Online Services gizlilik bildirimi](https://go.microsoft.com/fwlink/?LinkId=512132).
+Veri toplama ve kullanım hakkında daha fazla bilgi için bkz: Merhaba [Microsoft Online Services gizlilik bildirimi](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Bilgi nasıl [hizmet eşlemesi kullanmak](operations-management-suite-service-map.md) sonra dağıtılan ve yapılandırılmış.
+- Nasıl çok öğrenin[hizmet eşlemesi kullanmak](operations-management-suite-service-map.md) sonra dağıtılan ve yapılandırılmış.

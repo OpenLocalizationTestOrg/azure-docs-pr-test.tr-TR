@@ -1,6 +1,6 @@
 ---
-title: "KİMLİĞİ kullanarak yedek anahtarları oluşturma | Microsoft Docs"
-description: "KİMLİK tablolarınızı yedek anahtarlar oluşturmak için nasıl kullanılacağını öğrenin."
+title: "KİMLİK kullanarak aaaCreate yedek anahtarları | Microsoft Docs"
+description: "Nasıl toouse kimlik toocreate yedek tablolarınızı anahtarları hakkında bilgi edinin."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 06/13/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 3ab5d159e6eaeb830135fe134e108b0e4de4b7d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 502cdd2b510b229b2a19c1f78b11862a7386ae3b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-surrogate-keys-by-using-identity"></a>Yedek anahtarları kimliği kullanarak oluşturma
 > [!div class="op_single_selector"]
@@ -33,10 +33,10 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Veri ambarı modelleri tasarlarken kendi tablolarda yedek anahtarlar oluşturmak çok sayıda veri modelers gibi. IDENTİTY özelliği yükü performansınızı etkilemeden sadece ve etkili bir şekilde bu hedefe ulaşmak için kullanabilirsiniz. 
+Veri ambarı modelleri tasarlarken birçok veri modelers tablolarıyla toocreate yedek anahtarları ister. Merhaba kimlik özelliği tooachieve sadece ve etkili bir şekilde bu hedef yükü performansınızı etkilemeden kullanabilirsiniz. 
 
 ## <a name="get-started-with-identity"></a>KİMLİĞİ ile çalışmaya başlama
-Aşağıdaki deyime benzer sözdizimini kullanarak ilk tablonun oluşturduğunuzda kimlik özelliğine sahip olarak bir tablo tanımlayabilirsiniz:
+Aşağıdaki ifadeyi benzer toohello olan sözdizimini kullanarak ilk hello tablo oluşturduğunuzda hello kimlik özelliğine sahip olarak bir tablo tanımlayabilirsiniz:
 
 ```sql
 CREATE TABLE dbo.T1
@@ -50,15 +50,15 @@ WITH
 ;
 ```
 
-Daha sonra kullanabilirsiniz `INSERT..SELECT` tabloyu doldurmak için.
+Daha sonra `INSERT..SELECT` toopopulate hello tablo.
 
 ## <a name="behavior"></a>Davranışı
-KİMLİK özelliği, veri ambarındaki tüm dağıtımlar arasında yük performanslarını etkilemeden genişletmek için tasarlanmıştır. Bu nedenle, kimlik bu hedeflere ulaşmak doğru yönlendirilmiş uygulamasıdır. Bu bölümde daha eksiksiz anlamanıza yardımcı olması için uygulama nüanslarını vurgular.  
+Merhaba kimlik özelliği çıkışı tasarlanmış tooscale yük performanslarını etkilemeden hello veri ambarındaki tüm hello dağıtımlar arasında değil. Bu nedenle, hello kimlik bu hedeflere ulaşmak doğru yönlendirilmiş uygulamasıdır. Bu bölüm hello nüanslarını vurgular hello uygulama toohelp siz bunları daha tam olarak anlamak.  
 
 ### <a name="allocation-of-values"></a>Değerlerin ayırma
-KİMLİK özelliği, SQL Server ve Azure SQL veritabanı davranışını yansıtan, yedek değerleri ayrılmış, sipariş garanti etmez. Ancak, Azure SQL veri ambarı'nda bir garanti yokluğu daha belirgin olur. 
+Merhaba kimlik özelliği hangi hello ayrılan yedek değerleri, SQL Server ve Azure SQL veritabanı hello davranışını yansıtan hello sipariş garanti etmez. Ancak, Azure SQL veri ambarı'nda bir garanti hello yokluğu daha belirgin olur. 
 
-Aşağıdaki çizim bir örnektir:
+Aşağıdaki örnek hello çizim şöyledir:
 
 ```sql
 CREATE TABLE dbo.T1
@@ -83,29 +83,29 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-Önceki örnekte, iki satır dağıtım 1 landed. İlk satırı sütun yedek değeri 1 olan `C1`, ve ikinci satırında 61 yedek değerine sahip. Bu değerlerin her ikisi de kimlik özelliği tarafından üretildi. Ancak, değerleri ayırma bitişik değil. Bu davranış tasarım gereğidir.
+Örnek önceki hello iki satır dağıtım 1 landed. Hello ilk satır sütununda hello yedek değeri 1 olan `C1`, ve hello ikinci satırında 61 hello yedek değeri. Bu değerlerin her ikisi de hello kimlik özelliği tarafından üretildi. Ancak, hello ayırma hello değerlerin bitişik değil. Bu davranış tasarım gereğidir.
 
 ### <a name="skewed-data"></a>Çarpık veri 
-Veri türü için değer aralığını dağıtımlar arasında eşit olarak yayılır. Dağıtılmış bir tablo çarpık verileri varsa, ardından veri türü için kullanılabilir değerleri aralığı erken tükendi. Tüm verileri sona eriyor, tek bir dağıtım Örneğin, ardından etkili bir şekilde tablo yalnızca bir-sixtieth veri türü değerlerinin erişebilir. Bu nedenle, kimlik özelliği sınırlıdır `INT` ve `BIGINT` veri türleri yalnızca.
+Merhaba hello veri türünün değer aralığını hello dağıtımlar arasında eşit olarak yayılır. Dağıtılmış bir tablo çarpık verileri varsa, kullanılabilir toohello datatype erken tükenmiş olabilir değerlerin hello. Tüm hello verileri sona eriyor, tek bir dağıtım, örneğin, etkili bir şekilde hello tablo hello veri türünün hello değerlerin erişim tooonly bir sixtieth yoktur. Bu nedenle, hello kimlik özelliği çok sınırlı`INT` ve `BIGINT` veri türleri yalnızca.
 
 ### <a name="selectinto"></a>SEÇİN... İÇİNE
-Varolan bir kimlik sütunu yeni bir tabloya seçildiğinde, yeni bir sütun aşağıdaki koşullardan biri doğru olmadıkça kimlik özelliği alır:
-- SELECT deyimi bir birleştirme içerir.
+Varolan bir kimlik sütunu yeni bir tabloya seçildiğinde, hello koşullar aşağıdaki koşullardan biri sürece hello yeni bir sütun hello kimlik özelliği alır:
+- Merhaba SELECT deyimi bir birleştirme içerir.
 - Birden çok SELECT deyimine birleşim kullanılarak birleştirilmiştir.
-- KİMLİK sütunu SELECT listesinde birden fazla kez listelenir.
-- KİMLİK sütunu bir ifadenin bir parçasıdır.
+- Merhaba kimlik sütunu hello SELECT listesinde birden fazla kez listelenir.
+- Merhaba kimlik sütunu bir ifadenin bir parçasıdır.
     
-Bu koşulların herhangi biri doğruysa, sütun kimlik özelliğini devralan yerine NOT NULL oluşturulur.
+Bu koşulların herhangi biri doğruysa hello sütun hello kimlik özelliğini devralan yerine NOT NULL oluşturulur.
 
 ### <a name="create-table-as-select"></a>TABLE AS SELECT OLUŞTURMA
-OLUŞTURMA tablo AS seçin (CTAS) için SELECT belgelenen aynı SQL Server davranışı izleyen... . Ancak, bir kimlik özelliği sütun tanımında belirtemezsiniz `CREATE TABLE` deyim parçası. Ayrıca kimlik işlevinde kullanamazsınız `SELECT` CTAS bir parçası. Bir tabloyu doldurmak için kullanmanız gerekir `CREATE TABLE` arkasından tablosu tanımlamak için `INSERT..SELECT` onu doldurmak için.
+OLUŞTURMA tablo AS seçin (CTAS) aşağıdaki seçim belgelenen aynı SQL Server davranışı hello... . Ancak, bir kimlik özelliği hello sütun tanımında hello belirtemezsiniz `CREATE TABLE` hello deyimi parçası. Merhaba kimlik işlevi hello kullanamazsınız `SELECT` hello CTAS bir parçası. toopopulate bir tablo, gereksinim duyduğunuz toouse `CREATE TABLE` toodefine hello tablo arkasından `INSERT..SELECT` toopopulate onu.
 
 ## <a name="explicitly-insert-values-into-an-identity-column"></a>Açıkça değerleri bir kimlik sütununa ekleme 
-SQL veri ambarı destekleyen `SET IDENTITY_INSERT <your table> ON|OFF` sözdizimi. Açıkça kimlik sütununa değerleri eklemek için şu sözdizimini kullanın.
+SQL veri ambarı destekleyen `SET IDENTITY_INSERT <your table> ON|OFF` sözdizimi. Merhaba kimlik sütununa Bu sözdizimi tooexplicitly Ekle değerlerini kullanabilirsiniz.
 
-Birçok veri modelers kendi boyutlarını belirli satırlar için önceden tanımlanmış negatif değerler kullanmak ister. -1 veya "Bilinmeyen bir üyeye" satır örneğidir. 
+Toouse önceden tanımlanmış negatif belirli kendi boyutlarını satır değerleri gibi çok sayıda veri modelers. Merhaba -1 veya "Bilinmeyen bir üyeye" satır örneğidir. 
 
-Sonraki komut dosyası açıkça AYARLAMAK IDENTITY_INSERT kullanarak bu satır eklemek nasıl gösterilmektedir:
+Merhaba sonraki komut dosyası nasıl tooexplicitly eklemek bu satır KÜMESİ IDENTITY_INSERT kullanarak gösterir:
 
 ```sql
 SET IDENTITY_INSERT dbo.T1 ON;
@@ -126,12 +126,12 @@ FROM    dbo.T1
 
 ## <a name="load-data-into-a-table-with-identity"></a>KİMLİĞİNE sahip bir tabloya veri yükleme
 
-IDENTİTY özelliği varlığını veri yükleme kodunuza bazı etkilere sahiptir. Bu bölüm kimliği kullanarak verileri tablolara yüklemek için bazı temel düzenlerden vurgular. 
+Merhaba kimlik özelliği Hello varlığını bazı etkileri tooyour veri yükleme koduna sahip. Bu bölüm kimliği kullanarak verileri tablolara yüklemek için bazı temel düzenlerden vurgular. 
 
 ### <a name="load-data-with-polybase"></a>PolyBase ile veri yükleyin
-Verileri bir tabloya yüklemek ve bir yedek anahtar kimliği kullanarak oluşturmak, tablo oluştur ve Ekle kullanmak için... Seç veya Ekle... Yükleme gerçekleştirmek için değerler.
+bir tabloya tooload veri ve kimliği kullanarak bir yedek anahtar oluşturmak, hello tablo oluşturmayı ve ardından Ekle... Seç veya Ekle... DEĞERLERİ tooperform hello yük.
 
-Aşağıdaki örnek temel düzeni vurgular:
+Merhaba aşağıdaki örnek hello temel düzeni vurgular:
  
 ```sql
 --CREATE TABLE with IDENTITY
@@ -145,7 +145,7 @@ WITH
 )
 ;
 
---Use INSERT..SELECT to populate the table from an external table
+--Use INSERT..SELECT toopopulate hello table from an external table
 INSERT INTO dbo.T1
 (C2)
 SELECT  C2
@@ -160,28 +160,28 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE] 
-> Kullanmak mümkün değil `CREATE TABLE AS SELECT` şu anda verileri bir kimlik sütunu olan bir tabloya yüklenirken.
+> Olası toouse değil `CREATE TABLE AS SELECT` şu anda verileri bir kimlik sütunu olan bir tabloya yüklenirken.
 > 
 
-Toplu kopyalama programı (BCP) aracını kullanarak veri yükleme ile ilgili daha fazla bilgi için aşağıdaki makalelere bakın:
+Merhaba toplu kopyalama programı (BCP) aracını kullanarak veri yükleme ile ilgili daha fazla bilgi için aşağıdaki makaleler hello bakın:
 
 - [PolyBase ile yükleme][]
 - [PolyBase en iyi uygulamalar][]
 
 ### <a name="load-data-with-bcp"></a>BCP ile veri yükleme
-BCP SQL Data Warehouse'a veri yüklemek için kullanabileceğiniz bir komut satırı aracıdır. Parametrelerinden biri (-E) verileri bir kimlik sütunu olan bir tabloya yüklenirken BCP davranışını denetler. 
+BCP, SQL Data Warehouse'a tooload veri kullanabileceğiniz bir komut satırı aracıdır. Parametrelerinden biri (-E) denetimleri hello BCP davranışını verileri bir kimlik sütunu olan bir tabloya yüklenirken. 
 
--E belirtildiğinde, sütun için giriş dosyasındaki KİMLİKLE tutulan değerleri korunur. -E ise *değil* belirtilen sonra da bu sütundaki değerleri yoksayılır. Kimlik sütununun dahil edilmezse, verileri normal olarak yüklenir. Değerleri özelliği artırma ve çekirdek ilkesine göre oluşturulur.
+-E belirtildiğinde, hello sütun için hello giriş dosyasındaki KİMLİKLE tutulan hello değerleri korunur. -E ise *değil* hello bu sütundaki değerleri yoksayılır belirtilen. Merhaba kimlik sütunu dahil edilmezse, hello veriler normal olarak yüklenir. Merhaba değerleri toohello artırma ve çekirdek İlkesi hello özelliğinin göre oluşturulur.
 
-BCP kullanarak veri yükleme ile ilgili daha fazla bilgi için aşağıdaki makalelere bakın:
+BCP kullanarak veri yükleme ile ilgili daha fazla bilgi için aşağıdaki makaleler hello bakın:
 
 - [BCP ile yükleme][]
 - [BCP MSDN'de][]
 
 ## <a name="catalog-views"></a>Katalog görünümleri
-SQL veri ambarı destekleyen `sys.identity_columns` Katalog görünümü. Bu görünüm, kimlik özelliğine sahip bir sütunu tanımlamak için kullanılabilir.
+SQL veri ambarı destekleyen hello `sys.identity_columns` Katalog görünümü. Bu görünüm, kullanılan tooidentify hello kimlik özelliğine sahip bir sütun olabilir.
 
-Veritabanı şeması daha iyi anlamanıza yardımcı olması için bu örnek nasıl tümleştirileceği gösterir `sys.identity_columns` diğer sistem Katalog görünümleri ile:
+Bu örnek hello veritabanı şeması daha iyi anlamak toohelp gösterir nasıl toointegrate `sys.identity_columns` diğer sistem Katalog görünümleri ile:
 
 ```sql
 SELECT  sm.name
@@ -202,12 +202,12 @@ AND     tb.name = 'T1'
 ```
 
 ## <a name="limitations"></a>Sınırlamalar
-KİMLİK özelliği aşağıdaki senaryolarda kullanılamaz:
-- Burada sütun veri türü tamsayı veya büyük tamsayı değil
-- Sütun dağıtım anahtarı da olduğu
-- Tablo bir dış tablo olduğu 
+Merhaba kimlik özelliği senaryoları aşağıdaki hello kullanılamaz:
+- Burada hello sütun veri türü tamsayı veya büyük tamsayı değil
+- Merhaba sütun hello dağıtım anahtarı da olduğu
+- Merhaba tablosu bir dış tablo olduğu 
 
-SQL veri ambarı'nda aşağıdaki ilgili işlevleri desteklenmez:
+ilgili işlevleri aşağıdaki hello SQL veri ambarı'nda desteklenmez:
 
 - [IDENTITY()][]
 - [@@IDENTITY][]
@@ -219,22 +219,22 @@ SQL veri ambarı'nda aşağıdaki ilgili işlevleri desteklenmez:
 
 ## <a name="tasks"></a>Görevler
 
-Bu bölümde kimlik sütunu ile çalışırken ortak görevleri gerçekleştirmek için kullanabileceğiniz bazı örnek kodu sağlıyor.
+Bu bölümde bazı örnek kod, kimlik sütunu ile çalışırken tooperform ortak görevleri kullanabilirsiniz.
 
 > [!NOTE] 
-> Sütun C1 tüm aşağıdaki görevler kimliğidir.
+> Sütun C1 hello kimlik görevleri aşağıdaki tüm hello ' dir.
 > 
  
-### <a name="find-the-highest-allocated-value-for-a-table"></a>Bir tablo için en yüksek ayrılmış değeri Bul
-Kullanım `MAX()` işlevi dağıtılmış bir tablo için ayrılan en yüksek değeri belirlemek için:
+### <a name="find-hello-highest-allocated-value-for-a-table"></a>Bir tablo için ayrılan hello en yüksek değeri Bul
+Kullanım hello `MAX()` işlev dağıtılmış bir tablo için ayrılan toodetermine hello en yüksek değer:
 
 ```sql
 SELECT  MAX(C1)
 FROM    dbo.T1
 ``` 
 
-### <a name="find-the-seed-and-increment-for-the-identity-property"></a>Çekirdek ve Artım kimlik özelliği için Bul
-Katalog görünümleri aşağıdaki sorguyu kullanarak bir tablo için kimlik artırma ve çekirdek yapılandırma değerlerini bulmak için kullanabilirsiniz: 
+### <a name="find-hello-seed-and-increment-for-hello-identity-property"></a>Merhaba çekirdek ve Artım Merhaba kimlik özelliği Bul
+Sorgu aşağıdaki hello kullanarak bir tablo için hello Katalog görünümleri toodiscover hello kimlik artırma ve çekirdek yapılandırma değerlerini kullanabilirsiniz: 
 
 ```sql
 SELECT  sm.name
@@ -254,7 +254,7 @@ AND     tb.name = 'T1'
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Tabloları geliştirme hakkında daha fazla bilgi için bkz: [tablo genel bakış][Overview], [tablo veri türleri][Data Types], [bir tabloDağıt] [ Distribute], [Tablo dizin][Index], [tablo bölüm][Partition], ve [ Geçici tablolara][Temporary]. 
+* tablolar, geliştirme hakkında daha fazla toolearn bkz [tablo genel bakışı][Overview], [tablo veri türleri][Data Types], [bir tabloDağıt] [ Distribute], [Tablo dizin][Index], [tablo bölüm][Partition], ve [ Geçici tablolara][Temporary]. 
 * En iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL veri ambarı en iyi yöntemler][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->

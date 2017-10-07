@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Veri Ambarı'na Bağlanma | Microsoft Belgeleri"
-description: "Azure SQL Veri Ambarı için sunucu adı ve bağlantı dizesini bulma"
+title: aaaConnect tooAzure SQL Data Warehouse | Microsoft Docs
+description: "Nasıl tooAzure SQL Data Warehouse toofind hello sunucu adını ve bağlantı dizesi"
 services: sql-data-warehouse
 documentationcenter: NA
 author: antvgski
@@ -15,30 +15,30 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f15e098026afb7c5efbbbfaf62b681e8cd7936bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse’a bağlanma
-Bu makale SQL Veri Ambarı’na ilk kez bağlanmanıza yardımcı olur.
+# <a name="connect-tooazure-sql-data-warehouse"></a>SQL veri ambarı tooAzure Bağlan
+Bu makalede hello için ilk kez bağlı tooSQL veri ambarı size yardımcı olur.
 
 ## <a name="find-your-server-name"></a>Sunucu adınızı bulma
-SQL Veri Ambarına bağlanmanın ilk adımı, sunucunuzun adını bulmayı bilmektir.  Örneğin, aşağıdaki örnekte sunucu adı sample.database.windows.net şeklindedir. Tam sunucu adını bulmak için:
+İlk adım tooconnecting tooSQL olan veri ambarı bilmek hello nasıl toofind sunucunuzun adı.  Örneğin, aşağıdaki örneğine hello hello sunucu adı sample.database.windows.net olur. toofind hello tam sunucu adı:
 
-1. [Azure Portalı][Azure portal]’na gidin.
+1. Toohello Git [Azure portal][Azure portal].
 2. **SQL veritabanları**’na tıklayın 
-3. Bağlanmak istediğiniz veritabanına tıklayın.
-4. Tam sunucu adını bulun.
+3. Tooconnect için istediğiniz hello veritabanı tıklayın.
+4. Merhaba tam sunucu adını bulun.
    
     ![Tam sunucu adı][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Desteklenen sürücüler ve bağlantı dizeleri
-Azure SQL Veri Ambarı; [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] ve [JDBC][JDBC]’yi destekler. En son sürümü ve belgeleri bulmak için yukarıdaki sürücülerden birine tıklayın. Azure portalından kullandığınız sürücünün bağlantı dizesini otomatik olarak oluşturmak için önceki örnekte bulunan **Veritabanı bağlantı dizelerini göster**’e tıklayabilirsiniz.  Aşağıda ayrıca her sürücü için bir bağlantı dizesinin nasıl göründüğü ile ilgili bazı örnekler verilmiştir.
+Azure SQL Veri Ambarı; [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] ve [JDBC][JDBC]’yi destekler. Merhaba birini tıklatın sürücüleri toofind hello en son sürümünü ve belgeleri önceki. tooautomatically oluşturmak için kullanmakta olduğunuz hello sürücü hello bağlantı dizesi hello Azure ' üzerinde hello tıklatabilirsiniz portal, **veritabanı bağlantı dizelerini Göster** örnek önceki hello gelen.  Aşağıda ayrıca her sürücü için bir bağlantı dizesinin nasıl göründüğü ile ilgili bazı örnekler verilmiştir.
 
 > [!NOTE]
-> Bağlantınızın kısa süreli kesintiler sırasında devam etmesi için bağlantı zaman aşımını 300 saniyeye ayarlayın.
+> Bağlantı toosurvive kısa kullanılamazlık dönemlerini hello bağlantı zaman aşımı too300 saniye tooallow ayarlamayı göz önünde bulundurun.
 > 
 > 
 
@@ -54,7 +54,7 @@ Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows
 
 ### <a name="php-connection-string-example"></a>PHP bağlantı dizesi örneği
 ```PHP
-Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting to SQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
+Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting tooSQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
 ```
 
 ### <a name="jdbc-connection-string-example"></a>JDBC bağlantı dizesi örneği
@@ -73,11 +73,11 @@ SQL Veri Ambarı, bağlantı ve nesne oluşturma sırasında bazı ayarları sta
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Visual Studio ile bağlantı kurmak ve sorgulamak için bkz. [Visual Studio ile Sorgulama][Query with Visual Studio]. Kimlik doğrulama seçenekleri hakkında daha fazla bilgi için bkz. [Azure SQL Veri Ambarı’nda kimlik doğrulama][Authentication to Azure SQL Data Warehouse].
+bkz: tooconnect ve Visual Studio ile sorgu [sorgu Visual Studio ile][Query with Visual Studio]. kimlik doğrulama seçenekleri hakkında daha fazla toolearn bkz [kimlik doğrulaması tooAzure SQL Data Warehouse][Authentication tooAzure SQL Data Warehouse].
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
+[Authentication tooAzure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx

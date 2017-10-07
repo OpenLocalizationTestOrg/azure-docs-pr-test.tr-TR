@@ -1,6 +1,6 @@
 ---
-title: "Yönetilen bir Azure diski geri için yukarı kopyalama | Microsoft Docs"
-description: "Yedekleme için kullanılacak bir Azure yönetilen Disk veya disk sorunlarını giderme bir kopyasını oluşturmayı öğrenin."
+title: "Azure yönetilen yukarı yedekleme için Disk aaaCopy | Microsoft Docs"
+description: "Azure yönetilen diski toouse geri yukarı veya sorun giderme disk için bir kopyasını toocreate nasıl sorunları hakkında bilgi edinin."
 documentationcenter: 
 author: squillace
 manager: timlt
@@ -13,33 +13,33 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 2/6/2017
 ms.author: rasquill
-ms.openlocfilehash: c91367ef11c9d531bebac7c069d2df586607ec29
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 41b91c2d68eb5be9c493a66be5f7d085a70450d0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Yönetilen bir Azure diski yönetilen anlık görüntülerini kullanarak tarafından depolanan VHD bir kopyasını oluşturun
-Yönetilen disk yedekleme için bir anlık görüntüsünü veya yönetilen bir Disk anlık görüntüden oluşturabilir ve sorun giderme için test sanal makineye Ekle. Yönetilen bir anlık görüntü yönetilen bir VM Disk noktası zaman tam kopyasıdır. Bu, VHD salt okunur bir kopyasını oluşturur ve isteğe bağlı olarak varsayılan olarak, standart yönetilen Disk olarak depolar. 
+Yönetilen disk yedekleme için bir anlık görüntüsünü veya yönetilen bir Disk hello anlık görüntüden oluşturmak ve tooa test sanal makinesi tootroubleshoot ekleyin. Yönetilen bir anlık görüntü yönetilen bir VM Disk noktası zaman tam kopyasıdır. Bu, VHD salt okunur bir kopyasını oluşturur ve isteğe bağlı olarak varsayılan olarak, standart yönetilen Disk olarak depolar. 
 
-Fiyatlandırma hakkında daha fazla bilgi için bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
+Fiyatlandırma hakkında daha fazla bilgi için bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link tootopic or blog post that explains managed disks. -->
 
-Azure portalında veya Azure CLI 2.0 yönetilen diskin anlık görüntüsünü almak için kullanın.
+Her iki hello Azure portal veya hello Azure CLI 2.0 tootake hello yönetilen Disk görüntüsünü kullanın.
 
-## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Bir anlık görüntü almak için Azure CLI 2.0 kullanın
+## <a name="use-azure-cli-20-tootake-a-snapshot"></a>Azure CLI 2.0 tootake bir anlık görüntü kullanın
 
 > [!NOTE] 
-> Aşağıdaki örnek, Azure CLI yüklenmiş ve Azure hesabınızda oturum 2.0 gerektirir.
+> Merhaba aşağıdaki örnek hello Azure CLI 2.0 yüklü ve Azure hesabınızda oturum gerektirir.
 
-Aşağıdaki adımlar nasıl elde edilir ve yönetilen bir işletim sistemi diski kullanarak, bir anlık görüntüsünü gösterir `az snapshot create` komutunu `--source-disk` parametresi. Aşağıdaki örnek olarak adlandırılan bir VM olduğunu varsayar `myVM` bir yönetilen işletim sistemi diski ile oluşturulan `myResourceGroup` kaynak grubu.
+Merhaba aşağıdaki adımları nasıl tooobtain Al yönetilen bir işletim sistemi görüntüsünü hello kullanarak disk ve Göster `az snapshot create` hello komutunu `--source-disk` parametresi. Merhaba aşağıdaki örneği adlı bir VM olduğunu varsayar `myVM` hello olarak yönetilen bir işletim sistemi diski ile oluşturulan `myResourceGroup` kaynak grubu.
 
 ```azure-cli
-# take the disk id with which to create a snapshot
+# take hello disk id with which toocreate a snapshot
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 ```
 
-Çıktı aşağıdakine benzer görünmelidir:
+Merhaba çıktı gibi görünmelidir:
 
 ```json
 {
@@ -66,18 +66,18 @@ az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 }
 ```
 
-## <a name="use-azure-portal-to-take-a-snapshot"></a>Bir anlık görüntüsünü için Azure portalını kullanma 
+## <a name="use-azure-portal-tootake-a-snapshot"></a>Azure portal tootake bir anlık görüntü kullanın 
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol üst köşede başlayarak, tıklatın **yeni** arayın ve **anlık görüntü**.
-3. Anlık görüntü dikey penceresinde tıklayın **oluşturma**.
-4. Girin bir **adı** anlık görüntü için.
-5. Varolan [Kaynak grubunu](../../azure-resource-manager/resource-group-overview.md#resource-groups) seçin veya yenisi için adı yazın. 
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba sol üst köşede başlayarak, tıklatın **yeni** arayın ve **anlık görüntü**.
+3. Başlangıç anlık görüntü dikey penceresinde tıklayın **oluşturma**.
+4. Girin bir **adı** hello anlık görüntü için.
+5. Var olan seçin [kaynak grubu](../../azure-resource-manager/resource-group-overview.md#resource-groups) veya yeni bir hello adını yazın. 
 6. Azure veri merkezi konum seçin.  
-7. İçin **kaynak disk**, anlık görüntü için yönetilen diski seçin.
-8. Seçin **hesap türü** anlık görüntü deposu için kullanılacak. Öneririz **Standard_LRS** yüksek performanslı bir diskte depolanan gerekmedikçe.
+7. İçin **kaynak disk**, hello yönetilen Disk toosnapshot seçin.
+8. Select hello **hesap türü** toouse toostore hello anlık görüntü. Öneririz **Standard_LRS** yüksek performanslı bir diskte depolanan gerekmedikçe.
 9. **Oluştur**'a tıklayın.
 
-Yönetilen bir Disk oluşturmak ve yüksek performanslı olması gereken bir VM eklemek için anlık görüntü kullanmayı planlıyorsanız, parametresini kullanın `--sku Premium_LRS` ile `az snapshot create` komutu. Bu anlık görüntü oluşturur, böylece yönetilen bir Premium Disk depolanır. Katı hal sürücüleri (SSD) olan ancak birden çok standart diskler (HDD'ler) maliyet premium yönetilen diskleri daha iyi gerçekleştirilemiyor.
+Yönetilen bir Disk toouse hello anlık görüntü toocreate planlamak ve toobe yüksek performanslı gereken VM ekleme, hello parametresini kullanmanız `--sku Premium_LRS` hello ile `az snapshot create` komutu. Bu hello anlık görüntü oluşturur, böylece yönetilen bir Premium Disk depolanır. Katı hal sürücüleri (SSD) olan ancak birden çok standart diskler (HDD'ler) maliyet premium yönetilen diskleri daha iyi gerçekleştirilemiyor.
 
 

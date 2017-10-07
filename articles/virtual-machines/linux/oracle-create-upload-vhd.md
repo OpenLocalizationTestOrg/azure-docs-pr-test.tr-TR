@@ -1,6 +1,6 @@
 ---
-title: "Bir Oracle Linux VHD'yi oluşturup | Microsoft Docs"
-description: "Oluşturma ve bir Azure sanal sabit bir Oracle Linux işletim sistemini içeren disk (VHD) yükleme hakkında bilgi edinme."
+title: "aaaCreate ve Oracle Linux VHD yüklemek | Microsoft Docs"
+description: "Bir Azure sanal sabit bir Oracle Linux işletim sistemini içeren disk (VHD) yüklemek ve toocreate öğrenin."
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -15,44 +15,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: szark
-ms.openlocfilehash: c631ddf3acf6df7364c03eb4691b78be0493e0d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: be9cf284d7f5e7122a106506a343e53e9f1ac56e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Azure için Oracle Linux sanal makinesi hazırlama
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu makalede, bir sanal sabit disk için bir Oracle Linux işletim sistemi zaten yüklediğinizi varsayar. Birden çok araç, .vhd dosyaları, örneğin bir Hyper-V gibi sanallaştırma çözümü oluşturmak için mevcut. Yönergeler için bkz: [Hyper-V rolünü yükleyin ve sanal makine yapılandırma](http://technet.microsoft.com/library/hh846766.aspx).
+Bu makalede, bir Oracle Linux işletim sistemi tooa sanal sabit diski zaten yüklemiş olduğunuz varsayılır. Birden çok araç toocreate .vhd dosyaları, örneğin bir sanallaştırma çözümü Hyper-V gibi mevcut. Yönergeler için bkz: [hello Hyper-V rolünü yükleyin ve sanal makine yapılandırma](http://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="oracle-linux-installation-notes"></a>Oracle Linux yükleme notları
 * Ayrıca bkz [genel Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes) Linux Azure için hazırlama hakkında daha fazla ipucu için.
-* Oracle'nın Red Hat uyumlu çekirdek ve bunların UEK3 (kesilemeyen kurumsal çekirdek) hem de Hyper-V ve Azure üzerinde desteklenir. En iyi sonuçlar için lütfen en son çekirdek, Oracle Linux VHD hazırlanırken güncelleştirdiğinizden emin olun.
-* Gerekli sürücüleri içermez gibi oracle'nın UEK2 Hyper-V ve Azure üzerinde desteklenmiyor.
-* VHDX biçimi, Azure'da yalnızca desteklenmiyor **VHD sabit**.  Disk Hyper-V Yöneticisi'ni veya convert-vhd cmdlet'ini kullanarak VHD biçimine dönüştürebilirsiniz.
-* Linux sistemini yüklerken LVM (genellikle birçok yüklemeleri için varsayılan) yerine standart bölümlerini kullanmanız önerilir. Özellikle bir işletim sistemi diski şimdiye kadar başka bir VM için sorun giderme için eklenmesi gerekiyorsa, bu kopyalanan VMs LVM ad çakışmalarını önler. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veri disklerde tercih edilen varsa kullanılabilir.
-* NUMA Linux çekirdek sürümleri 2.6.37 aşağıda bir hata nedeniyle daha büyük VM boyutları için desteklenmiyor. Bu sorun öncelikle Yukarı Akış kullanarak dağıtımları etkiler Red Hat 2.6.32 çekirdek. Azure Linux Aracısı'nı (waagent) el ile yükleme otomatik olarak NUMA Linux çekirdek kaz yapılandırmasında devre dışı bırakır. Aşağıdaki adımlarda bu hakkında daha fazla bilgi bulunabilir.
-* Bir takas bölüm işletim sistemi disk üzerinde yapılandırmayın. Linux Aracısı geçici kaynak disk üzerinde bir takas dosyası oluşturmak için yapılandırılabilir.  Aşağıdaki adımlarda bu hakkında daha fazla bilgi bulunabilir.
-* Tüm VHD'leri boyutları 1 MB'ün katları olmalıdır.
-* Olduğundan emin olun `Addons` depo etkindir. Dosyayı düzenlemek `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) veya `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux), satır değiştirip `enabled=0` için `enabled=1` altında **[ol6_addons]** veya **[ol7_addons]** bu dosyadaki.
+* Oracle'nın Red Hat uyumlu çekirdek ve bunların UEK3 (kesilemeyen kurumsal çekirdek) hem de Hyper-V ve Azure üzerinde desteklenir. En iyi sonuçlar için Oracle Linux VHD hazırlanırken emin tooupdate toohello son çekirdek Lütfen olabilir.
+* Merhaba gerekli sürücüleri içermez gibi oracle'nın UEK2 Hyper-V ve Azure üzerinde desteklenmiyor.
+* Merhaba VHDX biçimi, Azure'da yalnızca desteklenmiyor **VHD sabit**.  Hyper-V Yöneticisi'ni kullanarak hello disk tooVHD biçimine Dönüştür veya convert-vhd cmdlet hello.
+* Merhaba Linux sistemi yüklerken LVM (genellikle birçok yüklemeleri için hello varsayılan) yerine standart bölümlerini kullanmanız önerilir. Özellikle bir işletim sistemi herhangi bir zamanda ihtiyaçlarını bağlı toobe tooanother VM sorun giderme için disk varsa bu LVM ad çakışmalarını kopyalanan VMs önler. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veri disklerde tercih edilen varsa kullanılabilir.
+* NUMA Linux çekirdeği sürümlerinde 2.6.37 aşağıda tooa hata nedeniyle daha büyük VM boyutları için desteklenmiyor. Bu sorun öncelikle kullanarak dağıtımları hello Yukarı Akış kırmızı etkileri Hat 2.6.32 çekirdek. Hello Azure Linux Aracısı'nı (waagent) el ile yükleme otomatik olarak NUMA yapılandırmasında hello kaz hello Linux çekirdek devre dışı bırakır. Merhaba aşağıdaki adımlarda bu hakkında daha fazla bilgi bulunabilir.
+* Bir takas bölüm hello işletim sistemi disk üzerinde yapılandırmayın. Merhaba Linux Aracısı yapılandırılmış toocreate hello geçici kaynak disk üzerinde bir takas dosyası olabilir.  Merhaba aşağıdaki adımlarda bu hakkında daha fazla bilgi bulunabilir.
+* Tüm hello VHD boyutları 1 MB'ün katları olmalıdır.
+* Bu hello emin olun `Addons` depo etkindir. Merhaba dosyasını düzenleyin `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) veya `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) hello satır değiştirip `enabled=0` çok`enabled=1` altında **[ol6_addons]** veya **[ol7_addons]** bu dosya.
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4 +
-Azure'da çalışması sanal makine için işletim sistemini belirli yapılandırma adımları tamamlamanız gerekir.
+Merhaba işletim sistemi azure'da hello sanal makine toorun için belirli yapılandırma adımları tamamlamanız gerekir.
 
-1. Hyper-V Yöneticisi'nin Orta bölmede sanal makineyi seçin.
-2. Tıklatın **Bağlan** sanal makine için penceresini açın.
-3. Aşağıdaki komutu çalıştırarak NetworkManager kaldırın:
+1. Merhaba Orta bölmede Hyper-V Yöneticisi'nin hello sanal makineyi seçin.
+2. Tıklatın **Bağlan** tooopen hello penceresinde hello sanal makine için.
+3. NetworkManager hello aşağıdaki komutu çalıştırarak kaldırın:
    
         # sudo rpm -e --nodeps NetworkManager
    
-    **Not:** paket zaten yüklü değilse, bu komutu bir hata iletisiyle başarısız olur. Bu beklenen bir durumdur.
-4. Adlı bir dosya oluşturun **ağ** içinde `/etc/sysconfig/` aşağıdaki metni içeren dizini:
+    **Not:** hello paket zaten yüklü değilse, bu komutu bir hata iletisiyle başarısız olur. Bu beklenen bir durumdur.
+4. Adlı bir dosya oluşturun **ağ** hello içinde `/etc/sysconfig/` metin aşağıdaki hello içeren dizini:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
-5. Adlı bir dosya oluşturun **ifcfg eth0** içinde `/etc/sysconfig/network-scripts/` aşağıdaki metni içeren dizini:
+5. Adlı bir dosya oluşturun **ifcfg eth0** hello içinde `/etc/sysconfig/network-scripts/` metin aşağıdaki hello içeren dizini:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -61,71 +61,71 @@ Azure'da çalışması sanal makine için işletim sistemini belirli yapılandı
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-6. Ethernet arabirimi için statik kuralları oluşturmamak için udev kuralları Değiştir. Bu kurallar, bir sanal makinede Microsoft Azure veya Hyper-V: kopyalarken sorunlara neden olabilir
+6. Udev kuralları tooavoid hello Ethernet arabirimi için statik kuralları oluşturma değiştirin. Bu kurallar, bir sanal makinede Microsoft Azure veya Hyper-V: kopyalarken sorunlara neden olabilir
    
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
-7. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlar emin olun:
+7. Merhaba ağ hizmetini hello aşağıdaki komutu çalıştırarak önyükleme sırasında başlatacak emin olun:
    
         # chkconfig network on
-8. Aşağıdaki komutu çalıştırarak Python pyasn1 yükleyin:
+8. Python pyasn1 hello aşağıdaki komutu çalıştırarak yükleyin:
    
         # sudo yum install python-pyasn1
-9. Azure için ek çekirdek parametreleri içerecek şekilde kaz yapılandırma çekirdek önyükleme satırı değiştirin. Bu açık yapmak için "/ boot/grub/menu.lst" bir metin düzenleyicisinde ve varsayılan çekirdek aşağıdaki parametreleri içerdiğinden emin olun:
+9. Merhaba çekirdek önyükleme kaz yapılandırma tooinclude ek çekirdek parametrelerinizi satırda Azure için değiştirin. Bu açık toodo "/ boot/grub/menu.lst" bir metin düzenleyicisinde ve o hello varsayılan çekirdek şu parametreler hello içerdiğinden emin olun:
    
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
    
-   Bu tüm konsol iletileri hangi Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilen sağlayacak sorunları ayıklama desteği. Bu NUMA Oracle'nın Red Hat uyumlu Çekirdeği'nde bir hata nedeniyle devre dışı bırakır.
+   Bu, Azure yardımcı olabilecek toohello ilk seri bağlantı noktasına, tüm konsol iletileri gönderilir sağlayacak sorunları ayıklama desteği. Bu NUMA Oracle'nın Red Hat uyumlu çekirdek tooa hata nedeniyle devre dışı bırakır.
    
-   Yukarıdakilerin yanı sıra için önerilir *kaldırmak* aşağıdaki parametreleri:
+   Ayrıca toohello yukarıdaki, çok önerilir*kaldırmak* hello şu Parametreler:
    
         rhgb quiet crashkernel=auto
    
-   Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilecek tüm günlükleri burada istiyoruz bulut ortamında bulunan kullanışlı değildir.
+   Grafik ve sessiz önyükleme toohello seri bağlantı noktasına gönderilen tüm hello günlükleri toobe burada istiyoruz bulut ortamında yararlı değildir.
    
-   `crashkernel` Seçeneği olabilir sol isterseniz yapılandırılmış, ancak Not küçük VM boyutlarını sorunlu olabilecek bu parametre VM tarafından 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır.
-10. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun.  Bu genellikle varsayılan seçenektir.
-11. Aşağıdaki komutu çalıştırarak Azure Linux Aracısı'nı yükleyin. En son sürüm 2.0.15 ' dir.
+   Merhaba `crashkernel` seçeneği olabilir sol isterseniz yapılandırılmış, ancak Not hello küçük VM boyutlarını sorunlu olabilecek bu parametre hello hello VM tarafından 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır.
+10. Bu hello SSH sunucusu yüklü olduğundan ve önyükleme sırasında toostart yapılandırılmış emin olun.  Bu genellikle hello varsayılandır.
+11. Merhaba aşağıdaki komutu çalıştırarak Hello Azure Linux aracısı yükleyin. Merhaba en son sürüm 2.0.15 ' dir.
     
         # sudo yum install WALinuxAgent
     
-    WALinuxAgent paketi yükleniyor NetworkManager kaldırır ve bunlar zaten açıklandığı gibi kaldırılmamışsa, NetworkManager gnome paketleri 2. adımda not edin.
-12. Takas alanı işletim sistemi disk üzerinde oluşturmayın.
+    Yükleme hello WALinuxAgent paketi hello NetworkManager kaldırır ve bunlar zaten açıklandığı gibi kaldırılmamışsa, NetworkManager gnome paketleri 2. adımda not edin.
+12. Takas alanı hello işletim sistemi disk üzerinde oluşturmayın.
     
-    Azure Linux Aracısı'nı otomatik olarak takas alanı Azure üzerinde sağladıktan sonra VM'ye bağlı yerel kaynak diski kullanarak yapılandırabilirsiniz. Yerel kaynak disk Not bir *geçici* disk ve VM sağlaması kaldırılıyor. sağlaması zaman boşaltılabilir. Azure Linux Aracısı'nı yükledikten sonra (önceki adıma bakın), /etc/waagent.conf aşağıdaki parametrelerinde uygun şekilde değiştirin:
+    Hello Azure Linux Aracısı otomatik olarak takas alanı ekli toohello VM Azure üzerinde sağladıktan sonra hello yerel kaynak diski kullanarak yapılandırabilirsiniz. Bu hello yerel kaynak diski Not bir *geçici* disk ve hello VM deprovisioned olduğunda boşaltılabilir. Yükledikten sonra Azure Linux Aracısı hello (önceki adıma bakın), /etc/waagent.conf parametrelerinde uygun şekilde aşağıdaki hello değiştirin:
     
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-13. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlamak için aşağıdaki komutları çalıştırın:
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this toowhatever you need it toobe.
+13. Aşağıdaki komutları toodeprovision hello sanal makine hello çalıştırın ve Azure üzerinde sağlamak için hazırlayın:
     
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
-14. Tıklatın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD Azure'a karşıya yüklenecek artık hazırdır.
+14. Tıklatın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Hazır toobe tooAzure karşıya artık Linux VHD olur.
 
 - - -
 ## <a name="oracle-linux-70"></a>Oracle Linux 7.0 +
 **Oracle Linux 7 değişiklikleri**
 
-Bir Oracle Linux 7 sanal makine için Azure hazırlanıyor çok ancak eşitlenmeyeceği birkaç önemli farklılıklar vardır, Oracle Linux 6 benzer:
+Bir Oracle Linux 7 sanal makine için Azure hazırlanıyor çok benzer tooOracle Linux 6, ancak eşitlenmeyeceği birkaç önemli farklılıklar vardır şöyledir:
 
-* Red Hat uyumlu çekirdek ve Oracle'nın UEK3 Azure üzerinde desteklenir.  UEK3 çekirdek önerilir.
-* NetworkManager paket artık Azure Linux Aracısı ile çakışıyor. Bu paketi varsayılan olarak yüklenir ve onu kaldırılmaz öneririz.
-* Çekirdek parametreleri düzenleme yordamı (aşağıya bakın) değişti biçimde GRUB2 şimdi varsayılan önyükleme yükleyicisi kullanılır.
-* XFS varsayılan dosya sistemi sunulmuştur. Ext4 dosya sistemi hala isterseniz kullanılabilir.
+* Azure'da hello Red Hat uyumlu çekirdek ve Oracle'nın UEK3 desteklenir.  Merhaba UEK3 çekirdek önerilir.
+* Merhaba NetworkManager paketi artık hello Azure Linux Aracısı ile çakışıyor. Bu paketi varsayılan olarak yüklenir ve onu kaldırılmaz öneririz.
+* GRUB2 şimdi varsayılan önyükleme yükleyicisi, çekirdek parametreleri düzenlemek için hello yordamı (aşağıya bakın) değişti şekilde hello olarak kullanılır.
+* XFS hello varsayılan dosya sistemi sunulmuştur. Merhaba ext4 dosya sistemi hala isterseniz kullanılabilir.
 
 **Yapılandırma adımları**
 
-1. Hyper-V Yöneticisi'nde sanal makineyi seçin.
-2. Tıklatın **Bağlan** sanal makine için bir konsol penceresi açın.
-3. Adlı bir dosya oluşturun **ağ** içinde `/etc/sysconfig/` aşağıdaki metni içeren dizini:
+1. Hyper-V Yöneticisi'nde hello sanal makineyi seçin.
+2. Tıklatın **Bağlan** tooopen hello sanal makine için bir konsol penceresi.
+3. Adlı bir dosya oluşturun **ağ** hello içinde `/etc/sysconfig/` metin aşağıdaki hello içeren dizini:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
-4. Adlı bir dosya oluşturun **ifcfg eth0** içinde `/etc/sysconfig/network-scripts/` aşağıdaki metni içeren dizini:
+4. Adlı bir dosya oluşturun **ifcfg eth0** hello içinde `/etc/sysconfig/network-scripts/` metin aşağıdaki hello içeren dizini:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -134,54 +134,54 @@ Bir Oracle Linux 7 sanal makine için Azure hazırlanıyor çok ancak eşitlenme
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-5. Ethernet arabirimi için statik kuralları oluşturmamak için udev kuralları Değiştir. Bu kurallar, bir sanal makinede Microsoft Azure veya Hyper-V: kopyalarken sorunlara neden olabilir
+5. Udev kuralları tooavoid hello Ethernet arabirimi için statik kuralları oluşturma değiştirin. Bu kurallar, bir sanal makinede Microsoft Azure veya Hyper-V: kopyalarken sorunlara neden olabilir
    
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-6. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlar emin olun:
+6. Merhaba ağ hizmetini hello aşağıdaki komutu çalıştırarak önyükleme sırasında başlatacak emin olun:
    
         # sudo chkconfig network on
-7. Aşağıdaki komutu çalıştırarak pyasn1 python paketini yükle:
+7. Merhaba aşağıdaki komutu çalıştırarak Hello pyasn1 python paketini yükle:
    
         # sudo yum install python-pyasn1
-8. Geçerli yum meta verileri temizlemek ve tüm güncelleştirmeleri yüklemek için aşağıdaki komutu çalıştırın:
+8. Aşağıdaki komut tooclear hello geçerli yum meta hello çalıştırın ve tüm güncelleştirmeleri yükleyin:
    
         # sudo yum clean all
         # sudo yum -y update
-9. Azure için ek çekirdek parametreleri içerecek şekilde kaz yapılandırma çekirdek önyükleme satırı değiştirin. Bunu yapmak için Aç "/ etc/varsayılan/kaz" bir metin Düzenleyicisi'ni ve düzenleme `GRUB_CMDLINE_LINUX` parametresi, örneğin:
+9. Merhaba çekirdek önyükleme kaz yapılandırma tooinclude ek çekirdek parametrelerinizi satırda Azure için değiştirin. Bu açık "/ etc/varsayılan/kaz" toodo bir metin düzenleyicisi ve düzenleme hello içinde `GRUB_CMDLINE_LINUX` parametresi, örneğin:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
-   Bu tüm konsol iletileri hangi Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilen sağlayacak sorunları ayıklama desteği. Aynı zamanda NIC için yeni OEL 7 adlandırma kuralları devre dışı bırakır. Yukarıdakilerin yanı sıra için önerilir *kaldırmak* aşağıdaki parametreleri:
+   Bu, Azure yardımcı olabilecek toohello ilk seri bağlantı noktasına, tüm konsol iletileri gönderilir sağlayacak sorunları ayıklama desteği. Aynı zamanda NIC için hello yeni OEL 7 adlandırma kuralları devre dışı bırakır. Ayrıca toohello yukarıdaki, çok önerilir*kaldırmak* hello şu Parametreler:
    
        rhgb quiet crashkernel=auto
    
-   Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilecek tüm günlükleri burada istiyoruz bulut ortamında bulunan kullanışlı değildir.
+   Grafik ve sessiz önyükleme toohello seri bağlantı noktasına gönderilen tüm hello günlükleri toobe burada istiyoruz bulut ortamında yararlı değildir.
    
-   `crashkernel` Seçeneği olabilir sol isterseniz yapılandırılmış, ancak Not küçük VM boyutlarını sorunlu olabilecek bu parametre VM tarafından 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır.
-10. Tamamladıktan sonra düzenleme "/ etc/varsayılan/kaz" başına, yukarıda kaz yapılandırma yeniden oluşturmak için aşağıdaki komutu çalıştırın:
+   Merhaba `crashkernel` seçeneği olabilir sol isterseniz yapılandırılmış, ancak Not hello küçük VM boyutlarını sorunlu olabilecek bu parametre hello hello VM tarafından 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır.
+10. Tamamladıktan sonra düzenleme "/ etc/varsayılan/kaz" başına yukarıdaki komut toorebuild hello kaz yapılandırması aşağıdaki hello çalıştırın:
     
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-11. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun.  Bu genellikle varsayılan seçenektir.
-12. Aşağıdaki komutu çalıştırarak Azure Linux Aracısı'nı yükleyin:
+11. Bu hello SSH sunucusu yüklü olduğundan ve önyükleme sırasında toostart yapılandırılmış emin olun.  Bu genellikle hello varsayılandır.
+12. Hello Azure Linux Aracısı hello aşağıdaki komutu çalıştırarak yükleyin:
     
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent
-13. Takas alanı işletim sistemi disk üzerinde oluşturmayın.
+13. Takas alanı hello işletim sistemi disk üzerinde oluşturmayın.
     
-    Azure Linux Aracısı'nı otomatik olarak takas alanı Azure üzerinde sağladıktan sonra VM'ye bağlı yerel kaynak diski kullanarak yapılandırabilirsiniz. Yerel kaynak disk Not bir *geçici* disk ve VM sağlaması kaldırılıyor. sağlaması zaman boşaltılabilir. Azure Linux Aracısı'nı yükledikten sonra (önceki adıma bakın), /etc/waagent.conf aşağıdaki parametrelerinde uygun şekilde değiştirin:
+    Hello Azure Linux Aracısı otomatik olarak takas alanı ekli toohello VM Azure üzerinde sağladıktan sonra hello yerel kaynak diski kullanarak yapılandırabilirsiniz. Bu hello yerel kaynak diski Not bir *geçici* disk ve hello VM deprovisioned olduğunda boşaltılabilir. Yükledikten sonra Azure Linux Aracısı hello (Merhaba önceki adıma bakın), /etc/waagent.conf parametrelerinde uygun şekilde aşağıdaki hello değiştirin:
     
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-14. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlamak için aşağıdaki komutları çalıştırın:
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this toowhatever you need it toobe.
+14. Aşağıdaki komutları toodeprovision hello sanal makine hello çalıştırın ve Azure üzerinde sağlamak için hazırlayın:
     
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
-15. Tıklatın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD Azure'a karşıya yüklenecek artık hazırdır.
+15. Tıklatın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Hazır toobe tooAzure karşıya artık Linux VHD olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi yeni sanal makineler oluşturmak için Oracle Linux .vhd kullanmaya hazırsınız. Adım 2 ve 3'te Azure'a .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Artık hazır toouse, Oracle Linux .vhd toocreate yeni sanal makineleri azure'da demektir. Adım 2 ve 3'te bu hello hello .vhd dosyası tooAzure karşıya yüklüyoruz ilk kez kullanıyorsanız, bkz: [oluşturma ve hello Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu değişken varlıkları | Microsoft Docs"
-description: "Değişken varlıkları tüm runbook'lar ve Azure Otomasyonu DSC yapılandırmalarında kullanılabilen değerlerdir.  Bu makalede, değişkenlerin ve bunlarla metinsel ve grafik yazma çalışma konusunda ayrıntılar açıklanmaktadır."
+title: "Azure Otomasyonu aaaVariable varlıkları | Microsoft Docs"
+description: "Değişken varlıkları kullanılabilir tooall runbook'ları ve Azure Otomasyonu DSC yapılandırmalarında değerlerdir.  Bu makale, değişkenleri hello ayrıntılarını açıklar ve nasıl metinsel ve grafik yazma içinde toowork onlarla."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: dc00e1e5fa8df5cb55e7e2672137d1df44133773
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f9daa49fc1dc883ffb218a9adf26e36df1d6bb27
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Otomasyonu değişken varlıkları
 
-Değişken varlıkları tüm runbook'lar ve Otomasyon hesabınızda DSC yapılandırmaları kullanılabilen değerlerdir. Bunlar oluşturulan, değiştirilebilir ve Windows PowerShell, Azure portalından ve içinden alınan bir runbook veya DSC yapılandırması. Otomasyon değişkenleri aşağıdaki senaryolarda kullanışlıdır:
+Değişken varlıkları kullanılabilir tooall runbook'ları ve Otomasyon hesabınızda DSC yapılandırmaları değerlerdir. Bunlar oluşturulan, değiştirilebilir ve hello Azure portalı, Windows PowerShell ve içinden alınan bir runbook veya DSC yapılandırması. Otomasyon değişkenleri senaryoları aşağıdaki hello için yararlıdır:
 
 - Birden çok runbook'ları veya DSC yapılandırması arasında bir değer paylaşır.
 
-- Bir değeri aynı runbook veya DSC yapılandırması birden çok iş arasında paylaştırma.
+- Bir değeri hello birden çok iş arasında paylaştırma aynı runbook veya DSC yapılandırması.
 
-- Bir değeri portalından veya runbook'lar veya bir dizi ortak yapılandırma öğelerinin belirli listesi gibi VM adları, belirli bir kaynak grubunun, bir AD etki alanı adı, vb. gibi DSC yapılandırmaları tarafından kullanılan Windows PowerShell komut satırından yönetme.  
+- Bir değer hello portalından veya runbook'lar veya bir dizi ortak yapılandırma öğelerinin belirli listesi gibi VM adları, belirli bir kaynak grubunun, bir AD etki alanı adı, vb. gibi DSC yapılandırmaları tarafından kullanılan hello Windows PowerShell komut satırından yönetme.  
 
-Böylece runbook veya DSC yapılandırma başarısız olsa bile kullanılabilir olmaya devam Otomasyon değişkenleri kalıcıdır.  Bu DSC yapılandırması bu İleri çalıştırıldığında ve aynı runbook tarafından kullanılan veya bir başkası tarafından sonra kullanılan bir runbook tarafından ayarlamak için bir değer de sağlar.
+Otomasyon değişkenleri böylece Hello runbook veya DSC yapılandırması başarısız olsa bile kullanıcılar toobe kullanılabilir devam kalıcıdır.  Bu da ardından bir başkası tarafından kullanılan veya hello tarafından kullanılan bir runbook tarafından ayarlanan değer toobe sağlar aynı runbook veya DSC yapılandırma Merhaba, İleri çalıştırıldığında.
 
-Bir değişken oluşturulduğunda depolanmasını belirtebilirsiniz şifrelenmiş.  Bir değişken şifrelendiğinde, Azure Automation'da güvenli bir şekilde depolanır ve değeri alınamaz [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx) Azure PowerShell modülünün bir parçası olarak gönderilen cmdlet'i.  Şifrelenmiş değer alınabilir tek yolu **Get-AutomationVariable** etkinliğini runbook veya DSC yapılandırması.
+Bir değişken oluşturulduğunda depolanmasını belirtebilirsiniz şifrelenmiş.  Bir değişken şifrelendiğinde, Azure Automation'da güvenli bir şekilde depolanır ve değeri hello alınamıyor [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx) hello Azure PowerShell modülünün bir parçası olarak gönderilen cmdlet'i.  Merhaba şifrelenmiş değer alınabilir yalnızca hello yoludur **Get-AutomationVariable** etkinliğini runbook veya DSC yapılandırması.
 
 > [!NOTE]
-> Azure Automation güvenli varlıkların kimlik bilgileri, sertifikalar, bağlantıları ve şifrelenmiş değişkenler içerir. Bu varlıklar şifrelenir ve her Otomasyon hesabı için oluşturulan benzersiz bir anahtar kullanarak Azure Automation depolanır. Bu anahtarı bir sertifika tarafından şifrelenir ve Azure Otomasyonu'nda depolanır. Güvenli bir varlık depolamak önce anahtar Otomasyon hesabı için sertifika aracılığıyla çözülür ve varlık şifrelemek için kullanılan.
+> Azure Automation güvenli varlıkların kimlik bilgileri, sertifikalar, bağlantıları ve şifrelenmiş değişkenler içerir. Bu varlıklar şifrelenir ve hello Azure her Otomasyon hesabı için oluşturulan benzersiz bir anahtar kullanarak otomasyon depolanır. Bu anahtarı bir sertifika tarafından şifrelenir ve Azure Otomasyonu'nda depolanır. Güvenli bir varlık depolamak önce hello Otomasyon hesabının hello anahtarı hello ana sertifikayı kullanarak şifresi çözülür ve tooencrypt hello varlık kullanılır.
 
 ## <a name="variable-types"></a>Değişken türleri
 
-Azure portal ile bir değişkeni oluşturduğunuzda, portal değişken değeri girmek için uygun denetimi görüntüleyebilmesi aşağı açılan listeden bir veri türü belirtmeniz gerekir. Değişkeni bu veri türü için sınırlı değildir, ancak farklı türde bir değer belirtmek istiyorsanız Windows PowerShell kullanarak değişkenini ayarlamalıdır. Belirtirseniz **tanımlanmamış**, değişkenin değeri ayarlanacak sonra **$null**, ve değerle ayarlamanız gerekir [kümesi AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) cmdlet'ini veya **Set-AutomationVariable** etkinlik.  Oluşturma veya karmaşık değişken türü portalında değerini değiştirin, ancak Windows PowerShell kullanarak herhangi bir türde bir değer sağlayabilir. Karmaşık türler olarak döndürülecek bir [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx).
+Hello Azure portal ile bir değişkeni oluşturduğunuzda, hello portal hello hello değişken değeri girmek için uygun denetimi görüntüleyebilmesi hello aşağı açılan listeden bir veri türü belirtmeniz gerekir. Merhaba değişken kısıtlı toothis veri değil türü, ancak hello değişkeni toospecify istiyorsanız, Windows PowerShell kullanarak bir değere ayarlamalısınız, farklı bir tür. Belirtirseniz **tanımlanmamış**, hello hello değişkenin değerini çok ayarlayın, sonra da**$null**, ve hello hello değerle ayarlamanız gerekir [kümesi AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) cmdlet'ini veya **Set-AutomationVariable** etkinlik.  Oluşturma veya karmaşık değişken türü hello portalında hello değerini değiştirin, ancak Windows PowerShell kullanarak herhangi bir türde bir değer sağlayabilir. Karmaşık türler olarak döndürülecek bir [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx).
 
-Bir dizi ya da karma tablosu oluşturarak ve değişkenine kaydetme birden çok değeri tek bir değişkende depolayabilirsiniz.
+Birden çok değer tooa tek değişken bir dizi ya da karma oluşturma ve toohello değişkeni kaydetme depolayabilirsiniz.
 
-Değişken türleri Otomasyon kullanılabilir bir listesi verilmiştir:
+Merhaba, Otomasyon kullanılabilir değişken türlerinin bir listesini şunlardır:
 
 * Dize
 * Tamsayı
@@ -53,38 +53,38 @@ Değişken türleri Otomasyon kullanılabilir bir listesi verilmiştir:
 
 ## <a name="cmdlets-and-workflow-activities"></a>Cmdlet'ler ve iş akışı etkinlikleri
 
-Aşağıdaki tabloda yer alan cmdlet'ler oluşturmak ve Otomasyon değişkenleri Windows PowerShell ile yönetmek için kullanılır. Bir parçası olarak sevk [Azure PowerShell Modülü](../powershell-install-configure.md) olduğu Automation runbook'ları ve DSC yapılandırması için kullanılabilir.
+Aşağıdaki tablonun hello Hello cmdlet'leri kullanılan toocreate olan ve Windows PowerShell ile Otomasyon değişkenleri yönetebilirsiniz. Merhaba bir parçası olarak sevk [Azure PowerShell Modülü](../powershell-install-configure.md) olduğu Automation runbook'ları ve DSC yapılandırması için kullanılabilir.
 
 |Cmdlet'leri|Açıklama|
 |:---|:---|
-|[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Mevcut bir değişken değerini alır.|
+|[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Mevcut bir değişken Hello değerini alır.|
 |[AzureRmAutomationVariable yeni](https://msdn.microsoft.com/library/mt603613.aspx)|Yeni bir değişken oluşturur ve değerini ayarlar.|
 |[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Mevcut bir değişken kaldırır.|
-|[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Mevcut bir değişken için değeri ayarlar.|
+|[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Mevcut bir değişken için başlangıç değerini ayarlar.|
 
-Aşağıdaki tabloda iş akışı etkinlikleri Otomasyon bir runbook'ta değişkenlere erişmek için kullanılır. Bunlar yalnızca runbook ya da DSC yapılandırması kullanmak için kullanılabilir ve Azure PowerShell modülünün bir parçası olarak bulunmaz.
+Aşağıdaki tablonun hello Hello iş akışı etkinlikleri kullanılan tooaccess Otomasyon değişkenleri bir runbook'ta ' dir. Bunlar yalnızca runbook ya da DSC yapılandırması kullanmak için kullanılabilir ve hello Azure PowerShell modülünün bir parçası olarak bulunmaz.
 
 |İş akışı etkinlikleri|Açıklama|
 |:---|:---|
-|Get-AutomationVariable|Mevcut bir değişken değerini alır.|
-|Set-AutomationVariable|Mevcut bir değişken için değeri ayarlar.|
+|Get-AutomationVariable|Mevcut bir değişken Hello değerini alır.|
+|Set-AutomationVariable|Mevcut bir değişken için başlangıç değerini ayarlar.|
 
 > [!NOTE] 
-> Yapmaktan kaçınmalısınız – Name parametresinde **Get-AutomationVariable** runbook veya bu runbook'ları veya DSC yapılandırması ve Otomasyon değişkenleri arasındaki bağımlılıkları tasarım zamanında getirebileceğinden DSC yapılandırması.
+> Değişkenleri yapmaktan kaçınmalısınız hello – Name parametresinde **Get-AutomationVariable** runbook veya runbook'ları veya DSC yapılandırması ve Otomasyon arasındaki bağımlılıkları getirebileceğinden DSC yapılandırması Tasarım zamanında değişkenleri.
 
 ## <a name="creating-a-new-automation-variable"></a>Yeni Otomasyon değişkeni oluşturma
 
-### <a name="to-create-a-new-variable-with-the-azure-portal"></a>Azure portalı ile yeni bir değişken oluşturmak için
+### <a name="toocreate-a-new-variable-with-hello-azure-portal"></a>toocreate hello Azure portalı ile yeni bir değişken
 
-1. Otomasyon hesabınızdan tıklatın **varlıklar** döşeme ve daha sonra **varlıklar** dikey penceresinde, select **değişkenleri**.
-2. Üzerinde **değişkenleri** kutucuğu, select **değişken Ekle**.
-3. Seçenekleri tamamlayın **yeni değişken** tıklayın ve dikey **oluşturma** yeni değişkeni kaydetmek.
+1. Otomasyon hesabınızdan hello tıklatın **varlıklar** döşeme ve ardından hello **varlıklar** dikey penceresinde, select **değişkenleri**.
+2. Merhaba üzerinde **değişkenleri** kutucuğu, select **değişken Ekle**.
+3. Tamamlamak hello hello seçenekleri **yeni değişken** tıklayın ve dikey **Oluştur** hello yeni değişken kaydedin.
 
-### <a name="to-create-a-new-variable-with-windows-powershell"></a>Windows PowerShell ile yeni bir değişken oluşturmak için
+### <a name="toocreate-a-new-variable-with-windows-powershell"></a>Windows PowerShell ile yeni bir değişken toocreate
 
-[Yeni AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx) cmdlet'i yeni bir değişken oluşturur ve ilk değerini ayarlar. Değer kullanarak alabilirsiniz [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx). Değer basit bir tür ise, bu türdeki döndürülür. Karmaşık bir tür ise sonra bir **PSCustomObject** döndürülür.
+Merhaba [yeni AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx) cmdlet'i yeni bir değişken oluşturur ve ilk değerini ayarlar. Değer hello kullanarak alabilirsiniz [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx). Merhaba değer basit bir tür ise, bu türdeki döndürülür. Karmaşık bir tür ise sonra bir **PSCustomObject** döndürülür.
 
-Aşağıdaki örnek komutlar dize türünde bir değişken oluşturma ve değerini döndür göstermektedir.
+Merhaba aşağıdaki örnek komutlar Göster nasıl toocreate türünde bir değişken dize ve değerini döndürür.
 
     New-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" 
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
@@ -92,7 +92,7 @@ Aşağıdaki örnek komutlar dize türünde bir değişken oluşturma ve değeri
     $string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 
-Aşağıdaki örnek komutlar bir karmaşık türü ile bir değişken oluşturun ve özelliklerini dönmek nasıl gösterir. Bir sanal makine bu durumda, nesne **Get-AzureRmVm** kullanılır.
+Merhaba aşağıdaki örnek komutlar Göster nasıl toocreate karmaşık sahip bir değişken yazın ve ardından özelliklerini geri dönün. Bir sanal makine bu durumda, nesne **Get-AzureRmVm** kullanılır.
 
     $vm = Get-AzureRmVm -ResourceGroupName "ResourceGroup01" –Name "VM01"
     New-AzureRmAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
@@ -106,14 +106,14 @@ Aşağıdaki örnek komutlar bir karmaşık türü ile bir değişken oluşturun
 
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>Bir runbook veya DSC yapılandırması bir değişken kullanma
 
-Kullanım **Set-AutomationVariable** bir runbook veya DSC yapılandırması, bir Otomasyon değişkenin değerini ayarlamak için etkinlik ve **Get-AutomationVariable** bunu almak için.  Kullanmamanız **kümesi AzureAutomationVariable** veya **Get-AzureAutomationVariable** cmdlet'leri runbook veya iş akışı etkinlikleri az verimli olduğundan DSC yapılandırması.  Güvenli değişkenlerle değeri alınamıyor **Get-AzureAutomationVariable**.  Bir runbook veya DSC yapılandırması içinde yeni bir değişken oluşturmak için tek yolu kullanmaktır [yeni AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet'i.
+Kullanım hello **Set-AutomationVariable** etkinlik tooset hello değişkenin değeri olarak bir Otomasyon runbook'u veya DSC yapılandırması ve hello **Get-AutomationVariable** tooretrieve onu.  Merhaba kullanmamanız **kümesi AzureAutomationVariable** veya **Get-AzureAutomationVariable** cmdlet'leri runbook veya hello iş akışı etkinlikleri az verimli olduğundan DSC yapılandırması.  Güvenli değişkenlerle hello değeri alınamıyor **Get-AzureAutomationVariable**.  yalnızca yol toocreate bir runbook içindeki yeni bir değişken hello veya DSC yapılandırma toouse hello [yeni AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet'i.
 
 
 ### <a name="textual-runbook-samples"></a>Metin biçiminde runbook örnekleri
 
 #### <a name="setting-and-retrieving-a-simple-value-from-a-variable"></a>Basit bir değer bir değişkeninden alma ve ayarlama
 
-Aşağıdaki örnek komutlar ayarlamak ve metin biçiminde runbook bir değişkende almak nasıl gösterir. Bu örnekte, Tamsayı türünde değişkenleri adlı görünür duruma varsayılır *Numberofıterations* ve *NumberOfRunnings* ve adlı dize türünde bir değişken *SampleMessage* zaten oluşturulmuş.
+Merhaba aşağıdaki örnek komutlar Göster nasıl tooset ve metin biçiminde runbook bir değişkende alır. Bu örnekte, Tamsayı türünde değişkenleri adlı görünür duruma varsayılır *Numberofıterations* ve *NumberOfRunnings* ve adlı dize türünde bir değişken *SampleMessage* zaten oluşturulmuş.
 
     $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
     $NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
@@ -128,13 +128,13 @@ Aşağıdaki örnek komutlar ayarlamak ve metin biçiminde runbook bir değişke
 
 #### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>Karmaşık bir nesne, bir değişkende alma ve ayarlama
 
-Aşağıdaki örnek kod, metin biçiminde runbook karmaşık bir değere sahip bir değişken güncelleştirme gösterilmiştir. Bu örnekte, bir Azure sanal makinesi ile alınan **Get-AzureVM** ve varolan bir Otomasyon değişkeni kaydedildi.  İçinde anlatıldığı gibi [değişken türleri](#variable-types), bu PSCustomObject depolanır.
+Merhaba aşağıdaki örnek kod gösterir nasıl tooupdate metin biçiminde runbook karmaşık bir değere sahip bir değişken. Bu örnekte, bir Azure sanal makinesi ile alınan **Get-AzureVM** ve kaydedilmiş tooan var olan Otomasyon değişkeni.  İçinde anlatıldığı gibi [değişken türleri](#variable-types), bu PSCustomObject depolanır.
 
     $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
     Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
 
 
-Aşağıdaki kodda değeri değişkeninden alınır ve sanal makineyi başlatmak için kullanılır.
+Koddan hello hello değeri hello değişken ve kullanılan toostart hello sanal makineden alınır.
 
     $vmObject = Get-AutomationVariable -Name "MyComplexVariable"
     if ($vmObject.PowerState -eq 'Stopped') {
@@ -144,12 +144,12 @@ Aşağıdaki kodda değeri değişkeninden alınır ve sanal makineyi başlatmak
 
 #### <a name="setting-and-retrieving-a-collection-in-a-variable"></a>Bir değişken koleksiyonunda alma ve ayarlama
 
-Aşağıdaki örnek kod bir metinsel runbook'ta karmaşık değerler koleksiyonu ile bir değişken kullanmayı gösterir. Bu örnekte, birden fazla Azure sanal makineler ile alınan **Get-AzureVM** ve varolan bir Otomasyon değişkeni kaydedildi.  İçinde anlatıldığı gibi [değişken türleri](#variable-types), bu PSCustomObjects koleksiyonu olarak depolanır.
+Merhaba aşağıdaki örnek kod gösterir nasıl toouse metinsel bir runbook'ta karmaşık değerler koleksiyonu sahip bir değişken. Bu örnekte, birden fazla Azure sanal makineler ile alınan **Get-AzureVM** ve kaydedilmiş tooan var olan Otomasyon değişkeni.  İçinde anlatıldığı gibi [değişken türleri](#variable-types), bu PSCustomObjects koleksiyonu olarak depolanır.
 
     $vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}     
     Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
 
-Aşağıdaki kodda, koleksiyon değişkeninden alınır ve her sanal makineyi başlatmak için kullanılır.
+Koddan hello hello koleksiyonu hello değişkeninden alınır ve her sanal makine toostart kullanılan.
 
     $vmValues = Get-AutomationVariable -Name "MyComplexVariable"
     ForEach ($vmValue in $vmValues)
@@ -162,17 +162,17 @@ Aşağıdaki kodda, koleksiyon değişkeninden alınır ve her sanal makineyi ba
 
 ### <a name="graphical-runbook-samples"></a>Grafik runbook örnekleri
 
-Bir grafik runbook'ta eklediğiniz **Get-AutomationVariable** veya **Set-AutomationVariable** grafik düzenleyicisini Kitaplık bölmesinde değişkeni sağ tıklatın ve istediğiniz etkinliği seçerek.
+Bir grafik runbook'ta hello eklemek **Get-AutomationVariable** veya **Set-AutomationVariable** hello değişkeni hello grafik Düzenleyicisi hello Kitaplık bölmesinde sağ tıklayarak ve hello seçme istediğiniz etkinliği.
 
-![Tuvale değişken Ekle](media/automation-variables/runbook-variable-add-canvas.png)
+![Değişken toocanvas Ekle](media/automation-variables/runbook-variable-add-canvas.png)
 
 #### <a name="setting-values-in-a-variable"></a>Bir değişkende değerleri ayarlama
-Aşağıdaki resimde bir grafik runbook basit bir değere sahip bir değişken güncelleştirmek için örnek etkinliklerini gösterir. Bu örnekte, tek bir Azure sanal makine ile alınan **Get-AzureRmVM** ve varolan bir Otomasyon değişkeni dize türünde bir bilgisayar adı kaydedilir.  Önemli değildir olup olmadığını [bağlantıdır bir ardışık düzen veya dizisi](automation-graphical-authoring-intro.md#links-and-workflow) bu yana yalnızca tek bir nesne çıktıda bekliyoruz.
+Hello aşağıdaki görüntüde örnek etkinlikleri tooupdate bir değere sahip bir değişken basit bir grafik runbook'u gösterir. Bu örnekte, tek bir Azure sanal makine ile alınan **Get-AzureRmVM** ve hello bilgisayar adı bir dize türü ile tooan var olan Otomasyon değişkeni kaydedilir.  Hello olup olmadığını önemli değildir [bağlantıdır bir ardışık düzen veya dizisi](automation-graphical-authoring-intro.md#links-and-workflow) bu yana yalnızca tek bir nesne hello çıktısında bekliyoruz.
 
 ![Basit değişken Ayarla](media/automation-variables/runbook-set-simple-variable.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-* Grafik yazma etkinlikleri birbirine bağlama hakkında daha fazla bilgi için bkz: [grafik yazma içindeki bağlantılar](automation-graphical-authoring-intro.md#links-and-workflow)
-* Grafik runbook'ları kullanmaya başlamak için bkz. [İlk grafik runbook uygulamam](automation-first-runbook-graphical.md) 
+* Grafik yazma etkinlikleri birbirine bağlama hakkında daha fazla toolearn bakın [grafik yazma içindeki bağlantılar](automation-graphical-authoring-intro.md#links-and-workflow)
+* Grafik runbook'ları ile çalışmaya tooget bakın [ilk grafik runbook Uygulamam](automation-first-runbook-graphical.md) 
 

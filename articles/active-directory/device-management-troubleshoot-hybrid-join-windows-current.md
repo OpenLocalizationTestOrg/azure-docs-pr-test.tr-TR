@@ -1,5 +1,5 @@
 ---
-title: "Karma Azure Active Directory sorun giderme alanına katılmış Windows 10 ve Windows Server 2016 cihazları | Microsoft Docs"
+title: "aaaTroubleshooting karma Azure Active Directory'ye katılmış Windows 10 ve Windows Server 2016 cihazları | Microsoft Docs"
 description: "Karma Azure Active Directory sorun giderme Windows 10 ve Windows Server 2016 cihazları katıldı."
 services: active-directory
 documentationcenter: 
@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 51962c14a3c32bbfa9a613fa203cc48cfea50c0b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cc252d1d0684d6632694afc8a367327794228c19
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Katılmış Windows 10 ve Windows Server 2016 cihazlarda karma Azure Active Directory sorun giderme 
 
-Bu konu, aşağıdaki istemciler için geçerlidir:
+Bu konuda geçerli toohello istemcileri aşağıdaki gibidir:
 
 -   Windows 10
 -   Windows Server 2016
 
 Diğer Windows istemcileri için bkz: [sorun giderme karma Azure Active Directory birleştirilmiş alt düzey aygıtları](device-management-troubleshoot-hybrid-join-windows-legacy.md).
 
-Bu konu, sahibi olduğunuzu varsayar [yapılandırılmış karma Azure Active Directory'ye katılmış cihazları](device-management-hybrid-azuread-joined-devices-setup.md) aşağıdaki senaryoları desteklemek için:
+Bu konu, sahibi olduğunuzu varsayar [yapılandırılmış karma Azure Active Directory'ye katılmış cihazları](device-management-hybrid-azuread-joined-devices-setup.md) toosupport hello senaryolar:
 
 - Cihaz temelli koşullu erişim
 
@@ -38,16 +38,16 @@ Bu konu, sahibi olduğunuzu varsayar [yapılandırılmış karma Azure Active Di
 - [İş İçin Windows Hello](active-directory-azureadjoin-passport-deployment.md)
 
 
-Bu belge hakkında olası sorunları gidermek sorun giderme kılavuzu sağlar. 
+Bu belge, nasıl tooresolve olası sorunları hakkında sorun giderme kılavuzu sağlar. 
 
 
-Windows 10 ve Windows Server 2016, karma Azure Active Directory katılım desteklediği için Windows 10 Kasım 2015 güncelleştirme ve üstü. Yıldönümü güncelleştirme kullanmanızı öneririz.
+Windows 10 ve Windows Server 2016 için karma Azure Active Directory katılım destekler hello Windows 10 Kasım 2015 güncelleştirmesi ve üstü. Merhaba Yıldönümü güncelleştirme kullanmanızı öneririz.
 
-## <a name="step-1-retrieve-the-join-status"></a>1. adım: katılım durumunu alma 
+## <a name="step-1-retrieve-hello-join-status"></a>1. adım: hello birleşim durumu alma 
 
-**Birleşim durumunu almak için:**
+**tooretrieve hello birleşim durumu:**
 
-1. Komut istemini yönetici olarak açın
+1. Bir yönetici olarak açın hello komut istemi
 
 2. Tür **dsregcmd/Status**
 
@@ -57,7 +57,7 @@ Windows 10 ve Windows Server 2016, karma Azure Active Directory katılım destek
    | Cihaz durumu |+----------------------------------------------------------------------+
     
         AzureAdJoined: YES
-     EnterpriseJoined: Cihaz kimliği yok: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 parmak izi: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: Microsoft Platform şifreleme sağlayıcısı TpmProtected: Evet KeySignTest:: test etmek için yükseltilmiş çalıştırmanız gerekir.
+     EnterpriseJoined: Cihaz kimliği yok: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 parmak izi: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: Microsoft Platform şifreleme sağlayıcısı TpmProtected: Evet KeySignTest:: Çalıştır yükseltilmiş tootest gerekir.
                   IDP: login.windows.net Tenantıd: 72b988bf-86f1-41af-91ab-2d7cd011db47 TenantName: Contoso AuthCodeUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize AccessTokenUrl: https://login.microsoftonline.com/ msitsupp.microsoft.com/oauth2/Token MdmUrl: https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc MdmTouUrl: https://portal.manage-beta.microsoft.com/TermsOfUse.aspx dmComplianceUrl: https:// Portal.Manage-Beta.microsoft.com/?portalAction=Compliance SettingsUrl: eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ JoinSrvVersion ==: 1.0 JoinSrvUrl: https:// enterpriseregistration.windows.net/EnrollmentServer/device/ JoinSrvId: urn: ms-drs:enterpriseregistration.windows.net KeySrvVersion: 1.0 KeySrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/key/ KeySrvId: urn: ms-drs: enterpriseregistration.Windows.NET DomainJoined: Evet DomainName: CONTOSO
     
     +----------------------------------------------------------------------+
@@ -71,53 +71,53 @@ Windows 10 ve Windows Server 2016, karma Azure Active Directory katılım destek
 
 
 
-## <a name="step-2-evaluate-the-join-status"></a>2. adım: katılım durumunu değerlendirme 
+## <a name="step-2-evaluate-hello-join-status"></a>2. adım: hello birleşim durumu değerlendirin 
 
-Aşağıdaki alanları gözden geçirin ve beklenen değerleri sahip olduğunuzdan emin olun:
+Alanları aşağıdaki hello gözden geçirin ve hello beklenen değerler sahip olduğunuzdan emin olun:
 
 ### <a name="azureadjoined--yes"></a>AzureAdJoined: Evet  
 
-Bu alan, Azure AD ile cihaz katıldığından olup olmadığını gösterir. Değer ise **Hayır**, Azure ad birleştirme henüz tamamlanmadı. 
+Bu alan hello aygıt ile Azure AD alanına katılıp katılmadığını gösterir. Merhaba değer ise **Hayır**, hello birleştirme tooAzure AD henüz tamamlanmadı. 
 
 **Olası nedenler:**
 
-- Bilgisayar bir birleştirme için kimlik doğrulaması başarısız oldu.
+- Bir birleştirme hello bilgisayarın kimlik doğrulaması başarısız oldu.
 
-- Bilgisayar tarafından bulunan kuruluştaki bir HTTP proxy yok
+- Merhaba bilgisayar tarafından bulunan hello kuruluşta bir HTTP proxy yok
 
-- Bilgisayar kimlik doğrulaması için Azure AD alanına erişilemiyor veya kayıt için Azure DRS
+- Merhaba bilgisayar kaydı için Azure AD tooauthenticate veya Azure DRS ulaşamıyor
 
-- Bilgisayar VPN veya kuruluşunuzun iç ağ üzerinde doğrudan görüş bir şirket içi ile olmayabilir AD etki alanı denetleyicisi.
+- Merhaba bilgisayar hello kuruluşunuzun iç ağ veya VPN ile doğrudan görüş tooan olmayabilir şirket içi AD etki alanı denetleyicisi.
 
-- Bilgisayar bir TPM varsa, hatalı durumda olabilir.
+- Merhaba bilgisayarda TPM varsa, hatalı durumda olabilir.
 
-- Olabilir yetersizliğini hizmetlerinde not ettiğiniz belgede daha önce yeniden doğrulamanız gerekir. Ortak örnekler şunlardır:
+- Olabilir yetersizliğini hello Hizmetleri'ndeki not ettiğiniz hello belgede daha önce tooverify yeniden gerekir. Ortak örnekler şunlardır:
 
     - Federasyon sunucunuz etkin WS-Trust uç nokta yok
 
     - Federasyon sunucunuz bilgisayarlardan gelen kimlik doğrulama tümleşik Windows kimlik doğrulaması kullanarak ağınızda izin vermiyor.
 
-    - Bilgisayar için ait olduğu AD ormanında Azure AD'de doğrulanmış etki alanı adınızı işaret hizmet bağlantı noktası nesnesi yok
+    - Merhaba bilgisayar için ait olduğu hello AD ormanındaki Azure AD'de tooyour doğrulanmış etki alanı adına işaret hizmet bağlantı noktası nesnesi yok
 
 ---
 
 ### <a name="domainjoined--yes"></a>DomainJoined: Evet  
 
-Bu alan, cihaz bir şirket içi Active Directory veya alanına katılıp katılmadığını gösterir. Değer ise **Hayır**, cihaz bir karma Azure AD birleştirme işlemi gerçekleştiremezsiniz.  
+Bu alan hello aygıt alanına katılmış olup olmadığını tooan Active Directory veya şirket içi gösterir. Merhaba değer ise **Hayır**, hello aygıt, bir karma Azure AD birleştirme gerçekleştiremez.  
 
 ---
 
 ### <a name="workplacejoined--no"></a>WorkplaceJoined: Hayır  
 
-Bu alan, bir kişisel cihaz olarak Azure AD ile cihazın kayıtlı olup olmadığını gösterir (olarak işaretlenmiş *çalışma alanına katılmış*). Bu değer olmalıdır **Hayır** de etki alanına katılmış bir bilgisayar için karma Azure AD alanına. Değer ise **Evet**, karma Azure AD birleştirme tamamlanmadan önce bir iş veya Okul hesabı eklendi. Bu durumda, hesap, Windows 10 (1607) Yıldönümü güncelleştirme sürümünü kullanırken dikkate alınmaz.
+Bu alan bir kişisel cihaz olarak Azure AD ile Merhaba cihazın kayıtlı olup olmadığını belirtir (olarak işaretlenmiş *çalışma alanına katılmış*). Bu değer olmalıdır **Hayır** de etki alanına katılmış bir bilgisayar için karma Azure AD alanına. Merhaba değer ise **Evet**, bir iş veya Okul hesabı önceki toohello tamamlama hello karma Azure AD birleştirme eklendi. Bu durumda, hello hesap hello Yıldönümü güncelleştirme Windows 10 (1607) sürümünü kullanırken göz ardı edilir.
 
 ---
 
 ### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet: Evet ve AzureADPrt: Evet
   
-Bu alanlar kullanıcının Azure AD ile başarıyla kimliğinin olup olmadığını belirtmek için aygıt oturum açarken. Değerler ise **Hayır**, son olabilir:
+Bu alanların hello kullanıcı başarıyla tooAzure AD doğrulaması olup olmadığını belirtmek toohello aygıtı imzalarken. Merhaba değerler ise **Hayır**, son olabilir:
 
-- Hatalı depolama anahtar aygıt kaydı (denetimi yükseltilmiş çalışırken KeySignTest) ile ilişkili TPM (STK).
+- Hatalı depolama anahtar hello aygıt kaydı (KeySignTest yükseltilmiş çalışırken onay hello) ile ilişkili TPM (STK).
 
 - Alternatif oturum açma kimliği
 
@@ -125,4 +125,4 @@ Bu alanlar kullanıcının Azure AD ile başarıyla kimliğinin olup olmadığı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Soruları için bkz: [aygıt yönetimi hakkında SSS](device-management-faq.md) 
+Merhaba soruları için bkz [aygıt yönetimi hakkında SSS](device-management-faq.md) 

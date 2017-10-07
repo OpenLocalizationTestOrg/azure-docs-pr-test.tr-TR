@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric düzeltme orchestration uygulaması | Microsoft Docs"
-description: "Service Fabric kümesi üzerinde işletim sistemi düzeltme eki uygulama otomatikleştirmek için uygulama."
+title: "Service Fabric düzeltme eki orchestration uygulama aaaAzure | Microsoft Docs"
+description: "Uygulama tooautomate işletim sistemi bir Service Fabric kümesi düzeltme eki uygulama."
 services: service-fabric
 documentationcenter: .net
 author: novino
@@ -14,70 +14,70 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: 2c5842822e347113e388d570f6ae603a313944d6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fbb89aa2ea418181ee908a01850178c113c462fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümesi Windows işletim sistemi düzeltme eki
+# <a name="patch-hello-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizdeki Hello Windows işletim sistemi düzeltme eki
 
-Düzeltme eki orchestration uygulama kapalı kalma süresi olmadan Azure üzerinde bir Service Fabric kümesindeki düzeltme eki uygulama işletim sistemi otomatikleştiren bir Azure Service Fabric uygulamasıdır.
+Merhaba düzeltme eki orchestration uygulama kapalı kalma süresi olmadan Azure üzerinde bir Service Fabric kümesindeki düzeltme eki uygulama işletim sistemi otomatikleştiren bir Azure Service Fabric uygulamasıdır.
 
-Düzeltme eki orchestration uygulama aşağıdakileri sağlar:
+Merhaba düzeltme eki orchestration uygulama hello şunları sağlar:
 
 - **Otomatik işletim sistemi güncelleştirme yüklemesini**. İşletim sistemi güncelleştirmeleri otomatik olarak karşıdan yüklenir ve. Küme düğümleri küme kapalı kalma süresi olmadan gerektiği gibi yeniden başlatılır.
 
-- **Küme durumunu algılayan düzeltme eki uygulama ve sistem durumu tümleştirme**. Güncelleştirmeler uygulanırken düzeltme eki orchestration uygulama küme düğümlerinin sistem durumunu izler. Küme düğümü yükseltilmiş bir düğümde aynı anda bir saat ya da bir yükseltme etki alanı olan. Küme durumunu düzeltme eki uygulama işlemi nedeniyle kullanılamaz hale gelirse, düzeltme eki uygulama sorun aggravating önlemek için durduruldu.
+- **Küme durumunu algılayan düzeltme eki uygulama ve sistem durumu tümleştirme**. Güncelleştirmeler uygulanırken hello düzeltme eki orchestration uygulama hello küme düğümleri hello durumunu izler. Küme düğümü yükseltilmiş bir düğümde aynı anda bir saat ya da bir yükseltme etki alanı olan. Hello küme Hello durumunu nedeniyle toohello düzeltme eki uygulama işlemi devre dışı kalırsa, düzeltme eki uygulama hello sorun aggravating durdurulmuş tooprevent ' dir.
 
-## <a name="internal-details-of-the-app"></a>Uygulamanın iç ayrıntıları
+## <a name="internal-details-of-hello-app"></a>Merhaba uygulamasının iç ayrıntıları
 
-Düzeltme eki orchestration uygulama aşağıdaki bileşenleri oluşur:
+Merhaba düzeltme eki orchestration uygulama bileşenleri şu Merhaba oluşur:
 
 - **Düzenleyicisi hizmeti**: Bu durum bilgisi olan hizmet sorumludur:
-    - Windows güncelleştirme işi tüm küme üzerinde Eşgüdümleme.
-    - Tamamlanmış Windows Update işlemlerin sonucunu depolamak.
-- **Düğüm Aracısı hizmeti**: Bu durum bilgisiz hizmet tüm Service Fabric küme düğümleri üzerinde çalışır. Hizmet için sorumludur:
-    - Düğüm Aracısı NTService önyükleme.
-    - Düğüm Aracısı NTService izleme.
-- **Düğüm Aracısı NTService**: Bu Windows NT hizmeti, üst düzey bir ayrıcalık (Sistem) çalışır. Buna karşılık, düğüm Aracısı hizmeti ve Coordinator hizmeti bir alt düzey önceliği (ağ hizmeti) çalıştırın. Hizmet, tüm küme düğümleri üzerinde aşağıdaki Windows Update işlerini gerçekleştirmek için sorumludur:
-    - Düğümde otomatik Windows Update devre dışı bırakılıyor.
-    - Karşıdan yükleme ve Windows Update ilkesine göre kullanıcı sağlamıştır.
-    - Makine post Windows Güncelleştirme yüklemesini yeniden başlatılıyor.
-    - Windows güncelleştirmelerini sonuçlarını Coordinator hizmeti yükleniyor.
+    - Denetleyici hello Windows Update işinde hello tüm küme.
+    - Tamamlanan Windows Update işlemleri depolanmasını hello sonucu.
+- **Düğüm Aracısı hizmeti**: Bu durum bilgisiz hizmet tüm Service Fabric küme düğümleri üzerinde çalışır. Merhaba hizmet sorumludur:
+    - Önyükleme hello düğüm Aracısı NTService.
+    - Merhaba düğüm Aracısı NTService izleme.
+- **Düğüm Aracısı NTService**: Bu Windows NT hizmeti, üst düzey bir ayrıcalık (Sistem) çalışır. Buna karşılık, hello düğüm Aracısı hizmeti ve hello Düzenleyicisi hizmetindeki bir alt düzey önceliği (ağ hizmeti) çalıştırın. Merhaba hizmet hello tüm küme düğümlerinde Windows Update işleri aşağıdaki hello gerçekleştirmek için sorumludur:
+    - Otomatik Windows Update hello düğüm üzerinde devre dışı bırakılıyor.
+    - Windows Update yükleyip toohello ilke hello kullanıcı according sağlamıştır.
+    - Merhaba makine post Windows Güncelleştirme yüklemesini yeniden başlatılıyor.
+    - Windows güncelleştirmeleri toohello Coordinator hizmeti Hello sonuçlarını karşıya yükleniyor.
     - Tüm yeniden denemeler tükenmesinden sonra bir işlem başarısız oldu durumda raporlama durumu raporları.
 
 > [!NOTE]
-> Düzeltme eki orchestration app Service Fabric onarım Yöneticisi sistem hizmeti devre dışı bırakın veya düğüm etkinleştirmek ve sistem durumu denetimleri gerçekleştirmek için kullanır. Düzeltme eki orchestration uygulama tarafından oluşturulan onarım görevi her düğüm için Windows Update ilerleme durumunu izler.
+> Merhaba düzeltme eki orchestration uygulama kullandığı hello Service Fabric Yöneticisi sistem hizmeti toodisable onarmak veya başlangıç düğümü etkinleştirin ve sistem durumu denetimleri gerçekleştirmek. Merhaba onarım görev hello düzeltme eki orchestration uygulama parçaları hello her düğüm için Windows Update ilerleme tarafından oluşturuldu.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 ### <a name="minimum-supported-service-fabric-runtime-version"></a>Service Fabric çalışma zamanı sürümü desteklenen en düşük
 
 #### <a name="azure-clusters"></a>Azure kümeleri
-Düzeltme eki orchestration app Service Fabric çalışma zamanı sürümü v5.5 sahip Azure kümelerinde çalıştırılması gerekir ya da daha sonra.
+Merhaba düzeltme eki orchestration app Service Fabric çalışma zamanı sürümü v5.5 sahip Azure kümelerinde çalıştırılması gerekir ya da daha sonra.
 
 #### <a name="standalone-on-premises-clusters"></a>Tek başına şirket içi kümeleri
-Düzeltme eki orchestration app Service Fabric çalışma zamanı sürümü v5.6 sahip tek başına kümelerinde çalıştırılması gerekir ya da daha sonra.
+Merhaba düzeltme eki orchestration app Service Fabric çalışma zamanı sürümü v5.6 sahip tek başına kümelerinde çalıştırılması gerekir ya da daha sonra.
 
-### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>(Bu zaten çalışmıyorsa) onarım Yöneticisi hizmetini etkinleştirme
+### <a name="enable-hello-repair-manager-service-if-its-not-running-already"></a>(Bu zaten çalışmıyorsa) hello onarım Yöneticisi hizmetini etkinleştirme
 
-Düzeltme eki orchestration uygulama kümede etkinleştirilmesi için onarım Yöneticisi sistem hizmeti gerektirir.
+Merhaba düzeltme eki orchestration uygulama hello kümede etkin hello onarım Yöneticisi sistem hizmeti toobe gerektirir.
 
 #### <a name="azure-clusters"></a>Azure kümeleri
 
-Gümüş dayanıklılık katmanı Azure kümelerinde varsayılan olarak etkin onarım Yöneticisi hizmeti sahip. Altın dayanıklılık katmanı Azure kümelerde olabilir ya da bu kümeleri oluşturulduğu bağlı olarak, etkin onarım Yöneticisi hizmeti sahip olmayabilir. Varsayılan olarak, Bronz dayanıklılık katmanı Azure kümelerde etkin onarım Yöneticisi hizmeti yok. Hizmet zaten etkin değilse, Service Fabric Explorer Sistem Hizmetleri bölümünde çalışmasını görebilirsiniz.
+Hello Yöneticisi hizmeti varsayılan olarak etkinleştirilmiş onarmaya hello Gümüş dayanıklılık katmanındaki Azure kümeniz vardır. Merhaba altın dayanıklılık katmanı Azure kümelerde sahip olabilir veya hello onarım Yöneticisi hizmeti bu kümeleri oluşturulduğu bağlı olarak, etkin değil. Varsayılan olarak, hello Bronz dayanıklılık katmanı Azure kümelerde hello Yöneticisi hizmetinin etkinleştirilmiş onarmaya gerekmez. Merhaba hizmet zaten etkinleştirilmişse hello Sistem Hizmetleri bölümünde hello Service Fabric Explorer çalışmasını görebilirsiniz.
 
 ##### <a name="azure-portal"></a>Azure portalına
-Kümenin kurma sırasında onarım Yöneticisi Azure portalından etkinleştirebilirsiniz. Seçin `Include Repair Manager` altında seçeneği `Add on features` küme yapılandırması zaman.
+Onarım Yöneticisi Azure portalından kümesinin kurma hello zaman etkinleştirebilirsiniz. Seçin `Include Repair Manager` altında seçeneği `Add on features` küme yapılandırmasının hello zaman.
 ![Azure portalından etkinleştirme onarım Yöneticisi'nin resmi](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-template"></a>Azure Resource Manager şablonu
-Alternatif olarak kullanabileceğiniz [Azure Resource Manager şablonu](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) yeni ve mevcut Service Fabric kümeleri üzerinde onarım Yöneticisi hizmeti etkinleştirmek için. Şablonu dağıtmak istediğiniz kümenin alın. Örnek şablonları kullanabilir veya özel bir Resource Manager şablonu oluşturun. 
+Alternatif olarak, hello kullanabilirsiniz [Azure Resource Manager şablonu](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) tooenable hello onarım Yöneticisi hizmetine yeni ve mevcut Service Fabric kümeleri. Merhaba şablonu toodeploy istediğiniz hello küme için alın. Merhaba örnek şablonları kullanabilir veya özel bir Resource Manager şablonu oluşturun. 
 
-Onarım Yöneticisi hizmetini kullanarak etkinleştirmek için [Azure Resource Manager şablonu](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
+tooenable hello onarım Yöneticisi hizmetini kullanarak [Azure Resource Manager şablonu](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
-1. İlk denetleyin `apiversion` ayarlanır `2017-07-01-preview` için `Microsoft.ServiceFabric/clusters` aşağıdaki kod parçacığında gösterildiği gibi kaynak. Farklı sonra güncelleştirmek gereken `apiVersion` değerine `2017-07-01-preview`:
+1. İlk olarak bu hello denetleyin `apiversion` çok ayarlanır`2017-07-01-preview` hello için `Microsoft.ServiceFabric/clusters` hello aşağıdaki kod parçacığında gösterildiği gibi kaynak. Farklı sonra tooupdate hello gereksinim `apiVersion` toohello değeri `2017-07-01-preview`:
 
     ```json
     {
@@ -89,7 +89,7 @@ Onarım Yöneticisi hizmetini kullanarak etkinleştirmek için [Azure Resource M
     }
     ```
 
-2. Aşağıdakileri ekleyerek onarım Yöneticisi hizmeti şimdi etkinleştirmek `addonFeatures` sonra bölümünde `fabricSettings` bölümü:
+2. Merhaba aşağıdakileri ekleyerek hello onarım Yöneticisi hizmeti şimdi etkinleştirmek `addonFeatures` bölümünden hello sonra `fabricSettings` bölümü:
 
     ```json
     "fabricSettings": [
@@ -100,15 +100,15 @@ Onarım Yöneticisi hizmetini kullanarak etkinleştirmek için [Azure Resource M
         ],
     ```
 
-3. Bu değişikliklerle küme şablonunuzu güncelleştirildikten sonra bunları uygulamak ve son yükseltme sağlayabilirsiniz. Kümenizde çalışan onarım Yöneticisi sistem hizmeti şimdi görebilirsiniz. Çağrılır `fabric:/System/RepairManagerService` Service Fabric Explorer Sistem Hizmetleri bölümünde. 
+3. Bu değişikliklerle küme şablonunuzu güncelleştirildikten sonra bunları uygulamak ve son hello yükseltme sağlayabilirsiniz. Kümenizde çalışan hello onarım Yöneticisi sistem hizmeti şimdi görebilirsiniz. Çağrılır `fabric:/System/RepairManagerService` hello Sistem Hizmetleri bölümünde hello Service Fabric Explorer. 
 
 ### <a name="standalone-on-premises-clusters"></a>Tek başına şirket içi kümeleri
 
-Kullanabileceğiniz [tek başına Windows kümesi için yapılandırma ayarlarını](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest) yeni ve mevcut Service Fabric kümesi üzerinde onarım Yöneticisi hizmeti etkinleştirmek için.
+Merhaba kullanabilirsiniz [tek başına Windows kümesi için yapılandırma ayarlarını](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest) tooenable hello onarım Yöneticisi hizmetine yeni ve mevcut Service Fabric kümesi.
 
-Onarım Yöneticisi hizmeti etkinleştirmek için:
+tooenable hello onarım Yöneticisi hizmeti:
 
-1. İlk denetleyin `apiversion` içinde [genel küme yapılandırmaları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest#general-cluster-configurations) ayarlanır `04-2017` veya üstü:
+1. İlk olarak bu hello denetleyin `apiversion` içinde [genel küme yapılandırmaları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest#general-cluster-configurations) çok ayarlanır`04-2017` veya üstü:
 
     ```json
     {
@@ -119,7 +119,7 @@ Onarım Yöneticisi hizmeti etkinleştirmek için:
     }
     ```
 
-2. Aşağıdakileri ekleyerek onarım Yöneticisi hizmeti şimdi etkinleştirmek `addonFeaturres` sonra bölümünde `fabricSettings` bölümünde aşağıda gösterildiği gibi:
+2. Merhaba aşağıdakileri ekleyerek onarım Yöneticisi hizmeti şimdi etkinleştirmek `addonFeaturres` bölümünden hello sonra `fabricSettings` bölümünde aşağıda gösterildiği gibi:
 
     ```json
     "fabricSettings": [
@@ -130,30 +130,30 @@ Onarım Yöneticisi hizmeti etkinleştirmek için:
         ],
     ```
 
-3. Küme bildiriminizi güncelleştirilmiş küme bildirimini kullanarak bu değişikliklerle güncelleştirmek [yeni küme oluşturma](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) veya [küme yapılandırmasını yükseltme](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Küme güncelleştirilmiş küme bildirimini ile çalışmaya başladıktan sonra olarak adlandırılır, kümede çalışan onarım Yöneticisi sistem hizmeti şimdi görebilirsiniz `fabric:/System/RepairManagerService`altında sistem hizmetleri Service Fabric explorer bölümünde.
+3. Küme bildiriminizi güncelleştirilmiş hello küme bildirimini kullanarak bu değişikliklerle güncelleştirmek [yeni küme oluşturma](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) veya [yükseltme hello küme yapılandırması](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Merhaba küme güncelleştirilmiş küme bildirimini ile çalışmaya başladıktan sonra artık hello onarım Yöneticisi sistem hizmeti olarak adlandırılır, kümede çalışan görebilirsiniz `fabric:/System/RepairManagerService`altında sistem hizmetleri hello Service Fabric explorer bölümünde.
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Tüm düğümlerde otomatik Windows Update devre dışı bırak
 
-Aynı anda birden çok küme düğümüne yeniden başlatabilirsiniz olduğundan otomatik Windows güncelleştirmelerini kullanılabilirlik kaybına neden olabilir. Düzeltme eki orchestration uygulama varsayılan olarak, her küme düğümünde otomatik Windows Update devre dışı bırakmak çalışır. Ancak, ayarları Grup İlkesi veya bir yönetici tarafından yönetiliyorsa, "Bildirim önce karşıdan" Windows Update ilke açık olarak ayarlanması önerilir.
+Birden çok küme düğümleri aynı hello yeniden başlatarak, otomatik Windows güncelleştirmelerini tooavailability kaybına neden zaman. Varsayılan olarak, çalıştığında toodisable Hello düzeltme eki orchestration uygulama, her küme düğümünde otomatik Windows Update hello. Ancak, Hello ayarları Grup İlkesi veya bir yönetici tarafından yönetiliyorsa, ayarı hello Windows Update ilke çok "bildir önce yükleme" açıkça öneririz.
 
 ### <a name="optional-enable-azure-diagnostics"></a>İsteğe bağlı: Azure tanılamayı etkinleştirin
 
 Service Fabric çalışma zamanı sürümü çalıştıran kümeler `5.6.220.9494` ve yukarıdaki toplama düzeltme eki orchestration uygulama günlükleri Service Fabric bir parçası olarak günlüğe kaydeder.
 Kümenizi Service Fabric çalışma zamanı sürümünde çalışıyorsa, bu adımı atlayabilirsiniz `5.6.220.9494` ve üstü.
 
-Service Fabric çalışma zamanı sürümü çalıştıran kümeler için değerinden `5.6.220.9494`, düzeltme eki orchestration uygulama günlüklerini toplanan yerel olarak her küme düğümü.
-Merkezi bir konuma tüm düğümlerdeki günlükleri karşıya yüklemek için Azure tanılama yapılandırmanızı öneririz.
+Service Fabric çalışma zamanı sürümü çalıştıran kümeler için değerinden `5.6.220.9494`, günlükleri hello düzeltme eki orchestration uygulama için toplanan yerel olarak her hello küme düğümleri üzerinde.
+Azure tanılama tooupload günlükleri tüm düğümleri tooa merkezi konumdan yapılandırmanızı öneririz.
 
 Azure Tanılama'yı etkinleştirme hakkında daha fazla bilgi için bkz: [Azure tanılama kullanarak günlükleri toplamak](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
 
-Düzeltme eki orchestration uygulama günlüklerini aşağıdaki sabit sağlayıcısında kimlikleri oluşturulur:
+Merhaba düzeltme eki orchestration uygulama günlüklerini sabit sağlayıcısı kimlikleri aşağıdaki hello üzerinde oluşturulur:
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-Resource Manager şablonu goto içinde `EtwEventSourceProviderConfiguration` altında bölümünde `WadCfg` ve aşağıdaki girdileri ekleyin:
+Resource Manager şablonu goto içinde `EtwEventSourceProviderConfiguration` altında bölümünde `WadCfg` ve girişleri aşağıdaki hello ekleyin:
 
 ```json
   {
@@ -187,64 +187,64 @@ Resource Manager şablonu goto içinde `EtwEventSourceProviderConfiguration` alt
 ```
 
 > [!NOTE]
-> Birden çok düğüm türleri, Service Fabric kümesi var. sonra önceki bölümde tüm eklenmelidir `WadCfg` bölümler.
+> Birden çok düğüm türleri, Service Fabric kümesi var. sonra tüm Merhaba hello önceki bölümde eklediğiniz `WadCfg` bölümler.
 
-## <a name="download-the-app-package"></a>Uygulama paketi yükle
+## <a name="download-hello-app-package"></a>Merhaba uygulama paketini indirin
 
-Uygulamayı karşıdan [bağlantı karşıdan](https://go.microsoft.com/fwlink/P/?linkid=849590).
+Hello Hello uygulamayı karşıdan [bağlantı karşıdan](https://go.microsoft.com/fwlink/P/?linkid=849590).
 
-## <a name="configure-the-app"></a>Uygulamayı yapılandırma
+## <a name="configure-hello-app"></a>Merhaba uygulamayı yapılandırma
 
-Düzeltme eki orchestration uygulamanın davranışı gereksinimlerinizi karşılayacak şekilde yapılandırılabilir. Uygulama oluşturma veya güncelleştirme işlemi sırasında uygulama parametresini geçirerek varsayılan değerleri geçersiz. Uygulama parametreleri belirterek sağlanabilir `ApplicationParameter` için `Start-ServiceFabricApplicationUpgrade` veya `New-ServiceFabricApplication` cmdlet'leri.
+Merhaba hello düzeltme eki orchestration uygulamanın davranışı yapılandırılmış toomeet gereksinimlerinizi olabilir. Uygulama oluşturma veya güncelleştirme işlemi sırasında hello uygulama parametresini geçirerek Hello varsayılan değerlerini geçersiz kılar. Uygulama parametreleri belirterek sağlanabilir `ApplicationParameter` toohello `Start-ServiceFabricApplicationUpgrade` veya `New-ServiceFabricApplication` cmdlet'leri.
 
 |**Parametre**        |**Tür**                          | **Ayrıntılar**|
 |:-|-|-|
-|MaxResultsToCache    |Uzun                              | Önbelleğe alınması gereken Windows Update sonuçlarının maksimum sayısı. <br>Varsayılan değer 3000 varsayılır: <br> -Düğüm sayısı 20'dir. <br> -Ayda bir düğümde gerçekleştiği güncelleştirme sayısı beştir. <br> -İşlemi başına sonuç sayısı 10 olabilir. <br> -Son üç ay için sonuçları depolanması gerekir. |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmelerini yüklemek için Koordinatör hizmeti tarafından kullanılacak ilkeyi TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler: <br>                                                           <b>NodeWise</b>. Windows Update yüklü bir aynı anda düğümdür. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update aynı anda yüklü bir yükseltme etki alanıdır. (Üst sınırda bir yükseltme etki alanına ait tüm düğümlerde Windows güncelleştirmesi gidebilirsiniz.)
+|MaxResultsToCache    |Uzun                              | Önbelleğe alınması gereken Windows Update sonuçlarının maksimum sayısı. <br>Varsayılan değer 3000 varsayılır: <br> -Düğüm sayısı 20'dir. <br> -Ayda bir düğümde gerçekleştiği güncelleştirme sayısı beştir. <br> -İşlemi başına sonuç sayısı 10 olabilir. <br> -Sonuçlar hello son üç ay için depolanması gerekir. |
+|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy hello Service Fabric küme düğümleri arasında hello Coordinator hizmeti tooinstall Windows güncelleştirmelerini tarafından kullanılan toobe hello İlkesi gösterir.<br>                         İzin verilen değerler: <br>                                                           <b>NodeWise</b>. Windows Update yüklü bir aynı anda düğümdür. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update aynı anda yüklü bir yükseltme etki alanıdır. (En fazla hello sırasında Windows Update tooan yükseltme etki alanına ait tüm hello düğümleri gidebilirsiniz.)
 |LogsDiskQuotaInMB   |Uzun  <br> (Varsayılan: 1024)               |Yerel olarak düğümlerinde kalıcı MB cinsinden en büyük boyutunu düzeltme eki orchestration uygulama kaydeder.
-| WUQuery               | Dize<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmelerini almak için sorgu. Daha fazla bilgi için bkz: [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | bool <br> (varsayılan: True)                 | Bu bayrak Windows işletim sistemi güncelleştirmelerinin yüklenmesine izin verir.            |
-| WUOperationTimeOutInMinutes | Int <br>(Varsayılan: 90).                   | (Arama veya indirme veya yükleme) herhangi bir Windows Update işlemi için zaman aşımını belirtir. İşlemi belirtilen zaman aşımı süresi içinde tamamlanmazsa durdurulur.       |
-| WURescheduleCount     | Int <br> (Varsayılan: 5).                  | Bir işlem kalıcı olarak başarısız olursa en fazla kaç kez Windows hizmet reschedules güncelleştirin.          |
-| WURescheduleTimeInMinutes | Int <br>(Varsayılan: 30). | Hata devam ederse durumunda, hizmet Windows update reschedules aralığı. |
-| WUFrequency           | Virgülle ayrılmış dize (varsayılan: "Haftalık, Çarşamba, 7:00:00")     | Windows Update yükleme sıklığı. Biçim ve olası değerler şunlardır: <br>-Örneğin, aylık, 5, 12 aylık, gg ss: 22:32. <br> -Örneğin, haftalık, Salı, 12:22:32 için haftalık, gün, ss.  <br> -Örneğin, günlük, 12:22:32 günlük, ss.  <br> -Hiçbiri, Windows Update yapılması döndürmemelidir gösterir.  <br><br> Tüm saatler UTC biçiminde olduğunu unutmayın.|
-| AcceptWindowsUpdateEula | bool <br>(Varsayılan: true) | Bu bayrak ayarlayarak, uygulamanın Windows Update için son kullanıcı lisans sözleşmesi makine sahibi adına kabul eder.              |
+| WUQuery               | Dize<br>(Varsayılan: "IsInstalled = 0")                | Sorgu tooget Windows güncelleştirir. Daha fazla bilgi için bkz: [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| InstallWindowsOSOnlyUpdates | bool <br> (varsayılan: True)                 | Bu bayrak, Windows işletim sistemi güncelleştirmeleri toobe yüklü sağlar.            |
+| WUOperationTimeOutInMinutes | Int <br>(Varsayılan: 90).                   | Herhangi bir Windows Update işlemi (arama veya indirme veya yükleme) için Hello zaman aşımını belirtir. İçinde Hello işlemi tamamlanmazsa Merhaba belirtilen zaman aşımı, iptal edilir.       |
+| WURescheduleCount     | Int <br> (Varsayılan: 5).                  | bir işlem kalıcı olarak başarısız olursa Windows hello en fazla kaç kez hello hello hizmet reschedules güncelleştirin.          |
+| WURescheduleTimeInMinutes | Int <br>(Varsayılan: 30). | Hata devam ederse durumunda Windows güncelleştirme sırasında hangi hello hizmet hello reschedules hello aralığı. |
+| WUFrequency           | Virgülle ayrılmış dize (varsayılan: "Haftalık, Çarşamba, 7:00:00")     | Windows Update yükleme hello sıklığı. Merhaba biçimi ve olası değerler şunlardır: <br>-Örneğin, aylık, 5, 12 aylık, gg ss: 22:32. <br> -Örneğin, haftalık, Salı, 12:22:32 için haftalık, gün, ss.  <br> -Örneğin, günlük, 12:22:32 günlük, ss.  <br> -Hiçbiri, Windows Update yapılması döndürmemelidir gösterir.  <br><br> Tüm hello saatler UTC biçiminde olduğunu unutmayın.|
+| AcceptWindowsUpdateEula | bool <br>(Varsayılan: true) | Bu bayrak ayarlayarak Merhaba uygulaması hello Windows Update için son kullanıcı lisans sözleşmesi hello makine hello sahibi adına kabul eder.              |
 
 > [!TIP]
-> Windows Update hemen olmasını istiyorsanız, ayarlayın `WUFrequency` uygulama dağıtım süresini göre. Örneğin, beş düğümlü test kümesi olduğunu ve yaklaşık 5: 00'da uygulama dağıtmayı planladığınız varsayalım UTC. Uygulama yükseltme veya dağıtım en 30 dakika sürer olduğunu varsayarsak, WUFrequency "Günlük, 17:30:00." ayarlayın.
+> Windows Update toohappen hemen istiyorsanız ayarlayın `WUFrequency` göreli toohello uygulama dağıtım süresini. Örneğin, bir beş düğümlü test kümesi ve planı toodeploy hello uygulaması yaklaşık 5: 00'da olduğunu varsayalım UTC. Merhaba uygulama yükseltme veya dağıtım sırasında 30 dakika sürer olduğunu varsayarsak, en fazla, ayarlanmış hello WUFrequency "Günlük, 17:30:00." Merhaba
 
-## <a name="deploy-the-app"></a>Uygulamayı dağıtma
+## <a name="deploy-hello-app"></a>Merhaba uygulama dağıtma
 
-1. Küme hazırlama tüm önkoşul adımlarını tamamlayın.
-2. Düzeltme eki orchestration uygulamayı başka bir Service Fabric uygulaması gibi dağıtın. PowerShell kullanarak uygulamayı dağıtabilirsiniz. Adımları [PowerShell kullanarak uygulamaları dağıtma ve Kaldır](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-3. Geçişi dağıtım zamanında uygulama yapılandırmak için `ApplicationParamater` için `New-ServiceFabricApplication` cmdlet'i. Size kolaylık olması için uygulamanın yanı sıra Deploy.ps1 komut dosyası sağladık. Betik kullanmak için:
+1. Tüm hello önkoşul adımlarını tooprepare hello küme tamamlayın.
+2. Başka bir Service Fabric uygulaması gibi Hello düzeltme eki orchestration uygulamasını dağıtın. PowerShell kullanarak hello uygulama dağıtabilirsiniz. Merhaba adımları [PowerShell kullanarak uygulamaları dağıtma ve Kaldır](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+3. tooconfigure hello Uygulama dağıtımının geçişi hello hello zamanında `ApplicationParamater` toohello `New-ServiceFabricApplication` cmdlet'i. Size kolaylık olması için hello betik Deploy.ps1 Merhaba uygulaması birlikte sağladık. toouse hello komut dosyası:
 
-    - Bir Service Fabric kümeye bağlanırken `Connect-ServiceFabricCluster`.
-    - Uygun olan Deploy.ps1 PowerShell betiğini yürütün `ApplicationParameter` değeri.
-
-> [!NOTE]
-> Komut dosyası ve uygulama klasörü PatchOrchestrationApplication aynı dizinde tutun.
-
-## <a name="upgrade-the-app"></a>Uygulama yükseltme
-
-PowerShell kullanarak var olan bir düzeltme eki orchestration uygulamaya yükseltmek için adımları [PowerShell kullanarak Service Fabric uygulama yükseltme](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-tutorial-powershell).
-
-## <a name="remove-the-app"></a>Uygulamayı kaldırma
-
-Uygulamayı kaldırmak için adımları [PowerShell kullanarak uygulamaları dağıtma ve Kaldır](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-
-Size kolaylık olması için uygulamanın yanı sıra Undeploy.ps1 komut dosyası sağladık. Betik kullanmak için:
-
-  - Bir Service Fabric kümeye bağlanırken ```Connect-ServiceFabricCluster```.
-
-  - Undeploy.ps1 PowerShell betiğini yürütün.
+    - Tooa Service Fabric kümesi kullanarak bağlanmak `Connect-ServiceFabricCluster`.
+    - Merhaba PowerShell betiğini Deploy.ps1 hello uygun yürütün `ApplicationParameter` değeri.
 
 > [!NOTE]
-> Komut dosyası ve uygulama klasörü PatchOrchestrationApplication aynı dizinde tutun.
+> Merhaba komut dosyası ve hello uygulama klasörü PatchOrchestrationApplication hello tutmak aynı dizin.
 
-## <a name="view-the-windows-update-results"></a>Windows Update sonuçları görüntüleme
+## <a name="upgrade-hello-app"></a>Merhaba uygulama yükseltme
 
-Düzeltme eki orchestration uygulama kullanıcıya geçmiş sonuçlarını görüntülemek için REST API'lerini kullanıma sunar. JSON sonuç örneği:
+tooupgrade PowerShell kullanarak mevcut bir düzeltme eki orchestration uygulamayı izleyin hello adımlarda [PowerShell kullanarak Service Fabric uygulama yükseltme](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-tutorial-powershell).
+
+## <a name="remove-hello-app"></a>Merhaba uygulamasını kaldırın
+
+tooremove hello uygulama izleme hello adımlarda [PowerShell kullanarak uygulamaları dağıtma ve Kaldır](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+
+Size kolaylık olması için hello betik Undeploy.ps1 Merhaba uygulaması birlikte sağladık. toouse hello komut dosyası:
+
+  - Tooa Service Fabric kümesi kullanarak bağlanmak ```Connect-ServiceFabricCluster```.
+
+  - Merhaba PowerShell betiğini Undeploy.ps1 yürütün.
+
+> [!NOTE]
+> Merhaba komut dosyası ve hello uygulama klasörü PatchOrchestrationApplication hello tutmak aynı dizin.
+
+## <a name="view-hello-windows-update-results"></a>Merhaba Windows Update sonuçları görüntüleme
+
+Merhaba düzeltme eki orchestration uygulama REST API'leri toodisplay hello geçmiş sonuçlarını toohello kullanıcı kullanıma sunar. Merhaba sonuç JSON örneği:
 ```json
 [
   {
@@ -258,7 +258,7 @@ Düzeltme eki orchestration uygulama kullanıcıya geçmiş sonuçlarını gör�
           {
             "UpdateId": "7392acaf-6a85-427c-8a8d-058c25beb0d6",
             "Title": "Cumulative Security Update for Internet Explorer 11 for Windows Server 2012 R2 (KB3185319)",
-            "Description": "A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
+            "Description": "A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of hello issues that are included in this update, see hello associated Microsoft Knowledge Base article. After you install this update, you may have toorestart your system.",
             "ResultCode": 0
           }
         ],
@@ -272,134 +272,134 @@ Düzeltme eki orchestration uygulama kullanıcıya geçmiş sonuçlarını gör�
   ...
 ]
 ```
-Hiçbir güncelleştirme henüz zamanladıysanız JSON sonuç boştur.
+Hiçbir güncelleştirme henüz planlandıysa hello sonuç JSON boştur.
 
-Sorgu Windows Update kümeye sonuçları oturum açın. Ardından Coordinator hizmeti birincil çoğaltma adresi bulmak ve tarayıcı URL'den isabet: http://&lt;çoğaltma IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1 / GetWindowsUpdateResults.
+Toohello küme tooquery Windows Update sonuçları günlüğü. Ardından hello Coordinator hizmeti hello birincil hello çoğaltma adresini bulmak ve hello tarayıcı hello URL'den isabet: http://&lt;çoğaltma IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1 / GetWindowsUpdateResults.
 
-REST uç noktası Coordinator hizmeti için dinamik bir bağlantı noktası var. Tam URL'yi denetlemek için Service Fabric Explorer bakın. Örneğin, sonuçların kullanılabilir `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults`.
+Merhaba REST uç noktasını hello Coordinator hizmeti için dinamik bir bağlantı noktası var. toocheck tam URL'yi Merhaba, toohello Service Fabric Explorer bakın. Örneğin, hello sonuçları kullanılabilir `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults`.
 
 ![REST uç noktasını görüntüsü](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
 
 
-Ters proxy kümede etkinleştirilirse, küme de dışındaki URL'yi erişebilir.
-Http:// isabet gereken uç noktadır&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults.
+Merhaba ters proxy hello kümede etkinleştirilirse, hello küme dışındaki hello URL'den erişebilir.
+toobe gereken uç nokta hello isabet olduğu http://&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults.
 
-Ters proxy küme üzerinde etkinleştirmek için adımları [ters proxy Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
+tooenable hello ters proxy hello kümede izleyin hello adımlarda [ters proxy Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
 
 > 
 > [!WARNING]
-> Ters proxy yapılandırıldıktan sonra bir HTTP uç noktası kullanıma tüm mikro hizmetler kümedeki küme dışında adreslenebilir.
+> Hello ters proxy yapılandırıldıktan sonra bir HTTP uç noktası kullanıma tüm mikro hizmetler hello kümedeki hello küme dışında adreslenebilir.
 
 ## <a name="diagnosticshealth-events"></a>Tanılama/sistem durumu olayları
 
 ### <a name="collect-patch-orchestration-app-logs"></a>Toplama düzeltme eki orchestration uygulama günlükleri
 
 Düzeltme eki orchestration uygulama günlükleri, çalışma zamanı sürümünden Service Fabric günlükleri bir parçası olarak toplanır `5.6.220.9494` ve üstü.
-Service Fabric çalışma zamanı sürümü çalıştıran kümeler için değerinden `5.6.220.9494`, günlükleri aşağıdaki yöntemlerden birini kullanarak toplanmasını.
+Service Fabric çalışma zamanı sürümü çalıştıran kümeler için değerinden `5.6.220.9494`, günlükleri yöntemler aşağıdaki hello birini kullanarak toplanmasını.
 
 #### <a name="locally-on-each-node"></a>Her bir düğümde yerel olarak
 
-Günlükleri toplanır yerel olarak her Service Fabric küme düğümünde Service Fabric çalışma zamanı sürümü ise değerinden `5.6.220.9494`. Günlükleri erişmek için konum \[Service Fabric\_yükleme\_sürücü\]:\\PatchOrchestrationApplication\\günlükleri.
+Günlükleri toplanır yerel olarak her Service Fabric küme düğümünde Service Fabric çalışma zamanı sürümü ise değerinden `5.6.220.9494`. Merhaba konumu tooaccess hello günlükleri olan \[Service Fabric\_yükleme\_sürücü\]:\\PatchOrchestrationApplication\\günlükleri.
 
-Service Fabric D sürücüsünde yüklüyse, örneğin, D: yoludur\\PatchOrchestrationApplication\\günlükleri.
+Service Fabric D sürücüsünde yüklüyse, örneğin, hello D: yoludur\\PatchOrchestrationApplication\\günlükleri.
 
 #### <a name="central-location"></a>Merkezi bir konum
 
-Azure tanılama önkoşul adımlarını bir parçası olarak yapılandırılmışsa, düzeltme eki orchestration uygulama günlüklerini Azure depolama alanında kullanılabilir.
+Azure tanılama önkoşul adımlarını bir parçası olarak yapılandırılmışsa, hello düzeltme eki orchestration uygulama günlüklerini Azure depolama alanında kullanılabilir.
 
 ### <a name="health-reports"></a>Sistem durumu raporları
 
-Düzeltme eki orchestration uygulama sistem durumu raporlarının Düzenleyicisi hizmeti veya düğüm Aracısı hizmeti karşı aşağıdaki durumlarda da yayımlar:
+Merhaba düzeltme eki orchestration uygulama sistem durumu raporlarının hello Coordinator hizmetini veya hello düğüm Aracısı hizmeti karşı durumlarda aşağıdaki hello de yayımlar:
 
 #### <a name="a-windows-update-operation-failed"></a>Windows Update işlemi başarısız oldu
 
-Bir düğümde Windows güncelleştirme işlemi başarısız olursa, bir sistem durumu raporu karşı düğüm Aracısı hizmeti oluşturulur. Sistem Durumu raporu ayrıntılarını sorunlu bir düğüm adı içeriyor.
+Bir düğümde Windows güncelleştirme işlemi başarısız olursa, bir sistem durumu raporu düğüm Aracısı hizmeti hello karşı oluşturulur. Merhaba sistem durumu raporu ayrıntılarını hello sorunlu bir düğüm adı içeriyor.
 
-Düzeltme eki uygulama sorunlu bir düğüm üzerinde başarıyla tamamlandıktan sonra raporu otomatik olarak temizlenir.
+Düzeltme eki uygulama hello sorunlu düğümde başarıyla tamamlandıktan sonra hello rapor otomatik olarak temizlenir.
 
-#### <a name="the-node-agent-ntservice-is-down"></a>Düğüm Aracısı NTService çalışmıyor
+#### <a name="hello-node-agent-ntservice-is-down"></a>Merhaba düğüm Aracısı NTService çalışmıyor
 
-Düğüm Aracısı NTService bir düğümde çalışmıyorsa, bir uyarı düzeyi sistem durumu raporu karşı düğüm Aracısı hizmeti oluşturulur.
+Merhaba düğüm Aracısı NTService bir düğümde çalışmıyorsa, bir uyarı düzeyi sistem durumu raporu düğüm Aracısı hizmeti hello karşı oluşturulur.
 
-#### <a name="the-repair-manager-service-is-not-enabled"></a>Onarım Yöneticisi hizmeti etkin değil
+#### <a name="hello-repair-manager-service-is-not-enabled"></a>Merhaba onarım Yöneticisi hizmeti etkin değil
 
-Onarım Yöneticisi hizmeti kümede bulunmazsa, bir uyarı düzeyi sistem durumu raporu Düzenleyicisi hizmeti için oluşturulur.
+Merhaba onarım Yöneticisi hizmeti hello kümede bulunmazsa, bir uyarı düzeyi sistem durumu raporu Merhaba Coordinator hizmeti oluşturulur.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-Q. **Düzeltme eki orchestration uygulama çalışırken neden bir hata durumuna my küme görüyor?**
+Q. **Merhaba düzeltme eki orchestration uygulama çalışırken neden bir hata durumuna my küme görüyor?**
 
-A. Yükleme işlemi sırasında düzeltme eki orchestration uygulama devre dışı bırakır veya geçici olarak giderek küme durumunu sonuçlanabilir düğümleri yeniden başlatılır.
+A. Merhaba yükleme işlemi sırasında hello düzeltme eki orchestration uygulama devre dışı bırakır veya geçici olarak giderek hello küme hello durumunu sonuçlanabilir düğümleri yeniden başlatılır.
 
-İlke uygulama için bağlı olarak, herhangi bir düğümün bir düzeltme eki uygulama işlemi sırasında gidebilirsiniz *veya* tüm yükseltme etki alanı aynı anda Git aşağı.
+Hello İlkesi hello uygulama için bağlı olarak, herhangi bir düğümün bir düzeltme eki uygulama işlemi sırasında gidebilirsiniz *veya* tüm yükseltme etki alanı aynı anda Git aşağı.
 
-Windows Update yükleme sonuna düğümlerin yeniden iler hale getirilir yeniden başlatma gönderin.
+Merhaba Windows Update yükleme Hello sonuna düğümler yeniden iler hale hello yeniden gönderin.
 
-Bir hata durumu kümeyi aşağıdaki örnekte, geçici olarak oluştu çünkü iki düğüm olan aşağı ve MaxPercentageUnhealthNodes ilke ihlal. Düzeltme eki uygulama işlemi devam eden olana kadar geçici bir hatadır.
+Aşağıdaki örneğine hello tooan hata durumu geçici olarak iki düğüm aşağı olan ve MaxPercentageUnhealthNodes İlkesi hello çünkü ihlal edildiğini hello küme geçti. devam eden işlemi düzeltme eki uygulama hello olana kadar hello hata geçicidir.
 
 ![Sağlıksız küme görüntüsü](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
-Sorun devam ederse, sorun giderme bölümüne bakın.
+Merhaba sorun devam ederse toohello sorun giderme bölümüne bakın.
 
 Q. **Düzeltme eki orchestration uygulama uyarı durumunda**
 
-A. Uygulamaya karşı gönderilen bir sistem durumu raporu kök neden olup olmadığını denetleyin. Genellikle, uyarı sorunun ayrıntılarını içerir. Sorun geçici ise, uygulama otomatik kurtarma bu durumdan olması beklenir.
+A. Merhaba uygulamaya karşı gönderilen bir sistem durumu raporu hello kök nedeni toosee kontrol edin. Genellikle, hello uyarı hello sorunun ayrıntılarını içerir. Merhaba sorun geçici ise, hello beklenen tooauto kurtarma bu durumdan uygulamasıdır.
 
-Q. **My küme sağlıksız ise ve Acil işletim sistemi güncelleştirmesi yapmanız ne yapabilirim?**
+Q. **My küme sağlıksız ise ve toodo Acil işletim sistemi güncelleştirmesi gerekir ne yapabilirim?**
 
-A. Küme sağlıksız durumdayken düzeltme eki orchestration uygulama güncelleştirmelerini yüklemez. Kümenizi düzeltme eki orchestration uygulama iş akışı engellemesini kaldırmak için sağlıklı bir duruma getirmek deneyin.
+A. Merhaba küme sağlıksız durumdayken hello düzeltme eki orchestration uygulama güncelleştirmelerini yüklemez. Toobring küme tooa sağlıklı duruma toounblock hello düzeltme eki orchestration uygulama iş akışınızı deneyin.
 
-Q. **Neden kümelerinde düzeltme eki uygulama kadar çalıştırmak için sürer?**
+Q. **Neden kümelerinde düzeltme eki uygulama çok uzun toorun sürer?**
 
-A. Düzeltme eki orchestration uygulama tarafından gereken süre genellikle aşağıdaki etkenlere bağlıdır:
+A. Merhaba düzeltme eki orchestration uygulama tarafından gerekli hello zaman çoğunlukla Etkenler aşağıdaki hello üzerinde bağlıdır:
 
-- Düzenleyici hizmet ilkesi. 
-  - Varsayılan ilke `NodeWise`, sonuçlarını aynı anda yalnızca tek bir düğüme düzeltme eki uygulama içinde. Özellikle büyük kümeleri söz konusu olduğunda, kullanmanızı öneririz `UpgradeDomainWise` kümeler arasında daha hızlı düzeltme eki uygulama elde etmek için ilke.
-- İndirme ve yükleme için kullanılabilir güncelleştirmeleri sayısı. 
-- Karşıdan yüklemek ve bir güncelleştirmeyi yüklemek için gereken ortalama süre, birkaç saat aşamaz.
-- VM ve ağ bant genişliği performans.
+- Merhaba Coordinator hizmeti Hello ilkesi. 
+  - Merhaba varsayılan ilke, `NodeWise`, sonuçlarını aynı anda yalnızca tek bir düğüme düzeltme eki uygulama içinde. Merhaba kullanmanızı tavsiye ederiz özellikle hello durumda daha büyük kümeleri `UpgradeDomainWise` İlkesi tooachieve kümeler arasında düzeltme eki uygulama daha hızlı.
+- indirme ve yükleme için kullanılabilir güncelleştirmeleri Hello sayısı. 
+- gerekli ortalama süre toodownload hello ve birkaç saat aşmamalıdır bir güncelleştirme yükleyin.
+- Merhaba performans hello VM ve ağ bant genişliği.
 
-Q. **Bazı güncelleştirmeler Windows Update sonuçlarında REST API'nin aracılığıyla ancak makinede Windows Update geçmişi altında elde neden görüyor musunuz?**
+Q. **Bazı güncelleştirmeler Windows Update sonuçlarında REST API'nin aracılığıyla ancak hello makinede Windows Update geçmişi altında elde neden görüyor musunuz?**
 
-A. Bazı ürün güncelleştirmelerini ilgili güncelleştirme/düzeltme eki geçmişlerini denetlenmesi gerekir. Örneğin: Windows Defender'ın güncelleştirmeleri Windows Update geçmişinde Windows Server 2016 görünmüyor.
+A. Bazı ürün güncelleştirmelerini ilgili güncelleştirme/düzeltme eki geçmişlerini işaretli toobe gerekir. Örneğin: Windows Defender'ın güncelleştirmeleri Windows Update geçmişinde Windows Server 2016 görünmüyor.
 
 ## <a name="disclaimers"></a>Bildirimler
 
-- Düzeltme eki orchestration uygulama Windows Update, son kullanıcı lisans sözleşmesi kullanıcı adına kabul eder. İsteğe bağlı olarak, ayar uygulama yapılandırmasında kapatılabilir.
+- Merhaba düzeltme eki orchestration uygulama hello Windows Update, son kullanıcı lisans sözleşmesi hello kullanıcı adına kabul eder. İsteğe bağlı olarak, hello ayarı hello hello uygulama yapılandırmasında kapatılabilir.
 
-- Düzeltme eki orchestration uygulama kullanımını ve performansını izlemek için telemetri toplar. Uygulamanın telemetri (varsayılan olarak etkindir) Service Fabric çalışma zamanı telemetri ayarını ayarı izler.
+- Merhaba düzeltme eki orchestration uygulama telemetri tootrack kullanımını ve performansını toplar. Merhaba uygulamanın telemetri (varsayılan olarak etkindir) hello Service Fabric çalışma zamanı telemetri ayarını hello ayarı izler.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-### <a name="a-node-is-not-coming-back-to-up-state"></a>Bir düğüm geri durumu yukarı geliyor değil
+### <a name="a-node-is-not-coming-back-tooup-state"></a>Bir düğüme geri tooup durumu gelmelerini değil
 
-**Düğümü devre dışı bırakma durumunda olduğundan takılmış olabilir**:
+**Merhaba düğümü takılmış devre dışı bırakma durumunda olduğundan**:
 
-Güvenlik onay bekliyor. Bu durumu düzeltmek için sağlam bir durumda yeterli düğüm kullanılabilir olduğundan emin olun.
+Güvenlik onay bekliyor. tooremedy bu durum iyi durumda yeterli düğüm kullanılabilir olduğundan emin olun.
 
-**Düğümü devre dışı durumda olduğundan takılmış olabilir**:
+**Merhaba düğümü takılmış devre dışı durumda olduğundan**:
 
-- Düğüm el ile devre dışı bırakıldı.
-- Düğüm, devam eden Azure altyapı iş nedeniyle devre dışı bırakıldı.
-- Düğüm düğüm düzeltme eki için düzeltme eki orchestration uygulama tarafından geçici olarak devre dışı bırakıldı.
+- Merhaba düğümü el ile devre dışı bırakıldı.
+- Merhaba düğümü vade tooan devam eden Azure altyapı işini devre dışı bırakıldı.
+- Merhaba düğümü hello düzeltme eki orchestration uygulama toopatch hello düğümü tarafından geçici olarak devre dışı bırakıldı.
 
-**Düğüm aşağı bir durumda olduğundan takılmış olabilir**:
+**Merhaba düğümü aşağı bir durumda olduğundan takılmış olabilir**:
 
-- Düğüm aşağı durumda el ile askıya alınmış.
-- Düğüm (hangi düzeltme eki orchestration uygulama tarafından tetiklenen) yeniden yapılıyor.
-- Düğümü hatalı VM veya makine ya da ağ bağlantısı sorunları nedeniyle çalışmıyor.
+- Merhaba düğümü aşağı durumda el ile askıya alınmış.
+- Merhaba düğümü (hangi hello düzeltme eki orchestration uygulama tarafından tetiklenen) yeniden yapılıyor.
+- tooa hatalı VM veya makine ya da ağ bağlantısı sorunları Hello düğümü çalışmıyor.
 
 ### <a name="updates-were-skipped-on-some-nodes"></a>Güncelleştirmeleri bazı düğümler üzerinde atlandı
 
-Düzeltme eki orchestration uygulama bir Windows güncelleştirmesi yeniden zamanlama ilkesine göre yüklemeye çalışır. Düğüm kurtarmak ve uygulama ilkesi göre güncelleştirme atlamak hizmeti çalışır.
+Merhaba düzeltme eki orchestration uygulama tooinstall Windows update according toohello yeniden zamanlama ilkesi çalışır. Merhaba hizmeti toorecover hello düğümü çalışır ve hello güncelleştirme according toohello uygulama ilkesi atlayın.
 
-Böyle bir durumda, bir uyarı düzeyi sistem durumu raporu karşı düğüm Aracısı hizmeti oluşturulur. Windows Update için sonucu hatanın olası nedenini de içerir.
+Böyle bir durumda, bir uyarı düzeyi sistem durumu raporu düğüm Aracısı hizmeti hello karşı oluşturulur. Windows Update için Hello sonuç hello olası hello başarısızlık nedeni de içerir.
 
-### <a name="the-health-of-the-cluster-goes-to-error-while-the-update-installs"></a>Güncelleştirmeyi yüklerken küme durumunu hata durumuna geçer
+### <a name="hello-health-of-hello-cluster-goes-tooerror-while-hello-update-installs"></a>Merhaba güncelleştirmeyi yüklerken hello küme hello durumunu tooerror gider.
 
-Bir uygulama veya belirli düğüme veya yükseltme etki alanı küme durumunu aşağı hatalı bir Windows güncelleştirmesi kullanıma sunabilirsiniz. Düzeltme eki orchestration uygulama kümeye yeniden sağlıklı duruma gelene kadar sonraki tüm Windows Update işlemi sona erdirir.
+Bir uygulama veya belirli düğüme veya yükseltme etki alanı küme hello durumunu aşağı hatalı bir Windows güncelleştirmesi kullanıma sunabilirsiniz. Merhaba küme yeniden sağlıklı duruma gelene kadar hello düzeltme eki orchestration uygulama sonraki tüm Windows Update işlemi sona erdirir.
 
-Bir yönetici, müdahale ve uygulama ya da küme neden nedeniyle Windows Update sağlıksız olduğunu belirler.
+Bir yönetici müdahale ve Merhaba uygulaması ya da küme neden nedeniyle sağlıksız olduğunu belirlemek tooWindows güncelleştirme.
 
 ## <a name="release-notes-"></a>Sürüm Notları:
 
@@ -412,5 +412,5 @@ Bir yönetici, müdahale ve uygulama ya da küme neden nedeniyle Windows Update 
 ### <a name="version-120-latest"></a>Sürüm 1.2.0 (en yeni)
 
 - Hata düzeltmeleri sistem geçici iş akışını yeniden başlatın.
-- Hangi sistem durumu nedeniyle, beklendiği gibi onarım görevlerin hazırlanması sırasında onay gerçekleştiği değildi RM görevler oluşturma hata düzeltmesi.
-- Windows POANodeSvc otomatik otomatik Gecikmeli hizmetinin başlangıç modu değiştirildi.
+- Onarım görevlerin hazırlanması sırasında toowhich sistem durumu denetimi RM görevlerin oluşturulmasını hata düzeltme beklendiği gibi gerçekleştiği değildi.
+- Windows hizmet POANodeSvc otomatik toodelayed-otomatik değiştirilen hello başlangıç modu.

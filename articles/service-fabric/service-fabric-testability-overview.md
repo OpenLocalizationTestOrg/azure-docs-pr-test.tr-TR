@@ -1,6 +1,6 @@
 ---
-title: "Hata analizi hizmetine genel bakış | Microsoft Docs"
-description: "Bu makalede, hataları inducing ve test senaryoları hizmetlerinizi karşı çalıştırmak için Service Fabric hataya analiz hizmetinde açıklanmaktadır."
+title: "aaaFault çözümleme hizmetine genel bakış | Microsoft Docs"
+description: "Bu makalede hello hataya Analysis Service Fabric hizmetinde hataları inducing ve test senaryoları hizmetlerinizi karşı çalıştırmak için açıklanmaktadır."
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,91 +14,91 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: f275fa5d3d6d727b016e55c188321d7e68091a33
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: deac16ec830aa10d4e488e60691faa9ef2b6cd33
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-the-fault-analysis-service"></a>Hata analizi hizmetine giriş
-Hata analizi hizmeti Microsoft Azure Service Fabric üzerinde oluşturulmuş Hizmetleri test etmek için tasarlanmıştır. Hata analizi hizmeti ile anlamlı hataları anlamına ve uygulamalarınızı karşı tam test senaryoları çalıştırın. Bu hataları ve senaryoları çalışma ve çok sayıda durumları ve yaşam süresi, tüm denetimli, güvenli ve tutarlı bir şekilde boyunca bir hizmet yaşar geçişleri doğrulayın.
+# <a name="introduction-toohello-fault-analysis-service"></a>Giriş toohello hata analizi hizmeti
+Merhaba hata analizi hizmeti Microsoft Azure Service Fabric üzerinde oluşturulmuş Hizmetleri test etmek için tasarlanmıştır. Merhaba hata analizi hizmeti ile anlamlı hataları anlamına ve uygulamalarınızı karşı tam test senaryoları çalıştırın. Bu hataları ve senaryoları uygulamanız ve doğrulama çok sayıda durumları ve hizmet yaşam süresi boyunca, tüm bir denetimli, güvenli ve tutarlı şekilde yaşar geçişleri hello.
 
-Eylemler, test etmek için bir hizmet hedefleme tek tek hatalarıdır. Bir hizmet Geliştirici yapı taşı olarak karmaşık senaryolarda yazmak için kullanabilirsiniz. Örneğin:
+Eylemler, bunu test etmek için bir hizmet hedefleme hello tek tek hatalarıdır. Bir hizmet Geliştirici yapı taşları toowrite karmaşık senaryolar olarak kullanabilirsiniz. Örneğin:
 
-* Burada bir makine ya da VM yeniden durumlarda herhangi bir sayıda benzetimini yapmak için bir düğümü yeniden başlatın.
-* Yük Dengeleme, yük devretme veya uygulama yükseltme benzetimini yapmak için durum bilgisi olan hizmet çoğaltmasını taşıyın.
-* Çekirdek kayıp yeni verileri kabul etmek için yeterli "yedek" veya "ikincil" çoğaltmaları olmadığından burada yazma işlemleri devam edemiyor bir durum oluşturmak için durum bilgisi olan bir hizmet olarak çağırır.
-* Burada tüm bellek içi durumu tamamen silinmeden çıkışı bir durum oluşturmak için bir durum bilgisi olan hizmet veri kaybı çağırır.
+* Bir düğüm toosimulate olduğu bir makineye veya VM yeniden durumlarda herhangi bir sayıda yeniden başlatın.
+* Bir çoğaltma, durum bilgisi olan hizmet toosimulate Yük Dengeleme, yük devretme veya uygulama yükseltme taşıyın.
+* Çekirdek kayıp durum bilgisi olan hizmet toocreate yeterli "yedek" veya "ikincil" çoğaltmaları tooaccept yeni veri olmadığından burada yazma işlemleri devam edemiyor bir durum olarak çağırır.
+* Durum bilgisi olan hizmet toocreate burada tüm bellek içi durumu tamamen silinmeden çıkışı bir durum veri kaybı çağırır.
 
-Bir veya daha fazla eylemlerini oluşan karmaşık işlemleri senaryolar verilmiştir. Hata analizi hizmeti iki yerleşik tam senaryoları sağlar:
+Bir veya daha fazla eylemlerini oluşan karmaşık işlemleri senaryolar verilmiştir. Hello hata analizi hizmeti, iki yerleşik tam senaryoları sağlar:
 
 * Chaos senaryosu
 * Yük devretme senaryosu
 
 ## <a name="testing-as-a-service"></a>Bir hizmet olarak test etme
-Hataya analiz hizmeti Service Fabric kümesi ile otomatik olarak başlatılan bir Service Fabric sistem hizmetidir. Bu hizmet, ana bilgisayar arıza ekleme, test senaryosu yürütme ve sistem durumu çözümleme için olarak görev yapar. 
+Merhaba hata analizi hizmeti ile bir Service Fabric kümesi otomatik olarak başlatılan bir Service Fabric sistem hizmetidir. Bu hizmet hata ekleme, test senaryosu yürütme ve durum Analizi'ni hello ana bilgisayar olarak görev yapar. 
 
 ![Hata analizi hizmeti][0]
 
-Bir hata eylemi veya test senaryosu başlatıldığında, bir komut hata eylemi veya test senaryoları çalıştırılacağını hataya Analysis Service olarak gönderilir. Böylece, güvenilir bir şekilde hataları ve senaryoları çalıştırabilir ve sonuçlarını doğrulamak hataya analiz durum bilgisi olan bir hizmettir. Örneğin, bir uzun süre çalışan testi senaryosu güvenilir bir şekilde hata analizi hizmeti tarafından çalıştırılabilir. Ve testleri kümesi içinde yürütülmekte olduğundan, hizmet küme ve hataları hakkında daha ayrıntılı bilgi sağlamak için hizmetlerinizi durumunu inceleyebilirsiniz.
+Bir hata eylemi veya test senaryosu başlatıldığında, bir komut eylemini veya sınama toohello hata Analiz Hizmetleri toorun hello hataya senaryosu gönderilir. Merhaba hata analizi hizmeti durum bilgisi olan, böylelikle, güvenilir bir şekilde hataları ve senaryoları çalıştırabilir ve sonuçlarını doğrulayın. Örneğin, bir uzun süre çalışan testi senaryosu güvenilir bir şekilde hello hata analizi hizmeti tarafından çalıştırılabilir. Ve testleri hello kümesi içinde yürütülmekte çünkü hello hizmet hello kümenin hello durumunu ve Hizmetleri tooprovide hataları hakkında daha ayrıntılı bilgi inceleyebilirsiniz.
 
 ## <a name="testing-distributed-systems"></a>Dağıtılmış sistemlerin test etme
-Service Fabric yazma ve dağıtılmış ölçeklenebilir uygulamalar önemli ölçüde daha kolay yönetme işi yapar. Benzer şekilde daha kolay bir dağıtılmış uygulamayı test hata analizi hizmeti sağlar. Test ederken çözülmesi gereken üç ana sorunları vardır:
+Service Fabric yazma ve dağıtılmış ölçeklenebilir uygulamalar önemli ölçüde daha kolay yönetme hello işi yapar. benzer şekilde daha kolay bir dağıtılmış uygulamayı test Hello hata analizi hizmeti sağlar. Test ederken Çözüldü toobe gereken üç ana sorunlar vardır:
 
-1. Gerçek dünya senaryolarında oluşabilecek hatalar benzetimi/oluşturuluyor:, Service Fabric, önemli yönlerinden biri çeşitli arızalardan kurtarmak dağıtılmış uygulamaları etkinleştirir. Ancak, uygulama bu arızalardan kurtarmak mümkün olup olmadığını test için bu gerçek hataları denetimli test ortamında benzetimini/oluşturmak için bir mekanizma gerekiyor.
-2. Bağıntılı hataları oluşturma yeteneği: sisteminde, ağ hataları ve makine hataları gibi temel hataları ayrı ayrı oluşturmak kolaydır. Bu tek tek başarısızlık etkileşimleri sonucunda gerçek dünyadaki oluşabilir senaryoları önemli sayıda oluşturma Önemsiz olmayan.
-3. Geliştirme ve dağıtım çeşitli düzeylerde arasında birleşik deneyim: hataları çeşitli türlerde yapabilmeniz için birçok hata ekleme sistemi vardır. Ancak, tüm bunlar büyük sınama ortamlarında, bunları üretimde sınamaları kullanarak aynı testleri çalıştırma için bir kutusu Geliştirici senaryolarından taşırken, zayıf deneyimidir.
+1. Gerçek dünya senaryolarında oluşabilecek hatalar benzetimi/oluşturuluyor:, Service Fabric hello önemli yönlerinden biri dağıtılmış uygulamalar toorecover çeşitli hatalardan sağlar. Ancak, uygulama hello tootest Bu hatalardan mümkün toorecover, bir mekanizma toosimulate/oluşturmak Bu gerçek hataları denetimli test ortamında ihtiyacımız.
+2. Merhaba özelliği toogenerate bağıntılı hataları: temel ağ hataları ve makine hataları gibi hello sisteminde hatalarıdır kolay tooproduce ayrı ayrı. Çok sayıda hello gerçek dünyadaki hello etkileşimleri bu tek tek başarısızlık nedeniyle oluşabilir senaryolar oluşturma Önemsiz olmayan.
+3. Geliştirme ve dağıtım çeşitli düzeylerde arasında birleşik deneyim: hataları çeşitli türlerde yapabilmeniz için birçok hata ekleme sistemi vardır. Bir çalıştırma Geliştirici senaryolarını, büyük test ortamlarında toousing kendileri için aynı sınamaları toorunning hello taşıma üretimde test ancak, bunların tümü hello deneyimi zayıf durumdur.
 
-Gerekli garanti ile--aynı ortamından üretim kümeleri--test etmek için bu süreç boyunca tüm kutusu bir geliştirici, yapan bir sistem bu sorunları çözmek için birçok mekanizmaları olduğunuzda eksik. Hata analizi hizmeti uygulama geliştiricileri kendi iş mantığı sınama odaklanmasına yardımcı olur. Hata analizi hizmeti hizmetinin temel Dağıtılmış Sistem etkileşimlerine test etmek için gerekli tüm özellikleri sağlar.
+Bu sorunları aynı gerekli garanti--bir kutusunu Geliştirici ortamından tüm hello yolu ile Merhaba bir sistem birçok mekanizmaları toosolve varken üretim kümeleri--tootest eksik. Merhaba hata analizi hizmeti hello uygulama geliştiricileri kendi iş mantığı sınama odaklanmasına yardımcı olur. Merhaba olanaklarına hello hizmet hello temel Dağıtılmış Sistem tootest hello etkileşimi gerekli Hello hata analizi hizmeti sağlar.
 
 ### <a name="simulatinggenerating-real-world-failure-scenarios"></a>Gerçek dünya hatası senaryoları benzetimini yapma ve oluşturma
-Dağıtılmış bir sistemde hatalarına karşı sağlamlık test için hataları oluşturmak için bir mekanizma gerekiyor. Teorik karşın, bir düğüm aşağı kolay görünüyor gibi bir hata oluşturma Service Fabric çözmeye çalışırken tutarlılık sorunları aynı kümesini basarsa başlar. Örnek olarak, bir düğüm kapatmaya istiyorsanız gerekli iş akışı aşağıda verilmiştir:
+tootest hello sağlamlık hatalarına karşı dağıtılmış bir sistemin bir mekanizma toogenerate hataları gerekir. Kuramsal karşın, bir düğüm aşağı hello basarsa başlatır kolay görünüyor gibi bir hata oluşturma aynı tutarlılık sorunları Service Fabric toosolve çalışıyor olarak ayarlayın. Bir düğüm aşağı tooshut istiyoruz, örnek olarak, hello iş akışı hello aşağıdaki gereklidir:
 
-1. İstemciden kapatma düğümü isteği gönderin.
-2. İstek için doğru düğümü gönderin.
+1. Merhaba istemciden kapatma düğümü isteği gönderin.
+2. Merhaba isteği toohello doğru düğümü gönderin.
    
-    a. Düğümü bulunamadı, başarısız olması.
+    a. Merhaba düğümü bulunamadı, başarısız olması.
    
-    b. Düğüm bulunursa, yalnızca düğüm kapatma durumunda döndürmelidir.
+    b. Merhaba düğümü bulunursa, yalnızca hello düğüm kapatma durumunda döndürmelidir.
 
-Bir test perspektifini hatasından doğrulamak için test bu hatanın kopyaladığınızda, hata gerçekte olur, bilmek ister. Service Fabric, her iki sağlar garantisi düğüm gidecek veya komutu düğüm erişildiğinde zaten oldu. Her iki durumda da test doğru durumunu neden ve başarılı veya doğru şekilde kendi doğrulama başarısız yapabiliyor olmanız gerekir. Hataları aynı kümesini yapmak için Service Fabric dışında uygulanan bir sistem, birçok ağ, donanım ve önceki garanti sağlayan önleyen yazılım sorunları oluşabilir. Önce belirtilen sorunları varlığında Service Fabric sorunlarını geçici olarak çözmek için küme durumunu yeniden yapılandıracak ve bu nedenle hata analizi hizmeti hala garanti doğru yetenek kümesini vermek olacaktır.
+tooverify hello hatası test açısından hello test tooknow bu hatayı kopyaladığınızda, hello hatası gerçekte gerçekleşmesi gerekir. Service Fabric sağlar hello garanti hello düğümlerden gidecek veya hello komutu hello düğümü erişildiğinde zaten oldu sağlar. Büyük/küçük harf ya da hello test mümkün toocorrectly neden hello durumu hakkında ve başarılı veya doğru şekilde kendi doğrulama başarısız. Service Fabric toodo hello dışında uygulanan bir sistem, birçok ağ isabet, donanım ve vermesini önleyen yazılım konuları, önceki garanti hello aynı hatalarının ayarlayın. Service Fabric hello küme durumu toowork hello sorunları geçici yeniden yapılandırın ve bu nedenle hata analizi hizmeti hello önce belirtilen hello sorunları Hello bulunması garanti hala mümkün toogive hello sağ ayarlanır.
 
 ### <a name="generating-required-events-and-scenarios"></a>Gerekli olayları ve senaryolar oluşturma
-Gerçek dünya kesintisi tutarlı bir şekilde benzetimi başlamak zor olsa da, bağıntılı hataları oluşturmak için bile tougher yeteneğidir. Örneğin, aşağıdaki olacaklar veri kaybı bir durum bilgisi olan kalıcı hizmetinde olur:
+Gerçek dünya kesintisi tutarlı bir şekilde benzetimi ile zorlu toostart olsa da, hello özelliği bağıntılı toogenerate hataları bile tougher. Örneğin, şeyler aşağıdaki hello gerçekleştiğinde bir veri kaybı bir durum bilgisi olan kalıcı hizmetinde olur:
 
-1. Yalnızca bir yazma çekirdek çoğaltmalarının yakalandı çoğaltma. Tüm İkincil çoğaltmaları birincil öteleme.
-2. (Nedeniyle, bir kod paketi veya gitme düğüm) giderek çoğaltmaları nedeniyle yazma çekirdek arıza.
-3. Çoğaltma verileri (disk bozulması veya makine yeniden görüntüsünü oluşturuyor nedeniyle) kayıp olduğundan yazma çekirdek geri gelmesi olamaz.
+1. Yalnızca bir yazma çekirdek hello çoğaltmalarının yakalandı çoğaltma. Tüm hello ikincil çoğaltmaları birincil hello öteleme.
+2. (son tooa kod paketi veya gitme düğüm) giderek hello çoğaltmaları nedeniyle Hello yazma çekirdek arıza.
+3. Merhaba çoğaltmaları Hello verileri (toodisk Bozulması veya makine yeniden görüntüsünü oluşturuyor) kayıp olduğundan hello yazma çekirdek geri gelmesi olamaz.
 
-Bu ilişkili hatalar, gerçek dünyadaki ancak sık olarak tek tek hataları olarak değil gerçekleşir. Üretimde gerçekleşmeden önce bu senaryolar için test etme olanağı önemlidir. Bu senaryolar (ortasında deste üzerindeki tüm mühendisleri gün) denetimli durumlarda üretim iş yükleri ile benzetimini olanağı daha da önemlidir. Bu ilk kez üretim saat 2: 00'da gerçekleşir olması daha iyi
+Bu bağlantılı hataları hello gerçek dünyadaki ancak değil olarak tek tek hataları sıklıkta gerçekleşir. Merhaba özelliği tootest üretimde gerçekleşmeden önce bu senaryoları için önemlidir. Daha da hello özelliği toosimulate denetimli durumlarda üretim iş yükleri ile bu senaryoları (deste üzerindeki tüm mühendisleri ile Merhaba günün hello ortasında) önemlidir. Bunu Merhaba üretim saat 2: 00'da ilk kez gerçekleşecek olması daha iyi
 
 ### <a name="unified-experience-across-different-environments"></a>Farklı ortamlar üzerinde birleşik deneyim
-Uygulama, geleneksel deneyimleri, bir geliştirme ortamı için testler için diğeri üretim için üç farklı kümesi oluşturmak için bırakıldı. Model oluştu:
+Merhaba uygulama geleneksel toocreate üç farklı kümesi deneyimleri, biri hello geliştirme ortamı için testleri için ve bir üretim için bırakıldı. was Hello modeli:
 
-1. Geliştirme ortamında birim testleri tek tek yöntemlerin izin durumu geçişleri üretir.
-2. Test ortamında, çeşitli hatası senaryoları çalışma uçtan uca testleri izin verilecek üretir.
-3. Üretim ortamına doğal olmayan hataları önlemek için ve son derece hızlı İnsan hatası yanıta olduğundan emin olmak için pristine tutun.
+1. Birim testleri tek tek yöntemlerin izin durumu geçişleri Hello geliştirme ortamında üretir.
+2. Merhaba test ortamında, çeşitli hatası senaryoları çalışma hataları tooallow uçtan uca testleri üretir.
+3. Doğal olmayan hataları ve son derece hızlı İnsan yanıt toofailure olduğunu tooensure Hello üretim ortamı pristine tooprevent tutun.
 
-Hata analizi hizmeti aracılığıyla Service Fabric, biz bu Aç ve geliştirici ortamından aynı yönteme üretime kullanmak önerdiği. Bunu başarmak için iki yolu vardır:
+Service Fabric içinde hello hata analizi hizmeti biz tooturn bu sorunu önerdiği ve kullanım hello aynı Geliştirici ortamı tooproduction gelen Metodoloji. Vardır iki yolu tooachieve bu:
 
-1. Denetimli hataları anlamına için hataya analiz hizmeti API'lerinin bir Kutulu ortamı tüm üretim kümeleri için kullanın.
-2. Küme hatalar otomatik endüksiyon neden olan bir fever vermek için arıza analiz hizmeti otomatik hataları oluşturmak için kullanın. Yapılandırma yoluyla hata oranı denetleme farklı ortamlarda farklı sınanacak aynı hizmeti sağlar.
+1. Denetlenen tooinduce hataları, tüm hello yolu tooproduction hello hata analizi hizmeti API'leri bir Kutulu Ortamı'ndan kullanmak kümeleri.
+2. toogive hello hatalar, kullanım hello hata analizi hizmeti toogenerate otomatik endüksiyon otomatik hatalarına neden oluyor fever küme. Yapılandırma yoluyla hata denetleme hello oranı aynı hizmet toobe farklı farklı ortamlarda test hello sağlar.
 
-Hataları ölçeğini farklı ortamlarda farklı olabilir ancak Service Fabric ile gerçek mekanizmaları aynı olacaktır. Bu kadar kod dağıtım daha hızlı işlem hattı ve gerçek yükleri hizmetler sınama olanağı sağlar.
+Hataları Hello ölçeğini hello farklı ortamlarda farklı olabilir ancak Service Fabric ile Merhaba gerçek mekanizmaları aynı olacaktır. Bu bir çok daha hızlı kod dağıtım ardışık düzen ve hello özelliği tootest hello hizmetler gerçek yükleri sağlar.
 
-## <a name="using-the-fault-analysis-service"></a>Hata analizi hizmeti kullanma
+## <a name="using-hello-fault-analysis-service"></a>Merhaba hata analizi hizmeti kullanma
 **C#**
 
-Hata analizi hizmeti Microsoft.ServiceFabric NuGet paketi System.Fabric ad alanında özellikleridir. Hataya analiz hizmet özelliklerini kullanmak için projenizdeki bir başvuru olarak nuget paketini ekleyin.
+Hata analizi hizmeti hello System.Fabric ad alanındaki hello Microsoft.ServiceFabric NuGet paketi özellikleridir. toouse hello hata analizi hizmeti özellikleri projenize başvuru olarak hello nuget paketini içerir.
 
 **PowerShell**
 
-PowerShell kullanmak için Service Fabric SDK yüklemeniz gerekir. SDK'yı yükledikten sonra ServiceFabric PowerShell kullanabilmeniz için yüklenen otomatik modülüdür.
+PowerShell toouse hello Service Fabric SDK yüklemeniz gerekir. Merhaba ServiceFabric PowerShell hello sonra SDK yüklü olduğu, toouse yüklenen otomatik modülüdür.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Gerçekten bulut ölçekli hizmetler oluşturmak için önce ve dağıtım sonra hizmetleri gerçek dünya hataları dayanabilir emin olmak için önemlidir. Hizmetleri dünyada Bugün, hızlı bir şekilde yenilik ve kod üretime hızlıca taşımak olanağı çok önemlidir. Hata analizi hizmeti tam olarak bunu yapmak için hizmet geliştiricileri yardımcı olur.
+toocreate gerçekten bulut ölçekli hizmetler, bu kritik tooensure hem önce ve Hizmetleri gerçek dünya hataları dayanabilir dağıtımdan sonra olur. Merhaba Hizmetleri dünyada bugün özelliği tooinnovate hızlı bir şekilde hello ve taşıma kod tooproduction hızlı bir şekilde de çok önemlidir. Merhaba hataya Analysis Services hizmet geliştiricileri toodo tam olarak, yardımcı olur.
 
-Yerleşik kullanarak hizmetleri ve uygulamaları sınama başlamak [testi senaryolarında](service-fabric-testability-scenarios.md), veya kullanarak kendi test senaryoları Yazar [arıza Eylemler](service-fabric-testability-actions.md) hata analizi hizmeti tarafından sağlanan.
+Uygulamaları ve Hizmetleri hello yerleşik kullanarak test başlamadan [testi senaryolarında](service-fabric-testability-scenarios.md), veya hello kullanarak kendi test senaryoları Yazar [arıza Eylemler](service-fabric-testability-actions.md) hello hata analizi hizmeti tarafından sağlanan.
 
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png

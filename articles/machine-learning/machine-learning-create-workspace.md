@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning çalışma alanı oluşturma | Microsoft Docs"
-description: "Azure Machine Learning Studio'da bir çalışma alanı oluşturma"
+title: "Machine Learning çalışma alanı aaaCreate | Microsoft Docs"
+description: "Nasıl toocreate Azure Machine Learning Studio'da bir çalışma alanı"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye;bradsev;ahgyger
-ms.openlocfilehash: 182a34822e71d63f4d7229548ae3f59d9f195337
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 178293af222365993fade666124f34269d892325
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Bir Azure Machine Learning çalışma alanı oluşturma ve paylaşma
-Cortana analitik işlem (CAP) tarafından kullanılan çeşitli veri bilimi ortamları ayarlama nasıl açıklayan konulara bu menü bağlantılar.
+Bu menü hello yukarı tooset çeşitli veri bilimi ortamları hello Cortana analitik işlem (CAP) tarafından nasıl kullanılacağını açıklamaktadır tootopics bağlar.
 
 [!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
-Azure Machine Learning Studio kullanmak için bir Machine Learning çalışma alanınızın olması gerekir. Bu çalışma alanı oluşturmak, yönetmek ve denemeler yayımlamak için ihtiyacınız olan araçları içerir.
+Azure Machine Learning Studio toouse toohave Machine Learning çalışma alanı gerekir. Bu çalışma alanı toocreate ihtiyacınız hello araçları içerir, yönetmek ve denemeler yayımlama.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-### <a name="to-create-a-workspace"></a>Bir çalışma alanı oluşturmak için
-1. Oturum [Azure portalı](https://portal.azure.com/)
+### <a name="toocreate-a-workspace"></a>toocreate bir çalışma alanı
+1. İçinde toohello oturum [Azure portalı](https://portal.azure.com/)
 
     > [!NOTE]
-    > Oturum açın ve bir çalışma alanı oluşturmak için Azure abonelik yöneticisi olmanız gerekir. 
+    > içinde toosign ve çalışma alanı oluşturma, toobe Azure Abonelik Yöneticisi gerekir. 
     >
     > 
 
@@ -43,18 +43,18 @@ Azure Machine Learning Studio kullanmak için bir Machine Learning çalışma al
 
 4. Çalışma alanı bilgilerinizi girin
 
-    - *Çalışma alanı adı* boşluk bitiş değil, en fazla 260 karakter olabilir. Adı şu karakterleri içeremez:`< > * % & : \ ? + /`
-    - *Web hizmeti planı* , seçin (veya oluşturun), ilişkili birlikte *fiyatlandırma katmanı* seçin, web hizmetleri bu çalışma alanından dağıtırsanız kullanılır.
+    - Merhaba *çalışma alanı adı* too260 karakter, bir boşluk bitiş değil yukarı olabilir. Merhaba adı şu karakterleri içeremez:`< > * % & : \ ? + /`
+    - Merhaba *web hizmeti planı* , seçin (veya oluşturun), ilişkili hello birlikte *fiyatlandırma katmanı* seçin, web hizmetleri bu çalışma alanından dağıtırsanız kullanılır.
 
     ![Yeni bir çalışma alanı oluşturma](media/machine-learning-create-workspace/create-new-workspace.png)
 
 5. **Oluştur**'a tıklayın
 
-Çalışma alanı dağıtıldığında, Machine Learning Studio'da açabilirsiniz.
+Merhaba çalışma dağıtıldığında, Machine Learning Studio'da açabilirsiniz.
 
-1. Machine Learning Studio'ya için Gözat [https://studio.azureml.net/](https://studio.azureml.net/).
+1. TooMachine Learning Studio Gözat adresindeki [https://studio.azureml.net/](https://studio.azureml.net/).
 
-2. Çalışma alanınızı üst sağ taraftaki köşedeki seçin.
+2. Çalışma alanınızı hello üst sağ taraftaki köşedeki seçin.
 
     ![Çalışma alanı seçin](media/machine-learning-create-workspace/open-workspace.png)
 
@@ -63,42 +63,42 @@ Azure Machine Learning Studio kullanmak için bir Machine Learning çalışma al
     ![Açık denemeleri](media/machine-learning-create-workspace/my-experiments.png)
 
 Çalışma alanınızı yönetme hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning çalışma alanını yönetme](machine-learning-manage-workspace.md).
-Çalışma alanınızı oluşturulurken bir sorunla karşılaşırsanız, bkz: [sorun giderme kılavuzu: oluşturun ve Machine Learning çalışma alanına bağlayın](machine-learning-troubleshooting-creating-ml-workspace.md).
+Çalışma alanınızı oluşturulurken bir sorunla karşılaşırsanız, bkz: [sorun giderme kılavuzu: oluşturmak ve tooa Machine Learning çalışma alanı bağlanmak](machine-learning-troubleshooting-creating-ml-workspace.md).
 
 
 ## <a name="sharing-an-azure-machine-learning-workspace"></a>Bir Azure Machine Learning çalışma alanı paylaşımı
-Bir kez çalışma alanı oluşturulduğunda Machine Learning, kullanıcıları çalışma alanınızı ve tüm alt denemeler, veri kümeleri, dizüstü bilgisayarlar, vb. erişimi paylaşmak için çalışma alanına davet edebilirsiniz. Kullanıcılar iki rolleri ekleyebilirsiniz:
+Machine Learning çalışma alanı oluşturulduktan sonra kullanıcılar tooyour çalışma tooshare erişim tooyour çalışma ve tüm alt denemeler, veri kümeleri, dizüstü bilgisayarlar, vb. davet edebilirsiniz. Kullanıcılar iki rolleri ekleyebilirsiniz:
 
-* **Kullanıcı** -çalışma kullanıcı oluşturmak, açın, değiştirmek ve silmek denemeler, veri kümeleri, vb. çalışma alanında.
-* **Sahibi** - sahibi davet edebilir ve çalışma alanında, hangi kullanıcı yanı sıra Kaldır kullanıcılar yapabilir.
+* **Kullanıcı** -çalışma kullanıcı oluşturmak, açın, değiştirmek ve silmek denemeler, veri kümeleri, vb. hello çalışma alanında.
+* **Sahibi** - sahibi davet edebilir ve Kaldır kullanıcıların eklenmesi toowhat bir kullanıcı olarak hello çalışma alanında yapabilirsiniz.
 
 > [!NOTE]
-> Çalışma alanı oluşturur yönetici hesabı, çalışma alanı sahibi olarak çalışma alanına otomatik olarak eklenir. Ancak, diğer Yöneticiler veya kullanıcılar bu abonelikte çalışma alanına erişim otomatik olarak verilmez - açıkça davet gerekir.
+> Merhaba çalışma alanı oluşturur hello yönetici hesabı, çalışma alanı sahibi olarak toohello çalışma alanı otomatik olarak eklenir. Ancak, abonelik olmayan, otomatik olarak diğer Yöneticiler veya kullanıcılar toohello çalışma erişim verilen - tooinvite ihtiyacınız bunları açıkça.
 > 
 > 
 
-### <a name="to-share-a-workspace"></a>Bir çalışma alanı paylaşmak için
+### <a name="tooshare-a-workspace"></a>tooshare bir çalışma alanı
 
-1. Machine Learning Studio'ya oturum [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Learning Studio'ya tooMachine içinde oturum [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
-2. Sol panelinde tıklatın **ayarları**
+2. Merhaba sol panelinde tıklatın **ayarları**
 
-3. Tıklatın **kullanıcılar** sekmesi
+3. Merhaba tıklatın **kullanıcılar** sekmesi
 
-4. Tıklatın **daha fazla kullanıcı davet** sayfanın sonundaki
+4. Tıklatın **daha fazla kullanıcı davet** hello sayfa hello altındaki
 
     ![Studio ayarları](media/machine-learning-create-workspace/settings.png)
 
-5. Bir veya daha fazla e-posta adresi girin. Kullanıcıların geçerli bir Microsoft hesabı veya kurumsal bir hesap (Azure Active Directory'den) gerekir.
+5. Bir veya daha fazla e-posta adresi girin. Merhaba kullanıcıların geçerli bir Microsoft hesabı veya kurumsal bir hesap (Azure Active Directory'den) gerekir.
 
-6. Sahibi veya kullanıcı kullanıcılar eklemek istediğinizi seçin.
+6. Sahibi veya kullanıcı olarak tooadd hello kullanıcılar istediğinizi seçin.
 
-7. Tıklatın **Tamam** onay işareti düğmesine.
+7. Merhaba tıklatın **Tamam** onay işareti düğmesine.
 
-Eklediğiniz her kullanıcı için paylaşılan çalışma alanına oturum açmak yönergeler içeren bir e-posta alır.
+Eklediğiniz her bir kullanıcı çalışma toohello toosign nasıl paylaşılacağını hakkında yönergeler içeren bir e-posta alırsınız.
 
 > [!NOTE]
-> Kullanıcıların dağıtmak veya bu çalışma alanında web hizmetleri yönetmek için bunların katkıda bulunan veya Azure Abonelik Yöneticisi olması gerekir. 
+> Kullanıcıların toobe mümkün toodeploy için veya bu çalışma alanında web hizmetleri yönetmek için katkıda bulunan veya hello Azure abonelik yöneticisi olmanız gerekir. 
 
 
 

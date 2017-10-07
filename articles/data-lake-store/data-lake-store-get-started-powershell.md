@@ -1,6 +1,6 @@
 ---
-title: "PowerShell kullanarak Azure Data Lake Store ile çalışmaya başlama | Microsoft Docs"
-description: "Bir Data Lake Store hesabı oluşturmak ve temel işlemleri gerçekleştirmek için Azure PowerShell'i kullanma"
+title: "aaaUse PowerShell tooget Azure Data Lake Store ile çalışmaya | Microsoft Docs"
+description: "Temel işlemleri gerçekleştirmek ve Azure PowerShell toocreate bir Data Lake Store hesabı kullanın"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.openlocfilehash: 23c9aaa089251bff5132652475f4daadc2c128fe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9c958bfd63e412ec0b0a4113a149f61aee026bc4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Azure PowerShell'i kullanarak Azure Data Lake Store ile çalışmaya başlama
 > [!div class="op_single_selector"]
@@ -33,24 +33,24 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-Azure Data Lake Store hesabı oluşturma ve klasör oluşturma, veri dosyalarını yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure PowerShell'in nasıl kullanılacağını öğrenin. Data Lake Store hakkında daha fazla bilgi için bkz. [Data Lake Store'a Genel Bakış](data-lake-store-overview.md).
+Bir Azure Data Lake toouse Azure PowerShell toocreate nasıl depolamak öğrenin hesap ve gibi klasör oluşturma karşıya yükleme ve veri dosyalarını indirme temel işlemleri gerçekleştirmek, vb., hesabınızı silme. Data Lake Store hakkında daha fazla bilgi için bkz. [Data Lake Store'a Genel Bakış](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Önkoşullar
-Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
+## <a name="prerequisites"></a>Ön koşullar
+Bu öğreticiye başlamadan önce hello şunlara sahip olmanız gerekir:
 
-* **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 veya üstü**. Bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
+* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
+* **Azure PowerShell 1.0 veya üstü**. Bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview).
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
-Bu makalede, Azure hesabı kimlik bilgilerinizi girmenizi isteyen daha basit bir Data Lake Store kimlik doğrulama yaklaşımı kullanılmaktadır. Data Lake Store hesabına ve dosya sistemine erişim düzeyi bu durumda oturum açmış kullanıcının erişim düzeyine göre yönetilir. Ancak, Data Lake Store kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** şeklinde diğer yaklaşımlar da mevcuttur. Kimlik doğrulaması gerçekleştirmeyle ilgili yönergeler ve daha fazla bilgi için [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md) veya [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md) bölümlerine göz atın.
+Bu makalede Azure hesabı kimlik bilgileriniz istendiğinde tooenter nerede Data Lake Store ile basit bir kimlik doğrulama yaklaşım kullanır. Merhaba erişim düzeyi tooData Lake Store hesabı ve dosya sistemi, kullanıcı oturum hello hello erişim düzeyi sonra tabidir. Ancak, diğer yaklaşım vardır Data Lake Store ile iyi tooauthenticate olarak olan **son kullanıcı kimlik doğrulaması** veya **hizmeti için kimlik doğrulama**. Yönergeler ve hakkında daha fazla bilgi için tooauthenticate, bkz: [son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md) veya [hizmeti için kimlik doğrulama](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Azure Data Lake Store hesabı oluşturma
-1. Masaüstünüzde yeni bir Windows PowerShell penceresi açın ve Azure hesabınızda oturum açmak, aboneliği ayarlamak ve Data Lake Store sağlayıcısını kaydetmek için aşağıdaki kod parçacığını girin. Oturum açmanız istendiğinde, bir abonelik yöneticisi/sahibi olarak oturum açtığınızdan emin olun.
+1. Masaüstünüzde yeni bir Windows PowerShell penceresi açın ve aşağıdaki kod parçacığında toolog tooyour Azure hesabı içinde hello girin, hello aboneliği ayarlamak ve hello Data Lake Store sağlayıcısını kaydetmek. ' De, istendiğinde toolog emin yaptığınızda, bir hello Abonelik Yöneticisi/sahibi oturum açın:
 
-        # Log in to your Azure account
+        # Log in tooyour Azure account
         Login-AzureRmAccount
 
-        # List all the subscriptions associated to your account
+        # List all hello subscriptions associated tooyour account
         Get-AzureRmSubscription
 
         # Select a subscription
@@ -64,138 +64,138 @@ Bu makalede, Azure hesabı kimlik bilgilerinizi girmenizi isteyen daha basit bir
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
     ![Bir Azure kaynak grubu oluşturma](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Create an Azure Resource Group")
-3. Bir Azure Data Lake Store hesabı oluşturun. Belirttiğiniz ad yalnızca küçük harflerden ve rakamlardan oluşmalıdır.
+3. Bir Azure Data Lake Store hesabı oluşturun. Belirttiğiniz hello adı yalnızca küçük harf ve sayı içermelidir.
 
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
     ![Azure Data Lake Store hesabı oluşturma](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Create an Azure Data Lake Store account")
-4. Hesabın başarıyla oluşturulduğunu doğrulayın.
+4. Merhaba hesabın başarıyla oluşturulduğunu doğrulayın.
 
         Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
-    Bu işlemin çıktısı **True** olmalıdır.
+    Bu olmalıdır çıktısı hello **doğru**.
 
 ## <a name="create-directory-structures-in-your-azure-data-lake-store"></a>Azure Data Lake Store'unuzda dizin yapıları oluşturma
-Veri depolamak ve yönetmek için Azure Data Lake Store hesabınızın altında dizin oluşturabilirsiniz.
+Dizin, Azure Data Lake Store hesabı toomanage altında oluşturmak ve verileri depolamak.
 
 1. Bir kök dizin belirtin.
 
         $myrootdir = "/"
-2. Belirtilen kökün altında **mynewdirectory** adlı yeni bir dizin oluşturun.
+2. Adlı yeni bir dizin oluşturun **mynewdirectory** hello belirtilen kök altında.
 
         New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStoreName -Path $myrootdir/mynewdirectory
-3. Yeni dizinin başarıyla oluşturulduğunu doğrulayın.
+3. Bu hello yeni bir dizin başarıyla oluşturuldu doğrulayın.
 
         Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStoreName -Path $myrootdir
 
-    Bu işlemin aşağıdakine benzer bir çıktı göstermesi gerekir:
+    Merhaba aşağıdaki gibi bir çıktı göstermesi gerekir:
 
     ![Dizin Doğrulama](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verify Directory")
 
-## <a name="upload-data-to-your-azure-data-lake-store"></a>Azure Data Lake Store'unuza veri yükleme
-Verilerinizi Data Lake Store'a doğrudan kök düzeyinde veya hesap içinde oluşturduğunuz bir dizine yüklenecek şekilde yükleyebilirsiniz. Aşağıdaki kod parçacıkları, birtakım örnek verilerin önceki bölümde oluşturduğunuz dizine (**mynewdirectory**) nasıl yükleneceğini göstermektedir.
+## <a name="upload-data-tooyour-azure-data-lake-store"></a>Veri tooyour Azure Data Lake Store karşıya yükle
+Merhaba hesap içinde oluşturduğunuz doğrudan hello kök düzeyinde veya tooa dizininde tooData data Lake Store karşıya yükleyebilirsiniz. Merhaba parçacıkları göstermek nasıl tooupload bazı örnek veri toohello dizini (**mynewdirectory**) hello önceki bölümde oluşturduğunuz.
 
-Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz. Dosyayı indirin ve bilgisayarınızda C:\sampledata\ gibi yerel bir dizinde depolayın.
+Bazı örnek veri tooupload için arıyorsanız, hello alabilirsiniz **Ambulance Data** hello klasöründen [Azure Data Lake Git deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Merhaba dosyasını indirin ve C:\sampledata\ gibi bilgisayarınızdaki yerel bir klasörde saklayın.
 
     Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 
 
 ## <a name="rename-download-and-delete-data-from-your-data-lake-store"></a>Data Lake Store'unuzda verileri yeniden adlandırma, indirme ve silme
-Bir dosyayı yeniden adlandırmak için aşağıdaki komutu kullanın:
+toorename bir dosya hello aşağıdaki komutu kullanın:
 
     Move-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $myrootdir\mynewdirectory\vehicle1_09142014.csv -Destination $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
 
-Bir dosyayı indirmek için aşağıdaki komutu kullanın.
+toodownload bir dosya hello aşağıdaki komutu kullanın:
 
     Export-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv -Destination "C:\sampledata\vehicle1_09142014_Copy.csv"
 
-Bir dosyayı silmek için aşağıdaki komutu kullanın:
+toodelete bir dosya hello aşağıdaki komutu kullanın:
 
     Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
 
-İstendiğinde, öğeyi silmek için **Y** yazın. Birden fazla dosyayı silmek istiyorsanız tüm yolları virgülle ayrılmış olarak sağlayabilirsiniz.
+İstendiğinde, girin **Y** toodelete hello öğesi. Birden fazla dosya toodelete varsa, tüm hello yollarının virgülle ayırarak sağlayabilir.
 
     Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
 
 ## <a name="delete-your-azure-data-lake-store-account"></a>Azure Data Lake Store hesabınızı silme
-Data Lake Store hesabınızı silmek için aşağıdaki komutu kullanın.
+Komut toodelete aşağıdaki hello Data Lake Store hesabınızı kullanın.
 
     Remove-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
-İstendiğinde, hesabı silmek için **Y** yazın.
+İstendiğinde, girin **Y** toodelete hello hesabı.
 
 ## <a name="performance-guidance-while-using-powershell"></a>PowerShell’i kullanırken performans rehberi
 
-Aşağıda, Data Lake Store ile çalışmak için PowerShell’i kullanırken en iyi performansı elde etmek için ayarlanabilecek en önemli ayarlar sağlanmıştır:
+Aşağıda hello PowerShell toowork Data Lake Store ile kullanırken bizi tooget hello en iyi performans olabilir en önemli ayarlar şunlardır:
 
 | Özellik            | Varsayılan | Açıklama |
 |---------------------|---------|-------------|
-| PerFileThreadCount  | 10      | Bu parametre, her bir dosya karşıya yüklenirken veya indirilirken kaç paralel iş parçacığı kullanılacağını seçmenize olanak tanır. Bu sayı dosya başına ayrılabilecek en fazla iş parçacığı sayısını temsil eder, ancak senaryonuza bağlı olarak daha az iş parçacığı elde edebilirsiniz (örneğin, 1 KB boyutlu bir dosyayı karşıya yüklüyorsanız 20 iş parçacığı isteseniz bile bir iş parçacığınız olur).  |
-| ConcurrentFileCount | 10      | Bu parametre özellikle klasörlerin karşıya yüklenmesi ve indirilmesi içindir. Bu parametre, karşıya yüklenebilecek veya indirilebilecek eş zamanlı dosya sayısını belirler. Bu sayı, tek seferde karşıya yüklenebilecek veya indirilebilecek en fazla eş zamanlı dosya sayısını temsil eder, ancak senaryonuza bağlı olarak daha az eş zamanlılık elde edebilirsiniz (örneğin, karşıya iki dosya yüklüyorsanız 15 eş zamanlı dosya yükleme isteseniz bile iki yükleme sağlanır). |
+| PerFileThreadCount  | 10      | Bu parametre toochoose hello yükleyerek veya her dosya indirme için paralel iş parçacığı sayısını sağlar. Bu sayı, dosya başına ayrılabilen hello en fazla iş parçacığı temsil eder, ancak senaryonuza bağlı olarak daha az iş parçacığı alabilirsiniz (örn. bir 1 KB dosya yüklüyorsanız, 20 iş parçacığı isteyin olsa bile bir iş parçacığı alırsınız).  |
+| ConcurrentFileCount | 10      | Bu parametre özellikle klasörlerin karşıya yüklenmesi ve indirilmesi içindir. Bu parametre, karşıya veya karşıdan eşzamanlı dosya hello sayısını belirler. Bu sayı hello karşıya veya aynı anda indirilen eşzamanlı dosyaları en büyük sayısını temsil eder, ancak senaryonuza bağlı olarak daha az eşzamanlılık alabilirsiniz (örneğin iki dosya yüklüyorsanız sorduğunuz olsa bile iki eşzamanlı dosya yüklemeleri alırsınız 15). |
 
 **Örnek**
 
-Bu komut, dosya başına 20 iş parçacığı ve 100 eşzamanlı dosya kullanarak dosyaları Azure Data Lake Store’dan kullanıcının yerel sürücüsüne indirir.
+Bu komut dosyası ve 100 eş zamanlı dosya başına 20 iş parçacığı kullanarak Azure Data Lake Store toohello kullanıcının yerel sürücüden dosyaları indirir.
 
     Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
-### <a name="how-do-i-determine-the-value-to-set-for-these-parameters"></a>Bu parametreler için ayarlanacak değerleri nasıl belirlerim?
+### <a name="how-do-i-determine-hello-value-tooset-for-these-parameters"></a>Bu parametre için değer tooset hello nasıl belirlerim?
 
 Aşağıda kullanabileceğiniz bazı yönergeler verilmiştir.
 
-* **1. Adım: Toplam iş parçacığı sayısını belirleyin** - İlk olarak kullanılması gereken toplam iş parçacığı sayısını hesaplayabilirsiniz. Genel bir kural olarak her fiziksel çekirdek için 6 iş parçacığı kullanmalısınız.
+* **1. adım: hello toplam iş parçacığı sayısını belirleyin** -tarafından hesaplama hello toplam iş parçacığı sayısı toouse başlamanız gerekir. Genel bir kural olarak her fiziksel çekirdek için 6 iş parçacığı kullanmalısınız.
 
         Total thread count = total physical cores * 6
 
     **Örnek**
 
-    PowerShell komutlarını 16 çekirdekli bir D14 VM’den çalıştırdığınız varsayılmıştır
+    Merhaba PowerShell kullanmakta olduğunuz varsayılarak D14 VM'den 16 çekirdeğe sahip komutları.
 
         Total thread count = 16 cores * 6 = 96 threads
 
 
-* **2. Adım: PerFileThreadCount değerini hesaplayın**  - Kendi PerFileThreadCount değerimizi dosyaların boyutunu temel olarak hesaplıyoruz. 2,5 GB’den küçük dosyalar için varsayılan değer olan 10 yeterli olduğundan bu parametreyi değiştirmek gerekmez. 2,5 GB'tan büyük dosyalar için 10 iş parçacığını ilk 2,5 GB için bir temel olarak kullanın ve dosya boyutundaki her 256 MB’lık ek artış için 1 iş parçacığı ekleyin. Birçok farklı boyutta dosya içeren bir klasörü kopyalıyorsanız dosyaları benzer dosya boyutları halinde gruplandırmayı göz önünde bulundurun. Dosya boyutlarının benzer olmaması performansın düşmesine neden olabilir. Benzer boyutlu dosyaları gruplandırmanız mümkün değilse PerFileThreadCount değerini en büyük dosya boyutuna göre ayarlamanız gerekir.
+* **2. adım: PerFileThreadCount hesaplamak** -biz hello hello dosya boyutuna göre bizim PerFileThreadCount hesaplanamıyor. 2.5 GB'den küçük dosyalar için var. gerek toochange Bu parametre hello varsayılan olarak 10 yeterli olduğundan 2.5 GB'den büyük olan dosyalar için Hello temeli ilk 2,5 GB hello ve dosya boyutu 1 iş parçacığı her ek 256 MB artırmak için ekleme gibi 10 iş parçacığı kullanmanız gerekir. Birçok farklı boyutta dosya içeren bir klasörü kopyalıyorsanız dosyaları benzer dosya boyutları halinde gruplandırmayı göz önünde bulundurun. Dosya boyutlarının benzer olmaması performansın düşmesine neden olabilir. Bu olası toogroup benzer dosya boyutları değilse, hello en büyük dosya boyutuna göre PerFileThreadCount ayarlamanız gerekir.
 
-        PerFileThreadCount = 10 threads for the first 2.5GB + 1 thread for each additional 256MB increase in file size
+        PerFileThreadCount = 10 threads for hello first 2.5GB + 1 thread for each additional 256MB increase in file size
 
     **Örnek**
 
-    Boyutu 1 GB ile 10 GB arasında değişen 100 dosyanız olduğunu varsayarsak, denklemde en büyük dosya boyutu olan 10 GB’ı kullanırız ve denklem aşağıdaki gibi görünür.
+    1 GB too10GB arasında değişen 100 dosyalarınız varsayıldığında, hello olarak en büyük hello 10 GB dosya boyutu hello aşağıdaki gibi okuduğunuz eşitlik için kullanırız.
 
         PerFileThreadCount = 10 + ((10GB - 2.5GB) / 256MB) = 40 threads
 
-* **3. Adım: ConcurrentFilecount değerini hesaplayın** - Aşağıdaki denklemi temel alıp toplam iş parçacığı sayısı ve PerFileThreadCount değerini kullanarak ConcurrentFileCount değerini hesaplayın.
+* **3. adım: ConcurrentFilecount hesaplamak** -kullanım hello toplam iş parçacığı sayısı ve PerFileThreadCount toocalculate ConcurrentFileCount göre eşitlik aşağıdaki hello üzerinde.
 
         Total thread count = PerFileThreadCount * ConcurrentFileCount
 
     **Örnek**
 
-    Kullandığımız örnek değerler temel alınmıştır
+    Biz kullanmakta olduğunuz hello örneği değerlerine göre
 
         96 = 40 * ConcurrentFileCount
 
-    Sonuç olarak **ConcurrentFileCount** değeri **2,4** ve bunu **2**’ye yuvarlayabiliriz.
+    Bu nedenle, **ConcurrentFileCount** olan **2.4**, hangi biz çok yuvarlama**2**.
 
 ### <a name="further-tuning"></a>Daha fazla ayar
 
-Üzerinde çalışılan dosyaların boyutu çeşitlilik gösterdiğinden daha fazla ayar yapmanız gerekebilir. Dosyaların hepsi veya çoğu 10 GB aralığından büyükse veya bu aralığa daha yakınsa yukarıdaki hesaplama iyi bir sonuç verir. Bunun yerine çoğu dosya küçük olacak şekilde birçok farklı dosya boyutu varsa PerFileThreadCount değerini azaltabilirsiniz. PerFileThreadCount değerini azaltarak ConcurrentFileCount değerini artırabiliriz. Dolayısıyla, dosyalarımızın çoğunun daha küçük (5 GB aralığında) olduğunu varsayarsak hesaplamayı yeniden yapabiliriz:
+Dosya boyutları toowork ile bir dizi olduğundan ek ayarlama gerektirebilir. iyi tümünü veya bir hello dosyaların en büyük ve daha yakın toohello 10 GB aralık dışındaysa hello hesaplama üstünde çalışır. Bunun yerine çoğu dosya küçük olacak şekilde birçok farklı dosya boyutu varsa PerFileThreadCount değerini azaltabilirsiniz. Merhaba PerFileThreadCount azaltarak ConcurrentFileCount artırabilir. Bu nedenle, bizim hesaplama varsayıyoruz olursa bizim dosyaları hello 5 GB aralığında küçük çoğu, parolanızı yeniden yapın:
 
     PerFileThreadCount = 10 + ((5GB - 2.5GB) / 256MB) = 20
 
-Bu durumda **ConcurrentFileCount** değeri 96/20 işlemi sonucunda 4.8 olarak bulunur **4**’e yuvarlanır.
+Bu nedenle, **ConcurrentFileCount** şimdi 4.8 olan 96/20, çok yuvarlanacak**4**.
 
-Dosya boyutlarınızın dağılımına göre **PerFileThreadCount** değerini artırıp azaltarak bu ayarları değiştirmeye devam edebilirsiniz.
+Merhaba değiştirerek bu ayarları tootune sürdürebilirsiniz **PerFileThreadCount** dosya boyutlarınızı hello dağıtımını bağlı yukarı ve aşağı olarak.
 
 ### <a name="limitation"></a>Sınırlama
 
-* **Dosya sayısı ConcurrentFileCount değerinden az**: Karşıya yüklemekte olduğunuz dosyaların sayısı hesapladığınız **ConcurrentFileCount** değerinden azsa **ConcurrentFileCount** değerini dosya sayısına eşit olacak şekilde azaltmanız gerekir. **PerFileThreadCount** değerini artırmak için kalan iş parçacıklarından dilediğinizi kullanabilirsiniz.
+* **Dosya sayısı, ConcurrentFileCount değerinden**: hello karşıya dosya sayısı hello küçük olup olmadığını **ConcurrentFileCount** hesaplanmış ardından azaltmanız gerekir  **ConcurrentFileCount** toobe eşit toohello dosya sayısı. Kalan tüm iş parçacıklarının tooincrease kullanabileceğiniz **PerFileThreadCount**.
 
-* **Çok fazla iş parçacığı**: Kümenizin boyutunu artırmadan iş parçacığı sayısını çok fazla artırırsanız düşük performans riskiyle karşılaşabilirsiniz. CPU’da bağlam değişimi sırasında çekişme sorunları olabilir.
+* **Çok fazla iş parçacığı**: iş parçacığı artırırsanız, küme boyutu artırmadan çok fazla sayısı, performans hello riskini çalıştırın. İçerik Geçişi hello CPU üzerinde Çekişme sorunları olabilir.
 
-* **Yetersiz eşzamanlılık**: Eşzamanlılık yeterli değilse kümeniz çok küçük olabilir. Eşzamanlılığı artırmak için kümenizdeki düğüm sayısını artırabilirsiniz.
+* **Yetersiz eşzamanlılık**: hello eşzamanlılık yeterli değildir sonra kümenizi çok küçük olabilir. Daha fazla eşzamanlılık erişmenizi sağlayan kümedeki düğüm sayısını hello artırabilir.
 
-* **Azaltma hataları**: Eşzamanlılığınız çok yüksekse azaltma hataları görebilirsiniz. Azaltma hataları görüyorsanız eşzamanlılığı azaltmanız veya bize ulaşmanız gerekir.
+* **Azaltma hataları**: Eşzamanlılığınız çok yüksekse azaltma hataları görebilirsiniz. Hataları azaltma görüyorsanız hello eşzamanlılık azaltın veya bize ulaşın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)

@@ -1,6 +1,6 @@
 ---
-title: "Bağlantı giriş Azure Ağ İzleyicisi'ni kontrol edin | Microsoft Docs"
-description: "Bu sayfa Ağ İzleyicisi bağlantı yeteneğini genel bir bakış sağlar"
+title: "Azure Ağ İzleyicisi aaaIntroduction tooconnectivity iade | Microsoft Docs"
+description: "Bu sayfa hello Ağ İzleyicisi bağlantı yeteneğini genel bir bakış sağlar"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,46 +13,46 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
-ms.openlocfilehash: c29f5afe59f57112fe1f115df6bc53645f3c0d34
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 52fc4547f167cea2992a046859dc0550d136e80d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-connectivity-check-in-azure-network-watcher"></a>Azure Ağ İzleyicisi bağlantı iade giriş
+# <a name="introduction-tooconnectivity-check-in-azure-network-watcher"></a>Azure Ağ İzleyicisi giriş tooconnectivity denetleyin
 
-Ağ İzleyicisi'nin bağlantı özelliği bir doğrudan bir sanal makine (VM), tam etki alanı adı (FQDN) URI, TCP bağlantısı bir sanal makineden denetleme özelliği sağlar ya da IPv4 adresi. Ağ senaryoları karmaşık, ağ güvenlik grupları, güvenlik duvarları, kullanıcı tanımlı yollar ve Azure tarafından sağlanan kaynaklar kullanılarak uygulanır. Karmaşık Yapılandırmalar bağlantı sorunlarını giderme zor olun. Ağ İzleyicisi'ni bulun ve bağlantısı sorunlarını algılayacak süreyi azaltılmasına yardımcı olur. Döndürülen sonuçların bir bağlantı sorunu bir platform veya kullanıcı yapılandırma sorunu nedeniyle olup içine Öngörüler sağlayabilir. Bağlantı kontrol edileceği ile [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), ve [REST API](network-watcher-connectivity-rest.md).
+Merhaba bağlantı özelliği olan Ağ İzleyicisi Merhaba yetenek toocheck bir sanal makine tooa sanal makineden (VM), tam etki alanı adı (FQDN) URI, doğrudan bir TCP bağlantı sağlar ya da IPv4 adresi. Ağ senaryoları karmaşık, ağ güvenlik grupları, güvenlik duvarları, kullanıcı tanımlı yollar ve Azure tarafından sağlanan kaynaklar kullanılarak uygulanır. Karmaşık Yapılandırmalar bağlantı sorunlarını giderme zor olun. Ağ İzleyicisi zaman toofind hello miktarını azaltın ve bağlantısı sorunlarını algılayacak yardımcı olur. döndürülen hello sonuçları bir bağlantı sorunu tooa platform veya kullanıcı yapılandırma sorunu olup içine Öngörüler sağlayabilir. Bağlantı kontrol edileceği ile [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), ve [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Bağlantı onay gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
+> Bağlantı onay gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM Hello uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Azure Ağ İzleyicisi Aracısı sanal makine uzantısı Linuxiçin](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="response"></a>Yanıt
 
-Aşağıdaki tabloda bağlantı denetimi çalışmasını bitirdikten sonra döndürülen özellikleri gösterir.
+Aşağıdaki tablonun hello bağlantı denetimi çalışmasını bitirdikten sonra döndürülen hello özellikleri gösterir.
 
 |Özellik  |Açıklama  |
 |---------|---------|
-|ConnectionStatus     | Bağlantı denetimi durumu. Olası sonuçları **erişilebilir** ve **ulaşılamıyor**.        |
-|AvgLatencyInMs     | Milisaniye cinsinden bağlantı denetimi sırasında ortalama gecikme süresi. (Yalnızca durumunu denetleme erişilebilir olup olmadığını gösterilen)        |
-|MinLatencyInMs     | Bağlantı sırasında en düşük gecikme süresi, milisaniye cinsinden denetleyin. (Yalnızca durumunu denetleme erişilebilir olup olmadığını gösterilen)        |
-|MaxLatencyInMs     | Bağlantı sırasında en fazla gecikme süresi, milisaniye cinsinden denetleyin. (Yalnızca durumunu denetleme erişilebilir olup olmadığını gösterilen)        |
-|ProbesSent     | Denetimi sırasında gönderilen araştırmalar sayısı. En yüksek değer 100'dür.        |
-|ProbesFailed     | Denetimi sırasında başarısız araştırmalar sayısı. En yüksek değer 100'dür.        |
-|Atlama     | Atlama yoluyla atlama kaynaktan hedefe.        |
+|ConnectionStatus     | Merhaba bağlantı denetimi Hello durumu. Olası sonuçları **erişilebilir** ve **ulaşılamıyor**.        |
+|AvgLatencyInMs     | Ortalama gecikme süresi sırasında hello bağlantı denetimi milisaniye cinsinden. (Yalnızca durumunu denetleme erişilebilir olup olmadığını gösterilen)        |
+|MinLatencyInMs     | Merhaba bağlantı sırasında en düşük gecikme süresi, milisaniye cinsinden denetleyin. (Yalnızca durumunu denetleme erişilebilir olup olmadığını gösterilen)        |
+|MaxLatencyInMs     | Merhaba bağlantı sırasında en fazla gecikme süresi, milisaniye cinsinden denetleyin. (Yalnızca durumunu denetleme erişilebilir olup olmadığını gösterilen)        |
+|ProbesSent     | Merhaba denetimi sırasında gönderilen araştırmalar sayısı. En yüksek değer 100'dür.        |
+|ProbesFailed     | Merhaba denetimi sırasında başarısız araştırmalar sayısı. En yüksek değer 100'dür.        |
+|Atlama     | Kaynak toodestination gelen atlama atlama yoluyla.        |
 |[] Atlama sayısı. Türü     | Kaynak türü. Olası değerler şunlardır: **kaynak**, **değerinin VirtualAppliance**, **VnetLocal**, ve **Internet**.        |
-|[] Atlama sayısı. Kimliği | Atlama benzersiz tanımlayıcısı.|
-|[] Atlama sayısı. Adres | Atlamanın IP adresi.|
-|[] Atlama sayısı. ResourceId | Atlama bir Azure kaynağı ise atlama ResourceId. Bu bir Internet kaynağına ResourceId ise, **Internet**. |
-|[] Atlama sayısı. NextHopIds | Gerçekleştirilecek sonraki atlama benzersiz tanımlayıcısı.|
-|[] Atlama sayısı. Sorunları | Bu atlama denetimi sırasında karşılaşılan sorunlar koleksiyonu. Herhangi bir sorun olsaydı, boş bir değerdir.|
-|[] Atlama sayısı. [] Verir. Kaynak | Sorun oluştuğu geçerli atlamada. Olası değerler şunlardır:<br/> **Gelen** -sorundur geçerli atlama önceki atlama gelen bağlantı<br/>**Giden** -sorundur sonraki atlama geçerli atlama gelen bağlantı<br/>**Yerel** -geçerli atlamada bir sorundur.|
-|[] Atlama sayısı. [] Verir. Önem derecesi | Sorunun önem derecesini algılandı. Olası değerler şunlardır: **hata** ve **uyarı**. |
-|[] Atlama sayısı. [] Verir. Türü |Sorun bulundu türü. Olası değerler şunlardır: <br/>**CPU**<br/>**Bellek**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
-|[] Atlama sayısı. [] Verir. Bağlam |Sorun bulundu ilişkin ayrıntılar.|
-|[] Atlama sayısı. [] Verir. Bağlam [] .key |Anahtar değeri çifti anahtarı döndürüldü.|
-|[] Atlama sayısı. [] Verir. Bağlam [] .value |Anahtar değeri çifti değeri döndürdü.|
+|[] Atlama sayısı. Kimliği | Merhaba atlama benzersiz tanımlayıcısı.|
+|[] Atlama sayısı. Adres | Merhaba atlamanın IP adresi.|
+|[] Atlama sayısı. ResourceId | Merhaba atlama bir Azure kaynağı ise hello atlama ResourceId. Bu bir Internet kaynağına ResourceId ise, **Internet**. |
+|[] Atlama sayısı. NextHopIds | Merhaba hello sonraki atlamanın gerçekleştirilecek benzersiz tanımlayıcısı.|
+|[] Atlama sayısı. Sorunları | Bu atlama hello denetimi sırasında karşılaşılan sorunlar koleksiyonu. Herhangi bir sorun olsaydı, hello değeri boştur.|
+|[] Atlama sayısı. [] Verir. Kaynak | Sorun oluştuğu hello geçerli atlamada. Olası değerler şunlardır:<br/> **Gelen** -sorundur hello önceki atlama toohello geçerli atlama hello bağlantısından üzerinde<br/>**Giden** -sorundur hello geçerli atlama toohello sonraki atlama hello bağlantısından üzerinde<br/>**Yerel** -hello geçerli atlamada bir sorundur.|
+|[] Atlama sayısı. [] Verir. Önem derecesi | Merhaba önem derecesi hello sorunu algılandı. Olası değerler şunlardır: **hata** ve **uyarı**. |
+|[] Atlama sayısı. [] Verir. Türü |Merhaba türü sorun bulundu. Olası değerler şunlardır: <br/>**CPU**<br/>**Bellek**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
+|[] Atlama sayısı. [] Verir. Bağlam |Merhaba sorun bulundu ilişkin ayrıntılar.|
+|[] Atlama sayısı. [] Verir. Bağlam [] .key |Merhaba anahtar değer çifti anahtarı döndürüldü.|
+|[] Atlama sayısı. [] Verir. Bağlam [] .value |Merhaba anahtar değer çifti değer döndürdü.|
 
-Atlama bulunan bir sorun örneği verilmiştir.
+Merhaba, atlama üzerinde bulunan bir sorun örneği aşağıdadır.
 
 ```json
 "Issues": [
@@ -71,20 +71,20 @@ Atlama bulunan bir sorun örneği verilmiştir.
 ```
 ## <a name="fault-types"></a>Hata türleri
 
-Bağlantı denetimi hata türleri bağlantı hakkında döndürür. Aşağıdaki tabloda, döndürülen geçerli hata türlerinin bir listesini sağlar.
+Merhaba bağlantı denetimi hello bağlantısı ile ilgili hata türlerini döndürür. Merhaba aşağıdaki tabloda döndürülen hello geçerli hata türlerinin bir listesini sağlar.
 
 |Tür  |Açıklama  |
 |---------|---------|
 |CPU     | Yüksek CPU kullanımı.       |
 |Bellek     | Yüksek bellek kullanımı.       |
-|GuestFirewall     | Trafiği bir sanal makine güvenlik duvarı yapılandırması nedeniyle engellendi.        |
-|DNSResolution     | Hedef adresi için DNS çözümlemesi başarısız oldu.        |
+|GuestFirewall     | Trafik tooa sanal makine güvenlik duvarı yapılandırması engellendi.        |
+|DNSResolution     | Merhaba hedef adresi için DNS çözümlemesi başarısız oldu.        |
 |NetworkSecurityRule    | Trafik bir NSG kuralı tarafından engellenmiş (Kural döndürülür)        |
-|UserDefinedRoute|Trafiği kullanıcı tanımlı veya sistem yolu nedeniyle bırakılır. |
+|UserDefinedRoute|Trafik tooa kullanıcı tanımlı veya sistem yolu bırakılır. |
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
-Bir kaynak bağlantısını ziyaret ederek doğrulamak öğrenin: [Azure Ağ İzleyicisi ile Bağlanılırlığı denetleyin](network-watcher-connectivity-powershell.md).
+Bilgi nasıl tooverify bağlantı tooa kaynak şu adresi ziyaret ederek: [Azure Ağ İzleyicisi ile Bağlanılırlığı denetleyin](network-watcher-connectivity-powershell.md).
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png

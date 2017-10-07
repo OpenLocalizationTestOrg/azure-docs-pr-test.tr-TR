@@ -1,6 +1,6 @@
 ---
-title: "SQL veritabanı uyarıları oluşturmak için Azure portalını kullanma | Microsoft Docs"
-description: "Belirttiğiniz koşullar karşılandığında, bildirimler ya da Otomasyon tetikleyebilir SQL veritabanı uyarılar oluşturmak için Azure Portalı'nı kullanın."
+title: "aaaUse Azure portal toocreate SQL veritabanı uyarıları | Microsoft Docs"
+description: "Belirttiğiniz hello koşullar karşılandığında hangi bildirimleri ya da Otomasyon tetikleyebilir hello Azure portal toocreate SQL veritabanı uyarıları kullanın."
 author: aamalvea
 manager: jhubbard
 editor: 
@@ -15,26 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: aamalvea
-ms.openlocfilehash: bfbaa71dc5716fbbc23d04bbd62210193c990e8e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4e494b130a26c4cdf42445cb49648fce9bf4d300
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı için uyarıları oluşturmak için Azure portalını kullanma
+# <a name="use-azure-portal-toocreate-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı için Azure portal toocreate uyarıları kullanın
 
 ## <a name="overview"></a>Genel Bakış
-Bu makalede Azure portalını kullanarak Azure SQL veritabanı ve veri ambarı uyarılarını ayarlama gösterilmiştir. Bu makalede ayrıca uyarı dönemleri ayarlamak için en iyi yöntemler sağlar.    
+Bu makalede nasıl tooset kullanarak Azure SQL veritabanı ve veri ambarı uyarıları hello Azure portal gösterilmektedir. Bu makalede ayrıca uyarı dönemleri ayarlamak için en iyi yöntemler sağlar.    
 
 İzleme ölçümlerini ya da olayları, Azure hizmetlerinizi göre bir uyarı alabilirsiniz.
 
-* **Ölçüm değerleri** -herhangi bir yönde atadığınız bir eşik değeri, belirtilen bir ölçüm kestiği olduğunda uyarı tetikler. Diğer bir deyişle, her ikisi de tetikler koşul ilk ve ardından daha sonra ne zaman, koşul artık karşılanıp zaman.    
+* **Ölçüm değerleri** - hello belirtilen ölçüm hello değeri herhangi bir yönde atadığınız bir eşik kestiği olduğunda uyarı tetikler. Diğer bir deyişle, her ikisi de tetikler hello koşul karşılanır ilk ve ardından daha sonra ne zaman, koşul artık karşılanıp zaman.    
 * **Etkinlik günlüğü olaylarını** -bir uyarıyı tetiklemek *her* olay veya yalnızca belirli bir sayıda olayları oluşur.
 
-Tetikler, aşağıdakileri yapmak için bir uyarı yapılandırabilirsiniz:
+Tetikler olduğunda bir uyarı toodo hello aşağıdaki yapılandırabilirsiniz:
 
-* Hizmet yöneticisini ve ortak Yöneticiler e-posta bildirimleri gönder
-* Belirttiğiniz ek e-postalar için e-posta gönderin.
+* e-posta bildirimleri toohello hizmet yöneticisini ve ortak Yöneticiler Gönder
+* e-posta, belirttiğiniz tooadditional e-postalar gönderin.
 * bir Web kancası çağırın
 
 Yapılandırma ve uyarı kuralları kullanma hakkında bilgi edinin
@@ -44,36 +44,36 @@ Yapılandırma ve uyarı kuralları kullanma hakkında bilgi edinin
 * [komut satırı arabirimi (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [Azure monitör REST API'si](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Azure portal ile bir ölçüm bir uyarı kuralı oluşturma
-1. İçinde [portal](https://portal.azure.com/), izleme ilgilenen kaynak bulup seçin.
+## <a name="create-an-alert-rule-on-a-metric-with-hello-azure-portal"></a>Ölçüm hello Azure portal ile bir uyarı kuralı oluşturma
+1. Merhaba, [portal](https://portal.azure.com/), izleme ilgilenen hello kaynak bulup seçin.
 2. Bu adım, SQL DB ve SQL DW esnek havuzları için farklıdır: 
 
-   - **SQL DB yalnız & CA esnek havuzları**: seçin **uyarıları** veya **uyarı kuralları** izleme bölümünde. Metin ve simge farklı kaynaklar için biraz değişebilir.  
+   - **SQL DB yalnız & CA esnek havuzları**: seçin **uyarıları** veya **uyarı kuralları** hello izleme bölümü altında. Merhaba metin ve simge farklı kaynaklar için biraz değişebilir.  
    
      ![İzleme](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
   
-   - **YALNIZCA SQL DW**: seçin **izleme** ortak görevler bölümünün altında. Tıklatın **DWU kullanım** grafik.
+   - **YALNIZCA SQL DW**: seçin **izleme** hello ortak görevler bölümü altında. Merhaba tıklatın **DWU kullanım** grafik.
 
      ![ORTAK GÖREVLER](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
 
-3. Seçin **uyarı Ekle** komut ve alanları doldurun.
+3. Select hello **uyarı Ekle** komut ve hello alanları doldurun.
    
     ![Uyarı ekleme](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
 4. **Ad** , uyarı kuralı ve seçin bir **açıklama**, bildirim e-postalarda da gösterir.
-5. Seçin **ölçüm** izlemek ve ardından istediğiniz bir **koşulu** ve **eşik** ölçüm için değer. Aynı zamanda seçtiğiniz **süresi** ölçüm kuralı uyarı Tetikleyicileri önce karşılanması gereken süre. Dolayısıyla örneğin CPU % 80 5 dakika boyunca sürekli olarak yukarıdaki kaldığında "PT5M" dönemi kullanıyorsanız ve Uyarınız % 80 CPU görünüyor, uyarıyı tetikleyen. İlk tetikleyici oluşur sonra 5 dakika boyunca % 80 CPU kaldığında oluşan yeniden tetikler. CPU ölçüm, 1 dakikada oluşur.   
-6. Denetleme **e-posta sahipleri...**  yöneticileri ve ortak Yöneticiler uyarı oluşturulduğunda e-posta gönderilip istiyorsanız.
-7. Uyarı oluşturulduğunda bir bildirim almak için ek e-postaları istiyorsanız, bunları ekleyin **ek yönetici email(s)** alan. Birden çok e-postaları - noktalı virgülle ayırın  *email@contoso.com;email2@contoso.com*
-8. Geçerli bir URI koymak **Web kancası** adlı uyarı oluşturulduğunda istiyorsanız alan.
-9. Seçin **Tamam** uyarı oluşturmak için yapıldığında.   
+5. Select hello **ölçüm** toomonitor istediğiniz sonra seçin bir **koşulu** ve **eşik** hello ölçüm için değer. Ayrıca hello Seçtiğiniz **süresi** ölçüm hello süresini kural hello uyarı Tetikleyicileri önce yerine getirilmesi gereken. Dolayısıyla örneğin Hello CPU % 80 5 dakika boyunca sürekli olarak yukarıdaki kaldığında hello süresi "PT5M" kullanıyorsanız ve uyarıyı % 80 CPU arar hello uyarı tetikler. Merhaba ilk tetikleyici oluşur sonra hello CPU 5 dakika boyunca % 80'altında kaldığında oluşan yeniden tetikler. Merhaba CPU ölçüm, 1 dakikada oluşur.   
+6. Denetleme **e-posta sahipleri...**  e-posta ile yöneticileri ve ortak Yöneticiler toobe istiyorsanız, ne zaman uyarı ateşlenir hello.
+7. Ek e-postaları tooreceive hello olduğunda bir bildirim istiyorsanız uyarı ateşlenir, hello eklemek **ek yönetici email(s)** alan. Birden çok e-postaları - noktalı virgülle ayırın  *email@contoso.com;email2@contoso.com*
+8. Merhaba geçerli bir URI koymak **Web kancası** alan adlı istiyorsanız, ne zaman hello uyarı etkinleşir.
+9. Seçin **Tamam** zaman Bitti'yi toocreate hello uyarı.   
 
-Birkaç dakika içinde uyarı etkindir ve daha önce açıklandığı şekilde tetikler.
+Birkaç dakika içinde hello uyarı etkin ve daha önce açıklandığı şekilde tetikler.
 
 ## <a name="managing-your-alerts"></a>Uyarılarınızı yönetme
 Bir uyarı oluşturduktan sonra bunu seçebilirsiniz ve:
 
-* Ölçüm eşiği ve önceki gün gerçek değerleri gösteren bir grafik görüntüleyin.
+* Önceki gün Hello ölçüm eşiği ve hello hello gerçek değerleri gösteren bir grafik görüntüleyin.
 * Düzenleyin veya silin.
-* **Devre dışı** veya **etkinleştirmek** , geçici olarak durdurmak veya bu uyarı için bildirimleri almaya devam etmek istiyorsanız.
+* **Devre dışı** veya **etkinleştirmek** onu, tootemporarily durdurma veya bu uyarı için bildirimleri almaya devam etmek istiyorsanız.
 
 
 ## <a name="sql-database-alert-values"></a>SQL veritabanı uyarı değerleri
@@ -113,7 +113,7 @@ Bir uyarı oluşturduktan sonra bunu seçebilirsiniz ve:
 | SQL veri ambarı | connection_successful | Başarılı bağlantıları | Toplam | 10 dakika |
 | SQL veri ambarı | connection_failed | Başarısız bağlantı sayısı | Toplam | 10 dakika |
 | SQL veri ambarı | blocked_by_firewall | Güvenlik Duvarı tarafından engellendi | Toplam | 10 dakika |
-| SQL veri ambarı | service_level_objective | Veritabanının hizmet düzeyi hedefi | Toplam | 10 dakika |
+| SQL veri ambarı | service_level_objective | Hizmet düzeyi hedefi hello veritabanı | Toplam | 10 dakika |
 | SQL veri ambarı | dwu_limit | dwu sınırı | Maksimum | 10 dakika |
 | SQL veri ambarı | dwu_consumption_percent | DWU yüzdesi | Ortalama | 10 dakika |
 | SQL veri ambarı | dwu_used | Kullanılan DWU | Ortalama | 10 dakika |
@@ -121,7 +121,7 @@ Bir uyarı oluşturduktan sonra bunu seçebilirsiniz ve:
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure izleme genel bir bakış elde](../monitoring-and-diagnostics/monitoring-overview.md) toplamak ve izlemek bilgi türlerini de dahil olmak üzere.
+* [Azure izleme genel bir bakış elde](../monitoring-and-diagnostics/monitoring-overview.md) hello toplamak ve izlemek bilgi türlerini de dahil olmak üzere.
 * Daha fazla bilgi edinmek [Web kancalarını uyarıları yapılandırma](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Alma bir [tanılama günlükleri'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) hizmetinizde ayrıntılı yüksek sıklıkta ölçümleri toplamak ve.
-* Alma bir [ölçümleri toplama genel bakış](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) hizmetinizi kullanılabilir ve yanıt verebilir durumda olduğundan emin olmak için.
+* Alma bir [ölçümleri toplama genel bakış](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) toomake hizmetinizi kullanılabilir ve yanıt verebilir durumda olduğundan emin.

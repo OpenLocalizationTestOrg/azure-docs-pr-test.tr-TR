@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning Python istemci kitaplığı veri kümeleriyle erişim | Microsoft Docs"
-description: "Yükleyin ve Python istemci kitaplığı erişmek ve Azure Machine Learning veri bir yerel Python ortamından güvenli bir şekilde yönetmek için kullanın."
+title: "Machine Learning Python istemci kitaplığı aaaAccess kümeleriyle | Microsoft Docs"
+description: "Yükleme ve hello Python istemci kitaplığı tooaccess kullanın ve Azure Machine Learning veri güvenli bir şekilde bir yerel Python ortamınızdan yönetin."
 services: machine-learning
 documentationcenter: python
 author: bradsev
@@ -14,97 +14,97 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: huvalo;bradsev
-ms.openlocfilehash: e3ae712e0f8d386f637520fbbff4b348bc86f32d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f55067118f13c52bf677930a20836ce6989f8187
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Azure Machine Learning Python istemci kitaplığını kullanarak Python ile veri kümelerine erişim
-Microsoft Azure Machine Learning Python istemci kitaplığı önizlemesini güvenli erişim Azure Machine Learning veri kümeleriniz için bir yerel Python ortamından etkinleştirebilir ve oluşturulması ve bir çalışma alanı kümelerinde yönetimi sağlar.
+# <a name="access-datasets-with-python-using-hello-azure-machine-learning-python-client-library"></a>Python hello Azure Machine Learning Python istemci kitaplığı kullanılarak erişim kümeleriyle
+Microsoft Azure Machine Learning Python istemci kitaplığı Hello önizlemesini güvenli erişim tooyour Azure Machine Learning veri kümelerini yerel Python Ortamı'ndan etkinleştirebilir ve hello oluşturulmasını ve bir çalışma alanı kümelerinde yönetimini sağlar.
 
 Bu konu hakkında yönergeler sağlar:
 
-* Machine Learning Python istemci Kitaplığı'nı yüklemek 
-* erişim ve Azure Machine Learning veri kümelerini yerel Python ortamınızdan erişme yetkisi almak yönergeler de dahil olmak üzere veri kümeleri, karşıya yükleme
+* Merhaba Machine Learning Python istemci Kitaplığı'nı yüklemek 
+* erişim ve yönergeler de dahil olmak üzere veri kümeleri, karşıya yükleme tooget yetkilendirme tooaccess, yerel Python ortamınızdan Azure Machine Learning veri kümeleri
 * denemeler ara veri kümeleri erişim
-* veri kümeleri listeleme, meta verilerine erişmek, bir veri kümesi içeriğini okumak, yeni veri kümeleri oluşturma ve mevcut veri kümelerini güncelleştirmek için Python istemci kitaplığını kullanma
+* Merhaba Python istemci kitaplığı tooenumerate veri kümelerini kullanan, meta verilerine erişmek, bir veri kümesi hello içeriğini okumak, yeni veri kümeleri oluşturma ve mevcut veri kümelerini güncelleştirme
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
-Python istemci kitaplığı altında aşağıdaki ortamları test edilmiştir:
+Merhaba Python istemci kitaplığı ortamları aşağıdaki hello altında test edilmiştir:
 
 * Windows, Mac ve Linux
 * Python 2.7, 3.3 ve 3.4
 
-Bunu, aşağıdaki paketleri bir bağımlılığa sahiptir:
+Bu paketleri aşağıdaki hello üzerinde bir bağımlılığa sahiptir:
 
 * istekleri
 * Python dateutil
 * pandas
 
-Bir Python dağıtımı gibi kullanmanızı öneririz [Anaconda](http://continuum.io/downloads#all) veya [Kanopi](https://store.enthought.com/downloads/), Python, IPython gelen ve yukarıda listelenen üç paketleri yüklü. IPython kesinlikle gerekli olmamakla birlikte, düzenleme ve etkileşimli olarak verileri görselleştirmek için harika bir ortamıdır.
+Bir Python dağıtımı gibi kullanmanızı öneririz [Anaconda](http://continuum.io/downloads#all) veya [Kanopi](https://store.enthought.com/downloads/), Python, IPython gelen ve yukarıda listelenen hello üç paketleri yüklü. IPython kesinlikle gerekli olmamakla birlikte, düzenleme ve etkileşimli olarak verileri görselleştirmek için harika bir ortamıdır.
 
-### <a name="installation"></a>Azure Machine Learning Python istemci kitaplığı yükleme
-Bu konuda açıklanan görevleri tamamlamak için ayrıca Azure Machine Learning Python istemci kitaplığı yüklenmesi gerekir. Kullanılabilir [Python paket dizini](https://pypi.python.org/pypi/azureml). Python ortamınızda yüklemek için yerel Python ortamınızdan aşağıdaki komutu çalıştırın:
+### <a name="installation"></a>Nasıl tooinstall hello Azure Machine Learning Python istemci kitaplığı
+Hello Azure Machine Learning Python istemci kitaplığı da yüklü toocomplete hello görevleri bu konuda anlatılan olması gerekir. Hello kullanılabilir [Python paket dizini](https://pypi.python.org/pypi/azureml). tooinstall Python ortamınızda çalışması hello aşağıdaki komut, yerel Python ortamınızdan:
 
     pip install azureml
 
-Alternatif olarak, indirin ve kaynaklardan yüklemek [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
+Alternatif olarak, indirin ve hello kaynaklardan yüklemek [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
 
     python setup.py install
 
-Makinenizde git varsa, doğrudan git deposundan yüklemek için PIP kullanabilirsiniz:
+Makinenizde git varsa, doğrudan hello git deposundan PIP tooinstall kullanabilirsiniz:
 
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="datasetAccess"></a>Veri kümeleri erişmek için Studio kod parçacıklarını kullanma
-Python istemci kitaplığı programlı erişim çalıştırılmış denemeler, var olan veri kümelerine sağlar.
+## <a name="datasetAccess"></a>Studio kod parçacıkları tooaccess veri kümelerini kullanma
+Merhaba Python istemci kitaplığı çalıştırılmış denemeler programlı erişim tooyour mevcut veri kümeleri sağlar.
 
-Studio web arabiriminden indirmek ve veri kümeleri konumu makinenizde Pandas DataFrame nesne olarak seri durumdan için gerekli tüm bilgileri içeren kod parçacıkları oluşturabilir.
+Merhaba Studio web arabiriminden konumu makinenizde Pandas DataFrame nesne olarak seri durumdan veri kümeleri ve tüm hello gerekli bilgileri toodownload içeren kod parçacıkları oluşturabilir.
 
 ### <a name="security"></a>Veri erişimi için güvenlik
-Python istemci kitaplığı ile kullanmak üzere çalışma alanı kimliği ve yetkilendirme içerir Studio tarafından sağlanan kod parçacıkları belirteci. Bu çalışma alanınıza tam erişim sağlamak ve parola gibi korunmalıdır.
+kod parçacıkları hello Python istemci kitaplığı ile kullanmak üzere çalışma alanı kimliği ve yetkilendirme içerir Studio tarafından sağlanan hello belirteci. Bunlar tam erişim tooyour çalışma sağlayın ve parola gibi korunmalıdır.
 
-Güvenlik nedenleriyle, kod parçacığı işlevleri yalnızca yap rollerine sahip kullanıcılar için kullanılabilir **sahibi** çalışma alanı için. Azure Machine Learning Studio'da gösterilir rolünüze **kullanıcılar** altında sayfa **ayarları**.
+Güvenlik nedenleriyle hello kod parçacığı işlevleri olarak ayarlayın, rolde kullanılabilir toousers Only'dir **sahibi** hello çalışma alanı için. Rolünüze üzerinde hello Azure Machine Learning Studio'da görüntülenir **kullanıcılar** altında sayfa **ayarları**.
 
 ![Güvenlik][security]
 
-Rolünüze olarak ayarlanmamışsa **sahibi**, ya da istek sahibi olarak ortamına yeniden davet edilme veya kod parçacığı ile sağlamak için çalışma alanının sahibi sormak için kullanabilirsiniz.
+Rolünüze olarak ayarlanmamışsa **sahibi**, istek sahibi olarak ortamına yeniden davet toobe veya hello çalışma tooprovide hello sahibi isteyin hello kod parçacığını sizinle.
 
-Yetkilendirme belirteci edinmek için aşağıdakilerden birini yapabilirsiniz:
+tooobtain hello yetkilendirme belirtecini hello aşağıdakilerden birini yapabilirsiniz:
 
-* Bir belirteci için bir sahibinden isteyin. Sahipleri kendi yetkilendirme belirteçleri Studio'da kendi çalışma alanı ayarları sayfasından erişebilirsiniz. Seçin **ayarları** tıklatın ve sol bölmede **YETKİLENDİRME BELİRTEÇLERİ** birincil ve ikincil belirteçleri görmek için.  Birincil veya ikincil yetkilendirme belirteçleri kod parçacığında kullanılabilse de sahipleri yalnızca ikincil yetkilendirme belirteçleri paylaşıma önerilir.
+* Bir belirteci için bir sahibinden isteyin. Sahipleri kendi yetkilendirme belirteçleri Studio'da kendi çalışma alanının hello Ayarları sayfasından erişebilirsiniz. Seçin **ayarları** sol bölmesinde ve tıklatın hello gelen **YETKİLENDİRME BELİRTEÇLERİ** toosee hello birincil ve ikincil belirteçleri.  Hello birincil veya ikincil yetkilendirme belirteçleri hello hello kod parçacığında kullanılabilse de sahipleri yalnızca hello ikincil yetkilendirme belirteçleri paylaşıma önerilir.
 
 ![Yetkilendirme belirteçleri](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
-* Sahibi rolüne Yükseltilecek isteyin.  Bunu yapmak için geçerli bir çalışma alanı sahibi ilk çalışma alanından kaldırın sonra ona bir sahibi olarak yeniden davet gerekir.
+* Yükseltilen toobe toorole sahibinin isteyin.  toodo bu hello çalışma gereksinimlerini toofirst geçerli sahibini hello çalışma alanından kaldırmak daha sonra yeniden davet tooit sahibi olarak.
 
-Geliştiriciler çalışma alanı kimliği ve yetkilendirme aldıktan sonra belirteç, bunlar bağımsız olarak kendi rolleri kod parçacığını kullanarak çalışma erişebilir.
+Geliştiriciler hello çalışma alanı kimliği ve yetkilendirme aldıktan sonra rolleri bakılmaksızın hello kod parçacığını kullanarak mümkün tooaccess hello çalışma oldukları belirteç.
 
-Yetkilendirme belirteçleri yönetilir **YETKİLENDİRME BELİRTEÇLERİ** altında sayfa **ayarları**. Bunları yeniden oluşturabilirsiniz, ancak bu yordamı olan önceki belirtece erişimi iptal eder.
+Yetkilendirme belirteçleri hello üzerinde yönetilen **YETKİLENDİRME BELİRTEÇLERİ** altında sayfa **ayarları**. Bunları yeniden oluşturabilirsiniz, ancak bu yordamı erişim toohello önceki belirteci iptal eder.
 
 ### <a name="accessingDatasets"></a>Yerel bir Python uygulama erişim veri kümeleri
-1. Machine Learning Studio'da tıklatın **veri KÜMELERİ** sol gezinti çubuğunda.
-2. Erişmek istediğiniz veri kümesini seçin. Veri kümeleri birini seçebilirsiniz **MY veri KÜMELERİ** listesi veya **örnekleri** listesi.
-3. Alt araç çubuğundan tıklatın **veri erişim kodu oluştur**. Verileri Python istemci kitaplığı ile uyumlu bir biçimde ise, bu düğmesi devre dışıdır.
+1. Machine Learning Studio'da tıklatın **veri KÜMELERİ** hello sol gezinti çubuğunda hello.
+2. Tooaccess istediğiniz hello veri kümesi seçin. Hello hello veri kümelerini seçebilirsiniz **MY veri KÜMELERİ** listesi veya hello **örnekleri** listesi.
+3. Merhaba alt araç çubuğundan tıklatın **veri erişim kodu oluştur**. Merhaba veri hello Python istemci kitaplığı ile uyumlu bir biçimde ise, bu düğmesi devre dışıdır.
    
     ![Veri kümeleri][datasets]
-4. Kod parçacığı görünür ve panonuza kopyalayın penceresinden seçin.
+4. Merhaba kod parçacığını görünür hello penceresinden seçin ve tooyour panoya kopyalayın.
    
     ![Erişim kodu][dataset-access-code]
-5. Kodu yerel Python uygulamanızı not defterinize yapıştırın.
+5. Merhaba kodu yerel Python uygulamanızı hello not defterinize yapıştırın.
    
     ![Not Defteri][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Machine Learning denemelerini ara veri kümeleri erişim
-Bir denemeyi Machine Learning Studio'da çalıştırıldıktan sonra Ara veri kümeleri modülleri çıkış düğümlerdeki erişmek mümkündür. Ara veri kümeleri oluşturulan ve model aracı çalıştırdığınızda ara adımlar için kullanılan verilerdir.
+Bir denemeyi Machine Learning Studio hello çalıştırıldıktan sonra olası tooaccess modüllerin hello çıkış düğümlerinden hello ara veri kümeleri var. Ara veri kümeleri oluşturulan ve model aracı çalıştırdığınızda ara adımlar için kullanılan verilerdir.
 
-Veri biçimi Python istemci kitaplığı ile uyumlu olduğu sürece ara veri kümeleri erişilebilir.
+Merhaba veri biçimi hello Python istemci kitaplığı ile uyumlu olduğu sürece ara veri kümeleri erişilebilir.
 
-Aşağıdaki biçimler desteklenir (Bu sabittir içinde `azureml.DataTypeIds` sınıfı):
+Merhaba aşağıdaki biçimleri desteklenir (sabittir bu hello `azureml.DataTypeIds` sınıfı):
 
 * Düz metin
 * GenericCSV
@@ -112,57 +112,57 @@ Aşağıdaki biçimler desteklenir (Bu sabittir içinde `azureml.DataTypeIds` s�
 * GenericCSVNoHeader
 * GenericTSVNoHeader
 
-Modül çıkış düğüm üzerinde gelerek biçimi belirleyebilirsiniz. Düğüm adı bir araç ipucu ile birlikte görüntülenir.
+Modül çıkış düğüm üzerinde gelerek hello biçimi belirleyebilirsiniz. Merhaba düğüm adı, bir araç ipucu ile birlikte görüntülenir.
 
-Bazı modüller gibi [bölünmüş] [ split] adlı bir biçimde çıktı modülü `Dataset`, Python istemci kitaplığı tarafından desteklenmiyor.
+Bazı hello gibi hello modüllerin [bölünmüş] [ split] modülü, çıktı tooa biçimi adlı `Dataset`, hello Python istemci kitaplığı tarafından desteklenmiyor.
 
 ![Veri kümesi biçimi][dataset-format]
 
-Dönüştürme modülü gibi kullanmanıza gerek [CSV'ye Dönüştür][convert-to-csv], bir çıktı biçimi desteklenen bir biçime almak için.
+Toouse dönüştürme modülü gibi gereken [Dönüştür tooCSV][convert-to-csv], tooget desteklenen bir biçime bir çıktı.
 
 ![GenericCSV biçimi][csv-format]
 
-Aşağıdaki adımlar, bir deneme oluşturur, çalıştırır ve Ara dataset erişen bir örnek gösterir.
+Merhaba aşağıdaki adımlar, bir deneme oluşturur, çalıştırır ve hello Ara dataset erişen bir örnek gösterir.
 
 1. Yeni bir deneme oluşturun.
 2. INSERT bir **yetişkin Census gelir ikili sınıflandırma dataset** modülü.
-3. INSERT bir [bölünmüş] [ split] modülü ve kendi giriş veri kümesi modülü çıktıya bağlanın.
-4. INSERT bir [CSV'ye Dönüştür] [ convert-to-csv] modülü ve kendi giriş birine bağlanın [bölünmüş] [ split] modülü çıkarır.
-5. Denemeyi kaydedin, çalıştırmak ve çalışan bitmesini bekleyin.
-6. Çıktı düğümü tıklatın [CSV'ye Dönüştür] [ convert-to-csv] modülü.
-7. Bağlam menüsü görüntülendiğinde seçin **veri erişim kodu oluştur**.
+3. INSERT bir [bölünmüş] [ split] modül ve giriş toohello dataset modülü çıktısını bağlanın.
+4. INSERT bir [Dönüştür tooCSV] [ convert-to-csv] modülü ve kendi giriş tooone Merhaba, bağlanmak [bölünmüş] [ split] modülü çıkarır.
+5. Merhaba deneme kaydetmek, çalıştırmak ve bekleyin çalıştıran toofinish.
+6. Merhaba Hello çıkış düğümüne tıklayın [Dönüştür tooCSV] [ convert-to-csv] modülü.
+7. Merhaba bağlam menüsü görüntülendiğinde seçin **veri erişim kodu oluştur**.
    
     ![Bağlam menüsü][experiment]
-8. Kod parçacığı seçin ve görüntülenen penceresinden panonuza kopyalayın.
+8. Merhaba kod parçacığını seçin ve görüntülenen hello penceresinden tooyour panoya kopyalayın.
    
     ![Erişim kodu][intermediate-dataset-access-code]
-9. Kodu defterinizde yapıştırın.
+9. Merhaba kodu defterinizde yapıştırın.
    
     ![Not Defteri][ipython-intermediate-dataset]
-10. Matplotlib kullanarak verileri Görselleştir. Bu yaş sütunu için bir histogram görüntüler:
+10. Matplotlib kullanarak hello veri görselleştirebilirsiniz. Bu hello yaş sütunu için bir histogram görüntüler:
     
     ![Çubuk grafik][ipython-histogram]
 
-## <a name="clientApis"></a>Erişim, okuma, oluşturma ve veri kümelerini yönetmek için makine öğrenme Python istemci kitaplığını kullanma
+## <a name="clientApis"></a>Merhaba Machine Learning Python istemci kitaplığı tooaccess kullanın, okuma, oluşturma ve veri kümelerini yönetme
 ### <a name="workspace"></a>Çalışma alanı
-Çalışma alanı Python istemci kitaplığı için giriş noktasıdır. Sağlamak `Workspace` sınıfı çalışma alanı kimliği ve yetkilendirme belirteci örnek oluşturmak için:
+Merhaba çalışma hello için giriş hello Python istemci kitaplığı noktasıdır. Merhaba sağlamak `Workspace` , çalışma alanı kimliği ve yetkilendirme belirteci toocreate ile sınıfının bir örneği:
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
                    authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
 
 
 ### <a name="enumerate-datasets"></a>Veri kümeleri listeleme
-Belirli bir çalışma alanı tüm veri kümelerinin numaralandırmak için:
+tooenumerate belirli bir çalışma alanındaki tüm veri kümeleri:
 
     for ds in ws.datasets:
         print(ds.name)
 
-Yalnızca kullanıcı tarafından oluşturulan veri kümelerinin numaralandırmak için:
+tooenumerate yalnızca hello veri kümeleri kullanıcı oluşturuldu:
 
     for ds in ws.user_datasets:
         print(ds.name)
 
-Yalnızca örnek veri kümeleri numaralandırmak için:
+tooenumerate yalnızca hello örnek veri kümeleri:
 
     for ds in ws.example_datasets:
         print(ds.name)
@@ -177,9 +177,9 @@ Ya da dizin tarafından erişebilirsiniz:
 
 
 ### <a name="metadata"></a>Meta Veriler
-Veri kümeleri içerik yanı sıra meta veriler bulunur. (Ara veri kümeleri bu kural için bir özel durumdur ve meta verileri yok.)
+Veri kümeleri meta verileri, toplama toocontent sahip. (Ara veri kümelerini bir özel durum toothis kuralı olan ve meta verileri yok.)
 
-Bazı meta veri değerleri, oluşturma sırasında kullanıcı tarafından atanır:
+Bazı meta veri değerlerinin hello kullanıcı tarafından oluşturma sırasında atanır:
 
     print(ds.name)
     print(ds.description)
@@ -192,33 +192,33 @@ Başkaları tarafından Azure ML atanan değerler şunlardır:
     print(ds.created_date)
     print(ds.size)
 
-Bkz: `SourceDataset` kullanılabilir meta veriler hakkında daha fazla bilgi için sınıf.
+Merhaba bkz `SourceDataset` sınıfı üzerinde daha fazla hello kullanılabilir meta veriler için.
 
 ### <a name="read-contents"></a>İçeriğini okuma
-Machine Learning Studio tarafından otomatik olarak sağlanan kod parçacıkları indirin ve Pandas DataFrame nesne kümesine seri durumdan. Bu gerçekleştirilir `to_dataframe` yöntemi:
+Machine Learning Studio tarafından otomatik olarak sağlanan hello kod parçacıkları indirin ve hello dataset tooa Pandas DataFrame nesne seri durumdan. Bu hello ile yapılır `to_dataframe` yöntemi:
 
     frame = ds.to_dataframe()
 
-Ham verileri indirmek ve seri durumundan kendiniz gerçekleştirmek tercih ederseniz, bir seçenektir. Şu anda Python istemci kitaplığı seri durumdan çıkarılamıyor'ARFF ' gibi biçimler için tek seçenek budur.
+Toodownload hello ham verileri tercih ve hello seri durumdan çıkarma kendiniz gerçekleştirmek istiyorsanız, bir seçenek olmasıdır. Merhaba şu anda 'ARFF' hangi hello Python istemci kitaplığı seri durumdan çıkarılamıyor, gibi biçimler için hello tek seçenek budur.
 
-Metin olarak içeriği okunamıyor:
+metin olarak tooread hello içeriği:
 
     text_data = ds.read_as_text()
 
-İçeriği ikili olarak okumak için:
+tooread hello içeriğini ikili olarak:
 
     binary_data = ds.read_as_binary()
 
-Ayrıca bir akış içeriğine açabilirsiniz:
+Ayrıca bir akış toohello içeriği açabilirsiniz:
 
     with ds.open() as file:
         binary_data_chunk = file.read(1000)
 
 
 ### <a name="create-a-new-dataset"></a>Yeni bir veri kümesi oluşturma
-Python istemci kitaplığı veri kümeleri Python programınızdan yüklemenize olanak sağlar. Bu veri kümeleri sonra çalışma alanınızda kullanılabilir.
+Merhaba Python istemci kitaplığı Python programınızdan tooupload veri kümeleri sağlar. Bu veri kümeleri sonra çalışma alanınızda kullanılabilir.
 
-Bir Pandas DataFrame verileriniz varsa, aşağıdaki kodu kullanın:
+Bir Pandas DataFrame verileriniz varsa, kodu aşağıdaki hello kullan:
 
     from azureml import DataTypeIds
 
@@ -240,7 +240,7 @@ Verilerinizi zaten serileştirilmiş, kullanabilirsiniz:
         description='my description'
     )
 
-Python istemci kitaplığı Pandas DataFrame aşağıdaki biçimlerden için seri hale getiremiyor (Bu sabittir içinde `azureml.DataTypeIds` sınıfı):
+Merhaba Python istemci Pandas DataFrame toohello aşağıdaki biçimler mümkün tooserialize kitaplığıdır (sabittir bu hello `azureml.DataTypeIds` sınıfı):
 
 * Düz metin
 * GenericCSV
@@ -249,17 +249,17 @@ Python istemci kitaplığı Pandas DataFrame aşağıdaki biçimlerden için ser
 * GenericTSVNoHeader
 
 ### <a name="update-an-existing-dataset"></a>Mevcut bir veri kümesini güncelleştir
-Var olan bir dataset eşleşen bir ada sahip yeni bir veri kümesi yüklemeye çalışırsanız bir çakışma hatası almanız gerekir.
+Tooupload var olan bir dataset eşleşen bir ada sahip yeni bir veri kümesi çalışırsanız, bir çakışma hatası almanız gerekir.
 
-Mevcut bir veri kümesini güncelleştirmek için önce mevcut veri kümesini başvuru almanız gerekir:
+var olan bir dataset tooupdate, önce tooget bir başvuru toohello mevcut veri kümesini gerekir:
 
     dataset = ws.datasets['existing dataset']
 
     print(dataset.data_type_id) # 'GenericCSV'
     print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to jan 2015'
+    print(dataset.description)  # 'data up toojan 2015'
 
-Ardından `update_from_dataframe` seri hale getirmek ve Azure veri kümesine içeriğini değiştirmek için:
+Ardından `update_from_dataframe` azure'da hello dataset tooserialize ve Değiştir hello içeriğini:
 
     dataset = ws.datasets['existing dataset']
 
@@ -267,9 +267,9 @@ Ardından `update_from_dataframe` seri hale getirmek ve Azure veri kümesine iç
 
     print(dataset.data_type_id) # 'GenericCSV'
     print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to jan 2015'
+    print(dataset.description)  # 'data up toojan 2015'
 
-Farklı bir biçime verilerini seri hale getirmek istiyorsanız, isteğe bağlı için bir değer belirtin `data_type_id` parametresi.
+Tooserialize hello veri tooa farklı biçimi istiyorsanız, isteğe bağlı hello için bir değer belirtin `data_type_id` parametresi.
 
     from azureml import DataTypeIds
 
@@ -282,39 +282,39 @@ Farklı bir biçime verilerini seri hale getirmek istiyorsanız, isteğe bağlı
 
     print(dataset.data_type_id) # 'GenericTSV'
     print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to jan 2015'
+    print(dataset.description)  # 'data up toojan 2015'
 
-İsteğe bağlı olarak yeni bir açıklama için bir değer belirterek ayarlayabileceğiniz `description` parametresi.
+Hello için bir değer belirterek isteğe bağlı olarak yeni bir açıklama ayarlayabilirsiniz `description` parametresi.
 
     dataset = ws.datasets['existing dataset']
 
     dataset.update_from_dataframe(
         dataframe=frame2,
-        description='data up to feb 2015',
+        description='data up toofeb 2015',
     )
 
     print(dataset.data_type_id) # 'GenericCSV'
     print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to feb 2015'
+    print(dataset.description)  # 'data up toofeb 2015'
 
-İsteğe bağlı olarak yeni bir ad için bir değer belirterek ayarlayabileceğiniz `name` parametresi. Şu andan itibaren yalnızca yeni bir ad kullanarak dataset almak. Aşağıdaki kod, verileri, ad ve açıklama güncelleştirir.
+İsteğe bağlı olarak yeni bir ad hello için bir değer belirterek ayarlayabileceğiniz `name` parametresi. Şu andan itibaren yalnızca yeni adı hello kullanarak hello dataset almak. koddan hello hello verileri, ad ve açıklama güncelleştirir.
 
     dataset = ws.datasets['existing dataset']
 
     dataset.update_from_dataframe(
         dataframe=frame2,
         name='existing dataset v2',
-        description='data up to feb 2015',
+        description='data up toofeb 2015',
     )
 
     print(dataset.data_type_id)                    # 'GenericCSV'
     print(dataset.name)                            # 'existing dataset v2'
-    print(dataset.description)                     # 'data up to feb 2015'
+    print(dataset.description)                     # 'data up toofeb 2015'
 
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-`data_type_id`, `name` Ve `description` parametreler isteğe bağlıdır ve varsayılan önceki değerlerine. `dataframe` Parametresi gereklidir her zaman.
+Merhaba `data_type_id`, `name` ve `description` parametreler isteğe bağlıdır ve varsayılan tootheir önceki değer. Merhaba `dataframe` parametresi gereklidir her zaman.
 
 Verilerinizi zaten serileştirilmiş kullanırsanız `update_from_raw_data` yerine `update_from_dataframe`. Yalnızca içinde geçirirseniz `raw_data` yerine `dataframe`, benzer şekilde çalışır.
 

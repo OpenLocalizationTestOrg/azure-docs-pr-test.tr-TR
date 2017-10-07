@@ -1,6 +1,6 @@
 ---
-title: "Azure portalı kullanarak şirket içi kodlayıcılarda canlı akış | Microsoft Docs"
-description: "Bu öğretici, doğrudan teslimat için yapılandırılmış bir Kanal oluşturmaya ilişkin adımları anlatmaktadır."
+title: "hello Azure portal kullanarak şirket içi kodlayıcılarda olan aaaLive akış | Microsoft Docs"
+description: "Bu öğretici, doğrudan teslimat için yapılandırılmış bir kanal oluşturulması hello adım adım anlatılmaktadır."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 6939e3b31c3c1b514df4c559c2d9408fce122a4e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1fb341e022f66f33903e13e07d3e84c0216cad77
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Azure portalı kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
+# <a name="how-tooperform-live-streaming-with-on-premises-encoders-using-hello-azure-portal"></a>Nasıl tooperform ile canlı akış kodlayıcılar hello Azure portal kullanarak şirket içi
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -28,121 +28,121 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-Bu öğretici, Azure portal kullanarak doğrudan teslimat için yapılandırılmış bir **Kanal** oluşturmaya ilişkin adımları anlatmaktadır. 
+Bu öğreticide Azure portal toocreate hello kullanmanın hello adımlarda size yol gösterir bir **kanal** doğrudan teslimat için yapılandırılmış. 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
+Merhaba, gerekli toocomplete hello öğretici şunlardır:
 
 * Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
-* Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
+* Bir Media Services hesabı. bir Media Services hesabı toocreate bkz [nasıl tooCreate Media Services hesabı](media-services-portal-create-account.md).
 * Bir Web kamerası. Örneğin, [Telestream Wirecast kodlayıcı](http://www.telestream.net/wirecast/overview.htm).
 
-Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
+Aşağıdaki makaleleri tooreview hello önerilir:
 
 * [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Azure Media Services kullanarak Canlı Akış’a genel bakış](media-services-manage-channels-overview.md)
 * [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>Ortak canlı akış senaryosu
-Aşağıdaki adımlar, doğrudan teslimat için yapılandırılan kanalları kullanan ortak canlı akış uygulamaları oluşturmaya dahil olan görevleri açıklamaktadır. Bu öğretici, doğrudan geçiş kanalı ve canlı olayları oluşturmayı ve yönetmeyi gösterir.
+Hello aşağıdaki adımlar, doğrudan teslimat için yapılandırılan kanalları kullanan ortak canlı akış uygulamaları oluşturmaya dahil olan görevleri açıklamaktadır. Bu öğreticide gösterilmiştir nasıl toocreate bir geçiş kanalı ve canlı olayları ve yönetin.
 
 >[!NOTE]
->İçerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumunda olduğundan emin olun. 
+>Akış uç noktası toostream içerik istediğiniz hello hello olduğundan emin olun **çalıştıran** durumu. 
     
-1. Bilgisayara bir video kamera bağlayın. Çoklu bit hızlı RTMP ya da Parçalı MP4 akışı çıktısı veren bir şirket içi gerçek zamanlı kodlayıcı çalıştırın ve yapılandırın. Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Bir video kamera tooa bilgisayara bağlayın. Çoklu bit hızlı RTMP ya da Parçalı MP4 akışı çıktısı veren bir şirket içi gerçek zamanlı kodlayıcı çalıştırın ve yapılandırın. Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
 2. Geçiş Kanalı oluşturun ve başlatın.
-3. Kanal alma URL’sini alın. 
+3. Alma hello kanal URL'sini alma. 
    
-    Alma URL’si gerçek zamanlı kodlayıcı tarafından akışı Kanala göndermek için kullanılır.
-4. Kanal önizleme URL’sini alın. 
+    Merhaba alma URL hello gerçek zamanlı Kodlayıcı toosend hello akış toohello kanal tarafından kullanılır.
+4. Merhaba kanal Önizleme URL'sini alın. 
    
-    Kanalınızın canlı akışı düzgün şekilde aldığını doğrulamak için bu URL’yi kullanın.
+    Kanalınızı hello Canlı akışı düzgün şekilde aldığını bu URL tooverify kullanın.
 5. Canlı olay/program oluşturun. 
    
-    Azure portalı kullanırken, canlı bir olay oluşturma bir varlık da oluşturur. 
+    Azure portal kullanarak hello zaman canlı bir olay oluşturma bir varlık da oluşturur. 
 
-6. Akışı ve arşivlemeyi başlatmaya hazır olduğunuzda, olayı/programı başlatın.
-7. İsteğe bağlı olarak, gerçek zamanlı kodlayıcıya bir reklam başlatması bildirilebilir. Reklam, çıktı akışına eklenir.
-8. Olay akışını ve arşivlemeyi durdurmak istediğinizde, olayı/programı durdurun.
-9. Olayı/programı silin (ve isteğe bağlı olarak varlığı silin).     
+6. Akışı ve arşivlemeyi hazır toostart olduğunuzda hello olayı/programı başlatın.
+7. İsteğe bağlı olarak, gerçek zamanlı Kodlayıcı hello iş toostart bir tanıtım olabilir. Merhaba tanıtım hello çıktı akışına eklenir.
+8. Toostop akış ve arşivleme hello olayı istediğinizde hello olayı/programı durdurun.
+9. Merhaba olayı/programı silin (ve isteğe bağlı olarak hello varlığını silme).     
 
 > [!IMPORTANT]
-> Lütfen şirket içi kodlayıcılarda ve geçiş kanallarında canlı akışlarla ilgili kavramları ve dikkate alınması gereken noktaları öğrenmek için [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md) başlığını gözden geçirin.
+> Lütfen gözden [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarda canlı akış](media-services-live-streaming-with-onprem-encoders.md) kavramları ve konuları hakkında toolearn ilgili toolive şirket içi kodlayıcılarda ve geçiş kanallarında canlı akış.
 > 
 > 
 
-## <a name="to-view-notifications-and-errors"></a>Bildirimleri ve hataları görüntülemek için
-Azure portal tarafından oluşturulan bildirimleri ve hataları görüntülemek istiyorsanız, Bildirim simgesine tıklayın.
+## <a name="tooview-notifications-and-errors"></a>tooview bildirimleri ve hataları
+Tooview bildirimleri istiyorsanız ve hataları tarafından hello Azure portalında üretilen hello bildirim simgesine tıklayın.
 
 ![Bildirimler](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
 ## <a name="create-and-start-pass-through-channels-and-events"></a>Geçiş kanalları ve olayları oluşturma ve başlatma
-Bir kanal, canlı akıştaki kesimleri yayımlamanızı ve depolamanızı denetlemenizi sağlayan olaylar/programlarla ilişkilidir. Kanallar olayları yönetir. 
+Bir kanal toocontrol hello yayımlama ve canlı akıştaki kesimleri depolanmasını sağlayan olaylar/programlarla ilişkilidir. Kanallar olayları yönetir. 
 
-Program için kaydedilen içeriği kaç saat tutmak istediğinizi **Arşiv Penceresi** uzunluğunu ayarlayarak belirleyebilirsiniz. Bu değer en az 5 dakika, en çok 25 saat olarak ayarlanabilir. Arşiv penceresi uzunluğu, istemcilerin geçerli canlı konumdan zamanda geri gidebilecekleri en uzun süre miktarını da belirler. Olaylar belirtilen süre miktarında yürütülür, ancak pencere uzunluğunu aşan içerik sürekli olarak iptal edilir. Bu özelliğin bu değeri, istemci bildiriminin ne kadar uzayabileceğini de belirler.
+İstediğiniz tooretain kaydedilen hello içerik hello programı ayarını hello tarafından saatleri hello sayısını belirtebilirsiniz **arşiv penceresi** uzunluğu. Bu değer en az 5 dakika tooa en çok 25 saat ayarlayabilirsiniz. Arşiv penceresi uzunluğu hello maksimum istemcileri hello geçerli Canlı konumdan geçmişe arama süre miktarını da belirler. Olayları hello belirtilen sürede çalıştırabilirsiniz ancak hello pencere uzunluğunun gerisine düşen içerik sürekli olarak atılır. Bu özelliğin bu değeri bildirimleri büyüyebilir ne kadar süreyle hello istemci de belirler.
 
-Her olay bir varlıkla ilişkilidir. Olayı yayımlamak için ilişkili varlığa yönelik bir OnDemand bulucu oluşturmanız gerekir. Bu bulucuya sahip olmak istemcilerinize sağlayabileceğiniz bir akış URL’si oluşturmanıza olanak tanır.
+Her olay bir varlıkla ilişkilidir. toopublish hello olay hello ilişkili varlığa yönelik bir OnDemand Bulucu oluşturmanız gerekir. Bu bulucuya sahip olmak tooyour istemcileri sağlayabilen bir akış URL'si toobuild sağlar.
 
-Bir kanal eşzamanlı çalışan üç olaya kadar destekler, böylece aynı gelen akışta birden fazla arşiv oluşturabilirsiniz. Bu özellik, gerektiğinde bir olayın farklı kısımlarını yayımlamanıza ve arşivlemenize olanak tanır. Örneğin, iş gereksiniminiz bir programın 6 saatini arşivlemek ancak son 10 dakikasını yayınlamak olabilir. Bunu yapmak için, eşzamanlı olarak çalışan iki program oluşturmanız gerekir. Bir program olayı 6 saat arşivlemek için ayarlanır ancak program yayımlanmaz. Diğer program 10 dakika arşivlenecek şekilde ve bu program yayımlanır.
+Bir kanal hello birden çok arşivini oluşturabilmesi için olayları eşzamanlı olarak çalışan toothree destekler, aynı gelen akışın. Bu, gerektiği gibi bir olay toopublish ve Arşiv farklı kısımlarını sağlar. Örneğin, iş gereksiniminiz tooarchive 6 saatlik bir program, ancak toobroadcast yalnızca son 10 dakikadır. tooaccomplish Bu, iki eşzamanlı olarak çalışan program toocreate gerekir. Bir program tooarchive hello olay 6 saatlik ayarlandı ancak hello program yayımlanamaz. Merhaba başka bir programı kümesi tooarchive 10 dakika için ve bu program yayımlanır.
 
 Mevcut canlı olayları yeniden kullanmamalısınız. Bunun yerine, her olay için yeni bir olay oluşturun ve başlatın.
 
-Akışa ve arşivlemeye hazır olduğunuzda olayı başlatın. Olay için akışı ve arşivlemeyi durdurmak istediğinizde programı durdurun. 
+Akışı ve arşivlemeyi hazır toostart olduğunda hello olayı başlatın. Toostop akış ve arşivleme hello olayı istediğinizde hello programı durdurun. 
 
-Arşivlenen içeriği silmek için, olayı durdurun ve ardından ilişkili varlığı silin. Bir olay tarafından kullanılıyorsa varlık silinemez; önce olayın silinmesi gerekir. 
+Arşivlenen toodelete içerik durdurup hello olay silme ve ardından hello ilişkili varlığı silin. Bir olay tarafından kullanılıyorsa varlık silinemez; Merhaba olay silinmesi gerekir. 
 
-Olayı durdurduktan ve sildikten sonra dahi, varlığı silmeniz sürece, kullanıcılar arşivlenen içeriğinizin isteğe bağlı içerik olarak akışını gerçekleştirebilir.
+Durdur ve hello olay silme bile sonra kullanıcılar hello hello varlığı silmediğiniz sürece mümkün toostream, arşivlenen içeriğinizin isteğe bağlı video için olacaktır.
 
-Arşivlenen içeriği tutmak istiyor ancak bu içeriğin akış için kullanılmasını istemiyorsanız, akış bulucuyu silin.
+Arşivlenen tooretain hello içerik istiyor ancak değil bulundurursunuz akış için, Bulucu akış hello silin.
 
-### <a name="to-use-the-portal-to-create-a-channel"></a>Bir kanal oluşturmak amacıyla portalı kullanmak için
-Bu bölüm bir geçiş kanalı oluşturmak için **Hızlı Oluştur** seçeneğinin nasıl kullanılacağını gösterir.
+### <a name="toouse-hello-portal-toocreate-a-channel"></a>toouse hello portal toocreate bir kanal
+Bu bölümde gösterilmiştir nasıl toouse hello **hızlı Oluştur** seçeneği toocreate bir geçiş kanalı.
 
 Geçiş kanalları hakkında daha fazla ayrıntı için bkz. [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md).
 
-1. [Azure portalında](https://portal.azure.com/) Azure Media Services hesabınızı seçin.
-2. **Ayarlar** penceresinde, **Canlı Akış**’a tıklayın. 
+1. Merhaba, [Azure portal](https://portal.azure.com/), Azure Media Services hesabınızı seçin.
+2. Merhaba, **ayarları** penceresinde tıklatın **canlı akış**. 
    
     ![Başlarken](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
-    **Canlı akış** penceresi görüntülenir.
-3. RTMP alma protokolüyle bir geçiş kanalı oluşturmak için **Hızlı Oluştur**’a tıklayın.
+    Merhaba **canlı akış** penceresi görüntülenir.
+3. Tıklatın **hızlı Oluştur** toocreate bir geçiş kanalı hello RTMP alma protokolüyle.
    
-    **YENİ KANAL OLUŞTUR** penceresi görüntülenir.
-4. Yeni kanala bir ad verin ve **Oluştur**’a tıklayın. 
+    Merhaba **Yeni Kanal Oluştur** penceresi görüntülenir.
+4. Merhaba yeni kanala bir ad verin ve tıklayın **oluşturma**. 
    
-    Bunun yapılması RTMP alma protokolüyle bir geçiş kanalı oluşturur.
+    Bu bir geçiş kanalı ile Merhaba oluşturur RTMP alma protokolüyle.
 
 ## <a name="create-events"></a>Olay oluşturma
-1. Olay eklemek istediğiniz bir kanal seçin.
+1. Bir olay tooadd istediğiniz bir kanal toowhich seçin.
 2. **Canlı Olay** düğmesine basın.
 
 ![Olay](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 ## <a name="get-ingest-urls"></a>Alma URL’leri alma
-Kanal oluşturulduktan sonra, gerçek zamanlı kodlayıcıya sağlayacağınız alma URL’lerini alabilirsiniz. Kodlayıcı bu URL'leri canlı akış girişi için kullanır.
+Merhaba kanal oluşturulduktan sonra alabileceğiniz toohello gerçek zamanlı Kodlayıcı sağlayacak URL'lerini alabilirsiniz. Merhaba Kodlayıcı bu URL'leri tooinput canlı akış kullanır.
 
 ![Oluşturulan](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
-## <a name="watch-the-event"></a>Olayı izleme
-Olay izlemek için, Azure portalda **İzle**’ye tıklayın veya akış URL'sini kopyalayın ve tercih ettiğiniz bir oynatıcı kullanın. 
+## <a name="watch-hello-event"></a>Gözcü hello olay
+toowatch hello olay tıklatın **izleme** akış URL'si Azure portal ya da kopyalama hello hello ve tercih ettiğiniz bir oynatıcı kullanın. 
 
 ![Oluşturulan](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
 
-Canlı olay durduğunda otomatik olarak isteğe bağlı içeriğe dönüştürülür.
+Canlı olay otomatik olarak durduğunda dönüştürülmüş tooon isteğe bağlı içerik alın.
 
 ## <a name="clean-up"></a>Temizleme
 Geçiş kanalları hakkında daha fazla ayrıntı için bkz. [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md).
 
-* Bir kanal yalnızca kanaldaki tüm olaylar/programlar durdurulduğunda durdurulabilir.  Kanal durdurulduktan sonra herhangi bir ücret uygulanmaz. Tekrar başlatmanız gerektiğinde, aynı alma URL’sine sahip olacağından kodlayıcıyı yeniden yapılandırmanız gerekmez.
-* Bir kanal yalnızca kanaldaki tüm canlı olaylar silindiğinde silinebilir.
+* Yalnızca tüm olaylar/programlar hello kanalda vermemeye başladığında bir kanal durdurulabilir.  Merhaba kanal durdurulduktan sonra herhangi bir ücret doğurur değil. Toostart gerektiğinde bunu yeniden olacaktır kodlayıcıyı tooreconfigure gerekmeyecek şekilde hello aynı URL alma.
+* Bir kanal yalnızca hello kanaldaki tüm Canlı olaylar silindiğinde silinebilir.
 
 ## <a name="view-archived-content"></a>Arşivlenen içeriği görüntüleme
-Olayı durdurduktan ve sildikten sonra dahi, varlığı silmeniz sürece, kullanıcılar arşivlenen içeriğinizin isteğe bağlı içerik olarak akışını gerçekleştirebilir. Bir olay tarafından kullanılıyorsa varlık silinemez; önce olayın silinmesi gerekir. 
+Durdur ve hello olay silme bile sonra kullanıcılar hello hello varlığı silmediğiniz sürece mümkün toostream, arşivlenen içeriğinizin isteğe bağlı video için olacaktır. Bir olay tarafından kullanılıyorsa varlık silinemez; Merhaba olay silinmesi gerekir. 
 
-Varlıklarınızı yönetmek için, **Ayar**’ı seçin ve **Varlıklar**’a tıklayın.
+varlıklarınızı, toomanage seçin **ayarı** tıklatıp **varlıklar**.
 
 ![Varlıklar](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management etki alanları arası ilkeler | Microsoft Docs"
-description: "Azure API Management'te kullanıma etki alanları arası ilkeler hakkında bilgi edinin."
+title: "etki alanları arası ilkeler aaaAzure API Management | Microsoft Docs"
+description: "Etki alanları arası ilkeler Azure API Management'te kullanıma hello hakkında bilgi edinin."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: ddca9e35b44a21294abbb5eaa4418bcdb85494cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dd5ebfd65b92ebd0c1f589a2bac669a3928d40b3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management etki alanları arası ilkeler
-Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Bu konuda API Management ilkelere hello için bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="CrossDomainPolicies"></a>Etki alanı ilkelerini arası  
   
--   [Etki alanları arası çağrılar izin](api-management-cross-domain-policies.md#AllowCrossDomainCalls) -API Adobe Flash ve Microsoft Silverlight tarayıcı tabanlı istemcilerden erişilebilir hale getirir.  
+-   [Etki alanları arası çağrılar izin](api-management-cross-domain-policies.md#AllowCrossDomainCalls) -yapar hello API erişilebilir Microsoft Silverlight Adobe Flash ve tarayıcı tabanlı istemcilerden.  
   
--   [CORS](api-management-cross-domain-policies.md#CORS) -çıkış noktaları arası kaynak paylaşımı (CORS) desteklemek için bir işlem veya tarayıcı tabanlı istemcilerden etki alanları arası çağrılarına izin vermek için bir API ekler.  
+-   [CORS](api-management-cross-domain-policies.md#CORS) -çıkış noktaları arası kaynak paylaşımını (CORS) tooan işlemi destekler veya bir API tooallow etki alanları arası tarayıcı tabanlı istemcilerden çağıran ekler.  
   
--   [JSONP](api-management-cross-domain-policies.md#JSONP) -bir işlem veya tarayıcı tabanlı JavaScript istemcilerden etki alanları arası çağrılarına izin vermek için bir API (JSONP) doldurma desteğiyle JSON ekler.  
+-   [JSONP](api-management-cross-domain-policies.md#JSONP) - JSON ile destek tooan işlemi (JSONP) doldurma ekler veya bir API tooallow etki alanları arası JavaScript tarayıcı tabanlı istemcilerden çağırır.  
   
 ##  <a name="AllowCrossDomainCalls"></a>Etki alanları arası çağrılar izin ver  
- Kullanım `cross-domain` API Adobe Flash ve Microsoft Silverlight tarayıcı tabanlı istemcilerden erişilebilir olması için ilke.  
+ Kullanım hello `cross-domain` İlkesi toomake hello API Adobe Flash ve Microsoft Silverlight tarayıcı tabanlı istemcilerden erişilebilir.  
   
 ### <a name="policy-statement"></a>İlke bildirimi  
   
 ```xml  
 <cross-domain>  
-   <!-Policy configuration is in the Adobe cross-domain policy file format,   
+   <!-Policy configuration is in hello Adobe cross-domain policy file format,   
       see http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
 </cross-domain>  
 ```  
@@ -57,19 +57,19 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
-|etki alanları arası|Kök öğesi. Alt öğeler için uygun olmalıdır [Adobe etki alanları arası ilke dosya belirtimi](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Evet|  
+|etki alanları arası|Kök öğesi. Alt öğeler toohello uygun olmalıdır [Adobe etki alanları arası ilke dosya belirtimi](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Evet|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilkeyi ilke aşağıdaki hello kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen  
   
 -   **İlke kapsamları:** genel  
   
 ##  <a name="CORS"></a>CORS  
- `cors` İlkesi çıkış noktaları arası kaynak paylaşımı (CORS) desteklemek için bir işlem veya tarayıcı tabanlı istemcilerden etki alanları arası çağrılarına izin vermek için bir API ekler.  
+ Merhaba `cors` ilkesi ekler çıkış noktaları arası kaynak paylaşımını (CORS) tooan işlemi destekler veya bir API tooallow etki alanları arası tarayıcı tabanlı istemcilerden çağırır.  
   
- CORS bir tarayıcı ile etkileşim kurmanızı ve belirli cross-origin istekleri (JavaScript'ten bir web sayfasında diğer etki alanlarına yapılan yani XMLHttpRequests çağrıları) izin verilip verilmeyeceğini belirlemek için sunucusu sağlar. Bu, yalnızca kaynak aynı isteklerine izin'den daha fazla esneklik sağlar, ancak tüm çıkış noktaları arası istekleri izin vererek değerinden daha güvenlidir.  
+ CORS tooallow belirli çıkış noktaları arası (bir web sayfası tooother etki alanları JavaScript yapılan yani XMLHttpRequests çağrıları) isteklerini olup olmadığını belirlemek ve bir tarayıcı ve sunucu toointeract sağlar. Bu, yalnızca kaynak aynı isteklerine izin'den daha fazla esneklik sağlar, ancak tüm çıkış noktaları arası istekleri izin vererek değerinden daha güvenlidir.  
   
 ### <a name="policy-statement"></a>İlke bildirimi  
   
@@ -91,7 +91,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ```  
   
 ### <a name="example"></a>Örnek  
- Bu örnek özel üstbilgi veya dışında GET ve POST yöntemleri olanlar gibi ön uçuş isteklerini destekleyecek şekilde nasıl gösterir. Özel üstbilgi ve ek HTTP fiilleri desteklemek için kullanma `allowed-methods` ve `allowed-headers` bölümler aşağıdaki örnekte gösterildiği gibi.  
+ Bu örnek nasıl toosupport öncesi uçuş, özel üstbilgi veya dışında GET ve POST yöntemleri olanlar gibi istekleri gösterir. toosupport özel üstbilgi ve ek HTTP fiilleri kullanın hello `allowed-methods` ve `allowed-headers` bölümler hello aşağıdaki örnekte gösterildiği gibi.  
   
 ```xml  
 <cors allow-credentials="true">  
@@ -128,30 +128,30 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
 |cors|Kök öğesi.|Evet|Yok|  
-|izin verilen çıkış|İçeren `origin` etki alanları arası istekleri için izin verilen çıkış noktası açıklayan öğeler. `allowed-origins`ya da tek bir içerebilir `origin` belirtir öğesi `*` her türlü kaynağa veya bir veya daha fazla izin vermek için `origin` bir URI içeren öğeler.|Evet|Yok|  
-|Kaynak|Değer, ya da olabilir `*` tüm kaynaklara ya da tek bir kaynak belirten bir URI izin vermek için. URI şeması, ana bilgisayar ve bağlantı noktası eklemeniz gerekir.|Evet|Bağlantı noktası bir URI atlanırsa, HTTP için 80 numaralı bağlantı noktası kullanılır ve HTTPS için 443 numaralı bağlantı noktası kullanılır.|  
-|izin verilen yöntemleri|Yöntemleri dışında GET veya POST izin verilir, bu öğe gereklidir. İçeren `method` desteklenen HTTP fiilleri öğeleri.|Hayır|Bu bölümde mevcut değilse, GET ve POST desteklenir.|  
-|Yöntemi|Bir HTTP fiili belirtir.|En az bir `method` öğesi, varsa gereklidir `allowed-methods` bölüm mevcut.|Yok|  
-|izin verilen üstbilgileri|Bu öğeyi içeren `header` öğeleri isteğine dahil başlıklarının adlarını belirtme.|Hayır|Yok|  
-|sunmaya üstbilgileri|Bu öğeyi içeren `header` öğeleri istemci tarafından erişilebilecek başlıklarının adlarını belirtme.|Hayır|Yok|  
-|üst bilgi|Bir üstbilgi adı belirtir.|En az bir `header` öğesi gerekli `allowed-headers` veya `expose-headers` bölüm mevcut değilse.|Yok|  
+|izin verilen çıkış|İçeren `origin` çıkış noktası etki alanları arası istekleri için izin verilen hello açıklayan öğeler. `allowed-origins`ya da tek bir içerebilir `origin` belirtir öğesi `*` tooallow her türlü kaynağa veya bir veya daha fazla `origin` bir URI içeren öğeler.|Evet|Yok|  
+|Kaynak|Merhaba değer ya da olabilir `*` tooallow tüm kaynaklara ya da tek bir kaynak belirten bir URI. Merhaba URI düzeni, ana bilgisayar ve bağlantı noktası eklemeniz gerekir.|Evet|Başlangıç bağlantı noktası bir URI atlanırsa, HTTP için 80 numaralı bağlantı noktası kullanılır ve HTTPS için 443 numaralı bağlantı noktası kullanılır.|  
+|izin verilen yöntemleri|Yöntemleri dışında GET veya POST izin verilir, bu öğe gereklidir. İçeren `method` hello desteklenen HTTP fiilleri belirtin öğeleri.|Hayır|Bu bölümde mevcut değilse, GET ve POST desteklenir.|  
+|Yöntemi|Bir HTTP fiili belirtir.|En az bir `method` öğesi olup gerekli hello `allowed-methods` bölüm mevcut.|Yok|  
+|izin verilen üstbilgileri|Bu öğeyi içeren `header` öğeleri hello isteğine dahil hello başlıklarının adlarını belirtme.|Hayır|Yok|  
+|sunmaya üstbilgileri|Bu öğeyi içeren `header` öğeleri hello istemci tarafından erişilebilecek hello başlıklarının adlarını belirtme.|Hayır|Yok|  
+|üst bilgi|Bir üstbilgi adı belirtir.|En az bir `header` öğesi gerekli `allowed-headers` veya `expose-headers` hello bölüm mevcut değilse.|Yok|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
-|izin ver-kimlik bilgileri|`Access-Control-Allow-Credentials` Ön yanıt üstbilgisi bu özniteliğin değerini ayarlayın ve istemci kimlik bilgileri etki alanları arası istek gönderme olanağı etkiler.|Hayır|False|  
-|Ön-sonuç-max-age|`Access-Control-Max-Age` Ön yanıt üstbilgisi bu özniteliğin değerini ayarlayın ve önbellek öncesi uçuş yanıtı kullanıcı aracısının yeteneği etkiler.|Hayır|0|  
+|izin ver-kimlik bilgileri|Merhaba `Access-Control-Allow-Credentials` hello ön yanıt üstbilgisi kümesi toohello değeri bu özniteliğin olmalı ve etki alanları arası istek hello istemcinin özelliği toosubmit kimlik bilgileri etkiler.|Hayır|False|  
+|Ön-sonuç-max-age|Merhaba `Access-Control-Max-Age` hello ön yanıt üstbilgisi kümesi toohello değeri bu özniteliğin olmalı ve hello kullanıcı aracısının özelliği toocache öncesi uçuş yanıt etkiler.|Hayır|0|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilkeyi ilke aşağıdaki hello kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen  
   
 -   **İlke kapsamları:** API, işlemi  
   
 ##  <a name="JSONP"></a>JSONP  
- `jsonp` İlkesi bir işlem veya tarayıcı tabanlı JavaScript istemcilerden etki alanları arası çağrılarına izin vermek için bir API (JSONP) doldurma desteğiyle JSON ekler. JSONP JavaScript programlarda farklı bir etki alanındaki bir sunucudan istek verileri için kullanılan bir yöntemdir. JSONP burada web sayfalarına erişimi aynı etki alanında olmalıdır çoğu web tarayıcısı tarafından uygulanan sınırlama atlar.  
+ Merhaba `jsonp` İlkesi (JSONP) destek tooan işlem ya da bir API tooallow etki alanları arası çağrılar JavaScript tarayıcı tabanlı istemcilerden doldurma ile JSON ekler. JSONP JavaScript programları toorequest verileri farklı bir etki alanındaki bir sunucudan kullanılan bir yöntemdir. JSONP atlar burada erişim tooweb sayfaları olmalıdır hello çoğu web tarayıcısı tarafından uygulanan hello sınırlaması aynı etki alanı.  
   
 ### <a name="policy-statement"></a>İlke bildirimi  
   
@@ -165,9 +165,9 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 <jsonp callback-parameter-name="cb" />  
 ```  
   
- Geri çağırma parametresi olmadan yöntemini çağırırsanız? cb = XXX (olmadan işlev çağrısı sarmalayıcı) düz JSON döndürecektir.  
+ Merhaba geri çağırma parametresi olmadan hello yöntemini çağırırsanız? cb = XXX (olmadan işlev çağrısı sarmalayıcı) düz JSON döndürecektir.  
   
- Geri çağırma parametresi eklerseniz `?cb=XXX` bir JSONP sonuç döndürür ve özgün JSON kaydırma geri çağırma işlevi geçici Sonuçlardan memnun`XYZ('<json result goes here>');`  
+ Merhaba geri çağırma parametresi eklerseniz `?cb=XXX` hello özgün JSON sonuçları gibi hello geri çağırma işlevi geçici kaydırma bir JSONP sonucunu döndürür`XYZ('<json result goes here>');`  
   
 ### <a name="elements"></a>Öğeleri  
   
@@ -179,10 +179,10 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
-|geri çağırma parametre adı|İşlevin yer tam etki alanı adıyla önek etki alanları arası JavaScript işlevi çağrısı.|Evet|Yok|  
+|geri çağırma parametre adı|Merhaba etki alanları arası JavaScript işlev çağrısı hello işlevi bulunduğu hello tam etki alanı adı öneki.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilkeyi ilke aşağıdaki hello kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** giden  
   

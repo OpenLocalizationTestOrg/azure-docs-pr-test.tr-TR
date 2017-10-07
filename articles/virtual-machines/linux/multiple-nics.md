@@ -1,6 +1,6 @@
 ---
-title: "Birden çok NIC ile azure'da bir Linux VM oluşturma | Microsoft Docs"
-description: "Azure CLI 2.0 veya Resource Manager şablonları ile bağlı birden çok NIC içeren bir Linux VM oluşturmayı öğrenin."
+title: "birden çok NIC ile azure'da bir Linux VM aaaCreate | Microsoft Docs"
+description: "Toocreate birden çok NIC içeren bir Linux VM hello Azure CLI 2.0 veya Resource Manager şablonları kullanarak tooit nasıl bağlı öğrenin."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 8a2931e462079c101c91497d459d7d3126234244
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2723405914777a5dce4354d4f5d8413e357f58e7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Linux sanal makine Azure'da ile birden fazla ağ arabirimi kartları oluşturma
-Bir sanal makine (VM) bağlı birden çok sanal ağ arabirimlerine (NIC'ler) sahip Azure oluşturabilirsiniz. Ön uç ve arka uç bağlantısı ya da izleme veya yedekleme çözümü için ayrılmış bir ağ için farklı alt ağlara sahip ortak bir senaryodur. Bu makalede, bağlı birden çok NIC içeren bir VM oluşturma ve ekleme veya NIC var olan bir sanal makineden kaldırın ayrıntıları. Ayrıntılı bilgi için kendi Bash betiklerini içinde birden çok NIC oluşturma dahil olmak üzere daha fazla okuyun hakkında [multi-NIC VM dağıtma](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Farklı [VM boyutları](sizes.md) NIC'ler değişen çok sayıda desteği, bu nedenle, VM buna göre boyutu.
+# <a name="how-toocreate-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Nasıl toocreate Linux sahip bir sanal makine azure'da birden çok ağ arabirim kartları
+Birden çok sanal ağ arabirimlerine (NIC'ler) bağlı tooit sahip Azure'da bir sanal makine (VM) oluşturabilirsiniz. Yaygın bir senaryo toohave farklı alt ağlar için ön uç ve arka uç bağlantısı olan veya ayrılmış bir ağ tooa izleme veya yedekleme çözümü. Bu makalede tooit toocreate birden çok NIC içeren bir VM ekli nasıl ve ne ayrıntıları tooadd veya kaldırma NIC var olan bir VM'den. Ayrıntılı bilgi için kendi içinde birden çok NIC nasıl toocreate Bash de dahil olmak üzere komut dosyaları, daha fazla okuyun hakkında [multi-NIC VM dağıtma](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Farklı [VM boyutları](sizes.md) NIC'ler değişen çok sayıda desteği, bu nedenle, VM buna göre boyutu.
 
-Bu makalede Azure CLI 2.0 ile birden çok NIC içeren bir VM oluşturmak nasıl ayrıntılarını verir. Bu adımları [Azure CLI 1.0](multiple-nics-nodejs.md) ile de gerçekleştirebilirsiniz.
+Bu makalede nasıl toocreate VM ile birden çok NIC içeren bir hello Azure CLI 2.0 ayrıntıları verilmektedir. Bu adımları hello ile de gerçekleştirebilirsiniz [Azure CLI 1.0](multiple-nics-nodejs.md).
 
 
 ## <a name="create-supporting-resources"></a>Destekleyici kaynakları oluşturun
-En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#login).
+Son yükleme hello [Azure CLI 2.0](/cli/azure/install-az-cli2) ve tooan Azure hesabını kullanarak oturum [az oturum açma](/cli/azure/#login).
 
-Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *mystorageaccount*, ve *myVM*.
+Hello aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *mystorageaccount*, ve *myVM*.
 
-İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create). Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myResourceGroup* hello içinde *eastus* konumu:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-İle sanal ağ oluşturma [az ağ vnet oluşturma](/cli/azure/network/vnet#create). Aşağıdaki örnek adlı bir sanal ağ oluşturur *myVnet* ve adlı alt ağ *mySubnetFrontEnd*:
+Merhaba sanal ağ ile oluşturma [az ağ vnet oluşturma](/cli/azure/network/vnet#create). Merhaba aşağıdaki örnek adlı bir sanal ağ oluşturur *myVnet* ve adlı alt ağ *mySubnetFrontEnd*:
 
 ```azurecli
 az network vnet create \
@@ -48,7 +48,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-Arka uç trafiği için bir alt ağ oluşturmak [az ağ sanal alt oluşturma](/cli/azure/network/vnet/subnet#create). Aşağıdaki örnek adlı bir alt ağı oluşturur *mySubnetBackEnd*:
+Merhaba arka uç trafiği için bir alt ağ oluşturmak [az ağ sanal alt oluşturma](/cli/azure/network/vnet/subnet#create). Merhaba aşağıdaki örnek adlı bir alt ağı oluşturur *mySubnetBackEnd*:
 
 ```azurecli
 az network vnet subnet create \
@@ -58,7 +58,7 @@ az network vnet subnet create \
     --address-prefix 192.168.2.0/24
 ```
 
-Bir ağ güvenlik grubu oluşturma [az ağ nsg oluşturma](/cli/azure/network/nsg#create). Aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur *myNetworkSecurityGroup*:
+Bir ağ güvenlik grubu oluşturma [az ağ nsg oluşturma](/cli/azure/network/nsg#create). Merhaba aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -67,7 +67,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Oluşturma ve birden çok NIC yapılandırma
-İki NIC ile oluşturma [az ağ NIC oluşturma](/cli/azure/network/nic#create). Aşağıdaki örnek adlı iki NIC oluşturur *myNic1* ve *myNic2*, her alt ağa bağlanan bir NIC ile ağ güvenlik grubu bağlı:
+İki NIC ile oluşturma [az ağ NIC oluşturma](/cli/azure/network/nic#create). Merhaba aşağıdaki örnekte oluşturur adlı iki NIC *myNic1* ve *myNic2*, bağlı tooeach alt ağı bağlayan bir NIC ile Merhaba ağ güvenlik grubu:
 
 ```azurecli
 az network nic create \
@@ -84,10 +84,10 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-## <a name="create-a-vm-and-attach-the-nics"></a>Bir VM oluşturun ve NIC'ler ekleyin
-İle oluşturulan NIC'ler belirtin VM oluşturduğunuzda `--nics`. VM boyutu seçerken dikkatli gerekir. Bir VM'ye ekleyebilirsiniz NIC toplam sayısına yönelik sınırlar vardır. Daha fazla bilgi edinin [Linux VM boyutları](sizes.md). 
+## <a name="create-a-vm-and-attach-hello-nics"></a>Bir VM oluşturun ve hello NIC ekleme
+Merhaba NIC'ler belirtin hello VM oluşturduğunuzda ile oluşturulan `--nics`. Merhaba VM boyutu seçtiğinizde tootake dikkatli da gerekir. Merhaba tooa VM ekleyebilirsiniz NIC toplam sayısına yönelik sınırlar vardır. Daha fazla bilgi edinin [Linux VM boyutları](sizes.md). 
 
-[az vm create](/cli/azure/vm#create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM*:
+[az vm create](/cli/azure/vm#create) ile bir VM oluşturun. Merhaba aşağıdaki örnekte oluşturur adlı bir VM'den *myVM*:
 
 ```azurecli
 az vm create \
@@ -100,10 +100,10 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-## <a name="add-a-nic-to-a-vm"></a>Bir VM için bir NIC eklemeniz
-Önceki adımları bir VM ile birden çok NIC oluşturulur. Azure CLI 2.0 ile mevcut bir VM'yi NIC'ler ekleyebilirsiniz. 
+## <a name="add-a-nic-tooa-vm"></a>NIC tooa VM ekleme
+Merhaba önceki adımları bir VM ile birden çok NIC oluşturulur. Azure CLI 2.0 hello ile VM varolan NIC'ler tooan de ekleyebilirsiniz. 
 
-Başka bir NIC ile oluşturma [az ağ NIC oluşturma](/cli/azure/network/nic#create). Aşağıdaki örnek, adlandırılmış bir NIC oluşturur *myNic3* önceki adımlarda oluşturduğunuz arka uç alt ağı ve ağ güvenlik grubuna bağlı:
+Başka bir NIC ile oluşturma [az ağ NIC oluşturma](/cli/azure/network/nic#create). Merhaba aşağıdaki örnekte oluşturur adlı bir NIC *myNic3* bağlı toohello arka uç alt ağı ve hello önceki adımlarda oluşturduğunuz ağ güvenlik grubu:
 
 ```azurecli
 az network nic create \
@@ -114,13 +114,13 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Mevcut bir VM'yi bir NIC eklemek için önce VM ile serbest bırakma [az vm serbest bırakma](/cli/azure/vm#deallocate). Aşağıdaki örnek adlı VM kaldırır *myVM*:
+tooadd NIC tooan var olan VM ilk ayırması VM ile Merhaba [az vm serbest bırakma](/cli/azure/vm#deallocate). Merhaba aşağıdaki örnek kaldırır hello adlı VM *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-NIC ekleme [az vm NIC eklemeniz](/cli/azure/vm/nic#add). Aşağıdaki örnek, *myNic3* için *myVM*:
+Ekleme NIC ile Merhaba [az vm NIC eklemeniz](/cli/azure/vm/nic#add). Merhaba aşağıdaki örnek, *myNic3* çok*myVM*:
 
 ```azurecli
 az vm nic add \
@@ -129,20 +129,20 @@ az vm nic add \
     --nics myNic3
 ```
 
-VM Başlat [az vm başlangıç](/cli/azure/vm#start):
+Başlangıç VM ile Merhaba [az vm başlangıç](/cli/azure/vm#start):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="remove-a-nic-from-a-vm"></a>Bir NIC bir sanal makineden kaldırın
-Bir NIC var olan bir sanal makineden kaldırmak için ilk VM ile serbest bırakma [az vm serbest bırakma](/cli/azure/vm#deallocate). Aşağıdaki örnek adlı VM kaldırır *myVM*:
+Mevcut bir VM'yi NIC'den tooremove ilk hello VM serbest bırakma ile [az vm serbest bırakma](/cli/azure/vm#deallocate). Merhaba aşağıdaki örnek kaldırır hello adlı VM *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-NIC ile Kaldır [az vm NIC kaldırmak](/cli/azure/vm/nic#remove). Aşağıdaki örnek kaldırır *myNic3* gelen *myVM*:
+Kaldırma NIC ile Merhaba [az vm NIC kaldırmak](/cli/azure/vm/nic#remove). Merhaba aşağıdaki örnek kaldırır *myNic3* gelen *myVM*:
 
 ```azurecli
 az vm nic remove \
@@ -151,7 +151,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-VM Başlat [az vm başlangıç](/cli/azure/vm#start):
+Başlangıç VM ile Merhaba [az vm başlangıç](/cli/azure/vm#start):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -159,7 +159,7 @@ az vm start --resource-group myResourceGroup --name myVM
 
 
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Resource Manager şablonları kullanarak birden çok NIC oluşturun
-Azure Resource Manager şablonları bildirim temelli JSON dosyaları ortamınızı tanımlamak için kullanın. Okuyabilirsiniz bir [genel bakış Azure Kaynak Yöneticisi'nin](../../azure-resource-manager/resource-group-overview.md). Resource Manager şablonları birden çok NIC oluşturma gibi dağıtımı sırasında bir kaynağın birden çok örneğini oluşturmak için bir yol sağlar. Kullandığınız *kopyalama* oluşturmak için örnek sayısını belirtmek için:
+Azure Resource Manager şablonları bildirim temelli JSON dosyaları toodefine ortamınız kullanın. Okuyabilirsiniz bir [genel bakış Azure Kaynak Yöneticisi'nin](../../azure-resource-manager/resource-group-overview.md). Resource Manager şablonları bir şekilde toocreate birden çok NIC oluşturma gibi dağıtım işlemi sırasında birden fazla örneğini bir kaynak sağlayın. Kullandığınız *kopya* toospecify hello örnekleri toocreate sayısı:
 
 ```json
 "copy": {
@@ -170,7 +170,7 @@ Azure Resource Manager şablonları bildirim temelli JSON dosyaları ortamınız
 
 Daha fazla bilgi edinin [kullanarak birden çok örneği oluşturma *kopya*](../../resource-group-create-multiple.md). 
 
-Aynı zamanda bir `copyIndex()` oluşturmanıza olanak tanıyan bir kaynak adı için bir sayı sonuna eklemek için `myNic1`, `myNic2`vb.. Dizin değeri ekleyerek bir örnek gösterilmektedir:
+De kullanabilirsiniz bir `copyIndex()` toothen sona toocreate sağlayan bir numara tooa kaynak adı `myNic1`, `myNic2`, vb. hello aşağıdaki hello dizin değeri ekleyerek bir örnek gösterilmektedir:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
@@ -179,4 +179,4 @@ Aynı zamanda bir `copyIndex()` oluşturmanıza olanak tanıyan bir kaynak adı 
 Tam örnek okuyabilirsiniz [Resource Manager şablonları kullanarak birden çok NIC oluşturma](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Gözden geçirme [Linux VM boyutları](sizes.md) birden çok NIC ile VM oluşturmaya çalışırken. Her VM boyutu destekliyorsa NIC sayısı dikkat edin. 
+Gözden geçirme [Linux VM boyutları](sizes.md) toocreating birden çok NIC içeren bir VM çalışırken. Dikkat toohello en fazla sayıda her VM boyutu destekliyorsa NIC ücret ödersiniz. 

@@ -1,6 +1,6 @@
 ---
-title: "RemoteApp bulut koleksiyonu - oluşturma sorunlarını giderme | Microsoft Docs"
-description: "RemoteApp bulut koleksiyonu oluşturma hatalarını giderme öğrenin"
+title: "aaaTroubleshoot RemoteApp bulut koleksiyonu - oluşturma | Microsoft Docs"
+description: "Tootroubleshoot RemoteApp bulut koleksiyonu oluşturma hataları nasıl öğrenin"
 services: remoteapp
 documentationcenter: 
 author: vkbucha
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 304ba7c5057b27c459bccbb75d3a711567757675
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9484ecbdb048ede8df725215b313e049cc7648f0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-creating-remoteapp-cloud-collections"></a>RemoteApp bulut koleksiyonu oluşturma sorunlarını giderme
 > [!IMPORTANT]
-> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Okuma hello [duyuru](https://go.microsoft.com/fwlink/?linkid=821148) Ayrıntılar için.
 > 
 > 
 
-Bulut koleksiyonu oluşturma sorun yaşıyorsanız, aşağıdaki bilgileri kontrol edin.
+Bulut koleksiyonu oluşturma sorun yaşıyorsanız, aşağıdaki bilgilerle hello denetleyin.
 
 ## <a name="your-image-is-invalid"></a>Görüntünüzü geçersiz
-Koleksiyonunuz sağlamak Azure için beklenirken "GoldImageInvalid" gibi bir ileti görürseniz, şablon görüntünüzü karşılamıyor demektir [görüntü gereksinimleri tanımlanan](remoteapp-imagereqs.md). Bu nedenle, bu okuma Git [gereksinimleri](remoteapp-imagereqs.md)görüntünüzü düzeltin ve koleksiyonunuzu yeniden oluşturmayı deneyin.
+Koleksiyonunuz için Azure tooprovision beklenirken "GoldImageInvalid" gibi bir ileti görürseniz, şablon görüntünüzü hello karşılamıyor demektir [görüntü gereksinimleri tanımlanan](remoteapp-imagereqs.md). Bu nedenle, bu okuma Git [gereksinimleri](remoteapp-imagereqs.md)görüntünüzü düzeltin ve toocreate koleksiyonunuzu yeniden deneyin.
 
-## <a name="common-errors-seen-in-the-azure-management-portal"></a>Azure Yönetim Portalı'nda görülen yaygın hatalar
+## <a name="common-errors-seen-in-hello-azure-management-portal"></a>Hello Azure Yönetim Portalı'nda görülen yaygın hatalar
     DNS server could not be reached
     ProvisioningTimeout
 
-Bulut koleksiyonları genellikle hata nedeniyle, oluşturma sırasında özel resimler kullanıyor.  Yukarıdaki hatalar birine bakın ve o koleksiyonu oluşturmak için özel bir görüntü kullanıyorsanız, lütfen şunları kontrol edin:
+Bulut koleksiyonları genellikle hata nedeniyle, oluşturma sırasında özel resimler kullanıyor.  Hatalar yukarıda hello birine bakın ve bir özel görüntü toocreate hello koleksiyon kullanıyorsanız Lütfen şeyler aşağıdaki hello kontrol edin:
 
-* Karşıya yüklediğiniz özel görüntü görüntü gereksinimleri karşıladığından emin olun.
-* En sık sık karşılaşılan görüntünün doğru Sysprep uygulanmış olmadığını sorundur.  
-* Doğrulama görüntü önyükleme Hyper-V içinde veya bir IAAS VM görüntüsünü kullanarak doğrudan Azure aboneliğinizde oluşturmayı deneyin. Önyükleme ve değil başlatmak VM başarısız olursa, bu genellikle özel görüntü düzgün hazırlanmadı belirtir.  Özel görüntü nasıl aşağıdaki yapılmış doğrulayın RemoteApp için bir özel şablon görüntüsü oluşturmak için
+* Karşıya yüklediğiniz, hello özel görüntü görüntü gereksinimleri karşıladığından emin olun.
+* En sık hello ortak, hello görüntü düzgün Sysprep uygulanmış değildi sorunudur.  
+* Doğrulama hello görüntü önyükleme Hyper-V içinde veya bir IAAS VM hello görüntüsünü kullanarak doğrudan Azure aboneliğinizde oluşturmayı deneyin. Merhaba VM tooboot ve başlatılmamasına başarısız olursa, bu genellikle, hello özel görüntü düzgün hazırlanmadı belirtir.  Merhaba özel görüntü hello nasıl toocreate özel bir şablon görüntü RemoteApp için oluşturulmuş doğrulayın
 
-Aboneliğinizde yer alan Microsoft görüntülerden birini kullanıyorsanız, koleksiyonu yeniden oluşturmayı deneyin. Sorun devam ederse lütfen Microsoft Destek'e başvurun.
+Aboneliğinizde yer alan hello Microsoft görüntülerden birini kullanıyorsanız, toocreate hello koleksiyonu yeniden deneyin. Merhaba sorun devam ederse lütfen Microsoft Destek'e başvurun.
 
     PlatformImageTrialModeOnly
 
-Bu hatayı görürseniz, bu genellikle anlamına gelir, ücretli bir hesabınız yükseltilmiş ancak yalnızca hizmetini deneme modunda geçerli bir Microsoft sağlanan görüntüsü kullanmaya çalışıyorsunuz. Bu durumda, bulut koleksiyonu yeniden oluşturun, ancak doğru görüntüyü belirttiğinizden emin olun deneyin.
+Bu hatayı görürseniz, bu genellikle anlamına gelir, yükseltilmiş tooa Ücretli hesap ancak toouse yalnızca hello deneme modunda hello hizmetinin geçerli bir Microsoft sağlanan görüntüsü çalışıyorsunuz. Bu durumda, toocreate bulut koleksiyonu yeniden deneyin, ancak emin toospecify hello doğru görüntüyü olabilir.
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı örnekleri sorunlarını giderme"
-description: "Azure kapsayıcı örnekleri ile ilgili sorunları giderme hakkında bilgi edinin"
+title: "aaaTroubleshooting Azure kapsayıcı örnekleri"
+description: "Azure kapsayıcı örnekleriyle tootroubleshoot nasıl sorunları öğrenin"
 services: container-instances
 documentationcenter: 
 author: seanmck
@@ -17,25 +17,25 @@ ms.workload: na
 ms.date: 08/03/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 86fa4b7dca7c362f95c0243a33f03d1f2dd3ab42
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: dfec636a0a174c74a6f2e9d9c4da6e871f8d2fda
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Azure kapsayıcı örnekleri dağıtım sorunlarını giderme
 
-Bu makalede kapsayıcıları Azure kapsayıcı örnekleri dağıtırken ilgili sorunları gidermek nasıl gösterilmektedir. Ayrıca bazı içine çalışabilir yaygın sorunları açıklar.
+Bu makalede nasıl tootroubleshoot kapsayıcıları tooAzure kapsayıcı örnekleri dağıtırken sorunları gösterir. Ayrıca bazı içine çalışabilir hello yaygın sorunları açıklar.
 
 ## <a name="getting-diagnostic-events"></a>Tanılama Olayları Alma
 
-Bir kapsayıcı içindeki uygulama kodunuzdan günlükleri görüntülemek için kullanabileceğiniz [az kapsayıcı günlükleri](/cli/azure/container#logs) komutu. Ancak, kapsayıcı başarıyla dağıtma, Azure kapsayıcı örnekleri kaynak sağlayıcısı tarafından sağlanan tanı bilgilerini gözden geçirmek gerekebilir. Kapsayıcı olayları görüntülemek için aşağıdaki komutu çalıştırın:
+bir kapsayıcı içindeki uygulama kodunuzdan tooview günlükleri, kullanabileceğiniz hello [az kapsayıcı günlükleri](/cli/azure/container#logs) komutu. Ancak, kapsayıcı başarıyla dağıtma, hello Azure kapsayıcı örnekleri kaynak sağlayıcısı tarafından sağlanan tooreview hello tanılama bilgileri gerekir. tooview hello olayları hello aşağıdaki komutu çalıştırın, kapsayıcı için:
 
 ```azurecli-interactive
 az container show -n mycontainername -g myresourcegroup
 ```
 
-Çıktı dağıtım olayları yanı sıra, kapsayıcı çekirdek özelliklerini içerir:
+Merhaba çıktı dağıtım olayları yanı sıra, kapsayıcının hello çekirdek özellikleri içerir:
 
 ```bash
 {
@@ -91,9 +91,9 @@ az container show -n mycontainername -g myresourcegroup
 
 Bu hesaba hataların çoğu dağıtımda bazı yaygın sorunlar vardır.
 
-### <a name="unable-to-pull-image"></a>Çekme görüntü oluşturulamıyor
+### <a name="unable-toopull-image"></a>%S toopull görüntüsü
 
-Azure kapsayıcı örnek görüntünüzü başlangıçta çekmesini kaydedemediği sonunda başarısız önce belirli bir süre için yeniden dener. Görüntü çekilen, olayları aşağıdaki gibi gösterilir:
+Azure kapsayıcı örneği oluşturulamıyor toopull ise görüntünüzü başlangıçta, onu sonunda başarısız önce belirli bir süre için yeniden deneme sayısı. Merhaba görüntü çekilen, olayları hello aşağıdaki gibi gösterilir:
 
 ```bash
 "events": [
@@ -108,7 +108,7 @@ Azure kapsayıcı örnek görüntünüzü başlangıçta çekmesini kaydedemedi�
     "count": 1,
     "firstTimestamp": "2017-08-03T22:19:32+00:00",
     "lastTimestamp": "2017-08-03T22:19:32+00:00",
-    "message": "Failed: Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image microsoft/aci-hellowrld:latest not found",
+    "message": "Failed: Failed toopull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image microsoft/aci-hellowrld:latest not found",
     "type": "Warning"
   },
   {
@@ -121,11 +121,11 @@ Azure kapsayıcı örnek görüntünüzü başlangıçta çekmesini kaydedemedi�
 ]
 ```
 
-Çözümlemek için kapsayıcıyı silin ve görüntü adı doğru yazdığınızı ödeyen Kapat dikkat dağıtımınızı yeniden deneyin.
+tooresolve, hello kapsayıcısını silmek ve hello görüntü adı doğru yazdığınızı ödeyen Kapat dikkat dağıtımınızı yeniden deneyin.
 
 ### <a name="container-continually-exits-and-restarts"></a>Kapsayıcı sürekli olarak çıkar ve yeniden başlatır
 
-Şu anda, Azure kapsayıcı örnekleri yalnızca uzun süre çalışan hizmetleri destekler. Kapsayıcı tamamlama ve çıkar çalıştırıyorsa, otomatik olarak yeniden başlatılır ve yeniden çalıştırır. Bu durumda, olayları olanlar aşağıdaki gibi gösterilir. Kapsayıcı sorunsuz başlatıldıktan sonra hızlı bir şekilde yeniden unutmayın. Kapsayıcı örnekleri API içeren bir `retryCount` belirli bir kapsayıcıda kaç kez gösteren özelliği başlatıldıktan.
+Şu anda, Azure kapsayıcı örnekleri yalnızca uzun süre çalışan hizmetleri destekler. Kapsayıcı toocompletion ve çıkış çalıştırıyorsa, otomatik olarak yeniden başlatılır ve yeniden çalıştırır. Bu durumda, olayları olanlar aşağıdaki gibi gösterilir. Bu hello kapsayıcı başarıyla başlar, sonra hızlı bir şekilde yeniden unutmayın. Merhaba kapsayıcı örnekleri API içeren bir `retryCount` belirli bir kapsayıcıda kaç kez gösteren özelliği başlatıldıktan.
 
 ```bash
 "events": [
@@ -189,13 +189,13 @@ Azure kapsayıcı örnek görüntünüzü başlangıçta çekmesini kaydedemedi�
 ```
 
 > [!NOTE]
-> Linux dağıtımları için çoğu kapsayıcı görüntüleri bash gibi bir kabuk varsayılan komut olarak ayarlayın. Kendi başına bir kabuk uzun süre çalışan hizmet olmadığından, bu kapsayıcılar hemen çıkmak ve yeniden başlatma döngüye ayrılır.
+> Linux dağıtımları için çoğu kapsayıcı görüntüleri bash gibi bir kabuk hello varsayılan komut olarak ayarlayın. Kendi başına bir kabuk uzun süre çalışan hizmet olmadığından, bu kapsayıcılar hemen çıkmak ve yeniden başlatma döngüye ayrılır.
 
-### <a name="container-takes-a-long-time-to-start"></a>Kapsayıcı başlatmak için çok uzun sürüyor
+### <a name="container-takes-a-long-time-toostart"></a>Uzun süre toostart kapsayıcı alır
 
-Kapsayıcı başlatma, ancak sonuç uzun süren, başarılı, kapsayıcı görüntünüzü boyutta bakarak başlatın. Azure kapsayıcı örnekleri kapsayıcı görüntünüzü isteğe bağlı olarak çeker çünkü karşılaştığınız başlangıç zamanını boyutuna doğrudan ilişkilidir.
+Kapsayıcı uzun süre toostart alır, ancak sonunda başarılı, kapsayıcı görüntünüzü hello boyutta bakarak başlatın. Azure kapsayıcı örnekleri kapsayıcı görüntünüzü isteğe bağlı olarak çeker, karşılaştığınız hello başlangıç zamanını doğrudan ilgili tooits çünkü boyutu.
 
-Docker CLI kullanarak kapsayıcı görüntünüzün boyutunu görüntüleyebilirsiniz:
+Kapsayıcı görüntünüzün hello Docker CLI kullanarak hello boyutunu görüntüleyebilirsiniz:
 
 ```bash
 docker images
@@ -208,6 +208,6 @@ REPOSITORY                             TAG                 IMAGE ID            C
 microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
 ```
 
-Görüntü boyutları küçük tutmak için anahtarı son görüntünüzü çalışma zamanında gerekli olmayan bir şey içermediğinden emin olmaktır. Yapmanın bir yolu bu olan [çok aşama derlemeleri](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). Çok aşama yapma, yalnızca uygulamanız için gereksinim duyduğunuz yapıları son görüntüsünü içeren ve herhangi bir ek içerik sağlamak kolay derleme zamanında gerekli oluşturur.
+Merhaba anahtar tookeeping görüntü boyutları küçük olduğundan olmanın son görüntünüzü çalışma zamanında gerekli olmayan bir şey içermediğini. Bu durumdayken tek yönlü toodo [çok aşama derlemeleri](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). Çok aşama derlemeleri kolay tooensure sunun hello son görüntüsünü içeren, uygulamanız için gereken tek hello yapıları ve herhangi bir ek hello içerik derleme zamanında gerekli.
 
-Kapsayıcının başlangıç zamanında görüntü çekme etkisini azaltmak için diğer Azure kapsayıcı örneği kullanmak istiyorsanız, aynı bölgede Azure kapsayıcı kayıt defterini kullanarak kapsayıcı görüntüsü barındırmak için bir yoludur. Bu, kapsayıcı görüntü seyahat gereken ağ yolu önemli ölçüde karşıdan yükleme süresini kısaltmak kısaltır.
+Merhaba diğer yolu tooreduce hello hello görüntü çekme, kapsayıcının başlangıç zamanında hello Azure kapsayıcı kayıt defteri hello kullanarak toohost hello kapsayıcı görüntüsü etkisidir düşündüğünüz nerede toouse Azure kapsayıcı örnekleri aynı bölgede. Bu kapsayıcı görüntü gereksinimlerini tootravel, önemli ölçüde hello karşıdan yükleme süresini kısaltmak hello hello ağ yolu kısaltır.

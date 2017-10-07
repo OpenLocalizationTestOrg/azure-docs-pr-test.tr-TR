@@ -1,6 +1,6 @@
 ---
-title: "Paket yakalama Azure Ağ İzleyicisi - REST API ile yönetme | Microsoft Docs"
-description: "Bu sayfa, Azure REST API'sini kullanarak Ağ İzleyicisi'nin paket yakalama özelliği yönetmek açıklanmaktadır"
+title: "aaaManage paket yakalar Azure Ağ İzleyicisi - REST API | Microsoft Docs"
+description: "Bu sayfayı nasıl toomanage hello paket yakalama Özelliği Azure REST API'sini kullanarak Ağ İzleyicisinin açıklar"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 49ec20802a252258d8493eb26510270b925e851a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7a531fbe796e85e94961bd192d171defb299be05
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Paket yakalama Azure REST API'sini kullanarak Azure Ağ İzleyicisi ile yönetme
 
@@ -29,24 +29,24 @@ ms.lasthandoff: 08/29/2017
 > - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST API'si](network-watcher-packet-capture-manage-rest.md)
 
-Ağ İzleyicisi paket yakalama, bir sanal makine gelen ve giden trafiği izlemek için yakalama oturumları oluşturmanıza olanak sağlar. Filtreler yalnızca trafiği yakalama emin olmak yakalama oturumu için sağlanır. Paket yakalama Tepkisel hem de önceden ağ anormallikleri tanılamanıza yardımcı olur. Diğer kullanımlar ağ yetkisiz erişim, istemci-sunucu iletişimleri ve çok daha fazlasını hata ayıklamak için bilgi sağlamasını ağ istatistikleri toplama içerir. Erişebildiklerinden uzaktan paket yakalamaları tetiklemek için bir paket yakalama el ile ve değerli zaman kazandırır istenen makine üzerinde çalışan iş yükünü Bu yetenek kolaylaştırır.
+Ağ İzleyicisi paket yakalama toocreate yakalama oturumları tootrack trafiği tooand bir sanal makineden sağlar. Filtreler, yalnızca istediğiniz hello trafiği yakalamak hello yakalama oturum tooensure için sağlanır. Paket yakalama toodiagnose ağ anormallikleri Tepkisel ve önceden yardımcı olur. Diğer kullanımlar bilgi ağ yetkisiz erişim, toodebug istemci-sunucu iletişimleri ve daha fazlasını sağlamasını ağ istatistikleri toplama içerir. Mümkün tooremotely tetikleyici paket yakalamaları olma yoluyla bu özelliği bir paket yakalama el ile ve değerli zaman kazandırır hello istenen makine üzerinde çalışan hello yük kolaylaştırır.
 
-Bu makalede paket yakalama için şu anda kullanılabilir farklı yönetim görevleri yoluyla alır.
+Bu makalede paket yakalama için şu anda kullanılabilir farklı yönetim görevleri hello alır.
 
 - [**Paket yakalama Al**](#get-a-packet-capture)
 - [**Tüm paket yakalamaları listesi**](#list-all-packet-captures)
-- [**Paket yakalama durumunu sorgulama**](#query-packet-capture-status)
+- [**Paket yakalama sorgu hello durumu**](#query-packet-capture-status)
 - [**Paket yakalama Başlat**](#start-packet-capture)
 - [**Paket yakalama işlemini durdurun**](#stop-packet-capture)
 - [**Paket yakalama Sil**](#delete-packet-capture)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu senaryoda, akış IP doğrulama çalıştırmak için Ağ İzleyicisi Rest API çağrısı. ARMclient PowerShell kullanarak REST API'sini çağırmak için kullanılır. ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
+Bu senaryoda, hello Ağ İzleyicisi Rest API'si toorun akış IP doğrulayın çağırın. ARMclient PowerShell kullanarak kullanılan toocall hello REST API ' dir. ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
 
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için.
+Bu senaryo zaten izlediğiniz hello adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) toocreate bir Ağ İzleyicisi.
 
-> Paket yakalama gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
+> Paket yakalama gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM Hello uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Azure Ağ İzleyicisi Aracısı sanal makine uzantısı Linuxiçin](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="log-in-with-armclient"></a>Oturum ARMClient oturum
 
@@ -56,12 +56,12 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Bir sanal makine alma
 
-Bir sanal makine döndürmek için aşağıdaki betiği çalıştırın. Bu bilgiler, bir paket yakalama başlatmak için gereklidir.
+Komut dosyası tooreturn aşağıdaki hello bir sanal makine çalıştırın. Bu bilgiler, bir paket yakalama başlatmak için gereklidir.
 
-Aşağıdaki kod değişkenleri gerekir:
+Merhaba aşağıdaki kodu değişkenleri gerekir:
 
-- **Subscriptionıd** -abonelik kimliği ile aynı zamanda alınabilir **Get-AzureRMSubscription** cmdlet'i.
-- **resourceGroupName** -sanal makine içeren bir kaynak grubu adı.
+- **Subscriptionıd** -hello abonelik kimliği ile Merhaba da alınabilir **Get-AzureRMSubscription** cmdlet'i.
+- **resourceGroupName** - hello sanal makine içeren bir kaynak grubu adı.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -70,7 +70,7 @@ $resourceGroupName = "<resource group name>"
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-Aşağıdaki çıktısını sonraki örnekte sanal makinenin kimliği kullanılır.
+Çıktı hello aşağıdakiler arasından hello kimliği hello sanal makinenin hello sonraki örnekte kullanılır.
 
 ```json
 ...
@@ -88,7 +88,7 @@ Aşağıdaki çıktısını sonraki örnekte sanal makinenin kimliği kullanıl�
 
 ## <a name="get-a-packet-capture"></a>Paket yakalama Al
 
-Aşağıdaki örnek bir tek Paket yakalama durumunu alır
+Merhaba aşağıdaki örnek hello durumunu tek Paket yakalama alır
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -97,7 +97,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-Aşağıdaki yanıtlar paket yakalama durumunu sorgulanırken döndürülen tipik bir yanıt gösterilebilir.
+Merhaba aşağıdaki yanıtlar paket yakalama hello durumunu sorgulanırken döndürülen tipik bir yanıt gösterilebilir.
 
 ```json
 {
@@ -122,7 +122,7 @@ Aşağıdaki yanıtlar paket yakalama durumunu sorgulanırken döndürülen tipi
 
 ## <a name="list-all-packet-captures"></a>Tüm paket yakalamaları listesi
 
-Aşağıdaki örnek, bir bölgede tüm paket yakalama oturumları alır.
+Aşağıdaki örnek hello tüm paket yakalama oturumları bir bölgede alır.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -131,7 +131,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures?api-version=2016-12-01"
 ```
 
-Tüm paket alırken döndürülen tipik bir yanıt örneği yakalar aşağıdaki yanıt olan
+Merhaba aşağıdaki yanıt tüm paket alırken döndürülen tipik bir yanıt örneği yakalar olan
 
 ```json
 {
@@ -196,7 +196,7 @@ ture_17_23_15_364.cap",
 
 ## <a name="query-packet-capture-status"></a>Sorgu paket yakalama durumu
 
-Aşağıdaki örnek, bir bölgede tüm paket yakalama oturumları alır.
+Aşağıdaki örnek hello tüm paket yakalama oturumları bir bölgede alır.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -206,7 +206,7 @@ $packetCaptureName = "TestPacketCapture5"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-Aşağıdaki yanıtı, bir paket yakalama durumunu sorgulanırken döndürülen tipik bir yanıt örneğidir.
+Merhaba aşağıdaki yanıtı paket yakalama hello durumunu sorgulanırken döndürülen tipik bir yanıt örneğidir.
 
 ```json
 {
@@ -220,7 +220,7 @@ Aşağıdaki yanıtı, bir paket yakalama durumunu sorgulanırken döndürülen 
 
 ## <a name="start-packet-capture"></a>Paket yakalama Başlat
 
-Aşağıdaki örnek, bir sanal makinede bir paket yakalama oluşturur.  Örnek oluşturma esneklik sağlamak amacıyla örnek parametreli.
+Aşağıdaki örneğine hello bir sanal makinede bir paket yakalama oluşturur.  Merhaba, örnek oluşturma esneklik için parametreli tooallow örnektir.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -272,7 +272,7 @@ armclient PUT "https://management.azure.com/subscriptions/${subscriptionId}/Reso
 
 ## <a name="stop-packet-capture"></a>Paket yakalama işlemini durdurun
 
-Aşağıdaki örnek, bir sanal makinede bir paket yakalama durdurur.  Örnek oluşturma esneklik sağlamak amacıyla örnek parametreli.
+Aşağıdaki örneğine hello bir sanal makinede bir paket yakalama durdurur.  Merhaba, örnek oluşturma esneklik için parametreli tooallow örnektir.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -284,7 +284,7 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 
 ## <a name="delete-packet-capture"></a>Paket yakalama Sil
 
-Aşağıdaki örnek, bir sanal makinede bir paket yakalama siler.  Örnek oluşturma esneklik sağlamak amacıyla örnek parametreli.
+Paket yakalama bir sanal makinede aşağıdaki örneğine hello siler.  Merhaba, örnek oluşturma esneklik için parametreli tooallow örnektir.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -296,13 +296,13 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 ```
 
 > [!NOTE]
-> Paket yakalama silmek depolama hesabını dosyasında silmez
+> Paket yakalama silinmesi hello depolama hesabı hello dosyasında silmez
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure depolama hesaplarından dosyaları indirme ile ilgili yönergeler için bkz [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kullanılabilir başka bir Depolama Gezgini aracıdır. Aşağıdaki bağlantıda Depolama Gezgini hakkında daha fazla bilgi şurada bulunabilir: [Depolama Gezgini](http://storageexplorer.com/)
+Azure depolama hesaplarından dosyaları indirme ile ilgili yönergeler için çok başvuran[.NET kullanarak Azure Blob storage'ı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kullanılabilir başka bir Depolama Gezgini aracıdır. Depolama Gezgini hakkında daha fazla bilgi bağlantısı aşağıdaki hello şurada bulunabilir: [Depolama Gezgini](http://storageexplorer.com/)
 
-Sanal makine uyarılarla paket yakalamaları görüntüleyerek otomatikleştirmeyi öğrenin [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
+Nasıl sanal makine uyarılarla tooautomate paket görüntüleyerek yakalar öğrenin [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
 
 
 

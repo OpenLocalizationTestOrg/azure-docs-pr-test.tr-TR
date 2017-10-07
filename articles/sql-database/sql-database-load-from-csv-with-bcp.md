@@ -1,6 +1,6 @@
 ---
-title: "Veri yükleme CSV dosyasından Azure SQL veritabanına (bcp) | Microsoft Docs"
-description: "Küçük veri boyutları için Azure SQL Veritabanına veri aktarırken bcp kullanır."
+title: "CSV aaaLoad verilerden dosya Azure SQL veritabanına (bcp) | Microsoft Docs"
+description: "Küçük boyutlu veriler için Azure SQL veritabanına bcp tooimport verileri kullanır."
 services: sql-database
 documentationcenter: NA
 author: CarlRabeler
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 84bebab7763bb21f73880a6c8b367a62b0c137d3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 9350e459aa844223820fbbd849a830cf0354d4e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>CSV dosyasından Azure SQL Veritabanı'na veri yükleme (düz dosyalar)
-Bir CSV dosyasından Azure SQL Database’e veri aktarmak için bcp komut satırı yardımcı programını kullanabilirsiniz.
+Azure SQL veritabanına bir CSV dosyasından hello bcp komut satırı yardımcı programını tooimport veri kullanabilirsiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 ### <a name="prerequisites"></a>Ön koşullar
-Bu makaledeki adımları tamamlamak için gerekir:
+Bu makalede toocomplete hello adımlar, gerekir:
 
 * Azure SQL Database mantıksal sunucusu ve veritabanı
-* bcp komut satırı yardımcı programının yüklü olması
-* sqlcmd komut satırı yardımcı programının yüklü olması
+* Merhaba bcp komut satırı yardımcı programının yüklü olması
+* Merhaba sqlcmd komut satırı yardımcı programının yüklü olması
 
-bcp ve sqlcmd yardımcı programlarını [Microsoft İndirme Merkezi][Microsoft Download Center]'nden indirebilirsiniz.
+Hello hello bcp ve sqlcmd yardımcı programlarını indirebilirsiniz [Microsoft Download Center][Microsoft Download Center].
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>ASCII veya UTF-16 biçimindeki veriler
-UTF-8 biçimi bcp tarafından desteklenmediğinden, bu öğreticiyi kendi verilerinizle deniyorsanız verilerinizin ASCII veya UTF-16 kodlamasını kullanıyor olması gerekir. 
+Bu öğreticiyi kendi verilerinizle deniyorsanız verilerinizin toouse hello ASCII veya UTF-8 bcp desteklemediğinden UTF-16 kodlamasını gerekir. 
 
 ## <a name="1-create-a-destination-table"></a>1. Hedef tablo oluşturma
-SQL Veritabanı'nda bir tabloyu hedef tablo olarak tanımlayın. Tablodaki sütunlar, veri dosyanızın tüm satırlarındaki verilere karşılık gelmelidir.
+Bir tablo, SQL veritabanında hello hedef tablo olarak tanımlayın. Merhaba tablodaki Hello sütun toohello veriler, her satır, veri dosyanızın karşılık gelmelidir.
 
-Tablo oluşturmak için bir komut istemi açın ve sqlcmd.exe dosyasını kullanarak şu komutu çalıştırın:
+toocreate tablo, bir komut istemi açın ve sqlcmd.exe toorun hello aşağıdaki komutu kullanın:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -56,7 +56,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## <a name="2-create-a-source-data-file"></a>2. Kaynak veri dosyası oluşturma
-Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırlarını kopyalayıp dosyayı yerel geçici dizininize (C:\Temp\DimDate2.txt) kaydedin. Bu veri ASCII biçimindedir.
+Veri satırlarını yeni bir metin dosyasına aşağıdaki not defteri ve kopyalama hello açın ve ardından bu dosya tooyour yerel geçici dizin, C:\Temp\DimDate2.txt kaydedin. Bu veri ASCII biçimindedir.
 
 ```
 20150301,1,3
@@ -73,26 +73,26 @@ Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırları
 20150101,1,3
 ```
 
-(İsteğe bağlı) SQL Server veritabanından kendi verilerinizi dışarı aktarmak için bir komut istemi açın ve aşağıdaki komutu çalıştırın. TableName (Tablo Adı), ServerName (Sunucu Adı), DatabaseName (Veritabanı Adı), Username (Kullanıcı Adı) ve Password (Parola) alanlarına kendi bilgilerinizi yazın.
+(İsteğe bağlı) tooexport bir SQL Server veritabanından kendi verilerinizi bir komut istemi açın ve hello aşağıdaki komutu çalıştırın. TableName (Tablo Adı), ServerName (Sunucu Adı), DatabaseName (Veritabanı Adı), Username (Kullanıcı Adı) ve Password (Parola) alanlarına kendi bilgilerinizi yazın.
 
 ```bcp
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
-## <a name="3-load-the-data"></a>3. Verileri yükleme
-Verileri yüklemek için bir komut satırı açın; Sunucu Adı, Veritabanı Adı, Kullanıcı Adı ve Parola alanlarına kendi bilgilerinizi yazarak aşağıdaki komutu çalıştırın.
+## <a name="3-load-hello-data"></a>3. Merhaba veri yükleme
+tooload hello verileri, bir komut istemi açın ve aşağıdaki komut, sunucu adı, veritabanı adı, kullanıcı adı ve parola alanlarına kendi bilgilerinizi hello değerleri değiştirerek hello çalıştırın.
 
 ```bcp
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ,
 ```
 
-Bu komutu kullanarak verilerin düzgün şekilde yüklendiğini doğrulayın
+Bu komut tooverify hello verilerin düzgün şekilde yüklendiğini kullanın
 
 ```bcp
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-Sonuçlar şu şekilde görünmelidir:
+Merhaba sonuçları aşağıdaki gibi görünmelidir:
 
 | DateId | CalendarQuarter | FiscalQuarter |
 | --- | --- | --- |
@@ -110,7 +110,7 @@ Sonuçlar şu şekilde görünmelidir:
 | 20151201 |4 |2 |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir SQL Server veritabanına geçiş yapmak için bkz. [SQL Server veritabanı geçişi](sql-database-cloud-migrate.md).
+bir SQL Server veritabanı toomigrate bkz [SQL Server veritabanı geçiş](sql-database-cloud-migrate.md).
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx

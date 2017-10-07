@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Data warehouse'da (genel bakış) işlem güç yönetimi | Microsoft Docs"
-description: "Azure SQL veri ambarı özellikleri genişletme performans. Dwu ayarlayarak ölçeğini veya duraklatıp işlem kaynakları maliyet tasarrufu sağlamak."
+title: "aaaManage işlem güç Azure SQL Data warehouse'da (genel bakış) | Microsoft Docs"
+description: "Azure SQL veri ambarı özellikleri genişletme performans. Dwu ayarlayarak ölçeğini veya duraklatma ve işlem kaynakları toosave maliyetlerini sürdürme."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/22/2017
 ms.author: elbutter
-ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1ffbe8d694ac181eaeb6f585a2cee87a570ed7d5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Azure SQL Data warehouse'da (genel bakış) işlem güç yönetimi
 > [!div class="op_single_selector"]
@@ -31,16 +31,16 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-SQL Data Warehouse mimarisi, depolama ve işlem, her bağımsız olarak ölçeklendirebilirsiniz izin vererek ayırır. Sonuç olarak, işlem veri miktarını bağımsız performans taleplerini karşılamak üzere genişletilebilir. Bu mimarinin doğal bir sonuç [fatura] [ billed] işlem ve depolama için ayrıdır. 
+SQL veri ambarı Hello mimarisi, depolama ve işlem, her tooscale bağımsız olarak izin verme ayırır. Sonuç olarak, işlem ölçeklendirilmiş toomeet performans taleplerini hello veri miktarını bağımsız olabilir. Bu mimarinin doğal bir sonuç [fatura] [ billed] işlem ve depolama için ayrıdır. 
 
-Bu genel bakış açıklanmaktadır SQL veri ambarı ve Duraklat kullanmaya nasıl çalışır nasıl ölçeğini sürdürme ve ölçeklendirme SQL veri ambarı özelliklerini. Başvurun [veri ambarı birimlerini (Dwu'lar)] [ data warehouse units (DWUs)] Dwu ve performans nasıl ilişkili olduğunu öğrenmek için sayfa. 
+Bu genel bakış açıklanmaktadır nasıl ölçeğini SQL veri ambarı ve tooutilize nasıl hello duraklatma, sürdürme ve SQL Data Warehouse ölçek özelliklerini çalışır. Merhaba başvurun [veri ambarı birimlerini (Dwu'lar)] [ data warehouse units (DWUs)] sayfa toolearn nasıl Dwu ve performans ilişkilidir. 
 
 ## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>SQL veri ambarı'nda yönetim işlemlerini iş nasıl işlem
-Bir denetim düğümü, işlem düğümlerini ve 60 dağıtımları yayılan depolama katmanı, SQL Data Warehouse mimarisi oluşur. 
+Merhaba mimarisi SQL veri ambarı için bir denetim düğümü oluşur, işlem düğümleri ve 60 dağıtımları yayılan hello depolama katmanı. 
 
-Normal etkin oturum SQL Data warehouse'da sırasında sisteminizin baş düğüm meta verileri yönetir ve dağıtılmış sorgu iyileştiricisi içerir. Bu baş düğümü altında işlem düğümlerini ve depolama katmanı olan. DWU 400 için sisteminizi bir baş düğüm, dört işlem düğümlerini ve 60 dağıtımlarını oluşan depolama katmanı vardır. 
+Normal etkin oturum SQL Data warehouse'da sırasında sisteminizin baş düğüm hello meta verileri yönetir ve hello dağıtılmış sorgu iyileştiricisi içerir. Bu baş düğümü altında işlem düğümlerini ve depolama katmanı olan. DWU 400 için sisteminizi bir baş düğüm, dört işlem düğümlerini ve 60 dağıtımlarını oluşan hello depolama katmanı vardır. 
 
-Bir ölçek uygulanabilecek veya işlemi duraklatmak, sistem önce tüm gelen sorguları sonlandırır ve tutarlı bir duruma emin olmak için işlemler geri alınır. Bu işlem geri alma işlemi tamamlandıktan sonra ölçek işlemleri için ölçeklendirme yalnızca meydana gelir. Bir ölçek büyütme işleminin ek sayısı istenen sistem hükümleri işlem düğümleri ve depolama katmanı için işlem düğümleri yeniden takmanız başlar. Bir ölçek azaltma işlemi için gereksiz düğümleri yayımlanan ve geri kalan işlem düğümleri kendilerini uygun sayıda dağıtımlar için yeniden ekleyin. Duraklatma işlemi için tüm düğümler yayımlanan ve sisteminizin meta veri işlemleri, son sistem kararlı durumda bırakın, çeşitli yapılacaktır işlem.
+Bir ölçek uygulanabilecek veya işlemi duraklatmak, hello sistem ilk tüm gelen sorguları sonlandırır ve işlemleri tooensure tutarlı bir duruma geri alınır. Bu işlem geri alma işlemi tamamlandıktan sonra ölçek işlemleri için ölçeklendirme yalnızca meydana gelir. Bir ölçek büyütme işleminin hello sistem hükümleri fazladan istenen işlem düğümleri sayısını hello ve hello işlem düğümleri toohello depolama katmanı yeniden takmanız başlar. Bir ölçek azaltma işlemi için hello gereksiz düğümleri yayımlanan ve hello kalan işlem düğümleri kendilerini dağıtımları uygun sayıda toohello yeniden ekleyin. Duraklatma işlemi için tüm düğümler yayımlanan ve sisteminizin meta veri işlemleri tooleave çeşitli son kararlı bir duruma sisteminizdeki yapılacaktır işlem.
 
 | DWU  | \#işlem düğümleri | \#Düğüm başına dağıtımları |
 | ---- | ------------------ | ---------------------------- |
@@ -57,15 +57,15 @@ Bir ölçek uygulanabilecek veya işlemi duraklatmak, sistem önce tüm gelen so
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
 
-İşlem yönetmek için üç birincil işlev şunlardır:
+işlem yönetmek için hello üç birincil işlev şunlardır:
 
 1. Duraklat
 2. Sürdür
 3. Ölçek
 
-Bu işlemlerin her biri tamamlanması birkaç dakika sürebilir. Otomatik olarak ölçeklendirme/duraklatma/sürdürme varsa, belirli işlemleri başka bir eylem işlemine devam etmeden önce tamamlandığından emin olmak için mantığı uygulamak isteyebilirsiniz. 
+Bu işlemlerin her biri, birkaç dakika toocomplete devam edebilir. Otomatik olarak ölçeklendirme/duraklatma/sürdürme varsa, tooimplement mantığı tooensure başka bir eylem işlemine devam etmeden önce işlem tamamlandığında, belirli isteyebilirsiniz. 
 
-Çeşitli uç noktaları aracılığıyla veritabanı durumunu denetleme doğru Otomasyon böyle işlemlerinin uygulamaya izin verir. Portal bir işlem ve veritabanlarını tamamlanmasından sonra bildirimi geçerli durumu sağlar ancak programlı durumunu denetlemek için izin vermiyor. 
+Çeşitli uç noktaları aracılığıyla Hello veritabanı durumunu denetleme toocorrectly uygulama Otomasyon böyle işlemlerinin izin verir. Merhaba portalı bir işlemi ve hello veritabanları geçerli durumu tamamlanmasından sonra bildirim sağlar ancak programlı durumunu denetlemek için izin vermiyor. 
 
 >  [!NOTE]
 >
@@ -86,12 +86,12 @@ Bu işlemlerin her biri tamamlanması birkaç dakika sürebilir. Otomatik olarak
 
 ## <a name="scale-compute"></a>Bilgi işlem
 
-SQL veri ambarı performans ölçülür [veri ambarı birimlerini (Dwu'lar)] [ data warehouse units (DWUs)] CPU, bellek ve g/ç bant genişliği gibi işlem kaynakları abstracted bir ölçü değil. Kendi sistem performansını ölçeklendirme istediği bir kullanıcı çeşitli yollarla gibi portalı, T-SQL ve REST API'leri bunu yapabilirsiniz. 
+SQL veri ambarı performans ölçülür [veri ambarı birimlerini (Dwu'lar)] [ data warehouse units (DWUs)] CPU, bellek ve g/ç bant genişliği gibi işlem kaynakları abstracted bir ölçü değil. Kendi sistem performansını tooscale isteyen bir kullanıcı çeşitli yollarla gibi hello portal, T-SQL ve REST API'leri bunu yapabilirsiniz. 
 
 ### <a name="how-do-i-scale-compute"></a>İşlem nasıl ölçeklendirme?
-Güç sizin için SQL Data Warehouse DWU ayarını değiştirerek yönetilen işlem. Performans artışı [doğrusal olarak] [ linearly] gibi belirli işlemler için daha fazla DWU ekleyin.  Yukarı veya aşağı sisteminizi ne zaman ölçeklendirme, performansı belirgin şekilde değişir olun DWU teklifleri sunuyoruz. 
+İşlem gücü, SQL Data Warehouse hello DWU ayarını değiştirerek yönetilir. Performans artışı [doğrusal olarak] [ linearly] gibi belirli işlemler için daha fazla DWU ekleyin.  Yukarı veya aşağı sisteminizi ne zaman ölçeklendirme, performansı belirgin şekilde değişir olun DWU teklifleri sunuyoruz. 
 
-Dwu ayarlamak için tek tek bu yöntemlerden birini kullanabilirsiniz.
+tooadjust Dwu, tek tek bu yöntemlerden birini kullanabilirsiniz.
 
 * [Azure portal ile güç işlem ölçeklendirme][Scale compute power with Azure portal]
 * [İşlem PowerShell ile güç ölçeklendirme][Scale compute power with PowerShell]
@@ -100,41 +100,41 @@ Dwu ayarlamak için tek tek bu yöntemlerden birini kullanabilirsiniz.
 
 ### <a name="how-many-dwus-should-i-use"></a>Kaç tane Dwu kullanmalıyım?
 
-İdeal DWU değerinizin ne olduğunu anlamak için verilerinizi yükledikten sonra ölçeği artırmayı veya azaltmayı ve birkaç sorgu çalıştırmayı deneyin. Ölçeklendirme hızla gerçekleştiği bir saat veya daha az çeşitli performans düzeylerini deneyebilirsiniz. 
+hangi, ideal DWU değerdir, toounderstand yukarı ve aşağı doğru ölçeklendirme ve verilerinizi yükledikten sonra birkaç sorgu çalıştırmayı deneyin. Ölçeklendirme hızla gerçekleştiği bir saat veya daha az çeşitli performans düzeylerini deneyebilirsiniz. 
 
 > [!Note] 
-> SQL veri ambarı büyük miktarda veriyi işlemek için tasarlanmıştır. Özellikle büyük Dwu ölçeklendirmeye yönelik gerçek kapasitesini görmek için 1 TB yaklaşıyor veya büyük bir veri kümesini kullanmak istediğiniz.
+> SQL veri ambarı tasarlanmış tooprocess büyük miktarlarda verinin ' dir. toosee, özellikle büyük Dwu ölçeklendirmeye yönelik gerçek kapasitesini istediğiniz toouse, 1 TB yaklaşıyor veya büyük bir veri kümesi.
 
-İş yükü için en iyi DWU bulmak için öneriler:
+Bulma için öneriler, iş yükü için en iyi DWU hello:
 
 1. Geliştirme bir veri ambarı için daha küçük bir DWU performans düzeyi seçerek başlayın.  İyi bir başlangıç noktası DW400 veya DW200 ' dir.
-2. Uygulama performansı izleme, karşılaştırıldığında, gözlemlemek performans Dwu sayısı seçili gözlemleyebilirsiniz.
-3. Doğrusal ölçek üstlenerek gereksinimleriniz için en iyi performans düzeyine ulaşmak size ne kadar hızlı veya daha yavaş performans olacağını belirleyebilirsiniz.
-4. Artırın veya azaltın nasıl çok daha hızlı veya daha yavaş gerçekleştirmek için İş yükünüzün istediğiniz orantılı olarak Dwu sayısı. 
+2. Uygulama performansı izleme, seçili Dwu sayısı hello Gözlemleme, gözlemlemek toohello performans karşılaştırılan.
+3. Ne kadar hızlı veya daha yavaş performans, tooreach hello en iyi performansı düzeyi için gereksinimlerinizi doğrusal ölçek üstlenerek olacağını belirleyebilirsiniz.
+4. Artırma veya azaltma hello numarası oranı toohow çok daha hızlı veya daha yavaş Dwu, iş yükü tooperform istiyor. 
 5. İş gereksinimleriniz için en iyi performansı düzeyi ulaşana kadar ayarlamaları devam edin.
 
 > [!NOTE]
 >
-> İş işlem düğümleri arasında bölünebilir, sorgu performansı ile daha fazla paralelleştirme yalnızca artırır. Ölçeklendirme performansınızı değişmeyen olduğunu fark ederseniz, lütfen bizim performans verilerinizi düz olmayan şekilde dağıtılmış olup olmadığını veya çok miktarda veri taşıma giriş varsa denetlemek için makaleleri ayarlama denetleyin. 
+> Merhaba iş işlem düğümleri arasında bölünebilir, sorgu performansı ile daha fazla paralelleştirme yalnızca artırır. Ölçeklendirme performansınızı değişmeyen olduğunu fark ederseniz, lütfen bizim performans makaleleri toocheck verilerinizi düz olmayan şekilde dağıtılmış olup olmadığını veya çok miktarda veri taşıma giriş varsa ayarlama denetleyin. 
 
 ### <a name="when-should-i-scale-dwus"></a>Dwu zaman ölçeklendirmeniz gerekir?
-Dwu ölçeklendirme, aşağıdaki önemli senaryolar değiştirir:
+Dwu ölçeklendirme önemli senaryolar aşağıdaki hello değiştirir:
 
-1. Doğrusal olarak taramaları, toplamalar ve CTAS deyimleri için sistem performansını değiştirme
-2. PolyBase ile birlikte yüklenirken okuyucuları ve yazıcıları sayısını artırmayı
+1. Doğrusal olarak taramaları, toplamalar ve CTAS deyimleri hello sistem performansını değiştirme
+2. PolyBase ile birlikte yüklenirken okuyucuları ve yazıcıları Hello sayısını artırmayı
 3. Maksimum eş zamanlı sorgular ve eşzamanlılık yuva sayısı
 
-Zaman Dwu ölçeklemek önerileri:
+Ne zaman için öneriler tooscale Dwu:
 
 1. Çok miktarda verinin yüklendiği veya dönüştürüldüğü işlemi gerçekleştirmeden önce verilerinizin daha hızlı kullanılabilir olmasını sağlamak Dwu ölçeklendirin.
-2. Yoğun iş saatlerinde sayıda eş zamanlı sorguları uyacak şekilde ölçeklendirilir. 
+2. Yoğun iş saatlerinde tooaccommodate çok sayıda eş zamanlı sorguları ölçeklendirin. 
 
 <a name="pause-compute-bk"></a>
 
 ## <a name="pause-compute"></a>Duraklatma işlem
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-Bir veritabanı duraklatmak için tek tek bu yöntemlerden birini kullanın.
+bir veritabanı toopause tek tek bu yöntemlerden birini kullanın.
 
 * [Azure portal ile Duraklat işlem][Pause compute with Azure portal]
 * [PowerShell ile Duraklat işlem][Pause compute with PowerShell]
@@ -145,7 +145,7 @@ Bir veritabanı duraklatmak için tek tek bu yöntemlerden birini kullanın.
 ## <a name="resume-compute"></a>Resume işlem
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-Bir veritabanı sürdürmek için tek tek bu yöntemlerden birini kullanın.
+bir veritabanı tooresume tek tek bu yöntemlerden birini kullanın.
 
 * [Azure portal ile Sürdür işlem][Resume compute with Azure portal]
 * [PowerShell ile Sürdür işlem][Resume compute with PowerShell]
@@ -155,7 +155,7 @@ Bir veritabanı sürdürmek için tek tek bu yöntemlerden birini kullanın.
 
 ## <a name="check-database-state"></a>Veritabanı durumunu kontrol edin 
 
-Bir veritabanı sürdürmek için tek tek bu yöntemlerden birini kullanın.
+bir veritabanı tooresume tek tek bu yöntemlerden birini kullanın.
 
 - [T-SQL ile veritabanı durumunu kontrol edin][Check database state with T-SQL]
 - [PowerShell ile veritabanı durumunu kontrol edin][Check database state with PowerShell]
@@ -163,12 +163,12 @@ Bir veritabanı sürdürmek için tek tek bu yöntemlerden birini kullanın.
 
 ## <a name="permissions"></a>İzinler
 
-Veritabanı ölçeklendirme açıklanan izinleri gerektirir [ALTER DATABASE][ALTER DATABASE].  Duraklatma ve sürdürme gerektiren [SQL DB Katılımcısı] [ SQL DB Contributor] izni, özellikle Microsoft.Sql/servers/databases/action.
+Ölçeklendirme hello veritabanı açıklanan hello izinleri gerektirir [ALTER DATABASE][ALTER DATABASE].  Duraklatma ve sürdürme gerektiren hello [SQL DB Katılımcısı] [ SQL DB Contributor] izni, özellikle Microsoft.Sql/servers/databases/action.
 
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bazı ek anahtar performans kavramlarını anlamanıza yardımcı olması için aşağıdaki makalelere bakın:
+Bazı ek anahtar performans kavramları anlamanız makaleleri toohelp aşağıdaki toohello bakın:
 
 * [İş yükü ve eşzamanlılık Yönetimi][Workload and concurrency management]
 * [Tablo Tasarım genel bakış][Table design overview]

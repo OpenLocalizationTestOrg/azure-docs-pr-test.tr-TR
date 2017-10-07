@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage'da bir BLOB salt okunur anlık görüntü oluşturma | Microsoft Docs"
-description: "Zaman içinde belirli bir anda blob verileri yedeklemek için bir blobun bir anlık görüntü oluşturmayı öğrenin. Anlık görüntüler nasıl faturalandırılır ve bunların kapasite ücretleri en aza indirmek için nasıl kullanılacağını anlayın."
+title: "aaaCreate salt okunur anlık görüntüyü Azure storage'da bir BLOB | Microsoft Docs"
+description: "Bilgi nasıl toocreate anlık görüntüsünü blob verilerini zaman içinde belirli bir anda bir blob tooback. Anlık görüntüler faturalandırılır nasıl ve ne anlama toouse bunları toominimize kapasite giderler."
 services: storage
 documentationcenter: 
 author: mmacy
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: marsma
-ms.openlocfilehash: 6ebb77f4ec5f1887e5c55bf1c8c64224a9233654
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9e7af611e885d83df69d3329217f261b3f3f333e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-blob-snapshot"></a>Blob anlık görüntüsü oluşturma
 
 Bir anlık görüntüsü, bir noktada geçen süre içinde bir blob, salt okunur bir sürümüdür. Anlık görüntüler, BLOB'ları yedekleme için kullanışlıdır. Bir anlık görüntü oluşturduktan sonra okuma, kopyalama veya silin, ancak değişiklik yapamazsınız.
 
-Blob URI'si olan bir anlık görüntü bir BLOB kendi temel blob için aynıdır bir **DateTime** anlık görüntünün alındığı zaman belirtmek için URI blob eklenmiş değeri. Örneğin, URI bir sayfa blob ise `http://storagesample.core.blob.windows.net/mydrives/myvhd`, URI benzer anlık görüntü `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
+Aynı tooits temel blobu blob anlık görüntüsüdür, o hello blob dışında bir URI'ya sahip bir **DateTime** değeri toohello blob URI'si tooindicate hello zaman hangi Merhaba anlık görüntü alındığı eklenmiş. Örneğin, URI bir sayfa blob ise `http://storagesample.core.blob.windows.net/mydrives/myvhd`, hello anlık görüntü URI benzer çok`http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
 > [!NOTE]
-> Tüm anlık görüntüleri temel blob'un URI paylaşır. Temel blob ve anlık görüntü arasındaki tek fark eklenmiş olan **DateTime** değeri.
+> Tüm anlık görüntüleri hello temel blob'un URI paylaşır. Merhaba temel blob ve hello anlık görüntü arasında ayrım eklenmiş hello yalnızca hello **DateTime** değeri.
 >
 
-Bir blob herhangi bir sayıda anlık görüntü olabilir. Açıkça silinene kadar anlık görüntüleri kalıcı olmasını sağlar. Bir anlık görüntü, temel blob outlive olamaz. Geçerli anlık izlemek için temel blob ile ilişkili anlık görüntüleri sıralayabilirsiniz.
+Bir blob herhangi bir sayıda anlık görüntü olabilir. Açıkça silinene kadar anlık görüntüleri kalıcı olmasını sağlar. Bir anlık görüntü, temel blob outlive olamaz. Merhaba temel blob tootrack ile ilişkili hello anlık görüntüleri listeleme, geçerli anlık görüntüler.
 
-Bir blob görüntüsünü oluşturduğunuzda, blob'un Sistem özellikleri aynı değerleri anlık görüntü kopyalanır. Oluşturduğunuzda anlık görüntü için ayrı meta verileri belirtmediğiniz sürece temel blob'un meta veriler ayrıca anlık görüntüye kopyalanır.
+Bir blob görüntüsünü oluşturduğunuzda, blob'un Sistem özellikleri hello hello kopyalanan toohello anlık görüntü aynı değerlerdir. Merhaba oluşturduğunuzda anlık görüntü için ayrı meta verileri belirtmediğiniz sürece hello temel blob'un meta verileri de anlık görüntü, kopyalanan toohello oluşturur.
 
-Temel blob ile ilişkili kiraları anlık görüntü etkilemez. Bir anlık görüntü üzerinde bir kira edinemez.
+Merhaba temel blob ile ilişkili kiraları hello anlık görüntü etkilemez. Bir anlık görüntü üzerinde bir kira edinemez.
 
-Bir VHD dosyasının VM diskinin durumu ve geçerli bilgi depolamak için kullanılır. VM dahilinde bir diski kullanımdan çıkarın veya VM kapatma ve sonra VHD dosyasını bir anlık görüntüsünü. Daha sonra zamandaki o noktada VHD dosyasını alın ve VM yeniden oluşturmak için bu anlık görüntü dosyasını kullanabilirsiniz.
+Bir VHD kullanılan toostore hello geçerli bilgilerini ve VM diskinin durumu dosyasıdır. Merhaba VM bir diski kullanımdan çıkarın veya VM hello kapatın ve sonra VHD dosyasını bir anlık görüntüsünü. Bu anlık görüntü dosyasını kullanabilirsiniz sonraki tooretrieve hello VHD dosya zamandaki o noktada ve hello VM oluşturun.
 
-Depolama hizmeti şifreleme (SSE) blob bulunduğu için depolama hesabına etkinleştirilmişse bu blob geçen tüm anlık görüntüleri bekleyen şifrelenir.
+Merhaba depolama hesabı için depolama hizmeti şifreleme (SSE) etkinse, hangi hello blob bulunduğu, ardından o blob gerçekleştirilecek tüm anlık görüntüleri bekleyen şifrelenir.
 
 ## <a name="create-a-snapshot"></a>Bir anlık görüntü oluşturma
-Aşağıdaki kod örneği kullanarak bir anlık görüntü oluşturmak gösterilmiştir [.NET için Azure Storage istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/). Oluşturulduğunda bu örnek anlık görüntü için ek meta veri belirtir.
+Merhaba aşağıdaki kod örneğinde nasıl toocreate kullanarak bir anlık görüntü hello gösterilmektedir [.NET için Azure Storage istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/). Bu örnek, oluşturulduğunda hello anlık görüntü için ek meta veri belirtir.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 {
-    // Create a new block blob in the container.
+    // Create a new block blob in hello container.
     CloudBlockBlob baseBlob = container.GetBlockBlobReference("sample-base-blob.txt");
 
     // Add blob metadata.
@@ -54,15 +54,15 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
     try
     {
-        // Upload the blob to create it, with its metadata.
+        // Upload hello blob toocreate it, with its metadata.
         await baseBlob.UploadTextAsync(string.Format("Base blob: {0}", baseBlob.Uri.ToString()));
 
         // Sleep 5 seconds.
         System.Threading.Thread.Sleep(5000);
 
-        // Create a snapshot of the base blob.
-        // Specify metadata at the time that the snapshot is created to specify unique metadata for the snapshot.
-        // If no metadata is specified when the snapshot is created, the base blob's metadata is copied to the snapshot.
+        // Create a snapshot of hello base blob.
+        // Specify metadata at hello time that hello snapshot is created toospecify unique metadata for hello snapshot.
+        // If no metadata is specified when hello snapshot is created, hello base blob's metadata is copied toohello snapshot.
         Dictionary<string, string> metadata = new Dictionary<string, string>();
         metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
         await baseBlob.CreateSnapshotAsync(metadata, null, null, null);
@@ -79,95 +79,95 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 ## <a name="copy-snapshots"></a>Anlık görüntü kopyalama
 BLOB'ları ve anlık görüntüleri içeren kopyalama işlemleri bu kurallar izleyin:
 
-* Bir anlık görüntü, temel blob kopyalayabilirsiniz. Anlık görüntü temel blob konumuna yükselterek bir blob önceki bir sürümünü geri yükleyebilirsiniz. Anlık görüntü kalır, ancak temel blob üzerine yazılabilir bir anlık görüntü kopyası ile yazılır.
-* Hedef blob farklı ada sahip bir anlık görüntü kopyalayabilirsiniz. Sonuçta elde edilen hedef blob yazılabilir bir blob ve anlık görüntü olmayan ' dir.
-* Kaynak blob kopyalandığında, tüm anlık görüntüleri kaynak BLOB hedefe kopyalanmaz. Hedef blob bir kopya ile yazılır, özgün hedef blob ile ilişkili tüm anlık görüntüleri değişmeden kalır.
-* Bir blok blobu görüntüsünü oluşturduğunuzda, blob'un taahhüt engelleme listesi da anlık görüntüye kopyalanır. Herhangi bir kaydedilmeyen bloğu kopyalanmaz.
+* Bir anlık görüntü, temel blob kopyalayabilirsiniz. Anlık görüntü toohello konumunu hello temel blob yükselterek bir blob önceki bir sürümünü geri yükleyebilirsiniz. Merhaba anlık görüntü olarak kalır, ancak hello temel blob hello anlık görüntü yazılabilir bir kopyasını üzerine yazılır.
+* Bir anlık görüntü tooa hedef blob farklı bir adla kopyalayabilirsiniz. Merhaba elde edilen hedef blob yazılabilir bir blob ve anlık görüntü değil ' dir.
+* Kaynak blob kopyalandığında, tüm anlık görüntüleri hello kaynak BLOB kopyalanan toohello hedef olup olmadığı. Hedef blob bir kopya ile yazılır, hello özgün hedef blob ile ilişkili tüm anlık görüntüleri değişmeden kalır.
+* Bir blok blobu görüntüsünü oluşturduğunuzda, hello blob'un taahhüt engelleme listesine de kopyalanan toohello anlık görüntüsüdür. Herhangi bir kaydedilmeyen bloğu kopyalanmaz.
 
 ## <a name="specify-an-access-condition"></a>Bir erişim koşulu belirtin
-Çağırdığınızda [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], böylece yalnızca bir koşul karşılandığında anlık görüntü oluşturulduğunda bir erişim koşulu belirtebilirsiniz. Bir erişim koşulu belirtmek için kullanın [AccessCondition] [ dotnet_AccessCondition] parametresi. Belirtilen koşulu karşılanmadı, anlık görüntü oluşturulmadı ve Blob hizmeti durum kodunu döndüren [HTTPStatusCode][dotnet_HTTPStatusCode]. PreconditionFailed.
+Çağırdığınızda [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], böylece yalnızca bir koşul karşılandığında hello anlık görüntü oluşturulduğunda bir erişim koşulu belirtebilirsiniz. toospecify erişim koşulu kullanmak hello [AccessCondition] [ dotnet_AccessCondition] parametresi. Merhaba koşulu karşılanmadı, hello anlık görüntü oluşturulmadı ve hello Blob hizmeti durum kodu döndürdüğünde belirtilmişse [HTTPStatusCode][dotnet_HTTPStatusCode]. PreconditionFailed.
 
 ## <a name="delete-snapshots"></a>Anlık görüntüleri silin
-Anlık görüntüler aynı zamanda silinene kadar anlık görüntüleri içeren bir blobu silemezsiniz. Tek tek bir anlık görüntüyü silmek ya da kaynak blob silindiğinde tüm anlık görüntülerin silinmesi belirtin. Hala anlık görüntülere sahip bir blobu silmek çalışırsanız, bir hata oluşur.
+Merhaba anlık görüntüleri de silinene kadar anlık görüntüleri içeren bir blobu silemezsiniz. Tek tek bir anlık görüntüyü silmek veya hello kaynak blob silindiğinde tüm anlık görüntülerin silinmesi belirtin. Toodelete hala anlık görüntülere sahip bir blob denediğinizde bir hatayla sonuçlanır.
 
-Aşağıdaki kod örneği, bir blob ve .NET, kendi anlık görüntüleri silmek gösterilmiştir nerede `blockBlob` türünde bir nesne [CloudBlockBlob][dotnet_CloudBlockBlob]:
+Kod örnekteki nasıl aşağıdaki hello toodelete bir blob ve .NET, kendi anlık görüntülerini nerede `blockBlob` türünde bir nesne [CloudBlockBlob][dotnet_CloudBlockBlob]:
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
 ```
 
 ## <a name="snapshots-with-azure-premium-storage"></a>Azure Premium Storage ile anlık görüntüler
-Anlık görüntü Premium Storage ile kullanırken, aşağıdaki kurallar geçerlidir:
+Premium depolama ile anlık görüntülerini kullanarak kurallar aşağıdaki hello uygulayın:
 
-* Maksimum sayıda anlık görüntü premium depolama hesabındaki bir sayfa blobu başına 100'dür. Bu sınır aşılırsa, anlık görüntü Blob işlem hata kodu 409 döndürür (`SnapshotCountExceeded`).
-* Premium depolama hesabı her 10 dakikada bir sayfa blob'u görüntüsünü alabilir. Hızı aşılırsa, anlık görüntü Blob işlem hata kodu 409 döndürür (`SnapshotOperationRateExceeded`).
-* Bir anlık görüntü okumak için başka bir sayfa blobu hesabındaki bir anlık görüntü kopyalamak için Kopyala Blob işlemi kullanabilirsiniz. Kopyalama işleminin hedef blob mevcut tüm anlık görüntüleri olmaması gerekir. Hedef blob anlık görüntüleri sahip sonra Blob kopyalama işlemi hata kodunu 409 döndürür (`SnapshotsPresent`).
+* Merhaba Maksimum sayıda anlık görüntü premium depolama hesabındaki bir sayfa blobu başına 100'dür. Bu sınır aşılırsa, hata kodu 409 hello anlık görüntü Blob işlemi döndürür (`SnapshotCountExceeded`).
+* Premium depolama hesabı her 10 dakikada bir sayfa blob'u görüntüsünü alabilir. Hızı aşılırsa, hata kodu 409 hello anlık görüntü Blob işlemi döndürür (`SnapshotOperationRateExceeded`).
+* bir anlık görüntü tooread, hello hesabında hello kopyalama Blob işlemi toocopy bir anlık görüntü tooanother sayfa blobu kullanabilirsiniz. Merhaba hedef blob hello kopyalama işlemi için var olan tüm anlık görüntüleri olmaması gerekir. Merhaba hedef blob anlık görüntüleri sahip sonra hello Blob kopyalama işlemi hata kodu 409 döndürür (`SnapshotsPresent`).
 
-## <a name="return-the-absolute-uri-to-a-snapshot"></a>Bir anlık görüntü mutlak URI dön
-Bu C# kod örneği, bir anlık görüntü oluşturur ve birincil konumu için mutlak URI çıkışı yazar.
+## <a name="return-hello-absolute-uri-tooa-snapshot"></a>Dönüş hello mutlak URI tooa anlık görüntü
+Bu C# kod örneği bir anlık görüntü oluşturur ve hello Yazar hello birincil konumu için mutlak URI.
 
 ```csharp
-//Create the blob service client object.
+//Create hello blob service client object.
 const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
 
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-//Get a reference to a container.
+//Get a reference tooa container.
 CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 container.CreateIfNotExists();
 
-//Get a reference to a blob.
+//Get a reference tooa blob.
 CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
 blob.UploadText("This is a blob.");
 
-//Create a snapshot of the blob and write out its primary URI.
+//Create a snapshot of hello blob and write out its primary URI.
 CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
 Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 ```
 
 ## <a name="understand-how-snapshots-accrue-charges"></a>Nasıl anlık görüntüleri ücretler tahakkuk anlama
-Bir blob salt okunur bir kopyası olan, bir anlık görüntü oluşturma hesabınıza ek veri depolama ücretlere neden olabilir. Uygulamanızı tasarlarken, böylece maliyetleri en aza indirebilirsiniz nasıl bu ücretler tahakkuk haberdar olmanız önemlidir.
+Bir blob salt okunur bir kopyası olan, bir anlık görüntü oluşturma ek veri depolama ücretleri tooyour hesabında neden olabilir. Uygulamanızı tasarlarken, böylece maliyetleri en aza indirebilirsiniz nasıl bu ücretler tahakkuk farkında önemli toobe olur.
 
 ### <a name="important-billing-considerations"></a>Fatura ile ilgili önemli noktalar
-Aşağıdaki listede, bir anlık görüntü oluştururken dikkate alınması gereken önemli noktaları içerir.
+liste aşağıdaki hello bir anlık görüntü oluşturulurken önemli noktaları tooconsider içerir.
 
-* Blob veya anlık görüntü olup depolama hesabınızın benzersiz blokları veya sayfalar için ücret doğurur. Hesabınız, bunlar temel alır blob güncelleştirilene kadar blob ile ilişkili anlık görüntüler için ek ücretler uygulanır değil. Temel blob güncelleştirdikten sonra anlık görüntülerden kareninkinden. Bu gerçekleştiğinde, benzersiz blokları veya her bir blob veya anlık görüntü sayfalarında için ücretlendirilirsiniz.
-* Bir blok blobu blokta değiştirdiğinizde, bu blok sonradan benzersiz bloğu olarak ücretlendirilir. Anlık görüntüdeki olduğu gibi blok aynı blok Kimliğini ve aynı verilere sahip olsa bile bu geçerlidir. Blok kaydedildikten sonra yine, kendisine karşılık gelen hiçbir anlık görüntüdeki gelen kareninkinden ve verileri için sizden ücret alınır. Aynı aynı verilerle güncelleştirilir bir sayfa blob'u içinde bir sayfa için geçerlidir.
-* Bir blok blobu çağırarak değiştirme [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], veya [UploadFromByteArray] [ dotnet_UploadFromByteArray] yöntemi blob tüm bloklarında değiştirir. Bu blob ile ilişkili bir anlık görüntü varsa, tüm blokların anlık görüntü ve temel blob şimdi ayırmak ve hem BLOB'ları tüm bloklarında için ücretlendirilir. Temel blob ve anlık görüntü verileri aynı kalır olsa bile bu geçerlidir.
-* Azure Blob hizmetine iki blokları özdeş veriler içeren olup olmadığını belirlemek için bir yol yok. Aynı veri ve aynı blok kimliğe sahip olsa bile karşıya ve kaydedilen her bloğu benzersiz olarak kabul edilir Benzersiz blokları için Ücret tahakkuk olduğundan, ek benzersiz blokları ve ek ücretlere anlık görüntü sonuçlarında sahip bir blob güncelleştirme dikkate almak önemlidir.
+* Merhaba blob veya hello anlık görüntü olup depolama hesabınızın benzersiz blokları veya sayfalar için ücret doğurur. Hesabınızı hello Kabarcık bunlar temel alır güncelleştirilene kadar blob ile ilişkili anlık görüntüler için ek ücretler uygulanır değil. Merhaba temel blob güncelleştirdikten sonra anlık görüntülerden kareninkinden. Bu gerçekleştiğinde, hello benzersiz blokları veya her bir blob veya anlık görüntü sayfalarında için ücretlendirilirsiniz.
+* Bir blok blobu blokta değiştirdiğinizde, bu blok sonradan benzersiz bloğu olarak ücretlendirilir. Merhaba blok aynı kimliği engelleme ve aynı hello hello olsa bile bu geçerlidir veriler hello anlık sahip. Merhaba blok kaydedildikten sonra yine, kendisine karşılık gelen hiçbir anlık görüntüdeki gelen kareninkinden ve verileri için sizden ücret alınır. Merhaba aynı aynı verilerle güncelleştirilir bir sayfa blob'u içinde bir sayfa için geçerlidir.
+* Bir blok blobu tarafından arama hello değiştirme [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream] [ dotnet_UploadFromStream], veya [UploadFromByteArray] [ dotnet_UploadFromByteArray] yöntemi hello blob tüm bloklarında değiştirir. Bu blob ile ilişkili bir anlık görüntü varsa, tüm bloklarında hello temel blob ve anlık görüntü şimdi ayırmak ve hem BLOB'ları tüm hello bloklarında için ücretlendirilir. Merhaba temel blob ve hello anlık görüntü Hello verileri aynı kalır olsa bile bu geçerlidir.
+* iki özdeş veriler içeren olup olmadığını hello Azure Blob hizmeti anlamına gelir toodetermine sahip değil. Karşıya yüklenen ve kaydedilen her bloğu benzersiz olarak kabul edilir, sahip hello olsa bile aynı veri ve hello aynı kimliği engelle Benzersiz blokları için Ücret tahakkuk, bir anlık görüntüsü bir blob güncelleştirme ek benzersiz blokları ve ek ücretlere sonuçları önemli tooconsider demektir.
 
 ### <a name="minimize-cost-with-snapshot-management"></a>Anlık Görüntü Yönetimi ile maliyeti en aza indir
 
-Dikkatli bir şekilde ek ücretlerden kaçınmak için anlık görüntüleri yönetme öneririz. Anlık görüntü Depolama tarafından maliyetleri en aza indirmek için bu en iyi uygulamaları takip edebilirsiniz:
+Anlık görüntüleri dikkatle yönetme öneririz tooavoid ek giderleri. Toohelp tarafından hello depolama, anlık görüntü hello maliyetleri en aza bu en iyi uygulamaları takip edebilirsiniz:
 
-* Silin ve blob güncelleştirdiğinizde Uygulama tasarımınız anlık görüntüleri tutmak gerektirmedikçe aynı verilerle güncelleştirdiğiniz olsa bile bir blob ile ilişkili anlık görüntüleri yeniden oluşturun. Silme ve blob'un anlık görüntü yeniden oluşturma, anlık görüntüler ve blob değil ayırmak emin olabilirsiniz.
-* Bir blob için anlık görüntü bakımı, arama kaçının. [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], veya [UploadFromByteArray] [ dotnet_UploadFromByteArray] blob güncelleştirmek için. Bu yöntemler tüm temel blob ve önemli ölçüde ayırmak için anlık görüntüleri neden blob bloklarında değiştirin. Bunun yerine, bloğu en az olası sayısı kullanarak güncelleştirme [PutBlock] [ dotnet_PutBlock] ve [PutBlockList] [ dotnet_PutBlockList] yöntemleri.
+* Silin ve hello blob güncelleştirdiğinizde Uygulama tasarımınız anlık görüntüleri tutmak gerektirmedikçe aynı verilerle güncelleştirdiğiniz olsa bile bir blob ile ilişkili anlık görüntüleri yeniden oluşturun. Silme ve hello blob'un anlık yeniden oluşturmayı hello blob ve anlık görüntüleri değil ayırmak emin olabilirsiniz.
+* Bir blob için anlık görüntü bakımı, arama kaçının. [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [ UploadFromStream][dotnet_UploadFromStream], veya [UploadFromByteArray] [ dotnet_UploadFromByteArray] tooupdate hello blob. Bu yöntemler tüm temel blob ve anlık görüntüleri toodiverge önemli ölçüde neden hello blob hello bloklarında değiştirin. Bunun yerine, güncelleştirme hello blokları olası en az sayıda hello kullanarak [PutBlock] [ dotnet_PutBlock] ve [PutBlockList] [ dotnet_PutBlockList] yöntemleri.
 
 ### <a name="snapshot-billing-scenarios"></a>Anlık görüntü senaryoları faturalama
-Bir blok blobu ve onun anlık görüntüleri için nasıl ücretler tahakkuk aşağıdaki senaryolar gösterilmektedir.
+Aşağıdaki senaryolar hello nasıl bir blok blobu ve onun anlık görüntüleri için Ücret tahakkuk göstermektedir.
 
 **Senaryo 1**
 
-Anlık görüntü alındıktan sonra yalnızca benzersiz blokları için 1, 2 ve 3 ücretler tahakkuk eden şekilde Senaryo 1'de, temel blob güncelleştirilmemiş.
+Başlangıç anlık görüntü alındıktan sonra yalnızca benzersiz blokları için 1, 2 ve 3 ücretler tahakkuk eden şekilde Senaryo 1'de, hello temel blob güncelleştirilmemiş.
 
 ![Azure Storage kaynakları](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
 
 **Senaryo 2**
 
-2. senaryo, temel blob güncelleştirildi ancak anlık görüntüye sahip değil. Blok 3 güncelleştirildi ve aynı veri ve aynı kimliği içeriyor olsa bile, onu anlık görüntüdeki 3 engelleme aynı değil. Sonuç olarak, hesap için dört blokları doludur.
+Senaryo 2, hello temel blob güncelleştirildi ancak hello anlık görüntü sahip değil. Blok 3 güncelleştirildi ve içerdiği olsa bile aynı veri hello ve aynı kimliği Merhaba, 3 hello anlık görüntüdeki engelleme aynı hello değil. Sonuç olarak, hello hesap için dört blokları doludur.
 
 ![Azure Storage kaynakları](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
 
 **Senaryo 3**
 
-Senaryo 3, temel blob güncelleştirildi ancak anlık görüntüye sahip değil. Blok 3 temel blob 4 bloğunda ile değiştirildi, ancak anlık görüntü hala Blok 3 yansıtır. Sonuç olarak, hesap için dört blokları doludur.
+Senaryo 3, hello temel blob güncelleştirildi ancak hello anlık görüntü sahip değil. Blok 3 hello temel blob 4 bloğunda ile değiştirildi, ancak hello anlık görüntü hala Blok 3 yansıtır. Sonuç olarak, hello hesap için dört blokları doludur.
 
 ![Azure Storage kaynakları](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 
 **Senaryo 4**
 
-Senaryo 4, temel blob tamamen güncelleştirildi ve kendi özgün blokları hiçbiri içerir. Sonuç olarak, hesap için tüm sekiz benzersiz blokları doludur. Bir güncelleştirme yöntemi gibi kullanıyorsanız, bu senaryo ortaya çıkabilir [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], veya [UploadFromByteArray][dotnet_UploadFromByteArray], bu yöntemler tüm blob içeriğinin değiştirin.
+Senaryo 4, hello temel blob tamamen güncelleştirildi ve kendi özgün blokları hiçbiri içerir. Sonuç olarak, hello hesabı için tüm sekiz benzersiz blokları doludur. Bir güncelleştirme yöntemi gibi kullanıyorsanız, bu senaryo ortaya çıkabilir [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [ UploadFromStream][dotnet_UploadFromStream], veya [UploadFromByteArray][dotnet_UploadFromByteArray], bu yöntemler tüm blob Merhaba içeriğine değiştirmek.
 
 ![Azure Storage kaynakları](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
@@ -175,7 +175,7 @@ Senaryo 4, temel blob tamamen güncelleştirildi ve kendi özgün blokları hiç
 
 * Sanal makine (VM) disk anlık görüntüleri ile çalışma hakkında daha fazla bilgi bulabilirsiniz [artımlı anlık görüntüleri ile Azure yönetilmeyen VM diskleri yedekleme](storage-incremental-snapshots.md)
 
-* BLOB storage kullanarak ek kod örnekleri için bkz: [Azure Kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Örnek uygulamayı indirin ve çalıştırın veya github'daki kod göz atın.
+* BLOB storage kullanarak ek kod örnekleri için bkz: [Azure Kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Örnek uygulamayı indirin ve çalıştırın veya hello kodu github'da göz atın.
 
 [dotnet_AccessCondition]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.accesscondition.aspx
 [dotnet_CloudBlockBlob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx

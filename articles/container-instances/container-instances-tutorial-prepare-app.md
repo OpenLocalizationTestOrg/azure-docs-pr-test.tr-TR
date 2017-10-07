@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Instances öğreticisi - Uygulamanızı hazırlama | Azure Docs"
-description: "Azure Container Instances’a dağıtılacak uygulamayı hazırlama"
+title: "aaaAzure kapsayıcı örnekleri Öğreticisi - uygulamanızı hazırlama | Azure belgeleri"
+description: "Bir uygulama dağıtım tooAzure kapsayıcı örnekleri için hazırlama"
 services: container-instances
 documentationcenter: 
 author: seanmck
@@ -17,44 +17,44 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 167297e10eed11833623ff797e676ad43c65f9ad
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 406ba796e5fefb1527f2e894cc3f7bbd8f7a5fd1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-container-for-deployment-to-azure-container-instances"></a>Azure Container Instances’a dağıtılacak kapsayıcıyı oluşturma
+# <a name="create-container-for-deployment-tooazure-container-instances"></a>Dağıtım tooAzure kapsayıcı örnekleri için kapsayıcı oluşturma
 
 Azure Container Instances, Docker kapsayıcılarının herhangi bir sanal makine sağlama veya herhangi bir üst düzey hizmet benimsenmesi gerekmeden Azure altyapısına dağıtılmasını sağlar. Bu öğreticide, Node.js içinde basit bir web uygulaması oluşturacak ve bu uygulamayı Azure Container Instances kullanılarak çalıştırılabilir bir kapsayıcıda paketleyeceksiniz. Şu konular yer almaktadır:
 
 > [!div class="checklist"]
 > * GitHub’dan uygulama kaynağını kopyalama  
 > * Uygulama kaynağından kapsayıcı görüntüsü oluşturma
-> * Görüntüleri yerel bir Docker ortamında test etme
+> * Merhaba görüntüleri yerel bir Docker ortamında test etme
 
-Sonraki öğreticilerde, görüntülerinizi Azure Container Registry’ye yükleyecek ve Azure Container Instances’a dağıtacaksınız.
+Sonraki öğreticilerde, görüntü tooan Azure kapsayıcı kayıt defteri karşıya yükleyin ve ardından bunları tooAzure kapsayıcı örneği dağıtın.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 Bu öğreticide kapsayıcılar, kapsayıcı görüntüleri ve temel docker komutları gibi temel Docker kavramları hakkında bilgi sahibi olduğunuz varsayılmıştır. Gerekirse kapsayıcı temelleri hakkında bilgi için bkz. [Docker ile çalışmaya başlama]( https://docs.docker.com/get-started/). 
 
-Bu öğreticiyi tamamlamak için Docker geliştirme ortamı gerekir. Docker, [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) veya [Linux](https://docs.docker.com/engine/installation/#supported-platforms)’ta Docker’ı kolayca yapılandırmanızı sağlayan paketler sağlar.
+toocomplete Bu öğreticide, bir Docker geliştirme ortamı gerekir. Docker, [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) veya [Linux](https://docs.docker.com/engine/installation/#supported-platforms)’ta Docker’ı kolayca yapılandırmanızı sağlayan paketler sağlar.
 
 ## <a name="get-application-code"></a>Uygulama kodunu alma
 
-Bu öğreticideki örnek, [Node.js](http://nodejs.org) ile yapılmış basit bir web uygulaması içerir. Uygulama bir statik HTML sayfası sunar ve şöyle görünür:
+Bu öğreticide Hello örnek içeren yerleşik basit bir web uygulaması [Node.js](http://nodejs.org). Merhaba uygulama bir statik HTML sayfası sunar ve şöyle görünür:
 
 ![Tarayıcıda gösterilen öğretici uygulama][aci-tutorial-app]
 
-Örneği indirmek için git kullanma:
+Git toodownload hello örneği kullanın:
 
 ```bash
 git clone https://github.com/Azure-Samples/aci-helloworld.git
 ```
 
-## <a name="build-the-container-image"></a>Kapsayıcı görüntüsünü oluşturma
+## <a name="build-hello-container-image"></a>Merhaba kapsayıcı yansıması oluştur
 
-Örnek deposunda sağlanan Dockerfile, kapsayıcının nasıl yapılandırıldığını gösterir. Kapsayıcılarla kullanmaya uygun küçük bir dağıtım olan [Alpine Linux](https://alpinelinux.org/) tabanlı [resmi bir Node.js görüntüsünden][dockerhub-nodeimage] başlatılır. Ardından uygulama dosyalarını kapsayıcıya kopyalar, Node Package Manager’ı kullanarak bağımlılıkları yükler ve son olarak uygulamayı başlatır.
+Merhaba hello örnek deposuna sağlanan Dockerfile hello kapsayıcı nasıl yapılandırıldığını gösterir. Gelen başlatır bir [resmi Node.js görüntü] [ dockerhub-nodeimage] göre [Alpine Linux](https://alpinelinux.org/), kapsayıcılarla uygun toouse olan küçük bir dağıtımı. Ardından hello kapsayıcıya hello uygulama dosyalarını kopyalar, hello düğüm paketi Yöneticisi kullanarak bağımlılıkları yükler ve son olarak hello uygulamayı başlatır.
 
 ```
 FROM node:8.2.0-alpine
@@ -65,13 +65,13 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Kapsayıcı görüntüsünü oluşturmak için `docker build` komutunu kullanın ve görüntüyü *aci-tutorial-app* olarak etiketleyin:
+Kullanım hello `docker build` olarak etiketleme komutu toocreate hello kapsayıcı görüntüsü, *aci öğretici uygulama*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-Yerleşik görüntüyü görmek için `docker images` komutunu kullanın:
+Kullanım hello `docker images` toosee yerleşik hello görüntü:
 
 ```bash
 docker images
@@ -84,31 +84,31 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-## <a name="run-the-container-locally"></a>Kapsayıcıyı yerel olarak çalıştırma
+## <a name="run-hello-container-locally"></a>Merhaba kapsayıcı yerel olarak çalıştırma
 
-Kapsayıcıyı Azure Container Instances’a dağıtmayı denemeden önce yerel olarak çalıştırarak çalışır durumda olduğunu doğrulayın. `-d` anahtarı kapsayıcının arka planda çalışmasını sağlar. `-p` ise işleminizdeki rastgele bağlantı noktalarından birini kapsayıcının 80 numaralı bağlantı noktasına eşlemenizi sağlar.
+Merhaba kapsayıcı tooAzure kapsayıcı örnekleri dağıtma denemeden önce yerel olarak çalıştırma çalıştığını tooconfirm. Merhaba `-d` anahtar hello arka planda çalışan hello kapsayıcı sağlar ancak `-p` toomap, işlem tooport 80 hello kapsayıcısında rastgele bir bağlantı noktası sağlar.
 
 ```bash
 docker run -d -p 8080:80 aci-tutorial-app
 ```
 
-Kapsayıcının çalışır durumda olduğunu doğrulamak için tarayıcıda http://localhost:8080 adresine gidin.
+Kapsayıcı hello açık hello tarayıcı toohttp://localhost:8080 tooconfirm çalışıyor.
 
-![Uygulamayı tarayıcıda yerel olarak çalıştırma][aci-tutorial-app-local]
+![Merhaba tarayıcıda yerel olarak çalışan hello uygulama][aci-tutorial-app-local]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure Container Instances’a dağıtılabilir bir kapsayıcı görüntüsü oluşturdunuz. Aşağıdaki adımlar tamamlandı:
+Bu öğreticide, dağıtılan tooAzure kapsayıcı örnekleri olabilir bir kapsayıcı görüntüsü oluşturuldu. Aşağıdaki adımları hello tamamlandı:
 
 > [!div class="checklist"]
-> * GitHub’dan uygulama kaynağını kopyalama  
+> * Merhaba Uygulama kaynağı github'dan kopyalama  
 > * Uygulama kaynağından kapsayıcı görüntüsü oluşturma
-> * Kapsayıcıyı yerel olarak test etme
+> * Merhaba kapsayıcı yerel olarak test etme
 
-Kapsayıcı görüntülerini bir Azure Container Registry’de depolama hakkında bilgi edinmek için sonraki öğreticiye geçin.
+Kapsayıcı görüntüleri bir Azure kapsayıcı kayıt defterine depolama hakkında toohello sonraki öğretici toolearn ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry’ye görüntüleri gönderme](./container-instances-tutorial-prepare-acr.md)
+> [Anında iletme görüntüleri tooAzure kapsayıcı kayıt defteri](./container-instances-tutorial-prepare-acr.md)
 
 <!-- LINKS -->
 [dockerhub-nodeimage]: https://hub.docker.com/r/library/node/tags/8.2.0-alpine/

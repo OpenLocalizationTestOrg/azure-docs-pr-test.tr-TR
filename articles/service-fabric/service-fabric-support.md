@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric destek seçenekleri hakkında bilgi edinin | Microsoft Docs"
-description: "Azure Service Fabric kümesi sürümleri desteklenir ve dosya bağlantılarını biletleri destekleyen"
+title: "Azure Service Fabric destek seçenekleri hakkında aaaLearn | Microsoft Docs"
+description: "Azure Service Fabric kümesi sürümleri desteklenir ve toofile destek biletlerini bağlantılar"
 services: service-fabric
 documentationcenter: .net
 author: pkc
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: pkc
-ms.openlocfilehash: 78e68cff3a757cbbcd8dc6f53120e6a4af54591a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 42394e2cd9dad2040d37d3a2ff3600ee040d8720
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric destek seçenekleri
 
-Uygulama iş yükleri çalıştıran, Service Fabric kümeleri için uygun desteği teslim etmek için size çeşitli seçenekler oluşturdunuz. Gerekli destek düzeyini ve sorunun önem derecesini bağlı olarak, doğru seçenekler çekme alın. 
+üzerinde uygulama çalışmanızı çalıştırıyorsanız, Service Fabric kümeleri için toodeliver hello uygun desteği yükler, biz için çeşitli seçenekler oluşturdunuz. Destek düzeyine bağlı olarak Hello gereken ve hello önem hello sorunun hello sağ seçenekleri toopick alın. 
 
 
 <a id="getlivesitesupportonazure"></a>
@@ -50,46 +50,46 @@ Daha fazla bilgi edinin:
 
 <a id="getsupportonissues"></a>
 ## <a name="report-azure-service-fabric-issues"></a>Rapor Azure Service Fabric sorunları 
-Biz Service Fabric sorunları raporlama için GitHub deposuna oluşturdunuz.  Biz de etkin bir şekilde aşağıdaki forumları izlemekte olduğunuz.
+Biz Service Fabric sorunları raporlama için GitHub deposuna oluşturdunuz.  Biz de etkin bir şekilde forumları aşağıdaki hello izlemekte olduğunuz.
 
 ### <a name="github-repo"></a>GitHub depo 
-Azure Service Fabric sorunların rapor [Service Fabric sorunların git deposuna](https://github.com/Azure/service-fabric-issues). Bu depodaki raporlama ve sorunları küçük özellik istekleri yapmak için Azure Service Fabric ile izleme yöneliktir. **Bu rapor Canlı site sorunları kullanmayın**.
+Azure Service Fabric sorunların rapor [Service Fabric sorunların git deposuna](https://github.com/Azure/service-fabric-issues). Bu depodaki raporlama ve sorunları küçük özellik istekleri yapmak için Azure Service Fabric ile izleme yöneliktir. **Bu tooreport Canlı site sorunları kullanmayın**.
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow ve MSDN Forumları
 
-[StackOverflow Service Fabric etiketinde] [ stackoverflow] ve [Service Fabric MSDN Forumu] [ msdn-forum] sorular hakkında nasıl sormak için kullanılan en iyi olan Platform çalışır ve bazı görevlerle nasıl yapabilirsiniz.
+Merhaba [StackOverflow Service Fabric etiketinde] [ stackoverflow] ve hello [Service Fabric MSDN Forumu] [ msdn-forum] hakkında sorular sormak için kullanılan en iyi olan Merhaba platform nasıl çalıştığını ve bazı görevlerle nasıl yapabilirsiniz.
 
 ### <a name="azure-feedback-forum"></a>Azure görüş Forumu
 
-[Azure Service Fabric için geri bildirim Forumunda] [ uservoice-forum] biz en popüler isteklerini gözden geçirirken ürün için sahip büyük özellik fikirleri uzun vadeli planlama için bizim Orta parçası olan göndermek için en iyi yerdir. Topluluk içinde önerilerinizi desteği rally öneririz.
+Merhaba [Azure Service Fabric için geri bildirim Forumunda] [ uservoice-forum] biz hello en popüler isteklerini gözden geçirirken hello ürün için sahip büyük özellik fikirleri bizim Orta toolong terim parçası olan göndermek için hello en iyi yerdir planlama. Önerilerinizi hello topluluk içinde toorally desteği öneririz.
 
 
 <a id="releasesuport"></a>
 ## <a name="supported-service-fabric-versions"></a>Desteklenen Service Fabric sürümleri.
 
-Kümenizi, desteklenen bir Service Fabric sürümü her zaman çalışır durumda olduğundan emin olun. Gibi ve size yeni bir Service Fabric sürümü sunmaktan olduğunda, önceki sürümü en az 60 gün o tarihten sonra destek sonu için işaretlenir. Yeni sürümler duyurulur [Service Fabric ekip blogunda](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Kümenizi, desteklenen bir Service Fabric sürümü her zaman çalışır durumda olduğundan emin olun. Gibi ve biz hello Service Fabric yeni bir sürümü sunmaktan zaman hello önceki sürümü en az 60 gün o tarihten sonra destek sona ermesi için işaretlenir. Merhaba yeni sürümler duyurulur [hello Service Fabric ekip blogunda](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
-Desteklenen bir Service Fabric sürümünü çalıştıran kümenizi tutmak hakkında ayrıntılar aşağıdaki belgelere bakın.
+Belgeler hakkında ayrıntılar üzerinde aşağıdaki toohello başvuran tookeep kümenizi desteklenen bir Service Fabric sürümünü çalıştırıyor.
 
 - [Bir Azure kümede yükseltme Service Fabric sürümü](service-fabric-cluster-upgrade.md)
 - [Tek başına windows server kümesi Service Fabric sürümüne yükseltme](service-fabric-cluster-upgrade-windows-server.md)
  
-Desteklenen Service Fabric sürümlerinin listesini ve bunların destek bitiş tarihlerini aşağıda verilmiştir.
+Hello desteklenir hello Service Fabric sürümlerinin listesini ve bunların destek bitiş tarihlerini aşağıda verilmiştir.
 
 | **Service Fabric çalışma kümesi** | **Uyumlu SDK / NuGet paketi sürümleri** | **Destek tarih sonu** |
 | --- | --- | --- |
-| Tüm küme 5.3.121'den önceki sürümleri |Sürüm 2.3 küçük veya eşit |20 Ocak 2017 |
-| 5.3.* |Sürüm 2.3 küçük veya eşit |24 Şubat 2017 |
-| 5.4.* |Sürüm 2.4 küçük veya eşit |10,2017 olabilir     |
-| 5.5.* |Sürüm 2.5 küçük veya eşit |Ağustos 10,2017    |
-| 5.6.* |Sürüm 2.6 küçük veya eşit |Ekim 13,2017    |
-| 5.7.* |Sürüm 2.7 küçük veya eşit |Geçerli sürüm ve dolayısıyla bitiş tarihi
+| Tüm sürümleri önceki too5.3.121 küme |Küçüktür veya eşittir tooversion 2.3 |20 Ocak 2017 |
+| 5.3.* |Küçüktür veya eşittir tooversion 2.3 |24 Şubat 2017 |
+| 5.4.* |Küçüktür veya eşittir tooversion 2.4 |10,2017 olabilir     |
+| 5.5.* |Küçüktür veya eşittir tooversion 2,5 |Ağustos 10,2017    |
+| 5.6.* |Küçüktür veya eşittir tooversion 2.6 |Ekim 13,2017    |
+| 5.7.* |Küçüktür veya eşittir tooversion 2.7 |Geçerli sürüm ve dolayısıyla bitiş tarihi
 
 <a id="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric Önizleme sürümlerini - üretim kullanımı için desteklenmiyor.
-Zaman zaman önizlemeleri sunulan, geri bildirim istiyoruz önemli özellikleri olan sürümleri bırakın. Bu önizleme sürümleri yalnızca sınama amacıyla kullanılmalıdır. Üretim kümenizi her zaman bir desteklenen ve kararlı, Service Fabric sürümünü çalıştırması gerekir. Önizleme sürümü her zaman 255 birincil ve ikincil sürüm numarası ile başlar. Örneğin, Service Fabric sürümü 255.255.5703.949 görürseniz, bu sürümü yalnızca test kümelerde kullanılacak ve önizleme aşamasındadır. Bu önizleme sürümleri de üzerinde duyurulur [Service Fabric ekip blogu](https://blogs.msdn.microsoft.com/azureservicefabric) ve dahil edilen özellikler ayrıntıları sahip olacaktır.
+Zaman tootime önizlemeleri sunulan, geri bildirim istiyoruz önemli özellikleri olan sürümleri bırakın. Bu önizleme sürümleri yalnızca sınama amacıyla kullanılmalıdır. Üretim kümenizi her zaman bir desteklenen ve kararlı, Service Fabric sürümünü çalıştırması gerekir. Önizleme sürümü her zaman 255 birincil ve ikincil sürüm numarası ile başlar. Örneğin, Service Fabric sürümü 255.255.5703.949 görürseniz, bu sürümü yalnızca toobe Önizleme aşamasındadır ve test kümelerinde kullanılan olur. Bu önizleme sürümleri de üzerinde hello duyurulur [Service Fabric ekip blogu](https://blogs.msdn.microsoft.com/azureservicefabric) ve ayrıntıları dahil hello özellikleri sahip olacaktır.
 
-Bu önizleme sürümleri için Ücretli destek seçeneği yoktur. Altında listelenen seçeneklerden birini kullanın [rapor Azure Service Fabric sorunları](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) sorular sormak veya görüş bildirin.
+Bu önizleme sürümleri için Ücretli destek seçeneği yoktur. Altında listelenen hello seçeneklerinden birini [rapor Azure Service Fabric sorunları](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) tooask sorular veya görüş bildirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

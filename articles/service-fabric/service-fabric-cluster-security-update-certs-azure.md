@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure Service Fabric kümesindeki sertifikaları yönetme | Microsoft Docs"
-description: "Yeni sertifikalar, geçiş sertifikası eklemek ve sertifika için veya bir Service Fabric kümesinden kaldırmak açıklar."
+title: "Azure Service Fabric kümesi aaaManage sertifikaları | Microsoft Docs"
+description: "Service Fabric kümesinden tooor tooadd yeni sertifikalar, geçiş sertifikası ve Kaldır nasıl sertifika açıklar."
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: chackdan
-ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8e57bd95dbb800ecc04cf6988047e3abdc2fe56a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Ekleme veya Azure Service Fabric kümesi için sertifikaları kaldırın
-Service Fabric'ın X.509 sertifikaları nasıl kullandığı tanımak ve hakkında bilgi sahibi olmanız önerilir [küme güvenlik senaryoları](service-fabric-cluster-security.md). Anlamanız gerekir hangi küme sertifika ve devam etmeden önce ne için kullanılır.
+Service Fabric'ın X.509 sertifikaları nasıl kullandığı tanımak ve hello ile ilgili bilgi sahibi olmanız önerilir [küme güvenlik senaryoları](service-fabric-cluster-security.md). Anlamanız gerekir hangi küme sertifika ve devam etmeden önce ne için kullanılır.
 
-Service fabric, istemci sertifikalarını yanı sıra küme oluşturma sırasında sertifika güvenliği yapılandırdığınızda iki küme sertifikalar, birincil ve ikincil bir belirtmenize olanak sağlar. Başvurmak [Portalı aracılığıyla azure bir küme oluşturma](service-fabric-cluster-creation-via-portal.md) veya [Azure Resource Manager aracılığıyla azure bir küme oluşturma](service-fabric-cluster-creation-via-arm.md) oluşturma süresi sırasında ayarlama ile ilgili ayrıntılar için. Yalnızca bir küme sertifika belirtirseniz, zaman oluşturmak, sonra birincil sertifikası olarak kullanılır. Küme oluşturulduktan sonra ikincil olarak yeni bir sertifika ekleyebilirsiniz.
+Yapılandırdığınızda sertifikalar, birincil ve ikincil bir iki küme belirtmenizi Service fabric sağlar, ayrıca tooclient sertifikalarda küme oluşturma sırasında güvenlik sertifika. Çok başvuran[Portalı aracılığıyla azure bir küme oluşturma](service-fabric-cluster-creation-via-portal.md) veya [Azure Resource Manager aracılığıyla azure bir küme oluşturma](service-fabric-cluster-creation-via-arm.md) oluşturma süresi sırasında ayarlama ile ilgili ayrıntılar için. Yalnızca bir küme sertifika belirtirseniz, zaman oluşturabilir, ardından, hello birincil sertifikası olarak kullanılır. Küme oluşturulduktan sonra ikincil olarak yeni bir sertifika ekleyebilirsiniz.
 
 > [!NOTE]
-> Güvenli bir küme için her zaman en az bir geçerli (değil iptal edilmiş ve süresi dolan değil) küme dağıtılan sertifika (birincil veya ikincil) (değilse, çalışan küme durur) gerekir. süre sonu, tüm geçerli sertifikaların düşmeden önce 90 gün sistem, bir uyarı izleme ve ayrıca bir uyarı sistem durumu olayı düğümde oluşturur. Şu anda hiçbir e-posta veya var. Bu konuyla ilgili service fabric gönderir herhangi bir bildirim 
+> Güvenli bir küme için her zaman en az bir geçerli (değil iptal edilmiş ve süresi dolan değil) küme sertifika'ni (birincil veya ikincil) dağıtılan gerekir (değilse, hello küme çalışmamaya başlar). süre sonu, tüm geçerli sertifikaların düşmeden önce 90 gün hello sistem, bir uyarı izleme ve ayrıca bir uyarı sistem durumu olayı hello düğümde oluşturur. Şu anda hiçbir e-posta veya var. Bu konuyla ilgili service fabric gönderir herhangi bir bildirim 
 > 
 > 
 
-## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Portalı kullanarak bir ikincil küme sertifika Ekle
+## <a name="add-a-secondary-cluster-certificate-using-hello-portal"></a>Merhaba portalı kullanarak bir ikincil küme sertifika Ekle
 
-Azure portalı üzerinden ikincil küme sertifika eklenemiyor. Azure powershell için kullanmak zorunda. İşlem, bu belgenin sonraki bölümlerinde gösterilmiştir.
+İkincil küme sertifika hello Azure portal eklenemez. Sahip olduğunuz toouse Azure powershell söz konusu. Merhaba işlemi, bu belgenin sonraki bölümlerinde gösterilmiştir.
 
-## <a name="swap-the-cluster-certificates-using-the-portal"></a>Portalı kullanarak küme sertifikaları değiştirme
+## <a name="swap-hello-cluster-certificates-using-hello-portal"></a>Merhaba küme sertifikaları Hello portal kullanarak değiştirme
 
-Birincil ve ikincil değiştirmek istiyorsanız bir ikincil küme sertifika başarıyla dağıttıktan sonra güvenlik dikey penceresine gidin ve bağlam menüsünden birincil sertifika ile ikincil cert takas 'Birincil ile değiştirme' seçeneğini belirleyin.
+Birincil ve ikincil tooswap hello istiyorsanız bir ikincil küme sertifika başarıyla dağıttıktan sonra toohello güvenlik dikey gidin ve hello bağlam menüsü tooswap hello ikincil sertifikayla hello 'Birincil ile değiştirme' seçeneği seçin Merhaba birincil sertifika.
 
 ![Sertifika değiştirme][Delete_Swap_Cert]
 
-## <a name="remove-a-cluster-certificate-using-the-portal"></a>Portalı kullanarak bir küme sertifikayı Kaldır
+## <a name="remove-a-cluster-certificate-using-hello-portal"></a>Merhaba portalı kullanarak bir küme sertifikayı Kaldır
 
-Güvenli bir küme için (dağıtılan en az bir geçerli değil iptal edilmiş ve süresi dolan değil) sertifika (birincil veya ikincil) her zaman gerekir aksi durumda, küme çalışmayı durdurur.
+Güvenli bir küme için (dağıtılan en az bir geçerli değil iptal edilmiş ve süresi dolan değil) sertifika (birincil veya ikincil) her zaman gerekir aksi durumda, hello küme çalışmayı durdurur.
 
-İçin küme güvenlik, güvenlik dikey penceresine gitmek için kullanılan ikincil bir sertifikayı kaldırın ve ikincil sertifika bağlam menüsünden 'Delete' seçeneğini belirleyin.
+tooremove küme güvenlik, Bul toohello güvenlik dikey ve select hello 'Delete' seçeneği hello bağlam menüsünden hello ikincil sertifika kullanılmasını ikincil bir sertifika.
 
-Maksadınızı birincil olarak işaretlenmiş sertifikayı kaldırmak için ise, ikincil kopya ilk değiştirme ve yükseltme tamamlandıktan sonra ikincil silmek gerekir.
+Maksadınızı tooswap gerekir, birincil olarak işaretlenmiş tooremove hello sertifika ise ile ilk ikincil hello ve hello ikincil hello yükseltme tamamlandıktan sonra silin.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Resource Manager Powershell kullanarak bir ikincil sertifika Ekle
 
-Bu adımları, Kaynak Yöneticisi'ni nasıl çalıştığını iyi ve en az bir Resource Manager şablonu kullanarak bir Service Fabric kümesi dağıttıysanız ve kullanışlı kümesi için kullanılan şablonu varsayalım. JSON kullanarak rahat olduğu da varsayılır.
+Bu adımları, Kaynak Yöneticisi'ni nasıl çalıştığını iyi ve en az bir Resource Manager şablonu kullanarak bir Service Fabric kümesi dağıttıysanız ve hello kümesi kullanışlı tooset kullanılan hello şablonuna sahip varsayalım. JSON kullanarak rahat olduğu da varsayılır.
 
 > [!NOTE]
-> Örnek bir şablon ve boyunca veya bir başlangıç noktası olarak izlemek için kullanabileceğiniz parametreler arıyorsanız sonra buradan indirin [git deposuna](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
+> Örnek bir şablon ve toofollow boyunca veya bir başlangıç noktası olarak kullanabileceğiniz parametreler arıyorsanız sonra buradan indirin [git deposuna](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
 > 
 > 
 
 ### <a name="edit-your-resource-manager-template"></a>Kaynak Yöneticisi şablonunuzu düzenleyin
 
-Aşağıdaki boyunca kolaylığı için örnek 5-VM-1-NodeTypes-Secure_Step2.JSON biz yapmadan tüm düzenlemeleri içerir. Örnek şu adresten edinilebilir [git deposuna](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
+Aşağıdaki boyunca kolaylığı için örnek 5-VM-1-NodeTypes-Secure_Step2.JSON biz yapmadan tüm hello düzenlemeleri içerir. Merhaba örnek şu adreste [git deposuna](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
 
-**Tüm adımları izlediğinizden emin olun**
+**Tüm hello adımları toofollow emin olun**
 
-**1. adım:** küme dağıtmak için kullanılan Resource Manager şablonu açın. (Yukarıdaki depoyu örnek indirdiyseniz, güvenli bir küme dağıtmak için 5-VM-1-NodeTypes-Secure_Step1.JSON kullanın ve bu şablonu açın).
+**1. adım:** , küme toodeploy kullanılan hello Resource Manager şablonu açın. (Merhaba örnek deposuna yukarıda hello yüklediyseniz 5-VM-1-NodeTypes-Secure_Step1.JSON toodeploy güvenli bir küme kullanın ve bu şablonu açın).
 
-**2. adım:** Ekle **iki yeni parametreler** "secCertificateThumbprint" ve "secCertificateUrlValue", şablonunuzun parametre bölümüne "dize" yazın. Aşağıdaki kod parçacığını kopyalayın ve şablonuna ekleyin. Şablonunuzu kaynak bağlı olarak bu, tanımlanan şekilde sonraki adımına geçmek zaten olabilir. 
+**2. adım:** Ekle **iki yeni parametreler** "secCertificateThumbprint" ve "secCertificateUrlValue" türü "dize" toohello parametresi bölümü. Aşağıdaki kod parçacığını hello kopyalayın ve toohello şablonu ekleyin. Bağlı olarak Hello kaynak şablonunuzun zaten bu tanımlanan sahip, bu durumda toohello sonraki adım taşıma. 
  
 ```JSON
    "secCertificateThumbprint": {
@@ -77,13 +77,13 @@ Aşağıdaki boyunca kolaylığı için örnek 5-VM-1-NodeTypes-Secure_Step2.JSO
     "secCertificateUrlValue": {
       "type": "string",
       "metadata": {
-        "description": "Refers to the location URL in your key vault where the certificate was uploaded, it is should be in the format of https://<name of the vault>.vault.azure.net:443/secrets/<exact location>"
+        "description": "Refers toohello location URL in your key vault where hello certificate was uploaded, it is should be in hello format of https://<name of hello vault>.vault.azure.net:443/secrets/<exact location>"
       }
     },
 
 ```
 
-**3. adım:** değişiklik yapma **Microsoft.ServiceFabric/clusters** kaynak - şablonunuzda "Microsoft.ServiceFabric/clusters" kaynak tanımı'nı bulun. Bu tanım özellikleri altında "Sertifika" JSON bulacaksınız aşağıdaki JSON parçacığı gibi görünmelidir etiketi:
+**3. adım:** toohello değişiklik yapma **Microsoft.ServiceFabric/clusters** kaynak - şablonunuzda hello "Microsoft.ServiceFabric/clusters" kaynak tanımı bulun. Bu tanım özellikleri altında "Sertifika" JSON bulacaksınız hello JSON parçacığı aşağıdaki gibi görünmelidir etiketi:
 
    
 ```JSON
@@ -96,7 +96,7 @@ Aşağıdaki boyunca kolaylığı için örnek 5-VM-1-NodeTypes-Secure_Step2.JSO
 
 Yeni bir etiket "thumbprintSecondary" ekleyin ve "[parameters('secCertificateThumbprint')]" bir değer verin.  
 
-Kaynak tanımı aşağıdaki gibi görünmelidir artık bunu (kaynağınız şablona bağlı olarak, aşağıdaki parçacığı gibi tam olarak olmayabilir). 
+Merhaba kaynak tanımı hello aşağıdaki gibi görünmelidir artık bunu (kaynağınız hello şablonu bağlı olarak, tam olarak hello gibi aşağıdaki parçacığı olmayabilir). 
 
 ```JSON
       "properties": {
@@ -107,7 +107,7 @@ Kaynak tanımı aşağıdaki gibi görünmelidir artık bunu (kaynağınız şab
      }
 ``` 
 
-İsterseniz **rollover cert**, ardından yeni sertifika birincil olarak belirtin ve geçerli birincil ikincil olarak taşıma. Bu, geçerli birincil sertifikanızı rollover içinde bir dağıtım adımı yeni sertifikayı sonuçlanır.
+Çok istiyorsanız**rollover hello cert**, ikincil olarak birincil ve taşıma hello geçerli birincil olarak hello yeni sertifika belirtin. Bu, geçerli birincil sertifika toohello yeni sertifikanızı tek bir dağıtım adımda hello geçişi sonuçlanır.
 
 ```JSON
       "properties": {
@@ -119,13 +119,13 @@ Kaynak tanımı aşağıdaki gibi görünmelidir artık bunu (kaynağınız şab
 ``` 
 
 
-**4. adım:** değişiklik yapma **tüm** **Microsoft.Compute/virtualMachineScaleSets** kaynak tanımları - Microsoft.Compute/virtualMachineScaleSets kaynak bulun tanımı. "Publisher" gidin: "Microsoft.Azure.ServiceFabric" altında "virtualMachineProfile".
+**4. adım:** değişiklik yapma çok**tüm** hello **Microsoft.Compute/virtualMachineScaleSets** kaynak tanımları - hello Microsoft.Compute/virtualMachineScaleSets kaynak bulun tanımı. Kaydırma toohello "publisher": "Microsoft.Azure.ServiceFabric" altında "virtualMachineProfile".
 
-Service fabric yayımcı ayarlarında şöyle bir şey görmeniz gerekir.
+Merhaba service fabric yayımcı ayarlarında, şöyle bir şey görmeniz gerekir.
 
 ![Json_Pub_Setting1][Json_Pub_Setting1]
 
-Yeni sertifika girişler ekleyin
+Merhaba yeni sertifika girişleri tooit Ekle
 
 ```JSON
                "certificateSecondary": {
@@ -136,11 +136,11 @@ Yeni sertifika girişler ekleyin
 
 ```
 
-Özellikleri artık aşağıdaki gibi görünmelidir
+Merhaba özellikleri artık aşağıdaki gibi görünmelidir
 
 ![Json_Pub_Setting2][Json_Pub_Setting2]
 
-İsterseniz **rollover cert**, ardından yeni sertifika birincil olarak belirtin ve geçerli birincil ikincil olarak taşıma. Bu, geçerli sertifikanızı rollover içinde bir dağıtım adımı yeni sertifikayı sonuçlanır. 
+Çok istiyorsanız**rollover hello cert**, ikincil olarak birincil ve taşıma hello geçerli birincil olarak hello yeni sertifika belirtin. Bu, geçerli sertifika toohello yeni sertifikanızı tek bir dağıtım adımda hello geçişi sonuçlanır. 
 
 
 ```JSON
@@ -155,17 +155,17 @@ Yeni sertifika girişler ekleyin
                   },
 
 ```
-Özellikleri artık aşağıdaki gibi görünmelidir
+Merhaba özellikleri artık aşağıdaki gibi görünmelidir
 
 ![Json_Pub_Setting3][Json_Pub_Setting3]
 
 
-**5. adım:** değişiklik yapma **tüm** **Microsoft.Compute/virtualMachineScaleSets** kaynak tanımları - Microsoft.Compute/virtualMachineScaleSets kaynak bulun tanımı. "VaultCertificates" gidin:, "OSProfile" altında. Bu gibi görünmelidir.
+**5. adım:** çok değişiklik**tüm** hello **Microsoft.Compute/virtualMachineScaleSets** kaynak tanımları - hello Microsoft.Compute/virtualMachineScaleSets kaynak bulun tanımı. Toohello "vaultCertificates" kaydırma:, "OSProfile" altında. Bu gibi görünmelidir.
 
 
 ![Json_Pub_Setting4][Json_Pub_Setting4]
 
-SecCertificateUrlValue ekleyin. Aşağıdaki kod parçacığında kullanın:
+Merhaba secCertificateUrlValue tooit ekleyin. Aşağıdaki kod parçacığında hello kullan:
 
 ```Json
                   {
@@ -174,35 +174,35 @@ SecCertificateUrlValue ekleyin. Aşağıdaki kod parçacığında kullanın:
                   }
 
 ```
-Sonuçta elde edilen Json aşağıdakine benzer görünmelidir.
+Json kaynaklanan hello aşağıdakine benzer görünmelidir.
 ![Json_Pub_Setting5][Json_Pub_Setting5]
 
 
 > [!NOTE]
-> 4 ve 5 tüm Nodetypes/Microsoft.Compute/virtualMachineScaleSets kaynak tanımlarında şablonunuzda yinelenen olduğundan emin olun. Bunlardan birini kaçırılması durumunda, sertifika üzerinde VMSS ve öngörülemeyen sonuçlara (, küme güvenlik için kullanabileceğiniz geçerli sertifika şunun; giderek küme de dahil olmak üzere kümenizdeki sahip yüklenmemiş Bu nedenle çift, devam etmeden önce lütfen denetleyin.
+> 4 ve 5 tüm hello Nodetypes/Microsoft.Compute/virtualMachineScaleSets kaynak tanımlarında şablonunuzda yinelenen olduğundan emin olun. Bunlardan birini kaçırılması durumunda hello sertifika üzerinde bu VMSS yüklenmemiş ve (, bu hello küme güvenlik için kullanabilirsiniz. geçerli sertifika şunun; giderek hello küme de dahil olmak üzere kümenizdeki öngörülemeyen sonuçlara gerekir Bu nedenle çift, devam etmeden önce lütfen denetleyin.
 > 
 > 
 
 
-### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Şablon dosyanızın yukarıya eklenen yeni parametreleri yansıtacak şekilde düzenleyin
-Örnekten kullanıyorsanız [git deposuna](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) izlemek için örnek 5-VM-1-NodeTypes-Secure.paramters_Step2.JSON içinde değişiklik başlatmak için 
+### <a name="edit-your-template-file-tooreflect-hello-new-parameters-you-added-above"></a>Yukarıda eklediğiniz şablon dosyası tooreflect hello yeni parametrelerinizi Düzenle
+Merhaba hello örnekten kullanıyorsanız [git deposuna](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) toofollow bunların, hello örnek 5-VM-1-NodeTypes-Secure.paramters_Step2.JSON içinde toomake değişiklikleri başlatabilirsiniz. 
 
-Resource Manager şablonu parametreniz dosya düzenleme, secCertificateThumbprint ve secCertificateUrlValue için iki yeni parametreleri ekleyin. 
+Resource Manager şablonu parametreniz dosya düzenleme, hello iki yeni parametrelerini secCertificateThumbprint ve secCertificateUrlValue ekleyin. 
 
 ```JSON
     "secCertificateThumbprint": {
       "value": "thumbprint value"
     },
     "secCertificateUrlValue": {
-      "value": "Refers to the location URL in your key vault where the certificate was uploaded, it is should be in the format of https://<name of the vault>.vault.azure.net:443/secrets/<exact location>"
+      "value": "Refers toohello location URL in your key vault where hello certificate was uploaded, it is should be in hello format of https://<name of hello vault>.vault.azure.net:443/secrets/<exact location>"
      },
 
 ```
 
-### <a name="deploy-the-template-to-azure"></a>Şablon Azure'a dağıtma
+### <a name="deploy-hello-template-tooazure"></a>Merhaba şablonu tooAzure dağıtma
 
-- Şimdi şablonunuzu Azure'da dağıtmak hazırsınız. Bir Azure PS sürüm 1 + komut istemi açın.
-- Azure hesabınızda oturum açın ve belirli azure aboneliğini seçin. Bu, birden fazla azure aboneliği erişen çok kişi için önemli bir adımdır.
+- Artık hazır toodeploy şablonu tooAzure şunlardır. Bir Azure PS sürüm 1 + komut istemi açın.
+- Tooyour Azure hesabı oturum ve hello belirli azure aboneliğini seçin. Bu, bir azure aboneliği daha erişim toomore sahip çok kişi için önemli bir adımdır.
 
 ```powershell
 Login-AzureRmAccount
@@ -210,17 +210,17 @@ Select-AzureRmSubscription -SubscriptionId <Subcription ID>
 
 ```
 
-Şablonu dağıtmadan önce test edin. Kümeniz için dağıtılan aynı kaynak grubunu kullanın.
+Test hello şablon önceki toodeploying onu. Kullanım hello kümenizi halen dağıtılmış durumda aynı kaynak grubu.
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-Şablon, kaynak grubuna dağıtın. Kümeniz için dağıtılan aynı kaynak grubunu kullanın. New-AzureRmResourceGroupDeployment komutunu çalıştırın. Varsayılan değer olduğundan modunu belirtmek gerekmez **artımlı**.
+Merhaba şablonu tooyour kaynak grubuna dağıtın. Kullanım hello kümenizi halen dağıtılmış durumda aynı kaynak grubu. Merhaba New-AzureRmResourceGroupDeployment komutunu çalıştırın. Merhaba varsayılan değer olduğundan toospecify hello modu gerekmez **artımlı**.
 
 > [!NOTE]
-> Mod tamamlandı olarak ayarlarsanız, şablonunuzda olmayan kaynakları yanlışlıkla silebilirsiniz. Bu nedenle bu senaryoda kullanmayın.
+> Mod tooComplete ayarlarsanız, şablonunuzda olmayan kaynakları yanlışlıkla silebilirsiniz. Bu nedenle bu senaryoda kullanmayın.
 > 
 > 
 
@@ -228,7 +228,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
-Aynı powershell doldurulmuş bir örneği burada verilmiştir.
+Örneği burada verilmiştir bir doldurulmuş hello aynı powershell.
 
 ```powershell
 $ResouceGroup2 = "chackosecure5"
@@ -239,17 +239,17 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $ResouceGroup2 -TemplatePa
 
 ```
 
-Dağıtım tamamlandıktan sonra yeni sertifikayı kullanarak, kümeye bağlanın ve bazı sorgular gerçekleştirebilir. Yapabileceklerinizi varsa. Sonra eski sertifika silebilirsiniz. 
+Merhaba dağıtım tamamlandıktan sonra küme tooyour kullanarak bağlanan yeni bir sertifika hello ve bazı sorgular gerçekleştirebilir. Mümkün toodo varsa. Ardından hello eski sertifika silebilirsiniz. 
 
-Kendinden imzalı bir sertifika kullanıyorsanız, yerel TrustedPeople sertifika deponuza almayı unutmayın.
+Kendinden imzalı bir sertifika kullanıyorsanız, tooimport unutmayın, yerel TrustedPeople sertifika deposuna bunları.
 
 ```powershell
-######## Set up the certs on your local box
+######## Set up hello certs on your local box
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath c:\Mycertificates\chackdanTestCertificate9.pfx -Password (ConvertTo-SecureString -String abcd123 -AsPlainText -Force)
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath c:\Mycertificates\chackdanTestCertificate9.pfx -Password (ConvertTo-SecureString -String abcd123 -AsPlainText -Force)
 
 ```
-Hızlı başvuru için güvenli bir kümeye bağlanmak için komutu İşte 
+Hızlı başvuru için hello komutu tooconnect tooa güvenli küme İşte 
 
 ```powershell
 $ClusterName= "chackosecure5.westus.cloudapp.azure.com:19000"
@@ -263,37 +263,37 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreLocation CurrentUser `
     -StoreName My
 ```
-Hızlı başvuru için küme durumu almak için komutu aşağıda verilmiştir
+Hızlı başvuru için işte hello komutu tooget küme durumu
 
 ```powershell
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-application-certificates-to-the-cluster"></a>Uygulama sertifikalarını kümeye dağıtma.
+## <a name="deploying-application-certificates-toohello-cluster"></a>Uygulama sertifikaları toohello kümesini dağıtma.
 
-Keyvault düğümlere dağıtılan sertifikaları sağlamak için yukarıdaki adımları 5'te özetlendiği gibi aynı adımları kullanabilirsiniz. yalnızca tanımlanır ve farklı parametrelerini kullanın.
+Adım 5'te bir keyvault toohello düğümleri dağıtılan toohave hello sertifikalarının yukarıda özetlendiği gibi aynı adımları hello kullanabilirsiniz. yalnızca tanımlanır ve farklı parametrelerini kullanın.
 
 
 ## <a name="adding-or-removing-client-certificates"></a>Ekleme veya istemci sertifikaları kaldırma
 
-Küme sertifikalara ek olarak, service fabric kümesi yönetim işlemlerini gerçekleştirmek için istemci sertifikaları ekleyebilirsiniz.
+Toplama toohello küme sertifikalarda istemci sertifikaları tooperform yönetim işlemlerini service fabric kümesi ekleyebilirsiniz.
 
-İstemci sertifikalarını - yönetici iki tür ekleyebilirsiniz veya salt okunur. Bunlar daha sonra küme üzerinde sorgu işlemleri ve yönetim işlemleri erişimi denetlemek için kullanılabilir. Varsayılan olarak, küme sertifikaları ve izin verilen yönetici sertifikalar listesine eklenir.
+İstemci sertifikalarını - yönetici iki tür ekleyebilirsiniz veya salt okunur. Bunlar ardından kullanılan toocontrol erişim toohello yönetici işlemleri ve sorgu işlemleri hello kümede olabilir. Varsayılan olarak, hello küme sertifikaları toohello izin verilen yönetici sertifikalar listesine eklenir.
 
-istemci sertifikalarını herhangi bir sayıda belirtebilirsiniz. Service fabric kümesi için yapılandırma güncelleştirmesi içinde her eklendiği/silindiği sonuçları
+istemci sertifikalarını herhangi bir sayıda belirtebilirsiniz. Bir yapılandırma güncelleştirme toohello service fabric kümesi her eklendiği/silindiği sonuçları
 
 
 ### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>İstemci sertifikalarını - yönetici ekleme veya salt okunur Portalı aracılığıyla
 
-1. Güvenlik dikey penceresine gidin ve '+ kimlik doğrulama' düğmesini güvenlik dikey pencerenin en üstünde.
-2. ' Kimlik doğrulama türü' - 'Salt okunur istemci' veya 'Yönetici istemci' 'Kimlik doğrulama Ekle' dikey penceresinde seçin
-3. Şimdi yetkilendirme yöntemi seçin. Bu, Service Fabric, bu sertifikayı konu adı veya parmak izini kullanarak araması gerektiğini olup olmadığını gösterir. Genel olarak, bu konu adının yetkilendirme yöntemi kullanmak için en iyi güvenlik yöntemi değildir. 
+1. Toohello güvenlik dikey gidin ve seçin hello '+ kimlik doğrulama' hello güvenlik dikey üstünde düğmesi.
+2. Merhaba 'Kimlik doğrulama türü' - 'Salt okunur istemci' veya 'Yönetici istemci' Hello 'Kimlik doğrulama Ekle' dikey penceresinde, seçin
+3. Şimdi hello yetkilendirme yöntemi seçin. Bu, bu sertifikayı hello konu adı veya hello parmak izini kullanarak görünmelidir olup olmadığını tooService doku gösterir. Genel olarak, bu konu adı iyi güvenlik uygulaması toouse hello yetkilendirme yöntemi değil. 
 
 ![İstemci sertifikası ekleme][Add_Client_Cert]
 
-### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>İstemci sertifikalarının - yönetici veya salt okunur Portalı'nı kullanarak silme
+### <a name="deletion-of-client-certificates---admin-or-read-only-using-hello-portal"></a>İstemci sertifikalarını - yönetici veya salt okunur kullanarak silinmesini hello portalı
 
-İçin küme güvenlik, güvenlik dikey penceresine gitmek için kullanılan ikincil bir sertifikayı kaldırın ve belirli bir sertifika bağlam menüsünden 'Delete' seçeneğini belirleyin.
+tooremove küme güvenlik, Bul toohello güvenlik dikey ve select hello 'Delete' seçeneği hello bağlam menüsünden hello belirli sertifika kullanılmasını ikincil bir sertifika.
 
 
 

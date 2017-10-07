@@ -1,6 +1,6 @@
 ---
-title: "Giriş Wingtip SaaS - Azure SQL veritabanı çok kiracılı uygulama | Microsoft Docs"
-description: "Azure SQL Database, Wingtip SaaS uygulama kullanan örnek bir çok kiracılı uygulama kullanarak bilgi edinin"
+title: "aaaIntro Wingtip SaaS - Azure SQL veritabanı çok kiracılı uygulama | Microsoft Docs"
+description: "Azure SQL Database, hello Wingtip SaaS uygulama kullanan örnek bir çok kiracılı uygulama kullanarak bilgi edinin"
 keywords: "sql veritabanı öğreticisi"
 services: sql-database
 author: stevestein
@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: sstein
-ms.openlocfilehash: 6d4a5df599137e95ca5458fae74b8daa565b0338
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: daeed293116fca22718831b780533be6ef2ad178
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-the-wingtip-saas-application"></a>Wingtip SaaS uygulamasına giriş
+# <a name="introduction-toohello-wingtip-saas-application"></a>Giriş toohello Wingtip SaaS uygulaması
 
-*Wingtip SaaS* SQL veritabanı benzersiz avantajları gösteren örnek bir çok kiracılı uygulama, bir uygulamadır. Uygulama, birden fazla kiracıya hizmet vermek için SaaS uygulama düzeni olan kiracı başına veritabanını kullanır. Uygulama, birçok SaaS tasarım ve yönetim desenleri dahil olmak üzere, SaaS senaryoları etkinleştirmek Azure SQL veritabanı özelliklerini göstermek için tasarlanmıştır. Hızlıca başlamak ve çalıştırmak için beş dakikadan daha kısa bir süre içinde Wingtip SaaS uygulamayı dağıtır!
+Merhaba *Wingtip SaaS* hello benzersiz SQL veritabanı avantajları gösteren örnek bir çok kiracılı uygulama, bir uygulamadır. Merhaba uygulama birden çok Kiracı veritabanı-başına-Kiracı, SaaS uygulama düzeni tooservice kullanır. Merhaba, SaaS senaryoları, birçok SaaS tasarım ve yönetim desenleri de dahil olmak üzere Azure SQL veritabanı'nın tasarlanmış tooshowcase özellikleri uygulamasıdır. tooquickly hale getirmek ve çalışan, hello Wingtip SaaS uygulamayı beş dakikadan daha kısa bir süre içinde dağıtır!
 
-Uygulama kaynak kodu ve yönetim komut dosyaları kullanılabilir [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github depo. Komut dosyalarını çalıştırmak için [indirme öğrenme modülleri klasörü](#download-and-unblock-the-wingtip-saas-scripts) yerel bilgisayarınıza.
+Uygulama kaynak kodu ve yönetim komut dosyaları hello kullanılabilir [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github depo. toorun hello komut dosyaları, [indirme hello öğrenme modülleri klasörü](#download-and-unblock-the-wingtip-saas-scripts) tooyour yerel bilgisayar.
 
 ## <a name="sql-database-wingtip-saas-tutorials"></a>SQL veritabanı Wingtip SaaS öğreticileri
 
-Uygulamayı dağıttıktan sonra ilk dağıtım sırasında yapı aşağıdaki öğreticileri keşfedin. SQL veritabanı, SQL veri ambarı ve diğer Azure hizmetleriyle yerleşik özelliklerden yararlanmak ortak SaaS desenler bu öğreticileri keşfedin. Öğreticiler anlama ve uygulamalarınızda aynı SaaS Yönetimi desenleri uygulama büyük ölçüde kolaylaştırma ayrıntılı açıklamalar, PowerShell komut dosyaları içerir.
+Merhaba uygulama dağıttıktan sonra hello ilk dağıtım sırasında yapı öğreticileri aşağıdaki hello keşfedin. SQL veritabanı, SQL veri ambarı ve diğer Azure hizmetleriyle yerleşik özelliklerden yararlanmak ortak SaaS desenler bu öğreticileri keşfedin. Uygulama hello uygulamalarınızda aynı SaaS Yönetimi desenleri ve öğreticiler anlama, büyük ölçüde kolaylaştırma ayrıntılı açıklamalar, PowerShell komut dosyaları içerir.
 
 
 | Öğretici | Açıklama |
 |:--|:--|
-|[Dağıtma ve Wingtip SaaS uygulamasına keşfedin](sql-database-saas-tutorial.md)| **BURADAN BAŞLAYIN!** Dağıtma ve Azure aboneliğinize Wingtip SaaS uygulamasına keşfedin. |
-|[Sağlama ve Katalog kiracılar](sql-database-saas-tutorial-provision-and-catalog.md)| Uygulama Kataloğu veritabanı kullanarak kiracılara nasıl bağlandığını ve Katalog kiracılar verilerini nasıl eşlendiğini öğrenin. |
-|[İzleme ve performansı yönetme](sql-database-saas-tutorial-performance-monitoring.md)| SQL veritabanı'nın İzleme özelliklerini kullanmayı ve performans eşikler aşıldığında uyarıları ayarlamak nasıl öğrenin. |
-|[Günlük analizi (OMS) ile izleme](sql-database-saas-tutorial-log-analytics.md) | Kullanma hakkında bilgi edinin [günlük analizi](../log-analytics/log-analytics-overview.md) kaynakları, büyük miktarlarda birden çok havuzlardaki izlemek için. |
-|[Tek bir kiracı geri yükleme](sql-database-saas-tutorial-restore-single-tenant.md)| Bir kiracı veritabanı zaman içinde önceki bir noktaya geri öğrenin. Varolan Kiracı veritabanı çevrimiçi bırakarak paralel bir veritabanına geri yükleme için adımlar da dahil edilir. |
-|[Kiracı şema yönetme](sql-database-saas-tutorial-schema-management.md)| Şemayı Güncelleştir ve tüm Wingtip SaaS kiracılar arasında başvuru verileri güncelleştirmek hakkında bilgi edinin. |
+|[Dağıtma ve Merhaba Wingtip SaaS uygulaması keşfedin](sql-database-saas-tutorial.md)| **BURADAN BAŞLAYIN!** Dağıtma ve hello Wingtip SaaS uygulama tooyour Azure aboneliği keşfedin. |
+|[Sağlama ve Katalog kiracılar](sql-database-saas-tutorial-provision-and-catalog.md)| Kiracı tootheir veri hello katalog nasıl eşlendiğini ve hello uygulama Kataloğu veritabanı kullanarak tootenants nasıl bağlandığını öğrenin. |
+|[İzleme ve performansı yönetme](sql-database-saas-tutorial-performance-monitoring.md)| Nasıl toouse İzleme özelliklerini öğrenin SQL veritabanı ve nasıl tooset ne zaman uyaracağını performans eşikleri aşıldığında. |
+|[Günlük analizi (OMS) ile izleme](sql-database-saas-tutorial-log-analytics.md) | Kullanma hakkında bilgi edinin [günlük analizi](../log-analytics/log-analytics-overview.md) toomonitor büyük miktarlarda birden çok havuz arasında kaynağı. |
+|[Tek bir kiracı geri yükleme](sql-database-saas-tutorial-restore-single-tenant.md)| Nasıl toorestore Kiracı veritabanı tooa önceki bir nokta öğrenin. Adımları toorestore tooa paralel veritabanı, bırakma hello varolan Kiracı veritabanı çevrimiçi de dahildir. |
+|[Kiracı şema yönetme](sql-database-saas-tutorial-schema-management.md)| Nasıl tooupdate şema ve güncelleştirme tüm Wingtip SaaS kiracılar arasında veri başvuru öğrenin. |
 |[Geçici analizler çalıştırır](sql-database-saas-tutorial-adhoc-analytics.md) | Bir geçici analytics veritabanı oluşturun ve tüm kiracılar arasında gerçek zamanlı dağıtılmış sorgular çalıştırın.  |
 |[Kiracı analizler çalıştırır](sql-database-saas-tutorial-tenant-analytics.md) | Kiracı veri ambarında çevrimdışı analitik sorguları çalıştırmak için bir analytics veritabanı veya veri ayıklayın. |
 
@@ -45,69 +45,69 @@ Uygulamayı dağıttıktan sonra ilk dağıtım sırasında yapı aşağıdaki �
 
 ## <a name="application-architecture"></a>Uygulama mimarisi
 
-Wingtip SaaS uygulama Kiracı başına veritabanı modeli kullanır ve verimliliğini en üst düzeye çıkarmak için SQL esnek havuzu kullanır. Sağlama ve verilerine eşleme kiracılar için bir katalog veritabanı kullanılır. Wingtip SaaS uygulamasına çekirdek üç örnek kiracılar havuzuyla yanı sıra, Katalog veritabanı kullanır. Öğreticiler eklentileri ilk dağıtıma neden Wingtip SaaS çoğunu Tamamlanıyor, analitik veritabanları sunarak veritabanları arası şema yönetimi, vb..
+Merhaba Wingtip SaaS uygulama hello Kiracı başına veritabanı modeli kullanır ve SQL esnek havuzu toomaximize verimliliği kullanır. Katalog veritabanına sağlama ve kiracılar tootheir verileri eşleştirmesi için kullanılır. Merhaba çekirdek Wingtip SaaS uygulama havuzu üç örnek kiracılar artı hello Katalog veritabanı ile kullanır. Wingtip SaaS öğreticileri eklentileri toohello ilk dağıtımda neden hello çoğunu Tamamlanıyor, analitik veritabanları sunarak veritabanları arası şema yönetimi, vb..
 
 
 ![Wingtip SaaS mimarisi](media/sql-database-wtp-overview/app-architecture.png)
 
 
-Şu öğreticileri giderek ve uygulama ile birlikte çalışma sırasında veri katmanı ilgili olarak SaaS düzenlerini esas odaklanmak önemlidir. Başka bir deyişle, veri katmanına odaklanın ve uygulamanın kendisini gereğinden fazla analiz etmeyin. Bu SaaS uygulamasının anlamak desenleri, belirli iş gereksinimlerinizi için gerekli tüm değişiklikleri ınızın uygulamalarınızda bu desenleri uygulama için anahtar.
+Toohello veri katmanı ilişkili oldukları gibi hello öğreticileri giderek ve hello uygulamayla çalışma sırasında önemli toofocus hello SaaS modeli sağlanır. Diğer bir deyişle, hello veri katmanını odaklanmanıza ve hello uygulamanın kendi üzerindeki analiz yok. Bu SaaS desenleri Hello uyarlamasını anlama anahtar tooimplementing bu desenleri, uygulamalarınızda belirli iş gereksinimlerinizi için gerekli tüm değişiklikleri ınızın olan.
 
-## <a name="download-and-unblock-the-wingtip-saas-scripts"></a>Karşıdan yükleme ve Wingtip SaaS betikleri Engellemeyi Kaldır
+## <a name="download-and-unblock-hello-wingtip-saas-scripts"></a>Karşıdan yükleme ve hello Wingtip SaaS betikleri Engellemeyi Kaldır
 
-ZIP dosyaları bir dış kaynaktan yüklediğiniz ve açtığınız zaman yürütülebilir içeriği (komut dosyaları, DLL'ler) Windows tarafından engellenmiş olabilir. Komut dosyaları zip dosyasından çıkarılırken ***ayıklanıyor önce .zip dosyası engellemesini kaldırmak için aşağıdaki adımları izleyin***. Bu komut dosyalarını çalıştırma izni sağlar.
+ZIP dosyaları bir dış kaynaktan yüklediğiniz ve açtığınız zaman yürütülebilir içeriği (komut dosyaları, DLL'ler) Windows tarafından engellenmiş olabilir. Merhaba komut dosyaları zip dosyasından çıkarılırken ***ayıklanıyor önce toounblock hello .zip dosyası hello adımları izleyin***. Bu, hello betikleri toorun izin verilen sağlar.
 
-1. Gözat [Wingtip SaaS github deposuna](https://github.com/Microsoft/WingtipSaaS).
+1. Çok Gözat[hello Wingtip SaaS github deposuna](https://github.com/Microsoft/WingtipSaaS).
 1. Tıklatın **Kopyala veya indir**.
-1. Tıklatın **ZIP'i indir** ve dosyayı kaydedin.
-1. Sağ **WingtipSaaS-master.zip** dosyasını bulun ve seçin **özellikleri**.
-1. Üzerinde **genel** sekmesine **Engellemeyi Kaldır**.
+1. Tıklatın **ZIP'i indir** ve hello dosyasını kaydedin.
+1. Sağ hello **WingtipSaaS-master.zip** dosyasını bulun ve seçin **özellikleri**.
+1. Merhaba üzerinde **genel** sekmesine **Engellemeyi Kaldır**.
 1. **Tamam** düğmesine tıklayın.
-1. Dosyaları ayıklayın.
+1. Merhaba dosyaları ayıklayın.
 
-Komut dosyaları içinde bulunur *... \\WingtipSaaS ana\\öğrenme modülleri* klasör.
+Komut dosyaları hello bulunan *... \\WingtipSaaS ana\\öğrenme modülleri* klasör.
 
 
-## <a name="working-with-the-wingtip-saas-powershell-scripts"></a>Wingtip SaaS PowerShell komut dosyaları ile çalışma
+## <a name="working-with-hello-wingtip-saas-powershell-scripts"></a>Merhaba Wingtip SaaS PowerShell komut dosyaları ile çalışma
 
-En iyi örnek almak için sağlanan komut dosyalarına daha yakından inceleyin gerekir. Farklı SaaS desenleri nasıl uygulandığını ayrıntılarını inceleyerek komut dosyalarıyla adım ve kesme noktaları kullanın. Sağlanan komut dosyalarını ve modülleri için en iyi anlama aracılığıyla kolayca adım için kullanmanızı öneririz [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
+tooget hello en hello örnek dışında toodive sağlanan hello komut dosyalarına gerekir. Merhaba farklı SaaS desenleri nasıl uygulandığını hello ayrıntılarını inceleyerek hello komut dosyalarıyla adım ve kesme noktaları kullanın. sağlanan hello komut dosyaları ve modüller için en iyi anlama, hello kullanmanızı öneririz hello aracılığıyla tooeasily adım [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
 
-### <a name="update-the-configuration-file-for-your-deployment"></a>Dağıtımınız için yapılandırma dosyasını güncelleştir
+### <a name="update-hello-configuration-file-for-your-deployment"></a>Dağıtımınız için Hello yapılandırma dosyasını güncelleştir
 
-Düzen **UserConfig.psm1** dosya dağıtımı sırasında ayarladığınız kaynak grubu ve kullanıcı değerine sahip:
+Merhaba Düzenle **UserConfig.psm1** değeri ile dosyasını dağıtımı sırasında ayarlanan hello kaynak grubu ve kullanıcı:
 
-1. Açık *PowerShell ISE* ve yükle... \\Modülleri öğrenme\\*UserConfig.psm1* 
-1. Güncelleştirme *ResourceGroupName* ve *adı* (10 ve 11 yalnızca satırlarındaki) dağıtımınız belirli değerleri içeren.
-1. Değişiklikleri kaydedin!
+1. Açık hello *PowerShell ISE* ve yükle... \\Modülleri öğrenme\\*UserConfig.psm1* 
+1. Güncelleştirme *ResourceGroupName* ve *adı* (10 ve 11 yalnızca satırlarındaki) dağıtımınız için hello belirli değerleri içeren.
+1. Merhaba değişiklikleri kaydedin!
 
-Bu değerleri ayarı burada basitçe, her komut dosyası bu dağıtım özgü değerleri güncelleştirmek zorunda kalmaktan tutar.
+Bu değerleri ayarı burada basitçe, tooupdate bu dağıtım özgü değerleri her komut dosyasında engelleyen.
 
 ### <a name="execute-scripts-by-pressing-f5"></a>F5’e basarak Betikleri çalıştırma
 
-Birkaç betiklerini kullanın *$PSScriptRoot* klasörleri gidin ve *$PSScriptRoot* tuşuna basarak komut yürütüldüğünde yalnızca değerlendirilir **F5**.  Vurgulama ve bir seçim çalıştıran (**F8**) neden hataları, bu nedenle basın **F5** betikleri çalışırken.
+Birkaç komut *$PSScriptRoot* toonavigate klasörleri ve *$PSScriptRoot* tuşuna basarak komut yürütüldüğünde yalnızca değerlendirilir **F5**.  Vurgulama ve bir seçim çalıştıran (**F8**) neden hataları, bu nedenle basın **F5** betikleri çalışırken.
 
-### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Uygulamayı incelemek üzere betiklerde ilerleme
+### <a name="step-through-hello-scripts-tooexamine-hello-implementation"></a>Merhaba betikleri tooexamine hello uygulaması aracılığıyla adım
 
-Komut dosyalarını anlamak için en iyi ne yaptıklarını görmek için aralarında adımla yoludur. Dahil edilen denetleyin **Demo -** kolay bir üst düzey iş akışı izleyin sunmak komut dosyaları. **Demo -** komut dosyaları göster her görevi, kesme noktaları olacak şekilde ayarlamanız ve incelemek için gerekli adımları derin farklı SaaS desenler için uygulama ayrıntılarını görmek için tek tek çağrıları içine.
+Merhaba en iyi şekilde toounderstand hello betikleri olduğu aralarında adımla toosee ne yaptıklarını. Dahil hello denetleyin **Demo -** kolay toofollow üst düzey iş akışı sunmak komut dosyaları. Merhaba **Demo -** betikleri hello adımları gerekli tooaccomplish her görev Göster kesme noktaları olacak şekilde ayarlamanız ve ayrıntıya daha derin hello tek farklı SaaS desenleri Merhaba toosee uygulama ayrıntılarını çağırır.
 
 Keşfetmek ve PowerShell komut dosyalarıyla Adımlama ipuçları:
 
-* Açık **Demo -** PowerShell ISE komut.
+* Açık **Demo -** hello PowerShell ISE komut.
 * Execute veya devam **F5** (kullanarak **F8** çünkü önerilmez *$PSScriptRoot* seçimleri komut dosyası çalıştırılırken değerlendirilmez).
 * Bir çizgiye tıklayarak veya çizgiyi seçerek ve **F9**’a basarak kesme noktaları yerleştirin.
 * **F10**’u kullanarak bir işlev veya betiği atlayın.
 * **F11**’i kullanarak bir işlev veya betiğe gidin.
-* **Shift + F11**’i kullanarak geçerli işlev veya betikten çıkın.
+* Adım hello geçerli işlevi dışında veya çağrı kullanarak betiği **SHIFT + F11**.
 
 
 ## <a name="explore-database-schema-and-execute-sql-queries-using-ssms"></a>Veritabanı şemasını keşfetme ve SSMS kullanarak SQL sorguları yürütme
 
-Kullanım [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) bağlanmayı ve uygulama sunucuları ve veritabanları göz atın.
+Kullanım [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) tooconnect ve göz atma hello uygulama sunucular ve veritabanları.
 
-Dağıtım - bağlanmak için iki SQL veritabanı sunucularının başlangıçta sahip *tenants1 -&lt;kullanıcı&gt;*  sunucu ve *katalog -&lt;kullanıcı&gt;*  Sunucu. Başarılı demo bağlantı sağlamak için her iki sunucuyu sahip bir [güvenlik duvarı kuralı](sql-database-firewall-configure.md) aracılığıyla tüm IP'ler izin verme.
+Merhaba dağıtım başlangıçta sahip iki SQL veritabanı sunucularının tooconnect çok-hello *tenants1 -&lt;kullanıcı&gt;*  sunucusu ve hello *katalog -&lt;kullanıcı&gt;* sunucu. Her iki sunucuyu tooensure başarılı demo bağlantı, sahip bir [güvenlik duvarı kuralı](sql-database-firewall-configure.md) aracılığıyla tüm IP'ler izin verme.
 
 
-1. *SSMS*’yi açın ve *tenants1-&lt;User&gt;.database.windows.net* sunucusuna bağlanın.
+1. Açık *SSMS* ve toohello bağlanmak *tenants1 -&lt;kullanıcı&gt;. database.windows.net* sunucu.
 1. **Bağlan** > **Veritabanı Altyapısı...**:
 
    ![katalog sunucusu seçeneğine tıklayın](media/sql-database-wtp-overview/connect.png)
@@ -116,9 +116,9 @@ Dağıtım - bağlanmak için iki SQL veritabanı sunucularının başlangıçta
 
    ![bağlantı](media\sql-database-wtp-overview\tenants1-connect.png)
 
-1. 2-3. adımları tekrarlayın ve *catalog-&lt;User&gt;.database.windows.net* sunucusuna bağlanın.
+1. 2-3 arasındaki adımları yineleyin ve toohello bağlanmak *katalog -&lt;kullanıcı&gt;. database.windows.net* sunucu.
 
-Başarıyla bağlandıktan sonra her iki sunucuyu da görmeniz gerekir. Veritabanlarının listesini sağlanan kiracılar bağlı olarak farklı olabilir:
+Başarıyla bağlandıktan sonra her iki sunucuyu da görmeniz gerekir. Veritabanlarının listesini sağlanan hello kiracılar bağlı olarak farklı olabilir:
 
 ![nesne gezgini](media/sql-database-wtp-overview/object-explorer.png)
 
@@ -126,4 +126,4 @@ Başarıyla bağlandıktan sonra her iki sunucuyu da görmeniz gerekir. Veritaba
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Wingtip SaaS uygulamasına dağıtmak](sql-database-saas-tutorial.md)
+[Merhaba Wingtip SaaS uygulaması dağıtma](sql-database-saas-tutorial.md)

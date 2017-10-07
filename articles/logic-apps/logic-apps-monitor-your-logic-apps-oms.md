@@ -1,6 +1,6 @@
 ---
-title: "İzleyici ve get Öngörüler mantıksal uygulamanızı hakkında çalıştıran OMS - Azure mantıksal uygulamaları kullanma | Microsoft Docs"
-description: "Mantıksal uygulama çalışmalarınız sorun giderme ve tanılama için Öngörüler ve daha zengin hata ayıklama ayrıntılarını almak için günlük analizi ve Operations Management Suite (OMS) ile izleme"
+title: "mantıksal uygulamanızı hakkında aaaMonitor ve get Öngörüler çalıştıran OMS - Azure mantıksal uygulamaları kullanma | Microsoft Docs"
+description: "Logic app çalışmalarınız günlük analizi ve Operations Management Suite (OMS) tooget Öngörüler ve sorun giderme ve tanılama daha zengin hata ayıklama ayrıntılarını ile izleme"
 author: divyaswarnkar
 manager: anneta
 editor: 
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 0e9f0ef3c87b5c0da1cc4ad16d37178c8f5c9625
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a76fd6d1ff5c0010550be0f991514ce95f659fd6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>İzleyici ve get Öngörüler mantıksal uygulama hakkında Operations Management Suite (OMS) ve günlük analizi ile çalışır
 
-İzleme ve daha zengin hata ayıklama bilgileri almak için bir mantıksal uygulama oluşturduğunuzda, aynı anda günlük analizi kapatabilirsiniz. Günlük analizi günlüğe kaydetme ve izleme mantığı uygulamanız için tanılama Operations Management Suite (OMS) portalı üzerinden çalışan sağlar. Logic Apps yönetim çözümü için OMS eklediğinizde, logic app çalıştırır ve durumu, yürütme süresi, yeniden gönderme durumu ve bağıntı kimlikleri gibi belirli Ayrıntılar için toplanan durumunu alın.
+İzleme ve daha zengin hata ayıklama bilgileri almak için günlük analizi hello kapatabilirsiniz bir mantıksal uygulama'ı oluşturduğunuzda aynı zamanda. Günlük analizi günlüğe kaydetme ve izleme mantığı uygulamanız için tanılama hello Operations Management Suite (OMS) portalı üzerinden çalışan sağlar. Merhaba Logic Apps yönetim çözümü tooOMS eklediğinizde, logic app çalıştırır ve durumu, yürütme süresi, yeniden gönderme durumu ve bağıntı kimlikleri gibi belirli Ayrıntılar için toplanan durumunu alın.
 
-Bu konu, günlük analizi kapatabilir veya çalıştırmak mantığı uygulamanız için çalışma zamanı olayları ve veri görüntüleyebilmeniz için Logic Apps yönetimi çözümü içinde OMS yükleme gösterilmektedir.
+Bu konu, nasıl tooturn günlük analizi veya yükleme hello Logic Apps yönetim çözümüne OMS çalışma olaylarını görüntüleyebilir ve veri mantığı uygulamanız için çalıştırmaları için gösterir.
 
  > [!TIP]
- > Mevcut mantıksal uygulamalarınızı izlemek için aşağıdaki adımları izleyin [tanılama günlük özelliğini açar ve mantığı uygulama çalışma zamanı veri göndermek için OMS](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+ > toomonitor mevcut mantıksal uygulamalarınızı adımları çok [tanılama günlük özelliğini açar ve mantığı uygulama çalışma zamanı verileri tooOMS Gönder](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 ## <a name="requirements"></a>Gereksinimler
 
-Başlamadan önce OMS çalışma alanınızın olması gerekir. Bilgi [bir OMS çalışma alanı oluşturmak nasıl](../log-analytics/log-analytics-get-started.md). 
+Başlamadan önce toohave bir OMS çalışma alanı gerekir. Bilgi [nasıl toocreate bir OMS çalışma](../log-analytics/log-analytics-get-started.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Logic apps oluştururken tanılama günlüğünü etkinleştirme
 
@@ -39,26 +39,26 @@ Başlamadan önce OMS çalışma alanınızın olması gerekir. Bilgi [bir OMS �
 
    ![Mantıksal uygulama oluşturma](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 
-2. İçinde **oluşturma mantıksal uygulama** sayfasında, gösterildiği gibi bu görevleri gerçekleştirin:
+2. Merhaba, **oluşturma mantıksal uygulama** sayfasında, gösterildiği gibi bu görevleri gerçekleştirmek:
 
    1. Mantıksal uygulamanız için bir ad ve Azure aboneliğinizi seçin. 
    2. Bir Azure kaynak grubu seçin veya oluşturun.
-   3. Ayarlama **oturum Analytics** için **üzerinde**. 
-   Mantıksal uygulamanız için veri çalıştıran göndermek istediğiniz OMS çalışma alanını seçin. 
-   4. Hazır olduğunuzda, seçin **panoya Sabitle** > **oluşturma**.
+   3. Ayarlama **günlük analizi** çok**üzerinde**. 
+   Çok mantığı uygulamanız için veri göndermek istediğiniz yeri seçin hello OMS çalışma çalışır. 
+   4. Hazır olduğunuzda, seçin **PIN toodashboard** > **oluşturma**.
 
       ![Mantıksal uygulama oluşturma](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
 
       Bu adımı tamamladıktan sonra artık mantıksal uygulamanızı Azure oluşturur, OMS çalışma alanıyla ilişkilendirilmiş. 
-      Ayrıca, bu adım OMS çalışma alanınızda Logic Apps yönetimi çözümü de otomatik olarak yükler.
+      Ayrıca, bu adım OMS çalışma alanınızda hello Logic Apps yönetimi çözümü de otomatik olarak yükler.
 
-3. Mantığınızı görüntülemek için uygulamanın OMS içinde çalıştığı [bu adımlarla devam](#view-logic-app-runs-oms).
+3. mantıksal uygulamanızı çalıştıran OMS içinde tooview [bu adımlarla devam](#view-logic-app-runs-oms).
 
-## <a name="install-the-logic-apps-management-solution-in-oms"></a>Logic Apps yönetimi çözümü içinde OMS yükleyin
+## <a name="install-hello-logic-apps-management-solution-in-oms"></a>Merhaba Logic Apps yönetimi çözümü içinde OMS yükleyin
 
-Mantıksal uygulamanızı oluşturduğunuzda günlük analizi zaten etkinleştirdiyseniz, bu adımı atlayın. Logic Apps yönetimi çözümü içinde OMS yüklenmiş zaten var.
+Mantıksal uygulamanızı oluşturduğunuzda günlük analizi zaten etkinleştirdiyseniz, bu adımı atlayın. Merhaba Logic Apps yönetimi çözümü içinde OMS yüklenmiş zaten var.
 
-1. İçinde [Azure portal](https://portal.azure.com), seçin **daha Hizmetleri**. Filtre olarak "günlük analizi" arayın ve seçin **günlük analizi** gösterildiği gibi:
+1. Merhaba, [Azure portal](https://portal.azure.com), seçin **daha Hizmetleri**. Filtre olarak "günlük analizi" arayın ve seçin **günlük analizi** gösterildiği gibi:
 
    !["Günlük analizi" seçin](media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
@@ -70,15 +70,15 @@ Mantıksal uygulamanızı oluşturduğunuzda günlük analizi zaten etkinleştir
 
    !["OMS portalı" seçin](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
 
-4. Yükseltme başlık görünürse, OMS sayfanız, OMS çalışma yükseltmeniz başlığı seçin. Ardından **Çözümleri Galerisi**.
+4. Merhaba yükseltme başlık görünürse, OMS sayfanız OMS çalışma alanınızı yükseltmeniz hello başlığı seçin. Ardından **Çözümleri Galerisi**.
 
    !["Çözümleri Galerisi" seçin](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
 
-5. Altında **tüm çözümleri**, bulmak ve seçmek için döşeme **Logic Apps Yönetim** çözümü.
+5. Altında **tüm çözümleri**, bulun ve hello bölme hello için seçin **Logic Apps Yönetim** çözümü.
 
    !["Logic Apps Yönetimi" seçin](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
 
-6. OMS çalışma alanınızda çözümü yüklemek için tercih **Ekle**.
+6. OMS çalışma alanınızdaki tooinstall hello çözümü seçme **Ekle**.
 
    !["" Logic Apps yönetimi için"Ekle" yi seçin](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
@@ -86,52 +86,52 @@ Mantıksal uygulamanızı oluşturduğunuzda günlük analizi zaten etkinleştir
 
 ## <a name="view-your-logic-app-runs-in-your-oms-workspace"></a>OMS çalışma alanınızda mantıksal uygulamanızı çalıştıran görünümü
 
-1. Sayısı ve logic app çalışmalarınız durumunu görüntülemek için OMS çalışma alanınız için genel bakış sayfasına gidin. Ayrıntıları gözden **Logic Apps Yönetim** döşeme.
+1. tooview hello sayısı ve mantıksal uygulamanızı durumunun gidin toohello genel bakış sayfasında OMS çalışma alanınız için çalışır. Merhaba hello ayrıntıları gözden **Logic Apps Yönetim** döşeme.
 
    ![Mantığı çalıştırmak uygulama sayısı ve durumunu gösteren genel bakış kutucuğu](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
    > [!Note]
-   > Bu yükseltme başlık yerine Logic Apps yönetim döşeme görünürse, böylece OMS çalışma alanınızı yükseltmeniz başlığını seçin.
+   > Bu yükseltme başlık hello Logic Apps yönetim döşeme yerine görünürse, böylece OMS çalışma alanınızı yükseltmeniz hello başlığını seçin.
   
    > ![Yükseltme "OMS çalışma"](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
-2. Bir Özet mantığı uygulama çalışmalarınız hakkında daha fazla ayrıntı görüntülemek için seçin **Logic Apps Yönetim** döşeme.
+2. tooview mantığı uygulama çalışmalarınız hakkında daha fazla ayrıntı özeti seçin hello **Logic Apps Yönetim** döşeme.
 
    Burada, logic app çalışmalarınız adına veya yürütme durumu göre gruplandırılır.
 
    ![Mantıksal uygulamanız için Özet durum çalıştırır](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
    
-3. Belirli mantıksal uygulama ya da durum için tüm çalıştırmalarını görüntülemek için bir mantıksal uygulama veya bir durum için satır seçin.
+3. belirli mantıksal uygulama veya durum, bir mantıksal uygulama veya bir durum için select hello satır için tüm hello tooview çalışır.
 
-   Belirli mantıksal uygulama için tüm çalıştırmalarını gösteren bir örnek aşağıda verilmiştir:
+   Belirli mantıksal uygulama için tüm hello çalıştırmalarını gösteren bir örnek aşağıda verilmiştir:
 
    ![Bir mantıksal uygulama veya bir durum görünümü çalıştırır](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
    > [!NOTE]
-   > **Yeniden gönderme** sütun yeniden gönderilen bir çalıştırma sonucu çalışmaları için "Evet" gösterir.
+   > Merhaba **yeniden gönderme** sütun yeniden gönderilen bir çalıştırma sonucu çalışmaları için "Evet" gösterir.
 
-4. Bu sonuçları filtrelemek için istemci tarafı ve sunucu tarafı filtreleme gerçekleştirebilirsiniz.
+4. Bu sonuçları toofilter, istemci tarafı ve sunucu tarafı filtreleme gerçekleştirebilirsiniz.
 
-   * İstemci tarafı filtresi: her sütun için istediğiniz filtreleri seçin. 
+   * İstemci tarafı filtresi: her sütun için istediğiniz hello filtrelerini seçin. 
    İşte bazı örnekler:
 
      ![Örnek sütun filtreleri](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * Sunucu tarafı filtresi: belirli bir zaman penceresinin seçin ya da görünür çalıştırmalarının sayısını sınırlamak için sayfanın en üstünde kapsam denetimini kullanın. 
+   * Sunucu tarafı filtresi: toochoose belirli bir zaman penceresi veya toolimit hello çeşitli görüntülenir, hello sayfanın üst kısmındaki hello kullan hello kapsam denetim çalıştırır. 
    Varsayılan olarak, aynı anda yalnızca 1.000 kayıtları görünür. 
    
-     ![Değişiklik zaman penceresi](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
+     ![Değişiklik hello zaman penceresi](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  
-5. Tüm Eylemler ve bunların belirli bir çalışma ayrıntılarını görüntülemek için günlük arama sayfası açılır bir satır seçin. 
+5. Tüm tooview hello günlük arama sayfası açılır bir satır Eylemler ve bunların ayrıntılarını belirli bir çalışma, select hello. 
 
-   * Bir tablodaki bu bilgileri görüntülemek için seçin **tablo**.
-   * Sorguyu değiştirmek için arama çubuğunda sorgu dizesi düzenleyebilirsiniz. 
+   * Bu bilgileri bir tabloda tooview seçme **tablo**.
+   * toochange hello sorgu hello sorgu dizesi hello arama çubuğunda düzenleyebilirsiniz. 
    Daha iyi bir deneyim için seçin **Advanced Analytics**.
 
      ![Eylemler ve Çalıştır bir mantıksal uygulama ayrıntılarını görüntüleyin](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
 
-     Burada Azure günlük analizi sayfasında sorguları güncelleştirebilirsiniz ve tablodan sonuçları görüntüleyin. 
-     Bu sorgu kullanır [Kusto sorgu dili](https://docs.loganalytics.io/learn/tutorials/getting_started_with_queries.html), farklı sonuçlar görüntülemek istiyorsanız, düzenleyebilirsiniz. 
+     Burada hello Azure günlük analizi sayfasında, sorgular ve görünüm güncelleştirebilirsiniz hello hello tablosundan sonuçlanır. 
+     Bu sorgu kullanan [Kusto sorgu dili](https://docs.loganalytics.io/learn/tutorials/getting_started_with_queries.html), tooview farklı sonuçlar istiyorsanız düzenleyebileceğiniz. 
 
      ![Azure günlük analizi - sorgu görünümü](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

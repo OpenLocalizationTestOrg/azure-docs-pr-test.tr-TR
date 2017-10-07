@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Factory Spark programlardan çağırma | Microsoft Docs"
-description: "MapReduce etkinliği kullanarak Azure data factory Spark programlardan çağırma öğrenin."
+title: "aaaInvoke Spark Azure veri fabrikası'ndan programlar | Microsoft Docs"
+description: "MapReduce etkinliği kullanılarak bir Azure data factory tooinvoke Spark programların nasıl hello öğrenin."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
-ms.openlocfilehash: 57894bbdd9208f8c32eb65e29f04e2ae723780ca
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f88943ece7ee3d21dedbd857609f1b2713b62741
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory işlem hatlarını Spark programlardan çağırma
 
@@ -35,75 +35,75 @@ ms.lasthandoff: 08/29/2017
 > * [.NET özel etkinlik](data-factory-use-custom-activities.md)
 
 ## <a name="introduction"></a>Giriş
-Spark etkinlik biridir [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) Azure Data Factory tarafından desteklenir. Bu etkinlik, Azure hdınsight'ta Apache Spark kümenizde belirtilen Spark programı çalıştırır.    
+Spark etkinlik hello biridir [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) Azure Data Factory tarafından desteklenir. Bu etkinlik belirtilen hello çalıştıran Azure hdınsight'ta Apache Spark kümenizin üzerinde Spark program.    
 
 > [!IMPORTANT]
 > - Spark etkinliği Azure Data Lake Store birincil depolama alanı olarak kullanın Hdınsight Spark kümeleri desteklemez.
 > - Spark etkinlik (kendi) Hdınsight Spark kümeleri yalnızca varolan destekler. Bir isteğe bağlı Hdınsight bağlı hizmeti desteklemiyor.
 
 ## <a name="walkthrough-create-a-pipeline-with-spark-activity"></a>İzlenecek yol: Spark etkinliği ile işlem hattı oluşturma
-Spark etkinliği ile bir Data Factory işlem hattı oluşturmak için genel adımlar şunlardır.  
+Merhaba tipik adımları toocreate Data Factory işlem hattı Spark aktivitesiyle şunlardır.  
 
 1. Veri Fabrikası oluşturun.
-2. Hdınsight Spark kümenize data factory ile ilişkili Azure depolama alanınızı bağlamak için bir Azure depolama bağlantılı hizmeti oluşturun.     
-2. Azure hdınsight'ta Apache Spark kümenizin data factory'ye bağlamak için bir Azure Hdınsight bağlı hizmeti oluşturma.
-3. Azure Storage bağlı hizmeti başvuran bir veri kümesi oluşturun. Şu anda, üretilen hiçbir çıktı olsa bile bir çıkış veri kümesi bir etkinlik için belirtmeniz gerekir.  
-4. #2'de oluşturulan Hdınsight bağlı hizmeti başvurduğu Spark etkinliği ile işlem hattı oluşturacaksınız. Etkinlik, bir çıkış veri kümesi önceki adımda oluşturduğunuz veri kümesi ile yapılandırılır. Çıktı veri kümesi ne zamanlama (saatlik, günlük, vs.) sürücüleri ' dir. Bu nedenle, etkinlik gerçekten bir çıktı üretmez olsa da, çıktı veri kümesi belirtmeniz gerekir.
+2. Bir Azure Storage bağlı hizmeti toolink Hdınsight Spark küme toohello data factory ile ilişkili Azure depolama alanınızı oluşturun.     
+2. Azure Hdınsight bağlı hizmeti toolink Azure Hdınsight toohello veri fabrikasında Apache Spark kümesi oluşturun.
+3. Toohello Azure Storage bağlı hizmeti başvuran bir veri kümesi oluşturun. Şu anda, üretilen hiçbir çıktı olsa bile bir çıkış veri kümesi bir etkinlik için belirtmeniz gerekir.  
+4. #2'de oluşturduğunuz toohello Hdınsight bağlı hizmeti başvuruyor Spark etkinliği ile işlem hattı oluşturacaksınız. Merhaba etkinliği bir çıkış veri kümesi olarak hello önceki adımda oluşturduğunuz hello veri kümesi ile yapılandırılır. Merhaba çıktı veri kümesi, zamanlama (saatlik, günlük, vs.) hangi sürücüleri hello ' dir. Bu nedenle, Hello etkinlik gerçekten bir çıktı üretmez olsa bile hello çıktı veri kümesi belirtmeniz gerekir.
 
 ### <a name="prerequisites"></a>Ön koşullar
-1. Create bir **genel amaçlı Azure depolama hesabı** Kılavuzu'ndaki yönergeleri izleyen tarafından: [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
-2. Create bir **Azure hdınsight'ta Apache Spark kümesi** öğreticideki yönergeler aşağıdaki tarafından: [Azure hdınsight'ta Apache Spark oluşturma küme](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Bu kümeyle #1. adımda oluşturduğunuz Azure depolama hesabı ilişkilendirin.  
-3. Karşıdan yükle ve python komut dosyasını gözden **test.py** konumunda bulunan: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
-3.  Karşıya yükleme **test.py** için **pyFiles** klasöründe **adfspark** , Azure Blob depolamada kapsayıcı. Bunlar yoksa kapsayıcıyı ve klasör oluşturun.
+1. Create bir **genel amaçlı Azure depolama hesabı** hello gözden geçirme yönergeleri izleyerek tarafından: [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
+2. Create bir **Azure hdınsight'ta Apache Spark kümesi** hello öğreticideki yönergeler aşağıdaki tarafından: [Azure hdınsight'ta Apache Spark oluşturma küme](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Bu kümeyle #1. adımda oluşturduğunuz hello Azure depolama hesabı ilişkilendirin.  
+3. Karşıdan yükle ve hello python komut dosyasını gözden **test.py** konumunda bulunan: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
+3.  Karşıya yükleme **test.py** toohello **pyFiles** hello klasöründe **adfspark** , Azure Blob depolamada kapsayıcı. Bunlar yoksa hello kapsayıcı ve başlangıç klasörü oluşturun.
 
 ### <a name="create-data-factory"></a>Veri fabrikası oluşturma
-Bu adımda data factory oluşturmayla başlayalım.
+Bu adımda hello data factory oluşturmayla başlayalım.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Soldaki menüde **YENİ**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın.
-3. İçinde **yeni data factory** dikey penceresinde girin **SparkDF** adı.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Tıklatın **yeni** hello sol menüsünde **veri + analiz**, tıklatıp **Data Factory**.
+3. Merhaba, **yeni data factory** dikey penceresinde girin **SparkDF** hello adı için.
 
    > [!IMPORTANT]
-   > Azure data factory adı **küresel olarak benzersiz** olmalıdır. Hata görürseniz: **veri fabrikası adı "SparkDF" kullanılabilir değil**. (Örneğin, yournameSparkDFdate ve oluşturmayı yeniden deneyin. veri fabrikasının adını değiştirin Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.   
-4. Data factory’yi oluşturmak istediğiniz **Azure aboneliği**’ni seçin.
+   > Merhaba adı'hello Azure data Factory olması **genel benzersiz**. Merhaba hata görürseniz: **veri fabrikası adı "SparkDF" kullanılabilir değil**. Merhaba veri fabrikası (örneğin, yournameSparkDFdate ve oluşturmayı yeniden deneyin. Hello adını değiştirin Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.   
+4. Select hello **Azure aboneliği** oluşturulan hello veri fabrikası toobe istediğiniz.
 5. Var olan seçin **kaynak grubu** veya bir Azure kaynak grubu oluşturun.
-6. Seçin **panoya Sabitle** seçeneği.  
-6. **Yeni data factory** dikey penceresinde **Oluştur**’a tıklayın.
+6. Seçin **PIN toodashboard** seçeneği.  
+6. Tıklatın **oluşturma** hello üzerinde **yeni data factory** dikey.
 
    > [!IMPORTANT]
-   > Data Factory örnekleri oluşturmak için abonelik/kaynak grubu düzeyinde [Data Factory Katılımcısı](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) rolünün üyesi olmanız gerekir.
-7. Oluşturulmakta veri fabrikası gördüğünüz **Pano** şekilde Azure portalının:   
-8. Data factory sorunsuz oluşturulduktan sonra data factory sayfasını görürsünüz, burada size data factory içeriği gösterilir. Data factory sayfasını görmüyorsanız Panoda veri fabrikanızın kutucuğa tıklayın.
+   > toocreate Data Factory örnekleri hello üyesi olmalıdır [veri fabrikası katkıda bulunan](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) hello abonelik/kaynak grubu düzeyinde rol.
+7. Hello oluşturulmakta hello veri fabrikası gördüğünüz **Pano** hello şekilde Azure portal'ın:   
+8. Merhaba veri fabrikası başarıyla oluşturulduktan sonra gösterir hello veri fabrikası sayfasına bakın hello hello data Factory içeriği. Merhaba data factory sayfasını görmüyorsanız hello Panoda veri fabrikanızın hello kutucuğa tıklayın.
 
     ![Data Factory dikey penceresi](./media/data-factory-spark/data-factory-blade.png)
 
 ### <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
-Bu adımda, veri fabrikası ve diğer Azure depolama alanınızı veri fabrikanıza bağlamak için Spark kümenizin bağlamak için iki bağlı hizmet oluşturun.  
+Bu adımda, iki bağlı hizmet, bir toolink Spark küme tooyour data factory'nizi oluşturmak ve diğer toolink Azure depolama tooyour data factory'nizi hello.  
 
 #### <a name="create-azure-storage-linked-service"></a>Azure Storage bağlı hizmeti oluşturma
-Bu adımda, Azure Depolama hesabınızı veri fabrikanıza bağlarsınız. Bu kılavuzda daha sonra bir adımda oluşturduğunuz bir veri kümesi bu bağlı hizmete başvuruyor. Sonraki adımda tanımladığınız Hdınsight bağlı hizmeti bu bağlantılı hizmeti çok ifade eder.  
+Bu adımda, Azure depolama hesabı tooyour veri fabrikanıza bağlayın. Bu kılavuzda daha sonra bir adımda oluşturduğunuz bir veri kümesi toothis bağlantılı hizmeti anlamına gelmektedir. Hello hello sonraki adımda tanımladığınız Hdınsight bağlı hizmeti toothis bağlantılı hizmeti çok ifade eder.  
 
-1. Tıklatın **yazar ve dağıtma** üzerinde **Data Factory** veri fabrikanızın dikey. Data Factory Düzenleyicisi’ni görmeniz gerekir.
+1. Tıklatın **yazar ve dağıtma** hello üzerinde **Data Factory** veri fabrikanızın dikey. Merhaba Data Factory Düzenleyici görmeniz gerekir.
 2. **Yeni data store**’a tıklayın ve **Azure depolama**’yı seçin.
 
    ![Yeni veri deposu - Azure Depolama - menü](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
-3. Görmeniz gerekir **JSON betiği** bağlantılı hizmetinin Düzenleyicisi'nde bir Azure depolama alanı oluşturmak için.
+3. Merhaba görmelisiniz **JSON betiği** bağlantılı hizmetinin hello Düzenleyicisi'nde bir Azure depolama alanı oluşturmak için.
 
    ![Azure Storage bağlı hizmeti](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
-4. Değiştir **hesap adı** ve **hesap anahtarı** Azure depolama hesabınızın adını ve erişim anahtarına sahip. Depolama erişim anahtarınızı nasıl alabileceğinizi öğrenmek için [Depolama hesabınızı yönetme](../storage/common/storage-create-storage-account.md#manage-your-storage-account) sayfasındaki depolama erişim anahtarlarını görüntüleme, kopyalama ve yeniden oluşturma bilgilerine bakın.
-5. Bağlantılı hizmet dağıtmak için **dağıtma** komut çubuğunda. Bağlı hizmet sorunsuz dağıtıldıktan sonra **Taslak-1** penceresi artık görünmemelidir; soldaki ağaç görünümünde **AzureStorageLinkedService** görürsünüz.
+4. Değiştir **hesap adı** ve **hesap anahtarı** Azure depolama hesabınızın hello adı ve erişim anahtarına sahip. toolearn tooget depolama alanınızın erişim nasıl anahtar, hello bilgi nasıl tooview, kopyalama ve yeniden oluşturma depolama erişim anahtarları içinde hakkında [depolama hesabınızı yönetme](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+5. toodeploy Merhaba bağlantılı hizmeti,'ı tıklatın **dağıtma** hello komut çubuğunda. Merhaba bağlı hizmet başarıyla dağıtıldıktan sonra hello **taslak-1** penceresi görünmemelidir; gördüğünüz **AzureStorageLinkedService** hello hello soldaki ağaç görünümünde.
 
 #### <a name="create-hdinsight-linked-service"></a>Hdınsight bağlı hizmeti oluşturma
-Bu adımda, Hdınsight Spark kümenizin data factory'ye bağlamak için Azure Hdınsight bağlı hizmeti oluşturun. Hdınsight kümesi, bu örnekteki ardışık Spark etkinliğinde belirtilen Spark programı çalıştırmak için kullanılır.  
+Bu adımda, Hdınsight Spark küme toohello data factory'nizi Azure Hdınsight bağlı hizmeti toolink oluşturun. Merhaba Hdınsight kümesi hello ardışık bu örnekteki hello Spark etkinliğinde belirtilen kullanılan toorun hello Spark programdır.  
 
-1. Düğmeyi görmüyorsanız araç çubuğunda **... Daha fazla** araç çubuğunda tıklatın **yeni işlem**ve ardından **Hdınsight kümesi**.
+1. Düğmeyi görmüyorsanız araç çubuğunda **... Daha fazla** hello araç çubuğundan, **yeni işlem**ve ardından **Hdınsight kümesi**.
 
     ![Hdınsight bağlı hizmeti oluşturma](media/data-factory-spark/new-hdinsight-linked-service.png)
-2. Aşağıdaki kod parçacığını kopyalayıp **Taslak-1** penceresine yapıştırın. JSON Düzenleyicisi'nde, aşağıdaki adımları uygulayın:
-    1. Belirtin **URI** Hdınsight Spark kümesi için. Örneğin: `https://<sparkclustername>.azurehdinsight.net/`.
-    2. Adını belirtin **kullanıcı** Spark küme erişimine sahiptir.
-    3. Belirtin **parola** kullanıcı için.
-    4. Belirtin **Azure depolama bağlantılı hizmeti** Hdınsight Spark kümesi ile ilişkili. Bu örnek,: **AzureStorageLinkedService**.
+2. Aşağıdaki kod parçacığında toohello hello kopyalayıp **taslak-1** penceresi. Merhaba JSON Düzenleyicisi'nde, şu adımları hello:
+    1. Merhaba belirtin **URI** Merhaba Hdınsight Spark küme. Örneğin: `https://<sparkclustername>.azurehdinsight.net/`.
+    2. Merhaba Hello adını belirtin **kullanıcı** erişim toohello Spark kümesi vardır.
+    3. Merhaba belirtin **parola** kullanıcı için.
+    4. Merhaba belirtin **Azure depolama bağlantılı hizmeti** hello Hdınsight Spark kümesi ile ilişkili. Bu örnek,: **AzureStorageLinkedService**.
 
     ```json
     {
@@ -124,14 +124,14 @@ Bu adımda, Hdınsight Spark kümenizin data factory'ye bağlamak için Azure Hd
     > - Spark etkinliği Azure Data Lake Store birincil depolama alanı olarak kullanın Hdınsight Spark kümeleri desteklemez.
     > - Yalnızca (kendi) Hdınsight Spark kümesinde varolan Spark etkinlik destekler. Bir isteğe bağlı Hdınsight bağlı hizmeti desteklemiyor.
 
-    Bkz: [Hdınsight bağlı hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) Hdınsight hakkında ayrıntılı bilgi için bağlı hizmeti.
-3.  Bağlantılı hizmet dağıtmak için **dağıtma** komut çubuğunda.  
+    Bkz: [Hdınsight bağlı hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) hello hakkındaki ayrıntılar için hizmet Hdınsight bağlı.
+3.  toodeploy Merhaba bağlantılı hizmeti,'ı tıklatın **dağıtma** hello komut çubuğunda.  
 
 ### <a name="create-output-dataset"></a>Çıktı veri kümesi oluşturma
-Çıktı veri kümesi ne zamanlama (saatlik, günlük, vs.) sürücüleri ' dir. Bu nedenle, etkinlik gerçekten herhangi bir çıktı üretmez olsa da ardışık düzeninde bir çıkış veri kümesi için spark etkinlik belirtmeniz gerekir. Bir giriş veri kümesi etkinliğin belirlenmesi isteğe bağlıdır.
+Merhaba çıktı veri kümesi, zamanlama (saatlik, günlük, vs.) hangi sürücüleri hello ' dir. Bu nedenle, Hello etkinlik gerçekten herhangi bir çıktı üretmez olsa bile hello ardışık düzeninde bir çıkış veri kümesi hello spark etkinliğinin belirtmeniz gerekir. Bir giriş veri kümesi hello etkinlik için belirtme isteğe bağlıdır.
 
-1. **Data Factory Düzenleyicisi**’nde komut çubuğundaki **... Diğer**, **Yeni veri kümesi** öğelerine tıklayın ve **Azure Blob depolama** öğesini seçin.  
-2. Aşağıdaki kod parçacığını kopyalayıp Taslak-1 penceresine yapıştırın. JSON parçacığı adlı veri kümesini tanımlamaktadır **OutputDataset**. Ayrıca, sonuçlar adlı blob kapsayıcısında depolanır belirttiğiniz **adfspark** ve adlı klasörde **pyFiles/çıkış**. Daha önce belirtildiği gibi bu veri kümesi kukla bir veri kümesi gereklidir. Bu örnekte Spark program herhangi bir çıktı üretmez. **Kullanılabilirlik** bölümü belirtiyor çıktı veri kümesi günlük üretilir.  
+1. Merhaba, **Data Factory düzenleyici**, tıklatın **... Daha fazla** hello komut çubuğunda **yeni veri kümesi**seçip **Azure Blob Depolama**.  
+2. Aşağıdaki kod parçacığında toohello taslak-1 penceresinde hello kopyalayıp yeniden açın. Merhaba JSON parçacığı tanımlar adlı bir veri kümesi **OutputDataset**. Ayrıca, hello sonuçları adlı hello blob kapsayıcısında depolanır belirttiğiniz **adfspark** ve adlı hello klasör **pyFiles/çıkış**. Daha önce belirtildiği gibi bu veri kümesi kukla bir veri kümesi gereklidir. Bu örnekte Hello Spark program herhangi bir çıktı üretmez. Merhaba **kullanılabilirlik** bölümü belirtiyor bu hello çıktı veri kümesi günlük oluşturulur.  
 
     ```json
     {
@@ -154,14 +154,14 @@ Bu adımda, Hdınsight Spark kümenizin data factory'ye bağlamak için Azure Hd
         }
     }
     ```
-3. Veri kümesi dağıtmak için **dağıtma** komut çubuğunda.
+3. toodeploy dataset Merhaba, tıklatın **dağıtma** hello komut çubuğunda.
 
 
 ### <a name="create-pipeline"></a>İşlem hattı oluşturma
-Bu adımda oluşturduğunuz sahip işlem hattı bir **HDInsightSpark** etkinlik. Şu anda, çıktı veri kümesi zamanlamayı yönetendir; bu nedenle etkinlik hiçbir çıktı oluşturmasa bile sizin bir çıktı veri kümesi oluşturmanız gerekir. Etkinlik herhangi bir girdi almazsa, girdi veri kümesi oluşturma işlemini atlayabilirsiniz. Bu nedenle, hiçbir girdi veri kümesi bu örnekte belirtilir.
+Bu adımda oluşturduğunuz sahip işlem hattı bir **HDInsightSpark** etkinlik. Şu anda, çıktı veri kümesi hello etkinlik herhangi bir çıktı üretmez olsa bile bir çıkış veri kümesi oluşturmanız gerekir böylece hangi sürücüleri zamanlama, hello değil. Merhaba etkinlik herhangi bir girdi almazsa oluşturma hello girdi veri kümesi atlayabilirsiniz. Bu nedenle, hiçbir girdi veri kümesi bu örnekte belirtilir.
 
-1. İçinde **Data Factory düzenleyici**, tıklatın **... Daha fazla** komut çubuğu ve ardından **yeni işlem hattı**.
-2. Taslak-1 penceresine betiği aşağıdaki kod ile değiştirin:
+1. Merhaba, **Data Factory düzenleyici**, tıklatın **... Daha fazla** hello komut çubuğunda ve ardından **yeni işlem hattı**.
+2. Merhaba taslak-1 penceresinde Hello komut dosyası komut dosyası izleyen hello ile değiştirin:
 
     ```json
     {
@@ -189,68 +189,68 @@ Bu adımda oluşturduğunuz sahip işlem hattı bir **HDInsightSpark** etkinlik.
         }
     }
     ```
-    Aşağıdaki noktalara dikkat edin:
-    - **Türü** özelliği ayarlanmış **HDInsightSpark**.
-    - **RootPath** ayarlanır **adfspark\\pyFiles** burada adfspark, Azure Blob kapsayıcısında ve pyFiles kapsayıcıdaki ince klasördür. Bu örnekte, Azure Blob Storage Spark kümesi ile ilişkili adrestir. Farklı bir Azure depolama dosyayı karşıya yükleyebilirsiniz. Bunu yaparsanız, bu depolama hesabı data factory'ye bağlamak için bir Azure depolama bağlantılı hizmeti oluşturun. Ardından, bağlı hizmetin adı için bir değer olarak belirtin **sparkJobLinkedService** özelliği. Bkz: [Spark etkinlik özellikleri](#spark-activity-properties) bu özellik ve Spark etkinlik tarafından desteklenen diğer özellikleri hakkında ayrıntılı bilgi için.  
-    - **EntryFilePath** ayarlanır **test.py**, python dosyası değil.
-    - **Getdebugınfo** özelliği ayarlanmış **her zaman**, günlük dosyaları her zaman anlamına gelir (başarılı veya başarısız) oluşturulur.
+    Hello aşağıdaki noktaları göz önünde bulundurun:
+    - Merhaba **türü** özelliği çok ayarlanmış**HDInsightSpark**.
+    - Merhaba **rootPath** çok ayarlanır**adfspark\\pyFiles** adfspark hello Azure Blob kapsayıcısı ve pyFiles olduğu ince kapsayıcıdaki klasörüdür. Bu örnekte, hello Azure Blob Storage hello hello Spark kümesi ile ilişkili olan bir ' dir. Merhaba dosya tooa yükleyebilirsiniz farklı Azure depolama. Bunu yaparsanız, bir Azure Storage bağlı hizmeti toolink bu depolama hesabı toohello veri fabrikası oluşturun. Ardından, hello için bir değer olarak hello hello bağlı hizmetin adını belirtin **sparkJobLinkedService** özelliği. Bkz: [Spark etkinlik özellikleri](#spark-activity-properties) bu özellik ve Spark etkinlik hello tarafından desteklenen diğer özellikleri hakkında ayrıntılı bilgi için.  
+    - Merhaba **entryFilePath** toohello ayarlamak **test.py**, hello python dosyası değil.
+    - Merhaba **Getdebugınfo** özelliği çok ayarlanmış**her zaman**, yani hello günlük dosyaları her zaman oluşturulan (başarılı veya başarısız).
 
         > [!IMPORTANT]
-        > Bu özelliği ayarlamak değil, öneririz `Always` bir üretim ortamında bir sorunu gidermeye çalışıyor değilseniz.
-    - **Çıkarır** bölümü bir çıkış veri kümesi yok. Spark program herhangi bir çıktı üretmez olsa bile bir çıkış veri kümesi belirtmeniz gerekir. Çıktı veri kümesi, ardışık düzen (saatlik, günlük, vs.) için zamanlamayı sürücüleri.  
+        > Bu özellik çok ayarlamayın öneririz`Always` bir üretim ortamında bir sorunu gidermeye çalışıyor değilseniz.
+    - Merhaba **çıkarır** bölümü bir çıkış veri kümesi yok. Merhaba spark program herhangi bir çıktı üretmez olsa bile bir çıkış veri kümesi belirtmeniz gerekir. Merhaba çıkış veri kümesi sürücüleri hello zamanlama hello ardışık düzen (saatlik, günlük, vs.).  
 
-        Spark etkinliği tarafından desteklenen özellikler hakkında daha fazla ayrıntı için bkz: [Spark etkinlik özellikleri](#spark-activity-properties) bölümü.
-3. İşlem hattını dağıtmak için **dağıtma** komut çubuğunda.
+        Spark etkinliği tarafından desteklenen hello özellikleri hakkında daha fazla ayrıntı için bkz: [Spark etkinlik özellikleri](#spark-activity-properties) bölümü.
+3. toodeploy hello ardışık tıklatın **dağıtma** hello komut çubuğunda.
 
 ### <a name="monitor-pipeline"></a>İşlem hattını izleme
-1. Tıklatın **X** Data Factory Düzenleyici dikey penceresini kapatmak ve Data Factory giriş sayfasına geri gidin. Tıklatın **izleme ve yönetme** başka bir sekmede izleme uygulamayı başlatmak için.
+1. Tıklatın **X** tooclose Data Factory Düzenleyici dikey ve toonavigate toohello Data Factory giriş sayfasında yedekleyin. Tıklatın **izleme ve yönetme** toolaunch hello başka bir sekmesinde uygulama izleme.
 
     ![İzleme ve yönetme bölmesi](media/data-factory-spark/monitor-and-manage-tile.png)
-2. Değişiklik **başlangıç zamanı** en üstte filtre **1/2/2017**, tıklatıp **Uygula**.
-3. Yalnızca bir gününü (2017-02-01) başlangıç ve bitiş zamanları (2017-02-02) ardışık arasında olarak yalnızca bir etkinlik penceresini görmeniz gerekir. Veri dilimi olduğunu onaylayın **hazır** durumu.
+2. Değişiklik hello **başlangıç zamanı** hello üstünde çok filtre**1/2/2017**, tıklatıp **Uygula**.
+3. Hello arasında yalnızca bir gününü (2017-02-01) başlangıç ve bitiş saatlerini (2017-02-02) hello ardışık olduğundan yalnızca bir etkinlik penceresini görmeniz gerekir. Bu hello veri dilim onaylayın **hazır** durumu.
 
-    ![İşlem hattını izleme](media/data-factory-spark/monitor-and-manage-app.png)    
-4. Seçin **etkinlik penceresini** Çalıştır etkinliği hakkındaki ayrıntıları görmek için. Bir hata varsa, sağ bölmede hakkındaki ayrıntıları bakın.
+    ![Merhaba işlem hattını izleme](media/data-factory-spark/monitor-and-manage-app.png)    
+4. Select hello **etkinlik penceresini** toosee etkinliği hakkında ayrıntılı bilgi çalıştırmak hello. Bir hata varsa, hello sağ bölmedeki hakkındaki ayrıntıları bakın.
 
-### <a name="verify-the-results"></a>Sonuçları doğrulayın
+### <a name="verify-hello-results"></a>Merhaba sonuçlarını doğrulayın
 
 1. Başlatma **Jupyter not defteri** giderek Hdınsight Spark kümenizin: https://CLUSTERNAME.azurehdinsight.net/jupyter. Ayrıca, Hdınsight Spark kümeniz için küme Panosu başlatın ve sonra başlatın **Jupyter not defteri**.
-2. Tıklatın **yeni** -> **PySpark** yeni bir not defteri başlatmak için.
+2. Tıklatın **yeni** -> **PySpark** toostart yeni bir not defteri.
 
     ![Yeni Jupyter not defteri](media/data-factory-spark/jupyter-new-book.png)
-3. Metin kopyalama/yapıştırma ve tuşuna basarak aşağıdaki komutu çalıştırın **SHIFT + ENTER** ikinci ifade sonunda.  
+3. Çalışma hello komutu aşağıdaki hello metin kopyalama/yapıştırma ve tuşlarına basarak **SHIFT + ENTER** hello ikinci ifade hello sonunda.  
 
     ```sql
     %%sql
 
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-4. Hvac tablodan veri gördüğünüzü onaylayın:  
+4. Merhaba hvac tablodan hello veri gördüğünüzü onaylayın:  
 
     ![Jupyter sorgu sonuçları](media/data-factory-spark/jupyter-notebook-results.png)
 
 Bkz: [bir Spark SQL sorgusu çalıştırmanız](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-hive-query-using-spark-sql) bölüm ayrıntılı yönergeler için. 
 
 ### <a name="troubleshooting"></a>Sorun giderme
-Ayarladığınız bu yana **Getdebugınfo** için **her zaman**, gördüğünüz bir **günlük** alt klasöründe **pyFiles** klasörü, Azure Blob kapsayıcısında. Günlük dosyası günlük klasöründeki ek ayrıntılar sağlar. Bu günlük dosyası bir hata olduğunda özellikle yararlıdır. Bir üretim ortamında ayarlamak isteyebilirsiniz **hatası**.
+Ayarladığınız bu yana **Getdebugınfo** çok**her zaman**, gördüğünüz bir **günlük** hello alt **pyFiles** klasörü, Azure Blob kapsayıcısında. Merhaba Günlük klasörü Hello günlük dosyasına ek ayrıntılar sağlar. Bu günlük dosyası bir hata olduğunda özellikle yararlıdır. Bir üretim ortamında tooset isteyebilirsiniz, çok**hatası**.
 
-Daha fazla sorun giderme için aşağıdaki adımları uygulayın:
+Daha fazla sorun giderme için aşağıdaki adımları hello:
 
 
-1. Gidin `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
+1. Çok gidin`https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
     ![YARN kullanıcı arabirimini uygulama](media/data-factory-spark/yarnui-application.png)  
-2. Tıklatın **günlükleri** Çalıştır biri için çalışır.
+2. Tıklatın **günlükleri** hello birini denemeleri çalıştırın.
 
     ![Uygulama sayfası](media/data-factory-spark/yarn-applications.png)
-3. Günlük sayfasındaki ek hata bilgileri görmeniz gerekir.
+3. Merhaba günlük sayfasındaki ek hata bilgileri görmeniz gerekir.
 
     ![Günlük hatası](media/data-factory-spark/yarnui-application-error.png)
 
-Aşağıdaki bölümlerde, veri fabrikası Apache Spark kümesi ve Spark etkinliği kullanmak için Data Factory varlıklarını hakkında bilgi sağlar.
+Aşağıdaki bölümlerde hello Data Factory varlıkları toouse Apache Spark kümesi ve data factory'nizi Spark etkinliğinde hakkında bilgi sağlar.
 
 ## <a name="spark-activity-properties"></a>Spark etkinlik özellikleri
-Spark etkinliği ile işlem hattı örnek JSON tanımını şöyledir:    
+Spark etkinliği ile işlem hattı hello örnek JSON tanımını şöyledir:    
 
 ```json
 {
@@ -274,7 +274,7 @@ Spark etkinliği ile işlem hattı örnek JSON tanımını şöyledir:
                     }
                 ],
                 "name": "MySparkActivity",
-                "description": "This activity invokes the Spark program",
+                "description": "This activity invokes hello Spark program",
                 "linkedServiceName": "HDInsightLinkedService"
             }
         ],
@@ -284,39 +284,39 @@ Spark etkinliği ile işlem hattı örnek JSON tanımını şöyledir:
 }
 ```
 
-Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmaktadır:
+Merhaba aşağıdaki tabloda hello JSON tanımını kullanılan hello JSON özellikleri açıklanmaktadır:
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
-| ad | İşlem hattında etkinlik adı. | Evet |
-| Açıklama | Etkinlik yaptığı açıklayan metin. | Hayır |
-| type | Bu özellik için HDInsightSpark ayarlamanız gerekir. | Evet |
-| linkedServiceName | Spark programın çalıştığı Hdınsight bağlı hizmetin adı. | Evet |
-| rootPath | Azure Blob kapsayıcısı ve Spark dosyasını içeren klasör. Dosya adı büyük/küçük harf duyarlıdır. | Evet |
-| entryFilePath | Spark kod/paketi kök klasörüne göreli yolu. | Evet |
+| ad | Hello etkinliğinde hello ardışık düzen adı. | Evet |
+| Açıklama | Hangi hello etkinliği açıklayan metin yapar. | Hayır |
+| type | Bu özellik tooHDInsightSpark ayarlamanız gerekir. | Evet |
+| linkedServiceName | Merhaba Hdınsight adını bağlantılı hizmetinin hangi hello Spark programı çalıştırır. | Evet |
+| rootPath | Hello Azure Blob kapsayıcısı ve hello Spark dosyasını içeren klasör. Merhaba dosya adı büyük/küçük harf duyarlıdır. | Evet |
+| entryFilePath | Göreli yol toohello kök klasöründe hello Spark kod/paketi. | Evet |
 | className | Uygulamanın Java/Spark ana sınıfı | Hayır |
-| Bağımsız değişkenler | Spark programın komut satırı bağımsız değişkenleri listesi. | Hayır |
-| proxyUser | Spark program yürütülmeye kimliğine bürünmek için kullanıcı hesabı | Hayır |
-| sparkConfig | Konu başlığı altında listelenen Spark yapılandırma özellikleri için değerleri belirtin: [Spark yapılandırması - uygulama özellikleri](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Hayır |
-| Getdebugınfo | Hdınsight küme tarafından kullanılan Azure depolama Spark günlük dosyalarının ne zaman kopyalanır belirtir (veya) sparkJobLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: yok. | Hayır |
-| sparkJobLinkedService | Azure Storage bağlı Spark iş dosyası, bağımlılıklar ve günlükleri tutan hizmeti.  Bu özellik için bir değer belirtmezseniz, Hdınsight kümesi ile ilişkili depolama kullanılır. | Hayır |
+| Bağımsız değişkenler | Komut satırı bağımsız değişkenleri toohello Spark program listesi. | Hayır |
+| proxyUser | Merhaba kullanıcı hesabı tooimpersonate tooexecute hello Spark programı | Hayır |
+| sparkConfig | Merhaba konu başlığı altında listelenen Spark yapılandırma özellikleri için değerleri belirtin: [Spark yapılandırması - uygulama özellikleri](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Hayır |
+| Getdebugınfo | Merhaba Spark günlük dosyalarını kopyalanan toohello Hdınsight küme tarafından kullanılan Azure depolama olduğunda belirtir (veya) sparkJobLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: yok. | Hayır |
+| sparkJobLinkedService | Merhaba hello Spark iş dosyası, bağımlılıklar ve günlükleri tutan Azure Storage bağlı hizmeti.  Bu özellik için bir değer belirtmezseniz, Hdınsight kümesi ile ilişkili hello depolama kullanılır. | Hayır |
 
 ## <a name="folder-structure"></a>Klasör yapısı
-Spark etkinliği bir satır içi komut dosyası Pig olarak desteklemez ve Hive etkinlikleri yapın. Spark işleri de Pig/Hive işleri daha fazla genişletilebilir. Spark işleri, birden çok bağımlılıkları gibi sağlayabilirsiniz jar (java sınıf yerleştirilen) paketleri, python dosyaları (PYTHONPATH yerleştirilmiş) ve diğer dosyaları.
+Merhaba Spark etkinliği bir satır içi komut dosyası Pig olarak desteklemez ve Hive etkinlikleri yapın. Spark işleri de Pig/Hive işleri daha fazla genişletilebilir. Spark işleri, birden çok bağımlılıkları gibi sağlayabilirsiniz jar (Merhaba java sınıf yerleştirilen) paketleri, python dosyaları (PYTHONPATH hello yerleştirilmiş) ve diğer dosyaları.
 
-Hdınsight bağlı hizmeti tarafından başvurulan Azure Blob Depolama alanında aşağıdaki klasör yapısını oluşturun. Ardından, bağımlı dosyaları tarafından temsil edilen kök klasöründe uygun alt klasörlerdeki karşıya **entryFilePath**. Örneğin, python dosyalarını pyFiles alt klasöre ve jar dosyalarını kök klasörünün Kavanoz alt karşıya yükleyin. Çalışma zamanında Data Factory hizmeti Azure Blob depolama alanına aşağıdaki klasör yapısını bekler:     
+Merhaba hello Hdınsight bağlı hizmeti tarafından başvurulan Azure Blob Depolama Klasör yapısındaki aşağıdaki hello oluşturun. Ardından, bağımlı dosyaları toohello uygun alt klasörleri tarafından temsil edilen hello kök klasöründe karşıya **entryFilePath**. Örneğin, python dosyalar toohello pyFiles alt ve jar dosyalarını toohello Kavanoz hello kök klasörünün alt karşıya yükleyin. Çalışma zamanında Data Factory hizmetinin hello Azure Blob Depolama Klasör yapısındaki aşağıdaki hello bekler:     
 
 | Yol | Açıklama | Gerekli | Tür |
 | ---- | ----------- | -------- | ---- |
-| . | Depolama bağlantılı hizmeti Spark işinde kök yolu  | Evet | Klasör |
-| &lt;Kullanıcı tanımlı&gt; | Spark iş girişi dosyasına işaret eden yolu | Evet | Dosya |
-| . / jar'lar | Bu klasörü altındaki tüm dosyaları karşıya ve küme java sınıf yolu yerleştirilmiş | Hayır | Klasör |
-| . / pyFiles | Bu klasörü altındaki tüm dosyaları karşıya ve küme PYTHONPATH yerleştirilmiş | Hayır | Klasör |
+| . | Merhaba Spark hello depolama bağlı hizmeti işinde Hello kök yolu    | Evet | Klasör |
+| &lt;Kullanıcı tanımlı&gt; | toohello girdi dosyası hello Spark işin işaret eden hello yolu | Evet | Dosya |
+| . / jar'lar | Bu klasörü altındaki tüm dosyaları karşıya ve üzerinde hello kümesinin hello java sınıf yerleştirilmiş | Hayır | Klasör |
+| . / pyFiles | Bu klasörü altındaki tüm dosyaları karşıya ve hello kümesinin PYTHONPATH hello üzerinde yerleştirilmiş | Hayır | Klasör |
 | . / dosyaları | Bu klasörü altındaki tüm dosyaları karşıya ve yürütücü çalışma dizini yerleştirilmiş | Hayır | Klasör |
 | . / arşivler | Bu klasörü altındaki tüm dosyaları sıkıştırılmamış | Hayır | Klasör |
-| . / günlükleri | Spark kümesi günlüklerinden depolandığı klasörü.| Hayır | Klasör |
+| . / günlükleri | Merhaba Spark kümesi günlüklerinden depolandığı hello klasör.| Hayır | Klasör |
 
-Burada, Azure Blob Depolama Hdınsight bağlı hizmeti tarafından başvurulan iki Spark iş dosyalarını içeren bir depolama alanı için bir örnek verilmiştir.
+Hello Azure Blob Storage Hdınsight bağlı hizmeti hello tarafından başvurulan iki Spark iş dosyaları içeren bir depolama için örnek aşağıda verilmiştir.
 
 ```
 SparkJob1

@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management’ta ilk API’nizi yönetme | Microsoft Belgeleri"
-description: "API oluşturmayı ve işlemler eklemeyi öğrenin, API Management’i kullanmaya başlayın."
+title: aaaManage ilk API'nizi Azure API Management | Microsoft Docs
+description: "Nasıl toocreate API'leri, işlemleri ekleyin ve API Management ile çalışmaya başlama öğrenin."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,67 +14,67 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7d43f33aa359c4d1e605e9fb41e43d323ca6a777
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>İlk API’nizi Azure API Management’te yönetme
 ## <a name="overview"> </a>Genel Bakış
-Bu kılavuz size Azure API Management’i hızlı bir şekilde nasıl kullanmaya başlayacağınızı ve ilk API çağrınızı yapmayı gösterir.
+Bu kılavuz size nasıl tooquickly Azure API Management'i kullanmaya başlayacağınızı ve ilk API çağrınızı yapmayı gösterir.
 
 ## <a name="concepts"> </a>Azure API Management nedir?
-Azure API Management’i bir arka uç almak ve bunu temel alan tam özellikli bir API programını başlatmak için kullanabilirsiniz.
+Azure API Management tootake herhangi bir arka uçtan kullanın ve temel alan tam özellikli bir API programını başlatın.
 
 Yaygın senaryolar şunlardır:
 
 * **Mobil altyapıyı koruma**: API anahtarlarına erişim geçişi sağlayarak, azaltma ile DOS saldırılarını önleyerek ya da JWT belirtecini doğrulama gibi gelişmiş güvenlik ilkelerini kullanarak mobil altyapıyı koruyun.
-* **ISV iş ortağı ekosistemlerini etkinleştirme**: Geliştirici Portalı üzerinden hızlı iş ortağı ekleyerek ve iş ortağı kullanımı için hazır olmayan dahili uygulamalardan bir API cephesi oluşturarak ISV iş ortağı eko sistemlerini etkinleştirin.
-* **Dahili API programı çalıştırma** API’lerin kullanılabilirliği ve son değişikliklerine ilişkin iletişim için kuruluşa merkezi bir konum sağlayarak ve kurumsal hesaplar temelinde erişim geçişi sağlayarak, tümü API ağ geçidi ve arka uç arasında güvenli bir kanalı temel alan dahili API programı çalıştırın.
+* **ISV iş ortağı ekosistemlerini etkinleştirme** hello Geliştirici üzerinden hızlı iş ortağı ekleme sunarak portal ve API cephesi toodecouple dahili uygulamalardan gelen derleme iş ortağı kullanımı için hazır değil.
+* **Bir dahili API programı çalıştırma** hello kuruluş toocommunicate hello kullanılabilirliği ve son hakkında tooAPIs değişiklikleri için merkezi bir konumda sunarak, Kurumsal hesaplar temelinde erişim geçişi sağlayarak tüm temel alarak arasında güvenli bir kanalı API ağ geçidi hello ve arka uç hello.
 
-Sistem aşağıdaki bileşenlerden oluşur:
+Merhaba sistem bileşenleri aşağıdaki Merhaba oluşur:
 
-* **API ağ geçidi** şunları yapan uç noktadır:
+* Merhaba **API ağ geçidi** hello uç noktası:
   
-  * API çağrılarını kabul eder ve bunları arka uçlarınıza yönlendirir.
+  * API çağrıları ve bunları tooyour arka uçlarını yönlendiren kabul eder.
   * API anahtarları, JWT belirteçleri, sertifikaları ve diğer kimlik bilgilerini doğrular.
   * Kullanım kotalarını ve oran limitlerini uygular.
-  * Kod değişiklikleri olmadan API'nizi anında dönüştürür.
+  * Merhaba çalışma sırasında kod değişiklikleri olmadan API'nizi dönüştürür.
   * Ayarlandığında arka uç yanıtlarını önbelleğe kaydeder.
   * Analiz amaçlı çağrı meta verilerini günlüğe kaydeder.
-* **Yayımcı portalı** API programınızı ayarladığınız yönetim arabirimidir. Bunu şunlar için kullanın:
+* Merhaba **yayımcı portalına** API programınızı ayarladığınız hello yönetim arabirimidir. Bunu şunlar için kullanın:
   
   * API şeması tanımlama ya da içeri aktarma.
   * API'leri ürünler halinde paketleme.
-  * API’lerde kota veya dönüşüm gibi ilkeler ayarlama.
+  * Kota veya dönüşüm hello API'leri gibi ilkeleri ayarlayın.
   * Analizlerden öngörüler edinme
   * Kullanıcıları yönetme.
-* **Geliştirici portalı**, geliştiricilerin şunları yapabileceği ana web varlığı görevi görür:
+* Merhaba **Geliştirici Portalı** yapabileceği hello ana web varlığı görevi geliştiriciler için hizmet eder:
   
   * API belgelerini okuma.
-  * Etkileşimli konsol üzerinden bir API’yi deneme.
-  * Bir hesap oluşturma ve API anahtarlarını almak için abone olma.
+  * Merhaba etkileşimli konsol üzerinden bir API'yi deneyin.
+  * Bir hesap oluşturun ve tooget API anahtarları abone olabilirsiniz.
   * Kendi kullanımlarına ilişkin analize erişme.
 
 ## <a name="create-service-instance"> </a>API Management örneği oluşturma
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][Azure Free Trial].
+> toocomplete Bu öğretici bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][Azure Free Trial].
 > 
 > 
 
-API Management ile çalışmanın ilk adımı bir hizmet örneği oluşturmaktır. [Azure Portal][Azure Portal]'da oturum açın ve **Yeni**, **Web + Mobil**, **API Management**'a tıklayın.
+API Management ile çalışmanın hello ilk adımı toocreate bir hizmet örneği oluşturur. İçinde toohello oturum [Azure Portal] [ Azure Portal] tıklatıp **yeni**, **Web + mobil**, **API Management**.
 
 ![Yeni API Management örneği][api-management-create-instance-menu]
 
-**Ad** alanında hizmet URL'si için kullanılacak benzersiz bir alt etki alanı adı belirtin.
+İçin **adı**, benzersiz bir alt etki alanı adı toouse hello hizmeti URL'sini belirtin.
 
-Hizmet örneğiniz için istediğiniz **Abonelik**, **Kaynak grubu** ve **Konum** seçeneklerini belirleyin.
+İstenen hello seçin **abonelik**, **kaynak grubu** ve **konumu** hizmet Örneğiniz için.
 
-**Contoso Ltd.**’yi **Kuruluş Adı** olarak girin ve e-posta adresinizi **Yönetici E-postası** alanına girin.
+Girin **Contoso Ltd.** hello için **kuruluş adı**ve e-posta adresinizi hello **yönetici e-posta** alan.
 
 > [!NOTE]
-> Bu e-posta adresi API Management sisteminden gelen bildirimler için kullanılır. Daha fazla bilgi için bkz. [Azure API Management'te bildirimleri ve e-posta şablonlarını yapılandırma][How to configure notifications and email templates in Azure API Management].
+> Bu e-posta adresi hello API Management sisteminden gelen bildirimler için kullanılır. Daha fazla bilgi için bkz: [nasıl tooconfigure bildirimleri ve e-posta şablonları Azure API Management'te][How tooconfigure notifications and email templates in Azure API Management].
 > 
 > 
 
@@ -83,40 +83,40 @@ Hizmet örneğiniz için istediğiniz **Abonelik**, **Kaynak grubu** ve **Konum*
 API Management hizmeti örnekleri üç katmanda kullanılabilir: Geliştirici, Standart ve Premium.
 
 > [!NOTE]
-> Geliştirici Katmanı; geliştirme, test ve yüksek kullanılabilirliğin gerekli görülmediği pilot API programları içindir. Standart ve Premium katmanlarda, daha fazla trafik işlemek için ayrılmış birim sayınızı ölçeklendirebilirsiniz. Standart ve Premium katmanlar, API Management hizmetinize en fazla işlem gücü ve performans sağlar. Bu öğreticiyi herhangi bir katmanı kullanarak tamamlayabilirsiniz. API Management katmanları hakkında daha fazla bilgi için bkz. [API Management fiyatlandırması][API Management pricing].
+> Merhaba Geliştirici katmanı, geliştirme, test ve pilot API programları yüksek kullanılabilirlik ilgili bir sorun olduğu için ' dir. Merhaba standart ve Premium katmanlar, daha fazla trafik ayrılmış birim sayısı toohandle ölçeklendirebilirsiniz. Merhaba standart ve Premium katmanlar, API Management hizmeti ile Merhaba çoğu işlem gücü ve performans sağlar. Bu öğreticiyi herhangi bir katmanı kullanarak tamamlayabilirsiniz. API Management katmanları hakkında daha fazla bilgi için bkz. [API Management fiyatlandırması][API Management pricing].
 > 
 > 
 
-Hizmet örneğinizi sağlamaya başlamak için **Oluştur**’a tıklayın.
+Tıklatın **oluşturma** toostart, hizmet örneği sağlama.
 
 ![Yeni API Management hizmeti][api-management-instance-created]
 
-Hizmet örneği oluşturulduktan sonra bir API oluşturmak ya da içeri aktarmak sonraki adımdır.
+Merhaba hizmet örneği oluşturulduktan sonra hello sonraki adıma toocreate olduğunu veya bir API içeri aktarın.
 
 ## <a name="create-api"> </a>Bir API'yi içeri aktarma
-Bir API, istemci uygulamasından çağrılabilen işlemler grubundan oluşur. API işlemleri mevcut web hizmetlerine taşınır.
+Bir API, istemci uygulamasından çağrılabilen işlemler grubundan oluşur. API işlemleri yönlendirilirken tooexisting web hizmetleridir.
 
-API'ler el ile oluşturulabilir (ve API’lere işlem eklenebilir) veya içeri aktarılabilir. Bu öğreticide, Microsoft tarafından sağlanan ve Azure üzerinde barındırılan bir örnek hesaplayıcı web hizmeti için API’yi içeri aktaracağız.
+API'ler el ile oluşturulabilir (ve API’lere işlem eklenebilir) veya içeri aktarılabilir. Bu öğreticide, size Microsoft tarafından sağlanan ve Azure üzerinde barındırılan bir örnek hesaplayıcı web hizmeti için API hello alacak.
 
 > [!NOTE]
-> API oluşturma ve işlemleri el ile ekleme yönergeleri için bkz. [API oluşturma](api-management-howto-create-apis.md) ve [API’ye işlem ekleme](api-management-howto-add-operations.md).
+> API oluşturma ve işlemleri el ile ekleme hakkında yönergeler için bkz [nasıl toocreate API'leri](api-management-howto-create-apis.md) ve [nasıl tooadd işlemleri tooan API](api-management-howto-add-operations.md).
 > 
 > 
 
-API’ler yayımcı portalından yapılandırılır. Ulaşmak için hizmet araç çubuğundan **Yayımcı portalı**’na tıklayın.
+API hello yayımcı Portalı'ndan yapılandırılır. tooreach, tıklatın **yayımcı portalına** hello hizmet araç çubuğundan.
 
 ![Yayımcı portalı][api-management-management-console]
 
-Hesaplayıcı API’sini içeri aktarmak için, soldaki **API Management** menüsünde **API'ler**’e tıklayın ve ardından **API’yi İçeri Aktar**’a tıklayın.
+tooimport hello hesaplayıcı API'sini, tıklatın **API'leri** hello gelen **API Management** sol hello ve ardından menüsünde **içeri aktarma API'si**.
 
 ![API’yi İçeri Aktar düğmesi][api-management-import-api]
 
-Hesaplayıcı API’sini yapılandırmak için aşağıdaki adımları uygulayın:
+Aşağıdaki adımları tooconfigure hello hesaplayıcı API'si hello gerçekleştirin:
 
-1. **Kaynak URL**’ye tıklayın, **Belirtim belgesi URL’si** metin kutusuna **http://calcapi.cloudapp.net/calcapi.json** girin ve **Swagger** radyo düğmesine tıklayın.
-2. **Web API’si URL soneki** metin kutusuna **calc** yazın. 
-3. **Ürünler (isteğe bağlı)** öğesine tıklayın ve **Starter**’ı seçin.
-4. API’yi içeri aktarmak için **Kaydet**’e tıklayın.
+1. Tıklatın **URL'den**, girin **http://calcapi.cloudapp.net/calcapi.json** hello içine **belirtim belgesi URL'si** metin kutusuna ve hello tıklatın **Swagger**  radyo düğmesi.
+2. Tür **calc** hello içine **Web API'si URL soneki** metin kutusu.
+3. Tıklatın hello **ürünler (isteğe bağlı)** kutusuna ve seçin **Starter**.
+4. Tıklatın **kaydetmek** tooimport hello API.
 
 ![Yeni API ekle][api-management-import-new-api]
 
@@ -125,95 +125,95 @@ Hesaplayıcı API’sini yapılandırmak için aşağıdaki adımları uygulayı
 > 
 > 
 
-API içeri aktarıldığında, yayımcı portalında API’nin özet sayfası gösterilir.
+Merhaba API içeri aktarıldığında hello hello API için Özet sayfasında hello yayımcı Portalı'nda görüntülenir.
 
 ![API özeti][api-management-imported-api-summary]
 
-API bölümünde birden çok sekme bulunur. **Özet** sekmesi, API hakkında temel ölçümleri ve bilgileri gösterir. [Ayarlar](api-management-howto-create-apis.md#configure-api-settings) sekmesi, API yapılandırmasını görüntülemek ve düzenlemek için kullanılır. [İşlemler](api-management-howto-add-operations.md) sekmesi, API işlemlerini yönetmek için kullanılır. **Güvenlik** sekmesi, Temel kimlik doğrulaması ya da [karşılıklı sertifika kimlik doğrulaması](api-management-howto-mutual-certificates.md) kullanarak arka uç sunucusu için ağ geçidi kimlik doğrulamasını yapılandırmak ve [OAuth 2.0 kullanarak kullanıcı kimlik doğrulamasını](api-management-howto-oauth2.md) yapılandırmak üzere kullanılabilir.  **Sorunlar** sekmesi, API'lerinizi kullanan geliştiriciler tarafından bildirilen sorunları görüntülemek için kullanılır. **Ürünler** sekmesi bu API’yi içeren ürünleri yapılandırmak için kullanılır.
+Merhaba API bölümünde birden çok sekme bulunur. Merhaba **Özet** sekmesi, temel ölçümleri ve hello API hakkında bilgileri görüntüler. Merhaba [ayarları](api-management-howto-create-apis.md#configure-api-settings) sekme kullanılan tooview ve düzenleme hello API yapılandırmasını kullanılır. Merhaba [Operations](api-management-howto-add-operations.md) sekme kullanılan toomanage hello API'nin işlemlerini kullanılır. Merhaba **güvenlik** sekmesi, temel kimlik doğrulaması kullanarak hello arka uç sunucusu için kullanılan tooconfigure Ağ Geçidi kimlik doğrulaması olabilir veya [karşılıklı sertifika kimlik doğrulaması](api-management-howto-mutual-certificates.md)ve tooconfigure [ OAuth 2.0 kullanarak kullanıcı kimlik doğrulaması](api-management-howto-oauth2.md).  Merhaba **sorunları** sekmesi, Apı'lerinizi kullanan hello geliştiriciler tarafından bildirilen kullanılan tooview sorunları aynıdır. Merhaba **ürünleri** sekmesi bu API'yi içeren kullanılan tooconfigure hello ürünleri aynıdır.
 
 Varsayılan olarak, her bir API Management örneği iki örnek ürün ile birlikte gelir:
 
 * **Başlangıç**
 * **Sınırsız**
 
-Bu öğreticide, API içeri aktarılırken Başlangıç ürününe Temel Hesaplayıcı API’si eklenmiştir.
+Merhaba API içeri aktarılırken Bu öğreticide, toohello Starter ürün hello temel hesaplayıcı API'si eklenmiştir.
 
-Bir API’ye çağrı yapmak için, geliştiricilerin önce buna erişim imkanı sağlayan bir ürüne abone olması gerekir. Geliştiriciler geliştirici portalında ürünlere abone olabilir ya da yöneticiler geliştiricileri yayım portalında ürünlere abone yapabilir. Öğreticinin önceki adımlarında API Management örneği oluşturduğunuz için siz bir yöneticisiniz, bu nedenle varsayılan olarak her ürüne zaten abone oldunuz.
+Sipariş toomake çağrıları tooan API'si, geliştiricilerin önce erişim tooit verir tooa ürün abone olmalısınız. Geliştiriciler hello Geliştirici Portalı'nda tooproducts abone olabilir ya da yöneticiler geliştiricileri tooproducts hello yayımcı portalında abone olabilirsiniz. Zaten abone tooevery ürün varsayılan olacak şekilde hello API Management örneği hello önceki adımları hello öğreticide oluşturduğunuz olduğundan, bir yönetici demektir.
 
-## <a name="call-operation"> </a>Geliştirici portalından işlem çağırma
-İşlemler doğrudan bir API’nin işlemlerini görüntülemek ve test etmek için kullanışlı bir yol sağlayan geliştirici portalından çağrılabilir. Bu öğretici adımında, Temel Hesaplayıcı API’sinin **İki tamsayı ekle** işlemini çağıracaksınız. Yayımcı portalının sağ üst kısmında **Geliştirici Portalı**’na tıklayın.
+## <a name="call-operation"></a>Hello Geliştirici portalından bir işlem çağırma
+İşlemler uygun şekilde tooview sağlayan doğrudan hello Geliştirici portalından çağrılabilir ve bir API'nin işlemlerini hello test edin. Bu öğretici adımında hello temel hesaplayıcı API'SİNİN çağıracak **iki tamsayı Ekle** işlemi. Tıklatın **Geliştirici Portalı** hello hello menüden hello yayımcı portalının sağ üst.
 
 ![Geliştirici portalı][api-management-developer-portal-menu]
 
-Üstteki menüde **API'ler**’e tıklayın ve ardından kullanılabilir tüm işlemleri görmek için **Temel Hesaplayıcı**’ya tıklayın.
+Tıklatın **API'leri** hello üst menüsünden ve ardından **temel hesaplayıcı** toosee hello kullanılabilir işlemleri.
 
 ![Geliştirici portalı][api-management-developer-portal-calc-api]
 
-Bu işlemi kullanacak geliştiriciler için belgeleri sağlayarak, API ve işlemlerle birlikte, içeri aktarılan örnek açıklamalarını ve parametrelerini not edin. İşlemler el ile eklendiğinde de bu açıklamalar eklenebilir.
+Merhaba örnek açıklamalarını ve hello API ve bu işlemi kullanacak hello geliştiriciler için belgeleri sağlayarak işlemlerini birlikte aktarılan parametreleri unutmayın. İşlemler el ile eklendiğinde de bu açıklamalar eklenebilir.
 
-**İki tamsayı ekle** işlemini çağırmak için **Deneyin**’e tıklayın.
+toocall hello **iki tamsayı Ekle** işlemi, tıklatın **deneyin**.
 
 ![Deneyin][api-management-developer-portal-calc-api-console]
 
-Parametreler için bazı değerler girebilir veya varsayılanları tutabilirsiniz, sonra **Gönder**’e tıklayın.
+Merhaba parametreler için bazı değerler girin veya hello Varsayılanları tutun ve ardından **Gönder**.
 
 ![HTTP Al][api-management-invoke-get]
 
-Bir işlem çağrıldıktan sonra, geliştirici portalı **Yanıt durumu**, **Yanıt üst ilgileri** ve tüm **Yanıt içeriğini** gösterir.
+Bir işlem çağrıldıktan sonra hello Geliştirici Portalı hello görüntüler **yanıt durumu**, hello **yanıt üstbilgilerini**ve tüm **yanıt içeriği**.
 
 ![Yanıt][api-management-invoke-get-response]
 
 ## <a name="view-analytics">.</a>Analizi görüntüleme
-Temel Hesaplayıcı için analizleri görüntülemek üzere, geliştirici portalının sağ üst kısmındaki menüde **Yönet**’i seçerek yayımcı portalına geri dönün.
+Temel hesaplayıcı, anahtar seçerek yayımcı portalına geri toohello için tooview analiz **Yönet** hello hello menüden hello Geliştirici portalının sağ üst.
 
 ![Yönet][api-management-manage-menu]
 
-Yayımcı portalı için varsayılan görünüm, API Management örneğinize genel bakış sağlayan **Pano**’dur.
+Merhaba hello yayımcı portalı için varsayılan görünüm olan hello **Pano**, API Management Örneğinize genel bir bakış sağlar.
 
 ![Pano][api-management-dashboard]
 
-Belirli bir süre için API’nin kullanımına ilişkin belirli ölçümleri görüntülemek üzere fareyi **Temel Hesaplayıcı** grafiğinin üzerine getirin.
+Vurgulu hello fare hello grafiği için üzerinden **temel hesaplayıcı** toosee hello belirli ölçümleri belirli bir süre için API hello hello kullanımı.
 
 > [!NOTE]
-> Grafiğinizde satır görmüyorsanız, geliştirici portalına dönün ve API’ye bazı çağrılar yapın, birkaç dakika bekleyip panoya geri dönün.
+> Grafiğinizde grafiğinizde satır görmüyorsanız, geri toohello Geliştirici portalına geçin ve hello API bazı çağrılar yapın, birkaç dakika bekleyin ve toohello panoya geri dönün.
 > 
 > 
 
-Görüntülenen ölçümlerin daha büyük bir sürümü dahil olmak üzere API için özet sayfasını görüntülemek isterseniz **Ayrıntıları Görüntüle**’ye tıklayın.
+Tıklatın **ayrıntıları görüntüle** tooview hello Özet sayfası hello görüntülenen hello ölçümleri daha büyük bir sürümü de dahil olmak üzere API.
 
 ![Analiz][api-management-mouse-over]
 
 ![Özet][api-management-api-summary-metrics]
 
-Ayrıntılı ölçümler ve raporlar için soldaki **API Management** menüsünde **Analiz**’i seçin.
+Ayrıntılı Ölçümler ve raporlar için tıklatın **Analytics** hello gelen **API Management** hello sol menüsünde.
 
 ![Genel Bakış][api-management-analytics-overview]
 
-**Analiz** bölümünde aşağıdaki dört sekme yer alır:
+Merhaba **Analytics** bölümü aşağıdaki dört sekme hello sahiptir:
 
-* **Bir bakışta** sekmesi genel kullanım ve durum ölçümlerinin yanı sıra en iyi geliştiriciler, en iyi ürünler, sık kullanılan API'ler ve sık kullanılan işlemleri gösterir.
+* **Bir bakışta** genel kullanım ve sistem durumu ölçümleri yanı sıra üst geliştiriciler, en iyi ürünler, sık kullanılan API'ler ve sık kullanılan işlemleri hello sağlar.
 * **Kullanım** sekmesi coğrafi bir temsil dahil olmak üzere API çağrıları ve bant genişliğine ilişkin ayrıntılı bir bakış sunar.
 * **Durum**sekmesi durum kodları, önbellek başarı oranları, yanıt zamanları ve API ve hizmet yanıt zamanlarına odaklanır.
-* **Etkinlik**sekmesi geliştirici, ürün, API ve işleme göre belirli bir etkinliğe ilişkin ayrıntılı raporlar sunar.
+* **Etkinlik** geliştirici, ürün, API ve işleme göre belirli etkinlik hello detaya raporlar sağlar.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
-* [Oran limitleri ile API’nizi koruma](api-management-howto-product-with-rules.md) hakkında bilgi edinin.
+* Nasıl çok öğrenin[API'nizi oran sınırları ile koruma](api-management-howto-product-with-rules.md).
 
 [Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
 [Create an API Management instance]: #create-service-instance
 [Create an API]: #create-api
 [Add an operation]: #add-operation
-[Add the new API to a product]: #add-api-to-product
-[Subscribe to the product that contains the API]: #subscribe
-[Call an operation from the Developer Portal]: #call-operation
+[Add hello new API tooa product]: #add-api-to-product
+[Subscribe toohello product that contains hello API]: #subscribe
+[Call an operation from hello Developer Portal]: #call-operation
 [View analytics]: #view-analytics
 [Next steps]: #next-steps
 
 
-[How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
+[How toomanage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
 [Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
-[How to configure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
+[How tooconfigure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
 [Responses]: api-management-howto-add-operations.md#responses
 [How create and publish a product]: api-management-howto-add-products.md
 [API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/

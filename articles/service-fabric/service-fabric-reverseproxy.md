@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric ters proxy | Microsoft Docs
-description: "Service Fabric'ın ters proxy mikro içinden ve dışından küme iletişimi için kullanın."
+title: Service Fabric aaaAzure ters proxy | Microsoft Docs
+description: "İç ve dış hello küme iletişimi toomicroservices için Service Fabric'ın ters proxy kullanın."
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
@@ -14,102 +14,102 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: bharatn
-ms.openlocfilehash: 7897458e9e4a0bbe185bd3f7b4c133c1b26769f9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0e7835a64ccd74293c7bdd8b41deae414c83dffa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric ters proxy
-Azure Service Fabric yerleşik ters proxy HTTP uç noktaları sunan Service Fabric kümesindeki mikro giderir.
+Azure Service Fabric yerleşik hello ters proxy HTTP uç noktaları gösteren hello Service Fabric kümesindeki mikro giderir.
 
 ## <a name="microservices-communication-model"></a>Mikro iletişim modelini
-Service Fabric mikro genellikle bir alt küme içindeki sanal makinelerin çalışır ve bir sanal makineden diğerine çeşitli nedenlerle taşıyabilirsiniz. Bu nedenle, mikro için bitiş noktalarını dinamik olarak değiştirebilirsiniz. Mikro hizmet için iletişim kurmak için genel bir desen aşağıdaki çözümleme döngü şöyledir:
+Service Fabric mikro genellikle bir alt hello kümedeki sanal makinelerin çalışır ve bir sanal makine tooanother çeşitli nedenlerle taşıyabilirsiniz. Bu nedenle, hello uç noktaları mikro için dinamik olarak değiştirebilirsiniz. Merhaba tipik bir düzen toocommunicate toohello mikro hello aşağıdaki döngüsü çözmek şöyledir:
 
-1. Başlangıçta adlandırma hizmeti aracılığıyla hizmet konumu çözümleyin.
-2. Hizmetine bağlanın.
-3. Bağlantı hataları nedenini ve hizmet konumu gerektiğinde yeniden çözümleyin.
+1. Başlangıçta hello adlandırma hizmeti aracılığıyla Hello hizmet konumu çözümleyin.
+2. Toohello hizmetine bağlanın.
+3. Bağlantı hataları Hello nedenini ve gerektiğinde Merhaba hizmet konumu yeniden çözümleyin.
 
-Bu işlem genellikle istemci-tarafı iletişim hizmeti çözümleme ve Yeniden Dene'yi ilkeleri uygulayan bir yeniden deneme döngüsüne kitaplıklarında kaydırma içerir.
+Bu işlem genellikle hello hizmeti çözümleme ve Yeniden Dene'yi ilkeleri uygulayan bir yeniden deneme döngüsüne istemci-tarafı iletişim kitaplıklarında kaydırma içerir.
 Daha fazla bilgi için bkz: [Bağlan ve Hizmetleri ile iletişim](service-fabric-connect-and-communicate-with-services.md).
 
-### <a name="communicating-by-using-the-reverse-proxy"></a>Ters proxy kullanarak iletişim
-Kümedeki tüm düğümlerde ters proxy Service Fabric içinde çalışır. Bir istemcinin adına tüm hizmet çözümleme işlemi gerçekleştirir ve ardından istemci isteği gönderir. Bu nedenle, küme üzerinde çalışan istemciler aynı düğümde yerel olarak çalıştırılan ters proxy kullanarak hedef hizmete anlaşmak için tüm istemci-tarafı HTTP iletişim kitaplıkları kullanabilirsiniz.
+### <a name="communicating-by-using-hello-reverse-proxy"></a>Merhaba ters proxy kullanarak iletişim
+Merhaba kümedeki tüm hello düğümlere Hello ters proxy Service Fabric içinde çalışır. Bir istemcinin adına hello tüm hizmet çözümleme işlemi gerçekleştirir ve hello istemci isteğini iletir. Bu nedenle, hello kümede çalışan istemciler, yerel olarak çalışır aynı düğümde hello hello ters Ara sunucu kullanarak tüm istemci-tarafı HTTP iletişim kitaplıkları tootalk toohello hedef hizmetini kullanabilirsiniz.
 
 ![İç iletişim][1]
 
-## <a name="reaching-microservices-from-outside-the-cluster"></a>Mikro hizmetler küme dışındaki ulaşmasını
-Varsayılan dış iletişim modelini mikro için burada her hizmetin doğrudan dış istemcilerden erişilemez bir katılımı modelidir. [Azure yük dengeleyici](../load-balancer/load-balancer-overview.md), mikro dış istemcileri arasındaki bir ağ sınırında olduğu ağ adresi çevirisi gerçekleştirir ve iç IP: BağlantıNoktası uç noktaları dış isteklerini iletir. Mikro hizmet ait uç nokta dış istemcilere doğrudan erişilebilir olması için ilk küme hizmetinin kullandığı her bağlantı noktası trafik iletmek için yük dengeleyici yapılandırmanız gerekir. Ayrıca, çoğu mikro, özellikle durum bilgisi olan mikro kümenin tüm düğümlerinde dinamik yok. Mikro yük devretme düğümlerinde arasında taşıyabilirsiniz. Böyle durumlarda, yük dengeleyici etkin olduğu trafiği ileterek çoğaltmalarının hedef düğüm konumu belirlenemiyor.
+## <a name="reaching-microservices-from-outside-hello-cluster"></a>Dış hello kümeden mikro ulaşmasını
+Merhaba varsayılan dış iletişim modelini mikro için burada her hizmetin doğrudan dış istemcilerden erişilemez bir katılımı modelidir. [Azure yük dengeleyici](../load-balancer/load-balancer-overview.md), mikro dış istemcileri arasındaki bir ağ sınırında olduğu ağ adresi çevirisi gerçekleştirir ve ileten dış toointernal IP: BağlantıNoktası uç noktaları ister. toomake mikro 's uç noktası doğrudan erişilebilir tooexternal istemciler, önce hizmet hello tooforward trafiği tooeach bağlantı noktası kullanan yük dengeleyici hello kümede yapılandırmanız gerekir. Ayrıca, çoğu mikro, özellikle durum bilgisi olan mikro hello kümenin tüm düğümlerinde dinamik yok. Merhaba mikro yük devretme düğümlerinde arasında taşıyabilirsiniz. Böyle durumlarda, yük dengeleyici etkili bir şekilde hello konumu belirlenemiyor hello çoğaltmaları toowhich, hedef düğümü hello trafiği iletmek.
 
-### <a name="reaching-microservices-via-the-reverse-proxy-from-outside-the-cluster"></a>Küme dışında ters proxy sunucudan aracılığıyla mikro ulaşmasını
-Yük dengeleyicisi bir bireysel hizmet bağlantı noktasını yapılandırmak yerine, yük dengeleyici yalnızca ters Ara sunucu bağlantı noktasını yapılandırabilirsiniz. Bu yapılandırma, kümenin dışındaki istemcilerin ek yapılandırma olmadan ters proxy kullanarak küme içindeki hizmetlere erişmek sağlar.
+### <a name="reaching-microservices-via-hello-reverse-proxy-from-outside-hello-cluster"></a>Dış hello kümeden hello ters proxy aracılığıyla mikro ulaşmasını
+Yük dengeleyicisi bir bireysel hizmet başlangıç bağlantı noktası yapılandırmak yerine, yalnızca hello ters proxy hello bağlantı yük dengeleyici yapılandırabilirsiniz. Bu yapılandırma hello küme dışındaki istemcilerin hello ters proxy ek yapılandırma olmadan kullanarak hello küme içindeki hizmetlere erişmek sağlar.
 
 ![Dış iletişimi][0]
 
 > [!WARNING]
-> Yük dengeleyicisi öğesi ters proxy bağlantı noktası yapılandırdığınızda, bir HTTP uç noktası kullanıma tüm mikro kümedeki küme dışında adreslenebilir.
+> Yük dengeleyicisi hello ters proxy'nın bağlantı noktası yapılandırdığınızda, bir HTTP uç noktası kullanıma hello kümedeki tüm mikro hello küme dışında adreslenebilir.
 >
 >
 
 
-## <a name="uri-format-for-addressing-services-by-using-the-reverse-proxy"></a>Ters proxy kullanarak Hizmetleri adresleme için URI biçimi
-Ters proxy gelen istek iletilmesi gereken hizmet bölümü tanımlamak için belirli bir Tekdüzen Kaynak Tanımlayıcısı (URI) biçimi kullanır:
+## <a name="uri-format-for-addressing-services-by-using-hello-reverse-proxy"></a>Merhaba ters proxy kullanarak Hizmetleri adresleme için URI biçimi
+belirli bir Tekdüzen Kaynak Tanımlayıcısı (URI) biçimi tooidentify hello hizmet bölüm toowhich hello gelen isteği iletilmesi gereken hello ters proxy kullanır:
 
 ```
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http (s):** ters proxy HTTP veya HTTPS trafiğini kabul edecek şekilde yapılandırılabilir. HTTPS iletme için başvurmak [güvenli hizmetine ters proxy ile bağlanma](service-fabric-reverseproxy-configure-secure-communication.md) HTTPS üzerinde dinlemek için ters proxy ayarladıktan sonra.
-* **Küme tam etki alanı adı (FQDN) | iç IP:** dış istemcileri için böylece mycluster.eastus.cloudapp.azure.com gibi küme etki alanıyla üzerinden erişilebilen ters proxy yapılandırabilirsiniz. Varsayılan olarak, ters proxy her düğüm üzerinde çalışır. İç trafiği için ters proxy 10.0.0.1 gibi herhangi bir iç düğüm IP'yi veya localhost üzerinde erişilebilir.
-* **Bağlantı noktası:** için ters proxy belirtilen gibi bağlantı noktası 19081, budur.
-* **ServiceInstanceName:** olmadan Ulaşmaya çalıştığınız dağıtılan hizmet örneği tam adını budur "fabric: /" düzeni. Örneğin, ulaşmak için *fabric: / myapp/myservice/* hizmeti, kullandığınız *myapp/myservice*.
+* **http (s):** hello ters proxy yapılandırılmış tooaccept HTTP veya HTTPS trafiği olabilir. HTTPS iletme için çok başvuran[tooa güvenli service hello ters proxy ile bağlanma](service-fabric-reverseproxy-configure-secure-communication.md) HTTPS üzerinde ters proxy Kurulum toolisten sahip olduğunda.
+* **Küme tam etki alanı adı (FQDN) | iç IP:** dış istemcileri için böylece mycluster.eastus.cloudapp.azure.com gibi hello küme etki üzerinden erişilebilen hello ters proxy yapılandırabilirsiniz. Varsayılan olarak, hello ters proxy her düğüm üzerinde çalışır. İç trafiği için hello ters proxy 10.0.0.1 gibi herhangi bir iç düğüm IP'yi veya localhost üzerinde erişilebilir.
+* **Bağlantı noktası:** hello ters proxy için belirtilen hello gibi bağlantı noktası 19081, budur.
+* **ServiceInstanceName:** bu hello tam hello olmadan tooreach çalıştığınız dağıtılan hello hizmet örneği adıdır "fabric: /" düzeni. Örneğin, tooreach hello *fabric: / myapp/myservice/* hizmeti, kullandığınız *myapp/myservice*.
 
-    Hizmet örneği adı büyük/küçük harf duyarlıdır. URL'de hizmet örnek adı için farklı büyük/küçük harf kullanarak 404 ile (bulunamadı) yapılan isteklerin başarısız olmasına neden olur.
-* **Sonek yol:** gerçek URL yolu gibi budur *myapi/değerleri/ekleme/3*, bağlanmak istediğiniz hizmeti.
-* **PartitionKey:** bölümlenmiş bir hizmet için bu hesaplanan bölüm erişmek istediğiniz bölümün anahtarıdır. Bu Not *değil* bölüm kimliği GUID. Bu parametre tek bölüm düzeni kullanan Hizmetleri için gerekli değildir.
-* **PartitionKind:** hizmet bölüm düzeni budur. Bu, 'Int64Range' veya 'Adlı' olabilir. Bu parametre tek bölüm düzeni kullanan Hizmetleri için gerekli değildir.
-* **ListenerName** hizmet uç noktaları biçimidir {"Bitiş": {"Listener1": "Bitiş noktası 1", "Listener2": "Endpoint2"...}}. Hizmet birden çok uç nokta gösterir, bu istemci isteği iletilmesi gereken uç nokta tanımlar. Bu hizmet yalnızca bir dinleyici varsa atlanabilir.
-* **TargetReplicaSelector** bu hedef çoğaltma veya örnek nasıl seçili belirtir.
-  * Hedef hizmet durum bilgisi olan olduğunda TargetReplicaSelector şunlardan biri olabilir: 'PrimaryReplica', 'RandomSecondaryReplica' veya 'RandomReplica'. Bu parametre belirtilmediğinde, varsayılan değer 'PrimaryReplica' dir.
-  * Hedef hizmet durum bilgisiz olduğunda ters proxy isteği iletmek için hizmet bölüm rastgele bir örneğini seçer.
-* **Zaman aşımı:** bu istemci istek adına hizmeti için ters proxy tarafından oluşturulan HTTP isteği için zaman aşımını belirtir. Varsayılan değer 60 saniyedir. Bu isteğe bağlı bir parametredir.
+    Merhaba hizmet örneği adı büyük/küçük harf duyarlıdır. Merhaba URL'deki hello hizmet örneği adı için farklı büyük/küçük harf kullanarak hello istekleri toofail 404 ile (bulunamadı) neden olur.
+* **Sonek yol:** hello gerçek URL yolu gibi budur *myapi/değerleri/ekleme/3*, tooconnect için istediğiniz hello hizmeti.
+* **PartitionKey:** bölümlenmiş bir hizmet için bu hello hesaplanan bölüm tooreach istediğiniz hello bölümünün anahtarıdır. Bu Not *değil* bölüm kimliği GUID hello. Bu parametre hello tek bölüm düzeni kullanan Hizmetleri için gerekli değildir.
+* **PartitionKind:** hello hizmet bölüm düzeni budur. Bu, 'Int64Range' veya 'Adlı' olabilir. Bu parametre hello tek bölüm düzeni kullanan Hizmetleri için gerekli değildir.
+* **ListenerName** hello hello hizmetinden noktalarıdır hello biçimi {"Bitiş": {"Listener1": "Bitiş noktası 1", "Listener2": "Endpoint2"...}}. Birden çok uç nokta Hello hizmet sunan olduğunda bu hello endpoint tanımlar için o hello istemci isteği iletilir. Merhaba hizmet yalnızca bir dinleyici varsa bu atlanabilir.
+* **TargetReplicaSelector** bu hello hedef çoğaltma veya örnek nasıl seçilen belirtir.
+  * Merhaba hedef hizmet durum bilgisi olan olduğunda hello TargetReplicaSelector hello aşağıdakilerden biri olabilir: 'PrimaryReplica', 'RandomSecondaryReplica' veya 'RandomReplica'. Bu parametre belirtilmediğinde hello 'PrimaryReplica' varsayılandır.
+  * Merhaba hedef hizmet durum bilgisiz olduğunda ters proxy hello hizmet bölüm tooforward hello isteği için rastgele bir örneğini seçer.
+* **Zaman aşımı:** bu hello istemci isteği adına hello ters proxy toohello hizmeti tarafından oluşturulan hello HTTP isteği için hello zaman aşımını belirtir. Merhaba varsayılan değer 60 saniyedir. Bu isteğe bağlı bir parametredir.
 
 ### <a name="example-usage"></a>Örnek Kullanım
-Örnek olarak, atalım *fabric: / MyApp/MyService* aşağıdaki URL'yi bir HTTP dinleyicisini açar hizmeti:
+Örnek olarak, hello atalım *fabric: / MyApp/MyService* URL aşağıdaki hello üzerinde bir HTTP dinleyicisi açar hizmeti:
 
 ```
 http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 ```
 
-Hizmet için kaynakları şunlardır:
+Merhaba hizmet için hello kaynağı şunlardır:
 
 * `/index.html`
 * `/api/users/<userId>`
 
-Hizmet, bölümleme singleton kullanıyorsa *PartitionKey* ve *PartitionKind* sorgu dizesi parametreleri gerekli değildir ve ağ geçidi olarak kullanarak hizmet erişilebilir:
+Merhaba hizmetini bölümleme hello singleton kullanıyorsa, hello *PartitionKey* ve *PartitionKind* sorgu dizesi parametreleri gerekli değildir ve hello hizmeti hello ağ geçidi olarak kullanarak üst sınırına:
 
 * Harici olarak:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
 * Dahili olarak:`http://localhost:19081/MyApp/MyService`
 
-Hizmet Tekdüzen Int64 bölümleme düzeni kullanıyorsa *PartitionKey* ve *PartitionKind* sorgu dizesi parametreleri kullanılan, hizmetin bir bölüm ulaşmak için:
+Merhaba hizmetini bölümleme hello Tekdüzen Int64 kullanıyorsa, hello *PartitionKey* ve *PartitionKind* sorgu dizesi parametreleri kullanılan tooreach hello hizmetinin bir bölüm olması gerekir:
 
 * Harici olarak:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 * Dahili olarak:`http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
-Hizmet sunan kaynaklara ulaşmak için basitçe URL'de hizmet adından sonra kaynak yolu yerleştir:
+Merhaba hizmet sunan, tooreach hello kaynakları yalnızca yerleştirin hello kaynak yolu hello hizmet adı hello URL'de sonra:
 
 * Harici olarak:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
 * Dahili olarak:`http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
-Ağ geçidi, ardından bu istekleri hizmetin URL'sine iletir:
+Merhaba ağ geçidi, ardından bu istekleri toohello hizmetin URL iletir:
 
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/index.html`
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## <a name="special-handling-for-port-sharing-services"></a>Bağlantı noktası paylaşımı için bir özel işleme Hizmetleri
-Azure uygulama ağ geçidi hizmeti adresi yeniden çözün ve bir hizmet erişildiğinde isteği yeniden deneyin dener. Kendi hizmet çözümlemesi uygulamak ve döngüsü çözmek istemci kodu gereksinimi olmadığından önemli bir avantajı uygulama ağ geçidi budur.
+Azure uygulama ağ geçidi hizmet yeniden adresi ve bir hizmet erişildiğinde hello isteği yeniden deneyin tooresolve çalışır. İstemci kodu değil tooimplement kendi hizmet çözümlemesi gerekir ve döngüsü çözmek uygulama ağ geçidi önemli bir avantajı olmasıdır.
 
-Genellikle, ne zaman bir hizmet, farklı bir düğüme, normal yaşam döngüsü kapsamında taşınmış hizmet örneği veya çoğaltma erişilemiyor. Bu durumda, uygulama ağ geçidi bir uç nokta artık ilk olarak çözümlenmiş adresinde açık olduğunu belirten bir ağ bağlantısı hatası alabilirsiniz.
+Genellikle, bir hizmetine ulaşılamıyor zaman hello hizmet örneği veya çoğaltma farklı bir düğüme tooa normal yaşam döngüsünün parçası olarak taşındı. Bu gerçekleştiğinde, ağ bağlantısı hatası bir uç nokta hello üzerinde daha uzun hiçbir açık adres başlangıçta çözülmüş olduğunu belirten bir uygulama ağ geçidi alabilirsiniz.
 
 Ancak, çoğaltmalar veya hizmet örneklerinin bir ana bilgisayar işlemi paylaşabilir ve ayrıca bir http.sys tabanlı bir web sunucusu tarafından barındırılan bir bağlantı noktası paylaşabilen dahil olmak üzere:
 
@@ -117,39 +117,39 @@ Ancak, çoğaltmalar veya hizmet örneklerinin bir ana bilgisayar işlemi payla�
 * [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
-Bu durumda, web sunucusunun ana bilgisayar işlemi ve isteklere yanıt kullanılabilir, ancak çözümlenen hizmet örneği ya da çoğaltma artık ana bilgisayarda kullanılabilir değildir. Bu durumda, ağ geçidi web sunucusundan bir HTTP 404 yanıtı alırsınız. Bu nedenle, bir HTTP 404 iki ayrı anlama gelir:
+Bu durumda, hello ana bilgisayar işlemi ve toorequests ancak hello hizmet örneği çözümlenmiş ya da çoğaltma artık hello ana bilgisayarda kullanılabilir yanıt hello web sunucusu kullanılabilir olasıdır. Bu durumda, hello ağ geçidi hello web sunucusundan bir HTTP 404 yanıtı alırsınız. Bu nedenle, bir HTTP 404 iki ayrı anlama gelir:
 
-- #1: Hizmet adresi doğru durumdur, ancak kullanıcının istenen kaynak yok.
-- Durum #2: Hizmet adresi yanlış ve kullanıcının istenen kaynak üzerinde farklı bir düğüme mevcut.
+- Durum #1: hello hizmet adresinin doğru olduğundan, ancak istenen kullanıcı hello hello kaynak yok.
+- Durum #2: hello hizmeti adresi yanlış ve istenen kullanıcı hello hello kaynak farklı bir kümede mevcut.
 
-İlk olarak bir normal HTTP kullanıcı hata olarak kabul edilen 404, olur. Ancak, İkinci durumda, mevcut bir kaynak kullanıcı istedi. Uygulama ağ geçidi hizmeti taşınmış olduğundan dosyasını bulamadı. Uygulama ağ geçidi adresini yeniden çözümlemek ve isteği yeniden deneyin gerekir.
+Merhaba ilk olarak bir normal HTTP kullanıcı hata olarak kabul edilen 404, olur. Ancak, hello ikinci durumda, mevcut bir kaynak hello kullanıcı istedi. Uygulama ağ geçidi hello hizmet çünkü kendisine taşındı oluşturulamıyor toolocate oluştu. Uygulama ağ geçidi gereksinimlerini tooresolve hello adresi yeniden ve yeniden deneme hello isteği.
 
-Uygulama ağ geçidi, bu nedenle bu iki örnekleri arasında ayrım yapmak için bir yol gerekir. Bu ayrım yapmak için sunucudan bir ipucu gereklidir.
+Uygulama ağ geçidi, bu nedenle bu iki çalışmaları arasında bir şekilde toodistinguish gerekir. toomake ayrım, bir ipucu hello sunucusundan gerekli olur.
 
-* Varsayılan olarak, uygulama ağ geçidi örneği #2 varsayar ve çözümleyin ve isteği yeniden gönderin dener.
-* Uygulama ağ geçidi #1 talebine belirtmek için hizmet aşağıdaki HTTP yanıtı üstbilgisini döndürmesi gerekir:
+* Varsayılan olarak, uygulama ağ geçidi örneği #2 varsayar ve hello istek tooresolve ve sorunu yeniden dener.
+* tooindicate durum #1 tooApplication ağ geçidi, bir HTTP yanıt üstbilgisi aşağıdaki hello hello hizmet döndürmesi gerekir:
 
   `X-ServiceFabric : ResourceNotFound`
 
-Bu bir HTTP yanıt üstbilgisi istenen kaynak yok ve uygulama ağ geçidi hizmeti adresi yeniden çözümlemeyi dener olmayan normal bir HTTP 404 durumu gösterir.
+Bu bir HTTP yanıt üstbilgisi hangi hello istenen kaynak yok normal bir HTTP 404 durumu gösterir ve uygulama ağ geçidi tooresolve hello hizmeti adresi yeniden denemez.
 
 ## <a name="setup-and-configuration"></a>Kurulum ve yapılandırma
 
 ### <a name="enable-reverse-proxy-via-azure-portal"></a>Azure Portalı aracılığıyla ters proxy etkinleştir
 
-Azure portal, yeni bir Service Fabric kümesi oluşturulurken ters proxy etkinleştirmek için bir seçenek sağlar.
-Altında **oluşturma Service Fabric kümesi**, adım 2: küme yapılandırması, düğüm türü yapılandırması için "Ters proxy etkinleştir" onay kutusunu işaretleyin.
-Güvenli ters proxy yapılandırmak için SSL sertifikası adım 3'te belirtilebilir: güvenlik, küme güvenlik ayarlarını yapılandırma, sertifika ayrıntılarını girin ve "ters proxy için bir SSL sertifikası içerir" onay kutusunu seçin.
+Azure portalı, yeni bir Service Fabric kümesi oluşturulurken bir seçenek tooenable ters proxy sağlar.
+Altında **oluşturma Service Fabric kümesi**, adım 2: küme yapılandırması, düğüm türü yapılandırması hello onay kutusu çok seçin "Etkinleştirme ters proxy".
+Güvenli ters proxy yapılandırmak için SSL sertifikası adım 3'te belirtilebilir: güvenlik, küme güvenlik ayarlarını yapılandırma, select hello onay kutusu çok "ters proxy için bir SSL sertifikası Ekle" ve hello sertifika ayrıntılarını girin.
 
 ### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Ters proxy aracılığıyla Azure Resource Manager şablonları etkinleştir
 
-Kullanabileceğiniz [Azure Resource Manager şablonu](service-fabric-cluster-creation-via-arm.md) Service Fabric kümesi için ters proxy etkinleştirmek için.
+Merhaba kullanabilirsiniz [Azure Resource Manager şablonu](service-fabric-cluster-creation-via-arm.md) tooenable hello için ters proxy hizmeti yapıda hello küme.
 
-Başvurmak [HTTPS Ters Proxy Yapılandırma güvenli bir kümede](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster) için Azure Resource Manager şablon örnekleri güvenli yapılandırmak için ters proxy ile bir sertifika ve işleme sertifika aktarma.
+Çok başvuran[HTTPS Ters Proxy Yapılandırma güvenli bir kümede](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster) için Azure Resource Manager şablonu güvenli ters proxy bir sertifika ve işleme sertifika rollover tooconfigure örnekleri.
 
-İlk olarak, dağıtmak istediğiniz küme için Şablon Al. Örnek şablonları kullanabilir veya özel bir Resource Manager şablonu oluşturun. Ardından, aşağıdaki adımları kullanarak ters proxy etkinleştirebilirsiniz:
+İlk olarak, toodeploy istediğiniz hello küme için hello Şablon Al. Merhaba örnek şablonları kullanabilir veya özel bir Resource Manager şablonu oluşturun. Ardından, aşağıdaki adımları hello kullanarak hello ters proxy etkinleştirebilirsiniz:
 
-1. Ters proxy için bir bağlantı noktasını tanımlayın [parametreleri bölümüne](../azure-resource-manager/resource-group-authoring-templates.md) şablonun.
+1. Merhaba ters proxy için bir bağlantı noktası hello tanımlamak [parametreleri bölümüne](../azure-resource-manager/resource-group-authoring-templates.md) hello şablonunun.
 
     ```json
     "SFReverseProxyPort": {
@@ -160,9 +160,9 @@ Başvurmak [HTTPS Ters Proxy Yapılandırma güvenli bir kümede](https://github
         }
     },
     ```
-2. Nodetype nesnelerin her biri için bağlantı noktasını belirtin **küme** [kaynak türü bölümü](../azure-resource-manager/resource-group-authoring-templates.md).
+2. Her hello nodetype nesnelerin hello Hello bağlantı noktasını belirtin **küme** [kaynak türü bölümü](../azure-resource-manager/resource-group-authoring-templates.md).
 
-    Bağlantı noktası parametre adı, reverseProxyEndpointPort tanımlanır.
+    başlangıç bağlantı noktası hello parametre adı reverseProxyEndpointPort tanımlanır.
 
     ```json
     {
@@ -182,7 +182,7 @@ Başvurmak [HTTPS Ters Proxy Yapılandırma güvenli bir kümede](https://github
         ...
     }
     ```
-3. Azure küme dışındaki ters proxy sunucudan adres için 1. adımda belirttiğiniz bağlantı noktası için Azure yük dengeleyici kuralları ayarlayın.
+3. 1. adımda belirttiğiniz başlangıç bağlantı noktası için hello Azure yük dengeleyici kuralları ayarlama dış hello Azure küme gelen tooaddress hello ters proxy.
 
     ```json
     {
@@ -226,7 +226,7 @@ Başvurmak [HTTPS Ters Proxy Yapılandırma güvenli bir kümede](https://github
         ]
     }
     ```
-4. SSL sertifikaları için ters Ara sunucu bağlantı noktasını yapılandırmak için sertifikaya eklemek ***reverseProxyCertificate*** özelliğinde **küme** [kaynak türü bölümü](../resource-group-authoring-templates.md) .
+4. Merhaba ters proxy hello bağlantı noktasında tooconfigure SSL sertifikaları Ekle hello sertifika toohello ***reverseProxyCertificate*** hello özelliğinde **küme** [kaynak türü bölümü](../resource-group-authoring-templates.md).
 
     ```json
     {
@@ -249,8 +249,8 @@ Başvurmak [HTTPS Ters Proxy Yapılandırma güvenli bir kümede](https://github
     }
     ```
 
-### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Küme sertifikadan farklı bir ters proxy sertifikası destekleme
- Ters proxy sertifika küme güvenliğini sağlar sertifikasından farklıysa, ardından daha önce belirtilen sertifika sanal makinede yüklü ve Service Fabric erişebilmesi erişim denetim listesi (ACL) eklenir. Bu yapılabilir **virtualMachineScaleSets** [kaynak türü bölümü](../resource-group-authoring-templates.md). Yükleme için bu sertifika için osProfile ekleyin. Şablon uzantısı bölümünü ACL sertifikada güncelleştirebilirsiniz.
+### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-hello-cluster-certificate"></a>Merhaba küme sertifikadan farklı bir ters proxy sertifikası destekleme
+ Merhaba ters proxy sertifika hello küme korur hello sertifikasından farklıysa, ardından hello daha önce sertifika hello sanal makineye yüklenmesi ve böylece Service Fabric toohello erişim denetim listesi (ACL) eklenen belirtilen erişim. Bu hello yapılabilir **virtualMachineScaleSets** [kaynak türü bölümü](../resource-group-authoring-templates.md). Yükleme için bu sertifika toohello osProfile ekleyin. Merhaba uzantısı hello şablon bölümünü hello ACL hello sertifikada güncelleştirebilirsiniz.
 
   ```json
   {
@@ -302,11 +302,11 @@ Başvurmak [HTTPS Ters Proxy Yapılandırma güvenli bir kümede](https://github
     }
   ```
 > [!NOTE]
-> Var olan bir kümede ters proxy etkinleştirmek için küme sertifikasından farklı sertifikaları kullanırken, ters proxy sertifikasını yükleyin ve ters proxy etkinleştirmeden önce küme üzerinde ACL güncelleştirmesi. Tamamlamak [Azure Resource Manager şablonu](service-fabric-cluster-creation-via-arm.md) bahsedilen ayarlarını kullanarak dağıtım önceden ters proxy etkinleştirmek için bir dağıtım başlamadan önce adımları 1-4.
+> Merhaba küme sertifika tooenable hello ters proxy var olan bir kümede farklı sertifikaları kullandığınızda, hello ters proxy sertifikası yükleyin ve hello ters proxy etkinleştirmeden önce hello ACL hello kümede güncelleştirin. Tam hello [Azure Resource Manager şablonu](service-fabric-cluster-creation-via-arm.md) bahsedilen hello ayarlarını kullanarak dağıtım daha önce bir dağıtım tooenable hello ters proxy başlamadan önce adımları 1-4.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * HTTP iletişimi Hizmetleri'nde arasında örneğine bakın bir [örnek proje github'da](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
-* [Ters proxy ile iletme için Güvenli HTTP hizmeti](service-fabric-reverseproxy-configure-secure-communication.md)
+* [İletme toosecure HTTP hizmeti ile Merhaba ters proxy](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Güvenilir hizmetler remoting ile uzak yordam çağrıları](service-fabric-reliable-services-communication-remoting.md)
 * [Web API OWIN güvenilir Hizmetleri'nde kullanır](service-fabric-reliable-services-communication-webapi.md)
 * [Güvenilir hizmetler kullanarak WCF iletişimi](service-fabric-reliable-services-communication-wcf.md)

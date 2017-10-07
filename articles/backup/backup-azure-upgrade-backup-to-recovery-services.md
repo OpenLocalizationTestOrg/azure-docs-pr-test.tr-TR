@@ -1,6 +1,6 @@
 ---
-title: "Bir Backup kasasının kurtarma Hizmetleri kasası (Önizleme) yükseltme | Microsoft Docs"
-description: "Yönergeler ve destek bilgileri için bir kurtarma Hizmetleri kasası, Azure yedekleme kasası yükseltmek için."
+title: "aaaUpgrade bir yedekleme kasası tooa kurtarma Hizmetleri Kasası'nı (Önizleme) | Microsoft Docs"
+description: "Yönergeler ve destek bilgileri tooupgrade Azure yedekleme kasası kurtarma Hizmetleri kasası tooa."
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -13,148 +13,148 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 46d7dadcb03f55e626b06a1c4b2ccc86cd46cd16
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 49062ca4556a009c82f143bb3a60ec71748bed01
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme
+# <a name="upgrade-a-backup-vault-tooa-recovery-services-vault"></a>Bir yedekleme kasası tooa kurtarma Hizmetleri kasası yükseltme
 
-Bu makalede, bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme açıklanmaktadır. Yükseltme işlemi herhangi bir çalışan yedekleme işi etkilemez ve hiçbir yedekleme verileri kaybolur. Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltmek için en önemli nedenlerinden:
+Bu makalede nasıl tooupgrade bir yedekleme kasası tooa kurtarma Hizmetleri kasası açıklanmaktadır. Merhaba yükseltme işlemi herhangi bir çalışan yedekleme işi etkilemez ve hiçbir yedekleme verileri kaybolur. Merhaba birincil tooupgrade kurtarma Hizmetleri kasası bir yedekleme kasası tooa nedenleri:
 - Tüm özellikleri bir Backup kasasının kurtarma Hizmetleri kasasına korunur.
 - Kurtarma Hizmetleri kasaları dahil olmak üzere, yedekleme kasaları daha fazla özelliğe sahip: izleme, tümleşik daha iyi güvenlik, daha hızlı geri yükler ve öğe düzeyinde geri yüklemeler.
 - Yedekleme öğeleri geliştirilmiş, Basitleştirilmiş portalından yönetin.
-- Yeni özellikler yalnızca kurtarma Hizmetleri kasaları için geçerlidir.
+- Yeni özellikler yalnızca tooRecovery Hizmetleri kasalarının geçerlidir.
 
-## <a name="impact-to-operations-during-upgrade"></a>Yükseltme sırasında operations etkisi
+## <a name="impact-toooperations-during-upgrade"></a>Yükseltme sırasında etkisi toooperations
 
-Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltirken veri düzlemi işlemlerinizin hiçbir etkisi yoktur. Tüm yedekleme işleri normal olarak devam etmek ve kesinti olmadan herhangi bir etkin geri yükleme işi devam. Yükseltme sırasında kısa bir kapalı kalma süresi yönetim işlemlerini uygulanır ve yeni öğelerinizi koruyun veya geçici yedekleme işleri oluşturun. Iaas VM'ler için geri yükleme işleri, yükseltme sırasında çalıştırmayın. Kasa yükseltme tamamlamak için altında bir saat sürer. İşlemi tamamladıktan sonra kurtarma Hizmetleri kasasına yedekleme kasası yerini alır.
+Bir yedekleme kasası tooa kurtarma Hizmetleri kasası yükseltirken tooyour veri düzlemi işlemleri üzerinde etkisi yoktur. Tüm yedekleme işleri normal olarak devam etmek ve kesinti olmadan herhangi bir etkin geri yükleme işi devam. Merhaba yükseltme sırasında kısa bir kapalı kalma süresi yönetim işlemlerini uygulanır ve yeni öğelerinizi koruyun veya geçici yedekleme işleri oluşturun. Iaas VM'ler için geri yükleme işleri hello yükseltme sırasında çalıştırmayın. Merhaba kasası yükseltme altında bir saat toocomplete alır. İşlemi tamamladıktan sonra bir kurtarma Hizmetleri kasası hello yedekleme kasası yerini alır.
 
-## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Otomasyon ve aracı yükseltme yaptıktan sonra yapılan değişiklikler
+## <a name="changes-tooyour-automation-and-tool-after-upgrading"></a>Değişiklikleri tooyour otomasyon ve yükselttikten sonra aracı
 
-Altyapınızı kasası yükseltme için hazırlık yaparken, var olan Otomasyon veya yükseltmeden sonra çalışmaya devam ettiğinden emin olmak için araç güncelleştirmeniz gerekir.
-PowerShell cmdlet'leri başvurularını başvurun [Service Manager dağıtım modeli](backup-client-automation-classic.md) ve [Resource Manager dağıtım modeli](backup-client-automation.md).
+Hello kasası yükseltme için altyapınızı hazırlanırken, mevcut automation'ınızı güncelleştirmeniz gerekir veya tooensure tooling olan, hello yükseltmeden sonra toowork devam eder.
+Merhaba Hello PowerShell cmdlet'leri başvuruları başvurun [Service Manager dağıtım modeli](backup-client-automation-classic.md) ve hello [Resource Manager dağıtım modeli](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Yükseltmeden önce
 
-Kurtarma hizmeti kasaları, yedekleme kasaları yükseltmeden önce aşağıdaki sorunları kontrol edin.
+Merhaba aşağıdaki yükseltme, önce yedekleme kasaları tooRecovery hizmet kasalarını sorunları kontrol edin.
 
-- **En düşük aracı sürümü**: kasanızı yükseltmek için Microsoft Azure kurtarma Hizmetleri (MARS) Aracısı'nı en az olduğundan emin olun sürüm 2.0.9070.0. MARS Aracısı'nı 2.0.9070.0 eskiyse, aracı yükseltme işlemini başlatmadan önce güncelleştirin.
-- **Örnek tabanlı faturalama modeli**: kurtarma hizmeti kasalarını yalnızca örnek tabanlı fatura modelini destekler. Eski depolama tabanlı fatura modelini kullanarak bir yedekleme kasası varsa, fatura modelini yükseltme sırasında dönüştürün.
-- **Yedekleme yapılandırması devam eden işlem yok**: yükseltme sırasında yönetim düzeyi erişimi sınırlıdır. Tüm yönetim düzlemi eylemleri tamamlayın ve ardından yükseltme işlemini başlatmak.
+- **En düşük aracı sürümü**: tooupgrade yapma emin hello Microsoft Azure kurtarma Hizmetleri (MARS) aracısı kasanızı olan en az sürüm 2.0.9070.0. Merhaba MARS Aracısı 2.0.9070.0 eski ise hello yükseltme işlemini başlatmadan önce hello aracısını güncelleştirin.
+- **Örnek tabanlı faturalama modeli**: kurtarma hizmeti kasalarını yalnızca hello örnek tabanlı faturalama modelini destekler. Merhaba eski depolama tabanlı faturalama modeli kullanarak bir yedekleme kasası varsa, yükseltme sırasında hello faturalama modelini dönüştürün.
+- **Yedekleme yapılandırması devam eden işlem yok**: yükseltme sırasında erişim toohello Yönetim düzeyi sınırlandırılır. Tüm yönetim düzlemi eylemleri tamamlayın ve ardından hello yükseltme başlatın.
 
-## <a name="using-powershell-scripts-to-upgrade-your-vaults"></a>Kasa yükseltmek için PowerShell betiklerini kullanma
+## <a name="using-powershell-scripts-tooupgrade-your-vaults"></a>PowerShell komut dosyaları tooupgrade, kasa kullanma
 
-Kurtarma Hizmetleri kasalarının, yedekleme kasaları yükseltmek için PowerShell komut dosyalarını kullanabilirsiniz. Kasa yükseltilmesini sağlamak için gerekli PowerShell bileşenleri olup olmadığını denetleyin. Yedekleme kasaları için PowerShell komut dosyaları için kurtarma Hizmetleri kasalarını çalışmaz. Kasa yükseltmek için ortamınızı hazırlayın:
+PowerShell komut dosyaları tooupgrade kullanabileceğiniz tooRecovery Hizmetleri kasalarının yedekleme kasaları. Sahip hello onay PowerShell bileşenleri tootrigger hello kasası yükseltme gerekli. Yedekleme kasaları için PowerShell komut dosyaları için kurtarma Hizmetleri kasalarını çalışmaz. Ortamınızı tooupgrade hello kasaları hazırlayın:
 
-1. Yükleme veya yükseltme [Windows Management Framework (WMF) sürüm 5](https://www.microsoft.com/download/details.aspx?id=50395) veya üstü.
+1. Yükleme veya yükseltme [Windows Management Framework (WMF) tooversion 5](https://www.microsoft.com/download/details.aspx?id=50395) veya üstü.
 2. [Azure PowerShell MSI yükleme](https://github.com/Azure/azure-powershell/releases/download/v3.8.0-April2017/azure-powershell.3.8.0.msi).
-3. Karşıdan [PowerShell Betiği](https://aka.ms/vaultupgradescript2) , kasa yükseltmek için.
+3. Merhaba karşıdan [PowerShell Betiği](https://aka.ms/vaultupgradescript2) tooupgrade, kasa.
 
-### <a name="run-the-powershell-script"></a>PowerShell betiğini çalıştırma
+### <a name="run-hello-powershell-script"></a>Merhaba PowerShell betiğini çalıştırın
 
-Kasa yükseltmek için aşağıdaki komut dosyasını kullanın. Aşağıdaki örnek komut dosyası parametrelerinin açıklamaları vardır.
+Komut dosyası tooupgrade aşağıdaki Merhaba, kasa kullanın. Aşağıdaki örnek betik hello hello parametre açıklamalarını sahiptir.
 
 RecoveryServicesVaultUpgrade 1.0.2.ps1 **- Subscriptionıd** `<subscriptionID>` **- VaultName** `<vaultname>` **-konum** `<location>` **- ResourceType** `BackupVault` **- TargetResourceGroupName**`<rgname>`
 
-**Subscriptionıd** -yükseltiliyor kasa abonelik kimliği sayısı.<br/>
-**VaultName** -yükseltiliyor yedekleme kasasının adını.<br/>
-**Konum** -yükseltilen kasasının konumu.<br/>
+**Subscriptionıd** -hello yükseltiliyor hello kasa abonelik kimliği sayısı.<br/>
+**VaultName** - hello yükseltiliyor hello yedekleme kasasının adı.<br/>
+**Konum** -yükseltilen hello kasasının konumu.<br/>
 **ResourceType** -BackupVault kullanın.<br/>
-**TargetResourceGroupName** - Resource Manager tabanlı bir dağıtım için bir kaynak grubu belirtin kasa yükseltiyorsanız bu yana. Varolan bir kaynak grubunu kullanın veya yeni bir ad sağlayarak oluşturabilirsiniz. Bir kaynak grubu adını yazarsanız, yeni bir kaynak grubu oluşturabilir. Kaynak grupları hakkında daha fazla bilgi için bu okuma [kaynak grupları hakkında genel bakış](../azure-resource-manager/resource-group-overview.md#resource-groups).
+**TargetResourceGroupName** - bir kaynak grubu belirtin Resource Manager tabanlı hello kasa tooa dağıtımı yükseltiyorsanız bu yana. Varolan bir kaynak grubunu kullanın veya yeni bir ad sağlayarak oluşturabilirsiniz. Bir kaynak grubu adını hello yazıyorsanız, yeni bir kaynak grubu oluşturabilir. Kaynak grupları hakkında daha fazla toolearn okuma bu [kaynak grupları hakkında genel bakış](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
 >[!NOTE]
-> Kaynak grubu adları kısıtlamaları vardır. Yönergeleri izlediğinizden emin olun; Bunun Sağlanamaması kasası yükseltme başarısız olmasına neden olabilir.
+> Kaynak grubu adları kısıtlamaları vardır. Toofollow hello Kılavuzu emin olun; hata toodo şekilde kasası yükseltmeler toofail neden olabilir.
 >
 >
 
-Aşağıdaki kod parçacığını hangi PowerShell komutu gibi görünmelidir bir örnektir:
+Merhaba aşağıdaki kod parçacığını hangi PowerShell komutu gibi görünmelidir, bir örnek verilmiştir:
 
 ```
 RecoveryServicesVaultUpgrade.ps1 -SubscriptionID 53a3c692-5283-4f0a-baf6-49412f5ebefe -VaultName "TestVault" -Location "Australia East" -ResourceType BackupVault -TargetResourceGroupName "ContosoRG"
 ```
 
-Komut dosyası hiçbir parametre olmadan da çalıştırabilirsiniz ve girişleri için gerekli tüm parametreleri vermeniz istenir.
+Merhaba komut dosyası hiçbir parametre olmadan da çalıştırabilirsiniz ve tüm gerekli parametreleri için tooprovide girişleri sorulur.
 
-PowerShell Betiği kimlik bilgilerinizi girmenizi ister. Kimlik bilgilerinizi iki kez girin: Service Manager hesabı ve kaynak yöneticisi hesabı için ikinci kez için bir kez.
+Merhaba PowerShell komut dosyası, tooenter kimlik bilgilerinizi ister. Kimlik bilgilerinizi iki kez girin: hello Service Manager hesabı ve ikinci kez hello Resource Manager hesabı için bir kez.
 
 ### <a name="pre-requisites-checking"></a>Ön koşul denetimi
-Azure kimlik bilgilerinizi girdikten sonra Azure ortamınıza aşağıdaki önkoşulları karşıladığını denetler:
+Azure kimlik bilgilerinizi girdikten sonra Azure ortamınıza hello aşağıdaki önkoşulları karşıladığını denetler:
 
-- **En düşük aracı sürümü** -yedekleme kasaları kurtarma Hizmetleri kasalarının yükseltme gerektirir en az olacak şekilde MARS Aracısı sürümü 2.0.9070. Bir aracı ile 2.0.9070'den önceki bir yedekleme Kasası'na kayıtlı öğeler varsa, önkoşul denetimi başarısız olur. Önkoşul denetimi başarısız olursa aracıyı güncelleştirin ve kasa yükseltmeyi yeniden deneyin. Aracısı'ndan en son sürümünü indirebilirsiniz [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
-- **Devam eden yapılandırma işleri**: birisi işi yükseltilmesi için ayarlanmış bir yedekleme kasası için yapılandırma ya da bir öğe kayıt, önkoşul denetimi başarısız olur. Yapılandırmayı tamamlamak veya öğeyi kaydolma işlemini tamamlamak ve kasa yükseltme işlemi başlatın.
-- **Depolama tabanlı faturalama modeli**: Kurtarma Hizmetleri kasalarının örnek tabanlı fatura modelini destekler. Depolama tabanlı fatura modelini kullanan bir yedekleme kasası kasası yükseltme çalıştırırsanız, faturalama modelinizi Kasayla birlikte yükseltmeniz istenir. Faturalama modelinizi ilk olarak, aksi takdirde, güncelleştirebilir ve kasa yükseltme çalıştırın.
-- Kurtarma Hizmetleri kasası için bir kaynak grubu tanımlayın. Resource Manager dağıtım özelliklerden yararlanmak için bir kaynak grubu bir kurtarma Hizmetleri kasası konulmalıdır. Varsa kullanın, bir ad sağlamak için hangi kaynak grubu tanımadığınız ve yükseltme işlemi kaynak grubu oluşturur. Yükseltme işlemi kasası ayrıca yeni kaynak grubu ile ilişkilendirir.
+- **En düşük aracı sürümü** -yükseltme yedekleme kasalarını tooRecovery Hizmetleri kasaları hello MARS Aracısı toobe en azından sürüm 2.0.9070. Varsa bir aracı ile tooa yedekleme kasası öğeleri 2.0.9070'den önceki kayıtlı, hello Önkoşul denetimi başarısız olur. Merhaba Önkoşul denetimi başarısız olursa hello aracısını güncelleştirmek ve tooupgrade hello kasası yeniden deneyin. Merhaba hello Aracısı'ndan en son sürümünü indirebilirsiniz [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Devam eden yapılandırma işleri**: bir yedekleme kasası yükseltilmiş toobe veya öğeyi kayıt kümesi için birisi iş yapılandırıyor, hello Önkoşul denetimi başarısız olur. Başlangıç yapılandırmasını tamamlayın veya hello öğesi kaydolma işlemini tamamlamak ve hello kasası yükseltme işlemi başlatın.
+- **Depolama tabanlı faturalama modeli**: Kurtarma Hizmetleri kasaları destek hello örnek tabanlı faturalama modeli. Bir yedekleme kasası hello kasası yükseltme çalıştırırsanız, depolama tabanlı faturalama modelini kullanan Merhaba, istendiğinde tooupgrade olduğunuz hello yanı sıra faturalama modelinizi Kasa. Faturalama modelinizi ilk olarak, aksi takdirde, güncelleştirebilir ve ardından hello kasası yükseltme çalıştırın.
+- Merhaba kurtarma Hizmetleri kasası için bir kaynak grubu tanımlayın. tootake avantajlarından Merhaba Resource Manager dağıtım özellikleri, bir kaynak grubu bir kurtarma Hizmetleri kasası konulmalıdır. Bir ad ve hello yükseltme işlemine sağlayın, hangi kaynak grubu toouse bilmiyorsanız hello kaynak grubu oluşturur. Merhaba yükseltme işlemi de ilişkilendirir hello kasası ile yeni kaynak grubu hello.
 
-Ön koşul denetimi yükseltme işlemi tamamlandıktan sonra işlemi kasası yükseltmeyi başlatmak ister. Siz onayladıktan sonra yükseltme işlemi genellikle, tamamlanması kasanızı boyutuna bağlı olarak yaklaşık 15-20 dakika sürer. Büyük bir kasa varsa, yükseltme 90 dakikaya kadar sürebilir.
+Merhaba ön koşul denetimi Hello yükseltme işlemi tamamlandıktan sonra toostart hello kasası yükseltme hello işlem ister. Siz onayladıktan sonra hello yükseltme işlemi genellikle kasanızı hello boyutuna bağlı olarak 15-20 dakika toocomplete geçici sürer. Büyük bir kasa varsa, yükseltme too90 dakika sürebilir.
 
 ## <a name="managing-your-recovery-services-vaults"></a>Kurtarma Hizmetleri kasalarını yönetme
 
-Aşağıdaki ekranlarını Azure portalında yedekleme Kasası'ndan yükseltme yeni bir kurtarma Hizmetleri kasası göster. İlk ekranda kasa için anahtar varlıkları görüntüler kasa Panosu gösterilir.
+ekranlar aşağıdaki hello yedekleme Kasası'hello Azure Portalı'ndan yükseltme yeni bir kurtarma Hizmetleri kasası gösterir. Merhaba ilk ekranda hello kasa için anahtar varlıklar görüntüler hello kasa Panosu gösterilir.
 
 ![Kurtarma Hizmetleri kasasına yedekleme Kasası'nı yükseltme örneği](./media/backup-azure-upgrade-backup-to-recovery-services/upgraded-rs-vault-in-dashboard.png)
 
-İkinci ekranı bağlantılar yardımcı olmak kullanılabilir kurtarma Hizmetleri kasası kullanmaya başlamanıza yardım gösterir.
+Merhaba ikinci ekranı hello kurtarma hizmetleri kullanmaya başlama kullanılabilir toohelp kasa hello Yardım bağlantıları gösterir.
 
-![Hızlı Başlangıç dikey penceresinde Yardım bağlantıları](./media/backup-azure-upgrade-backup-to-recovery-services/quick-start-w-help-links.png)
+![Yardım bağlantıları hello hızlı başlangıç dikey](./media/backup-azure-upgrade-backup-to-recovery-services/quick-start-w-help-links.png)
 
 ## <a name="post-upgrade-steps"></a>Yükseltme sonrası adımlar
-Kurtarma Hizmetleri kasasına yedekleme ilkesine belirten saat dilimi bilgilerini destekler. Kasa başarıyla yükseltildikten sonra kasa ayarları menüsünden yedekleme ilkeleri gidin ve her bir kasaya yapılandırılmış ilkeler için saat dilimi bilgilerini güncelleştirin. Bu ekran zaten kullanıldığında yerel saat dilimi ilke oluşturuldu olarak belirtilen yedekleme zamanlaması saati gösterir. 
+Kurtarma Hizmetleri kasasına yedekleme ilkesine belirten saat dilimi bilgilerini destekler. Kasa başarıyla yükseltildikten sonra kasa ayarları menüsünden tooBackup ilkeleri gidin ve her hello kasasında yapılandırılan hello İlkesi hello saat dilimi bilgilerini güncelleştirin. Bu ekran zaten kullanıldığında yerel saat dilimi ilke oluşturuldu olarak belirtilen hello yedekleme zamanlaması saati gösterir. 
 
 ## <a name="enhanced-security"></a>Geliştirilmiş güvenlik
 
-Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltildiğinde, kasa için güvenlik ayarlarını otomatik olarak etkinleştirilir. Ne zaman güvenlik ayarlarını, yedeklemeler silme gibi bazı işlemleri bulunan veya bir parola değiştirilmesini gerektiren bir [Azure çok faktörlü kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication.md) PIN. Gelişmiş Güvenlik ile ilgili daha fazla bilgi için bkz: [karma yedekleri korumak için güvenlik özellikleri](backup-azure-security-feature.md). 
+Bir yedekleme kasası yükseltildiğinde tooa kurtarma Hizmetleri kasası, o kasası hello güvenlik ayarlarını otomatik olarak etkinleştirilir. Ne zaman hello güvenlik ayarları olan, yedeklemeler silme gibi bazı işlemler veya bir parola değiştirilmesini gerektiren bir [Azure çok faktörlü kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication.md) PIN. Merhaba makale hello Artırılmış güvenliği hakkında daha fazla bilgi için bkz [güvenlik özellikleri tooprotect karma yedeklemeleri](backup-azure-security-feature.md). 
 
-Gelişmiş Güvenlik etkinleştirildiğinde, veri yedekleme kurtarma noktası bilgilerini kasadan silindikten sonra 14 gün için tutulur. Müşteriler bu güvenlik veri depolama için faturalandırılır. Güvenlik veri saklama Azure Yedekleme aracısı, Azure yedekleme sunucusu ve System Center Data Protection Manager için alınan kurtarma noktaları için geçerlidir. 
+Merhaba Gelişmiş Güvenlik etkinleştirildiğinde, veri hello kurtarma noktası bilgilerini hello kasadan silindikten sonra too14 günlerini korunur. Müşteriler bu güvenlik veri depolama için faturalandırılır. Güvenlik veri saklama hello Azure Yedekleme aracısı, Azure yedekleme sunucusu ve System Center Data Protection Manager için alınan toorecovery puan geçerlidir. 
 
 ## <a name="gather-data-on-your-vault"></a>Kasanızda verileri toplayın
 
-Bir kurtarma Hizmetleri Kasası'na yükseltme yaptıktan sonra (Iaas Vm'leri ve Microsoft Azure kurtarma Hizmetleri (MARS)) raporları için Azure yedeklemeyi yapılandırma ve Power BI raporlarına erişmek için kullanın. Makale veri toplamayı hakkında ek bilgi için bkz: [Azure Yedekleme'yi yapılandırma raporları](backup-azure-configure-reports.md).
+Tooa kurtarma Hizmetleri kasası yükseltme yaptıktan sonra (Iaas Vm'leri ve Microsoft Azure kurtarma Hizmetleri (MARS)) raporları için Azure yedeklemeyi yapılandırma ve Power BI tooaccess hello raporları kullanın. Veri toplama hakkında ek bilgi için hello makalesine bakın [Azure Yedekleme'yi yapılandırma raporları](backup-azure-configure-reports.md).
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-**Yükseltme planı devam eden yedeklerim etkiliyor mu?**</br>
+**Merhaba yükseltme planı devam eden yedeklerim etkiliyor mu?**</br>
 Hayır. Devam eden Yedeklemelerinizin kesintisiz sırasında ve yükseltmeden sonra devam eder.
 
-**En kısa sürede yükseltmeyi düşünüyorsanız yok, my kasalarını ne olur?**</br>
-Tüm yeni özellikler yalnızca kurtarma Hizmetleri kasaları için geçerli olduğundan, biz, kasa yükseltmenizi yönlendirmeye. Microsoft, sonunda Klasik Portalı'nı Kaldır. 1 Eylül 2017 başlangıç Microsoft Kurtarma Hizmetleri kasaları için yedekleme kasalarını otomatik yükseltme işlemini başlatacak. 1 Kasım 2017 tarafından Microsoft yükseltme işlemini tamamlanır. Kasanızı Eylül veya Ekim sırasında her zaman otomatik olarak yükseltilebilir. Microsoft, mümkün olan en kısa sürede kasanızı yükseltme önerir.
+**En kısa sürede yükseltmeyi düşünüyorsanız yok, toomy kasalarını ne olur?**</br>
+Tüm yeni özellikler yalnızca tooRecovery Hizmetleri kasa uygulamak olduğundan, biz, tooupgrade, kasa bağlantısını okumanızı tavsiye. Microsoft, sonunda hello Klasik portal Kaldır. 1 Eylül 2017 başlangıç Microsoft Otomatik yükseltme başlayacak yedekleme kasaları tooRecovery Hizmetleri kasalarının. 1 Kasım 2017 tarafından Microsoft hello yükseltme işlemini tamamlanır. Kasanızı Eylül veya Ekim sırasında her zaman otomatik olarak yükseltilebilir. Microsoft, mümkün olan en kısa sürede kasanızı yükseltme önerir.
 
 **Bu yükseltme ortalaması my varolan araçları için nedir?**</br>
-Resource Manager dağıtım modeli için araç güncelleştirin. Kurtarma Hizmetleri kasaları için oluşturulan Resource Manager dağıtım modelinde kullanın. Resource Manager dağıtım modeli için planlama ve, kasa fark Hesap önemlidir. 
+Araç toohello Resource Manager dağıtım modeli güncelleştirin. Kurtarma Hizmetleri kasaları için oluşturulan hello Resource Manager dağıtım modelinde kullanın. Merhaba Resource Manager dağıtım modeli için planlama ve hello fark, kasa için Hesap önemlidir. 
 
-**Yükseltme sırasında kadar kapalı kalma süresi var mı?**</br>
-Yükseltilen kaynakları sayısına bağlıdır. (Korumalı örnekler birkaç onlarca) daha küçük dağıtımlar için tüm yükseltme 20 dakikadan kısa sürer. Büyük ölçekli dağıtımlarda, en çok bir saat sürer.
+**Merhaba yükseltme sırasında kadar kapalı kalma süresi var mı?**</br>
+Yükseltilen kaynakları hello sayısına bağlıdır. (Korumalı örnekler birkaç onlarca) daha küçük dağıtımlar için hello tüm yükseltme 20 dakikadan kısa sürer. Büyük ölçekli dağıtımlarda, en çok bir saat sürer.
 
 **I yükselttikten sonra geri alabilirsiniz?**</br>
-Hayır. Kaynakları başarılı bir şekilde yükselttikten sonra geri alma desteklenmiyor.
+Hayır. Merhaba kaynakları başarılı bir şekilde yükselttikten sonra geri alma desteklenmiyor.
 
-**My abonelik ya da bunlar yükseltmesini yeteneğine sahip olup olmadığınızı görmek için kaynakları doğrulamak için?**</br>
-Evet. Yükseltme ilk adımda kaynakları yükseltmesini yeteneğine sahip olduğunu doğrular. Ön koşul doğrulama başarısız olursa, yükseltme tamamlanamıyor tüm nedenlerle iletilerini alır.
+**My abonelik veya kaynak toosee, yükseltme kapasitesi olmadığını doğrulamak için?**</br>
+Evet. Yükseltme ilk adımda Hello hello kaynakları yükseltme kapasitesi olduğunu doğrular. Ön koşullar Hello doğrulanması başarısız olursa, hello yükseltme tamamlanamıyor tüm hello nedenlerle iletilerini alır.
 
-**Kasa yükseltilmesini sağlamak hangi izinlerin kullanmalı mı?**</br>
-Kasa yükseltme gerçekleştirmek için Azure Klasik portalında abonelik için ortak yönetici olarak eklenmelidir. Zaten Azure portalında sahibi olarak listelenen olsa bile, bu gereklidir. Abonelik için ortak yönetici olup olmadığını öğrenmek için Klasik Azure portalındaki abonelik için bir ortak yönetici eklemeyi deneyin. Bir ortak yönetici eklemek mümkün değilse, bir ortak yönetici ekleyebilirsiniz abonelik, Hizmet Yöneticisi veya ortak yönetici başvurun.
+**Hangi izinlerin sahibim tootrigger kasası yükseltme?**</br>
+tooperform hello kasa yükseltme, hello Klasik Azure portalı hello abonelikte için ortak yönetici olarak eklenmelidir. Zaten hello Azure portal sahibi olarak listelenen olsa bile, bu gereklidir. Hello aboneliğin ortak Yöneticisi iseniz tooadd hello abonelikte Klasik Azure portalı toofind için bir ortak yönetici deneyin. Mümkün tooadd bir ortak yönetici değilse, bir ortak yönetici ekleyebilir hello abonelik için bir Hizmet Yöneticisi veya ortak yönetici başvurun.
 
 **My CSP tabanlı bir yedekleme kasası yükseltebilir miyim?**</br>
-Hayır. Şu anda, CSP tabanlı Yedekleme kasalarını yükseltemezsiniz. Sonraki sürümlerde CSP tabanlı Yedekleme kasaları yükseltmek için destek ekleyeceğiz.
+Hayır. Şu anda, CSP tabanlı Yedekleme kasalarını yükseltemezsiniz. CSP tabanlı Yedekleme kasaları hello sonraki sürümlerde yükseltmek için destek ekleyeceğiz.
 
 **Yükseltme sonrası my Klasik kasası görüntüleyebilir miyim?**</br>
-Hayır. Görüntüleyemez veya Klasik kasanızı yükseltme sonrası yönetin. Yalnızca yeni Azure portalına kasa tüm yönetim eylemlerini kullanmak mümkün olacaktır.
+Hayır. Görüntüleyemez veya Klasik kasanızı yükseltme sonrası yönetin. Yalnızca mümkün toouse hello yeni Azure portalına hello kasası tüm yönetim eylemlerini için olacaktır.
 
-**My yükseltmesi başarısız oldu, ancak gerektiren Aracısı tutulan makine güncelleştiriliyor, artık mevcut değil. Böyle bir durumda ne yapmalıyım?**</br>
-Mağaza kullanmanız gerekiyorsa, bu makine için uzun vadeli bekletme olduktan sonra yedekleme kasası yükseltmeniz mümkün olmaz. Bu tür bir kasa yükseltmek için destek gelecek sürümlerde ekleyeceğiz.
-Artık bu makine yedeklemelerini depolamak gerekmez, lütfen bu makineden kasa kaydı ve yükseltmeyi yeniden deneyin.
+**My yükseltmesi başarısız oldu, ancak gerektiren hello Aracısı tutulan hello makine güncelleştiriliyor, artık mevcut değil. Böyle bir durumda ne yapmalıyım?**</br>
+Toouse hello deposu ihtiyacınız varsa, bu makine için uzun vadeli bekletme, ardından hello yedeklerini mümkün tooupgrade hello kasası olmaz. Bu tür bir kasa yükseltmek için destek gelecek sürümlerde ekleyeceğiz.
+Bu makinenin toostore hello yedeklemelerinin gerekmiyorsa artık sonra lütfen bu makine hello kasasından kaydını ve hello yükseltmeyi yeniden deneyin.
 
-**Neden işleri bilgi şirket içi Kaynaklarım yükseltmeden sonra göremiyorum**</br>
-İzleme yedeklemeleri (MARS Aracısı, DPM ve Azure Backup sunucusu), Kurtarma Hizmetleri kasasına yedekleme kasası yükselttiğinizde aldığınız yeni bir özelliktir şirket içi. İzleme bilgilerini hizmetiyle eşitleme 12 saat sürer.
+**Neden hello işleri bilgi şirket içi Kaynaklarım yükseltmeden sonra göremiyorum**</br>
+İzleme yedeklemeleri (MARS Aracısı, DPM ve Azure Backup sunucusu), yedekleme kasası tooRecovery Hizmetleri kasası yükselttiğinizde aldığınız yeni bir özelliktir şirket içi. İzleme bilgilerini hello too12 saatleri toosync hello hizmetiyle kaplar.
 
 **Bir sorunu nasıl bildirebilirim?**</br>
-Herhangi bir kısmının kasası yükseltme başarısız olursa hata Operationıd listelenen not edin. Microsoft Support sorunu çözmek için proaktif olarak çalışır. Desteği'ne ulaşmak ya da adresinden bize e-posta rsvaultupgrade@service.microsoft.com abonelik kimliği, kasa adı ve Operationıd. Sorunu çözmek mümkün olan en kısa sürede dener. Açıkça Bunu yapmak için Microsoft tarafından belirtilmedikçe işlemi yeniden denemeyin.
+Herhangi bir kısmının hello kasası yükseltme başarısız olur, Operationıd hello hata listelenen Not hello. Microsoft Support tooresolve hello sorunu proaktif olarak çalışır. Out tooSupport ulaşmak ya da adresinden bize e-posta rsvaultupgrade@service.microsoft.com abonelik kimliği, kasa adı ve Operationıd. Mümkün olan en kısa sürede tooresolve hello sorunu deneriz. Merhaba açıkça toodo belirtilmedikçe denemeyi değil Microsoft tarafından bunu.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Aşağıdaki makaleyi kullanın:</br>
+Makale için aşağıdaki hello kullan:</br>
 [Bir Iaas VM'yi yedeklemek](backup-azure-arm-vms-prepare.md)</br>
 [Bir Azure yedekleme sunucuyu yedekleme](backup-azure-microsoft-azure-backup.md)</br>
 [Windows Server Yedekleme](backup-configure-vault.md).

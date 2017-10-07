@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 926f52ef64eb79205dbfb344edc7d9bece2a6947
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fbe0df856ca2efda965650fb85c7e831a0be32c2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect eşitleme: işlevleri başvurusu
-Azure AD Connect işlevleri eşitleme sırasında bir öznitelik değeri işlemek için kullanılır.  
-İşlevler söz dizimi aşağıdaki biçimi kullanarak ifade edilir:  
+Azure AD Connect eşitleme sırasında kullanılan toomanipulate bir öznitelik değeri işlevlerdir.  
+Merhaba hello işlevlerin sözdizimi biçimini izleyen hello kullanarak ifade edilir:  
 `<output type> FunctionName(<input type> <position name>, ..)`
 
 İşlev aşırı yüklendi ve birden çok sözdizimleri kabul eder, tüm geçerli sözdizimi listelenir.  
-İşlevler kesin türü belirtilmiş ve türü belgelenen türü eşleştiğinden geçirilen doğrulayın.  
-Türü eşleşmiyorsa, bir hata oluşturulur.
+Merhaba işlevleri kesin türü belirtilmiş ve geçirilen eşleşmeleri belgelenen hello tür hello türü doğrulayın.  
+Merhaba türü eşleşmiyorsa, bir hata oluşturulur.
 
-Türleri, aşağıdaki sözdizimi ile ifade edilir:
+Merhaba türleri sözdizimi aşağıdaki hello ile ifade edilir:
 
 * **Depo** – ikili
 * **bool** – Boole
 * **dt** – UTC tarihi/saati
 * **Enum** – bilinen sabitleri numaralandırması
-* **exp** – bir Boole değeri değerlendirmek için beklenen ifade
+* **exp** – olan ifade tooevaluate tooa Boolean bekleniyor
 * **mvbin** – birden çok değerli ikili
 * **mvstr** – birden çok değerli dize
 * **mvref** – birden çok değerli başvurusu
@@ -45,7 +45,7 @@ Türleri, aşağıdaki sözdizimi ile ifade edilir:
 * **var** – bir değişken (neredeyse) herhangi bir tür
 * **void** – bir değer döndürmüyor
 
-İşlevler türleriyle **mvbin**, **mvstr**, ve **mvref** birden çok değerli öznitelikleri yalnızca çalışabilirsiniz. İle işlevleri **bin**, **str**, ve **ref** hem tek değerli ve birden çok değerli öznitelikleri üzerinde çalışır.
+Merhaba işlevleri hello türleriyle **mvbin**, **mvstr**, ve **mvref** birden çok değerli öznitelikleri yalnızca çalışabilirsiniz. İle işlevleri **bin**, **str**, ve **ref** hem tek değerli ve birden çok değerli öznitelikleri üzerinde çalışır.
 
 ## <a name="functions-reference"></a>İşlevler Başvurusu
 | İşlevlerin listesi |  |  |  |  |
@@ -88,7 +88,7 @@ Türleri, aşağıdaki sözdizimi ile ifade edilir:
 - - -
 ### <a name="bitand"></a>BitAnd
 **Açıklama:**  
-BitAnd işlevi belirtilen BITS üzerinde bir değer ayarlar.
+Merhaba BitAnd işlevi belirtilen BITS üzerinde bir değer ayarlar.
 
 **Sözdizimi:**  
 `num BitAnd(num value1, num value2)`
@@ -96,21 +96,21 @@ BitAnd işlevi belirtilen BITS üzerinde bir değer ayarlar.
 * value1, value2: and değerini birlikte olmalıdır sayısal değerler
 
 **Notlar:**  
-Bu işlev parametrelerinin her ikisini de ikili gösterimine dönüştürür ve biraz ayarlar:
+Bu işlev, her iki parametre toohello ikili gösterimine dönüştürür ve biraz ayarlar:
 
-* 0 - biri veya her ikisini karşılık gelen bitleri *maskesi* ve *bayrağı* 0
-* 1 - karşılık gelen bit hem de 1 olması gerekir.
+* biri veya her ikisi içinde karşılık gelen bitler hello yoksa 0 - *maskesi* ve *bayrağı* 0
+* 1 - hello karşılık gelen bit hem de 1 olması gerekir.
 
-Diğer bir deyişle, her iki parametre karşılık gelen bitleri 1 olduğu durumlar dışında tüm durumlarda 0 döndürür.
+Diğer bir deyişle, her iki parametre karşılık gelen bitleri hello 1 olduğu durumlar dışında tüm durumlarda 0 döndürür.
 
 **Örnek:**  
 `BitAnd(&HF, &HF7)`  
-Onaltılık "F" ve "F7" değerlendirmek için bu değer 7 döndürür.
+Onaltılık "F" ve "F7" toothis değeri değerlendirmek için 7 döndürür.
 
 - - -
 ### <a name="bitor"></a>BitOr
 **Açıklama:**  
-BitOr işlevi belirtilen BITS üzerinde bir değer ayarlar.
+Merhaba BitOr işlevi belirtilen BITS üzerinde bir değer ayarlar.
 
 **Sözdizimi:**  
 `num BitOr(num value1, num value2)`
@@ -118,28 +118,28 @@ BitOr işlevi belirtilen BITS üzerinde bir değer ayarlar.
 * value1, value2: or birlikte olmalıdır sayısal değerler
 
 **Notlar:**  
-Bu işlev parametrelerinin her ikisini de ikili gösterimine dönüştürür ve karşılık gelen BITS her ikisi de 0 olduğunda birini veya her ikisini maskesi ve bayrağı karşılık gelen bitleri 1 ise 1 ve 0 biraz ayarlar. Diğer bir deyişle, her iki parametre karşılık gelen bitleri 0 nerede dışındaki tüm durumlarda 1 döndürür.
+Bu işlev, her iki parametre toohello ikili gösterimine dönüştürür ve hello karşılık gelen BITS her ikisi de 0 olduğunda birini veya her ikisini hello karşılık gelen bit maskesi ve bayrağı 1 ve too0 olması durumunda bir bit too1 ayarlar. Diğer bir deyişle, her iki parametre hello karşılık gelen bitleri 0 nerede dışında tüm durumlarda 1 döndürür.
 
 - - -
 ### <a name="cbool"></a>CBool
 **Açıklama:**  
-CBool işlevi değerlendirilen geçen ifadeye göre bir Boole değeri döndürür
+Bir Boole değeri hesaplanan hello ifadesi temelinde Hello CBool işlevi döndürür
 
 **Sözdizimi:**  
 `bool CBool(exp Expression)`
 
 **Notlar:**  
-CBool True değerini döndürür sonra ifadeyi sıfır olmayan bir değere hesaplar varsa, aksi takdirde, False değerini döndürür.
+CBool True değerini döndürür sonra hello ifadeyi tooa sıfır olmayan bir değer, hesaplar varsa, aksi takdirde, False değerini döndürür.
 
 **Örnek:**  
 `CBool([attrib1] = [attrib2])`  
 
-Döndürür True her iki öznitelik aynı değere sahip.
+Hello aynı değeri true hem öznitelikleri döndürür.
 
 - - -
 ### <a name="cdate"></a>CDate
 **Açıklama:**  
-CDate işlevi bir dizeden bir UTC DateTime değeri döndürür. Tarih saat yerel öznitelik türü eşitlenmiş değil ancak bazı işlevler tarafından kullanılır.
+Merhaba CDate işlevi bir dizeden bir UTC DateTime değeri döndürür. Tarih saat yerel öznitelik türü eşitlenmiş değil ancak bazı işlevler tarafından kullanılır.
 
 **Sözdizimi:**  
 `dt CDate(str value)`
@@ -147,11 +147,11 @@ CDate işlevi bir dizeden bir UTC DateTime değeri döndürür. Tarih saat yerel
 * Değer: Bir dizeyi bir tarih, saat ve isteğe bağlı olarak saat dilimi
 
 **Notlar:**  
-Döndürülen dize her zaman UTC biçiminde değil.
+Merhaba dize her zaman UTC olarak döndürülür.
 
 **Örnek:**  
 `CDate([employeeStartTime])`  
-Çalışanın üzerinde bir DateTime dayalı döndürür başlangıç zamanı
+Merhaba çalışanın başlangıç zamanı temel alınarak bir DateTime döndürür
 
 `CDate("2013-01-10 4:00 PM -8")`  
 Döndürür DateTime temsil eden bir "2013-01-11 12: 00'da"
@@ -166,198 +166,198 @@ Döndürür DateTime temsil eden bir "2013-01-11 12: 00'da"
 - - -
 ### <a name="certextensionoids"></a>CertExtensionOids
 **Açıklama:**  
-Bir sertifika nesnesinin tüm kritik uzantılar OID değerini döndürür.
+Bir sertifika nesnesinin tüm hello Kritik Uzantılar OID değerlerini döndürür hello.
 
 **Sözdizimi:**  
 `mvstr CertExtensionOids(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certformat"></a>CertFormat
 **Açıklama:**  
-Bu X.509v3 sertifikasını biçim adını döndürür.
+Bu X.509v3 sertifikasını hello biçimi adını döndürür hello.
 
 **Sözdizimi:**  
 `str CertFormat(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certfriendlyname"></a>CertFriendlyName
 **Açıklama:**  
-Bir sertifika için ilişkili diğer adı döndürür.
+Diğer adı için bir sertifika ilişkili hello döndürür.
 
 **Sözdizimi:**  
 `str CertFriendlyName(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certhashstring"></a>CertHashString
 **Açıklama:**  
-X.509v3 sertifikasını SHA1 karma değeri bir onaltılık dize döndürür.
+Döndürür hello X.509v3 sertifikasını SHA1 karma değeri bir onaltılık dize hello.
 
 **Sözdizimi:**  
 `str CertHashString(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certissuer"></a>CertIssuer
 **Açıklama:**  
-X.509v3 sertifikasını veren sertifika yetkilisinin adını döndürür.
+Döndürür hello X.509v3 sertifikasını veren hello sertifika yetkilisinin adı hello.
 
 **Sözdizimi:**  
 `str CertIssuer(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certissuerdn"></a>CertIssuerDN
 **Açıklama:**  
-Sertifikayı verenin ayırt edici adını döndürür.
+Döndürür hello sertifikayı verenin ayırt edici adı hello.
 
 **Sözdizimi:**  
 `str CertIssuerDN(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certissueroid"></a>CertIssuerOid
 **Açıklama:**  
-Sertifikayı verenin OID döndürür.
+Döndürür hello sertifika verenin OID hello.
 
 **Sözdizimi:**  
 `str CertIssuerOid(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
 **Açıklama:**  
-Bu X.509v3 sertifika için anahtar algoritması bilgi dize olarak döndürür.
+Merhaba anahtar algoritması bilgi bu X.509v3 sertifikasını için bir dize olarak döndürür.
 
 **Sözdizimi:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
 **Açıklama:**  
-X.509v3 sertifika için anahtar algoritması parametreleri onaltılık dize olarak döndürür.
+Merhaba anahtar algoritması parametreleri hello X.509v3 sertifikasını için bir onaltılık dize döndürür.
 
 **Sözdizimi:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certnameinfo"></a>CertNameInfo
 **Açıklama:**  
-Konu ve sertifikayı veren adları bir sertifika verir.
+Merhaba konu ve sertifikayı veren adları bir sertifika verir.
 
 **Sözdizimi:**  
 `str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
-*   X509NameType: Konu X509NameType değeri.
-*   includesIssuerName: verenin adı; dahil etmek için true Aksi takdirde false.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   X509NameType: hello hello konu X509NameType değeri.
+*   includesIssuerName: true tooinclude hello verenin adı; Aksi takdirde false.
 
 - - -
 ### <a name="certnotafter"></a>CertNotAfter
 **Açıklama:**  
-Yerel saatle sonra bir sertifika artık geçerli olduğu tarihi döndürür.
+Yerel saatle sonra bir sertifika artık geçerli olduğu başlangıç tarihi döndürür.
 
 **Sözdizimi:**  
 `dt CertNotAfter(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certnotbefore"></a>CertNotBefore
 **Açıklama:**  
-Yerel saatte bir sertifikanın geçerli hale geldiği tarihi döndürür.
+Yerel saatte bir sertifikanın geçerli hale geldiği Hello tarihi döndürür.
 
 **Sözdizimi:**  
 `dt CertNotBefore(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certpublickeyoid"></a>CertPublicKeyOid
 **Açıklama:**  
-X.509v3 sertifikası için ortak anahtar OID döndürür.
+Döndürür hello X.509v3 sertifikası için ortak anahtar hello OID hello.
 
 **Sözdizimi:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
 **Açıklama:**  
-OID X.509v3 sertifikasını için bir ortak anahtar parametrelerinin döndürür.
+Ortak anahtar parametrelerini hello X.509v3 sertifikasını hello OID döndürür hello.
 
 **Sözdizimi:**  
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certserialnumber"></a>CertSerialNumber
 **Açıklama:**  
-X.509v3 sertifika seri numarasını döndürür.
+Merhaba X.509v3 sertifikasını Hello seri numarasını döndürür.
 
 **Sözdizimi:**  
 `str CertSerialNumber(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
 **Açıklama:**  
-Bir sertifikanın imzasını oluşturmak için kullanılan algoritma OID döndürür.
+Döndürür hello hello algoritmasının OID toocreate hello bir sertifikanın imzasını kullanılır.
 
 **Sözdizimi:**  
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certsubject"></a>CertSubject
 **Açıklama:**  
-Bir sertifikadan konu ayırt edici adını alır.
+Bir sertifikadan konu ayırt edici adı alır hello.
 
 **Sözdizimi:**  
 `str CertSubject(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certsubjectnamedn"></a>CertSubjectNameDN
 **Açıklama:**  
-Bir sertifikadan konu ayırt edici adını döndürür.
+Bir sertifikadan konu ayırt edici adı döndürür hello.
 
 **Sözdizimi:**  
 `str CertSubjectNameDN(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certsubjectnameoid"></a>CertSubjectNameOid
 **Açıklama:**  
-Bir sertifikadan konu adı OID döndürür.
+Bir sertifikadan konu adı hello OID döndürür hello.
 
 **Sözdizimi:**  
 `str CertSubjectNameOid(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certthumbprint"></a>Certthumbprınt
 **Açıklama:**  
-Bir sertifikanın parmak izini döndürür.
+Bir sertifikanın parmak izini döndürür hello.
 
 **Sözdizimi:**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certversion"></a>CertVersion
 **Açıklama:**  
-Bir sertifikanın X.509 biçimindeki sürümü döndürür.
+Bir sertifikanın X.509 biçimindeki sürümü döndürür hello.
 
 **Sözdizimi:**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="cguid"></a>CGuid
 **Açıklama:**  
-CGuid işlevi bir GUID dize gösterimini ikili gösterimine dönüştürür.
+Merhaba CGuid işlevi bir GUID tooits ikili gösterim hello dize gösterimini dönüştürür.
 
 **Sözdizimi:**  
 `bin CGuid(str GUID)`
@@ -367,31 +367,31 @@ CGuid işlevi bir GUID dize gösterimini ikili gösterimine dönüştürür.
 - - -
 ### <a name="contains"></a>Contains
 **Açıklama:**  
-Birden çok değerli bir öznitelik içinde bir dize içerir işlev bulur
+Merhaba içerir işlev bir dize birden çok değerli özniteliğinde bulur
 
 **Sözdizimi:**  
 `num Contains (mvstring attribute, str search)`-büyük küçük harfe duyarlı  
 `num Contains (mvstring attribute, str search, enum Casetype)`  
 `num Contains (mvref attribute, str search)`-büyük küçük harfe duyarlı
 
-* Öznitelik: aramak için birden çok değerli özniteliği.
-* Arama: öznitelikte bulmak için dizesi.
+* Öznitelik: hello birden çok değerli özniteliği toosearch.
+* Arama: hello özniteliğinde toofind dize.
 * Casetype: CaseInsensitive veya CaseSensitive.
 
-Dizin, dize bulunduğu birden çok değerli özniteliğinde döndürür. Dize bulunamazsa, 0 döndürülür.
+Dizin hello dize bulunduğu hello birden çok değerli özniteliği döndürür. Merhaba dize bulunamazsa, 0 döndürülür.
 
 **Notlar:**  
-Birden çok değerli dize öznitelikleri için arama alt dizeler değerleri bulur.  
-Başvuru özniteliği için Aranan dize değeri bir eşleşme olarak kabul edilmesi için tam olarak eşleşmelidir.
+Birden çok değerli dize öznitelikleri için hello arama alt dizeler hello değerleri bulur.  
+Başvuru özniteliği için hello Aranan dize tam olarak bir eşleşme olarak kabul hello değeri toobe eşleşmelidir.
 
 **Örnek:**  
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
-Bir birincil e-posta adresi proxyAddresses özniteliğine sahipse, (büyük harf tarafından gösterilen "SMTP:"), proxyAddress özniteliği döndürür, aksi takdirde bir hata döndürür.
+Bir birincil e-posta adresi Hello proxyAddresses özniteliğine sahipse, (büyük harf tarafından gösterilen "SMTP:"), hello proxyAddress özniteliği döndürür, aksi takdirde bir hata döndürür.
 
 - - -
 ### <a name="convertfrombase64"></a>ConvertFromBase64
 **Açıklama:**  
-ConvertFromBase64 işlevi belirtilen base64 kodlu değer normal bir dizeye dönüştürür.
+Merhaba ConvertFromBase64 işlevi dönüştürür hello base64 kodlu değer tooa normal dizesi belirtildi.
 
 **Sözdizimi:**  
 `str ConvertFromBase64(str source)`-Unicode kodlama için varsayar.  
@@ -409,7 +409,7 @@ ConvertFromBase64 işlevi belirtilen base64 kodlu değer normal bir dizeye dön�
 - - -
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
 **Açıklama:**  
-ConvertFromUTF8Hex işlevi belirtilen UTF8 olarak kodlanmış onaltılık değeri dizeye dönüştürür.
+Merhaba ConvertFromUTF8Hex işlevi dönüştürür hello UTF8 olarak kodlanmış onaltılık değer tooa dizesi belirtildi.
 
 **Sözdizimi:**  
 `str ConvertFromUTF8Hex(str source)`
@@ -417,7 +417,7 @@ ConvertFromUTF8Hex işlevi belirtilen UTF8 olarak kodlanmış onaltılık değer
 * Kaynak: UTF8 2-bayt kodlanmış dizesi
 
 **Notlar:**  
-Bu işlevin sonucu DN özniteliği için kolay olduğunu ConvertFromBase64([],UTF8) içinde arasındaki fark.  
+Merhaba ile arasındaki fark bu işlevi ConvertFromBase64([],UTF8) hello sonucunda ortaya çıkan hello DN özniteliği için kolay.  
 Bu biçim DN Azure Active Directory tarafından kullanılır.
 
 **Örnek:**  
@@ -427,8 +427,8 @@ Döndürür "*Merhaba Dünya!*"
 - - -
 ### <a name="converttobase64"></a>ConvertToBase64
 **Açıklama:**  
-ConvertToBase64 işlev bir dize Unicode base64 dizeye dönüştürür.  
-Base-64 basamak ile kodlanmış kendi eşdeğer dize gösterimi dizisi değerine dönüştürür.
+Merhaba ConvertToBase64 işlev bir dize tooa Unicode base64 dizesi dönüştürür.  
+Base-64 basamak ile kodlanmış tamsayı tooits eşdeğer dize gösterimi dizisi Hello değerini dönüştürür.
 
 **Sözdizimi:**  
 `str ConvertToBase64(str source)`
@@ -440,13 +440,13 @@ Base-64 basamak ile kodlanmış kendi eşdeğer dize gösterimi dizisi değerine
 - - -
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
 **Açıklama:**  
-ConvertToUTF8Hex işlev bir dize UTF8 olarak kodlanmış onaltılık değerine dönüştürür.
+Merhaba ConvertToUTF8Hex işlev bir dize tooa UTF8 olarak kodlanmış onaltılık değer dönüştürür.
 
 **Sözdizimi:**  
 `str ConvertToUTF8Hex(str source)`
 
 **Notlar:**  
-Bu işlev çıktı biçimi DN özniteliği biçimi olarak Azure Active Directory tarafından kullanılır.
+Bu işlevin Hello çıktı biçimi DN özniteliği biçimi olarak Azure Active Directory tarafından kullanılır.
 
 **Örnek:**  
 `ConvertToUTF8Hex("Hello world!")`  
@@ -455,7 +455,7 @@ Döndürür 48656C6C6F20776F726C6421
 - - -
 ### <a name="count"></a>Sayı
 **Açıklama:**  
-Count işlevi, birden çok değerli bir öznitelikte öğe sayısını döndürür
+Merhaba Count işlevi, birden çok değerli bir öznitelikte hello sayıda öğeyi döndürür
 
 **Sözdizimi:**  
 `num Count(mvstr attribute)`
@@ -463,7 +463,7 @@ Count işlevi, birden çok değerli bir öznitelikte öğe sayısını döndür�
 - - -
 ### <a name="cnum"></a>CNum
 **Açıklama:**  
-CNum işlev bir dize alır ve sayısal veri türü döndürür.
+Merhaba CNum işlev bir dize alır ve sayısal veri türü döndürür.
 
 **Sözdizimi:**  
 `num CNum(str value)`
@@ -471,7 +471,7 @@ CNum işlev bir dize alır ve sayısal veri türü döndürür.
 - - -
 ### <a name="cref"></a>CRef
 **Açıklama:**  
-Bir dizeyi bir başvuru özniteliği dönüştürür
+Bir dize tooa başvuru özniteliği dönüştürür
 
 **Sözdizimi:**  
 `ref CRef(str value)`
@@ -482,7 +482,7 @@ Bir dizeyi bir başvuru özniteliği dönüştürür
 - - -
 ### <a name="cstr"></a>CStr
 **Açıklama:**  
-CStr işlevinin bir dize veri türüne dönüştürür.
+CStr işlevi Hello tooa dize veri türü dönüştürür.
 
 **Sözdizimi:**  
 `str CStr(num value)`  
@@ -498,12 +498,12 @@ Döndürebilirsiniz "cn = Can, dc = contoso, dc = com"
 - - -
 ### <a name="dateadd"></a>DateAdd
 **Açıklama:**  
-Belirli bir zaman aralığı eklenmiş olan bir tarih içeren bir tarih döndürür.
+Belirli bir zaman aralığı eklenen tarih toowhich içeren bir tarih döndürür.
 
 **Sözdizimi:**  
 `dt DateAdd(str interval, num value, dt date)`
 
-* aralığı: dize eklemek istediğiniz zaman aralığı olan ifade. Dizenin şu değerlerden biri olmalıdır:
+* aralığı: dize hello aralığı tooadd istediğiniz süreyi ifade. Merhaba dize değerlerini aşağıdaki hello birine sahip olmalıdır:
   * yyyy yıl
   * q üç aylık dönem
   * m ay
@@ -514,8 +514,8 @@ Belirli bir zaman aralığı eklenmiş olan bir tarih içeren bir tarih döndür
   * h Saat
   * n dakika
   * s ikinci
-* değer: eklemek istediğiniz birim sayısı. (Gelecekteki tarihleri almak için) olumlu veya olumsuz (geçmişteki tarihler almak için) olabilir.
-* Tarih: aralık eklenir tarihini temsil eden DateTime.
+* değer: Merhaba sayı ölçü tooadd istiyor. Pozitif olabilir (Merhaba gelecekteki tooget tarihleri) veya negatif (Merhaba son tarihleri tooget).
+* Tarih: DateTime temsil eden tarih toowhich hello aralığı eklenir.
 
 **Örnek:**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
@@ -524,7 +524,7 @@ Belirli bir zaman aralığı eklenmiş olan bir tarih içeren bir tarih döndür
 - - -
 ### <a name="datefromnum"></a>DateFromNum
 **Açıklama:**  
-Bir değer Reklamın tarih biçimlendirme bir DateTime türü DateFromNum işlevi dönüştürür.
+Merhaba DateFromNum işlevi Reklamın tarih biçimi tooa DateTime türü bir değere dönüştürür.
 
 **Sözdizimi:**  
 `dt DateFromNum(num value)`
@@ -537,13 +537,13 @@ Bir değer Reklamın tarih biçimlendirme bir DateTime türü DateFromNum işlev
 - - -
 ### <a name="dncomponent"></a>DNComponent
 **Açıklama:**  
-DNComponent işlevi soldan giderek belirtilen bir DN bileşen değerini döndürür.
+Merhaba DNComponent işlevi soldan giderek belirtilen bir DN bileşen hello değerini döndürür.
 
 **Sözdizimi:**  
 `str DNComponent(ref dn, num ComponentNumber)`
 
-* DN: yorumlamak için başvuru özniteliği
-* ComponentNumber: Döndürülecek DN bileşeninde
+* DN: hello başvuru özniteliği toointerpret
+* ComponentNumber: Merhaba DN tooreturn hello bileşeni
 
 **Örnek:**  
 `DNComponent([dn],1)`  
@@ -552,14 +552,14 @@ DN ise "CN = Joe, ou = =..." Can döndürür
 - - -
 ### <a name="dncomponentrev"></a>DNComponentRev
 **Açıklama:**  
-DNComponentRev işlevi (Bitiş) sağdan giderek belirtilen bir DN bileşen değerini döndürür.
+Merhaba DNComponentRev işlevi (Merhaba uç) sağdan giderek belirtilen bir DN bileşen hello değerini döndürür.
 
 **Sözdizimi:**  
 `str DNComponentRev(ref dn, num ComponentNumber)`  
 `str DNComponentRev(ref dn, num ComponentNumber, enum Options)`
 
-* DN: yorumlamak için başvuru özniteliği
-* ComponentNumber - döndürülecek DN bileşeni
+* DN: hello başvuru özniteliği toointerpret
+* ComponentNumber - hello DN tooreturn hello bileşeni
 * Seçenekler: DC – tüm bileşenleri Yoksay "dc ="
 
 **Örnek:**  
@@ -571,40 +571,40 @@ Her ikisi de BİZE döndür.
 - - -
 ### <a name="error"></a>Hata
 **Açıklama:**  
-Hata işlevi bir özel hata döndürmek için kullanılır.
+Merhaba hata işlevi kullanılan tooreturn özel bir hata var.
 
 **Sözdizimi:**  
 `void Error(str ErrorMessage)`
 
 **Örnek:**  
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
-Öznitelik accountName mevcut değilse, bir hata nesnede atar.
+Merhaba özniteliği accountName mevcut değilse, bir hata hello nesnesinde atar.
 
 - - -
 ### <a name="escapedncomponent"></a>EscapeDNComponent
 **Açıklama:**  
-EscapeDNComponent işlevi bir DN biri bileşenini alır ve LDAP temsil edilebilir şekilde çıkışları.
+Merhaba EscapeDNComponent işlevi bir DN biri bileşenini alır ve LDAP temsil edilebilir şekilde çıkışları.
 
 **Sözdizimi:**  
 `str EscapeDNComponent(str value)`
 
 **Örnek:**  
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
-DisplayName özniteliği LDAP'de kaçış karakterleri olsa bile, bir LDAP dizininde nesne oluşturulabilir emin olur.
+Merhaba displayName özniteliği LDAP'de kaçış karakterleri olsa bile, bir LDAP dizininde hello nesne oluşturulabilir emin olur.
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
 **Açıklama:**  
-FormatDateTime işlevi DateTime bir dize olarak belirtilen biçimiyle için kullanılır
+Hello FormatDateTime işlevi kullanılan tooformat DateTime tooa dizesi belirtilen biçime sahip değil
 
 **Sözdizimi:**  
 `str FormatDateTime(dt value, str format)`
 
-* değer: tarih saat biçiminde bir değer
-* Biçim: dönüştürmek için kullanılacak biçimi temsil eden dize.
+* değer: hello tarih saat biçiminde bir değer
+* Biçim: hello biçimi tooconvert temsil eden dize.
 
 **Notlar:**  
-Biçim için olası değerler şurada bulunabilir: [kullanıcı tanımlı tarih/saat biçimleri (biçim işlevi)](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+Merhaba olası değerler hello biçimi burada bulunabilir: [kullanıcı tanımlı tarih/saat biçimleri (biçim işlevi)](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
 
 **Örnek:**  
 
@@ -617,7 +617,7 @@ Biçim için olası değerler şurada bulunabilir: [kullanıcı tanımlı tarih/
 - - -
 ### <a name="guid"></a>GUID
 **Açıklama:**  
-Yeni bir rastgele GUID GUID işlevi oluşturur
+Yeni bir rastgele GUID Hello işlevi GUID oluşturur
 
 **Sözdizimi:**  
 `str GUID()`
@@ -625,23 +625,23 @@ Yeni bir rastgele GUID GUID işlevi oluşturur
 - - -
 ### <a name="iif"></a>IIF
 **Açıklama:**  
-IIf işlevi belirtilen bir koşula göre olası değerlerin kümesini döndürür.
+Merhaba IIF işlevi belirtilen bir koşula göre olası değerlerin kümesini döndürür.
 
 **Sözdizimi:**  
 `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
-* koşul: herhangi bir değer veya true veya false sonucu verebilen ifade.
-* Koşul: koşul true olarak, döndürülen değer değerlendirilirse.
-* valueIfFalse: koşul döndürülen değeri false olarak değerlendirilirse.
+* koşul: herhangi bir değer veya olabilir ifade hesaplanan tootrue ya da yanlış.
+* Koşul: hello koşul tootrue değerlendirilirse hello değer döndürdü.
+* valueIfFalse: hello koşul toofalse değerlendirilirse hello değer döndürdü.
 
 **Örnek:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
- Kullanıcı bir stajyer ise "t-", başka başlangıcı eklenen sahip bir kullanıcı diğer adı olduğu gibi kullanıcının diğer adı döndürür.
+ Merhaba kullanıcı bir stajyer ise, bir kullanıcı ile "t-" Merhaba diğer adı olarak hello kullanıcının diğer adı, başka toohello başlangıcını döndürür eklenen döndürür.
 
 - - -
 ### <a name="instr"></a>InStr
 **Açıklama:**  
-InStr işlevi bir alt dizenin ilk örneğinin bir dizede bulur.
+Merhaba InStr işlevi bir alt dizenin ilk örneğinin hello dizede bulur.
 
 **Sözdizimi:**  
 
@@ -649,38 +649,38 @@ InStr işlevi bir alt dizenin ilk örneğinin bir dizede bulur.
 `num InStr(str stringcheck, str stringmatch, num start)`  
 `num InStr(str stringcheck, str stringmatch, num start , enum compare)`
 
-* stringcheck: aranacak dize
-* stringmatch: dize bulunamadı
-* Başlat: başlama konumu alt dizeyi bulur
+* stringcheck: arama toobe dize
+* stringmatch: bulunan toobe dize
+* Başlat: konum toofind hello substring başlatılıyor
 * karşılaştırma: vbTextCompare veya vbBinaryCompare
 
 **Notlar:**  
-Burada 0 ise bulunamadı veya alt dizeyi bulunamadı konumunu döndürür.
+Merhaba substring bulunduğu döndürür hello konum veya 0 ise bulunamadı.
 
 **Örnek:**  
-`InStr("The quick brown fox","quick")`  
-Evalues 5
+`InStr("hello quick brown fox","quick")`  
+Evalues too5
 
 `InStr("repEated","e",3,vbBinaryCompare)`  
-7'ye değerlendirir
+Too7 hesaplar
 
 - - -
 ### <a name="instrrev"></a>InStrRev
 **Açıklama:**  
-InStrRev işlevi bir alt dizesi son a geçişi bir dizede bulur.
+Merhaba InStrRev işlevi dizesi içinde son a geçişi hello bir alt dizenin bulur
 
 **Sözdizimi:**  
 `num InstrRev(str stringcheck, str stringmatch)`  
 `num InstrRev(str stringcheck, str stringmatch, num start)`  
 `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
 
-* stringcheck: aranacak dize
-* stringmatch: dize bulunamadı
-* Başlat: başlama konumu alt dizeyi bulur
+* stringcheck: arama toobe dize
+* stringmatch: bulunan toobe dize
+* Başlat: konum toofind hello substring başlatılıyor
 * karşılaştırma: vbTextCompare veya vbBinaryCompare
 
 **Notlar:**  
-Burada 0 ise bulunamadı veya alt dizeyi bulunamadı konumunu döndürür.
+Merhaba substring bulunduğu döndürür hello konum veya 0 ise bulunamadı.
 
 **Örnek:**  
 `InStrRev("abbcdbbbef","bb")`  
@@ -689,40 +689,40 @@ Burada 0 ise bulunamadı veya alt dizeyi bulunamadı konumunu döndürür.
 - - -
 ### <a name="isbitset"></a>IsBitSet
 **Açıklama:**  
-Veya set IsBitSet testleri bir bit ise işlevi
+Merhaba işlevi IsBitSet veya bir bit ayarlanmışsa, testleri
 
 **Sözdizimi:**  
 `bool IsBitSet(num value, num flag)`
 
-* değer: evaluated.flag bir sayısal değer: değerlendirilecek bit olan sayısal bir değer
+* değer: evaluated.flag bir sayısal değer: hello olan sayısal bir değer bit hesaplanan toobe
 
 **Örnek:**  
 `IsBitSet(&HF,4)`  
-"4" bit onaltılık değeri "F" olarak ayarlandığından True değerini döndürür
+Bit "4" Merhaba on altılık değeri "F" olarak ayarlandığından True değerini döndürür
 
 - - -
 ### <a name="isdate"></a>IsDate
 **Açıklama:**  
-İfade olabiliyorsa IsDate işlevi True olarak değerlendirilir sonra bir DateTime türü değerlendirir.
+Merhaba ifade olabiliyorsa tooTrue hello IsDate işlevi değerlendirir sonra bir DateTime türü değerlendirir.
 
 **Sözdizimi:**  
 `bool IsDate(var Expression)`
 
 **Notlar:**  
-CDate() başarılı olup olmadığını belirlemek için kullanılır.
+CDate() başarılı olması durumunda toodetermine kullanılır.
 
 - - -
 ### <a name="iscert"></a>IsCert
 **Açıklama:**  
-.NET X509Certificate2 sertifika nesnesine ham verileri seri hale getirilebilir true değerini döndürür.
+.NET X509Certificate2 sertifika nesnesine Hello ham verileri seri hale getirilebilir true değerini döndürür.
 
 **Sözdizimi:**  
 `bool CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: Bayt dizisine bir X.509 sertifikası gösterimi. Merhaba bayt dizisi olarak kodlanmış ikili (DER) veya Base64 ile kodlanmış X.509 veri olabilir.
 - - -
 ### <a name="isempty"></a>IsEmpty
 **Açıklama:**  
-Öznitelik CS veya MV var ancak boş bir dize olarak değerlendirir, IsEmpty işlevi True olarak değerlendirilir.
+Merhaba özniteliği hello CS veya MV var, ancak tooan boş dize olarak değerlendirilir, hello IsEmpty işlevi tooTrue değerlendirir.
 
 **Sözdizimi:**  
 `bool IsEmpty(var Expression)`
@@ -730,7 +730,7 @@ CDate() başarılı olup olmadığını belirlemek için kullanılır.
 - - -
 ### <a name="isguid"></a>IsGuid
 **Açıklama:**  
-Dize için bir GUID dönüştürülebilecek, IsGuid işlevi true olarak değerlendirilir.
+Merhaba dize dönüştürülmüş tooa GUID edilebiliyorsa Merhaba IsGuid işlevi tootrue değerlendirilir.
 
 **Sözdizimi:**  
 `bool IsGuid(str GUID)`
@@ -738,75 +738,75 @@ Dize için bir GUID dönüştürülebilecek, IsGuid işlevi true olarak değerle
 **Notlar:**  
 Bir GUID bu desenleri birini izleyen bir dize olarak tanımlanır: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx veya {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
-CGuid() başarılı olup olmadığını belirlemek için kullanılır.
+CGuid() başarılı olması durumunda toodetermine kullanılır.
 
 **Örnek:**  
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
-GUID biçimi StrAttribute varsa, bir ikili biçimi döndürür, aksi takdirde null değeri döndürür.
+Merhaba StrAttribute GUID biçimine varsa, bir ikili biçimi döndürür, aksi takdirde null değeri döndürür.
 
 - - -
 ### <a name="isnull"></a>IsNull
 **Açıklama:**  
-İfade Null olarak değerlendirilirse, IsNull işlevi true döndürür.
+TooNull Hello ifadeyi hesaplar, hello IsNull işlevi true döndürür.
 
 **Sözdizimi:**  
 `bool IsNull(var Expression)`
 
 **Notlar:**  
-Bir öznitelik için bir Null öznitelik yokluğu tarafından ifade edilir.
+Bir öznitelik için bir Null hello özniteliği hello yokluğu tarafından ifade edilir.
 
 **Örnek:**  
 `IsNull([displayName])`  
-Öznitelik CS veya MV mevcut değilse True değerini döndürür.
+Merhaba özniteliği hello CS veya MV mevcut değilse True değerini döndürür.
 
 - - -
 ### <a name="isnullorempty"></a>IsNullOrEmpty
 **Açıklama:**  
-İfade null veya boş bir dize ise, IsNullOrEmpty işlevi true döndürür.
+Hello ifade null veya boş bir dize ise, hello IsNullOrEmpty işlevi true döndürür.
 
 **Sözdizimi:**  
 `bool IsNullOrEmpty(var Expression)`
 
 **Notlar:**  
-Özniteliği yok veya var ancak boş bir dize için bir öznitelik, bu True olarak değerlendirilmesi.  
-Bu işlevinin olmasına adlandırılır.
+Hello özniteliği yok veya var ancak boş bir dize için bir öznitelik, bu tooTrue değerlendirmek.  
+Bu işlev Hello tersini olmasına adlandırılır.
 
 **Örnek:**  
 `IsNullOrEmpty([displayName])`  
-Özniteliği mevcut değil ya da boş bir dize CS veya MV varsa True değerini döndürür.
+Merhaba özniteliği mevcut değil ya da boş bir dize hello CS veya MV varsa True değerini döndürür.
 
 - - -
 ### <a name="isnumeric"></a>IsNumeric
 **Açıklama:**  
-IsNumeric işlevi bir ifadenin sayı türü değerlendirilebilir olup olmadığını gösteren bir Boole değeri döndürür.
+Merhaba IsNumeric işlevi bir ifadenin sayı türü değerlendirilebilir olup olmadığını gösteren bir Boole değeri döndürür.
 
 **Sözdizimi:**  
 `bool IsNumeric(var Expression)`
 
 **Notlar:**  
-CNum() ifade ayrıştırma başarılı olup olmadığını belirlemek için kullanılır.
+CNum() başarılı tooparse hello ifade olabiliyorsa toodetermine kullanılır.
 
 - - -
 ### <a name="isstring"></a>IsString
 **Açıklama:**  
-İfade bir dize türü değerlendirilebilir, IsString işlevi True olarak değerlendirilir.
+Merhaba ifade yapabiliyorsanız olması değerlendirilen tooa dize türünde, tooTrue hello IsString işlevi değerlendirir sonra.
 
 **Sözdizimi:**  
 `bool IsString(var expression)`
 
 **Notlar:**  
-CStr() ifade ayrıştırma başarılı olup olmadığını belirlemek için kullanılır.
+CStr() başarılı tooparse hello ifade olabiliyorsa toodetermine kullanılır.
 
 - - -
 ### <a name="ispresent"></a>Olmasına
 **Açıklama:**  
-İfade boş değil ve Null olmayan bir dize olarak değerlendirilirse, olmasına işlevi true döndürür.
+Null olmayan ve boş değil tooa dize Hello ifadeyi hesaplar, işlevi true değerini döndürür olmasına hello.
 
 **Sözdizimi:**  
 `bool IsPresent(var expression)`
 
 **Notlar:**  
-Bu işlevinin IsNullOrEmpty olarak adlandırılır.
+Bu işlev Hello tersini IsNullOrEmpty olarak adlandırılır.
 
 **Örnek:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
@@ -814,53 +814,53 @@ Bu işlevinin IsNullOrEmpty olarak adlandırılır.
 - - -
 ### <a name="item"></a>Öğe
 **Açıklama:**  
-Item işlevi, birden çok değerli bir dize/özniteliğinden bir öğeyi döndürür.
+Merhaba öğesi işlevi, birden çok değerli bir dize/özniteliğinden bir öğeyi döndürür.
 
 **Sözdizimi:**  
 `var Item(mvstr attribute, num index)`
 
 * Öznitelik: birden çok değerli özniteliği
-* Dizin: birden çok değerli dize içindeki bir öğenin dizini.
+* Dizin: dizin tooan öğesinde hello birden çok değerli dize.
 
 **Notlar:**  
-İkinci işlevi bir öğede birden çok değerli özniteliği için dizin döndürdüğünden öğesi işlevi içerir işlevi ile birlikte yararlıdır.
+Merhaba ikinci işlevi hello birden çok değerli özniteliğinde hello dizin tooan öğesi döndürdüğünden hello öğesi işlevi içerir işlevi hello birlikte yararlıdır.
 
 Dizin sınırların dışında olması durumunda bir hata oluşturur.
 
 **Örnek:**  
 `Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
-Birincil e-posta adresini döndürür.
+Birincil e-posta adresi döndürür hello.
 
 - - -
 ### <a name="itemornull"></a>ItemOrNull
 **Açıklama:**  
-ItemOrNull işlevi birden çok değerli bir dize/özniteliğinden bir öğe döndürür.
+Merhaba ItemOrNull işlevi, birden çok değerli bir dize/özniteliğinden bir öğeyi döndürür.
 
 **Sözdizimi:**  
 `var ItemOrNull(mvstr attribute, num index)`
 
 * Öznitelik: birden çok değerli özniteliği
-* Dizin: birden çok değerli dize içindeki bir öğenin dizini.
+* Dizin: dizin tooan öğesinde hello birden çok değerli dize.
 
 **Notlar:**  
-İkinci işlevi bir öğede birden çok değerli özniteliği için dizin döndürdüğünden ItemOrNull işlevi ile birlikte içerir işlevi yararlıdır.
+Merhaba ikinci işlevi hello birden çok değerli özniteliğinde hello dizin tooan öğesi döndürdüğünden hello ItemOrNull işlevi içerir işlevi hello birlikte yararlıdır.
 
 Dizin sınırların dışında ise, bir Null değeri döndürür.
 
 - - -
 ### <a name="join"></a>Birleştir
 **Açıklama:**  
-Birleştirme işlevi, birden çok değerli bir dize alır ve her bir öğe eklenen belirtilen ayırıcı ile tek değerli bir dize döndürür.
+Merhaba birleştirme işlevi birden çok değerli bir dize alır ve her bir öğe eklenen belirtilen ayırıcı ile tek değerli bir dize döndürür.
 
 **Sözdizimi:**  
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-* Öznitelik: birleştirilecek dizeler içeren birden çok değerli özniteliği.
-* sınırlayıcı: döndürülen dize içinde alt dizeler ayırmak için kullanılan herhangi bir dize. Atlanırsa, boşluk karakteri ("") kullanılır. Sınırlayıcı sıfır uzunlukta bir dize ise ("") veya hiçbir şey, listedeki tüm öğelerin hiçbir sınırlayıcıları ile birleşir.
+* Öznitelik: birden çok değerli özniteliği içeren dizeleri birleştirilmiş toobe.
+* sınırlayıcı: herhangi bir dize, dize döndürdü hello içinde kullanılan tooseparate hello alt dizeler. Atlanırsa, boşluk karakteri hello ("") kullanılır. Sınırlayıcı sıfır uzunlukta bir dize ise ("") veya hiçbir şey hello listedeki tüm öğelerin hiçbir sınırlayıcıları ile birleşir.
 
 **Açıklamalar**  
-Katılma ve bölünmüş işlevleri arasında eşlik bulunur. Birleştirme işlevi bir dizeler dizisi alır ve bunları tek bir dize döndürmek için bir sınırlayıcı dize kullanarak birleştirir. Bölünmüş işlev bir dize alır ve bir dizeler dizisi döndürmek için sınırlayıcı ayırır. Ancak, bir anahtar farktır birleştirme sınırlayıcı dizesiyle dizeyi birleştirmek, bölme yalnızca bir tek karakter ayırıcısı kullanarak dizeleri ayırabilirsiniz.
+Merhaba birleştirme ve bölme işlevleri arasında eşlik bulunur. Merhaba birleştirme işlevi bir dizeler dizisi alır ve bunları tooreturn tek bir dize sınırlayıcı bir dize kullanarak birleştirir. Merhaba bölünmüş işlev bir dize alır ve tooreturn bir dizeler dizisi hello sınırlayıcı ayırır. Ancak, bir anahtar farktır birleştirme sınırlayıcı dizesiyle dizeyi birleştirmek, bölme yalnızca bir tek karakter ayırıcısı kullanarak dizeleri ayırabilirsiniz.
 
 **Örnek:**  
 `Join([proxyAddresses],",")`  
@@ -869,7 +869,7 @@ Döndürebilirsiniz: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
 - - -
 ### <a name="lcase"></a>LCase
 **Açıklama:**  
-LCase işlev bir dize içindeki tüm karakterleri küçük harflere dönüştürür.
+Merhaba LCase işlev bir dize toolower durumda tüm karakterleri dönüştürür.
 
 **Sözdizimi:**  
 `str LCase(str value)`
@@ -881,22 +881,22 @@ LCase işlev bir dize içindeki tüm karakterleri küçük harflere dönüştür
 - - -
 ### <a name="left"></a>Sol
 **Açıklama:**  
-Sol işlevi bir dizenin soldan belirtilen sayıda karakteri döndürür.
+Merhaba sol işlevi bir dize hello soldan belirtilen sayıda karakteri döndürür.
 
 **Sözdizimi:**  
 `str Left(str string, num NumChars)`
 
-* dize: dize karakterlerinden döndürmek için
-* NumChars: (sol) dizesi başlangıçtan itibaren döndürülecek karakter sayısını tanımlayan bir numara
+* dize: Merhaba dize tooreturn karakterler
+* NumChars: başından (sol) hello dizenin karakter tooreturn hello sayısı tanımlayan bir numara
 
 **Notlar:**  
-Dizedeki ilk numChars karakter içeren bir dize:
+Dizedeki Hello ilk numChars karakter içeren bir dize:
 
 * Varsa numChars = 0, boş bir dize döndürür.
 * NumChars < 0, döndürmesi durumunda giriş dizesi.
 * Dize null ise, boş bir dize döndürür.
 
-Sayı belirtilen numChars'den daha az karakter dizesini içeren bir dize (parametre 1'deki tüm karakterleri içeren) dizeye aynı döndürülür.
+Dize numChars içinde belirtilen hello sayıdan daha az karakter içeriyorsa, (yani parametre 1'deki tüm karakterleri içeren) bir dize aynı toostring döndürülür.
 
 **Örnek:**  
 `Left("John Doe", 3)`  
@@ -905,7 +905,7 @@ Sayı belirtilen numChars'den daha az karakter dizesini içeren bir dize (parame
 - - -
 ### <a name="len"></a>Len
 **Açıklama:**  
-Len işlevi bir dizedeki karakter sayısını döndürür.
+Merhaba Len işlevi bir dizedeki karakter sayısını döndürür.
 
 **Sözdizimi:**  
 `num Len(str value)`
@@ -917,7 +917,7 @@ Len işlevi bir dizedeki karakter sayısını döndürür.
 - - -
 ### <a name="ltrim"></a>LTrim
 **Açıklama:**  
-LTrim işlevi bir dizeden öndeki boşlukları kaldırır.
+Merhaba LTrim işlevi bir dizeden öndeki boşlukları kaldırır.
 
 **Sözdizimi:**  
 `str LTrim(str value)`
@@ -929,14 +929,14 @@ LTrim işlevi bir dizeden öndeki boşlukları kaldırır.
 - - -
 ### <a name="mid"></a>Orta
 **Açıklama:**  
-PARÇAAL işlevi bir dizedeki belirtilen konumdan belirtilen sayıda karakteri döndürür.
+Mid Merhaba işlevi bir dizedeki belirtilen konumdan belirtilen sayıda karakteri döndürür.
 
 **Sözdizimi:**  
 `str Mid(str string, num start, num NumChars)`
 
-* dize: dize karakterlerinden döndürmek için
-* Başlat: Başlangıç tanımlayan bir numara getirin dizesindeki karakterlerinden döndürmek için
-* NumChars: dizedeki döndürmek için karakter sayısını tanımlayan bir numara
+* dize: Merhaba dize tooreturn karakterler
+* Başlat: dize tooreturn karakterlerinden konumda başlangıç hello tanımlayan bir numara
+* NumChars: dizesinde konumundan karakterleri tooreturn hello sayısı tanımlayan bir numara
 
 **Notlar:**  
 Konumundan başlayan dönüş numChars karakter dizesi içinde başlatın.  
@@ -944,7 +944,7 @@ Konumu başlangıç dizesinde numChars karakterler içeren bir dize:
 
 * Varsa numChars = 0, boş bir dize döndürür.
 * NumChars < 0, döndürmesi durumunda giriş dizesi.
-* Başlat > dize uzunluğu giriş dizesi döndürür.
+* Başlat > merhaba dize uzunluğu, giriş dizesi döndürür.
 * Varsa Başlat < = 0, giriş dizesi döndürür.
 * Dize null ise, boş bir dize döndürür.
 
@@ -960,7 +960,7 @@ NumChar karakter değilse kadar çok konumu başından dizesinde kalan karakterl
 - - -
 ### <a name="now"></a>Şimdi
 **Açıklama:**  
-Şimdi işlevi geçerli tarih ve saat, bilgisayarınızın sistem tarihi ve saati göre belirten bir DateTime döndürür.
+Merhaba şimdi işlevi tooyour bilgisayarın sistem tarihi ve saati göre geçerli tarih ve saat, hello belirten bir DateTime döndürür.
 
 **Sözdizimi:**  
 `dt Now()`
@@ -968,7 +968,7 @@ NumChar karakter değilse kadar çok konumu başından dizesinde kalan karakterl
 - - -
 ### <a name="numfromdate"></a>NumFromDate
 **Açıklama:**  
-NumFromDate işlevi bir tarih Reklamın tarih biçiminde döndürür.
+Merhaba NumFromDate işlevi bir tarih Reklamın tarih biçiminde döndürür.
 
 **Sözdizimi:**  
 `num NumFromDate(dt value)`
@@ -980,23 +980,23 @@ NumFromDate işlevi bir tarih Reklamın tarih biçiminde döndürür.
 - - -
 ### <a name="padleft"></a>PadLeft
 **Açıklama:**  
-PadLeft işlevi sol-klavye takımı sağlanan doldurma karakteri kullanarak belirtilen bir süre için dize.
+Belirtilen dize tooa Hello PadLeft işlev sol klavye takımı sağlanan doldurma karakteri kullanarak uzunluğu.
 
 **Sözdizimi:**  
 `str PadLeft(str string, num length, str padCharacter)`
 
-* dize: doldurulacak dize.
-* Uzunluk: istenen dize uzunluğu temsil eden bir tamsayı.
-* padCharacter: doldurma karakteri olarak kullanmak üzere tek bir karakter içeren bir dize
+* dize: dize toopad hello.
+* Uzunluk: hello temsil eden bir tamsayı istenen dize uzunluğu.
+* padCharacter: hello doldurma karakteri tek karakter toouse oluşan bir dize
 
 **Notlar:**
 
-* Dize uzunluğu uzunluğundan az ise, ardından padCharacter art arda (bir uzunluk olana kadar Dizi uzunluğuna eşit sol) başına eklenir.
+* Dize uzunluğu Hello uzunluğundan az ise, bir uzunluk eşit toolength olana kadar sonra padCharacter (sol) art arda eklenmiş toohello dize başlangıcıdır.
 * padCharacter bir boşluk karakteri olabilir, ancak bir null değer olamaz.
-* Dize uzunluğu eşit veya uzunluğundan büyük ise, dize değişmeden döndürülür.
-* Dizeye özdeş bir dize, dize uzunluğu eşit veya daha büyük bir uzunluk varsa, döndürülür.
-* Dize uzunluğu uzunluğundan az ise, yeni bir dize istenen uzunluğu padCharacter ile doldurulan içeren dize döndürülür.
-* Dize null ise, işlevi boş bir dize döndürür.
+* Dize uzunluğu Hello eşit tooor uzunluğundan fazla ise, dize değişmeden döndürülür.
+* Dize uzunluğu daha büyük veya eşit toolength varsa, bir dize aynı toostring döndürülür.
+* Dize uzunluğu Hello uzunluğundan az ise, hello yeni bir dize uzunluğu padCharacter ile doldurulan dizeyi içeren döndürülür istenen.
+* Dize null ise, hello işlevi boş bir dize döndürür.
 
 **Örnek:**  
 `PadLeft("User", 10, "0")`  
@@ -1005,23 +1005,23 @@ PadLeft işlevi sol-klavye takımı sağlanan doldurma karakteri kullanarak beli
 - - -
 ### <a name="padright"></a>PadRight
 **Açıklama:**  
-PadRight işlevi sağ-klavye takımı sağlanan doldurma karakteri kullanarak belirtilen bir süre için dize.
+Belirtilen dize tooa Hello PadRight işlev sağ klavye takımı sağlanan doldurma karakteri kullanarak uzunluğu.
 
 **Sözdizimi:**  
 `str PadRight(str string, num length, str padCharacter)`
 
-* dize: doldurulacak dize.
-* Uzunluk: istenen dize uzunluğu temsil eden bir tamsayı.
-* padCharacter: doldurma karakteri olarak kullanmak üzere tek bir karakter içeren bir dize
+* dize: dize toopad hello.
+* Uzunluk: hello temsil eden bir tamsayı istenen dize uzunluğu.
+* padCharacter: hello doldurma karakteri tek karakter toouse oluşan bir dize
 
 **Notlar:**
 
-* Dize uzunluğu uzunluğundan az ise, bir uzunluk uzunluğa eşit olana kadar sonra padCharacter art arda sonuna dize (sağdaki) eklenir.
+* Dize uzunluğu Hello uzunluğundan az uzunluğu eşit toolength olana kadar sonra padCharacter art arda eklenmiş toohello (sağdaki) dize sonu ise.
 * padCharacter bir boşluk karakteri olabilir, ancak bir null değer olamaz.
-* Dize uzunluğu eşit veya uzunluğundan büyük ise, dize değişmeden döndürülür.
-* Dizeye özdeş bir dize, dize uzunluğu eşit veya daha büyük bir uzunluk varsa, döndürülür.
-* Dize uzunluğu uzunluğundan az ise, yeni bir dize istenen uzunluğu padCharacter ile doldurulan içeren dize döndürülür.
-* Dize null ise, işlevi boş bir dize döndürür.
+* Dize uzunluğu Hello eşit tooor uzunluğundan fazla ise, dize değişmeden döndürülür.
+* Dize uzunluğu daha büyük veya eşit toolength varsa, bir dize aynı toostring döndürülür.
+* Dize uzunluğu Hello uzunluğundan az ise, hello yeni bir dize uzunluğu padCharacter ile doldurulan dizeyi içeren döndürülür istenen.
+* Dize null ise, hello işlevi boş bir dize döndürür.
 
 **Örnek:**  
 `PadRight("User", 10, "0")`  
@@ -1030,14 +1030,14 @@ PadRight işlevi sağ-klavye takımı sağlanan doldurma karakteri kullanarak be
 - - -
 ### <a name="pcase"></a>PCase
 **Açıklama:**  
-PCase işlevi her boşlukla sözcüğün bir dizede ilk karakteri büyük harflere dönüştürür ve diğer tüm karakterleri küçük harfe dönüştürülür.
+Merhaba PCase işlevi hello ilk karakteri bir dize tooupper durumda her boşlukla ayrılmış sözcük dönüştürür ve diğer tüm karakterler dönüştürülür toolower durumda.
 
 **Sözdizimi:**  
 `String PCase(string)`
 
 **Notlar:**
 
-* Bu işlev, şu anda bir kısaltma gibi tamamen büyük bir sözcük dönüştürmek için doğru büyük/küçük harf sağlamaz.
+* Bu işlev bir kısaltma gibi tamamen büyük bir sözcük doğru büyük/küçük harf tooconvert şu anda sağlamaz.
 
 **Örnek:**  
 `PCase("TEsT")`  
@@ -1049,13 +1049,13 @@ PCase işlevi her boşlukla sözcüğün bir dizede ilk karakteri büyük harfle
 - - -
 ### <a name="randomnum"></a>RandomNum
 **Açıklama:**  
-RandomNum işlevi belirtilen bir zaman aralığı arasında rastgele bir sayı döndürür.
+Merhaba RandomNum işlevi, belirtilen aralık arasında rastgele bir sayı döndürür.
 
 **Sözdizimi:**  
 `num RandomNum(num start, num end)`
 
-* Başlat: Oluşturulacak rastgele değer alt sınırı tanımlayan bir numara
-* Son: Oluşturulacak rastgele değer sayısı üst sınırı tanımlayan bir numara
+* Başlat: numara tanımlayıcı hello alt sınır olarak hello rastgele bir değeri toogenerate
+* Son: bir numara tanımlayıcı hello sayısı üst sınırı hello rastgele bir değeri toogenerate
 
 **Örnek:**  
 `Random(100,999)`  
@@ -1064,7 +1064,7 @@ RandomNum işlevi belirtilen bir zaman aralığı arasında rastgele bir sayı d
 - - -
 ### <a name="removeduplicates"></a>RemoveDuplicates
 **Açıklama:**  
-RemoveDuplicates işlevi, birden çok değerli bir dize alır ve her değerin benzersiz olduğundan emin olun.
+Merhaba RemoveDuplicates işlevi, birden çok değerli bir dize alır ve her değerin benzersiz olduğundan emin olun.
 
 **Sözdizimi:**  
 `mvstr RemoveDuplicates(mvstr attribute)`
@@ -1076,17 +1076,17 @@ Burada tüm yinelenen değerleri kaldırılmış bir ayıklanmış proxyAddress 
 - - -
 ### <a name="replace"></a>Değiştir
 **Açıklama:**  
-Replace işlevi başka bir dizeye bir dizenin tüm oluşumlarını değiştirir.
+Merhaba Değiştir işlev bir dize tooanother dize tüm oluşumlarını değiştirir.
 
 **Sözdizimi:**  
 `str Replace(str string, str OldValue, str NewValue)`
 
-* dize: bir dize değerleri değiştirin.
-* OldValue: Dize aramak ve değiştirmek için.
-* NewValue: için değiştirilecek dize.
+* dize: dize tooreplace değerler.
+* OldValue: hello dize toosearch ve tooreplace.
+* NewValue: dize tooreplace hello.
 
 **Notlar:**  
-İşlevi aşağıdaki özel adlar tanır:
+Merhaba işlevi özel adlar aşağıdaki hello tanır:
 
 * \n – yeni satır
 * \r – satır başı
@@ -1094,31 +1094,31 @@ Replace işlevi başka bir dizeye bir dizenin tüm oluşumlarını değiştirir.
 
 **Örnek:**  
 `Replace([address],"\r\n",", ")`  
-CRLF virgül ve boşluk ile değiştirir ve "Bir Microsoft yolu, Redmond, WA, ABD için" neden olabilir
+CRLF virgül ve boşluk ile değiştirir ve çok neden olabilir "Bir Microsoft yolu, Redmond, WA, ABD"
 
 - - -
 ### <a name="replacechars"></a>ReplaceChars
 **Açıklama:**  
-ReplaceChars işlevi ReplacePattern dizesinde bulunan karakterleri tüm oluşumlarını değiştirir.
+Merhaba ReplaceChars işlevi karakterler hello ReplacePattern dize bulundu tüm oluşumlarını değiştirir.
 
 **Sözdizimi:**  
 `str ReplaceChars(str string, str ReplacePattern)`
 
-* dize: karakter değiştirmek için bir dize.
-* ReplacePattern: değiştirilecek karakterler içeren bir sözlük içeren bir dize.
+* dize: içinde bir dize tooreplace karakter.
+* ReplacePattern: karakter tooreplace ile bir sözlük içeren bir dize.
 
-{Kaynak1} biçimidir: {target1}, {kaynak2}: {target2}, {kaynakN}, {targetN} kaynağı bulmak ve değiştirmek için dize hedeflemek için karakter olduğu.
+Hello biçimi {kaynak1} şeklindedir: {target1}, {kaynak2}: {target2}, {kaynakN}, {targetN} kaynak hello karakter toofind ve hedef hello dize tooreplace sahip olduğu.
 
 **Notlar:**
 
-* İşlev her oluşumu tanımlanan kaynakları alır ve bunları hedefleri ile değiştirir.
-* Kaynak tam olarak bir (unicode) karakter olmalıdır.
-* Kaynak boş veya bir karakter (ayrıştırma hatası) daha uzun olamaz.
-* Hedef birden çok karakter, örneğin ö:oe, β:ss olabilir.
-* Hedef karakter kaldırılması gerektiğini belirten boş olabilir.
-* Kaynak küçük harfe duyarlıdır ve tam bir eşleşme olmalıdır.
-* , (Virgül) ve: (iki nokta üst üste) ayrılmış karakterler ve bu işlevi kullanılarak değiştirilemez.
-* Alanları ve diğer beyaz karakterleri ReplacePattern dizesinde göz ardı edilir.
+* Hello işlev her oluşumu tanımlanan kaynakları alır ve bunları hello hedefleri ile değiştirir.
+* Merhaba kaynak tam olarak bir (unicode) karakter olmalıdır.
+* Merhaba kaynağı boş veya bir karakter (ayrıştırma hatası) daha uzun olamaz.
+* Merhaba hedef örneğin ö:oe, β:ss birden çok karakter uzunluğunda olabilir.
+* Merhaba hedef hello karakter kaldırılması gerektiğini belirten boş olabilir.
+* Merhaba kaynak küçük harfe duyarlıdır ve tam bir eşleşme olmalıdır.
+* Merhaba, (virgül) ve: (iki nokta üst üste) ayrılmış karakterler ve bu işlevi kullanılarak değiştirilemez.
+* Alanları ve diğer beyaz karakter hello ReplacePattern dize göz ardı edilir.
 
 **Örnek:**  
 `%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o`
@@ -1127,29 +1127,29 @@ ReplaceChars işlevi ReplacePattern dizesinde bulunan karakterleri tüm oluşuml
 Raksmorgas döndürür
 
 `ReplaceChars("O’Neil",%ReplaceString%)`  
-Tek değer çizgilerinin "ONeil" döndürür kaldırılacak tanımlanır.
+Kaldırılan tanımlı toobe değilse "ONeil", hello tek değer döndürür.
 
 - - -
 ### <a name="right"></a>Sağ
 **Açıklama:**  
-Right işlevi sağdan dizenin (Bitiş) belirtilen sayıda karakteri döndürür.
+Merhaba sağ işlevi hello bir dize sağ (Bitiş) belirtilen sayıda karakteri döndürür.
 
 **Sözdizimi:**  
 `str Right(str string, num NumChars)`
 
-* dize: dize karakterlerinden döndürmek için
-* NumChars: dizesinin sonundan başlayarak (sağdaki) döndürülecek karakterlerin sayısı tanımlayan bir numara
+* dize: Merhaba dize tooreturn karakterler
+* NumChars: hello uçtan (sağdaki) dizenin karakter tooreturn hello sayısı tanımlayan bir numara
 
 **Notlar:**  
-NumChars karakter dizesi son konumundan döndürülür.
+NumChars karakter hello son dize konumundan döndürülür.
 
-Dizedeki son numChars karakter içeren bir dize:
+Dizedeki son numChars karakter Hello içeren bir dize:
 
 * Varsa numChars = 0, boş bir dize döndürür.
 * NumChars < 0, döndürmesi durumunda giriş dizesi.
 * Dize null ise, boş bir dize döndürür.
 
-Dize sayı belirtilen NumChars daha az karakterden içeriyorsa, dizeye özdeş bir dize döndürdü.
+Sayı belirtilen NumChars hello daha az karakter dizesini içeren bir dize aynı toostring döndürülür.
 
 **Örnek:**  
 `Right("John Doe", 3)`  
@@ -1158,7 +1158,7 @@ Dize sayı belirtilen NumChars daha az karakterden içeriyorsa, dizeye özdeş b
 - - -
 ### <a name="rtrim"></a>RTrim
 **Açıklama:**  
-RTrim işlevi bir dizeden sondaki boşluk kaldırır.
+Merhaba RTrim işlevi bir dizeden sondaki boşluk kaldırır.
 
 **Sözdizimi:**  
 `str RTrim(str value)`
@@ -1176,36 +1176,36 @@ Birden çok değerli bir öznitelik (veya bir ifade çıktısını) içindeki t�
 `mvattr Select(variable item, mvattr attribute, func function)`  
 `mvattr Select(variable item, exp expression, func function)`
 
-* Madde: birden çok değerli öznitelik bir öğeyi temsil eder
-* Öznitelik: birden çok değerli özniteliği
+* Madde: hello birden çok değerli öznitelik bir öğeyi temsil eder
+* Öznitelik: hello birden çok değerli özniteliği
 * ifade: değerler koleksiyonu döndüren bir ifadeye
-* koşul: öznitelik bir öğeyi işleyebilir işlevi
+* koşul: hello özniteliği bir öğeyi işleyebilir işlevi
 
 **Örnekler:**  
 `Select($item,[otherPhone],Replace($item,“-”,“”))`  
-Tire (-) kaldırıldıktan sonra birden çok değerli özniteliği otherPhone tüm değerleri döndürür.
+Tire (-) kaldırdıktan sonra tüm hello değerler hello birden çok değerli özniteliği otherPhone döndürür.
 
 - - -
 ### <a name="split"></a>Böl
 **Açıklama:**  
-Bölünmüş işlevi bir sınırlayıcı ile ayrılmış bir dize alır ve birden çok değerli bir dize kolaylaştırır.
+Merhaba bölünmüş işlevi bir sınırlayıcı ile ayrılmış bir dize alır ve birden çok değerli bir dize kolaylaştırır.
 
 **Sözdizimi:**  
 `mvstr Split(str value, str delimiter)`  
 `mvstr Split(str value, str delimiter, num limit)`
 
-* değer: ayırmak için sınırlayıcı karakter dizesiyle.
-* sınırlayıcı: tek bir ayırıcı olarak kullanılan karakter.
+* değer: Merhaba sınırlayıcı karakter tooseparate dizesi.
+* sınırlayıcı: tek bir sınırlayıcı hello olarak kullanılan karakter toobe.
 * sınır: en yüksek sayıda döndürebilir değeri.
 
 **Örnek:**  
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
-ProxyAddress özniteliği için yararlı 2 öğeleri birden çok değerli bir dize döndürür.
+Merhaba proxyAddress özniteliği için yararlı 2 öğeleri birden çok değerli bir dize döndürür.
 
 - - -
 ### <a name="stringfromguid"></a>StringFromGuid
 **Açıklama:**  
-StringFromGuid işlev ikili GUID alır ve bir dizeye dönüştürür
+Merhaba StringFromGuid işlevi bir ikili GUID alır ve tooa dizesini sayıya dönüştürür
 
 **Sözdizimi:**  
 `str StringFromGuid(bin GUID)`
@@ -1213,7 +1213,7 @@ StringFromGuid işlev ikili GUID alır ve bir dizeye dönüştürür
 - - -
 ### <a name="stringfromsid"></a>StringFromSid
 **Açıklama:**  
-StringFromSid işlev bir dize için bir güvenlik tanımlayıcısı içeren bir bayt dizisi dönüştürür.
+Merhaba StringFromSid işlevi bir güvenlik tanımlayıcısı tooa dizesi içeren bir bayt dizisi dönüştürür.
 
 **Sözdizimi:**  
 `str StringFromSid(bin ObjectSID)`  
@@ -1221,36 +1221,36 @@ StringFromSid işlev bir dize için bir güvenlik tanımlayıcısı içeren bir 
 - - -
 ### <a name="switch"></a>Anahtar
 **Açıklama:**  
-Anahtar işlevini değerlendirilen koşullara göre tek bir değer döndürmek için kullanılır.
+Merhaba anahtar kullanılan tooreturn değerlendirilen koşullara göre tek bir değer işlevdir.
 
 **Sözdizimi:**  
 `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
-* Expr: değerlendirmek istediğiniz değişken ifadesi.
-* değer: karşılık gelen ifadesi True ise döndürülecek değer.
+* Expr: tooevaluate istediğiniz değişken ifadesi.
+* değer: değerin toobe döndürülen hello karşılık gelen ifadesi True ise.
 
 **Notlar:**  
-Anahtar işlevi bağımsız değişken listesi ifadeleri ve değer çiftlerinden oluşur. İfadeler soldan sağa değerlendirilir ve True değerlendirileceği ilk ifade ile ilişkili değeri döndürülür. Bölümleri düzgün eşleştirilmedi, bir çalışma zamanı hatası oluşur.
+Merhaba anahtar işlevi bağımsız değişken listesi ifadeleri ve değer çiftlerinden oluşur. Merhaba ifadeler sol tooright değerlendirilir ve hello ilk ifade tooevaluate tooTrue ile ilişkili hello değeri döndürülür. Merhaba bölümleri düzgün eşleştirilmedi, bir çalışma zamanı hatası oluşur.
 
 Örneğin, Expr1 True ise, anahtar value1 döndürür. Yanlış ifade 1., ancak expr 2 True ise, anahtar değeri 2 vb. döndürür.
 
 Anahtar döndüren bir hiçbir şeyin varsa:
 
-* İfadelerden hiçbiri True olarak ayarlanır.
-* İlk True ifade null karşılık gelen bir değer içeriyor.
+* Merhaba ifadeleri hiçbiri True olarak ayarlanır.
+* Merhaba ilk True ifadenin null karşılık gelen bir değere sahip.
 
-Bunlardan yalnızca birini döndürür olsa bile anahtar tüm ifadeler değerlendirir. Bu nedenle, istenmeyen yan etkileri için izlemeniz gerekir. Örneğin, herhangi bir ifade Değerlendirme hatası bir bölme sonuçlanırsa, bir hata oluşur.
+Bunlardan yalnızca birini döndürür olsa bile anahtar tüm ifadeler değerlendirir. Bu nedenle, istenmeyen yan etkileri için izlemeniz gerekir. Örneğin, herhangi bir ifade Hello değerlendirmesi sıfır hatası bir bölme sonuçlanırsa, bir hata oluşur.
 
-Değer, özel bir dize döndürür hata işlevi de olabilir.
+Değer, özel bir dize döndürür hello hata işlevi de olabilir.
 
 **Örnek:**  
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
-Bazı önemli şehirlerde konuşma dilini döndürür, aksi takdirde bir hata döndürür.
+Bazı önemli şehirlerde konuşulan hello dili döndürür, aksi takdirde bir hata döndürür.
 
 - - -
 ### <a name="trim"></a>Kırpma
 **Açıklama:**  
-Kırpma işlevi baştaki ve sondaki boşlukları bir dizeden kaldırır.
+Merhaba kırpma işlevi baştaki ve sondaki boşlukları bir dizeden kaldırır.
 
 **Sözdizimi:**  
 `str Trim(str value)`  
@@ -1260,12 +1260,12 @@ Kırpma işlevi baştaki ve sondaki boşlukları bir dizeden kaldırır.
 "Test" döndürür.
 
 `Trim([proxyAddresses])`  
-Baştaki ve sondaki boşlukları proxyAddress özniteliğinde her bir değer için kaldırır.
+Baştaki ve sondaki boşlukları hello proxyAddress özniteliğinde her bir değer için kaldırır.
 
 - - -
 ### <a name="ucase"></a>UCase
 **Açıklama:**  
-UCase işlev bir dize içindeki tüm karakterleri büyük harfe dönüştürür.
+Merhaba UCase işlev bir dize tooupper durumda tüm karakterleri dönüştürür.
 
 **Sözdizimi:**  
 `str UCase(str string)`
@@ -1283,23 +1283,23 @@ Belirli bir koşula dayalı birden çok değerli özniteliği (veya bir ifade ç
 **Sözdizimi:**  
 `mvattr Where(variable item, mvattr attribute, exp condition)`  
 `mvattr Where(variable item, exp expression, exp condition)`  
-* Madde: birden çok değerli öznitelik bir öğeyi temsil eder
-* Öznitelik: birden çok değerli özniteliği
-* koşul: true veya false sonucu verebilen herhangi bir ifade
+* Madde: hello birden çok değerli öznitelik bir öğeyi temsil eder
+* Öznitelik: hello birden çok değerli özniteliği
+* koşul: olabilir herhangi bir ifade hesaplanan tootrue ya da yanlış
 * ifade: değerler koleksiyonu döndüren bir ifadeye
 
 **Örnek:**  
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
-Sertifika değerler, süresi dolmuş olmayan birden çok değerli özniteliği userCertificate döndürür.
+Merhaba sertifika değerler, süresi dolmuş olmayan hello birden çok değerli özniteliği userCertificate içinde döndürür.
 
 - - -
 ### <a name="with"></a>İle
 **Açıklama:**  
-WITH işlevi bir görünen bir alt temsil etmek için bir değişken kullanarak veya birden fazla kez karmaşık ifadesinde karmaşık bir ifade basitleştirmek için bir yol sağlar.
+işlevi ile Merhaba yolu toosimplify değişken toorepresent bir görünen bir alt kullanarak veya birden fazla kez hello karmaşık ifadesinde karmaşık bir ifade sağlar.
 
 **Sözdizimi:**
 `With(var variable, exp subExpression, exp complexExpression)`  
-* değişken: alt temsil eder.
+* değişken: Merhaba alt temsil eder.
 * Alt: değişkeni tarafından temsil edilen alt.
 * complexExpression: karmaşık bir ifade.
 
@@ -1307,23 +1307,23 @@ WITH işlevi bir görünen bir alt temsil etmek için bir değişken kullanarak 
 `With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
 İşlevsel olarak eşdeğerdir:  
 `IIF (Count(Where($item,[userCertificate],CertNotAfter($item)>Now()))>0, Where($item,[userCertificate],CertNotAfter($item)>Now()),NULL)`  
-Hangi kullanıcı sertifikasını özniteliğinde yalnızca süresi dolmamış sertifika değerleri döndürür.
+Hangi hello userCertificate özniteliği yalnızca süresi dolmamış sertifika değerleri döndürür.
 
 
 - - -
 ### <a name="word"></a>Word
 **Açıklama:**  
-Word işlevi kullanın ve geri dönmek için word numarası sınırlayıcıları açıklayan parametreleri temel bir dize içindeki bir sözcük döndürür.
+Hello Word işlevi hello sınırlayıcıları toouse ve hello word numara tooreturn açıklayan parametrelerine göre bir dize içindeki bir sözcük döndürür.
 
 **Sözdizimi:**  
 `str Word(str string, num WordNumber, str delimiters)`
 
-* dize: bir sözcük döndürmek için dize.
+* dize: dize tooreturn bir sözcük hello.
 * WordNumber: hangi word numarasını tanımlayan bir sayı döndürmelidir.
-* Sınırlayıcılar: sözcükler tanımlamak için kullanılması gereken delimiter(s) temsil eden bir dize
+* Sınırlayıcılar: kullanılan tooidentify sözcükler olmalıdır hello delimiter(s) temsil eden bir dize
 
 **Notlar:**  
-Her bir sınırlayıcı karakter biri ayırarak dizedeki karakter dizesini sözcükler olarak tanımlanır:
+Her bir hello sınırlayıcıları hello karakter birini ayırarak dizedeki karakter dizesini sözcükler olarak tanımlanır:
 
 * Varsa < 1 sayı, boş dize döndürür.
 * Dize null ise, boş bir dize döndürür.
@@ -1331,7 +1331,7 @@ Her bir sınırlayıcı karakter biri ayırarak dizedeki karakter dizesini sözc
 Sözcük sayısı sayısından az dize içeriyor ya da dizesi sınırlayıcıları tarafından tanımlanan herhangi bir sözcük içermiyor, boş bir dize döndürdü.
 
 **Örnek:**  
-`Word("The quick brown fox",3," ")`  
+`Word("hello quick brown fox",3," ")`  
 "Kahverengi" döndürür
 
 `Word("This,string!has&many separators",3,",!&#")`  

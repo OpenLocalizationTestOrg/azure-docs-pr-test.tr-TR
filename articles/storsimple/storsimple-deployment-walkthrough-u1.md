@@ -1,6 +1,6 @@
 ---
-title: "StorSimple cihazınızı dağıtma (Güncelleştirme 1) | Microsoft Belgeleri"
-description: "StorSimple Güncelleştirme 1 cihazını ve hizmetini dağıtmak için adımları ve en iyi yöntemleri açıklar."
+title: "aaaDeploy StorSimple Cihazınızı (Güncelleştirme 1) | Microsoft Docs"
+description: "Merhaba adımları ve hello StorSimple güncelleştirme 1 cihazını ve hizmetini dağıtmak için en iyi uygulamaları açıklar."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.openlocfilehash: 4d568fb2eca418ca939f7a76ac24197a0457fe47
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 339b68f29a73bb77670e76e454cf271c7de4a6e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Şirket içi StorSimple cihazınızı dağıtma (Güncelleştirme 1)
 > [!div class="op_single_selector"]
@@ -29,47 +29,47 @@ ms.lasthandoff: 08/29/2017
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Microsoft Azure StorSimple cihaz dağıtımına hoş geldiniz. Bu dağıtım öğreticileri StorSimple 8000 Serisi Güncelleştirme 1.0 için geçerlidir. Bu öğretici dizisinde StorSimple cihazınızı nasıl yapılandıracağınız açıklanmaktadır. Öğreticiler bir yapılandırma denetim listesi, yapılandırma önkoşulları ve ayrıntılı yapılandırma adımlarını içerir.
+TooMicrosoft Azure StorSimple cihaz dağıtımına Hoş Geldiniz. Bu dağıtım öğreticileri geçerlidir tooStorSimple 8000 serisi güncelleştirme 1.0. Bu öğreticiler dizi açıklar nasıl tooconfigure StorSimple cihazınız ve yapılandırma denetim listesi, yapılandırma önkoşulları ve ayrıntılı yapılandırma içerir adımları.
 
-Bu öğreticilerdeki bilgiler, güvenlik önlemlerini gözden geçirdiğinizi ve StorSimple cihazınızı kutusundan çıkardığınızı, yerleştirdiğinizi ve kablolarını taktığınızı varsayar. Bu görevleri henüz gerçekleştirmediyseniz, [güvenlik önlemlerini](storsimple-safety.md) inceleyerek başlayın. Cihazınızın modeline bağlı olarak, aşağıdaki yönergeleri izleyerek cihazı kutusundan çıkarabilir, rafa monte edebilir ve kablolarını bağlayabilirsiniz:
+Bu öğreticilerdeki bilgiler Hello hello güvenlik önlemlerini gözden geçirdiğinizi ve açılmış, yerleştirdiğinizi ve StorSimple Cihazınızı kablolu olduğunu varsayar. Bu görevler tooperform hala gerekiyorsa, hello inceleyerek başlayın [güvenlik önlemlerini](storsimple-safety.md). Aygıt modeline bağlı olarak, kutusundan çıkarabilir, rafa monte ve hello yönergeleri izleyerek kablo:
 
 * [8100 model cihazınızı kutusundan çıkarma, rafa takma ve kablolarını bağlama](storsimple-8100-hardware-installation.md)
 * [8600 model cihazınızı kutusundan çıkarma, rafa takma ve kablolarını bağlama](storsimple-8600-hardware-installation.md)
 
-Kurulum ve yapılandırma işlemini tamamlamak için yönetici ayrıcalıkları gerekir. Başlamadan önce yapılandırma denetim listesini gözden geçirmenizi öneririz. Dağıtım ve yapılandırma işleminin tamamlanması biraz zaman alabilir.
+Kurulum ve yapılandırma yönetici ayrıcalıkları toocomplete hello işlemi gerekir. Başlamadan önce hello yapılandırma denetim listesini gözden geçirmenizi öneririz. Merhaba dağıtım ve yapılandırma işlemi biraz zaman toocomplete alabilir.
 
 > [!NOTE]
-> Microsoft Azure Web sitesinde yayınlanan StorSimple dağıtım bilgileri yalnızca StorSimple 8000 serisi cihazlar için geçerlidir. 5000 ve 7000 serisi cihazlar hakkında tam bilgi için şu adresi ziyaret edin: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). 5000 ve 7000 serisi dağıtım bilgileri için bkz. [StorSimple Sistemi Hızlı Başlangıç Kılavuzu](http://onlinehelp.storsimple.com/111_Appliance/).
+> Merhaba Hello Microsoft Azure Web sitesinde yayınlanan StorSimple dağıtım bilgileri tooStorSimple 8000 serisi cihazlar yalnızca geçerlidir. Merhaba 5000 ve 7000 Serisi cihazlar hakkında tam bilgi için: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). 5000 ve 7000 Serisi dağıtım bilgileri için bkz: Merhaba [StorSimple sistemi Hızlı Başlangıç Kılavuzu](http://onlinehelp.storsimple.com/111_Appliance/).
 > 
 > 
 
 ## <a name="deployment-steps"></a>Dağıtım adımları
-StorSimple cihazınızı yapılandırmak ve StorSimple Yöneticisi hizmetine bağlamak için gerekli adımları gerçekleştirin. Gerekli adımlara ek olarak, dağıtım sırasında ihtiyacınız olabilecek isteğe bağlı adım ve yordamlar vardır. Bu adım adım dağıtım yönergelerinde isteğe bağlı adımların her birini ne zaman gerçekleştirmeniz gerektiği belirtilmiştir.
+StorSimple Cihazınızı bu gerekli adımları tooconfigure gerçekleştirin ve tooyour StorSimple Yöneticisi hizmetine bağlanın. Ayrıca toohello adımlar gerekli, isteğe bağlı adım ve yordamları hello dağıtım sırasında ihtiyacınız olabilecek vardır. Bu isteğe bağlı adımların her biri gerçekleştirmesi gereken zaman hello adım adım dağıtım yönergeleri gösterir.
 
 | Adım | Açıklama |
 | --- | --- |
-| **ÖNKOŞULLAR** |Dağıtım için bu önkoşulların tamamlanması gerekir. |
-| Dağıtım yapılandırma denetim listesi. |Dağıtımdan önce ve dağıtım sırasında bilgi toplamak ve bilgileri kaydetmek için bu denetim listesini kullanın. |
-| Dağıtım önkoşulları. |Bunlar, ortamın dağıtım için hazır olduğunu doğrular. |
+| **ÖNKOŞULLAR** |Bunlar hello yaklaşan dağıtıma tamamlandı toobe gerekir. |
+| Dağıtım yapılandırma denetim listesi. |Bu denetim listesi toogather ve kayıt bilgileri önceki tooand hello dağıtımı sırasında kullanın. |
+| Dağıtım önkoşulları. |Bunlar hello doğrulamak için dağıtım ortamı hazır. |
 |  | |
-| **ADIM ADIM DAĞITIM** |Bu adımlar, StorSimple cihazınızı üretim ortamına dağıtmak için gereklidir. |
+| **ADIM ADIM DAĞITIM** |Bu adımlar StorSimple Cihazınızı üretimde gerekli toodeploy şunlardır. |
 | 1. Adım: Yeni bir hizmet oluşturun. |StorSimple cihazınız için bulut yönetimi ve depolamayı ayarlayın. Başka StorSimple cihazlar için bir hizmetiniz varsa, bu adımı atlayın. |
-| 2. Adım: Hizmet kayıt anahtarını alın. |StorSimple cihazınızı kaydetmek ve yönetim hizmetine bağlamak için bu anahtarı kullanın. |
-| 3. Adım: StorSimple için Windows PowerShell üzerinden cihazı yapılandırın ve kaydedin. |Yönetim hizmetini kullanarak kurulumu tamamlamak için cihazı ağınıza bağlayın ve Azure ile kaydedin. |
-| 4. Adım: Minimum cihaz kurulumunu tamamlayın</br>İsteğe bağlı: StorSimple cihazınızı güncelleştirin. |Depolama alanı sağlamak için, yönetim hizmetini kullanarak cihaz kurulumunu tamamlayın ve etkinleştirin. |
-| 5. Adım: Birim kapsayıcısı oluşturun. |Birimleri sağlamak için bir kapsayıcı oluşturun. Birim kapsayıcısı, kapsadığı tüm birimler için depolama hesabı, bant genişliği ve şifreleme ayarlarını içerir. |
-| 6. Adım: Birim oluşturun. |Sunucularınız için StorSimple cihazında depolama birimleri sağlayın. |
-| 7. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin.</br>İsteğe bağlı: MPIO’yu yapılandırın. |Sunucularınızı cihaz tarafından sağlanan iSCSI depolama alanına bağlayın. İsteğe bağlı olarak, sunucularınızın bağlantı, ağ ve arabirim hatalarından etkilenmemesini sağlamak için MPIO’yu yapılandırın. |
-| 8. Adım: Yedekleyin. |Verilerinizi korumak için yedekleme ilkenizi ayarlayın |
+| 2. adım: hello hizmet kayıt anahtarını alın. |StorSimple Cihazınızı hello yönetim hizmetine bağlamak & Bu anahtar tooregister kullanın. |
+| 3. adım: Yapılandırmak ve storsimple için Windows PowerShell üzerinden hello cihazı. |Merhaba aygıt tooyour ağa bağlanma ve Azure toocomplete hello Kurulum hello Yönetim hizmetini kullanarak kaydedin. |
+| 4. Adım: Minimum cihaz kurulumunu tamamlayın</br>İsteğe bağlı: StorSimple cihazınızı güncelleştirin. |Merhaba management hizmeti toocomplete hello cihaz Kurulumu kullanın ve tooprovide depolama etkinleştirin. |
+| 5. Adım: Birim kapsayıcısı oluşturun. |Bir kapsayıcı tooprovision birim oluşturun. Bir birim kapsayıcısı, depolama hesabı, bant genişliği ve içerdiği tüm hello birimleri için şifreleme ayarları içerir. |
+| 6. Adım: Birim oluşturun. |Sunucularınız için StorSimple cihazı hello depolama birimleri sağlayın. |
+| 7. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin.</br>İsteğe bağlı: MPIO’yu yapılandırın. |Merhaba aygıt tarafından sağlanan, sunucuları toohello iSCSI depolama birimini bağlayın. İsteğe bağlı olarak, sunucularınızın bağlantı, ağ ve arabirim hatalarından etkilenmemesini MPIO tooensure yapılandırın. |
+| 8. Adım: Yedekleyin. |Verilerinizi, yedekleme İlkesi tooprotect ayarlayın |
 |  | |
-| **DİĞER YORDAMLAR** |Çözümünüzü dağıtırken bu yordamlara başvurmanız gerekebilir. |
-| Hizmet için yeni bir depolama hesabı yapılandırın. | |
-| Cihaz seri konsoluna bağlanmak için PuTTY kullanın. | |
-| Bir Windows Server konağının IQN’ini alın. | |
+| **DİĞER YORDAMLAR** |Çözümünüzü dağıtırken toorefer toothese yordamları gerekebilir. |
+| Merhaba hizmet için yeni bir depolama hesabı yapılandırın. | |
+| PuTTY tooconnect toohello cihaz seri konsoluna kullanın. | |
+| Merhaba bir Windows Server konağının IQN'ini alın. | |
 | El ile yedekleme oluşturun. | |
 
 ## <a name="deployment-configuration-checklist"></a>Dağıtım yapılandırma denetim listesi
-Aşağıdaki dağıtım yapılandırma denetim listesinde, StorSimple cihazınızda yazılım yapılandırmadan önce ve yapılandırma sırasında toplamanız gereken bilgiler açıklanmıştır. Bu bilgilerin bir bölümünü önceden hazırlamak, ortamınızda StorSimple cihazını dağıtma işlemini kolaylaştırmaya yardımcı olur. Cihazınızı dağıtırken yapılandırma ayrıntılarını not etmek için de bu denetim listesini kullanın.
+Dağıtım yapılandırma denetim listesi aşağıdaki hello önce ve StorSimple Cihazınızda hello yazılım yapılandırırken toocollect gereksinim hello bilgileri açıklar. Önceden bu bilgilerin bazıları hazırlama hello ortamınızdaki hello StorSimple cihazı dağıtma işlemi kolaylaştırmaya yardımcı olur. Cihazınızı dağıtırken yapılandırma ayrıntılarını hello bu denetim listesi tooalso Not kullanın.
 
 | Aşama | Parametre | Ayrıntılar | Değerler |
 | --- | --- | --- | --- |
@@ -78,22 +78,22 @@ Aşağıdaki dağıtım yapılandırma denetim listesinde, StorSimple cihazını
 | **Cihazı yapılandırma ve kaydetme** |Veri 0 ağ ayarları |Veri 0 IP Adresi:</br>Alt ağ maskesi:</br>Ağ geçidi:</br>Birincil DNS sunucusu:</br>Birincil NTP sunucusu:</br>Web proxy sunucusu IP/FQDN (isteğe bağlı):</br>Web proxy bağlantı noktası: | |
 | &nbsp; |Cihaz yöneticisi parolası |Parola 8 ile 15 karakter arasında olmalı ve küçük harfler, büyük harfler, sayısal ve özel karakterler içermelidir. | |
 | &nbsp; |StorSimple Snapshot Manager parolası |Parola 14 veya 15 karakterden oluşmalı ve küçük harfler, büyük harfler, sayısal ve özel karakterler içermelidir. | |
-| &nbsp; |Hizmet Kayıt Anahtarı |Bu anahtar Azure klasik portalından oluşturulur. | |
-| &nbsp; |Hizmeti Verileri Şifreleme Anahtarı |Bu anahtar, cihaz StorSimple için Windows PowerShell üzerinden yönetim hizmetine kaydedildiğinde oluşturulur. Bu anahtarı kopyalayın ve güvenli bir konuma kaydedin. | |
+| &nbsp; |Hizmet Kayıt Anahtarı |Bu anahtarı hello Klasik Azure Portalı ' oluşturulur. | |
+| &nbsp; |Hizmeti Verileri Şifreleme Anahtarı |Merhaba cihaz hello Windows PowerShell aracılığıyla hello yönetim hizmetiyle StorSimple için kaydedildiğinde bu anahtarı oluşturulur. Bu anahtarı kopyalayın ve güvenli bir konuma kaydedin. | |
 |  | | | |
-| **Minimum cihaz kurulumunu tamamlama** |Cihazınızın kolay adı |Bu cihaz için açıklayıcı bir addır. | |
+| **Minimum cihaz kurulumunu tamamlama** |Cihazınızın kolay adı |Merhaba cihaz için açıklayıcı bir ad budur. | |
 | &nbsp; |Saat dilimi |Cihazınız zamanlanan tüm işlemler için bu saat dilimini kullanır. | |
 | &nbsp; |İkincil DNS sunucusu |Bu gerekli bir yapılandırmadır. | |
-| &nbsp; |Ağ arabirimi: Veri 0 denetleyicisi sabit IP'leri |Bu IP'ler İnternet'e yönlendirilebilir olmalıdır.</br>Denetleyici 0 sabit IP adresi:</br>Denetleyici 1 sabit IP adresi: | |
+| &nbsp; |Ağ arabirimi: Veri 0 denetleyicisi sabit IP'leri |Bu IP'ler yönlendirilebilir toohello Internet olmalıdır.</br>Denetleyici 0 sabit IP adresi:</br>Denetleyici 1 sabit IP adresi: | |
 |  | | | |
-| **Ek ağ arabirimi ayarları** |Ağ arabirimi: Veri 1</br>iSCSI etkinse, Ağ geçidini yapılandırmayın. |Amaç: Bulut/iSCSI/Kullanılmıyor</br>IP adresi:</br>Alt ağ maskesi:</br>Ağ geçidi: | |
-| &nbsp; |Ağ arabirimi: Veri 2</br>iSCSI etkinse, Ağ geçidini yapılandırmayın. |Amaç: Bulut/iSCSI/Kullanılmıyor</br>IP adresi:</br>Alt ağ maskesi:</br>Ağ geçidi: | |
-| &nbsp; |Ağ arabirimi: Veri 3</br>iSCSI etkinse, Ağ geçidini yapılandırmayın. |Amaç: Bulut/iSCSI/Kullanılmıyor</br>IP adresi:</br>Alt ağ maskesi:</br>Ağ geçidi: | |
-| &nbsp; |Ağ arabirimi: Veri 4</br>iSCSI etkinse, Ağ geçidini yapılandırmayın. |Amaç: Bulut/iSCSI/Kullanılmıyor</br>IP adresi:</br>Alt ağ maskesi:</br>Ağ geçidi: | |
-| &nbsp; |Ağ arabirimi: Veri 5</br>iSCSI etkinse, Ağ geçidini yapılandırmayın. |Amaç: Bulut/iSCSI/Kullanılmıyor</br>IP adresi:</br>Alt ağ maskesi:</br>Ağ geçidi: | |
+| **Ek ağ arabirimi ayarları** |Ağ arabirimi: Veri 1</br>İSCSI etkinse hello ağ geçidi yapılandırmayın. |Amaç: Bulut/iSCSI/Kullanılmıyor</br>IP adresi:</br>Alt ağ maskesi:</br>Ağ geçidi: | |
+| &nbsp; |Ağ arabirimi: Veri 2</br>İSCSI etkinse hello ağ geçidi yapılandırmayın. |Amaç: Bulut/iSCSI/Kullanılmıyor</br>IP adresi:</br>Alt ağ maskesi:</br>Ağ geçidi: | |
+| &nbsp; |Ağ arabirimi: Veri 3</br>İSCSI etkinse hello ağ geçidi yapılandırmayın. |Amaç: Bulut/iSCSI/Kullanılmıyor</br>IP adresi:</br>Alt ağ maskesi:</br>Ağ geçidi: | |
+| &nbsp; |Ağ arabirimi: Veri 4</br>İSCSI etkinse hello ağ geçidi yapılandırmayın. |Amaç: Bulut/iSCSI/Kullanılmıyor</br>IP adresi:</br>Alt ağ maskesi:</br>Ağ geçidi: | |
+| &nbsp; |Ağ arabirimi: Veri 5</br>İSCSI etkinse hello ağ geçidi yapılandırmayın. |Amaç: Bulut/iSCSI/Kullanılmıyor</br>IP adresi:</br>Alt ağ maskesi:</br>Ağ geçidi: | |
 |  | | | |
-| **Birim kapsayıcısı oluşturma** |Birim kapsayıcısı adı: |Kapsayıcı adı | |
-| &nbsp; |Azure Storage hesabı: |Bu birim kapsayıcısı ile ilişkilendirilecek depolama hesabı adı ve erişim anahtarı | |
+| **Birim kapsayıcısı oluşturma** |Birim kapsayıcısı adı: |Merhaba kapsayıcı adı | |
+| &nbsp; |Azure Storage hesabı: |Depolama hesabı adı ve erişim anahtarı tooassociate bu birim kapsayıcısı ile | |
 | &nbsp; |Bulut depolama şifreleme anahtarı: |Her bir kapsayıcıdaki depolama için şifreleme anahtarı | |
 |  | | | |
 | **Birim oluşturma** |Her birim için ayrıntılar |Birim adı: | |
@@ -102,83 +102,83 @@ Aşağıdaki dağıtım yapılandırma denetim listesinde, StorSimple cihazını
 | &nbsp; |&nbsp; |ACR adı: | |
 | &nbsp; |&nbsp; |Varsayılan yedekleme ilkesi: | |
 |  | | | |
-| **Birim bağlama, başlatma ve biçimlendirme** |Depolama alanına bağlanan her konak sunucusu için ayrıntılar |Windows Server adı: | |
+| **Birim bağlama, başlatma ve biçimlendirme** |Toohello depolama bağlanan her konak sunucusu için Ayrıntılar |Windows Server adı: | |
 | &nbsp; |&nbsp; |Windows Server IQN: | |
 | &nbsp; |&nbsp; |Windows Server birim adı: | |
 | &nbsp; |&nbsp; |NTFS bağlama noktası/Sürücü harfi: | |
 
 ## <a name="deployment-prerequisites"></a>Dağıtım önkoşulları
-Aşağıdaki bölümlerde, StorSimple Yöneticisi hizmetiniz ve StorSimple cihazınız için yapılandırma önkoşulları açıklanmaktadır.
+Merhaba aşağıdaki bölümlerde, StorSimple Yöneticisi hizmetiniz ve StorSimple cihazınız için hello yapılandırma önkoşulları açıklanmaktadır.
 
-### <a name="for-the-storsimple-manager-service"></a>StorSimple Yöneticisi hizmeti için
+### <a name="for-hello-storsimple-manager-service"></a>Merhaba StorSimple Yöneticisi hizmeti
 Başlamadan önce aşağıdakilerden emin olun:
 
 * Erişim kimlik bilgilerine sahip bir Microsoft hesabınız var.
 * Erişim kimlik bilgilerine sahip bir Microsoft Azure Storage hesabınız var.
-* Microsoft Azure aboneliğiniz StorSimple Yöneticisi hizmeti için etkinleştirildi. Aboneliğinizin [Kurumsal Anlaşma](https://azure.microsoft.com/pricing/enterprise-agreement/) aracılığıyla satın alınmış olması gerekir.
-* PuTTY gibi bir terminal öykünme yazılımına erişiminiz var.
+* Microsoft Azure aboneliğiniz StorSimple Yöneticisi hizmeti hello için etkinleştirilir. Aboneliğinizi hello satın alınması [Kurumsal Anlaşma](https://azure.microsoft.com/pricing/enterprise-agreement/).
+* PuTTY gibi erişim tooterminal öykünme yazılımı var.
 
-### <a name="for-the-device-in-the-datacenter"></a>Veri merkezindeki cihaz için
-Cihazı yapılandırmadan önce aşağıdakilerden emin olun:
+### <a name="for-hello-device-in-hello-datacenter"></a>Merhaba veri merkezinde Hello cihaz için
+Merhaba cihazı yapılandırmadan önce olduğundan emin olun:
 
 * Cihazınız tam olarak açılmış, bir rafa monte edilmiş ve güç, ağ ve seri erişim için kablolar aşağıdaki şekilde tam olarak bağlanmış:
   
   * [8100 model cihazınızı kutusundan çıkarma, rafa takma ve kablolarını bağlama](storsimple-8100-hardware-installation.md)
   * [8600 model cihazınızı kutusundan çıkarma, rafa takma ve kablolarını bağlama](storsimple-8600-hardware-installation.md)
 
-### <a name="for-the-network-in-the-datacenter"></a>Veri merkezindeki ağ için
+### <a name="for-hello-network-in-hello-datacenter"></a>Merhaba veri merkezinde Hello ağ için
 Başlamadan önce aşağıdakilerden emin olun:
 
-* Veri merkezi güvenlik duvarınızdaki bağlantı noktaları iSCSI ve bulut trafiğine izin vermek için [StorSimple cihazınız için ağ gereksinimleri](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device) bölümünde belirtildiği şekilde açık.
+* Merhaba, datacenter güvenlik duvarı bağlantı noktaları iSCSI ve bulut trafiği için açık tooallow açıklandığı gibi olan [StorSimple cihazınız için ağ gereksinimleri](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
 ## <a name="step-by-step-deployment"></a>Adım adım dağıtım
-StorSimple cihazınızı veri merkezinde dağıtmak için aşağıdaki adım adım yönergeleri kullanın.
+Adım adım yönergeler toodeploy aşağıdaki hello StorSimple Cihazınızı hello veri merkezinde kullanın.
 
 ## <a name="step-1-create-a-new-service"></a>1. Adım: Yeni bir hizmet oluşturun
-Bir StorSimple Yöneticisi hizmeti birden çok StorSimple cihazını yönetebilir. StorSimple Yöneticisi hizmetinin yeni bir örneğini oluşturmak için aşağıdaki adımları gerçekleştirin.
+Bir StorSimple Yöneticisi hizmeti birden çok StorSimple cihazını yönetebilir. Aşağıdaki adımları toocreate hello StorSimple Yöneticisi hizmetini yeni bir örneğini hello gerçekleştirin.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
 > [!IMPORTANT]
-> Hizmetinizle birlikte bir depolama hesabının otomatik olarak oluşturulmasını etkinleştirmediyseniz, bir hizmeti başarıyla oluşturduktan sonra en az bir depolama hesabı oluşturmanız gerekir. Bir birim kapsayıcısı oluşturduğunuzda, bu depolama hesabı kullanılacaktır.
+> Hizmetiniz ile Merhaba otomatik bir depolama hesabının oluşturulmasını etkinleştirmediyseniz toocreate ihtiyacınız olacak bir hizmeti başarıyla oluşturduktan sonra en az bir depolama hesabı. Bir birim kapsayıcısı oluşturduğunuzda, bu depolama hesabı kullanılacaktır.
 > 
-> * Otomatik olarak bir depolama hesabı oluşturmadıysanız, ayrıntılı yönergeler için [Hizmet için yeni bir depolama hesabı yapılandırma](#configure-a-new-storage-account-for-the-service) bölümüne gidin.
-> * Bir depolama hesabının otomatik olarak oluşturulmasını etkinleştirdiyseniz, [2. Adım: Hizmet kayıt anahtarını alın](#step-2-get-the-service-registration-key) bölümüne gidin.
+> * Otomatik olarak bir depolama hesabı oluşturmadıysanız, çok Git[hello hizmet için yeni bir depolama hesabı yapılandırma](#configure-a-new-storage-account-for-the-service) ayrıntılı yönergeler için.
+> * Depolama hesabı hello otomatik oluşturma etkinleştirilirse, çok Git[2. adım: hello hizmet kayıt anahtarını Al](#step-2-get-the-service-registration-key).
 > 
 > 
 
-## <a name="step-2-get-the-service-registration-key"></a>2. Adım: Hizmet kayıt anahtarını alın
-StorSimple Yöneticisi hizmeti çalışır duruma geldikten sonra, hizmet kayıt anahtarını almanız gerekir. Bu anahtar StorSimple cihazınızı kaydetmek ve hizmete bağlamak için kullanılır.
+## <a name="step-2-get-hello-service-registration-key"></a>2. adım: hello hizmet kayıt anahtarını alın
+Merhaba StorSimple Yöneticisi hizmeti çalışır durumda sonra tooget hello hizmet kayıt anahtarı gerekir. Bu anahtar kullanılan tooregister ve StorSimple Cihazınızı hello hizmetiyle bağlama.
 
-Azure klasik portalında aşağıdaki adımları gerçekleştirin.
+Merhaba Klasik Azure Portalı'ndaki adımları izleyerek hello gerçekleştirin.
 
 [!INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
-## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>3. Adım: StorSimple için Windows PowerShell üzerinden cihazı yapılandırın ve kaydedin
-Aşağıdaki yordamda açıklandığı gibi StorSimple cihazınızın ilk kurulumu tamamlamak üzere StorSimple için Windows PowerShell kullanın. Bu adımı tamamlamak için bir terminal öykünme yazılımı kullanmanız gerekir. Daha fazla bilgi için bkz. [Cihaz seri konsoluna bağlanmak için PuTTY kullanma](#use-putty-to-connect-to-the-device-serial-console).
+## <a name="step-3-configure-and-register-hello-device-through-windows-powershell-for-storsimple"></a>3. adım: Yapılandırmak ve storsimple için Windows PowerShell üzerinden hello cihazı
+Windows PowerShell içinde aşağıdaki yordamı hello açıklandığı gibi StorSimple toocomplete hello ilk kurulumu StorSimple cihazınız için kullanın. Bu adım toouse terminal öykünme yazılımı toocomplete gerekir. Daha fazla bilgi için bkz: [kullanım PuTTY tooconnect toohello cihaz seri konsoluna](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
 ## <a name="step-4-complete-minimum-device-setup"></a>4. Adım: Minimum cihaz kurulumunu tamamlayın
-StorSimple cihazınız için en düşük cihaz yapılandırması için aşağıdakileri yapmanız gerekir:
+En düşük cihaz yapılandırması Hello StorSimple cihazınız için sizin için gereklidir:
 
-* İkincil DNS sunucusunu ayarlayın.
+* Merhaba ikincil DNS sunucusunu ayarlayın.
 * En az bir ağ arabiriminde iSCSI’ı etkinleştirin.
-* İki denetleyiciye de sabit IP adresleri atayın.
+* Tooboth hello denetleyicileri sabit IP adresleri atayın.
 
-En düşük cihaz kurulumunu tamamlamak için Azure klasik portalında aşağıdaki adımları gerçekleştirin.
+Hello Azure Klasik portalı toocomplete hello minimum cihaz kurulumunu adımlarını izleyerek hello gerçekleştirin.
 
 [!INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
 ## <a name="step-5-create-a-volume-container"></a>5. Adım: Birim kapsayıcısı oluşturun
-Birim kapsayıcısı, kapsadığı tüm birimler için depolama hesabı, bant genişliği ve şifreleme ayarlarını içerir. StorSimple cihazınızda birimleri sağlamaya başlamadan önce bir birim kapsayıcısı oluşturmanız gerekir.
+Bir birim kapsayıcısı, depolama hesabı, bant genişliği ve içerdiği tüm hello birimleri için şifreleme ayarları içerir. StorSimple Cihazınızda birimleri sağlamaya başlamadan önce toocreate birim kapsayıcısı gerekir.
 
-Birim kapsayıcısı oluşturmak için Azure klasik portalında aşağıdaki adımları gerçekleştirin.
+Hello Azure Klasik portalı toocreate birim kapsayıcısı adımlarını izleyerek hello gerçekleştirin.
 
 [!INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## <a name="step-6-create-a-volume"></a>6. Adım: Birim oluşturun
-Bir birim kapsayıcısı oluşturduktan sonra, sunucularınız için StorSimple cihazında bir depolama birimi sağlayabilirsiniz. Birim oluşturmak için Azure klasik portalında aşağıdaki adımları gerçekleştirin.
+Birim kapsayıcısı oluşturduktan sonra sunucularınız için StorSimple cihazı hello depolama biriminde sağlayabilirsiniz. Hello Azure Klasik portalı toocreate bir birimin içindeki adımları izleyerek hello gerçekleştirin.
 
 > [!IMPORTANT]
 > StorSimple Yöneticisi yalnızca ölçülü kaynak kullanan birimler oluşturabilir. Tamamen sağlanan veya kısmen sağlanan birimler oluşturamazsınız.
@@ -188,75 +188,75 @@ Bir birim kapsayıcısı oluşturduktan sonra, sunucularınız için StorSimple 
 [!INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume.md)]
 
 ## <a name="step-7-mount-initialize-and-format-a-volume"></a>7. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin
-Aşağıdaki adımlar, Windows Server konağınızda gerçekleştirilir.
+Aşağıdaki adımları hello Windows Server konağınızda gerçekleştirilir.
 
 > [!IMPORTANT]
-> * StorSimple çözümünüzün yüksek oranda kullanılabilirliğini sağlamak için, iSCSI’ı yapılandırmadan önce konak sunucularınızda (isteğe bağlı) MPIO’yu yapılandırmanızı öneririz. Konak sunucuları üzerinde MPIO yapılandırması sunucuların bağlantı, ağ veya arabirim hatalarına dayanabileceğinden emin olunmasını sağlar.
-> * Windows Server konağında MPIO ve iSCSI yükleme ve yapılandırma yönergeleri için [StorSimple cihazınız için MPIO yapılandırma](storsimple-configure-mpio-windows-server.md) bölümüne gidin. Bu adımlar StorSimple birimlerini bağlamayı, başlatmayı ve biçimlendirmeyi de içerir.
-> * Bir Linux konağında MPIO ve iSCSI yükleme ve yapılandırma yönergeleri için [StorSimple Linux konağınız için MPIO yapılandırma](storsimple-configure-mpio-on-linux.md) bölümüne gidin.
+> * Merhaba, yüksek kullanılabilirlik StorSimple çözümünüzün için ana bilgisayar sunucuları (isteğe bağlı) önceki tooconfiguring iSCSI MPIO'yu yapılandırmanızı öneririz. Ana bilgisayar sunucuları üzerinde MPIO yapılandırması hello sunucuları bağlantı, ağ veya arabirim hatalarına dayanabileceğinden emin olmanızı sağlar.
+> * MPIO ve iSCSI yükleme ve yapılandırma yönergeleri için Windows Server ana bilgisayarda, çok Git[StorSimple cihazınız için MPIO yapılandırma](storsimple-configure-mpio-windows-server.md). Bunlar ayrıca hello adımları toomount dahil, başlatmak ve StorSimple birimleri biçimlendirme.
+> * MPIO ve iSCSI yükleme ve yapılandırma yönergeleri için bir Linux ana bilgisayar üzerindeki, çok Git[StorSimple Linux konağınız için MPIO yapılandırma](storsimple-configure-mpio-on-linux.md)
 > 
 > 
 
-MPIO yapılandırmamaya karar verirseniz, bir Windows Server konağında StorSimple birimlerinizi bağlamak, başlatmak ve biçimlendirmek için aşağıdaki adımları gerçekleştirin.
+Aşağıdaki adımları toomount hello tooconfigure MPIO, karar gerçekleştirirseniz, başlatmak ve Windows Server konağında StorSimple birimlerinizi biçimlendirin.
 
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
 ## <a name="step-8-take-a-backup"></a>8. Adım: Yedekleyin
 Yedeklemeler, birimlerin zaman noktası korumasını sağlar ve geri yükleme sürelerini azaltırken kurtarılabilirliği iyileştirir. StorSimple cihazınızda iki tür yedekleme oluşturabilirsiniz: yerel anlık görüntüler ve bulut anlık görüntüleri. Bu yedekleme türlerinin her biri **Zamanlanmış** veya **El ile** olabilir.
 
-Zamanlanmış yedekleme oluşturmak için Azure klasik portalında aşağıdaki adımları gerçekleştirin.
+Hello Azure Klasik portalı toocreate zamanlanmış yedekleme adımlarını izleyerek hello gerçekleştirin.
 
 [!INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
-İstediğiniz zaman el ile yedekleme oluşturabilirsiniz. Yordamlar için, [El ile yedekleme oluşturun](#create-a-manual-backup) bölümüne gidin.
+İstediğiniz zaman el ile yedekleme oluşturabilirsiniz. Yordamlar için çok Git[el ile yedekleme oluşturmak](#create-a-manual-backup).
 
-## <a name="configure-a-new-storage-account-for-the-service"></a>Hizmet için yeni bir depolama hesabı yapılandırın
-Bu yalnızca hizmetinizle bir depolama hesabının otomatik olarak oluşturulmasını etkinleştirmediyseniz gerçekleştirmeniz gereken isteğe bağlı bir adımdır. StorSimple birim kapsayıcısı oluşturmak için bir Microsoft Azure Storage hesabı gereklidir.
+## <a name="configure-a-new-storage-account-for-hello-service"></a>Merhaba hizmet için yeni bir depolama hesabı yapılandırma
+Bu, yalnızca, bir depolama hesabının otomatik oluşturulmasını hello hizmetiniz ile etkinleştirmediyseniz tooperform gereken isteğe bağlı bir adımdır. Bir Microsoft Azure depolama hesabı gerekli toocreate StorSimple birim kapsayıcısı olabilir.
 
-Farklı bir bölgede bir Azure Storage hesabı oluşturmanız gerekiyorsa, adım adım yönergeler için bkz. [Azure Storage hesapları hakkında](../storage/common/storage-create-storage-account.md).
+Azure storage hesabı farklı bir bölgede toocreate gerekirse bkz [Azure Storage hesapları hakkında](../storage/common/storage-create-storage-account.md) adım adım yönergeler için.
 
-Azure klasik portalında **StorSimple Yöneticisi hizmeti** sayfasında aşağıdaki adımları gerçekleştirin.
+Merhaba hello üzerinde Klasik Azure Portalı'ndaki adımları izleyerek hello gerçekleştirmek **StorSimple Yöneticisi hizmeti** sayfası.
 
 [!INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
-## <a name="use-putty-to-connect-to-the-device-serial-console"></a>Cihaz seri konsoluna bağlanmak için PuTTY kullanın
-StorSimple için Windows PowerShell’e bağlanmak için PuTTY gibi bir terminal öykünme yazılımı kullanmanız gerekir. Cihaza seri konsolu aracılığıyla doğrudan veya uzak bir bilgisayardan telnet oturumu açarak eriştiğinizde PuTTY kullanabilirsiniz.
+## <a name="use-putty-tooconnect-toohello-device-serial-console"></a>PuTTY tooconnect toohello cihaz seri konsoluna kullanın
+tooconnect tooWindows StorSimple için PowerShell, PuTTY gibi toouse terminal öykünme yazılımı gerekir. Merhaba aygıt hello seri Konsolu aracılığıyla doğrudan veya uzak bir bilgisayardan telnet oturumu açarak eriştiğinizde PuTTY kullanabilirsiniz.
 
-[!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
+[!INCLUDE [Use PuTTY tooconnect toohello device serial console](../../includes/storsimple-use-putty.md)]
 
 ## <a name="scan-for-and-apply-updates"></a>Güncelleştirmeleri tarama ve güncelleştirmeleri uygulama
-Cihazınızın güncelleştirilmesi birkaç saat sürebilir. Cihazınızda güncelleştirmeleri taramak ve güncelleştirmeleri uygulamak için aşağıdaki adımları gerçekleştirin.
+Cihazınızın güncelleştirilmesi birkaç saat sürebilir. Adımları tooscan için aşağıdaki hello gerçekleştirmek ve Cihazınızda güncelleştirmeleri uygulayın.
 <!--can take 1-4 hours-->
 
-<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need toodisable Data 2 and Data 3 network interfaces before installing hello update. Go too**Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after hello device is updated.-->
 
-#### <a name="to-update-your-device"></a>Cihazınızı güncelleştirmek için
-1. Cihaz **Hızlı Başlangıç** sayfasında, **Cihazlar**’a tıklayın. Fiziksel cihazı seçin, **Bakım**’a tıklayın ve ardından **Güncelleştirmeleri Tara**’ya tıklayın.  
-2. Kullanılabilir güncelleştirmeleri taramak için bir iş oluşturulur. Güncelleştirmeler varsa, **Güncelleştirmeleri Tara**, **Güncelleştirmeleri Yükle** olarak değişir. **Güncelleştirmeleri Yükle**’ye tıklayın.
-3. Bir güncelleştirme işi oluşturulur. Güncelleştirme durumunu izlemek için **İşler**’e gidin.
+#### <a name="tooupdate-your-device"></a>tooupdate Cihazınızı
+1. Merhaba aygıtta **Hızlı Başlangıç** sayfasında, **aygıtları**. Merhaba fiziksel cihazı seçin, **Bakım** ve ardından **Güncelleştirmeleri tara**.  
+2. Bir iş tooscan kullanılabilir güncelleştirmeler için oluşturulur. Güncelleştirmeler varsa, hello **Güncelleştirmeleri tara** çok değiştirir**Güncelleştirmeleri Yükle**. **Güncelleştirmeleri Yükle**’ye tıklayın.
+3. Bir güncelleştirme işi oluşturulur. Çok giderek hello güncelleştirme durumunu izlemek**işleri**.
    
    > [!NOTE]
-   > Güncelleştirme işi başladığında, durum anında yüzde 50 olarak görüntülenir. Durum yalnızca güncelleştirme işi tamamlandıktan sonra yüzde 100 olarak değişir. Güncelleştirme süreci için gerçek zamanlı durum sağlanmaz.
+   > Merhaba güncelleştirme işi başladığında, yüzde 50 olarak hemen hello durumunu görüntüler. yalnızca hello güncelleştirme işi tamamlandıktan sonra too100 yüzde hello durumu değişir. Merhaba güncelleştirme işlemi için gerçek zamanlı durum yok.
    > 
    > 
-4. Cihaz başarıyla güncelleştirildikten sonra, Veri 2 ve Veri 3 ağ arabirimleri devre dışı bırakılmışsa bunları etkinleştirin.
+4. Merhaba cihaz başarıyla güncelleştirildikten sonra bu devre dışı bırakılmışsa veri 2 ve veri 3 ağ arabirimlerini etkinleştirin.
 
-<!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
+<!-- In step 2, you may be requested toodisable Data 2 and Data 3 prior tooinstalling hello updates. You must disable these network interfaces or hello updates may fail.-->
 
-## <a name="get-the-iqn-of-a-windows-server-host"></a>Bir Windows Server konağının IQN’ini alın
-Windows Server® 2012 çalıştıran bir Windows konağının iSCSI Tam Adını (IQN) almak için aşağıdaki adımları gerçekleştirin.
+## <a name="get-hello-iqn-of-a-windows-server-host"></a>Merhaba bir Windows Server konağının IQN'ini alın
+Aşağıdaki adımları tooget hello iSCSI hello gerçekleştirmek tam adını (IQN) Windows Server® 2012 çalıştıran bir Windows konağının.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-get-iqn.md)]
 
 ## <a name="create-a-manual-backup"></a>El ile yedekleme oluşturun
-StorSimple cihazınızda tek bir birim için bir isteğe bağlı el ile yedekleme oluşturmak üzere Azure klasik portalında aşağıdaki adımları gerçekleştirin.
+StorSimple Cihazınızda tek bir birim için hello Azure Klasik portalı toocreate isteğe bağlı el ile yedekleme adımlarını izleyerek hello gerçekleştirin.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-create-manual-backup.md)]
 
 ## <a name="configure-mpio"></a>MPIO yapılandırma
-Çok yollu G/Ç (MPIO) isteğe bağlı bir özelliktir ve Windows Server'da varsayılan olarak yüklenmez. Sunucu Yöneticisi aracılığıyla bir özellik olarak yüklenmesi gerekir. MPIO yükleme yönergeleri için [StorSimple cihazınız için MPIO yapılandırma](storsimple-configure-mpio-windows-server.md) bölümüne gidin.
+Çok yollu G/Ç (MPIO) isteğe bağlı bir özelliktir ve Windows Server'da varsayılan olarak yüklenmez. Sunucu Yöneticisi aracılığıyla bir özellik olarak yüklenmesi gerekir. MPIO yükleme yönergeleri için çok Git[StorSimple cihazınız için MPIO yapılandırma](storsimple-configure-mpio-windows-server.md).
 
-Bir Linux konağına bağlı bir StorSimple cihazına yönelik MPIO yükleme yönergeleri için [Linux konağınız için MPIO yapılandırma](storsimple-configure-mpio-on-linux.md) bölümüne gidin.
+MPIO yükleme yönergeleri için StorSimple cihazı bağlı tooa Linux ana gidin çok[Linux konağınız için MPIO yapılandırma](storsimple-configure-mpio-on-linux.md).
 
 > [!NOTE]
 > MPIO, StorSimple sanal cihazlar üzerinde desteklenmez.
@@ -265,5 +265,5 @@ Bir Linux konağına bağlı bir StorSimple cihazına yönelik MPIO yükleme yö
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Sanal cihaz](storsimple-virtual-device-u2.md) yapılandırın.
-* StorSimple cihazınızı yönetmek için [StorSimple Yöneticisi hizmetini](storsimple-manager-service-administration.md) kullanın.
+* Kullanım hello [StorSimple Yöneticisi hizmeti](storsimple-manager-service-administration.md) toomanage StorSimple Cihazınızı.
 

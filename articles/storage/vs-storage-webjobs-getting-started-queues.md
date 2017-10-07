@@ -1,6 +1,6 @@
 ---
-title: "Kuyruk depolama ve Visual Studio ile çalışmaya başlama bağlı Hizmetleri (Web işi projeleri) | Microsoft Docs"
-description: "Visual Studio kullanarak bir depolama hesabı bağlandıktan sonra bir Web işi projesinin Azure kuyruk depolama ile çalışmaya başlamak nasıl Hizmetleri bağlı."
+title: "aaaGetting, bağlı hizmetler (Web işi projeleri) kuyruk depolama ve Visual Studio ile çalışmaya | Microsoft Docs"
+description: "Visual Studio kullanarak tooa depolama hesabı bağlanma Hizmetleri bağlandıktan sonra bir Web işi projesinin Azure kuyruk depolama kullanarak nasıl tooget başlatıldı."
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
-ms.openlocfilehash: abd4814c099620345e04833e14dafd38432064e4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 720e96fda734c31e1b1d68d4f95aa9531a20a3f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama bağlı Hizmetleri (Web işi projeler)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu makalede nasıl oluşturduğunuz veya Visual Studio kullanarak Azure storage hesabı başvurulan sonra Visual Studio Azure WebJob projede Azure kuyruk depolama kullanma başlamak **bağlı Hizmetleri Ekle** iletişim kutusu. Eklediğinizde bir depolama hesabı bir Web işi projesi için Visual Studio kullanarak **bağlı Hizmetleri Ekle** iletişim kutusunda, uygun Azure depolama NuGet paketleri yüklü, uygun .NET başvuruları projeye eklenir ve depolama hesabı için bağlantı dizelerini App.config dosyasında güncelleştirilir.  
+Bu makalede nereden Azure kuyruk kullanmaya oluşturduğunuz veya Azure storage hesabı kullanarak başvurulan sonra Visual Studio Azure WebJob projesinde depolama hello Visual Studio **bağlı Hizmetleri Ekle** iletişim kutusu. Merhaba Visual Studio kullanarak bir depolama hesabı tooa Web işi projesinin eklediğinizde **bağlı Hizmetleri Ekle** iletişim kutusunda, hello uygun Azure depolama NuGet paketleri yüklenir, hello uygun .NET başvuruları eklenen toohello Proje ve hello depolama hesabı için bağlantı dizelerini hello App.config dosyasında güncelleştirilir.  
 
-Bu makalede Azure WebJobs SDK sürümü kullanmak nasıl gösteren C# kod örnekleri sağlar 1.x Azure kuyruk depolama hizmeti ile.
+Bu makalede nasıl toouse hello Azure WebJobs SDK sürüm gösteren C# kod örnekleri sağlar 1.x hello Azure kuyruk depolama hizmeti ile.
 
-Azure Kuyruk depolama, HTTP veya HTTPS kullanan kimlik doğrulaması yapılmış çağrılar aracılığıyla dünyanın her yerinden erişilebilen çok sayıda iletinin depolanması için bir hizmettir. Tek bir kuyruk iletisinin boyutu 64 KB’ye kadar olabilir ve bir kuyrukta, depolama hesabının toplam kapasite sınırına kadar milyonlarca ileti bulunabilir. Bkz: [.NET kullanarak Azure kuyruk depolama ile çalışmaya başlama](storage-dotnet-how-to-use-queues.md) daha fazla bilgi için. ASP.NET hakkında daha fazla bilgi için bkz: [ASP.NET](http://www.asp.net).
+Azure kuyruk depolama alanından herhangi bir yere Merhaba Dünya HTTP veya HTTPS kullanarak kimlik doğrulaması yapılmış çağrılar aracılığıyla erişilebilen iletileri çok sayıda depolamak için bir hizmettir. Tek bir kuyruk iletisinin boyutu too64 KB yukarı olabilir ve bir kuyruk iletileri, bir depolama hesabı toohello toplam kapasite sınırına milyonlarca içerebilir. Bkz: [.NET kullanarak Azure kuyruk depolama ile çalışmaya başlama](storage-dotnet-how-to-use-queues.md) daha fazla bilgi için. ASP.NET hakkında daha fazla bilgi için bkz: [ASP.NET](http://www.asp.net).
 
-## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Bir kuyruk iletisi alındığında bir işlev tetikleme
-Bir kuyruk iletisi alındığında WebJobs SDK çağıran bir işlev yazmak için **QueueTrigger** özniteliği. Öznitelik oluşturucunun yoklamak için sıra adını belirten bir dize parametresi alan. Kuyruk adı dinamik olarak belirlemek nasıl görmek için kullanıma [yapılandırma seçeneklerinin nasıl ayarlanacağını](#how-to-set-configuration-options).
+## <a name="how-tootrigger-a-function-when-a-queue-message-is-received"></a>Nasıl tootrigger bir kuyruk iletisi alındığında işlevi
+toowrite Web işleri SDK'si hello işlevi çağıran bir kuyruk iletisi alındığında, hello kullan **QueueTrigger** özniteliği. Hello özniteliği Oluşturucusu hello sıra toopoll hello adını belirten bir dize parametresi alan. toosee tooset hello nasıl sıra adı dinamik olarak kullanıma [nasıl tooset yapılandırma seçenekleri](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>Dize iletileri
-Bir dize ileti sırası aşağıdaki örnekte, bu nedenle içerir **QueueTrigger** adlı bir dize parametresi uygulanan **logMessage** kuyruk iletisini içeriğini içerir. İşlev [Pano için bir günlük iletisi Yazar](#how-to-write-logs).
+Bir dize ileti hello sıra aşağıdaki örneğine hello, bu nedenle içeren **QueueTrigger** adlı uygulanan tooa dize parametresi **logMessage** hello kuyruk iletisi Merhaba içeriğine içerir. Merhaba işlevi [bir günlük iletisi toohello Pano Yazar](#how-to-write-logs).
 
         public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
         {
             logger.WriteLine(logMessage);
         }
 
-Yanında **dize**, parametresi bir bayt dizisi olabilir bir **CloudQueueMessage** nesne ya da tanımladığınız bir POCO.
+Yanında **dize**, hello parametresi bir bayt dizisi olabilir bir **CloudQueueMessage** nesne ya da tanımladığınız bir POCO.
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(düz eski CLR nesnesi](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) kuyruk iletileri
-Aşağıdaki örnekte, JSON için kuyruk iletisini içeren bir **BlobInformation** içeren nesne bir **BlobName** özelliği. SDK'yı otomatik olarak nesne seri durumdan çıkarır.
+Aşağıdaki örneğine hello, JSON hello kuyruk iletisi içeren bir **BlobInformation** içeren nesne bir **BlobName** özelliği. Merhaba SDK otomatik olarak hello nesne seri durumdan çıkarır.
 
         public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
         {
-            logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
+            logger.WriteLine("Queue message refers tooblob: " + blobInfo.BlobName);
         }
 
-SDK'sı [Newtonsoft.Json NuGet paketi](http://www.nuget.org/packages/Newtonsoft.Json) seri hale getirmek ve seri durumdan iletileri. WebJobs SDK kullanmayan bir programda iletileri kuyruğa oluşturursanız, SDK ayrıştıramıyor bir POCO kuyruk iletisi oluşturmak için aşağıdaki örneğe benzer kod yazabilirsiniz.
+Merhaba SDK kullanan hello [Newtonsoft.Json NuGet paketi](http://www.nuget.org/packages/Newtonsoft.Json) tooserialize ve iletileri seri durumdan. Merhaba WebJobs SDK kullanmayan bir programda iletileri kuyruğa oluşturursanız, SDK ayrıştıramıyor bu hello hello örnek toocreate bir POCO kuyruk iletisi aşağıdaki gibi kod yazabilirsiniz.
 
         BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
         var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
         logQueue.AddMessage(queueMessage);
 
 ### <a name="async-functions"></a>Zaman uyumsuz işlevleri
-Aşağıdaki zaman uyumsuz işlev [bir günlüğü panoya Yazar](#how-to-write-logs).
+Async işlevi aşağıdaki hello [günlük toohello Pano Yazar](#how-to-write-logs).
 
         public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
         {
             await logger.WriteLineAsync(logMessage);
         }
 
-Zaman uyumsuz işlevleri sürebilir bir [iptal belirteci](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)blob kopyalar aşağıdaki örnekte gösterildiği gibi. (Bir açıklaması için **queueTrigger** yer tutucu, bkz: [BLOB'lar](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) bölümüne.)
+Zaman uyumsuz işlevleri sürebilir bir [iptal belirteci](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)hello blob kopyaladığı örnek aşağıdaki gösterildiği gibi. (Merhaba açıklaması için **queueTrigger** yer tutucu hello bkz [BLOB'lar](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) bölüm.)
 
         public async static Task ProcessQueueMessageAsyncCancellationToken(
             [QueueTrigger("blobcopyqueue")] string blobName,
@@ -76,8 +76,8 @@ Zaman uyumsuz işlevleri sürebilir bir [iptal belirteci](http://www.asp.net/mvc
             await blobInput.CopyToAsync(blobOutput, 4096, token);
         }
 
-## <a name="types-the-queuetrigger-attribute-works-with"></a>Türleri QueueTrigger öznitelik birlikte çalışır.
-Kullanabileceğiniz **QueueTrigger** şu türden:
+## <a name="types-hello-queuetrigger-attribute-works-with"></a>Türleri hello QueueTrigger özniteliği birlikte çalışır.
+Kullanabileceğiniz **QueueTrigger** şu türlerini hello ile:
 
 * **dize**
 * JSON olarak serileştirilen bir POCO türü
@@ -85,18 +85,18 @@ Kullanabileceğiniz **QueueTrigger** şu türden:
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Yoklama algoritması
-SDK boşta kuyruk depolama işlem maliyetleri yoklama etkisini azaltmak için bir rastgele üstel geri alma algoritması uygular.  Bir ileti bulunduğunda, SDK iki saniye bekler ve ardından başka bir ileti için denetler; bir ileti bulunduğunda yeniden denemeden önce yaklaşık dört saniye bekler. Bir kuyruk iletisi almak için sonraki başarısız girişimden sonra bekleme süresini bir dakika olarak varsayılan olarak en fazla bekleme süresi ulaşana kadar artmaya devam eder. [En fazla bekleme süresi yapılandırılabilir](#how-to-set-configuration-options).
+Merhaba SDK boşta kuyruk depolama işlem maliyetleri yoklama rasgele üstel geri alma algoritması tooreduce hello etkisini uygular.  Bir ileti bulunduğunda, hello SDK iki saniye bekler ve ardından başka bir ileti için denetler; bir ileti bulunduğunda yeniden denemeden önce yaklaşık dört saniye bekler. Merhaba maksimum bekleme süresi, ulaşana kadar sonraki başarısız denemeler tooget bir kuyruk iletisi sonra hello bekleme süresi tooincrease devam eder. hangi Varsayılanları tooone minute. [Merhaba maksimum bekleme süresi yapılandırılabilir](#how-to-set-configuration-options).
 
 ## <a name="multiple-instances"></a>Birden çok örneği
-Web uygulamanız birden çok örneği üzerinde çalışıyorsa, sürekli Webjob'lar her makinede çalışır ve her makine için Tetikleyicileri bekleyin ve işlevleri çalıştırmayı deneyin. Bu aynı verileri iki kez işlemeyi bazı işlevler neden bazı senaryolarda, böylece işlevleri (böylece bunları sürekli olarak aynı girdi verileriyle çağırma yinelenen sonuçları oluşturmuyor yazılmış) ıdempotent gerekir.  
+Web uygulamanız birden çok örneklerinde çalıştırıyorsa, her makineye sürekli Webjob'lar çalışır ve her makine için Tetikleyicileri bekleyin ve toorun işlevlerini deneyin. Bu yol açabilir bazı senaryolarda işleme toosome işlevleri aynı veri nedenle işlevleri (bunları sürekli olarak aynı giriş verisi oluşturmuyor hello ile arama sonuçları çoğaltmak için yazılmış) ıdempotent olmalıdır, iki kez hello.  
 
 ## <a name="parallel-execution"></a>Paralel yürütme
-Birden çok işlevler farklı sıralarda dinleme varsa, iletileri aynı anda alındığında SDK bunları paralel olarak çağırın.
+Birden çok işlevler farklı sıralarda dinleme varsa, iletileri aynı anda alındığında hello SDK bunları paralel olarak çağırın.
 
-Tek bir kuyruk için birden fazla ileti alındığında aynı durum geçerlidir. Varsayılan olarak, SDK 16 iletileri kuyruğa toplu bir zaman alır ve paralel olarak işler işlevi yürütür. [Toplu iş boyutu yapılandırılabilir](#how-to-set-configuration-options). İşlenmekte olan numarası yarısı toplu iş boyutu aldığında, SDK başka bir toplu iş alır ve bu iletileri işleme başlatır. Bu nedenle en fazla eş zamanlı ileti işlevi işlenen sayısı bir ve yarı kez bir toplu iş boyutu dur. Bu sınırı olan her işlev ayrı olarak geçerli bir **QueueTrigger** özniteliği. Paralel yürütme üzerinde bir Sıraya alınan iletileri istemiyorsanız, yığın boyutu 1 olarak ayarlayın.
+tek bir kuyruk için birden fazla ileti alındığında hello aynı durum geçerlidir. Varsayılan olarak, hello SDK 16 iletileri kuyruğa toplu bir zaman alır ve paralel olarak işler hello işlevi yürütür. [Merhaba toplu iş boyutu Dur yapılandırılabilir](#how-to-set-configuration-options). İşlenmekte olan hello numarası hello toplu iş boyutu toohalf aldığında hello SDK başka bir toplu iş alır ve bu iletileri işleme başlatır. Bu nedenle hello en fazla eş zamanlı ileti işlevi işlenen sayısı bir ve yarı kez bir hello toplu iş boyutu dur. Bu sınır olan tooeach işlev ayrı ayrı uygular bir **QueueTrigger** özniteliği. Paralel yürütme üzerinde bir Sıraya alınan iletileri istemiyorsanız hello toplu iş boyutu too1 ayarlayın.
 
 ## <a name="get-queue-or-queue-message-metadata"></a>Sıra veya sıra ileti meta verileri alma
-Aşağıdaki ileti özellikleri yöntemi imza parametreleri ekleyerek alabilirsiniz:
+Aşağıdaki ileti özelliklere parametreleri toohello yöntemi imza ekleyerek hello alabilirsiniz:
 
 * **DateTimeOffset** expirationTime
 * **DateTimeOffset** insertionTime
@@ -106,9 +106,9 @@ Aşağıdaki ileti özellikleri yöntemi imza parametreleri ekleyerek alabilirsi
 * **dize** popReceipt
 * **int** dequeueCount
 
-Azure depolama alanıyla doğrudan API çalışmak isterseniz, ayrıca ekleyebileceğiniz bir **CloudStorageAccount** parametresi.
+Hello Azure storage API'si ile doğrudan toowork isterseniz, ayrıca ekleyebileceğiniz bir **CloudStorageAccount** parametresi.
 
-Aşağıdaki örnekte tüm bu meta veri bilgileri uygulama günlüğüne yazar. Örnekte, kuyruk iletisini içeriğini logMessage ve queueTrigger içerir.
+Merhaba aşağıdaki örnekte tüm bu meta verileri tooan bilgisi uygulama günlüğüne yazar. Merhaba örnekte hello kuyruk iletisi Merhaba içeriğine logMessage ve queueTrigger içerir.
 
         public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
             DateTimeOffset expirationTime,
@@ -135,7 +135,7 @@ Aşağıdaki örnekte tüm bu meta veri bilgileri uygulama günlüğüne yazar. 
                 queueTrigger);
         }
 
-Örnek kodu ile yazılmış bir örnek günlük şöyledir:
+Merhaba örnek kodu ile yazılmış bir örnek günlük şöyledir:
 
         logMessage=Hello world!
         expirationTime=10/14/2014 10:31:04 PM +00:00
@@ -148,9 +148,9 @@ Aşağıdaki örnekte tüm bu meta veri bilgileri uygulama günlüğüne yazar. 
         queueTrigger=Hello world!
 
 ## <a name="graceful-shutdown"></a>Kapama
-Sürekli bir WebJob içinde çalışan bir işlevinin kabul edebileceği bir **CancellationToken** işlevi hakkında sonlandırılacak WebJob olduğunu bildirmek işletim sistemi sağlayan parametre. Bu bildirim, beklenmedik bir şekilde veri tutarsız bir durumda bırakır şekilde sonlandırma işlevi değil emin olmak için kullanabilirsiniz.
+Sürekli bir WebJob içinde çalışan bir işlevinin kabul edebileceği bir **CancellationToken** hello işletim sistemi toonotify hello işlevi hello zaman sağlayan Web işi parametredir hakkında toobe sonlandırıldı. Bu bildirim toomake hello beklenmedik bir şekilde veri tutarsız bir durumda bırakır şekilde sonlandırma işlevi değil emin kullanabilirsiniz.
 
-Aşağıdaki örnek, bir işlev yaklaşan WebJob sonlandırma denetlemek gösterilmiştir.
+örnekte gösterildiği nasıl aşağıdaki hello toocheck bir işlevdeki yaklaşan WebJob sonlandırma için.
 
     public static void GracefulShutdownDemo(
                 [QueueTrigger("inputqueue")] string inputText,
@@ -169,15 +169,15 @@ Aşağıdaki örnek, bir işlev yaklaşan WebJob sonlandırma denetlemek göster
         }
     }
 
-**Not:** durumunu ve çıkışını kapatılmışsa işlevlerin Pano doğru gösterilmeyebilir.
+**Not:** hello Pano hello durumunu ve çıkışını kapatılmışsa işlevlerin doğru şekilde göstermeyebilir.
 
 Daha fazla bilgi için bkz: [Web işleri normal şekilde kapatılmasını](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
-## <a name="how-to-create-a-queue-message-while-processing-a-queue-message"></a>Bir kuyruk iletisi işlenirken bir kuyruk iletisi oluşturma
-Yeni bir kuyruk iletisi oluşturan bir işlev yazmak için **sıra** özniteliği. Gibi **QueueTrigger**, kuyruk adı bir dize olarak geçirin veya yapabilecekleriniz [sıra adı dinamik olarak ayarlamak](#how-to-set-configuration-options).
+## <a name="how-toocreate-a-queue-message-while-processing-a-queue-message"></a>Toocreate bir kuyruk iletisi nasıl bir kuyruk iletisi işlenirken
+Yeni bir kuyruk iletisi kullanım hello oluşturan bir işlev toowrite **sıra** özniteliği. Gibi **QueueTrigger**, hello kuyruk adı bir dize olarak geçirin veya yapabilecekleriniz [hello sıra adı dinamik olarak ayarlamak](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>Dize iletileri
-Aşağıdaki zaman uyumsuz olmayan kod örneği sıranın "inputqueue" adlı sıraya alınan kuyruk iletisini aynı içerikle "outputqueue" adlı yeni bir kuyruk iletisi oluşturur. (İşlevler için async kullanma **IAsyncCollector<T>**  daha sonra bu bölümde gösterilen.)
+zaman uyumsuz olmayan kodu örneği aşağıdaki hello hello kuyruk iletisi olarak içerik aynı "inputqueue" adlı hello sıraya alınan hello hello sırasındaki "outputqueue" adlı yeni bir kuyruk iletisi oluşturur. (İşlevler için async kullanma **IAsyncCollector<T>**  daha sonra bu bölümde gösterilen.)
 
         public static void CreateQueueMessage(
             [QueueTrigger("inputqueue")] string queueMessage,
@@ -187,7 +187,7 @@ Aşağıdaki zaman uyumsuz olmayan kod örneği sıranın "inputqueue" adlı sı
         }
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(düz eski CLR nesnesi](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) kuyruk iletileri
-Bir dize yerine bir POCO içeren bir kuyruk iletisi oluşturmak için bir çıktı parametresi olarak POCO türü geçirmek **sıra** özniteliği Oluşturucusu.
+toocreate geçişi hello POCO bir dize yerine bir POCO içeren bir kuyruk iletisi türü bir çıkış parametresi toohello **sıra** özniteliği Oluşturucusu.
 
         public static void CreateQueueMessage(
             [QueueTrigger("inputqueue")] BlobInformation blobInfoInput,
@@ -196,10 +196,10 @@ Bir dize yerine bir POCO içeren bir kuyruk iletisi oluşturmak için bir çıkt
             blobInfoOutput = blobInfoInput;
         }
 
-SDK'yı otomatik olarak JSON nesneyi serileştirir. Nesne boş olsa bile bir kuyruk iletisi her zaman oluşturulur.
+Merhaba SDK hello nesne tooJSON otomatik olarak serileştirir. Merhaba nesnesi boş olsa bile bir kuyruk iletisi her zaman oluşturulur.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Birden çok iletileri oluşturmak veya zaman uyumsuz işlevleri
-Birden çok iletileri oluşturmak için çıkış sırası için parametre türü olun **ICollector<T>**  veya **IAsyncCollector<T>**, aşağıdaki örnekte gösterildiği gibi.
+toocreate birden fazla ileti olun hello çıkış sırası için hello parametre türü **ICollector<T>**  veya **IAsyncCollector<T>**hello aşağıdaki örnekte gösterildiği gibi.
 
         public static void CreateQueueMessages(
             [QueueTrigger("inputqueue")] string queueMessage,
@@ -211,23 +211,23 @@ Birden çok iletileri oluşturmak için çıkış sırası için parametre tür�
             outputQueueMessage.Add(queueMessage + "2");
         }
 
-Her kuyruk iletisi hemen oluşturulan zaman **Ekle** yöntemi çağrılır.
+Her kuyruk iletisi hemen hello oluşturulduğunda **Ekle** yöntemi çağrılır.
 
-### <a name="types-that-the-queue-attribute-works-with"></a>Sıra özniteliği çalışır türleri
-Kullanabileceğiniz **sıra** özniteliği aşağıdaki parametre türleri:
+### <a name="types-that-hello-queue-attribute-works-with"></a>Türleri bu hello sıra özniteliği birlikte çalışır.
+Merhaba kullanabilirsiniz **sıra** parametre türleri şu hello özniteliği:
 
-* **dize çıkışı** (parametre değeri null olmayan ise işlevi sona erdiğinde kuyruk iletisi oluşturur)
+* **dize çıkışı** (Merhaba işlevi sona erdiğinde parametre değeri null olmayan ise kuyruk iletisi oluşturur)
 * **byte [] çıkışı** (gibi çalışır **dize**)
 * **CloudQueueMessage çıkışı** (gibi çalışır **dize**)
-* **POCO çıkışı** (serializable bir tür oluşturduğu bir ileti null bir nesne ile işlevi sona erdiğinde parametre null ise)
+* **POCO çıkışı** (serializable bir tür oluşturduğu bir ileti null bir nesne ile Merhaba işlevi sona erdiğinde hello parametre null ise)
 * **ICollector**
 * **IAsyncCollector**
-* **CloudQueue** (için el ile Azure Storage API'sini kullanarak doğrudan iletileri oluşturma)
+* **CloudQueue** (iletileri el ile oluşturmak için kullanarak hello Azure Storage API'sini doğrudan)
 
-### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>Web işleri SDK'si öznitelikleri bir işlev gövdesine kullanın
-Web işleri SDK'si öznitelik gibi kullanmadan önce işlevinizi bazı iş yapmanız gerekirse **sıra**, **Blob**, veya **tablo**, kullanabilirsiniz **IBinder** arabirimi.
+### <a name="use-webjobs-sdk-attributes-in-hello-body-of-a-function"></a>Web işleri SDK'si özniteliklerini işlevinin hello gövdesindeki kullanın
+Toodo ihtiyacınız varsa bazı, işlevinde bir Web işleri SDK'si öznitelik gibi kullanmadan önce iş **sıra**, **Blob**, veya **tablo**, hello kullanabilirsiniz **IBinder** arabirimi.
 
-Aşağıdaki örnek, bir giriş sırası iletisi alır ve bir çıkış sırası aynı içeriği ile yeni bir ileti oluşturur. Çıkış sırası adı işlevinin gövdesini kodda tarafından ayarlanır.
+Aşağıdaki örneğine hello bir giriş sırası iletisi sürer ve aynı bir çıkış sırasının içerik hello ile yeni bir ileti oluşturur. Merhaba çıkış sırası adı hello işlevi hello gövdesinde kodu tarafından ayarlanır.
 
         public static void CreateQueueMessage(
             [QueueTrigger("inputqueue")] string queueMessage,
@@ -239,15 +239,15 @@ Aşağıdaki örnek, bir giriş sırası iletisi alır ve bir çıkış sırası
             outputQueue.AddMessage(new CloudQueueMessage(queueMessage));
         }
 
-**IBinder** arabirimi de kullanılabilir olan **tablo** ve **Blob** öznitelikleri.
+Merhaba **IBinder** arabirimi hello ile de kullanılabilir **tablo** ve **Blob** öznitelikleri.
 
-## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>Nasıl okunacağını ve yazma BLOB'ları ve bir sıraya ileti işlenirken tabloları
-**Blob** ve **tablo** öznitelikleri BLOB'ları ve tabloları okuma ve yazma olanak tanır. Bu bölümdeki örnekler BLOB'lar için geçerlidir. BLOB'ları oluşturulduğunda veya güncelleştirilmiş işlemleri tetiklemek nasıl gösteren kod örnekleri için bkz: [WebJobs SDK ile Azure blob storage kullanma](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)ve okuma ve yazma tabloları kod örnekleri için bkz: [WebJobs SDK ile Azure table storage kullanma](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+## <a name="how-tooread-and-write-blobs-and-tables-while-processing-a-queue-message"></a>Nasıl tooread ve yazma BLOB ve bir sıraya ileti işlenirken tabloları
+Merhaba **Blob** ve **tablo** öznitelikleri tooread etkinleştirmek ve blobları ve tabloları yazma. Bu bölümdeki Hello örnekler tooblobs uygulayın. BLOB'ları oluşturulduğunda veya güncelleştirilmiş tootrigger nasıl işlediği gösteren kod örnekleri için bkz: [nasıl toouse Azure blob depolama hello WebJobs SDK ile](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)ve okuma ve yazma tabloları kod örnekleri için bkz: [nasıl toouse Azure tablo Depolama hello WebJobs SDK ile](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### <a name="string-queue-messages-triggering-blob-operations"></a>Dize iletileri kuyruğa blobu işlemleri tetikleme
-Bir dizeyi içeren bir kuyruk iletisi için **queueTrigger** olarak kullanabileceğiniz bir yer tutucudur **Blob** özniteliğin **blobPath** iletinin içeriğini içeren bir parametre.
+Bir dizeyi içeren bir kuyruk iletisi için **queueTrigger** hello kullanabileceğiniz bir yer tutucudur **Blob** özniteliğin **blobPath** Merhaba içeriğine içeren parametresi Başlangıç iletisi.
 
-Aşağıdaki örnek kullanır **akış** nesneleri okumak ve BLOB'ları yazmak için. Kuyruk iletisini textblobs kapsayıcıda bulunan bir blob adıdır. Blob ile birlikte bir kopyasını "-Yeni" eklenecek ad aynı kapsayıcıda oluşturulur.
+Merhaba aşağıdaki örnek kullanır **akış** tooread ve yazma BLOB'lar nesneleri. Merhaba kuyruk iletisi hello textblobs kapsayıcıda bulunan bir blob hello adıdır. Merhaba blob ile bir kopyasını "-Yeni" eklenmiş toohello adı oluşturulduğu hello aynı kapsayıcı.
 
         public static void ProcessQueueMessage(
             [QueueTrigger("blobcopyqueue")] string blobName,
@@ -257,11 +257,11 @@ Aşağıdaki örnek kullanır **akış** nesneleri okumak ve BLOB'ları yazmak i
             blobInput.CopyTo(blobOutput, 4096);
         }
 
-**Blob** özniteliği Oluşturucusu alır bir **blobPath** kapsayıcı ve blob adını belirten parametre. Bu yer tutucu hakkında daha fazla bilgi için bkz: [WebJobs SDK ile Azure blob storage kullanma](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md).
+Merhaba **Blob** özniteliği Oluşturucusu alır bir **blobPath** hello kapsayıcı ve blob adı belirten parametre. Bu yer tutucu hakkında daha fazla bilgi için bkz: [nasıl toouse Azure blob depolama hello WebJobs SDK ile](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md).
 
-Ne zaman öznitelik süsler bir **akış** nesnesi, başka bir oluşturucu parametresini belirtir **FileAccess** modu okuma, yazma veya okuma/yazma olarak.
+Ne zaman hello öznitelik süsler bir **akış** nesnesi, başka bir oluşturucu parametresini belirtir hello **FileAccess** modu okuma, yazma veya okuma/yazma olarak.
 
-Aşağıdaki örnek kullanan bir **CloudBlockBlob** bir blobu silmek için nesne. Kuyruk iletisini blob adıdır.
+Merhaba aşağıdaki örnek kullanan bir **CloudBlockBlob** toodelete blob nesnesi. Merhaba kuyruk iletisi hello blob hello adıdır.
 
         public static void DeleteBlob(
             [QueueTrigger("deleteblobqueue")] string blobName,
@@ -271,9 +271,9 @@ Aşağıdaki örnek kullanan bir **CloudBlockBlob** bir blobu silmek için nesne
         }
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(düz eski CLR nesnesi](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) kuyruk iletileri
-Kuyruk iletisini JSON olarak depolanan bir POCO için nesnenin özelliklerini adı yer tutucuları kullanabilirsiniz **sıra** özniteliğin **blobPath** parametresi. Bu gibi durumlarda, sıra meta veri özellik adları da yer tutucu olarak kullanabilirsiniz. Bkz: [sıra veya sıra ileti meta verileri alma](#get-queue-or-queue-message-metadata).
+JSON olarak hello kuyruk iletisi içinde depolanan bir POCO için hello hello nesnesinde özelliklerini adı yer tutucuları kullanabilirsiniz **sıra** özniteliğin **blobPath** parametresi. Bu gibi durumlarda, sıra meta veri özellik adları da yer tutucu olarak kullanabilirsiniz. Bkz: [sıra veya sıra ileti meta verileri alma](#get-queue-or-queue-message-metadata).
 
-Aşağıdaki örnek yeni bir blob farklı bir uzantıya sahip bir blob kopyalar. Kuyruk iletisi bir **BlobInformation** içeren nesnesinin **BlobName** ve **BlobNameWithoutExtension** özellikleri. Blob yolu için yer tutucu olarak kullanılan özellik adları **Blob** öznitelikleri.
+Merhaba aşağıdaki örnek bir blob tooa yeni blob farklı bir uzantı kopyalar. Merhaba kuyruk iletisi bir **BlobInformation** içeren nesnesinin **BlobName** ve **BlobNameWithoutExtension** özellikleri. Merhaba özellik adları olarak kullanılan hello blob yolu yer tutucuları Merhaba **Blob** öznitelikleri.
 
         public static void CopyBlobPOCO(
             [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
@@ -283,38 +283,38 @@ Aşağıdaki örnek yeni bir blob farklı bir uzantıya sahip bir blob kopyalar.
             blobInput.CopyTo(blobOutput, 4096);
         }
 
-SDK'sı [Newtonsoft.Json NuGet paketi](http://www.nuget.org/packages/Newtonsoft.Json) seri hale getirmek ve seri durumdan iletileri. WebJobs SDK kullanmayan bir programda iletileri kuyruğa oluşturursanız, SDK ayrıştıramıyor bir POCO kuyruk iletisi oluşturmak için aşağıdaki örneğe benzer kod yazabilirsiniz.
+Merhaba SDK kullanan hello [Newtonsoft.Json NuGet paketi](http://www.nuget.org/packages/Newtonsoft.Json) tooserialize ve iletileri seri durumdan. Merhaba WebJobs SDK kullanmayan bir programda iletileri kuyruğa oluşturursanız, SDK ayrıştıramıyor bu hello hello örnek toocreate bir POCO kuyruk iletisi aşağıdaki gibi kod yazabilirsiniz.
 
         BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
         var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
         logQueue.AddMessage(queueMessage);
 
-Bir blob için bir nesne bağlama önce işlevinizi bazı iş gerçekleştirmeniz gerekiyorsa, gösterildiği gibi işlevinin gövdesini özniteliğinde kullanabilirsiniz [kullanmak Web işleri SDK'si öznitelikleri bir işlev gövdesine](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
+Bir blob tooan nesnesi bağlama önce işlevinde bazı iş toodo gerekiyorsa, gösterildiği gibi hello işlevinin hello gövdesi hello özniteliğinde kullanabilirsiniz [hello gövdesi bir işlev kullanmak Web işleri SDK'si öznitelikleri](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
 
-### <a name="types-you-can-use-the-blob-attribute-with"></a>Blob özniteliğiyle kullanabileceğiniz türü
-**Blob** özniteliği şu türleriyle kullanılabilir:
+### <a name="types-you-can-use-hello-blob-attribute-with"></a>Merhaba kullanabileceğiniz türü özniteliğiyle Blob
+Merhaba **Blob** özniteliği şu türlerini hello ile kullanılabilir:
 
-* **Akış** (okuma veya yazma, FileAccess Oluşturucu parametresi kullanılarak belirtilen)
+* **Akış** (okuma veya yazma, hello FileAccess Oluşturucu parametresi kullanılarak belirtilen)
 * **TextReader**
 * **TextWriter**
 * **dize** (okuma)
-* **dize çıkışı** (yazma; işlevi döndüğünde yalnızca dize parametresi null olmayan ise bir blob oluşturur)
+* **dize çıkışı** (yazma; hello işlevi döndüğünde yalnızca hello dizesi parametresi null olmayan ise bir blob oluşturur)
 * POCO (okuma)
-* POCO out (yazma; her zaman bir blob oluşturur, işlevi döndüğünde POCO parametre null ise null nesnesi olarak oluşturur)
+* POCO out (yazma; her zaman bir blob oluşturur, hello işlevi döndüğünde POCO parametre null ise null nesnesi olarak oluşturur)
 * **CloudBlobStream** (yazma)
 * **ICloudBlob** (okuma veya yazma)
 * **CloudBlockBlob** (okuma veya yazma)
 * **CloudPageBlob** (okuma veya yazma)
 
-## <a name="how-to-handle-poison-messages"></a>Zehirli ileti işleme
-İçerikleri bir işlev başarısız olmasına neden olan iletileri çağrılır *zehirli ileti*. İşlev başarısız olduğunda, kuyruk iletisini silinmez ve sonunda tekrar tekrar için döngü neden kayıt. SDK'yı otomatik olarak sınırlı sayıda yineleme sonra döngüsü engelleyebilecek veya el ile yapabilirsiniz.
+## <a name="how-toohandle-poison-messages"></a>Nasıl toohandle zehirli ileti
+İçerikleri işlevi toofail neden olan iletileri çağrılır *zehirli ileti*. Merhaba işlevi başarısız olduğunda, hello kuyruk iletisi silinmez ve sonunda yeniden neden hello döngüsü toobe yinelenen kayıt. otomatik olarak hello döngüsü Hello SDK sınırlı sayıda yineleme sonra kesintiye uğratabilir veya el ile yapabilirsiniz.
 
 ### <a name="automatic-poison-message-handling"></a>Otomatik zehirli ileti işleme
-SDK bir kuyruk iletisi işleyemedi 5 kata işlevi çağırır. Beşinci deneme başarısız olursa, ileti zararlı kuyruğuna taşınır. İçinde yeniden deneme sayısı üst sınırını yapılandırmak nasıl görebilirsiniz [yapılandırma seçeneklerinin nasıl ayarlanacağını](#how-to-set-configuration-options).
+Merhaba SDK too5 kez tooprocess bir kuyruk iletisi yukarı işlevi çağırır. Merhaba beşinci deneme başarısız olursa, selamlama iletisine taşınan tooa zararlı sıradır. Nasıl tooconfigure Merhaba yeniden deneme sayısı görebilirsiniz [nasıl tooset yapılandırma seçenekleri](#how-to-set-configuration-options).
 
-Adlı zararlı sırası *{originalqueuename}*-zararlı. Günlüğe yazma veya el ile ilgili dikkat bir bildirim göndererek zararlı sırasından iletilerini işlemek için bir işlev gerekli yazabilirsiniz.
+Merhaba zararlı sıra adlandırılan *{originalqueuename}*-zararlı. Bir işlev tooprocess iletileri hello zararlı sıradan günlüğe yazma veya el ile ilgilenilmesi gereken bir bildirim göndererek yazabilirsiniz.
 
-Aşağıdaki örnekte **CopyBlob** bir kuyruk iletisi mevcut olmayan bir blob adını içerdiğinde işlevi başarısız olur. Bu durum oluştuğunda ileti copyblobqueue poison kuyruğuna copyblobqueue sıradan taşınır. **ProcessPoisonMessage** zehir iletisi günlüğe kaydeder.
+Aşağıdaki örnek hello hello içinde **CopyBlob** bir kuyruk iletisi mevcut olmayan bir blob hello adını içerdiğinde işlevi başarısız olur. Bu durum oluştuğunda selamlama iletisine hello copyblobqueue sıra toohello copyblobqueue poison sıradan taşınır. Merhaba **ProcessPoisonMessage** zehir iletisi günlükleri hello sonra.
 
         public static void CopyBlob(
             [QueueTrigger("copyblobqueue")] string blobName,
@@ -327,15 +327,15 @@ Aşağıdaki örnekte **CopyBlob** bir kuyruk iletisi mevcut olmayan bir blob ad
         public static void ProcessPoisonMessage(
             [QueueTrigger("copyblobqueue-poison")] string blobName, TextWriter logger)
         {
-            logger.WriteLine("Failed to copy blob, name=" + blobName);
+            logger.WriteLine("Failed toocopy blob, name=" + blobName);
         }
 
-Zararlı bir ileti işlenirken bu işlevler konsol çıktısı aşağıda gösterilmektedir.
+zararlı bir ileti işlendiğinde hello aşağıda bu işlevler konsol çıktısı gösterilmektedir.
 
 ![Zehirli ileti işleme için konsol çıkışı](./media/vs-storage-webjobs-getting-started-queues/poison.png)
 
 ### <a name="manual-poison-message-handling"></a>El ile zehirli ileti işleme
-Ekleyerek sayısı bir ileti toplanma işleme alabilirsiniz bir **int** adlı parametre **dequeueCount** , işlevi. Ardından, işlev kodu dequeue sayıma denetleyin ve sayısı bir eşiği aştığında kendi zehir iletisi aşağıdaki örnekte gösterildiği gibi işleme gerçekleştirin.
+Hello sayısı bir ileti toplanma işleme ekleyerek alabileceğiniz bir **int** adlı parametre **dequeueCount** tooyour işlevi. Bundan sonra onay hello işlev kodu sayıma dequeue ve hello sayısı hello aşağıdaki örnekte gösterildiği gibi bir eşiği aştığında kendi zehirli ileti işleme gerçekleştirmek kullanabilirsiniz.
 
         public static void CopyBlob(
             [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
@@ -345,7 +345,7 @@ Ekleyerek sayısı bir ileti toplanma işleme alabilirsiniz bir **int** adlı pa
         {
             if (dequeueCount > 3)
             {
-                logger.WriteLine("Failed to copy blob, name=" + blobName);
+                logger.WriteLine("Failed toocopy blob, name=" + blobName);
             }
             else
             {
@@ -353,15 +353,15 @@ Ekleyerek sayısı bir ileti toplanma işleme alabilirsiniz bir **int** adlı pa
             }
         }
 
-## <a name="how-to-set-configuration-options"></a>Yapılandırma seçeneklerini ayarlama
-Kullanabileceğiniz **JobHostConfiguration** türü aşağıdaki yapılandırma seçeneklerini ayarlamak için:
+## <a name="how-tooset-configuration-options"></a>Nasıl tooset yapılandırma seçenekleri
+Merhaba kullanabilirsiniz **JobHostConfiguration** yapılandırma seçenekleri aşağıdaki türü tooset hello:
 
-* Kod içinde SDK bağlantı dizelerini ayarlayın.
+* Kodda Hello SDK bağlantı dizelerini ayarlayın.
 * Yapılandırma **QueueTrigger** maksimum gibi ayarları dequeue sayısı.
 * Sıra adları yapılandırmasından alın.
 
 ### <a name="set-sdk-connection-strings-in-code"></a>Kod içinde SDK bağlantı dizelerini ayarlayın
-Kodda SDK bağlantı dizelerini ayarlama, kendi bağlantı dizesi adlarında yapılandırma dosyalarının veya ortam değişkenlerini kullanmak aşağıdaki örnekte gösterildiği gibi sağlar.
+Kodda Hello SDK bağlantı dizelerini ayarlama, toouse kendi bağlantı dizesi adlarında yapılandırma dosyalarının veya ortam değişkenleri hello aşağıdaki örnekte gösterildiği gibi sağlar.
 
         static void Main(string[] args)
         {
@@ -383,13 +383,13 @@ Kodda SDK bağlantı dizelerini ayarlama, kendi bağlantı dizesi adlarında yap
         }
 
 ### <a name="configure-queuetrigger--settings"></a>QueueTrigger ayarlarını yapılandırma
-Sıra ileti işleme için uygulama aşağıdaki ayarları yapılandırabilirsiniz:
+Toohello sıraya ileti işleme uygulanan ayarları aşağıdaki hello yapılandırabilirsiniz:
 
-* En fazla eşzamanlı olarak paralel olarak yürütülecek toplanmış sıra ileti sayısı (varsayılan olarak 16).
-* Bir kuyruk iletisi zararlı bir sıraya gönderilmeden önce yeniden deneme sayısı (varsayılan olarak 5).
-* En fazla bekleme süresi bir sıra boş olduğunda yeniden yoklama önce (varsayılan değer 1 dakika).
+* Merhaba en fazla eşzamanlı olarak paralel olarak yürütülen toobe yukarı çekilen sıraya ileti sayısı (varsayılan olarak 16).
+* bir kuyruk iletisi tooa zararlı sıra gönderilmeden önce yeniden deneme sayısı Hello (varsayılan olarak 5).
+* bir sıranın boş olduğunda yeniden yoklama önce hello maksimum bekleme süresi (varsayılan değer 1 dakika).
 
-Aşağıdaki örnek, bu ayarların nasıl yapılandırılacağını gösterir:
+örnekte gösterildiği nasıl aşağıdaki hello tooconfigure bu ayarları:
 
         static void Main(string[] args)
         {
@@ -402,18 +402,18 @@ Aşağıdaki örnek, bu ayarların nasıl yapılandırılacağını gösterir:
         }
 
 ### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Değerleri için Web işleri SDK'si Oluşturucu parametreleri kodda ayarlama
-Kuyruk adı, bir blob adı veya kapsayıcı belirtmek istediğiniz bazen veya bir tablo adı kod sabit kodlu yerine onu. Örneğin, kuyruk adı belirtmek isteyebilirsiniz **QueueTrigger** bir yapılandırma dosyası veya ortam değişkeninde.
+Kuyruk adı, bir blob adı veya kapsayıcı toospecify bazen istediğiniz veya bir tablo adı kod sabit kodlu yerine onu. Örneğin, toospecify hello sıra adı için isteyebilirsiniz **QueueTrigger** bir yapılandırma dosyası veya ortam değişkeninde.
 
-Bunu geçirerek yapabilirsiniz bir **NameResolver** nesnesini **JobHostConfiguration** türü. Web işleri SDK'si özniteliği Oluşturucusu parametrelerinde yüzde (%) işareti tarafından çevrelenen özel yer tutucular içerir ve **NameResolver** kod bu yer tutucular yerine kullanılacak gerçek değerler belirtir.
+Bunu geçirerek yapabilirsiniz bir **NameResolver** toohello nesne **JobHostConfiguration** türü. Web işleri SDK'si özniteliği Oluşturucusu parametrelerinde yüzde (%) işareti tarafından çevrelenen özel yer tutucular içerir ve **NameResolver** kod bu yer tutucular yerine kullanılan hello gerçek değerler toobe belirtir.
 
-Örneğin, test ortamında logqueuetest ve üretimde bir adlandırılmış logqueueprod adlı bir sıra kullanmak istediğinizi varsayalım. Bir giriş adını belirtmek istediğiniz sabit kodlanmış kuyruk adı yerine **appSettings** gerçek sıra adı olurdu koleksiyonu. Varsa **appSettings** anahtar logqueue, işlevinizi aşağıdaki gibi görünebilir.
+Örneğin, toouse istediğinizi düşünelim bir sıra hello test ortamında logqueuetest ve üretimde bir adlandırılmış logqueueprod adlı. Sabit kodlanmış kuyruk adı yerine bir girişe hello toospecify hello adı istediğiniz **appSettings** hello gerçek sıra adı olurdu koleksiyonu. Merhaba, **appSettings** anahtar logqueue, işlevinizi aşağıdaki örneğine hello gibi görünebilir.
 
         public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
         {
             Console.WriteLine(logMessage);
         }
 
-**NameResolver** sınıfını sıra adından sonra almak **appSettings** aşağıdaki örnekte gösterildiği gibi:
+**NameResolver** sınıfını hello sıra adından sonra almak **appSettings** hello aşağıdaki örnekte gösterildiği gibi:
 
         public class QueueNameResolver : INameResolver
         {
@@ -423,7 +423,7 @@ Bunu geçirerek yapabilirsiniz bir **NameResolver** nesnesini **JobHostConfigura
             }
         }
 
-Geçirdiğiniz **NameResolver** için sınıfını **JobHost** nesne aşağıdaki örnekte gösterildiği gibi.
+Merhaba geçirdiğiniz **NameResolver** toohello sınıfında **JobHost** nesne hello aşağıdaki örnekte gösterildiği gibi.
 
         static void Main(string[] args)
         {
@@ -433,10 +433,10 @@ Geçirdiğiniz **NameResolver** için sınıfını **JobHost** nesne aşağıdak
             host.RunAndBlock();
         }
 
-**Not:** kuyruk, tablo ve blob adları çözümlenmiş her zaman bir işlev çağrılır, ancak blob kapsayıcı adları yalnızca uygulama başladığında çözümlenir. İş çalışırken blob kapsayıcı adı değiştirilemiyor.
+**Not:** kuyruk, tablo ve blob adları çözümlenmiş her zaman bir işlev çağrılır, ancak blob kapsayıcı adları yalnızca Merhaba uygulaması başladığında çözümlenir. Merhaba iş çalışırken blob kapsayıcı adı değiştirilemiyor.
 
-## <a name="how-to-trigger-a-function-manually"></a>Bir işlev el ile tetikleme
-Bir işlev el ile tetiklemek için kullanabileceğiniz **çağrısı** veya **CallAsync** yöntemi **JobHost** nesne ve **NoAutomaticTrigger** aşağıdaki örnekte gösterildiği gibi işlev, öznitelik.
+## <a name="how-tootrigger-a-function-manually"></a>Nasıl tootrigger bir işlev el ile
+tootrigger işlevi el ile Merhaba kullanmak **çağrısı** veya **CallAsync** hello yöntemi **JobHost** nesne ve hello **NoAutomaticTrigger** hello aşağıdaki örnekte gösterildiği gibi hello işlevi özniteliği.
 
         public class Program
         {
@@ -457,24 +457,24 @@ Bir işlev el ile tetiklemek için kullanabileceğiniz **çağrısı** veya **Ca
             }
         }
 
-## <a name="how-to-write-logs"></a>Günlükleri yazma
-Pano günlükleri iki yerde gösterir: Web işi için sayfası ve sayfanın belli bir Web işi başlatma.
+## <a name="how-toowrite-logs"></a>Toowrite nasıl kaydeder
+Başlangıç Panosu iki yerde günlükleri gösterir: hello sayfası hello Web işi için ve belirli bir Web işi çağırma için hello sayfası.
 
 ![Web işi sayfasındaki günlükleri](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
 ![İşlev çağırma sayfasındaki günlükleri](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-Konsol yöntemler, bir işlev çağrısı veya buna çıktısını **Main()** yöntemi görünür Web işi için Pano sayfası, sayfa belirli yöntem çağırma için içinde değil. Çıktı yöntemi imzanız bir parametresinden alma TextWriter nesneden bir yöntem çağırma için Pano sayfası görüntülenir.
+Bir işlev veya hello çağıran konsol yöntemlerini çıkışı **Main()** yöntemi görünür hello Web işi için hello Pano sayfası, belirli yöntem çağırma için hello sayfasındaki değil. Çıktı yöntemi imzanız bir parametresinden alma hello TextWriter nesneden bir yöntem çağırma için hello Pano sayfası görünür.
 
-Konsol birçok iş işlevlerinin aynı anda çalışabilir tek iş parçacıklı, olduğu için konsol çıktısı bir belirli yöntem çağrısının bağlanamaz. İşte bu nedenle SDK, her işlev çağrısını kendi benzersiz günlük yazıcı nesnesi ile sağlar.
+Konsol çıktısı, bağlantılı tooa belirli yöntemi çağırma olamaz, hello konsol birçok iş işlevlerinin hello çalışmıyor olabilir tek iş parçacıklı, olduğu için aynı anda. İşte bu nedenle hello SDK her işlev çağrısını kendi benzersiz günlük yazıcı nesnesi ile sağlar.
 
-Yazılacak [uygulama izleme günlükleri](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), kullanın **Console.Out** (bilgisi olarak işaretlenmiş günlükleri oluşturur) ve **Console.Error** (hata olarak işaretlenmiş günlükleri oluşturur). Alternatif kullanmaktır [izleme veya TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), uyarı, ayrıntı sağlar ve kritik bilgileri ve hata yanı sıra düzeyleri. Azure web uygulamanızı nasıl yapılandırdığınıza bağlı olarak Azure BLOB'veya uygulama izleme günlükleri web app günlük dosyalarında, Azure tabloları, görünür. Tüm konsol çıktısı doğru olduğundan, en son 100 uygulama günlüklerini sayfada değil bir işlev çağrısını için Web işi için Pano sayfası da görüntülenir.
+toowrite [uygulama izleme günlükleri](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), kullanın **Console.Out** (bilgisi olarak işaretlenmiş günlükleri oluşturur) ve **Console.Error** (hata olarak işaretlenmiş günlükleri oluşturur). Toouse alternatiftir [izleme veya TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), uyarı, ayrıntı sağlar ve kritik düzeyleri toplama tooInfo ve hata. Azure web uygulamanızı nasıl yapılandırdığınıza bağlı olarak Azure BLOB veya uygulama izleme günlükleri hello web uygulama günlük dosyalarında Azure tabloları görünür. Tüm konsol çıktısı doğru olduğu gibi hello en son 100 uygulama günlüklerini da hello Web işi, olmayan bir işlev çağrısını hello sayfasını için hello Pano sayfası görünür.
 
-Programı yerel olarak çalışmıyorsa program bir Azure WebJob içinde yalnızca çalışıyorsa, Pano veya başka bir ortamında konsol çıktısı görüntülenir.
+Merhaba hello programı yerel olarak çalışmıyorsa hello program bir Azure WebJob içinde yalnızca çalışıyorsa, Pano veya başka bir ortamında konsol çıktısı görüntülenir.
 
-Günlüğe kaydetme, Pano bağlantı dizesi null değerine ayarlayarak devre dışı bırakabilirsiniz. Daha fazla bilgi için bkz: [yapılandırma seçeneklerinin nasıl ayarlanacağını](#how-to-set-configuration-options).
+Merhaba Pano bağlantı dizesi toonull ayarlayarak günlüğü devre dışı bırakabilirsiniz. Daha fazla bilgi için bkz: [nasıl tooset yapılandırma seçenekleri](#how-to-set-configuration-options).
 
-Aşağıdaki örnek günlüklerini yazma için çeşitli yollar gösterir:
+Merhaba aşağıdaki örnekte çeşitli yollar gösterir toowrite günlükleri:
 
         public static void WriteLog(
             [QueueTrigger("logqueue")] string logMessage,
@@ -486,30 +486,30 @@ Aşağıdaki örnek günlüklerini yazma için çeşitli yollar gösterir:
             logger.WriteLine("TextWriter - " + logMessage);
         }
 
-WebJobs SDK panosunda, çıkışı **TextWriter** zaman, belirli bir sayfaya gitmek yukarı gösterir işlev çağırma ve seçin nesnesi **geçiş çıktı**:
+Hello WebJobs SDK Pano, hello hello çıktısını **TextWriter** toohello sayfa belirli bir zaman gittiğiniz yukarı gösterir işlev çağırma ve seçin nesnesi **geçiş çıktı**:
 
 ![Çağırma bağlantı](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
 ![İşlev çağırma sayfasındaki günlükleri](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-Web işi (için işlev çağrısını) için sayfaya gidin ve seçin WebJobs SDK panosunda en son 100 satır konsolunun Göster yukarı çıktı **geçiş çıktı**.
+Merhaba WebJob (değil hello işlev çağrısını) için toohello sayfasına gidin ve seçin hello WebJobs SDK Pano, konsol hello en son 100 satırları göster yukarı çıktı **geçiş çıktı**.
 
 ![Çıkışı Aç/Kapat](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-Bir sürekli Webjob'un uygulama günlüklerini/data/işleri/sürekli/içinde gösterilmesi*{webjobname}*web uygulama dosya sisteminde /job_log.txt.
+Bir sürekli Webjob'un uygulama günlüklerini/data/işleri/sürekli/içinde gösterilmesi*{webjobname}*hello web uygulama dosya sisteminde /job_log.txt.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-Bir Azure uygulama günlükleri görünümlü bu blob: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Merhaba Dünya!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Merhaba Dünya!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Merhaba Dünya!,
+Azure blob hello uygulamada günlükleri şuna benzeyebilir: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Merhaba Dünya!, 2014-09-26T21:01:13, hata, contosoadsnew, 491e54, 635473620738373502,0,17404,19,Console.Error - Merhaba Dünya!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Merhaba Dünya!,
 
-Ve bir Azure tablosu **Console.Out** ve **Console.Error** günlükleri şuna benzeyebilir:
+Ve Azure tablo hello **Console.Out** ve **Console.Error** günlükleri şuna benzeyebilir:
 
 ![Tablo bilgi günlüğüne](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
 
 ![Hata günlüğü tablosundaki](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede Azure kuyruklarla çalışmaya yönelik yaygın senaryolar nasıl ele alınacağını gösteren kod örnekleri sağlamıştır. Azure Web işleri ve WebJobs SDK nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Azure Web işleri belge kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
+Bu makalede kod sağlamıştır gösteren nasıl örnekleri Azure kuyruklarla çalışmaya yönelik yaygın senaryolar toohandle. Toouse Azure Web işleri ve hello Web işleri SDK'si nasıl görürüm hakkında daha fazla bilgi için [Azure Web işleri belge kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
 

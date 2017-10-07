@@ -1,6 +1,6 @@
 ---
-title: "OMS günlük analizi özel JSON verileri toplama | Microsoft Docs"
-description: "Özel JSON veri kaynakları için Linux OMS Aracısı'nı kullanarak günlük analizi içine toplanabilir.  Bu özel veri kaynaklarının basit betik dosyalarını curl veya FluentD'ın 300 + eklentileri gibi JSON döndürüyor olabilir. Bu makalede, bu veri koleksiyonu için gerekli yapılandırmayı açıklar."
+title: "OMS günlük analizi aaaCollecting özel JSON verileri | Microsoft Docs"
+description: "Özel JSON veri kaynakları hello OMS aracısı kullanarak Linux için günlük analizi içine toplanabilir.  Bu özel veri kaynaklarının basit betik dosyalarını curl veya FluentD'ın 300 + eklentileri gibi JSON döndürüyor olabilir. Bu makalede bu veri toplama için gereken hello yapılandırmasını açıklar."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 800ee1269556e7c2d56fbbf2b497c10509b5c78c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 97d401408a8c206d4a9ef2ec9b13ba1ca6b5e92b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Günlük analizi Linux için OMS aracısının özel JSON veri kaynaklarıyla toplama
-Özel JSON veri kaynakları için Linux OMS Aracısı'nı kullanarak günlük analizi içine toplanabilir.  Bu özel veri kaynaklarının JSON gibi döndüren basit betik dosyalarını olabilir [curl](https://curl.haxx.se/) veya biri [FluentD'ın 300 + eklentileri](http://www.fluentd.org/plugins/all). Bu makalede, bu veri koleksiyonu için gerekli yapılandırmayı açıklar.
+# <a name="collecting-custom-json-data-sources-with-hello-oms-agent-for-linux-in-log-analytics"></a>Günlük analizi Linux için hello OMS Aracısı özel JSON veri kaynaklarıyla toplama
+Özel JSON veri kaynakları hello OMS aracısı kullanarak Linux için günlük analizi içine toplanabilir.  Bu özel veri kaynaklarının JSON gibi döndüren basit betik dosyalarını olabilir [curl](https://curl.haxx.se/) veya biri [FluentD'ın 300 + eklentileri](http://www.fluentd.org/plugins/all). Bu makalede bu veri toplama için gereken hello yapılandırmasını açıklar.
 
 > [!NOTE]
 > Linux v1.1.0 için OMS aracısının-217 + özel JSON verileri için gerekli
@@ -30,9 +30,9 @@ ms.lasthandoff: 07/11/2017
 
 ### <a name="configure-input-plugin"></a>Giriş eklentisi yapılandırma
 
-Günlük analizi JSON verileri toplamak için ekleme `oms.api.` giriş eklentisi FluentD etiketinde başlangıcı.
+Günlük analizi toocollect JSON verilerde ekleme `oms.api.` giriş eklentisi FluentD etiketinde toohello başlangıcı.
 
-Örneğin, aşağıdaki ayrı yapılandırma dosyası `exec-json.conf` içinde `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Bu FluentD eklentisi kullanır `exec` her 30 saniyede bir curl komutunu çalıştırmak için.  Bu komutun çıktısı, JSON çıkış eklenti tarafından toplanır.
+Örneğin, aşağıdaki ayrı yapılandırma dosyası `exec-json.conf` içinde `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Bu hello FluentD eklentisi kullanır `exec` toorun curl komutunu her 30 saniyede.  Bu komutun çıktısı Hello hello JSON çıkış eklenti tarafından toplanır.
 
 ```
 <source>
@@ -56,12 +56,12 @@ Günlük analizi JSON verileri toplamak için ekleme `oms.api.` giriş eklentisi
   retry_wait 30s
 </match>
 ```
-Yapılandırma dosyası altında eklenen `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` aşağıdaki komutla değiştirilen sahipliğini olmasını gerektirir.
+Merhaba yapılandırma dosyası altında eklenen `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` sahipliğini komutu aşağıdaki hello ile değiştirilen toohave gerektirir.
 
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
 
 ### <a name="configure-output-plugin"></a>Çıktı eklentisi yapılandırma 
-Ana yapılandırmasında aşağıdaki çıktı eklentisi yapılandırma eklemek `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` ya da ayrı yapılandırma dosyası yerleştirilen gibi`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
+Çıktı eklentisi yapılandırma toohello ana yapılandırmasında aşağıdaki hello eklemek `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` ya da ayrı yapılandırma dosyası yerleştirilen gibi`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
 
 ```
 <match oms.api.**>
@@ -79,18 +79,18 @@ Ana yapılandırmasında aşağıdaki çıktı eklentisi yapılandırma eklemek 
 ```
 
 ### <a name="restart-oms-agent-for-linux"></a>Linux için OMS aracıyı yeniden başlatın
-OMS aracısı aşağıdaki komutla Linux hizmeti yeniden başlatın.
+Merhaba OMS Aracısı Linux hizmeti için komutu aşağıdaki hello ile yeniden başlatın.
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Çıktı
-Verileri bir kayıt türü ile günlük analizi toplanacağını `<FLUENTD_TAG>_CL`.
+Merhaba veri toplanacak günlük analizi kayıt türü `<FLUENTD_TAG>_CL`.
 
-Örneğin, özel etiket `tag oms.api.tomcat` kayıt türüne sahip günlük analytics'te `tomcat_CL`.  Aşağıdaki günlük arama ile bu türdeki tüm kayıtları alınamadı.
+Örneğin, özel etiket hello `tag oms.api.tomcat` kayıt türüne sahip günlük analytics'te `tomcat_CL`.  Bu türdeki tüm kayıtları günlük arama aşağıdaki hello ile alınamadı.
 
     Type=tomcat_CL
 
-İç içe JSON veri kaynakları desteklenir, ancak dizini üst alanı dışına temel. Örneğin, aşağıdaki JSON verilerini bir günlük analizi aramadan döndürülen `tag_s : "[{ "a":"1", "b":"2" }]`.
+İç içe JSON veri kaynakları desteklenir, ancak dizini üst alanı dışına temel. Örneğin, JSON verilerini aşağıdaki hello bir günlük analizi aramadan döndürülür `tag_s : "[{ "a":"1", "b":"2" }]`.
 
 ```
 {
@@ -103,5 +103,5 @@ Verileri bir kayıt türü ile günlük analizi toplanacağını `<FLUENTD_TAG>_
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümleri toplanan verileri çözümlemek için. 
+* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) tooanalyze hello veri toplanan veri kaynakları ve çözümler. 
  
